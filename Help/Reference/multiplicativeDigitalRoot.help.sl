@@ -53,8 +53,6 @@ Scatter plot of first few terms where _b=10_:
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/multiplicativeDigitalRoot-B.svg)
-
 * * *
 
 See also: digitalRoot, multiplicativePersistence

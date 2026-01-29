@@ -39,7 +39,7 @@ false
 Are all combinations of integers in a collection coprime:
 
 ```
->>> [2, 3, -5, 7].isCoprime
+>>> [2 3 -5 7].isCoprime
 true
 ```
 
@@ -122,6 +122,23 @@ Visualize when two numbers are coprime:
 ~~~
 
 ![](sw/spl/Help/Image/isCoprime-A.png)
+
+Plot numerators in canonical bijection from positive integers to positive rationals,
+OEIS [A020652](https://oeis.org/A020652):
+
+~~~spl svg=B
+let y = [];
+1.toDo(23) { :d |
+	1.toDo(d - 1) { :n |
+		n.isCoprime(d).ifTrue {
+			y.add(n)
+		}
+	}
+};
+y.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/isCoprime-B.svg)
 
 Where supported `isCoprime` is displayed as ⟂.
 

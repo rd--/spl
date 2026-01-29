@@ -70,4 +70,11 @@ Scatter plot of the two-hundred and fifty-six place permutation:
 
 See also: haltonSequence, hammersleyPointSet, sobolSequence, vanDerCorputNumber
 
-Guides: Integer Sequence Functions, Sequence Functions
+Guides: Integer Sequence Functions, Low-Discrepancy Sequence Functions, Permutation Functions, Sequence Functions
+
+References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/QuasirandomSequence.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Low-discrepancy_sequences)
+[2](https://en.wikipedia.org/wiki/Quasi-Monte_Carlo_method)

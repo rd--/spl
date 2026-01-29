@@ -2,7 +2,7 @@
 
 - _bitReversalPermutation(k)_
 
-Answer the _bit-reversal permutation_ for a sequence of size _2 ^ k_.
+Answer the _bit-reversal permutation_ for a sequence of size _2^k_.
 
 The first five bit-reversal permutations,
 OEIS [A049773](https://oeis.org/A049773):

@@ -290,6 +290,41 @@ OEIS [A003417](https://oeis.org/A003417):
 ]
 ```
 
+Scatter plot of the
+least number _k<n_ and coprime to _n_ such that the largest term of the continued fraction of _k/n_ is as small as possible,
+OEIS [A141821](https://oeis.org/A141821):
+
+~~~spl svg=A
+2:108.collect { :n |
+	let k = (1 .. n - 1).select { :x |
+		x.isCoprime(n)
+	};
+	let c = (k \ n).continuedFraction;
+	let m = c.collect(max:/1);
+	let i = m.indexOf(m.min);
+	k[i]
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/continuedFraction-A.svg)
+
+Plot the least maxima of the above sequence,
+OEIS [A141822](https://oeis.org/A141822):
+
+~~~spl svg=B
+2:67.collect { :n |
+	let k = (1 .. n - 1).select { :x |
+		x.isCoprime(n)
+	};
+	(k \ n)
+	.continuedFraction
+	.collect(max:/1)
+	.min
+}.stepPlot
+~~~
+
+![](sw/spl/Help/Image/continuedFraction-B.svg)
+
 * * *
 
 See also: fromContinuedFraction, metallicMean
@@ -300,6 +335,9 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/ContinuedFraction.html)
 [2](https://reference.wolfram.com/language/ref/ContinuedFraction.html),
+_OEIS_
+[1](https://oeis.org/A141821)
+[2](https://oeis.org/A141822),
 _W_
 [1](https://en.wikipedia.org/wiki/Continued_fraction)
 [2](https://en.wikipedia.org/wiki/Simple_continued_fraction)

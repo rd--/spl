@@ -1,8 +1,10 @@
 # Graph
 
-- _Graph(vertexList, edgeList)_
+- _Graph(v, e)_
 
-A `Graph` is a `Type` holding a collection of _vertices_ and _edges_.
+A `Graph` is a `Type` holding a collection of vertices _v_ and edges _e_.
+
+The vertex and edge lists are retrieved by `vertexList` and `edgeList`.
 
 The number of vertices is the `vertexCount`, or _order_, of the graph.
 

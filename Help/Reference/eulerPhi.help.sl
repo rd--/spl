@@ -210,6 +210,28 @@ Plot [A076512](https://oeis.org/A076512):
 
 ![](sw/spl/Help/Image/eulerPhi-E.svg)
 
+Plot the degree of the classical modular polynomial,
+OEIS [A118778](https://oeis.org/A118778):
+
+~~~spl svg=F
+1:250.collect { :n |
+	let s = 0;
+	n.divisors.do { :a |
+		(a.square > n).ifTrue {
+			let b = gcd(a, n / a);
+			let c = eulerPhi(b) / b;
+			s := s + (2 * a * c)
+		}
+	};
+	n.sqrt.isInteger.ifTrue {
+		s := s + eulerPhi(n.sqrt)
+	};
+	s
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/eulerPhi-F.svg)
+
 * * *
 
 See also: divisors, factorInteger, gcd, lcm, powerMod, totientSummatoryFunction
@@ -231,7 +253,8 @@ _OEIS_
 [3](https://oeis.org/A018804)
 [4](https://oeis.org/A010554)
 [5](https://oeis.org/A115114)
-[6](https://oeis.org/A005728),
+[6](https://oeis.org/A005728)
+[7](https://oeis.org/A118778),
 _W_
 [1](https://en.wikipedia.org/wiki/Euler%27s_totient_function)
 [2](https://en.wikipedia.org/wiki/Totient_summatory_function)

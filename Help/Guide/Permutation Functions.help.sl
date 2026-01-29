@@ -25,6 +25,7 @@ Constructors:
 
 - `asPermutation`
 - `cycles`
+- `faurePermutation`
 
 Converting:
 
@@ -82,6 +83,7 @@ Predicates:
 - `isPermutationCycles`
 - `isPermutationList`
 - `isPermutationOf`
+- `isSuperpermutation`
 
 Properties:
 

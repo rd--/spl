@@ -61,6 +61,19 @@ OeisEntry('A000001').then { :e |
 
 ![](sw/spl/Help/Image/OeisEntry-B.svg)
 
+Plot the first few items of `bFileData` for a sequence that is non-trivial to calculate:
+
+~~~spl svg=C
+OeisEntry('A059471').then { :e |
+	e.bFileData
+	.first(125)
+	.log
+	.scatterPlot
+}
+~~~
+
+![](sw/spl/Help/Image/OeisEntry-C.svg)
+
 Entries are cached on construction,
 and B-file data is fetched using `cachedFetch`:
 

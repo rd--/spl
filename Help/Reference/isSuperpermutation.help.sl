@@ -2,6 +2,9 @@
 
 - _isSuperpermutation(p)_
 
+Answer `true` if _p_ is a superpermutation,
+a string that contains each permutation of _n_ symbols as a substring.
+
 The first four smallest superpermutations,
 OEIS [A332089](https://oeis.org/A332089):
 

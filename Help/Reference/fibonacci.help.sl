@@ -392,6 +392,27 @@ OEIS [A000119](https://oeis.org/A000119):
 
 ![](sw/spl/Help/Image/fibonacci-I.svg)
 
+Plot the number of ways to express _n_ as the sum of an odd prime, a positive Fibonacci number and twice a positive Fibonacci number,
+OEIS [A155114](https://oeis.org/A155114):
+
+~~~spl svg=J
+let pq = { :m |
+	m > 2 & { m.isPrime }
+};
+1:99.collect { :n |
+	let a = 2 * 2.max(n / 2).log(2);
+	2:a.collect { :x |
+		let b = 2 * x.fibonacci;
+		let c = 2 * 2.max(n - b).log(2);
+		2:c.collect { :y |
+			pq(n - b - y.fibonacci).boole
+		}.sum
+	}.sum
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/fibonacci-J.svg)
+
 * * *
 
 See also: binetsFormula, fibonacciEntryPoint, fibonacciNumber, fibonacciPolynomial, fibonacciSequence, goldenRatio, lucasNumber
@@ -407,7 +428,8 @@ _OEIS_
 [3](https://oeis.org/A105870)
 [4](https://oeis.org/A010048)
 [5](https://oeis.org/A000071)
-[6](https://oeis.org/A001595),
+[6](https://oeis.org/A001595)
+[7](https://oeis.org/A155114),
 _Python_
 [1](https://docs.sympy.org/latest/modules/functions/combinatorial.html#sympy.functions.combinatorial.numbers.fibonacci),
 _W_
