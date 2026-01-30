@@ -275,6 +275,31 @@ and the result of the _Xor_ is put into the now-empty high bit:
 
 ![](sw/spl/Help/Image/bitXor-I.svg)
 
+Plot the bitwise _Xor_ of the squares of first _n_ natural numbers,
+OEIS [A145768](https://oeis.org/A145768):
+
+~~~spl svg=J
+bitXor:/2
+.foldList(0, 0:125 ^ 2)
+.allButFirst
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/bitXor-J.svg)
+
+Plot the bitwise _Xor_ of the first _n_ triangular numbers,
+OEIS [A193232](https://oeis.org/A193232):
+
+~~~spl svg=K
+0:150.collect { :n |
+	0:n
+	.prefixSum
+	.reduce(bitXor:/2)
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/bitXor-K.svg)
+
 * * *
 
 See also: bitAnd, bitNot, bitOr, xor
@@ -288,7 +313,9 @@ _Mathematica_
 _OEIS_
 [1](https://oeis.org/A003188)
 [2](https://oeis.org/A048720)
-[3](https://oeis.org/A193231),
+[3](https://oeis.org/A193231)
+[4](https://oeis.org/A145768)
+[5](https://oeis.org/A193232),
 _Smalltalk_
 5.6.5.9,
 _W_

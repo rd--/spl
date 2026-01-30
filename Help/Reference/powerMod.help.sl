@@ -220,7 +220,26 @@ OEIS [A096008](https://oeis.org/A096008):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/powerMod-C.svg)
+![](sw/spl/Help/Image/powerMod-D.svg)
+
+Plot smallest pseudoprime _>n_ to base _n_,
+OEIS [A007535](https://oeis.org/A007535):
+
+~~~spl svg=E
+1:175.collect { :n |
+	let k = n + 1;
+	{
+		k.isPrime | {
+			n.powerMod(k - 1, k) != 1
+		}
+	}.whileTrue {
+		k := k + 1
+	};
+	k
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/powerMod-E.svg)
 
 * * *
 
@@ -236,6 +255,7 @@ _Mathworks_
 _OEIS_
 [1](https://oeis.org/A096008)
 [2](https://oeis.org/A001567)
-[3](https://oeis.org/A002371),
+[3](https://oeis.org/A002371)
+[4](https://oeis.org/A007535),
 _W_
 [1](https://en.wikipedia.org/wiki/Modular_exponentiation)

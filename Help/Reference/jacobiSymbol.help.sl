@@ -126,6 +126,21 @@ let j = differences:/1.nestList(
 
 ![](sw/spl/Help/Image/jacobiSymbol-B.png)
 
+Plot triangle in which _n_-th row gives quadratic non-residues modulo the _n_-th prime,
+OEIS [A063988](https://oeis.org/A063988):
+
+~~~spl svg=C
+2:12.collect { :n |
+	let p = n.prime;
+	let q = p - 1;
+	1:q.select { :m |
+		jacobiSymbol(m, p) = -1
+	}
+}.catenate.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/jacobiSymbol-C.svg)
+
 * * *
 
 See also: factorInteger, kroneckerSymbol, legendreSymbol
@@ -135,7 +150,8 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/JacobiSymbol.html)
 [2](https://reference.wolfram.com/language/ref/JacobiSymbol.html),
 _OEIS_
-[1](https://oeis.org/A047713),
+[1](https://oeis.org/A047713)
+[2](https://oeis.org/A063988),
 _Python_
 [1](https://docs.sympy.org/latest/modules/functions/combinatorial.html#sympy.functions.combinatorial.numbers.jacobi_symbol),
 _W_

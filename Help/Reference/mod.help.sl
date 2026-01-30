@@ -489,6 +489,23 @@ OEIS [A187824](https://oeis.org/A187824):
 
 ![](sw/spl/Help/Image/mod-N.svg)
 
+Plot the smallest non-negative integer not already in the sequence such that _a(n-1)_ is congruent to _a(n)%n_,
+OEIS [A125717](https://oeis.org/A125717):
+
+~~~spl svg=O
+let l = [0];
+1:200.do { :n |
+	let k = l.last.mod(n);
+	{ l.includes(k) }.whileTrue {
+		k := k + n
+	};
+	l.add(k)
+};
+l.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/mod-O.svg)
+
 * * *
 
 See also: %, /, //, \\, commonResidue, minimalResidue, positiveResidue, quotient, remainder
