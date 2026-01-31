@@ -2,7 +2,7 @@
 
 - _findLast([x₁ x₂ …], f:/1)_
 
-Answer the index of the last element in the sequence _x_ that answers true to the predicate block _f_.
+Answer the index of the last element in the sequence _x_ that answers `true` to the predicate block _f_.
 
 ```
 >>> [5 4 3 2 1 2 3 4 5]

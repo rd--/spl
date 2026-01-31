@@ -67,6 +67,11 @@
 		}
 	}
 
+	fermatQuotient { :a :p |
+		let n = a ^ (p - 1) - 1;
+		n / p
+	}
+
 	fortunateNumber { :n |
 		let p = primorial(n);
 		nextPrime(p + 1) - p
@@ -164,6 +169,12 @@
 			false
 		} {
 			((self - 1).factorial + 1).divisible(self)
+		}
+	}
+
+	isProperPrime { :n |
+		(n % 10) = 1 & {
+			n.isFullReptendPrime
 		}
 	}
 

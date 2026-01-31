@@ -306,6 +306,10 @@ Fraction : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | num
 		true
 	}
 
+	isRepeatingDecimal { :self |
+		self.decimalPeriod > 0
+	}
+
 	isSmallInteger { :self |
 		self.isInteger & {
 			self.numerator.isSmallInteger
@@ -324,6 +328,10 @@ Fraction : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | num
 
 	isSuperparticular { :self |
 		self.numerator - 1 = self.denominator
+	}
+
+	isTerminatingDecimal { :self |
+		self.decimalPeriod = 0
 	}
 
 	isUnitFraction { :self |

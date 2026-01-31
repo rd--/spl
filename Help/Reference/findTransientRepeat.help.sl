@@ -84,6 +84,22 @@ using `~` to compare items:
 
 ![](sw/spl/Help/Image/findTransientRepeat-A.svg)
 
+Plot the sum of the digits in the decimal expansion of _1/n_ up to the point where it repeats for the first time,
+OEIS [A048997](https://oeis.org/A048997):
+
+~~~spl svg=B
+Fraction(1, 1:75).collect { :n |
+	Decimal(n, 200)
+	.integerDigits
+	.allButLast
+	.findTransientRepeat(2)
+	.catenate
+	.sum
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/findTransientRepeat-B.svg)
+
 * * *
 
 See also: findRepeat, repeat, table
@@ -92,4 +108,6 @@ Guides: List Functions
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/FindTransientRepeat.html)
+[1](https://reference.wolfram.com/language/ref/FindTransientRepeat.html),
+_OEIS_
+[1](https://oeis.org/A048997)

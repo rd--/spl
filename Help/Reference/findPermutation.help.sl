@@ -44,6 +44,24 @@ Relation with `ordering`:
 [2 3; 4 6 5].cycles
 ```
 
+Find permutations for rotations:
+
+```
+>>> let n = 6;
+>>> let p = [1 .. n];
+>>> [1 .. n - 1].collect { :i |
+>>> 	let q = p.rotateLeft(i);
+>>> 	p.findPermutation(q).cycles
+>>> }
+[
+	1 6 5 4 3 2:;
+	1 5 3; 2 6 4:;
+	1 4; 2 5; 3 6:;
+	1 3 5; 2 4 6:;
+	1 2 3 4 5 6
+]
+```
+
 * * *
 
 See also: cycles, ordering, Permutation, permute

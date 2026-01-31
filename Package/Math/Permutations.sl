@@ -153,6 +153,14 @@ Permutation : [Object, Storeable, Equatable] { | cycles degree |
 		answer
 	}
 
+	[isCyclic, isCyclicPermutation] { :p |
+		let i = p.permutationMax;
+		let j = p.permutationLength;
+		(i = j) & {
+			p.list.isRotation([1 .. i])
+		}
+	}
+
 	isDerangement { :self |
 		self.support.size = self.degree
 	}
@@ -187,7 +195,7 @@ Permutation : [Object, Storeable, Equatable] { | cycles degree |
 		answer
 	}
 
-	length { :self |
+	[length, permutationLength] { :self |
 		self.support.size
 	}
 
@@ -218,7 +226,7 @@ Permutation : [Object, Storeable, Equatable] { | cycles degree |
 		self.matrix(self.degree)
 	}
 
-	max { :self |
+	[max, permutationMax] { :self |
 		self.isIdentity.if {
 			0
 		} {
@@ -226,7 +234,7 @@ Permutation : [Object, Storeable, Equatable] { | cycles degree |
 		}
 	}
 
-	min { :self |
+	[min, permutationMin] { :self |
 		self.isIdentity.if {
 			Infinity
 		} {

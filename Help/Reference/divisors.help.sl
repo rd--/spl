@@ -227,6 +227,20 @@ OEIS [A023890](https://oeis.org/A023890):
 
 ![](sw/spl/Help/Image/divisors-E.svg)
 
+Plot largest divisor of _n_,
+_≤√n_,
+OEIS [A033676](https://oeis.org/A033676):
+
+~~~spl svg=F
+1:100.collect { :n |
+	let m = n.sqrt;
+	n.divisors.select { :x |
+		x <= m
+	}.last
+}.stepPlot
+~~~
+
+![](sw/spl/Help/Image/divisors-F.svg)
 
 * * *
 

@@ -34,7 +34,7 @@ OEIS [A001122](https://oeis.org/A001122):
 
 * * *
 
-See also: isPrime, primitiveRootList
+See also: isPrime, isProperPrime, primitiveRootList
 
 Guides: Prime Number Functions
 

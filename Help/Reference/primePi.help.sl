@@ -45,6 +45,9 @@ Count the prime numbers up to 9999 & 99999:
 >>> 9999.primePi
 1229
 
+>>> 66161.primePi
+6604
+
 >>> 99999.primePi
 9592
 ```

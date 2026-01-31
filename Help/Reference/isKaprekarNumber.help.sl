@@ -19,7 +19,8 @@ true
 (2025, 45)
 ```
 
-The first few Kaprekar numbers:
+The first few Kaprekar numbers,
+OEIS [A006886](https://oeis.org/A006886):
 
 ```
 >>> 1:2500.select(isKaprekarNumber:/1)

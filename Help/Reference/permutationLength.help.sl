@@ -7,14 +7,18 @@ Answer the number of integers moved by the permutation _p_.
 Number of points moved by a permutation:
 
 ```
->>> [1 7 3 5; 2 12 9].cycles.length
+>>> [1 7 3 5; 2 12 9]
+>>> .cycles
+>>> .permutationLength
 7
 ```
 
 Number of points moved in a permutation list:
 
 ```
->>> [2 4 3 8 1 6 5 7 9 10 11].asPermutation.length
+>>> [2 4 3 8 1 6 5 7 9 10 11]
+>>> .asPermutation
+>>> .length
 6
 ```
 

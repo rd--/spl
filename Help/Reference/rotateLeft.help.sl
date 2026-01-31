@@ -97,9 +97,26 @@ At `Range`:
 
 >>> 1:10.rotateLeft(-3)
 [8 9 10 1 2 3 4 5 6 7]
+```
 
+Identity:
+
+```
 >>> 1:10.rotateLeft(0)
+1:10
+
+>>> [1 .. 10].rotateLeft(0)
 [1 2 3 4 5 6 7 8 9 10]
+```
+
+Rotate by size:
+
+```
+>>> 1:5.rotateLeft(5)
+1:5
+
+>>> 5 % 5
+0
 ```
 
 At `String`:

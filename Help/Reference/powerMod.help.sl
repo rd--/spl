@@ -174,6 +174,22 @@ OEIS [A001567](https://oeis.org/A001567):
 ]
 ```
 
+The smallest prime _p_ such that _p^2_ divides _n^(p-1)-1_,
+OEIS [A039951](https://oeis.org/A039951):
+
+```
+>>> 1:5.collect { :n |
+>>> 	let p = 2;
+>>> 	{
+>>> 		n.powerMod(p - 1, p ^ 2) != 1
+>>> 	}.whileTrue {
+>>> 		p := p.nextPrime
+>>> 	};
+>>> 	p
+>>> }
+[2 1093 11 1093 2]
+```
+
 Plot the sequence with fixed powers:
 
 ~~~spl svg=A

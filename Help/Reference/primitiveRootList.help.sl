@@ -14,7 +14,8 @@ Lists of primitive roots:
 [3 5]
 ```
 
-Table of first few primitive roots:
+Table of first few primitive roots
+OEIS [A046147](https://oeis.org/A046147):
 
 ```
 >>> 2:31.collect(primitiveRootList:/1)
@@ -105,6 +106,33 @@ OEIS [A001122](https://oeis.org/A001122):
 ]
 ```
 
+Numbers that have a primitive root,
+OEIS [A033948](https://oeis.org/A033948):
+
+```
+>>> 2:100.reject { :x |
+>>> 	x.primitiveRootList.isEmpty
+>>> }
+[
+	 2  3  4  5  6  7  9 10 11 13
+	14 17 18 19 22 23 25 26 27 29
+	31 34 37 38 41 43 46 47 49 50
+	53 54 58 59 61 62 67 71 73 74
+	79 81 82 83 86 89 94 97 98
+]
+```
+
+Plot first few terms,
+OEIS [A046147](https://oeis.org/A046147):
+
+~~~spl svg=A
+2:43.collect(primitiveRootList:/1)
+.catenate
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/primitiveRootList-A.svg)
+
 * * *
 
 See also: mangoldtLambda, welchCostasArrayList
@@ -117,6 +145,7 @@ _OEIS_
 [1](https://oeis.org/A033948)
 [2](https://oeis.org/A046144)
 [3](https://oeis.org/A001913)
-[4](https://oeis.org/A001122),
+[4](https://oeis.org/A001122)
+[5](https://oeis.org/A046147),
 _W_
 [1](https://en.wikipedia.org/wiki/Primitive_root_modulo_n)

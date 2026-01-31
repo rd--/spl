@@ -1010,6 +1010,24 @@
 		}
 	}
 
+	findRotation { :p :q |
+		let n = p.size;
+		let m = q.size;
+		(n = m).if {
+			(p = q).if {
+				0
+			} {
+				(1 .. n - 1).detectIfNone { :i |
+					p.rotateLeft(i) = q
+				} {
+					nil
+				}
+			}
+		} {
+			nil
+		}
+	}
+
 	first { :self |
 		self[1]
 	}
@@ -1464,6 +1482,10 @@
 				(self[i] - self[i - 1]) = z
 			}
 		}
+	}
+
+	isRotation { :p :q |
+		p.findRotation(q).isNotNil
 	}
 
 	isSequenceable { :unused |
@@ -2165,8 +2187,13 @@
 	}
 
 	rotateLeft { :self :anInteger |
-		(1 + anInteger).toAsCollect(self.size + anInteger, self.species) { :index |
-			self.atWrap(index)
+		let n = anInteger % self.size;
+		(n = 0).if {
+			self
+		} {
+			(1 + n).toAsCollect(self.size + n, self.species) { :index |
+				self.atWrap(index)
+			}
 		}
 	}
 

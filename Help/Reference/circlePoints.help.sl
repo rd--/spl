@@ -1,7 +1,7 @@
 # circlePoints
 
 - _circlePoints(n, o=[0 0], r, theta=0)_
-- _circlePoints(n, r)
+- _circlePoints(n, r)_
 
 Answer the positions of _n_ points equally spaced around a circle of radius _r_ given initial angle _theta_.
 
@@ -137,6 +137,22 @@ let p = n.circlePoints([0 0], 1, 0);
 ~~~
 
 ![](sw/spl/Help/Image/circlePoints-G.svg)
+
+Draw the [Enneagram](https://en.wikipedia.org/wiki/Enneagram_of_Personality) figure:
+
+~~~spl svg=H
+let p = 9.circlePoints([0 0], 1, 13/18.pi);
+let q = [3 6 9; 1 4 2 8 5 7];
+[
+	Circle([0 0], 1),
+	p.PointCloud,
+	q.collect { :i |
+		p.atAll(i).Polygon
+	}
+].LineDrawing
+~~~
+
+![](sw/spl/Help/Image/circlePoints-H.svg)
 
 * * *
 
