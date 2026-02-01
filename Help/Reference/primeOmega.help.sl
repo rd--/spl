@@ -67,6 +67,29 @@ OEIS [A001222](https://oeis.org/A001222):
 ]
 ```
 
+Numbers that are the product of three (not necessarily distinct) primes,
+OEIS [A014612](https://oeis.org/A014612):
+
+```
+>>> 1:244.select { :n |
+>>> 	n.primeOmega = 3
+>>> }
+[
+	  8  12  18  20  27
+	 28  30  42  44  45
+	 50  52  63  66  68
+	 70  75  76  78  92
+	 98  99 102 105 110
+	114 116 117 124 125
+	130 138 147 148 153
+	154 164 165 170 171
+	172 174 175 182 186
+	188 190 195 207 212
+	222 230 231 236 238
+	242 244
+]
+```
+
 Plot the `primeOmega` sequence for the first 100 numbers:
 
 ~~~spl svg=A
@@ -74,6 +97,24 @@ Plot the `primeOmega` sequence for the first 100 numbers:
 ~~~
 
 ![](sw/spl/Help/Image/primeOmega-A.svg)
+
+Plot the number of positive integers less than or equal to _n_,
+with the same number of prime factors as _n_,
+counted with multiplicity,
+OEIS [A058933](https://oeis.org/A058933):
+
+~~~spl svg=B
+let m = Map();
+let f = { :x |
+	let y = m.atIfAbsent(x) { 0 };
+	m.atPut(x, y + 1)
+};
+1:200.collect { :n |
+	f(n.primeOmega)
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/primeOmega-B.svg)
 
 * * *
 
@@ -85,7 +126,9 @@ References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/PrimeOmega.html),
 _OEIS_
-[1](https://oeis.org/A001222),
+[1](https://oeis.org/A001222)
+[2](https://oeis.org/A014612)
+[3](https://oeis.org/A058933),
 _Python_
 [1](https://docs.sympy.org/latest/modules/ntheory.html#sympy.ntheory.factor_.primeomega),
 _W_

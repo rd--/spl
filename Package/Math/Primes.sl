@@ -617,7 +617,7 @@
 
 	primePi { :self |
 		let answer = 0;
-		self.wheelSieveDo { :unusedItem |
+		self.floor.wheelSieveDo { :unusedItem |
 			answer := answer + 1
 		};
 		answer
@@ -630,7 +630,11 @@
 	}
 
 	primeSignature { :self |
-		self.factorInteger.column(2).sort(>)
+		self.isOne.if {
+			[]
+		} {
+			self.factorInteger.column(2).sort(>)
+		}
 	}
 
 	primesBetweenAnd { :iMin :iMax |
@@ -936,6 +940,10 @@
 
 	primeLimit { :self |
 		self.numerator.primeLimit.max(self.denominator.primeLimit)
+	}
+
+	primePi { :self |
+		self.floor.primePi
 	}
 
 }

@@ -6,11 +6,28 @@ Answer the prime signature of _n_,
 the sorted exponents of the prime factorization.
 
 ```
->>> 1.primeSignature
-[1]
-
 >>> 16.primeSignature
 [4]
+
+>>> [2 ^ 4].product
+16
+
+>>> 60.primeSignature
+[2 1 1]
+
+>>> [2 ^ 2, 3 ^ 1, 5 ^ 1].product
+60
+```
+
+The prime signature of `one` can be defined here as the empty set _{}_,
+it is sometimes defined as _{1}_:
+
+```
+>>> 1.primeSignature
+[]
+
+>>> [].product
+1
 ```
 
 First instances of prime signatures,
@@ -25,7 +42,7 @@ OEIS [A036035](https://oeis.org/A036035):
 >>> 	120  180  420 2310
 >>> ].collect(primeSignature:/1)
 [
-	1;
+	;
 	1;
 	2;
 	1 1;
@@ -66,7 +83,7 @@ OEIS [A025487](https://oeis.org/A025487):
 >>> 	2048 2160 2304 2310
 >>> ].collect(primeSignature:/1)
 [
-	1;
+	;
 	1;
 	2;
 	1 1;
@@ -123,14 +140,58 @@ OEIS [A025487](https://oeis.org/A025487):
 ]
 ```
 
+Calculate least integer of each prime signature,
+OEIS [A025487](https://oeis.org/A025487):
+
+```
+>>> let ls = [];
+>>> let ln = [1];
+>>> 2:1000.do { :n |
+>>> 	let s = n.primeSignature;
+>>> 	ls.includes(s).ifFalse {
+>>> 		ls.add(s);
+>>> 		ln.add(n)
+>>> 	}
+>>> };
+>>> ln
+[
+	  1   2   4   6   8
+	 12  16  24  30  32
+	 36  48  60  64  72
+	 96 120 128 144 180
+	192 210 216 240 256
+	288 360 384 420 432
+	480 512 576 720 768
+	840 864 900 960
+]
+```
+
 Prime signatures of first few integers,
 OEIS [A118914](https://oeis.org/A118914):
 
 ```
 >>> 1:20.collect(primeSignature:/1)
 [
-	1; 1; 1; 2; 1; 1 1; 1; 3; 2; 1 1; 1;
-	2 1; 1; 1 1; 1 1; 4; 1; 2 1; 1; 2 1
+	;
+	1;
+	1;
+	2;
+	1;
+	1 1;
+	1;
+	3;
+	2;
+	1 1;
+	1;
+	2 1;
+	1;
+	1 1;
+	1 1;
+	4;
+	1;
+	2 1;
+	1;
+	2 1
 ]
 ```
 
@@ -194,6 +255,39 @@ Plot first few terms:
 
 ![](sw/spl/Help/Image/primeSignature-C.svg)
 
+Plot the number of positive integers up to _n_ with the same prime signature as _n_,
+OEIS [A064839](https://oeis.org/A064839):
+
+~~~spl svg=D
+2:99.collect { :n |
+	let p = n.primeSignature;
+	let q = 2:n.collect(primeSignature:/1);
+	q.occurrencesOf(p)
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/primeSignature-D.svg)
+
+For each _n_ plot the index of the first occurence of the prime signature of _n_,
+OEIS [A101296](https://oeis.org/A101296):
+
+~~~spl svg=E
+let ls = [];
+let ln = [];
+1:250.do { :n |
+	let s = n.primeSignature;
+	let i = ls.indexOf(s);
+	(i = 0).ifTrue {
+		ls.add(s);
+		i := ls.size
+	};
+	ln.add(i)
+};
+ln.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/primeSignature-E.svg)
+
 * * *
 
 See also: factorInteger
@@ -208,6 +302,8 @@ _OEIS_
 [2](https://oeis.org/A025487)
 [3](https://oeis.org/A118914)
 [4](https://oeis.org/A046523)
-[5](https://oeis.org/A181819),
+[5](https://oeis.org/A181819)
+[6](https://oeis.org/A064839)
+[7](https://oeis.org/A101296),
 _W_
 [1](https://en.wikipedia.org/wiki/Prime_signature)

@@ -27,6 +27,20 @@ Threads over lists:
 [2 3 7 9]
 ```
 
+Rational numbers:
+
+```
+>>> 7/2.primePi
+2
+```
+
+Real numbers:
+
+```
+>>> 15.25.primePi
+6
+```
+
 The first few terms,
 OEIS [A000720](https://oeis.org/A000720):
 
@@ -203,6 +217,29 @@ let a = { :n |
 
 ![](sw/spl/Help/Image/primePi-E.svg)
 
+Imply Goldbach and Lemoine conjectures,
+OEIS [A219055](https://oeis.org/A219055):
+
+~~~spl svg=F
+1:100.collect { :n |
+	let m = n % 2;
+	let o = ((n - 1) / (2 + m)).primePi;
+	1:o.sum { :k |
+		let p = k.prime;
+		(
+			(p + 6).isPrime & {
+				let q = (1 + m) * p;
+				(n - q).isPrime & {
+					(n - q - 6).isPrime
+				}
+			}
+		).boole
+	}
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/primePi-F.svg)
+
 * * *
 
 See also: eulerPhi, nextPrime, primesList, primesUpTo, sieveOfEratosthenes
@@ -219,7 +256,8 @@ _OEIS_
 [3](https://oeis.org/A156552)
 [4](https://oeis.org/A112798)
 [5](https://oeis.org/A056239)
-[6](https://oeis.org/A135141),
+[6](https://oeis.org/A135141)
+[7](https://oeis.org/A219055),
 _Python_
 [1](https://docs.sympy.org/latest/modules/ntheory.html#sympy.ntheory.generate.primepi),
 _W_
