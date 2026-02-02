@@ -624,6 +624,21 @@ OEIS [A033865](https://oeis.org/A033865):
 
 ![](sw/spl/Help/Image/integerDigits-K.svg)
 
+Primes where every suffix is prime,
+OEIS [A033664](https://oeis.org/A033664):
+
+~~~spl svg=L
+1:200.prime.select { :n |
+	n.integerDigits
+	.allButFirst
+	.suffixes
+	.collect(fromDigits:/1)
+	.allSatisfy(isPrime:/1)
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/integerDigits-L.svg)
+
 * * *
 
 See also: digitCount, fromDigits, hammingWeight
@@ -654,7 +669,8 @@ _OEIS_
 [17](https://oeis.org/A007954)
 [18](https://oeis.org/A000422)
 [19](https://oeis.org/A036991)
-[20](https://oeis.org/A030101),
+[20](https://oeis.org/A030101)
+[21](https://oeis.org/A033664),
 _W_
 [1](https://en.wikipedia.org/wiki/Numerical_digit)
 

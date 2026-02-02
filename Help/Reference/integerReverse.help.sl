@@ -37,6 +37,22 @@ Threads over lists:
 [321 432 543 654]
 ```
 
+Reversals of Fibonacci numbers (sorted),
+OEIS [A004170](https://oeis.org/A004170):
+
+```
+>>> 0:20.fibonacci
+>>> .integerReverse
+>>> .sort
+[
+	   0    1    1    2    3
+	   5    8   12   16   31
+	  43   55   98  332  441
+	 773  789 1814 4852 5676
+	7951
+]
+```
+
 Plot primes whose reversal in base ten is also prime,
 sometimes called reversible primes,
 OEIS [A007500](https://oeis.org/A007500):
@@ -58,4 +74,6 @@ Guides: Integer Functions
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Reversal.html)
-[2](https://reference.wolfram.com/language/ref/IntegerReverse.html)
+[2](https://reference.wolfram.com/language/ref/IntegerReverse.html),
+_OEIS_
+[1](https://oeis.org/A004170)

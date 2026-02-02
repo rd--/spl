@@ -460,6 +460,38 @@ OEIS [A105278](https://oeis.org/A105278):
 ]
 ```
 
+Number of fixed _2k_ polyominoes with _n_ cells,
+OEIS [A059678](https://oeis.org/A059678):
+
+```
+>>> 2:11.collect { :n |
+>>> 	let m = n - 1;
+>>> 	1:m.collect { :k |
+>>> 		0:k.sum { :v |
+>>> 			binomial(
+>>> 				n - k + 1,
+>>> 				2 * k - n - v
+>>> 			) * binomial(
+>>> 				n - k + v,
+>>> 				n - k
+>>> 			)
+>>> 		}
+>>> 	}
+>>> }
+[
+	1;
+	0 4;
+	0 1 8;
+	0 0 6 12;
+	0 0 1 18 16;
+	0 0 0 8 38 20;
+	0 0 0 1 32 66 24;
+	0 0 0 0 10 88 102 28;
+	0 0 0 0 1 50 192 146 32;
+	0 0 0 0 0 12 170 360 198 36
+]
+```
+
 Plot over a subset of the reals as a function of its first parameter:
 
 ~~~spl svg=A

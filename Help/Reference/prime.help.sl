@@ -123,6 +123,19 @@ Faure’s _C_ function:
 ]
 ```
 
+Products of two successive primes,
+OEIS [A006094](https://oeis.org/A006094):
+
+```
+>>> 1:10.collect { :n |
+>>> 	n.prime * (n + 1).prime
+>>> }
+[
+	  6  15  35  77 143
+	221 323 437 667 899
+]
+```
+
 Plot first fifty primes:
 
 ~~~spl svg=A
@@ -189,6 +202,23 @@ OEIS [A038698](https://oeis.org/A038698):
 
 ![](sw/spl/Help/Image/prime-E.svg)
 
+Plot of triangle _(n,k)_ indicating if the _k_-th prime is a square modulo the _n_-th prime,
+OEIS [A060038](https://oeis.org/A060038):
+
+~~~spl svg=F
+2:17.collect { :n |
+	let m = n - 1;
+	let p = n.prime;
+	let r = p.quadraticResidues;
+	[n, p, r].postLine;
+	1:m.collect { :k |
+		r.includes(k.prime).not.boole
+	}
+}.triangularArrayPlot
+~~~
+
+![](sw/spl/Help/Image/prime-F.svg)
+
 * * *
 
 See also: indexOfPrime, isPrime, nextPrime, primesList, primesUpTo
@@ -207,7 +237,8 @@ _OEIS_
 [2](https://oeis.org/A046929)
 [3](https://oeis.org/A243353)
 [4](https://oeis.org/A001348)
-[5](https://oeis.org/A006450),
+[5](https://oeis.org/A006450)
+[6](https://oeis.org/A006094),
 _Python_
 [1](https://docs.sympy.org/latest/modules/ntheory.html#sympy.ntheory.generate.prime),
 _SuperCollider_

@@ -506,6 +506,19 @@ l.scatterPlot
 
 ![](sw/spl/Help/Image/mod-O.svg)
 
+The table of _n%k_ read by downward antidiagonals,
+OEIS [A051126](https://oeis.org/A051126):
+
+~~~spl svg=P
+1:11.collect { :n |
+	n:1:-1.collect { :k |
+		(n - k + 1) % k
+	}
+}.catenate.stepPlot
+~~~
+
+![](sw/spl/Help/Image/mod-P.svg)
+
 * * *
 
 See also: %, /, //, \\, commonResidue, minimalResidue, positiveResidue, quotient, remainder

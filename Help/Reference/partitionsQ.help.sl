@@ -27,6 +27,49 @@ Threads over lists:
 3
 ```
 
+The number of subsets of _1:n_ such that every number in the set is no larger than the sum of the other numbers in the set,
+OEIS [A095941](http://oeis.org/A095941):
+
+```
+>>> let m = 30;
+>>> let q = partitionsQ(1:m);
+>>> let r = accumulate(q);
+>>> let s = accumulate(r + 1);
+>>> 0 - s + r + (2 ^ 1:m) - 1
+[
+	0
+	0
+	1
+	4
+	13
+	35
+	85
+	194
+	425
+	904
+	1885
+	3878
+	7904
+	16008
+	32282
+	64913
+	130280
+	261145
+	523036
+	1047017
+	2095222
+	4191927
+	8385695
+	16773663
+	33550117
+	67103645
+	134211440
+	268427907
+	536861880
+	1073731053
+]
+```
+
 Plot the number of restricted partitions:
 
 ~~~spl svg=A

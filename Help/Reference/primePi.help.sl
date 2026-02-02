@@ -240,6 +240,20 @@ OEIS [A219055](https://oeis.org/A219055):
 
 ![](sw/spl/Help/Image/primePi-F.svg)
 
+Plot triangle of _π(n)+π(k)-π(n+k)_,
+OEIS [A212210](https://oeis.org/A212210):
+
+~~~spl svg=G
+1:13.triangularArray { :n :k |
+	let a = n.primePi;
+	let b = k.primePi;
+	let c = (n + k).primePi;
+	a + b - c
+}.catenate.stepPlot
+~~~
+
+![](sw/spl/Help/Image/primePi-G.svg)
+
 * * *
 
 See also: eulerPhi, nextPrime, primesList, primesUpTo, sieveOfEratosthenes

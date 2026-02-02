@@ -37,6 +37,22 @@ OEIS [A000041](https://oeis.org/A000041):
 7
 ```
 
+Ramanujan discovered and proved analytically that the number of partitions of _11n+6_ is divisible by 11:
+
+```
+>>> 6:100:11.partitionsP
+[
+	11 297 3718 31185 204226
+	1121505 5392783 23338469 92669720
+]
+
+>>> 6:100:11.partitionsP / 11
+[
+	1 27 338 2835 18566
+	101955 490253 2121679 8424520
+]
+```
+
 Plot the number of restricted partitions,
 `log` scaled:
 

@@ -61,7 +61,8 @@ OeisEntry('A000001').then { :e |
 
 ![](sw/spl/Help/Image/OeisEntry-B.svg)
 
-Plot the first few items of `bFileData` for a sequence that is non-trivial to calculate:
+Plot the first few items of `bFileData` for a sequence that is non-trivial to calculate,
+OEIS [A059471](https://oeis.org/A059471):
 
 ~~~spl svg=C
 OeisEntry('A059471').then { :e |
@@ -73,6 +74,19 @@ OeisEntry('A059471').then { :e |
 ~~~
 
 ![](sw/spl/Help/Image/OeisEntry-C.svg)
+
+Limit of _f(f(f(...f(2)...)))%n_ as the number of iterations of _f(x)=2^x-1_ grows,
+OEIS [A254410](https://oeis.org/A254410):
+
+~~~spl svg=D
+OeisEntry('A254410').then { :e |
+	e.bFileData
+	.first(150)
+	.scatterPlot
+}
+~~~
+
+![](sw/spl/Help/Image/OeisEntry-D.svg)
 
 Entries are cached on construction,
 and B-file data is fetched using `cachedFetch`:
@@ -94,7 +108,10 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/IntegerSequence.html),
 _OEIS_
-[1](https://oeis.org),
+[1](https://oeis.org)
+[2](https://oeis.org/A000001)
+[3](https://oeis.org/A059471)
+[4](https://oeis.org/A254410),
 _W_
 [1](https://en.wikipedia.org/wiki/On-Line_Encyclopedia_of_Integer_Sequences)
 

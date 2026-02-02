@@ -159,6 +159,30 @@ OEIS [A090850](https://oeis.org/A090850):
 
 ```
 >>> let f = 6;
+>>> 0:13.triangularArray { :n :k |
+>>> 	let a = binomial(n, k - 1);
+>>> 	let b = binomial(n - 1, k);
+>>> 	(6 * a) + b
+>>> }.replaceNaN(0)
+[
+	0;
+	1  6;
+	1  7 12;
+	1  8 19  18;
+	1  9 27  37  24;
+	1 10 36  64  61  30;
+	1 11 46 100 125  91  36;
+	1 12 57 146 225 216 127  42;
+	1 13 69 203 371 441 343 169  48;
+]
+```
+
+Clark’s triangle with _f=6_,
+reversed rows,
+OEIS [A090850](https://oeis.org/A090850):
+
+```
+>>> let f = 6;
 >>> 0:9.triangularArray { :n :k |
 >>> 	let a = binomial(n, k + 1);
 >>> 	let b = binomial(n - 1, k - 1);

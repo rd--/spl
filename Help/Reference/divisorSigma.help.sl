@@ -349,6 +349,34 @@ let m = 10 ^ 2;
 
 ![](sw/spl/Help/Image/divisorSigma-F.svg)
 
+First differences between numbers k for which _σ(k)>σ(k+1)_,
+OEIS [A053238](https://oeis.org/A053238):
+
+~~~spl svg=G
+1:350.select { :n |
+	1.divisorSigma(n)
+	>
+	1.divisorSigma(n + 1)
+}.differences.stepPlot
+~~~
+
+![](sw/spl/Help/Image/divisorSigma-G.svg)
+
+Plot number of integers less than _n_ but with the same number of divisors,
+OEIS [A047983](https://oeis.org/A047983):
+
+~~~spl svg=H
+1:150.collect { :n |
+	let tau = 0.divisorSigma(n);
+	let m = n - 1;
+	1:m.count { :x |
+		0.divisorSigma(x) = tau
+	}
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/divisorSigma-H.svg)
+
 * * *
 
 See also: aliquotSum, divisible, divisors, divisorSum, divisorSummatoryFunction, eulerPhi, isAbundantNumber

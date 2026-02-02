@@ -264,6 +264,21 @@ Plot the sequence, varying the modulus:
 
 ![](sw/spl/Help/Image/multiplicativeOrder-B.svg)
 
+Plot order of ten modulo _n_,
+OEIS [A084680](https://oeis.org/A084680):
+
+~~~spl svg=C
+1:96.collect { :n |
+	n.isCoprime(10).if {
+		10.multiplicativeOrder(n)
+	} {
+		0
+	}
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/multiplicativeOrder-C.svg)
+
 * * *
 
 See also: %, carmichaelLambda, eulerPhi, powerMod, primitiveRootList

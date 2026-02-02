@@ -114,6 +114,22 @@ and an edge between two vertices if their corresponding sets are disjoint:
 ]
 ```
 
+Triangle of distribution of rank sums,
+OEIS [A008967](https://oeis.org/A008967):
+
+~~~spl svg=A
+2:9.collect { :n |
+	let m = 2 * n - 1;
+	3:m.collect { :k |
+		1:n.subsets { :x | x.size = 2 }
+		.select { :x | x.sum = k }
+		.size
+	}
+}.catenate.stepPlot
+~~~
+
+![](sw/spl/Help/Image/subsets-A.svg)
+
 * * *
 
 See also: combinationsAtATimeDo, powerSet, tuples
@@ -123,4 +139,9 @@ Guides: Combinatorial Functions
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/PowerSet.html)
-[2](https://reference.wolfram.com/language/ref/Subsets.html)
+[2](https://reference.wolfram.com/language/ref/Subsets.html),
+_OEIS_
+[1](https://oeis.org/A008967)
+_W_
+[1](https://en.wikipedia.org/wiki/Subset)
+[2](https://en.wikipedia.org/wiki/Power_set)

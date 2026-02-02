@@ -4,7 +4,8 @@
 
 Answer the _n_-th centered _k_-gonal number.
 
-Centered triangular numbers:
+Centered triangular numbers,
+OEIS [A005448](https://oeis.org/A005448):
 
 ```
 >>> 1:17.collect { :n |
@@ -18,7 +19,23 @@ Centered triangular numbers:
 ]
 ```
 
-Centered pentagonal numbers;
+Centered square numbers,
+OEIS [A001844](https://oeis.org/A001844):
+
+```
+>>> 1:17.collect { :n |
+>>> 	4.centeredPolygonalNumber(n)
+>>> }
+[
+	  1   5  13  25  41
+	 61  85 113 145 181
+	221 265 313 365 421
+	481 545
+]
+```
+
+Centered pentagonal numbers,
+OEIS [A005891](https://oeis.org/A005891):
 
 ```
 >>> 1:17.collect { :n |
@@ -32,7 +49,8 @@ Centered pentagonal numbers;
 ]
 ```
 
-Centered hexagonal numbers;
+Centered hexagonal numbers,
+OEIS [A003215](https://oeis.org/A003215):
 
 ```
 >>> 1:17.collect { :n |
@@ -43,6 +61,36 @@ Centered hexagonal numbers;
 	 91 127 169 217 271
 	331 397 469 547 631
 	721 817
+]
+```
+
+Centered heptagonal numbers,
+OEIS [A069099](https://oeis.org/A069099):
+
+```
+>>> 1:17.collect { :n |
+>>> 	7.centeredPolygonalNumber(n)
+>>> }
+[
+	  1   8  22  43  71
+	106 148 197 253 316
+	386 463 547 638 736
+	841 953
+]
+```
+
+Centered 18-gonal numbers,
+OEIS [A069131](https://oeis.org/A069131):
+
+```
+>>> 1:17.collect { :n |
+>>> 	18.centeredPolygonalNumber(n)
+>>> }
+[
+	   1   19   55  109  181
+	 271  379  505  649  811
+	 991 1189 1405 1639 1891
+	2161 2449
 ]
 ```
 
@@ -60,9 +108,15 @@ _Mathematica_
 [4](https://mathworld.wolfram.com/CenteredPentagonalNumber.html)
 [5](https://mathworld.wolfram.com/HexNumber.html)
 _OEIS_
-[1](http://oeis.org/A005448)
-[2](http://oeis.org/A001844)
-[3](http://oeis.org/A005891)
-[4](https://oeis.org/A003215),
+[1](https://oeis.org/A005448)
+[2](https://oeis.org/A001844)
+[3](https://oeis.org/A005891)
+[4](https://oeis.org/A003215)
+[5](https://oeis.org/A069099),
 _W_
 [1](https://en.wikipedia.org/wiki/Centered_polygonal_number)
+[2](https://en.wikipedia.org/wiki/Centered_triangular_number)
+[3](https://en.wikipedia.org/wiki/Centered_square_number)
+[4](https://en.wikipedia.org/wiki/Centered_pentagonal_number)
+[5](https://en.wikipedia.org/wiki/Centered_hexagonal_number)
+[6](https://en.wikipedia.org/wiki/Centered_heptagonal_number)

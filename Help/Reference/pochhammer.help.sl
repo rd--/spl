@@ -43,6 +43,27 @@ Evaluate at `Complex`:
 Complex(2.13868E-6, 1.42187E-6)
 ```
 
+Number of permutations of _n_ things _k_ at a time,
+OEIS [A008279](https://oeis.org/A008279):
+
+```
+>>> 0:7.collect { :n |
+>>> 	0:n.collect { :k |
+>>> 		pochhammer(n - k + 1, k)
+>>> 	}
+>>> }
+[
+	1;
+	1 1;
+	1 2 2;
+	1 3 6 6;
+	1 4 12 24 24;
+	1 5 20 60 120 120;
+	1 6 30 120 360 720 720;
+	1 7 42 210 840 2520 5040 5040
+]
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A
@@ -103,5 +124,7 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/PochhammerSymbol.html)
 [2](https://reference.wolfram.com/language/ref/Pochhammer.html),
+_OEIS_
+[1](https://oeis.org/A008279),
 _W_
 [1](https://en.wikipedia.org/wiki/Falling_and_rising_factorials)

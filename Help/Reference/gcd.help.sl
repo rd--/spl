@@ -232,6 +232,29 @@ gcd:/2.table(1:11, 1:11).matrixPlot
 
 ![](sw/spl/Help/Image/gcd-E.svg)
 
+Groups of order _2n_ that have _Z/nZ_ as a subgroup,
+OEIS [A147848](https://oeis.org/A147848):
+
+~~~spl svg=F
+1:85.collect { :n |
+	1:n.sum { :k |
+		(n % k = 0).if {
+			1:2.sum { :j |
+				(gcd(k, n / k) = j).if {
+					j
+				} {
+					0
+				}
+			}
+		} {
+			0
+		}
+	}
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/gcd-F.svg)
+
 * * *
 
 See also: ||, chineseRemainder, divisible, euclideanAlgorithm, extendedGcd, Fraction, isCoprime, isPrime, lcm
@@ -251,7 +274,8 @@ _Mathematica_
 [3](https://reference.wolfram.com/language/ref/PolynomialGCD.html),
 _OEIS_
 [1](https://oeis.org/A008364)
-[2](https://oeis.org/A003989),
+[2](https://oeis.org/A003989)
+[3](https://oeis.org/A147848),
 _Smalltalk_
 5.6.5.12,
 _W_

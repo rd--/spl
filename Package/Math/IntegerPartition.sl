@@ -278,6 +278,18 @@ IntegerPartitions : [Object, Equatable, Storeable] { | contents:<List> |
 		answer
 	}
 
+	dysonCrank { :p |
+		let omega = p.occurrencesOf(1);
+		(omega = 0).if {
+			p.max
+		} {
+			let mu = p.count { :x |
+				x > omega
+			};
+			mu - omega
+		}
+	}
+
 	ferrersDiagram { :self |
 		let m = self.size;
 		0.toCollect(m - 1) { :i |

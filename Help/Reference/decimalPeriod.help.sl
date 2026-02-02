@@ -165,6 +165,19 @@ OEIS [A002371](https://oeis.org/A002371):
 
 ![](sw/spl/Help/Image/decimalPeriod-B.svg)
 
+Periods of reciprocals of integers coprime to ten,
+OEIS [A002329](https://oeis.org/A002329):
+
+~~~spl svg=C
+2:600.select { :n |
+	n.isCoprime(10)
+}.collect { :n |
+	(1 \ n).decimalPeriod
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/decimalPeriod-C.svg)
+
 * * *
 
 See also: Fraction, isRepeatingDecimal, multiplicativeOrder

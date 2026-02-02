@@ -329,6 +329,7 @@ OeisEntry : [Object, Storeable, Equatable] { | identifier:<String> contents bFil
 				divisorSummatoryFunction: [006218],
 				doubleFactorial: [001147 000165],
 				dualZeckendorfRepresentation: [104326 112309 112310 003754 331191 104325],
+				dysonCrank: [064391],
 				e: [001113],
 				ekgSequence: [064413 064664],
 				elementaryCellularAutomaton: [070950],
@@ -547,6 +548,7 @@ OeisEntry : [Object, Storeable, Equatable] { | identifier:<String> contents bFil
 				pi: [000796 001203 002485 002486],
 				pisanoPeriod: [001175 066853],
 				plasticRatio: [060006],
+				pochhammer: [008279],
 				politeness: [069283],
 				polygonalNumber: [
 					000124 000217 139610 000027 000217 000290 000326 000384

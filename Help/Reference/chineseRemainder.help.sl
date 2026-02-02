@@ -2,9 +2,9 @@
 
 - _chineseRemainder(r, m)_
 
-Answer the smallest _x_ with _x >= 0_ that satisfies all the integer congruences _x%m(i) = r(i)%m(i)_.
+Answer the smallest _x_ with _x>=0_ that satisfies all the integer congruences _x%m(i) = r(i)%m(i)_.
 
-The smallest positive integer _x_ that satisfies _x%4 = 3_ and _x%5 = 4_:
+The smallest positive integer _x_ that satisfies _x%4=3_ and _x%5=4_:
 
 ```
 >>> [3 4].chineseRemainder([4 5])
