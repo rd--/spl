@@ -171,6 +171,23 @@ kroneckerSymbol:/2
 
 ![](sw/spl/Help/Image/kroneckerSymbol-A.svg)
 
+Plot theta series of planar hexagonal lattice _A2_,
+OEIS [A004016](https://oeis.org/A004016):
+
+~~~spl svg=B
+1:73.collect { :n |
+	(n = 1).if {
+		1
+	} {
+		6 * n.divisorSum { :x |
+			x.kroneckerSymbol(3)
+		}
+	}
+}.stepPlot
+~~~
+
+![](sw/spl/Help/Image/kroneckerSymbol-B.svg)
+
 * * *
 
 See also: jacobiSymbol, legendreSymbol

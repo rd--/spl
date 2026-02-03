@@ -219,6 +219,21 @@ OEIS [A060038](https://oeis.org/A060038):
 
 ![](sw/spl/Help/Image/prime-F.svg)
 
+Excess of _3n-1_ primes over _3n+1_ primes,
+OEIS [A112632](https://oeis.org/A112632):
+
+~~~spl svg=G
+let m = 150;
+let a = List(m, 1);
+3:150.collect { :n |
+	let x = n.prime % 6 = 1;
+	a[n] := a[n - 1] + x.if { -1 } { 1 }
+};
+a.differences
+~~~
+
+![](sw/spl/Help/Image/prime-G.svg)
+
 * * *
 
 See also: indexOfPrime, isPrime, nextPrime, primesList, primesUpTo

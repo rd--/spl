@@ -216,6 +216,23 @@ OEIS [A164349](https://oeis.org/A164349):
 
 ![](sw/spl/Help/Image/iterate-B.svg)
 
+Unique sequence representing an array read by antidiagonals in which the _i_-th row is this sequence itself multiplied by _i_,
+OEIS [A283681](https://oeis.org/A283681):
+
+~~~spl svg=C
+{ :x |
+	let k = x.size + 1;
+	1:k.collect { :n |
+		let m = n - 1;
+		1:m:1.collect { :i |
+			x[n - i] * i
+		}
+	}.flatten
+}.iterate([1 2], 4).scatterPlot
+~~~
+
+![](sw/spl/Help/Image/iterate-C.svg)
+
 _Rationale:_
 This notation can be more compact than a written out loop,
 and can also be written in the middle of a sequence of bindings,
@@ -237,5 +254,7 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/NestList.html),
 _OEIS_
 [1](https://oeis.org/A014707)
+[2](https://oeis.org/A118006)
+[3](https://oeis.org/A283681)
 
 Categories: Enumerating

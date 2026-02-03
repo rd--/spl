@@ -1391,6 +1391,17 @@
 		}
 	}
 
+	unitaryPhi { :n |
+		(n = 1).if {
+			1
+		} {
+			n.factorInteger.product { :x |
+				let [p, e] = x;
+				p ^ e - 1
+			}
+		}
+	}
+
 	wrapIndex { :self :size |
 		self - 1 % size + 1
 	}

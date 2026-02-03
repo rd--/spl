@@ -443,6 +443,14 @@
 
 +@Integer {
 
+	antidiagonalArray { :n :f:/2 |
+		1:n.collect { :i |
+			1:i.collect { :j |
+				f(j, i - j + 1)
+			}
+		}
+	}
+
 	iota { :count :start :step |
 		let end = start + (count - 1 * step);
 		Range(start, end, step).asList

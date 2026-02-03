@@ -37,6 +37,17 @@ Fraction(56, 3)
 18.666
 ````
 
+Numerator of _1/4-1/n^2_,
+OEIS [A061037](https://oeis.org/A061037):
+
+~~~spl svg=A
+(1/4 - (2:125 ^ 2/1)./)
+.numerator
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/solidus-A.svg)
+
 * * *
 
 See also: //, +, -, *, divide, reciprocal

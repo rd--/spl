@@ -288,6 +288,49 @@ let a:/1 = { :n |
 
 ![](sw/spl/Help/Image/isPrime-B.svg)
 
+Riesel problem,
+OEIS [A038699](https://oeis.org/A038699):
+
+~~~spl svg=C
+1:99.collect { :n |
+	let m = 0;
+	let x = nil;
+	{
+		x := n * (2 ^ m) - 1;
+		x.isPrime
+	}.whileFalse {
+		m := m + 1
+	};
+	x
+}.log.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/isPrime-C.svg)
+
+
+_a(n)_ is the smallest positive integer not already in the sequence such that _a(n)+a(n-1)_ is prime,
+OEIS [A055265](https://oeis.org/A055265):
+
+~~~spl svg=D
+let m = 130;
+let a = [1];
+m.timesRepeat {
+	let i = a.last;
+	let j = 0;
+	{
+		j := j + 1
+	}.doWhileFalse {
+		(i + j).isPrime & {
+			a.includes(j).not
+		}
+	};
+	a.add(j)
+};
+a.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/isPrime-D.svg)
+
 * * *
 
 See also: isComposite, isGaussianPrime, isPrimePower, isPrimeTrialDivision, isSemiprime, isSternPrime, millerRabinPrimalityTest, nextPrime, prime, primesList

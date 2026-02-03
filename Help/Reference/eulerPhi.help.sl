@@ -232,6 +232,36 @@ OEIS [A118778](https://oeis.org/A118778):
 
 ![](sw/spl/Help/Image/eulerPhi-F.svg)
 
+Plot the number of iterations of _φ(x)_ at _n_ needed to reach one,
+OEIS [A003434](https://oeis.org/A003434):
+
+~~~spl svg=G
+1:105.collect { :n |
+	eulerPhi:/1
+	.nestWhileList(n) { :x |
+		x != 1
+	}.size - 1
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/eulerPhi-G.svg)
+
+Smallest _x_ such that _x%φ(x)=n_,
+OEIS [A234642](https://oeis.org/A234642):
+
+~~~spl svg=H
+0:43.collect { :n |
+	let x = 0;
+	{
+		x := x + 1;
+		x % x.eulerPhi = n
+	}.whileFalse;
+	x
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/eulerPhi-H.svg)
+
 * * *
 
 See also: divisors, factorInteger, gcd, lcm, powerMod, totientSummatoryFunction

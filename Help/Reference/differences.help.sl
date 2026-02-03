@@ -234,6 +234,20 @@ let y = x.sin;
 
 ![](sw/spl/Help/Image/differences-B.svg)
 
+Plot `numerator` of `differences` of _n/((n+1)(n+2))_,
+OEIS [A051712](https://oeis.org/A051712):
+
+~~~spl svg=C
+1:125.collect { :n |
+	n \ ((n + 1) * (n + 2))
+}.differences
+.negate
+.numerator
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/differences-C.svg)
+
 * * *
 
 See also: -, accumulate, differencesBy, discreteLaplacian, foldList, gradient, prefixSum, ratios

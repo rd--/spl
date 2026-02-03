@@ -61,6 +61,55 @@ let x = n.recamanSequence;
 
 ![](sw/spl/Help/Image/recamanSequence-C.svg)
 
+A variant of the sequence,
+_k_ begins at _n_ and then flips signs and increments until a value is located,
+OEIS [A064389](https://oeis.org/A064389):
+
+~~~spl svg=D
+let m = 300;
+let a = [1];
+let d = IdentitySet(a);
+2.toDo(m) { :n |
+	let k = n;
+	let x = nil;
+	{
+		x := a[n - 1] - k;
+		k := (k > 0).if { -k } { -k + 1 };
+		(x <= 0) | {
+			d.includes(x)
+		}
+	}.whileTrue;
+	a.add(x);
+	d.add(x)
+};
+a.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/recamanSequence-D.svg)
+
+Sign of first differences of Recamán’s sequence,
+OEIS [A160357](https://oeis.org/A160357):
+
+~~~spl svg=E
+100.recamanSequence
+.differences
+.sign
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/recamanSequence-E.svg)
+
+Height of terms of Recamán’s sequence,
+OEIS [A064289](https://oeis.org/A064289):
+
+~~~spl svg=F
+let r = 150.recamanSequence;
+r.addFirst(0);
+r.differences.sign.prefixSum.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/recamanSequence-F.svg)
+
 * * *
 
 See also: Set

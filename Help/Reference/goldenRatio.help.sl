@@ -318,6 +318,25 @@ phi.signatureSequence(200)
 
 ![](sw/spl/Help/Image/goldenRatio-I.svg)
 
+An array of numbers for a ternary numeration system read by antidiagonals,
+OEIS [A038150](https://oeis.org/A038150):
+
+~~~spl svg=J
+let phi = 1.goldenRatio;
+let t = { :n :j |
+	(j = 1).if {
+		((n - 1) * phi).floor + 1
+	} {
+		(phi.square * t(n, j - 1)).floor + 1
+	}
+};
+1:11.triangularArray { :n :m |
+	t(n - m + 1, m)
+}.catenate.log.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/goldenRatio-J.svg)
+
 * * *
 
 See also: e, fibonacci, fibonacciSequence, goldenAngle, harmoniousNumber, metallicMean, logarithmicSpiral, pi, plasticRatio, supergoldenRatio, wythoffLower

@@ -75,7 +75,26 @@ a.collect { :n |
 }.scatterPlot
 ~~~
 
-![](<sw/spl/Help/Image/occurrencesOf-A.svg>)
+![](sw/spl/Help/Image/occurrencesOf-A.svg)
+
+For _n>1_, _T(n,k)_ is the count of _k_ in the rows up to _n_,
+OEIS [A333867](https://oeis.org/A333867):
+
+~~~spl svg=B
+let t = [[1]];
+1:17.do { :n |
+	let u = t.flatten;
+	let v = u.max;
+	t.add(
+		1:v.collect { :m |
+			u.occurrencesOf(m)
+		}
+	)
+};
+t.catenate.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/occurrencesOf-B.svg)
 
 * * *
 

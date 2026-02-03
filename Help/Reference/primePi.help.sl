@@ -139,6 +139,17 @@ OEIS [A056239](https://oeis.org/A056239):
 ]
 ```
 
+The smallest number _m_ such that the _m_-th prime has the _n_-th prime decimal digits,
+very rapidly exceeds limit of `prime` (the fifth entry is 455,052,512),
+OEIS [A064489](https://oeis.org/A064489):
+
+```
+>>> 1:4.collect { :n |
+>>> 	primePi(nextPrime(10 ^ (n.prime - 1)))
+>>> }
+[5 26 1230 78499]
+```
+
 Plot the prime counting function:
 
 ~~~spl svg=A

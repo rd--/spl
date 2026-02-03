@@ -150,6 +150,26 @@ Plot the quotient of a function:
 
 ![](sw/spl/Help/Image/quotient-C.svg)
 
+Representation of _n_ in base three using digits _-1,0,1_,
+OEIS [A059095](https://oeis.org/A059095):
+
+~~~spl svg=D
+let f = { :n |
+	let ct = [0 0; 0 1; 1 -1];
+	(n = 0).if {
+		[]
+	} {
+		let [c, t] = ct[n % 3 + 1];
+		f(n // 3 + c) ++ [t]
+	}
+};
+1:30.collect(f:/1)
+.catenate
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/quotient-D.svg)
+
 At `Symbol`:
 
 ```

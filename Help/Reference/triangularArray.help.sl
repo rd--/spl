@@ -3,7 +3,7 @@
 - _triangularArray(m:n, f:/2, k=0)_
 
 Answer a triangular array of _m:n_ rows,
-where the _i_-th row has _n+k_ columns,
+where the _i_-th row has _i+k_ columns,
 and each cell is given by _f(i,j)_.
 
 Pascal’s triangle,
@@ -159,7 +159,7 @@ OEIS [A090850](https://oeis.org/A090850):
 
 ```
 >>> let f = 6;
->>> 0:13.triangularArray { :n :k |
+>>> 0:8.triangularArray { :n :k |
 >>> 	let a = binomial(n, k - 1);
 >>> 	let b = binomial(n - 1, k);
 >>> 	(6 * a) + b
@@ -286,6 +286,24 @@ OEIS [A003989](https://oeis.org/A003989):
 ]
 ```
 
+_2^(n-k+1)*(k+1)-(n+2)_,
+OEIS [A213568](https://oeis.org/A213568):
+
+```
+>>> 1:7.triangularArray { :n :k |
+>>> 	2 ^ (n - k + 1) * (k + 1) - (n + 2)
+>>> }
+[
+	1;
+	4 2;
+	11 7 3;
+	26 18 10 4;
+	57 41 25 13 5;
+	120 88 56 32 16 6;
+	247 183 119 71 39 19 7
+]
+```
+
 Plot the triangle given by recursion _T(n,k)=T(n-1,k)-T(n,k-1)_,
 OEIS [A096470](https://oeis.org/A096470):
 
@@ -337,7 +355,7 @@ OEIS [A003989](https://oeis.org/A003989):
 
 * * *
 
-See also: array, collect, isTriangularArray, table
+See also: antidiagonalArray, array, collect, isTriangularArray, table
 
 Guides: Array Functions
 

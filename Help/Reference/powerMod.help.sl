@@ -190,6 +190,22 @@ OEIS [A039951](https://oeis.org/A039951):
 [2 1093 11 1093 2]
 ```
 
+A regular version of Pitoun’s sequence,
+OEIS [A029898](https://oeis.org/A029898),
+omitting the leading `one`,
+OEIS [A153130](https://oeis.org/A153130):
+
+```
+>>> 1:18.collect { :n |
+>>> 	2.powerMod(n, 9)
+>>> }
+[
+	2 4 8 7 5 1
+	2 4 8 7 5 1
+	2 4 8 7 5 1
+]
+```
+
 Plot the sequence with fixed powers:
 
 ~~~spl svg=A

@@ -54,7 +54,7 @@
 		].Map;
 		let evenRules = oddRules.collect(reverse:/1);
 		{ :w |
- 			let k = w.size;
+			let k = w.size;
 			1:k.collect { :n |
 				let e = w[n];
 				n.isOdd.if {

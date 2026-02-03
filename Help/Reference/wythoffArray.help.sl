@@ -9,9 +9,8 @@ and every integer sequence defined by the Fibonacci recurrence can be derived by
 The first nine rows and columns of the Wythoff array:
 
 ```
->>> { :m :n |
->>> 	m.wythoffArray(n)
->>> }.table(1:9, 1:9)
+>>> wythoffArray:/2
+>>> .table(1:9, 1:9)
 [
 	 1   2   3   5   8  13  21  34   55;
 	 4   7  11  18  29  47  76 123  199;
@@ -24,6 +23,17 @@ The first nine rows and columns of the Wythoff array:
 	22  36  58  94 152 246 398 644 1042
 ]
 ```
+
+Plot Wythoff array read by falling antidiagonals,
+OEIS [A035513](https://oeis.org/A035513):
+
+~~~spl svg=A
+10.antidiagonalArray(
+	wythoffArray:/2
+).catenate.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/wythoffArray-A.svg)
 
 * * *
 

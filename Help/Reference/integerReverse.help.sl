@@ -65,6 +65,17 @@ OEIS [A007500](https://oeis.org/A007500):
 
 ![](sw/spl/Help/Image/integerReverse-A.svg)
 
+Log scatter plot of the `gcd` of _n_ and the reverse of _n_,
+OEIS [A055483](https://oeis.org/A055483):
+
+~~~spl svg=B
+1:120.collect { :n |
+	gcd(n, n.integerReverse)
+}.log.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/integerReverse-B.svg)
+
 * * *
 
 See also: bitReversalPermutation, fromDigits, integerDigits, integerLength, isPalindrome, reverse, vanDerCorputNumber

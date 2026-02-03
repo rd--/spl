@@ -2,7 +2,7 @@
 
 - _antidiagonalIndicesDo(k, f:/2)_
 
-Visit the first _k_ indices of an infinite matrix in antidiagonal sequence.
+Visit the first _k_ indices of an infinite matrix in (falling) antidiagonal sequence.
 
 ```
 >>> let l = [];
@@ -23,6 +23,6 @@ Visit the first _k_ indices of an infinite matrix in antidiagonal sequence.
 
 * * *
 
-See also: antidiagonal, antidiagonalMatrix
+See also: antidiagonal, antidiagonalArray, antidiagonalMatrix
 
-Guides: Matrix Functions
+Guides: Array Functions, Matrix Functions

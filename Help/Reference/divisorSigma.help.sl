@@ -261,6 +261,20 @@ OEIS [A001600](https://oeis.org/A001600):
 [1 2 3 5 6 5]
 ```
 
+Numbers _n_ such that _n+0:2_ have the same number of divisors,
+OEIS [A005238](https://oeis.org/A005238):
+
+```
+>>> 1:600.select { :n |
+>>> 	0.divisorSigma(n + 0:2).allEqual
+>>> }
+[
+	 33  85  93 141 201
+	213 217 230 242 243
+	301 374 393 445
+]
+```
+
 Plot divisor function _σ₀(n)_ up to _n=100_,
 OEIS [A000005](https://oeis.org/A000005):
 
@@ -376,6 +390,17 @@ OEIS [A047983](https://oeis.org/A047983):
 ~~~
 
 ![](sw/spl/Help/Image/divisorSigma-H.svg)
+
+Plot _a(n+1)=a(n)+σ(a(n))_,
+OEIS [A064491](https://oeis.org/A064491):
+
+~~~spl svg=I
+{ :x |
+	x + 0.divisorSigma(x)
+}.nestList(1, 47).scatterPlot
+~~~
+
+![](sw/spl/Help/Image/divisorSigma-I.svg)
 
 * * *
 
