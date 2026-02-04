@@ -537,7 +537,7 @@ OEIS [A053202](https://oeis.org/A053202):
 	2:m.collect { :k |
 		binomial(n, k) % n
 	}
-}.++.discretePlot
+}.catenate.discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/binomial-D.svg)

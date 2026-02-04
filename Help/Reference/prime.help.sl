@@ -210,7 +210,6 @@ OEIS [A060038](https://oeis.org/A060038):
 	let m = n - 1;
 	let p = n.prime;
 	let r = p.quadraticResidues;
-	[n, p, r].postLine;
 	1:m.collect { :k |
 		r.includes(k.prime).not.boole
 	}
@@ -229,7 +228,7 @@ let a = List(m, 1);
 	let x = n.prime % 6 = 1;
 	a[n] := a[n - 1] + x.if { -1 } { 1 }
 };
-a.differences
+a.differences.discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/prime-G.svg)

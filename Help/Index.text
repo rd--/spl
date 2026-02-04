@@ -348,6 +348,7 @@ Reference/annularSteinerChain.help.sl
 Reference/Annulus.help.sl
 Reference/AnnulusSector.help.sl
 Reference/anticomplementaryTriangle.help.sl
+Reference/antidiagonalArray.help.sl
 Reference/antidiagonal.help.sl
 Reference/antidiagonalIndicesDo.help.sl
 Reference/antidiagonalMatrix.help.sl
@@ -4005,6 +4006,7 @@ Reference/unique.help.sl
 Reference/uniqueId.help.sl
 Reference/unitaryDivisors.help.sl
 Reference/unitaryDivisorSigma.help.sl
+Reference/unitaryPhi.help.sl
 Reference/unitBox.help.sl
 Reference/unitCircle.help.sl
 Reference/unitCube.help.sl
