@@ -55,6 +55,24 @@ Find the digits of 7 in different bases:
 [1 1 1; 2 1; 1 3]
 ```
 
+Write the number ten in bases from two to eleven:
+
+```
+>>> 10.integerDigits(2:11)
+[
+	1 0 1 0;
+	1 0 1;
+	2 2;
+	2 0;
+	1 4;
+	1 3;
+	1 2;
+	1 1;
+	1 0;
+	10
+]
+```
+
 Find only the last 4 digits:
 
 ```

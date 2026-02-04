@@ -265,6 +265,34 @@ OEIS [A212210](https://oeis.org/A212210):
 
 ![](sw/spl/Help/Image/primePi-G.svg)
 
+A sequence describing the position of its prime terms,
+OEIS [A121053](https://oeis.org/A121053):
+
+~~~spl svg=H
+1:150.collect { :n |
+	(n < 5).if {
+		[2 3 5 1].at(n)
+	} {
+		let m = n.primePi;
+		(
+			n.isPrime | {
+				(n + m).isEven
+			}
+		).if {
+			((n + m) / 2).floor.prime
+		} {
+			(n + 1).isPrime.if {
+				n + 2
+			} {
+				n + 1
+			}
+		}
+	}
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/primePi-H.svg)
+
 * * *
 
 See also: eulerPhi, nextPrime, primesList, primesUpTo, sieveOfEratosthenes

@@ -117,6 +117,22 @@ Plot the Gauss map over a subset of the complexes:
 
 ![](sw/spl/Help/Image/floor-C.png)
 
+Renyi’s beta expansion of 1 in base 3/2,
+OEIS [A058840](https://oeis.org/A058840):
+
+~~~
+let r = 3/2;
+let x = 1;
+let y = 2:104.collect { :n |
+	let rx = r * x;
+	x := (rx > 1).if { rx - 1 } { rx };
+	(r * x).floor
+};
+([1 1] ++ y).discretePlot
+~~~
+
+![](sw/spl/Help/Image/floor-D.svg)
+
 Where supported `floor` is displayed as ⌊.
 
 * * *

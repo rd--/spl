@@ -161,6 +161,22 @@
 		}
 	}
 
+	betaExpansion { :x :beta :p |
+		let k = (x.log / beta.log).floor + 1;
+		let r = [];
+		let i = k - 1;
+		{
+			i > (-p - 1)
+		}.whileTrue {
+			let d = floor((x / (beta ^ i)) % beta);
+			x := x - (d * (beta ^ i));
+			r.add(d);
+			i := i - 1
+		};
+		[r, k]
+	}
+
+
 	[ceiling, >] { :self |
 		let truncation = self.truncate;
 		(self <= 0).if {

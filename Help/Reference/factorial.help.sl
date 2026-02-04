@@ -209,6 +209,45 @@ OEIS [A002866](https://oeis.org/A002866):
 [1 4 24 192 1920 23040 322560 5160960]
 ```
 
+Least factorial multiple of _n_,
+OEIS [A092495](https://oeis.org/A092495):
+
+```
+>>> let f = 1:30.!;
+>>> 1:28.collect { :n |
+>>> 	f.detect { :x |
+>>> 		x.divisible(n)
+>>> 	}
+>>> }
+[
+	1 2 6 24 120 6 5040 24 720 120
+	39916800 24 6227020800 5040 120
+	720 355687428096000L 720
+	121645100408832000L 120 5040
+	39916800 25852016738884976640000L
+	24 3628800 6227020800 362880 5040
+]
+```
+
+The [Kempner_function](https://en.wikipedia.org/wiki/Kempner_function),
+also sometimes called the Smarandache function or Kempner numbers,
+the smallest positive integer _m_ such that _n_ divides _m!_,
+OEIS [A002034](https://oeis.org/A002034):
+
+~~~spl svg=A
+1:100.collect { :n |
+	let m = 1;
+	{
+		m.!.divisible(n)
+	}.whileFalse {
+		m := m + 1
+	};
+	m
+}.stepPlot
+~~~
+
+![](sw/spl/Help/Image/factorial-A.svg)
+
 * * *
 
 See also: !, binomial, doubleFactorial, factorialOrGamma, factorialPower, gamma, pochhammer, subfactorial
