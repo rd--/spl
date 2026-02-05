@@ -92,4 +92,3 @@ _Mathematica_
 _W_
 [1](https://en.wikipedia.org/wiki/Fermat_quotient)
 [2](https://en.wikipedia.org/wiki/Cyclic_number)
-

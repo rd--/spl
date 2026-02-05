@@ -313,7 +313,6 @@ OEIS [A066990](https://oeis.org/A066990):
 
 ![](sw/spl/Help/Image/factorInteger-F.svg)
 
-
 * * *
 
 See also: divisors, isPrime, primeFactors, primeFactorization, product

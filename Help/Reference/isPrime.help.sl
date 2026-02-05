@@ -307,7 +307,6 @@ OEIS [A038699](https://oeis.org/A038699):
 
 ![](sw/spl/Help/Image/isPrime-C.svg)
 
-
 _a(n)_ is the smallest positive integer not already in the sequence such that _a(n)+a(n-1)_ is prime,
 OEIS [A055265](https://oeis.org/A055265):
 

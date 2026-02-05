@@ -17,7 +17,6 @@ First few unit fractions that are repeating:
 ]
 ```
 
-
 First few unit fractions that are terminating:
 
 ```

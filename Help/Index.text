@@ -612,6 +612,7 @@ Reference/besselJ.help.sl
 Reference/besselY.help.sl
 Reference/BetaBinomialDistribution.help.sl
 Reference/BetaDistribution.help.sl
+Reference/betaExpansion.help.sl
 Reference/beta.help.sl
 Reference/betaRegularized.help.sl
 Reference/betweenAnd.help.sl
@@ -1973,6 +1974,7 @@ Reference/isComposite.help.sl
 Reference/isConstantStructure.help.sl
 Reference/isConvex.help.sl
 Reference/isCoprime.help.sl
+Reference/isCubeFree.help.sl
 Reference/isCubicResidue.help.sl
 Reference/isCyan.help.sl
 Reference/isCyclicGrayCode.help.sl
@@ -2167,6 +2169,7 @@ Reference/isSplSyntaxCharacter.help.sl
 Reference/isSplSyntaxToken.help.sl
 Reference/isSquareFree.help.sl
 Reference/isSquareFreeWord.help.sl
+Reference/isSquare.help.sl
 Reference/isSquareMatrix.help.sl
 Reference/isSquareSuperparticular.help.sl
 Reference/isSquareWord.help.sl

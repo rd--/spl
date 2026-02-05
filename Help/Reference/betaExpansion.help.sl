@@ -1,3 +1,5 @@
+# betaExpansion
+
 - _betaExpansion(x, β, p)_
 
 Answer the β-expansion of the number _x_ in base _β_ to precision _p_,
