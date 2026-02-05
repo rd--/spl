@@ -612,6 +612,12 @@
 		}
 	}
 
+	isByte { :self |
+		self.isInteger & {
+			self.betweenAnd(0, 255)
+		}
+	}
+
 	isColossallyAbundantNumber { :n |
 		(n > 224403121196654400L).if {
 			n.error('isColossallyAbundantNumber: domain error')
@@ -624,6 +630,11 @@
 				6064949221531200, 224403121196654400L
 			].includes(n)
 		}
+	}
+
+	isCubeFree { :n |
+		let [_, d] = n.factorInteger.transpose;
+		d.max < 3
 	}
 
 	isCubicResidue { :q :p |
@@ -641,25 +652,19 @@
 		self.isInteger
 	}
 
-	isHighlyAbundantNumber { :n |
-		let k = n.divisors.sum;
-		1.to(n - 1).allSatisfy { :i |
-			k > i.divisors.sum
-		}
-	}
-
-	isByte { :self |
-		self.isInteger & {
-			self.betweenAnd(0, 255)
-		}
-	}
-
 	isHappyNumber { :self |
 		self.perfectDigitalInvariantSequence(10, 2).last = 1
 	}
 
 	isHarmonicDivisorNumber { :n |
 		isInteger(n * divisorSigma(0, n) / divisorSigma(1, n))
+	}
+
+	isHighlyAbundantNumber { :n |
+		let k = n.divisors.sum;
+		1.to(n - 1).allSatisfy { :i |
+			k > i.divisors.sum
+		}
 	}
 
 	isHighlyCompositeNumber { :self |
@@ -821,6 +826,10 @@
 		self.isSquareFree & {
 			self.isAlmostPrime(3)
 		}
+	}
+
+	isSquare { :n |
+		n.sqrt.isInteger
 	}
 
 	isSquareFree { :self |
@@ -1239,6 +1248,9 @@
 		} {
 			d.caseOf(
 				[
+					1 -> {
+						n.sqrt.isInteger.boole * 2
+					},
 					2 -> {
 						let f = { :c |
 							n.divisors.count { :x | (x % 4) = c }
@@ -1250,7 +1262,7 @@
 					}
 				]
 			) {
-				d.error('squaresR: d≠{2,4}')
+				d.error('squaresR: d≠{1,2,4}')
 			}
 		}
 	}

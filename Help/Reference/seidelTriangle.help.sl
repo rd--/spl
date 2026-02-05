@@ -4,6 +4,7 @@
 
 Answer the first _n_ rows of the Seidel triangle,
 more properly the Seidel–Entringer–Arnold triangle.
+Also the Boustrophedon form of the triangle of Euler-Bernoulli or Entringer numbers read by rows.
 
 First few terms,
 OEIS [A008280](https://oeis.org/A008280):

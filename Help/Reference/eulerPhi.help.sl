@@ -4,7 +4,7 @@
 
 Answer the Euler totient function,
 written _φ(n)_.
-Also known as the Euler totient function or phi function.
+Also known as the Euler totient function or φ function.
 Counts positive integers up to _n_ that are relatively prime to _n_.
 
 Compute the Euler totient function:
@@ -64,7 +64,7 @@ OEIS [A005728](https://oeis.org/A005728):
 [1 2 3 5 7 11 13 19 23 29 33 43 47 59 65]
 ```
 
-EulerPhi is non-negative:
+Euler phi is non-negative:
 
 ```
 >>> 0.eulerPhi
@@ -133,6 +133,69 @@ OEIS [A115114](https://oeis.org/A115114):
 	87169619 249056138 713205903
 	2046590846 5883948951 16945772210
 	48882035163 141214768974
+]
+```
+
+Numbers for which _φ(n)_ is a power of two,
+OEIS [A003401](https://oeis.org/A003401):
+
+```
+>>> 1:99.select { :n |
+>>> 	n.eulerPhi.log(2).isInteger
+>>> }
+[
+	 1  2  3  4  5  6  8 10 12 15
+	16 17 20 24 30 32 34 40 48 51
+	60 64 68 80 85 96
+]
+```
+
+Minimum numbers whose φ of φ are multiples of the _n_-th prime,
+OEIS [A167766](https://oeis.org/A167766):
+
+```
+>>> 1:7.collect { :n |
+>>> 	let p = n.prime;
+>>> 	let k = 1;
+>>> 	let x = nil;
+>>> 	{
+>>> 		k := k + 1;
+>>> 		x := k.prime;
+>>> 		x.eulerPhi.eulerPhi % p = 0
+>>> 	}.whileFalse;
+>>> 	x
+>>> }
+[5 19 23 59 47 107 479]
+```
+
+The prime powers _p^m_ where _m>=2_,
+OEIS [A025475](https://oeis.org/A025475):
+
+```
+>>> 1:256.select { :n |
+>>> 	n.isPrime.not & {
+>>> 		n % (n - n.eulerPhi) = 0
+>>> 	}
+>>> }
+[
+	  4   8   9  16  25
+	 27  32  49  64  81
+	121 125 128 169 243
+	256
+]
+```
+
+Number of pairs _(x,y)_ in _1:n_ with at least one common factor,
+OEIS [A185670](https://oeis.org/A185670):
+
+```
+>>> 1 + 1:23.collect { :n |
+>>> 	n - n.eulerPhi - 1
+>>> }.prefixSum
+[
+	 0  0  0  1  1  4  4  7  9 14
+	14 21 21 28 34 41 41 52 52 63
+	71 82 82
 ]
 ```
 
@@ -261,6 +324,20 @@ OEIS [A234642](https://oeis.org/A234642):
 ~~~
 
 ![](sw/spl/Help/Image/eulerPhi-H.svg)
+
+Plot iterations of φ needed to reach one starting at _n_,
+OEIS [A049108](https://oeis.org/A049108):
+
+~~~spl svg=I
+1:105.collect { :n |
+	eulerPhi:/1
+	.nestWhileList(n) { :x |
+		x != 1
+	}.size
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/eulerPhi-I.svg)
 
 * * *
 

@@ -233,6 +233,17 @@ a.differences.discretePlot
 
 ![](sw/spl/Help/Image/prime-G.svg)
 
+Size of sea of composite numbers surrounding _n_-th prime,
+OEIS [A046930](https://oeis.org/A046930):
+
+~~~spl svg=H
+1:150.collect { :n |
+	(n + 2).prime - n.prime - 2
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/prime-H.svg)
+
 * * *
 
 See also: indexOfPrime, isPrime, nextPrime, primesList, primesUpTo

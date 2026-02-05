@@ -657,6 +657,18 @@ OEIS [A033664](https://oeis.org/A033664):
 
 ![](sw/spl/Help/Image/integerDigits-L.svg)
 
+Numbers that cubed have only even digits,
+OEIS [A052004](https://oeis.org/A052004):
+
+~~~spl svg=M
+0:5000.select { :n |
+	(n ^ 3).integerDigits
+	.allSatisfy(isEven:/1)
+}.stepPlot
+~~~
+
+![](sw/spl/Help/Image/integerDigits-M.svg)
+
 * * *
 
 See also: digitCount, fromDigits, hammingWeight

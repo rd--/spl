@@ -85,6 +85,25 @@ Evaluate the Collatz, or hailstone, sequence:
 ]
 ```
 
+Count the number steps to reach a particular stop condition when iterating a map,
+OEIS [A063574](https://oeis.org/A063574):
+
+~~~spl svg=A
+1:105.collect { :n |
+	{ :x |
+		x.isEven.if {
+			(3 * x) / 2
+		} {
+			(3 * x + 1) / 2
+		}
+	}.nestWhileList(n) { :x |
+		x % 4 != 1
+	}.size - 1
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/nestWhileList-A.svg)
+
 * * *
 
 See also: iterate, nestList, nestWhile, takeWhile

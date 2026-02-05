@@ -24,6 +24,19 @@ Plot the sum of divisors for the first 50 numbers:
 
 ![](sw/spl/Help/Image/divisorSum-A.svg)
 
+Generalized sum of divisors function,
+OEIS [A002129](https://oeis.org/A002129):
+
+~~~spl svg=B
+1:150.collect { :n |
+	n.divisorSum { :x |
+		0 - (-1 ^ x * x)
+	}
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/divisorSum-B.svg)
+
 * * *
 
 See also: aliquotSum, divisors, divisorSigma, sum

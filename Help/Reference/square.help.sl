@@ -14,7 +14,9 @@ Answer the number _n_ multiplied by itself.
 >>> 25840.square + 43776.square
 2584043776
 
->>> 1675455088L.square + 3734621953L.square
+>>> 1675455088L.square
+>>> +
+>>> 3734621953L.square
 16754550883734621953L
 ```
 
@@ -65,6 +67,18 @@ the square pyramidal numbers:
 	1240
 ]
 ```
+
+Matrix plot of the first few squares represented as a sequence of binary bits:
+
+~~~spl svg=A
+1:42.square
+.binaryExpansion
+.padLeft
+.transpose
+.matrixPlot
+~~~
+
+![](sw/spl/Help/Image/square-A.svg)
 
 Where supported `square` is displayed as ².
 

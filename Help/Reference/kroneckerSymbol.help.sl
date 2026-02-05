@@ -188,6 +188,39 @@ OEIS [A004016](https://oeis.org/A004016):
 
 ![](sw/spl/Help/Image/kroneckerSymbol-B.svg)
 
+Number of different partitions of _n_ into parts of -3 different kinds,
+OEIS [A010816](https://oeis.org/A010816):
+
+~~~spl svg=C
+0:200.collect { :n |
+	let m = 8 * n + 1;
+	m.divisors.size.isOdd.if {
+		let y = m.sqrt;
+		y * -4.kroneckerSymbol(y)
+	} {
+		0
+	}
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/kroneckerSymbol-C.svg)
+
+From Euler’s pentagonal theorem,
+OEIS [A010815](https://oeis.org/A010815):
+
+~~~spl svg=D
+0:200.collect { :n |
+	let m = (24 * n + 1).sqrt;
+	m.isInteger.if {
+		12.kroneckerSymbol(m)
+	} {
+		0
+	}
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/kroneckerSymbol-D.svg)
+
 * * *
 
 See also: jacobiSymbol, legendreSymbol

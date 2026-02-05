@@ -33,7 +33,8 @@ true
 false
 ```
 
-The first few squarefree numbers are after `one`:
+The first few squarefree numbers are after `one`,
+OEIS [A005117](https://oeis.org/A005117):
 
 ```
 >>> 2:33.select(isSquareFree:/1)
@@ -44,12 +45,11 @@ The first few squarefree numbers are after `one`:
 ```
 
 A number is squareful, or nonsquarefree, if it contains at least one square.
-The first few squareful numbers are:
+The first few squareful numbers are
+OEIS [A013929](https://oeis.org/A013929):
 
 ```
->>> 1:52.select { :each |
->>> 	each.isSquareFree.not
->>> }
+>>> 1:52.reject(isSquareFree:/1)
 [
 	 4  8  9 12 16 18 20 24 25 27
 	28 32 36 40 44 45 48 49 50 52
@@ -107,16 +107,14 @@ Plot the first few squarefree numbers:
 Plot the first few squareful numbers:
 
 ~~~spl svg=B
-1:99.select { :n |
-	n.isSquareFree.not
-}.linePlot
+1:99.reject(isSquareFree:/1).linePlot
 ~~~
 
 ![](sw/spl/Help/Image/isSquareFree-B.svg)
 
 * * *
 
-See also: factorInteger, factor, isDuplicateFree, isPerfectSquare, isPowerfulNumber, isPrime, isPrimePower, moebiusMu, primeOmega, primeNu
+See also: factorInteger, factor, isCubeFree, isDuplicateFree, isPerfectSquare, isPowerfulNumber, isPrime, isPrimePower, moebiusMu, primeOmega, primeNu
 
 Guides: Integer Functions
 

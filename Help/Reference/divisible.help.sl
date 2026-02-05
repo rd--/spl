@@ -139,6 +139,19 @@ OEIS [A137921](https://oeis.org/A137921):
 
 ![](sw/spl/Help/Image/divisible-B.svg)
 
+Smallest number whose square is divisible by _n_,
+OEIS [A019554](https://oeis.org/A019554):
+
+~~~spl svg=C
+1:99.collect { :n |
+	1:n.detect { :x |
+		x.square.divisible(n)
+	}
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/divisible-C.svg)
+
 * * *
 
 See also: %, divisors, even, gcd, mod, quotient, round

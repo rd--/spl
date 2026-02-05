@@ -299,6 +299,21 @@ let a = { :n |
 
 ![](sw/spl/Help/Image/factorInteger-E.svg)
 
+Replace even exponents with two and odd exponents with one,
+OEIS [A066990](https://oeis.org/A066990):
+
+~~~spl svg=F
+1:72.collect { :n |
+	n.factorInteger.product { :x |
+		let [a, b] = x;
+		a ^ b.isEven.if { 2 } { 1 }
+	}
+}.stepPlot
+~~~
+
+![](sw/spl/Help/Image/factorInteger-F.svg)
+
+
 * * *
 
 See also: divisors, isPrime, primeFactors, primeFactorization, product

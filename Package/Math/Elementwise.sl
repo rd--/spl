@@ -80,6 +80,10 @@
 		}
 	}
 
+	binaryExpansion { :self |
+		self.collect(binaryExpansion:/1)
+	}
+
 	bitAnd { :self |
 		self.reduce(bitAnd:/2)
 	}

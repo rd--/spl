@@ -492,6 +492,31 @@ OEIS [A059678](https://oeis.org/A059678):
 ]
 ```
 
+Knights-move Pascal triangle,
+OEIS [A052509](https://oeis.org/A052509):
+
+```
+>>> 0:9.collect { :n |
+>>> 	0:n.collect { :k |
+>>> 		0:n.sum { :m |
+>>> 			binomial(n - k, k - m)
+>>> 		}
+>>> 	}
+>>> }
+[
+	1;
+	1 1;
+	1 2 1;
+	1 3 2 1;
+	1 4 4 2 1;
+	1 5 7 4 2 1;
+	1 6 11 8 4 2 1;
+	1 7 16 15 8 4 2 1;
+	1 8 22 26 16 8 4 2 1;
+	1 9 29 42 31 16 8 4 2 1
+]
+```
+
 Plot over a subset of the reals as a function of its first parameter:
 
 ~~~spl svg=A

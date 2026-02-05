@@ -110,6 +110,20 @@ Collect with another two sequential collections:
 [11 18 27]
 ```
 
+Square array of polygonal numbers read by antidiagonals upwards,
+OEIS [A057145](https://oeis.org/A057145):
+
+~~~spl svg=A
+2:13.collect { :n |
+	let m = n - 1;
+	1:m.collect { :k |
+		k * (3 - (k * k) - n + (k * n)) / 2
+	}
+}.catenate.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/collect-A.svg)
+
 Collect is implemented in terms of `new`, `do` and `add` for unordered collections,
 and in terms of `ofSize`, `size`, `at` and `atPut` for sequences.
 

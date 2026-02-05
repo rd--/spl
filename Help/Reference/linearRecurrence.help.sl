@@ -619,7 +619,29 @@ OEIS [A000285](https://oeis.org/A000285):
 
 ```
 >>> linearRecurrence([1 1], [1 4], 15)
-[1 4 5 9 14 23 37 60 97 157 254 411 665 1076 1741]
+[
+	1 4 5 9 14 23 37 60 97 157 254 411
+	665 1076 1741
+]
+```
+
+Number of 2×2 square partitions of _n_,
+OEIS [A008763](https://oeis.org/A008763):
+
+```
+>>> linearRecurrence(
+>>> 	[1 2 -1 -2 -1 2 1 -1],
+>>> 	[0 0 0 0 1 1 3 4],
+>>> 	57
+>>> )
+[
+	0 0 0 0 1 1 3 4 7 9 14 17 24 29 38 45
+	57 66 81 93 111 126 148 166 192 214
+	244 270 305 335 375 410 455 495 546
+	591 648 699 762 819 889 952 1029
+	1099 1183 1260 1352 1436 1536 1628
+	1736 1836 1953 2061 2187 2304 2439
+]
 ```
 
 Draw spiral:
@@ -633,6 +655,19 @@ linearRecurrence(k, i, 100)
 ~~~
 
 ![](sw/spl/Help/Image/linearRecurrence-A.svg)
+
+Molien series of binary octahedral group of order 48,
+OEIS [A008647](http://oeis.org/A008647):
+
+~~~spl svg=B
+linearRecurrence(
+	[0 0 1 1 0 0 -1],
+	[1 0 0 0 1 0 1],
+	7 * 12
+).stepPlot
+~~~
+
+![](sw/spl/Help/Image/linearRecurrence-B.svg)
 
 * * *
 

@@ -16,11 +16,12 @@ also called binary words or binary vectors.
 [3 5 3]
 ```
 
-First few terms,
+Threads over lists,
+first few terms,
 OEIS [A007088](https://oeis.org/A007088):
 
 ```
->>> 0:15.collect(binaryExpansion:/1)
+>>> 0:15.binaryExpansion
 [
 	0;
 	1;

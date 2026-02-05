@@ -80,6 +80,28 @@ Plot first few terms:
 
 ![](sw/spl/Help/Image/squaresR-A.svg)
 
+Plot one if _n_ is a triangular number otherwise zero,
+OEIS [A010054](https://oeis.org/A010054):
+
+~~~spl svg=B
+0:200.collect { :n |
+	1.squaresR(8 * n + 1) / 2
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/squaresR-B.svg)
+
+Plot first few terms with _d=4_,
+OEIS [A000118](https://oeis.org/A000118):
+
+~~~spl svg=C
+0:250.collect { :n |
+	4.squaresR(n)
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/squaresR-C.svg)
+
 * * *
 
 See also: divisors, isSumOfTwoSquares, square
@@ -93,6 +115,7 @@ _Mathematica_
 _OEIS_
 [1](https://oeis.org/A000118)
 [2](https://oeis.org/A004018)
-[3](https://oeis.org/A001481),
+[3](https://oeis.org/A001481)
+[4](https://oeis.org/A010054),
 _W_
 [1](https://en.wikipedia.org/wiki/Sum_of_squares_function)
