@@ -306,6 +306,14 @@
 
 }
 
++@Sequenceable {
+
+	arcTan { :self :operand |
+		operand.adaptToCollectionAndApply(self, arcTan:/2)
+	}
+
+}
+
 +Fraction {
 
 	cos { :self |

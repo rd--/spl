@@ -119,9 +119,22 @@ Plot over a subset of the complexes:
 
 ![](sw/spl/Help/Image/arcTan-B.png)
 
+Threads over lists,
+the arc tangent of a cosine and sine wave is a sawtooth wave:
+
+~~~spl svg=C
+let x = (0 -- 2.pi).subdivide(200);
+let a = x.cos;
+let b = x.sin;
+let c = arcTan(a, b) / 1.pi;
+[a b c].signalPlot
+~~~
+
+![](sw/spl/Help/Image/arcTan-C.svg)
+
 Note:
 The two argument form reverses the argument order to _arcTan:_ in Smalltalk.
-The method _atan2_ is the two argument _arcTan_ with arguments reversed.
+The method `atan2` is the two argument `arcTan` with arguments reversed.
 
 ```
 >>> arcTan(0.5, 2)

@@ -1,9 +1,9 @@
 # adaptToCollectionAndApply
 
-- _adaptToCollectionAndApply(anObject, aCollection, aBlock:/2)_
+- _adaptToCollectionAndApply(x, c, f:/2)_
 
-Request that _anObject_ adapt itself to operating with _aCollection_ elementwise,
-and then apply _aBlock_ with itself as the second parameter.
+Request that the object _x_ adapt itself to operating with the collection _c_ elementwise,
+and then apply the block _f_ with itself as the second parameter.
 
 At `SmallFloat`, adapting to `List`:
 
