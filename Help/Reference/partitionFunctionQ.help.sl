@@ -28,7 +28,8 @@ since there are four partitions of 10 into three distinct parts:
 ]
 ```
 
-First few terms of OEIS [A000041](https://oeis.org/A000041):
+First few terms,
+OEIS [A000009](https://oeis.org/A000009):
 
 ```
 >>> 0:39.collect(partitionFunctionQ:/1)
@@ -44,7 +45,8 @@ First few terms of OEIS [A000041](https://oeis.org/A000041):
 ]
 ```
 
-The following table gives the first few values of _Q(n,k)_:
+The following table gives the first few values of _Q(n,k)_,
+OEIS [A008289](https://oeis.org/A008289):
 
 ```
 >>> 1:10.collect { :n |
@@ -68,6 +70,22 @@ The following table gives the first few values of _Q(n,k)_:
 ]
 ```
 
+Maximal value of _Q(n,m)_,
+[A030699](https://oeis.org/A030699):
+
+```
+>>> 1:29.collect { :n |
+>>> 	1:n.collect { :k |
+>>> 		n.partitionFunctionQ(k)
+>>> 	}.max
+>>> }
+[
+	 1  1  1  1  2  2  3  3  4  4
+	 5  7  8 10 12 14 16 19	21 24
+	27 34 39 47 54 64 72 84 94
+]
+~~~
+
 Plot table:
 
 ~~~spl svg=A
@@ -82,7 +100,7 @@ Plot table:
 
 ![](sw/spl/Help/Image/partitionFunctionQ-A.svg)
 
-Plot log scaled:
+Plot table log scaled:
 
 ~~~spl svg=B
 1:43.collect { :n |
@@ -107,7 +125,9 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/PartitionFunctionQ.html)
 [2](https://reference.wolfram.com/language/ref/PartitionsQ.html),
 _OEIS_
-[1](https://oeis.org/A000009),
+[1](https://oeis.org/A000009)
+[2](https://oeis.org/A008289)
+[3](https://oeis.org/A030699),
 _W_
 [1](https://en.wikipedia.org/wiki/Partition_function_(number_theory))
 

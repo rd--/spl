@@ -66,6 +66,30 @@ Calculate the first _n_ rows and _m_ columns of the infinite matrix counted by a
 ]
 ```
 
+Distinct partitions of triangular numbers,
+OEIS [A104382](https://oeis.org/A104382)
+
+```
+>>> 1:9.collect { :n |
+>>> 	let m = n.triangularNumber;
+>>> 	1:n.collect { :k |
+>>> 		m.partitionFunctionQ(k)
+>>> 	}
+>>> }
+[
+	1;
+	1 1;
+	1 2 1;
+	1 4 4 1;
+	1 7 12 6 1;
+	1 10 27 27 10 1;
+	1 13 52 84 57 14 1;
+	1 17 91 206 221 110 21 1;
+	1 22 147 441 674 532 201 29 1
+]
+```
+
+
 The reciprocals of triangular numbers produce is convergent series where the limit is two:
 
 ~~~spl svg=A
@@ -88,6 +112,7 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/TriangularNumber.html),
 _OEIS_
 [1](https://oeis.org/A000217)
-[2](https://oeis.org/A008302),
+[2](https://oeis.org/A008302)
+[3](https://oeis.org/A104382),
 _W_
 [1](https://en.wikipedia.org/wiki/Triangular_number)

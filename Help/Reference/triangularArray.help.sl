@@ -353,6 +353,27 @@ OEIS [A003989](https://oeis.org/A003989):
 
 ![](sw/spl/Help/Image/triangularArray-C.svg)
 
+Number of partitions of _n_ into _k_ distinct parts,
+OEIS [A060016](https://oeis.org/A060016):
+
+~~~spl svg=D
+let t = { :n :k |
+	(k = 1).if {
+		1
+	} {
+		(k < n).if {
+			t(n - k, k) + t(n - k, k - 1)
+		} {
+			0
+		}
+	}
+};
+1:30.triangularArray(t:/2)
+.catenate.log.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/triangularArray-D.svg)
+
 * * *
 
 See also: antidiagonalArray, array, collect, isTriangularArray, table
@@ -374,7 +395,8 @@ _OEIS_
 [9](https://oeis.org/A004736)
 [10](https://oeis.org/A096470)
 [11](https://oeis.org/A003991)
-[12](https://oeis.org/A003989),
+[12](https://oeis.org/A003989)
+[13](https://oeis.org/A060016),
 _W_
 [1](https://en.wikipedia.org/wiki/Triangular_array)
 [2](https://en.wikipedia.org/wiki/Floyd%27s_triangle)

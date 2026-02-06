@@ -5,7 +5,8 @@
 Answer the Eulerian number _<n;k>_,
 telling the number of permutations of _{1,2,…,n}_ having _k_ permutation ascents.
 
-First few rows of the Euler triangle:
+First few rows of the Euler triangle,
+OEIS [A008292](https://oeis.org/A008292):
 
 ```
 >>> 0:8.triangularArray(

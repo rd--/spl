@@ -120,7 +120,7 @@ Plot the Gauss map over a subset of the complexes:
 Renyi’s beta expansion of 1 in base 3/2,
 OEIS [A058840](https://oeis.org/A058840):
 
-~~~
+~~~spl svg=D
 let r = 3/2;
 let x = 1;
 let y = 2:104.collect { :n |
@@ -132,6 +132,18 @@ let y = 2:104.collect { :n |
 ~~~
 
 ![](sw/spl/Help/Image/floor-D.svg)
+
+Plot _n_ repeating _1+⌊(n/2)_ times,
+OEIS [A055086](https://oeis.org/A055086):
+
+~~~spl svg=E
+0:20.collect { :n |
+	let k = (n / 2).floor + 1;
+	k # [n]
+}.catenate.stepPlot
+~~~
+
+![](sw/spl/Help/Image/floor-E.svg)
 
 Where supported `floor` is displayed as ⌊.
 

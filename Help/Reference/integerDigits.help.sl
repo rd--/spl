@@ -669,6 +669,36 @@ OEIS [A052004](https://oeis.org/A052004):
 
 ![](sw/spl/Help/Image/integerDigits-M.svg)
 
+Plot numbers written in the dyadic system,
+OEIS [A007931](https://oeis.org/A007931):
+
+~~~spl svg=N
+1:94.collect { :n |
+	let a = (n + 1).integerDigits(2);
+	(a + 1).allButFirst.fromDigits
+}.logScale.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/integerDigits-N.svg)
+
+Plot expected time until the _n_-th possible sequence of coin tosses,
+OEIS [A059943](https://oeis.org/A059943):
+
+~~~spl svg=O
+1:126.collect { :n |
+	let a = (n + 1).integerDigits(2);
+	let b = a.drop(1) + 1;
+	let c = [];
+	1.toDo(b.size) { :k |
+		let d = b.first(k) = b.last(k);
+		c.addFirst(d.boole)
+	};
+	2 * c.fromDigits(2)
+}.stepPlot
+~~~
+
+![](sw/spl/Help/Image/integerDigits-O.svg)
+
 * * *
 
 See also: digitCount, fromDigits, hammingWeight

@@ -136,6 +136,20 @@ OEIS [A006094](https://oeis.org/A006094):
 ]
 ```
 
+Prefix sum of primes,
+OEIS [A007504](https://oeis.org/A007504):
+
+```
+>>> 1:24.prime.prefixSum
+[
+	  2   5  10  17  28
+	 41  58  77 100 129
+	160 197 238 281 328
+	381 440 501 568 639
+	712 791 874 963
+]
+```
+
 Plot first fifty primes:
 
 ~~~spl svg=A
@@ -244,6 +258,46 @@ OEIS [A046930](https://oeis.org/A046930):
 
 ![](sw/spl/Help/Image/prime-H.svg)
 
+Plot triangular array of means of two odd primes,
+OEIS [A065305](https://oeis.org/A065305):
+
+~~~spl svg=I
+2:17.triangularArray { :n :k |
+	(n.prime + k.prime) / 2
+}.catenate.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/prime-I.svg)
+
+The Goldbach permutation,
+OEIS [A065306](https://oeis.org/A065306):
+
+~~~spl svg=J
+let a = 2:23.triangularArray { :n :k |
+	(n.prime + k.prime) / 2
+}.catenate;
+let b = a.deleteDuplicates - 2;
+a.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/prime-J.svg)
+
+Plot least _k_ such that sum of first _k_ primes is _n_ times a prime,
+OEIS [A045985](https://oeis.org/A045985):
+
+~~~spl svg=K
+let m = 15000;
+let p = 1:m.prime.prefixSum;
+let t = [1:m, p].transpose;
+1:250.collect { :n |
+	t.detect { :x |
+		(x[2] / n).isPrime
+	}.first
+}.log.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/prime-K.svg)
+
 * * *
 
 See also: indexOfPrime, isPrime, nextPrime, primesList, primesUpTo
@@ -263,7 +317,8 @@ _OEIS_
 [3](https://oeis.org/A243353)
 [4](https://oeis.org/A001348)
 [5](https://oeis.org/A006450)
-[6](https://oeis.org/A006094),
+[6](https://oeis.org/A006094)
+[7](https://oeis.org/A045985),
 _Python_
 [1](https://docs.sympy.org/latest/modules/ntheory.html#sympy.ntheory.generate.prime),
 _SuperCollider_

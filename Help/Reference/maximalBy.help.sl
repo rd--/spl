@@ -28,7 +28,7 @@ All maximal elements are returned, in order of appearance:
 ['x' 3; 'y' 3; 'u' 3]
 ```
 
-Prune an `Record` to its maximal values:
+Prune a `Record` to its maximal values:
 
 ```
 >>> (a: [4 1], b: [2 3], c: [4 2], d: [1 3])

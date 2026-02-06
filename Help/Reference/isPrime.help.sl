@@ -91,6 +91,13 @@ Threads over lists:
 [1 1 0 0 0]
 ```
 
+Non-integers are not prime:
+
+```
+>>> 2.5.isPrime
+false
+```
+
 Characteristic function of prime numbers,
 OEIS [A010051](https://oeis.org/A010051):
 
@@ -329,6 +336,15 @@ a.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/isPrime-D.svg)
+
+Plot characteristic function,
+OEIS [A010051](https://oeis.org/A010051):
+
+~~~spl svg=E
+1:100.isPrime.boole.discretePlot
+~~~
+
+![](sw/spl/Help/Image/isPrime-E.svg)
 
 * * *
 

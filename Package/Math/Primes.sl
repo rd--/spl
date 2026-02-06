@@ -141,10 +141,14 @@
 	}
 
 	isPrime { :self |
-		system.isCachedPrime(self).if {
-			true
+		self.isInteger.if {
+			system.isCachedPrime(self).if {
+				true
+			} {
+				self.isPrimeTrialDivision
+			}
 		} {
-			self.isPrimeTrialDivision
+			false
 		}
 	}
 

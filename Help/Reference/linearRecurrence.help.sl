@@ -644,6 +644,19 @@ OEIS [A008763](https://oeis.org/A008763):
 ]
 ```
 
+Signed Fibonacci numbers,
+OEIS [A039834](https://oeis.org/A039834):
+
+```
+>>> linearRecurrence([-1 1], [1 1], 19)
+[
+	1 1 0 1 -1
+	2 -3 5 -8 13
+	-21 34 -55 89 -144
+	233 -377 610 -987 1597
+]
+```
+
 Draw spiral:
 
 ~~~spl svg=A

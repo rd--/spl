@@ -574,12 +574,34 @@
 		}.take(n)
 	}
 
-	lookAndSaySequence { :m |
-		{ :n |
-			n.split(=).collect { :x |
-				[x.size, x.first]
-			}.flatten
-		}.nestList([1], m - 1)
+	lookAndSay { :n :b |
+		n.integerDigits(b)
+		.split(=)
+		.collectCatenate { :x |
+			[x.size, x.first]
+		}
+	}
+
+	lookAndSay { :n |
+		n.lookAndSay(10)
+	}
+
+	lookAndSaySequence { :m :k |
+		k.caseOf(
+			[
+				'A' -> {
+					{ :n |
+						n.split(=)
+						.collectCatenate { :x |
+							[x.size, x.first]
+						}
+					}.nestList([1], m - 1)
+				},
+				'LS' -> {
+					0.to(m - 1).collect(lookAndSay:/1)
+				}
+			]
+		)
 	}
 
 	mallowsSequence { :n |

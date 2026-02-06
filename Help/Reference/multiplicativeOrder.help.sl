@@ -279,9 +279,40 @@ OEIS [A084680](https://oeis.org/A084680):
 
 ![](sw/spl/Help/Image/multiplicativeOrder-C.svg)
 
+Plot number of different cycles of digits in the decimal expansions of reciprocals of primes,
+OEIS [A006556](https://oeis.org/A006556):
+
+~~~spl svg=D
+4:150.prime.collect { :n |
+	(n - 1) / 10.multiplicativeOrder(n)
+}.log.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/multiplicativeOrder-D.svg)
+
+Plot shuffling _2n_ cards,
+OEIS [A002139](https://oeis.org/A002139):
+
+~~~
+1:200.collect { :n |
+	let x = 2.multiplicativeOrder(2 * n - 1);
+	let m = 2 * n - 1;
+	(x = m.eulerPhi).if {
+		let [p, k] = m.factorInteger.first;
+		(x + 1) * (p ^ (k - 1)).eulerPhi
+	} {
+		x.lcm(x + 1)
+	}
+}.logScale.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/multiplicativeOrder-E.svg)
+
 * * *
 
 See also: %, carmichaelLambda, eulerPhi, powerMod, primitiveRootList
+
+Guides: Mathematical Functions
 
 References:
 _Mathematica_

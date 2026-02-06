@@ -4,7 +4,8 @@
 
 Answer `true` if the integer _n_ is a perfect power, and `false` otherwise.
 
-The first few perfect powers:
+The first few perfect powers,
+OEIS [A001597](http://oeis.org/A001597):
 
 ```
 >>> 1:1024.select(isPerfectPower:/1)
@@ -20,6 +21,29 @@ The first few perfect powers:
 	1024
 ]
 ```
+
+Plot distance to nearest perfect power,
+OEIS [A301573](https://oeis.org/A301573):
+
+~~~spl svg=A
+0:250.collect { :n |
+	let k = 0;
+	{
+		(n + k).isPerfectPower | {
+			(n - k).isPerfectPower | {
+				(n - k) = 1 | {
+					(n + k) = 1
+				}
+			}
+		}
+	}.whileFalse {
+		k := k + 1
+	};
+	k
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/isPerfectPower-A.svg)
 
 * * *
 

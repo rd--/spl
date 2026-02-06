@@ -103,6 +103,31 @@ Plot sums of digits:
 
 ![](sw/spl/Help/Image/stirlingS1-B.svg)
 
+Triangle of arctangent numbers,
+OEIS [A008309](https://oeis.org/A008309):
+
+~~~spl svg=C
+1:11.collect { :n |
+	let m = 2 - (n % 2);
+	m:n:2.collect { :k |
+		let a = -1 ^ ((3 * n + k) / 2);
+		let b = n.! / (2 ^ k);
+		let c = k:n.sum { :i |
+			(2 ^ i)
+			*
+			binomial(n - 1, i - 1)
+			*
+			stirlingS1(i, k)
+			/
+			i.!
+		};
+		a * b * c
+	}
+}.catenate.logScale.discretePlot
+~~~
+
+![](sw/spl/Help/Image/stirlingS1-C.svg)
+
 * * *
 
 See also: factorialPower, stirlingS2

@@ -567,6 +567,29 @@ OEIS [A053202](https://oeis.org/A053202):
 
 ![](sw/spl/Help/Image/binomial-D.svg)
 
+Plot the second in a series of arrays counting standard tableaux by partition type,
+OEIS [A059797](https://oeis.org/A059797):
+
+~~~spl svg=E
+let t = { :n :k |
+	(n < 0 | { k < 0 | { k > n } }).if {
+		0
+	} {
+		t(n - 1, k - 1)
+		+
+		t(n - 1, k)
+		+
+		binomial(n + 2, k + 1)
+	}
+};
+0:13.triangularArray(t:/2)
+.catenate
+.log
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/binomial-E.svg)
+
 * * *
 
 See also: factorial, multinomial, trinomial

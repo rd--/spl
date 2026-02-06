@@ -150,6 +150,24 @@ List! : [Object, Storeable, Equatable, Comparable, Json, Iterable, Indexable, Co
 		self.printString(printString:/1)
 	}
 
+	recordValues { :self :aBlock:/2 |
+		let k = self.size;
+		let m = self.first;
+		let r = [m];
+		2.toDo(k) { :i |
+			let n = self[i];
+			aBlock(n, m).ifTrue {
+				m := n;
+				r.add(m)
+			}
+		};
+		r
+	}
+
+	recordValues { :self |
+		self.recordValues(>)
+	}
+
 	reflectionMatrix { :self |
 		self := self / self.norm;
 		self.size.caseOf([

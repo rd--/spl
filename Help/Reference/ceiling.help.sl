@@ -76,6 +76,22 @@ The unary operator form is `>`:
 4
 ```
 
+_Σ{k=1:n}⌈(n/k)_,
+OEIS [A006590](https://oeis.org/A006590):
+
+```
+>>> 1:23.collect { :n |
+>>> 	1:n.sum { :k |
+>>> 		(n / k).ceiling
+>>> 	}
+>>> }
+[
+	 1  3  6  9 13 16 21 24 29 33
+	38 41 48 51 56 61 67 70 77 80
+	87 92 97
+]
+```
+
 Ceiling is a staircase function:
 
 ~~~spl svg=A

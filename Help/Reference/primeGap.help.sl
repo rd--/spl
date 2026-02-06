@@ -33,6 +33,16 @@ Most frequent gaps in initial primes sequence:
 ]
 ```
 
+Differences between record prime gaps,
+OEIS [A053695](https://oeis.org/A053695):
+
+```
+>>> 1:2000.collect(primeGap:/1)
+>>> .recordValues
+>>> .differences
+[1 2 2 2 6 4 2 2 12 2 8]
+```
+
 Plot first few terms,
 OEIS [A001223](https://oeis.org/A001223):
 
@@ -58,6 +68,8 @@ See also: isPrime, nextPrime, prime
 Guides: Prime Number Functions, Integer Sequence Functions
 
 References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/PrimeGaps.html),
 _OEIS_
 [1](https://oeis.org/A001223),
 _W_

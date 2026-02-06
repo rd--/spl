@@ -25,6 +25,41 @@ the sum of two elements defines the next:
 ]
 ```
 
+Plot the minimal absolute difference between _n_ and each of the powers of the previous terms,
+OEIS [A322522](https://oeis.org/A322522):
+
+~~~spl svg=A
+let comparePowers = { :n :m |
+	(n <= 1).if {
+		m - n
+	} {
+		let a = n;
+		{
+			a < m
+		}.whileTrue {
+			a := a * n
+		};
+		(m - (a / n)).min(a - m)
+	}
+};
+let a = [1];
+let b = [1];
+150.timesRepeat {
+	a.add(
+		b.collect { :n |
+			let m = a.size + 1;
+			n.comparePowers(m)
+		}.min
+	);
+	(a.last > b.last).ifTrue {
+		b.add(a.last)
+	}
+};
+a.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/whileTrue-A.svg)
+
 In the unary case, simply evaluate _condition_ repeatedly as long as it answers `true`.
 
 * * *
