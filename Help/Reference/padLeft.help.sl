@@ -90,10 +90,25 @@ Prepend three rows to a row-vector:
 ]
 ```
 
+An accumulation array,
+OEIS [A051340](https://oeis.org/A051340):
+
+~~~spl svg=A
+1:15.collect { :n |
+	[n].padLeft([n], 1)
+}.catenate.stepPlot
+~~~
+
+![](sw/spl/Help/Image/padLeft-A.svg)
+
 * * *
 
 See also: #, ++, arrayPad, padLeftAndRight, padRight, reshape, recycle, shape, size
 
+Guides: List Functions
+
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/PadLeft.html)
+[1](https://reference.wolfram.com/language/ref/PadLeft.html),
+_OEIS_
+[1](https://oeis.org/A051340)

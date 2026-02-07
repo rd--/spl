@@ -374,6 +374,17 @@ let t = { :n :k |
 
 ![](sw/spl/Help/Image/triangularArray-D.svg)
 
+Array where differences in rows are _n…1_,
+OEIS [A141419](https://oeis.org/A141419):
+
+~~~spl svg=E
+1:13.triangularArray { :n :m |
+	m * ((2 * n) - m + 1) / 2
+}.catenate.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/triangularArray-E.svg)
+
 * * *
 
 See also: antidiagonalArray, array, collect, isTriangularArray, table
@@ -396,7 +407,8 @@ _OEIS_
 [10](https://oeis.org/A096470)
 [11](https://oeis.org/A003991)
 [12](https://oeis.org/A003989)
-[13](https://oeis.org/A060016),
+[13](https://oeis.org/A060016)
+[14](https://oeis.org/A141419),
 _W_
 [1](https://en.wikipedia.org/wiki/Triangular_array)
 [2](https://en.wikipedia.org/wiki/Floyd%27s_triangle)

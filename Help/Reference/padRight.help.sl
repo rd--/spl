@@ -11,6 +11,20 @@ Pad a `List` to make a longer list:
 [1 2 3 0 0 0 0 0 0]
 ```
 
+Unit list:
+
+```
+>>> [5].padRight([5], 1)
+[5 1 1 1 1]
+```
+
+Zero shape:
+
+```
+>>> [0].padRight([0], 1)
+[]
+```
+
 Not in place:
 
 ```
@@ -85,6 +99,17 @@ At `String`:
 'xyz      '
 ```
 
+Weight array of the natural numbers,
+OEIS [A144112](https://oeis.org/A144112):
+
+~~~spl svg=A
+0:15.collect { :n |
+	[n].padRight([n], 1) ++ [n + 1]
+}.catenate.stepPlot
+~~~
+
+![](sw/spl/Help/Image/padRight-A.svg)
+
 * * *
 
 See also: #, ++, arrayPad, padLeft, padLeftAndRight, recycle, reshape, shape, size
@@ -93,4 +118,6 @@ Guides: Array Functions, List Functions, Matrix Functions
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/PadRight.html)
+[1](https://reference.wolfram.com/language/ref/PadRight.html),
+_OEIS_
+[1](https://oeis.org/A144112)

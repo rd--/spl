@@ -85,6 +85,26 @@ false
 true
 ```
 
+Log plot of the semi-Fibonacci sequence,
+OEIS [A030067](https://oeis.org/A030067):
+
+~~~spl svg=A
+let f = { :n |
+	(n = 1).if {
+		1
+	} {
+		n.isEven.if {
+			f(n / 2)
+		} {
+			f(n - 1) + f(n - 2)
+		}
+	}
+};
+1:125.collect(f:/1).log.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/isEven-A.svg)
+
 * * *
 
 See also: divisible, isInteger, isOdd
@@ -96,7 +116,8 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/EvenNumber.html)
 [2](https://reference.wolfram.com/language/ref/EvenQ.html),
 _OEIS_
-[1](https://oeis.org/A005843),
+[1](https://oeis.org/A005843)
+[2](https://oeis.org/A030067),
 _Smalltalk_
 5.6.5.10,
 _W_

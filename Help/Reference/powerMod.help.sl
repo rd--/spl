@@ -273,6 +273,18 @@ OEIS [A007535](https://oeis.org/A007535):
 
 ![](sw/spl/Help/Image/powerMod-E.svg)
 
+Plot number of distinct residues,
+OEIS [A195637](https://oeis.org/A195637):
+
+~~~spl svg=F
+1:150.collect { :n |
+	let m = n - 1;
+	0:m.powerMod(n, n).nub.size
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/powerMod-F.svg)
+
 * * *
 
 See also: ^, %

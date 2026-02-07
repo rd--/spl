@@ -233,6 +233,19 @@ OEIS [A283681](https://oeis.org/A283681):
 
 ![](sw/spl/Help/Image/iterate-C.svg)
 
+Trajectory of 1 under the morphism _1→12,2→123_ &etc,
+OEIS [A007001](https://oeis.org/A007001):
+
+~~~spl svg=D
+{ :c |
+	c.collect { :n |
+		[1 .. n + 1]
+	}.catenate
+}.iterate([1], 5).stepPlot
+~~~
+
+![](sw/spl/Help/Image/iterate-D.svg)
+
 _Rationale:_
 This notation can be more compact than a written out loop,
 and can also be written in the middle of a sequence of bindings,

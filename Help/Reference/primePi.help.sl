@@ -293,6 +293,24 @@ OEIS [A121053](https://oeis.org/A121053):
 
 ![](sw/spl/Help/Image/primePi-H.svg)
 
+Plot the sequence fully multiplicative with _a(p)=k_ if _p_ is the _k_-th prime,
+OEIS [A003963](https://oeis.org/A003963):
+
+~~~spl svg=I
+1:275.collect { :n |
+	(n = 1).if {
+		1
+	} {
+		n.factorInteger
+		.product { :x |
+			x[1].primePi ^ x[2]
+		}
+	}
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/primePi-I.svg)
+
 * * *
 
 See also: eulerPhi, nextPrime, primesList, primesUpTo, sieveOfEratosthenes

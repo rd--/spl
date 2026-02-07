@@ -226,6 +226,15 @@ Plot simple sine & cosine curve by R.Cabello:
 
 ![](sw/spl/Help/Image/sin-K.svg)
 
+Nearest integer to _sin(n)_,
+OEIS [A000494](https://oeis.org/A000494):
+
+~~~spl svg=L
+0:200.sin.round.discretePlot
+~~~
+
+![](sw/spl/Help/Image/sin-L.svg)
+
 * * *
 
 See also: arcSin, cos, csc, haversine, sinDegrees, sinh, tan

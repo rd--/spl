@@ -41,4 +41,6 @@ See also: :, --, Interval
 
 Guides: Range Syntax
 
+Unicode: U+2026 … Horizontal Ellipsis
+
 Categories: Syntax

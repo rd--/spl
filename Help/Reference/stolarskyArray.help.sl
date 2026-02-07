@@ -55,7 +55,7 @@ true
 
 * * *
 
-See also: fibonacci, goldenRatio, stolarskyIndex, wythoffArray
+See also: dispersionArray, fibonacci, goldenRatio, stolarskyIndex, wythoffArray
 
 Guides: Integer Sequence Functions
 

@@ -179,14 +179,18 @@
 	}
 
 	padRight { :self :shape :anObject |
-		let affix = List(shape[1].abs - self.size, anObject);
-		let next = shape[1].isNegative.if { affix ++ self } { self ++ affix };
-		(shape.size = 1).if {
-			next
+		shape.includes(0).if {
+			[]
 		} {
-			let nextShape = shape.allButFirst;
-			next.collect { :each |
-				padRight(each.nest, nextShape, anObject)
+			let affix = List(shape[1].abs - self.size, anObject);
+			let next = shape[1].isNegative.if { affix ++ self } { self ++ affix };
+			(shape.size = 1).if {
+				next
+			} {
+				let nextShape = shape.allButFirst;
+				next.collect { :each |
+					padRight(each.nest, nextShape, anObject)
+				}
 			}
 		}
 	}

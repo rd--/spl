@@ -37,7 +37,7 @@ OEIS [A035513](https://oeis.org/A035513):
 
 * * *
 
-See also: fibonacci, stolarskyArray, wythoffLower, wythoffPair, wythoffUpper
+See also: dispersionArray, fibonacci, stolarskyArray, wythoffLower, wythoffPair, wythoffUpper
 
 Guides: Integer Sequence Functions
 
