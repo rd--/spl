@@ -252,6 +252,10 @@ LargeInteger! : [Object, Storeable, Equatable, Comparable, Binary, Magnitude, Nu
 		true
 	}
 
+	isFinite { :unused |
+		true
+	}
+
 	isImmediate { :unused |
 		false /* 1L !== 1 */
 	}

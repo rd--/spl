@@ -229,6 +229,26 @@ OEIS [A092495](https://oeis.org/A092495):
 ]
 ```
 
+_n*n!+1=(n+1)!-n!+1_,
+OEIS [A188914](https://oeis.org/A188914):
+
+```
+>>> 0:8.collect { :n | (n * n.!) + 1 }
+[1 2 5 19 97 601 4321 35281 322561]
+
+>>> 0:8.collect { :n | (n + 1).! - n.! + 1 }
+[1 2 5 19 97 601 4321 35281 322561]
+```
+
+Primes of the form _n!-(n-1)!+1_,
+OEIS [A049984](https://oeis.org/A049984):
+
+```
+>>> 0:13.collect { :n | (n * n.!) + 1 }
+>>> .select(isPrime:/1)
+[2 5 19 97 601 35281 5748019201]
+```
+
 The [Kempner_function](https://en.wikipedia.org/wiki/Kempner_function),
 also sometimes called the Smarandache function or Kempner numbers,
 the smallest positive integer _m_ such that _n_ divides _m!_,

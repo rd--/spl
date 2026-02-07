@@ -55,6 +55,8 @@ Expand a negative integer:
 
 See also: integerDigits, realDigits, numberDecompose
 
+Guides: Number Digit Functions
+
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/NumberExpand.html.html)
+[1](https://reference.wolfram.com/language/ref/NumberExpand.html)

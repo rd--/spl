@@ -1249,6 +1249,26 @@
 		}
 	}
 
+	dispersionArray { :f:/1 :shape |
+		let [m, n] = shape - 1;
+		let g = { :x |
+			let y = x.nub.sort;
+			let k = y.size;
+			{ :i |
+				i + 1
+			}.nestWhile(1) { :i |
+				i <= k & {
+					y[i] <= i
+				}
+			}
+		};
+		let r = [f:/1.nestList(1, n)];
+		m.timesRepeat {
+			r.add(f:/1.nestList(g(r.flatten), n))
+		};
+		r
+	}
+
 	eulerTransform { :a:/1 |
 		let b:/1 = { :n |
 			(n = 0).if {

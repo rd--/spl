@@ -485,6 +485,10 @@ Fraction : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | num
 		}
 	}
 
+	realExponent { :x :b |
+		x.abs.asFloat.log(b)
+	}
+
 	[reciprocal, /] { :self |
 		(self.numerator.abs = 1).if {
 			/* preference: answer proper integer */

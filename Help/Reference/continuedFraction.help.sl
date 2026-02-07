@@ -325,6 +325,90 @@ OEIS [A141822](https://oeis.org/A141822):
 
 ![](sw/spl/Help/Image/continuedFraction-B.svg)
 
+Rationals _≥1_ whose continued fractions consist only of ones and twos,
+OEIS [A072728](https://oeis.org/A072728) and
+OEIS [A072729](https://oeis.org/A072729).
+
+Plot numerators:
+
+~~~spl svg=C
+[
+	 1  2  3  5  5  8  7  8 12 13
+	11 12 13 19 19 21 17 18 19 19
+	21 29 31 30 31 34 27 26 29 29
+	31 30 31 34 46 45 50 46 49 49
+	50 55 41 44 41 43 47 46 45 50
+	46 49 49 50 55
+].scatterPlot
+~~~
+
+![](sw/spl/Help/Image/continuedFraction-C.svg)
+
+Plot denominators:
+
+~~~spl svg=D
+[
+	 1  1  2  2  3  3  5  5  5  5
+	 8  7  8  8  7  8 12 13 11 12
+	13 12 13 11 12 13 19 19 21 17
+	18 19 19 21 19 19 21 17 18 19
+	19 21 29 31 30 31 34 27 26 29
+	29 31 30 31 34
+].scatterPlot
+~~~
+
+![](sw/spl/Help/Image/continuedFraction-D.svg)
+
+Plot fractions:
+
+~~~spl svg=E
+Fraction(
+	[
+		1  2  3  5  5  8  7  8 12 13
+		11 12 13 19 19 21 17 18 19 19
+		21 29 31 30 31 34 27 26 29 29
+		31 30 31 34 46 45 50 46 49 49
+		50 55 41 44 41 43 47 46 45 50
+		46 49 49 50 55
+	],
+	[
+		1  1  2  2  3  3  5  5  5  5
+		8  7  8  8  7  8 12 13 11 12
+		13 12 13 11 12 13 19 19 21 17
+		18 19 19 21 19 19 21 17 18 19
+		19 21 29 31 30 31 34 27 26 29
+		29 31 30 31 34
+	]
+).scatterPlot
+~~~
+
+![](sw/spl/Help/Image/continuedFraction-E.svg)
+
+Plot continued fractions:
+
+~~~spl svg=F
+let n = [
+	 1  2  3  5  5  8  7  8 12 13
+	11 12 13 19 19 21 17 18 19 19
+	21 29 31 30 31 34 27 26 29 29
+	31 30 31 34 46 45 50 46 49 49
+	50 55 41 44 41 43 47 46 45 50
+	46 49 49 50 55
+];
+let d = [
+	 1  1  2  2  3  3  5  5  5  5
+	 8  7  8  8  7  8 12 13 11 12
+	13 12 13 11 12 13 19 19 21 17
+	18 19 19 21 19 19 21 17 18 19
+	19 21 29 31 30 31 34 27 26 29
+	29 31 30 31 34
+];
+let c = Fraction(n, d).continuedFraction;
+(c.catenate - 1 * 2 - 1).discretePlot
+~~~
+
+![](sw/spl/Help/Image/continuedFraction-F.svg)
+
 * * *
 
 See also: fromContinuedFraction, metallicMean

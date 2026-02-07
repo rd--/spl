@@ -134,6 +134,18 @@
 		}
 	}
 
+	isLesserCousinPrime { :self |
+		self.isPrime & {
+			(self + 4).isPrime
+		}
+	}
+
+	isLesserTwinPrime { :self |
+		self.isPrime & {
+			self + 2 = self.nextPrime
+		}
+	}
+
 	isPowerfulNumber { :self |
 		self.primeFactorization.valuesAndCounts.allSatisfy { :each |
 			each > 1
@@ -188,15 +200,21 @@
 		}
 	}
 
-	isLesserCousinPrime { :self |
-		self.isPrime & {
-			(self + 4).isPrime
-		}
-	}
-
-	isLesserTwinPrime { :self |
-		self.isPrime & {
-			self + 2 = self.nextPrime
+	isRegularPrime { :p |
+		p > 2 & {
+			p.isPrime & {
+				let k = 1;
+				{
+					(2 * k) <= (p - 3) & {
+						(2 * k)
+						.bernoulliNumber
+						.numerator % p != 0
+					}
+				}.whileTrue {
+					k := k + 1
+				};
+				(2 * k) > (p - 3)
+			}
 		}
 	}
 
@@ -460,6 +478,12 @@
 			};
 			n
 		}
+	}
+
+	nonPrime { :n |
+		{ :x |
+			n + x.primePi + 1
+		}.fixedPoint(n)
 	}
 
 	previousPrime { :n |
@@ -996,6 +1020,10 @@
 			};
 			true
 		}
+	}
+
+	nonPrime { :self |
+		self.collect(nonPrime:/1)
 	}
 
 	prime { :self |

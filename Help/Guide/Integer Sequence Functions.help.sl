@@ -7,6 +7,7 @@ Compression and Normalization:
 
 Matrices:
 
+- `dispersionArray`
 - `integerSequenceMatrix`
 
 Plotting:

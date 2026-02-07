@@ -155,7 +155,7 @@ OEIS [A077028](https://oeis.org/A077028):
 ```
 
 Clark’s triangle with _f=6_,
-OEIS [A090850](https://oeis.org/A090850):
+OEIS [A046902](https://oeis.org/A046902):
 
 ```
 >>> let f = 6;

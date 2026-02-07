@@ -14,6 +14,13 @@ true
 false
 ```
 
+At `LargeInteger`:
+
+```
+>>> (23L ^ 23L).isFinite
+true
+```
+
 At _not a number_, real and complex:
 
 ```

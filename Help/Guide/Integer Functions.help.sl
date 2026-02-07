@@ -108,6 +108,7 @@ Digit-Related Functions:
 - `integerLength`
 - `integerReverse`
 - `multiplicativeDigitalRoot`
+- `numberDigits`
 
 Digit-Based Substitution System Functions:
 

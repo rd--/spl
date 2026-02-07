@@ -429,6 +429,15 @@ SmallFloat! : [Object, Storeable, Equatable, Comparable, Json, Magnitude, Number
 		<primitive: return Math.log10(_self)>
 	}
 
+	mantissaExponent { :x :b |
+		let i = x.integerPart;
+		let k = i.integerLength(b);
+		[
+			x / (b ^ k),
+			k
+		]
+	}
+
 	max { :self :anObject |
 		<primitive:
 		if(sl.isSmallFloat(_anObject)) {
@@ -594,6 +603,10 @@ SmallFloat! : [Object, Storeable, Equatable, Comparable, Json, Magnitude, Number
 		}
 		>
 		'SmallFloat>>raisedToSmallFloat: not SmallFloat'.error
+	}
+
+	realExponent { :x :b |
+		x.abs.log(b)
 	}
 
 	realDigits { :self :base :size |

@@ -71,6 +71,29 @@ First few terms of OEIS [A052534](https://oeis.org/A052534):
 [1 2 4 9 20 45 101 227 510 1146 2575 5786]
 ```
 
+Construct the Stolarsky array,
+OEIS [A035506](https://oeis.org/A035506):
+
+```
+>>> { :n :k |
+>>> 	let t = (1 + 5.sqrt) / 2;
+>>> 	let u = n * (t + 1) + 1 + (t / 2);
+>>> 	let a = u.floor;
+>>> 	let b = (a * t).round;
+>>> 	let c = [1 1; 1 0].matrixPower(k);
+>>> 	let m = [b a].dot(c);
+>>> 	m[2]
+>>> }.table(0:5, 0:8)
+[
+	 1  2  3  5  8  13  21  34  55;
+	 4  6 10 16 26  42  68 110 178;
+	 7 11 18 29 47  76 123 199 322;
+	 9 15 24 39 63 102 165 267 432;
+	12 19 31 50 81 131 212 343 555;
+	14 23 37 60 97 157 254 411 665
+]
+```
+
 * * *
 
 See also: dot

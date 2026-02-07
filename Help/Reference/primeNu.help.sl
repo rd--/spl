@@ -81,6 +81,21 @@ Plot the `primeNu` sequence for the first 100 numbers:
 
 ![](sw/spl/Help/Image/primeNu-A.svg)
 
+Plot rational knots of determinant _2n+1_,
+counting chiral pairs twice,
+OEIS [A089266](https://oeis.org/A089266):
+
+~~~spl svg=B
+1:200.collect { :n |
+	let m = (2 * n + 1);
+	let a = m.eulerPhi;
+	let b = 2 ^ m.primeNu;
+	(a + b) / 2
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/primeNu-B.svg)
+
 * * *
 
 See also: distinctPrimeFactors, factorInteger, gcd, isPrime, isPrimePower, isSquareFree, primeOmega
@@ -93,7 +108,8 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/PrimeNu.html),
 _OEIS_
 [1](https://oeis.org/A001221)
-[2](https://oeis.org/A034444),
+[2](https://oeis.org/A034444)
+[3](https://oeis.org/A089266),
 _Python_
 [1](https://docs.sympy.org/latest/modules/ntheory.html#sympy.ntheory.factor_.primenu),
 _W_

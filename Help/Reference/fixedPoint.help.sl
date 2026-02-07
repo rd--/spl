@@ -48,6 +48,17 @@ Use a test function with a specific tolerance to resolve this:
 [0.5 0.8775 0.6390 0.8027 0.6948 0.7682]
 ```
 
+{ :n :k |
+	prime:/1.iterate(n.nonPrime, k)
+}.table(0:5, 0:5)
+[[1, 2, 3, 5, 11, 31], [4, 7, 17, 59, 277, 1787], [6, 13, 41, 179, 1063, 8527], [8, 19, 67, 331, 2221, 19577], [9, 23, 83, 431, 3001, 27457], [10, 29, 109, 599, 4397, 42043]]
+
+[n + PrimePi@# + 1 &, n]; t[n_, k_] := Nest[Prime, NonPrime[n], k]; Table[ t[n - k, k], {n, 0, 9}, {k, n, 0, -1}] // Flatten
+(* or to view the table *) Table[t[n, k], {n, 0, 6}, {k, 0, 10}] // TableForm
+
+NonPrime[n_] := FixedPoint[n + PrimePi@# + 1 &, n]; t[n_, k_] := Nest[Prime, NonPrime[n], k]; Table[ t[n - k, k], {n, 0, 9}, {k, n, 0, -1}] // Flatten
+(* or to view the table *) Table[t[n, k], {n, 0, 6}, {k, 0, 10}] // TableForm
+
 Fixed point of _n←(n-1)/2_ until result is prime,
 OEIS [A039634](https://oeis.org/A039634):
 

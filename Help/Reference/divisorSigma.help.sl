@@ -402,6 +402,17 @@ OEIS [A064491](https://oeis.org/A064491):
 
 ![](sw/spl/Help/Image/divisorSigma-I.svg)
 
+Step plot of _σ3(n)_,
+OEIS [A001158](https://oeis.org/A001158):
+
+~~~spl svg=J
+1:100.collect { :n |
+	3.divisorSigma(n)
+}.stepPlot
+~~~
+
+![](sw/spl/Help/Image/divisorSigma-J.svg)
+
 * * *
 
 See also: aliquotSum, divisible, divisors, divisorSum, divisorSummatoryFunction, eulerPhi, isAbundantNumber
@@ -421,3 +432,5 @@ _Python_
 [1](https://docs.sympy.org/latest/modules/functions/combinatorial.html#sympy.functions.combinatorial.numbers.divisor_sigma),
 _W_
 [1](https://en.wikipedia.org/wiki/Divisor_function)
+
+Unicode: U+03C3 σ Greek Small Letter Sigma

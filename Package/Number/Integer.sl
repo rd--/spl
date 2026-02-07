@@ -1034,6 +1034,24 @@
 		x.digitalRootSet(b, product:/1).second.size - 1
 	}
 
+	numberDigit { :x :n :b |
+		x := x.abs;
+		n.isCollection.if {
+			n.collect { :m |
+				x.numberDigit(m, b)
+			}
+		} {
+			x.isInteger.if {
+				n.timesRepeat {
+					x := x // b
+				};
+				x % b
+			} {
+				x.error('numberDigit: not integer')
+			}
+		}
+	}
+
 	numberOfCompositions { :n :k |
 		/* (n - 1).factorial / ((k - 1).factorial * (n - k).factorial) */
 		(n - 1).binomial(k - 1)

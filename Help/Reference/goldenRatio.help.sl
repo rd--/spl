@@ -199,6 +199,25 @@ The ratio of the triangle formed by adjacent points of a regular unit pentagon i
 1.goldenRatio
 ```
 
+Integers with even Zeckendorf expansions,
+OEIS [A022342](https://oeis.org/A022342):
+
+```
+>>> let t = 1.goldenRatio ^ 2;
+>>> 1:62.collect { :n |
+>>> 	(n * t).floor - n - 1
+>>> }
+[
+	 0  2  3  5  7  8 10 11 13 15
+	16 18 20 21 23 24 26 28 29 31
+	32 34 36 37 39 41 42 44 45 47
+	49 50 52 54 55 57 58 60 62 63
+	65 66 68 70 71 73 75 76 78 79
+	81 83 84 86 87 89 91 92 94 96
+	97 99
+]
+```
+
 Plot the fractional part of multiples of the golden ratio:
 
 ~~~spl svg=A

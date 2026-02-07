@@ -123,6 +123,41 @@ Trott’s constant:
 0.108410151223
 ```
 
+The continued fraction expansion whose terms are the first-order differences of exponents in the binary representation of _4n_,
+all of the rationals are uniquely represented by this sequence,
+OEIS [A071585](https://oeis.org/A071585) / [A071766](https://oeis.org/A071766):
+
+~~~spl svg=A
+1:100.collect { :n |
+	let a = (4 * n).numberExpand(2);
+	let b = a.without(0).log2;
+	let c = b.differences.abs ++ [b.last];
+	c.fromContinuedFraction
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/fromContinuedFraction-A.svg)
+
+Plot the numerator sequence:
+
+~~~spl svg=B
+OeisEntry('A071585').then { :e |
+	e.data.scatterPlot
+}
+~~~
+
+![](sw/spl/Help/Image/fromContinuedFraction-B.svg)
+
+Plot the denominator sequence:
+
+~~~spl svg=C
+OeisEntry('A071766').then { :e |
+	e.data.scatterPlot
+}
+~~~
+
+![](sw/spl/Help/Image/fromContinuedFraction-C.svg)
+
 * * *
 
 See also: convergents, continuedFraction, goldenRatio

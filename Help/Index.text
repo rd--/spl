@@ -140,6 +140,7 @@ Guide/Network Functions.help.sl
 Guide/Nil Functions.help.sl
 Guide/Non-local Return.help.sl
 Guide/Notational Conventions.help.sl
+Guide/Number Digit Functions.help.sl
 Guide/Number Functions.help.sl
 Guide/Number Syntax.help.sl
 Guide/Numerical Methods.help.sl
@@ -1195,6 +1196,7 @@ Reference/discretize.help.sl
 Reference/discriminant.help.sl
 Reference/Disk.help.sl
 Reference/diskMatrix.help.sl
+Reference/dispersionArray.help.sl
 Reference/dissimilar.help.sl
 Reference/distance.help.sl
 Reference/distanceMatrix.help.sl
@@ -2133,6 +2135,7 @@ Reference/isRegular.help.sl
 Reference/isRegularlySampled.help.sl
 Reference/isRegularlySpaced.help.sl
 Reference/isRegularNumber.help.sl
+Reference/isRegularPrime.help.sl
 Reference/isRepeatingDecimal.help.sl
 Reference/isRestrictedGrowthString.help.sl
 Reference/isRight.help.sl
@@ -2451,6 +2454,7 @@ Reference/longestCommonSubstringList.help.sl
 Reference/longestCommonSuffix.help.sl
 Reference/longestIncreasingSubsequence.help.sl
 Reference/longestIncreasingSubsequenceList.help.sl
+Reference/lookAndSay.help.sl
 Reference/lookAndSaySequence.help.sl
 Reference/lookup.help.sl
 Reference/lorenzEquation.help.sl
@@ -2530,6 +2534,7 @@ Reference/makeDirectory.help.sl
 Reference/mallowsSequence.help.sl
 Reference/mangoldtLambda.help.sl
 Reference/manhattanDistance.help.sl
+Reference/mantissaExponent.help.sl
 Reference/MantissaMask.help.sl
 Reference/map.help.sl
 Reference/Map.help.sl
@@ -2768,6 +2773,7 @@ Reference/nonemptyThenTo.help.sl
 Reference/noneSatisfy.help.sl
 Reference/noneTrue.help.sl
 Reference/nonidentical.help.sl
+Reference/nonPrime.help.sl
 Reference/NormalDistribution.help.sl
 Reference/normal.help.sl
 Reference/normalizedSquaredEuclideanDistance.help.sl
@@ -2795,6 +2801,7 @@ Reference/nubSieve.help.sl
 Reference/numArgs.help.sl
 Reference/numberCompose.help.sl
 Reference/numberDecompose.help.sl
+Reference/numberDigit.help.sl
 Reference/numberExpand.help.sl
 Reference/Number.help.sl
 Reference/numberOfColumns.help.sl
@@ -3251,6 +3258,7 @@ Reference/readDirectory.help.sl
 Reference/readHelpFile.help.sl
 Reference/readTextFile.help.sl
 Reference/realDigits.help.sl
+Reference/realExponent.help.sl
 Reference/real.help.sl
 Reference/realImaginary.help.sl
 Reference/recamanSequence.help.sl
@@ -3261,6 +3269,7 @@ Reference/Reciprocal.help.sl
 Reference/recogniseSymbolicExpression.help.sl
 Reference/RecordBuf.help.sl
 Reference/Record.help.sl
+Reference/recordValues.help.sl
 Reference/Rectangle.help.sl
 Reference/rectangularHexagonalGrid.help.sl
 Reference/rectangularHorogramDrawing.help.sl

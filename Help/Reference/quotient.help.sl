@@ -170,6 +170,17 @@ let f = { :n |
 
 ![](sw/spl/Help/Image/quotient-D.svg)
 
+Plot triangular array of quotients,
+OEIS [A003988](https://oeis.org/A003988):
+
+~~~spl svg=E
+1:17.triangularArray { :n :k |
+	(n - k + 1) // k
+}.catenate.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/quotient-E.svg)
+
 At `Symbol`:
 
 ```

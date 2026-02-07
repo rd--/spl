@@ -40,6 +40,16 @@ The complete list of cubic residues modulo nine:
 [0 1 8 0 1 8 0 1 8]
 ```
 
+Plot boolean triangle:
+
+~~~spl png=A
+1:100.triangularArray(
+	isCubicResidue:/2
+).boole.padLeft.Bitmap
+~~~
+
+![](sw/spl/Help/Image/isCubicResidue-A.png)
+
 Number of distinct cubic residues modulo _n_,
 OEIS [A046530](https://oeis.org/A046530):
 
@@ -61,15 +71,18 @@ OEIS [A046530](https://oeis.org/A046530):
 ]
 ```
 
-Plot boolean triangle:
+Plot
+OEIS [A046530](https://oeis.org/A046530):
 
-~~~spl png=A
-1:100.triangularArray(
-	isCubicResidue:/2
-).boole.padLeft.Bitmap
+~~~spl svg=B
+1:200.collect { :p |
+	1:p.select { :q |
+		isCubicResidue(q, p)
+	}.size
+}.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isCubicResidue-A.png)
+![](sw/spl/Help/Image/isCubicResidue-B.svg)
 
 * * *
 

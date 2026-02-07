@@ -346,6 +346,23 @@ OEIS [A010051](https://oeis.org/A010051):
 
 ![](sw/spl/Help/Image/isPrime-E.svg)
 
+Plot zero unless _n_ is a non-prime, in which case plot index,
+OEIS [A239968](https://oeis.org/A239968):
+
+~~~spl svg=F
+let k = 0;
+1:100.collect { :n |
+	n.isPrime.if {
+		0
+	} {
+		k := k + 1;
+		k
+	}
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/isPrime-F.svg)
+
 * * *
 
 See also: isComposite, isGaussianPrime, isPrimePower, isPrimeTrialDivision, isSemiprime, isSternPrime, millerRabinPrimalityTest, nextPrime, prime, primesList

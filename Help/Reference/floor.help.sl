@@ -145,6 +145,17 @@ OEIS [A055086](https://oeis.org/A055086):
 
 ![](sw/spl/Help/Image/floor-E.svg)
 
+Plot triangular array of floor of division,
+OEIS [A010766](https://oeis.org/A010766):
+
+~~~spl svg=F
+1:17.triangularArray { :n :k |
+	(n / k).floor
+}.catenate.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/floor-F.svg)
+
 Where supported `floor` is displayed as ⌊.
 
 * * *

@@ -65,6 +65,7 @@ Testing:
 - `isPrime`
 - `isPrimePower`
 - `isPythagoreanPrime`
+- `isRegularPrime`
 - `isSemiprime`
 - `isSternPrime`
 - `isStrongPrime`
