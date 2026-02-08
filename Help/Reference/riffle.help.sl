@@ -33,6 +33,8 @@ true
 ```
 
 Alternate positive and negative integers:
+all but the first term of the canonical enumeration of integers,
+OEIS [A001057](https://oeis.org/A001057):
 
 ```
 >>> 1:10.riffle(-1:-10:-1)
@@ -41,6 +43,15 @@ Alternate positive and negative integers:
 	6  -6  7  -7  8  -8  9  -9 10 -10
 ]
 ```
+
+Plot the nonnegative integers interleaved with zeroes,
+OEIS [A142150](https://oeis.org/A142150):
+
+~~~spl svg=A
+0:50.riffle(0).discretePlot
+~~~
+
+![](sw/spl/Help/Image/riffle-A.svg)
 
 * * *
 

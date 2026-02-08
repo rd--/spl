@@ -115,7 +115,12 @@
 	}
 
 	isComposite { :self |
-		self.isPrime.not
+		let n = self.abs;
+		(n < 3).if {
+			false
+		} {
+			n.isPrime.not
+		}
 	}
 
 	isCoprime { :self :anInteger |

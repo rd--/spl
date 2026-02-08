@@ -255,6 +255,40 @@ OEIS [A147848](https://oeis.org/A147848):
 
 ![](sw/spl/Help/Image/gcd-F.svg)
 
+Plot numerators in canonical bijection from positive integers to positive rationals,
+OEIS [A020652](http://oeis.org/A020652):
+
+~~~spl svg=G
+let a = [];
+1.toDo(23) { :d |
+	1.toDo(d - 1) { :n |
+		(gcd(n, d) = 1).ifTrue {
+			a.add(n)
+		}
+	}
+};
+a.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/gcd-G.svg)
+
+Plot denominators,
+OEIS [A020653](http://oeis.org/A020653):
+
+~~~spl svg=H
+1:23.collect { :n |
+	let m = n - 1;
+	1:m.collect { :i |
+		i % n
+	}.gcd(n).indicesOf(1)
+}.collect { :n |
+	Fraction(n, n.reverse)
+	.denominator
+}.catenate.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/gcd-H.svg)
+
 * * *
 
 See also: ||, chineseRemainder, divisible, euclideanAlgorithm, extendedGcd, Fraction, isCoprime, isPrime, lcm

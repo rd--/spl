@@ -2,7 +2,11 @@
 
 - _interprime(n)_
 
-Answer the _n_--th interprime number.
+Answer the _n_--th interprime number,
+the average of two consecutive odd primes.
+
+First few terms,
+OEIS [A024675](https://oeis.org/A024675):
 
 ```
 >>> 1:24.collect(interprime:/1)
@@ -12,6 +16,15 @@ Answer the _n_--th interprime number.
 	81 86 93 99
 ]
 ```
+
+Plot:
+
+~~~spl svg=A
+1:99.collect(interprime:/1)
+.stepPlot
+~~~
+
+![](sw/spl/Help/Image/interprime-A.svg)
 
 * * *
 

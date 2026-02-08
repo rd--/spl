@@ -37,6 +37,18 @@ Threads over lists:
 [321 432 543 654]
 ```
 
+First few terms,
+OEIS [A004086](https://oeis.org/A004086):
+
+```
+>>> 0:23.integerReverse
+[
+	0  1  2  3  4  5  6  7  8  9
+	1 11 21 31 41 51 61 71 81 91
+	2 12 22 32
+]
+```
+
 Reversals of Fibonacci numbers (sorted),
 OEIS [A004170](https://oeis.org/A004170):
 
@@ -75,6 +87,40 @@ OEIS [A055483](https://oeis.org/A055483):
 ~~~
 
 ![](sw/spl/Help/Image/integerReverse-B.svg)
+
+Plot _R(Π(R(F(n))))_,
+OEIS [A161594](https://oeis.org/A161594):
+
+~~~spl svg=C
+1:250.collect { :n |
+	n.primeFactors
+	.product(integerReverse:/1)
+	.integerReverse
+}.log.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/integerReverse-C.svg)
+
+Plot _Π(R(F(n)))_,
+OEIS [A071786](https://oeis.org/A071786):
+
+~~~spl svg=D
+1:250.collect { :n |
+	n.primeFactors
+	.product(integerReverse:/1)
+}.log.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/integerReverse-D.svg)
+
+Plot first few terms,
+OEIS [A004086](https://oeis.org/A004086):
+
+~~~spl svg=E
+0:400.integerReverse.linePlot
+~~~
+
+![](sw/spl/Help/Image/integerReverse-E.svg)
 
 * * *
 

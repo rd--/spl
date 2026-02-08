@@ -100,6 +100,17 @@ Ceiling is a staircase function:
 
 ![](sw/spl/Help/Image/ceiling-A.svg)
 
+Canonical enumeration of integers,
+OEIS [A001057](https://oeis.org/A001057):
+
+~~~spl svg=B
+0:99.collect { :n |
+	(-1 ^n) * (n / 2).ceiling
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/ceiling-B.svg)
+
 Where supported `ceiling` is displayed as ⌈.
 
 * * *

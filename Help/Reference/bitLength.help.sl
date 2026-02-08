@@ -19,12 +19,17 @@ Equivalent to `floor` of `log` plus `one`:
 6
 ```
 
-First few terms,
+Threads over lists,
+first few terms,
 OEIS [A029837](https://oeis.org/A029837):
 
 ```
->>> 0:23.collect(bitLength:/1)
-[0 1 2 2 3 3 3 3 4 4 4 4 4 4 4 4 5 5 5 5 5 5 5 5]
+>>> 0:23.bitLength
+[
+	0 1 2 2 3 3 3 3 4 4
+	4 4 4 4 4 4 5 5 5 5
+	5 5 5 5
+]
 ```
 
 Plot is a kind of staircase:
@@ -34,6 +39,15 @@ Plot is a kind of staircase:
 ~~~
 
 ![](sw/spl/Help/Image/bitLength-A.svg)
+
+Plot
+[A003817](https://oeis.org/A003817):
+
+~~~spl svg=A
+(2 ^ 0:50.bitLength).discretePlot
+~~~
+
+![](sw/spl/Help/Image/bitLength-B.svg)
 
 * * *
 

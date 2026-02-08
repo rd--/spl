@@ -9,11 +9,13 @@ Answer the _n_-th pentagonal number.
 782
 ```
 
-Threads over lists:
+Threads over lists,
+OEIS [A000326](https://oeis.org/A000326):
 
 ```
->>> 1:23.pentagonalNumber
+>>> 0:23.pentagonalNumber
 [
+	                  0
 	  1   5  12  22  35
 	 51  70  92 117 145
 	176 210 247 287 330

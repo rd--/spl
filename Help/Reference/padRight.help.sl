@@ -99,6 +99,14 @@ At `String`:
 'xyz      '
 ```
 
+The characteristic function of _{0}_,
+OEIS [A000007](https://oeis.org/A000007):
+
+```
+>>> [1].padRight([19], 0)
+[1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+```
+
 Weight array of the natural numbers,
 OEIS [A144112](https://oeis.org/A144112):
 

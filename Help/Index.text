@@ -353,6 +353,7 @@ Reference/antidiagonalArray.help.sl
 Reference/antidiagonal.help.sl
 Reference/antidiagonalIndicesDo.help.sl
 Reference/antidiagonalMatrix.help.sl
+Reference/antiDivisors.help.sl
 Reference/antipedalTriangle.help.sl
 Reference/antitranspose.help.sl
 Reference/anyAs.help.sl
@@ -1085,6 +1086,7 @@ Reference/Decay2.help.sl
 Reference/Decay.help.sl
 Reference/Decimal.help.sl
 Reference/decimalPeriod.help.sl
+Reference/decimalSelvageNumber.help.sl
 Reference/declareFrom.help.sl
 Reference/DecodeB2.help.sl
 Reference/decodeUri.help.sl

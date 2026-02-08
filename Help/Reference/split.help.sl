@@ -192,6 +192,28 @@ Find runs of numbers in base 10 that contain the same number of 1s:
 ]
 ```
 
+Plot concatenation of the current sequence with the lengths of the runs in the sequence,
+OEIS [A306211](https://oeis.org/A306211):
+
+~~~spl svg=A
+let y = { :x |
+	x ++ x.split(=).collect(size:/1)
+}.iterate([1], 10);
+(y - 1).discretePlot
+~~~
+
+![](sw/spl/Help/Image/split-A.svg)
+
+Lengths of each generation,
+OEIS [A306215](https://oeis.org/A306215):
+
+```
+>>> { :x |
+>>> 	x ++ x.split(=).collect(size:/1)
+>>> }.nestList([1], 12).collect(size:/1)
+[1 2 3 5 8 13 22 37 61 100 162 260 416]
+```
+
 * * *
 
 See also: splitBy

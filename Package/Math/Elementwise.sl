@@ -96,6 +96,10 @@
 		self.reduce(bitOr:/2)
 	}
 
+	bitLength { :self |
+		self.collect(bitLength:/1)
+	}
+
 	bitNot { :self |
 		self.collect(bitNot:/1)
 	}

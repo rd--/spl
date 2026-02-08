@@ -84,6 +84,19 @@ bitOr:/2
 
 ![](sw/spl/Help/Image/bitOr-D.png)
 
+Plot `bitAnd` and `bitOr` bitwise,
+OEIS [A086099](https://oeis.org/A086099):
+
+~~~spl svg=E
+0:63.collect { :n |
+	0:n.collect { :k |
+		k.bitAnd(n - k)
+	}.bitOr
+}.stepPlot
+~~~
+
+![](sw/spl/Help/Image/bitOr-E.svg)
+
 * * *
 
 See also: or, bitAnd, bitNot, bitXor
