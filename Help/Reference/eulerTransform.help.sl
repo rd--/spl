@@ -57,6 +57,93 @@ OEIS [A166861](https://oeis.org/A166861):
 ]
 ```
 
+The partition numbers,
+OEIS [A000041](https://oeis.org/A000041):
+
+```
+>>> 0:21.collect(
+>>> 	1.constant
+>>> 	.eulerTransform
+>>> )
+[
+	1 1 2 3 5 7 11 15 22 30 42 56 77 101
+	135 176 231 297 385 490 627 792
+]
+```
+
+Functional determinants,
+OEIS [A001970](https://oeis.org/A001970):
+
+```
+>>> 0:16.collect(
+>>> 	1.constant
+>>> 	.eulerTransform
+>>> 	.eulerTransform
+>>> )
+[
+	1 1 3 6 14 27 58 111 223 424 817
+	1527 2870 5279 9710 17622 31877
+]
+```
+
+Euler transform of powers of two,
+OEIS [A034691](https://oeis.org/A034691):
+
+```
+>>> 0:15.collect(
+>>> 	{ :x |
+>>> 		2 ^ (x - 1)
+>>> 	}.eulerTransform
+>>> )
+[
+	1 1 3 7 18 42 104 244 585 1373 3233
+	7533 17547 40591 93711 215379
+]
+```
+
+Euler transform of `divisorSigma`,
+OEIS [A061256](https://oeis.org/A061256):
+
+```
+>>> 0:16.collect(
+>>> 	{ :x |
+>>> 		1.divisorSigma(x)
+>>> 	}.eulerTransform
+>>> )
+[
+	1 1 4 8 21 39 92 170 360 667 1316
+	2393 4541 8100 14824 26071 46422
+]
+```
+
+Euler transform of `tetrahedralNumber`,
+OEIS [A000335](https://oeis.org/A000335):
+
+```
+>>> 1:14.collect(
+>>> 	tetrahedralNumber:/1
+>>> 	.eulerTransform
+>>> )
+[
+	1 5 15 45 120 331 855 2214 5545
+	13741 33362 80091 189339 442799
+]
+```
+
+Euler transform of `eulerPhi`,
+OEIS [A061255](https://oeis.org/A061255):
+
+```
+>>> 0:19.collect(
+>>> 	eulerPhi:/1
+>>> 	.eulerTransform
+>>> )
+[
+	1 1 2 4 7 13 21 37 60 98 157 251 392
+	612 943 1439 2187 3293 4930 7330
+]
+```
+
 * * *
 
 See also: binomialTransform, boustrophedonTransform, divisors, memoize, sum

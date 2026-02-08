@@ -359,6 +359,34 @@ Draw the partial complement of the Haferman carpet:
 
 ![](sw/spl/Help/Image/substitutionSystem-E.png)
 
+Plot trajectory of 1 under the morphism _0→11,1→10_,
+OEIS [A035263](https://oeis.org/A035263):
+
+~~~spl svg=F
+[
+	0 -> [1 1],
+	1 -> [1 0]
+].substitutionSystem([1], 6)
+.last
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/substitutionSystem-F.svg)
+
+Plot fixed point of morphism _0→0,1→110_,
+OEIS [A079559](https://oeis.org/A079559):
+
+~~~spl svg=G
+[
+	0 -> [0],
+	1 -> [1 1 0]
+].substitutionSystem([1], 5)
+.last
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/substitutionSystem-G.svg)
+
 * * *
 
 See also: Association, fibonacciWord, locallyCatenativeSequence, Map, rudinShapiro, simpleLindenmayerSystem, thueMorse

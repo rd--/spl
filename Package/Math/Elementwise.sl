@@ -38,6 +38,10 @@
 		self.collect(absSquare:/1)
 	}
 
+	antiDivisors { :self |
+		self.collect(antiDivisors:/1)
+	}
+
 	asBit { :self |
 		self.collect(asBit:/1)
 	}

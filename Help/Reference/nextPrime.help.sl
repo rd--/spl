@@ -98,11 +98,20 @@ Compute the second prime after 50:
 Threads over lists:
 
 ```
->>> 1:9.nextPrime
-[2 3 5 5 7 7 11 11 11]
-
 >>> [1 5 10 15].nextPrime
 [2 7 11 17]
+```
+
+First few terms,
+OEIS [A151800](https://oeis.org/A151800):
+
+```
+>>> 0:23.nextPrime
+[
+	 2  2  3  5  5  7  7 11 11 11
+	11 13 13 17 17 17 17 19 19 23
+	23 23 23 29
+]
 ```
 
 Approximation to `prime`:
@@ -113,6 +122,20 @@ Approximation to `prime`:
 
 >>> 25 * 25.log
 80.4719
+```
+
+Smallest prime _>n^2_,
+OEIS [A007491](https://oeis.org/A007491):
+
+```
+>>> (1:23 ^ 2).nextPrime
+[
+	  2   5  11  17  29
+	 37  53  67  83 101
+	127 149 173 197 227
+	257 293 331 367 401
+	443 487 541
+]
 ```
 
 Plot the sequence of primes:

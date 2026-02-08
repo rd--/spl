@@ -88,6 +88,19 @@ OeisEntry('A254410').then { :e |
 
 ![](sw/spl/Help/Image/OeisEntry-D.svg)
 
+Plot the lexicographically earliest sequence of positive numbers which is identical to the run lengths of its first differences,
+OEIS [A380317](https://oeis.org/A380317):
+
+~~~spl svg=E
+OeisEntry('A380317').then { :e |
+	e.bFileData
+	.first(300)
+	.linePlot
+}
+~~~
+
+![](sw/spl/Help/Image/OeisEntry-E.svg)
+
 Entries are cached on construction,
 and B-file data is fetched using `cachedFetch`:
 

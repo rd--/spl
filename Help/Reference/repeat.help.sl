@@ -41,6 +41,14 @@ OEIS [A000012](http://oeis.org/A000012):
 [1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1]
 ```
 
+The _01_ sequence,
+OEIS [A000035](http://oeis.org/A000035):
+
+```
+>>> [0 1].repeat(11)
+[0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1]
+```
+
 * * *
 
 See also: constantArray, findRepeat, stringCatenate, stringJoin, stringRepeat
@@ -52,3 +60,4 @@ _Mathematica_
 [1](https://reference.wolfram.com/language/ref/StringRepeat.html),
 _OEIS_
 [1](http://oeis.org/A000012)
+[2](http://oeis.org/A000035)

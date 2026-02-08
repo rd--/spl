@@ -313,6 +313,19 @@ OEIS [A066990](https://oeis.org/A066990):
 
 ![](sw/spl/Help/Image/factorInteger-F.svg)
 
+Plot the minimal number _m_ such that the symmetric group _Sm_ has an element of order _n_,
+OEIS [A008475](https://oeis.org/A008475):
+
+~~~spl svg=G
+2:73.collect { :n |
+	n.factorInteger.collect { :f |
+		f[1] ^ f[2]
+	}.sum
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/factorInteger-G.svg)
+
 * * *
 
 See also: divisors, isPrime, primeFactors, primeFactorization, product

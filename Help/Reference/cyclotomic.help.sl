@@ -134,6 +134,17 @@ Nonzero coefficients of successive cyclotomic polynomials:
 
 ![](sw/spl/Help/Image/cyclotomic-D.svg)
 
+Plot quotients of consecutive values of `lcm`,
+OEIS [A051417](https://oeis.org/A051417):
+
+~~~spl svg=E
+1:60.collect { :n |
+	(2 * n + 1).cyclotomic.at(1)
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/cyclotomic-E.svg)
+
 * * *
 
 See also: polynomialQuotient, UnivariatePolynomial

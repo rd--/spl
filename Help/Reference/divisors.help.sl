@@ -242,6 +242,17 @@ OEIS [A033676](https://oeis.org/A033676):
 
 ![](sw/spl/Help/Image/divisors-F.svg)
 
+Plot number of odd divisors of _n_,
+OEIS [A001227](https://oeis.org/A001227):
+
+~~~spl svg=G
+1:105.collect { :n |
+	(n.divisors % 2).sum
+}.stepPlot
+~~~
+
+![](sw/spl/Help/Image/divisors-G.svg)
+
 * * *
 
 See also: divisorSigma, divisorSum, gcd, remainder

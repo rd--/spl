@@ -385,6 +385,39 @@ OEIS [A141419](https://oeis.org/A141419):
 
 ![](sw/spl/Help/Image/triangularArray-E.svg)
 
+Square-pyramid-tree numbers,
+OEIS [A051678](https://oeis.org/A051678):
+
+~~~spl svg=F
+1:9.triangularArray { :n :m |
+	let a = (n ^ 2) * (n ^ 2 - 1) / 12;
+	let b = m * (m + 1) * (2 * m + 1) / 6;
+	a + b
+}.catenate.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/triangularArray-F.svg)
+
+Plot number of hill-free Dyck paths of length _2n_ having height of first peak equal to _k_,
+OEIS [A065602](https://oeis.org/A065602):
+
+~~~spl svg=G
+2:12.triangularArray { :n :k |
+	let m = (n - k) / 2;
+	0:m.sum { :j |
+		let a = (k - 1 + (2 * j));
+		let b = binomial(
+			(2 * n) - k - 1 - (2 * j),
+			n - 1
+		);
+		let c = ((2 * n) - k - 1 - (2 * j));
+		a * b / c
+	}
+}.catenate.log.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/triangularArray-G.svg)
+
 * * *
 
 See also: antidiagonalArray, array, collect, isTriangularArray, table

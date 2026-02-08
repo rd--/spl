@@ -45,6 +45,20 @@ Count the number of rows whose first element is 1:
 2
 ```
 
+Plot the number of anti-divisors of _n_,
+OEIS [A066272](https://oeis.org/A066272):
+
+~~~spl svg=A
+1:150.collect { :n |
+	let m = n - 1;
+	2:m.count { :x |
+		((n % x) - (x / 2)).abs < 1
+	}
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/count-A.svg)
+
 * * *
 
 See also: counts, occurrencesOf, select
@@ -53,6 +67,8 @@ Guides: List Functions
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/Count.html)
+[1](https://reference.wolfram.com/language/ref/Count.html),
+_OEIS_
+[1](https://oeis.org/A066272)
 
 Categories: Enumerating

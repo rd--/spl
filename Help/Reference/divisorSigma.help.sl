@@ -286,7 +286,8 @@ OEIS [A000005](https://oeis.org/A000005):
 
 ![](sw/spl/Help/Image/divisorSigma-A.svg)
 
-Plot divisor function _σ₁(n)_ up to _n=100_:
+Plot divisor function _σ₁(n)_ up to _n=100_,
+OEIS [A000203](https://oeis.org/A000203):
 
 ~~~spl svg=B
 1:100.functionPlot { :x |
@@ -412,6 +413,17 @@ OEIS [A001158](https://oeis.org/A001158):
 ~~~
 
 ![](sw/spl/Help/Image/divisorSigma-J.svg)
+
+Plot product of the proper divisors of _n_,
+OEIS [A007956](https://oeis.org/A007956):
+
+~~~spl svg=K
+1:200.collect { :n |
+	n ^ (0.divisorSigma(n) / 2 - 1)
+}.log.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/divisorSigma-K.svg)
 
 * * *
 

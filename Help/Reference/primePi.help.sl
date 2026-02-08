@@ -145,9 +145,23 @@ OEIS [A064489](https://oeis.org/A064489):
 
 ```
 >>> 1:4.collect { :n |
->>> 	primePi(nextPrime(10 ^ (n.prime - 1)))
+>>> 	let m = 10 ^ (n.prime - 1);
+>>> 	m.nextPrime.primePi
 >>> }
 [5 26 1230 78499]
+```
+
+_n+Σ{k=1…n}π(k)_,
+OEIS [A002815](https://oeis.org/A002815):
+
+```
+>>> 0:23.collect { :n |
+>>> 	n + 1:n.sum(primePi:/1)
+>>> }
+[
+	0 1 3 6 9 13 17 22 27 32 37 43 49 56
+	63 70 77 85 93 102 111 120 129 139
+]
 ```
 
 Plot the prime counting function:
@@ -311,6 +325,17 @@ OEIS [A003963](https://oeis.org/A003963):
 
 ![](sw/spl/Help/Image/primePi-I.svg)
 
+Plot number of primes between _n^2_ and _(n+1)^2_,
+OEIS [A014085](https://oeis.org/A014085):
+
+~~~spl svg=J
+(0:100 ^ 2).primePi
+.differences
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/primePi-J.svg)
+
 * * *
 
 See also: eulerPhi, nextPrime, primesList, primesUpTo, sieveOfEratosthenes
@@ -333,3 +358,5 @@ _Python_
 [1](https://docs.sympy.org/latest/modules/ntheory.html#sympy.ntheory.generate.primepi),
 _W_
 [1](https://en.wikipedia.org/wiki/Prime-counting_function)
+
+Unicode: U+03C0 π Greek Small Letter Pi

@@ -182,8 +182,11 @@
 		shape.includes(0).if {
 			[]
 		} {
-			let affix = List(shape[1].abs - self.size, anObject);
-			let next = shape[1].isNegative.if { affix ++ self } { self ++ affix };
+			let length = shape[1].abs;
+			let affixSize = (length - self.size).max(0);
+			let affix = List(affixSize, anObject);
+			let prefix = (length < self.size).if { self.first(length) } { self };
+			let next = shape[1].isNegative.if { affix ++ prefix } { prefix ++ affix };
 			(shape.size = 1).if {
 				next
 			} {

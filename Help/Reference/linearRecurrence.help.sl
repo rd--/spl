@@ -540,8 +540,8 @@ OEIS [A001108](https://oeis.org/A001108):
 ```
 >>> linearRecurrence([7 -7 1], [0 1 8], 12)
 [
-	0 1 8 49 288 1681 9800 57121 332928 1940449
-	11309768 65918161
+	0 1 8 49 288 1681 9800 57121 332928
+	1940449 11309768 65918161
 ]
 ```
 
@@ -657,6 +657,33 @@ OEIS [A039834](https://oeis.org/A039834):
 ]
 ```
 
+Number of partitions of _n_ into odd parts less than or equal to five,
+OEIS [A008672](https://oeis.org/A008672):
+
+```
+>>> linearRecurrence(
+>>> 	[1 0 1 -1 1 -1 0 -1 1],
+>>> 	[1 1 1  2 2  3 4  4 5],
+>>> 	51
+>>> )
+[
+	 1  1  1  2  2  3  4  4  5  6
+	 7  8  9 10 11 13 14 15 17 18
+	20 22 23 25 27 29 31 33 35 37
+	40 42 44 47 49 52 55 57 60 63
+	66 69 72 75 78 82 85 88 92 95
+	99
+]
+```
+
+Zero followed by powers of two,
+OEIS [A131577](https://oeis.org/A131577):
+
+```
+>>> linearRecurrence([2 0], [0 1], 13)
+[0 1 2 4 8 16 32 64 128 256 512 1024 2048]
+```
+
 Draw spiral:
 
 ~~~spl svg=A
@@ -681,6 +708,19 @@ linearRecurrence(
 ~~~
 
 ![](sw/spl/Help/Image/linearRecurrence-B.svg)
+
+Plot
+OEIS [A051794](https://oeis.org/A051794):
+
+~~~spl svg=C
+linearRecurrence(
+	[0 -1 0 -1 0 -1 0 1 0 1 0 1],
+	[1 1 1 1 1 1 0 1 1 1 1 1],
+	100
+).logScale.discretePlot
+~~~
+
+![](sw/spl/Help/Image/linearRecurrence-C.svg)
 
 * * *
 

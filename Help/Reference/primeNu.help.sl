@@ -96,6 +96,20 @@ OEIS [A089266](https://oeis.org/A089266):
 
 ![](sw/spl/Help/Image/primeNu-B.svg)
 
+Plot barriers,
+OEIS [A005236](https://oeis.org/A005236):
+
+~~~spl svg=C
+2:150.select { :n |
+	let m = n - 1;
+	1:m.allSatisfy { :x |
+		x + x.primeNu <= n
+	}
+}.stepPlot
+~~~
+
+![](sw/spl/Help/Image/primeNu-C.svg)
+
 * * *
 
 See also: distinctPrimeFactors, factorInteger, gcd, isPrime, isPrimePower, isSquareFree, primeOmega

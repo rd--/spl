@@ -137,6 +137,14 @@ Reflection formula:
 zeta(1 - z)
 ```
 
+Continued fraction for _ζ(3)_,
+OEIS [A013631](https://oeis.org/A013631):
+
+```
+>>> 3.zeta.continuedFraction(10)
+[1 4 1 18 1 1 1 4 1 9]
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A

@@ -83,6 +83,21 @@ The inverse is `arcSin`:
 1
 ```
 
+Maclaurin series:
+
+```
+>>> 0.5.sin
+0.479426
+
+>>> let x = 0.5;
+>>> 0:23.sum { :n |
+>>> 	let m = (2 * n) + 1;
+>>> 	let c = (-1 ^ n) / m.!;
+>>> 	c * (x ^ m)
+>>> }
+0.479426
+```
+
 List of _x_-coordinates of point moving in clockwise square spiral,
 OEIS [A174344](https://oeis.org/A174344):
 

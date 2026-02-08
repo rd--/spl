@@ -363,6 +363,31 @@ let k = 0;
 
 ![](sw/spl/Help/Image/isPrime-F.svg)
 
+Largest prime _≤n_ in any decomposition of _2n_ into a sum of two odd primes,
+OEIS [A002374](https://oeis.org/A002374):
+
+~~~spl svg=G
+3:150.collect { :n |
+	let k = 0;
+	{
+		k < n & {
+			(n - k).isPrime.not | {
+				(n + k).isPrime.not
+			}
+		}
+	}.whileTrue {
+		k := k + 1
+	};
+	(k = n).if {
+		n + 1
+	} {
+		n - k
+	}
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/isPrime-G.svg)
+
 * * *
 
 See also: isComposite, isGaussianPrime, isPrimePower, isPrimeTrialDivision, isSemiprime, isSternPrime, millerRabinPrimalityTest, nextPrime, prime, primesList

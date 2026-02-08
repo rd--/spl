@@ -139,6 +139,41 @@ and the complement sequence
 ]
 ```
 
+Exponent of the largest power of two dividing _(2n)!_,
+OEIS [A005187](https://oeis.org/A005187):
+
+```
+>>> 0:51.collect { :n |
+>>> 	(2 * n).!.integerExponent(2)
+>>> }
+[
+	 0  1  3  4  7  8 10 11 15 16
+	18 19 22 23 25 26 31 32 34 35
+	38 39 41 42 46 47 49 50 53 54
+	56 57 63 64 66 67 70 71 73 74
+	78 79 81 82 85 86 88 89 94 95
+	97 98
+]
+```
+
+Complement,
+OEIS [A055938](https://oeis.org/A055938):
+
+```
+>>> 0:99.complement(
+>>> 	0:51.collect { :n |
+>>> 		(2 * n).!.integerExponent(2)
+>>> 	}
+>>> )
+[
+	 2  5  6  9 12 13 14 17 20 21
+	24 27 28 29 30 33 36 37 40 43
+	44 45 48 51 52 55 58 59 60 61
+	62 65 68 69 72 75 76 77 80 83
+	84 87 90 91 92 93 96 99
+]
+```
+
 Plot first few terms for for _b=2_,
 OEIS [A007814](https://oeis.org/A007814):
 
@@ -211,6 +246,21 @@ OEIS [A037227](https://oeis.org/A037227):
 ~~~
 
 ![](sw/spl/Help/Image/integerExponent-E.svg)
+
+First differences of
+complement of
+exponent of the largest power of two dividing _(2n)!_,
+OEIS [A279340](https://oeis.org/A279340):
+
+~~~spl svg=F
+0:99.complement(
+	0:51.collect { :n |
+		(2 * n).!.integerExponent(2)
+	}
+).differences.stepPlot
+~~~
+
+![](sw/spl/Help/Image/integerExponent-F.svg)
 
 * * *
 

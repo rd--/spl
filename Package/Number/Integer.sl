@@ -10,6 +10,27 @@
 		n.divisors.allButLast.sum
 	}
 
+	antiDivisors { :n |
+		let m = n - 1;
+		2:m.select { :x |
+			((n % x) - (x / 2)).abs < 1
+		}
+	}
+
+	antiDivisorsClassSum { :n |
+		let m = n - 1;
+		2:m.sum { :d |
+			let a = n % d;
+			let b = (d - 1) / 2;
+			let c = (d + 1) / 2;
+			[
+				{ a = b } -> { -1 },
+				{ a = c } -> { 1 },
+				{ true } -> { 0 }
+			].which
+		}
+	}
+
 	asBit { :self |
 		self.isZero.if {
 			0

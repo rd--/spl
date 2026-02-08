@@ -184,6 +184,17 @@ OEIS [A011754](https://oeis.org/A011754):
 
 ![](sw/spl/Help/Image/digitCount-G.svg)
 
+Plot _3^w(n)_,
+OEIS [A048883](https://oeis.org/A048883):
+
+~~~spl svg=H
+0:250.collect { :n |
+	3 ^ n.digitCount(2, 1)
+}.log.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/digitCount-H.svg)
+
 * * *
 
 See also: bitAnd, hammingDistance, hammingWeight, integerDigits, integerExponent, integerLength, thueMorse

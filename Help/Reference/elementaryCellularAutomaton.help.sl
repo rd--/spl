@@ -164,6 +164,19 @@ Rule 184 from a random initial state:
 
 ![](sw/spl/Help/Image/elementaryCellularAutomaton-H.png)
 
+Plot ones in the _n_-th generation of Rule 30,
+OEIS [A070952](https://oeis.org/A070952):
+
+~~~spl svg=I
+let k = 100;
+30.elementaryCellularAutomaton(
+	[1].centerArray(k * 2, 0),
+	k - 1
+).collect(sum:/1).stepPlot
+~~~
+
+![](sw/spl/Help/Image/elementaryCellularAutomaton-I.svg)
+
 * * *
 
 See also: arrayFilter, blockMap, centerArray, convolve, fromDigits, integerDigits, partition, substitutionSystem

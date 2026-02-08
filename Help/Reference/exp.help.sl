@@ -74,12 +74,14 @@ The inverse of `exp` is `log`:
 123.45
 ```
 
-Power series:
+Power series, Taylor or Maclaurin series:
 
 ```
 >>> let n = 11;
 >>> let x = 1.5;
->>> 0:n.sum { :i | (x ^ i) / i.! }
+>>> 0:n.sum { :i |
+>>> 	(x ^ i) / i.!
+>>> }
 4.48169
 
 >>> 1.5.exp

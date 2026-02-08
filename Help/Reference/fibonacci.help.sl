@@ -413,6 +413,20 @@ let pq = { :m |
 
 ![](sw/spl/Help/Image/fibonacci-J.svg)
 
+Plot smallest positive Fibonacci number divisible by _n_,
+OEIS [A047930](https://oeis.org/A047930):
+
+~~~spl svg=K
+let x = 1:250.fibonacci;
+1:100.collect { :n |
+	x.detect { :x |
+		x.divisible(n)
+	}
+}.log.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/fibonacci-K.svg)
+
 * * *
 
 See also: binetsFormula, fibonacciEntryPoint, fibonacciNumber, fibonacciPolynomial, fibonacciSequence, goldenRatio, lucasNumber

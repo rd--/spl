@@ -590,6 +590,29 @@ let t = { :n :k |
 
 ![](sw/spl/Help/Image/binomial-E.svg)
 
+Plot the number of length-_n_ binary sequences with exactly _k_ zeros,
+and without three consecutive zeros,
+OEIS [A182309](https://oeis.org/A182309):
+
+~~~spl svg=F
+2:27.collect { :n |
+	let m = 2 * (n + 1) / 3;
+	2:m.collect { :k |
+		let i = k / 2;
+		1:i.sum { :j |
+			binomial(n - k + 1, j)
+			*
+			binomial(
+				n - k - j + 1,
+				k - (2 *j)
+			)
+		}
+	}
+}.catenate.log.linePlot
+~~~
+
+![](sw/spl/Help/Image/binomial-F.svg)
+
 * * *
 
 See also: factorial, multinomial, trinomial

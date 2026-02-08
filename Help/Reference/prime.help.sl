@@ -298,6 +298,28 @@ let t = [1:m, p].transpose;
 
 ![](sw/spl/Help/Image/prime-K.svg)
 
+Plot _a(n)+a(n-1)=p(n)_,
+OEIS [A036467](https://oeis.org/A036467):
+
+~~~
+0:200.collect { :n |
+	2:n.sum { :k |
+		k.prime * (-1 ^ (k + 1))
+	} + 1
+}.abs.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/prime-L.svg)
+
+Plot _Σ{i=0…n-1}-1^i*p(n-i)_,
+OEIS [A008347](https://oeis.org/A008347):
+
+~~~spl svg=M
+-.swap.foldList(0, 1:200.prime).scatterPlot
+~~~
+
+![](sw/spl/Help/Image/prime-M.svg)
+
 * * *
 
 See also: indexOfPrime, isPrime, nextPrime, primesList, primesUpTo

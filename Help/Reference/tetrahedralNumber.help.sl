@@ -4,6 +4,9 @@
 
 Answer the _n_-th tetrahedral number.
 
+First few terms,
+OEIS [A000292](https://oeis.org/A000292):
+
 ```
 >>> 0:22.collect(tetrahedralNumber:/1)
 [

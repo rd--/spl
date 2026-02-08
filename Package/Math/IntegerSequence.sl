@@ -1,5 +1,18 @@
 +SmallFloat {
 
+	decimalSelvageNumber { :k :d |
+		k.caseOf(
+			[
+				1 -> { [1 2 3] },
+				2 -> { [2 4 7] },
+				3 -> { [2 5 7] },
+				4 -> { [3 7 1] },
+				5 -> { [4 9 4] },
+				6 -> { [5 0 5] }
+			]
+		).decimalSelvageNumber(d)
+	}
+
 	noergaardInfinityNumber { :n |
 		let w = n.integerDigits(2);
 		let a = 1;
@@ -969,6 +982,22 @@
 }
 
 +List {
+
+	decimalSelvageNumber { :z :d |
+		let n0 = 3;
+		let a = List(d, 0);
+		a[1] := z[1];
+		a[2] := z[2];
+		a[3] := z[3];
+		(n0 + 1).toDo(d) { :n |
+			a[n] := (
+				10 * n * 1:n.sum { :k |
+					a[k] / (10 ^ k)
+				}
+			).floor % 10
+		};
+		a
+	}
 
 	haltonSequence { :self :k |
 		self.collect { :b |

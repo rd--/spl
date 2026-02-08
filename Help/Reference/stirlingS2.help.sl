@@ -75,6 +75,22 @@ and A000453 [A000453](https://oeis.org/A000453):
 [1 10 65 350 1701 7770 34105 145750]
 ```
 
+Stirling transform of Catalan numbers,
+OEIS [A064856](https://oeis.org/A064856):
+
+```
+>>> 0:9.collect { :n |
+>>> 	0:n.sum { :k |
+>>> 		let c = k.catalanNumber;
+>>> 		n.stirlingS2(k) * c
+>>> 	}
+>>> }
+[
+	  1    1     3     12      59
+	338 2185 15613 121553 1020170
+]
+```
+
 Plot sums of digits:
 
 ~~~spl svg=A

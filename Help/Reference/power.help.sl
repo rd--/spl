@@ -412,6 +412,19 @@ OEIS [A002416](https://oeis.org/A002416):
 ]
 ```
 
+_n*(n+1)^2/2_,
+OEIS [A006002](https://oeis.org/A006002):
+
+```
+>>> 1:18.collect { :n |
+>>> 	(n ^ 3) - (n ^ 2) / 2
+>>> }
+[
+	0 2 9 24 50 90 147 224 324 450 605
+	792 1014 1274 1575 1920 2312 2754
+]
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A

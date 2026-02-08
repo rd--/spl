@@ -246,6 +246,20 @@ OEIS [A007001](https://oeis.org/A007001):
 
 ![](sw/spl/Help/Image/iterate-D.svg)
 
+Plot fixed point of morphism _0→0,1→110_,
+OEIS [A079559](https://oeis.org/A079559):
+
+~~~spl svg=E
+let m = [0: [0], 1: [1 1 0]];
+{ :x |
+	x.collect { :i |
+		m[i]
+	}.catenate
+}.iterate([1], 5).discretePlot
+~~~
+
+![](sw/spl/Help/Image/iterate-E.svg)
+
 _Rationale:_
 This notation can be more compact than a written out loop,
 and can also be written in the middle of a sequence of bindings,

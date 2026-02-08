@@ -519,6 +519,31 @@ OEIS [A051126](https://oeis.org/A051126):
 
 ![](sw/spl/Help/Image/mod-P.svg)
 
+Plot earliest sequence with _a(a(n))=2n_,
+OEIS [A002516](https://oeis.org/A002516):
+
+~~~spl svg=Q
+let a = { :n |
+	[
+		{ n = 0 } -> {
+			0
+		},
+		{ n % 2 = 0 } -> {
+			2 * a(n / 2)
+		},
+		{ n % 4 = 1 } -> {
+			n + 2
+		},
+		{ n % 4 = 3 } -> {
+			2 * (n - 2)
+		}
+	].which
+};
+0:200.collect(a:/1).scatterPlot
+~~~
+
+![](sw/spl/Help/Image/mod-Q.svg)
+
 * * *
 
 See also: %, /, //, \\, commonResidue, minimalResidue, positiveResidue, quotient, remainder

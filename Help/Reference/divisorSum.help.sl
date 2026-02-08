@@ -37,6 +37,27 @@ OEIS [A002129](https://oeis.org/A002129):
 
 ![](sw/spl/Help/Image/divisorSum-B.svg)
 
+Plot the multiplicative partition function,
+OEIS [A001055](https://oeis.org/A001055):
+
+~~~spl svg=C
+let t = { :n :m |
+	(n = 1 | { m = 1}).if {
+		1
+	} {
+		n.divisorSum { :x |
+			let y = x > 1 & { x <= m};
+			y.boole * t(n / x, x)
+		}
+	}
+};
+1:200.collect { :n |
+	t(n, n)
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/divisorSum-C.svg)
+
 * * *
 
 See also: aliquotSum, divisors, divisorSigma, sum

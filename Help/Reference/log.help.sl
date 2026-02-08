@@ -114,6 +114,19 @@ Show that the natural logarithm of -1 is iπ:
 [-1 -2 -3 -4 -5]
 ```
 
+Maclaurin series:
+
+```
+>>> 0.75.log
+-0.287682
+
+>>> let x = 0.25;
+>>> 0 - 1:23.sum { :n |
+>>> 	(x ^ n) / n
+>>> }
+-0.287682
+```
+
 Calculate the lower Fibonacci inverse,
 OEIS [A130233](https://oeis.org/A130233):
 

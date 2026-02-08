@@ -71,6 +71,13 @@ Pad to make a regular volume:
 ]
 ```
 
+Contract:
+
+```
+>>> [0 1].padLeft([1], 0)
+[0]
+```
+
 At `String`:
 
 ```
@@ -100,6 +107,17 @@ OEIS [A051340](https://oeis.org/A051340):
 ~~~
 
 ![](sw/spl/Help/Image/padLeft-A.svg)
+
+Infinitesimal Pascal matrix,
+OEIS [A132440](https://oeis.org/A132440):
+
+~~~spl svg=B
+0:15.collect { :n |
+	[n 0].padLeft([n + 1], 0)
+}.catenate.discretePlot
+~~~
+
+![](sw/spl/Help/Image/padLeft-B.svg)
 
 * * *
 
