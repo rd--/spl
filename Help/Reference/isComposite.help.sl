@@ -53,7 +53,7 @@ At `zero` and `one`:
 
 ```
 >>> [0 1].isComposite
-[true true]
+[false false]
 ```
 
 Select first few terms:

@@ -33,7 +33,7 @@ The second decimal selvage number,
 OEIS [A071790](https://oeis.org/A071790):
 
 ```
->>> 2.decimalSelvageNumber(112)
+>>> 2.decimalSelvageNumber(108)
 [
 	2 4 7 9 2 4 7 9 2 4 7 9
 	2 4 7 9 2 4 7 9 2 4 7 9
