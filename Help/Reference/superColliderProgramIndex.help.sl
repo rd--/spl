@@ -20,9 +20,11 @@ The programs are organised into `categories`:
 >>> .superColliderProgramIndex
 >>> .categories
 [
-	'Graph',
-	'Graph Collection',
-	'Texture',
+	'Graph'
+	'Graph Collection'
+	'Scheduler'
+	'Scheduler Collection'
+	'Texture'
 	'Texture Collection'
 ]
 ```
