@@ -29,7 +29,8 @@ Display the values alongside the binary expansion:
 
 ```
 >>> 0:9.collect { :n |
->>> 	(n, n.thueMorse, n.integerDigits(2))
+>>> 	let d = n.integerDigits(2);
+>>> 	(n, n.thueMorse, d)
 >>> }
 [
 	(0, 0, [0]),
@@ -51,6 +52,30 @@ Threads over lists:
 >>> [12 8 55 2].thueMorse
 [0 1 1 1]
 ```
+
+Plot a binary array related to the Thue-Morse sequence,
+reading antidiagonals,
+OEIS [A104894](https://oeis.org/A104894):
+
+~~~spl svg=A
+0:15.triangularArray { :n :k |
+	((n - k) % (2 ^ (k+ 1 )))
+	.thueMorse
+}.catenate.discretePlot
+~~~
+
+![](sw/spl/Help/Image/thueMorse-A.svg)
+
+Plot as array:
+
+~~~spl svg=B
+0:15.triangularArray { :n :k |
+	((n - k) % (2 ^ (k+ 1 )))
+	.thueMorse
+}.triangularArrayPlot
+~~~
+
+![](sw/spl/Help/Image/thueMorse-B.svg)
 
 * * *
 

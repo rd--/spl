@@ -45,6 +45,19 @@ The order of a permutation can be computed as the least common multiple of the l
 30
 ```
 
+Indices of permutations of orders 1 or 2 when placed in lexicographic order,
+OEIS [A066646](https://oeis.org/A066646):
+
+~~~spl svg=A
+[1 .. 6].permutations
+.lexicographicSort
+.collect(permutationOrder:/1)
+.detectIndices { :x | x < 3 }
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/permutationOrder-A.svg)
+
 * * *
 
 See also: cycles, inversePermutation, permutationOrderList, permutationPower, permutationProduct

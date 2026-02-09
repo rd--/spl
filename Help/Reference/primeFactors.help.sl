@@ -201,6 +201,19 @@ x.log.scatterPlot
 
 ![](sw/spl/Help/Image/primeFactors-D.svg)
 
+Number of primes congruent to one modulo four dividing _n_,
+OEIS [A083025](https://oeis.org/A083025):
+
+~~~spl svg=E
+1:150.collect { :n |
+	n.primeFactors.select { :x |
+		x % 4 = 1
+	}.size
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/primeFactors-E.svg)
+
 * * *
 
 See also: distinctPrimeFactors, factorInteger, isPrime, primeFactorization, primeLimit, product

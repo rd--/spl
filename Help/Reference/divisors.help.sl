@@ -269,6 +269,22 @@ OEIS [A051764](https://oeis.org/A051764):
 
 ![](sw/spl/Help/Image/divisors-H.svg)
 
+Plot least number that is not a sum of distinct divisors of _n_,
+OEIS [A030057](https://oeis.org/A030057):
+
+~~~spl svg=I
+1:100.collect { :n |
+	let m = 1.divisorSigma(n) + 1;
+	let d = n.divisors;
+	let b = d.powerSet.collect(sum:/1);
+	1:m.detect { :n |
+		b.includes(n).not
+	}
+}.log.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/divisors-I.svg)
+
 * * *
 
 See also: divisorSigma, divisorSum, gcd, remainder

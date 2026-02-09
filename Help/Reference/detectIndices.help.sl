@@ -1,8 +1,8 @@
 # detectIndices
 
-- _detectIndices(aSequence, aBlock:/1)_
+- _detectIndices([x₁ x₂ …], f:/1)_
 
-Answer the indices of the items in _aSequence_ that answer `true` to _aBlock_.
+Answer the indices of the items in the sequence _x_ that answer `true` to the predicate block _f_.
 
 Find indices of even numbers:
 

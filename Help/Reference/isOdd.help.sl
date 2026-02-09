@@ -62,6 +62,25 @@ The sums of the first odd integers, beginning with one, are perfect squares:
 [1 4 9 16 25 36 49 64 81 100]
 ```
 
+Plot OEIS [A065620](https://oeis.org/A065620):
+
+~~~spl svg=A
+let a = { :n |
+	(n = 0).if {
+		0
+	} {
+		n.isOdd.if {
+			1 - (2 * a((n - 1) / 2))
+		} {
+			2 * a(n / 2)
+		}
+	}
+};
+0:150.collect(a:/1).scatterPlot
+~~~
+
+![](sw/spl/Help/Image/isOdd-A.svg)
+
 * * *
 
 See also: divisible, isEven, isInteger

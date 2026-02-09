@@ -105,6 +105,25 @@ let f = { :n |
 
 ![](sw/spl/Help/Image/isEven-A.svg)
 
+Plot OEIS [A104895](https://oeis.org/A104895):
+
+~~~spl svg=B
+let a = { :n |
+	(n = 0).if {
+		0
+	} {
+		n.isEven.if {
+			2 * a(n / 2)
+		} {
+			-2 * a((n - 1) / 2) - 1
+		}
+	}
+};
+0:150.collect(a:/1).scatterPlot
+~~~
+
+![](sw/spl/Help/Image/isEven-B.svg)
+
 * * *
 
 See also: divisible, isInteger, isOdd
