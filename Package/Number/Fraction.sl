@@ -520,7 +520,7 @@ Fraction : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | num
 		self.copy.simplify
 	}
 
-	sqrt { :self |
+	[squareRoot, sqrt] { :self |
 		self.asFloat.sqrt
 	}
 

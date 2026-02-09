@@ -16,7 +16,7 @@ The answer is sorted by factor.
 >>> 120.factorInteger
 [2 3; 3 1; 5 1]
 
->>> (2 ^ 3) * 3 * 5
+>>> (2 ^ 3) * (3 ^ 1) * (5 ^ 1)
 120
 
 >>> factorInteger(2000)
@@ -325,6 +325,39 @@ OEIS [A008475](https://oeis.org/A008475):
 ~~~
 
 ![](sw/spl/Help/Image/factorInteger-G.svg)
+
+Plot the 2-adic valuation of the Hardy-Ramanujan integers,
+OEIS [A051282](https://oeis.org/A051282):
+
+~~~spl svg=H
+let m = 4000;
+let a = [1];
+let l = [];
+2.toDo(m) { :n |
+	let e = n.factorInteger.column(2).sort;
+	l.includes(e).ifFalse {
+		l.add(e);
+		a.add(n)
+	}
+};
+(2 .. a.size).collect { :n |
+	a[n].factorInteger[1][2]
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/factorInteger-H.svg)
+
+Plot more terms:
+
+~~~spl svg=I
+OeisEntry('A051282').then { :e |
+	e.bFileData
+	.first(300)
+	.scatterPlot
+}
+~~~
+
+![](sw/spl/Help/Image/factorInteger-I.svg)
 
 * * *
 

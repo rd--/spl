@@ -1419,3 +1419,23 @@
 	}
 
 }
+
++Fraction {
+
+	collatzSequence { :x |
+		let r = [];
+		{
+			r.includes(x)
+		}.whileFalse {
+			r.add(x);
+			x.numerator.isEven.if {
+				x := x / 2
+			} {
+				x := 3 * x + 1
+			}
+		};
+		r.add(x);
+		r
+	}
+
+}

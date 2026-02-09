@@ -195,6 +195,19 @@ OEIS [A048883](https://oeis.org/A048883):
 
 ![](sw/spl/Help/Image/digitCount-H.svg)
 
+Plot OEIS [A046645](https://oeis.org/A046645):
+
+~~~spl svg=I
+2:100.collect { :n |
+	n.factorInteger.sum { :x |
+		let [p, e] = x;
+		(2 * e) - (2 * e).digitCount(2, 1)
+	}
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/digitCount-I.svg)
+
 * * *
 
 See also: bitAnd, hammingDistance, hammingWeight, integerDigits, integerExponent, integerLength, thueMorse

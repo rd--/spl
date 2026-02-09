@@ -249,6 +249,32 @@ OEIS [A049984](https://oeis.org/A049984):
 [2 5 19 97 601 35281 5748019201]
 ```
 
+Left factorials,
+OEIS [A003422](https://oeis.org/A003422):
+
+```
+>>> 0:9.!.prefixSum
+[1 2 4 10 34 154 874 5914 46234 409114]
+```
+
+Number of connected permutations,
+also called indecomposable permutations or irreducible permutations,
+OEIS [A003319](https://oeis.org/A003319):
+
+```
+>>> let a = { :n |
+>>> 	let m = n - 1;
+>>> 	n.! - 1:m.sum { :k |
+>>> 		k.! * a(n - k)
+>>> 	}
+>>> };
+>>> 1:12.collect(a:/1)
+[
+	1 1 3 13 71 461 3447 29093 273343
+	2829325 31998903 392743957
+]
+```
+
 The [Kempner_function](https://en.wikipedia.org/wiki/Kempner_function),
 also sometimes called the Smarandache function or Kempner numbers,
 the smallest positive integer _m_ such that _n_ divides _m!_,

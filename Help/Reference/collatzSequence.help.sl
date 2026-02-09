@@ -106,6 +106,59 @@ let t = 1:15.collect { :unused |
 
 ![](sw/spl/Help/Image/collatzSequence-D.svg)
 
+There is also a variant defined for rational numbers of the form _1/(2n+1)_,
+where the parity of the numerator is considered,
+and the sequence ends by visiting an already visited term.
+
+The sequence starting at _1/3_:
+
+```
+>>> 1/3.collatzSequence
+[1/3 2 1 4 2]
+```
+
+The first few sequences:
+
+```
+>>> let n = 3:13:2;
+>>> Fraction(1, n)
+>>> .collect(collatzSequence:/1) * n
+[
+	1 6 3 12 6;
+	1 8 4 2 1;
+	1 10 5 22 11 40 20 10;
+	1 12 6 3 18 9 36 18;
+	1 14 7 32 16 8 4 2 1;
+	1 16 8 4 2 1
+]
+```
+
+Plot first few sequences:
+
+~~~spl svg=E
+1:15.collect { :n |
+	let x = Fraction(1, (2 * n + 1));
+	x.collatzSequence
+}.catenate.log.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/collatzSequence-E.svg)
+
+Plot sequence lengths,
+according to OEIS [A210468](https://oeis.org/A210468):
+
+~~~spl svg=F
+1:66.collect { :n |
+	let x = Fraction(1, (2 * n + 1));
+	let y = x.collatzSequence;
+	let k = y.size;
+	let e = y.last;
+	k - 2 - (e = 2).boole
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/collatzSequence-F.svg)
+
 * * *
 
 See also: isEven, isOdd, nestWhileList

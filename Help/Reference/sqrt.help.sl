@@ -187,11 +187,13 @@ OEIS [A007336](https://oeis.org/A007336):
 
 ![](sw/spl/Help/Image/sqrt-B.svg)
 
+`sqrt` is an alias for `squareRoot`.
+
 Where supported `sqrt` is displayed as √.
 
 * * *
 
-See also: cubeRoot, nthRoot, square
+See also: cubeRoot, integerSquareRoot, nthRoot, square
 
 References:
 _Mathematica_

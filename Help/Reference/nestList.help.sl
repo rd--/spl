@@ -210,6 +210,21 @@ let y = { :n | (n + b) % 1 }.nestList(0, n);
 
 ![](sw/spl/Help/Image/nestList-C.svg)
 
+Plot Levine’s triangle,
+OEIS [A012257](https://oeis.org/A012257):
+
+~~~spl svg=D
+{ :x |
+	x.reverse
+	.withIndexCollect(List:/2)
+	.catenate
+}.nestList([1 1], 6)
+.catenate
+.stepPlot
+~~~
+
+![](sw/spl/Help/Image/nestList-D.svg)
+
 * * *
 
 See also: foldLeft, iterate, reduce, scan

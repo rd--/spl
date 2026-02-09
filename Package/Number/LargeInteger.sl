@@ -338,7 +338,7 @@ LargeInteger! : [Object, Storeable, Equatable, Comparable, Binary, Magnitude, Nu
 		self.error('remainder: not integer')
 	}
 
-	sqrt { :self |
+	[squareRoot, sqrt] { :self |
 		<primitive:
 		/* https://github.com/Aisse-258/bigint-isqrt */
 		if (_self < 2n) {

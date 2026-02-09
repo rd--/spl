@@ -7,6 +7,9 @@ Answer the integer square root of the integer _n_.
 ```
 >>> 293.integerSquareRoot
 17
+
+>>> (9 / 4).integerSquareRoot
+1
 ```
 
 Threads over lists:
@@ -104,6 +107,8 @@ Show that the expression _f_ below answers non-square numbers:
 * * *
 
 See also: Integer, LargeInteger, sqrt
+
+Guides: Integer Functions
 
 References:
 _OEIS_

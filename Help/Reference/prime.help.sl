@@ -320,6 +320,34 @@ OEIS [A008347](https://oeis.org/A008347):
 
 ![](sw/spl/Help/Image/prime-M.svg)
 
+Plot Cald’s sequence,
+OEIS [A006509](https://oeis.org/A006509):
+
+~~~spl svg=N
+let y = [1];
+1.toDo(135) { :n |
+	let b = y.last;
+	let p = y.size.prime;
+	let x = (
+		b > p & {
+			y.includes(b - p).not
+		}
+	).if {
+		b - p
+	} {
+		y.includes(b + p).if {
+			0
+		} {
+			b + p
+		}
+	};
+	y.add(x)
+};
+y.discretePlot
+~~~
+
+![](sw/spl/Help/Image/prime-N.svg)
+
 * * *
 
 See also: indexOfPrime, isPrime, nextPrime, primesList, primesUpTo

@@ -152,7 +152,7 @@
 		'sin'.symbolicPrimitive([self])
 	}
 
-	sqrt { :self |
+	[squareRoot, sqrt] { :self |
 		'sqrt'.symbolicPrimitive([self])
 	}
 

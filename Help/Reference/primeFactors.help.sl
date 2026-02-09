@@ -143,6 +143,16 @@ reversing each row gives [A238689](https://oeis.org/A238689):
 ]
 ```
 
+Smallest prime factor of _2^n+1_,
+OEIS [A002586](https://oeis.org/A002586):
+
+```
+>>> 1:17.collect { :n |
+>>> 	(2 ^ n + 1).primeFactors.min
+>>> }
+[3 5 3 17 3 5 3 257 3 5 3 17 3 5 3 65537 3]
+```
+
 `min` of `primeFactors` is called the _least prime factor_.
 Plot the first few entries of [A020639](https://oeis.org/A020639),
 excluding the first:

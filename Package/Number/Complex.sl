@@ -380,7 +380,7 @@ Complex : [Object, Storeable, Equatable, Comparable, Number] { | real imaginary 
 		}
 	}
 
-	sqrt { :self |
+	[squareRoot, sqrt] { :self |
 		(self.imaginary = 0 & {
 			self.real >= 0
 		}).if {

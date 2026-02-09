@@ -90,6 +90,16 @@ OEIS [A014612](https://oeis.org/A014612):
 ]
 ```
 
+Numbers with an even number of prime divisors,
+OEIS [A028260](https://oeis.org/A028260):
+
+```
+>>> 1:23.select { :n |
+>>> 	n.primeOmega.isEven
+>>> }
+[1 4 6 9 10 14 15 16 21 22]
+```
+
 Plot the `primeOmega` sequence for the first 100 numbers:
 
 ~~~spl svg=A

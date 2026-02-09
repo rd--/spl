@@ -425,6 +425,21 @@ OEIS [A007956](https://oeis.org/A007956):
 
 ![](sw/spl/Help/Image/divisorSigma-K.svg)
 
+Plot where _σ(m)_ rises by at least _n_,
+OEIS [A058197](https://oeis.org/A058197):
+
+~~~spl svg=L
+let sigma = 0.divisorSigma(1:5100);
+let d = sigma.differences;
+1:30.collect { :n |
+	d.detectIndex { :x |
+		x >= n
+	}
+}.log.stepPlot
+~~~
+
+![](sw/spl/Help/Image/divisorSigma-L.svg)
+
 * * *
 
 See also: aliquotSum, divisible, divisors, divisorSum, divisorSummatoryFunction, eulerPhi, isAbundantNumber
@@ -445,4 +460,4 @@ _Python_
 _W_
 [1](https://en.wikipedia.org/wiki/Divisor_function)
 
-Unicode: U+03C3 σ Greek Small Letter Sigma
+Unicode: U+03C3 σ Greek Small Letter Sigma; U+03C4 τ Greek Small Letter Tau

@@ -90,6 +90,22 @@ A sequence that shifts one place left under the third-order binomial transform,
 [1 4 19 109 742 5815 51193 498118]
 ```
 
+Transform of _1,3,4,3,0…_,
+OEIS [A006004](https://oeis.org/A006004):
+
+```
+>>> [1 3 4 3].padRight([12], 0)
+>>> .binomialTransform
+[1 4 11 25 49 86 139 211 305 424 571 749]
+
+>>> linearRecurrence(
+>>> 	[4 -6 4 -1],
+>>> 	[1 4 11 25],
+>>> 	12
+>>> )
+[1 4 11 25 49 86 139 211 305 424 571 749]
+```
+
 * * *
 
 See also: binomial, boustrophedonTransform, eulerTransform, runLengthTransform

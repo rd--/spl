@@ -102,6 +102,34 @@ IntegerPartitions : [Object, Equatable, Storeable] { | contents:<List> |
 		answer
 	}
 
+	integerPartitionsDimensions { :self |
+		let h = { :l |
+			let n = l.size;
+			l.sum.factorial / Range(1, n, 1).product { :i |
+				let m = l[i];
+				Range(1, m, 1).product { :j |
+					1 + m - j + Range(i + 1, n, 1).count { :k |
+						l[k] >= j
+					}
+				}
+			}
+		};
+		let g = { :n :i :l |
+			(n = 0 | { i = 1 }).if {
+				[h(l ++ List(n, 1))]
+			} {
+				(i < 1).if {
+					[0]
+				} {
+					Range(0, n / i, 1).collect { :j |
+						g(n - (i * j), i - 1, l ++ List(j, i))
+					}.catenate
+				}
+			}
+		};
+		g(self, self, [])
+	}
+
 	integerPartitionsExactly { :j :i |
 		let f = { :t :m :n |
 			(m = 1 & { t = n }).if {
@@ -301,6 +329,23 @@ IntegerPartitions : [Object, Equatable, Storeable] { | contents:<List> |
 
 	heinzNumber { :p |
 		p.prime.product
+	}
+
+	hookLengthFormula { :p |
+		let n = p.sum;
+		let h = p.hookLengths.catenate;
+		n.! / h.product
+	}
+
+	hookLengths { :p |
+		let c = p.conjugatePartition;
+		let m = p.size;
+		1:m.collect { :i |
+			let n = p[i];
+			1:n.collect { :j |
+				p[i] - i + c[j] - j + 1
+			}
+		}
 	}
 
 	integerPartitionRankKarttunenAscending { :p |

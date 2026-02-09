@@ -535,8 +535,8 @@
 		self.collect(rudinShapiro:/1)
 	}
 
-	sqrt { :self |
-		self.collect(sqrt:/1)
+	[squareRoot, sqrt] { :self |
+		self.collect(squareRoot:/1)
 	}
 
 	square { :self |

@@ -290,6 +290,15 @@ OEIS [A003417](https://oeis.org/A003417):
 ]
 ```
 
+Repeating _123432_,
+OEIS [A028356](https://oeis.org/A028356):
+
+```
+>>> ((28 + 2730.sqrt) / 56)
+>>> .continuedFraction(17)
+[1 2 3 4 3 2 1 2 3 4 3 2 1 2 3 4 3]
+```
+
 Scatter plot of the
 least number _k<n_ and coprime to _n_ such that the largest term of the continued fraction of _k/n_ is as small as possible,
 OEIS [A141821](https://oeis.org/A141821):

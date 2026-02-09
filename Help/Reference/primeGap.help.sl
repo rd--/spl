@@ -43,6 +43,16 @@ OEIS [A053695](https://oeis.org/A053695):
 [1 2 2 2 6 4 2 2 12 2 8]
 ```
 
+Primes followed by a larger-than-average prime gap,
+OEIS [A082885](https://oeis.org/A082885):
+
+```
+>>> 1:23.select { :n |
+>>> 	(n.primeGap / n.prime.log) > 1
+>>> }.prime
+[2 3 5 7 13 19 23 31 37 43 47 53 61 73 83]
+```
+
 Plot first few terms,
 OEIS [A001223](https://oeis.org/A001223):
 

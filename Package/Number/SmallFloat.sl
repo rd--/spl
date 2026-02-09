@@ -671,11 +671,11 @@ SmallFloat! : [Object, Storeable, Equatable, Comparable, Json, Magnitude, Number
 		>
 	}
 
-	sqrt { :self |
+	[squareRoot, sqrt] { :self |
 		self.isNegative.if {
 			Complex(self, 0).sqrt
 		} {
-			self.uncheckedSqrt
+			self.uncheckedSquareRoot
 		}
 	}
 
@@ -687,7 +687,7 @@ SmallFloat! : [Object, Storeable, Equatable, Comparable, Json, Magnitude, Number
 		<primitive: return Math.trunc(_self)>
 	}
 
-	uncheckedSqrt { :self |
+	uncheckedSquareRoot { :self |
 		<primitive: return Math.sqrt(_self)>
 	}
 

@@ -262,6 +262,40 @@ OEIS [A279340](https://oeis.org/A279340):
 
 ![](sw/spl/Help/Image/integerExponent-F.svg)
 
+Plot 2-adic valuation of _τ(n)_,
+OEIS [A295664](https://oeis.org/A295664):
+
+~~~spl svg=G
+1:120.collect { :n |
+	0.divisorSigma(n).integerExponent(2)
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/integerExponent-G.svg)
+
+Plot 2-adic valuation of _σ(n)_,
+OEIS [A336937](https://oeis.org/A336937):
+
+~~~spl svg=H
+1:120.collect { :n |
+	1.divisorSigma(n).integerExponent(2)
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/integerExponent-H.svg)
+
+Plot OEIS [A371094](https://oeis.org/A371094):
+
+~~~spl svg=I
+0:150.collect { :n |
+	let m = 1 + (3 * n);
+	let e = m.integerExponent(2);
+	(m * (2 ^ e)) + (((4 ^ e) - 1) / 3)
+}.log.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/integerExponent-I.svg)
+
 * * *
 
 See also: ^, digitCount, factorInteger, integerDigits, log2, log10, rulerFunction

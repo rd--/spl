@@ -253,6 +253,22 @@ OEIS [A001227](https://oeis.org/A001227):
 
 ![](sw/spl/Help/Image/divisors-G.svg)
 
+Plot number of torus knots with _n_ crossings,
+OEIS [A051764](https://oeis.org/A051764):
+
+~~~spl svg=H
+1:75.collect { :n |
+	let t = n.integerSquareRoot;
+	n.divisors.count { :k |
+		k > t & {
+			k.gcd(n / k + 1) = 1
+		}
+	}
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/divisors-H.svg)
+
 * * *
 
 See also: divisorSigma, divisorSum, gcd, remainder

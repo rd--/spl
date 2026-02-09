@@ -517,6 +517,18 @@ OEIS [A052509](https://oeis.org/A052509):
 ]
 ```
 
+_Σ(C(n+[2,0,-1],3))_,
+OEIS [A006004](https://oeis.org/A006004):
+
+```
+>>> 1:12.collect { :n |
+>>> 	[2 0 -1].sum { :i |
+>>> 		binomial(n + i, 3)
+>>> 	}
+>>> }
+[1 4 11 25 49 86 139 211 305 424 571 749]
+```
+
 Plot over a subset of the reals as a function of its first parameter:
 
 ~~~spl svg=A

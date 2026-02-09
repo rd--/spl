@@ -4,7 +4,8 @@
 
 Answer the first _n_ generalized pentagonal numbers.
 
-The first few terms:
+The first few terms,
+OEIS [A001318](https://oeis.org/A001318):
 
 ```
 >>> 60.generalizedPentagonalNumbers
@@ -23,6 +24,15 @@ The first few terms:
 	1162 1190 1247 1276 1335
 ]
 ```
+
+Plot:
+
+~~~spl svg=A
+100.generalizedPentagonalNumbers
+.stepPlot
+~~~
+
+![](sw/spl/Help/Image/generalizedPentagonalNumbers-A.svg)
 
 * * *
 

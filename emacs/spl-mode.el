@@ -462,6 +462,7 @@ If the string begins with a doctest, also delete all non doctest lines."
      ("sigma" . ?σ) ; U+03C3 σ Greek Small Letter Sigma
      ("Sigma" . ?Σ) ; U+03A3 Σ Greek Capital Letter Sigma
      ("sqrt" . ?√) ; “√” U+221A Square Root
+     ("squareRoot" . ?√) ; “√” U+221A Square Root
      ("square" . ?²) ; U+00B2 ² Superscript Two
      ("cube" . ?³) ; U+00B3 ³ Superscript Three
      ("sum" . ?Σ) ; U+03A3 Σ Greek Capital Letter Sigma ; U+2211 ∑ N-Ary Summation

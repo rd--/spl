@@ -300,6 +300,14 @@ Store string:
 'Decimal(157/50, 2)'
 ```
 
+Repeating _123432_,
+OEIS [A028356](https://oeis.org/A028356):
+
+```
+Decimal(1112/9009, 25)
+0.1234321234321234321234321D
+```
+
 _Note_:
 The implentation is in terms of `Fraction`,
 which is in terms of `LargeInteger`,

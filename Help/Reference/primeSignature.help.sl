@@ -141,6 +141,7 @@ OEIS [A025487](https://oeis.org/A025487):
 ```
 
 Calculate least integer of each prime signature,
+the Hardy-Ramanujan integers,
 OEIS [A025487](https://oeis.org/A025487):
 
 ```
