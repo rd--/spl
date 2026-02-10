@@ -29,7 +29,7 @@ with numerical value ~0.5772.
 ```
 
 The first few terms of the continued fraction,
-OEIS [A00285](https://oeis.org/A00285):
+OEIS [A002852](https://oeis.org/A002852):
 
 ```
 >>> 1.eulerGamma.continuedFraction(19)

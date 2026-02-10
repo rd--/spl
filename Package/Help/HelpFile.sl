@@ -170,6 +170,17 @@ HelpFile : [Object, Equatable, Cache] { | origin source cache |
 		}
 	}
 
+	oeisReferences { :self |
+		self.lines
+		.collect { :s |
+			s.matchRegularExpression('oeis.org/A[0-9]+')
+		}.deleteMissing
+		.collect { :s |
+			s.last(7)
+		}.lexicographicSort
+		.nub
+	}
+
 	originName { :self |
 		self.origin.fileNameWithoutExtensions.decodeUri
 	}

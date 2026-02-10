@@ -20,7 +20,7 @@ Lookup a reference entry:
 
 ```
 >>> system.helpIndex.find('SinOsc')
-['Reference', 'SinOsc']
+['Reference' 'SinOsc']
 ```
 
 Lookup a guide entry:
@@ -29,8 +29,14 @@ Lookup a guide entry:
 >>> system
 >>> .helpIndex
 >>> .find('Tuning Functions')
-['Guide', 'Tuning Functions']
+['Guide' 'Tuning Functions']
 ```
+
+To clear the help index from the cache:
+
+~~~spl cache
+system.libraryItem('HelpIndex').clearCache
+~~~
 
 _Note:_
 The index is a `LibraryItem`,

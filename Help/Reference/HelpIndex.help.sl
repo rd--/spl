@@ -12,6 +12,24 @@ The `helpIndex` method `System` answers a `HelpIndex`:
 'HelpIndex'
 ```
 
+Count _Reference_ files:
+
+```
+>>> system.helpIndex
+>>> .names('Reference')
+>>> .size
+3965
+```
+
+Count _Guide_ files:
+
+```
+>>> system.helpIndex
+>>> .names('Guide')
+>>> .size
+259
+```
+
 * * *
 
 See also: helpIndex, HelpFile
