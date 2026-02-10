@@ -12,7 +12,7 @@ Answer the list, starting with _n_, and dividing out each of _d_ in turn.
 [2 3 5 11 37]
 
 >>> 12210 / 2
-6015
+6105
 
 >>> 6105 / 3
 2035

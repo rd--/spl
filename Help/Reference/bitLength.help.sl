@@ -43,7 +43,7 @@ Plot is a kind of staircase:
 Plot
 [A003817](https://oeis.org/A003817):
 
-~~~spl svg=A
+~~~spl svg=B
 (2 ^ 0:50.bitLength).discretePlot
 ~~~
 

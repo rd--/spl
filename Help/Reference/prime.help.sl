@@ -301,7 +301,7 @@ let t = [1:m, p].transpose;
 Plot _a(n)+a(n-1)=p(n)_,
 OEIS [A036467](https://oeis.org/A036467):
 
-~~~
+~~~spl svg=L
 0:200.collect { :n |
 	2:n.sum { :k |
 		k.prime * (-1 ^ (k + 1))

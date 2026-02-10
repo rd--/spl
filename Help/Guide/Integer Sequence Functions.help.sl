@@ -23,12 +23,15 @@ Integer Sequence Transform Functions:
 
 [OEIS](https://oeis.org/) _A_-References:
 
+- `accumulate`: A000124
 - `additivePersistence`: A031286
-- `aliquotSequence`: A044050
+- `aliquotSequence`: A008892 A044050 A072890
 - `aliquotSum`: A001065
+- `antidiagonalArray`: A049581 A114327
+- `antiDivisors`: A058838 A066272 A066518 A066519 A130799
 - `aperysConstant`: A002117
 - `arithmeticGeometricMean`: A068521 A084895 A084896 A084897
-- `arithmeticProgression`: A000027 A001477 A005408 A005843 A008585 A008586
+- `arithmeticProgression`: A000027 A001477 A005408 A005843 A008585 A008586 A299174
 - `arshonsSequence`: A099054
 - `artinsConstant`: A005596
 - `balancedCayleyTree`: A003945 A003946 A003947 A025192 A083329 A136412
@@ -36,13 +39,17 @@ Integer Sequence Transform Functions:
 - `beattySequence`: A000201 A001950 A001951 A001952 A022838 A022843 A022844 A054347 A054385 A054386 A054406
 - `bellB`: A106800
 - `bellNumber`: A000110 A011971
-- `bernoulliNumber`: A000367 A002445
+- `bernoulliNumber`: A000367 A001067 A002445 A006953 A007703
 - `bernoulliSequence`: A027641 A027642
 - `bernoulliTriangle`: A008949
+- `betaExpansion`: A058840 A058841
 - `binaryExpansion`: A007088
-- `binomial`: A000125 A000127 A000332 A000984 A002260 A004736 A006542 A027907 A060693 A109449 A166556
-- `bitAnd`: A246028 A279125
-- `bitReversalPermutation`: A030109
+- `binomial`: A000125 A000127 A000262 A000332 A000984 A001405 A002260 A004736 A006004 A006542 A007318 A027907 A052509 A053121 A053202 A059678 A059797 A060693 A108838 A109449 A166556 A182309
+- `binomialTransform`: A000079 A000110 A001519 A001906 A004211 A004212 A006004 A052467 A121497
+- `bitAnd`: A053381 A080080 A246028 A261892 A279125
+- `bitLength`: A003817 A029837
+- `bitOr`: A086099
+- `bitReversalPermutation`: A030109 A049773
 - `bitShiftLeft`: A001317
 - `bitXor`: A003188 A048720 A193231
 - `braceletCount`: A000029 A027671 A032275 A081720
@@ -70,7 +77,7 @@ Integer Sequence Transform Functions:
 - `circumflexAccent`: A000272
 - `collatzSequence`: A006577 A006877 A008884 A070165 A127824
 - `connellSequence`: A001614
-- `continuedFraction`: A003417
+- `continuedFraction`: A141821 A141822
 - `cos`: A268038
 - `convergents`: A001040 A001053
 - `convolve`: A001629
@@ -80,6 +87,7 @@ Integer Sequence Transform Functions:
 - `coth`: A085984
 - `decimalPeriod`: A001913 A051626
 - `delannoySequence`: A008288
+- `denominator`: A061036
 - `derangements`: A000166
 - `differences`: A049296
 - `digitCount`: A000069 A000120 A000788 A001969 A005811 A005823 A006046 A023416
@@ -87,12 +95,15 @@ Integer Sequence Transform Functions:
 - `digitSum`: A000120 A007953 A053735 A053737 A053824 A053827 A053828 A053829 A053830
 - `discriminant`: A007878
 - `distinctPrimeFactors`: A008472
+- `divisors`: A023890 A161908 A167408
 - `divisorSigma`: A000005 A000203 A005114 A078923
 - `divisorSummatoryFunction`: A006218
 - `doubleFactorial`: A000165 A001147
 - `dualZeckendorfRepresentation`: A003754 A104325 A104326 A112309 A112310 A331191
+- `dysonCrank`: A064391
 - `e`: A001113
 - `ekgSequence`: A064413 A064664
+- `elementaryCellularAutomaton`: A070950
 - `engelExpansion`: A000027 A006784 A028254
 - `entringerTriangle`: A008281
 - `equispacedTriples`: A002620
@@ -104,7 +115,7 @@ Integer Sequence Transform Functions:
 - `eulerUpDownNumber`: A000111
 - `eulerianNumber`: A008292
 - `eulerianNumberSecondOrder`: A008517
-- `eulerPhi`: A000010 A002088
+- `eulerPhi`: A000010 A002088 A005728 A010554 A018804 A115114 A118778
 - `eulerTransform`: A000219 A023871 A034899 A166861
 - `evenPart`: A006519
 - `fabiusFunction`: A272755 A272757
@@ -113,7 +124,7 @@ Integer Sequence Transform Functions:
 - `factorInteger`: A006881 A124859
 - `fareySequence`: A005728 A006842 A006843
 - `feigenbaumConstant`: A006890
-- `fibonacci`: A000045 A000071 A000129 A001060 A001076 A001177 A003893 A006190 A052918 A058071 A105870
+- `fibonacci`: A000045 A000071 A000129 A001060 A001076 A001177 A003893 A006190 A052918 A058071 A105870 A155114
 - `fibonacciEntryPoint`: A001177
 - `fibonacciFactorial`: A003266
 - `fibonacciFactorialConstant`: A062073
@@ -123,6 +134,7 @@ Integer Sequence Transform Functions:
 - `finesSequence`: A000957
 - `finiteGroupCount`: A000001
 - `finiteAbelianGroupCount`: A000688 A060689
+- `fixedPoint`: A039634
 - `floor`: A007891
 - `fortunateNumber`: A005235
 - `freimansConstant`: A118472
@@ -274,6 +286,7 @@ Integer Sequence Transform Functions:
 - `nearestPrime`: A051697
 - `necklaceCount`: A000031 A054631 A087854
 - `nestWhile`: A003602
+- `nextPrime`: A053000 A062251
 - `noergaardInfinitySequence`: A004718 A083866 A256184 A256185
 - `noergaardRhythmicInfinitySystem`: A073334
 - `numberOfCompositions`: A007318
@@ -300,6 +313,7 @@ Integer Sequence Transform Functions:
 - `pi`: A000796 A001203 A002485 A002486
 - `pisanoPeriod`: A001175 A066853
 - `plasticRatio`: A060006
+- `pochhammer`: A008279
 - `politeness`: A069283
 - `polygonalNumber`: A000027 A000124 A000217 A000217 A000290 A000326 A000384 A000566 A000567 A001106 A001107 A051682 A051864 A051865 A051866 A051867 A051868 A051869 A051870 A051871 A051872 A051873 A051874 A051875 A051876 A139610
 - `Polynomial`: A003263
@@ -331,6 +345,7 @@ Integer Sequence Transform Functions:
 - `regularPaperfoldingSequence`: A014577
 - `replicate`: A002024
 - `repunit`: A000225 A002275 A002450 A002452 A003462 A003463 A003464 A016123 A016125 A023000 A023001
+- `rotateLeft`: A038556
 - `rudinShapiro`: A020985
 - `rulerFunction`: A001511
 - `runLengthsOf`: A245562
@@ -370,7 +385,7 @@ Integer Sequence Transform Functions:
 - `stolarskyIndex`: A098861 A098862
 - `subfactorial`: A000166
 - `substitutionSystem`: A003849 A010060 A014577 A020985 A096268
-- `superCatalanNumber`: A001003 A006318
+- `superCatalanNumber`: A001003 A006318 A144944
 - `supergoldenRatio`: A092526
 - `supersilverRatio`: A356035
 - `sylvesterExpansion`: A050205
@@ -385,7 +400,7 @@ Integer Sequence Transform Functions:
 - `tribonacciConstant`: A058265
 - `tribonacciNumber`: A000073
 - `tribonacciWord`: A092782
-- `unitaryDivisors`: A077610
+- `unitaryDivisors`: A063937 A077610
 - `unitaryDivisorSigma`: A034444 A068068
 - `vanDerCorputNumber`: A030101 A030102 A062383
 - `vanDerCorputsConstant`: A143305

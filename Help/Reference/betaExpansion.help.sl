@@ -119,7 +119,7 @@ closely related to OEIS [A058841](https://oeis.org/A058841):
 
 Plot:
 
-~~~
+~~~spl svg=A
 betaExpansion(2, 3/2, 430)
 .first
 .runLengthsOf(0)
