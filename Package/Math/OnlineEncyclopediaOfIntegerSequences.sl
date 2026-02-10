@@ -374,7 +374,7 @@ OeisEntry : [Object, Storeable, Equatable] { | identifier:<String> contents bFil
 				gausssConstant: [053002 053003 014549],
 				gcd: [008364],
 				gelfondsConstant: [039661 060295 018938],
-				generalizedPentagonalNumbers: [001318],
+				generalisedPentagonalNumbers: [001318],
 				gijswijtsSequence: [090822],
 				glaisher: [074962],
 				goebelsSequence: [003504],

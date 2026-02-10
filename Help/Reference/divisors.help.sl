@@ -285,6 +285,29 @@ OEIS [A030057](https://oeis.org/A030057):
 
 ![](sw/spl/Help/Image/divisors-I.svg)
 
+Plot number of permutations of _1:n_ with order dividing _k_,
+read by antidiagonals,
+OEIS [A008307](https://oeis.org/A008307):
+
+~~~spl svg=J
+let t = { :n :k |
+	(n >= 0 & { k >= 0 }).if {
+		k.divisors.sum { :d |
+			(n.! / (n - d + 1).!)
+			*
+			t(n - d, k)
+		}
+	} {
+		1
+	}
+};
+1:13.triangularArray { :n :k |
+	t(n - k, k)
+}.catenate.log.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/divisors-J.svg)
+
 * * *
 
 See also: divisorSigma, divisorSum, gcd, remainder

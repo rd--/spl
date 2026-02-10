@@ -124,6 +124,26 @@ let a = { :n |
 
 ![](sw/spl/Help/Image/isEven-B.svg)
 
+Plot fixed point of dividing the digits according to parity and multiplying the parts,
+OEIS [A059707](https://oeis.org/A059707):
+
+~~~spl svg=C
+0:250.collect { :i |
+	{ :n |
+		let d = n.integerDigits;
+		let e = d.select(isEven:/1);
+		let o = d.select(isOdd:/1);
+		(o.size.min(e.size) > 0).if {
+			o.fromDigits * e.fromDigits
+		} {
+			n
+		}
+	}.fixedPoint(i)
+}.log.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/isEven-C.svg)
+
 * * *
 
 See also: divisible, isInteger, isOdd

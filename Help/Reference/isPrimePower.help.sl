@@ -137,6 +137,17 @@ OEIS [A000015](https://oeis.org/A000015):
 [2 3 4 5 7 7 8 9 11 11 13 13 16 16 16 17 19]
 ```
 
+Plot least prime factor of _n_-th prime power,
+OEIS [A025473](https://oeis.org/A025473):
+
+~~~spl svg=A
+1:240.select(isPrimePower:/1)
+.collect(leastPrimeFactor:/1)
+.stepPlot
+~~~
+
+![](sw/spl/Help/Image/isPrimePower-A.svg)
+
 * * *
 
 See also: divisors, isComposite, isCoprime, isGaussianPrime, isPrime, isSquareFree, moebiusMu, primeNu, primeOmega

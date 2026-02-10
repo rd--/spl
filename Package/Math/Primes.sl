@@ -77,6 +77,10 @@
 		nextPrime(p + 1) - p
 	}
 
+	greatestPrimeFactor { :n |
+		n.primeFactors.last
+	}
+
 	indexOfPrime { :self |
 		system.cachedPrimesListExtendedToPrime(self).binarySearch(self)
 	}

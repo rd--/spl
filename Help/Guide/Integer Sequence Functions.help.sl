@@ -133,7 +133,7 @@ Integer Sequence Transform Functions:
 - `gausssConstant`: A014549 A053002 A053003
 - `gcd`: A008364
 - `gelfondsConstant`: A018938 A039661 A060295
-- `generalizedPentagonalNumbers`: A001318
+- `generalisedPentagonalNumbers`: A001318
 - `gijswijtsSequence`: A090822
 - `glaisher`: A074962
 - `goebelsSequence`: A003504

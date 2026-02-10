@@ -587,7 +587,7 @@
 		self.isInteger.if {
 			self.asLargeInteger.integerDoubleFactorial.normal
 		} {
-			self.generalizedDoubleFactorial
+			self.generalisedDoubleFactorial
 		}
 	}
 

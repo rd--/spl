@@ -1208,6 +1208,7 @@ Reference/Distort.help.sl
 Reference/dividedDifferences.help.sl
 Reference/divide.help.sl
 Reference/Divide.help.sl
+Reference/divideOutAll.help.sl
 Reference/dividesImmediately.help.sl
 Reference/divisible.help.sl
 Reference/divisorPlot.help.sl
@@ -1251,6 +1252,7 @@ Reference/Dswitch.help.sl
 Reference/dualZeckendorfRepresentation.help.sl
 Reference/duffingEquation.help.sl
 Reference/duffingMap.help.sl
+Reference/duplicateFreePrefix.help.sl
 Reference/duplicate.help.sl
 Reference/Duration.help.sl
 Reference/durationString.help.sl
@@ -1563,6 +1565,7 @@ Reference/gammaRegularized.help.sl
 Reference/Gate.help.sl
 Reference/gatherBy.help.sl
 Reference/gather.help.sl
+Reference/gaussFactorial.help.sl
 Reference/gaussianElimination.help.sl
 Reference/gaussianFilter.help.sl
 Reference/gaussianKernel.help.sl
@@ -1587,8 +1590,9 @@ Reference/gen16.help.sl
 Reference/gen19.help.sl
 Reference/gen20.help.sl
 Reference/Gendy1.help.sl
+Reference/generalisedCatalanNumber.help.sl
 Reference/GeneralisedCircle.help.sl
-Reference/generalizedPentagonalNumbers.help.sl
+Reference/generalisedPentagonalNumbers.help.sl
 Reference/geocentricOrbitCurve.help.sl
 Reference/GeodeticCoordinates.help.sl
 Reference/GeoJson.help.sl
@@ -1648,6 +1652,7 @@ Reference/greaterThanSignGreaterThanSignGreaterThanSign.help.sl
 Reference/greaterThanSignGreaterThanSign.help.sl
 Reference/greaterThanSign.help.sl
 Reference/greaterThanSignTilde.help.sl
+Reference/greatestPrimeFactor.help.sl
 Reference/green.help.sl
 Reference/greyLevel.help.sl
 Reference/Greymap.help.sl
@@ -1738,6 +1743,8 @@ Reference/holdersComma.help.sl
 Reference/holmesPolyhedraCatalogue.help.sl
 Reference/homeDirectory.help.sl
 Reference/homogeneousTranslationMatrix.help.sl
+Reference/hookLengthFormula.help.sl
+Reference/hookLengths.help.sl
 Reference/horogramDrawing.help.sl
 Reference/horogramTable.help.sl
 Reference/hoskingMethod.help.sl
@@ -1878,6 +1885,7 @@ Reference/integerFactorial.help.sl
 Reference/Integer.help.sl
 Reference/integerLength.help.sl
 Reference/integerPart.help.sl
+Reference/integerPartitionsDimensions.help.sl
 Reference/integerPartitions.help.sl
 Reference/integerPartitionsOdd.help.sl
 Reference/integerPartitionsStrict.help.sl

@@ -81,6 +81,26 @@ let a = { :n |
 
 ![](sw/spl/Help/Image/isOdd-A.svg)
 
+Plot fixed point of dividing the digits according to parity and adding the parts,
+OEIS [A059717](https://oeis.org/A059717):
+
+~~~spl svg=B
+0:250.collect { :i |
+	{ :n |
+		let d = n.integerDigits;
+		let e = d.select(isEven:/1);
+		let o = d.select(isOdd:/1);
+		(o.size.min(e.size) > 0).if {
+			o.fromDigits + e.fromDigits
+		} {
+			n
+		}
+	}.fixedPoint(i)
+}.log.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/isOdd-B.svg)
+
 * * *
 
 See also: divisible, isEven, isInteger

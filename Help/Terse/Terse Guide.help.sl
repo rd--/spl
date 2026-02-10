@@ -2976,7 +2976,7 @@ let x = [0 1]; x.cartesianProduct(x) = [0 0; 0 1; 1 0; 1 1] /* self cartesian pr
 [1 2 3 4].withCollectWrapping([5 6 7 8 9], *) = [5 12 21 32 9]
 1:9.prefixSum = [1 3 6 10 15 21 28 36 45] /* prefix sum */
 1:9.prefixProduct = [1 2 6 24 120 720 5040 40320 362880] /* prefix product */
-1:9.scan(+) = 1:9.prefixSum /* scan, generalized prefix sum */
+1:9.scan(+) = 1:9.prefixSum /* scan, generalised prefix sum */
 1:9.scan( * ) = 1:9.prefixProduct
 1:16.first(4) = 1:4 /* first group of n elements of sequence */
 1:16.second(4) = 5:8 /* second group of n elements of sequence */
