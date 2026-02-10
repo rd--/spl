@@ -418,6 +418,26 @@ OEIS [A065602](https://oeis.org/A065602):
 
 ![](sw/spl/Help/Image/triangularArray-G.svg)
 
+Plot _k_,
+OEIS [A002262](https://oeis.org/A002262):
+
+~~~spl svg=H
+0:9.triangularArray { :n :k |
+	k
+}.catenate.stepPlot
+~~~
+
+![](sw/spl/Help/Image/triangularArray-H.svg)
+
+Plot _n-k_,
+OEIS [A025581](https://oeis.org/A025581):
+
+~~~spl svg=I
+0:9.triangularArray(-).catenate.stepPlot
+~~~
+
+![](sw/spl/Help/Image/triangularArray-I.svg)
+
 * * *
 
 See also: antidiagonalArray, array, collect, isTriangularArray, table

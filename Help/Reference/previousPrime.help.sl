@@ -43,6 +43,22 @@ OEIS [A007917](https://oeis.org/A007917):
 ]
 ```
 
+Plot prime instigated arithmetic series,
+OEIS [A064924](https://oeis.org/A064924):
+
+~~~spl svg=A
+2:250.collect { :n |
+	n.isPrime.if {
+		n
+	} {
+		let p = n.previousPrime;
+		p * (n - p + 1)
+	}
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/previousPrime-A.svg)
+
 * * *
 
 See also: isPrime, nextPrime

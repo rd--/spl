@@ -2,7 +2,7 @@
 
 - _integerFactorial(n)_
 
-The non-generalized factorial function,
+The non-generalised factorial function,
 the `product` of the integers from `one` up to _n_.
 
 At `SmallFloat`:

@@ -229,7 +229,20 @@
 		}
 	}
 
-	generalizedPentagonalNumbers { :n |
+	generalisedCatalanNumber { :n |
+		let a:/1 = { :n |
+			(n = 0L).if {
+				1L
+			} {
+				a(n - 1) + Range(2, n - 2, 1).sum { :k |
+					a(k) * a(n - 2 - k)
+				}
+			}
+		}.memoize(true);
+		a(n)
+	}
+
+	generalisedPentagonalNumbers { :n |
 		linearRecurrence([1 2 -2 -1 1], [0 1 2 5 7], n)
 	}
 

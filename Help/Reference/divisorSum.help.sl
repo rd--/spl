@@ -24,7 +24,7 @@ Plot the sum of divisors for the first 50 numbers:
 
 ![](sw/spl/Help/Image/divisorSum-A.svg)
 
-Generalized sum of divisors function,
+Generalised sum of divisors function,
 OEIS [A002129](https://oeis.org/A002129):
 
 ~~~spl svg=B

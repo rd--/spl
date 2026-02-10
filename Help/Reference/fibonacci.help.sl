@@ -2,7 +2,7 @@
 
 - _fibonacci(n, x=1)_
 
-Answer the generalized Fibonacci number _F𐞪(n)_,
+Answer the generalised Fibonacci number _F𐞪(n)_,
 where _n_ may be any real number.
 Where _n_ is an integer answers _F(n)_.
 

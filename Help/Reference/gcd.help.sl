@@ -289,6 +289,17 @@ OEIS [A020653](http://oeis.org/A020653):
 
 ![](sw/spl/Help/Image/gcd-H.svg)
 
+Plot greatest common divisor of _n!_ and _n^n_,
+OEIS [A051696](http://oeis.org/A051696):
+
+~~~spl svg=I
+(1L .. 200L).collect { :n |
+	gcd(n.!, n ^ n)
+}.log.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/gcd-I.svg)
+
 * * *
 
 See also: ||, chineseRemainder, divisible, euclideanAlgorithm, extendedGcd, Fraction, isCoprime, isPrime, lcm

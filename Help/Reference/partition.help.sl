@@ -127,6 +127,45 @@ At `String`:
 ['dif' 'fer']
 ```
 
+The shortest and lexicographically earliest string of decimal digits where,
+when made into a cycle,
+every pair of digits from _0,0_ to _9,9_ can be seen exactly once,
+OEIS [A135472](https://oeis.org/A135472):
+
+
+```
+>>> let a = 0:9.collect { :n |
+>>> 	interleave([n:9, [n]])
+>>> 	.allButLast
+>>> };
+>>> let b = a.catenate;
+>>> let c = b ++ [b[1]];
+>>> let d = c.partition(2, 1);
+>>> let e = d.collect(fromDigits:/1);
+>>> e.sort
+[0 .. 99]
+```
+
+Plot
+OEIS [A135472](https://oeis.org/A135472):
+
+~~~spl svg=A
+[
+	0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9
+	1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9
+	2 2 3 2 4 2 5 2 6 2 7 2 8 2 9
+	3 3 4 3 5 3 6 3 7 3 8 3 9
+	4 4 5 4 6 4 7 4 8 4 9
+	5 5 6 5 7 5 8 5 9
+	6 6 7 6 8 6 9
+	7 7 8 7 9
+	8 8 9
+	9
+].stepPlot
+~~~
+
+![](sw/spl/Help/Image/partition-A.svg)
+
 * * *
 
 See also: clump, adjacentPairsCollect, movingMap, pairsCollect, pairsDo, partitionDo, takeList, windowedReduce

@@ -1,14 +1,14 @@
-# generalizedPentagonalNumbers
+# generalisedPentagonalNumbers
 
-- _generalizedPentagonalNumbers(n)_
+- _generalisedPentagonalNumbers(n)_
 
-Answer the first _n_ generalized pentagonal numbers.
+Answer the first _n_ generalised pentagonal numbers.
 
 The first few terms,
 OEIS [A001318](https://oeis.org/A001318):
 
 ```
->>> 60.generalizedPentagonalNumbers
+>>> 60.generalisedPentagonalNumbers
 [
 	   0    1    2    5    7
 	  12   15   22   26   35
@@ -28,11 +28,11 @@ OEIS [A001318](https://oeis.org/A001318):
 Plot:
 
 ~~~spl svg=A
-100.generalizedPentagonalNumbers
+100.generalisedPentagonalNumbers
 .stepPlot
 ~~~
 
-![](sw/spl/Help/Image/generalizedPentagonalNumbers-A.svg)
+![](sw/spl/Help/Image/generalisedPentagonalNumbers-A.svg)
 
 * * *
 

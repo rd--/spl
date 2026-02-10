@@ -4,7 +4,7 @@
 
 A `Type` representing a Dirichlet distribution with shape parameters α,
 and dimension _#α - 1_.
-It is a multivariate generalization of the beta distribution.
+It is a multivariate generalisation of the beta distribution.
 
 ~~~spl svg=A
 let r = Sfc32(367823);

@@ -21,3 +21,5 @@ At `List`:
 * * *
 
 See also: adjacentPairsCollect, adjacentPairsDo, equispacedTriples, partition, partitionDo
+
+Guides: List Functions

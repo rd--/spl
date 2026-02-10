@@ -49,6 +49,16 @@ OEIS [A000035](http://oeis.org/A000035):
 [0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1]
 ```
 
+_n_ appears _n+1_ times,
+OEIS [A003056](https://oeis.org/A003056):
+
+```
+>>> 0:5.collect { :n |
+>>> 	[n].repeat(n + 1)
+>>> }.catenate
+[0 1 1 2 2 2 3 3 3 3 4 4 4 4 4 5 5 5 5 5 5]
+```
+
 * * *
 
 See also: constantArray, findRepeat, stringCatenate, stringJoin, stringRepeat

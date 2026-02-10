@@ -83,7 +83,7 @@ Plot Legendre polynomials two through five:
 
 ![](sw/spl/Help/Image/legendreP-A.svg)
 
-Generalized Lissajous figures:
+Generalised Lissajous figures:
 
 ~~~spl svg=B
 (-1 -- 1).parametricPlot(

@@ -238,7 +238,7 @@ OEIS [A124859](https://oeis.org/A124859):
 
 ![](sw/spl/Help/Image/factorInteger-B.svg)
 
-A generalization of Euler’s totient function,
+A generalisation of Euler’s totient function,
 OEIS [A321029](https://oeis.org/A321029):
 
 ~~~spl svg=C

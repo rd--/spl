@@ -138,19 +138,19 @@ Plot the ratio of doubled factorials over double factorial:
 
 ![](sw/spl/Help/Image/doubleFactorial-B.svg)
 
-_Note_: Both the integer and generalized forms can be requested especially:
+_Note_: Both the integer and generalised forms can be requested especially:
 
 ```
 >>> 7.integerDoubleFactorial
 105
 
->>> 7.generalizedDoubleFactorial
+>>> 7.generalisedDoubleFactorial
 105
 
 >>> 0.integerDoubleFactorial
 1
 
->>> 0.generalizedDoubleFactorial
+>>> 0.generalisedDoubleFactorial
 1
 ```
 

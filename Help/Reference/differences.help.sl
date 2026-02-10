@@ -248,6 +248,19 @@ OEIS [A051712](https://oeis.org/A051712):
 
 ![](sw/spl/Help/Image/differences-C.svg)
 
+Plot differences between numbers _k_ for which _σ(k)<σ(k+1)_,
+OEIS [A053230](https://oeis.org/A053230):
+
+~~~spl svg=D
+1:400.select { :n |
+	1.divisorSigma(n)
+	<
+	1.divisorSigma(n + 1)
+}.differences.stepPlot
+~~~
+
+![](sw/spl/Help/Image/differences-D.svg)
+
 * * *
 
 See also: -, accumulate, differencesBy, discreteLaplacian, foldList, gradient, prefixSum, ratios

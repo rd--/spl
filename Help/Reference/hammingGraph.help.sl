@@ -23,8 +23,8 @@ hammingGraph(2, 4)
 
 ![](sw/spl/Help/Image/hammingGraph-B.svg)
 
-The _(2,3)_ Hamming graph is the _(2,1)_ generalized quadrangle,
-a generalized polygon of order four:
+The _(2,3)_ Hamming graph is the _(2,1)_ generalised quadrangle,
+a generalised polygon of order four:
 
 ~~~spl svg=C
 hammingGraph(2, 3)

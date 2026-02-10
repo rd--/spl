@@ -128,6 +128,17 @@ OEIS [A008309](https://oeis.org/A008309):
 
 ![](sw/spl/Help/Image/stirlingS1-C.svg)
 
+Plot triangle of _s(n,n-k+1)_,
+OEIS [A008276](https://oeis.org/A008276):
+
+~~~spl svg=D
+1:11.triangularArray { :n :k |
+	stirlingS1(n, n - k + 1)
+}.catenate.logScale.discretePlot
+~~~
+
+![](sw/spl/Help/Image/stirlingS1-D.svg)
+
 * * *
 
 See also: factorialPower, stirlingS2

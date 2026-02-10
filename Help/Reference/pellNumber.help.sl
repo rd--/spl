@@ -2,7 +2,7 @@
 
 - _pellNumber(n)_
 
-Answer the generalized Pell number _P𐞪(n)_.
+Answer the generalised Pell number _P𐞪(n)_.
 Where _n_ is an integer answers the Pell number _P(n)_.
 
 ```

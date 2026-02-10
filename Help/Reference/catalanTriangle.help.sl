@@ -5,7 +5,7 @@
 
 A Catalan triangle give the number of strings consisting of _n_ zeroes and _k_ ones,
 such that no initial segment of the string has more ones than zeroes.
-It is a generalization of the Catalan numbers.
+It is a generalisation of the Catalan numbers.
 
 The unary form answers the first _r_ rows:
 

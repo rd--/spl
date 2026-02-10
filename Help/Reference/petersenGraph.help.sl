@@ -2,10 +2,10 @@
 
 - _petersenGraph(n, k)_
 
-Answer the _(n,k)_ generalized Petersen graph,
+Answer the _(n,k)_ generalised Petersen graph,
 where _k_ is less than _n/2_.
 
-The Petersen graph is the _(5,2)_ generalized Petersen graph:
+The Petersen graph is the _(5,2)_ generalised Petersen graph:
 
 ```
 >>> let g = 5.petersenGraph(2);
@@ -30,7 +30,7 @@ The Petersen graph is the complement of the line graph of the complete graph of 
 (10, 15, true)
 ```
 
-Plot the _5,1_ generalized Petersen graph:
+Plot the _5,1_ generalised Petersen graph:
 
 ~~~spl svg=A
 5.petersenGraph(1)
@@ -86,7 +86,7 @@ Plot the cubic symmetric graph _F(048)A_:
 ![](sw/spl/Help/Image/petersenGraph-F.svg)
 
 Plot the Petersen graph,
-the _(5,2)_ generalized Petersen graph:
+the _(5,2)_ generalised Petersen graph:
 
 ~~~spl svg=G
 5.petersenGraph(2)

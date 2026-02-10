@@ -180,6 +180,47 @@ OEIS [A261892](https://oeis.org/A261892):
 
 ![](sw/spl/Help/Image/bitAnd-G.svg)
 
+Plot maximal number of linearly independent smooth nowhere-zero vector fields on a _2n+1_-sphere,
+OEIS [A053381](https://oeis.org/A053381):
+
+~~~spl svg=H
+1:102.collect { :n |
+	let n0 = 2 * n;
+	let b = 1:Infinity.detect { :unused |
+		n0 := n0 / 2;
+		n0.bitAnd(1) != 0
+	};
+	let c = b.bitAnd(3);
+	let d = (b - c) / 4;
+	let rho = (2 ^ c) + (8 * d);
+	rho - 1
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/bitAnd-H.svg)
+
+Plot array giving the length of the longest carry sequence when adding _k_ to _n_ in binary,
+OEIS [A080080](https://oeis.org/A080080):
+
+~~~spl svg=I
+let add = { :x :y :z |
+	(y = 0).if {
+		z - 1
+	} {
+		add(
+			x.bitXor(y),
+			x.bitAnd(y).bitShiftLeft(1),
+			z + 1
+		)
+	}
+};
+1:13.triangularArray { :n :k |
+	add(n, k, 0)
+}.catenate.stepPlot
+~~~
+
+![](sw/spl/Help/Image/bitAnd-I.svg)
+
 * * *
 
 See also: &, bitNot, bitOr, bitXor

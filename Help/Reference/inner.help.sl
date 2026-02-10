@@ -3,7 +3,7 @@
 - _inner(f:/2, g:/2)_
 - _inner(f:/2, α, β, g:/2)_
 
-`inner` is a generalization of `dot` in which _f_ plays the role of multiplication and _g_ of addition.
+`inner` is a generalisation of `dot` in which _f_ plays the role of multiplication and _g_ of addition.
 
 ```
 >>> inner(*, [1 1], [-1 1], +)
@@ -25,7 +25,7 @@
 )
 ```
 
-Generalized inner product of:
+Generalised inner product of:
 
 - two vectors
 - a matrix and a vector

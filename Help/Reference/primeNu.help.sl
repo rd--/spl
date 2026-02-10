@@ -110,6 +110,19 @@ OEIS [A005236](https://oeis.org/A005236):
 
 ![](sw/spl/Help/Image/primeNu-C.svg)
 
+Plot `lcm` of all divisors _d_ of _n_ such that _d+1_ is a prime power,
+OEIS [A049073](https://oeis.org/A049073):
+
+~~~spl svg=D
+1:65.collect { :n |
+	n.divisors.select { :d |
+		(d + 1).primeNu = 1
+	}.lcm
+}.stepPlot
+~~~
+
+![](sw/spl/Help/Image/primeNu-D.svg)
+
 * * *
 
 See also: distinctPrimeFactors, factorInteger, gcd, isPrime, isPrimePower, isSquareFree, primeOmega

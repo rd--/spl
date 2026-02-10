@@ -712,6 +712,47 @@ OEIS [A191780](https://oeis.org/A191780):
 
 ![](sw/spl/Help/Image/integerDigits-P.svg)
 
+Least _k>1_ with _k=Σ(d(k^n))_,
+OEIS [A046017](https://oeis.org/A046017):
+
+~~~spl svg=Q
+1:47.collect { :n |
+	let k = 2L;
+	{
+		k = (k ^ n).integerDigits.sum
+	}.whileFalse {
+		k := k + 1
+	};
+	k
+}.stepPlot
+~~~
+
+![](sw/spl/Help/Image/integerDigits-Q.svg)
+
+Plot integers on the positive x-axis of clockwise spiral on a square lattice,
+OEIS [A033953](https://oeis.org/A033953):
+
+~~~spl svg=R
+let k = 105;
+let m = (k ^ 2) + (10 * k);
+let a = 0:m.collect(
+	integerDigits:/1
+).catenate;
+0:k.collect { :n |
+	(n = 0).if {
+		0
+	} {
+		a[
+			(4 * (n ^ 2))
+			+
+			(3 * n) + 1
+		]
+	}
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/integerDigits-R.svg)
+
 * * *
 
 See also: digitCount, fromDigits, hammingWeight

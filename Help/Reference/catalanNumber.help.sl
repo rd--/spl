@@ -96,6 +96,16 @@ OEIS [A072643](https://oeis.org/A072643):
 0:6.catalanNumber # 0:6
 ```
 
+Expansion of _√(1-4*x)_ in powers of _x_,
+OEIS [A002420](https://oeis.org/A002420):
+
+```
+>>> 1:10.collect { :n |
+>>> 	-2 * (n - 1).catalanNumber
+>>> }
+[-2 -2 -4 -10 -28 -84 -264 -858 -2860 -9724]
+```
+
 * * *
 
 See also: bellNumber, binomial, catalanTriangle, dyckWords, factorial, fussCatalanNumber, gamma, lassalleNumber, superCatalanNumber

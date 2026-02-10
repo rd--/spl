@@ -5,7 +5,7 @@
 Answer the _k_-dimensional torus graph.
 
 Plot the _3,3_ torus graph,
-the generalized quadrangle:
+the generalised quadrangle:
 
 ~~~spl svg=A
 [3 3].torusGraph.graphPlot

@@ -336,6 +336,22 @@ OEIS [A014085](https://oeis.org/A014085):
 
 ![](sw/spl/Help/Image/primePi-J.svg)
 
+Plot nodes in rooted index-functional forest for _n_,
+OEIS [A062537](https://oeis.org/A062537):
+
+~~~spl svg=K
+let k = 75;
+let a = List(k, 0);
+2.toDo(k) { :n |
+	a[n] := n.factorInteger.sum { :f |
+		a[f[1].primePi] + a[f[2]] + 1
+	}
+};
+a.stepPlot
+~~~
+
+![](sw/spl/Help/Image/primePi-K.svg)
+
 * * *
 
 See also: eulerPhi, nextPrime, primesList, primesUpTo, sieveOfEratosthenes

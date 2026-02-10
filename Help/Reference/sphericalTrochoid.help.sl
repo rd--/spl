@@ -2,7 +2,7 @@
 
 - _sphericalTrochoid(ω, a, b, d)_
 
-The spherical trochoid is a generalization of the `trochoid` to a spherical surface.
+The spherical trochoid is a generalisation of the `trochoid` to a spherical surface.
 
 With _ω=1.4_, _q=a/b=15/5_ and _d=10_:
 

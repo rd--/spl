@@ -62,6 +62,20 @@ Frequency of middle C (C4) in hertz:
 60
 ```
 
+Geometric Connell sequence,
+OEIS [A049039](https://oeis.org/A049039):
+
+```
+>>> 1:23.collect { :n |
+>>> 	(2 * n) - 1 - n.log2.floor
+>>> }
+[
+	 1  2  4  5  7  9 11 12 14 16
+	18 20 22 24 26 27 29 31 33 35
+	37 39 41
+]
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A
@@ -80,6 +94,8 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/BinaryLogarithm.html)
 [2](https://reference.wolfram.com/language/ref/Log2.html),
+_OEIS_
+[1](https://oeis.org/A049039),
 _W_
 [1](https://en.wikipedia.org/wiki/Binary_logarithm),
 _Xenharmonic_

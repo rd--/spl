@@ -15,7 +15,7 @@ the point:
 [1 2.sqrt 1]
 ```
 
-For a `Polygon` this is generalized to answer the side lengths between adjacent vertices starting at the second vertex:
+For a `Polygon` this is generalised to answer the side lengths between adjacent vertices starting at the second vertex:
 
 ```
 >>> Polygon([0 0; 1 0; 1 1])

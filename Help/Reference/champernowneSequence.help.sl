@@ -2,9 +2,11 @@
 
 - _champernowneSequence(b, n)_
 
-Answer the first _n_ terms of the base-_b_ Champernowne sequence.
+Answer the first _n_ terms of the base-_b_ Champernowne sequence,
 
-First few terms of the base-10 Champernowne sequence:
+First few terms of the base-ten Champernowne sequence,
+also called the Barbier infinite word,
+OEIS [A007376](https://oeis.org/A007376):
 
 ```
 >>> 10.champernowneSequence(106)
@@ -23,7 +25,8 @@ First few terms of the base-10 Champernowne sequence:
 ]
 ```
 
-First few terms of the base-2 Champernowne sequence:
+First few terms of the base-two Champernowne sequence:
+OEIS [A030190](https://oeis.org/A030190):
 
 ```
 >>> 2.champernowneSequence(105)
@@ -42,7 +45,23 @@ First few terms of the base-2 Champernowne sequence:
 ]
 ```
 
-First few terms of the base-3 Champernowne sequence:
+Indices of ones in base-two sequence,
+OEIS [A030303](https://oeis.org/A030303):
+
+```
+>>> 2.champernowneSequence(100).indicesOf(1) - 1
+[
+	 1  2  4  5  6  9 11 12 13 15
+	16 17 18 22 25 26 28 30 32 33
+	34 35 38 39 41 42 43 44 46 47
+	48 49 50 55 59 60 63 65 68 69
+	70 72 75 77 79 80 82 83 85 87
+	88 89 90 91 95 96 99
+]
+```
+
+First few terms of the base-three Champernowne sequence:
+OEIS [A054635](https://oeis.org/A054635):
 
 ```
 >>> 3.champernowneSequence(101)
@@ -61,7 +80,8 @@ First few terms of the base-3 Champernowne sequence:
 ]
 ```
 
-First few terms of the base-8 Champernowne sequence:
+First few terms of the base-eight Champernowne sequence,
+OEIS [A054634](https://oeis.org/A054634):
 
 ```
 >>> 8.champernowneSequence(99)
@@ -78,6 +98,42 @@ First few terms of the base-8 Champernowne sequence:
 	6 1 6 2 6 3 6 4 6
 ]
 ```
+
+Plot
+OEIS [A007376](https://oeis.org/A007376):
+
+~~~spl svg=A
+10.champernowneSequence(65).stepPlot
+~~~
+
+![](sw/spl/Help/Image/champernowneSequence-A.svg)
+
+Plot
+OEIS [A030190](https://oeis.org/A030190):
+
+~~~spl svg=B
+2.champernowneSequence(65).discretePlot
+~~~
+
+![](sw/spl/Help/Image/champernowneSequence-B.svg)
+
+Plot
+OEIS [A054635](https://oeis.org/A054635):
+
+~~~spl svg=C
+3.champernowneSequence(65).stepPlot
+~~~
+
+![](sw/spl/Help/Image/champernowneSequence-C.svg)
+
+Plot
+OEIS [A054634](https://oeis.org/A054634):
+
+~~~spl svg=D
+8.champernowneSequence(128).scatterPlot
+~~~
+
+![](sw/spl/Help/Image/champernowneSequence-D.svg)
 
 * * *
 

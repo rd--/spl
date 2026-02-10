@@ -214,6 +214,23 @@ OEIS [A306215](https://oeis.org/A306215):
 [1 2 3 5 8 13 22 37 61 100 162 260 416]
 ```
 
+Plot numbers where the run lengths of the binary expansion do not increase,
+OEIS [A037014](https://oeis.org/A037014):
+
+~~~spl svg=B
+0:500.select { :n |
+	n.integerDigits(2)
+	.split(=)
+	.collect(size:/1)
+	.differences
+	.allSatisfy { :x |
+		x >= 0
+	}
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/split-B.svg)
+
 * * *
 
 See also: splitBy

@@ -3,7 +3,7 @@
 - _zeta(s)_
 
 Answer the Riemann zeta function _ζ(s)_,
-the generalization of the harmonic series.
+the generalisation of the harmonic series.
 
 ```
 >>> zeta(2)

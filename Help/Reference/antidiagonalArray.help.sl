@@ -36,6 +36,28 @@ Indices:
 ]
 ```
 
+Plot table _n-k_ read by upwards antidiagonals,
+OEIS [A114327](https://oeis.org/A114327):
+
+~~~spl svg=A
+11.antidiagonalArray(-.swap)
+.catenate
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/antidiagonalArray-A.svg)
+
+Plot table _|n-k|_ read by upwards antidiagonals,
+OEIS [A049581](https://oeis.org/A049581):
+
+~~~spl svg=B
+9.antidiagonalArray { :n :k |
+	(n - k).abs
+}.catenate.discretePlot
+~~~
+
+![](sw/spl/Help/Image/antidiagonalArray-B.svg)
+
 * * *
 
 See also: antidiagonal, antidiagonalIndicesDo, antidiagonalMatrix, triangularArray

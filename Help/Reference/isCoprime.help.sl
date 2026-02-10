@@ -140,6 +140,21 @@ y.scatterPlot
 
 ![](sw/spl/Help/Image/isCoprime-B.svg)
 
+Plot least number coprime to _n+0:3_,
+OEIS [A053672](https://oeis.org/A053672):
+
+~~~spl svg=C
+1:65.collect { :n |
+	5:Infinity.detect { :i |
+		(n + 0:3).allSatisfy { :j |
+			j.isCoprime(i)
+		}
+	}
+}.stepPlot
+~~~
+
+![](sw/spl/Help/Image/isCoprime-C.svg)
+
 Where supported `isCoprime` is displayed as ⟂.
 
 * * *

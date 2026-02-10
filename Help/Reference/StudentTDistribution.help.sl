@@ -35,7 +35,7 @@ Cumulative distribution function with standard μ and σ:
 
 ![](sw/spl/Help/Image/StudentTDistribution-B.svg)
 
-Probability density function of a generalized Student _t_ distribution:
+Probability density function of a generalised Student _t_ distribution:
 
 ~~~spl svg=C
 (-5 -- 5).functionPlot(
@@ -48,7 +48,7 @@ Probability density function of a generalized Student _t_ distribution:
 
 ![](sw/spl/Help/Image/StudentTDistribution-C.svg)
 
-Cumulative distribution function of a generalized Student _t_ distribution:
+Cumulative distribution function of a generalised Student _t_ distribution:
 
 ~~~spl svg=D
 (-5 -- 5).functionPlot(

@@ -627,7 +627,7 @@
 
 +[SmallFloat, Complex] {
 
-	generalizedDoubleFactorial { :self |
+	generalisedDoubleFactorial { :self |
 		let n = self + 2;
 		let a = n.pi.cos;
 		let b = 2 ^ (0.25 * (-3 + (2 * n) - a));

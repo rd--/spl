@@ -14,7 +14,7 @@ The error function near `one`:
 0.8209
 ```
 
-The generalized error function:
+The generalised error function:
 
 ```
 >>> 2.erf - 1.5.erf

@@ -23,7 +23,7 @@ the prism:
 ![](sw/spl/Help/Image/rookGraph-B.svg)
 
 Plot the rook graph _R(3,3)_,
-the generalized quadrangle:
+the generalised quadrangle:
 
 ~~~spl svg=C
 3.rookGraph.graphPlot

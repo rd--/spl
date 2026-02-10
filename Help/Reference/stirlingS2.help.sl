@@ -91,6 +91,16 @@ OEIS [A064856](https://oeis.org/A064856):
 ]
 ```
 
+Four-dimensional pyramidal numbers
+OEIS [A001296](https://oeis.org/A001296):
+
+```
+>>> 0:10.collect { :n |
+>>> 	stirlingS2(n + 2, n)
+>>> }
+[0 1 7 25 65 140 266 462 750 1155 1705]
+```
+
 Plot sums of digits:
 
 ~~~spl svg=A

@@ -2,7 +2,7 @@
 
 - _superformulaCurve(a, b, m, n1, n2, n3)_
 
-The superformula is a generalization of the `Superellipse` proposed by Johan Gielis in 2003.
+The superformula is a generalisation of the `Superellipse` proposed by Johan Gielis in 2003.
 
 A sixteen pointed snowflake like curve:
 
