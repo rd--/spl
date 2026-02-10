@@ -77,6 +77,15 @@ OEIS [A230955](https://oeis.org/A230955):
 [1 5 15 40 114 371 1422 6334 32238 184655]
 ```
 
+Of Hamming weight,
+OEIS [A230952](https://oeis.org/A230952):
+
+```
+>>> 0:10.hammingWeight
+>>> .boustrophedonTransform
+[0 1 3 8 23 72 280 1242 6331 36236 230726]
+```
+
 * * *
 
 See also: boustrophedonTriangle, eulerTransform, triangularArray

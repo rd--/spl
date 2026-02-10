@@ -155,6 +155,46 @@
 		answer.take(n)
 	}
 
+	collatzSequence { :z :p |
+		let q = (p - 1).primesUpTo;
+		let a = [z];
+		let e = nil;
+		{ :break:/0 |
+			let x = z * p + 1L;
+			let y = x.divideOutAll(q);
+			y.do { :i |
+				a.includes(i).if {
+					e := i;
+					break()
+				} {
+					a.add(i)
+				}
+			};
+			z := y.last
+		}.repeatForeverWithBreak;
+		[a, e]
+	}
+
+	collatzSequence { :z :p :k |
+		k.caseOf(
+			[
+				'Direct' -> {
+					let q = p.previousPrime;
+					{ :n |
+						(p * n + 1)
+						.primeFactors
+						.select { :x |
+							x > q
+						}.product
+					}.nestListDistinct(z)
+				},
+				'Indirect' -> {
+					collatzSequence(z, p)
+				}
+			]
+		)
+	}
+
 	collatzSequence { :self |
 		{ :n |
 			n.isOdd.if {

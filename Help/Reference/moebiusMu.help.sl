@@ -52,10 +52,10 @@ OEIS [A008683](https://oeis.org/A008683):
 11.moebiusMu * 23.moebiusMu
 ```
 
-Plot the Möbius sequence for the first 20 numbers:
+Plot the Möbius sequence for the first few terms:
 
 ~~~spl svg=A
-1:20.collect(moebiusMu:/1).discretePlot
+1:100.collect(moebiusMu:/1).discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/moebiusMu-A.svg)

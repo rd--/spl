@@ -699,6 +699,19 @@ OEIS [A059943](https://oeis.org/A059943):
 
 ![](sw/spl/Help/Image/integerDigits-O.svg)
 
+Triangle of values of _n_ written in base _k_ with digits reversed,
+OEIS [A191780](https://oeis.org/A191780):
+
+~~~spl svg=P
+2:13.triangularArray { :n :k |
+	n.integerDigits(k)
+	.reverse
+	.fromDigits(k)
+}.catenate.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/integerDigits-P.svg)
+
 * * *
 
 See also: digitCount, fromDigits, hammingWeight
@@ -730,7 +743,8 @@ _OEIS_
 [18](https://oeis.org/A000422)
 [19](https://oeis.org/A036991)
 [20](https://oeis.org/A030101)
-[21](https://oeis.org/A033664),
+[21](https://oeis.org/A033664)
+[22](https://oeis.org/A191780),
 _W_
 [1](https://en.wikipedia.org/wiki/Numerical_digit)
 

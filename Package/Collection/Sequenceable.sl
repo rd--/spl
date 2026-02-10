@@ -834,6 +834,18 @@
 		}
 	}
 
+	duplicateFreePrefix { :self |
+		let seen = Set();
+		self.takeWhile { :x |
+			seen.includes(x).if {
+				false
+			} {
+				seen.include(x);
+				true
+			}
+		}
+	}
+
 	empty { :self |
 		self.species.new
 	}

@@ -260,6 +260,10 @@
 		self.collect(grayEncode:/1)
 	}
 
+	hammingWeight { :self |
+		self.collect(hammingWeight:/1)
+	}
+
 	harmonicNumber { :self |
 		self.collect(harmonicNumber:/1)
 	}

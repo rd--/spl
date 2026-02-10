@@ -241,6 +241,16 @@ Range([1 4 1])
 Range([1 9 2])
 ```
 
+Work with infinite ranges:
+
+```
+>>> 1:Infinity.indexOf(9)
+9
+
+>>> 1:Infinity.detect { :x | x = 9 }
+9
+```
+
 * * *
 
 See also: .., ArithmeticProgression, characterRange, discretize, do, downTo, end, Interval, isIntegerRange, last, reverseDo, RelativeRange, start, stop, subdivide, thenTo, to, toBy, upOrDownTo

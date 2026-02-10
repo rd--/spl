@@ -241,6 +241,20 @@
 		Fraction(self, 1).dividesImmediately(Fraction(aNumber, 1))
 	}
 
+	divideOutAll { :n :d |
+		let a = [n];
+		{ :break:/0 |
+			let m = d.detectIfNone { :x |
+				n.divisible(x)
+			} {
+				break()
+			};
+			n := n / m;
+			a.add(n)
+		}.repeatForeverWithBreak;
+		a
+	}
+
 	divisorSum { :self :aBlock:/1 |
 		self.divisors.collect(aBlock:/1).sum
 	}
