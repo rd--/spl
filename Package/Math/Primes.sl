@@ -162,11 +162,19 @@
 	}
 
 	isPrime { :self |
-		self.isInteger.if {
-			system.isCachedPrime(self).if {
-				true
+		self.isPositiveInteger.if {
+			(self.isEven & { self != 2 }).if {
+				false
 			} {
-				self.isPrimeTrialDivision
+				system.isCachedPrime(self).if {
+					true
+				} {
+					system.isMultipleOfCachedPrime(self).if {
+						false
+					} {
+						self.isPrimeTrialDivision
+					}
+				}
 			}
 		} {
 			false
@@ -243,6 +251,38 @@
 			};
 			k.isZero
 		}
+	}
+
+	isStrongProbablePrime { :n :b |
+		let d = n - 1;
+		let s = 0;
+		{
+			d.bitAnd(1) = 0
+		}.whileTrue {
+			s := s + 1;
+			d := d.bitShiftRightUnsigned(1)
+		};
+		valueWithReturn { :return:/1 |
+			let x = powerMod(b, d, n);
+			(x = 1 | { x = (n - 1) }).ifTrue {
+				true.return
+			};
+			1.toDo(s - 1) { :r |
+				x := (x * x) % n;
+				(x = 1).if {
+					false.return
+				} {
+					(x = (n - 1)).ifTrue {
+						true.return
+					}
+				}
+			};
+			false
+		}
+	}
+
+	isStrongProbablePrime { :n |
+		n.isStrongProbablePrime(2)
 	}
 
 	isStrongPseudoprime { :n :b |
@@ -1067,6 +1107,12 @@
 		}
 	}
 
+	isMultipleOfCachedPrime { :self :anInteger |
+		self.cachedPrimesList.anySatisfy { :p |
+			anInteger.divisible(p)
+		}
+	}
+
 	cachedPrimesList { :self |
 		self.cached('primesList') {
 			200.wheelSieve
@@ -1349,6 +1395,79 @@
 		} while (g === n);
 		return g;
 		>
+	}
+
+}
+
++@Integer {
+
+	isLucasProbablePrime { :n :d |
+		let p = 1;
+		let q = (1 - d) // 4;
+		let u = 0;
+		let v = 2;
+		let u2 = 1;
+		let v2 = 1;
+		let q2 = 2 * q;
+		let bits = [];
+		let t = (n + 1) // 2;
+		let h = 1;
+		{ t > 0 }.whileTrue {
+			bits.add(t % 2);
+			t := t // 2
+		};
+		{ h <= bits.size }.whileTrue {
+			u2 := (u2 * v2) % n;
+			v2 := ((v2 * v2) - q2) % n;
+			(bits[h] = 1).ifTrue {
+				let uOld = u;
+				u := (u2 * v) + (u * v2);
+				(u % 2 = 0).ifFalse {
+					 u := u + n
+				};
+				u := (u // 2) % n;
+				v := (v2 * v) + (u2 * uOld * d);
+				(v % 2 = 0).ifFalse {
+					v := v + n
+				};
+				v := (v // 2) % n
+			};
+			(h < bits.size).ifTrue {
+				q := (q * q) % n;
+				q2 := q + q
+			};
+			h := h + 1
+		};
+		u = 0
+	}
+
+	isLucasProbablePrime { :n |
+		(n < 2 | { n.isEven }).if {
+			false
+		} {
+			let d = n.selfridgeMethodA;
+			isLucasProbablePrime(n, d)
+		}
+	}
+
+	selfridgeMethodA { :n |
+		valueWithReturn { :return:/1 |
+			let d = 5;
+			n.isPerfectSquare.ifTrue {
+				0.return
+			};
+			1.toDo(1000) { :i |
+				let js = d.jacobiSymbol(n);
+				(js = 0 & { d.abs != n }).ifTrue {
+					0.return
+				};
+				(js = -1).ifTrue {
+					d.return
+				};
+				d := (d < 0).if { 2 - d } { 0 - (d + 2) }
+			};
+			0
+		}
 	}
 
 }

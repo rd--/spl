@@ -544,6 +544,20 @@ let a = { :n |
 
 ![](sw/spl/Help/Image/mod-Q.svg)
 
+Plot triangle of descending moduli,
+OEIS [A051778](https://oeis.org/A051778):
+
+~~~spl svg=R
+3:23.collect { :n |
+	let m = n - 1;
+	m:2:-1.collect { :i |
+		n % i
+	}
+}.catenate.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/mod-R.svg)
+
 * * *
 
 See also: %, /, //, \\, commonResidue, minimalResidue, positiveResidue, quotient, remainder

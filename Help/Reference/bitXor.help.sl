@@ -300,6 +300,28 @@ OEIS [A193232](https://oeis.org/A193232):
 
 ![](sw/spl/Help/Image/bitXor-K.svg)
 
+Plot prefix sum of exclusive or of adjacent integers,
+OEIS [A080277](https://oeis.org/A080277):
+
+~~~spl svg=L
+1:125.collect { :n |
+	n.bitXor(n - 1)
+}.prefixSum.stepPlot
+~~~
+
+![](sw/spl/Help/Image/bitXor-L.svg)
+
+Plot exclusive or of adjacent integers,
+OEIS [A038712](https://oeis.org/A038712):
+
+~~~spl svg=M
+1:125.collect { :n |
+	n.bitXor(n - 1)
+}.log.discretePlot
+~~~
+
+![](sw/spl/Help/Image/bitXor-M.svg)
+
 * * *
 
 See also: bitAnd, bitNot, bitOr, xor

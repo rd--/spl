@@ -124,13 +124,30 @@ Deficient numbers, numbers _n_ such that the sum of their divisors is smaller th
 ]
 ```
 
-Abundant numbers, numbers _n_ such that the sum of their divisors is greater than _2n_:
+Abundant numbers,
+numbers _n_ such that the sum of their divisors is greater than _2n_,
+OEIS [A005101](https://oeis.org/A005101):
 
 ```
->>> 1:30.select { :n |
+>>> 1:60.select { :n |
 >>> 	1.divisorSigma(n) > (2 * n)
 >>> }
-[12 18 20 24 30]
+[12 18 20 24 30 36 40 42 48 54 56 60]
+```
+
+Highly abundant numbers,
+OEIS [A002093](https://oeis.org/A002093):
+
+```
+>>> 1:60.select { :k |
+>>> 	let n = k - 1;
+>>> 	let x = 1.divisorSigma(k);
+>>> 	1:n.allSatisfy { :m |
+>>> 		let y = 1.divisorSigma(m);
+>>> 		x > y
+>>> 	}
+>>> }
+[1 2 3 4 6 8 10 12 16 18 20 24 30 36 42 48 60]
 ```
 
 Calculate the divisor summatory function,

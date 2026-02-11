@@ -6,7 +6,8 @@ Answer the _n_-th Lucas number.
 The Lucas numbers _L(n)_ satisfy the recurrence relation _L(n)=L(n-1)+L(n-2)_ with _L(1)=1_ and _L(2)=3_.
 
 Compute the first twenty Lucas numbers,
-OEIS [A000032](https://oeis.org/A000032):
+OEIS [A000032](https://oeis.org/A000032)
+or [A000204](https://oeis.org/A000204):
 
 ```
 >>> 0:20.collect(lucasNumber:/1)
@@ -60,9 +61,43 @@ OEIS [A000285](https://oeis.org/A000285):
 
 ```
 >>> 1:15.collect { :n |
->>> 	(3 * lucasNumber(n) - fibonacci(n)) / 2
+>>> 	let l = n.lucasNumber;
+>>> 	let f = n.fibonacci;
+>>> 	(3 * l - f) / 2
 >>> }
-[1 4 5 9 14 23 37 60 97 157 254 411 665 1076 1741]
+[
+	1 4 5 9 14 23 37 60 97 157
+	254 411 665 1076 1741
+]
+```
+
+Find ratios of successive Lucas numbers:
+
+```
+>>> 1:14.collect { :n |
+>>> 	(n + 1).lucasNumber
+>>> 	/
+>>> 	n.lucasNumber
+>>> }
+[
+	3/1 4/3 7/4 11/7 18/11
+	29/18 47/29 76/47 123/76 199/123
+	322/199 521/322 843/521 1364/843
+]
+```
+
+Compare with continued fractions:
+
+```
+>>> 1:14.collect { :n |
+>>> 	[3].padLeft([n], 1)
+>>> 	.fromContinuedFraction
+>>> }
+[
+	3/1 4/3 7/4 11/7 18/11
+	29/18 47/29 76/47 123/76 199/123
+	322/199 521/322 843/521 1364/843
+]
 ```
 
 Plot over a subset of the reals:
@@ -85,7 +120,7 @@ Plot modulo _n-1_:
 
 * * *
 
-See also: fibonacci, lucasSequence
+See also: fibonacci, lucasPolynomial, lucasSequence
 
 Guides: Integer Functions, Integer Sequence Functions
 

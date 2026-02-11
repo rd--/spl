@@ -9,6 +9,10 @@ The parser allows, but does not require, a trailing upper case letter "L".
 >>> '23L'.parseLargeInteger
 23L
 
+>>> '16719231864812753'
+>>> .parseLargeInteger
+16719231864812753L
+
 >>> '20880467999847912034355032910567'
 >>> .parseLargeInteger
 23L ^ 23

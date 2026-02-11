@@ -169,6 +169,20 @@ OEIS [A000037](https://oeis.org/A000037):
 ]
 ```
 
+Numbers that are not the sum of distinct Lucas numbers,
+OEIS [A054770](https://oeis.org/A054770):
+
+```
+>>> 1:27.collect { :n |
+>>> 	floor(n * ((5.sqrt + 5) / 2)) - 1
+>>> }
+[
+	 2  6  9 13 17 20 24 27 31 35
+	38 42 46 49 53 56 60 64 67 71
+	74 78 82 85 89 93 96
+]
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A

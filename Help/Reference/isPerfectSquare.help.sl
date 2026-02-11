@@ -6,7 +6,8 @@ Answer `true` if the integer _n_ is a perfect square.
 
 A perfect square is an `Integer` that is the square of an integer.
 
-The perfect squares (A000290 in OEIS) smaller than 200:
+The first few perfect squares,
+OEIS [A000290](https://oeis.org/A000290):
 
 ```
 >>> 0:200.select(isPerfectSquare:/1)

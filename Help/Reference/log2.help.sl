@@ -84,6 +84,21 @@ Plot over a subset of the reals:
 
 ![](sw/spl/Help/Image/log2-A.svg)
 
+Plot sum of _n_ `mod` powers of two,
+see `bitLength` for a simpler definiton,
+OEIS [A049802](https://oeis.org/A049802):
+
+~~~spl svg=B
+1:200.collect { :n |
+	let m = n.log2.floor;
+	n * m - 1:m.sum { :k |
+		(n * (2 ^ -k)).floor * (2 ^ k)
+	}
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/log2-B.svg)
+
 * * *
 
 See also: log, log10

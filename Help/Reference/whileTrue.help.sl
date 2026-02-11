@@ -60,6 +60,35 @@ a.scatterPlot
 
 ![](sw/spl/Help/Image/whileTrue-A.svg)
 
+Plot a self-describing sequence made of strings of consecutive integers,
+OEIS [A113138](https://oeis.org/A113138):
+
+~~~spl svg=B
+let k = 100;
+let a = List(k);
+let n = 0;
+let m = -1;
+let notice = { :v |
+	n := n + 1;
+	m := v;
+	(n <= k).ifTrue {
+		a[n] := v
+	}
+};
+let r = 1;
+{ n < k }.whileTrue {
+	let x = (m = 1).if { 3 } { 1 };
+	notice(x);
+	1.toDo(a[r] - 1) { :j |
+		notice(x + j)
+	};
+	r := r + 1
+};
+(a - 1).discretePlot
+~~~
+
+![](sw/spl/Help/Image/whileTrue-B.svg)
+
 In the unary case, simply evaluate _condition_ repeatedly as long as it answers `true`.
 
 * * *

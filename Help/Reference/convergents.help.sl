@@ -93,6 +93,31 @@ Continued fraction constants:
 ]
 ```
 
+Convergents of _√53_,
+OEIS [A041090](https://oeis.org/A041090)
+& [A041091](https://oeis.org/A041091):
+
+```
+>>> 53.sqrt.continuedFraction(14)
+>>> .convergents
+[
+	7/1
+	22/3
+	29/4
+	51/7
+	182/25
+	2599/357
+	7979/1096
+	10578/1453
+	18557/2549
+	66249/9100
+	946043/129949
+	2904378/398947
+	3850421/528896
+	6754799/927843
+]
+```
+
 * * *
 
 See also: /, continuedFraction, fromContinuedFraction, rationalize, semiconvergents

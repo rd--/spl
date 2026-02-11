@@ -54,7 +54,9 @@ OeisEntry : [Object, Storeable, Equatable] { | identifier:<String> contents bFil
 	data { :self |
 		self.lookupField('data')
 		.splitBy(',')
-		.collect(parseDecimalInteger:/1)
+		.collect { :x |
+			x.parseLargeInteger.normal
+		}
 	}
 
 	equalBy { :self :operand :aBlock:/2 |
@@ -230,7 +232,7 @@ OeisEntry : [Object, Storeable, Equatable] { | identifier:<String> contents bFil
 			}
 		}.collect { :s |
 			s.splitBy(' ').collect { :n |
-				n.parseDecimalInteger
+				n.parseLargeInteger.normal
 			}
 		}
 	}

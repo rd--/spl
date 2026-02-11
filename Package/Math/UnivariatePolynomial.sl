@@ -571,4 +571,18 @@ UnivariatePolynomial : [Object, Storeable, Copyable, Equatable] { | coefficientL
 		}
 	}
 
+	lucasPolynomial { :n |
+		(n = 0).if {
+			Polynomial([2])
+		} {
+			(n = 1).if {
+				Polynomial([0 1])
+			} {
+				let a = lucasPolynomial(n - 1);
+				let b = lucasPolynomial(n - 2);
+				(a * Polynomial([0 1])) + b
+			}
+		}
+	}
+
 }

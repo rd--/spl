@@ -16,7 +16,8 @@ Relation to `binomial`:
 (23 + 1).binomial(2)
 ```
 
-Threads over lists,
+First few terms,
+threads over lists,
 OEIS [A000217](https://oeis.org/A000217):
 
 ```

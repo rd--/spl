@@ -13,7 +13,7 @@ Count entries:
 
 ```
 >>> system.helpIndex.size
-4233
+4241
 ```
 
 Lookup a reference entry:

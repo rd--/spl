@@ -39,9 +39,10 @@ where _p_ is an odd prime.
 Plot table:
 
 ~~~spl svg=A
+let n = 1:13;
 legendreSymbol:/2
 .swap
-.table(2:14.prime, 1:13)
+.table((n + 1).prime, n)
 .rescale
 .matrixPlot
 ~~~
@@ -50,7 +51,7 @@ legendreSymbol:/2
 
 * * *
 
-See also: jacobiSymbol, kroneckerSymbol
+See also: jacobiSymbol, kroneckerSymbol, powerMod
 
 References:
 _Mathematica_

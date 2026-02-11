@@ -20,6 +20,7 @@ Constructors:
 - `cyclotomic`
 - `fibonacciPolynomial`
 - `legendreP`
+- `lucasPolynomial`
 
 Converting:
 

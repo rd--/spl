@@ -818,6 +818,16 @@
 		(b ^ n - 1) / (b - 1)
 	}
 
+	rowlandsSequence { :k :m :f:/2 |
+		{ :a :n |
+			a[n - 1] + f(a[n - 1], n)
+		}.recurrenceTable([k], m)
+	}
+
+	rowlandsSequence { :k :m |
+		rowlandsSequence(k, m, gcd:/2)
+	}
+
 	schroderNumber { :k |
 		k.schroderSequence.last
 	}

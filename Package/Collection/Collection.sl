@@ -705,6 +705,13 @@
 		answer
 	}
 
+	selectDuplicates { :c |
+		let d = c.duplicatesSet;
+		c.select { :x |
+			d.includes(x)
+		}
+	}
+
 	selectThenCollect { :self :selectBlock:/1 :collectBlock:/1 |
 		let answer = self.species.new;
 		self.selectThenDo(selectBlock:/1) { :each |

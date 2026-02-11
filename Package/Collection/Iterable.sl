@@ -254,6 +254,19 @@
 		}
 	}
 
+	duplicatesSet { :c |
+		let a = Set();
+		let b = Set();
+		c.do { :x |
+			a.includes(x).if {
+				b.include(x)
+			} {
+				a.add(x)
+			}
+		};
+		b
+	}
+
 	includesBy { :self :anObject :aBlock:/2 |
 		self.anySatisfy { :each |
 			aBlock(each, anObject)

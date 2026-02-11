@@ -65,6 +65,16 @@ The Cliff random number generator:
 [0.1 0.741491 0.090734 0.017817 0.237592]
 ```
 
+Rowland’s prime-generating sequence,
+OEIS [A106108](https://oeis.org/A106108):
+
+```
+>>> { :a :n |
+>>> 	a[n - 1] + gcd(a[n - 1], n)
+>>> }.recurrenceTable([7], 12)
+[7 8 9 10 15 18 19 20 21 22 33 36]
+```
+
 Study the evolution for a nonlinear map of the plane:
 
 ~~~spl svg=A

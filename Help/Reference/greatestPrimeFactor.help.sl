@@ -58,6 +58,17 @@ Log-scale plot of the greatest prime factors of the integers from two up to two 
 
 ![](sw/spl/Help/Image/greatestPrimeFactor-A.svg)
 
+Plot `primePi` of `greatestPrimeFactor`,
+OEIS [A061395](https://oeis.org/A061395):
+
+~~~spl svg=B
+2:76.collect { :n |
+	n.greatestPrimeFactor.primePi
+}.stepPlot
+~~~
+
+![](sw/spl/Help/Image/greatestPrimeFactor-B.svg)
+
 * * *
 
 See also: factorInteger, leastPrimeFactor, prime

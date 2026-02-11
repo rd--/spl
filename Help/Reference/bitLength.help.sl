@@ -49,6 +49,20 @@ Plot
 
 ![](sw/spl/Help/Image/bitLength-B.svg)
 
+Plot sum of _n_ modulo _2^k_ for _k_ in `bitLength` of _n_,
+OEIS [A049802](https://oeis.org/A049802):
+
+~~~spl svg=C
+1:100.collect { :n |
+	let m = n.bitLength - 1;
+	1:m.sum { :k |
+		n % (2 ^ k)
+	}
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/bitLength-C.svg)
+
 * * *
 
 See also: integerLength

@@ -1,8 +1,8 @@
 # isPositiveInteger
 
-- _isPositiveInteger(aNumber)_
+- _isPositiveInteger()_
 
-Answers `true` if _aNumber_ is a positive integer.
+Answers `true` if the number _n_ is a positive integer.
 
 ```
 >>> 23.isPositiveInteger

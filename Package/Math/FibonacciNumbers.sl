@@ -118,6 +118,17 @@
 		}
 	}
 
+	lucasL { :n :x |
+		let a = (x.square + 4).sqrt;
+		(2 ^ -n)
+		*
+		(
+			((x - a) ^ n)
+			+
+			((x + a) ^ n)
+		)
+	}
+
 	lucasNumber { :self |
 		let phi = 1.goldenRatio;
 		(phi ^ self) + (self.pi.cos * (phi ^ self.negate))

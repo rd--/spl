@@ -4,7 +4,8 @@
 
 Answer `true` if _n_ is a strong prime, else `false`.
 
-The first few strong primes:
+The first few strong primes,
+OEIS [A051634](https://oeis.org/A051634):
 
 ```
 >>> 1:500.select(isStrongPrime:/1)

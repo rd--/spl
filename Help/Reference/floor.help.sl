@@ -156,6 +156,13 @@ OEIS [A010766](https://oeis.org/A010766):
 
 ![](sw/spl/Help/Image/floor-F.svg)
 
+1:23.collect { :n |
+	let c = floor(n.! / (2 * floor(n / 2).!));
+	c.postLine;
+	nextPrime(c) - c
+}
+
+
 Where supported `floor` is displayed as ⌊.
 
 * * *

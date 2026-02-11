@@ -199,6 +199,18 @@ OEIS [A185670](https://oeis.org/A185670):
 ]
 ```
 
+Numbers _m_ such that _φ(m)_ and _τ(m)_ divide _m_,
+OEIS [A235353](https://oeis.org/A235353):
+
+```
+>>> 1:300.select { :n |
+>>> 	let a = n.eulerPhi;
+>>> 	let b = 0.divisorSigma(n);
+>>> 	n % a = 0 & { n % b = 0 }
+>>> }
+[1 2 8 12 18 24 36 72 96 108 128 288]
+```
+
 Plot the first few terms,
 OEIS [A000010](https://oeis.org/A000010):
 

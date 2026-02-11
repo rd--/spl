@@ -62,6 +62,7 @@ Testing:
 - `isGaussianPrime`
 - `isLesserCousinPrime`
 - `isLesserTwinPrime`
+- `isLucasProbablePrime`
 - `isPrime`
 - `isPrimePower`
 - `isPythagoreanPrime`
@@ -69,6 +70,7 @@ Testing:
 - `isSemiprime`
 - `isSternPrime`
 - `isStrongPrime`
+- `isStrongProbablePrime`
 - `isWeakPrime`
 
 Random Numbers:
