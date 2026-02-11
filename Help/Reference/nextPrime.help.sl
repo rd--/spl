@@ -138,6 +138,16 @@ OEIS [A007491](https://oeis.org/A007491):
 ]
 ```
 
+Least positive _m_ such that _n!+m_ is prime,
+OEIS [A033932](https://oeis.org/A033932):
+
+```
+>>> 0:13.!.collect { :n |
+>>> 	n.nextPrime - n
+>>> }
+[1 1 1 1 5 7 7 11 23 17 11 1 29 67]
+```
+
 Plot the sequence of primes:
 
 ~~~spl svg=A

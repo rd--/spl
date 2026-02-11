@@ -90,7 +90,6 @@ OEIS [A104382](https://oeis.org/A104382)
 ]
 ```
 
-
 The reciprocals of triangular numbers produce is convergent series where the limit is two:
 
 ~~~spl svg=A

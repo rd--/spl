@@ -99,7 +99,6 @@ Plot table:
 
 ![](sw/spl/Help/Image/hookLengthFormula-B.svg)
 
-
 * * *
 
 See also: conjugatePartition, hookLengths

@@ -132,7 +132,6 @@ when made into a cycle,
 every pair of digits from _0,0_ to _9,9_ can be seen exactly once,
 OEIS [A135472](https://oeis.org/A135472):
 
-
 ```
 >>> let a = 0:9.collect { :n |
 >>> 	interleave([n:9, [n]])

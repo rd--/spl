@@ -162,7 +162,6 @@ OEIS [A010766](https://oeis.org/A010766):
 	nextPrime(c) - c
 }
 
-
 Where supported `floor` is displayed as ⌊.
 
 * * *

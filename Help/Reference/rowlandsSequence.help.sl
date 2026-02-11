@@ -1,6 +1,6 @@
 # rowlandsSequence
 
- _rowlandsSequence(m, n)_
+- _rowlandsSequence(m, n)_
 
 Answer the first _n_ terms of Rowland’s prime-generating sequence,
 with initial term _m_.
