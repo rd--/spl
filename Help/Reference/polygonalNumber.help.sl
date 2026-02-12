@@ -128,6 +128,20 @@ OEIS
 ]
 ```
 
+Second differences for polygonal numbers _r_ are constant at _r-2_:
+
+```
+>>> 2:25.collect { :r |
+>>> 	1:10.collect { :n |
+>>> 		r.polygonalNumber(n)
+>>> 	}.differences(2)
+>>> 	.allSatisfy { :d |
+>>> 		d = (r - 2)
+>>> 	}
+>>> }.allTrue
+true
+```
+
 Plot triangular numbers:
 
 ~~~spl svg=A
@@ -137,6 +151,27 @@ Plot triangular numbers:
 ~~~
 
 ![](sw/spl/Help/Image/polygonalNumber-A.svg)
+
+Plot triangular array of polygonal numbers:
+
+~~~spl svg=B
+0:17.triangularArray(
+	polygonalNumber:/2
+).catenate.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/polygonalNumber-B.svg)
+
+Plot antidiagonalArray array of polygonal numbers,
+OEIS [A134394](https://oeis.org/A134394):
+
+~~~spl svg=C
+17.antidiagonalArray { :i :j |
+	(i + 1).polygonalNumber(j)
+}.++.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/polygonalNumber-C.svg)
 
 * * *
 

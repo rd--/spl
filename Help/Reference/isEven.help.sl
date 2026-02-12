@@ -85,6 +85,20 @@ false
 true
 ```
 
+Either _n_ or _2n_,
+[A109043](https://oeis.org/A109043):
+
+```
+>>> 0:23.collect { :n |
+>>> 	n.isEven.if { n } { 2 * n }
+>>> }
+[
+	 0  2  2  6  4 10  6 14  8 18
+	10 22 12 26 14 30 16 34 18 38
+	20 42 22 46
+]
+```
+
 Log plot of the semi-Fibonacci sequence,
 OEIS [A030067](https://oeis.org/A030067):
 

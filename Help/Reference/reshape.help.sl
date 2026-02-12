@@ -2,7 +2,7 @@
 
 - _reshape(c, ⍴)_
 
-Answer a `List` with the indicated _shape_ and with elements drawn from the collection _c_.
+Answer a `List` with the shape _⍴_ and with elements drawn from the collection _c_.
 Elements are drawn in `ravel` order,
 truncating if the result has smaller bound than the right argument,
 and repeating cyclically if it has larger bound.
@@ -338,7 +338,7 @@ The `arrayReshape` variant has different rules for mismatching item counts.
 
 * * *
 
-See also: arrayReshape, iota, rank, recycle, reshapeLike, shape
+See also: arrayReshape, iota, rank, recycle, reshapeLike, reshapeList, shape
 
 Guides: Array Functions, List Functions, Matrix Functions
 

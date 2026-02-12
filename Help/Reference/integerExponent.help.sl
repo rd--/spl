@@ -296,6 +296,19 @@ Plot OEIS [A371094](https://oeis.org/A371094):
 
 ![](sw/spl/Help/Image/integerExponent-I.svg)
 
+Plot 3-adic valuation of the bijective bit-reverse of _3n_,
+OEIS [A280509](https://oeis.org/A280509):
+
+~~~spl svg=J
+1:75.collect { :n |
+	let a = (3 * n).integerReverse(2);
+	let b = a * (3 * n).bitAnd(-3 * n);
+	b.integerExponent(3)
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/integerExponent-J.svg)
+
 * * *
 
 See also: ^, digitCount, factorInteger, integerDigits, log2, log10, rulerFunction

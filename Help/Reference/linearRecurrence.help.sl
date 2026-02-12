@@ -705,6 +705,29 @@ OEIS [A024206](https://oeis.org/A024206):
 [0 1 3 5 8 11 15 19 24 29 35 41 48 55 63]
 ```
 
+Generalized octagonal numbers,
+OEIS [A001082](https://oeis.org/A001082):
+
+```
+>>> linearRecurrence(
+>>> 	[1 2 -2 -1 1], [0 1 5 8 16], 14
+>>> )
+[0 1 5 8 16 21 33 40 56 65 85 96 120 133]
+```
+
+First differences are
+OEIS [A022998](https://oeis.org/A022998):
+
+```
+>>> linearRecurrence(
+>>> 	[1 2 -2 -1 1], [0 1 5 8 16], 17
+>>> ).differences
+[1 4 3 8 5 12 7 16 9 20 11 24 13 28 15 32]
+
+>>> [1:15:2, 4:32:4].interleave
+[1 4 3 8 5 12 7 16 9 20 11 24 13 28 15 32]
+```
+
 Draw spiral:
 
 ~~~spl svg=A

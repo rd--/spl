@@ -307,6 +307,16 @@ Extract parts of a list cyclically:
 ['a' 'b' 'c' 'a' 'b' 'c' 'a' 'b' 'c' 'a']
 ```
 
+Numbers that are congruent to zero or one modulo three,
+OEIS [A032766](https://oeis.org/A032766):
+
+```
+>>> 0:23.select { :n |
+>>> 	[0 1].includes(n % 3)
+>>> }
+[0 1 3 4 6 7 9 10 12 13 15 16 18 19 21 22]
+```
+
 Plot an integer sequence modulo an integer,
 i.e. with a fixed modulus:
 

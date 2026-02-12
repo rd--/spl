@@ -161,37 +161,33 @@
 		}
 	}
 
-	isPrime { :self |
-		self.isPositiveInteger.if {
-			(self.isEven & { self != 2 }).if {
-				false
-			} {
-				system.isCachedPrime(self).if {
-					true
-				} {
-					system.isMultipleOfCachedPrime(self).if {
-						false
-					} {
-						self.isPrimeTrialDivision
+	isPrime { :n |
+		n.isPrimeTrialDivision
+		/*
+		n.isInteger & {
+			(n > 1) & {
+				n.isSmallPrime | {
+					n.isSmallPrimeMultiple.not & {
+						n.isPrimeTrialDivision
 					}
 				}
 			}
-		} {
-			false
 		}
+		*/
 	}
 
 	isPrimeTrialDivision { :self |
-		self.assertIsInteger('isPrimeTrialDivision');
-		(self <= 1).if {
-			false
-		} {
-			(self % 2 = 0).if {
-				self = 2
+		self.isInteger & {
+			(self <= 1).if {
+				false
 			} {
-				let limit = self.sqrt.floor;
-				3.toBy(limit, 2).noneSatisfy { :each |
-					self % each = 0
+				(self % 2 = 0).if {
+					self = 2
+				} {
+					let limit = self.sqrt.floor;
+					3.toBy(limit, 2).noneSatisfy { :each |
+						self % each = 0
+					}
 				}
 			}
 		}
@@ -239,6 +235,19 @@
 		n.factorInteger.column(2).sum = 2
 	}
 
+
+	isSmallPrime { :n |
+		n < 212 & {
+			system.smallPrimes.includes(n)
+		}
+	}
+
+	isSmallPrimeMultiple { :n |
+		system.smallPrimes.anySatisfy { :p |
+			n % p = 0
+		}
+	}
+
 	isSternPrime { :n |
 		n.isPrime & {
 			let k = (n / 2).sqrt.floor;
@@ -251,38 +260,6 @@
 			};
 			k.isZero
 		}
-	}
-
-	isStrongProbablePrime { :n :b |
-		let d = n - 1;
-		let s = 0;
-		{
-			d.bitAnd(1) = 0
-		}.whileTrue {
-			s := s + 1;
-			d := d.bitShiftRightUnsigned(1)
-		};
-		valueWithReturn { :return:/1 |
-			let x = powerMod(b, d, n);
-			(x = 1 | { x = (n - 1) }).ifTrue {
-				true.return
-			};
-			1.toDo(s - 1) { :r |
-				x := (x * x) % n;
-				(x = 1).if {
-					false.return
-				} {
-					(x = (n - 1)).ifTrue {
-						true.return
-					}
-				}
-			};
-			false
-		}
-	}
-
-	isStrongProbablePrime { :n |
-		n.isStrongProbablePrime(2)
 	}
 
 	isStrongPseudoprime { :n :b |
@@ -1138,6 +1115,23 @@
 		primesList
 	}
 
+	smallPrimes { :self |
+		self.cached('smallPrimes') {
+			[
+				2,  3,  5,  7, 11,
+				13, 17, 19, 23, 29,
+				31, 37, 41, 43, 47,
+				53, 59, 61, 67, 71,
+				73, 79, 83, 89, 97,
+				101, 103, 107, 109, 113,
+				127, 131, 137, 139, 149,
+				151, 157, 163, 167, 173,
+				179, 181, 191, 193, 197,
+				199, 211
+			]
+		}
+	}
+
 }
 
 +@RandomNumberGenerator {
@@ -1166,6 +1160,38 @@
 		} {
 			n.error('erdosTuranConstruction: not odd prime')
 		}
+	}
+
+	isStrongProbablePrime { :n :b |
+		let d = n - 1;
+		let s = 0;
+		{
+			d.bitAnd(1) = 0
+		}.whileTrue {
+			s := s + 1;
+			d := d.bitShiftRightUnsigned(1)
+		};
+		valueWithReturn { :return:/1 |
+			let x = powerMod(b, d, n);
+			(x = 1 | { x = (n - 1) }).ifTrue {
+				true.return
+			};
+			1.toDo(s - 1) { :r |
+				x := (x * x) % n;
+				(x = 1).if {
+					false.return
+				} {
+					(x = (n - 1)).ifTrue {
+						true.return
+					}
+				}
+			};
+			false
+		}
+	}
+
+	isStrongProbablePrime { :n |
+		n.isStrongProbablePrime(2)
 	}
 
 	optimalGolombRulers { :m |

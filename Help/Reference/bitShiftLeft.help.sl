@@ -72,6 +72,9 @@ The operator form is `<<`:
 ```
 >>> 32 << 7
 4096
+
+>>> -2 << 31
+0
 ```
 
 At `LargeInteger`:

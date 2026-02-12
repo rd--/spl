@@ -84,6 +84,16 @@ OEIS [A066853](https://oeis.org/A066853):
 
 ![](sw/spl/Help/Image/pisanoPeriod-B.svg)
 
+Plot first differences:
+
+~~~spl svg=C
+1:43.collect(pisanoPeriod:/1)
+.differences
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/pisanoPeriod-C.svg)
+
 * * *
 
 See also: fibonacci, fibonacciSequence

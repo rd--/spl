@@ -62,6 +62,20 @@ The sums of the first odd integers, beginning with one, are perfect squares:
 [1 4 9 16 25 36 49 64 81 100]
 ```
 
+Either _n_ or _2n_,
+[A022998](https://oeis.org/A022998):
+
+```
+>>> 0:23.collect { :n |
+>>> 	n.isOdd.if { n } { 2 * n }
+>>> }
+[
+	 0  1  4  3  8  5 12  7 16  9
+	20 11 24 13 28 15 32 17 36 19
+	40 21 44 23
+]
+```
+
 Plot OEIS [A065620](https://oeis.org/A065620):
 
 ~~~spl svg=A

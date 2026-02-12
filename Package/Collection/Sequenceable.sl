@@ -535,7 +535,7 @@
 	}
 
 	constantArray { :self :anObject |
-		[anObject].reshape(self)
+		List(self.product, anObject).reshapeList(self)
 	}
 
 	convergents { :self |

@@ -9,7 +9,8 @@ Answer the _n_-th hexagonal number.
 1035
 ```
 
-Threads over lists:
+Threads over lists,
+OEIS [A000384](https://oeis.org/A000384):
 
 ```
 >>> 1:23.hexagonalNumber

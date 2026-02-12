@@ -34,6 +34,53 @@ Larger integers:
 181202413
 ```
 
+Underscores are allowed as separators:
+
+```
+>>> 2r110010_101001_011001_010011
+8r62_51_31_23
+
+>>> 10r13_276_755
+16rCA_96_53
+```
+
+All radices are written from most to least significant,
+necessarily so as the written notation is not fixed width.
+
+The binary shift operators shift according to this notation,
+and can be read directly.
+
+Shifting left moves bits to more significant positions and introduces zeroes at the right,
+doubling the value for each bit shifted:
+
+```
+>>> 2r0001_0100 << 1
+2r0010_1000
+
+>>> 2r0001_0100 << 2
+2r0101_0000
+
+>>> 2r0001_0100 << 3
+2r1010_0000
+```
+
+Shifting right moves bits to less significant positions,
+and in the unsigned case introduces zeroes to the left,
+halving the value,
+and rounding down when odd,
+for each bit shifted:
+
+```
+>>> 2r0001_0100 >> 1
+2r0000_1010
+
+>>> 2r0001_0100 >> 2
+2r0000_0101
+
+>>> 2r0001_0100 >> 3
+2r0000_0010
+```
+
 _Note_:
 The radices two, eight, ten and sixteen should be implemented by all systems,
 other radices may raise errors.
@@ -41,6 +88,9 @@ other radices may raise errors.
 ```
 >>> 9r55
 50
+
+>>> (9 ^ [1 0]) * [5 5]
+[45 5]
 ```
 
 * * *

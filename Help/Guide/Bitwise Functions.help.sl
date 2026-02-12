@@ -59,7 +59,7 @@ Coding:
 
 * * *
 
-Guides: Boolean Functions, Integer Functions, Logical Operators, Mathematical Functions
+Guides: Boolean Functions, Integer Functions, Logical Operators, Mathematical Functions, Radix Syntax
 
 References:
 _W_

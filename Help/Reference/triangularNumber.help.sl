@@ -90,6 +90,13 @@ OEIS [A104382](https://oeis.org/A104382)
 ]
 ```
 
+C.f. `polygonalNumber`:
+
+```
+>>> 1:23.triangularNumber
+3.polygonalNumber(1:23)
+```
+
 The reciprocals of triangular numbers produce is convergent series where the limit is two:
 
 ~~~spl svg=A
@@ -103,7 +110,7 @@ The reciprocals of triangular numbers produce is convergent series where the lim
 
 * * *
 
-See also: binomial, cube, pascalTriangle, square, tetrahedralNumber
+See also: binomial, cube, pascalTriangle, polygonalNumber, square, tetrahedralNumber
 
 Guides: Integer Sequence Functions
 

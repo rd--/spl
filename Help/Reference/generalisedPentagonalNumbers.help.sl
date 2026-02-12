@@ -25,6 +25,21 @@ OEIS [A001318](https://oeis.org/A001318):
 ]
 ```
 
+First differences,
+OEIS [A026741](https://oeis.org/A026741):
+
+```
+>>> 19.generalisedPentagonalNumbers
+>>> .differences
+[1 1 3 2 5 3 7 4 9 5 11 6 13 7 15 8 17 9]
+
+>>> [1:17:2 1:9].interleave
+[1 1 3 2 5 3 7 4 9 5 11 6 13 7 15 8 17 9]
+
+>>> Fraction(1:18, 2).numerator
+[1 1 3 2 5 3 7 4 9 5 11 6 13 7 15 8 17 9]
+```
+
 Plot:
 
 ~~~spl svg=A

@@ -128,6 +128,46 @@ At empty list:
 1
 ```
 
+Count distinct products,
+OEIS [A322967](https://oeis.org/A322967):
+
+```
+>>> 1:8.collect { :n |
+>>> 	n:1:-1.collect { :k |
+>>> 		let m = n - k + 1;
+>>> 		let t = [k].constantArray(
+>>> 			[1 .. m]
+>>> 		);
+>>> 		t.tensorProduct
+>>> 		.flatten.nub.size
+>>> 	}
+>>> }
+[
+	1;
+	1 2;
+	1 3 3;
+	1 4 6 4;
+	1 5 10 9 5;
+	1 6 15 16 14 6;
+	1 7 21 25 30 18 7;
+	1 8 28 36 55 40 25 8
+]
+```
+
+Plot count of distinct products,
+OEIS [A322967](https://oeis.org/A322967):
+
+~~~spl svg=A
+OeisEntry('A322967').then { :e |
+	e.bFileData
+	.first(135)
+	.log
+	.scatterPlot
+}
+~~~
+
+![](sw/spl/Help/Image/tensorProduct-A.svg)
+
 * * *
 
 See also: *, foldRight, outer, outerProduct

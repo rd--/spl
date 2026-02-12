@@ -561,6 +561,10 @@
 		self.collect(thueMorse:/1)
 	}
 
+	tetrahedralNumber { :self |
+		self.collect(tetrahedralNumber:/1)
+	}
+
 	triangularNumber { :self |
 		self.collect(triangularNumber:/1)
 	}

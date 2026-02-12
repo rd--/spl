@@ -119,6 +119,17 @@ OEIS [A132440](https://oeis.org/A132440):
 
 ![](sw/spl/Help/Image/padLeft-B.svg)
 
+The infinitesimal Lah matrix,
+OEIS [A132792](https://oeis.org/A132792):
+
+~~~spl svg=C
+0:15.collect { :n |
+	[n * (n - 1), 0].padLeft([n + 1], 0)
+}.catenate.discretePlot
+~~~
+
+![](sw/spl/Help/Image/padLeft-C.svg)
+
 * * *
 
 See also: #, ++, arrayPad, padLeftAndRight, padRight, reshape, recycle, shape, size

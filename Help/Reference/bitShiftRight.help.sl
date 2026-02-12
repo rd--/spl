@@ -42,7 +42,8 @@ At negative integer:
 -2
 ```
 
-`bitShiftRight` works with numbers of any size:
+`bitShiftRight` works with numbers of any size,
+including `LargeInteger` values:
 
 ```
 >>> (2L ^ 111 - 1).bitShiftRight(7)

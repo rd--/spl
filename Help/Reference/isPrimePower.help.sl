@@ -32,7 +32,9 @@ true
 ```
 
 First few terms,
-OEIS [A246655](https://oeis.org/A246655):
+OEIS [A246655](https://oeis.org/A246655),
+or with one prefixed,
+OEIS [A000961](https://oeis.org/A000961):
 
 ```
 >>> 2:49.select(isPrimePower:/1)

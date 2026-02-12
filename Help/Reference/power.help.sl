@@ -465,6 +465,15 @@ OEIS [A002489](https://oeis.org/A002489):
 ]
 ```
 
+Odd squares,
+also centered octagonal numbers,
+OEIS [A016754](https://oeis.org/A016754):
+
+```
+>>> 1:22:2 ^ 2
+[1 9 25 49 81 121 169 225 289 361 441]
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A

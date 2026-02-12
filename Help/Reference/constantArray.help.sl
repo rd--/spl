@@ -60,9 +60,29 @@ A deeply nested constant array (a tree):
 [[[[[0, 0]], [[0, 0]]]], [[[[0, 0]], [[0, 0]]]]]
 ```
 
+A list of lists:
+
+```
+>>> [3].constantArray([1 2 3])
+[1 2 3; 1 2 3; 1 2 3]
+```
+
+A matrix of lists:
+
+```
+>>> [3 3].constantArray([1 2])
+[
+	1 2; 1 2; 1 2:;
+	1 2; 1 2; 1 2:;
+	1 2; 1 2; 1 2
+]
+```
+
 * * *
 
 See also: #, !, identityMatrix, iota, Range, reshape, table, unitVector
+
+Guides: Array Functions
 
 References:
 _Mathematica_

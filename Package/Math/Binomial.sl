@@ -263,6 +263,10 @@
 		numerator // denominator
 	}
 
+	lahNumber { :n :k |
+		binomial(n, k) * factorialPower(n - 1, n - k)
+	}
+
 	lassalleNumber { :m |
 		let a = List(m, m.one);
 		2.toDo(m) { :n |

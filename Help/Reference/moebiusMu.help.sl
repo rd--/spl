@@ -191,6 +191,15 @@ OEIS [A046692](http://oeis.org/A046692):
 
 ![](sw/spl/Help/Image/moebiusMu-E.svg)
 
+A unform length walk where turn angles are given by the Möbius function:
+
+~~~spl svg=F
+let m = 1:500.collect(moebiusMu:/1);
+(m * 1/3.pi).anglePath.linePlot
+~~~
+
+![](sw/spl/Help/Image/moebiusMu-F.svg)
+
 * * *
 
 See also: isSquareFree, liouvilleLambda, primeSignature

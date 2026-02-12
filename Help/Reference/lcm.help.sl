@@ -89,6 +89,30 @@ For `zero` and `one`, `lcm` is analogous to logical and:
 [false false; false true]
 ```
 
+Alternately _n_ and _2n_,
+[A109043](https://oeis.org/A109043):
+
+```
+>>> 0:23.lcm(2)
+[
+	 0  2  2  6  4 10  6 14  8 18
+	10 22 12 26 14 30 16 34 18 38
+	20 42 22 46
+]
+```
+
+Least common multiple of _1:n_,
+OEIS [A003418](https://oeis.org/A003418),
+or
+OEIS [A051451](https://oeis.org/A051451) if duplicate terms are removed:
+
+```
+>>> 1:11.collect { :n |
+>>> 	1:n.lcm
+>>> }
+[1 2 6 12 60 60 420 840 2520 2520 27720]
+```
+
 Plot the least common multiple for a number with 12:
 
 ~~~spl svg=A

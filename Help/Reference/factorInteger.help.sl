@@ -359,6 +359,25 @@ OeisEntry('A051282').then { :e |
 
 ![](sw/spl/Help/Image/factorInteger-I.svg)
 
+Plot the number of triangular numbers modulo _n_,
+OEIS [A117484](https://oeis.org/A117484):
+
+~~~spl svg=J
+1:175.collect { :n |
+	n.factorInteger.product { :f |
+		let [p, e] = f;
+		(p = 2).if {
+			2 ^ e
+		} {
+			let q = (2 * p + 2);
+			(p ^ (e + 1) // q) + 1
+		}
+	}
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/factorInteger-J.svg)
+
 * * *
 
 See also: divisors, isPrime, primeFactors, primeFactorization, product

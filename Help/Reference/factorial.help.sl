@@ -275,6 +275,18 @@ OEIS [A003319](https://oeis.org/A003319):
 ]
 ```
 
+Conjectured prime generating function,
+[A257886](https://oeis.org/A257886):
+
+```
+>>> 1:17.collect { :n |
+>>> 	let m = 2 * (n / 2).floor.!;
+>>> 	let c = (n.! / m).floor;
+>>> 	c.nextPrime - c
+>>> }
+[2 1 2 1 1 1 1 13 1 1 29 1 1 37 29 17 31]
+```
+
 The [Kempner_function](https://en.wikipedia.org/wiki/Kempner_function),
 also sometimes called the Smarandache function or Kempner numbers,
 the smallest positive integer _m_ such that _n_ divides _m!_,

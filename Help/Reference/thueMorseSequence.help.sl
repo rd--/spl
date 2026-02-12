@@ -21,7 +21,51 @@ OEIS [A010060](http://oeis.org/A010060):
 ]
 ```
 
-Plot first few terms:
+Prefix sum,
+OEIS [A115384](https://oeis.org/A115384):
+
+```
+>>> 23.thueMorseSequence.prefixSum.stepPlot
+[
+	 0  1  2  2  3  3  3  4  5  5
+	 5  6  6  7  8  8  9  9  9 10
+	10 11 12
+]
+```
+
+With values _1,2_,
+OEIS [A001285](https://oeis.org/A001285):
+
+```
+>>> (2 ^ 0:5).collect { :k |
+>>> 	(k.thueMorseSequence + 1)
+>>> 	.stringJoin
+>>> }
+[
+	'1'
+	'12'
+	'1221'
+	'12212112'
+	'1221211221121221'
+	'12212112211212212112122112212112'
+]
+```
+
+Prefix sum of the _1,2_ sequence,
+OEIS [A026430](https://oeis.org/A026430):
+
+```
+>>> (23.thueMorseSequence + 1)
+>>> .prefixSum
+[
+	 1  3  5  6  8  9 10 12 14 15
+	16 18 19 21 23 24 26 27	28 30
+	31 33 35
+]
+```
+
+Plot first few terms of
+OEIS [A010060](http://oeis.org/A010060):
 
 ~~~spl svg=A
 99.thueMorseSequence
@@ -42,7 +86,8 @@ OEIS [A029883](https://oeis.org/A029883):
 ]
 ```
 
-Plot first few terms:
+Plot first few terms of
+OEIS [A029883](https://oeis.org/A029883):
 
 ~~~spl svg=B
 99.thueMorseSequence
@@ -61,6 +106,15 @@ Plot sequence as series of turns:
 ~~~
 
 ![](sw/spl/Help/Image/thueMorseSequence-C.svg)
+
+Plot prefix sum,
+OEIS [A115384](https://oeis.org/A115384):
+
+~~~spl svg=D
+35.thueMorseSequence.prefixSum.stepPlot
+~~~
+
+![](sw/spl/Help/Image/thueMorseSequence-D.svg)
 
 * * *
 

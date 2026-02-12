@@ -252,6 +252,7 @@
 	}
 
 	reshapeList { :self :shape |
+		self.assertIsOfSize(shape.product);
 		shape.allButFirst.reverseDo { :n |
 			self := self.clump(n)
 		};

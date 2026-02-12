@@ -7,7 +7,8 @@ The answer is the same `size` as the sequence,
 and has the same first item.
 This operation is also called `prefixSum`, and is equivalent to `scan` of `+`.
 
-Triangular numbers:
+Triangular numbers,
+OEIS [A000217](https://oeis.org/A000217):
 
 ```
 >>> 1:10.accumulate

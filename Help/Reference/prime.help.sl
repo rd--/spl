@@ -42,6 +42,14 @@ OEIS [A000040](https://oeis.org/A000040):
 [29 541 7919]
 ```
 
+Squares of primes,
+OEIS [A001248](https://oeis.org/A001248);
+
+```
+>>> 1:9.prime.square
+[4 9 25 49 121 169 289 361 529]
+```
+
 Mersenne numbers,
 OEIS [A001348](https://oeis.org/A001348):
 

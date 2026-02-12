@@ -427,6 +427,17 @@ let x = 1:250.fibonacci;
 
 ![](sw/spl/Help/Image/fibonacci-K.svg)
 
+Plot modulo twelve,
+period is twenty-four,
+OEIS [A089911](https://oeis.org/A089911):
+
+~~~spl svg=L
+(0:47.fibonacci % 12)
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/fibonacci-L.svg)
+
 * * *
 
 See also: binetsFormula, fibonacciEntryPoint, fibonacciNumber, fibonacciPolynomial, fibonacciSequence, goldenRatio, lucasNumber

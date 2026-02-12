@@ -13,6 +13,16 @@ The operator form is `>>>`.
 1073741822
 ```
 
+Show in binary notation:
+
+```
+>>> -2r0101 >> 2
+-2r0010
+
+>>> -2r101 >>> 2
+2r00111111111111111111111111111110
+```
+
 * * *
 
 See also: <<, >>, bitShiftLeft, bitShiftRight

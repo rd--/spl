@@ -2,7 +2,8 @@
 
 - _tetrahedralNumber(n)_
 
-Answer the _n_-th tetrahedral number.
+Answer the _n_-th tetrahedral number,
+also called the triangular pyramidal number.
 
 First few terms,
 OEIS [A000292](https://oeis.org/A000292):

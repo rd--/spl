@@ -122,6 +122,18 @@ OEIS [A004086](https://oeis.org/A004086):
 
 ![](sw/spl/Help/Image/integerReverse-E.svg)
 
+Bijective bit-reverse of _n_,
+OEIS [A057889](https://oeis.org/A057889):
+
+~~~spl svg=F
+0:200.collect { :n |
+	let m = n.integerReverse(2);
+	m * (2 ^ n.integerExponent(2))
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/integerReverse-F.svg)
+
 * * *
 
 See also: bitReversalPermutation, fromDigits, integerDigits, integerLength, isPalindrome, reverse, vanDerCorputNumber
