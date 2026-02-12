@@ -1254,6 +1254,7 @@ Reference/duffingEquation.help.sl
 Reference/duffingMap.help.sl
 Reference/duplicateFreePrefix.help.sl
 Reference/duplicate.help.sl
+Reference/duplicates.help.sl
 Reference/Duration.help.sl
 Reference/durationString.help.sl
 Reference/Dust2.help.sl
@@ -2071,6 +2072,7 @@ Reference/isLogarithmicallyConcave.help.sl
 Reference/isLoopFree.help.sl
 Reference/isLowerCase.help.sl
 Reference/isLowerTriangularMatrix.help.sl
+Reference/isLucasProbablePrime.help.sl
 Reference/isLukasiewiczWord.help.sl
 Reference/isLyndonWord.help.sl
 Reference/isMagenta.help.sl
@@ -2192,6 +2194,7 @@ Reference/isStrictlyIncreasing.help.sl
 Reference/isStrictlyProper.help.sl
 Reference/isString.help.sl
 Reference/isStrongPrime.help.sl
+Reference/isStrongProbablePrime.help.sl
 Reference/isStrongPseudoprime.help.sl
 Reference/isSubset.help.sl
 Reference/isSumOfTwoSquares.help.sl
@@ -2297,6 +2300,7 @@ Reference/lagPlot.help.sl
 Reference/lagrangeInterpolatingPolynomial.help.sl
 Reference/lagrangeNumber.help.sl
 Reference/LagUd.help.sl
+Reference/lahNumber.help.sl
 Reference/lambdomaMatrix.help.sl
 Reference/lambertW.help.sl
 Reference/lanczosApproximation.help.sl
@@ -2524,7 +2528,9 @@ Reference/LsTuple.help.sl
 Reference/LsUnfold.help.sl
 Reference/LsWhite.help.sl
 Reference/LsXRand.help.sl
+Reference/lucasL.help.sl
 Reference/lucasNumber.help.sl
+Reference/lucasPolynomial.help.sl
 Reference/lucasSequence.help.sl
 Reference/luckyNumbers.help.sl
 Reference/luDecomposition.help.sl
@@ -3353,6 +3359,7 @@ Reference/reservoirSampleAlgorithmL.help.sl
 Reference/reset.help.sl
 Reference/reshape.help.sl
 Reference/reshapeLike.help.sl
+Reference/reshapeList.help.sl
 Reference/residueDesignPlot.help.sl
 Reference/Residue.help.sl
 Reference/ResidueSet.help.sl
@@ -3420,6 +3427,7 @@ Reference/roundTowardsZero.help.sl
 Reference/roundUp.help.sl
 Reference/rowCatenate.help.sl
 Reference/row.help.sl
+Reference/rowlandsSequence.help.sl
 Reference/rowReduce.help.sl
 Reference/rows.help.sl
 Reference/rowVector.help.sl

@@ -37,7 +37,7 @@ The signed form,
 OEIS [A008297](https://oeis.org/A008297):
 
 ```
->>> 1:8.triangularArray { :n :k |
+>>> 1:7.triangularArray { :n :k |
 >>> 	let m = binomial(n - 1, k - 1);
 >>> 	(-1 ^ n) * n.! * m / k.!
 >>> }
@@ -56,7 +56,7 @@ The matrix inverse,
 OEIS [A111596](https://oeis.org/A111596):
 
 ```
->>> 0:8.triangularArray { :n :k |
+>>> 0:7.triangularArray { :n :k |
 >>> 	(-1 ^ (n - k)) * lahNumber(n, k)
 >>> }
 [
