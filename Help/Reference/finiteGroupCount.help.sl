@@ -1,6 +1,6 @@
 # finiteGroupCount
 
-- finiteGroupCount(n)_
+- _finiteGroupCount(n)_
 
 Answer the number of finite groups of order _n_.
 

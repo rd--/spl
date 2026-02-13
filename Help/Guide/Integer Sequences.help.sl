@@ -2,7 +2,9 @@
 
 List of help files that include references to OEIS integer sequences:
 
-- `Integer Sequence Functions`
+- `Integer Sequence Functions`: Guide
+- `Integer Sequence Index`: Guide
+- `Integer Sequence Method List`: Guide
 
 * * *
 

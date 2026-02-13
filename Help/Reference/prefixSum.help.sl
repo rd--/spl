@@ -103,7 +103,8 @@ OEIS [A000217](https://oeis.org/A000217):
 
 ![](sw/spl/Help/Image/prefixSum-A.svg)
 
-Find and plot the repeats for the triangular numbers modulo _n_:
+Find and plot the repeats for the triangular numbers modulo _n_,
+for the first few values of _n_:
 
 ~~~spl svg=B
 let t = 0:100.prefixSum;
@@ -113,6 +114,23 @@ let t = 0:100.prefixSum;
 ~~~
 
 ![](sw/spl/Help/Image/prefixSum-B.svg)
+
+Plot three later terms,
+_n=63:65_,
+constrcuted using an iterative algorithm:
+
+~~~spl svg=C
+63:65.collect { :m |
+	let c = 1;
+	{ :i |
+		let j = (i + c).mod(m, 1);
+		c := c + 1;
+		j
+	}.nestList(1, m * 2).findRepeat
+}.catenate.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/prefixSum-C.svg)
 
 * * *
 

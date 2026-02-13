@@ -49,6 +49,14 @@ At `List`, answers with a zeroed collection of the same `shape`:
 [0 0 0; 0 0 0; 0 0 0]
 ```
 
+List of zeroes,
+OEIS [A000004](https://oeis.org/A000004):
+
+```
+>>> 1:9.zero
+[0 0 0 0 0 0 0 0 0]
+```
+
 * * *
 
 See also: isNegative, isNonZero, isPositive, isZero, one

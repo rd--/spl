@@ -568,6 +568,15 @@ OEIS [A051778](https://oeis.org/A051778):
 
 ![](sw/spl/Help/Image/mod-R.svg)
 
+Plot prefix sum of _n%9_,
+OEIS [A130487](https://oeis.org/A130487):
+
+~~~spl svg=S
+(0:44 % 9).prefixSum.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/mod-S.svg)
+
 * * *
 
 See also: %, /, //, \\, commonResidue, minimalResidue, positiveResidue, quotient, remainder

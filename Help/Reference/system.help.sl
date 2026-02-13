@@ -49,8 +49,8 @@ true
 
 * * *
 
-See also: Method, Trait, Type, System
+See also: Method, Package, Trait, Type, System
 
-Guides: Reflection Functions, System Functions
+Guides: Reflection Functions, System Functions, System Variable
 
 Categories: Reflection

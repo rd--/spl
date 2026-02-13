@@ -4,6 +4,9 @@
 
 A table formed by taking the `positiveResidue` of the multiplication table of the integer _n_.
 
+The square where _n=9_,
+OEIS [A125959](https://oeis.org/A125959)
+
 ```
 >>> 9.vedicSquare
 [
@@ -17,6 +20,30 @@ A table formed by taking the `positiveResidue` of the multiplication table of th
 	8 7 6 5 4 3 2 1 9;
 	9 9 9 9 9 9 9 9 9
 ]
+```
+
+The second row is the periodic digital root of _2n_,
+OEIS [A180592](https://oeis.org/A180592):
+
+```
+>>> 9.vedicSquare.second
+[2 4 6 8 1 3 5 7 9]
+```
+
+The third row is the periodic digital root of _3n_,
+OEIS [A180593](https://oeis.org/A180593):
+
+```
+>>> 9.vedicSquare.third
+[3 6 9 3 6 9 3 6 9]
+```
+
+The fourth row is the periodic digital root of _4n_,
+OEIS [A180594](https://oeis.org/A180594):
+
+```
+>>> 9.vedicSquare.fourth
+[4 8 3 7 2 6 1 5 9]
 ```
 
 The square is symmetric:
