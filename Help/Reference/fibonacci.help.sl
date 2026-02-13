@@ -288,6 +288,16 @@ OEIS [A180662](https://oeis.org/A180662):
 ]
 ```
 
+Numbers having three ones in their base-phi representation,
+OEIS [A104626](https://oeis.org/A104626):
+
+```
+>>> 4:12.collect { :n |
+>>> 	fibonacci(2 * n - [3 5]).sum + 1
+>>> }
+[8 19 48 124 323 844 2208 5779 15128]
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A

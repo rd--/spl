@@ -218,6 +218,30 @@ OEIS [A022342](https://oeis.org/A022342):
 ]
 ```
 
+Representation of the integers as a sum of increasing nonconsecutive powers of the golden ratio:
+
+```
+>>> let phi = 1.goldenRatio;
+>>> [
+>>> 	0;
+>>> 	-2  1;
+>>> 	-2  2;
+>>> 	-2  0  2;
+>>> 	-4 -1  3;
+>>> 	-4  1  3;
+>>> 	-4  4;
+>>> 	-4  0  4;
+>>> 	-4 -2 1 4;
+>>> 	-4 -2 2 4
+>>> ].collect { :p |
+>>> 	[
+>>> 		(phi ^ p).sum,
+>>> 		(p + 1).fibonacci.sum
+>>> 	]
+>>> }.catenate
+[1 1 2 2 3 3 4 4 5 5 6 6 7 7 8 8 9 9 10 10]
+```
+
 Plot the fractional part of multiples of the golden ratio:
 
 ~~~spl svg=A
@@ -355,6 +379,19 @@ let t = { :n :j |
 ~~~
 
 ![](sw/spl/Help/Image/goldenRatio-J.svg)
+
+Plot powers of phi in the representation of the integer _n_ as a sum of increasing nonconsecutive powers of the golden ratio,
+OEIS [A104605](https://oeis.org/A104605):
+
+~~~spl svg=K
+OeisEntry('A104605').then { :e |
+	e.bFileData
+	.first(113)
+	.discretePlot
+}
+~~~
+
+![](sw/spl/Help/Image/goldenRatio-K.svg)
 
 * * *
 

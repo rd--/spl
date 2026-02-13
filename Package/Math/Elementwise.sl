@@ -755,6 +755,10 @@
 		anObject.adaptToCollectionAndApply(self, lcm:/2)
 	}
 
+	lucasL { :n :x |
+		x.adaptToCollectionAndApply(n, lucasL:/2)
+	}
+
 	mediant { :self |
 		Fraction(
 			self.collect(numerator:/1).sum,

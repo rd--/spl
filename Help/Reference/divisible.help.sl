@@ -152,6 +152,26 @@ OEIS [A019554](https://oeis.org/A019554):
 
 ![](sw/spl/Help/Image/divisible-C.svg)
 
+Plot least sequence where every term divides the product of its neighbors,
+OEIS [A075075](https://oeis.org/A075075):
+
+~~~spl svg=D
+let a = [1 2];
+2:200.do { :n |
+	let x = a[n - 1];
+	let y = a[n];
+	let z = 1:Infinity.detect { :i |
+		a.includes(i).not & {
+			(i * x).divisible(y)
+		}
+	};
+	a.add(z)
+};
+a.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/divisible-D.svg)
+
 * * *
 
 See also: %, divisors, even, gcd, mod, quotient, round

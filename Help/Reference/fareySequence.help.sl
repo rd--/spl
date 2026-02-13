@@ -248,6 +248,28 @@ Plot the relative term-wise difference between the mean and mediant of adjacent 
 
 ![](sw/spl/Help/Image/fareySequence-I.svg)
 
+Plot the numerators of the sequences in turn,
+OEIS [A006842](https://oeis.org/A006842):
+
+~~~spl svg=J
+1:9.collect { :n |
+	n.fareySequence.numerator
+}.catenate.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/fareySequence-J.svg)
+
+Plot the denominators of the sequences in turn,
+OEIS [A006843](https://oeis.org/A006843):
+
+~~~spl svg=K
+1:9.collect { :n |
+	n.fareySequence.denominator
+}.catenate.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/fareySequence-K.svg)
+
 * * *
 
 See also: Fraction, eulerPhi, gcd, isFareyPair, minkowskiQuestionMark, sternBrocotSequence, subdivide, totientSummatoryFunction

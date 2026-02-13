@@ -308,6 +308,19 @@ let t = { :n :k |
 
 ![](sw/spl/Help/Image/divisors-J.svg)
 
+Plot squarefree part of _n^2-1_,
+OEIS [A068310](https://oeis.org/A068310):
+
+~~~spl svg=K
+2:65.collect { :n |
+	let m = n.square - 1;
+	let d = m.divisors;
+	m / d.select(isPerfectSquare:/1).max
+}.stepPlot
+~~~
+
+![](sw/spl/Help/Image/divisors-K.svg)
+
 * * *
 
 See also: divisorSigma, divisorSum, gcd, remainder

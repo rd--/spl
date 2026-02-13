@@ -50,6 +50,27 @@ Fraction(0:36, 12).numerator.stepPlot
 
 ![](sw/spl/Help/Image/numerator-A.svg)
 
+Plot segment of least sequence where every term divides the product of its neighbors,
+OEIS [A075075](https://oeis.org/A075075):
+
+~~~spl svg=B
+let a = [1 2];
+2:350.do { :n |
+	let d = Fraction(a[n], a[n - 1]);
+	let m = d.numerator;
+	let k = m;
+	{
+		a.includes(k)
+	}.whileTrue {
+		k := k + m
+	};
+	a.add(k)
+};
+a.drop(100).scatterPlot
+~~~
+
+![](sw/spl/Help/Image/numerator-B.svg)
+
 * * *
 
 See also: denominator, Fraction, isFraction

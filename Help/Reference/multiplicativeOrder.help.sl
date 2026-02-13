@@ -293,10 +293,10 @@ OEIS [A006556](https://oeis.org/A006556):
 Plot shuffling _2n_ cards,
 OEIS [A002139](https://oeis.org/A002139):
 
-~~~
+~~~spl svg=E
 1:200.collect { :n |
-	let x = 2.multiplicativeOrder(2 * n - 1);
 	let m = 2 * n - 1;
+	let x = 2.multiplicativeOrder(m);
 	(x = m.eulerPhi).if {
 		let [p, k] = m.factorInteger.first;
 		(x + 1) * (p ^ (k - 1)).eulerPhi
@@ -307,6 +307,29 @@ OEIS [A002139](https://oeis.org/A002139):
 ~~~
 
 ![](sw/spl/Help/Image/multiplicativeOrder-E.svg)
+
+Plot _(Σ(R(p(n))) - μ(p(n)-1))/p(n)_,
+OEIS [A088145](https://oeis.org/A088145):
+
+~~~spl svg=F
+let m = 43;
+let a = 1:m.collect { :n |
+	let p = n.prime;
+	let k = p - 1;
+	1:k.select { :i |
+		i.multiplicativeOrder(p) = k
+	}
+};
+1:m.collect { :n |
+	let k = a[n].size;
+	let p = n.prime;
+	(1:k.sum { :i |
+		a[n][i]
+	} - (p - 1).moebiusMu) / p
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/multiplicativeOrder-F.svg)
 
 * * *
 

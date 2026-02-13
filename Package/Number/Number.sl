@@ -162,14 +162,15 @@
 	}
 
 	betaExpansion { :x :beta :p |
-		let k = (x.log / beta.log).floor + 1;
+		let k = (x.log / beta.log).ceiling.max(0);
 		let r = [];
 		let i = k - 1;
 		{
 			i > (-p - 1)
 		}.whileTrue {
-			let d = floor((x / (beta ^ i)) % beta);
-			x := x - (d * (beta ^ i));
+			let m = beta ^ i;
+			let d = ((x / m) % beta).floor;
+			x := x - (d * m);
 			r.add(d);
 			i := i - 1
 		};
@@ -1124,6 +1125,12 @@
 }
 
 +List {
+
+	betaContraction { :self :base |
+		let [d, p] = self;
+		let e = (p - d.indicesOf(1)).reverse;
+		(base ^ e).sum
+	}
 
 	rescaleBlock { :a :b |
 		let [min, max] = a;

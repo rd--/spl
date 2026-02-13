@@ -43,6 +43,17 @@ OEIS [A007917](https://oeis.org/A007917):
 ]
 ```
 
+Least nonnegative _m_ such that _n!-m_ is prime,
+OEIS [A033933](https://oeis.org/A033933):
+
+```
+>>> 3:15.collect { :n |
+>>> 	let m = n.!;
+>>> 	m - m.previousPrime
+>>> }
+[1 1 7 1 1 31 13 11 13 1 23 1 47]
+```
+
 Plot prime instigated arithmetic series,
 OEIS [A064924](https://oeis.org/A064924):
 

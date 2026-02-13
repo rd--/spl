@@ -161,6 +161,19 @@ Quadratic residues and nonresidues:
 [5 7 10 11 14 15 17 19 20 21 22]
 ```
 
+At _n=-2_,
+OEIS [A188510](https://oeis.org/A188510):
+
+```
+>>> 0:15.collect { :m |
+>>> 	-2.kroneckerSymbol(m)
+>>> }
+[
+	0 1 0 1 0 -1 0 -1
+	0 1 0 1 0 -1 0 -1
+]
+```
+
 Plot:
 
 ~~~spl svg=A
@@ -220,6 +233,36 @@ OEIS [A010815](https://oeis.org/A010815):
 ~~~
 
 ![](sw/spl/Help/Image/kroneckerSymbol-D.svg)
+
+Plot Glaisher’s J numbers,
+OEIS [A002325](https://oeis.org/A002325):
+
+~~~spl svg=E
+1:150.collect { :n |
+	n.divisors.sum { :d |
+		-8.kroneckerSymbol(d)
+	}
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/kroneckerSymbol-E.svg)
+
+Plot _|a_4(n)|_,
+OEIS [A033715](https://oeis.org/A033715):
+
+~~~spl svg=F
+0:103.collect { :n |
+	(n < 1).if {
+		(n = 0).boole
+	} {
+		2 * n.divisorSum { :m |
+			-2.kroneckerSymbol(m)
+		}
+	}
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/kroneckerSymbol-F.svg)
 
 * * *
 

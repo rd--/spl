@@ -133,9 +133,55 @@ OEIS [A046147](https://oeis.org/A046147):
 
 ![](sw/spl/Help/Image/primitiveRootList-A.svg)
 
+Plot sums,
+OEIS [A121380](https://oeis.org/A121380):
+
+~~~spl svg=B
+1:65.collect { :n |
+	n.primitiveRootList.sum
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/primitiveRootList-B.svg)
+
+Plot least primitive root of _n_-th prime,
+OEIS [A001918](https://oeis.org/A001918):
+
+~~~spl svg=C
+1:66.collect { :n |
+	n.prime.primitiveRootList.min
+}.stepPlot
+~~~
+
+![](sw/spl/Help/Image/primitiveRootList-C.svg)
+
+Plot sum of primitive roots of _n_-th prime,
+OEIS [A088144](https://oeis.org/A088144):
+
+~~~spl svg=D
+1:90.collect { :n |
+	n.prime.primitiveRootList.sum
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/primitiveRootList-D.svg)
+
+Plot _(Σ(R(p(n))) - μ(p(n)-1))/p(n)_,
+OEIS [A088145](https://oeis.org/A088145):
+
+~~~spl svg=E
+1:71.collect { :n |
+	let p = n.prime;
+	let r = p.primitiveRootList.sum;
+	(r - (p - 1).moebiusMu) / p
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/primitiveRootList-E.svg)
+
 * * *
 
-See also: mangoldtLambda, welchCostasArrayList
+See also: mangoldtLambda, multiplicativeOrder, welchCostasArrayList
 
 References:
 _Mathematica_
