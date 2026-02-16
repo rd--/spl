@@ -474,6 +474,44 @@ OEIS [A016754](https://oeis.org/A016754):
 [1 9 25 49 81 121 169 225 289 361 441]
 ```
 
+Octahedral numbers,
+OEIS [A005900](https://oeis.org/A005900):
+
+```
+>>> 0:9.collect { :n |
+>>> 	(2 * (n ^ 3) + n) / 3
+>>> }
+[0 1 6 19 44 85 146 231 344 489]
+```
+
+Nexus numbers of order five,
+OEIS [A022521](https://oeis.org/A022521):
+
+```
+>>> 0:8.collect { :n |
+>>> 	((n + 1) ^ 5) - (n ^ 5)
+>>> }
+[1 31 211 781 2101 4651 9031 15961 26281]
+```
+
+Centered octahedral numbers
+OEIS [A001845](https://oeis.org/A001845):
+
+```
+>>> 1:10.collect { :n |
+>>> 	let a = 4 * (n ^ 3);
+>>> 	let b = -6 * (n ^ 2);
+>>> 	let c = 8 * n;
+>>> 	(a + b + c - 3) / 3
+>>> }
+[1 7 25 63 129 231 377 575 833 1159]
+
+>>> 1:10.collect(
+>>> 	Polynomial([-3 8 -6 4]).asBlock
+>>> ) / 3
+[1 7 25 63 129 231 377 575 833 1159]
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A

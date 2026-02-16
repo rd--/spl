@@ -504,6 +504,22 @@ OEIS [A036037](https://oeis.org/A036037):
 
 ![](sw/spl/Help/Image/integerPartitions-E.svg)
 
+Number of decompositions of _2n_ into an unordered sum of two odd primes,
+OEIS [A002375](https://oeis.org/A002375):
+
+~~~spl svg=F
+1:98.collect { :n |
+	(2 * n).integerPartitions([2])
+	.count { :p |
+		p.allSatisfy(isPrime:/1) & {
+			p.includes(2).not
+		}
+	}
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/integerPartitions-F.svg)
+
 * * *
 
 See also: integerPartitionsOdd, integerPartitionsStrict, integerPartitionsTable, partitionFunctionP, partitionFunctionQ, qBinomial, setPartitions

@@ -169,6 +169,60 @@ OEIS [A385459](https://oeis.org/A385459):
 ]
 ```
 
+Winning positions in Tchoukaillon solitaire,
+OEIS [A028931](https://oeis.org/A028931):
+
+```
+>>> { :t |
+>>> 	let n = t.size;
+>>> 	t.includes(0).if {
+>>> 		let i = t.reverse.indexOf(0);
+>>> 		let a = t.first(n - i);
+>>> 		let b = [i];
+>>> 		let c = (i = 1).if {
+>>> 			[]
+>>> 		} {
+>>> 			t.drop(n - i + 1) - 1
+>>> 		};
+>>> 		a ++ b ++ c
+>>> 	} {
+>>> 		[n + 1] ++ (t - 1)
+>>> 	}
+>>> }.nestList([0], 29)
+[
+	 0;
+	 1;
+	 2 0;
+	 2 1;
+	 3 1 0;
+	 3 1 1;
+	 4 2 0 0;
+	 4 2 0 1;
+	 4 2 2 0;
+	 4 2 2 1;
+	 5 3 1 1 0;
+	 5 3 1 1 1;
+	 6 4 2 0 0 0;
+	 6 4 2 0 0 1;
+	 6 4 2 0 2 0;
+	 6 4 2 0 2 1;
+	 6 4 2 3 1 0;
+	 6 4 2 3 1 1;
+	 7 5 3 1 2 0 0;
+	 7 5 3 1 2 0 1;
+	 7 5 3 1 2 2 0;
+	 7 5 3 1 2 2 1;
+	 8 6 4 2 0 1 1 0;
+	 8 6 4 2 0 1 1 1;
+	 8 6 4 2 4 0 0 0;
+	 8 6 4 2 4 0 0 1;
+	 8 6 4 2 4 0 2 0;
+	 8 6 4 2 4 0 2 1;
+	 8 6 4 2 4 3 1 0;
+	 8 6 4 2 4 3 1 1
+]
+```
+
 Plot the first few terms of the `dyadicMap`:
 
 ~~~spl svg=A

@@ -24,6 +24,13 @@ The binary form answers the first _n_ elements of _x_:
 [3 4 5 6]
 ```
 
+Where _n=0_:
+
+```
+>>> [1 2 3].first(0)
+[]
+```
+
 The first element in a sorted list is the same as finding the minimum element:
 
 ```

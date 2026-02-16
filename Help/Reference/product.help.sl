@@ -106,6 +106,15 @@ Product representation of π:
 3.1415
 ```
 
+OEIS [A005701](https://oeis.org/A005701):
+
+```
+>>> 0:9.collect { :n |
+>>> 	(n + [1 2 3 6]).product
+>>> } / 12
+[3 14 40 90 175 308 504 780 1155 1650]
+```
+
 Plot a function:
 
 ~~~spl svg=A

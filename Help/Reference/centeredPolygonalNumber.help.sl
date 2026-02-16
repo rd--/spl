@@ -79,6 +79,16 @@ OEIS [A069099](https://oeis.org/A069099):
 ]
 ```
 
+Centered octagonal numbers,
+OEIS [A016754](https://oeis.org/A016754):
+
+```
+>>> 1:9.collect { :n |
+>>> 	8.centeredPolygonalNumber(n)
+>>> }
+[1 9 25 49 81 121 169 225 289]
+```
+
 Centered 18-gonal numbers,
 OEIS [A069131](https://oeis.org/A069131):
 

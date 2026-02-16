@@ -101,7 +101,8 @@
 	}
 
 	goldenRatio { :self |
-		let phi = (5.sqrt + 1) / 2;
+		/* let phi = (5.sqrt + 1) / 2; */
+		let phi = 1.618033988749894;
 		self * phi
 	}
 

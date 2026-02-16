@@ -94,6 +94,18 @@ Plot first differences:
 
 ![](sw/spl/Help/Image/pisanoPeriod-C.svg)
 
+Plot fixed point of Pisano period,
+OEIS [A235249](https://oeis.org/A235249):
+
+~~~spl svg=D
+1:65.collect { :n |
+	pisanoPeriod:/1
+	.fixedPoint(n, =)
+}.log.stepPlot
+~~~
+
+![](sw/spl/Help/Image/pisanoPeriod-D.svg)
+
 * * *
 
 See also: fibonacci, fibonacciSequence

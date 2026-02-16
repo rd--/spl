@@ -106,6 +106,17 @@ OEIS [A002420](https://oeis.org/A002420):
 [-2 -2 -4 -10 -28 -84 -264 -858 -2860 -9724]
 ```
 
+_C(n)*C(n+2)-C(n+1)^2_,
+OEIS [A005700](https://oeis.org/A005700):
+
+```
+>>> 0:8.collect { :n |
+>>> 	let c = (n + 0:2).catalanNumber;
+>>> 	c[1] * c[3] - c[2].square
+>>> }
+[1 1 3 14 84 594 4719 40898 379236]
+```
+
 * * *
 
 See also: bellNumber, binomial, catalanTriangle, dyckWords, factorial, fussCatalanNumber, gamma, lassalleNumber, superCatalanNumber

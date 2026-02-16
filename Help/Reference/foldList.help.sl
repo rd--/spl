@@ -191,6 +191,14 @@ OEIS [A000124](https://oeis.org/A000124):
 ]
 ```
 
+Central polygonal numbers,
+OEIS [A002061](https://oeis.org/A002061):
+
+```
+>>> +.foldList(1, 2 * 0:12)
+[1 1 3 7 13 21 31 43 57 73 91 111 133 157]
+```
+
 * * *
 
 See also: accumulate, collect, differences, foldLeft, injectInto, ratios

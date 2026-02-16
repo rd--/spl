@@ -17,6 +17,43 @@ OEIS [A000290](https://oeis.org/A000290):
 ]
 ```
 
+Plot `max` of `min` of all summands of _n_,
+OEIS [A046805](https://oeis.org/A046805):
+
+~~~spl svg=A
+let f = { :n |
+	(n = 0).if {
+		Infinity
+	} {
+		n.isPerfectSquare.if {
+			n.sqrt
+		} {
+			let a = n.sqrt.floor;
+			let u = 1;
+			{
+				a > u
+			}.whileTrue {
+				let b = a;
+				{
+					b <= (n / a)
+				}.whileTrue {
+					let v = a.min(
+						f(n - (a * b))
+					);
+					u := u.max(v);
+					b := b + 1
+				};
+				a := a - 1
+			};
+			u
+		}
+	}
+};
+1:115.collect(f:/1).scatterPlot
+~~~
+
+![](sw/spl/Help/Image/isPerfectSquare-A.svg)
+
 * * *
 
 See also: square, sqrt

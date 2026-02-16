@@ -387,6 +387,20 @@ OEIS [A079559](https://oeis.org/A079559):
 
 ![](sw/spl/Help/Image/substitutionSystem-G.svg)
 
+A block-fractal and reverse block-fractal sequence,
+OEIS [A001468](https://oeis.org/A001468):
+
+~~~spl svg=H
+[
+	1 -> [1 2],
+	2 -> [1 2 2]
+].substitutionSystem([1], 4)
+.last
+.stepPlot
+~~~
+
+![](sw/spl/Help/Image/substitutionSystem-H.svg)
+
 * * *
 
 See also: Association, fibonacciWord, locallyCatenativeSequence, Map, rudinShapiro, simpleLindenmayerSystem, thueMorse

@@ -10,6 +10,9 @@ usually written as ϕ (Phi) or φ(phi), also as τ (tau).
 ```
 >>> 1.goldenRatio
 1.61803
+
+>>> (5.sqrt + 1) / 2
+1.61803
 ```
 
 φ is half of the square root of five plus one:
@@ -78,8 +81,8 @@ Equivalently:
 
 ```
 >>> let phi = 1.goldenRatio;
->>> (1 + phi = phi.square, 1 + phi)
-(true, 2.618034)
+>>> (1 + phi - phi.square, 1 + phi)
+(1.8E-15, 2.618034)
 ```
 
 Compute the Fibonacci numbers:
@@ -392,6 +395,18 @@ OeisEntry('A104605').then { :e |
 ~~~
 
 ![](sw/spl/Help/Image/goldenRatio-K.svg)
+
+Note that the constant is correctly rounded,
+unlike the calculation in terms of `sqrt`,
+and that this distinction is important for some calculations:
+
+```
+>> 1.goldenRatio.asString
+1.618033988749894
+
+>> ((5.sqrt + 1) / 2).asString
+1.618033988749895
+```
 
 * * *
 

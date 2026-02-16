@@ -81,6 +81,14 @@ Values of successive cyclotomic polynomials at one:
 ]
 ```
 
+Central polygonal numbers,
+OEIS [A002061](https://oeis.org/A002061):
+
+```
+>>> 0:13.collect(6.cyclotomic.asBlock)
+[1 1 3 7 13 21 31 43 57 73 91 111 133 157]
+```
+
 The answers are cached for efficiency:
 
 ```

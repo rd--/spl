@@ -165,6 +165,12 @@ SmallFloat! : [Object, Storeable, Equatable, Comparable, Json, Magnitude, Number
 		}
 	}
 
+	assertIsFinite { :self |
+		self.assert {
+			self.isFinite
+		}
+	}
+
 	assertIsSmallInteger { :self |
 		self.assert {
 			self.isSmallInteger
@@ -613,11 +619,15 @@ SmallFloat! : [Object, Storeable, Equatable, Comparable, Json, Magnitude, Number
 		(base != 10).if {
 			self.error('SmallFloat>>realDigits: not implemented unless base=10')
 		} {
-			let exponent = (self.log10 + 1).round;
-			[
-				(self * (10 ^ (size - exponent))).round.integerDigits(10, size),
-				exponent
-			]
+			(self = 0).if {
+				[size # [0], 1]
+			} {
+				let exponent = (self.log10 + 1).round;
+				[
+					(self * (10 ^ (size - exponent))).round.integerDigits(10, size),
+					exponent
+				]
+			}
 		}
 	}
 

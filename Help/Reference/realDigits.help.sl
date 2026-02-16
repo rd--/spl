@@ -34,6 +34,16 @@ Digits of 19/7 in base ten:
 [[2 7 1 4 2 8 5 7 1 4 2 8 5 7 1], 1]
 ```
 
+At `zero` and `one`:
+
+```
+>>> 0.realDigits(10, 1)
+[[0], 1]
+
+>>> 1.realDigits(10, 1)
+[[1], 1]
+```
+
 At `Decimal`:
 
 ```

@@ -709,8 +709,8 @@ Generalized octagonal numbers,
 OEIS [A001082](https://oeis.org/A001082):
 
 ```
->>> linearRecurrence(
->>> 	[1 2 -2 -1 1], [0 1 5 8 16], 14
+>>> [1 2 -2 -1 1].linearRecurrence(
+>>> 	[0 1 5 8 16], 14
 >>> )
 [0 1 5 8 16 21 33 40 56 65 85 96 120 133]
 ```
@@ -719,13 +719,31 @@ First differences are
 OEIS [A022998](https://oeis.org/A022998):
 
 ```
->>> linearRecurrence(
->>> 	[1 2 -2 -1 1], [0 1 5 8 16], 17
+>>> [1 2 -2 -1 1].linearRecurrence(
+>>> 	[0 1 5 8 16], 17
 >>> ).differences
 [1 4 3 8 5 12 7 16 9 20 11 24 13 28 15 32]
 
 >>> [1:15:2, 4:32:4].interleave
 [1 4 3 8 5 12 7 16 9 20 11 24 13 28 15 32]
+```
+
+Octahedral numbers,
+OEIS [A005900](https://oeis.org/A005900):
+
+```
+>>> [4 -6 4 -1].linearRecurrence(
+>>> 	[0, 1, 6, 19], 10
+>>> )
+[0 1 6 19 44 85 146 231 344 489]
+```
+
+Central polygonal numbers,
+OEIS [A002061](https://oeis.org/A002061):
+
+```
+>>> linearRecurrence([3 -3 1], [1 1 3], 14)
+[1 1 3 7 13 21 31 43 57 73 91 111 133 157]
 ```
 
 Draw spiral:
