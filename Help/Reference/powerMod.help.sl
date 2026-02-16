@@ -285,6 +285,20 @@ OEIS [A195637](https://oeis.org/A195637):
 
 ![](sw/spl/Help/Image/powerMod-F.svg)
 
+Smallest number _m>1_ such that _m^(p-1)-1_ is divisible by _p^2_,
+OEIS [A039678](https://oeis.org/A039678):
+
+~~~
+1:150.collect { :n |
+	let p = n.prime;
+	2:Infinity.detect { :a |
+		a.powerMod(p - 1, p ^ 2) = 1
+	}
+}.log.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/powerMod-G.svg)
+
 * * *
 
 See also: ^, %
