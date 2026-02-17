@@ -322,6 +322,28 @@ OEIS [A038712](https://oeis.org/A038712):
 
 ![](sw/spl/Help/Image/bitXor-M.svg)
 
+A variant of the Van Eck sequence,
+c.f. `vanEckSequence`,
+OEIS [A340488](http://oeis.org/A340488):
+
+~~~spl svg=O
+let a = [0];
+let r = [0];
+0.toDo(250) { :n |
+	let x = a.last;
+	let y = nil;
+	(x + 1 > r.size).ifTrue {
+		r.add(0)
+	};
+	y := x.bitXor(r[x + 1]);
+	r[x + 1] := r[x + 1] + 1;
+	a.add(y)
+};
+a.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/bitXor-O.svg)
+
 * * *
 
 See also: bitAnd, bitNot, bitOr, xor

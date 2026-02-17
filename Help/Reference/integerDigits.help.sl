@@ -753,6 +753,20 @@ let a = 0:m.collect(
 
 ![](sw/spl/Help/Image/integerDigits-R.svg)
 
+Plot enumeration of partitions by binary representation,
+OEIS [A125106](https://oeis.org/A125106):
+
+~~~spl svg=S
+1:43.collect { :n |
+	let d = n.integerDigits(2);
+	let x = d.reverse.indicesOf(1);
+	let m = x.size;
+	(x - 1:m + 1).reverse
+}.catenate.stepPlot
+~~~
+
+![](sw/spl/Help/Image/integerDigits-S.svg)
+
 * * *
 
 See also: digitCount, fromDigits, hammingWeight

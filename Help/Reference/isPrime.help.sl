@@ -262,6 +262,20 @@ OEIS [A006285](https://oeis.org/A006285):
 [127 149 251 331 337 373 509 599 701]
 ```
 
+Numbers _k_ such that _k^2+k-1_ is prime,
+OEIS [A045546](https://oeis.org/A045546):
+
+```
+>>> 1:45.select { :n |
+>>> 	(n.square + n - 1).isPrime
+>>> }
+[
+	 2  3  4  5  6  8  9 10 11 13
+	15 16 19 20 21 24 26 28 30 31
+	35 38 39 41 44 45
+]
+```
+
 Plot primes up to one-thousand:
 
 ~~~spl svg=A

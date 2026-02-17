@@ -76,6 +76,25 @@ Either _n_ or _2n_,
 ]
 ```
 
+Alternately add and multiply,
+OEIS [A039941](https://oeis.org/A039941):
+
+```
+>>> let a = { :n |
+>>> 	(n < 2).if {
+>>> 		(n > 0).boole
+>>> 	} {
+>>> 		n.isOdd.if {
+>>> 			a(n - 1) * a(n - 2)
+>>> 		} {
+>>> 			a(n-1) + a(n-2)
+>>> 		}
+>>> 	}
+>>> };
+>>> 0:12.collect(a:/1)
+[0 1 1 1 2 2 4 8 12 96 108 10368 10476]
+```
+
 Plot OEIS [A065620](https://oeis.org/A065620):
 
 ~~~spl svg=A

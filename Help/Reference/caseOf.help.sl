@@ -81,6 +81,37 @@ If the collection _c_ does not contain associations, report an `error`:
 true
 ```
 
+Plot problem related to gerrymandering,
+OEIS [A290323](https://oeis.org/A290323):
+
+~~~spl svg=A
+let f = { :p :e |
+	(p = 2).if {
+		(e = 1).if {
+			2
+		} {
+			(e % 3).caseOf(
+				[
+					1 -> { 9 / 5 },
+					2 -> { 3 },
+					0 -> { 1 }
+				]
+			) * (5 ^ (e / 3).floor)
+		}
+	} {
+		((p + 1) / 2) ^ e
+	}
+};
+1:200.collect { :n |
+	n.factorInteger.collect { :f |
+		let [p, e] = f;
+		f(p, e)
+	}.product
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/caseOf-A.svg)
+
 * * *
 
 See also: =, if, value, which

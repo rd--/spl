@@ -66,7 +66,8 @@ OEIS [A006577](https://oeis.org/A006577):
 [0 1 7 2 5 8 16 3 19 6 14 9 9 17 17 4 12 20]
 ```
 
-Plot:
+Plot
+OEIS [A006577](https://oeis.org/A006577):
 
 ~~~spl svg=A
 1:200.collect { :each |
@@ -436,6 +437,19 @@ Plot first few indirect sequences:
 ~~~
 
 ![](sw/spl/Help/Image/collatzSequence-I.svg)
+
+Plot the number of iterations required to reach a power of two in the Collatz sequence starting at _n_,
+OEIS [A208981](https://oeis.org/A208981):
+
+~~~spl svg=J
+1:165.collect { :n |
+	n.collatzSequence.detectIndex { :x |
+		x.log2.isInteger
+	} - 1
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/collatzSequence-J.svg)
 
 * * *
 

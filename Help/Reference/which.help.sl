@@ -34,10 +34,18 @@ Implement the Ackerman function:
 >>> 	[
 >>> 		{ m = 0 } -> { n + 1 },
 >>> 		{ m = 1 } -> { n + 2 },
->>> 		{ m = 2 } -> { 3 + (2 * n) },
->>> 		{ m = 3 } -> { 5 + (8 * ((2 ^ n) - 1)) },
->>> 		{ n = 0 } -> { a(m - 1, 1) },
->>> 		{ true } -> { a(m - 1, a(m, n - 1)) }
+>>> 		{ m = 2 } -> {
+>>> 			3 + (2 * n)
+>>> 		},
+>>> 		{ m = 3 } -> {
+>>> 			5 + (8 * ((2 ^ n) - 1))
+>>> 		},
+>>> 		{ n = 0 } -> {
+>>> 			a(m - 1, 1)
+>>> 		},
+>>> 		{ true } -> {
+>>> 			a(m - 1, a(m, n - 1))
+>>> 		}
 >>> 	].which
 >>> };
 >>> 0:3.collect { :m |
@@ -52,6 +60,25 @@ Implement the Ackerman function:
 	5 13 29 61 125 253 509 1021 2045
 ]
 ```
+
+Plot the regular paper-folding sequence,
+OEIS [A014707](https://oeis.org/A014707):
+
+~~~spl svg=A
+let a = { :n |
+	[
+		{ n % 4 = 0 } -> { 0 },
+		{ n % 4 = 2 } -> { 1 },
+		{ n % 2 = 1 } -> {
+			let m = (n - 1) // 2;
+			a(m)
+		}
+	].which
+};
+0:92.collect(a:/1).discretePlot
+~~~
+
+![](sw/spl/Help/Image/which-A.svg)
 
 * * *
 

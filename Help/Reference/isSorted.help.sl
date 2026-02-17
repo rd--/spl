@@ -84,6 +84,21 @@ Plot indices of sorted tuples:
 
 ![](sw/spl/Help/Image/isSorted-A.svg)
 
+Plot numbers where in the binary expansion run lengths do not decrease,
+OEIS [A037016](https://oeis.org/A037016):
+
+~~~spl svg=B
+0:250.select { :n |
+	n.integerDigits(2)
+	.split(=)
+	.collect(size:/1)
+	.reverse
+	.isSorted
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/isSorted-B.svg)
+
 * * *
 
 See also: isSortedBetweenAnd, isSortedBy, sort, sorted

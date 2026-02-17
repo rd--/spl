@@ -44,6 +44,21 @@ At `String` with non-character seach string:
 [1 8]
 ```
 
+Plot squarefree numbers ordered lexicographically by prime factorization,
+OEIS [A019565](https://oeis.org/A019565):
+
+~~~spl svg=A
+0:135.collect { :n |
+	n.integerDigits(2)
+	.reverse
+	.indicesOf(1)
+	.prime
+	.product
+}.log.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/indicesOf-A.svg)
+
 * * *
 
 See also: deepIndicesOf, indicesOfSubstring, indexOf, occurrencesOf

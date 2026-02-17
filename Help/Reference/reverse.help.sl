@@ -62,7 +62,8 @@ Column-reverse matrix:
 	3 0 0
 ]
 
->>> [1 2 3].diagonalMatrix.collect(reverse:/1)
+>>> [1 2 3].diagonalMatrix
+>>> .collect(reverse:/1)
 [0 0 1; 0 2 0; 3 0 0]
 ```
 
@@ -98,6 +99,20 @@ Iteratively join a string to its reverse:
 	'.||..||..||..||..||..||..||..||.'
 ]
 ```
+
+Plot self-inverse permutation given by reversing the order of all but the most significant bit in binary expansion of _n_,
+OEIS [A059893](https://oeis.org/A059893):
+
+~~~spl svg=A
+1:64.collect { :n |
+	let d = n.integerDigits(2);
+	let x = d.first;
+	let y = d.allButFirst;
+	([x] ++ y.reverse).fromDigits(2)
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/reverse-A.svg)
 
 Where supported `reverse` is displayed as ᴙ.
 

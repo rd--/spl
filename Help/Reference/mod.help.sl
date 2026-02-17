@@ -317,6 +317,16 @@ OEIS [A032766](https://oeis.org/A032766):
 [0 1 3 4 6 7 9 10 12 13 15 16 18 19 21 22]
 ```
 
+Count symmetric patterns in cellular automaton,
+OEIS [A060547](https://oeis.org/A060547):
+
+```
+>>> 1:16.collect { :n |
+>>> 	2 ^ ((n / 3).floor + ((n % 3) % 2))
+>>> }
+[2 1 2 4 2 4 8 4 8 16 8 16 32 16 32 64]
+```
+
 Plot an integer sequence modulo an integer,
 i.e. with a fixed modulus:
 
