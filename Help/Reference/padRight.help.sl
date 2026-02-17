@@ -118,6 +118,19 @@ OEIS [A144112](https://oeis.org/A144112):
 
 ![](sw/spl/Help/Image/padRight-A.svg)
 
+Plot the Fredholm-Rueppel sequence,
+OEIS [A036987](https://oeis.org/A036987):
+
+~~~spl svg=B
+0:6.collect { :k |
+	[1].padRight([2 ^ k], 0)
+}.catenate.prefixSum
+
+discretePlot
+~~~
+
+![](sw/spl/Help/Image/padRight-B.svg)
+
 * * *
 
 See also: #, ++, arrayPad, padLeft, padLeftAndRight, recycle, reshape, shape, size

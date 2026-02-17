@@ -478,6 +478,30 @@ let s:/1 = { :n |
 
 ![](sw/spl/Help/Image/divisorSigma-M.svg)
 
+Inverse Moebius transform applied twice to natural numbers,
+OEIS [A007429](https://oeis.org/A007429):
+
+~~~spl svg=N
+1:65.collect { :n |
+	1.divisorSigma(n.divisors).sum
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/divisorSigma-N.svg)
+
+Sum of σ of `divisors` of _n_,
+OEIS [A007425](https://oeis.org/A007425):
+
+~~~spl svg=O
+1:100.collect { :n |
+	n.divisors.sum { :d |
+		0.divisorSigma(d)
+	}
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/divisorSigma-O.svg)
+
 * * *
 
 See also: aliquotSum, divisible, divisors, divisorSum, divisorSummatoryFunction, eulerPhi, isAbundantNumber

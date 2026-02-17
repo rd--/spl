@@ -512,6 +512,27 @@ OEIS [A001845](https://oeis.org/A001845):
 [1 7 25 63 129 231 377 575 833 1159]
 ```
 
+Count endofunctions,
+OEIS [A000312](https://oeis.org/A000312),
+and the inverse Moebius transform,
+OEIS [A062796](https://oeis.org/A062796):
+
+```
+>>> 0:9.collect { :n | n ^ n }
+[
+	1 1 4 27 256 3125 46656
+	823543 16777216 387420489
+]
+
+>>> 1:9.collect { :n |
+>>> 	n.divisorSum { :x | x ^ x }
+>>> }
+[
+	1 5 28 261 3126 46688 823544
+	16777477 387420517
+]
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A

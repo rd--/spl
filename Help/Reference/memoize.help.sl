@@ -53,6 +53,27 @@ OEIS [A002083](https://oeis.org/A002083):
 [1 1 1 2 3 6 11 22 42 84 165 330 654 1308]
 ```
 
+Riordan numbers,
+OEIS [A005043](https://oeis.org/A005043):
+
+```
+>>> let a:/1 = { :n |
+>>> 	(n < 2).if {
+>>> 		1 - n
+>>> 	} {
+>>> 		let p = 2 * a(n - 1);
+>>> 		let q = 3 * a(n - 2);
+>>> 		(n - 1) * (p + q) / (n + 1)
+>>> 	}
+>>> }.memoize(true);
+>>> 0:17.collect(a:/1)
+[
+	1 0 1 1 3 6 15 36 91 232
+	603 1585 4213 11298 30537
+	83097 227475 625992
+]
+```
+
 A Conway sequence,
 OEIS [A004001](https://oeis.org/A004001):
 

@@ -117,6 +117,45 @@ An instance of a family of cutoff, or weighting, functions that answer _-1/12_ f
 -1/12
 ```
 
+Number of trees with _n_ unlabeled nodes,
+OEIS [A000055](https://oeis.org/A000055)
+
+```
+>>> let b:/1 = { :n |
+>>> 	(n < 2).if {
+>>> 		n
+>>> 	} {
+>>> 		let m = n - 1;
+>>> 		1:m.sum { :j |
+>>> 			j.divisors.sum { :d |
+>>> 				d * b(d) * b(n - j)
+>>> 			}
+>>> 		} / m
+>>> 	}
+>>> }.memoize(true);
+>>> let a:/1 = { :n |
+>>> 	(n = 1).if {
+>>> 		1
+>>> 	} {
+>>> 		let c = 0:n.sum { :k |
+>>> 			b(k) * b(n - k)
+>>> 		} - (n % 2 = 0).if {
+>>> 			b(n / 2)
+>>> 		} {
+>>> 			0
+>>> 		};
+>>> 		b(n) - (c / 2)
+>>> 	}
+>>> }.memoize(true);
+>>> 1:20.collect(a:/1)
+[
+	1 1 1 2 3
+	6 11 23 47 106
+	235 551 1301 3159 7741
+	19320 48629 123867 317955 823065
+]
+```
+
 Log scale scatter plot of OEIS [A281488](https://oeis.org/A281488):
 
 ~~~spl svg=A

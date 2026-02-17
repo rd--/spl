@@ -95,7 +95,7 @@ OEIS [A007427](https://oeis.org/A007427):
 
 ```
 >>> 1:81.collect { :n |
->>> 	divisorSum(n) { :d |
+>>> 	n.divisorSum { :d |
 >>> 		let a = moebiusMu(d);
 >>> 		let b = moebiusMu(n / d);
 >>> 		a * b

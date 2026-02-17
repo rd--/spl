@@ -19,6 +19,7 @@ Integer Sequence Transform Functions:
 - `binomialTransform`
 - `boustrophedonTransform`
 - `eulerTransform`
+- `moebiusTransform`
 - `runLengthTransform`
 
 Indexes

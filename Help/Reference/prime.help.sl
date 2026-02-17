@@ -356,6 +356,17 @@ y.discretePlot
 
 ![](sw/spl/Help/Image/prime-N.svg)
 
+Plot inverse Moebius transform of primes,
+OEIS [A007445](https://oeis.org/A007445):
+
+~~~spl svg=O
+1:150.collect { :n |
+	n.divisorSum(prime:/1)
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/prime-O.svg)
+
 * * *
 
 See also: indexOfPrime, isPrime, nextPrime, primesList, primesUpTo

@@ -58,6 +58,35 @@ let t = { :n :m |
 
 ![](sw/spl/Help/Image/divisorSum-C.svg)
 
+Plot Moebius transform applied twice to the sequence one then zero,
+OEIS [A007427](https://oeis.org/A007427):
+
+~~~spl svg=D
+1:81.collect { :n |
+	n.divisorSum { :d |
+		let a = moebiusMu(d);
+		let b = moebiusMu(n / d);
+		a * b
+	}
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/divisorSum-D.svg)
+
+Plot the inverse Moebius transform of the Fredholm-Rueppel sequence,
+OEIS [A154402](https://oeis.org/A154402):
+
+~~~spl svg=E
+1:65.collect { :n |
+	n.divisorSum { :d |
+		(d + 1).log2.isInteger.boole
+	}
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/divisorSum-E.svg)
+
+
 * * *
 
 See also: aliquotSum, divisors, divisorSigma, sum

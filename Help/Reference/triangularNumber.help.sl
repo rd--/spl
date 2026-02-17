@@ -108,6 +108,19 @@ The reciprocals of triangular numbers produce is convergent series where the lim
 
 ![](sw/spl/Help/Image/triangularNumber-A.svg)
 
+Inverse Moebius transform of triangular numbers,
+OEIS [A007437](http://oeis.org/A007437):
+
+~~~spl svg=B
+1:100.collect { :n |
+	let a = 1.divisorSigma(n);
+	let b = 2.divisorSigma(n);
+	(a + b) / 2
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/triangularNumber-B.svg)
+
 * * *
 
 See also: binomial, cube, pascalTriangle, polygonalNumber, square, tetrahedralNumber

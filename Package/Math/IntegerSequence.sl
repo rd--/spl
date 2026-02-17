@@ -1404,6 +1404,15 @@
 		self.zeroIndexedListTransform(inverseBinomialTransform:/1)
 	}
 
+	moebiusTransform { :a |
+		let k = a.size;
+		1:k.collect { :n |
+			n.divisorSum { :d |
+				(n / d).moebiusMu * a[d]
+			}
+		}
+	}
+
 	zeroIndexedListTransform { :self :aBlock:/1 |
 		let n = self.size - 1;
 		0:n.collect(
