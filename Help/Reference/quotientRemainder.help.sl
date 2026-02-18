@@ -115,6 +115,30 @@ Plot the sequence of remainders:
 
 ![](sw/spl/Help/Image/quotientRemainder-B.svg)
 
+Kimberling’s expulsion array read by antidiagonals,
+OEIS [A035486](https://oeis.org/A035486):
+
+~~~spl svg=C
+let a = { :n :k |
+	(k >= ((2 * n) - 3)).if {
+		n + k - 1
+	} {
+		let [q, r] = quotientRemainder(
+			k + 1,
+			2
+		);
+		a(
+			n - 1,
+			n - 1 + ((1 - (2 * r)) * q)
+		)
+	}
+};
+23.antidiagonalArray(a:/2)
+.catenate.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/quotientRemainder-C.svg)
+
 * * *
 
 See also: //, \\, quotient, remainder

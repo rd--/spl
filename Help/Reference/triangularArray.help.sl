@@ -456,6 +456,24 @@ OEIS [A025581](https://oeis.org/A025581):
 
 ![](sw/spl/Help/Image/triangularArray-I.svg)
 
+Count number of restricted knight’s walks,
+OEIS [A049581](https://oeis.org/A049581):
+
+~~~spl svg=J
+let t = { :n :k |
+	(n < 2 | { k < 2 }).if {
+		1
+	} {
+		t(n + 1, k - 2) + t(n - 2, k + 1)
+	}
+};
+0:11.triangularArray { :s :n |
+	t(n, s - n)
+}.catenate.discretePlot
+~~~
+
+![](sw/spl/Help/Image/triangularArray-J.svg)
+
 * * *
 
 See also: antidiagonalArray, array, collect, isTriangularArray, table

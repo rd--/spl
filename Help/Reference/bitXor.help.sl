@@ -186,7 +186,8 @@ OEIS [A003987](https://oeis.org/A003987):
 ]
 ```
 
-Plot the Nim-sum table:
+Plot the Nim-sum table,
+OEIS [A003987](https://oeis.org/A003987):
 
 ~~~spl svg=E
 0:20.triangularArray { :a :b |

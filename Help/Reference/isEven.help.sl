@@ -158,6 +158,28 @@ OEIS [A059707](https://oeis.org/A059707):
 
 ![](sw/spl/Help/Image/isEven-C.svg)
 
+The main diagonal of Kimberling’s expulsion array
+OEIS [A007063](https://oeis.org/A007063):
+
+~~~spl svg=D
+let k = { :i :j |
+	(j < (2 * i - 3)).if {
+		j.isEven.if {
+			k(i - 1, i - (j / 2) - 1)
+		} {
+			k(i - 1, i + ((j - 1) / 2))
+		}
+	} {
+		i + j - 1
+	}
+};
+1:200.collect { :n |
+	k(n, n)
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/isEven-D.svg)
+
 * * *
 
 See also: divisible, isInteger, isOdd

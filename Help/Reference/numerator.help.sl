@@ -71,6 +71,18 @@ a.drop(100).scatterPlot
 
 ![](sw/spl/Help/Image/numerator-B.svg)
 
+Numerator of _1/16-1/n^2_,
+from Brackett spectrum of hydrogen,
+OEIS [A061041](https://oeis.org/A061041):
+
+~~~spl svg=C
+(Fraction(1, 16) - Fraction(1, 4:90 ^ 2))
+.numerator
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/numerator-C.svg)
+
 * * *
 
 See also: denominator, Fraction, isFraction

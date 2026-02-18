@@ -34,6 +34,12 @@
 		system.fisherYatesShuffle(self)
 	}
 
+	guyShuffle { :c |
+		let n = c.size;
+		let d = c ++ (n + [1, 2]);
+		d.partition(n // 2 + 1).reverse.transpose.catenate
+	}
+
 	inShuffle { :self |
 		let n = self.size;
 		let m = n.isOdd.if { (n - 1) / 2 } { n / 2 };

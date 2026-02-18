@@ -97,6 +97,29 @@ OEIS [A086099](https://oeis.org/A086099):
 
 ![](sw/spl/Help/Image/bitOr-E.svg)
 
+Table read by antidiagonals,
+OEIS [A003986](https://oeis.org/A003986):
+
+~~~spl svg=F
+0:21.triangularArray { :n :k |
+	k.bitOr(n - k)
+}.catenate.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/bitOr-F.svg)
+
+Nim-values from game of Kopper’s Nim,
+OEIS [A053398](https://oeis.org/A053398)
+
+~~~spl svg=G
+19.antidiagonalArray { :x :y |
+	let z = (x - 1).bitOr(y - 1);
+	(z + 1).integerExponent(2)
+}.catenate.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/bitOr-G.svg)
+
 * * *
 
 See also: or, bitAnd, bitNot, bitXor

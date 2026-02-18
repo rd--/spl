@@ -144,6 +144,18 @@ OEIS [A030101](https://oeis.org/A030101):
 
 ![](sw/spl/Help/Image/fromDigits-A.svg)
 
+Sum of digits in ascending and descending sequence,
+OEIS [A052008](https://oeis.org/A052008):
+
+~~~spl svg=B
+0:200.collect { :n |
+	let d = n.integerDigits.sort;
+	d.fromDigits + d.reverse.fromDigits
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/fromDigits-B.svg)
+
 * * *
 
 See also: digitCount, fromContinuedFraction, integerDigits, powerRange, rationalize
