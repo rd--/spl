@@ -70,6 +70,23 @@ OEIS [A001481](https://oeis.org/A001481):
 ]
 ```
 
+Number of ways of writing _n_ as a square,
+OEIS [A000122](https://oeis.org/A000122):
+
+```
+>>> 0:104.collect { :n |
+>>> 	1.squaresR(n)
+>>> }
+[
+	1 2 0 0 2 0 0 0 0 2 0 0 0 0 0 0 2 0 0 0
+	0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 2 0 0 0
+	0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0
+	0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+	0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+	2 0 0 0 0
+]
+```
+
 Plot first few terms:
 
 ~~~spl svg=A

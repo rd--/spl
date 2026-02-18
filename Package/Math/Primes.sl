@@ -366,6 +366,12 @@
 		self.leastPrimeGreaterThanOrEqualTo(false)
 	}
 
+	liouvilleFunction { :self |
+		1:self.sum { :i |
+			-1 ^ i.primeOmega
+		}
+	}
+
 	liouvilleLambda { :self |
 		self.primeFactors.size.isEven.if {
 			1

@@ -12,6 +12,19 @@ Answer the number of prime factors counting multiplicities in the integer _n_.
 3
 ```
 
+Relation to `factorInteger`:
+
+```
+>>> 392.primeOmega
+5
+
+>>> 392.factorInteger
+[2 3; 7 2]
+
+>>> 3 + 2
+5
+```
+
 Compute for large integers:
 
 ```
@@ -126,6 +139,31 @@ let f = { :x |
 
 ![](sw/spl/Help/Image/primeOmega-B.svg)
 
+Plot difference between number of oddly and evenly factored numbers,
+OEIS [A072203](https://oeis.org/A072203):
+
+~~~spl svg=C
+1:150.collect { :n |
+	1 - 1:n.sum { :i |
+		-1 ^ i.primeOmega
+	}
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/primeOmega-C.svg)
+
+Plot parity of _Ω(n)_,
+OEIS [A066829](https://oeis.org/A066829):
+
+~~~spl svg=D
+1:65.primeOmega
+.collect(isOdd:/1)
+.boole
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/primeOmega-D.svg)
+
 * * *
 
 See also: factorInteger, isPrimePower, primeNu
@@ -143,3 +181,5 @@ _Python_
 [1](https://docs.sympy.org/latest/modules/ntheory.html#sympy.ntheory.factor_.primeomega),
 _W_
 [1](https://en.wikipedia.org/wiki/Prime_omega_function)
+
+Unicode: U+03A9 Ω Greek Capital Letter Omega

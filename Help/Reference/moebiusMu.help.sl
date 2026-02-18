@@ -200,6 +200,17 @@ let m = 1:500.collect(moebiusMu:/1);
 
 ![](sw/spl/Help/Image/moebiusMu-F.svg)
 
+Plot Moebius function applied to divisors of _n_,
+OEIS [A225817](https://oeis.org/A225817):
+
+~~~spl svg=G
+1:23.collect { :n |
+	n.divisors.collect(moebiusMu:/1)
+}.catenate.discretePlot
+~~~
+
+![](sw/spl/Help/Image/moebiusMu-G.svg)
+
 * * *
 
 See also: isSquareFree, liouvilleLambda, primeSignature

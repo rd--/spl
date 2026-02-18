@@ -376,6 +376,10 @@
 		self.reduce(lcm:/2)
 	}
 
+	liouvilleLambda { :self |
+		self.collect(liouvilleLambda:/1)
+	}
+
 	log { :self |
 		self.collect(log:/1)
 	}

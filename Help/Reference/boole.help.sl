@@ -43,6 +43,14 @@ true
 true
 ```
 
+The characteristic function of `one`,
+OEIS [A063524](https://oeis.org/A063524):
+
+```
+>>> 0:19.collect { :n | (n = 1).boole }
+[0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+```
+
 * * *
 
 See also: asBit, asBoolean, asInteger

@@ -280,6 +280,11 @@ LargeInteger! : [Object, Storeable, Equatable, Comparable, Binary, Magnitude, Nu
 		self.abs <= (2L ^ 53 - 1)
 	}
 
+	isSquare { :n |
+		let m = n.sqrt;
+		(m * m) = n
+	}
+
 	isVeryCloseTo { :self :aNumber |
 		self = aNumber
 	}

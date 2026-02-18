@@ -4,8 +4,34 @@
 
 Answer the Moebius transform of the integer sequence _x_.
 
-Of the `divisorSigma` function answers the natural numbers,
-OEIS [A000203](https://oeis.org/A000203):
+Of `ones`,
+OEIS [A000012](https://oeis.org/A000012),
+answer `one` and then zeroes,
+OEIS [A000007](https://oeis.org/A000007):
+
+```
+>>> [1 1 1 1 1 1 1 1 1 1 1 1 1]
+>>> .moebiusTransform
+[1 0 0 0 0 0 0 0 0 0 0 0 0]
+```
+
+Of the natural numbers,
+OEIS [A000027](https://oeis.org/A000027),
+answer `eulerPhi`,
+OEIS [A000010](https://oeis.org/A000010):
+
+```
+>>> [1 .. 13].moebiusTransform
+[1 1 2 2 4 2 6 4 6 4 10 4 12]
+
+>>> [1 .. 13].eulerPhi
+[1 1 2 2 4 2 6 4 6 4 10 4 12]
+```
+
+Of the `divisorSigma` function,
+OEIS [A000203](https://oeis.org/A000203),
+answer the natural numbers,
+OEIS [A000027](https://oeis.org/A000027):
 
 ```
 >>> [1 3 4 7 6 12 8 15 13 18 12 28 14 24]
@@ -16,7 +42,9 @@ OEIS [A000203](https://oeis.org/A000203):
 [1 3 4 7 6 12 8 15 13 18 12 28 14 24]
 ```
 
-Of `one` and then `zero` answers the `moebiusMu` function,
+Of `one` and then `zero`,
+OEIS [A000007](https://oeis.org/A000007),
+answers the `moebiusMu` function,
 OEIS [A008683](https://oeis.org/A008683):
 
 ```
@@ -84,7 +112,7 @@ OEIS [A007444](https://oeis.org/A007444):
 
 * * *
 
-See also: binomialTransform, boustrophedonTransform, eulerTransform, runLengthTransform
+See also: binomialTransform, boustrophedonTransform, eulerTransform, moebiusMu, runLengthTransform
 
 Guides: Integer Sequence Functions
 

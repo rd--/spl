@@ -123,6 +123,28 @@ OEIS [A049073](https://oeis.org/A049073):
 
 ![](sw/spl/Help/Image/primeNu-D.svg)
 
+Plot count of non-unitary divisors of _n_,
+OEIS [A048105](https://oeis.org/A048105):
+
+~~~spl svg=E
+1:100.collect { :n |
+	0.divisorSigma(n) - (2 ^ n.primeNu)
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/primeNu-E.svg)
+
+Plot number of ways of writing _n_ as _p*q_ where _p<=q_ and _gcd(p,q)=1_,
+OEIS [A007875](https://oeis.org/A007875):
+
+~~~spl svg=F
+1:65.collect { :n |
+	(2 ^ n.primeNu).eulerPhi
+}.stepPlot
+~~~
+
+![](sw/spl/Help/Image/primeNu-F.svg)
+
 * * *
 
 See also: distinctPrimeFactors, factorInteger, gcd, isPrime, isPrimePower, isSquareFree, primeOmega

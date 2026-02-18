@@ -863,10 +863,6 @@
 		}
 	}
 
-	isSquare { :n |
-		n.sqrt.isInteger
-	}
-
 	isSquareFree { :self |
 		self.isZero.if {
 			false

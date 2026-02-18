@@ -54,6 +54,17 @@ let f = { :n |
 
 ![](sw/spl/Help/Image/isPerfectSquare-A.svg)
 
+Plot characteristic function of squares,
+OEIS [A010052](https://oeis.org/A010052):
+
+~~~spl svg=B
+0:81.collect(isSquare:/1)
+.boole
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/isPerfectSquare-B.svg)
+
 * * *
 
 See also: square, sqrt

@@ -145,6 +145,17 @@ OEIS [A013631](https://oeis.org/A013631):
 [1 4 1 18 1 1 1 4 1 9]
 ```
 
+Decimal expansion of _ζ(2)_,
+OEIS [A013661](https://oeis.org/A013661):
+
+```
+>>> 2.zeta
+1.644934066
+
+>>> 1.pi.square / 6
+1.644934066
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A
