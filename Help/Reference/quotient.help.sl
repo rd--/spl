@@ -118,6 +118,20 @@ OEIS [A000601](https://oeis.org/A000601):
 [1 2 4 7 11 16 23 31 41 53 67 83 102 123]
 ```
 
+One even number followed by two odd numbers,
+OEIS [A004396](https://oeis.org/A004396):
+
+```
+>>> 0:23.collect { :n |
+>>> 	(2 * n + 1) // 3
+>>> }
+[
+	 0  1  1  2  3  3  4  5  5  6
+	 7  7  8  9  9 10 11 11 12 13
+	13 14 15 15
+]
+```
+
 Plot the sequence of quotients:
 
 ~~~spl svg=A

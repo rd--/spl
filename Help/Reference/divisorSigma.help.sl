@@ -502,6 +502,28 @@ OEIS [A007425](https://oeis.org/A007425):
 
 ![](sw/spl/Help/Image/divisorSigma-O.svg)
 
+Plot deficiency of _n_,
+OEIS [A033879](https://oeis.org/A033879):
+
+~~~spl svg=P
+1:115.collect { :n |
+	(2 * n) - 1.divisorSigma(n)
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/divisorSigma-P.svg)
+
+Number of divisors of _2n-1_,
+OEIS [A099774](https://oeis.org/A099774):
+
+~~~spl svg=Q
+1:65.collect { :n |
+	0.divisorSigma(2 * n - 1)
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/divisorSigma-Q.svg)
+
 * * *
 
 See also: aliquotSum, divisible, divisors, divisorSum, divisorSummatoryFunction, eulerPhi, isAbundantNumber

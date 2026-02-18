@@ -24,6 +24,7 @@
 	'HuffmanCoding'
 	'LinkedList'
 	'ListView'
+	'MemoizationTable'
 	'MergeSort'
 	'Multiset'
 	'NumericArray'

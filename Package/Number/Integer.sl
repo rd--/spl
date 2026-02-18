@@ -402,6 +402,12 @@
 		}
 	}
 
+	gcdSum { :n |
+		1:n.sum { :k |
+			gcd(n, k)
+		}
+	}
+
 	hammingNumbersFromUpTo { :self :limit |
 		let answer = IdentitySet();
 		let step = { :n |

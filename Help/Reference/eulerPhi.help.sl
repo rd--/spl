@@ -236,9 +236,9 @@ Pillais arithmetical function:
 	(n < 1).if {
 		0
 	} {
-		n.divisors.collect { :d |
+		n.divisorSum { :d |
 			d.eulerPhi / d
-		}.sum * n
+		} * n
 	}
 }.table(1:99).discretePlot
 ~~~
@@ -350,6 +350,17 @@ OEIS [A049108](https://oeis.org/A049108):
 ~~~
 
 ![](sw/spl/Help/Image/eulerPhi-I.svg)
+
+Plot cototient function,
+OEIS [A051953](https://oeis.org/A051953):
+
+~~~spl svg=J
+1:200.collect { :n |
+	n - n.eulerPhi
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/eulerPhi-J.svg)
 
 * * *
 

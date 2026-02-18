@@ -164,6 +164,19 @@ OEIS [A066829](https://oeis.org/A066829):
 
 ![](sw/spl/Help/Image/primeOmega-D.svg)
 
+Is _n_ an odd number with an even number of prime factors,
+OEIS [A353557](https://oeis.org/A353557):
+
+~~~spl svg=E
+1:121.collect { :n |
+	n.isOdd & {
+		n.primeOmega.isEven
+	}
+}.boole.discretePlot
+~~~
+
+![](sw/spl/Help/Image/primeOmega-E.svg)
+
 * * *
 
 See also: factorInteger, isPrimePower, primeNu

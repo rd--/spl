@@ -95,6 +95,15 @@ Plot quantized quadratic function:
 
 ![](sw/spl/Help/Image/integerPart-C.svg)
 
+Plot integer part of square root of _n_-th prime,
+OEIS [A000006](https://oeis.org/A000006):
+
+~~~spl svg=D
+1:65.prime.sqrt.integerPart.stepPlot
+~~~
+
+![](sw/spl/Help/Image/integerPart-D.svg)
+
 * * *
 
 See also: ceiling, floor, fractionalPart, truncate

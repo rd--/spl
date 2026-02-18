@@ -378,6 +378,24 @@ OEIS [A117484](https://oeis.org/A117484):
 
 ![](sw/spl/Help/Image/factorInteger-J.svg)
 
+Dirichlet inverse of the gcd-sum function,
+OEIS [A101035](https://oeis.org/A101035):
+
+~~~spl svg=K
+2:72.collect { :n |
+	n.factorInteger.collect { :f |
+		let [p, e] = f;
+		(e = 1).if {
+			1 - (2 * p)
+		} {
+			(p - 1) ^ 2
+		}
+	}.product
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/factorInteger-K.svg)
+
 * * *
 
 See also: divisors, isPrime, primeFactors, primeFactorization, product

@@ -211,6 +211,37 @@ OEIS [A225817](https://oeis.org/A225817):
 
 ![](sw/spl/Help/Image/moebiusMu-G.svg)
 
+Plot number of transformation groups of order _n_,
+OEIS [A000113](https://oeis.org/A000113):
+
+~~~spl svg=H
+1:135.collect { :n |
+	let i = n.integerExponent(2);
+	let j = n.integerExponent(3);
+	let a = n.divisors.sum { :d |
+		d.moebiusMu ^ 2 / d
+	};
+	let b = 2 ^ 3.min(i // 2);
+	let c = 3 ^ (1 < j).boole;
+	n * a / (b * c)
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/moebiusMu-H.svg)
+
+Dedekind ψ function,
+OEIS [A001615](https://oeis.org/A001615):
+
+~~~spl svg=I
+1:69.collect { :n |
+	n * n.divisorSum { :d |
+		d.moebiusMu ^ 2 / d
+	}
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/moebiusMu-I.svg)
+
 * * *
 
 See also: isSquareFree, liouvilleLambda, primeSignature

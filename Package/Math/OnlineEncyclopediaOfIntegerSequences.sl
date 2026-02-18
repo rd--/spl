@@ -277,7 +277,7 @@ OeisEntry : [Object, Storeable, Equatable] { | identifier:<String> contents bFil
 			let v = r.select { :x |
 				x.includes(k)
 			}.keys;
-			'%: %'.format(
+			'- %: %'.format(
 				[
 					k,
 					v.collect { :x |

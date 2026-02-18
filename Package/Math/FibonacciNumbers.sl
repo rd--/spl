@@ -129,6 +129,10 @@
 		)
 	}
 
+	lucasL { :n |
+		n.lucasL(1)
+	}
+
 	lucasNumber { :self |
 		let phi = 1.goldenRatio;
 		(phi ^ self) + (self.pi.cos * (phi ^ self.negate))

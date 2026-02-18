@@ -1,6 +1,6 @@
 # lucasL
 
-- _lucasL(n, x)_
+- _lucasL(n, x=1)_
 
 Answer Lucas number _Lₙ(x)_.
 
@@ -11,6 +11,14 @@ Values at fixed points:
 >>> 	10.lucasL(x)
 >>> }
 [123 6726 154451 1860498 14250627]
+```
+
+Compute Lucas numbers,
+OEIS [A000032](https://oeis.org/A000032)
+
+```
+>>> 0:13.collect(lucasL:/1)
+[2 1 3 4 7 11 18 29 47 76 123 199 322 521]
 ```
 
 Values at `zero`:
@@ -58,7 +66,19 @@ OEIS [A005248](https://oeis.org/A005248):
 ]
 ```
 
-Plot the for various orders:
+Number of binary necklaces of length _n_ with no subsequence _00_,
+OEIS [A000358](https://oeis.org/A000358):
+
+```
+>>> 1:16.collect { :n |
+>>> 	n.divisorSum { :m |
+>>> 		(n / m).eulerPhi * m.lucasL
+>>> 	} / n
+>>> }
+[1 2 2 3 3 5 5 8 10 15 19 31 41 64 94 143]
+```
+
+Plot for various orders:
 
 ~~~spl svg=A
 (-2 -- 2).functionPlot(

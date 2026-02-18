@@ -304,6 +304,24 @@ OEIS [A213568](https://oeis.org/A213568):
 ]
 ```
 
+`binomial` of _n+k-1_ and _k_,
+OEIS [A059481](https://oeis.org/A059481):
+
+```
+>>> 0:7.triangularArray { :n :k |
+>>> 	binomial(n + k - 1, k)
+>>> }.allButFirst
+[
+	1 1;
+	1 2 3;
+	1 3 6 10;
+	1 4 10 20 35;
+	1 5 15 35 70 126;
+	1 6 21 56 126 252 462;
+	1 7 28 84 210 462 924 1716
+]
+```
+
 Plot the triangle given by recursion _T(n,k)=T(n-1,k)-T(n,k-1)_,
 OEIS [A096470](https://oeis.org/A096470):
 

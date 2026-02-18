@@ -529,6 +529,30 @@ OEIS [A006004](https://oeis.org/A006004):
 [1 4 11 25 49 86 139 211 305 424 571 749]
 ```
 
+Where _k=4_,
+OEIS [A000332](https://oeis.org/A000332):
+
+```
+>>> binomial(0:13, 4)
+[0 0 0 0 1 5 15 35 70 126 210 330 495 715]
+```
+
+Where _k=5_,
+OEIS [A000389](https://oeis.org/A000389):
+
+```
+>>> binomial(0:13, 5)
+[0 0 0 0 0 1 6 21 56 126 252 462 792 1287]
+```
+
+Where _k=6_,
+OEIS [A000579](https://oeis.org/A000579):
+
+```
+>>> binomial(0:13, 6)
+[0 0 0 0 0 0 1 7 28 84 210 462 924 1716]
+```
+
 Plot over a subset of the reals as a function of its first parameter:
 
 ~~~spl svg=A
@@ -624,6 +648,25 @@ OEIS [A182309](https://oeis.org/A182309):
 ~~~
 
 ![](sw/spl/Help/Image/binomial-F.svg)
+
+Plot circular binomial coefficients,
+OEIS [A047996](https://oeis.org/A047996):
+
+~~~spl svg=G
+0:12.triangularArray { :n :k |
+	([n k] = [0 0]).if {
+		1
+	} {
+		n.gcd(k).divisorSum { :d |
+			d.eulerPhi
+			*
+			binomial(n / d, k / d)
+		} / n
+	}
+}.catenate.log.discretePlot
+~~~
+
+![](sw/spl/Help/Image/binomial-G.svg)
 
 * * *
 

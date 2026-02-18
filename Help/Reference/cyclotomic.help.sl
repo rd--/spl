@@ -89,6 +89,16 @@ OEIS [A002061](https://oeis.org/A002061):
 [1 1 3 7 13 21 31 43 57 73 91 111 133 157]
 ```
 
+Cyclotomic polynomials at _x=1_,
+OEIS [A020500](https://oeis.org/A020500):
+
+```
+>>> 1:19.collect { :n |
+>>> 	n.cyclotomic.at(1)
+>>> }
+[0 2 3 2 5 1 7 2 3 1 11 1 13 1 1 2 17 1 19]
+```
+
 The answers are cached for efficiency:
 
 ```

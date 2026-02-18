@@ -52,6 +52,7 @@
 	'Collection-ListView'
 	'Collection-Map'
 	'Collection-Matrix'
+	'Collection-MemoizationTable'
 	'Collection-MergeSort'
 	'Collection-Multiset'
 	'Collection-NumericArray'

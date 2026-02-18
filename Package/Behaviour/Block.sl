@@ -131,6 +131,27 @@ Block! : [Object, Equatable] {
 		}
 	}
 
+	dirichletConvolve { :f:/1 :g:/1 |
+		{ :n |
+			n.divisorSum { :d |
+				f(d) * g(n / d)
+			}
+		}
+	}
+
+	dirichletInverse { :f:/1 |
+		let i:/1 = { :n |
+			(n = 1).if {
+				1 / f(1)
+			} {
+				-1 / f(1) * n.divisors.allButLast.sum { :d |
+					f(n / d) * i(d)
+				}
+			}
+		}.memoize;
+		i:/1
+	}
+
 	doWhileFalse { :self:/0 :conditionBlock:/0 |
 		let answer = nil;
 		{
