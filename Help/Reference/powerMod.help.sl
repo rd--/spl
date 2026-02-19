@@ -299,6 +299,19 @@ OEIS [A039678](https://oeis.org/A039678):
 
 ![](sw/spl/Help/Image/powerMod-G.svg)
 
+Shadow transform of the squares,
+OEIS [A000188](https://oeis.org/A000188):
+
+~~~spl svg=H
+1:150.collect { :n |
+	1:n.count { :x |
+		x.powerMod(2, n) = 0
+	}
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/powerMod-H.svg)
+
 * * *
 
 See also: ^, %

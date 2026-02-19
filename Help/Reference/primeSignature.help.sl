@@ -246,7 +246,8 @@ OEIS [A181819](https://oeis.org/A181819):
 [2 2 3 2 4 2 5 3 4 2 6 2 4 4 7 2 6 2 6 4 4 2]
 ```
 
-Plot first few terms:
+Plot first few terms of
+OEIS [A181819](https://oeis.org/A181819):
 
 ~~~spl svg=C
 2:120.collect { :n |

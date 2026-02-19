@@ -1413,6 +1413,14 @@
 		}
 	}
 
+	shadowTransform { :x |
+		(1 .. x.size - 1).collect { :n |
+			1:n.sum { :j |
+				(x[j] % n = 0).boole
+			}
+		}
+	}
+
 	zeroIndexedListTransform { :self :aBlock:/1 |
 		let n = self.size - 1;
 		0:n.collect(

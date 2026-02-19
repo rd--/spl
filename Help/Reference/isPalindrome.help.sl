@@ -80,6 +80,7 @@ OEIS [A002113](https://oeis.org/A002113):
 ```
 
 Search for palindromic primes,
+prime numbers whose decimal expansion is a palindrome,
 OEIS [A002385](https://oeis.org/A002385):
 
 ```

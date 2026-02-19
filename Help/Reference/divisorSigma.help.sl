@@ -461,17 +461,13 @@ Plot shadow transform of _σ(n)_,
 OEIS [A072463](https://oeis.org/A072463):
 
 ~~~spl svg=M
-let s:/1 = { :n |
-	(n = 0).if {
-		0
-	} {
-		1.divisorSigma(n)
-	}
-}.memoize(true);
+let s = Map { :n |
+	1.divisorSigma(n)
+};
 0:150.collect { :n |
 	let m = n - 1;
 	0:m.sum { :j |
-		(s(j) % n = 0).boole
+		(s[j] % n = 0).boole
 	}
 }.scatterPlot
 ~~~

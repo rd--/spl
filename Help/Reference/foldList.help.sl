@@ -199,6 +199,19 @@ OEIS [A002061](https://oeis.org/A002061):
 [1 1 3 7 13 21 31 43 57 73 91 111 133 157]
 ```
 
+The number of one-to-one sequences that can be formed from _n_ distinct objects,
+OEIS [A000522](https://oeis.org/A000522):
+
+```
+>>> { :i :j |
+>>> 	i * j + j
+>>> }.foldList(0, 1:11]) + 1
+[
+	1 2 5 16 65 326 1957 13700 109601
+	986410 9864101 108505112
+]
+```
+
 * * *
 
 See also: accumulate, collect, differences, foldLeft, injectInto, ratios

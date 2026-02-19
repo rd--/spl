@@ -65,6 +65,31 @@ OEIS [A004170](https://oeis.org/A004170):
 ]
 ```
 
+Primes whose reversal is a different prime,
+OEIS [A006567](https://oeis.org/A006567):
+
+```
+>>> 5:37.prime.select { :n |
+>>> 	n.integerReverse.isPrime & {
+>>> 		n.isPalindrome.not
+>>> 	}
+>>> }
+[13 17 31 37 71 73 79 97 107 113 149 157]
+```
+
+Reverse and add sequence starting with 196,
+OEIS [A006960](https://oeis.org/A006960):
+
+```
+>>> { :n |
+>>> 	n + n.integerReverse
+>>> }.nestList(196, 9)
+[
+	196 887 1675 7436 13783 52514
+	94039 187088 1067869 10755470
+]
+```
+
 Plot primes whose reversal in base ten is also prime,
 sometimes called reversible primes,
 OEIS [A007500](https://oeis.org/A007500):
@@ -133,6 +158,28 @@ OEIS [A057889](https://oeis.org/A057889):
 ~~~
 
 ![](sw/spl/Help/Image/integerReverse-F.svg)
+
+Plot _n_-th prime minus its reversal,
+OEIS [A068396](https://oeis.org/A068396):
+
+~~~spl svg=G
+1:160.prime.collect { :n |
+	n - n.integerReverse
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/integerReverse-G.svg)
+
+Plot the reverse and add sequence,
+OEIS [A056964](https://oeis.org/A056964):
+
+~~~spl svg=H
+0:100.collect { :n |
+	n + n.integerReverse
+}.stepPlot
+~~~
+
+![](sw/spl/Help/Image/integerReverse-H.svg)
 
 * * *
 

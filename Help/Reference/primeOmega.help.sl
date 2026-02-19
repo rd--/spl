@@ -177,6 +177,17 @@ OEIS [A353557](https://oeis.org/A353557):
 
 ![](sw/spl/Help/Image/primeOmega-E.svg)
 
+Characteristic function of `one` and primes,
+OEIS [A080339](https://oeis.org/A080339):
+
+~~~spl svg=F
+1:100.collect { :n |
+	n.primeOmega < 2
+}.boole.discretePlot
+~~~
+
+![](sw/spl/Help/Image/primeOmega-F.svg)
+
 * * *
 
 See also: factorInteger, isPrimePower, primeNu

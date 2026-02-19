@@ -21,6 +21,7 @@ Integer Sequence Transform Functions:
 - `eulerTransform`
 - `moebiusTransform`
 - `runLengthTransform`
+- `shadowTransform`
 
 Indexes
 
