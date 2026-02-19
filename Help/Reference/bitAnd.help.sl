@@ -221,6 +221,19 @@ let add = { :x :y :z |
 
 ![](sw/spl/Help/Image/bitAnd-I.svg)
 
+Plot next larger integer with same binary weight as _n_,
+OEIS [A057168](https://oeis.org/A057168):
+
+~~~spl svg=J
+1:71.collect { :n |
+	let u = bitAnd(n, -n);
+	let v = u + n;
+	v.bitXor(n) // u // 4 + v
+}.stepPlot
+~~~
+
+![](sw/spl/Help/Image/bitAnd-J.svg)
+
 * * *
 
 See also: &, bitNot, bitOr, bitXor

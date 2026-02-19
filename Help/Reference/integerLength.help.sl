@@ -132,6 +132,35 @@ Plot for base 10 for factorials, minus pre-factorial value:
 
 ![](sw/spl/Help/Image/integerLength-C.svg)
 
+Sloping binary numbers,
+OEIS [A102370](https://oeis.org/A102370):
+
+~~~spl svg=D
+1:115.collect { :n |
+	let m = n.integerLength(2);
+	0:m.sum { :k |
+		(n + k).bitAnd(2 ^ k)
+	}
+}.stepPlot
+~~~
+
+![](sw/spl/Help/Image/integerLength-D.svg)
+
+A variant of the sloping binary numbers sequence,
+organised in blocks and a permutation of the integers,
+OEIS [A102370](https://oeis.org/A102370):
+
+~~~spl svg=E
+1:115.collect { :n |
+	let m = n + 1 - n.integerLength(2);
+	[m .. n].withIndexCollect { :j :i |
+		(2 ^ (i - 1)).bitAnd(j)
+	}.reduce(bitOr:/2)
+}.stepPlot
+~~~
+
+![](sw/spl/Help/Image/integerLength-E.svg)
+
 * * *
 
 See also: bitLength, digitCount, integerDigits, log, log2, log10, integerExponent, numberOfDigitsInBase

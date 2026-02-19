@@ -312,6 +312,20 @@ OEIS [A000188](https://oeis.org/A000188):
 
 ![](sw/spl/Help/Image/powerMod-H.svg)
 
+Plot number of distinct primes among the squares modulo _n_,
+OEIS [A132213](https://oeis.org/A132213):
+
+~~~spl svg=I
+1:200.collect { :n |
+	1:n.powerMod(2, n)
+	.unique
+	.count(isPrime:/1)
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/powerMod-I.svg)
+
+
 * * *
 
 See also: ^, %

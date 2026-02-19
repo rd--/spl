@@ -746,6 +746,19 @@ OEIS [A002061](https://oeis.org/A002061):
 [1 1 3 7 13 21 31 43 57 73 91 111 133 157]
 ```
 
+Pentanacci numbers,
+OEIS [A001591](https://oeis.org/A001591):
+
+```
+>>> [1 1 1 1 1].linearRecurrence(
+>>> 	[0 0 0 0 1], 21
+>>> )
+[
+	0 0 0 0 1 1 2 4 8 16 31 61 120 236
+	464 912 1793 3525 6930 13624 26784
+]
+```
+
 Draw spiral:
 
 ~~~spl svg=A
@@ -783,6 +796,18 @@ linearRecurrence(
 ~~~
 
 ![](sw/spl/Help/Image/linearRecurrence-C.svg)
+
+Plot
+OEIS [A051793](https://oeis.org/A051793):
+
+~~~spl svg=D
+[0 -1 0 -1 0 1 0 1].linearRecurrence(
+	[1 1 1 1 0 1 1 1],
+	115
+).logScale.discretePlot
+~~~
+
+![](sw/spl/Help/Image/linearRecurrence-D.svg)
 
 * * *
 

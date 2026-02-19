@@ -238,6 +238,39 @@
 		n.wythoffIndex(stolarskyArray:/2)
 	}
 
+	tribonacciNumber { :n |
+		let a = (19 + (3 * 33.sqrt)).cubeRoot;
+		let b = (586 + (102 * 33.sqrt)).cubeRoot;
+		let c = (19 - (3 * 33.sqrt)).cubeRoot;
+		let d = ((1 / 3) * (a + c + 1)) ^ (n - 1);
+		let e = b.square - (2 * b) + 4;
+		((3 * b) * (d / e)).round
+	}
+
+	tribonacciPisanoPeriod { :n |
+		let a = [0 1 1];
+		let k = 0;
+		{
+			a := [a[2], a[3], a.sum % n];
+			k := k + 1
+		}.doWhileTrue {
+			a != [0 1 1]
+		};
+		k
+	}
+
+	tribonacciWords { :n |
+		let t = [1; 1 2; 1 2 1 3];
+		4.toDo(n) { :i |
+			t.add(t[i - 1] ++ t[i - 2] ++ t[i - 3])
+		};
+		t
+	}
+
+	tribonacciWord { :n |
+		(n + 1).tribonacciWords.at(n + 1)
+	}
+
 	wythoffArray { :m :n |
 		let phi = 1.goldenRatio;
 		(n = 1).if {

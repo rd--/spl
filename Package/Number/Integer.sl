@@ -1427,27 +1427,6 @@
 		1:n.sum(eulerPhi:/1)
 	}
 
-	tribonacciNumber { :n |
-		let a = (19 + (3 * 33.sqrt)).cubeRoot;
-		let b = (586 + (102 * 33.sqrt)).cubeRoot;
-		let c = (19 - (3 * 33.sqrt)).cubeRoot;
-		let d = ((1 / 3) * (a + c + 1)) ^ (n - 1);
-		let e = b.square - (2 * b) + 4;
-		((3 * b) * (d / e)).round
-	}
-
-	tribonacciWords { :n |
-		let t = [1; 1 2; 1 2 1 3];
-		4.toDo(n) { :i |
-			t.add(t[i - 1] ++ t[i - 2] ++ t[i - 3])
-		};
-		t
-	}
-
-	tribonacciWord { :n |
-		(n + 1).tribonacciWords.at(n + 1)
-	}
-
 	truncate { :self |
 		self
 	}

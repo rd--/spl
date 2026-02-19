@@ -396,6 +396,18 @@ OeisEntry('A104605').then { :e |
 
 ![](sw/spl/Help/Image/goldenRatio-K.svg)
 
+Plot an _eta-sequence_,
+the differences of the rounded multiples of φ,
+OEIS [A006340](https://oeis.org/A006340):
+
+~~~spl svg=L
+let x = 0:93.collect(goldenRatio:/1);
+(x.round.differences - 1).discretePlot
+~~~
+
+![](sw/spl/Help/Image/goldenRatio-L.svg)
+
+
 Note that the constant is correctly rounded,
 unlike the calculation in terms of `sqrt`,
 and that this distinction is important for some calculations:

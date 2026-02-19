@@ -180,6 +180,26 @@ Plot first few palindromic primes:
 
 ![](sw/spl/Help/Image/isPalindrome-B.svg)
 
+Plot least _k>0_ such that _(2n-1)k_ is a palindrome in base two,
+OEIS [A141707](https://oeis.org/A141707):
+
+~~~spl svg=C
+1:250.collect { :n |
+	let k = 1;
+	let m = 2 * n - 1;
+	{
+		(k * m)
+		.binaryExpansion
+		.isPalindrome
+	}.whileFalse {
+		k := k + 1
+	};
+	k
+}.log.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/isPalindrome-C.svg)
+
 * * *
 
 See also: =, reverse

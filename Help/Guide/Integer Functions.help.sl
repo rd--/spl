@@ -62,6 +62,7 @@ Fibonacci Functions:
 - `pellNumber`
 - `pellSequence`
 - `pisanoPeriod`
+- `tribonacciNumber`
 
 Integer Decompositions:
 

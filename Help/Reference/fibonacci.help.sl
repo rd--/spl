@@ -448,6 +448,17 @@ OEIS [A089911](https://oeis.org/A089911):
 
 ![](sw/spl/Help/Image/fibonacci-L.svg)
 
+Plot modulo fourteen,
+period is fourty-eight,
+OEIS [A105995](https://oeis.org/A105995):
+
+~~~spl svg=M
+(0:47.fibonacci % 14)
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/fibonacci-M.svg)
+
 * * *
 
 See also: binetsFormula, fibonacciEntryPoint, fibonacciNumber, fibonacciPolynomial, fibonacciSequence, goldenRatio, lucasNumber

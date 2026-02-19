@@ -290,6 +290,19 @@ ln.scatterPlot
 
 ![](sw/spl/Help/Image/primeSignature-E.svg)
 
+Plot Π of _σ+1_ of the prime signature,
+OEIS [A049599](https://oeis.org/A049599):
+
+~~~spl svg=F
+1:115.collect { :n |
+	n.primeSignature.product { :i |
+		0.divisorSigma(i) + 1
+	}
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/primeSignature-F.svg)
+
 * * *
 
 See also: factorInteger
