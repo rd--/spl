@@ -225,7 +225,6 @@ OEIS [A214772](https://oeis.org/A214772):
 
 ![](sw/spl/Help/Image/frobeniusSolve-F.svg)
 
-
 Plot minimal common prime of two Goldbach partitions of _2n_ and _2(n+1)_,
 or zero if no common prime exists,
 OEIS [A335045](https://oeis.org/A335045):

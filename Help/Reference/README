@@ -14,7 +14,7 @@ Write image files:
 system.helpFilesDo('Reference', '.*', true, writeImageFiles:/1); nil
 ~~~
 
-'ls ~/sw/spl/Help/Image/* | wc -l' => 3,511
+'ls ~/sw/spl/Help/Image/* | wc -l' => 3,540
 
 ~~~
 'Help/Reference'.splFilePath.terseSuperColliderGraphSummary(verbose: false, pattern: '.*')
@@ -22,4 +22,4 @@ system.helpFilesDo('Reference', '.*', true, writeImageFiles:/1); nil
 
 Total => 568
 
-Linting: 3979 file(s)
+Linting: 3989 file(s)

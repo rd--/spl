@@ -66,6 +66,12 @@
 		self.anySatisfy(identity:/1)
 	}
 
+	containsOnly { :x :y |
+		x.allSatisfy { :i |
+			y.includes(i)
+		}
+	}
+
 	contents { :self :aBlock:/2 |
 		let answer = [];
 		aBlock(self) { :each |

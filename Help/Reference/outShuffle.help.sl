@@ -64,11 +64,6 @@ Visualize the recurring pattern when shuffling a list:
 
 ![](sw/spl/Help/Image/outShuffle-A.svg)
 
-
-1:4.collect { :n |
-	[1 .. n * 2].outShuffle(n - 1)
-}
-
 * * *
 
 See also: fisherYatesShuffle, inShuffle, mongesShuffle, sattoloShuffle, shuffle

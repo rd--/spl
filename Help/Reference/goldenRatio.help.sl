@@ -407,7 +407,6 @@ let x = 0:93.collect(goldenRatio:/1);
 
 ![](sw/spl/Help/Image/goldenRatio-L.svg)
 
-
 Note that the constant is correctly rounded,
 unlike the calculation in terms of `sqrt`,
 and that this distinction is important for some calculations:

@@ -285,7 +285,8 @@ OeisEntry : [Object, Storeable, Equatable] { | identifier:<String> contents bFil
 					}.stringIntercalate(', ')
 				]
 			).postLine
-		}
+		};
+		nil
 	}
 
 	splOeisMethodListing { :self |

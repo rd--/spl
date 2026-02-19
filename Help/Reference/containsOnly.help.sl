@@ -4,14 +4,6 @@
 
 Answers `true` if _x_ contains only elements that appear in _y_.
 
-+@Collection{
-	containsOnly { :x :y |
-		x.allSatisfy { :i |
-			y.includes(i)
-		}
-	}
-}
-
 The first list contains only elements in the second list:
 
 ```

@@ -86,7 +86,6 @@ OEIS [A154402](https://oeis.org/A154402):
 
 ![](sw/spl/Help/Image/divisorSum-E.svg)
 
-
 * * *
 
 See also: aliquotSum, divisors, divisorSigma, sum

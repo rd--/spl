@@ -325,7 +325,6 @@ OEIS [A132213](https://oeis.org/A132213):
 
 ![](sw/spl/Help/Image/powerMod-I.svg)
 
-
 * * *
 
 See also: ^, %

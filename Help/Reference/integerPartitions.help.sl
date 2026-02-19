@@ -229,18 +229,18 @@ OEIS [A027187](https://oeis.org/A027187):
 [0 1 1 3 3 6 7 12 14 22 27 40 49 69 86 118]
 ```
 
-Count number of partitions of _n_ such that the smallest part is larger than the number of parts,
+Count number of partitions of _n_,
+such that the smallest part is larger than the number of parts,
 OEIS [A003106](https://oeis.org/A003106):
 
 ```
->>> 1:20.collect { :n |
+>>> 1:19.collect { :n |
 >>> 	n.integerPartitions.count { :p |
 >>> 		p.min > p.size
 >>> 	}
 >>> }
-[0, 1, 1, 1, 1, 2, 2, 3, 3, 4, 4, 6, 6, 8, 9, 11, 12, 15, 16, 20]
+[0 1 1 1 1 2 2 3 3 4 4 6 6 8 9 11 12 15 16]
 ```
-
 
 Partitions in graded reflected colexicographic order (Abramowitz and Stegun),
 OEIS [A036036](https://oeis.org/A036036):
