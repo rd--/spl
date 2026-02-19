@@ -1328,3 +1328,46 @@ Plot : [Object] { | pages format options |
 	}
 
 }
+
++SmallFloat {
+
+	spokePlot { :n :x |
+		let p = n.circlePoints([0 0], 1, 2/3.pi);
+		[
+			Circle([0 0], 1),
+			PointCloud(p),
+			x.collect { :i |
+				Line([p.atWrap(n - i), [0 0]])
+			}
+		].LineDrawing
+	}
+
+}
+
++List {
+
+	spokePlot { :self |
+		[
+			Circle([0 0], 1),
+			Circle([0 0], 2),
+			self.transpose.collect { :each |
+				let [p, q] = each;
+				let a = [1 p].fromPolarCoordinates;
+				let b = [2 q].fromPolarCoordinates;
+				[
+					Line([a b]),
+					PointCloud([a b])
+				]
+			}
+		].LineDrawing
+	}
+
+}
+
++ResidueSet {
+
+	spokePlot { :self |
+		spokePlot(self.modulus, self.positionVector)
+	}
+
+}

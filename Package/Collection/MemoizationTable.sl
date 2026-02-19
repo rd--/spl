@@ -1,4 +1,4 @@
-MemoizationTable : [Object] { | block table |
+MemoizationTable : [Object] { | block:<Block> table |
 
 	at { :self :key |
 		self.table.atIfAbsent(key) {
@@ -8,14 +8,39 @@ MemoizationTable : [Object] { | block table |
 		}
 	}
 
+	atAll { :self :keys |
+		keys.collect { :key |
+			self.at(key)
+		}
+	}
+
+	atAllPath { :self :operand |
+		let [keys] = operand;
+		self.atAll(keys)
+	}
+
 }
 
 +Block {
 
+	Dictionary { :self |
+		MemoizationTable(
+			self,
+			Dictionary()
+		)
+	}
+
 	Map { :self |
-		newMemoizationTable().initializeSlots(
+		MemoizationTable(
 			self,
 			Map()
+		)
+	}
+
+	MemoizationTable { :self :table |
+		newMemoizationTable().initializeSlots(
+			self,
+			table
 		)
 	}
 

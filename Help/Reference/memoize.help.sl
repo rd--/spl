@@ -9,31 +9,29 @@ else a `Dictionary`.
 Un-memoized Fibonacci may take several seconds to evaluate for _k>30_:
 
 ```
->>> let fib = { :n |
+>>> let f = { :n |
 >>> 	(n < 2).if {
 >>> 		n
 >>> 	} {
->>> 		fib(n - 1) + fib(n - 2)
+>>> 		f(n - 1) + f(n - 2)
 >>> 	}
 >>> };
->>> let k = 15;
->>> fib(k)
+>>> f(15)
 610
 ```
 
 Memoized Fibonacci will answer immediately for large _k_:
 
 ```
->>> let fib:/1 = { :n |
+>>> let f:/1 = { :n |
 >>> 	(n < 2).if {
 >>> 		n
 >>> 	} {
->>> 		fib(n - 1) + fib(n - 2)
+>>> 		f(n - 1) + f(n - 2)
 >>> 	}
 >>> }.memoize(false);
->>> let k = 200L;
->>> fib(k)
-280571172992510140037611932413038677189525L
+>>> f(170L)
+150804340016807970735635273952047185L
 ```
 
 Narayana-Zidek-Capell numbers,

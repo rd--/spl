@@ -56,6 +56,7 @@ Plotting Functions:
 - `soundPlot`
 - `spectralPlot`
 - `sphericalPlot`
+- `spokePlot`
 - `stackedListPlot`
 - `stemLeafPlot`
 - `stepPlot`

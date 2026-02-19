@@ -307,7 +307,22 @@ Extract parts of a list cyclically:
 ['a' 'b' 'c' 'a' 'b' 'c' 'a' 'b' 'c' 'a']
 ```
 
-Numbers that are congruent to zero or one modulo three,
+Numbers that are congruent to `zero` modulo two,
+Messiaen’s first mode of limited transposition,
+OEIS [A005843](https://oeis.org/A005843):
+
+```
+>>> 0:25.select { :n |
+>>> 	n % 2 = 0
+>>> }
+[0 2 4 6 8 10 12 14 16 18 20 22 24]
+
+>>> [2 -1].linearRecurrence([0 2], 13)
+[0 2 4 6 8 10 12 14 16 18 20 22 24]
+```
+
+Numbers that are congruent to `zero` or `one` modulo three,
+Messiaen’s second mode of limited transposition,
 OEIS [A032766](https://oeis.org/A032766):
 
 ```
@@ -315,6 +330,89 @@ OEIS [A032766](https://oeis.org/A032766):
 >>> 	[0 1].includes(n % 3)
 >>> }
 [0 1 3 4 6 7 9 10 12 13 15 16 18 19 21 22]
+
+>>> [1 1 -1].linearRecurrence([0 1 3], 16)
+[0 1 3 4 6 7 9 10 12 13 15 16 18 19 21 22]
+```
+
+Numbers that are not congruent to `one` modulo four,
+Messiaen’s third mode of limited transposition,
+OEIS [A004772](https://oeis.org/A004772):
+
+```
+>>> 0:20.select { :n |
+>>> 	n % 4 != 1
+>>> }
+[0 2 3 4 6 7 8 10 11 12 14 15 16 18 19 20]
+
+>>> [1 0 1 -1].linearRecurrence(
+>>> 	[0 2 3 4], 16
+>>> )
+[0 2 3 4 6 7 8 10 11 12 14 15 16 18 19 20]
+```
+
+Numbers that are congruent to _0,1,2,5_ modulo six,
+Messiaen’s fourth mode of limited transposition,
+OEIS [A047269](https://oeis.org/A047269):
+
+```
+>>> 0:23.select { :n |
+>>> 	[0 1 2 5].includes(n % 6)
+>>> }
+[0 1 2 5 6 7 8 11 12 13 14 17 18 19 20 23]
+
+>>> [1 0 0 1 -1].linearRecurrence(
+>>> 	[0 1 2 5 6], 16
+>>> )
+[0 1 2 5 6 7 8 11 12 13 14 17 18 19 20 23]
+```
+
+Numbers that are congruent to _0,1,5_ modulo six,
+Messiaen’s fifth mode of limited transposition,
+OEIS [A047266](https://oeis.org/A047266):
+
+```
+>>> 0:23.select { :n |
+>>> 	[0 1 5].includes(n % 6)
+>>> }
+[0 1 5 6 7 11 12 13 17 18 19 23]
+
+>>> [1 0 1 -1].linearRecurrence(
+>>> 	[0 1 5 6], 12
+>>> )
+[0 1 5 6 7 11 12 13 17 18 19 23]
+```
+
+Numbers that are congruent to _0,2,4,5_ modulo six,
+Messiaen’s sixth mode of limited transposition,
+OEIS [A047262](https://oeis.org/A047262):
+
+```
+>>> 0:23.select { :n |
+>>> 	[0 2 4 5].includes(n % 6)
+>>> }
+[0 2 4 5 6 8 10 11 12 14 16 17 18 20 22 23]
+
+>>> [2 -2 2 -1].linearRecurrence(
+>>> 	[0 2 4 5], 16
+>>> )
+[0 2 4 5 6 8 10 11 12 14 16 17 18 20 22 23]
+```
+
+Numbers that are congruent to _0,1,2,3,5_ modulo six,
+Messiaen’s seventh mode of limited transposition,
+OEIS [A047256](https://oeis.org/A047256):
+
+```
+>>> 0:19.select { :n |
+>>> 	[0 1 2 3 5].includes(n % 6)
+>>> }
+[0 1 2 3 5 6 7 8 9 11 12 13 14 15 17 18 19]
+
+>>> [1 0 0 0 1 -1].linearRecurrence(
+>>> 	[0 1 2 3 5 6], 17
+>>> )
+[0 1 2 3 5 6 7 8 9 11 12 13 14 15 17 18 19]
 ```
 
 Count symmetric patterns in cellular automaton,
@@ -322,7 +420,7 @@ OEIS [A060547](https://oeis.org/A060547):
 
 ```
 >>> 1:16.collect { :n |
->>> 	2 ^ ((n / 3).floor + ((n % 3) % 2))
+>>> 	2 ^ ((n / 3).floor + (n % 3 % 2))
 >>> }
 [2 1 2 4 2 4 8 4 8 16 8 16 32 16 32 64]
 ```

@@ -71,10 +71,10 @@ Values at fixed points:
 [1 2 5 10 17 26 37 50 65 82]
 ```
 
-Threads over lists.
-First few terms,
+Threads over lists,
+first few terms,
 OEIS [A000045](https://oeis.org/A000045)
-and OEIS [A000045](https://oeis.org/A000071):
+and OEIS [A000071](https://oeis.org/A000071):
 
 ```
 >>> 1:20.fibonacci

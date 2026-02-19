@@ -72,6 +72,14 @@ OEIS [A268038](https://oeis.org/A268038):
 ]
 ```
 
+Nonnegative integers for which _cos(n)_ is positive,
+OEIS [A131503](https://oeis.org/A131503):
+
+```
+>>> 0:27.select { :n | n.cos > 0 }
+[0 1 5 6 7 11 12 13 14 18 19 20 24 25 26]
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A

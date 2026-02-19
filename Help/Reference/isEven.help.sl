@@ -65,14 +65,16 @@ false
 false
 ```
 
+The nonnegative even numbers,
+Messiaen’s first mode of limited transposition,
 OEIS [A005843](https://oeis.org/A005843):
 
 ```
 >>> 0:25.select(isEven:/1)
-[
-	 0  2  4  6  8  10 12 14 16 18
-	20 22 24
-]
+[0 2 4 6 8 10 12 14 16 18 20 22 24]
+
+>>> [0, 2 .. 24]
+[0 2 4 6 8 10 12 14 16 18 20 22 24]
 ```
 
 At `LargeInteger`:
