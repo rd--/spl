@@ -46,6 +46,7 @@ Recurrence and Sum Functions:
 - `fibonacci`
 - `harmonicNumber`
 - `lucasNumber`
+- `ramanujansSum`
 
 Fibonacci Functions:
 

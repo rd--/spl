@@ -499,7 +499,7 @@ OEIS [A056530](https://oeis.org/A056530):
 ```
 
 Central polygonal numbers,
-OIES [A000124](https://oeis.org/A000124):
+OEIS [A000124](https://oeis.org/A000124):
 
 ```
 >>> linearRecurrence([3 -3 1], [1 2 4], 53)

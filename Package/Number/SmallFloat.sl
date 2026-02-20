@@ -602,6 +602,16 @@ SmallFloat! : [Object, Storeable, Equatable, Comparable, Json, Magnitude, Number
 		'SmallFloat>>printStringToPrecision: not integer precision'.error
 	}
 
+	ramanujansSum { :q :n |
+		1:q.sum { :a |
+			(a.gcd(q) = 1).if {
+				(2.pi.i * (a / q) * n).exp.real.round
+			} {
+				0
+			}
+		}
+	}
+
 	raisedToSmallFloat { :self :aSmallFloat |
 		<primitive:
 		if(sl.isSmallFloat(_aSmallFloat)) {

@@ -306,13 +306,14 @@ Block! : [Object, Equatable] {
 		aList.withWithCollect(anotherList, aThirdList, self:/3)
 	}
 
-	memoizeBinary { :self:/2 |
-		let unary:/1 = { :x |
-			let [a, b] = x;
-			self(a, b)
-		}.memoizeUnary(false);
+	memoizeBinary { :self:/2 :requireImmediate |
+		let f:/1 = { :x |
+			{ :y |
+				self(x, y)
+			}.memoizeUnary(requireImmediate)
+		}.memoizeUnary(requireImmediate);
 		{ :a :b |
-			unary([a, b])
+			f(a).value(b)
 		}
 	}
 
@@ -334,8 +335,12 @@ Block! : [Object, Equatable] {
 	memoize { :self :requireImmediate |
 		self.numArgs.caseOf(
 			[
-				1 -> { self.memoizeUnary(requireImmediate) },
-				2 -> { { requireImmediate = false }.assert; self.memoizeBinary }
+				1 -> {
+					self.memoizeUnary(requireImmediate)
+				},
+				2 -> {
+					self.memoizeBinary(requireImmediate)
+				}
 			]
 		)
 	}

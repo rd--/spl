@@ -175,6 +175,35 @@ a.logScale.scatterPlot
 
 ![](sw/spl/Help/Image/sum-A.svg)
 
+Plot recursive two-parameter sequence allowing Ramanujan’s sum calculation,
+OEIS [A282634](https://oeis.org/A282634):
+
+~~~spl svg=B
+let b:/2 = { :n :m |
+	(n = 1).if {
+		(m = 0).boole
+	} {
+		(n > 1).if {
+			b(n - 1, m)
+			-
+			b(n - 1, m - n + 1)
+		} {
+			0
+		}
+	}
+}.memoize(true);
+(1 .. 17).collect { :n |
+	(0 .. n - 1).collect { :m |
+		let o = (n - 1) / 2 - (m / n);
+		(0 .. o.round).sum { :i |
+			b(n, i * n + m)
+		}
+	}
+}.catenate.discretePlot
+~~~
+
+![](sw/spl/Help/Image/sum-B.svg)
+
 Evaluate symbolically:
 
 ```

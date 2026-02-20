@@ -51,7 +51,7 @@ OEIS [A139610](https://oeis.org/A139610):
 ```
 
 Central polygonal numbers,
-OIES [A000124](https://oeis.org/A000124):
+OEIS [A000124](https://oeis.org/A000124):
 
 ```
 >>> 0:52.collect { :n |
