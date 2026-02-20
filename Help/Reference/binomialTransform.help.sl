@@ -106,6 +106,30 @@ OEIS [A006004](https://oeis.org/A006004):
 [1 4 11 25 49 86 139 211 305 424 571 749]
 ```
 
+Binomial transform of Catalan numbers,
+OEIS [A007317](https://oeis.org/A007317):
+
+```
+>>> 0:13.collect(catalanNumber:/1)
+>>> .binomialTransform
+[
+	1 2 5 15 51 188 731 2950 12235 51822
+	223191 974427 4302645 19181100
+]
+```
+
+Binomial transform of Fine’s sequence,
+OEIS [A033321](https://oeis.org/A033321):
+
+```
+>>> 13.finesSequence
+>>> .binomialTransform
+[
+	1 1 2 6 21 79 311 1265 5275 22431
+	96900 424068 1876143 8377299
+]
+```
+
 * * *
 
 See also: binomial, boustrophedonTransform, eulerTransform, runLengthTransform

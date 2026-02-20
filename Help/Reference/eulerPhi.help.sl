@@ -211,6 +211,22 @@ OEIS [A235353](https://oeis.org/A235353):
 [1 2 8 12 18 24 36 72 96 108 128 288]
 ```
 
+Denominators in canonical bijection from positive integers to positive rationals _≤1_,
+OEIS [A038567](http://oeis.org/A038567):
+
+```
+>>> 0:21.collect { :n |
+>>> 	let k = 0;
+>>> 	{
+>>> 		1:k.eulerPhi.sum <= n
+>>> 	}.whileTrue {
+>>> 		k := k + 1
+>>> 	};
+>>> 	k
+>>> }
+[1 2 3 3 4 4 5 5 5 5 6 6 7 7 7 7 7 7 8 8 8 8]
+```
+
 Plot the first few terms,
 OEIS [A000010](https://oeis.org/A000010):
 

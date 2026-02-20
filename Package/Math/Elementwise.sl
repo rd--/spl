@@ -503,6 +503,12 @@
 		self.collect(ramp:/1)
 	}
 
+	rationalUnrank { :self :m |
+		self.collect { :n |
+			n.rationalUnrank(m)
+		}
+	}
+
 	real { :self |
 		self.collect(real:/1)
 	}

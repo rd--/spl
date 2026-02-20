@@ -264,6 +264,43 @@ OEIS [A033715](https://oeis.org/A033715):
 
 ![](sw/spl/Help/Image/kroneckerSymbol-F.svg)
 
+Plot unique cusp form of weight two for congruence group _Γ1(11)_,
+OEIS [A006571](https://oeis.org/A006571):
+
+~~~spl svg=G
+let f = { :p :e |
+	let a0 = 1;
+	let a1 = 0 - (0 .. p - 1).sum { :x |
+		kroneckerSymbol(
+			[
+				4 * x.cube,
+				-4 * x.square,
+				1
+			].sum,
+			p
+		)
+	};
+	let y = a1;
+	2.toDo(e) { :i |
+		let x = (y * a1) - (p * a0);
+		a0 := a1;
+		a1 := x
+	};
+	a1
+};
+1:100.collect { :n |
+	n.factorInteger.product { :x |
+		(x[1] = 1).if {
+			1
+		} {
+			f(x[1], x[2])
+		}
+	}
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/kroneckerSymbol-G.svg)
+
 * * *
 
 See also: jacobiSymbol, legendreSymbol

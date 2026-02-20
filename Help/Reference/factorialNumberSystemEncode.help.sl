@@ -48,7 +48,9 @@ Integers whose factorial expansion ends with one,
 OEIS [A071156](https://oeis.org/A071156):
 
 ```
->>> 0:14.collect(oeisA071156:/1)
+>>> 0:14.collect(
+>>> 	oeisFunction('A071156')
+>>> )
 [0 1 3 5 9 11 15 17 23 33 35 39 41 47 57]
 ```
 
@@ -56,10 +58,9 @@ Th factorial number system encoding of A071156,
 OEIS [A071158](https://oeis.org/A071158):
 
 ```
->>> 1:39.collect { :n |
->>> 	n.oeisA071156
->>> 	.factorialNumberSystemEncode
->>> }
+>>> 1:39.collect(
+>>> 	oeisFunction('A071156')
+>>> ).factorialNumberSystemEncode
 [
 	    1
 	   11
@@ -107,9 +108,9 @@ The terms of A071156 can be calculated from A014486 using
 OEIS [A085198](https://oeis.org/A085198):
 
 ~~~spl svg=A
-0:150.collect(oeisA085198:/1)
-.logScale
-.scatterPlot
+0:150.collect(
+	oeisFunction('A085198')
+).logScale.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/factorialNumberSystemEncode-A.svg)

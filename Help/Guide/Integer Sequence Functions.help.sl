@@ -23,6 +23,13 @@ Integer Sequence Transform Functions:
 - `runLengthTransform`
 - `shadowTransform`
 
+Unranking:
+
+- `catalanUnrank`
+- `integerPartitionUnrank`
+- `rationalUnrank`
+- `unrankPermutation`
+
 Indexes
 
 - `Integer Sequence Index`: Guide

@@ -47,6 +47,27 @@ OEIS [A002083](https://oeis.org/A002083):
 [1 1 1 2 3 6 11 22 42 84 165 330 654 1308]
 ```
 
+Number of Schroeder paths,
+OEIS [A002212](https://oeis.org/A002212):
+
+```
+>>> let s = Map { :n |
+>>> 	(n < 2).if {
+>>> 		1
+>>> 	} {
+>>> 		let [i, j] = n - [1 2];
+>>> 		let a = 3 * (2 * n - 1) * s[i];
+>>> 		let b = 5 * j * s[j];
+>>> 		(a - b) / (n + 1)
+>>> 	}
+>>> };
+>>> s[0:13]
+[
+	1 1 3 10 36 137 543 2219 9285 39587
+	171369 751236 3328218 14878455
+]
+```
+
 * * *
 
 See also: Dictionary, Map, memoize

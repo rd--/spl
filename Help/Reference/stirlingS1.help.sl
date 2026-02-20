@@ -139,6 +139,16 @@ OEIS [A008276](https://oeis.org/A008276):
 
 ![](sw/spl/Help/Image/stirlingS1-D.svg)
 
+Plot the triangle of signed Stirling numbers of the first kind,
+OEIS [A008275](http://oeis.org/A008275):
+
+~~~spl svg=E
+1:17.triangularArray(stirlingS1:/2)
+.catenate.logScale.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/stirlingS1-E.svg)
+
 * * *
 
 See also: factorialPower, stirlingS2

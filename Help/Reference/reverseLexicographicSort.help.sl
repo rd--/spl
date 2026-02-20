@@ -70,6 +70,21 @@ Sort binary combinations:
 ]
 ```
 
+Plot compositions in reverse lexicographic order,
+OEIS [A066099](https://oeis.org/A066099):
+
+~~~spl svg=A
+1:5.collect { :n |
+	n.integerPartitions
+	.collect(permutations:/1)
+	.catenate
+	.unique
+	.reverseLexicographicSort
+}.catenate.catenate.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/reverseLexicographicSort-A.svg)
+
 * * *
 
 See also: canonicalSort, lexicographicSort, sort

@@ -280,10 +280,9 @@ OEIS [A020653](http://oeis.org/A020653):
 	let m = n - 1;
 	1:m.collect { :i |
 		i % n
-	}.gcd(n).indicesOf(1)
-}.collect { :n |
-	Fraction(n, n.reverse)
-	.denominator
+	}.gcd(n)
+	.indicesOf(1)
+	.reverse
 }.catenate.scatterPlot
 ~~~
 
@@ -299,6 +298,19 @@ OEIS [A051696](http://oeis.org/A051696):
 ~~~
 
 ![](sw/spl/Help/Image/gcd-I.svg)
+
+Numerators in canonical bijection from positive integers to positive rationals _≤1_,
+OEIS [A038566](http://oeis.org/A038566):
+
+~~~spl svg=J
+1:23.collect { :n |
+	1:n.select { :i |
+		n.gcd(i) = 1
+	}
+}.catenate.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/gcd-J.svg)
 
 * * *
 

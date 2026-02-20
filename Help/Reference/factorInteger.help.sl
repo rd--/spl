@@ -396,6 +396,19 @@ OEIS [A101035](https://oeis.org/A101035):
 
 ![](sw/spl/Help/Image/factorInteger-K.svg)
 
+Plot product of the sums of the prime and exponent of the factors of _n_,
+OEIS [A008473](https://oeis.org/A008473):
+
+~~~spl svg=L
+2:200.collect { :n |
+	n.factorInteger
+	.collect(sum:/1)
+	.product
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/factorInteger-L.svg)
+
 * * *
 
 See also: divisors, isPrime, primeFactors, primeFactorization, product

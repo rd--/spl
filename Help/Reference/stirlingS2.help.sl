@@ -101,6 +101,23 @@ OEIS [A001296](https://oeis.org/A001296):
 [0 1 7 25 65 140 266 462 750 1155 1705]
 ```
 
+Number of necklaces of partitions of _n+1_ labeled beads,
+OEIS [A000629](https://oeis.org/A000629):
+
+```
+>>> 0:8.collect { :n |
+>>> 	0:n.sum { :k |
+>>> 		[
+>>> 			-1 ^ (n - k),
+>>> 			n.stirlingS2(k),
+>>> 			k.!,
+>>> 			2 ^ k
+>>> 		].product
+>>> 	}
+>>> }
+[1 2 6 26 150 1082 9366 94586 1091670]
+```
+
 Plot sums of digits:
 
 ~~~spl svg=A
@@ -122,6 +139,16 @@ Plot parity:
 ~~~
 
 ![](sw/spl/Help/Image/stirlingS2-B.svg)
+
+Plot the triangle of Stirling numbers of the second kind,
+OEIS [A008277](https://oeis.org/A008277):
+
+~~~spl svg=E
+1:17.triangularArray(stirlingS2:/2)
+.catenate.log.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/stirlingS2-C.svg)
 
 * * *
 

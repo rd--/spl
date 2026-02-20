@@ -125,6 +125,19 @@ OEIS [A053120](https://oeis.org/A053120):
 
 ![](sw/spl/Help/Image/chebyshevT-E.svg)
 
+Monic integer version of Chebyshev T-polynomials,
+OEIS [A127672](https://oeis.org/A127672):
+
+~~~spl svg=F
+0:19.collect { :n |
+	let p = n.chebyshevT;
+	let c = p.coefficientList;
+	(c * 2) / (2 ^ 0:n)
+}.catenate.logScale.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/chebyshevT-F.svg)
+
 Evaluate symbolically:
 
 ```

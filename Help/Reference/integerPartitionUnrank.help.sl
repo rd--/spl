@@ -43,6 +43,40 @@ OEIS [A112798](https://oeis.org/A112798):
 ]
 ```
 
+With _m=Heinz_,
+catenated digits,
+OEIS [A087712](https://oeis.org/A087712):
+
+```
+>>> let m = 'HeinzAscending';
+>>> 2:35.collect { :n |
+>>> 	n.integerPartitionUnrank(m)
+>>> 	.fromDigits
+>>> }
+[
+	1 2 11 3 12 4 111 22 13 5 112 6 14 23
+	1111 7 122 8 113 24 15 9 1112 33 16
+	222 114 10 123 11 11111 25 17 34
+]
+```
+
+With _m=Heinz_,
+catenated reversed digits,
+OEIS [A127668](https://oeis.org/A127668):
+
+```
+>>> let m = 'HeinzAscending';
+>>> 2:35.collect { :n |
+>>> 	n.integerPartitionUnrank(m)
+>>> 	.reverse.fromDigits
+>>> }
+[
+	1 2 11 3 21 4 111 22 31 5 211 6 41 32
+	1111 7 221 8 311 42 51 9 2111 33 61
+	222 411 10 321 11 11111 52 71 43
+]
+```
+
 With _m=KarttunenAscending_,
 OEIS [A227739](https://oeis.org/A227739):
 
@@ -128,6 +162,18 @@ let n = 8;
 
 ![](sw/spl/Help/Image/integerPartitionUnrank-C.svg)
 
+Plot with _m=Heinz_,
+OEIS [A112798](https://oeis.org/A112798):
+
+~~~spl svg=D
+let m = 'HeinzAscending';
+2:67.collect { :n |
+	n.integerPartitionUnrank(m)
+}.catenate.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/integerPartitionUnrank-D.svg)
+
 * * *
 
 See also: integerPartitionRank, integerPartitions
@@ -135,7 +181,7 @@ See also: integerPartitionRank, integerPartitions
 Guides: Integer Functions
 
 References:
-_OEIS
+_OEIS_
 [1](https://oeis.org/A227739)
 [2](https://oeis.org/A129594)
 [3](https://oeis.org/A112798)

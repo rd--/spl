@@ -30,6 +30,14 @@ OEIS [A000142](https://oeis.org/A000142):
 ]
 ```
 
+Twice,
+OEIS [A052849](https://oeis.org/A052849)
+
+```
+>>> 1:8.! * 2
+[2 4 12 48 240 1440 10080 80640 725760]
+```
+
 Number of permutations of 6 elements:
 
 ```

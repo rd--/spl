@@ -25,6 +25,7 @@ Indexing:
 
 Factors:
 
+- `distinctPrimeFactors`
 - `factorInteger`
 - `leastPrimeFactor`
 - `leastPrimeFactorList`

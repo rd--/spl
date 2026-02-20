@@ -533,6 +533,21 @@ OEIS [A062796](https://oeis.org/A062796):
 ]
 ```
 
+Discriminants of Chebyshev S-polynomials,
+OEIS [A127670](https://oeis.org/A127670):
+
+```
+>>> 1:12.collect { :n |
+>>> 	let m = n + 1;
+>>> 	(m ^ n) / (m ^ 2) * (2 ^ n)
+>>> }
+[
+	1 4 32 400 6912 153664 4194304
+	136048896 5120000000 219503494144
+	10567230160896 564668382613504
+]
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A

@@ -21,7 +21,8 @@ Five steps of a `String` substitution system:
 ]
 ```
 
-Five steps of a substitution system that generates the infinite Fibonacci word (A003849):
+Five steps of a substitution system that generates the infinite Fibonacci word,
+OEIS [A003849](https://oeis.org/A003849):
 
 ```
 >>> [0 -> [0 1], 1 -> 0]
@@ -43,7 +44,8 @@ C.f. `fibonacciWord`:
 [0 1 0 0 1 0 1 0 0 1 0 0 1]
 ```
 
-Generate five steps in a Thue–Morse substitution system (A010060):
+Generate five steps in a Thue–Morse substitution system,
+OEIS [A010060](https://oeis.org/A010060):
 
 ```
 >>> [0 -> [0 1], 1 -> [1 0]]
@@ -111,7 +113,8 @@ Derived rule:
 ]
 ```
 
-The regular paper folding sequence (A014577):
+The regular paper folding sequence,
+OEIS [A014577](https://oeis.org/A014577):
 
 ```
 >>> [
@@ -131,7 +134,8 @@ The regular paper folding sequence (A014577):
 ]
 ```
 
-The Rudin-Shapiro sequence (A020985):
+The Rudin-Shapiro sequence,
+OEIS [A020985](https://oeis.org/A020985):
 
 ```
 >>> [
@@ -151,7 +155,8 @@ The Rudin-Shapiro sequence (A020985):
 ]
 ```
 
-The period-doubling sequence (A096268):
+The period-doubling sequence,
+OEIS [A096268](https://oeis.org/A096268):
 
 ```
 >>> [0 -> [0 1], 1 -> [0 0]]
@@ -286,6 +291,26 @@ Steps in constructing a Cantor set:
 ]
 ```
 
+A ternary tribonacci triangle,
+initial term may vary,
+OEIS [A059832](https://oeis.org/A059832) _i=1_,
+OEIS [A305390](https://oeis.org/A305390) _i=2_,
+OEIS [A305391](https://oeis.org/A305391) _i=3_:
+
+```
+>>> [1 -> [2], 2 -> [3], 3 -> [1 2 3]]
+>>> .substitutionSystem([1], 6)
+[
+	1;
+	2;
+	3;
+	1 2 3;
+	2 3 1 2 3;
+	3 1 2 3 2 3 1 2 3;
+	1 2 3 2 3 1 2 3 3 1 2 3 2 3 1 2 3
+]
+```
+
 Create an analogous two-dimensional nested object,
 the Sierpiński carpet:
 
@@ -400,6 +425,17 @@ OEIS [A001468](https://oeis.org/A001468):
 ~~~
 
 ![](sw/spl/Help/Image/substitutionSystem-H.svg)
+
+Plot a ternary tribonacci triangle,
+OEIS [A059832](https://oeis.org/A059832):
+
+~~~spl svg=I
+[1 -> [2], 2 -> [3], 3 -> [1 2 3]]
+.substitutionSystem([1], 7)
+.catenate.discretePlot
+~~~
+
+![](sw/spl/Help/Image/substitutionSystem-I.svg)
 
 * * *
 

@@ -104,6 +104,26 @@ OEIS [A023416](https://oeis.org/A023416):
 ]
 ```
 
+Numbers that contain a digit `zero`,
+OEIS [A011540](https://oeis.org/A011540):
+
+```
+>>> 0:100.reject { :n |
+>>> 	n.digitCount(10, 0) = 0
+>>> }
+[0 10 20 30 40 50 60 70 80 90 100]
+```
+
+Zero-free numbers,
+OEIS [A052382](https://oeis.org/A052382):
+
+```
+>>> 0:18.select { :n |
+>>> 	n.digitCount(10, 0) = 0
+>>> }
+[1 2 3 4 5 6 7 8 9 11 12 13 14 15 16 17 18]
+```
+
 Plot the number of ones in the base-two representation,
 called the Hamming weight or binary weight,
 OEIS [A000120](https://oeis.org/A000120):

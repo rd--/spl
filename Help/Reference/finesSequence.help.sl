@@ -4,7 +4,8 @@
 
 Answer the first _n_ terms of Fine’s sequence.
 
-The first few terms:
+The first few terms,
+OEIS [A000957](https://oeis.org/A000957):
 
 ```
 >>> 27.finesSequence

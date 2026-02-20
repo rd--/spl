@@ -42,6 +42,37 @@ true
 [7]
 ```
 
+First few terms,
+OEIS [A027748](https://oeis.org/A027748):
+
+```
+>>> 2:23.collect(distinctPrimeFactors:/1)
+[
+	2;
+	3;
+	2;
+	5;
+	2 3;
+	7;
+	2;
+	3;
+	2 5;
+	11;
+	2 3;
+	13;
+	2 7;
+	3 5;
+	2;
+	17;
+	2 3;
+	19;
+	2 5;
+	3 7;
+	2 11;
+	23
+]
+```
+
 Plot sum of the distinct prime factors of _n_,
 OEIS [A008472](https://oeis.org/A008472):
 
@@ -52,6 +83,16 @@ OEIS [A008472](https://oeis.org/A008472):
 ~~~
 
 ![](sw/spl/Help/Image/distinctPrimeFactors-A.svg)
+
+Plot table,
+OEIS [A027748](https://oeis.org/A027748):
+
+~~~spl svg=B
+2:115.collect(distinctPrimeFactors:/1)
+.catenate.log.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/distinctPrimeFactors-B.svg)
 
 * * *
 

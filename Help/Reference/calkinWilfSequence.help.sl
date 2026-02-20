@@ -33,6 +33,12 @@ OEIS [A002487](https://oeis.org/A002487):
 	 4 15 11 18  7 17 10 13  3 14
 	11 19  8 21 13 18  5 17 12 19
 ]
+
+>>> 2:21.collect(sternBrocotNumber:/1)
+[
+	 1  2  1  3  2  3  1  4  3  5
+	 2  5  3  4  1  5  4  7  3  8
+]
 ```
 
 The numerator of each succesive term is equal to the denominator of the previous term:
@@ -63,6 +69,14 @@ and the denominator on the _y_-axis:
 ~~~
 
 ![](sw/spl/Help/Image/calkinWilfSequence-B.svg)
+
+Log plot first few terms:
+
+~~~spl svg=A
+200.calkinWilfSequence.log.discretePlot
+~~~
+
+![](sw/spl/Help/Image/calkinWilfSequence-C.svg)
 
 * * *
 

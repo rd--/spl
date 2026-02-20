@@ -787,6 +787,25 @@
 		(n.divisors.count(isOdd:/1) - 1).max(0)
 	}
 
+	rationalUnrank { :n :m |
+		m.caseOf(
+			[
+				'Canonical' -> {
+					Fraction(
+						n.oeisA020652,
+						n.oeisA020653
+					)
+				},
+				'CalkinWilf' -> {
+					Fraction(
+						n.sternBrocotNumber,
+						(n + 1).sternBrocotNumber
+					)
+				}
+			]
+		)
+	}
+
 	recamanSequence { :self |
 		let answer = List(self, 0);
 		let seen = IdentitySet([0]);

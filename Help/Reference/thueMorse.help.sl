@@ -18,7 +18,8 @@ Five has an even number of ones in its binary expansion:
 [1 0 1]
 ```
 
-The first 10 elements of the sequence:
+The first 10 elements of the sequence,
+OEIS [A010060](https://oeis.org/A010060):
 
 ```
 >>> 0:9.collect(thueMorse:/1)

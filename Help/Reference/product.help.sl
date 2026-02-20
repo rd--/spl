@@ -139,6 +139,27 @@ Plot the sequence of partial products of the function:
 
 ![](sw/spl/Help/Image/product-B.svg)
 
+Plot cumulant expansion numbers,
+OEIS [A127671](https://oeis.org/A127671):
+
+~~~spl svg=C
+let c = { :p |
+	let s = p.unique;
+	let k = p.size;
+	let j = k - 1;
+	let h = s.product { :x |
+		p.occurrencesOf(x).!
+	};
+	let q = p.!.product * h;
+	p.sum.! * j.! * (-1 ^ j) / q
+};
+1:11.collect { :n |
+	n.integerPartitions.collect(c:/1)
+}.catenate.logScale.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/product-C.svg)
+
 Where supported `product` is displayed as Π.
 
 * * *

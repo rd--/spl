@@ -4,6 +4,112 @@
 		n.catalanUnrank
 	}
 
+	oeisA020652 { :n |
+		let c = 1;
+		let j = 1;
+		let k = 2;
+		{
+			c < n
+		}.whileTrue {
+			k := k + 1;
+			c := c + k.eulerPhi
+		};
+		c := c - k.eulerPhi;
+		{
+			c < n
+		}.whileTrue {
+			(j.gcd(k) = 1).ifTrue {
+				c := c + 1
+			};
+			j := j + 1
+		};
+		(j - 1)
+	}
+
+	oeisA020653 { :n |
+		let c = 0;
+		let k = 2;
+		let j = 1;
+		{
+			c < n
+		}.whileTrue {
+			c := c + k.eulerPhi;
+			k := k + 1
+		};
+		c := c - (k - 1).eulerPhi;
+		{
+			c < n
+		}.whileTrue {
+			(j.gcd(k - 1) = 1).ifTrue {
+				c := c + 1
+			};
+			j := j + 1
+		};
+		(k - j)
+	}
+
+	oeisA038567 { :n |
+		let k = 0;
+		{
+			1:k.eulerPhi.sum <= n
+		}.whileTrue {
+			k := k + 1
+		};
+		k
+	}
+
+	oeisA038568 { :n |
+		let c = 1;
+		let k = 2;
+		let j = 1;
+		{
+			c < n
+		}.whileTrue {
+			c := c + (2 * k.eulerPhi);
+			k := k + 1
+		};
+		c := c - (2 * (k - 1).eulerPhi);
+		{
+			c < n
+		}.whileTrue {
+			(j.gcd(k - 1) = 1).ifTrue {
+				c := c + 2
+			};
+			j := j + 1
+		};
+		(c > n).if {
+			(j - 1)
+		} {
+			(k - 1)
+		}
+	}
+
+	oeisA038569 { :n |
+		let c = 1;
+		let k = 2;
+		let j = 1;
+		{
+			c <= n
+		}.whileTrue {
+			c := c + (2 * k.eulerPhi);
+			k := k + 1
+		};
+		c := c - (2 * (k - 1).eulerPhi);
+		{
+			c <= n
+		}.whileTrue {
+			(j.gcd(k - 1) = 1).ifTrue {
+				c := c + 2
+			};
+			j := j + 1
+		};
+		(c > (n + 1)).if {
+			(k - 1)
+		} {
+			(j - 1)
+		}
+	}
+
 	oeisA071156 { :n |
 		n.oeisA014486.oeisA085198
 	}
@@ -26,6 +132,25 @@
 			}
 		};
 		s
+	}
+
+}
+
++String {
+
+	oeisFunction { :self |
+		self.caseOf(
+			[
+				'A014486' -> { { :n | n.oeisA014486 } },
+				'A020652' -> { { :n | n.oeisA020652 } },
+				'A020653' -> { { :n | n.oeisA020653 } },
+				'A038567' -> { { :n | n.oeisA038567 } },
+				'A038568' -> { { :n | n.oeisA038568 } },
+				'A038569' -> { { :n | n.oeisA038569 } },
+				'A071156' -> { { :n | n.oeisA071156 } },
+				'A085198' -> { { :n | n.oeisA085198 } }
+			]
+		)
 	}
 
 }

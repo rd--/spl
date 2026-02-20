@@ -49,7 +49,8 @@ OEIS [A080300](https://oeis.org/A080300):
 ]
 ```
 
-Plot first few terms:
+Plot first few terms,
+OEIS [A014486](https://oeis.org/A014486):
 
 ~~~spl svg=A
 0:250.collect(catalanUnrank:/1)
