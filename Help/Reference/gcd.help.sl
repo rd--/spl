@@ -312,6 +312,19 @@ OEIS [A038566](http://oeis.org/A038566):
 
 ![](sw/spl/Help/Image/gcd-J.svg)
 
+Of _n_ and _2^n-1_,
+OEIS [A014491](https://oeis.org/A014491):
+
+~~~spl svg=K
+(
+	1:100.collect { :n |
+		n.gcd(2L ^ n - 1)
+	} - 1
+).discretePlot
+~~~
+
+![](sw/spl/Help/Image/gcd-K.svg)
+
 * * *
 
 See also: ||, chineseRemainder, divisible, euclideanAlgorithm, extendedGcd, Fraction, isCoprime, isPrime, lcm

@@ -303,6 +303,22 @@ OEIS [A049599](https://oeis.org/A049599):
 
 ![](sw/spl/Help/Image/primeSignature-F.svg)
 
+Additive function defined by the recursion _a(p^k)=a(k)_ for any prime _p_,
+OEIS [A064372](https://oeis.org/A064372):
+
+~~~spl svg=G
+let a = Map { :n |
+	(n = 1).if {
+		1
+	} {
+		a.atAll(n.primeSignature).sum
+	}
+};
+a[1:105].stepPlot
+~~~
+
+![](sw/spl/Help/Image/primeSignature-G.svg)
+
 * * *
 
 See also: factorInteger

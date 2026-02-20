@@ -553,6 +553,30 @@ OEIS [A000579](https://oeis.org/A000579):
 [0 0 0 0 0 0 1 7 28 84 210 462 924 1716]
 ```
 
+The _q-Stirling2_ numbers at _q=-1_,
+OEIS [A065941](https://oeis.org/A065941):
+
+```
+>>> 0:9.triangularArray { :n :k |
+>>> 	binomial(
+>>> 		n - floor((k + 1) / 2),
+>>> 		floor(k / 2)
+>>> 	)
+>>> }
+[
+	1;
+	1 1;
+	1 1 1;
+	1 1 2 1;
+	1 1 3 2 1;
+	1 1 4 3 3 1;
+	1 1 5 4 6 3 1;
+	1 1 6 5 10 6 4 1;
+	1 1 7 6 15 10 10 4 1;
+	1 1 8 7 21 15 20 10 5 1
+]
+```
+
 Plot over a subset of the reals as a function of its first parameter:
 
 ~~~spl svg=A
@@ -667,6 +691,22 @@ OEIS [A047996](https://oeis.org/A047996):
 ~~~
 
 ![](sw/spl/Help/Image/binomial-G.svg)
+
+Variant of Pascal’s triangle,
+OEIS [A051632](https://oeis.org/A051632):
+
+~~~spl svg=H
+0:13.triangularArray { :n :k |
+	let a = (2 * k + 1 - n) / (k + 1);
+	let b = 1 - n + (2 * (-k + n));
+	let c = (b / (1 - k + n));
+	let d = a * binomial(n, k);
+	let e = c * binomial(n, -k + n);
+	0 - d + e
+}.catenate.logScale.discretePlot
+~~~
+
+![](sw/spl/Help/Image/binomial-H.svg)
 
 * * *
 

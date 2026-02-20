@@ -165,6 +165,21 @@ OEIS [A135472](https://oeis.org/A135472):
 
 ![](sw/spl/Help/Image/partition-A.svg)
 
+Plot derivative of _n_ in base three,
+OEIS [A038555](https://oeis.org/A038555):
+
+~~~spl svg=B
+0:200.collect { :n |
+	n.integerDigits(3)
+	.partition(2, 1)
+	.collect { :x |
+		x.sum % 3
+	}.fromDigits(3)
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/partition-B.svg)
+
 * * *
 
 See also: clump, adjacentPairsCollect, movingMap, pairsCollect, pairsDo, partitionDo, takeList, windowedReduce

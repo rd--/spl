@@ -767,6 +767,17 @@ OEIS [A125106](https://oeis.org/A125106):
 
 ![](sw/spl/Help/Image/integerDigits-S.svg)
 
+Write _n_ in base three and reverse order of digits,
+OEIS [A030341](https://oeis.org/A030341):
+
+~~~spl svg=T
+0:40.collect { :n |
+	n.integerDigits(3).reverse
+}.catenate.discretePlot
+~~~
+
+![](sw/spl/Help/Image/integerDigits-T.svg)
+
 * * *
 
 See also: digitCount, fromDigits, hammingWeight

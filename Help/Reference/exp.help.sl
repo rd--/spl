@@ -155,6 +155,25 @@ Plot over a subset of the complexes:
 
 ![](sw/spl/Help/Image/exp-C.png)
 
+Plot sum of the _n_-th powers of the _k_-th primitive roots of unity,
+OEIS [A054532](https://oeis.org/A054532):
+
+~~~spl svg=D
+1:15.triangularArray { :n :k |
+	1:k.sum { :m |
+		(m.gcd(k) = 1).if {
+			(2.pi.i * m * (n / k))
+			.exp
+			.real
+		} {
+			0
+		}
+	}
+}.catenate.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/exp-D.svg)
+
 * * *
 
 See also: ^, log

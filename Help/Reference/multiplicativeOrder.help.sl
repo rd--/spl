@@ -244,6 +244,17 @@ OEIS [A006694](https://oeis.org/A006694):
 ]
 ```
 
+Primes with primitive root two,
+OEIS [A001122](https://oeis.org/A001122):
+
+```
+>>> 1:27.prime.select { :n |
+>>> 	let o = 2.multiplicativeOrder(n);
+>>> 	o = (n - 1)
+>>> }
+[3 5 11 13 19 29 37 53 59 61 67 83 101]
+```
+
 Plot the sequence with a fixed modulus:
 
 ~~~spl svg=A
@@ -330,6 +341,28 @@ let a = 1:m.collect { :n |
 ~~~
 
 ![](sw/spl/Help/Image/multiplicativeOrder-F.svg)
+
+Plot order of two modulo the _n_-th prime,
+OEIS [A014664](https://oeis.org/A014664):
+
+~~~spl svg=G
+2:150.collect { :n |
+	2.multiplicativeOrder(n.prime)
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/multiplicativeOrder-G.svg)
+
+Plot order of two modulo the _2n+1_,
+OEIS [A002326](https://oeis.org/A002326):
+
+~~~spl svg=H
+2:150.collect { :n |
+	2.multiplicativeOrder(2 * n + 1)
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/multiplicativeOrder-H.svg)
 
 * * *
 
