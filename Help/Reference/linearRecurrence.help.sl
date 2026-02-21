@@ -809,6 +809,26 @@ OEIS [A051793](https://oeis.org/A051793):
 
 ![](sw/spl/Help/Image/linearRecurrence-D.svg)
 
+Lucas _U(2,2)_ sequence,
+OEIS [A009545](https://oeis.org/A009545):
+
+~~~spl svg=E
+linearRecurrence([2 -2], [0 1], 110)
+.logScale.discretePlot
+~~~
+
+![](sw/spl/Help/Image/linearRecurrence-E.svg)
+
+Expansion of _cos(x)/exp(x)_,
+OEIS [A009116](https://oeis.org/A009116):
+
+~~~spl svg=F
+linearRecurrence([-2 -2], [1 -1], 110)
+.logScale.discretePlot
+~~~
+
+![](sw/spl/Help/Image/linearRecurrence-F.svg)
+
 * * *
 
 See also: shiftRegisterSequence

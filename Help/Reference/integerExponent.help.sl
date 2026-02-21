@@ -309,6 +309,21 @@ OEIS [A280509](https://oeis.org/A280509):
 
 ![](sw/spl/Help/Image/integerExponent-J.svg)
 
+Exchange two and three in the prime factorization of _n_,
+OEIS [A064614](https://oeis.org/A064614):
+
+~~~spl svg=K
+1:60.collect { :n |
+	[
+		n,
+		3/2 ^ n.integerExponent(2),
+		2/3 ^ n.integerExponent(3)
+	].product
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/integerExponent-K.svg)
+
 * * *
 
 See also: ^, digitCount, factorInteger, integerDigits, log2, log10, rulerFunction
