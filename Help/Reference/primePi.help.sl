@@ -352,6 +352,41 @@ a.stepPlot
 
 ![](sw/spl/Help/Image/primePi-K.svg)
 
+Replace each prime number with its rank in the recursive prime factorization of _n_,
+OEIS [A225395](https://oeis.org/A225395):
+
+~~~spl svg=L
+let a = Map { :n |
+	(n = 1).if {
+		1
+	} {
+		n.isPrime.if {
+			n.primePi
+		} {
+			n.factorInteger.product { :f |
+				f[1].primePi ^ a[f[2]]
+			}
+		}
+	}
+};
+a[1:175].scatterPlot
+~~~
+
+![](sw/spl/Help/Image/primePi-L.svg)
+
+Plot product of indices of distinct prime factors of _n_,
+OEIS [A156061](https://oeis.org/A156061):
+
+~~~spl svg=M
+2:85.collect { :n |
+	n.distinctPrimeFactors
+	.primePi
+	.product
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/primePi-M.svg)
+
 * * *
 
 See also: eulerPhi, nextPrime, primesList, primesUpTo, sieveOfEratosthenes

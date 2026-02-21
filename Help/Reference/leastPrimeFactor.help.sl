@@ -48,6 +48,26 @@ OEIS [A020639](https://oeis.org/A020639):
 ]
 ```
 
+Euclid-Mullin sequence,
+OEIS [A000945](https://oeis.org/A000945):
+
+```
+>>> let f = Map { :n |
+>>> 	(n = 1).if {
+>>> 		2
+>>> 	} {
+>>> 		let m = n - 1;
+>>> 		(
+>>> 			1:m.product { :i |
+>>> 				f[i]
+>>> 			} + 1
+>>> 		).leastPrimeFactor
+>>> 	}
+>>> };
+>>> f[1:8]
+[2 3 7 43 13 53 5 6221671]
+```
+
 Log-scale plot of the least prime factors of the integers from two up to one hundred:
 
 ~~~spl svg=A

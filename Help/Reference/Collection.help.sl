@@ -29,6 +29,7 @@ Types implementing `Collection`:
 	'List'
 	'ListView'
 	'Map'
+	'MemoizationTable'
 	'Multiset'
 	'NumericArray'
 	'Range'

@@ -5,6 +5,9 @@
 Answer the aliquot sum of the positive integer _n_,
 the sum of all proper divisors of _n_.
 
+First few terms,
+OEIS [A001065](https://oeis.org/A001065):
+
 ```
 >>> 1:23.collect(aliquotSum:/1)
 [

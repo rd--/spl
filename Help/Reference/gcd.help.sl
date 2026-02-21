@@ -355,10 +355,6 @@ OEIS [A182973](https://oeis.org/A182973):
 
 ![](sw/spl/Help/Image/gcd-M.svg)
 
-def A182973_gen(): # generator of terms
-    return (n-i for n in count(2) for i in range(1, 1+(n-1>>1)) if gcd(i, n-i)==1)
-
-
 * * *
 
 See also: ||, chineseRemainder, divisible, euclideanAlgorithm, extendedGcd, Fraction, isCoprime, isPrime, lcm

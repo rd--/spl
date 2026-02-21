@@ -30,6 +30,7 @@ Types implementing `Iterable`:
 	'ListView'
 	'Map'
 	'Markdown'
+	'MemoizationTable'
 	'Multiset'
 	'NumericArray'
 	'Range'

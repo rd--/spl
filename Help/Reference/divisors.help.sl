@@ -98,6 +98,27 @@ Divisors threads element-wise over list arguments:
 ]
 ```
 
+First few terms,
+OEIS [A027750](https://oeis.org/A027750):
+
+```
+>>> 1:12.divisors
+[
+	1;
+	1 2;
+	1 3;
+	1 2 4;
+	1 5;
+	1 2 3 6;
+	1 7;
+	1 2 4 8;
+	1 3 9;
+	1 2 5 10;
+	1 11;
+	1 2 3 4 6 12
+]
+```
+
 Divisor sets for all regular (5-smooth) numbers less than one hundred:
 
 ```
@@ -320,6 +341,44 @@ OEIS [A068310](https://oeis.org/A068310):
 ~~~
 
 ![](sw/spl/Help/Image/divisors-K.svg)
+
+Plot smallest remainder of _p+q%n_,
+where _p*q=n^2-1_,
+OEIS [A069817](https://oeis.org/A069817):
+
+~~~spl svg=L
+1:75.collect { :n |
+	(n < 5).if {
+		n
+	} {
+		let r = n;
+		let k = n ^ 2 - 1;
+		let a = 0;
+		k.divisors.do { :p |
+			let t = (p + (k / p)) % n;
+			(t < r & { p > 1 }).ifTrue {
+				(p + 1 = n).if {
+					a := r
+				} {
+					r := t
+				}
+			}
+		};
+		a
+	}
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/divisors-L.svg)
+
+Plot first few terms,
+OEIS [A027750](https://oeis.org/A027750):
+
+~~~spl svg=M
+1:23.divisors.catenate.discretePlot
+~~~
+
+![](sw/spl/Help/Image/divisors-M.svg)
 
 * * *
 

@@ -252,6 +252,17 @@
 		}
 	}
 
+	doWithBreak { :self :aBlock:/2 |
+		valueWithReturn { :return:/1 |
+			let break = {
+				nil.return
+			};
+			self.do { :each |
+				aBlock(each, break:/0)
+			}
+		}
+	}
+
 	doWithout { :self :aBlock:/1 :anItem |
 		self.do { :each |
 			(anItem = each).ifFalse {

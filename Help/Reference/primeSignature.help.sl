@@ -319,6 +319,17 @@ a[1:105].stepPlot
 
 ![](sw/spl/Help/Image/primeSignature-G.svg)
 
+Product of exponents of prime factorization of _n_,
+OEIS [A005361](https://oeis.org/A005361):
+
+~~~spl svg=H
+1:65.collect { :n |
+	n.primeSignature.product
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/primeSignature-H.svg)
+
 * * *
 
 See also: factorInteger

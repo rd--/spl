@@ -409,6 +409,17 @@ OEIS [A008473](https://oeis.org/A008473):
 
 ![](sw/spl/Help/Image/factorInteger-L.svg)
 
+Mosaic numbers,
+OEIS [A000026](https://oeis.org/A000026):
+
+~~~spl svg=M
+1:75.collect { :n |
+	n.factorInteger.catenate.product
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/factorInteger-M.svg)
+
 * * *
 
 See also: divisors, isPrime, primeFactors, primeFactorization, product

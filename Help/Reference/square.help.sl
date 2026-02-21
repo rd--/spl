@@ -68,6 +68,21 @@ the square pyramidal numbers:
 ]
 ```
 
+_n^2-1_,
+or equally _n(n+2)_,
+OEIS [A005563](https://oeis.org/A005563):
+
+```
+>>> 1:13.square - 1
+[0 3 8 15 24 35 48 63 80 99 120 143 168]
+
+>>> 0:12.collect { :n | n * (n + 2) }
+[0 3 8 15 24 35 48 63 80 99 120 143 168]
+
+>>> linearRecurrence([3 -3 1], [0 3 8], 13)
+[0 3 8 15 24 35 48 63 80 99 120 143 168]
+```
+
 Matrix plot of the first few squares represented as a sequence of binary bits:
 
 ~~~spl svg=A

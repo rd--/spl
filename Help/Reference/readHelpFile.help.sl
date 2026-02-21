@@ -48,36 +48,9 @@ Read the `add` help file:
 Read the _OEIS_ references at the `binomial` help file:
 
 ```
->>> system.readHelpFile('binomial')
+>>> system.readHelpFile('ramanujansSum')
 >>> .oeisReferences
-[
-	'A000125'
-	'A000127'
-	'A000262'
-	'A000332'
-	'A000389'
-	'A000579'
-	'A000984'
-	'A001405'
-	'A002260'
-	'A004736'
-	'A006004'
-	'A006542'
-	'A007318'
-	'A027907'
-	'A047996'
-	'A052509'
-	'A053121'
-	'A053202'
-	'A059678'
-	'A059797'
-	'A060693'
-	'A105278'
-	'A108838'
-	'A109449'
-	'A166556'
-	'A182309'
-]
+['A054532' 'A054533' 'A054534' 'A054535']
 ```
 
 * * *
