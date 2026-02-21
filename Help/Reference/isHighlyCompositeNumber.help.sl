@@ -4,7 +4,8 @@
 
 Determine if the integer _n_ is a highly composite number.
 
-The first few highly composite numbers:
+The first few highly composite numbers,
+OEIS [A002182](http://oeis.org/A002182):
 
 ```
 >>> 1:240.select(
@@ -48,7 +49,7 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/HighlyCompositeNumber.html),
 _OEIS_
 [1](http://oeis.org/A002182)
-[2](https://oeis.org/A002183),
+[2](http://oeis.org/A002183),
 _W_
 [1](https://en.wikipedia.org/wiki/Highly_composite_number)
 

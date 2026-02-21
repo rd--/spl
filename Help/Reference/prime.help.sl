@@ -158,7 +158,8 @@ OEIS [A007504](https://oeis.org/A007504):
 ]
 ```
 
-Plot first fifty primes:
+Plot first fifty primes,
+OEIS [A000040](https://oeis.org/A000040):
 
 ~~~spl svg=A
 1:50.functionPlot(prime:/1)
@@ -366,6 +367,22 @@ OEIS [A007445](https://oeis.org/A007445):
 ~~~
 
 ![](sw/spl/Help/Image/prime-O.svg)
+
+Squares of primes (_e_),
+or products of pairs of consecutive primes (_o_),
+OEIS [A033476](https://oeis.org/A033476),
+also
+OEIS [A057602](https://oeis.org/A057602) without leading two:
+
+~~~spl svg=P
+let p = 1:25.prime;
+let q = p.partition(2, 1);
+let e = p ^ 2;
+let o = q.collect(product:/1);
+e.riffle(o).scatterPlot
+~~~
+
+![](sw/spl/Help/Image/prime-P.svg)
 
 * * *
 

@@ -115,6 +115,21 @@ true
 true
 ```
 
+Numbers _k_ such that _⌈√k_ divides _k_,
+OEIS [A087811](https://oeis.org/A087811):
+
+```
+>>> 1:70.select { :n |
+>>> 	n.divisible(n.sqrt.ceiling)
+>>> }
+[1 2 4 6 9 12 16 20 25 30 36 42 49 56 64]
+
+>>> [2 0 -2 1].linearRecurrence(
+>>> 	[1 2 4 6], 15
+>>> )
+[1 2 4 6 9 12 16 20 25 30 36 42 49 56 64]
+```
+
 Matrix plot of divisor table:
 
 ~~~spl svg=A
@@ -171,6 +186,48 @@ a.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/divisible-D.svg)
+
+Plot _a(n)_ the smallest integer not yet in _a_ that is divisible by all non-zero digits of _a(n-1)_,
+OEIS [A237851](https://oeis.org/A237851):
+
+~~~spl svg=E
+let a = Map { :n |
+	(n = 1).if {
+		1
+	} {
+		let b = a[n - 1];
+		1:Infinity.detect { :k |
+			a.includes(k).not & {
+				b.integerDigits
+				.select(isPositive:/1)
+				.unique
+				.allSatisfy { :x |
+					k.divisible(x)
+				}
+			}
+		}
+	}
+};
+a[1:200].scatterPlot
+~~~
+
+![](sw/spl/Help/Image/divisible-E.svg)
+
+Plot numbers that are divisible by each non-zero digit,
+OEIS [A002796](https://oeis.org/A002796):
+
+~~~spl svg=F
+1:500.select { :n |
+	n.integerDigits
+	.select(isPositive:/1)
+	.unique
+	.allSatisfy { :x |
+		n.divisible(x)
+	}
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/divisible-F.svg)
 
 * * *
 

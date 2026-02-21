@@ -91,6 +91,66 @@ OEIS [A003754](https://oeis.org/A003754):
 ]
 ```
 
+Plot number of occurrences of _00_ in the binary expansion of _n_,
+OEIS [A056973](http://oeis.org/A056973):
+
+~~~spl svg=A
+0:65.collect { :n |
+	n.binaryExpansion
+	.sequenceCount([0 0])
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/sequenceCount-A.svg)
+
+Plot number of occurrences of _01_ in the binary expansion of _n_,
+OEIS [A037800](http://oeis.org/A037800):
+
+~~~spl svg=B
+0:65.collect { :n |
+	n.binaryExpansion
+	.sequenceCount([0 1])
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/sequenceCount-B.svg)
+
+Plot number of occurrences of _10_ in the binary expansion of _n_,
+OEIS [A033264](http://oeis.org/A033264):
+
+~~~spl svg=C
+0:65.collect { :n |
+	n.binaryExpansion
+	.sequenceCount([1 0])
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/sequenceCount-C.svg)
+
+Plot number of occurrences of _11_ in the binary expansion of _n_,
+OEIS [A014081](http://oeis.org/A014081):
+
+~~~spl svg=D
+0:65.collect { :n |
+	n.binaryExpansion
+	.sequenceCount([1 1])
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/sequenceCount-D.svg)
+
+Plot number of occurrences of _111_ in the binary expansion of _n_,
+OEIS [A014082](http://oeis.org/A014082):
+
+~~~spl svg=E
+0:150.collect { :n |
+	n.binaryExpansion
+	.sequenceCount([1 1])
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/sequenceCount-E.svg)
+
 * * *
 
 See also: count, sequencePosition

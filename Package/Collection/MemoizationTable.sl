@@ -1,4 +1,4 @@
-MemoizationTable : [Object] { | block:<Block> table |
+MemoizationTable : [Object, Iterable, Collection] { | block:<Block> table |
 
 	at { :self :key |
 		self.table.atIfAbsent(key) {
@@ -17,6 +17,14 @@ MemoizationTable : [Object] { | block:<Block> table |
 	atAllPath { :self :operand |
 		let [keys] = operand;
 		self.atAll(keys)
+	}
+
+	do { :self :aBlock:/1 |
+		self.table.do(aBlock:/1)
+	}
+
+	size { :self |
+		self.table.size
 	}
 
 }

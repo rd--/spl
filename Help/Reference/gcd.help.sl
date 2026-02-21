@@ -325,6 +325,40 @@ OEIS [A014491](https://oeis.org/A014491):
 
 ![](sw/spl/Help/Image/gcd-K.svg)
 
+Enumeration of rationals sorted by sum on components,
+numerators,
+OEIS [A182972](https://oeis.org/A182972):
+
+~~~spl svg=L
+4:35.collect { :n |
+	let k = (n - 1) // 2;
+	1:k.select { :i |
+		(i.gcd(n - 1) = 1)
+	}
+}.catenate.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/gcd-L.svg)
+
+Enumeration of rationals sorted by sum on components,
+denominators,
+OEIS [A182973](https://oeis.org/A182973):
+
+~~~spl svg=M
+4:35.collect { :n |
+	let k = (n - 1) // 2;
+	n - 1 - 1:k.select { :i |
+		(i.gcd(n - 1) = 1)
+	}
+}.catenate.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/gcd-M.svg)
+
+def A182973_gen(): # generator of terms
+    return (n-i for n in count(2) for i in range(1, 1+(n-1>>1)) if gcd(i, n-i)==1)
+
+
 * * *
 
 See also: ||, chineseRemainder, divisible, euclideanAlgorithm, extendedGcd, Fraction, isCoprime, isPrime, lcm

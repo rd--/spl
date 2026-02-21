@@ -26,6 +26,20 @@ The appended identifier is given by `uniqueId`.
 'x' ++ (system.uniqueId - 1).asString
 ```
 
+Plot unique digits used in _n_ in numerical order,
+OEIS [A180410](https://oeis.org/A180410):
+
+~~~spl svg=A
+1:150.collect { :n |
+	n.integerDigits
+	.unique
+	.sort
+	.fromDigits
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/unique-A.svg)
+
 * * *
 
 See also: ++, nub, sort, String, uniqueElements, uniqueId

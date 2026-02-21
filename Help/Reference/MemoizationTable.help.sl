@@ -68,6 +68,29 @@ OEIS [A002212](https://oeis.org/A002212):
 ]
 ```
 
+Redundant binary representation of _n_,
+OEIS [A089591](https://oeis.org/A089591):
+
+```
+>>> let a = Map { :n |
+>>> 	(n <= 1).if {
+>>> 		n
+>>> 	} {
+>>> 		let m = n // 2;
+>>> 		(n % 2 = 1).if {
+>>> 			10 * a[m] + 1
+>>> 		} {
+>>> 			10 * (a[m - 1] + 1)
+>>> 		}
+>>> 	}
+>>> };
+>>> a[0:17]
+[
+	0 1 10 11 20 101 110 111 120 201 210
+	1011 1020 1101 1110 1111 1120 1201
+]
+```
+
 * * *
 
 See also: Dictionary, Map, memoize

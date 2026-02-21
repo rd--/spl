@@ -14,7 +14,10 @@ OEIS [A000079](https://oeis.org/A000079):
 [1 2 4 8 16 32 64 128 256 512]
 ```
 
-List the first few _k_-smooth numbers for small _k_:
+List the first few _k_-smooth numbers for small _k_
+_k=3_ OEIS [A003586](https://oeis.org/A003586),
+_k=7_ OEIS [A002473](https://oeis.org/A002473),
+_k=11_ OEIS [A051038](https://oeis.org/A051038):
 
 ```
 >>> 1:24.select { :n |
@@ -33,7 +36,8 @@ List the first few _k_-smooth numbers for small _k_:
 [1 2 3 4 5 6 7 8 9 10 11 12 14]
 ```
 
-The 5-smooth numbers are also called regular numbers:
+The 5-smooth numbers are also called regular numbers,
+OEIS [A051037](https://oeis.org/A051037):
 
 ```
 >>> 1:60.select { :n |
@@ -57,7 +61,8 @@ There are 34 regular numbers between one and one hundred:
 34
 ```
 
-The 7-smooth numbers are also called humble numbers:
+The 7-smooth numbers are also called humble numbers,
+OEIS [A002473](https://oeis.org/A002473):
 
 ```
 >>> 1:99.select { :n |
@@ -82,7 +87,8 @@ The largest consecutive 19-smooth numbers:
 [true, true]
 ```
 
-Plot sequence of regular numbers:
+Plot sequence of regular numbers,
+OEIS [A051037](https://oeis.org/A051037):
 
 ~~~spl svg=A
 1:999.select { :n |

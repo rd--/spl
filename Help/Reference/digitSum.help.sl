@@ -34,7 +34,17 @@ Use a base larger than ten:
 32
 ```
 
-First few terms for _b_ in _(2,10)_:
+First few terms for _b_ in _(2,10)_, respectively
+OEIS
+_b=2_ [A000120](https://oeis.org/A000120),
+_b=3_ [A053735](https://oeis.org/A053735),
+_b=4_ [A053737](https://oeis.org/A053737),
+_b=5_ [A053824](https://oeis.org/A053824),
+_b=6_ [A053827](https://oeis.org/A053827),
+_b=7_ [A053828](https://oeis.org/A053828),
+_b=8_ [A053829](https://oeis.org/A053829),
+_b=9_ [A053830](https://oeis.org/A053830),
+_b=10_ [A007953](https://oeis.org/A007953):
 
 ```
 >>> 2:10.collect { :b |
@@ -75,6 +85,17 @@ OEIS [A000120](http://oeis.org/A000120):
 ~~~
 
 ![](sw/spl/Help/Image/digitSum-B.svg)
+
+Scatter plot of first few terms where _b=8_,
+OEIS [A053829](http://oeis.org/A053829):
+
+~~~spl svg=C
+1:250.collect { :n |
+	n.digitSum(8)
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/digitSum-C.svg)
 
 * * *
 
