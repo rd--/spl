@@ -112,6 +112,25 @@ Plot the first few squareful numbers:
 
 ![](sw/spl/Help/Image/isSquareFree-B.svg)
 
+Least square-free _m>n_ with _gcd(m,n)>1_,
+OEIS [A071888](https://oeis.org/A071888):
+
+~~~spl svg=C
+2:85.collect { :n |
+	let m = n + 1;
+	{
+		m.isSquareFree & {
+			m.gcd(n) > 1
+		}
+	}.whileFalse {
+		m := m + 1
+	};
+	m
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/isSquareFree-C.svg)
+
 * * *
 
 See also: factorInteger, factor, isCubeFree, isDuplicateFree, isPerfectSquare, isPowerfulNumber, isPrime, isPrimePower, moebiusMu, primeOmega, primeNu

@@ -242,6 +242,21 @@ OEIS [A003106](https://oeis.org/A003106):
 [0 1 1 1 1 2 2 3 3 4 4 6 6 8 9 11 12 15 16]
 ```
 
+Number of partitions of _n_ into at most three parts,
+OEIS [A001399](https://oeis.org/A001399):
+
+```
+>>> 0:16.collect { :n |
+>>> 	n.integerPartitions(1:3).size
+>>> }
+[1 1 2 3 4 5 7 8 10 12 14 16 19 21 24 27 30]
+
+>>> [1 1 0 -1 -1 1].linearRecurrence(
+>>> 	[1 1 2 3 4 5], 17
+>>> )
+[1 1 2 3 4 5 7 8 10 12 14 16 19 21 24 27 30]
+```
+
 Partitions in graded reflected colexicographic order (Abramowitz and Stegun),
 OEIS [A036036](https://oeis.org/A036036):
 

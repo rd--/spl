@@ -48,6 +48,11 @@ OEIS [A002620](https://oeis.org/A002620):
 0:29.collect { :n |
 	(n.square / 4).floor
 }
+
+>>> [2 0 -2 1].linearRecurrence(
+>>> 	[0 0 1 2], 16
+>>> )
+[0 0 1 2 4 6 9 12 16 20 25 30 36 42 49 56]
 ```
 
 * * *

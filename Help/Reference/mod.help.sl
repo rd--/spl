@@ -685,6 +685,25 @@ OEIS [A130487](https://oeis.org/A130487):
 
 ![](sw/spl/Help/Image/mod-S.svg)
 
+Multiplicative suborder of _2_ and _2n+1_,
+OEIS [A003558](https://oeis.org/A003558):
+
+~~~spl svg=T
+0:200.collect { :n |
+	let m = 1;
+	{
+		let a = 2 * n;
+		let b = (2 ^ m) % (a + 1);
+		b = 1 | { b = a }
+	}.whileFalse {
+		m := m + 1
+	};
+	m
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/mod-T.svg)
+
 * * *
 
 See also: %, /, //, \\, commonResidue, minimalResidue, positiveResidue, quotient, remainder

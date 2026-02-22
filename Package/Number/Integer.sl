@@ -1046,6 +1046,7 @@
 
 	multiplicativeOrder { :k :n :r |
 		k := k.asLargeInteger;
+		r := r % n;
 		(n = 1).if {
 			1
 		} {
@@ -1069,6 +1070,22 @@
 
 	multiplicativePersistence { :x :b |
 		x.digitalRootSet(b, product:/1).second.size - 1
+	}
+
+	multiplicativeSuborder { :a :n |
+		(
+			n > 1 & {
+				a.gcd(n) = 1
+			}
+		).if {
+			let m = n - 1;
+			1L:Infinity.detect { :e |
+				let r = (a ^ e) % n;
+				r = 1 | { r = m }
+			}
+		} {
+			0
+		}
 	}
 
 	numberDigit { :x :n :b |

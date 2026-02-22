@@ -182,6 +182,36 @@ let k = { :i :j |
 
 ![](sw/spl/Help/Image/isEven-D.svg)
 
+Hermite’s problem,
+OEIS [A069981](https://oeis.org/A069981):
+
+~~~spl svg=E
+1:35.collect { :n |
+	n.isEven.if {
+		((n + 8) * (n - 2)) / 8
+	} {
+		(n ^ 2 - 1) / 8
+	}
+}.stepPlot
+~~~
+
+![](sw/spl/Help/Image/isEven-E.svg)
+
+Alcuin’s sequence,
+OEIS [A005044](https://oeis.org/A005044):
+
+~~~spl svg=F
+1:35.collect { :n |
+	n.isEven.if {
+		n ^ 2
+	} {
+		((n + 3) ^ 2)
+	} / 48
+}.round.stepPlot
+~~~
+
+![](sw/spl/Help/Image/isEven-F.svg)
+
 * * *
 
 See also: divisible, isInteger, isOdd

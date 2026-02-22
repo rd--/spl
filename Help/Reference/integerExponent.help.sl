@@ -340,6 +340,43 @@ OEIS [A220466](https://oeis.org/A220466):
 
 ![](sw/spl/Help/Image/integerExponent-L.svg)
 
+Walk a rook along a square spiral,
+OEIS [A308896](https://oeis.org/A308896):
+
+~~~spl svg=M
+let k = 6;
+let e = (2 * k + 1) ^ 2;
+let h = List(2 * k + 1, 0L);
+let v = List(2 * k + 1, 0L);
+let z = (k + 1) * 1J1;
+let n = 0;
+let dir = 1;
+let w = 1;
+let a = [];
+{ :break:/0 |
+	1.toDo(2) { :t |
+		1.toDo(w) { :i |
+			let [p, q] = z.realImaginary;
+			let u = 1 + v[p].bitOr(h[q]);
+			let x = u.integerExponent(2);
+			n := n + 1;
+			v[p] := v[p] + (2 ^ x);
+			h[q] := h[q] + (2 ^ x);
+			a.add(x);
+			(n = e).ifTrue {
+				break()
+			};
+			z := z + dir
+		};
+		dir := dir * 0J1
+	};
+	w := w + 1
+}.repeatForeverWithBreak;
+a.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/integerExponent-M.svg)
+
 * * *
 
 See also: ^, digitCount, factorInteger, integerDigits, log2, log10, rulerFunction

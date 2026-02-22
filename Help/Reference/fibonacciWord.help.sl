@@ -141,6 +141,52 @@ Plot Fourier transform of the tenth Fibonacci word:
 
 ![](sw/spl/Help/Image/fibonacciWord-C.svg)
 
+Adjacent terms interpreted as binary values,
+OEIS [A143667](https://oeis.org/A143667):
+
+~~~spl svg=D
+1:115.collect(fibonacciWord:/1)
+.partition(2, 2)
+.collect { :d |
+	d.fromDigits(2)
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/fibonacciWord-D.svg)
+
+Direct calculation of terms,
+OEIS [A143667](https://oeis.org/A143667):
+
+~~~spl svg=E
+let a = 1 / 1.goldenRatio;
+1:57.collect { :n |
+	let m = 2 * n;
+	3 - (
+		(a * m).floor
+		-
+		(2 * (a * (m - 1)).floor)
+		+
+		(a * (m + 1)).floor
+	)
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/fibonacciWord-E.svg)
+
+Infinite Fibonacci word fractal sequence,
+OEIS [A156596](https://oeis.org/A156596):
+
+~~~spl svg=F
+let m = [0: [1 2], 1: [1 0], 2: [0 2]];
+1:95.collect(fibonacciWord:/1)
+.partition(2, 2)
+.collect { :d |
+	m[d.fromDigits(2)]
+}.catenate.discretePlot
+~~~
+
+![](sw/spl/Help/Image/fibonacciWord-F.svg)
+
 * * *
 
 See also: fibonacci, locallyCatenativeSequence, rabbitConstant, substitutionSystem, tribonacciWord

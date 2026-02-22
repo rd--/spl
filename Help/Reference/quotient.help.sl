@@ -132,7 +132,18 @@ OEIS [A004396](https://oeis.org/A004396):
 ]
 ```
 
-Plot the sequence of quotients:
+A Molien series,
+OEIS [A008795](https://oeis.org/A008795):
+
+```
+>>> 0:17.collect { :n |
+>>> 	((n // 2) + 2 - (n % 2))
+>>> 	.binomial(2)
+>>> }
+[1 0 3 1 6 3 10 6 15 10 21 15 28 21 36]
+```
+
+Plot a sequence of quotients:
 
 ~~~spl svg=A
 1:50.functionPlot { :n |

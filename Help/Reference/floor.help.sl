@@ -156,11 +156,33 @@ OEIS [A010766](https://oeis.org/A010766):
 
 ![](sw/spl/Help/Image/floor-F.svg)
 
-1:23.collect { :n |
-	let c = floor(n.! / (2 * floor(n / 2).!));
-	c.postLine;
-	nextPrime(c) - c
-}
+Maximum wins for longest winning streak,
+OEIS [A182210](https://oeis.org/A182210):
+
+~~~spl svg=G
+1:17.triangularArray { :n :k |
+	k * (n + 1) / (k + 1)
+}.floor.catenate.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/floor-G.svg)
+
+Number of ones in twos complement representation of _-n_,
+OEIS [A008687](https://oeis.org/A008687):
+
+~~~spl svg=H
+let a = Map { :n |
+	(n < 2).if {
+		n
+	} {
+		let m = n % 2;
+		m + a[m + (n / 2).floor]
+	}
+};
+a[0:115].scatterPlot
+~~~
+
+![](sw/spl/Help/Image/floor-H.svg)
 
 Where supported `floor` is displayed as ⌊.
 

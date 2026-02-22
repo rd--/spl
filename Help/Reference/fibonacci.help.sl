@@ -96,6 +96,17 @@ Odd terms from _-1_:
 [1 1 2 5 13 34 89 233]
 ```
 
+Non-Fibonacci numbers,
+OEIS [A001690](https://oeis.org/A001690):
+
+```
+>>> let n = 8;
+>>> [1 .. n.fibonacci].complement(
+>>> 	[1 .. n].fibonacci
+>>> )
+[4 6 7 9 10 11 12 14 15 16 17 18 19 20]
+```
+
 Fibonomial coefficients,
 OEIS [A010048](https://oeis.org/A010048):
 

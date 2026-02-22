@@ -111,6 +111,17 @@ OEIS [A001057](https://oeis.org/A001057):
 
 ![](sw/spl/Help/Image/ceiling-B.svg)
 
+Shortest representation of _-n_ in twos-complement format,
+OEIS [A010078](https://oeis.org/A010078):
+
+~~~spl svg=C
+1:85.collect { :n |
+	2 ^ (n.log2 + 1).ceiling - n
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/ceiling-C.svg)
+
 Where supported `ceiling` is displayed as ⌈.
 
 * * *

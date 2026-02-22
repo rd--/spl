@@ -51,6 +51,39 @@ Compute using integers:
 3
 ```
 
+Generalised multiplicative order:
+
+```
+>>> 5.multiplicativeOrder(7, [3 11])
+2
+```
+
+Find all primitive roots modulo 43:
+
+```
+>>> let m = 43;
+>>> let o = m.eulerPhi;
+>>> 1:m.select { :n |
+>>> 	n.multiplicativeOrder(m) = o
+>>> }
+[3 5 12 18 19 20 26 28 29 30 33 34]
+```
+
+Multiplicative suborder:
+
+```
+>>> 3:50:2.collect { :n |
+>>> 	2 ^ 2.multiplicativeOrder(
+>>> 		n, [1 -1]
+>>> 	) - 1
+>>> }
+[
+	1 3 7 7 31 63 15 15 511 63 2047 1023
+	511 16383 31 31 4095 262143 4095
+	1023 127 4095 8388607 2097151
+]
+```
+
 For nonzero integers _k_ and _n_, `multiplicativeOrder` exists if and only if _k_ and _n_ are coprime:
 
 ```
@@ -353,7 +386,7 @@ OEIS [A014664](https://oeis.org/A014664):
 
 ![](sw/spl/Help/Image/multiplicativeOrder-G.svg)
 
-Plot order of two modulo the _2n+1_,
+Plot order of two modulo _2n+1_,
 OEIS [A002326](https://oeis.org/A002326):
 
 ~~~spl svg=H
@@ -363,6 +396,27 @@ OEIS [A002326](https://oeis.org/A002326):
 ~~~
 
 ![](sw/spl/Help/Image/multiplicativeOrder-H.svg)
+
+Penny flipping sequence,
+OEIS [A089645](https://oeis.org/A089645):
+
+~~~spl svg=I
+2:115.collect { :n |
+	let m = 2 * n + 1;
+	let b = 2.multiplicativeOrder(m);
+	let c = 2.multiplicativeOrder(
+		m,
+		[-1 1]
+	);
+	(b = c).if {
+		n * b
+	} {
+		n * b / 2 - 1
+	}
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/multiplicativeOrder-I.svg)
 
 * * *
 

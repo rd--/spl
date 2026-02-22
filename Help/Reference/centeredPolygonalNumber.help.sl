@@ -104,6 +104,24 @@ OEIS [A069131](https://oeis.org/A069131):
 ]
 ```
 
+Centered icosagonal numbers,
+OEIS [A069133](https://oeis.org/A069133):
+
+```
+>>> 1:17.collect { :n |
+>>> 	20.centeredPolygonalNumber(n)
+>>> }
+[
+	   1   21   61  121  201
+	 301  421  561  721  901
+	1101 1321 1561 1821 2101
+	2401 2721
+]
+
+>>> [3 -3 1].linearRecurrence([1 21 61], 9)
+[1 21 61 121 201 301 421 561 721]
+```
+
 * * *
 
 See also: tetrahedralNumber, triangularNumber

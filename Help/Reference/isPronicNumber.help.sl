@@ -4,7 +4,8 @@
 
 Answer `true` if the integer _n_ is a pronic number, else `false`.
 
-The first few pronic numbers:
+The first few pronic numbers,
+OEIS [A002378](https://oeis.org/A002378):
 
 ```
 >>> 0:420.select(isPronicNumber:/1)

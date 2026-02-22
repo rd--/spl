@@ -423,6 +423,26 @@ OEIS [A212212](https://oeis.org/A212212):
 
 ![](sw/spl/Help/Image/primePi-P.svg)
 
+The Jacob’s Ladder sequence,
+partial sums of _-1^π(n)_,
+OEIS [A065358](https://oeis.org/A065358):
+
+~~~spl svg=Q
+let p = 1:65.primePi;
+(-1 ^ p).prefixSum.discretePlot
+~~~
+
+![](sw/spl/Help/Image/primePi-Q.svg)
+
+_-1^π(n)_,
+OEIS [A065357](https://oeis.org/A065357):
+
+~~~spl svg=R
+(-1 ^ 0:65.primePi).discretePlot
+~~~
+
+![](sw/spl/Help/Image/primePi-R.svg)
+
 * * *
 
 See also: eulerPhi, nextPrime, primesList, primesUpTo, sieveOfEratosthenes
