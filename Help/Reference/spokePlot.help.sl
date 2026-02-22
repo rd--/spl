@@ -46,7 +46,7 @@ each a sequence of values in radians.
 
 ~~~spl svg=C
 [
-	  4 105 72 105 321 93 349 64 153 14;
+	4   105 72 105 321 93 349 64 153 14;
 	110  85 86  52 224 20 100 17  45  1
 ].degree.spokePlot
 ~~~

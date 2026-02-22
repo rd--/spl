@@ -1455,7 +1455,7 @@
 				let uOld = u;
 				u := (u2 * v) + (u * v2);
 				(u % 2 = 0).ifFalse {
-					 u := u + n
+					u := u + n
 				};
 				u := (u // 2) % n;
 				v := (v2 * v) + (u2 * uOld * d);

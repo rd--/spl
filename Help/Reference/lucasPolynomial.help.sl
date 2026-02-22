@@ -10,7 +10,7 @@ OEIS [A114525](https://oeis.org/A114525):
 ```
 >>> 0:10.collect { :n |
 >>> 	n.lucasPolynomial
->>>	.coefficientList
+>>> 	.coefficientList
 >>> }
 [
 	2;

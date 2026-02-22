@@ -225,7 +225,7 @@ OEIS [A230504](https://oeis.org/A230504):
 
 ~~~spl svg=D
 1:75.collect { :m |
- 	m.rowlandsSequence(13)
+	m.rowlandsSequence(13)
 	.detect(isPrime:/1)
 }.stepPlot
 ~~~
@@ -237,7 +237,7 @@ OEIS [A230504](https://oeis.org/A230504):
 
 ~~~spl svg=E
 1:100.collect { :m |
- 	m.rowlandsSequence(13)
+	m.rowlandsSequence(13)
 	.detect(isPrime:/1)
 }.scatterPlot
 ~~~
