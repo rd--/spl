@@ -33,6 +33,19 @@ Threads over lists:
 [3 7]
 ```
 
+Largest odd divisor of _n!_,
+OEIS [A049606](https://oeis.org/A049606):
+
+```
+>>> let n = 0:16;
+>>> ((2L ^ n) / n.!).denominator
+[
+	1 1 1 3 3 15 45 315 315 2835 14175
+	155925 467775 6081075 42567525
+	638512875 638512875
+]
+```
+
 Wavelengths in hydrogen spectrum are given by Rydberg’s formula,
 OEIS [A061036](https://oeis.org/A061036):
 

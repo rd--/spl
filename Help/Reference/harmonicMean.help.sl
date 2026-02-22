@@ -33,6 +33,9 @@ Harmonic mean of the first thirty integers:
 ```
 >>> 1:30.harmonicMean
 7.5094
+
+>>> 1L:30.harmonicMean
+69872686884000/9304682830147
 ```
 
 * * *

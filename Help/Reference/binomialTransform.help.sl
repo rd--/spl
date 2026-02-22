@@ -50,7 +50,10 @@ and [A052467](https://oeis.org/A052467):
 [0 1 3 6 11 20 37 70 134 255 476 869]
 ```
 
-Powers of two,
+The characteristic function of odd numbers,
+alternately _0,1_,
+OEIS [A000035](https://oeis.org/A000035),
+transforms to the powers of two,
 OEIS [A000079](https://oeis.org/A000079):
 
 ```

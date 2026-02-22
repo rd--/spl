@@ -267,7 +267,7 @@
 	}
 
 	divisors { :self |
-		1.to(self).select { :each |
+		self.one.to(self).select { :each |
 			self \\ each = 0
 		}
 	}

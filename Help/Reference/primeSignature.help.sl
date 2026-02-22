@@ -330,6 +330,19 @@ OEIS [A005361](https://oeis.org/A005361):
 
 ![](sw/spl/Help/Image/primeSignature-H.svg)
 
+Plot highest exponent in the prime factorization of the _n_-th central binomial coefficient,
+OEIS [A263922](https://oeis.org/A263922):
+
+~~~spl svg=I
+1:65.collect { :n |
+	(2 * n).binomial(n)
+	.primeSignature
+	.max
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/primeSignature-I.svg)
+
 * * *
 
 See also: factorInteger

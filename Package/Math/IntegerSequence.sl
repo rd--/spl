@@ -997,6 +997,74 @@
 		}
 	}
 
+	ulamSequence { :self :initialTerms |
+		let isUlam = { :n :h :u :r |
+			(h = 2).if {
+				false
+			} {
+				let hu = u[1];
+				let hr = r[1];
+				(hr <= hu).if {
+					h = 1
+				} {
+					(hr + hu > n).if {
+						r.removeFirst
+					} {
+						(hr + hu < n).if {
+							u.removeFirst
+						} {
+							h := h + 1;
+							r.removeFirst;
+							u.removeFirst
+						}
+					};
+					isUlam(n, h, u, r)
+				}
+			}
+		};
+		let u = initialTerms;
+		let r = initialTerms.reverse;
+		let n = 2;
+		{
+			u.size < self
+		}.whileTrue {
+			n := n + 1;
+			isUlam(n, 0, u.copy, r.copy).ifTrue {
+				u.addLast(n);
+				r.addFirst(n)
+			}
+		};
+		u
+	}
+
+	ulamSequence { :self |
+		self.ulamSequence([1, 2])
+	}
+
+	ulamSequenceUpTo { :n |
+		let v = List(n, 0);
+		let u = [];
+		v[1] := v[2] := 1;
+		1.toDo(n) { :i |
+			(v[i] = 1).ifTrue {
+				let j = 1;
+				let k = u.size;
+				let m = nil;
+				{
+					j <= k & {
+						m := i + u[j];
+						m <= n
+					}
+				}.whileTrue {
+					v[m] := v[m] + 1;
+					j := j + 1
+				};
+				u.add(i)
+			}
+		};
+		u
+	}
+
 	vanDerCorputNumber { :n :base |
 		let p = 0;
 		let q = 1;

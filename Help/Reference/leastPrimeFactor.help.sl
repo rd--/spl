@@ -77,6 +77,23 @@ Log-scale plot of the least prime factors of the integers from two up to one hun
 
 ![](sw/spl/Help/Image/leastPrimeFactor-A.svg)
 
+_a(n)=(p%4)*a(n/p)_,
+OEIS [A065338](https://oeis.org/A065338):
+
+~~~spl svg=B
+let a = Map { :n |
+	(n = 1).if {
+		1
+	} {
+		let p = n.leastPrimeFactor;
+		(p % 4) * a[n / p]
+	}
+};
+a[1:65].discretePlot
+~~~
+
+![](sw/spl/Help/Image/leastPrimeFactor-B.svg)
+
 * * *
 
 See also: factorInteger, leastPrimeFactorList, prime

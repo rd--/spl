@@ -270,10 +270,7 @@ OEIS [A212210](https://oeis.org/A212210):
 
 ~~~spl svg=G
 1:13.triangularArray { :n :k |
-	let a = n.primePi;
-	let b = k.primePi;
-	let c = (n + k).primePi;
-	a + b - c
+	([n, k, n + k].primePi * [1 1 -1]).sum
 }.catenate.stepPlot
 ~~~
 
@@ -386,6 +383,45 @@ OEIS [A156061](https://oeis.org/A156061):
 ~~~
 
 ![](sw/spl/Help/Image/primePi-M.svg)
+
+_π(n)+π(k)-π(n+k)_,
+by antidiagonals,
+counting from two,
+OEIS [A212213](https://oeis.org/A212213):
+
+~~~spl svg=N
+2:13.antidiagonalArray { :n :k |
+	([n, k, n + k].primePi * [1 1 -1]).sum
+}.catenate.discretePlot
+~~~
+
+![](sw/spl/Help/Image/primePi-N.svg)
+
+_π(n)+π(k)-π(n+k)_,
+triangular,
+counting from two,
+OEIS [A212211](https://oeis.org/A212211):
+
+~~~spl svg=O
+2:13.triangularArray { :n :k |
+	([n, k, n + k].primePi * [1 1 -1]).sum
+}.catenate.discretePlot
+~~~
+
+![](sw/spl/Help/Image/primePi-O.svg)
+
+_π(n)+π(k)-π(n+k)_,
+by antidiagonals,
+counting from one,
+OEIS [A212212](https://oeis.org/A212212):
+
+~~~spl svg=P
+1:13.antidiagonalArray { :n :k |
+	([n, k, n + k].primePi * [1 1 -1]).sum
+}.catenate.discretePlot
+~~~
+
+![](sw/spl/Help/Image/primePi-P.svg)
 
 * * *
 

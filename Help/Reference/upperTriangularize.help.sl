@@ -1,9 +1,9 @@
 # upperTriangularize
 
-- _upperTriangularize(aMatrix, anInteger=0)_
+- _upperTriangularize(m, n=0)_
 
-Set the _anInteger_-th lower triangle of _aMatrix_ to `zero`.
-Answer _aMatrix_.
+Set the _n_-th lower triangle of the matrix _m_ to `zero`.
+Answer _m_.
 
 Upper triangular part of a 3×3 matrix:
 
@@ -64,6 +64,8 @@ Upper triangular part of a 4×3 matrix:
 * * *
 
 See also: diagonal, isUpperTriangularMatrix, lowerTriangularize, luDecomposition
+
+Guides: Matrix Functions
 
 References:
 _Mathematica_

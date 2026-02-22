@@ -582,6 +582,15 @@
 
 +Range {
 
+	antidiagonalArray { :self :f:/2 |
+		let a = self[1];
+		self.collect { :i |
+			a:i.collect { :j |
+				f(j, i - j + a)
+			}
+		}
+	}
+
 	triangularArrayDo { :self :aBlock:/2 :k |
 		let a = self[1];
 		self.do { :n |

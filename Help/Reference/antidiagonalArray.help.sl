@@ -7,7 +7,7 @@ Answer the first _n_ rows of the triangular array given by the falling diagonals
 Wythoff array in (falling) antidiagonals:
 
 ```
->>> 8.antidiagonalArray(wythoffArray:/2)
+>>> 1:8.antidiagonalArray(wythoffArray:/2)
 [
 	1;
 	2 4;
@@ -23,7 +23,7 @@ Wythoff array in (falling) antidiagonals:
 Indices:
 
 ```
->>> 6.antidiagonalArray { :i :j |
+>>> 1:6.antidiagonalArray { :i :j |
 >>> 	[i, j]
 >>> }
 [
@@ -34,13 +34,23 @@ Indices:
 	1 5; 2 4; 3 3; 4 2; 5 1:;
 	1 6; 2 5; 3 4; 4 3; 5 2; 6 1
 ]
+
+>>> 0:3.antidiagonalArray { :i :j |
+>>> 	[i, j]
+>>> }
+[
+	0 0:;
+	0 1; 1 0:;
+	0 2; 1 1; 2 0:;
+	0 3; 1 2; 2 1; 3 0
+]
 ```
 
 Plot table _n-k_ read by upwards antidiagonals,
 OEIS [A114327](https://oeis.org/A114327):
 
 ~~~spl svg=A
-11.antidiagonalArray(-.swap)
+1:11.antidiagonalArray(-.swap)
 .catenate
 .discretePlot
 ~~~
@@ -51,7 +61,7 @@ Plot table _|n-k|_ read by upwards antidiagonals,
 OEIS [A049581](https://oeis.org/A049581):
 
 ~~~spl svg=B
-9.antidiagonalArray { :n :k |
+1:9.antidiagonalArray { :n :k |
 	(n - k).abs
 }.catenate.discretePlot
 ~~~

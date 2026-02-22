@@ -324,6 +324,22 @@ OEIS [A064614](https://oeis.org/A064614):
 
 ![](sw/spl/Help/Image/integerExponent-K.svg)
 
+A sequence related to the ruler sequence _r_,
+where _a(2n)=4a(n)-2^r(n)_,
+OEIS [A220466](https://oeis.org/A220466):
+
+~~~spl svg=L
+1:115.collect { :n |
+	let p = n.integerExponent(2);
+	let m = (n / (2 ^ p) + 1) / 2;
+	let a = (4 ^ p) * (m - 1);
+	let b = (2 ^ (p - 1)) * (1 + (2 ^ p));
+	a + b
+}.log.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/integerExponent-L.svg)
+
 * * *
 
 See also: ^, digitCount, factorInteger, integerDigits, log2, log10, rulerFunction

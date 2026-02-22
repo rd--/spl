@@ -759,6 +759,31 @@ OEIS [A001591](https://oeis.org/A001591):
 ]
 ```
 
+The two-Stöhr sequence,
+a zero-additive sequence,
+OEIS [A033627](https://oeis.org/A033627):
+
+```
+>>> [2 -1].linearRecurrence([1 2 4 7], 15)
+[1 2 4 7 10 13 16 19 22 25 28 31 34 37 40]
+
+>>> [1 2] ++ 4:40:3
+[1 2 4 7 10 13 16 19 22 25 28 31 34 37 40]
+```
+
+The three-Stöhr sequence,
+OEIS [A026474](https://oeis.org/A026474):
+
+```
+>>> [2 -1].linearRecurrence(
+>>> 	[1 2 4 8 15], 10
+>>> )
+[1 2 4 8 15 22 29 36 43 50 57 64 71 78 85]
+
+>>> [1 2 4 8] ++ 15:85:7
+[1 2 4 8 15 22 29 36 43 50 57 64 71 78 85]
+```
+
 Draw spiral:
 
 ~~~spl svg=A
@@ -809,7 +834,8 @@ OEIS [A051793](https://oeis.org/A051793):
 
 ![](sw/spl/Help/Image/linearRecurrence-D.svg)
 
-Lucas _U(2,2)_ sequence,
+Expansion of exponential generating function _sin(x)*exp(x)_,
+Also Lucas _U(2,2)_ sequence,
 OEIS [A009545](https://oeis.org/A009545):
 
 ~~~spl svg=E
@@ -819,7 +845,7 @@ linearRecurrence([2 -2], [0 1], 110)
 
 ![](sw/spl/Help/Image/linearRecurrence-E.svg)
 
-Expansion of _cos(x)/exp(x)_,
+Expansion of exponential generating function _cos(x)/exp(x)_,
 OEIS [A009116](https://oeis.org/A009116):
 
 ~~~spl svg=F

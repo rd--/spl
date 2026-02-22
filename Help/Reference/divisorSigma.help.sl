@@ -292,6 +292,16 @@ OEIS [A005238](https://oeis.org/A005238):
 ]
 ```
 
+_a(n)=σ(a(n-1))_
+OEIS [A007497](https://oeis.org/A007497):
+
+```
+>>> { :n |
+>>> 	1.divisorSigma(n)
+>>> }.nestList(2, 11)
+[2 3 4 7 8 15 24 60 168 480 1512 4800]
+```
+
 Plot divisor function _σ₀(n)_ up to _n=100_,
 OEIS [A000005](https://oeis.org/A000005):
 

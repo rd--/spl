@@ -234,6 +234,25 @@ OEIS [A057168](https://oeis.org/A057168):
 
 ![](sw/spl/Help/Image/bitAnd-J.svg)
 
+Shifts left under _and_-convolution with itself,
+OEIS [A007461](https://oeis.org/A007461):
+
+~~~spl svg=K
+let a = Map { :n |
+	(n < 2).if {
+		1
+	} {
+		let m = n - 1;
+		0:m.sum { :k |
+			bitAnd(a[k], a[n - k -1])
+		}
+	}
+};
+a[0:75].discretePlot
+~~~
+
+![](sw/spl/Help/Image/bitAnd-K.svg)
+
 * * *
 
 See also: &, bitNot, bitOr, bitXor

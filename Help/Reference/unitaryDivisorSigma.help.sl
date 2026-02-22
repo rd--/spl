@@ -27,7 +27,7 @@ OEIS [A034444](https://oeis.org/A034444):
 ```
 
 First few terms where _k=1_,
-OEIS [A068068](https://oeis.org/A068068):
+OEIS [A034448](https://oeis.org/A034448):
 
 ```
 >>> 1:30.collect { :n |

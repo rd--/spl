@@ -4,6 +4,9 @@
 
 Answer a `List` of the first _n_ Pell numbers:
 
+First few terms,
+OEIS [A000129](https://oeis.org/A000129):
+
 ```
 >>> 16.pellSequence
 [

@@ -63,6 +63,17 @@ Evaluate at specific _x_:
 ]
 ```
 
+Expansion of exponential generating function _cos(x)/exp(x)_,
+OEIS [A009116](https://oeis.org/A009116):
+
+```
+>>> let x = -1 / 2.sqrt;
+>>> 0:15.collect { :n |
+>>> 	2 ^ (n / 2) * n.chebyshevT(x)
+>>> }
+[1 -1 0 2 -4 4 0 -8 16 -16 0 32 -64 64 0 -128]
+```
+
 Plot the fifth degree polynomial over a subset of the reals:
 
 ~~~spl svg=A

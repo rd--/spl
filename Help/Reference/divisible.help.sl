@@ -229,6 +229,24 @@ OEIS [A002796](https://oeis.org/A002796):
 
 ![](sw/spl/Help/Image/divisible-F.svg)
 
+Sum previous elements that divide _n_,
+OEIS [A269347](https://oeis.org/A269347):
+
+~~~spl svg=G
+let a = [1];
+2:55.do { :n |
+	let m = n - 1;
+	a.add(
+		1:m.select { :i |
+			n.divisible(a[i])
+		}.sum
+	)
+};
+a.log.discretePlot
+~~~
+
+![](sw/spl/Help/Image/divisible-G.svg)
+
 * * *
 
 See also: %, divisors, even, gcd, mod, quotient, round

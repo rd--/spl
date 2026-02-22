@@ -65,7 +65,8 @@ OEIS [A000120](https://oeis.org/A000120):
 ]
 ```
 
-Log scatter plot of first few terms:
+Log scatter plot of first few terms,
+OEIS [A001316](https://oeis.org/A001316):
 
 ~~~spl svg=A
 99.gouldsSequence
@@ -75,7 +76,8 @@ Log scatter plot of first few terms:
 
 ![](sw/spl/Help/Image/gouldsSequence-A.svg)
 
-Scatter plot of first few terms of prefix sum:
+Scatter plot of first few terms of prefix sum,
+OEIS [A006046](https://oeis.org/A006046):
 
 ~~~spl svg=B
 96.gouldsSequence
@@ -84,6 +86,17 @@ Scatter plot of first few terms of prefix sum:
 ~~~
 
 ![](sw/spl/Help/Image/gouldsSequence-B.svg)
+
+Plot first differences,
+OEIS [A151930](https://oeis.org/A151930):
+
+~~~spl svg=C
+63.gouldsSequence
+.differences
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/gouldsSequence-C.svg)
 
 * * *
 

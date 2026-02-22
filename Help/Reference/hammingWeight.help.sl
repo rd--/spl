@@ -20,7 +20,7 @@ OEIS [A000120](https://oeis.org/A000120):
 ```
 
 Threads over lists,
-take modulo two it is the Thue-Morse sequence,
+taken modulo two it is the Thue-Morse sequence,
 OEIS [A010060](https://oeis.org/A010060):
 
 ```
@@ -28,7 +28,18 @@ OEIS [A010060](https://oeis.org/A010060):
 32.thueMorseSequence
 ```
 
-Scatter plot first few terms,
+Length of longest chain of subgroups in _Sn_,
+OEIS [A007238](https://oeis.org/A007238):
+
+```
+>>> 1:16.collect { :n |
+>>> 	let w = n.hammingWeight;
+>>> 	(3 * n / 2).ceiling - w - 1
+>>> }
+[0 1 2 4 5 6 7 10 11 12 13 15 16 17 18 22]
+```
+
+Scatter plot of the first few terms,
 OEIS [A000120](https://oeis.org/A000120):
 
 ~~~spl svg=A
@@ -183,6 +194,17 @@ OeisEntry('A287639').then { :e |
 ~~~
 
 ![](sw/spl/Help/Image/hammingWeight-M.svg)
+
+_2^(n-w(n))_,
+OEIS [A060818](https://oeis.org/A060818):
+
+~~~spl svg=N
+0:50.collect { :n |
+	2 ^ (n - n.hammingWeight)
+}.log.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/hammingWeight-N.svg)
 
 * * *
 
