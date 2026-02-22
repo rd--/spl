@@ -55,3 +55,13 @@ OEIS [A038569](http://oeis.org/A038569):
 ~~~
 
 ![](sw/spl/Help/Image/oeisFunction-D.svg)
+
+* * *
+
+See also: OeisEntry
+
+Guides: Integer Sequence Functions
+
+References:
+_OEIS_
+[1](https://oeis.org)

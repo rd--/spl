@@ -143,7 +143,7 @@ Plot parity:
 Plot the triangle of Stirling numbers of the second kind,
 OEIS [A008277](https://oeis.org/A008277):
 
-~~~spl svg=E
+~~~spl svg=C
 1:17.triangularArray(stirlingS2:/2)
 .catenate.log.scatterPlot
 ~~~

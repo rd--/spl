@@ -117,7 +117,7 @@ let t = 0:100.prefixSum;
 
 Plot three later terms,
 _n=63:65_,
-constrcuted using an iterative algorithm:
+constructed using an iterative algorithm:
 
 ~~~spl svg=C
 63:65.collect { :m |

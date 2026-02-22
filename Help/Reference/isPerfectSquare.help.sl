@@ -58,7 +58,7 @@ Plot characteristic function of squares,
 OEIS [A010052](https://oeis.org/A010052):
 
 ~~~spl svg=B
-0:81.collect(isSquare:/1)
+0:81.collect(isPerfectSquare:/1)
 .boole
 .discretePlot
 ~~~

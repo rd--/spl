@@ -72,7 +72,7 @@ and the denominator on the _y_-axis:
 
 Log plot first few terms:
 
-~~~spl svg=A
+~~~spl svg=C
 200.calkinWilfSequence.log.discretePlot
 ~~~
 

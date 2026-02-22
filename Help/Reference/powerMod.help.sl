@@ -288,7 +288,7 @@ OEIS [A195637](https://oeis.org/A195637):
 Smallest number _m>1_ such that _m^(p-1)-1_ is divisible by _p^2_,
 OEIS [A039678](https://oeis.org/A039678):
 
-~~~
+~~~spl svg=G
 1:150.collect { :n |
 	let p = n.prime;
 	2:Infinity.detect { :a |
