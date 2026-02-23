@@ -12,7 +12,7 @@ Answer the number of binary bits necessary to represent the integer _n_.
 7
 ```
 
-Equivalent to `floor` of `log` plus `one`:
+Equivalent to `floor` of `log` base two plus `one`:
 
 ```
 >>> 32.log(2).floor + 1
@@ -65,7 +65,7 @@ OEIS [A049802](https://oeis.org/A049802):
 
 * * *
 
-See also: integerLength
+See also: highBit, integerLength
 
 Guides: Bitwise Functions
 

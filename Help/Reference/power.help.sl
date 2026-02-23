@@ -15,6 +15,18 @@ At `SmallFloat`:
 4096
 ```
 
+Relation to `iterate` and `times`:
+
+```
+>>> 3 ^ 17
+129140163
+
+>>> let n = 3;
+>>> let m = 17;
+>>> { :x | x * n }.iterate(1, m)
+129140163
+```
+
 With negative exponent:
 
 ```

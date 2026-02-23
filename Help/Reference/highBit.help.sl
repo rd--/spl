@@ -1,8 +1,8 @@
 # highBit
 
-- _highBit(anInteger)_
+- _highBit(n)_
 
-Answer the number of bits required to represent _anInteger_.
+Answer the number of bits required to represent the integer _n_.
 
 ```
 >>> 32.highBit
@@ -48,7 +48,7 @@ Plot it:
 
 * * *
 
-See also: bitShiftRight, Binary, byteCount, highBitOfMagnitude, lowBit
+See also: bitLength, bitShiftRight, Binary, byteCount, highBitOfMagnitude, integerLength, lowBit
 
 Guides: Bitwise Functions
 

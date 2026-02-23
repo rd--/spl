@@ -54,8 +54,44 @@
 
 +@Integer {
 
+	nimPowerNaive { :n :k |
+		{ :x |
+			nimMultiplication(x, n)
+		}.iterate(1, k)
+	}
+
+	nimPower { :n :k |
+		let v = 1;
+		let p = n;
+		let i = 0;
+		{ :break:/0 |
+			(k.bitAt(i + 1) = 1).ifTrue {
+				k := k - (2 ^ i);
+				v := v.nimMultiplication(p)
+			};
+			(k = 0).ifTrue {
+				break()
+			};
+			p := p.nimMultiplication(p);
+			i := i + 1
+		}.repeatForeverWithBreak;
+		v
+	}
+
 	nimSquare { :x |
 		nimMultiplication(x, x)
+	}
+
+}
+
++List {
+
+	nimValue { :self |
+		let k = self.collect(bitLength:/1).max;
+		let b = self.collect { :each |
+			each.integerDigits(2, k)
+		};
+		(b.sum % 2).fromDigits(2)
 	}
 
 }

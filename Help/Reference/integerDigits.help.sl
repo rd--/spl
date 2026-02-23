@@ -1,8 +1,8 @@
 # integerDigits
 
-- _integerDigits(n, base=10, numDigits=auto)_
+- _integerDigits(n, b=10, k=auto)_
 
-Answer a `List` of the decimal digits in the integer _n_.
+Answer a `List` of the decimal digits in the integer _n_ in base _b_ to _k_ places.
 
 Find digits in base 10:
 
@@ -12,6 +12,9 @@ Find digits in base 10:
 
 >>> [5 8 1 2 7].fromDigits
 58127
+
+>>> 58127.integerLength
+5
 ```
 
 The sign is ignored:
@@ -780,7 +783,7 @@ OEIS [A030341](https://oeis.org/A030341):
 
 * * *
 
-See also: digitCount, fromDigits, hammingWeight
+See also: digitCount, fromDigits, hammingWeight, integerLength
 
 Guides: Bitwise Functions, Integer Functions, Integer Sequence Functions, Mathematical Functions
 

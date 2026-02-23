@@ -4,6 +4,7 @@
 
 Answer the Nim product of _x_ and _y_,
 written _x⊗y_.
+Nimber multiplication is commutative.
 
 Nim multiplication table,
 from `zero`:
@@ -22,6 +23,39 @@ from `zero`:
 	0  8 12  4 11  3  7 15 13  5;
 	0  9 14  7 15  6  1  8  5 12
 ]
+```
+
+Nim multiplication table of _2^n_:
+
+```
+>>> let i = 2 ^ 0:7;
+>>> nimMultiplication:/2.table(i, i)
+[
+	  1   2   4   8  16  32  64 128;
+	  2   3   8  12  32  48 128 192;
+	  4   8   6  11  64 128  96 176;
+	  8  12  11  13 128 192 176 208;
+	 16  32  64 128  24  44  75 141;
+	 32  48 128 192  44  52 141 198;
+	 64 128  96 176  75 141 103 185;
+	128 192 176 208 141 198 185 222
+]
+```
+
+Nim _n_-th power of seven and nine,
+OEIS [A335166](https://oeis.org/A335166) and
+OEIS [A335168](https://oeis.org/A335168):
+
+```
+>>> 0:15.collect { :n |
+>>> 	nimPower(7, n)
+>>> }
+[1 7 4 10 6 3 14 12 5 13 2 9 8 15 11 1]
+
+>>> 0:15.collect { :n |
+>>> 	nimPower(9, n)
+>>> }
+[1 9 12 10 11 2 14 4 15 13 3 7 8 5 6 1]
 ```
 
 Lower left triangle of Nim multiplication table,
@@ -63,7 +97,8 @@ OEIS [A006042](https://oeis.org/A006042):
 ]
 ```
 
-Nim product _2^n×2^n_
+Nim product _2^n×2^n_,
+the main diagonal of the _2^n_ multiplication table,
 OEIS [A006017](https://oeis.org/A006017):
 
 ```
@@ -317,6 +352,46 @@ nimMultiplication:/2.table(i, i)
 
 ![](sw/spl/Help/Image/nimMultiplication-U.svg)
 
+Key matrix of
+OEIS [A223541](https://oeis.org/A223541),
+OEIS [A223542](https://oeis.org/A223542):
+
+~~~spl svg=V
+let k = 2 ^ 5 - 1;
+let i = 2 ^ 1:k;
+let a = 0:k.antidiagonalArray { :m :n |
+	(2 ^ n).nimMultiplication(2 ^ m)
+};
+let u = a.catenate.unique;
+a.deepCollect { :x |
+	u.indexOf(x) - 1
+}.++.take(264).scatterPlot
+~~~
+
+![](sw/spl/Help/Image/nimMultiplication-V.svg)
+
+The Nim _k_-th power of _n_,
+array read by upward antidiagonals,
+OEIS [A335162](https://oeis.org/A335162):
+
+~~~spl svg=W
+0:17.antidiagonalArray(nimPower:/2)
+.collect(reverse:/1).catenate.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/nimMultiplication-W.svg)
+
+_n^n_ using Nim multiplication,
+OEIS [A059971](https://oeis.org/A059971):
+
+~~~spl svg=X
+0:87.collect { :n |
+	n.nimPower(n)
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/nimMultiplication-X.svg)
+
 * * *
 
 See also: bitXor, times
@@ -324,8 +399,8 @@ See also: bitXor, times
 Guides: Integer Functions
 
 References:
-_Mathematica_
-[1](https://mathworld.wolfram.com/x.html)
+_W_
+[1](https://en.wikipedia.org/wiki/Nimber)
 
 Further Reading: Conway 1976
 

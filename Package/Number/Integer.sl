@@ -136,6 +136,16 @@
 		n.integerDigits(2)
 	}
 
+	binaryExponents { :self |
+		let answer = [];
+		1.toDo(self.bitLength) { :index |
+			(self.bitAt(index) = 1).ifTrue {
+				answer.add(index - 1)
+			}
+		};
+		answer
+	}
+
 	bitLength { :self |
 		self.integerLength(2)
 	}
@@ -604,6 +614,10 @@
 			};
 			n
 		}
+	}
+
+	integerLength { :self |
+		self.integerLength(10)
 	}
 
 	integerReverse { :self :base :length |
