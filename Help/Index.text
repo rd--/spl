@@ -103,6 +103,8 @@ Guide/Indexing Functions.help.sl
 Guide/Integer Arithmetic.help.sl
 Guide/Integer Functions.help.sl
 Guide/Integer Sequence Functions.help.sl
+Guide/Integer Sequence Index.help.sl
+Guide/Integer Sequence Method List.help.sl
 Guide/Integer Sequences.help.sl
 Guide/Integer Syntax.help.sl
 Guide/Interpolation Functions.help.sl
@@ -226,6 +228,7 @@ Guide/Syntax Guides.help.sl
 Guide/Syntax Tokens.help.sl
 Guide/System Dictionary.help.sl
 Guide/System Functions.help.sl
+Guide/System Variable.help.sl
 Guide/Text Functions.help.sl
 Guide/Texture Programs.help.sl
 Guide/Time Series Functions.help.sl
@@ -642,6 +645,7 @@ Reference/binaryCombinations.help.sl
 Reference/binaryDetectIndex.help.sl
 Reference/binaryDistance.help.sl
 Reference/binaryExpansion.help.sl
+Reference/binaryExponents.help.sl
 Reference/Binary.help.sl
 Reference/BinaryLargeObject.help.sl
 Reference/binaryMatrix.help.sl
@@ -958,6 +962,7 @@ Reference/connellSequence.help.sl
 Reference/constantArray.help.sl
 Reference/constant.help.sl
 Reference/contactTriangle.help.sl
+Reference/containsOnly.help.sl
 Reference/containsPoint.help.sl
 Reference/contents.help.sl
 Reference/continentOutlines.help.sl
@@ -1185,7 +1190,9 @@ Reference/diracComb.help.sl
 Reference/diracDelta.help.sl
 Reference/DirectedEdge.help.sl
 Reference/directoryExists.help.sl
+Reference/dirichletConvolve.help.sl
 Reference/DirichletDistribution.help.sl
+Reference/dirichletInverse.help.sl
 Reference/dirichletKernel.help.sl
 Reference/dirichletWindow.help.sl
 Reference/discreteDelta.help.sl
@@ -1662,6 +1669,7 @@ Reference/gridGraph.help.sl
 Reference/griewankFunction.help.sl
 Reference/groupBy.help.sl
 Reference/gudermannian.help.sl
+Reference/guyShuffle.help.sl
 Reference/GVerb.help.sl
 Reference/hadamardMatrix.help.sl
 Reference/hadamardProduct.help.sl
@@ -2599,6 +2607,7 @@ Reference/median.help.sl
 Reference/Median.help.sl
 Reference/mediant.help.sl
 Reference/meisselMertensConstant.help.sl
+Reference/MemoizationTable.help.sl
 Reference/memoize.help.sl
 Reference/Menu.help.sl
 Reference/mercatorProjection.help.sl
@@ -2667,6 +2676,7 @@ Reference/mod.help.sl
 Reference/modificationTime.help.sl
 Reference/modularInverse.help.sl
 Reference/moebiusMu.help.sl
+Reference/moebiusTransform.help.sl
 Reference/moment.help.sl
 Reference/momentOfSymmetry.help.sl
 Reference/momentOfSymmetryPattern.help.sl
@@ -2697,6 +2707,7 @@ Reference/MultinormalDistribution.help.sl
 Reference/multipleRootGraph.help.sl
 Reference/multiplicativeDigitalRoot.help.sl
 Reference/multiplicativeOrder.help.sl
+Reference/multiplicativeSuborder.help.sl
 Reference/multiplyAdd.help.sl
 Reference/Multiset.help.sl
 Reference/multisetIntersection.help.sl
@@ -2773,6 +2784,8 @@ Reference/niceNumberAbove.help.sl
 Reference/niceNumberNear.help.sl
 Reference/nil.help.sl
 Reference/Nil.help.sl
+Reference/nimMultiplication.help.sl
+Reference/nimValue.help.sl
 Reference/ninePointCenter.help.sl
 Reference/ninePointCircle.help.sl
 Reference/nistData.help.sl
@@ -2840,6 +2853,7 @@ Reference/oddLimit.help.sl
 Reference/oddLimitSet.help.sl
 Reference/oddPart.help.sl
 Reference/OeisEntry.help.sl
+Reference/oeisFunction.help.sl
 Reference/OffsetOut.help.sl
 Reference/ofSize.help.sl
 Reference/oklabToXyz.help.sl
@@ -3217,6 +3231,7 @@ Reference/rahnSetClassTable.help.sl
 Reference/raisedCosinePulse.help.sl
 Reference/raisedToFraction.help.sl
 Reference/raisedToInteger.help.sl
+Reference/ramanujansSum.help.sl
 Reference/ramanujanTau.help.sl
 Reference/ramerDouglasPeuckerAlgorithm.help.sl
 Reference/ramp.help.sl
@@ -3264,6 +3279,7 @@ Reference/ranking.help.sl
 Reference/rastriginFunction.help.sl
 Reference/RatioMidi.help.sl
 Reference/rationalize.help.sl
+Reference/rationalUnrank.help.sl
 Reference/ratios.help.sl
 Reference/ratioToCents.help.sl
 Reference/RatioTuning.help.sl
@@ -3543,6 +3559,7 @@ Reference/SetResetFf.help.sl
 Reference/setToEnd.help.sl
 Reference/SfAcquire.help.sl
 Reference/Sfc32.help.sl
+Reference/shadowTransform.help.sl
 Reference/shallowCopy.help.sl
 Reference/shape.help.sl
 Reference/shapeIndices.help.sl
@@ -3700,6 +3717,7 @@ Reference/splPunctuationCharacterNameTable.help.sl
 Reference/splPunctuationCharacters.help.sl
 Reference/splPunctuationTokenName.help.sl
 Reference/splSimplify.help.sl
+Reference/spokePlot.help.sl
 Reference/Spring.help.sl
 Reference/SqrDif.help.sl
 Reference/sqrt.help.sl
@@ -4014,6 +4032,7 @@ Reference/typeReponsibility.help.sl
 Reference/typeResponsibility.help.sl
 Reference/UgenGraph.help.sl
 Reference/Ugen.help.sl
+Reference/ulamSequence.help.sl
 Reference/umbilicTorus.help.sl
 Reference/uncheckedAt.help.sl
 Reference/uncheckedAtPut.help.sl
