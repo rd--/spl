@@ -136,11 +136,11 @@ A Molien series,
 OEIS [A008795](https://oeis.org/A008795):
 
 ```
->>> 0:17.collect { :n |
+>>> 0:15.collect { :n |
 >>> 	((n // 2) + 2 - (n % 2))
 >>> 	.binomial(2)
 >>> }
-[1 0 3 1 6 3 10 6 15 10 21 15 28 21 36]
+[1 0 3 1 6 3 10 6 15 10 21 15 28 21 36 28]
 ```
 
 Plot a sequence of quotients:

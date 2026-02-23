@@ -30,7 +30,7 @@ The size of the vector is the binary weight, also called the Hamming weight:
 
 ```
 >>> 7.binaryExponents
-[0 1 1]
+[0 1 2]
 
 >>> 7.hammingWeight
 3

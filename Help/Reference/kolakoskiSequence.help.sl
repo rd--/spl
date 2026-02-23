@@ -25,7 +25,8 @@ OEIS [A000002](https://oeis.org/A000002):
 ]
 ```
 
-Plot first few terms:
+Plot first few terms,
+OEIS [A000002](https://oeis.org/A000002):
 
 ~~~spl svg=A
 37.kolakoskiSequence
@@ -33,6 +34,16 @@ Plot first few terms:
 ~~~
 
 ![](sw/spl/Help/Image/kolakoskiSequence-A.svg)
+
+Plot first few terms,
+offset to be `zero` and `one`:
+
+~~~spl svg=B
+(85.kolakoskiSequence - 1)
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/kolakoskiSequence-B.svg)
 
 * * *
 

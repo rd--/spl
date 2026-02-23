@@ -30,6 +30,17 @@ Replace every substring that has one or more occurrences of "ab" with "X":
 'XbXbaaXa'
 ```
 
+Replace any sequence of space or tab or newline characters with a single space:
+
+```
+>>> RegularExpression('[ \t\n]+', 'g')
+>>> .replaceAllWith(
+>>> 	'a  b\t\tc\n\nd\n\t e',
+>>> 	' '
+>>> )
+'a b c d e'
+```
+
 * * *
 
 See also: copyReplaceAllWith, replaceString, replaceStringAll, replaceWith
