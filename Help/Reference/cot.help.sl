@@ -81,6 +81,24 @@ Plot at integer points:
 
 ![](sw/spl/Help/Image/cot-B.png)
 
+_|⌊(cot(n))_,
+OEIS [A037448](https://oeis.org/A037448):
+
+~~~spl svg=C
+0:200.cot.floor.abs.log.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/cot-C.svg)
+
+_⌊(cot(n))_,
+OEIS [A037448](https://oeis.org/A037448):
+
+~~~spl svg=D
+0:200.cot.floor.logScale.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/cot-D.svg)
+
 * * *
 
 See also: cos, coth, csc, sin, tan

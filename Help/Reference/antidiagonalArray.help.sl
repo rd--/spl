@@ -1,8 +1,8 @@
 # antidiagonalArray
 
-- _antidiagonalArray(n, f:/2)_
+- _antidiagonalArray(n:m, f:/2)_
 
-Answer the first _n_ rows of the triangular array given by the falling diagonals of the matrix function _f_.
+Answer rows _n:m_ of the triangular array given by the falling diagonals of the matrix function _f_.
 
 Wythoff array in (falling) antidiagonals:
 

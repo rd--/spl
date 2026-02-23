@@ -80,6 +80,35 @@ let a = { :n |
 
 ![](sw/spl/Help/Image/which-A.svg)
 
+Earliest sequence with _a(a(n))=6n_,
+OEIS [A054786](https://oeis.org/A054786):
+
+~~~spl svg=B
+let a = Map { :n |
+	let m = n % 12;
+	[
+		{ [0 6].includes(m) } -> {
+			6 * a[n/6]
+		},
+		{ [1 3 8 10].includes(m) } -> {
+			n + 1
+		},
+		{ [2 4 9 11].includes(m) } -> {
+			6 * n - 6
+		},
+		{ m = 5 } -> {
+			n + 1
+		},
+		{ m = 7 } -> {
+			6 * n - 12
+		}
+	].which
+};
+a[1:115].scatterPlot
+~~~
+
+![](sw/spl/Help/Image/which-B.svg)
+
 * * *
 
 See also: caseOf, if

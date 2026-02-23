@@ -200,6 +200,8 @@
 	'Math-MathematicalConstant'
 	'Math-MatrixFunctions'
 	'Math-MixedRadix'
+	'Math-Nim'
+	'Math-NumericalFunctions'
 	'Math-NumericalFunctions'
 	'Math-OnlineEncyclopediaOfIntegerSequences'
 	'Math-OptimizationFunctions'

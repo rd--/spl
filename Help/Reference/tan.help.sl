@@ -58,13 +58,47 @@ Plot over a subset of the reals:
 Plot `tan` alongside a Padé approximation:
 
 ~~~spl svg=B
-(-0.5.pi -- 0.5.pi).functionPlot([
-	{ :x | x.tan.clip([-3 3]) },
-	{ :x | x.tanApproximation.clip([-3 3]) }
-])
+(-0.5.pi -- 0.5.pi).functionPlot(
+	[
+		{ :x |
+			x.tan.clip([-3 3])
+		},
+		{ :x |
+			x.tanApproximation
+			.clip([-3 3])
+		}
+	]
+)
 ~~~
 
 ![](sw/spl/Help/Image/tan-B.svg)
+
+_|⌊(tan(n))_,
+OEIS [A000503](https://oeis.org/A000503):
+
+~~~spl svg=C
+0:150.tan.floor.abs.log.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/tan-C.svg)
+
+_⌊(tan(n))_,
+OEIS [A000503](https://oeis.org/A000503):
+
+~~~spl svg=D
+0:150.tan.floor.logScale.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/tan-D.svg)
+
+_⌊(tan(n)²)_,
+OEIS [A005657](https://oeis.org/A005657):
+
+~~~spl svg=E
+0:150.tan.square.floor.log.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/tan-E.svg)
 
 * * *
 

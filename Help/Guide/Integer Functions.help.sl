@@ -187,6 +187,10 @@ Quadratic Residues:
 - `quadraticNonresidues`
 - `quadraticResidues`
 
+Nim Functions:
+
+- `nimMultiplication`
+
 * * *
 
 Guides: Bitwise Functions, Combinatorial Functions, Integer Sequence Functions, Mathematical Functions, Prime Number Functions

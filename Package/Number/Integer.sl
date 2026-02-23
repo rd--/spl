@@ -59,6 +59,14 @@
 		}
 	}
 
+	assertIsNonNegativeInteger { :self :origin |
+		self.isNonNegativeInteger.if {
+			self
+		} {
+			self.error('Negative integer: ' ++ origin)
+		}
+	}
+
 	assertIsPositiveInteger { :self :origin |
 		self.isPositiveInteger.if {
 			self

@@ -223,6 +223,22 @@ OEIS [A028931](https://oeis.org/A028931):
 ]
 ```
 
+Cyclic sequence,
+OEIS [A031441](https://oeis.org/A031441):
+
+```
+>>> { :x |
+>>> 	(x.previousPrime * x - 1)
+>>> 	.greatestPrimeFactor
+>>> }.nestList(3, 17)
+[
+	3 5 7
+	17 11 19 23 109
+	17 11 19 23 109
+	17 11 19 23 109
+]
+```
+
 Plot the first few terms of the `dyadicMap`:
 
 ~~~spl svg=A

@@ -195,6 +195,7 @@
 	'MathematicalConstant'
 	'MatrixFunctions'
 	'MixedRadix'
+	'Nim'
 	'NumericalFunctions'
 	'OnlineEncyclopediaOfIntegerSequences'
 	'OptimizationFunctions'

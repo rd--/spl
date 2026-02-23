@@ -152,6 +152,24 @@ Phase warping and amplitude modulation:
 
 ![](sw/spl/Help/Image/cos-G.svg)
 
+Nearest integer to _cos(n)_,
+OEIS [A000484](https://oeis.org/A000484):
+
+~~~spl svg=H
+0:85.cos.round.discretePlot
+~~~
+
+![](sw/spl/Help/Image/cos-H.svg)
+
+_⌊(cos(n))_,
+OEIS [A000480](https://oeis.org/A000480):
+
+~~~spl svg=I
+0:85.cos.floor.discretePlot
+~~~
+
+![](sw/spl/Help/Image/cos-I.svg)
+
 * * *
 
 See also: arcCos, arcCosh, cosh, sec, sin, tan

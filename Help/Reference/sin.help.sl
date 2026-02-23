@@ -250,6 +250,15 @@ OEIS [A000494](https://oeis.org/A000494):
 
 ![](sw/spl/Help/Image/sin-L.svg)
 
+_⌊(sin(n))_,
+OEIS [A000493](https://oeis.org/A000493):
+
+~~~spl svg=M
+0:85.sin.floor.discretePlot
+~~~
+
+![](sw/spl/Help/Image/sin-M.svg)
+
 * * *
 
 See also: arcSin, cos, csc, haversine, sinDegrees, sinh, tan

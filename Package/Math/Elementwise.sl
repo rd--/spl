@@ -443,6 +443,10 @@
 		self.collect(nextPrime:/1)
 	}
 
+	nimSquare { :self |
+		self.collect(nimSquare:/1)
+	}
+
 	numerator { :self |
 		self.collect { :each |
 			each.numerator.asInteger
@@ -792,6 +796,10 @@
 
 	multiplyAdd { :i :j :k |
 		withWithCollect(i, j, k, multiplyAdd:/3)
+	}
+
+	nimMultiplication { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, nimMultiplication:/2)
 	}
 
 	nthRoot { :self :anObject |

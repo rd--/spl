@@ -3,6 +3,7 @@
 - _bitXor(i, j)_
 
 Answer bitwise exclusive or of _i_ and _j_.
+Also Nim-sum, written _i⊕j_.
 
 ```
 >>> 16r5A463CA6.bitXor(16r67376856)
@@ -302,6 +303,7 @@ OEIS [A193232](https://oeis.org/A193232):
 ![](sw/spl/Help/Image/bitXor-K.svg)
 
 Plot prefix sum of exclusive or of adjacent integers,
+_n⊕(n-1)_,
 OEIS [A080277](https://oeis.org/A080277):
 
 ~~~spl svg=L
@@ -313,6 +315,7 @@ OEIS [A080277](https://oeis.org/A080277):
 ![](sw/spl/Help/Image/bitXor-L.svg)
 
 Plot exclusive or of adjacent integers,
+_n⊕(n-1)_,
 OEIS [A038712](https://oeis.org/A038712):
 
 ~~~spl svg=M
@@ -345,6 +348,18 @@ a.scatterPlot
 
 ![](sw/spl/Help/Image/bitXor-O.svg)
 
+Nim-sum table,
+lower left triangle,
+read by rows,
+OEIS [A051933](https://oeis.org/A051933):
+
+~~~spl svg=P
+0:19.triangularArray(bitXor:/2)
+.catenate.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/bitXor-P.svg)
+
 * * *
 
 See also: bitAnd, bitNot, bitOr, xor
@@ -366,3 +381,5 @@ _Smalltalk_
 _W_
 [1](https://en.wikipedia.org/wiki/Exclusive_or)
 [2](https://en.wikipedia.org/wiki/Bitwise_XOR)
+
+Unicode: U+2295 ⊕ Circled Plus
