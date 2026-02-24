@@ -45,6 +45,16 @@ Plot the first few cubeful numbers:
 
 ![](sw/spl/Help/Image/isCubeFree-B.svg)
 
+Plot characteristic function of cube-free numbers,
+OEIS [A212793](https://oeis.org/A212793):
+
+~~~spl svg=C
+1:85.collect(isCubeFree:/1)
+.boole.discretePlot
+~~~
+
+![](sw/spl/Help/Image/isCubeFree-C.svg)
+
 * * *
 
 See also: isSquareFree

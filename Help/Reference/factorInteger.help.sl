@@ -210,6 +210,22 @@ OEIS [A006881](https://oeis.org/A006881):
 ]
 ```
 
+Numbers not divisible by _p^p_ for any prime _p_,
+OEIS [A048103](https://oeis.org/A048103):
+
+```
+>>> 1:33.select { :n |
+>>> 	n.factorInteger.collect { :f |
+>>> 		f[1] > f[2]
+>>> 	}.boole.product > 0
+>>> }
+[
+	 2  3  5  6  7  9 10 11 13 14
+	15 17 18 19 21 22 23 25 26 29
+	30 31 33
+]
+```
+
 Plot the number of distinct prime factors of the first 100 numbers:
 
 ~~~spl svg=A
@@ -419,6 +435,20 @@ OEIS [A000026](https://oeis.org/A000026):
 ~~~
 
 ![](sw/spl/Help/Image/factorInteger-M.svg)
+
+Plot characteristic function for
+numbers not divisible by _p^p_ for any prime _p_,
+OEIS [A359550](https://oeis.org/A359550):
+
+~~~spl svg=N
+2:85.collect { :n |
+	n.factorInteger.collect { :f |
+		f[1] > f[2]
+	}.boole.product > 0
+}.boole.discretePlot
+~~~
+
+![](sw/spl/Help/Image/factorInteger-N.svg)
 
 * * *
 

@@ -219,6 +219,7 @@ OEIS [A010816](https://oeis.org/A010816):
 ![](sw/spl/Help/Image/kroneckerSymbol-C.svg)
 
 From Euler’s pentagonal theorem,
+also number of different partitions of _n_ into parts of -1 different kinds,
 OEIS [A010815](https://oeis.org/A010815):
 
 ~~~spl svg=D

@@ -40,7 +40,8 @@ OEIS [A026741](https://oeis.org/A026741):
 [1 1 3 2 5 3 7 4 9 5 11 6 13 7 15 8 17 9]
 ```
 
-Plot:
+Plot generalized pentagonal numbers,
+OEIS [A001318](https://oeis.org/A001318):
 
 ~~~spl svg=A
 100.generalisedPentagonalNumbers
@@ -48,6 +49,19 @@ Plot:
 ~~~
 
 ![](sw/spl/Help/Image/generalisedPentagonalNumbers-A.svg)
+
+Characteristic function of generalized pentagonal numbers,
+OEIS [A080995](https://oeis.org/A080995):
+
+~~~spl svg=B
+let a = 24.generalisedPentagonalNumbers;
+let k = a.max;
+1:k.collect { :n |
+	a.includes(n).boole
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/generalisedPentagonalNumbers-B.svg)
 
 * * *
 

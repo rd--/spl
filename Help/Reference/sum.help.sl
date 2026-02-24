@@ -156,6 +156,28 @@ OEIS [A000055](https://oeis.org/A000055)
 ]
 ```
 
+Number of ways to cover an _n_-set,
+OEIS [A003465](https://oeis.org/A003465):
+
+```
+>>> 0L:6.collect { :n |
+>>> 	0:n.sum { :j |
+>>> 		let a = binomial(n, j);
+>>> 		let b = 2 ^ (2 ^ (n - j) - 1);
+>>> 		(-1 ^ j) * a * b
+>>> 	}
+>>> }
+[
+	1
+	1
+	5
+	109
+	32297
+	2147321017
+	9223372023970362989L
+]
+```
+
 Log scale scatter plot of OEIS [A281488](https://oeis.org/A281488):
 
 ~~~spl svg=A
@@ -203,6 +225,24 @@ let b:/2 = { :n :m |
 ~~~
 
 ![](sw/spl/Help/Image/sum-B.svg)
+
+Count number of partitions combining with _inclusive or_,
+OEIS [A054244](https://oeis.org/A054244):
+
+~~~spl svg=C
+let f = { :n |
+	0:n.sum { :k |
+		let a = binomial(n, k);
+		let b = 2 ^ (2 ^ (n - k));
+		(-1 ^ k) * a * b
+	} / 2
+};
+1:200.collect { :n |
+	f(n.digitCount(2, 1))
+}.log.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/sum-C.svg)
 
 Evaluate symbolically:
 

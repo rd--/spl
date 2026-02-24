@@ -4,6 +4,9 @@
 
 Answer the _n_-th Wythoff pair.
 
+First few terms,
+OEIS [A072061](https://oeis.org/A072061):
+
 ```
 >>> 1:9.collect(wythoffPair:/1)
 [
@@ -20,7 +23,7 @@ Answer the _n_-th Wythoff pair.
 ```
 
 The sequence of the first element of each pair is a Beatty sequence called the lower Wythoff sequence,
-c.f. OEIS A000201:
+OEIS [A000201](https://oeis.org/A000201):
 
 ```
 >>> 1:19.collect(wythoffLower:/1)
@@ -31,7 +34,7 @@ c.f. OEIS A000201:
 ```
 
 The sequence of the second element of each pair is a Beatty sequence called the upper Wythoff sequence,
-c.f. OEIS A001950:
+OEIS [A001950](https://oeis.org/A001950):
 
 ```
 >>> 1:19.collect(wythoffUpper:/1)
@@ -52,6 +55,33 @@ let w = 1:23.collect(wythoffPair:/1);
 ~~~
 
 ![](sw/spl/Help/Image/wythoffPair-A.svg)
+
+Plot sequence,
+OEIS [A072061](https://oeis.org/A072061):
+
+~~~spl svg=B
+1:55.collect(wythoffPair:/1)
+.catenate.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/wythoffPair-B.svg)
+
+Positive integers with swaps according to Wythoff pairs,
+OEIS [A002251](https://oeis.org/A002251):
+
+~~~spl svg=C
+let w = 1:65.collect(wythoffPair:/1);
+let i = w.catenate;
+let m = i.max;
+let k = 1:m.complement(i).min;
+let a = [1 .. m];
+w.do { :p |
+	a.swapWith(p[1], p[2])
+};
+a.first(k).scatterPlot
+~~~
+
+![](sw/spl/Help/Image/wythoffPair-C.svg)
 
 * * *
 

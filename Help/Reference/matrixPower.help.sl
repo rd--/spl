@@ -94,6 +94,25 @@ OEIS [A035506](https://oeis.org/A035506):
 ]
 ```
 
+Number of permutations of length _n_ within distance two of a fixed permutation,
+OEIS [A002524](https://oeis.org/A002524):
+
+```
+>>> let a = [
+>>> 	0 1 0 0 0;
+>>> 	0 0 1 0 0;
+>>> 	0 0 0 1 0;
+>>> 	0 0 0 0 1;
+>>> 	-1 0 2 0 2
+>>> ];
+>>> let b = [1; 1; 2; 6; 14];
+>>> 1:12.collect { :n |
+>>> 	let c = a.matrixPower(n).dot(b);
+>>> 	c[1][1]
+>>> }
+[1 2 6 14 31 73 172 400 932 2177 5081]
+```
+
 * * *
 
 See also: dot

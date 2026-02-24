@@ -89,6 +89,16 @@ OEIS [A090410](https://oeis.org/A090410):
 [1 0 -2 -14 -94]
 ```
 
+Numbers with an even number of prime divisors,
+OEIS [A028260](https://oeis.org/A028260):
+
+```
+>>> 1:23.select { :n |
+>>> 	n.liouvilleLambda.isPositive
+>>> }
+[1 4 6 9 10 14 15 16 21 22]
+```
+
 Plot the Liouville lambda sequence for the first 20 numbers:
 
 ~~~spl svg=A
@@ -142,6 +152,18 @@ OEIS [A066829](https://oeis.org/A066829):
 ~~~
 
 ![](sw/spl/Help/Image/liouvilleLambda-E.svg)
+
+Characteristic function of the numbers with an even number of prime factors,
+counted with multiplicity,
+OEIS [A065043](https://oeis.org/A065043):
+
+~~~spl svg=F
+1:105.collect { :n |
+	(n.liouvilleLambda + 1) / 2
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/liouvilleLambda-F.svg)
 
 * * *
 

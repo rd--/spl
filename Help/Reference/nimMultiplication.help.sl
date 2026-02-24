@@ -87,13 +87,59 @@ The Nim-square of _n_,
 OEIS [A006042](https://oeis.org/A006042):
 
 ```
->>> 0:49.collect(nimSquare:/1)
+>>> 0:63.nimSquare
 [
 	 0  1  3  2  6  7  5  4 13 12
 	14 15 11 10  8  9 24 25 27 26
 	30 31 29 28 21 20 22 23 19 18
 	16 17 52 53 55 54 50 51 49 48
 	57 56 58 59 63 62 60 61 44 45
+	47 46 42 43 41 40 33 32 34 35
+	39 38 36 37
+]
+```
+
+Nim-square-root,
+OEIS [A160679](https://oeis.org/A160679):
+
+```
+>>> 0:63.nimSquareRoot
+[
+	 0  1  3  2  7  6  4  5 14 15
+	13 12  9  8 10 11 30 31 29 28
+	25 24 26 27 16 17 19 18 23 22
+	20 21 57 56 58 59 62 63 61 60
+	55 54 52 53 48 49 51 50 39 38
+	36 37 32 33 35 34 41 40 42 43
+	46 47 45 44
+]
+```
+
+The square and square root are permutations:
+
+```
+>>> let a = 0:63.nimSquare;
+>>> let b = 0:63.nimSquareRoot;
+>>> findPermutation(a, b).cycles
+[
+	 5  6;
+	 7  8;
+	 9 11;
+	10 12;
+	13 16;
+	14 15;
+	17 22 18 21;
+	19 24 20 23;
+	25 32 26 31;
+	27 30 28 29;
+	33 43 35 41;
+	34 44 36 42;
+	37 48 39 46;
+	38 47 40 45;
+	49 64 52 61;
+	50 63 51 62;
+	53 59 56 58;
+	54 60 55 57
 ]
 ```
 
@@ -110,6 +156,32 @@ OEIS [A006017](https://oeis.org/A006017):
 	3472128 6786816 14567936 25190110
 	54589881 108036850 232800673
 	408783316 888883132
+]
+```
+
+Nim-product of _2^2_ and _2^n_
+OEIS [A335159](https://oeis.org/A335159):
+
+```
+>>> 1:16.collect { :n |
+>>> 	(2 ^ 2).nimMultiplication(2 ^ n)
+>>> }
+[
+	8 6 11 64 128 96 176 1024 2048 1536
+	2816 16384 32768 24576 45056 262144
+]
+```
+
+Nim-product of _2^3_ and _2^n_
+OEIS [A335160](https://oeis.org/A335160):
+
+```
+>>> 0:15.collect { :n |
+>>> 	(2 ^ 3).nimMultiplication(2 ^ n)
+>>> }
+[
+	8 12 11 13 128 192 176 208 2048 3072
+	2816 3328 32768 49152 45056 53248
 ]
 ```
 
@@ -391,6 +463,33 @@ OEIS [A059971](https://oeis.org/A059971):
 ~~~
 
 ![](sw/spl/Help/Image/nimMultiplication-X.svg)
+
+Count Nim-factors,
+OEIS [A348291](https://oeis.org/A348291):
+
+~~~spl svg=Y
+let k = 85;
+let t = nimMultiplication:/2.table(1:k, 1:k);
+2:k.collect { :n |
+	let m = n - 1;
+	1:m.sum { :i |
+		1:m.sum { :j |
+			(t[i][j] = n).boole
+		}
+	}
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/nimMultiplication-Y.svg)
+
+Nim-square-root,
+OEIS [A160679](https://oeis.org/A160679):
+
+~~~
+0:127.nimSquareRoot.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/nimMultiplication-Z.svg)
 
 * * *
 

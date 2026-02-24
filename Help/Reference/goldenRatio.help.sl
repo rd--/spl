@@ -245,6 +245,24 @@ Representation of the integers as a sum of increasing nonconsecutive powers of t
 [1 1 2 2 3 3 4 4 5 5 6 6 7 7 8 8 9 9 10 10]
 ```
 
+_⌊(nφ)_,
+OEIS [A066096](https://oeis.org/A066096):
+
+```
+>>> let phi = 1.goldenRatio;
+>>> (phi * 0:15).floor
+[0 1 3 4 6 8 9 11 12 14 16 17 19 21 22 24]
+```
+
+_⌊(phi^2×n)_,
+OEIS [A090909](https://oeis.org/A090909):
+
+```
+>>> let phi = 1.goldenRatio;
+>>> (phi ^ 2 * 1:15).floor
+[2 5 7 10 13 15 18 20 23 26 28 31 34 36 39]
+```
+
 Plot the fractional part of multiples of the golden ratio:
 
 ~~~spl svg=A

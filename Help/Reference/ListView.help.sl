@@ -117,6 +117,20 @@ The `average` and `median`, `min`, `max` and `sum` of a list view:
 (4, 4, 2, 6, 12)
 ```
 
+The index of an item is one less at a zero-indexed list view:
+
+```
+>>> let a = [1 3 5 2 4 6];
+>>> let b = a.zeroIndexedListView;
+>>> (a.indexOf(2), b.indexOf(2))
+(4, 3)
+
+>>> let a = [1 3 5 2 4 6];
+>>> let b = a.zeroIndexedListView;
+>>> (a.indexOf(0), b.indexOf(0))
+(0, -1)
+```
+
 * * *
 
 See also: copyFromTo, List

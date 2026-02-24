@@ -12,6 +12,9 @@ OEIS [A000079](https://oeis.org/A000079):
 >>> 	n.isSmoothNumber(2)
 >>> }
 [1 2 4 8 16 32 64 128 256 512]
+
+>>> 2 ^ 0:9
+[1 2 4 8 16 32 64 128 256 512]
 ```
 
 List the first few _k_-smooth numbers for small _k_

@@ -42,11 +42,21 @@ OEIS [A000012](http://oeis.org/A000012):
 ```
 
 The _01_ sequence,
+the characteristic function of odd numbers,
 OEIS [A000035](http://oeis.org/A000035):
 
 ```
 >>> [0 1].repeat(11)
 [0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1]
+```
+
+The _10_ sequence,
+the characteristic function of even numbers,
+OEIS [A059841](https://oeis.org/A059841)
+
+```
+>>> [1 0].repeat(11)
+[1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0]
 ```
 
 _n_ appears _n+1_ times,

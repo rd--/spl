@@ -130,6 +130,20 @@ OEIS [A087811](https://oeis.org/A087811):
 [1 2 4 6 9 12 16 20 25 30 36 42 49 56 64]
 ```
 
+Smaller numbers are not divisible by large numbers,
+although floating point modulo may suggest they are:
+
+```
+>>> 233.divisible(133 ^ 133)
+false
+
+>>> 233 % (133 ^ 133)
+0
+
+>>> 233L % (133L ^ 133L)
+233L
+```
+
 Matrix plot of divisor table:
 
 ~~~spl svg=A

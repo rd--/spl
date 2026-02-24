@@ -425,6 +425,14 @@ OEIS [A060547](https://oeis.org/A060547):
 [2 1 2 4 2 4 8 4 8 16 8 16 32 16 32 64]
 ```
 
+_n%4_,
+OEIS [A010873](https://oeis.org/A010873):
+
+```
+>>> 0:15 % 4
+[0 1 2 3 0 1 2 3 0 1 2 3 0 1 2 3]
+```
+
 Plot an integer sequence modulo an integer,
 i.e. with a fixed modulus:
 

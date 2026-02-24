@@ -3,6 +3,7 @@
 - _bitLength(n)_
 
 Answer the number of binary bits necessary to represent the integer _n_.
+For negative n, it is equivalent to _n.bitNot.bitLength_.
 
 ```
 >>> 32.bitLength
@@ -32,15 +33,16 @@ OEIS [A029837](https://oeis.org/A029837):
 ]
 ```
 
-Plot is a kind of staircase:
+Plot is a kind of staircase,
+OEIS [A029837](https://oeis.org/A029837):
 
 ~~~spl svg=A
-(-25:25).functionPlot(bitLength:/1)
+(-25:25).bitLength.discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/bitLength-A.svg)
 
-Plot
+Plot _2^l(n)_,
 [A003817](https://oeis.org/A003817):
 
 ~~~spl svg=B
@@ -63,6 +65,26 @@ OEIS [A049802](https://oeis.org/A049802):
 
 ![](sw/spl/Help/Image/bitLength-C.svg)
 
+Plot characteristic function of powers of two,
+OEIS [A209229](https://oeis.org/A209229):
+
+~~~spl svg=D
+(0:86 - 1).bitLength.differences
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/bitLength-D.svg)
+
+Plot up to _2^9_,
+OEIS [A029837](https://oeis.org/A029837):
+
+~~~spl svg=E
+let n = 2 ^ 9;
+0:n.bitLength.stepPlot
+~~~
+
+![](sw/spl/Help/Image/bitLength-E.svg)
+
 * * *
 
 See also: highBit, integerLength
@@ -71,6 +93,9 @@ Guides: Bitwise Functions
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/BitLength.html),
+[1](https://mathworld.wolfram.com/BitLength.html)
+[2](https://reference.wolfram.com/language/ref/BitLength.html),
 _OEIS_
-[1](https://oeis.org/A029837)
+[1](https://oeis.org/A029837),
+_W_
+[1](https://en.wikipedia.org/wiki/Bit-length)

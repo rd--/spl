@@ -131,6 +131,15 @@ Plot the `imaginary` part of the `sign` function:
 
 ![](sw/spl/Help/Image/sign-B.svg)
 
+Characteristic function of numbers that are not multiples of four,
+OEIS [A166486](https://oeis.org/A166486):
+
+~~~spl svg=C
+(0:44 % 4).sign.discretePlot
+~~~
+
+![](sw/spl/Help/Image/sign-C.svg)
+
 * * *
 
 See also: *, abs, copySignTo, negate, signBit

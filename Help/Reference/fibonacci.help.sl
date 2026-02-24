@@ -497,6 +497,19 @@ OEIS [A105995](https://oeis.org/A105995):
 
 ![](sw/spl/Help/Image/fibonacci-M.svg)
 
+Characteristic function of Fibonacci numbers,
+OEIS [A010056](https://oeis.org/A010056):
+
+~~~spl svg=N
+let a = 1:12.fibonacci;
+let k = a.max;
+1:k.collect { :n |
+	a.includes(n).boole
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/fibonacci-N.svg)
+
 * * *
 
 See also: binetsFormula, fibonacciEntryPoint, fibonacciNumber, fibonacciPolynomial, fibonacciSequence, goldenRatio, lucasNumber

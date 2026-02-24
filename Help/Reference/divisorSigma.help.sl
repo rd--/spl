@@ -530,9 +530,24 @@ OEIS [A099774](https://oeis.org/A099774):
 
 ![](sw/spl/Help/Image/divisorSigma-Q.svg)
 
+_⌊(σ(n^2)/σ(n))_,
+OEIS [A079553](https://oeis.org/A079553):
+
+~~~spl svg=R
+1:65.collect { :n |
+	(
+		0.divisorSigma(n ^ 2)
+		/
+		0.divisorSigma(n)
+	).floor
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/divisorSigma-R.svg)
+
 * * *
 
-See also: aliquotSum, divisible, divisors, divisorSum, divisorSummatoryFunction, eulerPhi, isAbundantNumber
+See also: aliquotSum, divisible, divisors, divisorSum, divisorSummatoryFunction, eulerPhi, isAbundantNumber, unitaryDivisorSigma
 
 Guides: Integer Sequence Functions
 

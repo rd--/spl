@@ -575,6 +575,19 @@ OEIS [A085046](https://oeis.org/A085046):
 [1 3 9 15 25 35 49 63 81 99 121 143 169]
 ```
 
+_n^3-1_,
+OEIS [A068601](http://oeis.org/A068601):
+
+```
+>>> 1:11 ^ 3 - 1
+[0 7 26 63 124 215 342 511 728 999 1330]
+
+>>> [4 -6 4 -1].linearRecurrence(
+>>> 	[0 7 26 63], 11
+>>> )
+[0 7 26 63 124 215 342 511 728 999 1330]
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A
@@ -632,7 +645,7 @@ Plot _x_ raised to a scaled power of _x_:
 
 * * *
 
-See also: +, -, *, /, exp, factorialPower, log, powerMod, powerRange, sqrt, symmetricPower
+See also: +, -, *, /, exp, factorialPower, matrixPower, log, powerMod, powerRange, sqrt, symmetricPower
 
 Guides: Arithmetic Functions, Binary Operators
 

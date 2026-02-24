@@ -351,7 +351,7 @@ a.scatterPlot
 
 ![](sw/spl/Help/Image/isPrime-D.svg)
 
-Plot characteristic function,
+Plot characteristic function of prime numbers,
 OEIS [A010051](https://oeis.org/A010051):
 
 ~~~spl svg=E
@@ -401,6 +401,40 @@ OEIS [A002374](https://oeis.org/A002374):
 ~~~
 
 ![](sw/spl/Help/Image/isPrime-G.svg)
+
+Characteristic function of primes multiplied by _n_,
+OEIS [A061397](https://oeis.org/A061397):
+
+~~~spl svg=H
+1:99.collect { :n |
+	n * n.isPrime.boole
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/isPrime-H.svg)
+
+Sum of primes _≤n_,
+OEIS [A034387](https://oeis.org/A034387):
+
+~~~spl svg=I
+1:250.collect { :n |
+	n * n.isPrime.boole
+}.prefixSum.stepPlot
+~~~
+
+![](sw/spl/Help/Image/isPrime-I.svg)
+
+Triangle where row _n_ is `one` if _n_ is prime,
+`zero` otherwise,
+OEIS [A143536](https://oeis.org/A143536):
+
+~~~spl svg=J
+1:13.triangularArray { :n :k |
+	n.isPrime.boole
+}.catenate.discretePlot
+~~~
+
+![](sw/spl/Help/Image/isPrime-J.svg)
 
 * * *
 

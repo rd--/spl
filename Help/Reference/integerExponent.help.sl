@@ -174,6 +174,31 @@ OEIS [A055938](https://oeis.org/A055938):
 ]
 ```
 
+Characteristic function of powers of two,
+OEIS [A209229](https://oeis.org/A209229):
+
+```
+>>> 0:21.collect { :n |
+>>> 	2 ^ n.integerExponent(2) = n
+>>> }.boole
+[0 1 1 0 1 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0]
+
+>>> 0:21.collect { :n |
+>>> 	n.log2.isInteger
+>>> }.boole
+[0 1 1 0 1 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0]
+
+>>> 0:21.collect { :n |
+>>> 	(n > 0) & {
+>>> 		n.bitAnd(n - 1) = 0
+>>> 	}
+>>> }.boole
+[0 1 1 0 1 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0]
+
+>>> (0:22 - 1).bitLength.differences
+[0 1 1 0 1 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0]
+```
+
 Plot first few terms for for _b=2_,
 OEIS [A007814](https://oeis.org/A007814):
 

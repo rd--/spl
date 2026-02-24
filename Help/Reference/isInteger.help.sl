@@ -94,6 +94,30 @@ Test whether an array consists of all integers:
 true
 ```
 
+Characteristic function of multiples of three,
+OEIS [A079978](https://oeis.org/A079978),
+essentially the same as the decimal expansion of _1/999_,
+OEIS [A022003](https://oeis.org/A022003):
+
+```
+>>> (0:21 / 3).isInteger.boole
+[1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1]
+
+>>> Decimal(1/999, 33)
+0.001001001001001001001001001001001D
+
+>>> Decimal(1000/999, 33)
+1.001001001001001001001001001001001D
+```
+
+Characteristic function of multiples of four,
+OEIS [A121262](https://oeis.org/A121262):
+
+```
+>>> (0:20 / 4).isInteger.boole
+[1 0 0 0 1 0 0 0 1 0 0 0 1 0 0 0 1 0 0 0 1]
+```
+
 _Rationale_:
 Note that this is not a `Type` predicate,
 and is only implemeted for numeric values.

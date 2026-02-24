@@ -29,6 +29,28 @@ OEIS [A000217](https://oeis.org/A000217):
 ]
 ```
 
+The inverse of the triangular numbers,
+OEIS [A003056](https://oeis.org/A003056):
+
+```
+>>> let inverse = { :n |
+>>> 	(((1 + (8 * n)).sqrt - 1) / 2).floor
+>>> };
+>>> let a = 0:27;
+>>> let b = a.triangularNumber;
+>>> let c = a.collect(inverse:/1);
+>>> let d = b.collect(inverse:/1);
+>>> (c, d)
+(
+	[
+		0 1 1 2 2 2 3 3 3 3
+		4 4 4 4 4 5 5 5 5 5
+		5 6 6 6 6 6 6 6
+	],
+	[0 .. 27]
+)
+```
+
 The _n_-th partial sum of the natural integer series is the _n_-th triangular number:
 
 ```

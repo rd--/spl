@@ -380,6 +380,23 @@ OEIS [A027750](https://oeis.org/A027750):
 
 ![](sw/spl/Help/Image/divisors-M.svg)
 
+Number of perfect partitions of _n_,
+OEIS [A002033](https://oeis.org/A002033):
+
+~~~spl svg=N
+let a = Map { :n |
+	(n < 2).if {
+		n
+	} {
+		let d = n.divisors;
+		a.atAll(d.allButLast).sum
+	}
+};
+a[1:200].log.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/divisors-N.svg)
+
 * * *
 
 See also: divisorSigma, divisorSum, gcd, remainder

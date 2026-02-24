@@ -45,6 +45,31 @@ offset to be `zero` and `one`:
 
 ![](sw/spl/Help/Image/kolakoskiSequence-B.svg)
 
+A direct form for the offset sequence,
+with an additional two leading terms,
+OEIS [A123594](https://oeis.org/A123594):
+
+~~~spl svg=C
+let a = [1 1 0];
+let i = 3;
+{
+	i <= 57
+}.whileTrue {
+	let t = a[i];
+	let e = a.last;
+	(t = 0).if {
+		a.add(1 - e)
+	} {
+		a.add(e);
+		a.add(1 - e)
+	};
+	i := i + 1
+};
+a.discretePlot
+~~~
+
+![](sw/spl/Help/Image/kolakoskiSequence-C.svg)
+
 * * *
 
 See also: golombsSequence

@@ -147,7 +147,11 @@
 	}
 
 	bitLength { :self |
-		self.integerLength(2)
+		(self >= 0).if {
+			self.integerLength(2)
+		} {
+			self.bitNot.integerLength(2)
+		}
 	}
 
 	bjorklundsAlgorithmDo { :k :n :aBlock:/1 |
@@ -183,6 +187,28 @@
 
 	bjorklundsAlgorithm { :k :n |
 		k.bjorklundsAlgorithmDo(n) { :each | nil }
+	}
+
+	carryLessMultiplication { :m :n :b |
+		(b = 2).if {
+			let s = 0;
+			{
+				n > 0
+			}.whileTrue {
+				(1 = (n % 2)).ifTrue {
+					s := bitXor(s, m)
+				};
+				n := floor(n / 2);
+				m := m * 2
+			};
+			s
+		} {
+			b.error('carryLessMultiplication: b!=2')
+		}
+	}
+
+	carryLessMultiplication { :m :n |
+		carryLessMultiplication(m, n, 2)
 	}
 
 	characterRange { :self :anInteger |

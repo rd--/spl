@@ -268,7 +268,9 @@
 
 	divisible { :self :aNumber |
 		aNumber.isNumber.if {
-			(self % aNumber).isVeryCloseTo(0)
+			self.abs >= aNumber.abs & {
+				(self % aNumber).isVeryCloseTo(0)
+			}
 		} {
 			aNumber.adaptToNumberAndApply(self, divisible:/2)
 		}

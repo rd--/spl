@@ -4,7 +4,7 @@
 - _indices(c, f:/1)_
 
 Answer the valid indices for the collection _c_.
-The binary form only answers indices where the associated item satisifes the predicate block _f_.
+The binary form only answers indices where the associated item satisfies the predicate block _f_.
 
 At a `Sequence`,
 `indices` answers a `Range` from the first to the last index by `one`.

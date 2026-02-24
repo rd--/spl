@@ -82,6 +82,18 @@
 		nimMultiplication(x, x)
 	}
 
+	nimSquareRoot { :x |
+		let a = Dictionary { :n |
+			(n = 0).if {
+				0
+			} {
+				let m = bitXor(n, nimSquare(n));
+				bitXor(n, a[m])
+			}
+		};
+		a[x]
+	}
+
 }
 
 +List {

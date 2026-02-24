@@ -98,6 +98,7 @@ Plot first few terms:
 ![](sw/spl/Help/Image/squaresR-A.svg)
 
 Plot one if _n_ is a triangular number otherwise zero,
+the characteristic function of the triangular numbers,
 OEIS [A010054](https://oeis.org/A010054):
 
 ~~~spl svg=B

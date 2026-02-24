@@ -1,8 +1,8 @@
 # neumaierSum
 
-- _neumaierSum(anIterable)_
+- _neumaierSum([n₁ n₂ …])_
 
-Answer the `sum` of _anIterable_ calculated using Neumaier’s variant of the _Kahan summation algorithm_.
+Answer the `sum` of _n_ calculated using Neumaier’s variant of the _Kahan summation algorithm_.
 
 ```
 >>> let l = [1 1E20 1 -1E20];

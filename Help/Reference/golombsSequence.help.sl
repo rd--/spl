@@ -14,7 +14,7 @@ OEIS [A001462](https://oeis.org/A001462):
 	 1  2  2  3  3  4  4  4  5  5
 	 5  6  6  6  6  7  7  7  7  8
 	 8  8  8  9  9  9  9  9 10 10
-	10 10 10 11 11 11 11 11	12 12
+	10 10 10 11 11 11 11 11 12 12
 	12 12 12 12 13 13 13 13 13 13
 	14 14 14 14 14 14 15 15 15 15
 	15 15 16 16 16 16 16 16 16 17
@@ -34,25 +34,6 @@ OEIS [A001463](https://oeis.org/A001463):
 ]
 ```
 
-The asymptotic value of the _n_-th term:
-
-```
->>> let phi = 1.goldenRatio;
->>> 1:84.collect { :n |
->>> 	(phi ^ (2 - phi)) * (n ^ (phi - 1))
->>> }.round
-84.golombsSequence
-```
-
-Plot first few terms:
-
-~~~spl svg=A
-98.golombsSequence
-.discretePlot
-~~~
-
-![](sw/spl/Help/Image/golombsSequence-A.svg)
-
 Asymptotic expression for the _n_-the term:
 
 ```
@@ -61,7 +42,33 @@ Asymptotic expression for the _n_-the term:
 >>> let z = n.golombsSequence.last;
 >>> (z, (phi ^ (2 - phi)) * (n ^ (phi - 1)))
 (37, 36.9999)
+
+>>> let phi = 1.goldenRatio;
+>>> 1:84.collect { :n |
+>>> 	(phi ^ (2 - phi)) * (n ^ (phi - 1))
+>>> }.round
+84.golombsSequence
 ```
+
+Plot first few terms,
+OEIS [A001462](https://oeis.org/A001462):
+
+~~~spl svg=A
+98.golombsSequence
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/golombsSequence-A.svg)
+
+Plot partial sums,
+OEIS [A001463](https://oeis.org/A001463):
+
+~~~spl svg=B
+98.golombsSequence.prefixSum
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/golombsSequence-B.svg)
 
 * * *
 

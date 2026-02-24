@@ -360,6 +360,26 @@ OEIS [A051933](https://oeis.org/A051933):
 
 ![](sw/spl/Help/Image/bitXor-P.svg)
 
+Sprague-Grundy value for Grundy’s game when starting with _n_ tokens,
+OEIS [A002188](https://oeis.org/A002188):
+
+~~~spl svg=Q
+let k = 200;
+let a = List(k + 2, 0);
+0.toDo(k) { :i |
+	let e = List(i // 2 + 1, 0);
+	1.toDo((i + 1) // 2 - 1) { :j |
+		let k = i - j;
+		let l = a[j + 1].bitXor(a[k + 1]);
+		e[l + 1] := 1
+	};
+	a[i + 1] := e.indexOf(0) - 1
+};
+a.allButLast.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/bitXor-Q.svg)
+
 * * *
 
 See also: bitAnd, bitNot, bitOr, xor

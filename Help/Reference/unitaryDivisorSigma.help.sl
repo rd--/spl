@@ -65,6 +65,7 @@ Plot first few terms where _k=1_,
 ![](sw/spl/Help/Image/unitaryDivisorSigma-A.svg)
 
 Plot first few terms where _k=2_,
+OEIS [A034676](https://oeis.org/A034676):
 
 ~~~spl svg=B
 1:20.collect { :n |
@@ -73,6 +74,18 @@ Plot first few terms where _k=2_,
 ~~~
 
 ![](sw/spl/Help/Image/unitaryDivisorSigma-B.svg)
+
+_uσ(n)-n_,
+OEIS [A034460](https://oeis.org/A034460):
+
+~~~spl svg=C
+1:100.collect { :n |
+	1.unitaryDivisorSigma(n) - n
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/unitaryDivisorSigma-C.svg)
+
 
 * * *
 

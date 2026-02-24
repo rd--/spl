@@ -427,6 +427,16 @@
 		[min, max]
 	}
 
+	minimumExcludedValue { :x :u |
+		u.detect { :n |
+			x.includes(n).not
+		}
+	}
+
+	minimumExcludedValue { :x |
+		x.minimumExcludedValue(0:Infinity)
+	}
+
 	neumaierSum { :self |
 		let sum = 0.0;
 		let c = 0.0;

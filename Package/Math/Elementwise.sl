@@ -447,6 +447,10 @@
 		self.collect(nimSquare:/1)
 	}
 
+	nimSquareRoot { :self |
+		self.collect(nimSquareRoot:/1)
+	}
+
 	numerator { :self |
 		self.collect { :each |
 			each.numerator.asInteger

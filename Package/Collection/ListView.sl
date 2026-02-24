@@ -38,6 +38,20 @@ ListView : [Object, Equatable, Comparable, Iterable, Indexable, Collection, Sequ
 		}
 	}
 
+	indexOfIfAbsent { :self :anObject :aBlock:/0 |
+		self.indices.detectIfNone { :i |
+			self.at(i) = anObject
+		} {
+			aBlock()
+		}
+	}
+
+	indexOf { :self :anObject |
+		self.indexOfIfAbsent(anObject) {
+			self.referenceIndex - 1
+		}
+	}
+
 	indices { :self |
 		let i = self.referenceIndex;
 		i.to(i + self.size - 1)
@@ -70,6 +84,10 @@ ListView : [Object, Equatable, Comparable, Iterable, Indexable, Collection, Sequ
 		} {
 			self.error('ListView: invalid indices')
 		}
+	}
+
+	zeroIndexedListView { :self |
+		ListView(self, 1, self.size, 0)
 	}
 
 }

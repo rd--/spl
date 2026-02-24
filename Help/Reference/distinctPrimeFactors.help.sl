@@ -94,6 +94,19 @@ OEIS [A027748](https://oeis.org/A027748):
 
 ![](sw/spl/Help/Image/distinctPrimeFactors-B.svg)
 
+Number of distinct prime factors _p_ of _n_ such that _p^p_ is a divisor of _n_,
+OEIS [A129251](https://oeis.org/A129251):
+
+~~~spl svg=C
+2:115.collect { :n |
+	n.distinctPrimeFactors.count { :p |
+		n.divisible(p ^ p)
+	}
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/distinctPrimeFactors-C.svg)
+
 * * *
 
 See also: factorInteger, gcd, isPrime, isPrimePower, isSquareFree, primeNu, primeOmega

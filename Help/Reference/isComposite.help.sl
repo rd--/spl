@@ -33,12 +33,17 @@ Threads over lists:
 
 >>> [2 3 0 6 10].isComposite.boole
 [0 0 0 1 1]
+```
 
->>> 0:24.isComposite.boole
+Characteristic function of composite numbers,
+OEIS [A066247](https://oeis.org/A066247):
+
+```
+>>> 1:24.isComposite.boole
 [
-	0 0 0 0 1 0 1 0 1 1
-	1 0 1 0 1 1 1 0 1 0
-	1 1 1 0 1
+	0 0 0 1 0 1 0 1 1 1
+	0 1 0 1 1 1 0 1 0 1
+	1 1 0 1
 ]
 ```
 
@@ -89,6 +94,15 @@ let p = 1:k.prime;
 ~~~
 
 ![](sw/spl/Help/Image/isComposite-B.svg)
+
+Characteristic function of composite numbers,
+OEIS [A066247](https://oeis.org/A066247):
+
+~~~spl svg=C
+1:100.isComposite.boole.discretePlot
+~~~
+
+![](sw/spl/Help/Image/isComposite-C.svg)
 
 * * *
 

@@ -5,8 +5,8 @@
 Answer the first _n_ terms of the Beatty sequence corresponding to θ.
 
 The sequences for _α=√2_,
-OEIS [A001951](https://oeis.org/A001951)
-and [A001952](https://oeis.org/A001952):
+OEIS [A001951](https://oeis.org/A001951) and
+OEIS [A001952](https://oeis.org/A001952):
 
 ```
 >>> 13.beattySequence(2.sqrt)
@@ -18,7 +18,9 @@ and [A001952](https://oeis.org/A001952):
 [3 6 10 13 17 20 23 27 30 34 37 40 44]
 ```
 
-The sequences for _α=√3_:
+The sequences for _α=√3_
+OEIS [A022838](https://oeis.org/A022838) and
+OEIS [A054406](https://oeis.org/A054406):
 
 ```
 >>> 13.beattySequence(3.sqrt)
@@ -81,6 +83,21 @@ OEIS [A054347](https://oeis.org/A054347):
 >>> .prefixSum
 [1 4 8 14 22 31 42 54 68 84 101 120 141]
 ```
+
+Two interleaved Beatty sequences,
+OEIS [A094077](https://oeis.org/A094077):
+
+~~~spl svg=A
+let k = 45;
+let c = 2.sqrt;
+[
+	k.beattySequence(c),
+	k.beattySequence(c / (c - 1))
+].interleave.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/beattySequence-A.svg)
+
 
 * * *
 
