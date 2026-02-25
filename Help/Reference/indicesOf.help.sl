@@ -59,6 +59,23 @@ OEIS [A019565](https://oeis.org/A019565):
 
 ![](sw/spl/Help/Image/indicesOf-A.svg)
 
+A self-referential sequence by Benoit Cloitre,
+OEIS [A130747](https://oeis.org/A130747):
+
+~~~spl svg=B
+let m = 100;
+let a = [1:m, m # [0]].transpose.catenate;
+1:m.do { :n |
+	let i = a.indicesOf(0);
+	let j = a[n].min(i.size);
+	let h = i[j];
+	a[h] := a[n]
+};
+a.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/indicesOf-B.svg)
+
 * * *
 
 See also: deepIndicesOf, indicesOfSubstring, indexOf, occurrencesOf

@@ -134,6 +134,34 @@ An explicit form of the primitive recursive function _r(z,r(s,r(s,r(s,p(2)))))_:
 
 ![](sw/spl/Help/Image/injectInto-A.svg)
 
+Flavius Josephus’s sieve,
+OEIS [A000960](https://oeis.org/A000960):
+
+~~~spl svg=B
+1:65.collect { :n |
+	let m = n - 1;
+	m:1:-1.injectInto(n) { :a :b |
+		b * (a / b + 1).ceiling
+	}
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/injectInto-B.svg)
+
+Characteristic function for Flavius Josephus’s sieve,
+OEIS [A278169](https://oeis.org/A278169):
+
+~~~spl svg=C
+1:37.collect { :n |
+	let m = n - 1;
+	m:1:-1.injectInto(n) { :a :b |
+		b * (a / b + 1).ceiling
+	}
+}.characteristicFunction.discretePlot
+~~~
+
+![](sw/spl/Help/Image/injectInto-C.svg)
+
 * * *
 
 See also: foldLeft, foldRight, reduce

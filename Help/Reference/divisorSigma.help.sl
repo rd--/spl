@@ -102,6 +102,14 @@ OEIS [A000005](https://oeis.org/A000005):
 ]
 ```
 
+Record values,
+OEIS [A002182](http://oeis.org/A002182):
+
+```
+>>> 0.divisorSigma(1:240).recordValues
+[1 2 3 4 6 8 9 10 12 16 18 20]
+```
+
 Recognize perfect numbers, numbers _n_ such that the sum of their divisors is equal to _2n_:
 
 ```
@@ -111,7 +119,9 @@ Recognize perfect numbers, numbers _n_ such that the sum of their divisors is eq
 [6 28]
 ```
 
-Deficient numbers, numbers _n_ such that the sum of their divisors is smaller than _2n_:
+Deficient numbers,
+numbers _n_ such that the sum of their divisors is smaller than _2n_,
+OEIS [A005100](https://oeis.org/A005100):
 
 ```
 >>> 1:30.select { :n |

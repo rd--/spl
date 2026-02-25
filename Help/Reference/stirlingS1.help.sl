@@ -149,6 +149,25 @@ OEIS [A008275](http://oeis.org/A008275):
 
 ![](sw/spl/Help/Image/stirlingS1-E.svg)
 
+Generalized Stirling number triangle of first kind,
+OEIS [A049444](https://oeis.org/A049444):
+
+~~~spl svg=F
+0:13.triangularArray { :n :i |
+	let m = n - i;
+	0:m.sum { :k |
+		[
+			-1 ^ k,
+			binomial(n, k),
+			(k + 1).!,
+			stirlingS1(n - k, i)
+		].product
+	}
+}.catenate.logScale.discretePlot
+~~~
+
+![](sw/spl/Help/Image/stirlingS1-F.svg)
+
 * * *
 
 See also: factorialPower, stirlingS2

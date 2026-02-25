@@ -153,20 +153,9 @@ such that for consecutive terms _w(i+j)≥10_,
 OEIS [A287639](https://oeis.org/A287639):
 
 ~~~spl svg=K
-let a = [1];
-99.timesRepeat {
-	let x = a.last;
-	a.add(
-		1:Infinity.detect { :y |
-			a.includes(y).not & {
-				(x + y)
-				.hammingWeight
-				>= 10
-			}
-		}
-	)
-};
-a.scatterPlot
+[1].leastExcludedSequence(100) { :a :n :m |
+	(a[n - 1] + m).hammingWeight >= 10
+}.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/hammingWeight-K.svg)

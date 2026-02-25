@@ -643,6 +643,19 @@ Plot _x_ raised to a scaled power of _x_:
 
 ![](sw/spl/Help/Image/power-E.svg)
 
+Number of solutions to _x^2+1=0_ modulo _n_,
+OEIS [A000089](https://oeis.org/A000089):
+
+~~~spl svg=F
+1:135.collect { :n |
+	1:n.collect { :m |
+		(m ^ 2 + 1) / n
+	}.select(isInteger:/1).size
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/power-F.svg)
+
 * * *
 
 See also: +, -, *, /, exp, factorialPower, matrixPower, log, powerMod, powerRange, sqrt, symmetricPower

@@ -212,6 +212,31 @@ OEIS [A000522](https://oeis.org/A000522):
 ]
 ```
 
+product of the first _n_ primes congruent to one modulo four,
+OEIS [A006278](https://oeis.org/A006278):
+
+```
+>>> let p = 1:29.prime.select { :n |
+>>> 	n % 4 = 1
+>>> };
+>>> *.foldList(1L, p).allButFirst
+[
+	5
+	65
+	1105
+	32045
+	1185665
+	48612265
+	2576450045
+	157163452745
+	11472932050385
+	1021090952484265
+	99045822390973705L
+	10003628061488344205L
+	1090395458702229518345L
+]
+```
+
 * * *
 
 See also: accumulate, collect, differences, foldLeft, injectInto, ratios

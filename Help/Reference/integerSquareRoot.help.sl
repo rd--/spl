@@ -92,7 +92,9 @@ Show that the expression _f_ below answers non-square numbers:
 >>> };
 >>> (
 >>> 	1:22.collect(f:/1),
->>> 	1:1000.anySatisfy { :n | f(n).isSquare }
+>>> 	1:1000.anySatisfy { :n |
+>>> 		f(n).isSquare
+>>> 	}
 >>> )
 (
 	[
@@ -103,6 +105,24 @@ Show that the expression _f_ below answers non-square numbers:
 	false
 )
 ```
+
+Number of partitions of _n_ into two squares,
+OEIS [A000161](https://oeis.org/A000161):
+
+~~~spl svg=A
+1:107.collect { :n |
+	let m = ((n - 1) // 2);
+	let a = m.integerSquareRoot + 1;
+	let b = n.integerSquareRoot;
+	a:b.sum { :k |
+		(n - (k ^ 2))
+		.isPerfectSquare
+		.boole
+	}
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/integerSquareRoot-A.svg)
 
 * * *
 

@@ -773,6 +773,7 @@ Reference/capitalize.help.sl
 Reference/cardanosAlgorithm.help.sl
 Reference/carmichaelLambda.help.sl
 Reference/carpetPlot.help.sl
+Reference/carryLessMultiplication.help.sl
 Reference/CartesianCoordinates.help.sl
 Reference/cartesianIndex.help.sl
 Reference/cartesianIndexToDiagonalIndex.help.sl
@@ -824,6 +825,7 @@ Reference/champernowneSequence.help.sl
 Reference/Changed.help.sl
 Reference/characterCounts.help.sl
 Reference/Character.help.sl
+Reference/characteristicFunction.help.sl
 Reference/characterList.help.sl
 Reference/characterRange.help.sl
 Reference/characters.help.sl
@@ -2330,6 +2332,7 @@ Reference/Lcm.help.sl
 Reference/leadingCoefficient.help.sl
 Reference/leafCount.help.sl
 Reference/LeakDc.help.sl
+Reference/leastExcludedSequence.help.sl
 Reference/leastPrimeFactor.help.sl
 Reference/leastPrimeFactorList.help.sl
 Reference/leastPrimeGreaterThanOrEqualTo.help.sl
@@ -2653,6 +2656,7 @@ Reference/Min.help.sl
 Reference/minimalBy.help.sl
 Reference/minimalResidue.help.sl
 Reference/minimumChangePermutations.help.sl
+Reference/minimumExcludedValue.help.sl
 Reference/minimumTimeIncrement.help.sl
 Reference/minkowskiDistance.help.sl
 Reference/minkowskiQuestionMark.help.sl

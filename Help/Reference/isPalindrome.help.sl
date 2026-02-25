@@ -200,6 +200,28 @@ OEIS [A141707](https://oeis.org/A141707):
 
 ![](sw/spl/Help/Image/isPalindrome-C.svg)
 
+Smallest positive multiplier _m_ such that _m*n_ is palindromic,
+or zero if no such _m_ exists,
+OEIS [A050782](https://oeis.org/A050782):
+
+~~~spl svg=D
+1:80.collect { :n |
+	let i = 1;
+	(n / 10).isInteger.if {
+		0
+	} {
+		{
+			(i * n).isPalindrome
+		}.whileFalse {
+			i := i + 1
+		};
+		i
+	}
+}.log.discretePlot
+~~~
+
+![](sw/spl/Help/Image/isPalindrome-D.svg)
+
 * * *
 
 See also: =, reverse

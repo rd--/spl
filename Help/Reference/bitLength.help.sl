@@ -3,14 +3,21 @@
 - _bitLength(n)_
 
 Answer the number of binary bits necessary to represent the integer _n_.
-For negative n, it is equivalent to _n.bitNot.bitLength_.
 
 ```
 >>> 32.bitLength
 6
+```
 
->>> -64.bitLength
-7
+For negative _n_, equivalent to _n.bitNot.bitLength_,
+threads over lists:
+
+```
+>>> [1 -1 64 -64].bitLength
+[1 0 7 6]
+
+>>> [1 -1 64 -64].bitNot.bitLength
+[1 0 7 6]
 ```
 
 Equivalent to `floor` of `log` base two plus `one`:
@@ -20,8 +27,7 @@ Equivalent to `floor` of `log` base two plus `one`:
 6
 ```
 
-Threads over lists,
-first few terms,
+First few terms,
 OEIS [A029837](https://oeis.org/A029837):
 
 ```

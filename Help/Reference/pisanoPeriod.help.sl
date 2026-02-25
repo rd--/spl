@@ -41,6 +41,19 @@ The Fibonacci sequence modulo eight has period twelve:
 ]
 ```
 
+`findRepeat` agrees with `pisanoPeriod`:
+
+```
+>>> 1:67.allSatisfy { :n |
+>>> 	let m = n.pisanoPeriod;
+>>> 	let k = m * 2 + 1;
+>>> 	let x = 1:k.fibonacci;
+>>> 	let r = (x % n).findRepeat;
+>>> 	(r.size = m)
+>>> }
+true
+```
+
 Number of different residues of _F(i)%n_ over all _i_,
 OEIS [A066853](https://oeis.org/A066853):
 

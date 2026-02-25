@@ -202,8 +202,11 @@ List! : [Object, Storeable, Equatable, Comparable, Json, Iterable, Indexable, Co
 	}
 
 	removeAtAll { :self :indices |
-		let removed = self.atAll(indices);
-		indices.do { :index |
+		let uniqueIndices = indices.unique;
+		let indexCount = uniqueIndices.size;
+		let removed = self.atAll(uniqueIndices);
+		1.toDo(indexCount) { :i |
+			let index = uniqueIndices[i] - (i - 1);
 			self.uncheckedRemoveAt(index)
 		};
 		removed

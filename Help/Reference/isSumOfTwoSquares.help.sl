@@ -13,6 +13,7 @@ true
 ```
 
 First few terms:
+OEIS [A001481](https://oeis.org/A001481):
 
 ```
 >>> 0:32.select(isSumOfTwoSquares:/1)

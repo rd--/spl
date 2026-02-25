@@ -238,6 +238,12 @@
 		}
 	}
 
+	ekgSequence { :n :i |
+		i.leastExcludedSequence(n) { :a :n :m |
+			m.gcd(a[n - 1]) != 1
+		}
+	}
+
 	ekgSequence { :n |
 		let l = [1 2];
 		let i = 2;
@@ -1590,6 +1596,52 @@
 		};
 		r.add(x);
 		r
+	}
+
+}
+
++List {
+
+	leastExcludedSequence { :i :k :f:/3 |
+		let j = i.size;
+		let u = 1:Infinity;
+		let a = Map { :n |
+			(n <= j).if {
+				i[n]
+			} {
+				u.detect { :m |
+					a.includes(m).not & {
+						f(a, n, m)
+					}
+				}
+			}
+		};
+		a.atAll(1:k)
+	}
+
+}
+
++@Collection {
+
+	characteristicFunction { :a :i |
+		i.collect { :n |
+			a.includes(n).boole
+		}
+	}
+
+	characteristicFunction { :a |
+		let k = a.max;
+		a.characteristicFunction(1:k)
+	}
+
+}
+
++Block {
+
+	characteristicFunction { :f:/1 :i |
+		i.collect { :n |
+			f(n).boole
+		}
 	}
 
 }

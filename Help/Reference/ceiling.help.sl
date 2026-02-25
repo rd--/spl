@@ -92,6 +92,25 @@ OEIS [A006590](https://oeis.org/A006590):
 ]
 ```
 
+Smallest number of stones in Tchoukaillon solitaire that make use of _n_-th hole,
+OEIS [A002491](https://oeis.org/A002491):
+
+```
+>>> 0:22.collect { :n |
+>>> 	let x = 1;
+>>> 	x:n.do { :p |
+>>> 		let a = n + 2 - p;
+>>> 		let b = n + 1 - p;
+>>> 		x := (a * x / b).ceiling
+>>> 	};
+>>> 	x
+>>> }
+[
+	1 2 4 6 10 12 18 22 30 34 42 48 58 60
+	78 82 102 108 118 132 150 154 174
+]
+```
+
 Ceiling is a staircase function:
 
 ~~~spl svg=A

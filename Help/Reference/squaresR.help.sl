@@ -87,7 +87,30 @@ OEIS [A000122](https://oeis.org/A000122):
 ]
 ```
 
-Plot first few terms:
+Running total of the excess of the _4k+1_ divisors of the natural numbers over their _4k+3_ divisors,
+OEIS [A014200](https://oeis.org/A014200):
+
+```
+>>> let a = 1:25.collect { :n |
+>>> 	2.squaresR(n)
+>>> };
+>>> (a / 4).prefixSum
+[
+	 1  2  2  3  5  5  5  6  7  9
+	 9  9 11 11 11 12 14 15 15 17
+	17 17 17 17 20
+]
+
+>>> (1:25 / 4).pi.round
+[
+	 1  2  2  3  4  5  5  6  7  8
+	 9  9 10 11 12 13 13 14 15 16
+	16 17 18 19 20
+]
+```
+
+Plot first few terms with _d=2_,
+OEIS [A004018](https://oeis.org/A004018):
 
 ~~~spl svg=A
 1:100.collect { :n |

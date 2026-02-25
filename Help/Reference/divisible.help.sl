@@ -185,18 +185,10 @@ Plot least sequence where every term divides the product of its neighbors,
 OEIS [A075075](https://oeis.org/A075075):
 
 ~~~spl svg=D
-let a = [1 2];
-2:200.do { :n |
-	let x = a[n - 1];
-	let y = a[n];
-	let z = 1:Infinity.detect { :i |
-		a.includes(i).not & {
-			(i * x).divisible(y)
-		}
-	};
-	a.add(z)
-};
-a.scatterPlot
+[1 2]
+.leastExcludedSequence(201) { :a :n :m |
+	(m * a[n - 2]).divisible(a[n - 1])
+}.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/divisible-D.svg)
@@ -205,24 +197,14 @@ Plot _a(n)_ the smallest integer not yet in _a_ that is divisible by all non-zer
 OEIS [A237851](https://oeis.org/A237851):
 
 ~~~spl svg=E
-let a = Map { :n |
-	(n = 1).if {
-		1
-	} {
-		let b = a[n - 1];
-		1:Infinity.detect { :k |
-			a.includes(k).not & {
-				b.integerDigits
-				.select(isPositive:/1)
-				.unique
-				.allSatisfy { :x |
-					k.divisible(x)
-				}
-			}
-		}
+[1].leastExcludedSequence(200) { :a :n :m |
+	a[n - 1].integerDigits
+	.select(isPositive:/1)
+	.unique
+	.allSatisfy { :x |
+		m.divisible(x)
 	}
-};
-a[1:200].scatterPlot
+}.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/divisible-E.svg)
@@ -260,6 +242,18 @@ a.log.discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/divisible-G.svg)
+
+Least excluded _m_ such that _m+a(n-1)_ is a multiple of _n_,
+OEIS [A099506](https://oeis.org/A099506):
+
+~~~spl svg=H
+[1].leastExcludedSequence(185) { :a :n :m |
+	let x = m + a[n - 1];
+	x.divisible(n)
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/divisible-H.svg)
 
 * * *
 

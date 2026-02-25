@@ -389,7 +389,9 @@
 			}
 		}.whileTrue {
 			let i = Range(l[j], l.size, l[j] - 1);
-			l.removeAtAll(i);
+			i.collect { :k |
+				l.uncheckedRemoveAt(k)
+			};
 			j := j + 1
 		};
 		l

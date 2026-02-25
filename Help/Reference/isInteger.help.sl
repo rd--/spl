@@ -118,6 +118,33 @@ OEIS [A121262](https://oeis.org/A121262):
 [1 0 0 0 1 0 0 0 1 0 0 0 1 0 0 0 1 0 0 0 1]
 ```
 
+Largest integer _m_ such that _n-m^2_ is a square,
+or zero if no such _m_ exists,
+OEIS [A133388](https://oeis.org/A133388):
+
+~~~spl svg=A
+1:100.collect { :n |
+	let m = 0;
+	let x = 0;
+	{ :break:/0 |
+		let d = n - m.square;
+		(d < 0).if {
+			break()
+		} {
+			let s = d.sqrt;
+			s.isInteger.ifTrue {
+				x := s;
+				break()
+			}
+		};
+		m := m + 1
+	}.repeatForeverWithBreak;
+	x
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/isInteger-A.svg)
+
 _Rationale_:
 Note that this is not a `Type` predicate,
 and is only implemeted for numeric values.

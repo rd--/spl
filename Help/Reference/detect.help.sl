@@ -48,6 +48,21 @@ At `Record`:
 2
 ```
 
+Pit harvesting sequence for winning solitaire Tchoukaillon,
+OEIS [A028920](https://oeis.org/A028920):
+
+~~~spl svg=A
+0:150.collect { :n |
+	1:Infinity.detect { :m |
+		let p = (n % (m + 1)) = 0;
+		n := n * m // (m + 1);
+		p
+	}
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/detect-A.svg)
+
 * * *
 
 See also: detectIfFoundIfNone, detectIfNone, detectIndex, detectMin, findFirst, reject, select

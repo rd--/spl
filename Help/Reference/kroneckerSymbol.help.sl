@@ -302,6 +302,30 @@ let f = { :p :e |
 
 ![](sw/spl/Help/Image/kroneckerSymbol-G.svg)
 
+Number of fixed points of _γ0(n)_ of type _i_,
+OEIS [A000095](https://oeis.org/A000095):
+
+~~~spl svg=H
+let k = { :d |
+	-1.kroneckerSymbol(d)
+};
+1:85.collect { :n |
+	(n <= 1 | { n % 4 = 0 }).if {
+		(n = 1).boole
+	} {
+		let t = 1;
+		n.divisors.do { :d |
+			d.isPrime.ifTrue {
+				t := t * (1 + k(d))
+			}
+		};
+		t
+	}
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/kroneckerSymbol-H.svg)
+
 * * *
 
 See also: jacobiSymbol, legendreSymbol

@@ -450,6 +450,28 @@ OEIS [A359550](https://oeis.org/A359550):
 
 ![](sw/spl/Help/Image/factorInteger-N.svg)
 
+Number of ways of writing _n_ as a sum of at most two nonzero squares where order matters,
+OEIS [A002654](https://oeis.org/A002654):
+
+~~~spl svg=O
+2:105.collect { :n |
+	n.factorInteger.collect { :f |
+		let [p, e] = f;
+		(p = 2).if {
+			1
+		} {
+			(p % 4 = 1).if {
+				e + 1
+			} {
+				(e + 1) % 2
+			}
+		}
+	}.product
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/factorInteger-O.svg)
+
 * * *
 
 See also: divisors, isPrime, primeFactors, primeFactorization, product

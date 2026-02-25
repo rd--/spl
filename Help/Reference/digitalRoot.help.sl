@@ -53,7 +53,8 @@ OEIS [A010878](https://oeis.org/A010878):
 ]
 ```
 
-Plot:
+Plot
+OEIS [A010888](https://oeis.org/A010888):
 
 ~~~spl svg=A
 1:50.functionPlot { :n |
@@ -62,6 +63,18 @@ Plot:
 ~~~
 
 ![](sw/spl/Help/Image/digitalRoot-A.svg)
+
+Digital root of Fibonacci numbers,
+OEIS [A030132](https://oeis.org/A030132):
+
+~~~spl svg=B
+0:65.fibonacci
+.digitalRoot(10)
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/digitalRoot-B.svg)
+
 
 * * *
 

@@ -325,6 +325,18 @@ OEIS [A132213](https://oeis.org/A132213):
 
 ![](sw/spl/Help/Image/powerMod-I.svg)
 
+_a(n)=_2^a(n-1)_ modulo _n_,
+OEIS [A131644](https://oeis.org/A131644):
+
+~~~spl svg=J
+let s = 0;
+2:85.collect { :n |
+	s := 2.powerMod(s, n)
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/powerMod-J.svg)
+
 * * *
 
 See also: ^, %

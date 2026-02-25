@@ -242,6 +242,15 @@ OEIS [A100044](https://oeis.org/A100044):
 
 ![](sw/spl/Help/Image/pi-B.svg)
 
+Scatter plot of the digits of _π/4_,
+OEIS [A003881](https://oeis.org/A003881)
+
+~~~spl svg=C
+1/4.pi(104).integerDigits.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/pi-C.svg)
+
 `pi` is not defined as a constant, unlike `Infinity` and `NaN`.
 
 Where supported `pi` is displayed as π.

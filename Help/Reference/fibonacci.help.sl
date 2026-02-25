@@ -510,6 +510,17 @@ let k = a.max;
 
 ![](sw/spl/Help/Image/fibonacci-N.svg)
 
+Sum of digits of Fibonacci numbers,
+OEIS [A004090](https://oeis.org/A004090):
+
+~~~spl svg=O
+0:85.fibonacci.collect { :n |
+	n.integerDigits.sum
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/fibonacci-O.svg)
+
 * * *
 
 See also: binetsFormula, fibonacciEntryPoint, fibonacciNumber, fibonacciPolynomial, fibonacciSequence, goldenRatio, lucasNumber

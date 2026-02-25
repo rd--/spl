@@ -65,6 +65,27 @@ OEIS [A010052](https://oeis.org/A010052):
 
 ![](sw/spl/Help/Image/isPerfectSquare-B.svg)
 
+Smallest _k_ such that the concatenation of _n_ and _k_ is a square,
+OEIS [A071176](https://oeis.org/A071176):
+
+~~~spl svg=C
+1:150.collect { :n |
+	let d = n.integerDigits;
+	let k = 0;
+	{
+		(d ++ k.integerDigits)
+		.fromDigits
+		.isPerfectSquare
+	}.whileFalse {
+		k := k + 1
+	};
+	k
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/isPerfectSquare-C.svg)
+
+
 * * *
 
 See also: square, sqrt

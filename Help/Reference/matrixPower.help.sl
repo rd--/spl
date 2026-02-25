@@ -106,7 +106,7 @@ OEIS [A002524](https://oeis.org/A002524):
 >>> 	-1 0 2 0 2
 >>> ];
 >>> let b = [1; 1; 2; 6; 14];
->>> 1:12.collect { :n |
+>>> 1:11.collect { :n |
 >>> 	let c = a.matrixPower(n).dot(b);
 >>> 	c[1][1]
 >>> }

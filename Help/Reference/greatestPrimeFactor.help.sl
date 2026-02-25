@@ -69,6 +69,22 @@ OEIS [A061395](https://oeis.org/A061395):
 
 ![](sw/spl/Help/Image/greatestPrimeFactor-B.svg)
 
+Least inverse of the Kempner function,
+OEIS [A046021](https://oeis.org/A046021):
+
+~~~spl svg=C
+2:150.collect { :n |
+	let p = n.greatestPrimeFactor;
+	let m = ((n - 1).log / p.log).floor;
+	let q = 1:m.sum { :k |
+		((n - 1) / (p ^ k)).floor
+	};
+	p ^ (1 + q)
+}.log.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/greatestPrimeFactor-C.svg)
+
 * * *
 
 See also: factorInteger, leastPrimeFactor, prime

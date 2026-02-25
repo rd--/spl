@@ -5,6 +5,10 @@ Compression and Normalization:
 - `integerSequenceCompress`
 - `integerSequenceNormalize`
 
+Evaluation:
+
+- `leastExcludedSequence`
+
 Matrices:
 
 - `dispersionArray`

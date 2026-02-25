@@ -747,6 +747,10 @@
 		anObject.adaptToCollectionAndApply(self, Complex:/2)
 	}
 
+	digitalRoot { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, digitalRoot:/2)
+	}
+
 	divisible { :self :anObject |
 		anObject.adaptToCollectionAndApply(self, divisible:/2)
 	}
