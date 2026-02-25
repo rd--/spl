@@ -336,6 +336,36 @@ OEIS [A002605](https://oeis.org/A002605):
 [0 1 2 6 16 44 120 328 896 2448 6688]
 ```
 
+_F(n)+n_,
+OEIS [A002062](https://oeis.org/A002062):
+
+```
+>>> 0:13.fibonacci + 0:13
+[0 2 3 5 7 10 14 20 29 43 65 100 156 246]
+```
+
+Fibonacci-type sequence based on division,
+OEIS [A061083](https://oeis.org/A061083):
+
+```
+>>> [5 2].repeat(5) ^ 0:9.fibonacci
+[
+	1 2 5 4 125 32 390625 8192
+	476837158203125 17179869184
+]
+```
+
+_2^F(n)_,
+OEIS [A000301](https://oeis.org/A000301):
+
+```
+>>> 2L ^ 0:10.fibonacci
+[
+	1 2 2 4 8 32 256 8192 2097152
+	17179869184 36028797018963968L
+]
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A

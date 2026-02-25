@@ -415,6 +415,10 @@
 		self.logScale(1 / 10.log)
 	}
 
+	lucasL { :self |
+		self.collect(lucasL:/1)
+	}
+
 	lucasNumber { :self |
 		self.collect(lucasNumber:/1)
 	}

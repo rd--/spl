@@ -4,7 +4,7 @@
 
 Answer the absolute difference between _n_ and the nearest prime.
 
-First few terms:
+First few terms,
 OEIS [A051699](http://oeis.org/A051699):
 
 ```
@@ -24,7 +24,8 @@ OEIS [A051699](http://oeis.org/A051699):
 ]
 ```
 
-Plot first few terms:
+Plot first few terms,
+OEIS [A051699](http://oeis.org/A051699):
 
 ~~~spl svg=A
 0:150.collect(primeDistance:/1)

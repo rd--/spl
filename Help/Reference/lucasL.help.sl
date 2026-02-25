@@ -115,6 +115,18 @@ Negative _n_:
 -199
 ```
 
+Fibonacci-type sequence based on subtraction,
+OEIS [A061084](https://oeis.org/A061084):
+
+```
+>>> (1 - 0:23).lucasL.round
+[
+	1 2 -1 3 -4 7 -11 18 -29 47 -76 123
+	-199 322 -521 843 -1364 2207 -3571
+	5778 -9349 15127 -24476 39603
+]
+```
+
 * * *
 
 See also: lucasNumber, lucasPolynomial, lucasSequence

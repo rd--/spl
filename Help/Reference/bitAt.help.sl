@@ -27,6 +27,38 @@ Get the bit corresponding to the coefficient at 2 ^ 3:
 1
 ```
 
+A sequence by Rémy Sigrist,
+_a(2n)=a(n)+k(n)_ and a(2n+1)=a(n)+3k(n)_,
+where _k(n)_ is the least positive integer not leading to a duplicate term in the sequence,
+OEIS [A304971](https://oeis.org/A304971):
+
+~~~spl svg=A
+let m = 300;
+let a = [1];
+let s = 2L ^ a[1];
+1.toDo((m / 2).ceiling) { :n |
+	let k = 1;
+	let p = a[n];
+	{ :break:/0 |
+		let q = p + k;
+		let r = p + (3 * k);
+		(
+			(s.bitAt(q + 1) = 0) & {
+				s.bitAt(r + 1) = 0
+			}
+		).ifTrue {
+			a := a ++ [q, r];
+			s := s + (2 ^ q) + (2 ^ r);
+			break()
+		};
+		k := k + 1
+	}.repeatForeverWithBreak
+};
+a.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/bitAt-A.svg)
+
 * * *
 
 See also: Binary, bitAtPut, bitClear, BitSet, highBit, integerDigits
