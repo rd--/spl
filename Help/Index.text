@@ -107,6 +107,7 @@ Guide/Integer Sequence Index.help.sl
 Guide/Integer Sequence Method List.help.sl
 Guide/Integer Sequences.help.sl
 Guide/Integer Syntax.help.sl
+Guide/Integer Types.help.sl
 Guide/Interpolation Functions.help.sl
 Guide/Interval Functions.help.sl
 Guide/Iteration Functions.help.sl
@@ -333,6 +334,7 @@ Reference/allTrue.help.sl
 Reference/alpha.help.sl
 Reference/also.help.sl
 Reference/alternatingHarmonicSeries.help.sl
+Reference/alternatingSum.help.sl
 Reference/altitudes.help.sl
 Reference/AmClip.help.sl
 Reference/AmpComp.help.sl
@@ -673,6 +675,7 @@ Reference/bitAtPut.help.sl
 Reference/bitCount.help.sl
 Reference/bitLength.help.sl
 Reference/Bitmap.help.sl
+Reference/bitNor.help.sl
 Reference/bitNot.help.sl
 Reference/bitonicSort.help.sl
 Reference/bitonicSortMatrix.help.sl
@@ -2753,6 +2756,7 @@ Reference/necklaceCount.help.sl
 Reference/necklacePlot.help.sl
 Reference/necklaces.help.sl
 Reference/needlemanWunschAlgorithm.help.sl
+Reference/negabinaryExpansion.help.sl
 Reference/negate.help.sl
 Reference/Negate.help.sl
 Reference/neighbourhoodGraph.help.sl
@@ -2807,6 +2811,7 @@ Reference/noneSatisfy.help.sl
 Reference/noneTrue.help.sl
 Reference/nonidentical.help.sl
 Reference/nonPrime.help.sl
+Reference/nor.help.sl
 Reference/NormalDistribution.help.sl
 Reference/normal.help.sl
 Reference/normalizedSquaredEuclideanDistance.help.sl
@@ -3051,6 +3056,7 @@ Reference/pi.help.sl
 Reference/PingPongDelay.help.sl
 Reference/PinkNoise.help.sl
 Reference/pisanoPeriod.help.sl
+Reference/pisotSequence.help.sl
 Reference/Pitch.help.sl
 Reference/PitchShift.help.sl
 Reference/plainChangesDo.help.sl

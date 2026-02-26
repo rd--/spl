@@ -43,8 +43,8 @@ OEIS [A000695](https://oeis.org/A000695):
 
 ```
 >>> 0:1200.select { :n |
->>> 	let a = n.negabinaryExpansion
->>> 	let b = n.binaryExpansion
+>>> 	let a = n.negabinaryExpansion;
+>>> 	let b = n.binaryExpansion;
 >>> 	a = b
 >>> }
 48.moserDeBruijnSequence
