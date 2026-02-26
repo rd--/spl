@@ -228,6 +228,28 @@ Plot OEIS [A046645](https://oeis.org/A046645):
 
 ![](sw/spl/Help/Image/digitCount-I.svg)
 
+Numbers having no more than one zero in their binary representation,
+OEIS [A089633](https://oeis.org/A089633)
+
+~~~spl svg=J
+0:1024.select { :n |
+	n.digitCount(2, 0) < 2
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/digitCount-J.svg)
+
+Numbers having at least two zeroes in their binary representation,
+OEIS [A158582](https://oeis.org/A158582)
+
+~~~spl svg=K
+0:85.select { :n |
+	n.digitCount(2, 0) > 1
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/digitCount-K.svg)
+
 * * *
 
 See also: bitAnd, hammingDistance, hammingWeight, integerDigits, integerExponent, integerLength, thueMorse

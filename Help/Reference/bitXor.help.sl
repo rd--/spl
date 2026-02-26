@@ -380,6 +380,21 @@ a.allButLast.scatterPlot
 
 ![](sw/spl/Help/Image/bitXor-Q.svg)
 
+Logical convolution,
+OEIS [A142149](https://oeis.org/A142149):
+
+~~~spl svg=R
+0:200.collect { :n |
+	n.isOdd.if {
+		n
+	} {
+		n.bitXor(n / 2)
+	}
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/bitXor-R.svg)
+
 * * *
 
 See also: bitAnd, bitNot, bitOr, xor

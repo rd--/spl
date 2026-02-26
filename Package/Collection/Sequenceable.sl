@@ -152,6 +152,14 @@
 		[p, r]
 	}
 
+	alternatingSum { :self |
+		let sign = -1;
+		self.sum { :x |
+			sign := sign * -1;
+			x * sign
+		}
+	}
+
 	asDigitsAtInDo { :self :anInteger :aCollection :aBlock:/1 |
 		self.do { :each |
 			aCollection[anInteger] := each;

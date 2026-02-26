@@ -184,6 +184,18 @@ a[0:115].scatterPlot
 
 ![](sw/spl/Help/Image/floor-H.svg)
 
+_⌊(n/10)-(n%10)_,
+OEIS [A008687](https://oeis.org/A008687):
+
+~~~spl svg=I
+0:199.collect { :n |
+	(n / 10).floor - (n % 10)
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/floor-I.svg)
+
+
 Where supported `floor` is displayed as ⌊.
 
 * * *

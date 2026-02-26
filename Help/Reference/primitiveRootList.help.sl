@@ -122,6 +122,35 @@ OEIS [A033948](https://oeis.org/A033948):
 ]
 ```
 
+Largest positive primitive root of _n_-th prime,
+OEIS [A071894](https://oeis.org/A071894):
+
+```
+>>> 1:43.collect { :n |
+>>> 	n.prime.primitiveRootList.max
+>>> }
+[
+	1 2 3 5 8 11 14 15 21 27 24 35 35 34
+	45 51 56 59 63 69 68 77 80 86 92 99
+	101 104 103 110 118 128 134 135 147
+	146 152 159 165 171 176 179 189
+]
+```
+
+Least positive primitive root of _n_-th prime,
+OEIS [A001918](https://oeis.org/A001918):
+
+```
+>>> 1:43.collect { :n |
+>>> 	n.prime.primitiveRootList.min
+>>> }
+[
+	1 2 2 3 2 2 3 2 5 2 3 2 6 3 5 2 2 2 2
+	7 5 3 2 3 5 2 5 2 6 3 3 2 3 2 2 6 5 2
+	5 2 2 2 19
+]
+```
+
 Plot first few terms,
 OEIS [A046147](https://oeis.org/A046147):
 
@@ -178,6 +207,53 @@ OEIS [A088145](https://oeis.org/A088145):
 ~~~
 
 ![](sw/spl/Help/Image/primitiveRootList-E.svg)
+
+Triangle in which _n_-th row lists all primitive roots modulo the _n_-th prime,
+OEIS [A060749](https://oeis.org/A060749):
+
+~~~spl svg=F
+1:23.collect { :n |
+	n.prime.primitiveRootList
+}.catenate.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/primitiveRootList-F.svg)
+
+Smallest primitive root modulo _n_ or 0 if no root exists,
+OEIS [A046145](https://oeis.org/A046145):
+
+~~~spl svg=G
+1:85.collect { :n |
+	let r = n.primitiveRootList;
+	r.ifEmpty { 0 } { r.min }
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/primitiveRootList-G.svg)
+
+Largest primitive root modulo _n_ or 0 if no root exists,
+OEIS [A046146](https://oeis.org/A046146):
+
+~~~spl svg=H
+1:85.collect { :n |
+	let r = n.primitiveRootList;
+	r.ifEmpty { 0 } { r.max }
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/primitiveRootList-H.svg)
+
+Least positive prime primitive root of _n_-th prime,
+OEIS [A002233](https://oeis.org/A002233):
+
+~~~spl svg=I
+2:85.collect { :n |
+	n.prime.primitiveRootList
+	.detect(isPrime:/1)
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/primitiveRootList-I.svg)
 
 * * *
 

@@ -443,6 +443,10 @@
 		self.collect(muLawDecode:/1)
 	}
 
+	negabinaryExpansion { :self |
+		self.collect(negabinaryExpansion:/1)
+	}
+
 	nextPrime { :self |
 		self.collect(nextPrime:/1)
 	}
@@ -733,6 +737,10 @@
 
 	bitAnd { :self :anObject |
 		anObject.adaptToCollectionAndApply(self, bitAnd:/2)
+	}
+
+	bitNot { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, bitNot:/2)
 	}
 
 	bitOr { :self :anObject |

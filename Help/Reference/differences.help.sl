@@ -261,6 +261,31 @@ OEIS [A053230](https://oeis.org/A053230):
 
 ![](sw/spl/Help/Image/differences-D.svg)
 
+Absolute values of differences between digits of _n+10_,
+OEIS [A040114](https://oeis.org/A040114):
+
+~~~spl svg=E
+1:125.collect { :n |
+	n.integerDigits.differences.abs
+}.catenate.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/differences-E.svg)
+
+Join absolute values of differences between digits of _n_,
+OEIS [A040115](https://oeis.org/A040115):
+
+~~~spl svg=F
+0:125.collect { :n |
+	n.integerDigits
+	.differences
+	.abs
+	.fromDigits
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/differences-F.svg)
+
 * * *
 
 See also: -, accumulate, differencesBy, discreteLaplacian, foldList, gradient, prefixSum, ratios

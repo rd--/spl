@@ -1645,3 +1645,39 @@
 	}
 
 }
+
++String {
+
+	pisotSequence { :k :x :y :m |
+		k.caseOf(
+			[
+				'E' -> {
+					{ :a :n |
+						(a[n - 1] ^ 2 / a[n - 2] + (x.one / 2)).floor
+					}.recurrenceTable([x, y], m)
+				},
+				'L' -> {
+					{ :a :n |
+						(a[n - 1] ^ 2 / a[n - 2]).ceiling
+					}.recurrenceTable([x, y], m)
+				},
+				'P' -> {
+					{ :a :n |
+						(a[n - 1] ^ 2 / a[n - 2] - (x.one / 2)).ceiling
+					}.recurrenceTable([x, y], m)
+				},
+				'T' -> {
+					{ :a :n |
+						(a[n - 1] ^ 2 / a[n - 2]).floor
+					}.recurrenceTable([x, y], m)
+				},
+				'S' -> {
+					{ :a :n |
+						(a[n - 1] ^ 2 / a[n - 2] + 1).floor
+					}.recurrenceTable([x, y], m)
+				}
+			]
+		)
+	}
+
+}

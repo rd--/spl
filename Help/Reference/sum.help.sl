@@ -255,7 +255,7 @@ Where supported `sum` is displayed as Σ.
 
 * * *
 
-See also: +, accumulate, injectInto, neumaierSum, pairwiseSum, prefixSum, product, reduce
+See also: +, accumulate, alternatingSum, injectInto, neumaierSum, pairwiseSum, prefixSum, product, reduce
 
 Guides: Collection Functions
 

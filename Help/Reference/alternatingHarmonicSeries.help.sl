@@ -36,6 +36,8 @@ See also: harmonicNumber, harmonicProgression, harmonicSeries
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/AlternatingHarmonicSeries.html),
+[1](https://mathworld.wolfram.com/AlternatingHarmonicSeries.html)
+[2](https://mathworld.wolfram.com/AlternatingSeries.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Harmonic_series_(mathematics))
+[2](https://en.wikipedia.org/wiki/Alternating_series)

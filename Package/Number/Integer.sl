@@ -154,6 +154,15 @@
 		}
 	}
 
+	bitNor { :a :b :k |
+		bitOr(a, b).bitNot(k)
+	}
+
+	bitNot { :self :k |
+		let d = self.integerDigits(2, k);
+		(1 - d).fromDigits(2)
+	}
+
 	bjorklundsAlgorithmDo { :k :n :aBlock:/1 |
 		let s = 1.toCollect(n) { :i |
 			(i <= k).if {
@@ -191,7 +200,7 @@
 
 	carryLessMultiplication { :m :n :b |
 		(b = 2).if {
-			let s = 0;
+			let s = m.zero;
 			{
 				n > 0
 			}.whileTrue {
@@ -209,6 +218,16 @@
 
 	carryLessMultiplication { :m :n |
 		carryLessMultiplication(m, n, 2)
+	}
+
+	carryLessPower { :n :m :b |
+		{ :x |
+			carryLessMultiplication(x, n, b)
+		}.iterate(n.one, m)
+	}
+
+	carryLessPower { :n :m |
+		carryLessPower(m, n, 2)
 	}
 
 	characterRange { :self :anInteger |
@@ -1134,6 +1153,14 @@
 		} {
 			0
 		}
+	}
+
+	negabinaryExpansion { :n |
+		let a = n.abs + 1;
+		let b = a.log(4) + 2;
+		let c = (4 ^ b.floor) - 1;
+		let d = c / 3 * 2;
+		(n + d).bitXor(d).integerDigits(2)
 	}
 
 	numberDigit { :x :n :b |

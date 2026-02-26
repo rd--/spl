@@ -485,6 +485,19 @@ OEIS [A030101](https://oeis.org/A030101):
 ]
 ```
 
+Final digit of _n_,
+OEIS [A010879](https://oeis.org/A010879):
+
+```
+>>> 0:39.collect { :n |
+>>> 	n.integerDigits.last
+>>> }
+[
+	0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9
+	0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9
+]
+```
+
 Scatter plot of first few terms of OEIS [A265326](https://oeis.org/A265326):
 
 ~~~spl svg=A
@@ -780,6 +793,17 @@ OEIS [A030341](https://oeis.org/A030341):
 ~~~
 
 ![](sw/spl/Help/Image/integerDigits-T.svg)
+
+Sum of squares of digits of _n_,
+OEIS [A003132](https://oeis.org/A003132):
+
+~~~spl svg=U
+0:200.collect { :n |
+	n.integerDigits.square.sum
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/integerDigits-U.svg)
 
 * * *
 

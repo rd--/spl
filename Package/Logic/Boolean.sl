@@ -92,6 +92,10 @@ Boolean! : [Object, Storeable, Equatable, Json] {
 		true
 	}
 
+	nor { :a :b:/0 |
+		a.not & { b().not }
+	}
+
 	not { :self |
 		<primitive: return _self ? false : true;>
 	}

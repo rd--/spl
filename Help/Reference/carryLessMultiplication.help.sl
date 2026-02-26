@@ -18,6 +18,19 @@ Carry-less multiplication in base two:
 2r101100011101100
 ```
 
+At `LargeInteger`:
+
+```
+>>> 9L.carryLessMultiplication(7, 2)
+63L
+
+>>> 162L.carryLessMultiplication(150, 2)
+22764L
+
+>>> 1073741824L.carryLessMultiplication(8L, 2L)
+8589934592L
+```
+
 Multiplication table for base two:
 
 ```
@@ -48,6 +61,18 @@ OEIS [A048720](https://oeis.org/A048720):
 ~~~
 
 ![](sw/spl/Help/Image/carryLessMultiplication-A.svg)
+
+Exponentiation table for base two,
+read by antidiagonals,
+OEIS [A048723](https://oeis.org/A048723):
+
+~~~spl svg=B
+0L:21.antidiagonalArray(
+	carryLessPower:/2
+).catenate.log.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/carryLessMultiplication-B.svg)
 
 * * *
 

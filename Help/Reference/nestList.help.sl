@@ -239,6 +239,14 @@ OEIS [A031441](https://oeis.org/A031441):
 ]
 ```
 
+Pisot sequences _E,L,P,T(2,6)_,
+OEIS [A008776](https://oeis.org/A008776):
+
+```
+>>> { :n | 3 * n }.nestList(2, 9)
+[2 6 18 54 162 486 1458 4374 13122 39366]
+```
+
 Plot the first few terms of the `dyadicMap`:
 
 ~~~spl svg=A

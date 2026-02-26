@@ -5,6 +5,9 @@
 Answer the first _n_ terms of the the Moser–de Bruijn sequence,
 an integer sequence consisting of the sums of distinct powers of four.
 
+First few terms,
+OEIS [A000695](https://oeis.org/A000695):
+
 ```
 >>> 51.moserDeBruijnSequence
 [

@@ -165,6 +165,18 @@ At `Symbol`:
 (min x y)
 ```
 
+Range of digits of _n_,
+OEIS [A037904](https://oeis.org/A037904):
+
+~~~spl svg=A
+0:250.collect { :n |
+	let d = n.integerDigits;
+	d.max - d.min
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/min-A.svg)
+
 * * *
 
 See also: clip, deepMin, floor, max, minBy, minDetect, minimalBy, minMax, takeSmallest, rankedMin, ordering

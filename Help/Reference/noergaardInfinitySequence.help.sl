@@ -37,7 +37,8 @@ The sequence is square free:
 true
 ```
 
-Discrete plot of first few terms:
+Discrete plot of first few terms,
+OEIS [A004718](https://oeis.org/A004718):
 
 ~~~spl svg=A
 99.noergaardInfinitySequence
@@ -46,7 +47,8 @@ Discrete plot of first few terms:
 
 ![](sw/spl/Help/Image/noergaardInfinitySequence-A.svg)
 
-Scatter plot of first few terms:
+Scatter plot of first few terms,
+OEIS [A004718](https://oeis.org/A004718):
 
 ~~~spl svg=B
 333.noergaardInfinitySequence
@@ -142,6 +144,16 @@ Scatter plot of first few terms of second variant:
 ~~~
 
 ![](sw/spl/Help/Image/noergaardInfinitySequence-D.svg)
+
+First differences,
+OEIS [A256187](https://oeis.org/A256187):
+
+~~~spl svg=E
+100.noergaardInfinitySequence
+.differences.discretePlot
+~~~
+
+![](sw/spl/Help/Image/noergaardInfinitySequence-E.svg)
 
 * * *
 

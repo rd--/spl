@@ -77,6 +77,30 @@ Plot `abs` at Gaussian integers:
 
 ![](sw/spl/Help/Image/abs-C.png)
 
+Absolute value of the first digit of _n_ minus the last digit,
+OEIS [A040163](https://oeis.org/A040163):
+
+~~~spl svg=D
+1:125.collect { :n |
+	let d = n.integerDigits;
+	(d.first - d.last).abs
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/abs-D.svg)
+
+Absolute value of the first digit of _n_ minus the sum of the remaining digits,
+OEIS [A040997](https://oeis.org/A040997):
+
+~~~spl svg=E
+50:175.collect { :n |
+	let d = n.integerDigits;
+	(d.first - d.allButFirst.sum).abs
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/abs-E.svg)
+
 * * *
 
 See also: absArg, arg, hypot, imaginary, norm, sign, real

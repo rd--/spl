@@ -378,6 +378,18 @@ OEIS [A051953](https://oeis.org/A051953):
 
 ![](sw/spl/Help/Image/eulerPhi-J.svg)
 
+_φ(p(n)-1)_,
+number of primitive roots in the field with _p_ elements,
+OEIS [A008330](https://oeis.org/A008330):
+
+~~~spl svg=K
+1:200.collect { :n |
+	(n.prime - 1).eulerPhi
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/eulerPhi-K.svg)
+
 * * *
 
 See also: divisors, factorInteger, gcd, lcm, powerMod, totientSummatoryFunction

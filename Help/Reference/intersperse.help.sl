@@ -9,11 +9,12 @@ Answer a `List` that has the elements of the sequence _x_ with the object _y_ be
 [3 1 4 1 5]
 ```
 
-Insert zeroes between successive integers:
+Insert zeroes between successive integers,
+OEIS [A142150](https://oeis.org/A142150):
 
 ```
->>> 1:10.intersperse(0)
-[1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10]
+>>> 0:10.intersperse(0)
+[0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10]
 ```
 
 * * *

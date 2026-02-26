@@ -588,6 +588,30 @@ OEIS [A068601](http://oeis.org/A068601):
 [0 7 26 63 124 215 342 511 728 999 1330]
 ```
 
+_n^3_,
+OEIS [A000244](https://oeis.org/A000244):
+
+```
+>>> 3 ^ 0:9
+[1 3 9 27 81 243 729 2187 6561 19683]
+```
+
+_n^4_,
+OEIS [A000302](https://oeis.org/A000302):
+
+```
+>>> 4 ^ 0:8
+[1 4 16 64 256 1024 4096 16384 65536]
+```
+
+_2(3^n)_,
+OEIS [A008776](https://oeis.org/A008776):
+
+```
+>>> 2 * (3 ^ 0:8)
+[2 6 18 54 162 486 1458 4374 13122]
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A
@@ -655,6 +679,18 @@ OEIS [A000089](https://oeis.org/A000089):
 ~~~
 
 ![](sw/spl/Help/Image/power-F.svg)
+
+Exponentiation table,
+read by antidiagonals,
+OEIS [A004248](https://oeis.org/A004248):
+
+~~~spl svg=G
+0:21.antidiagonalArray(
+	power:/2
+).catenate.log.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/power-G.svg)
 
 * * *
 

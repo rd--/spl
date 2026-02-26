@@ -191,6 +191,10 @@ LargeInteger! : [Object, Storeable, Equatable, Comparable, Binary, Magnitude, Nu
 		self.error('bitOr: operand not a LargeInteger or SmallFloat')
 	}
 
+	bitNot { :self |
+		<primitive: return ~_self;>
+	}
+
 	bitXor { :self :anObject |
 		<primitive:
 		if(sl.isLargeInteger(_anObject)) {
