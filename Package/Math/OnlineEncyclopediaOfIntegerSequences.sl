@@ -1,5 +1,31 @@
 +SmallFloat {
 
+	oeisA003961 { :n |
+		(n = 1).if {
+			1
+		} {
+			n.isPrime.if {
+				(n.primePi + 1).prime
+			} {
+				n.factorInteger.product { :x |
+					oeisA003961(x[1]) ^ x[2]
+				}
+			}
+		}
+	}
+
+	oeisA005940 { :n |
+		(n - 1).doudnaSequenceFunction
+	}
+
+	oeisA007814 { :n |
+		n.integerExponent(2)
+	}
+
+	oeisA007949 { :n |
+		n.integerExponent(3)
+	}
+
 	oeisA014486 { :n |
 		n.catalanUnrank
 	}
@@ -110,6 +136,24 @@
 		}
 	}
 
+	oeisA004718 { :n |
+		let b = n.binaryExpansion.reverse;
+		let z = 0;
+		let [p, q] = [0, 0];
+		b.do { :i |
+			(i = 0).if {
+				z := z + 1
+			} {
+				z.isEven.if {
+					p := p + 1
+				} {
+					q := q + 1
+				}
+			}
+		};
+		p - q
+	}
+
 	oeisA071156 { :n |
 		n.oeisA014486.oeisA085198
 	}
@@ -134,23 +178,69 @@
 		s
 	}
 
+	oeisA343029 { :n |
+		let b = n.binaryExpansion.reverse;
+		let z = 0;
+		let p = 0;
+		b.do { :i |
+			(i = 0).if {
+				z := z + 1
+			} {
+				z.isEven.ifTrue {
+					p := p + 1
+				}
+			}
+		};
+		p
+	}
+
+	oeisA343030 { :n |
+		let b = n.binaryExpansion.reverse;
+		let z = 0;
+		let q = 0;
+		b.do { :i |
+			(i = 0).if {
+				z := z + 1
+			} {
+				z.isOdd.ifTrue {
+					q := q + 1
+				}
+			}
+		};
+		q
+	}
+
+}
+
++System {
+
+	oeisFunctionDictionary { :self |
+		self.cached('oeisFunctionDictionary') {
+			(
+				'A003961': { :n | n.oeisA003961 },
+				'A005940': { :n | n.oeisA005940 },
+				'A007814': { :n | n.oeisA007814 },
+				'A007949': { :n | n.oeisA007949 },
+				'A014486': { :n | n.oeisA014486 },
+				'A020652': { :n | n.oeisA020652 },
+				'A020653': { :n | n.oeisA020653 },
+				'A038567': { :n | n.oeisA038567 },
+				'A038568': { :n | n.oeisA038568 },
+				'A038569': { :n | n.oeisA038569 },
+				'A071156': { :n | n.oeisA071156 },
+				'A085198': { :n | n.oeisA085198 },
+				'A343029': { :n | n.oeisA343029 },
+				'A343030': { :n | n.oeisA343030 }
+			)
+		}
+	}
+
 }
 
 +String {
 
 	oeisFunction { :self |
-		self.caseOf(
-			[
-				'A014486' -> { { :n | n.oeisA014486 } },
-				'A020652' -> { { :n | n.oeisA020652 } },
-				'A020653' -> { { :n | n.oeisA020653 } },
-				'A038567' -> { { :n | n.oeisA038567 } },
-				'A038568' -> { { :n | n.oeisA038568 } },
-				'A038569' -> { { :n | n.oeisA038569 } },
-				'A071156' -> { { :n | n.oeisA071156 } },
-				'A085198' -> { { :n | n.oeisA085198 } }
-			]
-		)
+		system.oeisFunctionDictionary.at(self)
 	}
 
 }

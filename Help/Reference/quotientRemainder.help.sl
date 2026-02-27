@@ -139,6 +139,31 @@ let a = { :n :k |
 
 ![](sw/spl/Help/Image/quotientRemainder-C.svg)
 
+Write _n_ in balanced ternary and then replace negative ones with twos,
+OEIS [A117967](https://oeis.org/A117967):
+
+~~~spl svg=D
+0:121.collect { :n |
+	let m = n;
+	let r = 0;
+	let i = 0;
+	let d = nil;
+	{
+		m > 0
+	}.whileTrue {
+		[m, d] := m.quotientRemainder(3);
+		(d = 2).ifTrue {
+			m := m + 1
+		};
+		r := r + (d * (3 ^ i));
+		i := i + 1
+	};
+	r
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/quotientRemainder-D.svg)
+
 * * *
 
 See also: //, \\, quotient, remainder

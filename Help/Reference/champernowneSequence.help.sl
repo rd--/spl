@@ -117,7 +117,7 @@ OEIS [A030190](https://oeis.org/A030190):
 
 ![](sw/spl/Help/Image/champernowneSequence-B.svg)
 
-Plot
+Plot first few terms,
 OEIS [A054635](https://oeis.org/A054635):
 
 ~~~spl svg=C

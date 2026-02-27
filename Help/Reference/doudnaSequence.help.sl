@@ -27,6 +27,16 @@ OEIS [A005940](https://oeis.org/A005940):
 ]
 ```
 
+There is a function form,
+offset by negative one:
+
+```
+>>> 0:16.collect(
+>>> 	doudnaSequenceFunction:/1
+>>> )
+[1 2 3 4 5 6 9 8 7 10 15 12 25 18 27 16 11]
+```
+
 Linear plot:
 
 ~~~spl svg=A
@@ -42,6 +52,37 @@ Log-scale plot:
 ~~~
 
 ![](sw/spl/Help/Image/doudnaSequence-B.svg)
+
+The least number with the same prime signature as the Doudna sequence entry,
+OEIS [A278222](https://oeis.org/A278222):
+
+~~~spl svg=C
+65.doudnaSequence.collect { :n |
+	1:Infinity.detect { :m |
+		n.primeSignature
+		=
+		m.primeSignature
+	}
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/doudnaSequence-C.svg)
+
+Restricted growth sequence of least number with the same prime signature as the Doudna sequence entry,
+OEIS[A286622](https://oeis.org/A286622):
+
+~~~spl svg=D
+200.doudnaSequence.collect { :n |
+	1:Infinity.detect { :m |
+		n.primeSignature
+		=
+		m.primeSignature
+	}
+}.restrictedGrowthStringTransform
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/doudnaSequence-D.svg)
 
 * * *
 

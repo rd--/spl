@@ -70,6 +70,10 @@
 		self.collect(asNumber:/1)
 	}
 
+	balancedTernaryDigits { :self |
+		self.collect(balancedTernaryDigits:/1)
+	}
+
 	bellNumber { :self |
 		self.collect(bellNumber:/1)
 	}
@@ -296,6 +300,12 @@
 
 	integerDigits { :self |
 		self.collect(integerDigits:/1)
+	}
+
+	integerExponent { :self :anObject |
+		self.collect { :each |
+			each.integerExponent(anObject)
+		}
 	}
 
 	integerLength { :self :radix |

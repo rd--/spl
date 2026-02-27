@@ -212,6 +212,27 @@ OEIS [A005044](https://oeis.org/A005044):
 
 ![](sw/spl/Help/Image/isEven-F.svg)
 
+A permutation of the positive integers,
+OEIS [A163511](https://oeis.org/A163511):
+
+~~~spl svg=G
+let f:/1 = 'A003961'.oeisFunction;
+let a = Map { :n |
+	(n <= 1).if {
+		n + 1
+	} {
+		n.isEven.if {
+			2 * a[n / 2]
+		} {
+			f(a[n - 1 / 2])
+		}
+	}
+};
+a[0:250].log.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/isEven-G.svg)
+
 * * *
 
 See also: divisible, isInteger, isOdd

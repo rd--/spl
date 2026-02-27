@@ -134,6 +134,28 @@ OEIS [A059717](https://oeis.org/A059717):
 
 ![](sw/spl/Help/Image/isOdd-B.svg)
 
+Ordered set with zero and where if _x_ is in then both _2x+1_ and _4x_ are also in,
+OEIS [A060142](https://oeis.org/A060142):
+
+~~~spl svg=C
+let a:/1 = { :n |
+	(n < 3).if {
+		(n < 2)
+	} {
+		n.isOdd.if {
+			a(n // 2)
+		} {
+			n % 4 = 0 & {
+				a(n / 4)
+			}
+		}
+	}
+}.memoize(true);
+0:300.select(a:/1).scatterPlot
+~~~
+
+![](sw/spl/Help/Image/isOdd-C.svg)
+
 * * *
 
 See also: divisible, isEven, isInteger

@@ -69,6 +69,23 @@ OEIS [A142150](https://oeis.org/A142150):
 
 ![](sw/spl/Help/Image/riffle-A.svg)
 
+Write _n_ in binary and count zeroes between ones and also the edge,
+OEIS [A163510](https://oeis.org/A163510):
+
+~~~spl svg=B
+1:37.collect { :n |
+	let d = n.integerDigits(2);
+	let p = d.riffle(0) ++ [0];
+	p.split(=).reject { :x |
+		x[1] = 1
+	}.collect { :x |
+		((x.size - 1) / 2).ceiling
+	}.reverse
+}.catenate.discretePlot
+~~~
+
+![](sw/spl/Help/Image/riffle-B.svg)
+
 * * *
 
 See also: inShuffle, intercalate, interleave, intersperse, outShuffle, transpose

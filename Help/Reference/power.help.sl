@@ -612,6 +612,14 @@ OEIS [A008776](https://oeis.org/A008776):
 [2 6 18 54 162 486 1458 4374 13122]
 ```
 
+_2^n-2_,
+OEIS [A000918](https://oeis.org/A000918):
+
+```
+>>> 2 ^ 0:9 - 2
+[-1 0 2 6 14 30 62 126 254 510]
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A

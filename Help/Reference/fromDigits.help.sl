@@ -131,6 +131,16 @@ At empty list answers `zero`:
 0
 ```
 
+Convert from balanced ternary:
+
+```
+>>> [
+>>> 	1  -1 -1  0 -1  1  0 -1  0  1
+>>> 	-1 -1  1  1  1 -1  1 -1  1  0
+>>> ].fromDigits(3)
+635639340
+```
+
 Plot first few terms of
 OEIS [A030101](https://oeis.org/A030101):
 
@@ -164,7 +174,7 @@ Guides: Bitwise Functions, Integer Functions, Integer Sequence Functions
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/FromDigits.html),
+[1](https://mathworld.wolfram.com/Ternary.html),
 _OEIS_
 [1](https://oeis.org/A019518)
 [2](https://oeis.org/A007088)

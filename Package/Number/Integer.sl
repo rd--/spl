@@ -127,6 +127,23 @@
 		}
 	}
 
+	balancedTernaryDigits { :self |
+		let f = { :n |
+			(n = 0).if {
+				[]
+			} {
+				(n % 3).caseOf(
+					[
+						0 -> { [0] ++ f(n // 3) },
+						1 -> { [1] ++ f(n // 3) },
+						2 -> { [-1] ++ f((n + 1) // 3) }
+					]
+				)
+			}
+		};
+		f(self).reverse
+	}
+
 	bernsteinBasis { :d :n :x |
 		x := x.clip([0 1]);
 		d.binomial(n) * (x ^ n) * ((1 - x) ^ (d - n))

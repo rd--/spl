@@ -6,7 +6,7 @@ Answer the lexicographically least _n_-place square-free sequence of nonnegative
 
 The first few terms of the word that starts with zero,
 OEIS [A007814](https://oeis.org/A007814),
-also called the the ruler sequence:
+also called the the ruler sequence or the binary carry sequence:
 
 ```
 >>> [0].lexicographicallyLeastSquareFreeWord(111)

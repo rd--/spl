@@ -1,8 +1,8 @@
 # asPowerOfTwo
 
-- _asPowerOfTwo(anInteger)_
+- _asPowerOfTwo(n)_
 
-Answers the next power of two less than or equal to _anInteger_.
+Answers the next power of two less than or equal to the integer _n_.
 
 ```
 >>> 300.asPowerOfTwo

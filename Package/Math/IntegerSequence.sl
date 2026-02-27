@@ -1506,6 +1506,24 @@
 		}
 	}
 
+	restrictedGrowthSequenceTransform { :a |
+		let m = Dictionary();
+		let b = List(a.size);
+		let u = 1;
+		1.toDo(a.size) { :i |
+			let e = a[i];
+			m.includesKey(e).if {
+				let p = m[e];
+				b[i] := b[p]
+			} {
+				m[e] := i;
+				b[i] := u;
+				u := u + 1
+			}
+		};
+		b
+	}
+
 	shadowTransform { :x |
 		(1 .. x.size - 1).collect { :n |
 			1:n.sum { :j |

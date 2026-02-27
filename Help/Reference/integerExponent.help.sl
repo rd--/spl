@@ -19,13 +19,12 @@ The highest power of two:
 7
 ```
 
+Threads over lists,
 Number of trailing zeroes in factorials,
 OEIS [A027868](https://oeis.org/A027868):
 
 ```
->>> [1L .. 40L].collect { :n |
->>> 	n.factorial.integerExponent(10)
->>> }
+>>> [1L .. 40L].!.integerExponent(10)
 [
 	0 0 0 0 1 1 1 1 1 2
 	2 2 2 2 3 3 3 3 3 4
@@ -35,13 +34,11 @@ OEIS [A027868](https://oeis.org/A027868):
 ```
 
 Powers of two in successive integers,
-known as the ruler sequence,
+known as the ruler sequence or the binary carry sequence,
 OEIS [A007814](https://oeis.org/A007814):
 
 ```
->>> 1:40.collect { :n |
->>> 	n.integerExponent(2)
->>> }
+>>> 1:40.integerExponent(2)
 [
 	0 1 0 2 0 1 0 3 0 1
 	0 2 0 1 0 4 0 1 0 2
@@ -70,9 +67,7 @@ OEIS [A001511](https://oeis.org/A001511):
 ```
 >>> [3 4 5].collect { :n |
 >>> 	let m = (2 ^ n) - 1;
->>> 	1:m.collect { :each |
->>> 		each.integerExponent(2) + 1
->>> 	}
+>>> 	1:m.integerExponent(2) + 1
 >>> }
 [
 	1 2 1 3 1 2 1;
@@ -200,6 +195,7 @@ OEIS [A209229](https://oeis.org/A209229):
 ```
 
 Plot first few terms for for _b=2_,
+the binary carry sequence,
 OEIS [A007814](https://oeis.org/A007814):
 
 ~~~spl svg=A
@@ -229,9 +225,7 @@ Plot number of zeroes at the end of _n_ when written in base ten,
 OEIS [A122840](https://oeis.org/A122840):
 
 ~~~spl svg=C
-1:200.collect { :n |
-	n.integerExponent(10)
-}.discretePlot
+1:200.integerExponent(10).discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/integerExponent-C.svg)
@@ -401,6 +395,16 @@ a.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/integerExponent-M.svg)
+
+_b=3_,
+greatest _k_ such that _3^k_ divides _n_,
+OEIS [A007949](https://oeis.org/A007949):
+
+~~~spl svg=N
+1:150.integerExponent(3).discretePlot
+~~~
+
+![](sw/spl/Help/Image/integerExponent-N.svg)
 
 * * *
 

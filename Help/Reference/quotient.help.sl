@@ -30,6 +30,9 @@ The operator form is `//`:
 
 >>> 13 // 4
 3
+
+>>> 7 // 3
+2
 ```
 
 Quotient table:

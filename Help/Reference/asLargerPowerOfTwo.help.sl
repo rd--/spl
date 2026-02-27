@@ -1,8 +1,8 @@
 # asLargerPowerOfTwo
 
-- _asLargerPowerOfTwo(anInteger)_
+- _asLargerPowerOfTwo(n)_
 
-Answers a power of two that is not less than _anInteger_.
+Answers a power of two that is not less than the integer _n_.
 
 ```
 >>> 300.asLargerPowerOfTwo

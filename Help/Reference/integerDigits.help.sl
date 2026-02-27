@@ -498,6 +498,36 @@ OEIS [A010879](https://oeis.org/A010879):
 ]
 ```
 
+Numbers _k_ such that _2^k_ contains no zeros in base three,
+OEIS [A102483](https://oeis.org/A102483):
+
+```
+>>> (2 ^ [0 1 2 3 4 15]).integerDigits(3)
+[1; 2; 1 1; 2 2; 1 2 1; 1 1 2 2 2 2 1 1 2 2]
+```
+
+One-based position of the first zero from the least significant digit in the ternary expansion of _2^n_, or zero,
+OEIS [A117970](https://oeis.org/A117970):
+
+```
+>>> 0:21.collect { :n |
+>>> 	let d = (2 ^ n).integerDigits(3);
+>>> 	d.reverse.indexOf(0)
+>>> }
+[0 0 0 0 0 3 2 2 4 4 5 4 2 2 4 0 3 4 2 2 3 3]
+```
+
+One-based position of the first two from the least significant digit in the ternary expansion of _2^n_, or zero,
+OEIS [A117971](https://oeis.org/A117971):
+
+```
+>>> 0:21.collect { :n |
+>>> 	let d = (2 ^ n).integerDigits(3);
+>>> 	d.reverse.indexOf(2)
+>>> }
+[0 1 0 1 2 1 4 1 0 1 2 1 3 1 3 1 2 1 5 1 8 1]
+```
+
 Scatter plot of first few terms of OEIS [A265326](https://oeis.org/A265326):
 
 ~~~spl svg=A

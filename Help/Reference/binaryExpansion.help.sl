@@ -45,6 +45,141 @@ OEIS [A007088](https://oeis.org/A007088):
 [1 0 1 1 0 1]
 ```
 
+Number of ones in the binary expansion of _n_ which have an even number of zeroes at less significant positions,
+OEIS [A343029](https://oeis.org/A343029):
+
+~~~spl svg=A
+0:65.collect { :n |
+	let b = n.binaryExpansion.reverse;
+	let z = 0;
+	let p = 0;
+	b.do { :i |
+		(i = 0).if {
+			z := z + 1
+		} {
+			z.isEven.ifTrue {
+				p := p + 1
+			}
+		}
+	};
+	p
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/binaryExpansion-A.svg)
+
+Number of ones in the binary expansion of _n_ which have an odd number of zeroes at less significant positions,
+OEIS [A343030](https://oeis.org/A343030):
+
+~~~spl svg=B
+0:65.collect { :n |
+	let b = n.binaryExpansion.reverse;
+	let z = 0;
+	let q = 0;
+	b.do { :i |
+		(i = 0).if {
+			z := z + 1
+		} {
+			z.isOdd.ifTrue {
+				q := q + 1
+			}
+		}
+	};
+	q
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/binaryExpansion-B.svg)
+
+The Danish composer Per Nørgård’s infinity sequence,
+OEIS [A004718](https://oeis.org/A004718):
+
+~~~spl svg=C
+0:65.collect { :n |
+	let b = n.binaryExpansion.reverse;
+	let z = 0;
+	let [p, q] = [0, 0];
+	b.do { :i |
+		(i = 0).if {
+			z := z + 1
+		} {
+			z.isEven.if {
+				p := p + 1
+			} {
+				q := q + 1
+			}
+		}
+	};
+	p - q
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/binaryExpansion-C.svg)
+
+Restricted growth sequence transform of the ordered pair of counts of ones in the binary expansion of _n_ which have an even and odd number of zeroes at less significant positions,
+OEIS [A361020](https://oeis.org/A361020):
+
+~~~spl svg=D
+0:275.collect { :n |
+	let b = n.binaryExpansion.reverse;
+	let z = 0;
+	let [p, q] = [0, 0];
+	b.do { :i |
+		(i = 0).if {
+			z := z + 1
+		} {
+			z.isEven.if {
+				p := p + 1
+			} {
+				q := q + 1
+			}
+		}
+	};
+	[p, q]
+}.restrictedGrowthStringTransform
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/binaryExpansion-D.svg)
+
+Restricted growth sequence transform of the ordered triple of binary carry sequence and the counts of ones in the binary expansion of _n_ which have an even and odd number of zeroes at less significant positions,
+OEIS [A389896](https://oeis.org/A389896):
+
+~~~spl svg=E
+0:275.collect { :n |
+	let b = n.binaryExpansion.reverse;
+	let z = 0;
+	let e = (n + 1).integerExponent(2);
+	let [p, q] = [0, 0];
+	b.do { :i |
+		(i = 0).if {
+			z := z + 1
+		} {
+			z.isEven.if {
+				p := p + 1
+			} {
+				q := q + 1
+			}
+		}
+	};
+	[e, p, q]
+}.restrictedGrowthStringTransform
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/binaryExpansion-E.svg)
+
+Number of trailing equal digits in binary representation of _n_,
+OEIS [A136480](https://oeis.org/A136480):
+
+~~~spl svg=F
+0:65.collect { :n |
+	n.binaryExpansion.split(=).last.size
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/binaryExpansion-E.svg)
+
 * * *
 
 See also: integerDigits

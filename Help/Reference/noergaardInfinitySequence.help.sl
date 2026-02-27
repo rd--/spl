@@ -145,7 +145,7 @@ Scatter plot of first few terms of second variant:
 
 ![](sw/spl/Help/Image/noergaardInfinitySequence-D.svg)
 
-First differences,
+First differences of Nørgårds infinity sequence,
 OEIS [A256187](https://oeis.org/A256187):
 
 ~~~spl svg=E
@@ -154,6 +154,16 @@ OEIS [A256187](https://oeis.org/A256187):
 ~~~
 
 ![](sw/spl/Help/Image/noergaardInfinitySequence-E.svg)
+
+One for zero else zero in Nørgårds infinity sequence,
+OEIS [A361016](https://oeis.org/A361016):
+
+~~~spl svg=F
+200.noergaardInfinitySequence
+.collect(isZero:/1).boole.discretePlot
+~~~
+
+![](sw/spl/Help/Image/noergaardInfinitySequence-F.svg)
 
 * * *
 
