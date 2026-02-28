@@ -85,7 +85,6 @@ OEIS [A071176](https://oeis.org/A071176):
 
 ![](sw/spl/Help/Image/isPerfectSquare-C.svg)
 
-
 * * *
 
 See also: square, sqrt

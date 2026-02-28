@@ -98,7 +98,6 @@ let c = 2.sqrt;
 
 ![](sw/spl/Help/Image/beattySequence-A.svg)
 
-
 * * *
 
 See also: e, goldenRatio, pi, sqrt, wythoffLower, wythoffUpper

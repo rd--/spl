@@ -86,7 +86,6 @@ OEIS [A034460](https://oeis.org/A034460):
 
 ![](sw/spl/Help/Image/unitaryDivisorSigma-C.svg)
 
-
 * * *
 
 See also: divisors, divisorSigma, gcd, unitaryDivisors

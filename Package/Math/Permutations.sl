@@ -959,7 +959,7 @@ Permutation : [Object, Storeable, Equatable] { | cycles degree |
 		let n = 2 ^ k - 1;
 		0:n.collect { :i |
 			i.bitReverse(k)
-		}
+		} + 1
 	}
 
 	heapsAlgorithm { :self |

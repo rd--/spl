@@ -65,6 +65,7 @@ Find safe positions:
 
 * * *
 
+See also: bitXor, nimMultiplication
 
 References:
 _Mathematica_

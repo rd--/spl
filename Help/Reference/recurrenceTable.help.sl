@@ -148,7 +148,6 @@ Find fixed points of a nonlinear recurrence equation:
 
 ![](sw/spl/Help/Image/recurrenceTable-D.svg)
 
-
 Next term is sum of the digits of the sum of the previous two terms,
 OEIS [A030133](https://oeis.org/A030133):
 

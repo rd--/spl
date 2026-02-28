@@ -75,7 +75,6 @@ OEIS [A030132](https://oeis.org/A030132):
 
 ![](sw/spl/Help/Image/digitalRoot-B.svg)
 
-
 * * *
 
 See also: digitalRootSet, digitSum, multiplicativeDigitalRoot

@@ -195,7 +195,6 @@ OEIS [A008687](https://oeis.org/A008687):
 
 ![](sw/spl/Help/Image/floor-I.svg)
 
-
 Where supported `floor` is displayed as ⌊.
 
 * * *
