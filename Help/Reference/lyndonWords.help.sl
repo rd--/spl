@@ -25,7 +25,8 @@ A Lyndon word is a nonempty sequence that is strictly smaller in lexicographic o
 ]
 ```
 
-The numbers of binary Lyndon words of each length:
+The numbers of binary Lyndon words of each length,
+OEIS [A001037](https://oeis.org/A001037):
 
 ```
 >>> 1:12.collect { :n |

@@ -633,6 +633,26 @@
 		}.take(n)
 	}
 
+	kolakoskiSequence { :k :s |
+		let n = s.size;
+		let a = [];
+		let i = 1;
+		{
+			a.size < k
+		}.whileTrue {
+			let j = (i - 1) % n + 1;
+			let u = (i > a.size).if { s } { a };
+			let m = u[i];
+			a := a ++ List(m, s[j]);
+			i := i + 1
+		};
+		(a.size = k).if {
+			a
+		} {
+			a.take(k)
+		}
+	}
+
 	lookAndSay { :n :b |
 		n.integerDigits(b)
 		.split(=)
