@@ -37,8 +37,8 @@ Largest odd divisor of _n!_,
 OEIS [A049606](https://oeis.org/A049606):
 
 ```
->>> let n = 0:16;
->>> ((2L ^ n) / n.!).denominator
+>>> let n = 0L:16;
+>>> ((2 ^ n) / n.!).denominator
 [
 	1 1 1 3 3 15 45 315 315 2835 14175
 	155925 467775 6081075 42567525
@@ -50,16 +50,27 @@ Wavelengths in hydrogen spectrum are given by Rydberg’s formula,
 OEIS [A061036](https://oeis.org/A061036):
 
 ~~~spl svg=A
-1:16.collect { :n |
-	let a = 1 \ (n ^ 2);
+1L:16.collect { :n |
+	let a = 1 / (n ^ 2);
 	n:1:-1.collect { :m |
-		let b = 1 \ (m ^ 2);
+		let b = 1 / (m ^ 2);
 		(b - a).denominator
 	}
 }.++.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/denominator-A.svg)
+
+Denominator of _1/4-1/n^2_,
+OEIS [A061038](https://oeis.org/A061038):
+
+~~~spl svg=B
+2L:85.collect { :n |
+	1/4 - (1 / (n ^ 2))
+}.denominator.discretePlot
+~~~
+
+![](sw/spl/Help/Image/denominator-B.svg)
 
 * * *
 

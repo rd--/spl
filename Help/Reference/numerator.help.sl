@@ -54,9 +54,9 @@ Plot segment of least sequence where every term divides the product of its neigh
 OEIS [A075075](https://oeis.org/A075075):
 
 ~~~spl svg=B
-let a = [1 2];
+let a = [1L 2L];
 2:350.do { :n |
-	let d = Fraction(a[n], a[n - 1]);
+	let d = a[n] / a[n - 1];
 	let m = d.numerator;
 	let k = m;
 	{
@@ -82,6 +82,17 @@ OEIS [A061041](https://oeis.org/A061041):
 ~~~
 
 ![](sw/spl/Help/Image/numerator-C.svg)
+
+Numerator of _1/4-1/n^2_,
+OEIS [A061037](https://oeis.org/A061037):
+
+~~~spl svg=D
+2L:85.collect { :n |
+	1/4 - (1 / (n ^ 2))
+}.numerator.discretePlot
+~~~
+
+![](sw/spl/Help/Image/numerator-D.svg)
 
 * * *
 

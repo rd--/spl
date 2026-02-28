@@ -41,7 +41,8 @@ At `String`:
 'x'
 ```
 
-If _anInteger_ is negative, answer a copy of _aSequence_ without the last _anInteger_ places.
+If _n_ is negative,
+answer a copy of _x_ without the last _n_ places:
 
 ```
 >>> [1 2].drop(-1)

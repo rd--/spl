@@ -66,6 +66,17 @@ OEIS [A006577](https://oeis.org/A006577):
 [0 1 7 2 5 8 16 3 19 6 14 9 9 17 17 4 12 20]
 ```
 
+Number of odd terms,
+OEIS [A078719](https://oeis.org/A078719):
+
+```
+>>> 1:22.collect { :n |
+>>> 	n.collatzSequence
+>>> 	.count(isOdd:/1)
+>>> }
+[1 1 3 1 2 3 6 1 7 2 5 3 3 6 6 1 4 7 7 2 2 5]
+```
+
 Plot
 OEIS [A006577](https://oeis.org/A006577):
 
@@ -438,7 +449,8 @@ Plot first few indirect sequences:
 
 ![](sw/spl/Help/Image/collatzSequence-I.svg)
 
-Plot the number of iterations required to reach a power of two in the Collatz sequence starting at _n_,
+Plot the number of iterations required to reach a power of two in the Collatz sequence,
+starting at _n_,
 OEIS [A208981](https://oeis.org/A208981):
 
 ~~~spl svg=J
@@ -450,6 +462,59 @@ OEIS [A208981](https://oeis.org/A208981):
 ~~~
 
 ![](sw/spl/Help/Image/collatzSequence-J.svg)
+
+Number of tripling steps to reach one from _n_ in the _3x+1_ problem,
+OEIS [A006667](https://oeis.org/A006667),
+also
+OEIS [A078719](https://oeis.org/A078719)
+when one is added:
+
+~~~spl svg=K
+1:250.collect { :n |
+	n.collatzSequence
+	.differences
+	.count(isPositive:/1)
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/collatzSequence-K.svg)
+
+Number of tripling or halving steps to reach one from _n_ in the _3x+1_ problem,
+also called the Collatz problem,
+OEIS [A006577](https://oeis.org/A006577):
+
+~~~spl svg=L
+1:250.collect { :n |
+	n.collatzSequence.size - 1
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/collatzSequence-L.svg)
+
+Number of halving steps to reach one from _n_ in the _3x+1_ problem,
+also called the Collatz problem,
+OEIS [A006666](https://oeis.org/A006666):
+
+~~~spl svg=M
+1:250.collect { :n |
+	n.collatzSequence.count(isEven:/1)
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/collatzSequence-M.svg)
+
+Next odd term in Collatz trajectory with starting value _n_,
+OEIS [A139391](https://oeis.org/A139391):
+
+~~~spl svg=N
+2:250.collect { :n |
+	n.collatzSequence
+	.allButFirst
+	.detect(isOdd:/1)
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/collatzSequence-N.svg)
 
 * * *
 
