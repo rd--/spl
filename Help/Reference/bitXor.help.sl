@@ -256,20 +256,20 @@ Arndt’s blue code,
 OEIS [A193231](https://oeis.org/A193231):
 
 ~~~spl svg=H
-let f:/1 = { :n |
+let a = Map { :n |
 	[
 		{ n <= 1 } -> { n },
 		{ n.isEven } -> {
-			let m = f(n / 2);
+			let m = a[n / 2];
 			bitXor(2 * m, m)
 		},
 		{ n.isOdd } -> {
-			let m = f((n - 1) / 2);
+			let m = a[(n - 1) / 2];
 			bitXor(m, 2 * m + 1)
 		}
 	].which
-}.memoize;
-0:127.collect(f:/1).scatterPlot
+};
+a[0:127].scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/bitXor-H.svg)
@@ -410,7 +410,10 @@ OEIS [A142149](https://oeis.org/A142149):
 ![](sw/spl/Help/Image/bitXor-R.svg)
 
 Exclusive or of _n_ and _2n_,
-OEIS [A048724](https://oeis.org/A048724):
+reversing binary representation of _-n_,
+OEIS [A048724](https://oeis.org/A048724),
+also
+OESI [A048726](https://oeis.org/A048726) when multiplied by two:
 
 ~~~spl svg=S
 0:127.collect { :n |
@@ -430,6 +433,28 @@ OEIS [A048725](https://oeis.org/A048725):
 ~~~
 
 ![](sw/spl/Help/Image/bitXor-T.svg)
+
+Reversing binary representation of _n_,
+OEIS [A065621](https://oeis.org/A065621):
+
+~~~spl svg=U
+0:127.collect { :n |
+	n.bitXor(2 * n + 1)
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/bitXor-U.svg)
+
+Difference betwen _3n_ and exclusive or of _n_ and _2n_,
+OEIS [A048728](https://oeis.org/A048728):
+
+~~~spl svg=V
+0:127.collect { :n |
+	(3 * n) - n.bitXor(2 * n)
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/bitXor-V.svg)
 
 * * *
 

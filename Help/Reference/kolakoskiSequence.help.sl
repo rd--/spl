@@ -173,6 +173,16 @@ OEIS [A071942](https://oeis.org/A071942):
 
 ![](sw/spl/Help/Image/kolakoskiSequence-L.svg)
 
+The _1,3_ Kolakoski sequence minus two,
+OEIS [A362927](https://oeis.org/A362927):
+
+~~~spl svg=M
+(85.kolakoskiSequence([1 3]) - 2)
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/kolakoskiSequence-M.svg)
+
 * * *
 
 See also: golombsSequence

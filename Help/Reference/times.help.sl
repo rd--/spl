@@ -93,6 +93,14 @@ Evaluate using both apply and method send syntaxes:
 12
 ```
 
+_3n_,
+OEIS [A008585](https://oeis.org/A008585):
+
+```
+>>> 3 * 0:13
+[0 3 6 9 12 15 18 21 24 27 30 33 36 39]
+```
+
 At `Symbol`:
 
 ```

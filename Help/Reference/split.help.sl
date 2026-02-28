@@ -231,6 +231,48 @@ OEIS [A037014](https://oeis.org/A037014):
 
 ![](sw/spl/Help/Image/split-B.svg)
 
+Add one to every other term of the number of runs in the binary expansion of _n_,
+OEIS [A072219](https://oeis.org/A072219):
+
+~~~spl svg=C
+0:85.collect { :n |
+	n.integerDigits(2).split { :x :y |
+		x = 1 & { y = 0 }
+	}.occurrencesOf([1 0]) * 2 + 1
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/split-C.svg)
+
+Number of runs of ones in the binary representation of _n_,
+OEIS [A069010](https://oeis.org/A069010):
+
+~~~spl svg=D
+0:85.collect { :n |
+	n.integerDigits(2)
+	.split(=)
+	.count { :x | x[1] = 1 }
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/split-D.svg)
+
+One less than the number of runs of ones in the binary representations of _n_ and _2n-1_,
+OEIS [A072339](https://oeis.org/A072339):
+
+~~~spl svg=E
+let f = { :n |
+	n.integerDigits(2)
+	.split(=)
+	.count { :x | x[1] = 1 }
+};
+1:85.collect { :n |
+	f(n) + f(2 * n - 1) - 1
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/split-E.svg)
+
 * * *
 
 See also: splitBy

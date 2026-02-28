@@ -141,6 +141,38 @@ Convert from balanced ternary:
 635639340
 ```
 
+Numbers in base three,
+OEIS [A007089](https://oeis.org/A007089):
+
+```
+>>> 0:26.collect { :n |
+>>> 	n.integerDigits(3)
+>>> 	.fromDigits(10)
+>>> }
+[
+	0 1 2
+	10 11 12 20 21 22
+	100 101 102 110 111 112 120 121 122
+	200 201 202 210 211 212 220 221 222
+]
+```
+
+Numbers in base four,
+OEIS [A007090](https://oeis.org/A007090):
+
+```
+>>> 0:15.collect { :n |
+>>> 	n.integerDigits(4)
+>>> 	.fromDigits(10)
+>>> }
+[
+	00 01 02 03
+	10 11 12 13
+	20 21 22 23
+	30 31 32 33
+]
+```
+
 Plot first few terms of
 OEIS [A030101](https://oeis.org/A030101):
 
@@ -165,6 +197,61 @@ OEIS [A052008](https://oeis.org/A052008):
 ~~~
 
 ![](sw/spl/Help/Image/fromDigits-B.svg)
+
+Write _n_ and _3n_ in ternary and add all digits modulo three,
+OEIS [A242399](https://oeis.org/A242399):
+
+~~~spl svg=C
+0:80.collect { :n |
+	let a = n.integerDigits(3);
+	let b = (n * 3).integerDigits(3);
+	let c = a.padLeft([b.size], 0);
+	(b + c % 3).fromDigits(3)
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/fromDigits-C.svg)
+
+Difference between _4n_ and _n_ and _3n_ written in ternary and all digits summed modulo three,
+OEIS [A242400](https://oeis.org/A242400):
+
+~~~spl svg=D
+0:80.collect { :n |
+	let a = n.integerDigits(3);
+	let b = (n * 3).integerDigits(3);
+	let c = a.padLeft([b.size], 0);
+	(n * 4) - (b + c % 3).fromDigits(3)
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/fromDigits-D.svg)
+
+Tersum _n+n_,
+OEIS [A004488](https://oeis.org/A004488):
+
+~~~spl svg=E
+0:80.collect { :n |
+	let d = n.integerDigits(3);
+	(3 - d % 3).fromDigits(3)
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/fromDigits-E.svg)
+
+Write _n_ in quaternary and swap digits one and three,
+OEIS [A048647](https://oeis.org/A048647):
+
+~~~spl svg=F
+0:255.collect { :n |
+	let d = n.integerDigits(4);
+	let e = d.collect { :i |
+		(i = 0).if { 0 } { 4 - i }
+	};
+	e.fromDigits(4)
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/fromDigits-F.svg)
 
 * * *
 

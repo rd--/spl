@@ -253,6 +253,17 @@ a[0:75].discretePlot
 
 ![](sw/spl/Help/Image/bitAnd-K.svg)
 
+_n&⌊(n/2)_,
+OEIS [A048735](https://oeis.org/A048735):
+
+~~~spl svg=L
+0:127.collect { :n |
+	n.bitAnd((n / 2).floor)
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/bitAnd-L.svg)
+
 * * *
 
 See also: &, bitNot, bitOr, bitXor
