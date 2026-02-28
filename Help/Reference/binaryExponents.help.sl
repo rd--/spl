@@ -4,6 +4,16 @@
 
 Answer the zero-indexed positions at which the binary expansion of _n_ has a one.
 
+The binary exponents of 11 are _0,1,3_ because _11=2^0+2^1+2^3_:
+
+```
+>>> 11.binaryExponents
+[0 1 3]
+
+>>> (2 ^ [0 1 3]).sum
+11
+```
+
 Relation to `binaryExpansion`, `^` and `sum`:
 
 ```

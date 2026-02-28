@@ -1,4 +1,10 @@
-+SmallFloat {
++@Integer {
+
+	oeisA001317 { :n |
+		{ :x |
+			x.bitXor(x.bitShiftLeft(1))
+		}.iterate(1, n)
+	}
 
 	oeisA003961 { :n |
 		(n = 1).if {
@@ -217,6 +223,7 @@
 	oeisFunctionDictionary { :self |
 		self.cached('oeisFunctionDictionary') {
 			(
+				'A001317': { :n | n.oeisA001317 },
 				'A003961': { :n | n.oeisA003961 },
 				'A005940': { :n | n.oeisA005940 },
 				'A007814': { :n | n.oeisA007814 },

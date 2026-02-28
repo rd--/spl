@@ -443,6 +443,44 @@ OEIS [A065357](https://oeis.org/A065357):
 
 ![](sw/spl/Help/Image/primePi-R.svg)
 
+A permutation of the positive integers,
+_a(P(n))=2*a(n)_ and _a(C(n))=2*a(n)+1_,
+OEIS [A135141](https://oeis.org/A135141):
+
+~~~spl svg=S
+let a = Map { :n |
+	(n = 1).if {
+		1
+	} {
+		n.isPrime.if {
+			2 * a[n.primePi]
+		} {
+			let m = n - 1 - n.primePi;
+			2 * a[m] + 1
+		}
+	}
+};
+a[1:85].discretePlot
+~~~
+
+![](sw/spl/Help/Image/primePi-S.svg)
+
+_a(P(n))=a(n)+1_ and _a(C(n))=0_,
+OEIS [A078442](https://oeis.org/A078442):
+
+~~~spl svg=T
+let a = Map { :n |
+	n.isPrime.if {
+		1 + a[n.primePi]
+	} {
+		0
+	}
+};
+a[1:150].discretePlot
+~~~
+
+![](sw/spl/Help/Image/primePi-T.svg)
+
 * * *
 
 See also: eulerPhi, nextPrime, primesList, primesUpTo, sieveOfEratosthenes

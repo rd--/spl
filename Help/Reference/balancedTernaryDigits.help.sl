@@ -33,7 +33,7 @@ Answer a `List` of the balanced ternary digits of the integer _n_.
 	20 -> [1 -1 1 -1],
 	21 -> [1 -1 1 0],
 	22 -> [1 -1 1 1],
-	23 -> [1 0 -1 -1],
+	23 -> [1 0 -1 -1]
 ]
 ```
 

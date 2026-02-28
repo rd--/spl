@@ -111,6 +111,17 @@ OEIS [A002491](https://oeis.org/A002491):
 ]
 ```
 
+Arima sequence,
+OEIS [A005578](https://oeis.org/A005578):
+
+```
+>>> 0:12.collect { :n | (2 ^ n / 3).ceiling }
+[1 1 2 3 6 11 22 43 86 171 342 683 1366]
+
+>>> linearRecurrence([2 1 -2], [1 1 2], 13)
+[1 1 2 3 6 11 22 43 86 171 342 683 1366]
+```
+
 Ceiling is a staircase function:
 
 ~~~spl svg=A

@@ -77,7 +77,7 @@ Matrix plot of the 8×8 Walsh matrix:
 
 ~~~spl svg=A
 let n = 2 ^ 3;
-(n.walshMatrix + 1).matrixPlot
+n.walshMatrix.max(0).matrixPlot
 ~~~
 
 ![](sw/spl/Help/Image/walshMatrix-A.svg)
@@ -85,12 +85,13 @@ let n = 2 ^ 3;
 Draw the 128×128 Walsh matrix:
 
 ~~~spl png=B
-(128.walshMatrix + 1 / 2).Bitmap
+128.walshMatrix.max(0).Bitmap
 ~~~
 
 ![](sw/spl/Help/Image/walshMatrix-B.png)
 
-The gray code permutation of the Walsh matrix is called the dyadic or Paley ordering:
+The gray code permutation of the Walsh matrix,
+called the dyadic or Paley ordering:
 
 ~~~spl svg=C
 let n = 2 ^ 4;

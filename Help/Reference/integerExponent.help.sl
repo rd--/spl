@@ -20,7 +20,7 @@ The highest power of two:
 ```
 
 Threads over lists,
-Number of trailing zeroes in factorials,
+number of trailing zeroes in factorials,
 OEIS [A027868](https://oeis.org/A027868):
 
 ```

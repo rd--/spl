@@ -78,6 +78,20 @@ OEIS [A047999](https://oeis.org/A047999):
 ]
 ```
 
+Sierpiński’s triangle,
+each row interpreted as an integer in binary notation,
+OEIS [A001317](https://oeis.org/A001317):
+
+```
+>>> (17.pascalTriangle % 2).collect { :n |
+>>> 	n.fromDigits(2)
+>>> }
+[
+	1 3 5 15 17 51 85 255 257 771 1285
+	3855 4369 13107 21845 65535 65537
+]
+```
+
 A `log` scaled scatter plot of the row-order sequence,
 OEIS [A007318](https://oeis.org/A007318):
 

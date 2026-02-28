@@ -96,16 +96,22 @@
 		self.reduce(bitAnd:/2)
 	}
 
-	bitOr { :self |
-		self.reduce(bitOr:/2)
-	}
-
 	bitLength { :self |
 		self.collect(bitLength:/1)
 	}
 
 	bitNot { :self |
 		self.collect(bitNot:/1)
+	}
+
+	bitOr { :self |
+		self.reduce(bitOr:/2)
+	}
+
+	bitReverse { :n :k |
+		n.collect { :i |
+			i.bitReverse(k)
+		}
 	}
 
 	boole { :self |
@@ -262,6 +268,12 @@
 
 	grayEncode { :self |
 		self.collect(grayEncode:/1)
+	}
+
+	grayEncode { :self :operand |
+		self.collect { :each |
+			each.grayEncode(operand)
+		}
 	}
 
 	hammingWeight { :self |

@@ -186,7 +186,10 @@ OEIS [A027907](https://oeis.org/A027907):
 >>> 		[0 .. n].sum { :i |
 >>> 			binomial(n, i)
 >>> 			*
->>> 			binomial(n - i, k - (2 * i))
+>>> 			binomial(
+>>> 				n - i,
+>>> 				k - (2 * i)
+>>> 			)
 >>> 		}
 >>> 	}
 >>> }
@@ -574,6 +577,23 @@ OEIS [A065941](https://oeis.org/A065941):
 	1 1 6 5 10 6 4 1;
 	1 1 7 6 15 10 10 4 1;
 	1 1 8 7 21 15 20 10 5 1
+]
+```
+
+Sierpiński’s triangle,
+each row interpreted as an integer in binary notation,
+OEIS [A001317](https://oeis.org/A001317):
+
+```
+>>> 0:16.collect { :n |
+>>> 	0:n.sum { :k |
+>>> 		let a = binomial(n, k);
+>>> 		(a % 2) * (2 ^ k)
+>>> 	}
+>>> }
+[
+	1 3 5 15 17 51 85 255 257 771 1285
+	3855 4369 13107 21845 65535 65537
 ]
 ```
 

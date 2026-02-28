@@ -68,6 +68,12 @@
 		self.typeResponsibility('@Binary>>bitOr')
 	}
 
+	bitReverse { :self :anInteger |
+		self.integerDigits(2, anInteger)
+		.reverse
+		.fromDigits(2)
+	}
+
 	bitSet { :self :anInteger |
 		self.bitOr(
 			1.bitShift(anInteger)

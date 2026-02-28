@@ -158,6 +158,14 @@ OEIS [A007504](https://oeis.org/A007504):
 ]
 ```
 
+_a(n+1)=P(a(n))_,
+OEIS [A007097](https://oeis.org/A007097):
+
+```
+>>> prime:/1.nestList(1, 9)
+[1 2 3 5 11 31 127 709 5381 52711]
+```
+
 Plot first fifty primes,
 OEIS [A000040](https://oeis.org/A000040):
 

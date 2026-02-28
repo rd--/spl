@@ -126,6 +126,54 @@ The product of a Boolean function and a Hadamard matrix is its Walsh spectrum:
 [4 2 0 -2 0 2 0 2]
 ```
 
+Rows of binary Walsh matrices interpreted as reverse binary numbers,
+OEIS [A228539](https://oeis.org/A228539):
+
+```
+>>> 1:4.collect { :n |
+>>> 	(2 ^ n).hadamardMatrix
+>>> 	.max(0)
+>>> 	.collect { :d |
+>>> 		(1 - d).reverse.fromDigits(2)
+>>> 	}
+>>> }
+[
+	0 2
+	;
+	0 10 12 6
+	;
+	0 170 204 102 240 90 60 150
+	;
+	0 43690 52428 26214 61680 23130
+	15420 38550 65280 21930 13260
+	39270 4080 42330 49980 27030
+]
+```
+
+Rows of negated binary Walsh matrices interpreted as reverse binary numbers,
+OEIS [A228540](https://oeis.org/A228540):
+
+```
+>>> 1:4.collect { :n |
+>>> 	(2 ^ n).hadamardMatrix
+>>> 	.max(0)
+>>> 	.collect { :d |
+>>> 		d.reverse.fromDigits(2)
+>>> 	}
+>>> }
+[
+	3 1
+	;
+	15 5 3 9
+	;
+	255 85 51 153 15 165 195 105
+	;
+	65535 21845 13107 39321 3855 42405
+	50115 26985 255 43605 52275 26265
+	61455 23205 15555 38505
+]
+```
+
 Matrix plot of the 16×16 Hadamard matrix:
 
 ~~~spl svg=A

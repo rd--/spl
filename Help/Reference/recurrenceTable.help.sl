@@ -75,6 +75,29 @@ OEIS [A106108](https://oeis.org/A106108):
 [7 8 9 10 15 18 19 20 21 22 33 36]
 ```
 
+_a(n-1)*a(n-2)_ of _1,3_,
+OEIS [A010098](https://oeis.org/A010098):
+
+```
+>>> { :a :n |
+>>> 	a[n - 1] * a[n - 2]
+>>> }.recurrenceTable([1 3], 9)
+[1 3 3 9 27 243 6561 1594323 10460353203]
+
+>>> 3 ^ 0:8.fibonacci
+[1 3 3 9 27 243 6561 1594323 10460353203]
+```
+
+_a(n-1)*a(n-2)_ of _2,3_,
+OEIS [A000304](https://oeis.org/A000304):
+
+```
+>>> { :a :n |
+>>> 	a[n - 1] * a[n - 2]
+>>> }.recurrenceTable([2 3], 8)
+[2 3 6 18 108 1944 209952 408146688]
+```
+
 Study the evolution for a nonlinear map of the plane:
 
 ~~~spl svg=A

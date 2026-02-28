@@ -88,6 +88,7 @@ At `LargeInteger`:
 ```
 
 Sierpiński’s triangle,
+each row interpreted as an integer in binary notation,
 OEIS [A001317](https://oeis.org/A001317):
 
 ```

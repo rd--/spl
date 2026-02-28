@@ -120,6 +120,19 @@ Threads over lists:
 [0 1 3 2]
 ```
 
+One-dimensional cellular automaton _Rule 90_,
+OEIS [A038183](https://oeis.org/A038183):
+
+```
+>>> { :n |
+>>> 	n.bitXor(n * 4)
+>>> }.nestList(1, 12)
+[
+	1 5 17 85 257 1285 4369 21845 65537
+	327685 1114129 5570645 16843009
+]
+```
+
 Scatter plot of Gray encoding of _n_,
 OEIS [A003188](https://oeis.org/A003188):
 
@@ -239,6 +252,7 @@ let multiply = { :n :m |
 ![](sw/spl/Help/Image/bitXor-G.svg)
 
 Plot binary coding of a polynomial over _GF(2)_,
+Arndt’s blue code,
 OEIS [A193231](https://oeis.org/A193231):
 
 ~~~spl svg=H
@@ -394,6 +408,28 @@ OEIS [A142149](https://oeis.org/A142149):
 ~~~
 
 ![](sw/spl/Help/Image/bitXor-R.svg)
+
+Exclusive or of _n_ and _2n_,
+OEIS [A048724](https://oeis.org/A048724):
+
+~~~spl svg=S
+0:127.collect { :n |
+	n.bitXor(2 * n)
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/bitXor-S.svg)
+
+Exclusive or of _n_ and _4n_,
+OEIS [A048725](https://oeis.org/A048725):
+
+~~~spl svg=T
+0:127.collect { :n |
+	n.bitXor(4 * n)
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/bitXor-T.svg)
 
 * * *
 

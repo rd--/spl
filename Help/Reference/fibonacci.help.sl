@@ -366,6 +366,14 @@ OEIS [A000301](https://oeis.org/A000301):
 ]
 ```
 
+_3^F(n)_,
+OEIS [A010098](https://oeis.org/A010098):
+
+```
+>>> 3 ^ 0:8.fibonacci
+[1 3 3 9 27 243 6561 1594323 10460353203]
+````
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A

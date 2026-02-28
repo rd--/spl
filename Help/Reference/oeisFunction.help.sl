@@ -2,6 +2,14 @@
 
 - _oeisFunction(s)_
 
+Sierpiński’s triangle converted to decimal,
+OEIS [A001317](http://oeis.org/A001317):
+
+```
+>>> 0:11.collect('A001317'.oeisFunction)
+[1 3 5 15 17 51 85 255 257 771 1285 3855]
+```
+
 Denominators in canonical bijection from positive integers to positive rationals _≤1_,
 OEIS [A038567](http://oeis.org/A038567):
 

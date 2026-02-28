@@ -52,6 +52,20 @@ OEIS [A008683](https://oeis.org/A008683):
 11.moebiusMu * 23.moebiusMu
 ```
 
+Number of _2n_-bead balanced binary necklaces of fundamental period _2n_,
+OEIS [A000740](https://oeis.org/A000740):
+
+```
+>>> 1:12.collect { :n |
+>>> 	n.divisors.sum { :d |
+>>> 		let a = (n / d).moebiusMu;
+>>> 		let b = 2 ^ (d - 1);
+>>> 		a * b
+>>> 	}
+>>> }
+[1 1 3 6 15 27 63 120 252 495 1023 2010]
+```
+
 Plot the Möbius sequence for the first few terms:
 
 ~~~spl svg=A
@@ -121,7 +135,9 @@ OEIS [A006575](https://oeis.org/A006575):
 >>> 1:27.collect { :n |
 >>> 	n.divisorSum { :i |
 >>> 		(bitAnd(i, 1) = 1).if {
->>> 			moebiusMu(i)* (3 ^ (n / i) - 1)
+>>> 			moebiusMu(i)
+>>> 			*
+>>> 			(3 ^ (n / i) - 1)
 >>> 		} {
 >>> 			0
 >>> 		}
@@ -163,7 +179,9 @@ let a:/1 = { :n |
 		1
 	} {
 		(n - 2).divisors.sum { :d |
-			a(d) * ((n - 2) / d).moebiusMu
+			a(d)
+			*
+			((n - 2) / d).moebiusMu
 		}
 	}
 }.memoize(true);

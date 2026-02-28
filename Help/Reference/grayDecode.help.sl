@@ -81,6 +81,35 @@ OEIS [A020985](http://oeis.org/A020985):
 ]
 ```
 
+Square of Gray decode,
+OEIS [A064707](https://oeis.org/A064707):
+
+```
+>>> 0:27.grayDecode.grayDecode
+[
+	0 1 2 3 5 4 7 6 10 11 8 9 15 14 13 12
+	21 20 23 22 16 17 18 19 31 30 29 28
+]
+```
+
+First few terms,
+OEIS [A006068](https://oeis.org/A006068):
+
+~~~spl svg=A
+0:127.grayDecode.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/grayDecode-A.svg)
+
+Square of Gray decode,
+OEIS [A064707](https://oeis.org/A064707):
+
+~~~spl svg=B
+0:127.grayDecode.grayDecode.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/grayDecode-B.svg)
+
 * * *
 
 See also: Binary, bitShiftRight, bitXor, grayEncode, rudinShapiro, thueMorseSequence

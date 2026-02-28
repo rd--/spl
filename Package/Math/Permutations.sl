@@ -956,9 +956,9 @@ Permutation : [Object, Storeable, Equatable] { | cycles degree |
 +@Integer {
 
 	bitReversalPermutation { :k |
-		let n = 2 ^ k;
-		0.to(n - 1).collect { :i |
-			i.integerDigits(2, k).reverse.fromDigits(2) + 1
+		let n = 2 ^ k - 1;
+		0:n.collect { :i |
+			i.bitReverse(k)
 		}
 	}
 
