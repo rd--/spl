@@ -91,6 +91,17 @@ let n = 2 ^ 9;
 
 ![](sw/spl/Help/Image/bitLength-E.svg)
 
+Simple self-inverse permutation of natural numbers,
+OEIS [A054429](https://oeis.org/A054429):
+
+~~~spl svg=F
+1:63.collect { :n |
+	3 * (2 ^ (n.bitLength - 1)) - n - 1
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/bitLength-F.svg)
+
 * * *
 
 See also: highBit, integerLength

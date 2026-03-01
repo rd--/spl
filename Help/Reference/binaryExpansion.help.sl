@@ -180,6 +180,44 @@ OEIS [A136480](https://oeis.org/A136480):
 
 ![](sw/spl/Help/Image/binaryExpansion-E.svg)
 
+Write in binary, complement, reverse,
+OEIS [A036044](https://oeis.org/A036044):
+
+~~~spl svg=F
+0:63.collect { :n |
+	(1 - n.binaryExpansion)
+	.reverse
+	.fromDigits(2)
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/binaryExpansion-F.svg)
+
+Primes having initial digits _11_ in their binary representation,
+OEIS [A080166](https://oeis.org/A080166):
+
+~~~spl svg=G
+1:200.prime.select { :n |
+	n.binaryExpansion.first(2) = [1 1]
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/binaryExpansion-G.svg)
+
+Primes having initial and final digits _11_ in their binary representation,
+OEIS [A080168](https://oeis.org/A080168):
+
+~~~spl svg=H
+1:200.prime.select { :n |
+	let b = n.binaryExpansion;
+	b.first(2) = [1 1] & {
+		b.last(2) = [1 1]
+	}
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/binaryExpansion-H.svg)
+
 * * *
 
 See also: integerDigits

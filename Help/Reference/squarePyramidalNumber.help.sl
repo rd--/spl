@@ -5,6 +5,9 @@
 Answer the _n_-th square pyramidal number,
 the sum of the first _n_ square numbers.
 
+First few terms,
+OEIS [A000330](https://oeis.org/A000330):
+
 ```
 >>> 0:27.collect(squarePyramidalNumber:/1)
 [

@@ -105,18 +105,18 @@ Log plot of the semi-Fibonacci sequence,
 OEIS [A030067](https://oeis.org/A030067):
 
 ~~~spl svg=A
-let f = { :n |
+let a = Map { :n |
 	(n = 1).if {
 		1
 	} {
 		n.isEven.if {
-			f(n / 2)
+			a[n / 2]
 		} {
-			f(n - 1) + f(n - 2)
+			a[n - 1] + a[n - 2]
 		}
 	}
 };
-1:125.collect(f:/1).log.scatterPlot
+a[1:125].log.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/isEven-A.svg)
@@ -232,6 +232,63 @@ a[0:250].log.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/isEven-G.svg)
+
+Least positive integers whose convolution forms a sequence whose odd-indexed terms are twice the odd primes,
+OEIS [A073739](https://oeis.org/A073739):
+
+~~~spl svg=H
+let a = Map { :n |
+	(n <= 2).if {
+		1
+	} {
+		n.isEven.if {
+			0
+		} {
+			let m = n + 1;
+			(m / 2).prime - a[n - 2]
+		}
+	}
+};
+a[0:150].scatterPlot
+~~~
+
+![](sw/spl/Help/Image/isEven-H.svg)
+
+Self convolution of
+OEIS [A073739](https://oeis.org/A073739),
+OEIS [A073740](https://oeis.org/A073740):
+
+~~~spl svg=I
+let b = Map { :n |
+	(n <= 2).if {
+		1
+	} {
+		n.isEven.if {
+			0
+		} {
+			let m = n + 1;
+			(m / 2).prime - b[n - 2]
+		}
+	}
+};
+let a = Map { :n |
+	(n <= 2).if {
+		n + 1
+	} {
+		n.isEven.if {
+			0:n.sum { :k |
+				b[k] * b[n - k]
+			}
+		} {
+			let m = n - 1;
+			2 * (m / 2 + 1).prime
+		}
+	}
+};
+a[0:150].log.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/isEven-I.svg)
 
 * * *
 

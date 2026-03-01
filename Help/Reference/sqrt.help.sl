@@ -204,6 +204,22 @@ OEIS [A007336](https://oeis.org/A007336):
 
 ![](sw/spl/Help/Image/sqrt-B.svg)
 
+A permutation of the positive integers,
+OEIS [A101369](https://oeis.org/A101369):
+
+~~~spl svg=C
+let m = 2.sqrt;
+1:65.collect { :n |
+	n.isEven.if {
+		n + (n / m - (1 / m)).floor
+	} {
+		1 + (n / m).floor
+	}
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/sqrt-C.svg)
+
 `sqrt` is an alias for `squareRoot`.
 
 Where supported `sqrt` is displayed as √.

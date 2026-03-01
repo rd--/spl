@@ -34,6 +34,21 @@ OEIS [A064413](https://oeis.org/A064413):
 
 ![](sw/spl/Help/Image/leastExcludedSequence-B.svg)
 
+Least excluded sequence such that adjacent terms are part of a Pythagorean triple,
+OEIS [A235598](https://oeis.org/A235598):
+
+~~~spl svg=C
+[3]
+.leastExcludedSequence(40) { :a :n :m |
+	let [p, q] = [a[n - 1], m].square;
+	(p + q).isPerfectSquare | {
+		(q - p).abs.sqrt.isInteger
+	}
+}.log.discretePlot
+~~~
+
+![](sw/spl/Help/Image/leastExcludedSequence-C.svg)
+
 * * *
 
 See also: detect, includes, Map

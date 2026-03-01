@@ -68,6 +68,7 @@ Operations:
 
 - `findPermutation`: permutation linking two expressions
 - `inversePermutation`: inverse of permutation
+- `partialInversePermutation`
 - `permutationPower`: _n_-th power of permutation
 - `permutationProduct`: product of permutations
 - `permutationReplace`: standard action of a permutation on other objects

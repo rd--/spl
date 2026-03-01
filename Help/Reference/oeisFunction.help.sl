@@ -64,6 +64,22 @@ OEIS [A038569](http://oeis.org/A038569):
 
 ![](sw/spl/Help/Image/oeisFunction-D.svg)
 
+A self-inverse permutation of natural numbers,
+_A080300_ of _A036044_ of _A014486_ of _n_,
+OEIS [A057164](https://oeis.org/A057164):
+
+~~~spl svg=E
+0:197.collect(
+	[
+		'A014486'
+		'A036044'
+		'A080300'
+	].oeisFunction.composeRight
+).scatterPlot
+~~~
+
+![](sw/spl/Help/Image/oeisFunction-E.svg)
+
 * * *
 
 See also: OeisEntry

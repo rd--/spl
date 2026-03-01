@@ -168,7 +168,9 @@ OEIS [A025487](https://oeis.org/A025487):
 ```
 
 Prime signatures of first few integers,
-OEIS [A118914](https://oeis.org/A118914):
+OEIS [A118914](https://oeis.org/A118914),
+also
+OEIS [A124010](https://oeis.org/A124010) without initial term:
 
 ```
 >>> 1:20.collect(primeSignature:/1)
@@ -193,6 +195,45 @@ OEIS [A118914](https://oeis.org/A118914):
 	2 1;
 	1;
 	2 1
+]
+```
+
+Numbers where the count of ones in the binary expansions of the prime signature is odd,
+OEIS [A000028](https://oeis.org/A000028):
+
+```
+>>> 1:99.select { :n |
+>>> 	n.primeSignature
+>>> 	.digitCount(2, 1)
+>>> 	.sum
+>>> 	.isOdd
+>>> }
+[
+	 2  3  4  5  7  9 11 13 16 17
+	19 23 24 25 29 30 31 37 40 41
+	42 43 47 49 53 54 56 59 60 61
+	66 67 70 71 72 73 78 79 81 83
+	84 88 89 90 96 97
+]
+```
+
+Numbers where the count of ones in the binary expansions of the prime signature is even,
+OEIS [A000379](https://oeis.org/A000379):
+
+```
+>>> 1:99.select { :n |
+>>> 	n.primeSignature
+>>> 	.digitCount(2, 1)
+>>> 	.sum
+>>> 	.isEven
+>>> }
+[
+	 1  6  8 10 12 14 15 18 20 21
+	22 26 27 28 32 33 34 35 36 38
+	39 44 45 46 48 50 51 52 55 57
+	58 62 63 64 65 68 69 74 75 76
+	77 80 82 85 86 87 91 92 93 94
+	95 98 99
 ]
 ```
 

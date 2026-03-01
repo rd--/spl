@@ -2,8 +2,10 @@
 
 - _involutionNumber(n)_
 
-Answer the _n_-th involution number.
+Answer the _n_-th involution number,
+counting the number of self-inverse permutations on _n_ letters.
 
+First few terms,
 OEIS [A000085](https://oeis.org/A000085):
 
 ```

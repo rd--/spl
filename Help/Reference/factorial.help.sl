@@ -295,6 +295,14 @@ Conjectured prime generating function,
 [2 1 2 1 1 1 1 13 1 1 29 1 1 37 29 17 31]
 ```
 
+_n!^2_,
+OEIS [A001044](https://oeis.org/A001044):
+
+```
+>>> 0:7.! ^ 2
+[1 1 4 36 576 14400 518400 25401600]
+```
+
 The [Kempner_function](https://en.wikipedia.org/wiki/Kempner_function),
 also sometimes called the Smarandache function or Kempner numbers,
 the smallest positive integer _m_ such that _n_ divides _m!_,

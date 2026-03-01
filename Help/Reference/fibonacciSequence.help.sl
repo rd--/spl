@@ -1,6 +1,6 @@
 # fibonacciSequence
 
-- _fibonacciSequence(n)_
+- _fibonacciSequence(n, k='Fibonacci')_
 
 Answer a `List` of the first _n_ Fibonacci numbers.
 The first entry is for _F(0)_.
@@ -122,6 +122,54 @@ OEIS [A082115](https://oeis.org/A082115):
 8
 ```
 
+The semi-Fibonacci sequence,
+OEIS [A030067](https://oeis.org/A030067):
+
+```
+>>> 23.fibonacciSequence(
+>>> 	'Semi-Fibonacci'
+>>> )
+[
+	 1  1  2  1  3  2  5  1  6  3
+	 9  2 11  5 16  1 17  6 23  3
+	26  9 35
+]
+```
+
+The semi-Fibonacci numbers,
+OEIS [A030068](https://oeis.org/A030068):
+
+```
+>>> let n = 23;
+>>> (n * 2).fibonacciSequence(
+>>> 	'Semi-Fibonacci'
+>>> ).atAll(2 * 1:n - 1)
+[
+	  1   2   3   5   6
+	  9  11  16  17  23
+	 26  35  37  48  53
+	 69  70  87  93 116
+	119 145 154
+]
+```
+
+The fist differences of the semi-Fibonacci numbers,
+OEIS [A030068](https://oeis.org/A030068),
+is the semi-Fibonacci sequence,
+OEIS [A030067](https://oeis.org/A030067):
+
+```
+>>> let n = 24;
+>>> (n * 2).fibonacciSequence(
+>>> 	'Semi-Fibonacci'
+>>> ).atAll(2 * 1:n - 1).differences
+[
+	 1  1  2  1  3  2  5  1  6  3
+	 9  2 11  5 16  1 17  6 23  3
+	26  9 35
+]
+```
+
 Plot Fibonacci modulo _n_,
 OEIS [A002708](https://oeis.org/A002708):
 
@@ -132,6 +180,43 @@ let n = 201;
 ~~~
 
 ![](sw/spl/Help/Image/fibonacciSequence-A.svg)
+
+Log plot of the semi-Fibonacci sequence,
+OEIS [A030067](https://oeis.org/A030067):
+
+~~~spl svg=B
+125.fibonacciSequence(
+	'Semi-Fibonacci'
+).log.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/fibonacciSequence-B.svg)
+
+A variant of the semi-Fibonacci numbers,
+OEIS [A109671](https://oeis.org/A109671):
+
+~~~spl svg=C
+let a = Map { :n |
+	(n = 1).if {
+		1
+	} {
+		n.isEven.if {
+			a[n / 2]
+		} {
+			let p = a[n - 2];
+			let q = a[(n - 1) / 2];
+			(p - q > 0).if {
+				p - q
+			} {
+				p + q
+			}
+		}
+	}
+};
+a[1:150].scatterPlot
+~~~
+
+![](sw/spl/Help/Image/fibonacciSequence-C.svg)
 
 * * *
 

@@ -44,6 +44,30 @@ OEIS [A001629](https://oeis.org/A001629):
 ]
 ```
 
+Self-convolution of Pell numbers,
+OEIS [A006645](https://oeis.org/A006645):
+
+```
+>>> let p = 14.pellSequence;
+>>> p.convolve(p).first(14)
+[
+	0 0 1 4 14 44 131 376 1052 2888
+	7813 20892 55338 145428
+]
+```
+
+Self-convolution of Lucas numbers,
+OEIS [A004799](https://oeis.org/A004799):
+
+```
+>>> let p = 15.lucasSequence.allButFirst;
+>>> p.convolve(p).first(14)
+[
+	1 6 17 38 80 158 303 566 1039 1880
+	3364 5964 10493 18342
+]
+```
+
 A convolution typically smooths the function.
 Smooth box function (to a triangle function):
 
@@ -86,6 +110,42 @@ let v = u.reverse;
 ~~~
 
 ![](sw/spl/Help/Image/convolve-D.svg)
+
+Self convolution of
+OEIS [A073739](https://oeis.org/A073739),
+OEIS [A073740](https://oeis.org/A073740):
+
+~~~spl svg=E
+let k = 150;
+let a = Map { :n |
+	(n <= 2).if {
+		1
+	} {
+		n.isEven.if {
+			0
+		} {
+			let m = n + 1;
+			(m / 2).prime - a[n - 2]
+		}
+	}
+};
+let b = a[0:k];
+b.convolve(b).first(k + 1).log.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/convolve-E.svg)
+
+Self-convolution of the inverse of sixth cyclotomic polynomial,
+OEIS [A010892](https://oeis.org/A010892),
+OEIS [A099254](https://oeis.org/A099254):
+
+~~~spl svg=F
+let a = [1 1 0 -1 -1 0].repeat(13);
+let k = a.size;
+a.convolve(a).first(k).discretePlot
+~~~
+
+![](sw/spl/Help/Image/convolve-F.svg)
 
 * * *
 

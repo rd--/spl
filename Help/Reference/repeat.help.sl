@@ -69,6 +69,14 @@ OEIS [A003056](https://oeis.org/A003056):
 [0 1 1 2 2 2 3 3 3 3 4 4 4 4 4 5 5 5 5 5 5]
 ```
 
+The inverse of sixth cyclotomic polynomial,
+OEIS [A010892](https://oeis.org/A010892):
+
+```
+>>> [1 1 0 -1 -1 0].repeat(3)
+[1 1 0 -1 -1 0 1 1 0 -1 -1 0 1 1 0 -1 -1 0]
+```
+
 * * *
 
 See also: constantArray, findRepeat, stringCatenate, stringJoin, stringRepeat

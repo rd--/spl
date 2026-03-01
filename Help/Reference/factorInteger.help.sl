@@ -472,6 +472,42 @@ OEIS [A002654](https://oeis.org/A002654):
 
 ![](sw/spl/Help/Image/factorInteger-O.svg)
 
+Self-inverse permutation of the positive integers,
+OEIS [A122111](https://oeis.org/A122111):
+
+~~~spl svg=P
+1:275.collect { :n |
+	let p = n.factorInteger.collect { :f |
+		List(f[2], f[1].primePi)
+	}.catenate;
+	let m = p.max;
+	1:m.product { :i |
+		p.sum { :j |
+			(j >= i).boole
+		}.prime
+	}
+}.log.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/factorInteger-P.svg)
+
+Shift prime exponents to the previous prime or to `one`,
+OEIS [A064989](https://oeis.org/A064989):
+
+~~~spl svg=Q
+1:85.collect { :n |
+	n.factorInteger.product { :f |
+		(f[1] <= 2).if {
+			1
+		} {
+			f[1].previousPrime ^ f[2]
+		}
+	}
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/factorInteger-Q.svg)
+
 * * *
 
 See also: divisors, isPrime, primeFactors, primeFactorization, product

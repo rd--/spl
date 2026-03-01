@@ -4,11 +4,14 @@
 
 Answer the _n_-th cyclotomic polynomial.
 
-The fifth and thirtieth cyclotomic polynomial:
+The fifth, sixth,  and thirtieth cyclotomic polynomial:
 
 ```
 >>> 5.cyclotomic.coefficientList
 [1 1 1 1 1]
+
+>>> 6.cyclotomic.coefficientList
+[1 -1 1]
 
 >>> 30.cyclotomic.coefficientList
 [1 1 0 -1 -1 -1 0 1 1]

@@ -111,6 +111,22 @@ Block! : [Object, Equatable] {
 		}
 	}
 
+	compose { :self:/1 :aBlock:/1 |
+		self:/1.composeLeft(aBlock:/1)
+	}
+
+	composeLeft { :self:/1 :aBlock:/1 |
+		{ :anObject |
+			self(aBlock(anObject))
+		}
+	}
+
+	composeRight { :self:/1 :aBlock:/1 |
+		{ :anObject |
+			aBlock(self(anObject))
+		}
+	}
+
 	cull { :self :firstArg |
 		(self.numArgs >= 1).if {
 			self.value(firstArg)
@@ -596,6 +612,18 @@ Block! : [Object, Equatable] {
 
 	with { :self :aBlock:/1 |
 		aBlock(self)
+	}
+
+}
+
++List {
+
+	composeLeft { :self |
+		self.reduce(composeLeft:/2)
+	}
+
+	composeRight { :self |
+		self.reduce(composeRight:/2)
 	}
 
 }

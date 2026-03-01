@@ -6,7 +6,8 @@ Answer the _n_-th tribonacci number,
 also called the Fibonacci three-step number,
 calculated using a closed form.
 
-First few terms:
+First few terms,
+OEIS [A000073](https://oeis.org/A000073):
 
 ```
 >>> [0 .. 21].tribonacciNumber
@@ -77,6 +78,26 @@ OEIS [A046738](https://oeis.org/A046738):
 ~~~
 
 ![](sw/spl/Help/Image/tribonacciNumber-A.svg)
+
+Plot semi-tribonacci numbers,
+OEIS [A074364](https://oeis.org/A074364):
+
+~~~spl svg=B
+let a = Map { :n |
+	(n < 2).if {
+		n
+	} {
+		n.isEven.if {
+			a[n / 2]
+		} {
+			a[n - 1] + a[n - 2] + a[n - 3]
+		}
+	}
+};
+a[0:150].log.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/tribonacciNumber-B.svg)
 
 * * *
 

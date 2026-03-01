@@ -11,7 +11,7 @@ OEIS [A014486](https://oeis.org/A014486):
 ```
 >>> 0:53.collect(catalanUnrank:/1)
 [
-	 0   2   10  12  42
+	  0   2  10  12  42
 	 44  50  52  56 170
 	172 178 180 184 202
 	204 210 212 216 226
@@ -22,6 +22,12 @@ OEIS [A014486](https://oeis.org/A014486):
 	820 824 842 844 850
 	852 856 866 868 872
 	880 906 908 914
+]
+
+>>> 0:170.select(isDyckWord:/1)
+[
+	  0   2  10  12  42
+	 44  50  52  56 170
 ]
 ```
 
@@ -38,14 +44,27 @@ A related sequence giving the zero-indices, or zero,
 OEIS [A080300](https://oeis.org/A080300):
 
 ```
->>> let i = 0:5.collect(catalanUnrank:/1);
->>> 0:44.collect { :n |
+>>> let i = 0:6.collect(catalanUnrank:/1);
+>>> 0:50.collect { :n |
 >>> 	i.indexOf(n) - 1
 >>> }.max(0)
 [
 	0 0 1 0 0 0 0 0 0 0 2 0 3 0 0 0 0 0 0 0
 	0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-	0 0 4 0 5
+	0 0 4 0 5 0 0 0 0 0 6
+]
+
+>>> 0:50.collect { :n |
+>>> 	n.isDyckWord.if {
+>>> 		n.catalanRank
+>>> 	} {
+>>> 		0
+>>> 	}
+>>> }
+[
+	0 0 1 0 0 0 0 0 0 0 2 0 3 0 0 0 0 0 0 0
+	0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+	0 0 4 0 5 0 0 0 0 0 6
 ]
 ```
 

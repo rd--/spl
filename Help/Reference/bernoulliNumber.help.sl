@@ -4,10 +4,11 @@
 
 Answer the _n_-th Bernoulli number.
 
-The first eleven Bernoulli numbers:
+The first eleven Bernoulli numbers,
+threads over lists:
 
 ```
->>> 0:10.collect(bernoulliNumber:/1)
+>>> 0:10.bernoulliNumber
 [
 	1/1 -1/2 1/6 0 -1/30
 	0 1/42 0 -1/30 0
@@ -56,18 +57,58 @@ The _2n_-th Bernoulli numbers divided by _2n_:
 ]
 ```
 
-Plot absolute value of numerators on `log` scale:
+Numerators of Bernoulli numbers _2n_,
+OEIS [A000367](https://oeis.org/A000367):
+
+```
+>>> 0:20:2.bernoulliNumber.numerator
+[1 1 -1 1 -1 5 -691 7 -3617 43867 -174611]
+```
+
+Denominators of Bernoulli numbers _2n_,
+OEIS [A002445](https://oeis.org/A002445):
+
+```
+>>> 0:22:2.bernoulliNumber.denominator
+[1 6 30 42 30 66 2730 6 510 798 330 138]
+```
+
+Plot absolute value of numerators on `log` scale,
+OEIS [A027641](https://oeis.org/A027641):
 
 ~~~spl svg=A
-1:50.collect { :n |
-	n.bernoulliNumber
-	.numerator
-	.abs
-	.logScale
-}.scatterPlot
+0:50.bernoulliNumber
+.numerator
+.abs
+.logScale
+.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/bernoulliNumber-A.svg)
+
+Plot numerators on `log` scale,
+OEIS [A027641](https://oeis.org/A027641):
+
+~~~spl svg=B
+0:50.bernoulliNumber
+.numerator
+.logScale
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/bernoulliNumber-B.svg)
+
+Plot denominators on `log` scale,
+OEIS [A027642](https://oeis.org/A027642):
+
+~~~spl svg=C
+0:50.bernoulliNumber
+.denominator
+.logScale
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/bernoulliNumber-C.svg)
 
 * * *
 

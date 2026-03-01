@@ -5,6 +5,9 @@
 Answer the generalised Pell number _P𐞪(n)_.
 Where _n_ is an integer answers the Pell number _P(n)_.
 
+First few terms,
+OEIS [A000129](https://oeis.org/A000129):
+
 ```
 >>> 0:8.collect(pellNumber:/1)
 [0 1 2 5 12 29 70 169 408]

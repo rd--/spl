@@ -132,6 +132,76 @@ constructed using an iterative algorithm:
 
 ![](sw/spl/Help/Image/prefixSum-C.svg)
 
+Sequence which is the partial sums of the proper divisors of its own elements,
+OEIS [A389395](https://oeis.org/A389395):
+
+~~~spl svg=D
+let a = [1 2 4 5 6 8 11];
+6:17.do { :i |
+	let p = a.last;
+	let q = a[i].divisors.allButLast;
+	a := a ++ (p + q.prefixSum)
+};
+a.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/prefixSum-D.svg)
+
+First differences of sequence which is the partial sums of the proper divisors of its own elements,
+OEIS [A389613](https://oeis.org/A389613):
+
+~~~spl svg=E
+let a = [1 2 4 5 6 8 11];
+6:27.do { :i |
+	let p = a.last;
+	let q = a[i].divisors.allButLast;
+	a := a ++ (p + q.prefixSum)
+};
+a.differences.discretePlot
+~~~
+
+![](sw/spl/Help/Image/prefixSum-E.svg)
+
+Sequence which is the partial sums of the divisors of its own elements,
+OEIS [A389395](https://oeis.org/A389395):
+
+~~~spl svg=F
+let a = [1 2 4 5 7 11];
+4:17.do { :i |
+	let p = a.last;
+	let q = a[i].divisors;
+	a := a ++ (p + q.prefixSum)
+};
+a.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/prefixSum-F.svg)
+
+Indicate self-referential structure of
+OEIS [A389609](https://oeis.org/A389609):
+
+```
+>>> [1 2 4 5 7 11 12 17 18]
+>>> .collect(divisors:/1)
+>>> .catenate
+>>> .prefixSum
+[
+	1 2 4 5 7 11 12 17 18 25 26 37 38 40
+	43 47 53 65 66 83 84 86 89 95 104 122
+]
+```
+
+Product of cumulative sums of divisors of _n_,
+OEIS [A197410](https://oeis.org/A197410):
+
+~~~spl svg=G
+1:85.collect { :n |
+	n.divisors.prefixSum.product
+}.log.discretePlot
+~~~
+
+![](sw/spl/Help/Image/prefixSum-G.svg)
+
 * * *
 
 See also: +, accumulate, differences, prefixes, prefixProduct, scan, sum

@@ -81,6 +81,38 @@ Stirling numbers of the first kind are effectively inverses of Stirling numbers 
 ]
 ```
 
+Numerators of Cauchy numbers of second type,
+OEIS [A002657](https://oeis.org/A002657):
+
+```
+>>> 0:8.collect { :n |
+>>> 	0:n.sum { :k |
+>>> 		(-1L ^ (n - k))
+>>> 		*
+>>> 		n.stirlingS1(k)
+>>> 		/
+>>> 		(k + 1)
+>>> 	}
+>>> }.numerator
+[1 1 5 9 251 475 19087 36799 1070017]
+```
+
+Denominators of Cauchy numbers of second type,
+OEIS [A002790](https://oeis.org/A002790):
+
+```
+>>> 0:13.collect { :n |
+>>> 	0:n.sum { :k |
+>>> 		(-1L ^ k)
+>>> 		*
+>>> 		n.stirlingS1(k)
+>>> 		/
+>>> 		(k + 1)
+>>> 	}
+>>> }.denominator
+[1 2 6 4 30 12 84 24 90 20 132 24 5460 840]
+```
+
 Surface plot of Stirling numbers on a logarithmic scale:
 
 ~~~spl svg=A

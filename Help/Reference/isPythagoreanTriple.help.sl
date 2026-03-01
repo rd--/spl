@@ -5,6 +5,26 @@
 Answer `true` if _a,b,c_ is a Pythagorean triple,
 _c_ may be elided.
 
+```
+>>> isPythagoreanTriple(3, 4, 5)
+true
+
+>>> isPythagoreanTriple(3, 4)
+true
+
+>>> isPythagoreanTriple(5, 12, 13)
+true
+
+>>> isPythagoreanTriple(5, 12)
+true
+
+>>> isPythagoreanTriple(9, 12, 15)
+true
+
+>>> isPythagoreanTriple(9, 12)
+true
+```
+
 Plot _a_ and _b_ of the first few Pythagorean triples:
 
 ~~~spl png=A

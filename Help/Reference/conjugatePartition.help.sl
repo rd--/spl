@@ -44,6 +44,19 @@ OEIS [A000700](https://oeis.org/A000700):
 [1 0 1 1 1 1 1 2 2 2 2 3 3 3 4 5 5 5 6 7]
 ```
 
+The Heinz numbers of the self-conjugate partitions,
+OEIS [A088902](https://oeis.org/A088902):
+
+```
+>>> let m = 'HeinzAscending';
+>>> 1:99.select { :n |
+>>> 	let p = n.primeFactors.primePi;
+>>> 	let q = p.reverseSort;
+>>> 	q.conjugatePartition = q
+>>> }
+[1 2 6 9 20 30 56 75 84]
+```
+
 * * *
 
 See also: ferrersDiagram, integerPartitions

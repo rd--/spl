@@ -636,6 +636,19 @@ Permutation : [Object, Storeable, Equatable] { | cycles degree |
 		answer
 	}
 
+	partialInversePermutation { :self |
+		let m = self.min;
+		(m = 1).if {
+			let u = 1:Infinity;
+			let x = self.minimumExcludedValue(u) - 1;
+			1:x.collect { :i |
+				self.indexOfIfAbsent(i) { nil }
+			}
+		} {
+			self.error('partialInversePermutation')
+		}
+	}
+
 	plainChanges { :self |
 		let answer = [];
 		self.plainChangesDo { :each |

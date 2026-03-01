@@ -858,6 +858,17 @@ linearRecurrence([-2 -2], [1 -1], 110)
 
 ![](sw/spl/Help/Image/linearRecurrence-F.svg)
 
+A knot sequence,
+OEIS [A099254](https://oeis.org/A099254):
+
+~~~spl svg=G
+[2 -3 2 -1].linearRecurrence(
+	[1 2 1 -2], 85
+).discretePlot
+~~~
+
+![](sw/spl/Help/Image/linearRecurrence-G.svg)
+
 * * *
 
 See also: shiftRegisterSequence

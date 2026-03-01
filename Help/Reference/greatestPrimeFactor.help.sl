@@ -17,6 +17,13 @@ Specific values:
 13264529
 ```
 
+By convention:
+
+```
+>>> 1.greatestPrimeFactor
+1
+```
+
 Greatest prime factors of integers up to one hundred,
 OEIS [A006530](https://oeis.org/A006530):
 

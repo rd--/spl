@@ -199,6 +199,24 @@ OEIS [A053000](https://oeis.org/A053000):
 
 ![](sw/spl/Help/Image/nextPrime-D.svg)
 
+
+Shift prime exponents of _2n-1_ to the previous prime or to `one`,
+OEIS [A064216](https://oeis.org/A064216):
+
+~~~spl svg=E
+1:85.collect { :n |
+	(2 * n - 1).factorInteger.product { :f |
+		(f[1] <= 2).if {
+			1
+		} {
+			f[1].nextPrime(-1) ^ f[2]
+		}
+	}
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/nextPrime-E.svg)
+
 * * *
 
 See also: isPrime, previousPrime

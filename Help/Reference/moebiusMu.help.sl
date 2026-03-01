@@ -66,6 +66,14 @@ OEIS [A000740](https://oeis.org/A000740):
 [1 1 3 6 15 27 63 120 252 495 1023 2010]
 ```
 
+Numbers that are the product of an even number of distinct primes,
+OEIS [A030229](https://oeis.org/A030229):
+
+```
+>>> 1:50.select { :n | n.moebiusMu = 1 }
+[1 6 10 14 15 21 22 26 33 34 35 38 39 46]
+```
+
 Plot the Möbius sequence for the first few terms:
 
 ~~~spl svg=A

@@ -78,7 +78,11 @@
 	}
 
 	greatestPrimeFactor { :n |
-		n.primeFactors.last
+		(n <= 1).if {
+			1
+		} {
+			n.primeFactors.last
+		}
 	}
 
 	indexOfPrime { :self |

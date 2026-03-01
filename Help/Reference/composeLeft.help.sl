@@ -36,6 +36,26 @@ Operator form:
 23
 ```
 
+Compare to `composeRight`:
+
+```
+>>> square:/1.composeLeft(negate:/1) . (7)
+49
+
+>>> square:/1.composeRight(negate:/1) . (7)
+-49
+```
+
+At `List`:
+
+```
+>>> [square:/1 negate:/1].composeLeft . (7)
+49
+
+>>> [square:/1 negate:/1].composeRight . (7)
+-49
+```
+
 * * *
 
 See also: @*, bindLeft, bindRight, composeRight

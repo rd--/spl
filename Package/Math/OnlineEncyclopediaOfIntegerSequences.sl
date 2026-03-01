@@ -80,6 +80,12 @@
 		(k - j)
 	}
 
+	oeisA036044 { :n |
+		(1 - n.binaryExpansion)
+		.reverse
+		.fromDigits(2)
+	}
+
 	oeisA038567 { :n |
 		let k = 0;
 		{
@@ -164,6 +170,14 @@
 		n.oeisA014486.oeisA085198
 	}
 
+	oeisA080300 { :n |
+		n.isDyckWord.if {
+			n.catalanRank
+		} {
+			0
+		}
+	}
+
 	oeisA085198 { :n |
 		let s = 0;
 		let h = 1;
@@ -182,6 +196,27 @@
 			}
 		};
 		s
+	}
+
+	oeisA101369 { :n |
+		let m = 2.sqrt;
+		n.isEven.if {
+			n + (n / m - (1 / m)).floor
+		} {
+			1 + (n / m).floor
+		}
+	}
+
+	oeisA122111 { :n |
+		let p = n.factorInteger.collect { :f |
+			List(f[2], f[1].primePi)
+		}.catenate;
+		let m = p.max;
+		1:m.product { :i |
+			p.sum { :j |
+				(j >= i).boole
+			}.prime
+		}
 	}
 
 	oeisA343029 { :n |
@@ -231,11 +266,15 @@
 				'A014486': { :n | n.oeisA014486 },
 				'A020652': { :n | n.oeisA020652 },
 				'A020653': { :n | n.oeisA020653 },
+				'A036044': { :n | n.oeisA036044 },
 				'A038567': { :n | n.oeisA038567 },
 				'A038568': { :n | n.oeisA038568 },
 				'A038569': { :n | n.oeisA038569 },
 				'A071156': { :n | n.oeisA071156 },
+				'A080300': { :n | n.oeisA080300 },
 				'A085198': { :n | n.oeisA085198 },
+				'A101369': { :n | n.oeisA101369 },
+				'A122111': { :n | n.oeisA122111 },
 				'A343029': { :n | n.oeisA343029 },
 				'A343030': { :n | n.oeisA343030 }
 			)
@@ -549,3 +588,11 @@ LibraryItem(
 	mimeType: 'application/json',
 	parser: identity:/1
 )
+
++List {
+
+	oeisFunction { :self |
+		self.collect(oeisFunction:/1)
+	}
+
+}

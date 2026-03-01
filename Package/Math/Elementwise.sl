@@ -78,6 +78,10 @@
 		self.collect(bellNumber:/1)
 	}
 
+	bernoulliNumber { :self |
+		self.collect(bernoulliNumber:/1)
+	}
+
 	between { :self :interval |
 		self.collect(interval.between)
 	}

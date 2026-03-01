@@ -166,6 +166,20 @@ OEIS [A007097](https://oeis.org/A007097):
 [1 2 3 5 11 31 127 709 5381 52711]
 ```
 
+Primes written in base two,
+OEIS [A004676](https://oeis.org/A004676):
+
+```
+>>> 1:11.prime.collect { :n |
+>>> 	n.integerDigits(2)
+>>> 	.fromDigits(10)
+>>> }
+[
+	10 11 101 111 1011 1101 10001
+	10011 10111 11101 11111
+]
+```
+
 Plot first fifty primes,
 OEIS [A000040](https://oeis.org/A000040):
 

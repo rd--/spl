@@ -199,6 +199,27 @@ OEIS [A167408](https://oeis.org/A167408):
 ]
 ```
 
+Product of divisors of _n_,
+OEIS [A007955](https://oeis.org/A007955):
+
+```
+>>> 1:21.divisors.collect(product:/1)
+[
+	1 2 3 8 5 36 7 64 27 100 11 1728 13
+	196 225 1024 17 5832 19 8000 441
+]
+```
+
+Multiplicatively perfect numbers,
+OEIS [A007422](https://oeis.org/A007422):
+
+```
+>>> 1:40.select { :n |
+>>> 	n.divisors.product = n.square
+>>> }
+[1 6 8 10 14 15 21 22 26 27 33 34 35 38 39]
+```
+
 A logarithmic plot of `divisors` of the diatonic number 8640,
 showing the sigmoid shape typical of divisor sets:
 
@@ -396,6 +417,30 @@ a[1:200].log.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/divisors-N.svg)
+
+Irregular triangle of the proper divisors of _n_,
+OEIS [A027751](https://oeis.org/A027751):
+
+~~~spl svg=O
+2:31.collect { :n |
+	n.divisors.allButLast
+}.catenate.discretePlot
+~~~
+
+![](sw/spl/Help/Image/divisors-O.svg)
+
+Sum of divisors scaled by reverse index,
+OEIS [A064945](https://oeis.org/A064945):
+
+~~~spl svg=P
+1:85.collect { :n |
+	let d = n.divisors;
+	let k = d.size;
+	(k:1:-1 * d).sum
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/divisors-P.svg)
 
 * * *
 

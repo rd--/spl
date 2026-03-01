@@ -85,6 +85,15 @@
 		}
 	}
 
+	fibonacciSequence { :n :k |
+		k.caseOf(
+			[
+				'Fibonacci' -> { n.fibonacciSequence },
+				'Semi-Fibonacci' -> { n.semiFibonacciSequence }
+			]
+		)
+	}
+
 	fibonacciSequence { :n |
 		n.lucasSequence('U', 1L, -1L)
 	}
@@ -195,6 +204,21 @@
 			};
 			k
 		}
+	}
+
+	semiFibonacciSequence { :m |
+		let a = Map { :n |
+			(n = 1).if {
+				1
+			} {
+				n.isEven.if {
+					a[n / 2]
+				} {
+					a[n - 1] + a[n - 2]
+				}
+			}
+		};
+		a[1:m]
 	}
 
 	stolarskyArray { :m :n |
