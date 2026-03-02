@@ -72,8 +72,8 @@ OEIS [A048985](https://oeis.org/A048985),
 also apart from first term
 OEIS [A073646](https://oeis.org/A073646):
 
-~~~spl svg=I
-1:200.collect { :n |
+~~~spl svg=A
+2:200.collect { :n |
 	n.primeFactors
 	.decimalExpansion
 	.catenate

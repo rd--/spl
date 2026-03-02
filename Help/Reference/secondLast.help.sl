@@ -6,7 +6,7 @@ Answer the second last element of the sequence _x_:
 
 ```
 >>> [1 2 3 4 5 6 7].secondLast
-7
+6
 ```
 
 A sequence by David James Sycamore,

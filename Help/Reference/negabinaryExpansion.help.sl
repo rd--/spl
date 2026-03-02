@@ -80,7 +80,7 @@ OEIS [A005351](https://oeis.org/A005351):
 Alternating sum of reverse of negabinary expansion of _n_,
 [A065360](https://oeis.org/A065360):
 
-~~~spl svg=I
+~~~spl svg=B
 0:99.collect { :n |
 	n.negabinaryExpansion
 	.reverse

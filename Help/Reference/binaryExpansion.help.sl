@@ -146,7 +146,7 @@ OEIS [A361020](https://oeis.org/A361020):
 		}
 	};
 	[p, q]
-}.restrictedGrowthStringTransform
+}.restrictedGrowthSequenceTransform
 .scatterPlot
 ~~~
 
@@ -173,7 +173,7 @@ OEIS [A389896](https://oeis.org/A389896):
 		}
 	};
 	[e, p, q]
-}.restrictedGrowthStringTransform
+}.restrictedGrowthSequenceTransform
 .scatterPlot
 ~~~
 
@@ -232,7 +232,7 @@ Working in base two replace _n_ with the concatenation of its prime divisors in 
 OEIS [A048985](https://oeis.org/A048985):
 
 ~~~spl svg=I
-1:200.collect { :n |
+2:200.collect { :n |
 	n.primeFactors
 	.binaryExpansion
 	.catenate

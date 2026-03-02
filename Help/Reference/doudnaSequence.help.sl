@@ -78,7 +78,7 @@ OEIS[A286622](https://oeis.org/A286622):
 		=
 		m.primeSignature
 	}
-}.restrictedGrowthStringTransform
+}.restrictedGrowthSequenceTransform
 .scatterPlot
 ~~~
 

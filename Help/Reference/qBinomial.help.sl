@@ -132,7 +132,7 @@ Plot for _n={1,2,3}_ over a subset of the reals:
 Triangle read by rows where _q=-1_,
 OEIS [A051159](https://oeis.org/A051159):
 
-~~~spl svg=A
+~~~spl svg=B
 0:12.triangularArray { :n :k |
 	qBinomial(n, k, -1)
 }.catenate.discretePlot
