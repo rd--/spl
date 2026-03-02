@@ -3,7 +3,7 @@
 - _lookup(d, key, m=nil)_
 
 Look up the value associated with _key_ in the dictionary _d_,
-if the key is not present the `value` of _m_ is given.
+if the key is not present the `value` of the default answer _m_ is given.
 
 Look up the value associated with the key:
 
@@ -12,7 +12,7 @@ Look up the value associated with the key:
 1
 ```
 
-When a key is not found, answer the `value` of the _defaultAnswer_:
+When a key is not found, answer the `value` of the default answer _m_:
 
 ```
 >>> (a: 1, b: 2).lookup('c', nil)

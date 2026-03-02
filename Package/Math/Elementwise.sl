@@ -150,6 +150,10 @@
 		self.collect(degree:/1)
 	}
 
+	decimalExpansion { :self |
+		self.collect(decimalExpansion:/1)
+	}
+
 	decrement { :self |
 		self.collect(decrement:/1)
 	}

@@ -649,6 +649,34 @@ OEIS [A002477](https://oeis.org/A002477):
 ]
 ```
 
+Centered icosahedral numbers,
+OEIS [A005902](https://oeis.org/A005902):
+
+```
+>>> 0:9.collect { :n |
+>>> 	(2 * n + 1)
+>>> 	*
+>>> 	(5 * (n ^ 2) + (5 * n) + 3)
+>>> 	/
+>>> 	3
+>>> }
+[1 13 55 147 309 561 923 1415 2057 2869]
+```
+
+Icosahedral numbers,
+OEIS [A006564](https://oeis.org/A006564):
+
+```
+>>> 1:10.collect { :n |
+>>> 	n
+>>> 	*
+>>> 	(5 * (n ^ 2) - (5 * n) + 2)
+>>> 	/
+>>> 	2
+>>> }
+[1 12 48 124 255 456 742 1128 1629 2260]
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A
@@ -728,6 +756,25 @@ OEIS [A004248](https://oeis.org/A004248):
 ~~~
 
 ![](sw/spl/Help/Image/power-G.svg)
+
+A sequence by Tidjani Negadi,
+OEIS [A054398](https://oeis.org/A054398):
+
+~~~spl svg=H
+let a = Map { :n |
+	(n =0).if {
+		[1]
+	} {
+		let p = a[n - 1];
+		let m = (2 * n) + 1;
+		let q = (2 ^ m + 1) / 3;
+		p ++ [q] ++ p
+	}
+};
+a[0:5].catenate.log.discretePlot
+~~~
+
+![](sw/spl/Help/Image/power-H.svg)
 
 * * *
 

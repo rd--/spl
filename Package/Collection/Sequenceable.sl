@@ -397,6 +397,10 @@
 		}
 	}
 
+	binaryContraction { :n |
+		n.fromDigits(2)
+	}
+
 	binaryDetectIndex { :self :aBlock:/1 |
 		self.size.binaryDetectIndex { :i |
 			aBlock(self[i])
@@ -664,6 +668,10 @@
 
 	cumulativeMin { :self |
 		self.scan(min:/2)
+	}
+
+	decimalContraction { :n |
+		n.fromDigits(10)
 	}
 
 	deleteAdjacentDuplicates { :self :aBlock:/2 |

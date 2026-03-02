@@ -355,6 +355,26 @@ OEIS [A182973](https://oeis.org/A182973):
 
 ![](sw/spl/Help/Image/gcd-M.svg)
 
+Primes and then products of adjacent terms divided by square of `gcd`,
+OEIS [A255483](https://oeis.org/A255483):
+
+~~~spl svg=N
+let t = { :n :m |
+	(n = 0).if {
+		m.prime
+	} {
+		let a = t(n - 1, m);
+		let b = t(n - 1, m + 1);
+		a * b / (gcd(a, b) ^ 2L)
+	}
+};
+0:12.triangularArray { :d :n |
+	t(n, 1 + d - n)
+}.catenate.log.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/gcd-N.svg)
+
 * * *
 
 See also: ||, chineseRemainder, divisible, euclideanAlgorithm, extendedGcd, Fraction, isCoprime, isPrime, lcm

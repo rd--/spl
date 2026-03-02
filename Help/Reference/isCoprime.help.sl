@@ -155,6 +155,20 @@ OEIS [A053672](https://oeis.org/A053672):
 
 ![](sw/spl/Help/Image/isCoprime-C.svg)
 
+Lexicographically earliest sequence of distinct terms such that every pair of consecutive terms contains a term that is a unitary divisor of the other term,
+OEIS [A282291](https://oeis.org/A282291):
+
+~~~spl svg=D
+[1].leastExcludedSequence(59) { :a :n :m |
+	let [p, q] = [a[n - 1], m].sort;
+	q.divisible(p) & {
+		p.isCoprime(q / p)
+	}
+}.log.discretePlot
+~~~
+
+![](sw/spl/Help/Image/isCoprime-D.svg)
+
 Where supported `isCoprime` is displayed as ⟂.
 
 * * *

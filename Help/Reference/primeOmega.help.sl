@@ -188,6 +188,17 @@ OEIS [A080339](https://oeis.org/A080339):
 
 ![](sw/spl/Help/Image/primeOmega-F.svg)
 
+Number of prime factors of the number of divisors of _n_,
+OEIS [A058061](https://oeis.org/A058061):
+
+~~~spl svg=G
+1:85.collect { :n |
+	0.divisorSigma(n).primeOmega
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/primeOmega-G.svg)
+
 * * *
 
 See also: factorInteger, isPrimePower, primeNu

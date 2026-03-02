@@ -13,7 +13,7 @@ Also Nim-sum, written _i⊕j_.
 Truth table:
 
 ```
->>> bitXor:/2.table(0:1, 0:1)
+>>> bitXor:/2.table([1 0], [1 0])
 [
 	0 1;
 	1 0

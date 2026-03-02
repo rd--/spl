@@ -202,6 +202,17 @@ OEIS [A197410](https://oeis.org/A197410):
 
 ![](sw/spl/Help/Image/prefixSum-G.svg)
 
+Number of on cells at _n_-th stage in the Ulam-Warburton two-dimensional cellular automaton,
+OEIS [A147562](https://oeis.org/A147562):
+
+~~~spl svg=H
+let a = 1:150.digitCount(2, 1);
+let b = [0 1] ++ (4 * (3 ^ (a - 1)));
+b.prefixSum.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/prefixSum-H.svg)
+
 * * *
 
 See also: +, accumulate, differences, prefixes, prefixProduct, scan, sum

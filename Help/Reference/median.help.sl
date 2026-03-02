@@ -58,12 +58,12 @@ Median prime factor of _1:n_,
 OEIS [A212300](https://oeis.org/A212300):
 
 ~~~spl svg=A
-3:85.collect { :n |
+3:150.collect { :n |
 	let m = 1:n.collect { :k |
 		k.greatestPrimeFactor
 	}.median;
 	(m + 0.5).ceiling.previousPrime
-}.discretePlot
+}.stepPlot
 ~~~
 
 ![](sw/spl/Help/Image/median-A.svg)

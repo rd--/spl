@@ -436,6 +436,37 @@ OEIS [A143536](https://oeis.org/A143536):
 
 ![](sw/spl/Help/Image/isPrime-J.svg)
 
+Triangle where row _n_ is `one` if _n_ is prime,
+`zero` otherwise,
+OEIS [A143536](https://oeis.org/A143536):
+
+~~~spl svg=K
+1:13.triangularArray { :n :k |
+	n.isPrime.boole
+}.triangularArrayPlot
+~~~
+
+![](sw/spl/Help/Image/isPrime-K.svg)
+
+Number of ways to write _n=x+y_ _6x-1_, _6x+1_, _6y+1_ and _6y+5_ all prime,
+OEIS [A187757](https://oeis.org/A187757):
+
+~~~spl svg=L
+1:250.collect { :n |
+	let m = n - 1;
+	1:m.sum { :k |
+		[
+			6 * k - 1,
+			6 * k + 1,
+			6 * (n - k) + 1,
+			6 * (n - k) + 5
+		].allSatisfy(isPrime:/1).boole
+	}
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/isPrime-L.svg)
+
 * * *
 
 See also: isComposite, isGaussianPrime, isPrimePower, isPrimeTrialDivision, isSemiprime, isSternPrime, millerRabinPrimalityTest, nextPrime, prime, primesList

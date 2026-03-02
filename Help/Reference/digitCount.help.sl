@@ -91,7 +91,10 @@ OEIS [A001969](https://oeis.org/A001969):
 ```
 
 Count zeroes in binary expansion,
-OEIS [A023416](https://oeis.org/A023416):
+OEIS [A023416](https://oeis.org/A023416),
+also
+OEIS [A080791](https://oeis.org/A080791)
+if initial terms is zero:
 
 ```
 >>> 0:99.digitCount(2, 0)
@@ -122,6 +125,54 @@ OEIS [A052382](https://oeis.org/A052382):
 >>> 	n.digitCount(10, 0) = 0
 >>> }
 [1 2 3 4 5 6 7 8 9 11 12 13 14 15 16 17 18]
+```
+
+_a(n-1)+f(a(n-1))_
+where _f_ counts ones in the binary expansion,
+OEIS [A010062](https://oeis.org/A010062):
+
+```
+>>> { :x |
+>>> 	x + x.digitCount(2, 1)
+>>> }.nestList(1, 23)
+[
+	 1  2  3  5  7 10 12 14 17 19
+	22 25 28 31 36 38 41 44 47 52
+	55 60 64 65
+]
+```
+
+_a(n-1)+1+f(a(n-1))_
+where _f_ counts zeroes in binary expansion,
+OEIS [A216431](https://oeis.org/A216431),
+or
+OEIS [A233271](https://oeis.org/A233271)
+when one is inserted at index two:
+
+```
+>>> { :x |
+>>> 	x + 1 + x.digitCount(2, 0)
+>>> }.nestList(0, 14)
+[0 2 4 7 8 12 15 16 21 24 28 31 32 38 42]
+
+>>> let a = { :x |
+>>> 	x + 1 + x.digitCount(2, 0)
+>>> }.nestList(0, 14);
+>>> a.insertAt(1, 2);
+>>> a
+[0 1 2 4 7 8 12 15 16 21 24 28 31 32 38 42]
+```
+
+Digitally balanced numbers,
+OEIS [A031443](https://oeis.org/A031443):
+
+```
+>>> 1:100.select { :n |
+>>> 	n.digitCount(2, 1)
+>>> 	=
+>>> 	n.digitCount(2, 0)
+>>> }
+[2 9 10 12 35 37 38 41 42 44 49 50 52 56]
 ```
 
 Plot the number of ones in the base-two representation,
@@ -173,7 +224,10 @@ OEIS [A005811](https://oeis.org/A005811):
 ![](sw/spl/Help/Image/digitCount-D.svg)
 
 Plot count of zeroes in binary expansion,
-OEIS [A023416](https://oeis.org/A023416):
+OEIS [A023416](https://oeis.org/A023416),
+also
+OEIS [A080791](https://oeis.org/A080791)
+if initial terms is zero:
 
 ~~~spl svg=E
 0:200.digitCount(2, 0)
@@ -249,6 +303,61 @@ OEIS [A158582](https://oeis.org/A158582)
 ~~~
 
 ![](sw/spl/Help/Image/digitCount-K.svg)
+
+The only infinite sequence such that _a(n-1)=a(n)-f(a(n))_,
+where _f_ counts ones in the binary expansion,
+OEIS [A179016](https://oeis.org/A179016):
+
+~~~spl svg=L
+{ :x |
+	x - x.digitCount(2, 1)
+}.nestWhileList(10 ^ 3) { :x |
+	x > 0
+}.reverse.takeWhile { :x |
+	x <= 209
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/digitCount-L.svg)
+
+Numbers whose base three representation contains no two,
+OEIS [A005836](https://oeis.org/A005836):
+
+~~~spl svg=M
+0:2186.select { :n |
+	n.digitCount(3, 2) = 0
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/digitCount-M.svg)
+
+Number of first-quadrant cells born at stage _n_ of the Holladay-Ulam cellular automaton,
+OEIS [A079314](https://oeis.org/A079314),
+essentially also
+OEIS [A147610](https://oeis.org/A147610):
+
+~~~spl svg=N
+let n = 1:85;
+let w = n.digitCount(2, 1);
+let a = 3 ^ (w - 1) + 1;
+([1] ++ a).discretePlot
+~~~
+
+![](sw/spl/Help/Image/digitCount-N.svg)
+
+Number of first-quadrant cells that are on after _n_-th stage of the Holladay-Ulam cellular automaton,
+OEIS [A151922](https://oeis.org/A151922),
+essentially also
+OEIS [A151920](https://oeis.org/A151920):
+
+~~~spl svg=O
+let n = 1:85;
+let w = n.digitCount(2, 1);
+let a = 3 ^ (w - 1) + 1;
+([1] ++ a).prefixSum.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/digitCount-O.svg)
 
 * * *
 

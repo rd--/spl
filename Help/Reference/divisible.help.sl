@@ -255,6 +255,26 @@ OEIS [A099506](https://oeis.org/A099506):
 
 ![](sw/spl/Help/Image/divisible-H.svg)
 
+Least excluded _m_ that is a divisor of the previous term,
+or a multiple of the previous term having at least one prime divisor coprime to it,
+OEIS [A113552](https://oeis.org/A113552):
+
+~~~spl svg=I
+[1].leastExcludedSequence(59) { :a :n :m |
+	let p = a[n - 1];
+	p.divisible(m) | {
+		m.divisible(p) & {
+			m.distinctPrimeFactors
+			.anySatisfy { :q |
+				q.isCoprime(p)
+			}
+		}
+	}
+}.log.discretePlot
+~~~
+
+![](sw/spl/Help/Image/divisible-I.svg)
+
 * * *
 
 See also: %, divisors, even, gcd, mod, quotient, round

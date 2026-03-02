@@ -195,6 +195,51 @@ OEIS [A060818](https://oeis.org/A060818):
 
 ![](sw/spl/Help/Image/hammingWeight-N.svg)
 
+_3^(w(n-1)-1)_,
+OEIS [A147610](https://oeis.org/A147610):
+
+~~~spl svg=O
+let n = 2:85;
+let w = (n - 1).hammingWeight;
+let a = 3 ^ (w - 1);
+a.discretePlot
+~~~
+
+![](sw/spl/Help/Image/hammingWeight-O.svg)
+
+Partial sums of _3^(w(n-1)-1)_,
+OEIS [A151920](https://oeis.org/A151920):
+
+~~~spl svg=P
+let n = 2:85;
+let w = (n - 1).hammingWeight;
+let a = 3 ^ (w - 1);
+a.prefixSum.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/hammingWeight-P.svg)
+
+T-toothpick sequence,
+OEIS [A160172](https://oeis.org/A160172):
+
+~~~spl svg=Q
+let a = Map { :n |
+	(n < 0).if {
+		0
+	} {
+		let m = n + 1;
+		1:m.sum { :i |
+			3 ^ i.hammingWeight
+		} / 3
+	}
+};
+0:85.collect { :n |
+	(2 * a[n - 2]) + (2 * a[n - 3]) + n
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/hammingWeight-Q.svg)
+
 * * *
 
 See also: digitCount, gouldsSequence, thueMorseSequence

@@ -1,16 +1,15 @@
 # nor
 
-- _nor(a, b:/0)_
+- _nor(b, f:/0)_
 
-Answer `true` if _a_ and _b()_ are both `false`, else `false`.
+An alias for `notOr`.
 
 Truth table:
 
 ```
->>> let i = [true, false];
 >>> { :a :b |
 >>> 	a.nor { b }
->>> }.table(i, i)
+>>> }.table([true false], [true false])
 [
 	false false;
 	false true
@@ -19,7 +18,7 @@ Truth table:
 
 * * *
 
-See also: and, not, or
+See also: notOr
 
 Guides: Boolean Functions
 

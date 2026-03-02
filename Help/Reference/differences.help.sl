@@ -286,6 +286,24 @@ OEIS [A040115](https://oeis.org/A040115):
 
 ![](sw/spl/Help/Image/differences-F.svg)
 
+Table,
+read by upward antidiagonals,
+where the leading row lists the primes,
+and following rows list the absolute values of the differences of the previous row,
+OEIS [A036262](https://oeis.org/A036262):
+
+~~~spl svg=G
+let m = 12;
+let t = { :x |
+	x.differences.abs
+}.nestList(1:m.prime, m);
+1:m.triangularArray { :n :k |
+	t[n - k + 1][k]
+}.catenate.discretePlot
+~~~
+
+![](sw/spl/Help/Image/differences-G.svg)
+
 * * *
 
 See also: -, accumulate, differencesBy, discreteLaplacian, foldList, gradient, prefixSum, ratios

@@ -180,6 +180,40 @@ OEIS [A004676](https://oeis.org/A004676):
 ]
 ```
 
+_P(n)-2_,
+OEIS [A040976](https://oeis.org/A040976):
+
+```
+>>> 1:13.prime - 2
+[0 1 3 5 9 11 15 17 21 27 29 35 39]
+```
+
+Primes and successive differences,
+OEIS [A036262](https://oeis.org/A036262):
+
+```
+>>> let m = 14;
+>>> { :x |
+>>> 	x.differences.abs
+>>> }.nestList(1:m.prime, m)
+[
+	2 3 5 7 11 13 17 19 23 29 31 37 41 43;
+	1 2 2 4 2 4 2 4 6 2 6 4 2;
+	1 0 2 2 2 2 2 2 4 4 2 2;
+	1 2 0 0 0 0 0 2 0 2 0;
+	1 2 0 0 0 0 2 2 2 2;
+	1 2 0 0 0 2 0 0 0;
+	1 2 0 0 2 2 0 0;
+	1 2 0 2 0 2 0;
+	1 2 2 2 2 2;
+	1 0 0 0 0;
+	1 0 0 0;
+	1 0 0;
+	1 0;
+	1;
+]
+```
+
 Plot first fifty primes,
 OEIS [A000040](https://oeis.org/A000040):
 

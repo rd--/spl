@@ -86,11 +86,47 @@ The radices two, eight, ten and sixteen should be implemented by all systems,
 other radices may raise errors.
 
 ```
->>> 9r55
-50
+>>> 23.integerDigits(3)
+[2 1 2]
 
->>> (9 ^ [1 0]) * [5 5]
-[45 5]
+>>> 3r212
+23
+
+>>> 23.integerDigits(4)
+[1 1 3]
+
+>>> 4r113
+23
+
+>>> 23.integerDigits(5)
+[4 3]
+
+>>> 5r43
+23
+
+>>> 23.integerDigits(6)
+[3 5]
+
+>>> 6r35
+23
+
+>>> 23.integerDigits(7)
+[3 2]
+
+>>> 7r32
+23
+
+>>> 23.integerDigits(8)
+[2 7]
+
+>>> 8r27
+23
+
+>>> 23.integerDigits(9)
+[2 5]
+
+>>> 9r25
+23
 ```
 
 * * *

@@ -95,7 +95,7 @@
 	}
 
 	catalanNumber { :self |
-		(self.one / (self + 1)) * (2 * self).binomial(self)
+		((1 / (self + 1)) * (2 * self).binomial(self)).round
 	}
 
 	catalanRank { :n |

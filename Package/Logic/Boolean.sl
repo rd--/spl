@@ -92,20 +92,21 @@ Boolean! : [Object, Storeable, Equatable, Json] {
 		true
 	}
 
-	nor { :a :b:/0 |
-		a.not & { b().not }
-	}
-
 	not { :self |
 		<primitive: return _self ? false : true;>
 	}
 
-	notAnd { :self :anObject |
-		(self & { anObject }).not
+	[notAnd, nand] { :self :aBlock:/0 |
+		/* (self & { aBlock() } ).not */
+		self.not | {
+			aBlock().not
+		}
 	}
 
-	notOr { :self :anObject |
-		self.or(anObject).not
+	[notOr, nor] { :self :aBlock:/0 |
+		self.not & {
+			aBlock().not
+		}
 	}
 
 	storeString { :self |

@@ -159,6 +159,17 @@ OEIS [A030133](https://oeis.org/A030133):
 
 ![](sw/spl/Help/Image/recurrenceTable-E.svg)
 
+_|a(n-1)+2a(n-2)-n|_,
+OEIS [A005210](https://oeis.org/A005210):
+
+~~~spl svg=F
+{ :a :n |
+	(a[n - 1] + (2 * a[n - 2]) - n).abs
+}.recurrenceTable([1 1], 85).discretePlot
+~~~
+
+![](sw/spl/Help/Image/recurrenceTable-F.svg)
+
 * * *
 
 See also: linearRecurrence, recurrenceFilter, recurrenceMatrix, table

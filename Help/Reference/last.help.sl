@@ -46,7 +46,7 @@ Convert a list to a fixed size:
 
 * * *
 
-See also: drop, first, middle, take
+See also: drop, first, middle, secondLast, take
 
 Guides: List Functions
 

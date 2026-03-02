@@ -1,15 +1,17 @@
 # second
 
-- _second(aSequence | aDateAndTime)_
+- _second(x)_
 
-Answer the second element of _aSequence_:
+At `Collection`,
+answer the second element of the sequence _x_:
 
 ```
 >>> [1 2 3].second
 2
 ```
 
-or the second of `DateAndTime`:
+At `DateAndTime`,
+answer the second field:
 
 ```
 >>> let s = '2024-03-04T21:41:07.500Z';
@@ -20,7 +22,7 @@ or the second of `DateAndTime`:
 
 * * *
 
-See also: Date, dayOfMonth, first, hour, minute, month, parseDateAndTime, Sequence, year
+See also: Date, dayOfMonth, first, hour, minute, month, parseDateAndTime, secondLast, Sequence, year
 
 References:
 _Smalltalk_

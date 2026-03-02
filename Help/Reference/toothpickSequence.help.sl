@@ -20,13 +20,38 @@ OEIS [A139250](https://oeis.org/A139250):
 ]
 ```
 
-Plot first few terms:
+Plot first few terms,
+OEIS [A139250](https://oeis.org/A139250):
 
 ~~~spl svg=A
 200.toothpickSequence.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/toothpickSequence-A.svg)
+
+First differences of toothpicks numbers,
+OEIS [A139251](https://oeis.org/A139251):
+
+~~~spl svg=B
+85.toothpickSequence
+.differences
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/toothpickSequence-B.svg)
+
+First differences of toothpicks numbers,
+further terms,
+OEIS [A139251](https://oeis.org/A139251):
+
+~~~spl svg=C
+250.toothpickSequence
+.differences
+.log
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/toothpickSequence-C.svg)
 
 * * *
 

@@ -384,6 +384,32 @@ OEIS [A263922](https://oeis.org/A263922):
 
 ![](sw/spl/Help/Image/primeSignature-I.svg)
 
+Number of infinitary divisors of _n_,
+OEIS [A037445](https://oeis.org/A037445):
+
+~~~spl svg=J
+1:85.collect { :n |
+	n.primeSignature.collect { :e |
+		2 ^ e.hammingWeight
+	}.product
+}.stepPlot
+~~~
+
+![](sw/spl/Help/Image/primeSignature-J.svg)
+
+Sum of binary digits in the exponents of the prime factorization of _n_,
+OEIS [A064547](https://oeis.org/A064547):
+
+~~~spl svg=K
+1:85.collect { :n |
+	n.primeSignature.sum { :e |
+		e.hammingWeight
+	}
+}.stepPlot
+~~~
+
+![](sw/spl/Help/Image/primeSignature-K.svg)
+
 * * *
 
 See also: factorInteger

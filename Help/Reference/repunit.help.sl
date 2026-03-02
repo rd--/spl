@@ -25,6 +25,14 @@ Calculate the table of the first five repunits in bases one through twelve:
 ]
 ```
 
+_(4^n-1)/3_,
+OEIS [A002450](https://oeis.org/A002450):
+
+```
+>>> (4 ^ 0:9 - 1) / 3
+[0 1 5 21 85 341 1365 5461 21845 87381]
+```
+
 * * *
 
 See also: ^, /

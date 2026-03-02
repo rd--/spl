@@ -112,8 +112,8 @@
 		self.atPath(self.shape.cartesianIndex(index))
 	}
 
-	atModify { :self :index :aBlock:/1 |
-		self[index] := aBlock(self[index])
+	atModify { :self :index :defaultValue :aBlock:/1 |
+		self.atPut(index, aBlock(self.atIfAbsent(index, { defaultValue })))
 	}
 
 	atOrMissing { :self :index |

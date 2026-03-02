@@ -16,6 +16,16 @@ also called binary words or binary vectors.
 [3 5 3]
 ```
 
+The inverse is `binaryContraction`:
+
+```
+>>> [1 0 1 1 0 0 0 0 1].binaryContraction
+353
+
+>>> [1 0 1 1 0 0 0 0 1].fromDigits(2)
+353
+```
+
 Threads over lists,
 first few terms,
 OEIS [A007088](https://oeis.org/A007088):
@@ -187,7 +197,7 @@ OEIS [A036044](https://oeis.org/A036044):
 0:63.collect { :n |
 	(1 - n.binaryExpansion)
 	.reverse
-	.fromDigits(2)
+	.binaryContraction
 }.discretePlot
 ~~~
 
@@ -218,12 +228,41 @@ OEIS [A080168](https://oeis.org/A080168):
 
 ![](sw/spl/Help/Image/binaryExpansion-H.svg)
 
+Working in base two replace _n_ with the concatenation of its prime divisors in increasing order,
+OEIS [A048985](https://oeis.org/A048985):
+
+~~~spl svg=I
+1:200.collect { :n |
+	n.primeFactors
+	.binaryExpansion
+	.catenate
+	.binaryContraction
+}.log.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/binaryExpansion-I.svg)
+
+Working in base two replace _n_ with the concatenation of its prime divisors in increasing order,
+OEIS [A064841](https://oeis.org/A064841):
+
+~~~spl svg=J
+1:25.collect { :n |
+	n.primeFactors
+	.binaryExpansion
+	.catenate
+}.catenate.discretePlot
+~~~
+
+![](sw/spl/Help/Image/binaryExpansion-J.svg)
+
 * * *
 
-See also: integerDigits
+See also: decimalExpansion, integerDigits
 
 Guides: Integer Functions
 
 References:
 _OEIS_
 [1](https://oeis.org/A007088)
+_W_
+[1](https://en.wikipedia.org/wiki/Binary_number)

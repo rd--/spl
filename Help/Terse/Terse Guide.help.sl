@@ -338,7 +338,7 @@ let m = [1 2; 3 4; 5 6]; m[2, 2] := 16; m[3, 1] := 25; m = [1 2; 3 16; 25 6] /* 
 1:5.atIfPresentIfAbsent(3) { :x | x * x } { false } = 9 /* ifPresent and ifAbsent clauses */
 let l = [1 2 3]; l.atPut(2, 'two') = 'two' & { l = [1 'two' 3] } /* atPut answers value put */
 let a = [1, 2, 3]; (a[2] := 'two') = 'two' & { a = [1, 'two', 3] }
-let l = [1, 2, 3]; l.atModify(2, square:/1) = 4 & { l = [1, 4, 3] } /* modify value at index */
+let l = [1, 2, 3]; l.atModify(2, nil, square:/1) = 4 & { l = [1, 4, 3] } /* modify value at index */
 [5, 4, 3, 2, 1].detect { :each | each % 2 = 0 } = 4
 { [5, 4, 3, 2, 1].detect { :each | each % 7 = 0 } }.hasError
 [5, 4, 3, 2, 1].detect { :each | each * 2 <= 4 } = 2 /* find first element matching predicate */

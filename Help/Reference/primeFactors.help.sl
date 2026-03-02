@@ -3,6 +3,7 @@
 - _primeFactors(n)_
 
 Answer the `List` of prime factors the `product` of which is _n_.
+The list is in increasing order.
 
 In the `Integer` case all factors will be integers:
 
@@ -151,6 +152,18 @@ OEIS [A002586](https://oeis.org/A002586):
 >>> 	(2 ^ n + 1).primeFactors.min
 >>> }
 [3 5 3 17 3 5 3 257 3 5 3 17 3 5 3 65537 3]
+```
+
+Relation to `factorInteger`:
+
+```
+>>> 60.primeFactors
+[2 2 3 5]
+
+>>> 60.factorInteger.collect { :f |
+>>> 	List(f[2], f[1])
+>>> }
+[2 2; 3; 5]
 ```
 
 `min` of `primeFactors` is called the _least prime factor_.

@@ -16,6 +16,18 @@ true
 false
 ```
 
+Truth table:
+
+```
+>>> { :a :b |
+>>> 	a & { b }
+>>> }.table([true false], [true false])
+[
+	true false;
+	false false
+]
+```
+
 The unary form of `and`,
 defined for collections,
 is `allSatisfy` of `blockValue`:

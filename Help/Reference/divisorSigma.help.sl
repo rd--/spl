@@ -312,6 +312,24 @@ OEIS [A007497](https://oeis.org/A007497):
 [2 3 4 7 8 15 24 60 168 480 1512 4800]
 ```
 
+Smallest number with exactly _n_ divisors,
+OEIS [A005179](https://oeis.org/A005179):
+
+```
+>>> 1:12.collect { :n |
+>>> 	1:Infinity.detect { :m |
+>>> 		0.divisorSigma(m) = n
+>>> 	}
+>>> }
+[1 2 4 6 16 12 64 24 36 48 1024 60]
+
+>>> 1024.divisors
+[1 2 4 8 16 32 64 128 256 512 1024]
+
+>>> 60.divisors
+[1 2 3 4 5 6 10 12 15 20 30 60]
+```
+
 Plot divisor function _σ₀(n)_ up to _n=100_,
 OEIS [A000005](https://oeis.org/A000005):
 
@@ -554,6 +572,95 @@ OEIS [A079553](https://oeis.org/A079553):
 ~~~
 
 ![](sw/spl/Help/Image/divisorSigma-R.svg)
+
+A sequence by David James Sycamore,
+OEIS [A360179](https://oeis.org/A360179):
+
+~~~spl svg=S
+let m = 250;
+let a = List(m, 1);
+let c = Map();
+let h = Map();
+let j = 1;
+let k = nil;
+let u = 1;
+2.toDo(m) { :n |
+	c.lookup(j, false).if {
+		k := j + 0.divisorSigma(u);
+		h[j] := h.lookup(j, 0) + 1;
+		h[u] := h.lookup(u, 0) - 1
+	} {
+		k := 0.divisorSigma(j);
+		c[j] := true;
+		h[j] := h.lookup(j, 0) + 1
+	};
+	u := u.min(j);
+	a[n] := k;
+	j := k;
+	{
+		h.lookup(u, 0) = 0
+	}.whileTrue {
+		u := u + 1
+	}
+};
+a.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/divisorSigma-S.svg)
+
+A sequence by David James Sycamore,
+OEIS [A345147](https://oeis.org/A345147):
+
+~~~spl svg=T
+let a = [1];
+let s = [];
+let m = 250;
+1.toDo(m) { :i |
+	let p = a.last;
+	let q = a.allButLast;
+	let r = nil;
+	q.includes(p).not.if {
+		a.add(0.divisorSigma(p))
+	} {
+		a.add(p + s[1]);
+		s := s.allButFirst
+	};
+	r := a.secondLast;
+	s.insertAt(
+		r,
+		s.lengthWhile { :x |
+			x < r
+		} + 1
+	)
+};
+a.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/divisorSigma-T.svg)
+
+
+A variant of a sequence by David James Sycamore,
+OEIS [A361511](https://oeis.org/A361511):
+
+~~~spl svg=U
+let k = 250;
+let a = List(k, 1);
+let c = Map();
+let m = 1;
+2.toDo(k) { :n |
+	let b = a[n - 1];
+	c.lookup(b, false).if {
+		a[n] := b + 0.divisorSigma(a[m]);
+		m := m + 1
+	} {
+		a[n] := 0.divisorSigma(b)
+	};
+	c[b] := true
+};
+a.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/divisorSigma-U.svg)
 
 * * *
 

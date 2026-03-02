@@ -117,6 +117,17 @@ OEIS [A005700](https://oeis.org/A005700):
 [1 1 3 14 84 594 4719 40898 379236]
 ```
 
+Highest power of two dividing _n_-th Catalan number,
+OEIS [A048881](https://oeis.org/A048881):
+
+~~~spl svg=A
+0L:104.catalanNumber
+.integerExponent(2)
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/catalanNumber-A.svg)
+
 * * *
 
 See also: bellNumber, binomial, catalanTriangle, dyckWords, factorial, fussCatalanNumber, gamma, lassalleNumber, superCatalanNumber
