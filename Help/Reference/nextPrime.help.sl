@@ -199,7 +199,6 @@ OEIS [A053000](https://oeis.org/A053000):
 
 ![](sw/spl/Help/Image/nextPrime-D.svg)
 
-
 Shift prime exponents of _2n-1_ to the previous prime or to `one`,
 OEIS [A064216](https://oeis.org/A064216):
 

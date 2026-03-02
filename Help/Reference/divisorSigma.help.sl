@@ -638,7 +638,6 @@ a.scatterPlot
 
 ![](sw/spl/Help/Image/divisorSigma-T.svg)
 
-
 A variant of a sequence by David James Sycamore,
 OEIS [A361511](https://oeis.org/A361511):
 
