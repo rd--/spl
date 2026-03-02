@@ -95,6 +95,19 @@ Matrix plot of the first few squares represented as a sequence of binary bits:
 
 ![](sw/spl/Help/Image/square-A.svg)
 
+Square roots of unity modulo _m_,
+OEIS [A060594](https://oeis.org/A060594):
+
+~~~spl svg=B
+1:103.collect { :n |
+	1:n.sum { :i |
+		((i.square - 1) % n = 0).boole
+	}
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/square-B.svg)
+
 Where supported `square` is displayed as ².
 
 * * *

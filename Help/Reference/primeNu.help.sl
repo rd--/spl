@@ -145,6 +145,29 @@ OEIS [A007875](https://oeis.org/A007875):
 
 ![](sw/spl/Help/Image/primeNu-F.svg)
 
+Least size of generators for multiplicative group of integers modulo _n_,
+OEIS [A046072](https://oeis.org/A046072):
+
+~~~spl svg=G
+3:102.collect { :n |
+	n.primeNu + n.isOdd.if {
+		0
+	} {
+		(n / 4).isInteger.not.if {
+			-1
+		} {
+			(n / 8).isInteger.not.if {
+				0
+			} {
+				1
+			}
+		}
+	}
+}.stepPlot
+~~~
+
+![](sw/spl/Help/Image/primeNu-G.svg)
+
 * * *
 
 See also: distinctPrimeFactors, factorInteger, gcd, isPrime, isPrimePower, isSquareFree, primeOmega

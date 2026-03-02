@@ -160,6 +160,33 @@ let c = { :p |
 
 ![](sw/spl/Help/Image/product-C.svg)
 
+Number of cubes in multiplicative group modulo _n_,
+OEIS [A087692](https://oeis.org/A087692):
+
+~~~spl svg=D
+2:85.collect { :n |
+	n.factorInteger.product { :f |
+		let [p, k] = f;
+		(p = 3).if {
+			(k = 1).if {
+				2
+			} {
+				2 * (3 ^ (k - 2))
+			}
+		} {
+			let q = (p - 1) * (p ^ (k - 1));
+			(p % 6 = 1).if {
+				q / 3
+			} {
+				q
+			}
+		}
+	}
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/product-D.svg)
+
 Where supported `product` is displayed as Π.
 
 * * *

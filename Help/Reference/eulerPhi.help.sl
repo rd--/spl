@@ -390,6 +390,21 @@ OEIS [A008330](https://oeis.org/A008330):
 
 ![](sw/spl/Help/Image/eulerPhi-K.svg)
 
+Number of squares in multiplicative group modulo _n_,
+OEIS [A046073](https://oeis.org/A046073):
+
+~~~spl svg=L
+1:86.collect { :n |
+	n.eulerPhi / 1:n.sum { :k |
+		(k.square % n = 1).boole
+		+
+		(n = 1).boole
+	}
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/eulerPhi-L.svg)
+
 * * *
 
 See also: divisors, factorInteger, gcd, lcm, powerMod, totientSummatoryFunction

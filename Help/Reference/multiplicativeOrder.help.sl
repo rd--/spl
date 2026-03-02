@@ -418,6 +418,19 @@ OEIS [A089645](https://oeis.org/A089645):
 
 ![](sw/spl/Help/Image/multiplicativeOrder-I.svg)
 
+Period of base four representation of _1/n_,
+OEIS [A007735](https://oeis.org/A007735):
+
+~~~spl svg=J
+1:200.collect { :n |
+	4.multiplicativeOrder(
+		n / (2 ^ n.integerExponent(2))
+	)
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/multiplicativeOrder-J.svg)
+
 * * *
 
 See also: %, carmichaelLambda, eulerPhi, powerMod, primitiveRootList
