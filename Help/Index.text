@@ -581,6 +581,7 @@ Reference/BacktickQuotedString.help.sl
 Reference/bakersMap.help.sl
 Reference/Balance2.help.sl
 Reference/balancedCayleyTree.help.sl
+Reference/balancedTernaryDigits.help.sl
 Reference/Ball.help.sl
 Reference/bareissAlgorithm.help.sl
 Reference/barlowBasicIndispensability.help.sl
@@ -681,6 +682,7 @@ Reference/bitonicSort.help.sl
 Reference/bitonicSortMatrix.help.sl
 Reference/bitOr.help.sl
 Reference/bitReversalPermutation.help.sl
+Reference/bitReverse.help.sl
 Reference/bitSet.help.sl
 Reference/BitSet.help.sl
 Reference/bitShift.help.sl
@@ -1094,6 +1096,7 @@ Reference/decapitalize.help.sl
 Reference/deCasteljausAlgorithm.help.sl
 Reference/Decay2.help.sl
 Reference/Decay.help.sl
+Reference/decimalExpansion.help.sl
 Reference/Decimal.help.sl
 Reference/decimalPeriod.help.sl
 Reference/decimalSelvageNumber.help.sl
@@ -2824,9 +2827,11 @@ Reference/normalizeWhitespace.help.sl
 Reference/norm.help.sl
 Reference/norwichSpiral.help.sl
 Reference/noseHooverEquation.help.sl
+Reference/notAnd.help.sl
 Reference/Notebook.help.sl
 Reference/not.help.sl
 Reference/notify.help.sl
+Reference/notOr.help.sl
 Reference/now.help.sl
 Reference/NRand.help.sl
 Reference/nthLexicographicPermutation.help.sl
@@ -2963,6 +2968,7 @@ Reference/parseSmallInteger.help.sl
 Reference/parseSvg.help.sl
 Reference/parseTime.help.sl
 Reference/part.help.sl
+Reference/partialInversePermutation.help.sl
 Reference/partitionDo.help.sl
 Reference/partitionFunctionP.help.sl
 Reference/partitionFunctionQ.help.sl
@@ -3394,6 +3400,7 @@ Reference/resolvedPromise.help.sl
 Reference/Resonz.help.sl
 Reference/respondsTo.help.sl
 Reference/Response.help.sl
+Reference/restrictedGrowthSequenceTransform.help.sl
 Reference/restrictedGrowthString.help.sl
 Reference/restrictedGrowthStrings.help.sl
 Reference/resultant.help.sl
@@ -3525,6 +3532,7 @@ Reference/sech.help.sl
 Reference/secondBrocardTriangle.help.sl
 Reference/secondFeigenbaumConstant.help.sl
 Reference/second.help.sl
+Reference/secondLast.help.sl
 Reference/secondOrderEulerianTriangle.help.sl
 Reference/seconds.help.sl
 Reference/sectorArea.help.sl
