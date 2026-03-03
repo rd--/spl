@@ -28,7 +28,10 @@ Equivalent to `floor` of `log` base two plus `one`:
 ```
 
 First few terms,
-OEIS [A029837](https://oeis.org/A029837):
+OEIS [A029837](https://oeis.org/A029837),
+also
+OEIS [A070939](https://oeis.org/A070939)
+if first terms is instead `one`:
 
 ```
 >>> 0:23.bitLength

@@ -1513,8 +1513,17 @@
 		self.zeroIndexedListTransform(binomialTransform:/1)
 	}
 
-	inverseBinomialTransform { :a |
+	inverseBinomialTransform { :self |
 		self.zeroIndexedListTransform(inverseBinomialTransform:/1)
+	}
+
+	inverseMoebiusTransform { :a |
+		let k = a.size;
+		1:k.collect { :n |
+			n.divisorSum { :d |
+				a[d]
+			}
+		}
 	}
 
 	moebiusTransform { :a |

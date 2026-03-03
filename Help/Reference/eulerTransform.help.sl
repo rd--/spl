@@ -144,6 +144,38 @@ OEIS [A061255](https://oeis.org/A061255):
 ]
 ```
 
+Euler transform of _-3,-3,-2_,
+OEIS [A005928](https://oeis.org/A005928):
+
+```
+>>> let u = [-3 -3 -2];
+>>> 0:25.collect(
+>>> 	u.periodicFunction
+>>> 	.eulerTransform
+>>> )
+[
+	1 -3 0 6 -3 0 0 -6 0 6
+	0 0 6 -6 0 0 -3 0 0 -6
+	0 12 0 0 0 -3
+]
+```
+
+Euler transform of _-1,-1,-2_,
+OEIS [A030203](https://oeis.org/A030203):
+
+```
+>>> let u = [-1 -1 -2];
+>>> 0:25.collect(
+>>> 	u.periodicFunction
+>>> 	.eulerTransform
+>>> )
+[
+	1 -1 -1 -1 1 2 -1 2 0 0
+	-1 -1 -1 -1 0 1 -1 -1 2 0
+	1 2 1 -1 0 -1
+]
+```
+
 * * *
 
 See also: binomialTransform, boustrophedonTransform, divisors, memoize, sum

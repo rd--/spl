@@ -77,6 +77,96 @@ OEIS [A010892](https://oeis.org/A010892):
 [1 1 0 -1 -1 0 1 1 0 -1 -1 0 1 1 0 -1 -1 0]
 ```
 
+Repeat _1,-1,0_,
+OEIS [A049347](https://oeis.org/A049347):
+
+```
+>>> [1 -1 0].repeat(6)
+[1 -1 0 1 -1 0 1 -1 0 1 -1 0 1 -1 0 1 -1 0]
+```
+
+Repeat _1,0,-1_,
+OEIS [A057078](https://oeis.org/A057078):
+
+```
+>>> [1 0 -1].repeat(6)
+[1 0 -1 1 0 -1 1 0 -1 1 0 -1 1 0 -1 1 0 -1]
+```
+
+Repeat _1,0,-1,0_,
+OEIS [A056594](https://oeis.org/A056594):
+
+```
+>>> [1 0 -1 0].repeat(4)
+[1 0 -1 0 1 0 -1 0 1 0 -1 0 1 0 -1 0]
+```
+
+Repeat _1,1,-1,-1_,
+OEIS [A057077](https://oeis.org/A057077):
+
+```
+>>> [1 1 -1 -1].repeat(4)
+[1 1 -1 -1 1 1 -1 -1 1 1 -1 -1 1 1 -1 -1]
+```
+
+Repeat _0,1,0,-1_
+OEIS [A101455](https://oeis.org/A101455):
+
+```
+>>> [0 1 0 -1].repeat(4)
+[0 1 0 -1 0 1 0 -1 0 1 0 -1 0 1 0 -1]
+```
+
+Repeat _0,1,-1_
+OEIS [A102283](https://oeis.org/A102283):
+
+```
+>>> [0 1 -1].repeat(6)
+[0 1 -1 0 1 -1 0 1 -1 0 1 -1 0 1 -1 0 1 -1]
+```
+
+Repeat _1,2,1,-1,-2,-1_,
+OEIS [A057079](https://oeis.org/A057079):
+
+```
+>>> [1 2 1 -1 -2 -1].repeat(3)
+[1 2 1 -1 -2 -1 1 2 1 -1 -2 -1 1 2 1 -1 -2 -1]
+```
+
+Repeat _0,1,-1,-1,1_,
+OEIS [A080891](https://oeis.org/A080891):
+
+```
+>>> [0 1 -1 -1 1].repeat(3)
+[0 1 -1 -1 1 0 1 -1 -1 1 0 1 -1 -1 1]
+```
+
+Repeat _1,1,-2_,
+OEIS [A061347](https://oeis.org/A061347):
+
+```
+>>> [1 1 -2].repeat(6)
+[1 1 -2 1 1 -2 1 1 -2 1 1 -2 1 1 -2 1 1 -2]
+```
+
+Kronecker symbol _m=2_,
+OEIS [A091337](https://oeis.org/A091337):
+
+```
+>>> [0 1 0 -1 0 -1 0 1].repeat(2)
+[0 1 0 -1 0 -1 0 1 0 1 0 -1 0 -1 0 1]
+```
+
+A Chebyshev transform of the Fibonacci numbers,
+OEIS [A100047](https://oeis.org/A100047):
+
+~~~spl svg=A
+[1 1 -1 -1 0 -1 -1 1 1 0].repeat(9)
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/repeat-A.svg)
+
 * * *
 
 See also: constantArray, findRepeat, stringCatenate, stringJoin, stringRepeat

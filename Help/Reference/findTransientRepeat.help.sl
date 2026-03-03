@@ -72,6 +72,15 @@ If no subsequence is found answers _x_ and an empty list:
 [x, []]
 ```
 
+Find structure of expansion of _(1-x^2)/(1+x+x^2)_ in powers of _x_,
+OEIS [A099837](https://oeis.org/A099837):
+
+```
+>>> [-1 -1].linearRecurrence([1 -1 -1], 50)
+>>> .findTransientRepeat(3)
+[1; -1 -1 2]
+```
+
 Find the period of a continuous function,
 using `~` to compare items:
 

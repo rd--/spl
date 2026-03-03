@@ -83,6 +83,14 @@ OEIS [A005563](https://oeis.org/A005563):
 [0 3 8 15 24 35 48 63 80 99 120 143 168]
 ```
 
+_2(n^2)-1_,
+OEIS [A056220](https://oeis.org/A056220):
+
+```
+>>> 2 * 0:9.square - 1
+[-1 1 7 17 31 49 71 97 127 161]
+```
+
 Matrix plot of the first few squares represented as a sequence of binary bits:
 
 ~~~spl svg=A

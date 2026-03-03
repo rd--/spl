@@ -134,7 +134,7 @@ OEIS [A086831](https://oeis.org/A086831):
 
 * * *
 
-See also: binomialTransform, boustrophedonTransform, eulerTransform, moebiusMu, runLengthTransform
+See also: binomialTransform, boustrophedonTransform, eulerTransform, inverseMoebiusTransform, moebiusMu, runLengthTransform
 
 Guides: Integer Sequence Functions
 

@@ -1,8 +1,10 @@
 # squareSpiral
 
-- _squareSpiral(n)_
+- _squareSpiral(n, k='Clockwise')_
 
-Answer the _(x,y)_ unit coordinates of a square clockwise evolute spiral starting at _0,0_ and at first rightwards.
+Answer the _(x,y)_ unit coordinates of a square evolute spiral,
+clockwise or counterclockwise,
+starting at _0,0_ and at first rightwards.
 
 ```
 >>> 16.squareSpiral
@@ -11,6 +13,14 @@ Answer the _(x,y)_ unit coordinates of a square clockwise evolute spiral startin
 	-1  0; -1  1;  0  1;  1  1;  2  1;
 	 2  0;  2 -1;  2 -2;  1 -2;  0 -2;
 	-1 -2
+]
+
+>>> 16.squareSpiral('Counterclockwise')
+[
+	 0  0;  1  0;  1  1;  0  1; -1  1;
+	-1  0; -1 -1;  0 -1;  1 -1;  2 -1;
+	 2  0;  2  1;  2  2;  1  2;  0  2;
+	-1  2
 ]
 ```
 
@@ -27,7 +37,10 @@ OEIS [A174344](https://oeis.org/A174344):
 ```
 
 First few _y_-coordinates,
-OEIS [A268038](https://oeis.org/A268038):
+clockwise,
+OEIS [A268038](https://oeis.org/A268038),
+and counterclockwise,
+OEIS [A274923](https://oeis.org/A274923):
 
 ```
 >>> 30.squareSpiral.column(2)
@@ -35,6 +48,14 @@ OEIS [A268038](https://oeis.org/A268038):
 	 0  0 -1 -1 -1  0  1  1  1  1
 	 0 -1 -2 -2 -2 -2 -2 -1  0  1
 	 2  2  2  2  2  2  1  0 -1 -2
+]
+
+>>> 30.squareSpiral('Counterclockwise')
+>>> .column(2)
+[
+	 0  0  1  1  1  0 -1 -1 -1 -1
+	 0  1  2  2  2  2  2  1  0 -1
+	-2 -2 -2 -2 -2 -2 -1  0  1  2
 ]
 ```
 
@@ -53,6 +74,43 @@ Plot eleven-spiral:
 ~~~
 
 ![](sw/spl/Help/Image/squareSpiral-B.svg)
+
+Plot first few _x_-coordinates,
+OEIS [A174344](https://oeis.org/A174344):
+
+~~~spl svg=C
+65.squareSpiral.column(1).discretePlot
+~~~
+
+![](sw/spl/Help/Image/squareSpiral-C.svg)
+
+Plot first few _y_-coordinates,
+OEIS [A268038](https://oeis.org/A268038):
+
+~~~spl svg=D
+65.squareSpiral.column(2).discretePlot
+~~~
+
+![](sw/spl/Help/Image/squareSpiral-D.svg)
+
+Plot first few _y_-coordinates,
+counterclockwise,
+OEIS [A274923](https://oeis.org/A274923):
+
+~~~spl svg=E
+65.squareSpiral('Counterclockwise')
+.column(2).discretePlot
+~~~
+
+![](sw/spl/Help/Image/squareSpiral-E.svg)
+
+Plot nine-spiral, counterclockwise:
+
+~~~spl svg=F
+211.squareSpiral('Counterclockwise').Line
+~~~
+
+![](sw/spl/Help/Image/squareSpiral-F.svg)
 
 * * *
 

@@ -2,16 +2,20 @@
 
 - _mertensFunction(n)_
 
-Answer the Mertens function for the integer _n_.
+Answer the Mertens function
+also called Mertens’s function,
+for the integer _n_.
 
-The first few terms:
+The first few terms,
+OEIS [A002321](https://oeis.org/A002321):
 
 ```
 >>> 1:25.collect(mertensFunction:/1)
 1:25.collect(moebiusMu:/1).prefixSum
 ```
 
-Plot:
+Plot
+OEIS [A002321](https://oeis.org/A002321):
 
 ~~~spl svg=A
 1:100.collect(mertensFunction:/1)

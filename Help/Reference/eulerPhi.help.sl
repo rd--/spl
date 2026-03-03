@@ -405,6 +405,17 @@ OEIS [A046073](https://oeis.org/A046073):
 
 ![](sw/spl/Help/Image/eulerPhi-L.svg)
 
+_2*φ(n)-n_,
+OEIS [A083254](https://oeis.org/A083254):
+
+~~~spl svg=M
+1:85.collect { :n |
+	2 * n.eulerPhi - n
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/eulerPhi-M.svg)
+
 * * *
 
 See also: divisors, factorInteger, gcd, lcm, powerMod, totientSummatoryFunction

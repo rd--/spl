@@ -304,6 +304,15 @@ let t = { :x |
 
 ![](sw/spl/Help/Image/differences-G.svg)
 
+Second differences of primes,
+OEIS [A036263](https://oeis.org/A036263):
+
+~~~spl svg=H
+1:85.prime.differences(2).discretePlot
+~~~
+
+![](sw/spl/Help/Image/differences-H.svg)
+
 * * *
 
 See also: -, accumulate, differencesBy, discreteLaplacian, foldList, gradient, prefixSum, ratios

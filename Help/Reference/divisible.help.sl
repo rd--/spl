@@ -275,6 +275,17 @@ OEIS [A113552](https://oeis.org/A113552):
 
 ![](sw/spl/Help/Image/divisible-I.svg)
 
+One if _k_ divides _n_ else zero,
+OEIS [A051731](https://oeis.org/A051731):
+
+~~~spl svg=J
+1:17.triangularArray { :n :k |
+	n.divisible(k).boole
+}.catenate.discretePlot
+~~~
+
+![](sw/spl/Help/Image/divisible-J.svg)
+
 * * *
 
 See also: %, divisors, even, gcd, mod, quotient, round

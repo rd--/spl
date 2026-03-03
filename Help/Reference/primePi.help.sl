@@ -481,6 +481,33 @@ a[1:150].discretePlot
 
 ![](sw/spl/Help/Image/primePi-T.svg)
 
+The number of odd prime indices minus the number of even prime indices,
+OEIS [A195017](https://oeis.org/A195017):
+
+~~~spl svg=U
+2:85.collect { :n |
+	n.factorInteger.sum { :f |
+		f[2] * (-1 ^ (1 + f[1].primePi))
+	}
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/primePi-U.svg)
+
+Alternate calculation for
+the number of odd prime indices minus the number of even prime indices,
+OEIS [A195017](https://oeis.org/A195017):
+
+```
+>>> 2:20.collect { :n |
+>>> 	let i = n.primeFactors.primePi;
+>>> 	let j = i.count(isOdd:/1);
+>>> 	let k = i.size;
+>>> 	j - (k - j)
+>>> }
+[1 -1 2 1 0 -1 3 -2 2 1 1 -1 0 0 4 1 -1 -1 3]
+```
+
 * * *
 
 See also: eulerPhi, nextPrime, primesList, primesUpTo, sieveOfEratosthenes

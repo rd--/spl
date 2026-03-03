@@ -227,6 +227,31 @@ OEIS [A083025](https://oeis.org/A083025):
 
 ![](sw/spl/Help/Image/primeFactors-E.svg)
 
+Alternating sum of the prime indices of _n_,
+OEIS [A316524](https://oeis.org/A316524):
+
+~~~spl svg=F
+1:85.collect { :n |
+	n.primeFactors
+	.primePi
+	.alternatingSum
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/primeFactors-F.svg)
+
+Alternating sum of all prime factors of _n_,
+OEIS [A071321](https://oeis.org/A071321):
+
+~~~spl svg=G
+1:85.collect { :n |
+	n.primeFactors
+	.alternatingSum
+}.logScale.discretePlot
+~~~
+
+![](sw/spl/Help/Image/primeFactors-G.svg)
+
 * * *
 
 See also: distinctPrimeFactors, factorInteger, isPrime, primeFactorization, primeLimit, product

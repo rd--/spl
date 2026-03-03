@@ -99,11 +99,11 @@ OEIS [A028260](https://oeis.org/A028260):
 [1 4 6 9 10 14 15 16 21 22]
 ```
 
-Plot the Liouville lambda sequence for the first 20 numbers:
+Plot the Liouville lambda sequence for the first few terms,
+OEIS [A008836](https://oeis.org/A008836):
 
 ~~~spl svg=A
-1:20.collect(liouvilleLambda:/1)
-.discretePlot
+1:115.liouvilleLambda.discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/liouvilleLambda-A.svg)

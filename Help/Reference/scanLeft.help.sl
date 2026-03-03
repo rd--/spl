@@ -1,6 +1,6 @@
 # scanLeft
 
-- _scanLeft([x₁ x₂ …], f:2)_
+- _scanLeft([x₁ x₂ …], f:/2)_
 
 `scanLeft` is similar to `foldLeft`,
 but answers a list of each successive reduced value from the left.

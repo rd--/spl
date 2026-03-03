@@ -465,6 +465,10 @@
 		self.collect(mixedFractionParts:/1)
 	}
 
+	moebiusMu { :self |
+		self.collect(moebiusMu:/1)
+	}
+
 	muLawEncode { :self |
 		self.collect(muLawEncode:/1)
 	}
@@ -541,6 +545,10 @@
 		self.collect(primePi:/1)
 	}
 
+	radical { :self |
+		self.collect(radical:/1)
+	}
+
 	radiansToDegrees { :self |
 		self.collect(radiansToDegrees:/1)
 	}
@@ -601,6 +609,10 @@
 
 	square { :self |
 		self.collect(square:/1)
+	}
+
+	squareFreePart { :self |
+		self.collect(squareFreePart:/1)
 	}
 
 	stirlingS1 { :self :k |

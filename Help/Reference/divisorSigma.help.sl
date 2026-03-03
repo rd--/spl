@@ -330,6 +330,29 @@ OEIS [A005179](https://oeis.org/A005179):
 [1 2 3 4 5 6 10 12 15 20 30 60]
 ```
 
+Coefficients in expansion of Eisenstein series _E2_,
+OEIS [A006352](https://oeis.org/A006352):
+
+```
+>>> -24 * 1:9.collect { :n |
+>>> 	1.divisorSigma(n)
+>>> }
+[-24 -72 -96 -168 -144 -288 -192 -360 -312]
+```
+
+Expansion of Eisenstein series _E6(q)_,
+OEIS [A013973](https://oeis.org/A013973):
+
+```
+>>> -504 * 1:8.collect { :n |
+>>> 	5.divisorSigma(n)
+>>> }
+[
+	-504 -16632 -122976 -532728 -1575504
+	-4058208 -8471232 -17047800
+]
+```
+
 Plot divisor function _σ₀(n)_ up to _n=100_,
 OEIS [A000005](https://oeis.org/A000005):
 
@@ -660,6 +683,29 @@ a.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/divisorSigma-U.svg)
+
+Abundance of _n_,
+OEIS [A033880](https://oeis.org/A033880):
+
+~~~spl svg=V
+let n = 1:70;
+(1.divisorSigma(n) - (2 * n)).discretePlot
+~~~
+
+![](sw/spl/Help/Image/divisorSigma-V.svg)
+
+Coefficients in expansion of Eisenstein series _E2_,
+OEIS [A006352](https://oeis.org/A006352):
+
+~~~spl svg=W
+(
+	-24 * 1:65.collect { :n |
+		1.divisorSigma(n)
+	}
+).discretePlot
+~~~
+
+![](sw/spl/Help/Image/divisorSigma-W.svg)
 
 * * *
 

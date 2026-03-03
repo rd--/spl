@@ -1402,6 +1402,11 @@
 		(2 * n).integerExponent(2)
 	}
 
+	squareFreePart { :n |
+		let [p, e] = n.factorInteger.transpose;
+		(p ^ (e % 2)).product
+	}
+
 	squarePyramidalNumber { :n |
 		(n * (n + 1) * ((2 * n) + 1)) / 6
 	}

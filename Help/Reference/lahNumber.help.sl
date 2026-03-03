@@ -38,8 +38,7 @@ OEIS [A008297](https://oeis.org/A008297):
 
 ```
 >>> 1:7.triangularArray { :n :k |
->>> 	let m = binomial(n - 1, k - 1);
->>> 	(-1 ^ n) * n.! * m / k.!
+>>> 	(-1 ^ n) * lahNumber(n, k)
 >>> }
 [
 	-1;
@@ -71,7 +70,7 @@ OEIS [A111596](https://oeis.org/A111596):
 ]
 ```
 
-Plot
+Plot _-1^(n-k)×L(n,k)_,
 OEIS [A111596](https://oeis.org/A111596):
 
 ~~~spl svg=A
@@ -81,6 +80,17 @@ OEIS [A111596](https://oeis.org/A111596):
 ~~~
 
 ![](sw/spl/Help/Image/lahNumber-A.svg)
+
+Plot signed form,
+OEIS [A008297](https://oeis.org/A008297):
+
+~~~spl svg=B
+0:11.triangularArray { :n :k |
+	(-1 ^ n) * lahNumber(n, k)
+}.catenate.logScale.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/lahNumber-B.svg)
 
 * * *
 

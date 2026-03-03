@@ -869,6 +869,19 @@ OEIS [A099254](https://oeis.org/A099254):
 
 ![](sw/spl/Help/Image/linearRecurrence-G.svg)
 
+Lexicographically earliest sequence such that _|a(n+1)-a(n)|_ is a square,
+OEIS [A277616](https://oeis.org/A277616):
+
+~~~spl svg=H
+[1 0 0 0 0 0 0 0 0 0 0 0 1 -1]
+.linearRecurrence(
+	[0 4 8 12 3 7 11 2 6 10 1 5 9 13],
+	85
+).discretePlot
+~~~
+
+![](sw/spl/Help/Image/linearRecurrence-H.svg)
+
 * * *
 
 See also: shiftRegisterSequence

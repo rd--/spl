@@ -61,7 +61,7 @@ true
 
 * * *
 
-See also: foldRight, reduce
+See also: foldRight, injectInto, reduce
 
 Guides: List Functions
 

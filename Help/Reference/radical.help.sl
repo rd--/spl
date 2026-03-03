@@ -11,10 +11,11 @@ the product of the prime divisors.
 ```
 
 First few terms,
+threads over lists,
 OEIS [A007947](https://oeis.org/A007947):
 
 ```
->>> 1:78.collect(radical:/1)
+>>> 1:78.radical
 [
 	 1  2  3  2  5  6  7  2  3 10
 	11  6 13 14 15  2 17  6 19 10
@@ -27,10 +28,19 @@ OEIS [A007947](https://oeis.org/A007947):
 ]
 ```
 
-Plot first few terms:
+_μ(r(n))_,
+OEIS [A076479](https://oeis.org/A076479):
+
+```
+>>> 1:16.radical.moebiusMu
+[1 -1 -1 -1 -1 1 -1 -1 -1 1 -1 1 -1 1 1 -1]
+```
+
+Plot first few terms,
+OEIS [A007947](https://oeis.org/A007947):
 
 ~~~spl svg=A
-1:150.collect(radical:/1).scatterPlot
+1:150.radical.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/radical-A.svg)
@@ -38,10 +48,19 @@ Plot first few terms:
 Log plot of first few terms:
 
 ~~~spl svg=B
-1:300.collect(radical:/1).log.scatterPlot
+1:300.radical.log.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/radical-B.svg)
+
+_μ(r(n))_,
+OEIS [A076479](https://oeis.org/A076479):
+
+~~~spl svg=C
+1:85.radical.moebiusMu.discretePlot
+~~~
+
+![](sw/spl/Help/Image/radical-C.svg)
 
 * * *
 

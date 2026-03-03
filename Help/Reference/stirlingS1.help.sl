@@ -8,11 +8,7 @@ The triangle of signed Stirling numbers of the first kind,
 OEIS [A008275](http://oeis.org/A008275):
 
 ```
->>> 1:6.collect { :n |
->>> 	1:n.collect { :m |
->>> 		stirlingS1(n, m)
->>> 	}
->>> }
+>>> 1:6.triangularArray(stirlingS1:/2)
 [
 	1;
 	-1 1;
@@ -20,6 +16,22 @@ OEIS [A008275](http://oeis.org/A008275):
 	-6 11 -6 1;
 	24 -50 35 -10 1;
 	-120 274 -225 85 -15 1
+]
+```
+
+From zero,
+OEIS [A048994](https://oeis.org/A048994):
+
+```
+>>> 0:6.triangularArray(stirlingS1:/2)
+[
+	1;
+	0 1;
+	0 -1 1;
+	0 2 -3 1;
+	0 -6 11 -6 1;
+	0 24 -50 35 -10 1;
+	0 -120 274 -225 85 -15 1
 ]
 ```
 
@@ -113,6 +125,31 @@ OEIS [A002790](https://oeis.org/A002790):
 [1 2 6 4 30 12 84 24 90 20 132 24 5460 840]
 ```
 
+Numerators of Cauchy numbers of first type,
+OEIS [A006232](https://oeis.org/A006232):
+
+```
+>>> 0L:9.collect { :n |
+>>> 	0:n.sum { :k |
+>>> 		n.stirlingS1(k) / (k + 1)
+>>> 	}
+>>> }.numerator
+[1 1 -1 1 -19 9 -863 1375 -33953 57281]
+```
+
+Expansion of exponential generating function _1/(1-log(1+x))_,
+OEIS [A006252](https://oeis.org/A006252):
+
+```
+>>> 0:14.triangularArray { :n :k |
+>>> 	k.! * stirlingS1(n, k)
+>>> }.collect(sum:/1)
+[
+	1 1 1 2 4 14 38 216 600 6240 9552
+	319296 -519312 28108560 -176474352
+]
+```
+
 Surface plot of Stirling numbers on a logarithmic scale:
 
 ~~~spl svg=A
@@ -199,6 +236,17 @@ OEIS [A049444](https://oeis.org/A049444):
 ~~~
 
 ![](sw/spl/Help/Image/stirlingS1-F.svg)
+
+_k!×S1(n,k)_,
+OEIS [A048594](https://oeis.org/A048594):
+
+~~~spl svg=G
+1:12.triangularArray { :n :k |
+	k.! * stirlingS1(n, k)
+}.catenate.logScale.discretePlot
+~~~
+
+![](sw/spl/Help/Image/stirlingS1-G.svg)
 
 * * *
 

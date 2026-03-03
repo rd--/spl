@@ -85,6 +85,46 @@ OEIS [A071176](https://oeis.org/A071176):
 
 ![](sw/spl/Help/Image/isPerfectSquare-C.svg)
 
+The least integer, absolutely, not yet in the sequence such that the _|a(n-1)-a(n)|_ is a square,
+OEIS [A377091](https://oeis.org/A377091):
+
+~~~spl svg=D
+let m = 85;
+let s = IdentitySet([0]);
+{ :x |
+	let a = 1:Infinity.detect { :i |
+		s.includes(i).not | {
+			s.includes(-i).not
+		}
+	};
+	{
+		s.includes(a) | {
+			(x - a).abs
+			.isPerfectSquare
+			.not
+		}
+	}.whileTrue {
+		a := (a < 0).boole - a
+	};
+	s.add(a);
+	a
+}.nestList(0, m).discretePlot
+~~~
+
+![](sw/spl/Help/Image/isPerfectSquare-D.svg)
+
+Expansion of Jacobi theta function _θ4(x)_,
+OEIS [A002448](https://oeis.org/A002448):
+
+~~~spl svg=E
+0:500.collect { :n |
+	let q = n.isPerfectSquare.boole;
+	(-1 ^ n) * q * 2 - (n = 0).boole
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/isPerfectSquare-E.svg)
+
 * * *
 
 See also: square, sqrt

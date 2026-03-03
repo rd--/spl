@@ -15,11 +15,7 @@ Table of first few terms,
 OEIS [A008277](https://oeis.org/A008277):
 
 ```
->>> 1:9.collect { :n |
->>> 	1:n.collect { :k |
->>> 		stirlingS2(n, k)
->>> 	}
->>> }
+>>> 1:9.triangularArray(stirlingS2:/2)
 [
 	1;
 	1 1;
@@ -116,6 +112,21 @@ OEIS [A000629](https://oeis.org/A000629):
 >>> 	}
 >>> }
 [1 2 6 26 150 1082 9366 94586 1091670]
+```
+
+Rao Uppuluri-Carpenter numbers,
+OEIS [A000587](https://oeis.org/A000587):
+
+```
+>>> 0:22.triangularArray(stirlingS2:/2)
+>>> .collect(alternatingSum:/1)
+[
+	1 -1 0 1 1 -2 -9 -9 50 267 413 -2180
+	-17731 -50533 110176 1966797
+	9938669 8638718 -278475061
+	-2540956509 -9816860358
+	27172288399 725503033401
+]
 ```
 
 Plot sums of digits:

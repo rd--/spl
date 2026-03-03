@@ -86,6 +86,19 @@ OEIS [A154402](https://oeis.org/A154402):
 
 ![](sw/spl/Help/Image/divisorSum-E.svg)
 
+Divisor sum _-1^(d-1)*d^2_,
+OEIS [A321543](https://oeis.org/A321543):
+
+~~~spl svg=F
+1:85.collect { :n |
+	n.divisorSum { :d |
+		-1 ^ (d - 1) * d.square
+	}
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/divisorSum-F.svg)
+
 * * *
 
 See also: aliquotSum, divisors, divisorSigma, sum

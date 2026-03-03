@@ -57,6 +57,14 @@ The _2n_-th Bernoulli numbers divided by _2n_:
 ]
 ```
 
+Numerators of Bernoulli numbers,
+OEIS [A164555](https://oeis.org/A164555):
+
+```
+>>> 0:16.bernoulliNumber.numerator
+[1 -1 1 0 -1 0 1 0 -1 0 5 0 -691 0 7 0 -3617]
+```
+
 Numerators of Bernoulli numbers _2n_,
 OEIS [A000367](https://oeis.org/A000367):
 

@@ -326,6 +326,18 @@ let k = { :d |
 
 ![](sw/spl/Help/Image/kroneckerSymbol-H.svg)
 
+Plot _m=2_,
+period eight,
+OEIS [A091337](https://oeis.org/A091337):
+
+~~~spl svg=I
+0:99.collect { :n |
+	n.kroneckerSymbol(2)
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/kroneckerSymbol-I.svg)
+
 * * *
 
 See also: jacobiSymbol, legendreSymbol

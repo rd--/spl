@@ -597,6 +597,34 @@ OEIS [A001317](https://oeis.org/A001317):
 ]
 ```
 
+Ménage numbers,
+eliding initial term,
+OEIS [A000179](https://oeis.org/A000179):
+
+```
+>>> 1:16.collect { :n |
+>>> 	2 * n * 0:n.sum { :k |
+>>> 		(-1 ^ k)
+>>> 		*
+>>> 		binomial(2 * n - k, k)
+>>> 		*
+>>> 		(n - k).!
+>>> 		/
+>>> 		(2 * n - k)
+>>> 	}
+>>> }
+[
+	-1 0
+	1 2
+	13 80
+	579 4738
+	43387 439792
+	4890741 59216642
+	775596313 10927434464
+	164806435783 2649391469058
+]
+```
+
 Plot over a subset of the reals as a function of its first parameter:
 
 ~~~spl svg=A
@@ -727,6 +755,71 @@ OEIS [A051632](https://oeis.org/A051632):
 ~~~
 
 ![](sw/spl/Help/Image/binomial-H.svg)
+
+Triangle of coefficients of Laguerre polynomials _n!*Ln(x)_,
+OEIS [A021009](https://oeis.org/A021009):
+
+~~~spl svg=I
+0:13.triangularArray { :n :k |
+	(-1 ^ k) * n.! * binomial(n, k) / k.!
+}.catenate.logScale.discretePlot
+~~~
+
+![](sw/spl/Help/Image/binomial-I.svg)
+
+_C(n-a,k/2)×(-1^a)_ where _a=(k+1)/2_,
+OEIS [A108299](https://oeis.org/A108299):
+
+~~~spl svg=J
+0:13.triangularArray { :n :k |
+	let a = (k + 1) // 2;
+	(-1 ^ a) * binomial(n - a, k // 2)
+}.catenate.logScale.discretePlot
+~~~
+
+![](sw/spl/Help/Image/binomial-J.svg)
+
+_-1^(n+k)*C(n,k)_,
+lower triangular matrix which is inverse to Pascal’s triangle,
+OEIS [A130595](https://oeis.org/A130595):
+
+~~~spl svg=K
+0:11.triangularArray { :n :k |
+	(-1 ^ (n + k)) * binomial(n, k)
+}.catenate.logScale.discretePlot
+~~~
+
+![](sw/spl/Help/Image/binomial-K.svg)
+
+Riordan array _((1-x)/(1+x),x/(1+x)^2)_,
+OEIS [A110162](https://oeis.org/A110162):
+
+~~~spl svg=L
+0:11.triangularArray { :n :k |
+	(n + k = 0).if {
+		1
+	} {
+		let p = n + k;
+		let q = n - k;
+		let a = binomial(p, q);
+		let b = binomial(p - 1, q - 1);
+		(-1 ^ q) * (a + b)
+	}
+}.catenate.logScale.discretePlot
+~~~
+
+![](sw/spl/Help/Image/binomial-L.svg)
+
+Riordan array _(1,x(1-x))_,
+OEIS [A109466](https://oeis.org/A109466):
+
+~~~spl svg=M
+0:12.triangularArray { :n :k |
+	(-1 ^ (n - k)) * binomial(k, n - k)
+}.catenate.logScale.discretePlot
+~~~
+
+![](sw/spl/Help/Image/binomial-M.svg)
 
 * * *
 

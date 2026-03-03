@@ -3,6 +3,8 @@
 - _binomialTransform(f:/1)_
 - _binomialTransform([x₁ x₂ …])_
 
+Answer the binomial transform of the unary function _f_ or the integer sequence _x_.
+
 Binomial transform of Fibonacci numbers,
 OEIS [A001906](https://oeis.org/A001906):
 
@@ -16,6 +18,10 @@ OEIS [A001906](https://oeis.org/A001906):
 >>> 	.binomialTransform
 >>> )
 [0 1 3 8 21 55 144 377 987 2584]
+
+>>> [0 1 3 8 21 55 144 377 987 2584]
+>>> .inverseBinomialTransform
+[0 1 1 2 3 5 8 13 21 34]
 ```
 
 Binomial transform of offset Fibonacci numbers,
@@ -32,6 +38,10 @@ OEIS [A001519](https://oeis.org/A001519):
 >>> 	}.binomialTransform
 >>> )
 [1 2 5 13 34 89 233 610 1597 4181]
+
+>>> [1 2 5 13 34 89 233 610 1597 4181]
+>>> .inverseBinomialTransform
+[1 1 2 3 5 8 13 21 34 55]
 ```
 
 Binomial transform of the characteristic function of the prime numbers,
@@ -48,6 +58,10 @@ and [A052467](https://oeis.org/A052467):
 >>> 	(n + 1).isPrime.boole
 >>> }.binomialTransform
 [0 1 3 6 11 20 37 70 134 255 476 869]
+
+>>> [0 0 1 4 10 21 41 78 148 282 537]
+>>> .inverseBinomialTransform
+[0 0 1 1 0 1 0 1 0 0 0]
 ```
 
 The characteristic function of odd numbers,
@@ -61,6 +75,10 @@ OEIS [A000079](https://oeis.org/A000079):
 >>> 	n.isOdd.boole
 >>> }.binomialTransform
 [0 1 2 4 8 16 32 64 128 256 512 1024]
+
+>>> [0 1 2 4 8 16 32 64 128 256 512 1024]
+>>> .inverseBinomialTransform
+[0 1 0 1 0 1 0 1 0 1 0 1]
 ```
 
 The Bell numbers shift one place left under the binomial transform,
@@ -70,6 +88,10 @@ OEIS [A000110](https://oeis.org/A000110):
 >>> [1 1 2 5 15 52 203 877 4140 21147]
 >>> .binomialTransform
 [1 2 5 15 52 203 877 4140 21147 115975]
+
+>>> [1 2 5 15 52 203 877 4140 21147]
+>>> .inverseBinomialTransform
+[1 1 2 5 15 52 203 877 4140]
 ```
 
 A sequence that shifts one place left under the second-order binomial transform,
@@ -80,6 +102,11 @@ OEIS [A004211](https://oeis.org/A004211):
 >>> .binomialTransform
 >>> .binomialTransform
 [1 3 11 49 257 1539 10299 75905 609441]
+
+>>> [1 3 11 49 257 1539 10299 75905]
+>>> .inverseBinomialTransform
+>>> .inverseBinomialTransform
+[1 1 3 11 49 257 1539 10299]
 ```
 
 A sequence that shifts one place left under the third-order binomial transform,
@@ -91,6 +118,12 @@ A sequence that shifts one place left under the third-order binomial transform,
 >>> .binomialTransform
 >>> .binomialTransform
 [1 4 19 109 742 5815 51193 498118]
+
+>>> [1 4 19 109 742 5815 51193 498118]
+>>> .inverseBinomialTransform
+>>> .inverseBinomialTransform
+>>> .inverseBinomialTransform
+[1 1 4 19 109 742 5815 51193]
 ```
 
 Transform of _1,3,4,3,0…_,
@@ -107,6 +140,10 @@ OEIS [A006004](https://oeis.org/A006004):
 >>> 	12
 >>> )
 [1 4 11 25 49 86 139 211 305 424 571 749]
+
+>>> [1 4 11 25 49 86 139 211 305 424 571]
+>>> .inverseBinomialTransform
+[1 3 4 3 0 0 0 0 0 0 0]
 ```
 
 Binomial transform of Catalan numbers,
@@ -119,6 +156,10 @@ OEIS [A007317](https://oeis.org/A007317):
 	1 2 5 15 51 188 731 2950 12235 51822
 	223191 974427 4302645 19181100
 ]
+
+>>> [1 2 5 15 51 188 731 2950 12235]
+>>> .inverseBinomialTransform
+[1 1 2 5 14 42 132 429 1430]
 ```
 
 Binomial transform of Fine’s sequence,
@@ -131,11 +172,28 @@ OEIS [A033321](https://oeis.org/A033321):
 	1 1 2 6 21 79 311 1265 5275 22431
 	96900 424068 1876143 8377299
 ]
+
+>>> [1 1 2 6 21 79 311 1265 5275 22431]
+>>> .inverseBinomialTransform
+[1 0 1 2 6 18 57 186 622 2120]
+```
+
+Binomial transform of _1,0_,
+OEIS [A011782](https://oeis.org/A011782):
+
+```
+>>> [1 0 1 0 1 0 1 0 1 0 1 0]
+>>> .binomialTransform
+[1 1 2 4 8 16 32 64 128 256 512 1024]
+
+>>> [1 1 2 4 8 16 32 64 128 256 512 1024]
+>>> .inverseBinomialTransform
+[1 0 1 0 1 0 1 0 1 0 1 0]
 ```
 
 * * *
 
-See also: binomial, boustrophedonTransform, eulerTransform, runLengthTransform
+See also: binomial, boustrophedonTransform, eulerTransform, inverseBinomialTransform, runLengthTransform
 
 Guides: Integer Sequence Functions
 

@@ -29,10 +29,11 @@ Depends only of the prime signature of _n_:
 ```
 
 First few terms,
+threads over lists,
 OEIS [A008683](https://oeis.org/A008683):
 
 ```
->>> 1:78.collect(moebiusMu:/1)
+>>> 1:78.moebiusMu
 [
 	 1 -1 -1  0 -1  1 -1  0  0  1
 	-1  0 -1  1  1  0 -1  0 -1  0
@@ -74,20 +75,20 @@ OEIS [A030229](https://oeis.org/A030229):
 [1 6 10 14 15 21 22 26 33 34 35 38 39 46]
 ```
 
-Plot the Möbius sequence for the first few terms:
+Plot the Möbius sequence for the first few terms,
+OEIS [A008683](https://oeis.org/A008683):
 
 ~~~spl svg=A
-1:100.collect(moebiusMu:/1).discretePlot
+1:100.moebiusMu.discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/moebiusMu-A.svg)
 
-Mertens’s function _M(n)_ sums μ over _1:n_:
+Mertens’s function _M(n)_ sums μ over _1:n_,
+OEIS [A002321](https://oeis.org/A002321):
 
 ```
->>> 1:81
->>> .collect(moebiusMu:/1)
->>> .prefixSum
+>>> 1:81.moebiusMu.prefixSum
 [
 	 1  0 -1 -1 -2 -1 -2 -2 -2 -1
 	-2 -2 -3 -2 -1 -1 -2 -2 -3 -3
@@ -101,16 +102,23 @@ Mertens’s function _M(n)_ sums μ over _1:n_:
 ]
 ```
 
-Plot the first few terms of Mertens’s function:
+Plot the first few terms of Mertens’s function,
+OEIS [A002321](https://oeis.org/A002321):
 
 ~~~spl svg=B
-1:250
-.collect(moebiusMu:/1)
-.prefixSum
-.linePlot
+1:250.moebiusMu.prefixSum.linePlot
 ~~~
 
 ![](sw/spl/Help/Image/moebiusMu-B.svg)
+
+Numbers such that Mertens’s function is zero,
+OEIS [A028442](https://oeis.org/A028442):
+
+```
+>>> 1:150.moebiusMu
+>>> .prefixSum.indicesOf(0)
+[2 39 40 58 65 93 101 145 149 150]
+```
 
 Moebius transform applied twice to the sequence one then zero,
 OEIS [A007427](https://oeis.org/A007427):
@@ -267,6 +275,54 @@ OEIS [A001615](https://oeis.org/A001615):
 ~~~
 
 ![](sw/spl/Help/Image/moebiusMu-I.svg)
+
+The truncated Mertens function,
+OEIS [A088004](https://oeis.org/A088004):
+
+~~~spl svg=J
+1:81.collect { :n |
+	n.moebiusMu + n.isPrime.boole
+}.prefixSum.stepPlot
+~~~
+
+![](sw/spl/Help/Image/moebiusMu-J.svg)
+
+Mertens conjectured that _|M(n)|<√(n)_,
+now known to be false,
+OEIS [A059571](https://oeis.org/A059571):
+
+~~~spl svg=K
+1:85.collect { :n |
+	n.sqrt.floor - 1:n.moebiusMu.sum.abs
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/moebiusMu-K.svg)
+
+_μ(n/k)_ if _k_ divides _n_ else zero,
+OEIS [A054525](https://oeis.org/A054525):
+
+~~~spl svg=L
+1:17.triangularArray { :n :k |
+	n.divisible(k).if {
+		(n / k).moebiusMu
+	} {
+		0
+	}
+}.catenate.discretePlot
+~~~
+
+![](sw/spl/Help/Image/moebiusMu-L.svg)
+
+_μ(n)×n_,
+OEIS [A055615](https://oeis.org/A055615):
+
+~~~spl svg=M
+let n = 1:85;
+(n.moebiusMu * n).discretePlot
+~~~
+
+![](sw/spl/Help/Image/moebiusMu-M.svg)
 
 * * *
 

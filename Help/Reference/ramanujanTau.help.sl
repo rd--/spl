@@ -4,7 +4,8 @@
 
 Answer the Ramanujan τ function _τ(n)_.
 
-First few terms:
+First few terms
+OEIS [A000594](https://oeis.org/A000594):
 
 ```
 >>> 1:33.collect(ramanujanTau:/1)
@@ -59,7 +60,8 @@ Multiplicative for coprime integers:
 7.ramanujanTau * 5.ramanujanTau
 ```
 
-Logarithmic plot:
+Logarithmic plot of first few terms,
+OEIS [A000594](https://oeis.org/A000594):
 
 ~~~spl svg=A
 1:33
@@ -69,6 +71,18 @@ Logarithmic plot:
 ~~~
 
 ![](sw/spl/Help/Image/ramanujanTau-A.svg)
+
+Plot further terms,
+OEIS [A000594](https://oeis.org/A000594):
+
+~~~spl svg=B
+1:85
+.collect(ramanujanTau:/1)
+.logScale
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/ramanujanTau-B.svg)
 
 * * *
 

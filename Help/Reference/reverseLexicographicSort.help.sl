@@ -70,20 +70,45 @@ Sort binary combinations:
 ]
 ```
 
-Plot compositions in reverse lexicographic order,
+Plot integer compositions in reverse lexicographic order,
 OEIS [A066099](https://oeis.org/A066099):
 
 ~~~spl svg=A
 1:5.collect { :n |
-	n.integerPartitions
-	.collect(permutations:/1)
-	.catenate
-	.unique
+	n.integerCompositions
 	.reverseLexicographicSort
 }.catenate.catenate.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/reverseLexicographicSort-A.svg)
+
+Plot alternating sums of integer compositions in reverse lexicographic order,
+OEIS [A124754](https://oeis.org/A124754):
+
+~~~spl svg=B
+1:7.collect { :n |
+	n.integerCompositions
+	.reverseLexicographicSort
+	.collect(alternatingSum:/1)
+}.catenate.discretePlot
+~~~
+
+![](sw/spl/Help/Image/reverseLexicographicSort-B.svg)
+
+Inverse binomial sum of compositions in standard order,
+OEIS [A124756](https://oeis.org/A124756):
+
+~~~spl svg=C
+1:7.collect { :n |
+	n.integerCompositions
+	.reverseLexicographicSort
+	.collect { :c |
+		c.inverseBinomialTransform.last
+	}
+}.catenate.discretePlot
+~~~
+
+![](sw/spl/Help/Image/reverseLexicographicSort-C.svg)
 
 * * *
 

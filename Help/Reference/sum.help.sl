@@ -244,6 +244,24 @@ let f = { :n |
 
 ![](sw/spl/Help/Image/sum-C.svg)
 
+Euler transform of _-3,-3,-2_,
+OEIS [A005928](https://oeis.org/A005928):
+
+~~~
+let u = [1 -1 -3 1 -1 3 1 -1 0];
+0:150.collect { :n |
+	(n < 1).if {
+		(n = 0).boole
+	} {
+		-3 * n.divisors.sum { :d |
+			u[d.mod(9, 1)]
+		}
+	}
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/sum-D.svg)
+
 Evaluate symbolically:
 
 ```

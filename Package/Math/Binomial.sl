@@ -263,6 +263,19 @@
 		numerator // denominator
 	}
 
+	lahNumber { :n :k :s |
+		s.caseOf(
+			[
+				'Unsigned' -> {
+					lahNumber(n, k)
+				},
+				'Signed' -> {
+					(-1 ^ n) * lahNumber(n, k)
+				}
+			]
+		)
+	}
+
 	lahNumber { :n :k |
 		binomial(n, k) * factorialPower(n - 1, n - k)
 	}

@@ -2008,6 +2008,17 @@
 		self.partition(windowSize, windowSize)
 	}
 
+	periodicFunction { :a :d |
+		let k = a.size;
+		{ :n |
+			a[(n - d + 1).mod(k, 1)]
+		}
+	}
+
+	periodicFunction { :a |
+		a.periodicFunction(1)
+	}
+
 	pick { :self :aList :anObject |
 		(self.depth > 2).if {
 			self.withCollect(aList) { :i :j |

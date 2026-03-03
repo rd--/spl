@@ -554,6 +554,19 @@ OEIS [A064945](https://oeis.org/A064945):
 
 ![](sw/spl/Help/Image/divisors-P.svg)
 
+Number of odd divisors minus number of even divisors,
+OEIS [A048272](https://oeis.org/A048272):
+
+~~~
+1:115.collect { :n |
+	n.divisors.sum { :d |
+		(-1 ^ d).negate
+	}
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/divisors-Q.svg)
+
 * * *
 
 See also: divisorSigma, divisorSum, gcd, remainder

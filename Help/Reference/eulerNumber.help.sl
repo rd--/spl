@@ -60,6 +60,22 @@ The sequence of Euler numbers modulo a fixed number is periodic:
 
 ![](sw/spl/Help/Image/eulerNumber-A.svg)
 
+Non-zero coefficients of the Swiss-Knife polynomials,
+OEIS [A153641](https://oeis.org/A153641):
+
+~~~spl svg=B
+0:16.collect { :n |
+	let m = n // 2;
+	0:m.collect { :k |
+		binomial(n, 2 * k)
+		*
+		(2 * k).eulerNumber
+	}
+}.catenate.logScale.discretePlot
+~~~
+
+![](sw/spl/Help/Image/eulerNumber-B.svg)
+
 * * *
 
 See also: bernoulliNumber, eulerGamma, eulerUpDownNumber
