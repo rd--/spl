@@ -1934,6 +1934,7 @@ Reference/intervalsBy.help.sl
 Reference/intervals.help.sl
 Reference/intervalVariety.help.sl
 Reference/inventorySequence.help.sl
+Reference/inverseBinomialTransform.help.sl
 Reference/inverseCdf.help.sl
 Reference/inverseErfc.help.sl
 Reference/inverseErf.help.sl
@@ -1942,6 +1943,7 @@ Reference/InverseGaussianDistribution.help.sl
 Reference/inverseGudermannian.help.sl
 Reference/inverseHaversine.help.sl
 Reference/inverse.help.sl
+Reference/inverseMoebiusTransform.help.sl
 Reference/inverseNorwichSpiral.help.sl
 Reference/inversePermutation.help.sl
 Reference/inverseSmoothStep.help.sl
@@ -3015,6 +3017,7 @@ Reference/perfectNumber.help.sl
 Reference/perform.help.sl
 Reference/perimeter.help.sl
 Reference/periodDoublingSequence.help.sl
+Reference/periodicFunction.help.sl
 Reference/periodogramArray.help.sl
 Reference/periodogramPlot.help.sl
 Reference/perlinBiasFunction.help.sl
@@ -3743,6 +3746,7 @@ Reference/Sqrt.help.sl
 Reference/squareChladniPlateEquation.help.sl
 Reference/squaredEuclideanDistance.help.sl
 Reference/squareForm.help.sl
+Reference/squareFreePart.help.sl
 Reference/square.help.sl
 Reference/Square.help.sl
 Reference/squarePyramidalNumber.help.sl

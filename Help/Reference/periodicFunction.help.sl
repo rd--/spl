@@ -22,7 +22,7 @@ With _d=1_:
 With _d=0_:
 
 ```
->>> 0:9.collect(
+>>> 0:8.collect(
 >>> 	[-3 -3 -2].periodicFunction(0)
 >>> )
 [-3 -3 -2 -3 -3 -2 -3 -3 -2]
