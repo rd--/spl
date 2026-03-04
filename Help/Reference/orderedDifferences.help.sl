@@ -58,7 +58,7 @@ And so on:
 >>> let b = p[2:8:3].differences;
 >>> let c = p[3:9:3].differences;
 >>> [a b c].interleave.take(7)
-[5 8 8 10 8 10 12 8 8]
+[5 8 8 10 8 10 12]
 ```
 
 Ordered differences of primes,

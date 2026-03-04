@@ -159,6 +159,18 @@ OEIS [A051159](https://oeis.org/A051159):
 
 ![](sw/spl/Help/Image/qBinomial-B.svg)
 
+Losanitsch’s triangle,
+OEIS [A034851](https://oeis.org/A034851):
+
+~~~spl svg=C
+0:10.triangularArray { :n :k |
+	let p = qBinomial(n, k);
+	(p[1] + p[-1]) / 2
+}.catenate.discretePlot
+~~~
+
+![](sw/spl/Help/Image/qBinomial-C.svg)
+
 * * *
 
 See also: binomial, qFactorial, qPochhammer, UnivariatePolynomial

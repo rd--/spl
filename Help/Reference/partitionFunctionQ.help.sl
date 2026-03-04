@@ -76,7 +76,7 @@ OEIS [A060016](https://oeis.org/A060016):
 ```
 >>> 1:9.triangularArray(
 >>> 	partitionFunctionQ:/2
->>> ).++
+>>> )
 [
 	1;
 	1 0;
