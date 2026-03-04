@@ -357,6 +357,7 @@ Reference/anticomplementaryTriangle.help.sl
 Reference/antidiagonalArray.help.sl
 Reference/antidiagonal.help.sl
 Reference/antidiagonalIndicesDo.help.sl
+Reference/antidiagonalIndices.help.sl
 Reference/antidiagonalMatrix.help.sl
 Reference/antiDivisors.help.sl
 Reference/antipedalTriangle.help.sl
@@ -2885,6 +2886,7 @@ Reference/operatingSystem.help.sl
 Reference/operatorPrecedence.help.sl
 Reference/optimalGolombRulers.help.sl
 Reference/orderedBellNumber.help.sl
+Reference/orderedDifferences.help.sl
 Reference/Ordered.help.sl
 Reference/orderedSubstrings.help.sl
 Reference/ordering.help.sl
