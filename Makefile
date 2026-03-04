@@ -4,11 +4,13 @@ all:
 clean:
 	rm -f js/sl.js
 
-add-additions:
-	git add Help/Reference/*.sl
-	git add Help/Guide/*.sl
+add-images:
 	git add Help/Image/*.svg
 	git add Help/Image/*.png
+
+add-help-files:
+	git add Help/Reference/*.sl
+	git add Help/Guide/*.sl
 
 push-all:
 	r.gitlab-push.sh spl
