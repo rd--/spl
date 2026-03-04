@@ -85,7 +85,8 @@ Guides: Prime Number Functions, Integer Sequence Functions
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/PrimeGaps.html),
+[1](https://mathworld.wolfram.com/PrimeGaps.html)
+[2](https://mathworld.wolfram.com/PrimeDifferenceFunction.html),
 _OEIS_
 [1](https://oeis.org/A001223),
 _W_

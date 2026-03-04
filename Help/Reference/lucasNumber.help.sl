@@ -6,8 +6,8 @@ Answer the _n_-th Lucas number.
 The Lucas numbers _L(n)_ satisfy the recurrence relation _L(n)=L(n-1)+L(n-2)_ with _L(1)=1_ and _L(2)=3_.
 
 Compute the first twenty Lucas numbers,
-OEIS [A000032](https://oeis.org/A000032)
-or [A000204](https://oeis.org/A000204):
+OEIS [A000032](https://oeis.org/A000032) _i=2,1_
+or [A000204](https://oeis.org/A000204) _i=1,3_:
 
 ```
 >>> 0:20.collect(lucasNumber:/1)
@@ -18,6 +18,12 @@ or [A000204](https://oeis.org/A000204):
 	1364 2207 3571 5778 9349
 	15127
 ]
+
+>>> [1 1].linearRecurrence([2 1], 13)
+[2 1 3 4 7 11 18 29 47 76 123 199 322]
+
+>>> [1 1].linearRecurrence([1 3], 13)
+[1 3 4 7 11 18 29 47 76 123 199 322 521]
 ```
 
 At `SmallFloat`:
@@ -120,7 +126,7 @@ Plot modulo _n-1_:
 
 * * *
 
-See also: fibonacci, lucasPolynomial, lucasSequence
+See also: fibonacci, lucasL, lucasPolynomial, lucasSequence
 
 Guides: Integer Functions, Integer Sequence Functions
 

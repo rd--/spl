@@ -110,6 +110,19 @@ OEIS [A124756](https://oeis.org/A124756):
 
 ![](sw/spl/Help/Image/reverseLexicographicSort-C.svg)
 
+Plot first differences of integer compositions in reverse lexicographic order,
+OEIS [A358133](https://oeis.org/A358133):
+
+~~~spl svg=D
+1:6.collect { :n |
+	n.integerCompositions
+	.reverseLexicographicSort
+}.catenate.collect(differences:/1)
+.catenate.discretePlot
+~~~
+
+![](sw/spl/Help/Image/reverseLexicographicSort-D.svg)
+
 * * *
 
 See also: canonicalSort, lexicographicSort, sort

@@ -1917,6 +1917,19 @@
 		tally
 	}
 
+	orderedDifferences { :a :d |
+		let k = a.size;
+		(1 + d).toCollect(k) { :i |
+			1.toCollect(i - d) { :j |
+				a[i] - a[j]
+			}
+		}
+	}
+
+	orderedDifferences { :a |
+		a.orderedDifferences(1)
+	}
+
 	outerProduct { :self :aList |
 		outer(*, self, aList)
 	}

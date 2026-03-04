@@ -10,9 +10,9 @@ First few terms,
 OEIS [A001263](https://oeis.org/A001263):
 
 ```
->>> 1:8.triangularArray { :n :k |
->>> 	n.narayanaNumber(k)
->>> }
+>>> 1:8.triangularArray(
+>>> 	narayanaNumber:/2
+>>> )
 [
 	1;
 	1 1;
@@ -24,6 +24,17 @@ OEIS [A001263](https://oeis.org/A001263):
 	1 28 196 490 490 196 28 1
 ]
 ```
+
+First few terms,
+OEIS [A001263](https://oeis.org/A001263):
+
+~~~spl svg=A
+1:11.triangularArray(
+	narayanaNumber:/2
+).catenate.log.discretePlot
+~~~
+
+![](sw/spl/Help/Image/narayanaNumber-A.svg)
 
 * * *
 

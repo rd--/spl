@@ -75,6 +75,13 @@ UnivariatePolynomial : [Object, Storeable, Copyable, Equatable] { | coefficientL
 		}
 	}
 
+	atAllPath { :self :operand |
+		let [indices] = operand;
+		indices.collect { :each |
+			self.at(each)
+		}
+	}
+
 	degree { :self |
 		self.coefficientList.size - 1
 	}

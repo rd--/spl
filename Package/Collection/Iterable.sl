@@ -171,6 +171,22 @@
 		}
 	}
 
+	detect { :self :count :aBlock:/1 |
+		let answer = [];
+		valueWithReturn { :return:/1 |
+			self.do { :each |
+				aBlock(each).ifTrue {
+					answer.add(each);
+					count := count - 1;
+					(count < 1).ifTrue {
+						answer.return
+					}
+				}
+			};
+			self.error('detect')
+		}
+	}
+
 	detectIfFound { :self :aBlock:/1 :foundBlock:/1 |
 		self.detectIfFoundIfNone(aBlock:/1, foundBlock:/1) {
 			nil

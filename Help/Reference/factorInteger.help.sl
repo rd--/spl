@@ -292,7 +292,7 @@ OEIS [A003415](https://oeis.org/A003415):
 
 ![](sw/spl/Help/Image/factorInteger-D.svg)
 
-A completely multiplicative sequence,
+Completely multiplicative with _a(P(k))=P(k+1)_,
 OEIS [A003961](https://oeis.org/A003961):
 
 ~~~spl svg=E

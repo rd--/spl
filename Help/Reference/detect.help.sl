@@ -1,6 +1,7 @@
 # detect
 
 - _detect(c, f:/1)_
+- _detect(c, n, f:/1)_
 
 Evaluate the block _f_ with each of the elements of the collection _c_ as the argument.
 Answer the first element for which _f_ evaluates to `true`.
@@ -39,6 +40,13 @@ Detect the first prime number in a `Range`:
 ```
 >>> 99:111.detect(isPrime:/1)
 101
+```
+
+The ternary form detects the first _n_ items:
+
+```
+>>> 99:Infinity.detect(7, isPrime:/1)
+[101 103 107 109 113 127 131]
 ```
 
 At `Record`:

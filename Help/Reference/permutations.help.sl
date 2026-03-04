@@ -178,6 +178,29 @@ Different algorithms answer the same permutations in different sequences:
 ]
 ```
 
+Count number of compositions of _n_ with _k_ runs,
+OEIS [A333755](https://oeis.org/A333755):
+
+```
+>>> 1:6.triangularArray { :n :k |
+>>> 	n.integerPartitions
+>>> 	.collect(permutations:/1)
+>>> 	.catenate
+>>> 	.unique
+>>> 	.select { :x |
+>>> 		x.split(=).size = k
+>>> 	}.size
+>>> }
+[
+	1;
+	2 0;
+	2 2 0;
+	3 4 1 0;
+	2 10 4 0 0;
+	4 12 14 2 0 0
+]
+```
+
 * * *
 
 See also: !, lexicographicPermutations, minimumChangePermutations, permutationsDo, plainChanges, stope, subfactorial, subsets

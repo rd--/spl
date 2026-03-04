@@ -12,6 +12,7 @@ Evaluate a Stirling number of the second kind:
 ```
 
 Table of first few terms,
+from one,
 OEIS [A008277](https://oeis.org/A008277):
 
 ```
@@ -42,6 +43,26 @@ The tenth row:
 
 >>> 10.bellNumber
 115975
+```
+
+
+Table of first few terms,
+from zero,
+OEIS [A048993](https://oeis.org/A048993):
+
+```
+>>> 0:8.triangularArray(stirlingS2:/2)
+[
+	1;
+	0 1;
+	0 1 1;
+	0 1 3 1;
+	0 1 7 6 1;
+	0 1 15 25 10 1;
+	0 1 31 90 65 15 1;
+	0 1 63 301 350 140 21 1;
+	0 1 127 966 1701 1050 266 28 1
+]
 ```
 
 At zero:
@@ -126,6 +147,23 @@ OEIS [A000587](https://oeis.org/A000587):
 	9938669 8638718 -278475061
 	-2540956509 -9816860358
 	27172288399 725503033401
+]
+```
+
+_k!×S2(n,k)_,
+OEIS [A019538](https://oeis.org/A019538):
+
+```
+>>> 1:6.triangularArray { :n :k |
+>>> 	k.! * n.stirlingS2(k)
+>>> }
+[
+	1;
+	1 2;
+	1 6 6;
+	1 14 36 24;
+	1 30 150 240 120;
+	1 62 540 1560 1800 720
 ]
 ```
 

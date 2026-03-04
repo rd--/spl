@@ -40,6 +40,27 @@ OEIS [A180410](https://oeis.org/A180410):
 
 ![](sw/spl/Help/Image/unique-A.svg)
 
+Fermi-Dirac primes,
+numbers of the form _p^(2^k)_ where _p_ is prime and _k≥0_,
+OEIS [A050376](https://oeis.org/A050376):
+
+~~~spl svg=B
+let m = 300;
+let t = [];
+let k = 1;
+let n = nil;
+{
+	n := m ^ (1 / k);
+	n > 2
+}.whileTrue {
+	t.addAll(2:n.primePi.prime ^ k);
+	k := 2 * k
+};
+t.unique.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/unique-B.svg)
+
 * * *
 
 See also: ++, nub, sort, String, uniqueElements, uniqueId

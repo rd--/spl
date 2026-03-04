@@ -262,6 +262,20 @@ let u = [1 -1 -3 1 -1 3 1 -1 0];
 
 ![](sw/spl/Help/Image/sum-D.svg)
 
+_b⊛c_ where _b(h)=h_ and _c(h)=h+n-1_,
+OEIS [A213500](https://oeis.org/A213500):
+
+~~~spl svg=E
+1:13.antidiagonalArray { :n :k |
+	let m = k - 1;
+	0:m.sum { :i |
+		(k - i) * (n + i)
+	}
+}.catenate.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/sum-E.svg)
+
 Evaluate symbolically:
 
 ```

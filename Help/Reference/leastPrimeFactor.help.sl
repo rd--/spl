@@ -68,7 +68,31 @@ OEIS [A000945](https://oeis.org/A000945):
 [2 3 7 43 13 53 5 6221671]
 ```
 
-Log-scale plot of the least prime factors of the integers from two up to one hundred:
+Seieve of Eratosthenes arranged as an array,
+OEIS [A083221](https://oeis.org/A083221):
+
+```
+>>> let k = 8;
+>>> 1:k.collect { :n |
+>>> 	let p = n.prime;
+>>> 	p:Infinity.detect(k) { :x |
+>>> 		x.leastPrimeFactor = p
+>>> 	}
+>>> }
+[
+	  2   4   6   8  10  12  14  16;
+	  3   9  15  21  27  33  39  45;
+	  5  25  35  55  65  85  95 115;
+	  7  49  77  91 119 133 161 203;
+	 11 121 143 187 209 253 319 341;
+	 13 169 221 247 299 377 403 481;
+	 17 289 323 391 493 527 629 697;
+	 19 361 437 551 589 703 779 817;
+]
+```
+
+Log-scale plot of the least prime factors of the integers from two up to one hundred,
+OEIS [A020639](https://oeis.org/A020639):
 
 ~~~spl svg=A
 2:100.collect(leastPrimeFactor:/1)
@@ -93,6 +117,51 @@ a[1:65].discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/leastPrimeFactor-B.svg)
+
+_π(L(n))_,
+OEIS [A055396](https://oeis.org/A055396):
+
+~~~spl svg=C
+1:85.collect { :n |
+	n.leastPrimeFactor.primePi
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/leastPrimeFactor-C.svg)
+
+Number of times the smallest prime factor of _n_ is the smallest prime factor for numbers _≤n_,
+OEIS [A078898](https://oeis.org/A078898):
+
+~~~spl svg=D
+let m = 100;
+let l = 1:m.collect(leastPrimeFactor:/1);
+1:m.collect { :n |
+	l.take(n).occurrencesOf(l[n])
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/leastPrimeFactor-D.svg)
+
+Seieve of Eratosthenes arranged as an array,
+read by antidigaonals,
+OEIS [A083221](https://oeis.org/A083221):
+
+~~~spl svg=E
+let k = 12;
+let a = 1:k.collect { :n |
+	let p = n.prime;
+	Range(p, Infinity, p).detect(k) { :x |
+		x.leastPrimeFactor = p
+	}
+};
+let b = [];
+1:k.sum.antidiagonalIndicesDo { :i :j |
+	b.add(a[i][j])
+};
+b.discretePlot
+~~~
+
+![](sw/spl/Help/Image/leastPrimeFactor-E.svg)
 
 * * *
 

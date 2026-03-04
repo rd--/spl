@@ -150,6 +150,22 @@ OEIS [A025473](https://oeis.org/A025473):
 
 ![](sw/spl/Help/Image/isPrimePower-A.svg)
 
+If _n_ is a prime power _p^m_ then _m_ else zero,
+OEIS [A100995](https://oeis.org/A100995):
+
+~~~spl svg=B
+1:150.collect { :n |
+	n.isPrimePower.if {
+		n.factorInteger[1][2]
+	} {
+		0
+	}
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/isPrimePower-B.svg)
+
+
 * * *
 
 See also: divisors, isComposite, isCoprime, isGaussianPrime, isPrime, isSquareFree, moebiusMu, primeNu, primeOmega

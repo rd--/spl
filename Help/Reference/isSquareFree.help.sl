@@ -33,14 +33,14 @@ true
 false
 ```
 
-The first few squarefree numbers are after `one`,
+The first few squarefree numbers,
 OEIS [A005117](https://oeis.org/A005117):
 
 ```
->>> 2:33.select(isSquareFree:/1)
+>>> 1:32.select(isSquareFree:/1)
 [
-	 2  3  5  6  7 10 11 13 14 15
-	17 19 21 22 23 26 29 30 31 33
+	 1  2  3  5  6  7 10 11 13 14
+	15 17 19 21 22 23 26 29 30 31
 ]
 ```
 
@@ -96,7 +96,8 @@ false
 0
 ```
 
-Plot the first few squarefree numbers:
+Plot the first few squarefree numbers,
+OEIS [A005117](https://oeis.org/A005117):
 
 ~~~spl svg=A
 1:99.select(isSquareFree:/1).linePlot
@@ -104,7 +105,8 @@ Plot the first few squarefree numbers:
 
 ![](sw/spl/Help/Image/isSquareFree-A.svg)
 
-Plot the first few squareful numbers:
+Plot the first few squareful numbers,
+OEIS [A013929](https://oeis.org/A013929):
 
 ~~~spl svg=B
 1:99.reject(isSquareFree:/1).linePlot
@@ -130,6 +132,26 @@ OEIS [A071888](https://oeis.org/A071888):
 ~~~
 
 ![](sw/spl/Help/Image/isSquareFree-C.svg)
+
+First differences of sequence of nonsquarefree numbers,
+OEIS [A078147](https://oeis.org/A078147):
+
+~~~spl svg=D
+1:150.reject(isSquareFree:/1)
+.differences.discretePlot
+~~~
+
+![](sw/spl/Help/Image/isSquareFree-D.svg)
+
+Second differences of sequence of nonsquarefree numbers,
+OEIS [A376593](https://oeis.org/A376593):
+
+~~~spl svg=E
+1:150.reject(isSquareFree:/1)
+.differences(2).discretePlot
+~~~
+
+![](sw/spl/Help/Image/isSquareFree-E.svg)
 
 * * *
 

@@ -35,6 +35,22 @@ OEIS [A048994](https://oeis.org/A048994):
 ]
 ```
 
+Unsigned from zero,
+OEIS [A132393](https://oeis.org/A132393):
+
+```
+>>> 0:6.triangularArray(stirlingS1:/2).abs
+[
+	1;
+	0 1;
+	0 1 1;
+	0 2 3 1;
+	0 6 11 6 1;
+	0 24 50 35 10 1;
+	0 120 274 225 85 15 1
+]
+```
+
 Evaluate multiple Stirling numbers:
 
 ```

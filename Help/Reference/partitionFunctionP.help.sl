@@ -65,14 +65,14 @@ Specific values:
 ```
 
 Initial triangle of _P(n,k)_,
-OEIS [A008284](https://oeis.org/A008284):
+OEIS [A008284](https://oeis.org/A008284),
+also with rows reversed,
+OEIS [A058398](https://oeis.org/A058398):
 
 ```
->>> 1:9.collect { :n |
->>> 	1:n.collect { :k |
->>> 		n.partitionFunctionP(k)
->>> 	}
->>> }
+>>> 1:9.triangularArray(
+>>> 	partitionFunctionP:/2
+>>> )
 [
 	1;
 	1 1;
@@ -102,11 +102,9 @@ Initial triangle of _P(n,1:k)_,
 OEIS [A026820](https://oeis.org/A026820):
 
 ```
->>> 1:10.collect { :n |
->>> 	1:n.collect { :k |
->>> 		1:k.sum { :i |
->>> 			n.partitionFunctionP(i)
->>> 		}
+>>> 1:10.triangularArray { :n :k |
+>>> 	1:k.sum { :i |
+>>> 		n.partitionFunctionP(i)
 >>> 	}
 >>> }
 [
@@ -123,7 +121,8 @@ OEIS [A026820](https://oeis.org/A026820):
 ]
 ```
 
-Plot the number of unrestricted partitions:
+Plot the number of unrestricted partitions,
+OEIS [A000041](https://oeis.org/A000041):
 
 ~~~spl svg=A
 0:50.functionPlot { :x |
@@ -132,6 +131,30 @@ Plot the number of unrestricted partitions:
 ~~~
 
 ![](sw/spl/Help/Image/partitionFunctionP-A.svg)
+
+Initial triangle of _P(n,k)_,
+OEIS [A008284](https://oeis.org/A008284):
+
+~~~spl svg=B
+1:15.triangularArray(
+	partitionFunctionP:/2
+).catenate.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/partitionFunctionP-B.svg)
+
+Initial triangle of _P(n,1:k)_,
+OEIS [A026820](https://oeis.org/A026820):
+
+~~~spl svg=C
+1:10.triangularArray { :n :k |
+	1:k.sum { :i |
+		n.partitionFunctionP(i)
+	}
+}.catenate.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/partitionFunctionP-C.svg)
 
 * * *
 

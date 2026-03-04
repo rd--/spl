@@ -209,9 +209,9 @@ OEIS [A027193](https://oeis.org/A027193):
 ```
 >>> 1:16.collect { :n |
 >>> 	n.integerPartitions
->>> 	.select { :p |
+>>> 	.count { :p |
 >>> 		p.size.isOdd
->>> 	}.size
+>>> 	}
 >>> }
 [1 1 2 2 4 5 8 10 16 20 29 37 52 66 90 113]
 ```
@@ -222,9 +222,9 @@ OEIS [A027187](https://oeis.org/A027187):
 ```
 >>> 1:16.collect { :n |
 >>> 	n.integerPartitions
->>> 	.select { :p |
+>>> 	.count { :p |
 >>> 		p.size.isEven
->>> 	}.size
+>>> 	}
 >>> }
 [0 1 1 3 3 6 7 12 14 22 27 40 49 69 86 118]
 ```
@@ -547,6 +547,43 @@ OEIS [A002375](https://oeis.org/A002375):
 ~~~
 
 ![](sw/spl/Help/Image/integerPartitions-F.svg)
+
+The number of partitions of _n_ such that the sum of the parts, counted without multiplicities, is equal to _k_,
+OEIS [A116861](https://oeis.org/A116861):
+
+~~~spl svg=G
+1:13.triangularArray { :n :k |
+	n.integerPartitions.count { :p |
+		p.unique.sum = k
+	}
+}.catenate.discretePlot
+~~~
+
+![](sw/spl/Help/Image/integerPartitions-G.svg)
+
+Number of ways to distribute _n_ indistinguishable objects in _k_ indistinguishable containers,
+OEIS [A072233](https://oeis.org/A072233):
+
+~~~spl svg=H
+0:10.triangularArray { :n :k |
+	n.integerPartitions([k]).size
+}.catenate.discretePlot
+~~~
+
+![](sw/spl/Help/Image/integerPartitions-H.svg)
+
+The number of integer partitions of _n_ with median _k_,
+OEIS [A359901](https://oeis.org/A359901):
+
+~~~spl svg=I
+1:12.triangularArray { :n :k |
+	n.integerPartitions.count { :p |
+		p.median = k
+	}
+}.catenate.discretePlot
+~~~
+
+![](sw/spl/Help/Image/integerPartitions-I.svg)
 
 * * *
 

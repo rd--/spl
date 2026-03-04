@@ -68,6 +68,18 @@ At `String`:
 't'
 ```
 
+Highest power of smallest prime dividing _n_,
+OEIS [A028233](https://oeis.org/A028233):
+
+~~~spl svg=A
+1:86.collect { :n |
+	let [p, e] = n.factorInteger.first;
+	p ^ e
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/first-A.svg)
+
 * * *
 
 See also: fourth, last, middle, second, third

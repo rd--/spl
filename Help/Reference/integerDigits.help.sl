@@ -541,7 +541,8 @@ let k = 200;
 
 ![](sw/spl/Help/Image/integerDigits-A.svg)
 
-Scatter plot of first few terms of OEIS [A117966](https://oeis.org/A117966):
+Balanced ternary enumeration of integers,
+OEIS [A117966](https://oeis.org/A117966):
 
 ~~~spl svg=B
 let k = 123;

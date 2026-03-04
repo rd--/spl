@@ -7,7 +7,10 @@ A Catalan triangle give the number of strings consisting of _n_ zeroes and _k_ o
 such that no initial segment of the string has more ones than zeroes.
 It is a generalisation of the Catalan numbers.
 
-The unary form answers the first _r_ rows:
+The unary form answers the first _r_ rows,
+OEIS [A009766](https://oeis.org/A009766),
+also with rows reversed,
+OEIS [A033184](https://oeis.org/A033184):
 
 ```
 >>> 8.catalanTriangle

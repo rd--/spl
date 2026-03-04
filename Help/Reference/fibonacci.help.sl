@@ -559,6 +559,17 @@ OEIS [A004090](https://oeis.org/A004090):
 
 ![](sw/spl/Help/Image/fibonacci-O.svg)
 
+The golden triangle,
+OEIS [A180662](https://oeis.org/A180662):
+
+~~~spl svg=P
+0:10.triangularArray { :n :k |
+	[k, k + 1].fibonacci.product
+}.catenate.log.discretePlot
+~~~
+
+![](sw/spl/Help/Image/fibonacci-P.svg)
+
 * * *
 
 See also: binetsFormula, fibonacciEntryPoint, fibonacciNumber, fibonacciPolynomial, fibonacciSequence, goldenRatio, lucasNumber

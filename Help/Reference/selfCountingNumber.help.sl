@@ -17,6 +17,23 @@ OEIS [A002024](https://oeis.org/A002024):
 [1 2 2 3 3 3 4 4 4 4 5 5 5 5 5]
 ```
 
+As triangle:
+
+```
+>>> 1:5.triangularArray { :i :j | i }
+[1; 2 2; 3 3 3; 4 4 4 4; 5 5 5 5 5]
+```
+
+First few terms,
+OEIS [A002024](https://oeis.org/A002024):
+
+~~~spl svg=A
+1:85.collect(selfCountingNumber:/1)
+.stepPlot
+~~~
+
+![](sw/spl/Help/Image/selfCountingNumber-A.svg)
+
 * * *
 
 See also: selfCountingSequence

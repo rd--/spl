@@ -2,7 +2,8 @@
 
 - _primeOmega(n)_
 
-Answer the number of prime factors counting multiplicities in the integer _n_.
+Answer the number of prime factors counting multiplicities in the integer _n_,
+usually written _Ω(n)_.
 
 ```
 >>> 12.primeOmega

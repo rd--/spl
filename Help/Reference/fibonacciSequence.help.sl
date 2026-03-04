@@ -17,6 +17,9 @@ OEIS [A000045](https://oeis.org/A000045):
 	 610  987 1597 2584 4181
 	6765
 ]
+
+>>> 21.fibonacciSequence
+[1 1].linearRecurrence([0 1], 21)
 ```
 
 The limit ratio between consecutive terms is the golden ratio:

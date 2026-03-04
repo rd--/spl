@@ -186,6 +186,28 @@ OEIS [A054770](https://oeis.org/A054770):
 ]
 ```
 
+One if _n_ is of the form _m(m+3)/2_ else zero,
+OEIS [A023531](https://oeis.org/A023531):
+
+```
+>>> 0:27.collect { :n |
+>>> 	(((9 + (8 * n)).sqrt - 3) / 2)
+>>> 	.isInteger
+>>> 	.boole
+>>> }
+[
+	1
+	0 1
+	0 0 1
+	0 0 0 1
+	0 0 0 0 1
+	0 0 0 0 0 1
+	0 0 0 0 0 0 1
+]
+```
+
+![](sw/spl/Help/Image/sqrt-D.svg)
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A
@@ -219,6 +241,20 @@ let m = 2.sqrt;
 ~~~
 
 ![](sw/spl/Help/Image/sqrt-C.svg)
+
+A self-generating sequence,
+there are _a(n)_ threes between successive twos,
+OEIS [A007538](https://oeis.org/A007538):
+
+~~~spl svg=D
+let m = 1 + 3.sqrt;
+let a = 1:65.collect { :n |
+	(n * m).floor - ((n - 1) * m).floor
+};
+(a - 2).discretePlot
+~~~
+
+![](sw/spl/Help/Image/sqrt-D.svg)
 
 `sqrt` is an alias for `squareRoot`.
 

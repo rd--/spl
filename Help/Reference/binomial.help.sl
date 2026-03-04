@@ -625,6 +625,39 @@ OEIS [A000179](https://oeis.org/A000179):
 ]
 ```
 
+Triangle formed from even-numbered columns of triangle of expansions of powers of _x_ in terms of Chebyshev polynomials _Un(x)_,
+OEIS [A039599](https://oeis.org/A039599):
+
+```
+>>> 0:7.triangularArray { :n :m |
+>>> 	binomial(2 * n, m + n)
+>>> 	*
+>>> 	(2 * m + 1)
+>>> 	/
+>>> 	(m + n + 1)
+>>> }
+[
+	1;
+	1 1;
+	2 3 1;
+	5 9 5 1;
+	14 28 20 7 1;
+	42 90 75 35 9 1;
+	132 297 275 154 54 11 1;
+	429 1001 1001 637 273 77 13 1
+]
+```
+
+Four-dimensional pyramidal numbers,
+OEIS [A002415](https://oeis.org/A002415):
+
+```
+>>> 0:9.collect { :n |
+>>> 	binomial(n ^ 2, 2) / 6
+>>> }
+[0 0 1 6 20 50 105 196 336 540]
+```
+
 Plot over a subset of the reals as a function of its first parameter:
 
 ~~~spl svg=A
@@ -820,6 +853,28 @@ OEIS [A109466](https://oeis.org/A109466):
 ~~~
 
 ![](sw/spl/Help/Image/binomial-M.svg)
+
+Number of compositions of _n_ with _k_ parts,
+OEIS [A109466](https://oeis.org/A109466):
+
+~~~spl svg=N
+0:15.triangularArray { :n :k |
+	binomial(n - 1, k - 1)
+}.catenate.logScale.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/binomial-N.svg)
+
+_C(i,j)*2^(i-j)_,
+OEIS [A038207](https://oeis.org/A038207):
+
+~~~spl svg=O
+0:9.triangularArray { :i :j |
+	binomial(i, j) * (2 ^ (i - j))
+}.catenate.discretePlot
+~~~
+
+![](sw/spl/Help/Image/binomial-O.svg)
 
 * * *
 

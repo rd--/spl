@@ -80,6 +80,19 @@ OEIS [A057164](https://oeis.org/A057164):
 
 ![](sw/spl/Help/Image/oeisFunction-E.svg)
 
+_A003961(n)-2*n_,
+OEIS [A252748](https://oeis.org/A252748):
+
+~~~spl svg=F
+let n = 1:85;
+let a = n.collect(
+	'A003961'.oeisFunction
+);
+(a - (2 * n)).discretePlot
+~~~
+
+![](sw/spl/Help/Image/oeisFunction-F.svg)
+
 * * *
 
 See also: OeisEntry

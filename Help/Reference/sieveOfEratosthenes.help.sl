@@ -71,6 +71,33 @@ Approximations:
 684.281
 ```
 
+Seieve of Eratosthenes arranged as an array,
+OEIS [A083221](https://oeis.org/A083221):
+
+```
+>>> let k = 8;
+>>> let kSquared = k ^ 2;
+>>> 1:k.collect { :n |
+>>> 	let m = n - 1;
+>>> 	let p = n.prime;
+>>> 	p * 1:kSquared.select { :i |
+>>> 		(i * p).gcd(
+>>> 			1:m.product(prime:/1)
+>>> 		) = 1
+>>> 	}.take(k)
+>>> }
+[
+	  2   4   6   8  10  12  14  16;
+	  3   9  15  21  27  33  39  45;
+	  5  25  35  55  65  85  95 115;
+	  7  49  77  91 119 133 161 203;
+	 11 121 143 187 209 253 319 341;
+	 13 169 221 247 299 377 403 481;
+	 17 289 323 391 493 527 629 697;
+	 19 361 437 551 589 703 779 817;
+]
+```
+
 Plot the prime counting function:
 
 ~~~spl svg=A

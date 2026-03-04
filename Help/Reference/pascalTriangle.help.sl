@@ -104,7 +104,8 @@ OEIS [A007318](https://oeis.org/A007318):
 
 ![](sw/spl/Help/Image/pascalTriangle-A.svg)
 
-A linear discrete plot:
+A linear discrete plot,
+OEIS [A007318](https://oeis.org/A007318):
 
 ~~~spl svg=B
 11.pascalTriangle
@@ -114,7 +115,8 @@ A linear discrete plot:
 
 ![](sw/spl/Help/Image/pascalTriangle-B.svg)
 
-Plot Sierpiński’s triangle:
+Plot Sierpiński’s triangle,
+OEIS [A047999](https://oeis.org/A047999):
 
 ~~~spl svg=C
 (24.pascalTriangle % 2)
@@ -124,26 +126,96 @@ Plot Sierpiński’s triangle:
 
 ![](sw/spl/Help/Image/pascalTriangle-C.svg)
 
-Discrete plot of row-order Sierpiński’s triangle:
+Discrete plot of row-order Sierpiński’s triangle,
+OEIS [A047999](https://oeis.org/A047999):
 
 ~~~spl svg=D
 (11.pascalTriangle % 2)
-.++
+.catenate
 .discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/pascalTriangle-D.svg)
 
-Matrix plot of the first few rows of Pascal’s triangle modulo five:
+Matrix plot of the first few rows of Pascal’s triangle modulo five,
+OEIS [A095140](https://oeis.org/A095140):
 
 ~~~spl svg=E
 (20.pascalTriangle % 5)
+.catenate
 .padRight
 .rescale
 .matrixPlot
 ~~~
 
 ![](sw/spl/Help/Image/pascalTriangle-E.svg)
+
+Sierpiński’s triangle,
+OEIS [A047999](https://oeis.org/A047999):
+
+~~~spl svg=F
+(16.pascalTriangle % 2)
+.triangularArrayPlot
+~~~
+
+![](sw/spl/Help/Image/pascalTriangle-F.svg)
+
+Pascal’s triangle modulo three,
+offset to _-1,0,1_,
+OEIS [A083093](https://oeis.org/A083093):
+
+~~~spl svg=G
+(16.pascalTriangle % 3 - 1)
+.catenate
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/pascalTriangle-G.svg)
+
+Row sums of Pascal’s triangle modulo three,
+OEIS [A051638](https://oeis.org/A051638):
+
+~~~spl svg=H
+(85.pascalTriangle % 3)
+.collect(sum:/1)
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/pascalTriangle-H.svg)
+
+Pascal’s triangle negated modulo three,
+offset to _-1,0,1_,
+OEIS [A090044](https://oeis.org/A090044):
+
+~~~spl svg=I
+(16.pascalTriangle.negate % 3 - 1)
+.catenate
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/pascalTriangle-I.svg)
+
+Pascal’s triangle modulo four,
+OEIS [A034931](https://oeis.org/A034931):
+
+~~~spl svg=J
+(14.pascalTriangle % 4)
+.catenate
+.stepPlot
+~~~
+
+![](sw/spl/Help/Image/pascalTriangle-J.svg)
+
+Pascal’s triangle modulo six,
+OEIS [A095141](https://oeis.org/A095141):
+
+~~~spl svg=K
+(14.pascalTriangle % 6)
+.catenate
+.stepPlot
+~~~
+
+![](sw/spl/Help/Image/pascalTriangle-K.svg)
 
 * * *
 

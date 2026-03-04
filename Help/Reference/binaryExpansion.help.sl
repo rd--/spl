@@ -255,6 +255,20 @@ OEIS [A064841](https://oeis.org/A064841):
 
 ![](sw/spl/Help/Image/binaryExpansion-J.svg)
 
+The difference between the number of zeroes and ones in the base-two representation _n_,
+OEIS [A037861](https://oeis.org/A037861):
+
+~~~spl svg=K
+0:95.collect { :n |
+	let b = n.binaryExpansion;
+	let k = b.size;
+	let i = b.occurrencesOf(0);
+	i - (k - i)
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/binaryExpansion-K.svg)
+
 * * *
 
 See also: decimalExpansion, integerDigits

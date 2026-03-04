@@ -94,6 +94,17 @@ The cumulative maxima is the `scan` of `max`:
 [4 4 8 8 9 12 12 18 18]
 ```
 
+Table _(j%i).⌈(i%j)_ read by antidiagonals,
+OEIS [A204016](https://oeis.org/A204016):
+
+~~~spl svg=A
+1:12.antidiagonalArray { :i :j |
+	(j % i).max(i % j)
+}.catenate.discretePlot
+~~~
+
+![](sw/spl/Help/Image/max-A.svg)
+
 * * *
 
 See also: ceiling, deepMax, maximalBy, maxOn, min

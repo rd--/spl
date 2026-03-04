@@ -315,7 +315,7 @@ OEIS [A036263](https://oeis.org/A036263):
 
 * * *
 
-See also: -, accumulate, differencesBy, discreteLaplacian, foldList, gradient, prefixSum, ratios
+See also: -, accumulate, differencesBy, discreteLaplacian, foldList, gradient, orderedDifferences, prefixSum, ratios
 
 Guides: List Functions
 

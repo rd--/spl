@@ -264,6 +264,34 @@ and [A004736](https://oeis.org/A004736):
 ]
 ```
 
+_n_ appears _n_ times,
+OEIS [A002024](https://oeis.org/A002024):
+
+```
+>>> 1:5.triangularArray { :i :j | i }
+[1; 2 2; 3 3 3; 4 4 4 4; 5 5 5 5 5]
+
+>>> (2:30:2.sqrt + 0.5).floor
+[1 2 2 3 3 3 4 4 4 4 5 5 5 5 5]
+```
+
+_n_ appears _n+1_ times,
+OEIS [A003056](https://oeis.org/A003056):
+
+```
+>>> 0:7.triangularArray { :i :j | i }
+[
+	0;
+	1 1;
+	2 2 2;
+	3 3 3 3;
+	4 4 4 4 4;
+	5 5 5 5 5 5;
+	6 6 6 6 6 6 6;
+	7 7 7 7 7 7 7 7
+]
+```
+
 The greatest common divisor matrix read by antidiagonals,
 OEIS [A003989](https://oeis.org/A003989):
 
@@ -437,6 +465,7 @@ OEIS [A065602](https://oeis.org/A065602):
 ![](sw/spl/Help/Image/triangularArray-G.svg)
 
 Plot _k_,
+count and count again from zero,
 OEIS [A002262](https://oeis.org/A002262):
 
 ~~~spl svg=H
@@ -448,6 +477,7 @@ OEIS [A002262](https://oeis.org/A002262):
 ![](sw/spl/Help/Image/triangularArray-H.svg)
 
 Plot _n-k_,
+count backwards and count again,
 OEIS [A025581](https://oeis.org/A025581):
 
 ~~~spl svg=I
@@ -473,6 +503,16 @@ let t = { :n :k |
 ~~~
 
 ![](sw/spl/Help/Image/triangularArray-J.svg)
+
+_i=j_,
+OEIS [A023531](https://oeis.org/A023531):
+
+~~~spl svg=K
+0:11.triangularArray(=)
+.catenate.boole.discretePlot
+~~~
+
+![](sw/spl/Help/Image/triangularArray-K.svg)
 
 * * *
 

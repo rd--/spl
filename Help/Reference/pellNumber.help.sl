@@ -9,8 +9,8 @@ First few terms,
 OEIS [A000129](https://oeis.org/A000129):
 
 ```
->>> 0:8.collect(pellNumber:/1)
-[0 1 2 5 12 29 70 169 408]
+>>> 0:9.collect(pellNumber:/1)
+[0 1 2 5 12 29 70 169 408 985]
 ```
 
 At non-integer values:

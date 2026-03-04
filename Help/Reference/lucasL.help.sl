@@ -19,6 +19,9 @@ OEIS [A000032](https://oeis.org/A000032)
 ```
 >>> 0:13.collect(lucasL:/1)
 [2 1 3 4 7 11 18 29 47 76 123 199 322 521]
+
+>>> [1 1].linearRecurrence([2 1], 14)
+[2 1 3 4 7 11 18 29 47 76 123 199 322 521]
 ```
 
 Values at `zero`:
@@ -130,3 +133,5 @@ OEIS [A061084](https://oeis.org/A061084):
 * * *
 
 See also: lucasNumber, lucasPolynomial, lucasSequence
+
+Guides: Integer Functions, Integer Sequence Functions

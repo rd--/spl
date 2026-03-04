@@ -191,6 +191,20 @@ OEIS [A011782](https://oeis.org/A011782):
 [1 0 1 0 1 0 1 0 1 0 1 0]
 ```
 
+Hexagonal pyramidal numbers,
+also called greengrocers numbers,
+OEIS [A002412](https://oeis.org/A002412):
+
+```
+>>> [1 6 9 4 0 0 0 0 0]
+>>> .binomialTransform
+6.pyramidalNumber(1:9)
+
+>>> [1 7 22 50 95 161 252 372 525]
+>>> .inverseBinomialTransform
+[1 6 9 4 0 0 0 0 0]
+```
+
 * * *
 
 See also: binomial, boustrophedonTransform, eulerTransform, inverseBinomialTransform, runLengthTransform

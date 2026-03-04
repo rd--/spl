@@ -73,6 +73,25 @@ Exact evaluation with fractional _q_:
 [1 121/81 1210/729 1210/729 121/81 1]
 ```
 
+Table for _q=2_,
+OEIS [A022166](https://oeis.org/A022166):
+
+```
+>>> 0:7.triangularArray { :n :k |
+>>> 	qBinomial(n, k, 2)
+>>> }
+[
+	1;
+	1 1;
+	1 3 1;
+	1 7 7 1;
+	1 15 35 15 1;
+	1 31 155 155 31 1;
+	1 63 651 1395 651 63 1;
+	1 127 2667 11811 11811 2667 127 1
+]
+```
+
 Losanitsch’s triangle,
 OEIS [A034851](https://oeis.org/A034851):
 

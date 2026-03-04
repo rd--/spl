@@ -553,6 +553,14 @@
 
 +SmallFloat {
 
+	antidiagonalIndices { :k |
+		let answer = [];
+		k.antidiagonalIndicesDo { :i :j |
+			answer.add([i, j])
+		};
+		answer
+	}
+
 	antidiagonalIndicesDo { :k :aBlock:/2 |
 		let m = 1;
 		let n = 1;

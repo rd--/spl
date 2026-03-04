@@ -161,3 +161,5 @@ _OEIS_
 [1](https://oeis.org/A001629),
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/conv.html)
+
+Unicode: U+229B ⊛ Circled Asterisk Operator

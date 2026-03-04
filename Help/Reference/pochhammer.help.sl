@@ -47,10 +47,8 @@ Number of permutations of _n_ things _k_ at a time,
 OEIS [A008279](https://oeis.org/A008279):
 
 ```
->>> 0:7.collect { :n |
->>> 	0:n.collect { :k |
->>> 		pochhammer(n - k + 1, k)
->>> 	}
+>>> 0:7.triangularArray { :n :k |
+>>> 	pochhammer(n - k + 1, k)
 >>> }
 [
 	1;

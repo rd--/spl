@@ -35,6 +35,26 @@ OEIS [A000166](https://oeis.org/A000166):
 ]
 ```
 
+Rencontres numbers,
+enumeration of partial derangements,
+OEIS [A008290](https://oeis.org/A008290):
+
+```
+>>> 0:7.triangularArray { :n :k |
+>>> 	(n - k).subfactorial * n.binomial(k)
+>>> }
+[
+	1;
+	0 1;
+	1 0 1;
+	2 3 0 1;
+	9 8 6 0 1;
+	44 45 20 10 0 1;
+	265 264 135 40 15 0 1;
+	1854 1855 924 315 70 21 0 1
+]
+```
+
 Plot the values on a `log` scale over a subset of the reals:
 
 ~~~spl svg=A

@@ -882,6 +882,16 @@ OEIS [A277616](https://oeis.org/A277616):
 
 ![](sw/spl/Help/Image/linearRecurrence-H.svg)
 
+Scaled Chebyshev U-polynomials evaluated at _√3/2_,
+OEIS [A057083](https://oeis.org/A057083):
+
+~~~spl svg=I
+[3L -3].linearRecurrence([1 3], 66)
+.logScale.discretePlot
+~~~
+
+![](sw/spl/Help/Image/linearRecurrence-I.svg)
+
 * * *
 
 See also: shiftRegisterSequence

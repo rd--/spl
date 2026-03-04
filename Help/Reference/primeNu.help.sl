@@ -2,7 +2,8 @@
 
 - _primeNu(x)_
 
-Answer the number of distinct prime factors of _x_.
+Answer the number of distinct prime factors of _x_,
+usually written _ω(x)_.
 
 ```
 >>> 24.primeNu
@@ -168,6 +169,28 @@ OEIS [A046072](https://oeis.org/A046072):
 
 ![](sw/spl/Help/Image/primeNu-G.svg)
 
+_ω(n)=1_,
+OEIS [A069513](https://oeis.org/A069513):
+
+~~~spl svg=H
+2:85.collect { :n |
+	(n.primeNu = 1).boole
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/primeNu-H.svg)
+
+_ω(n)≤1_,
+OEIS [A010055](https://oeis.org/A010055):
+
+~~~spl svg=I
+2:85.collect { :n |
+	(n.primeNu <= 1).boole
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/primeNu-I.svg)
+
 * * *
 
 See also: distinctPrimeFactors, factorInteger, gcd, isPrime, isPrimePower, isSquareFree, primeOmega
@@ -186,5 +209,7 @@ _Python_
 [1](https://docs.sympy.org/latest/modules/ntheory.html#sympy.ntheory.factor_.primenu),
 _W_
 [1](https://en.wikipedia.org/wiki/Prime_omega_function)
+
+Unicode: U+03C9 ω Greek Small Letter Omega
 
 Categories: Math

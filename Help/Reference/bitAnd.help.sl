@@ -264,6 +264,17 @@ OEIS [A048735](https://oeis.org/A048735):
 
 ![](sw/spl/Help/Image/bitAnd-L.svg)
 
+_k&(n-k)_,
+OEIS [A004198](https://oeis.org/A004198):
+
+~~~spl svg=M
+0:15.triangularArray { :n :k |
+	k.bitAnd(n - k)
+}.catenate.discretePlot
+~~~
+
+![](sw/spl/Help/Image/bitAnd-M.svg)
+
 * * *
 
 See also: &, bitNot, bitOr, bitXor

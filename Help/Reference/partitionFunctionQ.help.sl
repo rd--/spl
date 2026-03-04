@@ -45,7 +45,7 @@ OEIS [A000009](https://oeis.org/A000009):
 ]
 ```
 
-The following table gives the first few values of _Q(n,k)_,
+The following table gives the first few non-zero values of _Q(n,k)_,
 OEIS [A008289](https://oeis.org/A008289):
 
 ```
@@ -70,6 +70,26 @@ OEIS [A008289](https://oeis.org/A008289):
 ]
 ```
 
+The initial part of the triangle _Q(n,k)_,
+OEIS [A060016](https://oeis.org/A060016):
+
+```
+>>> 1:9.triangularArray(
+>>> 	partitionFunctionQ:/2
+>>> ).++
+[
+	1;
+	1 0;
+	1 1 0;
+	1 1 0 0;
+	1 2 0 0 0;
+	1 2 1 0 0 0;
+	1 3 1 0 0 0 0;
+	1 3 2 0 0 0 0 0;
+	1 4 3 0 0 0 0 0 0
+]
+```
+
 Maximal value of _Q(n,m)_,
 [A030699](https://oeis.org/A030699):
 
@@ -86,7 +106,8 @@ Maximal value of _Q(n,m)_,
 ]
 ```
 
-Plot table:
+Plot table of few non-zero values of _Q(n,k)_,
+OEIS [A008289](https://oeis.org/A008289):
 
 ~~~spl svg=A
 1:21.collect { :n |
@@ -100,7 +121,9 @@ Plot table:
 
 ![](sw/spl/Help/Image/partitionFunctionQ-A.svg)
 
-Plot table log scaled:
+Plot table of few non-zero values of _Q(n,k)_,
+log scaled,
+OEIS [A008289](https://oeis.org/A008289):
 
 ~~~spl svg=B
 1:43.collect { :n |
@@ -113,6 +136,17 @@ Plot table log scaled:
 ~~~
 
 ![](sw/spl/Help/Image/partitionFunctionQ-B.svg)
+
+The initial part of the triangle _Q(n,k)_,
+OEIS [A060016](https://oeis.org/A060016):
+
+~~~spl svg=C
+1:11.triangularArray(
+	partitionFunctionQ:/2
+).++.discretePlot
+~~~
+
+![](sw/spl/Help/Image/partitionFunctionQ-C.svg)
 
 * * *
 

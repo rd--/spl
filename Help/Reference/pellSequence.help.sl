@@ -15,6 +15,9 @@ OEIS [A000129](https://oeis.org/A000129):
 	  2378 5741 13860 33461 80782
 	195025
 ]
+
+>>> 16.pellSequence
+[1 2].linearRecurrence([0 1], 16)
 ```
 
 There is a closed form for calculating the n-th Pell number (zero-indexed):
@@ -29,7 +32,7 @@ There is a closed form for calculating the n-th Pell number (zero-indexed):
 ]
 ```
 
-There is a linear recurrence:
+The Pell sequence is a linear recurrence:
 
 ```
 >>> linearRecurrence([2 1], [0 1], 12)

@@ -35,7 +35,17 @@ OEIS [A001850](https://oeis.org/A001850):
 [1 3 13 63 321 1683 8989 48639 265729]
 ```
 
-Plot modulo three:
+Sum read by antidiagonals are the Pell numbers,
+OEIS [A000129](https://oeis.org/A000129):
+
+```
+>>> 0:8.antidiagonalArray(
+>>> 	delannoyNumber:/2
+>>> ).collect(sum:/1)
+[1 2 5 12 29 70 169 408 985]
+```
+
+Matrix plot of square array of Delannoy numbers modulo three:
 
 ~~~spl png=A
 { :m :n |
@@ -44,6 +54,17 @@ Plot modulo three:
 ~~~
 
 ![](sw/spl/Help/Image/delannoyNumber-A.png)
+
+Square array of Delannoy numbers read by antidiagonals,
+OEIS [A008288](https://oeis.org/A008288):
+
+~~~spl svg=B
+0:17.antidiagonalArray(
+	delannoyNumber:/2
+).catenate.log.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/delannoyNumber-B.svg)
 
 * * *
 
