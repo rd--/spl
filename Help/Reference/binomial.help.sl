@@ -876,6 +876,48 @@ OEIS [A038207](https://oeis.org/A038207):
 
 ![](sw/spl/Help/Image/binomial-O.svg)
 
+Odd-numbered columns of triangle of expansions of powers of _x_ in terms of Chebyshev polynomials _Un(x)_,
+OEIS [A039598](https://oeis.org/A039598):
+
+~~~spl svg=P
+0:15.triangularArray { :n :k |
+	binomial(2 * n, n - k)
+	-
+	binomial(2 * n, n - k - 2)
+}.catenate.log.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/binomial-P.svg)
+
+_C(2n,n)C(n,k)_,
+OEIS [A356546](https://oeis.org/A356546):
+
+~~~spl svg=Q
+0:10.triangularArray { :n :k |
+	binomial(2 * n, n) * binomial(n, k)
+}.catenate.log.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/binomial-Q.svg)
+
+The _(1,2)_-Pascal triangle,
+_C(n,k)+C(n-1,k-1)_,
+OEIS [A029635](https://oeis.org/A029635):
+
+~~~spl svg=R
+0:9.triangularArray { :n :k |
+	(n + k = 0).if {
+		2
+	} {
+		binomial(n, k)
+		+
+		binomial(n - 1, k - 1)
+	}
+}.catenate.discretePlot
+~~~
+
+![](sw/spl/Help/Image/binomial-R.svg)
+
 * * *
 
 See also: factorial, multinomial, trinomial

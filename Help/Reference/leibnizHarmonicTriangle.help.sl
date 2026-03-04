@@ -31,6 +31,16 @@ c.f. the reciprocal of OEIS [A003506](https://oeis.org/A003506):
 
 ![](sw/spl/Help/Image/leibnizHarmonicTriangle-A.svg)
 
+Triangle of denominators in Leibniz’s harmonic triangle,
+OEIS [A003506](https://oeis.org/A003506):
+
+~~~spl svg=B
+9.leibnizHarmonicTriangle
+.catenate.denominator.discretePlot
+~~~
+
+![](sw/spl/Help/Image/leibnizHarmonicTriangle-B.svg)
+
 * * *
 
 See also: binomial, gouldsSequence, pascalTriangle, table, triangularArray, triangularNumber

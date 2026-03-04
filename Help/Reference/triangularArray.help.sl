@@ -514,6 +514,25 @@ OEIS [A023531](https://oeis.org/A023531):
 
 ![](sw/spl/Help/Image/triangularArray-K.svg)
 
+Triangle where _(n,n)=n_, _(n,n-1)=-(n-1)_ else zero,
+OEIS [A128064](https://oeis.org/A128064):
+
+~~~spl svg=L
+1:10.triangularArray { :i :j |
+	(i = j).if {
+		i
+	} {
+		(j + 1 = i).if {
+			0 - j
+		} {
+			0
+		}
+	}
+}.catenate.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/triangularArray-L.svg)
+
 * * *
 
 See also: antidiagonalArray, array, collect, isTriangularArray, table
