@@ -28,6 +28,14 @@ OEIS [A007947](https://oeis.org/A007947):
 ]
 ```
 
+Partial sums,
+OEIS [A073355](https://oeis.org/A073355):
+
+```
+>>> 1:13.radical.prefixSum
+[1 3 6 8 13 19 26 28 31 41 52 58 71]
+```
+
 _μ(r(n))_,
 OEIS [A076479](https://oeis.org/A076479):
 
@@ -61,6 +69,130 @@ OEIS [A076479](https://oeis.org/A076479):
 ~~~
 
 ![](sw/spl/Help/Image/radical-C.svg)
+
+_r(n*r(n)+1)_
+OEIS [A078322](https://oeis.org/A078322):
+
+~~~spl svg=D
+1:85.collect { :n |
+	(n * n.radical + 1).radical
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/radical-D.svg)
+
+_n*r(n)+1_
+OEIS [A078310](https://oeis.org/A078310):
+
+~~~spl svg=E
+1:85.collect { :n |
+	n * n.radical + 1
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/radical-E.svg)
+
+_n-r(n)_
+OEIS [A066503](https://oeis.org/A066503):
+
+~~~spl svg=F
+1:85.collect { :n |
+	n - n.radical
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/radical-F.svg)
+
+Squarefree kernel of _n_ divided by the squarefree part of _n_,
+_r(n)/c(n)_,
+OEIS [A336643](https://oeis.org/A336643):
+
+~~~spl svg=G
+1:85.collect { :n |
+	n.radical / n.squareFreePart
+}.stepPlot
+~~~
+
+![](sw/spl/Help/Image/radical-G.svg)
+
+_gcd(r(n),n/r(n))_,
+OEIS [A071773](https://oeis.org/A071773):
+
+~~~spl svg=H
+1:85.collect { :n |
+	let r = n.radical;
+	r.gcd(n / r)
+}.stepPlot
+~~~
+
+![](sw/spl/Help/Image/radical-H.svg)
+
+_n^2/r(n)_,
+OEIS [A102631](https://oeis.org/A102631):
+
+~~~spl svg=I
+1:85.collect { :n |
+	n.square / n.radical
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/radical-I.svg)
+
+_r(n)^2_,
+OEIS [A078615](https://oeis.org/A078615):
+
+~~~spl svg=J
+1:150.radical.square.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/radical-J.svg)
+
+_n_ divided by the largest power of the squarefree kernel of _n_ which divides it,
+OEIS [A062760](https://oeis.org/A062760):
+
+~~~spl svg=K
+2:200.collect { :n |
+	let p = n.divisors;
+	let q = p.select(isSquareFree:/1).last;
+	n / (q ^n.integerExponent(q))
+}.log.discretePlot
+~~~
+
+![](sw/spl/Help/Image/radical-K.svg)
+
+
+_r(P(n)-1)_,
+OEIS [A077063](https://oeis.org/A077063):
+
+~~~spl svg=L
+1:115.collect { :n |
+	(n.prime - 1).radical
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/radical-L.svg)
+
+_ω(n*r(n)+1)_
+OEIS [A078313](https://oeis.org/A078313):
+
+~~~spl svg=M
+1:85.collect { :n |
+	(n * n.radical + 1).primeNu
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/radical-M.svg)
+
+_Ω(n*r(n)+1)_
+OEIS [A078314](https://oeis.org/A078314):
+
+~~~spl svg=N
+1:85.collect { :n |
+	(n * n.radical + 1).primeOmega
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/radical-N.svg)
 
 * * *
 

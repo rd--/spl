@@ -256,6 +256,18 @@ let a = 1:65.collect { :n |
 
 ![](sw/spl/Help/Image/sqrt-D.svg)
 
+Differences of _⌊(n*√2+½)_,
+OEIS [A006338](https://oeis.org/A006338):
+
+~~~spl svg=E
+let a = 1:85.collect { :n |
+	(n * 2.sqrt + 0.5).floor
+}.differences;
+(a - 1).discretePlot
+~~~
+
+![](sw/spl/Help/Image/sqrt-E.svg)
+
 `sqrt` is an alias for `squareRoot`.
 
 Where supported `sqrt` is displayed as √.

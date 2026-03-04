@@ -416,6 +416,22 @@ OEIS [A083254](https://oeis.org/A083254):
 
 ![](sw/spl/Help/Image/eulerPhi-M.svg)
 
+_φ(m)*m^k*k!/n_ where _m=n/k_,
+OEIS [A047917](https://oeis.org/A047917):
+
+~~~spl svg=N
+1:11.triangularArray { :n :k |
+	n.divisible(k).if {
+		let m = n / k;
+		m.eulerPhi * (m ^ k) * k.! / n
+	} {
+		0
+	}
+}.catenate.log.discretePlot
+~~~
+
+![](sw/spl/Help/Image/eulerPhi-N.svg)
+
 * * *
 
 See also: divisors, factorInteger, gcd, lcm, powerMod, totientSummatoryFunction
