@@ -206,6 +206,21 @@ OEIS [A265888](https://oeis.org/A265888):
 
 ![](sw/spl/Help/Image/floor-J.svg)
 
+The amusical permutation,
+OEIS [A006368](https://oeis.org/A006368):
+
+~~~spl svg=K
+0:65.collect { :n |
+	n.isEven.if {
+		3 * n / 2
+	} {
+		((3 * n + 2) / 4).floor
+	}
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/floor-K.svg)
+
 Where supported `floor` is displayed as ⌊.
 
 * * *

@@ -316,6 +316,32 @@ OEIS [A350093](https://oeis.org/A350093):
 
 ![](sw/spl/Help/Image/sum-H.svg)
 
+A variant of the inventory sequence,
+OEIS [A347738](https://oeis.org/A347738):
+
+~~~spl svg=I
+let b = [1: 0];
+let a = Map { :n |
+	(n = 1).if {
+		0
+	} {
+		let m = n - 1;
+		let t = (a[n - 1] = 0).if {
+			0
+		} {
+			b[n - 1] + 1
+		};
+		b[n] := t;
+		1:m.sum { :j |
+			(a[j] >= t).boole
+		}
+	}
+};
+a[1:150].scatterPlot
+~~~
+
+![](sw/spl/Help/Image/sum-I.svg)
+
 Evaluate symbolically:
 
 ```

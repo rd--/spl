@@ -149,6 +149,14 @@ OEIS [A061347](https://oeis.org/A061347):
 [1 1 -2 1 1 -2 1 1 -2 1 1 -2 1 1 -2 1 1 -2]
 ```
 
+Repeat _0,1,0,2_,
+OEIS [A131743](https://oeis.org/A131743):
+
+```
+>>> [0 1 0 2].repeat(4)
+[0 1 0 2 0 1 0 2 0 1 0 2 0 1 0 2]
+```
+
 Kronecker symbol _m=2_,
 OEIS [A091337](https://oeis.org/A091337):
 

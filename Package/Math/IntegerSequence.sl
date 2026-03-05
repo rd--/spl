@@ -1526,6 +1526,19 @@
 		}
 	}
 
+	lodumoTransform { :a :m |
+		let z = IdentitySet();
+		a.collect { :i |
+			let e = 0:Infinity.detect { :j |
+				z.includes(j).not & {
+					(i % m) = (j % m)
+				}
+			};
+			z.add(e);
+			e
+		}
+	}
+
 	moebiusTransform { :a |
 		let k = a.size;
 		1:k.collect { :n |

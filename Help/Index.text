@@ -675,6 +675,8 @@ Reference/bitAnd.help.sl
 Reference/bitAt.help.sl
 Reference/bitAtPut.help.sl
 Reference/bitCount.help.sl
+Reference/bitIff.help.sl
+Reference/bitImplies.help.sl
 Reference/bitLength.help.sl
 Reference/Bitmap.help.sl
 Reference/bitNor.help.sl
@@ -1825,6 +1827,7 @@ Reference/ImageViewer.help.sl
 Reference/imaginary.help.sl
 Reference/implicitEquation.help.sl
 Reference/impliedShape.help.sl
+Reference/implies.help.sl
 Reference/Impulse.help.sl
 Reference/ImpulseSequencer.help.sl
 Reference/incenter.help.sl

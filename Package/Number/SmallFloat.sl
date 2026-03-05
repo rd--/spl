@@ -145,6 +145,14 @@ SmallFloat! : [Object, Storeable, Equatable, Comparable, Json, Magnitude, Number
 		(a + b).wrapExclusive(-2147483648, 2147483647 + 1)
 	}
 
+	amusicalPermutation { :n |
+		n.isEven.if {
+			3 * n / 2
+		} {
+			((3 * n + 2) / 4).floor
+		}
+	}
+
 	asFloat { :self |
 		self
 	}

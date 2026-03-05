@@ -25,7 +25,21 @@ OEIS [A342585](https://oeis.org/A342585):
 ]
 ```
 
-Discrete plot of first few terms:
+Positions of zeroes,
+OEIS [A343880](https://oeis.org/A343880):
+
+```
+>>> 200.inventorySequence.indicesOf(0)
+[
+	  1   4   8  14  20
+	 28  37  46  57  69
+	 82  95 110 125 142
+	159 177 196
+]
+```
+
+Discrete plot of first few terms,
+OEIS [A342585](https://oeis.org/A342585):
 
 ~~~spl svg=A
 99.inventorySequence.discretePlot
@@ -33,7 +47,8 @@ Discrete plot of first few terms:
 
 ![](sw/spl/Help/Image/inventorySequence-A.svg)
 
-Log scale scatter plot of first few terms:
+Log scale scatter plot of first few terms,
+OEIS [A342585](https://oeis.org/A342585):
 
 ~~~spl svg=B
 333

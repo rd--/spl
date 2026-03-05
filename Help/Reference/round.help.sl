@@ -197,6 +197,21 @@ let n = 0:250;
 
 ![](sw/spl/Help/Image/round-F.svg)
 
+Nearest integer to _4n/3_ unless that is an integer and then _2n/3_,
+OEIS [A006369](https://oeis.org/A006369):
+
+~~~spl svg=G
+0:65.collect { :n |
+	n.divisible(3).if {
+		2 * n / 3
+	} {
+		(4 * n / 3).round
+	}
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/round-G.svg)
+
 _Note_: The parameter α is not the integer number of places to round to but the multiple.
 To round to two places set _α=0.01_.
 

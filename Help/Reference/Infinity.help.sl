@@ -97,6 +97,49 @@ Infinity answers of mathematical functions:
 Infinity
 ```
 
+Smallest prime not dividing _n_,
+OEIS [A053669](https://oeis.org/A053669):
+
+~~~spl svg=A
+1:65.collect { :n |
+	1:Infinity.detect { :k |
+		n.gcd(k.prime) = 1
+	}.prime
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/Infinity-A.svg)
+
+Least number coprime to _n_ and _n+1_,
+OEIS [A053670](https://oeis.org/A053670):
+
+~~~spl svg=B
+1:65.collect { :n |
+	2:Infinity.detect { :k |
+		k.isCoprime(n) & {
+			k.isCoprime(n + 1)
+		}
+	}
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/Infinity-B.svg)
+
+Least number coprime to _n_, _n+1_ and _n+2_,
+OEIS [A053671](https://oeis.org/A053671):
+
+~~~spl svg=C
+1:65.collect { :n |
+	5:Infinity.detect { :k |
+		[0 1 2].allSatisfy { :i |
+			k.isCoprime(n + i)
+		}
+	}
+}.stepPlot
+~~~
+
+![](sw/spl/Help/Image/Infinity-C.svg)
+
 * * *
 
 See also: e, inf, NaN, pi
