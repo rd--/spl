@@ -29,6 +29,28 @@ OEIS [A217218](https://oeis.org/A217218) _n=44_:
 [44 66 99 74 111 83 62 93 70 105 79 59 44]
 ```
 
+Initial segment of table of iterations,
+OEIS [A368179](https://oeis.org/A368179):
+
+```
+>>> 0:9.collect { :n |
+>>> 	amusicalPermutation:/1
+>>> 	.nestList(n, 9)
+>>> }
+[
+	0  0  0  0  0  0  0  0  0  0;
+	1  1  1  1  1  1  1  1  1  1;
+	2  3  2  3  2  3  2  3  2  3;
+	3  2  3  2  3  2  3  2  3  2;
+	4  6  9  7  5  4  6  9  7  5;
+	5  4  6  9  7  5  4  6  9  7;
+	6  9  7  5  4  6  9  7  5  4;
+	7  5  4  6  9  7  5  4  6  9;
+	8 12 18 27 20 30 45 34 51 38;
+	9  7  5  4  6  9  7  5  4  6
+]
+```
+
 First few terms of the amusical permutation,
 OEIS [A006368](https://oeis.org/A006368):
 
@@ -136,6 +158,25 @@ let g:/1 = f:/1.dirichletInverse;
 ~~~
 
 ![](sw/spl/Help/Image/amusicalPermutation-I.svg)
+
+Initial segment of table of iterations,
+read by rising antidiagonals.
+OEIS [A368179](https://oeis.org/A368179):
+
+~~~spl svg=J
+let k = 16;
+let a = 0:k.collect { :n |
+	amusicalPermutation:/1
+	.nestList(n, k)
+};
+let b = [];
+1:k.sum.antidiagonalIndicesDo { :i :j |
+	b.add(a[j][i])
+};
+b.log.discretePlot
+~~~
+
+![](sw/spl/Help/Image/amusicalPermutation-J.svg)
 
 * * *
 

@@ -52,6 +52,20 @@ The number of distinct permutations of _Mississippi_ is:
 34650
 ```
 
+Sum of multinomial coefficients of integer partitions of _n_,
+OEIS [A005651](https://oeis.org/A005651):
+
+```
+>>> 1:12.collect { :n |
+>>> 	n.integerPartitions
+>>> 	.sum(multinomial:/1)
+>>> }
+[
+	1 3 10 47 246 1602 11481 95503
+	871030 8879558 98329551 1191578522
+]
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A
