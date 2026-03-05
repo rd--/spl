@@ -344,6 +344,7 @@ Reference/ampersandCurve.help.sl
 Reference/ampersand.help.sl
 Reference/ampersandImplicitCurve.help.sl
 Reference/Amplitude.help.sl
+Reference/amusicalPermutation.help.sl
 Reference/AnalogueClock.help.sl
 Reference/and.help.sl
 Reference/angleBisector.help.sl
@@ -2463,6 +2464,7 @@ Reference/LocalOut.help.sl
 Reference/localStorage.help.sl
 Reference/localTimeZoneOffset.help.sl
 Reference/Location.help.sl
+Reference/lodumoTransform.help.sl
 Reference/log10.help.sl
 Reference/Log10.help.sl
 Reference/log2.help.sl
