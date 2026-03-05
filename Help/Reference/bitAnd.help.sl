@@ -275,6 +275,16 @@ OEIS [A004198](https://oeis.org/A004198):
 
 ![](sw/spl/Help/Image/bitAnd-M.svg)
 
+Bitwise logical and triangular array,
+OEIS [A080099](https://oeis.org/A080099):
+
+~~~spl svg=N
+0:19.triangularArray(bitAnd:/2)
+.catenate.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/bitAnd-N.svg)
+
 * * *
 
 See also: &, bitNot, bitOr, bitXor

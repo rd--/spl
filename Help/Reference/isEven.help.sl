@@ -101,6 +101,35 @@ Either _n_ or _2n_,
 ]
 ```
 
+If _n_ is even then zero else _n_,
+OEIS [A193356](https://oeis.org/A193356):
+
+```
+>>> 1:18.collect { :n |
+>>> 	n.isEven.if { 0 } { n }
+>>> }
+[1 0 3 0 5 0 7 0 9 0 11 0 13 0 15 0 17 0]
+
+>>> 1:17:2.riffle(0)
+[1 0 3 0 5 0 7 0 9 0 11 0 13 0 15 0 17]
+```
+
+If _n_ is even then _n_ else zero,
+OEIS [A237420](https://oeis.org/A237420):
+
+```
+>>> 0:18.collect { :n |
+>>> 	n.isEven.if { n } { 0 }
+>>> }
+[0 0 2 0 4 0 6 0 8 0 10 0 12 0 14 0 16 0 18]
+
+>>> [0 2 0 -1].linearRecurrence([0 0 2 0], 19)
+[0 0 2 0 4 0 6 0 8 0 10 0 12 0 14 0 16 0 18]
+
+>>> 0:18:2.riffle(0)
+[0 0 2 0 4 0 6 0 8 0 10 0 12 0 14 0 16 0 18]
+```
+
 Log plot of the semi-Fibonacci sequence,
 OEIS [A030067](https://oeis.org/A030067):
 
@@ -289,6 +318,36 @@ a[0:150].log.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/isEven-I.svg)
+
+Even numbers interleaved with repeated odd numbers,
+OEIS [A186421](https://oeis.org/A186421):
+
+~~~spl svg=J
+0:65.collect { :n |
+	n.isEven.if {
+		n
+	} {
+		2 * (n / 4).floor + 1
+	}
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/isEven-J.svg)
+
+First differences of even numbers interleaved with repeated odd numbers,
+OEIS [A186422](https://oeis.org/A186422):
+
+~~~spl svg=K
+0:65.collect { :n |
+	n.isEven.if {
+		n
+	} {
+		2 * (n / 4).floor + 1
+	}
+}.differences.discretePlot
+~~~
+
+![](sw/spl/Help/Image/isEven-K.svg)
 
 * * *
 

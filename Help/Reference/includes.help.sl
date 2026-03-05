@@ -91,6 +91,38 @@ Map over matrix:
 ]
 ```
 
+Numbers congruent to one or five modulo six,
+OEIS [A007310](https://oeis.org/A007310):
+
+```
+>>> 1:45.select { :n |
+>>> 	[1 5].includes(n % 6)
+>>> }
+[1 5 7 11 13 17 19 23 25 29 31 35 37 41 43]
+
+>>> 1:45.select { :n |
+>>> 	(4 * n).eulerPhi
+>>> 	=
+>>> 	(3 * n).eulerPhi
+>>> }
+[1 5 7 11 13 17 19 23 25 29 31 35 37 41 43]
+
+>>> 1:15.collect { :n |
+>>> 	2 * floor(3 * n / 2) - 1
+>>> }
+[1 5 7 11 13 17 19 23 25 29 31 35 37 41 43]
+```
+
+Numbers congruent to three or five modulo six,
+OEIS [A047270](https://oeis.org/A047270):
+
+```
+>>> 1:45.select { :n |
+>>> 	[3 5].includes(n % 6)
+>>> }
+[3 5 9 11 15 17 21 23 27 29 33 35 39 41 45]
+```
+
 Where supported `includes` is displayed as ∋.
 
 * * *

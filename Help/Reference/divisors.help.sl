@@ -557,7 +557,7 @@ OEIS [A064945](https://oeis.org/A064945):
 Number of odd divisors minus number of even divisors,
 OEIS [A048272](https://oeis.org/A048272):
 
-~~~
+~~~spl svg=Q
 1:115.collect { :n |
 	n.divisors.sum { :d |
 		(-1 ^ d).negate
@@ -566,6 +566,34 @@ OEIS [A048272](https://oeis.org/A048272):
 ~~~
 
 ![](sw/spl/Help/Image/divisors-Q.svg)
+
+The arithmetic function _v±(n,3)_,
+OEIS [A289435](https://oeis.org/A289435):
+
+~~~spl svg=R
+let h = 3;
+2:85.collect { :n |
+	let d = n.divisors;
+	let a = (d - 2) / (2 * h);
+	((2 * a.floor + 1) * n / d).max
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/divisors-R.svg)
+
+The arithmetic function _v3(n,3)_,
+OEIS [A289435](https://oeis.org/A289435):
+
+~~~spl svg=S
+2:85.collect { :n |
+	n * n.divisors.collect { :d |
+		let a = d - 1 - gcd(d, 3);
+		((a / 3).floor + 1) / d
+	}.max
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/divisors-S.svg)
 
 * * *
 

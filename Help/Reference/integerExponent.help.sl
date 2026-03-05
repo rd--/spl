@@ -406,6 +406,19 @@ OEIS [A007949](https://oeis.org/A007949):
 
 ![](sw/spl/Help/Image/integerExponent-N.svg)
 
+Deficiency minus binary weight,
+OEIS [A294898](https://oeis.org/A294898):
+
+~~~spl svg=O
+1:115.collect { :n |
+	(2 * n).!.integerExponent(2)
+	-
+	1.divisorSigma(n)
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/integerExponent-O.svg)
+
 * * *
 
 See also: ^, digitCount, factorInteger, integerDigits, log2, log10, rulerFunction

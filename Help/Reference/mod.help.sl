@@ -712,6 +712,17 @@ OEIS [A003558](https://oeis.org/A003558):
 
 ![](sw/spl/Help/Image/mod-T.svg)
 
+_P(n)%(n-1)_
+OEIS [A003558](https://oeis.org/A003558):
+
+~~~spl svg=U
+1:135.collect { :n |
+	n.prime % (n - 1)
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/mod-U.svg)
+
 * * *
 
 See also: %, /, //, \\, commonResidue, minimalResidue, positiveResidue, quotient, remainder

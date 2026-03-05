@@ -84,6 +84,10 @@ Boolean! : [Object, Storeable, Equatable, Json] {
 		}
 	}
 
+	implies { :p :q:/0 |
+		p.not | { q() }
+	}
+
 	isImmediate { :unused |
 		true
 	}

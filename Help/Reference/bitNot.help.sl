@@ -95,6 +95,30 @@ Make a shifted version of the _Rule 45_ cellular automaton,
 
 ![](sw/spl/Help/Image/bitNot-A.svg)
 
+Triangle of _¬n&k_,
+also called the converse nonimplication,
+OEIS [A102037](https://oeis.org/A102037):
+
+~~~spl svg=B
+0:19.triangularArray { :n :k |
+	n.bitNot.bitAnd(k)
+}.catenate.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/bitNot-B.svg)
+
+Row sums of triangle of _¬n&k_,
+also called the converse nonimplication,
+OEIS [A350094](https://oeis.org/A350094):
+
+~~~spl svg=C
+0:63.triangularArray { :n :k |
+	n.bitNot.bitAnd(k)
+}.collect(sum:/1).scatterPlot
+~~~
+
+![](sw/spl/Help/Image/bitNot-C.svg)
+
 * * *
 
 See also: bitAnd, bitOr, bitXor, not

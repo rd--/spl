@@ -206,6 +206,16 @@ OEIS [A153130](https://oeis.org/A153130):
 ]
 ```
 
+If _n_ is even then zero else _n_,
+OEIS [A193356](https://oeis.org/A193356):
+
+```
+>>> 1:18.collect { :n |
+>>> 	n.powerMod(n, 2 * n)
+>>> }
+[1 0 3 0 5 0 7 0 9 0 11 0 13 0 15 0 17 0]
+```
+
 Plot the sequence with fixed powers:
 
 ~~~spl svg=A

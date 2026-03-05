@@ -276,10 +276,50 @@ OEIS [A213500](https://oeis.org/A213500):
 
 ![](sw/spl/Help/Image/sum-E.svg)
 
+_Σi^2*-1^i_ for _n:2n_,
+OEIS [A225144](https://oeis.org/A225144):
+
+~~~spl svg=F
+1:65.collect { :n |
+	let m = n * 2;
+	n:m.sum { :i |
+		(i ^ 2) * (-1 ^ i)
+	}
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/sum-F.svg)
+
+_Σ0:n𝒙|n_,
+OEIS [A224915](https://oeis.org/A224915):
+
+~~~spl svg=G
+0:63.collect { :n |
+	0:n.sum { :i |
+		n.bitXor(i)
+	}
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/sum-G.svg)
+
+_Σ0:n|n_,
+OEIS [A350093](https://oeis.org/A350093):
+
+~~~spl svg=H
+0:63.collect { :n |
+	0:n.sum { :i |
+		n.bitOr(i)
+	}
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/sum-H.svg)
+
 Evaluate symbolically:
 
 ```
->> [𝒙 𝒚 𝒛].sum
+>> [`x` `y` `z`].sum
 (+ (+ x y) z)
 ```
 

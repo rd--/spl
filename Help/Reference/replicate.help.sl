@@ -96,6 +96,39 @@ OEIS [A002024](https://oeis.org/A002024):
 [1 2 2 3 3 3 4 4 4 4 5 5 5 5 5]
 ```
 
+Positive integers repeated.
+OEIS [A008619](https://oeis.org/A008619):
+
+```
+>>> 2 # 1:7
+[1 1 2 2 3 3 4 4 5 5 6 6 7 7]
+```
+
+Odd numbers repeated,
+OEIS [A109613](https://oeis.org/A109613):
+
+```
+>>> 2 # 1:13:2
+[1 1 3 3 5 5 7 7 9 9 11 11 13 13]
+```
+
+Even numbers repeated,
+OEIS [A052928](https://oeis.org/A052928):
+
+```
+>>> 2 # 0:12:2
+[0 0 2 2 4 4 6 6 8 8 10 10 12 12]
+```
+
+_2^n_ repeated _2^(n-1)_ times,
+OEIS [A062383](https://oeis.org/A062383):
+
+```
+>>> let n = 1:4;
+>>> (2 ^ (n - 1)) # (2 ^ n)
+[2 4 4 8 8 8 8 16 16 16 16 16 16 16 16]
+```
+
 If _n_ is a scalar integer it re-written as a list:
 
 ```

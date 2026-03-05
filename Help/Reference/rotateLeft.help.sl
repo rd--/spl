@@ -129,6 +129,27 @@ At `String`:
 'efgabcd'
 ```
 
+A version of Josephus problem,
+OEIS [A054995](https://oeis.org/A054995):
+
+```
+>>> 1:72.collect { :n |
+>>> 	{ :x |
+>>> 		x.rotateLeft(2).allButFirst
+>>> 	}.iterate([1 .. n], n - 1)
+>>> }.catenate
+[
+	 1  2  2  1  4  1  4  7  1  4
+	 7 10 13  2  5  8 11 14 17 20
+	 2  5  8 11 14 17 20 23 26 29
+	 1  4  7 10 13 16 19 22 25 28
+	31 34 37 40 43 46  2  5  8 11
+	14 17 20 23 26 29 32 35 38 41
+	44 47 50 53 56 59 62 65 68  1
+	 4  7
+]
+```
+
 Plot periodic derivative of _n_,
 OEIS [A038556](https://oeis.org/A038556):
 
@@ -140,6 +161,19 @@ OEIS [A038556](https://oeis.org/A038556):
 ~~~
 
 ![](sw/spl/Help/Image/rotateLeft-A.svg)
+
+A version of Josephus problem,
+OEIS [A054995](https://oeis.org/A054995):
+
+~~~spl svg=B
+1:115.collect { :n |
+	{ :x |
+		x.rotateLeft(2).allButFirst
+	}.iterate([1 .. n], n - 1)
+}.catenate.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/rotateLeft-B.svg)
 
 * * *
 

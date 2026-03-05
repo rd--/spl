@@ -73,6 +73,27 @@ and [A004736](https://oeis.org/A004736):
 ]
 ```
 
+Start counting again and again,
+OEIS [A002260](https://oeis.org/A002260):
+
+~~~spl svg=A
+1:17.collect(iota:/1).catenate.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/iota-A.svg)
+
+Start counting again and again,
+backwards,
+[A004736](https://oeis.org/A004736):
+
+~~~spl svg=B
+1:17.collect { :i |
+	i.iota(i, -1)
+}.catenate.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/iota-B.svg)
+
 Where supported `iota` is displayed as ⍳.
 
 * * *

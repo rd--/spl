@@ -9,6 +9,18 @@ or if _b_ is `false` or the block _f_ evaluates to `true`,
 else `false`.
 If _b_ is `true` then _f_ is not evaluated.
 
+Truth table for `or`:
+
+```
+>>> { :a :b |
+>>> 	a | { b }
+>>> }.table([true false], [true false])
+[
+	true true;
+	true false
+]
+```
+
 Combine assertions:
 
 ```

@@ -57,6 +57,19 @@ Plot over a subset of the reals:
 
 ![](sw/spl/Help/Image/cubeRoot-A.svg)
 
+Least nonnegative integer _k_ such that _xor(n,k)_ is a cube,
+OEIS [A330271](https://oeis.org/A330271):
+
+~~~spl svg=B
+0:127.collect { :n |
+	0:Infinity.detect { :k |
+		n.bitXor(k).cubeRoot.isInteger
+	}
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/cubeRoot-B.svg)
+
 * * *
 
 See also: ^, nthRoot, real, sqrt

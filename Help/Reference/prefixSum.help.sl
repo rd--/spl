@@ -42,6 +42,14 @@ OEIS [A002378](https://oeis.org/A002378):
 [0 2 6 12 20 30 42 56 72 90 110]
 ```
 
+Oblong numbers repeated,
+OEIS [A110660](https://oeis.org/A110660):
+
+```
+>>> 2 # 0:12:2.prefixSum
+[0 0 2 2 6 6 12 12 20 20 30 30 42 42]
+```
+
 Triangular matchstick numbers,
 OEIS [A045943](https://oeis.org/A045943):
 

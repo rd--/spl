@@ -787,6 +787,32 @@ OEIS [A026474](https://oeis.org/A026474):
 [1 2 4 8 15 22 29 36 43 50 57 64 71 78 85]
 ```
 
+The odd numbers interleaved with their negations,
+OEIS [A296063](https://oeis.org/A296063):
+
+```
+>>> [-1 1 1].linearRecurrence([1 -1 3], 15)
+[1 -1 3 -3 5 -5 7 -7 9 -9 11 -11 13 -13 15]
+```
+
+The odd numbers interleaved with their negations,
+initially odd,
+OEIS [A130472](https://oeis.org/A130472):
+
+```
+>>> [-1 1 1].linearRecurrence([0 -1 1], 15)
+[0 -1 1 -2 2 -3 3 -4 4 -5 5 -6 6 -7 7]
+```
+
+The even numbers repeated,
+with alternating signs,
+OEIS [A137501](https://oeis.org/A137501):
+
+```
+>>> [-1 1 1].linearRecurrence([0 0 2], 15)
+[0 0 2 -2 4 -4 6 -6 8 -8 10 -10 12 -12 14]
+```
+
 Draw spiral:
 
 ~~~spl svg=A
@@ -891,6 +917,53 @@ OEIS [A057083](https://oeis.org/A057083):
 ~~~
 
 ![](sw/spl/Help/Image/linearRecurrence-I.svg)
+
+Length of the continued fraction for _⌊(F(n)*φ)/F(n)_,
+where _F_ is the Fibonacci function,
+OEIS [A057083](https://oeis.org/A057083):
+
+~~~spl svg=J
+[0 1 0 1 0 -1].linearRecurrence(
+	[1 1 2 2 4 2 6 4], 65
+).discretePlot
+~~~
+
+![](sw/spl/Help/Image/linearRecurrence-J.svg)
+
+The odd numbers interleaved with their negations,
+OEIS [A296063](https://oeis.org/A296063):
+
+~~~spl svg=K
+[-1 1 1].linearRecurrence(
+	[1 -1 3], 65
+).discretePlot
+~~~
+
+![](sw/spl/Help/Image/linearRecurrence-K.svg)
+
+A permutation of the integers,
+two positives then one negative,
+OEIS [A166711](https://oeis.org/A166711):
+
+~~~spl svg=L
+[0 0 2 0 0 -1].linearRecurrence(
+	[0 1 2 -1 3 4], 85
+).discretePlot
+~~~
+
+![](sw/spl/Help/Image/linearRecurrence-L.svg)
+
+A permutation of the integers,
+three positives then two negatives,
+OEIS [A166871](https://oeis.org/A166871):
+
+~~~spl svg=M
+[0 0 0 0 2 0 0 0 0 -1].linearRecurrence(
+	[0 1 2 3 -1 -2 4 5 6 -3], 85
+).discretePlot
+~~~
+
+![](sw/spl/Help/Image/linearRecurrence-M.svg)
 
 * * *
 

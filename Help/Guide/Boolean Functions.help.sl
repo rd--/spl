@@ -20,6 +20,7 @@ Functions:
 - `or`
 - `evaluatingAnd`
 - `evaluatingOr`
+- `implies`
 - `not`
 - `xor`
 

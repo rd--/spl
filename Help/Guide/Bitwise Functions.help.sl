@@ -8,6 +8,8 @@ Types and Traits:
 Logic:
 
 - `bitAnd`
+- `bitIff`
+- `bitImplies`
 - `bitNot`
 - `bitOr`
 - `bitXor`: exclusive or

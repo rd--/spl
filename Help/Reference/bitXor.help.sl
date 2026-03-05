@@ -456,6 +456,17 @@ OEIS [A048728](https://oeis.org/A048728):
 
 ![](sw/spl/Help/Image/bitXor-V.svg)
 
+_n|P(n)_,
+OEIS [A070883](https://oeis.org/A070883):
+
+~~~spl svg=W
+1:85.collect { :n |
+	n.bitXor(n.prime)
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/bitXor-W.svg)
+
 * * *
 
 See also: bitAnd, bitNot, bitOr, xor

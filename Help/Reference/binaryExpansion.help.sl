@@ -269,6 +269,21 @@ OEIS [A037861](https://oeis.org/A037861):
 
 ![](sw/spl/Help/Image/binaryExpansion-K.svg)
 
+In the binary expansion of _n_,
+sum the exponents associated with one terms and subtract the exponents associated with zero terms,
+OEIS [A309983](https://oeis.org/A309983):
+
+~~~spl svg=L
+1:85.collect { :n |
+	let b = n.binaryExpansion;
+	let p = 2 * b.allButLast - 1;
+	let k = p.size;
+	(p * k:1:-1).sum
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/binaryExpansion-L.svg)
+
 * * *
 
 See also: decimalExpansion, integerDigits

@@ -237,6 +237,14 @@ OEIS [A006278](https://oeis.org/A006278):
 ]
 ```
 
+Multiply successively by repeated integers,
+OEIS [A010551](https://oeis.org/A010551):
+
+```
+>>> *.foldList(2 # 1:5)
+[1 1 2 4 12 36 144 576 2880 14400]
+```
+
 * * *
 
 See also: accumulate, collect, differences, foldLeft, injectInto, ratios

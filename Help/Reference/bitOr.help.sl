@@ -120,6 +120,32 @@ OEIS [A053398](https://oeis.org/A053398)
 
 ![](sw/spl/Help/Image/bitOr-G.svg)
 
+Bitwise logical or triangular array,
+OEIS [A080098](https://oeis.org/A080098):
+
+~~~spl svg=H
+0:19.triangularArray(bitOr:/2)
+.catenate.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/bitOr-H.svg)
+
+Bitwise logical implies triangular array,
+OEIS [A265705](https://oeis.org/A265705):
+
+~~~spl svg=I
+0:19.triangularArray { :n :k |
+	(n = 0).if {
+		0
+	} {
+		let m = (2 ^ n.bitLength) - 1 - k;
+		m.bitOr(n)
+	}
+}.catenate.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/bitOr-I.svg)
+
 * * *
 
 See also: or, bitAnd, bitNot, bitXor

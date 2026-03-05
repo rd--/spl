@@ -195,6 +195,17 @@ OEIS [A008687](https://oeis.org/A008687):
 
 ![](sw/spl/Help/Image/floor-I.svg)
 
+_n+⌊(n/4)(-1^(n%4))_,
+OEIS [A265888](https://oeis.org/A265888):
+
+~~~spl svg=I
+0:65.collect { :n |
+	n + ((n / 4).floor * (-1 ^ (n % 4)))
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/floor-J.svg)
+
 Where supported `floor` is displayed as ⌊.
 
 * * *

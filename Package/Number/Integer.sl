@@ -163,6 +163,19 @@
 		answer
 	}
 
+	bitIff { :p :q |
+		let k = p.bitLength.max(q.bitLength);
+		k:1:-1.collect { :i |
+			p.bitAt(i) = q.bitAt(i)
+		}.boole.binaryContraction
+	}
+
+	bitImplies { :p :q |
+		let k = p.bitLength.max(q.bitLength);
+		let r = p.bitNot(k);
+		r.bitOr(q)
+	}
+
 	bitLength { :self |
 		(self >= 0).if {
 			self.integerLength(2)

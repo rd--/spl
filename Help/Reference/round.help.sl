@@ -153,6 +153,50 @@ Plot _√x-⌊√x⌉_ over a subset of the reals:
 
 ![](sw/spl/Help/Image/round-B.svg)
 
+Nearest integer to _n×sin(n)_,
+discrete plot,
+OEIS [A272695](https://oeis.org/A272695):
+
+~~~spl svg=C
+let n = 0:65;
+(n * n.sin).floor.discretePlot
+~~~
+
+![](sw/spl/Help/Image/round-C.svg)
+
+Nearest integer to _n×sin(n)_,
+scatter plot,
+OEIS [A272695](https://oeis.org/A272695):
+
+~~~spl svg=D
+let n = 0:250;
+(n * n.sin).floor.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/round-D.svg)
+
+Nearest integer to _n×tan(n)_,
+discrete plot,
+OEIS [A274086](https://oeis.org/A274086):
+
+~~~spl svg=E
+let n = 0:115;
+(n * n.tan).floor.discretePlot
+~~~
+
+![](sw/spl/Help/Image/round-E.svg)
+
+Nearest integer to _n×tan(n)_,
+log scale scatter plot,
+OEIS [A274086](https://oeis.org/A274086):
+
+~~~spl svg=F
+let n = 0:250;
+(n * n.tan).floor.logScale.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/round-F.svg)
+
 _Note_: The parameter α is not the integer number of places to round to but the multiple.
 To round to two places set _α=0.01_.
 

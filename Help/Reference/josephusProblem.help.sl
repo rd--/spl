@@ -35,6 +35,25 @@ OEIS [A006257](https://oeis.org/A006257):
 ]
 ```
 
+Partial sums at _k=2_,
+OEIS [A256249](https://oeis.org/A256249):
+
+```
+>>> 0:15.collect { :n |
+>>> 	n.josephusProblem(2)
+>>> }.prefixSum
+[0 1 2 5 6 9 14 21 22 25 30 37 46 57 70 85]
+```
+
+First differences at _k=2_:
+
+```
+>>> 0:15.collect { :n |
+>>> 	n.josephusProblem(2)
+>>> }.differences
+[1 0 2 -2 2 2 2 -6 2 2 2 2 2 2 2]
+```
+
 The first few terms at _k=3_,
 OEIS [A054995](https://oeis.org/A054995):
 
@@ -52,6 +71,15 @@ OEIS [A054995](https://oeis.org/A054995):
 	47 50 53 56 59 62 65 68  1  4
 	 7 10 13 16 19 22 25
 ]
+```
+
+Partial sums at _k=3_:
+
+```
+>>> 0:14.collect { :n |
+>>> 	n.josephusProblem(3)
+>>> }.prefixSum
+[0 1 3 5 6 10 11 15 22 23 27 34 44 57 59]
 ```
 
 Triangle of answers for _n=1-14_,
@@ -119,6 +147,52 @@ OEIS [A321298](https://oeis.org/A321298)
 	2 4 6 8 10 12 1 5 9 13 7 3 11
 ]
 ```
+
+The first few terms at _k=2_,
+OEIS [A006257](https://oeis.org/A006257):
+
+~~~spl svg=A
+0:85.collect { :n |
+	n.josephusProblem(2)
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/josephusProblem-A.svg)
+
+The first few terms at _k=3_,
+OEIS [A006257](https://oeis.org/A006257):
+
+~~~spl svg=B
+0:85.collect { :n |
+	n.josephusProblem(3)
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/josephusProblem-B.svg)
+
+Triangle of answers for _n=1-14_,
+OEIS [A032434](https://oeis.org/A032434):
+
+~~~spl svg=C
+1:17.collect { :n |
+	1:n.collect { :k |
+		josephusProblem(n, k)
+	}
+}.catenate.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/josephusProblem-C.svg)
+
+Partial sums at _k=2_,
+OEIS [A256249](https://oeis.org/A256249):
+
+~~~spl svg=D
+0:85.collect { :n |
+	n.josephusProblem(2)
+}.prefixSum.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/josephusProblem-D.svg)
 
 * * *
 

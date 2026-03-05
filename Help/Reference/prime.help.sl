@@ -440,6 +440,28 @@ e.riffle(o).scatterPlot
 
 ![](sw/spl/Help/Image/prime-P.svg)
 
+_P(n)%n_
+OEIS [A004648](https://oeis.org/A004648):
+
+~~~spl svg=Q
+1:135.collect { :n |
+	n.prime % n
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/prime-Q.svg)
+
+_P(n)%(n+1)_
+OEIS [A004650](https://oeis.org/A004650):
+
+~~~spl svg=R
+1:135.collect { :n |
+	n.prime % (n + 1)
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/prime-R.svg)
+
 * * *
 
 See also: indexOfPrime, isPrime, nextPrime, primesList, primesUpTo

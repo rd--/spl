@@ -16,7 +16,7 @@ true
 false
 ```
 
-Truth table:
+Truth table for `and`,
 
 ```
 >>> { :a :b |
