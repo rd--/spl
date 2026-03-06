@@ -150,6 +150,7 @@ Guide/Numerical Methods.help.sl
 Guide/Numerical Precision.help.sl
 Guide/Numeric Types.help.sl
 Guide/One Indexing.help.sl
+Guide/On Integer Sequences.help.sl
 Guide/Open Sound Control.help.sl
 Guide/Operator Adverbs.help.sl
 Guide/Operator List.help.sl
@@ -1953,6 +1954,7 @@ Reference/inverseNorwichSpiral.help.sl
 Reference/inversePermutation.help.sl
 Reference/inverseSmoothStep.help.sl
 Reference/inverseSurvivalFunction.help.sl
+Reference/inverseTriangularNumber.help.sl
 Reference/inversionVector.help.sl
 Reference/inversiveDistance.help.sl
 Reference/involutionNumber.help.sl
@@ -2570,6 +2572,7 @@ Reference/magneticConstant.help.sl
 Reference/magnitude.help.sl
 Reference/Magnitude.help.sl
 Reference/mahonianNumber.help.sl
+Reference/mahonianNumbers.help.sl
 Reference/majorIndex.help.sl
 Reference/makeDirectory.help.sl
 Reference/mallowsSequence.help.sl
@@ -3792,6 +3795,7 @@ Reference/sternBrocotParent.help.sl
 Reference/sternBrocotPath.help.sl
 Reference/sternBrocotSequence.help.sl
 Reference/sternBrocotTree.help.sl
+Reference/sternsDiatomicArray.help.sl
 Reference/stieltjesGamma.help.sl
 Reference/stirlingS1.help.sl
 Reference/stirlingS2.help.sl
@@ -4063,6 +4067,7 @@ Reference/UgenGraph.help.sl
 Reference/Ugen.help.sl
 Reference/ulamSequence.help.sl
 Reference/umbilicTorus.help.sl
+Reference/unaryExpansion.help.sl
 Reference/uncheckedAt.help.sl
 Reference/uncheckedAtPut.help.sl
 Reference/uncheckedSlotRead.help.sl
