@@ -33,7 +33,8 @@ Repeat a triplet of characters seven times:
 'xyzxyzxyzxyzxyzxyzxyz'
 ```
 
-The all ones sequence,
+Repeat `one`,
+the all ones sequence,
 OEIS [A000012](http://oeis.org/A000012):
 
 ```
@@ -42,6 +43,18 @@ OEIS [A000012](http://oeis.org/A000012):
 
 >>> [1].linearRecurrence([1], 22)
 [1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1]
+```
+
+Repeat `zero`,
+the all zeroes sequence,
+OEIS [A000004](http://oeis.org/A000004):
+
+```
+>>> [0].repeat(22)
+[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+
+>>> [1].linearRecurrence([0], 22)
+[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
 ```
 
 The _01_ sequence,
@@ -88,6 +101,13 @@ OEIS [A133872](https://oeis.org/A133872)
 
 >>> [1 -1 1].linearRecurrence([1 1 0], 20)
 [1 1 0 0 1 1 0 0 1 1 0 0 1 1 0 0 1 1 0 0]
+
+>>> [1 0 -1 0].repeat(5).prefixSum
+[1 1 0 0 1 1 0 0 1 1 0 0 1 1 0 0 1 1 0 0]
+
+>>> [1 2 3 4 6 12 28 64 136 272 528 1024]
+>>> .inverseBinomialTransform
+[1 1 0 0 1 1 0 0 1 1 0 0]
 ```
 
 _-1^n_,

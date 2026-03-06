@@ -191,7 +191,7 @@ OEIS [A011782](https://oeis.org/A011782):
 [1 0 1 0 1 0 1 0 1 0 1 0]
 ```
 
-Hexagonal pyramidal numbers,
+Generate hexagonal pyramidal numbers,
 also called greengrocers numbers,
 OEIS [A002412](https://oeis.org/A002412):
 
@@ -203,6 +203,43 @@ OEIS [A002412](https://oeis.org/A002412):
 >>> [1 7 22 50 95 161 252 372 525]
 >>> .inverseBinomialTransform
 [1 6 9 4 0 0 0 0 0]
+```
+
+Binomial transform of _1100_ repeated,
+OEIS [A133872](https://oeis.org/A133872),
+is
+OEIS [A038504](https://oeis.org/A038504),
+the sum of every fourth entry of row n in Pascal’s triangle:
+
+```
+>>> [1 1 0 0 1 1 0 0 1 1 0 0]
+>>> .binomialTransform
+[1 2 3 4 6 12 28 64 136 272 528 1024]
+
+>>> [1 2 3 4 6 12 28 64 136 272 528 1024]
+>>> .inverseBinomialTransform
+[1 1 0 0 1 1 0 0 1 1 0 0]
+
+>>> [4 -6 4].linearRecurrence([1 2 3], 12)
+[1 2 3 4 6 12 28 64 136 272 528 1024]
+```
+
+Of all ones,
+OEIS [A000012](http://oeis.org/A000012),
+is powers of two,
+OEIS [A000079](https://oeis.org/A000079):
+
+```
+>>> [1 1 1 1 1 1 1 1 1 1 1 1]
+>>> .binomialTransform
+[1 2 4 8 16 32 64 128 256 512 1024 2048]
+
+>>> 2 ^ 0:11
+[1 2 4 8 16 32 64 128 256 512 1024 2048]
+
+>>> [1 2 4 8 16 32 64 128 256 512 1024]
+>>> .inverseBinomialTransform
+[1 1 1 1 1 1 1 1 1 1 1]
 ```
 
 * * *

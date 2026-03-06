@@ -620,7 +620,7 @@
 		((2 ^ n) - (-1 ^ n)) / 3
 	}
 
-	kaprekarSequenceStep { :self :base :fixedLength |
+	kaprekarMap { :self :base :fixedLength |
 		let d = self.integerDigits(base);
 		fixedLength.ifNotNil {
 			d := d.padLeft([fixedLength], 0)
@@ -628,11 +628,19 @@
 		d.sort(>).fromDigits(base) - d.sort(<).fromDigits(base)
 	}
 
+	kaprekarMap { :self :base |
+		self.kaprekarMap(base, nil)
+	}
+
+	kaprekarMap { :self |
+		self.kaprekarMap(10)
+	}
+
 	kaprekarSequence { :self :base :fixedLength |
 		let answer = [];
 		{ answer.includes(self) }.whileFalse {
 			answer.add(self);
-			self := self.kaprekarSequenceStep(base, fixedLength)
+			self := self.kaprekarMap(base, fixedLength)
 		};
 		answer
 	}

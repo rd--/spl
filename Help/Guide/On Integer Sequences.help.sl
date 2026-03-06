@@ -14,6 +14,18 @@ SplFragment(padLeft,svg=D)
 
 SplFragment(partitionFunctionP,svg=D)
 
+SplFragment(squaresR,svg=B)
+
+<bitLength,D
+
+<pascalTriangle,D
+
+<padRight,B
+
+<binaryExpansion,M
+
+<triangularArray,K
+
 ## _-1,1_ sequences
 
 SplFragment(liouvilleLambda,svg=A)
@@ -41,3 +53,5 @@ SplFragment(jacobiSymbol,svg=E)
 SplFragment(kroneckerSymbol,svg=D)
 
 SplFragment(kroneckerSymbol,svg=I)
+
+<moebiusMu,L

@@ -72,6 +72,9 @@ OEIS [A009116](https://oeis.org/A009116):
 >>> 	2 ^ (n / 2) * n.chebyshevT(x)
 >>> }
 [1 -1 0 2 -4 4 0 -8 16 -16 0 32 -64 64 0 -128]
+
+>>> [-2 -2].linearRecurrence([1 -1], 16)
+[1 -1 0 2 -4 4 0 -8 16 -16 0 32 -64 64 0 -128]
 ```
 
 Plot the fifth degree polynomial over a subset of the reals:

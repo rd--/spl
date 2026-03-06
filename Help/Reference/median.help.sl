@@ -68,6 +68,22 @@ OEIS [A212300](https://oeis.org/A212300):
 
 ![](sw/spl/Help/Image/median-A.svg)
 
+Triangle where _(n,k)_ is the number of integer partitions of _n_ with median _k_,
+where _k_ ranges from one to _n_ in steps of one half,
+OEIS [A359893](https://oeis.org/A359893):
+
+~~~spl svg=A
+Range(1, 10, 1).collect { :n |
+	Range(1, n, 1/2).collect { :k |
+		n.integerPartitions.select { :p |
+			p.median = k
+		}.size
+	}
+}.catenate.discretePlot
+~~~
+
+![](sw/spl/Help/Image/median-B.svg)
+
 * * *
 
 See also: asSortedList, isEven, isOdd, mean, middle
