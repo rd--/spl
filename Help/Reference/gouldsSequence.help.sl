@@ -5,7 +5,7 @@
 Answer the first _k_ terms of Gould’s sequence.
 The sequence counts how many odd numbers are in each row of Pascal’s triangle.
 
-The first few terms,
+The first few terms of Gould’s sequence,
 OEIS [A001316](https://oeis.org/A001316):
 
 ```
@@ -65,7 +65,7 @@ OEIS [A000120](https://oeis.org/A000120):
 ]
 ```
 
-Log scatter plot of first few terms,
+Log scatter plot of first few terms of Gould’s sequence,
 OEIS [A001316](https://oeis.org/A001316):
 
 ~~~spl svg=A

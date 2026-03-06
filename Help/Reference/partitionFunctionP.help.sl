@@ -8,7 +8,7 @@ The unary form answers the number of unrestricted partitions of the `Integer` _n
 The binary form denotes the number of ways of writing _n_ as a `sum` of exactly _k_ terms
 or, equivalently, the number of partitions into parts of which the largest is exactly _k_.
 
-First few terms,
+First few partition numbers,
 OEIS [A000041](https://oeis.org/A000041):
 
 ```
@@ -62,6 +62,20 @@ Specific values:
 
 >>> 5.partitionFunctionP
 7
+```
+
+Parity of the partition numbers,
+OEIS [A040051](https://oeis.org/A040051):
+
+```
+>>> 0:32.collect { :n |
+>>> 	n.partitionFunctionP
+>>> 	.isOdd.boole
+>>> }
+[
+	1 1 0 1 1 1 1 1 0 0 0 0 1 1 1 0 1 1 1 0
+	1 0 0 1 1 0 0 0 0 1 0 0 1
+]
 ```
 
 Initial triangle of _P(n,k)_,
@@ -155,6 +169,18 @@ OEIS [A026820](https://oeis.org/A026820):
 ~~~
 
 ![](sw/spl/Help/Image/partitionFunctionP-C.svg)
+
+Parity of the partition numbers,
+OEIS [A040051](https://oeis.org/A040051):
+
+~~~spl svg=D
+0:115.collect { :n |
+	n.partitionFunctionP
+	.isOdd.boole
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/partitionFunctionP-D.svg)
 
 * * *
 

@@ -145,6 +145,25 @@ OEIS [A135472](https://oeis.org/A135472):
 [0 .. 99]
 ```
 
+Stern’s diatomic array,
+OEIS [A049456](https://oeis.org/A049456):
+
+```
+>>> { :x |
+>>> 	x.riffle(
+>>> 		x.partition(2, 1)
+>>> 		.collect(sum:/1)
+>>> 	)
+>>> }.nestList([1 1], 4)
+[
+	1 1;
+	1 2 1;
+	1 3 2 3 1;
+	1 4 3 5 2 5 3 4 1;
+	1 5 4 7 3 8 5 7 2 7 5 8 3 7 4 5 1
+]
+```
+
 Plot
 OEIS [A135472](https://oeis.org/A135472):
 

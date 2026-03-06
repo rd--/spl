@@ -649,18 +649,22 @@
 
 	integerDigits { :self :base |
 		self.assertIsInteger('@Integer>>integerDigits');
-		base.isScalarInteger.if {
-			let numDigits = self.isZero.if {
-				1
-			} {
-				(self.abs.log / base.log + 0.0000000001).truncate + 1
-			};
-			self.integerDigits(
-				base,
-				numDigits
-			)
+		(base = 1).if {
+			self.unaryExpansion
 		} {
-			base.adaptToNumberAndApply(self, integerDigits:/2)
+			base.isScalarInteger.if {
+				let numDigits = self.isZero.if {
+					1
+				} {
+					(self.abs.log / base.log + 0.0000000001).truncate + 1
+				};
+				self.integerDigits(
+					base,
+					numDigits
+				)
+			} {
+				base.adaptToNumberAndApply(self, integerDigits:/2)
+			}
 		}
 	}
 
@@ -1556,6 +1560,14 @@
 
 	truncate { :self |
 		self
+	}
+
+	unaryExpansion { :self |
+		self.isPositiveInteger.if {
+			List(self, 1)
+		} {
+			self.error('unaryExpansion')
+		}
 	}
 
 	unitaryDivisors { :n |

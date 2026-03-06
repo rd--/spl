@@ -85,6 +85,21 @@ The unary operator form is `<`:
 3
 ```
 
+Number of binary partitions,
+OEIS [A000123](https://oeis.org/A000123):
+
+```
+>>> let a = Map { :n |
+>>> 	(n = 0).if {
+>>> 		1
+>>> 	} {
+>>> 		a[(n / 2).floor] + a[n - 1]
+>>> 	}
+>>> };
+>>> a[0:13]
+[1 2 4 6 10 14 20 26 36 46 60 74 94 114]
+```
+
 Floor is a staircase function:
 
 ~~~spl svg=A

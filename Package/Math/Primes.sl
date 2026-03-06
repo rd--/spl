@@ -239,7 +239,6 @@
 		n.factorInteger.column(2).sum = 2
 	}
 
-
 	isSmallPrime { :n |
 		n < 212 & {
 			system.smallPrimes.includes(n)

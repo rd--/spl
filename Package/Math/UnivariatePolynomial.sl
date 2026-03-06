@@ -546,16 +546,20 @@ UnivariatePolynomial : [Object, Storeable, Copyable, Equatable] { | coefficientL
 		c.includesKey(self).if {
 			c.at(self)
 		} {
-			let p = self.isPrime.if {
-				UnivariatePolynomial(
-					List(self, 1)
-				)
+			let p = (self = 0).if {
+				UnivariatePolynomial([1])
 			} {
-				let p = UnivariatePolynomial([-1] ++ List(self - 1, 0) ++ [1]);
-				self.divisors.allButLast.do { :d |
-					p := p.quotient(d.cyclotomic)
-				};
-				p
+				self.isPrime.if {
+					UnivariatePolynomial(
+						List(self, 1)
+					)
+				} {
+					let p = UnivariatePolynomial([-1] ++ List(self - 1, 0) ++ [1]);
+					self.divisors.allButLast.do { :d |
+						p := p.quotient(d.cyclotomic)
+					};
+					p
+				}
 			};
 			c.add(self -> p);
 			p

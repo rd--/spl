@@ -2,7 +2,9 @@
 
 - _isSemiprime(n)_
 
-Predicate to decide if _n_ is a semiprime number,
+Predicate to decide if _n_ is a semiprime number.
+
+The first few semiprime numbers,
 OEIS [A001358](https://oeis.org/A001358)
 
 ```
@@ -30,6 +32,39 @@ OEIS [A006881](https://oeis.org/A006881):
 	74 77 82 85 86 87 91 93 94 95
 ]
 ```
+
+The first few semiprime numbers,
+OEIS [A001358](https://oeis.org/A001358)
+
+~~~spl svg=A
+1:250.select(isSemiprime:/1).scatterPlot
+~~~
+
+![](sw/spl/Help/Image/isSemiprime-A.svg)
+
+The characteristic function of the semiprime numbers,
+OEIS [A064911](https://oeis.org/A064911)
+
+~~~spl svg=B
+1:115.collect(isSemiprime:/1)
+.boole
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/isSemiprime-B.svg)
+
+The squarefree semiprimes,
+OEIS [A006881](https://oeis.org/A006881):
+
+~~~spl svg=C
+1:250.select { :n |
+	n.isSemiprime & {
+		n.isSquareFree
+	}
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/isSemiprime-C.svg)
 
 * * *
 

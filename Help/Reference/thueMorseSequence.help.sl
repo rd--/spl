@@ -64,7 +64,7 @@ OEIS [A026430](https://oeis.org/A026430):
 ]
 ```
 
-Plot first few terms of
+Plot first few terms of the Thue-Morse sequence,
 OEIS [A010060](http://oeis.org/A010060):
 
 ~~~spl svg=A
@@ -86,7 +86,7 @@ OEIS [A029883](https://oeis.org/A029883):
 ]
 ```
 
-Plot first few terms of
+Plot first few terms of the first differences of the Thue–Morse sequence,
 OEIS [A029883](https://oeis.org/A029883):
 
 ~~~spl svg=B
@@ -115,6 +115,16 @@ OEIS [A115384](https://oeis.org/A115384):
 ~~~
 
 ![](sw/spl/Help/Image/thueMorseSequence-D.svg)
+
+The _+1,-1_ form of the Thue-Morse sequence,
+OEIS [A106400](https://oeis.org/A106400):
+
+~~~spl svg=E
+let a = 102.thueMorseSequence;
+((1 - a) * 2 - 1).discretePlot
+~~~
+
+![](sw/spl/Help/Image/thueMorseSequence-E.svg)
 
 * * *
 

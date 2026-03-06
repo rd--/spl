@@ -54,6 +54,16 @@ If _b_ is a large integer, so is the answer:
 123L
 ```
 
+Decimal expansion of the SI unit c,
+the speed of light in vacuum,
+_c=299792458m/s_,
+OEIS [A003678](https://oeis.org/A003678):
+
+```
+>>> [2 9 9 7 9 2 4 5 8].fromDigits
+299792458
+```
+
 Binary expansions as decimal numbers,
 OEIS [A007088](https://oeis.org/A007088):
 
@@ -171,6 +181,39 @@ OEIS [A007090](https://oeis.org/A007090):
 	20 21 22 23
 	30 31 32 33
 ]
+```
+
+Nine written in base _10-n_,
+OEIS [A001731](https://oeis.org/A001731):
+
+```
+>>> 10:1:-1.collect { :n |
+>>> 	9.integerDigits(n)
+>>> 	.fromDigits
+>>> }
+[9 10 11 12 13 14 21 100 1001 111111111]
+```
+
+Eight written in base _9-n_,
+OEIS [A001732](https://oeis.org/A001732):
+
+```
+>>> 10:1:-1.collect { :n |
+>>> 	8.integerDigits(n)
+>>> 	.fromDigits
+>>> }
+[8 8 10 11 12 13 20 22 1000 11111111]
+```
+
+Seven written in base _9-n_,
+OEIS [A001733](https://oeis.org/A001733):
+
+```
+>>> 10:1:-1.collect { :n |
+>>> 	7.integerDigits(n)
+>>> 	.fromDigits
+>>> }
+[7 7 7 10 11 12 13 21 111 1111111]
 ```
 
 Plot first few terms of

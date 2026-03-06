@@ -338,6 +338,19 @@ OEIS [A091337](https://oeis.org/A091337):
 
 ![](sw/spl/Help/Image/kroneckerSymbol-I.svg)
 
+Coefficients of Dedekind zeta function for the quadratic number field of discriminant seventeen,
+OEIS [A035199](https://oeis.org/A035199):
+
+~~~spl svg=J
+1:115.collect { :n |
+	n.divisorSum { :d |
+		17.kroneckerSymbol(d)
+	}
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/kroneckerSymbol-J.svg)
+
 * * *
 
 See also: jacobiSymbol, legendreSymbol

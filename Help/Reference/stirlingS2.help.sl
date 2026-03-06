@@ -45,7 +45,6 @@ The tenth row:
 115975
 ```
 
-
 Table of first few terms,
 from zero,
 OEIS [A048993](https://oeis.org/A048993):
@@ -164,6 +163,23 @@ OEIS [A019538](https://oeis.org/A019538):
 	1 14 36 24;
 	1 30 150 240 120;
 	1 62 540 1560 1800 720
+]
+```
+
+Sum Stirling numbers modulo two scaled by _-1^(n-k)_,
+OEIS [A309014](https://oeis.org/A309014):
+
+```
+>>> 0:23.collect { :n |
+>>> 	0:n.sum { :k |
+>>> 		(-1 ^ (n - k))
+>>> 		*
+>>> 		(n.stirlingS2(k) % 2)
+>>> 	}
+>>> }
+[
+	1 1 0 1 1 2 1 1 2 3 1 2 3 3 2 1 3 4 1 3
+	4 5 3 2
 ]
 ```
 

@@ -153,6 +153,17 @@ OEIS [A376593](https://oeis.org/A376593):
 
 ![](sw/spl/Help/Image/isSquareFree-E.svg)
 
+Characteristic function,
+OEIS [A008966](https://oeis.org/A008966):
+
+~~~spl svg=F
+1:115.collect(
+	isSquareFree:/1
+).boole.discretePlot
+~~~
+
+![](sw/spl/Help/Image/isSquareFree-F.svg)
+
 * * *
 
 See also: factorInteger, factor, isCubeFree, isDuplicateFree, isPerfectSquare, isPowerfulNumber, isPrime, isPrimePower, moebiusMu, primeOmega, primeNu

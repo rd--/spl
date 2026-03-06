@@ -152,6 +152,23 @@ OEIS [A010078](https://oeis.org/A010078):
 
 ![](sw/spl/Help/Image/ceiling-C.svg)
 
+Irregular triangle read by rows in which column _k_ lists _k_ copies of every positive integer in nondecreasing order,
+and the first element of column _k_ is in row _k(k+1)/2_,
+OEIS [A235791](https://oeis.org/A235791):
+
+~~~spl svg=D
+1:24.collect { :n |
+	let m = n.inverseTriangularNumber;
+	1:m.collect { :k |
+		let a = (n + 1) / k;
+		let b = (k + 1) / 2;
+		(a - b).ceiling
+	}
+}.catenate.discretePlot
+~~~
+
+![](sw/spl/Help/Image/ceiling-D.svg)
+
 Where supported `ceiling` is displayed as ⌈.
 
 * * *

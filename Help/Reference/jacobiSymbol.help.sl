@@ -101,6 +101,48 @@ Threads element-wise over lists:
 [-1 0 -1 1 -1]
 ```
 
+Legendre symbol _(n,17)_,
+OEIS [A011584](https://oeis.org/A011584):
+
+```
+>>> 0:18.jacobiSymbol(17)
+[0 1 1 -1 1 -1 -1 -1 1 1 -1 -1 -1 1 -1 1 1 0 1]
+```
+
+Inert rational primes in _Q(√3)_,
+OEIS [A003630](https://oeis.org/A003630):
+
+```
+>>> 2:27.prime.select { :p |
+>>> 	3.jacobiSymbol(p) = -1
+>>> }
+[5 7 17 19 29 31 41 43 53 67 79 89 101 103]
+```
+
+Squares modulo _23_,
+OEIS [A010385](https://oeis.org/A010385):
+
+```
+>>> 0:22.select { :n |
+>>> 	n.jacobiSymbol(23) != -1
+>>> }
+[0 1 2 3 4 6 8 9 12 13 16 18]
+```
+
+Squares modulo _43_,
+OEIS [A010404](https://oeis.org/A010404):
+
+```
+>>> 0:42.select { :n |
+>>> 	n.jacobiSymbol(43) != -1
+>>> }
+[
+	 0  1  4  6  9 10 11 13 14 15
+	16 17 21 23 24 25 31 35 36 38
+	40 41
+]
+```
+
 Plot the sequence varying _m_:
 
 ~~~spl svg=A
@@ -140,6 +182,24 @@ OEIS [A063988](https://oeis.org/A063988):
 ~~~
 
 ![](sw/spl/Help/Image/jacobiSymbol-C.svg)
+
+Legendre symbol _(n,17)_,
+OEIS [A011584](https://oeis.org/A011584):
+
+~~~spl svg=D
+0:85.jacobiSymbol(17).discretePlot
+~~~
+
+![](sw/spl/Help/Image/jacobiSymbol-D.svg)
+
+Legendre symbol _(n,29)_,
+OEIS [A011587](https://oeis.org/A011587):
+
+~~~spl svg=E
+0:85.jacobiSymbol(29).discretePlot
+~~~
+
+![](sw/spl/Help/Image/jacobiSymbol-E.svg)
 
 * * *
 

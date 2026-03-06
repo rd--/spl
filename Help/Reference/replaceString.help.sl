@@ -1,6 +1,8 @@
 # replaceString
 
-- _replaceString(aString, searchString, replaceString)_
+- _replaceString(s₁, s₂, s₃)_
+
+Replace the first occurence of the search string _s₂_ with the replacement string _s₃_ in the string _s₁_.
 
 Replace substring:
 

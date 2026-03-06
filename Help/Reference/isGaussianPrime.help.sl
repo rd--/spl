@@ -27,6 +27,14 @@ OEIS [A002145](https://oeis.org/A002145),
 	 3  7 11 19 23 31 43 47 59 67
 	71 79 83
 ]
+
+>>> 2:25.prime.select { :p |
+>>> 	-1.jacobiSymbol(p) = -1
+>>> }
+[
+	 3  7 11 19 23 31 43 47 59 67
+	71 79 83
+]
 ```
 
 The Guassian integers with components in _(-5, -1)_ that are prime:

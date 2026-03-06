@@ -101,6 +101,23 @@ OEIS [A158405](https://oeis.org/A158405):
 
 ![](sw/spl/Help/Image/prefixes-C.svg)
 
+Right-truncatable primes,
+every prefix is prime,
+OEIS [A024770](https://oeis.org/A024770):
+
+~~~
+1:10000.prime.select { :n |
+	n.integerDigits
+	.prefixes
+	.allSatisfy { :x |
+		x.fromDigits
+		.isPrime
+	}
+}.log.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/prefixes-D.svg)
+
 * * *
 
 See also: prefixSum, suffixes

@@ -92,6 +92,21 @@ OEIS [A046021](https://oeis.org/A046021):
 
 ![](sw/spl/Help/Image/greatestPrimeFactor-C.svg)
 
+Greatest prime divisor of all composite numbers between _P(n)_ and the next prime,
+OEIS [A052248](https://oeis.org/A052248):
+
+~~~spl svg=D
+2:150.collect { :n |
+	let a = n.prime + 1;
+	let b = (n + 1).prime - 1;
+	(a .. b).collect(
+		greatestPrimeFactor:/1
+	).max
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/greatestPrimeFactor-D.svg)
+
 * * *
 
 See also: factorInteger, leastPrimeFactor, prime

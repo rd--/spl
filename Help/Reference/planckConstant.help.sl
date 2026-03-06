@@ -11,6 +11,15 @@ given in joules per hertz (_J/Hz_).
 6.62607015 * (10 ^ -34)
 ```
 
+Decimal expansion,
+OEIS [A003676](https://oeis.org/A003676):
+
+```
+>>> 1.planckConstant
+>>> .realDigits(10, 10)
+[[0 6 6 2 6 0 7 0 1 5], -32]
+```
+
 The reduced Planck constant,
 denoted ℏ:
 

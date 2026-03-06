@@ -17,7 +17,12 @@ The fifth, sixth,  and thirtieth cyclotomic polynomial:
 [1 1 0 -1 -1 -1 0 1 1]
 ```
 
-Table of the first few cyclotomic polynomials:
+Table of the first few cyclotomic polynomials,
+OEIS [A013595](https://oeis.org/A013595),
+also,
+with rows reversed,
+OEIS [A013596](https://oeis.org/A013596),
+though see not about symmetry below:
 
 ```
 >>> 1:22.collect { :n |
@@ -49,6 +54,16 @@ Table of the first few cyclotomic polynomials:
 ]
 ```
 
+From _n=2_ coefficient lists are generally symmetrical:
+
+```
+>>> 2:50.allSatisfy { :n |
+>>> 	n.cyclotomic.coefficientList
+>>> 	.isPalindrome
+>>> }
+true
+```
+
 The prime cyclotomic polynomial are uniformly `one` and have degree :
 
 ```
@@ -72,15 +87,17 @@ The first cyclotomic polynomial with a coefficient other than 1, 0, or −1:
 48
 ```
 
-Values of successive cyclotomic polynomials at one:
+Values of successive cyclotomic polynomials at _x=1_,
+OEIS [A020500](https://oeis.org/A020500):
 
 ```
->>> 2:20.collect { :n |
->>> 	cyclotomic(n).at(1)
+>>> 0:20.collect { :n |
+>>> 	n.cyclotomic.at(1)
 >>> }
 [
-	2  3  2  5  1  7  2  3  1 11
-	1 13  1  1  2 17  1 19  1
+	1  0  2  3  2  5  1  7  2  3
+	1 11  1 13  1  1  2 17  1 19
+	1
 ]
 ```
 
@@ -92,14 +109,31 @@ OEIS [A002061](https://oeis.org/A002061):
 [1 1 3 7 13 21 31 43 57 73 91 111 133 157]
 ```
 
-Cyclotomic polynomials at _x=1_,
-OEIS [A020500](https://oeis.org/A020500):
+Table of resultants for cyclotomic polynomials,
+OEIS [A054372](https://oeis.org/A054372):
 
 ```
->>> 1:19.collect { :n |
->>> 	n.cyclotomic.at(1)
+>>> 1:4.triangularArray { :n :k |
+>>> 	k.cyclotomic.resultant(
+>>> 		n.cyclotomic
+>>> 	)
 >>> }
-[0 2 3 2 5 1 7 2 3 1 11 1 13 1 1 2 17 1 19]
+[
+	0;
+	2 0;
+	3 1 0;
+	2 2 1 0
+]
+```
+
+Cyclotomic polynomials evaluated at _x=-1_,
+OEIS [A020513](https://oeis.org/A020513):
+
+```
+>>> 1:20.collect { :n |
+>>> 	cyclotomic(n).at(-1)
+>>> }
+[-2 0 1 2 1 3 1 2 1 5 1 1 1 7 1 2 1 3 1 1]
 ```
 
 The answers are cached for efficiency:
@@ -165,6 +199,39 @@ OEIS [A051417](https://oeis.org/A051417):
 ~~~
 
 ![](sw/spl/Help/Image/cyclotomic-E.svg)
+
+Cyclotomic polynomials evaluated at _x=-1_,
+OEIS [A020513](https://oeis.org/A020513):
+
+~~~spl svg=F
+1:65.collect { :n |
+	cyclotomic(n).at(-1)
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/cyclotomic-F.svg)
+
+Values of successive cyclotomic polynomials at _x=1_,
+OEIS [A020500](https://oeis.org/A020500):
+
+~~~spl svg=G
+1:65.collect { :n |
+	n.cyclotomic.at(1)
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/cyclotomic-G.svg)
+
+Table of the first few cyclotomic polynomials,
+OEIS [A013595](https://oeis.org/A013595):
+
+~~~spl svg=H
+1:17.collect { :n |
+	n.cyclotomic.coefficientList
+}.catenate.discretePlot
+~~~
+
+![](sw/spl/Help/Image/cyclotomic-H.svg)
 
 * * *
 

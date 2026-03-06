@@ -2,7 +2,9 @@
 
 - _rudinShapiro(n)_
 
-Answer the _n_-th term in the Rudin–Shapiro sequence.
+Answer the _n_-th term in the Rudin–Shapiro sequence,
+or Golay-Rudin-Shapiro sequence,
+the coefficients of the Shapiro polynomials.
 
 The sixth element of the Rudin–Shapiro sequence:
 
@@ -18,7 +20,7 @@ The number 6 has an odd number of 11 sequences in its binary form:
 [1 1 0]
 ```
 
-The first few elements of the sequence,
+The first few elements of the Rudin–Shapiro sequence,
 OEIS [A020985](http://oeis.org/A020985):
 
 ```
@@ -61,6 +63,16 @@ Generate a path based on the Rudin–Shapiro sequence:
 ~~~
 
 ![](sw/spl/Help/Image/rudinShapiro-B.svg)
+
+Plot the first few elements of the Rudin–Shapiro sequence,
+OEIS [A020985](http://oeis.org/A020985):
+
+~~~spl svg=C
+0:85.collect(rudinShapiro:/1)
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/rudinShapiro-C.svg)
 
 * * *
 

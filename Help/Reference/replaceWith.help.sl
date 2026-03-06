@@ -13,6 +13,18 @@ Replace first occurence of a string matching the regular expression _r_ in the s
 '- y z'
 ```
 
+Rewrite words _a b_ as _b, a_:
+
+```
+>>> RegularExpression(
+>>> 	'(\\w+)\\s(\\w+)'
+>>> ).replaceWith(
+>>> 	'Emily Bronte',
+>>> 	'$2, $1'
+>>> )
+'Bronte, Emily'
+```
+
 * * *
 
 See also: replace, replaceString, replaceStringAll, replaceAllWith

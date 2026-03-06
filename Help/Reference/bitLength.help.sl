@@ -117,6 +117,23 @@ OEIS [A054429](https://oeis.org/A054429):
 
 ![](sw/spl/Help/Image/bitLength-F.svg)
 
+Denominators of Farey tree fractions,
+OEIS [A007306](https://oeis.org/A007306):
+
+~~~
+let a = Map { :n |
+	(n < 2).if {
+		1
+	} {
+		let m = 2 ^ (n - 1).bitLength;
+		a[n - (m / 2)] + a[m - n + 1]
+	}
+};
+a[0:260].scatterPlot
+~~~
+
+![](sw/spl/Help/Image/bitLength-G.svg)
+
 * * *
 
 See also: highBit, integerLength

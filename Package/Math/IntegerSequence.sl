@@ -13,6 +13,21 @@
 		).decimalSelvageNumber(d)
 	}
 
+	mahonianNumber { :n :k |
+		[1 .. n].permutations.count { :p |
+			p.majorIndex = k
+		}
+	}
+
+	mahonianNumbers { :r |
+		1:r.collect { :n |
+			let m = (n - 1).triangularNumber;
+			0:m.collect { :k |
+				mahonianNumber(n, k)
+			}
+		}
+	}
+
 	noergaardInfinityNumber { :n |
 		let w = n.integerDigits(2);
 		let a = 1;
@@ -952,8 +967,8 @@
 	}
 
 	sternBrocotSequence { :n |
-		let answer = [1 1];
-		let index = 2;
+		let answer = [0 1 1];
+		let index = 3;
 		{
 			answer.size < n
 		}.whileTrue {
@@ -962,7 +977,37 @@
 			answer.add(c);
 			index := index + 1
 		};
+		(answer.size > n).ifTrue {
+			answer.removeLast(answer.size - n)
+		};
 		answer
+	}
+
+	sternsDiatomicArray { :n :k |
+		(k = 'C').if {
+			let a = n.sternsDiatomicArray('B');
+			a.do { :r |
+				r.removeLast
+			};
+			a
+		} {
+			let i = k.caseOf(
+				[
+					'A' -> { [1 1] },
+					'B' -> { [1 0] }
+				]
+			);
+			{ :x |
+				x.riffle(
+					x.partition(2, 1)
+					.collect(sum:/1)
+				)
+			}.nestList(i, n - 1)
+		}
+	}
+
+	sternsDiatomicArray { :n |
+		n.sternsDiatomicArray('A')
 	}
 
 	sylvestersSequence { :n |

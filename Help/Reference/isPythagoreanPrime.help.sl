@@ -18,6 +18,17 @@ OEIS [A002144](https://oeis.org/A002144):
 ]
 ```
 
+The first few Pythagorean primes,
+OEIS [A002144](https://oeis.org/A002144):
+
+~~~spl svg=A
+1:1000.select(
+	isPythagoreanPrime:/1
+).scatterPlot
+~~~
+
+![](sw/spl/Help/Image/isPythagoreanPrime-A.svg)
+
 * * *
 
 See also: %, isPrime

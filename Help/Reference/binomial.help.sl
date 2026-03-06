@@ -154,6 +154,14 @@ One of a family of integer sequences (OEIS A006542):
 ]
 ```
 
+Binomial coefficients _C(10,n)_,
+OEIS [A010926](https://oeis.org/A010926):
+
+```
+>>> 0:10.collect { :n | 10.binomial(n) }
+[1 10 45 120 210 252 210 120 45 10 1]
+```
+
 Triangle of binomial coefficients,
 multiplied by the Euler up/down numbers,
 OEIS [A109449](https://oeis.org/A109449):
@@ -917,6 +925,19 @@ OEIS [A029635](https://oeis.org/A029635):
 ~~~
 
 ![](sw/spl/Help/Image/binomial-R.svg)
+
+Denominators of Farey tree fractions,
+OEIS [A007306](https://oeis.org/A007306):
+
+~~~spl svg=S
+1:77.collect { :n |
+	0:n.sum { :k |
+		(n + k - 1).binomial(2 * k) % 2
+	}
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/binomial-S.svg)
 
 * * *
 

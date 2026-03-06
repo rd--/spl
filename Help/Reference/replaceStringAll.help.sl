@@ -1,6 +1,8 @@
 # replaceStringAll
 
-- _replaceStringAll(aString, searchString, replaceString)_
+- _replaceStringAll(s₁, s₂, s₃)_
+
+Replace all occurence of the search string _s₂_ with the replacement string _s₃_ in the string _s₁_.
 
 Replace all occurences of one string with another:
 

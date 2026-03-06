@@ -360,6 +360,10 @@
 		self.collect(inverseErfc:/1)
 	}
 
+	inverseTriangularNumber { :self |
+		self.collect(inverseTriangularNumber:/1)
+	}
+
 	isBit { :self |
 		self.collect(isBit:/1)
 	}

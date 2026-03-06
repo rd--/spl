@@ -130,6 +130,17 @@ OEIS [A132792](https://oeis.org/A132792):
 
 ![](sw/spl/Help/Image/padLeft-C.svg)
 
+Riordan array _(1+x,1)_ read by rows,
+OEIS [A097806](https://oeis.org/A097806):
+
+~~~spl svg=D
+1:13.collect { :n |
+	[1 1].padLeft([n], 0)
+}.catenate.discretePlot
+~~~
+
+![](sw/spl/Help/Image/padLeft-D.svg)
+
 * * *
 
 See also: #, ++, arrayPad, padLeftAndRight, padRight, reshape, recycle, shape, size

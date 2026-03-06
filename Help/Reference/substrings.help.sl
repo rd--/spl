@@ -178,6 +178,22 @@ At `String`:
 ]
 ```
 
+Numbers in which all substrings are primes,
+OEIS [A085823](https://oeis.org/A085823):
+
+```
+>>> 1:75.prime.select { :n |
+>>> 	n.integerDigits
+>>> 	.substrings
+>>> 	.allButFirst
+>>> 	.allSatisfy { :x |
+>>> 		x.fromDigits
+>>> 		.isPrime
+>>> 	}
+>>> }
+[2 3 5 7 23 37 53 73 373]
+```
+
 * * *
 
 See also: partition, powerSet, longestCommonSubsequence, subsequences, subsets, tuples

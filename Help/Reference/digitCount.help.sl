@@ -175,6 +175,26 @@ OEIS [A031443](https://oeis.org/A031443):
 [2 9 10 12 35 37 38 41 42 44 49 50 52 56]
 ```
 
+Numbers with distinct decimal digits.
+OEIS [A010784](https://oeis.org/A010784),
+and the number of _n_-digit positive integers with all digits distinct,
+OEIS [A073531](https://oeis.org/A073531):
+
+```
+>>> 0:12.select { :n |
+>>> 	n.digitCount(10).max = 1
+>>> }
+[0 1 2 3 4 5 6 7 8 9 10 12]
+
+>>> 1:10.collect { :n |
+>>> 	9 * 9.! / (10 - n).!
+>>> }
+[
+	9 81 648 4536 27216 136080 544320
+	1632960 3265920 3265920
+]
+```
+
 Plot the number of ones in the base-two representation,
 called the Hamming weight or binary weight,
 OEIS [A000120](https://oeis.org/A000120):
@@ -358,6 +378,17 @@ let a = 3 ^ (w - 1) + 1;
 ~~~
 
 ![](sw/spl/Help/Image/digitCount-O.svg)
+
+_2^w(⌊(n/2))_,
+OEIS [A060632](https://oeis.org/A060632):
+
+~~~spl svg=P
+let n = 0:85;
+let a = 2 ^ (n / 2).floor.digitCount(2, 1);
+a.discretePlot
+~~~
+
+![](sw/spl/Help/Image/digitCount-P.svg)
 
 * * *
 

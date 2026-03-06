@@ -142,6 +142,16 @@ Second differences for polygonal numbers _r_ are constant at _r-2_:
 true
 ```
 
+Centered enneagonal numbers,
+OEIS [A060544](https://oeis.org/A060544):
+
+```
+>>> 1:11.collect { :n |
+>>> 	3.polygonalNumber(3 * n - 2)
+>>> }
+[1 10 28 55 91 136 190 253 325 406 496]
+```
+
 Plot triangular numbers:
 
 ~~~spl svg=A

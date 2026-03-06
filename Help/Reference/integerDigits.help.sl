@@ -76,6 +76,24 @@ Write the number ten in bases from two to eleven:
 ]
 ```
 
+Unary expansion,
+OEIS [A000042](https://oeis.org/A000042):
+
+```
+>>> 1:9.collect { :n | n.integerDigits(1) }
+[
+	1;
+	1 1;
+	1 1 1;
+	1 1 1 1;
+	1 1 1 1 1;
+	1 1 1 1 1 1;
+	1 1 1 1 1 1 1;
+	1 1 1 1 1 1 1 1;
+	1 1 1 1 1 1 1 1 1
+]
+```
+
 Find only the last 4 digits:
 
 ```

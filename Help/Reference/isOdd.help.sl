@@ -156,6 +156,27 @@ let a:/1 = { :n |
 
 ![](sw/spl/Help/Image/isOdd-C.svg)
 
+Sum of the coefficients of the terms with an even exponent in the Stern polynomial _B(n+1,t)_,
+OEIS [A000360](https://oeis.org/A000360)
+
+~~~spl svg=D
+let a = Map { :n |
+	(n = 0).if {
+		1
+	} {
+		n.isOdd.if {
+			let m = (n - 1) / 2 - 1 % 3;
+			a[(n - 1) / 2] - m + 1
+		} {
+			a[n / 2] + a[n / 2 - 1]
+		}
+	}
+};
+a[0:200].scatterPlot
+~~~
+
+![](sw/spl/Help/Image/isOdd-D.svg)
+
 * * *
 
 See also: divisible, isEven, isInteger

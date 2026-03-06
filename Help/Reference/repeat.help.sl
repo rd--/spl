@@ -37,8 +37,11 @@ The all ones sequence,
 OEIS [A000012](http://oeis.org/A000012):
 
 ```
->>> [1].repeat(23)
-[1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1]
+>>> [1].repeat(22)
+[1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1]
+
+>>> [1].linearRecurrence([1], 22)
+[1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1]
 ```
 
 The _01_ sequence,
@@ -47,6 +50,9 @@ OEIS [A000035](http://oeis.org/A000035):
 
 ```
 >>> [0 1].repeat(11)
+[0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1]
+
+>>> [0 1].linearRecurrence([0 1], 22)
 [0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1]
 ```
 
@@ -57,6 +63,43 @@ OEIS [A059841](https://oeis.org/A059841)
 ```
 >>> [1 0].repeat(11)
 [1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0]
+
+>>> [0 1].linearRecurrence([1 0], 22)
+[1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0]
+```
+
+The _011_ sequence,
+OEIS [A011655](https://oeis.org/A011655)
+
+```
+>>> [0 1 1].repeat(7)
+[0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1]
+
+>>> [0 0 1].linearRecurrence([0 1 1], 21)
+[0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1]
+```
+
+The _1100_ sequence,
+OEIS [A133872](https://oeis.org/A133872)
+
+```
+>>> [1 1 0 0].repeat(5)
+[1 1 0 0 1 1 0 0 1 1 0 0 1 1 0 0 1 1 0 0]
+
+>>> [1 -1 1].linearRecurrence([1 1 0], 20)
+[1 1 0 0 1 1 0 0 1 1 0 0 1 1 0 0 1 1 0 0]
+```
+
+_-1^n_,
+the _1,-1_ sequence,
+OEIS [A033999](https://oeis.org/A033999):
+
+```
+>>> [1 -1].repeat(7)
+[1 -1 1 -1 1 -1 1 -1 1 -1 1 -1 1 -1]
+
+>>> [-1].linearRecurrence([1], 14)
+[1 -1 1 -1 1 -1 1 -1 1 -1 1 -1 1 -1]
 ```
 
 _n_ appears _n+1_ times,
@@ -75,6 +118,9 @@ OEIS [A010892](https://oeis.org/A010892):
 ```
 >>> [1 1 0 -1 -1 0].repeat(3)
 [1 1 0 -1 -1 0 1 1 0 -1 -1 0 1 1 0 -1 -1 0]
+
+>>> [1 -1].linearRecurrence([1 1], 18)
+[1 1 0 -1 -1 0 1 1 0 -1 -1 0 1 1 0 -1 -1 0]
 ```
 
 Repeat _1,-1,0_,
@@ -83,22 +129,39 @@ OEIS [A049347](https://oeis.org/A049347):
 ```
 >>> [1 -1 0].repeat(6)
 [1 -1 0 1 -1 0 1 -1 0 1 -1 0 1 -1 0 1 -1 0]
+
+>>> [-1 -1].linearRecurrence([1 -1], 18)
+[1 -1 0 1 -1 0 1 -1 0 1 -1 0 1 -1 0 1 -1 0]
 ```
 
 Repeat _1,0,-1_,
-OEIS [A057078](https://oeis.org/A057078):
+OEIS [A057078](https://oeis.org/A057078),
+partial sums are _110_ repeat:
 
 ```
 >>> [1 0 -1].repeat(6)
 [1 0 -1 1 0 -1 1 0 -1 1 0 -1 1 0 -1 1 0 -1]
+
+>>> [-1 -1].linearRecurrence([1 0], 18)
+[1 0 -1 1 0 -1 1 0 -1 1 0 -1 1 0 -1 1 0 -1]
+
+>>> [1 0 -1].repeat(6).prefixSum
+[1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0]
 ```
 
 Repeat _1,0,-1,0_,
-OEIS [A056594](https://oeis.org/A056594):
+OEIS [A056594](https://oeis.org/A056594)
+partial sums are _1100_ repeat:
 
 ```
 >>> [1 0 -1 0].repeat(4)
 [1 0 -1 0 1 0 -1 0 1 0 -1 0 1 0 -1 0]
+
+>>> [0 -1].linearRecurrence([1 0], 16)
+[1 0 -1 0 1 0 -1 0 1 0 -1 0 1 0 -1 0]
+
+>>> [1 0 -1 0].repeat(4).prefixSum
+[1 1 0 0 1 1 0 0 1 1 0 0 1 1 0 0]
 ```
 
 Repeat _1,1,-1,-1_,
@@ -106,6 +169,9 @@ OEIS [A057077](https://oeis.org/A057077):
 
 ```
 >>> [1 1 -1 -1].repeat(4)
+[1 1 -1 -1 1 1 -1 -1 1 1 -1 -1 1 1 -1 -1]
+
+>>> [0 -1].linearRecurrence([1 1], 16)
 [1 1 -1 -1 1 1 -1 -1 1 1 -1 -1 1 1 -1 -1]
 ```
 
@@ -115,6 +181,9 @@ OEIS [A101455](https://oeis.org/A101455):
 ```
 >>> [0 1 0 -1].repeat(4)
 [0 1 0 -1 0 1 0 -1 0 1 0 -1 0 1 0 -1]
+
+>>> [0 -1].linearRecurrence([0 1], 16)
+[0 1 0 -1 0 1 0 -1 0 1 0 -1 0 1 0 -1]
 ```
 
 Repeat _0,1,-1_
@@ -122,6 +191,9 @@ OEIS [A102283](https://oeis.org/A102283):
 
 ```
 >>> [0 1 -1].repeat(6)
+[0 1 -1 0 1 -1 0 1 -1 0 1 -1 0 1 -1 0 1 -1]
+
+>>> [-1 -1].linearRecurrence([0 1], 18)
 [0 1 -1 0 1 -1 0 1 -1 0 1 -1 0 1 -1 0 1 -1]
 ```
 
@@ -131,6 +203,9 @@ OEIS [A057079](https://oeis.org/A057079):
 ```
 >>> [1 2 1 -1 -2 -1].repeat(3)
 [1 2 1 -1 -2 -1 1 2 1 -1 -2 -1 1 2 1 -1 -2 -1]
+
+>>> [1 -1].linearRecurrence([1 2], 18)
+[1 2 1 -1 -2 -1 1 2 1 -1 -2 -1 1 2 1 -1 -2 -1]
 ```
 
 Repeat _0,1,-1,-1,1_,
@@ -138,6 +213,11 @@ OEIS [A080891](https://oeis.org/A080891):
 
 ```
 >>> [0 1 -1 -1 1].repeat(3)
+[0 1 -1 -1 1 0 1 -1 -1 1 0 1 -1 -1 1]
+
+>>> [-1 -1 -1 -1].linearRecurrence(
+>>> 	[0 1 -1 -1], 15
+>>> )
 [0 1 -1 -1 1 0 1 -1 -1 1 0 1 -1 -1 1]
 ```
 
@@ -147,6 +227,9 @@ OEIS [A061347](https://oeis.org/A061347):
 ```
 >>> [1 1 -2].repeat(6)
 [1 1 -2 1 1 -2 1 1 -2 1 1 -2 1 1 -2 1 1 -2]
+
+>>> [-1 -1].linearRecurrence([1 1], 18)
+[1 1 -2 1 1 -2 1 1 -2 1 1 -2 1 1 -2 1 1 -2]
 ```
 
 Repeat _0,1,0,2_,
@@ -154,6 +237,11 @@ OEIS [A131743](https://oeis.org/A131743):
 
 ```
 >>> [0 1 0 2].repeat(4)
+[0 1 0 2 0 1 0 2 0 1 0 2 0 1 0 2]
+
+>>> [0 0 0 1].linearRecurrence(
+>>> 	[0 1 0 2], 16
+>>> )
 [0 1 0 2 0 1 0 2 0 1 0 2 0 1 0 2]
 ```
 
@@ -163,6 +251,30 @@ OEIS [A091337](https://oeis.org/A091337):
 ```
 >>> [0 1 0 -1 0 -1 0 1].repeat(2)
 [0 1 0 -1 0 -1 0 1 0 1 0 -1 0 -1 0 1]
+
+>>> [0 0 0 -1].linearRecurrence(
+>>> 	[0 1 0 -1], 16
+>>> )
+[0 1 0 -1 0 -1 0 1 0 1 0 -1 0 -1 0 1]
+```
+
+A Chebyshev transform of the Fibonacci numbers,
+OEIS [A100047](https://oeis.org/A100047):
+
+```
+>>> [1 1 -1 -1 0 -1 -1 1 1 0].repeat(2)
+[
+	1 1 -1 -1 0 -1 -1 1 1 0
+	1 1 -1 -1 0 -1 -1 1 1 0
+]
+
+>>> [1 -1 1 -1].linearRecurrence(
+>>> 	[1 1 -1 -1], 20
+>>> )
+[
+	1 1 -1 -1 0 -1 -1 1 1 0
+	1 1 -1 -1 0 -1 -1 1 1 0
+]
 ```
 
 A Chebyshev transform of the Fibonacci numbers,
@@ -174,6 +286,26 @@ OEIS [A100047](https://oeis.org/A100047):
 ~~~
 
 ![](sw/spl/Help/Image/repeat-A.svg)
+
+The _01_ sequence,
+discrete plot,
+OEIS [A000035](http://oeis.org/A000035):
+
+~~~spl svg=B
+[0 1].repeat(30).discretePlot
+~~~
+
+![](sw/spl/Help/Image/repeat-B.svg)
+
+_-1^n_,
+the _1,-1_ sequence,
+OEIS [A033999](https://oeis.org/A033999):
+
+~~~spl svg=C
+[1 -1].repeat(30).discretePlot
+~~~
+
+![](sw/spl/Help/Image/repeat-C.svg)
 
 * * *
 

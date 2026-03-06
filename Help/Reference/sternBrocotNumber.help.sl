@@ -42,6 +42,19 @@ Plot the first few terms:
 
 ![](sw/spl/Help/Image/sternBrocotNumber-A.svg)
 
+The smallest number _k_ such that _fusc(k)=n_,
+OEIS [A020946](https://oeis.org/A020946):
+
+~~~spl svg=B
+0:50.collect { :n |
+	0:Infinity.detect { :i |
+		i.sternBrocotNumber = n
+	}
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/sternBrocotNumber-B.svg)
+
 * * *
 
 See also: sternBrocotSequence, sternBrocotTree

@@ -2,12 +2,30 @@
 
 - _sternBrocotSequence(n)_
 
-Answer at least the first _n_ entries of Stern’s diatomic series (or Stern-Brocot sequence).
+Answer the first _n_ entries of the Stern-Brocot sequence,
+also called Stern’s diatomic series,
+also called _fusc_.
+
+The first few terms of Stern’s diatomic series,
+OEIS [A002487](https://oeis.org/A002487):
 
 ```
->>> let list = 15.sternBrocotSequence;
->>> (list.size, list)
-(16, [1 1 2 1 3 2 3 1 4 3 5 2 5 3 4 1])
+>>> 16.sternBrocotSequence
+[0 1 1 2 1 3 2 3 1 4 3 5 2 5 3 4]
+
+>>> 0:15.collect(sternBrocotNumber:/1)
+[0 1 1 2 1 3 2 3 1 4 3 5 2 5 3 4]
+```
+
+Specific terms:
+
+```
+>>> let a = 92.sternBrocotSequence;
+>>> a[91 + 1]
+19
+
+>>> 91.sternBrocotNumber
+19
 ```
 
 The `gcd` of adjacent values is always `one`:
@@ -27,10 +45,22 @@ Find the index where the number 100 first appears in the sequence:
 >>> 10000
 >>> .sternBrocotSequence
 >>> .indexOf(100)
-1179
+1180
 ```
 
-Discrete plot of first few terms:
+First differences of Stern’s diatomic series,
+discarding initial two terms,
+OEIS[A070990](https://oeis.org/A070990):
+
+```
+>>> 17.sternBrocotSequence
+>>> .allButFirst(2)
+>>> .differences
+[1 -1 2 -1 1 -2 3 -1 2 -3 3 -2 1 -3]
+```
+
+Discrete plot of first few terms of Stern’s diatomic series,
+OEIS [A002487](https://oeis.org/A002487):
 
 ~~~spl svg=A
 200.sternBrocotSequence.discretePlot
@@ -38,13 +68,75 @@ Discrete plot of first few terms:
 
 ![](sw/spl/Help/Image/sternBrocotSequence-A.svg)
 
-Scatter plot of first few terms:
+Scatter plot of first few terms of Stern’s diatomic series,
+OEIS [A002487](https://oeis.org/A002487):
 
 ~~~spl svg=B
 300.sternBrocotSequence.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/sternBrocotSequence-B.svg)
+
+Record values of Stern’s diatomic series,
+OEIS [A212289](https://oeis.org/A212289):
+
+~~~spl svg=C
+10000.sternBrocotSequence
+.recordValues
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/sternBrocotSequence-C.svg)
+
+First differences of Stern’s diatomic series,
+discarding initial two terms,
+OEIS[A070990](https://oeis.org/A070990):
+
+~~~spl svg=D
+115.sternBrocotSequence
+.allButFirst(2)
+.differences
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/sternBrocotSequence-D.svg)
+
+Second differences of Stern’s diatomic series,
+OEIS[A283104](https://oeis.org/A283104):
+
+~~~spl svg=E
+150.sternBrocotSequence
+.differences(2)
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/sternBrocotSequence-E.svg)
+
+The smallest number _k_ such that _fusc(k)=n_,
+OEIS [A020946](https://oeis.org/A020946):
+
+~~~spl svg=F
+let k = 10000;
+let a = k.sternBrocotSequence;
+0:200.collect { :n |
+	1:k.detect { :i |
+		a[i] = n
+	}
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/sternBrocotSequence-F.svg)
+
+Partial sums of Stern’s diatomic series,
+OEIS [A174868](https://oeis.org/A174868):
+
+~~~spl svg=G
+85.sternBrocotSequence
+.prefixSum
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/sternBrocotSequence-G.svg)
 
 * * *
 

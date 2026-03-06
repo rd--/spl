@@ -240,6 +240,19 @@ let a = Map { :n |
 
 ![](sw/spl/Help/Image/hammingWeight-Q.svg)
 
+Running sum of every third term in the _+1,-1_-version of Thue-Morse sequence,
+OEIS [A005599](https://oeis.org/A005599):
+
+~~~spl svg=R
+0:200.collect { :n |
+	0:n.sum { :k |
+		-1 ^ (3 * k).hammingWeight
+	}
+}.linePlot
+~~~
+
+![](sw/spl/Help/Image/hammingWeight-R.svg)
+
 * * *
 
 See also: digitCount, gouldsSequence, thueMorseSequence

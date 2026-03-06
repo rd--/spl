@@ -286,6 +286,25 @@ OEIS [A051731](https://oeis.org/A051731):
 
 ![](sw/spl/Help/Image/divisible-J.svg)
 
+Irregular triangle read by rows in which column _k_ lists ones interleaved with _k-1_ zeros,
+and the first element of column _k_ is in row _k(k+1)/2_,
+OEIS [A237048](https://oeis.org/A237048):
+
+~~~spl svg=K
+1:24.collect { :n |
+	let m = n.inverseTriangularNumber;
+	1:m.collect { :k |
+		k.isOdd.if {
+			n.divisible(k)
+		} {
+			(n - (k / 2)).divisible(k)
+		}.boole
+	}
+}.catenate.discretePlot
+~~~
+
+![](sw/spl/Help/Image/divisible-K.svg)
+
 * * *
 
 See also: %, divisors, even, gcd, mod, quotient, round

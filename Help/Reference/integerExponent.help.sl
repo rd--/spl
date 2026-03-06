@@ -2,7 +2,10 @@
 
 - _integerExponent(n, b)_
 
-Answers the highest power of _b_ that divides _n_.
+Answers the highest power of _b_ that divides _n_,
+sometimes called the greatest dividing exponent.
+In the case where _b_ is a prime _p_,
+it is also called the _p_-adic valuation of _n_.
 
 The number of trailing zeroes:
 
@@ -194,6 +197,16 @@ OEIS [A209229](https://oeis.org/A209229):
 [0 1 1 0 1 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0]
 ```
 
+_2Gde(n,2)+1_,
+OEIS [A037227](https://oeis.org/A037227):
+
+```
+>>> 1:17.collect { :n |
+>>> 	2 * n.integerExponent(2) + 1
+>>> }
+[1 3 1 5 1 3 1 7 1 3 1 5 1 3 1 9 1]
+```
+
 Plot first few terms for for _b=2_,
 the binary carry sequence,
 OEIS [A007814](https://oeis.org/A007814):
@@ -281,7 +294,7 @@ OEIS [A279340](https://oeis.org/A279340):
 
 ![](sw/spl/Help/Image/integerExponent-F.svg)
 
-Plot 2-adic valuation of _τ(n)_,
+Plot two-adic valuation of _τ(n)_,
 OEIS [A295664](https://oeis.org/A295664):
 
 ~~~spl svg=G
@@ -292,7 +305,7 @@ OEIS [A295664](https://oeis.org/A295664):
 
 ![](sw/spl/Help/Image/integerExponent-G.svg)
 
-Plot 2-adic valuation of _σ(n)_,
+Plot two-adic valuation of _σ(n)_,
 OEIS [A336937](https://oeis.org/A336937):
 
 ~~~spl svg=H
@@ -315,7 +328,7 @@ Plot OEIS [A371094](https://oeis.org/A371094):
 
 ![](sw/spl/Help/Image/integerExponent-I.svg)
 
-Plot 3-adic valuation of the bijective bit-reverse of _3n_,
+Plot three-adic valuation of the bijective bit-reverse of _3n_,
 OEIS [A280509](https://oeis.org/A280509):
 
 ~~~spl svg=J
@@ -439,6 +452,8 @@ _OEIS_
 [7](https://oeis.org/A000120)
 [8](https://oeis.org/A037227)
 [9](https://oeis.org/A116882)
-[10](https://oeis.org/A116883)
+[10](https://oeis.org/A116883),
+_W_
+[1](https://en.wikipedia.org/wiki/P-adic_valuation)
 
 Further Reading: Levine 2006

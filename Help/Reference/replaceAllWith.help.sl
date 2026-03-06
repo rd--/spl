@@ -41,6 +41,32 @@ Replace any sequence of space or tab or newline characters with a single space:
 'a b c d e'
 ```
 
+Delete any white space after opening brackets or commas or semicolons:
+
+```
+>>> RegularExpression(
+>>> 	'([\\[\\(\\{,;])\\s+',
+>>> 	'g'
+>>> ).replaceAllWith(
+>>> 	'( a, [ b, { c, d}, e], f); ',
+>>> 	'$1'
+>>> )
+'(a,[b,{c,d},e],f);'
+```
+
+Delete any white space before closing brackets or commas or semicolons:
+
+```
+>>> RegularExpression(
+>>> 	'\\s+([\\]\\)\\},;])',
+>>> 	'g'
+>>> ).replaceAllWith(
+>>> 	'(a ,[b ,{c ,d } ,e ],f ) ;',
+>>> 	'$1'
+>>> )
+'(a,[b,{c,d},e],f);'
+```
+
 * * *
 
 See also: copyReplaceAllWith, replaceString, replaceStringAll, replaceWith

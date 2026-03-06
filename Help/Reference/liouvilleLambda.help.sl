@@ -99,7 +99,7 @@ OEIS [A028260](https://oeis.org/A028260):
 [1 4 6 9 10 14 15 16 21 22]
 ```
 
-Plot the Liouville lambda sequence for the first few terms,
+Plot the Liouville λ sequence for the first few terms,
 OEIS [A008836](https://oeis.org/A008836):
 
 ~~~spl svg=A
@@ -180,3 +180,5 @@ _OEIS_
 [2](https://oeis.org/A007421),
 _W_
 [1](https://en.wikipedia.org/wiki/Liouville_function)
+
+Unicode: U+03BB λ Greek Small Letter Lamda

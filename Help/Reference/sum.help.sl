@@ -342,6 +342,34 @@ a[1:150].scatterPlot
 
 ![](sw/spl/Help/Image/sum-I.svg)
 
+A symmetric square array,
+read by antidiagonals,
+given by a summing recurrence,
+OEIS [A191898](https://oeis.org/A191898):
+
+~~~spl svg=J
+let t = { :n :k |
+	[
+		{ n < 1 | { k < 1 } } -> { 0 },
+		{ n = 1 | { k = 1 } } -> { 1 },
+		{ k > n } -> { t(k, n) },
+		{ n > k } -> {
+			let m = n.mod(k, 1);
+			t(k, m)
+		},
+		{ true } -> {
+			0 - (1 .. n - 1).sum { :i |
+				t(n, i)
+			}
+		}
+	].which
+};
+1:17.antidiagonalArray(t:/2)
+.catenate.discretePlot
+~~~
+
+![](sw/spl/Help/Image/sum-J.svg)
+
 Evaluate symbolically:
 
 ```

@@ -263,6 +263,10 @@
 		numerator // denominator
 	}
 
+	inverseTriangularNumber { :n |
+		(((1 + (8 * n)).sqrt - 1) / 2).floor
+	}
+
 	lahNumber { :n :k :s |
 		s.caseOf(
 			[

@@ -7,6 +7,9 @@ Answer the _n_-th triangular number.
 ```
 >>> 23.triangularNumber
 276
+
+>>> 276.inverseTriangularNumber
+23
 ```
 
 Relation to `binomial`:
@@ -30,6 +33,7 @@ OEIS [A000217](https://oeis.org/A000217):
 ```
 
 The inverse of the triangular numbers,
+implemented as `inverseTriangularNumber`,
 OEIS [A003056](https://oeis.org/A003056):
 
 ```
@@ -143,9 +147,18 @@ OEIS [A007437](http://oeis.org/A007437):
 
 ![](sw/spl/Help/Image/triangularNumber-B.svg)
 
+The inverse of the triangular numbers,
+OEIS [A003056](https://oeis.org/A003056):
+
+~~~spl svg=C
+1:85.inverseTriangularNumber.discretePlot
+~~~
+
+![](sw/spl/Help/Image/triangularNumber-C.svg)
+
 * * *
 
-See also: binomial, cube, pascalTriangle, polygonalNumber, square, tetrahedralNumber
+See also: binomial, cube, inverseTriangularNumber, pascalTriangle, polygonalNumber, square, tetrahedralNumber
 
 Guides: Integer Sequence Functions
 
