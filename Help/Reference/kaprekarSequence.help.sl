@@ -38,27 +38,60 @@ Perfect digital invariants, sequence length of one:
 [631764]
 ```
 
-Sequence length of two:
+Least sequence of lengths one through five,
+OEIS [A151959](https://oeis.org/A151959)
 
 ```
+>>> 0.kaprekarSequence
+[0]
+
 >>> 53955.kaprekarSequence
 [53955 59994]
 
->>> 59994.kaprekarSequence
-[59994 53955]
+>>> 64308654.kaprekarSequence
+[64308654 83208762 86526432]
+
+>>> 61974.kaprekarSequence
+[61974 82962 75933 63954]
+
+>>> 86420987532.kaprekarSequence
+[
+	86420987532
+	96641975331
+	88431976512
+	87641975322
+	86541975432
+]
 ```
 
-Sequence length of four:
+Sequence of length seven:
 
 ```
->>> 62964.kaprekarSequence
-[62964 71973 83952 74943]
+>>> 420876.kaprekarSequence
+[420876 851742 750843 840852 860832 862632 642654]
+```
 
->>> 63954.kaprekarSequence
-[63954 61974 82962 75933]
+Smallest number that leads to a new fixed point under the base-two Kaprekar map,
+OEIS [A164887](https://oeis.org/A164887):
 
->>> 71973.kaprekarSequence
-[71973 83952 74943 62964]
+```
+>>> let a = [];
+>>> let b = IdentitySet();
+>>> 0:1000.collect { :n |
+>>> 	let p = n.kaprekarSequence(2);
+>>> 	let q = p.last;
+>>> 	b.includes(q).ifFalse {
+>>> 		a.add(n);
+>>> 		b.add(q)
+>>> 	}
+>>> };
+>>> a
+[
+	  0   9  17  33  35
+	 65  67 129 131 135
+	257 259 263 513 515
+	519 527
+]
 ```
 
 Plot the number of steps required for the Kaprekar routine to reach a fixed point,
@@ -73,9 +106,20 @@ partitioned into a 100×100 matrix:
 
 ![](sw/spl/Help/Image/kaprekarSequence-A.png)
 
+The Kaprekar binary numbers in decimal,
+OEIS [A160761](https://oeis.org/A160761):
+
+~~~spl svg=B
+0:100.collect { :n |
+	n.kaprekarSequence(2).last
+}.without(0).stepPlot
+~~~
+
+![](sw/spl/Help/Image/kaprekarSequence-B.svg)
+
 * * *
 
-See also: fromDigits, integerDigits, sort
+See also: fromDigits, integerDigits, kaprekarMap, sort
 
 Guides: Integer Sequence Functions
 

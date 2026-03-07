@@ -645,6 +645,10 @@
 		answer
 	}
 
+	kaprekarSequence { :self :base |
+		self.kaprekarSequence(base, nil)
+	}
+
 	kaprekarSequence { :self |
 		self.kaprekarSequence(10, nil)
 	}

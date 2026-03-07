@@ -161,9 +161,35 @@ OEIS [A165110](https://oeis.org/A165110):
 
 ![](sw/spl/Help/Image/kaprekarMap-J.svg)
 
+Length of preperiodic part of trajectory of _n_ under iteration of the base-two Kaprekar map,
+OEIS [A164885](https://oeis.org/A164885),
+one less than
+OEIS [A164886](https://oeis.org/A164886):
+
+~~~spl svg=K
+0:85.collect { :n |
+	{ :x |
+		x.kaprekarMap(2)
+	}.fixedPointList(n, =).size - 2
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/kaprekarMap-K.svg)
+
+Some later terms of the _b=10_ map,
+divided by nine,
+OEIS [A151950](https://oeis.org/A151950):
+
+~~~spl svg=L
+(1600:1900.collect(kaprekarMap:/1) / 9)
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/kaprekarMap-L.svg)
+
 * * *
 
-See also: fromDigits, integerDigits, sort
+See also: fromDigits, integerDigits, kaprekarSequence, sort
 
 Guides: Integer Sequence Functions
 

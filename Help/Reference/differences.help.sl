@@ -313,6 +313,22 @@ OEIS [A036263](https://oeis.org/A036263):
 
 ![](sw/spl/Help/Image/differences-H.svg)
 
+Total variation of base-ten digits of _n_,
+OEIS [A297330](https://oeis.org/A297330):
+
+~~~spl svg=I
+0:150.collect { :n |
+	n.integerDigits(10)
+	.partition(2, 1)
+	.collect { :x |
+		x.differences.abs
+	}.catenate
+}.catenate.discretePlot
+~~~
+
+![](sw/spl/Help/Image/differences-I.svg)
+
+
 * * *
 
 See also: -, accumulate, differencesBy, discreteLaplacian, foldList, gradient, orderedDifferences, prefixSum, ratios
