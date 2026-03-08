@@ -390,6 +390,15 @@ a.discretePlot
 
 ![](sw/spl/Help/Image/digitCount-P.svg)
 
+Count number of zero digits in _n_,
+OEIS [A055641](https://oeis.org/A055641):
+
+~~~spl svg=Q
+0:150.digitCount(10, 0).discretePlot
+~~~
+
+![](sw/spl/Help/Image/digitCount-Q.svg)
+
 * * *
 
 See also: bitAnd, hammingDistance, hammingWeight, integerDigits, integerExponent, integerLength, thueMorse

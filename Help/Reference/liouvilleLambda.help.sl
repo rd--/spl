@@ -3,7 +3,9 @@
 - _liouvilleLambda(n)_
 
 Answer the Liouville lambda function at _n_.
-The answer is one whenever the number of prime factors counting multiplicity of _n_ is even,
+The answer is one whenever the number of prime factors,
+counting multiplicity,
+of _n_ is even,
 and negative one otherwise.
 
 Compute the Liouville function at 8 and 9:

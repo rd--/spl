@@ -4,14 +4,13 @@
 
 Answer the prime factors of the integer _n_ as given by a _wheel_ algorithm.
 
-Prime factors of the first seventeen integers:
+Prime factors of the integers to seventeen:
 
 ```
->>> 1:17.collect(
+>>> 2:17.collect(
 >>> 	primeFactorsWheel:/1
 >>> )
 [
-	;
 	2;
 	3;
 	2 2;

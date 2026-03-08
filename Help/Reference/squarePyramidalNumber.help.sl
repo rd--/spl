@@ -5,11 +5,12 @@
 Answer the _n_-th square pyramidal number,
 the sum of the first _n_ square numbers.
 
-First few terms,
+First few square pyramidal numbers,
+threads over lists,
 OEIS [A000330](https://oeis.org/A000330):
 
 ```
->>> 0:27.collect(squarePyramidalNumber:/1)
+>>> 0:27.squarePyramidalNumber
 [
 	   0    1    5   14   30
 	  55   91  140  204  285
@@ -19,6 +20,28 @@ OEIS [A000330](https://oeis.org/A000330):
 	5525 6201 6930
 ]
 ```
+
+Relation to `tetrahedralNumber`:
+
+```
+>>> 0:9.tetrahedralNumber
+>>> .adjacentPairsCollect(+)
+[1 5 14 30 55 91 140 204 285]
+
+1:9.squarePyramidalNumber
+[1 5 14 30 55 91 140 204 285]
+```
+
+First few square pyramidal numbers,
+threads over lists,
+OEIS [A000330](https://oeis.org/A000330):
+
+~~~spl svg=A
+0:65.squarePyramidalNumber
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/squarePyramidalNumber-A.svg)
 
 * * *
 

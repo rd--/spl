@@ -155,6 +155,18 @@ the _y_ coordinate is given by the order of the divisions:
 
 ![](sw/spl/Help/Image/divide-A.svg)
 
+Triangle read by rows,
+_n/k_ if _k_ is a divisor of _n_ else zero,
+OEIS [A127093](https://oeis.org/A127093):
+
+~~~spl svg=B
+1:14.triangularArray { :n :k |
+	n.divisible(k).if { n / k } { 0 }
+}.catenate.discretePlot
+~~~
+
+![](sw/spl/Help/Image/divide-B.svg)
+
 * * *
 
 See also: /, //, +, -, *, times

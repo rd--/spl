@@ -104,6 +104,36 @@ OEIS [A063574](https://oeis.org/A063574):
 
 ![](sw/spl/Help/Image/nestWhileList-A.svg)
 
+Multiplicative persistence,
+OEIS [A031346](https://oeis.org/A031346):
+
+~~~spl svg=B
+1:85.collect { :n |
+	{ :x |
+		x.integerDigits.product
+	}.nestWhileList(n) { :x |
+		x >= 10
+	}.size - 1
+}.stepPlot
+~~~
+
+![](sw/spl/Help/Image/nestWhileList-B.svg)
+
+Two-multiplicative persistence,
+OEIS [A031348](https://oeis.org/A031348):
+
+~~~spl svg=C
+1:65.collect { :n |
+	{ :x |
+		(x.integerDigits ^ 2).product
+	}.nestWhileList(n) { :x |
+		x > 1
+	}.size - 1
+}.stepPlot
+~~~
+
+![](sw/spl/Help/Image/nestWhileList-C.svg)
+
 * * *
 
 See also: iterate, nestList, nestWhile, takeWhile

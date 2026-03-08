@@ -432,6 +432,19 @@ OEIS [A294898](https://oeis.org/A294898):
 
 ![](sw/spl/Help/Image/integerExponent-O.svg)
 
+The largest five-smooth divisor of _n_,
+OEIS [A355582](https://oeis.org/A355582):
+
+~~~spl svg=P
+1:65.collect { :n |
+	[2 3 5].product { :b |
+		b ^ n.integerExponent(b)
+	}
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/integerExponent-P.svg)
+
 * * *
 
 See also: ^, digitCount, factorInteger, integerDigits, log2, log10, rulerFunction

@@ -1,6 +1,6 @@
 # additivePersistence
 
-- _additivePersistence(x, b)_
+- _additivePersistence(x, b=10)_
 
 The number of additions required to obtain the `digitalRoot` of _x_ in base _b_.
 
@@ -22,7 +22,8 @@ OEIS [A031286](https://oeis.org/A031286):
 [0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 2 1]
 ```
 
-Scatter plot of first few terms:
+Scatter plot of the additive persistences of the first few positive integers,
+OEIS [A031286](https://oeis.org/A031286):
 
 ~~~spl svg=A
 1:200.collect { :n |
@@ -34,7 +35,7 @@ Scatter plot of first few terms:
 
 * * *
 
-See also: digitalRoot
+See also: digitalRoot, multiplicativePersistence
 
 Guides: Integer Sequence Functions
 

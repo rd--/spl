@@ -35,6 +35,22 @@ Construct an empty `Map`:
 ([0 -> -0], false, true)
 ```
 
+A Conway sequence,
+OEIS [A004001](https://oeis.org/A004001):
+
+~~~spl svg=A
+let a = Map { :n |
+	(n <= 2).if {
+		1
+	} {
+		a[a[n - 1]] + a[n - a[n - 1]]
+	}
+};
+a[1:75].scatterPlot
+~~~
+
+![](sw/spl/Help/Image/Map-A.svg)
+
 Note: `Map` is _IdentityDictionary_ in Smalltalk.
 
 * * *

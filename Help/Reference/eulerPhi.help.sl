@@ -31,7 +31,7 @@ Threads over lists:
 [1 2 4 2 6 24]
 ```
 
-First few terms,
+First few terms of _φ(n)_,
 OEIS [A000010](https://oeis.org/A000010):
 
 ```

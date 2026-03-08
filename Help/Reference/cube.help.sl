@@ -16,11 +16,25 @@ The inverse is `cubeRoot`:
 3
 ```
 
-Threads over lists:
+First few terms,
+threads over lists,
+OEIS [A000578](https://oeis.org/A000578):
 
 ```
->>> 1:9.cube.sum
-2025
+>>> 0:9.cube
+[0 1 8 27 64 125 216 343 512 729]
+```
+
+Partial sums,
+also _n_-th triangular number squared,
+OEIS [A000537](https://oeis.org/A000537):
+
+```
+>>> 0:9.cube.prefixSum
+[0 1 9 36 100 225 441 784 1296 2025]
+
+>>> 0:9.triangularNumber.square
+[0 1 9 36 100 225 441 784 1296 2025]
 ```
 
 Where supported `cube` is displayed as ³.

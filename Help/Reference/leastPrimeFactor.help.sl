@@ -17,6 +17,19 @@ Specific values:
 4513
 ```
 
+At `one`:
+
+```
+>>> 1.leastPrimeFactor
+1
+
+>>> 1.isPrime
+false
+
+>>> 1.isComposite
+false
+```
+
 Confirm `leastPrimeFactor` agrees with `primeFactors` up to _k_:
 
 ```
@@ -30,12 +43,13 @@ true
 ```
 
 Least prime factors of integers up to one hundred,
+threads over lists,
 OEIS [A020639](https://oeis.org/A020639):
 
 ```
->>> 1:100.collect(leastPrimeFactor:/1)
+>>> 1:100.leastPrimeFactor
 [
-	 0  2  3  2  5  2  7  2  3  2
+	 1  2  3  2  5  2  7  2  3  2
 	11  2 13  2  3  2 17  2 19  2
 	 3  2 23  2  5  2  3  2 29  2
 	31  2  3  2  5  2 37  2  3  2
@@ -91,11 +105,31 @@ OEIS [A083221](https://oeis.org/A083221):
 ]
 ```
 
+Maximum divisor of _n_,
+OEIS [A032742](https://oeis.org/A032742):
+
+```
+>>> 1:19.collect { :n |
+>>> 	n / n.leastPrimeFactor
+>>> }
+[1 1 1 2 1 3 1 4 3 5 1 6 1 7 5 8 1 9 1]
+```
+
+Largest difference between consecutive divisors of _n_,
+OEIS [A060681](https://oeis.org/A060681):
+
+```
+>>> 1:19.collect { :n |
+>>> 	n - (n / n.leastPrimeFactor)
+>>> }
+[0 1 2 2 4 3 6 4 6 5 10 6 12 7 10 8 16 9 18]
+```
+
 Log-scale plot of the least prime factors of the integers from two up to one hundred,
 OEIS [A020639](https://oeis.org/A020639):
 
 ~~~spl svg=A
-2:100.collect(leastPrimeFactor:/1)
+2:100.leastPrimeFactor
 .logScale.scatterPlot
 ~~~
 
@@ -122,9 +156,9 @@ _π(L(n))_,
 OEIS [A055396](https://oeis.org/A055396):
 
 ~~~spl svg=C
-1:85.collect { :n |
-	n.leastPrimeFactor.primePi
-}.discretePlot
+1:85.leastPrimeFactor
+.primePi
+.discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/leastPrimeFactor-C.svg)
@@ -134,7 +168,7 @@ OEIS [A078898](https://oeis.org/A078898):
 
 ~~~spl svg=D
 let m = 100;
-let l = 1:m.collect(leastPrimeFactor:/1);
+let l = 1:m.leastPrimeFactor;
 1:m.collect { :n |
 	l.take(n).occurrencesOf(l[n])
 }.discretePlot
@@ -162,6 +196,28 @@ b.discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/leastPrimeFactor-E.svg)
+
+Maximum divisor of _n_,
+OEIS [A032742](https://oeis.org/A032742):
+
+~~~spl svg=F
+2:85.collect { :n |
+	n / n.leastPrimeFactor
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/leastPrimeFactor-F.svg)
+
+Largest difference between consecutive divisors of _n_,
+OEIS [A060681](https://oeis.org/A060681):
+
+~~~spl svg=G
+1:200.collect { :n |
+	n - (n / n.leastPrimeFactor)
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/leastPrimeFactor-G.svg)
 
 * * *
 

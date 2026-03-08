@@ -242,6 +242,10 @@
 		self.collect(fibonacciWord:/1)
 	}
 
+	figurateNumber { :self :k |
+		self.collect(k.figurateNumber)
+	}
+
 	floor { :self :epsilon |
 		self.collect { :each |
 			each.floor(epsilon)
@@ -282,6 +286,10 @@
 		self.collect { :each |
 			each.grayEncode(operand)
 		}
+	}
+
+	greatestPrimeFactor { :self |
+		self.collect(greatestPrimeFactor:/1)
 	}
 
 	hammingWeight { :self |
@@ -408,6 +416,10 @@
 
 	lcm { :self |
 		self.reduce(lcm:/2)
+	}
+
+	leastPrimeFactor { :self |
+		self.collect(leastPrimeFactor:/1)
 	}
 
 	liouvilleLambda { :self |
@@ -537,8 +549,16 @@
 		self.collect(previousPrime:/1)
 	}
 
+	primeFactors { :self :convention |
+		self.collect { :each |
+			each.primeFactors(convention)
+		}
+	}
+
 	primeFactors { :self |
-		self.collect(primeFactors:/1)
+		self.collect { :each |
+			each.primeFactors('Standard')
+		}
 	}
 
 	primeLimit { :self |
@@ -613,6 +633,10 @@
 
 	square { :self |
 		self.collect(square:/1)
+	}
+
+	squarePyramidalNumber { :self |
+		self.collect(squarePyramidalNumber:/1)
 	}
 
 	squareFreePart { :self |

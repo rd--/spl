@@ -38,7 +38,7 @@ OEIS
 
 * * *
 
-See also: polygonalNumber, tetrahedralNumber
+See also: polygonalNumber, squarePyramidalNumber, tetrahedralNumber
 
 Guides: Integer Functions, Integer Sequence Functions
 

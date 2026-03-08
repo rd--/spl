@@ -37,4 +37,8 @@
 		>
 	}
 
+	uncheckedAt { :self :key |
+		<primitive: return _self.get(_key);>
+	}
+
 }

@@ -317,17 +317,16 @@ Total variation of base-ten digits of _n_,
 OEIS [A297330](https://oeis.org/A297330):
 
 ~~~spl svg=I
-0:150.collect { :n |
+1:150.collect { :n |
 	n.integerDigits(10)
 	.partition(2, 1)
 	.collect { :x |
 		x.differences.abs
-	}.catenate
-}.catenate.discretePlot
+	}.catenate.sum
+}.discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/differences-I.svg)
-
 
 * * *
 

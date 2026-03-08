@@ -26,6 +26,10 @@ SplFragment(squaresR,svg=B)
 
 <triangularArray,K
 
+<isPerfectSquare,B
+
+<isInteger,B
+
 ## _-1,1_ sequences
 
 SplFragment(liouvilleLambda,svg=A)

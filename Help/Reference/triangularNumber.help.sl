@@ -123,6 +123,17 @@ C.f. `polygonalNumber`:
 3.polygonalNumber(1:23)
 ```
 
+Triangular numbers squared,
+OEIS [A000537](https://oeis.org/A000537):
+
+```
+>>> 0:9.triangularNumber.square
+[0 1 9 36 100 225 441 784 1296 2025]
+
+>>> (0:9 ^ 3).prefixSum
+[0 1 9 36 100 225 441 784 1296 2025]
+```
+
 The reciprocals of triangular numbers produce is convergent series where the limit is two:
 
 ~~~spl svg=A

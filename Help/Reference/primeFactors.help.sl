@@ -1,6 +1,6 @@
 # primeFactors
 
-- _primeFactors(n)_
+- _primeFactors(n)
 
 Answer the `List` of prime factors the `product` of which is _n_.
 The list is in increasing order.
@@ -34,6 +34,31 @@ At `one`:
 ```
 >>> 1.primeFactors
 []
+
+>>> [].product
+1
+```
+
+Extended convention:
+
+```
+>>> 0.primeFactors('Extended')
+[0]
+
+>>> [0].product
+0
+
+>>> 1.primeFactors('Extended')
+[1]
+
+>>> [1].product
+1
+
+>>> -60.primeFactors('Extended')
+[-1 2 2 3 5]
+
+>>> [-1 2 2 3 5].product
+-60
 ```
 
 The number 30 is the smallest 3-dimensional number,
@@ -87,13 +112,6 @@ Threads elementwise over lists:
 [2 2; 3 7 11; 3 3 5 7; 3 2863099537]
 ```
 
-At zero and one:
-
-```
->>> [-1 0 1].primeFactors
-[;;]
-```
-
 Sorted into descending order:
 
 ```
@@ -124,12 +142,14 @@ At a power of two:
 ```
 
 Table of first few terms,
+using the extended definition,
 OEIS [A027746](https://oeis.org/A027746),
 reversing each row gives [A238689](https://oeis.org/A238689):
 
 ```
->>> 2:12.primeFactors
+>>> 1:12.primeFactors('Extended')
 [
+	1;
 	2;
 	3;
 	2 2;

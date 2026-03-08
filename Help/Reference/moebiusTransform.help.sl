@@ -97,7 +97,20 @@ OEIS [A006206](https://oeis.org/A006206):
 [1 1 1 1 2 2 4 5 8 11 18 25 40 58 90]
 ```
 
-Plot
+Moebius transform of largest difference between consecutive divisors of _n_,
+OEIS [A300721](https://oeis.org/A300721):
+
+```
+>>> 1:20.collect { :n |
+>>> 	n - (n / n.leastPrimeFactor)
+>>> }.moebiusTransform
+[
+	 0  1  2  1  4  0  6  2  4  0
+	10  2 12  0  4  4 16  2 18  4
+]
+```
+
+Plot triplicate Moebius transform of the _10000…_ sequence,
 OEIS [A007428](https://oeis.org/A007428):
 
 ~~~spl svg=A
@@ -131,6 +144,18 @@ OEIS [A086831](https://oeis.org/A086831):
 ~~~
 
 ![](sw/spl/Help/Image/moebiusTransform-C.svg)
+
+Moebius transform of largest difference between consecutive divisors of _n_,
+OEIS [A300721](https://oeis.org/A300721):
+
+~~~spl svg=D
+1:85.collect { :n |
+	n - (n / n.leastPrimeFactor)
+}.moebiusTransform
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/moebiusTransform-D.svg)
 
 * * *
 

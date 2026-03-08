@@ -118,6 +118,17 @@ OEIS [A169837](https://oeis.org/A169837):
 
 ![](sw/spl/Help/Image/ekgSequence-E.svg)
 
+The largest prime factor of the _n_-th term of EKG-sequence,
+OEIS [A304733](https://oeis.org/A304733):
+
+~~~spl svg=F
+115.ekgSequence
+.greatestPrimeFactor
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/ekgSequence-F.svg)
+
 * * *
 
 See also: gcd, leastExcludedSequence, yellowstonePermutation

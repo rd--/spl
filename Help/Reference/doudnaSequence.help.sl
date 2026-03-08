@@ -84,6 +84,23 @@ OEIS[A286622](https://oeis.org/A286622):
 
 ![](sw/spl/Help/Image/doudnaSequence-D.svg)
 
+Ordinal transform of the restricted growth sequence of least number with the same prime signature as the Doudna sequence entry,
+OEIS[A286552](https://oeis.org/A286552):
+
+~~~spl svg=E
+200.doudnaSequence.collect { :n |
+	1:Infinity.detect { :m |
+		n.primeSignature
+		=
+		m.primeSignature
+	}
+}.restrictedGrowthSequenceTransform
+.ordinalTransform
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/doudnaSequence-E.svg)
+
 * * *
 
 See also: digitCount, integerDigits, prime

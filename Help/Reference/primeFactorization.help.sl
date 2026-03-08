@@ -38,6 +38,13 @@ Answer a `Multiset` giving the prime factors of the integer _n_ and their multip
 ]
 ```
 
+At `one`:
+
+```
+>>> 1.primeFactorization
+[].Multiset
+```
+
 The keys are the prime divisors:
 
 ```

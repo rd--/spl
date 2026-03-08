@@ -1685,3 +1685,79 @@
 	}
 
 }
+
++String {
+
+	figurateNumber { :self |
+		self.caseOf(
+			[
+				'Triangular' -> { 3.polygonalNumber },
+				'Square' -> { 4.polygonalNumber },
+				'Pentagonal' -> { 5.polygonalNumber },
+				'Hexagonal' -> { 6.polygonalNumber },
+				'Heptagonal' -> { 7.polygonalNumber },
+				'Octagonal' -> { 8.polygonalNumber },
+				'Enneagonal' -> { 9.polygonalNumber },
+				'Decagonal' ->  { 10.polygonalNumber },
+				'Hendecagonal' -> { 11.polygonalNumber },
+				'Dodecagonal' -> { 12.polygonalNumber },
+				'Tridecagonal' -> { 13.polygonalNumber },
+				'Tetradecagonal' -> { 14.polygonalNumber },
+				'Pentadecagonal' -> { 15.polygonalNumber },
+				'Hexadecagonal' -> { 16.polygonalNumber },
+				'CenteredDodecahedral' -> {
+					{ :n |
+						(2 * n + 1) * (5 * (n ^ 2) + (5 * n) + 1)
+					}
+				},
+				'CenteredOctahedral' -> {
+					{ :n |
+						let a = 4 * (n ^ 3);
+						let b = -6 * (n ^ 2);
+						let c = 8 * n;
+						(a + b + c - 3) / 3
+					}
+				},
+				'Dodecahedral' -> {
+					{ :n |
+						n * (3 * n - 1) * (3 * n - 2) / 2
+					}
+				},
+				'Icosahedral' -> {
+					{ :n |
+						n * (5 * (n ^ 2) - (5 * n) + 2) / 2
+					}
+				},
+				'Octahedral' -> {
+					{ :n |
+						(2 * (n ^ 3) + n) / 3
+					}
+				},
+				'RhombicDodecahedral' -> {
+					{ :n |
+						(n ^ 4) - ((n - 1) ^ 4)
+					}
+				},
+				'Tetrahedral' -> {
+					{ :n |
+						n * (n + 1) * (n + 2) / 6
+					}
+				},
+				'TruncatedOctahedral' -> {
+					{ :n |
+						(16 * (n ^ 3)) - (33 * (n ^ 2)) + (24 * n) - 6
+					}
+				}
+			]
+		)
+	}
+
+}
+
++@Integer {
+
+	figurateNumber { :self :k |
+		k.figurateNumber.blockValue(self)
+	}
+
+}

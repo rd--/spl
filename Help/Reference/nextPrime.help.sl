@@ -102,7 +102,7 @@ Threads over lists:
 [2 7 11 17]
 ```
 
-First few terms,
+First few terms of the next prime function,
 OEIS [A151800](https://oeis.org/A151800):
 
 ```
@@ -148,7 +148,8 @@ OEIS [A033932](https://oeis.org/A033932):
 [1 1 1 1 5 7 7 11 23 17 11 1 29 67]
 ```
 
-Plot the sequence of primes:
+Plot the next prime function,
+OEIS [A151800](https://oeis.org/A151800):
 
 ~~~spl svg=A
 0:50.functionPlot(nextPrime:/1)
@@ -215,6 +216,17 @@ OEIS [A064216](https://oeis.org/A064216):
 ~~~
 
 ![](sw/spl/Help/Image/nextPrime-E.svg)
+
+Ordinal transform of the next prime function,
+OEIS [A175851](https://oeis.org/A175851):
+
+~~~spl svg=F
+1:250.nextPrime
+.ordinalTransform
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/nextPrime-F.svg)
 
 * * *
 

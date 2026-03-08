@@ -375,6 +375,19 @@ let t = { :n :m |
 
 ![](sw/spl/Help/Image/gcd-N.svg)
 
+_gcd(k+n/k)_, where _k_ is over all divisors of _n_,
+OEIS [A143771](https://oeis.org/A143771):
+
+~~~spl svg=O
+1:85.collect { :n |
+	n.divisors.collect { :d |
+		d + (n / d)
+	}.gcd
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/gcd-O.svg)
+
 * * *
 
 See also: ||, chineseRemainder, divisible, euclideanAlgorithm, extendedGcd, Fraction, isCoprime, isPrime, lcm

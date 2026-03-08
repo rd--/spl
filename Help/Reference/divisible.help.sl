@@ -305,6 +305,19 @@ OEIS [A237048](https://oeis.org/A237048):
 
 ![](sw/spl/Help/Image/divisible-K.svg)
 
+Smallest number _m_ such that _m(m+1)/2_ is divisible by _n_,
+OEIS [A011772](https://oeis.org/A011772):
+
+~~~spl svg=L
+1:85.collect { :n |
+	1:Infinity.detect { :m |
+		(m * (m + 1) / 2).divisible(n)
+	}
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/divisible-L.svg)
+
 * * *
 
 See also: %, divisors, even, gcd, mod, quotient, round

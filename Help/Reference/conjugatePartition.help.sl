@@ -49,12 +49,12 @@ OEIS [A088902](https://oeis.org/A088902):
 
 ```
 >>> let m = 'HeinzAscending';
->>> 1:99.select { :n |
+>>> 2:99.select { :n |
 >>> 	let p = n.primeFactors.primePi;
 >>> 	let q = p.reverseSort;
 >>> 	q.conjugatePartition = q
 >>> }
-[1 2 6 9 20 30 56 75 84]
+[2 6 9 20 30 56 75 84]
 ```
 
 * * *

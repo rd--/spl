@@ -1605,6 +1605,17 @@
 		}
 	}
 
+	ordinalTransform { :a |
+		let c = Dictionary();
+		let k = a.size;
+		1:k.collect { :n |
+			let e = a[n];
+			let i = c.lookup(e, 0);
+			c[e] := i + 1;
+			i + 1
+		}
+	}
+
 	restrictedGrowthSequenceTransform { :a |
 		let m = Dictionary();
 		let b = List(a.size);

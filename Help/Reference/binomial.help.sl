@@ -939,6 +939,17 @@ OEIS [A007306](https://oeis.org/A007306):
 
 ![](sw/spl/Help/Image/binomial-S.svg)
 
+_C(n+10,n)%10_,
+OEIS [A133890](https://oeis.org/A133890):
+
+~~~spl svg=T
+0:115.collect { :n |
+	(n + 10).binomial(n) % 10
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/binomial-T.svg)
+
 * * *
 
 See also: factorial, multinomial, trinomial

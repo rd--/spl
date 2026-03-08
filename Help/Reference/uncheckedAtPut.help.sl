@@ -1,8 +1,9 @@
 # uncheckedAtPut
 
-- _uncheckedAtPut(aCollection, anIndex, aValue)_
+- _uncheckedAtPut(c, i, x)_
 
-Unchecked mutation, answers _aValue_.
+Unchecked mutation of the collection _c_ at the index _i_ of value _x_.
+Answers _x_.
 
 ```
 >>> let l = ['a' 'b' 'c' 'd' 'e' 'f'];

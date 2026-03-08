@@ -431,6 +431,12 @@
 		>
 	}
 
+	polygonalNumber { :r |
+		{ :n |
+			(1 / 2) * n * (n * (r - 2) - r + 4)
+		}
+	}
+
 	polygonalNumber { :r :n |
 		(1 / 2) * n * (n * (r - 2) - r + 4)
 	}

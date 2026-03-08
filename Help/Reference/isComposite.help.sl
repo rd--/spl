@@ -2,7 +2,8 @@
 
 - _isComposite(n)_
 
-Answer `true` if the integer _n_ is _not_ prime, else `false`.
+Answer `true` if the non-negative integer _n_ is _not_ prime, else `false`.
+Note that `one` is neither prime not composite.
 
 Test whether a number is composite:
 
@@ -23,6 +24,16 @@ Test for large integers:
 ```
 >>> (10L ^ 3000 + 1).isComposite
 true
+```
+
+At `one`:
+
+```
+>>> 1.isComposite
+false
+
+>>> 1.isPrime
+false
 ```
 
 Threads over lists:

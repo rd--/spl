@@ -19,7 +19,7 @@ the sorted exponents of the prime factorization.
 60
 ```
 
-The prime signature of `one` can be defined here as the empty set _{}_,
+The prime signature of `one` is defined here as the empty set _{}_,
 it is sometimes defined as _{1}_:
 
 ```

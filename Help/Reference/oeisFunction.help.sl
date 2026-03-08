@@ -2,6 +2,8 @@
 
 - _oeisFunction(s)_
 
+Answer a unary block that will answer the _n_-th term of the OEIS sequence _s_.
+
 Sierpiński’s triangle converted to decimal,
 OEIS [A001317](http://oeis.org/A001317):
 
@@ -95,7 +97,7 @@ let a = n.collect(
 
 * * *
 
-See also: OeisEntry
+See also: OeisEntry, oeisTerms
 
 Guides: Integer Sequence Functions
 

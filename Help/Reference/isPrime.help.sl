@@ -10,6 +10,9 @@ true
 
 >>> (11.factorial + 1).isPrime
 true
+
+>>> -23.isPrime
+false
 ```
 
 Primes up to one hundred:

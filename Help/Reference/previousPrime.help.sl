@@ -70,6 +70,51 @@ OEIS [A064924](https://oeis.org/A064924):
 
 ![](sw/spl/Help/Image/previousPrime-A.svg)
 
+Ordinal transform of the next prime function,
+OEIS [A175851](https://oeis.org/A175851):
+
+~~~spl svg=B
+1:250.collect { :n |
+	n.isComposite.if {
+		n - n.previousPrime + 1
+	} {
+		1
+	}
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/previousPrime-B.svg)
+
+Numerators of rational valued sequence whose Dirichlet convolution with itself yields the ordinal transform of the next prime function,
+OEIS [A317830](https://oeis.org/A317830):
+
+~~~
+let a = Map { :n |
+	n.isComposite.if {
+		n - n.previousPrime + 1L
+	} {
+		1L
+	}
+};
+let f = Dictionary { :n |
+	(n = 1).if {
+		1
+	} {
+		let p = n.divisors.sum { :d |
+			(1 < d & { d < n }).if {
+				f[d] * f[n / d]
+			} {
+				0
+			}
+		};
+		(a[n] - p) / 2
+	}
+};
+f[1:115].numerator.logScale.discretePlot
+~~~
+
+![](sw/spl/Help/Image/previousPrime-C.svg)
+
 * * *
 
 See also: isPrime, nextPrime

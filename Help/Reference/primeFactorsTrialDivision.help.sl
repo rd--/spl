@@ -4,14 +4,13 @@
 
 Answer the prime factors of the integer _n_ as given by the _trial division_ algorithm.
 
-Prime factors of the first seventeen integers:
+Prime factors of the integers to seventeen:
 
 ```
->>> 1:17.collect(
+>>> 2:17.collect(
 >>> 	primeFactorsTrialDivision:/1
 >>> )
 [
-	;
 	2;
 	3;
 	2 2;

@@ -17,20 +17,27 @@ Specific values:
 13264529
 ```
 
-By convention:
+At `one`, by convention:
 
 ```
 >>> 1.greatestPrimeFactor
 1
+
+>>> 1.isPrime
+false
+
+>>> 1.isComposite
+false
 ```
 
 Greatest prime factors of integers up to one hundred,
+threads over lists,
 OEIS [A006530](https://oeis.org/A006530):
 
 ```
->>> 2:20.collect(greatestPrimeFactor:/1)
+>>> 1:20.greatestPrimeFactor
 [
-	    2  3  2  5  3  7  2  3  5
+	 1  2  3  2  5  3  7  2  3  5
 	11  3 13  7  5  2 17  3 19  5
 ]
 ```

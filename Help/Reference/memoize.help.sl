@@ -72,22 +72,6 @@ OEIS [A005043](https://oeis.org/A005043):
 ]
 ```
 
-A Conway sequence,
-OEIS [A004001](https://oeis.org/A004001):
-
-~~~spl svg=A
-let a:/1 = { :n |
-	(n <= 2).if {
-		1
-	} {
-		a(a(n - 1)) + a(n - a(n - 1))
-	}
-}.memoize(true);
-1:75.collect(a:/1).scatterPlot
-~~~
-
-![](sw/spl/Help/Image/memoize-A.svg)
-
 * * *
 
 See also: Block, cached, fibonacci

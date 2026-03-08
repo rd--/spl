@@ -15,9 +15,21 @@ false
 
 >>> Infinity.isInteger
 false
+```
 
+The binary form allows as ε value to be specified:
+
+```
 >>> 1.000001.isInteger(1E-6)
 true
+
+>>> 1:750.select { :n |
+>>> 	(n ^ (1 / 3)).isInteger(1E-14)
+>>> }
+[1 8 27 64 125 216 343 512 729]
+
+>>> 1:9 ^ 3
+[1 8 27 64 125 216 343 512 729]
 ```
 
 Note that numbers written using floating point literal notation,
@@ -144,6 +156,17 @@ OEIS [A133388](https://oeis.org/A133388):
 ~~~
 
 ![](sw/spl/Help/Image/isInteger-A.svg)
+
+One if _n_ is a cube else zero,
+OEIS [A010057](https://oeis.org/A010057):
+
+~~~spl svg=B
+1:750.collect { :n |
+	(n ^ (1 / 3)).isInteger(1E-14)
+}.boole.discretePlot
+~~~
+
+![](sw/spl/Help/Image/isInteger-B.svg)
 
 _Rationale_:
 Note that this is not a `Type` predicate,

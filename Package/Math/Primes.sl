@@ -298,7 +298,7 @@
 
 	leastPrimeFactor { :n |
 		[
-			{ n < 2 } -> { 0 },
+			{ n < 2 } -> { 1 },
 			{ divisible(n, 2) } -> { 2 },
 			{ divisible(n, 3) } -> { 3 },
 			{ divisible(n, 5) } -> { 5 },
@@ -323,6 +323,7 @@
 	leastPrimeFactorList { :n |
 		let lp = List(n, 0);
 		let pr = [];
+		lp[1] := 1;
 		2.toDo(n) { :i |
 			let j = 1;
 			let break = false;
@@ -583,34 +584,30 @@
 		self.primeFactors.Multiset
 	}
 
+	primeFactors { :self :rule |
+		(rule = 'Extended').if {
+			(self < 0).if {
+				let factors = self.negate.primeFactors(true);
+				factors.addFirst(-1);
+				factors
+			} {
+				(self < 2).if {
+					[self]
+				} {
+					self.uncheckedPrimeFactors
+				}
+			}
+		} {
+			self.primeFactors
+		}
+	}
+
 	primeFactors { :self |
-		(self <= 1).if {
+		self.assertIsPositiveInteger('primeFactors');
+		(self < 2).if {
 			[]
 		} {
-			valueWithReturn { :return:/1 |
-				let index = 1;
-				let prime = 2;
-				let k = self;
-				let answer = [];
-				{
-					prime := index.prime;
-					{
-						k % prime = 0
-					}.whileTrue {
-						answer.add(prime);
-						k := k // prime;
-						(k = 1).ifTrue {
-							answer.return
-						}
-					};
-					(prime.square > k).ifTrue {
-						answer.add(k.normal);
-						answer.return
-					};
-					index := index + 1
-				}.repeatForever;
-				answer
-			}
+			self.uncheckedPrimeFactors
 		}
 	}
 
@@ -689,8 +686,10 @@
 	}
 
 	primeLimit { :self |
-		self.primeFactors.maxIfEmpty {
+		(self < 2).if {
 			0
+		} {
+			self.uncheckedPrimeFactors.max
 		}
 	}
 
@@ -963,6 +962,33 @@
 		a
 	}
 
+	uncheckedPrimeFactors { :self |
+		valueWithReturn { :return:/1 |
+			let index = 1;
+			let prime = 2;
+			let k = self;
+			let answer = [];
+			{
+				prime := index.prime;
+				{
+					k % prime = 0
+				}.whileTrue {
+					answer.add(prime);
+					k := k // prime;
+					(k = 1).ifTrue {
+						answer.return
+					}
+				};
+				(prime.square > k).ifTrue {
+					answer.add(k.normal);
+					answer.return
+				};
+				index := index + 1
+			}.repeatForever;
+			answer
+		}
+	}
+
 }
 
 +@Number {
@@ -997,10 +1023,16 @@
 		}
 	}
 
-	primeFactors { :self |
-		self.numerator.primeFactors ++ self.denominator.primeFactors.collect { :each |
+	primeFactors { :self :convention |
+		let a = self.numerator.primeFactors(convention);
+		let b = self.denominator.primeFactors(convention).collect { :each |
 			ReducedFraction(1, each)
-		}
+		};
+		a ++ b
+	}
+
+	primeFactors { :self |
+		self.primeFactors('Standard')
 	}
 
 	primeLimit { :self |

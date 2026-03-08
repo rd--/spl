@@ -6,12 +6,12 @@ Answer the Heinz number of the integer partition _p_,
 the `product` of `prime` of _p_.
 
 ```
->>> 1:28.collect { :n |
+>>> 2:28.collect { :n |
 >>> 	n.primeFactors
 >>> 	.primePi
 >>> 	.heinzNumber
 >>> }
-[1 .. 28]
+[2 .. 28]
 ```
 
 Heinz numbers of integer partitions whose length divides their sum,

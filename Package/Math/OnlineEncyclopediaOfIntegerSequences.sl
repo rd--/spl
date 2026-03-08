@@ -291,6 +291,48 @@
 
 }
 
++SmallFloat {
+
+	oeisA004001Terms { :k |
+		let a = Map { :n |
+			(n <= 2).if {
+				1
+			} {
+				a[a[n - 1]] + a[n - a[n - 1]]
+			}
+		};
+		a[1:k]
+	}
+
+	oeisA051135Terms { :k |
+		let m = (k + 2) * 2;
+		let a = m.oeisA004001Terms;
+		(k + 1 > a.max).if {
+			k.error('oeisA051135Terms')
+		} {
+			let b = List(a.max, 0);
+			a.do { :i |
+				b[i] := b[i] + 1
+			};
+			b.first(k)
+		}
+	}
+
+}
+
++String {
+
+	oeisTerms { :self :k |
+		self.caseOf(
+			[
+				'A004001' -> { k.oeisA004001Terms },
+				'A051135' -> { k.oeisA051135Terms }
+			]
+		)
+	}
+
+}
+
 OeisEntry : [Object, Storeable, Equatable] { | identifier:<String> contents bFile |
 
 	bFileData { :self |
