@@ -304,6 +304,22 @@
 		a[1:k]
 	}
 
+	oeisA306246Terms { :m |
+		let o = List(m, 0);
+		let p = nil;
+		let q = nil;
+		1:m.collect { :n |
+			let v = (n <= 2).if {
+				n
+			} {
+				q + p
+			};
+			q := p;
+			p := o[1 + v] := o[1 + v] + 1;
+			v
+		}
+	}
+
 	oeisA051135Terms { :k |
 		let m = (k + 2) * 2;
 		let a = m.oeisA004001Terms;
@@ -326,6 +342,7 @@
 		self.caseOf(
 			[
 				'A004001' -> { k.oeisA004001Terms },
+				'A306246' -> { k.oeisA306246Terms },
 				'A051135' -> { k.oeisA051135Terms }
 			]
 		)

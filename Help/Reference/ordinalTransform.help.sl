@@ -175,6 +175,41 @@ OEIS [A304734](https://oeis.org/A304734):
 
 ![](sw/spl/Help/Image/ordinalTransform-H.svg)
 
+Ordinal transform of
+OEIS [A306246](https://oeis.org/A306246),
+OEIS [A306251](https://oeis.org/A306251):
+
+~~~spl svg=I
+'A306246'.oeisTerms(250)
+.ordinalTransform
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/ordinalTransform-I.svg)
+
+Ordinal transform of Moebius transform of _φ(n)_,
+OEIS [A322874](https://oeis.org/A322874):
+
+~~~spl svg=J
+1:85.eulerPhi
+.moebiusTransform
+.ordinalTransform
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/ordinalTransform-J.svg)
+
+Ordinal transform of Kempner function,
+OEIS [A345934](https://oeis.org/A345934):
+
+~~~spl svg=K
+1:250.kempnerFunction
+.ordinalTransform
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/ordinalTransform-K.svg)
+
 * * *
 
 See also: binomialTransform, boustrophedonTransform, eulerTransform, inverseBinomialTransform, moebiusTransform, runLengthTransform

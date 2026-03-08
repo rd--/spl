@@ -59,6 +59,28 @@ At `Symbol`:
 (conjugate m)
 ```
 
+_a(n)=o(n-1)+o(n-2)_ where _o(n)_ is the number of occurrences of _a(n)_ in _a_ up to _n_,
+OEIS [A306246](https://oeis.org/A306246):
+
+~~~spl svg=A
+let m = 250;
+let o = List(m, 0);
+let p = nil;
+let q = nil;
+1:m.collect { :n |
+	let v = (n <= 2).if {
+		n
+	} {
+		q + p
+	};
+	q := p;
+	p := o[1 + v] := o[1 + v] + 1;
+	v
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/plus-A.svg)
+
 * * *
 
 See also: +, -, *, /, conjugate, sum

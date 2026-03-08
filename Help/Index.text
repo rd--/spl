@@ -1467,6 +1467,7 @@ Reference/fibonacciPolynomial.help.sl
 Reference/fibonacciSequence.help.sl
 Reference/fibonacciSequenceUpTo.help.sl
 Reference/fibonacciWord.help.sl
+Reference/figurateNumber.help.sl
 Reference/fileExists.help.sl
 Reference/File.help.sl
 Reference/fileInformation.help.sl
@@ -2282,6 +2283,7 @@ Reference/karyTree.help.sl
 Reference/katoYamasakiAlgorithm.help.sl
 Reference/katsuraFukudaMap.help.sl
 Reference/keesSemiHeight.help.sl
+Reference/kempnerFunction.help.sl
 Reference/keplerBouwkampConstant.help.sl
 Reference/keplerTree.help.sl
 Reference/keyAtValue.help.sl
@@ -2729,6 +2731,7 @@ Reference/MultinormalDistribution.help.sl
 Reference/multipleRootGraph.help.sl
 Reference/multiplicativeDigitalRoot.help.sl
 Reference/multiplicativeOrder.help.sl
+Reference/multiplicativePersistence.help.sl
 Reference/multiplicativeSuborder.help.sl
 Reference/multiplyAdd.help.sl
 Reference/Multiset.help.sl
@@ -2880,6 +2883,7 @@ Reference/oddLimitSet.help.sl
 Reference/oddPart.help.sl
 Reference/OeisEntry.help.sl
 Reference/oeisFunction.help.sl
+Reference/oeisTerms.help.sl
 Reference/OffsetOut.help.sl
 Reference/ofSize.help.sl
 Reference/oklabToXyz.help.sl
@@ -2900,6 +2904,7 @@ Reference/Ordered.help.sl
 Reference/orderedSubstrings.help.sl
 Reference/ordering.help.sl
 Reference/ordinalDateString.help.sl
+Reference/ordinalTransform.help.sl
 Reference/or.help.sl
 Reference/originalContents.help.sl
 Reference/origin.help.sl

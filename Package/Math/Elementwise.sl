@@ -414,6 +414,10 @@
 		}
 	}
 
+	kempnerFunction { :self |
+		self.collect(kempnerFunction:/1)
+	}
+
 	lcm { :self |
 		self.reduce(lcm:/2)
 	}

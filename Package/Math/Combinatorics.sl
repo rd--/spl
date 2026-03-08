@@ -319,6 +319,16 @@
 		}
 	}
 
+	kempnerFunction { :n |
+		let m = 1;
+		{
+			m.!.divisible(n)
+		}.whileFalse {
+			m := m + 1
+		};
+		m
+	}
+
 	motzkinWordsDo { :t :s :visit:/1 |
 		let n = (2 * s) + t;
 		let b = List(s, 2) ++ List(t, 1) ++ List(s, 0);
