@@ -19,7 +19,8 @@ OEIS [A246028](https://oeis.org/A246028):
 ]
 ```
 
-Plot:
+Run length transform of _S(n)=Fibonacci(n+1)_,
+OEIS [A246028](https://oeis.org/A246028):
 
 ~~~spl svg=A
 200.runLengthTransform { :n |
@@ -40,7 +41,9 @@ OEIS [A278159](https://oeis.org/A278159):
 ]
 ```
 
-Log scale scatter plot:
+Run length transform of `primorial`,
+log scale scatter plot,
+OEIS [A278159](https://oeis.org/A278159):
 
 ~~~spl svg=B
 100.runLengthTransform(primorial:/1)

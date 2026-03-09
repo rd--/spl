@@ -106,4 +106,8 @@ See also: binomialTransform, boustrophedonTransform, eulerTransform
 
 Guides: Integer Sequence Functions
 
+References:
+_OEIS_
+[1](https://oeis.org/wiki/Shadow_transform)
+
 Further Reading: Halbeisen 1999

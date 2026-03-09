@@ -123,6 +123,21 @@ OEIS [A358133](https://oeis.org/A358133):
 
 ![](sw/spl/Help/Image/reverseLexicographicSort-D.svg)
 
+Irregular array read by rows where row _k_ lists the run-sums of the _k_-th composition in standard order,
+OEIS [A353932](https://oeis.org/A353932):
+
+~~~spl svg=E
+1:5.collect { :n |
+	n.integerCompositions
+	.reverseLexicographicSort
+	.collect { :c |
+		c.split(=).collect(sum:/1)
+	}
+}.catenate.catenate.discretePlot
+~~~
+
+![](sw/spl/Help/Image/reverseLexicographicSort-E.svg)
+
 * * *
 
 See also: canonicalSort, lexicographicSort, sort

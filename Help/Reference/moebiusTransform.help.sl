@@ -2,7 +2,58 @@
 
 - _moebiusTransform([x₁ x₂ …])_
 
-Answer the Moebius transform of the integer sequence _x_.
+Answer the Moebius transform,
+also called the Möbius transform,
+of the integer sequence _x_.
+
+The Möbius transform of the Fibonacci numbers,
+OEIS [A000045](https://oeis.org/A000045),
+is
+OEIS [A007436](https://oeis.org/A007436):
+
+```
+>>> 1:13.fibonacci.moebiusTransform
+[1 0 1 2 4 6 12 18 32 50 88 134 232]
+
+>>> [1 0 1 2 4 6 12 18 32 50 88 134 232]
+>>> .inverseMoebiusTransform
+[1 1 2 3 5 8 13 21 34 55 89 144 233]
+```
+
+The Möbius transform of the natural numbers,
+OEIS [A000027](https://oeis.org/A000027),
+is
+OEIS [A000010](https://oeis.org/A000010):
+
+```
+>>> [1 .. 13].moebiusTransform
+[1 1 2 2 4 2 6 4 6 4 10 4 12]
+
+>>> [1 .. 13].eulerPhi
+[1 1 2 2 4 2 6 4 6 4 10 4 12]
+
+>>> [1 1 2 2 4 2 6 4 6 4 10 4 12]
+>>> .inverseMoebiusTransform
+[1 2 3 4 5 6 7 8 9 10 11 12 13]
+```
+
+The Möbius transform of the Euler totient function,
+OEIS [A000010](https://oeis.org/A000010),
+is
+OEIS [A007431](https://oeis.org/A007431):
+
+```
+>>> [1 .. 13].eulerPhi.moebiusTransform
+[1 0 1 1 3 0 5 2 4 0 9 1 11]
+
+>>> [1 .. 13].moebiusTransform
+>>> .moebiusTransform
+[1 0 1 1 3 0 5 2 4 0 9 1 11]
+
+>>> [1 0 1 1 3 0 5 2 4 0 9 1 11]
+>>> .inverseMoebiusTransform
+[1 1 2 2 4 2 6 4 6 4 10 4 12]
+```
 
 Of `ones`,
 OEIS [A000012](https://oeis.org/A000012),
@@ -168,6 +219,40 @@ OEIS [A063659](https://oeis.org/A063659):
 
 ![](sw/spl/Help/Image/moebiusTransform-E.svg)
 
+Moebius transform applied thrice to natural numbers,
+OEIS [A007432](https://oeis.org/A007432):
+
+~~~spl svg=F
+[1 .. 115].moebiusTransform
+.moebiusTransform
+.moebiusTransform
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/moebiusTransform-F.svg)
+
+Moebius transform of triangular numbers,
+OEIS [A007438](https://oeis.org/A007438):
+
+~~~spl svg=G
+1:115.triangularNumber
+.moebiusTransform
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/moebiusTransform-G.svg)
+
+Moebius transform of squares,
+OEIS [A007434](https://oeis.org/A007434):
+
+~~~spl svg=H
+1:115.square
+.moebiusTransform
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/moebiusTransform-H.svg)
+
 * * *
 
 See also: binomialTransform, boustrophedonTransform, eulerTransform, inverseMoebiusTransform, moebiusMu, runLengthTransform
@@ -176,4 +261,6 @@ Guides: Integer Sequence Functions
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/MoebiusTransform.html)
+[1](https://mathworld.wolfram.com/MoebiusTransform.html),
+_OEIS_
+[1](https://oeis.org/wiki/M%C3%B6bius_transform)

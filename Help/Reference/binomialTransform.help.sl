@@ -252,14 +252,15 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/BinomialTransform.html),
 _OEIS_
-[1](https://oeis.org/A001906)
-[2](https://oeis.org/A001519)
-[3](https://oeis.org/A121497)
-[4](https://oeis.org/A052467)
-[5](https://oeis.org/A000079)
-[6](https://oeis.org/A000110)
-[7](https://oeis.org/A004211)
-[8](https://oeis.org/A004212),
+[1](https://oeis.org/wiki/Binomial_transform)
+[2](https://oeis.org/A001906)
+[3](https://oeis.org/A001519)
+[4](https://oeis.org/A121497)
+[5](https://oeis.org/A052467)
+[6](https://oeis.org/A000079)
+[7](https://oeis.org/A000110)
+[8](https://oeis.org/A004211)
+[9](https://oeis.org/A004212),
 _W_
 [1](https://en.wikipedia.org/wiki/Binomial_transform)
 

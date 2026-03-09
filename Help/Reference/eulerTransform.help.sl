@@ -186,7 +186,8 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/EulerTransform.html),
 _OEIS_
-[1](https://oeis.org/A000219)
-[2](https://oeis.org/A023871)
-[3](https://oeis.org/A034899)
-[4](https://oeis.org/A166861)
+[1](https://oeis.org/wiki/Euler_transform)
+[2](https://oeis.org/A000219)
+[3](https://oeis.org/A023871)
+[4](https://oeis.org/A034899)
+[5](https://oeis.org/A166861)
