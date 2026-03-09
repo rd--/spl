@@ -99,6 +99,20 @@ OEIS [A321543](https://oeis.org/A321543):
 
 ![](sw/spl/Help/Image/divisorSum-F.svg)
 
+Expansion of a modular form related to Apery numbers,
+OEIS [A006353](https://oeis.org/A006353):
+
+~~~spl svg=G
+let a = [0 5 4 6 4 5];
+1:85.collect { :n |
+	n.divisorSum { :d |
+		d * a[d % 6 + 1]
+	}
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/divisorSum-G.svg)
+
 * * *
 
 See also: aliquotSum, divisors, divisorSigma, sum
