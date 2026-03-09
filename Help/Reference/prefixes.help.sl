@@ -105,7 +105,7 @@ Right-truncatable primes,
 every prefix is prime,
 OEIS [A024770](https://oeis.org/A024770):
 
-~~~
+~~~spl svg=D
 1:10000.prime.select { :n |
 	n.integerDigits
 	.prefixes

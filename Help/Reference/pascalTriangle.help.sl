@@ -142,7 +142,6 @@ OEIS [A095140](https://oeis.org/A095140):
 
 ~~~spl svg=E
 (20.pascalTriangle % 5)
-.catenate
 .padRight
 .rescale
 .matrixPlot

@@ -213,7 +213,7 @@ OEIS [A008687](https://oeis.org/A008687):
 _n+⌊(n/4)(-1^(n%4))_,
 OEIS [A265888](https://oeis.org/A265888):
 
-~~~spl svg=I
+~~~spl svg=J
 0:65.collect { :n |
 	n + ((n / 4).floor * (-1 ^ (n % 4)))
 }.discretePlot

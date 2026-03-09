@@ -89,7 +89,7 @@ OEIS [A175851](https://oeis.org/A175851):
 Numerators of rational valued sequence whose Dirichlet convolution with itself yields the ordinal transform of the next prime function,
 OEIS [A317830](https://oeis.org/A317830):
 
-~~~
+~~~spl svg=C
 let a = Map { :n |
 	n.isComposite.if {
 		n - n.previousPrime + 1L

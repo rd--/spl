@@ -120,7 +120,7 @@ OEIS [A054429](https://oeis.org/A054429):
 Denominators of Farey tree fractions,
 OEIS [A007306](https://oeis.org/A007306):
 
-~~~
+~~~spl svg=G
 let a = Map { :n |
 	(n < 2).if {
 		1

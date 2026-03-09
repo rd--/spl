@@ -83,6 +83,7 @@ let a = Map { :n |
 	(n < 4).if {
 		[1 3 1].at(n)
 	} {
+		let m = n - 2;
 		a[n - 1] + a[bitIff(m, m) + 3 - n]
 	}
 };

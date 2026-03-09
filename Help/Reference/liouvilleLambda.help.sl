@@ -51,6 +51,12 @@ Calculate directly in terms of `primeOmega`,
 implemented as `liouvilleFunction`:
 
 ```
+>>> -1 ^ 25.primeOmega
+1
+
+>>> 25.liouvilleLambda
+1
+
 >>> 0:34.collect(liouvilleFunction:/1)
 [
 	 0  1  0 -1  0 -1  0 -1 -2 -1
@@ -58,6 +64,23 @@ implemented as `liouvilleFunction`:
 	-4 -3 -2 -3 -2 -1  0 -1 -2 -3
 	-4 -5 -6 -5 -4
 ]
+```
+
+Liouville lambda is a completely multiplicative function:
+
+```
+>>> (6 * 27).liouvilleLambda
+6.liouvilleLambda * 27.liouvilleLambda
+```
+
+`divisorSum` of gives Liouville lambda is `one` for a perfect square and `zero` otherwise:
+
+```
+>>> 64.divisorSum(liouvilleLambda:/1)
+1
+
+>>> 7.divisorSum(liouvilleLambda:/1)
+0
 ```
 
 Select integers where the number of prime divisors is odd,
@@ -125,8 +148,7 @@ Plot Liouville’s function,
 OEIS [A002819](https://oeis.org/A002819):
 
 ~~~spl svg=C
-0:165.liouvilleLambda
-.prefixSum
+1:165.liouvilleLambda.prefixSum
 .scatterPlot
 ~~~
 
@@ -136,7 +158,7 @@ Plot least value of _m_ for which Liouville’s function is _-n_,
 OEIS [A002053](https://oeis.org/A002053):
 
 ~~~spl svg=D
-let l = 0:3000.liouvilleLambda.prefixSum;
+let l = 1:3000.liouvilleLambda.prefixSum;
 0:65.collect { :n |
 	l.indexOf(-n)
 }.scatterPlot
@@ -166,6 +188,17 @@ OEIS [A065043](https://oeis.org/A065043):
 ~~~
 
 ![](sw/spl/Help/Image/liouvilleLambda-F.svg)
+
+Plot Liouville lambda for the sum of two squares:
+
+~~~spl svg=G
+{ :a :b |
+	(a.square + b.square)
+	.liouvilleLambda
+}.table(1:20, 1:20).rescale.matrixPlot
+~~~
+
+![](sw/spl/Help/Image/liouvilleLambda-G.svg)
 
 * * *
 
