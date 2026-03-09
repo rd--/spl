@@ -1797,7 +1797,7 @@
 }
 
 
-+System {
++@Cache {
 
 	akiyamaTanigawaFunction { :self |
 		self.cached('akiyamaTanigawaFunction') {

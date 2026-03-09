@@ -314,6 +314,7 @@ Reference/after.help.sl
 Reference/afterIfAbsent.help.sl
 Reference/aizawaEquation.help.sl
 Reference/akimaInterpolator.help.sl
+Reference/akiyamaTanigawaNumber.help.sl
 Reference/alert.help.sl
 Reference/AliasMethod.help.sl
 Reference/aliquotSequence.help.sl
@@ -1333,6 +1334,7 @@ Reference/endsWithAny.help.sl
 Reference/endsWith.help.sl
 Reference/engelExpansion.help.sl
 Reference/ensure.help.sl
+Reference/entringerNumber.help.sl
 Reference/entringerTriangle.help.sl
 Reference/enumerate.help.sl
 Reference/EnvBreakPoint.help.sl
@@ -1617,6 +1619,7 @@ Reference/Gendy1.help.sl
 Reference/generalisedCatalanNumber.help.sl
 Reference/GeneralisedCircle.help.sl
 Reference/generalisedPentagonalNumbers.help.sl
+Reference/genocchiNumber.help.sl
 Reference/geocentricOrbitCurve.help.sl
 Reference/GeodeticCoordinates.help.sl
 Reference/GeoJson.help.sl
@@ -3561,6 +3564,7 @@ Reference/sectorArea.help.sl
 Reference/seedRandom.help.sl
 Reference/segmentArea.help.sl
 Reference/seidelAdjacencyMatrix.help.sl
+Reference/seidelEntringerArnoldTriangle.help.sl
 Reference/seidelTriangle.help.sl
 Reference/seiffertsSpiral.help.sl
 Reference/selectedText.help.sl

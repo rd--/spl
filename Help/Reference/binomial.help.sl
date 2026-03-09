@@ -89,6 +89,25 @@ OEIS [A007318](https://oeis.org/A007318):
 ]
 ```
 
+Square array of binomial coefficients,
+OEIS [A052553](https://oeis.org/A052553):
+
+```
+>>> 0:7.triangularArray { :n :k |
+>>> 	(n - k).binomial(k)
+>>> }
+[
+	1;
+	1 0;
+	1 1  0;
+	1 2  0 0;
+	1 3  1 0 0;
+	1 4  3 0 0 0;
+	1 5  6 1 0 0 0;
+	1 6 10 4 0 0 0 0
+]
+```
+
 At `zero`:
 
 ```

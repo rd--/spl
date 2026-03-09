@@ -23,6 +23,7 @@ Integer Sequence Transform Functions:
 - `binomialTransform`
 - `boustrophedonTransform`
 - `eulerTransform`
+- `inverseBinomialTransform`
 - `lodumoTransform`
 - `moebiusTransform`
 - `runLengthTransform`
