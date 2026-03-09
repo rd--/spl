@@ -166,6 +166,17 @@ OEIS [A006252](https://oeis.org/A006252):
 ]
 ```
 
+Stirling numbers of the first kind,
+_S(n+2,n)_,
+OEIS [A000914](https://oeis.org/A000914):
+
+```
+>>> 0:10.collect { :n |
+>>> 	(n + 2).stirlingS1(n)
+>>> }
+[0 2 11 35 85 175 322 546 870 1320 1925]
+```
+
 Surface plot of Stirling numbers on a logarithmic scale:
 
 ~~~spl svg=A

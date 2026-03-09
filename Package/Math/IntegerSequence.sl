@@ -284,7 +284,7 @@
 			} {
 				f(n, k - 1) + f(n - 1, n - k)
 			}
-		}.memoize;
+		}.memoize(true);
 		0.to(self - 1).triangularArray(f:/2)
 	}
 
@@ -345,6 +345,11 @@
 				((n - m + 1) / (n + 1))
 			}.sum
 		}
+	}
+
+	genocchiNumber { :n |
+		let b = n.bernoulliNumber;
+		(2 * (1 - (2 ^ n)) * b).asInteger
 	}
 
 	grahlSequenceStanely { :self |
@@ -915,12 +920,43 @@
 		s
 	}
 
-	seidelTriangle { :self |
+	seidelEntringerArnoldTriangle { :self |
 		let answer = self.entringerTriangle;
 		2.toByDo(self, 2) { :i |
 			answer[i].reverseInPlace
 		};
 		answer
+	}
+
+	seidelTriangle { :m |
+		let t:/2 = { :n :k |
+			(n = 1 & { k = 1 } ).if {
+				1
+			} {
+				(
+					1 <= k & {
+						k <= ((n + 1) / 2)
+					}
+				).if {
+					n.isEven.if {
+						(k .. m).sum { :i |
+							t(n - 1, i)
+						}
+					} {
+						(1 .. k).sum { :i |
+							t(n - 1, i)
+						}
+					}
+				} {
+					0
+		}
+			}
+		}.memoize(true);
+		(1 .. m).collect { :n |
+			(1 .. (n + 1) / 2).collect { :k |
+				t(n, k)
+			}
+		}
 	}
 
 	selfCountingNumber { :n |

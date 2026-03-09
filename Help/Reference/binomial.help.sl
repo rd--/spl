@@ -164,6 +164,7 @@ OEIS [A010926](https://oeis.org/A010926):
 
 Triangle of binomial coefficients,
 multiplied by the Euler up/down numbers,
+also called the boustrophedon triangle,
 OEIS [A109449](https://oeis.org/A109449):
 
 ```

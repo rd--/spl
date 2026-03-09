@@ -52,6 +52,44 @@ For even _n_ answers the absolute value of the _n_-th Euler number:
 0:2:26.collect(eulerNumber:/1).abs
 ```
 
+Inverse boustrophedon transform,
+OEIS [A247453](https://oeis.org/A247453):
+
+```
+>>> 0:7.triangularArray { :n :k |
+>>> 	n.binomial(k)
+>>> 	*
+>>> 	(n - k).eulerUpDownNumber
+>>> 	*
+>>> 	(-1 ^ (n - k))
+>>> }
+[
+	1;
+	-1 1;
+	1 -2 1;
+	-2 3 -3 1;
+	5 -8 6 -4 1;
+	-16 25 -20 10 -5 1;
+	61 -96 75 -40 15 -6 1;
+	-272 427 -336 175 -70 21 -7 1
+]
+```
+
+Inverse boustrophedon transform,
+OEIS [A247453](https://oeis.org/A247453):
+
+~~~spl svg=A
+0:13.triangularArray { :n :k |
+	n.binomial(k)
+	*
+	(n - k).eulerUpDownNumber
+	*
+	(-1 ^ (n - k))
+}.catenate.logScale.discretePlot
+~~~
+
+![](sw/spl/Help/Image/eulerUpDownNumber-A.svg)
+
 * * *
 
 See also: bernoulliNumber, eulerNumber

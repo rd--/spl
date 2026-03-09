@@ -24,10 +24,11 @@ Calculate Euler numbers:
 ```
 
 The first ten Euler numbers,
+threads over lists,
 OEIS [A122045](https://oeis.org/A122045):
 
 ```
->>> [0 .. 10].collect(eulerNumber:/1)
+>>> [0 .. 10].eulerNumber
 [1 0 -1 0 5 0 -61 0 1385 0 -50521]
 ```
 
@@ -35,7 +36,7 @@ The first ten non-zero Euler numbers,
 OEIS [A028296](https://oeis.org/A028296):
 
 ```
->>> [0, 2 .. 18].collect(eulerNumber:/1)
+>>> [0, 2 .. 18].eulerNumber
 [
 	1
 	-1
@@ -48,6 +49,14 @@ OEIS [A028296](https://oeis.org/A028296):
 	19391512145
 	-2404879675441
 ]
+```
+
+Unsigned Euler numbers,
+OEIS [A000364](https://oeis.org/A000364):
+
+```
+>>> [0, 2 .. 14].eulerNumber.abs
+[1 1 5 61 1385 50521 2702765 199360981]
 ```
 
 The sequence of Euler numbers modulo a fixed number is periodic:

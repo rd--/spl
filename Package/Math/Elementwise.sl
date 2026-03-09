@@ -228,6 +228,10 @@
 		self.collect(erfc:/1)
 	}
 
+	eulerNumber { :self |
+		self.collect(eulerNumber:/1)
+	}
+
 	eulerPhi { :self |
 		self.collect(eulerPhi:/1)
 	}
@@ -286,6 +290,10 @@
 
 	gamma { :self |
 		self.collect(gamma:/1)
+	}
+
+	genocchiNumber { :self |
+		self.collect(genocchiNumber:/1)
 	}
 
 	grayDecode { :self |

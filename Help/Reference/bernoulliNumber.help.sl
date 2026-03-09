@@ -16,21 +16,33 @@ threads over lists:
 ]
 ```
 
-The 20th Bernoulli number:
+Numerators are
+OEIS [A027641](https://oeis.org/A027641);
+
+```
+>>> 0:16.bernoulliNumber.numerator
+[1 -1 1 0 -1 0 1 0 -1 0 5 0 -691 0 7 0 -3617]
+```
+
+Denominators are
+OEIS [A027642](https://oeis.org/A027642):
+
+```
+>>> 0:16.bernoulliNumber.denominator
+[1 2 6 1 30 1 42 1 30 1 66 1 2730 1 6 1 510]
+```
+
+The 20th and 40th Bernoulli numbers:
 
 ```
 >>> let n = 20.bernoulliNumber;
 >>> (n, n.asFloat)
 (-174611/330, -529.12424)
-```
 
-The 60th Bernoulli number:
-
-```
->>> 60.bernoulliNumber
--1215233140483755572040304994079820246041491L
+>>> 40.bernoulliNumber
+-261082718496449122051L
 /
-56786730L
+13530
 ```
 
 Relation to Euler numbers and π:
@@ -120,7 +132,7 @@ OEIS [A027642](https://oeis.org/A027642):
 
 * * *
 
-See also: bernoulliSequence, eulerNumber
+See also: bernoulliSequence, eulerNumber, genocchiNumber
 
 Guides: Integer Functions, Integer Sequence Functions
 

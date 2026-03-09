@@ -5,7 +5,7 @@
 Answer the even part of the integer _n_,
 the highest power of two dividing _n_.
 
-The first few terms,
+The highest power of two dividing _n_,
 OEIS [A006519](https://oeis.org/A006519):
 
 ```
@@ -16,7 +16,8 @@ OEIS [A006519](https://oeis.org/A006519):
 ]
 ```
 
-Plot:
+The highest power of two dividing _n_,
+OEIS [A006519](https://oeis.org/A006519):
 
 ~~~spl svg=A
 1:127.collect(evenPart:/1)

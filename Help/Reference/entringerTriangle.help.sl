@@ -5,7 +5,7 @@
 Answer the first _n_ rows of the Entringer triangle,
 also called the Euler-Bernoulli triangle.
 
-First few terms,
+First few terms of the Entringer triangle,
 OEIS [A008281](https://oeis.org/A008281):
 
 ```
@@ -42,7 +42,9 @@ Log scale scatter plot of first few terms:
 
 * * *
 
-See also: seidelTriangle
+See also: entringerNumber, seidelEntringerArnoldTriangle, seidelTriangle
+
+Guides: Integer Functions
 
 References:
 _Mathematica_

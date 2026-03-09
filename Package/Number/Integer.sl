@@ -1795,3 +1795,29 @@
 	}
 
 }
+
+
++System {
+
+	akiyamaTanigawaFunction { :self |
+		self.cached('akiyamaTanigawaFunction') {
+			let a:/2 = { :n :m |
+				(n = 0).if {
+					Fraction(1, m + 1)
+				} {
+					(m + 1) * (a(n - 1, m) - a(n - 1, m + 1))
+				}
+			}.memoize(true);
+			a:/2
+		}
+	}
+
+}
+
++@Integer {
+
+	akiyamaTanigawaNumber { :n :m |
+		system.akiyamaTanigawaFunction.value(n, m)
+	}
+
+}

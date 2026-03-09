@@ -183,6 +183,28 @@ OEIS [A309014](https://oeis.org/A309014):
 ]
 ```
 
+Tangent numbers,
+OEIS [A000182](https://oeis.org/A000182):
+
+```
+>>> 0:9.collect { :n |
+>>> 	(1 .. 2 * n + 1).sum { :k |
+>>> 		(2 ^ (2 * n + 1 - k))
+>>> 		*
+>>> 		(-1 ^ (n + k + 1))
+>>> 		*
+>>> 		k.!
+>>> 		*
+>>> 		(2 * n + 1).stirlingS2(k)
+>>> 	}
+>>> }
+[
+	1 2 16 272 7936 353792 22368256
+	1903757312 209865342976
+	29088885112832
+]
+```
+
 Plot sums of digits:
 
 ~~~spl svg=A
@@ -215,9 +237,24 @@ OEIS [A008277](https://oeis.org/A008277):
 
 ![](sw/spl/Help/Image/stirlingS2-C.svg)
 
+The _n_-th derivative of the logistic function,
+OEIS [A163626](https://oeis.org/A163626):
+
+~~~spl svg=D
+0:17.triangularArray { :n :k |
+	(-1 ^ k)
+	*
+	k.!
+	*
+	(n + 1).stirlingS2(k + 1)
+}.catenate.logScale.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/stirlingS2-D.svg)
+
 * * *
 
-See also: bellNumber
+See also: bellNumber, stirlingS1
 
 Guides: Combinatorial Functions
 
