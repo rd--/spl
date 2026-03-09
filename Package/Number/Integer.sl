@@ -31,6 +31,14 @@
 		}
 	}
 
+	arithmeticDerivative { :n |
+		(n.abs < 2).if {
+			0
+		} {
+			Fraction(n, 1).arithmeticDerivative.asInteger
+		}
+	}
+
 	asBit { :self |
 		self.isZero.if {
 			0
@@ -274,6 +282,17 @@
 
 	decimalExpansion { :n |
 		n.integerDigits(10)
+	}
+
+	dedekindPsi { :n |
+		let m = n.divisorSum { :d |
+			d.moebiusMu ^ 2 / d
+		};
+		(n * m).round
+	}
+
+	dedekindPsi { :n :k |
+		(k * 2).jordanTotient(n) / k.jordanTotient(n)
 	}
 
 	denominator { :self |
@@ -1040,6 +1059,17 @@
 			[a, n].error('jacobiSymbol: even n?')
 		}
 	}
+	jordanTotient { :k :n |
+		n.isCollection.if {
+			n.collect { :i |
+				jordanTotient(k, i)
+			}
+		} {
+			n.divisorSum { :d |
+				(d ^ k) * (n / d).moebiusMu
+			}
+		}
+	}
 
 	kroneckerSymbol { :a :b |
 		b.isPositive.if {
@@ -1585,6 +1615,10 @@
 				p ^ e - 1
 			}
 		}
+	}
+
+	withoutTrailingZeroes { :self |
+		self / (10 ^ self.integerExponent(10))
 	}
 
 	wrapIndex { :self :size |

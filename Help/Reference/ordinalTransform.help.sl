@@ -210,6 +210,130 @@ OEIS [A345934](https://oeis.org/A345934):
 
 ![](sw/spl/Help/Image/ordinalTransform-K.svg)
 
+Ordinal transform of _τ(n)_,
+OEIS [A067004](http://oeis.org/A067004):
+
+~~~spl svg=L
+0.divisorSigma(1:250)
+.ordinalTransform
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/ordinalTransform-L.svg)
+
+Ordinal transform of the arithmetic derivative of _n_,
+OEIS [A263111](https://oeis.org/A263111):
+
+~~~spl svg=M
+0:85.arithmeticDerivative
+.ordinalTransform
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/ordinalTransform-M.svg)
+
+Ordinal transform of the sums of the unique strict partition of _n_ with π encoding,
+OEIS [A266476](https://oeis.org/A266476):
+
+~~~spl svg=N
+1:250.collect { :n |
+	let l = n.primeFactors.primePi;
+	let k = l.size;
+	(l + 1:k - 1).sum
+}.ordinalTransform.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/ordinalTransform-N.svg)
+
+Ordinal transform of maximum divisor of _n_,
+OEIS [A286477](https://oeis.org/A286477):
+
+~~~spl svg=O
+1:115.collect { :n |
+	n / n.leastPrimeFactor
+}.ordinalTransform.discretePlot
+~~~
+
+![](sw/spl/Help/Image/ordinalTransform-O.svg)
+
+Irregular table read by rows,
+initially _1_,
+then the ordinal transform of all of the existing terms,
+OEIS [A327616](https://oeis.org/A327616):
+
+~~~spl svg=P
+let a = Map { :n |
+	(n = 1).if {
+		[1]
+	} {
+		let m = n - 1;
+		a[1:m].catenate.ordinalTransform
+	}
+};
+a[1:9].catenate.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/ordinalTransform-P.svg)
+
+The ordinal transform of the final nonzero digits of _n!_,
+OEIS [A367799](https://oeis.org/A367799):
+
+~~~spl svg=Q
+let a = 0:85.!.withoutTrailingZeroes % 10;
+a.ordinalTransform.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/ordinalTransform-Q.svg)
+
+The ordinal transform of _gcd(1+n,ψ(n))_,
+OEIS [A344771](https://oeis.org/A344771):
+
+~~~spl svg=R
+1:65.collect { :n |
+	(1 + n).gcd(n.dedekindPsi)
+}.ordinalTransform.discretePlot
+~~~
+
+![](sw/spl/Help/Image/ordinalTransform-R.svg)
+
+The ordinal transform of the leading digits of _n!_,
+OEIS [A368010](https://oeis.org/A368010):
+
+~~~spl svg=S
+let n = 0:115.!;
+(n // (10 ^ n.log10.floor))
+.ordinalTransform.discretePlot
+~~~
+
+![](sw/spl/Help/Image/ordinalTransform-S.svg)
+
+The ordinal transform of the binary expansion of _n_ modulo two and contracted,
+OEIS [A371944](https://oeis.org/A371944):
+
+~~~spl svg=T
+1:115.collect { :n |
+	let b = n.binaryExpansion;
+	let o = b.ordinalTransform;
+	(o % 2).binaryContraction
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/ordinalTransform-T.svg)
+
+The ordinal transform of the number of iterations of _φ(x)_ at _n_ needed to reach one,
+OEIS [A289152](https://oeis.org/A289152):
+
+~~~spl svg=U
+1:105.collect { :n |
+	eulerPhi:/1
+	.nestWhileList(n) { :x |
+		x != 1
+	}.size - 1
+}.ordinalTransform.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/ordinalTransform-U.svg)
+
 * * *
 
 See also: binomialTransform, boustrophedonTransform, eulerTransform, inverseBinomialTransform, moebiusTransform, runLengthTransform

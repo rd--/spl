@@ -2849,10 +2849,6 @@
 		}
 	}
 
-	withoutTrailingZeroes { :self |
-		self.withoutTrailing(isZero:/1)
-	}
-
 	withIndexReplace { :self :aBlock:/2 |
 		self.indicesDo { :index |
 			self[index] := aBlock(self[index], index)

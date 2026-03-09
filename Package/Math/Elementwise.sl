@@ -42,6 +42,10 @@
 		self.collect(antiDivisors:/1)
 	}
 
+	arithmeticDerivative { :self |
+		self.collect(arithmeticDerivative:/1)
+	}
+
 	asBit { :self |
 		self.collect(asBit:/1)
 	}
@@ -156,6 +160,16 @@
 
 	decrement { :self |
 		self.collect(decrement:/1)
+	}
+
+	dedekindPsi { :self :k |
+		self.collect { :n |
+			dedekindPsi(n, k)
+		}
+	}
+
+	dedekindPsi { :self |
+		self.collect(dedekindPsi:/1)
 	}
 
 	degreesToRadians { :self |
@@ -411,6 +425,12 @@
 	jacobiSymbol { :a :n |
 		a.collect { :each |
 			each.jacobiSymbol(n)
+		}
+	}
+
+	jordanTotient { :self :n |
+		self.collect { :k |
+			jordanTotient(k, n)
 		}
 	}
 
@@ -693,6 +713,10 @@
 		self.collect { :n |
 			n.vanDerCorputNumber(base)
 		}
+	}
+
+	withoutTrailingZeroes { :self |
+		self.collect(withoutTrailingZeroes:/1)
 	}
 
 	wrap { :self :lo :hi |

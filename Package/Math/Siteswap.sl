@@ -16,7 +16,7 @@
 				let k = (j + t[j] - i);
 				(k > 0) & { k.divisible(n) }
 			}.boole
-		}.withoutTrailingZeroes
+		}.withoutTrailing(isZero:/1)
 	}
 
 	siteswapStateAllowedTransitions { :sigma |

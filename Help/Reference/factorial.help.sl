@@ -18,7 +18,8 @@ The `product` of the integers from `one` up to _n_.
 25852016738884976640000L
 ```
 
-Threads over lists,
+The factorial numbers,
+threads over lists,
 OEIS [A000142](https://oeis.org/A000142):
 
 ```
@@ -30,12 +31,46 @@ OEIS [A000142](https://oeis.org/A000142):
 ]
 ```
 
-Twice,
-OEIS [A052849](https://oeis.org/A052849)
+Twice the factorial numbers,
+OEIS [A052849](https://oeis.org/A052849):
 
 ```
 >>> 1:9.! * 2
 [2 4 12 48 240 1440 10080 80640 725760]
+```
+
+The factorial numbers with trailing zeros omitted,
+OEIS [A004154](https://oeis.org/A004154):
+
+```
+>>> let n = 0:10.!;
+>>> n / (10 ^ n.integerExponent(10))
+[1 1 2 6 24 12 72 504 4032 36288 36288]
+```
+
+The number of digits in _n!_,
+OEIS [A034886](https://oeis.org/A034886):
+
+```
+>>> 0:20.!.collect(integerLength:/1)
+[
+	1 1 1 1 2 3 3 4 5 6
+	7 8 9 10 11 13 14 15 16 18
+	19
+]
+```
+
+Leading digit of _n!_,
+OEIS [A008905](https://oeis.org/A008905):
+
+```
+>>> let n = 0:20.!;
+>>> n // (10 ^ n.log10.floor)
+[
+	1 1 2 6 2 1 7 5 4 3
+	3 3 4 6 8 1 2 3 6 1
+	2
+]
 ```
 
 Number of permutations of 6 elements:
@@ -321,6 +356,28 @@ OEIS [A002034](https://oeis.org/A002034):
 ~~~
 
 ![](sw/spl/Help/Image/factorial-A.svg)
+
+Leading digit of _n!_,
+OEIS [A008905](https://oeis.org/A008905):
+
+~~~spl svg=B
+let n = 0:85.!;
+(n // (10 ^ n.log10.floor))
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/factorial-B.svg)
+
+The factorial numbers with trailing zeros omitted,
+OEIS [A004154](https://oeis.org/A004154):
+
+~~~spl svg=C
+let n = 0:65.!;
+let a = n / (10 ^ n.integerExponent(10));
+a.log.scatterPlot
+```
+
+![](sw/spl/Help/Image/factorial-C.svg)
 
 * * *
 

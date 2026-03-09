@@ -1,8 +1,8 @@
 # withoutTrailingLineFeed
 
-- _withoutTrailingLineFeed(aString)_
+- _withoutTrailingLineFeed(s)_
 
-Remove any trailing line feed characters from _aString_.
+Remove any trailing line feed characters from the string _s_.
 
 ```
 >>> 'text\n'.withoutTrailingLineFeed
@@ -18,3 +18,5 @@ Remove any trailing line feed characters from _aString_.
 * * *
 
 See also: isLineFeed, withoutTrailingBlanks
+
+Guides: String Function

@@ -228,6 +228,18 @@ OEIS [A175851](https://oeis.org/A175851):
 
 ![](sw/spl/Help/Image/nextPrime-F.svg)
 
+Ordinal transform of the ordinal transform of the next prime function,
+OEIS [A304106](https://oeis.org/A304106):
+
+~~~spl svg=G
+1:200.nextPrime
+.ordinalTransform
+.ordinalTransform
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/nextPrime-G.svg)
+
 * * *
 
 See also: isPrime, previousPrime

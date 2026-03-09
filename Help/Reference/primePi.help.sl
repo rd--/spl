@@ -508,6 +508,32 @@ OEIS [A195017](https://oeis.org/A195017):
 [1 -1 2 1 0 -1 3 -2 2 1 1 -1 0 0 4 1 -1 -1 3]
 ```
 
+List the parts of the unique strict partition with π encoding,
+OEIS [A265146](https://oeis.org/A265146):
+
+~~~spl svg=V
+1:45.collect { :n |
+	let l = n.primeFactors.primePi;
+	let k = l.size;
+	l + 1:k - 1
+}.catenate.discretePlot
+~~~
+
+![](sw/spl/Help/Image/primePi-V.svg)
+
+Sum the parts of the unique strict partition with π encoding,
+OEIS [A266475](https://oeis.org/A266475):
+
+~~~spl svg=W
+1:115.collect { :n |
+	let l = n.primeFactors.primePi;
+	let k = l.size;
+	(l + 1:k - 1).sum
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/primePi-W.svg)
+
 * * *
 
 See also: eulerPhi, nextPrime, primesList, primesUpTo, sieveOfEratosthenes

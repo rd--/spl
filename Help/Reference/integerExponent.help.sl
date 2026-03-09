@@ -445,6 +445,19 @@ OEIS [A355582](https://oeis.org/A355582):
 
 ![](sw/spl/Help/Image/integerExponent-P.svg)
 
+Largest divisor of _n_ having the form _2^i×5^j_,
+OEIS [A132741](https://oeis.org/A132741):
+
+~~~spl svg=Q
+1:65.collect { :n |
+	[2 5].product { :b |
+		b ^ n.integerExponent(b)
+	}
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/integerExponent-Q.svg)
+
 * * *
 
 See also: ^, digitCount, factorInteger, integerDigits, log2, log10, rulerFunction

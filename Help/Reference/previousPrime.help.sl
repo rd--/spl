@@ -71,6 +71,7 @@ OEIS [A064924](https://oeis.org/A064924):
 ![](sw/spl/Help/Image/previousPrime-A.svg)
 
 Ordinal transform of the next prime function,
+calculated as _n-f(n)+1_ for composite _n_,
 OEIS [A175851](https://oeis.org/A175851):
 
 ~~~spl svg=B

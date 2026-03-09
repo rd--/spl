@@ -32,14 +32,27 @@ The inverse is `primePi`:
 ```
 
 Threads over lists,
+the first few prime numbers,
 OEIS [A000040](https://oeis.org/A000040):
 
 ```
 >>> 1:9.prime
 [2 3 5 7 11 13 17 19 23]
+```
 
+The tenth, hundredth and thousandth prime:
+
+```
 >>> (10 ^ 1:3).prime
 [29 541 7919]
+```
+
+One and first few prime numbers,
+OEIS [A008578](https://oeis.org/A008578):
+
+```
+>>> [1] ++ 1:9.prime
+[1 2 3 5 7 11 13 17 19 23]
 ```
 
 Squares of primes,

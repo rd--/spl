@@ -12,6 +12,8 @@ add-help-files:
 	git add Help/Reference/*.sl
 	git add Help/Guide/*.sl
 
+add-all: add-images add-help-files
+
 push-all:
 	r.gitlab-push.sh spl
 	r.github-push.sh spl

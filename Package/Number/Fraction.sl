@@ -119,6 +119,18 @@ Fraction : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | num
 		}
 	}
 
+	arithmeticDerivative { :n |
+		(n < 0).if {
+			n.negate.arithmeticDerivative.negate
+		} {
+			let f = n.factorInteger;
+			let a = f.collect { :x |
+				Fraction(x[2], x[1])
+			}.sum;
+			a * n
+		}
+	}
+
 	asFloat { :self |
 		self.numerator.asFloat / self.denominator.asFloat
 	}

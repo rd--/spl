@@ -395,6 +395,7 @@ Reference/ArcTan.help.sl
 Reference/arcTanh.help.sl
 Reference/area.help.sl
 Reference/arg.help.sl
+Reference/arithmeticDerivative.help.sl
 Reference/arithmeticGeometricMean.help.sl
 Reference/arithmeticMean.help.sl
 Reference/arithmeticoGeometricSequence.help.sl
@@ -1109,6 +1110,7 @@ Reference/declareFrom.help.sl
 Reference/DecodeB2.help.sl
 Reference/decodeUri.help.sl
 Reference/decrement.help.sl
+Reference/dedekindPsi.help.sl
 Reference/deepAllSatisfy.help.sl
 Reference/deepCollect.help.sl
 Reference/deepCopy.help.sl
@@ -2267,6 +2269,7 @@ Reference/jaroDistance.help.sl
 Reference/jaroWinklerSimilarity.help.sl
 Reference/j.help.sl
 Reference/join.help.sl
+Reference/jordanTotient.help.sl
 Reference/josephusProblem.help.sl
 Reference/josephusSequence.help.sl
 Reference/json.help.sl
@@ -4241,6 +4244,7 @@ Reference/without.help.sl
 Reference/withoutLeadingBlanks.help.sl
 Reference/withoutLeadingZeroes.help.sl
 Reference/withoutTrailingBlanks.help.sl
+Reference/withoutTrailing.help.sl
 Reference/withoutTrailingLineFeed.help.sl
 Reference/withoutTrailingZeroes.help.sl
 Reference/withReplace.help.sl

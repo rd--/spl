@@ -157,6 +157,17 @@ OEIS [A300721](https://oeis.org/A300721):
 
 ![](sw/spl/Help/Image/moebiusTransform-D.svg)
 
+Moebius transform of Dedekind ψ function,
+OEIS [A063659](https://oeis.org/A063659):
+
+~~~spl svg=E
+1:200.dedekindPsi
+.moebiusTransform
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/moebiusTransform-E.svg)
+
 * * *
 
 See also: binomialTransform, boustrophedonTransform, eulerTransform, inverseMoebiusTransform, moebiusMu, runLengthTransform

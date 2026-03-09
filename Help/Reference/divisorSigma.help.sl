@@ -2,7 +2,8 @@
 
 - _divisorSigma(k, n)_
 
-Answer the divisor function _σk(n)_.
+Answer the divisor function _σₖ(n)_.
+Where _k=0_, also called _τ(n)_.
 
 `divisorSigma` is also known as the divisor function or sum-of-divisors function.
 
@@ -90,6 +91,7 @@ Threads elementwise over lists:
 ```
 
 First few terms at _k=0_,
+_τ(n)_,
 OEIS [A000005](https://oeis.org/A000005):
 
 ```
@@ -102,12 +104,22 @@ OEIS [A000005](https://oeis.org/A000005):
 ]
 ```
 
-Record values,
+Record values of _τ(n)_,
 OEIS [A002182](http://oeis.org/A002182):
 
 ```
->>> 0.divisorSigma(1:240).recordValues
+>>> 0.divisorSigma(1:240)
+>>> .recordValues
 [1 2 3 4 6 8 9 10 12 16 18 20]
+```
+
+Ordinal transform of _τ(n)_,
+OEIS [A067004](http://oeis.org/A067004):
+
+```
+>>> 0.divisorSigma(1:20)
+>>> .ordinalTransform
+[1 1 2 1 3 1 4 2 2 3 5 1 6 4 5 1 7 2 8 3]
 ```
 
 Recognize perfect numbers, numbers _n_ such that the sum of their divisors is equal to _2n_:
@@ -350,6 +362,19 @@ OEIS [A013973](https://oeis.org/A013973):
 [
 	-504 -16632 -122976 -532728 -1575504
 	-4058208 -8471232 -17047800
+]
+```
+
+_n-τ(n)_,
+OEIS [A049820](https://oeis.org/A049820):
+
+```
+>>> let n = 1:23;
+>>> n - 0.divisorSigma(n)
+[
+	0 0 1 1 3 2 5 4 6 6
+	9 6 11 10 11 11 15 12 17 14
+	17 18 21
 ]
 ```
 
