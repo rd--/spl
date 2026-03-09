@@ -165,7 +165,6 @@ OEIS [A100995](https://oeis.org/A100995):
 
 ![](sw/spl/Help/Image/isPrimePower-B.svg)
 
-
 * * *
 
 See also: divisors, isComposite, isCoprime, isGaussianPrime, isPrime, isSquareFree, moebiusMu, primeNu, primeOmega

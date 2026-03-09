@@ -375,7 +375,7 @@ OEIS [A004154](https://oeis.org/A004154):
 let n = 0:65.!;
 let a = n / (10 ^ n.integerExponent(10));
 a.log.scatterPlot
-```
+~~~
 
 ![](sw/spl/Help/Image/factorial-C.svg)
 

@@ -39,4 +39,3 @@ Guides: Integer Functions
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Unary_numeral_system)
-

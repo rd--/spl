@@ -160,7 +160,6 @@ OEIS [A062760](https://oeis.org/A062760):
 
 ![](sw/spl/Help/Image/radical-K.svg)
 
-
 _r(P(n)-1)_,
 OEIS [A077063](https://oeis.org/A077063):
 

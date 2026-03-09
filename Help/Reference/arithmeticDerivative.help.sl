@@ -16,7 +16,7 @@ Find the arithmetic derivative of the fraction _3/10_
 
 ```
 >>> 3/10.arithmeticDerivative
--11/10
+-11/100
 ```
 
 The arithmetic derivate for any prime is one:
