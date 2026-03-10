@@ -732,6 +732,17 @@ OEIS [A006352](https://oeis.org/A006352):
 
 ![](sw/spl/Help/Image/divisorSigma-W.svg)
 
+List in which _n_ appears _τ(n)_ times,
+OEIS [A061017](https://oeis.org/A061017):
+
+~~~spl svg=X
+1:17.collect { :n |
+	List(0.divisorSigma(n), n)
+}.catenate.stepPlot
+~~~
+
+![](sw/spl/Help/Image/divisorSigma-X.svg)
+
 * * *
 
 See also: aliquotSum, divisible, divisors, divisorSum, divisorSummatoryFunction, eulerPhi, isAbundantNumber, unitaryDivisorSigma

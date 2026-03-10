@@ -49,6 +49,20 @@ Threads over lists:
 [1 2 3 4]
 ```
 
+Numbers that are not cubes,
+OEIS [A007412](https://oeis.org/A007412):
+
+```
+>>> 1:30.reject { :n |
+>>> 	n.cubeRoot.isInteger
+>>> }
+[
+	 2  3  4  5  6  7  9 10 11 12
+	13 14 15 16 17 18 19 20 21 22
+	23 24 25 26 28 29 30
+]
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A

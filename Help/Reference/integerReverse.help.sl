@@ -181,6 +181,18 @@ OEIS [A056964](https://oeis.org/A056964):
 
 ![](sw/spl/Help/Image/integerReverse-H.svg)
 
+Array read by antidiagonals,
+places are the integer reverse of _n×k_,
+OEIS [A391365](https://oeis.org/A391365):
+
+~~~spl svg=I
+0:17.antidiagonalArray { :n :k |
+	(n * k).integerReverse
+}.catenate.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/integerReverse-I.svg)
+
 * * *
 
 See also: bitReversalPermutation, fromDigits, integerDigits, integerLength, isPalindrome, reverse, vanDerCorputNumber

@@ -4,8 +4,8 @@
 
 Answer the number of finite Abelian groups of order _n_.
 
-Threads over lists.
 First few terms,
+threads over lists,
 OEIS [A000688](https://oeis.org/A000688):
 
 ```
@@ -18,7 +18,8 @@ OEIS [A000688](https://oeis.org/A000688):
 ]
 ```
 
-Discrete plot of first few terms:
+Discrete plot of first few terms,
+OEIS [A000688](https://oeis.org/A000688):
 
 ~~~spl svg=A
 0:50.finiteAbelianGroupCount
@@ -27,7 +28,8 @@ Discrete plot of first few terms:
 
 ![](sw/spl/Help/Image/finiteAbelianGroupCount-A.svg)
 
-Scatter plot of first few terms:
+Scatter plot of first few terms,
+OEIS [A000688](https://oeis.org/A000688):
 
 ~~~spl svg=B
 1:125.finiteAbelianGroupCount
@@ -46,7 +48,8 @@ OEIS [A060689](https://oeis.org/A060689):
 [0 0 0 0 0 1 0 2 0 1 0 3 0 1 0 9 0 3 0 3]
 ```
 
-Log scale plot of first few terms:
+Log scale plot of first few terms,
+OEIS [A060689](https://oeis.org/A060689):
 
 ~~~spl svg=C
 let n = 200;

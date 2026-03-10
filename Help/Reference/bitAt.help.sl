@@ -59,6 +59,27 @@ a.scatterPlot
 
 ![](sw/spl/Help/Image/bitAt-A.svg)
 
+_Or-numbral_ multiplication table,
+read by antidiagonals,
+OEIS [A067138](https://oeis.org/A067138):
+
+~~~spl svg=B
+0:21.antidiagonalArray { :n :k |
+	let r = 0;
+	let m = n.bitLength - 1;
+	0.toDo(m) { :i |
+		(n.bitAt(i + 1) = 1).ifTrue {
+			r := r.bitOr(
+				k.bitShiftLeft(i)
+			)
+		}
+	};
+	r
+}.catenate.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/bitAt-B.svg)
+
 * * *
 
 See also: Binary, bitAtPut, bitClear, BitSet, highBit, integerDigits

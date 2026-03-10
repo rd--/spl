@@ -275,7 +275,7 @@ let f = { :n |
 
 * * *
 
-See also: splitBy
+See also: splitBy, splitPlaces
 
 Guides: List Functions
 

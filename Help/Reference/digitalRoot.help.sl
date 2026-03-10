@@ -1,6 +1,6 @@
 # digitalRoot
 
-- _digitalRoot(x, b)_
+- _digitalRoot(x, b=10)_
 
 The digital root of a natural number in a given radix is the (single digit) value obtained by an iterative process of summing digits.
 
@@ -74,6 +74,18 @@ OEIS [A030132](https://oeis.org/A030132):
 ~~~
 
 ![](sw/spl/Help/Image/digitalRoot-B.svg)
+
+Array read by antidiagonals,
+places are the digital root of _n×k_,
+OEIS [A353109](https://oeis.org/A353109):
+
+~~~spl svg=C
+0:21.antidiagonalArray { :n :k |
+	(n * k).digitalRoot(10)
+}.catenate.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/digitalRoot-C.svg)
 
 * * *
 

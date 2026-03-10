@@ -1,15 +1,15 @@
 # splHelpFragment
 
-- _splHelpFragment(topic, anchor)_
+- _splHelpFragment(topic, key, value)_
 
-Fetch the fragment at _anchor_ from the help file for _topic_.
+Fetch the fragment at anchor _key=value_ from the help file for _topic_.
 
 ```
->> let [p, c] = splHelpFragment(
+>> splHelpFragment(
 >> 	'circleInversion',
->> 	'svg=E'
->> );
->> c
+>> 	'svg',
+>> 	'E'
+>> )
 let a = Circle([-2 0], 1);
 let b = 9.annularSteinerChain(
 	[0 0],

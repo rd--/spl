@@ -326,7 +326,7 @@ let k = { :d |
 
 ![](sw/spl/Help/Image/kroneckerSymbol-H.svg)
 
-Plot _m=2_,
+Kronecker symbol where _m=2_,
 period eight,
 OEIS [A091337](https://oeis.org/A091337):
 

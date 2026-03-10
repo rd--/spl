@@ -332,10 +332,14 @@ String! : [Object, Storeable, Equatable, Comparable, Json, Iterable, Indexable, 
 	}
 
 	drop { :self :anInteger |
-		(anInteger >= self.size).if {
+		(anInteger.abs >= self.size).if {
 			''
 		} {
-			self.copyFromTo(anInteger + 1, self.size)
+			anInteger.isNegative.if {
+				self.copyFromTo(1, self.size + anInteger)
+			} {
+				self.copyFromTo(anInteger + 1, self.size)
+			}
 		}
 	}
 

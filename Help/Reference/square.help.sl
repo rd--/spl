@@ -2,7 +2,8 @@
 
 - _square(n)_
 
-Answer the number _n_ multiplied by itself.
+Answer the square of _n_,
+the number _n_ multiplied by itself.
 
 ```
 >>> (3 * 3, 3 ^ 2, 3.square)
@@ -20,11 +21,12 @@ Answer the number _n_ multiplied by itself.
 16754550883734621953L
 ```
 
-At `List`:
+At `List`,
+OEIS [A000290](https://oeis.org/A000290):
 
 ```
->>> [1 2 3 4].square
-[1 4 9 16]
+>>> [0 1 2 3 4 5 6 7 8 9].square
+[0 1 4 9 16 25 36 49 64 81]
 ```
 
 The inverse is `sqrt`:
@@ -54,7 +56,8 @@ More generally, the difference of the squares of two numbers is the product of t
 ```
 
 The sum of the n first square numbers,
-the square pyramidal numbers:
+the square pyramidal numbers,
+OEIS [A000330](https://oeis.org/A000330):
 
 ```
 >>> 0:15.collect { :n |
@@ -91,7 +94,9 @@ OEIS [A056220](https://oeis.org/A056220):
 [-1 1 7 17 31 49 71 97 127 161]
 ```
 
-Matrix plot of the first few squares represented as a sequence of binary bits:
+Binary expansion of square numbers,
+matrix plot,
+OEIS [A000290](https://oeis.org/A000290):
 
 ~~~spl svg=A
 1:42.square
@@ -115,6 +120,39 @@ OEIS [A060594](https://oeis.org/A060594):
 ~~~
 
 ![](sw/spl/Help/Image/square-B.svg)
+
+_a(n)_ is the smallest integer _m_ not equal to _n_ such that _n=(⌊(n²/m)+m)/2_,
+OEIS [A134986](https://oeis.org/A134986):
+
+~~~spl svg=C
+1:65.collect { :n |
+	1:Infinity.detect { :m |
+		m != n & {
+			let o = n.square / m;
+			n = ((o.floor + m) / 2)
+		}
+	}
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/square-C.svg)
+
+Square numbers,
+OEIS [A000290](https://oeis.org/A000290):
+
+~~~spl svg=D
+0:65.square.discretePlot
+~~~
+
+![](sw/spl/Help/Image/square-D.svg)
+
+_x²_ plotted on a Cartesian plane:
+
+~~~spl svg=E
+(-2 -- 2).functionPlot(square:/1)
+~~~
+
+![](sw/spl/Help/Image/square-E.svg)
 
 Where supported `square` is displayed as ².
 

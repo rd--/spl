@@ -23,7 +23,7 @@ OEIS [A039834](https://oeis.org/A039834):
 [1 0 1 -1 2 -3 5 -8 13 -21 34 -55 89]
 ```
 
-Inverse binomial transform of powers of three,
+The inverse binomial transform of powers of three,
 OEIS [A000079](https://oeis.org/A000079):
 
 ```
@@ -32,7 +32,7 @@ OEIS [A000079](https://oeis.org/A000079):
 2 ^ 0:12
 ```
 
-Inverse binomial transform of powers of two,
+The inverse binomial transform of powers of two,
 OEIS [A000012](https://oeis.org/A000012):
 
 ```
@@ -56,7 +56,7 @@ OEIS [A000027](https://oeis.org/A000027):
 [1 2 3 4 5 6 7 8 9 10 11 12 13]
 ```
 
-Inverse binomial transform of all ones,
+The inverse binomial transform of all ones,
 OEIS [A000007](https://oeis.org/A000007):
 
 ```
@@ -103,7 +103,7 @@ OEIS [A007442](https://oeis.org/A007442):
 
 ![](sw/spl/Help/Image/inverseBinomialTransform-B.svg)
 
-Inverse binomial transform of the rabbit sequence,
+The inverse binomial transform of the rabbit sequence,
 OEIS [A124841](https://oeis.org/A124841):
 
 ~~~spl svg=C

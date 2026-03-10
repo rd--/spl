@@ -68,6 +68,16 @@ OEIS [A049581](https://oeis.org/A049581):
 
 ![](sw/spl/Help/Image/antidiagonalArray-B.svg)
 
+The multiplication table read by antidiagonals,
+OEIS [A004247](https://oeis.org/A004247):
+
+~~~spl svg=C
+0:13.antidiagonalArray(*)
+.catenate.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/antidiagonalArray-C.svg)
+
 * * *
 
 See also: antidiagonal, antidiagonalIndicesDo, antidiagonalMatrix, triangularArray

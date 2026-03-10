@@ -350,7 +350,7 @@ OEIS [A059481](https://oeis.org/A059481):
 ]
 ```
 
-Plot the triangle given by recursion _T(n,k)=T(n-1,k)-T(n,k-1)_,
+The triangle given by recursion _T(n,k)=T(n-1,k)-T(n,k-1)_,
 OEIS [A096470](https://oeis.org/A096470):
 
 ~~~spl svg=A
@@ -377,11 +377,11 @@ let f = { :n :k |
 
 ![](sw/spl/Help/Image/triangularArray-A.svg)
 
-Plot multiplication table read by antidiagonals,
+The multiplication table read by antidiagonals,
 OEIS [A003991](https://oeis.org/A003991):
 
 ~~~spl svg=B
-0:13.triangularArray { :x :y |
+1:13.triangularArray { :x :y |
 	(x + 1 - y) * y
 }.catenate.scatterPlot
 ~~~

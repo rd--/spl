@@ -7,25 +7,25 @@
 - A000004: `repeat`, `zero`
 - A000005: `divisorSigma`
 - A000006: `integerPart`
-- A000007: `inverseMoebiusTransform`, `moebiusTransform`, `padRight`
+- A000007: `inverseBinomialTransform`, `inverseMoebiusTransform`, `moebiusTransform`, `padRight`
 - A000008: `frobeniusSolve`
 - A000009: `partitionFunctionQ`, `partitionsQ`
 - A000010: `eulerPhi`, `inverseMoebiusTransform`, `moebiusTransform`, `ordinalTransform`
-- A000012: `binomialTransform`, `inverseMoebiusTransform`, `moebiusTransform`, `repeat`
+- A000012: `binomialTransform`, `inverseBinomialTransform`, `inverseMoebiusTransform`, `moebiusTransform`, `repeat`
 - A000015: `isPrimePower`
 - A000026: `factorInteger`
-- A000027: `arithmeticProgression`, `engelExpansion`, `inverseMoebiusTransform`, `moebiusTransform`, `polygonalNumber`
+- A000027: `arithmeticProgression`, `engelExpansion`, `inverseBinomialTransform`, `inverseMoebiusTransform`, `moebiusTransform`, `polygonalNumber`
 - A000028: `primeSignature`
 - A000029: `braceletCount`
 - A000031: `necklaceCount`
-- A000032: `lucasL`, `lucasNumber`, `lucasSequence`
+- A000032: `inverseBinomialTransform`, `lucasL`, `lucasNumber`, `lucasSequence`
 - A000035: `binomialTransform`, `characteristicFunction`, `repeat`
 - A000037: `sqrt`
 - A000040: `isAlmostPrime`, `prime`, `primesList`, `sieveOfAtkin`, `sieveOfEratosthenes`, `sieveOfPritchard`, `sieveOfSundaram`, `wheelSieve`
 - A000041: `eulerTransform`, `partitionFunctionP`, `partitionsP`
 - A000042: `integerDigits`, `unaryExpansion`
 - A000043: `mersennePrimeExponent`
-- A000045: `fibonacci`, `fibonacciNumber`, `fibonacciSequence`, `linearRecurrence`, `lodumoTransform`, `lucasSequence`, `MemoizationTable`
+- A000045: `fibonacci`, `fibonacciNumber`, `fibonacciSequence`, `linearRecurrence`, `lodumoTransform`, `lucasSequence`, `MemoizationTable`, `moebiusTransform`
 - A000051: `power`, `sternsDiatomicArray`
 - A000055: `sum`
 - A000058: `sylvestersSequence`
@@ -34,7 +34,7 @@
 - A000071: `fibonacci`
 - A000073: `tribonacciNumber`
 - A000078: `linearRecurrence`
-- A000079: `binomialTransform`, `isSmoothNumber`
+- A000079: `binomialTransform`, `inverseBinomialTransform`, `isSmoothNumber`
 - A000085: `involutionNumber`
 - A000089: `power`
 - A000095: `kroneckerSymbol`
@@ -57,6 +57,7 @@
 - A000165: `doubleFactorial`
 - A000166: `derangements`, `subfactorial`
 - A000179: `binomial`
+- A000182: `stirlingS2`
 - A000188: `powerMod`, `shadowTransform`
 - A000196: `integerSquareRoot`
 - A000201: `beattySequence`, `wythoffLower`, `wythoffPair`
@@ -124,6 +125,7 @@
 - A000747: `boustrophedonTransform`
 - A000788: `digitCount`
 - A000796: `pi`
+- A000914: `stirlingS1`
 - A000918: `power`
 - A000925: `frobeniusSolve`
 - A000928: `isRegularPrime`
@@ -186,6 +188,7 @@
 - A001462: `golombsSequence`
 - A001463: `golombsSequence`
 - A001468: `substitutionSystem`
+- A001469: `genocchiNumber`
 - A001477: `arithmeticProgression`, `lucasSequence`
 - A001481: `isSumOfTwoSquares`, `squaresR`
 - A001511: `bitShiftRight`, `integerExponent`, `ordinalTransform`, `rulerFunction`
@@ -215,6 +218,7 @@
 - A001733: `fromDigits`
 - A001764: `fussCatalanNumber`
 - A001783: `gaussFactorial`
+- A001792: `inverseBinomialTransform`, `power`
 - A001840: `linearRecurrence`
 - A001844: `centeredPolygonalNumber`
 - A001845: `figurateNumber`, `power`
@@ -491,6 +495,7 @@
 - A006338: `sqrt`
 - A006340: `goldenRatio`
 - A006352: `divisorSigma`
+- A006353: `divisorSum`
 - A006356: `linearRecurrence`
 - A006368: `amusicalPermutation`, `floor`, `lodumoTransform`
 - A006369: `round`
@@ -559,8 +564,13 @@
 - A007427: `divisorSum`, `inverseMoebiusTransform`, `moebiusMu`, `moebiusTransform`
 - A007428: `moebiusTransform`
 - A007429: `divisorSigma`
-- A007434: `dirichletConvolve`, `jordanTotient`
+- A007431: `moebiusTransform`
+- A007432: `moebiusTransform`
+- A007434: `dirichletConvolve`, `jordanTotient`, `moebiusTransform`
+- A007436: `moebiusTransform`
 - A007437: `triangularNumber`
+- A007438: `moebiusTransform`
+- A007442: `inverseBinomialTransform`
 - A007444: `moebiusTransform`
 - A007445: `prime`
 - A007461: `bitAnd`
@@ -601,8 +611,9 @@
 - A008276: `stirlingS1`
 - A008277: `stirlingS2`
 - A008279: `pochhammer`
-- A008280: `seidelTriangle`
-- A008281: `boustrophedonTriangle`, `entringerTriangle`
+- A008280: `seidelEntringerArnoldTriangle`
+- A008281: `boustrophedonTriangle`, `entringerNumber`, `entringerTriangle`
+- A008282: `entringerNumber`
 - A008284: `partitionFunctionP`
 - A008288: `delannoyNumber`, `delannoySequence`
 - A008289: `partitionFunctionQ`
@@ -656,6 +667,7 @@
 - A010060: `grayDecode`, `hammingWeight`, `integerDigits`, `substitutionSystem`, `thueMorse`, `thueMorseSequence`
 - A010062: `digitCount`
 - A010078: `ceiling`
+- A010094: `entringerNumber`
 - A010098: `fibonacci`, `recurrenceTable`
 - A010344: `isNarcissisticNumber`
 - A010346: `isNarcissisticNumber`
@@ -721,6 +733,7 @@
 - A014677: `wythoffLower`
 - A014707: `iterate`, `which`
 - A014715: `conwaysConstant`
+- A014781: `genocchiNumber`, `seidelTriangle`
 - A014963: `mangoldtLambda`
 - A016031: `deBruijnSequenceCount`
 - A016123: `repunit`
@@ -921,6 +934,7 @@
 - A036263: `differences`
 - A036467: `prime`
 - A036555: `hammingWeight`
+- A036968: `genocchiNumber`
 - A036987: `padRight`
 - A036991: `integerDigits`
 - A037014: `split`
@@ -958,7 +972,7 @@
 - A039662: `fromContinuedFraction`
 - A039678: `powerMod`
 - A039724: `negabinaryExpansion`
-- A039834: `linearRecurrence`
+- A039834: `inverseBinomialTransform`, `linearRecurrence`
 - A039941: `isOdd`
 - A039951: `powerMod`
 - A040051: `partitionFunctionP`
@@ -1092,6 +1106,8 @@
 - A051697: `nearestPrime`
 - A051699: `primeDistance`
 - A051712: `differences`
+- A051714: `akiyamaTanigawaNumber`
+- A051715: `akiyamaTanigawaNumber`
 - A051724: `numerator`
 - A051731: `divisible`
 - A051764: `divisors`
@@ -1124,6 +1140,7 @@
 - A052467: `binomialTransform`
 - A052509: `binomial`
 - A052534: `matrixPower`
+- A052553: `binomial`
 - A052849: `factorial`
 - A052918: `fibonacci`
 - A052920: `linearRecurrence`
@@ -1279,7 +1296,7 @@
 - A061038: `denominator`
 - A061041: `numerator`
 - A061083: `fibonacci`
-- A061084: `lucasL`
+- A061084: `inverseBinomialTransform`, `lucasL`
 - A061255: `eulerTransform`
 - A061256: `eulerTransform`
 - A061347: `repeat`
@@ -1704,6 +1721,7 @@
 - A124754: `reverseLexicographicSort`
 - A124756: `reverseLexicographicSort`
 - A124832: `primeExponents`
+- A124841: `inverseBinomialTransform`
 - A124859: `factorInteger`
 - A125106: `integerDigits`
 - A125717: `mod`
@@ -1820,6 +1838,7 @@
 - A162598: `oeisTerms`
 - A163510: `riffle`
 - A163511: `isEven`
+- A163626: `stirlingS2`
 - A164349: `iterate`
 - A164555: `bernoulliNumber`
 - A164884: `kaprekarMap`
@@ -1979,6 +1998,7 @@
 - A246028: `bitAnd`, `runLengthTransform`
 - A246547: `isPrimePower`
 - A246655: `isPrimePower`
+- A247453: `eulerUpDownNumber`
 - A252748: `oeisFunction`
 - A253060: `ehrenfeuchtMycielskiSequence`
 - A254410: `OeisEntry`
@@ -2127,6 +2147,7 @@
 - A350093: `sum`
 - A350094: `bitNot`
 - A353557: `primeOmega`
+- A353932: `reverseLexicographicSort`
 - A355582: `integerExponent`
 - A356035: `supersilverRatio`
 - A356546: `binomial`

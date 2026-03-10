@@ -115,7 +115,8 @@ OEIS [A007318](https://oeis.org/A007318):
 
 ![](sw/spl/Help/Image/pascalTriangle-B.svg)
 
-Plot Sierpiński’s triangle,
+Sierpiński’s triangle,
+matrix plot,
 OEIS [A047999](https://oeis.org/A047999):
 
 ~~~spl svg=C
@@ -126,7 +127,8 @@ OEIS [A047999](https://oeis.org/A047999):
 
 ![](sw/spl/Help/Image/pascalTriangle-C.svg)
 
-Discrete plot of row-order Sierpiński’s triangle,
+Sierpiński’s triangle,
+row-order discrete plot,
 OEIS [A047999](https://oeis.org/A047999):
 
 ~~~spl svg=D

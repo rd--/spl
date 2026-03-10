@@ -118,7 +118,7 @@ OEIS [A144112](https://oeis.org/A144112):
 
 ![](sw/spl/Help/Image/padRight-A.svg)
 
-Plot the Fredholm-Rueppel sequence,
+The Fredholm-Rueppel sequence,
 OEIS [A036987](https://oeis.org/A036987):
 
 ~~~spl svg=B

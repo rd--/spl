@@ -86,7 +86,7 @@ OEIS [A049802](https://oeis.org/A049802):
 
 ![](sw/spl/Help/Image/bitLength-C.svg)
 
-Plot characteristic function of powers of two,
+The characteristic function of the powers of two,
 OEIS [A209229](https://oeis.org/A209229):
 
 ~~~spl svg=D

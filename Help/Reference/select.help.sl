@@ -23,8 +23,8 @@ Select prime numbers:
 Use a literal block to test each element:
 
 ```
->>> [1 2 4 7 6 2].select { :each |
->>> 	each > 2
+>>> [1 2 4 7 6 2].select { :x |
+>>> 	x > 2
 >>> }
 [4 7 6]
 ```
@@ -32,8 +32,8 @@ Use a literal block to test each element:
 Only the first expression selected (c.f. `detect`):
 
 ```
->>> [1 2 4 7 6 2].select { :each |
->>> 	each > 2
+>>> [1 2 4 7 6 2].select { :x |
+>>> 	x > 2
 >>> }.first
 4
 ```
@@ -41,8 +41,8 @@ Only the first expression selected (c.f. `detect`):
 Select operates on values in a dictionary:
 
 ```
->>> (a: 1, b: 2, c: 3, d: 4).select { :each |
->>> 	each > 2
+>>> (a: 1, b: 2, c: 3, d: 4).select { :x |
+>>> 	x > 2
 >>> }
 (c: 3, d: 4)
 ```
@@ -51,8 +51,8 @@ Find pairs containing x:
 
 ```
 >>> [1 'y'; 2 'x'; 3 'x'; 4 'z'; 5 'x']
->>> .select { :each |
->>> 	each.includes('x')
+>>> .select { : |
+>>> 	x.includes('x')
 >>> }
 [2 'x'; 3 'x'; 5 'x']
 ```
@@ -60,8 +60,8 @@ Find pairs containing x:
 Select numbers up to 100 that equal 1 modulo both 3 and 5:
 
 ```
->>> 1:100.select { :each |
->>> 	each % 3 = 1 & { each % 5 = 1 }
+>>> 1:100.select { : |
+>>> 	x % 3 = 1 & { x % 5 = 1 }
 >>> }
 [1 16 31 46 61 76 91]
 ```
@@ -76,7 +76,9 @@ Select characters from a `String`:
 Retain items that are integers:
 
 ```
->>> [1 'x' 2 3 'y' 9 'y'].select(isNumber:/1)
+>>> [1 'x' 2 3 'y' 9 'y'].select(
+>>> 	isNumber:/1
+>>> )
 [1 2 3 9]
 ```
 
@@ -106,6 +108,17 @@ At `Sfc32`, which implements `Stream`:
 >>> }.select(isOdd:/1).next(5)
 [15 21 5 13 1]
 ```
+
+Numbers _m_ for which the number of divisors, _τ(m)_, is divisible by three,
+OEIS [A059269](https://oeis.org/A059269):
+
+~~~spl svg=A
+1:230.select { :n |
+	0.divisorSigma(n).divisible(3)
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/select-A.svg)
 
 * * *
 

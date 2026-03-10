@@ -97,6 +97,18 @@ OEIS [A053829](http://oeis.org/A053829):
 
 ![](sw/spl/Help/Image/digitSum-C.svg)
 
+Array read by antidiagonals,
+places are the digit sum of _n×k_,
+OEIS [A336225](https://oeis.org/A336225):
+
+~~~spl svg=D
+0:17.antidiagonalArray { :n :k |
+	(n * k).digitSum
+}.catenate.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/digitSum-D.svg)
+
 * * *
 
 See also: digitCount, digitProduct, divisorSum, integerDigits, integerExponent, integerLength, integerReverse, integerString, sum

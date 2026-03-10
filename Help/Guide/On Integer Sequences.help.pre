@@ -1,0 +1,125 @@
+# On Integer Sequences
+
+## 0,1 sequences
+
+<<<thueMorseSequence,A
+
+<<<divisible,J
+
+<<<divisible,K
+
+<<<isSquareFree,F
+
+<<<padLeft,D
+
+<<<partitionFunctionP,D
+
+<<<squaresR,B
+
+<<<bitLength,D
+
+<<<pascalTriangle,D
+
+<<<padRight,B
+
+<<<binaryExpansion,M
+
+<<<triangularArray,K
+
+<<<isPerfectSquare,B
+
+<<<isInteger,B
+
+## _-1,1_ sequences
+
+<<<liouvilleLambda,A
+
+<<<rudinShapiro,C
+
+<<<repeat,C
+
+<<<repeat,A
+
+<<<radical,C
+
+<<<thueMorseSequence,E
+
+## _-1,0,1_ sequences
+
+<<<cyclotomic,H
+
+<<<thueMorseSequence,B
+
+<<<jacobiSymbol,D
+
+<<<jacobiSymbol,E
+
+<<<kroneckerSymbol,D
+
+<<<kroneckerSymbol,I
+
+<<<moebiusMu,L
+
+## 0,1,2,3,4,5,6,7,8,9
+
+<<<digitalRoot,C
+
+## Signed
+
+<<<eulerTransform,A
+
+<<<eulerTransform,B
+
+<<<sum,D
+
+<<<inverseBinomialTransform,A
+
+<<<inverseBinomialTransform,B
+
+<<<inverseBinomialTransform,C
+
+<<<inverseBinomialTransform,D
+
+<<<triangularArray,A
+
+<<<triangularArray,L
+
+<<<stirlingS1,C
+
+<<<stirlingS1,D
+
+<<<stirlingS1,E
+
+<<<stirlingS1,F
+
+<<<stirlingS1,G
+
+<<<reverseLexicographicSort,B
+
+<<<reverseLexicographicSort,C
+
+<<<reverseLexicographicSort,D
+
+## Ascents
+
+<<<triangularArray,E
+
+<<<triangularArray,H
+
+## Descents
+
+<<<triangularArray,G
+
+<<<triangularArray,I
+
+## Traces
+
+<<<triangularArray,D
+
+## Staged Ascents
+
+<<<triangularArray,F
+
+## Stepped
+
+<<<divisorSigma,X

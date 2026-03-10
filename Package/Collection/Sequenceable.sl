@@ -2506,6 +2506,16 @@
 		aBlock(self.copyFromTo(lastIndex, self.size))
 	}
 
+	splitPlaces { :self :counts |
+		let k = counts.size;
+		let startIndices = ([1] ++ counts).prefixSum;
+		1:k.collect { :i |
+			let j = startIndices[i];
+			let k = counts[i];
+			self.copyFromTo(j, j + k - 1)
+		}
+	}
+
 	subsetPosition { :self :sublist |
 		let i = sublist.collect { :each |
 			self.indicesOf(each)

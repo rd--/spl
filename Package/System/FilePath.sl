@@ -24,6 +24,10 @@ FilePath : [Object, Storeable, Equatable] { | contents |
 		system.makeDirectory(self.contents, recursive, mode)
 	}
 
+	modificationTime { :self |
+		system.modificationTime(self.contents)
+	}
+
 	readBinaryFile { :self |
 		system.readBinaryFile(self.contents)
 	}

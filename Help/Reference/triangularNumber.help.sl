@@ -134,6 +134,22 @@ OEIS [A000537](https://oeis.org/A000537):
 [0 1 9 36 100 225 441 784 1296 2025]
 ```
 
+Six times the triangular numbers,
+OEIS [A028896](https://oeis.org/A028896):
+
+```
+>>> 0:9.triangularNumber * 6
+[0 6 18 36 60 90 126 168 216 270]
+```
+
+Partial sums of six times the triangular numbers,
+OEIS [A007531](https://oeis.org/A007531):
+
+```
+>>> (0:9.triangularNumber * 6).prefixSum
+[0 6 24 60 120 210 336 504 720 990]
+```
+
 The reciprocals of triangular numbers produce is convergent series where the limit is two:
 
 ~~~spl svg=A

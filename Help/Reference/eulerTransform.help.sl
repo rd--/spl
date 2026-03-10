@@ -165,16 +165,40 @@ OEIS [A030203](https://oeis.org/A030203):
 
 ```
 >>> let u = [-1 -1 -2];
->>> 0:25.collect(
+>>> 0:115.collect(
 >>> 	u.periodicFunction
 >>> 	.eulerTransform
->>> )
+>>> ).discretePlot
 [
 	1 -1 -1 -1 1 2 -1 2 0 0
 	-1 -1 -1 -1 0 1 -1 -1 2 0
 	1 2 1 -1 0 -1
 ]
 ```
+
+Euler transform of _-3,-3,-2_,
+OEIS [A005928](https://oeis.org/A005928):
+
+~~~spl svg=A
+0:115.collect(
+	[-3 -3 -2].periodicFunction
+	.eulerTransform
+).discretePlot
+~~~
+
+![](sw/spl/Help/Image/eulerTransform-A.svg)
+
+Euler transform of _-1,-1,-2_,
+OEIS [A030203](https://oeis.org/A030203):
+
+~~~spl svg=B
+0:115.collect(
+	[-1 -1 -2].periodicFunction
+	.eulerTransform
+).discretePlot
+~~~
+
+![](sw/spl/Help/Image/eulerTransform-B.svg)
 
 * * *
 

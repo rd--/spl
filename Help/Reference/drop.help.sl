@@ -50,6 +50,9 @@ answer a copy of _x_ without the last _n_ places:
 
 >>> [5 4 3 2 1].drop(-3)
 [5 4]
+
+>>> 'short text'.drop(-5)
+'short'
 ```
 
 Removing more elements than the length of the sequence gives an empty result:

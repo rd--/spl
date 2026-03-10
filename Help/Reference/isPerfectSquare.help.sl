@@ -54,7 +54,7 @@ let f = { :n |
 
 ![](sw/spl/Help/Image/isPerfectSquare-A.svg)
 
-Plot characteristic function of squares,
+The characteristic function of the square numbers,
 OEIS [A010052](https://oeis.org/A010052):
 
 ~~~spl svg=B

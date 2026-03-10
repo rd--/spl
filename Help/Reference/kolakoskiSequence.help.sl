@@ -43,7 +43,8 @@ OEIS [A000002](https://oeis.org/A000002):
 
 ![](sw/spl/Help/Image/kolakoskiSequence-A.svg)
 
-Plot first few terms,
+Plot first few terms of the _1,2_ Kolakoski sequence,
+OEIS [A000002](https://oeis.org/A000002),
 offset terms to be at `zero` and `one`:
 
 ~~~spl svg=B
@@ -164,7 +165,8 @@ OEIS [A071928](https://oeis.org/A071928):
 ![](sw/spl/Help/Image/kolakoskiSequence-K.svg)
 
 The _3,4_ Kolakoski sequence,
-OEIS [A071942](https://oeis.org/A071942):
+OEIS [A071942](https://oeis.org/A071942),
+minus three:
 
 ~~~spl svg=L
 (105.kolakoskiSequence([3 4]) - 3)
@@ -173,8 +175,9 @@ OEIS [A071942](https://oeis.org/A071942):
 
 ![](sw/spl/Help/Image/kolakoskiSequence-L.svg)
 
-The _1,3_ Kolakoski sequence minus two,
-OEIS [A362927](https://oeis.org/A362927):
+The _1,3_ Kolakoski sequence,
+OEIS [A362927](https://oeis.org/A362927),
+minus two:
 
 ~~~spl svg=M
 (85.kolakoskiSequence([1 3]) - 2)

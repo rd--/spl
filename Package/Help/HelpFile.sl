@@ -27,12 +27,6 @@ HelpFile : [Object, Equatable, Cache] { | origin source cache |
 		}
 	}
 
-	codeBlocksWithAttribute { :self :key |
-		self.codeBlocks.select { :each |
-			each['attributes'].includesKey(key)
-		}
-	}
-
 	codeBlockImageFileName { :self :codeBlock :imageType |
 		let imageIdentifier = codeBlock['attributes'][imageType];
 		system.splFileName(
@@ -50,6 +44,18 @@ HelpFile : [Object, Equatable, Cache] { | origin source cache |
 		let attributes = codeBlock['attributes'];
 		['png' 'svg'].detect { :each |
 			attributes.includesKey(each)
+		}
+	}
+
+	codeBlockWithAttribute { :self :key :value |
+		self.codeBlocks.detect { :each |
+			each['attributes'].includesAssociation(key -> value)
+		}
+	}
+
+	codeBlocksWithKey { :self :key |
+		self.codeBlocks.select { :each |
+			each['attributes'].includesKey(key)
 		}
 	}
 
@@ -191,6 +197,12 @@ HelpFile : [Object, Equatable, Cache] { | origin source cache |
 		}
 	}
 
+	paragraphs { :self |
+		self.cached('paragraphs') {
+			self.source.paragraphs
+		}
+	}
+
 	/*
 	properName { :self |
 		self.isReferenceFile.if {
@@ -309,12 +321,12 @@ HelpFile : [Object, Equatable, Cache] { | origin source cache |
 		self.definitionCodeBlocks.do { :each |
 			system.evaluate(each['contents'])
 		};
-		self.codeBlocksWithAttribute('png').do { :each |
+		self.codeBlocksWithKey('png').do { :each |
 			let fileName = self.codeBlockImageFileName(each, 'png');
 			fileName.postLine;
 			system.evaluate(each['contents']).writePng(fileName)
 		};
-		self.codeBlocksWithAttribute('svg').do { :each |
+		self.codeBlocksWithKey('svg').do { :each |
 			let fileName = self.codeBlockImageFileName(each, 'svg');
 			fileName.postLine;
 			system.evaluate(each['contents']).drawing.writeSvg(fileName)
@@ -390,23 +402,48 @@ HelpFile : [Object, Equatable, Cache] { | origin source cache |
 
 +String {
 
-	splHelpFragment { :topic :anchor |
-		let h = system.readHelpFile(topic);
-		let m = h.markdown.contents;
-		let f = m.detect { :each |
-			each.includesKey('info') & {
-				let i = each['info'];
-				i.includesSubstring(anchor)
-			}
+	splHelpFragment { :topic :key :value |
+		system.readHelpFile(topic)
+		.codeBlockWithAttribute(key, value)
+		.at('contents')
+	}
+
+	splHelpFragment { :topic :key :value :indices |
+		let helpFile = system.readHelpFile(topic);
+		let paragraphs = helpFile.paragraphs;
+		let prefix = '~~~spl %=%'.format([key, value]);
+		let index = paragraphs.detectIndex { :each |
+			each.beginsWith(prefix)
 		};
-		let k = f['id'];
-		let p = m.detect { :each |
-			each['id'] = (k - 1)
-		};
+		let codeFragment = paragraphs[index].lines.allButFirstAndLast;
 		[
-			p['literal'],
-			f['literal']
+			paragraphs.atAll(index + indices),
+			codeFragment.unlines
 		]
+	}
+
+	splHelpPreprocessor { :filePrefix |
+		let inputFileName = filePrefix ++ '.help.pre';
+		let outputFileName = filePrefix ++ '.help.sl';
+		let inputText = inputFileName.splFilePath.readTextFile;
+		let outputText = inputText.lines.collect { :line |
+			line.beginsWith('<<<').if {
+				let [a, b] = line.drop(3).splitBy(',');
+				let [p, c] = splHelpFragment(a, 'svg', b, [-1, 1]);
+				[
+					p[1],
+					'',
+					'~~~',
+					c.withoutTrailingBlanks,
+					'~~~',
+					'',
+					p[2]
+				].unlines
+			} {
+				line
+			}
+		}.unlines;
+		outputFileName.splFilePath.writeTextFile(outputText)
 	}
 
 }

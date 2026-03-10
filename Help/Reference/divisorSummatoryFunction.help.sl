@@ -4,11 +4,15 @@
 
 Answer the divisor summatory function for _n_.
 
+The divisor summatory function,
+OEIS [A006218](https://oeis.org/A006218):
+
 ```
->>> 1:39.collect(
+>>> 0:39.collect(
 >>> 	divisorSummatoryFunction:/1
 >>> )
 [
+	                  0
 	  1   3   5   8  10
 	 14  16  20  23  27
 	 29  35  37  41  45
@@ -18,6 +22,16 @@ Answer the divisor summatory function for _n_.
 	113 119 123 127 131
 	140 142 146 150
 ]
+```
+
+Number of arithmetic subsequences of _[1..n]_ with length greater than one,
+OEIS [A078567](https://oeis.org/A078567):
+
+```
+>>> 0:12.collect(
+>>> 	divisorSummatoryFunction:/1
+>>> ).prefixSum
+[0 1 4 9 17 27 41 57 77 100 127 156 191]
 ```
 
 * * *

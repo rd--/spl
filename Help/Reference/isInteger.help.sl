@@ -157,7 +157,8 @@ OEIS [A133388](https://oeis.org/A133388):
 
 ![](sw/spl/Help/Image/isInteger-A.svg)
 
-One if _n_ is a cube else zero,
+The characteristic function of the cubic numbers,
+one if _n_ is a cube else zero,
 OEIS [A010057](https://oeis.org/A010057):
 
 ~~~spl svg=B

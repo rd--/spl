@@ -64,7 +64,7 @@ Generate a path based on the Rudin–Shapiro sequence:
 
 ![](sw/spl/Help/Image/rudinShapiro-B.svg)
 
-Plot the first few elements of the Rudin–Shapiro sequence,
+The Rudin–Shapiro sequence,
 OEIS [A020985](http://oeis.org/A020985):
 
 ~~~spl svg=C

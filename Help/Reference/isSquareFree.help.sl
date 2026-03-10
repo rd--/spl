@@ -153,7 +153,7 @@ OEIS [A376593](https://oeis.org/A376593):
 
 ![](sw/spl/Help/Image/isSquareFree-E.svg)
 
-Characteristic function,
+The characteristic function of square free numbers,
 OEIS [A008966](https://oeis.org/A008966):
 
 ~~~spl svg=F

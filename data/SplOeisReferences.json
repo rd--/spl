@@ -2,6 +2,7 @@
 	"abs": ["A040163", "A040997"],
 	"accumulate": ["A000124", "A000217"],
 	"additivePersistence": ["A031286"],
+	"akiyamaTanigawaNumber": ["A051714", "A051715"],
 	"aliquotSequence": ["A008892", "A044050", "A072890"],
 	"aliquotSum": ["A001065"],
 	"alternatingSum": [
@@ -143,6 +144,7 @@
 		"A047996",
 		"A051632",
 		"A052509",
+		"A052553",
 		"A053121",
 		"A053202",
 		"A059678",
@@ -562,7 +564,14 @@
 		"A360179",
 		"A361511"
 	],
-	"divisorSum": ["A001055", "A002129", "A007427", "A154402", "A321543"],
+	"divisorSum": [
+		"A001055",
+		"A002129",
+		"A006353",
+		"A007427",
+		"A154402",
+		"A321543"
+	],
 	"divisorSummatoryFunction": ["A006218"],
 	"doubleFactorial": ["A000165", "A001147", "A076668"],
 	"doudnaSequence": ["A005940", "A278222", "A286552", "A286622"],
@@ -591,6 +600,7 @@
 	"elementaryCellularAutomaton": ["A070950", "A070952"],
 	"ellipticPi": ["A138498"],
 	"engelExpansion": ["A000027", "A006784", "A028254"],
+	"entringerNumber": ["A008281", "A008282", "A010094"],
 	"entringerTriangle": ["A008281"],
 	"equispacedTriples": ["A002620"],
 	"erdosSelfridgeFunction": ["A003458"],
@@ -641,7 +651,7 @@
 		"A061256",
 		"A166861"
 	],
-	"eulerUpDownNumber": ["A000111"],
+	"eulerUpDownNumber": ["A000111", "A247453"],
 	"evenPart": ["A006519"],
 	"fabiusFunction": ["A272755", "A272757"],
 	"factorial": [
@@ -826,6 +836,7 @@
 	"gelfondsConstant": ["A018938", "A039661", "A060295"],
 	"generalisedCatalanNumber": ["A004149"],
 	"generalisedPentagonalNumbers": ["A001318", "A026741", "A080995"],
+	"genocchiNumber": ["A001469", "A014781", "A036968"],
 	"gijswijtsSequence": ["A090822"],
 	"glaisher": ["A074962"],
 	"goebelsSequence": ["A003504", "A108394"],
@@ -1028,7 +1039,19 @@
 	"interprime": ["A024675"],
 	"intersperse": ["A142150"],
 	"inventorySequence": ["A342585", "A343880"],
-	"inverseBinomialTransform": ["A011782"],
+	"inverseBinomialTransform": [
+		"A000007",
+		"A000012",
+		"A000027",
+		"A000032",
+		"A000079",
+		"A001792",
+		"A007442",
+		"A011782",
+		"A039834",
+		"A061084",
+		"A124841"
+	],
 	"inverseMoebiusTransform": [
 		"A000007",
 		"A000010",
@@ -1504,6 +1527,7 @@
 		"A000010",
 		"A000012",
 		"A000027",
+		"A000045",
 		"A000203",
 		"A000358",
 		"A003961",
@@ -1511,6 +1535,11 @@
 		"A006206",
 		"A007427",
 		"A007428",
+		"A007431",
+		"A007432",
+		"A007434",
+		"A007436",
+		"A007438",
 		"A007444",
 		"A008683",
 		"A063659",
@@ -1764,6 +1793,7 @@
 		"A000312",
 		"A000918",
 		"A001146",
+		"A001792",
 		"A001845",
 		"A002416",
 		"A002477",
@@ -2033,7 +2063,13 @@
 	"restrictedGrowthSequenceTransform": ["A322026", "A323907"],
 	"reversalPermutation": ["A049773"],
 	"reverse": ["A059893"],
-	"reverseLexicographicSort": ["A066099", "A124754", "A124756", "A358133"],
+	"reverseLexicographicSort": [
+		"A066099",
+		"A124754",
+		"A124756",
+		"A353932",
+		"A358133"
+	],
 	"riffle": ["A001057", "A051022", "A142150", "A163510"],
 	"rotateLeft": ["A038556", "A054995"],
 	"round": ["A006369", "A272695", "A274086"],
@@ -2065,7 +2101,8 @@
 	"secondFeigenbaumConstant": ["A006891"],
 	"secondLast": ["A343887"],
 	"secondOrderEulerianTriangle": ["A008517"],
-	"seidelTriangle": ["A008280"],
+	"seidelEntringerArnoldTriangle": ["A008280"],
+	"seidelTriangle": ["A014781"],
 	"selfCountingNumber": ["A002024"],
 	"selfCountingSequence": ["A002024"],
 	"sequenceCount": [
@@ -2165,6 +2202,7 @@
 		"A293160"
 	],
 	"stirlingS1": [
+		"A000914",
 		"A002657",
 		"A002790",
 		"A006232",
@@ -2178,6 +2216,7 @@
 		"A132393"
 	],
 	"stirlingS2": [
+		"A000182",
 		"A000392",
 		"A000453",
 		"A000587",
@@ -2187,6 +2226,7 @@
 		"A019538",
 		"A048993",
 		"A064856",
+		"A163626",
 		"A309014"
 	],
 	"stolarskyArray": ["A035506"],

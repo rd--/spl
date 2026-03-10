@@ -4,8 +4,8 @@
 
 Answer the number of finite groups of order _n_.
 
-Threads over lists.
 First few terms,
+threads over lists,
 OEIS [A000001](https://oeis.org/A000001):
 
 ```
@@ -34,7 +34,8 @@ At cube of prime:
 [5 5 5 5 5]
 ```
 
-Discrete plot of first few terms:
+Discrete plot of first few terms,
+OEIS [A000001](https://oeis.org/A000001):
 
 ~~~spl svg=A
 0:30.finiteGroupCount
@@ -43,7 +44,8 @@ Discrete plot of first few terms:
 
 ![](sw/spl/Help/Image/finiteGroupCount-A.svg)
 
-Log scale scatter plot of first few terms:
+Log scale scatter plot of first few terms,
+OEIS [A000001](https://oeis.org/A000001):
 
 ~~~spl svg=B
 1:250.finiteGroupCount

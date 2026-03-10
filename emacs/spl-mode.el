@@ -550,6 +550,7 @@ If the string begins with a doctest, also delete all non doctest lines."
 (add-to-list 'auto-mode-alist '("\\.sl$" . spl-mode))
 (add-to-list 'auto-mode-alist '("\\.sp$" . spl-mode))
 (add-to-list 'auto-mode-alist '("\\.help.sl$" . spl-mode))
+(add-to-list 'auto-mode-alist '("\\.help.pre$" . spl-mode))
 
 (defun spl-indent-region ()
   "Run spl-indent on region."

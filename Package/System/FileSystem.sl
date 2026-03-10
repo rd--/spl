@@ -20,20 +20,20 @@
 		<primitive: return host.fileInformationSync(_aString);>
 	}
 
-	makeDirectory { :unused :aString :allowRecursive :fileMode |
-		<primitive: return host.makeDirectorySync(_aString, _allowRecursive, _fileMode);>
+	makeDirectory { :unused :fileName :allowRecursive :fileMode |
+		<primitive: return host.makeDirectorySync(_fileName, _allowRecursive, _fileMode);>
 	}
 
-	modificationTime { :unused :aString |
-		<primitive: return host.modificationTimeSync(_aString);>
+	modificationTime { :unused :fileName |
+		<primitive: return host.modificationTimeSync(_fileName);>
 	}
 
-	readDirectory { :unused :aString |
-		<primitive: return host.readDirectorySync(_aString);>
+	readDirectory { :unused :fileName |
+		<primitive: return host.readDirectorySync(_fileName);>
 	}
 
-	readDirectoryAsync { :unused :aString |
-		<primitive: return host.readDirectoryAsync(_aString);>
+	readDirectoryAsync { :unused :fileName |
+		<primitive: return host.readDirectoryAsync(_fileName);>
 	}
 
 	readDirectoryFileNames { :self :aString |
@@ -66,24 +66,24 @@
 		<primitive: return host.readTextFileArraySync(_aList);>
 	}
 
-	removeDirectory { :unused :aString :recursive |
-		<primitive: return host.removeDirectorySync(_aString, _recursive);>
+	removeDirectory { :unused :fileName :recursive |
+		<primitive: return host.removeDirectorySync(_fileName, _recursive);>
 	}
 
-	removeFile { :unused :aString |
-		<primitive: return host.removeFileSync(_aString);>
+	removeFile { :unused :fileName |
+		<primitive: return host.removeFileSync(_fileName);>
 	}
 
 	temporaryFileName { :unused :prefix :suffix |
 		<primitive: return host.makeTemporaryFileSync(_prefix, _suffix);>
 	}
 
-	writeBinaryFile { :unused :aString :aByteArray |
-		<primitive: return host.writeBinaryFileSync(_aString, _aByteArray);>
+	writeBinaryFile { :unused :fileName :aByteArray |
+		<primitive: return host.writeBinaryFileSync(_fileName, _aByteArray);>
 	}
 
-	writeTextFile { :unused :aString :anotherString |
-		<primitive: return host.writeTextFileSync(_aString, _anotherString);>
+	writeTextFile { :unused :fileName :aString |
+		<primitive: return host.writeTextFileSync(_fileName, _aString);>
 	}
 
 }
