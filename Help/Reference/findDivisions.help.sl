@@ -1,9 +1,10 @@
 # findDivisions
 
-- _findDivisions(anInterval, anInteger)_
-- _findDivisions(anInterval, aNumber, anInteger)_
+- _findDivisions(i--j, n)_
+- _findDivisions(i--j, m, n)_
 
-Answer a list of about _anInteger_ "nice" numbers that divide the interval around _anInterval_ into equally spaced parts.
+Answer a list of about _n_ "nice" numbers that divide the interval around _i--j_ into equally spaced parts.
+In the ternary case, find divisions that are aligned to multiples of _m_.
 
 Find five divisions of the interval _(0, 1)_:
 
@@ -19,8 +20,14 @@ Find five divisions of the interval _(7, 95)_:
 [0 20 40 60 80 100]
 ```
 
+Multiples of ten,
+OEIS [A008592](https://oeis.org/A008592):
+
 ```
 >>> (7 -- 93).findDivisions(10).asList
+[0 10 20 30 40 50 60 70 80 90 100]
+
+>>> 0:10 * 10
 [0 10 20 30 40 50 60 70 80 90 100]
 ```
 

@@ -1,5 +1,27 @@
 /* Requires: Cache */
 
++Record {
+
+	codeBlockImageIdentifier { :codeBlock |
+		codeBlock['attributes'][codeBlock.codeBlockImageType]
+	}
+
+	codeBlockImageType { :codeBlock |
+		let attributes = codeBlock['attributes'];
+		['png' 'svg'].detect { :each |
+			attributes.includesKey(each)
+		}
+	}
+
+	codeBlockIsImage { :codeBlock |
+		let attributes = codeBlock['attributes'];
+		['png' 'svg'].anySatisfy { :each |
+			attributes.includesKey(each)
+		}
+	}
+
+}
+
 HelpFile : [Object, Equatable, Cache] { | origin source cache |
 
 	categories { :self |
@@ -27,24 +49,16 @@ HelpFile : [Object, Equatable, Cache] { | origin source cache |
 		}
 	}
 
-	codeBlockImageFileName { :self :codeBlock :imageType |
-		let imageIdentifier = codeBlock['attributes'][imageType];
+	codeBlockImageFileName { :self :codeBlock |
 		system.splFileName(
 			'Help/Image/%-%.%'.format(
 				[
 					self.originName,
-					imageIdentifier,
-					imageType
+					codeBlock.codeBlockImageType,
+					codeBlock.codeBlockImageIdentifier
 				]
 			)
 		)
-	}
-
-	codeBlockImageType { :self :codeBlock |
-		let attributes = codeBlock['attributes'];
-		['png' 'svg'].detect { :each |
-			attributes.includesKey(each)
-		}
 	}
 
 	codeBlockWithAttribute { :self :key :value |
@@ -60,9 +74,7 @@ HelpFile : [Object, Equatable, Cache] { | origin source cache |
 	}
 
 	definitionCodeBlocks { :self |
-		self.codeBlocks.select { :each |
-			each['attributes'].includesKey('define')
-		}
+		self.codeBlocksWithKey('define')
 	}
 
 	description { :self |
@@ -128,6 +140,10 @@ HelpFile : [Object, Equatable, Cache] { | origin source cache |
 
 	hasUnicode { :self |
 		self.unicode.isNotEmpty
+	}
+
+	imageCodeBlocks { :self |
+		self.codeBlocks.select(codeBlockIsImage:/1)
 	}
 
 	isGuideFile { :self |
@@ -275,10 +291,8 @@ HelpFile : [Object, Equatable, Cache] { | origin source cache |
 		let errorCount = 0;
 		(self.documentationTests.size > 0).ifTrue {
 			let verbose = options['verbose'];
-			self.codeBlocks.do { :each |
-				each['attributes'].includesKey('define').ifTrue {
-					system.evaluate(each['contents'])
-				}
+			self.definitionCodeBlocks.do { :each |
+				system.evaluate(each['contents'])
 			};
 			self.documentationTests.do { :each |
 				testCount := testCount + 1;

@@ -225,7 +225,7 @@ b.prefixSum.scatterPlot
 
 See also: +, accumulate, differences, prefixes, prefixProduct, scan, sum
 
-Guides: Mathematical Functions
+Guides: List Functions, Mathematical Functions
 
 References:
 _Mathematica_

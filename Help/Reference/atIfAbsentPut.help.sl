@@ -22,6 +22,8 @@ add the result of evaluating the block _f_ to _d_ at _k_ and answer that value.
 
 See also: at, atIfPresent
 
+Guides: Collection Functions
+
 References:
 _Smalltalk_
 5.7.2.4

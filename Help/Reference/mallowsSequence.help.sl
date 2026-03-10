@@ -4,6 +4,9 @@
 
 Answer the first _n_ terms of Mallows’ integer sequence.
 
+Mallows’ sequence,
+OEIS [A005229](http://oeis.org/A005229):
+
 ```
 >>> 20.mallowsSequence
 [
@@ -12,7 +15,8 @@ Answer the first _n_ terms of Mallows’ integer sequence.
 ]
 ```
 
-Plot first few terms:
+Mallows’ sequence,
+OEIS [A005229](http://oeis.org/A005229):
 
 ~~~spl svg=A
 99.mallowsSequence.linePlot
@@ -28,6 +32,6 @@ Guides: Integer Sequence Functions
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/MallowsSequence.html)
+[1](https://mathworld.wolfram.com/MallowsSequence.html),
 _OEIS_
 [1](http://oeis.org/A005229)

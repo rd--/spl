@@ -1202,17 +1202,21 @@
 		self.padovanSequence([1 0 1])
 	}
 
-	vanEckSequence { :n |
-		let l = [0 0];
+	vanEckSequence { :n :l |
+		let a = l.copy;
 		2.toDo(n - 1) { :i |
 			let k = (1 .. i - 1).findLast { :m |
-				l[i] = l[m]
+				a[i] = a[m]
 			};
-			l.add(
+			a.add(
 				(k = 0).if { 0 } { i - k }
 			)
 		};
-		l
+		a
+	}
+
+	vanEckSequence { :n |
+		n.vanEckSequence([0 0])
 	}
 
 	yellowstonePermutation { :n |

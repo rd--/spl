@@ -140,6 +140,8 @@ For the answer to be a block submatrix _r_ and _c_ should contain only proper su
 
 See also: at, atAll, Matrix, part, subarray
 
+Guides: Matrix Functions
+
 References:
 _Maple_
 [1](https://www.maplesoft.com/support/help/maple/view.aspx?path=LinearAlgebra%2FSubMatrix),

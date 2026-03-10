@@ -90,6 +90,8 @@ read by antidiagonals:
 
 See also: bernoulliNumber
 
+Guides: Integer Functions
+
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Bernoulli_number)

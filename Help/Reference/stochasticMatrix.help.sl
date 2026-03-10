@@ -28,9 +28,21 @@ The stochastic matrix of two sequences of uniformly distributed random integers:
 )
 ```
 
+The stochastic matrix of two sequences of uniformly distributed random integers:
+
+~~~spl svg=A
+let r = Sfc32(167821);
+let o = r.randomInteger([1 20], [2 100]);
+o.stochasticMatrix.matrixPlot
+~~~
+
+![](sw/spl/Help/Image/stochasticMatrix-A.svg)
+
 * * *
 
 See also: DiscreteMarkovProcess, stochasticVector
+
+Guides: Matrix Functions
 
 References:
 _Mathematica_

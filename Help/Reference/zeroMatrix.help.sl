@@ -49,6 +49,8 @@ This can also be written using either `!` or `reshape`:
 
 See also: constantArray, identityMatrix, reshape
 
+Guides: Matrix Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/ZeroMatrix.html),

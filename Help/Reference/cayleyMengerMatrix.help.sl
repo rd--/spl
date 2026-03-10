@@ -59,6 +59,8 @@ Compute the content of a four-dimensional simplex:
 
 See also: arrayPad, cayleyMengerDeterminant, distanceMatrix, squaredEuclideanDistance
 
+Guides: Matrix Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Cayley-MengerDeterminant.html),

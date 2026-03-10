@@ -14,9 +14,86 @@ Matrices:
 - `dispersionArray`
 - `integerSequenceMatrix`
 
+Sequence Generators:
+
+- `leastExcludedSequence`
+- `locallyCatenativeSequence`
+- `perfectDigitalInvariantSequence`
+- `pisotSequence`
+- `shiftRegisterSequence`
+- `signatureSequence`
+
+Named Sequences:
+
+- `aliquotSequence`
+- `arithmeticoGeometricSequence`
+- `arshonsSequence`
+- `baumSweetSequence`
+- `beattySequence`
+- `bernoulliSequence`
+- `calkinWilfSequence`
+- `champernowneSequence`
+- `collatzSequence`
+- `connellSequence`
+- `copelandErdosSequence`
+- `deBruijnSequence`
+- `delannoySequence`
+- `doudnaSequence`
+- `ehrenfeuchtMycielskiSequence`
+- `ekgSequence`
+- `fareySequence`
+- `fibonacciSequence`
+- `finesSequence`
+- `gijswijtsSequence`
+- `goebelsSequence`
+- `golombsSequence`
+- `gouldsSequence`
+- `grahlSequence`
+- `haltonSequence`
+- `hofstadterQSequence`
+- `inventorySequence`
+- `josephusSequence`
+- `jugglerSequence`
+- `kaprekarSequence`
+- `kolakoskiSequence`
+- `kroneckerSequence`
+- `lookAndSaySequence`
+- `lucasSequence`
+- `mallowsSequence`
+- `moserDeBruijnSequence`
+- `motzkinSequence`
+- `narayanaSequence`
+- `noergaardInfinitySequence`
+- `padovanSequence`
+- `pellLucasSequence`
+- `pellSequence`
+- `periodDoublingSequence`
+- `perrinSequence`
+- `recamanSequence`
+- `regularPaperfoldingSequence`
+- `rowlandsSequence`
+- `schroderSequence`
+- `selfCountingSequence`
+- `sobolSequence`
+- `somosSequence`
+- `stanleySequence`
+- `sternBrocotSequence`
+- `sylvestersSequence`
+- `szekeresSequence`
+- `thueMorseSequence`
+- `toothpickSequence`
+- `ulamSequence`
+- `vanDerLaanSequence`
+- `vanEckSequence`
+
+Predicates:
+
+- `isDeBruijnSequence`
+
 Plotting:
 
 - `integerSequencePlot`
+- `runSequencePlot`
 
 Integer Sequence Transform Functions:
 
@@ -26,6 +103,7 @@ Integer Sequence Transform Functions:
 - `inverseBinomialTransform`
 - `lodumoTransform`
 - `moebiusTransform`
+- `restrictedGrowthSequenceTransform`
 - `runLengthTransform`
 - `shadowTransform`
 

@@ -178,6 +178,42 @@ OEIS [A003465](https://oeis.org/A003465):
 ]
 ```
 
+Molien series for three-dimensional group _[2,n]=*22n_,
+OEIS [A008728](https://oeis.org/A008728):
+
+```
+>>> 0:39.collect { :n |
+>>> 	let m = n + 10;
+>>> 	0:m.sum { :j |
+>>> 		(j / 10).floor
+>>> 	}
+>>> }
+[
+	 1  2  3  4  5  6  7  8  9  10
+	12 14 16 18 20 22 24 26 28  30
+	33 36 39 42 45 48 51 54 57  60
+	64 68 72 76 80 84 88 92 96 100
+]
+
+>>> [2 -1 0 0 0 0 0 0 0 1 -2 1]
+>>> .linearRecurrence(
+>>> 	[1 2 3 4 5 6 7 8 9 10 12 14], 40
+>>> )
+[
+	 1  2  3  4  5  6  7  8  9  10
+	12 14 16 18 20 22 24 26 28  30
+	33 36 39 42 45 48 51 54 57  60
+	64 68 72 76 80 84 88 92 96 100
+]
+```
+
+Evaluate symbolically:
+
+```
+>> [`x` `y` `z`].sum
+(+ (+ x y) z)
+```
+
 Log scale scatter plot of OEIS [A281488](https://oeis.org/A281488):
 
 ~~~spl svg=A
@@ -370,12 +406,19 @@ let t = { :n :k |
 
 ![](sw/spl/Help/Image/sum-J.svg)
 
-Evaluate symbolically:
+Molien series for three-dimensional group _[2,n]=*22n_,
+OEIS [A008728](https://oeis.org/A008728):
 
-```
->> [`x` `y` `z`].sum
-(+ (+ x y) z)
-```
+~~~spl svg=K
+0:65.collect { :n |
+	let m = n + 10;
+	0:m.sum { :j |
+		(j / 10).floor
+	}
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/sum-K.svg)
 
 Where supported `sum` is displayed as Σ.
 

@@ -44,6 +44,8 @@ A seven pointed blob:
 
 See also: superellipseCurve
 
+Guides: Curve Functions
+
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Superformula)

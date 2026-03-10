@@ -67,6 +67,19 @@ OEIS [A037271](https://oeis.org/A037271):
 ]
 ```
 
+Numbers with no trailing zeros in decimal representation,
+OEIS [A067251](https://oeis.org/A067251):
+
+```
+>>> 0:20.reject { :n |
+>>> 	n.decimalExpansion.last.isZero
+>>> }
+[
+	 1  2  3  4  5  6  7  8  9
+	11 12 13 14 15 16 17 18 19
+]
+```
+
 Replace _n_ with the concatenation of its prime divisors in increasing order,
 OEIS [A048985](https://oeis.org/A048985),
 also apart from first term

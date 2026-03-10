@@ -22,3 +22,5 @@ The vector sums to `one`:
 * * *
 
 See also: gaussianMatrix, gaussianWindow
+
+Guides: Window Functions

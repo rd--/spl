@@ -14,6 +14,8 @@ A sidereal day is the time for one rotation about the planet axis relative to th
 
 See also: Duration, siderealMonths
 
+Guides: Date and Time Functions
+
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Sidereal_time)

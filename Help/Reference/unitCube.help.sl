@@ -58,6 +58,8 @@ Draw two unit cubes:
 
 See also: asPerspectiveDrawing, Cuboid, LineDrawing, Polyhedron, unitDodecahedron, unitIcosahedron, unitSquare, unitTetrahedron
 
+Guides: Geometry Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/UnitCube.html)

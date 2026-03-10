@@ -1,8 +1,8 @@
 # intervalMatrix
 
-- _intervalMatrix(aTuning)_
+- _intervalMatrix(t)_
 
-Answer an interval matrix representing all possible intervals in _aTuning_.
+Answer an interval matrix representing all possible intervals in the tuning _t_.
 
 Interval matrix of a five-tone five-limit tuning:
 
@@ -55,6 +55,8 @@ This is similar to, but distinct from, the matrix given by `distanceMatrix`:
 * * *
 
 See also: /, distanceMatrix, isConstantStructure, RatioTuning
+
+Guides: Matrix Functions, Tuning Functions
 
 References:
 _Xenharmonic_

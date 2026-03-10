@@ -1,8 +1,8 @@
 # isVectorOf
 
-- _isVectorOf(aList, elementType)_
+- _isVectorOf(v, k)_
 
-Answers `true` if _aList_ is a vector with the indicated _elementType_,
+Answers `true` if the list _v_ is a vector with the indicated element type _k_,
 else `false`.
 
 ```
@@ -32,5 +32,7 @@ true
 * * *
 
 See also: elementType, isMatrix, isVector, typeOf
+
+Guides: Vector Functions
 
 Categories: Testing

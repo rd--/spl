@@ -1,8 +1,8 @@
 # boxMatrix
 
-- _boxMatrix(radius)_
+- _boxMatrix(r)_
 
-Answer a matrix whose elements are 1 in a box-shaped region that extends _radius_ index positions to each side.
+Answer a matrix whose elements are 1 in a box-shaped region that extends radius _r_ index positions to each side.
 
 A _7×7_ box matrix:
 
@@ -22,6 +22,8 @@ A _7×7_ box matrix:
 * * *
 
 See also: crossMatrix, diamondMatrix, diskMatrix
+
+Guides: Matrix Functions
 
 References:
 _Mathematica_

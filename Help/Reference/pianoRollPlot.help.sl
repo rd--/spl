@@ -41,6 +41,8 @@ UniformDistribution(
 
 See also: timelinePlot
 
+Guides: Plotting Functions
+
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Music_roll)

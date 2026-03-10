@@ -62,6 +62,8 @@ Draw `diamondMatrix`:
 
 See also: boxMatrix, crossMatrix, diskMatrix, manhattanDistance
 
+Guides: Matrix Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/DiamondMatrix.html)

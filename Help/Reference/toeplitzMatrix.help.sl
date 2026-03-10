@@ -34,6 +34,8 @@ Answer the _n×n_ Toeplitz matrix with elements of the form _1 / (i + j - 1)_.
 
 See also: circulantMatrix, hilbertMatrix
 
+Guides: Matrix Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/ToeplitzMatrix.html)

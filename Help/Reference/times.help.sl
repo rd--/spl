@@ -116,6 +116,38 @@ At `Symbol`:
 (* m n)
 ```
 
+Multiples of ten,
+OEIS [A008592](https://oeis.org/A008592):
+
+```
+>>> 0:11 * 10
+[0 10 20 30 40 50 60 70 80 90 100 110]
+```
+
+Multiples of five,
+OEIS [A008587](https://oeis.org/A008587):
+
+```
+>>> 0:11 * 5
+[0 5 10 15 20 25 30 35 40 45 50 55]
+```
+
+Multiples of eight,
+OEIS [A008590](https://oeis.org/A008590):
+
+```
+>>> 0:11 * 8
+[0 8 16 24 32 40 48 56 64 72 80 88]
+```
+
+Multiples of nine,
+OEIS [A008591](https://oeis.org/A008591):
+
+```
+>>> 0:11 * 9
+[0 9 18 27 36 45 54 63 72 81 90 99]
+```
+
 Plot multiples of each the integers up to _n_ extending to _m_,
 the _y_ coordinate is given by the multiplier:
 

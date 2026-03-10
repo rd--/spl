@@ -23,6 +23,8 @@ Answer the Freedman-Diaconis rule to select the bin-width for a histogram.
 
 See also: histogramList, scottsRule, sturgesRule
 
+Guides: Statistics Functions
+
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Freedman%E2%80%93Diaconis_rule)

@@ -68,6 +68,8 @@ Draw the 12×12 disk matrix:
 
 See also: boxMatrix, crossMatrix, diamondMatrix, euclideanDistance
 
+Guides: Matrix Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/DiskMatrix.html)

@@ -1,10 +1,10 @@
 # addAfter
 
-- _addAfter(aSequence, newObject, oldObject)_
+- _addAfter([x₁ x₂ …], p, q)_
 
-Add _newObject_ as an element of _aSequence_.
-Put it in the sequence just succeeding _oldObject_.
-Answer _newObject_.
+Add the new object _p_ as an element of the sequence _x_.
+Put it in the sequence just succeeding the existing object _q_.
+Answer _p_.
 
 ```
 >>> let l = [1 2 4];
@@ -16,6 +16,8 @@ Answer _newObject_.
 * * *
 
 See also: add, addAfterIndex, addBefore, insertAt
+
+Guides: List Functions
 
 References:
 _Smalltalk_

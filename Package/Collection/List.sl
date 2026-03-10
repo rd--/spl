@@ -150,18 +150,32 @@ List! : [Object, Storeable, Equatable, Comparable, Json, Iterable, Indexable, Co
 		self.printString(printString:/1)
 	}
 
-	recordValues { :self :aBlock:/2 |
+	recordPositions { :self :aBlock:/2 |
+		self.recordValuesAndPositions(aBlock:/2).second
+	}
+
+	recordPositions { :self |
+		self.recordPositions(>)
+	}
+
+	recordValuesAndPositions { :self :aBlock:/2 |
 		let k = self.size;
 		let m = self.first;
 		let r = [m];
+		let p = [1];
 		2.toDo(k) { :i |
 			let n = self[i];
 			aBlock(n, m).ifTrue {
 				m := n;
-				r.add(m)
+				r.add(m);
+				p.add(i)
 			}
 		};
-		r
+		[r, p]
+	}
+
+	recordValues { :self :aBlock:/2 |
+		self.recordValuesAndPositions(aBlock:/2).first
 	}
 
 	recordValues { :self |

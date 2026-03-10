@@ -100,6 +100,8 @@ Plot arch function:
 
 See also: arcCosh, arcSin, cos, sin, tan
 
+Guides: Trigonometric Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/InverseCosine.html)

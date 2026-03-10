@@ -35,6 +35,8 @@ Rotate a vector:
 
 See also: rotationMatrix
 
+Guides: Geometry Functions, Matrix Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/EulerAngles.html)

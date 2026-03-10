@@ -62,9 +62,31 @@ Implement the Ackerman function:
 At `Symbol`:
 
 ```
->> (𝒙 < 𝒚).if { 𝒂 } { 𝒃 }
+>> (`x` < `y`).if { `a` } { `b` }
 (if (< x y) a b)
 ```
+
+Number of partitions of _n_ into powers of ten,
+OEIS [A179051](https://oeis.org/A179051):
+
+~~~spl svg=A
+let f = { :m :k |
+	(m = 0).if {
+		1
+	} {
+		(m < k).if {
+			0
+		} {
+			f(m - k, k) + f(m, k * 10)
+		}
+	}
+};
+0:149.collect { :n |
+	f(n, 1)
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/if-A.svg)
 
 _Rationale:_
 Spl follows Smalltalk in having no special purpose conditional evaluation mechanisms.

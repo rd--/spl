@@ -42,6 +42,8 @@ the _n_-th word is a catenation of the word at _n-1_ with an encoded copy of its
 
 See also: fibonacciWord, substitutionSystem, thueMorseSequence
 
+Guides: Sequence Functions
+
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Locally_catenative_sequence)

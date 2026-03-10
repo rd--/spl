@@ -56,7 +56,7 @@ Infinity
 
 See also: findShortestPath, graphDistanceMatrix, Graph
 
-Guides: Distance Functions, Graph Funcrions
+Guides: Distance Functions, Graph Functions
 
 References:
 _Mathematica_

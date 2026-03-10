@@ -75,7 +75,6 @@ LibraryItem(
 		.collect { :each |
 			let [kind, name] = each.replaceString('.help.sl', '').splitBy('/');
 			[kind, name]
-		}
-		.HelpIndex
+		}.HelpIndex
 	}
 )

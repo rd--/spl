@@ -20,6 +20,8 @@ It is the time it takes the Moon to return to a similar position among the stars
 
 See also: Duration, siderealDays, synodicMonths
 
+Guides: Date and Time Functions
+
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Sidereal_month)

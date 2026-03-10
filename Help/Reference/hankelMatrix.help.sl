@@ -52,6 +52,8 @@ Plot 9×9 Hankel matrix:
 
 See also: hilbertMatrix, padRight, table, toeplitzMatrix, vandermondeMatrix
 
+Guides: Matrix Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/HankelMatrix.html),

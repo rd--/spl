@@ -1,8 +1,8 @@
 # homogeneousTranslationMatrix
 
-- _homogeneousTranslationMatrix(aVector)_
+- _homogeneousTranslationMatrix(v)_
 
-Answer a matrix that represents translation by _aVector_ for homogeneous coordinates.
+Answer a matrix that represents translation by the vector _v_ for homogeneous coordinates.
 
 ```
 >>> [10 0 0].homogeneousTranslationMatrix
@@ -40,6 +40,8 @@ For non-homogeneous coordinates translation is equivalent to `+`:
 * * *
 
 See also: dot
+
+Guides: Geometry Functions, Matrix Functions
 
 References:
 _Mathematica_

@@ -6,10 +6,18 @@ Answer _n_ times the plastic ratio (rho) ,
 also called the minimal Pisot-Vijayaraghavan number or plastic number or plastic constant,
 is the limiting ratio of the successive terms of the Padovan sequence or Perrin sequence.
 
+Decimal expansion,
+OEIS [A060006](https://oeis.org/A060006):
+
 ```
 >>> 1.plasticRatio
 1.32472
+```
 
+Continued fraction,
+OEIS [A072117](https://oeis.org/A072117):
+
+```
 >>> 1.plasticRatio.continuedFraction(10)
 [1 3 12 1 1 3 2 3 2 4]
 ```
@@ -19,6 +27,15 @@ Powers of rho generate almost integers:
 ```
 >>> 1.plasticRatio ^ 29
 3480
+```
+
+Sequence of almost integers,
+rounded,
+OEIS [A205579](https://oeis.org/A205579):
+
+```
+>>> (1.plasticRatio ^ 0:16).round
+[1 1 2 2 3 4 5 7 9 13 17 22 29 39 51 68 90]
 ```
 
 The Plastic number represents the smallest proportional growth of three-dimensional objects:
@@ -58,6 +75,16 @@ The plastic ratio is close to the seventh root of seven:
 >>> 7 ^ (1 / 7)
 (1.plasticRatio - 0.0042)
 ```
+
+Sequence of almost integers,
+rounded,
+OEIS [A205579](https://oeis.org/A205579):
+
+~~~spl svg=A
+(1.plasticRatio ^ 0:35).round.discretePlot
+~~~
+
+![](sw/spl/Help/Image/plasticRatio-A.svg)
 
 * * *
 

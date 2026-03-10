@@ -1,8 +1,8 @@
 # isMatrixOf
 
-- _isMatrixOf(aList, aString)_
+- _isMatrixOf(m, k)_
 
-Answers `true` if _aList_ is a matrix with the indicated _elementType_,
+Answers `true` if the list _m_ is a matrix with the indicated element type _k_,
 else `false`.
 
 At `List`:
@@ -36,5 +36,7 @@ true
 * * *
 
 See also: elementType, isMatrix, isVector, isVectorOf, typeOf
+
+Guides: Matrix Functions
 
 Categories: Testing, Collection

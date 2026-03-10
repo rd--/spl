@@ -24,6 +24,8 @@ Quantity(2551442.976, 'seconds')
 
 See also: Duration, siderealMonths
 
+Guides: Date and Time Functions
+
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Lunar_month#Synodic_month)

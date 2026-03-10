@@ -4,7 +4,8 @@
 
 Answer the first _n_ terms of the Hofstadter Q-sequence.
 
-Calculate first few terms:
+Calculate first few terms of the Hofstadter Q-sequence,
+OEIS [A005185](https://oeis.org/A005185):
 
 ```
 >>> 23.hofstadterQSequence
@@ -15,7 +16,8 @@ Calculate first few terms:
 ]
 ```
 
-Scatter plot of first few terms:
+Scatter plot of first few terms of the Hofstadter Q-sequence,
+OEIS [A005185](https://oeis.org/A005185):
 
 ~~~spl svg=A
 200.hofstadterQSequence.scatterPlot

@@ -37,6 +37,8 @@ Draw the _xz_ projection of the unit icosahedron:
 
 See also: LineDrawing, Polyhedron, unitCube, unitDodecahedron, unitOctahedron, unitSquare, unitTetrahedron
 
+Guides: Geometry Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/RegularIcosahedron.html)

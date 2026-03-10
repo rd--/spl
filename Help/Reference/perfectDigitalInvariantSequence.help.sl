@@ -28,7 +28,8 @@ The predicate `isPerfectDigitalInvariant` is `true` if the sequence has only one
 true
 ```
 
-Perfect digital invariant where _p=3_:
+Perfect digital invariant where _p=3_,
+OEIS [A046197](https://oeis.org/A046197):
 
 ```
 >>> [153 370 371 407].collect { :each |
@@ -40,7 +41,8 @@ Perfect digital invariant where _p=3_:
 [153; 370; 371; 407]
 ```
 
-The sequence lengths for the first few terms of the _p=2_ sequences:
+The sequence lengths for the first few terms of the _p=2_ sequences,
+OEIS [A193995](https://oeis.org/A193995):
 
 ```
 >>> 1:70.collect { :each |
@@ -60,6 +62,20 @@ The sequence lengths for the first few terms of the _p=2_ sequences:
 ]
 ```
 
+The sequence lengths for the first few terms of the _p=2_ sequences,
+OEIS [A193995](https://oeis.org/A193995):
+
+~~~spl svg=A
+1:150.collect { :each |
+	each
+	.perfectDigitalInvariantSequence(
+		10, 2
+	).size
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/perfectDigitalInvariantSequence-A.svg)
+
 * * *
 
 See also: isHappyNumber
@@ -69,6 +85,6 @@ Guides: Integer Sequence Functions
 References:
 _OEIS_
 [1](https://oeis.org/A046197)
-[2](https://oeis.org/A193995)
+[2](https://oeis.org/A193995),
 _W_
 [1](https://en.wikipedia.org/wiki/Perfect_digital_invariant)

@@ -101,6 +101,8 @@ A 7×7 block diagonal matrix of 2×2, 3×2 and 2×3 submatrices:
 
 See also: diagonalMatrix
 
+Guides: Matrix Functions
+
 References:
 _Julia_
 [1](https://docs.julialang.org/en/v1/base/arrays/#Base.cat),

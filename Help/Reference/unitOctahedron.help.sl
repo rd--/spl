@@ -35,6 +35,8 @@ Draw the unit octahedron:
 
 See also: LineDrawing, Polyhedron, unitCube, unitDodecahedron, unitIsocahedron, unitSquare, unitTetrahedron
 
+Guides: Geometry Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/UnitOctahedron.html)

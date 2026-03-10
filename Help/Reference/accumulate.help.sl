@@ -77,6 +77,8 @@ Sfc32(89714)
 
 See also: +, differences, foldList, prefixSum, scan, sum
 
+Guides: List Functions, Mathematical Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/CumulativeSum.html)

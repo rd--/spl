@@ -34,6 +34,8 @@ Plot the sum of the first few terms:
 
 See also: harmonicNumber, harmonicProgression, harmonicSeries
 
+Guides: Integer Sequence Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/AlternatingHarmonicSeries.html)

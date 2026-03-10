@@ -47,6 +47,8 @@ Draw an axonometric projection of the unit dodecahedron:
 
 See also: LineDrawing, Polyhedron, unitCube, unitIcosahedron, unitOctahedron, unitSquare, unitTetrahedron
 
+Guides: Geometry Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/RegularDodecahedron.html)

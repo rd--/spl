@@ -327,6 +327,15 @@ OEIS [A033999](https://oeis.org/A033999):
 
 ![](sw/spl/Help/Image/repeat-C.svg)
 
+Characteristic function of numbers that are not multiples of ten,
+OEIS [A168184](https://oeis.org/A168184):
+
+~~~spl svg=D
+([1 9] # [0 1]).repeat(5).discretePlot
+~~~
+
+![](sw/spl/Help/Image/repeat-D.svg)
+
 * * *
 
 See also: constantArray, findRepeat, stringCatenate, stringJoin, stringRepeat

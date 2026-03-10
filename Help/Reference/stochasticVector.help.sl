@@ -18,6 +18,8 @@ Derive an intitial probablity vector for a Markov process from a list of initial
 
 See also: DiscreteMarkovProcess, stochasticMatrix
 
+Guides: Stochastic Functions
+
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Probability_vector)

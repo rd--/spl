@@ -51,7 +51,7 @@ List squares modulo three and five in two-dimensional unit bins:
 
 See also: binCounts, histogramList
 
-Guides: List Functions
+Guides: List Functions, Statistics Functions
 
 References:
 _Mathematica_

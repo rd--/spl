@@ -15,6 +15,8 @@ The name of this token is `semicolonSemicolon`.
 
 See also: ;
 
+Guides: Comment Syntax
+
 Unicode: U+235D ⍝ APL Functional Symbol Up Shoe Jot, U+22EF ⋯ Midline Horizontal Ellipsis
 
 Categories: Comment, Syntax

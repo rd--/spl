@@ -388,6 +388,20 @@ OEIS [A143771](https://oeis.org/A143771):
 
 ![](sw/spl/Help/Image/gcd-O.svg)
 
+Triangle read by rows,
+_gcd(k,⌈(n/k))_,
+OEIS [A120889](https://oeis.org/A120889),
+minus one:
+
+~~~spl svg=P
+let a = 1:13.triangularArray { :n :k |
+	k.gcd((n / k).ceiling)
+};
+(a.catenate - 1).discretePlot
+~~~
+
+![](sw/spl/Help/Image/gcd-P.svg)
+
 * * *
 
 See also: ||, chineseRemainder, divisible, euclideanAlgorithm, extendedGcd, Fraction, isCoprime, isPrime, lcm

@@ -1,8 +1,8 @@
 # swapAllWith
 
-- _swapAllWith(aSequence, indices)_
+- _swapAllWith([x₁ x₂ …], [i₁ i₂ …])_
 
-Swap each _(i, j)_ index pair in _indices_.
+Swap each _(i,j)_ index pair in indices _i_ at sequence _x_.
 If the indices are integers, each swap is as if by `swapWith`.
 If the indices are lists, each swap is as if by `swapPathWith`.
 
@@ -53,5 +53,7 @@ Path swaps:
 * * *
 
 See also: at, atPut, permute, swapPathWith, swapWith
+
+Guides: List Functions
 
 Categories: Accessing

@@ -30,4 +30,6 @@ true
 
 See also: isBlankLine, isCarriageReturn, isLineFeed, isSpace, isTab
 
+Guides: String Functions
+
 Categories: Testing, String

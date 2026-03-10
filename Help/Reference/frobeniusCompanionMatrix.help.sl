@@ -51,6 +51,8 @@ Answer the Frobenius companion matrix of the monic polynomial with coefficients 
 
 See also: sylvesterMatrix, toeplitzMatrix
 
+Guides: Matrix Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/CompanionMatrix.html)

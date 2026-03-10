@@ -44,6 +44,8 @@ Three rotated unit squares:
 
 See also: LineDrawing, Rectangle, regularPolygon, unitCircle, unitCube
 
+Guides: Geometry Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/UnitSquare.html),

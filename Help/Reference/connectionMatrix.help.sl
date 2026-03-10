@@ -24,4 +24,6 @@ however for multi-graphs the connection matrix has boole entries:
 
 See also: adjacencyMatrix, Graph
 
+Guides: Matrix Functions
+
 Categories: Graph, Matrix

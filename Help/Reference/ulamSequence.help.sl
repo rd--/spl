@@ -4,7 +4,7 @@
 
 Answer the first _n_ terms of the Ulam sequence.
 
-First few terms,
+First few terms of the Ulam sequence,
 OEIS [A002858](https://oeis.org/A002858):
 
 ```
@@ -25,7 +25,7 @@ OEIS [A002858](https://oeis.org/A002858):
 ]
 ```
 
-First differences,
+First differences of the Ulam sequence,
 OEIS [A072832](https://oeis.org/A072832):
 
 ```
@@ -133,7 +133,7 @@ OEIS [A006844](https://oeis.org/A006844):
 ]
 ```
 
-Plot first few terms,
+First few terms of the Ulam sequence,
 OEIS [A002858](https://oeis.org/A002858):
 
 ~~~spl svg=A
@@ -142,7 +142,7 @@ OEIS [A002858](https://oeis.org/A002858):
 
 ![](sw/spl/Help/Image/ulamSequence-A.svg)
 
-Plot first differences,
+First differences of the Ulam sequence,
 OEIS [A072832](https://oeis.org/A072832):
 
 ~~~spl svg=B
@@ -154,6 +154,10 @@ OEIS [A072832](https://oeis.org/A072832):
 ![](sw/spl/Help/Image/ulamSequence-B.svg)
 
 * * *
+
+See also: addFirst, addLast
+
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

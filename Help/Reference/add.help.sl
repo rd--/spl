@@ -105,6 +105,8 @@ true
 
 See also: addAll, addFirst, addLast, Extensible, include, remove
 
+Guides: Dictionary Functions, List Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/AppendTo.html),

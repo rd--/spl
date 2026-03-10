@@ -1,8 +1,8 @@
 # swapPathWith
 
-- _swapWith(aCollection, i, j)_
+- _swapWith(c, i, j)_
 
-Move the element at path index _i_ of _aCollection_ to path index _j_, and vice-versa.
+Move the element at path index _i_ of the collection _c_ to path index _j_, and vice-versa.
 
 At a matrix:
 
@@ -20,5 +20,7 @@ At a matrix:
 * * *
 
 See also: at, atPut, swapAllWith, swapWith
+
+Guides: List Functions
 
 Categories: Accessing

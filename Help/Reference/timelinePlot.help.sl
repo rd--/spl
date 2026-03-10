@@ -42,6 +42,8 @@ PoissonProcess(2.7)
 
 See also: scatterPlot, TemporalData, TimeSeries
 
+Guides: Plotting Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/TimelinePlot.html)

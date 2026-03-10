@@ -107,6 +107,8 @@ NormalDistribution(0, 1)
 
 See also: binCounts, binLists, findDivisions, niceNumberAbove, niceNumberNear
 
+Guides: Statistics Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/HistogramList.html)
