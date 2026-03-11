@@ -4,7 +4,7 @@
 
 Answer the first _k_ Motzkin numbers.
 
-First few terms,
+First few Motzkin numbers,
 OEIS [A001006](https://oeis.org/A001006):
 
 ```

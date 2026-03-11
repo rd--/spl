@@ -15,6 +15,9 @@ OEIS [A001608](https://oeis.org/A001608):
 	 277  367  486  644  853
 	1130 1497
 ]
+
+>>> [0 1 1].linearRecurrence([3 0 2], 17)
+[3 0 2 3 2 5 5 7 10 12 17 22 29 39 51 68 90]
 ```
 
 C.f. `perrinFunction`:
@@ -31,9 +34,18 @@ C.f. `perrinFunction`:
 ]
 ```
 
+The Perrin sequence,
+OEIS [A001608](https://oeis.org/A001608):
+
+~~~spl svg=A
+35.perrinSequence.discretePlot
+~~~
+
+![](sw/spl/Help/Image/perrinSequence-A.svg)
+
 * * *
 
-See also: padovanSequence, perrinFunction, plasticRatio
+See also: padovanSequence, perrinFunction, plasticRatio, vanDerLaanSequence
 
 Guides: Integer Sequence Functions, Mathematical Sequences
 

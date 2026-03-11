@@ -20,7 +20,9 @@ At `SmallFloat`:
 >>> hypergeometric2F1(-3, -1, -2, 1)
 -0.5
 
->>> hypergeometric2F1(-0.5, 1 / 3, 4 / 3, -1)
+>>> hypergeometric2F1(
+>>> 	-0.5, 1 / 3, 4 / 3, -1
+>>> )
 1.111448
 ```
 
@@ -43,6 +45,42 @@ OEIS [A010683](https://oeis.org/A010683):
 >>> 	)
 >>> }
 [2 7 28 121 550 2591 12536 61921 310954]
+```
+
+Calculate the Catalan numbers,
+OEIS [A000108](https://oeis.org/A000108):
+
+```
+>>> 0:20.collect { :n |
+>>> 	hypergeometric2F1(
+>>> 		1 - n, -n, 2, 1
+>>> 	)
+>>> }
+0:20.catalanNumber
+```
+
+Motzkin numbers,
+OEIS [A001006](https://oeis.org/A001006):
+
+```
+>>> 0:11.collect { :n |
+>>> 	hypergeometric2F1(
+>>> 		(1 - n) / 2, -n / 2, 2, 4
+>>> 	)
+>>> }
+[1 1 2 4 9 21 51 127 323 835 2188 5798]
+```
+
+Central trinomial coefficients,
+OEIS [A002426](https://oeis.org/A002426):
+
+```
+>>> 0:11.collect { :n |
+>>> 	(3 ^ n) * hypergeometric2F1(
+>>> 		0.5, -n, 1, 4/3
+>>> 	)
+>>> }
+[1 1 3 7 19 51 141 393 1107 3139 8953 25653]
 ```
 
 Plot varying _z_ over a subset of the reals:
@@ -73,6 +111,36 @@ Plot varying _z_ for three distinct _c_:
 ~~~
 
 ![](sw/spl/Help/Image/hypergeometric2F1-B.svg)
+
+The number of Schroeder paths of length _2n_ and having _k_ peaks at height one,
+OEIS [A104219](https://oeis.org/A104219):
+
+~~~spl svg=C
+0:11.triangularArray { :n :k |
+	(-1 ^ (n - k))
+	*
+	binomial(n, k)
+	*
+	hypergeometric2F1(
+		k - n, n + 1, k + 2, 2
+	)
+}.catenate.log.discretePlot
+~~~
+
+![](sw/spl/Help/Image/hypergeometric2F1-C.svg)
+
+_₂F₁(-2k,2k-2n;1;-1)_,
+OEIS [A184879](https://oeis.org/A184879):
+
+~~~spl svg=D
+0:10.triangularArray { :n :k |
+	hypergeometric2F1(
+		-2 * k, (2 * k) - (2 * n), 1, -1
+	)
+}.catenate.logScale.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/hypergeometric2F1-D.svg)
 
 * * *
 

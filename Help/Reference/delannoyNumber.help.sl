@@ -33,6 +33,13 @@ OEIS [A001850](https://oeis.org/A001850):
 >>> 	delannoyNumber(n, n)
 >>> }
 [1 3 13 63 321 1683 8989 48639 265729]
+
+>>> 0:8.collect { :n |
+>>> 	hypergeometric2F1(
+>>> 		-n, n + 1, 1, -1
+>>> 	)
+>>> }
+[1 3 13 63 321 1683 8989 48639 265729]
 ```
 
 Sum read by antidiagonals are the Pell numbers,

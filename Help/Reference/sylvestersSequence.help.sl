@@ -2,7 +2,8 @@
 
 - _sylvestersSequence(n)_
 
-Answer the first _n_ terms of Sylvester’s sequence.
+Answer the first _n_ terms of Sylvester’s sequence,
+OEIS [A000058](https://oeis.org/A000058):
 
 ```
 >>> 8.sylvestersSequence

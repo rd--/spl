@@ -8,10 +8,11 @@ set to _1,1,1_ if elided.
 This is the same recurrence relation as for the `perrinSequence`,
 but with different initial conditions.
 
-First few places:
+First few terms of Padovan’s spiral numbers,
+OEIS [A134816](https://oeis.org/A134816):
 
 ```
->>> 26.padovanSequence
+>>> 26.padovanSequence([1 1 1])
 [
 	  1   1   1   2   2
 	  3   4   5   7   9
@@ -21,8 +22,8 @@ First few places:
 	816
 ]
 
->>> 22.padovanSequence
-22.padovanSequence([1 1 1])
+>>> [0 1 1].linearRecurrence([1 1 1], 17)
+[1 1 1 2 2 3 4 5 7 9 12 16 21 28 37 49 65]
 ```
 
 The limit ratio between consecutive terms is the plastic ratio:
@@ -33,6 +34,7 @@ The limit ratio between consecutive terms is the plastic ratio:
 ```
 
 Begin sequence with _1 0 0_,
+the Padovan sequence,
 OEIS [A000931](https://oeis.org/A000931):
 
 ```
@@ -118,9 +120,19 @@ A matrix analogous to the Fibonacci Q-matrix exists for Padovan numbers:
 [114 151 200 265 351]
 ```
 
+The Padovan sequence,
+OEIS [A000931](https://oeis.org/A000931):
+
+~~~spl svg=A
+35.padovanSequence([1 0 0])
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/padovanSequence-A.svg)
+
 * * *
 
-See also: perrinFunction, perrinSequence, plasticRatio
+See also: perrinFunction, perrinSequence, plasticRatio, vanDerLaanSequence
 
 Guides: Integer Sequence Functions, Mathematical Sequences
 

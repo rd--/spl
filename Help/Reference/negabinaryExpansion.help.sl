@@ -4,7 +4,7 @@
 
 Answer the base negative two representation of _n_.
 
-First few terms,
+Base negative two representation of _n_,
 OEIS [A039724](https://oeis.org/A039724):
 
 ```
@@ -50,6 +50,29 @@ OEIS [A000695](https://oeis.org/A000695):
 48.moserDeBruijnSequence
 ```
 
+Number of ones when _n_ is written in base negative two,
+OEIS [A027615](https://oeis.org/A027615):
+
+```
+>>> 0:21.collect { :n |
+>>> 	n.negabinaryExpansion
+>>> 	.occurrencesOf(1)
+>>> }
+[0 1 2 3 1 2 3 4 2 3 4 5 3 4 2 3 1 2 3 4 2 3]
+```
+
+Base negative two is supported by `integerDigits` and therefore `digitCount`:
+
+```
+>>> 19.integerDigits(-2)
+[1 0 1 1 1]
+
+>>> 0:21.collect { :n |
+>>> 	n.digitCount(-2, 1)
+>>> }
+[0 1 2 3 1 2 3 4 2 3 4 5 3 4 2 3 1 2 3 4 2 3]
+```
+
 Regarded as base two and then evaluated,
 OEIS [A005351](https://oeis.org/A005351):
 
@@ -90,9 +113,23 @@ Alternating sum of reverse of negabinary expansion of _n_,
 
 ![](sw/spl/Help/Image/negabinaryExpansion-B.svg)
 
+Number of ones when _n_ is written in base negative two,
+OEIS [A027615](https://oeis.org/A027615):
+
+~~~spl svg=C
+0:85.collect { :n |
+	n.negabinaryExpansion
+	.occurrencesOf(1)
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/negabinaryExpansion-C.svg)
+
 * * *
 
-See also: binaryExpansion
+See also: binaryExpansion, digitCount, integerDigits
+
+Guides: Integer Functions
 
 References:
 _Mathematica_

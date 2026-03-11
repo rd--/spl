@@ -4,26 +4,11 @@
 
 Answer a `List` of the first _n_ Pell numbers:
 
-First few terms,
+First few Pell numbers,
 OEIS [A000129](https://oeis.org/A000129):
 
 ```
 >>> 16.pellSequence
-[
-	     0    1     2     5    12
-	    29   70   169   408   985
-	  2378 5741 13860 33461 80782
-	195025
-]
-
->>> 16.pellSequence
-[2 1].linearRecurrence([0 1], 16)
-```
-
-There is a closed form for calculating the n-th Pell number (zero-indexed):
-
-```
->>> [0 .. 15].collect(pellNumber:/1)
 [
 	     0    1     2     5    12
 	    29   70   169   408   985
@@ -37,6 +22,19 @@ The Pell sequence is a linear recurrence:
 ```
 >>> linearRecurrence([2 1], [0 1], 12)
 [0 1 2 5 12 29 70 169 408 985 2378 5741]
+```
+
+There is a closed form for calculating the _n_-th Pell number,
+zero-indexed:
+
+```
+>>> [0 .. 15].collect(pellNumber:/1)
+[
+	     0    1     2     5    12
+	    29   70   169   408   985
+	  2378 5741 13860 33461 80782
+	195025
+]
 ```
 
 The silver ratio is the limiting ratio of consecutive Pell numbers:

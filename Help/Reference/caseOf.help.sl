@@ -1,6 +1,6 @@
 # caseOf
 
-- _caseOf(x, [y₁ → f₁, y₂ → f₂, …], f)_
+- _caseOf(x, [y₁ → f₁, y₂ → f₂, …], o:/0)_
 
 Compare _x_ to each _y_ in turn,
 evaluating the corresponding `Block` _f_ associated with the first item that matches.

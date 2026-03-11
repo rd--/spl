@@ -263,6 +263,13 @@ OEIS [A090909](https://oeis.org/A090909):
 [2 5 7 10 13 15 18 20 23 26 28 31 34 36 39]
 ```
 
+In terms of `sqrt`, `cos` and `arcSin`:
+
+```
+>>> (3/5 * 3/4.sqrt.arcSin).cos
+1/2.goldenRatio
+```
+
 Plot the fractional part of multiples of the golden ratio:
 
 ~~~spl svg=A

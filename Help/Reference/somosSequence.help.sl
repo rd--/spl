@@ -4,7 +4,8 @@
 
 Answer the first _n_ terms of the Somos sequence of order _k_.
 
-The four sequence:
+The Somos four sequence,
+OEIS [A006720](https://oeis.org/A006720):
 
 ```
 >>> somosSequence(4, 26)
@@ -35,7 +36,8 @@ The four sequence:
 ]
 ```
 
-The five sequence:
+The Somon five sequence,
+OEIS [A006721](https://oeis.org/A006721):
 
 ```
 >>> somosSequence(5, 27)
@@ -66,7 +68,8 @@ The five sequence:
 ]
 ```
 
-The six sequence:
+The Somos six sequence,
+OEIS [A006722](https://oeis.org/A006722):
 
 ```
 >>> somosSequence(6, 28)
@@ -97,7 +100,8 @@ The six sequence:
 ]
 ```
 
-The seven sequence:
+The Somos seven sequence,
+OEIS [A006723](https://oeis.org/A006723):
 
 ```
 >>> somosSequence(7, 29)
@@ -128,7 +132,7 @@ The seven sequence:
 ]
 ```
 
-The seven sequence:
+The Somos eight sequence:
 
 ```
 >>> somosSequence(8, 17)
@@ -149,6 +153,26 @@ The seven sequence:
 >>> .last
 420514/7
 ```
+
+The Somos four sequence,
+discrete log plot,
+OEIS [A006720](https://oeis.org/A006720):
+
+~~~spl svg=A
+4.somosSequence(35).log.discretePlot
+~~~
+
+![](sw/spl/Help/Image/somosSequence-A.svg)
+
+The Somos seven sequence,
+discrete log plot,
+OEIS [A006723](https://oeis.org/A006723):
+
+~~~spl svg=B
+7.somosSequence(35).log.discretePlot
+~~~
+
+![](sw/spl/Help/Image/somosSequence-B.svg)
 
 * * *
 

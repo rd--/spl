@@ -4,7 +4,7 @@
 
 Answer the first _n_ elements of the Thue-Morse sequence.
 
-First few terms,
+First few terms of the Thue-Morse sequence,
 OEIS [A010060](http://oeis.org/A010060):
 
 ```
@@ -96,7 +96,7 @@ OEIS [A029883](https://oeis.org/A029883):
 
 ![](sw/spl/Help/Image/thueMorseSequence-B.svg)
 
-Plot sequence as series of turns:
+Plot Thue–Morse sequence as a series of turns:
 
 ~~~spl svg=C
 (67.thueMorseSequence * 1/3.pi)
@@ -106,7 +106,7 @@ Plot sequence as series of turns:
 
 ![](sw/spl/Help/Image/thueMorseSequence-C.svg)
 
-Plot prefix sum,
+Partial sums of the Thue–Morse sequence,
 OEIS [A115384](https://oeis.org/A115384):
 
 ~~~spl svg=D

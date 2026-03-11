@@ -2,9 +2,11 @@
 
 - _vanDerLaanSequence(n)_
 
-Answer the first _n_ terms of the van der Laan sequence.
+Answer the first _n_ terms of the van der Laan sequence,
+the number of compositions, ordered partitions, into parts two and three.
+Also the expansion of _1/(1-x²-x³)_.
 
-The first 23 entries,
+The first 23 entries of the van der Laan sequence,
 OEIS [A182097](https://oeis.org/A182097):
 
 ```
@@ -14,6 +16,9 @@ OEIS [A182097](https://oeis.org/A182097):
 	7 9 12 16 21 28 37 49 65 86
 	114 151 200
 ]
+
+>>> [0 1 1].linearRecurrence([1 0 1], 17)
+[1 0 1 1 1 2 2 3 4 5 7 9 12 16 21 28 37]
 ```
 
 The table of the eight van der Laan measures:
@@ -54,7 +59,7 @@ OEIS [A182097](https://oeis.org/A182097):
 
 * * *
 
-See also: plasticRatio
+See also: padovanSequence, perrinSequence, plasticRatio
 
 Guides: Integer Sequence Functions
 

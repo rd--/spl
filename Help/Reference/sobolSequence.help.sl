@@ -20,7 +20,7 @@ First few terms of first dimension:
 ]
 ```
 
-Numerators,
+Numerators of _k=1_ Sobol sequence,
 OEIS [A280995](https://oeis.org/A280995):
 
 ```
@@ -28,7 +28,7 @@ OEIS [A280995](https://oeis.org/A280995):
 [0 1 3 1 3 7 5 1 3 11 15 7 5 13 9 1]
 ```
 
-Denominators,
+Denominators of _k=1_ Sobol sequence,
 [A062383](https://oeis.org/A062383):
 
 ```
@@ -71,7 +71,7 @@ First few terms of two-dimensional sequence:
 ]
 ```
 
-Step plot of first few terms of first dimension:
+Step plot of first few terms of _k=1_ Sobol sequence:
 
 ~~~spl svg=A
 sobolSequence(64, 1)
@@ -80,7 +80,7 @@ sobolSequence(64, 1)
 
 ![](sw/spl/Help/Image/sobolSequence-A.svg)
 
-Scatter plot of first few terms of two-dimensional sequence:
+Scatter plot of first few terms of _k=2_ Sobol sequence:
 
 ~~~spl svg=B
 [128 2].sobolSequence
@@ -104,6 +104,46 @@ Matrix plot of first sixty-four rows of the two-hundred and fifty-six dimensiona
 ~~~
 
 ![](sw/spl/Help/Image/sobolSequence-D.png)
+
+Numerators of _k=1_ Sobol sequence,
+discrete plot,
+OEIS [A280995](https://oeis.org/A280995):
+
+~~~spl svg=E
+63.sobolSequence(1).numerator.discretePlot
+~~~
+
+![](sw/spl/Help/Image/sobolSequence-E.svg)
+
+Denominators of _k=1_ Sobol sequence,
+discrete plot,
+[A062383](https://oeis.org/A062383):
+
+~~~spl svg=F
+63.sobolSequence(1).denominator.discretePlot
+~~~
+
+![](sw/spl/Help/Image/sobolSequence-F.svg)
+
+Numerators of _k=1_ Sobol sequence,
+scatter plot,
+OEIS [A280995](https://oeis.org/A280995):
+
+~~~spl svg=G
+255.sobolSequence(1).numerator.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/sobolSequence-G.svg)
+
+Denominators of _k=1_ Sobol sequence,
+step plot,
+[A062383](https://oeis.org/A062383):
+
+~~~spl svg=H
+255.sobolSequence(1).denominator.stepPlot
+~~~
+
+![](sw/spl/Help/Image/sobolSequence-H.svg)
 
 * * *
 

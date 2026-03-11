@@ -717,6 +717,13 @@ OEIS [A001792](https://oeis.org/A001792)
 
 >>> [1 .. 11].binomialTransform
 [1 3 8 20 48 112 256 576 1280 2816 6144]
+
+>>> 1:11.collect { :n |
+>>> 	hypergeometric2F1(
+>>> 		2, -n + 1, 1, -1
+>>> 	)
+>>> }
+[1 3 8 20 48 112 256 576 1280 2816 6144]
 ```
 
 Plot over a subset of the reals:
@@ -817,6 +824,19 @@ a[0:5].catenate.log.discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/power-H.svg)
+
+A recurrence table,
+_a[n-1]+(-1ᵐa[m])_ where _m=⌊(n/2)_,
+OEIS [A089045](https://oeis.org/A089045):
+
+~~~spl svg=I
+{ :a :n |
+	let m = (n / 2).floor;
+	a[n - 1] + ((-1 ^ m) * a[m])
+}.recurrenceTable([1], 85).discretePlot
+~~~
+
+![](sw/spl/Help/Image/power-I.svg)
 
 * * *
 

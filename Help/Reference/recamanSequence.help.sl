@@ -6,7 +6,7 @@ Answer the first _n_ terms of Recamáns sequence.
 The _n_-the term is _a[n-1]-n_ if non-negative and not already in the sequence,
 otherwise _a[n-1]+n_.
 
-First few terms,
+First few terms of Recamáns sequence,
 OEIS [A005132](https://oeis.org/A005132):
 
 ```
@@ -23,7 +23,8 @@ OEIS [A005132](https://oeis.org/A005132):
 ]
 ```
 
-Line plot of the first few terms:
+Line plot of the first few terms of Recamáns sequence,
+OEIS [A005132](https://oeis.org/A005132):
 
 ~~~spl svg=A
 300.recamanSequence.linePlot
@@ -31,7 +32,8 @@ Line plot of the first few terms:
 
 ![](sw/spl/Help/Image/recamanSequence-A.svg)
 
-Scatter plot of the first few terms:
+Scatter plot of the first few terms of Recamáns sequence,
+OEIS [A005132](https://oeis.org/A005132):
 
 ~~~spl svg=B
 300.recamanSequence.scatterPlot
@@ -39,7 +41,7 @@ Scatter plot of the first few terms:
 
 ![](sw/spl/Help/Image/recamanSequence-B.svg)
 
-Drawing connecting adjacent elements with arcs,
+Drawing connecting adjacent elements of Recamáns sequence with arcs,
 radii are proportionate to distance:
 
 ~~~spl svg=C
@@ -61,7 +63,7 @@ let x = n.recamanSequence;
 
 ![](sw/spl/Help/Image/recamanSequence-C.svg)
 
-A variant of the sequence,
+A variant of Recamáns sequence,
 _k_ begins at _n_ and then flips signs and increments until a value is located,
 OEIS [A064389](https://oeis.org/A064389):
 

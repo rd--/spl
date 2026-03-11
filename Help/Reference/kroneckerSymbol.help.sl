@@ -351,6 +351,18 @@ OEIS [A035199](https://oeis.org/A035199):
 
 ![](sw/spl/Help/Image/kroneckerSymbol-J.svg)
 
+Kronecker symbol _-1,n_,
+the regular paperfolding sequence,
+OEIS [A034947](https://oeis.org/A034947):
+
+~~~spl svg=K
+1:85.collect { :n |
+	-1.kroneckerSymbol(n)
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/kroneckerSymbol-K.svg)
+
 * * *
 
 See also: jacobiSymbol, legendreSymbol

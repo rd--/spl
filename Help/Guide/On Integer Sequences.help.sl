@@ -164,6 +164,90 @@ OEIS [A010057](https://oeis.org/A010057):
 
 ![](sw/spl/Help/Image/isInteger-B.svg)
 
+Plot an _eta-sequence_,
+the differences of the rounded multiples of φ,
+OEIS [A006340](https://oeis.org/A006340):
+
+~~~
+let x = 0:93.collect(goldenRatio:/1);
+(x.round.differences - 1).discretePlot
+~~~
+
+![](sw/spl/Help/Image/goldenRatio-L.svg)
+
+Plot _a(n)%4=3_,
+where _a_ is the delayed divison of the Cloitre sequence,
+OEIS [A361463](https://oeis.org/A361463):
+
+~~~
+let c = 1L.rowlandsSequence(200, lcm:/2);
+let a = c.adjacentPairsCollect(/.swap) - 1;
+((a % 4) =.each 3).boole.discretePlot
+~~~
+
+![](sw/spl/Help/Image/rowlandsSequence-I.svg)
+
+The regular paperfolding sequence,
+OEIS [A014577](https://oeis.org/A014577):
+
+~~~
+85.regularPaperfoldingSequence
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/regularPaperfoldingSequence-C.svg)
+
+The period doubling sequence,
+OEIS [A096268](https://oeis.org/A096268):
+
+~~~
+115.periodDoublingSequence.discretePlot
+~~~
+
+![](sw/spl/Help/Image/periodDoublingSequence-A.svg)
+
+A sequence that is distinct from but similar to the period doubling sequence,
+OEIS [A073059](https://oeis.org/A073059):
+
+~~~
+let a = Map { :n |
+	[
+		{ n = 1 } -> { 0 },
+		{ n % 2 = 0 } -> { 0 },
+		{ n % 4 = 3 } -> { 1 },
+		{ true } -> { a[(n - 1) / 4] }
+	].which
+};
+a[1:105].discretePlot
+~~~
+
+![](sw/spl/Help/Image/periodDoublingSequence-B.svg)
+
+A sequence that is distinct from but similar to the complement of the period doubling sequence,
+OEIS [A098725](https://oeis.org/A098725):
+
+~~~
+let a = Map { :n |
+	[
+		{ n % 2 = 1 } -> { 1 },
+		{ n % 4 = 0 } -> { 0 },
+		{ true } -> { a[(n - 2) / 4 + 1] }
+	].which
+};
+a[0:101].discretePlot
+~~~
+
+![](sw/spl/Help/Image/periodDoublingSequence-C.svg)
+
+The complement of the period doubling sequence,
+OEIS [A035263](https://oeis.org/A035263):
+
+~~~
+(1 - 105.periodDoublingSequence).discretePlot
+~~~
+
+![](sw/spl/Help/Image/periodDoublingSequence-D.svg)
+
 ## _-1,1_ sequences
 
 The Liouville λ sequence,
@@ -223,6 +307,18 @@ let a = 102.thueMorseSequence;
 ~~~
 
 ![](sw/spl/Help/Image/thueMorseSequence-E.svg)
+
+Kronecker symbol _-1,n_,
+the regular paperfolding sequence,
+OEIS [A034947](https://oeis.org/A034947):
+
+~~~
+1:85.collect { :n |
+	-1.kroneckerSymbol(n)
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/kroneckerSymbol-K.svg)
 
 ## _-1,0,1_ sequences
 
@@ -309,6 +405,42 @@ OEIS [A054525](https://oeis.org/A054525):
 ~~~
 
 ![](sw/spl/Help/Image/moebiusMu-L.svg)
+
+First differences of the regular paperfolding sequence,
+OEIS [A343173](https://oeis.org/A343173):
+
+~~~
+115.regularPaperfoldingSequence
+.differences
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/regularPaperfoldingSequence-D.svg)
+
+Sign of first differences of Recamán’s sequence,
+OEIS [A160357](https://oeis.org/A160357):
+
+~~~
+100.recamanSequence
+.differences
+.sign
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/recamanSequence-E.svg)
+
+A recurrence table,
+_a[n-1]+(-1ᵐa[m])_ where _m=⌊(n/2)_,
+OEIS [A089045](https://oeis.org/A089045):
+
+~~~
+{ :a :n |
+	let m = (n / 2).floor;
+	a[n - 1] + ((-1 ^ m) * a[m])
+}.recurrenceTable([1], 85).discretePlot
+~~~
+
+![](sw/spl/Help/Image/power-I.svg)
 
 ## 0,1,2,3,4,5,6,7,8,9
 
@@ -579,6 +711,43 @@ OEIS [A358133](https://oeis.org/A358133):
 
 ![](sw/spl/Help/Image/reverseLexicographicSort-D.svg)
 
+First differences of Stern’s diatomic series,
+discarding initial two terms,
+OEIS[A070990](https://oeis.org/A070990):
+
+~~~
+115.sternBrocotSequence
+.allButFirst(2)
+.differences
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/sternBrocotSequence-D.svg)
+
+Second differences of Stern’s diatomic series,
+OEIS[A283104](https://oeis.org/A283104):
+
+~~~
+150.sternBrocotSequence
+.differences(2)
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/sternBrocotSequence-E.svg)
+
+_₂F₁(-2k,2k-2n;1;-1)_,
+OEIS [A184879](https://oeis.org/A184879):
+
+~~~
+0:10.triangularArray { :n :k |
+	hypergeometric2F1(
+		-2 * k, (2 * k) - (2 * n), 1, -1
+	)
+}.catenate.logScale.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/hypergeometric2F1-D.svg)
+
 ## Ascents
 
 Array where differences in rows are _n…1_,
@@ -674,6 +843,111 @@ OEIS [A051678](https://oeis.org/A051678):
 
 ![](sw/spl/Help/Image/triangularArray-F.svg)
 
+First few terms of the toothpick sequence,
+OEIS [A139250](https://oeis.org/A139250):
+
+~~~
+200.toothpickSequence.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/toothpickSequence-A.svg)
+
+## Irregular Ascents
+
+Positions of ones in the van Eck sequence,
+OEIS [A171951](https://oeis.org/A171951):
+
+~~~
+1200.vanEckSequence
+.indicesOf(1)
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/vanEckSequence-F.svg)
+
+Positions of zeroes in the van Eck sequence,
+OEIS [A171865](https://oeis.org/A171865):
+
+~~~
+200.vanEckSequence
+.indicesOf(0)
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/vanEckSequence-G.svg)
+
+Partial sums of Stern’s diatomic series,
+OEIS [A174868](https://oeis.org/A174868):
+
+~~~
+85.sternBrocotSequence
+.prefixSum
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/sternBrocotSequence-G.svg)
+
+## Irregular Restarting Ascents
+
+First differences of toothpicks numbers,
+OEIS [A139251](https://oeis.org/A139251):
+
+~~~
+85.toothpickSequence
+.differences
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/toothpickSequence-B.svg)
+
+First differences of toothpicks numbers,
+further terms,
+OEIS [A139251](https://oeis.org/A139251):
+
+~~~
+250.toothpickSequence
+.differences
+.log
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/toothpickSequence-C.svg)
+
+## Irregular Restarting Descents
+
+Plot _a(n)/n_,
+where _a_ is Rowland’s sequence,
+values are in _(2,3)_:
+
+~~~
+let n = 200;
+let a = 7.rowlandsSequence(n);
+(a / 1:n).
+allButFirst(2)
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/rowlandsSequence-F.svg)
+
+## Restarting Descents
+
+The number of Schroeder paths of length _2n_ and having _k_ peaks at height one,
+OEIS [A104219](https://oeis.org/A104219):
+
+~~~
+0:11.triangularArray { :n :k |
+	(-1 ^ (n - k))
+	*
+	binomial(n, k)
+	*
+	hypergeometric2F1(
+		k - n, n + 1, k + 2, 2
+	)
+}.catenate.log.discretePlot
+~~~
+
+![](sw/spl/Help/Image/hypergeometric2F1-C.svg)
+
 ## Stepped
 
 List in which _n_ appears _τ(n)_ times,
@@ -686,3 +960,212 @@ OEIS [A061017](https://oeis.org/A061017):
 ~~~
 
 ![](sw/spl/Help/Image/divisorSigma-X.svg)
+
+Partial sums of the Thue–Morse sequence,
+OEIS [A115384](https://oeis.org/A115384):
+
+~~~
+35.thueMorseSequence.prefixSum.stepPlot
+~~~
+
+![](sw/spl/Help/Image/thueMorseSequence-D.svg)
+
+Denominators of _k=1_ Sobol sequence,
+discrete plot,
+[A062383](https://oeis.org/A062383):
+
+~~~
+63.sobolSequence(1).denominator.discretePlot
+~~~
+
+![](sw/spl/Help/Image/sobolSequence-F.svg)
+
+The self-counting sequence,
+discrete plot,
+OEIS [A002024](https://oeis.org/A002024):
+
+~~~
+65.selfCountingSequence.discretePlot
+~~~
+
+![](sw/spl/Help/Image/selfCountingSequence-A.svg)
+
+_2*(n-w(n))/3_ where _w_ is the one count in the base negative two expansion,
+OEIS [A073504](https://oeis.org/A073504):
+
+~~~
+1:50.collect { :n |
+	2 * (n - n.digitCount(-2, 1)) / 3
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/digitCount-R.svg)
+
+## Exponential
+
+The van der Laan sequence,
+OEIS [A182097](https://oeis.org/A182097):
+
+~~~
+35.vanDerLaanSequence.discretePlot
+~~~
+
+![](sw/spl/Help/Image/vanDerLaanSequence-A.svg)
+
+Sequence of almost integers,
+rounded,
+OEIS [A205579](https://oeis.org/A205579):
+
+~~~
+(1.plasticRatio ^ 0:35).round.discretePlot
+~~~
+
+![](sw/spl/Help/Image/plasticRatio-A.svg)
+
+The Padovan sequence,
+OEIS [A000931](https://oeis.org/A000931):
+
+~~~
+35.padovanSequence([1 0 0])
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/padovanSequence-A.svg)
+
+Record values of Stern’s diatomic series,
+OEIS [A212289](https://oeis.org/A212289):
+
+~~~
+10000.sternBrocotSequence
+.recordValues
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/sternBrocotSequence-C.svg)
+
+The Somos four sequence,
+discrete log plot,
+OEIS [A006720](https://oeis.org/A006720):
+
+~~~
+4.somosSequence(35).log.discretePlot
+~~~
+
+![](sw/spl/Help/Image/somosSequence-A.svg)
+
+The Somos seven sequence,
+discrete log plot,
+OEIS [A006723](https://oeis.org/A006723):
+
+~~~
+7.somosSequence(35).log.discretePlot
+~~~
+
+![](sw/spl/Help/Image/somosSequence-B.svg)
+
+## Quasi-Symmetry
+
+Scatter plot of first few terms of Stern’s diatomic series,
+OEIS [A002487](https://oeis.org/A002487):
+
+~~~
+300.sternBrocotSequence.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/sternBrocotSequence-B.svg)
+
+Numerators of _k=1_ Sobol sequence,
+scatter plot,
+OEIS [A280995](https://oeis.org/A280995):
+
+~~~
+255.sobolSequence(1).numerator.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/sobolSequence-G.svg)
+
+## Horizontal Bands
+
+The smallest number _k_ such that _fusc(k)=n_,
+OEIS [A020946](https://oeis.org/A020946):
+
+~~~
+let k = 10000;
+let a = k.sternBrocotSequence;
+0:200.collect { :n |
+	1:k.detect { :i |
+		a[i] = n
+	}
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/sternBrocotSequence-F.svg)
+
+Scatter plot of the first few terms of Recamáns sequence,
+OEIS [A005132](https://oeis.org/A005132):
+
+~~~
+300.recamanSequence.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/recamanSequence-B.svg)
+
+A variant of Recamáns sequence,
+_k_ begins at _n_ and then flips signs and increments until a value is located,
+OEIS [A064389](https://oeis.org/A064389):
+
+~~~
+let m = 300;
+let a = [1];
+let d = IdentitySet(a);
+2.toDo(m) { :n |
+	let k = n;
+	let x = nil;
+	{
+		x := a[n - 1] - k;
+		k := (k > 0).if { -k } { -k + 1 };
+		(x <= 0) | {
+			d.includes(x)
+		}
+	}.whileTrue;
+	a.add(x);
+	d.add(x)
+};
+a.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/recamanSequence-D.svg)
+
+Height of terms of Recamán’s sequence,
+OEIS [A064289](https://oeis.org/A064289):
+
+~~~
+let r = 150.recamanSequence;
+r.addFirst(0);
+r.differences.sign.prefixSum.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/recamanSequence-F.svg)
+
+## Gapped Ascents
+
+Plot first few terms of _s1={0,1}_:
+
+~~~
+[0 1].stanleySequence(192).scatterPlot
+~~~
+
+![](sw/spl/Help/Image/stanleySequence-A.svg)
+
+Rowland’s sequence with _m=7_,
+step plot,
+OEIS [A106108](https://oeis.org/A106108):
+
+~~~
+7.rowlandsSequence(200)
+.stepPlot
+~~~
+
+![](sw/spl/Help/Image/rowlandsSequence-A.svg)
+
+## Signed Quasi-Symmetry

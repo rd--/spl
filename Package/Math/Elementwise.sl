@@ -517,6 +517,10 @@
 		self.collect(moebiusMu:/1)
 	}
 
+	motzkinNumber { :self |
+		self.collect(motzkinNumber:/1)
+	}
+
 	muLawEncode { :self |
 		self.collect(muLawEncode:/1)
 	}
@@ -659,6 +663,10 @@
 		self.collect(rudinShapiro:/1)
 	}
 
+	schroderNumber { :self |
+		self.collect(schroderNumber:/1)
+	}
+
 	[squareRoot, sqrt] { :self |
 		self.collect(squareRoot:/1)
 	}
@@ -679,6 +687,10 @@
 		self.collect { :n |
 			n.stirlingS1(k)
 		}
+	}
+
+	superCatalanNumber { :self |
+		self.collect(superCatalanNumber:/1)
 	}
 
 	tan { :self |

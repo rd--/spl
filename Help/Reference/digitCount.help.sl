@@ -35,17 +35,14 @@ Count the number of digits _(2,1,0)_ in the ternary representation:
 [7 6 5]
 ```
 
-Thue–Morse sequence:
+Thue–Morse sequence,
+OEIS [A010060](http://oeis.org/A010060):
 
 ```
 >>> 1:25.collect { :n |
->>> 	1 - (n - 1).digitCount(2, 1) % 2
+>>> 	(n - 1).digitCount(2, 1) % 2
 >>> }
-[
-	1 0 0 1 0 1 1 0 0 1
-	1 0 1 0 0 1 0 1 1 0
-	1 0 0 1 1
-]
+25.thueMorseSequence
 ```
 
 Total number of ones in binary expansions,
@@ -398,6 +395,17 @@ OEIS [A055641](https://oeis.org/A055641):
 ~~~
 
 ![](sw/spl/Help/Image/digitCount-Q.svg)
+
+_2*(n-w(n))/3_ where _w_ is the one count in the base negative two expansion,
+OEIS [A073504](https://oeis.org/A073504):
+
+~~~spl svg=R
+1:50.collect { :n |
+	2 * (n - n.digitCount(-2, 1)) / 3
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/digitCount-R.svg)
 
 * * *
 

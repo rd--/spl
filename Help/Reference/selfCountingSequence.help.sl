@@ -4,7 +4,7 @@
 
 Answer the first _k_ terms of the self-counting sequence.
 
-First few terms,
+First few terms of the self-counting sequence,
 OEIS [A002024](https://oeis.org/A002024):
 
 ```
@@ -19,6 +19,16 @@ OEIS [A002024](https://oeis.org/A002024):
 	7 7
 ]
 ```
+
+The self-counting sequence,
+discrete plot,
+OEIS [A002024](https://oeis.org/A002024):
+
+~~~spl svg=A
+65.selfCountingSequence.discretePlot
+~~~
+
+![](sw/spl/Help/Image/selfCountingSequence-A.svg)
 
 * * *
 

@@ -5,7 +5,8 @@
 Answer the first _n_ terms of the Szekeres sequence,
 which begins _1,2_ and avoids three-term arithmetic progressions.
 
-First few terms:
+First few terms of the Szekeres sequence
+OEIS [A003278](https://oeis.org/A003278):
 
 ```
 >>> 58.szekeresSequence
@@ -25,7 +26,8 @@ First few terms:
 ]
 ```
 
-Plot first few terms:
+First few terms of the Szekeres sequence
+OEIS [A003278](https://oeis.org/A003278):
 
 ~~~spl svg=A
 192.szekeresSequence.scatterPlot

@@ -2,9 +2,11 @@
 
 - _regularPaperfoldingSequence(n)_
 
-Answer the first _n_ terms of the regular paperfolding sequence.
+Answer the first _n_ terms of the regular paperfolding sequence,
+on alphabet _0,1_.
 
-First few terms:
+First few terms of the regular paperfolding sequence,
+OEIS [A014577](https://oeis.org/A014577):
 
 ```
 >>> 32.regularPaperfoldingSequence
@@ -14,7 +16,8 @@ First few terms:
 ]
 ```
 
-Relation to Kronecker symbol:
+Relation to Kronecker symbol _-1,n_,
+OEIS [A034947](https://oeis.org/A034947):
 
 ```
 >>> 1:32.collect { :n |
@@ -54,7 +57,7 @@ The sequence can be defined by a substitution system:
 ]
 ```
 
-Drawing:
+Interpret regular paperfolding sequence as turn sequence:
 
 ~~~spl svg=A
 let i = 300.regularPaperfoldingSequence;
@@ -63,7 +66,7 @@ let i = 300.regularPaperfoldingSequence;
 
 ![](sw/spl/Help/Image/regularPaperfoldingSequence-A.svg)
 
-Recurrence plot:
+Recurrence plot of regular paperfolding sequence:
 
 ~~~spl png=B
 100.regularPaperfoldingSequence
@@ -72,6 +75,27 @@ Recurrence plot:
 ~~~
 
 ![](sw/spl/Help/Image/regularPaperfoldingSequence-B.png)
+
+The regular paperfolding sequence,
+OEIS [A014577](https://oeis.org/A014577):
+
+~~~spl svg=C
+85.regularPaperfoldingSequence
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/regularPaperfoldingSequence-C.svg)
+
+First differences of the regular paperfolding sequence,
+OEIS [A343173](https://oeis.org/A343173):
+
+~~~spl svg=D
+115.regularPaperfoldingSequence
+.differences
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/regularPaperfoldingSequence-D.svg)
 
 * * *
 

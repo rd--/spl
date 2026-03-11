@@ -668,9 +668,12 @@
 
 	integerDigits { :self :base |
 		self.assertIsInteger('@Integer>>integerDigits');
-		(base = 1).if {
-			self.unaryExpansion
-		} {
+		base.caseOf(
+			[
+				-2 -> { self.negabinaryExpansion },
+				1 -> { self.unaryExpansion }
+			]
+		) {
 			base.isScalarInteger.if {
 				let numDigits = self.isZero.if {
 					1

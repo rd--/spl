@@ -4,14 +4,26 @@
 
 The super Catalan numbers count the number of lattice paths with diagonal steps from _(n,n)_ to _(0,0)_,
 which do not touch the diagonal line _x=y_.
-Also called the Schröder–Hipparchus numbers.
+Also called the Schröder–Hipparchus numbers or the little-Schröder numbers.
 
 The first ten super Catalan numbers,
+threads over lists,
 OEIS [A001003](https://oeis.org/A001003):
 
 ```
->>> 1:10.collect(superCatalanNumber:/1)
+>>> 1:10.superCatalanNumber
 [1 1 3 11 45 197 903 4279 20793 103049]
+```
+
+The Schröder numbers are twice the super-Catalan numbers,
+OEIS [A006318](https://oeis.org/A006318)
+
+```
+>>> 1:9.superCatalanNumber * 2
+[2 2 6 22 90 394 1806 8558 41586]
+
+>>> 1:9.schroderNumber
+[2 2 6 22 90 394 1806 8558 41586]
 ```
 
 The twenty-fourth super Catalan number:
@@ -57,9 +69,18 @@ OEIS [A144944](https://oeis.org/A144944):
 ]
 ```
 
+The super Catalan numbers,
+OEIS [A001003](https://oeis.org/A001003):
+
+~~~spl svg=A
+1:25.superCatalanNumber.log.discretePlot
+~~~
+
+![](sw/spl/Help/Image/superCatalanNumber-A.svg)
+
 * * *
 
-See also: catalanNumber, memoize
+See also: catalanNumber, memoize, schroderNumber
 
 Guides: Integer Sequence Functions
 

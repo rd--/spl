@@ -4,7 +4,7 @@
 
 Answer the first _n_ terms of the toothpick sequence.
 
-First few terms,
+First few terms of the toothpick sequence,
 OEIS [A139250](https://oeis.org/A139250):
 
 ```
@@ -20,7 +20,7 @@ OEIS [A139250](https://oeis.org/A139250):
 ]
 ```
 
-Plot first few terms,
+First few terms of the toothpick sequence,
 OEIS [A139250](https://oeis.org/A139250):
 
 ~~~spl svg=A

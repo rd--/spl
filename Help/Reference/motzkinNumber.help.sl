@@ -4,16 +4,27 @@
 
 Answer the _k_-th Motzkin number.
 
-First few terms,
+First few Motzkin numbers,
+threads over lists,
 OEIS [A001006](https://oeis.org/A001006):
 
 ```
->>> 1:12.collect(motzkinNumber:/1)
+>>> 1:12.motzkinNumber
 [1 1 2 4 9 21 51 127 323 835 2188 5798]
 
 >>> 23.motzkinNumber
 400763223
 ```
+
+Motzkin numbers,
+log scale discrete plot,
+OEIS [A001006](https://oeis.org/A001006):
+
+~~~spl svg=A
+1:35.motzkinNumber.log.discretePlot
+~~~
+
+![](sw/spl/Help/Image/motzkinNumber-A.svg)
 
 * * *
 

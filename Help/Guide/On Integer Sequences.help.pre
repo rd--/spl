@@ -30,6 +30,20 @@
 
 <<<isInteger,B
 
+<<<goldenRatio,L
+
+<<<rowlandsSequence,I
+
+<<<regularPaperfoldingSequence,C
+
+<<<periodDoublingSequence,A
+
+<<<periodDoublingSequence,B
+
+<<<periodDoublingSequence,C
+
+<<<periodDoublingSequence,D
+
 ## _-1,1_ sequences
 
 <<<liouvilleLambda,A
@@ -43,6 +57,8 @@
 <<<radical,C
 
 <<<thueMorseSequence,E
+
+<<<kroneckerSymbol,K
 
 ## _-1,0,1_ sequences
 
@@ -59,6 +75,12 @@
 <<<kroneckerSymbol,I
 
 <<<moebiusMu,L
+
+<<<regularPaperfoldingSequence,D
+
+<<<recamanSequence,E
+
+<<<power,I
 
 ## 0,1,2,3,4,5,6,7,8,9
 
@@ -100,6 +122,12 @@
 
 <<<reverseLexicographicSort,D
 
+<<<sternBrocotSequence,D
+
+<<<sternBrocotSequence,E
+
+<<<hypergeometric2F1,D
+
 ## Ascents
 
 <<<triangularArray,E
@@ -120,18 +148,76 @@
 
 <<<triangularArray,F
 
+<<<toothpickSequence,A
+
 ## Irregular Ascents
 
 <<<vanEckSequence,F
 
 <<<vanEckSequence,G
 
+<<<sternBrocotSequence,G
+
+## Irregular Restarting Ascents
+
+<<<toothpickSequence,B
+
+<<<toothpickSequence,C
+
+## Irregular Restarting Descents
+
+<<<rowlandsSequence,F
+
+## Restarting Descents
+
+<<<hypergeometric2F1,C
+
 ## Stepped
 
 <<<divisorSigma,X
+
+<<<thueMorseSequence,D
+
+<<<sobolSequence,F
+
+<<<selfCountingSequence,A
+
+<<<digitCount,R
 
 ## Exponential
 
 <<<vanDerLaanSequence,A
 
 <<<plasticRatio,A
+
+<<<padovanSequence,A
+
+<<<sternBrocotSequence,C
+
+<<<somosSequence,A
+
+<<<somosSequence,B
+
+## Quasi-Symmetry
+
+<<<sternBrocotSequence,B
+
+<<<sobolSequence,G
+
+## Horizontal Bands
+
+<<<sternBrocotSequence,F
+
+<<<recamanSequence,B
+
+<<<recamanSequence,D
+
+<<<recamanSequence,F
+
+## Gapped Ascents
+
+<<<stanleySequence,A
+
+<<<rowlandsSequence,A
+
+## Signed Quasi-Symmetry
