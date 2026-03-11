@@ -38,6 +38,10 @@
 		self.collect(absSquare:/1)
 	}
 
+	aliquotSum { :self |
+		self.collect(aliquotSum:/1)
+	}
+
 	antiDivisors { :self |
 		self.collect(antiDivisors:/1)
 	}

@@ -44,6 +44,10 @@
 
 <<<periodDoublingSequence,D
 
+<<<baumSweetSequence,B
+
+<<<wythoffLower,C
+
 ## _-1,1_ sequences
 
 <<<liouvilleLambda,A
@@ -81,6 +85,8 @@
 <<<recamanSequence,E
 
 <<<power,I
+
+<<<wythoffLower,D
 
 ## 0,1,2,3,4,5,6,7,8,9
 
@@ -128,6 +134,16 @@
 
 <<<hypergeometric2F1,D
 
+<<<aliquotSum,D
+
+<<<aliquotSum,E
+
+<<<bernoulliSequence,A
+
+<<<withIndexCollect,A
+
+<<<withIndexCollect,B
+
 ## Ascents
 
 <<<triangularArray,E
@@ -150,7 +166,7 @@
 
 <<<toothpickSequence,A
 
-## Irregular Ascents
+## Irregular Ascent
 
 <<<vanEckSequence,F
 
@@ -158,15 +174,25 @@
 
 <<<sternBrocotSequence,G
 
+<<<aliquotSum,B
+
+<<<aliquotSum,C
+
+<<<wythoffLower,A
+
 ## Irregular Restarting Ascents
 
 <<<toothpickSequence,B
 
 <<<toothpickSequence,C
 
+<<<wythoffArray,B
+
 ## Irregular Restarting Descents
 
 <<<rowlandsSequence,F
+
+<<<wythoffArray,A
 
 ## Restarting Descents
 
@@ -214,10 +240,32 @@
 
 <<<recamanSequence,F
 
+<<<wythoffIndex,B
+
 ## Gapped Ascents
 
 <<<stanleySequence,A
 
 <<<rowlandsSequence,A
+
+## Interleaved Ascents
+
+<<<which,B
+
+<<<wythoffIndex,A
+
+## Leaning Peaks
+
+<<<abs,D
+
+<<<abs,E
+
+## Ruler
+
+<<<wythoffLower,B
+
+## Left-Right Symmetry, Broken At Right Edge
+
+<<<vedicSquare,D
 
 ## Signed Quasi-Symmetry

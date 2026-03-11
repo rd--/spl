@@ -33,7 +33,9 @@ Aspiring numbers are eventually periodic:
 ```
 
 A sociable number has a periodic sequence,
-the only two sociable numbers below one million have periods five and twenty-eight:
+the only two sociable numbers below one million have periods five and twenty-eight,
+OEIS [A072891](https://oeis.org/A072891) and
+OEIS [A072890](https://oeis.org/A072890):
 
 ```
 >>> 12496.aliquotSequence
@@ -46,7 +48,7 @@ the only two sociable numbers below one million have periods five and twenty-eig
 The first few sequences:
 
 ```
->>> 1:9.collect(aliquotSequence:/1)
+>>> 1:9.collect(aliquotSequence:/1).++
 [
 	1;
 	2 1;
@@ -69,7 +71,8 @@ The first few sequences:
 ]
 ```
 
-The length of the first few sequences:
+The length of the first few aliquot sequences,
+OEIS [A044050](https://oeis.org/A044050):
 
 ```
 >>> 1:50.collect { :n |
@@ -84,7 +87,50 @@ The length of the first few sequences:
 ]
 ```
 
-It not known if some aliquot sequences terminate:
+The Aliquot sequence starting at 30,
+OEIS [A008885](https://oeis.org/A008885):
+
+```
+>>> 30.aliquotSequence
+[30 42 54 66 78 90 144 259 45 33 15 9 4 3 1]
+```
+
+Numbers whose aliquot sequence terminates in a perfect number,
+OEIS [A063769](https://oeis.org/A063769):
+
+```
+>>> [
+>>> 	25 95 119 143 417
+>>> 	445 565 608 650 652
+>>> 	675 685 783 790 909
+>>> 	913
+>>> ].collect(aliquotSequence:/1)
+[
+	25 6;
+	95 25 6;
+	119 25 6;
+	143 25 6;
+	417 143 25 6;
+	445 95 25 6;
+	565 119 25 6;
+	608 652 496;
+	650 652 496;
+	652 496;
+	675 565 119 25 6;
+	685 143 25 6;
+	783 417 143 25 6;
+	790 650 652 496;
+	909 417 143 25 6;
+	913 95 25 6
+]
+
+>>> 496.isPerfectNumber
+true
+```
+
+It not known if some aliquot sequences terminate,
+the Aliquot sequence starting at 276,
+OEIS [A008892](https://oeis.org/A008892):
 
 ```
 >>> 276.aliquotSequence(11)
@@ -94,6 +140,26 @@ It not known if some aliquot sequences terminate:
 	5964
 ]
 ```
+
+The length of the first few aliquot sequences,
+OEIS [A053223](https://oeis.org/A053223):
+
+~~~spl svg=A
+1:85.collect { :n |
+ 	n.aliquotSequence.size
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/aliquotSequence-A.svg)
+
+The Aliquot sequence starting at 276,
+OEIS [A008892](https://oeis.org/A008892):
+
+~~~spl svg=B
+276.aliquotSequence(23).log.stepPlot
+~~~
+
+![](sw/spl/Help/Image/aliquotSequence-B.svg)
 
 * * *
 

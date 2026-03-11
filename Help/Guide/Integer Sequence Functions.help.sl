@@ -16,6 +16,9 @@ Matrices:
 
 Sequence Generators:
 
+- `arithmeticProgression`
+- `arithmeticoGeometricSequence`
+- `geometricProgression`
 - `leastExcludedSequence`
 - `locallyCatenativeSequence`
 - `perfectDigitalInvariantSequence`
@@ -26,7 +29,6 @@ Sequence Generators:
 Named Sequences:
 
 - `aliquotSequence`
-- `arithmeticoGeometricSequence`
 - `arshonsSequence`
 - `baumSweetSequence`
 - `beattySequence`

@@ -74,7 +74,7 @@
 		aliquotSequence(n, 21)
 	}
 
-	arshonsSequence { :n |
+	arshonsSequence { :n :i |
 		let oddRules = [
 			[1, [1, 2, 3]],
 			[2, [2, 3, 1]],
@@ -91,7 +91,11 @@
 					evenRules.at(e)
 				}
 			}.catenate
-		}.iterate([1], n - 1)
+		}.iterate(i, n - 1)
+	}
+
+	arshonsSequence { :n |
+		n.arshonsSequence([1])
 	}
 
 	baumSweetSequence { :n |

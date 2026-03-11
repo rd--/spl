@@ -2,7 +2,14 @@
 
 - _baumSweetSequence(n)_
 
-Answer the first _n_ terms of the Baum–Sweet sequence.
+Answer the first _n_ terms of the Baum–Sweet sequence,
+one if the binary expansion of _n_ contains no block of consecutive zeros of odd length,
+else zero.
+
+The Baum–Sweet sequence,
+with initial term one,
+considering zero to have on zero bit,
+OEIS [A086747](https://oeis.org/A086747):
 
 ```
 >>> 105.baumSweetSequence
@@ -58,6 +65,15 @@ Recurrence plot of sequence:
 ~~~
 
 ![](sw/spl/Help/Image/baumSweetSequence-A.png)
+
+The Baum–Sweet sequence,
+OEIS [A086747](https://oeis.org/A086747):
+
+~~~spl svg=B
+115.baumSweetSequence.discretePlot
+~~~
+
+![](sw/spl/Help/Image/baumSweetSequence-B.svg)
 
 * * *
 

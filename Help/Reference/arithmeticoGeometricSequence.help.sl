@@ -3,7 +3,7 @@
 - _arithmeticoGeometricSequence(n, a, d, b, r)_
 
 Answer an _n_-place arithmetico-geometric sequence,
-which is the elementwise multiplication an arithmetic progression _(a,d)_ and a geometric progression _(b,r)_.
+which is the elementwise multiplication of an arithmetic progression _(a,d)_ and a geometric progression _(b,r)_.
 
 ```
 >>> 13.arithmeticoGeometricSequence(

@@ -248,6 +248,26 @@ OEIS [A035263](https://oeis.org/A035263):
 
 ![](sw/spl/Help/Image/periodDoublingSequence-D.svg)
 
+The Baum–Sweet sequence,
+OEIS [A086747](https://oeis.org/A086747):
+
+~~~
+115.baumSweetSequence.discretePlot
+~~~
+
+![](sw/spl/Help/Image/baumSweetSequence-B.svg)
+
+Plot first differences of _L(n)_,
+a Fibonacci word,
+OEIS [A014675](https://oeis.org/A014675):
+
+~~~
+let w = 1:65.collect(wythoffLower:/1);
+(w.differences - 1).discretePlot
+~~~
+
+![](sw/spl/Help/Image/wythoffLower-C.svg)
+
 ## _-1,1_ sequences
 
 The Liouville λ sequence,
@@ -441,6 +461,16 @@ OEIS [A089045](https://oeis.org/A089045):
 ~~~
 
 ![](sw/spl/Help/Image/power-I.svg)
+
+Plot second differences,
+OEIS [A014677](https://oeis.org/A014677):
+
+~~~
+let w = 1:65.collect(wythoffLower:/1);
+w.differences(2).discretePlot
+~~~
+
+![](sw/spl/Help/Image/wythoffLower-D.svg)
 
 ## 0,1,2,3,4,5,6,7,8,9
 
@@ -748,6 +778,68 @@ OEIS [A184879](https://oeis.org/A184879):
 
 ![](sw/spl/Help/Image/hypergeometric2F1-D.svg)
 
+First differences of aliquot sums,
+OEIS [A053246](https://oeis.org/A053246):
+
+~~~
+2:115.aliquotSum.differences
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/aliquotSum-D.svg)
+
+Second differences of aliquot sums,
+OEIS [A053246](https://oeis.org/A053246):
+
+~~~
+1:115.aliquotSum.differences(2)
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/aliquotSum-E.svg)
+
+Plot numerator of Bernoulli sequence,
+OEIS A027641 (https://oeis.org/A027641):
+
+~~~
+99.bernoulliSequence
+.numerator
+.logScale
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/bernoulliSequence-A.svg)
+
+Take odd digits of _n_ with negative sign,
+OEIS [A121758](https://oeis.org/A121758):
+
+~~~
+1:69.collect { :n |
+	n.integerDigits
+	.reverse
+	.withIndexCollect { :x :i |
+		(-1 ^ x) * x * (10 ^ (i - 1))
+	}.sum
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/withIndexCollect-A.svg)
+
+Take even digits of _n_ with negative sign,
+OEIS [A121759](https://oeis.org/A121759):
+
+~~~
+1:69.collect { :n |
+	n.integerDigits
+	.reverse
+	.withIndexCollect { :x :i |
+		(-1 ^ (x + 1)) * x * (10 ^ (i - 1))
+	}.sum
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/withIndexCollect-B.svg)
+
 ## Ascents
 
 Array where differences in rows are _n…1_,
@@ -852,7 +944,7 @@ OEIS [A139250](https://oeis.org/A139250):
 
 ![](sw/spl/Help/Image/toothpickSequence-A.svg)
 
-## Irregular Ascents
+## Irregular Ascent
 
 Positions of ones in the van Eck sequence,
 OEIS [A171951](https://oeis.org/A171951):
@@ -887,6 +979,36 @@ OEIS [A174868](https://oeis.org/A174868):
 
 ![](sw/spl/Help/Image/sternBrocotSequence-G.svg)
 
+Record positions of aliquot sums,
+OEIS [A034090](https://oeis.org/A034090):
+
+~~~
+1:250.aliquotSum
+.recordPositions
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/aliquotSum-B.svg)
+
+Record values of aliquot sums,
+OEIS [A034091](https://oeis.org/A034091):
+
+~~~
+1:250.aliquotSum
+.recordValues
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/aliquotSum-C.svg)
+
+Plot first few terms:
+
+~~~
+1:23.collect(wythoffLower:/1).stepPlot
+~~~
+
+![](sw/spl/Help/Image/wythoffLower-A.svg)
+
 ## Irregular Restarting Ascents
 
 First differences of toothpicks numbers,
@@ -913,6 +1035,17 @@ OEIS [A139251](https://oeis.org/A139251):
 
 ![](sw/spl/Help/Image/toothpickSequence-C.svg)
 
+Plot Wythoff array read by rising antidiagonals,
+OEIS [A083412](https://oeis.org/A083412):
+
+~~~
+10.antidiagonalArray(
+	wythoffArray:/2.swap
+).catenate.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/wythoffArray-B.svg)
+
 ## Irregular Restarting Descents
 
 Plot _a(n)/n_,
@@ -928,6 +1061,17 @@ allButFirst(2)
 ~~~
 
 ![](sw/spl/Help/Image/rowlandsSequence-F.svg)
+
+Plot Wythoff array read by falling antidiagonals,
+OEIS [A035513](https://oeis.org/A035513):
+
+~~~
+10.antidiagonalArray(
+	wythoffArray:/2
+).catenate.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/wythoffArray-A.svg)
 
 ## Restarting Descents
 
@@ -1147,6 +1291,16 @@ r.differences.sign.prefixSum.scatterPlot
 
 ![](sw/spl/Help/Image/recamanSequence-F.svg)
 
+Plot first few terms:
+
+~~~
+1:200.collect { :n |
+	n.wythoffIndex[2] - 1
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/wythoffIndex-B.svg)
+
 ## Gapped Ascents
 
 Plot first few terms of _s1={0,1}_:
@@ -1167,5 +1321,102 @@ OEIS [A106108](https://oeis.org/A106108):
 ~~~
 
 ![](sw/spl/Help/Image/rowlandsSequence-A.svg)
+
+## Interleaved Ascents
+
+Earliest sequence with _a(a(n))=6n_,
+OEIS [A054786](https://oeis.org/A054786):
+
+~~~
+let a = Map { :n |
+	let m = n % 12;
+	[
+		{ [0 6].includes(m) } -> {
+			6 * a[n/6]
+		},
+		{ [1 3 8 10].includes(m) } -> {
+			n + 1
+		},
+		{ [2 4 9 11].includes(m) } -> {
+			6 * n - 6
+		},
+		{ m = 5 } -> {
+			n + 1
+		},
+		{ m = 7 } -> {
+			6 * n - 12
+		}
+	].which
+};
+a[1:115].scatterPlot
+~~~
+
+![](sw/spl/Help/Image/which-B.svg)
+
+Plot first few terms:
+
+~~~
+1:200.collect { :n |
+	n.wythoffIndex[1] - 1
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/wythoffIndex-A.svg)
+
+## Leaning Peaks
+
+Absolute value of the first digit of _n_ minus the last digit,
+OEIS [A040163](https://oeis.org/A040163):
+
+~~~
+1:125.collect { :n |
+	let d = n.integerDigits;
+	(d.first - d.last).abs
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/abs-D.svg)
+
+Absolute value of the first digit of _n_ minus the sum of the remaining digits,
+OEIS [A040997](https://oeis.org/A040997):
+
+~~~
+50:175.collect { :n |
+	let d = n.integerDigits;
+	(d.first - d.allButFirst.sum).abs
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/abs-E.svg)
+
+## Ruler
+
+Plot column indices of the Wythoff array that contains _L(n)_,
+OEIS [A255670](https://oeis.org/A255670):
+
+~~~
+1:65.collect { :n |
+	let x = n.wythoffLower;
+	1:Infinity.detect { :j |
+		let y = 1:Infinity.detect { :i |
+			wythoffArray(i, j) >= x
+		};
+		x = wythoffArray(y, j)
+	}
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/wythoffLower-B.svg)
+
+## Left-Right Symmetry, Broken At Right Edge
+
+The Vedic square where _n=9_,
+OEIS [A125959](https://oeis.org/A125959)
+
+~~~
+9.vedicSquare.catenate.discretePlot
+~~~
+
+![](sw/spl/Help/Image/vedicSquare-D.svg)
 
 ## Signed Quasi-Symmetry

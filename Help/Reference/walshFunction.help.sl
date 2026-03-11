@@ -68,7 +68,6 @@ let m = 2 ^ n;
 1:m.collect { :k |
 	walshFunction(n, k)
 }.catenate.max(0)
-
 .discretePlot
 ~~~
 

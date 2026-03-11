@@ -412,6 +412,41 @@ HelpFile : [Object, Equatable, Cache] { | origin source cache |
 		self.helpFilesDo('Reference', pattern, aBlock:/1)
 	}
 
+	splReferenceImageDictionary { :self |
+		self.cached('splHelpImageIndex') {
+			self.helpIndex.names('Reference').collect { :n |
+				let c = self.readHelpFile(n).imageCodeBlocks;
+				c.ifEmpty {
+					nil
+				} {
+					n -> c
+				}
+			}.deleteMissing.asRecord
+		}
+	}
+
+	splHelpImageIndex { :self |
+		[
+			'# Help Image Index',
+			''
+		] ++ self.splReferenceImageDictionary.keysAndValuesCollect { :n :e |
+			[
+				'- `%`'.format([n])
+			] ++ e.withIndexCollect { :c :i |
+				[n, e.typeOf, e.size, c.typeOf, i].postLine;
+				'  %. ![](sw/spl/Help/Image/%-%.%)'
+				.format(
+					[
+						i,
+						n,
+						c.codeBlockImageIdentifier,
+						c.codeBlockImageType
+					]
+				)
+			}
+		}.values.catenate
+	}
+
 }
 
 +String {

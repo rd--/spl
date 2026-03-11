@@ -122,6 +122,52 @@ OEIS [A067004](http://oeis.org/A067004):
 [1 1 2 1 3 1 4 2 2 3 5 1 6 4 5 1 7 2 8 3]
 ```
 
+Divisor function _σ₁(n)_,
+OEIS [A000203](https://oeis.org/A000203):
+
+```
+>>> 1.divisorSigma(1:23)
+[
+	 1  3  4  7  6 12  8 15 13 18
+	12 28 14 24 24 31 18 39 20 42
+	32 36 24
+]
+```
+
+First differences of _σ₁(n)_,
+OEIS [A053222](https://oeis.org/A053222):
+
+```
+>>> 1.divisorSigma(1:23).differences
+[
+	2 1 3 -1 6 -4 7 -2 5 -6
+	16 -14 10 0 7 -13 21 -19 22 -10
+	4 -12
+]
+```
+
+Second differences of _σ₁(n)_,
+OEIS [A053246](https://oeis.org/A053246):
+
+```
+>>> 1.divisorSigma(1:23)
+>>> .differences(2)
+[
+	-1 2 -4 7 -10 11 -9 7 -11 22
+	-30 24 -10 7 -20 34 -40 41 -32 14
+	-16
+]
+```
+
+_n_ plus divisor function _σ₁(n)_,
+OEIS [A155085](https://oeis.org/A155085):
+
+```
+>>> let n = 1:13;
+>>> n + 1.divisorSigma(n)
+[2 5 7 11 11 18 15 23 22 28 23 40 27]
+```
+
 Recognize perfect numbers, numbers _n_ such that the sum of their divisors is equal to _2n_:
 
 ```
@@ -742,6 +788,17 @@ OEIS [A061017](https://oeis.org/A061017):
 ~~~
 
 ![](sw/spl/Help/Image/divisorSigma-X.svg)
+
+First differences of _σ₁(n)_,
+OEIS [A053222](https://oeis.org/A053222):
+
+~~~spl svg=Y
+1.divisorSigma(1:85)
+.differences
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/divisorSigma-Y.svg)
 
 * * *
 

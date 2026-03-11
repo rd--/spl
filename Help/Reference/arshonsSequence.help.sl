@@ -5,7 +5,8 @@
 Answer the _n_-th iteration of Arshon’s sequence,
 defined by iterating two alternating morphisms.
 
-The first few iterations:
+The first few iterations of Arshon’s sequence,
+OEIS [A099054](https://oeis.org/A099054):
 
 ```
 >>> 1:3.collect(arshonsSequence:/1)
@@ -16,7 +17,8 @@ The first few iterations:
 ]
 ```
 
-The sixth iteration:
+The sixth iteration of Arshon’s sequence,
+OEIS [A099054](https://oeis.org/A099054):
 
 ```
 >>> 6.arshonsSequence
@@ -37,7 +39,8 @@ The sixth iteration:
 ]
 ```
 
-Length of sucessive iterations:
+Length of sucessive iterations,
+OEIS [A000244](https://oeis.org/A000244):
 
 ```
 >>> 1:7.collect { :n |
@@ -49,7 +52,30 @@ Length of sucessive iterations:
 [1 3 9 27 81 243 729]
 ```
 
-Step plot of fifth iteration:
+The fourth iteration of Arshon’s sequence starting with two,
+OEIS [A100336](https://oeis.org/A100336):
+
+```
+>>> 4.arshonsSequence([2])
+[
+	2 3 1 2 1 3 1 2 3 1 3 2 1 2 3 2 1 3 1 2
+	3 1 3 2 3 1 2
+]
+```
+
+The fourth iteration of Arshon’s sequence starting with three,
+OEIS [A100337](https://oeis.org/A100337):
+
+```
+>>> 4.arshonsSequence([3])
+[
+	3 1 2 3 2 1 2 3 1 2 1 3 2 3 1 3 2 1 2 3
+	1 2 1 3 1 2 3
+]
+```
+
+Step plot of fifth iteration of Arshon’s sequence,
+OEIS [A099054](https://oeis.org/A099054):
 
 ~~~spl svg=A
 5.arshonsSequence
@@ -57,6 +83,37 @@ Step plot of fifth iteration:
 ~~~
 
 ![](sw/spl/Help/Image/arshonsSequence-A.svg)
+
+Sixth iteration of Arshon’s sequence,
+offset to to over alphabet _-1,0,1_,
+OEIS [A099054](https://oeis.org/A099054):
+
+~~~spl svg=B
+(6.arshonsSequence - 2)
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/arshonsSequence-B.svg)
+
+Step plot of fifth iteration of Arshon’s sequence starting with two,
+OEIS [A100336](https://oeis.org/A100336):
+
+~~~spl svg=C
+5.arshonsSequence([2])
+.stepPlot
+~~~
+
+![](sw/spl/Help/Image/arshonsSequence-C.svg)
+
+Step plot of fifth iteration of Arshon’s sequence starting with three,
+OEIS [A100337](https://oeis.org/A100337):
+
+~~~spl svg=D
+5.arshonsSequence([3])
+.stepPlot
+~~~
+
+![](sw/spl/Help/Image/arshonsSequence-D.svg)
 
 * * *
 

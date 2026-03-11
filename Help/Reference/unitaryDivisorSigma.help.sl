@@ -76,7 +76,9 @@ OEIS [A034676](https://oeis.org/A034676):
 ![](sw/spl/Help/Image/unitaryDivisorSigma-B.svg)
 
 _uσ(n)-n_,
-OEIS [A034460](https://oeis.org/A034460):
+OEIS [A034460](https://oeis.org/A034460),
+also but for first term
+OEIS [A063919](https://oeis.org/A063919):
 
 ~~~spl svg=C
 1:100.collect { :n |

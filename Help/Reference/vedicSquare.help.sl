@@ -79,6 +79,15 @@ Matrix plot of _n=100_:
 
 ![](sw/spl/Help/Image/vedicSquare-C.png)
 
+The Vedic square where _n=9_,
+OEIS [A125959](https://oeis.org/A125959)
+
+~~~spl svg=D
+9.vedicSquare.catenate.discretePlot
+~~~
+
+![](sw/spl/Help/Image/vedicSquare-D.svg)
+
 * * *
 
 See also: %, commonResidue, positiveResidue
