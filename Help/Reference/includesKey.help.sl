@@ -48,7 +48,7 @@ true
 
 * * *
 
-See also: at, Dictionary, includes, includesIndex, Indexable, keys
+See also: at, Dictionary, includes, includesAssociation, includesIndex, Indexable, keys
 
 Guides: Dictionary Functions
 

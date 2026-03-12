@@ -5,7 +5,7 @@
 A `Type` holding an index of the Sᴘʟ help files.
 Each entry in the index is a list _(kind,topic)_.
 
-The `helpIndex` method `System` answers a `HelpIndex`:
+The `helpIndex` method at `System` answers a `HelpIndex`:
 
 ```
 >>> system.helpIndex.typeOf

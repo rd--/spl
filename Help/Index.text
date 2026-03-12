@@ -93,6 +93,7 @@ Guide/Graph Functions.help.sl
 Guide/Guide Index.help.sl
 Guide/Help Files.help.sl
 Guide/Help Functions.help.sl
+Guide/Help Image Index.help.sl
 Guide/Hyperbolic Functions.help.sl
 Guide/Identifier Syntax.help.sl
 Guide/Image Functions.help.sl
@@ -219,6 +220,7 @@ Guide/Special Functions.help.sl
 Guide/Specialised Constructors.help.sl
 Guide/Spelling Rules.help.sl
 Guide/Statistics Functions.help.sl
+Guide/Stochastic Functions.help.sl
 Guide/Stream Functions.help.sl
 Guide/String Functions.help.sl
 Guide/String Syntax.help.sl
@@ -1738,8 +1740,11 @@ Reference/HelpBrowser.help.sl
 Reference/HelpFile.help.sl
 Reference/helpFileName.help.sl
 Reference/helpFilesDo.help.sl
+Reference/helpFragment.help.sl
+Reference/helpImageIndex.help.sl
 Reference/helpIndex.help.sl
 Reference/HelpIndex.help.sl
+Reference/helpPreprocessor.help.sl
 Reference/HelpViewer.help.sl
 Reference/henonAreaPreservingMap.help.sl
 Reference/HenonC.help.sl
@@ -3745,12 +3750,12 @@ Reference/SplayAz.help.sl
 Reference/Splay.help.sl
 Reference/splDirectory.help.sl
 Reference/splFileName.help.sl
-Reference/splHelpFragment.help.sl
 Reference/splitBy.help.sl
 Reference/splitByLimitedTo.help.sl
 Reference/splitByRegularExpression.help.sl
 Reference/split.help.sl
 Reference/SplitMix.help.sl
+Reference/splitPlaces.help.sl
 Reference/splOperatorCharacters.help.sl
 Reference/splOperatorNameTable.help.sl
 Reference/splOperatorNameToken.help.sl
@@ -3760,6 +3765,7 @@ Reference/splParseTree.help.sl
 Reference/splPunctuationCharacterNameTable.help.sl
 Reference/splPunctuationCharacters.help.sl
 Reference/splPunctuationTokenName.help.sl
+Reference/splReferenceImageDictionary.help.sl
 Reference/splSimplify.help.sl
 Reference/spokePlot.help.sl
 Reference/Spring.help.sl

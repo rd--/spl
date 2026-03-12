@@ -61,8 +61,8 @@ HelpFile : [Object, Equatable, Cache] { | origin source cache |
 		)
 	}
 
-	codeBlockWithAttribute { :self :key :value |
-		self.codeBlocks.detect { :each |
+	codeBlocksWithAttribute { :self :key :value |
+		self.codeBlocks.select { :each |
 			each['attributes'].includesAssociation(key -> value)
 		}
 	}
@@ -359,17 +359,22 @@ HelpFile : [Object, Equatable, Cache] { | origin source cache |
 
 +String {
 
-	helpFileName { :topic |
-		'Help/%/%.help.sl'.format(
+	helpFileName { :topic :extension |
+		'Help/%/%.help%'.format(
 			[
 				topic.includes(' ').if {
 					'Guide'
 				} {
 					'Reference'
 				},
-				topic
+				topic,
+				extension
 			]
 		)
+	}
+
+	helpFileName { :topic |
+		topic.helpFileName('.sl')
 	}
 
 }
@@ -398,22 +403,8 @@ HelpFile : [Object, Equatable, Cache] { | origin source cache |
 		}
 	}
 
-	readHelpFile { :self :topic |
-		let fileName = self.splFileName(
-			topic.helpFileName
-		);
-		HelpFile(
-			fileName.asFileUrl,
-			self.readTextFile(fileName)
-		)
-	}
-
-	referenceHelpFilesDo { :self :pattern :aBlock:/1 |
-		self.helpFilesDo('Reference', pattern, aBlock:/1)
-	}
-
-	splReferenceImageDictionary { :self |
-		self.cached('splHelpImageIndex') {
+	helpImageDictionary { :self |
+		self.cached('helpImageDictionary') {
 			self.helpIndex.names('Reference').collect { :n |
 				let c = self.readHelpFile(n).imageCodeBlocks;
 				c.ifEmpty {
@@ -425,11 +416,11 @@ HelpFile : [Object, Equatable, Cache] { | origin source cache |
 		}
 	}
 
-	splHelpImageIndex { :self |
+	helpImageIndex { :self |
 		[
 			'# Help Image Index',
 			''
-		] ++ self.splReferenceImageDictionary.keysAndValuesCollect { :n :e |
+		] ++ self.helpImageDictionary.keysAndValuesCollect { :n :e |
 			[
 				'- `%`'.format([n])
 			] ++ e.withIndexCollect { :c :i |
@@ -447,17 +438,31 @@ HelpFile : [Object, Equatable, Cache] { | origin source cache |
 		}.values.catenate
 	}
 
+	readHelpFile { :self :topic |
+		let fileName = self.splFileName(
+			topic.helpFileName
+		);
+		HelpFile(
+			fileName.asFileUrl,
+			self.readTextFile(fileName)
+		)
+	}
+
+	referenceHelpFilesDo { :self :pattern :aBlock:/1 |
+		self.helpFilesDo('Reference', pattern, aBlock:/1)
+	}
+
 }
 
 +String {
 
-	splHelpFragment { :topic :key :value |
-		system.readHelpFile(topic)
-		.codeBlockWithAttribute(key, value)
-		.at('contents')
+	helpFragment { :topic :key :value |
+		let helpFile = system.readHelpFile(topic);
+		let [codeBlock] = helpFile.codeBlocksWithAttribute(key, value);
+		codeBlock.at('contents')
 	}
 
-	splHelpFragment { :topic :key :value :indices |
+	helpFragment { :topic :key :value :indices |
 		let helpFile = system.readHelpFile(topic);
 		let paragraphs = helpFile.paragraphs;
 		let prefix = '~~~spl %=%'.format([key, value]);
@@ -471,14 +476,14 @@ HelpFile : [Object, Equatable, Cache] { | origin source cache |
 		]
 	}
 
-	splHelpPreprocessor { :filePrefix |
-		let inputFileName = filePrefix ++ '.help.pre';
-		let outputFileName = filePrefix ++ '.help.sl';
-		let inputText = inputFileName.splFilePath.readTextFile;
+	helpPreprocessor { :topic |
+		let inputFilePath = topic.helpFileName('.pre').splFilePath;
+		let outputFilePath = topic.helpFileName('.sl').splFilePath;
+		let inputText = inputFilePath.readTextFile;
 		let outputText = inputText.lines.collect { :line |
 			line.beginsWith('<<<').if {
 				let [a, b] = line.drop(3).splitBy(',');
-				let [p, c] = splHelpFragment(a, 'svg', b, [-1, 1]);
+				let [p, c] = helpFragment(a, 'svg', b, [-1, 1]);
 				[
 					p[1],
 					'',
@@ -492,7 +497,7 @@ HelpFile : [Object, Equatable, Cache] { | origin source cache |
 				line
 			}
 		}.unlines;
-		outputFileName.splFilePath.writeTextFile(outputText)
+		outputFilePath.writeTextFile(outputText)
 	}
 
 }

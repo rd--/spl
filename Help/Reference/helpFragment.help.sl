@@ -1,12 +1,11 @@
-# splHelpFragment
+# helpFragment
 
-- _splHelpFragment(topic, key, value)_
+- _helpFragment(topic, key, value)_
 
 Fetch the fragment at anchor _key=value_ from the help file for _topic_.
 
 ```
->> splHelpFragment(
->> 	'circleInversion',
+>> 'circleInversion'.helpFragment(
 >> 	'svg',
 >> 	'E'
 >> )
