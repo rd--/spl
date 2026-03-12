@@ -50,6 +50,8 @@
 - `aliquotSequence`
   1. ![](sw/spl/Help/Image/aliquotSequence-A.svg)
   2. ![](sw/spl/Help/Image/aliquotSequence-B.svg)
+  3. ![](sw/spl/Help/Image/aliquotSequence-C.svg)
+  4. ![](sw/spl/Help/Image/aliquotSequence-D.svg)
 - `aliquotSum`
   1. ![](sw/spl/Help/Image/aliquotSum-A.svg)
   2. ![](sw/spl/Help/Image/aliquotSum-B.svg)
@@ -1279,6 +1281,7 @@
   16. ![](sw/spl/Help/Image/digitCount-P.svg)
   17. ![](sw/spl/Help/Image/digitCount-Q.svg)
   18. ![](sw/spl/Help/Image/digitCount-R.svg)
+  19. ![](sw/spl/Help/Image/digitCount-S.svg)
 - `digitProduct`
   1. ![](sw/spl/Help/Image/digitProduct-A.svg)
 - `digitSum`
@@ -2147,6 +2150,7 @@
   10. ![](sw/spl/Help/Image/goldenRatio-J.svg)
   11. ![](sw/spl/Help/Image/goldenRatio-K.svg)
   12. ![](sw/spl/Help/Image/goldenRatio-L.svg)
+  13. ![](sw/spl/Help/Image/goldenRatio-M.svg)
 - `goldsteinPriceFunction`
   1. ![](sw/spl/Help/Image/goldsteinPriceFunction-A.svg)
   2. ![](sw/spl/Help/Image/goldsteinPriceFunction-B.png)
@@ -2256,6 +2260,8 @@
   2. ![](sw/spl/Help/Image/haltonSequence-B.svg)
 - `hammersleyPointSet`
   1. ![](sw/spl/Help/Image/hammersleyPointSet-A.svg)
+- `hammingDistance`
+  1. ![](sw/spl/Help/Image/hammingDistance-A.svg)
 - `hammingGraph`
   1. ![](sw/spl/Help/Image/hammingGraph-A.svg)
   2. ![](sw/spl/Help/Image/hammingGraph-B.svg)
@@ -2281,6 +2287,7 @@
   16. ![](sw/spl/Help/Image/hammingWeight-P.svg)
   17. ![](sw/spl/Help/Image/hammingWeight-Q.svg)
   18. ![](sw/spl/Help/Image/hammingWeight-R.svg)
+  19. ![](sw/spl/Help/Image/hammingWeight-S.svg)
 - `hammingWindow`
   1. ![](sw/spl/Help/Image/hammingWindow-A.svg)
   2. ![](sw/spl/Help/Image/hammingWindow-B.svg)
@@ -2693,6 +2700,8 @@
   1. ![](sw/spl/Help/Image/isInvolutoryMatrix-A.svg)
 - `isLesserTwinPrime`
   1. ![](sw/spl/Help/Image/isLesserTwinPrime-A.svg)
+  2. ![](sw/spl/Help/Image/isLesserTwinPrime-B.svg)
+  3. ![](sw/spl/Help/Image/isLesserTwinPrime-C.svg)
 - `isMagenta`
   1. ![](sw/spl/Help/Image/isMagenta-A.svg)
 - `isMixed`
@@ -5091,6 +5100,7 @@
   7. ![](sw/spl/Help/Image/substitutionSystem-G.svg)
   8. ![](sw/spl/Help/Image/substitutionSystem-H.svg)
   9. ![](sw/spl/Help/Image/substitutionSystem-I.svg)
+  10. ![](sw/spl/Help/Image/substitutionSystem-J.svg)
 - `sum`
   1. ![](sw/spl/Help/Image/sum-A.svg)
   2. ![](sw/spl/Help/Image/sum-B.svg)
@@ -5635,6 +5645,9 @@
   1. ![](sw/spl/Help/Image/wythoffPair-A.svg)
   2. ![](sw/spl/Help/Image/wythoffPair-B.svg)
   3. ![](sw/spl/Help/Image/wythoffPair-C.svg)
+- `wythoffUpper`
+  1. ![](sw/spl/Help/Image/wythoffUpper-A.svg)
+  2. ![](sw/spl/Help/Image/wythoffUpper-B.svg)
 - `xiaolinWuLineAlgorithm`
   1. ![](sw/spl/Help/Image/xiaolinWuLineAlgorithm-A.svg)
 - `xorShift32`
@@ -5656,6 +5669,7 @@
   6. ![](sw/spl/Help/Image/zeckendorfRepresentation-F.svg)
   7. ![](sw/spl/Help/Image/zeckendorfRepresentation-G.svg)
   8. ![](sw/spl/Help/Image/zeckendorfRepresentation-H.svg)
+  9. ![](sw/spl/Help/Image/zeckendorfRepresentation-I.svg)
 - `zeta`
   1. ![](sw/spl/Help/Image/zeta-A.svg)
   2. ![](sw/spl/Help/Image/zeta-B.svg)

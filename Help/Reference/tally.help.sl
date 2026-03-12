@@ -8,9 +8,9 @@ according to the equality predicate _f_.
 ```
 >>> 'aabacba'.contents.tally(=)
 [
-	'a' -> 4,
-	'b' -> 2,
-	'c' -> 1
+	'a' 4;
+	'b' 2;
+	'c' 1
 ]
 ```
 
@@ -21,15 +21,15 @@ Count the instances of randomly generated integers:
 >>> .randomInteger([1 9], 23)
 >>> .tally(=)
 [
-	9 -> 2,
-	7 -> 3,
-	6 -> 2,
-	1 -> 4,
-	3 -> 1,
-	4 -> 4,
-	8 -> 3,
-	5 -> 3,
-	2 -> 1
+	9 2;
+	7 3;
+	6 2;
+	1 4;
+	3 1;
+	4 4;
+	8 3;
+	5 3;
+	2 1
 ]
 ```
 
@@ -40,14 +40,14 @@ Count odd and even numbers in a list:
 >>> 	p.isEven = q.isEven
 >>> }
 [
-	1 -> 4,
-	2 -> 2
+	1 4;
+	2 2
 ]
 ```
 
 * * *
 
-See also: commonest, counts, entropy, mean, median, sort, sortBy, union
+See also: commonest, counts, mean, median, sort, sortBy, union
 
 Guides: List Functions
 

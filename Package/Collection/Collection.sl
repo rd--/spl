@@ -743,13 +743,13 @@
 	tally { :self :aBlock:/2 |
 		let answer = [];
 		self.do { :each |
-			answer.detectIndexIfFoundIfNone { :item |
-				aBlock(item.key,each)
+			answer.detectIndexIfFoundIfNone { :entry |
+				aBlock(entry[1], each)
 			} { :index |
-				let association = answer[index];
-				association.value := association.value + 1
+				let entry = answer[index];
+				entry[2] := entry[2] + 1
 			} {
-				answer.add(each -> 1)
+				answer.add([each, 1])
 			}
 		};
 		answer

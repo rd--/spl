@@ -20,7 +20,7 @@ RunArray : [Object, Equatable, Storeable, Indexable] { | runs values cachedIndex
 		answer
 	}
 
-	asAssociationList { :self |
+	associations { :self |
 		self.runsAndValuesCollect { :key :value |
 			key -> value
 		}
@@ -130,6 +130,12 @@ RunArray : [Object, Equatable, Storeable, Indexable] { | runs values cachedIndex
 	runLengthAt { :self :index |
 		self.atSetRunOffsetAndValue(index) { :run :offset :value |
 			self.runs[run] - offset
+		}
+	}
+
+	runsAndValues { :self |
+		self.runsAndValuesCollect { :key :value |
+			[key, value]
 		}
 	}
 

@@ -416,6 +416,12 @@ HelpFile : [Object, Equatable, Cache] { | origin source cache |
 		}
 	}
 
+	helpImageTable { :self |
+		self.cached('helpImageTable') {
+			self.helpImageDictionary.keysAndEachValue
+		}
+	}
+
 	helpImageIndex { :self |
 		[
 			'# Help Image Index',
@@ -424,7 +430,7 @@ HelpFile : [Object, Equatable, Cache] { | origin source cache |
 			[
 				'- `%`'.format([n])
 			] ++ e.withIndexCollect { :c :i |
-				[n, e.typeOf, e.size, c.typeOf, i].postLine;
+				[n, e.size, i].postLine;
 				'  %. ![](sw/spl/Help/Image/%-%.%)'
 				.format(
 					[

@@ -2,6 +2,8 @@
 
 - helpImageIndex(system)_
 
+Answer the help image index in markdown format.
+
 ~~~spl console
 'Help/Guide/Help Image Index.help.sl'
 .splFilePath
@@ -11,5 +13,7 @@
 ~~~
 
 * * *
+
+See also: helpImageDictionary, helpImageTable
 
 Guides: Help Image Index

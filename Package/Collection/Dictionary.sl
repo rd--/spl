@@ -255,6 +255,26 @@
 		}
 	}
 
+	keysAndEachValueDo { :self :aBlock:/2 |
+		self.keysAndValuesDo { :key :value |
+			value.isCollection.if {
+				value.do { :each |
+					aBlock(key, each)
+				}
+			} {
+				self.error('keysAndEachValueDo: value not a collection')
+			}
+		}
+	}
+
+	keysAndEachValue { :self |
+		let answer = [];
+		self.keysAndEachValueDo { :key :value |
+			answer.add([key, value])
+		};
+		answer
+	}
+
 	keysAndValues { :self |
 		let answer = [];
 		self.keysAndValuesDo { :key :value |

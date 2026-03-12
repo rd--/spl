@@ -24,12 +24,16 @@ and the method `values` answer an array of what the value is over those elements
 ([1 3 5], ['a' 'b' 'c'])
 ```
 
-As a list of associations:
+As a list of associations or a two column matrix:
 
 ```
 >>> RunArray([1 3 5], ['a' 'b' 'c'])
->>> .asAssociationList
+>>> .associations
 [1 -> 'a', 3 -> 'b', 5 -> 'c']
+
+>>> RunArray([1 3 5], ['a' 'b' 'c'])
+>>> .runsAndValues
+[1 'a'; 3 'b'; 5 'c']
 ```
 
 The `RunArray` implementation caches the last access so that streaming through `RunArray`s is not an _n_-squared process.
@@ -39,6 +43,8 @@ Many complexities of access can be bypassed by using the method `withStartStopAn
 * * *
 
 See also: asRunArray, List
+
+Guides: List Functions
 
 References:
 _Mathematica_

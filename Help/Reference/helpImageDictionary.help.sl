@@ -2,21 +2,23 @@
 
 - _helpImageDictionary(system)_
 
-Answer a `Record` where the keys are reference help file identifiers,
+Answer a `Record` where the keys are help file topics,
 and the values are lists of code block records.
 
 ```
 >>> let d = system.helpImageDictionary;
->>> (d.size, d.typeOf, d['abs'].typeOf, d['abs'].elementType)
-(1413, 'Record', 'List', 'Record')
-
->>> let d = system.helpImageDictionary;
->>> let c = d.values.catenate;
->>> ['svg' 'png' 'oeis' 'set'].collect { :k |
->>> 	c.count { :x |
->>> 		x.at('attributes')
->>> 		.includesKey(k)
->>> 	}
->>> }
-[4094 175 58 55]
+>>> (
+>>> 	d.size,
+>>> 	d.typeOf,
+>>> 	d['abs'].typeOf,
+>>> 	d['abs'].elementType,
+>>> 	d['abs'].size
+>>> )
+(1413, 'Record', 'List', 'Record', 5)
 ```
+
+* * *
+
+See also: helpImageIndex, helpImageTable
+
+Guides: Help Files

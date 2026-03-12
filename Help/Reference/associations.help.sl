@@ -2,7 +2,7 @@
 
 - _associations(d)_
 
-Answer a `List` of the `Association` values held by the dictionary _d_.
+Answer a `List` of the `Association` values held by the dictionary like object _d_.
 
 At `Record`:
 
@@ -53,6 +53,14 @@ At `TimeSeries`:
 >>> 	[2 1; 5 6; 10 5; 12 7; 15 4]
 >>> ).associations
 [2 -> 1, 5 -> 6, 10 -> 5, 12 -> 7, 15 -> 4]
+```
+
+At `RunArray`:
+
+```
+>>> RunArray([1, 3, 5], ['a', 'b', 'c'])
+>>> .associations
+[1 -> 'a', 3 -> 'b', 5 -> 'c']
 ```
 
 * * *

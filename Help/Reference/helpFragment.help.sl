@@ -1,8 +1,8 @@
 # helpFragment
 
-- _helpFragment(topic, key, value)_
+- _helpFragment(h, k, v, i=⍬)_
 
-Fetch the fragment at anchor _key=value_ from the help file for _topic_.
+Fetch the fragment at the unique anchor specified by the key _k_ and value _v_ from the help file for topic _h_.
 
 ```
 >> 'circleInversion'.helpFragment(
@@ -16,6 +16,20 @@ let b = 9.annularSteinerChain(
 );
 let c = b.circleInversion(a);
 [a b c].LineDrawing
+```
+
+If _indices_ are specified the paragraphs at the relative locations are also given:
+
+```
+>>> 'abs'.helpFragment(
+>>> 	'svg',
+>>> 	'A',
+>>> 	[-1 1]
+>>> ).first
+[
+	'Plot over a subset of the reals:',
+	'![](sw/spl/Help/Image/abs-A.svg)'
+]
 ```
 
 * * *

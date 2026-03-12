@@ -13,4 +13,6 @@ Answer a sequence containing the (index -> value) associations of the sequence _
 
 See also: associations, Sequence
 
+Guides: List Functions
+
 Categories: Accessing

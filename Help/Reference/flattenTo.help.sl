@@ -1,8 +1,8 @@
 # flattenTo
 
-- _flattenTo(aSequence, anInteger)_
+- _flattenTo([x₁ x₂ …], n)_
 
-Flatten _aSequence_ to level _anInteger_.
+Flatten the sequence _x_ to level _n_.
 
 No flattening:
 

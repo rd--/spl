@@ -257,13 +257,14 @@ OEIS [A086747](https://oeis.org/A086747):
 
 ![](sw/spl/Help/Image/baumSweetSequence-B.svg)
 
-Plot first differences of _L(n)_,
+First differences of the lower Wythoff sequence,
 a Fibonacci word,
 OEIS [A014675](https://oeis.org/A014675):
 
 ~~~
-let w = 1:65.collect(wythoffLower:/1);
-(w.differences - 1).discretePlot
+1:65.wythoffLower
+.differences
+.stepPlot
 ~~~
 
 ![](sw/spl/Help/Image/wythoffLower-C.svg)
@@ -366,19 +367,29 @@ OEIS [A143536](https://oeis.org/A143536):
 
 ![](sw/spl/Help/Image/isPrime-J.svg)
 
-## _0,n_ sequences
-
-List of twin primes modulo four,
-OEIS [A122567](https://oeis.org/A122567),
-offset to alphabet _0,2_:
+Characteristic function of numbers with an even number of ones in their binary expansion,
+OEIS [A010059](https://oeis.org/A010059):
 
 ~~~
-let a = 3:1607.select(
+0:85.select { :n |
+	n.digitCount(2, 1).isEven
+}.characteristicFunction.discretePlot
+~~~
+
+![](sw/spl/Help/Image/digitCount-S.svg)
+
+## _1,3_ sequences
+
+List of twin primes modulo four,
+OEIS [A122567](https://oeis.org/A122567):
+
+~~~
+let a = 3:1019.select(
 	isLesserTwinPrime:/1
 );
 let b = [a, a + 2].interleave;
 let c = b.deleteDuplicates;
-(c % 4 - 1).discretePlot
+(c % 4).stepPlot
 ~~~
 
 ![](sw/spl/Help/Image/isLesserTwinPrime-C.svg)
@@ -414,16 +425,6 @@ OEIS [A033999](https://oeis.org/A033999):
 
 ![](sw/spl/Help/Image/repeat-C.svg)
 
-A Chebyshev transform of the Fibonacci numbers,
-OEIS [A100047](https://oeis.org/A100047):
-
-~~~
-[1 1 -1 -1 0 -1 -1 1 1 0].repeat(9)
-.discretePlot
-~~~
-
-![](sw/spl/Help/Image/repeat-A.svg)
-
 _μ(r(n))_,
 OEIS [A076479](https://oeis.org/A076479):
 
@@ -456,6 +457,16 @@ OEIS [A034947](https://oeis.org/A034947):
 ![](sw/spl/Help/Image/kroneckerSymbol-K.svg)
 
 ## _-1,0,1_ sequences
+
+A Chebyshev transform of the Fibonacci numbers,
+OEIS [A100047](https://oeis.org/A100047):
+
+~~~
+[1 1 -1 -1 0 -1 -1 1 1 0].repeat(9)
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/repeat-A.svg)
 
 Table of the first few cyclotomic polynomials,
 OEIS [A013595](https://oeis.org/A013595):
@@ -577,15 +588,47 @@ OEIS [A089045](https://oeis.org/A089045):
 
 ![](sw/spl/Help/Image/power-I.svg)
 
-Plot second differences,
+Second differences of the lower Wythoff sequence,
+essentially
 OEIS [A014677](https://oeis.org/A014677):
 
 ~~~
-let w = 1:65.collect(wythoffLower:/1);
-w.differences(2).discretePlot
+1:65.wythoffLower
+.differences(2)
+.discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/wythoffLower-D.svg)
+
+## 2,3
+
+First differences of the upper Wythoff sequence,
+a Fibonacci word,
+OEIS [A076662](https://oeis.org/A076662):
+
+~~~
+1:65.wythoffUpper
+.differences
+.stepPlot
+~~~
+
+![](sw/spl/Help/Image/wythoffUpper-A.svg)
+
+## 1,2
+
+A block-fractal and reverse block-fractal sequence,
+OEIS [A001468](https://oeis.org/A001468):
+
+~~~
+[
+	1 -> [1 2],
+	2 -> [1 2 2]
+].substitutionSystem([1], 4)
+.last
+.stepPlot
+~~~
+
+![](sw/spl/Help/Image/substitutionSystem-H.svg)
 
 ## 0,1,2,3,4,5,6,7,8,9
 
@@ -914,7 +957,7 @@ OEIS [A053246](https://oeis.org/A053246):
 ![](sw/spl/Help/Image/aliquotSum-E.svg)
 
 Plot numerator of Bernoulli sequence,
-OEIS A027641 (https://oeis.org/A027641):
+OEIS [A027641](https://oeis.org/A027641):
 
 ~~~
 99.bernoulliSequence
@@ -1105,6 +1148,20 @@ let a = Map { :n |
 
 ![](sw/spl/Help/Image/hammingWeight-Q.svg)
 
+Number of first-quadrant cells that are on after _n_-th stage of the Holladay-Ulam cellular automaton,
+OEIS [A151922](https://oeis.org/A151922),
+essentially also
+OEIS [A151920](https://oeis.org/A151920):
+
+~~~
+let n = 1:85;
+let w = n.digitCount(2, 1);
+let a = 3 ^ (w - 1) + 1;
+([1] ++ a).prefixSum.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/digitCount-O.svg)
+
 ## Irregular Ascent
 
 Positions of ones in the van Eck sequence,
@@ -1162,10 +1219,11 @@ OEIS [A034091](https://oeis.org/A034091):
 
 ![](sw/spl/Help/Image/aliquotSum-C.svg)
 
-Plot first few terms:
+The lower Wythoff sequence,
+OEIS [A000201](https://oeis.org/A000201):
 
 ~~~
-1:23.collect(wythoffLower:/1).stepPlot
+1:23.wythoffLower.stepPlot
 ~~~
 
 ![](sw/spl/Help/Image/wythoffLower-A.svg)
@@ -1553,6 +1611,17 @@ OEIS [A106108](https://oeis.org/A106108):
 
 ![](sw/spl/Help/Image/rowlandsSequence-A.svg)
 
+Numbers whose base three representation contains no two,
+OEIS [A005836](https://oeis.org/A005836):
+
+~~~
+0:2186.select { :n |
+	n.digitCount(3, 2) = 0
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/digitCount-M.svg)
+
 ## Interleaved Ascents
 
 Earliest sequence with _a(a(n))=6n_,
@@ -1646,9 +1715,9 @@ read by antidiagonals,
 OEIS [A101080](https://oeis.org/A101080):
 
 ~~~
-0:9.antidiagonalArray { :n :k |
+0:11.antidiagonalArray { :n :k |
 	n.bitXor(k).hammingWeight
-}
+}.catenate.discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/hammingWeight-S.svg)
@@ -1687,7 +1756,7 @@ let pq = { :m |
 
 ![](sw/spl/Help/Image/fibonacci-J.svg)
 
-## Intermittent Ascent
+## Ascent, With Gaps
 
 Plot zero unless _n_ is a non-prime, in which case plot index,
 OEIS [A239968](https://oeis.org/A239968):
@@ -1733,3 +1802,23 @@ OEIS [A005599](https://oeis.org/A005599):
 ![](sw/spl/Help/Image/hammingWeight-R.svg)
 
 ## Signed Quasi-Symmetry
+
+_a(2n)=-2*a(n)_ and _a(2n+1)=2*a(n)-1_,
+OEIS [A104895](https://oeis.org/A104895):
+
+~~~
+let a = Map { :n |
+	(n = 0).if {
+		0
+	} {
+		n.isEven.if {
+			2 * a[n / 2]
+		} {
+			-2 * a[(n - 1) / 2] - 1
+		}
+	}
+};
+a[0:150].scatterPlot
+~~~
+
+![](sw/spl/Help/Image/isEven-B.svg)
