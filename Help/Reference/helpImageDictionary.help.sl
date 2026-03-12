@@ -10,7 +10,7 @@ and the values are lists of code block records.
 >>> (d.size, d.typeOf, d['abs'].typeOf, d['abs'].elementType)
 (1413, 'Record', 'List', 'Record')
 
->>> let d = system.splReferenceImageDictionary;
+>>> let d = system.helpImageDictionary;
 >>> let c = d.values.catenate;
 >>> ['svg' 'png' 'oeis' 'set'].collect { :k |
 >>> 	c.count { :x |

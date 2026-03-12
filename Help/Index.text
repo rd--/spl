@@ -1741,6 +1741,7 @@ Reference/HelpFile.help.sl
 Reference/helpFileName.help.sl
 Reference/helpFilesDo.help.sl
 Reference/helpFragment.help.sl
+Reference/helpImageDictionary.help.sl
 Reference/helpImageIndex.help.sl
 Reference/helpIndex.help.sl
 Reference/HelpIndex.help.sl
@@ -3765,7 +3766,6 @@ Reference/splParseTree.help.sl
 Reference/splPunctuationCharacterNameTable.help.sl
 Reference/splPunctuationCharacters.help.sl
 Reference/splPunctuationTokenName.help.sl
-Reference/splReferenceImageDictionary.help.sl
 Reference/splSimplify.help.sl
 Reference/spokePlot.help.sl
 Reference/Spring.help.sl
