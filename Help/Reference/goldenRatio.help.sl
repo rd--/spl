@@ -425,12 +425,25 @@ Plot an _eta-sequence_,
 the differences of the rounded multiples of φ,
 OEIS [A006340](https://oeis.org/A006340):
 
-~~~spl svg=L
+~~~spl svg=L oeis=A006340 set=0,1
 let x = 0:93.collect(goldenRatio:/1);
 (x.round.differences - 1).discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/goldenRatio-L.svg)
+
+Array _⌊nφ-⌊kφ-⌊(nφ-kφ)_,
+read by antidiagonals,
+OEIS [A188294](https://oeis.org/A188294):
+
+~~~spl svg=M oeis=A188294 set=0,1
+let r = 1.goldenRatio;
+1:12.antidiagonalArray { :k :n |
+	(n * r).floor - (k * r).floor - ((n * r) - (k * r)).floor
+}.catenate.discretePlot
+~~~
+
+![](sw/spl/Help/Image/goldenRatio-M.svg)
 
 Note that the constant is correctly rounded,
 unlike the calculation in terms of `sqrt`,

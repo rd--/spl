@@ -5,7 +5,8 @@
 Answer the _n_-th non-prime number.
 The zero-th non-prime is `one`.
 
-First few terms
+The nonprime numbers,
+one together with the composite numbers,
 OEIS [A018252](https://oeis.org/A018252):
 
 ```

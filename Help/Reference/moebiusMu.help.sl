@@ -302,7 +302,7 @@ OEIS [A059571](https://oeis.org/A059571):
 _μ(n/k)_ if _k_ divides _n_ else zero,
 OEIS [A054525](https://oeis.org/A054525):
 
-~~~spl svg=L
+~~~spl svg=L oeis=A054525 set=-1,0,1
 1:17.triangularArray { :n :k |
 	n.divisible(k).if {
 		(n / k).moebiusMu

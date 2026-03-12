@@ -85,7 +85,8 @@ OEIS [A118276](https://oeis.org/A118276):
 ]
 ```
 
-Plot:
+Signature sequence of φ²,
+OEIS [A118276](https://oeis.org/A118276):
 
 ~~~spl svg=A
 1.goldenRatio.square

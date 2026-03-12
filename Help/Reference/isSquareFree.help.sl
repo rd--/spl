@@ -156,7 +156,7 @@ OEIS [A376593](https://oeis.org/A376593):
 The characteristic function of square free numbers,
 OEIS [A008966](https://oeis.org/A008966):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A008966 set=0,1
 1:115.collect(
 	isSquareFree:/1
 ).boole.discretePlot

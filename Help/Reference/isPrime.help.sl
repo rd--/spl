@@ -15,7 +15,8 @@ true
 false
 ```
 
-Primes up to one hundred:
+Primes up to one hundred,
+OEIS [A000040](https://oeis.org/A000040):
 
 ```
 >>> 1:99.select(isPrime:/1)
@@ -26,7 +27,8 @@ Primes up to one hundred:
 ]
 ```
 
-Non-primes up to thirty:
+Non-primes up to thirty,
+OEIS [A018252](https://oeis.org/A018252):
 
 ```
 >>> 1:30.reject(isPrime:/1)
@@ -43,7 +45,8 @@ Number of primes up to one-thousand:
 168
 ```
 
-Select primes:
+Select primes between _1-131_ and between _827-999_,
+OEIS [A000040](https://oeis.org/A000040):
 
 ```
 >>> (1 .. 131).select(isPrime:/1)
@@ -142,7 +145,8 @@ Recognize Wieferich primes, prime numbers _p_ such that _p^2_ divides _2^(p-1)-1
 [1093L, 3511L]
 ```
 
-Find twin primes:
+Find lesser of twin primes,
+OEIS [A001359](https://oeis.org/A001359):
 
 ```
 >>> 1:333.select { :i |
@@ -279,7 +283,16 @@ OEIS [A045546](https://oeis.org/A045546):
 ]
 ```
 
-Plot primes up to one-thousand:
+Primes of the form _3n-1_,
+OEIS [A003627](https://oeis.org/A003627):
+
+```
+>>> -1:89:3.select(isPrime:/1)
+[2 5 11 17 23 29 41 47 53 59 71 83 89]
+```
+
+Primes up to one-thousand,
+OEIS [A000040](https://oeis.org/A000040):
 
 ~~~spl svg=A
 1:999.select(isPrime:/1).linePlot
@@ -354,10 +367,10 @@ a.scatterPlot
 
 ![](sw/spl/Help/Image/isPrime-D.svg)
 
-Plot characteristic function of prime numbers,
+Characteristic function of prime numbers,
 OEIS [A010051](https://oeis.org/A010051):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A010051 set=0,1
 1:100.isPrime.boole.discretePlot
 ~~~
 
@@ -431,7 +444,7 @@ Triangle where row _n_ is `one` if _n_ is prime,
 `zero` otherwise,
 OEIS [A143536](https://oeis.org/A143536):
 
-~~~spl svg=J
+~~~spl svg=J oeis=A143536 set=0,1
 1:13.triangularArray { :n :k |
 	n.isPrime.boole
 }.catenate.discretePlot

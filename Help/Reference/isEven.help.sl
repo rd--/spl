@@ -133,7 +133,7 @@ OEIS [A237420](https://oeis.org/A237420):
 Log plot of the semi-Fibonacci sequence,
 OEIS [A030067](https://oeis.org/A030067):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A030067
 let a = Map { :n |
 	(n = 1).if {
 		1
@@ -150,21 +150,22 @@ a[1:125].log.scatterPlot
 
 ![](sw/spl/Help/Image/isEven-A.svg)
 
-Plot OEIS [A104895](https://oeis.org/A104895):
+_a(2n)=-2*a(n)_ and _a(2n+1)=2*a(n)-1_,
+OEIS [A104895](https://oeis.org/A104895):
 
-~~~spl svg=B
-let a = { :n |
+~~~spl svg=B oeis=A104895
+let a = Map { :n |
 	(n = 0).if {
 		0
 	} {
 		n.isEven.if {
-			2 * a(n / 2)
+			2 * a[n / 2]
 		} {
-			-2 * a((n - 1) / 2) - 1
+			-2 * a[(n - 1) / 2] - 1
 		}
 	}
 };
-0:150.collect(a:/1).scatterPlot
+a[0:150].scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/isEven-B.svg)

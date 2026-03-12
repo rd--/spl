@@ -57,7 +57,7 @@ let f = { :n |
 The characteristic function of the square numbers,
 OEIS [A010052](https://oeis.org/A010052):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A010052 set=0,1
 0:81.collect(isPerfectSquare:/1)
 .boole
 .discretePlot

@@ -829,7 +829,7 @@ A recurrence table,
 _a[n-1]+(-1ᵐa[m])_ where _m=⌊(n/2)_,
 OEIS [A089045](https://oeis.org/A089045):
 
-~~~spl svg=I
+~~~spl svg=I oeis=A089045 set=-1,0,1
 { :a :n |
 	let m = (n / 2).floor;
 	a[n - 1] + ((-1 ^ m) * a[m])

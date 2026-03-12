@@ -407,6 +407,17 @@ OEIS [A073504](https://oeis.org/A073504):
 
 ![](sw/spl/Help/Image/digitCount-R.svg)
 
+Characteristic function of numbers with an even number of ones in their binary expansion,
+OEIS [A010059](https://oeis.org/A010059):
+
+~~~spl svg=S oeis=A010059 set=0,1
+0:85.select { :n |
+	n.digitCount(2, 1).isEven
+}.characteristicFunction.discretePlot
+~~~
+
+![](sw/spl/Help/Image/digitCount-S.svg)
+
 * * *
 
 See also: bitAnd, hammingDistance, hammingWeight, integerDigits, integerExponent, integerLength, thueMorse

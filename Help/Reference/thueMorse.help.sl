@@ -18,11 +18,12 @@ Five has an even number of ones in its binary expansion:
 [1 0 1]
 ```
 
-The first 10 elements of the sequence,
+The first 10 elements of the Thue-Morse sequence,
+threads over lists,
 OEIS [A010060](https://oeis.org/A010060):
 
 ```
->>> 0:9.collect(thueMorse:/1)
+>>> 0:9.thueMorse
 [0 1 1 0 1 0 0 1 1 0]
 ```
 
@@ -54,24 +55,28 @@ Threads over lists:
 [0 1 1 1]
 ```
 
-Plot a binary array related to the Thue-Morse sequence,
-reading antidiagonals,
+A binary array,
+read by falling antidiagonals,
+entries are Thue-Morse sequence at _k%2^(n+1)_,
 OEIS [A104894](https://oeis.org/A104894):
 
-~~~spl svg=A
-0:15.triangularArray { :n :k |
-	((n - k) % (2 ^ (k+ 1 )))
+~~~spl svg=A oeis=A104894 set=0,1
+0:15.antidiagonalArray { :n :k |
+	(k % (2 ^ (n + 1)))
 	.thueMorse
 }.catenate.discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/thueMorse-A.svg)
 
-Plot as array:
+A binary array,
+read by falling antidiagonals,
+entries are Thue-Morse sequence at _k%2^(n+1)_,
+OEIS [A104894](https://oeis.org/A104894):
 
-~~~spl svg=B
-0:15.triangularArray { :n :k |
-	((n - k) % (2 ^ (k+ 1 )))
+~~~spl svg=B oeis=A104894
+0:15.antidiagonalArray { :n :k |
+	(k % (2 ^ (n + 1)))
 	.thueMorse
 }.triangularArrayPlot
 ~~~

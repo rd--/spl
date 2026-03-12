@@ -92,7 +92,7 @@ a.scatterPlot
 Sign of first differences of Recamán’s sequence,
 OEIS [A160357](https://oeis.org/A160357):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A160357 set=-1,0,1
 100.recamanSequence
 .differences
 .sign

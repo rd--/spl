@@ -264,12 +264,36 @@
 		}
 	}
 
-	deleteDuplicates { :self :aBlock:/2 |
-		self.nubBy(aBlock:/2)
+	[deleteDuplicatesIdentical, nubIdentical] { :self |
+		let seen = IdentitySet();
+		self.select { :each |
+			seen.includes(each).if {
+				false
+			} {
+				seen.include(each);
+				true
+			}
+		}
 	}
 
-	deleteDuplicates { :self |
-		self.nub
+	[deleteDuplicates, nub] { :self |
+		self.deleteDuplicates(=)
+	}
+
+	[deleteDuplicates, nubBy] { :self :aBlock:/2 |
+		(aBlock:/2 = equalsSignEqualsSign:/2).if {
+			self.deleteDuplicatesIdentical
+		} {
+			let seen = [];
+			self.select { :each |
+				seen.includesBy(each, aBlock:/2).if {
+					false
+				} {
+					seen.add(each);
+					true
+				}
+			}
+		}
 	}
 
 	depth { :self |
@@ -572,38 +596,6 @@
 		self.collect(not:/1)
 	}
 
-	nub { :self |
-		self.nubBy(=)
-	}
-
-	nubBy { :self :aBlock:/2 |
-		(aBlock:/2 = equalsSignEqualsSign:/2).if {
-			self.nubIdentical
-		} {
-			let seen = [];
-			self.select { :each |
-				seen.includesBy(each, aBlock:/2).if {
-					false
-				} {
-					seen.add(each);
-					true
-				}
-			}
-		}
-	}
-
-	nubIdentical { :self |
-		let seen = IdentitySet();
-		self.select { :each |
-			seen.includes(each).if {
-				false
-			} {
-				seen.include(each);
-				true
-			}
-		}
-	}
-
 	ofSize { :self :aNumber |
 		(self.size = aNumber).ifFalse {
 			self.error('@Collection>>ofSize')
@@ -790,7 +782,7 @@
 	}
 
 	unique { :self |
-		self.nub
+		self.deleteDuplicates
 	}
 
 	withLevelCollect { :self :aBlock:/2 :level |

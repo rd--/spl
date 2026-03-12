@@ -66,7 +66,8 @@ let i = 300.regularPaperfoldingSequence;
 
 ![](sw/spl/Help/Image/regularPaperfoldingSequence-A.svg)
 
-Recurrence plot of regular paperfolding sequence:
+Recurrence plot of regular paperfolding sequence,
+OEIS [A014577](https://oeis.org/A014577):
 
 ~~~spl png=B
 100.regularPaperfoldingSequence
@@ -79,7 +80,7 @@ Recurrence plot of regular paperfolding sequence:
 The regular paperfolding sequence,
 OEIS [A014577](https://oeis.org/A014577):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A014577 set=0,1
 85.regularPaperfoldingSequence
 .discretePlot
 ~~~
@@ -89,7 +90,7 @@ OEIS [A014577](https://oeis.org/A014577):
 First differences of the regular paperfolding sequence,
 OEIS [A343173](https://oeis.org/A343173):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A343173 set=-1,0,1
 115.regularPaperfoldingSequence
 .differences
 .discretePlot

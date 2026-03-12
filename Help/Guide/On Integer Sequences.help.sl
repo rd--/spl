@@ -268,6 +268,121 @@ let w = 1:65.collect(wythoffLower:/1);
 
 ![](sw/spl/Help/Image/wythoffLower-C.svg)
 
+Zeckendorf representations,
+OEIS [A189920](https://oeis.org/A189920):
+
+~~~
+1:21.collect(
+	zeckendorfRepresentation:/1
+).catenate.discretePlot
+~~~
+
+![](sw/spl/Help/Image/zeckendorfRepresentation-I.svg)
+
+Discrete plot of the Zeckendorf representation of a large integer,
+the prepresentation has 115 places:
+
+~~~
+900000000000000000000000L
+.zeckendorfRepresentation
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/zeckendorfRepresentation-A.svg)
+
+Plot trajectory of 1 under the morphism _0→11,1→10_,
+OEIS [A035263](https://oeis.org/A035263):
+
+~~~
+[
+	0 -> [1 1],
+	1 -> [1 0]
+].substitutionSystem([1], 6)
+.last
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/substitutionSystem-F.svg)
+
+Plot fixed point of morphism _0→0,1→110_,
+OEIS [A079559](https://oeis.org/A079559):
+
+~~~
+[
+	0 -> [0],
+	1 -> [1 1 0]
+].substitutionSystem([1], 5)
+.last
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/substitutionSystem-G.svg)
+
+Fixed point of the mapping _00→0010 01→010 10→000_ starting with _00_,
+OEIS [A289016](https://oeis.org/A289016):
+
+~~~
+[
+	[0 0] -> [0 0 1 0],
+	[0 1] -> [0 1 0],
+	[1 0] -> [0 0 0]
+].substitutionSystem([0 0], 8)
+.last.discretePlot
+~~~
+
+![](sw/spl/Help/Image/substitutionSystem-J.svg)
+
+Characteristic function of Fibonacci numbers,
+OEIS [A010056](https://oeis.org/A010056):
+
+~~~
+let a = 1:12.fibonacci;
+let k = a.max;
+1:k.collect { :n |
+	a.includes(n).boole
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/fibonacci-N.svg)
+
+Characteristic function of prime numbers,
+OEIS [A010051](https://oeis.org/A010051):
+
+~~~
+1:100.isPrime.boole.discretePlot
+~~~
+
+![](sw/spl/Help/Image/isPrime-E.svg)
+
+Triangle where row _n_ is `one` if _n_ is prime,
+`zero` otherwise,
+OEIS [A143536](https://oeis.org/A143536):
+
+~~~
+1:13.triangularArray { :n :k |
+	n.isPrime.boole
+}.catenate.discretePlot
+~~~
+
+![](sw/spl/Help/Image/isPrime-J.svg)
+
+## _0,n_ sequences
+
+List of twin primes modulo four,
+OEIS [A122567](https://oeis.org/A122567),
+offset to alphabet _0,2_:
+
+~~~
+let a = 3:1607.select(
+	isLesserTwinPrime:/1
+);
+let b = [a, a + 2].interleave;
+let c = b.deleteDuplicates;
+(c % 4 - 1).discretePlot
+~~~
+
+![](sw/spl/Help/Image/isLesserTwinPrime-C.svg)
+
 ## _-1,1_ sequences
 
 The Liouville λ sequence,
@@ -840,7 +955,7 @@ OEIS [A121759](https://oeis.org/A121759):
 
 ![](sw/spl/Help/Image/withIndexCollect-B.svg)
 
-## Ascents
+## Ascents, Linear
 
 Array where differences in rows are _n…1_,
 OEIS [A141419](https://oeis.org/A141419):
@@ -865,7 +980,7 @@ OEIS [A002262](https://oeis.org/A002262):
 
 ![](sw/spl/Help/Image/triangularArray-H.svg)
 
-## Descents
+## Descents, Linear
 
 Plot number of hill-free Dyck paths of length _2n_ having height of first peak equal to _k_,
 OEIS [A065602](https://oeis.org/A065602):
@@ -896,6 +1011,19 @@ OEIS [A025581](https://oeis.org/A025581):
 ~~~
 
 ![](sw/spl/Help/Image/triangularArray-I.svg)
+
+## Ascents, Curved
+
+Signature sequence of φ²,
+OEIS [A118276](https://oeis.org/A118276):
+
+~~~
+1.goldenRatio.square
+.signatureSequence(200)
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/signatureSequence-A.svg)
 
 ## Traces
 
@@ -943,6 +1071,39 @@ OEIS [A139250](https://oeis.org/A139250):
 ~~~
 
 ![](sw/spl/Help/Image/toothpickSequence-A.svg)
+
+Partial sums of _3^(w(n-1)-1)_,
+OEIS [A151920](https://oeis.org/A151920):
+
+~~~
+let n = 2:85;
+let w = (n - 1).hammingWeight;
+let a = 3 ^ (w - 1);
+a.prefixSum.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/hammingWeight-P.svg)
+
+T-toothpick sequence,
+OEIS [A160172](https://oeis.org/A160172):
+
+~~~
+let a = Map { :n |
+	(n < 0).if {
+		0
+	} {
+		let m = n + 1;
+		1:m.sum { :i |
+			3 ^ i.hammingWeight
+		} / 3
+	}
+};
+0:85.collect { :n |
+	(2 * a[n - 2]) + (2 * a[n - 3]) + n
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/hammingWeight-Q.svg)
 
 ## Irregular Ascent
 
@@ -1009,6 +1170,63 @@ Plot first few terms:
 
 ![](sw/spl/Help/Image/wythoffLower-A.svg)
 
+Sum of digits of Fibonacci numbers,
+OEIS [A004090](https://oeis.org/A004090):
+
+~~~
+0:85.fibonacci.collect { :n |
+	n.integerDigits.sum
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/fibonacci-O.svg)
+
+Primes up to one-thousand,
+OEIS [A000040](https://oeis.org/A000040):
+
+~~~
+1:999.select(isPrime:/1).linePlot
+~~~
+
+![](sw/spl/Help/Image/isPrime-A.svg)
+
+Sum of primes _≤n_,
+OEIS [A034387](https://oeis.org/A034387):
+
+~~~
+1:250.collect { :n |
+	n * n.isPrime.boole
+}.prefixSum.stepPlot
+~~~
+
+![](sw/spl/Help/Image/isPrime-I.svg)
+
+Lesser of twin primes,
+OEIS [A001359](https://oeis.org/A001359):
+
+~~~
+3:1607
+.select(isLesserTwinPrime:/1)
+.linePlot
+~~~
+
+![](sw/spl/Help/Image/isLesserTwinPrime-A.svg)
+
+List of twin primes,
+OEIS [A001097](https://oeis.org/A001097):
+
+~~~
+let a = 3:1607.select(
+	isLesserTwinPrime:/1
+);
+[a, a + 2]
+.interleave
+.deleteDuplicates
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/isLesserTwinPrime-B.svg)
+
 ## Irregular Restarting Ascents
 
 First differences of toothpicks numbers,
@@ -1072,6 +1290,19 @@ OEIS [A035513](https://oeis.org/A035513):
 ~~~
 
 ![](sw/spl/Help/Image/wythoffArray-A.svg)
+
+## Restarting Ascents
+
+The golden triangle,
+OEIS [A180662](https://oeis.org/A180662):
+
+~~~
+0:10.triangularArray { :n :k |
+	[k, k + 1].fibonacci.product
+}.catenate.log.discretePlot
+~~~
+
+![](sw/spl/Help/Image/fibonacci-P.svg)
 
 ## Restarting Descents
 
@@ -1408,6 +1639,20 @@ OEIS [A255670](https://oeis.org/A255670):
 
 ![](sw/spl/Help/Image/wythoffLower-B.svg)
 
+## Quasi-Ruler
+
+Table of Hamming distances between binary vectors,
+read by antidiagonals,
+OEIS [A101080](https://oeis.org/A101080):
+
+~~~
+0:9.antidiagonalArray { :n :k |
+	n.bitXor(k).hammingWeight
+}
+~~~
+
+![](sw/spl/Help/Image/hammingWeight-S.svg)
+
 ## Left-Right Symmetry, Broken At Right Edge
 
 The Vedic square where _n=9_,
@@ -1418,5 +1663,73 @@ OEIS [A125959](https://oeis.org/A125959)
 ~~~
 
 ![](sw/spl/Help/Image/vedicSquare-D.svg)
+
+## Interleaved Quasi-Shadow
+
+Plot the number of ways to express _n_ as the sum of an odd prime, a positive Fibonacci number and twice a positive Fibonacci number,
+OEIS [A155114](https://oeis.org/A155114):
+
+~~~
+let pq = { :m |
+	m > 2 & { m.isPrime }
+};
+1:99.collect { :n |
+	let a = 2 * 2.max(n / 2).log(2);
+	2:a.collect { :x |
+		let b = 2 * x.fibonacci;
+		let c = 2 * 2.max(n - b).log(2);
+		2:c.collect { :y |
+			pq(n - b - y.fibonacci).boole
+		}.sum
+	}.sum
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/fibonacci-J.svg)
+
+## Intermittent Ascent
+
+Plot zero unless _n_ is a non-prime, in which case plot index,
+OEIS [A239968](https://oeis.org/A239968):
+
+~~~
+let k = 0;
+1:100.collect { :n |
+	n.isPrime.if {
+		0
+	} {
+		k := k + 1;
+		k
+	}
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/isPrime-F.svg)
+
+Characteristic function of primes multiplied by _n_,
+OEIS [A061397](https://oeis.org/A061397):
+
+~~~
+1:99.collect { :n |
+	n * n.isPrime.boole
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/isPrime-H.svg)
+
+## Generally Ascending
+
+Running sum of every third term in the _+1,-1_-version of Thue-Morse sequence,
+OEIS [A005599](https://oeis.org/A005599):
+
+~~~
+0:200.collect { :n |
+	0:n.sum { :k |
+		-1 ^ (3 * k).hammingWeight
+	}
+}.linePlot
+~~~
+
+![](sw/spl/Help/Image/hammingWeight-R.svg)
 
 ## Signed Quasi-Symmetry

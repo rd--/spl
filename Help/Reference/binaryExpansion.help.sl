@@ -287,7 +287,7 @@ OEIS [A309983](https://oeis.org/A309983):
 _2^n_ zeroes followed by _2^n_ ones,
 OEIS [A079944](https://oeis.org/A079944):
 
-~~~spl svg=M
+~~~spl svg=M oeis=A079944 set=0,1
 0:65.collect { :n |
 	(n + 2).binaryExpansion.second
 }.discretePlot

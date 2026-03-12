@@ -15,6 +15,17 @@ answer the sequence with indices _i_ where each place is `one` if _i_ is in _n_ 
 [1 0 1 0 1 1 0 1 0 1 0 1]
 ```
 
+`indicesOf` can recover the sequence from the characteristic function:
+
+```
+>>> [0 1 0 1 0 1 0 1 0 1].indicesOf(1)
+[2 4 6 8 10]
+
+>>> [1 0 1 0 1 1 0 1 0 1 0 1]
+>>> .indicesOf(1) - 1
+[0 2 4 5 7 9 11]
+```
+
 At a `Block` _f_,
 answer the sequence with indices in _n:m_ where each place is `one` if _f(i)_ is `true` else `zero`.
 

@@ -21,11 +21,26 @@ Consider:
 [1 0 1 1 0 1 0 1 1 0 1 0]
 ```
 
-Rewriting as the intervals between ones gives _2 1 2 2 1 2 2_,
-which is a rotation of:
+Rewriting as the cyclic intervals between ones gives _2 1 2 2 1 2 2_,
+which is a rotation of _2 2 2 1 2 2 1_:
 
 ```
->>> 7.momentOfSymmetry(12).last
+>>> 7.momentOfSymmetry(12)
+[
+	7 5;
+	2 5 5;
+	2 2 3 2 3;
+	2 2 2 1 2 2 1
+]
+
+>>> ([1 0 1 1 0 1 0 1 1 0 1 0] ++ [1])
+>>> .indicesOf(1)
+[1 3 4 6 8 9 11 13]
+
+>>> [1 3 4 6 8 9 11 13].differences
+[2 1 2 2 1 2 2]
+
+>>> [2 1 2 2 1 2 2].rotateRight(2)
 [2 2 2 1 2 2 1]
 ```
 

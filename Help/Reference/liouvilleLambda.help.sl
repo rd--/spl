@@ -127,7 +127,7 @@ OEIS [A028260](https://oeis.org/A028260):
 The Liouville λ sequence,
 OEIS [A008836](https://oeis.org/A008836):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A008836 set=-1,1
 1:115.liouvilleLambda.discretePlot
 ~~~
 

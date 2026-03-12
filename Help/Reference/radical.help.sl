@@ -64,7 +64,7 @@ Log plot of first few terms:
 _μ(r(n))_,
 OEIS [A076479](https://oeis.org/A076479):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A076479 set=-1,1
 1:85.radical.moebiusMu.discretePlot
 ~~~
 

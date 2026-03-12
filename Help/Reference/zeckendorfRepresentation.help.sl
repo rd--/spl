@@ -65,15 +65,14 @@ Reconstruct integer from Zeckendorf representation:
 (48, 10 ^ 10)
 ```
 
-First few terms,
-OEIS [A014417](https://oeis.org/A014417):
+Zeckendorf representations,
+OEIS [A189920](https://oeis.org/A189920):
 
 ```
->>> 0:20.collect(
+>>> 1:20.collect(
 >>> 	zeckendorfRepresentation:/1
 >>> )
 [
-	          0;
 	          1;
 	        1 0;
 	      1 0 0;
@@ -97,7 +96,42 @@ OEIS [A014417](https://oeis.org/A014417):
 ]
 ```
 
-Verify the answers shown above:
+Zeckendorf representations,
+in decimal,
+also binary vectors not containing _11_,
+OEIS [A014417](https://oeis.org/A014417):
+
+```
+>>> 0:20.collect { :n |
+>>> 	n.zeckendorfRepresentation
+>>> 	.fromDigits(10)
+>>> }
+[
+	     0
+	     1
+	    10
+	   100
+	   101
+	  1000
+	  1001
+	  1010
+	 10000
+	 10001
+	 10010
+	 10100
+	 10101
+	100000
+	100001
+	100010
+	100100
+	100101
+	101000
+	101001
+	101010
+]
+```
+
+Verify the answers given by `zeckendorfRepresentation`:
 
 ```
 >>> 0:20.collect { :n |
@@ -133,7 +167,7 @@ OEIS [A035517](https://oeis.org/A035517):
 ]
 ```
 
-Of a not very small integer:
+The Zeckendorf representation of a not very small integer:
 
 ```
 >>> let n = 987654321;
@@ -193,8 +227,10 @@ OEIS [A035614](https://oeis.org/A035614):
 
 ```
 >>> 0:80.collect { :n |
->>> 	let z = (n + 1).zeckendorfRepresentation;
->>> 	z.fromDigits.integerExponent(10)
+>>> 	(n + 1)
+>>> 	.zeckendorfRepresentation
+>>> 	.fromDigits
+>>> 	.integerExponent(10)
 >>> }
 [
 	0 1 2 0 3 0 1 4 0 1 2 0 5 0 1 2 0 3 0 1
@@ -216,22 +252,25 @@ OEIS [A087172](https://oeis.org/A087172):
 [1 2 3 3 5 5 5 8 8 8 8 8 13 13 13 13 13 13]
 ```
 
-Discrete plot of a representation with 115 places:
+Discrete plot of the Zeckendorf representation of a large integer,
+the prepresentation has 115 places:
 
-~~~spl svg=A
-9E23.zeckendorfRepresentation
+~~~spl svg=A set=0,1
+900000000000000000000000L
+.zeckendorfRepresentation
 .discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/zeckendorfRepresentation-A.svg)
 
-Counts of above plot,
+Counts of the Zeckendorf representation of a large integer,
 indicating the proportions of zeroes and ones:
 
 ```
->>> 9E23.zeckendorfRepresentation
+>>> 900000000000000000000000L
+>>> .zeckendorfRepresentation
 >>> .counts
-[0 -> 85, 1 -> 30]
+[0 -> 87, 1 -> 28]
 ```
 
 Number of ones (terms) in the Zeckendorf representation of _n_,
@@ -252,7 +291,8 @@ OEIS [A007895](https://oeis.org/A007895):
 ]
 ```
 
-Plot first few terms:
+Number of ones (terms) in the Zeckendorf representation of _n_,
+OEIS [A007895](https://oeis.org/A007895):
 
 ~~~spl svg=B
 0:125.collect { :n |
@@ -263,7 +303,7 @@ Plot first few terms:
 
 ![](sw/spl/Help/Image/zeckendorfRepresentation-B.svg)
 
-Plot first few terms of
+Zeckendorf representation as binary integer,
 OEIS [A003714](https://oeis.org/A003714):
 
 ~~~spl svg=C
@@ -283,8 +323,7 @@ OEIS [A035517](https://oeis.org/A035517):
 	let z = n.zeckendorfRepresentation;
 	let i = z.reverse.indicesOf(1);
 	(i + 1).fibonacci
-}.catenate
-.scatterPlot
+}.catenate.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/zeckendorfRepresentation-D.svg)
@@ -338,7 +377,8 @@ OEIS [A102364](https://oeis.org/A102364):
 ]
 ```
 
-Plot first few terms:
+Number of zeroes in the Zeckendorf representation of _n_,
+OEIS [A102364](https://oeis.org/A102364):
 
 ~~~spl svg=H
 1:250.collect { :n |
@@ -348,6 +388,17 @@ Plot first few terms:
 ~~~
 
 ![](sw/spl/Help/Image/zeckendorfRepresentation-H.svg)
+
+Zeckendorf representations,
+OEIS [A189920](https://oeis.org/A189920):
+
+~~~spl svg=I oeis=A189920 set=0,1
+1:21.collect(
+	zeckendorfRepresentation:/1
+).catenate.discretePlot
+~~~
+
+![](sw/spl/Help/Image/zeckendorfRepresentation-I.svg)
 
 * * *
 

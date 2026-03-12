@@ -4,10 +4,11 @@
 
 Answer the _n_-th element of the lower Wythoff sequence,
 equal to _⌊nφ⌋_,
+threads over lists,
 OEIS [A000201](https://oeis.org/A000201):
 
 ```
->>> 1:19.collect(wythoffLower:/1)
+>>> 1:19.wythoffLower
 [
 	 1  3  4  6  8  9 11 12 14 16
 	17 19 21 22 24 25 27 29 30
@@ -22,10 +23,11 @@ OEIS [A000201](https://oeis.org/A000201):
 ]
 ```
 
-Plot first few terms:
+The lower Wythoff sequence,
+OEIS [A000201](https://oeis.org/A000201):
 
 ~~~spl svg=A
-1:23.collect(wythoffLower:/1).stepPlot
+1:23.wythoffLower.stepPlot
 ~~~
 
 ![](sw/spl/Help/Image/wythoffLower-A.svg)
@@ -47,23 +49,26 @@ OEIS [A255670](https://oeis.org/A255670):
 
 ![](sw/spl/Help/Image/wythoffLower-B.svg)
 
-Plot first differences of _L(n)_,
+First differences of the lower Wythoff sequence,
 a Fibonacci word,
 OEIS [A014675](https://oeis.org/A014675):
 
-~~~spl svg=C
-let w = 1:65.collect(wythoffLower:/1);
-(w.differences - 1).discretePlot
+~~~spl svg=C oeis=A014675 set=1,2
+1:65.wythoffLower
+.differences
+.stepPlot
 ~~~
 
 ![](sw/spl/Help/Image/wythoffLower-C.svg)
 
-Plot second differences,
+Second differences of the lower Wythoff sequence,
+essentially
 OEIS [A014677](https://oeis.org/A014677):
 
-~~~spl svg=D
-let w = 1:65.collect(wythoffLower:/1);
-w.differences(2).discretePlot
+~~~spl svg=D oeis=A014677 set=-1,0,1
+1:65.wythoffLower
+.differences(2)
+.discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/wythoffLower-D.svg)

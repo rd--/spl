@@ -300,7 +300,7 @@ OEIS [A100047](https://oeis.org/A100047):
 A Chebyshev transform of the Fibonacci numbers,
 OEIS [A100047](https://oeis.org/A100047):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A100047 set=-1,0,1
 [1 1 -1 -1 0 -1 -1 1 1 0].repeat(9)
 .discretePlot
 ~~~
@@ -321,7 +321,7 @@ _-1^n_,
 the _1,-1_ sequence,
 OEIS [A033999](https://oeis.org/A033999):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A033999 set=-1,1
 [1 -1].repeat(30).discretePlot
 ~~~
 

@@ -253,6 +253,18 @@ OEIS [A005599](https://oeis.org/A005599):
 
 ![](sw/spl/Help/Image/hammingWeight-R.svg)
 
+Table of Hamming distances between binary vectors,
+read by antidiagonals,
+OEIS [A101080](https://oeis.org/A101080):
+
+~~~spl svg=S
+0:11.antidiagonalArray { :n :k |
+	n.bitXor(k).hammingWeight
+}.catenate.discretePlot
+~~~
+
+![](sw/spl/Help/Image/hammingWeight-S.svg)
+
 * * *
 
 See also: digitCount, gouldsSequence, thueMorseSequence

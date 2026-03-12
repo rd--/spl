@@ -161,7 +161,7 @@ The characteristic function of the cubic numbers,
 one if _n_ is a cube else zero,
 OEIS [A010057](https://oeis.org/A010057):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A010057 set=0,1
 1:750.collect { :n |
 	(n ^ (1 / 3)).isInteger(1E-14)
 }.boole.discretePlot

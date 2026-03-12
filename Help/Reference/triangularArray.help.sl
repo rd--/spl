@@ -507,7 +507,7 @@ let t = { :n :k |
 _i=j_,
 OEIS [A023531](https://oeis.org/A023531):
 
-~~~spl svg=K
+~~~spl svg=K oeis=A023531 set=0,1
 0:11.triangularArray(=)
 .catenate.boole.discretePlot
 ~~~

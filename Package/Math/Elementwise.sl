@@ -761,6 +761,14 @@
 		}
 	}
 
+	wythoffLower { :self |
+		self.collect(wythoffLower:/1)
+	}
+
+	wythoffUpper { :self |
+		self.collect(wythoffUpper:/1)
+	}
+
 	zeckendorfRepresentation { :self |
 		self.collect(zeckendorfRepresentation:/1)
 	}

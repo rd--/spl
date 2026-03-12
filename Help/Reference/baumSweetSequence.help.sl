@@ -69,7 +69,7 @@ Recurrence plot of sequence:
 The Baum–Sweet sequence,
 OEIS [A086747](https://oeis.org/A086747):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A086747 set=0,1
 115.baumSweetSequence.discretePlot
 ~~~
 

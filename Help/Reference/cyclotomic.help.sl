@@ -225,7 +225,7 @@ OEIS [A020500](https://oeis.org/A020500):
 Table of the first few cyclotomic polynomials,
 OEIS [A013595](https://oeis.org/A013595):
 
-~~~spl svg=H
+~~~spl svg=H oeis=A013595 set=-1,0,1
 1:17.collect { :n |
 	n.cyclotomic.coefficientList
 }.catenate.discretePlot

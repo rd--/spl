@@ -67,7 +67,7 @@ Generate a path based on the Rudin–Shapiro sequence:
 The Rudin–Shapiro sequence,
 OEIS [A020985](http://oeis.org/A020985):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A020985 set=-1,1
 0:85.collect(rudinShapiro:/1)
 .discretePlot
 ~~~

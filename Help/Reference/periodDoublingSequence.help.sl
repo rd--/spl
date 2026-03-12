@@ -53,7 +53,7 @@ In terms of `substitutionSystem`:
 The period doubling sequence,
 OEIS [A096268](https://oeis.org/A096268):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A096268 set=0,1
 115.periodDoublingSequence.discretePlot
 ~~~
 
@@ -62,7 +62,7 @@ OEIS [A096268](https://oeis.org/A096268):
 A sequence that is distinct from but similar to the period doubling sequence,
 OEIS [A073059](https://oeis.org/A073059):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A073059 set=0,1
 let a = Map { :n |
 	[
 		{ n = 1 } -> { 0 },
@@ -79,7 +79,7 @@ a[1:105].discretePlot
 A sequence that is distinct from but similar to the complement of the period doubling sequence,
 OEIS [A098725](https://oeis.org/A098725):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A098725 set=0,1
 let a = Map { :n |
 	[
 		{ n % 2 = 1 } -> { 1 },
@@ -95,7 +95,7 @@ a[0:101].discretePlot
 The complement of the period doubling sequence,
 OEIS [A035263](https://oeis.org/A035263):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A035263 set=0,1
 (1 - 105.periodDoublingSequence).discretePlot
 ~~~
 

@@ -1,3 +1,40 @@
++@Integer {
+
+	fibonacciSequenceUpTo { :self |
+		let answer = [self.zero];
+		let n = self.one;
+		let k = 1;
+		{
+			n <= self
+		}.whileTrue {
+			answer.add(n);
+			n := n + answer[k];
+			k := k + 1
+		};
+		answer
+	}
+
+	zeckendorfRepresentation { :self |
+		(self <= 0).if {
+			[0]
+		} {
+			let f = self.fibonacciSequenceUpTo;
+			let k = f.size - 1;
+			let z = [];
+			f.removeFirst;
+			k.toByDo(2, -1) { :i |
+				let n = f[i];
+				z.add((n <= self).if { 1 } { 0 });
+				(n <= self).ifTrue {
+					self := self - n
+				}
+			};
+			z
+		}
+	}
+
+}
+
 +SmallFloat {
 
 	binetsFormula { :n |
@@ -33,19 +70,7 @@
 		(x = 1).if {
 			n.fibonacci
 		} {
-			let a = (4 + x.square).sqrt;
-			let b = x + a;
-			let c = 2 ^ (0 - n);
-			let d = 2 ^ n;
-			let e = b ^ n;
-			let f = b ^ (0 - n);
-			let g = n.pi.cos;
-			let r = ((c * e) - (d * f * g)) / a;
-			(n.isInteger & { x.isInteger }).if {
-				r.round
-			} {
-				r
-			}
+			n.fibonacciClosedForm(x)
 		}
 	}
 
@@ -53,10 +78,30 @@
 		n.isPositiveInteger.if {
 			n.fibonacciNumber.asInteger
 		} {
-			let phi = 1.goldenRatio;
-			let r = ((phi ^ n) - (n.pi.cos * (phi ^ n.-))) / 5.sqrt;
+			n.fibonacciClosedForm
+		}
+	}
+
+	fibonacciClosedForm { :n :x |
+		let a = (4 + x.square).sqrt;
+		let b = x + a;
+		let c = 2 ^ (0 - n);
+		let d = 2 ^ n;
+		let e = b ^ n;
+		let f = b ^ (0 - n);
+		let g = n.pi.cos;
+		let r = ((c * e) - (d * f * g)) / a;
+		(n.isInteger & { x.isInteger }).if {
+			r.round
+		} {
 			r
 		}
+	}
+
+	fibonacciClosedForm { :n |
+		let phi = 1.goldenRatio;
+		let r = ((phi ^ n) - (n.pi.cos * (phi ^ n.-))) / 5.sqrt;
+		r
 	}
 
 	fibonacciEntryPoint { :n |
@@ -96,20 +141,6 @@
 
 	fibonacciSequence { :n |
 		n.lucasSequence('U', 1L, -1L)
-	}
-
-	fibonacciSequenceUpTo { :self |
-		let answer = [0];
-		let n = 1;
-		let k = 1;
-		{
-			n <= self
-		}.whileTrue {
-			answer.add(n);
-			n := n + answer[k];
-			k := k + 1
-		};
-		answer
 	}
 
 	fibonacciWord { :self |
@@ -344,25 +375,6 @@
 
 	wythoffUpper { :self |
 		(self * 1.goldenRatio.square).floor
-	}
-
-	zeckendorfRepresentation { :self |
-		(self <= 0).if {
-			[0]
-		} {
-			let f = self.fibonacciSequenceUpTo;
-			let k = f.size - 1;
-			let z = [];
-			f.removeFirst;
-			k.toByDo(2, -1) { :i |
-				let n = f[i];
-				z.add((n <= self).if { 1 } { 0 });
-				(n <= self).ifTrue {
-					self := self - n
-				}
-			};
-			z
-		}
 	}
 
 }

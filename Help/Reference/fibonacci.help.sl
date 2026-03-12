@@ -71,6 +71,35 @@ Values at fixed points:
 [1 2 5 10 17 26 37 50 65 82]
 ```
 
+The last Fibonacci that can be correctly represented as a `SmallFloat`,
+and the first that requires being represented as a `LargeInteger`:
+
+```
+>>> 78.fibonacci
+8944394323791464
+
+>>> 79.fibonacci
+14472334024676221L
+```
+
+Note that this is distinct from the value at which the closed form calculation diverges,
+although the error,
+at that scale,
+is within the tolerance of the `~` operator:
+
+```
+>>> 78.fibonacci
+8944394323791464
+
+>>> 78.fibonacciClosedForm
+8944394323791101
+
+>>> 8944394323791464
+>>> ~
+>>> 8944394323791101
+true
+```
+
 Threads over lists,
 first few terms,
 OEIS [A000045](https://oeis.org/A000045)
@@ -226,7 +255,9 @@ OEIS [A001177](https://oeis.org/A001177):
 ```
 >>> 1:69.collect { :n |
 >>> 	let k = 1;
->>> 	{ k.fibonacci % n != 0 }.whileTrue {
+>>> 	{
+>>> 		k.fibonacci % n != 0
+>>> 	}.whileTrue {
 >>> 		k := k + 1
 >>> 	};
 >>> 	k
@@ -265,14 +296,27 @@ OEIS [A001595](https://oeis.org/A001595):
 ```
 
 The closed form is implemented using approximate floating point constants and functions,
-and is accurate only to the 75th term.
+and is accurate,
+after rounding,
+to only the 65th term:
+
+```
+>>> [64 65].collect { :n |
+>>> 	[
+>>> 		n.fibonacci,
+>>> 		n.fibonacciClosedForm
+>>> 	]
+>>> }
+[
+	10610209857723 10610209857722.656;
+	17167680177565 17167680177564.438
+]
+```
+
 For positive integer values where _x=1_ `fibonacci` is equivalent to `fibonacciNumber`,
 which consults a cached table, is accurate, and may answer a `LargeInteger`:
 
 ```
->>> 76.fibonacci
-3416454622906708
-
 >>> 175.fibonacci
 1672445759041379840132227567949787325L
 ```
@@ -393,7 +437,7 @@ OEIS [A105870](https://oeis.org/A105870):
 
 ![](sw/spl/Help/Image/fibonacci-B.svg)
 
-Fibonacci numbers modulo ten
+Fibonacci numbers modulo ten,
 period is sixty,
 OEIS [A003893](https://oeis.org/A003893):
 
@@ -538,7 +582,7 @@ OEIS [A105995](https://oeis.org/A105995):
 Characteristic function of Fibonacci numbers,
 OEIS [A010056](https://oeis.org/A010056):
 
-~~~spl svg=N
+~~~spl svg=N oeis=A010056 set=0,1
 let a = 1:12.fibonacci;
 let k = a.max;
 1:k.collect { :n |

@@ -121,7 +121,7 @@ OEIS [A144112](https://oeis.org/A144112):
 The Fredholm-Rueppel sequence,
 OEIS [A036987](https://oeis.org/A036987):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A036987 set=0,1
 0:6.collect { :k |
 	[1].padRight([2 ^ k], 0)
 }.catenate.discretePlot
