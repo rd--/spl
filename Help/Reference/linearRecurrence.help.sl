@@ -813,6 +813,16 @@ OEIS [A137501](https://oeis.org/A137501):
 [0 0 2 -2 4 -4 6 -6 8 -8 10 -10 12 -12 14]
 ```
 
+Limit sequence for _1+x-x^3_,
+OEIS [A052954](https://oeis.org/A052954):
+
+```
+>>> [1 1 0 -1].linearRecurrence(
+>>> 	[2 1 2 2], 18
+>>> )
+[2 1 2 2 2 3 3 4 5 6 8 10 13 17 22 29 38 50]
+```
+
 Draw spiral:
 
 ~~~spl svg=A

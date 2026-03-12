@@ -2,7 +2,8 @@
 
 - _aliquotSequence(n, k=21)_
 
-Answer the aliquot sequence, to at most _k_ places.
+Answer the aliquot sequence starting at _n_,
+to at most _k_ places.
 
 A sequence that ends at `one`:
 
@@ -45,29 +46,51 @@ OEIS [A072890](https://oeis.org/A072890):
 [14316 19116 31704 47616 83328]
 ```
 
-The first few sequences:
+The first few sequences that do not reach one,
+threads over lists:
 
 ```
->>> 1:9.collect(aliquotSequence:/1).++
+>>> [6 25 28].aliquotSequence
+[6; 25 6; 28]
+```
+
+The first few sequences that reach one,
+OEIS [A032451](https://oeis.org/A032451):
+
+```
+>>> 1:32.aliquotSequence
+>>> .select { :x | x.last = 1 }
 [
 	1;
 	2 1;
 	3 1;
 	4 3 1;
 	5 1;
-	6;
 	7 1;
 	8 7 1;
-	9 4 3 1
-]
-
->>> 23:27.collect(aliquotSequence:/1)
-[
+	9 4 3 1;
+	10 8 7 1;
+	11 1;
+	12 16 15 9 4 3 1;
+	13 1;
+	14 10 8 7 1;
+	15 9 4 3 1;
+	16 15 9 4 3 1;
+	17 1;
+	18 21 11 1;
+	19 1;
+	20 22 14 10 8 7 1;
+	21 11 1;
+	22 14 10 8 7 1;
 	23 1;
 	24 36 55 17 1;
-	25 6;
 	26 16 15 9 4 3 1;
-	27 13 1
+	27 13 1;
+	29 1;
+	30 42 54 66 78 90 144 259 45 33
+		15 9 4 3 1;
+	31 1;
+	32 31 1
 ]
 ```
 
@@ -87,12 +110,39 @@ OEIS [A044050](https://oeis.org/A044050):
 ]
 ```
 
+The Aliquot sequence starting at 12,
+OEIS [A143090](https://oeis.org/A143090):
+
+```
+>>> 12.aliquotSequence
+[12 16 15 9 4 3 1]
+```
+
 The Aliquot sequence starting at 30,
 OEIS [A008885](https://oeis.org/A008885):
 
 ```
 >>> 30.aliquotSequence
-[30 42 54 66 78 90 144 259 45 33 15 9 4 3 1]
+[
+	30 42 54 66 78 90 144 259 45 33
+	15 9 4 3 1
+]
+```
+
+The Aliquot sequence starting at 38,
+OEIS [A143721](https://oeis.org/A143721):
+
+```
+>>> 38.aliquotSequence
+[38 22 14 10 8 7 1]
+```
+
+The Aliquot sequence starting at 62,
+OEIS [A143733](https://oeis.org/A143733):
+
+```
+>>> 62.aliquotSequence
+[62 34 20 22 14 10 8 7 1]
 ```
 
 Numbers whose aliquot sequence terminates in a perfect number,
@@ -160,6 +210,28 @@ OEIS [A008892](https://oeis.org/A008892):
 ~~~
 
 ![](sw/spl/Help/Image/aliquotSequence-B.svg)
+
+The aliquot sequences up to twenty three that reach one,
+OEIS [A032451](https://oeis.org/A032451):
+
+~~~spl svg=C
+1:23.aliquotSequence
+.select { :x | x.last = 1 }
+.catenate.discretePlot
+~~~
+
+![](sw/spl/Help/Image/aliquotSequence-C.svg)
+
+The aliquot sequences up to sixty that reach one,
+OEIS [A032451](https://oeis.org/A032451):
+
+~~~spl svg=D
+1:60.aliquotSequence
+.select { :x | x.last = 1 }
+.catenate.log.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/aliquotSequence-D.svg)
 
 * * *
 

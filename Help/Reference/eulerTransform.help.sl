@@ -165,10 +165,10 @@ OEIS [A030203](https://oeis.org/A030203):
 
 ```
 >>> let u = [-1 -1 -2];
->>> 0:115.collect(
+>>> 0:25.collect(
 >>> 	u.periodicFunction
 >>> 	.eulerTransform
->>> ).discretePlot
+>>> )
 [
 	1 -1 -1 -1 1 2 -1 2 0 0
 	-1 -1 -1 -1 0 1 -1 -1 2 0

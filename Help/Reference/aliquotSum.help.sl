@@ -118,7 +118,6 @@ OEIS [A153485](https://oeis.org/A153485):
 
 ![](sw/spl/Help/Image/aliquotSum-F.svg)
 
-
 * * *
 
 See also: aliquotSequence, divisorSigma, isAbundantNumber, unitaryDivisorSigma

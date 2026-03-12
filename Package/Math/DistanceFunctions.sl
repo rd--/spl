@@ -193,6 +193,14 @@
 
 }
 
++@Integer {
+
+	hammingDistance { :p :q |
+		p.bitXor(q).hammingWeight
+	}
+
+}
+
 +Multiset {
 
 	diceSorensenCoefficient { :self :operand |

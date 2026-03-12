@@ -64,6 +64,17 @@ OEIS [A020737](https://oeis.org/A020737):
 [5 9 17 33 65 129 257 513 1025 2049 4097]
 ```
 
+Pisot sequence _L/E(6,9)_
+OEIS [A020717](https://oeis.org/A020717):
+
+```
+>>> pisotSequence('L', 6, 9, 11)
+[6 9 14 22 35 56 90 145 234 378 611]
+
+>>> pisotSequence('E', 6, 9, 11)
+[6 9 14 22 35 56 90 145 234 378 611]
+```
+
 * * *
 
 See also: power, recurrenceTable

@@ -15,6 +15,13 @@ At integral `SmallFloat` and `LargeInteger`:
 15511210043330985984000000L
 ```
 
+At `zero`:
+
+```
+>>> 0.!
+1
+```
+
 At `Range`:
 
 ```

@@ -74,6 +74,50 @@ If either side has fewer elements, includes the difference:
 3
 ```
 
+Binary Hamming distance between _P(n)_ and _P(n+1)_,
+OEIS [A205510](https://oeis.org/A205510):
+
+```
+>>> 1:21.collect { :n |
+>>> 	n.prime.hammingDistance(
+>>> 		(n + 1).prime
+>>> 	)
+>>> }
+[1 2 1 2 2 3 1 1 2 1 4 2 1 1 3 3 2 6 1 3 2]
+```
+
+Binary Hamming distance between _(n-1)!_ and _n!_,
+OEIS [A205509](https://oeis.org/A205509):
+
+```
+>>> 1L:23.collect { :n |
+>>> 	(n - 1).integerFactorial
+>>> 	.hammingDistance(
+>>> 		n.integerFactorial
+>>> 	)
+>>> }
+[
+	 0  2  1  4  2  4  4  6  4  9
+	 8 15 12 16 14 12 16 23 26 23
+	21 29 31
+]
+```
+
+An array,
+read by antidiagonals,
+of the Hamming distance between _k_ and the Gray encoding of the sum of _n_ and the Gray decoding of _k_,
+OEIS [A268833](https://oeis.org/A268833):
+
+~~~spl svg=A
+0:12.antidiagonalArray { :n :k |
+	k.hammingDistance(
+		(n + k.grayDecode).grayEncode
+	)
+}.catenate.discretePlot
+~~~
+
+![](sw/spl/Help/Image/hammingDistance-A.svg)
+
 * * *
 
 See also: editDistance, manhattanDistance

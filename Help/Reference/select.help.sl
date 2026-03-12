@@ -51,7 +51,7 @@ Find pairs containing x:
 
 ```
 >>> [1 'y'; 2 'x'; 3 'x'; 4 'z'; 5 'x']
->>> .select { : |
+>>> .select { :x |
 >>> 	x.includes('x')
 >>> }
 [2 'x'; 3 'x'; 5 'x']
@@ -60,7 +60,7 @@ Find pairs containing x:
 Select numbers up to 100 that equal 1 modulo both 3 and 5:
 
 ```
->>> 1:100.select { : |
+>>> 1:100.select { :x |
 >>> 	x % 3 = 1 & { x % 5 = 1 }
 >>> }
 [1 16 31 46 61 76 91]

@@ -89,8 +89,8 @@ Exact `LargeInteger` and inexact `SmallFloat` results for 30! and 47!:
 >>> 30L.factorial
 265252859812191058636308480000000L
 
->>> 30.factorial
-2.652528598121911E32
+>>> 30.factorial.asSmallFloat
+2.6525285981219107E32
 
 >>> 47L.factorial
 (

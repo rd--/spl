@@ -253,6 +253,14 @@
 		}
 	}
 
+	factorial { :self |
+		self.isNonNegativeInteger.if {
+			self.asLargeInteger.integerFactorial.normal
+		} {
+			self.error('factorial: see factorialOrGamma')
+		}
+	}
+
 	fibonacciFactorial { :self |
 		self.fibonacciSequence.allButFirst.product
 	}
@@ -604,14 +612,6 @@
 			self.asLargeInteger.integerDoubleFactorial.normal
 		} {
 			self.generalisedDoubleFactorial
-		}
-	}
-
-	factorial { :self |
-		self.isNonNegativeInteger.if {
-			self.asLargeInteger.integerFactorial.normal
-		} {
-			(self + 1).gamma
 		}
 	}
 
