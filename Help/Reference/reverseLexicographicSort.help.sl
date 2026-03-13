@@ -85,7 +85,7 @@ OEIS [A066099](https://oeis.org/A066099):
 Plot alternating sums of integer compositions in reverse lexicographic order,
 OEIS [A124754](https://oeis.org/A124754):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A124754 signed
 1:7.collect { :n |
 	n.integerCompositions
 	.reverseLexicographicSort
@@ -98,7 +98,7 @@ OEIS [A124754](https://oeis.org/A124754):
 Inverse binomial sum of compositions in standard order,
 OEIS [A124756](https://oeis.org/A124756):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A124756 signed
 1:7.collect { :n |
 	n.integerCompositions
 	.reverseLexicographicSort
@@ -113,7 +113,7 @@ OEIS [A124756](https://oeis.org/A124756):
 Plot first differences of integer compositions in reverse lexicographic order,
 OEIS [A358133](https://oeis.org/A358133):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A358133 signed
 1:6.collect { :n |
 	n.integerCompositions
 	.reverseLexicographicSort

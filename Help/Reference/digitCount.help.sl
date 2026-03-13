@@ -340,7 +340,7 @@ OEIS [A179016](https://oeis.org/A179016):
 Numbers whose base three representation contains no two,
 OEIS [A005836](https://oeis.org/A005836):
 
-~~~spl svg=M
+~~~spl svg=M oeis=A005836
 0:2186.select { :n |
 	n.digitCount(3, 2) = 0
 }.scatterPlot

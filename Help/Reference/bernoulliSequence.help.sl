@@ -25,7 +25,7 @@ First few non-zero Bernoulli numbers:
 Plot numerator of Bernoulli sequence,
 OEIS [A027641](https://oeis.org/A027641):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A027641 signed
 99.bernoulliSequence
 .numerator
 .logScale

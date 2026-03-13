@@ -1,177 +1,124 @@
 # On Integer Sequences
 
-## 0,1 sequences
+0,1 Sequences: A361463 A008966 A010054 A096268 A073059 A098725 A035263 A189920 A023531 A014577 A209229 A047999 A010057 A086747 A010059 A079944 A097806 A010052 A040051 A035263 A079559 A289016 A010056 A036987 A051731 A237048 A010051 A143536 A104894 A006340 A188294 A330037 A064841
 
-<<<thueMorseSequence,A
+0,1,2 Sequences: A054635
 
-<<<divisible,J
+-1,1 Sequences: A076479 A033999 A008836 A106400 A034947 A020985
 
-<<<divisible,K
+-1,0,1 Sequences: A343173 A014677 A054525 A089045 A100047 A029883 A160357 A011584 A011587 A010815 A091337 A014677 A013595
 
-<<<isSquareFree,F
+1,2 Sequences: A001468
 
-<<<padLeft,D
+1,3 Sequences: A122567
 
-<<<partitionFunctionP,D
+2,3 Sequences: A076662
 
-<<<squaresR,B
+Signed Sequences:
 
-<<<bitLength,D
-
-<<<pascalTriangle,D
-
-<<<padRight,B
-
-<<<binaryExpansion,M
-
-<<<triangularArray,K
-
-<<<isPerfectSquare,B
-
-<<<isInteger,B
-
-<<<goldenRatio,L
-
-<<<rowlandsSequence,I
-
-<<<regularPaperfoldingSequence,C
-
-<<<periodDoublingSequence,A
-
-<<<periodDoublingSequence,B
-
-<<<periodDoublingSequence,C
-
-<<<periodDoublingSequence,D
-
-<<<baumSweetSequence,B
-
-<<<wythoffLower,C
-
-<<<zeckendorfRepresentation,I
+## 0,1 Sequences
 
 <<<zeckendorfRepresentation,A
 
-<<<substitutionSystem,F
-
-<<<substitutionSystem,G
-
-<<<substitutionSystem,J
-
-<<<fibonacci,N
-
-<<<isPrime,E
-
-<<<isPrime,J
-
+<<<baumSweetSequence,B
+<<<binaryExpansion,M
+<<<bitLength,D
 <<<digitCount,S
+<<<divisible,J
+<<<divisible,K
+<<<fibonacci,N
+<<<goldenRatio,L
+<<<isInteger,B
+<<<isPerfectSquare,B
+<<<isPrime,E
+<<<isPrime,J
+<<<isSquareFree,F
+<<<padLeft,D
+<<<padRight,B
+<<<partitionFunctionP,D
+<<<pascalTriangle,D
+<<<periodDoublingSequence,A
+<<<periodDoublingSequence,B
+<<<periodDoublingSequence,C
+<<<periodDoublingSequence,D
+<<<regularPaperfoldingSequence,C
+<<<rowlandsSequence,I
+<<<squaresR,B
+<<<substitutionSystem,F
+<<<substitutionSystem,G
+<<<substitutionSystem,J
+<<<thueMorseSequence,A
+<<<triangularArray,K
+<<<wythoffLower,C
+<<<zeckendorfRepresentation,I
 
-## _1,3_ sequences
-
-<<<isLesserTwinPrime,C
-
-## _-1,1_ sequences
-
-<<<liouvilleLambda,A
-
-<<<rudinShapiro,C
-
-<<<repeat,C
-
-<<<radical,C
-
-<<<thueMorseSequence,E
+## _-1,1_ Sequences
 
 <<<kroneckerSymbol,K
+<<<liouvilleLambda,A
+<<<radical,C
+<<<repeat,C
+<<<rudinShapiro,C
+<<<thueMorseSequence,E
 
-## _-1,0,1_ sequences
-
-<<<repeat,A
+## _-1,0,1_ Sequences
 
 <<<cyclotomic,H
-
-<<<thueMorseSequence,B
-
 <<<jacobiSymbol,D
-
 <<<jacobiSymbol,E
-
 <<<kroneckerSymbol,D
-
 <<<kroneckerSymbol,I
-
 <<<moebiusMu,L
-
-<<<regularPaperfoldingSequence,D
-
-<<<recamanSequence,E
-
 <<<power,I
-
+<<<recamanSequence,E
+<<<regularPaperfoldingSequence,D
+<<<repeat,A
+<<<thueMorseSequence,B
 <<<wythoffLower,D
 
-## 2,3
-
-<<<wythoffUpper,A
-
-## 1,2
+## 1,2 Sequences
 
 <<<substitutionSystem,H
 
-## 0,1,2,3,4,5,6,7,8,9
+## 1,3 Sequences
+
+<<<isLesserTwinPrime,C
+
+## 2,3 Sequences
+
+<<<wythoffUpper,A
+
+## 0-9 Sequences
 
 <<<digitalRoot,C
 
 ## Signed
 
-<<<eulerTransform,A
-
-<<<eulerTransform,B
-
-<<<sum,D
-
-<<<inverseBinomialTransform,A
-
-<<<inverseBinomialTransform,B
-
-<<<inverseBinomialTransform,C
-
-<<<inverseBinomialTransform,D
-
-<<<triangularArray,A
-
-<<<triangularArray,L
-
-<<<stirlingS1,C
-
-<<<stirlingS1,D
-
-<<<stirlingS1,E
-
-<<<stirlingS1,F
-
-<<<stirlingS1,G
-
-<<<reverseLexicographicSort,B
-
-<<<reverseLexicographicSort,C
-
-<<<reverseLexicographicSort,D
-
-<<<sternBrocotSequence,D
-
-<<<sternBrocotSequence,E
-
-<<<hypergeometric2F1,D
-
 <<<aliquotSum,D
-
 <<<aliquotSum,E
-
 <<<bernoulliSequence,A
-
+<<<betaExpansion,D
+<<<eulerTransform,A
+<<<eulerTransform,B
+<<<hypergeometric2F1,D
+<<<inverseBinomialTransform,A
+<<<inverseBinomialTransform,B
+<<<inverseBinomialTransform,C
+<<<inverseBinomialTransform,D
+<<<reverseLexicographicSort,B
+<<<reverseLexicographicSort,C
+<<<reverseLexicographicSort,D
+<<<sternBrocotSequence,D
+<<<sternBrocotSequence,E
+<<<stirlingS1,C
+<<<stirlingS1,D
+<<<stirlingS1,E
+<<<stirlingS1,F
+<<<stirlingS1,G
+<<<sum,D
+<<<triangularArray,A
+<<<triangularArray,L
 <<<withIndexCollect,A
-
 <<<withIndexCollect,B
 
 ## Ascents, Linear
@@ -238,11 +185,19 @@
 
 <<<wythoffArray,B
 
+<<<binaryExpansion,D
+
+<<<binaryExpansion,E
+
+<<<binaryExpansion,L
+
 ## Irregular Restarting Descents
 
 <<<rowlandsSequence,F
 
 <<<wythoffArray,A
+
+<<<binaryExpansion,K
 
 ## Restarting Ascents
 
@@ -304,6 +259,12 @@
 
 <<<digitCount,M
 
+<<<betaExpansion,E
+
+<<<binaryExpansion,G
+
+<<<binaryExpansion,H
+
 ## Interleaved Ascents
 
 <<<which,B
@@ -315,6 +276,8 @@
 <<<abs,D
 
 <<<abs,E
+
+<<<alternatingSum,B
 
 ## Ruler
 

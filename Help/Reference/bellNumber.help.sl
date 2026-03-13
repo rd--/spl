@@ -11,7 +11,8 @@ There are five ways three numbers can be partitioned:
 5
 ```
 
-Threads element-wise over lists,
+Bell numbers,
+threads element-wise over lists,
 OEIS [A000110](https://oeis.org/A000110):
 
 ```
@@ -46,9 +47,11 @@ OEIS [A011971](https://oeis.org/A011971):
 ]
 ```
 
-Plot first few terms:
+Bell numbers,
+discrete log plot,
+OEIS [A000110](https://oeis.org/A000110):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A000110
 1:99.bellNumber.log.discretePlot
 ~~~
 

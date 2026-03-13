@@ -31,7 +31,7 @@ HelpFileViewer : [Object, UserEventTarget, View] { | smallKansas outerElement ev
 			each.first.isCodeFence.if {
 				each.allButFirstAndLast.splitBy(['']).do { :codeBlock |
 					codeBlock.first.beginsWith('>>> ').if {
-						codeBlock.asDocumentationTest.asSmallProgram(self.smallKansas).place
+						codeBlock.parseDocumentationTest.asSmallProgram(self.smallKansas).place
 					} {
 						SmallProgram(self.smallKansas, '', codeBlock.unlines, '').place
 					}

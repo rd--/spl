@@ -221,6 +221,17 @@ b.prefixSum.scatterPlot
 
 ![](sw/spl/Help/Image/prefixSum-H.svg)
 
+Total number of ones in binary expansions,
+OEIS [A000788](https://oeis.org/A000788):
+
+~~~spl svg=I oeis=A000788
+0:47.hammingWeight
+.prefixSum
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/prefixSum-H.svg)
+
 * * *
 
 See also: +, accumulate, differences, prefixes, prefixProduct, scan, sum

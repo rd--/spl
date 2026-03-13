@@ -1,6 +1,6 @@
-# asDocumentationTest
+# parseDocumentationTest
 
-- _asDocumentationTest([s₁ s₂ …])_
+- _parseDocumentationTest([s₁ s₂ …])_
 
 Answer the `DocumentationTest` given by the sequence of `String` items in the list _s_.
 The _program_ lines are prefixed by either '>>>' or '>>',
@@ -12,7 +12,7 @@ and the _expected answer_ lines follow without prefix.
 >>> 	'>>> b'
 >>> 	'c'
 >>> 	'd'
->>> ].asDocumentationTest
+>>> ].parseDocumentationTest
 DocumentationTest(
 	'>>>',
 	['a' 'b'],

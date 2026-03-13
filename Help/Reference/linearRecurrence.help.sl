@@ -813,7 +813,7 @@ OEIS [A137501](https://oeis.org/A137501):
 [0 0 2 -2 4 -4 6 -6 8 -8 10 -10 12 -12 14]
 ```
 
-Limit sequence for _1+x-x^3_,
+Limit sequence for positive root of _1+x-x^3_,
 OEIS [A052954](https://oeis.org/A052954):
 
 ```
@@ -821,6 +821,48 @@ OEIS [A052954](https://oeis.org/A052954):
 >>> 	[2 1 2 2], 18
 >>> )
 [2 1 2 2 2 3 3 4 5 6 8 10 13 17 22 29 38 50]
+```
+
+Number of different positive braids with _n_ crossings of three strands,
+OEIS [A005251](https://oeis.org/A005251):
+
+```
+>>> [2 -1 1].linearRecurrence([0 1 1], 15)
+[0 1 1 1 2 4 7 12 21 37 65 114 200 351 616]
+```
+
+Number of circular binary sequences of length _n_ with an odd number of zeroes and no consecutive ones,
+OEIS [A366043](https://oeis.org/A366043):
+
+```
+>>> [0 1 2 1].linearRecurrence([0 1 2 1], 15)
+[0 1 2 1 4 6 8 15 24 37 62 100 160 261 422]
+```
+
+Numbers _n_ such that the _n_-th triangular number is a product of two consecutive integers,
+OEIS [A001652](https://oeis.org/A001652),
+and partial sums,
+OEIS [A089950](https://oeis.org/A089950):
+
+```
+>>> [7 -7 1].linearRecurrence([0 3 20], 8)
+[0 3 20 119 696 4059 23660 137903]
+
+>>> [7 -7 1].linearRecurrence([0 3 20], 8)
+>>> .prefixSum
+[0 3 23 142 838 4897 28557 166460]
+```
+
+_(n+1)(2-n)/2_,
+OEIS [A080956](https://oeis.org/A080956):
+
+```
+>>> linearRecurrence([3 -3 1], [1 1 0], 13)
+[1 1 0 -2 -5 -9 -14 -20 -27 -35 -44 -54 -65]
+
+>>> let n = 0:12;
+>>> (n + 1) * (2 - n) / 2
+[1 1 0 -2 -5 -9 -14 -20 -27 -35 -44 -54 -65]
 ```
 
 Draw spiral:
@@ -974,6 +1016,16 @@ OEIS [A166871](https://oeis.org/A166871):
 ~~~
 
 ![](sw/spl/Help/Image/linearRecurrence-M.svg)
+
+Interleave _n_ and _1-n_,
+OEIS [A097140](https://oeis.org/A097140):
+
+~~~spl svg=N oeis=A097140
+[-1 1 1].linearRecurrence([0 1 1], 85)
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/linearRecurrence-N.svg)
 
 * * *
 

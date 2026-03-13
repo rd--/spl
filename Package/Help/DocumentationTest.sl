@@ -45,19 +45,6 @@ DocumentationTest : [Object, Storeable, Equatable] { | prefix program expectedAn
 
 +List {
 
-	asDocumentationTest { :self |
-		let prefix = RegularExpression('>+').match(self[1]);
-		let program = self.select { :each |
-			each.beginsWith(prefix)
-		}.collect { :each |
-			each.drop(prefix.size + 1)
-		};
-		let expectedAnswer = self.reject { :each |
-			each.beginsWith(prefix)
-		};
-		DocumentationTest(prefix, program, expectedAnswer)
-	}
-
 	extractDocumentationTests { :self |
 		let answer = [];
 		let inBlock = false;
@@ -81,7 +68,7 @@ DocumentationTest : [Object, Storeable, Equatable] { | prefix program expectedAn
 					inBlock
 				}
 			).ifTrue {
-				answer.add(block.asDocumentationTest);
+				answer.add(block.parseDocumentationTest);
 				block.removeAll;
 				inBlock := false
 			};
@@ -90,6 +77,19 @@ DocumentationTest : [Object, Storeable, Equatable] { | prefix program expectedAn
 			}
 		};
 		answer
+	}
+
+	parseDocumentationTest { :self |
+		let prefix = RegularExpression('>+').match(self[1]);
+		let program = self.select { :each |
+			each.beginsWith(prefix)
+		}.collect { :each |
+			each.drop(prefix.size + 1)
+		};
+		let expectedAnswer = self.reject { :each |
+			each.beginsWith(prefix)
+		};
+		DocumentationTest(prefix, program, expectedAnswer)
 	}
 
 }

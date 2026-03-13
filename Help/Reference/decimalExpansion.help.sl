@@ -85,7 +85,7 @@ OEIS [A048985](https://oeis.org/A048985),
 also apart from first term
 OEIS [A073646](https://oeis.org/A073646):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A073646
 2:200.collect { :n |
 	n.primeFactors
 	.decimalExpansion
@@ -95,6 +95,17 @@ OEIS [A073646](https://oeis.org/A073646):
 ~~~
 
 ![](sw/spl/Help/Image/decimalExpansion-A.svg)
+
+Initial digit of _n_,
+OEIS [A000030](https://oeis.org/A000030):
+
+~~~spl svg=B oeis=A000030
+0:100.collect { :n |
+	n.decimalExpansion.first
+}.stepPlot
+~~~
+
+![](sw/spl/Help/Image/decimalExpansion-B.svg)
 
 * * *
 

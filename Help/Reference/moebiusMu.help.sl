@@ -75,6 +75,18 @@ OEIS [A030229](https://oeis.org/A030229):
 [1 6 10 14 15 21 22 26 33 34 35 38 39 46]
 ```
 
+Number of aperiodic binary strings of length _n_,
+OEIS [A027375](https://oeis.org/A027375):
+
+```
+>>> 1:11.collect { :n |
+>>> 	n.divisorSum { :d |
+>>> 		(n / d).moebiusMu * 2 ^ d
+>>> 	}
+>>> }
+[2 2 6 12 30 54 126 240 504 990 2046 4020]
+```
+
 Plot the Möbius sequence for the first few terms,
 OEIS [A008683](https://oeis.org/A008683):
 

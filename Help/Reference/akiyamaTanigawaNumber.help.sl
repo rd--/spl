@@ -53,7 +53,7 @@ Numerators,
 read by antidiagonals,
 OEIS [A051714](https://oeis.org/A051714):
 
-~~~spl svg=A
+~~~spl svg=A oeis=a051714
 0:21.antidiagonalArray(
 	akiyamaTanigawaNumber:/2
 ).numerator
@@ -66,7 +66,7 @@ Denominators,
 read by antidiagonals,
 OEIS [A051715](https://oeis.org/A051715):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A051715
 0:21.antidiagonalArray(
 	akiyamaTanigawaNumber:/2
 ).denominator

@@ -454,7 +454,6 @@ Reference/asDecimalFraction.help.sl
 Reference/asDecimal.help.sl
 Reference/asDictionary.help.sl
 Reference/asDiscreteColourGradient.help.sl
-Reference/asDocumentationTest.help.sl
 Reference/asDot.help.sl
 Reference/asDuration.help.sl
 Reference/asEdge.help.sl
@@ -1743,6 +1742,7 @@ Reference/helpFilesDo.help.sl
 Reference/helpFragment.help.sl
 Reference/helpImageDictionary.help.sl
 Reference/helpImageIndex.help.sl
+Reference/helpImageTable.help.sl
 Reference/helpIndex.help.sl
 Reference/HelpIndex.help.sl
 Reference/helpPreprocessor.help.sl
@@ -2302,8 +2302,10 @@ Reference/keyAtValue.help.sl
 Reference/keyAtValueIfAbsent.help.sl
 Reference/key.help.sl
 Reference/keyIntersection.help.sl
+Reference/keysAndEachValue.help.sl
 Reference/keysAndValuesCollect.help.sl
 Reference/keysAndValuesDo.help.sl
+Reference/keysAndValues.help.sl
 Reference/keysAndValuesRemove.help.sl
 Reference/keysDo.help.sl
 Reference/keySelect.help.sl
@@ -2977,6 +2979,7 @@ Reference/parseDate.help.sl
 Reference/parseDecimal.help.sl
 Reference/parseDecimalInteger.help.sl
 Reference/parseDecimalNumeral.help.sl
+Reference/parseDocumentationTest.help.sl
 Reference/parseDuration.help.sl
 Reference/parseFraction.help.sl
 Reference/parseFractionSeparatedBy.help.sl

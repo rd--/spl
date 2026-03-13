@@ -363,6 +363,20 @@ OEIS [A034947](https://oeis.org/A034947):
 
 ![](sw/spl/Help/Image/kroneckerSymbol-K.svg)
 
+Divisor sum of Kronecker symbol _-6,d_,
+the coefficients of the powers of _q_ in Fine’s equation,
+OEIS [A000377](https://oeis.org/A000377):
+
+~~~spl svg=L oeis=A000377
+1:85.collect { :n |
+	n.divisorSum { :d |
+		-6.kroneckerSymbol(d)
+	}
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/kroneckerSymbol-L.svg)
+
 * * *
 
 See also: jacobiSymbol, legendreSymbol

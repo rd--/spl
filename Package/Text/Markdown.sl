@@ -189,12 +189,8 @@ Markdown : [Object, Equatable, Cache, Iterable] { | source cache |
 		}
 	}
 
-	isTildeCodeFence { :self |
-		self.beginsWith('~~~')
-	}
-
-	isGraveAccentCodeFence { :self |
-		self.beginsWith('```')
+	isCodeFence { :self :letter |
+		self.beginsWith(letter.repeat(3))
 	}
 
 	Markdown { :self |

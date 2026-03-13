@@ -283,7 +283,7 @@ let f = { :n |
 Euler transform of _-3,-3,-2_,
 OEIS [A005928](https://oeis.org/A005928):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A005928 signed
 let u = [1 -1 -3 1 -1 3 1 -1 0];
 0:150.collect { :n |
 	(n < 1).if {

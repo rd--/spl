@@ -99,38 +99,41 @@ OEIS [A054634](https://oeis.org/A054634):
 ]
 ```
 
-Plot
+The _b=10_ Champernowne sequence,
 OEIS [A007376](https://oeis.org/A007376):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A007376 set=0-9
 10.champernowneSequence(65).stepPlot
 ~~~
 
 ![](sw/spl/Help/Image/champernowneSequence-A.svg)
 
-Plot
+The _b=2_ Champernowne sequence,
 OEIS [A030190](https://oeis.org/A030190):
 
-~~~spl svg=B
-2.champernowneSequence(65).discretePlot
+~~~spl svg=B oeis=A030190 set=0,1
+2.champernowneSequence(65)
+.discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/champernowneSequence-B.svg)
 
-Plot first few terms,
+The _b=3_ Champernowne sequence,
 OEIS [A054635](https://oeis.org/A054635):
 
-~~~spl svg=C
-3.champernowneSequence(65).stepPlot
+~~~spl svg=C oeis=A054635 set=0,1,2
+3.champernowneSequence(65)
+.stepPlot
 ~~~
 
 ![](sw/spl/Help/Image/champernowneSequence-C.svg)
 
-Plot
+The _b=8_ Champernowne sequence,
 OEIS [A054634](https://oeis.org/A054634):
 
-~~~spl svg=D
-8.champernowneSequence(128).scatterPlot
+~~~spl svg=D oeis=A054634 set=0-7
+8.champernowneSequence(128)
+.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/champernowneSequence-D.svg)

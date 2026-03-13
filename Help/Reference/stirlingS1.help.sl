@@ -202,7 +202,7 @@ Plot sums of digits:
 Triangle of arctangent numbers,
 OEIS [A008309](https://oeis.org/A008309):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A008309 signed
 1:11.collect { :n |
 	let m = 2 - (n % 2);
 	m:n:2.collect { :k |
@@ -227,7 +227,7 @@ OEIS [A008309](https://oeis.org/A008309):
 Plot triangle of _s(n,n-k+1)_,
 OEIS [A008276](https://oeis.org/A008276):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A008276 signed
 1:11.triangularArray { :n :k |
 	stirlingS1(n, n - k + 1)
 }.catenate.logScale.discretePlot
@@ -238,7 +238,7 @@ OEIS [A008276](https://oeis.org/A008276):
 Plot the triangle of signed Stirling numbers of the first kind,
 OEIS [A008275](http://oeis.org/A008275):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A008275 signed
 1:17.triangularArray(stirlingS1:/2)
 .catenate.logScale.scatterPlot
 ~~~
@@ -248,7 +248,7 @@ OEIS [A008275](http://oeis.org/A008275):
 Generalized Stirling number triangle of first kind,
 OEIS [A049444](https://oeis.org/A049444):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A049444 signed
 0:13.triangularArray { :n :i |
 	let m = n - i;
 	0:m.sum { :k |
@@ -267,7 +267,7 @@ OEIS [A049444](https://oeis.org/A049444):
 _k!×S1(n,k)_,
 OEIS [A048594](https://oeis.org/A048594):
 
-~~~spl svg=G
+~~~spl svg=G oeis=A048594 signed
 1:12.triangularArray { :n :k |
 	k.! * stirlingS1(n, k)
 }.catenate.logScale.discretePlot

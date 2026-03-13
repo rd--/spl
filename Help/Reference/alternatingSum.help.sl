@@ -35,7 +35,7 @@ Alternating sum of reverse of decimal expansion of _n_,
 Alternating sum of decimal expansion of _n_,
 [A225693](https://oeis.org/A225693):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A225693
 0:200.collect { :n |
 	n.integerDigits
 	.alternatingSum
@@ -87,7 +87,7 @@ Partial sums of alternating sum of reverse of binary expansion of _n_,
 Absolute first differences of alternating sum of reverse of binary expansion of _n_,
 [A056832](https://oeis.org/A056832):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A056832 set=1,2
 0:65.collect { :n |
 	n.integerDigits(2)
 	.reverse

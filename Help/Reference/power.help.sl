@@ -705,6 +705,9 @@ OEIS [A011557](https://oeis.org/A011557):
 ```
 >>> 10 ^ 0:6
 [1 10 100 1000 10000 100000 1000000]
+
+>>> pisotSequence('E', 1, 10, 7)
+[1 10 100 1000 10000 100000 1000000]
 ```
 
 _(n+2)*2^(n-1)_,
@@ -837,6 +840,16 @@ OEIS [A089045](https://oeis.org/A089045):
 ~~~
 
 ![](sw/spl/Help/Image/power-I.svg)
+
+_(n-2)(-1^n)_,
+OEIS [A097141](https://oeis.org/A097141):
+
+~~~spl svg=J oeis=A097141 signed
+let n = 1:65;
+((n - 2) * (-1 ^ n)).discretePlot
+~~~
+
+![](sw/spl/Help/Image/power-J.svg)
 
 * * *
 

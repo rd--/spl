@@ -34,6 +34,6 @@ If _indices_ are specified the paragraphs at the relative locations are also giv
 
 * * *
 
-See also: readHelpFile
+See also: DocumentationTest, readHelpFile
 
 Guides: Help Functions

@@ -77,6 +77,36 @@ OEIS [A085787](https://oeis.org/A085787):
 ]
 ```
 
+Interleave _n_ and _1-n_,
+OEIS [A097140](https://oeis.org/A097140):
+
+```
+>>> let n = 0:9;
+>>> [n, 1 - n].interleave
+[
+	0  1 1  0 2 -1 3 -2 4 -3
+	5 -4 6 -5 7 -6 8 -7 9 -8
+]
+```
+
+Interleave _n+7_ and _13-n_,
+OEIS [A122874](https://oeis.org/A122874):
+
+```
+>>> let n = 0:9;
+>>> [n + 7, 13 - n].interleave
+[
+	 7 13  8 12  9 11 10 10 11  9
+	12  8 13  7 14  6 15  5 16  4
+]
+
+>>> [-1 1 1].linearRecurrence([7 13 8], 20)
+[
+	 7 13  8 12  9 11 10 10 11  9
+	12  8 13  7 14  6 15  5 16  4
+]
+```
+
 Alternate positive and negative integers,
 OEIS [A001057](https://oeis.org/A001057)
 without the leading zero:
@@ -127,6 +157,16 @@ let n = 0:35;
 ~~~
 
 ![](sw/spl/Help/Image/interleave-E.svg)
+
+Interleave _n+7_ and _13-n_,
+OEIS [A122874](https://oeis.org/A122874):
+
+~~~spl svg=F oeis=A122874 signed
+let n = 0:32;
+[n + 7, 13 - n].interleave.discretePlot
+~~~
+
+![](sw/spl/Help/Image/interleave-F.svg)
 
 * * *
 

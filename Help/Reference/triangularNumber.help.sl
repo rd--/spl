@@ -150,6 +150,17 @@ OEIS [A007531](https://oeis.org/A007531):
 [0 6 24 60 120 210 336 504 720 990]
 ```
 
+Triangular numbers of form _x(x+1)(x+2)_,
+OEIS [A097571](https://oeis.org/A097571)
+and
+OEIS [A001219](https://oeis.org/A001219):
+
+```
+>>> [0 3 15 20 44 608 22736]
+>>> .triangularNumber
+[0 6 120 210 990 185136 258474216]
+```
+
 The reciprocals of triangular numbers produce is convergent series where the limit is two:
 
 ~~~spl svg=A

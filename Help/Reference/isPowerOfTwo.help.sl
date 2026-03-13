@@ -12,6 +12,13 @@ true
 [1 2 4 8 16 32 64 128 256 512]
 ```
 
+At `zero`:
+
+```
+>>> 0.isPowerOfTwo
+false
+```
+
 At `Fraction`:
 
 ```

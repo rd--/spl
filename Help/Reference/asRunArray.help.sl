@@ -30,7 +30,7 @@ RunArray([], [])
 Run lengths of binary representation of _n_,
 OEIS [A101211](https://oeis.org/A101211):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A101211
 1:21.collect { :n |
 	let d = n.binaryExpansion;
 	d.asRunArray.runs
@@ -42,7 +42,7 @@ OEIS [A101211](https://oeis.org/A101211):
 Array of run lengths of binary representation of _n_,
 OEIS [A227186](https://oeis.org/A227186):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A227186
 0:13.antidiagonalArray { :n :k |
 	(n = 0).if {
 		0

@@ -101,8 +101,9 @@ The integer _10_ with base _π_ and precision _22_:
 9.97197
 ```
 
-The integer _2_ with rational base _3/2_ and precision _103_,
-equal but for the second place to OEIS [A058840](https://oeis.org/A058840):
+The β-expansion of the integer _2_ with rational base _3/2_ and precision _103_,
+equal but for the second place to
+OEIS [A058840](https://oeis.org/A058840):
 
 ```
 >>> betaExpansion(2, 3/2, 103)
@@ -145,8 +146,9 @@ Base φ:
 5
 ```
 
-Run lengths of zeroes,
-closely related to OEIS [A058841](https://oeis.org/A058841):
+Run lengths of zeroes in _β(2,3/2)_,
+equal but for the initial places to
+OEIS [A058841](https://oeis.org/A058841):
 
 ```
 >>> betaExpansion(2, 3/2, 430)
@@ -166,9 +168,11 @@ closely related to OEIS [A058841](https://oeis.org/A058841):
 ]
 ```
 
-Plot run lengths of zeroes:
+Run lengths of zeroes in _β(2,3/2)_,
+equal but for the initial places to
+OEIS [A058841](https://oeis.org/A058841):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A058841
 betaExpansion(2, 3/2, 430)
 .first
 .runLengthsOf(0)
@@ -196,7 +200,7 @@ OEIS [A055778](https://oeis.org/A055778):
 ]
 ```
 
-Plot number of ones in the base-φ representation of _n_ modulo,
+Plot number of ones in the base-φ representation of _n_,
 OEIS [A055778](https://oeis.org/A055778):
 
 ~~~spl svg=B
@@ -212,7 +216,7 @@ let phi = 1.goldenRatio;
 Plot number of ones in the base-φ representation of _n_ modulo two,
 OEIS [A330037](https://oeis.org/A330037):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A330037 set=0,1
 let phi = 1.goldenRatio;
 let c = 2:125.collect { :n |
 	let e = n.betaExpansion(phi, 32);
@@ -265,7 +269,7 @@ OEIS [A104605](https://oeis.org/A104605):
 Plot list of powers of φ in the representation of _n_,
 OEIS [A104605](https://oeis.org/A104605):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A104605 signed
 let phi = 1.goldenRatio;
 2:27.collect { :n |
 	let e = n.betaExpansion(phi, 32);
@@ -422,3 +426,5 @@ _W_
 [1](https://en.wikipedia.org/wiki/Non-integer_base_of_numeration)
 
 Further Reading: Kempner 1936, Parry 1960, Rényi 1957
+
+Unicode: U+03B2 β Greek Small Letter Beta

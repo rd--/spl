@@ -651,6 +651,12 @@
 		}
 	}
 
+	repunit { :self :operand |
+		self.collect { :each |
+			each.repunit(operand)
+		}
+	}
+
 	riemannXi { :self |
 		self.collect(riemannXi:/1)
 	}

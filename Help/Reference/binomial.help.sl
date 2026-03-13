@@ -804,7 +804,7 @@ OEIS [A047996](https://oeis.org/A047996):
 Variant of Pascal’s triangle,
 OEIS [A051632](https://oeis.org/A051632):
 
-~~~spl svg=H
+~~~spl svg=H oeis=A051632 signed
 0:13.triangularArray { :n :k |
 	let a = (2 * k + 1 - n) / (k + 1);
 	let b = 1 - n + (2 * (-k + n));
@@ -820,7 +820,7 @@ OEIS [A051632](https://oeis.org/A051632):
 Triangle of coefficients of Laguerre polynomials _n!*Ln(x)_,
 OEIS [A021009](https://oeis.org/A021009):
 
-~~~spl svg=I
+~~~spl svg=I oeis=A021009 signed
 0:13.triangularArray { :n :k |
 	(-1 ^ k) * n.! * binomial(n, k) / k.!
 }.catenate.logScale.discretePlot
@@ -831,7 +831,7 @@ OEIS [A021009](https://oeis.org/A021009):
 _C(n-a,k/2)×(-1^a)_ where _a=(k+1)/2_,
 OEIS [A108299](https://oeis.org/A108299):
 
-~~~spl svg=J
+~~~spl svg=J oeis=A108299 signed
 0:13.triangularArray { :n :k |
 	let a = (k + 1) // 2;
 	(-1 ^ a) * binomial(n - a, k // 2)
@@ -844,7 +844,7 @@ _-1^(n+k)*C(n,k)_,
 lower triangular matrix which is inverse to Pascal’s triangle,
 OEIS [A130595](https://oeis.org/A130595):
 
-~~~spl svg=K
+~~~spl svg=K oeis=A130595 signed
 0:11.triangularArray { :n :k |
 	(-1 ^ (n + k)) * binomial(n, k)
 }.catenate.logScale.discretePlot
@@ -855,7 +855,7 @@ OEIS [A130595](https://oeis.org/A130595):
 Riordan array _((1-x)/(1+x),x/(1+x)^2)_,
 OEIS [A110162](https://oeis.org/A110162):
 
-~~~spl svg=L
+~~~spl svg=L oeis=A110162 signed
 0:11.triangularArray { :n :k |
 	(n + k = 0).if {
 		1
@@ -874,7 +874,7 @@ OEIS [A110162](https://oeis.org/A110162):
 Riordan array _(1,x(1-x))_,
 OEIS [A109466](https://oeis.org/A109466):
 
-~~~spl svg=M
+~~~spl svg=M oeis=A109466 signed
 0:12.triangularArray { :n :k |
 	(-1 ^ (n - k)) * binomial(k, n - k)
 }.catenate.logScale.discretePlot

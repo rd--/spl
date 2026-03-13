@@ -1,8 +1,8 @@
 # isCodeFence
 
-- _isCodeFence(aString)_
+- _isCodeFence(s)_
 
-Answer `true` if _aString_ is a _code fence_, else `false`.
+Answer `true` if the string _s_ is a _code fence_, else `false`.
 A _code fence_ is a line that begins with three consecutive _fence characters_.
 Opening code fences may contain _attributes_.
 
@@ -34,19 +34,19 @@ which this method does not allow:
 false
 ```
 
-Typed code fence predicates:
+The binary form allows for typed code fence predicates:
 
 ```
->>> '```'.isGraveAccentCodeFence
+>>> '```'.isCodeFence('`')
 true
 
->>> '~~~'.isTildeCodeFence
+>>> '~~~'.isCodeFence('~')
 true
 ```
 
 * * *
 
-See also: isGraveAccentCodeFence, isTildeCodeFence
+See also: beginsWith, or, repeat
 
 Guides: Fenced Code Blocks
 

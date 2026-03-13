@@ -194,7 +194,7 @@ OEIS [A008892](https://oeis.org/A008892):
 The length of the first few aliquot sequences,
 OEIS [A053223](https://oeis.org/A053223):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A053223
 1:85.collect { :n |
  	n.aliquotSequence.size
 }.discretePlot
@@ -205,7 +205,7 @@ OEIS [A053223](https://oeis.org/A053223):
 The Aliquot sequence starting at 276,
 OEIS [A008892](https://oeis.org/A008892):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A008892
 276.aliquotSequence(23).log.stepPlot
 ~~~
 

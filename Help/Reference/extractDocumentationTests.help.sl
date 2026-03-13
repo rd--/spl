@@ -1,8 +1,12 @@
 # extractDocumentationTests
 
-- _extractDocumentationTests(aHelpFile | aList)_
+- _extractDocumentationTests(x)_
 
-Answer the sequence of `DocumentationTest` blocks in the sequence of `String` items at _aList_.
+Answer the sequence of `DocumentationTest` blocks at _x_,
+which may be either a `List` of `String` items,
+or a `HelpFile` object.
+
+At `List` of `String`:
 
 ```
 >>> [
@@ -41,7 +45,7 @@ and can extract documentation tests from any text.
 
 * * *
 
-See also: asDocumentationTest, DocumentationTest
+See also: parseDocumentationTest, DocumentationTest
 
 Guides: Documentation Tests
 

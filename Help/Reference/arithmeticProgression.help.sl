@@ -16,6 +16,14 @@ and [A001477](https://oeis.org/A001477):
 [0 1 2 3 4 5 6 7 8 9 10 11 12 13 14]
 ```
 
+The non-positive integers,
+OEIS [A001489](https://oeis.org/A001489):
+
+```
+>>> 14.arithmeticProgression(0, -1)
+[0 -1 -2 -3 -4 -5 -6 -7 -8 -9 -10 -11 -12 -13]
+```
+
 Arithmetic sequence of five places by two,
 OEIS [A005408](https://oeis.org/A005408),
 [A005843](https://oeis.org/A005843)

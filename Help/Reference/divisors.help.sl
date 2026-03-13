@@ -6,7 +6,7 @@ Answers the `List` of integers that are divisors of the integer _n_.
 For all positive integers, `divisors` includes `one` and _n_ as the first and last entries.
 
 Divisors of
-OIES [A018253](https://oeis.org/A018253) _n=24_,
+OEIS [A018253](https://oeis.org/A018253) _n=24_,
 OEIS [A018256](https://oeis.org/A018256) _n=36_,
 OEIS [A018261](https://oeis.org/A018261) _n=48_,
 OEIS [A018266](https://oeis.org/A018266) _n=60_,

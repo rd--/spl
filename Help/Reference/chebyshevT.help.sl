@@ -130,7 +130,7 @@ Log scale plot of succesive coefficients,
 including zeroes,
 OEIS [A053120](https://oeis.org/A053120):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A053120 signed
 0:13.collect { :n |
 	n.chebyshevT
 	.coefficientList
@@ -142,7 +142,7 @@ OEIS [A053120](https://oeis.org/A053120):
 Monic integer version of Chebyshev T-polynomials,
 OEIS [A127672](https://oeis.org/A127672):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A127672 signed
 0:19.collect { :n |
 	let p = n.chebyshevT;
 	let c = p.coefficientList;

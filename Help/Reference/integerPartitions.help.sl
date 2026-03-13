@@ -298,6 +298,21 @@ OEIS [A036036](https://oeis.org/A036036):
 ]
 ```
 
+Binary partition function,
+the number of partitions of _n_ into powers of two,
+OEIS [A018819](https://oeis.org/A018819):
+
+```
+>>> 1:16.collect { :n |
+>>> 	n.integerPartitions.count { :p |
+>>> 		p.allSatisfy { :i |
+>>> 			i.log2.isInteger
+>>> 		}
+>>> 	}
+>>> }
+[1 2 2 4 4 6 6 10 10 14 14 20 20 26 26 36]
+```
+
 Plot first few terms of
 OEIS [A036036](https://oeis.org/A036036):
 

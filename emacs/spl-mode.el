@@ -82,7 +82,6 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
   (interactive)
   (spl-netcat-cmd 'evalFile 'fileName buffer-file-name))
 
-
 (defun spl-trim-leading-whitespace (str)
   "Remove whitespace at the beginning of STR."
   (save-match-data
@@ -139,9 +138,9 @@ If the string begins with a doctest, also delete all non doctest lines."
    (region-beginning)
    (region-end)))
 
-(defun spl-eval-string (STR)
-  "Evaluate string."
-  (spl-netcat-cmd 'evalText 'text STR))
+(defun spl-eval-string (str)
+  "Evaluate string STR."
+  (spl-netcat-cmd 'evalText 'text str))
 
 (defun spl-eval-paragraph ()
   "Evaluate paragraph."

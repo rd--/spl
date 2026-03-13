@@ -112,6 +112,24 @@ r.differences.sign.prefixSum.scatterPlot
 
 ![](sw/spl/Help/Image/recamanSequence-F.svg)
 
+A variant of Recamáns sequence,
+OEIS [A063733](https://oeis.org/A063733):
+
+~~~spl svg=G oeis=A063733
+{ :a :n |
+	let m = n - 1;
+	let x = a[m] - m;
+	(x > 0 & { a.includes(x).not } ).if {
+		x
+	} {
+		a[m] + m
+	}
+}.recurrenceTable([1], 85)
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/recamanSequence-G.svg)
+
 * * *
 
 See also: Set

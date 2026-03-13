@@ -4,12 +4,13 @@
 
 Answer the _n_-th repunit in base _b_.
 
-Calculate the table of the first five repunits in bases one through twelve:
+Calculate the table of the first five repunits in bases two through twelve,
+threads over lists:
 
 ```
->>> { :b :n |
->>> 	n.repunit(b)
->>> }.table(2:12, 1:5)
+>>> 2:12.collect { :b |
+>>> 	1:5.repunit(b)
+>>> }
 [
 	1 3 7 15 31;
 	1 4 13 40 121;
@@ -23,6 +24,48 @@ Calculate the table of the first five repunits in bases one through twelve:
 	1 12 133 1464 16105;
 	1 13 157 1885 22621
 ]
+```
+
+Repunits in base ten,
+OEIS [A002275](https://oeis.org/A002275):
+
+```
+>>> 0:7.repunit(10)
+[0 1 11 111 1111 11111 111111 1111111]
+
+>>> (10 ^ 0:7 - 1) / 9
+[0 1 11 111 1111 11111 111111 1111111]
+
+>>> [11 -10].linearRecurrence([0 1], 8)
+[0 1 11 111 1111 11111 111111 1111111]
+```
+
+Twice base ten repunits,
+OEIS [A002276](https://oeis.org/A002276):
+
+```
+>>> 0:7.repunit(10) * 2
+[0 2 22 222 2222 22222 222222 2222222]
+
+>>> 2 * (10 ^ 0:7 - 1) / 9
+[0 2 22 222 2222 22222 222222 2222222]
+
+>>> [11 -10].linearRecurrence([0 2], 8)
+[0 2 22 222 2222 22222 222222 2222222]
+```
+
+Thrice base ten repunits,
+OEIS [A002277](https://oeis.org/A002277):
+
+```
+>>> 0:7.repunit(10) * 3
+[0 3 33 333 3333 33333 333333 3333333]
+
+>>> 3 * (10 ^ 0:7 - 1) / 9
+[0 3 33 333 3333 33333 333333 3333333]
+
+>>> [11 -10].linearRecurrence([0 3], 8)
+[0 3 33 333 3333 33333 333333 3333333]
 ```
 
 _(4^n-1)/3_,

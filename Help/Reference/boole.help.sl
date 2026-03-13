@@ -63,6 +63,26 @@ OEIS [A127093](https://oeis.org/A127093):
 
 ![](sw/spl/Help/Image/boole-B.svg)
 
+Number of partitions of _n_ into three squares,
+allowing part zero,
+OEIS [A000164](https://oeis.org/A000164):
+
+~~~spl svg=C
+1:115.collect { :n |
+	let m = n.integerSquareRoot;
+	0:m.sum { :i |
+		0:i.sum { :j |
+			0:j.sum { :k |
+				let p = [i j k] ^ 2;
+				(p.sum = n).boole
+			}
+		}
+	}
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/boole-C.svg)
+
 * * *
 
 See also: asBit, asBoolean, asInteger

@@ -90,11 +90,11 @@ true
 true
 ```
 
-The parsers for `Documenatation Tests` are `asDocumentationTest` and `extractDocumentationTests`.
+The parsers for `Documenatation Tests` are `parseDocumentationTest` and `extractDocumentationTests`.
 
 * * *
 
-See also: asDocumentationTest, extractDocumentationTests
+See also: parseDocumentationTest, extractDocumentationTests
 
 Guides: Documentation Tests
 

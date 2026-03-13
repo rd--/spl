@@ -98,7 +98,7 @@ let p = 0:4.collect(chebyshevU:/1);
 Plot triangle of coefficients of Chebyshev’s _S_-polynomials,
 OEIS [A049310](https://oeis.org/A049310):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A049310 signed
 0:19.collect { :n |
 	let p = n.chebyshevU;
 	let c = p.coefficientList;

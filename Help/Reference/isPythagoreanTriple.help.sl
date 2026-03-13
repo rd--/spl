@@ -36,6 +36,17 @@ let i = (-64 .. 64);
 
 ![](sw/spl/Help/Image/isPythagoreanTriple-A.png)
 
+_n_ such that _n-1,n_ is a Pythagorean triple,
+OEIS [A046090](https://oeis.org/A046090):
+
+```
+>>> [7 -7 1].linearRecurrence([1L 4 21], 25)
+>>> .allSatisfy { :n |
+>>> 	isPythagoreanTriple(n - 1, n)
+>>> }
+true
+```
+
 Plot _a_ and _c_ of the first few Pythagorean triples:
 
 ~~~spl png=B

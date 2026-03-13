@@ -37,7 +37,7 @@ Strings for _n=3_:
 Strings for _n=4_:
 
 ```
->>> bellStrings(4)
+>>> bellStrings(4).++
 [
 	0 0 0 0;
 	1 0 0 0;

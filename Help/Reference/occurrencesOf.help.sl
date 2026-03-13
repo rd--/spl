@@ -96,6 +96,21 @@ t.catenate.scatterPlot
 
 ![](sw/spl/Help/Image/occurrencesOf-B.svg)
 
+Numbers that have only one largest digit _m_ and where the sum of the digits is equal to _2m_,
+OEIS [A393832](https://oeis.org/A393832):
+
+~~~spl svg=C oeis=A393832
+0:1200.select { :n |
+	let d = n.integerDigits;
+	let m = d.max;
+	d.occurrencesOf(m) = 1 & {
+		d.sum = (2 * m)
+	}
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/occurrencesOf-C.svg)
+
 * * *
 
 See also: count, includes, indicesOf
