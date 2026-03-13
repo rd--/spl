@@ -22,10 +22,10 @@ one more than the sum of the number of cells to the right and below the cell.
 [[5 4 3 2 1]]
 ```
 
-Plot partition array for the products of the hook lengths corresponding to the partitions of _n_,
+Partition array for the products of the hook lengths corresponding to the partitions of _n_,
 OEIS [A263003](https://oeis.org/A263003):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A263003
 1:11.collect { :n |
 	n.integerPartitions.collect { :p |
 		p.hookLengths.catenate.product

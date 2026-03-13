@@ -187,7 +187,7 @@ Rowland’s sequence with _m=7_,
 step plot,
 OEIS [A106108](https://oeis.org/A106108):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A106108
 7.rowlandsSequence(200)
 .stepPlot
 ~~~
@@ -222,10 +222,11 @@ OeisEntry('A221869').then { :e |
 
 ![](sw/spl/Help/Image/rowlandsSequence-C.svg)
 
-Step plot of least primes,
+Least prime in each Rowland’s sequence,
+step plot,
 OEIS [A230504](https://oeis.org/A230504):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A230504
 1:75.collect { :m |
 	m.rowlandsSequence(13)
 	.detect(isPrime:/1)
@@ -234,10 +235,11 @@ OEIS [A230504](https://oeis.org/A230504):
 
 ![](sw/spl/Help/Image/rowlandsSequence-D.svg)
 
-Scatter plot of least primes,
+Least prime in each Rowland’s sequence,
+scatter plot,
 OEIS [A230504](https://oeis.org/A230504):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A230504
 1:100.collect { :m |
 	m.rowlandsSequence(13)
 	.detect(isPrime:/1)
@@ -248,7 +250,8 @@ OEIS [A230504](https://oeis.org/A230504):
 
 Plot _a(n)/n_,
 where _a_ is Rowland’s sequence,
-values are in _(2,3)_:
+OEIS [A106108](https://oeis.org/A106108),
+values are real numbers in _(2,3)_:
 
 ~~~spl svg=F
 let n = 200;
@@ -260,10 +263,10 @@ allButFirst(2)
 
 ![](sw/spl/Help/Image/rowlandsSequence-F.svg)
 
-Plot delayed divison of the Cloitre sequence,
+Delayed divison of the Cloitre sequence,
 OEIS [A135506](https://oeis.org/A135506):
 
-~~~spl svg=G
+~~~spl svg=G oeis=A135506
 1L.rowlandsSequence(150, lcm:/2)
 .adjacentPairsCollect(/.swap)
 .scatterPlot

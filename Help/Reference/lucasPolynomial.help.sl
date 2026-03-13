@@ -4,7 +4,7 @@
 
 Answer the _n_-th Lucas polynomial.
 
-Coefficients of first few polynomials,
+Triangle of coefficients of the Lucas polynomials,
 OEIS [A114525](https://oeis.org/A114525):
 
 ```
@@ -27,9 +27,10 @@ OEIS [A114525](https://oeis.org/A114525):
 ]
 ```
 
-Plot coefficients table:
+Triangle of coefficients of the Lucas polynomials,
+OEIS [A114525](https://oeis.org/A114525):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A114525
 0:17.collect { :n |
 	n.lucasPolynomial
 	.coefficientList

@@ -77,10 +77,10 @@ Relation to `convolve`:
 [1 4 10 20 35 56 84 120 165]
 ```
 
-First few tetrahedral numbers,
+Tetrahedral numbers,
 OEIS [A000292](https://oeis.org/A000292):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A000292
 0:65.tetrahedralNumber.discretePlot
 ~~~
 
@@ -89,7 +89,7 @@ OEIS [A000292](https://oeis.org/A000292):
 Characteristic function of tetrahedral numbers,
 OEIS [A023533](https://oeis.org/A023533):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A023533 set=0,1
 0:22.tetrahedralNumber
 .characteristicFunction
 .discretePlot

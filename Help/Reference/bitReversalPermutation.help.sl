@@ -56,9 +56,10 @@ The Van der Corput sequence is given by dividing the zero-indexed bit-reversal p
 [0/1 1/2 1/4 3/4 1/8 5/8 3/8 7/8]
 ```
 
-Plot first few terms
+Bit-reversal permutations,
+OEIS [A049773](https://oeis.org/A049773):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A049773
 0:7.collect(bitReversalPermutation:/1)
 .catenate
 .scatterPlot

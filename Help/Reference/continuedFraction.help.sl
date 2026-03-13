@@ -303,7 +303,7 @@ Scatter plot of the
 least number _k<n_ and coprime to _n_ such that the largest term of the continued fraction of _k/n_ is as small as possible,
 OEIS [A141821](https://oeis.org/A141821):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A141821
 2:108.collect { :n |
 	let k = (1 .. n - 1).select { :x |
 		x.isCoprime(n)
@@ -335,13 +335,10 @@ OEIS [A141822](https://oeis.org/A141822):
 
 ![](sw/spl/Help/Image/continuedFraction-B.svg)
 
-Rationals _≥1_ whose continued fractions consist only of ones and twos,
-OEIS [A072728](https://oeis.org/A072728) and
-OEIS [A072729](https://oeis.org/A072729).
+Numerators of rationals _≥1_ whose continued fractions consist only of ones and twos,
+OEIS [A072728](https://oeis.org/A072728):
 
-Plot numerators:
-
-~~~spl svg=C
+~~~spl svg=C oeis=A072728
 [
 	1   2  3  5  5  8  7  8 12 13
 	11 12 13 19 19 21 17 18 19 19
@@ -354,9 +351,10 @@ Plot numerators:
 
 ![](sw/spl/Help/Image/continuedFraction-C.svg)
 
-Plot denominators:
+Denominators of rationals _≥1_ whose continued fractions consist only of ones and twos,
+OEIS [A072729](https://oeis.org/A072729):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A072729
 [
 	1   1  2  2  3  3  5  5  5  5
 	8   7  8  8  7  8 12 13 11 12
@@ -369,7 +367,7 @@ Plot denominators:
 
 ![](sw/spl/Help/Image/continuedFraction-D.svg)
 
-Plot fractions:
+Rationals _≥1_ whose continued fractions consist only of ones and twos:
 
 ~~~spl svg=E
 Fraction(
@@ -394,7 +392,8 @@ Fraction(
 
 ![](sw/spl/Help/Image/continuedFraction-E.svg)
 
-Plot continued fractions:
+Continued fractions of rationals _≥1_ whose continued fractions consist only of ones and twos,
+shifted to alphabet of _-1,1_:
 
 ~~~spl svg=F
 let n = [

@@ -48,7 +48,7 @@ Count the number of rows whose first element is 1:
 Plot the number of anti-divisors of _n_,
 OEIS [A066272](https://oeis.org/A066272):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A066272
 1:150.collect { :n |
 	let m = n - 1;
 	2:m.count { :x |

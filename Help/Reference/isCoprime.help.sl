@@ -123,10 +123,10 @@ Visualize when two numbers are coprime:
 
 ![](sw/spl/Help/Image/isCoprime-A.png)
 
-Plot numerators in canonical bijection from positive integers to positive rationals,
+Numerators in canonical bijection from positive integers to positive rationals,
 OEIS [A020652](https://oeis.org/A020652):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A020652
 let y = [];
 1.toDo(23) { :d |
 	1.toDo(d - 1) { :n |
@@ -140,10 +140,10 @@ y.scatterPlot
 
 ![](sw/spl/Help/Image/isCoprime-B.svg)
 
-Plot least number coprime to _n+0:3_,
+Least number coprime to _n+0:3_,
 OEIS [A053672](https://oeis.org/A053672):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A053672
 1:65.collect { :n |
 	5:Infinity.detect { :i |
 		(n + 0:3).allSatisfy { :j |
@@ -158,7 +158,7 @@ OEIS [A053672](https://oeis.org/A053672):
 Lexicographically earliest sequence of distinct terms such that every pair of consecutive terms contains a term that is a unitary divisor of the other term,
 OEIS [A282291](https://oeis.org/A282291):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A282291
 [1].leastExcludedSequence(59) { :a :n :m |
 	let [p, q] = [a[n - 1], m].sort;
 	q.divisible(p) & {

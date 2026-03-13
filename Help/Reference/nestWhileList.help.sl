@@ -88,7 +88,7 @@ Evaluate the Collatz, or hailstone, sequence:
 Count the number steps to reach a particular stop condition when iterating a map,
 OEIS [A063574](https://oeis.org/A063574):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A063574
 1:105.collect { :n |
 	{ :x |
 		x.isEven.if {
@@ -107,7 +107,7 @@ OEIS [A063574](https://oeis.org/A063574):
 Multiplicative persistence,
 OEIS [A031346](https://oeis.org/A031346):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A031346
 1:85.collect { :n |
 	{ :x |
 		x.integerDigits.product
@@ -122,7 +122,7 @@ OEIS [A031346](https://oeis.org/A031346):
 Two-multiplicative persistence,
 OEIS [A031348](https://oeis.org/A031348):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A031348
 1:65.collect { :n |
 	{ :x |
 		(x.integerDigits ^ 2).product

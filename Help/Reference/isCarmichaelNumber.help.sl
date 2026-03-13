@@ -29,6 +29,15 @@ true
 [3 5 47 89]
 ```
 
+Carmichael numbers,
+OEIS [A002997](https://oeis.org/A002997):
+
+```
+>>> [561 1105 1729 2465 2821 6601 8911]
+>>> .allSatisfy(isCarmichaelNumber:/1)
+true
+```
+
 * * *
 
 See also: carmichaelLambda

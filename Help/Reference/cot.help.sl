@@ -84,8 +84,9 @@ Plot at integer points:
 _|⌊(cot(n))_,
 OEIS [A037448](https://oeis.org/A037448):
 
-~~~spl svg=C
-0:200.cot.floor.abs.log.scatterPlot
+~~~spl svg=C oeis=A037448
+1:200.cot.floor.abs
+.log.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/cot-C.svg)
@@ -93,8 +94,9 @@ OEIS [A037448](https://oeis.org/A037448):
 _⌊(cot(n))_,
 OEIS [A037448](https://oeis.org/A037448):
 
-~~~spl svg=D
-0:200.cot.floor.logScale.scatterPlot
+~~~spl svg=D oeis=A037448 signed
+1:200.cot.floor
+.logScale.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/cot-D.svg)

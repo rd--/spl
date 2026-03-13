@@ -51,8 +51,9 @@ true
 The van der Laan sequence,
 OEIS [A182097](https://oeis.org/A182097):
 
-~~~spl svg=A
-35.vanDerLaanSequence.discretePlot
+~~~spl svg=A oeis=A182097
+35.vanDerLaanSequence
+.discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/vanDerLaanSequence-A.svg)

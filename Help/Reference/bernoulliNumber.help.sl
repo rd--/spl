@@ -93,7 +93,9 @@ OEIS [A002445](https://oeis.org/A002445):
 [1 6 30 42 30 66 2730 6 510 798 330 138]
 ```
 
-Plot absolute value of numerators on `log` scale,
+Absolute value of numerators of Bernoulli numbers,
+`log` scale plot,
+the unsigned variant of
 OEIS [A027641](https://oeis.org/A027641):
 
 ~~~spl svg=A
@@ -106,10 +108,11 @@ OEIS [A027641](https://oeis.org/A027641):
 
 ![](sw/spl/Help/Image/bernoulliNumber-A.svg)
 
-Plot numerators on `log` scale,
+Numerators of Bernoulli numbers,
+`log` scale plot,
 OEIS [A027641](https://oeis.org/A027641):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A027641 signed
 0:50.bernoulliNumber
 .numerator
 .logScale
@@ -118,10 +121,11 @@ OEIS [A027641](https://oeis.org/A027641):
 
 ![](sw/spl/Help/Image/bernoulliNumber-B.svg)
 
-Plot denominators on `log` scale,
+Denominators of Bernoulli numbers,
+`log` scale plot,
 OEIS [A027642](https://oeis.org/A027642):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A027642
 0:50.bernoulliNumber
 .denominator
 .logScale

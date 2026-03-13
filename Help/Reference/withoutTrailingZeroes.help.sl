@@ -39,7 +39,7 @@ OEIS [A008904](https://oeis.org/A008904):
 The final nonzero digit of _n!_,
 OEIS [A008904](https://oeis.org/A008904):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A008904 set=1,2,4,6,8
 let n = 0:65.!.withoutTrailingZeroes;
 (n % 10).stepPlot
 ~~~

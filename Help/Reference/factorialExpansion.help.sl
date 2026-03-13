@@ -25,7 +25,7 @@ OEIS [A034968](https://oeis.org/A034968):
 Minimal number of factorials that add to _n_,
 OEIS [A034968](https://oeis.org/A034968):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A034968
 0:143.collect { :n |
 	n.factorialExpansion.sum
 }.scatterPlot
@@ -36,7 +36,7 @@ OEIS [A034968](https://oeis.org/A034968):
 Ordinal transform of minimal number of factorials that add to _n_,
 OEIS [A286478](https://oeis.org/A286478):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A286478
 0:250.collect { :n |
 	n.factorialExpansion.sum
 }.ordinalTransform

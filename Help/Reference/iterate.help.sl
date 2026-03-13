@@ -191,7 +191,8 @@ A complete binary tree:
 ]
 ```
 
-Plot the first few terms of Reverend Back’s abbey floor,
+Matrix plot of Reverend Back’s abbey floor,
+the table indices _i_ are given by
 OEIS [A118006](https://oeis.org/A118006):
 
 ~~~spl svg=A
@@ -205,13 +206,14 @@ let i = { :x |
 
 ![](sw/spl/Help/Image/iterate-A.svg)
 
-Plot the first few terms of
+Repeat string twice and remove last symbol,
+initially _0,1_,
 OEIS [A164349](https://oeis.org/A164349):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A164349 set=0,1
 { :x |
 	(x ++ x).allButLast
-}.iterate([0 1], 6).scatterPlot
+}.iterate([0 1], 7).discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/iterate-B.svg)
@@ -219,7 +221,7 @@ OEIS [A164349](https://oeis.org/A164349):
 Unique sequence representing an array read by antidiagonals in which the _i_-th row is this sequence itself multiplied by _i_,
 OEIS [A283681](https://oeis.org/A283681):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A283681
 { :x |
 	let k = x.size + 1;
 	1:k.collect { :n |
@@ -236,7 +238,7 @@ OEIS [A283681](https://oeis.org/A283681):
 Trajectory of 1 under the morphism _1→12,2→123_ &etc,
 OEIS [A007001](https://oeis.org/A007001):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A007001
 { :c |
 	c.collect { :n |
 		[1 .. n + 1]
@@ -246,10 +248,10 @@ OEIS [A007001](https://oeis.org/A007001):
 
 ![](sw/spl/Help/Image/iterate-D.svg)
 
-Plot fixed point of morphism _0→0,1→110_,
+Fixed point of morphism _0→0,1→110_,
 OEIS [A079559](https://oeis.org/A079559):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A079559 set=0,1
 let m = [0: [0], 1: [1 1 0]];
 { :x |
 	x.collect { :i |
@@ -259,6 +261,18 @@ let m = [0: [0], 1: [1 1 0]];
 ~~~
 
 ![](sw/spl/Help/Image/iterate-E.svg)
+
+Iterate _w⧺w⧺ᴙ(w)_,
+initially _0,1_,
+OEIS [A118006](https://oeis.org/A118006):
+
+~~~spl svg=F oeis=A118006 set=0,1
+{ :w |
+	w ++ w ++ w.reverse
+}.iterate([0 1], 3).discretePlot
+~~~
+
+![](sw/spl/Help/Image/iterate-F.svg)
 
 _Rationale:_
 This notation can be more compact than a written out loop,

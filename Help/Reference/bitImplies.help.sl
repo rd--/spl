@@ -62,7 +62,7 @@ Bitwise logical implies triangular array,
 _k→n_,
 OEIS [A265705](https://oeis.org/A265705):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A265705
 0:19.triangularArray(bitImplies:/2.swap)
 .catenate.scatterPlot
 ~~~
@@ -70,9 +70,9 @@ OEIS [A265705](https://oeis.org/A265705):
 ![](sw/spl/Help/Image/bitImplies-A.svg)
 
 Bitwise logical implication _n→2n_,
-OEIS [A265705](https://oeis.org/A265705):
+OEIS [A265716](https://oeis.org/A265716):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A265716
 0:85.collect { :n |
 	n.bitImplies(2 * n)
 }.discretePlot
@@ -82,9 +82,9 @@ OEIS [A265705](https://oeis.org/A265705):
 
 Bitwise logical implication _n→2n_,
 scatter plot,
-OEIS [A265705](https://oeis.org/A265705):
+OEIS [A265716](https://oeis.org/A265716):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A265716
 0:127.collect { :n |
 	n.bitImplies(2 * n)
 }.scatterPlot
@@ -95,7 +95,7 @@ OEIS [A265705](https://oeis.org/A265705):
 Bitwise logical implication _n→P(n)_,
 OEIS [A265885](https://oeis.org/A265885):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A265885
 1:85.collect { :n |
 	n.bitImplies(n.prime)
 }.discretePlot
@@ -107,7 +107,7 @@ Bitwise logical implication _n→P(n)_,
 scatter plot,
 OEIS [A265885](https://oeis.org/A265885):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A265885
 1:127.collect { :n |
 	n.bitImplies(n.prime)
 }.scatterPlot

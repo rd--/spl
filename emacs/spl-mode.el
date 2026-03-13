@@ -66,6 +66,17 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
   (let ((rgx (concat "^" (thing-at-point 'symbol) "\\.help\\.sl$")))
     (spl-find-files (concat spl-directory "Help/") rgx)))
 
+
+(defvar spl-help-url-prefix "http://localhost/rd/index.cgi"
+  "The Spl help browser Url prefix.")
+
+(defun spl-browse-help ()
+  "Lookup up the name at point in the Spl help files."
+  (interactive)
+  (let ((topic (thing-at-point 'symbol)))
+    (browse-url
+     (format "%s?t=spl&e=Help/Reference/%s.help.sl" spl-help-url-prefix topic))))
+
 (defun spl-write-text-file (filename text)
   "Write TEXT to FILENAME"
   (write-region text nil filename))
@@ -507,6 +518,7 @@ If the string begins with a doctest, also delete all non doctest lines."
   "Install Spl keybindings into MAP."
   (define-key map (kbd "C-c >") 'spl-see-spl)
   (define-key map (kbd "C-c C-h") 'spl-help)
+  (define-key map (kbd "C-c C-H") 'spl-browse-help)
   (define-key map (kbd "C-c C-a") 'spl-play-paragraph)
   (define-key map (kbd "C-c C-g") 'spl-draw-paragraph)
   (define-key map (kbd "C-c C-p") 'spl-print-promise)

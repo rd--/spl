@@ -424,10 +424,10 @@ OEIS [A049820](https://oeis.org/A049820):
 ]
 ```
 
-Plot divisor function _σ₀(n)_ up to _n=100_,
+Divisor function _σ₀(n)_ up to _n=100_,
 OEIS [A000005](https://oeis.org/A000005):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A000005
 1:100.functionPlot { :x |
 	0.divisorSigma(x)
 }
@@ -435,10 +435,10 @@ OEIS [A000005](https://oeis.org/A000005):
 
 ![](sw/spl/Help/Image/divisorSigma-A.svg)
 
-Plot divisor function _σ₁(n)_ up to _n=100_,
+Divisor function _σ₁(n)_ up to _n=100_,
 OEIS [A000203](https://oeis.org/A000203):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A000203
 1:100.functionPlot { :x |
 	1.divisorSigma(x)
 }
@@ -456,9 +456,11 @@ Plot the log of the divisor function _σ₂(n)_ up to _n=100_:
 
 ![](sw/spl/Help/Image/divisorSigma-C.svg)
 
-Scatter plot of _σ₀(n)_, also called _τ(n)_:
+_σ₀(n)_,
+also called _τ(n)_,
+OEIS [A000005](https://oeis.org/A000005):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A000005
 let n = 200;
 0.divisorSigma(1:n).scatterPlot
 ~~~
@@ -482,10 +484,10 @@ OEIS [A038548](http://oeis.org/A038548):
 ]
 ```
 
-Plot of
+Number of divisors of _n_ that are at most _√n_,
 OEIS [A038548](http://oeis.org/A038548):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A038548
 1:85.collect { :n |
 	(0.divisorSigma(n) + 1) / 2
 }.floor.scatterPlot
@@ -493,10 +495,10 @@ OEIS [A038548](http://oeis.org/A038548):
 
 ![](sw/spl/Help/Image/divisorSigma-E.svg)
 
-Plot smallest _k_ such that _σ(k)=n_, or zero if there is no such _k_,
+Smallest _k_ such that _σ(k)=n_, or zero if there is no such _k_,
 OEIS [A051444](https://oeis.org/A051444):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A051444
 let m = 10 ^ 2;
 1:89.collect { :n |
 	let k = 1;
@@ -513,10 +515,10 @@ let m = 10 ^ 2;
 
 ![](sw/spl/Help/Image/divisorSigma-F.svg)
 
-First differences between numbers k for which _σ(k)>σ(k+1)_,
+First differences between numbers _k_ for which _σ(k)>σ(k+1)_,
 OEIS [A053238](https://oeis.org/A053238):
 
-~~~spl svg=G
+~~~spl svg=G oeis=A053238 set=1-4
 1:350.select { :n |
 	1.divisorSigma(n)
 	>
@@ -526,10 +528,10 @@ OEIS [A053238](https://oeis.org/A053238):
 
 ![](sw/spl/Help/Image/divisorSigma-G.svg)
 
-Plot number of integers less than _n_ but with the same number of divisors,
+Number of integers less than _n_ but with the same number of divisors,
 OEIS [A047983](https://oeis.org/A047983):
 
-~~~spl svg=H
+~~~spl svg=H oeis=A047983
 1:150.collect { :n |
 	let tau = 0.divisorSigma(n);
 	let m = n - 1;
@@ -544,7 +546,7 @@ OEIS [A047983](https://oeis.org/A047983):
 Plot _a(n+1)=a(n)+σ(a(n))_,
 OEIS [A064491](https://oeis.org/A064491):
 
-~~~spl svg=I
+~~~spl svg=I oeis=A064491
 { :x |
 	x + 0.divisorSigma(x)
 }.nestList(1, 47).scatterPlot
@@ -555,7 +557,7 @@ OEIS [A064491](https://oeis.org/A064491):
 Step plot of _σ3(n)_,
 OEIS [A001158](https://oeis.org/A001158):
 
-~~~spl svg=J
+~~~spl svg=J oeis=A001158
 1:100.collect { :n |
 	3.divisorSigma(n)
 }.stepPlot
@@ -563,10 +565,10 @@ OEIS [A001158](https://oeis.org/A001158):
 
 ![](sw/spl/Help/Image/divisorSigma-J.svg)
 
-Plot product of the proper divisors of _n_,
+Product of the proper divisors of _n_,
 OEIS [A007956](https://oeis.org/A007956):
 
-~~~spl svg=K
+~~~spl svg=K oeis=A007956
 1:200.collect { :n |
 	n ^ (0.divisorSigma(n) / 2 - 1)
 }.log.scatterPlot
@@ -577,7 +579,7 @@ OEIS [A007956](https://oeis.org/A007956):
 Plot where _σ(m)_ rises by at least _n_,
 OEIS [A058197](https://oeis.org/A058197):
 
-~~~spl svg=L
+~~~spl svg=L oeis=A058197
 let sigma = 0.divisorSigma(1:5100);
 let d = sigma.differences;
 1:30.collect { :n |
@@ -592,7 +594,7 @@ let d = sigma.differences;
 Plot shadow transform of _σ(n)_,
 OEIS [A072463](https://oeis.org/A072463):
 
-~~~spl svg=M
+~~~spl svg=M oeis=A072463
 let s = Map { :n |
 	1.divisorSigma(n)
 };
@@ -609,7 +611,7 @@ let s = Map { :n |
 Inverse Moebius transform applied twice to natural numbers,
 OEIS [A007429](https://oeis.org/A007429):
 
-~~~spl svg=N
+~~~spl svg=N oeis=A007429
 1:65.collect { :n |
 	1.divisorSigma(n.divisors).sum
 }.discretePlot
@@ -620,7 +622,7 @@ OEIS [A007429](https://oeis.org/A007429):
 Sum of σ of `divisors` of _n_,
 OEIS [A007425](https://oeis.org/A007425):
 
-~~~spl svg=O
+~~~spl svg=O oeis=A007425
 1:100.collect { :n |
 	n.divisors.sum { :d |
 		0.divisorSigma(d)
@@ -633,7 +635,7 @@ OEIS [A007425](https://oeis.org/A007425):
 Plot deficiency of _n_,
 OEIS [A033879](https://oeis.org/A033879):
 
-~~~spl svg=P
+~~~spl svg=P oeis=A033879 signed
 1:115.collect { :n |
 	(2 * n) - 1.divisorSigma(n)
 }.discretePlot
@@ -644,7 +646,7 @@ OEIS [A033879](https://oeis.org/A033879):
 Number of divisors of _2n-1_,
 OEIS [A099774](https://oeis.org/A099774):
 
-~~~spl svg=Q
+~~~spl svg=Q oeis=A099774
 1:65.collect { :n |
 	0.divisorSigma(2 * n - 1)
 }.discretePlot
@@ -655,7 +657,7 @@ OEIS [A099774](https://oeis.org/A099774):
 _⌊(σ(n^2)/σ(n))_,
 OEIS [A079553](https://oeis.org/A079553):
 
-~~~spl svg=R
+~~~spl svg=R oeis=A079553
 1:65.collect { :n |
 	(
 		0.divisorSigma(n ^ 2)
@@ -670,7 +672,7 @@ OEIS [A079553](https://oeis.org/A079553):
 A sequence by David James Sycamore,
 OEIS [A360179](https://oeis.org/A360179):
 
-~~~spl svg=S
+~~~spl svg=S oeis=A360179
 let m = 250;
 let a = List(m, 1);
 let c = Map();
@@ -705,7 +707,7 @@ a.scatterPlot
 A sequence by David James Sycamore,
 OEIS [A345147](https://oeis.org/A345147):
 
-~~~spl svg=T
+~~~spl svg=T oeis=A345147
 let a = [1];
 let s = [];
 let m = 250;
@@ -735,7 +737,7 @@ a.scatterPlot
 A variant of a sequence by David James Sycamore,
 OEIS [A361511](https://oeis.org/A361511):
 
-~~~spl svg=U
+~~~spl svg=U oeis=A361511
 let k = 250;
 let a = List(k, 1);
 let c = Map();
@@ -758,7 +760,7 @@ a.scatterPlot
 Abundance of _n_,
 OEIS [A033880](https://oeis.org/A033880):
 
-~~~spl svg=V
+~~~spl svg=V oeis=A033880 signed
 let n = 1:70;
 (1.divisorSigma(n) - (2 * n)).discretePlot
 ~~~
@@ -768,7 +770,7 @@ let n = 1:70;
 Coefficients in expansion of Eisenstein series _E2_,
 OEIS [A006352](https://oeis.org/A006352):
 
-~~~spl svg=W
+~~~spl svg=W oeis=A006352
 (
 	-24 * 1:65.collect { :n |
 		1.divisorSigma(n)
@@ -781,7 +783,7 @@ OEIS [A006352](https://oeis.org/A006352):
 List in which _n_ appears _τ(n)_ times,
 OEIS [A061017](https://oeis.org/A061017):
 
-~~~spl svg=X
+~~~spl svg=X oeis=A061017
 1:17.collect { :n |
 	List(0.divisorSigma(n), n)
 }.catenate.stepPlot
@@ -792,7 +794,7 @@ OEIS [A061017](https://oeis.org/A061017):
 First differences of _σ₁(n)_,
 OEIS [A053222](https://oeis.org/A053222):
 
-~~~spl svg=Y
+~~~spl svg=Y oeis=A053222 signed
 1.divisorSigma(1:85)
 .differences
 .discretePlot

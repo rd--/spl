@@ -79,10 +79,10 @@ The 20th and 40th Genocchi numbers:
 42433626725491925313195071185L
 ```
 
-Plot first few Genocchi numbers,
+Genocchi numbers,
 OEIS [A036968](https://oeis.org/A036968):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A036968
 0:27.genocchiNumber
 .logScale
 .scatterPlot

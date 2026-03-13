@@ -37,7 +37,7 @@ C.f. `perrinFunction`:
 The Perrin sequence,
 OEIS [A001608](https://oeis.org/A001608):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A001608
 35.perrinSequence.discretePlot
 ~~~
 

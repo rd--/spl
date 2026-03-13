@@ -4,7 +4,7 @@
 
 Answer `true` if the integer _n_ is cube free.
 
-The first few terms,
+The first few cube free numbers,
 OEIS [A004709](https://oeis.org/A004709):
 
 ```
@@ -29,18 +29,22 @@ OEIS [A046099](https://oeis.org/A046099):
 [8 16 24 27 32 40 48 54 56 64 72 80 81]
 ```
 
-Plot the first few cubefree numbers:
+Cube free numbers,
+OEIS [A004709](https://oeis.org/A004709):
 
-~~~spl svg=A
-1:99.select(isCubeFree:/1).stepPlot
+~~~spl svg=A oeis=A004790
+1:100.select(isCubeFree:/1)
+.discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/isCubeFree-A.svg)
 
-Plot the first few cubeful numbers:
+Cubeful numbers,
+OEIS [A046099](https://oeis.org/A046099):
 
 ~~~spl svg=B
-1:99.reject(isCubeFree:/1).stepPlot
+1:500.reject(isCubeFree:/1)
+.discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/isCubeFree-B.svg)
@@ -48,9 +52,9 @@ Plot the first few cubeful numbers:
 Plot characteristic function of cube-free numbers,
 OEIS [A212793](https://oeis.org/A212793):
 
-~~~spl svg=C
-1:85.collect(isCubeFree:/1)
-.boole.discretePlot
+~~~spl svg=C oeis=A212793 set=0,1
+1:85.collect(isCubeFree:/1).boole
+.discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/isCubeFree-C.svg)

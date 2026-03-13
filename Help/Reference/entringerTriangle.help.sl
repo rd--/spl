@@ -29,9 +29,11 @@ The Entringer numbers are the zero indexed entries in the Entringer triangle:
 1202
 ```
 
-Log scale scatter plot of first few terms:
+The Entringer triangle,
+log scale scatter plot,
+OEIS [A008281](https://oeis.org/A008281):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A008281
 13.entringerTriangle
 .catenate
 .logScale
