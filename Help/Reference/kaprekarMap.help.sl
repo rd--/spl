@@ -4,7 +4,7 @@
 
 Answer the Kaprekar map of _n_ in base _b_.
 
-First few terms,
+Kaprekar map,
 _b=10_,
 OEIS [A151949](https://oeis.org/A151949):
 
@@ -20,7 +20,7 @@ OEIS [A151949](https://oeis.org/A151949):
 ]
 ```
 
-First few terms,
+Kaprekar map,
 _b=2_,
 OEIS [A164884](https://oeis.org/A164884):
 
@@ -35,34 +35,34 @@ OEIS [A164884](https://oeis.org/A164884):
 ]
 ```
 
-First few terms,
+Kaprekar map,
 _b=10_,
 discrete plot,
 OEIS [A151949](https://oeis.org/A151949):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A151949
 0:99.collect(kaprekarMap:/1).discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/kaprekarMap-A.svg)
 
-First few terms,
+Kaprekar map,
 _b=10_,
 scatter plot,
 OEIS [A151949](https://oeis.org/A151949):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A151949
 0:250.collect(kaprekarMap:/1).scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/kaprekarMap-B.svg)
 
-First few terms,
+Kaprekar map,
 _b=2_,
 scatter plot,
 OEIS [A164884](https://oeis.org/A164884):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A164884
 0:250.collect { :n |
 	n.kaprekarMap(2)
 }.scatterPlot
@@ -70,12 +70,12 @@ OEIS [A164884](https://oeis.org/A164884):
 
 ![](sw/spl/Help/Image/kaprekarMap-C.svg)
 
-First few terms,
+Kaprekar map,
 _b=3_,
 scatter plot,
 OEIS [A164993](https://oeis.org/A164993):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A164993
 0:250.collect { :n |
 	n.kaprekarMap(3)
 }.scatterPlot
@@ -83,12 +83,12 @@ OEIS [A164993](https://oeis.org/A164993):
 
 ![](sw/spl/Help/Image/kaprekarMap-D.svg)
 
-First few terms,
+Kaprekar map,
 _b=4_,
 scatter plot,
 OEIS [A165012](https://oeis.org/A165012):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A165012
 0:250.collect { :n |
 	n.kaprekarMap(4)
 }.scatterPlot
@@ -96,12 +96,12 @@ OEIS [A165012](https://oeis.org/A165012):
 
 ![](sw/spl/Help/Image/kaprekarMap-E.svg)
 
-First few terms,
+Kaprekar map,
 _b=5_,
 scatter plot,
 OEIS [A165032](https://oeis.org/A165032):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A165032
 0:250.collect { :n |
 	n.kaprekarMap(5)
 }.scatterPlot
@@ -109,12 +109,12 @@ OEIS [A165032](https://oeis.org/A165032):
 
 ![](sw/spl/Help/Image/kaprekarMap-F.svg)
 
-First few terms,
+Kaprekar map,
 _b=6_,
 scatter plot,
 OEIS [A165051](https://oeis.org/A165051):
 
-~~~spl svg=G
+~~~spl svg=G oeis=A165051
 0:250.collect { :n |
 	n.kaprekarMap(6)
 }.scatterPlot
@@ -122,12 +122,12 @@ OEIS [A165051](https://oeis.org/A165051):
 
 ![](sw/spl/Help/Image/kaprekarMap-G.svg)
 
-First few terms,
+Kaprekar map,
 _b=7_,
 scatter plot,
 OEIS [A165071](https://oeis.org/A165071):
 
-~~~spl svg=H
+~~~spl svg=H oeis=A165071
 0:250.collect { :n |
 	n.kaprekarMap(7)
 }.scatterPlot
@@ -135,12 +135,12 @@ OEIS [A165071](https://oeis.org/A165071):
 
 ![](sw/spl/Help/Image/kaprekarMap-H.svg)
 
-First few terms,
+Kaprekar map,
 _b=8_,
 scatter plot,
 OEIS [A165090](https://oeis.org/A165090):
 
-~~~spl svg=I
+~~~spl svg=I oeis=A165090
 0:250.collect { :n |
 	n.kaprekarMap(8)
 }.scatterPlot
@@ -148,12 +148,12 @@ OEIS [A165090](https://oeis.org/A165090):
 
 ![](sw/spl/Help/Image/kaprekarMap-I.svg)
 
-First few terms,
+Kaprekar map,
 _b=9_,
 scatter plot,
 OEIS [A165110](https://oeis.org/A165110):
 
-~~~spl svg=J
+~~~spl svg=J oeis=A165110
 0:250.collect { :n |
 	n.kaprekarMap(9)
 }.scatterPlot
@@ -166,7 +166,7 @@ OEIS [A164885](https://oeis.org/A164885),
 one less than
 OEIS [A164886](https://oeis.org/A164886):
 
-~~~spl svg=K
+~~~spl svg=K oeis=A164885
 0:85.collect { :n |
 	{ :x |
 		x.kaprekarMap(2)
@@ -180,7 +180,7 @@ Some later terms of the _b=10_ map,
 divided by nine,
 OEIS [A151950](https://oeis.org/A151950):
 
-~~~spl svg=L
+~~~spl svg=L oeis=A151950
 (1600:1900.collect(kaprekarMap:/1) / 9)
 .scatterPlot
 ~~~

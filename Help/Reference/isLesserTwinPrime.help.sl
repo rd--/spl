@@ -108,7 +108,7 @@ OEIS [A095958](https://oeis.org/A095958):
 Lesser of twin primes,
 OEIS [A001359](https://oeis.org/A001359):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A001359
 3:1607
 .select(isLesserTwinPrime:/1)
 .linePlot
@@ -119,7 +119,7 @@ OEIS [A001359](https://oeis.org/A001359):
 List of twin primes,
 OEIS [A001097](https://oeis.org/A001097):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A001097
 let a = 3:1607.select(
 	isLesserTwinPrime:/1
 );

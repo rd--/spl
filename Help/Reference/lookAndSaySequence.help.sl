@@ -85,7 +85,8 @@ The sequence _k='LS'_ describes the first _n_ integers starting at zero:
 ]
 ```
 
-As integers,
+The sequence _k='LS'_ describes the first _n_ integers starting at zero,
+as integers,
 OEIS [A045918](https://oeis.org/A045918):
 
 ```

@@ -380,7 +380,7 @@ let f = { :n :k |
 The multiplication table read by antidiagonals,
 OEIS [A003991](https://oeis.org/A003991):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A003991
 1:13.triangularArray { :x :y |
 	(x + 1 - y) * y
 }.catenate.scatterPlot
@@ -391,7 +391,7 @@ OEIS [A003991](https://oeis.org/A003991):
 Plot the greatest common divisor matrix read by antidiagonals,
 OEIS [A003989](https://oeis.org/A003989):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A003989
 1:25.triangularArray { :x :y |
 	gcd(x - y + 1, y) - 1
 }.catenate.discretePlot
@@ -402,7 +402,7 @@ OEIS [A003989](https://oeis.org/A003989):
 Number of partitions of _n_ into _k_ distinct parts,
 OEIS [A060016](https://oeis.org/A060016):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A060016
 let t = { :n :k |
 	(k = 1).if {
 		1
@@ -423,7 +423,7 @@ let t = { :n :k |
 Array where differences in rows are _n…1_,
 OEIS [A141419](https://oeis.org/A141419):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A141419
 1:13.triangularArray { :n :m |
 	m * ((2 * n) - m + 1) / 2
 }.catenate.scatterPlot
@@ -434,7 +434,7 @@ OEIS [A141419](https://oeis.org/A141419):
 Square-pyramid-tree numbers,
 OEIS [A051678](https://oeis.org/A051678):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A051678
 1:9.triangularArray { :n :m |
 	let a = (n ^ 2) * (n ^ 2 - 1) / 12;
 	let b = m * (m + 1) * (2 * m + 1) / 6;
@@ -447,7 +447,7 @@ OEIS [A051678](https://oeis.org/A051678):
 Plot number of hill-free Dyck paths of length _2n_ having height of first peak equal to _k_,
 OEIS [A065602](https://oeis.org/A065602):
 
-~~~spl svg=G
+~~~spl svg=G oeis=A065602
 2:12.triangularArray { :n :k |
 	let m = (n - k) / 2;
 	0:m.sum { :j |
@@ -468,7 +468,7 @@ Plot _k_,
 count and count again from zero,
 OEIS [A002262](https://oeis.org/A002262):
 
-~~~spl svg=H
+~~~spl svg=H oeis=A002262
 0:9.triangularArray { :n :k |
 	k
 }.catenate.stepPlot
@@ -480,7 +480,7 @@ Plot _n-k_,
 count backwards and count again,
 OEIS [A025581](https://oeis.org/A025581):
 
-~~~spl svg=I
+~~~spl svg=I oeis=A025581
 0:9.triangularArray(-).catenate.stepPlot
 ~~~
 
@@ -489,7 +489,7 @@ OEIS [A025581](https://oeis.org/A025581):
 Count number of restricted knight’s walks,
 OEIS [A049581](https://oeis.org/A049581):
 
-~~~spl svg=J
+~~~spl svg=J oeis=A049581
 let t = { :n :k |
 	(n < 2 | { k < 2 }).if {
 		1

@@ -157,9 +157,9 @@ Nearest integer to _n×sin(n)_,
 discrete plot,
 OEIS [A272695](https://oeis.org/A272695):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A272695 signed
 let n = 0:65;
-(n * n.sin).floor.discretePlot
+(n * n.sin).round.discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/round-C.svg)
@@ -168,9 +168,9 @@ Nearest integer to _n×sin(n)_,
 scatter plot,
 OEIS [A272695](https://oeis.org/A272695):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A272695 signed
 let n = 0:250;
-(n * n.sin).floor.scatterPlot
+(n * n.sin).round.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/round-D.svg)
@@ -179,9 +179,9 @@ Nearest integer to _n×tan(n)_,
 discrete plot,
 OEIS [A274086](https://oeis.org/A274086):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A274086 signed
 let n = 0:115;
-(n * n.tan).floor.discretePlot
+(n * n.tan).round.discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/round-E.svg)
@@ -190,9 +190,9 @@ Nearest integer to _n×tan(n)_,
 log scale scatter plot,
 OEIS [A274086](https://oeis.org/A274086):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A274086 signed
 let n = 0:250;
-(n * n.tan).floor.logScale.scatterPlot
+(n * n.tan).round.logScale.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/round-F.svg)
@@ -200,7 +200,7 @@ let n = 0:250;
 Nearest integer to _4n/3_ unless that is an integer and then _2n/3_,
 OEIS [A006369](https://oeis.org/A006369):
 
-~~~spl svg=G
+~~~spl svg=G oeis=A006369
 0:65.collect { :n |
 	n.divisible(3).if {
 		2 * n / 3

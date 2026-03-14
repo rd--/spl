@@ -135,7 +135,7 @@ Plot for base 10 for factorials, minus pre-factorial value:
 Sloping binary numbers,
 OEIS [A102370](https://oeis.org/A102370):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A102370
 1:115.collect { :n |
 	let m = n.integerLength(2);
 	0:m.sum { :k |
@@ -150,7 +150,7 @@ A variant of the sloping binary numbers sequence,
 organised in blocks and a permutation of the integers,
 OEIS [A102370](https://oeis.org/A102370):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A102370
 1:115.collect { :n |
 	let m = n + 1 - n.integerLength(2);
 	[m .. n].withIndexCollect { :j :i |

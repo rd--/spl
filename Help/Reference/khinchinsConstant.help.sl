@@ -27,9 +27,11 @@ OEIS [A002210](https://oeis.org/A002210):
 (2.68545, 104)
 ```
 
-Scatter plot of the digits of Khinchin’s constant:
+Digits of Khinchin’s constant,
+scatter plot,
+OEIS [A002210](https://oeis.org/A002210):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A002210 constant
 'KhinchinsConstant'
 .namedConstant
 .integerDigits

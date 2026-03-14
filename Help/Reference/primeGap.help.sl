@@ -59,18 +59,22 @@ OEIS [A082885](https://oeis.org/A082885):
 [2 3 5 7 13 19 23 31 37 43 47 53 61 73 83]
 ```
 
-Plot first few terms,
+Prime gaps,
+differences between consecutive primes,
 OEIS [A001223](https://oeis.org/A001223):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A001223
 1:99.functionPlot(primeGap:/1)
 ~~~
 
 ![](sw/spl/Help/Image/primeGap-A.svg)
 
-Scatter plot of first few terms:
+Prime gaps,
+differences between consecutive primes,
+scatter plot,
+OEIS [A001223](https://oeis.org/A001223):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A001223
 1:200.collect(primeGap:/1)
 .scatterPlot
 ~~~

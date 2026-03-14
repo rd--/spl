@@ -131,6 +131,7 @@
 <<<powerMod,H
 <<<signatureSequence,A
 <<<square,D
+<<<squarePyramidalNumber,A
 <<<tetrahedralNumber,A
 <<<vanDerLaanSequence,A
 
@@ -148,6 +149,7 @@
 
 ## Staged Ascents
 
+<<<bitIff,B
 <<<digitCount,O
 <<<entringerTriangle,A
 <<<gouldsSequence,B
@@ -157,15 +159,7 @@
 <<<toothpickSequence,A
 <<<triangularArray,F
 
-## Irregular Ascent, Curved
-
-<<<divisorSigma,J
-<<<divisorSigma,L
-<<<isEven,E
-<<<isEven,F
-<<<isSmoothNumber,A
-
-## Irregular Ascent, Linear
+## Irregular Ascent
 
 <<<aliquotSequence,B
 <<<aliquotSum,B
@@ -175,6 +169,7 @@
 <<<fibonacci,O
 <<<isLesserTwinPrime,A
 <<<isLesserTwinPrime,B
+<<<isOdd,C
 <<<isPrime,A
 <<<isPrime,I
 <<<isSquareFree,A
@@ -188,6 +183,15 @@
 <<<vanEckSequence,F
 <<<vanEckSequence,G
 <<<wythoffLower,A
+<<<zeckendorfRepresentation,E
+
+## Irregular Ascent, Curved
+
+<<<divisorSigma,J
+<<<divisorSigma,L
+<<<isEven,E
+<<<isEven,F
+<<<isSmoothNumber,A
 
 ## Restarting Ascents, Patterned
 
@@ -195,14 +199,30 @@
 <<<fromDigits,G
 <<<hookLengthFormula,B
 <<<indicesOf,A
+<<<isOdd,B
 <<<ternaryExpansion,B
+<<<triangularArray,E
+<<<triangularArray,H
 <<<unique,A
+<<<zeckendorfRepresentation,D
+<<<zeckendorfRepresentation,F
 
 ## Restarting Descents, Patterned
 
 <<<ceiling,C
+<<<floor,F
+<<<floor,G
+<<<floor,H
+<<<floor,I
 <<<isEven,G
 <<<nonPrime,B
+<<<triangularArray,G
+<<<triangularArray,I
+<<<zeckendorfRepresentation,H
+
+## Restarting Ascents & Descents
+
+<<<betaExpansion,D
 
 ## Irregular Restarting Ascents, Blocks
 
@@ -244,6 +264,7 @@
 <<<aliquotSequence,C
 <<<aliquotSequence,D
 <<<binaryExpansion,K
+<<<sequenceCount,A
 <<<wythoffArray,A
 
 Not integer sequence, but derived from such:
@@ -259,16 +280,27 @@ Not integer sequence, but derived from such:
 
 <<<hypergeometric2F1,C
 
+## Decorated Ascent
+
+<<<integerLength,D
+<<<integerLength,E
+
 ## Stepped Ascent
 
 <<<digitCount,R
 <<<divisorSigma,X
+<<<floor,E
 <<<kaprekarSequence,B
 <<<rowlandsSequence,A
 <<<selfCountingSequence,A
 <<<sobolSequence,F
+<<<sobolSequence,H
 <<<ternaryExpansion,C
 <<<thueMorseSequence,D
+
+## Restarting Stepped Ascents
+
+<<<nestList,D
 
 ## Exponential
 
@@ -283,12 +315,28 @@ Not integer sequence, but derived from such:
 
 <<<sobolSequence,G
 <<<sternBrocotSequence,B
+<<<vanDerCorputNumber,J
 
 ## Quasi-Symmetry, Blocks
 
 <<<bitReversalPermutation,A
 <<<factorial,B
 <<<gouldsSequence,C
+<<<isOdd,D
+<<<kaprekarMap,B
+<<<kaprekarMap,C
+<<<kaprekarMap,D
+<<<kaprekarMap,E
+<<<kaprekarMap,F
+<<<kaprekarMap,G
+<<<kaprekarMap,H
+<<<kaprekarMap,I
+<<<kaprekarMap,J
+<<<kaprekarMap,K
+<<<kaprekarMap,L
+<<<sobolSequence,E
+<<<sobolSequence,G
+<<<vanDerCorputNumber,G
 
 ## Quasi-Horizontal Bands, Varying Density
 
@@ -296,6 +344,7 @@ Not integer sequence, but derived from such:
 
 ## Horizontal Bands, Patterned
 
+<<<bitIff,A
 <<<decimalSelvageNumber,A
 <<<decimalSelvageNumber,B
 <<<decimalSelvageNumber,C
@@ -315,6 +364,11 @@ Not integer sequence, but derived from such:
 
 <<<divisorSigma,D
 <<<divisorSigma,E
+<<<shadowTransform,A
+<<<shadowTransform,B
+<<<shadowTransform,C
+<<<shadowTransform,D
+<<<shadowTransform,E
 
 ## Gapped Ascents
 
@@ -322,6 +376,7 @@ Not integer sequence, but derived from such:
 <<<binaryExpansion,G
 <<<binaryExpansion,H
 <<<cantorNumbers,A
+<<<catalanExpansion,B
 <<<continuedFraction,D
 <<<digitCount,M
 <<<dualZeckendorfRepresentation,C
@@ -329,6 +384,7 @@ Not integer sequence, but derived from such:
 <<<stanleySequence,A
 <<<ternaryExpansion,A
 <<<ternaryExpansion,D
+<<<zeckendorfRepresentation,C
 
 ## Interleaved Ascent & Descent
 
@@ -336,7 +392,10 @@ Not integer sequence, but derived from such:
 
 ## Two Interleaved Ascents
 
+<<<floor,J
+<<<floor,K
 <<<primePi,H
+<<<round,G
 
 ## Two Interleaved Ascents, One Irregular
 
@@ -346,6 +405,13 @@ Not integer sequence, but derived from such:
 ## Two Interleaved Ascents, Curved
 
 <<<isEven,I
+
+## Three Interleaved Ascents
+
+<<<ekgSequence,B
+<<<ekgSequence,D
+<<<ekgSequence,E
+<<<ekgSequence,F
 
 ## Interleaved Ascents
 
@@ -365,11 +431,12 @@ Not integer sequence, but derived from such:
 <<<continuedFraction,C
 <<<primeOmega,B
 
-## Leaning Peaks
+## Leaning Arches
 
 <<<abs,D
 <<<abs,E
 <<<alternatingSum,B
+<<<kaprekarMap,A
 
 ## Ruler
 
@@ -377,6 +444,9 @@ Not integer sequence, but derived from such:
 <<<integerExponent,C
 <<<integerExponent,E
 <<<integerExponent,N
+<<<rulerFunction,A
+<<<rulerFunction,B
+<<<rulerFunction,C
 <<<wythoffLower,B
 
 ## Quasi-Ruler
@@ -403,6 +473,7 @@ Not integer sequence, but derived from such:
 ## Signed Quasi Vertical Symmetry
 
 <<<isEven,B
+<<<isOdd,A
 
 ## Sparse Interleaved Ascents
 
@@ -419,6 +490,10 @@ Not integer sequence, but derived from such:
 <<<nestWhileList,A
 <<<primeOmega,G
 <<<primePi,T
+<<<sequenceCount,B
+<<<sequenceCount,C
+<<<sequenceCount,D
+<<<sequenceCount,E
 <<<split,A
 <<<split,C
 <<<split,D
@@ -440,9 +515,11 @@ Not integer sequence, but derived from such:
 <<<primePi,O
 <<<primePi,P
 <<<split,E
+<<<zeckendorfRepresentation,B
 
 ## Intermediate Set, Varying Density
 
+<<<betaExpansion,A
 <<<divisorSigma,M
 <<<divisorSigma,O
 <<<divisorSigma,Q
@@ -452,6 +529,7 @@ Not integer sequence, but derived from such:
 
 ## Intermediate Set, Varying Density, Patterned
 
+<<<betaExpansion,B
 <<<dualZeckendorfRepresentation,B
 <<<dualZeckendorfRepresentation,D
 <<<dualZeckendorfRepresentation,F
@@ -479,12 +557,14 @@ Not integer sequence, but derived from such:
 
 <<<isPerfectPower,A
 <<<primeOmega,C
+<<<triangularArray,C
 
 ## Arches, Irregular
 
-<<<hookLengthFormula,A
 <<<asRunArray,A
 <<<asRunArray,B
+<<<hookLengthFormula,A
+<<<primeDistance,A
 <<<whileTrue,A
 
 ## Counting, Restarting
@@ -493,10 +573,13 @@ Not integer sequence, but derived from such:
 
 ## Triangle, Arches, Regular
 
+<<<leibnizHarmonicTriangle,B
 <<<mahonianNumbers,A
 <<<narayanaNumber,A
 <<<qBinomial,B
 <<<qBinomial,C
+<<<triangularArray,B
+<<<triangularArray,J
 
 ## Triangle, Arches, Irregular
 
@@ -529,6 +612,7 @@ Not integer sequence, but derived from such:
 
 <<<bernoulliNumber,B
 <<<genocchiNumber,A
+<<<triangularArray,L
 
 ## Ascents, Mostly Descents
 
@@ -558,10 +642,12 @@ Not integer sequence, but derived from such:
 
 <<<divisorSigma,N
 <<<iterate,C
+<<<pisanoPeriod,A
+<<<pisanoPeriod,B
 <<<primePi,I
-<<<squaresR,D
 <<<primePi,L
 <<<primePi,M
+<<<squaresR,D
 <<<squaresR,D
 
 ## Interleaved Ascents, Varying Density
@@ -610,11 +696,13 @@ Not integer sequence, but derived from such:
 
 ## Cloud, Density Patterned
 
+<<<plus,A
 <<<primePi,F
 
 ## Irregular, Unpatterned
 
 <<<aliquotSequence,A
+<<<primeGap,B
 <<<primeOmega,A
 
 * * *

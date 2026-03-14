@@ -24,10 +24,10 @@ OEIS [A051699](http://oeis.org/A051699):
 ]
 ```
 
-Plot first few terms,
+Distance from _n_ to closest prime,
 OEIS [A051699](http://oeis.org/A051699):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A051699
 0:150.collect(primeDistance:/1)
 .scatterPlot
 ~~~

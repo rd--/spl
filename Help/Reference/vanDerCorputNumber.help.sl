@@ -32,14 +32,18 @@ Threads over lists:
 [7/9 10/27 7/27 20/27 17/27 10/81 40/81]
 ```
 
-Binary van der Corput sequence,
-OEIS [A030101](https://oeis.org/A030101)
-and [A062383](https://oeis.org/A062383):
+Binary van der Corput sequence:
 
 ```
 >>> 0:9.vanDerCorputNumber(2)
 [0 1/2 1/4 3/4 1/8 5/8 3/8 7/8 1/16 9/16]
+```
 
+Numerators of binary van der Corput sequence,
+the bit-reversal of _n_,
+OEIS [A030101](https://oeis.org/A030101):
+
+```
 >>> 0:19.vanDerCorputNumber(2)
 >>> .numerator
 [
@@ -47,6 +51,17 @@ and [A062383](https://oeis.org/A062383):
 	13 3 11 7 15 1 17 9 25
 ]
 
+>>> 0:19.integerReverse(2)
+[
+	0 1 1 3 1 5 3 7 1 9 5
+	13 3 11 7 15 1 17 9 25
+]
+```
+
+Denominators of binary van der Corput sequence,
+[A062383](https://oeis.org/A062383):
+
+```
 >>> 0:19.vanDerCorputNumber(2)
 >>> .denominator
 [
@@ -55,15 +70,19 @@ and [A062383](https://oeis.org/A062383):
 ]
 ```
 
-Ternary van der Corput sequence,
-OEIS [A030102](https://oeis.org/A030102):
+Ternary van der Corput sequence:
 
 ```
 >>> 0:9.vanDerCorputNumber(3)
 [0 1/3 2/3 1/9 4/9 7/9 2/9 5/9 8/9 1/27]
+```
 
->>> let v = 0:19.vanDerCorputNumber(3);
->>> v.numerator
+Numerators of ternary van der Corput sequence,
+OEIS [A030102](https://oeis.org/A030102):
+
+```
+>>> 0:19.vanDerCorputNumber(3)
+>>> .numerator
 [
 	0 1 2 1 4 7 2 5 8 1
 	10 19 4 13 22 7 16 25 2 11
@@ -151,7 +170,7 @@ OEIS [A030109](https://oeis.org/A030109):
 ]
 ```
 
-Plot decimal sequence:
+Plot decimal van der Corput sequence:
 
 ~~~spl svg=A
 1:100.vanDerCorputNumber(10)
@@ -160,7 +179,7 @@ Plot decimal sequence:
 
 ![](sw/spl/Help/Image/vanDerCorputNumber-A.svg)
 
-Plot numerators of decimal sequence:
+Plot numerators of decimal van der Corput sequence:
 
 ~~~spl svg=B
 1:100.vanDerCorputNumber(10)
@@ -210,9 +229,10 @@ Show decimal sequence at length halfway between 10ⁱ and 10²:
 
 ![](sw/spl/Help/Image/vanDerCorputNumber-F.svg)
 
-Plot numerators of binary sequence:
+Numerators of binary van der Corput sequence,
+OEIS [A030101](https://oeis.org/A030101):
 
-~~~spl svg=G
+~~~spl svg=G oeis=A030101
 0:300.vanDerCorputNumber(2)
 .numerator
 .scatterPlot
@@ -245,6 +265,16 @@ let n = 256;
 ~~~
 
 ![](sw/spl/Help/Image/vanDerCorputNumber-I.svg)
+
+Continued fraction elements constructed out of a van der Corput sequence,
+OEIS [A089618](https://oeis.org/A089618):
+
+~~~spl svg=J oeis=A089618 continuedFraction
+let n = 1:250.vanDerCorputNumber(2);
+(1 / (2 ^ n - 1)).floor.log.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/vanDerCorputNumber-J.svg)
 
 * * *
 

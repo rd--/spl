@@ -382,6 +382,12 @@
 		}
 	}
 
+	integerReverse { :self :base |
+		self.collect { :each |
+			each.integerReverse(base, each.integerLength(base))
+		}
+	}
+
 	integerReverse { :self |
 		self.collect(integerReverse:/1)
 	}

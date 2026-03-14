@@ -135,7 +135,7 @@ Plot the Gauss map over a subset of the complexes:
 Renyi’s beta expansion of 1 in base 3/2,
 OEIS [A058840](https://oeis.org/A058840):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A058840 set=0,1
 let r = 3/2;
 let x = 1;
 let y = 2:104.collect { :n |
@@ -151,7 +151,7 @@ let y = 2:104.collect { :n |
 Plot _n_ repeating _1+⌊(n/2)_ times,
 OEIS [A055086](https://oeis.org/A055086):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A055086
 0:20.collect { :n |
 	let k = (n / 2).floor + 1;
 	k # [n]
@@ -163,7 +163,7 @@ OEIS [A055086](https://oeis.org/A055086):
 Plot triangular array of floor of division,
 OEIS [A010766](https://oeis.org/A010766):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A010766
 1:17.triangularArray { :n :k |
 	(n / k).floor
 }.catenate.scatterPlot
@@ -174,7 +174,7 @@ OEIS [A010766](https://oeis.org/A010766):
 Maximum wins for longest winning streak,
 OEIS [A182210](https://oeis.org/A182210):
 
-~~~spl svg=G
+~~~spl svg=G oeis=A182210
 1:17.triangularArray { :n :k |
 	k * (n + 1) / (k + 1)
 }.floor.catenate.scatterPlot
@@ -185,7 +185,7 @@ OEIS [A182210](https://oeis.org/A182210):
 Number of ones in twos complement representation of _-n_,
 OEIS [A008687](https://oeis.org/A008687):
 
-~~~spl svg=H
+~~~spl svg=H oeis=A008687
 let a = Map { :n |
 	(n < 2).if {
 		n
@@ -202,7 +202,7 @@ a[0:115].scatterPlot
 _⌊(n/10)-(n%10)_,
 OEIS [A008687](https://oeis.org/A008687):
 
-~~~spl svg=I
+~~~spl svg=I oeis=A008687
 0:199.collect { :n |
 	(n / 10).floor - (n % 10)
 }.scatterPlot
@@ -213,7 +213,7 @@ OEIS [A008687](https://oeis.org/A008687):
 _n+⌊(n/4)(-1^(n%4))_,
 OEIS [A265888](https://oeis.org/A265888):
 
-~~~spl svg=J
+~~~spl svg=J oeis=A265888
 0:65.collect { :n |
 	n + ((n / 4).floor * (-1 ^ (n % 4)))
 }.discretePlot
@@ -224,7 +224,7 @@ OEIS [A265888](https://oeis.org/A265888):
 The amusical permutation,
 OEIS [A006368](https://oeis.org/A006368):
 
-~~~spl svg=K
+~~~spl svg=K oeis=A006368 permutation
 0:65.collect { :n |
 	n.isEven.if {
 		3 * n / 2

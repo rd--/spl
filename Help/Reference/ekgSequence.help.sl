@@ -5,7 +5,7 @@
 Answer the first _n_ terms of the Ekg sequence,
 initially _i_.
 
-First few terms,
+The Ekg sequence,
 OEIS [A064413](https://oeis.org/A064413):
 
 ```
@@ -22,7 +22,7 @@ OEIS [A064413](https://oeis.org/A064413):
 ]
 ```
 
-First few terms initially _1,2,3_,
+The Ekg sequence initially _1,2,3_,
 OEIS [A169837](https://oeis.org/A064413),
 the sequence merges with the _1,2_ sequence at _n=45_,
 as told by
@@ -56,19 +56,21 @@ OEIS [A064424](https://oeis.org/A064424):
 ]
 ```
 
-Step plot of first few terms,
+The Ekg sequence,
+step plot,
 OEIS [A064413](https://oeis.org/A064413):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A064413
 37.ekgSequence.stepPlot
 ~~~
 
 ![](sw/spl/Help/Image/ekgSequence-A.svg)
 
-Scatter plot of first few terms,
+The Ekg sequence,
+scatter plot,
 OEIS [A064413](https://oeis.org/A064413):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A064413
 125.ekgSequence.scatterPlot
 ~~~
 
@@ -77,7 +79,7 @@ OEIS [A064413](https://oeis.org/A064413):
 Plot `gcd` of consecutive terms,
 OEIS [A073734](https://oeis.org/A073734):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A073734
 85.ekgSequence
 .adjacentPairsCollect(gcd:/2)
 .discretePlot
@@ -91,7 +93,7 @@ OEIS [A064664](https://oeis.org/A064664),
 or equivalently but for offset the term at which _n_ appears,
 OEIS [A064421](https://oeis.org/A064421):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A064664
 let e = 500.ekgSequence;
 let u = 1:Infinity;
 let k = e.minimumExcludedValue(u);
@@ -103,7 +105,7 @@ e.ordering.take(k).scatterPlot
 Sequence starting at three instead of two,
 OEIS [A169837](https://oeis.org/A169837):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A169837
 85.ekgSequence([3]).scatterPlot
 ~~~
 
@@ -112,22 +114,22 @@ OEIS [A169837](https://oeis.org/A169837):
 Sequence starting at five instead of two,
 OEIS [A169837](https://oeis.org/A169837):
 
-~~~spl svg=E
+~~~spl svg=F oeis=A169837
 85.ekgSequence([3]).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/ekgSequence-E.svg)
+![](sw/spl/Help/Image/ekgSequence-F.svg)
 
 The largest prime factor of the _n_-th term of EKG-sequence,
 OEIS [A304733](https://oeis.org/A304733):
 
-~~~spl svg=F
+~~~spl svg=G oeis=A304733
 115.ekgSequence
 .greatestPrimeFactor
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/ekgSequence-F.svg)
+![](sw/spl/Help/Image/ekgSequence-G.svg)
 
 * * *
 

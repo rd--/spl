@@ -32,11 +32,10 @@ Relation to `tetrahedralNumber`:
 [1 5 14 30 55 91 140 204 285]
 ```
 
-First few square pyramidal numbers,
-threads over lists,
+Square pyramidal numbers,
 OEIS [A000330](https://oeis.org/A000330):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A000330
 0:65.squarePyramidalNumber
 .discretePlot
 ~~~

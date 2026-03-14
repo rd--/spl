@@ -67,7 +67,7 @@ OEIS [A062383](https://oeis.org/A062383):
 _1+Iff(k-1,n-k)_,
 OEIS [A327490](https://oeis.org/A327490):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A327490
 1:12.triangularArray { :n :k |
 	1 + bitIff(k - 1, n - k)
 }.catenate.scatterPlot
@@ -78,7 +78,7 @@ OEIS [A327490](https://oeis.org/A327490):
 A sequence by Clark Kimberling,
 OEIS [A050057](https://oeis.org/A050057):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A050057
 let a = Map { :n |
 	(n < 4).if {
 		[1 3 1].at(n)

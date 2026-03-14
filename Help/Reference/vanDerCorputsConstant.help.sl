@@ -20,7 +20,7 @@ Also stored as a named constant with higher precision,
 and this stored value gives the upper limit for _m_,
 OEIS [A143305](https://oeis.org/A143305):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A143305 constant
 1.vanDerCorputsConstant(104)
 .integerDigits
 .scatterPlot

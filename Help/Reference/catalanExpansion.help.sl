@@ -5,7 +5,8 @@
 Answer the Catalan expansion of the integer _n_,
 giving the representation of _n_ in the mixed radix base of Catalan numbers.
 
-First few terms,
+Catalan expansions of integers,
+the decimal expansions of
 OEIS [A014418](https://oeis.org/A014418):
 
 ```
@@ -59,7 +60,9 @@ OEIS [A014418](https://oeis.org/A014418):
 ]
 ```
 
-Step plot of digits of first few terms;
+Catalan expansions of integers,
+the decimal expansions of
+OEIS [A014418](https://oeis.org/A014418):
 
 ~~~spl svg=A
 0:23.collect(
@@ -69,9 +72,11 @@ Step plot of digits of first few terms;
 
 ![](sw/spl/Help/Image/catalanExpansion-A.svg)
 
-Step plot of integers of first few terms;
+Catalan expansions of integers,
+read as decimal integers,
+OEIS [A014418](https://oeis.org/A014418):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A014418
 0:124.collect { :n |
 	n.catalanExpansion
 	.fromDigits

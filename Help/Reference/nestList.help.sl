@@ -291,7 +291,7 @@ let y = { :n | (n + b) % 1 }.nestList(0, n);
 Plot Levine’s triangle,
 OEIS [A012257](https://oeis.org/A012257):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A012257
 { :x |
 	x.reverse
 	.withIndexCollect(List:/2)

@@ -12,7 +12,8 @@ Specific values:
 100
 ```
 
-First few terms,
+Pisano period,
+first few terms,
 OEIS [A001175](https://oeis.org/A001175):
 
 ```
@@ -212,20 +213,20 @@ OEIS [A137750](https://oeis.org/A137750):
 ]
 ```
 
-Plot first few terms,
+Pisano periods,
 OEIS [A001175](https://oeis.org/A001175):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A001175
 1:200.collect(pisanoPeriod:/1)
 .scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/pisanoPeriod-A.svg)
 
-Plot first few terms of
+Number of different residues for the Fibonacci numbers modulo _n_,
 OEIS [A066853](https://oeis.org/A066853):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A066853
 1:125.collect { :n |
 	let k = n.pisanoPeriod;
 	let f = k.fibonacciSequence;
@@ -235,7 +236,7 @@ OEIS [A066853](https://oeis.org/A066853):
 
 ![](sw/spl/Help/Image/pisanoPeriod-B.svg)
 
-Plot first differences:
+First differences of Pisano periods:
 
 ~~~spl svg=C
 1:43.collect(pisanoPeriod:/1)
@@ -245,10 +246,10 @@ Plot first differences:
 
 ![](sw/spl/Help/Image/pisanoPeriod-C.svg)
 
-Plot fixed point of Pisano period,
+Fixed point of Pisano period _n_,
 OEIS [A235249](https://oeis.org/A235249):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A235249
 1:65.collect { :n |
 	pisanoPeriod:/1
 	.fixedPoint(n, =)
@@ -260,7 +261,7 @@ OEIS [A235249](https://oeis.org/A235249):
 Plot table of the fundamental Pisano period of the Fibonacci sequence modulo _n_,
 OEIS [A161553](https://oeis.org/A161553):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A161553
 1:13.collect { :m |
 	let k = m.pisanoPeriod;
 	k.fibonacciSequence % m
@@ -272,7 +273,7 @@ OEIS [A161553](https://oeis.org/A161553):
 Plot number of missing residues in Fibonacci sequence modulo _n_,
 OEIS [A118965](https://oeis.org/A118965):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A118965
 1:85.collect { :m |
 	let k = m.pisanoPeriod;
 	[0 .. m - 1].complement(
@@ -287,7 +288,7 @@ OEIS [A118965](https://oeis.org/A118965):
 Plot number of distinct residues in Fibonacci sequence modulo _p(n)_,
 OEIS [A137750](https://oeis.org/A137750):
 
-~~~spl svg=G
+~~~spl svg=G oeis=A137750
 1:85.prime.collect { :m |
 	let k = m.pisanoPeriod;
 	(k.fibonacciSequence % m)

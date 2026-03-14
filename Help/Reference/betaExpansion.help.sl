@@ -203,7 +203,7 @@ OEIS [A055778](https://oeis.org/A055778):
 Plot number of ones in the base-φ representation of _n_,
 OEIS [A055778](https://oeis.org/A055778):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A055778
 let phi = 1.goldenRatio;
 2:104.collect { :n |
 	let e = n.betaExpansion(phi, 32);
@@ -351,7 +351,7 @@ Plot the part of _n_ in base φ left of the decimal point,
 interpreted as a binary integer,
 OEIS [A105425](https://oeis.org/A105425):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A105425
 let phi = 1.goldenRatio;
 2:105.collect { :n |
 	let e = n.betaExpansion(phi, 32);

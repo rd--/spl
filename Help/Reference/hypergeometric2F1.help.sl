@@ -115,7 +115,7 @@ Plot varying _z_ for three distinct _c_:
 The number of Schroeder paths of length _2n_ and having _k_ peaks at height one,
 OEIS [A104219](https://oeis.org/A104219):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A104219
 0:11.triangularArray { :n :k |
 	(-1 ^ (n - k))
 	*

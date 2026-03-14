@@ -294,7 +294,7 @@ OEIS [A007895](https://oeis.org/A007895):
 Number of ones (terms) in the Zeckendorf representation of _n_,
 OEIS [A007895](https://oeis.org/A007895):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A007895
 0:125.collect { :n |
 	n.zeckendorfRepresentation
 	.occurrencesOf(1)
@@ -306,7 +306,7 @@ OEIS [A007895](https://oeis.org/A007895):
 Zeckendorf representation as binary integer,
 OEIS [A003714](https://oeis.org/A003714):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A003714
 0:75.collect { :n |
 	n.zeckendorfRepresentation
 	.fromDigits(2)
@@ -318,7 +318,7 @@ OEIS [A003714](https://oeis.org/A003714):
 Plot summands for each entry,
 OEIS [A035517](https://oeis.org/A035517):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A035517
 0:50.collect { :n |
 	let z = n.zeckendorfRepresentation;
 	let i = z.reverse.indicesOf(1);
@@ -331,7 +331,7 @@ OEIS [A035517](https://oeis.org/A035517):
 Plot integers whose Zeckendorf representation is palindromic,
 OEIS [A094202](https://oeis.org/A094202):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A094202
 0:500.select { :n |
 	n.zeckendorfRepresentation
 	.isPalindrome
@@ -343,7 +343,7 @@ OEIS [A094202](https://oeis.org/A094202):
 Plot the number of runs of identical bits in the binary Zeckendorf representation of _n_,
 OEIS [A104324](https://oeis.org/A104324):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A104324
 1:200.collect { :n |
 	n.zeckendorfRepresentation
 	.split(=)
@@ -380,7 +380,7 @@ OEIS [A102364](https://oeis.org/A102364):
 Number of zeroes in the Zeckendorf representation of _n_,
 OEIS [A102364](https://oeis.org/A102364):
 
-~~~spl svg=H
+~~~spl svg=H oeis=A102364
 1:250.collect { :n |
 	n.zeckendorfRepresentation
 	.occurrencesOf(0)

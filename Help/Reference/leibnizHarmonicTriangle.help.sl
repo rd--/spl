@@ -34,7 +34,7 @@ c.f. the reciprocal of OEIS [A003506](https://oeis.org/A003506):
 Triangle of denominators in Leibniz’s harmonic triangle,
 OEIS [A003506](https://oeis.org/A003506):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A003506
 9.leibnizHarmonicTriangle
 .catenate.denominator.discretePlot
 ~~~

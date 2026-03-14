@@ -95,9 +95,10 @@ OEIS [A039941](https://oeis.org/A039941):
 [0 1 1 1 2 2 4 8 12 96 108 10368 10476]
 ```
 
-Plot OEIS [A065620](https://oeis.org/A065620):
+_a(2n)=2a(n)_ and _a(2n+1)=-2a(n)+1),
+OEIS [A065620](https://oeis.org/A065620):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A065620 signed
 let a = { :n |
 	(n = 0).if {
 		0
@@ -117,7 +118,7 @@ let a = { :n |
 Plot fixed point of dividing the digits according to parity and adding the parts,
 OEIS [A059717](https://oeis.org/A059717):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A059717
 0:250.collect { :i |
 	{ :n |
 		let d = n.integerDigits;
@@ -137,7 +138,7 @@ OEIS [A059717](https://oeis.org/A059717):
 Ordered set with zero and where if _x_ is in then both _2x+1_ and _4x_ are also in,
 OEIS [A060142](https://oeis.org/A060142):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A060142
 let a:/1 = { :n |
 	(n < 3).if {
 		(n < 2)
@@ -159,7 +160,7 @@ let a:/1 = { :n |
 Sum of the coefficients of the terms with an even exponent in the Stern polynomial _B(n+1,t)_,
 OEIS [A000360](https://oeis.org/A000360)
 
-~~~spl svg=D
+~~~spl svg=D oeis=A000360
 let a = Map { :n |
 	(n = 0).if {
 		1

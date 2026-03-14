@@ -41,10 +41,11 @@ OEIS [A072453](https://oeis.org/A072453):
 ]
 ```
 
-Plot
+The shadow transform of
+OEIS [A000522](https://oeis.org/A000522),
 OEIS [A072453](https://oeis.org/A072453):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A072453
 let x = { :i :j |
 	i * j + j
 }.foldList(0, 1L:150) + 1;
@@ -57,7 +58,7 @@ x.shadowTransform
 Plot shadow transform of tetrahedral numbers,
 OEIS [A072457](https://oeis.org/A072457):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A072457
 0:115.tetrahedralNumber
 .shadowTransform
 .scatterPlot
@@ -68,7 +69,7 @@ OEIS [A072457](https://oeis.org/A072457):
 Plot shadow transform of _C(n+7,8)_,
 OEIS [A144869](https://oeis.org/A144869):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A144869
 0:125.collect { :n |
 	binomial(n + 7, 8)
 }.shadowTransform
@@ -80,7 +81,7 @@ OEIS [A144869](https://oeis.org/A144869):
 Plot shadow transform of _σ(n)_,
 OEIS [A072463](https://oeis.org/A072463):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A072463
 0:115.collect { :n |
 	1.divisorSigma(n)
 }.shadowTransform
@@ -92,7 +93,7 @@ OEIS [A072463](https://oeis.org/A072463):
 Plot shadow transform of `fibonacci`,
 OEIS [A346080](https://oeis.org/A346080):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A346080
 0:115.fibonacci
 .shadowTransform
 .scatterPlot

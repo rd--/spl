@@ -109,7 +109,7 @@ Numerators of _k=1_ Sobol sequence,
 discrete plot,
 OEIS [A280995](https://oeis.org/A280995):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A280995
 63.sobolSequence(1).numerator.discretePlot
 ~~~
 
@@ -119,7 +119,7 @@ Denominators of _k=1_ Sobol sequence,
 discrete plot,
 [A062383](https://oeis.org/A062383):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A062383
 63.sobolSequence(1).denominator.discretePlot
 ~~~
 
@@ -129,7 +129,7 @@ Numerators of _k=1_ Sobol sequence,
 scatter plot,
 OEIS [A280995](https://oeis.org/A280995):
 
-~~~spl svg=G
+~~~spl svg=G oeis=A280995
 255.sobolSequence(1).numerator.scatterPlot
 ~~~
 
@@ -139,7 +139,7 @@ Denominators of _k=1_ Sobol sequence,
 step plot,
 [A062383](https://oeis.org/A062383):
 
-~~~spl svg=H
+~~~spl svg=H oeis=A062383
 255.sobolSequence(1).denominator.stepPlot
 ~~~
 
