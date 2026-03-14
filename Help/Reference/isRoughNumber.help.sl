@@ -59,11 +59,11 @@ this sequence has period eight:
 ]
 ```
 
-Plot first differences of 11-rough numbers,
+First differences of 11-rough numbers,
 this sequence has period 48,
 OEIS [A049296](https://oeis.org/A049296):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A049296
 1:450.select { :each |
 	each.isRoughNumber(11)
 }.differences.scatterPlot
@@ -71,9 +71,12 @@ OEIS [A049296](https://oeis.org/A049296):
 
 ![](sw/spl/Help/Image/isRoughNumber-A.svg)
 
-Plot first differences of 13-rough numbers:
+First differences of 13-rough numbers,
+apart from first term also
+the differences between terms of compacting Eratosthenes sieve for _P(6)=13_,
+OEIS [A236187](https://oeis.org/A236187):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A236187
 1:500.select { :each |
 	each.isRoughNumber(13)
 }.differences.scatterPlot
@@ -81,9 +84,12 @@ Plot first differences of 13-rough numbers:
 
 ![](sw/spl/Help/Image/isRoughNumber-B.svg)
 
-Plot first differences of 17-rough numbers:
+First differences of 17-rough numbers,
+apart from first term also
+the differences between terms of compacting Eratosthenes sieve for _P(7)=17_,
+OEIS [A236188](https://oeis.org/A236188):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A236188
 1:600.select { :each |
 	each.isRoughNumber(17)
 }.differences.scatterPlot
@@ -91,19 +97,27 @@ Plot first differences of 17-rough numbers:
 
 ![](sw/spl/Help/Image/isRoughNumber-C.svg)
 
-Plot first differences of 19-rough numbers:
+First differences of 19-rough numbers,
+apart from first term also
+the differences between terms of compacting Eratosthenes sieve for _P(8)=19_,
+OEIS [A236189](https://oeis.org/A236189):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A236189
 1:650.select { :each |
 	each.isRoughNumber(19)
-}.differences.scatterPlot
+}.differences
+
+.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/isRoughNumber-D.svg)
 
-Plot first differences of 23-rough numbers:
+First differences of 23-rough numbers,
+apart from first term also, initially,
+differences between consecutive primes
+OEIS [A001223](https://oeis.org/A001223):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A001223
 1:750.select { :each |
 	each.isRoughNumber(23)
 }.differences.scatterPlot

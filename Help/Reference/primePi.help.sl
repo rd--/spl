@@ -41,7 +41,7 @@ Real numbers:
 6
 ```
 
-The first few terms,
+The prime counting function _π(n)_,
 OEIS [A000720](https://oeis.org/A000720):
 
 ```
@@ -164,10 +164,11 @@ OEIS [A002815](https://oeis.org/A002815):
 ]
 ```
 
-Plot the prime counting function:
+The prime counting function _π(n)_,
+OEIS [A000720](https://oeis.org/A000720):
 
-~~~spl svg=A
-1:60.collect(primePi:/1).discretePlot
+~~~spl svg=A oeis=A000720
+1:60.primePi.discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/primePi-A.svg)
@@ -175,7 +176,7 @@ Plot the prime counting function:
 Plot unary-encoded compressed factorization of natural numbers,
 OEIS [A156552](https://oeis.org/A156552):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A156552
 (2 .. 150).collect { :n |
 	n.primeFactors
 	.withIndexCollect { :p :i |
@@ -190,7 +191,7 @@ OEIS [A156552](https://oeis.org/A156552):
 Step plot of sequence by K.A. Rasmussen,
 OEIS [A056239](https://oeis.org/A056239):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A056239
 1:111.collect { :n |
 	n.primeFactors.primePi.sum
 }.stepPlot
@@ -201,7 +202,7 @@ OEIS [A056239](https://oeis.org/A056239):
 Log scatter plot of a sequence by K. Matylla,
 OEIS [A135141](https://oeis.org/A135141):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A135141
 let a = { :n |
 	(n = 1).if {
 		1
@@ -221,7 +222,7 @@ let a = { :n |
 Count distinct rooted trees obtained from the tree with Matula-Goebel number _n_ by adding one edge,
 OEIS [A214567](https://oeis.org/A214567):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A214567
 let a = { :n |
 	(n = 1).if {
 		1
@@ -245,7 +246,7 @@ let a = { :n |
 Imply Goldbach and Lemoine conjectures,
 OEIS [A219055](https://oeis.org/A219055):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A219055
 1:100.collect { :n |
 	let m = n % 2;
 	let o = ((n - 1) / (2 + m)).primePi;
@@ -268,7 +269,7 @@ OEIS [A219055](https://oeis.org/A219055):
 Plot triangle of _π(n)+π(k)-π(n+k)_,
 OEIS [A212210](https://oeis.org/A212210):
 
-~~~spl svg=G
+~~~spl svg=G oeis=A212210 signed
 1:13.triangularArray { :n :k |
 	([n, k, n + k].primePi * [1 1 -1]).sum
 }.catenate.stepPlot
@@ -279,7 +280,7 @@ OEIS [A212210](https://oeis.org/A212210):
 A sequence describing the position of its prime terms,
 OEIS [A121053](https://oeis.org/A121053):
 
-~~~spl svg=H
+~~~spl svg=H oeis=A121053
 1:150.collect { :n |
 	(n < 5).if {
 		[2 3 5 1].at(n)
@@ -307,7 +308,7 @@ OEIS [A121053](https://oeis.org/A121053):
 Plot the sequence fully multiplicative with _a(p)=k_ if _p_ is the _k_-th prime,
 OEIS [A003963](https://oeis.org/A003963):
 
-~~~spl svg=I
+~~~spl svg=I oeis=A003963
 1:275.collect { :n |
 	(n = 1).if {
 		1
@@ -325,7 +326,7 @@ OEIS [A003963](https://oeis.org/A003963):
 Plot number of primes between _n^2_ and _(n+1)^2_,
 OEIS [A014085](https://oeis.org/A014085):
 
-~~~spl svg=J
+~~~spl svg=J oeis=A014085
 (0:100 ^ 2).primePi
 .differences
 .scatterPlot
@@ -336,7 +337,7 @@ OEIS [A014085](https://oeis.org/A014085):
 Plot nodes in rooted index-functional forest for _n_,
 OEIS [A062537](https://oeis.org/A062537):
 
-~~~spl svg=K
+~~~spl svg=K oeis=A062537
 let k = 75;
 let a = List(k, 0);
 2.toDo(k) { :n |
@@ -352,7 +353,7 @@ a.stepPlot
 Replace each prime number with its rank in the recursive prime factorization of _n_,
 OEIS [A225395](https://oeis.org/A225395):
 
-~~~spl svg=L
+~~~spl svg=L oeis=A225395
 let a = Map { :n |
 	(n = 1).if {
 		1
@@ -374,7 +375,7 @@ a[1:175].scatterPlot
 Plot product of indices of distinct prime factors of _n_,
 OEIS [A156061](https://oeis.org/A156061):
 
-~~~spl svg=M
+~~~spl svg=M oeis=A156061
 2:85.collect { :n |
 	n.distinctPrimeFactors
 	.primePi
@@ -389,7 +390,7 @@ by antidiagonals,
 counting from two,
 OEIS [A212213](https://oeis.org/A212213):
 
-~~~spl svg=N
+~~~spl svg=N oeis=A212213
 2:13.antidiagonalArray { :n :k |
 	([n, k, n + k].primePi * [1 1 -1]).sum
 }.catenate.discretePlot
@@ -402,7 +403,7 @@ triangular,
 counting from two,
 OEIS [A212211](https://oeis.org/A212211):
 
-~~~spl svg=O
+~~~spl svg=O oeis=A212211
 2:13.triangularArray { :n :k |
 	([n, k, n + k].primePi * [1 1 -1]).sum
 }.catenate.discretePlot
@@ -415,7 +416,7 @@ by antidiagonals,
 counting from one,
 OEIS [A212212](https://oeis.org/A212212):
 
-~~~spl svg=P
+~~~spl svg=P oeis=A212212 signed
 1:13.antidiagonalArray { :n :k |
 	([n, k, n + k].primePi * [1 1 -1]).sum
 }.catenate.discretePlot
@@ -427,7 +428,7 @@ The Jacob’s Ladder sequence,
 partial sums of _-1^π(n)_,
 OEIS [A065358](https://oeis.org/A065358):
 
-~~~spl svg=Q
+~~~spl svg=Q oeis=A065358 signed
 let p = 1:65.primePi;
 (-1 ^ p).prefixSum.discretePlot
 ~~~
@@ -437,7 +438,7 @@ let p = 1:65.primePi;
 _-1^π(n)_,
 OEIS [A065357](https://oeis.org/A065357):
 
-~~~spl svg=R
+~~~spl svg=R oeis=A065357 set=-1,1
 (-1 ^ 0:65.primePi).discretePlot
 ~~~
 
@@ -447,7 +448,7 @@ A permutation of the positive integers,
 _a(P(n))=2*a(n)_ and _a(C(n))=2*a(n)+1_,
 OEIS [A135141](https://oeis.org/A135141):
 
-~~~spl svg=S
+~~~spl svg=S oeis=A135141 permutation
 let a = Map { :n |
 	(n = 1).if {
 		1
@@ -468,7 +469,7 @@ a[1:85].discretePlot
 _a(P(n))=a(n)+1_ and _a(C(n))=0_,
 OEIS [A078442](https://oeis.org/A078442):
 
-~~~spl svg=T
+~~~spl svg=T oeis=A078442
 let a = Map { :n |
 	n.isPrime.if {
 		1 + a[n.primePi]
@@ -484,7 +485,7 @@ a[1:150].discretePlot
 The number of odd prime indices minus the number of even prime indices,
 OEIS [A195017](https://oeis.org/A195017):
 
-~~~spl svg=U
+~~~spl svg=U oeis=A195017 signed
 2:85.collect { :n |
 	n.factorInteger.sum { :f |
 		f[2] * (-1 ^ (1 + f[1].primePi))
@@ -511,7 +512,7 @@ OEIS [A195017](https://oeis.org/A195017):
 List the parts of the unique strict partition with π encoding,
 OEIS [A265146](https://oeis.org/A265146):
 
-~~~spl svg=V
+~~~spl svg=V oeis=A265146
 1:45.collect { :n |
 	let l = n.primeFactors.primePi;
 	let k = l.size;
@@ -524,7 +525,7 @@ OEIS [A265146](https://oeis.org/A265146):
 Sum the parts of the unique strict partition with π encoding,
 OEIS [A266475](https://oeis.org/A266475):
 
-~~~spl svg=W
+~~~spl svg=W oeis=A266475
 1:115.collect { :n |
 	let l = n.primeFactors.primePi;
 	let k = l.size;

@@ -6,7 +6,7 @@ The Narayana numbers form a triangular array of natural numbers,
 called the Narayana triangle,
 that occur in various counting problems.
 
-First few terms,
+Narayana numbers,
 OEIS [A001263](https://oeis.org/A001263):
 
 ```
@@ -25,10 +25,10 @@ OEIS [A001263](https://oeis.org/A001263):
 ]
 ```
 
-First few terms,
+Narayana numbers,
 OEIS [A001263](https://oeis.org/A001263):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A001263
 1:11.triangularArray(
 	narayanaNumber:/2
 ).catenate.log.discretePlot

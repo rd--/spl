@@ -84,7 +84,7 @@ OEIS [A027375](https://oeis.org/A027375):
 >>> 		(n / d).moebiusMu * 2 ^ d
 >>> 	}
 >>> }
-[2 2 6 12 30 54 126 240 504 990 2046 4020]
+[2 2 6 12 30 54 126 240 504 990 2046]
 ```
 
 Plot the Möbius sequence for the first few terms,

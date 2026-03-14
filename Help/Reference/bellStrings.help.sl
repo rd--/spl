@@ -8,20 +8,20 @@ The solution sequence is a Gray code.
 Strings for _n=2_:
 
 ```
->>> bellStrings(2)
+>>> 2.bellStrings
 [
 	0 0;
 	1 0
 ]
 
->>> bellNumber(2)
+>>> 2.bellNumber
 2
 ```
 
 Strings for _n=3_:
 
 ```
->>> bellStrings(3)
+>>> 3.bellStrings
 [
 	0 0 0;
 	1 0 0;
@@ -30,14 +30,14 @@ Strings for _n=3_:
 	0 1 0
 ]
 
->>> bellNumber(3)
+>>> 3.bellNumber
 5
 ```
 
 Strings for _n=4_:
 
 ```
->>> bellStrings(4).++
+>>> 4.bellStrings
 [
 	0 0 0 0;
 	1 0 0 0;
@@ -56,7 +56,7 @@ Strings for _n=4_:
 	1 0 1 0
 ]
 
->>> bellNumber(4)
+>>> 4.bellNumber
 15
 ```
 
@@ -64,7 +64,7 @@ Circular matrix plot of length five Bell strings,
 the last column is elided since it is always zero:
 
 ~~~spl svg=A
-bellStrings(5)
+5.bellStrings
 .collect(allButLast:/1)
 .circularMatrixPlot
 ~~~

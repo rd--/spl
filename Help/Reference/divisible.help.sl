@@ -144,6 +144,17 @@ false
 233L
 ```
 
+Numbers not divisible by three,
+OEIS [A001651](https://oeis.org/A001651):
+
+```
+>>> 1:23.reject { :n | n.divisible(3) }
+[1 2 4 5 7 8 10 11 13 14 16 17 19 20 22 23]
+
+>>> [1 1 -1].linearRecurrence([1 2 4], 16)
+[1 2 4 5 7 8 10 11 13 14 16 17 19 20 22 23]
+```
+
 Matrix plot of divisor table:
 
 ~~~spl svg=A

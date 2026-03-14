@@ -4,7 +4,7 @@
 
 Answer `true` if _n_ is a refactorable number.
 
-The first few terms,
+The first few refactorable numbers,
 OEIS [A033950](http://oeis.org/A033950):
 
 ```

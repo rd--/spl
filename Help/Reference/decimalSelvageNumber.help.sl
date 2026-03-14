@@ -20,9 +20,10 @@ OEIS [A071789](https://oeis.org/A071789):
 ]
 ```
 
-Plot:
+The first decimal selvage number,
+OEIS [A071789](https://oeis.org/A071789):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A071789
 1.decimalSelvageNumber(194)
 .scatterPlot
 ~~~
@@ -47,9 +48,10 @@ OEIS [A071790](https://oeis.org/A071790):
 ]
 ```
 
-Plot:
+The second decimal selvage number,
+OEIS [A071790](https://oeis.org/A071790):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A071790
 2.decimalSelvageNumber(193)
 .scatterPlot
 ~~~
@@ -73,9 +75,10 @@ OEIS [A071791](https://oeis.org/A071791):
 ]
 ```
 
-Plot:
+The third decimal selvage number,
+OEIS [A071791](https://oeis.org/A071791):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A071791
 3.decimalSelvageNumber(206)
 .scatterPlot
 ~~~
@@ -98,9 +101,10 @@ OEIS [A071792](https://oeis.org/A071792):
 ]
 ```
 
-Plot:
+The fourth decimal selvage number,
+OEIS [A071792](https://oeis.org/A071792):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A071792
 4.decimalSelvageNumber(193)
 .scatterPlot
 ~~~
@@ -122,9 +126,10 @@ OEIS [A071793](https://oeis.org/A071793):
 ]
 ```
 
-Plot:
+The fifth decimal selvage number,
+OEIS [A071793](https://oeis.org/A071793):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A071793
 5.decimalSelvageNumber(198)
 .scatterPlot
 ~~~
@@ -146,9 +151,11 @@ OEIS [A071873](https://oeis.org/A071873):
 ]
 ```
 
-Plot:
 
-~~~spl svg=F
+The sixth decimal selvage number,
+OEIS [A071873](https://oeis.org/A071873):
+
+~~~spl svg=F oeis=A071873
 6.decimalSelvageNumber(198)
 .scatterPlot
 ~~~

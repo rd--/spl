@@ -23,7 +23,7 @@ Table of Mahonian numbers,
 read by rows,
 OEIS [A008302](https://oeis.org/A008302):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A008302
 6.mahonianNumbers
 .catenate.discretePlot
 ~~~

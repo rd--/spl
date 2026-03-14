@@ -195,7 +195,7 @@ Find runs of numbers in base 10 that contain the same number of 1s:
 Plot concatenation of the current sequence with the lengths of the runs in the sequence,
 OEIS [A306211](https://oeis.org/A306211):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A306211
 let y = { :x |
 	x ++ x.split(=).collect(size:/1)
 }.iterate([1], 10);
@@ -217,7 +217,7 @@ OEIS [A306215](https://oeis.org/A306215):
 Plot numbers where the run lengths of the binary expansion do not increase,
 OEIS [A037014](https://oeis.org/A037014):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A037014
 0:500.select { :n |
 	n.integerDigits(2)
 	.split(=)
@@ -234,7 +234,7 @@ OEIS [A037014](https://oeis.org/A037014):
 Add one to every other term of the number of runs in the binary expansion of _n_,
 OEIS [A072219](https://oeis.org/A072219):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A072219
 0:85.collect { :n |
 	n.integerDigits(2).split { :x :y |
 		x = 1 & { y = 0 }
@@ -247,7 +247,7 @@ OEIS [A072219](https://oeis.org/A072219):
 Number of runs of ones in the binary representation of _n_,
 OEIS [A069010](https://oeis.org/A069010):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A069010
 0:85.collect { :n |
 	n.integerDigits(2)
 	.split(=)
@@ -260,7 +260,7 @@ OEIS [A069010](https://oeis.org/A069010):
 One less than the number of runs of ones in the binary representations of _n_ and _2n-1_,
 OEIS [A072339](https://oeis.org/A072339):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A072339
 let f = { :n |
 	n.integerDigits(2)
 	.split(=)

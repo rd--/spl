@@ -29,7 +29,7 @@ The appended identifier is given by `uniqueId`.
 Plot unique digits used in _n_ in numerical order,
 OEIS [A180410](https://oeis.org/A180410):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A180410
 1:150.collect { :n |
 	n.integerDigits
 	.unique
@@ -44,7 +44,7 @@ Fermi-Dirac primes,
 numbers of the form _p^(2^k)_ where _p_ is prime and _k≥0_,
 OEIS [A050376](https://oeis.org/A050376):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A050376
 let m = 300;
 let t = [];
 let k = 1;

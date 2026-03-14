@@ -25,7 +25,7 @@ Reconstruct integer from Zeckendorf representation:
 (47, 10 ^ 10)
 ```
 
-First few terms,
+Dual Zeckendorf representation of first few integers,
 OEIS [A104326](https://oeis.org/A104326):
 
 ```
@@ -195,10 +195,10 @@ indicating the proportions of zeroes and ones:
 [0 -> 33, 1 -> 81]
 ```
 
-Plot first few terms of
+Number of terms in lazy Fibonacci representation of _n_,
 OEIS [A112310](https://oeis.org/A112310):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A112310
 0:125.collect { :n |
 	n.dualZeckendorfRepresentation
 	.occurrencesOf(1)
@@ -207,10 +207,10 @@ OEIS [A112310](https://oeis.org/A112310):
 
 ![](sw/spl/Help/Image/dualZeckendorfRepresentation-B.svg)
 
-Plot first few terms of
+Numbers with no adjacent zeroes in binary expansion,
 OEIS [A003754](https://oeis.org/A003754):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A003754
 0:75.collect { :n |
 	n.dualZeckendorfRepresentation
 	.fromDigits(2)
@@ -219,10 +219,11 @@ OEIS [A003754](https://oeis.org/A003754):
 
 ![](sw/spl/Help/Image/dualZeckendorfRepresentation-C.svg)
 
-Plot summands for each entry,
+Triangle read by rows,
+row _n_ has terms in lazy Fibonacci representation of _n_,
 OEIS [A112309](https://oeis.org/A112309):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A112309
 0:50.collect { :n |
 	let z = n.dualZeckendorfRepresentation;
 	let i = z.reverse.indicesOf(1);
@@ -236,7 +237,7 @@ OEIS [A112309](https://oeis.org/A112309):
 Plot integers whose Dual Zeckendorf representation is palindromic,
 OEIS [A331191](https://oeis.org/A331191):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A331191
 0:500.select { :n |
 	n.dualZeckendorfRepresentation
 	.isPalindrome
@@ -248,7 +249,7 @@ OEIS [A331191](https://oeis.org/A331191):
 Plot the number of runs of identical bits in the Dual Zeckendorf representation of _n_,
 OEIS [A104325](https://oeis.org/A104325):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A104325
 1:200.collect { :n |
 	n.dualZeckendorfRepresentation
 	.split(=)

@@ -74,6 +74,7 @@ Plot `tan` alongside a Padé approximation:
 ![](sw/spl/Help/Image/tan-B.svg)
 
 _|⌊(tan(n))_,
+unsiagned variant of
 OEIS [A000503](https://oeis.org/A000503):
 
 ~~~spl svg=C
@@ -85,7 +86,7 @@ OEIS [A000503](https://oeis.org/A000503):
 _⌊(tan(n))_,
 OEIS [A000503](https://oeis.org/A000503):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A000503 signed
 0:150.tan.floor.logScale.scatterPlot
 ~~~
 
@@ -94,7 +95,7 @@ OEIS [A000503](https://oeis.org/A000503):
 _⌊(tan(n)²)_,
 OEIS [A005657](https://oeis.org/A005657):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A005657
 0:150.tan.square.floor.log.scatterPlot
 ~~~
 

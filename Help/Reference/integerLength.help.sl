@@ -76,7 +76,7 @@ OEIS [A070939](https://oeis.org/A070939):
 ```
 >>> 0:511.collect { :n |
 >>> 	n.integerDigits(2).size
->>> }.asRunArray.asAssociationList
+>>> }.asRunArray.associations
 [
 	2 -> 1,
 	2 -> 2,

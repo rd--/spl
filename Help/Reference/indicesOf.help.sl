@@ -47,7 +47,7 @@ At `String` with non-character seach string:
 Plot squarefree numbers ordered lexicographically by prime factorization,
 OEIS [A019565](https://oeis.org/A019565):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A019565
 0:135.collect { :n |
 	n.integerDigits(2)
 	.reverse
@@ -59,19 +59,22 @@ OEIS [A019565](https://oeis.org/A019565):
 
 ![](sw/spl/Help/Image/indicesOf-A.svg)
 
-A self-referential sequence by Benoit Cloitre,
+A self-referential sequence related to Mancala solitaire,
 OEIS [A130747](https://oeis.org/A130747):
 
-~~~spl svg=B
-let m = 100;
-let a = [1:m, m # [0]].transpose.catenate;
+~~~spl svg=B oeis=A130747
+let m = 150;
+let a = [
+	[1 .. 2 * m],
+	List(2 * m, 0)
+].interleave;
 1:m.do { :n |
 	let i = a.indicesOf(0);
-	let j = a[n].min(i.size);
+	let j = a[n];
 	let h = i[j];
 	a[h] := a[n]
 };
-a.scatterPlot
+a.first(m).scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/indicesOf-B.svg)

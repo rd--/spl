@@ -67,11 +67,12 @@ true
 165.primeNu
 ```
 
-First few terms,
+Number of prime divisors of _n_,
+counted with multiplicity,
 OEIS [A001222](https://oeis.org/A001222):
 
 ```
->>> 1:100.collect(primeOmega:/1)
+>>> 1:100.primeOmega
 [
 	0 1 1 2 1 2 1 3 2 2 1 3 1 2 2 4 1 3 1 3
 	2 2 1 4 2 2 3 3 1 3 1 5 2 2 2 4 1 2 2 4
@@ -114,10 +115,20 @@ OEIS [A028260](https://oeis.org/A028260):
 [1 4 6 9 10 14 15 16 21 22]
 ```
 
-Plot the `primeOmega` sequence for the first 100 numbers:
+Sum of exponents in prime-power factorization of _n!_,
+OEIS [A022559](https://oeis.org/A022559):
 
-~~~spl svg=A
-(1:100).functionPlot(primeOmega:/1)
+```
+>>> 0:15.!.primeOmega
+[0 0 1 2 4 5 7 8 11 13 15 16 19 20 22 24]
+```
+
+Number of prime divisors of _n_,
+counted with multiplicity,
+OEIS [A001222](https://oeis.org/A001222):
+
+~~~spl svg=A oeis=A001222
+1:100.functionPlot(primeOmega:/1)
 ~~~
 
 ![](sw/spl/Help/Image/primeOmega-A.svg)
@@ -127,7 +138,7 @@ with the same number of prime factors as _n_,
 counted with multiplicity,
 OEIS [A058933](https://oeis.org/A058933):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A058933
 let m = Map();
 let f = { :x |
 	let y = m.atIfAbsent(x) { 0 };
@@ -143,7 +154,7 @@ let f = { :x |
 Plot difference between number of oddly and evenly factored numbers,
 OEIS [A072203](https://oeis.org/A072203):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A072203
 1:150.collect { :n |
 	1 - 1:n.sum { :i |
 		-1 ^ i.primeOmega
@@ -156,7 +167,7 @@ OEIS [A072203](https://oeis.org/A072203):
 Plot parity of _Ω(n)_,
 OEIS [A066829](https://oeis.org/A066829):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A066829 set=0,1
 1:65.primeOmega
 .collect(isOdd:/1)
 .boole
@@ -168,7 +179,7 @@ OEIS [A066829](https://oeis.org/A066829):
 Is _n_ an odd number with an even number of prime factors,
 OEIS [A353557](https://oeis.org/A353557):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A353557 set=0,1
 1:121.collect { :n |
 	n.isOdd & {
 		n.primeOmega.isEven
@@ -181,7 +192,7 @@ OEIS [A353557](https://oeis.org/A353557):
 Characteristic function of `one` and primes,
 OEIS [A080339](https://oeis.org/A080339):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A080339 set=0,1
 1:100.collect { :n |
 	n.primeOmega < 2
 }.boole.discretePlot
@@ -192,7 +203,7 @@ OEIS [A080339](https://oeis.org/A080339):
 Number of prime factors of the number of divisors of _n_,
 OEIS [A058061](https://oeis.org/A058061):
 
-~~~spl svg=G
+~~~spl svg=G oeis=A058061
 1:85.collect { :n |
 	0.divisorSigma(n).primeOmega
 }.discretePlot

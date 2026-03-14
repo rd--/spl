@@ -9,7 +9,8 @@ Answer the _n_-th pentagonal number.
 782
 ```
 
-Threads over lists,
+Pentagonal numbers,
+threads over lists,
 OEIS [A000326](https://oeis.org/A000326):
 
 ```
@@ -37,6 +38,15 @@ C.f. `polygonalNumber`:
 >>> 1:23.pentagonalNumber
 5.polygonalNumber(1:23)
 ```
+
+Pentagonal numbers,
+OEIS [A000326](https://oeis.org/A000326):
+
+~~~spl svg=A oeis=A000326
+1:85.pentagonalNumber.discretePlot
+~~~
+
+![](sw/spl/Help/Image/pentagonalNumber-A.svg)
 
 * * *
 

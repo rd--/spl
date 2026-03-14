@@ -99,7 +99,7 @@ false
 Plot the first few squarefree numbers,
 OEIS [A005117](https://oeis.org/A005117):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A005117
 1:99.select(isSquareFree:/1).linePlot
 ~~~
 
@@ -117,7 +117,7 @@ OEIS [A013929](https://oeis.org/A013929):
 Least square-free _m>n_ with _gcd(m,n)>1_,
 OEIS [A071888](https://oeis.org/A071888):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A071888
 2:85.collect { :n |
 	let m = n + 1;
 	{
@@ -136,7 +136,7 @@ OEIS [A071888](https://oeis.org/A071888):
 First differences of sequence of nonsquarefree numbers,
 OEIS [A078147](https://oeis.org/A078147):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A078147 set=1-4
 1:150.reject(isSquareFree:/1)
 .differences.discretePlot
 ~~~
@@ -146,7 +146,7 @@ OEIS [A078147](https://oeis.org/A078147):
 Second differences of sequence of nonsquarefree numbers,
 OEIS [A376593](https://oeis.org/A376593):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A376593 signed
 1:150.reject(isSquareFree:/1)
 .differences(2).discretePlot
 ~~~

@@ -28,7 +28,7 @@ the sum of two elements defines the next:
 Plot the minimal absolute difference between _n_ and each of the powers of the previous terms,
 OEIS [A322522](https://oeis.org/A322522):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A322522
 let comparePowers = { :n :m |
 	(n <= 1).if {
 		m - n
@@ -63,7 +63,7 @@ a.scatterPlot
 Plot a self-describing sequence made of strings of consecutive integers,
 OEIS [A113138](https://oeis.org/A113138):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A113138
 let k = 100;
 let a = List(k);
 let n = 0;

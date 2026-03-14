@@ -12,7 +12,7 @@ Answer the second last element of the sequence _x_:
 A sequence by David James Sycamore,
 OEIS [A343887](https://oeis.org/A343887):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A343887
 let a = [1];
 let s = [];
 let m = 250;

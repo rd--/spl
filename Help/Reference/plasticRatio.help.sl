@@ -2,11 +2,11 @@
 
 - _plasticRatio(n)_
 
-Answer _n_ times the plastic ratio (rho) ,
+Answer _n_ times the plastic ratio (rho),
 also called the minimal Pisot-Vijayaraghavan number or plastic number or plastic constant,
 is the limiting ratio of the successive terms of the Padovan sequence or Perrin sequence.
 
-Decimal expansion,
+Decimal expansion of the plastic ratio rho,
 OEIS [A060006](https://oeis.org/A060006):
 
 ```
@@ -80,7 +80,7 @@ Sequence of almost integers,
 rounded,
 OEIS [A205579](https://oeis.org/A205579):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A205579
 (1.plasticRatio ^ 0:35).round.discretePlot
 ~~~
 

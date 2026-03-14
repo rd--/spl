@@ -66,4 +66,6 @@ OEIS [A227186](https://oeis.org/A227186):
 
 See also: RunArray
 
+Guides: List Functions
+
 Categories: Converting

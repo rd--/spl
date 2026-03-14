@@ -22,8 +22,8 @@ The highest power of two:
 7
 ```
 
-Threads over lists,
-number of trailing zeroes in factorials,
+Number of trailing zeroes in factorials,
+threads over lists,
 OEIS [A027868](https://oeis.org/A027868):
 
 ```
@@ -207,11 +207,12 @@ OEIS [A037227](https://oeis.org/A037227):
 [1 3 1 5 1 3 1 7 1 3 1 5 1 3 1 9 1]
 ```
 
-Plot first few terms for for _b=2_,
+Powers of two in successive integers,
 the binary carry sequence,
+also called the ruler sequence,
 OEIS [A007814](https://oeis.org/A007814):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A007814
 1:127.functionPlot { :n |
 	n.integerExponent(2)
 }
@@ -219,10 +220,11 @@ OEIS [A007814](https://oeis.org/A007814):
 
 ![](sw/spl/Help/Image/integerExponent-A.svg)
 
-Plot the self-descriptive sequence
+A self-descriptive sequence,
+terms at even indices are the sequence itself,
 OEIS [A110963](https://oeis.org/A110963):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A110963
 1:100.collect { :n |
 	{ :x |
 		let a = x.integerExponent(2);
@@ -234,10 +236,10 @@ OEIS [A110963](https://oeis.org/A110963):
 
 ![](sw/spl/Help/Image/integerExponent-B.svg)
 
-Plot number of zeroes at the end of _n_ when written in base ten,
+Number of zeroes at the end of _n_ when written in base ten,
 OEIS [A122840](https://oeis.org/A122840):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A122840
 1:200.integerExponent(10).discretePlot
 ~~~
 
@@ -246,7 +248,7 @@ OEIS [A122840](https://oeis.org/A122840):
 An experimental sequence by D.J. Sycamore,
 OEIS [A366601](https://oeis.org/A366601):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A366601
 let a = { :n |
 	let m = integerExponent(n, 2) + 1;
 	bitShiftRight(n, m)
@@ -271,7 +273,7 @@ c.scatterPlot
 Count nonsingular complex Hermitian matrices,
 OEIS [A037227](https://oeis.org/A037227):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A037227
 1:120.collect { :n |
 	2 * n.integerExponent(2) + 1
 }.scatterPlot
@@ -284,7 +286,7 @@ complement of
 exponent of the largest power of two dividing _(2n)!_,
 OEIS [A279340](https://oeis.org/A279340):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A279340 set=1,3
 0:99.complement(
 	0:51.collect { :n |
 		(2 * n).!.integerExponent(2)
@@ -297,7 +299,7 @@ OEIS [A279340](https://oeis.org/A279340):
 Plot two-adic valuation of _τ(n)_,
 OEIS [A295664](https://oeis.org/A295664):
 
-~~~spl svg=G
+~~~spl svg=G oeis=A295664
 1:120.collect { :n |
 	0.divisorSigma(n).integerExponent(2)
 }.discretePlot
@@ -308,7 +310,7 @@ OEIS [A295664](https://oeis.org/A295664):
 Plot two-adic valuation of _σ(n)_,
 OEIS [A336937](https://oeis.org/A336937):
 
-~~~spl svg=H
+~~~spl svg=H oeis=A336937
 1:120.collect { :n |
 	1.divisorSigma(n).integerExponent(2)
 }.discretePlot
@@ -318,7 +320,7 @@ OEIS [A336937](https://oeis.org/A336937):
 
 Plot OEIS [A371094](https://oeis.org/A371094):
 
-~~~spl svg=I
+~~~spl svg=I oeis=A371094
 0:150.collect { :n |
 	let m = 1 + (3 * n);
 	let e = m.integerExponent(2);
@@ -331,7 +333,7 @@ Plot OEIS [A371094](https://oeis.org/A371094):
 Plot three-adic valuation of the bijective bit-reverse of _3n_,
 OEIS [A280509](https://oeis.org/A280509):
 
-~~~spl svg=J
+~~~spl svg=J oeis=A280509
 1:75.collect { :n |
 	let a = (3 * n).integerReverse(2);
 	let b = a * (3 * n).bitAnd(-3 * n);
@@ -344,7 +346,7 @@ OEIS [A280509](https://oeis.org/A280509):
 Exchange two and three in the prime factorization of _n_,
 OEIS [A064614](https://oeis.org/A064614):
 
-~~~spl svg=K
+~~~spl svg=K oeis=A064614
 1:60.collect { :n |
 	[
 		n,
@@ -360,7 +362,7 @@ A sequence related to the ruler sequence _r_,
 where _a(2n)=4a(n)-2^r(n)_,
 OEIS [A220466](https://oeis.org/A220466):
 
-~~~spl svg=L
+~~~spl svg=L oeis=A220466
 1:115.collect { :n |
 	let p = n.integerExponent(2);
 	let m = (n / (2 ^ p) + 1) / 2;
@@ -375,7 +377,7 @@ OEIS [A220466](https://oeis.org/A220466):
 Walk a rook along a square spiral,
 OEIS [A308896](https://oeis.org/A308896):
 
-~~~spl svg=M
+~~~spl svg=M oeis=A308896
 let k = 6;
 let e = (2 * k + 1) ^ 2;
 let h = List(2 * k + 1, 0L);
@@ -413,7 +415,7 @@ _b=3_,
 greatest _k_ such that _3^k_ divides _n_,
 OEIS [A007949](https://oeis.org/A007949):
 
-~~~spl svg=N
+~~~spl svg=N oeis=A007949
 1:150.integerExponent(3).discretePlot
 ~~~
 
@@ -422,7 +424,7 @@ OEIS [A007949](https://oeis.org/A007949):
 Deficiency minus binary weight,
 OEIS [A294898](https://oeis.org/A294898):
 
-~~~spl svg=O
+~~~spl svg=O oeis=A294898 signed
 1:115.collect { :n |
 	(2 * n).!.integerExponent(2)
 	-
@@ -435,7 +437,7 @@ OEIS [A294898](https://oeis.org/A294898):
 The largest five-smooth divisor of _n_,
 OEIS [A355582](https://oeis.org/A355582):
 
-~~~spl svg=P
+~~~spl svg=P oeis=A355582
 1:65.collect { :n |
 	[2 3 5].product { :b |
 		b ^ n.integerExponent(b)
@@ -448,7 +450,7 @@ OEIS [A355582](https://oeis.org/A355582):
 Largest divisor of _n_ having the form _2^i×5^j_,
 OEIS [A132741](https://oeis.org/A132741):
 
-~~~spl svg=Q
+~~~spl svg=Q oeis=A132741
 1:65.collect { :n |
 	[2 5].product { :b |
 		b ^ n.integerExponent(b)
@@ -457,6 +459,18 @@ OEIS [A132741](https://oeis.org/A132741):
 ~~~
 
 ![](sw/spl/Help/Image/integerExponent-Q.svg)
+
+A sequence related to the Josephus problem,
+OEIS [A025480](https://oeis.org/A025480):
+
+~~~spl svg=R oeis=A025480
+1:84.collect { :n |
+	let m = n.integerExponent(2);
+	bitShiftRight(n, m + 1)
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/integerExponent-R.svg)
 
 * * *
 

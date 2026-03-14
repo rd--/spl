@@ -153,7 +153,7 @@ a[1:125].log.scatterPlot
 _a(2n)=-2*a(n)_ and _a(2n+1)=2*a(n)-1_,
 OEIS [A104895](https://oeis.org/A104895):
 
-~~~spl svg=B oeis=A104895
+~~~spl svg=B oeis=A104895 signed
 let a = Map { :n |
 	(n = 0).if {
 		0
@@ -173,7 +173,7 @@ a[0:150].scatterPlot
 Plot fixed point of dividing the digits according to parity and multiplying the parts,
 OEIS [A059707](https://oeis.org/A059707):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A059707
 0:250.collect { :i |
 	{ :n |
 		let d = n.integerDigits;
@@ -193,7 +193,7 @@ OEIS [A059707](https://oeis.org/A059707):
 The main diagonal of Kimberling’s expulsion array
 OEIS [A007063](https://oeis.org/A007063):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A007063
 let k = { :i :j |
 	(j < (2 * i - 3)).if {
 		j.isEven.if {
@@ -215,7 +215,7 @@ let k = { :i :j |
 Hermite’s problem,
 OEIS [A069981](https://oeis.org/A069981):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A069981
 1:35.collect { :n |
 	n.isEven.if {
 		((n + 8) * (n - 2)) / 8
@@ -230,7 +230,7 @@ OEIS [A069981](https://oeis.org/A069981):
 Alcuin’s sequence,
 OEIS [A005044](https://oeis.org/A005044):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A005044
 1:35.collect { :n |
 	n.isEven.if {
 		n ^ 2
@@ -245,7 +245,7 @@ OEIS [A005044](https://oeis.org/A005044):
 A permutation of the positive integers,
 OEIS [A163511](https://oeis.org/A163511):
 
-~~~spl svg=G
+~~~spl svg=G oeis=A163511 permutation
 let f:/1 = 'A003961'.oeisFunction;
 let a = Map { :n |
 	(n <= 1).if {
@@ -266,7 +266,7 @@ a[0:250].log.scatterPlot
 Least positive integers whose convolution forms a sequence whose odd-indexed terms are twice the odd primes,
 OEIS [A073739](https://oeis.org/A073739):
 
-~~~spl svg=H
+~~~spl svg=H oeis=A073739
 let a = Map { :n |
 	(n <= 2).if {
 		1
@@ -288,7 +288,7 @@ Self convolution of
 OEIS [A073739](https://oeis.org/A073739),
 OEIS [A073740](https://oeis.org/A073740):
 
-~~~spl svg=I
+~~~spl svg=I oeis=A073740
 let b = Map { :n |
 	(n <= 2).if {
 		1
@@ -323,7 +323,7 @@ a[0:150].log.scatterPlot
 Even numbers interleaved with repeated odd numbers,
 OEIS [A186421](https://oeis.org/A186421):
 
-~~~spl svg=J
+~~~spl svg=J oeis=A186421
 0:65.collect { :n |
 	n.isEven.if {
 		n
@@ -338,7 +338,7 @@ OEIS [A186421](https://oeis.org/A186421):
 First differences of even numbers interleaved with repeated odd numbers,
 OEIS [A186422](https://oeis.org/A186422):
 
-~~~spl svg=K
+~~~spl svg=K oeis=A186422 signed
 0:65.collect { :n |
 	n.isEven.if {
 		n

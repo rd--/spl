@@ -637,6 +637,7 @@
 - `boole`
   1. ![](sw/spl/Help/Image/boole-A.svg)
   2. ![](sw/spl/Help/Image/boole-B.svg)
+  3. ![](sw/spl/Help/Image/boole-C.svg)
 - `botanicCurve`
   1. ![](sw/spl/Help/Image/botanicCurve-A.svg)
   2. ![](sw/spl/Help/Image/botanicCurve-B.svg)
@@ -1187,6 +1188,7 @@
   3. ![](sw/spl/Help/Image/deCasteljausAlgorithm-C.svg)
 - `decimalExpansion`
   1. ![](sw/spl/Help/Image/decimalExpansion-A.svg)
+  2. ![](sw/spl/Help/Image/decimalExpansion-B.svg)
 - `decimalPeriod`
   1. ![](sw/spl/Help/Image/decimalPeriod-A.svg)
   2. ![](sw/spl/Help/Image/decimalPeriod-B.svg)
@@ -2599,6 +2601,7 @@
   3. ![](sw/spl/Help/Image/interleave-C.svg)
   4. ![](sw/spl/Help/Image/interleave-D.svg)
   5. ![](sw/spl/Help/Image/interleave-E.svg)
+  6. ![](sw/spl/Help/Image/interleave-F.svg)
 - `interpolation`
   1. ![](sw/spl/Help/Image/interpolation-A.svg)
   2. ![](sw/spl/Help/Image/interpolation-B.svg)
@@ -2789,6 +2792,7 @@
   3. ![](sw/spl/Help/Image/iterate-C.svg)
   4. ![](sw/spl/Help/Image/iterate-D.svg)
   5. ![](sw/spl/Help/Image/iterate-E.svg)
+  6. ![](sw/spl/Help/Image/iterate-F.svg)
 - `j`
   1. ![](sw/spl/Help/Image/j-A.svg)
 - `jacobiCn`
@@ -2919,6 +2923,7 @@
   9. ![](sw/spl/Help/Image/kroneckerSymbol-I.svg)
   10. ![](sw/spl/Help/Image/kroneckerSymbol-J.svg)
   11. ![](sw/spl/Help/Image/kroneckerSymbol-K.svg)
+  12. ![](sw/spl/Help/Image/kroneckerSymbol-L.svg)
 - `kuhnTriangulation`
   1. ![](sw/spl/Help/Image/kuhnTriangulation-A.svg)
   2. ![](sw/spl/Help/Image/kuhnTriangulation-B.svg)
@@ -3062,6 +3067,7 @@
   11. ![](sw/spl/Help/Image/linearRecurrence-K.svg)
   12. ![](sw/spl/Help/Image/linearRecurrence-L.svg)
   13. ![](sw/spl/Help/Image/linearRecurrence-M.svg)
+  14. ![](sw/spl/Help/Image/linearRecurrence-N.svg)
 - `lineCollection`
   1. ![](sw/spl/Help/Image/lineCollection-A.svg)
   2. ![](sw/spl/Help/Image/lineCollection-B.svg)
@@ -3649,6 +3655,7 @@
 - `occurrencesOf`
   1. ![](sw/spl/Help/Image/occurrencesOf-A.svg)
   2. ![](sw/spl/Help/Image/occurrencesOf-B.svg)
+  3. ![](sw/spl/Help/Image/occurrencesOf-C.svg)
 - `oddEvenSort`
   1. ![](sw/spl/Help/Image/oddEvenSort-A.svg)
 - `oddEvenSortMatrix`
@@ -4019,6 +4026,7 @@
   7. ![](sw/spl/Help/Image/power-G.svg)
   8. ![](sw/spl/Help/Image/power-H.svg)
   9. ![](sw/spl/Help/Image/power-I.svg)
+  10. ![](sw/spl/Help/Image/power-J.svg)
 - `powerCircles`
   1. ![](sw/spl/Help/Image/powerCircles-A.svg)
 - `powerMod`
@@ -4046,6 +4054,7 @@
   6. ![](sw/spl/Help/Image/prefixSum-F.svg)
   7. ![](sw/spl/Help/Image/prefixSum-G.svg)
   8. ![](sw/spl/Help/Image/prefixSum-H.svg)
+  9. ![](sw/spl/Help/Image/prefixSum-I.svg)
 - `previousPrime`
   1. ![](sw/spl/Help/Image/previousPrime-A.svg)
   2. ![](sw/spl/Help/Image/previousPrime-B.svg)
@@ -4328,6 +4337,7 @@
   4. ![](sw/spl/Help/Image/recamanSequence-D.svg)
   5. ![](sw/spl/Help/Image/recamanSequence-E.svg)
   6. ![](sw/spl/Help/Image/recamanSequence-F.svg)
+  7. ![](sw/spl/Help/Image/recamanSequence-G.svg)
 - `ReciprocalDistribution`
   1. ![](sw/spl/Help/Image/ReciprocalDistribution-A.svg)
   2. ![](sw/spl/Help/Image/ReciprocalDistribution-B.svg)

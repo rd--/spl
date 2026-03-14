@@ -5,7 +5,7 @@
 Answer a magic square of size _n×n_.
 
 A 3×3 magic square,
-OEIS[A033812](https://oeis.org/A033812):
+OEIS [A033812](https://oeis.org/A033812):
 
 ```
 >>> 3.magicSquare

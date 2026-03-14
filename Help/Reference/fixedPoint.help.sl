@@ -51,7 +51,7 @@ Use a test function with a specific tolerance to resolve this:
 Fixed point of _n←(n-1)/2_ until result is prime,
 OEIS [A039634](https://oeis.org/A039634):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A039634
 1:150.collect { :n |
 	{ :x |
 		(x.isPrime | { x = 1 }).if {

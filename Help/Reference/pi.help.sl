@@ -220,9 +220,10 @@ OEIS [A000796](https://oeis.org/A000796):
 (3.141593, 104)
 ```
 
-Scatter plot of the digits of π:
+Scatter plot of the digits of π,
+OEIS [A000796](https://oeis.org/A000796):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A000796 constant
 1.pi(104)
 .integerDigits
 .scatterPlot
@@ -233,7 +234,7 @@ Scatter plot of the digits of π:
 Scatter plot of the digits of _π^2/9_,
 OEIS [A100044](https://oeis.org/A100044):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A100044 constant
 'Pi^2/9'
 .namedConstant
 .integerDigits
@@ -245,7 +246,7 @@ OEIS [A100044](https://oeis.org/A100044):
 Scatter plot of the digits of _π/4_,
 OEIS [A003881](https://oeis.org/A003881)
 
-~~~spl svg=C
+~~~spl svg=C oeis=A003881 constant
 1/4.pi(104).integerDigits.scatterPlot
 ~~~
 

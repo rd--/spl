@@ -1174,13 +1174,19 @@
 	}
 
 	fromDigits { :self :radix |
-		let answer = 0;
-		let m = 1;
-		self.reverseDo { :each |
-			answer := answer + (each * m);
-			m := m * radix
-		};
-		answer
+		self.isVector.if {
+			let answer = 0;
+			let m = 1;
+			self.reverseDo { :each |
+				answer := answer + (each * m);
+				m := m * radix
+			};
+			answer
+		} {
+			self.collect { :each |
+				each.fromDigits(radix)
+			}
+		}
 	}
 
 	fromDigits { :self |

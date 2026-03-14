@@ -109,7 +109,7 @@ Show that the expression _f_ below answers non-square numbers:
 Number of partitions of _n_ into two squares,
 OEIS [A000161](https://oeis.org/A000161):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A000161
 1:107.collect { :n |
 	let m = ((n - 1) // 2);
 	let a = m.integerSquareRoot + 1;

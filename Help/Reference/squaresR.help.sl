@@ -14,7 +14,7 @@ Number of ways to represent _n_ as a sum of two squares:
 12
 ```
 
-First few terms with _d=2_,
+Number of ways of writing _n_ as a sum of two squares,
 OEIS [A004018](https://oeis.org/A004018):
 
 ```
@@ -109,10 +109,10 @@ OEIS [A014200](https://oeis.org/A014200):
 ]
 ```
 
-Plot first few terms with _d=2_,
+Number of ways of writing _n_ as a sum of two squares,
 OEIS [A004018](https://oeis.org/A004018):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A004018
 1:100.collect { :n |
 	2.squaresR(n)
 }.discretePlot
@@ -132,10 +132,10 @@ OEIS [A010054](https://oeis.org/A010054):
 
 ![](sw/spl/Help/Image/squaresR-B.svg)
 
-Plot first few terms with _d=4_,
+Number of ways of writing _n_ as a sum of four squares,
 OEIS [A000118](https://oeis.org/A000118):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A000118
 0:250.collect { :n |
 	4.squaresR(n)
 }.scatterPlot

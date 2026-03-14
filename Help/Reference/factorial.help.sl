@@ -343,7 +343,7 @@ also sometimes called the Smarandache function or Kempner numbers,
 the smallest positive integer _m_ such that _n_ divides _m!_,
 OEIS [A002034](https://oeis.org/A002034):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A002034
 1:100.collect { :n |
 	let m = 1;
 	{
@@ -360,7 +360,7 @@ OEIS [A002034](https://oeis.org/A002034):
 Leading digit of _n!_,
 OEIS [A008905](https://oeis.org/A008905):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A008905 set=0-9
 let n = 0:85.!;
 (n // (10 ^ n.log10.floor))
 .discretePlot
@@ -371,7 +371,7 @@ let n = 0:85.!;
 The factorial numbers with trailing zeros omitted,
 OEIS [A004154](https://oeis.org/A004154):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A004154
 let n = 0:65.!;
 let a = n / (10 ^ n.integerExponent(10));
 a.log.scatterPlot

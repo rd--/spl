@@ -39,7 +39,7 @@ Map over a character range:
 >>> .characters
 >>> .isPrintableAscii
 >>> .asRunArray
->>> .asAssociationList
+>>> .associations
 [32 -> false, 95 -> true, 1 -> false]
 ```
 

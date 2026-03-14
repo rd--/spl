@@ -1490,6 +1490,10 @@
 		Range(0, 1, Fraction(1, self))
 	}
 
+	ternaryExpansion { :n |
+		n.integerDigits(3)
+	}
+
 	theodorusSpiral { :n |
 		let theta = 0;
 		1.toCollect(n) { :i |

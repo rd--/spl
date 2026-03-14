@@ -338,6 +338,7 @@ OEIS [A179016](https://oeis.org/A179016):
 ![](sw/spl/Help/Image/digitCount-L.svg)
 
 Numbers whose base three representation contains no two,
+a Stanley sequence,
 OEIS [A005836](https://oeis.org/A005836):
 
 ~~~spl svg=M oeis=A005836

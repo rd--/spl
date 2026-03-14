@@ -4,6 +4,7 @@
 
 Answer the _n_-row second-order Eulerian triangle.
 
+Eulerian triangle,
 OEIS [A008517](http://oeis.org/A008517):
 
 ```

@@ -227,6 +227,14 @@ OEIS [A036262](https://oeis.org/A036262):
 ]
 ```
 
+Numbers _k_ such that _2k+3_ is a prime,
+OEIS [A067076](https://oeis.org/A067076):
+
+```
+>>> (2:17.prime - 3) / 2
+[0 1 2 4 5 7 8 10 13 14 17 19 20 22 25 28]
+```
+
 Plot first fifty primes,
 OEIS [A000040](https://oeis.org/A000040):
 

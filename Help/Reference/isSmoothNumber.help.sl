@@ -93,7 +93,7 @@ The largest consecutive 19-smooth numbers:
 Plot sequence of regular numbers,
 OEIS [A051037](https://oeis.org/A051037):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A051037
 1:999.select { :n |
 	n.isSmoothNumber(5)
 }.linePlot

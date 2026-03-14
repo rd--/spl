@@ -120,7 +120,7 @@ OEIS [A005700](https://oeis.org/A005700):
 Highest power of two dividing _n_-th Catalan number,
 OEIS [A048881](https://oeis.org/A048881):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A048881
 0L:104.catalanNumber
 .integerExponent(2)
 .discretePlot

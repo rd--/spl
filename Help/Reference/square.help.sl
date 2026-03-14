@@ -111,7 +111,7 @@ OEIS [A000290](https://oeis.org/A000290):
 Square roots of unity modulo _m_,
 OEIS [A060594](https://oeis.org/A060594):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A060594
 1:103.collect { :n |
 	1:n.sum { :i |
 		((i.square - 1) % n = 0).boole
@@ -124,7 +124,7 @@ OEIS [A060594](https://oeis.org/A060594):
 _a(n)_ is the smallest integer _m_ not equal to _n_ such that _n=(⌊(n²/m)+m)/2_,
 OEIS [A134986](https://oeis.org/A134986):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A134986
 1:65.collect { :n |
 	1:Infinity.detect { :m |
 		m != n & {
@@ -140,7 +140,7 @@ OEIS [A134986](https://oeis.org/A134986):
 Square numbers,
 OEIS [A000290](https://oeis.org/A000290):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A000290
 0:65.square.discretePlot
 ~~~
 

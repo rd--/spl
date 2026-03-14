@@ -48,9 +48,9 @@ OEIS [A114537](https://oeis.org/A114537)
 ```
 
 Plot characteristic function of nonprimes,
-OEIS[A005171](https://oeis.org/A005171):
+OEIS [A005171](https://oeis.org/A005171):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A005171 set=0,1
 1:75.collect { :n |
 	n.isPrime.not.boole
 }.discretePlot
@@ -61,7 +61,7 @@ OEIS[A005171](https://oeis.org/A005171):
 Plot dispersion of the primes,
 OEIS [A114537](https://oeis.org/A114537)
 
-~~~spl svg=B
+~~~spl svg=B oeis=A114537
 10.antidiagonalArray { :n :k |
 	prime:/1.iterate(
 		(n - 1).nonPrime,

@@ -58,7 +58,7 @@ Threads over first argument:
 [4 3 1 2 4]
 ```
 
-Use `powerMod` to generate all coprime integers modulo 9:
+Use `powerMod` to generate all coprime integers modulo nine:
 
 ```
 >>> 2:10.collect { :each |
@@ -254,7 +254,7 @@ including zero,
 modulo _n_,
 OEIS [A096008](https://oeis.org/A096008):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A096008
 1:30.collect { :n |
 	[0 .. n - 1].collect { :k |
 		powerMod(k, 2, n)
@@ -267,7 +267,7 @@ OEIS [A096008](https://oeis.org/A096008):
 Plot smallest pseudoprime _>n_ to base _n_,
 OEIS [A007535](https://oeis.org/A007535):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A007535
 1:175.collect { :n |
 	let k = n + 1;
 	{
@@ -286,7 +286,7 @@ OEIS [A007535](https://oeis.org/A007535):
 Plot number of distinct residues,
 OEIS [A195637](https://oeis.org/A195637):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A195637
 1:150.collect { :n |
 	let m = n - 1;
 	0:m.powerMod(n, n).nub.size
@@ -298,7 +298,7 @@ OEIS [A195637](https://oeis.org/A195637):
 Smallest number _m>1_ such that _m^(p-1)-1_ is divisible by _p^2_,
 OEIS [A039678](https://oeis.org/A039678):
 
-~~~spl svg=G
+~~~spl svg=G oeis=A039678
 1:150.collect { :n |
 	let p = n.prime;
 	2:Infinity.detect { :a |
@@ -312,7 +312,7 @@ OEIS [A039678](https://oeis.org/A039678):
 Shadow transform of the squares,
 OEIS [A000188](https://oeis.org/A000188):
 
-~~~spl svg=H
+~~~spl svg=H oeis=A000188
 1:150.collect { :n |
 	1:n.count { :x |
 		x.powerMod(2, n) = 0
@@ -325,7 +325,7 @@ OEIS [A000188](https://oeis.org/A000188):
 Plot number of distinct primes among the squares modulo _n_,
 OEIS [A132213](https://oeis.org/A132213):
 
-~~~spl svg=I
+~~~spl svg=I oeis=A132213
 1:200.collect { :n |
 	1:n.powerMod(2, n)
 	.unique
@@ -335,10 +335,10 @@ OEIS [A132213](https://oeis.org/A132213):
 
 ![](sw/spl/Help/Image/powerMod-I.svg)
 
-_a(n)=_2^a(n-1)_ modulo _n_,
+_a(n)=2^a(n-1)_ modulo _n_,
 OEIS [A131644](https://oeis.org/A131644):
 
-~~~spl svg=J
+~~~spl svg=J oeis=A131644
 let s = 0;
 2:85.collect { :n |
 	s := 2.powerMod(s, n)

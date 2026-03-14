@@ -65,10 +65,11 @@ OEIS [A000120](https://oeis.org/A000120):
 ]
 ```
 
-Log scatter plot of first few terms of Gould’s sequence,
+Gould’s sequence,
+log scale scatter plot,
 OEIS [A001316](https://oeis.org/A001316):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A001316
 99.gouldsSequence
 .log
 .scatterPlot
@@ -76,10 +77,11 @@ OEIS [A001316](https://oeis.org/A001316):
 
 ![](sw/spl/Help/Image/gouldsSequence-A.svg)
 
-Scatter plot of first few terms of prefix sum,
+Partial sums of Gould’s sequence,
+scatter plot,
 OEIS [A006046](https://oeis.org/A006046):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A006046
 96.gouldsSequence
 .prefixSum
 .scatterPlot
@@ -87,10 +89,10 @@ OEIS [A006046](https://oeis.org/A006046):
 
 ![](sw/spl/Help/Image/gouldsSequence-B.svg)
 
-Plot first differences,
+First differences of Gould’s sequence,
 OEIS [A151930](https://oeis.org/A151930):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A151930 signed
 63.gouldsSequence
 .differences
 .discretePlot

@@ -192,9 +192,9 @@ OEIS [A008892](https://oeis.org/A008892):
 ```
 
 The length of the first few aliquot sequences,
-OEIS [A053223](https://oeis.org/A053223):
+OEIS [A044050](https://oeis.org/A044050):
 
-~~~spl svg=A oeis=A053223
+~~~spl svg=A oeis=A044050
 1:85.collect { :n |
  	n.aliquotSequence.size
 }.discretePlot
@@ -214,7 +214,7 @@ OEIS [A008892](https://oeis.org/A008892):
 The aliquot sequences up to twenty three that reach one,
 OEIS [A032451](https://oeis.org/A032451):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A032451
 1:23.aliquotSequence
 .select { :x | x.last = 1 }
 .catenate.discretePlot
@@ -225,7 +225,7 @@ OEIS [A032451](https://oeis.org/A032451):
 The aliquot sequences up to sixty that reach one,
 OEIS [A032451](https://oeis.org/A032451):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A032451
 1:60.aliquotSequence
 .select { :x | x.last = 1 }
 .catenate.log.scatterPlot

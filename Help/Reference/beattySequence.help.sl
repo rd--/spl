@@ -4,7 +4,7 @@
 
 Answer the first _n_ terms of the Beatty sequence corresponding to θ.
 
-The sequences for _α=√2_,
+The Beatty sequences for _α=√2_,
 OEIS [A001951](https://oeis.org/A001951) and
 OEIS [A001952](https://oeis.org/A001952):
 

@@ -151,7 +151,7 @@ Plot for _n={1,2,3}_ over a subset of the reals:
 Triangle read by rows where _q=-1_,
 OEIS [A051159](https://oeis.org/A051159):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A051159
 0:12.triangularArray { :n :k |
 	qBinomial(n, k, -1)
 }.catenate.discretePlot
@@ -162,7 +162,7 @@ OEIS [A051159](https://oeis.org/A051159):
 Losanitsch’s triangle,
 OEIS [A034851](https://oeis.org/A034851):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A034851
 0:10.triangularArray { :n :k |
 	let p = qBinomial(n, k);
 	(p[1] + p[-1]) / 2

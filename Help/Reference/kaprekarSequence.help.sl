@@ -109,7 +109,7 @@ partitioned into a 100×100 matrix:
 The Kaprekar binary numbers in decimal,
 OEIS [A160761](https://oeis.org/A160761):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A160761
 0:100.collect { :n |
 	n.kaprekarSequence(2).last
 }.without(0).stepPlot

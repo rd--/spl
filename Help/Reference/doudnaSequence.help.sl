@@ -69,7 +69,7 @@ OEIS [A278222](https://oeis.org/A278222):
 ![](sw/spl/Help/Image/doudnaSequence-C.svg)
 
 Restricted growth sequence of least number with the same prime signature as the Doudna sequence entry,
-OEIS[A286622](https://oeis.org/A286622):
+OEIS [A286622](https://oeis.org/A286622):
 
 ~~~spl svg=D
 200.doudnaSequence.collect { :n |
@@ -85,7 +85,7 @@ OEIS[A286622](https://oeis.org/A286622):
 ![](sw/spl/Help/Image/doudnaSequence-D.svg)
 
 Ordinal transform of the restricted growth sequence of least number with the same prime signature as the Doudna sequence entry,
-OEIS[A286552](https://oeis.org/A286552):
+OEIS [A286552](https://oeis.org/A286552):
 
 ~~~spl svg=E
 200.doudnaSequence.collect { :n |

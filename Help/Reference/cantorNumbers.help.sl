@@ -5,7 +5,8 @@
 Answer the first _n_ Cantor numbers,
 the numbers whose ternary expansion contain no ones.
 
-First few terms:
+First few Cantor numbers,
+OEIS [A005823](https://oeis.org/A005823):
 
 ```
 >>> 56.cantorNumbers
@@ -25,9 +26,10 @@ First few terms:
 ]
 ```
 
-Plot first few terms:
+Cantor numbers,
+OEIS [A005823](https://oeis.org/A005823):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A005823
 192.cantorNumbers.scatterPlot
 ~~~
 

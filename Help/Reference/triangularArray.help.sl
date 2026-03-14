@@ -517,7 +517,7 @@ OEIS [A023531](https://oeis.org/A023531):
 Triangle where _(n,n)=n_, _(n,n-1)=-(n-1)_ else zero,
 OEIS [A128064](https://oeis.org/A128064):
 
-~~~spl svg=L oies=A128064 signed
+~~~spl svg=L oeis=A128064 signed
 1:10.triangularArray { :i :j |
 	(i = j).if {
 		i

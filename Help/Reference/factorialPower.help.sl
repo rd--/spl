@@ -19,7 +19,7 @@ Answer the factorial power _x^(n)_.
 ```
 
 Triangle of falling factorials,
-OEIS[A068424](https://oeis.org/A068424):
+OEIS [A068424](https://oeis.org/A068424):
 
 ```
 >>> 1:7.triangularArray(factorialPower:/2)

@@ -296,6 +296,16 @@ OEIS [A048647](https://oeis.org/A048647):
 
 ![](sw/spl/Help/Image/fromDigits-F.svg)
 
+Rebase _n_ from four to two,
+OEIS [A065362](https://oeis.org/A065362):
+
+~~~spl svg=G oeis=A065362
+1:115.integerDigits(4).fromDigits(2)
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/fromDigits-G.svg)
+
 * * *
 
 See also: digitCount, fromContinuedFraction, integerDigits, powerRange, rationalize

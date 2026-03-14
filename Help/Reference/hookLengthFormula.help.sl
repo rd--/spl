@@ -57,9 +57,10 @@ OEIS [A117506](https://oeis.org/A117506):
 ]
 ```
 
-Plot table:
+Table of dimensions of integer partitions,
+OEIS [A117506](https://oeis.org/A117506):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A117506
 1:8.collect { :n |
 	n.integerPartitions
 	.collect(hookLengthFormula:/1)
@@ -87,9 +88,10 @@ OEIS [A060240](https://oeis.org/A060240):
 ]
 ```
 
-Plot table:
+Table of dimensions of integer partitions in ascending order,
+OEIS [A060240](https://oeis.org/A060240):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A060240
 1:8.collect { :n |
 	n.integerPartitions
 	.collect(hookLengthFormula:/1)

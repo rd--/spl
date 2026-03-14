@@ -133,7 +133,7 @@ Ceiling is a staircase function:
 Canonical enumeration of integers,
 OEIS [A001057](https://oeis.org/A001057):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A001057 signed
 0:99.collect { :n |
 	(-1 ^n) * (n / 2).ceiling
 }.discretePlot
@@ -144,7 +144,7 @@ OEIS [A001057](https://oeis.org/A001057):
 Shortest representation of _-n_ in twos-complement format,
 OEIS [A010078](https://oeis.org/A010078):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A010078
 1:85.collect { :n |
 	2 ^ (n.log2 + 1).ceiling - n
 }.scatterPlot
@@ -156,7 +156,7 @@ Irregular triangle read by rows in which column _k_ lists _k_ copies of every po
 and the first element of column _k_ is in row _k(k+1)/2_,
 OEIS [A235791](https://oeis.org/A235791):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A235791
 1:24.collect { :n |
 	let m = n.inverseTriangularNumber;
 	1:m.collect { :k |

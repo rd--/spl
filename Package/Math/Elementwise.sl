@@ -715,6 +715,10 @@
 		self.collect(thueMorse:/1)
 	}
 
+	ternaryExpansion { :self |
+		self.collect(ternaryExpansion:/1)
+	}
+
 	tetrahedralNumber { :self |
 		self.collect(tetrahedralNumber:/1)
 	}

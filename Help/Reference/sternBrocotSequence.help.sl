@@ -50,7 +50,7 @@ Find the index where the number 100 first appears in the sequence:
 
 First differences of Stern’s diatomic series,
 discarding initial two terms,
-OEIS[A070990](https://oeis.org/A070990):
+OEIS [A070990](https://oeis.org/A070990):
 
 ```
 >>> 17.sternBrocotSequence
@@ -90,7 +90,7 @@ OEIS [A212289](https://oeis.org/A212289):
 
 First differences of Stern’s diatomic series,
 discarding initial two terms,
-OEIS[A070990](https://oeis.org/A070990):
+OEIS [A070990](https://oeis.org/A070990):
 
 ~~~spl svg=D oeis=A070990 signed
 115.sternBrocotSequence
@@ -102,7 +102,7 @@ OEIS[A070990](https://oeis.org/A070990):
 ![](sw/spl/Help/Image/sternBrocotSequence-D.svg)
 
 Second differences of Stern’s diatomic series,
-OEIS[A283104](https://oeis.org/A283104):
+OEIS [A283104](https://oeis.org/A283104):
 
 ~~~spl svg=E oeis=A283104 signed
 150.sternBrocotSequence

@@ -7,7 +7,7 @@ and the values are code block records.
 
 ```
 >>> system.helpImageTable.size
-4269
+4279
 
 >>> let t = system.helpImageTable;
 >>> ['svg' 'png' 'oeis' 'set'].collect { :k |
@@ -16,7 +16,7 @@ and the values are code block records.
 >>> 		.includesKey(k)
 >>> 	}
 >>> }
-[4094 175 58 55]
+[4104 175 209 76]
 ```
 
 * * *

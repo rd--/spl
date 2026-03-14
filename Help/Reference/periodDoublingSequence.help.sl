@@ -96,7 +96,8 @@ The complement of the period doubling sequence,
 OEIS [A035263](https://oeis.org/A035263):
 
 ~~~spl svg=D oeis=A035263 set=0,1
-(1 - 105.periodDoublingSequence).discretePlot
+(1 - 105.periodDoublingSequence)
+.discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/periodDoublingSequence-D.svg)

@@ -36,9 +36,11 @@ OEIS [A046095](https://oeis.org/A046095):
 (1.55139, 101)
 ```
 
-Scatter plot of the digits of Calabi’s constant:
+The digits of Calabi’s constant,
+scatter plot,
+OEIS [A046095](https://oeis.org/A046095):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A046095 constant
 1.calabisConstant(101)
 .integerDigits
 .scatterPlot
