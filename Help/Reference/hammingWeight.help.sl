@@ -48,7 +48,6 @@ OEIS [A000120](https://oeis.org/A000120):
 
 ![](sw/spl/Help/Image/hammingWeight-A.svg)
 
-
 Hamming weight of the first eight-bit integers,
 line plot,
 OEIS [A000120](https://oeis.org/A000120):
@@ -164,7 +163,6 @@ OEIS [A287639](https://oeis.org/A287639):
 ~~~
 
 ![](sw/spl/Help/Image/hammingWeight-K.svg)
-
 
 Lexicographically earliest sequence of distinct positive terms
 such that for consecutive terms _w(i+j)≥10_,

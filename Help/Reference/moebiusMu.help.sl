@@ -79,12 +79,12 @@ Number of aperiodic binary strings of length _n_,
 OEIS [A027375](https://oeis.org/A027375):
 
 ```
->>> 1:11.collect { :n |
+>>> 0:11.collect { :n |
 >>> 	n.divisorSum { :d |
->>> 		(n / d).moebiusMu * 2 ^ d
+>>> 		(n / d).moebiusMu * (2 ^ d)
 >>> 	}
 >>> }
-[2 2 6 12 30 54 126 240 504 990 2046]
+[0 2 2 6 12 30 54 126 240 504 990 2046]
 ```
 
 The Möbius sequence,

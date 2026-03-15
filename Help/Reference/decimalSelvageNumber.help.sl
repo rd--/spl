@@ -151,7 +151,6 @@ OEIS [A071873](https://oeis.org/A071873):
 ]
 ```
 
-
 The sixth decimal selvage number,
 OEIS [A071873](https://oeis.org/A071873):
 

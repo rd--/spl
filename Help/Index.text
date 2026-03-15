@@ -104,6 +104,7 @@ Guide/Indexing Functions.help.sl
 Guide/Integer Arithmetic.help.sl
 Guide/Integer Functions.help.sl
 Guide/Integer Sequence Functions.help.sl
+Guide/Integer Sequence Image Index.help.sl
 Guide/Integer Sequence Index.help.sl
 Guide/Integer Sequence Method List.help.sl
 Guide/Integer Sequences.help.sl
@@ -1746,6 +1747,7 @@ Reference/helpImageTable.help.sl
 Reference/helpIndex.help.sl
 Reference/HelpIndex.help.sl
 Reference/helpPreprocessor.help.sl
+Reference/HelpProgram.help.sl
 Reference/HelpViewer.help.sl
 Reference/henonAreaPreservingMap.help.sl
 Reference/HenonC.help.sl
@@ -3000,6 +3002,7 @@ Reference/parseSexagesimal.help.sl
 Reference/parseSmallInteger.help.sl
 Reference/parseSvg.help.sl
 Reference/parseTime.help.sl
+Reference/parseUnquotedAttributeList.help.sl
 Reference/part.help.sl
 Reference/partialInversePermutation.help.sl
 Reference/partitionDo.help.sl
@@ -3943,6 +3946,7 @@ Reference/temporaryFileName.help.sl
 Reference/tenneyHeight.help.sl
 Reference/tensorProduct.help.sl
 Reference/tentMap.help.sl
+Reference/ternaryExpansion.help.sl
 Reference/terseGuideSummary.help.sl
 Reference/terseReferenceEntry.help.sl
 Reference/terseReferenceSummary.help.sl

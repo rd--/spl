@@ -122,7 +122,7 @@ NaN.isNaN /* literal for NaN */
 20.factorial.isSmallInteger = false /* 20! is not a small integer */
 0:9.collect(factorial:/1) = [1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880]
 { -1L.factorial }.hasError /* factorial is not defined for negative integers */
--1.factorial = Infinity
+-1.factorialOrGamma = Infinity
 9.factorial = 1:9.product /* factorial is product of interval */
 12.factorial.log2.floor = 28 /* bit-depth of factorial */
 [12, 18, 20, 100, 170].collect { :each | each.factorial.log2.floor } = [28, 52, 61, 524, 1019]

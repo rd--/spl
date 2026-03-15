@@ -14,7 +14,7 @@ and the values are lists of code block records.
 >>> 	d['abs'].elementType,
 >>> 	d['abs'].size
 >>> )
-(1413, 'Record', 'List', 'Record', 5)
+(1414, 'Record', 'List', 'Record', 5)
 ```
 
 * * *

@@ -14,8 +14,8 @@ Write image files:
 system.helpFilesDo('Reference', '.*', true, writeImageFiles:/1); nil
 ~~~
 
-'ls ~/sw/spl/Help/Image/* | wc -l' => 4,268
-'grep '!\[\](' ~/sw/spl/Help/Reference/* | wc -l' => 4,265
+'ls ~/sw/spl/Help/Image/* | wc -l' => 4,292
+'grep '!\[\](' ~/sw/spl/Help/Reference/* | wc -l' => 4,290
 
 ~~~
 'Help/Reference'.splFilePath.terseSuperColliderGraphSummary(verbose: false, pattern: '.*')
