@@ -8,10 +8,11 @@ _a(4n+1)=3n+1_,
 _a(4n-1)=3n-1_.
 
 First few terms of the amusical permutation,
+threads over lists,
 OEIS [A006368](https://oeis.org/A006368):
 
 ```
->>> 0:15.collect(amusicalPermutation:/1)
+>>> 0:15.amusicalPermutation
 [0 1 3 2 6 4 9 5 12 7 15 8 18 10 21 11]
 ```
 
@@ -51,13 +52,11 @@ OEIS [A368179](https://oeis.org/A368179):
 ]
 ```
 
-First few terms of the amusical permutation,
+The amusical permutation,
 OEIS [A006368](https://oeis.org/A006368):
 
-~~~spl svg=A
-0:65.collect(
-	amusicalPermutation:/1
-).discretePlot
+~~~spl svg=A oeis=A006368
+0:65.amusicalPermutation.discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/amusicalPermutation-A.svg)
@@ -65,7 +64,7 @@ OEIS [A006368](https://oeis.org/A006368):
 The smallest number in the trajectory of the amusical permutation map,
 OEIS [A028397](https://oeis.org/A028397):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A028397
 0:150.collect { :n |
 	amusicalPermutation:/1
 	.nestList(n, 100).min
@@ -77,7 +76,7 @@ OEIS [A028397](https://oeis.org/A028397):
 Iterate the amusical permutation map starting at eight,
 OEIS [A028393](https://oeis.org/A028393):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A028393
 amusicalPermutation:/1
 .nestList(8, 65)
 .discretePlot
@@ -85,10 +84,11 @@ amusicalPermutation:/1
 
 ![](sw/spl/Help/Image/amusicalPermutation-C.svg)
 
-Log scale scatter plot of the amusical permutation map starting at eight,
+Iterate the amusical permutation map starting at eight,
+log scale scatter plot,
 OEIS [A028393](https://oeis.org/A028393):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A028393
 amusicalPermutation:/1
 .nestList(8, 250)
 .log
@@ -100,7 +100,7 @@ amusicalPermutation:/1
 Iterate the amusical permutation map starting at fourteen,
 OEIS [A028395](https://oeis.org/A028395):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A028395
 amusicalPermutation:/1
 .nestList(14, 250)
 .log
@@ -112,7 +112,7 @@ amusicalPermutation:/1
 Iterate the amusical permutation map starting at fourty,
 OEIS [A182205](https://oeis.org/A182205):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A182205
 amusicalPermutation:/1
 .nestList(40, 250)
 .log
@@ -121,15 +121,12 @@ amusicalPermutation:/1
 
 ![](sw/spl/Help/Image/amusicalPermutation-F.svg)
 
-First few terms of the amusical permutation applied twice,
+The amusical permutation applied twice,
 OEIS [A168221](https://oeis.org/A168221):
 
-~~~spl svg=G
-0:65.collect(
-	amusicalPermutation:/1
-).collect(
-	amusicalPermutation:/1
-).discretePlot
+~~~spl svg=G oeis=A168221
+0:65.amusicalPermutation.amusicalPermutation
+.discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/amusicalPermutation-G.svg)
@@ -137,7 +134,7 @@ OEIS [A168221](https://oeis.org/A168221):
 Dirichlet inverse of the amusical permutation function,
 OEIS [A349351](https://oeis.org/A349351):
 
-~~~spl svg=H
+~~~spl svg=H oeis=A349351 signed
 1:115.collect(
 	amusicalPermutation:/1
 	.dirichletInverse
@@ -149,7 +146,7 @@ OEIS [A349351](https://oeis.org/A349351):
 Sum of the amusical permutation and it’s dirichlet inverse,
 OEIS [A349352](https://oeis.org/A349352):
 
-~~~spl svg=I
+~~~spl svg=I oeis=A349352
 let f:/1 = amusicalPermutation:/1;
 let g:/1 = f:/1.dirichletInverse;
 1:115.collect { :n |
@@ -163,7 +160,7 @@ Initial segment of table of iterations,
 read by rising antidiagonals.
 OEIS [A368179](https://oeis.org/A368179):
 
-~~~spl svg=J
+~~~spl svg=J oeis=A368179
 let k = 16;
 let a = 0:k.collect { :n |
 	amusicalPermutation:/1

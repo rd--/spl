@@ -59,7 +59,7 @@ At `Record`:
 Pit harvesting sequence for winning solitaire Tchoukaillon,
 OEIS [A028920](https://oeis.org/A028920):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A028920
 0:150.collect { :n |
 	1:Infinity.detect { :m |
 		let p = (n % (m + 1)) = 0;
@@ -75,7 +75,7 @@ Ordinal transform of
 pit harvesting sequence for winning solitaire Tchoukaillon,
 OEIS [A028920](https://oeis.org/A028920):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A028920
 0:150.collect { :n |
 	1:Infinity.detect { :m |
 		let p = (n % (m + 1)) = 0;

@@ -88,7 +88,7 @@ The van Eck sequence,
 log scale scatter plot,
 OEIS [A181391](https://oeis.org/A181391):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A181391
 250.vanEckSequence
 .log
 .scatterPlot
@@ -100,7 +100,7 @@ The van Eck sequence,
 discrete plot,
 OEIS [A181391](https://oeis.org/A181391):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A181391
 65.vanEckSequence.discretePlot
 ~~~
 
@@ -111,7 +111,7 @@ starting with _1,0_,
 discrete plot,
 OEIS [A171911](https://oeis.org/A171911):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A171911
 85.vanEckSequence([1 0]).discretePlot
 ~~~
 
@@ -122,7 +122,7 @@ starting with _1,0_,
 log scale scatter plot,
 OEIS [A171911](https://oeis.org/A171911):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A171911
 250.vanEckSequence([1 0]).log.scatterPlot
 ~~~
 
@@ -133,7 +133,7 @@ starting with _2,0_,
 discrete plot,
 OEIS [A171912](https://oeis.org/A171912):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A171912
 85.vanEckSequence([2 0]).discretePlot
 ~~~
 
@@ -142,7 +142,7 @@ OEIS [A171912](https://oeis.org/A171912):
 Positions of ones in the van Eck sequence,
 OEIS [A171951](https://oeis.org/A171951):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A171951
 1200.vanEckSequence
 .indicesOf(1)
 .discretePlot
@@ -153,7 +153,7 @@ OEIS [A171951](https://oeis.org/A171951):
 Positions of zeroes in the van Eck sequence,
 OEIS [A171865](https://oeis.org/A171865):
 
-~~~spl svg=G
+~~~spl svg=G oeis=A171865
 200.vanEckSequence
 .indicesOf(0)
 .discretePlot
@@ -164,7 +164,7 @@ OEIS [A171865](https://oeis.org/A171865):
 First differences of positions of zeroes in the van Eck sequence,
 OEIS [A171868](https://oeis.org/A171868):
 
-~~~spl svg=H
+~~~spl svg=H oeis=A171868
 500.vanEckSequence
 .indicesOf(0)
 .differences

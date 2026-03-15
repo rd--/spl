@@ -115,7 +115,7 @@ let a = { :n |
 
 ![](sw/spl/Help/Image/isOdd-A.svg)
 
-Plot fixed point of dividing the digits according to parity and adding the parts,
+Fixed point of dividing the digits according to parity and adding the parts,
 OEIS [A059717](https://oeis.org/A059717):
 
 ~~~spl svg=B oeis=A059717

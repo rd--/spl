@@ -134,7 +134,7 @@ Plot the `imaginary` part of the `sign` function:
 Characteristic function of numbers that are not multiples of four,
 OEIS [A166486](https://oeis.org/A166486):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A166486 set=0,1
 (0:44 % 4).sign.discretePlot
 ~~~
 

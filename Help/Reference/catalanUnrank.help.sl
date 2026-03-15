@@ -5,7 +5,7 @@
 Implement an un-ranking algorithm for the lexicographic ordering of the Catalan families.
 The unranking table is cached as constructed.
 
-First few terms,
+First few terms of Catalan un-ranking algorithm,
 OEIS [A014486](https://oeis.org/A014486):
 
 ```
@@ -68,20 +68,20 @@ OEIS [A080300](https://oeis.org/A080300):
 ]
 ```
 
-Plot first few terms,
+Catalan un-ranking algorithm,
 OEIS [A014486](https://oeis.org/A014486):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A014486
 0:250.collect(catalanUnrank:/1)
 .scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/catalanUnrank-A.svg)
 
-Plot first few terms of
+_W(G(C(n)))/2_,
 OEIS [A057514](https://oeis.org/A057514):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A057514
 0:200.collect { :n |
 	n.catalanUnrank
 	.grayEncode

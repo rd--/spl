@@ -76,7 +76,7 @@ OEIS [A064413](https://oeis.org/A064413):
 
 ![](sw/spl/Help/Image/ekgSequence-B.svg)
 
-Plot `gcd` of consecutive terms,
+`gcd` of consecutive terms,
 OEIS [A073734](https://oeis.org/A073734):
 
 ~~~spl svg=C oeis=A073734

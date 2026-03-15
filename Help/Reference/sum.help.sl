@@ -214,29 +214,32 @@ Evaluate symbolically:
 (+ (+ x y) z)
 ```
 
-Log scale scatter plot of OEIS [A281488](https://oeis.org/A281488):
+Sum previous terms at offset divisors,
+OEIS [A281488](https://oeis.org/A281488):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A281488
 let a = [1];
 2:200.do { :n |
 	let m = n - 1;
 	a.add(
-		1:m.select { :d |
+		m.select { :d |
 			(n - 2) % d = 0
 		}.sum { :d |
 			a[d]
 		}.negate
 	)
 };
-a.logScale.scatterPlot
+a
+
+.logScale.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/sum-A.svg)
 
-Plot recursive two-parameter sequence allowing Ramanujan’s sum calculation,
+Recursive two-parameter sequence allowing Ramanujan’s sum calculation,
 OEIS [A282634](https://oeis.org/A282634):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A282634
 let b:/2 = { :n :m |
 	(n = 1).if {
 		(m = 0).boole
@@ -265,7 +268,7 @@ let b:/2 = { :n :m |
 Count number of partitions combining with _inclusive or_,
 OEIS [A054244](https://oeis.org/A054244):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A054244
 let f = { :n |
 	0:n.sum { :k |
 		let a = binomial(n, k);
@@ -301,7 +304,7 @@ let u = [1 -1 -3 1 -1 3 1 -1 0];
 _b⊛c_ where _b(h)=h_ and _c(h)=h+n-1_,
 OEIS [A213500](https://oeis.org/A213500):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A213500
 1:13.antidiagonalArray { :n :k |
 	let m = k - 1;
 	0:m.sum { :i |
@@ -315,7 +318,7 @@ OEIS [A213500](https://oeis.org/A213500):
 _Σi^2*-1^i_ for _n:2n_,
 OEIS [A225144](https://oeis.org/A225144):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A225144
 1:65.collect { :n |
 	let m = n * 2;
 	n:m.sum { :i |
@@ -329,7 +332,7 @@ OEIS [A225144](https://oeis.org/A225144):
 _Σ0:n𝒙|n_,
 OEIS [A224915](https://oeis.org/A224915):
 
-~~~spl svg=G
+~~~spl svg=G oeis=A224915
 0:63.collect { :n |
 	0:n.sum { :i |
 		n.bitXor(i)
@@ -342,7 +345,7 @@ OEIS [A224915](https://oeis.org/A224915):
 _Σ0:n|n_,
 OEIS [A350093](https://oeis.org/A350093):
 
-~~~spl svg=H
+~~~spl svg=H oeis=A350093
 0:63.collect { :n |
 	0:n.sum { :i |
 		n.bitOr(i)
@@ -355,7 +358,7 @@ OEIS [A350093](https://oeis.org/A350093):
 A variant of the inventory sequence,
 OEIS [A347738](https://oeis.org/A347738):
 
-~~~spl svg=I
+~~~spl svg=I oeis=A347738
 let b = [1: 0];
 let a = Map { :n |
 	(n = 1).if {
@@ -383,7 +386,7 @@ read by antidiagonals,
 given by a summing recurrence,
 OEIS [A191898](https://oeis.org/A191898):
 
-~~~spl svg=J
+~~~spl svg=J oeis=A191898
 let t = { :n :k |
 	[
 		{ n < 1 | { k < 1 } } -> { 0 },
@@ -409,7 +412,7 @@ let t = { :n :k |
 Molien series for three-dimensional group _[2,n]=*22n_,
 OEIS [A008728](https://oeis.org/A008728):
 
-~~~spl svg=K
+~~~spl svg=K oeis=A008728
 0:65.collect { :n |
 	let m = n + 10;
 	0:m.sum { :j |

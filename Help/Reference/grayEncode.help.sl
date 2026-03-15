@@ -136,18 +136,21 @@ OEIS [A280995](https://oeis.org/A280995):
 ]
 ```
 
-Scatter plot of the gray encodings of the first few integers,
+Gray encodings of integers,
+scatter plot,
 OEIS [A003188](https://oeis.org/A003188):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A003188
 0:250.grayEncode.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/grayEncode-A.svg)
 
-Line plot of the gray encodings of the first few integers:
+Gray encodings of integers,
+line plot,
+OEIS [A003188](https://oeis.org/A003188):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A003188
 1:100.grayEncode.linePlot
 ~~~
 
@@ -181,10 +184,11 @@ Line plot of the modular ternary gray encodings of the first few integers:
 
 ![](sw/spl/Help/Image/grayEncode-E.svg)
 
-Log scale scatter plot of first differences of encoding,
+First differences of Gray encoding,
+log scale scatter plot,
 OEIS [A055975](https://oeis.org/A055975):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A055975 signed
 0:250.grayEncode
 .differences
 .logScale
@@ -196,7 +200,7 @@ OEIS [A055975](https://oeis.org/A055975):
 Square of Gray code,
 OEIS [A064706](https://oeis.org/A064706):
 
-~~~spl svg=G
+~~~spl svg=G oeis=A064706
 0:127.grayEncode.grayEncode.scatterPlot
 ~~~
 
@@ -205,7 +209,7 @@ OEIS [A064706](https://oeis.org/A064706):
 Consecutive powers of the Gray code permutation,
 OEIS [A195467](https://oeis.org/A195467):
 
-~~~spl svg=H
+~~~spl svg=H oeis=A195467
 0:2.collect { :i |
 	let n = 2 ^ i;
 	let m = 2 ^ n;
@@ -222,7 +226,7 @@ Table of binary Walsh functions,
 columns read as binary numbers,
 OEIS [A197819](https://oeis.org/A197819):
 
-~~~spl svg=I
+~~~spl svg=I oeis=A197819
 0:3.collect { :i |
 	let n = 2 ^ i;
 	let m = 2 ^ n;

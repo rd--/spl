@@ -72,7 +72,7 @@ OEIS [A144944](https://oeis.org/A144944):
 The super Catalan numbers,
 OEIS [A001003](https://oeis.org/A001003):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A001003
 1:25.superCatalanNumber.log.discretePlot
 ~~~
 

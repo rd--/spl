@@ -2,7 +2,7 @@
 
 - _bitAt(x, k)_
 
-Answer the bit corresponding to the coefficient of _2 ^ (k - 1)_ in the integer or bit set _x_.
+Answer the bit corresponding to the coefficient of _2^(k-1)_ in the integer or bit set _x_.
 `bitAt` gets the bit _k-1_ places from the right.
 `bitAt` represents the bits it retrieves as 0 or 1.
 
@@ -32,7 +32,7 @@ _a(2n)=a(n)+k(n)_ and a(2n+1)=a(n)+3k(n)_,
 where _k(n)_ is the least positive integer not leading to a duplicate term in the sequence,
 OEIS [A304971](https://oeis.org/A304971):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A304971
 let m = 300;
 let a = [1];
 let s = 2L ^ a[1];
@@ -63,7 +63,7 @@ _Or-numbral_ multiplication table,
 read by antidiagonals,
 OEIS [A067138](https://oeis.org/A067138):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A067138
 0:21.antidiagonalArray { :n :k |
 	let r = 0;
 	let m = n.bitLength - 1;

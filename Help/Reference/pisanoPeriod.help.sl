@@ -258,7 +258,7 @@ OEIS [A235249](https://oeis.org/A235249):
 
 ![](sw/spl/Help/Image/pisanoPeriod-D.svg)
 
-Plot table of the fundamental Pisano period of the Fibonacci sequence modulo _n_,
+Table of the fundamental Pisano period of the Fibonacci sequence modulo _n_,
 OEIS [A161553](https://oeis.org/A161553):
 
 ~~~spl svg=E oeis=A161553
@@ -270,7 +270,7 @@ OEIS [A161553](https://oeis.org/A161553):
 
 ![](sw/spl/Help/Image/pisanoPeriod-E.svg)
 
-Plot number of missing residues in Fibonacci sequence modulo _n_,
+Number of missing residues in Fibonacci sequence modulo _n_,
 OEIS [A118965](https://oeis.org/A118965):
 
 ~~~spl svg=F oeis=A118965
@@ -285,7 +285,7 @@ OEIS [A118965](https://oeis.org/A118965):
 
 ![](sw/spl/Help/Image/pisanoPeriod-F.svg)
 
-Plot number of distinct residues in Fibonacci sequence modulo _p(n)_,
+Number of distinct residues in Fibonacci sequence modulo _p(n)_,
 OEIS [A137750](https://oeis.org/A137750):
 
 ~~~spl svg=G oeis=A137750

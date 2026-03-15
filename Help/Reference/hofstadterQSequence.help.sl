@@ -16,18 +16,21 @@ OEIS [A005185](https://oeis.org/A005185):
 ]
 ```
 
-Scatter plot of first few terms of the Hofstadter Q-sequence,
+The Hofstadter Q-sequence,
+scatter plot of first few terms,
 OEIS [A005185](https://oeis.org/A005185):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A005185
 200.hofstadterQSequence.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/hofstadterQSequence-A.svg)
 
-Scatter plot of the terms in _(6000, 6200)_:
+The Hofstadter Q-sequence,
+scatter plot of the terms in _(6000, 6200)_,
+OEIS [A005185](https://oeis.org/A005185):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A005185
 6200.hofstadterQSequence
 .last(200)
 .scatterPlot
@@ -35,9 +38,10 @@ Scatter plot of the terms in _(6000, 6200)_:
 
 ![](sw/spl/Help/Image/hofstadterQSequence-B.svg)
 
-Plot the obscure sequence OEIS [A086267](https://oeis.org/A086267):
+The obscure sequence
+OEIS [A086267](https://oeis.org/A086267):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A086267
 let k = 106;
 let h = (k + 2).hofstadterQSequence;
 h.partition(3, 1).collect { :i |

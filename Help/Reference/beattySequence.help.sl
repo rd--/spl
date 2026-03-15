@@ -87,7 +87,7 @@ OEIS [A054347](https://oeis.org/A054347):
 Two interleaved Beatty sequences,
 OEIS [A094077](https://oeis.org/A094077):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A094077
 let k = 45;
 let c = 2.sqrt;
 [

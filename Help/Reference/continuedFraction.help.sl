@@ -317,7 +317,7 @@ OEIS [A141821](https://oeis.org/A141821):
 
 ![](sw/spl/Help/Image/continuedFraction-A.svg)
 
-Plot the least maxima of
+The least maxima of
 the least number _k<n_ and coprime to _n_ such that the largest term of the continued fraction of _k/n_ is as small as possible,
 OEIS [A141822](https://oeis.org/A141822):
 

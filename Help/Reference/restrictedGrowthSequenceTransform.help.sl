@@ -14,7 +14,7 @@ OEIS [A323907](https://oeis.org/A323907):
 Restricted growth sequence transform of Per Nørgård’s infinity sequence,
 OEIS [A323907](https://oeis.org/A323907):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A323907
 85.noergaardInfinitySequence
 .restrictedGrowthSequenceTransform
 .discretePlot
@@ -25,7 +25,7 @@ OEIS [A323907](https://oeis.org/A323907):
 Restricted growth sequence transform of the ordered pair of two-adic and three-adic valuations,
 OEIS [A322026](https://oeis.org/A322026):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A322026
 1:65.collect { :n |
 	[
 		n.integerExponent(2),
@@ -36,3 +36,9 @@ OEIS [A322026](https://oeis.org/A322026):
 ~~~
 
 ![](sw/spl/Help/Image/restrictedGrowthSequenceTransform-B.svg)
+
+* * *
+
+See also: boustrophedonTriangle, eulerTransform, triangularArray
+
+Guides: Integer Sequence Functions

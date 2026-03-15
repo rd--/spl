@@ -92,10 +92,10 @@ OEIS [A064707](https://oeis.org/A064707):
 ]
 ```
 
-First few terms,
+Gray decode,
 OEIS [A006068](https://oeis.org/A006068):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A006068
 0:127.grayDecode.scatterPlot
 ~~~
 
@@ -104,7 +104,7 @@ OEIS [A006068](https://oeis.org/A006068):
 Square of Gray decode,
 OEIS [A064707](https://oeis.org/A064707):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A064707
 0:127.grayDecode.grayDecode.scatterPlot
 ~~~
 

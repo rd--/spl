@@ -6,7 +6,7 @@ Answer the _n_-th tribonacci number,
 also called the Fibonacci three-step number,
 calculated using a closed form.
 
-First few terms,
+Tribonacci numbers,
 OEIS [A000073](https://oeis.org/A000073):
 
 ```
@@ -68,10 +68,10 @@ OEIS [A046738](https://oeis.org/A046738):
 [4 13 8 31 52 48 16 39 124 110 104 168]
 ```
 
-Plot period of Fibonacci three-step sequence modulo _n_,
+Period of Fibonacci three-step sequence modulo _n_,
 OEIS [A046738](https://oeis.org/A046738):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A046738
 2:52.collect(
 	tribonacciPisanoPeriod:/1
 ).discretePlot
@@ -79,10 +79,10 @@ OEIS [A046738](https://oeis.org/A046738):
 
 ![](sw/spl/Help/Image/tribonacciNumber-A.svg)
 
-Plot semi-tribonacci numbers,
+Semi-tribonacci numbers,
 OEIS [A074364](https://oeis.org/A074364):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A074364
 let a = Map { :n |
 	(n < 2).if {
 		n

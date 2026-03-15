@@ -543,7 +543,7 @@ OEIS [A047983](https://oeis.org/A047983):
 
 ![](sw/spl/Help/Image/divisorSigma-H.svg)
 
-Plot _a(n+1)=a(n)+σ(a(n))_,
+_a(n+1)=a(n)+σ(a(n))_,
 OEIS [A064491](https://oeis.org/A064491):
 
 ~~~spl svg=I oeis=A064491
@@ -576,7 +576,7 @@ OEIS [A007956](https://oeis.org/A007956):
 
 ![](sw/spl/Help/Image/divisorSigma-K.svg)
 
-Plot where _σ(m)_ rises by at least _n_,
+Where _σ(m)_ rises by at least _n_,
 OEIS [A058197](https://oeis.org/A058197):
 
 ~~~spl svg=L oeis=A058197
@@ -591,7 +591,7 @@ let d = sigma.differences;
 
 ![](sw/spl/Help/Image/divisorSigma-L.svg)
 
-Plot shadow transform of _σ(n)_,
+Shadow transform of _σ(n)_,
 OEIS [A072463](https://oeis.org/A072463):
 
 ~~~spl svg=M oeis=A072463
@@ -632,7 +632,7 @@ OEIS [A007425](https://oeis.org/A007425):
 
 ![](sw/spl/Help/Image/divisorSigma-O.svg)
 
-Plot deficiency of _n_,
+Deficiency of _n_,
 OEIS [A033879](https://oeis.org/A033879):
 
 ~~~spl svg=P oeis=A033879 signed

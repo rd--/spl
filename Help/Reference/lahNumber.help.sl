@@ -70,10 +70,10 @@ OEIS [A111596](https://oeis.org/A111596):
 ]
 ```
 
-Plot _-1^(n-k)×L(n,k)_,
+_-1^(n-k)×L(n,k)_,
 OEIS [A111596](https://oeis.org/A111596):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A111596
 0:11.triangularArray { :n :k |
 	(-1 ^ (n - k)) * lahNumber(n, k)
 }.catenate.logScale.discretePlot
@@ -81,10 +81,10 @@ OEIS [A111596](https://oeis.org/A111596):
 
 ![](sw/spl/Help/Image/lahNumber-A.svg)
 
-Plot signed form,
+Signed form of Lah numbers,
 OEIS [A008297](https://oeis.org/A008297):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A008297
 0:11.triangularArray { :n :k |
 	(-1 ^ n) * lahNumber(n, k)
 }.catenate.logScale.scatterPlot

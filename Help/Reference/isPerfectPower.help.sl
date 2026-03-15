@@ -22,7 +22,7 @@ OEIS [A001597](http://oeis.org/A001597):
 ]
 ```
 
-Plot distance to nearest perfect power,
+Distance to nearest perfect power,
 OEIS [A301573](https://oeis.org/A301573):
 
 ~~~spl svg=A oeis=A301573

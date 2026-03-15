@@ -18,7 +18,7 @@ OEIS [A005229](http://oeis.org/A005229):
 Mallows’ sequence,
 OEIS [A005229](http://oeis.org/A005229):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A005229
 99.mallowsSequence.linePlot
 ~~~
 

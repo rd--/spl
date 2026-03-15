@@ -92,10 +92,12 @@ OEIS [A001317](https://oeis.org/A001317):
 ]
 ```
 
-A `log` scaled scatter plot of the row-order sequence,
+Pascal’s triangle,
+row-order sequence,
+log scaled scatter plot,
 OEIS [A007318](https://oeis.org/A007318):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A007318
 21.pascalTriangle
 .catenate
 .log
@@ -104,10 +106,11 @@ OEIS [A007318](https://oeis.org/A007318):
 
 ![](sw/spl/Help/Image/pascalTriangle-A.svg)
 
-A linear discrete plot,
+Pascal’s triangle,
+linear discrete plot,
 OEIS [A007318](https://oeis.org/A007318):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A007318
 11.pascalTriangle
 .catenate
 .discretePlot
@@ -119,7 +122,7 @@ Sierpiński’s triangle,
 matrix plot,
 OEIS [A047999](https://oeis.org/A047999):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A047999
 (24.pascalTriangle % 2)
 .padRight
 .matrixPlot
@@ -142,7 +145,7 @@ OEIS [A047999](https://oeis.org/A047999):
 Matrix plot of the first few rows of Pascal’s triangle modulo five,
 OEIS [A095140](https://oeis.org/A095140):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A095140
 (20.pascalTriangle % 5)
 .padRight
 .rescale
@@ -154,7 +157,7 @@ OEIS [A095140](https://oeis.org/A095140):
 Sierpiński’s triangle,
 OEIS [A047999](https://oeis.org/A047999):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A047999
 (16.pascalTriangle % 2)
 .triangularArrayPlot
 ~~~
@@ -162,10 +165,10 @@ OEIS [A047999](https://oeis.org/A047999):
 ![](sw/spl/Help/Image/pascalTriangle-F.svg)
 
 Pascal’s triangle modulo three,
-offset to _-1,0,1_,
-OEIS [A083093](https://oeis.org/A083093):
+OEIS [A083093](https://oeis.org/A083093),
+offset to _-1,0,1_:
 
-~~~spl svg=G
+~~~spl svg=G oeis=A083093 variant
 (16.pascalTriangle % 3 - 1)
 .catenate
 .discretePlot
@@ -176,7 +179,7 @@ OEIS [A083093](https://oeis.org/A083093):
 Row sums of Pascal’s triangle modulo three,
 OEIS [A051638](https://oeis.org/A051638):
 
-~~~spl svg=H
+~~~spl svg=H oeis=A051638
 (85.pascalTriangle % 3)
 .collect(sum:/1)
 .scatterPlot
@@ -185,10 +188,10 @@ OEIS [A051638](https://oeis.org/A051638):
 ![](sw/spl/Help/Image/pascalTriangle-H.svg)
 
 Pascal’s triangle negated modulo three,
-offset to _-1,0,1_,
-OEIS [A090044](https://oeis.org/A090044):
+OEIS [A090044](https://oeis.org/A090044),
+offset to _-1,0,1_:
 
-~~~spl svg=I
+~~~spl svg=I oeis=A090044 variant
 (16.pascalTriangle.negate % 3 - 1)
 .catenate
 .discretePlot
@@ -199,7 +202,7 @@ OEIS [A090044](https://oeis.org/A090044):
 Pascal’s triangle modulo four,
 OEIS [A034931](https://oeis.org/A034931):
 
-~~~spl svg=J
+~~~spl svg=J oeis=A034931
 (14.pascalTriangle % 4)
 .catenate
 .stepPlot
@@ -210,7 +213,7 @@ OEIS [A034931](https://oeis.org/A034931):
 Pascal’s triangle modulo six,
 OEIS [A095141](https://oeis.org/A095141):
 
-~~~spl svg=K
+~~~spl svg=K oeis=A095141
 (14.pascalTriangle % 6)
 .catenate
 .stepPlot

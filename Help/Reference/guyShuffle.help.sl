@@ -44,10 +44,10 @@ OEIS [A035490](https://oeis.org/A060750):
 [1 2 8 5 4 78 37 6 11 28 12 349 13 383 10]
 ```
 
-Plot
+Relevant part of deck in Guy’s shuffling problem,
 OEIS [A035491](https://oeis.org/A035491):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A035491
 guyShuffle:/1.nestList([], 15)
 .catenate.scatterPlot
 ~~~

@@ -59,7 +59,7 @@ OEIS [A003558](https://oeis.org/A003558):
 Multiplicative suborder of three,
 OEIS [A103489](https://oeis.org/A103489):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A103489
 0:200.collect { :n |
 	3.multiplicativeSuborder(n)
 }.scatterPlot
@@ -70,7 +70,7 @@ OEIS [A103489](https://oeis.org/A103489):
 Multiplicative suborder of five,
 OEIS [A103491](https://oeis.org/A103491):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A103491
 0:200.collect { :n |
 	5.multiplicativeSuborder(n)
 }.scatterPlot
@@ -81,7 +81,7 @@ OEIS [A103491](https://oeis.org/A103491):
 Multiplicative suborder of two modulo _2n+1_,
 OEIS [A003558](https://oeis.org/A003558):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A003558
 1:200.collect { :n |
 	2.multiplicativeSuborder(2 * n + 1)
 }.scatterPlot

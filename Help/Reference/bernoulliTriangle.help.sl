@@ -4,7 +4,8 @@
 
 Answer the first _n_ rows of Bernoulli’s triangle.
 
-The first ten rows:
+The first ten rows of Bernoulli’s triangle,
+OEIS [A008949](https://oeis.org/A008949):
 
 ```
 >>> 10.bernoulliTriangle
@@ -22,10 +23,12 @@ The first ten rows:
 ]
 ```
 
-A `log` scaled scatter plot of the row-order sequence,
-c.f. OEIS [A008949](https://oeis.org/A008949):
+Bernoulli’s triangle,
+in row-order sequence,
+log scaled scatter plot,
+OEIS [A008949](https://oeis.org/A008949):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A008949
 20.bernoulliTriangle
 .catenate
 .log

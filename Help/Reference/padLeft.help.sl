@@ -100,7 +100,7 @@ Prepend three rows to a row-vector:
 An accumulation array,
 OEIS [A051340](https://oeis.org/A051340):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A051340
 1:15.collect { :n |
 	[n].padLeft([n], 1)
 }.catenate.stepPlot
@@ -111,7 +111,7 @@ OEIS [A051340](https://oeis.org/A051340):
 Infinitesimal Pascal matrix,
 OEIS [A132440](https://oeis.org/A132440):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A132440
 0:15.collect { :n |
 	[n 0].padLeft([n + 1], 0)
 }.catenate.discretePlot
@@ -122,7 +122,7 @@ OEIS [A132440](https://oeis.org/A132440):
 The infinitesimal Lah matrix,
 OEIS [A132792](https://oeis.org/A132792):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A132792
 0:15.collect { :n |
 	[n * (n - 1), 0].padLeft([n + 1], 0)
 }.catenate.discretePlot

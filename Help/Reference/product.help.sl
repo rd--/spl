@@ -139,10 +139,10 @@ Plot the sequence of partial products of the function:
 
 ![](sw/spl/Help/Image/product-B.svg)
 
-Plot cumulant expansion numbers,
+Cumulant expansion numbers,
 OEIS [A127671](https://oeis.org/A127671):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A127671 signed
 let c = { :p |
 	let s = p.unique;
 	let k = p.size;
@@ -163,7 +163,7 @@ let c = { :p |
 Number of cubes in multiplicative group modulo _n_,
 OEIS [A087692](https://oeis.org/A087692):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A087692
 2:85.collect { :n |
 	n.factorInteger.product { :f |
 		let [p, k] = f;

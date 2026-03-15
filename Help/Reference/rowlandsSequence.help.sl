@@ -194,10 +194,10 @@ OEIS [A106108](https://oeis.org/A106108):
 
 ![](sw/spl/Help/Image/rowlandsSequence-A.svg)
 
-Plot terms of
+Omit the ones from Rowland’s sequence,
 OEIS [A137613](https://oeis.org/A137613):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A137613
 OeisEntry('A137613').then { :e |
 	e.bFileData
 	.first(250)
@@ -208,10 +208,10 @@ OeisEntry('A137613').then { :e |
 
 ![](sw/spl/Help/Image/rowlandsSequence-B.svg)
 
-Plot terms of
+New primes found by Rowland’s recurrence,
 OEIS [A221869](https://oeis.org/A221869):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A221869
 OeisEntry('A221869').then { :e |
 	e.bFileData
 	.first(250)
@@ -248,7 +248,7 @@ OEIS [A230504](https://oeis.org/A230504):
 
 ![](sw/spl/Help/Image/rowlandsSequence-E.svg)
 
-Plot _a(n)/n_,
+_a(n)/n_,
 where _a_ is Rowland’s sequence,
 OEIS [A106108](https://oeis.org/A106108),
 values are real numbers in _(2,3)_:
@@ -274,7 +274,7 @@ OEIS [A135506](https://oeis.org/A135506):
 
 ![](sw/spl/Help/Image/rowlandsSequence-G.svg)
 
-Plot `gcd` of the Cloitre sequence and offset indices,
+`gcd` of the Cloitre sequence and offset indices,
 OEIS [A361470](https://oeis.org/A361470):
 
 ~~~spl svg=H

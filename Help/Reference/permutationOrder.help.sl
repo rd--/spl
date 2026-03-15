@@ -48,7 +48,7 @@ The order of a permutation can be computed as the least common multiple of the l
 Indices of permutations of orders 1 or 2 when placed in lexicographic order,
 OEIS [A066646](https://oeis.org/A066646):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A066646
 [1 .. 6].permutations
 .lexicographicSort
 .collect(permutationOrder:/1)

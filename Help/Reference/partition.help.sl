@@ -164,10 +164,12 @@ OEIS [A049456](https://oeis.org/A049456):
 ]
 ```
 
-Plot
+Least string of digits that,
+when cycled,
+each pair of digits can be seen exactly once,
 OEIS [A135472](https://oeis.org/A135472):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A135472
 [
 	0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9
 	1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9
@@ -184,10 +186,10 @@ OEIS [A135472](https://oeis.org/A135472):
 
 ![](sw/spl/Help/Image/partition-A.svg)
 
-Plot derivative of _n_ in base three,
+Derivative of _n_ in base three,
 OEIS [A038555](https://oeis.org/A038555):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A038555
 0:200.collect { :n |
 	n.integerDigits(3)
 	.partition(2, 1)

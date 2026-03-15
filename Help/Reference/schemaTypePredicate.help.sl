@@ -1,8 +1,8 @@
 # schemaTypePredicate
 
-- _schemaTypePredicate(aString)_
+- _schemaTypePredicate(t)_
 
-Answer a predicate block to decide if a value is of the schema type specified at _aString_.
+Answer a predicate block to decide if a value is of the schema type specified at the string _t_.
 
 Predicate for `Boolean` type:
 

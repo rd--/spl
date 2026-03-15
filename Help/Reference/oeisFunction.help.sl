@@ -22,7 +22,7 @@ OEIS [A038567](http://oeis.org/A038567):
 [1 2 3 3 4 4 5 5 5 5 6 6 7 7 7 7 7 7 8 8 8 8]
 ```
 
-Plot numerators in canonical bijection from positive integers to positive rationals,
+Numerators in canonical bijection from positive integers to positive rationals,
 OEIS [A020652](https://oeis.org/A020652):
 
 ~~~spl svg=A oeis=A020652
@@ -33,7 +33,7 @@ OEIS [A020652](https://oeis.org/A020652):
 
 ![](sw/spl/Help/Image/oeisFunction-A.svg)
 
-Plot denominators in canonical bijection from positive integers to positive rationals,
+Denominators in canonical bijection from positive integers to positive rationals,
 OEIS [A020653](https://oeis.org/A020653):
 
 ~~~spl svg=B oeis=A020653
@@ -44,7 +44,7 @@ OEIS [A020653](https://oeis.org/A020653):
 
 ![](sw/spl/Help/Image/oeisFunction-B.svg)
 
-Plot numerators in canonical bijection from positive integers to positive rationals,
+Numerators in canonical bijection from positive integers to positive rationals,
 OEIS [A038568](http://oeis.org/A038568):
 
 ~~~spl svg=C oeis=A038568
@@ -55,7 +55,7 @@ OEIS [A038568](http://oeis.org/A038568):
 
 ![](sw/spl/Help/Image/oeisFunction-C.svg)
 
-Plot denominators in canonical bijection from positive integers to positive rationals,
+Denominators in canonical bijection from positive integers to positive rationals,
 OEIS [A038569](http://oeis.org/A038569):
 
 ~~~spl svg=D oeis=A038569
@@ -85,7 +85,7 @@ OEIS [A057164](https://oeis.org/A057164):
 _A003961(n)-2*n_,
 OEIS [A252748](https://oeis.org/A252748):
 
-~~~spl svg=F oeis=[A252748]
+~~~spl svg=F oeis=A252748
 let n = 1:85;
 let a = n.collect(
 	'A003961'.oeisFunction

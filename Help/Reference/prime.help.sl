@@ -235,10 +235,10 @@ OEIS [A067076](https://oeis.org/A067076):
 [0 1 2 4 5 7 8 10 13 14 17 19 20 22 25 28]
 ```
 
-Plot first fifty primes,
+Prime numbers,
 OEIS [A000040](https://oeis.org/A000040):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A000040
 1:50.functionPlot(prime:/1)
 ~~~
 
@@ -254,10 +254,10 @@ Generate a path based on the prime sequence:
 
 ![](sw/spl/Help/Image/prime-B.svg)
 
-Plot the width of the moat of composite numbers surrounding the n-th prime,
+The width of the moat of composite numbers surrounding the n-th prime,
 OEIS [A046929](https://oeis.org/A046929):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A046929
 let k = 65;
 1:k.prime
 .partition(3, 1)
@@ -268,10 +268,10 @@ let k = 65;
 
 ![](sw/spl/Help/Image/prime-C.svg)
 
-Plot a permutation of the natural numbers,
+A permutation of the natural numbers,
 OEIS [A243353](https://oeis.org/A243353):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A243353 permutation
 let f = { :n :i :x |
 	(n = 0).if {
 		x
@@ -293,7 +293,7 @@ let f = { :n :i :x |
 Prefix sum of primes modulo four minus two,
 OEIS [A038698](https://oeis.org/A038698):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A038698
 +.foldList(
 	0,
 	2:267.prime % 4 - 2
@@ -302,10 +302,10 @@ OEIS [A038698](https://oeis.org/A038698):
 
 ![](sw/spl/Help/Image/prime-E.svg)
 
-Plot of triangle _(n,k)_ indicating if the _k_-th prime is a square modulo the _n_-th prime,
+Triangle _(n,k)_ indicating if the _k_-th prime is a square modulo the _n_-th prime,
 OEIS [A060038](https://oeis.org/A060038):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A060038
 2:17.collect { :n |
 	let m = n - 1;
 	let p = n.prime;
@@ -321,7 +321,7 @@ OEIS [A060038](https://oeis.org/A060038):
 Excess of _3n-1_ primes over _3n+1_ primes,
 OEIS [A112632](https://oeis.org/A112632):
 
-~~~spl svg=G
+~~~spl svg=G oeis=A112632
 let m = 150;
 let a = List(m, 1);
 3:150.collect { :n |
@@ -336,7 +336,7 @@ a.differences.discretePlot
 Size of sea of composite numbers surrounding _n_-th prime,
 OEIS [A046930](https://oeis.org/A046930):
 
-~~~spl svg=H
+~~~spl svg=H oeis=A046930
 1:150.collect { :n |
 	(n + 2).prime - n.prime - 2
 }.scatterPlot
@@ -344,10 +344,10 @@ OEIS [A046930](https://oeis.org/A046930):
 
 ![](sw/spl/Help/Image/prime-H.svg)
 
-Plot triangular array of means of two odd primes,
+Triangular array of means of two odd primes,
 OEIS [A065305](https://oeis.org/A065305):
 
-~~~spl svg=I
+~~~spl svg=I oeis=A065305
 2:17.triangularArray { :n :k |
 	(n.prime + k.prime) / 2
 }.catenate.scatterPlot
@@ -358,7 +358,7 @@ OEIS [A065305](https://oeis.org/A065305):
 The Goldbach permutation,
 OEIS [A065306](https://oeis.org/A065306):
 
-~~~spl svg=J
+~~~spl svg=J oeis=A065306 permutation
 let a = 2:23.triangularArray { :n :k |
 	(n.prime + k.prime) / 2
 }.catenate;
@@ -368,10 +368,10 @@ a.scatterPlot
 
 ![](sw/spl/Help/Image/prime-J.svg)
 
-Plot least _k_ such that sum of first _k_ primes is _n_ times a prime,
+Least _k_ such that sum of first _k_ primes is _n_ times a prime,
 OEIS [A045985](https://oeis.org/A045985):
 
-~~~spl svg=K
+~~~spl svg=K oeis=A045985
 let m = 15000;
 let p = 1:m.prime.prefixSum;
 let t = [1:m, p].transpose;
@@ -384,10 +384,10 @@ let t = [1:m, p].transpose;
 
 ![](sw/spl/Help/Image/prime-K.svg)
 
-Plot _a(n)+a(n-1)=p(n)_,
+_a(n)+a(n-1)=p(n)_,
 OEIS [A036467](https://oeis.org/A036467):
 
-~~~spl svg=L
+~~~spl svg=L oeis=A036467
 0:200.collect { :n |
 	2:n.sum { :k |
 		k.prime * (-1 ^ (k + 1))
@@ -397,19 +397,19 @@ OEIS [A036467](https://oeis.org/A036467):
 
 ![](sw/spl/Help/Image/prime-L.svg)
 
-Plot _Σ{i=0…n-1}-1^i*p(n-i)_,
+_Σ{i=0…n-1}-1^i*p(n-i)_,
 OEIS [A008347](https://oeis.org/A008347):
 
-~~~spl svg=M
+~~~spl svg=M oeis=A008347
 -.swap.foldList(0, 1:200.prime).scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/prime-M.svg)
 
-Plot Cald’s sequence,
+Cald’s sequence,
 OEIS [A006509](https://oeis.org/A006509):
 
-~~~spl svg=N
+~~~spl svg=N oeis=A006509
 let y = [1];
 1.toDo(135) { :n |
 	let b = y.last;
@@ -434,10 +434,10 @@ y.discretePlot
 
 ![](sw/spl/Help/Image/prime-N.svg)
 
-Plot inverse Moebius transform of primes,
+Inverse Moebius transform of primes,
 OEIS [A007445](https://oeis.org/A007445):
 
-~~~spl svg=O
+~~~spl svg=O oeis=A007445
 1:150.collect { :n |
 	n.divisorSum(prime:/1)
 }.scatterPlot
@@ -451,7 +451,7 @@ OEIS [A033476](https://oeis.org/A033476),
 also
 OEIS [A057602](https://oeis.org/A057602) without leading two:
 
-~~~spl svg=P
+~~~spl svg=P oeis=A033476
 let p = 1:25.prime;
 let q = p.partition(2, 1);
 let e = p ^ 2;
@@ -464,7 +464,7 @@ e.riffle(o).scatterPlot
 _P(n)%n_
 OEIS [A004648](https://oeis.org/A004648):
 
-~~~spl svg=Q
+~~~spl svg=Q oeis=A004648
 1:135.collect { :n |
 	n.prime % n
 }.scatterPlot
@@ -475,7 +475,7 @@ OEIS [A004648](https://oeis.org/A004648):
 _P(n)%(n+1)_
 OEIS [A004650](https://oeis.org/A004650):
 
-~~~spl svg=R
+~~~spl svg=R oeis=A004650
 1:135.collect { :n |
 	n.prime % (n + 1)
 }.scatterPlot

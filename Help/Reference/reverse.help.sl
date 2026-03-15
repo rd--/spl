@@ -100,10 +100,10 @@ Iteratively join a string to its reverse:
 ]
 ```
 
-Plot self-inverse permutation given by reversing the order of all but the most significant bit in binary expansion of _n_,
+Self-inverse permutation given by reversing the order of all but the most significant bit in binary expansion of _n_,
 OEIS [A059893](https://oeis.org/A059893):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A059893 permutation
 1:64.collect { :n |
 	let d = n.integerDigits(2);
 	let x = d.first;

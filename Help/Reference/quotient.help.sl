@@ -146,9 +146,10 @@ OEIS [A008795](https://oeis.org/A008795):
 [1 0 3 1 6 3 10 6 15 10 21 15 28 21 36 28]
 ```
 
-Plot a sequence of quotients:
+Quotients of eight,
+OEIS [A132292](https://oeis.org/A132292):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A132292
 1:50.functionPlot { :n |
 	n.quotient(8)
 }
@@ -156,7 +157,7 @@ Plot a sequence of quotients:
 
 ![](sw/spl/Help/Image/quotient-A.svg)
 
-Plot the quotient of two integers:
+The quotient table of two integers:
 
 ~~~spl svg=B
 { :m :n |
@@ -166,7 +167,7 @@ Plot the quotient of two integers:
 
 ![](sw/spl/Help/Image/quotient-B.svg)
 
-Plot the quotient of a function:
+The quotient of a function:
 
 ~~~spl svg=C
 (0 -- 2).functionPlot { :x |
@@ -181,7 +182,7 @@ Plot the quotient of a function:
 Representation of _n_ in base three using digits _-1,0,1_,
 OEIS [A059095](https://oeis.org/A059095):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A059095
 let f = { :n |
 	let ct = [0 0; 0 1; 1 -1];
 	(n = 0).if {
@@ -198,10 +199,10 @@ let f = { :n |
 
 ![](sw/spl/Help/Image/quotient-D.svg)
 
-Plot triangular array of quotients,
+Triangular array of quotients,
 OEIS [A003988](https://oeis.org/A003988):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A003988
 1:17.triangularArray { :n :k |
 	(n - k + 1) // k
 }.catenate.scatterPlot

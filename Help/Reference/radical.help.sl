@@ -44,18 +44,20 @@ OEIS [A076479](https://oeis.org/A076479):
 [1 -1 -1 -1 -1 1 -1 -1 -1 1 -1 1 -1 1 1 -1]
 ```
 
-Plot first few terms,
+Radical of the integer _n_,
 OEIS [A007947](https://oeis.org/A007947):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A007947
 1:150.radical.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/radical-A.svg)
 
-Log plot of first few terms:
+Radical of the integer _n_,
+log plot,
+OEIS [A007947](https://oeis.org/A007947):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A007947
 1:300.radical.log.scatterPlot
 ~~~
 
@@ -73,7 +75,7 @@ OEIS [A076479](https://oeis.org/A076479):
 _r(n*r(n)+1)_
 OEIS [A078322](https://oeis.org/A078322):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A078322
 1:85.collect { :n |
 	(n * n.radical + 1).radical
 }.discretePlot
@@ -84,7 +86,7 @@ OEIS [A078322](https://oeis.org/A078322):
 _n*r(n)+1_
 OEIS [A078310](https://oeis.org/A078310):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A078310
 1:85.collect { :n |
 	n * n.radical + 1
 }.discretePlot
@@ -95,7 +97,7 @@ OEIS [A078310](https://oeis.org/A078310):
 _n-r(n)_
 OEIS [A066503](https://oeis.org/A066503):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A066503
 1:85.collect { :n |
 	n - n.radical
 }.discretePlot
@@ -107,7 +109,7 @@ Squarefree kernel of _n_ divided by the squarefree part of _n_,
 _r(n)/c(n)_,
 OEIS [A336643](https://oeis.org/A336643):
 
-~~~spl svg=G
+~~~spl svg=G oeis=A336643
 1:85.collect { :n |
 	n.radical / n.squareFreePart
 }.stepPlot
@@ -118,7 +120,7 @@ OEIS [A336643](https://oeis.org/A336643):
 _gcd(r(n),n/r(n))_,
 OEIS [A071773](https://oeis.org/A071773):
 
-~~~spl svg=H
+~~~spl svg=H oeis=A071773
 1:85.collect { :n |
 	let r = n.radical;
 	r.gcd(n / r)
@@ -130,7 +132,7 @@ OEIS [A071773](https://oeis.org/A071773):
 _n^2/r(n)_,
 OEIS [A102631](https://oeis.org/A102631):
 
-~~~spl svg=I
+~~~spl svg=I oeis=A102631
 1:85.collect { :n |
 	n.square / n.radical
 }.discretePlot
@@ -141,7 +143,7 @@ OEIS [A102631](https://oeis.org/A102631):
 _r(n)^2_,
 OEIS [A078615](https://oeis.org/A078615):
 
-~~~spl svg=J
+~~~spl svg=J oeis=A078615
 1:150.radical.square.scatterPlot
 ~~~
 
@@ -150,7 +152,7 @@ OEIS [A078615](https://oeis.org/A078615):
 _n_ divided by the largest power of the squarefree kernel of _n_ which divides it,
 OEIS [A062760](https://oeis.org/A062760):
 
-~~~spl svg=K
+~~~spl svg=K oeis=A062760
 2:200.collect { :n |
 	let p = n.divisors;
 	let q = p.select(isSquareFree:/1).last;
@@ -163,7 +165,7 @@ OEIS [A062760](https://oeis.org/A062760):
 _r(P(n)-1)_,
 OEIS [A077063](https://oeis.org/A077063):
 
-~~~spl svg=L
+~~~spl svg=L oeis=A077063
 1:115.collect { :n |
 	(n.prime - 1).radical
 }.discretePlot
@@ -174,7 +176,7 @@ OEIS [A077063](https://oeis.org/A077063):
 _ω(n*r(n)+1)_
 OEIS [A078313](https://oeis.org/A078313):
 
-~~~spl svg=M
+~~~spl svg=M oeis=A078313
 1:85.collect { :n |
 	(n * n.radical + 1).primeNu
 }.discretePlot
@@ -185,7 +187,7 @@ OEIS [A078313](https://oeis.org/A078313):
 _Ω(n*r(n)+1)_
 OEIS [A078314](https://oeis.org/A078314):
 
-~~~spl svg=N
+~~~spl svg=N oeis=A078314
 1:85.collect { :n |
 	(n * n.radical + 1).primeOmega
 }.discretePlot

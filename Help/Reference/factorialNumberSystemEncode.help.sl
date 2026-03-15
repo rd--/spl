@@ -107,7 +107,7 @@ OEIS [A071158](https://oeis.org/A071158):
 The terms of A071156 can be calculated from A014486 using
 OEIS [A085198](https://oeis.org/A085198):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A085198
 0:150.collect(
 	oeisFunction('A085198')
 ).logScale.scatterPlot

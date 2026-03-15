@@ -60,7 +60,7 @@ OEIS [A001003](https://oeis.org/A001003)
 The Schröder numbers,
 OEIS [A006318](https://oeis.org/A006318):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A006318
 25.schroderSequence.log.discretePlot
 ~~~
 

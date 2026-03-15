@@ -20,9 +20,9 @@ The first seven rows:
 ```
 
 A `log` scaled scatter plot of the row-order sequence,
-c.f. the reciprocal of OEIS [A003506](https://oeis.org/A003506):
+the reciprocal of OEIS [A003506](https://oeis.org/A003506):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A003506 variant
 20.leibnizHarmonicTriangle
 .catenate
 .log

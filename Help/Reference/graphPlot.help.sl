@@ -61,7 +61,7 @@ Draw the 76-node [Owens graph](https://mathworld.wolfram.com/OwensGraphs.html):
 
 ![](sw/spl/Help/Image/graphPlot-E.svg)
 
-Plot a graph given by an edge re-writing rule,
+A graph given by an edge re-writing rule,
 the vertices are given by OEIS [A228853](https://oeis.org/A228853):
 
 ~~~spl svg=F

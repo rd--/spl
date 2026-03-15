@@ -76,7 +76,7 @@ and [A004736](https://oeis.org/A004736):
 Start counting again and again,
 OEIS [A002260](https://oeis.org/A002260):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A002260
 1:17.collect(iota:/1).catenate.scatterPlot
 ~~~
 
@@ -84,9 +84,9 @@ OEIS [A002260](https://oeis.org/A002260):
 
 Start counting again and again,
 backwards,
-[A004736](https://oeis.org/A004736):
+OEIS [A004736](https://oeis.org/A004736):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A004736
 1:17.collect { :i |
 	i.iota(i, -1)
 }.catenate.scatterPlot

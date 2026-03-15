@@ -170,7 +170,7 @@ a[0:150].scatterPlot
 
 ![](sw/spl/Help/Image/isEven-B.svg)
 
-Plot fixed point of dividing the digits according to parity and multiplying the parts,
+Fixed point of dividing the digits according to parity and multiplying the parts,
 OEIS [A059707](https://oeis.org/A059707):
 
 ~~~spl svg=C oeis=A059707

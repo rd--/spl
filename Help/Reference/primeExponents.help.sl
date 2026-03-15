@@ -21,7 +21,7 @@ Table of exponents of prime factorizations in
 OEIS [A025487](https://oeis.org/A025487),
 OEIS [A124832](https://oeis.org/A124832):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A124832
 OeisEntry('A025487').then { :e |
 	e.bFileData
 	.first(150)

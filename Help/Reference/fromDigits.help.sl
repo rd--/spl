@@ -216,10 +216,10 @@ OEIS [A001733](https://oeis.org/A001733):
 [7 7 7 10 11 12 13 21 111 1111111]
 ```
 
-Plot first few terms of
+Binary reversal,
 OEIS [A030101](https://oeis.org/A030101):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A030101
 0:200.collect { :i |
 	i.integerDigits(2)
 	.reverse
@@ -232,7 +232,7 @@ OEIS [A030101](https://oeis.org/A030101):
 Sum of digits in ascending and descending sequence,
 OEIS [A052008](https://oeis.org/A052008):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A052008
 0:200.collect { :n |
 	let d = n.integerDigits.sort;
 	d.fromDigits + d.reverse.fromDigits
@@ -244,7 +244,7 @@ OEIS [A052008](https://oeis.org/A052008):
 Write _n_ and _3n_ in ternary and add all digits modulo three,
 OEIS [A242399](https://oeis.org/A242399):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A242399
 0:80.collect { :n |
 	let a = n.integerDigits(3);
 	let b = (n * 3).integerDigits(3);
@@ -258,7 +258,7 @@ OEIS [A242399](https://oeis.org/A242399):
 Difference between _4n_ and _n_ and _3n_ written in ternary and all digits summed modulo three,
 OEIS [A242400](https://oeis.org/A242400):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A242400
 0:80.collect { :n |
 	let a = n.integerDigits(3);
 	let b = (n * 3).integerDigits(3);
@@ -272,7 +272,7 @@ OEIS [A242400](https://oeis.org/A242400):
 Tersum _n+n_,
 OEIS [A004488](https://oeis.org/A004488):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A004488
 0:80.collect { :n |
 	let d = n.integerDigits(3);
 	(3 - d % 3).fromDigits(3)
@@ -284,7 +284,7 @@ OEIS [A004488](https://oeis.org/A004488):
 Write _n_ in quaternary and swap digits one and three,
 OEIS [A048647](https://oeis.org/A048647):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A048647
 0:255.collect { :n |
 	let d = n.integerDigits(4);
 	let e = d.collect { :i |

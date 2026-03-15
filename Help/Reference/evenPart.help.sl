@@ -19,7 +19,7 @@ OEIS [A006519](https://oeis.org/A006519):
 The highest power of two dividing _n_,
 OEIS [A006519](https://oeis.org/A006519):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A006519
 1:127.collect(evenPart:/1)
 .discretePlot
 ~~~

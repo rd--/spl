@@ -143,19 +143,19 @@ Table of derivatives of _i/j_ for small _i,j_:
 ]
 ```
 
-First few terms of the arithmetic derivative of _n_,
+The arithmetic derivative of _n_,
 OEIS [A003415](https://oeis.org/A003415):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A003415
 0:85.arithmeticDerivative.discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/arithmeticDerivative-A.svg)
 
-First few terms of the second arithmetic derivative of _n_,
+The second arithmetic derivative of _n_,
 OEIS [A068346](https://oeis.org/A068346):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A068346
 0:85.arithmeticDerivative
 .arithmeticDerivative
 .discretePlot
@@ -163,10 +163,10 @@ OEIS [A068346](https://oeis.org/A068346):
 
 ![](sw/spl/Help/Image/arithmeticDerivative-B.svg)
 
-First few terms of the third arithmetic derivative of _n_,
+The third arithmetic derivative of _n_,
 OEIS [A099306](https://oeis.org/A099306):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A099306
 0:85.arithmeticDerivative
 .arithmeticDerivative
 .arithmeticDerivative
@@ -175,12 +175,12 @@ OEIS [A099306](https://oeis.org/A099306):
 
 ![](sw/spl/Help/Image/arithmeticDerivative-C.svg)
 
-Array,
+The array,
 read by antidiagonals,
 of the _k_-th derivative of _n_,
 OEIS [A258651](https://oeis.org/A258651):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A258651
 0:27.antidiagonalArray { :n :k |
 	arithmeticDerivative:/1.iterate(n, k)
 }.catenate.log.scatterPlot

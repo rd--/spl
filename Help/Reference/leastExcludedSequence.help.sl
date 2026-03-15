@@ -12,7 +12,7 @@ and _m_ is the candidate least excluded value.
 Least excluded sequence such that the `gcd` of adjacent terms is _≥3_,
 OEIS [A064417](https://oeis.org/A064417):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A064417
 [1 2 3]
 .leastExcludedSequence(185) { :a :n :m |
 	m.gcd(a[n - 1]) >= 3
@@ -25,7 +25,7 @@ Least excluded sequence such that the `gcd` of adjacent terms is _≠1_,
 called the Ekg sequence,
 OEIS [A064413](https://oeis.org/A064413):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A064413
 [1 2]
 .leastExcludedSequence(185) { :a :n :m |
 	m.gcd(a[n - 1]) != 1
@@ -37,7 +37,7 @@ OEIS [A064413](https://oeis.org/A064413):
 Least excluded sequence such that adjacent terms are part of a Pythagorean triple,
 OEIS [A235598](https://oeis.org/A235598):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A235598
 [3]
 .leastExcludedSequence(40) { :a :n :m |
 	let [p, q] = [a[n - 1], m].square;

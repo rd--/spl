@@ -173,7 +173,7 @@ OEIS [A000720](https://oeis.org/A000720):
 
 ![](sw/spl/Help/Image/primePi-A.svg)
 
-Plot unary-encoded compressed factorization of natural numbers,
+Unary-encoded compressed factorization of natural numbers,
 OEIS [A156552](https://oeis.org/A156552):
 
 ~~~spl svg=B oeis=A156552
@@ -266,7 +266,7 @@ OEIS [A219055](https://oeis.org/A219055):
 
 ![](sw/spl/Help/Image/primePi-F.svg)
 
-Plot triangle of _π(n)+π(k)-π(n+k)_,
+Triangle of _π(n)+π(k)-π(n+k)_,
 OEIS [A212210](https://oeis.org/A212210):
 
 ~~~spl svg=G oeis=A212210 signed
@@ -305,7 +305,7 @@ OEIS [A121053](https://oeis.org/A121053):
 
 ![](sw/spl/Help/Image/primePi-H.svg)
 
-Plot the sequence fully multiplicative with _a(p)=k_ if _p_ is the _k_-th prime,
+A sequence fully multiplicative with _a(p)=k_ if _p_ is the _k_-th prime,
 OEIS [A003963](https://oeis.org/A003963):
 
 ~~~spl svg=I oeis=A003963
@@ -323,7 +323,7 @@ OEIS [A003963](https://oeis.org/A003963):
 
 ![](sw/spl/Help/Image/primePi-I.svg)
 
-Plot number of primes between _n^2_ and _(n+1)^2_,
+Number of primes between _n^2_ and _(n+1)^2_,
 OEIS [A014085](https://oeis.org/A014085):
 
 ~~~spl svg=J oeis=A014085
@@ -334,7 +334,7 @@ OEIS [A014085](https://oeis.org/A014085):
 
 ![](sw/spl/Help/Image/primePi-J.svg)
 
-Plot nodes in rooted index-functional forest for _n_,
+Nodes in rooted index-functional forest for _n_,
 OEIS [A062537](https://oeis.org/A062537):
 
 ~~~spl svg=K oeis=A062537
@@ -372,7 +372,7 @@ a[1:175].scatterPlot
 
 ![](sw/spl/Help/Image/primePi-L.svg)
 
-Plot product of indices of distinct prime factors of _n_,
+Product of indices of distinct prime factors of _n_,
 OEIS [A156061](https://oeis.org/A156061):
 
 ~~~spl svg=M oeis=A156061

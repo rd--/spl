@@ -546,9 +546,10 @@ OEIS [A117971](https://oeis.org/A117971):
 [0 1 0 1 2 1 4 1 0 1 2 1 3 1 3 1 2 1 5 1 8 1]
 ```
 
-Scatter plot of first few terms of OEIS [A265326](https://oeis.org/A265326):
+_n_-th prime minus its binary reversal,
+OEIS [A265326](https://oeis.org/A265326):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A265326 signed
 let k = 200;
 1:k.collect { :n |
 	let m = n.prime;
@@ -562,7 +563,7 @@ let k = 200;
 Balanced ternary enumeration of integers,
 OEIS [A117966](https://oeis.org/A117966):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A117966
 let k = 123;
 0:k.collect { :i |
 	i.integerDigits(3).collect { :n |
@@ -573,7 +574,7 @@ let k = 123;
 
 ![](sw/spl/Help/Image/integerDigits-B.svg)
 
-Plot bit patterns for _n_-bit integers:
+Bit patterns for _n_-bit integers:
 
 ~~~spl svg=C
 let n = 6;
@@ -585,9 +586,12 @@ let m = 2 ^ (n - 1) - 1;
 
 ![](sw/spl/Help/Image/integerDigits-C.svg)
 
-Scatter plot of first few terms of OEIS [A160855](https://oeis.org/A160855):
+The least not occurring integer such that partial sum,
+written in binary,
+contains binary _n_ as a substring,
+OEIS [A160855](https://oeis.org/A160855):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A160855
 let m = 250;
 let a = [];
 let k = 1;
@@ -611,10 +615,11 @@ a.scatterPlot
 
 ![](sw/spl/Help/Image/integerDigits-D.svg)
 
-Scatter plot of every fourth item of the first few terms of OEIS [A063543](https://oeis.org/A063543):
+_n_ minus the product of the nonzero digits of _n_,
+OEIS [A063543](https://oeis.org/A063543):
 
-~~~spl svg=E
-1:1000:4.collect { :n |
+~~~spl svg=E oeis=A063543
+1:250.collect { :n |
 	let d = n.integerDigits;
 	n - d.reject(isZero:/1).product
 }.scatterPlot
@@ -632,10 +637,10 @@ Decimal(1/503, 251)
 
 ![](sw/spl/Help/Image/integerDigits-F.svg)
 
-Plot number of runs in binary expansion of _n_,
+Number of runs in binary expansion of _n_,
 OEIS [A005811](https://oeis.org/A005811):
 
-~~~spl svg=G
+~~~spl svg=G oeis=A005811
 1:255.collect { :n |
 	n.integerDigits(2)
 	.split(=)
@@ -646,10 +651,10 @@ OEIS [A005811](https://oeis.org/A005811):
 
 ![](sw/spl/Help/Image/integerDigits-G.svg)
 
-Plot product of run lengths in binary representation,
+Product of run lengths in binary representation,
 OEIS [A167489](https://oeis.org/A167489):
 
-~~~spl svg=H
+~~~spl svg=H oeis=A167489
 0:250.collect { :n |
 	n.integerDigits(2)
 	.split(=)
@@ -663,7 +668,7 @@ OEIS [A167489](https://oeis.org/A167489):
 Count the number of occurrences of the _n_-th digit of the sequence among the first _n_ digits,
 OEIS [A322182](https://oeis.org/A322182):
 
-~~~spl svg=I
+~~~spl svg=I oeis=A322182
 let a = [1];
 let d = [1];
 2.toDo(200) { :i |
@@ -679,10 +684,10 @@ a.scatterPlot
 
 ![](sw/spl/Help/Image/integerDigits-I.svg)
 
-Plot product of decimal digits of _n_,
+Product of decimal digits of _n_,
 OEIS [A007954](https://oeis.org/A007954):
 
-~~~spl svg=J
+~~~spl svg=J oeis=A007954
 1:150.collect { :n |
 	n.integerDigits.product
 }.scatterPlot
@@ -693,7 +698,7 @@ OEIS [A007954](https://oeis.org/A007954):
 Making numbers into palindromic numbers,
 OEIS [A033865](https://oeis.org/A033865):
 
-~~~spl svg=K
+~~~spl svg=K oeis=A033865
 0:87.collect { :n |
 	{ :i |
 		let j = i.integerDigits;
@@ -710,7 +715,7 @@ OEIS [A033865](https://oeis.org/A033865):
 Primes where every suffix is prime,
 OEIS [A033664](https://oeis.org/A033664):
 
-~~~spl svg=L
+~~~spl svg=L oeis=A033664
 1:200.prime.select { :n |
 	n.integerDigits
 	.allButFirst
@@ -725,7 +730,7 @@ OEIS [A033664](https://oeis.org/A033664):
 Numbers that cubed have only even digits,
 OEIS [A052004](https://oeis.org/A052004):
 
-~~~spl svg=M
+~~~spl svg=M oeis=A052004
 0:5000.select { :n |
 	(n ^ 3).integerDigits
 	.allSatisfy(isEven:/1)
@@ -734,10 +739,10 @@ OEIS [A052004](https://oeis.org/A052004):
 
 ![](sw/spl/Help/Image/integerDigits-M.svg)
 
-Plot numbers written in the dyadic system,
+Numbers written in the dyadic system,
 OEIS [A007931](https://oeis.org/A007931):
 
-~~~spl svg=N
+~~~spl svg=N oeis=A007931
 1:94.collect { :n |
 	let a = (n + 1).integerDigits(2);
 	(a + 1).allButFirst.fromDigits
@@ -746,10 +751,10 @@ OEIS [A007931](https://oeis.org/A007931):
 
 ![](sw/spl/Help/Image/integerDigits-N.svg)
 
-Plot expected time until the _n_-th possible sequence of coin tosses,
+Expected time until the _n_-th possible sequence of coin tosses,
 OEIS [A059943](https://oeis.org/A059943):
 
-~~~spl svg=O
+~~~spl svg=O oeis=A059943
 1:126.collect { :n |
 	let a = (n + 1).integerDigits(2);
 	let b = a.drop(1) + 1;
@@ -767,7 +772,7 @@ OEIS [A059943](https://oeis.org/A059943):
 Triangle of values of _n_ written in base _k_ with digits reversed,
 OEIS [A191780](https://oeis.org/A191780):
 
-~~~spl svg=P
+~~~spl svg=P oeis=A191780
 2:13.triangularArray { :n :k |
 	n.integerDigits(k)
 	.reverse
@@ -780,7 +785,7 @@ OEIS [A191780](https://oeis.org/A191780):
 Least _k>1_ with _k=Σ(d(k^n))_,
 OEIS [A046017](https://oeis.org/A046017):
 
-~~~spl svg=Q
+~~~spl svg=Q oeis=A046017
 1:47.collect { :n |
 	let k = 2L;
 	{
@@ -794,10 +799,10 @@ OEIS [A046017](https://oeis.org/A046017):
 
 ![](sw/spl/Help/Image/integerDigits-Q.svg)
 
-Plot integers on the positive x-axis of clockwise spiral on a square lattice,
+Integers on the positive x-axis of clockwise spiral on a square lattice,
 OEIS [A033953](https://oeis.org/A033953):
 
-~~~spl svg=R
+~~~spl svg=R oeis=A033953
 let k = 105;
 let m = (k ^ 2) + (10 * k);
 let a = 0:m.collect(
@@ -818,10 +823,10 @@ let a = 0:m.collect(
 
 ![](sw/spl/Help/Image/integerDigits-R.svg)
 
-Plot enumeration of partitions by binary representation,
+Enumeration of partitions by binary representation,
 OEIS [A125106](https://oeis.org/A125106):
 
-~~~spl svg=S
+~~~spl svg=S oeis=A125106
 1:43.collect { :n |
 	let d = n.integerDigits(2);
 	let x = d.reverse.indicesOf(1);
@@ -835,7 +840,7 @@ OEIS [A125106](https://oeis.org/A125106):
 Write _n_ in base three and reverse order of digits,
 OEIS [A030341](https://oeis.org/A030341):
 
-~~~spl svg=T
+~~~spl svg=T oeis=A030341
 0:40.collect { :n |
 	n.integerDigits(3).reverse
 }.catenate.discretePlot
@@ -846,7 +851,7 @@ OEIS [A030341](https://oeis.org/A030341):
 Sum of squares of digits of _n_,
 OEIS [A003132](https://oeis.org/A003132):
 
-~~~spl svg=U
+~~~spl svg=U oeis=A003132
 0:200.collect { :n |
 	n.integerDigits.square.sum
 }.scatterPlot

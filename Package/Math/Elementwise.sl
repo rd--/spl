@@ -46,6 +46,10 @@
 		self.collect(aliquotSum:/1)
 	}
 
+	amusicalPermutation { :self |
+		self.collect(amusicalPermutation:/1)
+	}
+
 	antiDivisors { :self |
 		self.collect(antiDivisors:/1)
 	}

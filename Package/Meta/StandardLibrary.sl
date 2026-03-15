@@ -166,6 +166,7 @@
 
 	/* Help */
 	'HelpIndex' /* LibraryItem */
+	'HelpProgram'
 
 	/* Math */
 	'ApproximateMathFunctions'

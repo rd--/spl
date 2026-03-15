@@ -159,10 +159,10 @@ The squares of 1, 11, 111 and so on are special palindromes:
 ]
 ```
 
-Plot numbers whose binary expansion is palindromic,
+Numbers whose binary expansion is palindromic,
 OEIS [A006995](https://oeis.org/A006995):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A006995
 0:1000.select { :n |
 	n.integerDigits(2).isPalindrome
 }.scatterPlot
@@ -170,9 +170,10 @@ OEIS [A006995](https://oeis.org/A006995):
 
 ![](sw/spl/Help/Image/isPalindrome-A.svg)
 
-Plot first few palindromic primes:
+Palindromic primes,
+OEIS [A002385](https://oeis.org/A002385):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A002385
 1:6000.prime
 .select(isPalindrome:/1)
 .scatterPlot
@@ -180,10 +181,10 @@ Plot first few palindromic primes:
 
 ![](sw/spl/Help/Image/isPalindrome-B.svg)
 
-Plot least _k>0_ such that _(2n-1)k_ is a palindrome in base two,
+Least _k>0_ such that _(2n-1)k_ is a palindrome in base two,
 OEIS [A141707](https://oeis.org/A141707):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A141707
 1:250.collect { :n |
 	let k = 1;
 	let m = 2 * n - 1;
@@ -204,7 +205,7 @@ Smallest positive multiplier _m_ such that _m*n_ is palindromic,
 or zero if no such _m_ exists,
 OEIS [A050782](https://oeis.org/A050782):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A050782
 1:80.collect { :n |
 	let i = 1;
 	(n / 10).isInteger.if {

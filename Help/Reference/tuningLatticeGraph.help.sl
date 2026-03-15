@@ -68,7 +68,6 @@ given by `gradyTuningLatticeCoordinates`.
 A 24-note 19-limit draft tuning by Ben Johnston:
 
 ~~~spl svg=D
-
 [
 	32768 32928 33792 35840 36015
 	37632 38416 38912 40960 41160
@@ -148,7 +147,7 @@ let n = [1 3 5 7 11 13];
 
 Tuning lattice graph of regular numbers within the octave double _(360,720)_:
 
-~~~svg=H
+~~~spl svg=H
 let n = 6.!;
 (n / 2 .. n).select { :x |
 	x.isSmoothNumber(5)

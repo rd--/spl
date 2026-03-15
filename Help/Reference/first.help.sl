@@ -71,7 +71,7 @@ At `String`:
 Highest power of smallest prime dividing _n_,
 OEIS [A028233](https://oeis.org/A028233):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A028233
 1:86.collect { :n |
 	let [p, e] = n.factorInteger.first;
 	p ^ e

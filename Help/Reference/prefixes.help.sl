@@ -75,7 +75,7 @@ OEIS [A000217](https://oeis.org/A000217)
 Sequence matrix for odd numbers,
 OEIS [A099375](https://oeis.org/A099375):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A099375
 1:23:2.prefixes
 .collect(reverse:/1)
 .catenate.scatterPlot
@@ -86,7 +86,7 @@ OEIS [A099375](https://oeis.org/A099375):
 Prefixes of the natural numbers,
 OEIS [A002260](https://oeis.org/A002260):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A002260
 1:13.prefixes.catenate.scatterPlot
 ~~~
 
@@ -95,7 +95,7 @@ OEIS [A002260](https://oeis.org/A002260):
 Prefixes of the odd numbers,
 OEIS [A158405](https://oeis.org/A158405):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A158405
 1:23:2.prefixes.catenate.scatterPlot
 ~~~
 
@@ -105,7 +105,7 @@ Right-truncatable primes,
 every prefix is prime,
 OEIS [A024770](https://oeis.org/A024770):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A024770
 1:10000.prime.select { :n |
 	n.integerDigits
 	.prefixes

@@ -50,10 +50,11 @@ OEIS [A010094](https://oeis.org/A010094):
 ]
 ```
 
-Log scale scatter plot of first few terms of the Entringer triangle,
+The Entringer triangle,
+log scale scatter plot of first few terms,
 OEIS [A008282](https://oeis.org/A008282):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A008282
 1:11.triangularArray(
  	entringerNumber:/2
 ).catenate.logScale.scatterPlot

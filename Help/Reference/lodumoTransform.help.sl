@@ -47,7 +47,7 @@ OEIS [A131743](https://oeis.org/A131743):
 _L(2)_ applied to each row of Pascal’s triangle,
 OEIS [A160019](https://oeis.org/A160019):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A160019
 17.pascalTriangle.collect { :x |
 	x.lodumoTransform(2)
 }.catenate.scatterPlot
@@ -58,7 +58,7 @@ OEIS [A160019](https://oeis.org/A160019):
 _L(2)_ of Kolakoski sequence,
 OEIS [A160051](https://oeis.org/A160051):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A160051
 65.kolakoskiSequence
 .lodumoTransform(2)
 .scatterPlot
@@ -69,7 +69,7 @@ OEIS [A160051](https://oeis.org/A160051):
 _L(5)_ of Fibonacci sequence,
 OEIS [A160081](https://oeis.org/A160081):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A160081
 65.fibonacciSequence
 .lodumoTransform(5)
 .scatterPlot

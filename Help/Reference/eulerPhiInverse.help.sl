@@ -2,8 +2,7 @@
 
 - _eulerPhiInverse(n)_
 
-Answer the inverse of the Euler totient function,
-written _φ(n)_.
+Answer the inverse of the Euler totient function.
 Answers an empty list for all odd number except one.
 
 At specific values:
@@ -87,10 +86,10 @@ OEIS [A007617](https://oeis.org/A007617):
 ]
 ```
 
-Scatter plot of first few terms,
+The inverse of the Euler totient function,
 OEIS [A032447](https://oeis.org/A032447):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A032447
 1:50.eulerPhiInverse
 .++
 .scatterPlot

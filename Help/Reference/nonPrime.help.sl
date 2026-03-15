@@ -47,7 +47,7 @@ OEIS [A114537](https://oeis.org/A114537)
 ]
 ```
 
-Plot characteristic function of nonprimes,
+Characteristic function of nonprimes,
 OEIS [A005171](https://oeis.org/A005171):
 
 ~~~spl svg=A oeis=A005171 set=0,1
@@ -58,7 +58,7 @@ OEIS [A005171](https://oeis.org/A005171):
 
 ![](sw/spl/Help/Image/nonPrime-A.svg)
 
-Plot dispersion of the primes,
+Dispersion of the primes,
 OEIS [A114537](https://oeis.org/A114537)
 
 ~~~spl svg=B oeis=A114537

@@ -31,10 +31,10 @@ OEIS [A007913](https://oeis.org/A007913):
 ]
 ```
 
-Plot first few terms,
+The square-free part of _n_,
 OEIS [A007913](https://oeis.org/A007913):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A007913
 1:65.squareFreePart.discretePlot
 ~~~
 

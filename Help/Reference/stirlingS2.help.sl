@@ -227,10 +227,10 @@ Plot parity:
 
 ![](sw/spl/Help/Image/stirlingS2-B.svg)
 
-Plot the triangle of Stirling numbers of the second kind,
+The triangle of Stirling numbers of the second kind,
 OEIS [A008277](https://oeis.org/A008277):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A008277
 1:17.triangularArray(stirlingS2:/2)
 .catenate.log.scatterPlot
 ~~~
@@ -240,7 +240,7 @@ OEIS [A008277](https://oeis.org/A008277):
 The _n_-th derivative of the logistic function,
 OEIS [A163626](https://oeis.org/A163626):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A163626
 0:17.triangularArray { :n :k |
 	(-1 ^ k)
 	*

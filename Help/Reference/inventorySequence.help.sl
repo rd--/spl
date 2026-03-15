@@ -2,7 +2,8 @@
 
 - _inventorySequence(n)_
 
-Answer the first _n_ terms of the inventory sequence [A342585](https://oeis.org/A342585).
+Answer the first _n_ terms of the inventory sequence,
+[A342585](https://oeis.org/A342585).
 
 > The sequence records the number of zeroes thus far in the sequence,
 > then the number of ones thus far, then the number of twos thus far
@@ -38,19 +39,21 @@ OEIS [A343880](https://oeis.org/A343880):
 ]
 ```
 
-Discrete plot of first few terms,
+The inventory sequence,
+discrete plot,
 OEIS [A342585](https://oeis.org/A342585):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A342585
 99.inventorySequence.discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/inventorySequence-A.svg)
 
-Log scale scatter plot of first few terms,
+The inventory sequence,
+log scale scatter plot,
 OEIS [A342585](https://oeis.org/A342585):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A342585
 333
 .inventorySequence
 .logScale

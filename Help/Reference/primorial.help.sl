@@ -36,7 +36,7 @@ OEIS [A002110](https://oeis.org/A002110):
 Run length transform of primorials,
 OEIS [A278159](https://oeis.org/A278159):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A278159
 0:250.collect { :n |
 	let b = n.binaryExpansion;
 	let r = b.runLengthsOf(1);

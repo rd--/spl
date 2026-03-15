@@ -7,7 +7,7 @@ Answer a function that is the Dirichlet convolution of the functions _f_ and _g_
 Dedekind ψ function,
 OEIS [A001615](https://oeis.org/A001615):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A001615
 1:115.collect(
 	dirichletConvolve(
 		{ :j | j },
@@ -21,7 +21,7 @@ OEIS [A001615](https://oeis.org/A001615):
 Jordan function,
 OEIS [A007434](https://oeis.org/A007434):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A007434
 1:165.collect(
 	dirichletConvolve(
 		{ :k | k.moebiusMu },
@@ -35,7 +35,7 @@ OEIS [A007434](https://oeis.org/A007434):
 Convolve identity and prime predicate,
 OEIS [A069359](https://oeis.org/A069359):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A069359
 1:115.collect(
 	dirichletConvolve(
 		{ :n | n },
@@ -49,7 +49,7 @@ OEIS [A069359](https://oeis.org/A069359):
 Dirichlet convolution of natural numbers with triangular numbers,
 OEIS [A309731](https://oeis.org/A309731):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A309731
 1:115.collect(
 	dirichletConvolve(
 		{ :j | j },
@@ -63,7 +63,7 @@ OEIS [A309731](https://oeis.org/A309731):
 Moebius transform of the cototient function,
 OEIS [A062790](https://oeis.org/A062790):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A062790
 1:115.collect(
 	dirichletConvolve(
 		{ :n | n.moebiusMu },
@@ -74,9 +74,10 @@ OEIS [A062790](https://oeis.org/A062790):
 
 ![](sw/spl/Help/Image/dirichletConvolve-E.svg)
 
-Identity:
+Identity,
+OEIS [A000027](https://oeis.org/A000027):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A000027
 1:23.collect(
 	dirichletConvolve(
 		{ :n | n },

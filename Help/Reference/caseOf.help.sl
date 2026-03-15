@@ -81,10 +81,10 @@ If the collection _c_ does not contain associations, report an `error`:
 true
 ```
 
-Plot problem related to gerrymandering,
+A problem related to gerrymandering,
 OEIS [A290323](https://oeis.org/A290323):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A290323
 let f = { :p :e |
 	(p = 2).if {
 		(e = 1).if {

@@ -123,7 +123,7 @@ A matrix analogous to the Fibonacci Q-matrix exists for Padovan numbers:
 The Padovan sequence,
 OEIS [A000931](https://oeis.org/A000931):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A000931
 35.padovanSequence([1 0 0])
 .discretePlot
 ~~~

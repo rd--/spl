@@ -112,7 +112,7 @@ At `Sfc32`, which implements `Stream`:
 Numbers _m_ for which the number of divisors, _τ(m)_, is divisible by three,
 OEIS [A059269](https://oeis.org/A059269):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A059269
 1:230.select { :n |
 	0.divisorSigma(n).divisible(3)
 }.scatterPlot

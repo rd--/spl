@@ -73,10 +73,10 @@ OEIS [A027748](https://oeis.org/A027748):
 ]
 ```
 
-Plot sum of the distinct prime factors of _n_,
+Sum of the distinct prime factors of _n_,
 OEIS [A008472](https://oeis.org/A008472):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A008472
 1:75.collect { :n |
 	n.distinctPrimeFactors.sum
 }.scatterPlot
@@ -84,10 +84,10 @@ OEIS [A008472](https://oeis.org/A008472):
 
 ![](sw/spl/Help/Image/distinctPrimeFactors-A.svg)
 
-Plot table,
+Irregular triangle of distinct prime factors,
 OEIS [A027748](https://oeis.org/A027748):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A027748
 2:115.collect(distinctPrimeFactors:/1)
 .catenate.log.scatterPlot
 ~~~
@@ -97,7 +97,7 @@ OEIS [A027748](https://oeis.org/A027748):
 Number of distinct prime factors _p_ of _n_ such that _p^p_ is a divisor of _n_,
 OEIS [A129251](https://oeis.org/A129251):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A129251
 2:115.collect { :n |
 	n.distinctPrimeFactors.count { :p |
 		n.divisible(p ^ p)

@@ -151,21 +151,20 @@ OEIS [A001918](https://oeis.org/A001918):
 ]
 ```
 
-Plot first few terms,
+Primitive roots of _n_
 OEIS [A046147](https://oeis.org/A046147):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A046147
 2:43.collect(primitiveRootList:/1)
-.catenate
-.scatterPlot
+.catenate.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/primitiveRootList-A.svg)
 
-Plot sums,
+Sums of primitive roots of _n_
 OEIS [A121380](https://oeis.org/A121380):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A121380
 1:65.collect { :n |
 	n.primitiveRootList.sum
 }.discretePlot
@@ -173,10 +172,10 @@ OEIS [A121380](https://oeis.org/A121380):
 
 ![](sw/spl/Help/Image/primitiveRootList-B.svg)
 
-Plot least primitive root of _n_-th prime,
+Least primitive root of _n_-th prime,
 OEIS [A001918](https://oeis.org/A001918):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A001918
 1:66.collect { :n |
 	n.prime.primitiveRootList.min
 }.stepPlot
@@ -184,10 +183,10 @@ OEIS [A001918](https://oeis.org/A001918):
 
 ![](sw/spl/Help/Image/primitiveRootList-C.svg)
 
-Plot sum of primitive roots of _n_-th prime,
+Sum of primitive roots of _n_-th prime,
 OEIS [A088144](https://oeis.org/A088144):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A088144
 1:90.collect { :n |
 	n.prime.primitiveRootList.sum
 }.scatterPlot
@@ -195,10 +194,10 @@ OEIS [A088144](https://oeis.org/A088144):
 
 ![](sw/spl/Help/Image/primitiveRootList-D.svg)
 
-Plot _(Σ(R(p(n))) - μ(p(n)-1))/p(n)_,
+_(Σ(R(p(n))) - μ(p(n)-1))/p(n)_,
 OEIS [A088145](https://oeis.org/A088145):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A088145
 1:71.collect { :n |
 	let p = n.prime;
 	let r = p.primitiveRootList.sum;
@@ -211,7 +210,7 @@ OEIS [A088145](https://oeis.org/A088145):
 Triangle in which _n_-th row lists all primitive roots modulo the _n_-th prime,
 OEIS [A060749](https://oeis.org/A060749):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A060749
 1:23.collect { :n |
 	n.prime.primitiveRootList
 }.catenate.scatterPlot
@@ -222,7 +221,7 @@ OEIS [A060749](https://oeis.org/A060749):
 Smallest primitive root modulo _n_ or 0 if no root exists,
 OEIS [A046145](https://oeis.org/A046145):
 
-~~~spl svg=G
+~~~spl svg=G oeis=A046145
 1:85.collect { :n |
 	let r = n.primitiveRootList;
 	r.ifEmpty { 0 } { r.min }
@@ -234,7 +233,7 @@ OEIS [A046145](https://oeis.org/A046145):
 Largest primitive root modulo _n_ or 0 if no root exists,
 OEIS [A046146](https://oeis.org/A046146):
 
-~~~spl svg=H
+~~~spl svg=H oeis=A046146
 1:85.collect { :n |
 	let r = n.primitiveRootList;
 	r.ifEmpty { 0 } { r.max }
@@ -246,7 +245,7 @@ OEIS [A046146](https://oeis.org/A046146):
 Least positive prime primitive root of _n_-th prime,
 OEIS [A002233](https://oeis.org/A002233):
 
-~~~spl svg=I
+~~~spl svg=I oeis=A002233
 2:85.collect { :n |
 	n.prime.primitiveRootList
 	.detect(isPrime:/1)

@@ -45,7 +45,7 @@ Count the number of rows whose first element is 1:
 2
 ```
 
-Plot the number of anti-divisors of _n_,
+The number of anti-divisors of _n_,
 OEIS [A066272](https://oeis.org/A066272):
 
 ~~~spl svg=A oeis=A066272

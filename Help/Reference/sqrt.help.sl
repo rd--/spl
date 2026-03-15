@@ -216,10 +216,10 @@ Plot over a subset of the reals:
 
 ![](sw/spl/Help/Image/sqrt-A.svg)
 
-Plot the signature sequence of √2,
+The signature sequence of √2,
 OEIS [A007336](https://oeis.org/A007336):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A007336
 2.sqrt.signatureSequence(200)
 .scatterPlot
 ~~~
@@ -229,7 +229,7 @@ OEIS [A007336](https://oeis.org/A007336):
 A permutation of the positive integers,
 OEIS [A101369](https://oeis.org/A101369):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A101369 permutation
 let m = 2.sqrt;
 1:65.collect { :n |
 	n.isEven.if {
@@ -246,7 +246,7 @@ A self-generating sequence,
 there are _a(n)_ threes between successive twos,
 OEIS [A007538](https://oeis.org/A007538):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A007538
 let m = 1 + 3.sqrt;
 let a = 1:65.collect { :n |
 	(n * m).floor - ((n - 1) * m).floor
@@ -259,7 +259,7 @@ let a = 1:65.collect { :n |
 Differences of _⌊(n*√2+½)_,
 OEIS [A006338](https://oeis.org/A006338):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A006338
 let a = 1:85.collect { :n |
 	(n * 2.sqrt + 0.5).floor
 }.differences;

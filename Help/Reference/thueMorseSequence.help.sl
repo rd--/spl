@@ -109,7 +109,7 @@ Plot Thue–Morse sequence as a series of turns:
 Partial sums of the Thue–Morse sequence,
 OEIS [A115384](https://oeis.org/A115384):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A115384
 35.thueMorseSequence.prefixSum.stepPlot
 ~~~
 

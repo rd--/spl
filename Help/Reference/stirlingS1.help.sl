@@ -189,7 +189,7 @@ stirlingS1:/2
 
 ![](sw/spl/Help/Image/stirlingS1-A.svg)
 
-Plot sums of digits:
+Sums of digits:
 
 ~~~spl svg=B
 { :n :m |
@@ -224,7 +224,7 @@ OEIS [A008309](https://oeis.org/A008309):
 
 ![](sw/spl/Help/Image/stirlingS1-C.svg)
 
-Plot triangle of _s(n,n-k+1)_,
+Triangle of _s(n,n-k+1)_,
 OEIS [A008276](https://oeis.org/A008276):
 
 ~~~spl svg=D oeis=A008276 signed
@@ -235,7 +235,7 @@ OEIS [A008276](https://oeis.org/A008276):
 
 ![](sw/spl/Help/Image/stirlingS1-D.svg)
 
-Plot the triangle of signed Stirling numbers of the first kind,
+The triangle of signed Stirling numbers of the first kind,
 OEIS [A008275](http://oeis.org/A008275):
 
 ~~~spl svg=E oeis=A008275 signed

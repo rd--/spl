@@ -1,8 +1,8 @@
 # inferSchemaType
 
-- _inferSchemaType(aString)_
+- _inferSchemaType(s)_
 
-Infer the Schema type of the value at _aString_.
+Infer the Schema type of the value at the string _s_.
 
 Infer a `Boolean` type:
 

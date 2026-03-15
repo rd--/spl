@@ -98,7 +98,7 @@ Binary expansion of square numbers,
 matrix plot,
 OEIS [A000290](https://oeis.org/A000290):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A000290
 1:42.square
 .binaryExpansion
 .padLeft

@@ -33,10 +33,11 @@ Plot upper left 11×11 area of the array:
 
 ![](sw/spl/Help/Image/stolarskyArray-A.svg)
 
-Plot by antidiagonals,
+The infinite Stolarsky array,
+read by antidiagonals,
 OEIS [A035506](https://oeis.org/A035506):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A035506
 13.antidiagonalArray(
 	stolarskyArray:/2
 ).catenate.scatterPlot

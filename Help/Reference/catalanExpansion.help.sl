@@ -64,7 +64,7 @@ Catalan expansions of integers,
 the decimal expansions of
 OEIS [A014418](https://oeis.org/A014418):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A014418
 0:23.collect(
 	catalanExpansion:/1
 ).++.stepPlot

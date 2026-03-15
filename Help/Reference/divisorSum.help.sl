@@ -14,9 +14,10 @@ Find the sum of the divisors of thirty, c.f. `divisorSigma`:
 72
 ```
 
-Plot the sum of divisors for the first 50 numbers:
+The sum of divisors for the first fifty numbers,
+OEIS [A000203](https://oeis.org/A000203)
 
-~~~spl svg=A
+~~~spl svg=A oeis=A000203
 1:50.functionPlot { :n |
 	n.divisorSum(identity:/1)
 }
@@ -27,7 +28,7 @@ Plot the sum of divisors for the first 50 numbers:
 Generalised sum of divisors function,
 OEIS [A002129](https://oeis.org/A002129):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A002129 signed
 1:150.collect { :n |
 	n.divisorSum { :x |
 		0 - (-1 ^ x * x)
@@ -37,10 +38,10 @@ OEIS [A002129](https://oeis.org/A002129):
 
 ![](sw/spl/Help/Image/divisorSum-B.svg)
 
-Plot the multiplicative partition function,
+The multiplicative partition function,
 OEIS [A001055](https://oeis.org/A001055):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A001055
 let t = { :n :m |
 	(n = 1 | { m = 1}).if {
 		1
@@ -58,10 +59,10 @@ let t = { :n :m |
 
 ![](sw/spl/Help/Image/divisorSum-C.svg)
 
-Plot Moebius transform applied twice to the sequence one then zero,
+Moebius transform applied twice to the sequence one then zero,
 OEIS [A007427](https://oeis.org/A007427):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A007427 signed
 1:81.collect { :n |
 	n.divisorSum { :d |
 		let a = moebiusMu(d);
@@ -73,10 +74,10 @@ OEIS [A007427](https://oeis.org/A007427):
 
 ![](sw/spl/Help/Image/divisorSum-D.svg)
 
-Plot the inverse Moebius transform of the Fredholm-Rueppel sequence,
+The inverse Moebius transform of the Fredholm-Rueppel sequence,
 OEIS [A154402](https://oeis.org/A154402):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A154402
 1:65.collect { :n |
 	n.divisorSum { :d |
 		(d + 1).log2.isInteger.boole
@@ -89,7 +90,7 @@ OEIS [A154402](https://oeis.org/A154402):
 Divisor sum _-1^(d-1)*d^2_,
 OEIS [A321543](https://oeis.org/A321543):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A321543 signed
 1:85.collect { :n |
 	n.divisorSum { :d |
 		-1 ^ (d - 1) * d.square
@@ -102,7 +103,7 @@ OEIS [A321543](https://oeis.org/A321543):
 Expansion of a modular form related to Apery numbers,
 OEIS [A006353](https://oeis.org/A006353):
 
-~~~spl svg=G
+~~~spl svg=G oeis=A006353
 let a = [0 5 4 6 4 5];
 1:85.collect { :n |
 	n.divisorSum { :d |

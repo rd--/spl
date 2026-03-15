@@ -80,7 +80,7 @@ Plot `abs` at Gaussian integers:
 Absolute value of the first digit of _n_ minus the last digit,
 OEIS [A040163](https://oeis.org/A040163):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A040163
 1:125.collect { :n |
 	let d = n.integerDigits;
 	(d.first - d.last).abs
@@ -92,7 +92,7 @@ OEIS [A040163](https://oeis.org/A040163):
 Absolute value of the first digit of _n_ minus the sum of the remaining digits,
 OEIS [A040997](https://oeis.org/A040997):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A040997
 50:175.collect { :n |
 	let d = n.integerDigits;
 	(d.first - d.allButFirst.sum).abs

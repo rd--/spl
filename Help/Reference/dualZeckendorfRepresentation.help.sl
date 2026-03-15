@@ -234,7 +234,7 @@ OEIS [A112309](https://oeis.org/A112309):
 
 ![](sw/spl/Help/Image/dualZeckendorfRepresentation-D.svg)
 
-Plot integers whose Dual Zeckendorf representation is palindromic,
+Integers whose Dual Zeckendorf representation is palindromic,
 OEIS [A331191](https://oeis.org/A331191):
 
 ~~~spl svg=E oeis=A331191
@@ -246,7 +246,7 @@ OEIS [A331191](https://oeis.org/A331191):
 
 ![](sw/spl/Help/Image/dualZeckendorfRepresentation-E.svg)
 
-Plot the number of runs of identical bits in the Dual Zeckendorf representation of _n_,
+The number of runs of identical bits in the Dual Zeckendorf representation of _n_,
 OEIS [A104325](https://oeis.org/A104325):
 
 ~~~spl svg=F oeis=A104325

@@ -168,10 +168,10 @@ let j = differences:/1.nestList(
 
 ![](sw/spl/Help/Image/jacobiSymbol-B.png)
 
-Plot triangle in which _n_-th row gives quadratic non-residues modulo the _n_-th prime,
+Triangle in which _n_-th row gives quadratic non-residues modulo the _n_-th prime,
 OEIS [A063988](https://oeis.org/A063988):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A063988
 2:12.collect { :n |
 	let p = n.prime;
 	let q = p - 1;

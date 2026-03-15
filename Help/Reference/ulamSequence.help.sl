@@ -133,10 +133,10 @@ OEIS [A006844](https://oeis.org/A006844):
 ]
 ```
 
-First few terms of the Ulam sequence,
+The Ulam sequence,
 OEIS [A002858](https://oeis.org/A002858):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A002858
 80.ulamSequence.scatterPlot
 ~~~
 
@@ -145,7 +145,7 @@ OEIS [A002858](https://oeis.org/A002858):
 First differences of the Ulam sequence,
 OEIS [A072832](https://oeis.org/A072832):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A072832
 175.ulamSequence
 .differences
 .scatterPlot

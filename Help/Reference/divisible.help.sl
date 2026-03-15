@@ -166,10 +166,10 @@ divisible:/2.swap
 
 ![](sw/spl/Help/Image/divisible-A.svg)
 
-Plot number of divisors _d_ of _n_ such that _d+1_ is not a divisor of _n_,
+Number of divisors _d_ of _n_ such that _d+1_ is not a divisor of _n_,
 OEIS [A137921](https://oeis.org/A137921):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A137921
 1:105.collect { :n |
 	divisorSum(n) { :m |
 		boole(divisible(n, m + 1).not)
@@ -182,7 +182,7 @@ OEIS [A137921](https://oeis.org/A137921):
 Smallest number whose square is divisible by _n_,
 OEIS [A019554](https://oeis.org/A019554):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A019554
 1:99.collect { :n |
 	1:n.detect { :x |
 		x.square.divisible(n)
@@ -192,10 +192,10 @@ OEIS [A019554](https://oeis.org/A019554):
 
 ![](sw/spl/Help/Image/divisible-C.svg)
 
-Plot least sequence where every term divides the product of its neighbors,
+Least sequence where every term divides the product of its neighbors,
 OEIS [A075075](https://oeis.org/A075075):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A075075
 [1 2]
 .leastExcludedSequence(201) { :a :n :m |
 	(m * a[n - 2]).divisible(a[n - 1])
@@ -204,10 +204,10 @@ OEIS [A075075](https://oeis.org/A075075):
 
 ![](sw/spl/Help/Image/divisible-D.svg)
 
-Plot _a(n)_ the smallest integer not yet in _a_ that is divisible by all non-zero digits of _a(n-1)_,
+_a(n)_ is the smallest integer not yet in _a_ that is divisible by all non-zero digits of _a(n-1)_,
 OEIS [A237851](https://oeis.org/A237851):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A237851
 [1].leastExcludedSequence(200) { :a :n :m |
 	a[n - 1].integerDigits
 	.select(isPositive:/1)
@@ -220,10 +220,10 @@ OEIS [A237851](https://oeis.org/A237851):
 
 ![](sw/spl/Help/Image/divisible-E.svg)
 
-Plot numbers that are divisible by each non-zero digit,
+Numbers that are divisible by each non-zero digit,
 OEIS [A002796](https://oeis.org/A002796):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A002796
 1:500.select { :n |
 	n.integerDigits
 	.select(isPositive:/1)
@@ -239,7 +239,7 @@ OEIS [A002796](https://oeis.org/A002796):
 Sum previous elements that divide _n_,
 OEIS [A269347](https://oeis.org/A269347):
 
-~~~spl svg=G
+~~~spl svg=G oeis=A269347
 let a = [1];
 2:55.do { :n |
 	let m = n - 1;
@@ -257,7 +257,7 @@ a.log.discretePlot
 Least excluded _m_ such that _m+a(n-1)_ is a multiple of _n_,
 OEIS [A099506](https://oeis.org/A099506):
 
-~~~spl svg=H
+~~~spl svg=H oeis=A099506
 [1].leastExcludedSequence(185) { :a :n :m |
 	let x = m + a[n - 1];
 	x.divisible(n)
@@ -270,7 +270,7 @@ Least excluded _m_ that is a divisor of the previous term,
 or a multiple of the previous term having at least one prime divisor coprime to it,
 OEIS [A113552](https://oeis.org/A113552):
 
-~~~spl svg=I
+~~~spl svg=I oeis=A113552
 [1].leastExcludedSequence(59) { :a :n :m |
 	let p = a[n - 1];
 	p.divisible(m) | {
@@ -319,7 +319,7 @@ OEIS [A237048](https://oeis.org/A237048):
 Smallest number _m_ such that _m(m+1)/2_ is divisible by _n_,
 OEIS [A011772](https://oeis.org/A011772):
 
-~~~spl svg=L
+~~~spl svg=L oeis=A011772
 1:85.collect { :n |
 	1:Infinity.detect { :m |
 		(m * (m + 1) / 2).divisible(n)

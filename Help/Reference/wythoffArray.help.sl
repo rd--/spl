@@ -71,10 +71,10 @@ OEIS [A083412](https://oeis.org/A083412):
 ]
 ```
 
-Plot Wythoff array read by falling antidiagonals,
+Wythoff array read by falling antidiagonals,
 OEIS [A035513](https://oeis.org/A035513):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A035513
 10.antidiagonalArray(
 	wythoffArray:/2
 ).catenate.scatterPlot
@@ -82,10 +82,10 @@ OEIS [A035513](https://oeis.org/A035513):
 
 ![](sw/spl/Help/Image/wythoffArray-A.svg)
 
-Plot Wythoff array read by rising antidiagonals,
+Wythoff array read by rising antidiagonals,
 OEIS [A083412](https://oeis.org/A083412):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A083412
 10.antidiagonalArray(
 	wythoffArray:/2.swap
 ).catenate.scatterPlot

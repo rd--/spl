@@ -110,7 +110,7 @@ OEIS [A000007](https://oeis.org/A000007):
 Weight array of the natural numbers,
 OEIS [A144112](https://oeis.org/A144112):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A144112
 0:15.collect { :n |
 	[n].padRight([n], 1) ++ [n + 1]
 }.catenate.stepPlot

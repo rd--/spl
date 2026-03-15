@@ -98,7 +98,7 @@ Absolute value of numerators of Bernoulli numbers,
 the unsigned variant of
 OEIS [A027641](https://oeis.org/A027641):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A027641 variant
 0:50.bernoulliNumber
 .numerator
 .abs

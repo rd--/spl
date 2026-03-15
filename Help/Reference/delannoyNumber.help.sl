@@ -65,7 +65,7 @@ Matrix plot of square array of Delannoy numbers modulo three:
 Square array of Delannoy numbers read by antidiagonals,
 OEIS [A008288](https://oeis.org/A008288):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A008288
 0:17.antidiagonalArray(
 	delannoyNumber:/2
 ).catenate.log.scatterPlot

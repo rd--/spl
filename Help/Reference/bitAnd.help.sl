@@ -88,23 +88,27 @@ Truth table for and:
 [0 0; 0 1]
 ```
 
-Plot a nested pattern:
+Bitwise and of _n-1_ and _n_,
+OEIS [A129760](https://oeis.org/A129760):
 
-~~~spl svg=A
-1:100.bitAnd(0:99).linePlot
+~~~spl svg=A oeis=A129760
+let n = 1:100;
+n.bitAnd(n - 1).linePlot
 ~~~
 
 ![](sw/spl/Help/Image/bitAnd-A.svg)
 
-Plot bitAnd with double:
+Bitwise and of _n_ and _2n_,
+OEIS [A213370](https://oeis.org/A213370):
 
-~~~spl svg=B
-1:63.bitAnd(2 * 1:64).linePlot
+~~~spl svg=B oeis=A213370
+let n = 1:64;
+n.bitAnd(n * 2).discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/bitAnd-B.svg)
 
-Plot bitAnd with double and triple:
+Bitwise and of _n_ and _2n_ and _3n_:
 
 ~~~spl svg=C
 1:64.functionPlot { :i |
@@ -114,13 +118,15 @@ Plot bitAnd with double and triple:
 
 ![](sw/spl/Help/Image/bitAnd-C.svg)
 
-Plot first hundred terms of
+Lexicographically earliest sequence such that,
+for any distinct _i_ and _j_,
+_a(i)=a(j)_ implies _i&j=0_,
 OEIS [A279125](https://oeis.org/A279125):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A279125
 let n = 100;
 let g = List(n, 0);
-let answer = [];
+let a = [];
 1.toDo(n - 1) { :i |
 	let j = 0;
 	{
@@ -129,14 +135,14 @@ let answer = [];
 		j := j + 1
 	};
 	g[j + 1] := g[j + 1] + i;
-	answer.add := j
+	a.add := j
 };
-answer.scatterPlot
+a.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/bitAnd-D.svg)
 
-Plot the bitwise and of the first few integers:
+Bitwise and of positive and negative integers:
 
 ~~~spl png=E
 bitAnd:/2
@@ -150,7 +156,7 @@ bitAnd:/2
 Calculate run length transform of `fibonacci`,
 OEIS [A246028](https://oeis.org/A246028):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A246028
 0:200.collect { :n |
 	0:n.sum { :k |
 		let a = (n - k).bitNot;
@@ -166,7 +172,7 @@ OEIS [A246028](https://oeis.org/A246028):
 Least multiple to have no common one bit in binary expansion,
 OEIS [A261892](https://oeis.org/A261892):
 
-~~~spl svg=G
+~~~spl svg=G oeis=A261892
 1:200.collect { :n |
 	let k = 1;
 	{
@@ -180,10 +186,10 @@ OEIS [A261892](https://oeis.org/A261892):
 
 ![](sw/spl/Help/Image/bitAnd-G.svg)
 
-Plot maximal number of linearly independent smooth nowhere-zero vector fields on a _2n+1_-sphere,
+Maximal number of linearly independent smooth nowhere-zero vector fields on a _2n+1_-sphere,
 OEIS [A053381](https://oeis.org/A053381):
 
-~~~spl svg=H
+~~~spl svg=H oeis=A053381
 1:102.collect { :n |
 	let n0 = 2 * n;
 	let b = 1:Infinity.detect { :unused |
@@ -199,10 +205,10 @@ OEIS [A053381](https://oeis.org/A053381):
 
 ![](sw/spl/Help/Image/bitAnd-H.svg)
 
-Plot array giving the length of the longest carry sequence when adding _k_ to _n_ in binary,
+Array giving the length of the longest carry sequence when adding _k_ to _n_ in binary,
 OEIS [A080080](https://oeis.org/A080080):
 
-~~~spl svg=I
+~~~spl svg=I oeis=A080080
 let add = { :x :y :z |
 	(y = 0).if {
 		z - 1
@@ -221,10 +227,10 @@ let add = { :x :y :z |
 
 ![](sw/spl/Help/Image/bitAnd-I.svg)
 
-Plot next larger integer with same binary weight as _n_,
+Next larger integer with same binary weight as _n_,
 OEIS [A057168](https://oeis.org/A057168):
 
-~~~spl svg=J
+~~~spl svg=J oeis=A057168
 1:71.collect { :n |
 	let u = bitAnd(n, -n);
 	let v = u + n;
@@ -237,7 +243,7 @@ OEIS [A057168](https://oeis.org/A057168):
 Shifts left under _and_-convolution with itself,
 OEIS [A007461](https://oeis.org/A007461):
 
-~~~spl svg=K
+~~~spl svg=K oeis=A007461
 let a = Map { :n |
 	(n < 2).if {
 		1
@@ -256,7 +262,7 @@ a[0:75].discretePlot
 _n&⌊(n/2)_,
 OEIS [A048735](https://oeis.org/A048735):
 
-~~~spl svg=L
+~~~spl svg=L oeis=A048735
 0:127.collect { :n |
 	n.bitAnd((n / 2).floor)
 }.scatterPlot
@@ -267,7 +273,7 @@ OEIS [A048735](https://oeis.org/A048735):
 _k&(n-k)_,
 OEIS [A004198](https://oeis.org/A004198):
 
-~~~spl svg=M
+~~~spl svg=M oeis=A004198
 0:15.triangularArray { :n :k |
 	k.bitAnd(n - k)
 }.catenate.discretePlot
@@ -275,10 +281,11 @@ OEIS [A004198](https://oeis.org/A004198):
 
 ![](sw/spl/Help/Image/bitAnd-M.svg)
 
-Bitwise logical and triangular array,
+Bitwise logical and,
+triangular array,
 OEIS [A080099](https://oeis.org/A080099):
 
-~~~spl svg=N
+~~~spl svg=N oeis=A080099
 0:19.triangularArray(bitAnd:/2)
 .catenate.scatterPlot
 ~~~

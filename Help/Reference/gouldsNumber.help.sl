@@ -12,10 +12,10 @@ Answer the _k_-th term of Goulds sequence.
 32L
 ```
 
-Plot first few terms of Gould’s sequence,
+Gould’s sequence,
 OEIS [A001316](https://oeis.org/A001316):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A001316
 0:64.functionPlot(
 	gouldsNumber:/1
 )

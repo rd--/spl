@@ -134,7 +134,7 @@ Largest integer _m_ such that _n-m^2_ is a square,
 or zero if no such _m_ exists,
 OEIS [A133388](https://oeis.org/A133388):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A133388
 1:100.collect { :n |
 	let m = 0;
 	let x = 0;

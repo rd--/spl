@@ -311,7 +311,7 @@ The _01_ sequence,
 discrete plot,
 OEIS [A000035](http://oeis.org/A000035):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A000035
 [0 1].repeat(30).discretePlot
 ~~~
 
@@ -330,7 +330,7 @@ OEIS [A033999](https://oeis.org/A033999):
 Characteristic function of numbers that are not multiples of ten,
 OEIS [A168184](https://oeis.org/A168184):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A168184 set=0,1
 ([1 9] # [0 1]).repeat(5).discretePlot
 ~~~
 

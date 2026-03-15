@@ -87,10 +87,10 @@ OEIS [A027375](https://oeis.org/A027375):
 [2 2 6 12 30 54 126 240 504 990 2046]
 ```
 
-Plot the Möbius sequence for the first few terms,
+The Möbius sequence,
 OEIS [A008683](https://oeis.org/A008683):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A008683
 1:100.moebiusMu.discretePlot
 ~~~
 
@@ -114,10 +114,10 @@ OEIS [A002321](https://oeis.org/A002321):
 ]
 ```
 
-Plot the first few terms of Mertens’s function,
+Mertens’s function,
 OEIS [A002321](https://oeis.org/A002321):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A002321
 1:250.moebiusMu.prefixSum.linePlot
 ~~~
 
@@ -184,7 +184,7 @@ OEIS [A006575](https://oeis.org/A006575):
 Count nonsingular complex Hermitian matrices,
 OEIS [A037227](https://oeis.org/A037227):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A037227
 1:102.collect { :n |
 	n.divisors.sum { :d |
 		(-1^ (d + 1))
@@ -201,7 +201,7 @@ OEIS [A037227](https://oeis.org/A037227):
 A sequence by I.Gutkovskiy,
 OEIS [A318583](https://oeis.org/A318583):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A318583
 let a:/1 = { :n |
 	(n <= 2).if {
 		1
@@ -221,7 +221,7 @@ let a:/1 = { :n |
 Dirichlet inverse of sigma function,
 OEIS [A046692](http://oeis.org/A046692):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A046692
 1:200.collect { :n |
 	let k = 0;
 	1.toDo(n) { :d |
@@ -246,10 +246,10 @@ let m = 1:500.collect(moebiusMu:/1);
 
 ![](sw/spl/Help/Image/moebiusMu-F.svg)
 
-Plot Moebius function applied to divisors of _n_,
+Moebius function applied to divisors of _n_,
 OEIS [A225817](https://oeis.org/A225817):
 
-~~~spl svg=G
+~~~spl svg=G oeis=A225817
 1:23.collect { :n |
 	n.divisors.collect(moebiusMu:/1)
 }.catenate.discretePlot
@@ -257,10 +257,10 @@ OEIS [A225817](https://oeis.org/A225817):
 
 ![](sw/spl/Help/Image/moebiusMu-G.svg)
 
-Plot number of transformation groups of order _n_,
+Number of transformation groups of order _n_,
 OEIS [A000113](https://oeis.org/A000113):
 
-~~~spl svg=H
+~~~spl svg=H oeis=A000113
 1:135.collect { :n |
 	let i = n.integerExponent(2);
 	let j = n.integerExponent(3);
@@ -278,7 +278,7 @@ OEIS [A000113](https://oeis.org/A000113):
 Dedekind ψ function,
 OEIS [A001615](https://oeis.org/A001615):
 
-~~~spl svg=I
+~~~spl svg=I oeis=A001615
 1:69.collect { :n |
 	n * n.divisorSum { :d |
 		d.moebiusMu ^ 2 / d
@@ -291,7 +291,7 @@ OEIS [A001615](https://oeis.org/A001615):
 The truncated Mertens function,
 OEIS [A088004](https://oeis.org/A088004):
 
-~~~spl svg=J
+~~~spl svg=J oeis=A088004
 1:81.collect { :n |
 	n.moebiusMu + n.isPrime.boole
 }.prefixSum.stepPlot
@@ -303,7 +303,7 @@ Mertens conjectured that _|M(n)|<√(n)_,
 now known to be false,
 OEIS [A059571](https://oeis.org/A059571):
 
-~~~spl svg=K
+~~~spl svg=K oeis=A059571
 1:85.collect { :n |
 	n.sqrt.floor - 1:n.moebiusMu.sum.abs
 }.discretePlot
@@ -329,7 +329,7 @@ OEIS [A054525](https://oeis.org/A054525):
 _μ(n)×n_,
 OEIS [A055615](https://oeis.org/A055615):
 
-~~~spl svg=M
+~~~spl svg=M oeis=A055615
 let n = 1:85;
 (n.moebiusMu * n).discretePlot
 ~~~

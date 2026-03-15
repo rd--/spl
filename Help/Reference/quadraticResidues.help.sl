@@ -149,7 +149,7 @@ OEIS [A096103](https://oeis.org/A096103):
 Number of nonzero quadratic residues,
 OEIS [A105612](https://oeis.org/A105612):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A105612
 2:75.collect { :p |
 	p.quadraticResidues.size
 }.stepPlot
@@ -160,7 +160,7 @@ OEIS [A105612](https://oeis.org/A105612):
 Largest quadratic residues,
 OEIS [A047210](https://oeis.org/A047210):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A047210
 2:75.collect { :p |
 	p.quadraticResidues.last
 }.stepPlot
@@ -171,7 +171,7 @@ OEIS [A047210](https://oeis.org/A047210):
 The quadratic residues modulo _p_ which are coprime to _p_,
 OEIS [A096103](https://oeis.org/A096103):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A096103
 2:30.collect { :p |
 	p.quadraticResidues.select { :q |
 		q.isCoprime(p)

@@ -113,7 +113,7 @@ Collect with another two sequential collections:
 Square array of polygonal numbers read by antidiagonals upwards,
 OEIS [A057145](https://oeis.org/A057145):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A057145
 2:13.collect { :n |
 	let m = n - 1;
 	1:m.collect { :k |
@@ -127,7 +127,7 @@ OEIS [A057145](https://oeis.org/A057145):
 Tribonacci array,
 OEIS [A027023](https://oeis.org/A027023):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A027023
 let t = { :n :k |
 	(k < 3 | { k = (2 * n) }).if {
 		1

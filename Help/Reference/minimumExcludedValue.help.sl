@@ -35,7 +35,7 @@ With _u_ being the positive integers:
 Two interleaved Beatty sequences,
 OEIS [A094077](https://oeis.org/A094077):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A094077
 let u = 1:Infinity;
 let a = Map { :n |
 	(n = 1).if {

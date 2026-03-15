@@ -227,27 +227,28 @@ OEIS [A038567](http://oeis.org/A038567):
 [1 2 3 3 4 4 5 5 5 5 6 6 7 7 7 7 7 7 8 8 8 8]
 ```
 
-Plot the first few terms,
+The Euler totient function,
 OEIS [A000010](https://oeis.org/A000010):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A000010
 1:50.functionPlot(eulerPhi:/1)
 ~~~
 
 ![](sw/spl/Help/Image/eulerPhi-A.svg)
 
-Plot the cumulative `sum` of `eulerPhi`:
+The cumulative `sum` of `eulerPhi`,
+OEIS [A002088](https://oeis.org/A002088):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A002088
 1:50.eulerPhi.prefixSum.linePlot
 ~~~
 
 ![](sw/spl/Help/Image/eulerPhi-B.svg)
 
-Plot the first few terms of [A018804](https://oeis.org/A018804),
-Pillais arithmetical function:
+Pillais arithmetical function,
+[A018804](https://oeis.org/A018804):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A018804
 { :n |
 	(n < 1).if {
 		0
@@ -261,9 +262,11 @@ Pillais arithmetical function:
 
 ![](sw/spl/Help/Image/eulerPhi-C.svg)
 
-Plot [A046644](https://oeis.org/A046644):
+Dirichlet series,
+square is zeta function,
+[A046644](https://oeis.org/A046644):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A046644
 let a = { :n |
 	n.divisors.collect { :d |
 		n * d.eulerPhi / d
@@ -290,9 +293,10 @@ let f = { :n |
 
 ![](sw/spl/Help/Image/eulerPhi-D.svg)
 
-Plot [A076512](https://oeis.org/A076512):
+Denominator of _((n-φ)/φ)_,
+[A076512](https://oeis.org/A076512):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A076512
 1:86.collect { :n |
 	let phi = n.eulerPhi.asFraction;
 	((n - phi) / phi).denominator
@@ -301,10 +305,10 @@ Plot [A076512](https://oeis.org/A076512):
 
 ![](sw/spl/Help/Image/eulerPhi-E.svg)
 
-Plot the degree of the classical modular polynomial,
+The degree of the classical modular polynomial,
 OEIS [A118778](https://oeis.org/A118778):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A118778
 1:250.collect { :n |
 	let s = 0;
 	n.divisors.do { :a |
@@ -323,10 +327,10 @@ OEIS [A118778](https://oeis.org/A118778):
 
 ![](sw/spl/Help/Image/eulerPhi-F.svg)
 
-Plot the number of iterations of _φ(x)_ at _n_ needed to reach one,
+The number of iterations of _φ(x)_ at _n_ needed to reach one,
 OEIS [A003434](https://oeis.org/A003434):
 
-~~~spl svg=G
+~~~spl svg=G oeis=A003434
 1:105.collect { :n |
 	eulerPhi:/1
 	.nestWhileList(n) { :x |
@@ -340,7 +344,7 @@ OEIS [A003434](https://oeis.org/A003434):
 Smallest _x_ such that _x%φ(x)=n_,
 OEIS [A234642](https://oeis.org/A234642):
 
-~~~spl svg=H
+~~~spl svg=H oeis=A234642
 0:43.collect { :n |
 	let x = 0;
 	{
@@ -353,10 +357,10 @@ OEIS [A234642](https://oeis.org/A234642):
 
 ![](sw/spl/Help/Image/eulerPhi-H.svg)
 
-Plot iterations of φ needed to reach one starting at _n_,
+Iterations of φ needed to reach one starting at _n_,
 OEIS [A049108](https://oeis.org/A049108):
 
-~~~spl svg=I
+~~~spl svg=I oeis=A049108
 1:105.collect { :n |
 	eulerPhi:/1
 	.nestWhileList(n) { :x |
@@ -367,10 +371,10 @@ OEIS [A049108](https://oeis.org/A049108):
 
 ![](sw/spl/Help/Image/eulerPhi-I.svg)
 
-Plot cototient function,
+Cototient function,
 OEIS [A051953](https://oeis.org/A051953):
 
-~~~spl svg=J
+~~~spl svg=J oeis=A051953
 1:200.collect { :n |
 	n - n.eulerPhi
 }.scatterPlot
@@ -382,7 +386,7 @@ _φ(p(n)-1)_,
 number of primitive roots in the field with _p_ elements,
 OEIS [A008330](https://oeis.org/A008330):
 
-~~~spl svg=K
+~~~spl svg=K oeis=A008330
 1:200.collect { :n |
 	(n.prime - 1).eulerPhi
 }.scatterPlot
@@ -393,7 +397,7 @@ OEIS [A008330](https://oeis.org/A008330):
 Number of squares in multiplicative group modulo _n_,
 OEIS [A046073](https://oeis.org/A046073):
 
-~~~spl svg=L
+~~~spl svg=L oeis=A046073
 1:86.collect { :n |
 	n.eulerPhi / 1:n.sum { :k |
 		(k.square % n = 1).boole
@@ -408,7 +412,7 @@ OEIS [A046073](https://oeis.org/A046073):
 _2*φ(n)-n_,
 OEIS [A083254](https://oeis.org/A083254):
 
-~~~spl svg=M
+~~~spl svg=M oeis=A083254 signed
 1:85.collect { :n |
 	2 * n.eulerPhi - n
 }.discretePlot
@@ -419,7 +423,7 @@ OEIS [A083254](https://oeis.org/A083254):
 _φ(m)*m^k*k!/n_ where _m=n/k_,
 OEIS [A047917](https://oeis.org/A047917):
 
-~~~spl svg=N
+~~~spl svg=N oeis=A047917
 1:11.triangularArray { :n :k |
 	n.divisible(k).if {
 		let m = n / k;

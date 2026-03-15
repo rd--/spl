@@ -34,20 +34,21 @@ At cube of prime:
 [5 5 5 5 5]
 ```
 
-Discrete plot of first few terms,
+The number of finite groups of order _n_,
 OEIS [A000001](https://oeis.org/A000001):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A000001
 0:30.finiteGroupCount
 .discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/finiteGroupCount-A.svg)
 
-Log scale scatter plot of first few terms,
+The number of finite groups of order _n_,
+log scale scatter plot,
 OEIS [A000001](https://oeis.org/A000001):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A000001
 1:250.finiteGroupCount
 .log
 .scatterPlot

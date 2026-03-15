@@ -23,10 +23,10 @@ OEIS [A016730](https://oeis.org/A016730):
 ]
 ```
 
-Scatter plot of the decimal digits of the natural logarithm of two,
+The decimal digits of the natural logarithm of two,
 OEIS [A002162](https://oeis.org/A002162):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A002162 constant
 'Ln(2)'
 .namedConstant
 .integerDigits
@@ -35,10 +35,10 @@ OEIS [A002162](https://oeis.org/A002162):
 
 ![](sw/spl/Help/Image/namedConstant-A.svg)
 
-Scatter plot of the continued fraction of the natural logarithm of two,
+The continued fraction of the natural logarithm of two,
 OEIS [A016730](https://oeis.org/A016730):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A016730 continuedFraction
 'Ln(2)'
 .namedConstant
 .continuedFraction(78)

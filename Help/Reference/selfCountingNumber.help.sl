@@ -9,7 +9,7 @@ Answer _k_-th term of the self-counting sequence.
 7
 ```
 
-First few terms,
+The self-counting sequence,
 OEIS [A002024](https://oeis.org/A002024):
 
 ```
@@ -24,10 +24,10 @@ As triangle:
 [1; 2 2; 3 3 3; 4 4 4 4; 5 5 5 5 5]
 ```
 
-First few terms,
+The self-counting sequence,
 OEIS [A002024](https://oeis.org/A002024):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A002024
 1:85.collect(selfCountingNumber:/1)
 .stepPlot
 ~~~

@@ -86,7 +86,7 @@ Denominators of Farey sequence of order 12:
 ```
 
 The length of a Farey sequence for a few small orders,
-c.f. OEIS [A005728](https://oeis.org/A005728):
+OEIS [A005728](https://oeis.org/A005728):
 
 ```
 >>> 1:12.collect(fareySequence:/1)
@@ -141,7 +141,7 @@ then _200,300,400,500_:
 [12233 27399 48679 76117]
 ```
 
-Plot terms of Farey sequence:
+Terms of Farey sequence:
 
 ~~~spl svg=A
 23.fareySequence.linePlot
@@ -149,17 +149,16 @@ Plot terms of Farey sequence:
 
 ![](sw/spl/Help/Image/fareySequence-A.svg)
 
-Plot numerators:
+Numerators of Farey sequence of order twenty-three:
 
 ~~~spl svg=B
-23.fareySequence
-.numerator
+23.fareySequence.numerator
 .scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/fareySequence-B.svg)
 
-Plot denominators:
+Denominators of Farey sequence of order twenty-three:
 
 ~~~spl svg=C
 23.fareySequence
@@ -169,7 +168,7 @@ Plot denominators:
 
 ![](sw/spl/Help/Image/fareySequence-C.svg)
 
-Plot diferrences between adjacent mediants:
+Diferrences between adjacent mediants:
 
 ~~~spl svg=D
 let f = 20.fareySequence;
@@ -198,7 +197,7 @@ let c = b.collect(reverse:/1);
 
 ![](sw/spl/Help/Image/fareySequence-E.svg)
 
-Plot the first twelve sequences,
+The first twelve sequences,
 the _y_ coordinate is given by the order:
 
 ~~~spl svg=F
@@ -211,7 +210,7 @@ the _y_ coordinate is given by the order:
 
 ![](sw/spl/Help/Image/fareySequence-F.svg)
 
-Plot a metric by Neville where _u/v=2/7_:
+A metric by Neville where _u/v=2/7_:
 
 ~~~spl svg=G
 let [u, v] = [2, 7];
@@ -248,10 +247,10 @@ Plot the relative term-wise difference between the mean and mediant of adjacent 
 
 ![](sw/spl/Help/Image/fareySequence-I.svg)
 
-Plot the numerators of the sequences in turn,
+The numerators of the sequences in turn,
 OEIS [A006842](https://oeis.org/A006842):
 
-~~~spl svg=J
+~~~spl svg=J oeis=A006842
 1:9.collect { :n |
 	n.fareySequence.numerator
 }.catenate.scatterPlot
@@ -259,16 +258,27 @@ OEIS [A006842](https://oeis.org/A006842):
 
 ![](sw/spl/Help/Image/fareySequence-J.svg)
 
-Plot the denominators of the sequences in turn,
+The denominators of the sequences in turn,
 OEIS [A006843](https://oeis.org/A006843):
 
-~~~spl svg=K
+~~~spl svg=K oeis=A006843
 1:9.collect { :n |
 	n.fareySequence.denominator
 }.catenate.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/fareySequence-K.svg)
+
+Number of fractions in Farey series of order _n_,
+OEIS [A005728](https://oeis.org/A005728):
+
+~~~spl svg=L oeis=A005728
+1:65.collect { :n |
+	n.fareySequence.size
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/fareySequence-L.svg)
 
 * * *
 

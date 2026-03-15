@@ -154,10 +154,10 @@ OEIS [A322967](https://oeis.org/A322967):
 ]
 ```
 
-Plot count of distinct products,
+Count of distinct products,
 OEIS [A322967](https://oeis.org/A322967):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A322967
 OeisEntry('A322967').then { :e |
 	e.bFileData
 	.first(135)

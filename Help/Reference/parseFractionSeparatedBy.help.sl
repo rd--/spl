@@ -1,9 +1,9 @@
 # parseFractionSeparatedBy
 
-- _parseFractionSeparatedBy(aString, separator, elseClause:/0)_
+- _parseFractionSeparatedBy(s, d, f:/0)_
 
-Answer the `Fraction` represented by _aString_,
-using _separator_ to delimit the numerator and denominator.
+Answer the `Fraction` represented by the string _s_,
+using separator _d_ to delimit the numerator and denominator.
 
 Parse fraction written with a colon as separator:
 

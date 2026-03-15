@@ -100,7 +100,7 @@ Infinity
 Smallest prime not dividing _n_,
 OEIS [A053669](https://oeis.org/A053669):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A053669
 1:65.collect { :n |
 	1:Infinity.detect { :k |
 		n.gcd(k.prime) = 1
@@ -113,7 +113,7 @@ OEIS [A053669](https://oeis.org/A053669):
 Least number coprime to _n_ and _n+1_,
 OEIS [A053670](https://oeis.org/A053670):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A053670
 1:65.collect { :n |
 	2:Infinity.detect { :k |
 		k.isCoprime(n) & {
@@ -128,7 +128,7 @@ OEIS [A053670](https://oeis.org/A053670):
 Least number coprime to _n_, _n+1_ and _n+2_,
 OEIS [A053671](https://oeis.org/A053671):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A053671
 1:65.collect { :n |
 	5:Infinity.detect { :k |
 		[0 1 2].allSatisfy { :i |

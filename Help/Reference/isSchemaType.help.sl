@@ -1,8 +1,8 @@
 # isSchemaType
 
-- _isSchemaType(anObject, aString)_
+- _isSchemaType(x, t)_
 
-A predicate to decide if _anObject_ is of the schema type specified at _aString_.
+A predicate to decide if the object _x_ is of the schema type specified at the string _t_.
 
 Predicate for `Boolean` type:
 

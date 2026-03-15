@@ -2,7 +2,7 @@
 
 - _noergaardInfinitySequence(n, v=0)_
 
-Answer the first _n_ terms of Per Nørgårds _infinity sequence_.
+Answer the first _n_ terms of Per Nørgård’s _infinity sequence_.
 
 Calculate first few terms,
 OEIS [A004718](https://oeis.org/A004718):
@@ -37,20 +37,22 @@ The sequence is square free:
 true
 ```
 
-Discrete plot of first few terms,
+Per Nørgård’s infinity sequence,
+discrete plot,
 OEIS [A004718](https://oeis.org/A004718):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A004718 signed
 99.noergaardInfinitySequence
 .discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/noergaardInfinitySequence-A.svg)
 
-Scatter plot of first few terms,
+Per Nørgård’s infinity sequence,
+scatter plot,
 OEIS [A004718](https://oeis.org/A004718):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A004718 signed
 333.noergaardInfinitySequence
 .scatterPlot
 ~~~
@@ -72,7 +74,7 @@ OEIS [A083866](https://oeis.org/A083866):
 [0 5 10 17 20 27 34 40 45 54 65 68 75 80]
 ```
 
-The first variant,
+The first variant of Per Nørgård’s infinity sequence,
 OEIS [A256184](https://oeis.org/A256184):
 
 ```
@@ -101,16 +103,17 @@ Note repetition of order three:
 false
 ```
 
-Scatter plot of first few terms of first variant:
+The first variant of Per Nørgård’s infinity sequence,
+OEIS [A256184](https://oeis.org/A256184):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A256184 signed
 250.noergaardInfinitySequence(1)
 .scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/noergaardInfinitySequence-C.svg)
 
-The second variant,
+The second variant of Per Nørgård’s infinity sequence,
 OEIS [A256185](https://oeis.org/A256185):
 
 ```
@@ -136,29 +139,30 @@ Note that only odd intervals occur:
 true
 ```
 
-Scatter plot of first few terms of second variant:
+The second variant of Per Nørgård’s infinity sequence,
+OEIS [A256185](https://oeis.org/A256185):S
 
-~~~spl svg=D
+~~~spl svg=D oeis=A256185 signed
 250.noergaardInfinitySequence(2)
 .scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/noergaardInfinitySequence-D.svg)
 
-First differences of Nørgårds infinity sequence,
+First differences of Nørgård’s infinity sequence,
 OEIS [A256187](https://oeis.org/A256187):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A256187 signed
 100.noergaardInfinitySequence
 .differences.discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/noergaardInfinitySequence-E.svg)
 
-One for zero else zero in Nørgårds infinity sequence,
+One for zero else zero in Nørgård’s infinity sequence,
 OEIS [A361016](https://oeis.org/A361016):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A361016 set=0,1
 200.noergaardInfinitySequence
 .collect(isZero:/1).boole.discretePlot
 ~~~

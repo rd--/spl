@@ -93,10 +93,10 @@ using `~` to compare items:
 
 ![](sw/spl/Help/Image/findTransientRepeat-A.svg)
 
-Plot the sum of the digits in the decimal expansion of _1/n_ up to the point where it repeats for the first time,
+The sum of the digits in the decimal expansion of _1/n_ up to the point where it repeats for the first time,
 OEIS [A048997](https://oeis.org/A048997):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A048997
 Fraction(1, 1:75).collect { :n |
 	Decimal(n, 200)
 	.integerDigits

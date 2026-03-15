@@ -117,10 +117,11 @@ The decimal part may have a non-repeating prefix:
 0.0018018018D
 ```
 
-Log scale plot of the period of the decimal representation of _1/n_,
+Period of the decimal representation of _1/n_,
+log scale plot
 OEIS [A051626](https://oeis.org/A051626):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A051626
 Fraction(1, 1:200)
 .collect(decimalPeriod:/1)
 .logScale
@@ -154,10 +155,10 @@ OEIS [A002371](https://oeis.org/A002371):
 ]
 ```
 
-Plot first few terms of
+Period of decimal expansion of reciprocal of the _n_-th prime,
 OEIS [A002371](https://oeis.org/A002371):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A002371
 1:175.prime.collect { :p |
 	(1 \ p).decimalPeriod
 }.scatterPlot
@@ -168,7 +169,7 @@ OEIS [A002371](https://oeis.org/A002371):
 Periods of reciprocals of integers coprime to ten,
 OEIS [A002329](https://oeis.org/A002329):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A002329
 2:600.select { :n |
 	n.isCoprime(10)
 }.collect { :n |

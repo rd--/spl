@@ -47,23 +47,27 @@ Truth table for or:
 [0 1; 1 1]
 ```
 
-Plot a nested pattern:
+Bitwise or of _n_ and _n-1_,
+OEIS [A086799](https://oeis.org/A086799):
 
-~~~spl svg=A
-1:100.bitOr(0:99).linePlot
+~~~spl svg=A oeis=A086799
+let n = 1:100;
+n.bitOr(n - 1).linePlot
 ~~~
 
 ![](sw/spl/Help/Image/bitOr-A.svg)
 
-Plot `bitOr` with double:
+Bitwise or of _n_ and _2n_,
+OEIS [A163617](https://oeis.org/A163617):
 
-~~~spl svg=B
-1:63.bitOr(2 * 1:64).linePlot
+~~~spl svg=B oeis=A163617
+let n = 0:63;
+n.bitOr(2 * n).discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/bitOr-B.svg)
 
-Plot bitOr with double and triple:
+Bitwise or of _n_ and _2n_ and _3n_:
 
 ~~~spl svg=C
 1:64.functionPlot { :i |
@@ -73,7 +77,7 @@ Plot bitOr with double and triple:
 
 ![](sw/spl/Help/Image/bitOr-C.svg)
 
-Plot the bitwise and of the first few integers:
+Matrix plot of the bitwise and of the first few integers:
 
 ~~~spl png=D
 bitOr:/2
@@ -84,10 +88,10 @@ bitOr:/2
 
 ![](sw/spl/Help/Image/bitOr-D.png)
 
-Plot `bitAnd` and `bitOr` bitwise,
+`bitAnd` and `bitOr` bitwise,
 OEIS [A086099](https://oeis.org/A086099):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A086099
 0:63.collect { :n |
 	0:n.collect { :k |
 		k.bitAnd(n - k)
@@ -97,10 +101,11 @@ OEIS [A086099](https://oeis.org/A086099):
 
 ![](sw/spl/Help/Image/bitOr-E.svg)
 
-Table read by antidiagonals,
+Bitwise or table,
+read by antidiagonals,
 OEIS [A003986](https://oeis.org/A003986):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A003986
 0:21.triangularArray { :n :k |
 	k.bitOr(n - k)
 }.catenate.scatterPlot
@@ -111,7 +116,7 @@ OEIS [A003986](https://oeis.org/A003986):
 Nim-values from game of Kopper’s Nim,
 OEIS [A053398](https://oeis.org/A053398)
 
-~~~spl svg=G
+~~~spl svg=G oeis=A053398
 19.antidiagonalArray { :x :y |
 	let z = (x - 1).bitOr(y - 1);
 	(z + 1).integerExponent(2)
@@ -123,7 +128,7 @@ OEIS [A053398](https://oeis.org/A053398)
 Bitwise logical or triangular array,
 OEIS [A080098](https://oeis.org/A080098):
 
-~~~spl svg=H
+~~~spl svg=H oeis=A080098
 0:19.triangularArray(bitOr:/2)
 .catenate.scatterPlot
 ~~~
@@ -133,7 +138,7 @@ OEIS [A080098](https://oeis.org/A080098):
 Bitwise logical implies triangular array,
 OEIS [A265705](https://oeis.org/A265705):
 
-~~~spl svg=I
+~~~spl svg=I oeis=A265705
 0:19.triangularArray { :n :k |
 	(n = 0).if {
 		0

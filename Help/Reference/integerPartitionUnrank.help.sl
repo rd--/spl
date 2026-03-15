@@ -123,9 +123,10 @@ OEIS [A129594](https://oeis.org/A129594):
 ]
 ```
 
-Plot first few terms:
+Involution of nonnegative integers induced by the conjugation of the encoded partition,
+OEIS [A129594](https://oeis.org/A129594):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A129594
 let m = 'Karttunen';
 0:255.collect { :n |
 	n.integerPartitionUnrank(m)
@@ -136,9 +137,11 @@ let m = 'Karttunen';
 
 ![](sw/spl/Help/Image/integerPartitionUnrank-A.svg)
 
-Plot block _256:511_:
+Involution of nonnegative integers induced by the conjugation of the encoded partition,
+block _256:511_,
+OEIS [A129594](https://oeis.org/A129594):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A129594
 let m = 'Karttunen';
 256:511.collect { :n |
 	n.integerPartitionUnrank(m)
@@ -152,7 +155,7 @@ let m = 'Karttunen';
 Permute integers according to the sum of the Heinz partition,
 OEIS [A215366](https://oeis.org/A215366):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A215366
 let n = 8;
 [1 .. 2 ^ n].gatherBy { :j |
 	j.integerPartitionUnrank('Heinz')
@@ -162,10 +165,10 @@ let n = 8;
 
 ![](sw/spl/Help/Image/integerPartitionUnrank-C.svg)
 
-Plot with _m=Heinz_,
+With _m=HeinzAscending_,
 OEIS [A112798](https://oeis.org/A112798):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A112798
 let m = 'HeinzAscending';
 2:67.collect { :n |
 	n.integerPartitionUnrank(m)

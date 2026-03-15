@@ -35,14 +35,7 @@ HelpFile : [Object, Equatable, Cache] { | origin source cache |
 				information.isEmpty.if {
 					each['attributes'] := (:)
 				} {
-					each['attributes'] := information.words.collect { :each |
-						let parts = each.splitBy('=');
-						parts[1] -> (parts.size = 1).if {
-							'true'
-						} {
-							parts[2]
-						}
-					}.asRecord
+					each['attributes'] := information.parseUnquotedAttributeList
 				};
 				each
 			}
@@ -216,6 +209,21 @@ HelpFile : [Object, Equatable, Cache] { | origin source cache |
 	paragraphs { :self |
 		self.cached('paragraphs') {
 			self.source.paragraphs
+		}
+	}
+
+	programs { :self |
+		let paragraphs = self.paragraphs;
+		let topic = self.originName;
+		let language = 'spl';
+		paragraphs.detectIndices { :each |
+			each.beginsWith('~~~spl')
+		}.collect { :i |
+			let commentary = paragraphs[i - 1];
+			let codeBlock = paragraphs[i].lines;
+			let annotations = codeBlock[1].allButFirst(6).parseUnquotedAttributeList;
+			let programText = codeBlock.allButFirstAndLast.unlines;
+			HelpProgram(topic, language, commentary, annotations, programText)
 		}
 	}
 

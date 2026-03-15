@@ -53,10 +53,10 @@ At `String`:
 1
 ```
 
-Scatter plot of the first _k_ terms of the inventory sequence,
+The first _k_ terms of the inventory sequence,
 OEIS [A342585](https://oeis.org/A342585):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A342585
 let k = 200;
 let a = [];
 let c = 0;
@@ -80,7 +80,7 @@ a.collect { :n |
 For _n>1_, _T(n,k)_ is the count of _k_ in the rows up to _n_,
 OEIS [A333867](https://oeis.org/A333867):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A333867
 let t = [[1]];
 1:17.do { :n |
 	let u = t.flatten;

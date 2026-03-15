@@ -313,10 +313,11 @@ OEIS [A018819](https://oeis.org/A018819):
 [1 2 2 4 4 6 6 10 10 14 14 20 20 26 26 36]
 ```
 
-Plot first few terms of
+All the parts of all reversed partitions,
+sorted first by length and then lexicographically.
 OEIS [A036036](https://oeis.org/A036036):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A036036
 1:8.collect { :n |
 	n.integerPartitions
 }.catenate
@@ -368,10 +369,10 @@ OEIS [A080577](https://oeis.org/A080577):
 ]
 ```
 
-Plot first few terms of
+Partitions in graded reverse lexicographic ordering (Mathematica),
 OEIS [A080577](https://oeis.org/A080577):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A080577
 1:8.collect { :n |
 	n.integerPartitions
 }.catenate
@@ -423,10 +424,10 @@ OEIS [A080576](https://oeis.org/A080576):
 ]
 ```
 
-Plot first few terms of
+Partitions in graded reflected lexicographic order (Maple),
 OEIS [A080576](https://oeis.org/A080576):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A080576
 1:8.collect { :n |
 	n.integerPartitions
 }.catenate
@@ -478,10 +479,10 @@ OEIS [A193073](https://oeis.org/A193073):
 ]
 ```
 
-Plot first few terms of
+Partitions in graded lexicographical ordering,
 OEIS [A193073](https://oeis.org/A193073):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A193073
 1:8.collect { :n |
 	n.integerPartitions
 }.catenate
@@ -533,10 +534,10 @@ OEIS [A036037](https://oeis.org/A036037):
 ]
 ```
 
-Plot first few terms of
+Partitions in graded colexicographical ordering,
 OEIS [A036037](https://oeis.org/A036037):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A036037
 1:8.collect { :n |
 	n.integerPartitions
 }.catenate
@@ -550,7 +551,7 @@ OEIS [A036037](https://oeis.org/A036037):
 Number of decompositions of _2n_ into an unordered sum of two odd primes,
 OEIS [A002375](https://oeis.org/A002375):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A002375
 1:98.collect { :n |
 	(2 * n).integerPartitions([2])
 	.count { :p |
@@ -566,7 +567,7 @@ OEIS [A002375](https://oeis.org/A002375):
 The number of partitions of _n_ such that the sum of the parts, counted without multiplicities, is equal to _k_,
 OEIS [A116861](https://oeis.org/A116861):
 
-~~~spl svg=G
+~~~spl svg=G oeis=A116861
 1:13.triangularArray { :n :k |
 	n.integerPartitions.count { :p |
 		p.unique.sum = k
@@ -579,7 +580,7 @@ OEIS [A116861](https://oeis.org/A116861):
 Number of ways to distribute _n_ indistinguishable objects in _k_ indistinguishable containers,
 OEIS [A072233](https://oeis.org/A072233):
 
-~~~spl svg=H
+~~~spl svg=H oeis=A072233
 0:10.triangularArray { :n :k |
 	n.integerPartitions([k]).size
 }.catenate.discretePlot
@@ -590,7 +591,7 @@ OEIS [A072233](https://oeis.org/A072233):
 The number of integer partitions of _n_ with median _k_,
 OEIS [A359901](https://oeis.org/A359901):
 
-~~~spl svg=I
+~~~spl svg=I oeis=A359901
 1:12.triangularArray { :n :k |
 	n.integerPartitions.count { :p |
 		p.median = k

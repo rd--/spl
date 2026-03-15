@@ -1,9 +1,8 @@
 # parseSchemaType
 
-- _parseSchemaType(aList, schemaType)_
-- _parseSchemaType(aList, schemaType, elseClause:/0)_
+- _parseSchemaType([s₁ s₂ …], t, f:/0)_
 
-Parse the list of `String` values at _aList_ according to the specified schema type.
+Parse the list of `String` values at the list _s_ according to the specified schema type _t_.
 
 Parse a `Boolean` type:
 

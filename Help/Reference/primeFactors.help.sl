@@ -186,11 +186,10 @@ Relation to `factorInteger`:
 [2 2; 3; 5]
 ```
 
-`min` of `primeFactors` is called the _least prime factor_.
-Plot the first few entries of [A020639](https://oeis.org/A020639),
-excluding the first:
+`min` of `primeFactors` is called the _least prime factor_,
+OEIS [A020639](https://oeis.org/A020639):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A020639
 { :n |
 	n.primeFactors.min
 }.table(2:43).discretePlot
@@ -198,11 +197,11 @@ excluding the first:
 
 ![](sw/spl/Help/Image/primeFactors-A.svg)
 
-Plot the first few entries of [A020639](https://oeis.org/A020639),
-excluding the first,
-on a log scale:
+Least prime factors,
+log scale plot,
+OEIS [A020639](https://oeis.org/A020639):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A020639
 { :n |
 	n.primeFactors.min
 }.table(2:300).log.scatterPlot
@@ -210,10 +209,10 @@ on a log scale:
 
 ![](sw/spl/Help/Image/primeFactors-B.svg)
 
-Plot sum of the prime factors of _n_,
+Sum of the prime factors of _n_,
 OEIS [A001414](https://oeis.org/A001414):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A001414
 1:75.collect { :n |
 	n.primeFactors.sum
 }.scatterPlot
@@ -221,10 +220,11 @@ OEIS [A001414](https://oeis.org/A001414):
 
 ![](sw/spl/Help/Image/primeFactors-C.svg)
 
-Log scale scatter plot of the sum of the prime factors of the sum of the preceding terms,
+The sum of the prime factors of the sum of the preceding terms,
+log scale scatter plot,
 OEIS [A268868](https://oeis.org/A268868):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A268868
 let x = [1 1];
 150.timesRepeat {
 	x.add(x.sum.primeFactors.sum)
@@ -237,7 +237,7 @@ x.log.scatterPlot
 Number of primes congruent to one modulo four dividing _n_,
 OEIS [A083025](https://oeis.org/A083025):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A083025
 1:150.collect { :n |
 	n.primeFactors.select { :x |
 		x % 4 = 1
@@ -250,7 +250,7 @@ OEIS [A083025](https://oeis.org/A083025):
 Alternating sum of the prime indices of _n_,
 OEIS [A316524](https://oeis.org/A316524):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A316524
 1:85.collect { :n |
 	n.primeFactors
 	.primePi
@@ -263,7 +263,7 @@ OEIS [A316524](https://oeis.org/A316524):
 Alternating sum of all prime factors of _n_,
 OEIS [A071321](https://oeis.org/A071321):
 
-~~~spl svg=G
+~~~spl svg=G oeis=A071321
 1:85.collect { :n |
 	n.primeFactors
 	.alternatingSum

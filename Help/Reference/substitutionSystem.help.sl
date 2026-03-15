@@ -384,7 +384,7 @@ Draw the partial complement of the Haferman carpet:
 
 ![](sw/spl/Help/Image/substitutionSystem-E.png)
 
-Plot trajectory of 1 under the morphism _0→11,1→10_,
+The trajectory of 1 under the morphism _0→11,1→10_,
 OEIS [A035263](https://oeis.org/A035263):
 
 ~~~spl svg=F oeis=A035263 set=0,1
@@ -398,7 +398,7 @@ OEIS [A035263](https://oeis.org/A035263):
 
 ![](sw/spl/Help/Image/substitutionSystem-F.svg)
 
-Plot fixed point of morphism _0→0,1→110_,
+Fixed point of morphism _0→0,1→110_,
 OEIS [A079559](https://oeis.org/A079559):
 
 ~~~spl svg=G oeis=A079559 set=0,1
@@ -426,10 +426,10 @@ OEIS [A001468](https://oeis.org/A001468):
 
 ![](sw/spl/Help/Image/substitutionSystem-H.svg)
 
-Plot a ternary tribonacci triangle,
+A ternary tribonacci triangle,
 OEIS [A059832](https://oeis.org/A059832):
 
-~~~spl svg=I
+~~~spl svg=I oeis=A059832
 [1 -> [2], 2 -> [3], 3 -> [1 2 3]]
 .substitutionSystem([1], 7)
 .catenate.discretePlot

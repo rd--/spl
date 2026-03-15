@@ -74,19 +74,20 @@ OEIS [A034444](https://oeis.org/A034444):
 ]
 ```
 
-Plot the `primeNu` sequence for the first 100 numbers:
+The `primeNu` sequence for the first 100 numbers,
+OEIS [A001221](https://oeis.org/A001221):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A001221
 1:100.functionPlot(primeNu:/1)
 ~~~
 
 ![](sw/spl/Help/Image/primeNu-A.svg)
 
-Plot rational knots of determinant _2n+1_,
+Rational knots of determinant _2n+1_,
 counting chiral pairs twice,
 OEIS [A089266](https://oeis.org/A089266):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A089266
 1:200.collect { :n |
 	let m = (2 * n + 1);
 	let a = m.eulerPhi;
@@ -97,10 +98,10 @@ OEIS [A089266](https://oeis.org/A089266):
 
 ![](sw/spl/Help/Image/primeNu-B.svg)
 
-Plot barriers,
+Barriers for _ω(n)_,
 OEIS [A005236](https://oeis.org/A005236):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A005236
 2:150.select { :n |
 	let m = n - 1;
 	1:m.allSatisfy { :x |
@@ -111,10 +112,10 @@ OEIS [A005236](https://oeis.org/A005236):
 
 ![](sw/spl/Help/Image/primeNu-C.svg)
 
-Plot `lcm` of all divisors _d_ of _n_ such that _d+1_ is a prime power,
+`lcm` of all divisors _d_ of _n_ such that _d+1_ is a prime power,
 OEIS [A049073](https://oeis.org/A049073):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A049073
 1:65.collect { :n |
 	n.divisors.select { :d |
 		(d + 1).primeNu = 1
@@ -124,10 +125,10 @@ OEIS [A049073](https://oeis.org/A049073):
 
 ![](sw/spl/Help/Image/primeNu-D.svg)
 
-Plot count of non-unitary divisors of _n_,
+Count of non-unitary divisors of _n_,
 OEIS [A048105](https://oeis.org/A048105):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A048105
 1:100.collect { :n |
 	0.divisorSigma(n) - (2 ^ n.primeNu)
 }.discretePlot
@@ -135,10 +136,10 @@ OEIS [A048105](https://oeis.org/A048105):
 
 ![](sw/spl/Help/Image/primeNu-E.svg)
 
-Plot number of ways of writing _n_ as _p*q_ where _p<=q_ and _gcd(p,q)=1_,
+Number of ways of writing _n_ as _p*q_ where _p<=q_ and _gcd(p,q)=1_,
 OEIS [A007875](https://oeis.org/A007875):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A007875
 1:65.collect { :n |
 	(2 ^ n.primeNu).eulerPhi
 }.stepPlot
@@ -149,7 +150,7 @@ OEIS [A007875](https://oeis.org/A007875):
 Least size of generators for multiplicative group of integers modulo _n_,
 OEIS [A046072](https://oeis.org/A046072):
 
-~~~spl svg=G
+~~~spl svg=G oeis=A046072
 3:102.collect { :n |
 	n.primeNu + n.isOdd.if {
 		0
@@ -172,7 +173,7 @@ OEIS [A046072](https://oeis.org/A046072):
 _ω(n)=1_,
 OEIS [A069513](https://oeis.org/A069513):
 
-~~~spl svg=H
+~~~spl svg=H oeis=A069513
 2:85.collect { :n |
 	(n.primeNu = 1).boole
 }.discretePlot
@@ -183,7 +184,7 @@ OEIS [A069513](https://oeis.org/A069513):
 _ω(n)≤1_,
 OEIS [A010055](https://oeis.org/A010055):
 
-~~~spl svg=I
+~~~spl svg=I oeis=A010055
 2:85.collect { :n |
 	(n.primeNu <= 1).boole
 }.discretePlot

@@ -33,10 +33,10 @@ and have the expected mathematical behavior in relation to scalars:
 [5 10 15].asIdentitySet
 ```
 
-Plot sequence where each term is the least integer such that adjacent products are distinct,
+Sequence where each term is the least integer such that adjacent products are distinct,
 OEIS [A088177](https://oeis.org/A088177):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A088177
 let t = [1 1];
 3.toDo(200) { :n |
 	t.add(1);
@@ -57,10 +57,10 @@ t.scatterPlot
 
 Calculate sequence where each term is the least integer such that adjacent products are distinct,
 OEIS [A088177](https://oeis.org/A088177) _(a)_,
-and plot adjacent products,
+and hence adjacent products,
 OEIS [A088178](https://oeis.org/A088178) _(b)_:
 
-~~~spl svg=B
+~~~spl svg=B oeis=A088178
 let a = [1 1];
 let b = [1];
 let p = IdentitySet(b);

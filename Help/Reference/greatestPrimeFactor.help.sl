@@ -63,19 +63,21 @@ OEIS [A005528](https://oeis.org/A005528):
 ]
 ```
 
-Log-scale plot of the greatest prime factors of the integers from two up to two hundred:
+The greatest prime factors of the integers from two up to two hundred,
+log-scale plot,
+OEIS [A006530](https://oeis.org/A006530):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A006530
 2:200.collect(greatestPrimeFactor:/1)
 .logScale.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/greatestPrimeFactor-A.svg)
 
-Plot `primePi` of `greatestPrimeFactor`,
+`primePi` of `greatestPrimeFactor`,
 OEIS [A061395](https://oeis.org/A061395):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A061395
 2:76.collect { :n |
 	n.greatestPrimeFactor.primePi
 }.stepPlot
@@ -86,7 +88,7 @@ OEIS [A061395](https://oeis.org/A061395):
 Least inverse of the Kempner function,
 OEIS [A046021](https://oeis.org/A046021):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A046021
 2:150.collect { :n |
 	let p = n.greatestPrimeFactor;
 	let m = ((n - 1).log / p.log).floor;
@@ -102,7 +104,7 @@ OEIS [A046021](https://oeis.org/A046021):
 Greatest prime divisor of all composite numbers between _P(n)_ and the next prime,
 OEIS [A052248](https://oeis.org/A052248):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A052248
 2:150.collect { :n |
 	let a = n.prime + 1;
 	let b = (n + 1).prime - 1;

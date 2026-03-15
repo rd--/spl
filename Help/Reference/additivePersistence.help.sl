@@ -25,7 +25,7 @@ OEIS [A031286](https://oeis.org/A031286):
 Scatter plot of the additive persistences of the first few positive integers,
 OEIS [A031286](https://oeis.org/A031286):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A031286 set=0-3
 1:200.collect { :n |
 	n.additivePersistence(10)
 }.scatterPlot

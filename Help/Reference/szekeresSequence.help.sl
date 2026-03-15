@@ -26,10 +26,10 @@ OEIS [A003278](https://oeis.org/A003278):
 ]
 ```
 
-First few terms of the Szekeres sequence
+The Szekeres sequence,
 OEIS [A003278](https://oeis.org/A003278):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A003278
 192.szekeresSequence.scatterPlot
 ~~~
 

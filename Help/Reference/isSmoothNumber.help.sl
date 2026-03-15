@@ -90,7 +90,7 @@ The largest consecutive 19-smooth numbers:
 [true, true]
 ```
 
-Plot sequence of regular numbers,
+Sequence of regular numbers,
 OEIS [A051037](https://oeis.org/A051037):
 
 ~~~spl svg=A oeis=A051037

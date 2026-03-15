@@ -294,7 +294,7 @@ OEIS [A003627](https://oeis.org/A003627):
 Primes up to one-thousand,
 OEIS [A000040](https://oeis.org/A000040):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A000040
 1:999.select(isPrime:/1).linePlot
 ~~~
 
@@ -303,7 +303,7 @@ OEIS [A000040](https://oeis.org/A000040):
 _a(n+1)_ tells the number of earlier terms _a(k)_ where _a(k)+n_ is a prime,
 OEIS [A114897](https://oeis.org/A114897):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A114897
 let a:/1 = { :n |
 	(n = 1).if {
 		1
@@ -328,7 +328,7 @@ let a:/1 = { :n |
 Riesel problem,
 OEIS [A038699](https://oeis.org/A038699):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A038699
 1:99.collect { :n |
 	let m = 0;
 	let x = nil;
@@ -347,7 +347,7 @@ OEIS [A038699](https://oeis.org/A038699):
 _a(n)_ is the smallest positive integer not already in the sequence such that _a(n)+a(n-1)_ is prime,
 OEIS [A055265](https://oeis.org/A055265):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A055265
 let m = 130;
 let a = [1];
 m.timesRepeat {
@@ -376,10 +376,10 @@ OEIS [A010051](https://oeis.org/A010051):
 
 ![](sw/spl/Help/Image/isPrime-E.svg)
 
-Plot zero unless _n_ is a non-prime, in which case plot index,
+Zero unless _n_ is a non-prime, in which case plot index,
 OEIS [A239968](https://oeis.org/A239968):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A239968
 let k = 0;
 1:100.collect { :n |
 	n.isPrime.if {
@@ -396,7 +396,7 @@ let k = 0;
 Largest prime _≤n_ in any decomposition of _2n_ into a sum of two odd primes,
 OEIS [A002374](https://oeis.org/A002374):
 
-~~~spl svg=G
+~~~spl svg=G oeis=A002374
 3:150.collect { :n |
 	let k = 0;
 	{
@@ -421,7 +421,7 @@ OEIS [A002374](https://oeis.org/A002374):
 Characteristic function of primes multiplied by _n_,
 OEIS [A061397](https://oeis.org/A061397):
 
-~~~spl svg=H
+~~~spl svg=H oeis=A061397 set=0,1
 1:99.collect { :n |
 	n * n.isPrime.boole
 }.discretePlot
@@ -432,7 +432,7 @@ OEIS [A061397](https://oeis.org/A061397):
 Sum of primes _≤n_,
 OEIS [A034387](https://oeis.org/A034387):
 
-~~~spl svg=I
+~~~spl svg=I oeis=A034387
 1:250.collect { :n |
 	n * n.isPrime.boole
 }.prefixSum.stepPlot
@@ -456,7 +456,7 @@ Triangle where row _n_ is `one` if _n_ is prime,
 `zero` otherwise,
 OEIS [A143536](https://oeis.org/A143536):
 
-~~~spl svg=K
+~~~spl svg=K oeis=A143536 set=0,1
 1:13.triangularArray { :n :k |
 	n.isPrime.boole
 }.triangularArrayPlot
@@ -467,7 +467,7 @@ OEIS [A143536](https://oeis.org/A143536):
 Number of ways to write _n=x+y_ _6x-1_, _6x+1_, _6y+1_ and _6y+5_ all prime,
 OEIS [A187757](https://oeis.org/A187757):
 
-~~~spl svg=L
+~~~spl svg=L oeis=A187757
 1:250.collect { :n |
 	let m = n - 1;
 	1:m.sum { :k |

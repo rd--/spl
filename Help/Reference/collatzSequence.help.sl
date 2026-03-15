@@ -77,10 +77,10 @@ OEIS [A078719](https://oeis.org/A078719):
 [1 1 3 1 2 3 6 1 7 2 5 3 3 6 6 1 4 7 7 2 2 5]
 ```
 
-Plot
+Number of halving and tripling steps to reach one in _3x+1_ problem,
 OEIS [A006577](https://oeis.org/A006577):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A006577
 1:200.collect { :each |
 	each.collatzSequence.size
 }.scatterPlot
@@ -88,28 +88,31 @@ OEIS [A006577](https://oeis.org/A006577):
 
 ![](sw/spl/Help/Image/collatzSequence-A.svg)
 
-Plot the `log` of the maximum value in each orbit for the first few integers:
+The maximum value in each orbit of the Collatz sequence:
+OEIS [A025586](https://oeis.org/A025586):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A025586
 1:200.collect { :each |
-	each.collatzSequence.max.log
-}.scatterPlot
+	each.collatzSequence.max
+}.log.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/collatzSequence-B.svg)
 
-Plot the orbit for twenty-seven, which has one-hundred and twelve places:
+The Collatz sequence orbit for twenty-seven,
+which has one-hundred and twelve places,
+OEIS [A008884](https://oeis.org/A008884):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A008884
 27.collatzSequence.linePlot
 ~~~
 
 ![](sw/spl/Help/Image/collatzSequence-C.svg)
 
-Plot numbers sorted by their Collatz stopping time,
+Numbers sorted by their Collatz stopping time,
 OEIS [A127824](https://oeis.org/A127824):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A127824
 let s = [1];
 let t = 1:15.collect { :unused |
 	let u = s.select { :x |
@@ -155,7 +158,7 @@ The first few sequences:
 ]
 ```
 
-Plot first few sequences:
+Plot first few Collatz sequences:
 
 ~~~spl svg=E
 1:15.collect { :n |
@@ -166,10 +169,10 @@ Plot first few sequences:
 
 ![](sw/spl/Help/Image/collatzSequence-E.svg)
 
-Plot sequence lengths,
-according to OEIS [A210468](https://oeis.org/A210468):
+Sequence lengths for Collatz problem with rational numbers,
+OEIS [A210468](https://oeis.org/A210468):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A210468
 1:66.collect { :n |
 	let x = Fraction(1, (2 * n + 1));
 	let y = x.collatzSequence;
@@ -183,7 +186,7 @@ according to OEIS [A210468](https://oeis.org/A210468):
 
 There are also variants defined for both the indirect and direct _Px+1_ sequences.
 
-Trajectory of 29 under the _29x+1_ maps,
+Trajectory of 29 under the _29x+1_ map,
 OEIS [A057687](https://oeis.org/A057687):
 
 ```
@@ -387,7 +390,7 @@ OEIS [A057684](https://oeis.org/A057684):
 [[13 17 37 241 1567 463 43 1], 1]
 ```
 
-Plot trajectory of 109 under the _109x+1_ map:
+Trajectory of 109 under the _109x+1_ map:
 
 ~~~spl svg=G
 109.collatzSequence(109, 'Indirect')
@@ -421,10 +424,11 @@ OEIS [A057691](https://oeis.org/A057691):
 ]
 ```
 
-Plot
+Number of terms before entering cycle in trajectory of _p(n)_,
+the indirect Collatz sequence,
 OEIS [A057691](https://oeis.org/A057691):
 
-~~~spl svg=H
+~~~spl svg=H oeis=A057691
 2:76.prime.collect { :p |
 	let [x, y] = p.collatzSequence(
 		p,
@@ -436,7 +440,7 @@ OEIS [A057691](https://oeis.org/A057691):
 
 ![](sw/spl/Help/Image/collatzSequence-H.svg)
 
-Plot first few indirect sequences:
+Indirect Collatz sequences:
 
 ~~~spl svg=I
 2:17.prime.collect { :p |
@@ -449,11 +453,11 @@ Plot first few indirect sequences:
 
 ![](sw/spl/Help/Image/collatzSequence-I.svg)
 
-Plot the number of iterations required to reach a power of two in the Collatz sequence,
+The number of iterations required to reach a power of two in the Collatz sequence,
 starting at _n_,
 OEIS [A208981](https://oeis.org/A208981):
 
-~~~spl svg=J
+~~~spl svg=J oeis=A208981
 1:165.collect { :n |
 	n.collatzSequence.detectIndex { :x |
 		x.log2.isInteger
@@ -469,7 +473,7 @@ also
 OEIS [A078719](https://oeis.org/A078719)
 when one is added:
 
-~~~spl svg=K
+~~~spl svg=K oeis=A006667
 1:250.collect { :n |
 	n.collatzSequence
 	.differences
@@ -483,7 +487,7 @@ Number of tripling or halving steps to reach one from _n_ in the _3x+1_ problem,
 also called the Collatz problem,
 OEIS [A006577](https://oeis.org/A006577):
 
-~~~spl svg=L
+~~~spl svg=L oeis=A006577
 1:250.collect { :n |
 	n.collatzSequence.size - 1
 }.scatterPlot
@@ -495,7 +499,7 @@ Number of halving steps to reach one from _n_ in the _3x+1_ problem,
 also called the Collatz problem,
 OEIS [A006666](https://oeis.org/A006666):
 
-~~~spl svg=M
+~~~spl svg=M oeis=A006666
 1:250.collect { :n |
 	n.collatzSequence.count(isEven:/1)
 }.scatterPlot
@@ -506,7 +510,7 @@ OEIS [A006666](https://oeis.org/A006666):
 Next odd term in Collatz trajectory with starting value _n_,
 OEIS [A139391](https://oeis.org/A139391):
 
-~~~spl svg=N
+~~~spl svg=N oeis=A139391
 2:250.collect { :n |
 	n.collatzSequence
 	.allButFirst

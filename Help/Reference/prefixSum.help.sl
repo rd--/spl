@@ -102,10 +102,10 @@ Find the period of repeats for the triangular numbers modulo _n_,
 ]
 ```
 
-Plot triangular numbers,
+Triangular numbers,
 OEIS [A000217](https://oeis.org/A000217):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A000217
 1:12.prefixSum.discretePlot
 ~~~
 
@@ -143,7 +143,7 @@ constructed using an iterative algorithm:
 Sequence which is the partial sums of the proper divisors of its own elements,
 OEIS [A389395](https://oeis.org/A389395):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A389395
 let a = [1 2 4 5 6 8 11];
 6:17.do { :i |
 	let p = a.last;
@@ -158,7 +158,7 @@ a.scatterPlot
 First differences of sequence which is the partial sums of the proper divisors of its own elements,
 OEIS [A389613](https://oeis.org/A389613):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A389613
 let a = [1 2 4 5 6 8 11];
 6:27.do { :i |
 	let p = a.last;
@@ -173,7 +173,7 @@ a.differences.discretePlot
 Sequence which is the partial sums of the divisors of its own elements,
 OEIS [A389395](https://oeis.org/A389395):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A389395
 let a = [1 2 4 5 7 11];
 4:17.do { :i |
 	let p = a.last;
@@ -202,7 +202,7 @@ OEIS [A389609](https://oeis.org/A389609):
 Product of cumulative sums of divisors of _n_,
 OEIS [A197410](https://oeis.org/A197410):
 
-~~~spl svg=G
+~~~spl svg=G oeis=A197410
 1:85.collect { :n |
 	n.divisors.prefixSum.product
 }.log.discretePlot
@@ -213,7 +213,7 @@ OEIS [A197410](https://oeis.org/A197410):
 Number of on cells at _n_-th stage in the Ulam-Warburton two-dimensional cellular automaton,
 OEIS [A147562](https://oeis.org/A147562):
 
-~~~spl svg=H
+~~~spl svg=H oeis=A147562
 let a = 1:150.digitCount(2, 1);
 let b = [0 1] ++ (4 * (3 ^ (a - 1)));
 b.prefixSum.scatterPlot

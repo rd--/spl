@@ -200,7 +200,7 @@ OEIS [A055778](https://oeis.org/A055778):
 ]
 ```
 
-Plot number of ones in the base-φ representation of _n_,
+Number of ones in the base-φ representation of _n_,
 OEIS [A055778](https://oeis.org/A055778):
 
 ~~~spl svg=B oeis=A055778
@@ -213,7 +213,7 @@ let phi = 1.goldenRatio;
 
 ![](sw/spl/Help/Image/betaExpansion-B.svg)
 
-Plot number of ones in the base-φ representation of _n_ modulo two,
+Number of ones in the base-φ representation of _n_ modulo two,
 OEIS [A330037](https://oeis.org/A330037):
 
 ~~~spl svg=C oeis=A330037 set=0,1
@@ -266,7 +266,7 @@ OEIS [A104605](https://oeis.org/A104605):
 ]
 ```
 
-Plot list of powers of φ in the representation of _n_,
+List of powers of φ in the representation of _n_,
 OEIS [A104605](https://oeis.org/A104605):
 
 ~~~spl svg=D oeis=A104605 signed
@@ -347,7 +347,7 @@ OEIS [A105425](https://oeis.org/A105425):
 ]
 ```
 
-Plot the part of _n_ in base φ left of the decimal point,
+The part of _n_ in base φ left of the decimal point,
 interpreted as a binary integer,
 OEIS [A105425](https://oeis.org/A105425):
 

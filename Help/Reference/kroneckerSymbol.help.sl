@@ -174,7 +174,7 @@ OEIS [A188510](https://oeis.org/A188510):
 ]
 ```
 
-Plot:
+Plot table:
 
 ~~~spl svg=A
 kroneckerSymbol:/2
@@ -184,10 +184,10 @@ kroneckerSymbol:/2
 
 ![](sw/spl/Help/Image/kroneckerSymbol-A.svg)
 
-Plot theta series of planar hexagonal lattice _A2_,
+Theta series of planar hexagonal lattice _A2_,
 OEIS [A004016](https://oeis.org/A004016):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A004016
 1:73.collect { :n |
 	(n = 1).if {
 		1
@@ -204,7 +204,7 @@ OEIS [A004016](https://oeis.org/A004016):
 Number of different partitions of _n_ into parts of -3 different kinds,
 OEIS [A010816](https://oeis.org/A010816):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A010816
 0:200.collect { :n |
 	let m = 8 * n + 1;
 	m.divisors.size.isOdd.if {
@@ -235,10 +235,10 @@ OEIS [A010815](https://oeis.org/A010815):
 
 ![](sw/spl/Help/Image/kroneckerSymbol-D.svg)
 
-Plot Glaisher’s J numbers,
+Glaisher’s J numbers,
 OEIS [A002325](https://oeis.org/A002325):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A002325
 1:150.collect { :n |
 	n.divisors.sum { :d |
 		-8.kroneckerSymbol(d)
@@ -248,10 +248,10 @@ OEIS [A002325](https://oeis.org/A002325):
 
 ![](sw/spl/Help/Image/kroneckerSymbol-E.svg)
 
-Plot _|a_4(n)|_,
+_|a_4(n)|_,
 OEIS [A033715](https://oeis.org/A033715):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A033715
 0:103.collect { :n |
 	(n < 1).if {
 		(n = 0).boole
@@ -265,10 +265,10 @@ OEIS [A033715](https://oeis.org/A033715):
 
 ![](sw/spl/Help/Image/kroneckerSymbol-F.svg)
 
-Plot unique cusp form of weight two for congruence group _Γ1(11)_,
+Unique cusp form of weight two for congruence group _Γ1(11)_,
 OEIS [A006571](https://oeis.org/A006571):
 
-~~~spl svg=G
+~~~spl svg=G oeis=A006571
 let f = { :p :e |
 	let a0 = 1;
 	let a1 = 0 - (0 .. p - 1).sum { :x |
@@ -305,7 +305,7 @@ let f = { :p :e |
 Number of fixed points of _γ0(n)_ of type _i_,
 OEIS [A000095](https://oeis.org/A000095):
 
-~~~spl svg=H
+~~~spl svg=H oeis=A000095
 let k = { :d |
 	-1.kroneckerSymbol(d)
 };
@@ -341,7 +341,7 @@ OEIS [A091337](https://oeis.org/A091337):
 Coefficients of Dedekind zeta function for the quadratic number field of discriminant seventeen,
 OEIS [A035199](https://oeis.org/A035199):
 
-~~~spl svg=J
+~~~spl svg=J oeis=A035199
 1:115.collect { :n |
 	n.divisorSum { :d |
 		17.kroneckerSymbol(d)

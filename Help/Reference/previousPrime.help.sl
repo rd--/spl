@@ -54,10 +54,10 @@ OEIS [A033933](https://oeis.org/A033933):
 [1 1 7 1 1 31 13 11 13 1 23 1 47]
 ```
 
-Plot prime instigated arithmetic series,
+Prime instigated arithmetic series,
 OEIS [A064924](https://oeis.org/A064924):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A064924
 2:250.collect { :n |
 	n.isPrime.if {
 		n
@@ -74,7 +74,7 @@ Ordinal transform of the next prime function,
 calculated as _n-f(n)+1_ for composite _n_,
 OEIS [A175851](https://oeis.org/A175851):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A175851
 1:250.collect { :n |
 	n.isComposite.if {
 		n - n.previousPrime + 1
@@ -89,7 +89,7 @@ OEIS [A175851](https://oeis.org/A175851):
 Numerators of rational valued sequence whose Dirichlet convolution with itself yields the ordinal transform of the next prime function,
 OEIS [A317830](https://oeis.org/A317830):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A317830
 let a = Map { :n |
 	n.isComposite.if {
 		n - n.previousPrime + 1L

@@ -22,10 +22,10 @@ Threads over lists:
 [-2J3 9J-4 5J6]
 ```
 
-Plot number of Gaussian integers _x+yi_ having absolute value _n_,
+Number of Gaussian integers _x+yi_ having absolute value _n_,
 OEIS [A046109](https://oeis.org/A046109):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A046109
 0:47.collect { :n |
 	j:/2.table(-n:n, -n:n)
 	.catenate

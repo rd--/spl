@@ -378,10 +378,10 @@ Scatter plot of the digits of φ:
 
 ![](sw/spl/Help/Image/goldenRatio-H.svg)
 
-Plot signature sequence of 1/φ,
+Signature sequence of 1/φ,
 OEIS [A084531](https://oeis.org/A084531):
 
-~~~spl svg=I
+~~~spl svg=I oeis=A084531
 let phi = 1.goldenRatio;
 phi.signatureSequence(200)
 .scatterPlot
@@ -392,7 +392,7 @@ phi.signatureSequence(200)
 An array of numbers for a ternary numeration system read by antidiagonals,
 OEIS [A038150](https://oeis.org/A038150):
 
-~~~spl svg=J
+~~~spl svg=J oeis=A038150
 let phi = 1.goldenRatio;
 let t = { :n :j |
 	(j = 1).if {
@@ -408,10 +408,10 @@ let t = { :n :j |
 
 ![](sw/spl/Help/Image/goldenRatio-J.svg)
 
-Plot powers of phi in the representation of the integer _n_ as a sum of increasing nonconsecutive powers of the golden ratio,
+Powers of phi in the representation of the integer _n_ as a sum of increasing nonconsecutive powers of the golden ratio,
 OEIS [A104605](https://oeis.org/A104605):
 
-~~~spl svg=K
+~~~spl svg=K oeis=A104605
 OeisEntry('A104605').then { :e |
 	e.bFileData
 	.first(113)
@@ -421,7 +421,7 @@ OeisEntry('A104605').then { :e |
 
 ![](sw/spl/Help/Image/goldenRatio-K.svg)
 
-Plot an _eta-sequence_,
+An _eta-sequence_,
 the differences of the rounded multiples of φ,
 OEIS [A006340](https://oeis.org/A006340):
 

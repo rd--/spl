@@ -97,7 +97,7 @@ The cumulative maxima is the `scan` of `max`:
 Table _(j%i).⌈(i%j)_ read by antidiagonals,
 OEIS [A204016](https://oeis.org/A204016):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A204016
 1:12.antidiagonalArray { :i :j |
 	(j % i).max(i % j)
 }.catenate.discretePlot

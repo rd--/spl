@@ -135,10 +135,10 @@ OEIS [A026820](https://oeis.org/A026820):
 ]
 ```
 
-Plot the number of unrestricted partitions,
+The number of unrestricted partitions,
 OEIS [A000041](https://oeis.org/A000041):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A000041
 0:50.functionPlot { :x |
 	x.partitionFunctionP.log10
 }
@@ -149,7 +149,7 @@ OEIS [A000041](https://oeis.org/A000041):
 Initial triangle of _P(n,k)_,
 OEIS [A008284](https://oeis.org/A008284):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A008284
 1:15.triangularArray(
 	partitionFunctionP:/2
 ).catenate.scatterPlot
@@ -160,7 +160,7 @@ OEIS [A008284](https://oeis.org/A008284):
 Initial triangle of _P(n,1:k)_,
 OEIS [A026820](https://oeis.org/A026820):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A026820
 1:10.triangularArray { :n :k |
 	1:k.sum { :i |
 		n.partitionFunctionP(i)

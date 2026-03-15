@@ -234,10 +234,10 @@ let y = x.sin;
 
 ![](sw/spl/Help/Image/differences-B.svg)
 
-Plot `numerator` of `differences` of _n/((n+1)(n+2))_,
+`numerator` of `differences` of _n/((n+1)(n+2))_,
 OEIS [A051712](https://oeis.org/A051712):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A051712
 1:125.collect { :n |
 	n \ ((n + 1) * (n + 2))
 }.differences
@@ -248,10 +248,10 @@ OEIS [A051712](https://oeis.org/A051712):
 
 ![](sw/spl/Help/Image/differences-C.svg)
 
-Plot differences between numbers _k_ for which _σ(k)<σ(k+1)_,
+Differences between numbers _k_ for which _σ(k)<σ(k+1)_,
 OEIS [A053230](https://oeis.org/A053230):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A053230
 1:400.select { :n |
 	1.divisorSigma(n)
 	<
@@ -264,7 +264,7 @@ OEIS [A053230](https://oeis.org/A053230):
 Absolute values of differences between digits of _n+10_,
 OEIS [A040114](https://oeis.org/A040114):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A040114
 1:125.collect { :n |
 	n.integerDigits.differences.abs
 }.catenate.scatterPlot
@@ -275,7 +275,7 @@ OEIS [A040114](https://oeis.org/A040114):
 Join absolute values of differences between digits of _n_,
 OEIS [A040115](https://oeis.org/A040115):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A040115
 0:125.collect { :n |
 	n.integerDigits
 	.differences
@@ -292,7 +292,7 @@ where the leading row lists the primes,
 and following rows list the absolute values of the differences of the previous row,
 OEIS [A036262](https://oeis.org/A036262):
 
-~~~spl svg=G
+~~~spl svg=G oeis=A036262
 let m = 12;
 let t = { :x |
 	x.differences.abs
@@ -307,7 +307,7 @@ let t = { :x |
 Second differences of primes,
 OEIS [A036263](https://oeis.org/A036263):
 
-~~~spl svg=H
+~~~spl svg=H oeis=A036263 signed
 1:85.prime.differences(2).discretePlot
 ~~~
 
@@ -316,7 +316,7 @@ OEIS [A036263](https://oeis.org/A036263):
 Total variation of base-ten digits of _n_,
 OEIS [A297330](https://oeis.org/A297330):
 
-~~~spl svg=I
+~~~spl svg=I oeis=A297330
 1:150.collect { :n |
 	n.integerDigits(10)
 	.partition(2, 1)

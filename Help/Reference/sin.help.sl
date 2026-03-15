@@ -244,7 +244,7 @@ Plot simple sine & cosine curve by R.Cabello:
 Nearest integer to _sin(n)_,
 OEIS [A000494](https://oeis.org/A000494):
 
-~~~spl svg=L
+~~~spl svg=L oeis=A000494
 0:200.sin.round.discretePlot
 ~~~
 
@@ -253,7 +253,7 @@ OEIS [A000494](https://oeis.org/A000494):
 _⌊(sin(n))_,
 OEIS [A000493](https://oeis.org/A000493):
 
-~~~spl svg=M
+~~~spl svg=M oeis=A000493
 0:85.sin.floor.discretePlot
 ~~~
 

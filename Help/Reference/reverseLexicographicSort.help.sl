@@ -70,10 +70,10 @@ Sort binary combinations:
 ]
 ```
 
-Plot integer compositions in reverse lexicographic order,
+Integer compositions in reverse lexicographic order,
 OEIS [A066099](https://oeis.org/A066099):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A066099
 1:5.collect { :n |
 	n.integerCompositions
 	.reverseLexicographicSort
@@ -82,7 +82,7 @@ OEIS [A066099](https://oeis.org/A066099):
 
 ![](sw/spl/Help/Image/reverseLexicographicSort-A.svg)
 
-Plot alternating sums of integer compositions in reverse lexicographic order,
+Alternating sums of integer compositions in reverse lexicographic order,
 OEIS [A124754](https://oeis.org/A124754):
 
 ~~~spl svg=B oeis=A124754 signed
@@ -110,7 +110,7 @@ OEIS [A124756](https://oeis.org/A124756):
 
 ![](sw/spl/Help/Image/reverseLexicographicSort-C.svg)
 
-Plot first differences of integer compositions in reverse lexicographic order,
+First differences of integer compositions in reverse lexicographic order,
 OEIS [A358133](https://oeis.org/A358133):
 
 ~~~spl svg=D oeis=A358133 signed
@@ -126,7 +126,7 @@ OEIS [A358133](https://oeis.org/A358133):
 Irregular array read by rows where row _k_ lists the run-sums of the _k_-th composition in standard order,
 OEIS [A353932](https://oeis.org/A353932):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A353932
 1:5.collect { :n |
 	n.integerCompositions
 	.reverseLexicographicSort

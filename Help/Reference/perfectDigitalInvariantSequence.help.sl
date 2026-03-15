@@ -65,7 +65,7 @@ OEIS [A193995](https://oeis.org/A193995):
 The sequence lengths for the first few terms of the _p=2_ sequences,
 OEIS [A193995](https://oeis.org/A193995):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A193995
 1:150.collect { :each |
 	each
 	.perfectDigitalInvariantSequence(

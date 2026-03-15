@@ -55,7 +55,7 @@ x.shadowTransform
 
 ![](sw/spl/Help/Image/shadowTransform-A.svg)
 
-Plot shadow transform of tetrahedral numbers,
+Shadow transform of tetrahedral numbers,
 OEIS [A072457](https://oeis.org/A072457):
 
 ~~~spl svg=B oeis=A072457
@@ -66,7 +66,7 @@ OEIS [A072457](https://oeis.org/A072457):
 
 ![](sw/spl/Help/Image/shadowTransform-B.svg)
 
-Plot shadow transform of _C(n+7,8)_,
+Shadow transform of _C(n+7,8)_,
 OEIS [A144869](https://oeis.org/A144869):
 
 ~~~spl svg=C oeis=A144869
@@ -78,7 +78,7 @@ OEIS [A144869](https://oeis.org/A144869):
 
 ![](sw/spl/Help/Image/shadowTransform-C.svg)
 
-Plot shadow transform of _σ(n)_,
+Shadow transform of _σ(n)_,
 OEIS [A072463](https://oeis.org/A072463):
 
 ~~~spl svg=D oeis=A072463
@@ -90,7 +90,7 @@ OEIS [A072463](https://oeis.org/A072463):
 
 ![](sw/spl/Help/Image/shadowTransform-D.svg)
 
-Plot shadow transform of `fibonacci`,
+Shadow transform of `fibonacci`,
 OEIS [A346080](https://oeis.org/A346080):
 
 ~~~spl svg=E oeis=A346080

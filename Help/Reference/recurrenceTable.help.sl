@@ -98,7 +98,7 @@ OEIS [A000304](https://oeis.org/A000304):
 [2 3 6 18 108 1944 209952 408146688]
 ```
 
-Study the evolution for a nonlinear map of the plane:
+Study the evolution of a nonlinear map of the plane:
 
 ~~~spl svg=A
 let p0 = [0.142857, 0.33];
@@ -126,7 +126,7 @@ let r = 3.6;
 
 ![](sw/spl/Help/Image/recurrenceTable-B.svg)
 
-Plot the Cliff random number generator:
+The Cliff random number generator:
 
 ~~~spl svg=C
 { :a :n |
@@ -151,7 +151,7 @@ Find fixed points of a nonlinear recurrence equation:
 Next term is sum of the digits of the sum of the previous two terms,
 OEIS [A030133](https://oeis.org/A030133):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A030133
 { :a :n |
 	(a[n - 1] + a[n - 2]).digitSum
 }.recurrenceTable([2 1], 48).discretePlot
@@ -162,7 +162,7 @@ OEIS [A030133](https://oeis.org/A030133):
 _|a(n-1)+2a(n-2)-n|_,
 OEIS [A005210](https://oeis.org/A005210):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A005210
 { :a :n |
 	(a[n - 1] + (2 * a[n - 2]) - n).abs
 }.recurrenceTable([1 1], 85).discretePlot

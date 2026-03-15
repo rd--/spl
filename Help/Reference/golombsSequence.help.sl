@@ -5,7 +5,7 @@
 Answer the first _n_ terms of Golomb’s sequence,
 also called Silverman’s sequence.
 
-First few terms,
+Golomb’s sequence,
 OEIS [A001462](https://oeis.org/A001462):
 
 ```
@@ -23,7 +23,7 @@ OEIS [A001462](https://oeis.org/A001462):
 ]
 ```
 
-Partial sums,
+Partial sums of Golomb’s sequence,
 OEIS [A001463](https://oeis.org/A001463):
 
 ```
@@ -50,20 +50,20 @@ Asymptotic expression for the _n_-the term:
 84.golombsSequence
 ```
 
-Plot first few terms,
+Golomb’s sequence,
 OEIS [A001462](https://oeis.org/A001462):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A001462
 98.golombsSequence
 .discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/golombsSequence-A.svg)
 
-Plot partial sums,
+Partial sums of Golomb’s sequence,
 OEIS [A001463](https://oeis.org/A001463):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A001463
 98.golombsSequence.prefixSum
 .discretePlot
 ~~~

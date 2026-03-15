@@ -42,14 +42,14 @@ OEIS [A004709](https://oeis.org/A004709):
 Cubeful numbers,
 OEIS [A046099](https://oeis.org/A046099):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A046099
 1:500.reject(isCubeFree:/1)
 .discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/isCubeFree-B.svg)
 
-Plot characteristic function of cube-free numbers,
+Characteristic function of cube-free numbers,
 OEIS [A212793](https://oeis.org/A212793):
 
 ~~~spl svg=C oeis=A212793 set=0,1

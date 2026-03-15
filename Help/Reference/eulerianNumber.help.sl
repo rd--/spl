@@ -48,10 +48,12 @@ OEIS [A123125](https://oeis.org/A123125):
 ]
 ```
 
-Log scale scatter plot of first few terms,
+The Euler triangle,
+without trailing zero,
+log scale scatter plot,
 OEIS [A008292](https://oeis.org/A008292):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A008292
 (0L .. 20L).triangularArray(
 	eulerianNumber:/2, -1
 ).catenate.log.scatterPlot
@@ -59,10 +61,11 @@ OEIS [A008292](https://oeis.org/A008292):
 
 ![](sw/spl/Help/Image/eulerianNumber-A.svg)
 
-Log scale scatter plot of first few terms,
+The Euler triangle,
+log scale scatter plot,
 OEIS [A173018](https://oeis.org/A173018):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A173018
 (0L .. 20L).triangularArray(
 	eulerianNumber:/2
 ).catenate.log.scatterPlot

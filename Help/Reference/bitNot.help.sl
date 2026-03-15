@@ -99,7 +99,7 @@ Triangle of _¬n&k_,
 also called the converse nonimplication,
 OEIS [A102037](https://oeis.org/A102037):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A102037
 0:19.triangularArray { :n :k |
 	n.bitNot.bitAnd(k)
 }.catenate.scatterPlot
@@ -111,7 +111,7 @@ Row sums of triangle of _¬n&k_,
 also called the converse nonimplication,
 OEIS [A350094](https://oeis.org/A350094):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A350094
 0:63.triangularArray { :n :k |
 	n.bitNot.bitAnd(k)
 }.collect(sum:/1).scatterPlot

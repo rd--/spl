@@ -22,7 +22,7 @@ First few non-zero Bernoulli numbers:
 ]
 ```
 
-Plot numerator of Bernoulli sequence,
+Numerators of Bernoulli sequence,
 OEIS [A027641](https://oeis.org/A027641):
 
 ~~~spl svg=A oeis=A027641 signed
@@ -34,10 +34,10 @@ OEIS [A027641](https://oeis.org/A027641):
 
 ![](sw/spl/Help/Image/bernoulliSequence-A.svg)
 
-Plot denominator of Bernoulli sequence,
+Denominators of Bernoulli sequence,
 OEIS [A027642](https://oeis.org/A027642):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A027642
 99.bernoulliSequence
 .denominator
 .log

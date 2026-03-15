@@ -65,20 +65,21 @@ _b=10_ [A007953](https://oeis.org/A007953):
 ]
 ```
 
-Plot the sum of the digits in the first 100 positive integers,
+The sum of the digits of _n_,
 where _b=10_,
 OEIS [A007953](http://oeis.org/A007953):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A007953
 1:100.collect(digitSum:/1).discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/digitSum-A.svg)
 
-Scatter plot of first few terms where _b=2_,
+The sum of the digits of _n_,
+where _b=2_,
 OEIS [A000120](http://oeis.org/A000120):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A000120
 1:250.collect { :n |
 	n.digitSum(2)
 }.scatterPlot
@@ -86,10 +87,11 @@ OEIS [A000120](http://oeis.org/A000120):
 
 ![](sw/spl/Help/Image/digitSum-B.svg)
 
-Scatter plot of first few terms where _b=8_,
+The sum of the digits of _n_,
+where _b=8_,
 OEIS [A053829](http://oeis.org/A053829):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A053829
 1:250.collect { :n |
 	n.digitSum(8)
 }.scatterPlot
@@ -101,7 +103,7 @@ Array read by antidiagonals,
 places are the digit sum of _n×k_,
 OEIS [A336225](https://oeis.org/A336225):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A336225
 0:17.antidiagonalArray { :n :k |
 	(n * k).digitSum
 }.catenate.scatterPlot

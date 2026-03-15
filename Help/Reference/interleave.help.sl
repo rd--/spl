@@ -111,7 +111,7 @@ Alternate positive and negative integers,
 OEIS [A001057](https://oeis.org/A001057)
 without the leading zero:
 
-~~~spl svg=A
+~~~spl svg=A oeis=A001057
 let n = 1:35;
 [n, -n].interleave.discretePlot
 ~~~
@@ -121,7 +121,7 @@ let n = 1:35;
 Interleave _n_ and _3n_,
 OEIS [A064455](https://oeis.org/A064455):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A064455
 let n = 1:35;
 [n, 3 * n].interleave.discretePlot
 ~~~
@@ -131,7 +131,7 @@ let n = 1:35;
 Interleave _3(n-1)+1_ and _n_,
 OEIS [A123684](https://oeis.org/A123684):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A064455
 let n = 1:35;
 [3 * (n - 1) + 1, n].interleave.discretePlot
 ~~~
@@ -141,7 +141,7 @@ let n = 1:35;
 Interleave _2n-1_ and _3n_,
 OEIS [A080512](https://oeis.org/A080512):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A080512
 let n = 1:35;
 [2 * n - 1, 3 * n].interleave.discretePlot
 ~~~
@@ -151,7 +151,7 @@ let n = 1:35;
 Interleave _n_ and _2n_,
 OEIS [A029578](https://oeis.org/A029578):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A029578
 let n = 0:35;
 [n, 2 * n].interleave.discretePlot
 ~~~

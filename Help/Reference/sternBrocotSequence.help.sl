@@ -59,19 +59,21 @@ OEIS [A070990](https://oeis.org/A070990):
 [1 -1 2 -1 1 -2 3 -1 2 -3 3 -2 1 -3]
 ```
 
-Discrete plot of first few terms of Stern’s diatomic series,
+Stern’s diatomic series,
+discrete plot,
 OEIS [A002487](https://oeis.org/A002487):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A002487
 200.sternBrocotSequence.discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/sternBrocotSequence-A.svg)
 
-Scatter plot of first few terms of Stern’s diatomic series,
+Stern’s diatomic series,
+scatter plot,
 OEIS [A002487](https://oeis.org/A002487):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A002487
 300.sternBrocotSequence.scatterPlot
 ~~~
 
@@ -80,7 +82,7 @@ OEIS [A002487](https://oeis.org/A002487):
 Record values of Stern’s diatomic series,
 OEIS [A212289](https://oeis.org/A212289):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A212289
 10000.sternBrocotSequence
 .recordValues
 .discretePlot
@@ -115,7 +117,7 @@ OEIS [A283104](https://oeis.org/A283104):
 The smallest number _k_ such that _fusc(k)=n_,
 OEIS [A020946](https://oeis.org/A020946):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A020946
 let k = 10000;
 let a = k.sternBrocotSequence;
 0:200.collect { :n |
@@ -130,7 +132,7 @@ let a = k.sternBrocotSequence;
 Partial sums of Stern’s diatomic series,
 OEIS [A174868](https://oeis.org/A174868):
 
-~~~spl svg=G
+~~~spl svg=G oeis=A174868
 85.sternBrocotSequence
 .prefixSum
 .scatterPlot

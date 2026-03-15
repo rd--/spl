@@ -163,6 +163,7 @@
 	'Help-DocumentationTest'
 	'Help-HelpFile'
 	'Help-HelpIndex'
+	'Help-HelpProgram'
 	'Help-TerseGuide'
 	'Help-TerseReference'
 	'Kernel-Comparable'

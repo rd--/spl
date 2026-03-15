@@ -164,10 +164,10 @@ Rule 184 from a random initial state:
 
 ![](sw/spl/Help/Image/elementaryCellularAutomaton-H.png)
 
-Plot ones in the _n_-th generation of Rule 30,
+Ones in the _n_-th generation of Rule 30,
 OEIS [A070952](https://oeis.org/A070952):
 
-~~~spl svg=I
+~~~spl svg=I oeis=A070952
 let k = 100;
 30.elementaryCellularAutomaton(
 	[1].centerArray(k * 2, 0),

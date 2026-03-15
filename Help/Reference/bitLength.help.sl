@@ -54,28 +54,28 @@ OEIS [A053644](https://oeis.org/A053644):
 [1 2 2 4 4 4 4 8 8 8 8 8 8 8 8]
 ```
 
-Plot is a kind of staircase,
+`bitLength` is a kind of staircase function,
 OEIS [A029837](https://oeis.org/A029837):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A029837
 (-25:25).bitLength.discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/bitLength-A.svg)
 
-Plot _2^l(n)_,
+_2^l(n)_,
 [A003817](https://oeis.org/A003817):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A003817
 (2 ^ 0:50.bitLength).discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/bitLength-B.svg)
 
-Plot sum of _n_ modulo _2^k_ for _k_ in `bitLength` of _n_,
+Sum of _n_ modulo _2^k_ for _k_ in `bitLength` of _n_,
 OEIS [A049802](https://oeis.org/A049802):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A049802
 1:100.collect { :n |
 	let m = n.bitLength - 1;
 	1:m.sum { :k |
@@ -96,10 +96,10 @@ OEIS [A209229](https://oeis.org/A209229):
 
 ![](sw/spl/Help/Image/bitLength-D.svg)
 
-Plot up to _2^9_,
+`bitLength` up to _2^9_,
 OEIS [A029837](https://oeis.org/A029837):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A029837
 let n = 2 ^ 9;
 0:n.bitLength.stepPlot
 ~~~
@@ -109,7 +109,7 @@ let n = 2 ^ 9;
 Simple self-inverse permutation of natural numbers,
 OEIS [A054429](https://oeis.org/A054429):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A054429 permutation
 1:63.collect { :n |
 	3 * (2 ^ (n.bitLength - 1)) - n - 1
 }.discretePlot
@@ -120,7 +120,7 @@ OEIS [A054429](https://oeis.org/A054429):
 Denominators of Farey tree fractions,
 OEIS [A007306](https://oeis.org/A007306):
 
-~~~spl svg=G
+~~~spl svg=G oeis=A007306
 let a = Map { :n |
 	(n < 2).if {
 		1

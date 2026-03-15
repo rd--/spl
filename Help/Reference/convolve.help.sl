@@ -115,7 +115,7 @@ Self convolution of
 OEIS [A073739](https://oeis.org/A073739),
 OEIS [A073740](https://oeis.org/A073740):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A073740
 let k = 150;
 let a = Map { :n |
 	(n <= 2).if {
@@ -139,7 +139,7 @@ Self-convolution of the inverse of sixth cyclotomic polynomial,
 OEIS [A010892](https://oeis.org/A010892),
 OEIS [A099254](https://oeis.org/A099254):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A099254 signed
 let a = [1 1 0 -1 -1 0].repeat(13);
 let k = a.size;
 a.convolve(a).first(k).discretePlot

@@ -173,10 +173,10 @@ OEIS [A030067](https://oeis.org/A030067):
 ]
 ```
 
-Plot Fibonacci modulo _n_,
+Fibonacci modulo _n_,
 OEIS [A002708](https://oeis.org/A002708):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A002708
 let n = 201;
 (n.fibonacciSequence % (0 .. 200))
 .scatterPlot
@@ -184,10 +184,10 @@ let n = 201;
 
 ![](sw/spl/Help/Image/fibonacciSequence-A.svg)
 
-Log plot of the semi-Fibonacci sequence,
+The semi-Fibonacci sequence,
 OEIS [A030067](https://oeis.org/A030067):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A030067
 125.fibonacciSequence(
 	'Semi-Fibonacci'
 ).log.scatterPlot
@@ -198,7 +198,7 @@ OEIS [A030067](https://oeis.org/A030067):
 A variant of the semi-Fibonacci numbers,
 OEIS [A109671](https://oeis.org/A109671):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A109671
 let a = Map { :n |
 	(n = 1).if {
 		1

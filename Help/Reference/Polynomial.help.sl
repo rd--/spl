@@ -12,10 +12,10 @@ UnivariatePolynomial([1 2 3])
 BivariatePolynomial([1 2; 3 4])
 ```
 
-Plot number of representations of _n_ as a sum of distinct Lucas numbers,
+Number of representations of _n_ as a sum of distinct Lucas numbers,
 OEIS [A003263](https://oeis.org/A003263):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A003263
 1:10.product { :n |
 	Polynomial(
 		[

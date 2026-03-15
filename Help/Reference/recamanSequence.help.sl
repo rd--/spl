@@ -23,19 +23,21 @@ OEIS [A005132](https://oeis.org/A005132):
 ]
 ```
 
-Line plot of the first few terms of Recamáns sequence,
+Recamáns sequence,
+line plot,
 OEIS [A005132](https://oeis.org/A005132):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A005132
 300.recamanSequence.linePlot
 ~~~
 
 ![](sw/spl/Help/Image/recamanSequence-A.svg)
 
-Scatter plot of the first few terms of Recamáns sequence,
+Recamáns sequence,
+scatter plot,
 OEIS [A005132](https://oeis.org/A005132):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A005132
 300.recamanSequence.scatterPlot
 ~~~
 
@@ -67,7 +69,7 @@ A variant of Recamáns sequence,
 _k_ begins at _n_ and then flips signs and increments until a value is located,
 OEIS [A064389](https://oeis.org/A064389):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A064389
 let m = 300;
 let a = [1];
 let d = IdentitySet(a);
@@ -104,7 +106,7 @@ OEIS [A160357](https://oeis.org/A160357):
 Height of terms of Recamán’s sequence,
 OEIS [A064289](https://oeis.org/A064289):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A064289
 let r = 150.recamanSequence;
 r.addFirst(0);
 r.differences.sign.prefixSum.scatterPlot

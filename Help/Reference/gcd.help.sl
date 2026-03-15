@@ -235,7 +235,7 @@ gcd:/2.table(1:11, 1:11).matrixPlot
 Groups of order _2n_ that have _Z/nZ_ as a subgroup,
 OEIS [A147848](https://oeis.org/A147848):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A147848
 1:85.collect { :n |
 	1:n.sum { :k |
 		(n % k = 0).if {
@@ -255,10 +255,10 @@ OEIS [A147848](https://oeis.org/A147848):
 
 ![](sw/spl/Help/Image/gcd-F.svg)
 
-Plot numerators in canonical bijection from positive integers to positive rationals,
+Numerators in canonical bijection from positive integers to positive rationals,
 OEIS [A020652](http://oeis.org/A020652):
 
-~~~spl svg=G
+~~~spl svg=G oeis=A020652
 let a = [];
 1.toDo(23) { :d |
 	1.toDo(d - 1) { :n |
@@ -272,10 +272,10 @@ a.scatterPlot
 
 ![](sw/spl/Help/Image/gcd-G.svg)
 
-Plot denominators,
+Denominators in canonical bijection from positive integers to positive rationals,
 OEIS [A020653](http://oeis.org/A020653):
 
-~~~spl svg=H
+~~~spl svg=H oeis=A020653
 1:23.collect { :n |
 	let m = n - 1;
 	1:m.collect { :i |
@@ -288,10 +288,10 @@ OEIS [A020653](http://oeis.org/A020653):
 
 ![](sw/spl/Help/Image/gcd-H.svg)
 
-Plot greatest common divisor of _n!_ and _n^n_,
+Greatest common divisor of _n!_ and _n^n_,
 OEIS [A051696](http://oeis.org/A051696):
 
-~~~spl svg=I
+~~~spl svg=I oeis=A051696
 (1L .. 200L).collect { :n |
 	gcd(n.!, n ^ n)
 }.log.scatterPlot
@@ -302,7 +302,7 @@ OEIS [A051696](http://oeis.org/A051696):
 Numerators in canonical bijection from positive integers to positive rationals _≤1_,
 OEIS [A038566](http://oeis.org/A038566):
 
-~~~spl svg=J
+~~~spl svg=J oeis=A038566
 1:23.collect { :n |
 	1:n.select { :i |
 		n.gcd(i) = 1
@@ -312,10 +312,10 @@ OEIS [A038566](http://oeis.org/A038566):
 
 ![](sw/spl/Help/Image/gcd-J.svg)
 
-Of _n_ and _2^n-1_,
+`gcd` of _n_ and _2^n-1_,
 OEIS [A014491](https://oeis.org/A014491):
 
-~~~spl svg=K
+~~~spl svg=K oeis=A014491
 (
 	1:100.collect { :n |
 		n.gcd(2L ^ n - 1)
@@ -329,7 +329,7 @@ Enumeration of rationals sorted by sum on components,
 numerators,
 OEIS [A182972](https://oeis.org/A182972):
 
-~~~spl svg=L
+~~~spl svg=L oeis=A182972
 4:35.collect { :n |
 	let k = (n - 1) // 2;
 	1:k.select { :i |
@@ -344,7 +344,7 @@ Enumeration of rationals sorted by sum on components,
 denominators,
 OEIS [A182973](https://oeis.org/A182973):
 
-~~~spl svg=M
+~~~spl svg=M oeis=A182973
 4:35.collect { :n |
 	let k = (n - 1) // 2;
 	n - 1 - 1:k.select { :i |
@@ -358,7 +358,7 @@ OEIS [A182973](https://oeis.org/A182973):
 Primes and then products of adjacent terms divided by square of `gcd`,
 OEIS [A255483](https://oeis.org/A255483):
 
-~~~spl svg=N
+~~~spl svg=N oeis=A255483
 let t = { :n :m |
 	(n = 0).if {
 		m.prime
@@ -378,7 +378,7 @@ let t = { :n :m |
 _gcd(k+n/k)_, where _k_ is over all divisors of _n_,
 OEIS [A143771](https://oeis.org/A143771):
 
-~~~spl svg=O
+~~~spl svg=O oeis=A143771
 1:85.collect { :n |
 	n.divisors.collect { :d |
 		d + (n / d)
@@ -393,7 +393,7 @@ _gcd(k,⌈(n/k))_,
 OEIS [A120889](https://oeis.org/A120889),
 minus one:
 
-~~~spl svg=P
+~~~spl svg=P oeis=A120889
 let a = 1:13.triangularArray { :n :k |
 	k.gcd((n / k).ceiling)
 };

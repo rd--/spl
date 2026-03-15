@@ -388,7 +388,7 @@ OEIS [A003991](https://oeis.org/A003991):
 
 ![](sw/spl/Help/Image/triangularArray-B.svg)
 
-Plot the greatest common divisor matrix read by antidiagonals,
+The greatest common divisor matrix read by antidiagonals,
 OEIS [A003989](https://oeis.org/A003989):
 
 ~~~spl svg=C oeis=A003989
@@ -444,7 +444,7 @@ OEIS [A051678](https://oeis.org/A051678):
 
 ![](sw/spl/Help/Image/triangularArray-F.svg)
 
-Plot number of hill-free Dyck paths of length _2n_ having height of first peak equal to _k_,
+Number of hill-free Dyck paths of length _2n_ having height of first peak equal to _k_,
 OEIS [A065602](https://oeis.org/A065602):
 
 ~~~spl svg=G oeis=A065602
@@ -464,7 +464,7 @@ OEIS [A065602](https://oeis.org/A065602):
 
 ![](sw/spl/Help/Image/triangularArray-G.svg)
 
-Plot _k_,
+_k_,
 count and count again from zero,
 OEIS [A002262](https://oeis.org/A002262):
 
@@ -476,7 +476,7 @@ OEIS [A002262](https://oeis.org/A002262):
 
 ![](sw/spl/Help/Image/triangularArray-H.svg)
 
-Plot _n-k_,
+_n-k_,
 count backwards and count again,
 OEIS [A025581](https://oeis.org/A025581):
 

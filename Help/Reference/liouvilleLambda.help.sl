@@ -136,7 +136,7 @@ OEIS [A008836](https://oeis.org/A008836):
 Parity of number of primes dividing _n_,
 OEIS [A007421](https://oeis.org/A007421):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A007421
 1:75.collect { :n |
 	(n.liouvilleLambda + 3) / 2
 }.stepPlot
@@ -144,20 +144,20 @@ OEIS [A007421](https://oeis.org/A007421):
 
 ![](sw/spl/Help/Image/liouvilleLambda-B.svg)
 
-Plot Liouville’s function,
+Liouville’s function,
 OEIS [A002819](https://oeis.org/A002819):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A002819
 1:165.liouvilleLambda.prefixSum
 .scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/liouvilleLambda-C.svg)
 
-Plot least value of _m_ for which Liouville’s function is _-n_,
+Least value of _m_ for which Liouville’s function is _-n_,
 OEIS [A002053](https://oeis.org/A002053):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A002053
 let l = 1:3000.liouvilleLambda.prefixSum;
 0:65.collect { :n |
 	l.indexOf(-n)
@@ -166,10 +166,10 @@ let l = 1:3000.liouvilleLambda.prefixSum;
 
 ![](sw/spl/Help/Image/liouvilleLambda-D.svg)
 
-Plot parity of _Ω(n)_,
+Parity of _Ω(n)_,
 OEIS [A066829](https://oeis.org/A066829):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A066829 set=0,1
 1:65.collect { :n |
 	(1 - n.liouvilleLambda) / 2
 }.discretePlot
@@ -181,7 +181,7 @@ Characteristic function of the numbers with an even number of prime factors,
 counted with multiplicity,
 OEIS [A065043](https://oeis.org/A065043):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A065043 set=0,1
 1:105.collect { :n |
 	(n.liouvilleLambda + 1) / 2
 }.discretePlot
@@ -189,7 +189,7 @@ OEIS [A065043](https://oeis.org/A065043):
 
 ![](sw/spl/Help/Image/liouvilleLambda-F.svg)
 
-Plot Liouville lambda for the sum of two squares:
+Matrix plot of Liouville lambda for the sum of two squares:
 
 ~~~spl svg=G
 { :a :b |

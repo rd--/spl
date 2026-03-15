@@ -33,10 +33,10 @@ Find the next prime after 888:
 907
 ```
 
-Plot Kimberling’s paraphrase of the binary number system,
+Kimberling’s paraphrase of the binary number system,
 OEIS [A003602](https://oeis.org/A003602):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A003602
 1:200.collect { :n |
 	let a = { :x |
 		(x / 2).floor

@@ -91,7 +91,7 @@ OEIS [A005351](https://oeis.org/A005351):
 Regarded as base two and then evaluated,
 OEIS [A005351](https://oeis.org/A005351):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A005351
 0:341.negabinaryExpansion
 .collect { :n |
 	n.fromDigits(2)
@@ -101,9 +101,9 @@ OEIS [A005351](https://oeis.org/A005351):
 ![](sw/spl/Help/Image/negabinaryExpansion-A.svg)
 
 Alternating sum of reverse of negabinary expansion of _n_,
-[A065360](https://oeis.org/A065360):
+OEIS [A065360](https://oeis.org/A065360):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A065360
 0:99.collect { :n |
 	n.negabinaryExpansion
 	.reverse
@@ -116,7 +116,7 @@ Alternating sum of reverse of negabinary expansion of _n_,
 Number of ones when _n_ is written in base negative two,
 OEIS [A027615](https://oeis.org/A027615):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A027615
 0:85.collect { :n |
 	n.negabinaryExpansion
 	.occurrencesOf(1)

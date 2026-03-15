@@ -125,10 +125,11 @@ OEIS [A060681](https://oeis.org/A060681):
 [0 1 2 2 4 3 6 4 6 5 10 6 12 7 10 8 16 9 18]
 ```
 
-Log-scale plot of the least prime factors of the integers from two up to one hundred,
+Least prime factors of the integers from two up to one hundred,
+log-scale plot,
 OEIS [A020639](https://oeis.org/A020639):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A020639
 2:100.leastPrimeFactor
 .logScale.scatterPlot
 ~~~
@@ -138,7 +139,7 @@ OEIS [A020639](https://oeis.org/A020639):
 _a(n)=(p%4)*a(n/p)_,
 OEIS [A065338](https://oeis.org/A065338):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A065338
 let a = Map { :n |
 	(n = 1).if {
 		1
@@ -155,7 +156,7 @@ a[1:65].discretePlot
 _π(L(n))_,
 OEIS [A055396](https://oeis.org/A055396):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A055396
 1:85.leastPrimeFactor
 .primePi
 .discretePlot
@@ -166,7 +167,7 @@ OEIS [A055396](https://oeis.org/A055396):
 Number of times the smallest prime factor of _n_ is the smallest prime factor for numbers _≤n_,
 OEIS [A078898](https://oeis.org/A078898):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A078898
 let m = 100;
 let l = 1:m.leastPrimeFactor;
 1:m.collect { :n |
@@ -180,7 +181,7 @@ Seieve of Eratosthenes arranged as an array,
 read by antidigaonals,
 OEIS [A083221](https://oeis.org/A083221):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A083221
 let k = 12;
 let a = 1:k.collect { :n |
 	let p = n.prime;
@@ -200,7 +201,7 @@ b.discretePlot
 Maximum divisor of _n_,
 OEIS [A032742](https://oeis.org/A032742):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A032742
 2:85.collect { :n |
 	n / n.leastPrimeFactor
 }.discretePlot
@@ -211,7 +212,7 @@ OEIS [A032742](https://oeis.org/A032742):
 Largest difference between consecutive divisors of _n_,
 OEIS [A060681](https://oeis.org/A060681):
 
-~~~spl svg=G
+~~~spl svg=G oeis=A060681
 1:200.collect { :n |
 	n - (n / n.leastPrimeFactor)
 }.scatterPlot

@@ -38,7 +38,7 @@ Construct an empty `Map`:
 A Conway sequence,
 OEIS [A004001](https://oeis.org/A004001):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A004001
 let a = Map { :n |
 	(n <= 2).if {
 		1

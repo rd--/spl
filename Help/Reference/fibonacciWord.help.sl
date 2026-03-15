@@ -5,10 +5,11 @@
 Answer the _n_-th letter in the infinite Fibonacci word.
 
 Calculate the first one hundred elements,
+threads over lists,
 OEIS [A003849](https://oeis.org/A003849):
 
 ```
->>> 1:100.collect(fibonacciWord:/1)
+>>> 1:100.fibonacciWord
 [
 	0 1 0 0 1 0 1 0 0 1
 	0 0 1 0 1 0 0 1 0 1
@@ -29,10 +30,9 @@ Relation to `lowerChristoffelWord`:
 >>> (1 / 1.goldenRatio)
 >>> .lowerChristoffelWord(101)
 >>> .allButFirst
-1:100.collect(fibonacciWord:/1)
+1:100.fibonacciWord
 ```
 
-Threads over lists.
 Derive the binary complement of the Fibonacci word,
 OEIS [A005614](https://oeis.org/A005614):
 
@@ -111,7 +111,7 @@ It can also be specified as a locally catenative sequence:
 [1 2 3 5 8 13 21 34]
 ```
 
-Recurrence plot:
+Recurrence plot of Fibonacci word:
 
 ~~~spl svg=A
 1:13.fibonacciWord
@@ -121,19 +121,19 @@ Recurrence plot:
 
 ![](sw/spl/Help/Image/fibonacciWord-A.svg)
 
-Plot the tenth Fibonacci word:
+The tenth Fibonacci word,
+OEIS [A003849](https://oeis.org/A003849):
 
 ~~~spl svg=B
-1:55.collect(fibonacciWord:/1)
-.discretePlot
+1:55.fibonacciWord.discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/fibonacciWord-B.svg)
 
-Plot Fourier transform of the tenth Fibonacci word:
+Fourier transform of the tenth Fibonacci word:
 
 ~~~spl svg=C
-1:55.collect(fibonacciWord:/1)
+1:55.fibonacciWord
 .fourier
 .abs
 .discretePlot
@@ -141,11 +141,11 @@ Plot Fourier transform of the tenth Fibonacci word:
 
 ![](sw/spl/Help/Image/fibonacciWord-C.svg)
 
-Adjacent terms interpreted as binary values,
+Adjacent terms of the Fibonacci word interpreted as binary values,
 OEIS [A143667](https://oeis.org/A143667):
 
-~~~spl svg=D
-1:115.collect(fibonacciWord:/1)
+~~~spl svg=D oeis=A143667
+1:115.fibonacciWord
 .partition(2, 2)
 .collect { :d |
 	d.fromDigits(2)
@@ -154,10 +154,10 @@ OEIS [A143667](https://oeis.org/A143667):
 
 ![](sw/spl/Help/Image/fibonacciWord-D.svg)
 
-Direct calculation of terms,
+Direct calculation of terms of the Fibonacci word,
 OEIS [A143667](https://oeis.org/A143667):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A143667
 let a = 1 / 1.goldenRatio;
 1:57.collect { :n |
 	let m = 2 * n;
@@ -176,7 +176,7 @@ let a = 1 / 1.goldenRatio;
 Infinite Fibonacci word fractal sequence,
 OEIS [A156596](https://oeis.org/A156596):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A156596
 let m = [0: [1 2], 1: [1 0], 2: [0 2]];
 1:95.collect(fibonacciWord:/1)
 .partition(2, 2)

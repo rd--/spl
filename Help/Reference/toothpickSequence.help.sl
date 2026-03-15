@@ -20,10 +20,10 @@ OEIS [A139250](https://oeis.org/A139250):
 ]
 ```
 
-First few terms of the toothpick sequence,
+The toothpick sequence,
 OEIS [A139250](https://oeis.org/A139250):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A139250
 200.toothpickSequence.scatterPlot
 ~~~
 
@@ -32,7 +32,7 @@ OEIS [A139250](https://oeis.org/A139250):
 First differences of toothpicks numbers,
 OEIS [A139251](https://oeis.org/A139251):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A139251
 85.toothpickSequence
 .differences
 .discretePlot
@@ -44,7 +44,7 @@ First differences of toothpicks numbers,
 further terms,
 OEIS [A139251](https://oeis.org/A139251):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A139251
 250.toothpickSequence
 .differences
 .log

@@ -143,10 +143,10 @@ OEIS [A065003](https://oeis.org/A065003):
 ]
 ```
 
-Plot number of ordered ways of writing _n_ as the sum of two triangular numbers,
+Number of ordered ways of writing _n_ as the sum of two triangular numbers,
 OEIS [A008441](https://oeis.org/A008441):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A008441
 0:65.collect { :n |
 	[1 1].frobeniusSolve(n)
 	.count { :x |
@@ -159,10 +159,10 @@ OEIS [A008441](https://oeis.org/A008441):
 
 ![](sw/spl/Help/Image/frobeniusSolve-A.svg)
 
-Plot number of ways to express _2n+1_ as _p+2q_ where _p_ and _q_ are primes,
+Number of ways to express _2n+1_ as _p+2q_ where _p_ and _q_ are primes,
 OEIS [A046927](https://oeis.org/A046927):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A046927
 0:150.collect { :n |
 	[1 2].frobeniusSolve(2 * n + 1)
 	.count { :x |
@@ -173,10 +173,10 @@ OEIS [A046927](https://oeis.org/A046927):
 
 ![](sw/spl/Help/Image/frobeniusSolve-B.svg)
 
-Plot number of ordered ways of writing n as the sum of two primes,
+Number of ordered ways of writing n as the sum of two primes,
 OEIS [A073610](https://oeis.org/A073610):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A073610
 1:115.collect { :n |
 	[1 1].frobeniusSolve(n)
 	.count { :x |
@@ -187,10 +187,10 @@ OEIS [A073610](https://oeis.org/A073610):
 
 ![](sw/spl/Help/Image/frobeniusSolve-C.svg)
 
-Plot number of ordered ways of writing _n_ as a sum of two squares of nonnegative integers,
+Number of ordered ways of writing _n_ as a sum of two squares of nonnegative integers,
 OEIS [A000925](https://oeis.org/A000925):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A000925
 0:75.collect { :n |
 	[1 1].frobeniusSolve(n)
 	.count { :x |
@@ -201,10 +201,10 @@ OEIS [A000925](https://oeis.org/A000925):
 
 ![](sw/spl/Help/Image/frobeniusSolve-D.svg)
 
-Plot minimal number of coins needed to pay _n_ cents using coins of 1, 5, 10 and 25 cents,
+Minimal number of coins needed to pay _n_ cents using coins of 1, 5, 10 and 25 cents,
 OEIS [A053344](https://oeis.org/A053344):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A053344
 1:150.collect { :n |
 	[1 5 10 25].frobeniusSolve(n)
 	.collect(sum:/1)
@@ -214,10 +214,10 @@ OEIS [A053344](https://oeis.org/A053344):
 
 ![](sw/spl/Help/Image/frobeniusSolve-E.svg)
 
-Plot number of partitions of _n_ into parts 6, 9 or 20,
+Number of partitions of _n_ into parts 6, 9 or 20,
 OEIS [A214772](https://oeis.org/A214772):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A214772
 0:150.collect { :n |
 	[6 9 20].frobeniusSolve(n).size
 }.scatterPlot
@@ -225,11 +225,11 @@ OEIS [A214772](https://oeis.org/A214772):
 
 ![](sw/spl/Help/Image/frobeniusSolve-F.svg)
 
-Plot minimal common prime of two Goldbach partitions of _2n_ and _2(n+1)_,
+Minimal common prime of two Goldbach partitions of _2n_ and _2(n+1)_,
 or zero if no common prime exists,
 OEIS [A335045](https://oeis.org/A335045):
 
-~~~spl svg=G
+~~~spl svg=G oeis=A335045
 let d = Map { :n |
 	[1 1].frobeniusSolve(2 * n)
 	.select { :x |

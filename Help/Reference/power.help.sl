@@ -753,10 +753,10 @@ Plot the `sin` function raised to the first three powers:
 
 ![](sw/spl/Help/Image/power-B.svg)
 
-Plot the coefficient of _1/n_ in the base _n_ representation of _√n_,
+The coefficient of _1/n_ in the base _n_ representation of _√n_,
 OEIS [A074704](https://oeis.org/A074704):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A074704
 1:75.collect { :n |
 	(n ^ 1.5).floor - (n * (n ^ 0.5).floor)
 }.scatterPlot
@@ -764,7 +764,7 @@ OEIS [A074704](https://oeis.org/A074704):
 
 ![](sw/spl/Help/Image/power-C.svg)
 
-Plot _x_ raised to a scaled power of _x_:
+_x_ raised to a scaled power of _x_:
 
 ~~~spl svg=D
 (0 -- 1).functionPlot { :x |
@@ -774,7 +774,7 @@ Plot _x_ raised to a scaled power of _x_:
 
 ![](sw/spl/Help/Image/power-D.svg)
 
-Plot _x_ raised to a scaled power of _x_:
+_x_ raised to a scaled power of _x_:
 
 ~~~spl svg=E
 (-4 -- 2).functionPlot { :x |
@@ -787,7 +787,7 @@ Plot _x_ raised to a scaled power of _x_:
 Number of solutions to _x^2+1=0_ modulo _n_,
 OEIS [A000089](https://oeis.org/A000089):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A000089
 1:135.collect { :n |
 	1:n.collect { :m |
 		(m ^ 2 + 1) / n
@@ -801,7 +801,7 @@ Exponentiation table,
 read by antidiagonals,
 OEIS [A004248](https://oeis.org/A004248):
 
-~~~spl svg=G
+~~~spl svg=G oeis=A004248
 0:21.antidiagonalArray(
 	power:/2
 ).catenate.log.scatterPlot
@@ -812,7 +812,7 @@ OEIS [A004248](https://oeis.org/A004248):
 A sequence by Tidjani Negadi,
 OEIS [A054398](https://oeis.org/A054398):
 
-~~~spl svg=H
+~~~spl svg=H oeis=A054398
 let a = Map { :n |
 	(n =0).if {
 		[1]

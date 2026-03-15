@@ -226,9 +226,10 @@ OEIS [A048103](https://oeis.org/A048103):
 ]
 ```
 
-Plot the number of distinct prime factors of the first 100 numbers:
+The number of distinct prime factors,
+OEIS [A001221](https://oeis.org/A001221):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A001221
 1:99.functionPlot { :each |
 	each.factorInteger.size
 }
@@ -236,10 +237,10 @@ Plot the number of distinct prime factors of the first 100 numbers:
 
 ![](sw/spl/Help/Image/factorInteger-A.svg)
 
-Plot first few terms of
+Primorial inflation of the prime shadow of _n_,
 OEIS [A124859](https://oeis.org/A124859):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A124859
 { :n |
 	(n = 1).if {
 		1
@@ -257,7 +258,7 @@ OEIS [A124859](https://oeis.org/A124859):
 A generalisation of Euler’s totient function,
 OEIS [A321029](https://oeis.org/A321029):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A321029
 let f = { :p :e |
 	(p < 7).if {
 		p ^ (e - 1)
@@ -274,10 +275,10 @@ let f = { :p :e |
 
 ![](sw/spl/Help/Image/factorInteger-C.svg)
 
-Plot the arithmetic derivative of _n_,
+The arithmetic derivative of _n_,
 OEIS [A003415](https://oeis.org/A003415):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A003415
 1:150.collect { :n |
 	(n < 2).if {
 		0
@@ -295,7 +296,7 @@ OEIS [A003415](https://oeis.org/A003415):
 Completely multiplicative with _a(P(k))=P(k+1)_,
 OEIS [A003961](https://oeis.org/A003961):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A003961
 let a = { :n |
 	(n = 1).if {
 		1
@@ -318,7 +319,7 @@ let a = { :n |
 Replace even exponents with two and odd exponents with one,
 OEIS [A066990](https://oeis.org/A066990):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A066990
 1:72.collect { :n |
 	n.factorInteger.product { :x |
 		let [a, b] = x;
@@ -329,10 +330,10 @@ OEIS [A066990](https://oeis.org/A066990):
 
 ![](sw/spl/Help/Image/factorInteger-F.svg)
 
-Plot the minimal number _m_ such that the symmetric group _Sm_ has an element of order _n_,
+The minimal number _m_ such that the symmetric group _Sm_ has an element of order _n_,
 OEIS [A008475](https://oeis.org/A008475):
 
-~~~spl svg=G
+~~~spl svg=G oeis=A008475
 2:73.collect { :n |
 	n.factorInteger.collect { :f |
 		f[1] ^ f[2]
@@ -342,10 +343,10 @@ OEIS [A008475](https://oeis.org/A008475):
 
 ![](sw/spl/Help/Image/factorInteger-G.svg)
 
-Plot the 2-adic valuation of the Hardy-Ramanujan integers,
+The two-adic valuation of the Hardy-Ramanujan integers,
 OEIS [A051282](https://oeis.org/A051282):
 
-~~~spl svg=H
+~~~spl svg=H oeis=A051282
 let m = 4000;
 let a = [1];
 let l = [];
@@ -363,9 +364,11 @@ let l = [];
 
 ![](sw/spl/Help/Image/factorInteger-H.svg)
 
-Plot more terms:
+The two-adic valuation of the Hardy-Ramanujan integers,
+further terms,
+OEIS [A051282](https://oeis.org/A051282):
 
-~~~spl svg=I
+~~~spl svg=I oeis=A051282
 OeisEntry('A051282').then { :e |
 	e.bFileData
 	.first(300)
@@ -375,10 +378,10 @@ OeisEntry('A051282').then { :e |
 
 ![](sw/spl/Help/Image/factorInteger-I.svg)
 
-Plot the number of triangular numbers modulo _n_,
+The number of triangular numbers modulo _n_,
 OEIS [A117484](https://oeis.org/A117484):
 
-~~~spl svg=J
+~~~spl svg=J oeis=A117484
 1:175.collect { :n |
 	n.factorInteger.product { :f |
 		let [p, e] = f;
@@ -397,7 +400,7 @@ OEIS [A117484](https://oeis.org/A117484):
 Dirichlet inverse of the gcd-sum function,
 OEIS [A101035](https://oeis.org/A101035):
 
-~~~spl svg=K
+~~~spl svg=K oeis=A101035 signed
 2:72.collect { :n |
 	n.factorInteger.collect { :f |
 		let [p, e] = f;
@@ -412,10 +415,10 @@ OEIS [A101035](https://oeis.org/A101035):
 
 ![](sw/spl/Help/Image/factorInteger-K.svg)
 
-Plot product of the sums of the prime and exponent of the factors of _n_,
+Product of the sums of the prime and exponent of the factors of _n_,
 OEIS [A008473](https://oeis.org/A008473):
 
-~~~spl svg=L
+~~~spl svg=L oeis=A008473
 2:200.collect { :n |
 	n.factorInteger
 	.collect(sum:/1)
@@ -428,7 +431,7 @@ OEIS [A008473](https://oeis.org/A008473):
 Mosaic numbers,
 OEIS [A000026](https://oeis.org/A000026):
 
-~~~spl svg=M
+~~~spl svg=M oeis=A000026
 1:75.collect { :n |
 	n.factorInteger.catenate.product
 }.discretePlot
@@ -436,11 +439,11 @@ OEIS [A000026](https://oeis.org/A000026):
 
 ![](sw/spl/Help/Image/factorInteger-M.svg)
 
-Plot characteristic function for
+Characteristic function for
 numbers not divisible by _p^p_ for any prime _p_,
 OEIS [A359550](https://oeis.org/A359550):
 
-~~~spl svg=N
+~~~spl svg=N oeis=A359550 set=0,1
 2:85.collect { :n |
 	n.factorInteger.collect { :f |
 		f[1] > f[2]
@@ -453,7 +456,7 @@ OEIS [A359550](https://oeis.org/A359550):
 Number of ways of writing _n_ as a sum of at most two nonzero squares where order matters,
 OEIS [A002654](https://oeis.org/A002654):
 
-~~~spl svg=O
+~~~spl svg=O oeis=A002654
 2:105.collect { :n |
 	n.factorInteger.collect { :f |
 		let [p, e] = f;
@@ -475,7 +478,7 @@ OEIS [A002654](https://oeis.org/A002654):
 Self-inverse permutation of the positive integers,
 OEIS [A122111](https://oeis.org/A122111):
 
-~~~spl svg=P
+~~~spl svg=P oeis=A122111 permutation
 1:275.collect { :n |
 	let p = n.factorInteger.collect { :f |
 		List(f[2], f[1].primePi)
@@ -494,7 +497,7 @@ OEIS [A122111](https://oeis.org/A122111):
 Shift prime exponents to the previous prime or to `one`,
 OEIS [A064989](https://oeis.org/A064989):
 
-~~~spl svg=Q
+~~~spl svg=Q oeis=A064989
 1:85.collect { :n |
 	n.factorInteger.product { :f |
 		(f[1] <= 2).if {

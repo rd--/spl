@@ -46,10 +46,11 @@ Indices:
 ]
 ```
 
-Plot table _n-k_ read by upwards antidiagonals,
+Table _n-k_,
+read by upwards antidiagonals,
 OEIS [A114327](https://oeis.org/A114327):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A114327 signed
 1:11.antidiagonalArray(-.swap)
 .catenate
 .discretePlot
@@ -57,10 +58,11 @@ OEIS [A114327](https://oeis.org/A114327):
 
 ![](sw/spl/Help/Image/antidiagonalArray-A.svg)
 
-Plot table _|n-k|_ read by upwards antidiagonals,
+Table _|n-k|_,
+read by upwards antidiagonals,
 OEIS [A049581](https://oeis.org/A049581):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A049581
 1:9.antidiagonalArray { :n :k |
 	(n - k).abs
 }.catenate.discretePlot
@@ -68,10 +70,11 @@ OEIS [A049581](https://oeis.org/A049581):
 
 ![](sw/spl/Help/Image/antidiagonalArray-B.svg)
 
-The multiplication table read by antidiagonals,
+The multiplication table,
+read by antidiagonals,
 OEIS [A004247](https://oeis.org/A004247):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A004247
 0:13.antidiagonalArray(*)
 .catenate.scatterPlot
 ~~~

@@ -135,7 +135,7 @@ OEIS [A048272](https://oeis.org/A048272):
 Inverse Möbius transform of periodic _1,-1,-3,1,-1,3,1,-1,0_,
 OEIS [A123477](https://oeis.org/A123477):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A123477
 [1 -1 -3 1 -1 3 1 -1 0]
 .repeat(12)
 .inverseMoebiusTransform

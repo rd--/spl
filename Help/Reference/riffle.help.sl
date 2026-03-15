@@ -60,10 +60,10 @@ OEIS [A051022](https://oeis.org/A051022):
 ]
 ```
 
-Plot the nonnegative integers interleaved with zeroes,
+The nonnegative integers interleaved with zeroes,
 OEIS [A142150](https://oeis.org/A142150):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A142150
 0:50.riffle(0).discretePlot
 ~~~
 
@@ -72,7 +72,7 @@ OEIS [A142150](https://oeis.org/A142150):
 Write _n_ in binary and count zeroes between ones and also the edge,
 OEIS [A163510](https://oeis.org/A163510):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A163510
 1:37.collect { :n |
 	let d = n.integerDigits(2);
 	let p = d.riffle(0) ++ [0];

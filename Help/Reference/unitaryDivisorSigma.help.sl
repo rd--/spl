@@ -54,9 +54,10 @@ OEIS [A034676](https://oeis.org/A034676):
 ]
 ```
 
-Plot first few terms where _k=1_,
+_σ⃰ₖ(n)_ where _k=1_,
+OEIS [A034448](https://oeis.org/A034448):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A034448
 1:250.collect { :n |
 	1.unitaryDivisorSigma(n)
 }.scatterPlot
@@ -64,10 +65,10 @@ Plot first few terms where _k=1_,
 
 ![](sw/spl/Help/Image/unitaryDivisorSigma-A.svg)
 
-Plot first few terms where _k=2_,
+_σ⃰ₖ(n)_ where _k=2_,
 OEIS [A034676](https://oeis.org/A034676):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A034676
 1:20.collect { :n |
 	2.unitaryDivisorSigma(n)
 }.stepPlot
@@ -80,7 +81,7 @@ OEIS [A034460](https://oeis.org/A034460),
 also but for first term
 OEIS [A063919](https://oeis.org/A063919):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A034460
 1:100.collect { :n |
 	1.unitaryDivisorSigma(n) - n
 }.discretePlot

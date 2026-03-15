@@ -57,7 +57,7 @@ Note that `median` sorts the input sequence:
 Median prime factor of _1:n_,
 OEIS [A212300](https://oeis.org/A212300):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A212300
 3:150.collect { :n |
 	let m = 1:n.collect { :k |
 		k.greatestPrimeFactor
@@ -72,7 +72,7 @@ Triangle where _(n,k)_ is the number of integer partitions of _n_ with median _k
 where _k_ ranges from one to _n_ in steps of one half,
 OEIS [A359893](https://oeis.org/A359893):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A359893
 Range(1, 10, 1).collect { :n |
 	Range(1, n, 1/2).collect { :k |
 		n.integerPartitions.select { :p |

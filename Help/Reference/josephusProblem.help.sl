@@ -2,21 +2,21 @@
 
 - _josephusProblem(n=41, k=3)_
 
-The traditional problem:
+The traditional Josephus problem:
 
 ```
 >>> 41.josephusProblem(3)
 31
 ```
 
-With _k=2_:
+The Josephus problem with _k=2_:
 
 ```
 >>> 41.josephusProblem(2)
 19
 ```
 
-The first few terms at _k=2_,
+The first few terms of the Josephus problem at _k=2_,
 OEIS [A006257](https://oeis.org/A006257):
 
 ```
@@ -35,7 +35,7 @@ OEIS [A006257](https://oeis.org/A006257):
 ]
 ```
 
-Partial sums at _k=2_,
+Partial sums of the Josephus problem at _k=2_,
 OEIS [A256249](https://oeis.org/A256249):
 
 ```
@@ -45,7 +45,7 @@ OEIS [A256249](https://oeis.org/A256249):
 [0 1 2 5 6 9 14 21 22 25 30 37 46 57 70 85]
 ```
 
-First differences at _k=2_:
+First differences of the Josephus problem at _k=2_:
 
 ```
 >>> 0:15.collect { :n |
@@ -54,7 +54,7 @@ First differences at _k=2_:
 [1 0 2 -2 2 2 2 -6 2 2 2 2 2 2 2]
 ```
 
-The first few terms at _k=3_,
+The first few terms of the Josephus problem at _k=3_,
 OEIS [A054995](https://oeis.org/A054995):
 
 ```
@@ -73,7 +73,7 @@ OEIS [A054995](https://oeis.org/A054995):
 ]
 ```
 
-Partial sums at _k=3_:
+Partial sums of the Josephus problem at _k=3_:
 
 ```
 >>> 0:14.collect { :n |
@@ -82,7 +82,7 @@ Partial sums at _k=3_:
 [0 1 3 5 6 10 11 15 22 23 27 34 44 57 59]
 ```
 
-Triangle of answers for _n=1-14_,
+Triangle of answers for the Josephus problem at _n=1-14_,
 OEIS [A032434](https://oeis.org/A032434):
 
 ```
@@ -148,10 +148,10 @@ OEIS [A321298](https://oeis.org/A321298)
 ]
 ```
 
-The first few terms at _k=2_,
+The Josephus problem at _k=2_,
 OEIS [A006257](https://oeis.org/A006257):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A006257
 0:85.collect { :n |
 	n.josephusProblem(2)
 }.discretePlot
@@ -159,21 +159,21 @@ OEIS [A006257](https://oeis.org/A006257):
 
 ![](sw/spl/Help/Image/josephusProblem-A.svg)
 
-The first few terms at _k=3_,
-OEIS [A006257](https://oeis.org/A006257):
+The Josephus problem at _k=3_,
+OEIS [A054995](https://oeis.org/A054995):
 
 ~~~spl svg=B
-0:85.collect { :n |
+1:85.collect { :n |
 	n.josephusProblem(3)
 }.discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/josephusProblem-B.svg)
 
-Triangle of answers for _n=1-14_,
+Triangle of answers for the Josephus problem at _n=1-14_,
 OEIS [A032434](https://oeis.org/A032434):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A032434
 1:17.collect { :n |
 	1:n.collect { :k |
 		josephusProblem(n, k)
@@ -183,10 +183,10 @@ OEIS [A032434](https://oeis.org/A032434):
 
 ![](sw/spl/Help/Image/josephusProblem-C.svg)
 
-Partial sums at _k=2_,
+Partial sums of the Josephus problem at _k=2_,
 OEIS [A256249](https://oeis.org/A256249):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A256249
 0:85.collect { :n |
 	n.josephusProblem(2)
 }.prefixSum.scatterPlot

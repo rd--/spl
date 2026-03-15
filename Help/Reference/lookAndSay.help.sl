@@ -37,10 +37,10 @@ OEIS [A056815](https://oeis.org/A056815):
 ]
 ```
 
-Plot a variant desribing the digit count,
+A variant of the look and say sequence describing the digit count,
 OEIS [A047842](https://oeis.org/A047842):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A047842
 0:49.collect { :n |
 	0:9.collect { :k |
 		[n.digitCount(10, k), k]

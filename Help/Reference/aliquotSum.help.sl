@@ -61,7 +61,7 @@ OEIS [A037020](https://oeis.org/A037020):
 Aliquot sums,
 OEIS [A001065](https://oeis.org/A001065):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A001065
 1:119.aliquotSum.linePlot
 ~~~
 
@@ -70,7 +70,7 @@ OEIS [A001065](https://oeis.org/A001065):
 Record positions of aliquot sums,
 OEIS [A034090](https://oeis.org/A034090):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A034090
 1:250.aliquotSum
 .recordPositions
 .discretePlot
@@ -81,7 +81,7 @@ OEIS [A034090](https://oeis.org/A034090):
 Record values of aliquot sums,
 OEIS [A034091](https://oeis.org/A034091):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A034091
 1:250.aliquotSum
 .recordValues
 .discretePlot
@@ -112,7 +112,7 @@ OEIS [A053246](https://oeis.org/A053246):
 Prefix sum of aliquot sums,
 OEIS [A153485](https://oeis.org/A153485):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A153485
 1:65.aliquotSum.prefixSum.scatterPlot
 ~~~
 

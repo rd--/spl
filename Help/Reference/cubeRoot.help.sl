@@ -74,7 +74,7 @@ Plot over a subset of the reals:
 Least nonnegative integer _k_ such that _xor(n,k)_ is a cube,
 OEIS [A330271](https://oeis.org/A330271):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A330271
 0:127.collect { :n |
 	0:Infinity.detect { :k |
 		n.bitXor(k).cubeRoot.isInteger

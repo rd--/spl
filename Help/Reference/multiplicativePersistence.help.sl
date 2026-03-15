@@ -43,10 +43,10 @@ OEIS [A003001](https://oeis.org/A003001):
 [0 1 2 3 4 5 6 7 8 9 10 11]
 ```
 
-Scatter plot of the multiplicative persistences of the first few positive integers,
+The multiplicative persistences of the first few positive integers,
 OEIS [A031346](https://oeis.org/A031346):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A031346
 1:100.collect { :n |
 	n.multiplicativePersistence(10)
 }.scatterPlot
@@ -58,7 +58,7 @@ The ordinal transform of the multiplicative persistence,
 discrete plot,
 OEIS [A263131](https://oeis.org/A263131):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A263131
 1:115.collect { :n |
 	n.multiplicativePersistence(10)
 }.ordinalTransform.discretePlot
@@ -70,7 +70,7 @@ The ordinal transform of the multiplicative persistence,
 scatter plot,
 OEIS [A263131](https://oeis.org/A263131):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A263131
 1:200.collect { :n |
 	n.multiplicativePersistence(10)
 }.ordinalTransform.scatterPlot

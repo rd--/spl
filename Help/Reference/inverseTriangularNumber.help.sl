@@ -16,7 +16,7 @@ Irregular triangle read by rows in which column _k_ lists the odd numbers interl
 and the first element of column _k_ is in row _k(k+1)/2_,
 OEIS [A196020](https://oeis.org/A196020):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A196020
 1:24.collect { :n |
 	let m = n.inverseTriangularNumber;
 	1:m.collect { :k |

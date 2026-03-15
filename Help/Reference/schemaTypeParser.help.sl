@@ -1,8 +1,8 @@
 # schemaTypeParser
 
-- _schemaTypeParser(aString)_
+- _schemaTypeParser(t)_
 
-Answer a parser block for the specified Schema type.
+Answer a parser block for the specified Schema type _t_.
 
 ```
 >>> 'Boolean'.schemaTypeParser

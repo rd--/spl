@@ -108,7 +108,7 @@ read by antidiagonals,
 of the Hamming distance between _k_ and the Gray encoding of the sum of _n_ and the Gray decoding of _k_,
 OEIS [A268833](https://oeis.org/A268833):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A268833
 0:12.antidiagonalArray { :n :k |
 	k.hammingDistance(
 		(n + k.grayDecode).grayEncode

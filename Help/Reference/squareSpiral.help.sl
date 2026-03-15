@@ -75,29 +75,29 @@ Plot eleven-spiral:
 
 ![](sw/spl/Help/Image/squareSpiral-B.svg)
 
-Plot first few _x_-coordinates,
+First few _x_-coordinates,
 OEIS [A174344](https://oeis.org/A174344):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A174344
 65.squareSpiral.column(1).discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/squareSpiral-C.svg)
 
-Plot first few _y_-coordinates,
+First few _y_-coordinates,
 OEIS [A268038](https://oeis.org/A268038):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A268038
 65.squareSpiral.column(2).discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/squareSpiral-D.svg)
 
-Plot first few _y_-coordinates,
+First few _y_-coordinates,
 counterclockwise,
 OEIS [A274923](https://oeis.org/A274923):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A274923
 65.squareSpiral('Counterclockwise')
 .column(2).discretePlot
 ~~~

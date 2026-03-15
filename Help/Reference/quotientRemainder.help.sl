@@ -95,9 +95,10 @@ the dividend is equal to the product of the quotient and the divisor plus the re
 ]
 ```
 
-Plot the sequence of quotients:
+Quotient of _n_ and five,
+OEIS [A002266](https://oeis.org/A002266):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A002266
 0:40.collect { :n |
 	n.quotientRemainder(5).first
 }.discretePlot
@@ -105,9 +106,10 @@ Plot the sequence of quotients:
 
 ![](sw/spl/Help/Image/quotientRemainder-A.svg)
 
-Plot the sequence of remainders:
+Remainder of _n_ and five,
+OEIS [A010874](https://oeis.org/A010874):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A010874
 0:40.collect { :n |
 	n.quotientRemainder(5).second
 }.discretePlot
@@ -118,7 +120,7 @@ Plot the sequence of remainders:
 Kimberling’s expulsion array read by antidiagonals,
 OEIS [A035486](https://oeis.org/A035486):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A035486
 let a = { :n :k |
 	(k >= ((2 * n) - 3)).if {
 		n + k - 1
@@ -142,7 +144,7 @@ let a = { :n :k |
 Write _n_ in balanced ternary and then replace negative ones with twos,
 OEIS [A117967](https://oeis.org/A117967):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A117967
 0:121.collect { :n |
 	let m = n;
 	let r = 0;

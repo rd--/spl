@@ -14,10 +14,10 @@ OEIS [A002321](https://oeis.org/A002321):
 1:25.collect(moebiusMu:/1).prefixSum
 ```
 
-Plot
+Mertens’s function,
 OEIS [A002321](https://oeis.org/A002321):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A002321
 1:100.collect(mertensFunction:/1)
 .stepPlot
 ~~~

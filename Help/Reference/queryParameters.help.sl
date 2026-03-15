@@ -5,8 +5,10 @@
 Answer a `UrlQueryParameters` value holding the `query` component of the `Url` _u_.
 
 ```
->>> 'x://?p=i&q=j'.asUrl.queryParameters.associations
-['p' -> 'i', 'q' -> 'j']
+>>> let u = 'x://?p=i&q=j'.asUrl;
+>>> let p = u.queryParameters;
+>>> (p.size, p.associations)
+(2, ['p' -> 'i', 'q' -> 'j'])
 ```
 
 * * *

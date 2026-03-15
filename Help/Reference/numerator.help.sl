@@ -41,19 +41,19 @@ OEIS [A051724](https://oeis.org/A051724):
 [0 1 1 1 1 5 1 7 2 3 5 11 1 13]
 ```
 
-Plot first few terms of
+Numerator of _n/12_,
 OEIS [A051724](https://oeis.org/A051724):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A051724
 Fraction(0:36, 12).numerator.stepPlot
 ~~~
 
 ![](sw/spl/Help/Image/numerator-A.svg)
 
-Plot segment of least sequence where every term divides the product of its neighbors,
+Segment of least sequence where every term divides the product of its neighbors,
 OEIS [A075075](https://oeis.org/A075075):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A075075
 let a = [1L 2L];
 2:350.do { :n |
 	let d = a[n] / a[n - 1];
@@ -75,7 +75,7 @@ Numerator of _1/16-1/n^2_,
 from Brackett spectrum of hydrogen,
 OEIS [A061041](https://oeis.org/A061041):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A061041
 (Fraction(1, 16) - Fraction(1, 4:90 ^ 2))
 .numerator
 .discretePlot
@@ -86,7 +86,7 @@ OEIS [A061041](https://oeis.org/A061041):
 Numerator of _1/4-1/n^2_,
 OEIS [A061037](https://oeis.org/A061037):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A061037
 2L:85.collect { :n |
 	1/4 - (1 / (n ^ 2))
 }.numerator.discretePlot

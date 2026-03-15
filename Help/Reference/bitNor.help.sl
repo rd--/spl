@@ -28,7 +28,7 @@ Logical convolution,
 first _2^6_ terms,
 OEIS [A142151](https://oeis.org/A142151):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A142151
 0:63.collect { :n |
 	let k = (n + 1).bitLength;
 	n + n.bitNor(n + 1, k)
@@ -41,7 +41,7 @@ Logical convolution,
 first _2^7_ terms,
 OEIS [A142151](https://oeis.org/A142151):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A142151
 0:127.collect { :n |
 	let k = (n + 1).bitLength;
 	n + n.bitNor(n + 1, k)

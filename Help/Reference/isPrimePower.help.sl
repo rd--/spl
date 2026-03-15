@@ -139,10 +139,10 @@ OEIS [A000015](https://oeis.org/A000015):
 [2 3 4 5 7 7 8 9 11 11 13 13 16 16 16 17 19]
 ```
 
-Plot least prime factor of _n_-th prime power,
+Least prime factor of _n_-th prime power,
 OEIS [A025473](https://oeis.org/A025473):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A025473
 1:240.select(isPrimePower:/1)
 .collect(leastPrimeFactor:/1)
 .stepPlot
@@ -153,7 +153,7 @@ OEIS [A025473](https://oeis.org/A025473):
 If _n_ is a prime power _p^m_ then _m_ else zero,
 OEIS [A100995](https://oeis.org/A100995):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A100995
 1:150.collect { :n |
 	n.isPrimePower.if {
 		n.factorInteger[1][2]

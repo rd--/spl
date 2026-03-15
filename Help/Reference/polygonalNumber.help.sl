@@ -152,9 +152,10 @@ OEIS [A060544](https://oeis.org/A060544):
 [1 10 28 55 91 136 190 253 325 406 496]
 ```
 
-Plot triangular numbers:
+Triangular numbers,
+OEIS [A000217](https://oeis.org/A000217):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A000217
 0:23.collect { :n |
 	3.polygonalNumber(n)
 }.linePlot
@@ -162,7 +163,7 @@ Plot triangular numbers:
 
 ![](sw/spl/Help/Image/polygonalNumber-A.svg)
 
-Plot triangular array of polygonal numbers:
+Triangular array of polygonal numbers:
 
 ~~~spl svg=B
 0:17.triangularArray(
@@ -172,10 +173,10 @@ Plot triangular array of polygonal numbers:
 
 ![](sw/spl/Help/Image/polygonalNumber-B.svg)
 
-Plot antidiagonalArray array of polygonal numbers,
+Antidiagonal array of polygonal numbers,
 OEIS [A134394](https://oeis.org/A134394):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A134394
 17.antidiagonalArray { :i :j |
 	(i + 1).polygonalNumber(j)
 }.++.scatterPlot

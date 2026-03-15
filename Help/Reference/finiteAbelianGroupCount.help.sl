@@ -48,10 +48,11 @@ OEIS [A060689](https://oeis.org/A060689):
 [0 0 0 0 0 1 0 2 0 1 0 3 0 1 0 9 0 3 0 3]
 ```
 
-Log scale plot of first few terms,
+Number of non-Abelian groups of order _n_,
+log scale plot,
 OEIS [A060689](https://oeis.org/A060689):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A060689
 let n = 200;
 let a = 1:n.finiteGroupCount;
 let b = 1:n.finiteAbelianGroupCount;

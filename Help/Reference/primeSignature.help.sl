@@ -237,12 +237,12 @@ OEIS [A000379](https://oeis.org/A000379):
 ]
 ```
 
-Plot first few terms:
+Prime signature of _n_,
+OEIS [A212171](https://oeis.org/A212171):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A212171
 1:75.collect(primeSignature:/1)
-.catenate
-.scatterPlot
+.catenate.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/primeSignature-A.svg)
@@ -264,9 +264,10 @@ OEIS [A046523](https://oeis.org/A046523):
 ]
 ```
 
-Plot first few terms:
+The smallest number with the same prime signature as _n_,
+OEIS [A046523](https://oeis.org/A046523):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A046523
 2:100.collect { :n |
 	let s = n.primeSignature;
 	2:n.detect { :x |
@@ -287,10 +288,10 @@ OEIS [A181819](https://oeis.org/A181819):
 [2 2 3 2 4 2 5 3 4 2 6 2 4 4 7 2 6 2 6 4 4 2]
 ```
 
-Plot first few terms of
+The prime shadow of _n_,
 OEIS [A181819](https://oeis.org/A181819):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A181819
 2:120.collect { :n |
 	n.primeSignature.prime.product
 }.scatterPlot
@@ -298,10 +299,10 @@ OEIS [A181819](https://oeis.org/A181819):
 
 ![](sw/spl/Help/Image/primeSignature-C.svg)
 
-Plot the number of positive integers up to _n_ with the same prime signature as _n_,
+The number of positive integers up to _n_ with the same prime signature as _n_,
 OEIS [A064839](https://oeis.org/A064839):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A064839
 2:99.collect { :n |
 	let p = n.primeSignature;
 	let q = 2:n.collect(primeSignature:/1);
@@ -311,10 +312,11 @@ OEIS [A064839](https://oeis.org/A064839):
 
 ![](sw/spl/Help/Image/primeSignature-D.svg)
 
-For each _n_ plot the index of the first occurence of the prime signature of _n_,
+For each _n_,
+the index of the first occurence of the prime signature of _n_,
 OEIS [A101296](https://oeis.org/A101296):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A101296
 let ls = [];
 let ln = [];
 1:250.do { :n |
@@ -331,10 +333,10 @@ ln.scatterPlot
 
 ![](sw/spl/Help/Image/primeSignature-E.svg)
 
-Plot Π of _σ+1_ of the prime signature,
+Π of _σ+1_ of the prime signature,
 OEIS [A049599](https://oeis.org/A049599):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A049599
 1:115.collect { :n |
 	n.primeSignature.product { :i |
 		0.divisorSigma(i) + 1
@@ -347,7 +349,7 @@ OEIS [A049599](https://oeis.org/A049599):
 Additive function defined by the recursion _a(p^k)=a(k)_ for any prime _p_,
 OEIS [A064372](https://oeis.org/A064372):
 
-~~~spl svg=G
+~~~spl svg=G oeis=A064372
 let a = Map { :n |
 	(n = 1).if {
 		1
@@ -363,7 +365,7 @@ a[1:105].stepPlot
 Product of exponents of prime factorization of _n_,
 OEIS [A005361](https://oeis.org/A005361):
 
-~~~spl svg=H
+~~~spl svg=H oeis=A005361
 1:65.collect { :n |
 	n.primeSignature.product
 }.discretePlot
@@ -371,10 +373,10 @@ OEIS [A005361](https://oeis.org/A005361):
 
 ![](sw/spl/Help/Image/primeSignature-H.svg)
 
-Plot highest exponent in the prime factorization of the _n_-th central binomial coefficient,
+Highest exponent in the prime factorization of the _n_-th central binomial coefficient,
 OEIS [A263922](https://oeis.org/A263922):
 
-~~~spl svg=I
+~~~spl svg=I oeis=A263922
 1:65.collect { :n |
 	(2 * n).binomial(n)
 	.primeSignature
@@ -387,7 +389,7 @@ OEIS [A263922](https://oeis.org/A263922):
 Number of infinitary divisors of _n_,
 OEIS [A037445](https://oeis.org/A037445):
 
-~~~spl svg=J
+~~~spl svg=J oeis=A037445
 1:85.collect { :n |
 	n.primeSignature.collect { :e |
 		2 ^ e.hammingWeight
@@ -400,7 +402,7 @@ OEIS [A037445](https://oeis.org/A037445):
 Sum of binary digits in the exponents of the prime factorization of _n_,
 OEIS [A064547](https://oeis.org/A064547):
 
-~~~spl svg=K
+~~~spl svg=K oeis=A064547
 1:85.collect { :n |
 	n.primeSignature.sum { :e |
 		e.hammingWeight

@@ -433,19 +433,24 @@ OEIS [A010873](https://oeis.org/A010873):
 [0 1 2 3 0 1 2 3 0 1 2 3 0 1 2 3]
 ```
 
-Plot an integer sequence modulo an integer,
-i.e. with a fixed modulus:
+An integer sequence modulo an integer,
+_n%8_,
+i.e. with a fixed modulus,
+OEIS [A010877](https://oeis.org/A010877):
 
-~~~spl svg=A
-(1:50 % 8).linePlot
+~~~spl svg=A oeis=A010877
+(0:65 % 8).discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/mod-A.svg)
 
-Plot an integer modulo an integer, i.e. varying the modulus:
+An integer modulo an integer sequence,
+_100%n_,
+i.e. varying the modulus,
+OEIS [A090976](https://oeis.org/A090976):
 
-~~~spl svg=B
-(100 % 1:50).linePlot
+~~~spl svg=B oeis=A090976
+(100 % 1:65).discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/mod-B.svg)
@@ -465,7 +470,7 @@ let k = [0L .. 64L];
 
 ![](sw/spl/Help/Image/mod-C.png)
 
-Plot of a spiral matrix where numbers are colored based on their congruence:
+A spiral matrix where numbers are colored based on their congruence:
 
 ~~~spl png=D
 (109.spiralMatrix % 109 / 109)
@@ -506,10 +511,10 @@ Simulate a particle bouncing in a noncommensurate box:
 
 ![](sw/spl/Help/Image/mod-G.svg)
 
-Plot number of squares modulo _n_,
+Number of squares modulo _n_,
 OEIS [A000224](https://oeis.org/A000224):
 
-~~~spl svg=H
+~~~spl svg=H oeis=A000224
 1:150.collect { :n |
 	1:n.collect { :k |
 		k.square % n
@@ -519,10 +524,10 @@ OEIS [A000224](https://oeis.org/A000224):
 
 ![](sw/spl/Help/Image/mod-H.svg)
 
-Plot quadratic residue triangle,
+Quadratic residue triangle,
 OEIS [A048152](https://oeis.org/A048152):
 
-~~~spl svg=I
+~~~spl svg=I oeis=A048152
 1:22.triangularArray { :q :p |
 	p.square % q
 }.catenate.scatterPlot
@@ -530,7 +535,7 @@ OEIS [A048152](https://oeis.org/A048152):
 
 ![](sw/spl/Help/Image/mod-I.svg)
 
-Plot modular multiplication table:
+Modular multiplication table:
 
 ~~~spl svg=J
 let m = 14;
@@ -541,10 +546,10 @@ let m = 14;
 
 ![](sw/spl/Help/Image/mod-J.svg)
 
-Plot left inverse of binary expansions,
+Left inverse of binary expansions,
 OEIS [A028897](https://oeis.org/A028897):
 
-~~~spl svg=K
+~~~spl svg=K oeis=A028897
 let a = { :n |
 	(n < 10).if {
 		n
@@ -564,19 +569,19 @@ let a = { :n |
 First differences of the ones-counting sequence,
 OEIS [A088705](https://oeis.org/A088705)
 
-~~~spl svg=L
-let a = { :n |
+~~~spl svg=L oeis=A088705 signed
+let a = Map { :n |
 	(n < 1).if {
 		0
 	} {
 		(n % 2 = 0).if {
-			a(n / 2) - 1
+			a[n / 2] - 1
 		} {
 			1
 		}
 	}
 };
-0:127.collect(a:/1).scatterPlot
+a[0:127].discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/mod-L.svg)
@@ -597,10 +602,10 @@ let r = { :x |
 
 ![](sw/spl/Help/Image/mod-M.svg)
 
-Plot the largest _m_ such that _n_ is congruent to -1, 0 or 1 `mod` _k_ for all _k_ from 1 to _m_,
+The largest _m_ such that _n_ is congruent to -1, 0 or 1 `mod` _k_ for all _k_ from 1 to _m_,
 OEIS [A187824](https://oeis.org/A187824):
 
-~~~spl svg=N
+~~~spl svg=N oeis=A187824
 2:99.collect { :n |
 	let k = 4;
 	{
@@ -615,10 +620,10 @@ OEIS [A187824](https://oeis.org/A187824):
 
 ![](sw/spl/Help/Image/mod-N.svg)
 
-Plot the smallest non-negative integer not already in the sequence such that _a(n-1)_ is congruent to _a(n)%n_,
+The smallest non-negative integer not already in the sequence such that _a(n-1)_ is congruent to _a(n)%n_,
 OEIS [A125717](https://oeis.org/A125717):
 
-~~~spl svg=O
+~~~spl svg=O oeis=A125717
 let l = [0];
 1:200.do { :n |
 	let k = l.last.mod(n);
@@ -635,7 +640,7 @@ l.scatterPlot
 The table of _n%k_ read by downward antidiagonals,
 OEIS [A051126](https://oeis.org/A051126):
 
-~~~spl svg=P
+~~~spl svg=P oeis=A051126
 1:11.collect { :n |
 	n:1:-1.collect { :k |
 		(n - k + 1) % k
@@ -645,10 +650,10 @@ OEIS [A051126](https://oeis.org/A051126):
 
 ![](sw/spl/Help/Image/mod-P.svg)
 
-Plot earliest sequence with _a(a(n))=2n_,
+Earliest sequence with _a(a(n))=2n_,
 OEIS [A002516](https://oeis.org/A002516):
 
-~~~spl svg=Q
+~~~spl svg=Q oeis=A002516
 let a = { :n |
 	[
 		{ n = 0 } -> {
@@ -670,10 +675,10 @@ let a = { :n |
 
 ![](sw/spl/Help/Image/mod-Q.svg)
 
-Plot triangle of descending moduli,
+Triangle of descending moduli,
 OEIS [A051778](https://oeis.org/A051778):
 
-~~~spl svg=R
+~~~spl svg=R oeis=A051778
 3:23.collect { :n |
 	let m = n - 1;
 	m:2:-1.collect { :i |
@@ -684,10 +689,10 @@ OEIS [A051778](https://oeis.org/A051778):
 
 ![](sw/spl/Help/Image/mod-R.svg)
 
-Plot prefix sum of _n%9_,
+Prefix sum of _n%9_,
 OEIS [A130487](https://oeis.org/A130487):
 
-~~~spl svg=S
+~~~spl svg=S oeis=A130487
 (0:44 % 9).prefixSum.scatterPlot
 ~~~
 
@@ -696,7 +701,7 @@ OEIS [A130487](https://oeis.org/A130487):
 Multiplicative suborder of _2_ and _2n+1_,
 OEIS [A003558](https://oeis.org/A003558):
 
-~~~spl svg=T
+~~~spl svg=T oeis=A003558
 0:200.collect { :n |
 	let m = 1;
 	{
@@ -712,10 +717,10 @@ OEIS [A003558](https://oeis.org/A003558):
 
 ![](sw/spl/Help/Image/mod-T.svg)
 
-_P(n)%(n-1)_
+_P(n)%(n-1)_,
 OEIS [A003558](https://oeis.org/A003558):
 
-~~~spl svg=U
+~~~spl svg=U oeis=A003558
 1:135.collect { :n |
 	n.prime % (n - 1)
 }.scatterPlot

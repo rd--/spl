@@ -296,7 +296,7 @@ OEIS [A279340](https://oeis.org/A279340):
 
 ![](sw/spl/Help/Image/integerExponent-F.svg)
 
-Plot two-adic valuation of _τ(n)_,
+Two-adic valuation of _τ(n)_,
 OEIS [A295664](https://oeis.org/A295664):
 
 ~~~spl svg=G oeis=A295664
@@ -307,7 +307,7 @@ OEIS [A295664](https://oeis.org/A295664):
 
 ![](sw/spl/Help/Image/integerExponent-G.svg)
 
-Plot two-adic valuation of _σ(n)_,
+Two-adic valuation of _σ(n)_,
 OEIS [A336937](https://oeis.org/A336937):
 
 ~~~spl svg=H oeis=A336937
@@ -318,7 +318,9 @@ OEIS [A336937](https://oeis.org/A336937):
 
 ![](sw/spl/Help/Image/integerExponent-H.svg)
 
-Plot OEIS [A371094](https://oeis.org/A371094):
+The binary expansion of _3n+1_,
+substituting _01_ for all trailing _0_ following the odd part,
+OEIS [A371094](https://oeis.org/A371094):
 
 ~~~spl svg=I oeis=A371094
 0:150.collect { :n |
@@ -330,7 +332,7 @@ Plot OEIS [A371094](https://oeis.org/A371094):
 
 ![](sw/spl/Help/Image/integerExponent-I.svg)
 
-Plot three-adic valuation of the bijective bit-reverse of _3n_,
+Three-adic valuation of the bijective bit-reverse of _3n_,
 OEIS [A280509](https://oeis.org/A280509):
 
 ~~~spl svg=J oeis=A280509

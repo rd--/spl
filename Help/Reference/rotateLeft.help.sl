@@ -150,10 +150,10 @@ OEIS [A054995](https://oeis.org/A054995):
 ]
 ```
 
-Plot periodic derivative of _n_,
+Periodic derivative of _n_,
 OEIS [A038556](https://oeis.org/A038556):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A038556
 0:76.collect { :n |
 	let b = n.integerDigits(2);
 	b.bitXor(b.rotateLeft).fromDigits(2)
@@ -165,7 +165,7 @@ OEIS [A038556](https://oeis.org/A038556):
 A version of Josephus problem,
 OEIS [A054995](https://oeis.org/A054995):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A054995
 1:115.collect { :n |
 	{ :x |
 		x.rotateLeft(2).allButFirst

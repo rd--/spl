@@ -106,10 +106,10 @@ Maximal value of _Q(n,m)_,
 ]
 ```
 
-Plot table of few non-zero values of _Q(n,k)_,
+Table of non-zero values of _Q(n,k)_,
 OEIS [A008289](https://oeis.org/A008289):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A008289
 1:21.collect { :n |
 	1:n.collect { :k |
 		n.partitionFunctionQ(k)
@@ -121,11 +121,11 @@ OEIS [A008289](https://oeis.org/A008289):
 
 ![](sw/spl/Help/Image/partitionFunctionQ-A.svg)
 
-Plot table of few non-zero values of _Q(n,k)_,
+Table of non-zero values of _Q(n,k)_,
 log scaled,
 OEIS [A008289](https://oeis.org/A008289):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A008289
 1:43.collect { :n |
 	1:n.collect { :k |
 		n.partitionFunctionQ(k)
@@ -140,7 +140,7 @@ OEIS [A008289](https://oeis.org/A008289):
 The initial part of the triangle _Q(n,k)_,
 OEIS [A060016](https://oeis.org/A060016):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A060016
 1:11.triangularArray(
 	partitionFunctionQ:/2
 ).++.discretePlot

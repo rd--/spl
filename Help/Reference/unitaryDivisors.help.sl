@@ -76,13 +76,12 @@ OEIS [A006087](https://oeis.org/A006087):
 [1 2 3 4 4 7 7 6 9 13]
 ```
 
-Plot first few terms,
+The unitary divisors of _n_,
 OEIS [A077610](https://oeis.org/A077610):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A077610
 1:65.collect(unitaryDivisors:/1)
-.catenate
-.scatterPlot
+.catenate.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/unitaryDivisors-A.svg)
@@ -100,7 +99,7 @@ Plot harmonic mean of unitary divisors:
 Numerators of the unitary harmonic means,
 OEIS [A103339](https://oeis.org/A103339):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A103339
 1L:65.collect { :n |
 	n.unitaryDivisors.harmonicMean
 }.numerator.discretePlot
@@ -111,7 +110,7 @@ OEIS [A103339](https://oeis.org/A103339):
 Denominators of the unitary harmonic means,
 OEIS [A103340](https://oeis.org/A103340):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A103340
 1L:65.collect { :n |
 	n.unitaryDivisors.harmonicMean
 }.denominator.discretePlot
@@ -122,7 +121,7 @@ OEIS [A103340](https://oeis.org/A103340):
 Number of odd unitary divisors of _n_,
 OEIS [A068068](https://oeis.org/A068068):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A068068
 1:55.collect { :n |
 	n.unitaryDivisors.count(isOdd:/1)
 }.discretePlot

@@ -82,7 +82,7 @@ Matrix plot of _n=100_:
 The Vedic square where _n=9_,
 OEIS [A125959](https://oeis.org/A125959)
 
-~~~spl svg=D
+~~~spl svg=D oeis=A125959
 9.vedicSquare.catenate.discretePlot
 ~~~
 

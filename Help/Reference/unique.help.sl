@@ -26,7 +26,7 @@ The appended identifier is given by `uniqueId`.
 'x' ++ (system.uniqueId - 1).asString
 ```
 
-Plot unique digits used in _n_ in numerical order,
+Unique digits used in _n_ in numerical order,
 OEIS [A180410](https://oeis.org/A180410):
 
 ~~~spl svg=A oeis=A180410

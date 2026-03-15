@@ -41,10 +41,10 @@ OEIS [A094372](https://oeis.org/A094372):
 ]
 ```
 
-First few terms of Kempner function,
+The Kempner function,
 OEIS [A002034](https://oeis.org/A002034):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A002034
 1:65.kempnerFunction.stepPlot
 ~~~
 

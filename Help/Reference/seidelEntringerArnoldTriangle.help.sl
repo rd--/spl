@@ -22,10 +22,11 @@ OEIS [A008280](https://oeis.org/A008280):
 ]
 ```
 
-Log scale scatter plot of the first few terms of the Seidel–Entringer–Arnold triangle,
+The first few terms of the Seidel–Entringer–Arnold triangle,
+log scale scatter plot,
 OEIS [A008280](https://oeis.org/A008280):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A008280
 13.seidelEntringerArnoldTriangle
 .catenate
 .logScale

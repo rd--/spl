@@ -96,7 +96,7 @@ OEIS [A342915](https://oeis.org/A342915):
 The Dedekind ψ function,
 OEIS [A001615](https://oeis.org/A001615):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A001615
 1:250.dedekindPsi
 .scatterPlot
 ~~~
@@ -106,7 +106,7 @@ OEIS [A001615](https://oeis.org/A001615):
 Record values of the Dedekind ψ function,
 OEIS [A210523](https://oeis.org/A210523):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A210523
 1:350.dedekindPsi
 .recordValues
 .scatterPlot
@@ -117,7 +117,7 @@ OEIS [A210523](https://oeis.org/A210523):
 _gcd(1+n,ψ(n))_,
 OEIS [A342915](https://oeis.org/A342915):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A342915
 1:65.collect { :n |
 	(1 + n).gcd(n.dedekindPsi)
 }.discretePlot

@@ -131,7 +131,7 @@ OEIS [A001615](https://oeis.org/A001615):
 Jordan function _k=2_,
 OEIS [A007434](https://oeis.org/A007434):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A007434
 2.jordanTotient(1:150).scatterPlot
 ~~~
 
@@ -140,7 +140,7 @@ OEIS [A007434](https://oeis.org/A007434):
 Jordan function _k=3_,
 OEIS [A059376](https://oeis.org/A059376):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A059376
 3.jordanTotient(1:100).scatterPlot
 ~~~
 
@@ -149,7 +149,7 @@ OEIS [A059376](https://oeis.org/A059376):
 Array of values of Jordan function _Jₖ(n)_ read by antidiagonals,
 OEIS [A059379](https://oeis.org/A059379):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A059379
 1:13.antidiagonalArray(
 	jordanTotient:/2
 ).catenate.log.scatterPlot
@@ -160,7 +160,7 @@ OEIS [A059379](https://oeis.org/A059379):
 _J(3,n)/J(1,n)_,
 OEIS [A160889](https://oeis.org/A160889):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A160889
 let n = 1:115;
 let a = 3.jordanTotient(n);
 let b = 1.jordanTotient(n);

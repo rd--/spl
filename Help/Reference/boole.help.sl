@@ -55,7 +55,7 @@ Triangle read by rows,
 _k_ if _k_ is a divisor of _n_ else zero,
 OEIS [A127093](https://oeis.org/A127093):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A127093
 1:14.triangularArray { :n :k |
 	k * n.divisible(k).boole
 }.catenate.discretePlot
@@ -67,7 +67,7 @@ Number of partitions of _n_ into three squares,
 allowing part zero,
 OEIS [A000164](https://oeis.org/A000164):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A000164
 1:115.collect { :n |
 	let m = n.integerSquareRoot;
 	0:m.sum { :i |

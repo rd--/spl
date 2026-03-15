@@ -1,10 +1,10 @@
 # parseJson
 
-- _parseJson(s)_
 - _parseJson(s, f:/0)_
 
 Answer the value represented by the `Json` encoded the string _s_.
 In the binary case an else clause is specified as the no argument block _f_.
+If no else clause is given an `error` is signalled.
 
 Parse `Nil`:
 

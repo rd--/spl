@@ -4,7 +4,7 @@
 
 Answer the first _n_ terms of the Doudna sequence.
 
-First few terms,
+The Doudna sequence,
 OEIS [A005940](https://oeis.org/A005940):
 
 ```
@@ -37,17 +37,20 @@ offset by negative one:
 [1 2 3 4 5 6 9 8 7 10 15 12 25 18 27 16 11]
 ```
 
-Linear plot:
+The Doudna sequence,
+OEIS [A005940](https://oeis.org/A005940):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A005940
 75.doudnaSequence.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/doudnaSequence-A.svg)
 
-Log-scale plot:
+The Doudna sequence,
+log-scale plot,
+OEIS [A005940](https://oeis.org/A005940):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A005940
 250.doudnaSequence.logScale.scatterPlot
 ~~~
 
@@ -56,7 +59,7 @@ Log-scale plot:
 The least number with the same prime signature as the Doudna sequence entry,
 OEIS [A278222](https://oeis.org/A278222):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A278222
 65.doudnaSequence.collect { :n |
 	1:Infinity.detect { :m |
 		n.primeSignature
@@ -71,7 +74,7 @@ OEIS [A278222](https://oeis.org/A278222):
 Restricted growth sequence of least number with the same prime signature as the Doudna sequence entry,
 OEIS [A286622](https://oeis.org/A286622):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A286622
 200.doudnaSequence.collect { :n |
 	1:Infinity.detect { :m |
 		n.primeSignature
@@ -87,7 +90,7 @@ OEIS [A286622](https://oeis.org/A286622):
 Ordinal transform of the restricted growth sequence of least number with the same prime signature as the Doudna sequence entry,
 OEIS [A286552](https://oeis.org/A286552):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A286552
 200.doudnaSequence.collect { :n |
 	1:Infinity.detect { :m |
 		n.primeSignature

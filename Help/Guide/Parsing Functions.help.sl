@@ -35,6 +35,10 @@ Parse Durations and Times:
 - `parseDuration`
 - `parseTime`
 
+Parse Dictionaries:
+
+- `parseUnquotedAttributeList`
+
 Parse Documents:
 
 - `parseHtml`

@@ -74,10 +74,10 @@ Plot `tan` alongside a Padé approximation:
 ![](sw/spl/Help/Image/tan-B.svg)
 
 _|⌊(tan(n))_,
-unsiagned variant of
+unsigned variant of
 OEIS [A000503](https://oeis.org/A000503):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A000503 variant
 0:150.tan.floor.abs.log.scatterPlot
 ~~~
 

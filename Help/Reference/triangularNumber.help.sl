@@ -19,7 +19,7 @@ Relation to `binomial`:
 (23 + 1).binomial(2)
 ```
 
-First few terms,
+First few triangular numbers,
 threads over lists,
 OEIS [A000217](https://oeis.org/A000217):
 
@@ -161,7 +161,7 @@ OEIS [A001219](https://oeis.org/A001219):
 [0 6 120 210 990 185136 258474216]
 ```
 
-The reciprocals of triangular numbers produce is convergent series where the limit is two:
+The reciprocals of triangular numbers produce a convergent series where the limit is two:
 
 ~~~spl svg=A
 1:47.triangularNumber
@@ -175,7 +175,7 @@ The reciprocals of triangular numbers produce is convergent series where the lim
 Inverse Moebius transform of triangular numbers,
 OEIS [A007437](http://oeis.org/A007437):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A007437
 1:100.collect { :n |
 	let a = 1.divisorSigma(n);
 	let b = 2.divisorSigma(n);
@@ -188,7 +188,7 @@ OEIS [A007437](http://oeis.org/A007437):
 The inverse of the triangular numbers,
 OEIS [A003056](https://oeis.org/A003056):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A003056
 1:85.inverseTriangularNumber.discretePlot
 ~~~
 

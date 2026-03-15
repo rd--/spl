@@ -88,7 +88,7 @@ OEIS [A118276](https://oeis.org/A118276):
 Signature sequence of φ²,
 OEIS [A118276](https://oeis.org/A118276):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A118276
 1.goldenRatio.square
 .signatureSequence(200)
 .scatterPlot

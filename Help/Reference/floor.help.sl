@@ -108,7 +108,7 @@ Floor is a staircase function:
 
 ![](sw/spl/Help/Image/floor-A.svg)
 
-Plot the Gauss map over a subset of the reals:
+The Gauss map over a subset of the reals:
 
 ~~~spl svg=B
 (-2 -- 2).discretize(250) { :x |
@@ -118,7 +118,7 @@ Plot the Gauss map over a subset of the reals:
 
 ![](sw/spl/Help/Image/floor-B.svg)
 
-Plot the Gauss map over a subset of the complexes:
+The Gauss map over a subset of the complexes:
 
 ~~~spl png=C
 [-1J-1 1J1].complexPlot { :z |
@@ -148,7 +148,7 @@ let y = 2:104.collect { :n |
 
 ![](sw/spl/Help/Image/floor-D.svg)
 
-Plot _n_ repeating _1+⌊(n/2)_ times,
+_n_ repeating _1+⌊(n/2)_ times,
 OEIS [A055086](https://oeis.org/A055086):
 
 ~~~spl svg=E oeis=A055086
@@ -160,7 +160,7 @@ OEIS [A055086](https://oeis.org/A055086):
 
 ![](sw/spl/Help/Image/floor-E.svg)
 
-Plot triangular array of floor of division,
+Triangular array of floor of division,
 OEIS [A010766](https://oeis.org/A010766):
 
 ~~~spl svg=F oeis=A010766

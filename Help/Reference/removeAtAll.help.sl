@@ -42,10 +42,10 @@ At `Record`, alias for `removeAllKeys`:
 (['x' 'z'], (y: 2))
 ```
 
-Binary sieve
+Binary sieve,
 OEIS [A007950](https://oeis.org/A007950):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A007950
 let a = [1 .. 200];
 1:6.do { :n |
 	let k = 2 ^ n;
@@ -57,10 +57,10 @@ a.discretePlot
 
 ![](sw/spl/Help/Image/removeAtAll-A.svg)
 
-Ternary sieve
+Ternary sieve,
 OEIS [A007951](https://oeis.org/A007951):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A007951
 let a = [1 .. 150];
 1:6.do { :n |
 	let k = 3 ^ n;
@@ -75,7 +75,7 @@ a.discretePlot
 Quaternary sieve,
 OEIS [A092418](https://oeis.org/A092418):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A092418
 let a = [1 .. 100];
 1:6.do { :n |
 	let k = 4 ^ n;

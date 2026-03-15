@@ -2,9 +2,10 @@
 
 - _ehrenfeuchtMycielskiSequence(n)_
 
-Answer the first _n_ terms of the Ehrenfeucht-Mycielski sequence.
+Answer the first _n_ terms of the Ehrenfeucht-Mycielski sequence,
+a recursively defined sequence of binary digits with pseudorandom properties.
 
-First few terms,
+First few terms of the Ehrenfeucht-Mycielski sequence,
 OEIS [A038219](https://oeis.org/A038219):
 
 ```
@@ -19,19 +20,20 @@ OEIS [A038219](https://oeis.org/A038219):
 ]
 ```
 
-Plot first few terms:
+The Ehrenfeucht-Mycielski sequence,
+OEIS [A038219](https://oeis.org/A038219):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A038219 set=0,1
 105.ehrenfeuchtMycielskiSequence
 .discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/ehrenfeuchtMycielskiSequence-A.svg)
 
-Plot run lengths,
+Run lengths of the Ehrenfeucht-Mycielski sequence,
 OEIS [A201881](https://oeis.org/A201881):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A201881
 105.ehrenfeuchtMycielskiSequence
 .split(=)
 .collect(size:/1)
@@ -40,10 +42,10 @@ OEIS [A201881](https://oeis.org/A201881):
 
 ![](sw/spl/Help/Image/ehrenfeuchtMycielskiSequence-B.svg)
 
-Indices of zeroes,
+Indices of zeroes in the Ehrenfeucht-Mycielski sequence,
 OEIS [A253060](https://oeis.org/A253060):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A253060
 105.ehrenfeuchtMycielskiSequence
 .indicesOf(0)
 .discretePlot
@@ -51,10 +53,10 @@ OEIS [A253060](https://oeis.org/A253060):
 
 ![](sw/spl/Help/Image/ehrenfeuchtMycielskiSequence-C.svg)
 
-Indices of the first occurrences of the _n_-th binary vector,
+Indices of the first occurrences of the _n_-th binary vector in the Ehrenfeucht-Mycielski sequence,
 OEIS [A308173](https://oeis.org/A308173):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A308173
 let x = 500.ehrenfeuchtMycielskiSequence;
 (1 .. 7).collect { :i |
 	let j = 2 ^ i;

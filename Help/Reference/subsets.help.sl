@@ -117,7 +117,7 @@ and an edge between two vertices if their corresponding sets are disjoint:
 Triangle of distribution of rank sums,
 OEIS [A008967](https://oeis.org/A008967):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A008967
 2:9.collect { :n |
 	let m = 2 * n - 1;
 	3:m.collect { :k |

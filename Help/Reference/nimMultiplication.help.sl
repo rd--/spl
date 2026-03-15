@@ -190,7 +190,7 @@ read by antidiagonals,
 from `zero`,
 OEIS [A051775](https://oeis.org/A051775):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A051775
 0:17.antidiagonalArray(
 	nimMultiplication:/2
 ).catenate.scatterPlot
@@ -203,7 +203,7 @@ read by antidiagonals,
 from `one`,
 OEIS [A051776](https://oeis.org/A051776):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A051776
 1:16.antidiagonalArray(
 	nimMultiplication:/2
 ).catenate.scatterPlot
@@ -217,7 +217,7 @@ read by rows,
 from `zero`
 OEIS [A051910](https://oeis.org/A051910):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A051910
 0:15.triangularArray(
 	nimMultiplication:/2
 ).catenate.scatterPlot
@@ -231,7 +231,7 @@ read by rows,
 from `one`
 OEIS [A051911](https://oeis.org/A051911):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A051911
 1:15.triangularArray(
 	nimMultiplication:/2
 ).catenate.scatterPlot
@@ -243,7 +243,7 @@ The Nim-square of _n_,
 _n⊗n_,
 OEIS [A006042](https://oeis.org/A006042):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A006042
 0:255.collect(nimSquare:/1).scatterPlot
 ~~~
 
@@ -252,7 +252,7 @@ OEIS [A006042](https://oeis.org/A006042):
 _n⊗2_,
 OEIS [A006015](https://oeis.org/A006015):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A006015
 0:255.nimMultiplication(2).scatterPlot
 ~~~
 
@@ -261,7 +261,7 @@ OEIS [A006015](https://oeis.org/A006015):
 _n⊗3_,
 OEIS [A004468](https://oeis.org/A004468):
 
-~~~spl svg=G
+~~~spl svg=G oeis=A004468
 0:255.nimMultiplication(3).scatterPlot
 ~~~
 
@@ -270,7 +270,7 @@ OEIS [A004468](https://oeis.org/A004468):
 _n⊗4_,
 OEIS [A004469](https://oeis.org/A004469):
 
-~~~spl svg=H
+~~~spl svg=H oeis=A004469
 0:255.nimMultiplication(4).scatterPlot
 ~~~
 
@@ -279,7 +279,7 @@ OEIS [A004469](https://oeis.org/A004469):
 _n⊗5_,
 OEIS [A004470](https://oeis.org/A004470):
 
-~~~spl svg=I
+~~~spl svg=I oeis=A004470
 0:255.nimMultiplication(5).scatterPlot
 ~~~
 
@@ -288,7 +288,7 @@ OEIS [A004470](https://oeis.org/A004470):
 _n⊗6_,
 OEIS [A004471](https://oeis.org/A004471):
 
-~~~spl svg=J
+~~~spl svg=J oeis=A004471
 0:255.nimMultiplication(6).scatterPlot
 ~~~
 
@@ -297,7 +297,7 @@ OEIS [A004471](https://oeis.org/A004471):
 _n⊗7_,
 OEIS [A004472](https://oeis.org/A004472):
 
-~~~spl svg=K
+~~~spl svg=K oeis=A004472
 0:255.nimMultiplication(7).scatterPlot
 ~~~
 
@@ -306,7 +306,7 @@ OEIS [A004472](https://oeis.org/A004472):
 _n⊗8_,
 OEIS [A004473](https://oeis.org/A004473):
 
-~~~spl svg=L
+~~~spl svg=L oeis=A004473
 0:255.nimMultiplication(8).scatterPlot
 ~~~
 
@@ -315,7 +315,7 @@ OEIS [A004473](https://oeis.org/A004473):
 _n⊗9_,
 OEIS [A004474](https://oeis.org/A004474):
 
-~~~spl svg=M
+~~~spl svg=M oeis=A004474
 0:255.nimMultiplication(9).scatterPlot
 ~~~
 
@@ -344,7 +344,7 @@ OEIS [A004480](https://oeis.org/A004480) _n=15_:
 _n⊗(n+1)_,
 OEIS [A058734](https://oeis.org/A058734):
 
-~~~spl svg=O
+~~~spl svg=O oeis=A058734
 0:254.collect { :n |
 	n.nimMultiplication(n + 1)
 }.scatterPlot
@@ -356,7 +356,7 @@ Inverse of _n_ under Nim multiplication,
 _n⊗m=1_,
 OEIS [A051917](https://oeis.org/A051917):
 
-~~~spl svg=P
+~~~spl svg=P oeis=A051917
 1:255.collect { :n |
 	1:255.detect { :m |
 		n.nimMultiplication(m) = 1
@@ -391,7 +391,7 @@ read by antidiagonals,
 from `one`,
 OEIS [A223541](https://oeis.org/A223541):
 
-~~~spl svg=S
+~~~spl svg=S oeis=A223541
 1:21.antidiagonalArray { :m :n |
 	(2 ^ n).nimMultiplication(2 ^ m)
 }.++.log.scatterPlot
@@ -404,7 +404,7 @@ read by rows,
 from `zero`,
 OEIS [A223540](https://oeis.org/A223540):
 
-~~~spl svg=T
+~~~spl svg=T oeis=A223540
 0:15.triangularArray{ :m :n |
 	(2 ^ n).nimMultiplication(2 ^ m)
 }.catenate.log.scatterPlot
@@ -415,7 +415,7 @@ OEIS [A223540](https://oeis.org/A223540):
 Nim-products of powers of two,
 OEIS [A223543](https://oeis.org/A223543):
 
-~~~spl svg=U
+~~~spl svg=U oeis=A223543
 let k = 2 ^ 5 - 1;
 let i = 2 ^ 0:k;
 nimMultiplication:/2.table(i, i)
@@ -428,7 +428,7 @@ Key matrix of
 OEIS [A223541](https://oeis.org/A223541),
 OEIS [A223542](https://oeis.org/A223542):
 
-~~~spl svg=V
+~~~spl svg=V oeis=A223542
 let k = 2 ^ 5 - 1;
 let i = 2 ^ 1:k;
 let a = 0:k.antidiagonalArray { :m :n |
@@ -446,7 +446,7 @@ The Nim _k_-th power of _n_,
 array read by upward antidiagonals,
 OEIS [A335162](https://oeis.org/A335162):
 
-~~~spl svg=W
+~~~spl svg=W oeis=A335162
 0:17.antidiagonalArray(nimPower:/2)
 .collect(reverse:/1).catenate.scatterPlot
 ~~~
@@ -456,7 +456,7 @@ OEIS [A335162](https://oeis.org/A335162):
 _n^n_ using Nim multiplication,
 OEIS [A059971](https://oeis.org/A059971):
 
-~~~spl svg=X
+~~~spl svg=X oeis=A059971
 0:87.collect { :n |
 	n.nimPower(n)
 }.discretePlot
@@ -467,7 +467,7 @@ OEIS [A059971](https://oeis.org/A059971):
 Count Nim-factors,
 OEIS [A348291](https://oeis.org/A348291):
 
-~~~spl svg=Y
+~~~spl svg=Y oeis=A348291
 let k = 85;
 let t = nimMultiplication:/2.table(1:k, 1:k);
 2:k.collect { :n |
@@ -485,7 +485,7 @@ let t = nimMultiplication:/2.table(1:k, 1:k);
 Nim-square-root,
 OEIS [A160679](https://oeis.org/A160679):
 
-~~~
+~~~spl svg=Z oeis=A160679
 0:127.nimSquareRoot.scatterPlot
 ~~~
 

@@ -35,9 +35,10 @@ Read the `identifier`, `number`, `name`, `keywords`, `offset` and `data` fields:
 )
 ```
 
-Plot all of the `data` given in the OEIS entry proper:
+All of the `data` given in the OEIS entry proper,
+OEIS [A000001](https://oeis.org/A000001):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A000001
 OeisEntry('A000001').then { :e |
 	e.data
 	.log
@@ -47,10 +48,11 @@ OeisEntry('A000001').then { :e |
 
 ![](sw/spl/Help/Image/OeisEntry-A.svg)
 
-Plot the first few items of `bFileData`,
-as given in B-file associated with the OEIS entry:
+The first few items of `bFileData`,
+as given in B-file associated with the OEIS entry,
+OEIS [A000001](https://oeis.org/A000001):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A000001
 OeisEntry('A000001').then { :e |
 	e.bFileData
 	.first(250)
@@ -61,10 +63,10 @@ OeisEntry('A000001').then { :e |
 
 ![](sw/spl/Help/Image/OeisEntry-B.svg)
 
-Plot the first few items of `bFileData` for a sequence that is non-trivial to calculate,
+The first few items of `bFileData` for a sequence that is non-trivial to calculate,
 OEIS [A059471](https://oeis.org/A059471):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A059471
 OeisEntry('A059471').then { :e |
 	e.bFileData
 	.first(125)
@@ -78,7 +80,7 @@ OeisEntry('A059471').then { :e |
 Limit of _f(f(f(...f(2)...)))%n_ as the number of iterations of _f(x)=2^x-1_ grows,
 OEIS [A254410](https://oeis.org/A254410):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A254410
 OeisEntry('A254410').then { :e |
 	e.bFileData
 	.first(150)
@@ -88,10 +90,10 @@ OeisEntry('A254410').then { :e |
 
 ![](sw/spl/Help/Image/OeisEntry-D.svg)
 
-Plot the lexicographically earliest sequence of positive numbers which is identical to the run lengths of its first differences,
+The lexicographically earliest sequence of positive numbers which is identical to the run lengths of its first differences,
 OEIS [A380317](https://oeis.org/A380317):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A380317
 OeisEntry('A380317').then { :e |
 	e.bFileData
 	.first(300)

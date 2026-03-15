@@ -159,7 +159,7 @@ Triangle read by rows,
 _n/k_ if _k_ is a divisor of _n_ else zero,
 OEIS [A127093](https://oeis.org/A127093):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A127093
 1:14.triangularArray { :n :k |
 	n.divisible(k).if { n / k } { 0 }
 }.catenate.discretePlot

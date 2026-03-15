@@ -706,10 +706,11 @@ Plot over a subset of the reals as a function of its second parameter:
 
 ![](sw/spl/Help/Image/binomial-B.svg)
 
-Scatter plot of the partial sums of Sierpinski’s sieve,
+Partial sums of Sierpinski’s sieve,
+scatter plot,
 OEIS [A166556](https://oeis.org/A166556):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A166556
 (0 .. 21).triangularArray { :n :k |
 	(k .. n).sum { :j |
 		binomial(j, k) % 2
@@ -725,7 +726,7 @@ read by rows,
 row _n_ read mod _n_,
 OEIS [A053202](https://oeis.org/A053202):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A053202
 4:23.collect { :n |
 	let m = n - 2;
 	2:m.collect { :k |
@@ -736,10 +737,10 @@ OEIS [A053202](https://oeis.org/A053202):
 
 ![](sw/spl/Help/Image/binomial-D.svg)
 
-Plot the second in a series of arrays counting standard tableaux by partition type,
+The second in a series of arrays counting standard tableaux by partition type,
 OEIS [A059797](https://oeis.org/A059797):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A059797
 let t = { :n :k |
 	(n < 0 | { k < 0 | { k > n } }).if {
 		0
@@ -759,11 +760,11 @@ let t = { :n :k |
 
 ![](sw/spl/Help/Image/binomial-E.svg)
 
-Plot the number of length-_n_ binary sequences with exactly _k_ zeros,
+The number of length-_n_ binary sequences with exactly _k_ zeros,
 and without three consecutive zeros,
 OEIS [A182309](https://oeis.org/A182309):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A182309
 2:27.collect { :n |
 	let m = 2 * (n + 1) / 3;
 	2:m.collect { :k |
@@ -782,10 +783,10 @@ OEIS [A182309](https://oeis.org/A182309):
 
 ![](sw/spl/Help/Image/binomial-F.svg)
 
-Plot circular binomial coefficients,
+Circular binomial coefficients,
 OEIS [A047996](https://oeis.org/A047996):
 
-~~~spl svg=G
+~~~spl svg=G oeis=A047996
 0:12.triangularArray { :n :k |
 	([n k] = [0 0]).if {
 		1
@@ -885,7 +886,7 @@ OEIS [A109466](https://oeis.org/A109466):
 Number of compositions of _n_ with _k_ parts,
 OEIS [A109466](https://oeis.org/A109466):
 
-~~~spl svg=N
+~~~spl svg=N oeis=A109466
 0:15.triangularArray { :n :k |
 	binomial(n - 1, k - 1)
 }.catenate.logScale.scatterPlot
@@ -896,7 +897,7 @@ OEIS [A109466](https://oeis.org/A109466):
 _C(i,j)*2^(i-j)_,
 OEIS [A038207](https://oeis.org/A038207):
 
-~~~spl svg=O
+~~~spl svg=O oeis=A038207
 0:9.triangularArray { :i :j |
 	binomial(i, j) * (2 ^ (i - j))
 }.catenate.discretePlot
@@ -907,7 +908,7 @@ OEIS [A038207](https://oeis.org/A038207):
 Odd-numbered columns of triangle of expansions of powers of _x_ in terms of Chebyshev polynomials _Un(x)_,
 OEIS [A039598](https://oeis.org/A039598):
 
-~~~spl svg=P
+~~~spl svg=P oeis=A039598
 0:15.triangularArray { :n :k |
 	binomial(2 * n, n - k)
 	-
@@ -920,7 +921,7 @@ OEIS [A039598](https://oeis.org/A039598):
 _C(2n,n)C(n,k)_,
 OEIS [A356546](https://oeis.org/A356546):
 
-~~~spl svg=Q
+~~~spl svg=Q oeis=A356546
 0:10.triangularArray { :n :k |
 	binomial(2 * n, n) * binomial(n, k)
 }.catenate.log.scatterPlot
@@ -932,7 +933,7 @@ The _(1,2)_-Pascal triangle,
 _C(n,k)+C(n-1,k-1)_,
 OEIS [A029635](https://oeis.org/A029635):
 
-~~~spl svg=R
+~~~spl svg=R oeis=A029635
 0:9.triangularArray { :n :k |
 	(n + k = 0).if {
 		2
@@ -949,7 +950,7 @@ OEIS [A029635](https://oeis.org/A029635):
 Denominators of Farey tree fractions,
 OEIS [A007306](https://oeis.org/A007306):
 
-~~~spl svg=S
+~~~spl svg=S oeis=A007306
 1:77.collect { :n |
 	0:n.sum { :k |
 		(n + k - 1).binomial(2 * k) % 2
@@ -962,7 +963,7 @@ OEIS [A007306](https://oeis.org/A007306):
 _C(n+10,n)%10_,
 OEIS [A133890](https://oeis.org/A133890):
 
-~~~spl svg=T
+~~~spl svg=T oeis=A133890
 0:115.collect { :n |
 	(n + 10).binomial(n) % 10
 }.discretePlot

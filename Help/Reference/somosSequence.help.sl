@@ -158,7 +158,7 @@ The Somos four sequence,
 discrete log plot,
 OEIS [A006720](https://oeis.org/A006720):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A006720
 4.somosSequence(35).log.discretePlot
 ~~~
 
@@ -168,7 +168,7 @@ The Somos seven sequence,
 discrete log plot,
 OEIS [A006723](https://oeis.org/A006723):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A006723
 7.somosSequence(35).log.discretePlot
 ~~~
 

@@ -26,16 +26,16 @@ OEIS [A000201](https://oeis.org/A000201):
 The lower Wythoff sequence,
 OEIS [A000201](https://oeis.org/A000201):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A000201
 1:23.wythoffLower.stepPlot
 ~~~
 
 ![](sw/spl/Help/Image/wythoffLower-A.svg)
 
-Plot column indices of the Wythoff array that contains _L(n)_,
+Column indices of the Wythoff array that contains _L(n)_,
 OEIS [A255670](https://oeis.org/A255670):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A255670
 1:65.collect { :n |
 	let x = n.wythoffLower;
 	1:Infinity.detect { :j |

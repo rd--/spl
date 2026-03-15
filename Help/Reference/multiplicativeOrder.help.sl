@@ -308,10 +308,10 @@ Plot the sequence, varying the modulus:
 
 ![](sw/spl/Help/Image/multiplicativeOrder-B.svg)
 
-Plot order of ten modulo _n_,
+Multiplicative order of ten modulo _n_,
 OEIS [A084680](https://oeis.org/A084680):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A084680
 1:96.collect { :n |
 	n.isCoprime(10).if {
 		10.multiplicativeOrder(n)
@@ -323,10 +323,10 @@ OEIS [A084680](https://oeis.org/A084680):
 
 ![](sw/spl/Help/Image/multiplicativeOrder-C.svg)
 
-Plot number of different cycles of digits in the decimal expansions of reciprocals of primes,
+Number of different cycles of digits in the decimal expansions of reciprocals of primes,
 OEIS [A006556](https://oeis.org/A006556):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A006556
 4:150.prime.collect { :n |
 	(n - 1) / 10.multiplicativeOrder(n)
 }.log.scatterPlot
@@ -334,10 +334,10 @@ OEIS [A006556](https://oeis.org/A006556):
 
 ![](sw/spl/Help/Image/multiplicativeOrder-D.svg)
 
-Plot shuffling _2n_ cards,
+Shuffling _2n_ cards,
 OEIS [A002139](https://oeis.org/A002139):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A002139
 1:200.collect { :n |
 	let m = 2 * n - 1;
 	let x = 2.multiplicativeOrder(m);
@@ -352,10 +352,10 @@ OEIS [A002139](https://oeis.org/A002139):
 
 ![](sw/spl/Help/Image/multiplicativeOrder-E.svg)
 
-Plot _(Σ(R(p(n))) - μ(p(n)-1))/p(n)_,
+_(Σ(R(p(n))) - μ(p(n)-1))/p(n)_,
 OEIS [A088145](https://oeis.org/A088145):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A088145
 let m = 43;
 let a = 1:m.collect { :n |
 	let p = n.prime;
@@ -375,10 +375,10 @@ let a = 1:m.collect { :n |
 
 ![](sw/spl/Help/Image/multiplicativeOrder-F.svg)
 
-Plot order of two modulo the _n_-th prime,
+Order of two modulo the _n_-th prime,
 OEIS [A014664](https://oeis.org/A014664):
 
-~~~spl svg=G
+~~~spl svg=G oeis=A014664
 2:150.collect { :n |
 	2.multiplicativeOrder(n.prime)
 }.scatterPlot
@@ -386,10 +386,10 @@ OEIS [A014664](https://oeis.org/A014664):
 
 ![](sw/spl/Help/Image/multiplicativeOrder-G.svg)
 
-Plot order of two modulo _2n+1_,
+Order of two modulo _2n+1_,
 OEIS [A002326](https://oeis.org/A002326):
 
-~~~spl svg=H
+~~~spl svg=H oeis=A002326
 2:150.collect { :n |
 	2.multiplicativeOrder(2 * n + 1)
 }.scatterPlot
@@ -400,7 +400,7 @@ OEIS [A002326](https://oeis.org/A002326):
 Penny flipping sequence,
 OEIS [A089645](https://oeis.org/A089645):
 
-~~~spl svg=I
+~~~spl svg=I oeis=A089645
 2:115.collect { :n |
 	let m = 2 * n + 1;
 	let b = 2.multiplicativeOrder(m);
@@ -421,7 +421,7 @@ OEIS [A089645](https://oeis.org/A089645):
 Period of base four representation of _1/n_,
 OEIS [A007735](https://oeis.org/A007735):
 
-~~~spl svg=J
+~~~spl svg=J oeis=A007735
 1:200.collect { :n |
 	4.multiplicativeOrder(
 		n / (2 ^ n.integerExponent(2))

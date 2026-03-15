@@ -21,7 +21,7 @@ OEIS [A002144](https://oeis.org/A002144):
 The first few Pythagorean primes,
 OEIS [A002144](https://oeis.org/A002144):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A002144
 1:1000.select(
 	isPythagoreanPrime:/1
 ).scatterPlot

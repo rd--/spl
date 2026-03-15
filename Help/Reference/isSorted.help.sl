@@ -72,7 +72,7 @@ Find tuples that are in order:
 ]
 ```
 
-Plot indices of sorted tuples:
+Indices of sorted tuples:
 
 ~~~spl svg=A
 [0 1 -1]
@@ -84,10 +84,12 @@ Plot indices of sorted tuples:
 
 ![](sw/spl/Help/Image/isSorted-A.svg)
 
-Plot numbers where in the binary expansion run lengths do not decrease,
+Numbers where,
+in the binary expansion,
+run lengths do not decrease,
 OEIS [A037016](https://oeis.org/A037016):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A037016
 0:250.select { :n |
 	n.integerDigits(2)
 	.split(=)

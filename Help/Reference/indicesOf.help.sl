@@ -44,7 +44,7 @@ At `String` with non-character seach string:
 [1 8]
 ```
 
-Plot squarefree numbers ordered lexicographically by prime factorization,
+Squarefree numbers ordered lexicographically by prime factorization,
 OEIS [A019565](https://oeis.org/A019565):
 
 ~~~spl svg=A oeis=A019565

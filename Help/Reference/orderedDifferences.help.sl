@@ -105,7 +105,7 @@ OEIS [A204922](https://oeis.org/A204922):
 Ordered differences of primes,
 OEIS [A204890](https://oeis.org/A204890):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A204890
 1:11.prime
 .orderedDifferences
 .catenate
@@ -117,7 +117,7 @@ OEIS [A204890](https://oeis.org/A204890):
 Ordered differences of Fibonacci numbers,
 OEIS [A204922](https://oeis.org/A204922):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A204922
 2:11.fibonacci
 .orderedDifferences
 .catenate
@@ -130,7 +130,7 @@ Ordered differences of primes,
 row reversed,
 OEIS [A090321](https://oeis.org/A090321):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A090321
 1:11.prime
 .orderedDifferences
 .collect(reverse:/1)

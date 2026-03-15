@@ -192,11 +192,11 @@ OEIS [A073531](https://oeis.org/A073531):
 ]
 ```
 
-Plot the number of ones in the base-two representation,
+The number of ones in the base-two representation,
 called the Hamming weight or binary weight,
 OEIS [A000120](https://oeis.org/A000120):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A000120
 1:63.functionPlot { :each |
 	each.digitCount(2, 1)
 }
@@ -204,10 +204,10 @@ OEIS [A000120](https://oeis.org/A000120):
 
 ![](sw/spl/Help/Image/digitCount-A.svg)
 
-Plot the number of odd elements in the first _n_ rows of Pascal’s triangle,
+The number of odd elements in the first _n_ rows of Pascal’s triangle,
 OEIS [A006046](https://oeis.org/A006046):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A006046
 let b = { :k | k.digitCount(2, 1) };
 1:100.functionPlot { :n |
 	(0 .. n - 1).collect { :k |
@@ -218,10 +218,10 @@ let b = { :k | k.digitCount(2, 1) };
 
 ![](sw/spl/Help/Image/digitCount-B.svg)
 
-Plot the first few Cantor numbers,
+The Cantor numbers,
 OEIS [A005823](https://oeis.org/A005823):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A005823
 0:3000.select { :n |
 	n.digitCount(3, 1) = 0
 }.scatterPlot
@@ -232,7 +232,7 @@ OEIS [A005823](https://oeis.org/A005823):
 Number of ones in binary reflected Gray code of _n_,
 OEIS [A005811](https://oeis.org/A005811):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A005811
 0:250.collect { :n |
 	n.grayEncode.digitCount(2, 1)
 }.scatterPlot
@@ -240,24 +240,24 @@ OEIS [A005811](https://oeis.org/A005811):
 
 ![](sw/spl/Help/Image/digitCount-D.svg)
 
-Plot count of zeroes in binary expansion,
+Count zeroes in binary expansion,
 OEIS [A023416](https://oeis.org/A023416),
 also
 OEIS [A080791](https://oeis.org/A080791)
 if initial terms is zero:
 
-~~~spl svg=E
+~~~spl svg=E oeis=A023416
 0:200.digitCount(2, 0)
 .scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/digitCount-E.svg)
 
-Plot total number of zeroes in binary expansions,
+Total number of zeroes in binary expansions,
 a form of the Takagi curve,
 OEIS [A059015](https://oeis.org/A059015):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A059015
 0:63.digitCount(2, 0)
 .accumulate
 .scatterPlot
@@ -265,20 +265,21 @@ OEIS [A059015](https://oeis.org/A059015):
 
 ![](sw/spl/Help/Image/digitCount-F.svg)
 
-Scatter plot of the number of ones in the binary expansion of _3ⁿ_,
+The number of ones in the binary expansion of _3ⁿ_,
+scatter plot,
 OEIS [A011754](https://oeis.org/A011754):
 
-~~~spl svg=G
+~~~spl svg=G oeis=A011754
 (3L ^ 0:99).digitCount(2, 1)
 .scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/digitCount-G.svg)
 
-Plot _3^w(n)_,
+_3^w(n)_,
 OEIS [A048883](https://oeis.org/A048883):
 
-~~~spl svg=H
+~~~spl svg=H oeis=A048883
 0:250.collect { :n |
 	3 ^ n.digitCount(2, 1)
 }.log.scatterPlot
@@ -286,12 +287,12 @@ OEIS [A048883](https://oeis.org/A048883):
 
 ![](sw/spl/Help/Image/digitCount-H.svg)
 
-Plot OEIS [A046645](https://oeis.org/A046645):
+Sum of _2e-w(2e)_ of prime signature of _n_,
+OEIS [A046645](https://oeis.org/A046645):
 
-~~~spl svg=I
+~~~spl svg=I oeis=A046645
 2:100.collect { :n |
-	n.factorInteger.sum { :x |
-		let [p, e] = x;
+	n.primeSignature.sum { :e |
 		(2 * e) - (2 * e).digitCount(2, 1)
 	}
 }.discretePlot
@@ -302,7 +303,7 @@ Plot OEIS [A046645](https://oeis.org/A046645):
 Numbers having no more than one zero in their binary representation,
 OEIS [A089633](https://oeis.org/A089633)
 
-~~~spl svg=J
+~~~spl svg=J oeis=A089633
 0:1024.select { :n |
 	n.digitCount(2, 0) < 2
 }.scatterPlot
@@ -313,7 +314,7 @@ OEIS [A089633](https://oeis.org/A089633)
 Numbers having at least two zeroes in their binary representation,
 OEIS [A158582](https://oeis.org/A158582)
 
-~~~spl svg=K
+~~~spl svg=K oeis=A158582
 0:85.select { :n |
 	n.digitCount(2, 0) > 1
 }.scatterPlot
@@ -325,7 +326,7 @@ The only infinite sequence such that _a(n-1)=a(n)-f(a(n))_,
 where _f_ counts ones in the binary expansion,
 OEIS [A179016](https://oeis.org/A179016):
 
-~~~spl svg=L
+~~~spl svg=L oeis=A179016
 { :x |
 	x - x.digitCount(2, 1)
 }.nestWhileList(10 ^ 3) { :x |
@@ -354,7 +355,7 @@ OEIS [A079314](https://oeis.org/A079314),
 essentially also
 OEIS [A147610](https://oeis.org/A147610):
 
-~~~spl svg=N
+~~~spl svg=N oeis=A079314
 let n = 1:85;
 let w = n.digitCount(2, 1);
 let a = 3 ^ (w - 1) + 1;
@@ -368,7 +369,7 @@ OEIS [A151922](https://oeis.org/A151922),
 essentially also
 OEIS [A151920](https://oeis.org/A151920):
 
-~~~spl svg=O
+~~~spl svg=O oeis=A151922
 let n = 1:85;
 let w = n.digitCount(2, 1);
 let a = 3 ^ (w - 1) + 1;
@@ -380,7 +381,7 @@ let a = 3 ^ (w - 1) + 1;
 _2^w(⌊(n/2))_,
 OEIS [A060632](https://oeis.org/A060632):
 
-~~~spl svg=P
+~~~spl svg=P oeis=A060632
 let n = 0:85;
 let a = 2 ^ (n / 2).floor.digitCount(2, 1);
 a.discretePlot
@@ -391,7 +392,7 @@ a.discretePlot
 Count number of zero digits in _n_,
 OEIS [A055641](https://oeis.org/A055641):
 
-~~~spl svg=Q
+~~~spl svg=Q oeis=A055641
 0:150.digitCount(10, 0).discretePlot
 ~~~
 
@@ -400,7 +401,7 @@ OEIS [A055641](https://oeis.org/A055641):
 _2*(n-w(n))/3_ where _w_ is the one count in the base negative two expansion,
 OEIS [A073504](https://oeis.org/A073504):
 
-~~~spl svg=R
+~~~spl svg=R oeis=A073504
 1:50.collect { :n |
 	2 * (n - n.digitCount(-2, 1)) / 3
 }.scatterPlot

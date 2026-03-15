@@ -69,7 +69,7 @@ At `Symbol`:
 Number of partitions of _n_ into powers of ten,
 OEIS [A179051](https://oeis.org/A179051):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A179051
 let f = { :m :k |
 	(m = 0).if {
 		1

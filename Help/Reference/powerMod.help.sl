@@ -216,7 +216,7 @@ OEIS [A193356](https://oeis.org/A193356):
 [1 0 3 0 5 0 7 0 9 0 11 0 13 0 15 0 17 0]
 ```
 
-Plot the sequence with fixed powers:
+The sequence with fixed powers:
 
 ~~~spl svg=A
 1:50.functionPlot { :x |
@@ -226,7 +226,7 @@ Plot the sequence with fixed powers:
 
 ![](sw/spl/Help/Image/powerMod-A.svg)
 
-Plot the sequence with varying powers:
+The sequence with varying powers:
 
 ~~~spl svg=B
 1:50.functionPlot { :x |
@@ -236,7 +236,7 @@ Plot the sequence with varying powers:
 
 ![](sw/spl/Help/Image/powerMod-B.svg)
 
-Plot a list of powers of 3 where the exponent is varied, modulo some prime number:
+A list of powers of 3 where the exponent is varied, modulo some prime number:
 
 ~~~spl svg=C
 let n = 44.prime;
@@ -247,7 +247,7 @@ let n = 44.prime;
 
 ![](sw/spl/Help/Image/powerMod-C.svg)
 
-Plot table,
+Table,
 read by rows,
 where _n_-th row contains all quadratic residues,
 including zero,
@@ -264,7 +264,7 @@ OEIS [A096008](https://oeis.org/A096008):
 
 ![](sw/spl/Help/Image/powerMod-D.svg)
 
-Plot smallest pseudoprime _>n_ to base _n_,
+Smallest pseudoprime _>n_ to base _n_,
 OEIS [A007535](https://oeis.org/A007535):
 
 ~~~spl svg=E oeis=A007535
@@ -283,7 +283,7 @@ OEIS [A007535](https://oeis.org/A007535):
 
 ![](sw/spl/Help/Image/powerMod-E.svg)
 
-Plot number of distinct residues,
+Number of distinct residues,
 OEIS [A195637](https://oeis.org/A195637):
 
 ~~~spl svg=F oeis=A195637
@@ -322,7 +322,7 @@ OEIS [A000188](https://oeis.org/A000188):
 
 ![](sw/spl/Help/Image/powerMod-H.svg)
 
-Plot number of distinct primes among the squares modulo _n_,
+Number of distinct primes among the squares modulo _n_,
 OEIS [A132213](https://oeis.org/A132213):
 
 ~~~spl svg=I oeis=A132213

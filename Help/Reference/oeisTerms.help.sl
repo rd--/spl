@@ -8,7 +8,7 @@ The number of times _n_ appears in the Conway sequence
 OEIS [A004001](https://oeis.org/A004001),
 OEIS [A051135](https://oeis.org/A051135):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A051135
 let n = 55;
 let m = (n + 2) * 2;
 let a = 'A004001'.oeisTerms(m);
@@ -28,7 +28,7 @@ OEIS [A051135](https://oeis.org/A051135)
 with the first place set to `one`,
 OEIS [A162598](https://oeis.org/A162598):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A162598
 let a = 'A051135'.oeisTerms(200);
 a[1] := 1;
 a.ordinalTransform

@@ -47,7 +47,7 @@ OEIS [A101369](https://oeis.org/A101369),
 derive the partial inverse permutation,
 OEIS [A101438](https://oeis.org/A101438):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A101438
 let m = 2.sqrt;
 1:85.collect { :n |
 	n.isEven.if {

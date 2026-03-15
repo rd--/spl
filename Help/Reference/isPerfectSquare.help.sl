@@ -17,10 +17,10 @@ OEIS [A000290](https://oeis.org/A000290):
 ]
 ```
 
-Plot `max` of `min` of all summands of _n_,
+`max` of `min` of all summands of _n_,
 OEIS [A046805](https://oeis.org/A046805):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A046805
 let f = { :n |
 	(n = 0).if {
 		Infinity
@@ -68,7 +68,7 @@ OEIS [A010052](https://oeis.org/A010052):
 Smallest _k_ such that the concatenation of _n_ and _k_ is a square,
 OEIS [A071176](https://oeis.org/A071176):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A071176
 1:150.collect { :n |
 	let d = n.integerDigits;
 	let k = 0;
@@ -88,7 +88,7 @@ OEIS [A071176](https://oeis.org/A071176):
 The least integer, absolutely, not yet in the sequence such that the _|a(n-1)-a(n)|_ is a square,
 OEIS [A377091](https://oeis.org/A377091):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A377091 signed
 let m = 85;
 let s = IdentitySet([0]);
 { :x |
@@ -116,7 +116,7 @@ let s = IdentitySet([0]);
 Expansion of Jacobi theta function _θ4(x)_,
 OEIS [A002448](https://oeis.org/A002448):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A002448
 0:500.collect { :n |
 	let q = n.isPerfectSquare.boole;
 	(-1 ^ n) * q * 2 - (n = 0).boole

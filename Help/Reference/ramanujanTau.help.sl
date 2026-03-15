@@ -60,10 +60,11 @@ Multiplicative for coprime integers:
 7.ramanujanTau * 5.ramanujanTau
 ```
 
-Logarithmic plot of first few terms,
+The Ramanujan τ function,
+logarithmic plot,
 OEIS [A000594](https://oeis.org/A000594):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A000594
 1:33
 .collect(ramanujanTau:/1)
 .logScale
@@ -72,10 +73,11 @@ OEIS [A000594](https://oeis.org/A000594):
 
 ![](sw/spl/Help/Image/ramanujanTau-A.svg)
 
-Plot further terms,
+The Ramanujan τ function,
+further terms,
 OEIS [A000594](https://oeis.org/A000594):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A000594
 1:85
 .collect(ramanujanTau:/1)
 .logScale

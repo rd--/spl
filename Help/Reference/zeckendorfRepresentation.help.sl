@@ -315,7 +315,7 @@ OEIS [A003714](https://oeis.org/A003714):
 
 ![](sw/spl/Help/Image/zeckendorfRepresentation-C.svg)
 
-Plot summands for each entry,
+Summands for each entry,
 OEIS [A035517](https://oeis.org/A035517):
 
 ~~~spl svg=D oeis=A035517
@@ -328,7 +328,7 @@ OEIS [A035517](https://oeis.org/A035517):
 
 ![](sw/spl/Help/Image/zeckendorfRepresentation-D.svg)
 
-Plot integers whose Zeckendorf representation is palindromic,
+Integers whose Zeckendorf representation is palindromic,
 OEIS [A094202](https://oeis.org/A094202):
 
 ~~~spl svg=E oeis=A094202
@@ -340,7 +340,7 @@ OEIS [A094202](https://oeis.org/A094202):
 
 ![](sw/spl/Help/Image/zeckendorfRepresentation-E.svg)
 
-Plot the number of runs of identical bits in the binary Zeckendorf representation of _n_,
+The number of runs of identical bits in the binary Zeckendorf representation of _n_,
 OEIS [A104324](https://oeis.org/A104324):
 
 ~~~spl svg=F oeis=A104324

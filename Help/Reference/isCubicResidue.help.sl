@@ -71,10 +71,10 @@ OEIS [A046530](https://oeis.org/A046530):
 ]
 ```
 
-Plot
+Number of distinct cubic residues modulo _n_,
 OEIS [A046530](https://oeis.org/A046530):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A046530
 1:200.collect { :p |
 	1:p.select { :q |
 		isCubicResidue(q, p)

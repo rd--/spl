@@ -96,7 +96,7 @@ false
 0
 ```
 
-Plot the first few squarefree numbers,
+Squarefree numbers,
 OEIS [A005117](https://oeis.org/A005117):
 
 ~~~spl svg=A oeis=A005117
@@ -105,10 +105,10 @@ OEIS [A005117](https://oeis.org/A005117):
 
 ![](sw/spl/Help/Image/isSquareFree-A.svg)
 
-Plot the first few squareful numbers,
+Squareful numbers,
 OEIS [A013929](https://oeis.org/A013929):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A013929
 1:99.reject(isSquareFree:/1).linePlot
 ~~~
 

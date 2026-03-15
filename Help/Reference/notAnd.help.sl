@@ -23,7 +23,7 @@ Truth table:
 Lexicographically earliest sequence of distinct terms such that every pair of consecutive terms contains a term that is a unitary divisor of the other term,
 OEIS [A282291](https://oeis.org/A282291):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A282291
 let a = [1];
 58.timesRepeat {
 	let k = 1;

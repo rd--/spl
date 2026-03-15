@@ -41,7 +41,7 @@ Numerator of _1/4-1/n^2_,
 from Balmer spectrum of hydrogen,
 OEIS [A061037](https://oeis.org/A061037):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A061037
 (1/4 - (2:125 ^ 2/1)./)
 .numerator
 .scatterPlot

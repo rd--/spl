@@ -96,7 +96,7 @@ true
 Numerators of Farey (or Stern-Brocot) tree fractions,
 OEIS [A007305](https://oeis.org/A007305):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A007305
 8.sternBrocotTree
 .levelOrderValues
 .numerator
@@ -108,7 +108,7 @@ OEIS [A007305](https://oeis.org/A007305):
 Denominators of Farey (or Stern-Brocot) tree fractions,
 OEIS [A047679](https://oeis.org/A047679):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A047679
 8.sternBrocotTree
 .levelOrderValues
 .denominator

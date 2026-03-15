@@ -56,10 +56,10 @@ let w = 1:23.collect(wythoffPair:/1);
 
 ![](sw/spl/Help/Image/wythoffPair-A.svg)
 
-Plot sequence,
+Wythoff pairs sequence,
 OEIS [A072061](https://oeis.org/A072061):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A072061
 1:55.collect(wythoffPair:/1)
 .catenate.scatterPlot
 ~~~
@@ -69,7 +69,7 @@ OEIS [A072061](https://oeis.org/A072061):
 Positive integers with swaps according to Wythoff pairs,
 OEIS [A002251](https://oeis.org/A002251):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A002251
 let w = 1:65.collect(wythoffPair:/1);
 let i = w.catenate;
 let m = i.max;

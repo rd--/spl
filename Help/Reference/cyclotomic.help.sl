@@ -189,10 +189,10 @@ Nonzero coefficients of successive cyclotomic polynomials:
 
 ![](sw/spl/Help/Image/cyclotomic-D.svg)
 
-Plot quotients of consecutive values of `lcm`,
+Quotients of consecutive values of `lcm`,
 OEIS [A051417](https://oeis.org/A051417):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A051417
 1:60.collect { :n |
 	(2 * n + 1).cyclotomic.at(1)
 }.discretePlot
@@ -203,7 +203,7 @@ OEIS [A051417](https://oeis.org/A051417):
 Cyclotomic polynomials evaluated at _x=-1_,
 OEIS [A020513](https://oeis.org/A020513):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A020513
 1:65.collect { :n |
 	cyclotomic(n).at(-1)
 }.discretePlot
@@ -214,7 +214,7 @@ OEIS [A020513](https://oeis.org/A020513):
 Values of successive cyclotomic polynomials at _x=1_,
 OEIS [A020500](https://oeis.org/A020500):
 
-~~~spl svg=G
+~~~spl svg=G oeis=A020500
 1:65.collect { :n |
 	n.cyclotomic.at(1)
 }.discretePlot

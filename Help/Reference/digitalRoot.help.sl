@@ -53,10 +53,10 @@ OEIS [A010878](https://oeis.org/A010878):
 ]
 ```
 
-Plot
+The base ten digital root of _n_,
 OEIS [A010888](https://oeis.org/A010888):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A010888
 1:50.functionPlot { :n |
 	n.digitalRoot(10)
 }
@@ -67,7 +67,7 @@ OEIS [A010888](https://oeis.org/A010888):
 Digital root of Fibonacci numbers,
 OEIS [A030132](https://oeis.org/A030132):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A030132
 0:65.fibonacci
 .digitalRoot(10)
 .discretePlot

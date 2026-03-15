@@ -25,7 +25,7 @@ the sum of two elements defines the next:
 ]
 ```
 
-Plot the minimal absolute difference between _n_ and each of the powers of the previous terms,
+The minimal absolute difference between _n_ and each of the powers of the previous terms,
 OEIS [A322522](https://oeis.org/A322522):
 
 ~~~spl svg=A oeis=A322522
@@ -60,7 +60,7 @@ a.scatterPlot
 
 ![](sw/spl/Help/Image/whileTrue-A.svg)
 
-Plot a self-describing sequence made of strings of consecutive integers,
+A self-describing sequence made of strings of consecutive integers,
 OEIS [A113138](https://oeis.org/A113138):
 
 ~~~spl svg=B oeis=A113138

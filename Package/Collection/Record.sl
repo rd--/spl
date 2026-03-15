@@ -191,3 +191,18 @@ Record! : [Object, Storeable, Equatable, Json, Iterable, Indexable, Collection, 
 	}
 
 }
+
++String {
+
+	parseUnquotedAttributeList { :self |
+		self.words.collect { :each |
+			let parts = each.splitBy('=');
+			parts[1] -> (parts.size = 1).if {
+				'true'
+			} {
+				parts[2]
+			}
+		}.asRecord
+	}
+
+}

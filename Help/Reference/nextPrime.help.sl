@@ -148,18 +148,20 @@ OEIS [A033932](https://oeis.org/A033932):
 [1 1 1 1 5 7 7 11 23 17 11 1 29 67]
 ```
 
-Plot the next prime function,
+The next prime function,
 OEIS [A151800](https://oeis.org/A151800):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A151800
 0:50.functionPlot(nextPrime:/1)
 ~~~
 
 ![](sw/spl/Help/Image/nextPrime-A.svg)
 
-Plot differences between _bⁿ_ and it’s next prime:
+Differences between _bⁿ_ and it’s next prime,
+_b=2_,
+OEIS [A013597](https://oeis.org/A013597):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A013597
 let b = 2;
 0:40.collect { :n |
 	let x = b ^ n;
@@ -169,10 +171,10 @@ let b = 2;
 
 ![](sw/spl/Help/Image/nextPrime-B.svg)
 
-Plot sequence of _p_ where _a(n)_ is the smallest prime _q_ so that _n=(p+1)/(q+1)_ with _p_ prime,
+Sequence of _p_ where _a(n)_ is the smallest prime _q_ so that _n=(p+1)/(q+1)_ with _p_ prime,
 OEIS [A062251](https://oeis.org/A062251):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A062251
 1:137.collect { :n |
 	let q = 2;
 	let r = nil;
@@ -188,10 +190,10 @@ OEIS [A062251](https://oeis.org/A062251):
 
 ![](sw/spl/Help/Image/nextPrime-C.svg)
 
-Plot the difference between the next prime of _n²_ and _n²_,
+The difference between the next prime of _n²_ and _n²_,
 OEIS [A053000](https://oeis.org/A053000):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A053000
 0:200.collect { :n |
 	let m = n.square;
 	m.nextPrime - m
@@ -203,7 +205,7 @@ OEIS [A053000](https://oeis.org/A053000):
 Shift prime exponents of _2n-1_ to the previous prime or to `one`,
 OEIS [A064216](https://oeis.org/A064216):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A064216
 1:85.collect { :n |
 	(2 * n - 1).factorInteger.product { :f |
 		(f[1] <= 2).if {
@@ -220,7 +222,7 @@ OEIS [A064216](https://oeis.org/A064216):
 Ordinal transform of the next prime function,
 OEIS [A175851](https://oeis.org/A175851):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A175851
 1:250.nextPrime
 .ordinalTransform
 .scatterPlot
@@ -231,7 +233,7 @@ OEIS [A175851](https://oeis.org/A175851):
 Ordinal transform of the ordinal transform of the next prime function,
 OEIS [A304106](https://oeis.org/A304106):
 
-~~~spl svg=G
+~~~spl svg=G oeis=A304106
 1:200.nextPrime
 .ordinalTransform
 .ordinalTransform

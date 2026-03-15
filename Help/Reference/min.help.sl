@@ -168,7 +168,7 @@ At `Symbol`:
 Range of digits of _n_,
 OEIS [A037904](https://oeis.org/A037904):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A037904
 0:250.collect { :n |
 	let d = n.integerDigits;
 	d.max - d.min

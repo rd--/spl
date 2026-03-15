@@ -88,7 +88,7 @@ Sixth iteration of Arshon’s sequence,
 offset to to over alphabet _-1,0,1_,
 OEIS [A099054](https://oeis.org/A099054):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A099054 variant
 (6.arshonsSequence - 2)
 .discretePlot
 ~~~

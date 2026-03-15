@@ -24,7 +24,7 @@ The self-counting sequence,
 discrete plot,
 OEIS [A002024](https://oeis.org/A002024):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A002024
 65.selfCountingSequence.discretePlot
 ~~~
 

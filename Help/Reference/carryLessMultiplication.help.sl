@@ -54,7 +54,7 @@ Multiplication table for base two,
 read by antidiagonals,
 OEIS [A048720](https://oeis.org/A048720):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A048720
 0:21.antidiagonalArray(
 	carryLessMultiplication:/2
 ).catenate.scatterPlot
@@ -66,7 +66,7 @@ Exponentiation table for base two,
 read by antidiagonals,
 OEIS [A048723](https://oeis.org/A048723):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A048723
 0L:21.antidiagonalArray(
 	carryLessPower:/2
 ).catenate.log.scatterPlot

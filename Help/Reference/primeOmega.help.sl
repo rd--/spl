@@ -133,7 +133,7 @@ OEIS [A001222](https://oeis.org/A001222):
 
 ![](sw/spl/Help/Image/primeOmega-A.svg)
 
-Plot the number of positive integers less than or equal to _n_,
+The number of positive integers less than or equal to _n_,
 with the same number of prime factors as _n_,
 counted with multiplicity,
 OEIS [A058933](https://oeis.org/A058933):
@@ -151,7 +151,7 @@ let f = { :x |
 
 ![](sw/spl/Help/Image/primeOmega-B.svg)
 
-Plot difference between number of oddly and evenly factored numbers,
+Difference between number of oddly and evenly factored numbers,
 OEIS [A072203](https://oeis.org/A072203):
 
 ~~~spl svg=C oeis=A072203
@@ -164,7 +164,7 @@ OEIS [A072203](https://oeis.org/A072203):
 
 ![](sw/spl/Help/Image/primeOmega-C.svg)
 
-Plot parity of _Ω(n)_,
+Parity of _Ω(n)_,
 OEIS [A066829](https://oeis.org/A066829):
 
 ~~~spl svg=D oeis=A066829 set=0,1

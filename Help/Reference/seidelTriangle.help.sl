@@ -25,10 +25,11 @@ OEIS [A014781](https://oeis.org/A014781):
 ]
 ```
 
-Log scale scatter plot of first few terms of Seidel’s triangle,
+Seidel’s triangle,
+log scale scatter plot,
 OEIS [A014781](https://oeis.org/A014781):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A014781
 13.seidelTriangle
 .catenate
 .logScale

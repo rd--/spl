@@ -161,10 +161,10 @@ OEIS [A300721](https://oeis.org/A300721):
 ]
 ```
 
-Plot triplicate Moebius transform of the _10000…_ sequence,
+Triplicate Moebius transform of the _10000…_ sequence,
 OEIS [A007428](https://oeis.org/A007428):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A007428 signed
 [1].padRight([64], 0)
 .moebiusTransform
 .moebiusTransform
@@ -177,7 +177,7 @@ OEIS [A007428](https://oeis.org/A007428):
 Moebius transform of primes,
 OEIS [A007444](https://oeis.org/A007444):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A007444
 1:150.prime
 .moebiusTransform
 .scatterPlot
@@ -185,10 +185,10 @@ OEIS [A007444](https://oeis.org/A007444):
 
 ![](sw/spl/Help/Image/moebiusTransform-B.svg)
 
-Plot Ramanujan sum _Cn(2)_,
+Ramanujan sum _Cn(2)_,
 OEIS [A086831](https://oeis.org/A086831):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A086831 signed
 [1 2].padRight([63], 0)
 .moebiusTransform
 .discretePlot
@@ -199,7 +199,7 @@ OEIS [A086831](https://oeis.org/A086831):
 Moebius transform of largest difference between consecutive divisors of _n_,
 OEIS [A300721](https://oeis.org/A300721):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A300721
 1:85.collect { :n |
 	n - (n / n.leastPrimeFactor)
 }.moebiusTransform
@@ -211,7 +211,7 @@ OEIS [A300721](https://oeis.org/A300721):
 Moebius transform of Dedekind ψ function,
 OEIS [A063659](https://oeis.org/A063659):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A063659
 1:200.dedekindPsi
 .moebiusTransform
 .scatterPlot
@@ -222,7 +222,7 @@ OEIS [A063659](https://oeis.org/A063659):
 Moebius transform applied thrice to natural numbers,
 OEIS [A007432](https://oeis.org/A007432):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A007432 signed
 [1 .. 115].moebiusTransform
 .moebiusTransform
 .moebiusTransform
@@ -234,7 +234,7 @@ OEIS [A007432](https://oeis.org/A007432):
 Moebius transform of triangular numbers,
 OEIS [A007438](https://oeis.org/A007438):
 
-~~~spl svg=G
+~~~spl svg=G oeis=A007438
 1:115.triangularNumber
 .moebiusTransform
 .scatterPlot
@@ -245,7 +245,7 @@ OEIS [A007438](https://oeis.org/A007438):
 Moebius transform of squares,
 OEIS [A007434](https://oeis.org/A007434):
 
-~~~spl svg=H
+~~~spl svg=H oeis=A007434
 1:115.square
 .moebiusTransform
 .scatterPlot

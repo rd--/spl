@@ -34,9 +34,10 @@ OEIS [A117506](https://oeis.org/A117506):
 ]
 ```
 
-Plot table:
+Table of dimensions of integer partitions,
+OEIS [A117506](https://oeis.org/A117506):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A117506
 1:8.collect(
 	integerPartitionsDimensions:/1
 ).catenate.stepPlot
@@ -44,10 +45,10 @@ Plot table:
 
 ![](sw/spl/Help/Image/integerPartitionsDimensions-A.svg)
 
-Plot table of dimensions of integer partitions in ascending order,
+Table of dimensions of integer partitions in ascending order,
 OEIS [A060240](https://oeis.org/A060240):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A060240
 1:11.collect { :n |
 	n.integerPartitionsDimensions
 	.sort

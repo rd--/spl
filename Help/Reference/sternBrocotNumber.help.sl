@@ -32,9 +32,10 @@ At specific values:
 [108 1076 10946 103682]
 ```
 
-Plot the first few terms:
+Stern-Brocot sequence,
+OEIS [A002487](https://oeis.org/A002487):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A002487
 1:256
 .collect(sternBrocotNumber:/1)
 .scatterPlot
@@ -45,7 +46,7 @@ Plot the first few terms:
 The smallest number _k_ such that _fusc(k)=n_,
 OEIS [A020946](https://oeis.org/A020946):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A020946
 0:50.collect { :n |
 	0:Infinity.detect { :i |
 		i.sternBrocotNumber = n

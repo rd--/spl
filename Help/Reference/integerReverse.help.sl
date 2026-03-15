@@ -90,11 +90,11 @@ OEIS [A006960](https://oeis.org/A006960):
 ]
 ```
 
-Plot primes whose reversal in base ten is also prime,
+Primes whose reversal in base ten is also prime,
 sometimes called reversible primes,
 OEIS [A007500](https://oeis.org/A007500):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A007500
 1:600.prime.select { :n |
 	n.integerReverse.isPrime
 }.scatterPlot
@@ -102,10 +102,11 @@ OEIS [A007500](https://oeis.org/A007500):
 
 ![](sw/spl/Help/Image/integerReverse-A.svg)
 
-Log scatter plot of the `gcd` of _n_ and the reverse of _n_,
+The `gcd` of _n_ and the reverse of _n_,
+log scatter plot,
 OEIS [A055483](https://oeis.org/A055483):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A055483
 1:120.collect { :n |
 	gcd(n, n.integerReverse)
 }.log.scatterPlot
@@ -113,10 +114,10 @@ OEIS [A055483](https://oeis.org/A055483):
 
 ![](sw/spl/Help/Image/integerReverse-B.svg)
 
-Plot _R(Π(R(F(n))))_,
+_R(Π(R(F(n))))_,
 OEIS [A161594](https://oeis.org/A161594):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A161594
 1:250.collect { :n |
 	n.primeFactors
 	.product(integerReverse:/1)
@@ -126,10 +127,10 @@ OEIS [A161594](https://oeis.org/A161594):
 
 ![](sw/spl/Help/Image/integerReverse-C.svg)
 
-Plot _Π(R(F(n)))_,
+_Π(R(F(n)))_,
 OEIS [A071786](https://oeis.org/A071786):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A071786
 1:250.collect { :n |
 	n.primeFactors
 	.product(integerReverse:/1)
@@ -138,10 +139,10 @@ OEIS [A071786](https://oeis.org/A071786):
 
 ![](sw/spl/Help/Image/integerReverse-D.svg)
 
-Plot first few terms,
+Integer reverse,
 OEIS [A004086](https://oeis.org/A004086):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A004086
 0:400.integerReverse.linePlot
 ~~~
 
@@ -150,7 +151,7 @@ OEIS [A004086](https://oeis.org/A004086):
 Bijective bit-reverse of _n_,
 OEIS [A057889](https://oeis.org/A057889):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A057889
 0:200.collect { :n |
 	let m = n.integerReverse(2);
 	m * (2 ^ n.integerExponent(2))
@@ -159,10 +160,10 @@ OEIS [A057889](https://oeis.org/A057889):
 
 ![](sw/spl/Help/Image/integerReverse-F.svg)
 
-Plot _n_-th prime minus its reversal,
+_n_-th prime minus its reversal,
 OEIS [A068396](https://oeis.org/A068396):
 
-~~~spl svg=G
+~~~spl svg=G oeis=A068396 signed
 1:160.prime.collect { :n |
 	n - n.integerReverse
 }.discretePlot
@@ -170,10 +171,10 @@ OEIS [A068396](https://oeis.org/A068396):
 
 ![](sw/spl/Help/Image/integerReverse-G.svg)
 
-Plot the reverse and add sequence,
+The reverse and add sequence,
 OEIS [A056964](https://oeis.org/A056964):
 
-~~~spl svg=H
+~~~spl svg=H oeis=A056964
 0:100.collect { :n |
 	n + n.integerReverse
 }.stepPlot
@@ -185,7 +186,7 @@ Array read by antidiagonals,
 places are the integer reverse of _n×k_,
 OEIS [A391365](https://oeis.org/A391365):
 
-~~~spl svg=I
+~~~spl svg=I oeis=A391365
 0:17.antidiagonalArray { :n :k |
 	(n * k).integerReverse
 }.catenate.scatterPlot

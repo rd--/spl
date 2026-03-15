@@ -192,7 +192,7 @@ Find runs of numbers in base 10 that contain the same number of 1s:
 ]
 ```
 
-Plot concatenation of the current sequence with the lengths of the runs in the sequence,
+Concatenation of the current sequence with the lengths of the runs in the sequence,
 OEIS [A306211](https://oeis.org/A306211):
 
 ~~~spl svg=A oeis=A306211
@@ -214,7 +214,7 @@ OEIS [A306215](https://oeis.org/A306215):
 [1 2 3 5 8 13 22 37 61 100 162 260 416]
 ```
 
-Plot numbers where the run lengths of the binary expansion do not increase,
+Numbers where the run lengths of the binary expansion do not increase,
 OEIS [A037014](https://oeis.org/A037014):
 
 ~~~spl svg=B oeis=A037014

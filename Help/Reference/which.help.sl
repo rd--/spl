@@ -61,10 +61,10 @@ Implement the Ackerman function:
 ]
 ```
 
-Plot the regular paper-folding sequence,
+The regular paper-folding sequence,
 OEIS [A014707](https://oeis.org/A014707):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A014707
 let a = { :n |
 	[
 		{ n % 4 = 0 } -> { 0 },
@@ -83,7 +83,7 @@ let a = { :n |
 Earliest sequence with _a(a(n))=6n_,
 OEIS [A054786](https://oeis.org/A054786):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A054786
 let a = Map { :n |
 	let m = n % 12;
 	[
