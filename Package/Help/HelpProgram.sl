@@ -28,6 +28,10 @@ HelpProgram : [Object] { | topic language commentary annotations programText |
 		}
 	}
 
+	isDefinitionProgram { :self |
+		self.annotations.includesKey('define')
+	}
+
 	isImageProgram { :self |
 		['png' 'svg'].anySatisfy { :each |
 			self.annotations.includesKey(each)

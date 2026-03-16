@@ -211,7 +211,7 @@ A rectangular drawing of the same phi-weighted mediant scale as above:
 ![](sw/spl/Help/Image/momentOfSymmetry-E.svg)
 
 `horogramTable` answers a `Html` table of a rectangular Wilson horogram showing the scale structure.
-Requires that the scale have only integer step sizes.
+Requires that the scale have only integer step sizes:
 
 ~~~spl html=F
 7.momentOfSymmetry(12)

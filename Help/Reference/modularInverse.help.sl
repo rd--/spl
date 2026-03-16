@@ -237,6 +237,8 @@ Plot the sequence with a fixed modulus:
 
 ![](sw/spl/Help/Image/modularInverse-A.svg)
 
+Modular inverses of sums of two squares:
+
 ~~~spl png=B
 let p = 200.prime;
 { :a :b |

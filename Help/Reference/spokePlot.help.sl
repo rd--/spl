@@ -42,7 +42,7 @@ A diatonic collection:
 ![](sw/spl/Help/Image/spokePlot-B.svg)
 
 A second kind of spoke plot shows the correlation between two circular variables _x_ and _y_,
-each a sequence of values in radians.
+each a sequence of values in radians:
 
 ~~~spl svg=C
 [

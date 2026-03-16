@@ -29,7 +29,7 @@ hararyGraph(3, 8).graphPlot
 
 ![](sw/spl/Help/Image/hararyGraph-C.svg)
 
-Odd _k_ and odd _n_
+Odd _k_ and odd _n_:
 
 ~~~spl svg=D
 hararyGraph(3, 7).graphPlot

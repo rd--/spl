@@ -4,7 +4,7 @@
 
 Curve studied by Barrow in 1669 and by Quételet in 1810.
 
-Line drawing:
+Line drawing, _a=π/2_:
 
 ~~~spl svg=A
 (-0.4.pi -- 0.4.pi).discretize(
@@ -15,6 +15,8 @@ Line drawing:
 
 ![](sw/spl/Help/Image/strophoid-A.svg)
 
+Line drawing, _a=π/8_:
+
 ~~~spl svg=B
 (-0.7.pi -- 0.1.pi).discretize(
 	100,
@@ -23,6 +25,8 @@ Line drawing:
 ~~~
 
 ![](sw/spl/Help/Image/strophoid-B.svg)
+
+Line drawing, _a=2π/3_:
 
 ~~~spl svg=C
 (-0.25.pi -- 0.55.pi).discretize(

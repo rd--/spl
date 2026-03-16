@@ -314,7 +314,6 @@ OEIS [A000120](https://oeis.org/A000120):
 
 ![](sw/spl/Help/Image/hammingWeight-A.svg)
 
-
 Hamming weight of the first eight-bit integers,
 line plot,
 OEIS [A000120](https://oeis.org/A000120):
@@ -397,7 +396,7 @@ OEIS [A000203](https://oeis.org/A000203):
 ![](sw/spl/Help/Image/divisorSigma-B.svg)
 
 The sum of divisors for the first fifty numbers,
-OEIS [A000203](https://oeis.org/A000203)
+OEIS [A000203](https://oeis.org/A000203):
 
 ~~~spl
 1:50.functionPlot { :n |
@@ -492,7 +491,7 @@ OEIS [A000330](https://oeis.org/A000330):
 ![](sw/spl/Help/Image/squarePyramidalNumber-A.svg)
 
 Sum of the coefficients of the terms with an even exponent in the Stern polynomial _B(n+1,t)_,
-OEIS [A000360](https://oeis.org/A000360)
+OEIS [A000360](https://oeis.org/A000360):
 
 ~~~spl
 let a = Map { :n |
@@ -631,6 +630,26 @@ OEIS [A000594](https://oeis.org/A000594):
 ~~~
 
 ![](sw/spl/Help/Image/ramanujanTau-B.svg)
+
+Discrete plot of first few terms,
+OEIS [A000688](https://oeis.org/A000688):
+
+~~~spl
+0:50.finiteAbelianGroupCount
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/finiteAbelianGroupCount-A.svg)
+
+Scatter plot of first few terms,
+OEIS [A000688](https://oeis.org/A000688):
+
+~~~spl
+1:125.finiteAbelianGroupCount
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/finiteAbelianGroupCount-B.svg)
 
 The prime counting function _π(n)_,
 OEIS [A000720](https://oeis.org/A000720):
@@ -929,7 +948,7 @@ OEIS [A001318](https://oeis.org/A001318):
 ![](sw/spl/Help/Image/generalisedPentagonalNumbers-A.svg)
 
 Semiprime numbers,
-OEIS [A001358](https://oeis.org/A001358)
+OEIS [A001358](https://oeis.org/A001358):
 
 ~~~spl
 1:250.select(isSemiprime:/1).scatterPlot
@@ -1600,6 +1619,17 @@ OEIS [A003132](https://oeis.org/A003132):
 
 ![](sw/spl/Help/Image/integerDigits-U.svg)
 
+_n⊻(n≫1)_,
+OEIS [A003188](https://oeis.org/A003188):
+
+~~~spl
+0:115.collect { :n |
+	n.bitXor(n >> 1)
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/bitShiftRight-A.svg)
+
 Gray encoding of _n_,
 scatter plot,
 OEIS [A003188](https://oeis.org/A003188):
@@ -1822,8 +1852,17 @@ _2^l(n)_,
 
 ![](sw/spl/Help/Image/bitLength-B.svg)
 
+The tenth Fibonacci word,
+OEIS [A003849](https://oeis.org/A003849):
+
+~~~spl
+1:55.fibonacciWord.discretePlot
+~~~
+
+![](sw/spl/Help/Image/fibonacciWord-B.svg)
+
 Scatter plot of the digits of _π/4_,
-OEIS [A003881](https://oeis.org/A003881)
+OEIS [A003881](https://oeis.org/A003881):
 
 ~~~spl
 1/4.pi(104).integerDigits.scatterPlot
@@ -4207,6 +4246,17 @@ OEIS [A014491](https://oeis.org/A014491):
 
 ![](sw/spl/Help/Image/gcd-K.svg)
 
+Recurrence plot of regular paperfolding sequence,
+OEIS [A014577](https://oeis.org/A014577):
+
+~~~spl
+100.regularPaperfoldingSequence
+.recurrenceMatrix(1, 1, 'Manhattan', 0.1)
+.Bitmap
+~~~
+
+![](sw/spl/Help/Image/regularPaperfoldingSequence-B.png)
+
 The regular paperfolding sequence,
 OEIS [A014577](https://oeis.org/A014577):
 
@@ -5896,6 +5946,17 @@ OEIS [A038554](https://oeis.org/A038554):
 
 ![](sw/spl/Help/Image/bitXor-F.svg)
 
+Derivative of _n_,
+OEIS [A038554](https://oeis.org/A038554):
+
+~~~spl
+0:115.collect { :n |
+	n.grayEncode - (2 ^ n.log2.floor)
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/grayEncode-J.svg)
+
 Derivative of _n_ in base three,
 OEIS [A038555](https://oeis.org/A038555):
 
@@ -6738,6 +6799,17 @@ OEIS [A048723](https://oeis.org/A048723):
 ~~~
 
 ![](sw/spl/Help/Image/carryLessMultiplication-B.svg)
+
+_n⊻(n≪1)_,
+OEIS [A048724](https://oeis.org/A048724):
+
+~~~spl
+0:115.collect { :n |
+	n.bitXor(n << 1)
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/bitShiftLeft-B.svg)
 
 Exclusive or of _n_ and _2n_,
 reversing binary representation of _-n_,
@@ -7684,7 +7756,7 @@ OEIS [A053381](https://oeis.org/A053381):
 ![](sw/spl/Help/Image/bitAnd-H.svg)
 
 Nim-values from game of Kopper’s Nim,
-OEIS [A053398](https://oeis.org/A053398)
+OEIS [A053398](https://oeis.org/A053398):
 
 ~~~spl
 19.antidiagonalArray { :x :y |
@@ -7944,6 +8016,17 @@ a[1:115].scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/which-B.svg)
+
+The Josephus problem at _k=3_,
+OEIS [A054995](https://oeis.org/A054995):
+
+~~~spl
+1:85.collect { :n |
+	n.josephusProblem(3)
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/josephusProblem-B.svg)
 
 A version of Josephus problem,
 OEIS [A054995](https://oeis.org/A054995):
@@ -9228,7 +9311,7 @@ OEIS [A064841](https://oeis.org/A064841):
 ![](sw/spl/Help/Image/binaryExpansion-J.svg)
 
 The characteristic function of the semiprime numbers,
-OEIS [A064911](https://oeis.org/A064911)
+OEIS [A064911](https://oeis.org/A064911):
 
 ~~~spl
 1:115.collect(isSemiprime:/1)
@@ -9369,6 +9452,19 @@ let p = 1:65.primePi;
 ~~~
 
 ![](sw/spl/Help/Image/primePi-Q.svg)
+
+Alternating sum of reverse of binary expansion of _n_,
+OEIS [A065359](https://oeis.org/A065359):
+
+~~~spl
+0:100.collect { :n |
+	n.integerDigits(2)
+	.reverse
+	.alternatingSum
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/alternatingSum-D.svg)
 
 Alternating sum of reverse of negabinary expansion of _n_,
 OEIS [A065360](https://oeis.org/A065360):
@@ -9793,7 +9889,7 @@ OEIS [A070879](https://oeis.org/A070879):
 
 ![](sw/spl/Help/Image/sternsDiatomicArray-D.svg)
 
-_n|P(n)_,
+_n⊻P(n)_,
 OEIS [A070883](https://oeis.org/A070883):
 
 ~~~spl
@@ -9967,7 +10063,6 @@ OEIS [A071820](https://oeis.org/A071820):
 ~~~
 
 ![](sw/spl/Help/Image/kolakoskiSequence-E.svg)
-
 
 The sixth decimal selvage number,
 OEIS [A071873](https://oeis.org/A071873):
@@ -11112,7 +11207,7 @@ let a = n.kolakoskiSequence.prefixSum;
 ![](sw/spl/Help/Image/kolakoskiSequence-F.svg)
 
 First differences of the ones-counting sequence,
-OEIS [A088705](https://oeis.org/A088705)
+OEIS [A088705](https://oeis.org/A088705):
 
 ~~~spl
 let a = Map { :n |
@@ -11170,7 +11265,7 @@ let n = 1:250.vanDerCorputNumber(2);
 ![](sw/spl/Help/Image/vanDerCorputNumber-J.svg)
 
 Numbers having no more than one zero in their binary representation,
-OEIS [A089633](https://oeis.org/A089633)
+OEIS [A089633](https://oeis.org/A089633):
 
 ~~~spl
 0:1024.select { :n |
@@ -12020,6 +12115,21 @@ OEIS [A106108](https://oeis.org/A106108):
 
 ![](sw/spl/Help/Image/rowlandsSequence-A.svg)
 
+_a(n)/n_,
+where _a_ is Rowland’s sequence,
+OEIS [A106108](https://oeis.org/A106108),
+values are real numbers in _(2,3)_:
+
+~~~spl
+let n = 200;
+let a = 7.rowlandsSequence(n);
+(a / 1:n).
+allButFirst(2)
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/rowlandsSequence-F.svg)
+
 The _+1,-1_ form of the Thue-Morse sequence,
 OEIS [A106400](https://oeis.org/A106400):
 
@@ -12274,7 +12384,7 @@ OEIS [A114525](https://oeis.org/A114525):
 ![](sw/spl/Help/Image/lucasPolynomial-A.svg)
 
 Dispersion of the primes,
-OEIS [A114537](https://oeis.org/A114537)
+OEIS [A114537](https://oeis.org/A114537):
 
 ~~~spl
 10.antidiagonalArray { :n :k |
@@ -12414,6 +12524,21 @@ OEIS [A117967](https://oeis.org/A117967):
 ~~~
 
 ![](sw/spl/Help/Image/quotientRemainder-D.svg)
+
+Matrix plot of Reverend Back’s abbey floor,
+the table indices _i_ are given by
+OEIS [A118006](https://oeis.org/A118006):
+
+~~~spl
+let i = { :x |
+	x ++ x ++ x.reverse
+}.iterate([0 1], 2);
+{ :x :y |
+	(x + y) % 2
+}.table(i, i).matrixPlot
+~~~
+
+![](sw/spl/Help/Image/iterate-A.svg)
 
 Iterate _w⧺w⧺ᴙ(w)_,
 initially _0,1_,
@@ -12753,7 +12878,7 @@ l.scatterPlot
 ![](sw/spl/Help/Image/mod-O.svg)
 
 The Vedic square where _n=9_,
-OEIS [A125959](https://oeis.org/A125959)
+OEIS [A125959](https://oeis.org/A125959):
 
 ~~~spl
 9.vedicSquare.catenate.discretePlot
@@ -13761,7 +13886,7 @@ OEIS [A158405](https://oeis.org/A158405):
 ![](sw/spl/Help/Image/prefixes-C.svg)
 
 Numbers having at least two zeroes in their binary representation,
-OEIS [A158582](https://oeis.org/A158582)
+OEIS [A158582](https://oeis.org/A158582):
 
 ~~~spl
 0:85.select { :n |
@@ -15343,6 +15468,27 @@ OEIS [A227186](https://oeis.org/A227186):
 
 ![](sw/spl/Help/Image/asRunArray-B.svg)
 
+A graph given by an edge re-writing rule,
+the vertices are given by
+OEIS [A228853](https://oeis.org/A228853):
+
+~~~spl
+{ :t |
+	t.collect { :e |
+		let [x, y] = e;
+		[
+			[y, x + y],
+			[y, x + (2 * y)]
+		]
+	}.++
+}.nestList([[1, 2]], 6)
+.catenate
+.asGraph
+.graphPlot
+~~~
+
+![](sw/spl/Help/Image/graphPlot-F.svg)
+
 Least prime in each Rowland’s sequence,
 step plot,
 OEIS [A230504](https://oeis.org/A230504):
@@ -15696,7 +15842,7 @@ OEIS [A256184](https://oeis.org/A256184):
 ![](sw/spl/Help/Image/noergaardInfinitySequence-C.svg)
 
 The second variant of Per Nørgård’s infinity sequence,
-OEIS [A256185](https://oeis.org/A256185):S
+OEIS [A256185](https://oeis.org/A256185):
 
 ~~~spl
 250.noergaardInfinitySequence(2)
@@ -16409,7 +16555,6 @@ OEIS [A287639](https://oeis.org/A287639):
 
 ![](sw/spl/Help/Image/hammingWeight-K.svg)
 
-
 Lexicographically earliest sequence of distinct positive terms
 such that for consecutive terms _w(i+j)≥10_,
 further terms,
@@ -16639,7 +16784,7 @@ OEIS [A301573](https://oeis.org/A301573):
 ![](sw/spl/Help/Image/isPerfectPower-A.svg)
 
 The ordinal transform of the ordinal transform of _φ(n)_,
-OEIS [A303777](https://oeis.org/A303777),
+OEIS [A303777](https://oeis.org/A303777):
 
 ~~~spl
 1:85.eulerPhi
@@ -17186,6 +17331,28 @@ t.catenate.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/occurrencesOf-B.svg)
+
+Numbers whose binary expansion generates rotationally symmetric _xor_-triangles,
+OEIS [A334556](https://oeis.org/A334556):
+
+~~~spl
+OeisEntry('A334556').then { :e |
+	e.data.discretePlot
+}
+~~~
+
+![](sw/spl/Help/Image/xorTriangle-D.svg)
+
+Numbers whose binary expansion generate rotationally symmetrical _xor_-triangles that have central triangles of zeros,
+OEIS [A334769](https://oeis.org/A334769):
+
+~~~spl
+OeisEntry('A334769').then { :e |
+	e.data.discretePlot
+}
+~~~
+
+![](sw/spl/Help/Image/xorTriangle-E.svg)
 
 Minimal common prime of two Goldbach partitions of _2n_ and _2(n+1)_,
 or zero if no common prime exists,
@@ -17787,7 +17954,7 @@ OEIS [A361020](https://oeis.org/A361020):
 
 ![](sw/spl/Help/Image/binaryExpansion-D.svg)
 
-Plot _a(n)%4=3_,
+_a(n)%4=3_,
 where _a_ is the delayed divison of the Cloitre sequence,
 OEIS [A361463](https://oeis.org/A361463):
 
@@ -17798,6 +17965,19 @@ let a = c.adjacentPairsCollect(/.swap) - 1;
 ~~~
 
 ![](sw/spl/Help/Image/rowlandsSequence-I.svg)
+
+`gcd` of the Cloitre sequence and offset indices,
+OEIS [A361470](https://oeis.org/A361470):
+
+~~~spl
+let k = 100;
+1L.rowlandsSequence(k - 1, lcm:/2)
+.gcd(2:k)
+.log
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/rowlandsSequence-H.svg)
 
 A variant of a sequence by David James Sycamore,
 OEIS [A361511](https://oeis.org/A361511):

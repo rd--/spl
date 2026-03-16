@@ -93,7 +93,7 @@ Plot a stacked book graph:
 ![](sw/spl/Help/Image/graphProduct-G.svg)
 
 Plot a four-crown graph,
-which is the cubical graph
+which is the cubical graph:
 
 ~~~spl svg=H
 2.completeGraph

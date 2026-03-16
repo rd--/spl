@@ -4,7 +4,7 @@
 
 Iterate over all of the `HelpProgram` values in the system.
 
-Print the help programs where the commentary mentions the OEIS,
+Print help programs where the commentary mentions the OEIS,
 but the annotations do not:
 
 ~~~spl console
@@ -25,7 +25,7 @@ system.helpProgramsDo { :p |
 nil
 ~~~
 
-Print the help programs where the annotations mentions the OEIS,
+Print help programs where the annotations mentions the OEIS,
 and the commentary begins with 'Plot':
 
 ~~~spl console
@@ -46,7 +46,7 @@ system.helpProgramsDo { :p |
 nil
 ~~~
 
-Print the help programs where commentary does not end with a colon:
+Print help programs where the commentary does not end with a colon:
 
 ~~~spl console
 system.helpProgramsDo { :p |

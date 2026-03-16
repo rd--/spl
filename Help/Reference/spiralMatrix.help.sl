@@ -68,7 +68,7 @@ m.transpose.isPrime.boole.matrixPlot
 
 ![](sw/spl/Help/Image/spiralMatrix-A.svg)
 
-Less small Ulam spiral
+Less small Ulam spiral:
 
 ~~~spl png=B
 let k = 300;

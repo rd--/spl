@@ -6,7 +6,7 @@ Evaluate the block _f_ at each `HelpFile`,
 of kind _k_,
 where the `pathBasename` matches the regular expression _r_.
 
-Print the reference help files with an empty guides field:
+Print reference help files with an empty guides field:
 
 ~~~spl console
 system.helpFilesDo(
