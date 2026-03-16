@@ -152,7 +152,6 @@ Guide/Numerical Methods.help.sl
 Guide/Numerical Precision.help.sl
 Guide/Numeric Types.help.sl
 Guide/One Indexing.help.sl
-Guide/On Integer Sequences.help.sl
 Guide/Open Sound Control.help.sl
 Guide/Operator Adverbs.help.sl
 Guide/Operator List.help.sl
@@ -1150,6 +1149,7 @@ Reference/deLongchampsPoint.help.sl
 Reference/DemandEnvGen.help.sl
 Reference/Demand.help.sl
 Reference/denominator.help.sl
+Reference/denseScatterPlot.help.sl
 Reference/densityHistogramPlot.help.sl
 Reference/densityPlot.help.sl
 Reference/depth.help.sl
@@ -1741,13 +1741,14 @@ Reference/HelpFile.help.sl
 Reference/helpFileName.help.sl
 Reference/helpFilesDo.help.sl
 Reference/helpFragment.help.sl
-Reference/helpImageDictionary.help.sl
+Reference/helpFragmentPreprocessor.help.sl
 Reference/helpImageIndex.help.sl
-Reference/helpImageTable.help.sl
+Reference/helpImageProgramDictionary.help.sl
+Reference/helpImageProgramTable.help.sl
 Reference/helpIndex.help.sl
 Reference/HelpIndex.help.sl
-Reference/helpPreprocessor.help.sl
 Reference/HelpProgram.help.sl
+Reference/helpProgramsDo.help.sl
 Reference/HelpViewer.help.sl
 Reference/henonAreaPreservingMap.help.sl
 Reference/HenonC.help.sl

@@ -1,12 +1,12 @@
-# helpImageDictionary
+# helpImageProgramDictionary
 
-- _helpImageDictionary(system)_
+- _helpImageProgramDictionary(system)_
 
 Answer a `Record` where the keys are help file topics,
 and the values are lists of `HelpProgram` values.
 
 ```
->>> let d = system.helpImageDictionary;
+>>> let d = system.helpImageProgramDictionary;
 >>> (
 >>> 	d.size,
 >>> 	d.typeOf,
@@ -19,6 +19,6 @@ and the values are lists of `HelpProgram` values.
 
 * * *
 
-See also: helpImageIndex, helpImageTable, HelpProgram
+See also: helpImageIndex, helpImageProgramTable, HelpProgram
 
 Guides: Help Files

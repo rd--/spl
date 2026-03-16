@@ -14,6 +14,6 @@ Answer the help image index in markdown format.
 
 * * *
 
-See also: helpImageDictionary, helpImageTable
+See also: helpImageProgramDictionary, helpImageProgramTable
 
 Guides: Help Image Index

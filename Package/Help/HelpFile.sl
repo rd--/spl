@@ -210,6 +210,10 @@ HelpFile : [Object, Equatable, Cache] { | origin source cache |
 		}
 	}
 
+	oeisHelpPrograms { :self |
+		self.helpPrograms.select(isOeisProgram:/1)
+	}
+
 	oeisReferences { :self |
 		self.lines
 		.collect { :s |
@@ -426,8 +430,8 @@ HelpFile : [Object, Equatable, Cache] { | origin source cache |
 		}
 	}
 
-	helpImageDictionary { :self |
-		self.cached('helpImageDictionary') {
+	helpImageProgramDictionary { :self |
+		self.cached('helpImageProgramDictionary') {
 			self.helpIndex.names('Reference').collect { :n |
 				let c = self.readHelpFile(n).imageHelpPrograms;
 				c.ifEmpty {
@@ -439,9 +443,9 @@ HelpFile : [Object, Equatable, Cache] { | origin source cache |
 		}
 	}
 
-	helpImageTable { :self |
-		self.cached('helpImageTable') {
-			self.helpImageDictionary.keysAndEachValue
+	helpImageProgramTable { :self |
+		self.cached('helpImageProgramTable') {
+			self.helpImageProgramDictionary.keysAndEachValue
 		}
 	}
 
@@ -449,7 +453,7 @@ HelpFile : [Object, Equatable, Cache] { | origin source cache |
 		[
 			'# Help Image Index',
 			''
-		] ++ self.helpImageDictionary.keysAndValuesCollect { :n :e |
+		] ++ self.helpImageProgramDictionary.keysAndValuesCollect { :n :e |
 			[
 				'- `%`'.format([n])
 			] ++ e.withIndexCollect { :p :i |
@@ -471,6 +475,16 @@ HelpFile : [Object, Equatable, Cache] { | origin source cache |
 		) { :helpFile |
 			helpFile.helpPrograms.do(aBlock:/1)
 		}
+	}
+
+	helpProgramsSelect { :self :aBlock:/1 |
+		let answer = [];
+		self.helpProgramsDo { :each |
+			aBlock(each).ifTrue {
+				answer.add(each)
+			}
+		};
+		answer
 	}
 
 	readHelpFile { :self :topic |

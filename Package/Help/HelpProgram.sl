@@ -38,6 +38,10 @@ HelpProgram : [Object] { | topic language commentary annotations programText |
 		}
 	}
 
+	isOeisProgram { :self |
+		self.annotations.includesKey('oeis')
+	}
+
 }
 
 +String {
