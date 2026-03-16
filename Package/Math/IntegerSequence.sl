@@ -1003,7 +1003,7 @@
 	}
 
 	sternBrocotNumber { :self |
-		let f = { :n |
+		let f:/1 = { :n |
 			(n < 2).if {
 				n
 			} {
@@ -1014,7 +1014,7 @@
 					f(m) + f(m + 1)
 				}
 			}
-		};
+		}.memoize(true);
 		f(self)
 	}
 

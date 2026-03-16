@@ -19,6 +19,7 @@ Plotting Functions:
 - `conformalPlot`
 - `contourPlot`
 - `correspondancePlot`
+- `denseScatterPlot`
 - `densityPlot`
 - `densityHistogramPlot`
 - `discretePlot`

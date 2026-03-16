@@ -4,7 +4,7 @@
 
 Answers the `zero` matrix of the specified shape (_m×n_).
 
-A 2×2 matrix:
+A square 2×2 matrix:
 
 ```
 >>> [2 2].zeroMatrix
@@ -14,7 +14,7 @@ A 2×2 matrix:
 ]
 ```
 
-A 2×3 matrix:
+A rectangular 2×3 matrix:
 
 ```
 >>> [2 3].zeroMatrix
@@ -24,7 +24,7 @@ A 2×3 matrix:
 ]
 ```
 
-A 3×2 matrix:
+A rectangular 3×2 matrix:
 
 ```
 >>> [3 2].zeroMatrix

@@ -105,7 +105,7 @@ OEIS [A086088](https://oeis.org/A086088):
 
 * * *
 
-See also: discretePlot, functionPlot, graphPlot, linePlot, matrixPlot, parametricPlot, runSequencePlot, surfacePlot
+See also: denseScatterPlot, discretePlot, functionPlot, graphPlot, linePlot, matrixPlot, parametricPlot, runSequencePlot, surfacePlot
 
 Guides: Plotting Functions
 

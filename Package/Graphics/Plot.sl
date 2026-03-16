@@ -1371,3 +1371,46 @@ Plot : [Object] { | pages format options |
 	}
 
 }
+
++List{
+
+	denseScatterPlot { :self :shape |
+		let [w, h] = shape;
+		let [x, y] = [
+			{ self.isVector } -> {
+				[
+					[1 .. self.size],
+					self
+				]
+			},
+			{ self.isMatrix } -> {
+				self.transpose
+			},
+			{ true } -> {
+				self.error('denseScatterPlot: not vector or matrix')
+			}
+		].which;
+		let k = x.size;
+		let m = [h, w].zeroMatrix;
+		let [xMin, xMax] = x.minMax;
+		let xRange = xMax - xMin;
+		let xScalar = (w - 1) / xRange;
+		let [yMin, yMax] = y.minMax;
+		let yRange = yMax - yMin;
+		let yScalar = (h - 1) / yRange;
+		/*[xMin,xMax,xRange,xScalar,yMin,yMax,yRange,yScalar].postLine;*/
+		1:k.do { :i |
+			let r = ((y[i] - yMin) * yScalar).round;
+			let c = ((x[i] - xMin) * xScalar).round;
+			/*[i, y[i], r, x[i], c].postLine;*/
+			m[h - r][c + 1] := 1
+		};
+		m.Bitmap
+	}
+
+	denseScatterPlot { :self |
+		self.denseScatterPlot([250 155])
+	}
+
+}
+
