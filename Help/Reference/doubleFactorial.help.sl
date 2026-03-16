@@ -130,7 +130,7 @@ Plot the ratio of doubled factorials over double factorial:
 
 ~~~spl svg=B
 (-0.25 -- 2).functionPlot { :n |
-	n.factorial.factorial
+	n.!.!
 	/
 	n.doubleFactorial
 }

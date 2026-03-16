@@ -230,7 +230,7 @@ OEIS [A000788](https://oeis.org/A000788):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/prefixSum-H.svg)
+![](sw/spl/Help/Image/prefixSum-I.svg)
 
 * * *
 

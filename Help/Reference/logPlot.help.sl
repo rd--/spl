@@ -23,7 +23,7 @@ Plot several functions:
 	[
 		{ :x | x ^ x },
 		{ :x | x.exp },
-		{ :x | x.factorial }
+		{ :x | x.! }
 	]
 )
 ~~~

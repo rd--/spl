@@ -222,16 +222,14 @@ let a = [1];
 2:200.do { :n |
 	let m = n - 1;
 	a.add(
-		m.select { :d |
+		1:m.select { :d |
 			(n - 2) % d = 0
 		}.sum { :d |
 			a[d]
 		}.negate
 	)
 };
-a
-
-.logScale.scatterPlot
+a.logScale.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/sum-A.svg)

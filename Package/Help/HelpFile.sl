@@ -47,8 +47,8 @@ HelpFile : [Object, Equatable, Cache] { | origin source cache |
 			'Help/Image/%-%.%'.format(
 				[
 					self.originName,
-					codeBlock.codeBlockImageType,
-					codeBlock.codeBlockImageIdentifier
+					codeBlock.codeBlockImageIdentifier,
+					codeBlock.codeBlockImageType
 				]
 			)
 		)
@@ -91,6 +91,12 @@ HelpFile : [Object, Equatable, Cache] { | origin source cache |
 				['origin' 'source'],
 				aBlock:/2
 			)
+		}
+	}
+
+	evaluateDefinitionCodeBlocks { :self |
+		self.codeBlocksWithKey('define').do { :each |
+			system.evaluate(each['contents'])
 		}
 	}
 
@@ -303,9 +309,7 @@ HelpFile : [Object, Equatable, Cache] { | origin source cache |
 		let errorCount = 0;
 		(self.documentationTests.size > 0).ifTrue {
 			let verbose = options['verbose'];
-			self.definitionCodeBlocks.do { :each |
-				system.evaluate(each['contents'])
-			};
+			self.evaluateDefinitionCodeBlocks;
 			self.documentationTests.do { :each |
 				testCount := testCount + 1;
 				verbose.ifTrue {
@@ -344,16 +348,23 @@ HelpFile : [Object, Equatable, Cache] { | origin source cache |
 		verbose.ifTrue {
 			['writeImageFiles', self.name].postLine
 		};
-		self.definitionCodeBlocks.do { :each |
-			system.evaluate(each['contents'])
-		};
+		self.writePngImageFiles;
+		self.writeSvgImageFiles
+	}
+
+	writePngImageFiles { :self |
+		self.evaluateDefinitionCodeBlocks;
 		self.codeBlocksWithKey('png').do { :each |
-			let fileName = self.codeBlockImageFileName(each, 'png');
+			let fileName = self.codeBlockImageFileName(each);
 			fileName.postLine;
 			system.evaluate(each['contents']).writePng(fileName)
-		};
+		}
+	}
+
+	writeSvgImageFiles { :self |
+		self.evaluateDefinitionCodeBlocks;
 		self.codeBlocksWithKey('svg').do { :each |
-			let fileName = self.codeBlockImageFileName(each, 'svg');
+			let fileName = self.codeBlockImageFileName(each);
 			fileName.postLine;
 			system.evaluate(each['contents']).drawing.writeSvg(fileName)
 		}
