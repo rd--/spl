@@ -10,6 +10,9 @@ Find the file extension of a string:
 ```
 >>> 'file.text'.pathExtension
 '.text'
+
+>>> 'file.text'.pathStem
+'file'
 ```
 
 With directory components:
@@ -31,6 +34,16 @@ If there is a trailing dot with no extension answers the trailing dot:
 ```
 >>> '/p/q/r.'.pathExtension
 '.'
+```
+
+The extension is only the part following the final dot:
+
+```
+>>> 'plus.help.sl'.pathExtension
+'.sl'
+
+>>> 'plus.help.sl'.pathStem
+'plus.help'
 ```
 
 * * *

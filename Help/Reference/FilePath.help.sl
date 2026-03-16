@@ -4,10 +4,29 @@
 
 A `Type` holding a file system path.
 
+Access components using
+`absolutePathString`,
+`directory`,
+`basename`,
+`stem`,
+`extension`:
+
 ```
->>> FilePath('/etc/fstab')
->>> .absolutePathString
-'/etc/fstab'
+>>> let p = FilePath('/etc/cron.d');
+>>> [
+>>> 	p.absolutePathString,
+>>> 	p.directory,
+>>> 	p.basename,
+>>> 	p.stem,
+>>> 	p.extension
+>>> ]
+[
+	'/etc/cron.d'
+	'/etc'
+	'cron.d'
+	'cron'
+	'.d'
+]
 ```
 
 Convert to a `Url`:
@@ -16,6 +35,14 @@ Convert to a `Url`:
 >>> FilePath('/etc/fstab')
 >>> .asUrl
 Url('file:///etc/fstab')
+```
+
+Replace extension:
+
+```
+>>> FilePath('plus.help.sl')
+>>> .replaceExtension('.sl', '.md')
+FilePath('plus.help.md')
 ```
 
 * * *

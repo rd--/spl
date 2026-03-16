@@ -8,8 +8,20 @@ FilePath : [Object, Storeable, Equatable] { | contents |
 		self.contents.asFileUrl
 	}
 
+	basename { :self |
+		self.contents.pathBasename
+	}
+
+	directory { :self |
+		self.contents.pathDirectory
+	}
+
 	directoryExists { :self |
 		system.directoryExists(self.contents)
+	}
+
+	extension { :self |
+		self.contents.pathExtension
 	}
 
 	fileExists { :self |
@@ -46,6 +58,18 @@ FilePath : [Object, Storeable, Equatable] { | contents |
 
 	removeFile { :self |
 		system.removeFile(self.contents)
+	}
+
+	replaceExtension { :self :existing :replacement |
+		FilePath(
+			self.contents.stringReplace(
+				existing -> replacement
+			)
+		)
+	}
+
+	stem { :self |
+		self.contents.pathStem
 	}
 
 	writeBinaryFile { :self :data |
@@ -90,6 +114,10 @@ FilePath : [Object, Storeable, Equatable] { | contents |
 
 	pathNormalize { :self |
 		<primitive: return sc.pathNormalize(_self);>
+	}
+
+	pathStem { :self |
+		<primitive: return sc.pathStem(_self);>
 	}
 
 	splFilePath { :self |

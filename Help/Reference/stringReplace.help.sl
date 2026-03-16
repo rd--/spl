@@ -82,6 +82,14 @@ Remove whitespace from a string:
 '123456789'
 ```
 
+Replace a file name extension:
+
+```
+>>> 'plus.help.sl'
+>>> .stringReplace('.sl' -> '.md')
+'plus.help.md'
+```
+
 * * *
 
 See also: replaceMultipleStrings, replaceStringAll, stringDelete

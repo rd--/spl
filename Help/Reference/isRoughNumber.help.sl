@@ -106,7 +106,6 @@ OEIS [A236189](https://oeis.org/A236189):
 1:650.select { :each |
 	each.isRoughNumber(19)
 }.differences
-
 .scatterPlot
 ~~~
 

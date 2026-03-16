@@ -511,28 +511,45 @@ HelpFile : [Object, Equatable, Cache] { | origin source cache |
 		]
 	}
 
-	helpPreprocessor { :topic |
-		let inputFilePath = topic.helpFileName('.pre').splFilePath;
-		let outputFilePath = topic.helpFileName('.sl').splFilePath;
-		let inputText = inputFilePath.readTextFile;
-		let outputText = inputText.lines.collect { :line |
+	helpFragmentPreprocessor { :inputText |
+		inputText.lines.collect { :line |
 			line.beginsWith('<<<').if {
-				let [a, b] = line.drop(3).splitBy(',');
-				let [p, c] = helpFragment(a, 'svg', b, [-1, 1]);
+				let [a, b, c] = line.drop(3).splitBy(',');
+				let [d, e] = helpFragment(a, b, c, [-1, 1]);
 				[
-					p[1],
+					d[1],
 					'',
 					'~~~',
-					c.withoutTrailingBlanks,
+					e.withoutTrailingBlanks,
 					'~~~',
 					'',
-					p[2]
+					d[2]
 				].unlines
 			} {
 				line
 			}
-		}.unlines;
+		}.unlines
+	}
+
+	helpFilePreprocessor { :topic |
+		let inputFilePath = topic.helpFileName('.pre').splFilePath;
+		inputFilePath.helpFragmentPreprocessor
+	}
+
+}
+
++FilePath {
+
+	helpFragmentPreprocessor { :inputFilePath :outputFilePath |
+		let inputText = inputFilePath.readTextFile;
+		let outputText = inputText.helpFragmentPreprocessor;
 		outputFilePath.writeTextFile(outputText)
+	}
+
+	helpFragmentPreprocessor { :inputFilePath |
+		let inputText = inputFilePath.readTextFile;
+		let outputFilePath = inputFilePath.replaceExtension('.pre', '.sl');
+		inputFilePath.helpFragmentPreprocessor(outputFilePath)
 	}
 
 }
