@@ -31,7 +31,7 @@ At matrix:
 
 Resample sequence:
 
-~~~svg=A
+~~~spl svg=A
 (1 -- 4).discretize(16).collect { :each |
 	[1 2 4 7].atBlend(each)
 }.discretePlot

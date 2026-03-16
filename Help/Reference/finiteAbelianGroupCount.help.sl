@@ -21,7 +21,7 @@ OEIS [A000688](https://oeis.org/A000688):
 Discrete plot of first few terms,
 OEIS [A000688](https://oeis.org/A000688):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A000688
 0:50.finiteAbelianGroupCount
 .discretePlot
 ~~~
@@ -31,7 +31,7 @@ OEIS [A000688](https://oeis.org/A000688):
 Scatter plot of first few terms,
 OEIS [A000688](https://oeis.org/A000688):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A000688
 1:125.finiteAbelianGroupCount
 .scatterPlot
 ~~~

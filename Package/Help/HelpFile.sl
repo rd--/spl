@@ -135,8 +135,27 @@ HelpFile : [Object, Equatable, Cache] { | origin source cache |
 		self.unicode.isNotEmpty
 	}
 
+	helpPrograms { :self |
+		let paragraphs = self.paragraphs;
+		let topic = self.originName;
+		let language = 'spl';
+		paragraphs.detectIndices { :each |
+			each.beginsWith('~~~spl')
+		}.collect { :i |
+			let commentary = paragraphs[i - 1];
+			let codeBlock = paragraphs[i].lines;
+			let annotations = codeBlock[1].allButFirst(6).parseUnquotedAttributeList;
+			let programText = codeBlock.allButFirstAndLast.unlines;
+			HelpProgram(topic, language, commentary, annotations, programText)
+		}
+	}
+
 	imageCodeBlocks { :self |
 		self.codeBlocks.select(codeBlockIsImage:/1)
+	}
+
+	imageHelpPrograms { :self |
+		self.helpPrograms.select(isImageProgram:/1)
 	}
 
 	isGuideFile { :self |
@@ -209,21 +228,6 @@ HelpFile : [Object, Equatable, Cache] { | origin source cache |
 	paragraphs { :self |
 		self.cached('paragraphs') {
 			self.source.paragraphs
-		}
-	}
-
-	programs { :self |
-		let paragraphs = self.paragraphs;
-		let topic = self.originName;
-		let language = 'spl';
-		paragraphs.detectIndices { :each |
-			each.beginsWith('~~~spl')
-		}.collect { :i |
-			let commentary = paragraphs[i - 1];
-			let codeBlock = paragraphs[i].lines;
-			let annotations = codeBlock[1].allButFirst(6).parseUnquotedAttributeList;
-			let programText = codeBlock.allButFirstAndLast.unlines;
-			HelpProgram(topic, language, commentary, annotations, programText)
 		}
 	}
 
@@ -414,7 +418,7 @@ HelpFile : [Object, Equatable, Cache] { | origin source cache |
 	helpImageDictionary { :self |
 		self.cached('helpImageDictionary') {
 			self.helpIndex.names('Reference').collect { :n |
-				let c = self.readHelpFile(n).imageCodeBlocks;
+				let c = self.readHelpFile(n).imageHelpPrograms;
 				c.ifEmpty {
 					nil
 				} {
@@ -437,15 +441,13 @@ HelpFile : [Object, Equatable, Cache] { | origin source cache |
 		] ++ self.helpImageDictionary.keysAndValuesCollect { :n :e |
 			[
 				'- `%`'.format([n])
-			] ++ e.withIndexCollect { :c :i |
+			] ++ e.withIndexCollect { :p :i |
 				[n, e.size, i].postLine;
-				'  %. ![](sw/spl/Help/Image/%-%.%)'
+				'  %. ![](sw/spl/Help/Image/%)'
 				.format(
 					[
 						i,
-						n,
-						c.codeBlockImageIdentifier,
-						c.codeBlockImageType
+						p.imageFileName
 					]
 				)
 			}

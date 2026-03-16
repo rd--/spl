@@ -26,7 +26,7 @@ system.helpFilesDo(
 	'Reference', '.*', false
 ) { :helpFile |
 	helpFile
-	.programs.do { :helpProgram |
+	.helpPrograms.do { :helpProgram |
 		helpProgram
 		.commentary
 		.includesSubstring('oeis.org').ifTrue {
@@ -51,7 +51,7 @@ system.helpFilesDo(
 	'Reference', '.*', false
 ) { :helpFile |
 	helpFile
-	.programs.do { :helpProgram |
+	.helpPrograms.do { :helpProgram |
 		helpProgram
 		.annotations
 		.includesKey('oeis').ifTrue {

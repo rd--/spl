@@ -6,7 +6,7 @@ A trochoid is the locus of a point at a distance _b_ from the center of a circle
 
 Where _a=b_, a cycloid:
 
-~~~svg=A
+~~~spl svg=A
 (0 -- 4.pi).functionPlot(
 	trochoid(1, 1)
 )
@@ -16,7 +16,7 @@ Where _a=b_, a cycloid:
 
 Where _b<a_, a curtate cycloid:
 
-~~~svg=B
+~~~spl svg=B
 (0 -- 4.pi).functionPlot(
 	trochoid(1, 0.25)
 )
@@ -26,7 +26,7 @@ Where _b<a_, a curtate cycloid:
 
 Where _b>a_, a prolate cycloid:
 
-~~~svg=C
+~~~spl svg=C
 (0 -- 4.pi).functionPlot(
 	trochoid(1, 1.25)
 )

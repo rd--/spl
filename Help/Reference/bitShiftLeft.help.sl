@@ -67,7 +67,7 @@ At `SmallFloat` the integers are taken to be 32-bit signed integers:
 [4 8 16 64]
 ```
 
-The operator form is `<<`:
+The operator form is `<<`, written ≪:
 
 ```
 >>> 32 << 7
@@ -123,6 +123,17 @@ let x = List(n, 0);
 
 ![](sw/spl/Help/Image/bitShiftLeft-A.svg)
 
+_n⊻(n≪1)_,
+OEIS [A048724](https://oeis.org/A048724):
+
+~~~spl svg=B oeis=A048724
+0:115.collect { :n |
+	n.bitXor(n << 1)
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/bitShiftLeft-B.svg)
+
 * * *
 
 See also: <<, bitShift, bitShiftRight
@@ -136,5 +147,7 @@ _OEIS_
 [1](https://oeis.org/A001317),
 _Tc39_
 [1](https://tc39.es/ecma262/multipage/ecmascript-language-expressions.html#sec-left-shift-operator)
+
+Unicode: U+226A ≪ Much Less-Than
 
 Categories: Bits, Binary

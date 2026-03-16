@@ -61,7 +61,7 @@ OEIS [A061479](https://oeis.org/A061479):
 Alternating sum of reverse of binary expansion of _n_,
 OEIS [A065359](https://oeis.org/A065359):
 
-~~~spl svg=D
+~~~spl svg=D oeis=A065359
 0:100.collect { :n |
 	n.integerDigits(2)
 	.reverse

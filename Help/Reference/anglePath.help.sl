@@ -40,7 +40,7 @@ With unit step sizes:
 
 With specified step sizes:
 
-~~~ spl svg=D
+~~~spl svg=D
 (1.pi / [2 3 -4]).anglePath(
 	[0.7 2.3 3.5],
 	[0 0]

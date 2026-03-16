@@ -162,7 +162,7 @@ OEIS [A006257](https://oeis.org/A006257):
 The Josephus problem at _k=3_,
 OEIS [A054995](https://oeis.org/A054995):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A054995
 1:85.collect { :n |
 	n.josephusProblem(3)
 }.discretePlot

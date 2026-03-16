@@ -195,7 +195,7 @@ Matrix plot of Reverend Back’s abbey floor,
 the table indices _i_ are given by
 OEIS [A118006](https://oeis.org/A118006):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A118006
 let i = { :x |
 	x ++ x ++ x.reverse
 }.iterate([0 1], 2);

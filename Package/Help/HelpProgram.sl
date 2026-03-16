@@ -28,7 +28,7 @@ HelpProgram : [Object] { | topic language commentary annotations programText |
 		}
 	}
 
-	isImageProgram { :codeBlock |
+	isImageProgram { :self |
 		['png' 'svg'].anySatisfy { :each |
 			self.annotations.includesKey(each)
 		}

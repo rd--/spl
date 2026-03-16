@@ -19,7 +19,7 @@ let r = c.collect { :each |
 Plot the first few terms at equal radii,
 the angles exhibit the equidistribution property:
 
-~~~pl svg=B
+~~~spl svg=B
 150.theodorusSpiral
 .collect(normalize:/1)
 .PointCloud

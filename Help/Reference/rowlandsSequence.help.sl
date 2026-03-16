@@ -253,7 +253,7 @@ where _a_ is Rowland’s sequence,
 OEIS [A106108](https://oeis.org/A106108),
 values are real numbers in _(2,3)_:
 
-~~~spl svg=F
+~~~spl svg=F oeis=A106108
 let n = 200;
 let a = 7.rowlandsSequence(n);
 (a / 1:n).
@@ -277,7 +277,7 @@ OEIS [A135506](https://oeis.org/A135506):
 `gcd` of the Cloitre sequence and offset indices,
 OEIS [A361470](https://oeis.org/A361470):
 
-~~~spl svg=H
+~~~spl svg=H oeis=A361470
 let k = 100;
 1L.rowlandsSequence(k - 1, lcm:/2)
 .gcd(2:k)
@@ -287,7 +287,7 @@ let k = 100;
 
 ![](sw/spl/Help/Image/rowlandsSequence-H.svg)
 
-Plot _a(n)%4=3_,
+_a(n)%4=3_,
 where _a_ is the delayed divison of the Cloitre sequence,
 OEIS [A361463](https://oeis.org/A361463):
 

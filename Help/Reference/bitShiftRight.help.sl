@@ -80,7 +80,18 @@ OEIS [A001511](https://oeis.org/A001511):
 ]
 ```
 
-The operator form is `>>`.
+_n⊻(n≫1)_,
+OEIS [A003188](https://oeis.org/A003188):
+
+~~~spl svg=A oeis=A003188
+0:115.collect { :n |
+	n.bitXor(n >> 1)
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/bitShiftRight-A.svg)
+
+The operator form is `>>`, written ≫.
 
 * * *
 

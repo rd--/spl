@@ -124,7 +124,7 @@ Recurrence plot of Fibonacci word:
 The tenth Fibonacci word,
 OEIS [A003849](https://oeis.org/A003849):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A003849
 1:55.fibonacciWord.discretePlot
 ~~~
 

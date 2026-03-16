@@ -12,7 +12,7 @@ and the values are code block records.
 >>> let t = system.helpImageTable;
 >>> ['svg' 'png' 'oeis' 'set'].collect { :k |
 >>> 	t.count { :e |
->>> 		e[2].at('attributes')
+>>> 		e[2].annotations
 >>> 		.includesKey(k)
 >>> 	}
 >>> }

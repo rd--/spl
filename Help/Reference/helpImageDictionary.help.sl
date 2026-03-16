@@ -3,7 +3,7 @@
 - _helpImageDictionary(system)_
 
 Answer a `Record` where the keys are help file topics,
-and the values are lists of code block records.
+and the values are lists of `HelpProgram` values.
 
 ```
 >>> let d = system.helpImageDictionary;
@@ -14,11 +14,11 @@ and the values are lists of code block records.
 >>> 	d['abs'].elementType,
 >>> 	d['abs'].size
 >>> )
-(1414, 'Record', 'List', 'Record', 5)
+(1414, 'Record', 'List', 'HelpProgram', 5)
 ```
 
 * * *
 
-See also: helpImageIndex, helpImageTable
+See also: helpImageIndex, helpImageTable, HelpProgram
 
 Guides: Help Files

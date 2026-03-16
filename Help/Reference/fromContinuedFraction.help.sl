@@ -125,7 +125,9 @@ Trott’s constant:
 
 The continued fraction expansion whose terms are the first-order differences of exponents in the binary representation of _4n_,
 all of the rationals are uniquely represented by this sequence,
-OEIS [A071585](https://oeis.org/A071585) / [A071766](https://oeis.org/A071766):
+OEIS [A071585](https://oeis.org/A071585)
+/
+OEIS [A071766](https://oeis.org/A071766):
 
 ~~~spl svg=A
 1:100.collect { :n |

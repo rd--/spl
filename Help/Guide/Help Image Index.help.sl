@@ -580,6 +580,9 @@
   2. ![](sw/spl/Help/Image/bitReversalPermutation-B.svg)
 - `bitShiftLeft`
   1. ![](sw/spl/Help/Image/bitShiftLeft-A.svg)
+  2. ![](sw/spl/Help/Image/bitShiftLeft-B.svg)
+- `bitShiftRight`
+  1. ![](sw/spl/Help/Image/bitShiftRight-A.svg)
 - `bitXor`
   1. ![](sw/spl/Help/Image/bitXor-A.svg)
   2. ![](sw/spl/Help/Image/bitXor-B.png)
@@ -1241,6 +1244,7 @@
   1. ![](sw/spl/Help/Image/dequanLiEquation-A.svg)
 - `detect`
   1. ![](sw/spl/Help/Image/detect-A.svg)
+  2. ![](sw/spl/Help/Image/detect-B.svg)
 - `dft`
   1. ![](sw/spl/Help/Image/dft-A.svg)
 - `diamondMatrix`
@@ -1526,8 +1530,8 @@
   3. ![](sw/spl/Help/Image/ekgSequence-C.svg)
   4. ![](sw/spl/Help/Image/ekgSequence-D.svg)
   5. ![](sw/spl/Help/Image/ekgSequence-E.svg)
-  6. ![](sw/spl/Help/Image/ekgSequence-E.svg)
-  7. ![](sw/spl/Help/Image/ekgSequence-F.svg)
+  6. ![](sw/spl/Help/Image/ekgSequence-F.svg)
+  7. ![](sw/spl/Help/Image/ekgSequence-G.svg)
 - `elementaryCellularAutomaton`
   1. ![](sw/spl/Help/Image/elementaryCellularAutomaton-A.png)
   2. ![](sw/spl/Help/Image/elementaryCellularAutomaton-B.png)
@@ -1748,6 +1752,7 @@
   9. ![](sw/spl/Help/Image/fareySequence-I.svg)
   10. ![](sw/spl/Help/Image/fareySequence-J.svg)
   11. ![](sw/spl/Help/Image/fareySequence-K.svg)
+  12. ![](sw/spl/Help/Image/fareySequence-L.svg)
 - `farOutPoint`
   1. ![](sw/spl/Help/Image/farOutPoint-A.svg)
 - `faurePermutation`
@@ -1930,6 +1935,7 @@
   4. ![](sw/spl/Help/Image/fromDigits-D.svg)
   5. ![](sw/spl/Help/Image/fromDigits-E.svg)
   6. ![](sw/spl/Help/Image/fromDigits-F.svg)
+  7. ![](sw/spl/Help/Image/fromDigits-G.svg)
 - `fromHexagonalCoordinates`
   1. ![](sw/spl/Help/Image/fromHexagonalCoordinates-A.svg)
   2. ![](sw/spl/Help/Image/fromHexagonalCoordinates-B.svg)
@@ -2222,6 +2228,7 @@
   7. ![](sw/spl/Help/Image/grayEncode-G.svg)
   8. ![](sw/spl/Help/Image/grayEncode-H.svg)
   9. ![](sw/spl/Help/Image/grayEncode-I.svg)
+  10. ![](sw/spl/Help/Image/grayEncode-J.svg)
 - `greatestPrimeFactor`
   1. ![](sw/spl/Help/Image/greatestPrimeFactor-A.svg)
   2. ![](sw/spl/Help/Image/greatestPrimeFactor-B.svg)
@@ -2544,6 +2551,7 @@
   15. ![](sw/spl/Help/Image/integerExponent-O.svg)
   16. ![](sw/spl/Help/Image/integerExponent-P.svg)
   17. ![](sw/spl/Help/Image/integerExponent-Q.svg)
+  18. ![](sw/spl/Help/Image/integerExponent-R.svg)
 - `integerLength`
   1. ![](sw/spl/Help/Image/integerLength-A.svg)
   2. ![](sw/spl/Help/Image/integerLength-B.svg)
@@ -3586,6 +3594,7 @@
   23. ![](sw/spl/Help/Image/nimMultiplication-W.svg)
   24. ![](sw/spl/Help/Image/nimMultiplication-X.svg)
   25. ![](sw/spl/Help/Image/nimMultiplication-Y.svg)
+  26. ![](sw/spl/Help/Image/nimMultiplication-Z.svg)
 - `ninePointCenter`
   1. ![](sw/spl/Help/Image/ninePointCenter-A.svg)
 - `ninePointCircle`
@@ -3847,6 +3856,8 @@
   3. ![](sw/spl/Help/Image/pendulumEquation-C.svg)
 - `pentadentriteCurve`
   1. ![](sw/spl/Help/Image/pentadentriteCurve-A.svg)
+- `pentagonalNumber`
+  1. ![](sw/spl/Help/Image/pentagonalNumber-A.svg)
 - `pentagram`
   1. ![](sw/spl/Help/Image/pentagram-A.svg)
 - `perfectDigitalInvariantSequence`
@@ -5503,6 +5514,7 @@
   7. ![](sw/spl/Help/Image/vanDerCorputNumber-G.svg)
   8. ![](sw/spl/Help/Image/vanDerCorputNumber-H.svg)
   9. ![](sw/spl/Help/Image/vanDerCorputNumber-I.svg)
+  10. ![](sw/spl/Help/Image/vanDerCorputNumber-J.svg)
 - `vanDerCorputsConstant`
   1. ![](sw/spl/Help/Image/vanDerCorputsConstant-A.svg)
 - `vanDerLaanSequence`
@@ -5668,6 +5680,8 @@
   1. ![](sw/spl/Help/Image/xorTriangle-A.svg)
   2. ![](sw/spl/Help/Image/xorTriangle-B.svg)
   3. ![](sw/spl/Help/Image/xorTriangle-C.svg)
+  4. ![](sw/spl/Help/Image/xorTriangle-D.svg)
+  5. ![](sw/spl/Help/Image/xorTriangle-E.svg)
 - `yellowstonePermutation`
   1. ![](sw/spl/Help/Image/yellowstonePermutation-A.svg)
 - `zeckendorfRepresentation`

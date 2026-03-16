@@ -69,7 +69,7 @@ let i = 300.regularPaperfoldingSequence;
 Recurrence plot of regular paperfolding sequence,
 OEIS [A014577](https://oeis.org/A014577):
 
-~~~spl png=B
+~~~spl png=B oeis=A014577
 100.regularPaperfoldingSequence
 .recurrenceMatrix(1, 1, 'Manhattan', 0.1)
 .Bitmap

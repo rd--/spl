@@ -242,6 +242,17 @@ OEIS [A197819](https://oeis.org/A197819):
 
 ![](sw/spl/Help/Image/grayEncode-I.svg)
 
+Derivative of _n_,
+OEIS [A038554](https://oeis.org/A038554):
+
+~~~spl svg=J oeis=A038554
+0:115.collect { :n |
+	n.grayEncode - (2 ^ n.log2.floor)
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/grayEncode-J.svg)
+
 * * *
 
 See also: Binary, binaryReflectedGrayCode, bitShiftRight, bitXor, deBruijnSequence, grayDecode, isGrayCode, shiftRegisterSequence

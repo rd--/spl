@@ -461,7 +461,7 @@ OEIS [A048728](https://oeis.org/A048728):
 
 ![](sw/spl/Help/Image/bitXor-V.svg)
 
-_n|P(n)_,
+_n⊻P(n)_,
 OEIS [A070883](https://oeis.org/A070883):
 
 ~~~spl svg=W oeis=A070883
@@ -494,4 +494,4 @@ _W_
 [1](https://en.wikipedia.org/wiki/Exclusive_or)
 [2](https://en.wikipedia.org/wiki/Bitwise_XOR)
 
-Unicode: U+2295 ⊕ Circled Plus
+Unicode: U+22BB ⊻ Xor; U+2295 ⊕ Circled Plus
