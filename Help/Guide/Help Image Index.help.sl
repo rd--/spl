@@ -1230,6 +1230,10 @@
 - `denominator`
   1. ![](sw/spl/Help/Image/denominator-A.svg)
   2. ![](sw/spl/Help/Image/denominator-B.svg)
+- `denseScatterPlot`
+  1. ![](sw/spl/Help/Image/denseScatterPlot-A.png)
+  2. ![](sw/spl/Help/Image/denseScatterPlot-B.png)
+  3. ![](sw/spl/Help/Image/denseScatterPlot-C.png)
 - `densityHistogramPlot`
   1. ![](sw/spl/Help/Image/densityHistogramPlot-A.svg)
   2. ![](sw/spl/Help/Image/densityHistogramPlot-B.svg)
@@ -5242,6 +5246,11 @@
 - `tentMap`
   1. ![](sw/spl/Help/Image/tentMap-A.svg)
   2. ![](sw/spl/Help/Image/tentMap-B.svg)
+- `ternaryExpansion`
+  1. ![](sw/spl/Help/Image/ternaryExpansion-A.svg)
+  2. ![](sw/spl/Help/Image/ternaryExpansion-B.svg)
+  3. ![](sw/spl/Help/Image/ternaryExpansion-C.svg)
+  4. ![](sw/spl/Help/Image/ternaryExpansion-D.svg)
 - `tetrahedralNumber`
   1. ![](sw/spl/Help/Image/tetrahedralNumber-A.svg)
   2. ![](sw/spl/Help/Image/tetrahedralNumber-B.svg)

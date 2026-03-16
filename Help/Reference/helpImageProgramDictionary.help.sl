@@ -14,7 +14,7 @@ and the values are lists of `HelpProgram` values.
 >>> 	d['abs'].elementType,
 >>> 	d['abs'].size
 >>> )
-(1415, 'Record', 'List', 'HelpProgram', 5)
+(1417, 'Record', 'List', 'HelpProgram', 5)
 ```
 
 * * *
