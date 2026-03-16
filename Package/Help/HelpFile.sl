@@ -454,6 +454,14 @@ HelpFile : [Object, Equatable, Cache] { | origin source cache |
 		}.values.catenate
 	}
 
+	helpProgramsDo { :self :aBlock:/1 |
+		self.helpFilesDo(
+			'Reference', '.*', false
+		) { :helpFile |
+			helpFile.helpPrograms.do(aBlock:/1)
+		}
+	}
+
 	readHelpFile { :self :topic |
 		let fileName = self.splFileName(
 			topic.helpFileName

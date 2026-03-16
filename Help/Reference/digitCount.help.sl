@@ -301,7 +301,7 @@ OEIS [A046645](https://oeis.org/A046645):
 ![](sw/spl/Help/Image/digitCount-I.svg)
 
 Numbers having no more than one zero in their binary representation,
-OEIS [A089633](https://oeis.org/A089633)
+OEIS [A089633](https://oeis.org/A089633):
 
 ~~~spl svg=J oeis=A089633
 0:1024.select { :n |
@@ -312,7 +312,7 @@ OEIS [A089633](https://oeis.org/A089633)
 ![](sw/spl/Help/Image/digitCount-J.svg)
 
 Numbers having at least two zeroes in their binary representation,
-OEIS [A158582](https://oeis.org/A158582)
+OEIS [A158582](https://oeis.org/A158582):
 
 ~~~spl svg=K oeis=A158582
 0:85.select { :n |

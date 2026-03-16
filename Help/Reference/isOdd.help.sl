@@ -158,7 +158,7 @@ let a:/1 = { :n |
 ![](sw/spl/Help/Image/isOdd-C.svg)
 
 Sum of the coefficients of the terms with an even exponent in the Stern polynomial _B(n+1,t)_,
-OEIS [A000360](https://oeis.org/A000360)
+OEIS [A000360](https://oeis.org/A000360):
 
 ~~~spl svg=D oeis=A000360
 let a = Map { :n |

@@ -26,6 +26,8 @@ The `type` of a `BinaryLargeObject` is the _mime type_ of the resource,
 if known,
 else the empty string.
 
+Interpret a byte vector as text, the `type` is not known:
+
 ~~~spl async
 [65 .. 69]
 .asByteArray

@@ -114,7 +114,7 @@ OEIS [A003986](https://oeis.org/A003986):
 ![](sw/spl/Help/Image/bitOr-F.svg)
 
 Nim-values from game of Kopper’s Nim,
-OEIS [A053398](https://oeis.org/A053398)
+OEIS [A053398](https://oeis.org/A053398):
 
 ~~~spl svg=G oeis=A053398
 19.antidiagonalArray { :x :y |

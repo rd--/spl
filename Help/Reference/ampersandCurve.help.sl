@@ -4,6 +4,9 @@
 
 Implements a discontinuous paramteric equation for the ampersand curve.
 
+Draw the ampersand curve over _0,2π_ as a set of points,
+deleting missing values:
+
 ~~~spl svg=A
 (0 -- 2.pi)
 .discretize(200, ampersandCurve:/1)

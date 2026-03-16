@@ -88,7 +88,7 @@ OEIS [A081373](https://oeis.org/A081373):
 ![](sw/spl/Help/Image/ordinalTransform-A.svg)
 
 The ordinal transform of the ordinal transform of _φ(n)_,
-OEIS [A303777](https://oeis.org/A303777),
+OEIS [A303777](https://oeis.org/A303777):
 
 ~~~spl svg=B oeis=A303777
 1:85.eulerPhi

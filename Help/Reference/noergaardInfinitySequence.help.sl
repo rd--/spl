@@ -140,7 +140,7 @@ true
 ```
 
 The second variant of Per Nørgård’s infinity sequence,
-OEIS [A256185](https://oeis.org/A256185):S
+OEIS [A256185](https://oeis.org/A256185):
 
 ~~~spl svg=D oeis=A256185 signed
 250.noergaardInfinitySequence(2)

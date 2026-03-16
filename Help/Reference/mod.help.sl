@@ -567,7 +567,7 @@ let a = { :n |
 ![](sw/spl/Help/Image/mod-K.svg)
 
 First differences of the ones-counting sequence,
-OEIS [A088705](https://oeis.org/A088705)
+OEIS [A088705](https://oeis.org/A088705):
 
 ~~~spl svg=L oeis=A088705 signed
 let a = Map { :n |

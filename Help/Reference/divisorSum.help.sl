@@ -15,7 +15,7 @@ Find the sum of the divisors of thirty, c.f. `divisorSigma`:
 ```
 
 The sum of divisors for the first fifty numbers,
-OEIS [A000203](https://oeis.org/A000203)
+OEIS [A000203](https://oeis.org/A000203):
 
 ~~~spl svg=A oeis=A000203
 1:50.functionPlot { :n |

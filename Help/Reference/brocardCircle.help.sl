@@ -4,6 +4,8 @@
 
 Answer the brocard circle of the triangle _t_.
 
+Draw the brocard circle and associated points and centers:
+
 ~~~spl svg=A
 let t = [5 4.5 6].sssTriangle;
 [

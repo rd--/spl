@@ -5,7 +5,7 @@
 Predicate to decide if _n_ is a semiprime number.
 
 The first few semiprime numbers,
-OEIS [A001358](https://oeis.org/A001358)
+OEIS [A001358](https://oeis.org/A001358):
 
 ```
 >>> 1:100.select(isSemiprime:/1)
@@ -34,7 +34,7 @@ OEIS [A006881](https://oeis.org/A006881):
 ```
 
 Semiprime numbers,
-OEIS [A001358](https://oeis.org/A001358)
+OEIS [A001358](https://oeis.org/A001358):
 
 ~~~spl svg=A oeis=A001358
 1:250.select(isSemiprime:/1).scatterPlot
@@ -43,7 +43,7 @@ OEIS [A001358](https://oeis.org/A001358)
 ![](sw/spl/Help/Image/isSemiprime-A.svg)
 
 The characteristic function of the semiprime numbers,
-OEIS [A064911](https://oeis.org/A064911)
+OEIS [A064911](https://oeis.org/A064911):
 
 ~~~spl svg=B oeis=A064911 set=0,1
 1:115.collect(isSemiprime:/1)

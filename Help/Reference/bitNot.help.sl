@@ -78,7 +78,7 @@ As `not` of `boole`:
 ]
 ```
 
-Make a shifted version of the _Rule 45_ cellular automaton,
+Make a shifted version of the _Rule 45_ cellular automaton:
 
 ~~~spl svg=A
 { :n |

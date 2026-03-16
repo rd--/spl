@@ -59,7 +59,7 @@ OEIS [A005171](https://oeis.org/A005171):
 ![](sw/spl/Help/Image/nonPrime-A.svg)
 
 Dispersion of the primes,
-OEIS [A114537](https://oeis.org/A114537)
+OEIS [A114537](https://oeis.org/A114537):
 
 ~~~spl svg=B oeis=A114537
 10.antidiagonalArray { :n :k |

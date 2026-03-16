@@ -1,8 +1,10 @@
 # addEventListener
 
-- _addEventListener(anEventTarget, aString, aBlock:/1)_
+- _addEventListener(x, e, :/1)_
 
-Request that _aBlock_ be evaluated whenever the event specified by _aString_ is delivered to the _anEventTarget_.
+Request that the unary block _f_ be evaluated whenever the event specified by the string _e_ is delivered to the event target _x_.
+
+Listen for mouse movement events at the system window:
 
 ~~~spl ui
 system
