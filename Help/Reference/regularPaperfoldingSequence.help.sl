@@ -80,7 +80,7 @@ OEIS [A014577](https://oeis.org/A014577):
 The regular paperfolding sequence,
 OEIS [A014577](https://oeis.org/A014577):
 
-~~~spl svg=C oeis=A014577 set=0,1
+~~~spl svg=C oeis=A014577
 85.regularPaperfoldingSequence
 .discretePlot
 ~~~
@@ -90,7 +90,7 @@ OEIS [A014577](https://oeis.org/A014577):
 First differences of the regular paperfolding sequence,
 OEIS [A343173](https://oeis.org/A343173):
 
-~~~spl svg=D oeis=A343173 set=-1,0,1
+~~~spl svg=D oeis=A343173
 115.regularPaperfoldingSequence
 .differences
 .discretePlot

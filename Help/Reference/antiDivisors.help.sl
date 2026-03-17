@@ -86,7 +86,7 @@ let a = 1:50.antiDivisors;
 Anti-divisor class sums of _n_,
 OEIS [A066518](https://oeis.org/A066518):
 
-~~~spl svg=D oeis=A066518 signed
+~~~spl svg=D oeis=A066518
 1:100
 .collect(antiDivisorsClassSum:/1)
 .discretePlot

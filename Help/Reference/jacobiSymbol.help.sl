@@ -186,7 +186,7 @@ OEIS [A063988](https://oeis.org/A063988):
 Legendre symbol _(n,17)_,
 OEIS [A011584](https://oeis.org/A011584):
 
-~~~spl svg=D oeis=A011584 set=-1,0,1
+~~~spl svg=D oeis=A011584
 0:85.jacobiSymbol(17).discretePlot
 ~~~
 
@@ -195,7 +195,7 @@ OEIS [A011584](https://oeis.org/A011584):
 Legendre symbol _(n,29)_,
 OEIS [A011587](https://oeis.org/A011587):
 
-~~~spl svg=E oeis=A011587 set=-1,0,1
+~~~spl svg=E oeis=A011587
 0:85.jacobiSymbol(29).discretePlot
 ~~~
 

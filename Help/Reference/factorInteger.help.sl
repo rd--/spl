@@ -400,7 +400,7 @@ OEIS [A117484](https://oeis.org/A117484):
 Dirichlet inverse of the gcd-sum function,
 OEIS [A101035](https://oeis.org/A101035):
 
-~~~spl svg=K oeis=A101035 signed
+~~~spl svg=K oeis=A101035
 2:72.collect { :n |
 	n.factorInteger.collect { :f |
 		let [p, e] = f;
@@ -443,7 +443,7 @@ Characteristic function for
 numbers not divisible by _p^p_ for any prime _p_,
 OEIS [A359550](https://oeis.org/A359550):
 
-~~~spl svg=N oeis=A359550 set=0,1
+~~~spl svg=N oeis=A359550
 2:85.collect { :n |
 	n.factorInteger.collect { :f |
 		f[1] > f[2]

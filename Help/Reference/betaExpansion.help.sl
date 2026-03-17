@@ -216,7 +216,7 @@ let phi = 1.goldenRatio;
 Number of ones in the base-φ representation of _n_ modulo two,
 OEIS [A330037](https://oeis.org/A330037):
 
-~~~spl svg=C oeis=A330037 set=0,1
+~~~spl svg=C oeis=A330037
 let phi = 1.goldenRatio;
 let c = 2:125.collect { :n |
 	let e = n.betaExpansion(phi, 32);
@@ -269,7 +269,7 @@ OEIS [A104605](https://oeis.org/A104605):
 List of powers of φ in the representation of _n_,
 OEIS [A104605](https://oeis.org/A104605):
 
-~~~spl svg=D oeis=A104605 signed
+~~~spl svg=D oeis=A104605
 let phi = 1.goldenRatio;
 2:27.collect { :n |
 	let e = n.betaExpansion(phi, 32);

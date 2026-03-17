@@ -50,7 +50,7 @@ OEIS [A114537](https://oeis.org/A114537)
 Characteristic function of nonprimes,
 OEIS [A005171](https://oeis.org/A005171):
 
-~~~spl svg=A oeis=A005171 set=0,1
+~~~spl svg=A oeis=A005171
 1:75.collect { :n |
 	n.isPrime.not.boole
 }.discretePlot

@@ -98,7 +98,7 @@ OEIS [A039941](https://oeis.org/A039941):
 _a(2n)=2a(n)_ and _a(2n+1)=-2a(n)+1),
 OEIS [A065620](https://oeis.org/A065620):
 
-~~~spl svg=A oeis=A065620 signed
+~~~spl svg=A oeis=A065620
 let a = { :n |
 	(n = 0).if {
 		0

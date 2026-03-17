@@ -133,7 +133,7 @@ Ceiling is a staircase function:
 Canonical enumeration of integers,
 OEIS [A001057](https://oeis.org/A001057):
 
-~~~spl svg=B oeis=A001057 signed
+~~~spl svg=B oeis=A001057
 0:99.collect { :n |
 	(-1 ^n) * (n / 2).ceiling
 }.discretePlot

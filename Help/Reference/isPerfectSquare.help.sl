@@ -57,7 +57,7 @@ let f = { :n |
 The characteristic function of the square numbers,
 OEIS [A010052](https://oeis.org/A010052):
 
-~~~spl svg=B oeis=A010052 set=0,1
+~~~spl svg=B oeis=A010052
 0:81.collect(isPerfectSquare:/1)
 .boole
 .discretePlot
@@ -88,7 +88,7 @@ OEIS [A071176](https://oeis.org/A071176):
 The least integer, absolutely, not yet in the sequence such that the _|a(n-1)-a(n)|_ is a square,
 OEIS [A377091](https://oeis.org/A377091):
 
-~~~spl svg=D oeis=A377091 signed
+~~~spl svg=D oeis=A377091
 let m = 85;
 let s = IdentitySet([0]);
 { :x |

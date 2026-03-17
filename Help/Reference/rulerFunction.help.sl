@@ -29,7 +29,7 @@ OEIS [A001511](https://oeis.org/A001511):
 First differences of the ruler function,
 OEIS [A094267](https://oeis.org/A094267):
 
-~~~spl svg=B oeis=A094267 signed
+~~~spl svg=B oeis=A094267
 1:85.collect(rulerFunction:/1)
 .differences
 .discretePlot

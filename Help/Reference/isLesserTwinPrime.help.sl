@@ -134,7 +134,7 @@ let a = 3:1607.select(
 List of twin primes modulo four,
 OEIS [A122567](https://oeis.org/A122567):
 
-~~~spl svg=C oeis=A122567 set=1,3
+~~~spl svg=C oeis=A122567
 let a = 3:1019.select(
 	isLesserTwinPrime:/1
 );

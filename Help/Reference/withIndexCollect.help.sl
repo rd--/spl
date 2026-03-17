@@ -48,7 +48,7 @@ An equivalent expression using `withCollect`:
 Take odd digits of _n_ with negative sign,
 OEIS [A121758](https://oeis.org/A121758):
 
-~~~spl svg=A oeis=A121758 signed
+~~~spl svg=A oeis=A121758
 1:69.collect { :n |
 	n.integerDigits
 	.reverse
@@ -63,7 +63,7 @@ OEIS [A121758](https://oeis.org/A121758):
 Take even digits of _n_ with negative sign,
 OEIS [A121759](https://oeis.org/A121759):
 
-~~~spl svg=B oeis=A121759 signed
+~~~spl svg=B oeis=A121759
 1:69.collect { :n |
 	n.integerDigits
 	.reverse

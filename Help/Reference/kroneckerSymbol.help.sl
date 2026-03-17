@@ -222,7 +222,7 @@ From Euler’s pentagonal theorem,
 also number of different partitions of _n_ into parts of -1 different kinds,
 OEIS [A010815](https://oeis.org/A010815):
 
-~~~spl svg=D oeis=A010815 set=-1,0,1
+~~~spl svg=D oeis=A010815
 0:200.collect { :n |
 	let m = (24 * n + 1).sqrt;
 	m.isInteger.if {
@@ -330,7 +330,7 @@ Kronecker symbol where _m=2_,
 period eight,
 OEIS [A091337](https://oeis.org/A091337):
 
-~~~spl svg=I oeis=A091337 set=-1,0,1
+~~~spl svg=I oeis=A091337
 0:99.collect { :n |
 	n.kroneckerSymbol(2)
 }.discretePlot
@@ -355,7 +355,7 @@ Kronecker symbol _-1,n_,
 the regular paperfolding sequence,
 OEIS [A034947](https://oeis.org/A034947):
 
-~~~spl svg=K oeis=A034947 set=-1,1
+~~~spl svg=K oeis=A034947
 1:85.collect { :n |
 	-1.kroneckerSymbol(n)
 }.discretePlot

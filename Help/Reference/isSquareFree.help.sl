@@ -136,7 +136,7 @@ OEIS [A071888](https://oeis.org/A071888):
 First differences of sequence of nonsquarefree numbers,
 OEIS [A078147](https://oeis.org/A078147):
 
-~~~spl svg=D oeis=A078147 set=1-4
+~~~spl svg=D oeis=A078147
 1:150.reject(isSquareFree:/1)
 .differences.discretePlot
 ~~~
@@ -146,7 +146,7 @@ OEIS [A078147](https://oeis.org/A078147):
 Second differences of sequence of nonsquarefree numbers,
 OEIS [A376593](https://oeis.org/A376593):
 
-~~~spl svg=E oeis=A376593 signed
+~~~spl svg=E oeis=A376593
 1:150.reject(isSquareFree:/1)
 .differences(2).discretePlot
 ~~~
@@ -156,7 +156,7 @@ OEIS [A376593](https://oeis.org/A376593):
 The characteristic function of square free numbers,
 OEIS [A008966](https://oeis.org/A008966):
 
-~~~spl svg=F oeis=A008966 set=0,1
+~~~spl svg=F oeis=A008966
 1:115.collect(
 	isSquareFree:/1
 ).boole.discretePlot

@@ -353,7 +353,7 @@ OEIS [A059481](https://oeis.org/A059481):
 The triangle given by recursion _T(n,k)=T(n-1,k)-T(n,k-1)_,
 OEIS [A096470](https://oeis.org/A096470):
 
-~~~spl svg=A oeis=A096470 signed
+~~~spl svg=A oeis=A096470
 let f = { :n :k |
 	(k = 0 | { n = k }).if {
 		1
@@ -507,7 +507,7 @@ let t = { :n :k |
 _i=j_,
 OEIS [A023531](https://oeis.org/A023531):
 
-~~~spl svg=K oeis=A023531 set=0,1
+~~~spl svg=K oeis=A023531
 0:11.triangularArray(=)
 .catenate.boole.discretePlot
 ~~~
@@ -517,7 +517,7 @@ OEIS [A023531](https://oeis.org/A023531):
 Triangle where _(n,n)=n_, _(n,n-1)=-(n-1)_ else zero,
 OEIS [A128064](https://oeis.org/A128064):
 
-~~~spl svg=L oeis=A128064 signed
+~~~spl svg=L oeis=A128064
 1:10.triangularArray { :i :j |
 	(i = j).if {
 		i

@@ -78,7 +78,7 @@ OEIS [A247453](https://oeis.org/A247453):
 Inverse boustrophedon transform,
 OEIS [A247453](https://oeis.org/A247453):
 
-~~~spl svg=A oeis=A247453 signed
+~~~spl svg=A oeis=A247453
 0:13.triangularArray { :n :k |
 	n.binomial(k)
 	*

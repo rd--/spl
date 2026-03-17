@@ -167,7 +167,7 @@ OEIS [A072203](https://oeis.org/A072203):
 Parity of _Ω(n)_,
 OEIS [A066829](https://oeis.org/A066829):
 
-~~~spl svg=D oeis=A066829 set=0,1
+~~~spl svg=D oeis=A066829
 1:65.primeOmega
 .collect(isOdd:/1)
 .boole
@@ -179,7 +179,7 @@ OEIS [A066829](https://oeis.org/A066829):
 Is _n_ an odd number with an even number of prime factors,
 OEIS [A353557](https://oeis.org/A353557):
 
-~~~spl svg=E oeis=A353557 set=0,1
+~~~spl svg=E oeis=A353557
 1:121.collect { :n |
 	n.isOdd & {
 		n.primeOmega.isEven
@@ -192,7 +192,7 @@ OEIS [A353557](https://oeis.org/A353557):
 Characteristic function of `one` and primes,
 OEIS [A080339](https://oeis.org/A080339):
 
-~~~spl svg=F oeis=A080339 set=0,1
+~~~spl svg=F oeis=A080339
 1:100.collect { :n |
 	n.primeOmega < 2
 }.boole.discretePlot

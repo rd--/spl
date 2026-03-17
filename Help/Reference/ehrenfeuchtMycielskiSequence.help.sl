@@ -23,7 +23,7 @@ OEIS [A038219](https://oeis.org/A038219):
 The Ehrenfeucht-Mycielski sequence,
 OEIS [A038219](https://oeis.org/A038219):
 
-~~~spl svg=A oeis=A038219 set=0,1
+~~~spl svg=A oeis=A038219
 105.ehrenfeuchtMycielskiSequence
 .discretePlot
 ~~~

@@ -291,7 +291,7 @@ _a(n)%4=3_,
 where _a_ is the delayed divison of the Cloitre sequence,
 OEIS [A361463](https://oeis.org/A361463):
 
-~~~spl svg=I oeis=A361463 set=0,1
+~~~spl svg=I oeis=A361463
 let c = 1L.rowlandsSequence(200, lcm:/2);
 let a = c.adjacentPairsCollect(/.swap) - 1;
 ((a % 4) =.each 3).boole.discretePlot

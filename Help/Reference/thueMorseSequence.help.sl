@@ -88,7 +88,7 @@ OEIS [A029883](https://oeis.org/A029883):
 First differences of the Thue–Morse sequence,
 OEIS [A029883](https://oeis.org/A029883):
 
-~~~spl svg=B oeis=A029883 set=-1,0,1
+~~~spl svg=B oeis=A029883
 99.thueMorseSequence
 .differences
 .discretePlot
@@ -118,7 +118,7 @@ OEIS [A115384](https://oeis.org/A115384):
 The _+1,-1_ form of the Thue-Morse sequence,
 OEIS [A106400](https://oeis.org/A106400):
 
-~~~spl svg=E oeis=A106400 set=-1,1
+~~~spl svg=E oeis=A106400
 let a = 102.thueMorseSequence;
 ((1 - a) * 2 - 1).discretePlot
 ~~~

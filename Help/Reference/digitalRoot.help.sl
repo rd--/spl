@@ -79,7 +79,7 @@ Array read by antidiagonals,
 places are the digital root of _n×k_,
 OEIS [A353109](https://oeis.org/A353109):
 
-~~~spl svg=C oeis=A353109 set=0-9
+~~~spl svg=C oeis=A353109
 0:21.antidiagonalArray { :n :k |
 	(n * k).digitalRoot(10)
 }.catenate.scatterPlot

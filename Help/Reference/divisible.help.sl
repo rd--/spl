@@ -289,7 +289,7 @@ OEIS [A113552](https://oeis.org/A113552):
 One if _k_ divides _n_ else zero,
 OEIS [A051731](https://oeis.org/A051731):
 
-~~~spl svg=J oeis=A051731 set=0,1
+~~~spl svg=J oeis=A051731
 1:17.triangularArray { :n :k |
 	n.divisible(k).boole
 }.catenate.discretePlot
@@ -301,7 +301,7 @@ Irregular triangle read by rows in which column _k_ lists ones interleaved with 
 and the first element of column _k_ is in row _k(k+1)/2_,
 OEIS [A237048](https://oeis.org/A237048):
 
-~~~spl svg=K oeis=A237048 set=0,1
+~~~spl svg=K oeis=A237048
 1:24.collect { :n |
 	let m = n.inverseTriangularNumber;
 	1:m.collect { :k |

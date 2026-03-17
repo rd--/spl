@@ -60,7 +60,7 @@ read by falling antidiagonals,
 entries are Thue-Morse sequence at _k%2^(n+1)_,
 OEIS [A104894](https://oeis.org/A104894):
 
-~~~spl svg=A oeis=A104894 set=0,1
+~~~spl svg=A oeis=A104894
 0:15.antidiagonalArray { :n :k |
 	(k % (2 ^ (n + 1)))
 	.thueMorse

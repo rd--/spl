@@ -569,7 +569,7 @@ let a = { :n |
 First differences of the ones-counting sequence,
 OEIS [A088705](https://oeis.org/A088705):
 
-~~~spl svg=L oeis=A088705 signed
+~~~spl svg=L oeis=A088705
 let a = Map { :n |
 	(n < 1).if {
 		0

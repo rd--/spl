@@ -133,7 +133,7 @@ OEIS [A132792](https://oeis.org/A132792):
 Riordan array _(1+x,1)_ read by rows,
 OEIS [A097806](https://oeis.org/A097806):
 
-~~~spl svg=D oeis=A097806 set=0,1
+~~~spl svg=D oeis=A097806
 1:13.collect { :n |
 	[1 1].padLeft([n], 0)
 }.catenate.discretePlot

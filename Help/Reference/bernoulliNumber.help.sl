@@ -112,7 +112,7 @@ Numerators of Bernoulli numbers,
 `log` scale plot,
 OEIS [A027641](https://oeis.org/A027641):
 
-~~~spl svg=B oeis=A027641 signed
+~~~spl svg=B oeis=A027641
 0:50.bernoulliNumber
 .numerator
 .logScale

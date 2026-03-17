@@ -135,7 +135,7 @@ The Gauss map over a subset of the complexes:
 Renyi’s beta expansion of 1 in base 3/2,
 OEIS [A058840](https://oeis.org/A058840):
 
-~~~spl svg=D oeis=A058840 set=0,1
+~~~spl svg=D oeis=A058840
 let r = 3/2;
 let x = 1;
 let y = 2:104.collect { :n |

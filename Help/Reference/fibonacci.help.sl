@@ -582,7 +582,7 @@ OEIS [A105995](https://oeis.org/A105995):
 Characteristic function of Fibonacci numbers,
 OEIS [A010056](https://oeis.org/A010056):
 
-~~~spl svg=N oeis=A010056 set=0,1
+~~~spl svg=N oeis=A010056
 let a = 1:12.fibonacci;
 let k = a.max;
 1:k.collect { :n |

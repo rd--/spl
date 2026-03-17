@@ -245,7 +245,7 @@ OEIS [A048985](https://oeis.org/A048985):
 Working in base two replace _n_ with the concatenation of its prime divisors in increasing order,
 OEIS [A064841](https://oeis.org/A064841):
 
-~~~spl svg=J oeis=A064841 set=0,1
+~~~spl svg=J oeis=A064841
 1:25.collect { :n |
 	n.primeFactors
 	.binaryExpansion
@@ -258,7 +258,7 @@ OEIS [A064841](https://oeis.org/A064841):
 The difference between the number of zeroes and ones in the base-two representation _n_,
 OEIS [A037861](https://oeis.org/A037861):
 
-~~~spl svg=K oeis=A037861 signed
+~~~spl svg=K oeis=A037861
 0:95.collect { :n |
 	let b = n.binaryExpansion;
 	let k = b.size;
@@ -287,7 +287,7 @@ OEIS [A309983](https://oeis.org/A309983):
 _2^n_ zeroes followed by _2^n_ ones,
 OEIS [A079944](https://oeis.org/A079944):
 
-~~~spl svg=M oeis=A079944 set=0,1
+~~~spl svg=M oeis=A079944
 0:65.collect { :n |
 	(n + 2).binaryExpansion.second
 }.discretePlot

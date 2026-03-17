@@ -124,7 +124,7 @@ The characteristic function of the triangular numbers,
 one if _n_ is a triangular number otherwise zero,
 OEIS [A010054](https://oeis.org/A010054):
 
-~~~spl svg=B oeis=A010054 set=0,1
+~~~spl svg=B oeis=A010054
 0:200.collect { :n |
 	1.squaresR(8 * n + 1) / 2
 }.discretePlot

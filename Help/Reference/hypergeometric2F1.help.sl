@@ -132,7 +132,7 @@ OEIS [A104219](https://oeis.org/A104219):
 _₂F₁(-2k,2k-2n;1;-1)_,
 OEIS [A184879](https://oeis.org/A184879):
 
-~~~spl svg=D oeis=A184879 signed
+~~~spl svg=D oeis=A184879
 0:10.triangularArray { :n :k |
 	hypergeometric2F1(
 		-2 * k, (2 * k) - (2 * n), 1, -1

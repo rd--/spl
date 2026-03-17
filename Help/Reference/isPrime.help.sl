@@ -370,7 +370,7 @@ a.scatterPlot
 Characteristic function of prime numbers,
 OEIS [A010051](https://oeis.org/A010051):
 
-~~~spl svg=E oeis=A010051 set=0,1
+~~~spl svg=E oeis=A010051
 1:100.isPrime.boole.discretePlot
 ~~~
 
@@ -421,7 +421,7 @@ OEIS [A002374](https://oeis.org/A002374):
 Characteristic function of primes multiplied by _n_,
 OEIS [A061397](https://oeis.org/A061397):
 
-~~~spl svg=H oeis=A061397 set=0,1
+~~~spl svg=H oeis=A061397
 1:99.collect { :n |
 	n * n.isPrime.boole
 }.discretePlot
@@ -444,7 +444,7 @@ Triangle where row _n_ is `one` if _n_ is prime,
 `zero` otherwise,
 OEIS [A143536](https://oeis.org/A143536):
 
-~~~spl svg=J oeis=A143536 set=0,1
+~~~spl svg=J oeis=A143536
 1:13.triangularArray { :n :k |
 	n.isPrime.boole
 }.catenate.discretePlot
@@ -456,7 +456,7 @@ Triangle where row _n_ is `one` if _n_ is prime,
 `zero` otherwise,
 OEIS [A143536](https://oeis.org/A143536):
 
-~~~spl svg=K oeis=A143536 set=0,1
+~~~spl svg=K oeis=A143536
 1:13.triangularArray { :n :k |
 	n.isPrime.boole
 }.triangularArrayPlot

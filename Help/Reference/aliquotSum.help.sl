@@ -92,7 +92,7 @@ OEIS [A034091](https://oeis.org/A034091):
 First differences of aliquot sums,
 OEIS [A053246](https://oeis.org/A053246):
 
-~~~spl svg=D oeis=A053246 signed
+~~~spl svg=D oeis=A053246
 2:115.aliquotSum.differences
 .discretePlot
 ~~~
@@ -102,7 +102,7 @@ OEIS [A053246](https://oeis.org/A053246):
 Second differences of aliquot sums,
 OEIS [A053246](https://oeis.org/A053246):
 
-~~~spl svg=E oeis=A053246 signed
+~~~spl svg=E oeis=A053246
 1:115.aliquotSum.differences(2)
 .discretePlot
 ~~~

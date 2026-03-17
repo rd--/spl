@@ -52,7 +52,7 @@ OEIS [A046099](https://oeis.org/A046099):
 Characteristic function of cube-free numbers,
 OEIS [A212793](https://oeis.org/A212793):
 
-~~~spl svg=C oeis=A212793 set=0,1
+~~~spl svg=C oeis=A212793
 1:85.collect(isCubeFree:/1).boole
 .discretePlot
 ~~~

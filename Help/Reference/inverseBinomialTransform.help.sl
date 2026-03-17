@@ -82,7 +82,7 @@ OEIS [A061084](https://oeis.org/A061084):
 The signed Fibonacci numbers,
 OEIS [A039834](https://oeis.org/A039834):
 
-~~~spl svg=A oeis=A039834 signed
+~~~spl svg=A oeis=A039834
 1:65.fibonacci
 .inverseBinomialTransform
 .logScale
@@ -94,7 +94,7 @@ OEIS [A039834](https://oeis.org/A039834):
 The inverse binomial transform of the prime numbers,
 OEIS [A007442](https://oeis.org/A007442):
 
-~~~spl svg=B oeis=A007442 signed
+~~~spl svg=B oeis=A007442
 1:65.prime
 .inverseBinomialTransform
 .logScale
@@ -106,7 +106,7 @@ OEIS [A007442](https://oeis.org/A007442):
 The inverse binomial transform of the rabbit sequence,
 OEIS [A124841](https://oeis.org/A124841):
 
-~~~spl svg=C oeis=A124841 signed
+~~~spl svg=C oeis=A124841
 (1 - 1:65.fibonacciWord)
 .inverseBinomialTransform
 .logScale
@@ -118,7 +118,7 @@ OEIS [A124841](https://oeis.org/A124841):
 The inverse binomial transform of the Lucas numbers,
 OEIS [A061084](https://oeis.org/A061084):
 
-~~~spl svg=D oeis=A061084 signed
+~~~spl svg=D oeis=A061084
 65.lucasSequence
 .inverseBinomialTransform
 .logScale

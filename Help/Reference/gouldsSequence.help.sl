@@ -92,7 +92,7 @@ OEIS [A006046](https://oeis.org/A006046):
 First differences of Gould’s sequence,
 OEIS [A151930](https://oeis.org/A151930):
 
-~~~spl svg=C oeis=A151930 signed
+~~~spl svg=C oeis=A151930
 63.gouldsSequence
 .differences
 .discretePlot

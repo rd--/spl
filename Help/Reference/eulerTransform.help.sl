@@ -179,7 +179,7 @@ OEIS [A030203](https://oeis.org/A030203):
 Euler transform of _-3,-3,-2_,
 OEIS [A005928](https://oeis.org/A005928):
 
-~~~spl svg=A oeis=A005928 signed
+~~~spl svg=A oeis=A005928
 0:115.collect(
 	[-3 -3 -2].periodicFunction
 	.eulerTransform
@@ -191,7 +191,7 @@ OEIS [A005928](https://oeis.org/A005928):
 Euler transform of _-1,-1,-2_,
 OEIS [A030203](https://oeis.org/A030203):
 
-~~~spl svg=B oeis=A030203 signed
+~~~spl svg=B oeis=A030203
 0:115.collect(
 	[-1 -1 -2].periodicFunction
 	.eulerTransform

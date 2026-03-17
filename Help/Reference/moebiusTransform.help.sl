@@ -164,7 +164,7 @@ OEIS [A300721](https://oeis.org/A300721):
 Triplicate Moebius transform of the _10000…_ sequence,
 OEIS [A007428](https://oeis.org/A007428):
 
-~~~spl svg=A oeis=A007428 signed
+~~~spl svg=A oeis=A007428
 [1].padRight([64], 0)
 .moebiusTransform
 .moebiusTransform
@@ -188,7 +188,7 @@ OEIS [A007444](https://oeis.org/A007444):
 Ramanujan sum _Cn(2)_,
 OEIS [A086831](https://oeis.org/A086831):
 
-~~~spl svg=C oeis=A086831 signed
+~~~spl svg=C oeis=A086831
 [1 2].padRight([63], 0)
 .moebiusTransform
 .discretePlot
@@ -222,7 +222,7 @@ OEIS [A063659](https://oeis.org/A063659):
 Moebius transform applied thrice to natural numbers,
 OEIS [A007432](https://oeis.org/A007432):
 
-~~~spl svg=F oeis=A007432 signed
+~~~spl svg=F oeis=A007432
 [1 .. 115].moebiusTransform
 .moebiusTransform
 .moebiusTransform

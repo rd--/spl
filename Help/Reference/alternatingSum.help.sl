@@ -87,7 +87,7 @@ OEIS [A005536](https://oeis.org/A005536):
 Absolute first differences of alternating sum of reverse of binary expansion of _n_,
 OEIS [A056832](https://oeis.org/A056832):
 
-~~~spl svg=F oeis=A056832 set=1,2
+~~~spl svg=F oeis=A056832
 0:65.collect { :n |
 	n.integerDigits(2)
 	.reverse

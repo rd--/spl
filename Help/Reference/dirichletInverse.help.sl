@@ -7,7 +7,7 @@ Answer the Dirichlet inverse of the unary function _f_.
 Dirichlet inverse of the gcd-sum function,
 OEIS [A101035](https://oeis.org/A101035):
 
-~~~spl svg=A oeis=A101035 signed
+~~~spl svg=A oeis=A101035
 1:115.collect(
 	gcdSum:/1.dirichletInverse
 ).discretePlot
@@ -19,7 +19,7 @@ Dirichlet inverse of the Euler totient function,
 also called the reciprocity balance of _n_,
 OEIS [A023900](https://oeis.org/A023900):
 
-~~~spl svg=B oeis=A023900 signed
+~~~spl svg=B oeis=A023900
 1:115.collect(
 	eulerPhi:/1.dirichletInverse
 ).discretePlot
@@ -30,7 +30,7 @@ OEIS [A023900](https://oeis.org/A023900):
 Dirichlet inverse of the σ function,
 OEIS [A046692](https://oeis.org/A046692):
 
-~~~spl svg=C oeis=A046692 signed
+~~~spl svg=C oeis=A046692
 1:115.collect(
 	{ :n |
 		1.divisorSigma(n)
@@ -43,7 +43,7 @@ OEIS [A046692](https://oeis.org/A046692):
 Dirichlet inverse of the deficiency of _n_,
 OEIS [A033879](https://oeis.org/A033879):
 
-~~~spl svg=D oeis=A033879 signed
+~~~spl svg=D oeis=A033879
 1:115.collect(
 	{ :n |
 		(2 * n) - 1.divisorSigma(n)
@@ -56,7 +56,7 @@ OEIS [A033879](https://oeis.org/A033879):
 Dirichlet inverse of the Dedekind ψ function,
 OEIS [A323363](https://oeis.org/A323363):
 
-~~~spl svg=E oeis=A323363 signed
+~~~spl svg=E oeis=A323363
 1:115.collect(
 	{ :n |
 		n * n.divisorSum { :d |
@@ -71,7 +71,7 @@ OEIS [A323363](https://oeis.org/A323363):
 Dirichlet inverse of the _σ(3)_ function,
 OEIS [A053825](https://oeis.org/A053825):
 
-~~~spl svg=F oeis=A053825 signed
+~~~spl svg=F oeis=A053825
 1:115.collect(
 	{ :n |
 		3.divisorSigma(n)
@@ -84,7 +84,7 @@ OEIS [A053825](https://oeis.org/A053825):
 Dirichlet inverse of the Stern diatomic sequence,
 OEIS [A317843](https://oeis.org/A317843):
 
-~~~spl svg=G oeis=A317843 signed
+~~~spl svg=G oeis=A317843
 1:115.collect(
 	sternBrocotNumber:/1
 	.dirichletInverse

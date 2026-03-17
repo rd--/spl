@@ -300,7 +300,7 @@ OEIS [A100047](https://oeis.org/A100047):
 A Chebyshev transform of the Fibonacci numbers,
 OEIS [A100047](https://oeis.org/A100047):
 
-~~~spl svg=A oeis=A100047 set=-1,0,1
+~~~spl svg=A oeis=A100047
 [1 1 -1 -1 0 -1 -1 1 1 0].repeat(9)
 .discretePlot
 ~~~
@@ -321,7 +321,7 @@ _-1^n_,
 the _1,-1_ sequence,
 OEIS [A033999](https://oeis.org/A033999):
 
-~~~spl svg=C oeis=A033999 set=-1,1
+~~~spl svg=C oeis=A033999
 [1 -1].repeat(30).discretePlot
 ~~~
 
@@ -330,7 +330,7 @@ OEIS [A033999](https://oeis.org/A033999):
 Characteristic function of numbers that are not multiples of ten,
 OEIS [A168184](https://oeis.org/A168184):
 
-~~~spl svg=D oeis=A168184 set=0,1
+~~~spl svg=D oeis=A168184
 ([1 9] # [0 1]).repeat(5).discretePlot
 ~~~
 

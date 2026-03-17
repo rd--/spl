@@ -321,7 +321,7 @@ The least maxima of
 the least number _k<n_ and coprime to _n_ such that the largest term of the continued fraction of _k/n_ is as small as possible,
 OEIS [A141822](https://oeis.org/A141822):
 
-~~~spl svg=B oeis=A141822 set=2-5
+~~~spl svg=B oeis=A141822
 2:67.collect { :n |
 	let k = (1 .. n - 1).select { :x |
 		x.isCoprime(n)

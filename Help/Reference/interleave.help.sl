@@ -161,7 +161,7 @@ let n = 0:35;
 Interleave _n+7_ and _13-n_,
 OEIS [A122874](https://oeis.org/A122874):
 
-~~~spl svg=F oeis=A122874 signed
+~~~spl svg=F oeis=A122874
 let n = 0:32;
 [n + 7, 13 - n].interleave.discretePlot
 ~~~

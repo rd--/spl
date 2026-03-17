@@ -255,7 +255,7 @@ OEIS [A087172](https://oeis.org/A087172):
 Discrete plot of the Zeckendorf representation of a large integer,
 the prepresentation has 115 places:
 
-~~~spl svg=A set=0,1
+~~~spl svg=A
 900000000000000000000000L
 .zeckendorfRepresentation
 .discretePlot
@@ -392,7 +392,7 @@ OEIS [A102364](https://oeis.org/A102364):
 Zeckendorf representations,
 OEIS [A189920](https://oeis.org/A189920):
 
-~~~spl svg=I oeis=A189920 set=0,1
+~~~spl svg=I oeis=A189920
 1:21.collect(
 	zeckendorfRepresentation:/1
 ).catenate.discretePlot

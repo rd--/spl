@@ -151,7 +151,7 @@ OEIS [A000960](https://oeis.org/A000960):
 Characteristic function for Flavius Josephus’s sieve,
 OEIS [A278169](https://oeis.org/A278169):
 
-~~~spl svg=C oeis=A278169 set=0,1
+~~~spl svg=C oeis=A278169
 1:37.collect { :n |
 	let m = n - 1;
 	m:1:-1.injectInto(n) { :a :b |

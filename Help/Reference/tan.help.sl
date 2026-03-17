@@ -86,7 +86,7 @@ OEIS [A000503](https://oeis.org/A000503):
 _⌊(tan(n))_,
 OEIS [A000503](https://oeis.org/A000503):
 
-~~~spl svg=D oeis=A000503 signed
+~~~spl svg=D oeis=A000503
 0:150.tan.floor.logScale.scatterPlot
 ~~~
 

@@ -50,7 +50,7 @@ Table _n-k_,
 read by upwards antidiagonals,
 OEIS [A114327](https://oeis.org/A114327):
 
-~~~spl svg=A oeis=A114327 signed
+~~~spl svg=A oeis=A114327
 1:11.antidiagonalArray(-.swap)
 .catenate
 .discretePlot

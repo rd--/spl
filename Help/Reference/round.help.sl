@@ -157,7 +157,7 @@ Nearest integer to _n×sin(n)_,
 discrete plot,
 OEIS [A272695](https://oeis.org/A272695):
 
-~~~spl svg=C oeis=A272695 signed
+~~~spl svg=C oeis=A272695
 let n = 0:65;
 (n * n.sin).round.discretePlot
 ~~~
@@ -168,7 +168,7 @@ Nearest integer to _n×sin(n)_,
 scatter plot,
 OEIS [A272695](https://oeis.org/A272695):
 
-~~~spl svg=D oeis=A272695 signed
+~~~spl svg=D oeis=A272695
 let n = 0:250;
 (n * n.sin).round.scatterPlot
 ~~~
@@ -179,7 +179,7 @@ Nearest integer to _n×tan(n)_,
 discrete plot,
 OEIS [A274086](https://oeis.org/A274086):
 
-~~~spl svg=E oeis=A274086 signed
+~~~spl svg=E oeis=A274086
 let n = 0:115;
 (n * n.tan).round.discretePlot
 ~~~
@@ -190,7 +190,7 @@ Nearest integer to _n×tan(n)_,
 log scale scatter plot,
 OEIS [A274086](https://oeis.org/A274086):
 
-~~~spl svg=F oeis=A274086 signed
+~~~spl svg=F oeis=A274086
 let n = 0:250;
 (n * n.tan).round.logScale.scatterPlot
 ~~~

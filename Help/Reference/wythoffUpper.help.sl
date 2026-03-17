@@ -35,7 +35,7 @@ First differences of the upper Wythoff sequence,
 a Fibonacci word,
 OEIS [A076662](https://oeis.org/A076662):
 
-~~~spl svg=A oeis=A076662 set=2,3
+~~~spl svg=A oeis=A076662
 1:65.wythoffUpper
 .differences
 .stepPlot
@@ -47,7 +47,7 @@ Second differences of the upper Wythoff sequence,
 essentially
 OEIS [A014677](https://oeis.org/A014677):
 
-~~~spl svg=B oeis=A014677 set=-1,0,1
+~~~spl svg=B oeis=A014677
 1:65.wythoffUpper
 .differences(2)
 .discretePlot

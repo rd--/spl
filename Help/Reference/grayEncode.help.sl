@@ -188,7 +188,7 @@ First differences of Gray encoding,
 log scale scatter plot,
 OEIS [A055975](https://oeis.org/A055975):
 
-~~~spl svg=F oeis=A055975 signed
+~~~spl svg=F oeis=A055975
 0:250.grayEncode
 .differences
 .logScale

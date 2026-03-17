@@ -163,7 +163,7 @@ OEIS [A057889](https://oeis.org/A057889):
 _n_-th prime minus its reversal,
 OEIS [A068396](https://oeis.org/A068396):
 
-~~~spl svg=G oeis=A068396 signed
+~~~spl svg=G oeis=A068396
 1:160.prime.collect { :n |
 	n - n.integerReverse
 }.discretePlot

@@ -40,7 +40,7 @@ OEIS [A060355](http://oeis.org/A060355):
 Characteristic function of powerful numbers,
 OEIS [A112526](https://oeis.org/A112526):
 
-~~~spl svg=A oeis=A112526 set=0,1
+~~~spl svg=A oeis=A112526
 1:200.collect(isPowerfulNumber:/1)
 .boole.discretePlot
 ~~~

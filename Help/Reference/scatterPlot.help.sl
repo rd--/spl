@@ -90,7 +90,7 @@ Plot several data sets:
 The decimal expansion of the limit of the ratio of consecutive terms in the tetranacci sequence,
 OEIS [A086088](https://oeis.org/A086088):
 
-~~~spl svg=I oeis=A086088 set=0-9
+~~~spl svg=I oeis=A086088
 [
 	1 9 2 7 5 6 1 9 7 5 4 8 2 9 2 5 3 0 4 2
 	6 1 9 0 5 8 6 1 7 3 6 6 2 2 1 6 8 6 9 8

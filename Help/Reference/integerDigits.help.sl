@@ -549,7 +549,7 @@ OEIS [A117971](https://oeis.org/A117971):
 _n_-th prime minus its binary reversal,
 OEIS [A265326](https://oeis.org/A265326):
 
-~~~spl svg=A oeis=A265326 signed
+~~~spl svg=A oeis=A265326
 let k = 200;
 1:k.collect { :n |
 	let m = n.prime;

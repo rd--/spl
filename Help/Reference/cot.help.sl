@@ -94,7 +94,7 @@ OEIS [A037448](https://oeis.org/A037448):
 _⌊(cot(n))_,
 OEIS [A037448](https://oeis.org/A037448):
 
-~~~spl svg=D oeis=A037448 signed
+~~~spl svg=D oeis=A037448
 1:200.cot.floor
 .logScale.scatterPlot
 ~~~

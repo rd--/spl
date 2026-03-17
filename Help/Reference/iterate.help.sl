@@ -210,7 +210,7 @@ Repeat string twice and remove last symbol,
 initially _0,1_,
 OEIS [A164349](https://oeis.org/A164349):
 
-~~~spl svg=B oeis=A164349 set=0,1
+~~~spl svg=B oeis=A164349
 { :x |
 	(x ++ x).allButLast
 }.iterate([0 1], 7).discretePlot
@@ -251,7 +251,7 @@ OEIS [A007001](https://oeis.org/A007001):
 Fixed point of morphism _0→0,1→110_,
 OEIS [A079559](https://oeis.org/A079559):
 
-~~~spl svg=E oeis=A079559 set=0,1
+~~~spl svg=E oeis=A079559
 let m = [0: [0], 1: [1 1 0]];
 { :x |
 	x.collect { :i |
@@ -266,7 +266,7 @@ Iterate _w⧺w⧺ᴙ(w)_,
 initially _0,1_,
 OEIS [A118006](https://oeis.org/A118006):
 
-~~~spl svg=F oeis=A118006 set=0,1
+~~~spl svg=F oeis=A118006
 { :w |
 	w ++ w ++ w.reverse
 }.iterate([0 1], 3).discretePlot

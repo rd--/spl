@@ -387,7 +387,7 @@ Draw the partial complement of the Haferman carpet:
 The trajectory of 1 under the morphism _0→11,1→10_,
 OEIS [A035263](https://oeis.org/A035263):
 
-~~~spl svg=F oeis=A035263 set=0,1
+~~~spl svg=F oeis=A035263
 [
 	0 -> [1 1],
 	1 -> [1 0]
@@ -401,7 +401,7 @@ OEIS [A035263](https://oeis.org/A035263):
 Fixed point of morphism _0→0,1→110_,
 OEIS [A079559](https://oeis.org/A079559):
 
-~~~spl svg=G oeis=A079559 set=0,1
+~~~spl svg=G oeis=A079559
 [
 	0 -> [0],
 	1 -> [1 1 0]
@@ -415,7 +415,7 @@ OEIS [A079559](https://oeis.org/A079559):
 A block-fractal and reverse block-fractal sequence,
 OEIS [A001468](https://oeis.org/A001468):
 
-~~~spl svg=H oeis=A001468 set=1,2
+~~~spl svg=H oeis=A001468
 [
 	1 -> [1 2],
 	2 -> [1 2 2]
@@ -440,7 +440,7 @@ OEIS [A059832](https://oeis.org/A059832):
 Fixed point of the mapping _00→0010 01→010 10→000_ starting with _00_,
 OEIS [A289016](https://oeis.org/A289016):
 
-~~~spl svg=J oeis=A289016 set=0,1
+~~~spl svg=J oeis=A289016
 [
 	[0 0] -> [0 0 1 0],
 	[0 1] -> [0 1 0],

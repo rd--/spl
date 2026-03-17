@@ -153,7 +153,7 @@ a[1:125].log.scatterPlot
 _a(2n)=-2*a(n)_ and _a(2n+1)=2*a(n)-1_,
 OEIS [A104895](https://oeis.org/A104895):
 
-~~~spl svg=B oeis=A104895 signed
+~~~spl svg=B oeis=A104895
 let a = Map { :n |
 	(n = 0).if {
 		0
@@ -338,7 +338,7 @@ OEIS [A186421](https://oeis.org/A186421):
 First differences of even numbers interleaved with repeated odd numbers,
 OEIS [A186422](https://oeis.org/A186422):
 
-~~~spl svg=K oeis=A186422 signed
+~~~spl svg=K oeis=A186422
 0:65.collect { :n |
 	n.isEven.if {
 		n

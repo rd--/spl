@@ -77,7 +77,7 @@ OEIS [A100337](https://oeis.org/A100337):
 Step plot of fifth iteration of Arshon’s sequence,
 OEIS [A099054](https://oeis.org/A099054):
 
-~~~spl svg=A oeis=A099054 set=1,2,3
+~~~spl svg=A oeis=A099054
 5.arshonsSequence
 .stepPlot
 ~~~
@@ -98,7 +98,7 @@ OEIS [A099054](https://oeis.org/A099054):
 Step plot of fifth iteration of Arshon’s sequence starting with two,
 OEIS [A100336](https://oeis.org/A100336):
 
-~~~spl svg=C oeis=A100336 set=1,2,3
+~~~spl svg=C oeis=A100336
 5.arshonsSequence([2])
 .stepPlot
 ~~~
@@ -108,7 +108,7 @@ OEIS [A100336](https://oeis.org/A100336):
 Step plot of fifth iteration of Arshon’s sequence starting with three,
 OEIS [A100337](https://oeis.org/A100337):
 
-~~~spl svg=D oeis=A100337 set=1,2,3
+~~~spl svg=D oeis=A100337
 5.arshonsSequence([3])
 .stepPlot
 ~~~

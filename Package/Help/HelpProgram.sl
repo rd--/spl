@@ -54,7 +54,9 @@ HelpProgram : [Object] { | topic language commentary annotations programText |
 	}
 
 	isOeisProgram { :self |
-		self.hasAnnotation('oeis')
+		self.hasAnnotation('oeis') & {
+			self.hasAnnotation('variant').not
+		}
 	}
 
 	markdownText { :self |

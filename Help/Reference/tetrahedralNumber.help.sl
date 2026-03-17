@@ -89,7 +89,7 @@ OEIS [A000292](https://oeis.org/A000292):
 Characteristic function of tetrahedral numbers,
 OEIS [A023533](https://oeis.org/A023533):
 
-~~~spl svg=B oeis=A023533 set=0,1
+~~~spl svg=B oeis=A023533
 0:22.tetrahedralNumber
 .characteristicFunction
 .discretePlot

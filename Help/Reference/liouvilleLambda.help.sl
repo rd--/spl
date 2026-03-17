@@ -127,7 +127,7 @@ OEIS [A028260](https://oeis.org/A028260):
 The Liouville λ sequence,
 OEIS [A008836](https://oeis.org/A008836):
 
-~~~spl svg=A oeis=A008836 set=-1,1
+~~~spl svg=A oeis=A008836
 1:115.liouvilleLambda.discretePlot
 ~~~
 
@@ -169,7 +169,7 @@ let l = 1:3000.liouvilleLambda.prefixSum;
 Parity of _Ω(n)_,
 OEIS [A066829](https://oeis.org/A066829):
 
-~~~spl svg=E oeis=A066829 set=0,1
+~~~spl svg=E oeis=A066829
 1:65.collect { :n |
 	(1 - n.liouvilleLambda) / 2
 }.discretePlot
@@ -181,7 +181,7 @@ Characteristic function of the numbers with an even number of prime factors,
 counted with multiplicity,
 OEIS [A065043](https://oeis.org/A065043):
 
-~~~spl svg=F oeis=A065043 set=0,1
+~~~spl svg=F oeis=A065043
 1:105.collect { :n |
 	(n.liouvilleLambda + 1) / 2
 }.discretePlot

@@ -41,7 +41,7 @@ Per Nørgård’s infinity sequence,
 discrete plot,
 OEIS [A004718](https://oeis.org/A004718):
 
-~~~spl svg=A oeis=A004718 signed
+~~~spl svg=A oeis=A004718
 99.noergaardInfinitySequence
 .discretePlot
 ~~~
@@ -52,7 +52,7 @@ Per Nørgård’s infinity sequence,
 scatter plot,
 OEIS [A004718](https://oeis.org/A004718):
 
-~~~spl svg=B oeis=A004718 signed
+~~~spl svg=B oeis=A004718
 333.noergaardInfinitySequence
 .scatterPlot
 ~~~
@@ -106,7 +106,7 @@ false
 The first variant of Per Nørgård’s infinity sequence,
 OEIS [A256184](https://oeis.org/A256184):
 
-~~~spl svg=C oeis=A256184 signed
+~~~spl svg=C oeis=A256184
 250.noergaardInfinitySequence(1)
 .scatterPlot
 ~~~
@@ -142,7 +142,7 @@ true
 The second variant of Per Nørgård’s infinity sequence,
 OEIS [A256185](https://oeis.org/A256185):
 
-~~~spl svg=D oeis=A256185 signed
+~~~spl svg=D oeis=A256185
 250.noergaardInfinitySequence(2)
 .scatterPlot
 ~~~
@@ -152,7 +152,7 @@ OEIS [A256185](https://oeis.org/A256185):
 First differences of Nørgård’s infinity sequence,
 OEIS [A256187](https://oeis.org/A256187):
 
-~~~spl svg=E oeis=A256187 signed
+~~~spl svg=E oeis=A256187
 100.noergaardInfinitySequence
 .differences.discretePlot
 ~~~
@@ -162,7 +162,7 @@ OEIS [A256187](https://oeis.org/A256187):
 One for zero else zero in Nørgård’s infinity sequence,
 OEIS [A361016](https://oeis.org/A361016):
 
-~~~spl svg=F oeis=A361016 set=0,1
+~~~spl svg=F oeis=A361016
 200.noergaardInfinitySequence
 .collect(isZero:/1).boole.discretePlot
 ~~~

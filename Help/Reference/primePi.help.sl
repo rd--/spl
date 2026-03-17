@@ -269,7 +269,7 @@ OEIS [A219055](https://oeis.org/A219055):
 Triangle of _π(n)+π(k)-π(n+k)_,
 OEIS [A212210](https://oeis.org/A212210):
 
-~~~spl svg=G oeis=A212210 signed
+~~~spl svg=G oeis=A212210
 1:13.triangularArray { :n :k |
 	([n, k, n + k].primePi * [1 1 -1]).sum
 }.catenate.stepPlot
@@ -416,7 +416,7 @@ by antidiagonals,
 counting from one,
 OEIS [A212212](https://oeis.org/A212212):
 
-~~~spl svg=P oeis=A212212 signed
+~~~spl svg=P oeis=A212212
 1:13.antidiagonalArray { :n :k |
 	([n, k, n + k].primePi * [1 1 -1]).sum
 }.catenate.discretePlot
@@ -428,7 +428,7 @@ The Jacob’s Ladder sequence,
 partial sums of _-1^π(n)_,
 OEIS [A065358](https://oeis.org/A065358):
 
-~~~spl svg=Q oeis=A065358 signed
+~~~spl svg=Q oeis=A065358
 let p = 1:65.primePi;
 (-1 ^ p).prefixSum.discretePlot
 ~~~
@@ -438,7 +438,7 @@ let p = 1:65.primePi;
 _-1^π(n)_,
 OEIS [A065357](https://oeis.org/A065357):
 
-~~~spl svg=R oeis=A065357 set=-1,1
+~~~spl svg=R oeis=A065357
 (-1 ^ 0:65.primePi).discretePlot
 ~~~
 
@@ -485,7 +485,7 @@ a[1:150].discretePlot
 The number of odd prime indices minus the number of even prime indices,
 OEIS [A195017](https://oeis.org/A195017):
 
-~~~spl svg=U oeis=A195017 signed
+~~~spl svg=U oeis=A195017
 2:85.collect { :n |
 	n.factorInteger.sum { :f |
 		f[2] * (-1 ^ (1 + f[1].primePi))

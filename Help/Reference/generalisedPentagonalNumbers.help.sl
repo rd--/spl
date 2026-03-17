@@ -53,7 +53,7 @@ OEIS [A001318](https://oeis.org/A001318):
 Characteristic function of generalized pentagonal numbers,
 OEIS [A080995](https://oeis.org/A080995):
 
-~~~spl svg=B oeis=A080995 set=0,1
+~~~spl svg=B oeis=A080995
 let a = 24.generalisedPentagonalNumbers;
 let k = a.max;
 1:k.collect { :n |

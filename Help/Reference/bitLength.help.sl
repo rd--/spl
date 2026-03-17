@@ -92,7 +92,7 @@ OEIS [A049802](https://oeis.org/A049802):
 The characteristic function of the powers of two,
 OEIS [A209229](https://oeis.org/A209229):
 
-~~~spl svg=D oeis=A209229 set=0,1
+~~~spl svg=D oeis=A209229
 (0:86 - 1).bitLength.differences
 .discretePlot
 ~~~

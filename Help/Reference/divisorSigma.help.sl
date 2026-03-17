@@ -518,7 +518,7 @@ let m = 10 ^ 2;
 First differences between numbers _k_ for which _σ(k)>σ(k+1)_,
 OEIS [A053238](https://oeis.org/A053238):
 
-~~~spl svg=G oeis=A053238 set=1-4
+~~~spl svg=G oeis=A053238
 1:350.select { :n |
 	1.divisorSigma(n)
 	>
@@ -635,7 +635,7 @@ OEIS [A007425](https://oeis.org/A007425):
 Deficiency of _n_,
 OEIS [A033879](https://oeis.org/A033879):
 
-~~~spl svg=P oeis=A033879 signed
+~~~spl svg=P oeis=A033879
 1:115.collect { :n |
 	(2 * n) - 1.divisorSigma(n)
 }.discretePlot
@@ -760,7 +760,7 @@ a.scatterPlot
 Abundance of _n_,
 OEIS [A033880](https://oeis.org/A033880):
 
-~~~spl svg=V oeis=A033880 signed
+~~~spl svg=V oeis=A033880
 let n = 1:70;
 (1.divisorSigma(n) - (2 * n)).discretePlot
 ~~~
@@ -794,7 +794,7 @@ OEIS [A061017](https://oeis.org/A061017):
 First differences of _σ₁(n)_,
 OEIS [A053222](https://oeis.org/A053222):
 
-~~~spl svg=Y oeis=A053222 signed
+~~~spl svg=Y oeis=A053222
 1.divisorSigma(1:85)
 .differences
 .discretePlot

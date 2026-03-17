@@ -173,7 +173,7 @@ OEIS [A026820](https://oeis.org/A026820):
 Parity of the partition numbers,
 OEIS [A040051](https://oeis.org/A040051):
 
-~~~spl svg=D oeis=A040051 set=0,1
+~~~spl svg=D oeis=A040051
 0:115.collect { :n |
 	n.partitionFunctionP
 	.isOdd.boole

@@ -45,7 +45,7 @@ OEIS [A001358](https://oeis.org/A001358):
 The characteristic function of the semiprime numbers,
 OEIS [A064911](https://oeis.org/A064911):
 
-~~~spl svg=B oeis=A064911 set=0,1
+~~~spl svg=B oeis=A064911
 1:115.collect(isSemiprime:/1)
 .boole
 .discretePlot

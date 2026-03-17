@@ -53,7 +53,7 @@ First differences of the lower Wythoff sequence,
 a Fibonacci word,
 OEIS [A014675](https://oeis.org/A014675):
 
-~~~spl svg=C oeis=A014675 set=1,2
+~~~spl svg=C oeis=A014675
 1:65.wythoffLower
 .differences
 .stepPlot
@@ -65,7 +65,7 @@ Second differences of the lower Wythoff sequence,
 essentially
 OEIS [A014677](https://oeis.org/A014677):
 
-~~~spl svg=D oeis=A014677 set=-1,0,1
+~~~spl svg=D oeis=A014677
 1:65.wythoffLower
 .differences(2)
 .discretePlot

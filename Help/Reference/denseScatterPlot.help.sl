@@ -21,7 +21,7 @@ First differences of Stern’s diatomic series,
 discarding initial two terms,
 OEIS [A070990](https://oeis.org/A070990):
 
-~~~spl png=B oeis=A070990 signed
+~~~spl png=B oeis=A070990
 1500.sternBrocotSequence
 .allButFirst(2)
 .differences
@@ -33,7 +33,7 @@ OEIS [A070990](https://oeis.org/A070990):
 Second differences of Stern’s diatomic series,
 OEIS [A283104](https://oeis.org/A283104):
 
-~~~spl png=C oeis=A283104 signed
+~~~spl png=C oeis=A283104
 1500.sternBrocotSequence
 .differences(2)
 .denseScatterPlot

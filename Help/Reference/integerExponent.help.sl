@@ -286,7 +286,7 @@ complement of
 exponent of the largest power of two dividing _(2n)!_,
 OEIS [A279340](https://oeis.org/A279340):
 
-~~~spl svg=F oeis=A279340 set=1,3
+~~~spl svg=F oeis=A279340
 0:99.complement(
 	0:51.collect { :n |
 		(2 * n).!.integerExponent(2)
@@ -426,7 +426,7 @@ OEIS [A007949](https://oeis.org/A007949):
 Deficiency minus binary weight,
 OEIS [A294898](https://oeis.org/A294898):
 
-~~~spl svg=O oeis=A294898 signed
+~~~spl svg=O oeis=A294898
 1:115.collect { :n |
 	(2 * n).!.integerExponent(2)
 	-

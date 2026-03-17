@@ -134,7 +134,7 @@ Sierpiński’s triangle,
 row-order discrete plot,
 OEIS [A047999](https://oeis.org/A047999):
 
-~~~spl svg=D oeis=A047999 set=0,1
+~~~spl svg=D oeis=A047999
 (11.pascalTriangle % 2)
 .catenate
 .discretePlot

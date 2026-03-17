@@ -134,7 +134,7 @@ OEIS [A168221](https://oeis.org/A168221):
 Dirichlet inverse of the amusical permutation function,
 OEIS [A349351](https://oeis.org/A349351):
 
-~~~spl svg=H oeis=A349351 signed
+~~~spl svg=H oeis=A349351
 1:115.collect(
 	amusicalPermutation:/1
 	.dirichletInverse

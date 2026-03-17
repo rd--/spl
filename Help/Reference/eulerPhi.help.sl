@@ -412,7 +412,7 @@ OEIS [A046073](https://oeis.org/A046073):
 _2*φ(n)-n_,
 OEIS [A083254](https://oeis.org/A083254):
 
-~~~spl svg=M oeis=A083254 signed
+~~~spl svg=M oeis=A083254
 1:85.collect { :n |
 	2 * n.eulerPhi - n
 }.discretePlot

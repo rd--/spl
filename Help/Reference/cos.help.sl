@@ -155,7 +155,7 @@ Phase warping and amplitude modulation:
 Nearest integer to _cos(n)_,
 OEIS [A000484](https://oeis.org/A000484):
 
-~~~spl svg=H oeis=A000484 set=-1,0,1
+~~~spl svg=H oeis=A000484
 0:85.cos.round
 .discretePlot
 ~~~
@@ -165,7 +165,7 @@ OEIS [A000484](https://oeis.org/A000484):
 _⌊(cos(n))_,
 OEIS [A000480](https://oeis.org/A000480):
 
-~~~spl svg=I oeis=A000480 set=-1,0,1
+~~~spl svg=I oeis=A000480
 0:85.cos.floor
 .discretePlot
 ~~~

@@ -307,7 +307,7 @@ let t = { :x |
 Second differences of primes,
 OEIS [A036263](https://oeis.org/A036263):
 
-~~~spl svg=H oeis=A036263 signed
+~~~spl svg=H oeis=A036263
 1:85.prime.differences(2).discretePlot
 ~~~
 

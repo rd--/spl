@@ -109,7 +109,7 @@ let p = 1:k.prime;
 Characteristic function of composite numbers,
 OEIS [A066247](https://oeis.org/A066247):
 
-~~~spl svg=C oeis=A066247 set=0,1
+~~~spl svg=C oeis=A066247
 1:100.isComposite.boole.discretePlot
 ~~~
 
