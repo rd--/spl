@@ -17,7 +17,7 @@ which is a square:
 }
 ~~~
 
-![](sw/spl/Help/Image/asPerspectiveDrawing-A.svg)
+![](Help/Image/asPerspectiveDrawing-A.svg)
 
 The unary form provides a projection function:
 
@@ -25,7 +25,7 @@ The unary form provides a projection function:
 [0 0 0].unitCube.asPerspectiveDrawing
 ~~~
 
-![](sw/spl/Help/Image/asPerspectiveDrawing-B.svg)
+![](Help/Image/asPerspectiveDrawing-B.svg)
 
 * * *
 

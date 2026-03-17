@@ -101,7 +101,7 @@ NormalDistribution(0, 1)
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/histogramList-A.svg)
+![](Help/Image/histogramList-A.svg)
 
 * * *
 

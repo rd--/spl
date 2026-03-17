@@ -19,7 +19,7 @@ Disk([0 0], 1)
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/Disk-A.svg)
+![](Help/Image/Disk-A.svg)
 
 Draw seven random disks:
 
@@ -30,7 +30,7 @@ let r = g.randomReal([0.1 1], [7]);
 Disk(c, r).LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/Disk-B.svg)
+![](Help/Image/Disk-B.svg)
 
 * * *
 

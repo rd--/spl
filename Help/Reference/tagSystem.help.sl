@@ -76,7 +76,7 @@ Plot the size of each sucessive term:
 ).collect(size:/1).linePlot
 ~~~
 
-![](sw/spl/Help/Image/tagSystem-A.svg)
+![](Help/Image/tagSystem-A.svg)
 
 Matrix plot of first few terms:
 
@@ -88,7 +88,7 @@ Matrix plot of first few terms:
 ).padRight.matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/tagSystem-B.svg)
+![](Help/Image/tagSystem-B.svg)
 
 * * *
 

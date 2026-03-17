@@ -30,7 +30,7 @@ Plot:
 (-1 -- 1).functionPlot(muLawEncode:/1)
 ~~~
 
-![](sw/spl/Help/Image/muLawEncode-A.svg)
+![](Help/Image/muLawEncode-A.svg)
 
 * * *
 

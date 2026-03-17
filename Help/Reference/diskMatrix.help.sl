@@ -62,7 +62,7 @@ Draw the 12×12 disk matrix:
 12.diskMatrix.Bitmap
 ~~~
 
-![](sw/spl/Help/Image/diskMatrix-A.png)
+![](Help/Image/diskMatrix-A.png)
 
 * * *
 

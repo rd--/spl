@@ -14,7 +14,7 @@ A four-armed star with concave sides:
 )
 ~~~
 
-![](sw/spl/Help/Image/superellipseCurve-A.svg)
+![](Help/Image/superellipseCurve-A.svg)
 
 A rhombus:
 
@@ -24,7 +24,7 @@ A rhombus:
 )
 ~~~
 
-![](sw/spl/Help/Image/superellipseCurve-B.svg)
+![](Help/Image/superellipseCurve-B.svg)
 
 A rhombus with with convex sides:
 
@@ -34,7 +34,7 @@ A rhombus with with convex sides:
 )
 ~~~
 
-![](sw/spl/Help/Image/superellipseCurve-C.svg)
+![](Help/Image/superellipseCurve-C.svg)
 
 A circle:
 
@@ -44,7 +44,7 @@ A circle:
 )
 ~~~
 
-![](sw/spl/Help/Image/superellipseCurve-D.svg)
+![](Help/Image/superellipseCurve-D.svg)
 
 A squircle:
 
@@ -54,7 +54,7 @@ A squircle:
 )
 ~~~
 
-![](sw/spl/Help/Image/superellipseCurve-E.svg)
+![](Help/Image/superellipseCurve-E.svg)
 
 Approximate path the geometric centroid of a rotating Reuleaux triangle:
 
@@ -66,7 +66,7 @@ let r = 2.36185;
 )
 ~~~
 
-![](sw/spl/Help/Image/superellipseCurve-F.svg)
+![](Help/Image/superellipseCurve-F.svg)
 
 * * *
 

@@ -20,7 +20,7 @@ let h = p.convexHull;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/polygonCentroid-A.svg)
+![](Help/Image/polygonCentroid-A.svg)
 
 * * *
 

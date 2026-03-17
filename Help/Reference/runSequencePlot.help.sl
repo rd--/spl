@@ -21,7 +21,7 @@ Plot data with a location shift for the last third of the data:
 ].runSequencePlot
 ~~~
 
-![](sw/spl/Help/Image/runSequencePlot-A.svg)
+![](Help/Image/runSequencePlot-A.svg)
 
 * * *
 

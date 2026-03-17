@@ -10,7 +10,7 @@ An algebraic curve investigated by Maclaurin in 1742.
 )
 ~~~
 
-![](sw/spl/Help/Image/trisectrixOfMaclaurin-A.svg)
+![](Help/Image/trisectrixOfMaclaurin-A.svg)
 
 * * *
 

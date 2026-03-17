@@ -41,7 +41,7 @@ A matrix plot:
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/xiaolinWuLineAlgorithm-A.svg)
+![](Help/Image/xiaolinWuLineAlgorithm-A.svg)
 
 * * *
 

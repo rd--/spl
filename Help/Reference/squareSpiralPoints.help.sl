@@ -32,7 +32,7 @@ Plot first nine turns of the spiral:
 .PointCloud
 ~~~
 
-![](sw/spl/Help/Image/squareSpiralPoints-A.svg)
+![](Help/Image/squareSpiralPoints-A.svg)
 
 Plot the points at prime indices on the first twenty-three turns of the spiral:
 
@@ -43,7 +43,7 @@ let p = k.primesUpTo;
 h.atAll(p).PointCloud
 ~~~
 
-![](sw/spl/Help/Image/squareSpiralPoints-B.svg)
+![](Help/Image/squareSpiralPoints-B.svg)
 
 The same diagram for lucky numbers:
 
@@ -54,7 +54,7 @@ let p = k.luckyNumbers;
 h.atAll(p).PointCloud
 ~~~
 
-![](sw/spl/Help/Image/squareSpiralPoints-C.svg)
+![](Help/Image/squareSpiralPoints-C.svg)
 
 * * *
 

@@ -15,7 +15,7 @@ A drawing:
 [0 0].unitCircle
 ~~~
 
-![](sw/spl/Help/Image/unitCircle-A.svg)
+![](Help/Image/unitCircle-A.svg)
 
 Threads over lists:
 
@@ -23,7 +23,7 @@ Threads over lists:
 [0 0; 1 1; 2 2].unitCircle.LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/unitCircle-B.svg)
+![](Help/Image/unitCircle-B.svg)
 
 * * *
 

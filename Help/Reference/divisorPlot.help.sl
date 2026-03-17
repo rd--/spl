@@ -13,7 +13,7 @@ Plot for _i=60:100_ and _j=1:12_:
 divisorPlot(60:100, 1:12)
 ~~~
 
-![](sw/spl/Help/Image/divisorPlot-A.svg)
+![](Help/Image/divisorPlot-A.svg)
 
 A later section of the array,
 the divisors are negated and hence the _y_ axis inverted:
@@ -22,7 +22,7 @@ the divisors are negated and hence the _y_ axis inverted:
 divisorPlot(151008:151140, -120:-20)
 ~~~
 
-![](sw/spl/Help/Image/divisorPlot-B.svg)
+![](Help/Image/divisorPlot-B.svg)
 
 Plot either side of _12!_ (479001600):
 
@@ -33,7 +33,7 @@ divisorPlot(
 )
 ~~~
 
-![](sw/spl/Help/Image/divisorPlot-C.svg)
+![](Help/Image/divisorPlot-C.svg)
 
 Plot the region either side of one million,
 for divisors either side of one thousand:
@@ -45,7 +45,7 @@ divisorPlot(
 )
 ~~~
 
-![](sw/spl/Help/Image/divisorPlot-D.svg)
+![](Help/Image/divisorPlot-D.svg)
 
 Plot region leading up to _(i=576,j=24)_:
 
@@ -56,7 +56,7 @@ divisorPlot(
 )
 ~~~
 
-![](sw/spl/Help/Image/divisorPlot-E.svg)
+![](Help/Image/divisorPlot-E.svg)
 
 * * *
 

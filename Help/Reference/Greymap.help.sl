@@ -38,7 +38,7 @@ let i = (0 -- 5).subdivide(k);
 ).Greymap
 ~~~
 
-![](sw/spl/Help/Image/Greymap-A.png)
+![](Help/Image/Greymap-A.png)
 
 Plot the `sin` function at integer points:
 
@@ -50,7 +50,7 @@ let i = -50:50;
 .Greymap
 ~~~
 
-![](sw/spl/Help/Image/Greymap-B.png)
+![](Help/Image/Greymap-B.png)
 
 Draw Julia set:
 
@@ -75,7 +75,7 @@ m
 .Greymap
 ~~~
 
-![](sw/spl/Help/Image/Greymap-C.png)
+![](Help/Image/Greymap-C.png)
 
 Draw trigonometric function, rescaling:
 
@@ -86,7 +86,7 @@ let x = (-4 -- 4).discretize(100);
 }.table(x, x).rescale.Greymap
 ~~~
 
-![](sw/spl/Help/Image/Greymap-D.png)
+![](Help/Image/Greymap-D.png)
 
 * * *
 

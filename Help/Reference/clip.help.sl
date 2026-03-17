@@ -78,7 +78,7 @@ Plot the unit clip function over a subset of the reals:
 (-3 -- 3).functionPlot(clip:/1)
 ~~~
 
-![](sw/spl/Help/Image/clip-A.svg)
+![](Help/Image/clip-A.svg)
 
 Plot the composition of clip with a periodic function:
 
@@ -88,7 +88,7 @@ Plot the composition of clip with a periodic function:
 )
 ~~~
 
-![](sw/spl/Help/Image/clip-B.svg)
+![](Help/Image/clip-B.svg)
 
 * * *
 

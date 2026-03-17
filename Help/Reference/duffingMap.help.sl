@@ -14,7 +14,7 @@ duffingMap(2.75, 0.15)
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/duffingMap-A.svg)
+![](Help/Image/duffingMap-A.svg)
 
 * * *
 

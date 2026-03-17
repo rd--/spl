@@ -59,7 +59,7 @@ Project a cube as three horizontally adjacent squares:
 )
 ~~~
 
-![](sw/spl/Help/Image/AxonometricProjection-A.svg)
+![](Help/Image/AxonometricProjection-A.svg)
 
 Project a cube as three vertically adjacent squares:
 
@@ -74,7 +74,7 @@ Project a cube as three vertically adjacent squares:
 )
 ~~~
 
-![](sw/spl/Help/Image/AxonometricProjection-B.svg)
+![](Help/Image/AxonometricProjection-B.svg)
 
 If _alpha_ and _gamma_ are both one-sixth of `pi` (30°),
 and _beta_ is `zero`,
@@ -92,7 +92,7 @@ and the cube is projected as a hexagon:
 )
 ~~~
 
-![](sw/spl/Help/Image/AxonometricProjection-C.svg)
+![](Help/Image/AxonometricProjection-C.svg)
 
 If _alpha_ and _gamma_ are both one-quarter of `pi` (45°),
 the planometric or military projection is given:
@@ -108,7 +108,7 @@ the planometric or military projection is given:
 )
 ~~~
 
-![](sw/spl/Help/Image/AxonometricProjection-D.svg)
+![](Help/Image/AxonometricProjection-D.svg)
 
 ISO 5456-3 (NEN 2536) gives the following dimetric projection for technical drawings:
 
@@ -123,7 +123,7 @@ ISO 5456-3 (NEN 2536) gives the following dimetric projection for technical draw
 )
 ~~~
 
-![](sw/spl/Help/Image/AxonometricProjection-E.svg)
+![](Help/Image/AxonometricProjection-E.svg)
 
 The oblique projection given by Carlbom and Paciorek in Figure 3-11b:
 
@@ -138,7 +138,7 @@ The oblique projection given by Carlbom and Paciorek in Figure 3-11b:
 )
 ~~~
 
-![](sw/spl/Help/Image/AxonometricProjection-F.svg)
+![](Help/Image/AxonometricProjection-F.svg)
 
 A trimetric projection given by Carlbom and Paciorek in Figure 3-9:
 
@@ -153,7 +153,7 @@ A trimetric projection given by Carlbom and Paciorek in Figure 3-9:
 )
 ~~~
 
-![](sw/spl/Help/Image/AxonometricProjection-G.svg)
+![](Help/Image/AxonometricProjection-G.svg)
 
 The last oblique projection given by Carlbom and Paciorek in Figure 3-12:
 
@@ -168,7 +168,7 @@ The last oblique projection given by Carlbom and Paciorek in Figure 3-12:
 )
 ~~~
 
-![](sw/spl/Help/Image/AxonometricProjection-H.svg)
+![](Help/Image/AxonometricProjection-H.svg)
 
 * * *
 

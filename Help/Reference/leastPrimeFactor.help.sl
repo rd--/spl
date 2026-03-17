@@ -134,7 +134,7 @@ OEIS [A020639](https://oeis.org/A020639):
 .logScale.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/leastPrimeFactor-A.svg)
+![](Help/Image/leastPrimeFactor-A.svg)
 
 _a(n)=(p%4)*a(n/p)_,
 OEIS [A065338](https://oeis.org/A065338):
@@ -151,7 +151,7 @@ let a = Map { :n |
 a[1:65].discretePlot
 ~~~
 
-![](sw/spl/Help/Image/leastPrimeFactor-B.svg)
+![](Help/Image/leastPrimeFactor-B.svg)
 
 _π(L(n))_,
 OEIS [A055396](https://oeis.org/A055396):
@@ -162,7 +162,7 @@ OEIS [A055396](https://oeis.org/A055396):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/leastPrimeFactor-C.svg)
+![](Help/Image/leastPrimeFactor-C.svg)
 
 Number of times the smallest prime factor of _n_ is the smallest prime factor for numbers _≤n_,
 OEIS [A078898](https://oeis.org/A078898):
@@ -175,7 +175,7 @@ let l = 1:m.leastPrimeFactor;
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/leastPrimeFactor-D.svg)
+![](Help/Image/leastPrimeFactor-D.svg)
 
 Seieve of Eratosthenes arranged as an array,
 read by antidigaonals,
@@ -196,7 +196,7 @@ let b = [];
 b.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/leastPrimeFactor-E.svg)
+![](Help/Image/leastPrimeFactor-E.svg)
 
 Maximum divisor of _n_,
 OEIS [A032742](https://oeis.org/A032742):
@@ -207,7 +207,7 @@ OEIS [A032742](https://oeis.org/A032742):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/leastPrimeFactor-F.svg)
+![](Help/Image/leastPrimeFactor-F.svg)
 
 Largest difference between consecutive divisors of _n_,
 OEIS [A060681](https://oeis.org/A060681):
@@ -218,7 +218,7 @@ OEIS [A060681](https://oeis.org/A060681):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/leastPrimeFactor-G.svg)
+![](Help/Image/leastPrimeFactor-G.svg)
 
 * * *
 

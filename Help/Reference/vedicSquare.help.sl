@@ -59,7 +59,7 @@ Matrix plot of _n=13_:
 13.vedicSquare.matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/vedicSquare-A.svg)
+![](Help/Image/vedicSquare-A.svg)
 
 Matrix plot indicating the occurrences of _3_ where _n=37_:
 
@@ -69,7 +69,7 @@ Matrix plot indicating the occurrences of _3_ where _n=37_:
 }.boole.matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/vedicSquare-B.svg)
+![](Help/Image/vedicSquare-B.svg)
 
 Matrix plot of _n=100_:
 
@@ -77,7 +77,7 @@ Matrix plot of _n=100_:
 100.vedicSquare.rescale.Greymap
 ~~~
 
-![](sw/spl/Help/Image/vedicSquare-C.png)
+![](Help/Image/vedicSquare-C.png)
 
 The Vedic square where _n=9_,
 OEIS [A125959](https://oeis.org/A125959):
@@ -86,7 +86,7 @@ OEIS [A125959](https://oeis.org/A125959):
 9.vedicSquare.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/vedicSquare-D.svg)
+![](Help/Image/vedicSquare-D.svg)
 
 * * *
 

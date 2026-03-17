@@ -12,7 +12,7 @@ tentMap(1.9)
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/tentMap-A.svg)
+![](Help/Image/tentMap-A.svg)
 
 Plot the above parameters as _(x[n], x[n+1])_:
 
@@ -23,7 +23,7 @@ let x = [x0] ++ y.allButLast;
 [x, y].transpose.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/tentMap-B.svg)
+![](Help/Image/tentMap-B.svg)
 
 * * *
 

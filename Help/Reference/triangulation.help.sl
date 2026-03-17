@@ -19,7 +19,7 @@ Polygon(c).triangulation.collect { :each |
 }.LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/triangulation-A.svg)
+![](Help/Image/triangulation-A.svg)
 
 Draw a scaled triangulation of a randomly generated thirteen-polygon into eleven triangles:
 
@@ -32,7 +32,7 @@ p.triangulation.collect { :each |
 }.LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/triangulation-B.svg)
+![](Help/Image/triangulation-B.svg)
 
 * * *
 

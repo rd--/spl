@@ -56,7 +56,7 @@ OEIS [A066646](https://oeis.org/A066646):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/permutationOrder-A.svg)
+![](Help/Image/permutationOrder-A.svg)
 
 * * *
 

@@ -12,7 +12,7 @@ CircularSector(
 )
 ~~~
 
-![](sw/spl/Help/Image/CircularSector-A.svg)
+![](Help/Image/CircularSector-A.svg)
 
 Draw a minor sector:
 
@@ -22,7 +22,7 @@ CircularSector(
 )
 ~~~
 
-![](sw/spl/Help/Image/CircularSector-B.svg)
+![](Help/Image/CircularSector-B.svg)
 
 * * *
 

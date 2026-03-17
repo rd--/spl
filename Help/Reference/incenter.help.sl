@@ -26,7 +26,7 @@ let c = t.incenter;
 [t, Point(c)].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/incenter-A.svg)
+![](Help/Image/incenter-A.svg)
 
 * * *
 

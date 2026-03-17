@@ -45,7 +45,7 @@ Plot first few terms:
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/wythoffIndex-A.svg)
+![](Help/Image/wythoffIndex-A.svg)
 
 The horizontal para-Fibonacci sequence,
 OEIS [A035612](https://oeis.org/A035612)
@@ -76,7 +76,7 @@ Plot first few terms:
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/wythoffIndex-B.svg)
+![](Help/Image/wythoffIndex-B.svg)
 
 * * *
 

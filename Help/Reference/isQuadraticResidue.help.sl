@@ -46,7 +46,7 @@ Plot boolean triangle:
 ).boole.padLeft.Bitmap
 ~~~
 
-![](sw/spl/Help/Image/isQuadraticResidue-A.png)
+![](Help/Image/isQuadraticResidue-A.png)
 
 * * *
 

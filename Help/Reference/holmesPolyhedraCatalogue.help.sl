@@ -24,7 +24,7 @@ system
 .asPerspectiveDrawing
 ~~~
 
-![](sw/spl/Help/Image/holmesPolyhedraCatalogue-A.svg)
+![](Help/Image/holmesPolyhedraCatalogue-A.svg)
 
 _Note:_
 The catalogue is a `LibraryItem`,

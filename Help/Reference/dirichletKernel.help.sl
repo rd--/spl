@@ -14,7 +14,7 @@ Plot kernels for _n_ of one, three and five:
 )
 ~~~
 
-![](sw/spl/Help/Image/dirichletKernel-A.svg)
+![](Help/Image/dirichletKernel-A.svg)
 
 * * *
 

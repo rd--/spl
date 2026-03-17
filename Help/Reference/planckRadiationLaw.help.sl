@@ -32,7 +32,7 @@ let t = 5777;
 }
 ~~~
 
-![](sw/spl/Help/Image/planckRadiationLaw-A.svg)
+![](Help/Image/planckRadiationLaw-A.svg)
 
 * * *
 

@@ -48,7 +48,7 @@ let p = [
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/welzlAlgorithm-A.svg)
+![](Help/Image/welzlAlgorithm-A.svg)
 
 Draw points and circle,
 the circle is inscribed on two points:
@@ -61,7 +61,7 @@ let p = [3 10; 6 3; 10 2; 2 8; 3 3];
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/welzlAlgorithm-B.svg)
+![](Help/Image/welzlAlgorithm-B.svg)
 
 * * *
 

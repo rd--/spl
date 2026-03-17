@@ -13,7 +13,7 @@ Drawing with _b=-1_:
 ).Line
 ~~~
 
-![](sw/spl/Help/Image/galileanSpiral-A.svg)
+![](Help/Image/galileanSpiral-A.svg)
 
 Drawing with _b=1/8_:
 
@@ -24,7 +24,7 @@ Drawing with _b=1/8_:
 ).Line
 ~~~
 
-![](sw/spl/Help/Image/galileanSpiral-B.svg)
+![](Help/Image/galileanSpiral-B.svg)
 
 * * *
 

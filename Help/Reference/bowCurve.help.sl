@@ -18,7 +18,7 @@ let i = (-0.5 -- 0.5).subdivide(50);
 bowCurve:/2.contourPlot(i, i, [0])
 ~~~
 
-![](sw/spl/Help/Image/bowCurve-A.svg)
+![](Help/Image/bowCurve-A.svg)
 
 * * *
 

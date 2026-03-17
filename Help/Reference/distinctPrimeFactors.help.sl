@@ -82,7 +82,7 @@ OEIS [A008472](https://oeis.org/A008472):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/distinctPrimeFactors-A.svg)
+![](Help/Image/distinctPrimeFactors-A.svg)
 
 Irregular triangle of distinct prime factors,
 OEIS [A027748](https://oeis.org/A027748):
@@ -92,7 +92,7 @@ OEIS [A027748](https://oeis.org/A027748):
 .catenate.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/distinctPrimeFactors-B.svg)
+![](Help/Image/distinctPrimeFactors-B.svg)
 
 Number of distinct prime factors _p_ of _n_ such that _p^p_ is a divisor of _n_,
 OEIS [A129251](https://oeis.org/A129251):
@@ -105,7 +105,7 @@ OEIS [A129251](https://oeis.org/A129251):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/distinctPrimeFactors-C.svg)
+![](Help/Image/distinctPrimeFactors-C.svg)
 
 * * *
 

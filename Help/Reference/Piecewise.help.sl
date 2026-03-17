@@ -25,7 +25,7 @@ let pieceWise = Piecewise(pieces);
 }
 ~~~
 
-![](sw/spl/Help/Image/Piecewise-A.svg)
+![](Help/Image/Piecewise-A.svg)
 
 Plot another piecewise function with branches below and at zero, and with a _defaultValue_:
 
@@ -46,7 +46,7 @@ let pieceWise = Piecewise(
 }
 ~~~
 
-![](sw/spl/Help/Image/Piecewise-B.svg)
+![](Help/Image/Piecewise-B.svg)
 
 If values are not specified in a region, they are assumed to be zero:
 
@@ -58,7 +58,7 @@ let pieceWise = Piecewise([piece]);
 }
 ~~~
 
-![](sw/spl/Help/Image/Piecewise-C.svg)
+![](Help/Image/Piecewise-C.svg)
 
 Specify a default value of one:
 
@@ -74,7 +74,7 @@ let pieceWise = Piecewise(
 }
 ~~~
 
-![](sw/spl/Help/Image/Piecewise-D.svg)
+![](Help/Image/Piecewise-D.svg)
 
 * * *
 

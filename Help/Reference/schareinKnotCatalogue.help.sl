@@ -29,7 +29,7 @@ system
 .Line
 ~~~
 
-![](sw/spl/Help/Image/schareinKnotCatalogue-A.svg)
+![](Help/Image/schareinKnotCatalogue-A.svg)
 
 A perspective drawing of the entry for the knot _9-37_:
 
@@ -40,7 +40,7 @@ system
 .Polygon
 ~~~
 
-![](sw/spl/Help/Image/schareinKnotCatalogue-B.svg)
+![](Help/Image/schareinKnotCatalogue-B.svg)
 
 _Note:_
 The catalogue is a `LibraryItem`,

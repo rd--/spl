@@ -89,7 +89,7 @@ OEIS [A003188](https://oeis.org/A003188):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/bitShiftRight-A.svg)
+![](Help/Image/bitShiftRight-A.svg)
 
 The operator form is `>>`, written ≫.
 

@@ -54,7 +54,7 @@ Plot:
 }.catenate.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/gradedReflectedColexicographicSort-A.svg)
+![](Help/Image/gradedReflectedColexicographicSort-A.svg)
 
 * * *
 

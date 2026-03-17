@@ -14,7 +14,7 @@ A hypotrochoid, in this case _h=a_:
 )
 ~~~
 
-![](sw/spl/Help/Image/hypotrochoid-A.svg)
+![](Help/Image/hypotrochoid-A.svg)
 
 An ellipse, _a=2b_:
 
@@ -24,7 +24,7 @@ An ellipse, _a=2b_:
 )
 ~~~
 
-![](sw/spl/Help/Image/hypotrochoid-B.svg)
+![](Help/Image/hypotrochoid-B.svg)
 
 A spirograph is a hypotrochoid, set _h_ as a proportion of _a_:
 
@@ -34,7 +34,7 @@ A spirograph is a hypotrochoid, set _h_ as a proportion of _a_:
 )
 ~~~
 
-![](sw/spl/Help/Image/hypotrochoid-C.svg)
+![](Help/Image/hypotrochoid-C.svg)
 
 A `hypocycloid` is a special case of a `hypotrochoid`,
 where _h=b_.

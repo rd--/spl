@@ -14,7 +14,7 @@ Answer the graph with weighted adjacency matrix _m_.
 .graphPlot
 ~~~
 
-![](sw/spl/Help/Image/weightedAdjacencyGraph-A.svg)
+![](Help/Image/weightedAdjacencyGraph-A.svg)
 
 A symmetric weighted adjacency matrix results in an undirected graph:
 
@@ -29,7 +29,7 @@ A symmetric weighted adjacency matrix results in an undirected graph:
 .graphPlot
 ~~~
 
-![](sw/spl/Help/Image/weightedAdjacencyGraph-B.svg)
+![](Help/Image/weightedAdjacencyGraph-B.svg)
 
 * * *
 

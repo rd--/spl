@@ -17,7 +17,7 @@ DiscreteMarkovProcess(
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/DiscreteMarkovProcess-A.svg)
+![](Help/Image/DiscreteMarkovProcess-A.svg)
 
 Define a discrete Markov process,
 begin at state three,
@@ -37,7 +37,7 @@ DiscreteMarkovProcess(
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/DiscreteMarkovProcess-B.svg)
+![](Help/Image/DiscreteMarkovProcess-B.svg)
 
 Model the process of tossing a coin repeatedly,
 using a discrete Markov process where the probability of getting heads is 0.6 and getting tails is 0.4,
@@ -52,7 +52,7 @@ DiscreteMarkovProcess(
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/DiscreteMarkovProcess-C.svg)
+![](Help/Image/DiscreteMarkovProcess-C.svg)
 
 Estimate a four-state discrete Markov process:
 

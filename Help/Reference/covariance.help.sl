@@ -91,7 +91,7 @@ let m = gcd:/2.table(1:100, 1:100);
 (1 - m.covariance(m).rescale).Greymap
 ~~~
 
-![](sw/spl/Help/Image/covariance-A.png)
+![](Help/Image/covariance-A.png)
 
 The covariance tends to be large only on the diagonal of a random matrix:
 
@@ -101,7 +101,7 @@ let m = r.randomReal([-1 1], [100 100]);
 (1 - m.covariance(m).rescale).Greymap
 ~~~
 
-![](sw/spl/Help/Image/covariance-B.png)
+![](Help/Image/covariance-B.png)
 
 * * *
 

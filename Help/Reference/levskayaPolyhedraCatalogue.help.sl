@@ -58,7 +58,7 @@ system
 .asPerspectiveDrawing
 ~~~
 
-![](sw/spl/Help/Image/levskayaPolyhedraCatalogue-A.svg)
+![](Help/Image/levskayaPolyhedraCatalogue-A.svg)
 
 _Note:_
 The catalogue is a `LibraryItem`,

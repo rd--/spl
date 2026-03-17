@@ -29,7 +29,7 @@ OEIS [A003263](https://oeis.org/A003263):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/Polynomial-A.svg)
+![](Help/Image/Polynomial-A.svg)
 
 * * *
 

@@ -124,7 +124,7 @@ Plot a function:
 }
 ~~~
 
-![](sw/spl/Help/Image/product-A.svg)
+![](Help/Image/product-A.svg)
 
 Plot the sequence of partial products of the function:
 
@@ -137,7 +137,7 @@ Plot the sequence of partial products of the function:
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/product-B.svg)
+![](Help/Image/product-B.svg)
 
 Cumulant expansion numbers,
 OEIS [A127671](https://oeis.org/A127671):
@@ -158,7 +158,7 @@ let c = { :p |
 }.catenate.logScale.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/product-C.svg)
+![](Help/Image/product-C.svg)
 
 Number of cubes in multiplicative group modulo _n_,
 OEIS [A087692](https://oeis.org/A087692):
@@ -185,7 +185,7 @@ OEIS [A087692](https://oeis.org/A087692):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/product-D.svg)
+![](Help/Image/product-D.svg)
 
 Where supported `product` is displayed as Π.
 

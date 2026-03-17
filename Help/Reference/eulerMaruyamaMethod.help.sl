@@ -24,7 +24,7 @@ eulerMaruyamaMethod(r, a:/2, b:/2, t, y0)
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/eulerMaruyamaMethod-A.svg)
+![](Help/Image/eulerMaruyamaMethod-A.svg)
 
 Simulate a geometric brownian motion process:
 
@@ -41,7 +41,7 @@ eulerMaruyamaMethod(r, a:/2, b:/2, t, y0)
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/eulerMaruyamaMethod-B.svg)
+![](Help/Image/eulerMaruyamaMethod-B.svg)
 
 Simulate a brownian bridge process:
 
@@ -55,7 +55,7 @@ Sfc32(529721)
 ).transpose.linePlot
 ~~~
 
-![](sw/spl/Help/Image/eulerMaruyamaMethod-C.svg)
+![](Help/Image/eulerMaruyamaMethod-C.svg)
 
 * * *
 

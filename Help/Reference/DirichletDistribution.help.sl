@@ -13,7 +13,7 @@ let p = d.randomVariate(r, [10 ^ 2]);
 (p ++ [0 0; 1 1]).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/DirichletDistribution-A.svg)
+![](Help/Image/DirichletDistribution-A.svg)
 
 The beta distributions from which the variate process draws:
 
@@ -36,7 +36,7 @@ let f:/1 = DirichletDistribution([3 3 2]).pdf;
 }
 ~~~
 
-![](sw/spl/Help/Image/DirichletDistribution-B.svg)
+![](Help/Image/DirichletDistribution-B.svg)
 
 Matrix plot of `pdf`:
 
@@ -49,7 +49,7 @@ let m = { :x :y |
 (1 - m).Greymap
 ~~~
 
-![](sw/spl/Help/Image/DirichletDistribution-C.png)
+![](Help/Image/DirichletDistribution-C.png)
 
 * * *
 

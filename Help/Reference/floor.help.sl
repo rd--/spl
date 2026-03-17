@@ -106,7 +106,7 @@ Floor is a staircase function:
 (0 -- 8).functionPlot(floor:/1)
 ~~~
 
-![](sw/spl/Help/Image/floor-A.svg)
+![](Help/Image/floor-A.svg)
 
 The Gauss map over a subset of the reals:
 
@@ -116,7 +116,7 @@ The Gauss map over a subset of the reals:
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/floor-B.svg)
+![](Help/Image/floor-B.svg)
 
 The Gauss map over a subset of the complexes:
 
@@ -130,7 +130,7 @@ The Gauss map over a subset of the complexes:
 }
 ~~~
 
-![](sw/spl/Help/Image/floor-C.png)
+![](Help/Image/floor-C.png)
 
 Renyi’s beta expansion of 1 in base 3/2,
 OEIS [A058840](https://oeis.org/A058840):
@@ -146,7 +146,7 @@ let y = 2:104.collect { :n |
 ([1 1] ++ y).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/floor-D.svg)
+![](Help/Image/floor-D.svg)
 
 _n_ repeating _1+⌊(n/2)_ times,
 OEIS [A055086](https://oeis.org/A055086):
@@ -158,7 +158,7 @@ OEIS [A055086](https://oeis.org/A055086):
 }.catenate.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/floor-E.svg)
+![](Help/Image/floor-E.svg)
 
 Triangular array of floor of division,
 OEIS [A010766](https://oeis.org/A010766):
@@ -169,7 +169,7 @@ OEIS [A010766](https://oeis.org/A010766):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/floor-F.svg)
+![](Help/Image/floor-F.svg)
 
 Maximum wins for longest winning streak,
 OEIS [A182210](https://oeis.org/A182210):
@@ -180,7 +180,7 @@ OEIS [A182210](https://oeis.org/A182210):
 }.floor.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/floor-G.svg)
+![](Help/Image/floor-G.svg)
 
 Number of ones in twos complement representation of _-n_,
 OEIS [A008687](https://oeis.org/A008687):
@@ -197,7 +197,7 @@ let a = Map { :n |
 a[0:115].scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/floor-H.svg)
+![](Help/Image/floor-H.svg)
 
 _⌊(n/10)-(n%10)_,
 OEIS [A008687](https://oeis.org/A008687):
@@ -208,7 +208,7 @@ OEIS [A008687](https://oeis.org/A008687):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/floor-I.svg)
+![](Help/Image/floor-I.svg)
 
 _n+⌊(n/4)(-1^(n%4))_,
 OEIS [A265888](https://oeis.org/A265888):
@@ -219,7 +219,7 @@ OEIS [A265888](https://oeis.org/A265888):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/floor-J.svg)
+![](Help/Image/floor-J.svg)
 
 The amusical permutation,
 OEIS [A006368](https://oeis.org/A006368):
@@ -234,7 +234,7 @@ OEIS [A006368](https://oeis.org/A006368):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/floor-K.svg)
+![](Help/Image/floor-K.svg)
 
 Where supported `floor` is displayed as ⌊.
 

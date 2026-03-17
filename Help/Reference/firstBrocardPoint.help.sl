@@ -25,7 +25,7 @@ let [p, q, r] = t.vertexCoordinates;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/firstBrocardPoint-A.svg)
+![](Help/Image/firstBrocardPoint-A.svg)
 
 * * *
 

@@ -27,7 +27,7 @@ let t = sssTriangle(3, 2.5, 3);
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/isoperimetricPoint-A.svg)
+![](Help/Image/isoperimetricPoint-A.svg)
 
 * * *
 

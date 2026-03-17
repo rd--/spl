@@ -11,7 +11,7 @@ Draw the discrete probability density function _1,1,0,1,1_:
 [1 1 0 1 1].linePlot
 ~~~
 
-![](sw/spl/Help/Image/asRandomTable-A.svg)
+![](Help/Image/asRandomTable-A.svg)
 
 Draw the cumulative distribution function associated with the discrete probability density function _1,1,0,1,1_:
 
@@ -19,7 +19,7 @@ Draw the cumulative distribution function associated with the discrete probabili
 [1 1 0 1 1].asRandomTable(128).linePlot
 ~~~
 
-![](sw/spl/Help/Image/asRandomTable-B.svg)
+![](Help/Image/asRandomTable-B.svg)
 
 Draw the discrete probability density function _1,0,0,0,1,0,0,0,1_:
 
@@ -27,7 +27,7 @@ Draw the discrete probability density function _1,0,0,0,1,0,0,0,1_:
 [1 0 0 0 1 0 0 0 1].linePlot
 ~~~
 
-![](sw/spl/Help/Image/asRandomTable-C.svg)
+![](Help/Image/asRandomTable-C.svg)
 
 Draw the cumulative distribution function associated with the discrete probability density function _1,0,0,0,1,0,0,0,1_:
 
@@ -37,7 +37,7 @@ Draw the cumulative distribution function associated with the discrete probabili
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/asRandomTable-D.svg)
+![](Help/Image/asRandomTable-D.svg)
 
 * * *
 

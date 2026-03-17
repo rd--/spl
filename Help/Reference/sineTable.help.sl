@@ -14,7 +14,7 @@ Approximation of sawtooth wave:
 ).normalizeSignal.linePlot
 ~~~
 
-![](sw/spl/Help/Image/sineTable-A.svg)
+![](Help/Image/sineTable-A.svg)
 
 More accurate approximation:
 
@@ -25,7 +25,7 @@ More accurate approximation:
 ).normalizeSignal.linePlot
 ~~~
 
-![](sw/spl/Help/Image/sineTable-B.svg)
+![](Help/Image/sineTable-B.svg)
 
 A pure tone:
 
@@ -33,7 +33,7 @@ A pure tone:
 256.sineTable([1], [0]).linePlot
 ~~~
 
-![](sw/spl/Help/Image/sineTable-C.svg)
+![](Help/Image/sineTable-C.svg)
 
 Plot approximation of square wave:
 
@@ -44,7 +44,7 @@ Plot approximation of square wave:
 ).linePlot
 ~~~
 
-![](sw/spl/Help/Image/sineTable-D.svg)
+![](Help/Image/sineTable-D.svg)
 
 * * *
 

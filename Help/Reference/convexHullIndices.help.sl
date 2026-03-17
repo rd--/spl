@@ -32,7 +32,7 @@ let i = p.convexHullIndices;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/convexHullIndices-A.svg)
+![](Help/Image/convexHullIndices-A.svg)
 
 * * *
 

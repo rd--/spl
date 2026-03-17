@@ -13,7 +13,7 @@ Sfc32(728914)
 .graphPlot
 ~~~
 
-![](sw/spl/Help/Image/randomUniformGraph-A.svg)
+![](Help/Image/randomUniformGraph-A.svg)
 
 A pseudorandom graph of seven vertices and ten edges:
 
@@ -23,7 +23,7 @@ Sfc32(281634)
 .graphPlot
 ~~~
 
-![](sw/spl/Help/Image/randomUniformGraph-B.svg)
+![](Help/Image/randomUniformGraph-B.svg)
 
 A pseudorandom graph of twenty-three vertices and thirty-seven edges:
 
@@ -33,7 +33,7 @@ Sfc32(801842)
 .graphPlot
 ~~~
 
-![](sw/spl/Help/Image/randomUniformGraph-C.svg)
+![](Help/Image/randomUniformGraph-C.svg)
 
 * * *
 

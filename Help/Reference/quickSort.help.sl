@@ -66,7 +66,7 @@ let r = [];
 r.downsample(4).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/quickSort-A.svg)
+![](Help/Image/quickSort-A.svg)
 
 Plot count of comparisons made in sorting increasingly long lists,
 comparing quick and merge sorts:
@@ -88,7 +88,7 @@ let x = r.randomReal([0 1], [n]);
 }.transpose.linePlot
 ~~~
 
-![](sw/spl/Help/Image/quickSort-B.svg)
+![](Help/Image/quickSort-B.svg)
 
 * * *
 

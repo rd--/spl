@@ -118,7 +118,7 @@ OEIS [A059269](https://oeis.org/A059269):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/select-A.svg)
+![](Help/Image/select-A.svg)
 
 * * *
 

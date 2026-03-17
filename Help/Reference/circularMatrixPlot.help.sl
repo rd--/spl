@@ -15,7 +15,7 @@ Plot all zero matrix:
 .circularMatrixPlot
 ~~~
 
-![](sw/spl/Help/Image/circularMatrixPlot-A.svg)
+![](Help/Image/circularMatrixPlot-A.svg)
 
 Plot binary gray code matrix:
 
@@ -24,7 +24,7 @@ Plot binary gray code matrix:
 .circularMatrixPlot
 ~~~
 
-![](sw/spl/Help/Image/circularMatrixPlot-B.svg)
+![](Help/Image/circularMatrixPlot-B.svg)
 
 Plot the length vectors of the five chord diagrams of order three:
 
@@ -34,7 +34,7 @@ Plot the length vectors of the five chord diagrams of order three:
 .circularMatrixPlot
 ~~~
 
-![](sw/spl/Help/Image/circularMatrixPlot-C.svg)
+![](Help/Image/circularMatrixPlot-C.svg)
 
 * * *
 

@@ -57,7 +57,7 @@ OEIS [A096268](https://oeis.org/A096268):
 115.periodDoublingSequence.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/periodDoublingSequence-A.svg)
+![](Help/Image/periodDoublingSequence-A.svg)
 
 A sequence that is distinct from but similar to the period doubling sequence,
 OEIS [A073059](https://oeis.org/A073059):
@@ -74,7 +74,7 @@ let a = Map { :n |
 a[1:105].discretePlot
 ~~~
 
-![](sw/spl/Help/Image/periodDoublingSequence-B.svg)
+![](Help/Image/periodDoublingSequence-B.svg)
 
 A sequence that is distinct from but similar to the complement of the period doubling sequence,
 OEIS [A098725](https://oeis.org/A098725):
@@ -90,7 +90,7 @@ let a = Map { :n |
 a[0:101].discretePlot
 ~~~
 
-![](sw/spl/Help/Image/periodDoublingSequence-C.svg)
+![](Help/Image/periodDoublingSequence-C.svg)
 
 The complement of the period doubling sequence,
 OEIS [A035263](https://oeis.org/A035263):
@@ -100,7 +100,7 @@ OEIS [A035263](https://oeis.org/A035263):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/periodDoublingSequence-D.svg)
+![](Help/Image/periodDoublingSequence-D.svg)
 
 * * *
 

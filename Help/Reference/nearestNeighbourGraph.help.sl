@@ -34,7 +34,7 @@ g.vertexCoordinates := c;
 g
 ~~~
 
-![](sw/spl/Help/Image/nearestNeighbourGraph-A.svg)
+![](Help/Image/nearestNeighbourGraph-A.svg)
 
 * * *
 

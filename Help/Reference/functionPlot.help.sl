@@ -16,7 +16,7 @@ Plot one cycle of the sine function:
 (0 -- 2.pi).functionPlot(sin:/1)
 ~~~
 
-![](sw/spl/Help/Image/functionPlot-A.svg)
+![](Help/Image/functionPlot-A.svg)
 
 Plot a `sin` function, defined as a block literal, over an interval:
 
@@ -26,7 +26,7 @@ Plot a `sin` function, defined as a block literal, over an interval:
 }
 ~~~
 
-![](sw/spl/Help/Image/functionPlot-B.svg)
+![](Help/Image/functionPlot-B.svg)
 
 Function with varying rate of change:
 
@@ -36,7 +36,7 @@ Function with varying rate of change:
 }
 ~~~
 
-![](sw/spl/Help/Image/functionPlot-C.svg)
+![](Help/Image/functionPlot-C.svg)
 
 Plot range selection:
 
@@ -46,7 +46,7 @@ Plot range selection:
 }
 ~~~
 
-![](sw/spl/Help/Image/functionPlot-D.svg)
+![](Help/Image/functionPlot-D.svg)
 
 Exclude non-real values:
 
@@ -57,7 +57,7 @@ Exclude non-real values:
 }
 ~~~
 
-![](sw/spl/Help/Image/functionPlot-E.svg)
+![](Help/Image/functionPlot-E.svg)
 
 Function with discontinuities:
 
@@ -67,7 +67,7 @@ Function with discontinuities:
 }
 ~~~
 
-![](sw/spl/Help/Image/functionPlot-F.svg)
+![](Help/Image/functionPlot-F.svg)
 
 Focusing on areas of interest:
 
@@ -77,7 +77,7 @@ Focusing on areas of interest:
 }
 ~~~
 
-![](sw/spl/Help/Image/functionPlot-G.svg)
+![](Help/Image/functionPlot-G.svg)
 
 Log plot:
 
@@ -87,7 +87,7 @@ Log plot:
 }
 ~~~
 
-![](sw/spl/Help/Image/functionPlot-H.svg)
+![](Help/Image/functionPlot-H.svg)
 
 Zero crossings:
 
@@ -97,7 +97,7 @@ Zero crossings:
 }
 ~~~
 
-![](sw/spl/Help/Image/functionPlot-I.svg)
+![](Help/Image/functionPlot-I.svg)
 
 At `Range`, a discrete domain:
 
@@ -105,7 +105,7 @@ At `Range`, a discrete domain:
 1:99.functionPlot(log:/1)
 ~~~
 
-![](sw/spl/Help/Image/functionPlot-J.svg)
+![](Help/Image/functionPlot-J.svg)
 
 Answering two-dimensional values, plot answer as _x,y_:
 
@@ -118,7 +118,7 @@ Answering two-dimensional values, plot answer as _x,y_:
 }
 ~~~
 
-![](sw/spl/Help/Image/functionPlot-K.svg)
+![](Help/Image/functionPlot-K.svg)
 
 Answering three-dimensional values, plot answer as _x,y,z_:
 
@@ -132,7 +132,7 @@ Answering three-dimensional values, plot answer as _x,y,z_:
 }
 ~~~
 
-![](sw/spl/Help/Image/functionPlot-L.svg)
+![](Help/Image/functionPlot-L.svg)
 
 Answering `Complex` values, plot _real_ and _imaginary_ parts as _x,y_,
 a spiral:
@@ -143,7 +143,7 @@ a spiral:
 }
 ~~~
 
-![](sw/spl/Help/Image/functionPlot-M.svg)
+![](Help/Image/functionPlot-M.svg)
 
 At `Range`, a straight line:
 
@@ -153,7 +153,7 @@ At `Range`, a straight line:
 }
 ~~~
 
-![](sw/spl/Help/Image/functionPlot-N.svg)
+![](Help/Image/functionPlot-N.svg)
 
 At `Range`:
 
@@ -165,7 +165,7 @@ let n = 15;
 }
 ~~~
 
-![](sw/spl/Help/Image/functionPlot-O.svg)
+![](Help/Image/functionPlot-O.svg)
 
 `functionPlot` is a special case of `parametricPlot`,
 where the _x_ parameter block is the identity.
@@ -177,7 +177,7 @@ A `sin` function:
 }
 ~~~
 
-![](sw/spl/Help/Image/functionPlot-P.svg)
+![](Help/Image/functionPlot-P.svg)
 
 The same `sin` function at `parametricPlot`:
 
@@ -189,7 +189,7 @@ The same `sin` function at `parametricPlot`:
 }
 ~~~
 
-![](sw/spl/Help/Image/functionPlot-Q.svg)
+![](Help/Image/functionPlot-Q.svg)
 
 Plot multiple functions:
 
@@ -201,7 +201,7 @@ Plot multiple functions:
 ])
 ~~~
 
-![](sw/spl/Help/Image/functionPlot-R.svg)
+![](Help/Image/functionPlot-R.svg)
 
 Plot `sin` and `cos`:
 
@@ -209,7 +209,7 @@ Plot `sin` and `cos`:
 (0 -- 2.pi).functionPlot([sin:/1, cos:/1])
 ~~~
 
-![](sw/spl/Help/Image/functionPlot-S.svg)
+![](Help/Image/functionPlot-S.svg)
 
 Plot two `sin` functions:
 
@@ -220,7 +220,7 @@ Plot two `sin` functions:
 ])
 ~~~
 
-![](sw/spl/Help/Image/functionPlot-T.svg)
+![](Help/Image/functionPlot-T.svg)
 
 Trace over a sphere:
 
@@ -234,7 +234,7 @@ Trace over a sphere:
 }
 ~~~
 
-![](sw/spl/Help/Image/functionPlot-U.svg)
+![](Help/Image/functionPlot-U.svg)
 
 Alternating the signs of the reciprocals of positive integers produces a  conditionally convergent series,
 called the alternating harmonic series:
@@ -245,7 +245,7 @@ called the alternating harmonic series:
 }
 ~~~
 
-![](sw/spl/Help/Image/functionPlot-V.svg)
+![](Help/Image/functionPlot-V.svg)
 
 Plot a potential energy equation:
 
@@ -260,7 +260,7 @@ let p = UnivariatePolynomial(
 )
 ~~~
 
-![](sw/spl/Help/Image/functionPlot-W.svg)
+![](Help/Image/functionPlot-W.svg)
 
 Plot a helix:
 
@@ -272,7 +272,7 @@ let c = 1;
 }
 ~~~
 
-![](sw/spl/Help/Image/functionPlot-X.svg)
+![](Help/Image/functionPlot-X.svg)
 
 Plot a trefoil knot:
 
@@ -285,7 +285,7 @@ Plot a trefoil knot:
 }
 ~~~
 
-![](sw/spl/Help/Image/functionPlot-Y.svg)
+![](Help/Image/functionPlot-Y.svg)
 
 Plot a (2,3)-torus knot:
 

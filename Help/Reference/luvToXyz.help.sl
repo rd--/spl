@@ -39,7 +39,7 @@ let u = (-50 -- 50).discretize(n);
 .arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/luvToXyz-A.svg)
+![](Help/Image/luvToXyz-A.svg)
 
 A slice of the _L*u*v*_ colour space at _L*=75_,
 where `Image` replaces out of gamut colours with _transparent_:
@@ -57,7 +57,7 @@ let u = (-100 -- 100).discretize(n);
 .Image
 ~~~
 
-![](sw/spl/Help/Image/luvToXyz-B.png)
+![](Help/Image/luvToXyz-B.png)
 
 * * *
 

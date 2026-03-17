@@ -11,7 +11,7 @@ Plot timeline of `List` of times:
 .timelinePlot
 ~~~
 
-![](sw/spl/Help/Image/timelinePlot-A.svg)
+![](Help/Image/timelinePlot-A.svg)
 
 Plot timeline of `List` of lists of times,
 each time sequence is drawn on a separate _track_:
@@ -24,7 +24,7 @@ each time sequence is drawn on a separate _track_:
 ].timelinePlot
 ~~~
 
-![](sw/spl/Help/Image/timelinePlot-B.svg)
+![](Help/Image/timelinePlot-B.svg)
 
 At `TemporalData`,
 draws the time values of each component path on a separate track:
@@ -36,7 +36,7 @@ PoissonProcess(2.7)
 .timelinePlot
 ~~~
 
-![](sw/spl/Help/Image/timelinePlot-C.svg)
+![](Help/Image/timelinePlot-C.svg)
 
 * * *
 

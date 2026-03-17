@@ -14,7 +14,7 @@ Plot curve reproducing Schlick’s gain function, varying _s_:
 )
 ~~~
 
-![](sw/spl/Help/Image/barronCurve-A.svg)
+![](Help/Image/barronCurve-A.svg)
 
 Plot curve reproducing Schlick’s bias function, varying _s_:
 
@@ -26,7 +26,7 @@ Plot curve reproducing Schlick’s bias function, varying _s_:
 )
 ~~~
 
-![](sw/spl/Help/Image/barronCurve-B.svg)
+![](Help/Image/barronCurve-B.svg)
 
 * * *
 

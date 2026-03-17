@@ -103,7 +103,7 @@ OEIS [A204016](https://oeis.org/A204016):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/max-A.svg)
+![](Help/Image/max-A.svg)
 
 * * *
 

@@ -18,7 +18,7 @@ Probability density function, varying _alpha_:
 )
 ~~~
 
-![](sw/spl/Help/Image/WeibullDistribution-A.svg)
+![](Help/Image/WeibullDistribution-A.svg)
 
 Probability density function, varying _beta_:
 
@@ -31,7 +31,7 @@ Probability density function, varying _beta_:
 )
 ~~~
 
-![](sw/spl/Help/Image/WeibullDistribution-B.svg)
+![](Help/Image/WeibullDistribution-B.svg)
 
 Probability density function, varying _mu_:
 
@@ -44,7 +44,7 @@ Probability density function, varying _mu_:
 )
 ~~~
 
-![](sw/spl/Help/Image/WeibullDistribution-C.svg)
+![](Help/Image/WeibullDistribution-C.svg)
 
 Generate a sample of pseudorandom numbers from a Weibull distribution and plot the histogram:
 
@@ -55,7 +55,7 @@ WeibullDistribution(3.5, 2, 0)
 .histogramPlot
 ~~~
 
-![](sw/spl/Help/Image/WeibullDistribution-D.svg)
+![](Help/Image/WeibullDistribution-D.svg)
 
 Two dimensional Weibull noise:
 
@@ -66,7 +66,7 @@ WeibullDistribution(2.5, 1, 0)
 .asGreymap
 ~~~
 
-![](sw/spl/Help/Image/WeibullDistribution-E.png)
+![](Help/Image/WeibullDistribution-E.png)
 
 Plot random variate:
 
@@ -77,7 +77,7 @@ WeibullDistribution(3 / 4, 1, 0)
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/WeibullDistribution-F.svg)
+![](Help/Image/WeibullDistribution-F.svg)
 
 * * *
 

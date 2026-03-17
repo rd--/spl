@@ -97,7 +97,7 @@ Plot of sizes:
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/jugglerSequence-A.svg)
+![](Help/Image/jugglerSequence-A.svg)
 
 Log scale plot of heights:
 
@@ -107,7 +107,7 @@ Log scale plot of heights:
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/jugglerSequence-B.svg)
+![](Help/Image/jugglerSequence-B.svg)
 
 Log plot of table:
 
@@ -118,7 +118,7 @@ Log plot of table:
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/jugglerSequence-C.svg)
+![](Help/Image/jugglerSequence-C.svg)
 
 * * *
 

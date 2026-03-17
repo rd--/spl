@@ -164,7 +164,7 @@ divisible:/2.swap
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/divisible-A.svg)
+![](Help/Image/divisible-A.svg)
 
 Number of divisors _d_ of _n_ such that _d+1_ is not a divisor of _n_,
 OEIS [A137921](https://oeis.org/A137921):
@@ -177,7 +177,7 @@ OEIS [A137921](https://oeis.org/A137921):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/divisible-B.svg)
+![](Help/Image/divisible-B.svg)
 
 Smallest number whose square is divisible by _n_,
 OEIS [A019554](https://oeis.org/A019554):
@@ -190,7 +190,7 @@ OEIS [A019554](https://oeis.org/A019554):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/divisible-C.svg)
+![](Help/Image/divisible-C.svg)
 
 Least sequence where every term divides the product of its neighbors,
 OEIS [A075075](https://oeis.org/A075075):
@@ -202,7 +202,7 @@ OEIS [A075075](https://oeis.org/A075075):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/divisible-D.svg)
+![](Help/Image/divisible-D.svg)
 
 _a(n)_ is the smallest integer not yet in _a_ that is divisible by all non-zero digits of _a(n-1)_,
 OEIS [A237851](https://oeis.org/A237851):
@@ -218,7 +218,7 @@ OEIS [A237851](https://oeis.org/A237851):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/divisible-E.svg)
+![](Help/Image/divisible-E.svg)
 
 Numbers that are divisible by each non-zero digit,
 OEIS [A002796](https://oeis.org/A002796):
@@ -234,7 +234,7 @@ OEIS [A002796](https://oeis.org/A002796):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/divisible-F.svg)
+![](Help/Image/divisible-F.svg)
 
 Sum previous elements that divide _n_,
 OEIS [A269347](https://oeis.org/A269347):
@@ -252,7 +252,7 @@ let a = [1];
 a.log.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/divisible-G.svg)
+![](Help/Image/divisible-G.svg)
 
 Least excluded _m_ such that _m+a(n-1)_ is a multiple of _n_,
 OEIS [A099506](https://oeis.org/A099506):
@@ -264,7 +264,7 @@ OEIS [A099506](https://oeis.org/A099506):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/divisible-H.svg)
+![](Help/Image/divisible-H.svg)
 
 Least excluded _m_ that is a divisor of the previous term,
 or a multiple of the previous term having at least one prime divisor coprime to it,
@@ -284,7 +284,7 @@ OEIS [A113552](https://oeis.org/A113552):
 }.log.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/divisible-I.svg)
+![](Help/Image/divisible-I.svg)
 
 One if _k_ divides _n_ else zero,
 OEIS [A051731](https://oeis.org/A051731):
@@ -295,7 +295,7 @@ OEIS [A051731](https://oeis.org/A051731):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/divisible-J.svg)
+![](Help/Image/divisible-J.svg)
 
 Irregular triangle read by rows in which column _k_ lists ones interleaved with _k-1_ zeros,
 and the first element of column _k_ is in row _k(k+1)/2_,
@@ -314,7 +314,7 @@ OEIS [A237048](https://oeis.org/A237048):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/divisible-K.svg)
+![](Help/Image/divisible-K.svg)
 
 Smallest number _m_ such that _m(m+1)/2_ is divisible by _n_,
 OEIS [A011772](https://oeis.org/A011772):
@@ -327,7 +327,7 @@ OEIS [A011772](https://oeis.org/A011772):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/divisible-L.svg)
+![](Help/Image/divisible-L.svg)
 
 * * *
 

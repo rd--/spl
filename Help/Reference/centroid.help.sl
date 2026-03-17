@@ -50,7 +50,7 @@ let p = 8.regularPolygon([0 0], 1, 0);
 [p, p.centroid.Point].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/centroid-A.svg)
+![](Help/Image/centroid-A.svg)
 
 * * *
 

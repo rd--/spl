@@ -53,7 +53,7 @@ Plot over a subset of the reals:
 }
 ~~~
 
-![](sw/spl/Help/Image/tan-A.svg)
+![](Help/Image/tan-A.svg)
 
 Plot `tan` alongside a Padé approximation:
 
@@ -71,7 +71,7 @@ Plot `tan` alongside a Padé approximation:
 )
 ~~~
 
-![](sw/spl/Help/Image/tan-B.svg)
+![](Help/Image/tan-B.svg)
 
 _|⌊(tan(n))_,
 unsigned variant of
@@ -81,7 +81,7 @@ OEIS [A000503](https://oeis.org/A000503):
 0:150.tan.floor.abs.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/tan-C.svg)
+![](Help/Image/tan-C.svg)
 
 _⌊(tan(n))_,
 OEIS [A000503](https://oeis.org/A000503):
@@ -90,7 +90,7 @@ OEIS [A000503](https://oeis.org/A000503):
 0:150.tan.floor.logScale.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/tan-D.svg)
+![](Help/Image/tan-D.svg)
 
 _⌊(tan(n)²)_,
 OEIS [A005657](https://oeis.org/A005657):
@@ -99,7 +99,7 @@ OEIS [A005657](https://oeis.org/A005657):
 0:150.tan.square.floor.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/tan-E.svg)
+![](Help/Image/tan-E.svg)
 
 * * *
 

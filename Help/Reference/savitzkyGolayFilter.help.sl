@@ -29,7 +29,7 @@ let f = y.savitzkyGolayFilter(3, 11);
 [y f].linePlot
 ~~~
 
-![](sw/spl/Help/Image/savitzkyGolayFilter-A.svg)
+![](Help/Image/savitzkyGolayFilter-A.svg)
 
 * * *
 

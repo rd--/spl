@@ -82,7 +82,7 @@ let [y0L, mL, _] = y.simpleLinearRegression;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/theilSenEstimator-A.svg)
+![](Help/Image/theilSenEstimator-A.svg)
 
 * * *
 

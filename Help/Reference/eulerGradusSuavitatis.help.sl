@@ -49,7 +49,7 @@ Plot:
 1:99.eulerGradusSuavitatis.linePlot
 ~~~
 
-![](sw/spl/Help/Image/eulerGradusSuavitatis-A.svg)
+![](Help/Image/eulerGradusSuavitatis-A.svg)
 
 * * *
 

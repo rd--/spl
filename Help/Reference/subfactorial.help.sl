@@ -63,7 +63,7 @@ Plot the values on a `log` scale over a subset of the reals:
 }
 ~~~
 
-![](sw/spl/Help/Image/subfactorial-A.svg)
+![](Help/Image/subfactorial-A.svg)
 
 * * *
 

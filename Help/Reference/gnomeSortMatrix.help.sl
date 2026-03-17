@@ -30,7 +30,7 @@ Sfc32(375681)
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/gnomeSortMatrix-A.svg)
+![](Help/Image/gnomeSortMatrix-A.svg)
 
 Plot matrix of sucessive sort states:
 
@@ -44,7 +44,7 @@ Sfc32(375681)
 .Greymap
 ~~~
 
-![](sw/spl/Help/Image/gnomeSortMatrix-B.png)
+![](Help/Image/gnomeSortMatrix-B.png)
 
 * * *
 

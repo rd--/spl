@@ -8,7 +8,7 @@ Plot complex numbers as points in the complex plane.
 (1:40 + 0J2).sin.complexListPlot
 ~~~
 
-![](sw/spl/Help/Image/complexListPlot-A.svg)
+![](Help/Image/complexListPlot-A.svg)
 
 Plot the spectrum of a discrete time signal:
 
@@ -19,7 +19,7 @@ Plot the spectrum of a discrete time signal:
 .complexListPlot
 ~~~
 
-![](sw/spl/Help/Image/complexListPlot-B.svg)
+![](Help/Image/complexListPlot-B.svg)
 
 * * *
 

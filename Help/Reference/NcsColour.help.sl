@@ -11,7 +11,7 @@ specified as a string:
 NcsColour('NCS S 0580-Y10R')
 ~~~
 
-![](sw/spl/Help/Image/NcsColour-A.svg)
+![](Help/Image/NcsColour-A.svg)
 
 Colour swatch for _NCS S 4055-R95B_,
 specified as a list:
@@ -20,7 +20,7 @@ specified as a list:
 NcsColour([40 55 'R' 95 'B'])
 ~~~
 
-![](sw/spl/Help/Image/NcsColour-B.svg)
+![](Help/Image/NcsColour-B.svg)
 
 * * *
 

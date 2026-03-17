@@ -29,7 +29,7 @@ Draw the unit octahedron:
 .asPerspectiveDrawing
 ~~~
 
-![](sw/spl/Help/Image/unitOctahedron-A.svg)
+![](Help/Image/unitOctahedron-A.svg)
 
 * * *
 

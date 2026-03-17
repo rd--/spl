@@ -42,7 +42,7 @@ Plot curve:
 )
 ~~~
 
-![](sw/spl/Help/Image/srgbEncode-A.svg)
+![](Help/Image/srgbEncode-A.svg)
 
 Inverse is `srgbDecode`:
 
@@ -52,7 +52,7 @@ Inverse is `srgbDecode`:
 }
 ~~~
 
-![](sw/spl/Help/Image/srgbEncode-B.svg)
+![](Help/Image/srgbEncode-B.svg)
 
 * * *
 

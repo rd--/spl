@@ -18,7 +18,7 @@ A drawing:
 [0 0].unitSquare
 ~~~
 
-![](sw/spl/Help/Image/unitSquare-A.svg)
+![](Help/Image/unitSquare-A.svg)
 
 Threads over lists:
 
@@ -26,7 +26,7 @@ Threads over lists:
 [0 0; 1 1; 2 2].unitSquare.LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/unitSquare-B.svg)
+![](Help/Image/unitSquare-B.svg)
 
 Three rotated unit squares:
 
@@ -38,7 +38,7 @@ Three rotated unit squares:
 }.LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/unitSquare-C.svg)
+![](Help/Image/unitSquare-C.svg)
 
 * * *
 

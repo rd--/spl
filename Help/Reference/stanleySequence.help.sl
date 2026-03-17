@@ -200,7 +200,7 @@ OEIS [A005836](https://oeis.org/A005836):
 [0 1].stanleySequence(192).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/stanleySequence-A.svg)
+![](Help/Image/stanleySequence-A.svg)
 
 * * *
 

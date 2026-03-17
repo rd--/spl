@@ -28,7 +28,7 @@ Plot, the unary forms sets α=2/3:
 )
 ~~~
 
-![](sw/spl/Help/Image/tukeyWindow-A.svg)
+![](Help/Image/tukeyWindow-A.svg)
 
 Shape of a Tukey window using specified parameters:
 
@@ -42,7 +42,7 @@ Shape of a Tukey window using specified parameters:
 )
 ~~~
 
-![](sw/spl/Help/Image/tukeyWindow-B.svg)
+![](Help/Image/tukeyWindow-B.svg)
 
 Discrete Tukey window of length 15:
 
@@ -52,7 +52,7 @@ Discrete Tukey window of length 15:
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/tukeyWindow-C.svg)
+![](Help/Image/tukeyWindow-C.svg)
 
 Frequency response of the Tukey window at α=1/2:
 
@@ -62,7 +62,7 @@ Frequency response of the Tukey window at α=1/2:
 }.fftPlot(512, 'Centered', 'Logarithmic')
 ~~~
 
-![](sw/spl/Help/Image/tukeyWindow-D.svg)
+![](Help/Image/tukeyWindow-D.svg)
 
 * * *
 

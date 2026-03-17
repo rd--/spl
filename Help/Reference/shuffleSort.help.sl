@@ -56,7 +56,7 @@ let r = [];
 r.downsample(k).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/shuffleSort-A.svg)
+![](Help/Image/shuffleSort-A.svg)
 
 * * *
 

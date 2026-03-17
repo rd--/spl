@@ -31,7 +31,7 @@ Draw the _xz_ projection of the unit icosahedron:
 }
 ~~~
 
-![](sw/spl/Help/Image/unitIcosahedron-A.svg)
+![](Help/Image/unitIcosahedron-A.svg)
 
 * * *
 

@@ -24,7 +24,7 @@ Draw parsed colour:
 'rgb(135,206,235)'.parseRgbColour
 ~~~
 
-![](sw/spl/Help/Image/parseRgbColour-A.svg)
+![](Help/Image/parseRgbColour-A.svg)
 
 A rainbow:
 
@@ -41,7 +41,7 @@ A rainbow:
 .enclose.arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/parseRgbColour-B.svg)
+![](Help/Image/parseRgbColour-B.svg)
 
 * * *
 

@@ -57,7 +57,7 @@ Plot over a subset of the reals:
 }
 ~~~
 
-![](sw/spl/Help/Image/arcCoth-A.svg)
+![](Help/Image/arcCoth-A.svg)
 
 Plot of complex `arcCoth` function:
 
@@ -65,7 +65,7 @@ Plot of complex `arcCoth` function:
 [-5J-5 5J5].complexPlot(arcCoth:/1)
 ~~~
 
-![](sw/spl/Help/Image/arcCoth-B.png)
+![](Help/Image/arcCoth-B.png)
 
 * * *
 

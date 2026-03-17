@@ -15,7 +15,7 @@ OEIS [A002487](https://oeis.org/A002487):
 .denseScatterPlot
 ~~~
 
-![](sw/spl/Help/Image/denseScatterPlot-A.png)
+![](Help/Image/denseScatterPlot-A.png)
 
 First differences of Stern’s diatomic series,
 discarding initial two terms,
@@ -28,7 +28,7 @@ OEIS [A070990](https://oeis.org/A070990):
 .denseScatterPlot
 ~~~
 
-![](sw/spl/Help/Image/denseScatterPlot-B.png)
+![](Help/Image/denseScatterPlot-B.png)
 
 Second differences of Stern’s diatomic series,
 OEIS [A283104](https://oeis.org/A283104):
@@ -39,7 +39,7 @@ OEIS [A283104](https://oeis.org/A283104):
 .denseScatterPlot
 ~~~
 
-![](sw/spl/Help/Image/denseScatterPlot-C.png)
+![](Help/Image/denseScatterPlot-C.png)
 
 * * *
 

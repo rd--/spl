@@ -15,7 +15,7 @@ let s = 0:127.collect { :n |
 (s + n).periodogramPlot
 ~~~
 
-![](sw/spl/Help/Image/periodogramPlot-A.svg)
+![](Help/Image/periodogramPlot-A.svg)
 
 * * *
 

@@ -42,7 +42,7 @@ Plot matrix:
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/unitize-A.svg)
+![](Help/Image/unitize-A.svg)
 
 Plot unitized matrix:
 
@@ -52,7 +52,7 @@ Plot unitized matrix:
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/unitize-B.svg)
+![](Help/Image/unitize-B.svg)
 
 * * *
 

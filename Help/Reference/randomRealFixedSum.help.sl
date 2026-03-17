@@ -22,7 +22,7 @@ let p = c.collect(
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/randomRealFixedSum-A.svg)
+![](Help/Image/randomRealFixedSum-A.svg)
 
 _Note:_ The shape parameter can specify further dimensions,
 in which case the last entry specifies _n_.

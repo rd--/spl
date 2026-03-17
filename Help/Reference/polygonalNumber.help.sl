@@ -161,7 +161,7 @@ OEIS [A000217](https://oeis.org/A000217):
 }.linePlot
 ~~~
 
-![](sw/spl/Help/Image/polygonalNumber-A.svg)
+![](Help/Image/polygonalNumber-A.svg)
 
 Triangular array of polygonal numbers:
 
@@ -171,7 +171,7 @@ Triangular array of polygonal numbers:
 ).catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/polygonalNumber-B.svg)
+![](Help/Image/polygonalNumber-B.svg)
 
 Antidiagonal array of polygonal numbers,
 OEIS [A134394](https://oeis.org/A134394):
@@ -182,7 +182,7 @@ OEIS [A134394](https://oeis.org/A134394):
 }.++.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/polygonalNumber-C.svg)
+![](Help/Image/polygonalNumber-C.svg)
 
 * * *
 

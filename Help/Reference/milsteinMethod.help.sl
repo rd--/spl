@@ -24,7 +24,7 @@ milsteinMethod(r, a:/1, b:/1, c:/1, t, y0)
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/milsteinMethod-A.svg)
+![](Help/Image/milsteinMethod-A.svg)
 
 Simulate a stochastic differential equation:
 
@@ -39,7 +39,7 @@ Sfc32(317892)
 ).transpose.linePlot
 ~~~
 
-![](sw/spl/Help/Image/milsteinMethod-B.svg)
+![](Help/Image/milsteinMethod-B.svg)
 
 * * *
 

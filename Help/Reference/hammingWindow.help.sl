@@ -24,7 +24,7 @@ Plot:
 )
 ~~~
 
-![](sw/spl/Help/Image/hammingWindow-A.svg)
+![](Help/Image/hammingWindow-A.svg)
 
 Discrete Hamming window of length 15:
 
@@ -35,7 +35,7 @@ Discrete Hamming window of length 15:
 ).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/hammingWindow-B.svg)
+![](Help/Image/hammingWindow-B.svg)
 
 Frequency response of the Hamming window:
 
@@ -45,7 +45,7 @@ Frequency response of the Hamming window:
 }.fftPlot(512, 'Centered', 'Logarithmic')
 ~~~
 
-![](sw/spl/Help/Image/hammingWindow-C.svg)
+![](Help/Image/hammingWindow-C.svg)
 
 * * *
 

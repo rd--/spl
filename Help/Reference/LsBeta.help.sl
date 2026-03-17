@@ -12,7 +12,7 @@ LsBeta(0, 1, 1 / 3, 3, 99, Sfc32(317984))
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/LsBeta-A.svg)
+![](Help/Image/LsBeta-A.svg)
 
 Biased low, histogram plot:
 
@@ -22,7 +22,7 @@ LsBeta(0, 1, 1 / 3, 3, 999, Sfc32(681423))
 .histogramPlot
 ~~~
 
-![](sw/spl/Help/Image/LsBeta-B.svg)
+![](Help/Image/LsBeta-B.svg)
 
 Biased high, line plot:
 
@@ -32,7 +32,7 @@ LsBeta(0, 1, 3, 1 / 3, 99, Sfc32(678142))
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/LsBeta-C.svg)
+![](Help/Image/LsBeta-C.svg)
 
 * * *
 

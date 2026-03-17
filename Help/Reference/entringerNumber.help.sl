@@ -60,7 +60,7 @@ OEIS [A008282](https://oeis.org/A008282):
 ).catenate.logScale.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/entringerNumber-A.svg)
+![](Help/Image/entringerNumber-A.svg)
 
 * * *
 

@@ -33,7 +33,7 @@ let r = m.ellipticK * 4;
 }
 ~~~
 
-![](sw/spl/Help/Image/jacobiCn-A.svg)
+![](Help/Image/jacobiCn-A.svg)
 
 Plot for various _m_:
 
@@ -47,7 +47,7 @@ Plot for various _m_:
 )
 ~~~
 
-![](sw/spl/Help/Image/jacobiCn-B.svg)
+![](Help/Image/jacobiCn-B.svg)
 
 * * *
 

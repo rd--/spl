@@ -142,7 +142,7 @@ let m = 89;
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/tonelliShanksAlgorithm-A.svg)
+![](Help/Image/tonelliShanksAlgorithm-A.svg)
 
 * * *
 

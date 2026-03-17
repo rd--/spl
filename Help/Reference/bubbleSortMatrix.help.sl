@@ -30,7 +30,7 @@ Sfc32(327681)
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/bubbleSortMatrix-A.svg)
+![](Help/Image/bubbleSortMatrix-A.svg)
 
 Sort longer list:
 
@@ -44,7 +44,7 @@ Sfc32(372681)
 .Greymap
 ~~~
 
-![](sw/spl/Help/Image/bubbleSortMatrix-B.png)
+![](Help/Image/bubbleSortMatrix-B.png)
 
 * * *
 

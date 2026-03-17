@@ -37,7 +37,7 @@ Resample sequence:
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/atBlend-A.svg)
+![](Help/Image/atBlend-A.svg)
 
 * * *
 

@@ -170,7 +170,7 @@ The reciprocals of triangular numbers produce a convergent series where the limi
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/triangularNumber-A.svg)
+![](Help/Image/triangularNumber-A.svg)
 
 Inverse Moebius transform of triangular numbers,
 OEIS [A007437](http://oeis.org/A007437):
@@ -183,7 +183,7 @@ OEIS [A007437](http://oeis.org/A007437):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/triangularNumber-B.svg)
+![](Help/Image/triangularNumber-B.svg)
 
 The inverse of the triangular numbers,
 OEIS [A003056](https://oeis.org/A003056):
@@ -192,7 +192,7 @@ OEIS [A003056](https://oeis.org/A003056):
 1:85.inverseTriangularNumber.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/triangularNumber-C.svg)
+![](Help/Image/triangularNumber-C.svg)
 
 * * *
 

@@ -11,7 +11,7 @@ Answer the trident of Newton in parametric Cartesian form.
 )
 ~~~
 
-![](sw/spl/Help/Image/tridentOfNewton-A.svg)
+![](Help/Image/tridentOfNewton-A.svg)
 
 ~~~spl svg=B
 (-3 -- 3).functionPlot(
@@ -26,7 +26,7 @@ Answer the trident of Newton in parametric Cartesian form.
 )
 ~~~
 
-![](sw/spl/Help/Image/tridentOfNewton-B.svg)
+![](Help/Image/tridentOfNewton-B.svg)
 
 * * *
 

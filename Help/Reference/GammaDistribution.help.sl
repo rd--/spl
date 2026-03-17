@@ -17,7 +17,7 @@ Probability density function of a gamma distribution:
 )
 ~~~
 
-![](sw/spl/Help/Image/GammaDistribution-A.svg)
+![](Help/Image/GammaDistribution-A.svg)
 
 Cumulative distribution function:
 
@@ -32,7 +32,7 @@ Cumulative distribution function:
 )
 ~~~
 
-![](sw/spl/Help/Image/GammaDistribution-B.svg)
+![](Help/Image/GammaDistribution-B.svg)
 
 Generate a sample of pseudo-random numbers from a gamma distribution:
 
@@ -43,7 +43,7 @@ GammaDistribution(3.5, 2)
 .histogramPlot
 ~~~
 
-![](sw/spl/Help/Image/GammaDistribution-C.svg)
+![](Help/Image/GammaDistribution-C.svg)
 
 Mean and variance:
 

@@ -35,7 +35,7 @@ let g = [];
 g.LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/keplerBouwkampConstant-A.svg)
+![](Help/Image/keplerBouwkampConstant-A.svg)
 
 Draw the first few inscribed polygons,
 taking circumradius of each polygon:
@@ -51,7 +51,7 @@ let g = [];
 g.LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/keplerBouwkampConstant-B.svg)
+![](Help/Image/keplerBouwkampConstant-B.svg)
 
 * * *
 

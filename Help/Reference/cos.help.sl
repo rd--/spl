@@ -86,7 +86,7 @@ Plot over a subset of the reals:
 (0 -- 2.pi).functionPlot(cos:/1)
 ~~~
 
-![](sw/spl/Help/Image/cos-A.svg)
+![](Help/Image/cos-A.svg)
 
 Increasing amplitude:
 
@@ -94,7 +94,7 @@ Increasing amplitude:
 (0 -- 16.pi).functionPlot { :u | u * u.cos }
 ~~~
 
-![](sw/spl/Help/Image/cos-B.svg)
+![](Help/Image/cos-B.svg)
 
 Noncommensurate waves (quasiperiodic function):
 
@@ -104,7 +104,7 @@ Noncommensurate waves (quasiperiodic function):
 }
 ~~~
 
-![](sw/spl/Help/Image/cos-C.svg)
+![](Help/Image/cos-C.svg)
 
 Spiral:
 
@@ -117,7 +117,7 @@ Spiral:
 }.Line
 ~~~
 
-![](sw/spl/Help/Image/cos-D.svg)
+![](Help/Image/cos-D.svg)
 
 Plot `cos` alongside a Padé approximation:
 
@@ -128,7 +128,7 @@ Plot `cos` alongside a Padé approximation:
 ])
 ~~~
 
-![](sw/spl/Help/Image/cos-E.svg)
+![](Help/Image/cos-E.svg)
 
 Chirp signal:
 
@@ -138,7 +138,7 @@ Chirp signal:
 }
 ~~~
 
-![](sw/spl/Help/Image/cos-F.svg)
+![](Help/Image/cos-F.svg)
 
 Phase warping and amplitude modulation:
 
@@ -150,7 +150,7 @@ Phase warping and amplitude modulation:
 }
 ~~~
 
-![](sw/spl/Help/Image/cos-G.svg)
+![](Help/Image/cos-G.svg)
 
 Nearest integer to _cos(n)_,
 OEIS [A000484](https://oeis.org/A000484):
@@ -160,7 +160,7 @@ OEIS [A000484](https://oeis.org/A000484):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/cos-H.svg)
+![](Help/Image/cos-H.svg)
 
 _⌊(cos(n))_,
 OEIS [A000480](https://oeis.org/A000480):
@@ -170,7 +170,7 @@ OEIS [A000480](https://oeis.org/A000480):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/cos-I.svg)
+![](Help/Image/cos-I.svg)
 
 * * *
 

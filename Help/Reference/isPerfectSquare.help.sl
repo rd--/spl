@@ -52,7 +52,7 @@ let f = { :n |
 1:115.collect(f:/1).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isPerfectSquare-A.svg)
+![](Help/Image/isPerfectSquare-A.svg)
 
 The characteristic function of the square numbers,
 OEIS [A010052](https://oeis.org/A010052):
@@ -63,7 +63,7 @@ OEIS [A010052](https://oeis.org/A010052):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/isPerfectSquare-B.svg)
+![](Help/Image/isPerfectSquare-B.svg)
 
 Smallest _k_ such that the concatenation of _n_ and _k_ is a square,
 OEIS [A071176](https://oeis.org/A071176):
@@ -83,7 +83,7 @@ OEIS [A071176](https://oeis.org/A071176):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isPerfectSquare-C.svg)
+![](Help/Image/isPerfectSquare-C.svg)
 
 The least integer, absolutely, not yet in the sequence such that the _|a(n-1)-a(n)|_ is a square,
 OEIS [A377091](https://oeis.org/A377091):
@@ -111,7 +111,7 @@ let s = IdentitySet([0]);
 }.nestList(0, m).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/isPerfectSquare-D.svg)
+![](Help/Image/isPerfectSquare-D.svg)
 
 Expansion of Jacobi theta function _θ4(x)_,
 OEIS [A002448](https://oeis.org/A002448):
@@ -123,7 +123,7 @@ OEIS [A002448](https://oeis.org/A002448):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/isPerfectSquare-E.svg)
+![](Help/Image/isPerfectSquare-E.svg)
 
 * * *
 

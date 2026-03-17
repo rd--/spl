@@ -13,7 +13,7 @@ Waveform that goes over 100 points from 1 to 0.0001, and stays there for 29 poin
 ).linePlot
 ~~~
 
-![](sw/spl/Help/Image/gen05-A.svg)
+![](Help/Image/gen05-A.svg)
 
 Waveform that goes from 0.00001 to 1 in 87 points,
 then from 1 to 0.5 in 22 points,
@@ -25,7 +25,7 @@ and then from 0.5 to 0.0001 in 20 points:
 ).linePlot
 ~~~
 
-![](sw/spl/Help/Image/gen05-B.svg)
+![](Help/Image/gen05-B.svg)
 
 * * *
 

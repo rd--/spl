@@ -32,7 +32,7 @@ Plot first few terms:
 ).stepPlot
 ~~~
 
-![](sw/spl/Help/Image/totientSummatoryFunction-A.svg)
+![](Help/Image/totientSummatoryFunction-A.svg)
 
 * * *
 

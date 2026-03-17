@@ -35,7 +35,7 @@ A graph with directed edges:
 .graphPlot
 ~~~
 
-![](sw/spl/Help/Image/DirectedEdge-A.svg)
+![](Help/Image/DirectedEdge-A.svg)
 
 * * *
 

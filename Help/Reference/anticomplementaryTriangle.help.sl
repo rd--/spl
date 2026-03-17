@@ -19,7 +19,7 @@ let m = b.medialTriangle;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/anticomplementaryTriangle-A.svg)
+![](Help/Image/anticomplementaryTriangle-A.svg)
 
 * * *
 

@@ -12,7 +12,7 @@ doyleSpiral(8, 16, [1 100])
 .LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/doyleSpiral-A.svg)
+![](Help/Image/doyleSpiral-A.svg)
 
 With _p=2,q=3_,
 Coxeter’s loxodromic sequence of tangent circles:
@@ -22,7 +22,7 @@ doyleSpiral(2, 3, [1 100])
 .LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/doyleSpiral-B.svg)
+![](Help/Image/doyleSpiral-B.svg)
 
 With _p=6,q=8_:
 
@@ -31,7 +31,7 @@ doyleSpiral(6, 8, [1 100])
 .LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/doyleSpiral-C.svg)
+![](Help/Image/doyleSpiral-C.svg)
 
 With _p=9,q=9_:
 
@@ -40,7 +40,7 @@ doyleSpiral(9, 9, [1 150])
 .LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/doyleSpiral-D.svg)
+![](Help/Image/doyleSpiral-D.svg)
 
 * * *
 

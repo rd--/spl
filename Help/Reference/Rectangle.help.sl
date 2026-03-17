@@ -55,7 +55,7 @@ Rectangle(
 ).LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/Rectangle-A.svg)
+![](Help/Image/Rectangle-A.svg)
 
 Two golden rectangles, one rotated:
 
@@ -67,7 +67,7 @@ let r = Rectangle([0 0], [1.goldenRatio 1]);
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/Rectangle-B.svg)
+![](Help/Image/Rectangle-B.svg)
 
 A sequence of nine randomly displaced squares,
 each rotated:
@@ -83,7 +83,7 @@ let rng = Sfc32(314920);
 }.LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/Rectangle-C.svg)
+![](Help/Image/Rectangle-C.svg)
 
 Golden rectangle sub-divisions:
 
@@ -109,7 +109,7 @@ let f = { :n |
 }.LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/Rectangle-D.svg)
+![](Help/Image/Rectangle-D.svg)
 
 Plot scaled quadrants:
 
@@ -125,7 +125,7 @@ let r = Rectangle([-2 -1], [2 1]);
 }.LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/Rectangle-E.svg)
+![](Help/Image/Rectangle-E.svg)
 
 * * *
 

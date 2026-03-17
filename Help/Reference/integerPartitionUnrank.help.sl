@@ -135,7 +135,7 @@ let m = 'Karttunen';
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerPartitionUnrank-A.svg)
+![](Help/Image/integerPartitionUnrank-A.svg)
 
 Involution of nonnegative integers induced by the conjugation of the encoded partition,
 block _256:511_,
@@ -150,7 +150,7 @@ let m = 'Karttunen';
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerPartitionUnrank-B.svg)
+![](Help/Image/integerPartitionUnrank-B.svg)
 
 Permute integers according to the sum of the Heinz partition,
 OEIS [A215366](https://oeis.org/A215366):
@@ -163,7 +163,7 @@ let n = 8;
 }.take(n + 1).catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerPartitionUnrank-C.svg)
+![](Help/Image/integerPartitionUnrank-C.svg)
 
 With _m=HeinzAscending_,
 OEIS [A112798](https://oeis.org/A112798):
@@ -175,7 +175,7 @@ let m = 'HeinzAscending';
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerPartitionUnrank-D.svg)
+![](Help/Image/integerPartitionUnrank-D.svg)
 
 * * *
 

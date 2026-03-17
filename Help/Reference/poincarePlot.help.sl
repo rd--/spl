@@ -13,7 +13,7 @@ Poincaré plot of a harmonic oscillation with two frequencies:
 }.poincarePlot
 ~~~
 
-![](sw/spl/Help/Image/poincarePlot-A.svg)
+![](Help/Image/poincarePlot-A.svg)
 
 * * *
 

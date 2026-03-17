@@ -29,7 +29,7 @@ Plot curve:
 )
 ~~~
 
-![](sw/spl/Help/Image/adobeRgbDecode-A.svg)
+![](Help/Image/adobeRgbDecode-A.svg)
 
 * * *
 

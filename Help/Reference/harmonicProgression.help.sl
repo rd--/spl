@@ -34,7 +34,7 @@ Plot the first few terms of a harmonic progression:
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/harmonicProgression-A.svg)
+![](Help/Image/harmonicProgression-A.svg)
 
 * * *
 

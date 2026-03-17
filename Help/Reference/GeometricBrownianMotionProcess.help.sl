@@ -33,7 +33,7 @@ GeometricBrownianMotionProcess(
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/GeometricBrownianMotionProcess-A.svg)
+![](Help/Image/GeometricBrownianMotionProcess-A.svg)
 
 Simulate an ensemble of paths:
 
@@ -45,7 +45,7 @@ GeometricBrownianMotionProcess(
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/GeometricBrownianMotionProcess-B.svg)
+![](Help/Image/GeometricBrownianMotionProcess-B.svg)
 
 Compare different σ values:
 
@@ -62,7 +62,7 @@ let r = Sfc32(675932);
 }.linePlot
 ~~~
 
-![](sw/spl/Help/Image/GeometricBrownianMotionProcess-C.svg)
+![](Help/Image/GeometricBrownianMotionProcess-C.svg)
 
 * * *
 

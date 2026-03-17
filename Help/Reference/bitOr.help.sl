@@ -55,7 +55,7 @@ let n = 1:100;
 n.bitOr(n - 1).linePlot
 ~~~
 
-![](sw/spl/Help/Image/bitOr-A.svg)
+![](Help/Image/bitOr-A.svg)
 
 Bitwise or of _n_ and _2n_,
 OEIS [A163617](https://oeis.org/A163617):
@@ -65,7 +65,7 @@ let n = 0:63;
 n.bitOr(2 * n).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/bitOr-B.svg)
+![](Help/Image/bitOr-B.svg)
 
 Bitwise or of _n_ and _2n_ and _3n_:
 
@@ -75,7 +75,7 @@ Bitwise or of _n_ and _2n_ and _3n_:
 }
 ~~~
 
-![](sw/spl/Help/Image/bitOr-C.svg)
+![](Help/Image/bitOr-C.svg)
 
 Matrix plot of the bitwise and of the first few integers:
 
@@ -86,7 +86,7 @@ bitOr:/2
 .Greymap
 ~~~
 
-![](sw/spl/Help/Image/bitOr-D.png)
+![](Help/Image/bitOr-D.png)
 
 `bitAnd` and `bitOr` bitwise,
 OEIS [A086099](https://oeis.org/A086099):
@@ -99,7 +99,7 @@ OEIS [A086099](https://oeis.org/A086099):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/bitOr-E.svg)
+![](Help/Image/bitOr-E.svg)
 
 Bitwise or table,
 read by antidiagonals,
@@ -111,7 +111,7 @@ OEIS [A003986](https://oeis.org/A003986):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitOr-F.svg)
+![](Help/Image/bitOr-F.svg)
 
 Nim-values from game of Kopper’s Nim,
 OEIS [A053398](https://oeis.org/A053398):
@@ -123,7 +123,7 @@ OEIS [A053398](https://oeis.org/A053398):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitOr-G.svg)
+![](Help/Image/bitOr-G.svg)
 
 Bitwise logical or triangular array,
 OEIS [A080098](https://oeis.org/A080098):
@@ -133,7 +133,7 @@ OEIS [A080098](https://oeis.org/A080098):
 .catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitOr-H.svg)
+![](Help/Image/bitOr-H.svg)
 
 Bitwise logical implies triangular array,
 OEIS [A265705](https://oeis.org/A265705):
@@ -149,7 +149,7 @@ OEIS [A265705](https://oeis.org/A265705):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitOr-I.svg)
+![](Help/Image/bitOr-I.svg)
 
 * * *
 

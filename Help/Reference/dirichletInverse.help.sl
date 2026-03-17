@@ -13,7 +13,7 @@ OEIS [A101035](https://oeis.org/A101035):
 ).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/dirichletInverse-A.svg)
+![](Help/Image/dirichletInverse-A.svg)
 
 Dirichlet inverse of the Euler totient function,
 also called the reciprocity balance of _n_,
@@ -25,7 +25,7 @@ OEIS [A023900](https://oeis.org/A023900):
 ).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/dirichletInverse-B.svg)
+![](Help/Image/dirichletInverse-B.svg)
 
 Dirichlet inverse of the σ function,
 OEIS [A046692](https://oeis.org/A046692):
@@ -38,7 +38,7 @@ OEIS [A046692](https://oeis.org/A046692):
 ).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/dirichletInverse-C.svg)
+![](Help/Image/dirichletInverse-C.svg)
 
 Dirichlet inverse of the deficiency of _n_,
 OEIS [A033879](https://oeis.org/A033879):
@@ -51,7 +51,7 @@ OEIS [A033879](https://oeis.org/A033879):
 ).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/dirichletInverse-D.svg)
+![](Help/Image/dirichletInverse-D.svg)
 
 Dirichlet inverse of the Dedekind ψ function,
 OEIS [A323363](https://oeis.org/A323363):
@@ -66,7 +66,7 @@ OEIS [A323363](https://oeis.org/A323363):
 ).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/dirichletInverse-E.svg)
+![](Help/Image/dirichletInverse-E.svg)
 
 Dirichlet inverse of the _σ(3)_ function,
 OEIS [A053825](https://oeis.org/A053825):
@@ -79,7 +79,7 @@ OEIS [A053825](https://oeis.org/A053825):
 ).logScale.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/dirichletInverse-F.svg)
+![](Help/Image/dirichletInverse-F.svg)
 
 Dirichlet inverse of the Stern diatomic sequence,
 OEIS [A317843](https://oeis.org/A317843):
@@ -91,7 +91,7 @@ OEIS [A317843](https://oeis.org/A317843):
 ).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/dirichletInverse-G.svg)
+![](Help/Image/dirichletInverse-G.svg)
 
 * * *
 

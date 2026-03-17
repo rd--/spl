@@ -83,7 +83,7 @@ Plot window function:
 }.linePlot
 ~~~
 
-![](sw/spl/Help/Image/BufRd-A.svg)
+![](Help/Image/BufRd-A.svg)
 
 * * *
 

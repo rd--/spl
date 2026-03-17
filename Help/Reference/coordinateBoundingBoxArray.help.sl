@@ -30,7 +30,7 @@ let c = b.coordinateBoundingBoxArray([1 1]);
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/coordinateBoundingBoxArray-A.svg)
+![](Help/Image/coordinateBoundingBoxArray-A.svg)
 
 Draw bounding box and coordinate array with offsets placing coordinates at the center of each cell,
 and extending beyond the specified boundaries:
@@ -50,7 +50,7 @@ let c = b.coordinateBoundingBoxArray(
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/coordinateBoundingBoxArray-B.svg)
+![](Help/Image/coordinateBoundingBoxArray-B.svg)
 
 An array of three-dimensional points with given discretization steps:
 

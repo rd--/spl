@@ -104,7 +104,7 @@ OEIS [A007318](https://oeis.org/A007318):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/pascalTriangle-A.svg)
+![](Help/Image/pascalTriangle-A.svg)
 
 Pascal’s triangle,
 linear discrete plot,
@@ -116,7 +116,7 @@ OEIS [A007318](https://oeis.org/A007318):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/pascalTriangle-B.svg)
+![](Help/Image/pascalTriangle-B.svg)
 
 Sierpiński’s triangle,
 matrix plot,
@@ -128,7 +128,7 @@ OEIS [A047999](https://oeis.org/A047999):
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/pascalTriangle-C.svg)
+![](Help/Image/pascalTriangle-C.svg)
 
 Sierpiński’s triangle,
 row-order discrete plot,
@@ -140,7 +140,7 @@ OEIS [A047999](https://oeis.org/A047999):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/pascalTriangle-D.svg)
+![](Help/Image/pascalTriangle-D.svg)
 
 Matrix plot of the first few rows of Pascal’s triangle modulo five,
 OEIS [A095140](https://oeis.org/A095140):
@@ -152,7 +152,7 @@ OEIS [A095140](https://oeis.org/A095140):
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/pascalTriangle-E.svg)
+![](Help/Image/pascalTriangle-E.svg)
 
 Sierpiński’s triangle,
 OEIS [A047999](https://oeis.org/A047999):
@@ -162,7 +162,7 @@ OEIS [A047999](https://oeis.org/A047999):
 .triangularArrayPlot
 ~~~
 
-![](sw/spl/Help/Image/pascalTriangle-F.svg)
+![](Help/Image/pascalTriangle-F.svg)
 
 Pascal’s triangle modulo three,
 OEIS [A083093](https://oeis.org/A083093),
@@ -174,7 +174,7 @@ offset to _-1,0,1_:
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/pascalTriangle-G.svg)
+![](Help/Image/pascalTriangle-G.svg)
 
 Row sums of Pascal’s triangle modulo three,
 OEIS [A051638](https://oeis.org/A051638):
@@ -185,7 +185,7 @@ OEIS [A051638](https://oeis.org/A051638):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/pascalTriangle-H.svg)
+![](Help/Image/pascalTriangle-H.svg)
 
 Pascal’s triangle negated modulo three,
 OEIS [A090044](https://oeis.org/A090044),
@@ -197,7 +197,7 @@ offset to _-1,0,1_:
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/pascalTriangle-I.svg)
+![](Help/Image/pascalTriangle-I.svg)
 
 Pascal’s triangle modulo four,
 OEIS [A034931](https://oeis.org/A034931):
@@ -208,7 +208,7 @@ OEIS [A034931](https://oeis.org/A034931):
 .stepPlot
 ~~~
 
-![](sw/spl/Help/Image/pascalTriangle-J.svg)
+![](Help/Image/pascalTriangle-J.svg)
 
 Pascal’s triangle modulo six,
 OEIS [A095141](https://oeis.org/A095141):
@@ -219,7 +219,7 @@ OEIS [A095141](https://oeis.org/A095141):
 .stepPlot
 ~~~
 
-![](sw/spl/Help/Image/pascalTriangle-K.svg)
+![](Help/Image/pascalTriangle-K.svg)
 
 * * *
 

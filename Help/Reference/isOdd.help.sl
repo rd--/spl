@@ -113,7 +113,7 @@ let a = { :n |
 0:150.collect(a:/1).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isOdd-A.svg)
+![](Help/Image/isOdd-A.svg)
 
 Fixed point of dividing the digits according to parity and adding the parts,
 OEIS [A059717](https://oeis.org/A059717):
@@ -133,7 +133,7 @@ OEIS [A059717](https://oeis.org/A059717):
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isOdd-B.svg)
+![](Help/Image/isOdd-B.svg)
 
 Ordered set with zero and where if _x_ is in then both _2x+1_ and _4x_ are also in,
 OEIS [A060142](https://oeis.org/A060142):
@@ -155,7 +155,7 @@ let a:/1 = { :n |
 0:300.select(a:/1).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isOdd-C.svg)
+![](Help/Image/isOdd-C.svg)
 
 Sum of the coefficients of the terms with an even exponent in the Stern polynomial _B(n+1,t)_,
 OEIS [A000360](https://oeis.org/A000360):
@@ -176,7 +176,7 @@ let a = Map { :n |
 a[0:200].scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isOdd-D.svg)
+![](Help/Image/isOdd-D.svg)
 
 * * *
 

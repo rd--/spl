@@ -30,7 +30,7 @@ WeavingInformationFile (
 ).tieupMatrix.matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/tieupMatrix-A.svg)
+![](Help/Image/tieupMatrix-A.svg)
 
 * * *
 

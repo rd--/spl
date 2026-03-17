@@ -11,7 +11,7 @@ Cuboid([0 0 0], [1 1 1])
 .asPerspectiveDrawing
 ~~~
 
-![](sw/spl/Help/Image/Cuboid-A.svg)
+![](Help/Image/Cuboid-A.svg)
 
 Cuboids with different sizes:
 
@@ -22,7 +22,7 @@ Cuboids with different sizes:
 ].PerspectiveDrawing
 ~~~
 
-![](sw/spl/Help/Image/Cuboid-B.svg)
+![](Help/Image/Cuboid-B.svg)
 
 The same geometry with indicated projection:
 
@@ -40,7 +40,7 @@ The same geometry with indicated projection:
 )
 ~~~
 
-![](sw/spl/Help/Image/Cuboid-C.svg)
+![](Help/Image/Cuboid-C.svg)
 
 Random cuboid collection:
 
@@ -53,7 +53,7 @@ let c = {
 c.PerspectiveDrawing
 ~~~
 
-![](sw/spl/Help/Image/Cuboid-D.svg)
+![](Help/Image/Cuboid-D.svg)
 
 * * *
 

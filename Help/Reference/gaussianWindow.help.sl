@@ -27,7 +27,7 @@ Plot, the unary form sets σ to 0.3:
 )
 ~~~
 
-![](sw/spl/Help/Image/gaussianWindow-A.svg)
+![](Help/Image/gaussianWindow-A.svg)
 
 Shape of a Gaussian window using a specified parameter:
 
@@ -37,7 +37,7 @@ Shape of a Gaussian window using a specified parameter:
 }
 ~~~
 
-![](sw/spl/Help/Image/gaussianWindow-B.svg)
+![](Help/Image/gaussianWindow-B.svg)
 
 Discrete Gaussian window of length 15:
 
@@ -47,7 +47,7 @@ Discrete Gaussian window of length 15:
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/gaussianWindow-C.svg)
+![](Help/Image/gaussianWindow-C.svg)
 
 The `fft` of the Gaussian window is Gaussian:
 
@@ -63,7 +63,7 @@ let n = 64;
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/gaussianWindow-D.svg)
+![](Help/Image/gaussianWindow-D.svg)
 
 Frequency response of the Gaussian window:
 
@@ -73,7 +73,7 @@ Frequency response of the Gaussian window:
 }.fftPlot(512, 'Centered', 'Logarithmic')
 ~~~
 
-![](sw/spl/Help/Image/gaussianWindow-E.svg)
+![](Help/Image/gaussianWindow-E.svg)
 
 * * *
 

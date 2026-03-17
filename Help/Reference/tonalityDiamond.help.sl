@@ -109,7 +109,7 @@ Draw the 15-limit diamond:
 .tuningLatticeGraph
 ~~~
 
-![](sw/spl/Help/Image/tonalityDiamond-A.svg)
+![](Help/Image/tonalityDiamond-A.svg)
 
 * * *
 

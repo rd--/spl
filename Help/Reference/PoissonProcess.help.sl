@@ -13,7 +13,7 @@ PoissonProcess(1.3)
 .stepPlot
 ~~~
 
-![](sw/spl/Help/Image/PoissonProcess-A.svg)
+![](Help/Image/PoissonProcess-A.svg)
 
 Simulate an ensemble of paths:
 
@@ -24,7 +24,7 @@ PoissonProcess(2.7)
 .stepPlot
 ~~~
 
-![](sw/spl/Help/Image/PoissonProcess-B.svg)
+![](Help/Image/PoissonProcess-B.svg)
 
 Compare paths for different values of process parameter:
 
@@ -38,7 +38,7 @@ let r = Sfc32(890133);
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/PoissonProcess-C.svg)
+![](Help/Image/PoissonProcess-C.svg)
 
 * * *
 

@@ -33,7 +33,7 @@ let r = m.ellipticK * 2;
 }
 ~~~
 
-![](sw/spl/Help/Image/jacobiDn-A.svg)
+![](Help/Image/jacobiDn-A.svg)
 
 Plot for various _m_:
 
@@ -47,7 +47,7 @@ Plot for various _m_:
 )
 ~~~
 
-![](sw/spl/Help/Image/jacobiDn-B.svg)
+![](Help/Image/jacobiDn-B.svg)
 
 Cartesian coordinates of a pendulum:
 
@@ -67,7 +67,7 @@ t.collect { :t |
 }.pathPlot(t)
 ~~~
 
-![](sw/spl/Help/Image/jacobiDn-C.svg)
+![](Help/Image/jacobiDn-C.svg)
 
 * * *
 

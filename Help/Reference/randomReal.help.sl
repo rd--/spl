@@ -44,7 +44,7 @@ Sfc32(67183)
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/randomReal-A.svg)
+![](Help/Image/randomReal-A.svg)
 
 Plot a random walk:
 
@@ -55,7 +55,7 @@ Sfc32(678314)
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/randomReal-B.svg)
+![](Help/Image/randomReal-B.svg)
 
 A `matrixPlot` of a random 13×11 _(-1, 1)_ matrix:
 
@@ -65,7 +65,7 @@ Sfc32(329149)
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/randomReal-C.svg)
+![](Help/Image/randomReal-C.svg)
 
 A `Greymap` of a random 50×90 _(0, 1)_ matrix:
 
@@ -75,7 +75,7 @@ Sfc32(814789)
 .Greymap
 ~~~
 
-![](sw/spl/Help/Image/randomReal-D.png)
+![](Help/Image/randomReal-D.png)
 
 * * *
 

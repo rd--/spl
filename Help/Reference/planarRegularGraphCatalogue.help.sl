@@ -23,7 +23,7 @@ system
 .at('5reg_22-35.6')
 ~~~
 
-![](sw/spl/Help/Image/planarRegularGraphCatalogue-A.svg)
+![](Help/Image/planarRegularGraphCatalogue-A.svg)
 
 _Note:_
 The catalogue is a `LibraryItem`,

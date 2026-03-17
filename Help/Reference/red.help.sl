@@ -27,7 +27,7 @@ Plot reds with increasing α:
 .arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/red-A.svg)
+![](Help/Image/red-A.svg)
 
 * * *
 

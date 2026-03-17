@@ -33,7 +33,7 @@ system
 .at('nonham52c5.5')
 ~~~
 
-![](sw/spl/Help/Image/planarNonHamiltonianGraphCatalogue-A.svg)
+![](Help/Image/planarNonHamiltonianGraphCatalogue-A.svg)
 
 _Note:_
 The catalogue is a `LibraryItem`,

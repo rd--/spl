@@ -110,7 +110,7 @@ let f = { :p :e |
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/caseOf-A.svg)
+![](Help/Image/caseOf-A.svg)
 
 * * *
 

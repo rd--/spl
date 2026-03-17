@@ -57,7 +57,7 @@ A blue colour patch:
 [0.2 0.5 0.7].asColour
 ~~~
 
-![](sw/spl/Help/Image/asColour-A.svg)
+![](Help/Image/asColour-A.svg)
 
 A light grey colour patch:
 
@@ -65,7 +65,7 @@ A light grey colour patch:
 0.75.asColour
 ~~~
 
-![](sw/spl/Help/Image/asColour-B.svg)
+![](Help/Image/asColour-B.svg)
 
 * * *
 

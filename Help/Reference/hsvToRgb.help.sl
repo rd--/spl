@@ -51,7 +51,7 @@ let n = 5;
 }.arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/hsvToRgb-A.svg)
+![](Help/Image/hsvToRgb-A.svg)
 
 A colour drawing of an 9×9 gradient matrix with the _hue_ parameter traversing _(0,1)_ and the _value_ parameter _(0.3, 1)_:
 
@@ -63,7 +63,7 @@ let i = (0 -- 1).discretize(n);
 }.table(i, i * 0.7 + 0.3).arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/hsvToRgb-B.svg)
+![](Help/Image/hsvToRgb-B.svg)
 
 An image of the same gradient matrix at higher resolution:
 
@@ -75,7 +75,7 @@ let i = (0 -- 1).subdivide(n);
 }.table(i, i * 0.7 + 0.3).Image
 ~~~
 
-![](sw/spl/Help/Image/hsvToRgb-C.png)
+![](Help/Image/hsvToRgb-C.png)
 
 A gradient at _s=1_ where
 _h_ is _(0,1)_ along the _X_-axis,
@@ -90,7 +90,7 @@ and _v_ is _(0.2,0.8)_ along the _Y_-axis:
 ).Image
 ~~~
 
-![](sw/spl/Help/Image/hsvToRgb-D.png)
+![](Help/Image/hsvToRgb-D.png)
 
 * * *
 

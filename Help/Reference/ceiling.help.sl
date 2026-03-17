@@ -128,7 +128,7 @@ Ceiling is a staircase function:
 (0 -- 7).functionPlot(ceiling:/1)
 ~~~
 
-![](sw/spl/Help/Image/ceiling-A.svg)
+![](Help/Image/ceiling-A.svg)
 
 Canonical enumeration of integers,
 OEIS [A001057](https://oeis.org/A001057):
@@ -139,7 +139,7 @@ OEIS [A001057](https://oeis.org/A001057):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/ceiling-B.svg)
+![](Help/Image/ceiling-B.svg)
 
 Shortest representation of _-n_ in twos-complement format,
 OEIS [A010078](https://oeis.org/A010078):
@@ -150,7 +150,7 @@ OEIS [A010078](https://oeis.org/A010078):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/ceiling-C.svg)
+![](Help/Image/ceiling-C.svg)
 
 Irregular triangle read by rows in which column _k_ lists _k_ copies of every positive integer in nondecreasing order,
 and the first element of column _k_ is in row _k(k+1)/2_,
@@ -167,7 +167,7 @@ OEIS [A235791](https://oeis.org/A235791):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/ceiling-D.svg)
+![](Help/Image/ceiling-D.svg)
 
 Where supported `ceiling` is displayed as ⌈.
 

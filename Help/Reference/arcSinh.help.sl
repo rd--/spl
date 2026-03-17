@@ -58,7 +58,7 @@ Plot over a subset of the reals:
 (-10 -- 10).functionPlot(arcSinh:/1)
 ~~~
 
-![](sw/spl/Help/Image/arcSinh-A.svg)
+![](Help/Image/arcSinh-A.svg)
 
 Plot of complex `arcSinh` function:
 
@@ -66,7 +66,7 @@ Plot of complex `arcSinh` function:
 [-2J-2 2J2].complexPlot(arcSinh:/1)
 ~~~
 
-![](sw/spl/Help/Image/arcSinh-B.png)
+![](Help/Image/arcSinh-B.png)
 
 * * *
 

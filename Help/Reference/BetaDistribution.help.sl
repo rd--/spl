@@ -17,7 +17,7 @@ Probability density function:
 )
 ~~~
 
-![](sw/spl/Help/Image/BetaDistribution-A.svg)
+![](Help/Image/BetaDistribution-A.svg)
 
 The distribution is symmetrical:
 
@@ -32,7 +32,7 @@ The distribution is symmetrical:
 )
 ~~~
 
-![](sw/spl/Help/Image/BetaDistribution-B.svg)
+![](Help/Image/BetaDistribution-B.svg)
 
 Cumulative distribution function:
 
@@ -47,7 +47,7 @@ Cumulative distribution function:
 )
 ~~~
 
-![](sw/spl/Help/Image/BetaDistribution-C.svg)
+![](Help/Image/BetaDistribution-C.svg)
 
 Generate a sample of pseudo-random numbers from a beta distribution:
 
@@ -58,7 +58,7 @@ BetaDistribution(3, 2.5)
 .histogramPlot
 ~~~
 
-![](sw/spl/Help/Image/BetaDistribution-D.svg)
+![](Help/Image/BetaDistribution-D.svg)
 
 When α and β are both less than one,
 the probability density is greatest near `zero` and `one`,
@@ -71,7 +71,7 @@ the case where α=β=1/2 is equal to the standard arcsine distribution:
 )
 ~~~
 
-![](sw/spl/Help/Image/BetaDistribution-E.svg)
+![](Help/Image/BetaDistribution-E.svg)
 
 When α and β are both equal to one the probability density function is uniformly `one`:
 
@@ -82,7 +82,7 @@ When α and β are both equal to one the probability density function is uniform
 )
 ~~~
 
-![](sw/spl/Help/Image/BetaDistribution-F.svg)
+![](Help/Image/BetaDistribution-F.svg)
 
 When α=1 and β=2,
 and vice-versa,
@@ -94,7 +94,7 @@ the probability density function is linear:
 )
 ~~~
 
-![](sw/spl/Help/Image/BetaDistribution-G.svg)
+![](Help/Image/BetaDistribution-G.svg)
 
 When α and β are both greater than `one` the probability density function is Gaussian,
 the mean is the midpoint if α=β,
@@ -110,7 +110,7 @@ else it is skewed toward the lower values boundary:
 )
 ~~~
 
-![](sw/spl/Help/Image/BetaDistribution-H.svg)
+![](Help/Image/BetaDistribution-H.svg)
 
 Biased low:
 
@@ -121,7 +121,7 @@ BetaDistribution(1 / 3, 3)
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/BetaDistribution-I.svg)
+![](Help/Image/BetaDistribution-I.svg)
 
 Biased high:
 
@@ -132,7 +132,7 @@ BetaDistribution(3, 1 / 3)
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/BetaDistribution-J.svg)
+![](Help/Image/BetaDistribution-J.svg)
 
 * * *
 

@@ -20,7 +20,7 @@ Drawing of the 3rd step of the Sierpiński sieve:
 3.sierpinskiSieve.Line
 ~~~
 
-![](sw/spl/Help/Image/sierpinskiSieve-A.svg)
+![](Help/Image/sierpinskiSieve-A.svg)
 
 Drawing of the 4th step of the Sierpiński sieve:
 
@@ -28,7 +28,7 @@ Drawing of the 4th step of the Sierpiński sieve:
 4.sierpinskiSieve.Line
 ~~~
 
-![](sw/spl/Help/Image/sierpinskiSieve-B.svg)
+![](Help/Image/sierpinskiSieve-B.svg)
 
 * * *
 

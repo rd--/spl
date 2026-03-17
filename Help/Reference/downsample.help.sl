@@ -30,7 +30,7 @@ Sfc32(289714)
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/downsample-A.svg)
+![](Help/Image/downsample-A.svg)
 
 Downsample to one-hundred places:
 
@@ -42,7 +42,7 @@ Sfc32(289714)
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/downsample-B.svg)
+![](Help/Image/downsample-B.svg)
 
 Downsample a randomly generated star convex polygon:
 
@@ -54,7 +54,7 @@ let p = r.randomStarConvexPolygon(
 [p, p.downsample(4)].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/downsample-C.svg)
+![](Help/Image/downsample-C.svg)
 
 * * *
 

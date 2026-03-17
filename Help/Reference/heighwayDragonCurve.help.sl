@@ -33,7 +33,7 @@ Drawing of the 6th step of the Heighway dragon curve:
 6.heighwayDragonCurve.Line
 ~~~
 
-![](sw/spl/Help/Image/heighwayDragonCurve-A.svg)
+![](Help/Image/heighwayDragonCurve-A.svg)
 
 Drawing of the 9th step of the Heighway dragon curve:
 
@@ -41,7 +41,7 @@ Drawing of the 9th step of the Heighway dragon curve:
 9.heighwayDragonCurve.Line
 ~~~
 
-![](sw/spl/Help/Image/heighwayDragonCurve-B.svg)
+![](Help/Image/heighwayDragonCurve-B.svg)
 
 * * *
 

@@ -218,7 +218,7 @@ OEIS [A007814](https://oeis.org/A007814):
 }
 ~~~
 
-![](sw/spl/Help/Image/integerExponent-A.svg)
+![](Help/Image/integerExponent-A.svg)
 
 A self-descriptive sequence,
 terms at even indices are the sequence itself,
@@ -234,7 +234,7 @@ OEIS [A110963](https://oeis.org/A110963):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerExponent-B.svg)
+![](Help/Image/integerExponent-B.svg)
 
 Number of zeroes at the end of _n_ when written in base ten,
 OEIS [A122840](https://oeis.org/A122840):
@@ -243,7 +243,7 @@ OEIS [A122840](https://oeis.org/A122840):
 1:200.integerExponent(10).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/integerExponent-C.svg)
+![](Help/Image/integerExponent-C.svg)
 
 An experimental sequence by D.J. Sycamore,
 OEIS [A366601](https://oeis.org/A366601):
@@ -268,7 +268,7 @@ let c = [0];
 c.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerExponent-D.svg)
+![](Help/Image/integerExponent-D.svg)
 
 Count nonsingular complex Hermitian matrices,
 OEIS [A037227](https://oeis.org/A037227):
@@ -279,7 +279,7 @@ OEIS [A037227](https://oeis.org/A037227):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerExponent-E.svg)
+![](Help/Image/integerExponent-E.svg)
 
 First differences of
 complement of
@@ -294,7 +294,7 @@ OEIS [A279340](https://oeis.org/A279340):
 ).differences.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/integerExponent-F.svg)
+![](Help/Image/integerExponent-F.svg)
 
 Two-adic valuation of _τ(n)_,
 OEIS [A295664](https://oeis.org/A295664):
@@ -305,7 +305,7 @@ OEIS [A295664](https://oeis.org/A295664):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/integerExponent-G.svg)
+![](Help/Image/integerExponent-G.svg)
 
 Two-adic valuation of _σ(n)_,
 OEIS [A336937](https://oeis.org/A336937):
@@ -316,7 +316,7 @@ OEIS [A336937](https://oeis.org/A336937):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/integerExponent-H.svg)
+![](Help/Image/integerExponent-H.svg)
 
 The binary expansion of _3n+1_,
 substituting _01_ for all trailing _0_ following the odd part,
@@ -330,7 +330,7 @@ OEIS [A371094](https://oeis.org/A371094):
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerExponent-I.svg)
+![](Help/Image/integerExponent-I.svg)
 
 Three-adic valuation of the bijective bit-reverse of _3n_,
 OEIS [A280509](https://oeis.org/A280509):
@@ -343,7 +343,7 @@ OEIS [A280509](https://oeis.org/A280509):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/integerExponent-J.svg)
+![](Help/Image/integerExponent-J.svg)
 
 Exchange two and three in the prime factorization of _n_,
 OEIS [A064614](https://oeis.org/A064614):
@@ -358,7 +358,7 @@ OEIS [A064614](https://oeis.org/A064614):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/integerExponent-K.svg)
+![](Help/Image/integerExponent-K.svg)
 
 A sequence related to the ruler sequence _r_,
 where _a(2n)=4a(n)-2^r(n)_,
@@ -374,7 +374,7 @@ OEIS [A220466](https://oeis.org/A220466):
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerExponent-L.svg)
+![](Help/Image/integerExponent-L.svg)
 
 Walk a rook along a square spiral,
 OEIS [A308896](https://oeis.org/A308896):
@@ -411,7 +411,7 @@ let a = [];
 a.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerExponent-M.svg)
+![](Help/Image/integerExponent-M.svg)
 
 _b=3_,
 greatest _k_ such that _3^k_ divides _n_,
@@ -421,7 +421,7 @@ OEIS [A007949](https://oeis.org/A007949):
 1:150.integerExponent(3).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/integerExponent-N.svg)
+![](Help/Image/integerExponent-N.svg)
 
 Deficiency minus binary weight,
 OEIS [A294898](https://oeis.org/A294898):
@@ -434,7 +434,7 @@ OEIS [A294898](https://oeis.org/A294898):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/integerExponent-O.svg)
+![](Help/Image/integerExponent-O.svg)
 
 The largest five-smooth divisor of _n_,
 OEIS [A355582](https://oeis.org/A355582):
@@ -447,7 +447,7 @@ OEIS [A355582](https://oeis.org/A355582):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/integerExponent-P.svg)
+![](Help/Image/integerExponent-P.svg)
 
 Largest divisor of _n_ having the form _2^i×5^j_,
 OEIS [A132741](https://oeis.org/A132741):
@@ -460,7 +460,7 @@ OEIS [A132741](https://oeis.org/A132741):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/integerExponent-Q.svg)
+![](Help/Image/integerExponent-Q.svg)
 
 A sequence related to the Josephus problem,
 OEIS [A025480](https://oeis.org/A025480):
@@ -472,7 +472,7 @@ OEIS [A025480](https://oeis.org/A025480):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/integerExponent-R.svg)
+![](Help/Image/integerExponent-R.svg)
 
 * * *
 

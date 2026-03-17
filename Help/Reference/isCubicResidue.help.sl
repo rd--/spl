@@ -48,7 +48,7 @@ Plot boolean triangle:
 ).boole.padLeft.Bitmap
 ~~~
 
-![](sw/spl/Help/Image/isCubicResidue-A.png)
+![](Help/Image/isCubicResidue-A.png)
 
 Number of distinct cubic residues modulo _n_,
 OEIS [A046530](https://oeis.org/A046530):
@@ -82,7 +82,7 @@ OEIS [A046530](https://oeis.org/A046530):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isCubicResidue-B.svg)
+![](Help/Image/isCubicResidue-B.svg)
 
 * * *
 

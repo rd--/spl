@@ -17,7 +17,7 @@ let n = 200;
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/dft-A.svg)
+![](Help/Image/dft-A.svg)
 
 * * *
 

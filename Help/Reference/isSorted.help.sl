@@ -82,7 +82,7 @@ Indices of sorted tuples:
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isSorted-A.svg)
+![](Help/Image/isSorted-A.svg)
 
 Numbers where,
 in the binary expansion,
@@ -99,7 +99,7 @@ OEIS [A037016](https://oeis.org/A037016):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isSorted-B.svg)
+![](Help/Image/isSorted-B.svg)
 
 * * *
 

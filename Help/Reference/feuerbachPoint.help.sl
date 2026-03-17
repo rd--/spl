@@ -25,7 +25,7 @@ let c = t.circumcenter;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/feuerbachPoint-A.svg)
+![](Help/Image/feuerbachPoint-A.svg)
 
 * * *
 

@@ -19,7 +19,7 @@ Drawing of the 2nd step of the Sierpiński arrowhead curve:
 2.sierpinskiArrowheadCurve.Line
 ~~~
 
-![](sw/spl/Help/Image/sierpinskiArrowheadCurve-A.svg)
+![](Help/Image/sierpinskiArrowheadCurve-A.svg)
 
 Drawing of the 3rd step of the Sierpiński arrowhead curve:
 
@@ -27,7 +27,7 @@ Drawing of the 3rd step of the Sierpiński arrowhead curve:
 5.sierpinskiArrowheadCurve.Line
 ~~~
 
-![](sw/spl/Help/Image/sierpinskiArrowheadCurve-B.svg)
+![](Help/Image/sierpinskiArrowheadCurve-B.svg)
 
 * * *
 

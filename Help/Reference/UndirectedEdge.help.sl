@@ -52,7 +52,7 @@ A graph with undirected edges:
 .graphPlot
 ~~~
 
-![](sw/spl/Help/Image/UndirectedEdge-A.svg)
+![](Help/Image/UndirectedEdge-A.svg)
 
 * * *
 

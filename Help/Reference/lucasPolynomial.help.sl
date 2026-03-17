@@ -37,7 +37,7 @@ OEIS [A114525](https://oeis.org/A114525):
 }.catenate.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/lucasPolynomial-A.svg)
+![](Help/Image/lucasPolynomial-A.svg)
 
 * * *
 

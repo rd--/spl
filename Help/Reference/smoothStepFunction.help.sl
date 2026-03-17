@@ -31,7 +31,7 @@ Six smoothStep functions:
 )
 ~~~
 
-![](sw/spl/Help/Image/smoothStepFunction-A.svg)
+![](Help/Image/smoothStepFunction-A.svg)
 
 * * *
 

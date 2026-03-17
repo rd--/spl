@@ -155,7 +155,7 @@ TimeSeries(
 ).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/TimeSeries-A.svg)
+![](Help/Image/TimeSeries-A.svg)
 
 Rescale a time series to run from 0 to 20:
 
@@ -239,7 +239,7 @@ TimeSeries(
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/TimeSeries-B.svg)
+![](Help/Image/TimeSeries-B.svg)
 
 Plot linear interpolation function of time series:
 
@@ -252,7 +252,7 @@ Plot linear interpolation function of time series:
 )
 ~~~
 
-![](sw/spl/Help/Image/TimeSeries-C.svg)
+![](Help/Image/TimeSeries-C.svg)
 
 Plot nearest-neighbour interpolation function of time series:
 
@@ -265,7 +265,7 @@ Plot nearest-neighbour interpolation function of time series:
 )
 ~~~
 
-![](sw/spl/Help/Image/TimeSeries-D.svg)
+![](Help/Image/TimeSeries-D.svg)
 
 Plot cubic-spline interpolation function of time series:
 
@@ -278,7 +278,7 @@ Plot cubic-spline interpolation function of time series:
 )
 ~~~
 
-![](sw/spl/Help/Image/TimeSeries-E.svg)
+![](Help/Image/TimeSeries-E.svg)
 
 Plot Akima interpolation function of time series:
 
@@ -291,7 +291,7 @@ Plot Akima interpolation function of time series:
 )
 ~~~
 
-![](sw/spl/Help/Image/TimeSeries-F.svg)
+![](Help/Image/TimeSeries-F.svg)
 
 * * *
 

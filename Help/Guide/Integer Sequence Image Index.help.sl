@@ -8,7 +8,7 @@ OEIS [A000001](https://oeis.org/A000001):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/finiteGroupCount-A.svg)
+![](Help/Image/finiteGroupCount-A.svg)
 
 The number of finite groups of order _n_,
 log scale scatter plot,
@@ -20,7 +20,7 @@ OEIS [A000001](https://oeis.org/A000001):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/finiteGroupCount-B.svg)
+![](Help/Image/finiteGroupCount-B.svg)
 
 All of the `data` given in the OEIS entry proper,
 OEIS [A000001](https://oeis.org/A000001):
@@ -33,7 +33,7 @@ OeisEntry('A000001').then { :e |
 }
 ~~~
 
-![](sw/spl/Help/Image/OeisEntry-A.svg)
+![](Help/Image/OeisEntry-A.svg)
 
 The first few items of `bFileData`,
 as given in B-file associated with the OEIS entry,
@@ -48,7 +48,7 @@ OeisEntry('A000001').then { :e |
 }
 ~~~
 
-![](sw/spl/Help/Image/OeisEntry-B.svg)
+![](Help/Image/OeisEntry-B.svg)
 
 The _1,2_ Kolakoski sequence,
 OEIS [A000002](https://oeis.org/A000002):
@@ -58,7 +58,7 @@ OEIS [A000002](https://oeis.org/A000002):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/kolakoskiSequence-A.svg)
+![](Help/Image/kolakoskiSequence-A.svg)
 
 The _1,2_ Kolakoski sequence,
 OEIS [A000002](https://oeis.org/A000002),
@@ -69,7 +69,7 @@ offset terms to be at `zero` and `one`:
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/kolakoskiSequence-B.svg)
+![](Help/Image/kolakoskiSequence-B.svg)
 
 Divisor function _σ₀(n)_ up to _n=100_,
 OEIS [A000005](https://oeis.org/A000005):
@@ -80,7 +80,7 @@ OEIS [A000005](https://oeis.org/A000005):
 }
 ~~~
 
-![](sw/spl/Help/Image/divisorSigma-A.svg)
+![](Help/Image/divisorSigma-A.svg)
 
 _σ₀(n)_,
 also called _τ(n)_,
@@ -91,7 +91,7 @@ let n = 200;
 0.divisorSigma(1:n).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/divisorSigma-D.svg)
+![](Help/Image/divisorSigma-D.svg)
 
 Integer part of square root of _n_-th prime,
 OEIS [A000006](https://oeis.org/A000006):
@@ -100,7 +100,7 @@ OEIS [A000006](https://oeis.org/A000006):
 1:65.prime.sqrt.integerPart.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/integerPart-D.svg)
+![](Help/Image/integerPart-D.svg)
 
 The Euler totient function,
 OEIS [A000010](https://oeis.org/A000010):
@@ -109,7 +109,7 @@ OEIS [A000010](https://oeis.org/A000010):
 1:50.functionPlot(eulerPhi:/1)
 ~~~
 
-![](sw/spl/Help/Image/eulerPhi-A.svg)
+![](Help/Image/eulerPhi-A.svg)
 
 Mosaic numbers,
 OEIS [A000026](https://oeis.org/A000026):
@@ -120,7 +120,7 @@ OEIS [A000026](https://oeis.org/A000026):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/factorInteger-M.svg)
+![](Help/Image/factorInteger-M.svg)
 
 Identity,
 OEIS [A000027](https://oeis.org/A000027):
@@ -134,7 +134,7 @@ OEIS [A000027](https://oeis.org/A000027):
 ).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/dirichletConvolve-F.svg)
+![](Help/Image/dirichletConvolve-F.svg)
 
 Initial digit of _n_,
 OEIS [A000030](https://oeis.org/A000030):
@@ -145,7 +145,7 @@ OEIS [A000030](https://oeis.org/A000030):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/decimalExpansion-B.svg)
+![](Help/Image/decimalExpansion-B.svg)
 
 The _01_ sequence,
 discrete plot,
@@ -155,7 +155,7 @@ OEIS [A000035](http://oeis.org/A000035):
 [0 1].repeat(30).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/repeat-B.svg)
+![](Help/Image/repeat-B.svg)
 
 Primes up to one-thousand,
 OEIS [A000040](https://oeis.org/A000040):
@@ -164,7 +164,7 @@ OEIS [A000040](https://oeis.org/A000040):
 1:999.select(isPrime:/1).linePlot
 ~~~
 
-![](sw/spl/Help/Image/isPrime-A.svg)
+![](Help/Image/isPrime-A.svg)
 
 Prime numbers,
 OEIS [A000040](https://oeis.org/A000040):
@@ -173,7 +173,7 @@ OEIS [A000040](https://oeis.org/A000040):
 1:50.functionPlot(prime:/1)
 ~~~
 
-![](sw/spl/Help/Image/prime-A.svg)
+![](Help/Image/prime-A.svg)
 
 The number of unrestricted partitions,
 OEIS [A000041](https://oeis.org/A000041):
@@ -184,7 +184,7 @@ OEIS [A000041](https://oeis.org/A000041):
 }
 ~~~
 
-![](sw/spl/Help/Image/partitionFunctionP-A.svg)
+![](Help/Image/partitionFunctionP-A.svg)
 
 Number of solutions to _x^2+1=0_ modulo _n_,
 OEIS [A000089](https://oeis.org/A000089):
@@ -197,7 +197,7 @@ OEIS [A000089](https://oeis.org/A000089):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/power-F.svg)
+![](Help/Image/power-F.svg)
 
 Number of fixed points of _γ0(n)_ of type _i_,
 OEIS [A000095](https://oeis.org/A000095):
@@ -221,7 +221,7 @@ let k = { :d |
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/kroneckerSymbol-H.svg)
+![](Help/Image/kroneckerSymbol-H.svg)
 
 Bell numbers,
 discrete log plot,
@@ -231,7 +231,7 @@ OEIS [A000110](https://oeis.org/A000110):
 1:99.bellNumber.log.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/bellNumber-A.svg)
+![](Help/Image/bellNumber-A.svg)
 
 Number of transformation groups of order _n_,
 OEIS [A000113](https://oeis.org/A000113):
@@ -249,7 +249,7 @@ OEIS [A000113](https://oeis.org/A000113):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/moebiusMu-H.svg)
+![](Help/Image/moebiusMu-H.svg)
 
 Number of ways of writing _n_ as a sum of four squares,
 OEIS [A000118](https://oeis.org/A000118):
@@ -260,7 +260,7 @@ OEIS [A000118](https://oeis.org/A000118):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/squaresR-C.svg)
+![](Help/Image/squaresR-C.svg)
 
 Number of representations of _n_ as a sum of distinct Fibonacci numbers,
 OEIS [A000119](https://oeis.org/A000119):
@@ -279,7 +279,7 @@ OEIS [A000119](https://oeis.org/A000119):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/fibonacci-I.svg)
+![](Help/Image/fibonacci-I.svg)
 
 The number of ones in the base-two representation,
 called the Hamming weight or binary weight,
@@ -291,7 +291,7 @@ OEIS [A000120](https://oeis.org/A000120):
 }
 ~~~
 
-![](sw/spl/Help/Image/digitCount-A.svg)
+![](Help/Image/digitCount-A.svg)
 
 The sum of the digits of _n_,
 where _b=2_,
@@ -303,7 +303,7 @@ OEIS [A000120](http://oeis.org/A000120):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/digitSum-B.svg)
+![](Help/Image/digitSum-B.svg)
 
 Hamming weight,
 OEIS [A000120](https://oeis.org/A000120):
@@ -312,7 +312,7 @@ OEIS [A000120](https://oeis.org/A000120):
 0:99.hammingWeight.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/hammingWeight-A.svg)
+![](Help/Image/hammingWeight-A.svg)
 
 Hamming weight of the first eight-bit integers,
 line plot,
@@ -322,7 +322,7 @@ OEIS [A000120](https://oeis.org/A000120):
 0:255.hammingWeight.linePlot
 ~~~
 
-![](sw/spl/Help/Image/hammingWeight-B.svg)
+![](Help/Image/hammingWeight-B.svg)
 
 Number of partitions of _n_ into two squares,
 OEIS [A000161](https://oeis.org/A000161):
@@ -340,7 +340,7 @@ OEIS [A000161](https://oeis.org/A000161):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/integerSquareRoot-A.svg)
+![](Help/Image/integerSquareRoot-A.svg)
 
 Number of partitions of _n_ into three squares,
 allowing part zero,
@@ -360,7 +360,7 @@ OEIS [A000164](https://oeis.org/A000164):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/boole-C.svg)
+![](Help/Image/boole-C.svg)
 
 Shadow transform of the squares,
 OEIS [A000188](https://oeis.org/A000188):
@@ -373,7 +373,7 @@ OEIS [A000188](https://oeis.org/A000188):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/powerMod-H.svg)
+![](Help/Image/powerMod-H.svg)
 
 The lower Wythoff sequence,
 OEIS [A000201](https://oeis.org/A000201):
@@ -382,7 +382,7 @@ OEIS [A000201](https://oeis.org/A000201):
 1:23.wythoffLower.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/wythoffLower-A.svg)
+![](Help/Image/wythoffLower-A.svg)
 
 Divisor function _σ₁(n)_ up to _n=100_,
 OEIS [A000203](https://oeis.org/A000203):
@@ -393,7 +393,7 @@ OEIS [A000203](https://oeis.org/A000203):
 }
 ~~~
 
-![](sw/spl/Help/Image/divisorSigma-B.svg)
+![](Help/Image/divisorSigma-B.svg)
 
 The sum of divisors for the first fifty numbers,
 OEIS [A000203](https://oeis.org/A000203):
@@ -404,7 +404,7 @@ OEIS [A000203](https://oeis.org/A000203):
 }
 ~~~
 
-![](sw/spl/Help/Image/divisorSum-A.svg)
+![](Help/Image/divisorSum-A.svg)
 
 Triangular numbers,
 OEIS [A000217](https://oeis.org/A000217):
@@ -415,7 +415,7 @@ OEIS [A000217](https://oeis.org/A000217):
 }.linePlot
 ~~~
 
-![](sw/spl/Help/Image/polygonalNumber-A.svg)
+![](Help/Image/polygonalNumber-A.svg)
 
 Triangular numbers,
 OEIS [A000217](https://oeis.org/A000217):
@@ -424,7 +424,7 @@ OEIS [A000217](https://oeis.org/A000217):
 1:12.prefixSum.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/prefixSum-A.svg)
+![](Help/Image/prefixSum-A.svg)
 
 Number of squares modulo _n_,
 OEIS [A000224](https://oeis.org/A000224):
@@ -437,7 +437,7 @@ OEIS [A000224](https://oeis.org/A000224):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/mod-H.svg)
+![](Help/Image/mod-H.svg)
 
 Binary expansion of square numbers,
 matrix plot,
@@ -451,7 +451,7 @@ OEIS [A000290](https://oeis.org/A000290):
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/square-A.svg)
+![](Help/Image/square-A.svg)
 
 Square numbers,
 OEIS [A000290](https://oeis.org/A000290):
@@ -460,7 +460,7 @@ OEIS [A000290](https://oeis.org/A000290):
 0:65.square.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/square-D.svg)
+![](Help/Image/square-D.svg)
 
 Tetrahedral numbers,
 OEIS [A000292](https://oeis.org/A000292):
@@ -469,7 +469,7 @@ OEIS [A000292](https://oeis.org/A000292):
 0:65.tetrahedralNumber.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/tetrahedralNumber-A.svg)
+![](Help/Image/tetrahedralNumber-A.svg)
 
 Pentagonal numbers,
 OEIS [A000326](https://oeis.org/A000326):
@@ -478,7 +478,7 @@ OEIS [A000326](https://oeis.org/A000326):
 1:85.pentagonalNumber.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/pentagonalNumber-A.svg)
+![](Help/Image/pentagonalNumber-A.svg)
 
 Square pyramidal numbers,
 OEIS [A000330](https://oeis.org/A000330):
@@ -488,7 +488,7 @@ OEIS [A000330](https://oeis.org/A000330):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/squarePyramidalNumber-A.svg)
+![](Help/Image/squarePyramidalNumber-A.svg)
 
 Sum of the coefficients of the terms with an even exponent in the Stern polynomial _B(n+1,t)_,
 OEIS [A000360](https://oeis.org/A000360):
@@ -509,7 +509,7 @@ let a = Map { :n |
 a[0:200].scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isOdd-D.svg)
+![](Help/Image/isOdd-D.svg)
 
 Divisor sum of Kronecker symbol _-6,d_,
 the coefficients of the powers of _q_ in Fine’s equation,
@@ -523,7 +523,7 @@ OEIS [A000377](https://oeis.org/A000377):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/kroneckerSymbol-L.svg)
+![](Help/Image/kroneckerSymbol-L.svg)
 
 _⌊(cos(n))_,
 OEIS [A000480](https://oeis.org/A000480):
@@ -533,7 +533,7 @@ OEIS [A000480](https://oeis.org/A000480):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/cos-I.svg)
+![](Help/Image/cos-I.svg)
 
 Nearest integer to _cos(n)_,
 OEIS [A000484](https://oeis.org/A000484):
@@ -543,7 +543,7 @@ OEIS [A000484](https://oeis.org/A000484):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/cos-H.svg)
+![](Help/Image/cos-H.svg)
 
 _⌊(sin(n))_,
 OEIS [A000493](https://oeis.org/A000493):
@@ -552,7 +552,7 @@ OEIS [A000493](https://oeis.org/A000493):
 0:85.sin.floor.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/sin-M.svg)
+![](Help/Image/sin-M.svg)
 
 Nearest integer to _sin(n)_,
 OEIS [A000494](https://oeis.org/A000494):
@@ -561,7 +561,7 @@ OEIS [A000494](https://oeis.org/A000494):
 0:200.sin.round.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/sin-L.svg)
+![](Help/Image/sin-L.svg)
 
 _|⌊(tan(n))_,
 unsigned variant of
@@ -571,7 +571,7 @@ OEIS [A000503](https://oeis.org/A000503):
 0:150.tan.floor.abs.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/tan-C.svg)
+![](Help/Image/tan-C.svg)
 
 _⌊(tan(n))_,
 OEIS [A000503](https://oeis.org/A000503):
@@ -580,7 +580,7 @@ OEIS [A000503](https://oeis.org/A000503):
 0:150.tan.floor.logScale.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/tan-D.svg)
+![](Help/Image/tan-D.svg)
 
 Binary expansion of cubic numbers,
 matrix plot,
@@ -594,7 +594,7 @@ OEIS [A000578](https://oeis.org/A000578):
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/cube-A.svg)
+![](Help/Image/cube-A.svg)
 
 Cubic numbers,
 OEIS [A000578](https://oeis.org/A000578):
@@ -603,7 +603,7 @@ OEIS [A000578](https://oeis.org/A000578):
 0:65.cube.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/cube-B.svg)
+![](Help/Image/cube-B.svg)
 
 The Ramanujan τ function,
 logarithmic plot,
@@ -616,7 +616,7 @@ OEIS [A000594](https://oeis.org/A000594):
 .stepPlot
 ~~~
 
-![](sw/spl/Help/Image/ramanujanTau-A.svg)
+![](Help/Image/ramanujanTau-A.svg)
 
 The Ramanujan τ function,
 further terms,
@@ -629,7 +629,7 @@ OEIS [A000594](https://oeis.org/A000594):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/ramanujanTau-B.svg)
+![](Help/Image/ramanujanTau-B.svg)
 
 Discrete plot of first few terms,
 OEIS [A000688](https://oeis.org/A000688):
@@ -639,7 +639,7 @@ OEIS [A000688](https://oeis.org/A000688):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/finiteAbelianGroupCount-A.svg)
+![](Help/Image/finiteAbelianGroupCount-A.svg)
 
 Scatter plot of first few terms,
 OEIS [A000688](https://oeis.org/A000688):
@@ -649,7 +649,7 @@ OEIS [A000688](https://oeis.org/A000688):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/finiteAbelianGroupCount-B.svg)
+![](Help/Image/finiteAbelianGroupCount-B.svg)
 
 The prime counting function _π(n)_,
 OEIS [A000720](https://oeis.org/A000720):
@@ -658,7 +658,7 @@ OEIS [A000720](https://oeis.org/A000720):
 1:60.primePi.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/primePi-A.svg)
+![](Help/Image/primePi-A.svg)
 
 Total number of ones in binary expansions,
 OEIS [A000788](https://oeis.org/A000788):
@@ -669,7 +669,7 @@ OEIS [A000788](https://oeis.org/A000788):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/prefixSum-I.svg)
+![](Help/Image/prefixSum-I.svg)
 
 Scatter plot of the digits of π,
 OEIS [A000796](https://oeis.org/A000796):
@@ -680,7 +680,7 @@ OEIS [A000796](https://oeis.org/A000796):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/pi-A.svg)
+![](Help/Image/pi-A.svg)
 
 Number of ordered ways of writing _n_ as a sum of two squares of nonnegative integers,
 OEIS [A000925](https://oeis.org/A000925):
@@ -694,7 +694,7 @@ OEIS [A000925](https://oeis.org/A000925):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/frobeniusSolve-D.svg)
+![](Help/Image/frobeniusSolve-D.svg)
 
 The Padovan sequence,
 OEIS [A000931](https://oeis.org/A000931):
@@ -704,7 +704,7 @@ OEIS [A000931](https://oeis.org/A000931):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/padovanSequence-A.svg)
+![](Help/Image/padovanSequence-A.svg)
 
 Flavius Josephus’s sieve,
 OEIS [A000960](https://oeis.org/A000960):
@@ -718,7 +718,7 @@ OEIS [A000960](https://oeis.org/A000960):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/injectInto-B.svg)
+![](Help/Image/injectInto-B.svg)
 
 The super Catalan numbers,
 OEIS [A001003](https://oeis.org/A001003):
@@ -727,7 +727,7 @@ OEIS [A001003](https://oeis.org/A001003):
 1:25.superCatalanNumber.log.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/superCatalanNumber-A.svg)
+![](Help/Image/superCatalanNumber-A.svg)
 
 Motzkin numbers,
 log scale discrete plot,
@@ -737,7 +737,7 @@ OEIS [A001006](https://oeis.org/A001006):
 1:35.motzkinNumber.log.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/motzkinNumber-A.svg)
+![](Help/Image/motzkinNumber-A.svg)
 
 The multiplicative partition function,
 OEIS [A001055](https://oeis.org/A001055):
@@ -758,7 +758,7 @@ let t = { :n :m |
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/divisorSum-C.svg)
+![](Help/Image/divisorSum-C.svg)
 
 Canonical enumeration of integers,
 OEIS [A001057](https://oeis.org/A001057):
@@ -769,7 +769,7 @@ OEIS [A001057](https://oeis.org/A001057):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/ceiling-B.svg)
+![](Help/Image/ceiling-B.svg)
 
 Alternate positive and negative integers,
 OEIS [A001057](https://oeis.org/A001057)
@@ -780,7 +780,7 @@ let n = 1:35;
 [n, -n].interleave.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/interleave-A.svg)
+![](Help/Image/interleave-A.svg)
 
 Aliquot sums,
 OEIS [A001065](https://oeis.org/A001065):
@@ -789,7 +789,7 @@ OEIS [A001065](https://oeis.org/A001065):
 1:119.aliquotSum.linePlot
 ~~~
 
-![](sw/spl/Help/Image/aliquotSum-A.svg)
+![](Help/Image/aliquotSum-A.svg)
 
 List of twin primes,
 OEIS [A001097](https://oeis.org/A001097):
@@ -804,7 +804,7 @@ let a = 3:1607.select(
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/isLesserTwinPrime-B.svg)
+![](Help/Image/isLesserTwinPrime-B.svg)
 
 Step plot of _σ3(n)_,
 OEIS [A001158](https://oeis.org/A001158):
@@ -815,7 +815,7 @@ OEIS [A001158](https://oeis.org/A001158):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/divisorSigma-J.svg)
+![](Help/Image/divisorSigma-J.svg)
 
 Pisano periods,
 OEIS [A001175](https://oeis.org/A001175):
@@ -825,7 +825,7 @@ OEIS [A001175](https://oeis.org/A001175):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/pisanoPeriod-A.svg)
+![](Help/Image/pisanoPeriod-A.svg)
 
 The number of distinct prime factors,
 OEIS [A001221](https://oeis.org/A001221):
@@ -836,7 +836,7 @@ OEIS [A001221](https://oeis.org/A001221):
 }
 ~~~
 
-![](sw/spl/Help/Image/factorInteger-A.svg)
+![](Help/Image/factorInteger-A.svg)
 
 The `primeNu` sequence for the first 100 numbers,
 OEIS [A001221](https://oeis.org/A001221):
@@ -845,7 +845,7 @@ OEIS [A001221](https://oeis.org/A001221):
 1:100.functionPlot(primeNu:/1)
 ~~~
 
-![](sw/spl/Help/Image/primeNu-A.svg)
+![](Help/Image/primeNu-A.svg)
 
 Number of prime divisors of _n_,
 counted with multiplicity,
@@ -855,7 +855,7 @@ OEIS [A001222](https://oeis.org/A001222):
 1:100.functionPlot(primeOmega:/1)
 ~~~
 
-![](sw/spl/Help/Image/primeOmega-A.svg)
+![](Help/Image/primeOmega-A.svg)
 
 First differences of 23-rough numbers,
 apart from first term also, initially,
@@ -868,7 +868,7 @@ OEIS [A001223](https://oeis.org/A001223):
 }.differences.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isRoughNumber-E.svg)
+![](Help/Image/isRoughNumber-E.svg)
 
 Prime gaps,
 differences between consecutive primes,
@@ -878,7 +878,7 @@ OEIS [A001223](https://oeis.org/A001223):
 1:99.functionPlot(primeGap:/1)
 ~~~
 
-![](sw/spl/Help/Image/primeGap-A.svg)
+![](Help/Image/primeGap-A.svg)
 
 Prime gaps,
 differences between consecutive primes,
@@ -890,7 +890,7 @@ OEIS [A001223](https://oeis.org/A001223):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/primeGap-B.svg)
+![](Help/Image/primeGap-B.svg)
 
 Number of odd divisors of _n_,
 OEIS [A001227](https://oeis.org/A001227):
@@ -901,7 +901,7 @@ OEIS [A001227](https://oeis.org/A001227):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/divisors-G.svg)
+![](Help/Image/divisors-G.svg)
 
 Narayana numbers,
 OEIS [A001263](https://oeis.org/A001263):
@@ -912,7 +912,7 @@ OEIS [A001263](https://oeis.org/A001263):
 ).catenate.log.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/narayanaNumber-A.svg)
+![](Help/Image/narayanaNumber-A.svg)
 
 Gould’s sequence,
 OEIS [A001316](https://oeis.org/A001316):
@@ -923,7 +923,7 @@ OEIS [A001316](https://oeis.org/A001316):
 )
 ~~~
 
-![](sw/spl/Help/Image/gouldsNumber-A.svg)
+![](Help/Image/gouldsNumber-A.svg)
 
 Gould’s sequence,
 log scale scatter plot,
@@ -935,7 +935,7 @@ OEIS [A001316](https://oeis.org/A001316):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/gouldsSequence-A.svg)
+![](Help/Image/gouldsSequence-A.svg)
 
 Generalized pentagonal numbers,
 OEIS [A001318](https://oeis.org/A001318):
@@ -945,7 +945,7 @@ OEIS [A001318](https://oeis.org/A001318):
 .stepPlot
 ~~~
 
-![](sw/spl/Help/Image/generalisedPentagonalNumbers-A.svg)
+![](Help/Image/generalisedPentagonalNumbers-A.svg)
 
 Semiprime numbers,
 OEIS [A001358](https://oeis.org/A001358):
@@ -954,7 +954,7 @@ OEIS [A001358](https://oeis.org/A001358):
 1:250.select(isSemiprime:/1).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isSemiprime-A.svg)
+![](Help/Image/isSemiprime-A.svg)
 
 Lesser of twin primes,
 OEIS [A001359](https://oeis.org/A001359):
@@ -965,7 +965,7 @@ OEIS [A001359](https://oeis.org/A001359):
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/isLesserTwinPrime-A.svg)
+![](Help/Image/isLesserTwinPrime-A.svg)
 
 Sum of the prime factors of _n_,
 OEIS [A001414](https://oeis.org/A001414):
@@ -976,7 +976,7 @@ OEIS [A001414](https://oeis.org/A001414):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/primeFactors-C.svg)
+![](Help/Image/primeFactors-C.svg)
 
 Golomb’s sequence,
 OEIS [A001462](https://oeis.org/A001462):
@@ -986,7 +986,7 @@ OEIS [A001462](https://oeis.org/A001462):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/golombsSequence-A.svg)
+![](Help/Image/golombsSequence-A.svg)
 
 Partial sums of Golomb’s sequence,
 OEIS [A001463](https://oeis.org/A001463):
@@ -996,7 +996,7 @@ OEIS [A001463](https://oeis.org/A001463):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/golombsSequence-B.svg)
+![](Help/Image/golombsSequence-B.svg)
 
 A block-fractal and reverse block-fractal sequence,
 OEIS [A001468](https://oeis.org/A001468):
@@ -1010,7 +1010,7 @@ OEIS [A001468](https://oeis.org/A001468):
 .stepPlot
 ~~~
 
-![](sw/spl/Help/Image/substitutionSystem-H.svg)
+![](Help/Image/substitutionSystem-H.svg)
 
 The ruler function,
 OEIS [A001511](https://oeis.org/A001511):
@@ -1020,7 +1020,7 @@ OEIS [A001511](https://oeis.org/A001511):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/rulerFunction-A.svg)
+![](Help/Image/rulerFunction-A.svg)
 
 The Perrin sequence,
 OEIS [A001608](https://oeis.org/A001608):
@@ -1029,7 +1029,7 @@ OEIS [A001608](https://oeis.org/A001608):
 35.perrinSequence.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/perrinSequence-A.svg)
+![](Help/Image/perrinSequence-A.svg)
 
 The Dedekind ψ function,
 OEIS [A001615](https://oeis.org/A001615):
@@ -1039,7 +1039,7 @@ OEIS [A001615](https://oeis.org/A001615):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/dedekindPsi-A.svg)
+![](Help/Image/dedekindPsi-A.svg)
 
 Dedekind ψ function,
 OEIS [A001615](https://oeis.org/A001615):
@@ -1053,7 +1053,7 @@ OEIS [A001615](https://oeis.org/A001615):
 ).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/dirichletConvolve-A.svg)
+![](Help/Image/dirichletConvolve-A.svg)
 
 Dedekind ψ function,
 OEIS [A001615](https://oeis.org/A001615):
@@ -1066,7 +1066,7 @@ OEIS [A001615](https://oeis.org/A001615):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/moebiusMu-I.svg)
+![](Help/Image/moebiusMu-I.svg)
 
 Least primitive root of _n_-th prime,
 OEIS [A001918](https://oeis.org/A001918):
@@ -1077,7 +1077,7 @@ OEIS [A001918](https://oeis.org/A001918):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/primitiveRootList-C.svg)
+![](Help/Image/primitiveRootList-C.svg)
 
 The self-counting sequence,
 OEIS [A002024](https://oeis.org/A002024):
@@ -1087,7 +1087,7 @@ OEIS [A002024](https://oeis.org/A002024):
 .stepPlot
 ~~~
 
-![](sw/spl/Help/Image/selfCountingNumber-A.svg)
+![](Help/Image/selfCountingNumber-A.svg)
 
 The self-counting sequence,
 discrete plot,
@@ -1097,7 +1097,7 @@ OEIS [A002024](https://oeis.org/A002024):
 65.selfCountingSequence.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/selfCountingSequence-A.svg)
+![](Help/Image/selfCountingSequence-A.svg)
 
 Number of perfect partitions of _n_,
 OEIS [A002033](https://oeis.org/A002033):
@@ -1114,7 +1114,7 @@ let a = Map { :n |
 a[1:200].log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/divisors-N.svg)
+![](Help/Image/divisors-N.svg)
 
 The [Kempner_function](https://en.wikipedia.org/wiki/Kempner_function),
 also sometimes called the Smarandache function or Kempner numbers,
@@ -1133,7 +1133,7 @@ OEIS [A002034](https://oeis.org/A002034):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/factorial-A.svg)
+![](Help/Image/factorial-A.svg)
 
 The Kempner function,
 OEIS [A002034](https://oeis.org/A002034):
@@ -1142,7 +1142,7 @@ OEIS [A002034](https://oeis.org/A002034):
 1:65.kempnerFunction.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/kempnerFunction-A.svg)
+![](Help/Image/kempnerFunction-A.svg)
 
 Least value of _m_ for which Liouville’s function is _-n_,
 OEIS [A002053](https://oeis.org/A002053):
@@ -1154,7 +1154,7 @@ let l = 1:3000.liouvilleLambda.prefixSum;
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/liouvilleLambda-D.svg)
+![](Help/Image/liouvilleLambda-D.svg)
 
 The cumulative `sum` of `eulerPhi`,
 OEIS [A002088](https://oeis.org/A002088):
@@ -1163,7 +1163,7 @@ OEIS [A002088](https://oeis.org/A002088):
 1:50.eulerPhi.prefixSum.linePlot
 ~~~
 
-![](sw/spl/Help/Image/eulerPhi-B.svg)
+![](Help/Image/eulerPhi-B.svg)
 
 Generalised sum of divisors function,
 OEIS [A002129](https://oeis.org/A002129):
@@ -1176,7 +1176,7 @@ OEIS [A002129](https://oeis.org/A002129):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/divisorSum-B.svg)
+![](Help/Image/divisorSum-B.svg)
 
 Shuffling _2n_ cards,
 OEIS [A002139](https://oeis.org/A002139):
@@ -1194,7 +1194,7 @@ OEIS [A002139](https://oeis.org/A002139):
 }.logScale.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/multiplicativeOrder-E.svg)
+![](Help/Image/multiplicativeOrder-E.svg)
 
 The first few Pythagorean primes,
 OEIS [A002144](https://oeis.org/A002144):
@@ -1205,7 +1205,7 @@ OEIS [A002144](https://oeis.org/A002144):
 ).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isPythagoreanPrime-A.svg)
+![](Help/Image/isPythagoreanPrime-A.svg)
 
 The decimal digits of the natural logarithm of two,
 OEIS [A002162](https://oeis.org/A002162):
@@ -1217,7 +1217,7 @@ OEIS [A002162](https://oeis.org/A002162):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/namedConstant-A.svg)
+![](Help/Image/namedConstant-A.svg)
 
 Sprague-Grundy value for Grundy’s game when starting with _n_ tokens,
 OEIS [A002188](https://oeis.org/A002188):
@@ -1237,7 +1237,7 @@ let a = List(k + 2, 0);
 a.allButLast.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitXor-Q.svg)
+![](Help/Image/bitXor-Q.svg)
 
 Digits of Khinchin’s constant,
 scatter plot,
@@ -1250,7 +1250,7 @@ OEIS [A002210](https://oeis.org/A002210):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/khinchinsConstant-A.svg)
+![](Help/Image/khinchinsConstant-A.svg)
 
 Least positive prime primitive root of _n_-th prime,
 OEIS [A002233](https://oeis.org/A002233):
@@ -1262,7 +1262,7 @@ OEIS [A002233](https://oeis.org/A002233):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/primitiveRootList-I.svg)
+![](Help/Image/primitiveRootList-I.svg)
 
 Positive integers with swaps according to Wythoff pairs,
 OEIS [A002251](https://oeis.org/A002251):
@@ -1279,7 +1279,7 @@ w.do { :p |
 a.first(k).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/wythoffPair-C.svg)
+![](Help/Image/wythoffPair-C.svg)
 
 Start counting again and again,
 OEIS [A002260](https://oeis.org/A002260):
@@ -1288,7 +1288,7 @@ OEIS [A002260](https://oeis.org/A002260):
 1:17.collect(iota:/1).catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/iota-A.svg)
+![](Help/Image/iota-A.svg)
 
 Prefixes of the natural numbers,
 OEIS [A002260](https://oeis.org/A002260):
@@ -1297,7 +1297,7 @@ OEIS [A002260](https://oeis.org/A002260):
 1:13.prefixes.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/prefixes-B.svg)
+![](Help/Image/prefixes-B.svg)
 
 _k_,
 count and count again from zero,
@@ -1309,7 +1309,7 @@ OEIS [A002262](https://oeis.org/A002262):
 }.catenate.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/triangularArray-H.svg)
+![](Help/Image/triangularArray-H.svg)
 
 Quotient of _n_ and five,
 OEIS [A002266](https://oeis.org/A002266):
@@ -1320,7 +1320,7 @@ OEIS [A002266](https://oeis.org/A002266):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/quotientRemainder-A.svg)
+![](Help/Image/quotientRemainder-A.svg)
 
 Mertens’s function,
 OEIS [A002321](https://oeis.org/A002321):
@@ -1330,7 +1330,7 @@ OEIS [A002321](https://oeis.org/A002321):
 .stepPlot
 ~~~
 
-![](sw/spl/Help/Image/mertensFunction-A.svg)
+![](Help/Image/mertensFunction-A.svg)
 
 Mertens’s function,
 OEIS [A002321](https://oeis.org/A002321):
@@ -1339,7 +1339,7 @@ OEIS [A002321](https://oeis.org/A002321):
 1:250.moebiusMu.prefixSum.linePlot
 ~~~
 
-![](sw/spl/Help/Image/moebiusMu-B.svg)
+![](Help/Image/moebiusMu-B.svg)
 
 Glaisher’s J numbers,
 OEIS [A002325](https://oeis.org/A002325):
@@ -1352,7 +1352,7 @@ OEIS [A002325](https://oeis.org/A002325):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/kroneckerSymbol-E.svg)
+![](Help/Image/kroneckerSymbol-E.svg)
 
 Order of two modulo _2n+1_,
 OEIS [A002326](https://oeis.org/A002326):
@@ -1363,7 +1363,7 @@ OEIS [A002326](https://oeis.org/A002326):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/multiplicativeOrder-H.svg)
+![](Help/Image/multiplicativeOrder-H.svg)
 
 Periods of reciprocals of integers coprime to ten,
 OEIS [A002329](https://oeis.org/A002329):
@@ -1376,7 +1376,7 @@ OEIS [A002329](https://oeis.org/A002329):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/decimalPeriod-C.svg)
+![](Help/Image/decimalPeriod-C.svg)
 
 Period of decimal expansion of reciprocal of the _n_-th prime,
 OEIS [A002371](https://oeis.org/A002371):
@@ -1387,7 +1387,7 @@ OEIS [A002371](https://oeis.org/A002371):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/decimalPeriod-B.svg)
+![](Help/Image/decimalPeriod-B.svg)
 
 Largest prime _≤n_ in any decomposition of _2n_ into a sum of two odd primes,
 OEIS [A002374](https://oeis.org/A002374):
@@ -1412,7 +1412,7 @@ OEIS [A002374](https://oeis.org/A002374):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isPrime-G.svg)
+![](Help/Image/isPrime-G.svg)
 
 Number of decompositions of _2n_ into an unordered sum of two odd primes,
 OEIS [A002375](https://oeis.org/A002375):
@@ -1428,7 +1428,7 @@ OEIS [A002375](https://oeis.org/A002375):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerPartitions-F.svg)
+![](Help/Image/integerPartitions-F.svg)
 
 Palindromic primes,
 OEIS [A002385](https://oeis.org/A002385):
@@ -1439,7 +1439,7 @@ OEIS [A002385](https://oeis.org/A002385):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isPalindrome-B.svg)
+![](Help/Image/isPalindrome-B.svg)
 
 Expansion of Jacobi theta function _θ4(x)_,
 OEIS [A002448](https://oeis.org/A002448):
@@ -1451,7 +1451,7 @@ OEIS [A002448](https://oeis.org/A002448):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/isPerfectSquare-E.svg)
+![](Help/Image/isPerfectSquare-E.svg)
 
 Stern’s diatomic series,
 OEIS [A002487](https://oeis.org/A002487):
@@ -1461,7 +1461,7 @@ OEIS [A002487](https://oeis.org/A002487):
 .denseScatterPlot
 ~~~
 
-![](sw/spl/Help/Image/denseScatterPlot-A.png)
+![](Help/Image/denseScatterPlot-A.png)
 
 Stern-Brocot sequence,
 OEIS [A002487](https://oeis.org/A002487):
@@ -1472,7 +1472,7 @@ OEIS [A002487](https://oeis.org/A002487):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/sternBrocotNumber-A.svg)
+![](Help/Image/sternBrocotNumber-A.svg)
 
 Stern’s diatomic series,
 discrete plot,
@@ -1482,7 +1482,7 @@ OEIS [A002487](https://oeis.org/A002487):
 200.sternBrocotSequence.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/sternBrocotSequence-A.svg)
+![](Help/Image/sternBrocotSequence-A.svg)
 
 Stern’s diatomic series,
 scatter plot,
@@ -1492,7 +1492,7 @@ OEIS [A002487](https://oeis.org/A002487):
 300.sternBrocotSequence.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/sternBrocotSequence-B.svg)
+![](Help/Image/sternBrocotSequence-B.svg)
 
 Earliest sequence with _a(a(n))=2n_,
 OEIS [A002516](https://oeis.org/A002516):
@@ -1517,7 +1517,7 @@ let a = { :n |
 0:200.collect(a:/1).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/mod-Q.svg)
+![](Help/Image/mod-Q.svg)
 
 Number of ways of writing _n_ as a sum of at most two nonzero squares where order matters,
 OEIS [A002654](https://oeis.org/A002654):
@@ -1539,7 +1539,7 @@ OEIS [A002654](https://oeis.org/A002654):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/factorInteger-O.svg)
+![](Help/Image/factorInteger-O.svg)
 
 Fibonacci modulo _n_,
 OEIS [A002708](https://oeis.org/A002708):
@@ -1550,7 +1550,7 @@ OEIS [A002708](https://oeis.org/A002708):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/fibonacci-D.svg)
+![](Help/Image/fibonacci-D.svg)
 
 Fibonacci modulo _n_,
 OEIS [A002708](https://oeis.org/A002708):
@@ -1561,7 +1561,7 @@ OEIS [A002708](https://oeis.org/A002708):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/fibonacciNumber-A.svg)
+![](Help/Image/fibonacciNumber-A.svg)
 
 Fibonacci modulo _n_,
 OEIS [A002708](https://oeis.org/A002708):
@@ -1572,7 +1572,7 @@ let n = 201;
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/fibonacciSequence-A.svg)
+![](Help/Image/fibonacciSequence-A.svg)
 
 Numbers that are divisible by each non-zero digit,
 OEIS [A002796](https://oeis.org/A002796):
@@ -1588,7 +1588,7 @@ OEIS [A002796](https://oeis.org/A002796):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/divisible-F.svg)
+![](Help/Image/divisible-F.svg)
 
 Liouville’s function,
 OEIS [A002819](https://oeis.org/A002819):
@@ -1598,7 +1598,7 @@ OEIS [A002819](https://oeis.org/A002819):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/liouvilleLambda-C.svg)
+![](Help/Image/liouvilleLambda-C.svg)
 
 The Ulam sequence,
 OEIS [A002858](https://oeis.org/A002858):
@@ -1607,7 +1607,7 @@ OEIS [A002858](https://oeis.org/A002858):
 80.ulamSequence.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/ulamSequence-A.svg)
+![](Help/Image/ulamSequence-A.svg)
 
 The inverse of the triangular numbers,
 OEIS [A003056](https://oeis.org/A003056):
@@ -1616,7 +1616,7 @@ OEIS [A003056](https://oeis.org/A003056):
 1:85.inverseTriangularNumber.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/triangularNumber-C.svg)
+![](Help/Image/triangularNumber-C.svg)
 
 Sum of squares of digits of _n_,
 OEIS [A003132](https://oeis.org/A003132):
@@ -1627,7 +1627,7 @@ OEIS [A003132](https://oeis.org/A003132):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerDigits-U.svg)
+![](Help/Image/integerDigits-U.svg)
 
 _n⊻(n≫1)_,
 OEIS [A003188](https://oeis.org/A003188):
@@ -1638,7 +1638,7 @@ OEIS [A003188](https://oeis.org/A003188):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/bitShiftRight-A.svg)
+![](Help/Image/bitShiftRight-A.svg)
 
 Gray encoding of _n_,
 scatter plot,
@@ -1650,7 +1650,7 @@ OEIS [A003188](https://oeis.org/A003188):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitXor-A.svg)
+![](Help/Image/bitXor-A.svg)
 
 Gray encoding of _n_,
 line plot,
@@ -1661,7 +1661,7 @@ OEIS [A003188](https://oeis.org/A003188):
 	i.bitXor((i / 2).floor)
 ~~~
 
-![](sw/spl/Help/Image/bitXor-C.svg)
+![](Help/Image/bitXor-C.svg)
 
 Gray encodings of integers,
 scatter plot,
@@ -1671,7 +1671,7 @@ OEIS [A003188](https://oeis.org/A003188):
 0:250.grayEncode.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/grayEncode-A.svg)
+![](Help/Image/grayEncode-A.svg)
 
 Gray encodings of integers,
 line plot,
@@ -1681,7 +1681,7 @@ OEIS [A003188](https://oeis.org/A003188):
 1:100.grayEncode.linePlot
 ~~~
 
-![](sw/spl/Help/Image/grayEncode-B.svg)
+![](Help/Image/grayEncode-B.svg)
 
 Number of representations of _n_ as a sum of distinct Lucas numbers,
 OEIS [A003263](https://oeis.org/A003263):
@@ -1700,7 +1700,7 @@ OEIS [A003263](https://oeis.org/A003263):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/Polynomial-A.svg)
+![](Help/Image/Polynomial-A.svg)
 
 The Szekeres sequence,
 OEIS [A003278](https://oeis.org/A003278):
@@ -1709,7 +1709,7 @@ OEIS [A003278](https://oeis.org/A003278):
 192.szekeresSequence.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/szekeresSequence-A.svg)
+![](Help/Image/szekeresSequence-A.svg)
 
 The arithmetic derivative of _n_,
 OEIS [A003415](https://oeis.org/A003415):
@@ -1718,7 +1718,7 @@ OEIS [A003415](https://oeis.org/A003415):
 0:85.arithmeticDerivative.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/arithmeticDerivative-A.svg)
+![](Help/Image/arithmeticDerivative-A.svg)
 
 The arithmetic derivative of _n_,
 OEIS [A003415](https://oeis.org/A003415):
@@ -1736,7 +1736,7 @@ OEIS [A003415](https://oeis.org/A003415):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/factorInteger-D.svg)
+![](Help/Image/factorInteger-D.svg)
 
 The number of iterations of _φ(x)_ at _n_ needed to reach one,
 OEIS [A003434](https://oeis.org/A003434):
@@ -1750,7 +1750,7 @@ OEIS [A003434](https://oeis.org/A003434):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/eulerPhi-G.svg)
+![](Help/Image/eulerPhi-G.svg)
 
 A `log` scaled scatter plot of the row-order sequence,
 the reciprocal of OEIS [A003506](https://oeis.org/A003506):
@@ -1762,7 +1762,7 @@ the reciprocal of OEIS [A003506](https://oeis.org/A003506):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/leibnizHarmonicTriangle-A.svg)
+![](Help/Image/leibnizHarmonicTriangle-A.svg)
 
 Triangle of denominators in Leibniz’s harmonic triangle,
 OEIS [A003506](https://oeis.org/A003506):
@@ -1772,7 +1772,7 @@ OEIS [A003506](https://oeis.org/A003506):
 .catenate.denominator.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/leibnizHarmonicTriangle-B.svg)
+![](Help/Image/leibnizHarmonicTriangle-B.svg)
 
 Multiplicative suborder of _2_ and _2n+1_,
 OEIS [A003558](https://oeis.org/A003558):
@@ -1791,7 +1791,7 @@ OEIS [A003558](https://oeis.org/A003558):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/mod-T.svg)
+![](Help/Image/mod-T.svg)
 
 _P(n)%(n-1)_,
 OEIS [A003558](https://oeis.org/A003558):
@@ -1802,7 +1802,7 @@ OEIS [A003558](https://oeis.org/A003558):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/mod-U.svg)
+![](Help/Image/mod-U.svg)
 
 Multiplicative suborder of two modulo _2n+1_,
 OEIS [A003558](https://oeis.org/A003558):
@@ -1813,7 +1813,7 @@ OEIS [A003558](https://oeis.org/A003558):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/multiplicativeSuborder-C.svg)
+![](Help/Image/multiplicativeSuborder-C.svg)
 
 Kimberling’s paraphrase of the binary number system,
 OEIS [A003602](https://oeis.org/A003602):
@@ -1827,7 +1827,7 @@ OEIS [A003602](https://oeis.org/A003602):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/nestWhile-A.svg)
+![](Help/Image/nestWhile-A.svg)
 
 Zeckendorf representation as binary integer,
 OEIS [A003714](https://oeis.org/A003714):
@@ -1839,7 +1839,7 @@ OEIS [A003714](https://oeis.org/A003714):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/zeckendorfRepresentation-C.svg)
+![](Help/Image/zeckendorfRepresentation-C.svg)
 
 Numbers with no adjacent zeroes in binary expansion,
 OEIS [A003754](https://oeis.org/A003754):
@@ -1851,7 +1851,7 @@ OEIS [A003754](https://oeis.org/A003754):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/dualZeckendorfRepresentation-C.svg)
+![](Help/Image/dualZeckendorfRepresentation-C.svg)
 
 _2^l(n)_,
 [A003817](https://oeis.org/A003817):
@@ -1860,7 +1860,7 @@ _2^l(n)_,
 (2 ^ 0:50.bitLength).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/bitLength-B.svg)
+![](Help/Image/bitLength-B.svg)
 
 The tenth Fibonacci word,
 OEIS [A003849](https://oeis.org/A003849):
@@ -1869,7 +1869,7 @@ OEIS [A003849](https://oeis.org/A003849):
 1:55.fibonacciWord.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/fibonacciWord-B.svg)
+![](Help/Image/fibonacciWord-B.svg)
 
 Scatter plot of the digits of _π/4_,
 OEIS [A003881](https://oeis.org/A003881):
@@ -1878,7 +1878,7 @@ OEIS [A003881](https://oeis.org/A003881):
 1/4.pi(104).integerDigits.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/pi-C.svg)
+![](Help/Image/pi-C.svg)
 
 Fibonacci numbers modulo ten,
 period is sixty,
@@ -1889,7 +1889,7 @@ OEIS [A003893](https://oeis.org/A003893):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/fibonacci-C.svg)
+![](Help/Image/fibonacci-C.svg)
 
 Completely multiplicative with _a(P(k))=P(k+1)_,
 OEIS [A003961](https://oeis.org/A003961):
@@ -1912,7 +1912,7 @@ let a = { :n |
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/factorInteger-E.svg)
+![](Help/Image/factorInteger-E.svg)
 
 A sequence fully multiplicative with _a(p)=k_ if _p_ is the _k_-th prime,
 OEIS [A003963](https://oeis.org/A003963):
@@ -1930,7 +1930,7 @@ OEIS [A003963](https://oeis.org/A003963):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/primePi-I.svg)
+![](Help/Image/primePi-I.svg)
 
 Bitwise or table,
 read by antidiagonals,
@@ -1942,7 +1942,7 @@ OEIS [A003986](https://oeis.org/A003986):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitOr-F.svg)
+![](Help/Image/bitOr-F.svg)
 
 The Nim-sum table,
 OEIS [A003987](https://oeis.org/A003987):
@@ -1953,7 +1953,7 @@ OEIS [A003987](https://oeis.org/A003987):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitXor-E.svg)
+![](Help/Image/bitXor-E.svg)
 
 Triangular array of quotients,
 OEIS [A003988](https://oeis.org/A003988):
@@ -1964,7 +1964,7 @@ OEIS [A003988](https://oeis.org/A003988):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/quotient-E.svg)
+![](Help/Image/quotient-E.svg)
 
 The greatest common divisor matrix read by antidiagonals,
 OEIS [A003989](https://oeis.org/A003989):
@@ -1975,7 +1975,7 @@ OEIS [A003989](https://oeis.org/A003989):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/triangularArray-C.svg)
+![](Help/Image/triangularArray-C.svg)
 
 The multiplication table read by antidiagonals,
 OEIS [A003991](https://oeis.org/A003991):
@@ -1986,7 +1986,7 @@ OEIS [A003991](https://oeis.org/A003991):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/triangularArray-B.svg)
+![](Help/Image/triangularArray-B.svg)
 
 A Conway sequence,
 OEIS [A004001](https://oeis.org/A004001):
@@ -2002,7 +2002,7 @@ let a = Map { :n |
 a[1:75].scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/Map-A.svg)
+![](Help/Image/Map-A.svg)
 
 Theta series of planar hexagonal lattice _A2_,
 OEIS [A004016](https://oeis.org/A004016):
@@ -2019,7 +2019,7 @@ OEIS [A004016](https://oeis.org/A004016):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/kroneckerSymbol-B.svg)
+![](Help/Image/kroneckerSymbol-B.svg)
 
 Number of ways of writing _n_ as a sum of two squares,
 OEIS [A004018](https://oeis.org/A004018):
@@ -2030,7 +2030,7 @@ OEIS [A004018](https://oeis.org/A004018):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/squaresR-A.svg)
+![](Help/Image/squaresR-A.svg)
 
 Integer reverse,
 OEIS [A004086](https://oeis.org/A004086):
@@ -2039,7 +2039,7 @@ OEIS [A004086](https://oeis.org/A004086):
 0:400.integerReverse.linePlot
 ~~~
 
-![](sw/spl/Help/Image/integerReverse-E.svg)
+![](Help/Image/integerReverse-E.svg)
 
 Sum of digits of Fibonacci numbers,
 OEIS [A004090](https://oeis.org/A004090):
@@ -2050,7 +2050,7 @@ OEIS [A004090](https://oeis.org/A004090):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/fibonacci-O.svg)
+![](Help/Image/fibonacci-O.svg)
 
 The factorial numbers with trailing zeros omitted,
 OEIS [A004154](https://oeis.org/A004154):
@@ -2061,7 +2061,7 @@ let a = n / (10 ^ n.integerExponent(10));
 a.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/factorial-C.svg)
+![](Help/Image/factorial-C.svg)
 
 _k&(n-k)_,
 OEIS [A004198](https://oeis.org/A004198):
@@ -2072,7 +2072,7 @@ OEIS [A004198](https://oeis.org/A004198):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/bitAnd-M.svg)
+![](Help/Image/bitAnd-M.svg)
 
 The multiplication table,
 read by antidiagonals,
@@ -2083,7 +2083,7 @@ OEIS [A004247](https://oeis.org/A004247):
 .catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/antidiagonalArray-C.svg)
+![](Help/Image/antidiagonalArray-C.svg)
 
 Exponentiation table,
 read by antidiagonals,
@@ -2095,7 +2095,7 @@ OEIS [A004248](https://oeis.org/A004248):
 ).catenate.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/power-G.svg)
+![](Help/Image/power-G.svg)
 
 _n⊗3_,
 OEIS [A004468](https://oeis.org/A004468):
@@ -2104,7 +2104,7 @@ OEIS [A004468](https://oeis.org/A004468):
 0:255.nimMultiplication(3).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/nimMultiplication-G.svg)
+![](Help/Image/nimMultiplication-G.svg)
 
 _n⊗4_,
 OEIS [A004469](https://oeis.org/A004469):
@@ -2113,7 +2113,7 @@ OEIS [A004469](https://oeis.org/A004469):
 0:255.nimMultiplication(4).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/nimMultiplication-H.svg)
+![](Help/Image/nimMultiplication-H.svg)
 
 _n⊗5_,
 OEIS [A004470](https://oeis.org/A004470):
@@ -2122,7 +2122,7 @@ OEIS [A004470](https://oeis.org/A004470):
 0:255.nimMultiplication(5).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/nimMultiplication-I.svg)
+![](Help/Image/nimMultiplication-I.svg)
 
 _n⊗6_,
 OEIS [A004471](https://oeis.org/A004471):
@@ -2131,7 +2131,7 @@ OEIS [A004471](https://oeis.org/A004471):
 0:255.nimMultiplication(6).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/nimMultiplication-J.svg)
+![](Help/Image/nimMultiplication-J.svg)
 
 _n⊗7_,
 OEIS [A004472](https://oeis.org/A004472):
@@ -2140,7 +2140,7 @@ OEIS [A004472](https://oeis.org/A004472):
 0:255.nimMultiplication(7).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/nimMultiplication-K.svg)
+![](Help/Image/nimMultiplication-K.svg)
 
 _n⊗8_,
 OEIS [A004473](https://oeis.org/A004473):
@@ -2149,7 +2149,7 @@ OEIS [A004473](https://oeis.org/A004473):
 0:255.nimMultiplication(8).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/nimMultiplication-L.svg)
+![](Help/Image/nimMultiplication-L.svg)
 
 _n⊗9_,
 OEIS [A004474](https://oeis.org/A004474):
@@ -2158,7 +2158,7 @@ OEIS [A004474](https://oeis.org/A004474):
 0:255.nimMultiplication(9).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/nimMultiplication-M.svg)
+![](Help/Image/nimMultiplication-M.svg)
 
 Tersum _n+n_,
 OEIS [A004488](https://oeis.org/A004488):
@@ -2170,7 +2170,7 @@ OEIS [A004488](https://oeis.org/A004488):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/fromDigits-E.svg)
+![](Help/Image/fromDigits-E.svg)
 
 _P(n)%n_
 OEIS [A004648](https://oeis.org/A004648):
@@ -2181,7 +2181,7 @@ OEIS [A004648](https://oeis.org/A004648):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/prime-Q.svg)
+![](Help/Image/prime-Q.svg)
 
 _P(n)%(n+1)_
 OEIS [A004650](https://oeis.org/A004650):
@@ -2192,7 +2192,7 @@ OEIS [A004650](https://oeis.org/A004650):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/prime-R.svg)
+![](Help/Image/prime-R.svg)
 
 The Danish composer Per Nørgård’s infinity sequence,
 OEIS [A004718](https://oeis.org/A004718):
@@ -2217,7 +2217,7 @@ OEIS [A004718](https://oeis.org/A004718):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/binaryExpansion-C.svg)
+![](Help/Image/binaryExpansion-C.svg)
 
 Per Nørgård’s infinity sequence,
 discrete plot,
@@ -2228,7 +2228,7 @@ OEIS [A004718](https://oeis.org/A004718):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/noergaardInfinitySequence-A.svg)
+![](Help/Image/noergaardInfinitySequence-A.svg)
 
 Per Nørgård’s infinity sequence,
 scatter plot,
@@ -2239,7 +2239,7 @@ OEIS [A004718](https://oeis.org/A004718):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/noergaardInfinitySequence-B.svg)
+![](Help/Image/noergaardInfinitySequence-B.svg)
 
 Start counting again and again,
 backwards,
@@ -2251,7 +2251,7 @@ OEIS [A004736](https://oeis.org/A004736):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/iota-B.svg)
+![](Help/Image/iota-B.svg)
 
 Cube free numbers,
 OEIS [A004709](https://oeis.org/A004709):
@@ -2261,7 +2261,7 @@ OEIS [A004709](https://oeis.org/A004709):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/isCubeFree-A.svg)
+![](Help/Image/isCubeFree-A.svg)
 
 Alcuin’s sequence,
 OEIS [A005044](https://oeis.org/A005044):
@@ -2276,7 +2276,7 @@ OEIS [A005044](https://oeis.org/A005044):
 }.round.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/isEven-F.svg)
+![](Help/Image/isEven-F.svg)
 
 Squarefree numbers,
 OEIS [A005117](https://oeis.org/A005117):
@@ -2285,7 +2285,7 @@ OEIS [A005117](https://oeis.org/A005117):
 1:99.select(isSquareFree:/1).linePlot
 ~~~
 
-![](sw/spl/Help/Image/isSquareFree-A.svg)
+![](Help/Image/isSquareFree-A.svg)
 
 Recamáns sequence,
 line plot,
@@ -2295,7 +2295,7 @@ OEIS [A005132](https://oeis.org/A005132):
 300.recamanSequence.linePlot
 ~~~
 
-![](sw/spl/Help/Image/recamanSequence-A.svg)
+![](Help/Image/recamanSequence-A.svg)
 
 Recamáns sequence,
 scatter plot,
@@ -2305,7 +2305,7 @@ OEIS [A005132](https://oeis.org/A005132):
 300.recamanSequence.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/recamanSequence-B.svg)
+![](Help/Image/recamanSequence-B.svg)
 
 Characteristic function of nonprimes,
 OEIS [A005171](https://oeis.org/A005171):
@@ -2316,7 +2316,7 @@ OEIS [A005171](https://oeis.org/A005171):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/nonPrime-A.svg)
+![](Help/Image/nonPrime-A.svg)
 
 The Hofstadter Q-sequence,
 scatter plot of first few terms,
@@ -2326,7 +2326,7 @@ OEIS [A005185](https://oeis.org/A005185):
 200.hofstadterQSequence.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/hofstadterQSequence-A.svg)
+![](Help/Image/hofstadterQSequence-A.svg)
 
 The Hofstadter Q-sequence,
 scatter plot of the terms in _(6000, 6200)_,
@@ -2338,7 +2338,7 @@ OEIS [A005185](https://oeis.org/A005185):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/hofstadterQSequence-B.svg)
+![](Help/Image/hofstadterQSequence-B.svg)
 
 _|a(n-1)+2a(n-2)-n|_,
 OEIS [A005210](https://oeis.org/A005210):
@@ -2349,7 +2349,7 @@ OEIS [A005210](https://oeis.org/A005210):
 }.recurrenceTable([1 1], 85).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/recurrenceTable-F.svg)
+![](Help/Image/recurrenceTable-F.svg)
 
 Mallows’ sequence,
 OEIS [A005229](http://oeis.org/A005229):
@@ -2358,7 +2358,7 @@ OEIS [A005229](http://oeis.org/A005229):
 99.mallowsSequence.linePlot
 ~~~
 
-![](sw/spl/Help/Image/mallowsSequence-A.svg)
+![](Help/Image/mallowsSequence-A.svg)
 
 Barriers for _ω(n)_,
 OEIS [A005236](https://oeis.org/A005236):
@@ -2372,7 +2372,7 @@ OEIS [A005236](https://oeis.org/A005236):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/primeNu-C.svg)
+![](Help/Image/primeNu-C.svg)
 
 Regarded as base two and then evaluated,
 OEIS [A005351](https://oeis.org/A005351):
@@ -2384,7 +2384,7 @@ OEIS [A005351](https://oeis.org/A005351):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/negabinaryExpansion-A.svg)
+![](Help/Image/negabinaryExpansion-A.svg)
 
 Product of exponents of prime factorization of _n_,
 OEIS [A005361](https://oeis.org/A005361):
@@ -2395,7 +2395,7 @@ OEIS [A005361](https://oeis.org/A005361):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/primeSignature-H.svg)
+![](Help/Image/primeSignature-H.svg)
 
 Partial sums of alternating sum of reverse of binary expansion of _n_,
 OEIS [A005536](https://oeis.org/A005536):
@@ -2408,7 +2408,7 @@ OEIS [A005536](https://oeis.org/A005536):
 }.prefixSum.linePlot
 ~~~
 
-![](sw/spl/Help/Image/alternatingSum-E.svg)
+![](Help/Image/alternatingSum-E.svg)
 
 Running sum of every third term in the _+1,-1_-version of Thue-Morse sequence,
 OEIS [A005599](https://oeis.org/A005599):
@@ -2421,7 +2421,7 @@ OEIS [A005599](https://oeis.org/A005599):
 }.linePlot
 ~~~
 
-![](sw/spl/Help/Image/hammingWeight-R.svg)
+![](Help/Image/hammingWeight-R.svg)
 
 _⌊(tan(n)²)_,
 OEIS [A005657](https://oeis.org/A005657):
@@ -2430,7 +2430,7 @@ OEIS [A005657](https://oeis.org/A005657):
 0:150.tan.square.floor.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/tan-E.svg)
+![](Help/Image/tan-E.svg)
 
 Number of fractions in Farey series of order _n_,
 OEIS [A005728](https://oeis.org/A005728):
@@ -2441,7 +2441,7 @@ OEIS [A005728](https://oeis.org/A005728):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/fareySequence-L.svg)
+![](Help/Image/fareySequence-L.svg)
 
 Number of ones in binary reflected Gray code of _n_,
 OEIS [A005811](https://oeis.org/A005811):
@@ -2452,7 +2452,7 @@ OEIS [A005811](https://oeis.org/A005811):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/digitCount-D.svg)
+![](Help/Image/digitCount-D.svg)
 
 Number of runs in binary expansion of _n_,
 OEIS [A005811](https://oeis.org/A005811):
@@ -2466,7 +2466,7 @@ OEIS [A005811](https://oeis.org/A005811):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerDigits-G.svg)
+![](Help/Image/integerDigits-G.svg)
 
 Cantor numbers,
 OEIS [A005823](https://oeis.org/A005823):
@@ -2475,7 +2475,7 @@ OEIS [A005823](https://oeis.org/A005823):
 192.cantorNumbers.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/cantorNumbers-A.svg)
+![](Help/Image/cantorNumbers-A.svg)
 
 The Cantor numbers,
 OEIS [A005823](https://oeis.org/A005823):
@@ -2486,7 +2486,7 @@ OEIS [A005823](https://oeis.org/A005823):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/digitCount-C.svg)
+![](Help/Image/digitCount-C.svg)
 
 Numbers whose base three representation contains no two,
 a Stanley sequence,
@@ -2498,7 +2498,7 @@ OEIS [A005836](https://oeis.org/A005836):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/digitCount-M.svg)
+![](Help/Image/digitCount-M.svg)
 
 Euler transform of _-3,-3,-2_,
 OEIS [A005928](https://oeis.org/A005928):
@@ -2510,7 +2510,7 @@ OEIS [A005928](https://oeis.org/A005928):
 ).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/eulerTransform-A.svg)
+![](Help/Image/eulerTransform-A.svg)
 
 Euler transform of _-3,-3,-2_,
 OEIS [A005928](https://oeis.org/A005928):
@@ -2528,7 +2528,7 @@ let u = [1 -1 -3 1 -1 3 1 -1 0];
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/sum-D.svg)
+![](Help/Image/sum-D.svg)
 
 The Doudna sequence,
 OEIS [A005940](https://oeis.org/A005940):
@@ -2537,7 +2537,7 @@ OEIS [A005940](https://oeis.org/A005940):
 75.doudnaSequence.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/doudnaSequence-A.svg)
+![](Help/Image/doudnaSequence-A.svg)
 
 The Doudna sequence,
 log-scale plot,
@@ -2547,7 +2547,7 @@ OEIS [A005940](https://oeis.org/A005940):
 250.doudnaSequence.logScale.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/doudnaSequence-B.svg)
+![](Help/Image/doudnaSequence-B.svg)
 
 _n⊗2_,
 OEIS [A006015](https://oeis.org/A006015):
@@ -2556,7 +2556,7 @@ OEIS [A006015](https://oeis.org/A006015):
 0:255.nimMultiplication(2).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/nimMultiplication-F.svg)
+![](Help/Image/nimMultiplication-F.svg)
 
 The Nim-square of _n_,
 _n⊗n_,
@@ -2566,7 +2566,7 @@ OEIS [A006042](https://oeis.org/A006042):
 0:255.collect(nimSquare:/1).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/nimMultiplication-E.svg)
+![](Help/Image/nimMultiplication-E.svg)
 
 The number of odd elements in the first _n_ rows of Pascal’s triangle,
 OEIS [A006046](https://oeis.org/A006046):
@@ -2580,7 +2580,7 @@ let b = { :k | k.digitCount(2, 1) };
 }
 ~~~
 
-![](sw/spl/Help/Image/digitCount-B.svg)
+![](Help/Image/digitCount-B.svg)
 
 Partial sums of Gould’s sequence,
 scatter plot,
@@ -2592,7 +2592,7 @@ OEIS [A006046](https://oeis.org/A006046):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/gouldsSequence-B.svg)
+![](Help/Image/gouldsSequence-B.svg)
 
 Gray decode,
 OEIS [A006068](https://oeis.org/A006068):
@@ -2601,7 +2601,7 @@ OEIS [A006068](https://oeis.org/A006068):
 0:127.grayDecode.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/grayDecode-A.svg)
+![](Help/Image/grayDecode-A.svg)
 
 The Josephus problem at _k=2_,
 OEIS [A006257](https://oeis.org/A006257):
@@ -2612,7 +2612,7 @@ OEIS [A006257](https://oeis.org/A006257):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/josephusProblem-A.svg)
+![](Help/Image/josephusProblem-A.svg)
 
 The Schröder numbers,
 OEIS [A006318](https://oeis.org/A006318):
@@ -2621,7 +2621,7 @@ OEIS [A006318](https://oeis.org/A006318):
 25.schroderSequence.log.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/schroderSequence-A.svg)
+![](Help/Image/schroderSequence-A.svg)
 
 Differences of _⌊(n*√2+½)_,
 OEIS [A006338](https://oeis.org/A006338):
@@ -2633,7 +2633,7 @@ let a = 1:85.collect { :n |
 (a - 1).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/sqrt-E.svg)
+![](Help/Image/sqrt-E.svg)
 
 An _eta-sequence_,
 the differences of the rounded multiples of φ,
@@ -2644,7 +2644,7 @@ let x = 0:93.collect(goldenRatio:/1);
 (x.round.differences - 1).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/goldenRatio-L.svg)
+![](Help/Image/goldenRatio-L.svg)
 
 Coefficients in expansion of Eisenstein series _E2_,
 OEIS [A006352](https://oeis.org/A006352):
@@ -2657,7 +2657,7 @@ OEIS [A006352](https://oeis.org/A006352):
 ).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/divisorSigma-W.svg)
+![](Help/Image/divisorSigma-W.svg)
 
 Expansion of a modular form related to Apery numbers,
 OEIS [A006353](https://oeis.org/A006353):
@@ -2671,7 +2671,7 @@ let a = [0 5 4 6 4 5];
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/divisorSum-G.svg)
+![](Help/Image/divisorSum-G.svg)
 
 The amusical permutation,
 OEIS [A006368](https://oeis.org/A006368):
@@ -2680,7 +2680,7 @@ OEIS [A006368](https://oeis.org/A006368):
 0:65.amusicalPermutation.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/amusicalPermutation-A.svg)
+![](Help/Image/amusicalPermutation-A.svg)
 
 The amusical permutation,
 OEIS [A006368](https://oeis.org/A006368):
@@ -2695,7 +2695,7 @@ OEIS [A006368](https://oeis.org/A006368):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/floor-K.svg)
+![](Help/Image/floor-K.svg)
 
 Nearest integer to _4n/3_ unless that is an integer and then _2n/3_,
 OEIS [A006369](https://oeis.org/A006369):
@@ -2710,7 +2710,7 @@ OEIS [A006369](https://oeis.org/A006369):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/round-G.svg)
+![](Help/Image/round-G.svg)
 
 Cald’s sequence,
 OEIS [A006509](https://oeis.org/A006509):
@@ -2738,7 +2738,7 @@ let y = [1];
 y.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/prime-N.svg)
+![](Help/Image/prime-N.svg)
 
 The highest power of two dividing _n_,
 OEIS [A006519](https://oeis.org/A006519):
@@ -2748,7 +2748,7 @@ OEIS [A006519](https://oeis.org/A006519):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/evenPart-A.svg)
+![](Help/Image/evenPart-A.svg)
 
 The greatest prime factors of the integers from two up to two hundred,
 log-scale plot,
@@ -2759,7 +2759,7 @@ OEIS [A006530](https://oeis.org/A006530):
 .logScale.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/greatestPrimeFactor-A.svg)
+![](Help/Image/greatestPrimeFactor-A.svg)
 
 Number of different cycles of digits in the decimal expansions of reciprocals of primes,
 OEIS [A006556](https://oeis.org/A006556):
@@ -2770,7 +2770,7 @@ OEIS [A006556](https://oeis.org/A006556):
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/multiplicativeOrder-D.svg)
+![](Help/Image/multiplicativeOrder-D.svg)
 
 Unique cusp form of weight two for congruence group _Γ1(11)_,
 OEIS [A006571](https://oeis.org/A006571):
@@ -2807,7 +2807,7 @@ let f = { :p :e |
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/kroneckerSymbol-G.svg)
+![](Help/Image/kroneckerSymbol-G.svg)
 
 Number of halving and tripling steps to reach one in _3x+1_ problem,
 OEIS [A006577](https://oeis.org/A006577):
@@ -2818,7 +2818,7 @@ OEIS [A006577](https://oeis.org/A006577):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/collatzSequence-A.svg)
+![](Help/Image/collatzSequence-A.svg)
 
 Number of tripling or halving steps to reach one from _n_ in the _3x+1_ problem,
 also called the Collatz problem,
@@ -2830,7 +2830,7 @@ OEIS [A006577](https://oeis.org/A006577):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/collatzSequence-L.svg)
+![](Help/Image/collatzSequence-L.svg)
 
 Number of halving steps to reach one from _n_ in the _3x+1_ problem,
 also called the Collatz problem,
@@ -2842,7 +2842,7 @@ OEIS [A006666](https://oeis.org/A006666):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/collatzSequence-M.svg)
+![](Help/Image/collatzSequence-M.svg)
 
 Number of tripling steps to reach one from _n_ in the _3x+1_ problem,
 OEIS [A006667](https://oeis.org/A006667),
@@ -2858,7 +2858,7 @@ when one is added:
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/collatzSequence-K.svg)
+![](Help/Image/collatzSequence-K.svg)
 
 The Somos four sequence,
 discrete log plot,
@@ -2868,7 +2868,7 @@ OEIS [A006720](https://oeis.org/A006720):
 4.somosSequence(35).log.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/somosSequence-A.svg)
+![](Help/Image/somosSequence-A.svg)
 
 The Somos seven sequence,
 discrete log plot,
@@ -2878,7 +2878,7 @@ OEIS [A006723](https://oeis.org/A006723):
 7.somosSequence(35).log.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/somosSequence-B.svg)
+![](Help/Image/somosSequence-B.svg)
 
 The numerators of the sequences in turn,
 OEIS [A006842](https://oeis.org/A006842):
@@ -2889,7 +2889,7 @@ OEIS [A006842](https://oeis.org/A006842):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/fareySequence-J.svg)
+![](Help/Image/fareySequence-J.svg)
 
 The denominators of the sequences in turn,
 OEIS [A006843](https://oeis.org/A006843):
@@ -2900,7 +2900,7 @@ OEIS [A006843](https://oeis.org/A006843):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/fareySequence-K.svg)
+![](Help/Image/fareySequence-K.svg)
 
 The squarefree semiprimes,
 OEIS [A006881](https://oeis.org/A006881):
@@ -2913,7 +2913,7 @@ OEIS [A006881](https://oeis.org/A006881):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isSemiprime-C.svg)
+![](Help/Image/isSemiprime-C.svg)
 
 Numbers whose binary expansion is palindromic,
 OEIS [A006995](https://oeis.org/A006995):
@@ -2924,7 +2924,7 @@ OEIS [A006995](https://oeis.org/A006995):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isPalindrome-A.svg)
+![](Help/Image/isPalindrome-A.svg)
 
 Trajectory of 1 under the morphism _1→12,2→123_ &etc,
 OEIS [A007001](https://oeis.org/A007001):
@@ -2937,7 +2937,7 @@ OEIS [A007001](https://oeis.org/A007001):
 }.iterate([1], 5).stepPlot
 ~~~
 
-![](sw/spl/Help/Image/iterate-D.svg)
+![](Help/Image/iterate-D.svg)
 
 The main diagonal of Kimberling’s expulsion array
 OEIS [A007063](https://oeis.org/A007063):
@@ -2959,7 +2959,7 @@ let k = { :i :j |
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isEven-D.svg)
+![](Help/Image/isEven-D.svg)
 
 Numerators of Farey (or Stern-Brocot) tree fractions,
 OEIS [A007305](https://oeis.org/A007305):
@@ -2971,7 +2971,7 @@ OEIS [A007305](https://oeis.org/A007305):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/sternBrocotTree-A.svg)
+![](Help/Image/sternBrocotTree-A.svg)
 
 Denominators of Farey tree fractions,
 OEIS [A007306](https://oeis.org/A007306):
@@ -2984,7 +2984,7 @@ OEIS [A007306](https://oeis.org/A007306):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/binomial-S.svg)
+![](Help/Image/binomial-S.svg)
 
 Denominators of Farey tree fractions,
 OEIS [A007306](https://oeis.org/A007306):
@@ -3001,7 +3001,7 @@ let a = Map { :n |
 a[0:260].scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitLength-G.svg)
+![](Help/Image/bitLength-G.svg)
 
 Pascal’s triangle,
 row-order sequence,
@@ -3015,7 +3015,7 @@ OEIS [A007318](https://oeis.org/A007318):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/pascalTriangle-A.svg)
+![](Help/Image/pascalTriangle-A.svg)
 
 Pascal’s triangle,
 linear discrete plot,
@@ -3027,7 +3027,7 @@ OEIS [A007318](https://oeis.org/A007318):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/pascalTriangle-B.svg)
+![](Help/Image/pascalTriangle-B.svg)
 
 The signature sequence of √2,
 OEIS [A007336](https://oeis.org/A007336):
@@ -3037,7 +3037,7 @@ OEIS [A007336](https://oeis.org/A007336):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/sqrt-B.svg)
+![](Help/Image/sqrt-B.svg)
 
 The _b=10_ Champernowne sequence,
 OEIS [A007376](https://oeis.org/A007376):
@@ -3046,7 +3046,7 @@ OEIS [A007376](https://oeis.org/A007376):
 10.champernowneSequence(65).stepPlot
 ~~~
 
-![](sw/spl/Help/Image/champernowneSequence-A.svg)
+![](Help/Image/champernowneSequence-A.svg)
 
 Parity of number of primes dividing _n_,
 OEIS [A007421](https://oeis.org/A007421):
@@ -3057,7 +3057,7 @@ OEIS [A007421](https://oeis.org/A007421):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/liouvilleLambda-B.svg)
+![](Help/Image/liouvilleLambda-B.svg)
 
 Sum of σ of `divisors` of _n_,
 OEIS [A007425](https://oeis.org/A007425):
@@ -3070,7 +3070,7 @@ OEIS [A007425](https://oeis.org/A007425):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/divisorSigma-O.svg)
+![](Help/Image/divisorSigma-O.svg)
 
 Moebius transform applied twice to the sequence one then zero,
 OEIS [A007427](https://oeis.org/A007427):
@@ -3085,7 +3085,7 @@ OEIS [A007427](https://oeis.org/A007427):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/divisorSum-D.svg)
+![](Help/Image/divisorSum-D.svg)
 
 Triplicate Moebius transform of the _10000…_ sequence,
 OEIS [A007428](https://oeis.org/A007428):
@@ -3098,7 +3098,7 @@ OEIS [A007428](https://oeis.org/A007428):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/moebiusTransform-A.svg)
+![](Help/Image/moebiusTransform-A.svg)
 
 Inverse Moebius transform applied twice to natural numbers,
 OEIS [A007429](https://oeis.org/A007429):
@@ -3109,7 +3109,7 @@ OEIS [A007429](https://oeis.org/A007429):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/divisorSigma-N.svg)
+![](Help/Image/divisorSigma-N.svg)
 
 Moebius transform applied thrice to natural numbers,
 OEIS [A007432](https://oeis.org/A007432):
@@ -3121,7 +3121,7 @@ OEIS [A007432](https://oeis.org/A007432):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/moebiusTransform-F.svg)
+![](Help/Image/moebiusTransform-F.svg)
 
 Jordan function,
 OEIS [A007434](https://oeis.org/A007434):
@@ -3135,7 +3135,7 @@ OEIS [A007434](https://oeis.org/A007434):
 ).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/dirichletConvolve-B.svg)
+![](Help/Image/dirichletConvolve-B.svg)
 
 Jordan function _k=2_,
 OEIS [A007434](https://oeis.org/A007434):
@@ -3144,7 +3144,7 @@ OEIS [A007434](https://oeis.org/A007434):
 2.jordanTotient(1:150).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/jordanTotient-A.svg)
+![](Help/Image/jordanTotient-A.svg)
 
 Moebius transform of squares,
 OEIS [A007434](https://oeis.org/A007434):
@@ -3155,7 +3155,7 @@ OEIS [A007434](https://oeis.org/A007434):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/moebiusTransform-H.svg)
+![](Help/Image/moebiusTransform-H.svg)
 
 Inverse Moebius transform of triangular numbers,
 OEIS [A007437](http://oeis.org/A007437):
@@ -3168,7 +3168,7 @@ OEIS [A007437](http://oeis.org/A007437):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/triangularNumber-B.svg)
+![](Help/Image/triangularNumber-B.svg)
 
 Moebius transform of triangular numbers,
 OEIS [A007438](https://oeis.org/A007438):
@@ -3179,7 +3179,7 @@ OEIS [A007438](https://oeis.org/A007438):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/moebiusTransform-G.svg)
+![](Help/Image/moebiusTransform-G.svg)
 
 The inverse binomial transform of the prime numbers,
 OEIS [A007442](https://oeis.org/A007442):
@@ -3191,7 +3191,7 @@ OEIS [A007442](https://oeis.org/A007442):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/inverseBinomialTransform-B.svg)
+![](Help/Image/inverseBinomialTransform-B.svg)
 
 Moebius transform of primes,
 OEIS [A007444](https://oeis.org/A007444):
@@ -3202,7 +3202,7 @@ OEIS [A007444](https://oeis.org/A007444):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/moebiusTransform-B.svg)
+![](Help/Image/moebiusTransform-B.svg)
 
 Inverse Moebius transform of primes,
 OEIS [A007445](https://oeis.org/A007445):
@@ -3213,7 +3213,7 @@ OEIS [A007445](https://oeis.org/A007445):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/prime-O.svg)
+![](Help/Image/prime-O.svg)
 
 Shifts left under _and_-convolution with itself,
 OEIS [A007461](https://oeis.org/A007461):
@@ -3232,7 +3232,7 @@ let a = Map { :n |
 a[0:75].discretePlot
 ~~~
 
-![](sw/spl/Help/Image/bitAnd-K.svg)
+![](Help/Image/bitAnd-K.svg)
 
 Primes whose reversal in base ten is also prime,
 sometimes called reversible primes,
@@ -3244,7 +3244,7 @@ OEIS [A007500](https://oeis.org/A007500):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerReverse-A.svg)
+![](Help/Image/integerReverse-A.svg)
 
 Smallest pseudoprime _>n_ to base _n_,
 OEIS [A007535](https://oeis.org/A007535):
@@ -3263,7 +3263,7 @@ OEIS [A007535](https://oeis.org/A007535):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/powerMod-E.svg)
+![](Help/Image/powerMod-E.svg)
 
 A self-generating sequence,
 there are _a(n)_ threes between successive twos,
@@ -3277,7 +3277,7 @@ let a = 1:65.collect { :n |
 (a - 2).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/sqrt-D.svg)
+![](Help/Image/sqrt-D.svg)
 
 Period of base four representation of _1/n_,
 OEIS [A007735](https://oeis.org/A007735):
@@ -3290,7 +3290,7 @@ OEIS [A007735](https://oeis.org/A007735):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/multiplicativeOrder-J.svg)
+![](Help/Image/multiplicativeOrder-J.svg)
 
 Powers of two in successive integers,
 the binary carry sequence,
@@ -3303,7 +3303,7 @@ OEIS [A007814](https://oeis.org/A007814):
 }
 ~~~
 
-![](sw/spl/Help/Image/integerExponent-A.svg)
+![](Help/Image/integerExponent-A.svg)
 
 Number of ways of writing _n_ as _p*q_ where _p<=q_ and _gcd(p,q)=1_,
 OEIS [A007875](https://oeis.org/A007875):
@@ -3314,7 +3314,7 @@ OEIS [A007875](https://oeis.org/A007875):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/primeNu-F.svg)
+![](Help/Image/primeNu-F.svg)
 
 Number of ones (terms) in the Zeckendorf representation of _n_,
 OEIS [A007895](https://oeis.org/A007895):
@@ -3326,7 +3326,7 @@ OEIS [A007895](https://oeis.org/A007895):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/zeckendorfRepresentation-B.svg)
+![](Help/Image/zeckendorfRepresentation-B.svg)
 
 The square-free part of _n_,
 OEIS [A007913](https://oeis.org/A007913):
@@ -3335,7 +3335,7 @@ OEIS [A007913](https://oeis.org/A007913):
 1:65.squareFreePart.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/squareFreePart-A.svg)
+![](Help/Image/squareFreePart-A.svg)
 
 Numbers written in the dyadic system,
 OEIS [A007931](https://oeis.org/A007931):
@@ -3347,7 +3347,7 @@ OEIS [A007931](https://oeis.org/A007931):
 }.logScale.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerDigits-N.svg)
+![](Help/Image/integerDigits-N.svg)
 
 Radical of the integer _n_,
 OEIS [A007947](https://oeis.org/A007947):
@@ -3356,7 +3356,7 @@ OEIS [A007947](https://oeis.org/A007947):
 1:150.radical.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/radical-A.svg)
+![](Help/Image/radical-A.svg)
 
 Radical of the integer _n_,
 log plot,
@@ -3366,7 +3366,7 @@ OEIS [A007947](https://oeis.org/A007947):
 1:300.radical.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/radical-B.svg)
+![](Help/Image/radical-B.svg)
 
 _b=3_,
 greatest _k_ such that _3^k_ divides _n_,
@@ -3376,7 +3376,7 @@ OEIS [A007949](https://oeis.org/A007949):
 1:150.integerExponent(3).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/integerExponent-N.svg)
+![](Help/Image/integerExponent-N.svg)
 
 Binary sieve,
 OEIS [A007950](https://oeis.org/A007950):
@@ -3391,7 +3391,7 @@ let a = [1 .. 200];
 a.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/removeAtAll-A.svg)
+![](Help/Image/removeAtAll-A.svg)
 
 Ternary sieve,
 OEIS [A007951](https://oeis.org/A007951):
@@ -3406,7 +3406,7 @@ let a = [1 .. 150];
 a.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/removeAtAll-B.svg)
+![](Help/Image/removeAtAll-B.svg)
 
 The sum of the digits of _n_,
 where _b=10_,
@@ -3416,7 +3416,7 @@ OEIS [A007953](http://oeis.org/A007953):
 1:100.collect(digitSum:/1).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/digitSum-A.svg)
+![](Help/Image/digitSum-A.svg)
 
 Product of decimal digits of _n_,
 OEIS [A007954](https://oeis.org/A007954):
@@ -3427,7 +3427,7 @@ OEIS [A007954](https://oeis.org/A007954):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerDigits-J.svg)
+![](Help/Image/integerDigits-J.svg)
 
 Product of the proper divisors of _n_,
 OEIS [A007956](https://oeis.org/A007956):
@@ -3438,7 +3438,7 @@ OEIS [A007956](https://oeis.org/A007956):
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/divisorSigma-K.svg)
+![](Help/Image/divisorSigma-K.svg)
 
 The triangle of signed Stirling numbers of the first kind,
 OEIS [A008275](http://oeis.org/A008275):
@@ -3448,7 +3448,7 @@ OEIS [A008275](http://oeis.org/A008275):
 .catenate.logScale.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/stirlingS1-E.svg)
+![](Help/Image/stirlingS1-E.svg)
 
 Triangle of _s(n,n-k+1)_,
 OEIS [A008276](https://oeis.org/A008276):
@@ -3459,7 +3459,7 @@ OEIS [A008276](https://oeis.org/A008276):
 }.catenate.logScale.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/stirlingS1-D.svg)
+![](Help/Image/stirlingS1-D.svg)
 
 The triangle of Stirling numbers of the second kind,
 OEIS [A008277](https://oeis.org/A008277):
@@ -3469,7 +3469,7 @@ OEIS [A008277](https://oeis.org/A008277):
 .catenate.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/stirlingS2-C.svg)
+![](Help/Image/stirlingS2-C.svg)
 
 The first few terms of the Seidel–Entringer–Arnold triangle,
 log scale scatter plot,
@@ -3482,7 +3482,7 @@ OEIS [A008280](https://oeis.org/A008280):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/seidelEntringerArnoldTriangle-A.svg)
+![](Help/Image/seidelEntringerArnoldTriangle-A.svg)
 
 The Entringer triangle,
 log scale scatter plot,
@@ -3495,7 +3495,7 @@ OEIS [A008281](https://oeis.org/A008281):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/entringerTriangle-A.svg)
+![](Help/Image/entringerTriangle-A.svg)
 
 The Entringer triangle,
 log scale scatter plot of first few terms,
@@ -3507,7 +3507,7 @@ OEIS [A008282](https://oeis.org/A008282):
 ).catenate.logScale.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/entringerNumber-A.svg)
+![](Help/Image/entringerNumber-A.svg)
 
 Initial triangle of _P(n,k)_,
 OEIS [A008284](https://oeis.org/A008284):
@@ -3518,7 +3518,7 @@ OEIS [A008284](https://oeis.org/A008284):
 ).catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/partitionFunctionP-B.svg)
+![](Help/Image/partitionFunctionP-B.svg)
 
 Square array of Delannoy numbers read by antidiagonals,
 OEIS [A008288](https://oeis.org/A008288):
@@ -3529,7 +3529,7 @@ OEIS [A008288](https://oeis.org/A008288):
 ).catenate.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/delannoyNumber-B.svg)
+![](Help/Image/delannoyNumber-B.svg)
 
 Table of non-zero values of _Q(n,k)_,
 OEIS [A008289](https://oeis.org/A008289):
@@ -3544,7 +3544,7 @@ OEIS [A008289](https://oeis.org/A008289):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/partitionFunctionQ-A.svg)
+![](Help/Image/partitionFunctionQ-A.svg)
 
 Table of non-zero values of _Q(n,k)_,
 log scaled,
@@ -3560,7 +3560,7 @@ OEIS [A008289](https://oeis.org/A008289):
 }.catenate.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/partitionFunctionQ-B.svg)
+![](Help/Image/partitionFunctionQ-B.svg)
 
 The Euler triangle,
 without trailing zero,
@@ -3573,7 +3573,7 @@ OEIS [A008292](https://oeis.org/A008292):
 ).catenate.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/eulerianNumber-A.svg)
+![](Help/Image/eulerianNumber-A.svg)
 
 Signed form of Lah numbers,
 OEIS [A008297](https://oeis.org/A008297):
@@ -3584,7 +3584,7 @@ OEIS [A008297](https://oeis.org/A008297):
 }.catenate.logScale.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/lahNumber-B.svg)
+![](Help/Image/lahNumber-B.svg)
 
 Table of Mahonian numbers,
 read by rows,
@@ -3595,7 +3595,7 @@ OEIS [A008302](https://oeis.org/A008302):
 .catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/mahonianNumbers-A.svg)
+![](Help/Image/mahonianNumbers-A.svg)
 
 Number of permutations of _1:n_ with order dividing _k_,
 read by antidiagonals,
@@ -3618,7 +3618,7 @@ let t = { :n :k |
 }.catenate.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/divisors-J.svg)
+![](Help/Image/divisors-J.svg)
 
 Triangle of arctangent numbers,
 OEIS [A008309](https://oeis.org/A008309):
@@ -3643,7 +3643,7 @@ OEIS [A008309](https://oeis.org/A008309):
 }.catenate.logScale.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/stirlingS1-C.svg)
+![](Help/Image/stirlingS1-C.svg)
 
 _φ(p(n)-1)_,
 number of primitive roots in the field with _p_ elements,
@@ -3655,7 +3655,7 @@ OEIS [A008330](https://oeis.org/A008330):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/eulerPhi-K.svg)
+![](Help/Image/eulerPhi-K.svg)
 
 _Σ{i=0…n-1}-1^i*p(n-i)_,
 OEIS [A008347](https://oeis.org/A008347):
@@ -3664,7 +3664,7 @@ OEIS [A008347](https://oeis.org/A008347):
 -.swap.foldList(0, 1:200.prime).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/prime-M.svg)
+![](Help/Image/prime-M.svg)
 
 Number of ordered ways of writing _n_ as the sum of two triangular numbers,
 OEIS [A008441](https://oeis.org/A008441):
@@ -3680,7 +3680,7 @@ OEIS [A008441](https://oeis.org/A008441):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/frobeniusSolve-A.svg)
+![](Help/Image/frobeniusSolve-A.svg)
 
 Sum of the distinct prime factors of _n_,
 OEIS [A008472](https://oeis.org/A008472):
@@ -3691,7 +3691,7 @@ OEIS [A008472](https://oeis.org/A008472):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/distinctPrimeFactors-A.svg)
+![](Help/Image/distinctPrimeFactors-A.svg)
 
 Product of the sums of the prime and exponent of the factors of _n_,
 OEIS [A008473](https://oeis.org/A008473):
@@ -3704,7 +3704,7 @@ OEIS [A008473](https://oeis.org/A008473):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/factorInteger-L.svg)
+![](Help/Image/factorInteger-L.svg)
 
 The minimal number _m_ such that the symmetric group _Sm_ has an element of order _n_,
 OEIS [A008475](https://oeis.org/A008475):
@@ -3717,7 +3717,7 @@ OEIS [A008475](https://oeis.org/A008475):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/factorInteger-G.svg)
+![](Help/Image/factorInteger-G.svg)
 
 Molien series of binary octahedral group of order 48,
 OEIS [A008647](http://oeis.org/A008647):
@@ -3730,7 +3730,7 @@ linearRecurrence(
 ).stepPlot
 ~~~
 
-![](sw/spl/Help/Image/linearRecurrence-B.svg)
+![](Help/Image/linearRecurrence-B.svg)
 
 The Möbius sequence,
 OEIS [A008683](https://oeis.org/A008683):
@@ -3739,7 +3739,7 @@ OEIS [A008683](https://oeis.org/A008683):
 1:100.moebiusMu.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/moebiusMu-A.svg)
+![](Help/Image/moebiusMu-A.svg)
 
 Number of ones in twos complement representation of _-n_,
 OEIS [A008687](https://oeis.org/A008687):
@@ -3756,7 +3756,7 @@ let a = Map { :n |
 a[0:115].scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/floor-H.svg)
+![](Help/Image/floor-H.svg)
 
 _⌊(n/10)-(n%10)_,
 OEIS [A008687](https://oeis.org/A008687):
@@ -3767,7 +3767,7 @@ OEIS [A008687](https://oeis.org/A008687):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/floor-I.svg)
+![](Help/Image/floor-I.svg)
 
 Molien series for three-dimensional group _[2,n]=*22n_,
 OEIS [A008728](https://oeis.org/A008728):
@@ -3781,7 +3781,7 @@ OEIS [A008728](https://oeis.org/A008728):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/sum-K.svg)
+![](Help/Image/sum-K.svg)
 
 The Liouville λ sequence,
 OEIS [A008836](https://oeis.org/A008836):
@@ -3790,7 +3790,7 @@ OEIS [A008836](https://oeis.org/A008836):
 1:115.liouvilleLambda.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/liouvilleLambda-A.svg)
+![](Help/Image/liouvilleLambda-A.svg)
 
 The Collatz sequence orbit for twenty-seven,
 which has one-hundred and twelve places,
@@ -3800,7 +3800,7 @@ OEIS [A008884](https://oeis.org/A008884):
 27.collatzSequence.linePlot
 ~~~
 
-![](sw/spl/Help/Image/collatzSequence-C.svg)
+![](Help/Image/collatzSequence-C.svg)
 
 The Aliquot sequence starting at 276,
 OEIS [A008892](https://oeis.org/A008892):
@@ -3809,7 +3809,7 @@ OEIS [A008892](https://oeis.org/A008892):
 276.aliquotSequence(23).log.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/aliquotSequence-B.svg)
+![](Help/Image/aliquotSequence-B.svg)
 
 The final nonzero digit of _n!_,
 OEIS [A008904](https://oeis.org/A008904):
@@ -3819,7 +3819,7 @@ let n = 0:65.!.withoutTrailingZeroes;
 (n % 10).stepPlot
 ~~~
 
-![](sw/spl/Help/Image/withoutTrailingZeroes-A.svg)
+![](Help/Image/withoutTrailingZeroes-A.svg)
 
 Leading digit of _n!_,
 OEIS [A008905](https://oeis.org/A008905):
@@ -3830,7 +3830,7 @@ let n = 0:85.!;
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/factorial-B.svg)
+![](Help/Image/factorial-B.svg)
 
 Bernoulli’s triangle,
 in row-order sequence,
@@ -3844,7 +3844,7 @@ OEIS [A008949](https://oeis.org/A008949):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bernoulliTriangle-A.svg)
+![](Help/Image/bernoulliTriangle-A.svg)
 
 The characteristic function of square free numbers,
 OEIS [A008966](https://oeis.org/A008966):
@@ -3855,7 +3855,7 @@ OEIS [A008966](https://oeis.org/A008966):
 ).boole.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/isSquareFree-F.svg)
+![](Help/Image/isSquareFree-F.svg)
 
 Triangle of distribution of rank sums,
 OEIS [A008967](https://oeis.org/A008967):
@@ -3871,7 +3871,7 @@ OEIS [A008967](https://oeis.org/A008967):
 }.catenate.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/subsets-A.svg)
+![](Help/Image/subsets-A.svg)
 
 Expansion of exponential generating function _cos(x)/exp(x)_,
 OEIS [A009116](https://oeis.org/A009116):
@@ -3881,7 +3881,7 @@ linearRecurrence([-2 -2], [1 -1], 110)
 .logScale.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/linearRecurrence-F.svg)
+![](Help/Image/linearRecurrence-F.svg)
 
 Expansion of exponential generating function _sin(x)*exp(x)_,
 also Lucas _U(2,2)_ sequence,
@@ -3892,7 +3892,7 @@ linearRecurrence([2 -2], [0 1], 110)
 .logScale.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/linearRecurrence-E.svg)
+![](Help/Image/linearRecurrence-E.svg)
 
 Characteristic function of prime numbers,
 OEIS [A010051](https://oeis.org/A010051):
@@ -3901,7 +3901,7 @@ OEIS [A010051](https://oeis.org/A010051):
 1:100.isPrime.boole.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/isPrime-E.svg)
+![](Help/Image/isPrime-E.svg)
 
 The characteristic function of the square numbers,
 OEIS [A010052](https://oeis.org/A010052):
@@ -3912,7 +3912,7 @@ OEIS [A010052](https://oeis.org/A010052):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/isPerfectSquare-B.svg)
+![](Help/Image/isPerfectSquare-B.svg)
 
 The characteristic function of the triangular numbers,
 one if _n_ is a triangular number otherwise zero,
@@ -3924,7 +3924,7 @@ OEIS [A010054](https://oeis.org/A010054):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/squaresR-B.svg)
+![](Help/Image/squaresR-B.svg)
 
 _ω(n)≤1_,
 OEIS [A010055](https://oeis.org/A010055):
@@ -3935,7 +3935,7 @@ OEIS [A010055](https://oeis.org/A010055):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/primeNu-I.svg)
+![](Help/Image/primeNu-I.svg)
 
 Characteristic function of Fibonacci numbers,
 OEIS [A010056](https://oeis.org/A010056):
@@ -3948,7 +3948,7 @@ let k = a.max;
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/fibonacci-N.svg)
+![](Help/Image/fibonacci-N.svg)
 
 The characteristic function of the cubic numbers,
 one if _n_ is a cube else zero,
@@ -3960,7 +3960,7 @@ OEIS [A010057](https://oeis.org/A010057):
 }.boole.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/isInteger-B.svg)
+![](Help/Image/isInteger-B.svg)
 
 Characteristic function of numbers with an even number of ones in their binary expansion,
 OEIS [A010059](https://oeis.org/A010059):
@@ -3971,7 +3971,7 @@ OEIS [A010059](https://oeis.org/A010059):
 }.characteristicFunction.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/digitCount-S.svg)
+![](Help/Image/digitCount-S.svg)
 
 The Thue-Morse sequence,
 OEIS [A010060](http://oeis.org/A010060):
@@ -3980,7 +3980,7 @@ OEIS [A010060](http://oeis.org/A010060):
 99.thueMorseSequence.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/thueMorseSequence-A.svg)
+![](Help/Image/thueMorseSequence-A.svg)
 
 Shortest representation of _-n_ in twos-complement format,
 OEIS [A010078](https://oeis.org/A010078):
@@ -3991,7 +3991,7 @@ OEIS [A010078](https://oeis.org/A010078):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/ceiling-C.svg)
+![](Help/Image/ceiling-C.svg)
 
 Triangular array of floor of division,
 OEIS [A010766](https://oeis.org/A010766):
@@ -4002,7 +4002,7 @@ OEIS [A010766](https://oeis.org/A010766):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/floor-F.svg)
+![](Help/Image/floor-F.svg)
 
 From Euler’s pentagonal theorem,
 also number of different partitions of _n_ into parts of -1 different kinds,
@@ -4019,7 +4019,7 @@ OEIS [A010815](https://oeis.org/A010815):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/kroneckerSymbol-D.svg)
+![](Help/Image/kroneckerSymbol-D.svg)
 
 Number of different partitions of _n_ into parts of -3 different kinds,
 OEIS [A010816](https://oeis.org/A010816):
@@ -4036,7 +4036,7 @@ OEIS [A010816](https://oeis.org/A010816):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/kroneckerSymbol-C.svg)
+![](Help/Image/kroneckerSymbol-C.svg)
 
 Remainder of _n_ and five,
 OEIS [A010874](https://oeis.org/A010874):
@@ -4047,7 +4047,7 @@ OEIS [A010874](https://oeis.org/A010874):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/quotientRemainder-B.svg)
+![](Help/Image/quotientRemainder-B.svg)
 
 An integer sequence modulo an integer,
 _n%8_,
@@ -4058,7 +4058,7 @@ OEIS [A010877](https://oeis.org/A010877):
 (0:65 % 8).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/mod-A.svg)
+![](Help/Image/mod-A.svg)
 
 The base ten digital root of _n_,
 OEIS [A010888](https://oeis.org/A010888):
@@ -4069,7 +4069,7 @@ OEIS [A010888](https://oeis.org/A010888):
 }
 ~~~
 
-![](sw/spl/Help/Image/digitalRoot-A.svg)
+![](Help/Image/digitalRoot-A.svg)
 
 Legendre symbol _(n,17)_,
 OEIS [A011584](https://oeis.org/A011584):
@@ -4078,7 +4078,7 @@ OEIS [A011584](https://oeis.org/A011584):
 0:85.jacobiSymbol(17).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/jacobiSymbol-D.svg)
+![](Help/Image/jacobiSymbol-D.svg)
 
 Legendre symbol _(n,29)_,
 OEIS [A011587](https://oeis.org/A011587):
@@ -4087,7 +4087,7 @@ OEIS [A011587](https://oeis.org/A011587):
 0:85.jacobiSymbol(29).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/jacobiSymbol-E.svg)
+![](Help/Image/jacobiSymbol-E.svg)
 
 The number of ones in the binary expansion of _3ⁿ_,
 scatter plot,
@@ -4098,7 +4098,7 @@ OEIS [A011754](https://oeis.org/A011754):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/digitCount-G.svg)
+![](Help/Image/digitCount-G.svg)
 
 Smallest number _m_ such that _m(m+1)/2_ is divisible by _n_,
 OEIS [A011772](https://oeis.org/A011772):
@@ -4111,7 +4111,7 @@ OEIS [A011772](https://oeis.org/A011772):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/divisible-L.svg)
+![](Help/Image/divisible-L.svg)
 
 Levine’s triangle,
 OEIS [A012257](https://oeis.org/A012257):
@@ -4126,7 +4126,7 @@ OEIS [A012257](https://oeis.org/A012257):
 .stepPlot
 ~~~
 
-![](sw/spl/Help/Image/nestList-D.svg)
+![](Help/Image/nestList-D.svg)
 
 Table of the first few cyclotomic polynomials,
 OEIS [A013595](https://oeis.org/A013595):
@@ -4137,7 +4137,7 @@ OEIS [A013595](https://oeis.org/A013595):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/cyclotomic-H.svg)
+![](Help/Image/cyclotomic-H.svg)
 
 Differences between _bⁿ_ and it’s next prime,
 _b=2_,
@@ -4151,7 +4151,7 @@ let b = 2;
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/nextPrime-B.svg)
+![](Help/Image/nextPrime-B.svg)
 
 Squareful numbers,
 OEIS [A013929](https://oeis.org/A013929):
@@ -4160,7 +4160,7 @@ OEIS [A013929](https://oeis.org/A013929):
 1:99.reject(isSquareFree:/1).linePlot
 ~~~
 
-![](sw/spl/Help/Image/isSquareFree-B.svg)
+![](Help/Image/isSquareFree-B.svg)
 
 Number of occurrences of _11_ in the binary expansion of _n_,
 OEIS [A014081](http://oeis.org/A014081):
@@ -4172,7 +4172,7 @@ OEIS [A014081](http://oeis.org/A014081):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/sequenceCount-D.svg)
+![](Help/Image/sequenceCount-D.svg)
 
 Number of occurrences of _111_ in the binary expansion of _n_,
 OEIS [A014082](http://oeis.org/A014082):
@@ -4184,7 +4184,7 @@ OEIS [A014082](http://oeis.org/A014082):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/sequenceCount-E.svg)
+![](Help/Image/sequenceCount-E.svg)
 
 Number of primes between _n^2_ and _(n+1)^2_,
 OEIS [A014085](https://oeis.org/A014085):
@@ -4195,7 +4195,7 @@ OEIS [A014085](https://oeis.org/A014085):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/primePi-J.svg)
+![](Help/Image/primePi-J.svg)
 
 Integers with hamming weight of three,
 OEIS [A014311](https://oeis.org/A014311):
@@ -4206,7 +4206,7 @@ OEIS [A014311](https://oeis.org/A014311):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/hammingWeight-C.svg)
+![](Help/Image/hammingWeight-C.svg)
 
 Catalan expansions of integers,
 the decimal expansions of
@@ -4218,7 +4218,7 @@ OEIS [A014418](https://oeis.org/A014418):
 ).++.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/catalanExpansion-A.svg)
+![](Help/Image/catalanExpansion-A.svg)
 
 Catalan expansions of integers,
 read as decimal integers,
@@ -4231,7 +4231,7 @@ OEIS [A014418](https://oeis.org/A014418):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/catalanExpansion-B.svg)
+![](Help/Image/catalanExpansion-B.svg)
 
 Catalan un-ranking algorithm,
 OEIS [A014486](https://oeis.org/A014486):
@@ -4241,7 +4241,7 @@ OEIS [A014486](https://oeis.org/A014486):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/catalanUnrank-A.svg)
+![](Help/Image/catalanUnrank-A.svg)
 
 `gcd` of _n_ and _2^n-1_,
 OEIS [A014491](https://oeis.org/A014491):
@@ -4254,7 +4254,7 @@ OEIS [A014491](https://oeis.org/A014491):
 ).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/gcd-K.svg)
+![](Help/Image/gcd-K.svg)
 
 Recurrence plot of regular paperfolding sequence,
 OEIS [A014577](https://oeis.org/A014577):
@@ -4265,7 +4265,7 @@ OEIS [A014577](https://oeis.org/A014577):
 .Bitmap
 ~~~
 
-![](sw/spl/Help/Image/regularPaperfoldingSequence-B.png)
+![](Help/Image/regularPaperfoldingSequence-B.png)
 
 The regular paperfolding sequence,
 OEIS [A014577](https://oeis.org/A014577):
@@ -4275,7 +4275,7 @@ OEIS [A014577](https://oeis.org/A014577):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/regularPaperfoldingSequence-C.svg)
+![](Help/Image/regularPaperfoldingSequence-C.svg)
 
 Order of two modulo the _n_-th prime,
 OEIS [A014664](https://oeis.org/A014664):
@@ -4286,7 +4286,7 @@ OEIS [A014664](https://oeis.org/A014664):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/multiplicativeOrder-G.svg)
+![](Help/Image/multiplicativeOrder-G.svg)
 
 First differences of the lower Wythoff sequence,
 a Fibonacci word,
@@ -4298,7 +4298,7 @@ OEIS [A014675](https://oeis.org/A014675):
 .stepPlot
 ~~~
 
-![](sw/spl/Help/Image/wythoffLower-C.svg)
+![](Help/Image/wythoffLower-C.svg)
 
 Second differences of the lower Wythoff sequence,
 essentially
@@ -4310,7 +4310,7 @@ OEIS [A014677](https://oeis.org/A014677):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/wythoffLower-D.svg)
+![](Help/Image/wythoffLower-D.svg)
 
 Second differences of the upper Wythoff sequence,
 essentially
@@ -4322,7 +4322,7 @@ OEIS [A014677](https://oeis.org/A014677):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/wythoffUpper-B.svg)
+![](Help/Image/wythoffUpper-B.svg)
 
 The regular paper-folding sequence,
 OEIS [A014707](https://oeis.org/A014707):
@@ -4341,7 +4341,7 @@ let a = { :n |
 0:92.collect(a:/1).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/which-A.svg)
+![](Help/Image/which-A.svg)
 
 Seidel’s triangle,
 log scale scatter plot,
@@ -4354,7 +4354,7 @@ OEIS [A014781](https://oeis.org/A014781):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/seidelTriangle-A.svg)
+![](Help/Image/seidelTriangle-A.svg)
 
 The continued fraction of the natural logarithm of two,
 OEIS [A016730](https://oeis.org/A016730):
@@ -4366,7 +4366,7 @@ OEIS [A016730](https://oeis.org/A016730):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/namedConstant-B.svg)
+![](Help/Image/namedConstant-B.svg)
 
 Pillais arithmetical function,
 [A018804](https://oeis.org/A018804):
@@ -4383,7 +4383,7 @@ Pillais arithmetical function,
 }.table(1:99).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/eulerPhi-C.svg)
+![](Help/Image/eulerPhi-C.svg)
 
 Smallest number whose square is divisible by _n_,
 OEIS [A019554](https://oeis.org/A019554):
@@ -4396,7 +4396,7 @@ OEIS [A019554](https://oeis.org/A019554):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/divisible-C.svg)
+![](Help/Image/divisible-C.svg)
 
 Squarefree numbers ordered lexicographically by prime factorization,
 OEIS [A019565](https://oeis.org/A019565):
@@ -4411,7 +4411,7 @@ OEIS [A019565](https://oeis.org/A019565):
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/indicesOf-A.svg)
+![](Help/Image/indicesOf-A.svg)
 
 Values of successive cyclotomic polynomials at _x=1_,
 OEIS [A020500](https://oeis.org/A020500):
@@ -4422,7 +4422,7 @@ OEIS [A020500](https://oeis.org/A020500):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/cyclotomic-G.svg)
+![](Help/Image/cyclotomic-G.svg)
 
 Cyclotomic polynomials evaluated at _x=-1_,
 OEIS [A020513](https://oeis.org/A020513):
@@ -4433,7 +4433,7 @@ OEIS [A020513](https://oeis.org/A020513):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/cyclotomic-F.svg)
+![](Help/Image/cyclotomic-F.svg)
 
 Least prime factors of the integers from two up to one hundred,
 log-scale plot,
@@ -4444,7 +4444,7 @@ OEIS [A020639](https://oeis.org/A020639):
 .logScale.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/leastPrimeFactor-A.svg)
+![](Help/Image/leastPrimeFactor-A.svg)
 
 `min` of `primeFactors` is called the _least prime factor_,
 OEIS [A020639](https://oeis.org/A020639):
@@ -4455,7 +4455,7 @@ OEIS [A020639](https://oeis.org/A020639):
 }.table(2:43).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/primeFactors-A.svg)
+![](Help/Image/primeFactors-A.svg)
 
 Least prime factors,
 log scale plot,
@@ -4467,7 +4467,7 @@ OEIS [A020639](https://oeis.org/A020639):
 }.table(2:300).log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/primeFactors-B.svg)
+![](Help/Image/primeFactors-B.svg)
 
 Numerators in canonical bijection from positive integers to positive rationals,
 OEIS [A020652](http://oeis.org/A020652):
@@ -4484,7 +4484,7 @@ let a = [];
 a.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/gcd-G.svg)
+![](Help/Image/gcd-G.svg)
 
 Numerators in canonical bijection from positive integers to positive rationals,
 OEIS [A020652](https://oeis.org/A020652):
@@ -4501,7 +4501,7 @@ let y = [];
 y.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isCoprime-B.svg)
+![](Help/Image/isCoprime-B.svg)
 
 Numerators in canonical bijection from positive integers to positive rationals,
 OEIS [A020652](https://oeis.org/A020652):
@@ -4512,7 +4512,7 @@ OEIS [A020652](https://oeis.org/A020652):
 ).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/oeisFunction-A.svg)
+![](Help/Image/oeisFunction-A.svg)
 
 Denominators in canonical bijection from positive integers to positive rationals,
 OEIS [A020653](http://oeis.org/A020653):
@@ -4528,7 +4528,7 @@ OEIS [A020653](http://oeis.org/A020653):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/gcd-H.svg)
+![](Help/Image/gcd-H.svg)
 
 Denominators in canonical bijection from positive integers to positive rationals,
 OEIS [A020653](https://oeis.org/A020653):
@@ -4539,7 +4539,7 @@ OEIS [A020653](https://oeis.org/A020653):
 ).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/oeisFunction-B.svg)
+![](Help/Image/oeisFunction-B.svg)
 
 The smallest number _k_ such that _fusc(k)=n_,
 OEIS [A020946](https://oeis.org/A020946):
@@ -4552,7 +4552,7 @@ OEIS [A020946](https://oeis.org/A020946):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/sternBrocotNumber-B.svg)
+![](Help/Image/sternBrocotNumber-B.svg)
 
 The smallest number _k_ such that _fusc(k)=n_,
 OEIS [A020946](https://oeis.org/A020946):
@@ -4567,7 +4567,7 @@ let a = k.sternBrocotSequence;
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/sternBrocotSequence-F.svg)
+![](Help/Image/sternBrocotSequence-F.svg)
 
 The Rudin–Shapiro sequence,
 OEIS [A020985](http://oeis.org/A020985):
@@ -4577,7 +4577,7 @@ OEIS [A020985](http://oeis.org/A020985):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/rudinShapiro-C.svg)
+![](Help/Image/rudinShapiro-C.svg)
 
 Triangle of coefficients of Laguerre polynomials _n!*Ln(x)_,
 OEIS [A021009](https://oeis.org/A021009):
@@ -4588,7 +4588,7 @@ OEIS [A021009](https://oeis.org/A021009):
 }.catenate.logScale.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/binomial-I.svg)
+![](Help/Image/binomial-I.svg)
 
 Count zeroes in binary expansion,
 OEIS [A023416](https://oeis.org/A023416),
@@ -4601,7 +4601,7 @@ if initial terms is zero:
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/digitCount-E.svg)
+![](Help/Image/digitCount-E.svg)
 
 _i=j_,
 OEIS [A023531](https://oeis.org/A023531):
@@ -4611,7 +4611,7 @@ OEIS [A023531](https://oeis.org/A023531):
 .catenate.boole.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/triangularArray-K.svg)
+![](Help/Image/triangularArray-K.svg)
 
 Characteristic function of tetrahedral numbers,
 OEIS [A023533](https://oeis.org/A023533):
@@ -4622,7 +4622,7 @@ OEIS [A023533](https://oeis.org/A023533):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/tetrahedralNumber-B.svg)
+![](Help/Image/tetrahedralNumber-B.svg)
 
 Sum of the nonprime divisors of _n_,
 OEIS [A023890](https://oeis.org/A023890):
@@ -4633,7 +4633,7 @@ OEIS [A023890](https://oeis.org/A023890):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/divisors-E.svg)
+![](Help/Image/divisors-E.svg)
 
 Dirichlet inverse of the Euler totient function,
 also called the reciprocity balance of _n_,
@@ -4645,7 +4645,7 @@ OEIS [A023900](https://oeis.org/A023900):
 ).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/dirichletInverse-B.svg)
+![](Help/Image/dirichletInverse-B.svg)
 
 Right-truncatable primes,
 every prefix is prime,
@@ -4662,7 +4662,7 @@ OEIS [A024770](https://oeis.org/A024770):
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/prefixes-D.svg)
+![](Help/Image/prefixes-D.svg)
 
 Least prime factor of _n_-th prime power,
 OEIS [A025473](https://oeis.org/A025473):
@@ -4673,7 +4673,7 @@ OEIS [A025473](https://oeis.org/A025473):
 .stepPlot
 ~~~
 
-![](sw/spl/Help/Image/isPrimePower-A.svg)
+![](Help/Image/isPrimePower-A.svg)
 
 A sequence related to the Josephus problem,
 OEIS [A025480](https://oeis.org/A025480):
@@ -4685,7 +4685,7 @@ OEIS [A025480](https://oeis.org/A025480):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/integerExponent-R.svg)
+![](Help/Image/integerExponent-R.svg)
 
 _n-k_,
 count backwards and count again,
@@ -4695,7 +4695,7 @@ OEIS [A025581](https://oeis.org/A025581):
 0:9.triangularArray(-).catenate.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/triangularArray-I.svg)
+![](Help/Image/triangularArray-I.svg)
 
 The maximum value in each orbit of the Collatz sequence:
 OEIS [A025586](https://oeis.org/A025586):
@@ -4706,7 +4706,7 @@ OEIS [A025586](https://oeis.org/A025586):
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/collatzSequence-B.svg)
+![](Help/Image/collatzSequence-B.svg)
 
 Initial triangle of _P(n,1:k)_,
 OEIS [A026820](https://oeis.org/A026820):
@@ -4719,7 +4719,7 @@ OEIS [A026820](https://oeis.org/A026820):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/partitionFunctionP-C.svg)
+![](Help/Image/partitionFunctionP-C.svg)
 
 Tribonacci array,
 OEIS [A027023](https://oeis.org/A027023):
@@ -4742,7 +4742,7 @@ let t = { :n :k |
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/collect-B.svg)
+![](Help/Image/collect-B.svg)
 
 Number of ones when _n_ is written in base negative two,
 OEIS [A027615](https://oeis.org/A027615):
@@ -4754,7 +4754,7 @@ OEIS [A027615](https://oeis.org/A027615):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/negabinaryExpansion-C.svg)
+![](Help/Image/negabinaryExpansion-C.svg)
 
 Absolute value of numerators of Bernoulli numbers,
 `log` scale plot,
@@ -4769,7 +4769,7 @@ OEIS [A027641](https://oeis.org/A027641):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bernoulliNumber-A.svg)
+![](Help/Image/bernoulliNumber-A.svg)
 
 Numerators of Bernoulli numbers,
 `log` scale plot,
@@ -4782,7 +4782,7 @@ OEIS [A027641](https://oeis.org/A027641):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bernoulliNumber-B.svg)
+![](Help/Image/bernoulliNumber-B.svg)
 
 Numerators of Bernoulli sequence,
 OEIS [A027641](https://oeis.org/A027641):
@@ -4794,7 +4794,7 @@ OEIS [A027641](https://oeis.org/A027641):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bernoulliSequence-A.svg)
+![](Help/Image/bernoulliSequence-A.svg)
 
 Denominators of Bernoulli numbers,
 `log` scale plot,
@@ -4807,7 +4807,7 @@ OEIS [A027642](https://oeis.org/A027642):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/bernoulliNumber-C.svg)
+![](Help/Image/bernoulliNumber-C.svg)
 
 Denominators of Bernoulli sequence,
 OEIS [A027642](https://oeis.org/A027642):
@@ -4819,7 +4819,7 @@ OEIS [A027642](https://oeis.org/A027642):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bernoulliSequence-B.svg)
+![](Help/Image/bernoulliSequence-B.svg)
 
 Irregular triangle of distinct prime factors,
 OEIS [A027748](https://oeis.org/A027748):
@@ -4829,7 +4829,7 @@ OEIS [A027748](https://oeis.org/A027748):
 .catenate.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/distinctPrimeFactors-B.svg)
+![](Help/Image/distinctPrimeFactors-B.svg)
 
 Triangle read by rows listing the divisors of _n_,
 OEIS [A027750](https://oeis.org/A027750):
@@ -4838,7 +4838,7 @@ OEIS [A027750](https://oeis.org/A027750):
 1:23.divisors.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/divisors-M.svg)
+![](Help/Image/divisors-M.svg)
 
 Irregular triangle of the proper divisors of _n_,
 OEIS [A027751](https://oeis.org/A027751):
@@ -4849,7 +4849,7 @@ OEIS [A027751](https://oeis.org/A027751):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/divisors-O.svg)
+![](Help/Image/divisors-O.svg)
 
 Highest power of smallest prime dividing _n_,
 OEIS [A028233](https://oeis.org/A028233):
@@ -4861,7 +4861,7 @@ OEIS [A028233](https://oeis.org/A028233):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/first-A.svg)
+![](Help/Image/first-A.svg)
 
 Iterate the amusical permutation map starting at eight,
 OEIS [A028393](https://oeis.org/A028393):
@@ -4872,7 +4872,7 @@ amusicalPermutation:/1
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/amusicalPermutation-C.svg)
+![](Help/Image/amusicalPermutation-C.svg)
 
 Iterate the amusical permutation map starting at eight,
 log scale scatter plot,
@@ -4885,7 +4885,7 @@ amusicalPermutation:/1
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/amusicalPermutation-D.svg)
+![](Help/Image/amusicalPermutation-D.svg)
 
 Iterate the amusical permutation map starting at fourteen,
 OEIS [A028395](https://oeis.org/A028395):
@@ -4897,7 +4897,7 @@ amusicalPermutation:/1
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/amusicalPermutation-E.svg)
+![](Help/Image/amusicalPermutation-E.svg)
 
 The smallest number in the trajectory of the amusical permutation map,
 OEIS [A028397](https://oeis.org/A028397):
@@ -4909,7 +4909,7 @@ OEIS [A028397](https://oeis.org/A028397):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/amusicalPermutation-B.svg)
+![](Help/Image/amusicalPermutation-B.svg)
 
 Left inverse of binary expansions,
 OEIS [A028897](https://oeis.org/A028897):
@@ -4929,7 +4929,7 @@ let a = { :n |
 0:200.collect(a:/1).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/mod-K.svg)
+![](Help/Image/mod-K.svg)
 
 Pit harvesting sequence for winning solitaire Tchoukaillon,
 OEIS [A028920](https://oeis.org/A028920):
@@ -4944,7 +4944,7 @@ OEIS [A028920](https://oeis.org/A028920):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/detect-A.svg)
+![](Help/Image/detect-A.svg)
 
 Ordinal transform of
 pit harvesting sequence for winning solitaire Tchoukaillon,
@@ -4960,7 +4960,7 @@ OEIS [A028920](https://oeis.org/A028920):
 }.ordinalTransform.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/detect-B.svg)
+![](Help/Image/detect-B.svg)
 
 Interleave _n_ and _2n_,
 OEIS [A029578](https://oeis.org/A029578):
@@ -4970,7 +4970,7 @@ let n = 0:35;
 [n, 2 * n].interleave.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/interleave-E.svg)
+![](Help/Image/interleave-E.svg)
 
 The _(1,2)_-Pascal triangle,
 _C(n,k)+C(n-1,k-1)_,
@@ -4988,7 +4988,7 @@ OEIS [A029635](https://oeis.org/A029635):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/binomial-R.svg)
+![](Help/Image/binomial-R.svg)
 
 `bitLength` is a kind of staircase function,
 OEIS [A029837](https://oeis.org/A029837):
@@ -4997,7 +4997,7 @@ OEIS [A029837](https://oeis.org/A029837):
 (-25:25).bitLength.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/bitLength-A.svg)
+![](Help/Image/bitLength-A.svg)
 
 `bitLength` up to _2^9_,
 OEIS [A029837](https://oeis.org/A029837):
@@ -5007,7 +5007,7 @@ let n = 2 ^ 9;
 0:n.bitLength.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/bitLength-E.svg)
+![](Help/Image/bitLength-E.svg)
 
 First differences of the Thue–Morse sequence,
 OEIS [A029883](https://oeis.org/A029883):
@@ -5018,7 +5018,7 @@ OEIS [A029883](https://oeis.org/A029883):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/thueMorseSequence-B.svg)
+![](Help/Image/thueMorseSequence-B.svg)
 
 Least number that is not a sum of distinct divisors of _n_,
 OEIS [A030057](https://oeis.org/A030057):
@@ -5034,7 +5034,7 @@ OEIS [A030057](https://oeis.org/A030057):
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/divisors-I.svg)
+![](Help/Image/divisors-I.svg)
 
 The semi-Fibonacci sequence,
 OEIS [A030067](https://oeis.org/A030067):
@@ -5045,7 +5045,7 @@ OEIS [A030067](https://oeis.org/A030067):
 ).log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/fibonacciSequence-B.svg)
+![](Help/Image/fibonacciSequence-B.svg)
 
 Log plot of the semi-Fibonacci sequence,
 OEIS [A030067](https://oeis.org/A030067):
@@ -5065,7 +5065,7 @@ let a = Map { :n |
 a[1:125].log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isEven-A.svg)
+![](Help/Image/isEven-A.svg)
 
 Binary reversal,
 OEIS [A030101](https://oeis.org/A030101):
@@ -5078,7 +5078,7 @@ OEIS [A030101](https://oeis.org/A030101):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/fromDigits-A.svg)
+![](Help/Image/fromDigits-A.svg)
 
 Numerators of binary van der Corput sequence,
 OEIS [A030101](https://oeis.org/A030101):
@@ -5089,7 +5089,7 @@ OEIS [A030101](https://oeis.org/A030101):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/vanDerCorputNumber-G.svg)
+![](Help/Image/vanDerCorputNumber-G.svg)
 
 Digital root of Fibonacci numbers,
 OEIS [A030132](https://oeis.org/A030132):
@@ -5100,7 +5100,7 @@ OEIS [A030132](https://oeis.org/A030132):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/digitalRoot-B.svg)
+![](Help/Image/digitalRoot-B.svg)
 
 Next term is sum of the digits of the sum of the previous two terms,
 OEIS [A030133](https://oeis.org/A030133):
@@ -5111,7 +5111,7 @@ OEIS [A030133](https://oeis.org/A030133):
 }.recurrenceTable([2 1], 48).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/recurrenceTable-E.svg)
+![](Help/Image/recurrenceTable-E.svg)
 
 The _b=2_ Champernowne sequence,
 OEIS [A030190](https://oeis.org/A030190):
@@ -5121,7 +5121,7 @@ OEIS [A030190](https://oeis.org/A030190):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/champernowneSequence-B.svg)
+![](Help/Image/champernowneSequence-B.svg)
 
 Euler transform of _-1,-1,-2_,
 OEIS [A030203](https://oeis.org/A030203):
@@ -5133,7 +5133,7 @@ OEIS [A030203](https://oeis.org/A030203):
 ).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/eulerTransform-B.svg)
+![](Help/Image/eulerTransform-B.svg)
 
 Write _n_ in base three and reverse order of digits,
 OEIS [A030341](https://oeis.org/A030341):
@@ -5144,7 +5144,7 @@ OEIS [A030341](https://oeis.org/A030341):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/integerDigits-T.svg)
+![](Help/Image/integerDigits-T.svg)
 
 Scatter plot of the additive persistences of the first few positive integers,
 OEIS [A031286](https://oeis.org/A031286):
@@ -5155,7 +5155,7 @@ OEIS [A031286](https://oeis.org/A031286):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/additivePersistence-A.svg)
+![](Help/Image/additivePersistence-A.svg)
 
 The multiplicative persistences of the first few positive integers,
 OEIS [A031346](https://oeis.org/A031346):
@@ -5166,7 +5166,7 @@ OEIS [A031346](https://oeis.org/A031346):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/multiplicativePersistence-A.svg)
+![](Help/Image/multiplicativePersistence-A.svg)
 
 Multiplicative persistence,
 OEIS [A031346](https://oeis.org/A031346):
@@ -5181,7 +5181,7 @@ OEIS [A031346](https://oeis.org/A031346):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/nestWhileList-B.svg)
+![](Help/Image/nestWhileList-B.svg)
 
 Two-multiplicative persistence,
 OEIS [A031348](https://oeis.org/A031348):
@@ -5196,7 +5196,7 @@ OEIS [A031348](https://oeis.org/A031348):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/nestWhileList-C.svg)
+![](Help/Image/nestWhileList-C.svg)
 
 Triangle of answers for the Josephus problem at _n=1-14_,
 OEIS [A032434](https://oeis.org/A032434):
@@ -5209,7 +5209,7 @@ OEIS [A032434](https://oeis.org/A032434):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/josephusProblem-C.svg)
+![](Help/Image/josephusProblem-C.svg)
 
 The inverse of the Euler totient function,
 OEIS [A032447](https://oeis.org/A032447):
@@ -5220,7 +5220,7 @@ OEIS [A032447](https://oeis.org/A032447):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/eulerPhiInverse-A.svg)
+![](Help/Image/eulerPhiInverse-A.svg)
 
 The aliquot sequences up to twenty three that reach one,
 OEIS [A032451](https://oeis.org/A032451):
@@ -5231,7 +5231,7 @@ OEIS [A032451](https://oeis.org/A032451):
 .catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/aliquotSequence-C.svg)
+![](Help/Image/aliquotSequence-C.svg)
 
 The aliquot sequences up to sixty that reach one,
 OEIS [A032451](https://oeis.org/A032451):
@@ -5242,7 +5242,7 @@ OEIS [A032451](https://oeis.org/A032451):
 .catenate.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/aliquotSequence-D.svg)
+![](Help/Image/aliquotSequence-D.svg)
 
 Maximum divisor of _n_,
 OEIS [A032742](https://oeis.org/A032742):
@@ -5253,7 +5253,7 @@ OEIS [A032742](https://oeis.org/A032742):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/leastPrimeFactor-F.svg)
+![](Help/Image/leastPrimeFactor-F.svg)
 
 Numbers whose ternary expansion contains no zero,
 OEIS [A032924](https://oeis.org/A032924):
@@ -5264,7 +5264,7 @@ OEIS [A032924](https://oeis.org/A032924):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/ternaryExpansion-A.svg)
+![](Help/Image/ternaryExpansion-A.svg)
 
 Number of occurrences of _10_ in the binary expansion of _n_,
 OEIS [A033264](http://oeis.org/A033264):
@@ -5276,7 +5276,7 @@ OEIS [A033264](http://oeis.org/A033264):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/sequenceCount-C.svg)
+![](Help/Image/sequenceCount-C.svg)
 
 Squares of primes (_e_),
 or products of pairs of consecutive primes (_o_),
@@ -5292,7 +5292,7 @@ let o = q.collect(product:/1);
 e.riffle(o).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/prime-P.svg)
+![](Help/Image/prime-P.svg)
 
 Primes where every suffix is prime,
 OEIS [A033664](https://oeis.org/A033664):
@@ -5307,7 +5307,7 @@ OEIS [A033664](https://oeis.org/A033664):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerDigits-L.svg)
+![](Help/Image/integerDigits-L.svg)
 
 Largest divisor of _n_,
 _≤√n_,
@@ -5322,7 +5322,7 @@ OEIS [A033676](https://oeis.org/A033676):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/divisors-F.svg)
+![](Help/Image/divisors-F.svg)
 
 _|a_4(n)|_,
 OEIS [A033715](https://oeis.org/A033715):
@@ -5339,7 +5339,7 @@ OEIS [A033715](https://oeis.org/A033715):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/kroneckerSymbol-F.svg)
+![](Help/Image/kroneckerSymbol-F.svg)
 
 Making numbers into palindromic numbers,
 OEIS [A033865](https://oeis.org/A033865):
@@ -5356,7 +5356,7 @@ OEIS [A033865](https://oeis.org/A033865):
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerDigits-K.svg)
+![](Help/Image/integerDigits-K.svg)
 
 Dirichlet inverse of the deficiency of _n_,
 OEIS [A033879](https://oeis.org/A033879):
@@ -5369,7 +5369,7 @@ OEIS [A033879](https://oeis.org/A033879):
 ).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/dirichletInverse-D.svg)
+![](Help/Image/dirichletInverse-D.svg)
 
 Deficiency of _n_,
 OEIS [A033879](https://oeis.org/A033879):
@@ -5380,7 +5380,7 @@ OEIS [A033879](https://oeis.org/A033879):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/divisorSigma-P.svg)
+![](Help/Image/divisorSigma-P.svg)
 
 Abundance of _n_,
 OEIS [A033880](https://oeis.org/A033880):
@@ -5390,7 +5390,7 @@ let n = 1:70;
 (1.divisorSigma(n) - (2 * n)).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/divisorSigma-V.svg)
+![](Help/Image/divisorSigma-V.svg)
 
 Integers on the positive x-axis of clockwise spiral on a square lattice,
 OEIS [A033953](https://oeis.org/A033953):
@@ -5414,7 +5414,7 @@ let a = 0:m.collect(
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/integerDigits-R.svg)
+![](Help/Image/integerDigits-R.svg)
 
 _-1^n_,
 the _1,-1_ sequence,
@@ -5424,7 +5424,7 @@ OEIS [A033999](https://oeis.org/A033999):
 [1 -1].repeat(30).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/repeat-C.svg)
+![](Help/Image/repeat-C.svg)
 
 Record positions of aliquot sums,
 OEIS [A034090](https://oeis.org/A034090):
@@ -5435,7 +5435,7 @@ OEIS [A034090](https://oeis.org/A034090):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/aliquotSum-B.svg)
+![](Help/Image/aliquotSum-B.svg)
 
 Record values of aliquot sums,
 OEIS [A034091](https://oeis.org/A034091):
@@ -5446,7 +5446,7 @@ OEIS [A034091](https://oeis.org/A034091):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/aliquotSum-C.svg)
+![](Help/Image/aliquotSum-C.svg)
 
 Sum of primes _≤n_,
 OEIS [A034387](https://oeis.org/A034387):
@@ -5457,7 +5457,7 @@ OEIS [A034387](https://oeis.org/A034387):
 }.prefixSum.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/isPrime-I.svg)
+![](Help/Image/isPrime-I.svg)
 
 _σ⃰ₖ(n)_ where _k=1_,
 OEIS [A034448](https://oeis.org/A034448):
@@ -5468,7 +5468,7 @@ OEIS [A034448](https://oeis.org/A034448):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/unitaryDivisorSigma-A.svg)
+![](Help/Image/unitaryDivisorSigma-A.svg)
 
 _uσ(n)-n_,
 OEIS [A034460](https://oeis.org/A034460),
@@ -5481,7 +5481,7 @@ OEIS [A063919](https://oeis.org/A063919):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/unitaryDivisorSigma-C.svg)
+![](Help/Image/unitaryDivisorSigma-C.svg)
 
 _σ⃰ₖ(n)_ where _k=2_,
 OEIS [A034676](https://oeis.org/A034676):
@@ -5492,7 +5492,7 @@ OEIS [A034676](https://oeis.org/A034676):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/unitaryDivisorSigma-B.svg)
+![](Help/Image/unitaryDivisorSigma-B.svg)
 
 Losanitsch’s triangle,
 OEIS [A034851](https://oeis.org/A034851):
@@ -5504,7 +5504,7 @@ OEIS [A034851](https://oeis.org/A034851):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/qBinomial-C.svg)
+![](Help/Image/qBinomial-C.svg)
 
 Pascal’s triangle modulo four,
 OEIS [A034931](https://oeis.org/A034931):
@@ -5515,7 +5515,7 @@ OEIS [A034931](https://oeis.org/A034931):
 .stepPlot
 ~~~
 
-![](sw/spl/Help/Image/pascalTriangle-J.svg)
+![](Help/Image/pascalTriangle-J.svg)
 
 Kronecker symbol _-1,n_,
 the regular paperfolding sequence,
@@ -5527,7 +5527,7 @@ OEIS [A034947](https://oeis.org/A034947):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/kroneckerSymbol-K.svg)
+![](Help/Image/kroneckerSymbol-K.svg)
 
 Minimal number of factorials that add to _n_,
 OEIS [A034968](https://oeis.org/A034968):
@@ -5538,7 +5538,7 @@ OEIS [A034968](https://oeis.org/A034968):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/factorialExpansion-A.svg)
+![](Help/Image/factorialExpansion-A.svg)
 
 Coefficients of Dedekind zeta function for the quadratic number field of discriminant seventeen,
 OEIS [A035199](https://oeis.org/A035199):
@@ -5551,7 +5551,7 @@ OEIS [A035199](https://oeis.org/A035199):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/kroneckerSymbol-J.svg)
+![](Help/Image/kroneckerSymbol-J.svg)
 
 The complement of the period doubling sequence,
 OEIS [A035263](https://oeis.org/A035263):
@@ -5561,7 +5561,7 @@ OEIS [A035263](https://oeis.org/A035263):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/periodDoublingSequence-D.svg)
+![](Help/Image/periodDoublingSequence-D.svg)
 
 The trajectory of 1 under the morphism _0→11,1→10_,
 OEIS [A035263](https://oeis.org/A035263):
@@ -5575,7 +5575,7 @@ OEIS [A035263](https://oeis.org/A035263):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/substitutionSystem-F.svg)
+![](Help/Image/substitutionSystem-F.svg)
 
 Kimberling’s expulsion array read by antidiagonals,
 OEIS [A035486](https://oeis.org/A035486):
@@ -5599,7 +5599,7 @@ let a = { :n :k |
 .catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/quotientRemainder-C.svg)
+![](Help/Image/quotientRemainder-C.svg)
 
 Relevant part of deck in Guy’s shuffling problem,
 OEIS [A035491](https://oeis.org/A035491):
@@ -5609,7 +5609,7 @@ guyShuffle:/1.nestList([], 15)
 .catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/guyShuffle-A.svg)
+![](Help/Image/guyShuffle-A.svg)
 
 The infinite Stolarsky array,
 read by antidiagonals,
@@ -5621,7 +5621,7 @@ OEIS [A035506](https://oeis.org/A035506):
 ).catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/stolarskyArray-B.svg)
+![](Help/Image/stolarskyArray-B.svg)
 
 Wythoff array read by falling antidiagonals,
 OEIS [A035513](https://oeis.org/A035513):
@@ -5632,7 +5632,7 @@ OEIS [A035513](https://oeis.org/A035513):
 ).catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/wythoffArray-A.svg)
+![](Help/Image/wythoffArray-A.svg)
 
 Summands for each entry,
 OEIS [A035517](https://oeis.org/A035517):
@@ -5645,7 +5645,7 @@ OEIS [A035517](https://oeis.org/A035517):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/zeckendorfRepresentation-D.svg)
+![](Help/Image/zeckendorfRepresentation-D.svg)
 
 All the parts of all reversed partitions,
 sorted first by length and then lexicographically.
@@ -5660,7 +5660,7 @@ OEIS [A036036](https://oeis.org/A036036):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerPartitions-A.svg)
+![](Help/Image/integerPartitions-A.svg)
 
 Partitions in graded colexicographical ordering,
 OEIS [A036037](https://oeis.org/A036037):
@@ -5674,7 +5674,7 @@ OEIS [A036037](https://oeis.org/A036037):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerPartitions-E.svg)
+![](Help/Image/integerPartitions-E.svg)
 
 Write in binary, complement, reverse,
 OEIS [A036044](https://oeis.org/A036044):
@@ -5687,7 +5687,7 @@ OEIS [A036044](https://oeis.org/A036044):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/binaryExpansion-F.svg)
+![](Help/Image/binaryExpansion-F.svg)
 
 Table,
 read by upward antidiagonals,
@@ -5705,7 +5705,7 @@ let t = { :x |
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/differences-G.svg)
+![](Help/Image/differences-G.svg)
 
 Second differences of primes,
 OEIS [A036263](https://oeis.org/A036263):
@@ -5714,7 +5714,7 @@ OEIS [A036263](https://oeis.org/A036263):
 1:85.prime.differences(2).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/differences-H.svg)
+![](Help/Image/differences-H.svg)
 
 _a(n)+a(n-1)=p(n)_,
 OEIS [A036467](https://oeis.org/A036467):
@@ -5727,7 +5727,7 @@ OEIS [A036467](https://oeis.org/A036467):
 }.abs.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/prime-L.svg)
+![](Help/Image/prime-L.svg)
 
 Hamming weight of _3n_,
 OEIS [A036555](https://oeis.org/A036555):
@@ -5736,7 +5736,7 @@ OEIS [A036555](https://oeis.org/A036555):
 (0:250 * 3).hammingWeight.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/hammingWeight-D.svg)
+![](Help/Image/hammingWeight-D.svg)
 
 Genocchi numbers,
 OEIS [A036968](https://oeis.org/A036968):
@@ -5747,7 +5747,7 @@ OEIS [A036968](https://oeis.org/A036968):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/genocchiNumber-A.svg)
+![](Help/Image/genocchiNumber-A.svg)
 
 The Fredholm-Rueppel sequence,
 OEIS [A036987](https://oeis.org/A036987):
@@ -5758,7 +5758,7 @@ OEIS [A036987](https://oeis.org/A036987):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/padRight-B.svg)
+![](Help/Image/padRight-B.svg)
 
 Numbers where the run lengths of the binary expansion do not increase,
 OEIS [A037014](https://oeis.org/A037014):
@@ -5775,7 +5775,7 @@ OEIS [A037014](https://oeis.org/A037014):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/split-B.svg)
+![](Help/Image/split-B.svg)
 
 Numbers where,
 in the binary expansion,
@@ -5792,7 +5792,7 @@ OEIS [A037016](https://oeis.org/A037016):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isSorted-B.svg)
+![](Help/Image/isSorted-B.svg)
 
 Count nonsingular complex Hermitian matrices,
 OEIS [A037227](https://oeis.org/A037227):
@@ -5803,7 +5803,7 @@ OEIS [A037227](https://oeis.org/A037227):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerExponent-E.svg)
+![](Help/Image/integerExponent-E.svg)
 
 Count nonsingular complex Hermitian matrices,
 OEIS [A037227](https://oeis.org/A037227):
@@ -5820,7 +5820,7 @@ OEIS [A037227](https://oeis.org/A037227):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/moebiusMu-C.svg)
+![](Help/Image/moebiusMu-C.svg)
 
 Number of infinitary divisors of _n_,
 OEIS [A037445](https://oeis.org/A037445):
@@ -5833,7 +5833,7 @@ OEIS [A037445](https://oeis.org/A037445):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/primeSignature-J.svg)
+![](Help/Image/primeSignature-J.svg)
 
 _|⌊(cot(n))_,
 OEIS [A037448](https://oeis.org/A037448):
@@ -5843,7 +5843,7 @@ OEIS [A037448](https://oeis.org/A037448):
 .log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/cot-C.svg)
+![](Help/Image/cot-C.svg)
 
 _⌊(cot(n))_,
 OEIS [A037448](https://oeis.org/A037448):
@@ -5853,7 +5853,7 @@ OEIS [A037448](https://oeis.org/A037448):
 .logScale.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/cot-D.svg)
+![](Help/Image/cot-D.svg)
 
 Number of occurrences of _01_ in the binary expansion of _n_,
 OEIS [A037800](http://oeis.org/A037800):
@@ -5865,7 +5865,7 @@ OEIS [A037800](http://oeis.org/A037800):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/sequenceCount-B.svg)
+![](Help/Image/sequenceCount-B.svg)
 
 The difference between the number of zeroes and ones in the base-two representation _n_,
 OEIS [A037861](https://oeis.org/A037861):
@@ -5879,7 +5879,7 @@ OEIS [A037861](https://oeis.org/A037861):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/binaryExpansion-K.svg)
+![](Help/Image/binaryExpansion-K.svg)
 
 Range of digits of _n_,
 OEIS [A037904](https://oeis.org/A037904):
@@ -5891,7 +5891,7 @@ OEIS [A037904](https://oeis.org/A037904):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/min-A.svg)
+![](Help/Image/min-A.svg)
 
 An array of numbers for a ternary numeration system read by antidiagonals,
 OEIS [A038150](https://oeis.org/A038150):
@@ -5910,7 +5910,7 @@ let t = { :n :j |
 }.catenate.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/goldenRatio-J.svg)
+![](Help/Image/goldenRatio-J.svg)
 
 _C(i,j)*2^(i-j)_,
 OEIS [A038207](https://oeis.org/A038207):
@@ -5921,7 +5921,7 @@ OEIS [A038207](https://oeis.org/A038207):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/binomial-O.svg)
+![](Help/Image/binomial-O.svg)
 
 The Ehrenfeucht-Mycielski sequence,
 OEIS [A038219](https://oeis.org/A038219):
@@ -5931,7 +5931,7 @@ OEIS [A038219](https://oeis.org/A038219):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/ehrenfeuchtMycielskiSequence-A.svg)
+![](Help/Image/ehrenfeuchtMycielskiSequence-A.svg)
 
 Number of divisors of _n_ that are at most _√n_,
 OEIS [A038548](http://oeis.org/A038548):
@@ -5942,7 +5942,7 @@ OEIS [A038548](http://oeis.org/A038548):
 }.floor.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/divisorSigma-E.svg)
+![](Help/Image/divisorSigma-E.svg)
 
 Replace each pair of adjacent bits with their sum,
 OEIS [A038554](https://oeis.org/A038554):
@@ -5954,7 +5954,7 @@ OEIS [A038554](https://oeis.org/A038554):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitXor-F.svg)
+![](Help/Image/bitXor-F.svg)
 
 Derivative of _n_,
 OEIS [A038554](https://oeis.org/A038554):
@@ -5965,7 +5965,7 @@ OEIS [A038554](https://oeis.org/A038554):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/grayEncode-J.svg)
+![](Help/Image/grayEncode-J.svg)
 
 Derivative of _n_ in base three,
 OEIS [A038555](https://oeis.org/A038555):
@@ -5980,7 +5980,7 @@ OEIS [A038555](https://oeis.org/A038555):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/partition-B.svg)
+![](Help/Image/partition-B.svg)
 
 Periodic derivative of _n_,
 OEIS [A038556](https://oeis.org/A038556):
@@ -5992,7 +5992,7 @@ OEIS [A038556](https://oeis.org/A038556):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/rotateLeft-A.svg)
+![](Help/Image/rotateLeft-A.svg)
 
 Numerators in canonical bijection from positive integers to positive rationals _≤1_,
 OEIS [A038566](http://oeis.org/A038566):
@@ -6005,7 +6005,7 @@ OEIS [A038566](http://oeis.org/A038566):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/gcd-J.svg)
+![](Help/Image/gcd-J.svg)
 
 Numerators in canonical bijection from positive integers to positive rationals,
 OEIS [A038568](http://oeis.org/A038568):
@@ -6016,7 +6016,7 @@ OEIS [A038568](http://oeis.org/A038568):
 ).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/oeisFunction-C.svg)
+![](Help/Image/oeisFunction-C.svg)
 
 Denominators in canonical bijection from positive integers to positive rationals,
 OEIS [A038569](http://oeis.org/A038569):
@@ -6027,7 +6027,7 @@ OEIS [A038569](http://oeis.org/A038569):
 ).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/oeisFunction-D.svg)
+![](Help/Image/oeisFunction-D.svg)
 
 Prefix sum of primes modulo four minus two,
 OEIS [A038698](https://oeis.org/A038698):
@@ -6039,7 +6039,7 @@ OEIS [A038698](https://oeis.org/A038698):
 ).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/prime-E.svg)
+![](Help/Image/prime-E.svg)
 
 Riesel problem,
 OEIS [A038699](https://oeis.org/A038699):
@@ -6058,7 +6058,7 @@ OEIS [A038699](https://oeis.org/A038699):
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isPrime-C.svg)
+![](Help/Image/isPrime-C.svg)
 
 Exclusive or of adjacent integers,
 _n⊕(n-1)_,
@@ -6070,7 +6070,7 @@ OEIS [A038712](https://oeis.org/A038712):
 }.log.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/bitXor-M.svg)
+![](Help/Image/bitXor-M.svg)
 
 Select _n_ where alternating sum of reverse of binary expansion is zero,
 OEIS [A039004](https://oeis.org/A039004):
@@ -6083,7 +6083,7 @@ OEIS [A039004](https://oeis.org/A039004):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/alternatingSum-G.svg)
+![](Help/Image/alternatingSum-G.svg)
 
 Odd-numbered columns of triangle of expansions of powers of _x_ in terms of Chebyshev polynomials _Un(x)_,
 OEIS [A039598](https://oeis.org/A039598):
@@ -6096,7 +6096,7 @@ OEIS [A039598](https://oeis.org/A039598):
 }.catenate.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/binomial-P.svg)
+![](Help/Image/binomial-P.svg)
 
 Fixed point of _n←(n-1)/2_ until result is prime,
 OEIS [A039634](https://oeis.org/A039634):
@@ -6113,7 +6113,7 @@ OEIS [A039634](https://oeis.org/A039634):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/fixedPoint-A.svg)
+![](Help/Image/fixedPoint-A.svg)
 
 Smallest number _m>1_ such that _m^(p-1)-1_ is divisible by _p^2_,
 OEIS [A039678](https://oeis.org/A039678):
@@ -6127,7 +6127,7 @@ OEIS [A039678](https://oeis.org/A039678):
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/powerMod-G.svg)
+![](Help/Image/powerMod-G.svg)
 
 The signed Fibonacci numbers,
 OEIS [A039834](https://oeis.org/A039834):
@@ -6139,7 +6139,7 @@ OEIS [A039834](https://oeis.org/A039834):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/inverseBinomialTransform-A.svg)
+![](Help/Image/inverseBinomialTransform-A.svg)
 
 Parity of the partition numbers,
 OEIS [A040051](https://oeis.org/A040051):
@@ -6151,7 +6151,7 @@ OEIS [A040051](https://oeis.org/A040051):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/partitionFunctionP-D.svg)
+![](Help/Image/partitionFunctionP-D.svg)
 
 Absolute values of differences between digits of _n+10_,
 OEIS [A040114](https://oeis.org/A040114):
@@ -6162,7 +6162,7 @@ OEIS [A040114](https://oeis.org/A040114):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/differences-E.svg)
+![](Help/Image/differences-E.svg)
 
 Join absolute values of differences between digits of _n_,
 OEIS [A040115](https://oeis.org/A040115):
@@ -6176,7 +6176,7 @@ OEIS [A040115](https://oeis.org/A040115):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/differences-F.svg)
+![](Help/Image/differences-F.svg)
 
 Absolute value of the first digit of _n_ minus the last digit,
 OEIS [A040163](https://oeis.org/A040163):
@@ -6188,7 +6188,7 @@ OEIS [A040163](https://oeis.org/A040163):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/abs-D.svg)
+![](Help/Image/abs-D.svg)
 
 Absolute value of the first digit of _n_ minus the sum of the remaining digits,
 OEIS [A040997](https://oeis.org/A040997):
@@ -6200,7 +6200,7 @@ OEIS [A040997](https://oeis.org/A040997):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/abs-E.svg)
+![](Help/Image/abs-E.svg)
 
 The length of the first few aliquot sequences,
 OEIS [A044050](https://oeis.org/A044050):
@@ -6211,7 +6211,7 @@ OEIS [A044050](https://oeis.org/A044050):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/aliquotSequence-A.svg)
+![](Help/Image/aliquotSequence-A.svg)
 
 Least _k_ such that sum of first _k_ primes is _n_ times a prime,
 OEIS [A045985](https://oeis.org/A045985):
@@ -6227,7 +6227,7 @@ let t = [1:m, p].transpose;
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/prime-K.svg)
+![](Help/Image/prime-K.svg)
 
 Least _k>1_ with _k=Σ(d(k^n))_,
 OEIS [A046017](https://oeis.org/A046017):
@@ -6244,7 +6244,7 @@ OEIS [A046017](https://oeis.org/A046017):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/integerDigits-Q.svg)
+![](Help/Image/integerDigits-Q.svg)
 
 Least inverse of the Kempner function,
 OEIS [A046021](https://oeis.org/A046021):
@@ -6260,7 +6260,7 @@ OEIS [A046021](https://oeis.org/A046021):
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/greatestPrimeFactor-C.svg)
+![](Help/Image/greatestPrimeFactor-C.svg)
 
 Least size of generators for multiplicative group of integers modulo _n_,
 OEIS [A046072](https://oeis.org/A046072):
@@ -6283,7 +6283,7 @@ OEIS [A046072](https://oeis.org/A046072):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/primeNu-G.svg)
+![](Help/Image/primeNu-G.svg)
 
 Number of squares in multiplicative group modulo _n_,
 OEIS [A046073](https://oeis.org/A046073):
@@ -6298,7 +6298,7 @@ OEIS [A046073](https://oeis.org/A046073):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/eulerPhi-L.svg)
+![](Help/Image/eulerPhi-L.svg)
 
 The digits of Calabi’s constant,
 scatter plot,
@@ -6310,7 +6310,7 @@ OEIS [A046095](https://oeis.org/A046095):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/calabisConstant-A.svg)
+![](Help/Image/calabisConstant-A.svg)
 
 Cubeful numbers,
 OEIS [A046099](https://oeis.org/A046099):
@@ -6320,7 +6320,7 @@ OEIS [A046099](https://oeis.org/A046099):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/isCubeFree-B.svg)
+![](Help/Image/isCubeFree-B.svg)
 
 Number of Gaussian integers _x+yi_ having absolute value _n_,
 OEIS [A046109](https://oeis.org/A046109):
@@ -6335,7 +6335,7 @@ OEIS [A046109](https://oeis.org/A046109):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/j-A.svg)
+![](Help/Image/j-A.svg)
 
 Smallest primitive root modulo _n_ or 0 if no root exists,
 OEIS [A046145](https://oeis.org/A046145):
@@ -6347,7 +6347,7 @@ OEIS [A046145](https://oeis.org/A046145):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/primitiveRootList-G.svg)
+![](Help/Image/primitiveRootList-G.svg)
 
 Largest primitive root modulo _n_ or 0 if no root exists,
 OEIS [A046146](https://oeis.org/A046146):
@@ -6359,7 +6359,7 @@ OEIS [A046146](https://oeis.org/A046146):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/primitiveRootList-H.svg)
+![](Help/Image/primitiveRootList-H.svg)
 
 Primitive roots of _n_
 OEIS [A046147](https://oeis.org/A046147):
@@ -6369,7 +6369,7 @@ OEIS [A046147](https://oeis.org/A046147):
 .catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/primitiveRootList-A.svg)
+![](Help/Image/primitiveRootList-A.svg)
 
 The smallest number with the same prime signature as _n_,
 OEIS [A046523](https://oeis.org/A046523):
@@ -6383,7 +6383,7 @@ OEIS [A046523](https://oeis.org/A046523):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/primeSignature-B.svg)
+![](Help/Image/primeSignature-B.svg)
 
 Number of distinct cubic residues modulo _n_,
 OEIS [A046530](https://oeis.org/A046530):
@@ -6396,7 +6396,7 @@ OEIS [A046530](https://oeis.org/A046530):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isCubicResidue-B.svg)
+![](Help/Image/isCubicResidue-B.svg)
 
 Dirichlet series,
 square is zeta function,
@@ -6427,7 +6427,7 @@ let f = { :n |
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/eulerPhi-D.svg)
+![](Help/Image/eulerPhi-D.svg)
 
 Sum of _2e-w(2e)_ of prime signature of _n_,
 OEIS [A046645](https://oeis.org/A046645):
@@ -6440,7 +6440,7 @@ OEIS [A046645](https://oeis.org/A046645):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/digitCount-I.svg)
+![](Help/Image/digitCount-I.svg)
 
 Dirichlet inverse of the σ function,
 OEIS [A046692](https://oeis.org/A046692):
@@ -6453,7 +6453,7 @@ OEIS [A046692](https://oeis.org/A046692):
 ).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/dirichletInverse-C.svg)
+![](Help/Image/dirichletInverse-C.svg)
 
 Dirichlet inverse of sigma function,
 OEIS [A046692](http://oeis.org/A046692):
@@ -6472,7 +6472,7 @@ OEIS [A046692](http://oeis.org/A046692):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/moebiusMu-E.svg)
+![](Help/Image/moebiusMu-E.svg)
 
 Period of Fibonacci three-step sequence modulo _n_,
 OEIS [A046738](https://oeis.org/A046738):
@@ -6483,7 +6483,7 @@ OEIS [A046738](https://oeis.org/A046738):
 ).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/tribonacciNumber-A.svg)
+![](Help/Image/tribonacciNumber-A.svg)
 
 `max` of `min` of all summands of _n_,
 OEIS [A046805](https://oeis.org/A046805):
@@ -6520,7 +6520,7 @@ let f = { :n |
 1:115.collect(f:/1).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isPerfectSquare-A.svg)
+![](Help/Image/isPerfectSquare-A.svg)
 
 Number of ways to express _2n+1_ as _p+2q_ where _p_ and _q_ are primes,
 OEIS [A046927](https://oeis.org/A046927):
@@ -6534,7 +6534,7 @@ OEIS [A046927](https://oeis.org/A046927):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/frobeniusSolve-B.svg)
+![](Help/Image/frobeniusSolve-B.svg)
 
 The width of the moat of composite numbers surrounding the n-th prime,
 OEIS [A046929](https://oeis.org/A046929):
@@ -6548,7 +6548,7 @@ let k = 65;
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/prime-C.svg)
+![](Help/Image/prime-C.svg)
 
 Size of sea of composite numbers surrounding _n_-th prime,
 OEIS [A046930](https://oeis.org/A046930):
@@ -6559,7 +6559,7 @@ OEIS [A046930](https://oeis.org/A046930):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/prime-H.svg)
+![](Help/Image/prime-H.svg)
 
 Largest quadratic residues,
 OEIS [A047210](https://oeis.org/A047210):
@@ -6570,7 +6570,7 @@ OEIS [A047210](https://oeis.org/A047210):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/quadraticResidues-B.svg)
+![](Help/Image/quadraticResidues-B.svg)
 
 Denominators of Farey (or Stern-Brocot) tree fractions,
 OEIS [A047679](https://oeis.org/A047679):
@@ -6582,7 +6582,7 @@ OEIS [A047679](https://oeis.org/A047679):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/sternBrocotTree-B.svg)
+![](Help/Image/sternBrocotTree-B.svg)
 
 A variant of the look and say sequence describing the digit count,
 OEIS [A047842](https://oeis.org/A047842):
@@ -6597,7 +6597,7 @@ OEIS [A047842](https://oeis.org/A047842):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/lookAndSay-A.svg)
+![](Help/Image/lookAndSay-A.svg)
 
 _φ(m)*m^k*k!/n_ where _m=n/k_,
 OEIS [A047917](https://oeis.org/A047917):
@@ -6613,7 +6613,7 @@ OEIS [A047917](https://oeis.org/A047917):
 }.catenate.log.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/eulerPhi-N.svg)
+![](Help/Image/eulerPhi-N.svg)
 
 Smallest positive Fibonacci number divisible by _n_,
 OEIS [A047930](https://oeis.org/A047930):
@@ -6627,7 +6627,7 @@ let x = 1:250.fibonacci;
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/fibonacci-K.svg)
+![](Help/Image/fibonacci-K.svg)
 
 Number of integers less than _n_ but with the same number of divisors,
 OEIS [A047983](https://oeis.org/A047983):
@@ -6642,7 +6642,7 @@ OEIS [A047983](https://oeis.org/A047983):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/divisorSigma-H.svg)
+![](Help/Image/divisorSigma-H.svg)
 
 Circular binomial coefficients,
 OEIS [A047996](https://oeis.org/A047996):
@@ -6661,7 +6661,7 @@ OEIS [A047996](https://oeis.org/A047996):
 }.catenate.log.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/binomial-G.svg)
+![](Help/Image/binomial-G.svg)
 
 Sierpiński’s triangle,
 matrix plot,
@@ -6673,7 +6673,7 @@ OEIS [A047999](https://oeis.org/A047999):
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/pascalTriangle-C.svg)
+![](Help/Image/pascalTriangle-C.svg)
 
 Sierpiński’s triangle,
 row-order discrete plot,
@@ -6685,7 +6685,7 @@ OEIS [A047999](https://oeis.org/A047999):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/pascalTriangle-D.svg)
+![](Help/Image/pascalTriangle-D.svg)
 
 Sierpiński’s triangle,
 OEIS [A047999](https://oeis.org/A047999):
@@ -6695,7 +6695,7 @@ OEIS [A047999](https://oeis.org/A047999):
 .triangularArrayPlot
 ~~~
 
-![](sw/spl/Help/Image/pascalTriangle-F.svg)
+![](Help/Image/pascalTriangle-F.svg)
 
 Count of non-unitary divisors of _n_,
 OEIS [A048105](https://oeis.org/A048105):
@@ -6706,7 +6706,7 @@ OEIS [A048105](https://oeis.org/A048105):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/primeNu-E.svg)
+![](Help/Image/primeNu-E.svg)
 
 Quadratic residue triangle,
 OEIS [A048152](https://oeis.org/A048152):
@@ -6717,7 +6717,7 @@ OEIS [A048152](https://oeis.org/A048152):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/mod-I.svg)
+![](Help/Image/mod-I.svg)
 
 Number of odd divisors minus number of even divisors,
 OEIS [A048272](https://oeis.org/A048272):
@@ -6730,7 +6730,7 @@ OEIS [A048272](https://oeis.org/A048272):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/divisors-Q.svg)
+![](Help/Image/divisors-Q.svg)
 
 _k!×S1(n,k)_,
 OEIS [A048594](https://oeis.org/A048594):
@@ -6741,7 +6741,7 @@ OEIS [A048594](https://oeis.org/A048594):
 }.catenate.logScale.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/stirlingS1-G.svg)
+![](Help/Image/stirlingS1-G.svg)
 
 Write _n_ in quaternary and swap digits one and three,
 OEIS [A048647](https://oeis.org/A048647):
@@ -6756,7 +6756,7 @@ OEIS [A048647](https://oeis.org/A048647):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/fromDigits-F.svg)
+![](Help/Image/fromDigits-F.svg)
 
 Table for binary multiplication without carries,
 OEIS [A048720](https://oeis.org/A048720):
@@ -6784,7 +6784,7 @@ let multiply = { :n :m |
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitXor-G.svg)
+![](Help/Image/bitXor-G.svg)
 
 Multiplication table for base two,
 read by antidiagonals,
@@ -6796,7 +6796,7 @@ OEIS [A048720](https://oeis.org/A048720):
 ).catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/carryLessMultiplication-A.svg)
+![](Help/Image/carryLessMultiplication-A.svg)
 
 Exponentiation table for base two,
 read by antidiagonals,
@@ -6808,7 +6808,7 @@ OEIS [A048723](https://oeis.org/A048723):
 ).catenate.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/carryLessMultiplication-B.svg)
+![](Help/Image/carryLessMultiplication-B.svg)
 
 _n⊻(n≪1)_,
 OEIS [A048724](https://oeis.org/A048724):
@@ -6819,7 +6819,7 @@ OEIS [A048724](https://oeis.org/A048724):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/bitShiftLeft-B.svg)
+![](Help/Image/bitShiftLeft-B.svg)
 
 Exclusive or of _n_ and _2n_,
 reversing binary representation of _-n_,
@@ -6833,7 +6833,7 @@ OESI [A048726](https://oeis.org/A048726) when multiplied by two:
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitXor-S.svg)
+![](Help/Image/bitXor-S.svg)
 
 Exclusive or of _n_ and _4n_,
 OEIS [A048725](https://oeis.org/A048725):
@@ -6844,7 +6844,7 @@ OEIS [A048725](https://oeis.org/A048725):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitXor-T.svg)
+![](Help/Image/bitXor-T.svg)
 
 Difference betwen _3n_ and exclusive or of _n_ and _2n_,
 OEIS [A048728](https://oeis.org/A048728):
@@ -6855,7 +6855,7 @@ OEIS [A048728](https://oeis.org/A048728):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitXor-V.svg)
+![](Help/Image/bitXor-V.svg)
 
 _n&⌊(n/2)_,
 OEIS [A048735](https://oeis.org/A048735):
@@ -6866,7 +6866,7 @@ OEIS [A048735](https://oeis.org/A048735):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitAnd-L.svg)
+![](Help/Image/bitAnd-L.svg)
 
 Highest power of two dividing _n_-th Catalan number,
 OEIS [A048881](https://oeis.org/A048881):
@@ -6877,7 +6877,7 @@ OEIS [A048881](https://oeis.org/A048881):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/catalanNumber-A.svg)
+![](Help/Image/catalanNumber-A.svg)
 
 _3^w(n)_,
 OEIS [A048883](https://oeis.org/A048883):
@@ -6888,7 +6888,7 @@ OEIS [A048883](https://oeis.org/A048883):
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/digitCount-H.svg)
+![](Help/Image/digitCount-H.svg)
 
 Working in base two replace _n_ with the concatenation of its prime divisors in increasing order,
 OEIS [A048985](https://oeis.org/A048985):
@@ -6902,7 +6902,7 @@ OEIS [A048985](https://oeis.org/A048985):
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/binaryExpansion-I.svg)
+![](Help/Image/binaryExpansion-I.svg)
 
 The sum of the digits in the decimal expansion of _1/n_ up to the point where it repeats for the first time,
 OEIS [A048997](https://oeis.org/A048997):
@@ -6918,7 +6918,7 @@ Fraction(1, 1:75).collect { :n |
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/findTransientRepeat-B.svg)
+![](Help/Image/findTransientRepeat-B.svg)
 
 `lcm` of all divisors _d_ of _n_ such that _d+1_ is a prime power,
 OEIS [A049073](https://oeis.org/A049073):
@@ -6931,7 +6931,7 @@ OEIS [A049073](https://oeis.org/A049073):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/primeNu-D.svg)
+![](Help/Image/primeNu-D.svg)
 
 Iterations of φ needed to reach one starting at _n_,
 OEIS [A049108](https://oeis.org/A049108):
@@ -6945,7 +6945,7 @@ OEIS [A049108](https://oeis.org/A049108):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/eulerPhi-I.svg)
+![](Help/Image/eulerPhi-I.svg)
 
 First differences of 11-rough numbers,
 this sequence has period 48,
@@ -6957,7 +6957,7 @@ OEIS [A049296](https://oeis.org/A049296):
 }.differences.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isRoughNumber-A.svg)
+![](Help/Image/isRoughNumber-A.svg)
 
 Triangle of coefficients of Chebyshev’s _S_-polynomials,
 OEIS [A049310](https://oeis.org/A049310):
@@ -6970,7 +6970,7 @@ OEIS [A049310](https://oeis.org/A049310):
 }.catenate.logScale.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/chebyshevU-D.svg)
+![](Help/Image/chebyshevU-D.svg)
 
 Generalized Stirling number triangle of first kind,
 OEIS [A049444](https://oeis.org/A049444):
@@ -6989,7 +6989,7 @@ OEIS [A049444](https://oeis.org/A049444):
 }.catenate.logScale.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/stirlingS1-F.svg)
+![](Help/Image/stirlingS1-F.svg)
 
 Stern’s diatomic array,
 discrete plot,
@@ -7000,7 +7000,7 @@ OEIS [A049456](https://oeis.org/A049456):
 .catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/sternsDiatomicArray-A.svg)
+![](Help/Image/sternsDiatomicArray-A.svg)
 
 Stern’s diatomic array,
 scatter plot,
@@ -7011,7 +7011,7 @@ OEIS [A049456](https://oeis.org/A049456):
 .catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/sternsDiatomicArray-B.svg)
+![](Help/Image/sternsDiatomicArray-B.svg)
 
 Table _|n-k|_,
 read by upwards antidiagonals,
@@ -7023,7 +7023,7 @@ OEIS [A049581](https://oeis.org/A049581):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/antidiagonalArray-B.svg)
+![](Help/Image/antidiagonalArray-B.svg)
 
 Count number of restricted knight’s walks,
 OEIS [A049581](https://oeis.org/A049581):
@@ -7041,7 +7041,7 @@ let t = { :n :k |
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/triangularArray-J.svg)
+![](Help/Image/triangularArray-J.svg)
 
 Π of _σ+1_ of the prime signature,
 OEIS [A049599](https://oeis.org/A049599):
@@ -7054,7 +7054,7 @@ OEIS [A049599](https://oeis.org/A049599):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/primeSignature-F.svg)
+![](Help/Image/primeSignature-F.svg)
 
 Bit-reversal permutations,
 OEIS [A049773](https://oeis.org/A049773):
@@ -7065,7 +7065,7 @@ OEIS [A049773](https://oeis.org/A049773):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitReversalPermutation-A.svg)
+![](Help/Image/bitReversalPermutation-A.svg)
 
 Sum of _n_ modulo _2^k_ for _k_ in `bitLength` of _n_,
 OEIS [A049802](https://oeis.org/A049802):
@@ -7079,7 +7079,7 @@ OEIS [A049802](https://oeis.org/A049802):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitLength-C.svg)
+![](Help/Image/bitLength-C.svg)
 
 Sum of _n_ `mod` powers of two,
 see `bitLength` for a simpler definiton,
@@ -7094,7 +7094,7 @@ OEIS [A049802](https://oeis.org/A049802):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/log2-B.svg)
+![](Help/Image/log2-B.svg)
 
 A sequence by Clark Kimberling,
 OEIS [A050057](https://oeis.org/A050057):
@@ -7111,7 +7111,7 @@ let a = Map { :n |
 a[1:85].log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitIff-B.svg)
+![](Help/Image/bitIff-B.svg)
 
 Fermi-Dirac primes,
 numbers of the form _p^(2^k)_ where _p_ is prime and _k≥0_,
@@ -7132,7 +7132,7 @@ let n = nil;
 t.unique.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/unique-B.svg)
+![](Help/Image/unique-B.svg)
 
 Every term of the ruler function repeated,
 equal to absolute value of first differences,
@@ -7145,7 +7145,7 @@ OEIS [A050603](https://oeis.org/A050603):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/rulerFunction-C.svg)
+![](Help/Image/rulerFunction-C.svg)
 
 Smallest positive multiplier _m_ such that _m*n_ is palindromic,
 or zero if no such _m_ exists,
@@ -7167,7 +7167,7 @@ OEIS [A050782](https://oeis.org/A050782):
 }.log.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/isPalindrome-D.svg)
+![](Help/Image/isPalindrome-D.svg)
 
 Sequence of regular numbers,
 OEIS [A051037](https://oeis.org/A051037):
@@ -7178,7 +7178,7 @@ OEIS [A051037](https://oeis.org/A051037):
 }.linePlot
 ~~~
 
-![](sw/spl/Help/Image/isSmoothNumber-A.svg)
+![](Help/Image/isSmoothNumber-A.svg)
 
 The table of _n%k_ read by downward antidiagonals,
 OEIS [A051126](https://oeis.org/A051126):
@@ -7191,7 +7191,7 @@ OEIS [A051126](https://oeis.org/A051126):
 }.catenate.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/mod-P.svg)
+![](Help/Image/mod-P.svg)
 
 The number of times _n_ appears in the Conway sequence
 OEIS [A004001](https://oeis.org/A004001),
@@ -7208,7 +7208,7 @@ a.do { :i |
 b.first(n).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/oeisTerms-A.svg)
+![](Help/Image/oeisTerms-A.svg)
 
 Triangle read by rows where _q=-1_,
 OEIS [A051159](https://oeis.org/A051159):
@@ -7219,7 +7219,7 @@ OEIS [A051159](https://oeis.org/A051159):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/qBinomial-B.svg)
+![](Help/Image/qBinomial-B.svg)
 
 Smallest number _m_ such that _2*m-p_ is composite for the first _n_ primes,
 OEIS [A051169](https://oeis.org/A051169):
@@ -7236,7 +7236,7 @@ let p = 1:k.prime;
 }.log.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/isComposite-B.svg)
+![](Help/Image/isComposite-B.svg)
 
 The two-adic valuation of the Hardy-Ramanujan integers,
 OEIS [A051282](https://oeis.org/A051282):
@@ -7257,7 +7257,7 @@ let l = [];
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/factorInteger-H.svg)
+![](Help/Image/factorInteger-H.svg)
 
 The two-adic valuation of the Hardy-Ramanujan integers,
 further terms,
@@ -7271,7 +7271,7 @@ OeisEntry('A051282').then { :e |
 }
 ~~~
 
-![](sw/spl/Help/Image/factorInteger-I.svg)
+![](Help/Image/factorInteger-I.svg)
 
 An accumulation array,
 OEIS [A051340](https://oeis.org/A051340):
@@ -7282,7 +7282,7 @@ OEIS [A051340](https://oeis.org/A051340):
 }.catenate.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/padLeft-A.svg)
+![](Help/Image/padLeft-A.svg)
 
 Quotients of consecutive values of `lcm`,
 OEIS [A051417](https://oeis.org/A051417):
@@ -7293,7 +7293,7 @@ OEIS [A051417](https://oeis.org/A051417):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/cyclotomic-E.svg)
+![](Help/Image/cyclotomic-E.svg)
 
 Smallest _k_ such that _σ(k)=n_, or zero if there is no such _k_,
 OEIS [A051444](https://oeis.org/A051444):
@@ -7313,7 +7313,7 @@ let m = 10 ^ 2;
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/divisorSigma-F.svg)
+![](Help/Image/divisorSigma-F.svg)
 
 Period of the decimal representation of _1/n_,
 log scale plot
@@ -7326,7 +7326,7 @@ Fraction(1, 1:200)
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/decimalPeriod-A.svg)
+![](Help/Image/decimalPeriod-A.svg)
 
 Variant of Pascal’s triangle,
 OEIS [A051632](https://oeis.org/A051632):
@@ -7342,7 +7342,7 @@ OEIS [A051632](https://oeis.org/A051632):
 }.catenate.logScale.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/binomial-H.svg)
+![](Help/Image/binomial-H.svg)
 
 Row sums of Pascal’s triangle modulo three,
 OEIS [A051638](https://oeis.org/A051638):
@@ -7353,7 +7353,7 @@ OEIS [A051638](https://oeis.org/A051638):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/pascalTriangle-H.svg)
+![](Help/Image/pascalTriangle-H.svg)
 
 Square-pyramid-tree numbers,
 OEIS [A051678](https://oeis.org/A051678):
@@ -7366,7 +7366,7 @@ OEIS [A051678](https://oeis.org/A051678):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/triangularArray-F.svg)
+![](Help/Image/triangularArray-F.svg)
 
 Greatest common divisor of _n!_ and _n^n_,
 OEIS [A051696](http://oeis.org/A051696):
@@ -7377,7 +7377,7 @@ OEIS [A051696](http://oeis.org/A051696):
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/gcd-I.svg)
+![](Help/Image/gcd-I.svg)
 
 Distance from _n_ to closest prime,
 OEIS [A051699](http://oeis.org/A051699):
@@ -7387,7 +7387,7 @@ OEIS [A051699](http://oeis.org/A051699):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/primeDistance-A.svg)
+![](Help/Image/primeDistance-A.svg)
 
 `numerator` of `differences` of _n/((n+1)(n+2))_,
 OEIS [A051712](https://oeis.org/A051712):
@@ -7401,7 +7401,7 @@ OEIS [A051712](https://oeis.org/A051712):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/differences-C.svg)
+![](Help/Image/differences-C.svg)
 
 Numerators,
 read by antidiagonals,
@@ -7414,7 +7414,7 @@ OEIS [A051714](https://oeis.org/A051714):
 .catenate.logScale.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/akiyamaTanigawaNumber-A.svg)
+![](Help/Image/akiyamaTanigawaNumber-A.svg)
 
 Denominators,
 read by antidiagonals,
@@ -7427,7 +7427,7 @@ OEIS [A051715](https://oeis.org/A051715):
 .catenate.logScale.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/akiyamaTanigawaNumber-B.svg)
+![](Help/Image/akiyamaTanigawaNumber-B.svg)
 
 Numerator of _n/12_,
 OEIS [A051724](https://oeis.org/A051724):
@@ -7436,7 +7436,7 @@ OEIS [A051724](https://oeis.org/A051724):
 Fraction(0:36, 12).numerator.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/numerator-A.svg)
+![](Help/Image/numerator-A.svg)
 
 One if _k_ divides _n_ else zero,
 OEIS [A051731](https://oeis.org/A051731):
@@ -7447,7 +7447,7 @@ OEIS [A051731](https://oeis.org/A051731):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/divisible-J.svg)
+![](Help/Image/divisible-J.svg)
 
 Number of torus knots with _n_ crossings,
 OEIS [A051764](https://oeis.org/A051764):
@@ -7463,7 +7463,7 @@ OEIS [A051764](https://oeis.org/A051764):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/divisors-H.svg)
+![](Help/Image/divisors-H.svg)
 
 Nim multiplication table,
 read by antidiagonals,
@@ -7476,7 +7476,7 @@ OEIS [A051775](https://oeis.org/A051775):
 ).catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/nimMultiplication-A.svg)
+![](Help/Image/nimMultiplication-A.svg)
 
 Nim multiplication table,
 read by antidiagonals,
@@ -7489,7 +7489,7 @@ OEIS [A051776](https://oeis.org/A051776):
 ).catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/nimMultiplication-B.svg)
+![](Help/Image/nimMultiplication-B.svg)
 
 Triangle of descending moduli,
 OEIS [A051778](https://oeis.org/A051778):
@@ -7503,7 +7503,7 @@ OEIS [A051778](https://oeis.org/A051778):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/mod-R.svg)
+![](Help/Image/mod-R.svg)
 
 Eighth-order linear recurrence for fourth-order alternating sum,
 OEIS [A051793](https://oeis.org/A051793):
@@ -7515,7 +7515,7 @@ OEIS [A051793](https://oeis.org/A051793):
 ).logScale.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/linearRecurrence-D.svg)
+![](Help/Image/linearRecurrence-D.svg)
 
 Twelfth-order linear recurrence for sixth-order alternating sum,
 OEIS [A051794](https://oeis.org/A051794):
@@ -7528,7 +7528,7 @@ linearRecurrence(
 ).logScale.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/linearRecurrence-C.svg)
+![](Help/Image/linearRecurrence-C.svg)
 
 Nim multiplication table,
 lower left triangle,
@@ -7542,7 +7542,7 @@ OEIS [A051910](https://oeis.org/A051910):
 ).catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/nimMultiplication-C.svg)
+![](Help/Image/nimMultiplication-C.svg)
 
 Nim multiplication table,
 lower left triangle,
@@ -7556,7 +7556,7 @@ OEIS [A051911](https://oeis.org/A051911):
 ).catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/nimMultiplication-D.svg)
+![](Help/Image/nimMultiplication-D.svg)
 
 Inverse of _n_ under Nim multiplication,
 _n⊗m=1_,
@@ -7570,7 +7570,7 @@ OEIS [A051917](https://oeis.org/A051917):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/nimMultiplication-P.svg)
+![](Help/Image/nimMultiplication-P.svg)
 
 Nim-sum table,
 lower left triangle,
@@ -7582,7 +7582,7 @@ OEIS [A051933](https://oeis.org/A051933):
 .catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitXor-P.svg)
+![](Help/Image/bitXor-P.svg)
 
 Cototient function,
 OEIS [A051953](https://oeis.org/A051953):
@@ -7593,7 +7593,7 @@ OEIS [A051953](https://oeis.org/A051953):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/eulerPhi-J.svg)
+![](Help/Image/eulerPhi-J.svg)
 
 Numbers that cubed have only even digits,
 OEIS [A052004](https://oeis.org/A052004):
@@ -7605,7 +7605,7 @@ OEIS [A052004](https://oeis.org/A052004):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/integerDigits-M.svg)
+![](Help/Image/integerDigits-M.svg)
 
 Sum of digits in ascending and descending sequence,
 OEIS [A052008](https://oeis.org/A052008):
@@ -7617,7 +7617,7 @@ OEIS [A052008](https://oeis.org/A052008):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/fromDigits-B.svg)
+![](Help/Image/fromDigits-B.svg)
 
 Greatest prime divisor of all composite numbers between _P(n)_ and the next prime,
 OEIS [A052248](https://oeis.org/A052248):
@@ -7632,7 +7632,7 @@ OEIS [A052248](https://oeis.org/A052248):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/greatestPrimeFactor-D.svg)
+![](Help/Image/greatestPrimeFactor-D.svg)
 
 The difference between the next prime of _n²_ and _n²_,
 OEIS [A053000](https://oeis.org/A053000):
@@ -7644,7 +7644,7 @@ OEIS [A053000](https://oeis.org/A053000):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/nextPrime-D.svg)
+![](Help/Image/nextPrime-D.svg)
 
 Log scale plot of succesive coefficients,
 including zeroes,
@@ -7657,7 +7657,7 @@ OEIS [A053120](https://oeis.org/A053120):
 }.catenate.logScale.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/chebyshevT-E.svg)
+![](Help/Image/chebyshevT-E.svg)
 
 Pascal’s triangle,
 excluding first and last two elements of each row,
@@ -7674,7 +7674,7 @@ OEIS [A053202](https://oeis.org/A053202):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/binomial-D.svg)
+![](Help/Image/binomial-D.svg)
 
 First differences of _σ₁(n)_,
 OEIS [A053222](https://oeis.org/A053222):
@@ -7685,7 +7685,7 @@ OEIS [A053222](https://oeis.org/A053222):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/divisorSigma-Y.svg)
+![](Help/Image/divisorSigma-Y.svg)
 
 Differences between numbers _k_ for which _σ(k)<σ(k+1)_,
 OEIS [A053230](https://oeis.org/A053230):
@@ -7698,7 +7698,7 @@ OEIS [A053230](https://oeis.org/A053230):
 }.differences.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/differences-D.svg)
+![](Help/Image/differences-D.svg)
 
 First differences between numbers _k_ for which _σ(k)>σ(k+1)_,
 OEIS [A053238](https://oeis.org/A053238):
@@ -7711,7 +7711,7 @@ OEIS [A053238](https://oeis.org/A053238):
 }.differences.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/divisorSigma-G.svg)
+![](Help/Image/divisorSigma-G.svg)
 
 First differences of aliquot sums,
 OEIS [A053246](https://oeis.org/A053246):
@@ -7721,7 +7721,7 @@ OEIS [A053246](https://oeis.org/A053246):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/aliquotSum-D.svg)
+![](Help/Image/aliquotSum-D.svg)
 
 Second differences of aliquot sums,
 OEIS [A053246](https://oeis.org/A053246):
@@ -7731,7 +7731,7 @@ OEIS [A053246](https://oeis.org/A053246):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/aliquotSum-E.svg)
+![](Help/Image/aliquotSum-E.svg)
 
 Minimal number of coins needed to pay _n_ cents using coins of 1, 5, 10 and 25 cents,
 OEIS [A053344](https://oeis.org/A053344):
@@ -7744,7 +7744,7 @@ OEIS [A053344](https://oeis.org/A053344):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/frobeniusSolve-E.svg)
+![](Help/Image/frobeniusSolve-E.svg)
 
 Maximal number of linearly independent smooth nowhere-zero vector fields on a _2n+1_-sphere,
 OEIS [A053381](https://oeis.org/A053381):
@@ -7763,7 +7763,7 @@ OEIS [A053381](https://oeis.org/A053381):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/bitAnd-H.svg)
+![](Help/Image/bitAnd-H.svg)
 
 Nim-values from game of Kopper’s Nim,
 OEIS [A053398](https://oeis.org/A053398):
@@ -7775,7 +7775,7 @@ OEIS [A053398](https://oeis.org/A053398):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitOr-G.svg)
+![](Help/Image/bitOr-G.svg)
 
 Smallest prime not dividing _n_,
 OEIS [A053669](https://oeis.org/A053669):
@@ -7788,7 +7788,7 @@ OEIS [A053669](https://oeis.org/A053669):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/Infinity-A.svg)
+![](Help/Image/Infinity-A.svg)
 
 Least number coprime to _n_ and _n+1_,
 OEIS [A053670](https://oeis.org/A053670):
@@ -7803,7 +7803,7 @@ OEIS [A053670](https://oeis.org/A053670):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/Infinity-B.svg)
+![](Help/Image/Infinity-B.svg)
 
 Least number coprime to _n_, _n+1_ and _n+2_,
 OEIS [A053671](https://oeis.org/A053671):
@@ -7818,7 +7818,7 @@ OEIS [A053671](https://oeis.org/A053671):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/Infinity-C.svg)
+![](Help/Image/Infinity-C.svg)
 
 Least number coprime to _n+0:3_,
 OEIS [A053672](https://oeis.org/A053672):
@@ -7833,7 +7833,7 @@ OEIS [A053672](https://oeis.org/A053672):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/isCoprime-C.svg)
+![](Help/Image/isCoprime-C.svg)
 
 Dirichlet inverse of the _σ(3)_ function,
 OEIS [A053825](https://oeis.org/A053825):
@@ -7846,7 +7846,7 @@ OEIS [A053825](https://oeis.org/A053825):
 ).logScale.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/dirichletInverse-F.svg)
+![](Help/Image/dirichletInverse-F.svg)
 
 The sum of the digits of _n_,
 where _b=8_,
@@ -7858,7 +7858,7 @@ OEIS [A053829](http://oeis.org/A053829):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/digitSum-C.svg)
+![](Help/Image/digitSum-C.svg)
 
 Count number of partitions combining with _inclusive or_,
 OEIS [A054244](https://oeis.org/A054244):
@@ -7876,7 +7876,7 @@ let f = { :n |
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/sum-C.svg)
+![](Help/Image/sum-C.svg)
 
 First differences of Kolakoski sequence,
 OEIS [A054354](https://oeis.org/A054354):
@@ -7887,7 +7887,7 @@ OEIS [A054354](https://oeis.org/A054354):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/kolakoskiSequence-H.svg)
+![](Help/Image/kolakoskiSequence-H.svg)
 
 A sequence by Tidjani Negadi,
 OEIS [A054398](https://oeis.org/A054398):
@@ -7906,7 +7906,7 @@ let a = Map { :n |
 a[0:5].catenate.log.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/power-H.svg)
+![](Help/Image/power-H.svg)
 
 Simple self-inverse permutation of natural numbers,
 OEIS [A054429](https://oeis.org/A054429):
@@ -7917,7 +7917,7 @@ OEIS [A054429](https://oeis.org/A054429):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/bitLength-F.svg)
+![](Help/Image/bitLength-F.svg)
 
 _μ(n/k)_ if _k_ divides _n_ else zero,
 OEIS [A054525](https://oeis.org/A054525):
@@ -7932,7 +7932,7 @@ OEIS [A054525](https://oeis.org/A054525):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/moebiusMu-L.svg)
+![](Help/Image/moebiusMu-L.svg)
 
 Sum of the _n_-th powers of the _k_-th primitive roots of unity,
 OEIS [A054532](https://oeis.org/A054532):
@@ -7943,7 +7943,7 @@ OEIS [A054532](https://oeis.org/A054532):
 ).catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/ramanujansSum-A.svg)
+![](Help/Image/ramanujansSum-A.svg)
 
 Triangular array giving Ramanujan’s sum,
 OEIS [A054533](https://oeis.org/A054533):
@@ -7954,7 +7954,7 @@ OEIS [A054533](https://oeis.org/A054533):
 ).catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/ramanujansSum-B.svg)
+![](Help/Image/ramanujansSum-B.svg)
 
 Ramanujan’s sum read by falling antidiagonals,
 OEIS [A054534](https://oeis.org/A054534):
@@ -7965,7 +7965,7 @@ OEIS [A054534](https://oeis.org/A054534):
 ).catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/ramanujansSum-C.svg)
+![](Help/Image/ramanujansSum-C.svg)
 
 Ramanujan’s sum read by rising antidiagonals,
 OEIS [A054535](https://oeis.org/A054535):
@@ -7976,7 +7976,7 @@ OEIS [A054535](https://oeis.org/A054535):
 ).collect(reverse:/1).catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/ramanujansSum-D.svg)
+![](Help/Image/ramanujansSum-D.svg)
 
 The _b=8_ Champernowne sequence,
 OEIS [A054634](https://oeis.org/A054634):
@@ -7986,7 +7986,7 @@ OEIS [A054634](https://oeis.org/A054634):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/champernowneSequence-D.svg)
+![](Help/Image/champernowneSequence-D.svg)
 
 The _b=3_ Champernowne sequence,
 OEIS [A054635](https://oeis.org/A054635):
@@ -7996,7 +7996,7 @@ OEIS [A054635](https://oeis.org/A054635):
 .stepPlot
 ~~~
 
-![](sw/spl/Help/Image/champernowneSequence-C.svg)
+![](Help/Image/champernowneSequence-C.svg)
 
 Earliest sequence with _a(a(n))=6n_,
 OEIS [A054786](https://oeis.org/A054786):
@@ -8025,7 +8025,7 @@ let a = Map { :n |
 a[1:115].scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/which-B.svg)
+![](Help/Image/which-B.svg)
 
 The Josephus problem at _k=3_,
 OEIS [A054995](https://oeis.org/A054995):
@@ -8036,7 +8036,7 @@ OEIS [A054995](https://oeis.org/A054995):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/josephusProblem-B.svg)
+![](Help/Image/josephusProblem-B.svg)
 
 A version of Josephus problem,
 OEIS [A054995](https://oeis.org/A054995):
@@ -8049,7 +8049,7 @@ OEIS [A054995](https://oeis.org/A054995):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/rotateLeft-B.svg)
+![](Help/Image/rotateLeft-B.svg)
 
 Alternating sum of reverse of decimal expansion of _n_,
 OEIS [A055017](https://oeis.org/A055017):
@@ -8062,7 +8062,7 @@ OEIS [A055017](https://oeis.org/A055017):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/alternatingSum-A.svg)
+![](Help/Image/alternatingSum-A.svg)
 
 _n_ repeating _1+⌊(n/2)_ times,
 OEIS [A055086](https://oeis.org/A055086):
@@ -8074,7 +8074,7 @@ OEIS [A055086](https://oeis.org/A055086):
 }.catenate.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/floor-E.svg)
+![](Help/Image/floor-E.svg)
 
 _a(n)_ is the smallest positive integer not already in the sequence such that _a(n)+a(n-1)_ is prime,
 OEIS [A055265](https://oeis.org/A055265):
@@ -8097,7 +8097,7 @@ m.timesRepeat {
 a.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isPrime-D.svg)
+![](Help/Image/isPrime-D.svg)
 
 _π(L(n))_,
 OEIS [A055396](https://oeis.org/A055396):
@@ -8108,7 +8108,7 @@ OEIS [A055396](https://oeis.org/A055396):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/leastPrimeFactor-C.svg)
+![](Help/Image/leastPrimeFactor-C.svg)
 
 The `gcd` of _n_ and the reverse of _n_,
 log scatter plot,
@@ -8120,7 +8120,7 @@ OEIS [A055483](https://oeis.org/A055483):
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerReverse-B.svg)
+![](Help/Image/integerReverse-B.svg)
 
 _μ(n)×n_,
 OEIS [A055615](https://oeis.org/A055615):
@@ -8130,7 +8130,7 @@ let n = 1:85;
 (n.moebiusMu * n).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/moebiusMu-M.svg)
+![](Help/Image/moebiusMu-M.svg)
 
 Count number of zero digits in _n_,
 OEIS [A055641](https://oeis.org/A055641):
@@ -8139,7 +8139,7 @@ OEIS [A055641](https://oeis.org/A055641):
 0:150.digitCount(10, 0).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/digitCount-Q.svg)
+![](Help/Image/digitCount-Q.svg)
 
 Number of ones in the base-φ representation of _n_,
 OEIS [A055778](https://oeis.org/A055778):
@@ -8152,7 +8152,7 @@ let phi = 1.goldenRatio;
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/betaExpansion-B.svg)
+![](Help/Image/betaExpansion-B.svg)
 
 First differences of Gray encoding,
 log scale scatter plot,
@@ -8165,7 +8165,7 @@ OEIS [A055975](https://oeis.org/A055975):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/grayEncode-F.svg)
+![](Help/Image/grayEncode-F.svg)
 
 Step plot of sequence by K.A. Rasmussen,
 OEIS [A056239](https://oeis.org/A056239):
@@ -8176,7 +8176,7 @@ OEIS [A056239](https://oeis.org/A056239):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/primePi-C.svg)
+![](Help/Image/primePi-C.svg)
 
 Absolute first differences of alternating sum of reverse of binary expansion of _n_,
 OEIS [A056832](https://oeis.org/A056832):
@@ -8189,7 +8189,7 @@ OEIS [A056832](https://oeis.org/A056832):
 }.differences.abs.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/alternatingSum-F.svg)
+![](Help/Image/alternatingSum-F.svg)
 
 The reverse and add sequence,
 OEIS [A056964](https://oeis.org/A056964):
@@ -8200,7 +8200,7 @@ OEIS [A056964](https://oeis.org/A056964):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/integerReverse-H.svg)
+![](Help/Image/integerReverse-H.svg)
 
 Number of occurrences of _00_ in the binary expansion of _n_,
 OEIS [A056973](http://oeis.org/A056973):
@@ -8212,7 +8212,7 @@ OEIS [A056973](http://oeis.org/A056973):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/sequenceCount-A.svg)
+![](Help/Image/sequenceCount-A.svg)
 
 Scaled Chebyshev U-polynomials evaluated at _√3/2_,
 OEIS [A057083](https://oeis.org/A057083):
@@ -8222,7 +8222,7 @@ OEIS [A057083](https://oeis.org/A057083):
 .logScale.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/linearRecurrence-I.svg)
+![](Help/Image/linearRecurrence-I.svg)
 
 Length of the continued fraction for _⌊(F(n)*φ)/F(n)_,
 where _F_ is the Fibonacci function,
@@ -8234,7 +8234,7 @@ OEIS [A057083](https://oeis.org/A057083):
 ).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/linearRecurrence-J.svg)
+![](Help/Image/linearRecurrence-J.svg)
 
 Square array of polygonal numbers read by antidiagonals upwards,
 OEIS [A057145](https://oeis.org/A057145):
@@ -8248,7 +8248,7 @@ OEIS [A057145](https://oeis.org/A057145):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/collect-A.svg)
+![](Help/Image/collect-A.svg)
 
 A self-inverse permutation of natural numbers,
 _A080300_ of _A036044_ of _A014486_ of _n_,
@@ -8264,7 +8264,7 @@ OEIS [A057164](https://oeis.org/A057164):
 ).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/oeisFunction-E.svg)
+![](Help/Image/oeisFunction-E.svg)
 
 Next larger integer with same binary weight as _n_,
 OEIS [A057168](https://oeis.org/A057168):
@@ -8277,7 +8277,7 @@ OEIS [A057168](https://oeis.org/A057168):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/bitAnd-J.svg)
+![](Help/Image/bitAnd-J.svg)
 
 _W(G(C(n)))/2_,
 OEIS [A057514](https://oeis.org/A057514):
@@ -8290,7 +8290,7 @@ OEIS [A057514](https://oeis.org/A057514):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/catalanUnrank-B.svg)
+![](Help/Image/catalanUnrank-B.svg)
 
 Number of terms before entering cycle in trajectory of _p(n)_,
 the indirect Collatz sequence,
@@ -8306,7 +8306,7 @@ OEIS [A057691](https://oeis.org/A057691):
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/collatzSequence-H.svg)
+![](Help/Image/collatzSequence-H.svg)
 
 Bijective bit-reverse of _n_,
 OEIS [A057889](https://oeis.org/A057889):
@@ -8318,7 +8318,7 @@ OEIS [A057889](https://oeis.org/A057889):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerReverse-F.svg)
+![](Help/Image/integerReverse-F.svg)
 
 Number of prime factors of the number of divisors of _n_,
 OEIS [A058061](https://oeis.org/A058061):
@@ -8329,7 +8329,7 @@ OEIS [A058061](https://oeis.org/A058061):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/primeOmega-G.svg)
+![](Help/Image/primeOmega-G.svg)
 
 Where _σ(m)_ rises by at least _n_,
 OEIS [A058197](https://oeis.org/A058197):
@@ -8344,7 +8344,7 @@ let d = sigma.differences;
 }.log.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/divisorSigma-L.svg)
+![](Help/Image/divisorSigma-L.svg)
 
 _n⊗(n+1)_,
 OEIS [A058734](https://oeis.org/A058734):
@@ -8355,7 +8355,7 @@ OEIS [A058734](https://oeis.org/A058734):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/nimMultiplication-O.svg)
+![](Help/Image/nimMultiplication-O.svg)
 
 Anti-divisor sums of _n_,
 OEIS [A058838](https://oeis.org/A058838):
@@ -8365,7 +8365,7 @@ let a = 1:50.antiDivisors;
 (a.collect(sum:/1) + 1).stepPlot
 ~~~
 
-![](sw/spl/Help/Image/antiDivisors-C.svg)
+![](Help/Image/antiDivisors-C.svg)
 
 Renyi’s beta expansion of 1 in base 3/2,
 OEIS [A058840](https://oeis.org/A058840):
@@ -8381,7 +8381,7 @@ let y = 2:104.collect { :n |
 ([1 1] ++ y).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/floor-D.svg)
+![](Help/Image/floor-D.svg)
 
 Run lengths of zeroes in _β(2,3/2)_,
 equal but for the initial places to
@@ -8394,7 +8394,7 @@ betaExpansion(2, 3/2, 430)
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/betaExpansion-A.svg)
+![](Help/Image/betaExpansion-A.svg)
 
 The number of positive integers less than or equal to _n_,
 with the same number of prime factors as _n_,
@@ -8412,7 +8412,7 @@ let f = { :x |
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/primeOmega-B.svg)
+![](Help/Image/primeOmega-B.svg)
 
 Total number of zeroes in binary expansions,
 a form of the Takagi curve,
@@ -8424,7 +8424,7 @@ OEIS [A059015](https://oeis.org/A059015):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/digitCount-F.svg)
+![](Help/Image/digitCount-F.svg)
 
 Representation of _n_ in base three using digits _-1,0,1_,
 OEIS [A059095](https://oeis.org/A059095):
@@ -8444,7 +8444,7 @@ let f = { :n |
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/quotient-D.svg)
+![](Help/Image/quotient-D.svg)
 
 Numbers _m_ for which the number of divisors, _τ(m)_, is divisible by three,
 OEIS [A059269](https://oeis.org/A059269):
@@ -8455,7 +8455,7 @@ OEIS [A059269](https://oeis.org/A059269):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/select-A.svg)
+![](Help/Image/select-A.svg)
 
 Jordan function _k=3_,
 OEIS [A059376](https://oeis.org/A059376):
@@ -8464,7 +8464,7 @@ OEIS [A059376](https://oeis.org/A059376):
 3.jordanTotient(1:100).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/jordanTotient-B.svg)
+![](Help/Image/jordanTotient-B.svg)
 
 Array of values of Jordan function _Jₖ(n)_ read by antidiagonals,
 OEIS [A059379](https://oeis.org/A059379):
@@ -8475,7 +8475,7 @@ OEIS [A059379](https://oeis.org/A059379):
 ).catenate.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/jordanTotient-C.svg)
+![](Help/Image/jordanTotient-C.svg)
 
 The first few items of `bFileData` for a sequence that is non-trivial to calculate,
 OEIS [A059471](https://oeis.org/A059471):
@@ -8489,7 +8489,7 @@ OeisEntry('A059471').then { :e |
 }
 ~~~
 
-![](sw/spl/Help/Image/OeisEntry-C.svg)
+![](Help/Image/OeisEntry-C.svg)
 
 Mertens conjectured that _|M(n)|<√(n)_,
 now known to be false,
@@ -8501,7 +8501,7 @@ OEIS [A059571](https://oeis.org/A059571):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/moebiusMu-K.svg)
+![](Help/Image/moebiusMu-K.svg)
 
 Fixed point of dividing the digits according to parity and multiplying the parts,
 OEIS [A059707](https://oeis.org/A059707):
@@ -8521,7 +8521,7 @@ OEIS [A059707](https://oeis.org/A059707):
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isEven-C.svg)
+![](Help/Image/isEven-C.svg)
 
 Fixed point of dividing the digits according to parity and adding the parts,
 OEIS [A059717](https://oeis.org/A059717):
@@ -8541,7 +8541,7 @@ OEIS [A059717](https://oeis.org/A059717):
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isOdd-B.svg)
+![](Help/Image/isOdd-B.svg)
 
 The second in a series of arrays counting standard tableaux by partition type,
 OEIS [A059797](https://oeis.org/A059797):
@@ -8564,7 +8564,7 @@ let t = { :n :k |
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/binomial-E.svg)
+![](Help/Image/binomial-E.svg)
 
 A ternary tribonacci triangle,
 OEIS [A059832](https://oeis.org/A059832):
@@ -8575,7 +8575,7 @@ OEIS [A059832](https://oeis.org/A059832):
 .catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/substitutionSystem-I.svg)
+![](Help/Image/substitutionSystem-I.svg)
 
 Self-inverse permutation given by reversing the order of all but the most significant bit in binary expansion of _n_,
 OEIS [A059893](https://oeis.org/A059893):
@@ -8589,7 +8589,7 @@ OEIS [A059893](https://oeis.org/A059893):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/reverse-A.svg)
+![](Help/Image/reverse-A.svg)
 
 Expected time until the _n_-th possible sequence of coin tosses,
 OEIS [A059943](https://oeis.org/A059943):
@@ -8607,7 +8607,7 @@ OEIS [A059943](https://oeis.org/A059943):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/integerDigits-O.svg)
+![](Help/Image/integerDigits-O.svg)
 
 _n^n_ using Nim multiplication,
 OEIS [A059971](https://oeis.org/A059971):
@@ -8618,7 +8618,7 @@ OEIS [A059971](https://oeis.org/A059971):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/nimMultiplication-X.svg)
+![](Help/Image/nimMultiplication-X.svg)
 
 The initial part of the triangle _Q(n,k)_,
 OEIS [A060016](https://oeis.org/A060016):
@@ -8629,7 +8629,7 @@ OEIS [A060016](https://oeis.org/A060016):
 ).++.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/partitionFunctionQ-C.svg)
+![](Help/Image/partitionFunctionQ-C.svg)
 
 Number of partitions of _n_ into _k_ distinct parts,
 OEIS [A060016](https://oeis.org/A060016):
@@ -8650,7 +8650,7 @@ let t = { :n :k |
 .catenate.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/triangularArray-D.svg)
+![](Help/Image/triangularArray-D.svg)
 
 Triangle _(n,k)_ indicating if the _k_-th prime is a square modulo the _n_-th prime,
 OEIS [A060038](https://oeis.org/A060038):
@@ -8666,7 +8666,7 @@ OEIS [A060038](https://oeis.org/A060038):
 }.triangularArrayPlot
 ~~~
 
-![](sw/spl/Help/Image/prime-F.svg)
+![](Help/Image/prime-F.svg)
 
 Ordered set with zero and where if _x_ is in then both _2x+1_ and _4x_ are also in,
 OEIS [A060142](https://oeis.org/A060142):
@@ -8688,7 +8688,7 @@ let a:/1 = { :n |
 0:300.select(a:/1).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isOdd-C.svg)
+![](Help/Image/isOdd-C.svg)
 
 Table of dimensions of integer partitions in ascending order,
 OEIS [A060240](https://oeis.org/A060240):
@@ -8701,7 +8701,7 @@ OEIS [A060240](https://oeis.org/A060240):
 }.catenate.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/hookLengthFormula-B.svg)
+![](Help/Image/hookLengthFormula-B.svg)
 
 Table of dimensions of integer partitions in ascending order,
 OEIS [A060240](https://oeis.org/A060240):
@@ -8713,7 +8713,7 @@ OEIS [A060240](https://oeis.org/A060240):
 }.catenate.log.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/integerPartitionsDimensions-B.svg)
+![](Help/Image/integerPartitionsDimensions-B.svg)
 
 Square roots of unity modulo _m_,
 OEIS [A060594](https://oeis.org/A060594):
@@ -8726,7 +8726,7 @@ OEIS [A060594](https://oeis.org/A060594):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/square-B.svg)
+![](Help/Image/square-B.svg)
 
 _2^w(⌊(n/2))_,
 OEIS [A060632](https://oeis.org/A060632):
@@ -8737,7 +8737,7 @@ let a = 2 ^ (n / 2).floor.digitCount(2, 1);
 a.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/digitCount-P.svg)
+![](Help/Image/digitCount-P.svg)
 
 Largest difference between consecutive divisors of _n_,
 OEIS [A060681](https://oeis.org/A060681):
@@ -8748,7 +8748,7 @@ OEIS [A060681](https://oeis.org/A060681):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/leastPrimeFactor-G.svg)
+![](Help/Image/leastPrimeFactor-G.svg)
 
 Number of non-Abelian groups of order _n_,
 log scale plot,
@@ -8761,7 +8761,7 @@ let b = 1:n.finiteAbelianGroupCount;
 (a - b).log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/finiteAbelianGroupCount-C.svg)
+![](Help/Image/finiteAbelianGroupCount-C.svg)
 
 Triangle in which _n_-th row lists all primitive roots modulo the _n_-th prime,
 OEIS [A060749](https://oeis.org/A060749):
@@ -8772,7 +8772,7 @@ OEIS [A060749](https://oeis.org/A060749):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/primitiveRootList-F.svg)
+![](Help/Image/primitiveRootList-F.svg)
 
 _2^(n-w(n))_,
 OEIS [A060818](https://oeis.org/A060818):
@@ -8783,7 +8783,7 @@ OEIS [A060818](https://oeis.org/A060818):
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/hammingWeight-N.svg)
+![](Help/Image/hammingWeight-N.svg)
 
 List in which _n_ appears _τ(n)_ times,
 OEIS [A061017](https://oeis.org/A061017):
@@ -8794,7 +8794,7 @@ OEIS [A061017](https://oeis.org/A061017):
 }.catenate.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/divisorSigma-X.svg)
+![](Help/Image/divisorSigma-X.svg)
 
 Wavelengths in hydrogen spectrum are given by Rydberg’s formula,
 OEIS [A061036](https://oeis.org/A061036):
@@ -8809,7 +8809,7 @@ OEIS [A061036](https://oeis.org/A061036):
 }.++.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/denominator-A.svg)
+![](Help/Image/denominator-A.svg)
 
 Numerator of _1/4-1/n^2_,
 OEIS [A061037](https://oeis.org/A061037):
@@ -8820,7 +8820,7 @@ OEIS [A061037](https://oeis.org/A061037):
 }.numerator.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/numerator-D.svg)
+![](Help/Image/numerator-D.svg)
 
 Numerator of _1/4-1/n^2_,
 from Balmer spectrum of hydrogen,
@@ -8832,7 +8832,7 @@ OEIS [A061037](https://oeis.org/A061037):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/solidus-A.svg)
+![](Help/Image/solidus-A.svg)
 
 Denominator of _1/4-1/n^2_,
 OEIS [A061038](https://oeis.org/A061038):
@@ -8843,7 +8843,7 @@ OEIS [A061038](https://oeis.org/A061038):
 }.denominator.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/denominator-B.svg)
+![](Help/Image/denominator-B.svg)
 
 Numerator of _1/16-1/n^2_,
 from Brackett spectrum of hydrogen,
@@ -8855,7 +8855,7 @@ OEIS [A061041](https://oeis.org/A061041):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/numerator-C.svg)
+![](Help/Image/numerator-C.svg)
 
 The inverse binomial transform of the Lucas numbers,
 OEIS [A061084](https://oeis.org/A061084):
@@ -8867,7 +8867,7 @@ OEIS [A061084](https://oeis.org/A061084):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/inverseBinomialTransform-D.svg)
+![](Help/Image/inverseBinomialTransform-D.svg)
 
 `primePi` of `greatestPrimeFactor`,
 OEIS [A061395](https://oeis.org/A061395):
@@ -8878,7 +8878,7 @@ OEIS [A061395](https://oeis.org/A061395):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/greatestPrimeFactor-B.svg)
+![](Help/Image/greatestPrimeFactor-B.svg)
 
 Characteristic function of primes multiplied by _n_,
 OEIS [A061397](https://oeis.org/A061397):
@@ -8889,7 +8889,7 @@ OEIS [A061397](https://oeis.org/A061397):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/isPrime-H.svg)
+![](Help/Image/isPrime-H.svg)
 
 Least _m_ such that the alternating sum of _m_ is _n_,
 OEIS [A061479](https://oeis.org/A061479):
@@ -8903,7 +8903,7 @@ OEIS [A061479](https://oeis.org/A061479):
 }.log.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/alternatingSum-C.svg)
+![](Help/Image/alternatingSum-C.svg)
 
 Sequence of _p_ where _a(n)_ is the smallest prime _q_ so that _n=(p+1)/(q+1)_ with _p_ prime,
 OEIS [A062251](https://oeis.org/A062251):
@@ -8922,7 +8922,7 @@ OEIS [A062251](https://oeis.org/A062251):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/nextPrime-C.svg)
+![](Help/Image/nextPrime-C.svg)
 
 Denominators of _k=1_ Sobol sequence,
 discrete plot,
@@ -8932,7 +8932,7 @@ discrete plot,
 63.sobolSequence(1).denominator.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/sobolSequence-F.svg)
+![](Help/Image/sobolSequence-F.svg)
 
 Denominators of _k=1_ Sobol sequence,
 step plot,
@@ -8942,7 +8942,7 @@ step plot,
 255.sobolSequence(1).denominator.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/sobolSequence-H.svg)
+![](Help/Image/sobolSequence-H.svg)
 
 Nodes in rooted index-functional forest for _n_,
 OEIS [A062537](https://oeis.org/A062537):
@@ -8958,7 +8958,7 @@ let a = List(k, 0);
 a.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/primePi-K.svg)
+![](Help/Image/primePi-K.svg)
 
 _n_ divided by the largest power of the squarefree kernel of _n_ which divides it,
 OEIS [A062760](https://oeis.org/A062760):
@@ -8971,7 +8971,7 @@ OEIS [A062760](https://oeis.org/A062760):
 }.log.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/radical-K.svg)
+![](Help/Image/radical-K.svg)
 
 Moebius transform of the cototient function,
 OEIS [A062790](https://oeis.org/A062790):
@@ -8985,7 +8985,7 @@ OEIS [A062790](https://oeis.org/A062790):
 ).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/dirichletConvolve-E.svg)
+![](Help/Image/dirichletConvolve-E.svg)
 
 _n_ minus the product of the nonzero digits of _n_,
 OEIS [A063543](https://oeis.org/A063543):
@@ -8997,7 +8997,7 @@ OEIS [A063543](https://oeis.org/A063543):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerDigits-E.svg)
+![](Help/Image/integerDigits-E.svg)
 
 Count the number steps to reach a particular stop condition when iterating a map,
 OEIS [A063574](https://oeis.org/A063574):
@@ -9016,7 +9016,7 @@ OEIS [A063574](https://oeis.org/A063574):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/nestWhileList-A.svg)
+![](Help/Image/nestWhileList-A.svg)
 
 Moebius transform of Dedekind ψ function,
 OEIS [A063659](https://oeis.org/A063659):
@@ -9027,7 +9027,7 @@ OEIS [A063659](https://oeis.org/A063659):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/moebiusTransform-E.svg)
+![](Help/Image/moebiusTransform-E.svg)
 
 A variant of Recamáns sequence,
 OEIS [A063733](https://oeis.org/A063733):
@@ -9045,7 +9045,7 @@ OEIS [A063733](https://oeis.org/A063733):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/recamanSequence-G.svg)
+![](Help/Image/recamanSequence-G.svg)
 
 Triangle in which _n_-th row gives quadratic non-residues modulo the _n_-th prime,
 OEIS [A063988](https://oeis.org/A063988):
@@ -9060,7 +9060,7 @@ OEIS [A063988](https://oeis.org/A063988):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/jacobiSymbol-C.svg)
+![](Help/Image/jacobiSymbol-C.svg)
 
 Shift prime exponents of _2n-1_ to the previous prime or to `one`,
 OEIS [A064216](https://oeis.org/A064216):
@@ -9077,7 +9077,7 @@ OEIS [A064216](https://oeis.org/A064216):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/nextPrime-E.svg)
+![](Help/Image/nextPrime-E.svg)
 
 Height of terms of Recamán’s sequence,
 OEIS [A064289](https://oeis.org/A064289):
@@ -9088,7 +9088,7 @@ r.addFirst(0);
 r.differences.sign.prefixSum.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/recamanSequence-F.svg)
+![](Help/Image/recamanSequence-F.svg)
 
 The _1,3_ Kolakoski sequence,
 OEIS [A064353](https://oeis.org/A064353):
@@ -9098,7 +9098,7 @@ OEIS [A064353](https://oeis.org/A064353):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/kolakoskiSequence-D.svg)
+![](Help/Image/kolakoskiSequence-D.svg)
 
 Additive function defined by the recursion _a(p^k)=a(k)_ for any prime _p_,
 OEIS [A064372](https://oeis.org/A064372):
@@ -9114,7 +9114,7 @@ let a = Map { :n |
 a[1:105].stepPlot
 ~~~
 
-![](sw/spl/Help/Image/primeSignature-G.svg)
+![](Help/Image/primeSignature-G.svg)
 
 A variant of Recamáns sequence,
 _k_ begins at _n_ and then flips signs and increments until a value is located,
@@ -9140,7 +9140,7 @@ let d = IdentitySet(a);
 a.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/recamanSequence-D.svg)
+![](Help/Image/recamanSequence-D.svg)
 
 Number of partitions of _n_ with crank _k_ for _k_ in _-n:n_,
 OEIS [A064391](https://oeis.org/A064391):
@@ -9155,7 +9155,7 @@ OEIS [A064391](https://oeis.org/A064391):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/dysonCrank-A.svg)
+![](Help/Image/dysonCrank-A.svg)
 
 The Ekg sequence,
 step plot,
@@ -9165,7 +9165,7 @@ OEIS [A064413](https://oeis.org/A064413):
 37.ekgSequence.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/ekgSequence-A.svg)
+![](Help/Image/ekgSequence-A.svg)
 
 The Ekg sequence,
 scatter plot,
@@ -9175,7 +9175,7 @@ OEIS [A064413](https://oeis.org/A064413):
 125.ekgSequence.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/ekgSequence-B.svg)
+![](Help/Image/ekgSequence-B.svg)
 
 Least excluded sequence such that the `gcd` of adjacent terms is _≠1_,
 called the Ekg sequence,
@@ -9188,7 +9188,7 @@ OEIS [A064413](https://oeis.org/A064413):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/leastExcludedSequence-B.svg)
+![](Help/Image/leastExcludedSequence-B.svg)
 
 Least excluded sequence such that the `gcd` of adjacent terms is _≥3_,
 OEIS [A064417](https://oeis.org/A064417):
@@ -9200,7 +9200,7 @@ OEIS [A064417](https://oeis.org/A064417):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/leastExcludedSequence-A.svg)
+![](Help/Image/leastExcludedSequence-A.svg)
 
 Interleave _n_ and _3n_,
 OEIS [A064455](https://oeis.org/A064455):
@@ -9210,7 +9210,7 @@ let n = 1:35;
 [n, 3 * n].interleave.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/interleave-B.svg)
+![](Help/Image/interleave-B.svg)
 
 Interleave _3(n-1)+1_ and _n_,
 OEIS [A123684](https://oeis.org/A123684):
@@ -9220,7 +9220,7 @@ let n = 1:35;
 [3 * (n - 1) + 1, n].interleave.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/interleave-C.svg)
+![](Help/Image/interleave-C.svg)
 
 _a(n+1)=a(n)+σ(a(n))_,
 OEIS [A064491](https://oeis.org/A064491):
@@ -9231,7 +9231,7 @@ OEIS [A064491](https://oeis.org/A064491):
 }.nestList(1, 47).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/divisorSigma-I.svg)
+![](Help/Image/divisorSigma-I.svg)
 
 Sum of binary digits in the exponents of the prime factorization of _n_,
 OEIS [A064547](https://oeis.org/A064547):
@@ -9244,7 +9244,7 @@ OEIS [A064547](https://oeis.org/A064547):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/primeSignature-K.svg)
+![](Help/Image/primeSignature-K.svg)
 
 Exchange two and three in the prime factorization of _n_,
 OEIS [A064614](https://oeis.org/A064614):
@@ -9259,7 +9259,7 @@ OEIS [A064614](https://oeis.org/A064614):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/integerExponent-K.svg)
+![](Help/Image/integerExponent-K.svg)
 
 Regard the Ekg sequence as giving a permutation of the positive integers,
 calculate the inverse permutation,
@@ -9274,7 +9274,7 @@ let k = e.minimumExcludedValue(u);
 e.ordering.take(k).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/ekgSequence-D.svg)
+![](Help/Image/ekgSequence-D.svg)
 
 Square of Gray code,
 OEIS [A064706](https://oeis.org/A064706):
@@ -9283,7 +9283,7 @@ OEIS [A064706](https://oeis.org/A064706):
 0:127.grayEncode.grayEncode.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/grayEncode-G.svg)
+![](Help/Image/grayEncode-G.svg)
 
 Square of Gray decode,
 OEIS [A064707](https://oeis.org/A064707):
@@ -9292,7 +9292,7 @@ OEIS [A064707](https://oeis.org/A064707):
 0:127.grayDecode.grayDecode.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/grayDecode-B.svg)
+![](Help/Image/grayDecode-B.svg)
 
 The number of positive integers up to _n_ with the same prime signature as _n_,
 OEIS [A064839](https://oeis.org/A064839):
@@ -9305,7 +9305,7 @@ OEIS [A064839](https://oeis.org/A064839):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/primeSignature-D.svg)
+![](Help/Image/primeSignature-D.svg)
 
 Working in base two replace _n_ with the concatenation of its prime divisors in increasing order,
 OEIS [A064841](https://oeis.org/A064841):
@@ -9318,7 +9318,7 @@ OEIS [A064841](https://oeis.org/A064841):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/binaryExpansion-J.svg)
+![](Help/Image/binaryExpansion-J.svg)
 
 The characteristic function of the semiprime numbers,
 OEIS [A064911](https://oeis.org/A064911):
@@ -9329,7 +9329,7 @@ OEIS [A064911](https://oeis.org/A064911):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/isSemiprime-B.svg)
+![](Help/Image/isSemiprime-B.svg)
 
 Prime instigated arithmetic series,
 OEIS [A064924](https://oeis.org/A064924):
@@ -9345,7 +9345,7 @@ OEIS [A064924](https://oeis.org/A064924):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/previousPrime-A.svg)
+![](Help/Image/previousPrime-A.svg)
 
 Sum of divisors scaled by reverse index,
 OEIS [A064945](https://oeis.org/A064945):
@@ -9358,7 +9358,7 @@ OEIS [A064945](https://oeis.org/A064945):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/divisors-P.svg)
+![](Help/Image/divisors-P.svg)
 
 Shift prime exponents to the previous prime or to `one`,
 OEIS [A064989](https://oeis.org/A064989):
@@ -9375,7 +9375,7 @@ OEIS [A064989](https://oeis.org/A064989):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/factorInteger-Q.svg)
+![](Help/Image/factorInteger-Q.svg)
 
 Characteristic function of the numbers with an even number of prime factors,
 counted with multiplicity,
@@ -9387,7 +9387,7 @@ OEIS [A065043](https://oeis.org/A065043):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/liouvilleLambda-F.svg)
+![](Help/Image/liouvilleLambda-F.svg)
 
 Alternating sum of reverse of binary expansion of the _n_-th prime,
 OEIS [A065081](https://oeis.org/A065081):
@@ -9400,7 +9400,7 @@ OEIS [A065081](https://oeis.org/A065081):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/alternatingSum-I.svg)
+![](Help/Image/alternatingSum-I.svg)
 
 Triangular array of means of two odd primes,
 OEIS [A065305](https://oeis.org/A065305):
@@ -9411,7 +9411,7 @@ OEIS [A065305](https://oeis.org/A065305):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/prime-I.svg)
+![](Help/Image/prime-I.svg)
 
 The Goldbach permutation,
 OEIS [A065306](https://oeis.org/A065306):
@@ -9424,7 +9424,7 @@ let b = a.deleteDuplicates - 2;
 a.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/prime-J.svg)
+![](Help/Image/prime-J.svg)
 
 _a(n)=(p%4)*a(n/p)_,
 OEIS [A065338](https://oeis.org/A065338):
@@ -9441,7 +9441,7 @@ let a = Map { :n |
 a[1:65].discretePlot
 ~~~
 
-![](sw/spl/Help/Image/leastPrimeFactor-B.svg)
+![](Help/Image/leastPrimeFactor-B.svg)
 
 _-1^π(n)_,
 OEIS [A065357](https://oeis.org/A065357):
@@ -9450,7 +9450,7 @@ OEIS [A065357](https://oeis.org/A065357):
 (-1 ^ 0:65.primePi).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/primePi-R.svg)
+![](Help/Image/primePi-R.svg)
 
 The Jacob’s Ladder sequence,
 partial sums of _-1^π(n)_,
@@ -9461,7 +9461,7 @@ let p = 1:65.primePi;
 (-1 ^ p).prefixSum.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/primePi-Q.svg)
+![](Help/Image/primePi-Q.svg)
 
 Alternating sum of reverse of binary expansion of _n_,
 OEIS [A065359](https://oeis.org/A065359):
@@ -9474,7 +9474,7 @@ OEIS [A065359](https://oeis.org/A065359):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/alternatingSum-D.svg)
+![](Help/Image/alternatingSum-D.svg)
 
 Alternating sum of reverse of negabinary expansion of _n_,
 OEIS [A065360](https://oeis.org/A065360):
@@ -9487,7 +9487,7 @@ OEIS [A065360](https://oeis.org/A065360):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/negabinaryExpansion-B.svg)
+![](Help/Image/negabinaryExpansion-B.svg)
 
 Rebase _n_ from three to two,
 OEIS [A065361](https://oeis.org/A065361):
@@ -9497,7 +9497,7 @@ OEIS [A065361](https://oeis.org/A065361):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/ternaryExpansion-B.svg)
+![](Help/Image/ternaryExpansion-B.svg)
 
 Rebase _n_ from four to two,
 OEIS [A065362](https://oeis.org/A065362):
@@ -9507,7 +9507,7 @@ OEIS [A065362](https://oeis.org/A065362):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/fromDigits-G.svg)
+![](Help/Image/fromDigits-G.svg)
 
 Alternating sum of reverse of ternary expansion of _n_,
 OEIS [A065368](https://oeis.org/A065368):
@@ -9520,7 +9520,7 @@ OEIS [A065368](https://oeis.org/A065368):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/alternatingSum-H.svg)
+![](Help/Image/alternatingSum-H.svg)
 
 Number of hill-free Dyck paths of length _2n_ having height of first peak equal to _k_,
 OEIS [A065602](https://oeis.org/A065602):
@@ -9540,7 +9540,7 @@ OEIS [A065602](https://oeis.org/A065602):
 }.catenate.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/triangularArray-G.svg)
+![](Help/Image/triangularArray-G.svg)
 
 _a(2n)=2a(n)_ and _a(2n+1)=-2a(n)+1),
 OEIS [A065620](https://oeis.org/A065620):
@@ -9560,7 +9560,7 @@ let a = { :n |
 0:150.collect(a:/1).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isOdd-A.svg)
+![](Help/Image/isOdd-A.svg)
 
 Reversing binary representation of _n_,
 OEIS [A065621](https://oeis.org/A065621):
@@ -9571,7 +9571,7 @@ OEIS [A065621](https://oeis.org/A065621):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitXor-U.svg)
+![](Help/Image/bitXor-U.svg)
 
 Integer compositions in reverse lexicographic order,
 OEIS [A066099](https://oeis.org/A066099):
@@ -9583,7 +9583,7 @@ OEIS [A066099](https://oeis.org/A066099):
 }.catenate.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/reverseLexicographicSort-A.svg)
+![](Help/Image/reverseLexicographicSort-A.svg)
 
 Characteristic function of composite numbers,
 OEIS [A066247](https://oeis.org/A066247):
@@ -9592,7 +9592,7 @@ OEIS [A066247](https://oeis.org/A066247):
 1:100.isComposite.boole.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/isComposite-C.svg)
+![](Help/Image/isComposite-C.svg)
 
 Anti-divisor counts of _n_,
 OEIS [A066272](https://oeis.org/A066272):
@@ -9603,7 +9603,7 @@ OEIS [A066272](https://oeis.org/A066272):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/antiDivisors-B.svg)
+![](Help/Image/antiDivisors-B.svg)
 
 The number of anti-divisors of _n_,
 OEIS [A066272](https://oeis.org/A066272):
@@ -9617,7 +9617,7 @@ OEIS [A066272](https://oeis.org/A066272):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/count-A.svg)
+![](Help/Image/count-A.svg)
 
 _n-r(n)_
 OEIS [A066503](https://oeis.org/A066503):
@@ -9628,7 +9628,7 @@ OEIS [A066503](https://oeis.org/A066503):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/radical-F.svg)
+![](Help/Image/radical-F.svg)
 
 Anti-divisor class sums of _n_,
 OEIS [A066518](https://oeis.org/A066518):
@@ -9639,7 +9639,7 @@ OEIS [A066518](https://oeis.org/A066518):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/antiDivisors-D.svg)
+![](Help/Image/antiDivisors-D.svg)
 
 Gaps between successive numbers with an anti-divisor class sum of zero,
 OEIS [A066519](https://oeis.org/A066519):
@@ -9652,7 +9652,7 @@ OEIS [A066519](https://oeis.org/A066519):
 .stepPlot
 ~~~
 
-![](sw/spl/Help/Image/antiDivisors-E.svg)
+![](Help/Image/antiDivisors-E.svg)
 
 Indices of permutations of orders 1 or 2 when placed in lexicographic order,
 OEIS [A066646](https://oeis.org/A066646):
@@ -9665,7 +9665,7 @@ OEIS [A066646](https://oeis.org/A066646):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/permutationOrder-A.svg)
+![](Help/Image/permutationOrder-A.svg)
 
 Parity of _Ω(n)_,
 OEIS [A066829](https://oeis.org/A066829):
@@ -9676,7 +9676,7 @@ OEIS [A066829](https://oeis.org/A066829):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/liouvilleLambda-E.svg)
+![](Help/Image/liouvilleLambda-E.svg)
 
 Parity of _Ω(n)_,
 OEIS [A066829](https://oeis.org/A066829):
@@ -9688,7 +9688,7 @@ OEIS [A066829](https://oeis.org/A066829):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/primeOmega-D.svg)
+![](Help/Image/primeOmega-D.svg)
 
 Number of different residues for the Fibonacci numbers modulo _n_,
 OEIS [A066853](https://oeis.org/A066853):
@@ -9701,7 +9701,7 @@ OEIS [A066853](https://oeis.org/A066853):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/pisanoPeriod-B.svg)
+![](Help/Image/pisanoPeriod-B.svg)
 
 Replace even exponents with two and odd exponents with one,
 OEIS [A066990](https://oeis.org/A066990):
@@ -9715,7 +9715,7 @@ OEIS [A066990](https://oeis.org/A066990):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/factorInteger-F.svg)
+![](Help/Image/factorInteger-F.svg)
 
 Ordinal transform of _τ(n)_,
 OEIS [A067004](http://oeis.org/A067004):
@@ -9726,7 +9726,7 @@ OEIS [A067004](http://oeis.org/A067004):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/ordinalTransform-L.svg)
+![](Help/Image/ordinalTransform-L.svg)
 
 _Or-numbral_ multiplication table,
 read by antidiagonals,
@@ -9747,7 +9747,7 @@ OEIS [A067138](https://oeis.org/A067138):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitAt-B.svg)
+![](Help/Image/bitAt-B.svg)
 
 Number of odd unitary divisors of _n_,
 OEIS [A068068](https://oeis.org/A068068):
@@ -9758,7 +9758,7 @@ OEIS [A068068](https://oeis.org/A068068):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/unitaryDivisors-E.svg)
+![](Help/Image/unitaryDivisors-E.svg)
 
 Squarefree part of _n^2-1_,
 OEIS [A068310](https://oeis.org/A068310):
@@ -9771,7 +9771,7 @@ OEIS [A068310](https://oeis.org/A068310):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/divisors-K.svg)
+![](Help/Image/divisors-K.svg)
 
 The second arithmetic derivative of _n_,
 OEIS [A068346](https://oeis.org/A068346):
@@ -9782,7 +9782,7 @@ OEIS [A068346](https://oeis.org/A068346):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/arithmeticDerivative-B.svg)
+![](Help/Image/arithmeticDerivative-B.svg)
 
 _n_-th prime minus its reversal,
 OEIS [A068396](https://oeis.org/A068396):
@@ -9793,7 +9793,7 @@ OEIS [A068396](https://oeis.org/A068396):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/integerReverse-G.svg)
+![](Help/Image/integerReverse-G.svg)
 
 Number of runs of ones in the binary representation of _n_,
 OEIS [A069010](https://oeis.org/A069010):
@@ -9806,7 +9806,7 @@ OEIS [A069010](https://oeis.org/A069010):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/split-D.svg)
+![](Help/Image/split-D.svg)
 
 Convolve identity and prime predicate,
 OEIS [A069359](https://oeis.org/A069359):
@@ -9820,7 +9820,7 @@ OEIS [A069359](https://oeis.org/A069359):
 ).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/dirichletConvolve-C.svg)
+![](Help/Image/dirichletConvolve-C.svg)
 
 _ω(n)=1_,
 OEIS [A069513](https://oeis.org/A069513):
@@ -9831,7 +9831,7 @@ OEIS [A069513](https://oeis.org/A069513):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/primeNu-H.svg)
+![](Help/Image/primeNu-H.svg)
 
 Smallest remainder of _p+q%n_,
 where _p*q=n^2-1_,
@@ -9860,7 +9860,7 @@ OEIS [A069817](https://oeis.org/A069817):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/divisors-L.svg)
+![](Help/Image/divisors-L.svg)
 
 Hermite’s problem,
 OEIS [A069981](https://oeis.org/A069981):
@@ -9875,7 +9875,7 @@ OEIS [A069981](https://oeis.org/A069981):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/isEven-E.svg)
+![](Help/Image/isEven-E.svg)
 
 Stern’s diatomic array,
 version two,
@@ -9886,7 +9886,7 @@ OEIS [A070878](https://oeis.org/A070878):
 .catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/sternsDiatomicArray-C.svg)
+![](Help/Image/sternsDiatomicArray-C.svg)
 
 Stern’s diatomic array,
 version three,
@@ -9897,7 +9897,7 @@ OEIS [A070879](https://oeis.org/A070879):
 .catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/sternsDiatomicArray-D.svg)
+![](Help/Image/sternsDiatomicArray-D.svg)
 
 _n⊻P(n)_,
 OEIS [A070883](https://oeis.org/A070883):
@@ -9908,7 +9908,7 @@ OEIS [A070883](https://oeis.org/A070883):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitXor-W.svg)
+![](Help/Image/bitXor-W.svg)
 
 Ones in the _n_-th generation of Rule 30,
 OEIS [A070952](https://oeis.org/A070952):
@@ -9921,7 +9921,7 @@ let k = 100;
 ).collect(sum:/1).stepPlot
 ~~~
 
-![](sw/spl/Help/Image/elementaryCellularAutomaton-I.svg)
+![](Help/Image/elementaryCellularAutomaton-I.svg)
 
 First differences of Stern’s diatomic series,
 discarding initial two terms,
@@ -9934,7 +9934,7 @@ OEIS [A070990](https://oeis.org/A070990):
 .denseScatterPlot
 ~~~
 
-![](sw/spl/Help/Image/denseScatterPlot-B.png)
+![](Help/Image/denseScatterPlot-B.png)
 
 First differences of Stern’s diatomic series,
 discarding initial two terms,
@@ -9947,7 +9947,7 @@ OEIS [A070990](https://oeis.org/A070990):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/sternBrocotSequence-D.svg)
+![](Help/Image/sternBrocotSequence-D.svg)
 
 Smallest _k_ such that the concatenation of _n_ and _k_ is a square,
 OEIS [A071176](https://oeis.org/A071176):
@@ -9967,7 +9967,7 @@ OEIS [A071176](https://oeis.org/A071176):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isPerfectSquare-C.svg)
+![](Help/Image/isPerfectSquare-C.svg)
 
 Alternating sum of all prime factors of _n_,
 OEIS [A071321](https://oeis.org/A071321):
@@ -9979,7 +9979,7 @@ OEIS [A071321](https://oeis.org/A071321):
 }.logScale.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/primeFactors-G.svg)
+![](Help/Image/primeFactors-G.svg)
 
 The numerator sequence,
 OEIS [A071585](https://oeis.org/A071585):
@@ -9990,7 +9990,7 @@ OeisEntry('A071585').then { :e |
 }
 ~~~
 
-![](sw/spl/Help/Image/fromContinuedFraction-B.svg)
+![](Help/Image/fromContinuedFraction-B.svg)
 
 The denominator sequence,
 OEIS [A071766](https://oeis.org/A071766):
@@ -10001,7 +10001,7 @@ OeisEntry('A071766').then { :e |
 }
 ~~~
 
-![](sw/spl/Help/Image/fromContinuedFraction-C.svg)
+![](Help/Image/fromContinuedFraction-C.svg)
 
 _gcd(r(n),n/r(n))_,
 OEIS [A071773](https://oeis.org/A071773):
@@ -10013,7 +10013,7 @@ OEIS [A071773](https://oeis.org/A071773):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/radical-H.svg)
+![](Help/Image/radical-H.svg)
 
 _Π(R(F(n)))_,
 OEIS [A071786](https://oeis.org/A071786):
@@ -10025,7 +10025,7 @@ OEIS [A071786](https://oeis.org/A071786):
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerReverse-D.svg)
+![](Help/Image/integerReverse-D.svg)
 
 The first decimal selvage number,
 OEIS [A071789](https://oeis.org/A071789):
@@ -10035,7 +10035,7 @@ OEIS [A071789](https://oeis.org/A071789):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/decimalSelvageNumber-A.svg)
+![](Help/Image/decimalSelvageNumber-A.svg)
 
 The second decimal selvage number,
 OEIS [A071790](https://oeis.org/A071790):
@@ -10045,7 +10045,7 @@ OEIS [A071790](https://oeis.org/A071790):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/decimalSelvageNumber-B.svg)
+![](Help/Image/decimalSelvageNumber-B.svg)
 
 The third decimal selvage number,
 OEIS [A071791](https://oeis.org/A071791):
@@ -10055,7 +10055,7 @@ OEIS [A071791](https://oeis.org/A071791):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/decimalSelvageNumber-C.svg)
+![](Help/Image/decimalSelvageNumber-C.svg)
 
 The fourth decimal selvage number,
 OEIS [A071792](https://oeis.org/A071792):
@@ -10065,7 +10065,7 @@ OEIS [A071792](https://oeis.org/A071792):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/decimalSelvageNumber-D.svg)
+![](Help/Image/decimalSelvageNumber-D.svg)
 
 The fifth decimal selvage number,
 OEIS [A071793](https://oeis.org/A071793):
@@ -10075,7 +10075,7 @@ OEIS [A071793](https://oeis.org/A071793):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/decimalSelvageNumber-E.svg)
+![](Help/Image/decimalSelvageNumber-E.svg)
 
 The _2,3_ Kolakoski sequence,
 OEIS [A071820](https://oeis.org/A071820):
@@ -10085,7 +10085,7 @@ OEIS [A071820](https://oeis.org/A071820):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/kolakoskiSequence-E.svg)
+![](Help/Image/kolakoskiSequence-E.svg)
 
 The sixth decimal selvage number,
 OEIS [A071873](https://oeis.org/A071873):
@@ -10095,7 +10095,7 @@ OEIS [A071873](https://oeis.org/A071873):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/decimalSelvageNumber-F.svg)
+![](Help/Image/decimalSelvageNumber-F.svg)
 
 Least square-free _m>n_ with _gcd(m,n)>1_,
 OEIS [A071888](https://oeis.org/A071888):
@@ -10114,7 +10114,7 @@ OEIS [A071888](https://oeis.org/A071888):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isSquareFree-C.svg)
+![](Help/Image/isSquareFree-C.svg)
 
 The _1,4_ Kolakoski sequence,
 OEIS [A071907](https://oeis.org/A071907),
@@ -10125,7 +10125,7 @@ minus one:
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/kolakoskiSequence-J.svg)
+![](Help/Image/kolakoskiSequence-J.svg)
 
 The _2,4_ Kolakoski sequence,
 OEIS [A071928](https://oeis.org/A071928),
@@ -10136,7 +10136,7 @@ minus two:
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/kolakoskiSequence-K.svg)
+![](Help/Image/kolakoskiSequence-K.svg)
 
 The _3,4_ Kolakoski sequence,
 OEIS [A071942](https://oeis.org/A071942),
@@ -10147,7 +10147,7 @@ minus three:
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/kolakoskiSequence-L.svg)
+![](Help/Image/kolakoskiSequence-L.svg)
 
 Wythoff pairs sequence,
 OEIS [A072061](https://oeis.org/A072061):
@@ -10157,7 +10157,7 @@ OEIS [A072061](https://oeis.org/A072061):
 .catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/wythoffPair-B.svg)
+![](Help/Image/wythoffPair-B.svg)
 
 Difference between number of oddly and evenly factored numbers,
 OEIS [A072203](https://oeis.org/A072203):
@@ -10170,7 +10170,7 @@ OEIS [A072203](https://oeis.org/A072203):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/primeOmega-C.svg)
+![](Help/Image/primeOmega-C.svg)
 
 Add one to every other term of the number of runs in the binary expansion of _n_,
 OEIS [A072219](https://oeis.org/A072219):
@@ -10183,7 +10183,7 @@ OEIS [A072219](https://oeis.org/A072219):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/split-C.svg)
+![](Help/Image/split-C.svg)
 
 Number of ways to distribute _n_ indistinguishable objects in _k_ indistinguishable containers,
 OEIS [A072233](https://oeis.org/A072233):
@@ -10194,7 +10194,7 @@ OEIS [A072233](https://oeis.org/A072233):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/integerPartitions-H.svg)
+![](Help/Image/integerPartitions-H.svg)
 
 One less than the number of runs of ones in the binary representations of _n_ and _2n-1_,
 OEIS [A072339](https://oeis.org/A072339):
@@ -10210,7 +10210,7 @@ let f = { :n |
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/split-E.svg)
+![](Help/Image/split-E.svg)
 
 The shadow transform of
 OEIS [A000522](https://oeis.org/A000522),
@@ -10224,7 +10224,7 @@ x.shadowTransform
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/shadowTransform-A.svg)
+![](Help/Image/shadowTransform-A.svg)
 
 Shadow transform of tetrahedral numbers,
 OEIS [A072457](https://oeis.org/A072457):
@@ -10235,7 +10235,7 @@ OEIS [A072457](https://oeis.org/A072457):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/shadowTransform-B.svg)
+![](Help/Image/shadowTransform-B.svg)
 
 Shadow transform of _σ(n)_,
 OEIS [A072463](https://oeis.org/A072463):
@@ -10252,7 +10252,7 @@ let s = Map { :n |
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/divisorSigma-M.svg)
+![](Help/Image/divisorSigma-M.svg)
 
 Shadow transform of _σ(n)_,
 OEIS [A072463](https://oeis.org/A072463):
@@ -10264,7 +10264,7 @@ OEIS [A072463](https://oeis.org/A072463):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/shadowTransform-D.svg)
+![](Help/Image/shadowTransform-D.svg)
 
 Numerators of rationals _≥1_ whose continued fractions consist only of ones and twos,
 OEIS [A072728](https://oeis.org/A072728):
@@ -10280,7 +10280,7 @@ OEIS [A072728](https://oeis.org/A072728):
 ].scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/continuedFraction-C.svg)
+![](Help/Image/continuedFraction-C.svg)
 
 Denominators of rationals _≥1_ whose continued fractions consist only of ones and twos,
 OEIS [A072729](https://oeis.org/A072729):
@@ -10296,7 +10296,7 @@ OEIS [A072729](https://oeis.org/A072729):
 ].scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/continuedFraction-D.svg)
+![](Help/Image/continuedFraction-D.svg)
 
 First differences of the Ulam sequence,
 OEIS [A072832](https://oeis.org/A072832):
@@ -10307,7 +10307,7 @@ OEIS [A072832](https://oeis.org/A072832):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/ulamSequence-B.svg)
+![](Help/Image/ulamSequence-B.svg)
 
 A sequence that is distinct from but similar to the period doubling sequence,
 OEIS [A073059](https://oeis.org/A073059):
@@ -10324,7 +10324,7 @@ let a = Map { :n |
 a[1:105].discretePlot
 ~~~
 
-![](sw/spl/Help/Image/periodDoublingSequence-B.svg)
+![](Help/Image/periodDoublingSequence-B.svg)
 
 _2*(n-w(n))/3_ where _w_ is the one count in the base negative two expansion,
 OEIS [A073504](https://oeis.org/A073504):
@@ -10335,7 +10335,7 @@ OEIS [A073504](https://oeis.org/A073504):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/digitCount-R.svg)
+![](Help/Image/digitCount-R.svg)
 
 Number of ordered ways of writing n as the sum of two primes,
 OEIS [A073610](https://oeis.org/A073610):
@@ -10349,7 +10349,7 @@ OEIS [A073610](https://oeis.org/A073610):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/frobeniusSolve-C.svg)
+![](Help/Image/frobeniusSolve-C.svg)
 
 Replace _n_ with the concatenation of its prime divisors in increasing order,
 OEIS [A048985](https://oeis.org/A048985),
@@ -10365,7 +10365,7 @@ OEIS [A073646](https://oeis.org/A073646):
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/decimalExpansion-A.svg)
+![](Help/Image/decimalExpansion-A.svg)
 
 `gcd` of consecutive terms,
 OEIS [A073734](https://oeis.org/A073734):
@@ -10376,7 +10376,7 @@ OEIS [A073734](https://oeis.org/A073734):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/ekgSequence-C.svg)
+![](Help/Image/ekgSequence-C.svg)
 
 Least positive integers whose convolution forms a sequence whose odd-indexed terms are twice the odd primes,
 OEIS [A073739](https://oeis.org/A073739):
@@ -10397,7 +10397,7 @@ let a = Map { :n |
 a[0:150].scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isEven-H.svg)
+![](Help/Image/isEven-H.svg)
 
 Self convolution of
 OEIS [A073739](https://oeis.org/A073739),
@@ -10421,7 +10421,7 @@ let b = a[0:k];
 b.convolve(b).first(k + 1).log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/convolve-E.svg)
+![](Help/Image/convolve-E.svg)
 
 Self convolution of
 OEIS [A073739](https://oeis.org/A073739),
@@ -10457,7 +10457,7 @@ let a = Map { :n |
 a[0:150].log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isEven-I.svg)
+![](Help/Image/isEven-I.svg)
 
 Semi-tribonacci numbers,
 OEIS [A074364](https://oeis.org/A074364):
@@ -10477,7 +10477,7 @@ let a = Map { :n |
 a[0:150].log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/tribonacciNumber-B.svg)
+![](Help/Image/tribonacciNumber-B.svg)
 
 The coefficient of _1/n_ in the base _n_ representation of _√n_,
 OEIS [A074704](https://oeis.org/A074704):
@@ -10488,7 +10488,7 @@ OEIS [A074704](https://oeis.org/A074704):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/power-C.svg)
+![](Help/Image/power-C.svg)
 
 Least sequence where every term divides the product of its neighbors,
 OEIS [A075075](https://oeis.org/A075075):
@@ -10500,7 +10500,7 @@ OEIS [A075075](https://oeis.org/A075075):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/divisible-D.svg)
+![](Help/Image/divisible-D.svg)
 
 Segment of least sequence where every term divides the product of its neighbors,
 OEIS [A075075](https://oeis.org/A075075):
@@ -10521,7 +10521,7 @@ let a = [1L 2L];
 a.drop(100).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/numerator-B.svg)
+![](Help/Image/numerator-B.svg)
 
 _μ(r(n))_,
 OEIS [A076479](https://oeis.org/A076479):
@@ -10530,7 +10530,7 @@ OEIS [A076479](https://oeis.org/A076479):
 1:85.radical.moebiusMu.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/radical-C.svg)
+![](Help/Image/radical-C.svg)
 
 Denominator of _((n-φ)/φ)_,
 [A076512](https://oeis.org/A076512):
@@ -10542,7 +10542,7 @@ Denominator of _((n-φ)/φ)_,
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/eulerPhi-E.svg)
+![](Help/Image/eulerPhi-E.svg)
 
 First differences of the upper Wythoff sequence,
 a Fibonacci word,
@@ -10554,7 +10554,7 @@ OEIS [A076662](https://oeis.org/A076662):
 .stepPlot
 ~~~
 
-![](sw/spl/Help/Image/wythoffUpper-A.svg)
+![](Help/Image/wythoffUpper-A.svg)
 
 _r(P(n)-1)_,
 OEIS [A077063](https://oeis.org/A077063):
@@ -10565,7 +10565,7 @@ OEIS [A077063](https://oeis.org/A077063):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/radical-L.svg)
+![](Help/Image/radical-L.svg)
 
 The unitary divisors of _n_,
 OEIS [A077610](https://oeis.org/A077610):
@@ -10575,7 +10575,7 @@ OEIS [A077610](https://oeis.org/A077610):
 .catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/unitaryDivisors-A.svg)
+![](Help/Image/unitaryDivisors-A.svg)
 
 First differences of sequence of nonsquarefree numbers,
 OEIS [A078147](https://oeis.org/A078147):
@@ -10585,7 +10585,7 @@ OEIS [A078147](https://oeis.org/A078147):
 .differences.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/isSquareFree-D.svg)
+![](Help/Image/isSquareFree-D.svg)
 
 _n*r(n)+1_
 OEIS [A078310](https://oeis.org/A078310):
@@ -10596,7 +10596,7 @@ OEIS [A078310](https://oeis.org/A078310):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/radical-E.svg)
+![](Help/Image/radical-E.svg)
 
 _ω(n*r(n)+1)_
 OEIS [A078313](https://oeis.org/A078313):
@@ -10607,7 +10607,7 @@ OEIS [A078313](https://oeis.org/A078313):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/radical-M.svg)
+![](Help/Image/radical-M.svg)
 
 _Ω(n*r(n)+1)_
 OEIS [A078314](https://oeis.org/A078314):
@@ -10618,7 +10618,7 @@ OEIS [A078314](https://oeis.org/A078314):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/radical-N.svg)
+![](Help/Image/radical-N.svg)
 
 _r(n*r(n)+1)_
 OEIS [A078322](https://oeis.org/A078322):
@@ -10629,7 +10629,7 @@ OEIS [A078322](https://oeis.org/A078322):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/radical-D.svg)
+![](Help/Image/radical-D.svg)
 
 _a(P(n))=a(n)+1_ and _a(C(n))=0_,
 OEIS [A078442](https://oeis.org/A078442):
@@ -10645,7 +10645,7 @@ let a = Map { :n |
 a[1:150].discretePlot
 ~~~
 
-![](sw/spl/Help/Image/primePi-T.svg)
+![](Help/Image/primePi-T.svg)
 
 _r(n)^2_,
 OEIS [A078615](https://oeis.org/A078615):
@@ -10654,7 +10654,7 @@ OEIS [A078615](https://oeis.org/A078615):
 1:150.radical.square.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/radical-J.svg)
+![](Help/Image/radical-J.svg)
 
 Number of times the smallest prime factor of _n_ is the smallest prime factor for numbers _≤n_,
 OEIS [A078898](https://oeis.org/A078898):
@@ -10667,7 +10667,7 @@ let l = 1:m.leastPrimeFactor;
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/leastPrimeFactor-D.svg)
+![](Help/Image/leastPrimeFactor-D.svg)
 
 Number of first-quadrant cells born at stage _n_ of the Holladay-Ulam cellular automaton,
 OEIS [A079314](https://oeis.org/A079314),
@@ -10681,7 +10681,7 @@ let a = 3 ^ (w - 1) + 1;
 ([1] ++ a).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/digitCount-N.svg)
+![](Help/Image/digitCount-N.svg)
 
 _⌊(σ(n^2)/σ(n))_,
 OEIS [A079553](https://oeis.org/A079553):
@@ -10696,7 +10696,7 @@ OEIS [A079553](https://oeis.org/A079553):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/divisorSigma-R.svg)
+![](Help/Image/divisorSigma-R.svg)
 
 Fixed point of morphism _0→0,1→110_,
 OEIS [A079559](https://oeis.org/A079559):
@@ -10710,7 +10710,7 @@ let m = [0: [0], 1: [1 1 0]];
 }.iterate([1], 5).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/iterate-E.svg)
+![](Help/Image/iterate-E.svg)
 
 Fixed point of morphism _0→0,1→110_,
 OEIS [A079559](https://oeis.org/A079559):
@@ -10724,7 +10724,7 @@ OEIS [A079559](https://oeis.org/A079559):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/substitutionSystem-G.svg)
+![](Help/Image/substitutionSystem-G.svg)
 
 _2^n_ zeroes followed by _2^n_ ones,
 OEIS [A079944](https://oeis.org/A079944):
@@ -10735,7 +10735,7 @@ OEIS [A079944](https://oeis.org/A079944):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/binaryExpansion-M.svg)
+![](Help/Image/binaryExpansion-M.svg)
 
 Array giving the length of the longest carry sequence when adding _k_ to _n_ in binary,
 OEIS [A080080](https://oeis.org/A080080):
@@ -10757,7 +10757,7 @@ let add = { :x :y :z |
 }.catenate.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/bitAnd-I.svg)
+![](Help/Image/bitAnd-I.svg)
 
 Bitwise logical or triangular array,
 OEIS [A080098](https://oeis.org/A080098):
@@ -10767,7 +10767,7 @@ OEIS [A080098](https://oeis.org/A080098):
 .catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitOr-H.svg)
+![](Help/Image/bitOr-H.svg)
 
 Bitwise logical and,
 triangular array,
@@ -10778,7 +10778,7 @@ OEIS [A080099](https://oeis.org/A080099):
 .catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitAnd-N.svg)
+![](Help/Image/bitAnd-N.svg)
 
 Primes having initial digits _11_ in their binary representation,
 OEIS [A080166](https://oeis.org/A080166):
@@ -10789,7 +10789,7 @@ OEIS [A080166](https://oeis.org/A080166):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/binaryExpansion-G.svg)
+![](Help/Image/binaryExpansion-G.svg)
 
 Primes having initial and final digits _11_ in their binary representation,
 OEIS [A080168](https://oeis.org/A080168):
@@ -10803,7 +10803,7 @@ OEIS [A080168](https://oeis.org/A080168):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/binaryExpansion-H.svg)
+![](Help/Image/binaryExpansion-H.svg)
 
 Prefix sum of exclusive or of adjacent integers,
 _n⊕(n-1)_,
@@ -10815,7 +10815,7 @@ OEIS [A080277](https://oeis.org/A080277):
 }.prefixSum.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/bitXor-L.svg)
+![](Help/Image/bitXor-L.svg)
 
 Characteristic function of `one` and primes,
 OEIS [A080339](https://oeis.org/A080339):
@@ -10826,7 +10826,7 @@ OEIS [A080339](https://oeis.org/A080339):
 }.boole.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/primeOmega-F.svg)
+![](Help/Image/primeOmega-F.svg)
 
 Interleave _2n-1_ and _3n_,
 OEIS [A080512](https://oeis.org/A080512):
@@ -10836,7 +10836,7 @@ let n = 1:35;
 [2 * n - 1, 3 * n].interleave.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/interleave-D.svg)
+![](Help/Image/interleave-D.svg)
 
 Partitions in graded reflected lexicographic order (Maple),
 OEIS [A080576](https://oeis.org/A080576):
@@ -10850,7 +10850,7 @@ OEIS [A080576](https://oeis.org/A080576):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerPartitions-C.svg)
+![](Help/Image/integerPartitions-C.svg)
 
 Partitions in graded reverse lexicographic ordering (Mathematica),
 OEIS [A080577](https://oeis.org/A080577):
@@ -10864,7 +10864,7 @@ OEIS [A080577](https://oeis.org/A080577):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerPartitions-B.svg)
+![](Help/Image/integerPartitions-B.svg)
 
 Characteristic function of generalized pentagonal numbers,
 OEIS [A080995](https://oeis.org/A080995):
@@ -10877,7 +10877,7 @@ let k = a.max;
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/generalisedPentagonalNumbers-B.svg)
+![](Help/Image/generalisedPentagonalNumbers-B.svg)
 
 The ordinal transform of _φ(n)_,
 OEIS [A081373](https://oeis.org/A081373):
@@ -10889,7 +10889,7 @@ OEIS [A081373](https://oeis.org/A081373):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/ordinalTransform-A.svg)
+![](Help/Image/ordinalTransform-A.svg)
 
 Number of numbers _≤n_ having no zero in their ternary representation,
 OEIS [A081608](https://oeis.org/A081608):
@@ -10900,7 +10900,7 @@ OEIS [A081608](https://oeis.org/A081608):
 }.boole.prefixSum.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/ternaryExpansion-C.svg)
+![](Help/Image/ternaryExpansion-C.svg)
 
 Number of primes congruent to one modulo four dividing _n_,
 OEIS [A083025](https://oeis.org/A083025):
@@ -10913,7 +10913,7 @@ OEIS [A083025](https://oeis.org/A083025):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/primeFactors-E.svg)
+![](Help/Image/primeFactors-E.svg)
 
 Pascal’s triangle modulo three,
 OEIS [A083093](https://oeis.org/A083093),
@@ -10925,7 +10925,7 @@ offset to _-1,0,1_:
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/pascalTriangle-G.svg)
+![](Help/Image/pascalTriangle-G.svg)
 
 Seieve of Eratosthenes arranged as an array,
 read by antidigaonals,
@@ -10946,7 +10946,7 @@ let b = [];
 b.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/leastPrimeFactor-E.svg)
+![](Help/Image/leastPrimeFactor-E.svg)
 
 _2*φ(n)-n_,
 OEIS [A083254](https://oeis.org/A083254):
@@ -10957,7 +10957,7 @@ OEIS [A083254](https://oeis.org/A083254):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/eulerPhi-M.svg)
+![](Help/Image/eulerPhi-M.svg)
 
 Wythoff array read by rising antidiagonals,
 OEIS [A083412](https://oeis.org/A083412):
@@ -10968,7 +10968,7 @@ OEIS [A083412](https://oeis.org/A083412):
 ).catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/wythoffArray-B.svg)
+![](Help/Image/wythoffArray-B.svg)
 
 Signature sequence of 1/φ,
 OEIS [A084531](https://oeis.org/A084531):
@@ -10979,7 +10979,7 @@ phi.signatureSequence(200)
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/goldenRatio-I.svg)
+![](Help/Image/goldenRatio-I.svg)
 
 Multiplicative order of ten modulo _n_,
 OEIS [A084680](https://oeis.org/A084680):
@@ -10994,7 +10994,7 @@ OEIS [A084680](https://oeis.org/A084680):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/multiplicativeOrder-C.svg)
+![](Help/Image/multiplicativeOrder-C.svg)
 
 The terms of A071156 can be calculated from A014486 using
 OEIS [A085198](https://oeis.org/A085198):
@@ -11005,7 +11005,7 @@ OEIS [A085198](https://oeis.org/A085198):
 ).logScale.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/factorialNumberSystemEncode-A.svg)
+![](Help/Image/factorialNumberSystemEncode-A.svg)
 
 The decimal expansion of the limit of the ratio of consecutive terms in the tetranacci sequence,
 OEIS [A086088](https://oeis.org/A086088):
@@ -11021,7 +11021,7 @@ OEIS [A086088](https://oeis.org/A086088):
 ].scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/scatterPlot-I.svg)
+![](Help/Image/scatterPlot-I.svg)
 
 `bitAnd` and `bitOr` bitwise,
 OEIS [A086099](https://oeis.org/A086099):
@@ -11034,7 +11034,7 @@ OEIS [A086099](https://oeis.org/A086099):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/bitOr-E.svg)
+![](Help/Image/bitOr-E.svg)
 
 The obscure sequence
 OEIS [A086267](https://oeis.org/A086267):
@@ -11049,7 +11049,7 @@ h.partition(3, 1).collect { :i |
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/hofstadterQSequence-C.svg)
+![](Help/Image/hofstadterQSequence-C.svg)
 
 The Baum–Sweet sequence,
 OEIS [A086747](https://oeis.org/A086747):
@@ -11058,7 +11058,7 @@ OEIS [A086747](https://oeis.org/A086747):
 115.baumSweetSequence.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/baumSweetSequence-B.svg)
+![](Help/Image/baumSweetSequence-B.svg)
 
 Bitwise or of _n_ and _n-1_,
 OEIS [A086799](https://oeis.org/A086799):
@@ -11068,7 +11068,7 @@ let n = 1:100;
 n.bitOr(n - 1).linePlot
 ~~~
 
-![](sw/spl/Help/Image/bitOr-A.svg)
+![](Help/Image/bitOr-A.svg)
 
 Ramanujan sum _Cn(2)_,
 OEIS [A086831](https://oeis.org/A086831):
@@ -11079,7 +11079,7 @@ OEIS [A086831](https://oeis.org/A086831):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/moebiusTransform-C.svg)
+![](Help/Image/moebiusTransform-C.svg)
 
 Number of cubes in multiplicative group modulo _n_,
 OEIS [A087692](https://oeis.org/A087692):
@@ -11106,7 +11106,7 @@ OEIS [A087692](https://oeis.org/A087692):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/product-D.svg)
+![](Help/Image/product-D.svg)
 
 The truncated Mertens function,
 OEIS [A088004](https://oeis.org/A088004):
@@ -11117,7 +11117,7 @@ OEIS [A088004](https://oeis.org/A088004):
 }.prefixSum.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/moebiusMu-J.svg)
+![](Help/Image/moebiusMu-J.svg)
 
 Sum of primitive roots of _n_-th prime,
 OEIS [A088144](https://oeis.org/A088144):
@@ -11128,7 +11128,7 @@ OEIS [A088144](https://oeis.org/A088144):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/primitiveRootList-D.svg)
+![](Help/Image/primitiveRootList-D.svg)
 
 _(Σ(R(p(n))) - μ(p(n)-1))/p(n)_,
 OEIS [A088145](https://oeis.org/A088145):
@@ -11151,7 +11151,7 @@ let a = 1:m.collect { :n |
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/multiplicativeOrder-F.svg)
+![](Help/Image/multiplicativeOrder-F.svg)
 
 _(Σ(R(p(n))) - μ(p(n)-1))/p(n)_,
 OEIS [A088145](https://oeis.org/A088145):
@@ -11164,7 +11164,7 @@ OEIS [A088145](https://oeis.org/A088145):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/primitiveRootList-E.svg)
+![](Help/Image/primitiveRootList-E.svg)
 
 Sequence where each term is the least integer such that adjacent products are distinct,
 OEIS [A088177](https://oeis.org/A088177):
@@ -11186,7 +11186,7 @@ let t = [1 1];
 t.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/IdentitySet-A.svg)
+![](Help/Image/IdentitySet-A.svg)
 
 Calculate sequence where each term is the least integer such that adjacent products are distinct,
 OEIS [A088177](https://oeis.org/A088177) _(a)_,
@@ -11215,7 +11215,7 @@ let x = 1;
 b.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/IdentitySet-B.svg)
+![](Help/Image/IdentitySet-B.svg)
 
 Let _a(n)_ be the prefix sum of the Kolakoski sequence,
 _3n - 2a(n)_,
@@ -11227,7 +11227,7 @@ let a = n.kolakoskiSequence.prefixSum;
 ((3 * 1:n) - (2 * a)).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/kolakoskiSequence-F.svg)
+![](Help/Image/kolakoskiSequence-F.svg)
 
 First differences of the ones-counting sequence,
 OEIS [A088705](https://oeis.org/A088705):
@@ -11247,7 +11247,7 @@ let a = Map { :n |
 a[0:127].discretePlot
 ~~~
 
-![](sw/spl/Help/Image/mod-L.svg)
+![](Help/Image/mod-L.svg)
 
 A recurrence table,
 _a[n-1]+(-1ᵐa[m])_ where _m=⌊(n/2)_,
@@ -11260,7 +11260,7 @@ OEIS [A089045](https://oeis.org/A089045):
 }.recurrenceTable([1], 85).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/power-I.svg)
+![](Help/Image/power-I.svg)
 
 Rational knots of determinant _2n+1_,
 counting chiral pairs twice,
@@ -11275,7 +11275,7 @@ OEIS [A089266](https://oeis.org/A089266):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/primeNu-B.svg)
+![](Help/Image/primeNu-B.svg)
 
 Continued fraction elements constructed out of a van der Corput sequence,
 OEIS [A089618](https://oeis.org/A089618):
@@ -11285,7 +11285,7 @@ let n = 1:250.vanDerCorputNumber(2);
 (1 / (2 ^ n - 1)).floor.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/vanDerCorputNumber-J.svg)
+![](Help/Image/vanDerCorputNumber-J.svg)
 
 Numbers having no more than one zero in their binary representation,
 OEIS [A089633](https://oeis.org/A089633):
@@ -11296,7 +11296,7 @@ OEIS [A089633](https://oeis.org/A089633):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/digitCount-J.svg)
+![](Help/Image/digitCount-J.svg)
 
 Penny flipping sequence,
 OEIS [A089645](https://oeis.org/A089645):
@@ -11317,7 +11317,7 @@ OEIS [A089645](https://oeis.org/A089645):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/multiplicativeOrder-I.svg)
+![](Help/Image/multiplicativeOrder-I.svg)
 
 Fibonacci modulo twelve,
 period is twenty-four,
@@ -11328,7 +11328,7 @@ OEIS [A089911](https://oeis.org/A089911):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/fibonacci-L.svg)
+![](Help/Image/fibonacci-L.svg)
 
 Pascal’s triangle negated modulo three,
 OEIS [A090044](https://oeis.org/A090044),
@@ -11340,7 +11340,7 @@ offset to _-1,0,1_:
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/pascalTriangle-I.svg)
+![](Help/Image/pascalTriangle-I.svg)
 
 Ordered differences of primes,
 row reversed,
@@ -11354,7 +11354,7 @@ OEIS [A090321](https://oeis.org/A090321):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/orderedDifferences-C.svg)
+![](Help/Image/orderedDifferences-C.svg)
 
 An integer modulo an integer sequence,
 _100%n_,
@@ -11365,7 +11365,7 @@ OEIS [A090976](https://oeis.org/A090976):
 (100 % 1:65).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/mod-B.svg)
+![](Help/Image/mod-B.svg)
 
 Kronecker symbol where _m=2_,
 period eight,
@@ -11377,7 +11377,7 @@ OEIS [A091337](https://oeis.org/A091337):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/kroneckerSymbol-I.svg)
+![](Help/Image/kroneckerSymbol-I.svg)
 
 Quaternary sieve,
 OEIS [A092418](https://oeis.org/A092418):
@@ -11392,7 +11392,7 @@ let a = [1 .. 100];
 a.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/removeAtAll-C.svg)
+![](Help/Image/removeAtAll-C.svg)
 
 _w(n)!_,
 OEIS [A093659](https://oeis.org/A093659):
@@ -11404,7 +11404,7 @@ OEIS [A093659](https://oeis.org/A093659):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/hammingWeight-F.svg)
+![](Help/Image/hammingWeight-F.svg)
 
 Two interleaved Beatty sequences,
 OEIS [A094077](https://oeis.org/A094077):
@@ -11418,7 +11418,7 @@ let c = 2.sqrt;
 ].interleave.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/beattySequence-A.svg)
+![](Help/Image/beattySequence-A.svg)
 
 Two interleaved Beatty sequences,
 OEIS [A094077](https://oeis.org/A094077):
@@ -11439,7 +11439,7 @@ let a = Map { :n |
 a[1:85].scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/minimumExcludedValue-A.svg)
+![](Help/Image/minimumExcludedValue-A.svg)
 
 Integers whose Zeckendorf representation is palindromic,
 OEIS [A094202](https://oeis.org/A094202):
@@ -11451,7 +11451,7 @@ OEIS [A094202](https://oeis.org/A094202):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/zeckendorfRepresentation-E.svg)
+![](Help/Image/zeckendorfRepresentation-E.svg)
 
 First differences of the ruler function,
 OEIS [A094267](https://oeis.org/A094267):
@@ -11462,7 +11462,7 @@ OEIS [A094267](https://oeis.org/A094267):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/rulerFunction-B.svg)
+![](Help/Image/rulerFunction-B.svg)
 
 Matrix plot of the first few rows of Pascal’s triangle modulo five,
 OEIS [A095140](https://oeis.org/A095140):
@@ -11474,7 +11474,7 @@ OEIS [A095140](https://oeis.org/A095140):
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/pascalTriangle-E.svg)
+![](Help/Image/pascalTriangle-E.svg)
 
 Pascal’s triangle modulo six,
 OEIS [A095141](https://oeis.org/A095141):
@@ -11485,7 +11485,7 @@ OEIS [A095141](https://oeis.org/A095141):
 .stepPlot
 ~~~
 
-![](sw/spl/Help/Image/pascalTriangle-K.svg)
+![](Help/Image/pascalTriangle-K.svg)
 
 Table,
 read by rows,
@@ -11502,7 +11502,7 @@ OEIS [A096008](https://oeis.org/A096008):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/powerMod-D.svg)
+![](Help/Image/powerMod-D.svg)
 
 The quadratic residues modulo _p_ which are coprime to _p_,
 OEIS [A096103](https://oeis.org/A096103):
@@ -11515,7 +11515,7 @@ OEIS [A096103](https://oeis.org/A096103):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/quadraticResidues-C.svg)
+![](Help/Image/quadraticResidues-C.svg)
 
 The period doubling sequence,
 OEIS [A096268](https://oeis.org/A096268):
@@ -11524,7 +11524,7 @@ OEIS [A096268](https://oeis.org/A096268):
 115.periodDoublingSequence.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/periodDoublingSequence-A.svg)
+![](Help/Image/periodDoublingSequence-A.svg)
 
 The triangle given by recursion _T(n,k)=T(n-1,k)-T(n,k-1)_,
 OEIS [A096470](https://oeis.org/A096470):
@@ -11551,7 +11551,7 @@ let f = { :n :k |
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/triangularArray-A.svg)
+![](Help/Image/triangularArray-A.svg)
 
 Interleave _n_ and _1-n_,
 OEIS [A097140](https://oeis.org/A097140):
@@ -11561,7 +11561,7 @@ OEIS [A097140](https://oeis.org/A097140):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/linearRecurrence-N.svg)
+![](Help/Image/linearRecurrence-N.svg)
 
 _(n-2)(-1^n)_,
 OEIS [A097141](https://oeis.org/A097141):
@@ -11571,7 +11571,7 @@ let n = 1:65;
 ((n - 2) * (-1 ^ n)).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/power-J.svg)
+![](Help/Image/power-J.svg)
 
 Riordan array _(1+x,1)_ read by rows,
 OEIS [A097806](https://oeis.org/A097806):
@@ -11582,7 +11582,7 @@ OEIS [A097806](https://oeis.org/A097806):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/padLeft-D.svg)
+![](Help/Image/padLeft-D.svg)
 
 A sequence that is distinct from but similar to the complement of the period doubling sequence,
 OEIS [A098725](https://oeis.org/A098725):
@@ -11598,7 +11598,7 @@ let a = Map { :n |
 a[0:101].discretePlot
 ~~~
 
-![](sw/spl/Help/Image/periodDoublingSequence-C.svg)
+![](Help/Image/periodDoublingSequence-C.svg)
 
 Step plot of fifth iteration of Arshon’s sequence,
 OEIS [A099054](https://oeis.org/A099054):
@@ -11608,7 +11608,7 @@ OEIS [A099054](https://oeis.org/A099054):
 .stepPlot
 ~~~
 
-![](sw/spl/Help/Image/arshonsSequence-A.svg)
+![](Help/Image/arshonsSequence-A.svg)
 
 Sixth iteration of Arshon’s sequence,
 offset to to over alphabet _-1,0,1_,
@@ -11619,7 +11619,7 @@ OEIS [A099054](https://oeis.org/A099054):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/arshonsSequence-B.svg)
+![](Help/Image/arshonsSequence-B.svg)
 
 Self-convolution of the inverse of sixth cyclotomic polynomial,
 OEIS [A010892](https://oeis.org/A010892),
@@ -11631,7 +11631,7 @@ let k = a.size;
 a.convolve(a).first(k).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/convolve-F.svg)
+![](Help/Image/convolve-F.svg)
 
 A knot sequence,
 OEIS [A099254](https://oeis.org/A099254):
@@ -11642,7 +11642,7 @@ OEIS [A099254](https://oeis.org/A099254):
 ).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/linearRecurrence-G.svg)
+![](Help/Image/linearRecurrence-G.svg)
 
 The third arithmetic derivative of _n_,
 OEIS [A099306](https://oeis.org/A099306):
@@ -11654,7 +11654,7 @@ OEIS [A099306](https://oeis.org/A099306):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/arithmeticDerivative-C.svg)
+![](Help/Image/arithmeticDerivative-C.svg)
 
 Sequence matrix for odd numbers,
 OEIS [A099375](https://oeis.org/A099375):
@@ -11665,7 +11665,7 @@ OEIS [A099375](https://oeis.org/A099375):
 .catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/prefixes-A.svg)
+![](Help/Image/prefixes-A.svg)
 
 Least excluded _m_ such that _m+a(n-1)_ is a multiple of _n_,
 OEIS [A099506](https://oeis.org/A099506):
@@ -11677,7 +11677,7 @@ OEIS [A099506](https://oeis.org/A099506):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/divisible-H.svg)
+![](Help/Image/divisible-H.svg)
 
 Number of divisors of _2n-1_,
 OEIS [A099774](https://oeis.org/A099774):
@@ -11688,7 +11688,7 @@ OEIS [A099774](https://oeis.org/A099774):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/divisorSigma-Q.svg)
+![](Help/Image/divisorSigma-Q.svg)
 
 Scatter plot of the digits of _π^2/9_,
 OEIS [A100044](https://oeis.org/A100044):
@@ -11700,7 +11700,7 @@ OEIS [A100044](https://oeis.org/A100044):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/pi-B.svg)
+![](Help/Image/pi-B.svg)
 
 A Chebyshev transform of the Fibonacci numbers,
 OEIS [A100047](https://oeis.org/A100047):
@@ -11710,7 +11710,7 @@ OEIS [A100047](https://oeis.org/A100047):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/repeat-A.svg)
+![](Help/Image/repeat-A.svg)
 
 Step plot of fifth iteration of Arshon’s sequence starting with two,
 OEIS [A100336](https://oeis.org/A100336):
@@ -11720,7 +11720,7 @@ OEIS [A100336](https://oeis.org/A100336):
 .stepPlot
 ~~~
 
-![](sw/spl/Help/Image/arshonsSequence-C.svg)
+![](Help/Image/arshonsSequence-C.svg)
 
 Step plot of fifth iteration of Arshon’s sequence starting with three,
 OEIS [A100337](https://oeis.org/A100337):
@@ -11730,7 +11730,7 @@ OEIS [A100337](https://oeis.org/A100337):
 .stepPlot
 ~~~
 
-![](sw/spl/Help/Image/arshonsSequence-D.svg)
+![](Help/Image/arshonsSequence-D.svg)
 
 If _n_ is a prime power _p^m_ then _m_ else zero,
 OEIS [A100995](https://oeis.org/A100995):
@@ -11745,7 +11745,7 @@ OEIS [A100995](https://oeis.org/A100995):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/isPrimePower-B.svg)
+![](Help/Image/isPrimePower-B.svg)
 
 Dirichlet inverse of the gcd-sum function,
 OEIS [A101035](https://oeis.org/A101035):
@@ -11756,7 +11756,7 @@ OEIS [A101035](https://oeis.org/A101035):
 ).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/dirichletInverse-A.svg)
+![](Help/Image/dirichletInverse-A.svg)
 
 Dirichlet inverse of the gcd-sum function,
 OEIS [A101035](https://oeis.org/A101035):
@@ -11774,7 +11774,7 @@ OEIS [A101035](https://oeis.org/A101035):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/factorInteger-K.svg)
+![](Help/Image/factorInteger-K.svg)
 
 Table of Hamming distances between binary vectors,
 read by antidiagonals,
@@ -11786,7 +11786,7 @@ OEIS [A101080](https://oeis.org/A101080):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/hammingWeight-S.svg)
+![](Help/Image/hammingWeight-S.svg)
 
 Run lengths of binary representation of _n_,
 OEIS [A101211](https://oeis.org/A101211):
@@ -11798,7 +11798,7 @@ OEIS [A101211](https://oeis.org/A101211):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/asRunArray-A.svg)
+![](Help/Image/asRunArray-A.svg)
 
 For each _n_,
 the index of the first occurence of the prime signature of _n_,
@@ -11819,7 +11819,7 @@ let ln = [];
 ln.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/primeSignature-E.svg)
+![](Help/Image/primeSignature-E.svg)
 
 A permutation of the positive integers,
 OEIS [A101369](https://oeis.org/A101369):
@@ -11835,7 +11835,7 @@ let m = 2.sqrt;
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/sqrt-C.svg)
+![](Help/Image/sqrt-C.svg)
 
 Given the initial terms of a permutation of the positive integers,
 OEIS [A101369](https://oeis.org/A101369),
@@ -11853,7 +11853,7 @@ let m = 2.sqrt;
 }.partialInversePermutation.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/partialInversePermutation-A.svg)
+![](Help/Image/partialInversePermutation-A.svg)
 
 Triangle of _¬n&k_,
 also called the converse nonimplication,
@@ -11865,7 +11865,7 @@ OEIS [A102037](https://oeis.org/A102037):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitNot-B.svg)
+![](Help/Image/bitNot-B.svg)
 
 Number of zeroes in the Zeckendorf representation of _n_,
 OEIS [A102364](https://oeis.org/A102364):
@@ -11877,7 +11877,7 @@ OEIS [A102364](https://oeis.org/A102364):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/zeckendorfRepresentation-H.svg)
+![](Help/Image/zeckendorfRepresentation-H.svg)
 
 Sloping binary numbers,
 OEIS [A102370](https://oeis.org/A102370):
@@ -11891,7 +11891,7 @@ OEIS [A102370](https://oeis.org/A102370):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/integerLength-D.svg)
+![](Help/Image/integerLength-D.svg)
 
 A variant of the sloping binary numbers sequence,
 organised in blocks and a permutation of the integers,
@@ -11906,7 +11906,7 @@ OEIS [A102370](https://oeis.org/A102370):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/integerLength-E.svg)
+![](Help/Image/integerLength-E.svg)
 
 _n^2/r(n)_,
 OEIS [A102631](https://oeis.org/A102631):
@@ -11917,7 +11917,7 @@ OEIS [A102631](https://oeis.org/A102631):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/radical-I.svg)
+![](Help/Image/radical-I.svg)
 
 Numerators of the unitary harmonic means,
 OEIS [A103339](https://oeis.org/A103339):
@@ -11928,7 +11928,7 @@ OEIS [A103339](https://oeis.org/A103339):
 }.numerator.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/unitaryDivisors-C.svg)
+![](Help/Image/unitaryDivisors-C.svg)
 
 Denominators of the unitary harmonic means,
 OEIS [A103340](https://oeis.org/A103340):
@@ -11939,7 +11939,7 @@ OEIS [A103340](https://oeis.org/A103340):
 }.denominator.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/unitaryDivisors-D.svg)
+![](Help/Image/unitaryDivisors-D.svg)
 
 Multiplicative suborder of three,
 OEIS [A103489](https://oeis.org/A103489):
@@ -11950,7 +11950,7 @@ OEIS [A103489](https://oeis.org/A103489):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/multiplicativeSuborder-A.svg)
+![](Help/Image/multiplicativeSuborder-A.svg)
 
 Multiplicative suborder of five,
 OEIS [A103491](https://oeis.org/A103491):
@@ -11961,7 +11961,7 @@ OEIS [A103491](https://oeis.org/A103491):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/multiplicativeSuborder-B.svg)
+![](Help/Image/multiplicativeSuborder-B.svg)
 
 The number of Schroeder paths of length _2n_ and having _k_ peaks at height one,
 OEIS [A104219](https://oeis.org/A104219):
@@ -11978,7 +11978,7 @@ OEIS [A104219](https://oeis.org/A104219):
 }.catenate.log.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/hypergeometric2F1-C.svg)
+![](Help/Image/hypergeometric2F1-C.svg)
 
 The number of runs of identical bits in the binary Zeckendorf representation of _n_,
 OEIS [A104324](https://oeis.org/A104324):
@@ -11991,7 +11991,7 @@ OEIS [A104324](https://oeis.org/A104324):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/zeckendorfRepresentation-F.svg)
+![](Help/Image/zeckendorfRepresentation-F.svg)
 
 The number of runs of identical bits in the Dual Zeckendorf representation of _n_,
 OEIS [A104325](https://oeis.org/A104325):
@@ -12004,7 +12004,7 @@ OEIS [A104325](https://oeis.org/A104325):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/dualZeckendorfRepresentation-F.svg)
+![](Help/Image/dualZeckendorfRepresentation-F.svg)
 
 List of powers of φ in the representation of _n_,
 OEIS [A104605](https://oeis.org/A104605):
@@ -12017,7 +12017,7 @@ let phi = 1.goldenRatio;
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/betaExpansion-D.svg)
+![](Help/Image/betaExpansion-D.svg)
 
 Powers of phi in the representation of the integer _n_ as a sum of increasing nonconsecutive powers of the golden ratio,
 OEIS [A104605](https://oeis.org/A104605):
@@ -12030,7 +12030,7 @@ OeisEntry('A104605').then { :e |
 }
 ~~~
 
-![](sw/spl/Help/Image/goldenRatio-K.svg)
+![](Help/Image/goldenRatio-K.svg)
 
 A binary array,
 read by falling antidiagonals,
@@ -12044,7 +12044,7 @@ OEIS [A104894](https://oeis.org/A104894):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/thueMorse-A.svg)
+![](Help/Image/thueMorse-A.svg)
 
 A binary array,
 read by falling antidiagonals,
@@ -12058,7 +12058,7 @@ OEIS [A104894](https://oeis.org/A104894):
 }.triangularArrayPlot
 ~~~
 
-![](sw/spl/Help/Image/thueMorse-B.svg)
+![](Help/Image/thueMorse-B.svg)
 
 _a(2n)=-2*a(n)_ and _a(2n+1)=2*a(n)-1_,
 OEIS [A104895](https://oeis.org/A104895):
@@ -12078,7 +12078,7 @@ let a = Map { :n |
 a[0:150].scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isEven-B.svg)
+![](Help/Image/isEven-B.svg)
 
 The part of _n_ in base φ left of the decimal point,
 interpreted as a binary integer,
@@ -12092,7 +12092,7 @@ let phi = 1.goldenRatio;
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/betaExpansion-E.svg)
+![](Help/Image/betaExpansion-E.svg)
 
 Number of nonzero quadratic residues,
 OEIS [A105612](https://oeis.org/A105612):
@@ -12103,7 +12103,7 @@ OEIS [A105612](https://oeis.org/A105612):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/quadraticResidues-A.svg)
+![](Help/Image/quadraticResidues-A.svg)
 
 Fibonacci numbers modulo seven,
 period is sixteen,
@@ -12114,7 +12114,7 @@ OEIS [A105870](https://oeis.org/A105870):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/fibonacci-B.svg)
+![](Help/Image/fibonacci-B.svg)
 
 Fibonacci modulo fourteen,
 period is fourty-eight,
@@ -12125,7 +12125,7 @@ OEIS [A105995](https://oeis.org/A105995):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/fibonacci-M.svg)
+![](Help/Image/fibonacci-M.svg)
 
 Rowland’s sequence with _m=7_,
 step plot,
@@ -12136,7 +12136,7 @@ OEIS [A106108](https://oeis.org/A106108):
 .stepPlot
 ~~~
 
-![](sw/spl/Help/Image/rowlandsSequence-A.svg)
+![](Help/Image/rowlandsSequence-A.svg)
 
 _a(n)/n_,
 where _a_ is Rowland’s sequence,
@@ -12151,7 +12151,7 @@ allButFirst(2)
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/rowlandsSequence-F.svg)
+![](Help/Image/rowlandsSequence-F.svg)
 
 The _+1,-1_ form of the Thue-Morse sequence,
 OEIS [A106400](https://oeis.org/A106400):
@@ -12161,7 +12161,7 @@ let a = 102.thueMorseSequence;
 ((1 - a) * 2 - 1).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/thueMorseSequence-E.svg)
+![](Help/Image/thueMorseSequence-E.svg)
 
 _C(n-a,k/2)×(-1^a)_ where _a=(k+1)/2_,
 OEIS [A108299](https://oeis.org/A108299):
@@ -12173,7 +12173,7 @@ OEIS [A108299](https://oeis.org/A108299):
 }.catenate.logScale.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/binomial-J.svg)
+![](Help/Image/binomial-J.svg)
 
 Riordan array _(1,x(1-x))_,
 OEIS [A109466](https://oeis.org/A109466):
@@ -12184,7 +12184,7 @@ OEIS [A109466](https://oeis.org/A109466):
 }.catenate.logScale.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/binomial-M.svg)
+![](Help/Image/binomial-M.svg)
 
 Number of compositions of _n_ with _k_ parts,
 OEIS [A109466](https://oeis.org/A109466):
@@ -12195,7 +12195,7 @@ OEIS [A109466](https://oeis.org/A109466):
 }.catenate.logScale.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/binomial-N.svg)
+![](Help/Image/binomial-N.svg)
 
 A variant of the semi-Fibonacci numbers,
 OEIS [A109671](https://oeis.org/A109671):
@@ -12221,7 +12221,7 @@ let a = Map { :n |
 a[1:150].scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/fibonacciSequence-C.svg)
+![](Help/Image/fibonacciSequence-C.svg)
 
 Riordan array _((1-x)/(1+x),x/(1+x)^2)_,
 OEIS [A110162](https://oeis.org/A110162):
@@ -12240,7 +12240,7 @@ OEIS [A110162](https://oeis.org/A110162):
 }.catenate.logScale.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/binomial-L.svg)
+![](Help/Image/binomial-L.svg)
 
 A self-descriptive sequence,
 terms at even indices are the sequence itself,
@@ -12256,7 +12256,7 @@ OEIS [A110963](https://oeis.org/A110963):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerExponent-B.svg)
+![](Help/Image/integerExponent-B.svg)
 
 _-1^(n-k)×L(n,k)_,
 OEIS [A111596](https://oeis.org/A111596):
@@ -12267,7 +12267,7 @@ OEIS [A111596](https://oeis.org/A111596):
 }.catenate.logScale.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/lahNumber-A.svg)
+![](Help/Image/lahNumber-A.svg)
 
 Triangle read by rows,
 row _n_ has terms in lazy Fibonacci representation of _n_,
@@ -12282,7 +12282,7 @@ OEIS [A112309](https://oeis.org/A112309):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/dualZeckendorfRepresentation-D.svg)
+![](Help/Image/dualZeckendorfRepresentation-D.svg)
 
 Number of terms in lazy Fibonacci representation of _n_,
 OEIS [A112310](https://oeis.org/A112310):
@@ -12294,7 +12294,7 @@ OEIS [A112310](https://oeis.org/A112310):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/dualZeckendorfRepresentation-B.svg)
+![](Help/Image/dualZeckendorfRepresentation-B.svg)
 
 Characteristic function of powerful numbers,
 OEIS [A112526](https://oeis.org/A112526):
@@ -12304,7 +12304,7 @@ OEIS [A112526](https://oeis.org/A112526):
 .boole.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/isPowerfulNumber-A.svg)
+![](Help/Image/isPowerfulNumber-A.svg)
 
 Excess of _3n-1_ primes over _3n+1_ primes,
 OEIS [A112632](https://oeis.org/A112632):
@@ -12319,7 +12319,7 @@ let a = List(m, 1);
 a.differences.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/prime-G.svg)
+![](Help/Image/prime-G.svg)
 
 With _m=HeinzAscending_,
 OEIS [A112798](https://oeis.org/A112798):
@@ -12331,7 +12331,7 @@ let m = 'HeinzAscending';
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerPartitionUnrank-D.svg)
+![](Help/Image/integerPartitionUnrank-D.svg)
 
 A self-describing sequence made of strings of consecutive integers,
 OEIS [A113138](https://oeis.org/A113138):
@@ -12360,7 +12360,7 @@ let r = 1;
 (a - 1).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/whileTrue-B.svg)
+![](Help/Image/whileTrue-B.svg)
 
 Least excluded _m_ that is a divisor of the previous term,
 or a multiple of the previous term having at least one prime divisor coprime to it,
@@ -12380,7 +12380,7 @@ OEIS [A113552](https://oeis.org/A113552):
 }.log.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/divisible-I.svg)
+![](Help/Image/divisible-I.svg)
 
 Table _n-k_,
 read by upwards antidiagonals,
@@ -12392,7 +12392,7 @@ OEIS [A114327](https://oeis.org/A114327):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/antidiagonalArray-A.svg)
+![](Help/Image/antidiagonalArray-A.svg)
 
 Triangle of coefficients of the Lucas polynomials,
 OEIS [A114525](https://oeis.org/A114525):
@@ -12404,7 +12404,7 @@ OEIS [A114525](https://oeis.org/A114525):
 }.catenate.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/lucasPolynomial-A.svg)
+![](Help/Image/lucasPolynomial-A.svg)
 
 Dispersion of the primes,
 OEIS [A114537](https://oeis.org/A114537):
@@ -12418,7 +12418,7 @@ OEIS [A114537](https://oeis.org/A114537):
 }.catenate.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/nonPrime-B.svg)
+![](Help/Image/nonPrime-B.svg)
 
 _a(n+1)_ tells the number of earlier terms _a(k)_ where _a(k)+n_ is a prime,
 OEIS [A114897](https://oeis.org/A114897):
@@ -12443,7 +12443,7 @@ let a:/1 = { :n |
 1:150.collect(a:/1).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isPrime-B.svg)
+![](Help/Image/isPrime-B.svg)
 
 Partial sums of the Thue–Morse sequence,
 OEIS [A115384](https://oeis.org/A115384):
@@ -12452,7 +12452,7 @@ OEIS [A115384](https://oeis.org/A115384):
 35.thueMorseSequence.prefixSum.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/thueMorseSequence-D.svg)
+![](Help/Image/thueMorseSequence-D.svg)
 
 The number of partitions of _n_ such that the sum of the parts, counted without multiplicities, is equal to _k_,
 OEIS [A116861](https://oeis.org/A116861):
@@ -12465,7 +12465,7 @@ OEIS [A116861](https://oeis.org/A116861):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/integerPartitions-G.svg)
+![](Help/Image/integerPartitions-G.svg)
 
 The number of triangular numbers modulo _n_,
 OEIS [A117484](https://oeis.org/A117484):
@@ -12484,7 +12484,7 @@ OEIS [A117484](https://oeis.org/A117484):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/factorInteger-J.svg)
+![](Help/Image/factorInteger-J.svg)
 
 Table of dimensions of integer partitions,
 OEIS [A117506](https://oeis.org/A117506):
@@ -12496,7 +12496,7 @@ OEIS [A117506](https://oeis.org/A117506):
 }.catenate.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/hookLengthFormula-A.svg)
+![](Help/Image/hookLengthFormula-A.svg)
 
 Table of dimensions of integer partitions,
 OEIS [A117506](https://oeis.org/A117506):
@@ -12507,7 +12507,7 @@ OEIS [A117506](https://oeis.org/A117506):
 ).catenate.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/integerPartitionsDimensions-A.svg)
+![](Help/Image/integerPartitionsDimensions-A.svg)
 
 Balanced ternary enumeration of integers,
 OEIS [A117966](https://oeis.org/A117966):
@@ -12521,7 +12521,7 @@ let k = 123;
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerDigits-B.svg)
+![](Help/Image/integerDigits-B.svg)
 
 Write _n_ in balanced ternary and then replace negative ones with twos,
 OEIS [A117967](https://oeis.org/A117967):
@@ -12546,7 +12546,7 @@ OEIS [A117967](https://oeis.org/A117967):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/quotientRemainder-D.svg)
+![](Help/Image/quotientRemainder-D.svg)
 
 Matrix plot of Reverend Back’s abbey floor,
 the table indices _i_ are given by
@@ -12561,7 +12561,7 @@ let i = { :x |
 }.table(i, i).matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/iterate-A.svg)
+![](Help/Image/iterate-A.svg)
 
 Iterate _w⧺w⧺ᴙ(w)_,
 initially _0,1_,
@@ -12573,7 +12573,7 @@ OEIS [A118006](https://oeis.org/A118006):
 }.iterate([0 1], 3).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/iterate-F.svg)
+![](Help/Image/iterate-F.svg)
 
 Signature sequence of φ²,
 OEIS [A118276](https://oeis.org/A118276):
@@ -12584,7 +12584,7 @@ OEIS [A118276](https://oeis.org/A118276):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/signatureSequence-A.svg)
+![](Help/Image/signatureSequence-A.svg)
 
 The degree of the classical modular polynomial,
 OEIS [A118778](https://oeis.org/A118778):
@@ -12606,7 +12606,7 @@ OEIS [A118778](https://oeis.org/A118778):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/eulerPhi-F.svg)
+![](Help/Image/eulerPhi-F.svg)
 
 Number of missing residues in Fibonacci sequence modulo _n_,
 OEIS [A118965](https://oeis.org/A118965):
@@ -12621,7 +12621,7 @@ OEIS [A118965](https://oeis.org/A118965):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/pisanoPeriod-F.svg)
+![](Help/Image/pisanoPeriod-F.svg)
 
 Triangle read by rows,
 _gcd(k,⌈(n/k))_,
@@ -12635,7 +12635,7 @@ let a = 1:13.triangularArray { :n :k |
 (a.catenate - 1).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/gcd-P.svg)
+![](Help/Image/gcd-P.svg)
 
 A sequence describing the position of its prime terms,
 OEIS [A121053](https://oeis.org/A121053):
@@ -12663,7 +12663,7 @@ OEIS [A121053](https://oeis.org/A121053):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/primePi-H.svg)
+![](Help/Image/primePi-H.svg)
 
 Sums of primitive roots of _n_
 OEIS [A121380](https://oeis.org/A121380):
@@ -12674,7 +12674,7 @@ OEIS [A121380](https://oeis.org/A121380):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/primitiveRootList-B.svg)
+![](Help/Image/primitiveRootList-B.svg)
 
 Take odd digits of _n_ with negative sign,
 OEIS [A121758](https://oeis.org/A121758):
@@ -12689,7 +12689,7 @@ OEIS [A121758](https://oeis.org/A121758):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/withIndexCollect-A.svg)
+![](Help/Image/withIndexCollect-A.svg)
 
 Take even digits of _n_ with negative sign,
 OEIS [A121759](https://oeis.org/A121759):
@@ -12704,7 +12704,7 @@ OEIS [A121759](https://oeis.org/A121759):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/withIndexCollect-B.svg)
+![](Help/Image/withIndexCollect-B.svg)
 
 Self-inverse permutation of the positive integers,
 OEIS [A122111](https://oeis.org/A122111):
@@ -12723,7 +12723,7 @@ OEIS [A122111](https://oeis.org/A122111):
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/factorInteger-P.svg)
+![](Help/Image/factorInteger-P.svg)
 
 List of twin primes modulo four,
 OEIS [A122567](https://oeis.org/A122567):
@@ -12737,7 +12737,7 @@ let c = b.deleteDuplicates;
 (c % 4).stepPlot
 ~~~
 
-![](sw/spl/Help/Image/isLesserTwinPrime-C.svg)
+![](Help/Image/isLesserTwinPrime-C.svg)
 
 Number of zeroes at the end of _n_ when written in base ten,
 OEIS [A122840](https://oeis.org/A122840):
@@ -12746,7 +12746,7 @@ OEIS [A122840](https://oeis.org/A122840):
 1:200.integerExponent(10).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/integerExponent-C.svg)
+![](Help/Image/integerExponent-C.svg)
 
 Interleave _n+7_ and _13-n_,
 OEIS [A122874](https://oeis.org/A122874):
@@ -12756,7 +12756,7 @@ let n = 0:32;
 [n + 7, 13 - n].interleave.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/interleave-F.svg)
+![](Help/Image/interleave-F.svg)
 
 Inverse Möbius transform of periodic _1,-1,-3,1,-1,3,1,-1,0_,
 OEIS [A123477](https://oeis.org/A123477):
@@ -12768,7 +12768,7 @@ OEIS [A123477](https://oeis.org/A123477):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/inverseMoebiusTransform-A.svg)
+![](Help/Image/inverseMoebiusTransform-A.svg)
 
 A direct form for the offset Kolakoski sequence,
 with an additional two leading terms,
@@ -12793,7 +12793,7 @@ let i = 3;
 a.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/kolakoskiSequence-C.svg)
+![](Help/Image/kolakoskiSequence-C.svg)
 
 Alternating sums of integer compositions in reverse lexicographic order,
 OEIS [A124754](https://oeis.org/A124754):
@@ -12806,7 +12806,7 @@ OEIS [A124754](https://oeis.org/A124754):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/reverseLexicographicSort-B.svg)
+![](Help/Image/reverseLexicographicSort-B.svg)
 
 Inverse binomial sum of compositions in standard order,
 OEIS [A124756](https://oeis.org/A124756):
@@ -12821,7 +12821,7 @@ OEIS [A124756](https://oeis.org/A124756):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/reverseLexicographicSort-C.svg)
+![](Help/Image/reverseLexicographicSort-C.svg)
 
 Table of exponents of prime factorizations in
 OEIS [A025487](https://oeis.org/A025487),
@@ -12837,7 +12837,7 @@ OeisEntry('A025487').then { :e |
 }
 ~~~
 
-![](sw/spl/Help/Image/primeExponents-A.svg)
+![](Help/Image/primeExponents-A.svg)
 
 The inverse binomial transform of the rabbit sequence,
 OEIS [A124841](https://oeis.org/A124841):
@@ -12849,7 +12849,7 @@ OEIS [A124841](https://oeis.org/A124841):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/inverseBinomialTransform-C.svg)
+![](Help/Image/inverseBinomialTransform-C.svg)
 
 Primorial inflation of the prime shadow of _n_,
 OEIS [A124859](https://oeis.org/A124859):
@@ -12867,7 +12867,7 @@ OEIS [A124859](https://oeis.org/A124859):
 }.map(1:50).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/factorInteger-B.svg)
+![](Help/Image/factorInteger-B.svg)
 
 Enumeration of partitions by binary representation,
 OEIS [A125106](https://oeis.org/A125106):
@@ -12881,7 +12881,7 @@ OEIS [A125106](https://oeis.org/A125106):
 }.catenate.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/integerDigits-S.svg)
+![](Help/Image/integerDigits-S.svg)
 
 The smallest non-negative integer not already in the sequence such that _a(n-1)_ is congruent to _a(n)%n_,
 OEIS [A125717](https://oeis.org/A125717):
@@ -12898,7 +12898,7 @@ let l = [0];
 l.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/mod-O.svg)
+![](Help/Image/mod-O.svg)
 
 The Vedic square where _n=9_,
 OEIS [A125959](https://oeis.org/A125959):
@@ -12907,7 +12907,7 @@ OEIS [A125959](https://oeis.org/A125959):
 9.vedicSquare.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/vedicSquare-D.svg)
+![](Help/Image/vedicSquare-D.svg)
 
 Triangle read by rows,
 _k_ if _k_ is a divisor of _n_ else zero,
@@ -12919,7 +12919,7 @@ OEIS [A127093](https://oeis.org/A127093):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/boole-B.svg)
+![](Help/Image/boole-B.svg)
 
 Triangle read by rows,
 _n/k_ if _k_ is a divisor of _n_ else zero,
@@ -12931,7 +12931,7 @@ OEIS [A127093](https://oeis.org/A127093):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/divide-B.svg)
+![](Help/Image/divide-B.svg)
 
 Cumulant expansion numbers,
 OEIS [A127671](https://oeis.org/A127671):
@@ -12952,7 +12952,7 @@ let c = { :p |
 }.catenate.logScale.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/product-C.svg)
+![](Help/Image/product-C.svg)
 
 Monic integer version of Chebyshev T-polynomials,
 OEIS [A127672](https://oeis.org/A127672):
@@ -12965,7 +12965,7 @@ OEIS [A127672](https://oeis.org/A127672):
 }.catenate.logScale.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/chebyshevT-F.svg)
+![](Help/Image/chebyshevT-F.svg)
 
 Numbers sorted by their Collatz stopping time,
 OEIS [A127824](https://oeis.org/A127824):
@@ -12987,7 +12987,7 @@ let t = 1:15.collect { :unused |
 ([1] ++ t.catenate).log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/collatzSequence-D.svg)
+![](Help/Image/collatzSequence-D.svg)
 
 Triangle where _(n,n)=n_, _(n,n-1)=-(n-1)_ else zero,
 OEIS [A128064](https://oeis.org/A128064):
@@ -13006,7 +13006,7 @@ OEIS [A128064](https://oeis.org/A128064):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/triangularArray-L.svg)
+![](Help/Image/triangularArray-L.svg)
 
 Number of distinct prime factors _p_ of _n_ such that _p^p_ is a divisor of _n_,
 OEIS [A129251](https://oeis.org/A129251):
@@ -13019,7 +13019,7 @@ OEIS [A129251](https://oeis.org/A129251):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/distinctPrimeFactors-C.svg)
+![](Help/Image/distinctPrimeFactors-C.svg)
 
 Involution of nonnegative integers induced by the conjugation of the encoded partition,
 OEIS [A129594](https://oeis.org/A129594):
@@ -13033,7 +13033,7 @@ let m = 'Karttunen';
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerPartitionUnrank-A.svg)
+![](Help/Image/integerPartitionUnrank-A.svg)
 
 Involution of nonnegative integers induced by the conjugation of the encoded partition,
 block _256:511_,
@@ -13048,7 +13048,7 @@ let m = 'Karttunen';
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerPartitionUnrank-B.svg)
+![](Help/Image/integerPartitionUnrank-B.svg)
 
 Bitwise and of _n-1_ and _n_,
 OEIS [A129760](https://oeis.org/A129760):
@@ -13058,7 +13058,7 @@ let n = 1:100;
 n.bitAnd(n - 1).linePlot
 ~~~
 
-![](sw/spl/Help/Image/bitAnd-A.svg)
+![](Help/Image/bitAnd-A.svg)
 
 Prefix sum of _n%9_,
 OEIS [A130487](https://oeis.org/A130487):
@@ -13067,7 +13067,7 @@ OEIS [A130487](https://oeis.org/A130487):
 (0:44 % 9).prefixSum.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/mod-S.svg)
+![](Help/Image/mod-S.svg)
 
 _-1^(n+k)*C(n,k)_,
 lower triangular matrix which is inverse to Pascal’s triangle,
@@ -13079,7 +13079,7 @@ OEIS [A130595](https://oeis.org/A130595):
 }.catenate.logScale.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/binomial-K.svg)
+![](Help/Image/binomial-K.svg)
 
 A self-referential sequence related to Mancala solitaire,
 OEIS [A130747](https://oeis.org/A130747):
@@ -13099,7 +13099,7 @@ let a = [
 a.first(m).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/indicesOf-B.svg)
+![](Help/Image/indicesOf-B.svg)
 
 Anti-divisors of _n_,
 OEIS [A130799](https://oeis.org/A130799):
@@ -13108,7 +13108,7 @@ OEIS [A130799](https://oeis.org/A130799):
 3:50.antiDivisors.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/antiDivisors-A.svg)
+![](Help/Image/antiDivisors-A.svg)
 
 _a(n)=2^a(n-1)_ modulo _n_,
 OEIS [A131644](https://oeis.org/A131644):
@@ -13120,7 +13120,7 @@ let s = 0;
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/powerMod-J.svg)
+![](Help/Image/powerMod-J.svg)
 
 Numbers whose ternary representation begins with one,
 OEIS [A132141](https://oeis.org/A132141):
@@ -13131,7 +13131,7 @@ OEIS [A132141](https://oeis.org/A132141):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/ternaryExpansion-D.svg)
+![](Help/Image/ternaryExpansion-D.svg)
 
 Number of distinct primes among the squares modulo _n_,
 OEIS [A132213](https://oeis.org/A132213):
@@ -13144,7 +13144,7 @@ OEIS [A132213](https://oeis.org/A132213):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/powerMod-I.svg)
+![](Help/Image/powerMod-I.svg)
 
 Quotients of eight,
 OEIS [A132292](https://oeis.org/A132292):
@@ -13155,7 +13155,7 @@ OEIS [A132292](https://oeis.org/A132292):
 }
 ~~~
 
-![](sw/spl/Help/Image/quotient-A.svg)
+![](Help/Image/quotient-A.svg)
 
 Infinitesimal Pascal matrix,
 OEIS [A132440](https://oeis.org/A132440):
@@ -13166,7 +13166,7 @@ OEIS [A132440](https://oeis.org/A132440):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/padLeft-B.svg)
+![](Help/Image/padLeft-B.svg)
 
 Largest divisor of _n_ having the form _2^i×5^j_,
 OEIS [A132741](https://oeis.org/A132741):
@@ -13179,7 +13179,7 @@ OEIS [A132741](https://oeis.org/A132741):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/integerExponent-Q.svg)
+![](Help/Image/integerExponent-Q.svg)
 
 The infinitesimal Lah matrix,
 OEIS [A132792](https://oeis.org/A132792):
@@ -13190,7 +13190,7 @@ OEIS [A132792](https://oeis.org/A132792):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/padLeft-C.svg)
+![](Help/Image/padLeft-C.svg)
 
 Largest integer _m_ such that _n-m^2_ is a square,
 or zero if no such _m_ exists,
@@ -13217,7 +13217,7 @@ OEIS [A133388](https://oeis.org/A133388):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/isInteger-A.svg)
+![](Help/Image/isInteger-A.svg)
 
 _C(n+10,n)%10_,
 OEIS [A133890](https://oeis.org/A133890):
@@ -13228,7 +13228,7 @@ OEIS [A133890](https://oeis.org/A133890):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/binomial-T.svg)
+![](Help/Image/binomial-T.svg)
 
 Antidiagonal array of polygonal numbers,
 OEIS [A134394](https://oeis.org/A134394):
@@ -13239,7 +13239,7 @@ OEIS [A134394](https://oeis.org/A134394):
 }.++.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/polygonalNumber-C.svg)
+![](Help/Image/polygonalNumber-C.svg)
 
 _a(n)_ is the smallest integer _m_ not equal to _n_ such that _n=(⌊(n²/m)+m)/2_,
 OEIS [A134986](https://oeis.org/A134986):
@@ -13255,7 +13255,7 @@ OEIS [A134986](https://oeis.org/A134986):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/square-C.svg)
+![](Help/Image/square-C.svg)
 
 Log scatter plot of a sequence by K. Matylla,
 OEIS [A135141](https://oeis.org/A135141):
@@ -13275,7 +13275,7 @@ let a = { :n |
 1:200.collect(a:/1).log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/primePi-D.svg)
+![](Help/Image/primePi-D.svg)
 
 A permutation of the positive integers,
 _a(P(n))=2*a(n)_ and _a(C(n))=2*a(n)+1_,
@@ -13297,7 +13297,7 @@ let a = Map { :n |
 a[1:85].discretePlot
 ~~~
 
-![](sw/spl/Help/Image/primePi-S.svg)
+![](Help/Image/primePi-S.svg)
 
 Least string of digits that,
 when cycled,
@@ -13319,7 +13319,7 @@ OEIS [A135472](https://oeis.org/A135472):
 ].stepPlot
 ~~~
 
-![](sw/spl/Help/Image/partition-A.svg)
+![](Help/Image/partition-A.svg)
 
 Delayed divison of the Cloitre sequence,
 OEIS [A135506](https://oeis.org/A135506):
@@ -13330,7 +13330,7 @@ OEIS [A135506](https://oeis.org/A135506):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/rowlandsSequence-G.svg)
+![](Help/Image/rowlandsSequence-G.svg)
 
 Number of trailing equal digits in binary representation of _n_,
 OEIS [A136480](https://oeis.org/A136480):
@@ -13341,7 +13341,7 @@ OEIS [A136480](https://oeis.org/A136480):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/binaryExpansion-F.svg)
+![](Help/Image/binaryExpansion-F.svg)
 
 Omit the ones from Rowland’s sequence,
 OEIS [A137613](https://oeis.org/A137613):
@@ -13355,7 +13355,7 @@ OeisEntry('A137613').then { :e |
 }
 ~~~
 
-![](sw/spl/Help/Image/rowlandsSequence-B.svg)
+![](Help/Image/rowlandsSequence-B.svg)
 
 Number of distinct residues in Fibonacci sequence modulo _p(n)_,
 OEIS [A137750](https://oeis.org/A137750):
@@ -13368,7 +13368,7 @@ OEIS [A137750](https://oeis.org/A137750):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/pisanoPeriod-G.svg)
+![](Help/Image/pisanoPeriod-G.svg)
 
 Number of divisors _d_ of _n_ such that _d+1_ is not a divisor of _n_,
 OEIS [A137921](https://oeis.org/A137921):
@@ -13381,7 +13381,7 @@ OEIS [A137921](https://oeis.org/A137921):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/divisible-B.svg)
+![](Help/Image/divisible-B.svg)
 
 The toothpick sequence,
 OEIS [A139250](https://oeis.org/A139250):
@@ -13390,7 +13390,7 @@ OEIS [A139250](https://oeis.org/A139250):
 200.toothpickSequence.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/toothpickSequence-A.svg)
+![](Help/Image/toothpickSequence-A.svg)
 
 First differences of toothpicks numbers,
 OEIS [A139251](https://oeis.org/A139251):
@@ -13401,7 +13401,7 @@ OEIS [A139251](https://oeis.org/A139251):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/toothpickSequence-B.svg)
+![](Help/Image/toothpickSequence-B.svg)
 
 First differences of toothpicks numbers,
 further terms,
@@ -13414,7 +13414,7 @@ OEIS [A139251](https://oeis.org/A139251):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/toothpickSequence-C.svg)
+![](Help/Image/toothpickSequence-C.svg)
 
 Next odd term in Collatz trajectory with starting value _n_,
 OEIS [A139391](https://oeis.org/A139391):
@@ -13427,7 +13427,7 @@ OEIS [A139391](https://oeis.org/A139391):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/collatzSequence-N.svg)
+![](Help/Image/collatzSequence-N.svg)
 
 Array where differences in rows are _n…1_,
 OEIS [A141419](https://oeis.org/A141419):
@@ -13438,7 +13438,7 @@ OEIS [A141419](https://oeis.org/A141419):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/triangularArray-E.svg)
+![](Help/Image/triangularArray-E.svg)
 
 Least _k>0_ such that _(2n-1)k_ is a palindrome in base two,
 OEIS [A141707](https://oeis.org/A141707):
@@ -13458,7 +13458,7 @@ OEIS [A141707](https://oeis.org/A141707):
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isPalindrome-C.svg)
+![](Help/Image/isPalindrome-C.svg)
 
 Scatter plot of the
 least number _k<n_ and coprime to _n_ such that the largest term of the continued fraction of _k/n_ is as small as possible,
@@ -13476,7 +13476,7 @@ OEIS [A141821](https://oeis.org/A141821):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/continuedFraction-A.svg)
+![](Help/Image/continuedFraction-A.svg)
 
 The least maxima of
 the least number _k<n_ and coprime to _n_ such that the largest term of the continued fraction of _k/n_ is as small as possible,
@@ -13494,7 +13494,7 @@ OEIS [A141822](https://oeis.org/A141822):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/continuedFraction-B.svg)
+![](Help/Image/continuedFraction-B.svg)
 
 Logical convolution,
 OEIS [A142149](https://oeis.org/A142149):
@@ -13509,7 +13509,7 @@ OEIS [A142149](https://oeis.org/A142149):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/bitXor-R.svg)
+![](Help/Image/bitXor-R.svg)
 
 The nonnegative integers interleaved with zeroes,
 OEIS [A142150](https://oeis.org/A142150):
@@ -13518,7 +13518,7 @@ OEIS [A142150](https://oeis.org/A142150):
 0:50.riffle(0).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/riffle-A.svg)
+![](Help/Image/riffle-A.svg)
 
 Logical convolution,
 first _2^6_ terms,
@@ -13531,7 +13531,7 @@ OEIS [A142151](https://oeis.org/A142151):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/bitNor-A.svg)
+![](Help/Image/bitNor-A.svg)
 
 Logical convolution,
 first _2^7_ terms,
@@ -13544,7 +13544,7 @@ OEIS [A142151](https://oeis.org/A142151):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitNor-B.svg)
+![](Help/Image/bitNor-B.svg)
 
 Also stored as a named constant with higher precision,
 and this stored value gives the upper limit for _m_,
@@ -13556,7 +13556,7 @@ OEIS [A143305](https://oeis.org/A143305):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/vanDerCorputsConstant-A.svg)
+![](Help/Image/vanDerCorputsConstant-A.svg)
 
 Triangle where row _n_ is `one` if _n_ is prime,
 `zero` otherwise,
@@ -13568,7 +13568,7 @@ OEIS [A143536](https://oeis.org/A143536):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/isPrime-J.svg)
+![](Help/Image/isPrime-J.svg)
 
 Triangle where row _n_ is `one` if _n_ is prime,
 `zero` otherwise,
@@ -13580,7 +13580,7 @@ OEIS [A143536](https://oeis.org/A143536):
 }.triangularArrayPlot
 ~~~
 
-![](sw/spl/Help/Image/isPrime-K.svg)
+![](Help/Image/isPrime-K.svg)
 
 Adjacent terms of the Fibonacci word interpreted as binary values,
 OEIS [A143667](https://oeis.org/A143667):
@@ -13593,7 +13593,7 @@ OEIS [A143667](https://oeis.org/A143667):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/fibonacciWord-D.svg)
+![](Help/Image/fibonacciWord-D.svg)
 
 Direct calculation of terms of the Fibonacci word,
 OEIS [A143667](https://oeis.org/A143667):
@@ -13612,7 +13612,7 @@ let a = 1 / 1.goldenRatio;
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/fibonacciWord-E.svg)
+![](Help/Image/fibonacciWord-E.svg)
 
 _gcd(k+n/k)_, where _k_ is over all divisors of _n_,
 OEIS [A143771](https://oeis.org/A143771):
@@ -13625,7 +13625,7 @@ OEIS [A143771](https://oeis.org/A143771):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/gcd-O.svg)
+![](Help/Image/gcd-O.svg)
 
 Weight array of the natural numbers,
 OEIS [A144112](https://oeis.org/A144112):
@@ -13636,7 +13636,7 @@ OEIS [A144112](https://oeis.org/A144112):
 }.catenate.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/padRight-A.svg)
+![](Help/Image/padRight-A.svg)
 
 Shadow transform of _C(n+7,8)_,
 OEIS [A144869](https://oeis.org/A144869):
@@ -13648,7 +13648,7 @@ OEIS [A144869](https://oeis.org/A144869):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/shadowTransform-C.svg)
+![](Help/Image/shadowTransform-C.svg)
 
 The bitwise _Xor_ of the squares of first _n_ natural numbers,
 OEIS [A145768](https://oeis.org/A145768):
@@ -13660,7 +13660,7 @@ bitXor:/2
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/bitXor-J.svg)
+![](Help/Image/bitXor-J.svg)
 
 Number of on cells at _n_-th stage in the Ulam-Warburton two-dimensional cellular automaton,
 OEIS [A147562](https://oeis.org/A147562):
@@ -13671,7 +13671,7 @@ let b = [0 1] ++ (4 * (3 ^ (a - 1)));
 b.prefixSum.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/prefixSum-H.svg)
+![](Help/Image/prefixSum-H.svg)
 
 _3^(w(n-1)-1)_,
 OEIS [A147610](https://oeis.org/A147610):
@@ -13683,7 +13683,7 @@ let a = 3 ^ (w - 1);
 a.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/hammingWeight-O.svg)
+![](Help/Image/hammingWeight-O.svg)
 
 Groups of order _2n_ that have _Z/nZ_ as a subgroup,
 OEIS [A147848](https://oeis.org/A147848):
@@ -13706,7 +13706,7 @@ OEIS [A147848](https://oeis.org/A147848):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/gcd-F.svg)
+![](Help/Image/gcd-F.svg)
 
 The next prime function,
 OEIS [A151800](https://oeis.org/A151800):
@@ -13715,7 +13715,7 @@ OEIS [A151800](https://oeis.org/A151800):
 0:50.functionPlot(nextPrime:/1)
 ~~~
 
-![](sw/spl/Help/Image/nextPrime-A.svg)
+![](Help/Image/nextPrime-A.svg)
 
 Partial sums of _3^(w(n-1)-1)_,
 OEIS [A151920](https://oeis.org/A151920):
@@ -13727,7 +13727,7 @@ let a = 3 ^ (w - 1);
 a.prefixSum.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/hammingWeight-P.svg)
+![](Help/Image/hammingWeight-P.svg)
 
 Number of first-quadrant cells that are on after _n_-th stage of the Holladay-Ulam cellular automaton,
 OEIS [A151922](https://oeis.org/A151922),
@@ -13741,7 +13741,7 @@ let a = 3 ^ (w - 1) + 1;
 ([1] ++ a).prefixSum.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/digitCount-O.svg)
+![](Help/Image/digitCount-O.svg)
 
 First differences of Gould’s sequence,
 OEIS [A151930](https://oeis.org/A151930):
@@ -13752,7 +13752,7 @@ OEIS [A151930](https://oeis.org/A151930):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/gouldsSequence-C.svg)
+![](Help/Image/gouldsSequence-C.svg)
 
 Kaprekar map,
 _b=10_,
@@ -13763,7 +13763,7 @@ OEIS [A151949](https://oeis.org/A151949):
 0:99.collect(kaprekarMap:/1).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/kaprekarMap-A.svg)
+![](Help/Image/kaprekarMap-A.svg)
 
 Kaprekar map,
 _b=10_,
@@ -13774,7 +13774,7 @@ OEIS [A151949](https://oeis.org/A151949):
 0:250.collect(kaprekarMap:/1).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/kaprekarMap-B.svg)
+![](Help/Image/kaprekarMap-B.svg)
 
 Some later terms of the _b=10_ map,
 divided by nine,
@@ -13785,7 +13785,7 @@ OEIS [A151950](https://oeis.org/A151950):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/kaprekarMap-L.svg)
+![](Help/Image/kaprekarMap-L.svg)
 
 Prefix sum of aliquot sums,
 OEIS [A153485](https://oeis.org/A153485):
@@ -13794,7 +13794,7 @@ OEIS [A153485](https://oeis.org/A153485):
 1:65.aliquotSum.prefixSum.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/aliquotSum-F.svg)
+![](Help/Image/aliquotSum-F.svg)
 
 Non-zero coefficients of the Swiss-Knife polynomials,
 OEIS [A153641](https://oeis.org/A153641):
@@ -13810,7 +13810,7 @@ OEIS [A153641](https://oeis.org/A153641):
 }.catenate.logScale.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/eulerNumber-B.svg)
+![](Help/Image/eulerNumber-B.svg)
 
 The inverse Moebius transform of the Fredholm-Rueppel sequence,
 OEIS [A154402](https://oeis.org/A154402):
@@ -13823,7 +13823,7 @@ OEIS [A154402](https://oeis.org/A154402):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/divisorSum-E.svg)
+![](Help/Image/divisorSum-E.svg)
 
 The number of ways to express _n_ as the sum of an odd prime, a positive Fibonacci number and twice a positive Fibonacci number,
 OEIS [A155114](https://oeis.org/A155114):
@@ -13844,7 +13844,7 @@ let pq = { :m |
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/fibonacci-J.svg)
+![](Help/Image/fibonacci-J.svg)
 
 Product of indices of distinct prime factors of _n_,
 OEIS [A156061](https://oeis.org/A156061):
@@ -13857,7 +13857,7 @@ OEIS [A156061](https://oeis.org/A156061):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/primePi-M.svg)
+![](Help/Image/primePi-M.svg)
 
 Count ones in the Kolakoski sequence,
 OEIS [A156077](https://oeis.org/A156077):
@@ -13868,7 +13868,7 @@ let a = n.kolakoskiSequence.prefixSum;
 ((2 * 1:n) - a).stepPlot
 ~~~
 
-![](sw/spl/Help/Image/kolakoskiSequence-G.svg)
+![](Help/Image/kolakoskiSequence-G.svg)
 
 Unary-encoded compressed factorization of natural numbers,
 OEIS [A156552](https://oeis.org/A156552):
@@ -13883,7 +13883,7 @@ OEIS [A156552](https://oeis.org/A156552):
 }.logScale.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/primePi-B.svg)
+![](Help/Image/primePi-B.svg)
 
 Infinite Fibonacci word fractal sequence,
 OEIS [A156596](https://oeis.org/A156596):
@@ -13897,7 +13897,7 @@ let m = [0: [1 2], 1: [1 0], 2: [0 2]];
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/fibonacciWord-F.svg)
+![](Help/Image/fibonacciWord-F.svg)
 
 Prefixes of the odd numbers,
 OEIS [A158405](https://oeis.org/A158405):
@@ -13906,7 +13906,7 @@ OEIS [A158405](https://oeis.org/A158405):
 1:23:2.prefixes.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/prefixes-C.svg)
+![](Help/Image/prefixes-C.svg)
 
 Numbers having at least two zeroes in their binary representation,
 OEIS [A158582](https://oeis.org/A158582):
@@ -13917,7 +13917,7 @@ OEIS [A158582](https://oeis.org/A158582):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/digitCount-K.svg)
+![](Help/Image/digitCount-K.svg)
 
 _L(2)_ applied to each row of Pascal’s triangle,
 OEIS [A160019](https://oeis.org/A160019):
@@ -13928,7 +13928,7 @@ OEIS [A160019](https://oeis.org/A160019):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/lodumoTransform-A.svg)
+![](Help/Image/lodumoTransform-A.svg)
 
 _L(2)_ of Kolakoski sequence,
 OEIS [A160051](https://oeis.org/A160051):
@@ -13939,7 +13939,7 @@ OEIS [A160051](https://oeis.org/A160051):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/lodumoTransform-B.svg)
+![](Help/Image/lodumoTransform-B.svg)
 
 _L(5)_ of Fibonacci sequence,
 OEIS [A160081](https://oeis.org/A160081):
@@ -13950,7 +13950,7 @@ OEIS [A160081](https://oeis.org/A160081):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/lodumoTransform-C.svg)
+![](Help/Image/lodumoTransform-C.svg)
 
 T-toothpick sequence,
 OEIS [A160172](https://oeis.org/A160172):
@@ -13971,7 +13971,7 @@ let a = Map { :n |
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/hammingWeight-Q.svg)
+![](Help/Image/hammingWeight-Q.svg)
 
 Sign of first differences of Recamán’s sequence,
 OEIS [A160357](https://oeis.org/A160357):
@@ -13983,7 +13983,7 @@ OEIS [A160357](https://oeis.org/A160357):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/recamanSequence-E.svg)
+![](Help/Image/recamanSequence-E.svg)
 
 Nim-square-root,
 OEIS [A160679](https://oeis.org/A160679):
@@ -13992,7 +13992,7 @@ OEIS [A160679](https://oeis.org/A160679):
 0:127.nimSquareRoot.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/nimMultiplication-Z.svg)
+![](Help/Image/nimMultiplication-Z.svg)
 
 The Kaprekar binary numbers in decimal,
 OEIS [A160761](https://oeis.org/A160761):
@@ -14003,7 +14003,7 @@ OEIS [A160761](https://oeis.org/A160761):
 }.without(0).stepPlot
 ~~~
 
-![](sw/spl/Help/Image/kaprekarSequence-B.svg)
+![](Help/Image/kaprekarSequence-B.svg)
 
 The least not occurring integer such that partial sum,
 written in binary,
@@ -14032,7 +14032,7 @@ let k = 1;
 a.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerDigits-D.svg)
+![](Help/Image/integerDigits-D.svg)
 
 _J(3,n)/J(1,n)_,
 OEIS [A160889](https://oeis.org/A160889):
@@ -14044,7 +14044,7 @@ let b = 1.jordanTotient(n);
 (a / b).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/jordanTotient-D.svg)
+![](Help/Image/jordanTotient-D.svg)
 
 Table of the fundamental Pisano period of the Fibonacci sequence modulo _n_,
 OEIS [A161553](https://oeis.org/A161553):
@@ -14056,7 +14056,7 @@ OEIS [A161553](https://oeis.org/A161553):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/pisanoPeriod-E.svg)
+![](Help/Image/pisanoPeriod-E.svg)
 
 _R(Π(R(F(n))))_,
 OEIS [A161594](https://oeis.org/A161594):
@@ -14069,7 +14069,7 @@ OEIS [A161594](https://oeis.org/A161594):
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerReverse-C.svg)
+![](Help/Image/integerReverse-C.svg)
 
 Array read by rows in which row _n_ lists the divisors of _n_ that are _≥√n_,
 OEIS [A161908](https://oeis.org/A161908):
@@ -14082,7 +14082,7 @@ OEIS [A161908](https://oeis.org/A161908):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/divisors-D.svg)
+![](Help/Image/divisors-D.svg)
 
 Ordinal transform of
 OEIS [A265332](https://oeis.org/A265332),
@@ -14098,7 +14098,7 @@ a.ordinalTransform
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/oeisTerms-B.svg)
+![](Help/Image/oeisTerms-B.svg)
 
 Write _n_ in binary and count zeroes between ones and also the edge,
 OEIS [A163510](https://oeis.org/A163510):
@@ -14115,7 +14115,7 @@ OEIS [A163510](https://oeis.org/A163510):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/riffle-B.svg)
+![](Help/Image/riffle-B.svg)
 
 A permutation of the positive integers,
 OEIS [A163511](https://oeis.org/A163511):
@@ -14136,7 +14136,7 @@ let a = Map { :n |
 a[0:250].log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isEven-G.svg)
+![](Help/Image/isEven-G.svg)
 
 Bitwise or of _n_ and _2n_,
 OEIS [A163617](https://oeis.org/A163617):
@@ -14146,7 +14146,7 @@ let n = 0:63;
 n.bitOr(2 * n).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/bitOr-B.svg)
+![](Help/Image/bitOr-B.svg)
 
 The _n_-th derivative of the logistic function,
 OEIS [A163626](https://oeis.org/A163626):
@@ -14161,7 +14161,7 @@ OEIS [A163626](https://oeis.org/A163626):
 }.catenate.logScale.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/stirlingS2-D.svg)
+![](Help/Image/stirlingS2-D.svg)
 
 Repeat string twice and remove last symbol,
 initially _0,1_,
@@ -14173,7 +14173,7 @@ OEIS [A164349](https://oeis.org/A164349):
 }.iterate([0 1], 7).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/iterate-B.svg)
+![](Help/Image/iterate-B.svg)
 
 Kaprekar map,
 _b=2_,
@@ -14186,7 +14186,7 @@ OEIS [A164884](https://oeis.org/A164884):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/kaprekarMap-C.svg)
+![](Help/Image/kaprekarMap-C.svg)
 
 Length of preperiodic part of trajectory of _n_ under iteration of the base-two Kaprekar map,
 OEIS [A164885](https://oeis.org/A164885),
@@ -14201,7 +14201,7 @@ OEIS [A164886](https://oeis.org/A164886):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/kaprekarMap-K.svg)
+![](Help/Image/kaprekarMap-K.svg)
 
 Kaprekar map,
 _b=3_,
@@ -14214,7 +14214,7 @@ OEIS [A164993](https://oeis.org/A164993):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/kaprekarMap-D.svg)
+![](Help/Image/kaprekarMap-D.svg)
 
 Kaprekar map,
 _b=4_,
@@ -14227,7 +14227,7 @@ OEIS [A165012](https://oeis.org/A165012):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/kaprekarMap-E.svg)
+![](Help/Image/kaprekarMap-E.svg)
 
 Kaprekar map,
 _b=5_,
@@ -14240,7 +14240,7 @@ OEIS [A165032](https://oeis.org/A165032):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/kaprekarMap-F.svg)
+![](Help/Image/kaprekarMap-F.svg)
 
 Kaprekar map,
 _b=6_,
@@ -14253,7 +14253,7 @@ OEIS [A165051](https://oeis.org/A165051):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/kaprekarMap-G.svg)
+![](Help/Image/kaprekarMap-G.svg)
 
 Kaprekar map,
 _b=7_,
@@ -14266,7 +14266,7 @@ OEIS [A165071](https://oeis.org/A165071):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/kaprekarMap-H.svg)
+![](Help/Image/kaprekarMap-H.svg)
 
 Kaprekar map,
 _b=8_,
@@ -14279,7 +14279,7 @@ OEIS [A165090](https://oeis.org/A165090):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/kaprekarMap-I.svg)
+![](Help/Image/kaprekarMap-I.svg)
 
 Kaprekar map,
 _b=9_,
@@ -14292,7 +14292,7 @@ OEIS [A165110](https://oeis.org/A165110):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/kaprekarMap-J.svg)
+![](Help/Image/kaprekarMap-J.svg)
 
 Characteristic function of numbers that are not multiples of four,
 OEIS [A166486](https://oeis.org/A166486):
@@ -14301,7 +14301,7 @@ OEIS [A166486](https://oeis.org/A166486):
 (0:44 % 4).sign.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/sign-C.svg)
+![](Help/Image/sign-C.svg)
 
 Partial sums of Sierpinski’s sieve,
 scatter plot,
@@ -14315,7 +14315,7 @@ OEIS [A166556](https://oeis.org/A166556):
 }.++.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/binomial-C.svg)
+![](Help/Image/binomial-C.svg)
 
 A permutation of the integers,
 two positives then one negative,
@@ -14327,7 +14327,7 @@ OEIS [A166711](https://oeis.org/A166711):
 ).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/linearRecurrence-L.svg)
+![](Help/Image/linearRecurrence-L.svg)
 
 A permutation of the integers,
 three positives then two negatives,
@@ -14339,7 +14339,7 @@ OEIS [A166871](https://oeis.org/A166871):
 ).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/linearRecurrence-M.svg)
+![](Help/Image/linearRecurrence-M.svg)
 
 Product of run lengths in binary representation,
 OEIS [A167489](https://oeis.org/A167489):
@@ -14353,7 +14353,7 @@ OEIS [A167489](https://oeis.org/A167489):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerDigits-H.svg)
+![](Help/Image/integerDigits-H.svg)
 
 Characteristic function of numbers that are not multiples of ten,
 OEIS [A168184](https://oeis.org/A168184):
@@ -14362,7 +14362,7 @@ OEIS [A168184](https://oeis.org/A168184):
 ([1 9] # [0 1]).repeat(5).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/repeat-D.svg)
+![](Help/Image/repeat-D.svg)
 
 The amusical permutation applied twice,
 OEIS [A168221](https://oeis.org/A168221):
@@ -14372,7 +14372,7 @@ OEIS [A168221](https://oeis.org/A168221):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/amusicalPermutation-G.svg)
+![](Help/Image/amusicalPermutation-G.svg)
 
 Sequence starting at three instead of two,
 OEIS [A169837](https://oeis.org/A169837):
@@ -14381,7 +14381,7 @@ OEIS [A169837](https://oeis.org/A169837):
 85.ekgSequence([3]).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/ekgSequence-E.svg)
+![](Help/Image/ekgSequence-E.svg)
 
 Sequence starting at five instead of two,
 OEIS [A169837](https://oeis.org/A169837):
@@ -14390,7 +14390,7 @@ OEIS [A169837](https://oeis.org/A169837):
 85.ekgSequence([3]).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/ekgSequence-F.svg)
+![](Help/Image/ekgSequence-F.svg)
 
 Positions of zeroes in the van Eck sequence,
 OEIS [A171865](https://oeis.org/A171865):
@@ -14401,7 +14401,7 @@ OEIS [A171865](https://oeis.org/A171865):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/vanEckSequence-G.svg)
+![](Help/Image/vanEckSequence-G.svg)
 
 First differences of positions of zeroes in the van Eck sequence,
 OEIS [A171868](https://oeis.org/A171868):
@@ -14413,7 +14413,7 @@ OEIS [A171868](https://oeis.org/A171868):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/vanEckSequence-H.svg)
+![](Help/Image/vanEckSequence-H.svg)
 
 The van Eck sequence,
 starting with _1,0_,
@@ -14424,7 +14424,7 @@ OEIS [A171911](https://oeis.org/A171911):
 85.vanEckSequence([1 0]).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/vanEckSequence-C.svg)
+![](Help/Image/vanEckSequence-C.svg)
 
 The van Eck sequence,
 starting with _1,0_,
@@ -14435,7 +14435,7 @@ OEIS [A171911](https://oeis.org/A171911):
 250.vanEckSequence([1 0]).log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/vanEckSequence-D.svg)
+![](Help/Image/vanEckSequence-D.svg)
 
 The van Eck sequence,
 starting with _2,0_,
@@ -14446,7 +14446,7 @@ OEIS [A171912](https://oeis.org/A171912):
 85.vanEckSequence([2 0]).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/vanEckSequence-E.svg)
+![](Help/Image/vanEckSequence-E.svg)
 
 Positions of ones in the van Eck sequence,
 OEIS [A171951](https://oeis.org/A171951):
@@ -14457,7 +14457,7 @@ OEIS [A171951](https://oeis.org/A171951):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/vanEckSequence-F.svg)
+![](Help/Image/vanEckSequence-F.svg)
 
 The Euler triangle,
 log scale scatter plot,
@@ -14469,7 +14469,7 @@ OEIS [A173018](https://oeis.org/A173018):
 ).catenate.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/eulerianNumber-B.svg)
+![](Help/Image/eulerianNumber-B.svg)
 
 First few _x_-coordinates,
 OEIS [A174344](https://oeis.org/A174344):
@@ -14478,7 +14478,7 @@ OEIS [A174344](https://oeis.org/A174344):
 65.squareSpiral.column(1).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/squareSpiral-C.svg)
+![](Help/Image/squareSpiral-C.svg)
 
 Partial sums of Stern’s diatomic series,
 OEIS [A174868](https://oeis.org/A174868):
@@ -14489,7 +14489,7 @@ OEIS [A174868](https://oeis.org/A174868):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/sternBrocotSequence-G.svg)
+![](Help/Image/sternBrocotSequence-G.svg)
 
 Ordinal transform of the next prime function,
 OEIS [A175851](https://oeis.org/A175851):
@@ -14500,7 +14500,7 @@ OEIS [A175851](https://oeis.org/A175851):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/nextPrime-F.svg)
+![](Help/Image/nextPrime-F.svg)
 
 Ordinal transform of the next prime function,
 calculated as _n-f(n)+1_ for composite _n_,
@@ -14516,7 +14516,7 @@ OEIS [A175851](https://oeis.org/A175851):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/previousPrime-B.svg)
+![](Help/Image/previousPrime-B.svg)
 
 The only infinite sequence such that _a(n-1)=a(n)-f(a(n))_,
 where _f_ counts ones in the binary expansion,
@@ -14532,7 +14532,7 @@ OEIS [A179016](https://oeis.org/A179016):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/digitCount-L.svg)
+![](Help/Image/digitCount-L.svg)
 
 Number of partitions of _n_ into powers of ten,
 OEIS [A179051](https://oeis.org/A179051):
@@ -14554,7 +14554,7 @@ let f = { :m :k |
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/if-A.svg)
+![](Help/Image/if-A.svg)
 
 Unique digits used in _n_ in numerical order,
 OEIS [A180410](https://oeis.org/A180410):
@@ -14568,7 +14568,7 @@ OEIS [A180410](https://oeis.org/A180410):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/unique-A.svg)
+![](Help/Image/unique-A.svg)
 
 The golden triangle,
 OEIS [A180662](https://oeis.org/A180662):
@@ -14579,7 +14579,7 @@ OEIS [A180662](https://oeis.org/A180662):
 }.catenate.log.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/fibonacci-P.svg)
+![](Help/Image/fibonacci-P.svg)
 
 The van Eck sequence,
 log scale scatter plot,
@@ -14591,7 +14591,7 @@ OEIS [A181391](https://oeis.org/A181391):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/vanEckSequence-A.svg)
+![](Help/Image/vanEckSequence-A.svg)
 
 The van Eck sequence,
 discrete plot,
@@ -14601,7 +14601,7 @@ OEIS [A181391](https://oeis.org/A181391):
 65.vanEckSequence.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/vanEckSequence-B.svg)
+![](Help/Image/vanEckSequence-B.svg)
 
 The prime shadow of _n_,
 OEIS [A181819](https://oeis.org/A181819):
@@ -14612,7 +14612,7 @@ OEIS [A181819](https://oeis.org/A181819):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/primeSignature-C.svg)
+![](Help/Image/primeSignature-C.svg)
 
 The van der Laan sequence,
 OEIS [A182097](https://oeis.org/A182097):
@@ -14622,7 +14622,7 @@ OEIS [A182097](https://oeis.org/A182097):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/vanDerLaanSequence-A.svg)
+![](Help/Image/vanDerLaanSequence-A.svg)
 
 Iterate the amusical permutation map starting at fourty,
 OEIS [A182205](https://oeis.org/A182205):
@@ -14634,7 +14634,7 @@ amusicalPermutation:/1
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/amusicalPermutation-F.svg)
+![](Help/Image/amusicalPermutation-F.svg)
 
 Maximum wins for longest winning streak,
 OEIS [A182210](https://oeis.org/A182210):
@@ -14645,7 +14645,7 @@ OEIS [A182210](https://oeis.org/A182210):
 }.floor.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/floor-G.svg)
+![](Help/Image/floor-G.svg)
 
 The number of length-_n_ binary sequences with exactly _k_ zeros,
 and without three consecutive zeros,
@@ -14668,7 +14668,7 @@ OEIS [A182309](https://oeis.org/A182309):
 }.catenate.log.linePlot
 ~~~
 
-![](sw/spl/Help/Image/binomial-F.svg)
+![](Help/Image/binomial-F.svg)
 
 Enumeration of rationals sorted by sum on components,
 numerators,
@@ -14683,7 +14683,7 @@ OEIS [A182972](https://oeis.org/A182972):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/gcd-L.svg)
+![](Help/Image/gcd-L.svg)
 
 Enumeration of rationals sorted by sum on components,
 denominators,
@@ -14698,7 +14698,7 @@ OEIS [A182973](https://oeis.org/A182973):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/gcd-M.svg)
+![](Help/Image/gcd-M.svg)
 
 _₂F₁(-2k,2k-2n;1;-1)_,
 OEIS [A184879](https://oeis.org/A184879):
@@ -14711,7 +14711,7 @@ OEIS [A184879](https://oeis.org/A184879):
 }.catenate.logScale.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/hypergeometric2F1-D.svg)
+![](Help/Image/hypergeometric2F1-D.svg)
 
 Even numbers interleaved with repeated odd numbers,
 OEIS [A186421](https://oeis.org/A186421):
@@ -14726,7 +14726,7 @@ OEIS [A186421](https://oeis.org/A186421):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/isEven-J.svg)
+![](Help/Image/isEven-J.svg)
 
 First differences of even numbers interleaved with repeated odd numbers,
 OEIS [A186422](https://oeis.org/A186422):
@@ -14741,7 +14741,7 @@ OEIS [A186422](https://oeis.org/A186422):
 }.differences.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/isEven-K.svg)
+![](Help/Image/isEven-K.svg)
 
 Number of ways to write _n=x+y_ _6x-1_, _6x+1_, _6y+1_ and _6y+5_ all prime,
 OEIS [A187757](https://oeis.org/A187757):
@@ -14760,7 +14760,7 @@ OEIS [A187757](https://oeis.org/A187757):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isPrime-L.svg)
+![](Help/Image/isPrime-L.svg)
 
 The largest _m_ such that _n_ is congruent to -1, 0 or 1 `mod` _k_ for all _k_ from 1 to _m_,
 OEIS [A187824](https://oeis.org/A187824):
@@ -14778,7 +14778,7 @@ OEIS [A187824](https://oeis.org/A187824):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/mod-N.svg)
+![](Help/Image/mod-N.svg)
 
 Partial sums of _w(n)!_,
 OEIS [A188064](https://oeis.org/A188064):
@@ -14790,7 +14790,7 @@ OEIS [A188064](https://oeis.org/A188064):
 .stepPlot
 ~~~
 
-![](sw/spl/Help/Image/hammingWeight-E.svg)
+![](Help/Image/hammingWeight-E.svg)
 
 Array _⌊nφ-⌊kφ-⌊(nφ-kφ)_,
 read by antidiagonals,
@@ -14803,7 +14803,7 @@ let r = 1.goldenRatio;
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/goldenRatio-M.svg)
+![](Help/Image/goldenRatio-M.svg)
 
 Zeckendorf representations,
 OEIS [A189920](https://oeis.org/A189920):
@@ -14814,7 +14814,7 @@ OEIS [A189920](https://oeis.org/A189920):
 ).catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/zeckendorfRepresentation-I.svg)
+![](Help/Image/zeckendorfRepresentation-I.svg)
 
 Triangle of values of _n_ written in base _k_ with digits reversed,
 OEIS [A191780](https://oeis.org/A191780):
@@ -14827,7 +14827,7 @@ OEIS [A191780](https://oeis.org/A191780):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerDigits-P.svg)
+![](Help/Image/integerDigits-P.svg)
 
 A symmetric square array,
 read by antidiagonals,
@@ -14855,7 +14855,7 @@ let t = { :n :k |
 .catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/sum-J.svg)
+![](Help/Image/sum-J.svg)
 
 Partitions in graded lexicographical ordering,
 OEIS [A193073](https://oeis.org/A193073):
@@ -14869,7 +14869,7 @@ OEIS [A193073](https://oeis.org/A193073):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerPartitions-D.svg)
+![](Help/Image/integerPartitions-D.svg)
 
 Binary coding of a polynomial over _GF(2)_,
 Arndt’s blue code,
@@ -14892,7 +14892,7 @@ let a = Map { :n |
 a[0:127].scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitXor-H.svg)
+![](Help/Image/bitXor-H.svg)
 
 The bitwise _Xor_ of the first _n_ triangular numbers,
 OEIS [A193232](https://oeis.org/A193232):
@@ -14905,7 +14905,7 @@ OEIS [A193232](https://oeis.org/A193232):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/bitXor-K.svg)
+![](Help/Image/bitXor-K.svg)
 
 The sequence lengths for the first few terms of the _p=2_ sequences,
 OEIS [A193995](https://oeis.org/A193995):
@@ -14919,7 +14919,7 @@ OEIS [A193995](https://oeis.org/A193995):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/perfectDigitalInvariantSequence-A.svg)
+![](Help/Image/perfectDigitalInvariantSequence-A.svg)
 
 The number of odd prime indices minus the number of even prime indices,
 OEIS [A195017](https://oeis.org/A195017):
@@ -14932,7 +14932,7 @@ OEIS [A195017](https://oeis.org/A195017):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/primePi-U.svg)
+![](Help/Image/primePi-U.svg)
 
 Consecutive powers of the Gray code permutation,
 OEIS [A195467](https://oeis.org/A195467):
@@ -14948,7 +14948,7 @@ OEIS [A195467](https://oeis.org/A195467):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/grayEncode-H.svg)
+![](Help/Image/grayEncode-H.svg)
 
 Number of distinct residues,
 OEIS [A195637](https://oeis.org/A195637):
@@ -14960,7 +14960,7 @@ OEIS [A195637](https://oeis.org/A195637):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/powerMod-F.svg)
+![](Help/Image/powerMod-F.svg)
 
 Irregular triangle read by rows in which column _k_ lists the odd numbers interleaved with _k-1_ zeros,
 and the first element of column _k_ is in row _k(k+1)/2_,
@@ -14980,7 +14980,7 @@ OEIS [A196020](https://oeis.org/A196020):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/inverseTriangularNumber-A.svg)
+![](Help/Image/inverseTriangularNumber-A.svg)
 
 Product of cumulative sums of divisors of _n_,
 OEIS [A197410](https://oeis.org/A197410):
@@ -14991,7 +14991,7 @@ OEIS [A197410](https://oeis.org/A197410):
 }.log.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/prefixSum-G.svg)
+![](Help/Image/prefixSum-G.svg)
 
 Table of binary Walsh functions,
 columns read as binary numbers,
@@ -15011,7 +15011,7 @@ OEIS [A197819](https://oeis.org/A197819):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/grayEncode-I.svg)
+![](Help/Image/grayEncode-I.svg)
 
 Run lengths of the Ehrenfeucht-Mycielski sequence,
 OEIS [A201881](https://oeis.org/A201881):
@@ -15023,7 +15023,7 @@ OEIS [A201881](https://oeis.org/A201881):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/ehrenfeuchtMycielskiSequence-B.svg)
+![](Help/Image/ehrenfeuchtMycielskiSequence-B.svg)
 
 Table _(j%i).⌈(i%j)_ read by antidiagonals,
 OEIS [A204016](https://oeis.org/A204016):
@@ -15034,7 +15034,7 @@ OEIS [A204016](https://oeis.org/A204016):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/max-A.svg)
+![](Help/Image/max-A.svg)
 
 Ordered differences of primes,
 OEIS [A204890](https://oeis.org/A204890):
@@ -15046,7 +15046,7 @@ OEIS [A204890](https://oeis.org/A204890):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/orderedDifferences-A.svg)
+![](Help/Image/orderedDifferences-A.svg)
 
 Ordered differences of Fibonacci numbers,
 OEIS [A204922](https://oeis.org/A204922):
@@ -15058,7 +15058,7 @@ OEIS [A204922](https://oeis.org/A204922):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/orderedDifferences-B.svg)
+![](Help/Image/orderedDifferences-B.svg)
 
 Sequence of almost integers,
 rounded,
@@ -15068,7 +15068,7 @@ OEIS [A205579](https://oeis.org/A205579):
 (1.plasticRatio ^ 0:35).round.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/plasticRatio-A.svg)
+![](Help/Image/plasticRatio-A.svg)
 
 The number of iterations required to reach a power of two in the Collatz sequence,
 starting at _n_,
@@ -15082,7 +15082,7 @@ OEIS [A208981](https://oeis.org/A208981):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/collatzSequence-J.svg)
+![](Help/Image/collatzSequence-J.svg)
 
 The characteristic function of the powers of two,
 OEIS [A209229](https://oeis.org/A209229):
@@ -15092,7 +15092,7 @@ OEIS [A209229](https://oeis.org/A209229):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/bitLength-D.svg)
+![](Help/Image/bitLength-D.svg)
 
 Sequence lengths for Collatz problem with rational numbers,
 OEIS [A210468](https://oeis.org/A210468):
@@ -15107,7 +15107,7 @@ OEIS [A210468](https://oeis.org/A210468):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/collatzSequence-F.svg)
+![](Help/Image/collatzSequence-F.svg)
 
 Record values of the Dedekind ψ function,
 OEIS [A210523](https://oeis.org/A210523):
@@ -15118,7 +15118,7 @@ OEIS [A210523](https://oeis.org/A210523):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/dedekindPsi-B.svg)
+![](Help/Image/dedekindPsi-B.svg)
 
 Prime signature of _n_,
 OEIS [A212171](https://oeis.org/A212171):
@@ -15128,7 +15128,7 @@ OEIS [A212171](https://oeis.org/A212171):
 .catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/primeSignature-A.svg)
+![](Help/Image/primeSignature-A.svg)
 
 Triangle of _π(n)+π(k)-π(n+k)_,
 OEIS [A212210](https://oeis.org/A212210):
@@ -15139,7 +15139,7 @@ OEIS [A212210](https://oeis.org/A212210):
 }.catenate.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/primePi-G.svg)
+![](Help/Image/primePi-G.svg)
 
 _π(n)+π(k)-π(n+k)_,
 triangular,
@@ -15152,7 +15152,7 @@ OEIS [A212211](https://oeis.org/A212211):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/primePi-O.svg)
+![](Help/Image/primePi-O.svg)
 
 _π(n)+π(k)-π(n+k)_,
 by antidiagonals,
@@ -15165,7 +15165,7 @@ OEIS [A212212](https://oeis.org/A212212):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/primePi-P.svg)
+![](Help/Image/primePi-P.svg)
 
 _π(n)+π(k)-π(n+k)_,
 by antidiagonals,
@@ -15178,7 +15178,7 @@ OEIS [A212213](https://oeis.org/A212213):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/primePi-N.svg)
+![](Help/Image/primePi-N.svg)
 
 Record values of Stern’s diatomic series,
 OEIS [A212289](https://oeis.org/A212289):
@@ -15189,7 +15189,7 @@ OEIS [A212289](https://oeis.org/A212289):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/sternBrocotSequence-C.svg)
+![](Help/Image/sternBrocotSequence-C.svg)
 
 Median prime factor of _1:n_,
 OEIS [A212300](https://oeis.org/A212300):
@@ -15203,7 +15203,7 @@ OEIS [A212300](https://oeis.org/A212300):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/median-A.svg)
+![](Help/Image/median-A.svg)
 
 Characteristic function of cube-free numbers,
 OEIS [A212793](https://oeis.org/A212793):
@@ -15213,7 +15213,7 @@ OEIS [A212793](https://oeis.org/A212793):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/isCubeFree-C.svg)
+![](Help/Image/isCubeFree-C.svg)
 
 Bitwise and of _n_ and _2n_,
 OEIS [A213370](https://oeis.org/A213370):
@@ -15223,7 +15223,7 @@ let n = 1:64;
 n.bitAnd(n * 2).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/bitAnd-B.svg)
+![](Help/Image/bitAnd-B.svg)
 
 _b⊛c_ where _b(h)=h_ and _c(h)=h+n-1_,
 OEIS [A213500](https://oeis.org/A213500):
@@ -15237,7 +15237,7 @@ OEIS [A213500](https://oeis.org/A213500):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/sum-E.svg)
+![](Help/Image/sum-E.svg)
 
 Count distinct rooted trees obtained from the tree with Matula-Goebel number _n_ by adding one edge,
 OEIS [A214567](https://oeis.org/A214567):
@@ -15261,7 +15261,7 @@ let a = { :n |
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/primePi-E.svg)
+![](Help/Image/primePi-E.svg)
 
 Number of partitions of _n_ into parts 6, 9 or 20,
 OEIS [A214772](https://oeis.org/A214772):
@@ -15272,7 +15272,7 @@ OEIS [A214772](https://oeis.org/A214772):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/frobeniusSolve-F.svg)
+![](Help/Image/frobeniusSolve-F.svg)
 
 Permute integers according to the sum of the Heinz partition,
 OEIS [A215366](https://oeis.org/A215366):
@@ -15285,7 +15285,7 @@ let n = 8;
 }.take(n + 1).catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerPartitionUnrank-C.svg)
+![](Help/Image/integerPartitionUnrank-C.svg)
 
 Imply Goldbach and Lemoine conjectures,
 OEIS [A219055](https://oeis.org/A219055):
@@ -15308,7 +15308,7 @@ OEIS [A219055](https://oeis.org/A219055):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/primePi-F.svg)
+![](Help/Image/primePi-F.svg)
 
 A sequence related to the ruler sequence _r_,
 where _a(2n)=4a(n)-2^r(n)_,
@@ -15324,7 +15324,7 @@ OEIS [A220466](https://oeis.org/A220466):
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerExponent-L.svg)
+![](Help/Image/integerExponent-L.svg)
 
 New primes found by Rowland’s recurrence,
 OEIS [A221869](https://oeis.org/A221869):
@@ -15338,7 +15338,7 @@ OeisEntry('A221869').then { :e |
 }
 ~~~
 
-![](sw/spl/Help/Image/rowlandsSequence-C.svg)
+![](Help/Image/rowlandsSequence-C.svg)
 
 Lower left triangle of Nim multiplication table of _2^n_,
 read by rows,
@@ -15351,7 +15351,7 @@ OEIS [A223540](https://oeis.org/A223540):
 }.catenate.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/nimMultiplication-T.svg)
+![](Help/Image/nimMultiplication-T.svg)
 
 Nim multiplication table of _2^n_,
 read by antidiagonals,
@@ -15364,7 +15364,7 @@ OEIS [A223541](https://oeis.org/A223541):
 }.++.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/nimMultiplication-S.svg)
+![](Help/Image/nimMultiplication-S.svg)
 
 Key matrix of
 OEIS [A223541](https://oeis.org/A223541),
@@ -15382,7 +15382,7 @@ a.deepCollect { :x |
 }.++.take(264).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/nimMultiplication-V.svg)
+![](Help/Image/nimMultiplication-V.svg)
 
 Nim-products of powers of two,
 OEIS [A223543](https://oeis.org/A223543):
@@ -15394,7 +15394,7 @@ nimMultiplication:/2.table(i, i)
 .catenate.unique.log.linePlot
 ~~~
 
-![](sw/spl/Help/Image/nimMultiplication-U.svg)
+![](Help/Image/nimMultiplication-U.svg)
 
 _Σ0:n𝒙|n_,
 OEIS [A224915](https://oeis.org/A224915):
@@ -15407,7 +15407,7 @@ OEIS [A224915](https://oeis.org/A224915):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/sum-G.svg)
+![](Help/Image/sum-G.svg)
 
 _Σi^2*-1^i_ for _n:2n_,
 OEIS [A225144](https://oeis.org/A225144):
@@ -15421,7 +15421,7 @@ OEIS [A225144](https://oeis.org/A225144):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/sum-F.svg)
+![](Help/Image/sum-F.svg)
 
 Replace each prime number with its rank in the recursive prime factorization of _n_,
 OEIS [A225395](https://oeis.org/A225395):
@@ -15443,7 +15443,7 @@ let a = Map { :n |
 a[1:175].scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/primePi-L.svg)
+![](Help/Image/primePi-L.svg)
 
 Alternating sum of decimal expansion of _n_,
 OEIS [A225693](https://oeis.org/A225693):
@@ -15455,7 +15455,7 @@ OEIS [A225693](https://oeis.org/A225693):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/alternatingSum-B.svg)
+![](Help/Image/alternatingSum-B.svg)
 
 Moebius function applied to divisors of _n_,
 OEIS [A225817](https://oeis.org/A225817):
@@ -15466,7 +15466,7 @@ OEIS [A225817](https://oeis.org/A225817):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/moebiusMu-G.svg)
+![](Help/Image/moebiusMu-G.svg)
 
 Array of run lengths of binary representation of _n_,
 OEIS [A227186](https://oeis.org/A227186):
@@ -15489,7 +15489,7 @@ OEIS [A227186](https://oeis.org/A227186):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/asRunArray-B.svg)
+![](Help/Image/asRunArray-B.svg)
 
 A graph given by an edge re-writing rule,
 the vertices are given by
@@ -15510,7 +15510,7 @@ OEIS [A228853](https://oeis.org/A228853):
 .graphPlot
 ~~~
 
-![](sw/spl/Help/Image/graphPlot-F.svg)
+![](Help/Image/graphPlot-F.svg)
 
 Least prime in each Rowland’s sequence,
 step plot,
@@ -15523,7 +15523,7 @@ OEIS [A230504](https://oeis.org/A230504):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/rowlandsSequence-D.svg)
+![](Help/Image/rowlandsSequence-D.svg)
 
 Least prime in each Rowland’s sequence,
 scatter plot,
@@ -15536,7 +15536,7 @@ OEIS [A230504](https://oeis.org/A230504):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/rowlandsSequence-E.svg)
+![](Help/Image/rowlandsSequence-E.svg)
 
 Smallest _x_ such that _x%φ(x)=n_,
 OEIS [A234642](https://oeis.org/A234642):
@@ -15552,7 +15552,7 @@ OEIS [A234642](https://oeis.org/A234642):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/eulerPhi-H.svg)
+![](Help/Image/eulerPhi-H.svg)
 
 Fixed point of Pisano period _n_,
 OEIS [A235249](https://oeis.org/A235249):
@@ -15564,7 +15564,7 @@ OEIS [A235249](https://oeis.org/A235249):
 }.log.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/pisanoPeriod-D.svg)
+![](Help/Image/pisanoPeriod-D.svg)
 
 Least excluded sequence such that adjacent terms are part of a Pythagorean triple,
 OEIS [A235598](https://oeis.org/A235598):
@@ -15579,7 +15579,7 @@ OEIS [A235598](https://oeis.org/A235598):
 }.log.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/leastExcludedSequence-C.svg)
+![](Help/Image/leastExcludedSequence-C.svg)
 
 Irregular triangle read by rows in which column _k_ lists _k_ copies of every positive integer in nondecreasing order,
 and the first element of column _k_ is in row _k(k+1)/2_,
@@ -15596,7 +15596,7 @@ OEIS [A235791](https://oeis.org/A235791):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/ceiling-D.svg)
+![](Help/Image/ceiling-D.svg)
 
 First differences of 13-rough numbers,
 apart from first term also
@@ -15609,7 +15609,7 @@ OEIS [A236187](https://oeis.org/A236187):
 }.differences.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isRoughNumber-B.svg)
+![](Help/Image/isRoughNumber-B.svg)
 
 First differences of 17-rough numbers,
 apart from first term also
@@ -15622,7 +15622,7 @@ OEIS [A236188](https://oeis.org/A236188):
 }.differences.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isRoughNumber-C.svg)
+![](Help/Image/isRoughNumber-C.svg)
 
 First differences of 19-rough numbers,
 apart from first term also
@@ -15636,7 +15636,7 @@ OEIS [A236189](https://oeis.org/A236189):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isRoughNumber-D.svg)
+![](Help/Image/isRoughNumber-D.svg)
 
 Irregular triangle read by rows in which column _k_ lists ones interleaved with _k-1_ zeros,
 and the first element of column _k_ is in row _k(k+1)/2_,
@@ -15655,7 +15655,7 @@ OEIS [A237048](https://oeis.org/A237048):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/divisible-K.svg)
+![](Help/Image/divisible-K.svg)
 
 _a(n)_ is the smallest integer not yet in _a_ that is divisible by all non-zero digits of _a(n-1)_,
 OEIS [A237851](https://oeis.org/A237851):
@@ -15671,7 +15671,7 @@ OEIS [A237851](https://oeis.org/A237851):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/divisible-E.svg)
+![](Help/Image/divisible-E.svg)
 
 Zero unless _n_ is a non-prime, in which case plot index,
 OEIS [A239968](https://oeis.org/A239968):
@@ -15688,7 +15688,7 @@ let k = 0;
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/isPrime-F.svg)
+![](Help/Image/isPrime-F.svg)
 
 Write _n_ and _3n_ in ternary and add all digits modulo three,
 OEIS [A242399](https://oeis.org/A242399):
@@ -15702,7 +15702,7 @@ OEIS [A242399](https://oeis.org/A242399):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/fromDigits-C.svg)
+![](Help/Image/fromDigits-C.svg)
 
 Difference between _4n_ and _n_ and _3n_ written in ternary and all digits summed modulo three,
 OEIS [A242400](https://oeis.org/A242400):
@@ -15716,7 +15716,7 @@ OEIS [A242400](https://oeis.org/A242400):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/fromDigits-D.svg)
+![](Help/Image/fromDigits-D.svg)
 
 A permutation of the natural numbers,
 OEIS [A243353](https://oeis.org/A243353):
@@ -15738,7 +15738,7 @@ let f = { :n :i :x |
 }.logScale.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/prime-D.svg)
+![](Help/Image/prime-D.svg)
 
 Calculate run length transform of `fibonacci`,
 OEIS [A246028](https://oeis.org/A246028):
@@ -15754,7 +15754,7 @@ OEIS [A246028](https://oeis.org/A246028):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitAnd-F.svg)
+![](Help/Image/bitAnd-F.svg)
 
 Run length transform of _S(n)=Fibonacci(n+1)_,
 OEIS [A246028](https://oeis.org/A246028):
@@ -15765,7 +15765,7 @@ OEIS [A246028](https://oeis.org/A246028):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/runLengthTransform-A.svg)
+![](Help/Image/runLengthTransform-A.svg)
 
 Inverse boustrophedon transform,
 OEIS [A247453](https://oeis.org/A247453):
@@ -15780,7 +15780,7 @@ OEIS [A247453](https://oeis.org/A247453):
 }.catenate.logScale.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/eulerUpDownNumber-A.svg)
+![](Help/Image/eulerUpDownNumber-A.svg)
 
 _A003961(n)-2*n_,
 OEIS [A252748](https://oeis.org/A252748):
@@ -15793,7 +15793,7 @@ let a = n.collect(
 (a - (2 * n)).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/oeisFunction-F.svg)
+![](Help/Image/oeisFunction-F.svg)
 
 Indices of zeroes in the Ehrenfeucht-Mycielski sequence,
 OEIS [A253060](https://oeis.org/A253060):
@@ -15804,7 +15804,7 @@ OEIS [A253060](https://oeis.org/A253060):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/ehrenfeuchtMycielskiSequence-C.svg)
+![](Help/Image/ehrenfeuchtMycielskiSequence-C.svg)
 
 Limit of _f(f(f(...f(2)...)))%n_ as the number of iterations of _f(x)=2^x-1_ grows,
 OEIS [A254410](https://oeis.org/A254410):
@@ -15817,7 +15817,7 @@ OeisEntry('A254410').then { :e |
 }
 ~~~
 
-![](sw/spl/Help/Image/OeisEntry-D.svg)
+![](Help/Image/OeisEntry-D.svg)
 
 Primes and then products of adjacent terms divided by square of `gcd`,
 OEIS [A255483](https://oeis.org/A255483):
@@ -15837,7 +15837,7 @@ let t = { :n :m |
 }.catenate.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/gcd-N.svg)
+![](Help/Image/gcd-N.svg)
 
 Column indices of the Wythoff array that contains _L(n)_,
 OEIS [A255670](https://oeis.org/A255670):
@@ -15854,7 +15854,7 @@ OEIS [A255670](https://oeis.org/A255670):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/wythoffLower-B.svg)
+![](Help/Image/wythoffLower-B.svg)
 
 The first variant of Per Nørgård’s infinity sequence,
 OEIS [A256184](https://oeis.org/A256184):
@@ -15864,7 +15864,7 @@ OEIS [A256184](https://oeis.org/A256184):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/noergaardInfinitySequence-C.svg)
+![](Help/Image/noergaardInfinitySequence-C.svg)
 
 The second variant of Per Nørgård’s infinity sequence,
 OEIS [A256185](https://oeis.org/A256185):
@@ -15874,7 +15874,7 @@ OEIS [A256185](https://oeis.org/A256185):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/noergaardInfinitySequence-D.svg)
+![](Help/Image/noergaardInfinitySequence-D.svg)
 
 First differences of Nørgård’s infinity sequence,
 OEIS [A256187](https://oeis.org/A256187):
@@ -15884,7 +15884,7 @@ OEIS [A256187](https://oeis.org/A256187):
 .differences.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/noergaardInfinitySequence-E.svg)
+![](Help/Image/noergaardInfinitySequence-E.svg)
 
 Partial sums of the Josephus problem at _k=2_,
 OEIS [A256249](https://oeis.org/A256249):
@@ -15895,7 +15895,7 @@ OEIS [A256249](https://oeis.org/A256249):
 }.prefixSum.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/josephusProblem-D.svg)
+![](Help/Image/josephusProblem-D.svg)
 
 The array,
 read by antidiagonals,
@@ -15908,7 +15908,7 @@ OEIS [A258651](https://oeis.org/A258651):
 }.catenate.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/arithmeticDerivative-D.svg)
+![](Help/Image/arithmeticDerivative-D.svg)
 
 Least multiple to have no common one bit in binary expansion,
 OEIS [A261892](https://oeis.org/A261892):
@@ -15925,7 +15925,7 @@ OEIS [A261892](https://oeis.org/A261892):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitAnd-G.svg)
+![](Help/Image/bitAnd-G.svg)
 
 Triangle,
 read by rows,
@@ -15938,7 +15938,7 @@ OEIS [A262881](https://oeis.org/A262881):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/hammingWeight-J.svg)
+![](Help/Image/hammingWeight-J.svg)
 
 Partition array for the products of the hook lengths corresponding to the partitions of _n_,
 OEIS [A263003](https://oeis.org/A263003):
@@ -15951,7 +15951,7 @@ OEIS [A263003](https://oeis.org/A263003):
 }.catenate.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/hookLengths-A.svg)
+![](Help/Image/hookLengths-A.svg)
 
 Ordinal transform of the arithmetic derivative of _n_,
 OEIS [A263111](https://oeis.org/A263111):
@@ -15962,7 +15962,7 @@ OEIS [A263111](https://oeis.org/A263111):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/ordinalTransform-M.svg)
+![](Help/Image/ordinalTransform-M.svg)
 
 The ordinal transform of the multiplicative persistence,
 discrete plot,
@@ -15974,7 +15974,7 @@ OEIS [A263131](https://oeis.org/A263131):
 }.ordinalTransform.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/multiplicativePersistence-B.svg)
+![](Help/Image/multiplicativePersistence-B.svg)
 
 The ordinal transform of the multiplicative persistence,
 scatter plot,
@@ -15986,7 +15986,7 @@ OEIS [A263131](https://oeis.org/A263131):
 }.ordinalTransform.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/multiplicativePersistence-C.svg)
+![](Help/Image/multiplicativePersistence-C.svg)
 
 Highest exponent in the prime factorization of the _n_-th central binomial coefficient,
 OEIS [A263922](https://oeis.org/A263922):
@@ -15999,7 +15999,7 @@ OEIS [A263922](https://oeis.org/A263922):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/primeSignature-I.svg)
+![](Help/Image/primeSignature-I.svg)
 
 List the parts of the unique strict partition with π encoding,
 OEIS [A265146](https://oeis.org/A265146):
@@ -16012,7 +16012,7 @@ OEIS [A265146](https://oeis.org/A265146):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/primePi-V.svg)
+![](Help/Image/primePi-V.svg)
 
 _n_-th prime minus its binary reversal,
 OEIS [A265326](https://oeis.org/A265326):
@@ -16026,7 +16026,7 @@ let k = 200;
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerDigits-A.svg)
+![](Help/Image/integerDigits-A.svg)
 
 Bitwise logical implies triangular array,
 _k→n_,
@@ -16037,7 +16037,7 @@ OEIS [A265705](https://oeis.org/A265705):
 .catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitImplies-A.svg)
+![](Help/Image/bitImplies-A.svg)
 
 Bitwise logical implies triangular array,
 OEIS [A265705](https://oeis.org/A265705):
@@ -16053,7 +16053,7 @@ OEIS [A265705](https://oeis.org/A265705):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitOr-I.svg)
+![](Help/Image/bitOr-I.svg)
 
 Bitwise logical implication _n→2n_,
 OEIS [A265716](https://oeis.org/A265716):
@@ -16064,7 +16064,7 @@ OEIS [A265716](https://oeis.org/A265716):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/bitImplies-B.svg)
+![](Help/Image/bitImplies-B.svg)
 
 Bitwise logical implication _n→2n_,
 scatter plot,
@@ -16076,7 +16076,7 @@ OEIS [A265716](https://oeis.org/A265716):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitImplies-C.svg)
+![](Help/Image/bitImplies-C.svg)
 
 Bitwise logical implication _n→P(n)_,
 OEIS [A265885](https://oeis.org/A265885):
@@ -16087,7 +16087,7 @@ OEIS [A265885](https://oeis.org/A265885):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/bitImplies-D.svg)
+![](Help/Image/bitImplies-D.svg)
 
 Bitwise logical implication _n→P(n)_,
 scatter plot,
@@ -16099,7 +16099,7 @@ OEIS [A265885](https://oeis.org/A265885):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitImplies-E.svg)
+![](Help/Image/bitImplies-E.svg)
 
 _n+⌊(n/4)(-1^(n%4))_,
 OEIS [A265888](https://oeis.org/A265888):
@@ -16110,7 +16110,7 @@ OEIS [A265888](https://oeis.org/A265888):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/floor-J.svg)
+![](Help/Image/floor-J.svg)
 
 Sum the parts of the unique strict partition with π encoding,
 OEIS [A266475](https://oeis.org/A266475):
@@ -16123,7 +16123,7 @@ OEIS [A266475](https://oeis.org/A266475):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/primePi-W.svg)
+![](Help/Image/primePi-W.svg)
 
 Ordinal transform of the sums of the unique strict partition of _n_ with π encoding,
 OEIS [A266476](https://oeis.org/A266476):
@@ -16136,7 +16136,7 @@ OEIS [A266476](https://oeis.org/A266476):
 }.ordinalTransform.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/ordinalTransform-N.svg)
+![](Help/Image/ordinalTransform-N.svg)
 
 First few _y_-coordinates,
 OEIS [A268038](https://oeis.org/A268038):
@@ -16145,7 +16145,7 @@ OEIS [A268038](https://oeis.org/A268038):
 65.squareSpiral.column(2).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/squareSpiral-D.svg)
+![](Help/Image/squareSpiral-D.svg)
 
 An array,
 read by antidiagonals,
@@ -16160,7 +16160,7 @@ OEIS [A268833](https://oeis.org/A268833):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/hammingDistance-A.svg)
+![](Help/Image/hammingDistance-A.svg)
 
 The sum of the prime factors of the sum of the preceding terms,
 log scale scatter plot,
@@ -16174,7 +16174,7 @@ let x = [1 1];
 x.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/primeFactors-D.svg)
+![](Help/Image/primeFactors-D.svg)
 
 Sum previous elements that divide _n_,
 OEIS [A269347](https://oeis.org/A269347):
@@ -16192,7 +16192,7 @@ let a = [1];
 a.log.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/divisible-G.svg)
+![](Help/Image/divisible-G.svg)
 
 Nearest integer to _n×sin(n)_,
 discrete plot,
@@ -16203,7 +16203,7 @@ let n = 0:65;
 (n * n.sin).round.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/round-C.svg)
+![](Help/Image/round-C.svg)
 
 Nearest integer to _n×sin(n)_,
 scatter plot,
@@ -16214,7 +16214,7 @@ let n = 0:250;
 (n * n.sin).round.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/round-D.svg)
+![](Help/Image/round-D.svg)
 
 Nearest integer to _n×tan(n)_,
 discrete plot,
@@ -16225,7 +16225,7 @@ let n = 0:115;
 (n * n.tan).round.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/round-E.svg)
+![](Help/Image/round-E.svg)
 
 Nearest integer to _n×tan(n)_,
 log scale scatter plot,
@@ -16236,7 +16236,7 @@ let n = 0:250;
 (n * n.tan).round.logScale.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/round-F.svg)
+![](Help/Image/round-F.svg)
 
 First few _y_-coordinates,
 counterclockwise,
@@ -16247,7 +16247,7 @@ OEIS [A274923](https://oeis.org/A274923):
 .column(2).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/squareSpiral-E.svg)
+![](Help/Image/squareSpiral-E.svg)
 
 Lexicographically earliest sequence such that _|a(n+1)-a(n)|_ is a square,
 OEIS [A277616](https://oeis.org/A277616):
@@ -16260,7 +16260,7 @@ OEIS [A277616](https://oeis.org/A277616):
 ).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/linearRecurrence-H.svg)
+![](Help/Image/linearRecurrence-H.svg)
 
 Run length transform of primorials,
 OEIS [A278159](https://oeis.org/A278159):
@@ -16273,7 +16273,7 @@ OEIS [A278159](https://oeis.org/A278159):
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/primorial-A.svg)
+![](Help/Image/primorial-A.svg)
 
 Run length transform of `primorial`,
 log scale scatter plot,
@@ -16285,7 +16285,7 @@ OEIS [A278159](https://oeis.org/A278159):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/runLengthTransform-B.svg)
+![](Help/Image/runLengthTransform-B.svg)
 
 Characteristic function for Flavius Josephus’s sieve,
 OEIS [A278169](https://oeis.org/A278169):
@@ -16299,7 +16299,7 @@ OEIS [A278169](https://oeis.org/A278169):
 }.characteristicFunction.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/injectInto-C.svg)
+![](Help/Image/injectInto-C.svg)
 
 The least number with the same prime signature as the Doudna sequence entry,
 OEIS [A278222](https://oeis.org/A278222):
@@ -16314,7 +16314,7 @@ OEIS [A278222](https://oeis.org/A278222):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/doudnaSequence-C.svg)
+![](Help/Image/doudnaSequence-C.svg)
 
 Lexicographically earliest sequence such that,
 for any distinct _i_ and _j_,
@@ -16338,7 +16338,7 @@ let a = [];
 a.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitAnd-D.svg)
+![](Help/Image/bitAnd-D.svg)
 
 First differences of
 complement of
@@ -16353,7 +16353,7 @@ OEIS [A279340](https://oeis.org/A279340):
 ).differences.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/integerExponent-F.svg)
+![](Help/Image/integerExponent-F.svg)
 
 Three-adic valuation of the bijective bit-reverse of _3n_,
 OEIS [A280509](https://oeis.org/A280509):
@@ -16366,7 +16366,7 @@ OEIS [A280509](https://oeis.org/A280509):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/integerExponent-J.svg)
+![](Help/Image/integerExponent-J.svg)
 
 Numerators of _k=1_ Sobol sequence,
 discrete plot,
@@ -16376,7 +16376,7 @@ OEIS [A280995](https://oeis.org/A280995):
 63.sobolSequence(1).numerator.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/sobolSequence-E.svg)
+![](Help/Image/sobolSequence-E.svg)
 
 Numerators of _k=1_ Sobol sequence,
 scatter plot,
@@ -16386,7 +16386,7 @@ OEIS [A280995](https://oeis.org/A280995):
 255.sobolSequence(1).numerator.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/sobolSequence-G.svg)
+![](Help/Image/sobolSequence-G.svg)
 
 Sum previous terms at offset divisors,
 OEIS [A281488](https://oeis.org/A281488):
@@ -16406,7 +16406,7 @@ let a = [1];
 a.logScale.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/sum-A.svg)
+![](Help/Image/sum-A.svg)
 
 Lexicographically earliest sequence of distinct terms such that every pair of consecutive terms contains a term that is a unitary divisor of the other term,
 OEIS [A282291](https://oeis.org/A282291):
@@ -16420,7 +16420,7 @@ OEIS [A282291](https://oeis.org/A282291):
 }.log.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/isCoprime-D.svg)
+![](Help/Image/isCoprime-D.svg)
 
 Lexicographically earliest sequence of distinct terms such that every pair of consecutive terms contains a term that is a unitary divisor of the other term,
 OEIS [A282291](https://oeis.org/A282291):
@@ -16445,7 +16445,7 @@ let a = [1];
 a.log.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/notAnd-A.svg)
+![](Help/Image/notAnd-A.svg)
 
 Recursive two-parameter sequence allowing Ramanujan’s sum calculation,
 OEIS [A282634](https://oeis.org/A282634):
@@ -16474,7 +16474,7 @@ let b:/2 = { :n :m |
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/sum-B.svg)
+![](Help/Image/sum-B.svg)
 
 Second differences of Stern’s diatomic series,
 OEIS [A283104](https://oeis.org/A283104):
@@ -16485,7 +16485,7 @@ OEIS [A283104](https://oeis.org/A283104):
 .denseScatterPlot
 ~~~
 
-![](sw/spl/Help/Image/denseScatterPlot-C.png)
+![](Help/Image/denseScatterPlot-C.png)
 
 Second differences of Stern’s diatomic series,
 OEIS [A283104](https://oeis.org/A283104):
@@ -16496,7 +16496,7 @@ OEIS [A283104](https://oeis.org/A283104):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/sternBrocotSequence-E.svg)
+![](Help/Image/sternBrocotSequence-E.svg)
 
 Unique sequence representing an array read by antidiagonals in which the _i_-th row is this sequence itself multiplied by _i_,
 OEIS [A283681](https://oeis.org/A283681):
@@ -16513,7 +16513,7 @@ OEIS [A283681](https://oeis.org/A283681):
 }.iterate([1 2], 4).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/iterate-C.svg)
+![](Help/Image/iterate-C.svg)
 
 Ordinal transform of maximum divisor of _n_,
 OEIS [A286477](https://oeis.org/A286477):
@@ -16524,7 +16524,7 @@ OEIS [A286477](https://oeis.org/A286477):
 }.ordinalTransform.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/ordinalTransform-O.svg)
+![](Help/Image/ordinalTransform-O.svg)
 
 Ordinal transform of minimal number of factorials that add to _n_,
 OEIS [A286478](https://oeis.org/A286478):
@@ -16534,7 +16534,7 @@ OEIS [A286478](https://oeis.org/A286478):
 	n.factorialExpansion.sum
 ~~~
 
-![](sw/spl/Help/Image/factorialExpansion-B.svg)
+![](Help/Image/factorialExpansion-B.svg)
 
 Ordinal transform of the restricted growth sequence of least number with the same prime signature as the Doudna sequence entry,
 OEIS [A286552](https://oeis.org/A286552):
@@ -16551,7 +16551,7 @@ OEIS [A286552](https://oeis.org/A286552):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/doudnaSequence-E.svg)
+![](Help/Image/doudnaSequence-E.svg)
 
 Ordinal transform of ones in binary reflected Gray code of _n_,
 OEIS [A286558](https://oeis.org/A286558):
@@ -16562,7 +16562,7 @@ OEIS [A286558](https://oeis.org/A286558):
 }.ordinalTransform.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/ordinalTransform-G.svg)
+![](Help/Image/ordinalTransform-G.svg)
 
 Restricted growth sequence of least number with the same prime signature as the Doudna sequence entry,
 OEIS [A286622](https://oeis.org/A286622):
@@ -16578,7 +16578,7 @@ OEIS [A286622](https://oeis.org/A286622):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/doudnaSequence-D.svg)
+![](Help/Image/doudnaSequence-D.svg)
 
 Lexicographically earliest sequence of distinct positive terms
 such that for consecutive terms _w(i+j)≥10_,
@@ -16590,7 +16590,7 @@ OEIS [A287639](https://oeis.org/A287639):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/hammingWeight-K.svg)
+![](Help/Image/hammingWeight-K.svg)
 
 Lexicographically earliest sequence of distinct positive terms
 such that for consecutive terms _w(i+j)≥10_,
@@ -16605,7 +16605,7 @@ OeisEntry('A287639').then { :e |
 }
 ~~~
 
-![](sw/spl/Help/Image/hammingWeight-L.svg)
+![](Help/Image/hammingWeight-L.svg)
 
 Lexicographically earliest sequence of distinct positive terms
 such that for consecutive terms _w(i+j)≥10_,
@@ -16620,7 +16620,7 @@ OeisEntry('A287639').then { :e |
 }
 ~~~
 
-![](sw/spl/Help/Image/hammingWeight-M.svg)
+![](Help/Image/hammingWeight-M.svg)
 
 Fixed point of the mapping _00→0010 01→010 10→000_ starting with _00_,
 OEIS [A289016](https://oeis.org/A289016):
@@ -16634,7 +16634,7 @@ OEIS [A289016](https://oeis.org/A289016):
 .last.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/substitutionSystem-J.svg)
+![](Help/Image/substitutionSystem-J.svg)
 
 The ordinal transform of the number of iterations of _φ(x)_ at _n_ needed to reach one,
 OEIS [A289152](https://oeis.org/A289152):
@@ -16648,7 +16648,7 @@ OEIS [A289152](https://oeis.org/A289152):
 }.ordinalTransform.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/ordinalTransform-U.svg)
+![](Help/Image/ordinalTransform-U.svg)
 
 The arithmetic function _v3(n,3)_,
 OEIS [A289435](https://oeis.org/A289435):
@@ -16662,7 +16662,7 @@ OEIS [A289435](https://oeis.org/A289435):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/divisors-S.svg)
+![](Help/Image/divisors-S.svg)
 
 A problem related to gerrymandering,
 OEIS [A290323](https://oeis.org/A290323):
@@ -16693,7 +16693,7 @@ let f = { :p :e |
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/caseOf-A.svg)
+![](Help/Image/caseOf-A.svg)
 
 The arithmetic function _v±(n,3)_,
 OEIS [A290988](https://oeis.org/A290988):
@@ -16706,7 +16706,7 @@ let h = 3;
 	((2 * a.floor + 1) * n / d).max
 ~~~
 
-![](sw/spl/Help/Image/divisors-R.svg)
+![](Help/Image/divisors-R.svg)
 
 Least _k_ such that the _w(k)_ equals the _w(k×n)_,
 OEIS [A292849](https://oeis.org/A292849):
@@ -16721,7 +16721,7 @@ OEIS [A292849](https://oeis.org/A292849):
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/hammingWeight-I.svg)
+![](Help/Image/hammingWeight-I.svg)
 
 Irregular triangle read by rows of _0:2^n-1_ sorted by _w_,
 OEIS [A294648](https://oeis.org/A294648):
@@ -16733,7 +16733,7 @@ OEIS [A294648](https://oeis.org/A294648):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/hammingWeight-G.svg)
+![](Help/Image/hammingWeight-G.svg)
 
 Deficiency minus binary weight,
 OEIS [A294898](https://oeis.org/A294898):
@@ -16746,7 +16746,7 @@ OEIS [A294898](https://oeis.org/A294898):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/integerExponent-O.svg)
+![](Help/Image/integerExponent-O.svg)
 
 Two-adic valuation of _τ(n)_,
 OEIS [A295664](https://oeis.org/A295664):
@@ -16757,7 +16757,7 @@ OEIS [A295664](https://oeis.org/A295664):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/integerExponent-G.svg)
+![](Help/Image/integerExponent-G.svg)
 
 The odd numbers interleaved with their negations,
 OEIS [A296063](https://oeis.org/A296063):
@@ -16768,7 +16768,7 @@ OEIS [A296063](https://oeis.org/A296063):
 ).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/linearRecurrence-K.svg)
+![](Help/Image/linearRecurrence-K.svg)
 
 Total variation of base-ten digits of _n_,
 OEIS [A297330](https://oeis.org/A297330):
@@ -16783,7 +16783,7 @@ OEIS [A297330](https://oeis.org/A297330):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/differences-I.svg)
+![](Help/Image/differences-I.svg)
 
 Moebius transform of largest difference between consecutive divisors of _n_,
 OEIS [A300721](https://oeis.org/A300721):
@@ -16795,7 +16795,7 @@ OEIS [A300721](https://oeis.org/A300721):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/moebiusTransform-D.svg)
+![](Help/Image/moebiusTransform-D.svg)
 
 Distance to nearest perfect power,
 OEIS [A301573](https://oeis.org/A301573):
@@ -16818,7 +16818,7 @@ OEIS [A301573](https://oeis.org/A301573):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isPerfectPower-A.svg)
+![](Help/Image/isPerfectPower-A.svg)
 
 The ordinal transform of the ordinal transform of _φ(n)_,
 OEIS [A303777](https://oeis.org/A303777):
@@ -16830,7 +16830,7 @@ OEIS [A303777](https://oeis.org/A303777):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/ordinalTransform-B.svg)
+![](Help/Image/ordinalTransform-B.svg)
 
 Ordinal transform of the ordinal transform of the next prime function,
 OEIS [A304106](https://oeis.org/A304106):
@@ -16842,7 +16842,7 @@ OEIS [A304106](https://oeis.org/A304106):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/nextPrime-G.svg)
+![](Help/Image/nextPrime-G.svg)
 
 The largest prime factor of the _n_-th term of EKG-sequence,
 OEIS [A304733](https://oeis.org/A304733):
@@ -16853,7 +16853,7 @@ OEIS [A304733](https://oeis.org/A304733):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/ekgSequence-G.svg)
+![](Help/Image/ekgSequence-G.svg)
 
 Ordinal transform of the largest prime factor of the _n_-th term of EKG-sequence,
 OEIS [A304734](https://oeis.org/A304734):
@@ -16865,7 +16865,7 @@ OEIS [A304734](https://oeis.org/A304734):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/ordinalTransform-H.svg)
+![](Help/Image/ordinalTransform-H.svg)
 
 A sequence by Rémy Sigrist,
 _a(2n)=a(n)+k(n)_ and a(2n+1)=a(n)+3k(n)_,
@@ -16897,7 +16897,7 @@ let s = 2L ^ a[1];
 a.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitAt-A.svg)
+![](Help/Image/bitAt-A.svg)
 
 Concatenation of the current sequence with the lengths of the runs in the sequence,
 OEIS [A306211](https://oeis.org/A306211):
@@ -16909,7 +16909,7 @@ let y = { :x |
 (y - 1).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/split-A.svg)
+![](Help/Image/split-A.svg)
 
 _a(n)=o(n-1)+o(n-2)_ where _o(n)_ is the number of occurrences of _a(n)_ in _a_ up to _n_,
 OEIS [A306246](https://oeis.org/A306246):
@@ -16931,7 +16931,7 @@ let q = nil;
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/plus-A.svg)
+![](Help/Image/plus-A.svg)
 
 Ordinal transform of
 OEIS [A306246](https://oeis.org/A306246),
@@ -16943,7 +16943,7 @@ OEIS [A306251](https://oeis.org/A306251):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/ordinalTransform-I.svg)
+![](Help/Image/ordinalTransform-I.svg)
 
 Indices of the first occurrences of the _n_-th binary vector in the Ehrenfeucht-Mycielski sequence,
 OEIS [A308173](https://oeis.org/A308173):
@@ -16960,7 +16960,7 @@ let x = 500.ehrenfeuchtMycielskiSequence;
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/ehrenfeuchtMycielskiSequence-D.svg)
+![](Help/Image/ehrenfeuchtMycielskiSequence-D.svg)
 
 Walk a rook along a square spiral,
 OEIS [A308896](https://oeis.org/A308896):
@@ -16997,7 +16997,7 @@ let a = [];
 a.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerExponent-M.svg)
+![](Help/Image/integerExponent-M.svg)
 
 Dirichlet convolution of natural numbers with triangular numbers,
 OEIS [A309731](https://oeis.org/A309731):
@@ -17011,7 +17011,7 @@ OEIS [A309731](https://oeis.org/A309731):
 ).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/dirichletConvolve-D.svg)
+![](Help/Image/dirichletConvolve-D.svg)
 
 In the binary expansion of _n_,
 sum the exponents associated with one terms and subtract the exponents associated with zero terms,
@@ -17026,7 +17026,7 @@ OEIS [A309983](https://oeis.org/A309983):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/binaryExpansion-L.svg)
+![](Help/Image/binaryExpansion-L.svg)
 
 Alternating sum of the prime indices of _n_,
 OEIS [A316524](https://oeis.org/A316524):
@@ -17039,7 +17039,7 @@ OEIS [A316524](https://oeis.org/A316524):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/primeFactors-F.svg)
+![](Help/Image/primeFactors-F.svg)
 
 Numerators of rational valued sequence whose Dirichlet convolution with itself yields the ordinal transform of the next prime function,
 OEIS [A317830](https://oeis.org/A317830):
@@ -17069,7 +17069,7 @@ let f = Dictionary { :n |
 f[1:115].numerator.logScale.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/previousPrime-C.svg)
+![](Help/Image/previousPrime-C.svg)
 
 Dirichlet inverse of the Stern diatomic sequence,
 OEIS [A317843](https://oeis.org/A317843):
@@ -17081,7 +17081,7 @@ OEIS [A317843](https://oeis.org/A317843):
 ).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/dirichletInverse-G.svg)
+![](Help/Image/dirichletInverse-G.svg)
 
 A sequence by I.Gutkovskiy,
 OEIS [A318583](https://oeis.org/A318583):
@@ -17101,7 +17101,7 @@ let a:/1 = { :n |
 1:175.collect(a:/1).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/moebiusMu-D.svg)
+![](Help/Image/moebiusMu-D.svg)
 
 A generalisation of Euler’s totient function,
 OEIS [A321029](https://oeis.org/A321029):
@@ -17121,7 +17121,7 @@ let f = { :p :e |
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/factorInteger-C.svg)
+![](Help/Image/factorInteger-C.svg)
 
 Divisor sum _-1^(d-1)*d^2_,
 OEIS [A321543](https://oeis.org/A321543):
@@ -17134,7 +17134,7 @@ OEIS [A321543](https://oeis.org/A321543):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/divisorSum-F.svg)
+![](Help/Image/divisorSum-F.svg)
 
 Restricted growth sequence transform of the ordered pair of two-adic and three-adic valuations,
 OEIS [A322026](https://oeis.org/A322026):
@@ -17149,7 +17149,7 @@ OEIS [A322026](https://oeis.org/A322026):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/restrictedGrowthSequenceTransform-B.svg)
+![](Help/Image/restrictedGrowthSequenceTransform-B.svg)
 
 Count the number of occurrences of the _n_-th digit of the sequence among the first _n_ digits,
 OEIS [A322182](https://oeis.org/A322182):
@@ -17168,7 +17168,7 @@ let d = [1];
 a.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerDigits-I.svg)
+![](Help/Image/integerDigits-I.svg)
 
 The minimal absolute difference between _n_ and each of the powers of the previous terms,
 OEIS [A322522](https://oeis.org/A322522):
@@ -17203,7 +17203,7 @@ let b = [1];
 a.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/whileTrue-A.svg)
+![](Help/Image/whileTrue-A.svg)
 
 Ordinal transform of largest difference between consecutive divisors of _n_,
 OEIS [A322871](https://oeis.org/A322871):
@@ -17214,7 +17214,7 @@ OEIS [A322871](https://oeis.org/A322871):
 }.ordinalTransform.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/ordinalTransform-C.svg)
+![](Help/Image/ordinalTransform-C.svg)
 
 Ordinal transform of Moebius transform of largest difference between consecutive divisors of _n_,
 OEIS [A322873](https://oeis.org/A322873):
@@ -17227,7 +17227,7 @@ OEIS [A322873](https://oeis.org/A322873):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/ordinalTransform-D.svg)
+![](Help/Image/ordinalTransform-D.svg)
 
 Ordinal transform of Moebius transform of _φ(n)_,
 OEIS [A322874](https://oeis.org/A322874):
@@ -17239,7 +17239,7 @@ OEIS [A322874](https://oeis.org/A322874):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/ordinalTransform-J.svg)
+![](Help/Image/ordinalTransform-J.svg)
 
 Count of distinct products,
 OEIS [A322967](https://oeis.org/A322967):
@@ -17253,7 +17253,7 @@ OeisEntry('A322967').then { :e |
 }
 ~~~
 
-![](sw/spl/Help/Image/tensorProduct-A.svg)
+![](Help/Image/tensorProduct-A.svg)
 
 Dirichlet inverse of the Dedekind ψ function,
 OEIS [A323363](https://oeis.org/A323363):
@@ -17268,7 +17268,7 @@ OEIS [A323363](https://oeis.org/A323363):
 ).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/dirichletInverse-E.svg)
+![](Help/Image/dirichletInverse-E.svg)
 
 Restricted growth sequence transform of Per Nørgård’s infinity sequence,
 OEIS [A323907](https://oeis.org/A323907):
@@ -17279,7 +17279,7 @@ OEIS [A323907](https://oeis.org/A323907):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/restrictedGrowthSequenceTransform-A.svg)
+![](Help/Image/restrictedGrowthSequenceTransform-A.svg)
 
 _1+Iff(k-1,n-k)_,
 OEIS [A327490](https://oeis.org/A327490):
@@ -17290,7 +17290,7 @@ OEIS [A327490](https://oeis.org/A327490):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitIff-A.svg)
+![](Help/Image/bitIff-A.svg)
 
 Irregular table read by rows,
 initially _1_,
@@ -17309,7 +17309,7 @@ let a = Map { :n |
 a[1:9].catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/ordinalTransform-P.svg)
+![](Help/Image/ordinalTransform-P.svg)
 
 Number of ones in the base-φ representation of _n_ modulo two,
 OEIS [A330037](https://oeis.org/A330037):
@@ -17323,7 +17323,7 @@ let c = 2:125.collect { :n |
 (c % 2).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/betaExpansion-C.svg)
+![](Help/Image/betaExpansion-C.svg)
 
 Least nonnegative integer _k_ such that _xor(n,k)_ is a cube,
 OEIS [A330271](https://oeis.org/A330271):
@@ -17336,7 +17336,7 @@ OEIS [A330271](https://oeis.org/A330271):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/cubeRoot-B.svg)
+![](Help/Image/cubeRoot-B.svg)
 
 Integers whose Dual Zeckendorf representation is palindromic,
 OEIS [A331191](https://oeis.org/A331191):
@@ -17348,7 +17348,7 @@ OEIS [A331191](https://oeis.org/A331191):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/dualZeckendorfRepresentation-E.svg)
+![](Help/Image/dualZeckendorfRepresentation-E.svg)
 
 For _n>1_, _T(n,k)_ is the count of _k_ in the rows up to _n_,
 OEIS [A333867](https://oeis.org/A333867):
@@ -17367,7 +17367,7 @@ let t = [[1]];
 t.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/occurrencesOf-B.svg)
+![](Help/Image/occurrencesOf-B.svg)
 
 Numbers whose binary expansion generates rotationally symmetric _xor_-triangles,
 OEIS [A334556](https://oeis.org/A334556):
@@ -17378,7 +17378,7 @@ OeisEntry('A334556').then { :e |
 }
 ~~~
 
-![](sw/spl/Help/Image/xorTriangle-D.svg)
+![](Help/Image/xorTriangle-D.svg)
 
 Numbers whose binary expansion generate rotationally symmetrical _xor_-triangles that have central triangles of zeros,
 OEIS [A334769](https://oeis.org/A334769):
@@ -17389,7 +17389,7 @@ OeisEntry('A334769').then { :e |
 }
 ~~~
 
-![](sw/spl/Help/Image/xorTriangle-E.svg)
+![](Help/Image/xorTriangle-E.svg)
 
 Minimal common prime of two Goldbach partitions of _2n_ and _2(n+1)_,
 or zero if no common prime exists,
@@ -17412,7 +17412,7 @@ let d = Map { :n |
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/frobeniusSolve-G.svg)
+![](Help/Image/frobeniusSolve-G.svg)
 
 The Nim _k_-th power of _n_,
 array read by upward antidiagonals,
@@ -17423,7 +17423,7 @@ OEIS [A335162](https://oeis.org/A335162):
 .collect(reverse:/1).catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/nimMultiplication-W.svg)
+![](Help/Image/nimMultiplication-W.svg)
 
 Array read by antidiagonals,
 places are the digit sum of _n×k_,
@@ -17435,7 +17435,7 @@ OEIS [A336225](https://oeis.org/A336225):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/digitSum-D.svg)
+![](Help/Image/digitSum-D.svg)
 
 Squarefree kernel of _n_ divided by the squarefree part of _n_,
 _r(n)/c(n)_,
@@ -17447,7 +17447,7 @@ OEIS [A336643](https://oeis.org/A336643):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/radical-G.svg)
+![](Help/Image/radical-G.svg)
 
 Two-adic valuation of _σ(n)_,
 OEIS [A336937](https://oeis.org/A336937):
@@ -17458,7 +17458,7 @@ OEIS [A336937](https://oeis.org/A336937):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/integerExponent-H.svg)
+![](Help/Image/integerExponent-H.svg)
 
 Ordinal transform of edited
 OEIS [A143771](https://oeis.org/A143771),
@@ -17474,7 +17474,7 @@ a[1] := 1;
 a.ordinalTransform.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/ordinalTransform-E.svg)
+![](Help/Image/ordinalTransform-E.svg)
 
 A variant of the Van Eck sequence,
 c.f. `vanEckSequence`,
@@ -17496,7 +17496,7 @@ let r = [0];
 a.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitXor-O.svg)
+![](Help/Image/bitXor-O.svg)
 
 The inventory sequence,
 discrete plot,
@@ -17506,7 +17506,7 @@ OEIS [A342585](https://oeis.org/A342585):
 99.inventorySequence.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/inventorySequence-A.svg)
+![](Help/Image/inventorySequence-A.svg)
 
 The inventory sequence,
 log scale scatter plot,
@@ -17519,7 +17519,7 @@ OEIS [A342585](https://oeis.org/A342585):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/inventorySequence-B.svg)
+![](Help/Image/inventorySequence-B.svg)
 
 The first _k_ terms of the inventory sequence,
 OEIS [A342585](https://oeis.org/A342585):
@@ -17543,7 +17543,7 @@ a.collect { :n |
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/occurrencesOf-A.svg)
+![](Help/Image/occurrencesOf-A.svg)
 
 _gcd(1+n,ψ(n))_,
 OEIS [A342915](https://oeis.org/A342915):
@@ -17554,7 +17554,7 @@ OEIS [A342915](https://oeis.org/A342915):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/dedekindPsi-C.svg)
+![](Help/Image/dedekindPsi-C.svg)
 
 Number of ones in the binary expansion of _n_ which have an even number of zeroes at less significant positions,
 OEIS [A343029](https://oeis.org/A343029):
@@ -17577,7 +17577,7 @@ OEIS [A343029](https://oeis.org/A343029):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/binaryExpansion-A.svg)
+![](Help/Image/binaryExpansion-A.svg)
 
 Number of ones in the binary expansion of _n_ which have an odd number of zeroes at less significant positions,
 OEIS [A343030](https://oeis.org/A343030):
@@ -17600,7 +17600,7 @@ OEIS [A343030](https://oeis.org/A343030):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/binaryExpansion-B.svg)
+![](Help/Image/binaryExpansion-B.svg)
 
 First differences of the regular paperfolding sequence,
 OEIS [A343173](https://oeis.org/A343173):
@@ -17611,7 +17611,7 @@ OEIS [A343173](https://oeis.org/A343173):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/regularPaperfoldingSequence-D.svg)
+![](Help/Image/regularPaperfoldingSequence-D.svg)
 
 A sequence by David James Sycamore,
 OEIS [A343887](https://oeis.org/A343887):
@@ -17641,7 +17641,7 @@ let m = 250;
 a.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/secondLast-A.svg)
+![](Help/Image/secondLast-A.svg)
 
 The ordinal transform of _gcd(1+n,ψ(n))_,
 OEIS [A344771](https://oeis.org/A344771):
@@ -17652,7 +17652,7 @@ OEIS [A344771](https://oeis.org/A344771):
 }.ordinalTransform.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/ordinalTransform-R.svg)
+![](Help/Image/ordinalTransform-R.svg)
 
 A sequence by David James Sycamore,
 OEIS [A345147](https://oeis.org/A345147):
@@ -17682,7 +17682,7 @@ let m = 250;
 a.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/divisorSigma-T.svg)
+![](Help/Image/divisorSigma-T.svg)
 
 Ordinal transform of Kempner function,
 OEIS [A345934](https://oeis.org/A345934):
@@ -17693,7 +17693,7 @@ OEIS [A345934](https://oeis.org/A345934):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/ordinalTransform-K.svg)
+![](Help/Image/ordinalTransform-K.svg)
 
 Shadow transform of `fibonacci`,
 OEIS [A346080](https://oeis.org/A346080):
@@ -17704,7 +17704,7 @@ OEIS [A346080](https://oeis.org/A346080):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/shadowTransform-E.svg)
+![](Help/Image/shadowTransform-E.svg)
 
 A variant of the inventory sequence,
 OEIS [A347738](https://oeis.org/A347738):
@@ -17730,7 +17730,7 @@ let a = Map { :n |
 a[1:150].scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/sum-I.svg)
+![](Help/Image/sum-I.svg)
 
 Count Nim-factors,
 OEIS [A348291](https://oeis.org/A348291):
@@ -17748,7 +17748,7 @@ let t = nimMultiplication:/2.table(1:k, 1:k);
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/nimMultiplication-Y.svg)
+![](Help/Image/nimMultiplication-Y.svg)
 
 Dirichlet inverse of the amusical permutation function,
 OEIS [A349351](https://oeis.org/A349351):
@@ -17760,7 +17760,7 @@ OEIS [A349351](https://oeis.org/A349351):
 ).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/amusicalPermutation-H.svg)
+![](Help/Image/amusicalPermutation-H.svg)
 
 Sum of the amusical permutation and it’s dirichlet inverse,
 OEIS [A349352](https://oeis.org/A349352):
@@ -17773,7 +17773,7 @@ let g:/1 = f:/1.dirichletInverse;
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/amusicalPermutation-I.svg)
+![](Help/Image/amusicalPermutation-I.svg)
 
 _Σ0:n|n_,
 OEIS [A350093](https://oeis.org/A350093):
@@ -17786,7 +17786,7 @@ OEIS [A350093](https://oeis.org/A350093):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/sum-H.svg)
+![](Help/Image/sum-H.svg)
 
 Row sums of triangle of _¬n&k_,
 also called the converse nonimplication,
@@ -17798,7 +17798,7 @@ OEIS [A350094](https://oeis.org/A350094):
 }.collect(sum:/1).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitNot-C.svg)
+![](Help/Image/bitNot-C.svg)
 
 Array read by antidiagonals,
 places are the digital root of _n×k_,
@@ -17810,7 +17810,7 @@ OEIS [A353109](https://oeis.org/A353109):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/digitalRoot-C.svg)
+![](Help/Image/digitalRoot-C.svg)
 
 Is _n_ an odd number with an even number of prime factors,
 OEIS [A353557](https://oeis.org/A353557):
@@ -17823,7 +17823,7 @@ OEIS [A353557](https://oeis.org/A353557):
 }.boole.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/primeOmega-E.svg)
+![](Help/Image/primeOmega-E.svg)
 
 Irregular array read by rows where row _k_ lists the run-sums of the _k_-th composition in standard order,
 OEIS [A353932](https://oeis.org/A353932):
@@ -17838,7 +17838,7 @@ OEIS [A353932](https://oeis.org/A353932):
 }.catenate.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/reverseLexicographicSort-E.svg)
+![](Help/Image/reverseLexicographicSort-E.svg)
 
 The largest five-smooth divisor of _n_,
 OEIS [A355582](https://oeis.org/A355582):
@@ -17851,7 +17851,7 @@ OEIS [A355582](https://oeis.org/A355582):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/integerExponent-P.svg)
+![](Help/Image/integerExponent-P.svg)
 
 _C(2n,n)C(n,k)_,
 OEIS [A356546](https://oeis.org/A356546):
@@ -17862,7 +17862,7 @@ OEIS [A356546](https://oeis.org/A356546):
 }.catenate.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/binomial-Q.svg)
+![](Help/Image/binomial-Q.svg)
 
 First differences of integer compositions in reverse lexicographic order,
 OEIS [A358133](https://oeis.org/A358133):
@@ -17875,7 +17875,7 @@ OEIS [A358133](https://oeis.org/A358133):
 .catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/reverseLexicographicSort-D.svg)
+![](Help/Image/reverseLexicographicSort-D.svg)
 
 Characteristic function for
 numbers not divisible by _p^p_ for any prime _p_,
@@ -17889,7 +17889,7 @@ OEIS [A359550](https://oeis.org/A359550):
 }.boole.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/factorInteger-N.svg)
+![](Help/Image/factorInteger-N.svg)
 
 Triangle where _(n,k)_ is the number of integer partitions of _n_ with median _k_,
 where _k_ ranges from one to _n_ in steps of one half,
@@ -17905,7 +17905,7 @@ Range(1, 10, 1).collect { :n |
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/median-B.svg)
+![](Help/Image/median-B.svg)
 
 The number of integer partitions of _n_ with median _k_,
 OEIS [A359901](https://oeis.org/A359901):
@@ -17918,7 +17918,7 @@ OEIS [A359901](https://oeis.org/A359901):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/integerPartitions-I.svg)
+![](Help/Image/integerPartitions-I.svg)
 
 A sequence by David James Sycamore,
 OEIS [A360179](https://oeis.org/A360179):
@@ -17953,7 +17953,7 @@ let u = 1;
 a.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/divisorSigma-S.svg)
+![](Help/Image/divisorSigma-S.svg)
 
 One for zero else zero in Nørgård’s infinity sequence,
 OEIS [A361016](https://oeis.org/A361016):
@@ -17963,7 +17963,7 @@ OEIS [A361016](https://oeis.org/A361016):
 .collect(isZero:/1).boole.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/noergaardInfinitySequence-F.svg)
+![](Help/Image/noergaardInfinitySequence-F.svg)
 
 Restricted growth sequence transform of the ordered pair of counts of ones in the binary expansion of _n_ which have an even and odd number of zeroes at less significant positions,
 OEIS [A361020](https://oeis.org/A361020):
@@ -17989,7 +17989,7 @@ OEIS [A361020](https://oeis.org/A361020):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/binaryExpansion-D.svg)
+![](Help/Image/binaryExpansion-D.svg)
 
 _a(n)%4=3_,
 where _a_ is the delayed divison of the Cloitre sequence,
@@ -18001,7 +18001,7 @@ let a = c.adjacentPairsCollect(/.swap) - 1;
 ((a % 4) =.each 3).boole.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/rowlandsSequence-I.svg)
+![](Help/Image/rowlandsSequence-I.svg)
 
 `gcd` of the Cloitre sequence and offset indices,
 OEIS [A361470](https://oeis.org/A361470):
@@ -18014,7 +18014,7 @@ let k = 100;
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/rowlandsSequence-H.svg)
+![](Help/Image/rowlandsSequence-H.svg)
 
 A variant of a sequence by David James Sycamore,
 OEIS [A361511](https://oeis.org/A361511):
@@ -18037,7 +18037,7 @@ let m = 1;
 a.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/divisorSigma-U.svg)
+![](Help/Image/divisorSigma-U.svg)
 
 The _1,3_ Kolakoski sequence,
 OEIS [A362927](https://oeis.org/A362927),
@@ -18048,7 +18048,7 @@ minus two:
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/kolakoskiSequence-M.svg)
+![](Help/Image/kolakoskiSequence-M.svg)
 
 An experimental sequence by D.J. Sycamore,
 OEIS [A366601](https://oeis.org/A366601):
@@ -18073,7 +18073,7 @@ let c = [0];
 c.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerExponent-D.svg)
+![](Help/Image/integerExponent-D.svg)
 
 The ordinal transform of the final nonzero digits of _n!_,
 OEIS [A367799](https://oeis.org/A367799):
@@ -18083,7 +18083,7 @@ let a = 0:85.!.withoutTrailingZeroes % 10;
 a.ordinalTransform.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/ordinalTransform-Q.svg)
+![](Help/Image/ordinalTransform-Q.svg)
 
 The ordinal transform of the leading digits of _n!_,
 OEIS [A368010](https://oeis.org/A368010):
@@ -18094,7 +18094,7 @@ let n = 0:115.!;
 .ordinalTransform.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/ordinalTransform-S.svg)
+![](Help/Image/ordinalTransform-S.svg)
 
 Initial segment of table of iterations,
 read by rising antidiagonals.
@@ -18113,7 +18113,7 @@ let b = [];
 b.log.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/amusicalPermutation-J.svg)
+![](Help/Image/amusicalPermutation-J.svg)
 
 The binary expansion of _3n+1_,
 substituting _01_ for all trailing _0_ following the odd part,
@@ -18127,7 +18127,7 @@ OEIS [A371094](https://oeis.org/A371094):
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerExponent-I.svg)
+![](Help/Image/integerExponent-I.svg)
 
 The ordinal transform of the binary expansion of _n_ modulo two and contracted,
 OEIS [A371944](https://oeis.org/A371944):
@@ -18140,7 +18140,7 @@ OEIS [A371944](https://oeis.org/A371944):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/ordinalTransform-T.svg)
+![](Help/Image/ordinalTransform-T.svg)
 
 Second differences of sequence of nonsquarefree numbers,
 OEIS [A376593](https://oeis.org/A376593):
@@ -18150,7 +18150,7 @@ OEIS [A376593](https://oeis.org/A376593):
 .differences(2).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/isSquareFree-E.svg)
+![](Help/Image/isSquareFree-E.svg)
 
 Second differences of Kolakoski sequence,
 OEIS [A376604](https://oeis.org/A376604):
@@ -18161,7 +18161,7 @@ OEIS [A376604](https://oeis.org/A376604):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/kolakoskiSequence-I.svg)
+![](Help/Image/kolakoskiSequence-I.svg)
 
 The least integer, absolutely, not yet in the sequence such that the _|a(n-1)-a(n)|_ is a square,
 OEIS [A377091](https://oeis.org/A377091):
@@ -18189,7 +18189,7 @@ let s = IdentitySet([0]);
 }.nestList(0, m).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/isPerfectSquare-D.svg)
+![](Help/Image/isPerfectSquare-D.svg)
 
 Ordinal transform of the largest five-smooth divisor of _n_,
 OEIS [A379006](https://oeis.org/A379006):
@@ -18202,7 +18202,7 @@ OEIS [A379006](https://oeis.org/A379006):
 }.ordinalTransform.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/ordinalTransform-F.svg)
+![](Help/Image/ordinalTransform-F.svg)
 
 The lexicographically earliest sequence of positive numbers which is identical to the run lengths of its first differences,
 OEIS [A380317](https://oeis.org/A380317):
@@ -18215,7 +18215,7 @@ OeisEntry('A380317').then { :e |
 }
 ~~~
 
-![](sw/spl/Help/Image/OeisEntry-E.svg)
+![](Help/Image/OeisEntry-E.svg)
 
 Sequence which is the partial sums of the proper divisors of its own elements,
 OEIS [A389395](https://oeis.org/A389395):
@@ -18230,7 +18230,7 @@ let a = [1 2 4 5 6 8 11];
 a.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/prefixSum-D.svg)
+![](Help/Image/prefixSum-D.svg)
 
 Sequence which is the partial sums of the divisors of its own elements,
 OEIS [A389395](https://oeis.org/A389395):
@@ -18245,7 +18245,7 @@ let a = [1 2 4 5 7 11];
 a.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/prefixSum-F.svg)
+![](Help/Image/prefixSum-F.svg)
 
 First differences of sequence which is the partial sums of the proper divisors of its own elements,
 OEIS [A389613](https://oeis.org/A389613):
@@ -18260,7 +18260,7 @@ let a = [1 2 4 5 6 8 11];
 a.differences.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/prefixSum-E.svg)
+![](Help/Image/prefixSum-E.svg)
 
 Restricted growth sequence transform of the ordered triple of binary carry sequence and the counts of ones in the binary expansion of _n_ which have an even and odd number of zeroes at less significant positions,
 OEIS [A389896](https://oeis.org/A389896):
@@ -18287,7 +18287,7 @@ OEIS [A389896](https://oeis.org/A389896):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/binaryExpansion-E.svg)
+![](Help/Image/binaryExpansion-E.svg)
 
 Array read by antidiagonals,
 places are the integer reverse of _n×k_,
@@ -18299,7 +18299,7 @@ OEIS [A391365](https://oeis.org/A391365):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerReverse-I.svg)
+![](Help/Image/integerReverse-I.svg)
 
 Numbers that have only one largest digit _m_ and where the sum of the digits is equal to _2m_,
 OEIS [A393832](https://oeis.org/A393832):
@@ -18314,4 +18314,4 @@ OEIS [A393832](https://oeis.org/A393832):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/occurrencesOf-C.svg)
+![](Help/Image/occurrencesOf-C.svg)

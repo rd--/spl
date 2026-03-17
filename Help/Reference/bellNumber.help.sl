@@ -55,7 +55,7 @@ OEIS [A000110](https://oeis.org/A000110):
 1:99.bellNumber.log.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/bellNumber-A.svg)
+![](Help/Image/bellNumber-A.svg)
 
 * * *
 

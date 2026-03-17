@@ -10,7 +10,7 @@ let c = t.excenters;
 [t, c.PointCloud].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/excenters-A.svg)
+![](Help/Image/excenters-A.svg)
 
 * * *
 

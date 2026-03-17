@@ -144,7 +144,7 @@ OEIS [A000041](https://oeis.org/A000041):
 }
 ~~~
 
-![](sw/spl/Help/Image/partitionFunctionP-A.svg)
+![](Help/Image/partitionFunctionP-A.svg)
 
 Initial triangle of _P(n,k)_,
 OEIS [A008284](https://oeis.org/A008284):
@@ -155,7 +155,7 @@ OEIS [A008284](https://oeis.org/A008284):
 ).catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/partitionFunctionP-B.svg)
+![](Help/Image/partitionFunctionP-B.svg)
 
 Initial triangle of _P(n,1:k)_,
 OEIS [A026820](https://oeis.org/A026820):
@@ -168,7 +168,7 @@ OEIS [A026820](https://oeis.org/A026820):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/partitionFunctionP-C.svg)
+![](Help/Image/partitionFunctionP-C.svg)
 
 Parity of the partition numbers,
 OEIS [A040051](https://oeis.org/A040051):
@@ -180,7 +180,7 @@ OEIS [A040051](https://oeis.org/A040051):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/partitionFunctionP-D.svg)
+![](Help/Image/partitionFunctionP-D.svg)
 
 * * *
 

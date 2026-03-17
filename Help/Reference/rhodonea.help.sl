@@ -14,7 +14,7 @@ At _n=1_, a circle:
 .Line
 ~~~
 
-![](sw/spl/Help/Image/rhodonea-A.svg)
+![](Help/Image/rhodonea-A.svg)
 
 At _n=2_, a quadrifolium, with period _2π_:
 
@@ -24,7 +24,7 @@ At _n=2_, a quadrifolium, with period _2π_:
 .Line
 ~~~
 
-![](sw/spl/Help/Image/rhodonea-B.svg)
+![](Help/Image/rhodonea-B.svg)
 
 At _n=3_, a trifolium:
 
@@ -34,7 +34,7 @@ At _n=3_, a trifolium:
 .Line
 ~~~
 
-![](sw/spl/Help/Image/rhodonea-C.svg)
+![](Help/Image/rhodonea-C.svg)
 
 At _n=1/3_, a limaçon trisectrix, with period _3π_:
 
@@ -44,7 +44,7 @@ At _n=1/3_, a limaçon trisectrix, with period _3π_:
 .Line
 ~~~
 
-![](sw/spl/Help/Image/rhodonea-D.svg)
+![](Help/Image/rhodonea-D.svg)
 
 At _n=1/2_, a Dürer folium, with period _4π_:
 
@@ -54,7 +54,7 @@ At _n=1/2_, a Dürer folium, with period _4π_:
 .Line
 ~~~
 
-![](sw/spl/Help/Image/rhodonea-E.svg)
+![](Help/Image/rhodonea-E.svg)
 
 At _n=2/3_, with period _6π_:
 
@@ -64,7 +64,7 @@ At _n=2/3_, with period _6π_:
 .Line
 ~~~
 
-![](sw/spl/Help/Image/rhodonea-F.svg)
+![](Help/Image/rhodonea-F.svg)
 
 At _n=1/4_, with period _8π_:
 
@@ -74,7 +74,7 @@ At _n=1/4_, with period _8π_:
 .Line
 ~~~
 
-![](sw/spl/Help/Image/rhodonea-G.svg)
+![](Help/Image/rhodonea-G.svg)
 
 At _n=3/5_, with period _5π_:
 
@@ -84,7 +84,7 @@ At _n=3/5_, with period _5π_:
 .Line
 ~~~
 
-![](sw/spl/Help/Image/rhodonea-H.svg)
+![](Help/Image/rhodonea-H.svg)
 
 At _n=9/7_, with period _7π_:
 
@@ -94,7 +94,7 @@ At _n=9/7_, with period _7π_:
 .Line
 ~~~
 
-![](sw/spl/Help/Image/rhodonea-I.svg)
+![](Help/Image/rhodonea-I.svg)
 
 * * *
 

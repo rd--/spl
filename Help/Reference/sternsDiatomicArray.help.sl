@@ -102,7 +102,7 @@ OEIS [A049456](https://oeis.org/A049456):
 .catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/sternsDiatomicArray-A.svg)
+![](Help/Image/sternsDiatomicArray-A.svg)
 
 Stern’s diatomic array,
 scatter plot,
@@ -113,7 +113,7 @@ OEIS [A049456](https://oeis.org/A049456):
 .catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/sternsDiatomicArray-B.svg)
+![](Help/Image/sternsDiatomicArray-B.svg)
 
 Stern’s diatomic array,
 version two,
@@ -124,7 +124,7 @@ OEIS [A070878](https://oeis.org/A070878):
 .catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/sternsDiatomicArray-C.svg)
+![](Help/Image/sternsDiatomicArray-C.svg)
 
 Stern’s diatomic array,
 version three,
@@ -135,7 +135,7 @@ OEIS [A070879](https://oeis.org/A070879):
 .catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/sternsDiatomicArray-D.svg)
+![](Help/Image/sternsDiatomicArray-D.svg)
 
 * * *
 

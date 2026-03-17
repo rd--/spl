@@ -13,7 +13,7 @@ Plot over a subset of the reals:
 )
 ~~~
 
-![](sw/spl/Help/Image/richardsCurve-A.svg)
+![](Help/Image/richardsCurve-A.svg)
 
 Effect of varying parameter _a_,
 all other parameters are 1:
@@ -26,7 +26,7 @@ all other parameters are 1:
 )
 ~~~
 
-![](sw/spl/Help/Image/richardsCurve-B.svg)
+![](Help/Image/richardsCurve-B.svg)
 
 Effect of varying parameter _b_,
 _a=0_, all other parameters are one:
@@ -39,7 +39,7 @@ _a=0_, all other parameters are one:
 )
 ~~~
 
-![](sw/spl/Help/Image/richardsCurve-C.svg)
+![](Help/Image/richardsCurve-C.svg)
 
 Effect of varying parameter _c_,
 _a=0_, all other parameters are one:
@@ -52,7 +52,7 @@ _a=0_, all other parameters are one:
 )
 ~~~
 
-![](sw/spl/Help/Image/richardsCurve-D.svg)
+![](Help/Image/richardsCurve-D.svg)
 
 Effect of varying parameter _k_,
 _a=0_, all other parameters are one:
@@ -65,7 +65,7 @@ _a=0_, all other parameters are one:
 )
 ~~~
 
-![](sw/spl/Help/Image/richardsCurve-E.svg)
+![](Help/Image/richardsCurve-E.svg)
 
 Effect of varying parameter _q_,
 _a=0_, all other parameters are one:
@@ -78,7 +78,7 @@ _a=0_, all other parameters are one:
 )
 ~~~
 
-![](sw/spl/Help/Image/richardsCurve-F.svg)
+![](Help/Image/richardsCurve-F.svg)
 
 Effect of varying parameter ν,
 _a=0_, all other parameters are one:
@@ -91,7 +91,7 @@ _a=0_, all other parameters are one:
 )
 ~~~
 
-![](sw/spl/Help/Image/richardsCurve-G.svg)
+![](Help/Image/richardsCurve-G.svg)
 
 * * *
 

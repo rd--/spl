@@ -54,7 +54,7 @@ Sfc32(3678124)
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/binCounts-A.svg)
+![](Help/Image/binCounts-A.svg)
 
 Visualize the density of two-dimensional normal noise data in bins:
 
@@ -66,7 +66,7 @@ NormalDistribution(0, 2)
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/binCounts-B.svg)
+![](Help/Image/binCounts-B.svg)
 
 Bin count of two peak random data with two thousand points:
 
@@ -81,7 +81,7 @@ let b = q.randomVariate(r, [1000]);
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/binCounts-C.svg)
+![](Help/Image/binCounts-C.svg)
 
 * * *
 

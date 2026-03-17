@@ -13,7 +13,7 @@ cassiniOval(9 / 10, 1)
 .contourPlot(i, i, [0])
 ~~~
 
-![](sw/spl/Help/Image/cassiniOval-A.svg)
+![](Help/Image/cassiniOval-A.svg)
 
 * * *
 

@@ -38,7 +38,7 @@ let r = b.transpose.asRectangle;
 [p, r].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/coordinateBoundsArray-A.svg)
+![](Help/Image/coordinateBoundsArray-A.svg)
 
 Draw an array of three-dimensional points with given discretization steps:
 
@@ -50,7 +50,7 @@ Draw an array of three-dimensional points with given discretization steps:
 .asPerspectiveDrawing
 ~~~
 
-![](sw/spl/Help/Image/coordinateBoundsArray-B.svg)
+![](Help/Image/coordinateBoundsArray-B.svg)
 
 Draw a lattice of two-dimensional points,
 and a copy with points offset by _(0.5, 0.25)_,
@@ -71,7 +71,7 @@ let f = { :o |
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/coordinateBoundsArray-C.svg)
+![](Help/Image/coordinateBoundsArray-C.svg)
 
 * * *
 

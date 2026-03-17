@@ -67,7 +67,7 @@ The sequence of Euler numbers modulo a fixed number is periodic:
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/eulerNumber-A.svg)
+![](Help/Image/eulerNumber-A.svg)
 
 Non-zero coefficients of the Swiss-Knife polynomials,
 OEIS [A153641](https://oeis.org/A153641):
@@ -83,7 +83,7 @@ OEIS [A153641](https://oeis.org/A153641):
 }.catenate.logScale.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/eulerNumber-B.svg)
+![](Help/Image/eulerNumber-B.svg)
 
 * * *
 

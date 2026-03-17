@@ -13,7 +13,7 @@ let t = [3 2.5 3].sssTriangle;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/outerSoddyCircle-A.svg)
+![](Help/Image/outerSoddyCircle-A.svg)
 
 Outer and inner Soddy circles:
 
@@ -26,7 +26,7 @@ let t = sssTriangle(1, 5 / 6, 5 / 6);
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/outerSoddyCircle-B.svg)
+![](Help/Image/outerSoddyCircle-B.svg)
 
 * * *
 

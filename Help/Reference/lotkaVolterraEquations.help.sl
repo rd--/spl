@@ -25,7 +25,7 @@ lotkaVolterraEquations(1.5, 1, 3, 1)
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/lotkaVolterraEquations-A.svg)
+![](Help/Image/lotkaVolterraEquations-A.svg)
 
 Plot with unit constants:
 
@@ -41,7 +41,7 @@ lotkaVolterraEquations(1, 1, 1, 1)
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/lotkaVolterraEquations-B.svg)
+![](Help/Image/lotkaVolterraEquations-B.svg)
 
 Plot phase diagrams,
 varying initial _y_:
@@ -59,7 +59,7 @@ varying initial _y_:
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/lotkaVolterraEquations-C.svg)
+![](Help/Image/lotkaVolterraEquations-C.svg)
 
 * * *
 

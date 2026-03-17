@@ -29,7 +29,7 @@ the reciprocal of OEIS [A003506](https://oeis.org/A003506):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/leibnizHarmonicTriangle-A.svg)
+![](Help/Image/leibnizHarmonicTriangle-A.svg)
 
 Triangle of denominators in Leibniz’s harmonic triangle,
 OEIS [A003506](https://oeis.org/A003506):
@@ -39,7 +39,7 @@ OEIS [A003506](https://oeis.org/A003506):
 .catenate.denominator.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/leibnizHarmonicTriangle-B.svg)
+![](Help/Image/leibnizHarmonicTriangle-B.svg)
 
 * * *
 

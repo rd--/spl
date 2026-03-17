@@ -95,7 +95,7 @@ let y = psi ^ -3;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/supergoldenRatio-A.svg)
+![](Help/Image/supergoldenRatio-A.svg)
 
 Supergolden spiral:
 
@@ -107,7 +107,7 @@ let b = 1.supergoldenRatio.log / 0.5.pi;
 ).Line
 ~~~
 
-![](sw/spl/Help/Image/supergoldenRatio-B.svg)
+![](Help/Image/supergoldenRatio-B.svg)
 
 * * *
 

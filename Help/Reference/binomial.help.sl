@@ -694,7 +694,7 @@ Plot over a subset of the reals as a function of its first parameter:
 }
 ~~~
 
-![](sw/spl/Help/Image/binomial-A.svg)
+![](Help/Image/binomial-A.svg)
 
 Plot over a subset of the reals as a function of its second parameter:
 
@@ -704,7 +704,7 @@ Plot over a subset of the reals as a function of its second parameter:
 }
 ~~~
 
-![](sw/spl/Help/Image/binomial-B.svg)
+![](Help/Image/binomial-B.svg)
 
 Partial sums of Sierpinski’s sieve,
 scatter plot,
@@ -718,7 +718,7 @@ OEIS [A166556](https://oeis.org/A166556):
 }.++.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/binomial-C.svg)
+![](Help/Image/binomial-C.svg)
 
 Pascal’s triangle,
 excluding first and last two elements of each row,
@@ -735,7 +735,7 @@ OEIS [A053202](https://oeis.org/A053202):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/binomial-D.svg)
+![](Help/Image/binomial-D.svg)
 
 The second in a series of arrays counting standard tableaux by partition type,
 OEIS [A059797](https://oeis.org/A059797):
@@ -758,7 +758,7 @@ let t = { :n :k |
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/binomial-E.svg)
+![](Help/Image/binomial-E.svg)
 
 The number of length-_n_ binary sequences with exactly _k_ zeros,
 and without three consecutive zeros,
@@ -781,7 +781,7 @@ OEIS [A182309](https://oeis.org/A182309):
 }.catenate.log.linePlot
 ~~~
 
-![](sw/spl/Help/Image/binomial-F.svg)
+![](Help/Image/binomial-F.svg)
 
 Circular binomial coefficients,
 OEIS [A047996](https://oeis.org/A047996):
@@ -800,7 +800,7 @@ OEIS [A047996](https://oeis.org/A047996):
 }.catenate.log.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/binomial-G.svg)
+![](Help/Image/binomial-G.svg)
 
 Variant of Pascal’s triangle,
 OEIS [A051632](https://oeis.org/A051632):
@@ -816,7 +816,7 @@ OEIS [A051632](https://oeis.org/A051632):
 }.catenate.logScale.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/binomial-H.svg)
+![](Help/Image/binomial-H.svg)
 
 Triangle of coefficients of Laguerre polynomials _n!*Ln(x)_,
 OEIS [A021009](https://oeis.org/A021009):
@@ -827,7 +827,7 @@ OEIS [A021009](https://oeis.org/A021009):
 }.catenate.logScale.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/binomial-I.svg)
+![](Help/Image/binomial-I.svg)
 
 _C(n-a,k/2)×(-1^a)_ where _a=(k+1)/2_,
 OEIS [A108299](https://oeis.org/A108299):
@@ -839,7 +839,7 @@ OEIS [A108299](https://oeis.org/A108299):
 }.catenate.logScale.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/binomial-J.svg)
+![](Help/Image/binomial-J.svg)
 
 _-1^(n+k)*C(n,k)_,
 lower triangular matrix which is inverse to Pascal’s triangle,
@@ -851,7 +851,7 @@ OEIS [A130595](https://oeis.org/A130595):
 }.catenate.logScale.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/binomial-K.svg)
+![](Help/Image/binomial-K.svg)
 
 Riordan array _((1-x)/(1+x),x/(1+x)^2)_,
 OEIS [A110162](https://oeis.org/A110162):
@@ -870,7 +870,7 @@ OEIS [A110162](https://oeis.org/A110162):
 }.catenate.logScale.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/binomial-L.svg)
+![](Help/Image/binomial-L.svg)
 
 Riordan array _(1,x(1-x))_,
 OEIS [A109466](https://oeis.org/A109466):
@@ -881,7 +881,7 @@ OEIS [A109466](https://oeis.org/A109466):
 }.catenate.logScale.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/binomial-M.svg)
+![](Help/Image/binomial-M.svg)
 
 Number of compositions of _n_ with _k_ parts,
 OEIS [A109466](https://oeis.org/A109466):
@@ -892,7 +892,7 @@ OEIS [A109466](https://oeis.org/A109466):
 }.catenate.logScale.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/binomial-N.svg)
+![](Help/Image/binomial-N.svg)
 
 _C(i,j)*2^(i-j)_,
 OEIS [A038207](https://oeis.org/A038207):
@@ -903,7 +903,7 @@ OEIS [A038207](https://oeis.org/A038207):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/binomial-O.svg)
+![](Help/Image/binomial-O.svg)
 
 Odd-numbered columns of triangle of expansions of powers of _x_ in terms of Chebyshev polynomials _Un(x)_,
 OEIS [A039598](https://oeis.org/A039598):
@@ -916,7 +916,7 @@ OEIS [A039598](https://oeis.org/A039598):
 }.catenate.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/binomial-P.svg)
+![](Help/Image/binomial-P.svg)
 
 _C(2n,n)C(n,k)_,
 OEIS [A356546](https://oeis.org/A356546):
@@ -927,7 +927,7 @@ OEIS [A356546](https://oeis.org/A356546):
 }.catenate.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/binomial-Q.svg)
+![](Help/Image/binomial-Q.svg)
 
 The _(1,2)_-Pascal triangle,
 _C(n,k)+C(n-1,k-1)_,
@@ -945,7 +945,7 @@ OEIS [A029635](https://oeis.org/A029635):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/binomial-R.svg)
+![](Help/Image/binomial-R.svg)
 
 Denominators of Farey tree fractions,
 OEIS [A007306](https://oeis.org/A007306):
@@ -958,7 +958,7 @@ OEIS [A007306](https://oeis.org/A007306):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/binomial-S.svg)
+![](Help/Image/binomial-S.svg)
 
 _C(n+10,n)%10_,
 OEIS [A133890](https://oeis.org/A133890):
@@ -969,7 +969,7 @@ OEIS [A133890](https://oeis.org/A133890):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/binomial-T.svg)
+![](Help/Image/binomial-T.svg)
 
 * * *
 

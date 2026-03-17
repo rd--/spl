@@ -234,7 +234,7 @@ OEIS [A000010](https://oeis.org/A000010):
 1:50.functionPlot(eulerPhi:/1)
 ~~~
 
-![](sw/spl/Help/Image/eulerPhi-A.svg)
+![](Help/Image/eulerPhi-A.svg)
 
 The cumulative `sum` of `eulerPhi`,
 OEIS [A002088](https://oeis.org/A002088):
@@ -243,7 +243,7 @@ OEIS [A002088](https://oeis.org/A002088):
 1:50.eulerPhi.prefixSum.linePlot
 ~~~
 
-![](sw/spl/Help/Image/eulerPhi-B.svg)
+![](Help/Image/eulerPhi-B.svg)
 
 Pillais arithmetical function,
 [A018804](https://oeis.org/A018804):
@@ -260,7 +260,7 @@ Pillais arithmetical function,
 }.table(1:99).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/eulerPhi-C.svg)
+![](Help/Image/eulerPhi-C.svg)
 
 Dirichlet series,
 square is zeta function,
@@ -291,7 +291,7 @@ let f = { :n |
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/eulerPhi-D.svg)
+![](Help/Image/eulerPhi-D.svg)
 
 Denominator of _((n-φ)/φ)_,
 [A076512](https://oeis.org/A076512):
@@ -303,7 +303,7 @@ Denominator of _((n-φ)/φ)_,
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/eulerPhi-E.svg)
+![](Help/Image/eulerPhi-E.svg)
 
 The degree of the classical modular polynomial,
 OEIS [A118778](https://oeis.org/A118778):
@@ -325,7 +325,7 @@ OEIS [A118778](https://oeis.org/A118778):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/eulerPhi-F.svg)
+![](Help/Image/eulerPhi-F.svg)
 
 The number of iterations of _φ(x)_ at _n_ needed to reach one,
 OEIS [A003434](https://oeis.org/A003434):
@@ -339,7 +339,7 @@ OEIS [A003434](https://oeis.org/A003434):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/eulerPhi-G.svg)
+![](Help/Image/eulerPhi-G.svg)
 
 Smallest _x_ such that _x%φ(x)=n_,
 OEIS [A234642](https://oeis.org/A234642):
@@ -355,7 +355,7 @@ OEIS [A234642](https://oeis.org/A234642):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/eulerPhi-H.svg)
+![](Help/Image/eulerPhi-H.svg)
 
 Iterations of φ needed to reach one starting at _n_,
 OEIS [A049108](https://oeis.org/A049108):
@@ -369,7 +369,7 @@ OEIS [A049108](https://oeis.org/A049108):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/eulerPhi-I.svg)
+![](Help/Image/eulerPhi-I.svg)
 
 Cototient function,
 OEIS [A051953](https://oeis.org/A051953):
@@ -380,7 +380,7 @@ OEIS [A051953](https://oeis.org/A051953):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/eulerPhi-J.svg)
+![](Help/Image/eulerPhi-J.svg)
 
 _φ(p(n)-1)_,
 number of primitive roots in the field with _p_ elements,
@@ -392,7 +392,7 @@ OEIS [A008330](https://oeis.org/A008330):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/eulerPhi-K.svg)
+![](Help/Image/eulerPhi-K.svg)
 
 Number of squares in multiplicative group modulo _n_,
 OEIS [A046073](https://oeis.org/A046073):
@@ -407,7 +407,7 @@ OEIS [A046073](https://oeis.org/A046073):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/eulerPhi-L.svg)
+![](Help/Image/eulerPhi-L.svg)
 
 _2*φ(n)-n_,
 OEIS [A083254](https://oeis.org/A083254):
@@ -418,7 +418,7 @@ OEIS [A083254](https://oeis.org/A083254):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/eulerPhi-M.svg)
+![](Help/Image/eulerPhi-M.svg)
 
 _φ(m)*m^k*k!/n_ where _m=n/k_,
 OEIS [A047917](https://oeis.org/A047917):
@@ -434,7 +434,7 @@ OEIS [A047917](https://oeis.org/A047917):
 }.catenate.log.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/eulerPhi-N.svg)
+![](Help/Image/eulerPhi-N.svg)
 
 * * *
 

@@ -172,7 +172,7 @@ OEIS [A007428](https://oeis.org/A007428):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/moebiusTransform-A.svg)
+![](Help/Image/moebiusTransform-A.svg)
 
 Moebius transform of primes,
 OEIS [A007444](https://oeis.org/A007444):
@@ -183,7 +183,7 @@ OEIS [A007444](https://oeis.org/A007444):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/moebiusTransform-B.svg)
+![](Help/Image/moebiusTransform-B.svg)
 
 Ramanujan sum _Cn(2)_,
 OEIS [A086831](https://oeis.org/A086831):
@@ -194,7 +194,7 @@ OEIS [A086831](https://oeis.org/A086831):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/moebiusTransform-C.svg)
+![](Help/Image/moebiusTransform-C.svg)
 
 Moebius transform of largest difference between consecutive divisors of _n_,
 OEIS [A300721](https://oeis.org/A300721):
@@ -206,7 +206,7 @@ OEIS [A300721](https://oeis.org/A300721):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/moebiusTransform-D.svg)
+![](Help/Image/moebiusTransform-D.svg)
 
 Moebius transform of Dedekind ψ function,
 OEIS [A063659](https://oeis.org/A063659):
@@ -217,7 +217,7 @@ OEIS [A063659](https://oeis.org/A063659):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/moebiusTransform-E.svg)
+![](Help/Image/moebiusTransform-E.svg)
 
 Moebius transform applied thrice to natural numbers,
 OEIS [A007432](https://oeis.org/A007432):
@@ -229,7 +229,7 @@ OEIS [A007432](https://oeis.org/A007432):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/moebiusTransform-F.svg)
+![](Help/Image/moebiusTransform-F.svg)
 
 Moebius transform of triangular numbers,
 OEIS [A007438](https://oeis.org/A007438):
@@ -240,7 +240,7 @@ OEIS [A007438](https://oeis.org/A007438):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/moebiusTransform-G.svg)
+![](Help/Image/moebiusTransform-G.svg)
 
 Moebius transform of squares,
 OEIS [A007434](https://oeis.org/A007434):
@@ -251,7 +251,7 @@ OEIS [A007434](https://oeis.org/A007434):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/moebiusTransform-H.svg)
+![](Help/Image/moebiusTransform-H.svg)
 
 * * *
 

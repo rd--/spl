@@ -76,7 +76,7 @@ OEIS [A001003](https://oeis.org/A001003):
 1:25.superCatalanNumber.log.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/superCatalanNumber-A.svg)
+![](Help/Image/superCatalanNumber-A.svg)
 
 * * *
 

@@ -48,7 +48,7 @@ Plot over a subset of the reals:
 }
 ~~~
 
-![](sw/spl/Help/Image/coth-A.svg)
+![](Help/Image/coth-A.svg)
 
 * * *
 

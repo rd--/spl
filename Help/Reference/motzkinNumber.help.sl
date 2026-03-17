@@ -24,7 +24,7 @@ OEIS [A001006](https://oeis.org/A001006):
 1:35.motzkinNumber.log.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/motzkinNumber-A.svg)
+![](Help/Image/motzkinNumber-A.svg)
 
 * * *
 

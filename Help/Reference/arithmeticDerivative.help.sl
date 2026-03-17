@@ -150,7 +150,7 @@ OEIS [A003415](https://oeis.org/A003415):
 0:85.arithmeticDerivative.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/arithmeticDerivative-A.svg)
+![](Help/Image/arithmeticDerivative-A.svg)
 
 The second arithmetic derivative of _n_,
 OEIS [A068346](https://oeis.org/A068346):
@@ -161,7 +161,7 @@ OEIS [A068346](https://oeis.org/A068346):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/arithmeticDerivative-B.svg)
+![](Help/Image/arithmeticDerivative-B.svg)
 
 The third arithmetic derivative of _n_,
 OEIS [A099306](https://oeis.org/A099306):
@@ -173,7 +173,7 @@ OEIS [A099306](https://oeis.org/A099306):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/arithmeticDerivative-C.svg)
+![](Help/Image/arithmeticDerivative-C.svg)
 
 The array,
 read by antidiagonals,
@@ -186,7 +186,7 @@ OEIS [A258651](https://oeis.org/A258651):
 }.catenate.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/arithmeticDerivative-D.svg)
+![](Help/Image/arithmeticDerivative-D.svg)
 
 Log scale matrix plot of table of derivatives of _i/j_ for small _i,j_:
 
@@ -197,7 +197,7 @@ Log scale matrix plot of table of derivatives of _i/j_ for small _i,j_:
 }.table(1:10, 1:10).logScale.matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/arithmeticDerivative-E.svg)
+![](Help/Image/arithmeticDerivative-E.svg)
 
 * * *
 

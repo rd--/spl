@@ -38,7 +38,7 @@ OEIS [A007913](https://oeis.org/A007913):
 1:65.squareFreePart.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/squareFreePart-A.svg)
+![](Help/Image/squareFreePart-A.svg)
 
 * * *
 

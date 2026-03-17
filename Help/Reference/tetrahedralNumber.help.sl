@@ -84,7 +84,7 @@ OEIS [A000292](https://oeis.org/A000292):
 0:65.tetrahedralNumber.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/tetrahedralNumber-A.svg)
+![](Help/Image/tetrahedralNumber-A.svg)
 
 Characteristic function of tetrahedral numbers,
 OEIS [A023533](https://oeis.org/A023533):
@@ -95,7 +95,7 @@ OEIS [A023533](https://oeis.org/A023533):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/tetrahedralNumber-B.svg)
+![](Help/Image/tetrahedralNumber-B.svg)
 
 * * *
 

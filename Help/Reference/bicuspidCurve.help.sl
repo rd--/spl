@@ -12,7 +12,7 @@ bicuspidCurve(1)
 .contourPlot(i, i, [0])
 ~~~
 
-![](sw/spl/Help/Image/bicuspidCurve-A.svg)
+![](Help/Image/bicuspidCurve-A.svg)
 
 * * *
 

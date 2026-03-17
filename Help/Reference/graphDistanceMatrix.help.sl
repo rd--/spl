@@ -61,7 +61,7 @@ Plot the distance matrix of a `gridGraph` of size _(5, 5)_:
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/graphDistanceMatrix-A.svg)
+![](Help/Image/graphDistanceMatrix-A.svg)
 
 * * *
 

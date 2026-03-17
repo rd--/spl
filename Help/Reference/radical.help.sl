@@ -51,7 +51,7 @@ OEIS [A007947](https://oeis.org/A007947):
 1:150.radical.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/radical-A.svg)
+![](Help/Image/radical-A.svg)
 
 Radical of the integer _n_,
 log plot,
@@ -61,7 +61,7 @@ OEIS [A007947](https://oeis.org/A007947):
 1:300.radical.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/radical-B.svg)
+![](Help/Image/radical-B.svg)
 
 _μ(r(n))_,
 OEIS [A076479](https://oeis.org/A076479):
@@ -70,7 +70,7 @@ OEIS [A076479](https://oeis.org/A076479):
 1:85.radical.moebiusMu.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/radical-C.svg)
+![](Help/Image/radical-C.svg)
 
 _r(n*r(n)+1)_
 OEIS [A078322](https://oeis.org/A078322):
@@ -81,7 +81,7 @@ OEIS [A078322](https://oeis.org/A078322):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/radical-D.svg)
+![](Help/Image/radical-D.svg)
 
 _n*r(n)+1_
 OEIS [A078310](https://oeis.org/A078310):
@@ -92,7 +92,7 @@ OEIS [A078310](https://oeis.org/A078310):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/radical-E.svg)
+![](Help/Image/radical-E.svg)
 
 _n-r(n)_
 OEIS [A066503](https://oeis.org/A066503):
@@ -103,7 +103,7 @@ OEIS [A066503](https://oeis.org/A066503):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/radical-F.svg)
+![](Help/Image/radical-F.svg)
 
 Squarefree kernel of _n_ divided by the squarefree part of _n_,
 _r(n)/c(n)_,
@@ -115,7 +115,7 @@ OEIS [A336643](https://oeis.org/A336643):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/radical-G.svg)
+![](Help/Image/radical-G.svg)
 
 _gcd(r(n),n/r(n))_,
 OEIS [A071773](https://oeis.org/A071773):
@@ -127,7 +127,7 @@ OEIS [A071773](https://oeis.org/A071773):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/radical-H.svg)
+![](Help/Image/radical-H.svg)
 
 _n^2/r(n)_,
 OEIS [A102631](https://oeis.org/A102631):
@@ -138,7 +138,7 @@ OEIS [A102631](https://oeis.org/A102631):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/radical-I.svg)
+![](Help/Image/radical-I.svg)
 
 _r(n)^2_,
 OEIS [A078615](https://oeis.org/A078615):
@@ -147,7 +147,7 @@ OEIS [A078615](https://oeis.org/A078615):
 1:150.radical.square.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/radical-J.svg)
+![](Help/Image/radical-J.svg)
 
 _n_ divided by the largest power of the squarefree kernel of _n_ which divides it,
 OEIS [A062760](https://oeis.org/A062760):
@@ -160,7 +160,7 @@ OEIS [A062760](https://oeis.org/A062760):
 }.log.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/radical-K.svg)
+![](Help/Image/radical-K.svg)
 
 _r(P(n)-1)_,
 OEIS [A077063](https://oeis.org/A077063):
@@ -171,7 +171,7 @@ OEIS [A077063](https://oeis.org/A077063):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/radical-L.svg)
+![](Help/Image/radical-L.svg)
 
 _ω(n*r(n)+1)_
 OEIS [A078313](https://oeis.org/A078313):
@@ -182,7 +182,7 @@ OEIS [A078313](https://oeis.org/A078313):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/radical-M.svg)
+![](Help/Image/radical-M.svg)
 
 _Ω(n*r(n)+1)_
 OEIS [A078314](https://oeis.org/A078314):
@@ -193,7 +193,7 @@ OEIS [A078314](https://oeis.org/A078314):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/radical-N.svg)
+![](Help/Image/radical-N.svg)
 
 * * *
 

@@ -82,7 +82,7 @@ Plot over a subset of the reals:
 (0.01 -- 5).functionPlot(log2:/1)
 ~~~
 
-![](sw/spl/Help/Image/log2-A.svg)
+![](Help/Image/log2-A.svg)
 
 Sum of _n_ `mod` powers of two,
 see `bitLength` for a simpler definiton,
@@ -97,7 +97,7 @@ OEIS [A049802](https://oeis.org/A049802):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/log2-B.svg)
+![](Help/Image/log2-B.svg)
 
 * * *
 

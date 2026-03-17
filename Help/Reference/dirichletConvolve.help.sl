@@ -16,7 +16,7 @@ OEIS [A001615](https://oeis.org/A001615):
 ).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/dirichletConvolve-A.svg)
+![](Help/Image/dirichletConvolve-A.svg)
 
 Jordan function,
 OEIS [A007434](https://oeis.org/A007434):
@@ -30,7 +30,7 @@ OEIS [A007434](https://oeis.org/A007434):
 ).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/dirichletConvolve-B.svg)
+![](Help/Image/dirichletConvolve-B.svg)
 
 Convolve identity and prime predicate,
 OEIS [A069359](https://oeis.org/A069359):
@@ -44,7 +44,7 @@ OEIS [A069359](https://oeis.org/A069359):
 ).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/dirichletConvolve-C.svg)
+![](Help/Image/dirichletConvolve-C.svg)
 
 Dirichlet convolution of natural numbers with triangular numbers,
 OEIS [A309731](https://oeis.org/A309731):
@@ -58,7 +58,7 @@ OEIS [A309731](https://oeis.org/A309731):
 ).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/dirichletConvolve-D.svg)
+![](Help/Image/dirichletConvolve-D.svg)
 
 Moebius transform of the cototient function,
 OEIS [A062790](https://oeis.org/A062790):
@@ -72,7 +72,7 @@ OEIS [A062790](https://oeis.org/A062790):
 ).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/dirichletConvolve-E.svg)
+![](Help/Image/dirichletConvolve-E.svg)
 
 Identity,
 OEIS [A000027](https://oeis.org/A000027):
@@ -86,7 +86,7 @@ OEIS [A000027](https://oeis.org/A000027):
 ).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/dirichletConvolve-F.svg)
+![](Help/Image/dirichletConvolve-F.svg)
 
 * * *
 

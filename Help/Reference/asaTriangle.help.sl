@@ -38,7 +38,7 @@ let a = 2.pi / 5;
 [asaTriangle(a, 1, a)].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/asaTriangle-A.svg)
+![](Help/Image/asaTriangle-A.svg)
 
 A golden triangle and a golden gnomon,
 an obtuse isosceles triangle such that the ratio of the hypotenuse to the base is _1 / φ = φ - 1_:
@@ -49,7 +49,7 @@ an obtuse isosceles triangle such that the ratio of the hypotenuse to the base i
 }.LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/asaTriangle-B.svg)
+![](Help/Image/asaTriangle-B.svg)
 
 Varying two angles together:
 
@@ -59,7 +59,7 @@ Varying two angles together:
 }.LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/asaTriangle-C.svg)
+![](Help/Image/asaTriangle-C.svg)
 
 * * *
 

@@ -79,7 +79,7 @@ let q = nil;
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/plus-A.svg)
+![](Help/Image/plus-A.svg)
 
 * * *
 

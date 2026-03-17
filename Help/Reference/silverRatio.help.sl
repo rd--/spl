@@ -74,7 +74,7 @@ Draw silver rectangle:
 Rectangle([0, 0], [1.silverRatio 1])
 ~~~
 
-![](sw/spl/Help/Image/silverRatio-A.svg)
+![](Help/Image/silverRatio-A.svg)
 
 Draw silver triangle:
 
@@ -83,7 +83,7 @@ let a = 67.5.degree;
 asaTriangle(a, 1, a)
 ~~~
 
-![](sw/spl/Help/Image/silverRatio-B.svg)
+![](Help/Image/silverRatio-B.svg)
 
 Silver rectangle and silver triangle in regular octagon:
 
@@ -95,7 +95,7 @@ let t = Triangle([c[6], c[7], [0 0]]);
 LineDrawing([p, r, t])
 ~~~
 
-![](sw/spl/Help/Image/silverRatio-C.svg)
+![](Help/Image/silverRatio-C.svg)
 
 Silver spiral:
 
@@ -107,7 +107,7 @@ let b = 1.silverRatio.log / 0.5.pi;
 ).Line
 ~~~
 
-![](sw/spl/Help/Image/silverRatio-D.svg)
+![](Help/Image/silverRatio-D.svg)
 
 Nested silver rectangles, scaled by _1/δs_:
 
@@ -119,7 +119,7 @@ let r = centeredRectangle([0 0], [s 1]);
 }.nestList(r, 4).LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/silverRatio-E.svg)
+![](Help/Image/silverRatio-E.svg)
 
 Nested silver triangles:
 
@@ -135,7 +135,7 @@ let c = [2, s + 1, 2] / (s + 5);
 }.nestList(t, 6).LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/silverRatio-F.svg)
+![](Help/Image/silverRatio-F.svg)
 
 * * *
 

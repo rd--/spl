@@ -33,7 +33,7 @@ OEIS [A008280](https://oeis.org/A008280):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/seidelEntringerArnoldTriangle-A.svg)
+![](Help/Image/seidelEntringerArnoldTriangle-A.svg)
 
 * * *
 

@@ -44,7 +44,7 @@ Plot points at polar coordinates where r and θ are equal:
 }.PointCloud
 ~~~
 
-![](sw/spl/Help/Image/fromPolarCoordinates-A.svg)
+![](Help/Image/fromPolarCoordinates-A.svg)
 
 Consider only primes:
 
@@ -54,7 +54,7 @@ Consider only primes:
 }.PointCloud
 ~~~
 
-![](sw/spl/Help/Image/fromPolarCoordinates-B.svg)
+![](Help/Image/fromPolarCoordinates-B.svg)
 
 A longer prime sequence:
 
@@ -64,7 +64,7 @@ A longer prime sequence:
 }.PointCloud
 ~~~
 
-![](sw/spl/Help/Image/fromPolarCoordinates-C.svg)
+![](Help/Image/fromPolarCoordinates-C.svg)
 
 Plot number spiral where the perfect squares are aligned on the _x_-axis:
 
@@ -80,7 +80,7 @@ let f = { :n |
 ].GeometryCollection
 ~~~
 
-![](sw/spl/Help/Image/fromPolarCoordinates-D.svg)
+![](Help/Image/fromPolarCoordinates-D.svg)
 
 Plot integers _0-250_:
 
@@ -91,7 +91,7 @@ Plot integers _0-250_:
 }.PointCloud
 ~~~
 
-![](sw/spl/Help/Image/fromPolarCoordinates-E.svg)
+![](Help/Image/fromPolarCoordinates-E.svg)
 
 Plot first 250 prime numbers:
 
@@ -102,7 +102,7 @@ Plot first 250 prime numbers:
 }.PointCloud
 ~~~
 
-![](sw/spl/Help/Image/fromPolarCoordinates-F.svg)
+![](Help/Image/fromPolarCoordinates-F.svg)
 
 * * *
 

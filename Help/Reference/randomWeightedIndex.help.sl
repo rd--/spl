@@ -18,7 +18,7 @@ let r = Sfc32(37914);
 ).linePlot
 ~~~
 
-![](sw/spl/Help/Image/randomWeightedIndex-A.svg)
+![](Help/Image/randomWeightedIndex-A.svg)
 
 * * *
 

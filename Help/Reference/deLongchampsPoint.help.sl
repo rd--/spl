@@ -24,7 +24,7 @@ let c = t.circumcenter;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/deLongchampsPoint-A.svg)
+![](Help/Image/deLongchampsPoint-A.svg)
 
 * * *
 

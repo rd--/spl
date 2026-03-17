@@ -18,7 +18,7 @@ let p = 3.bernoulliPolynomial;
 (0 -- 1).functionPlot(p.asBlock)
 ~~~
 
-![](sw/spl/Help/Image/bernoulliPolynomial-A.svg)
+![](Help/Image/bernoulliPolynomial-A.svg)
 
 Plot the polynomials _B(5)_ and _B(6)_:
 
@@ -30,7 +30,7 @@ Plot the polynomials _B(5)_ and _B(6)_:
 )
 ~~~
 
-![](sw/spl/Help/Image/bernoulliPolynomial-B.svg)
+![](Help/Image/bernoulliPolynomial-B.svg)
 
 * * *
 

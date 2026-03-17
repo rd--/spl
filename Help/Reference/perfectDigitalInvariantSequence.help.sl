@@ -74,7 +74,7 @@ OEIS [A193995](https://oeis.org/A193995):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/perfectDigitalInvariantSequence-A.svg)
+![](Help/Image/perfectDigitalInvariantSequence-A.svg)
 
 * * *
 

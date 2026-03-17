@@ -28,7 +28,7 @@ let e = j.nadarayaWatsonEstimator(
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/nadarayaWatsonEstimator-A.svg)
+![](Help/Image/nadarayaWatsonEstimator-A.svg)
 
 * * *
 

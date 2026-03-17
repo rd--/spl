@@ -13,7 +13,7 @@ White, black, red, yellow, blue:
 .collect(RybColour:/1).enclose.arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/RybColour-A.svg)
+![](Help/Image/RybColour-A.svg)
 
 Yellow and blue is green:
 
@@ -21,7 +21,7 @@ Yellow and blue is green:
 RybColour([0 1 1])
 ~~~
 
-![](sw/spl/Help/Image/RybColour-B.svg)
+![](Help/Image/RybColour-B.svg)
 
 Red and yellow is orange:
 
@@ -29,7 +29,7 @@ Red and yellow is orange:
 RybColour([1 1 0])
 ~~~
 
-![](sw/spl/Help/Image/RybColour-C.svg)
+![](Help/Image/RybColour-C.svg)
 
 Red and blue is purple:
 
@@ -37,7 +37,7 @@ Red and blue is purple:
 RybColour([1 0 1])
 ~~~
 
-![](sw/spl/Help/Image/RybColour-D.svg)
+![](Help/Image/RybColour-D.svg)
 
 Blue and green is cyan,
 here green is given as _(0,0.5,0.5)_ and blue as _(0,0,0.5)_:
@@ -46,7 +46,7 @@ here green is given as _(0,0.5,0.5)_ and blue as _(0,0,0.5)_:
 RybColour([0 0.5 1])
 ~~~
 
-![](sw/spl/Help/Image/RybColour-E.svg)
+![](Help/Image/RybColour-E.svg)
 
 Threads over lists:
 
@@ -63,7 +63,7 @@ Threads over lists:
 ].RybColour.enclose.arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/RybColour-F.svg)
+![](Help/Image/RybColour-F.svg)
 
 A random shuffle of the 27-colour three-level pallette:
 
@@ -75,7 +75,7 @@ RybColour(b / 2).reshape([3 9])
 .arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/RybColour-G.svg)
+![](Help/Image/RybColour-G.svg)
 
 A random shuffle of the 64-colour four-level pallette:
 
@@ -87,7 +87,7 @@ RybColour(b / 3).reshape([8 8])
 .arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/RybColour-H.svg)
+![](Help/Image/RybColour-H.svg)
 
 A farthest-first traversal of the same colour palette:
 
@@ -98,7 +98,7 @@ RybColour(b / 3).reshape([8 8])
 .arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/RybColour-I.svg)
+![](Help/Image/RybColour-I.svg)
 
 * * *
 

@@ -43,7 +43,7 @@ let r = [];
 r.downsample(k).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitonicSort-A.svg)
+![](Help/Image/bitonicSort-A.svg)
 
 * * *
 

@@ -26,7 +26,7 @@ let t = sssTriangle(1, 1, 1);
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/orthocenter-A.svg)
+![](Help/Image/orthocenter-A.svg)
 
 The orthocenter is at the right-angled vertex of a right triangle:
 
@@ -38,7 +38,7 @@ let t = aasTriangle(1/6.pi, 1/3.pi, 1);
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/orthocenter-B.svg)
+![](Help/Image/orthocenter-B.svg)
 
 The orthocenter is exterior to an obtuse triangle:
 
@@ -51,7 +51,7 @@ let t = asaTriangle(a, 1, a);
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/orthocenter-C.svg)
+![](Help/Image/orthocenter-C.svg)
 
 * * *
 

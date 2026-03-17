@@ -14,7 +14,7 @@ BinormalDistribution([1 2], [1.5 2], 0.6)
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/BinormalDistribution-A.svg)
+![](Help/Image/BinormalDistribution-A.svg)
 
 Generate vectors with specified correlation:
 
@@ -38,7 +38,7 @@ BinormalDistribution([0 0], [1 1], -0.75)
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/BinormalDistribution-B.svg)
+![](Help/Image/BinormalDistribution-B.svg)
 
 * * *
 

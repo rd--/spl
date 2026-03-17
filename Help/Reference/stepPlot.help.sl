@@ -10,7 +10,7 @@ At integer vector:
 [1 1 2 3 5 8 13 21].stepPlot
 ~~~
 
-![](sw/spl/Help/Image/stepPlot-A.svg)
+![](Help/Image/stepPlot-A.svg)
 
 At matrix, specifying _x_ and _y_ coordinates:
 
@@ -20,7 +20,7 @@ At matrix, specifying _x_ and _y_ coordinates:
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/stepPlot-B.svg)
+![](Help/Image/stepPlot-B.svg)
 
 Plot boolean signal:
 
@@ -31,7 +31,7 @@ let r = Sfc32(12783);
 .stepPlot
 ~~~
 
-![](sw/spl/Help/Image/stepPlot-C.svg)
+![](Help/Image/stepPlot-C.svg)
 
 At heterogenous vector,
 with `Fraction` entries:
@@ -40,7 +40,7 @@ with `Fraction` entries:
 [0 1 1/2 2/3 3/2 5/4 8/7].stepPlot
 ~~~
 
-![](sw/spl/Help/Image/stepPlot-D.svg)
+![](Help/Image/stepPlot-D.svg)
 
 At list of vectors:
 
@@ -51,7 +51,7 @@ At list of vectors:
 ].stepPlot
 ~~~
 
-![](sw/spl/Help/Image/stepPlot-E.svg)
+![](Help/Image/stepPlot-E.svg)
 
 * * *
 

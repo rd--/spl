@@ -128,7 +128,7 @@ OEIS [A008967](https://oeis.org/A008967):
 }.catenate.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/subsets-A.svg)
+![](Help/Image/subsets-A.svg)
 
 * * *
 

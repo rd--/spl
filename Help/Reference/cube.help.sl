@@ -92,7 +92,7 @@ OEIS [A000578](https://oeis.org/A000578):
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/cube-A.svg)
+![](Help/Image/cube-A.svg)
 
 Cubic numbers,
 OEIS [A000578](https://oeis.org/A000578):
@@ -101,7 +101,7 @@ OEIS [A000578](https://oeis.org/A000578):
 0:65.cube.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/cube-B.svg)
+![](Help/Image/cube-B.svg)
 
 _x³_ plotted on a Cartesian plane:
 
@@ -109,7 +109,7 @@ _x³_ plotted on a Cartesian plane:
 (-2 -- 2).functionPlot(cube:/1)
 ~~~
 
-![](sw/spl/Help/Image/cube-C.svg)
+![](Help/Image/cube-C.svg)
 
 Where supported `cube` is displayed as ³.
 

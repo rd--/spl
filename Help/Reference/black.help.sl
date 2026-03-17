@@ -18,7 +18,7 @@ Plot blacks with increasing α:
 .arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/black-A.svg)
+![](Help/Image/black-A.svg)
 
 * * *
 

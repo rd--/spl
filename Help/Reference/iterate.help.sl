@@ -204,7 +204,7 @@ let i = { :x |
 }.table(i, i).matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/iterate-A.svg)
+![](Help/Image/iterate-A.svg)
 
 Repeat string twice and remove last symbol,
 initially _0,1_,
@@ -216,7 +216,7 @@ OEIS [A164349](https://oeis.org/A164349):
 }.iterate([0 1], 7).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/iterate-B.svg)
+![](Help/Image/iterate-B.svg)
 
 Unique sequence representing an array read by antidiagonals in which the _i_-th row is this sequence itself multiplied by _i_,
 OEIS [A283681](https://oeis.org/A283681):
@@ -233,7 +233,7 @@ OEIS [A283681](https://oeis.org/A283681):
 }.iterate([1 2], 4).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/iterate-C.svg)
+![](Help/Image/iterate-C.svg)
 
 Trajectory of 1 under the morphism _1→12,2→123_ &etc,
 OEIS [A007001](https://oeis.org/A007001):
@@ -246,7 +246,7 @@ OEIS [A007001](https://oeis.org/A007001):
 }.iterate([1], 5).stepPlot
 ~~~
 
-![](sw/spl/Help/Image/iterate-D.svg)
+![](Help/Image/iterate-D.svg)
 
 Fixed point of morphism _0→0,1→110_,
 OEIS [A079559](https://oeis.org/A079559):
@@ -260,7 +260,7 @@ let m = [0: [0], 1: [1 1 0]];
 }.iterate([1], 5).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/iterate-E.svg)
+![](Help/Image/iterate-E.svg)
 
 Iterate _w⧺w⧺ᴙ(w)_,
 initially _0,1_,
@@ -272,7 +272,7 @@ OEIS [A118006](https://oeis.org/A118006):
 }.iterate([0 1], 3).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/iterate-F.svg)
+![](Help/Image/iterate-F.svg)
 
 _Rationale:_
 This notation can be more compact than a written out loop,

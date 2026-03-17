@@ -162,7 +162,7 @@ OEIS [A006720](https://oeis.org/A006720):
 4.somosSequence(35).log.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/somosSequence-A.svg)
+![](Help/Image/somosSequence-A.svg)
 
 The Somos seven sequence,
 discrete log plot,
@@ -172,7 +172,7 @@ OEIS [A006723](https://oeis.org/A006723):
 7.somosSequence(35).log.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/somosSequence-B.svg)
+![](Help/Image/somosSequence-B.svg)
 
 * * *
 

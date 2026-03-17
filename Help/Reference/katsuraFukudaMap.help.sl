@@ -28,7 +28,7 @@ Plot first few terms:
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/katsuraFukudaMap-A.svg)
+![](Help/Image/katsuraFukudaMap-A.svg)
 
 * * *
 

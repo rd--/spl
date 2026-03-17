@@ -132,7 +132,7 @@ An explicit form of the primitive recursive function _r(z,r(s,r(s,r(s,p(2)))))_:
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/injectInto-A.svg)
+![](Help/Image/injectInto-A.svg)
 
 Flavius Josephus’s sieve,
 OEIS [A000960](https://oeis.org/A000960):
@@ -146,7 +146,7 @@ OEIS [A000960](https://oeis.org/A000960):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/injectInto-B.svg)
+![](Help/Image/injectInto-B.svg)
 
 Characteristic function for Flavius Josephus’s sieve,
 OEIS [A278169](https://oeis.org/A278169):
@@ -160,7 +160,7 @@ OEIS [A278169](https://oeis.org/A278169):
 }.characteristicFunction.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/injectInto-C.svg)
+![](Help/Image/injectInto-C.svg)
 
 * * *
 

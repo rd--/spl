@@ -155,7 +155,7 @@ OEIS [A151800](https://oeis.org/A151800):
 0:50.functionPlot(nextPrime:/1)
 ~~~
 
-![](sw/spl/Help/Image/nextPrime-A.svg)
+![](Help/Image/nextPrime-A.svg)
 
 Differences between _bⁿ_ and it’s next prime,
 _b=2_,
@@ -169,7 +169,7 @@ let b = 2;
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/nextPrime-B.svg)
+![](Help/Image/nextPrime-B.svg)
 
 Sequence of _p_ where _a(n)_ is the smallest prime _q_ so that _n=(p+1)/(q+1)_ with _p_ prime,
 OEIS [A062251](https://oeis.org/A062251):
@@ -188,7 +188,7 @@ OEIS [A062251](https://oeis.org/A062251):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/nextPrime-C.svg)
+![](Help/Image/nextPrime-C.svg)
 
 The difference between the next prime of _n²_ and _n²_,
 OEIS [A053000](https://oeis.org/A053000):
@@ -200,7 +200,7 @@ OEIS [A053000](https://oeis.org/A053000):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/nextPrime-D.svg)
+![](Help/Image/nextPrime-D.svg)
 
 Shift prime exponents of _2n-1_ to the previous prime or to `one`,
 OEIS [A064216](https://oeis.org/A064216):
@@ -217,7 +217,7 @@ OEIS [A064216](https://oeis.org/A064216):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/nextPrime-E.svg)
+![](Help/Image/nextPrime-E.svg)
 
 Ordinal transform of the next prime function,
 OEIS [A175851](https://oeis.org/A175851):
@@ -228,7 +228,7 @@ OEIS [A175851](https://oeis.org/A175851):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/nextPrime-F.svg)
+![](Help/Image/nextPrime-F.svg)
 
 Ordinal transform of the ordinal transform of the next prime function,
 OEIS [A304106](https://oeis.org/A304106):
@@ -240,7 +240,7 @@ OEIS [A304106](https://oeis.org/A304106):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/nextPrime-G.svg)
+![](Help/Image/nextPrime-G.svg)
 
 * * *
 

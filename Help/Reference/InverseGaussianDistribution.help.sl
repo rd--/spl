@@ -13,7 +13,7 @@ InverseGaussianDistribution(1, 5)
 .histogramPlot
 ~~~
 
-![](sw/spl/Help/Image/InverseGaussianDistribution-A.svg)
+![](Help/Image/InverseGaussianDistribution-A.svg)
 
 _Note_: The inverse Gaussian distribution is also known as the Wald distribution.
 

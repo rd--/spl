@@ -24,7 +24,7 @@ Plot:
 }
 ~~~
 
-![](sw/spl/Help/Image/AmClip-A.svg)
+![](Help/Image/AmClip-A.svg)
 
 * * *
 

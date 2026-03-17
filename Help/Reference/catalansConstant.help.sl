@@ -43,7 +43,7 @@ Scatter plot of the digits of Catalans’s constant:
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/catalansConstant-A.svg)
+![](Help/Image/catalansConstant-A.svg)
 
 * * *
 

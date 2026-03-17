@@ -10,7 +10,7 @@ henonMap(1.4, 0.3)
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/henonMap-A.svg)
+![](Help/Image/henonMap-A.svg)
 
 * * *
 

@@ -58,7 +58,7 @@ let m = 2.sqrt;
 }.partialInversePermutation.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/partialInversePermutation-A.svg)
+![](Help/Image/partialInversePermutation-A.svg)
 
 * * *
 

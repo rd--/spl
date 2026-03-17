@@ -71,7 +71,7 @@ Reconstruct a graph from the calculated incidence matrix:
 .graphPlot
 ~~~
 
-![](sw/spl/Help/Image/incidenceGraph-A.svg)
+![](Help/Image/incidenceGraph-A.svg)
 
 At `Graph`,
 answer the graph of the `incidenceList` of the vertex _v_ of the graph _g_.

@@ -19,7 +19,7 @@ let t = Triangle([0 0; 0 1; 1 0]);
 [t, t.circumcircle].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/circumcircle-A.svg)
+![](Help/Image/circumcircle-A.svg)
 
 The `circumcircle` of an equilateral triangle:
 
@@ -28,7 +28,7 @@ let t = sssTriangle(1, 1, 1);
 [t, t.circumcircle].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/circumcircle-B.svg)
+![](Help/Image/circumcircle-B.svg)
 
 The `circumcircle` of the golden isosceles triangle:
 
@@ -37,7 +37,7 @@ let t = asaTriangle(2/5.pi, 1, 2/5.pi);
 [t, t.circumcircle].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/circumcircle-C.svg)
+![](Help/Image/circumcircle-C.svg)
 
 The `circumcircle` of the Kepler triangle:
 
@@ -50,7 +50,7 @@ let t = sssTriangle(
 [t, t.circumcircle].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/circumcircle-D.svg)
+![](Help/Image/circumcircle-D.svg)
 
 The `circumcircle` of the automedian triangle:
 
@@ -59,7 +59,7 @@ let t = sssTriangle(13, 17, 7);
 [t, t.circumcircle].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/circumcircle-E.svg)
+![](Help/Image/circumcircle-E.svg)
 
 * * *
 

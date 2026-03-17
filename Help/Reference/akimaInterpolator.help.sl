@@ -23,7 +23,7 @@ let f:/1 = x.akimaInterpolator(y);
 (0 -- 2).functionPlot(f:/1)
 ~~~
 
-![](sw/spl/Help/Image/akimaInterpolator-A.svg)
+![](Help/Image/akimaInterpolator-A.svg)
 
 Plot an interpolation extrapolating beyond the specified _x_ range:
 
@@ -34,7 +34,7 @@ let f:/1 = x.akimaInterpolator(y);
 (-0.25 -- 2.25).functionPlot(f:/1)
 ~~~
 
-![](sw/spl/Help/Image/akimaInterpolator-B.svg)
+![](Help/Image/akimaInterpolator-B.svg)
 
 Akima impulse response:
 
@@ -46,7 +46,7 @@ let y = [0 0 1 0 0];
 )
 ~~~
 
-![](sw/spl/Help/Image/akimaInterpolator-C.svg)
+![](Help/Image/akimaInterpolator-C.svg)
 
 Plot an interpolation of a data set consisting of flat areas (horizontal lines):
 
@@ -59,7 +59,7 @@ let x = [1 .. k];
 )
 ~~~
 
-![](sw/spl/Help/Image/akimaInterpolator-D.svg)
+![](Help/Image/akimaInterpolator-D.svg)
 
 Plot an interpolation of a data set consisting of flat areas (horizontal lines):
 
@@ -72,7 +72,7 @@ let x = [1 .. k];
 )
 ~~~
 
-![](sw/spl/Help/Image/akimaInterpolator-E.svg)
+![](Help/Image/akimaInterpolator-E.svg)
 
 Interpolate a cosine curve over unevenly spaced sample points:
 
@@ -84,7 +84,7 @@ let y = cos(x);
 )
 ~~~
 
-![](sw/spl/Help/Image/akimaInterpolator-F.svg)
+![](Help/Image/akimaInterpolator-F.svg)
 
 * * *
 

@@ -53,7 +53,7 @@ Plot over a subset of the reals:
 }
 ~~~
 
-![](sw/spl/Help/Image/arithmeticGeometricMean-A.svg)
+![](Help/Image/arithmeticGeometricMean-A.svg)
 
 Plot table of means:
 
@@ -63,7 +63,7 @@ arithmeticGeometricMean:/2
 .table(i, i).matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/arithmeticGeometricMean-B.svg)
+![](Help/Image/arithmeticGeometricMean-B.svg)
 
 Special values: OEIS A068521, A084895, A084896 & A084897:
 

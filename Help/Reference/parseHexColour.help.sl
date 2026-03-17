@@ -21,7 +21,7 @@ Draw parsed colour:
 '#5F9EA0'.parseHexColour
 ~~~
 
-![](sw/spl/Help/Image/parseHexColour-A.svg)
+![](Help/Image/parseHexColour-A.svg)
 
 A rainbow:
 
@@ -38,7 +38,7 @@ A rainbow:
 .enclose.arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/parseHexColour-B.svg)
+![](Help/Image/parseHexColour-B.svg)
 
 * * *
 

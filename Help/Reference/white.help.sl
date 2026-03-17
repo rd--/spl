@@ -18,7 +18,7 @@ Plot whites with increasing α:
 .arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/white-A.svg)
+![](Help/Image/white-A.svg)
 
 * * *
 

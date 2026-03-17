@@ -42,7 +42,7 @@ Draw `identityMatrix` scaled by eight:
 13.identityMatrix.Bitmap(8)
 ~~~
 
-![](sw/spl/Help/Image/Bitmap-A.png)
+![](Help/Image/Bitmap-A.png)
 
 Bit map image function,
 evaluate for _(x,y)_ lattice,
@@ -58,7 +58,7 @@ let i = (-1 -- 1).subdivide(99);
 }.table(i, i).boole.Bitmap
 ~~~
 
-![](sw/spl/Help/Image/Bitmap-B.png)
+![](Help/Image/Bitmap-B.png)
 
 * * *
 

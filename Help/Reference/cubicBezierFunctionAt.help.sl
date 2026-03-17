@@ -14,7 +14,7 @@ A cubic Bézier curve:
 }
 ~~~
 
-![](sw/spl/Help/Image/cubicBezierFunctionAt-A.svg)
+![](Help/Image/cubicBezierFunctionAt-A.svg)
 
 A symmetric cubic Bézier curve:
 
@@ -25,7 +25,7 @@ A symmetric cubic Bézier curve:
 }
 ~~~
 
-![](sw/spl/Help/Image/cubicBezierFunctionAt-B.svg)
+![](Help/Image/cubicBezierFunctionAt-B.svg)
 
 An arc:
 
@@ -36,7 +36,7 @@ An arc:
 }
 ~~~
 
-![](sw/spl/Help/Image/cubicBezierFunctionAt-C.svg)
+![](Help/Image/cubicBezierFunctionAt-C.svg)
 
 * * *
 

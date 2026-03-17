@@ -28,7 +28,7 @@ If _indices_ are specified the paragraphs at the relative locations are also giv
 >>> ).first
 [
 	'Plot over a subset of the reals:',
-	'![](sw/spl/Help/Image/abs-A.svg)'
+	'![](Help/Image/abs-A.svg)'
 ]
 ```
 

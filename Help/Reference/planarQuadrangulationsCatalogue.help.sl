@@ -23,7 +23,7 @@ system
 .at('quadrangulations_14.10')
 ~~~
 
-![](sw/spl/Help/Image/planarQuadrangulationsCatalogue-A.svg)
+![](Help/Image/planarQuadrangulationsCatalogue-A.svg)
 
 _Note:_
 The catalogue is a `LibraryItem`,

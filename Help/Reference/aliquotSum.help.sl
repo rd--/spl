@@ -65,7 +65,7 @@ OEIS [A001065](https://oeis.org/A001065):
 1:119.aliquotSum.linePlot
 ~~~
 
-![](sw/spl/Help/Image/aliquotSum-A.svg)
+![](Help/Image/aliquotSum-A.svg)
 
 Record positions of aliquot sums,
 OEIS [A034090](https://oeis.org/A034090):
@@ -76,7 +76,7 @@ OEIS [A034090](https://oeis.org/A034090):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/aliquotSum-B.svg)
+![](Help/Image/aliquotSum-B.svg)
 
 Record values of aliquot sums,
 OEIS [A034091](https://oeis.org/A034091):
@@ -87,7 +87,7 @@ OEIS [A034091](https://oeis.org/A034091):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/aliquotSum-C.svg)
+![](Help/Image/aliquotSum-C.svg)
 
 First differences of aliquot sums,
 OEIS [A053246](https://oeis.org/A053246):
@@ -97,7 +97,7 @@ OEIS [A053246](https://oeis.org/A053246):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/aliquotSum-D.svg)
+![](Help/Image/aliquotSum-D.svg)
 
 Second differences of aliquot sums,
 OEIS [A053246](https://oeis.org/A053246):
@@ -107,7 +107,7 @@ OEIS [A053246](https://oeis.org/A053246):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/aliquotSum-E.svg)
+![](Help/Image/aliquotSum-E.svg)
 
 Prefix sum of aliquot sums,
 OEIS [A153485](https://oeis.org/A153485):
@@ -116,7 +116,7 @@ OEIS [A153485](https://oeis.org/A153485):
 1:65.aliquotSum.prefixSum.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/aliquotSum-F.svg)
+![](Help/Image/aliquotSum-F.svg)
 
 * * *
 

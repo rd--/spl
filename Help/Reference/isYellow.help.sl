@@ -28,7 +28,7 @@ system.svgColourCatalogue
 .arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/isYellow-A.svg)
+![](Help/Image/isYellow-A.svg)
 
 Svg colours with _yellow_ in the name that are not selected:
 
@@ -43,7 +43,7 @@ Svg colours with _yellow_ in the name that are not selected:
 ).enclose.arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/isYellow-B.svg)
+![](Help/Image/isYellow-B.svg)
 
 * * *
 

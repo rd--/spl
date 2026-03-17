@@ -94,7 +94,7 @@ OEIS [A118276](https://oeis.org/A118276):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/signatureSequence-A.svg)
+![](Help/Image/signatureSequence-A.svg)
 
 * * *
 

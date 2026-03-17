@@ -33,7 +33,7 @@ Sfc32(397681)
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/mergeSortMatrix-A.svg)
+![](Help/Image/mergeSortMatrix-A.svg)
 
 Sort longer list:
 
@@ -47,7 +47,7 @@ Sfc32(397681)
 .Greymap
 ~~~
 
-![](sw/spl/Help/Image/mergeSortMatrix-B.png)
+![](Help/Image/mergeSortMatrix-B.png)
 
 * * *
 

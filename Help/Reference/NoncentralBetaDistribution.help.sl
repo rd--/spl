@@ -14,7 +14,7 @@ NoncentralBetaDistribution(3, 2.5, 20)
 .histogramPlot
 ~~~
 
-![](sw/spl/Help/Image/NoncentralBetaDistribution-A.svg)
+![](Help/Image/NoncentralBetaDistribution-A.svg)
 
 * * *
 

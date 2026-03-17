@@ -20,7 +20,7 @@ let b = a.contactTriangle;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/contactTriangle-A.svg)
+![](Help/Image/contactTriangle-A.svg)
 
 Draw nested contact triangles:
 
@@ -33,7 +33,7 @@ Draw nested contact triangles:
 ).LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/contactTriangle-B.svg)
+![](Help/Image/contactTriangle-B.svg)
 
 * * *
 

@@ -66,7 +66,7 @@ Visualize the recurring pattern when shuffling a list:
 }.matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/klondikeShuffle-A.svg)
+![](Help/Image/klondikeShuffle-A.svg)
 
 * * *
 

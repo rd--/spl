@@ -41,7 +41,7 @@ Plot over a subset of the reals:
 }
 ~~~
 
-![](sw/spl/Help/Image/csc-A.svg)
+![](Help/Image/csc-A.svg)
 
 Draw csc at integer points:
 
@@ -53,7 +53,7 @@ Draw csc at integer points:
 ).Greymap
 ~~~
 
-![](sw/spl/Help/Image/csc-B.png)
+![](Help/Image/csc-B.png)
 
 * * *
 

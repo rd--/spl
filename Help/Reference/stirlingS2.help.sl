@@ -215,7 +215,7 @@ Plot sums of digits:
 }.table(2:17, 2:17).matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/stirlingS2-A.svg)
+![](Help/Image/stirlingS2-A.svg)
 
 Plot parity:
 
@@ -225,7 +225,7 @@ Plot parity:
 }.table(2:23, 2:23).matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/stirlingS2-B.svg)
+![](Help/Image/stirlingS2-B.svg)
 
 The triangle of Stirling numbers of the second kind,
 OEIS [A008277](https://oeis.org/A008277):
@@ -235,7 +235,7 @@ OEIS [A008277](https://oeis.org/A008277):
 .catenate.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/stirlingS2-C.svg)
+![](Help/Image/stirlingS2-C.svg)
 
 The _n_-th derivative of the logistic function,
 OEIS [A163626](https://oeis.org/A163626):
@@ -250,7 +250,7 @@ OEIS [A163626](https://oeis.org/A163626):
 }.catenate.logScale.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/stirlingS2-D.svg)
+![](Help/Image/stirlingS2-D.svg)
 
 * * *
 

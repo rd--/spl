@@ -13,7 +13,7 @@ hyperbolaCurve(1, 1)
 .contourPlot(i, i, [0])
 ~~~
 
-![](sw/spl/Help/Image/hyperbolaCurve-A.svg)
+![](Help/Image/hyperbolaCurve-A.svg)
 
 Plot conjugate hyperbola:
 
@@ -24,7 +24,7 @@ hyperbolaCurve(1, 1)
 .contourPlot(i, i, [0])
 ~~~
 
-![](sw/spl/Help/Image/hyperbolaCurve-B.svg)
+![](Help/Image/hyperbolaCurve-B.svg)
 
 Matrix plot of unit hyperbola:
 
@@ -35,7 +35,7 @@ hyperbolaCurve(1, 1)
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/hyperbolaCurve-C.svg)
+![](Help/Image/hyperbolaCurve-C.svg)
 
 Plot hyperbola with _b=2a_:
 
@@ -45,7 +45,7 @@ hyperbolaCurve(1, 2)
 .contourPlot(i, i, [0])
 ~~~
 
-![](sw/spl/Help/Image/hyperbolaCurve-D.svg)
+![](Help/Image/hyperbolaCurve-D.svg)
 
 * * *
 

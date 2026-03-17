@@ -106,7 +106,7 @@ Sfc32(567131)
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/norm-A.svg)
+![](Help/Image/norm-A.svg)
 
 Plot randomly sample vectors in _(-1, 1)_,
 selected to have a _2-norm_ of less than `one`:
@@ -119,7 +119,7 @@ Sfc32(567131)
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/norm-B.svg)
+![](Help/Image/norm-B.svg)
 
 * * *
 

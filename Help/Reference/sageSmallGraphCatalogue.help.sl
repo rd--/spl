@@ -56,7 +56,7 @@ system
 .graphPlot
 ~~~
 
-![](sw/spl/Help/Image/sageSmallGraphCatalogue-A.svg)
+![](Help/Image/sageSmallGraphCatalogue-A.svg)
 
 The star graph on three vertices is called a _claw_ graph:
 
@@ -67,7 +67,7 @@ system
 .graphPlot
 ~~~
 
-![](sw/spl/Help/Image/sageSmallGraphCatalogue-B.svg)
+![](Help/Image/sageSmallGraphCatalogue-B.svg)
 
 The _X_ names are from the Information System on Graph Classes and their Inclusions (ISGCI):
 
@@ -78,7 +78,7 @@ system
 .graphPlot
 ~~~
 
-![](sw/spl/Help/Image/sageSmallGraphCatalogue-C.svg)
+![](Help/Image/sageSmallGraphCatalogue-C.svg)
 
 The _parapluie_ (umbrella) graph:
 
@@ -89,7 +89,7 @@ system
 .graphPlot
 ~~~
 
-![](sw/spl/Help/Image/sageSmallGraphCatalogue-D.svg)
+![](Help/Image/sageSmallGraphCatalogue-D.svg)
 
 The complement ('\\co') of the graph _E_:
 
@@ -100,7 +100,7 @@ system
 .graphPlot
 ~~~
 
-![](sw/spl/Help/Image/sageSmallGraphCatalogue-E.svg)
+![](Help/Image/sageSmallGraphCatalogue-E.svg)
 
 The complement of the union ('\\cup') of the _domino_ graph and the singleton graph (K₁):
 
@@ -111,7 +111,7 @@ system
 .graphPlot
 ~~~
 
-![](sw/spl/Help/Image/sageSmallGraphCatalogue-F.svg)
+![](Help/Image/sageSmallGraphCatalogue-F.svg)
 
 _Note:_
 The catalogue is a `LibraryItem`,

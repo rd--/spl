@@ -19,7 +19,7 @@ ellipticCurveOverFiniteField(-1, 0, 61)
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/ellipticCurveOverFiniteField-A.svg)
+![](Help/Image/ellipticCurveOverFiniteField-A.svg)
 
 Plot for _a=-1,b=0,q=71_:
 
@@ -28,7 +28,7 @@ ellipticCurveOverFiniteField(-1, 0, 71)
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/ellipticCurveOverFiniteField-B.svg)
+![](Help/Image/ellipticCurveOverFiniteField-B.svg)
 
 Plot for _a=-1,b=0,q=89_:
 
@@ -37,7 +37,7 @@ ellipticCurveOverFiniteField(-1, 0, 89)
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/ellipticCurveOverFiniteField-C.svg)
+![](Help/Image/ellipticCurveOverFiniteField-C.svg)
 
 Plot for _a=-7,b=10,q=487_:
 
@@ -46,7 +46,7 @@ ellipticCurveOverFiniteField(-7, 10, 487)
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/ellipticCurveOverFiniteField-D.svg)
+![](Help/Image/ellipticCurveOverFiniteField-D.svg)
 
 * * *
 

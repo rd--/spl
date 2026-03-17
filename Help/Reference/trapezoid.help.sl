@@ -27,7 +27,7 @@ Plot:
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/trapezoid-A.svg)
+![](Help/Image/trapezoid-A.svg)
 
 A trapezoid where _a=0_ represents a triangle:
 
@@ -38,7 +38,7 @@ A trapezoid where _a=0_ represents a triangle:
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/trapezoid-B.svg)
+![](Help/Image/trapezoid-B.svg)
 
 A taller trapezoid:
 
@@ -51,7 +51,7 @@ let beta = (90 - 7.5).degree;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/trapezoid-C.svg)
+![](Help/Image/trapezoid-C.svg)
 
 * * *
 

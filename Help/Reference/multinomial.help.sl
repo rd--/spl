@@ -74,7 +74,7 @@ Plot over a subset of the reals:
 }
 ~~~
 
-![](sw/spl/Help/Image/multinomial-A.svg)
+![](Help/Image/multinomial-A.svg)
 
 * * *
 

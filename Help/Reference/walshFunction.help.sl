@@ -45,7 +45,7 @@ let m = 2 ^ n;
 }.catenate.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/walshFunction-A.svg)
+![](Help/Image/walshFunction-A.svg)
 
 The eight _n=3_ Walsh functions:
 
@@ -57,7 +57,7 @@ let m = 2 ^ n;
 }.catenate.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/walshFunction-B.svg)
+![](Help/Image/walshFunction-B.svg)
 
 The sixteen _n=4_ Walsh functions,
 replacing negative one with zero:
@@ -71,7 +71,7 @@ let m = 2 ^ n;
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/walshFunction-C.svg)
+![](Help/Image/walshFunction-C.svg)
 
 Concatenating the Walsh functions _W(n-1,⌈2^n/3)_ gives the Thue-Morse sequence:
 
@@ -83,7 +83,7 @@ Concatenating the Walsh functions _W(n-1,⌈2^n/3)_ gives the Thue-Morse sequenc
 }.catenate.max(0).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/walshFunction-D.svg)
+![](Help/Image/walshFunction-D.svg)
 
 The _n=4_ Walsh functions in Gray decoded sequence,
 called the dyadic or Paley ordering:
@@ -98,7 +98,7 @@ let m = 2 ^ n - 1;
 }.matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/walshFunction-E.svg)
+![](Help/Image/walshFunction-E.svg)
 
 * * *
 

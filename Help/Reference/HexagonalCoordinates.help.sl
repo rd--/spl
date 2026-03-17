@@ -57,7 +57,7 @@ HexagonalCoordinates([0 0 0])
 }.LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/HexagonalCoordinates-A.svg)
+![](Help/Image/HexagonalCoordinates-A.svg)
 
 Draw the six diagonal neighbours of the _(0,0,0)_ cell,
 in counter-clockwise order,
@@ -73,7 +73,7 @@ HexagonalCoordinates([0 0 0])
 }.LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/HexagonalCoordinates-B.svg)
+![](Help/Image/HexagonalCoordinates-B.svg)
 
 * * *
 

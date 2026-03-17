@@ -24,7 +24,7 @@ Plot:
 (-1 -- 1).functionPlot(lanczosWindow:/1)
 ~~~
 
-![](sw/spl/Help/Image/lanczosWindow-A.svg)
+![](Help/Image/lanczosWindow-A.svg)
 
 Translated and dilated Lanczos window:
 
@@ -34,7 +34,7 @@ Translated and dilated Lanczos window:
 }
 ~~~
 
-![](sw/spl/Help/Image/lanczosWindow-B.svg)
+![](Help/Image/lanczosWindow-B.svg)
 
 Frequency response of the Lanczos window:
 
@@ -44,7 +44,7 @@ Frequency response of the Lanczos window:
 }.fftPlot(512, 'Centered', 'Logarithmic')
 ~~~
 
-![](sw/spl/Help/Image/lanczosWindow-C.svg)
+![](Help/Image/lanczosWindow-C.svg)
 
 * * *
 

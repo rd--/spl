@@ -85,7 +85,7 @@ Plot binary matrix:
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/binaryMatrix-A.svg)
+![](Help/Image/binaryMatrix-A.svg)
 
 * * *
 

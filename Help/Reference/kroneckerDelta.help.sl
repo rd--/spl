@@ -103,7 +103,7 @@ Plot over a subset of the integers:
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/kroneckerDelta-A.svg)
+![](Help/Image/kroneckerDelta-A.svg)
 
 Pick out elements:
 
@@ -113,7 +113,7 @@ Pick out elements:
 }.table(1:60, 1:60).Bitmap
 ~~~
 
-![](sw/spl/Help/Image/kroneckerDelta-B.png)
+![](Help/Image/kroneckerDelta-B.png)
 
 * * *
 

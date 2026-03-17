@@ -145,7 +145,7 @@ For a complete graph, all entries outside the diagonal are `one` in the adjacenc
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/adjacencyMatrix-A.svg)
+![](Help/Image/adjacencyMatrix-A.svg)
 
 A complete _k_-partite graph has zero diagonal block entries:
 
@@ -155,7 +155,7 @@ A complete _k_-partite graph has zero diagonal block entries:
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/adjacencyMatrix-B.svg)
+![](Help/Image/adjacencyMatrix-B.svg)
 
 For a path graph,
 rows of an adjacency matrix will contain one or two elements:
@@ -164,7 +164,7 @@ rows of an adjacency matrix will contain one or two elements:
 20.pathGraph.adjacencyMatrix.matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/adjacencyMatrix-C.svg)
+![](Help/Image/adjacencyMatrix-C.svg)
 
 The adjacency matrix of a grid graph:
 
@@ -174,7 +174,7 @@ The adjacency matrix of a grid graph:
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/adjacencyMatrix-D.svg)
+![](Help/Image/adjacencyMatrix-D.svg)
 
 * * *
 

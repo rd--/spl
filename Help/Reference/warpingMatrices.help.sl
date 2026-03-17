@@ -39,7 +39,7 @@ let [t, c] = x.warpingMatrices(y);
 c.matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/warpingMatrices-A.svg)
+![](Help/Image/warpingMatrices-A.svg)
 
 Plot cost matrix for 11- and 13- vectors:
 
@@ -50,7 +50,7 @@ let [t, c] = x.warpingMatrices(y);
 c.matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/warpingMatrices-B.svg)
+![](Help/Image/warpingMatrices-B.svg)
 
 * * *
 

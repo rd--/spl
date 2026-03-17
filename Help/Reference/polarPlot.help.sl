@@ -15,7 +15,7 @@ The polar plot of both sine and cosine over the domain _0,π_ is a circle:
 (0 -- 1.pi).polarPlot(cos:/1)
 ~~~
 
-![](sw/spl/Help/Image/polarPlot-A.svg)
+![](Help/Image/polarPlot-A.svg)
 
 The polar plot of a constant function over the domain _0,2π_ is also a circle,
 plot three concentric circles:
@@ -26,7 +26,7 @@ plot three concentric circles:
 )
 ~~~
 
-![](sw/spl/Help/Image/polarPlot-B.svg)
+![](Help/Image/polarPlot-B.svg)
 
 A knot:
 
@@ -36,7 +36,7 @@ A knot:
 }
 ~~~
 
-![](sw/spl/Help/Image/polarPlot-C.svg)
+![](Help/Image/polarPlot-C.svg)
 
 An oscillation around a circle:
 
@@ -51,7 +51,7 @@ An oscillation around a circle:
 ])
 ~~~
 
-![](sw/spl/Help/Image/polarPlot-D.svg)
+![](Help/Image/polarPlot-D.svg)
 
 An Archimedean spiral:
 
@@ -59,7 +59,7 @@ An Archimedean spiral:
 (0 -- 20).polarPlot { :t | t ^ (1 / 2) }
 ~~~
 
-![](sw/spl/Help/Image/polarPlot-E.svg)
+![](Help/Image/polarPlot-E.svg)
 
 Another Archimedean spiral:
 
@@ -67,7 +67,7 @@ Another Archimedean spiral:
 (0 -- 20).polarPlot { :t | t ^ 1 }
 ~~~
 
-![](sw/spl/Help/Image/polarPlot-F.svg)
+![](Help/Image/polarPlot-F.svg)
 
 A circle, given as a `List` of polar coordinates:
 
@@ -77,7 +77,7 @@ A circle, given as a `List` of polar coordinates:
 }.polarPlot
 ~~~
 
-![](sw/spl/Help/Image/polarPlot-G.svg)
+![](Help/Image/polarPlot-G.svg)
 
 Spiral of primes:
 
@@ -95,7 +95,7 @@ let r = k.prime;
 ].polarPlot
 ~~~
 
-![](sw/spl/Help/Image/polarPlot-H.svg)
+![](Help/Image/polarPlot-H.svg)
 
 Plot the butterfly curve:
 
@@ -108,7 +108,7 @@ Plot the butterfly curve:
 }
 ~~~
 
-![](sw/spl/Help/Image/polarPlot-I.svg)
+![](Help/Image/polarPlot-I.svg)
 
 Plot using negative radius values, reflected through the origin:
 
@@ -120,7 +120,7 @@ Plot using negative radius values, reflected through the origin:
 }.polarPlot
 ~~~
 
-![](sw/spl/Help/Image/polarPlot-J.svg)
+![](Help/Image/polarPlot-J.svg)
 
 A quintic curve:
 
@@ -130,7 +130,7 @@ A quintic curve:
 }
 ~~~
 
-![](sw/spl/Help/Image/polarPlot-K.svg)
+![](Help/Image/polarPlot-K.svg)
 
 Plot a Reuleaux triangle:
 
@@ -145,7 +145,7 @@ let n = 3;
 }
 ~~~
 
-![](sw/spl/Help/Image/polarPlot-L.svg)
+![](Help/Image/polarPlot-L.svg)
 
 Plot the lima bean curve:
 
@@ -155,7 +155,7 @@ Plot the lima bean curve:
 }
 ~~~
 
-![](sw/spl/Help/Image/polarPlot-M.svg)
+![](Help/Image/polarPlot-M.svg)
 
 * * *
 

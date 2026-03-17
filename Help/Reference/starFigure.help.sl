@@ -11,7 +11,7 @@ The _{6/2}=2{3}_ star figure, the hexagram:
 6.starFigure(2)
 ~~~
 
-![](sw/spl/Help/Image/starFigure-A.svg)
+![](Help/Image/starFigure-A.svg)
 
 The _{8/2}=2{4}_ star figure, the star of Lakshmi:
 
@@ -19,7 +19,7 @@ The _{8/2}=2{4}_ star figure, the star of Lakshmi:
 8.starFigure(2)
 ~~~
 
-![](sw/spl/Help/Image/starFigure-B.svg)
+![](Help/Image/starFigure-B.svg)
 
 The _{9/3}=3{3}_ star figure, the nonagram:
 
@@ -27,7 +27,7 @@ The _{9/3}=3{3}_ star figure, the nonagram:
 9.starFigure(3)
 ~~~
 
-![](sw/spl/Help/Image/starFigure-C.svg)
+![](Help/Image/starFigure-C.svg)
 
 The _{10/5}=2{5}_ star figure, two pentagrams:
 
@@ -35,7 +35,7 @@ The _{10/5}=2{5}_ star figure, two pentagrams:
 10.starFigure(2)
 ~~~
 
-![](sw/spl/Help/Image/starFigure-C.svg)
+![](Help/Image/starFigure-C.svg)
 
 * * *
 

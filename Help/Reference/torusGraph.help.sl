@@ -11,7 +11,7 @@ the generalised quadrangle:
 [3 3].torusGraph.graphPlot
 ~~~
 
-![](sw/spl/Help/Image/torusGraph-A.svg)
+![](Help/Image/torusGraph-A.svg)
 
 Plot the _5,3_ torus graph,
 a circulant graph:
@@ -20,7 +20,7 @@ a circulant graph:
 [5 3].torusGraph.circularGraphPlot
 ~~~
 
-![](sw/spl/Help/Image/torusGraph-B.svg)
+![](Help/Image/torusGraph-B.svg)
 
 Plot the _10,6_ torus graph:
 
@@ -28,7 +28,7 @@ Plot the _10,6_ torus graph:
 [10 6].torusGraph.graphPlot
 ~~~
 
-![](sw/spl/Help/Image/torusGraph-C.svg)
+![](Help/Image/torusGraph-C.svg)
 
 Plot the _4,4_ torus graph,
 the tesseract:
@@ -37,7 +37,7 @@ the tesseract:
 [4 4].torusGraph.graphPlot
 ~~~
 
-![](sw/spl/Help/Image/torusGraph-D.svg)
+![](Help/Image/torusGraph-D.svg)
 
 Plot the _3,6_ torus graph,
 a quartic vertex-transitive graph:
@@ -46,7 +46,7 @@ a quartic vertex-transitive graph:
 [3 6].torusGraph.graphPlot
 ~~~
 
-![](sw/spl/Help/Image/torusGraph-E.svg)
+![](Help/Image/torusGraph-E.svg)
 
 Plot the adjacency matrix of the _5,7_ torus graph:
 
@@ -56,7 +56,7 @@ Plot the adjacency matrix of the _5,7_ torus graph:
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/torusGraph-F.svg)
+![](Help/Image/torusGraph-F.svg)
 
 * * *
 

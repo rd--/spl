@@ -82,7 +82,7 @@ OEIS [A099054](https://oeis.org/A099054):
 .stepPlot
 ~~~
 
-![](sw/spl/Help/Image/arshonsSequence-A.svg)
+![](Help/Image/arshonsSequence-A.svg)
 
 Sixth iteration of Arshon’s sequence,
 offset to to over alphabet _-1,0,1_,
@@ -93,7 +93,7 @@ OEIS [A099054](https://oeis.org/A099054):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/arshonsSequence-B.svg)
+![](Help/Image/arshonsSequence-B.svg)
 
 Step plot of fifth iteration of Arshon’s sequence starting with two,
 OEIS [A100336](https://oeis.org/A100336):
@@ -103,7 +103,7 @@ OEIS [A100336](https://oeis.org/A100336):
 .stepPlot
 ~~~
 
-![](sw/spl/Help/Image/arshonsSequence-C.svg)
+![](Help/Image/arshonsSequence-C.svg)
 
 Step plot of fifth iteration of Arshon’s sequence starting with three,
 OEIS [A100337](https://oeis.org/A100337):
@@ -113,7 +113,7 @@ OEIS [A100337](https://oeis.org/A100337):
 .stepPlot
 ~~~
 
-![](sw/spl/Help/Image/arshonsSequence-D.svg)
+![](Help/Image/arshonsSequence-D.svg)
 
 * * *
 

@@ -93,7 +93,7 @@ Plot for various orders:
 )
 ~~~
 
-![](sw/spl/Help/Image/lucasL-A.svg)
+![](Help/Image/lucasL-A.svg)
 
 Integer _n_ with _x=3_,
 OEIS [A006497](https://oeis.org/A006497);

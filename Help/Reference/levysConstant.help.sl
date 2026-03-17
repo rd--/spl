@@ -49,7 +49,7 @@ Scatter plot of the digits of Lévy’s constant:
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/levysConstant-A.svg)
+![](Help/Image/levysConstant-A.svg)
 
 * * *
 

@@ -253,7 +253,7 @@ SparseArray([[1] -> 2, [10] -> 7, [3] -> 2])
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/SparseArray-A.svg)
+![](Help/Image/SparseArray-A.svg)
 
 * * *
 

@@ -10,7 +10,7 @@ Plot the book graph _B(3)_:
 3.bookGraph.graphPlot
 ~~~
 
-![](sw/spl/Help/Image/bookGraph-A.svg)
+![](Help/Image/bookGraph-A.svg)
 
 Plot the adjacency matrix of the book graph _B(17)_:
 
@@ -18,7 +18,7 @@ Plot the adjacency matrix of the book graph _B(17)_:
 17.bookGraph.adjacencyMatrix.matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/bookGraph-B.svg)
+![](Help/Image/bookGraph-B.svg)
 
 * * *
 

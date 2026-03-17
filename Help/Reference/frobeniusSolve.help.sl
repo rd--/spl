@@ -157,7 +157,7 @@ OEIS [A008441](https://oeis.org/A008441):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/frobeniusSolve-A.svg)
+![](Help/Image/frobeniusSolve-A.svg)
 
 Number of ways to express _2n+1_ as _p+2q_ where _p_ and _q_ are primes,
 OEIS [A046927](https://oeis.org/A046927):
@@ -171,7 +171,7 @@ OEIS [A046927](https://oeis.org/A046927):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/frobeniusSolve-B.svg)
+![](Help/Image/frobeniusSolve-B.svg)
 
 Number of ordered ways of writing n as the sum of two primes,
 OEIS [A073610](https://oeis.org/A073610):
@@ -185,7 +185,7 @@ OEIS [A073610](https://oeis.org/A073610):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/frobeniusSolve-C.svg)
+![](Help/Image/frobeniusSolve-C.svg)
 
 Number of ordered ways of writing _n_ as a sum of two squares of nonnegative integers,
 OEIS [A000925](https://oeis.org/A000925):
@@ -199,7 +199,7 @@ OEIS [A000925](https://oeis.org/A000925):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/frobeniusSolve-D.svg)
+![](Help/Image/frobeniusSolve-D.svg)
 
 Minimal number of coins needed to pay _n_ cents using coins of 1, 5, 10 and 25 cents,
 OEIS [A053344](https://oeis.org/A053344):
@@ -212,7 +212,7 @@ OEIS [A053344](https://oeis.org/A053344):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/frobeniusSolve-E.svg)
+![](Help/Image/frobeniusSolve-E.svg)
 
 Number of partitions of _n_ into parts 6, 9 or 20,
 OEIS [A214772](https://oeis.org/A214772):
@@ -223,7 +223,7 @@ OEIS [A214772](https://oeis.org/A214772):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/frobeniusSolve-F.svg)
+![](Help/Image/frobeniusSolve-F.svg)
 
 Minimal common prime of two Goldbach partitions of _2n_ and _2(n+1)_,
 or zero if no common prime exists,
@@ -246,7 +246,7 @@ let d = Map { :n |
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/frobeniusSolve-G.svg)
+![](Help/Image/frobeniusSolve-G.svg)
 
 * * *
 

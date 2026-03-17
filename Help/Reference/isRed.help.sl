@@ -29,7 +29,7 @@ system.svgColourCatalogue
 .enclose.arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/isRed-A.svg)
+![](Help/Image/isRed-A.svg)
 
 Svg colours with _red_ in the name that are not selected:
 
@@ -44,7 +44,7 @@ Svg colours with _red_ in the name that are not selected:
 ).enclose.arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/isRed-B.svg)
+![](Help/Image/isRed-B.svg)
 
 * * *
 

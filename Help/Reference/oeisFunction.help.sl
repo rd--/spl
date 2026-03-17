@@ -31,7 +31,7 @@ OEIS [A020652](https://oeis.org/A020652):
 ).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/oeisFunction-A.svg)
+![](Help/Image/oeisFunction-A.svg)
 
 Denominators in canonical bijection from positive integers to positive rationals,
 OEIS [A020653](https://oeis.org/A020653):
@@ -42,7 +42,7 @@ OEIS [A020653](https://oeis.org/A020653):
 ).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/oeisFunction-B.svg)
+![](Help/Image/oeisFunction-B.svg)
 
 Numerators in canonical bijection from positive integers to positive rationals,
 OEIS [A038568](http://oeis.org/A038568):
@@ -53,7 +53,7 @@ OEIS [A038568](http://oeis.org/A038568):
 ).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/oeisFunction-C.svg)
+![](Help/Image/oeisFunction-C.svg)
 
 Denominators in canonical bijection from positive integers to positive rationals,
 OEIS [A038569](http://oeis.org/A038569):
@@ -64,7 +64,7 @@ OEIS [A038569](http://oeis.org/A038569):
 ).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/oeisFunction-D.svg)
+![](Help/Image/oeisFunction-D.svg)
 
 A self-inverse permutation of natural numbers,
 _A080300_ of _A036044_ of _A014486_ of _n_,
@@ -80,7 +80,7 @@ OEIS [A057164](https://oeis.org/A057164):
 ).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/oeisFunction-E.svg)
+![](Help/Image/oeisFunction-E.svg)
 
 _A003961(n)-2*n_,
 OEIS [A252748](https://oeis.org/A252748):
@@ -93,7 +93,7 @@ let a = n.collect(
 (a - (2 * n)).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/oeisFunction-F.svg)
+![](Help/Image/oeisFunction-F.svg)
 
 * * *
 

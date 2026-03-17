@@ -56,7 +56,7 @@ Plot first few terms:
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/harmoniousNumber-A.svg)
+![](Help/Image/harmoniousNumber-A.svg)
 
 * * *
 

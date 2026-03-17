@@ -29,7 +29,7 @@ let u = x.collect(unitBox:/1);
 u.fftConvolve(u).linePlot
 ~~~
 
-![](sw/spl/Help/Image/fftConvolve-A.svg)
+![](Help/Image/fftConvolve-A.svg)
 
 Smooth triangle function:
 
@@ -40,7 +40,7 @@ let v = u.fftConvolve(u);
 v.fftConvolve(v).linePlot
 ~~~
 
-![](sw/spl/Help/Image/fftConvolve-B.svg)
+![](Help/Image/fftConvolve-B.svg)
 
 Autocorrelation of white noise is an impulse:
 
@@ -51,7 +51,7 @@ let v = u.reverse;
 u.fftConvolve(v).linePlot
 ~~~
 
-![](sw/spl/Help/Image/fftConvolve-C.svg)
+![](Help/Image/fftConvolve-C.svg)
 
 * * *
 

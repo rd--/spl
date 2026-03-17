@@ -19,7 +19,7 @@ Plot over _(-1,1)_:
 (-1 -- 1).functionPlot(Distort:/1)
 ~~~
 
-![](sw/spl/Help/Image/Distort-A.svg)
+![](Help/Image/Distort-A.svg)
 
 Distortion increases with amplitude:
 

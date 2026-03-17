@@ -119,7 +119,7 @@ let m = (2 ^ 4).hadamardMatrix;
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/lexicographicSort-A.svg)
+![](Help/Image/lexicographicSort-A.svg)
 
 * * *
 

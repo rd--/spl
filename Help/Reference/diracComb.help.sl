@@ -28,7 +28,7 @@ Plot over a subset of the reals:
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/diracComb-A.svg)
+![](Help/Image/diracComb-A.svg)
 
 * * *
 

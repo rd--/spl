@@ -24,7 +24,7 @@ let t = sssTriangle(3, 4, 5);
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/equalDetourPoint-A.svg)
+![](Help/Image/equalDetourPoint-A.svg)
 
 * * *
 

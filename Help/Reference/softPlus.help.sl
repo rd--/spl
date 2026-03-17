@@ -11,7 +11,7 @@ Plot over a subset of the reals:
 (-3 -- 3).functionPlot(softPlus:/1)
 ~~~
 
-![](sw/spl/Help/Image/softPlus-A.svg)
+![](Help/Image/softPlus-A.svg)
 
 The derivative is `logisticSigmoid`:
 
@@ -21,7 +21,7 @@ The derivative is `logisticSigmoid`:
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/softPlus-B.svg)
+![](Help/Image/softPlus-B.svg)
 
 * * *
 

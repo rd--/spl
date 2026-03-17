@@ -89,7 +89,7 @@ OEIS [A039834](https://oeis.org/A039834):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/inverseBinomialTransform-A.svg)
+![](Help/Image/inverseBinomialTransform-A.svg)
 
 The inverse binomial transform of the prime numbers,
 OEIS [A007442](https://oeis.org/A007442):
@@ -101,7 +101,7 @@ OEIS [A007442](https://oeis.org/A007442):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/inverseBinomialTransform-B.svg)
+![](Help/Image/inverseBinomialTransform-B.svg)
 
 The inverse binomial transform of the rabbit sequence,
 OEIS [A124841](https://oeis.org/A124841):
@@ -113,7 +113,7 @@ OEIS [A124841](https://oeis.org/A124841):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/inverseBinomialTransform-C.svg)
+![](Help/Image/inverseBinomialTransform-C.svg)
 
 The inverse binomial transform of the Lucas numbers,
 OEIS [A061084](https://oeis.org/A061084):
@@ -125,7 +125,7 @@ OEIS [A061084](https://oeis.org/A061084):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/inverseBinomialTransform-D.svg)
+![](Help/Image/inverseBinomialTransform-D.svg)
 
 * * *
 

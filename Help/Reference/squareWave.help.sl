@@ -27,7 +27,7 @@ Plot over a subset of the reals:
 (-3 -- 3).functionPlot(squareWave:/1)
 ~~~
 
-![](sw/spl/Help/Image/squareWave-A.svg)
+![](Help/Image/squareWave-A.svg)
 
 * * *
 

@@ -40,7 +40,7 @@ let y = [0 0.3 0.6 -0.2 3];
 )
 ~~~
 
-![](sw/spl/Help/Image/linearInterpolator-A.svg)
+![](Help/Image/linearInterpolator-A.svg)
 
 Plot an interpolation extrapolating beyond the specified _x_ range:
 
@@ -52,7 +52,7 @@ let y = [0 0.3 0.6 -0.2 3];
 )
 ~~~
 
-![](sw/spl/Help/Image/linearInterpolator-B.svg)
+![](Help/Image/linearInterpolator-B.svg)
 
 Linear impulse response:
 
@@ -64,7 +64,7 @@ let y = [0 0 1 0 0];
 )
 ~~~
 
-![](sw/spl/Help/Image/linearInterpolator-C.svg)
+![](Help/Image/linearInterpolator-C.svg)
 
 Discrete plot of sin function at sixty-four random values in _(0, 2π)_:
 
@@ -74,7 +74,7 @@ let x = r.randomReal([0 2.pi], [64]).sort;
 [x x.sin].transpose.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/linearInterpolator-D.svg)
+![](Help/Image/linearInterpolator-D.svg)
 
 The same set linearly interpolated:
 
@@ -86,7 +86,7 @@ let x = r.randomReal([0 2.pi], [64]).sort;
 ).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/linearInterpolator-E.svg)
+![](Help/Image/linearInterpolator-E.svg)
 
 * * *
 

@@ -298,7 +298,7 @@ OEIS [A000040](https://oeis.org/A000040):
 1:999.select(isPrime:/1).linePlot
 ~~~
 
-![](sw/spl/Help/Image/isPrime-A.svg)
+![](Help/Image/isPrime-A.svg)
 
 _a(n+1)_ tells the number of earlier terms _a(k)_ where _a(k)+n_ is a prime,
 OEIS [A114897](https://oeis.org/A114897):
@@ -323,7 +323,7 @@ let a:/1 = { :n |
 1:150.collect(a:/1).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isPrime-B.svg)
+![](Help/Image/isPrime-B.svg)
 
 Riesel problem,
 OEIS [A038699](https://oeis.org/A038699):
@@ -342,7 +342,7 @@ OEIS [A038699](https://oeis.org/A038699):
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isPrime-C.svg)
+![](Help/Image/isPrime-C.svg)
 
 _a(n)_ is the smallest positive integer not already in the sequence such that _a(n)+a(n-1)_ is prime,
 OEIS [A055265](https://oeis.org/A055265):
@@ -365,7 +365,7 @@ m.timesRepeat {
 a.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isPrime-D.svg)
+![](Help/Image/isPrime-D.svg)
 
 Characteristic function of prime numbers,
 OEIS [A010051](https://oeis.org/A010051):
@@ -374,7 +374,7 @@ OEIS [A010051](https://oeis.org/A010051):
 1:100.isPrime.boole.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/isPrime-E.svg)
+![](Help/Image/isPrime-E.svg)
 
 Zero unless _n_ is a non-prime, in which case plot index,
 OEIS [A239968](https://oeis.org/A239968):
@@ -391,7 +391,7 @@ let k = 0;
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/isPrime-F.svg)
+![](Help/Image/isPrime-F.svg)
 
 Largest prime _≤n_ in any decomposition of _2n_ into a sum of two odd primes,
 OEIS [A002374](https://oeis.org/A002374):
@@ -416,7 +416,7 @@ OEIS [A002374](https://oeis.org/A002374):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isPrime-G.svg)
+![](Help/Image/isPrime-G.svg)
 
 Characteristic function of primes multiplied by _n_,
 OEIS [A061397](https://oeis.org/A061397):
@@ -427,7 +427,7 @@ OEIS [A061397](https://oeis.org/A061397):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/isPrime-H.svg)
+![](Help/Image/isPrime-H.svg)
 
 Sum of primes _≤n_,
 OEIS [A034387](https://oeis.org/A034387):
@@ -438,7 +438,7 @@ OEIS [A034387](https://oeis.org/A034387):
 }.prefixSum.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/isPrime-I.svg)
+![](Help/Image/isPrime-I.svg)
 
 Triangle where row _n_ is `one` if _n_ is prime,
 `zero` otherwise,
@@ -450,7 +450,7 @@ OEIS [A143536](https://oeis.org/A143536):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/isPrime-J.svg)
+![](Help/Image/isPrime-J.svg)
 
 Triangle where row _n_ is `one` if _n_ is prime,
 `zero` otherwise,
@@ -462,7 +462,7 @@ OEIS [A143536](https://oeis.org/A143536):
 }.triangularArrayPlot
 ~~~
 
-![](sw/spl/Help/Image/isPrime-K.svg)
+![](Help/Image/isPrime-K.svg)
 
 Number of ways to write _n=x+y_ _6x-1_, _6x+1_, _6y+1_ and _6y+5_ all prime,
 OEIS [A187757](https://oeis.org/A187757):
@@ -481,7 +481,7 @@ OEIS [A187757](https://oeis.org/A187757):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isPrime-L.svg)
+![](Help/Image/isPrime-L.svg)
 
 * * *
 

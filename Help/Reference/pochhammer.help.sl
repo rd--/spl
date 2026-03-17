@@ -70,7 +70,7 @@ Plot over a subset of the reals:
 }
 ~~~
 
-![](sw/spl/Help/Image/pochhammer-A.svg)
+![](Help/Image/pochhammer-A.svg)
 
 Plot over a subset of the complexes:
 
@@ -80,7 +80,7 @@ Plot over a subset of the complexes:
 }
 ~~~
 
-![](sw/spl/Help/Image/pochhammer-B.png)
+![](Help/Image/pochhammer-B.png)
 
 Plot the Pochhammer function for various orders:
 
@@ -95,7 +95,7 @@ Plot the Pochhammer function for various orders:
 )
 ~~~
 
-![](sw/spl/Help/Image/pochhammer-C.svg)
+![](Help/Image/pochhammer-C.svg)
 
 Plot the Pochhammer function varying _a_:
 
@@ -110,7 +110,7 @@ Plot the Pochhammer function varying _a_:
 )
 ~~~
 
-![](sw/spl/Help/Image/pochhammer-D.svg)
+![](Help/Image/pochhammer-D.svg)
 
 * * *
 

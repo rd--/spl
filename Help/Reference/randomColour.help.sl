@@ -27,7 +27,7 @@ Sfc32(329743)
 .arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/randomColour-A.svg)
+![](Help/Image/randomColour-A.svg)
 
 * * *
 

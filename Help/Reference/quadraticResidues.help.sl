@@ -155,7 +155,7 @@ OEIS [A105612](https://oeis.org/A105612):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/quadraticResidues-A.svg)
+![](Help/Image/quadraticResidues-A.svg)
 
 Largest quadratic residues,
 OEIS [A047210](https://oeis.org/A047210):
@@ -166,7 +166,7 @@ OEIS [A047210](https://oeis.org/A047210):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/quadraticResidues-B.svg)
+![](Help/Image/quadraticResidues-B.svg)
 
 The quadratic residues modulo _p_ which are coprime to _p_,
 OEIS [A096103](https://oeis.org/A096103):
@@ -179,7 +179,7 @@ OEIS [A096103](https://oeis.org/A096103):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/quadraticResidues-C.svg)
+![](Help/Image/quadraticResidues-C.svg)
 
 * * *
 

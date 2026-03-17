@@ -13,7 +13,7 @@ let r = Sfc32(678123);
 ).histogramPlot
 ~~~
 
-![](sw/spl/Help/Image/expRand-A.svg)
+![](Help/Image/expRand-A.svg)
 
 * * *
 

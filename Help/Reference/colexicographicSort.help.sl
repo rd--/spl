@@ -85,7 +85,7 @@ let m = (2 ^ 4).walshMatrix;
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/colexicographicSort-A.svg)
+![](Help/Image/colexicographicSort-A.svg)
 
 * * *
 

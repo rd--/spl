@@ -13,7 +13,7 @@ let t = [12 6.5 9.5].sssTriangle;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/polarCircle-A.svg)
+![](Help/Image/polarCircle-A.svg)
 
 Another polar circle:
 
@@ -26,7 +26,7 @@ let t = [5 3.5 7].sssTriangle;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/polarCircle-B.svg)
+![](Help/Image/polarCircle-B.svg)
 
 * * *
 

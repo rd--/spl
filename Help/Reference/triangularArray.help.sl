@@ -375,7 +375,7 @@ let f = { :n :k |
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/triangularArray-A.svg)
+![](Help/Image/triangularArray-A.svg)
 
 The multiplication table read by antidiagonals,
 OEIS [A003991](https://oeis.org/A003991):
@@ -386,7 +386,7 @@ OEIS [A003991](https://oeis.org/A003991):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/triangularArray-B.svg)
+![](Help/Image/triangularArray-B.svg)
 
 The greatest common divisor matrix read by antidiagonals,
 OEIS [A003989](https://oeis.org/A003989):
@@ -397,7 +397,7 @@ OEIS [A003989](https://oeis.org/A003989):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/triangularArray-C.svg)
+![](Help/Image/triangularArray-C.svg)
 
 Number of partitions of _n_ into _k_ distinct parts,
 OEIS [A060016](https://oeis.org/A060016):
@@ -418,7 +418,7 @@ let t = { :n :k |
 .catenate.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/triangularArray-D.svg)
+![](Help/Image/triangularArray-D.svg)
 
 Array where differences in rows are _n…1_,
 OEIS [A141419](https://oeis.org/A141419):
@@ -429,7 +429,7 @@ OEIS [A141419](https://oeis.org/A141419):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/triangularArray-E.svg)
+![](Help/Image/triangularArray-E.svg)
 
 Square-pyramid-tree numbers,
 OEIS [A051678](https://oeis.org/A051678):
@@ -442,7 +442,7 @@ OEIS [A051678](https://oeis.org/A051678):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/triangularArray-F.svg)
+![](Help/Image/triangularArray-F.svg)
 
 Number of hill-free Dyck paths of length _2n_ having height of first peak equal to _k_,
 OEIS [A065602](https://oeis.org/A065602):
@@ -462,7 +462,7 @@ OEIS [A065602](https://oeis.org/A065602):
 }.catenate.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/triangularArray-G.svg)
+![](Help/Image/triangularArray-G.svg)
 
 _k_,
 count and count again from zero,
@@ -474,7 +474,7 @@ OEIS [A002262](https://oeis.org/A002262):
 }.catenate.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/triangularArray-H.svg)
+![](Help/Image/triangularArray-H.svg)
 
 _n-k_,
 count backwards and count again,
@@ -484,7 +484,7 @@ OEIS [A025581](https://oeis.org/A025581):
 0:9.triangularArray(-).catenate.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/triangularArray-I.svg)
+![](Help/Image/triangularArray-I.svg)
 
 Count number of restricted knight’s walks,
 OEIS [A049581](https://oeis.org/A049581):
@@ -502,7 +502,7 @@ let t = { :n :k |
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/triangularArray-J.svg)
+![](Help/Image/triangularArray-J.svg)
 
 _i=j_,
 OEIS [A023531](https://oeis.org/A023531):
@@ -512,7 +512,7 @@ OEIS [A023531](https://oeis.org/A023531):
 .catenate.boole.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/triangularArray-K.svg)
+![](Help/Image/triangularArray-K.svg)
 
 Triangle where _(n,n)=n_, _(n,n-1)=-(n-1)_ else zero,
 OEIS [A128064](https://oeis.org/A128064):
@@ -531,7 +531,7 @@ OEIS [A128064](https://oeis.org/A128064):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/triangularArray-L.svg)
+![](Help/Image/triangularArray-L.svg)
 
 * * *
 

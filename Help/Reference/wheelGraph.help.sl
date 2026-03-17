@@ -65,7 +65,7 @@ Draw the wheel graph on nine vertices:
 9.wheelGraph.graphPlot
 ~~~
 
-![](sw/spl/Help/Image/wheelGraph-A.svg)
+![](Help/Image/wheelGraph-A.svg)
 
 * * *
 

@@ -40,7 +40,7 @@ Plot over a subset of the reals:
 (-3 -- 3).functionPlot(erf:/1)
 ~~~
 
-![](sw/spl/Help/Image/erf-A.svg)
+![](Help/Image/erf-A.svg)
 
 * * *
 

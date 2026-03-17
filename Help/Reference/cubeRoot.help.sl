@@ -69,7 +69,7 @@ Plot over a subset of the reals:
 (-2 -- 2).functionPlot(cubeRoot:/1)
 ~~~
 
-![](sw/spl/Help/Image/cubeRoot-A.svg)
+![](Help/Image/cubeRoot-A.svg)
 
 Least nonnegative integer _k_ such that _xor(n,k)_ is a cube,
 OEIS [A330271](https://oeis.org/A330271):
@@ -82,7 +82,7 @@ OEIS [A330271](https://oeis.org/A330271):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/cubeRoot-B.svg)
+![](Help/Image/cubeRoot-B.svg)
 
 * * *
 

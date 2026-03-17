@@ -37,7 +37,7 @@ let m = 250;
 a.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/secondLast-A.svg)
+![](Help/Image/secondLast-A.svg)
 
 * * *
 

@@ -29,7 +29,7 @@ Plot 99 random floating point numbers between `zero` and `one`:
 SplitMix(98765).next(99).linePlot
 ~~~
 
-![](sw/spl/Help/Image/SplitMix-A.svg)
+![](Help/Image/SplitMix-A.svg)
 
 Plot histogram:
 
@@ -39,7 +39,7 @@ SplitMix(387912)
 .histogramPlot
 ~~~
 
-![](sw/spl/Help/Image/SplitMix-B.svg)
+![](Help/Image/SplitMix-B.svg)
 
 Difference between empirical and expected mean and standard deviation:
 

@@ -20,7 +20,7 @@ let c = [0 0; 1 0 ; 0 1];
 .polygonCollection
 ~~~
 
-![](sw/spl/Help/Image/polygonCollection-A.svg)
+![](Help/Image/polygonCollection-A.svg)
 
 * * *
 

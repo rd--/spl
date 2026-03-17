@@ -24,7 +24,7 @@ OEIS [A005185](https://oeis.org/A005185):
 200.hofstadterQSequence.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/hofstadterQSequence-A.svg)
+![](Help/Image/hofstadterQSequence-A.svg)
 
 The Hofstadter Q-sequence,
 scatter plot of the terms in _(6000, 6200)_,
@@ -36,7 +36,7 @@ OEIS [A005185](https://oeis.org/A005185):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/hofstadterQSequence-B.svg)
+![](Help/Image/hofstadterQSequence-B.svg)
 
 The obscure sequence
 OEIS [A086267](https://oeis.org/A086267):
@@ -51,7 +51,7 @@ h.partition(3, 1).collect { :i |
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/hofstadterQSequence-C.svg)
+![](Help/Image/hofstadterQSequence-C.svg)
 
 * * *
 

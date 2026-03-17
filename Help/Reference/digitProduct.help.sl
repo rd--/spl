@@ -30,7 +30,7 @@ Plot the product of the digits in the first 100 positive integers:
 1:100.collect(digitProduct:/1).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/digitProduct-A.svg)
+![](Help/Image/digitProduct-A.svg)
 
 * * *
 

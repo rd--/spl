@@ -14,7 +14,7 @@ let m = 0.8;
 )
 ~~~
 
-![](sw/spl/Help/Image/seiffertsSpiral-A.svg)
+![](Help/Image/seiffertsSpiral-A.svg)
 
 A closed spiral, _n=1_ and _p=4_:
 
@@ -36,7 +36,7 @@ The spiral will be closed if the following equation holds:
 n / p
 ```
 
-![](sw/spl/Help/Image/seiffertsSpiral-B.svg)
+![](Help/Image/seiffertsSpiral-B.svg)
 
 A closed spiral, _n=1_ and _p=1_:
 
@@ -48,7 +48,7 @@ let m = 0.628415;
 )
 ~~~
 
-![](sw/spl/Help/Image/seiffertsSpiral-C.svg)
+![](Help/Image/seiffertsSpiral-C.svg)
 
 A closed spiral, _n=4_ and _p=1_:
 
@@ -60,7 +60,7 @@ let m = 0.999944;
 )
 ~~~
 
-![](sw/spl/Help/Image/seiffertsSpiral-D.svg)
+![](Help/Image/seiffertsSpiral-D.svg)
 
 A closed spiral with _m>1_,
 so that the spiral is located entirely in the northern hemisphere,
@@ -74,7 +74,7 @@ let m = 1.0000558096;
 )
 ~~~
 
-![](sw/spl/Help/Image/seiffertsSpiral-E.svg)
+![](Help/Image/seiffertsSpiral-E.svg)
 
 A closed spiral, _n=2_ and _p=3_:
 
@@ -86,7 +86,7 @@ let m = 0.358;
 )
 ~~~
 
-![](sw/spl/Help/Image/seiffertsSpiral-F.svg)
+![](Help/Image/seiffertsSpiral-F.svg)
 
 _Note:_
 The equation is that given by Erdős,

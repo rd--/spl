@@ -14,7 +14,7 @@ in _x,y_ and _x,z_ views:
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/spherePointsFibonacci-A.svg)
+![](Help/Image/spherePointsFibonacci-A.svg)
 
 ~~~spl svg=B
 200.spherePointsFibonacci.collect { :each |
@@ -23,7 +23,7 @@ in _x,y_ and _x,z_ views:
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/spherePointsFibonacci-B.svg)
+![](Help/Image/spherePointsFibonacci-B.svg)
 
 An _isometric_ projection of the same point set:
 
@@ -36,7 +36,7 @@ An _isometric_ projection of the same point set:
 ).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/spherePointsFibonacci-C.svg)
+![](Help/Image/spherePointsFibonacci-C.svg)
 
 * * *
 

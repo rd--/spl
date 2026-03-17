@@ -17,7 +17,7 @@ Plot 128 place table:
 128.hammingWindowTable.linePlot
 ~~~
 
-![](sw/spl/Help/Image/hammingWindowTable-A.svg)
+![](Help/Image/hammingWindowTable-A.svg)
 
 * * *
 

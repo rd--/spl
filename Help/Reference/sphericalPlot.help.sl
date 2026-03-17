@@ -13,7 +13,7 @@ A sphere:
 }
 ~~~
 
-![](sw/spl/Help/Image/sphericalPlot-A.svg)
+![](Help/Image/sphericalPlot-A.svg)
 
 A spiraling shell:
 
@@ -23,7 +23,7 @@ A spiraling shell:
 }
 ~~~
 
-![](sw/spl/Help/Image/sphericalPlot-B.svg)
+![](Help/Image/sphericalPlot-B.svg)
 
 A spherical surface:
 
@@ -33,7 +33,7 @@ A spherical surface:
 }
 ~~~
 
-![](sw/spl/Help/Image/sphericalPlot-C.svg)
+![](Help/Image/sphericalPlot-C.svg)
 
 An segment of an oscillating piecewise spherical surface:
 
@@ -45,7 +45,7 @@ An segment of an oscillating piecewise spherical surface:
 }
 ~~~
 
-![](sw/spl/Help/Image/sphericalPlot-D.svg)
+![](Help/Image/sphericalPlot-D.svg)
 
 A segment of a φ² sperical surface:
 
@@ -56,7 +56,7 @@ A segment of a φ² sperical surface:
 }
 ~~~
 
-![](sw/spl/Help/Image/sphericalPlot-E.svg)
+![](Help/Image/sphericalPlot-E.svg)
 
 A segment of an oscillation around a sphere:
 
@@ -69,7 +69,7 @@ A segment of an oscillation around a sphere:
 }
 ~~~
 
-![](sw/spl/Help/Image/sphericalPlot-F.svg)
+![](Help/Image/sphericalPlot-F.svg)
 
 * * *
 

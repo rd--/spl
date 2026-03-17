@@ -13,7 +13,7 @@ let d = CauchyDistribution(0, 0.025);
 d.randomVariate(r, 99).clip.linePlot
 ~~~
 
-![](sw/spl/Help/Image/randomVariate-A.svg)
+![](Help/Image/randomVariate-A.svg)
 
 * * *
 

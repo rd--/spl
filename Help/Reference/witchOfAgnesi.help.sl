@@ -12,7 +12,7 @@ Plot:
 )
 ~~~
 
-![](sw/spl/Help/Image/witchOfAgnesi-A.svg)
+![](Help/Image/witchOfAgnesi-A.svg)
 
 Draw with circle and bounding box:
 
@@ -28,7 +28,7 @@ let c = t.collect(
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/witchOfAgnesi-B.svg)
+![](Help/Image/witchOfAgnesi-B.svg)
 
 * * *
 

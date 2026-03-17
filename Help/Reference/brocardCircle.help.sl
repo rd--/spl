@@ -21,7 +21,7 @@ let t = [5 4.5 6].sssTriangle;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/brocardCircle-A.svg)
+![](Help/Image/brocardCircle-A.svg)
 
 * * *
 

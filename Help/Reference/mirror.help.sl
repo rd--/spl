@@ -36,7 +36,7 @@ Plot the `mirror` of the `++` of the `prefixes` of the arithmetic sequence _1:13
 1:13.prefixes.++.mirror(1, 0).linePlot
 ~~~
 
-![](sw/spl/Help/Image/mirror-A.svg)
+![](Help/Image/mirror-A.svg)
 
 * * *
 

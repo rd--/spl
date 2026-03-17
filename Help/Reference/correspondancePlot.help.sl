@@ -14,7 +14,7 @@ Correspondance between 11- and 13- vectors:
 ].correspondancePlot
 ~~~
 
-![](sw/spl/Help/Image/correspondancePlot-A.svg)
+![](Help/Image/correspondancePlot-A.svg)
 
 Use `warpingCorrespondence` to derive correspondance:
 
@@ -25,7 +25,7 @@ Use `warpingCorrespondence` to derive correspondance:
 ).correspondancePlot
 ~~~
 
-![](sw/spl/Help/Image/correspondancePlot-B.svg)
+![](Help/Image/correspondancePlot-B.svg)
 
 With random index sequences:
 
@@ -35,7 +35,7 @@ Sfc32(267814)
 .correspondancePlot
 ~~~
 
-![](sw/spl/Help/Image/correspondancePlot-C.svg)
+![](Help/Image/correspondancePlot-C.svg)
 
 Correspondance plot of phase shifted and amplitude scaled Hann tables:
 
@@ -48,7 +48,7 @@ warpingCorrespondence(
 ).correspondancePlot
 ~~~
 
-![](sw/spl/Help/Image/correspondancePlot-D.svg)
+![](Help/Image/correspondancePlot-D.svg)
 
 * * *
 

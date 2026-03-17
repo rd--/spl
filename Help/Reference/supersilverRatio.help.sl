@@ -52,7 +52,7 @@ Supersilver rectangle:
 Rectangle([0, 0], [1.supersilverRatio 1])
 ~~~
 
-![](sw/spl/Help/Image/supersilverRatio-A.svg)
+![](Help/Image/supersilverRatio-A.svg)
 
 Supersilver spiral:
 
@@ -64,7 +64,7 @@ let b = 1.supersilverRatio.log / 0.5.pi;
 ).Line
 ~~~
 
-![](sw/spl/Help/Image/supersilverRatio-B.svg)
+![](Help/Image/supersilverRatio-B.svg)
 
 * * *
 

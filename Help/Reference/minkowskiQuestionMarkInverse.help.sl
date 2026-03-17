@@ -21,7 +21,7 @@ Plot over the unit interval:
 )
 ~~~
 
-![](sw/spl/Help/Image/minkowskiQuestionMarkInverse-A.svg)
+![](Help/Image/minkowskiQuestionMarkInverse-A.svg)
 
 Plot difference from input:
 
@@ -32,7 +32,7 @@ Plot difference from input:
 }
 ~~~
 
-![](sw/spl/Help/Image/minkowskiQuestionMarkInverse-B.svg)
+![](Help/Image/minkowskiQuestionMarkInverse-B.svg)
 
 Plot from -2 to 2:
 
@@ -42,7 +42,7 @@ Plot from -2 to 2:
 )
 ~~~
 
-![](sw/spl/Help/Image/minkowskiQuestionMarkInverse-C.svg)
+![](Help/Image/minkowskiQuestionMarkInverse-C.svg)
 
 * * *
 

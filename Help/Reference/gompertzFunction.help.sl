@@ -24,7 +24,7 @@ Effect of varying parameter _a_:
 )
 ~~~
 
-![](sw/spl/Help/Image/gompertzFunction-A.svg)
+![](Help/Image/gompertzFunction-A.svg)
 
 Effect of varying parameter _b_:
 
@@ -36,7 +36,7 @@ Effect of varying parameter _b_:
 )
 ~~~
 
-![](sw/spl/Help/Image/gompertzFunction-B.svg)
+![](Help/Image/gompertzFunction-B.svg)
 
 Effect of varying parameter _c_:
 
@@ -48,7 +48,7 @@ Effect of varying parameter _c_:
 )
 ~~~
 
-![](sw/spl/Help/Image/gompertzFunction-C.svg)
+![](Help/Image/gompertzFunction-C.svg)
 
 * * *
 

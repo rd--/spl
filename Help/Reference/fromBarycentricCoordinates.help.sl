@@ -33,7 +33,7 @@ let c = [
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/fromBarycentricCoordinates-A.svg)
+![](Help/Image/fromBarycentricCoordinates-A.svg)
 
 Plot grid of points:
 
@@ -52,7 +52,7 @@ let c = [0, 0.1 .. 1].tuples(2).select { :each |
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/fromBarycentricCoordinates-B.svg)
+![](Help/Image/fromBarycentricCoordinates-B.svg)
 
 Plot grid of points on a triangle embedded in three-dimensional space:
 
@@ -74,7 +74,7 @@ let c = [0, 0.1 .. 1].tuples(2).select { :each |
 ].PerspectiveDrawing
 ~~~
 
-![](sw/spl/Help/Image/fromBarycentricCoordinates-C.svg)
+![](Help/Image/fromBarycentricCoordinates-C.svg)
 
 The inverse is `toBarycentricCoordinates`.
 

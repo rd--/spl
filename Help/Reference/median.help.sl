@@ -66,7 +66,7 @@ OEIS [A212300](https://oeis.org/A212300):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/median-A.svg)
+![](Help/Image/median-A.svg)
 
 Triangle where _(n,k)_ is the number of integer partitions of _n_ with median _k_,
 where _k_ ranges from one to _n_ in steps of one half,
@@ -82,7 +82,7 @@ Range(1, 10, 1).collect { :n |
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/median-B.svg)
+![](Help/Image/median-B.svg)
 
 * * *
 

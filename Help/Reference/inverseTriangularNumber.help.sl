@@ -30,7 +30,7 @@ OEIS [A196020](https://oeis.org/A196020):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/inverseTriangularNumber-A.svg)
+![](Help/Image/inverseTriangularNumber-A.svg)
 
 * * *
 

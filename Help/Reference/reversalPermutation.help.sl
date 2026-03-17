@@ -56,7 +56,7 @@ Plot first few terms for _b=3_:
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/reversalPermutation-A.svg)
+![](Help/Image/reversalPermutation-A.svg)
 
 * * *
 

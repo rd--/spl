@@ -111,7 +111,7 @@ Plot over a subset of the reals:
 )
 ~~~
 
-![](sw/spl/Help/Image/nthRoot-A.svg)
+![](Help/Image/nthRoot-A.svg)
 
 Plot a composition of `nthRoot`:
 
@@ -123,7 +123,7 @@ Plot a composition of `nthRoot`:
 }
 ~~~
 
-![](sw/spl/Help/Image/nthRoot-B.svg)
+![](Help/Image/nthRoot-B.svg)
 
 Polar plot:
 
@@ -133,7 +133,7 @@ Polar plot:
 }
 ~~~
 
-![](sw/spl/Help/Image/nthRoot-C.svg)
+![](Help/Image/nthRoot-C.svg)
 
 Where supported `nthRoot` is displayed as √.
 

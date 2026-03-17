@@ -34,7 +34,7 @@ and order six:
 ).matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/permutationOrderList-A.svg)
+![](Help/Image/permutationOrderList-A.svg)
 
 Plot permutation of thirteen places with four cycles,
 one a fixed point,
@@ -47,7 +47,7 @@ and order eight:
 ).matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/permutationOrderList-B.svg)
+![](Help/Image/permutationOrderList-B.svg)
 
 Plot permutation of seventeen places with only one cycle,
 no fixed points,
@@ -60,7 +60,7 @@ and therefore of order seventeen:
 ).matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/permutationOrderList-C.svg)
+![](Help/Image/permutationOrderList-C.svg)
 
 * * *
 

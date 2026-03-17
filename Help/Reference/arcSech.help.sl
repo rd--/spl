@@ -34,7 +34,7 @@ Plot over a subset of the reals:
 (0.01 -- 1).functionPlot(arcSech:/1)
 ~~~
 
-![](sw/spl/Help/Image/arcSech-A.svg)
+![](Help/Image/arcSech-A.svg)
 
 * * *
 

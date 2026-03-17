@@ -10,7 +10,7 @@ LsCauchy(0, 1 / 9, 99, Sfc32(280142))
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/LsCauchy-A.svg)
+![](Help/Image/LsCauchy-A.svg)
 
 * * *
 

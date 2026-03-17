@@ -17,7 +17,7 @@ Sfc32(387914)
 ).transpose.matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/sortTracingState-A.svg)
+![](Help/Image/sortTracingState-A.svg)
 
 Matrix plot of a merge sort algorithm:
 
@@ -29,7 +29,7 @@ Sfc32(387914)
 ).transpose.matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/sortTracingState-B.svg)
+![](Help/Image/sortTracingState-B.svg)
 
 Matrix plot of an insertion sort algorithm:
 
@@ -41,7 +41,7 @@ Sfc32(387914)
 ).transpose.matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/sortTracingState-C.svg)
+![](Help/Image/sortTracingState-C.svg)
 
 Matrix plot of a selection sort algorithm:
 
@@ -53,7 +53,7 @@ Sfc32(387914)
 ).transpose.matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/sortTracingState-D.svg)
+![](Help/Image/sortTracingState-D.svg)
 
 Matrix plot of a cycle sort algorithm:
 
@@ -65,7 +65,7 @@ Sfc32(387914)
 ).replaceNil(0).transpose.matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/sortTracingState-E.svg)
+![](Help/Image/sortTracingState-E.svg)
 
 Matrix plot of a shell sort algorithm,
 note that the intermediate state contains `nil`:
@@ -78,7 +78,7 @@ Sfc32(387914)
 ).transpose.matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/sortTracingState-F.svg)
+![](Help/Image/sortTracingState-F.svg)
 
 Matrix plot of a shuffle sort algorithm:
 
@@ -90,7 +90,7 @@ Sfc32(387914)
 ).transpose.matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/sortTracingState-G.svg)
+![](Help/Image/sortTracingState-G.svg)
 
 Matrix plot of a radix sort algorithm:
 
@@ -102,7 +102,7 @@ Sfc32(387914)
 ).transpose.matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/sortTracingState-H.svg)
+![](Help/Image/sortTracingState-H.svg)
 
 Matrix plot of an odd-even sort algorithm:
 
@@ -114,7 +114,7 @@ Sfc32(387914)
 ).transpose.matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/sortTracingState-I.svg)
+![](Help/Image/sortTracingState-I.svg)
 
 Matrix plot of a comb sort algorithm:
 
@@ -126,7 +126,7 @@ Sfc32(387914)
 ).transpose.matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/sortTracingState-J.svg)
+![](Help/Image/sortTracingState-J.svg)
 
 Matrix plot of a bubble sort algorithm:
 
@@ -138,7 +138,7 @@ Sfc32(387914)
 ).transpose.matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/sortTracingState-K.svg)
+![](Help/Image/sortTracingState-K.svg)
 
 Matrix plot of a bitonic sort algorithm:
 
@@ -150,7 +150,7 @@ Sfc32(387914)
 ).transpose.matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/sortTracingState-L.svg)
+![](Help/Image/sortTracingState-L.svg)
 
 Matrix plot of a gnome sort algorithm:
 
@@ -162,7 +162,7 @@ Sfc32(387914)
 ).transpose.matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/sortTracingState-M.svg)
+![](Help/Image/sortTracingState-M.svg)
 
 * * *
 

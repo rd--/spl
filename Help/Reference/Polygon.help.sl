@@ -53,7 +53,7 @@ let h = { :x :y |
 }.table(1:5, 1:10).LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/Polygon-A.svg)
+![](Help/Image/Polygon-A.svg)
 
 Digital petals:
 
@@ -71,7 +71,7 @@ let d = 2.pi / 12;
 }.table(1:6, 1:12).LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/Polygon-B.svg)
+![](Help/Image/Polygon-B.svg)
 
 A dozen random triangles:
 
@@ -82,7 +82,7 @@ Sfc32(147982)
 .LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/Polygon-C.svg)
+![](Help/Image/Polygon-C.svg)
 
 The outline of a glyph:
 
@@ -102,7 +102,7 @@ The outline of a glyph:
 ].Polygon.LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/Polygon-D.svg)
+![](Help/Image/Polygon-D.svg)
 
 * * *
 

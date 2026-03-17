@@ -58,7 +58,7 @@ Two circular arcs, and a line:
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/Arc-A.svg)
+![](Help/Image/Arc-A.svg)
 
 An elliptical arc, and a circle:
 
@@ -68,7 +68,7 @@ let c = Circle([0 0], 1);
 [a c].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/Arc-B.svg)
+![](Help/Image/Arc-B.svg)
 
 A geometric technique for finding twelve equally-spaced points around a circle:
 
@@ -86,7 +86,7 @@ let c = circlePoints(12, [0 0], 1, 0);
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/Arc-C.svg)
+![](Help/Image/Arc-C.svg)
 
 13th-century fifth-point arch shape,
 according to Branner’s 1960 interpretation of the 13th-century Picard artist Villard de Honnecourt:
@@ -100,7 +100,7 @@ let n = 2 * 6.sqrt;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/Arc-D.svg)
+![](Help/Image/Arc-D.svg)
 
 A Reuleaux triangle:
 
@@ -114,7 +114,7 @@ let t = sssTriangle(1, 1, 1);
 ).LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/Arc-E.svg)
+![](Help/Image/Arc-E.svg)
 
 Draw arcs between points on Farey sequences:
 
@@ -130,7 +130,7 @@ Draw arcs between points on Farey sequences:
 }.LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/Arc-F.svg)
+![](Help/Image/Arc-F.svg)
 
 Draw using parametric equation:
 
@@ -142,7 +142,7 @@ Draw using parametric equation:
 ).PointCloud
 ~~~
 
-![](sw/spl/Help/Image/Arc-G.svg)
+![](Help/Image/Arc-G.svg)
 
 A long arc,
 and an approximation,
@@ -154,7 +154,7 @@ let p = a.approximation.PointCloud;
 [a p].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/Arc-H.svg)
+![](Help/Image/Arc-H.svg)
 
 Draw a major sector:
 
@@ -163,7 +163,7 @@ Arc([0 0], [1 1], [5/4 3/4].pi)
 .sector
 ~~~
 
-![](sw/spl/Help/Image/Arc-I.svg)
+![](Help/Image/Arc-I.svg)
 
 Draw a minor sector:
 
@@ -172,7 +172,7 @@ Arc([0 0], [1 1], [2/5 3/5].pi)
 .sector
 ~~~
 
-![](sw/spl/Help/Image/Arc-J.svg)
+![](Help/Image/Arc-J.svg)
 
 Draw a proper segment:
 
@@ -181,7 +181,7 @@ Arc([0 0], [1 1], [-1/3 1/3].pi)
 .segment
 ~~~
 
-![](sw/spl/Help/Image/Arc-K.svg)
+![](Help/Image/Arc-K.svg)
 
 Draw a segment of a major sector,
 by convention not properly a segment:
@@ -191,7 +191,7 @@ Arc([0 0], [1 1], [5/4 3/4].pi)
 .segment
 ~~~
 
-![](sw/spl/Help/Image/Arc-L.svg)
+![](Help/Image/Arc-L.svg)
 
 * * *
 

@@ -35,7 +35,7 @@ OEIS [A008949](https://oeis.org/A008949):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bernoulliTriangle-A.svg)
+![](Help/Image/bernoulliTriangle-A.svg)
 
 * * *
 

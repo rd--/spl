@@ -21,7 +21,7 @@ Sfc32(789341)
 .asBitmap(100)
 ~~~
 
-![](sw/spl/Help/Image/henonAreaPreservingMap-A.png)
+![](Help/Image/henonAreaPreservingMap-A.png)
 
 * * *
 

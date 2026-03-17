@@ -24,7 +24,7 @@ OEIS [A001511](https://oeis.org/A001511):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/rulerFunction-A.svg)
+![](Help/Image/rulerFunction-A.svg)
 
 First differences of the ruler function,
 OEIS [A094267](https://oeis.org/A094267):
@@ -35,7 +35,7 @@ OEIS [A094267](https://oeis.org/A094267):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/rulerFunction-B.svg)
+![](Help/Image/rulerFunction-B.svg)
 
 Every term of the ruler function repeated,
 equal to absolute value of first differences,
@@ -48,7 +48,7 @@ OEIS [A050603](https://oeis.org/A050603):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/rulerFunction-C.svg)
+![](Help/Image/rulerFunction-C.svg)
 
 * * *
 

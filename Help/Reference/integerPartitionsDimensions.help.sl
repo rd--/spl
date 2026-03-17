@@ -43,7 +43,7 @@ OEIS [A117506](https://oeis.org/A117506):
 ).catenate.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/integerPartitionsDimensions-A.svg)
+![](Help/Image/integerPartitionsDimensions-A.svg)
 
 Table of dimensions of integer partitions in ascending order,
 OEIS [A060240](https://oeis.org/A060240):
@@ -55,7 +55,7 @@ OEIS [A060240](https://oeis.org/A060240):
 }.catenate.log.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/integerPartitionsDimensions-B.svg)
+![](Help/Image/integerPartitionsDimensions-B.svg)
 
 * * *
 

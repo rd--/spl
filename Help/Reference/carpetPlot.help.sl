@@ -21,7 +21,7 @@ linearly interpolated to _i_ and _j_ places.
 )
 ~~~
 
-![](sw/spl/Help/Image/carpetPlot-A.svg)
+![](Help/Image/carpetPlot-A.svg)
 
 The identity function is a rectangular grid,
 here over the same _a_ and _b_ at the same interpolation points:
@@ -36,7 +36,7 @@ here over the same _a_ and _b_ at the same interpolation points:
 )
 ~~~
 
-![](sw/spl/Help/Image/carpetPlot-B.svg)
+![](Help/Image/carpetPlot-B.svg)
 
 * * *
 

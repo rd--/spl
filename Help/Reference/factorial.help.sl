@@ -355,7 +355,7 @@ OEIS [A002034](https://oeis.org/A002034):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/factorial-A.svg)
+![](Help/Image/factorial-A.svg)
 
 Leading digit of _n!_,
 OEIS [A008905](https://oeis.org/A008905):
@@ -366,7 +366,7 @@ let n = 0:85.!;
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/factorial-B.svg)
+![](Help/Image/factorial-B.svg)
 
 The factorial numbers with trailing zeros omitted,
 OEIS [A004154](https://oeis.org/A004154):
@@ -377,7 +377,7 @@ let a = n / (10 ^ n.integerExponent(10));
 a.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/factorial-C.svg)
+![](Help/Image/factorial-C.svg)
 
 * * *
 

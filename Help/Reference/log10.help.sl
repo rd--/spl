@@ -62,7 +62,7 @@ Plot over a subset of the reals:
 (0.01 -- 5).functionPlot(log10:/1)
 ~~~
 
-![](sw/spl/Help/Image/log10-A.svg)
+![](Help/Image/log10-A.svg)
 
 * * *
 

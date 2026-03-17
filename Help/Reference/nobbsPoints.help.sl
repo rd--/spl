@@ -13,7 +13,7 @@ let t = [2.5 2 2.75].sssTriangle;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/nobbsPoints-A.svg)
+![](Help/Image/nobbsPoints-A.svg)
 
 * * *
 

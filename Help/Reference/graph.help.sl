@@ -14,7 +14,7 @@ Sfc32(323193)
 .graphPlot
 ~~~
 
-![](sw/spl/Help/Image/graph-A.svg)
+![](Help/Image/graph-A.svg)
 
 Draw the graph of the biaugmented pentagonal prism from the McClure polyhedra catalogue:
 
@@ -26,7 +26,7 @@ system
 .graphPlot
 ~~~
 
-![](sw/spl/Help/Image/graph-B.svg)
+![](Help/Image/graph-B.svg)
 
 In both the `DelaunayTriangulation` and the `Polyhedron` case the `Graph` has stored vertex coordinates,
 and may be drawn using either `asLineDrawing` or `asPerspectiveDrawing`.
@@ -45,7 +45,7 @@ system
 )
 ~~~
 
-![](sw/spl/Help/Image/graph-C.svg)
+![](Help/Image/graph-C.svg)
 
 * * *
 

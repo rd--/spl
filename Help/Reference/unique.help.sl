@@ -38,7 +38,7 @@ OEIS [A180410](https://oeis.org/A180410):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/unique-A.svg)
+![](Help/Image/unique-A.svg)
 
 Fermi-Dirac primes,
 numbers of the form _p^(2^k)_ where _p_ is prime and _k≥0_,
@@ -59,7 +59,7 @@ let n = nil;
 t.unique.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/unique-B.svg)
+![](Help/Image/unique-B.svg)
 
 * * *
 

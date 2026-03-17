@@ -83,7 +83,7 @@ Plot the `nearest` of a list of numbers:
 }
 ~~~
 
-![](sw/spl/Help/Image/nearest-A.svg)
+![](Help/Image/nearest-A.svg)
 
 * * *
 

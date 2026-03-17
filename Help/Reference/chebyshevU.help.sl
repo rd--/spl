@@ -67,7 +67,7 @@ let p = 5.chebyshevU;
 }
 ~~~
 
-![](sw/spl/Help/Image/chebyshevU-A.svg)
+![](Help/Image/chebyshevU-A.svg)
 
 Plot the tenth degree polynomial over a subset of the reals:
 
@@ -78,7 +78,7 @@ let p = 10.chebyshevU;
 }
 ~~~
 
-![](sw/spl/Help/Image/chebyshevU-B.svg)
+![](Help/Image/chebyshevU-B.svg)
 
 Plot the first five polynomial over a subset of the reals:
 
@@ -93,7 +93,7 @@ let p = 0:4.collect(chebyshevU:/1);
 )
 ~~~
 
-![](sw/spl/Help/Image/chebyshevU-C.svg)
+![](Help/Image/chebyshevU-C.svg)
 
 Triangle of coefficients of Chebyshev’s _S_-polynomials,
 OEIS [A049310](https://oeis.org/A049310):
@@ -106,7 +106,7 @@ OEIS [A049310](https://oeis.org/A049310):
 }.catenate.logScale.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/chebyshevU-D.svg)
+![](Help/Image/chebyshevU-D.svg)
 
 * * *
 

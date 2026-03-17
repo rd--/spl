@@ -24,7 +24,7 @@ system
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/masinaConsonanceData-A.svg)
+![](Help/Image/masinaConsonanceData-A.svg)
 
 Plot only the first twenty four places,
 corresponding to the intervals up to one ocatave:
@@ -37,7 +37,7 @@ system
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/masinaConsonanceData-B.svg)
+![](Help/Image/masinaConsonanceData-B.svg)
 
 Table of ratios within the octave:
 

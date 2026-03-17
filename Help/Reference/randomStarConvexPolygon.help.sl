@@ -13,7 +13,7 @@ Sfc32(378941)
 .randomStarConvexPolygon(13, 0.5, 1)
 ~~~
 
-![](sw/spl/Help/Image/randomStarConvexPolygon-A.svg)
+![](Help/Image/randomStarConvexPolygon-A.svg)
 
 A star-convex polygon is not necessarily convex,
 although all convex polygons are star-convex:
@@ -32,7 +32,7 @@ Sfc32(379148)
 .randomStarConvexPolygon(33, 0.33, 1)
 ~~~
 
-![](sw/spl/Help/Image/randomStarConvexPolygon-B.svg)
+![](Help/Image/randomStarConvexPolygon-B.svg)
 
 Draw three randomly generated star convex polygons:
 
@@ -47,7 +47,7 @@ let r = Sfc32(123123);
 }.LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/randomStarConvexPolygon-C.svg)
+![](Help/Image/randomStarConvexPolygon-C.svg)
 
 * * *
 

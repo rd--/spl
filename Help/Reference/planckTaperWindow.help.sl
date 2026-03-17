@@ -31,7 +31,7 @@ Shape of a Planck-taper window using specified parameters for ε:
 )
 ~~~
 
-![](sw/spl/Help/Image/planckTaperWindow-A.svg)
+![](Help/Image/planckTaperWindow-A.svg)
 
 Discrete Planck-taper window of length 15:
 
@@ -42,7 +42,7 @@ Discrete Planck-taper window of length 15:
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/planckTaperWindow-B.svg)
+![](Help/Image/planckTaperWindow-B.svg)
 
 Frequency response of the Planck-taper window:
 
@@ -52,7 +52,7 @@ Frequency response of the Planck-taper window:
 }.fftPlot(512, 'Centered', 'Logarithmic')
 ~~~
 
-![](sw/spl/Help/Image/planckTaperWindow-C.svg)
+![](Help/Image/planckTaperWindow-C.svg)
 
 * * *
 

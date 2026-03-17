@@ -10,7 +10,7 @@ At `Circle`:
 Circle([0 0], 1).asLineDrawing
 ~~~
 
-![](sw/spl/Help/Image/asLineDrawing-A.svg)
+![](Help/Image/asLineDrawing-A.svg)
 
 At `Rectangle`:
 
@@ -18,7 +18,7 @@ At `Rectangle`:
 Rectangle([0 0], [1 1]).asLineDrawing
 ~~~
 
-![](sw/spl/Help/Image/asLineDrawing-B.svg)
+![](Help/Image/asLineDrawing-B.svg)
 
 At `Polygon`:
 
@@ -26,7 +26,7 @@ At `Polygon`:
 Polygon([0 0; 1 2; 2 0]).asLineDrawing
 ~~~
 
-![](sw/spl/Help/Image/asLineDrawing-C.svg)
+![](Help/Image/asLineDrawing-C.svg)
 
 At `Triangle`:
 
@@ -34,7 +34,7 @@ At `Triangle`:
 Triangle([0 0], [1 2], [2 0]).asLineDrawing
 ~~~
 
-![](sw/spl/Help/Image/asLineDrawing-D.svg)
+![](Help/Image/asLineDrawing-D.svg)
 
 At `PointCloud`:
 
@@ -45,7 +45,7 @@ Sfc32(156732)
 .asLineDrawing
 ~~~
 
-![](sw/spl/Help/Image/asLineDrawing-E.svg)
+![](Help/Image/asLineDrawing-E.svg)
 
 At `Plot`:
 
@@ -53,7 +53,7 @@ At `Plot`:
 [1 .. 9].discretePlot.asLineDrawing
 ~~~
 
-![](sw/spl/Help/Image/asLineDrawing-F.svg)
+![](Help/Image/asLineDrawing-F.svg)
 
 At `Scale`:
 
@@ -62,7 +62,7 @@ Scale(1, [2 2 3 2 3], 'Maj. Pentatonic')
 .asLineDrawing
 ~~~
 
-![](sw/spl/Help/Image/asLineDrawing-G.svg)
+![](Help/Image/asLineDrawing-G.svg)
 
 At `Graph`:
 
@@ -73,7 +73,7 @@ At `Graph`:
 .asLineDrawing
 ~~~
 
-![](sw/spl/Help/Image/asLineDrawing-H.svg)
+![](Help/Image/asLineDrawing-H.svg)
 
 Draw the cochleoid curve:
 
@@ -83,7 +83,7 @@ Draw the cochleoid curve:
 }.Line.asLineDrawing
 ~~~
 
-![](sw/spl/Help/Image/asLineDrawing-I.svg)
+![](Help/Image/asLineDrawing-I.svg)
 
 * * *
 

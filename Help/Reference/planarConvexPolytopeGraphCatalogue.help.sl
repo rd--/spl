@@ -23,7 +23,7 @@ system
 .at('convexpolytopes_8.188')
 ~~~
 
-![](sw/spl/Help/Image/planarConvexPolytopeGraphCatalogue-A.svg)
+![](Help/Image/planarConvexPolytopeGraphCatalogue-A.svg)
 
 _Note:_
 The catalogue is a `LibraryItem`,

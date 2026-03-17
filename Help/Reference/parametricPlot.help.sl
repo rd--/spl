@@ -13,7 +13,7 @@ Plot a parametric curve:
 )
 ~~~
 
-![](sw/spl/Help/Image/parametricPlot-A.svg)
+![](Help/Image/parametricPlot-A.svg)
 
 Circle:
 
@@ -21,7 +21,7 @@ Circle:
 (0 -- 2.pi).parametricPlot(cos:/1, sin:/1)
 ~~~
 
-![](sw/spl/Help/Image/parametricPlot-B.svg)
+![](Help/Image/parametricPlot-B.svg)
 
 Undersampling:
 
@@ -32,7 +32,7 @@ Undersampling:
 )
 ~~~
 
-![](sw/spl/Help/Image/parametricPlot-C.svg)
+![](Help/Image/parametricPlot-C.svg)
 
 Lemniscate of Bernoulli:
 
@@ -49,7 +49,7 @@ Lemniscate of Bernoulli:
 )
 ~~~
 
-![](sw/spl/Help/Image/parametricPlot-D.svg)
+![](Help/Image/parametricPlot-D.svg)
 
 Specify subdivision of domain:
 
@@ -66,7 +66,7 @@ let b = 3.25;
 )
 ~~~
 
-![](sw/spl/Help/Image/parametricPlot-E.svg)
+![](Help/Image/parametricPlot-E.svg)
 
 * * *
 

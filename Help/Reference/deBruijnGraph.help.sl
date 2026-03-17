@@ -11,7 +11,7 @@ deBruijnGraph(2, 2)
 .graphPlot
 ~~~
 
-![](sw/spl/Help/Image/deBruijnGraph-A.svg)
+![](Help/Image/deBruijnGraph-A.svg)
 
 The _(2,3)_ de Bruijn graph:
 
@@ -20,7 +20,7 @@ deBruijnGraph(2, 3)
 .graphPlot
 ~~~
 
-![](sw/spl/Help/Image/deBruijnGraph-B.svg)
+![](Help/Image/deBruijnGraph-B.svg)
 
 The _(3,2)_ de Bruijn graph:
 
@@ -29,7 +29,7 @@ deBruijnGraph(3, 2)
 .graphPlot
 ~~~
 
-![](sw/spl/Help/Image/deBruijnGraph-C.svg)
+![](Help/Image/deBruijnGraph-C.svg)
 
 * * *
 

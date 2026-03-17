@@ -11,7 +11,7 @@ system.nistData('LEW', [1])
 .spectralPlot
 ~~~
 
-![](sw/spl/Help/Image/spectralPlot-A.svg)
+![](Help/Image/spectralPlot-A.svg)
 
 Plot data with no dominant peaks and no identifiable pattern in the spectrum:
 
@@ -20,7 +20,7 @@ system.nistData('NORMAL2', [1])
 .spectralPlot
 ~~~
 
-![](sw/spl/Help/Image/spectralPlot-B.svg)
+![](Help/Image/spectralPlot-B.svg)
 
 * * *
 

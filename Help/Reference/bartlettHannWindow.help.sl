@@ -24,7 +24,7 @@ Plot:
 )
 ~~~
 
-![](sw/spl/Help/Image/bartlettHannWindow-A.svg)
+![](Help/Image/bartlettHannWindow-A.svg)
 
 Discrete Bartlett-Hann window of length 15:
 
@@ -34,7 +34,7 @@ Discrete Bartlett-Hann window of length 15:
 ).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/bartlettHannWindow-B.svg)
+![](Help/Image/bartlettHannWindow-B.svg)
 
 Frequency response of the Bartlett-Hann window:
 
@@ -44,7 +44,7 @@ Frequency response of the Bartlett-Hann window:
 ).fftPlot(512, 'Centered', 'Logarithmic')
 ~~~
 
-![](sw/spl/Help/Image/bartlettHannWindow-C.svg)
+![](Help/Image/bartlettHannWindow-C.svg)
 
 * * *
 

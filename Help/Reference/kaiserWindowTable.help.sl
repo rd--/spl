@@ -8,7 +8,7 @@ Answer a `List` describing a _Kaiser window_ of the indicated size.
 128.kaiserWindowTable(3).linePlot
 ~~~
 
-![](sw/spl/Help/Image/kaiserWindowTable-A.svg)
+![](Help/Image/kaiserWindowTable-A.svg)
 
 * * *
 

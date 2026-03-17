@@ -60,7 +60,7 @@ A non-zero winding number indicates a point lies inside a polygon:
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/windingNumber-A.svg)
+![](Help/Image/windingNumber-A.svg)
 
 * * *
 

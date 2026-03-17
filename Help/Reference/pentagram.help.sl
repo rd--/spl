@@ -21,7 +21,7 @@ let b = (1/10 * (25 - (11 * 5.sqrt))).sqrt;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/pentagram-A.svg)
+![](Help/Image/pentagram-A.svg)
 
 * * *
 

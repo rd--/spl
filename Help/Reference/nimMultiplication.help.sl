@@ -196,7 +196,7 @@ OEIS [A051775](https://oeis.org/A051775):
 ).catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/nimMultiplication-A.svg)
+![](Help/Image/nimMultiplication-A.svg)
 
 Nim multiplication table,
 read by antidiagonals,
@@ -209,7 +209,7 @@ OEIS [A051776](https://oeis.org/A051776):
 ).catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/nimMultiplication-B.svg)
+![](Help/Image/nimMultiplication-B.svg)
 
 Nim multiplication table,
 lower left triangle,
@@ -223,7 +223,7 @@ OEIS [A051910](https://oeis.org/A051910):
 ).catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/nimMultiplication-C.svg)
+![](Help/Image/nimMultiplication-C.svg)
 
 Nim multiplication table,
 lower left triangle,
@@ -237,7 +237,7 @@ OEIS [A051911](https://oeis.org/A051911):
 ).catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/nimMultiplication-D.svg)
+![](Help/Image/nimMultiplication-D.svg)
 
 The Nim-square of _n_,
 _n⊗n_,
@@ -247,7 +247,7 @@ OEIS [A006042](https://oeis.org/A006042):
 0:255.collect(nimSquare:/1).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/nimMultiplication-E.svg)
+![](Help/Image/nimMultiplication-E.svg)
 
 _n⊗2_,
 OEIS [A006015](https://oeis.org/A006015):
@@ -256,7 +256,7 @@ OEIS [A006015](https://oeis.org/A006015):
 0:255.nimMultiplication(2).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/nimMultiplication-F.svg)
+![](Help/Image/nimMultiplication-F.svg)
 
 _n⊗3_,
 OEIS [A004468](https://oeis.org/A004468):
@@ -265,7 +265,7 @@ OEIS [A004468](https://oeis.org/A004468):
 0:255.nimMultiplication(3).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/nimMultiplication-G.svg)
+![](Help/Image/nimMultiplication-G.svg)
 
 _n⊗4_,
 OEIS [A004469](https://oeis.org/A004469):
@@ -274,7 +274,7 @@ OEIS [A004469](https://oeis.org/A004469):
 0:255.nimMultiplication(4).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/nimMultiplication-H.svg)
+![](Help/Image/nimMultiplication-H.svg)
 
 _n⊗5_,
 OEIS [A004470](https://oeis.org/A004470):
@@ -283,7 +283,7 @@ OEIS [A004470](https://oeis.org/A004470):
 0:255.nimMultiplication(5).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/nimMultiplication-I.svg)
+![](Help/Image/nimMultiplication-I.svg)
 
 _n⊗6_,
 OEIS [A004471](https://oeis.org/A004471):
@@ -292,7 +292,7 @@ OEIS [A004471](https://oeis.org/A004471):
 0:255.nimMultiplication(6).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/nimMultiplication-J.svg)
+![](Help/Image/nimMultiplication-J.svg)
 
 _n⊗7_,
 OEIS [A004472](https://oeis.org/A004472):
@@ -301,7 +301,7 @@ OEIS [A004472](https://oeis.org/A004472):
 0:255.nimMultiplication(7).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/nimMultiplication-K.svg)
+![](Help/Image/nimMultiplication-K.svg)
 
 _n⊗8_,
 OEIS [A004473](https://oeis.org/A004473):
@@ -310,7 +310,7 @@ OEIS [A004473](https://oeis.org/A004473):
 0:255.nimMultiplication(8).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/nimMultiplication-L.svg)
+![](Help/Image/nimMultiplication-L.svg)
 
 _n⊗9_,
 OEIS [A004474](https://oeis.org/A004474):
@@ -319,7 +319,7 @@ OEIS [A004474](https://oeis.org/A004474):
 0:255.nimMultiplication(9).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/nimMultiplication-M.svg)
+![](Help/Image/nimMultiplication-M.svg)
 
 Composite plot of Nim-multiplication by one through fifteen,
 OEIS [A004475](https://oeis.org/A004475) _n=10_,
@@ -339,7 +339,7 @@ OEIS [A004480](https://oeis.org/A004480) _n=15_:
 )
 ~~~
 
-![](sw/spl/Help/Image/nimMultiplication-N.svg)
+![](Help/Image/nimMultiplication-N.svg)
 
 _n⊗(n+1)_,
 OEIS [A058734](https://oeis.org/A058734):
@@ -350,7 +350,7 @@ OEIS [A058734](https://oeis.org/A058734):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/nimMultiplication-O.svg)
+![](Help/Image/nimMultiplication-O.svg)
 
 Inverse of _n_ under Nim multiplication,
 _n⊗m=1_,
@@ -364,7 +364,7 @@ OEIS [A051917](https://oeis.org/A051917):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/nimMultiplication-P.svg)
+![](Help/Image/nimMultiplication-P.svg)
 
 Matrix plot of 16×16 Nim multiplication table:
 
@@ -374,7 +374,7 @@ nimMultiplication:/2.table(n, n)
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/nimMultiplication-Q.svg)
+![](Help/Image/nimMultiplication-Q.svg)
 
 Matrix plot of 64×64 Nim multiplication table:
 
@@ -384,7 +384,7 @@ nimMultiplication:/2.table(n, n)
 .rescale.Greymap
 ~~~
 
-![](sw/spl/Help/Image/nimMultiplication-R.png)
+![](Help/Image/nimMultiplication-R.png)
 
 Nim multiplication table of _2^n_,
 read by antidiagonals,
@@ -397,7 +397,7 @@ OEIS [A223541](https://oeis.org/A223541):
 }.++.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/nimMultiplication-S.svg)
+![](Help/Image/nimMultiplication-S.svg)
 
 Lower left triangle of Nim multiplication table of _2^n_,
 read by rows,
@@ -410,7 +410,7 @@ OEIS [A223540](https://oeis.org/A223540):
 }.catenate.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/nimMultiplication-T.svg)
+![](Help/Image/nimMultiplication-T.svg)
 
 Nim-products of powers of two,
 OEIS [A223543](https://oeis.org/A223543):
@@ -422,7 +422,7 @@ nimMultiplication:/2.table(i, i)
 .catenate.unique.log.linePlot
 ~~~
 
-![](sw/spl/Help/Image/nimMultiplication-U.svg)
+![](Help/Image/nimMultiplication-U.svg)
 
 Key matrix of
 OEIS [A223541](https://oeis.org/A223541),
@@ -440,7 +440,7 @@ a.deepCollect { :x |
 }.++.take(264).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/nimMultiplication-V.svg)
+![](Help/Image/nimMultiplication-V.svg)
 
 The Nim _k_-th power of _n_,
 array read by upward antidiagonals,
@@ -451,7 +451,7 @@ OEIS [A335162](https://oeis.org/A335162):
 .collect(reverse:/1).catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/nimMultiplication-W.svg)
+![](Help/Image/nimMultiplication-W.svg)
 
 _n^n_ using Nim multiplication,
 OEIS [A059971](https://oeis.org/A059971):
@@ -462,7 +462,7 @@ OEIS [A059971](https://oeis.org/A059971):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/nimMultiplication-X.svg)
+![](Help/Image/nimMultiplication-X.svg)
 
 Count Nim-factors,
 OEIS [A348291](https://oeis.org/A348291):
@@ -480,7 +480,7 @@ let t = nimMultiplication:/2.table(1:k, 1:k);
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/nimMultiplication-Y.svg)
+![](Help/Image/nimMultiplication-Y.svg)
 
 Nim-square-root,
 OEIS [A160679](https://oeis.org/A160679):
@@ -489,7 +489,7 @@ OEIS [A160679](https://oeis.org/A160679):
 0:127.nimSquareRoot.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/nimMultiplication-Z.svg)
+![](Help/Image/nimMultiplication-Z.svg)
 
 * * *
 

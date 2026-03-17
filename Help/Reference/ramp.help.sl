@@ -30,7 +30,7 @@ Plot over a subset of the reals:
 (-2 -- 2).functionPlot(ramp:/1)
 ~~~
 
-![](sw/spl/Help/Image/ramp-A.svg)
+![](Help/Image/ramp-A.svg)
 
 Plot a function involving ramp:
 
@@ -40,7 +40,7 @@ Plot a function involving ramp:
 }
 ~~~
 
-![](sw/spl/Help/Image/ramp-B.svg)
+![](Help/Image/ramp-B.svg)
 
 * * *
 

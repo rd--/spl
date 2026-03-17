@@ -65,7 +65,7 @@ OEIS [A103489](https://oeis.org/A103489):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/multiplicativeSuborder-A.svg)
+![](Help/Image/multiplicativeSuborder-A.svg)
 
 Multiplicative suborder of five,
 OEIS [A103491](https://oeis.org/A103491):
@@ -76,7 +76,7 @@ OEIS [A103491](https://oeis.org/A103491):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/multiplicativeSuborder-B.svg)
+![](Help/Image/multiplicativeSuborder-B.svg)
 
 Multiplicative suborder of two modulo _2n+1_,
 OEIS [A003558](https://oeis.org/A003558):
@@ -87,7 +87,7 @@ OEIS [A003558](https://oeis.org/A003558):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/multiplicativeSuborder-C.svg)
+![](Help/Image/multiplicativeSuborder-C.svg)
 
 * * *
 

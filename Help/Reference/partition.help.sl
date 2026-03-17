@@ -184,7 +184,7 @@ OEIS [A135472](https://oeis.org/A135472):
 ].stepPlot
 ~~~
 
-![](sw/spl/Help/Image/partition-A.svg)
+![](Help/Image/partition-A.svg)
 
 Derivative of _n_ in base three,
 OEIS [A038555](https://oeis.org/A038555):
@@ -199,7 +199,7 @@ OEIS [A038555](https://oeis.org/A038555):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/partition-B.svg)
+![](Help/Image/partition-B.svg)
 
 * * *
 

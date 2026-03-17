@@ -113,7 +113,7 @@ OEIS [A085198](https://oeis.org/A085198):
 ).logScale.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/factorialNumberSystemEncode-A.svg)
+![](Help/Image/factorialNumberSystemEncode-A.svg)
 
 * * *
 

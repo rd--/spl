@@ -40,7 +40,7 @@ himmelblausFunction:/2
 .Greymap
 ~~~
 
-![](sw/spl/Help/Image/himmelblausFunction-A.png)
+![](Help/Image/himmelblausFunction-A.png)
 
 Contour plot of sparse sampling:
 
@@ -51,7 +51,7 @@ himmelblausFunction:/2
 .contourPlot(i, i, 10 ^ [-2 .. 3])
 ~~~
 
-![](sw/spl/Help/Image/himmelblausFunction-B.svg)
+![](Help/Image/himmelblausFunction-B.svg)
 
 * * *
 

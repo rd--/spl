@@ -32,7 +32,7 @@ OEIS [A002024](https://oeis.org/A002024):
 .stepPlot
 ~~~
 
-![](sw/spl/Help/Image/selfCountingNumber-A.svg)
+![](Help/Image/selfCountingNumber-A.svg)
 
 * * *
 

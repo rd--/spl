@@ -52,7 +52,7 @@ Plot for a number of simple just ratios within the octave:
 ].tenneyHeight.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/tenneyHeight-A.svg)
+![](Help/Image/tenneyHeight-A.svg)
 
 * * *
 

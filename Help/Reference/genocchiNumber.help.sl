@@ -88,7 +88,7 @@ OEIS [A036968](https://oeis.org/A036968):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/genocchiNumber-A.svg)
+![](Help/Image/genocchiNumber-A.svg)
 
 * * *
 

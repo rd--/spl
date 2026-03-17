@@ -52,7 +52,7 @@ Generate a Rudin–Shapiro curve:
 ).anglePath.Line
 ~~~
 
-![](sw/spl/Help/Image/rudinShapiro-A.svg)
+![](Help/Image/rudinShapiro-A.svg)
 
 Generate a path based on the Rudin–Shapiro sequence:
 
@@ -62,7 +62,7 @@ Generate a path based on the Rudin–Shapiro sequence:
 .Line
 ~~~
 
-![](sw/spl/Help/Image/rudinShapiro-B.svg)
+![](Help/Image/rudinShapiro-B.svg)
 
 The Rudin–Shapiro sequence,
 OEIS [A020985](http://oeis.org/A020985):
@@ -72,7 +72,7 @@ OEIS [A020985](http://oeis.org/A020985):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/rudinShapiro-C.svg)
+![](Help/Image/rudinShapiro-C.svg)
 
 * * *
 

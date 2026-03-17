@@ -27,7 +27,7 @@ let h = p.bezierHull(0.5);
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/bezierHull-A.svg)
+![](Help/Image/bezierHull-A.svg)
 
 Hull of a cubic Bézier curve:
 
@@ -56,7 +56,7 @@ let h = p.bezierHull(0.5);
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/bezierHull-B.svg)
+![](Help/Image/bezierHull-B.svg)
 
 * * *
 

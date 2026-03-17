@@ -15,7 +15,7 @@ let s = 791823;
 .next(100).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/lehmerGenerator-A.svg)
+![](Help/Image/lehmerGenerator-A.svg)
 
 * * *
 

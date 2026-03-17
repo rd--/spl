@@ -35,7 +35,7 @@ Scatter plot of the digits:
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/glaisher-A.svg)
+![](Help/Image/glaisher-A.svg)
 
 * * *
 

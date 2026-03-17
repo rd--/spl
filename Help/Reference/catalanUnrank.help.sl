@@ -76,7 +76,7 @@ OEIS [A014486](https://oeis.org/A014486):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/catalanUnrank-A.svg)
+![](Help/Image/catalanUnrank-A.svg)
 
 _W(G(C(n)))/2_,
 OEIS [A057514](https://oeis.org/A057514):
@@ -89,7 +89,7 @@ OEIS [A057514](https://oeis.org/A057514):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/catalanUnrank-B.svg)
+![](Help/Image/catalanUnrank-B.svg)
 
 * * *
 

@@ -12,7 +12,7 @@ isomorphic to the tetrahedral graph:
 2.kingGraph.graphPlot
 ~~~
 
-![](sw/spl/Help/Image/kingGraph-A.svg)
+![](Help/Image/kingGraph-A.svg)
 
 Plot the _3,3_ king graph:
 
@@ -20,7 +20,7 @@ Plot the _3,3_ king graph:
 3.kingGraph.graphPlot
 ~~~
 
-![](sw/spl/Help/Image/kingGraph-B.svg)
+![](Help/Image/kingGraph-B.svg)
 
 Plot the _4,4_ king graph:
 
@@ -28,7 +28,7 @@ Plot the _4,4_ king graph:
 4.kingGraph.graphPlot
 ~~~
 
-![](sw/spl/Help/Image/kingGraph-C.svg)
+![](Help/Image/kingGraph-C.svg)
 
 Plot the _5,5_ king graph:
 
@@ -36,7 +36,7 @@ Plot the _5,5_ king graph:
 5.kingGraph.graphPlot
 ~~~
 
-![](sw/spl/Help/Image/kingGraph-D.svg)
+![](Help/Image/kingGraph-D.svg)
 
 * * *
 

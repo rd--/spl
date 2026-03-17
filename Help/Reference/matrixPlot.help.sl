@@ -20,7 +20,7 @@ Plot a 3×3 matrix:
 ].matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/matrixPlot-A.svg)
+![](Help/Image/matrixPlot-A.svg)
 
 Plot a 10×10 matrix (see also _n = 100_):
 
@@ -39,7 +39,7 @@ let n = 10;
 }.table(1:n, 1:n).inverse.matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/matrixPlot-B.svg)
+![](Help/Image/matrixPlot-B.svg)
 
 Plot the imaginary parts of a discrete Fourier transform 24×24 matrix (see also _n = 33_):
 
@@ -50,7 +50,7 @@ let n = 24;
 }.table(0:n, 0:n).matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/matrixPlot-C.svg)
+![](Help/Image/matrixPlot-C.svg)
 
 Plot a table of values of five sine waves in random directions (see also _k = 100_):
 
@@ -66,7 +66,7 @@ let i = (0 -- 2).subdivide(k);
 }.table(i, i).matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/matrixPlot-D.svg)
+![](Help/Image/matrixPlot-D.svg)
 
 Plot the `sin` function at integer points:
 
@@ -77,7 +77,7 @@ let i = -12:12;
 }.table(i, i).matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/matrixPlot-E.svg)
+![](Help/Image/matrixPlot-E.svg)
 
 Plot a random 50×10 matrix:
 
@@ -87,7 +87,7 @@ Sfc32(17492)
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/matrixPlot-F.svg)
+![](Help/Image/matrixPlot-F.svg)
 
 Plot a row-order 4×4 linear image:
 
@@ -95,7 +95,7 @@ Plot a row-order 4×4 linear image:
 [4 4].iota.matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/matrixPlot-G.svg)
+![](Help/Image/matrixPlot-G.svg)
 
 Noise modulated `sin` function:
 
@@ -108,7 +108,7 @@ let i = 1:18:2;
 }.table(i, i).matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/matrixPlot-H.svg)
+![](Help/Image/matrixPlot-H.svg)
 
 * * *
 

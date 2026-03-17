@@ -11,7 +11,7 @@ Answer the specified Plateau curve.
 ).Line
 ~~~
 
-![](sw/spl/Help/Image/plateauCurve-A.svg)
+![](Help/Image/plateauCurve-A.svg)
 
 At _m=2n_ the curve is a circle:
 
@@ -21,7 +21,7 @@ At _m=2n_ the curve is a circle:
 )
 ~~~
 
-![](sw/spl/Help/Image/plateauCurve-B.svg)
+![](Help/Image/plateauCurve-B.svg)
 
 At _3m=2n_:
 
@@ -32,7 +32,7 @@ At _3m=2n_:
 ).Line
 ~~~
 
-![](sw/spl/Help/Image/plateauCurve-C.svg)
+![](Help/Image/plateauCurve-C.svg)
 
 * * *
 

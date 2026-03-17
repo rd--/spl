@@ -27,7 +27,7 @@ Plot curve:
 )
 ~~~
 
-![](sw/spl/Help/Image/adobeRgbEncode-A.svg)
+![](Help/Image/adobeRgbEncode-A.svg)
 
 Inverse is `adobeRgbDecode`:
 
@@ -37,7 +37,7 @@ Inverse is `adobeRgbDecode`:
 }
 ~~~
 
-![](sw/spl/Help/Image/adobeRgbEncode-B.svg)
+![](Help/Image/adobeRgbEncode-B.svg)
 
 * * *
 

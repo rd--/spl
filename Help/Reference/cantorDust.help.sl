@@ -10,7 +10,7 @@ Drawing of the 2nd step of the Cantor dust:
 2.cantorDust.matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/cantorDust-A.svg)
+![](Help/Image/cantorDust-A.svg)
 
 Drawing of the 4th step of the Cantor dust:
 
@@ -18,7 +18,7 @@ Drawing of the 4th step of the Cantor dust:
 4.cantorDust.Bitmap
 ~~~
 
-![](sw/spl/Help/Image/cantorDust-B.png)
+![](Help/Image/cantorDust-B.png)
 
 * * *
 

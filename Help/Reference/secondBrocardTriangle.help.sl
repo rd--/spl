@@ -18,7 +18,7 @@ let b = a.secondBrocardTriangle;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/secondBrocardTriangle-A.svg)
+![](Help/Image/secondBrocardTriangle-A.svg)
 
 * * *
 

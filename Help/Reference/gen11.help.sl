@@ -12,7 +12,7 @@ A cosine table:
 (2 ^ 10).gen11(1, 1, 1).linePlot
 ~~~
 
-![](sw/spl/Help/Image/gen11-A.svg)
+![](Help/Image/gen11-A.svg)
 
 An approximation of an impulse wave, fundamental and ten harmonics:
 
@@ -20,7 +20,7 @@ An approximation of an impulse wave, fundamental and ten harmonics:
 (2 ^ 10).gen11(10, 1, 0.7).linePlot
 ~~~
 
-![](sw/spl/Help/Image/gen11-B.svg)
+![](Help/Image/gen11-B.svg)
 
 Ten harmonics starting at the fifth harmonic:
 
@@ -28,7 +28,7 @@ Ten harmonics starting at the fifth harmonic:
 (2 ^ 10).gen11(10, 5, 2).linePlot
 ~~~
 
-![](sw/spl/Help/Image/gen11-C.svg)
+![](Help/Image/gen11-C.svg)
 
 * * *
 

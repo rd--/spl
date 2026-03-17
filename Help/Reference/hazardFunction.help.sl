@@ -24,7 +24,7 @@ Plot:
 )
 ~~~
 
-![](sw/spl/Help/Image/hazardFunction-A.svg)
+![](Help/Image/hazardFunction-A.svg)
 
 The exponential distribution is the only continuous distribution with a constant hazard function:
 

@@ -35,7 +35,7 @@ OEIS [A142151](https://oeis.org/A142151):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/bitNor-A.svg)
+![](Help/Image/bitNor-A.svg)
 
 Logical convolution,
 first _2^7_ terms,
@@ -48,7 +48,7 @@ OEIS [A142151](https://oeis.org/A142151):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitNor-B.svg)
+![](Help/Image/bitNor-B.svg)
 
 * * *
 

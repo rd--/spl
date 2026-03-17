@@ -41,7 +41,7 @@ SmoothStep function:
 )
 ~~~
 
-![](sw/spl/Help/Image/smoothStep-A.svg)
+![](Help/Image/smoothStep-A.svg)
 
 The `smoothStep` and `smootherStep` functions:
 
@@ -52,7 +52,7 @@ The `smoothStep` and `smootherStep` functions:
 ])
 ~~~
 
-![](sw/spl/Help/Image/smoothStep-B.svg)
+![](Help/Image/smoothStep-B.svg)
 
 SmoothStep and inverse smoothStep functions:
 
@@ -63,7 +63,7 @@ SmoothStep and inverse smoothStep functions:
 ])
 ~~~
 
-![](sw/spl/Help/Image/smoothStep-C.svg)
+![](Help/Image/smoothStep-C.svg)
 
 `smoothStep` is `smoothStepFunction` of `one`:
 
@@ -74,7 +74,7 @@ SmoothStep and inverse smoothStep functions:
 ])
 ~~~
 
-![](sw/spl/Help/Image/smoothStep-D.svg)
+![](Help/Image/smoothStep-D.svg)
 
 `smootherStep` is `smoothStepFunction` of two:
 
@@ -85,7 +85,7 @@ SmoothStep and inverse smoothStep functions:
 ])
 ~~~
 
-![](sw/spl/Help/Image/smoothStep-E.svg)
+![](Help/Image/smoothStep-E.svg)
 
 Four smoothStep functions:
 
@@ -97,7 +97,7 @@ Four smoothStep functions:
 )
 ~~~
 
-![](sw/spl/Help/Image/smoothStep-F.svg)
+![](Help/Image/smoothStep-F.svg)
 
 SmoothStep of smoothStep function:
 
@@ -107,7 +107,7 @@ SmoothStep of smoothStep function:
 }
 ~~~
 
-![](sw/spl/Help/Image/smoothStep-G.svg)
+![](Help/Image/smoothStep-G.svg)
 
 Approximate `smoothStep` using `cos`:
 
@@ -118,7 +118,7 @@ Approximate `smoothStep` using `cos`:
 ])
 ~~~
 
-![](sw/spl/Help/Image/smoothStep-H.svg)
+![](Help/Image/smoothStep-H.svg)
 
 * * *
 

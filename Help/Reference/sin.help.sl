@@ -130,7 +130,7 @@ Plot over a subset of the reals:
 (0 -- 2.pi).functionPlot(sin:/1)
 ~~~
 
-![](sw/spl/Help/Image/sin-A.svg)
+![](Help/Image/sin-A.svg)
 
 Noncommensurate waves (quasiperiodic function):
 
@@ -140,7 +140,7 @@ Noncommensurate waves (quasiperiodic function):
 }
 ~~~
 
-![](sw/spl/Help/Image/sin-B.svg)
+![](Help/Image/sin-B.svg)
 
 Draw the `sin` function at integer points:
 
@@ -150,7 +150,7 @@ Draw the `sin` function at integer points:
 }.table(-40:40, -40:40).abs.Greymap
 ~~~
 
-![](sw/spl/Help/Image/sin-C.png)
+![](Help/Image/sin-C.png)
 
 Plot `sin` alongside a Padé approximation:
 
@@ -161,7 +161,7 @@ Plot `sin` alongside a Padé approximation:
 ])
 ~~~
 
-![](sw/spl/Help/Image/sin-D.svg)
+![](Help/Image/sin-D.svg)
 
 Lissajous figure:
 
@@ -172,7 +172,7 @@ Lissajous figure:
 )
 ~~~
 
-![](sw/spl/Help/Image/sin-E.svg)
+![](Help/Image/sin-E.svg)
 
 Approximate the almost nowhere differentiable Riemann–Weierstrass function:
 
@@ -184,7 +184,7 @@ Approximate the almost nowhere differentiable Riemann–Weierstrass function:
 }
 ~~~
 
-![](sw/spl/Help/Image/sin-F.svg)
+![](Help/Image/sin-F.svg)
 
 Intensity of the Fraunhofer diffraction pattern of a circular aperture versus diffraction angle:
 
@@ -196,7 +196,7 @@ Intensity of the Fraunhofer diffraction pattern of a circular aperture versus di
 }
 ~~~
 
-![](sw/spl/Help/Image/sin-G.svg)
+![](Help/Image/sin-G.svg)
 
 Plot over a subset of the complexes:
 
@@ -204,7 +204,7 @@ Plot over a subset of the complexes:
 [-4J-2 4J2].complexPlot(sin:/1)
 ~~~
 
-![](sw/spl/Help/Image/sin-H.png)
+![](Help/Image/sin-H.png)
 
 Plot of complex `sin` function:
 
@@ -214,7 +214,7 @@ Plot of complex `sin` function:
 }
 ~~~
 
-![](sw/spl/Help/Image/sin-I.png)
+![](Help/Image/sin-I.png)
 
 Plot with increasing density:
 
@@ -225,7 +225,7 @@ Plot with increasing density:
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/sin-J.svg)
+![](Help/Image/sin-J.svg)
 
 Plot simple sine & cosine curve by R.Cabello:
 
@@ -239,7 +239,7 @@ Plot simple sine & cosine curve by R.Cabello:
 }
 ~~~
 
-![](sw/spl/Help/Image/sin-K.svg)
+![](Help/Image/sin-K.svg)
 
 Nearest integer to _sin(n)_,
 OEIS [A000494](https://oeis.org/A000494):
@@ -248,7 +248,7 @@ OEIS [A000494](https://oeis.org/A000494):
 0:200.sin.round.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/sin-L.svg)
+![](Help/Image/sin-L.svg)
 
 _⌊(sin(n))_,
 OEIS [A000493](https://oeis.org/A000493):
@@ -257,7 +257,7 @@ OEIS [A000493](https://oeis.org/A000493):
 0:85.sin.floor.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/sin-M.svg)
+![](Help/Image/sin-M.svg)
 
 * * *
 

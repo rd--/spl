@@ -10,7 +10,7 @@ Drawing of the 3rd step of the pentadentrite curve:
 3.pentadentriteCurve.Line
 ~~~
 
-![](sw/spl/Help/Image/pentadentriteCurve-A.svg)
+![](Help/Image/pentadentriteCurve-A.svg)
 
 * * *
 

@@ -305,7 +305,7 @@ OEIS [A100047](https://oeis.org/A100047):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/repeat-A.svg)
+![](Help/Image/repeat-A.svg)
 
 The _01_ sequence,
 discrete plot,
@@ -315,7 +315,7 @@ OEIS [A000035](http://oeis.org/A000035):
 [0 1].repeat(30).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/repeat-B.svg)
+![](Help/Image/repeat-B.svg)
 
 _-1^n_,
 the _1,-1_ sequence,
@@ -325,7 +325,7 @@ OEIS [A033999](https://oeis.org/A033999):
 [1 -1].repeat(30).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/repeat-C.svg)
+![](Help/Image/repeat-C.svg)
 
 Characteristic function of numbers that are not multiples of ten,
 OEIS [A168184](https://oeis.org/A168184):
@@ -334,7 +334,7 @@ OEIS [A168184](https://oeis.org/A168184):
 ([1 9] # [0 1]).repeat(5).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/repeat-D.svg)
+![](Help/Image/repeat-D.svg)
 
 * * *
 

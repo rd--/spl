@@ -79,7 +79,7 @@ OEIS [A111596](https://oeis.org/A111596):
 }.catenate.logScale.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/lahNumber-A.svg)
+![](Help/Image/lahNumber-A.svg)
 
 Signed form of Lah numbers,
 OEIS [A008297](https://oeis.org/A008297):
@@ -90,7 +90,7 @@ OEIS [A008297](https://oeis.org/A008297):
 }.catenate.logScale.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/lahNumber-B.svg)
+![](Help/Image/lahNumber-B.svg)
 
 * * *
 

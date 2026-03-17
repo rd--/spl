@@ -26,7 +26,7 @@ let [_, v] = dequanLiEquation(
 v.linePlot
 ~~~
 
-![](sw/spl/Help/Image/dequanLiEquation-A.svg)
+![](Help/Image/dequanLiEquation-A.svg)
 
 * * *
 

@@ -37,7 +37,7 @@ OEIS [A101211](https://oeis.org/A101211):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/asRunArray-A.svg)
+![](Help/Image/asRunArray-A.svg)
 
 Array of run lengths of binary representation of _n_,
 OEIS [A227186](https://oeis.org/A227186):
@@ -60,7 +60,7 @@ OEIS [A227186](https://oeis.org/A227186):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/asRunArray-B.svg)
+![](Help/Image/asRunArray-B.svg)
 
 * * *
 

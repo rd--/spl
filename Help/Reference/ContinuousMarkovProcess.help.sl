@@ -97,7 +97,7 @@ ContinuousMarkovProcess(
 .stepPlot
 ~~~
 
-![](sw/spl/Help/Image/ContinuousMarkovProcess-A.svg)
+![](Help/Image/ContinuousMarkovProcess-A.svg)
 
 Visualize a sample path:
 
@@ -121,7 +121,7 @@ ContinuousMarkovProcess(
 .stepPlot
 ~~~
 
-![](sw/spl/Help/Image/ContinuousMarkovProcess-B.svg)
+![](Help/Image/ContinuousMarkovProcess-B.svg)
 
 * * *
 

@@ -34,7 +34,7 @@ drawdownMatrix(i1, m, i2)
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/drawdownMatrix-A.svg)
+![](Help/Image/drawdownMatrix-A.svg)
 
 A diamond pattern:
 
@@ -56,7 +56,7 @@ drawdownMatrix(i1, m, i2)
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/drawdownMatrix-B.svg)
+![](Help/Image/drawdownMatrix-B.svg)
 
 A plain weave:
 
@@ -68,7 +68,7 @@ drawdownMatrix(i1, m, i1)
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/drawdownMatrix-C.svg)
+![](Help/Image/drawdownMatrix-C.svg)
 
 A more intricate diamond pattern:
 
@@ -103,7 +103,7 @@ drawdownMatrix(i1, m, i1)
 .Bitmap(3)
 ~~~
 
-![](sw/spl/Help/Image/drawdownMatrix-D.png)
+![](Help/Image/drawdownMatrix-D.png)
 
 A pattern of diagonal lines:
 
@@ -117,7 +117,7 @@ drawdownMatrix(i1, m, i1)
 .Bitmap(3)
 ~~~
 
-![](sw/spl/Help/Image/drawdownMatrix-E.png)
+![](Help/Image/drawdownMatrix-E.png)
 
 A pattern derived from the order-eight Farey sequence:
 
@@ -130,7 +130,7 @@ drawdownMatrix(i1, m, i2)
 .Bitmap(2)
 ~~~
 
-![](sw/spl/Help/Image/drawdownMatrix-F.png)
+![](Help/Image/drawdownMatrix-F.png)
 
 A pattern derived from interleaving the natural and the Fibonacci numbers:
 
@@ -145,7 +145,7 @@ drawdownMatrix(i, m, i)
 .Bitmap(3)
 ~~~
 
-![](sw/spl/Help/Image/drawdownMatrix-G.png)
+![](Help/Image/drawdownMatrix-G.png)
 
 A traditional Lao design encoded in the tieup matrix:
 
@@ -170,7 +170,7 @@ drawdownMatrix(i1, m, i2)
 .Bitmap(3)
 ~~~
 
-![](sw/spl/Help/Image/drawdownMatrix-H.png)
+![](Help/Image/drawdownMatrix-H.png)
 
 An eight-harness, broken twill boxes draft:
 
@@ -199,7 +199,7 @@ drawdownMatrix(i1, m, i2)
 .Bitmap(4)
 ~~~
 
-![](sw/spl/Help/Image/drawdownMatrix-I.png)
+![](Help/Image/drawdownMatrix-I.png)
 
 A simple asymmetrical tieup matrix:
 
@@ -216,7 +216,7 @@ drawdownMatrix(i1, m, i2)
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/drawdownMatrix-J.svg)
+![](Help/Image/drawdownMatrix-J.svg)
 
 * * *
 

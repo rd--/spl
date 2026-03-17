@@ -12,7 +12,7 @@ let y = x.gaussianFilter(2);
 [x, y].linePlot
 ~~~
 
-![](sw/spl/Help/Image/gaussianFilter-A.svg)
+![](Help/Image/gaussianFilter-A.svg)
 
 Gaussian filtering of a numeric vector:
 
@@ -22,7 +22,7 @@ let y = x.gaussianFilter(2);
 [x, y].linePlot
 ~~~
 
-![](sw/spl/Help/Image/gaussianFilter-B.svg)
+![](Help/Image/gaussianFilter-B.svg)
 
 Impulse responses of Gaussian smoothing filter for selected radii:
 
@@ -33,7 +33,7 @@ let x = [1].arrayPad([15 15], 0);
 }.linePlot
 ~~~
 
-![](sw/spl/Help/Image/gaussianFilter-C.svg)
+![](Help/Image/gaussianFilter-C.svg)
 
 * * *
 

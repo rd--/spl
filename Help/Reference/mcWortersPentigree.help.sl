@@ -10,7 +10,7 @@ Drawing of the 3rd step of the pentigree curve:
 3.mcWortersPentigree.Line
 ~~~
 
-![](sw/spl/Help/Image/mcWortersPentigree-A.svg)
+![](Help/Image/mcWortersPentigree-A.svg)
 
 * * *
 

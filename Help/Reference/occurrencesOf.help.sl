@@ -75,7 +75,7 @@ a.collect { :n |
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/occurrencesOf-A.svg)
+![](Help/Image/occurrencesOf-A.svg)
 
 For _n>1_, _T(n,k)_ is the count of _k_ in the rows up to _n_,
 OEIS [A333867](https://oeis.org/A333867):
@@ -94,7 +94,7 @@ let t = [[1]];
 t.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/occurrencesOf-B.svg)
+![](Help/Image/occurrencesOf-B.svg)
 
 Numbers that have only one largest digit _m_ and where the sum of the digits is equal to _2m_,
 OEIS [A393832](https://oeis.org/A393832):
@@ -109,7 +109,7 @@ OEIS [A393832](https://oeis.org/A393832):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/occurrencesOf-C.svg)
+![](Help/Image/occurrencesOf-C.svg)
 
 * * *
 

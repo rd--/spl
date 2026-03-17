@@ -12,7 +12,7 @@ Linear plot:
 )
 ~~~
 
-![](sw/spl/Help/Image/aWeightingCurve-A.svg)
+![](Help/Image/aWeightingCurve-A.svg)
 
 Semi-logarithmic plot:
 
@@ -22,7 +22,7 @@ Semi-logarithmic plot:
 )
 ~~~
 
-![](sw/spl/Help/Image/aWeightingCurve-B.svg)
+![](Help/Image/aWeightingCurve-B.svg)
 
 Logarithmic plot:
 
@@ -32,7 +32,7 @@ Logarithmic plot:
 }
 ~~~
 
-![](sw/spl/Help/Image/aWeightingCurve-C.svg)
+![](Help/Image/aWeightingCurve-C.svg)
 
 * * *
 

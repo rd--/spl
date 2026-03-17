@@ -13,7 +13,7 @@ Sfc32(371741)
 .randomSimplePolygon(4)
 ~~~
 
-![](sw/spl/Help/Image/randomSimplePolygon-A.svg)
+![](Help/Image/randomSimplePolygon-A.svg)
 
 Draw a simple polygon of seven randomly generated vertices:
 
@@ -22,7 +22,7 @@ Sfc32(798431)
 .randomSimplePolygon(7)
 ~~~
 
-![](sw/spl/Help/Image/randomSimplePolygon-B.svg)
+![](Help/Image/randomSimplePolygon-B.svg)
 
 Draw a simple polygon of thirteen randomly generated vertices:
 
@@ -31,7 +31,7 @@ Sfc32(793841)
 .randomSimplePolygon(13)
 ~~~
 
-![](sw/spl/Help/Image/randomSimplePolygon-C.svg)
+![](Help/Image/randomSimplePolygon-C.svg)
 
 * * *
 

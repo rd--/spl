@@ -44,7 +44,7 @@ Circle([0 0; 0 0; 0 0], [1 3 5])
 .LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/Circle-A.svg)
+![](Help/Image/Circle-A.svg)
 
 Specify centers:
 
@@ -52,7 +52,7 @@ Specify centers:
 Circle([0 0; 1 1; 2 2], 1).LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/Circle-B.svg)
+![](Help/Image/Circle-B.svg)
 
 The _Seed of Life_:
 
@@ -66,7 +66,7 @@ The _Seed of Life_:
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/Circle-C.svg)
+![](Help/Image/Circle-C.svg)
 
 The square packing of circles:
 
@@ -76,7 +76,7 @@ The square packing of circles:
 }.table(1:7, 1:5).LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/Circle-D.svg)
+![](Help/Image/Circle-D.svg)
 
 The hexagonal packing of circles:
 
@@ -92,7 +92,7 @@ The hexagonal packing of circles:
 }.table(1:7, 1:5).LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/Circle-E.svg)
+![](Help/Image/Circle-E.svg)
 
 Compare the hexagonal packing of circles above to a simple half-width offset schema:
 
@@ -104,7 +104,7 @@ Compare the hexagonal packing of circles above to a simple half-width offset sch
 }.table(1:7, 1:5).LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/Circle-F.svg)
+![](Help/Image/Circle-F.svg)
 
 A geometric technique for finding twelve equally-spaced points around a circle:
 
@@ -126,7 +126,7 @@ A geometric technique for finding twelve equally-spaced points around a circle:
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/Circle-G.svg)
+![](Help/Image/Circle-G.svg)
 
 Circle and square of equal area:
 
@@ -139,7 +139,7 @@ let m = 0 - n;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/Circle-H.svg)
+![](Help/Image/Circle-H.svg)
 
 A hexafoil:
 
@@ -155,7 +155,7 @@ let h = 6.circlePoints(c, r, 0);
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/Circle-I.svg)
+![](Help/Image/Circle-I.svg)
 
 Draw circles from the Apollonian pencil of segment _ab_:
 
@@ -177,7 +177,7 @@ let b = [0 0] - a;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/Circle-J.svg)
+![](Help/Image/Circle-J.svg)
 
 Draw Apollonian circles:
 
@@ -202,7 +202,7 @@ let l = (0.25 -- 2.5).discretize(5);
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/Circle-K.svg)
+![](Help/Image/Circle-K.svg)
 
 Plot using implicit equation:
 
@@ -213,7 +213,7 @@ Circle([0 0], 1)
 .contourPlot(i, i, [0])
 ~~~
 
-![](sw/spl/Help/Image/Circle-L.svg)
+![](Help/Image/Circle-L.svg)
 
 A family of circles:
 
@@ -226,7 +226,7 @@ A family of circles:
 }.LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/Circle-M.svg)
+![](Help/Image/Circle-M.svg)
 
 * * *
 

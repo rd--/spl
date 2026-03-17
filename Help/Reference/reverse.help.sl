@@ -112,7 +112,7 @@ OEIS [A059893](https://oeis.org/A059893):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/reverse-A.svg)
+![](Help/Image/reverse-A.svg)
 
 Where supported `reverse` is displayed as ᴙ.
 

@@ -29,7 +29,7 @@ Scatter plot of the digits of the tribonacci constant:
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/tribonacciConstant-A.svg)
+![](Help/Image/tribonacciConstant-A.svg)
 
 * * *
 

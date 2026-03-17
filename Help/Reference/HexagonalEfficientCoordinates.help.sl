@@ -34,7 +34,7 @@ HexagonalEfficientCoordinates([0 0 0])
 }.LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/HexagonalEfficientCoordinates-A.svg)
+![](Help/Image/HexagonalEfficientCoordinates-A.svg)
 
 * * *
 

@@ -15,7 +15,7 @@ understood as a 3×3 or _(r,g,b)_ triples:
 ].ColourGrid
 ~~~
 
-![](sw/spl/Help/Image/ColourGrid-A.svg)
+![](Help/Image/ColourGrid-A.svg)
 
 A 5×11×3 array,
 understood as a 5×11 matrix of _(r,g,b)_ triples:
@@ -26,7 +26,7 @@ Sfc32(731894)
 .ColourGrid
 ~~~
 
-![](sw/spl/Help/Image/ColourGrid-B.svg)
+![](Help/Image/ColourGrid-B.svg)
 
 * * *
 

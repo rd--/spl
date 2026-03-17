@@ -10,7 +10,7 @@ A _#=7,m=12_ set:
 [0 2 3 5 7 9 10].residueSetPlot(12)
 ~~~
 
-![](sw/spl/Help/Image/residueSetPlot-A.svg)
+![](Help/Image/residueSetPlot-A.svg)
 
 A _#=7,m=12_ set:
 
@@ -18,7 +18,7 @@ A _#=7,m=12_ set:
 [0 1 3 5 7 9 11].residueSetPlot(12)
 ~~~
 
-![](sw/spl/Help/Image/residueSetPlot-B.svg)
+![](Help/Image/residueSetPlot-B.svg)
 
 A _#=7,m=12_ set:
 
@@ -26,7 +26,7 @@ A _#=7,m=12_ set:
 [0 2 4 5 7 8 10].residueSetPlot(12)
 ~~~
 
-![](sw/spl/Help/Image/residueSetPlot-C.svg)
+![](Help/Image/residueSetPlot-C.svg)
 
 A _#=5,m=12_ set:
 
@@ -34,7 +34,7 @@ A _#=5,m=12_ set:
 [0 2 5 7 9].residueSetPlot(12)
 ~~~
 
-![](sw/spl/Help/Image/residueSetPlot-D.svg)
+![](Help/Image/residueSetPlot-D.svg)
 
 A _#=4,m=16_ set:
 
@@ -42,7 +42,7 @@ A _#=4,m=16_ set:
 [0 4 8 11].residueSetPlot(16)
 ~~~
 
-![](sw/spl/Help/Image/residueSetPlot-E.svg)
+![](Help/Image/residueSetPlot-E.svg)
 
 A _#=5,m=16_ set:
 
@@ -50,7 +50,7 @@ A _#=5,m=16_ set:
 [0 3 6 10 12].residueSetPlot(16)
 ~~~
 
-![](sw/spl/Help/Image/residueSetPlot-F.svg)
+![](Help/Image/residueSetPlot-F.svg)
 
 * * *
 

@@ -107,7 +107,7 @@ Plot over a subset of the reals:
 (-5 -- 5).functionPlot(arcTan:/1)
 ~~~
 
-![](sw/spl/Help/Image/arcTan-A.svg)
+![](Help/Image/arcTan-A.svg)
 
 Plot over a subset of the complexes:
 
@@ -117,7 +117,7 @@ Plot over a subset of the complexes:
 }
 ~~~
 
-![](sw/spl/Help/Image/arcTan-B.png)
+![](Help/Image/arcTan-B.png)
 
 Threads over lists,
 the arc tangent of a cosine and sine wave is a sawtooth wave:
@@ -130,7 +130,7 @@ let c = arcTan(a, b) / 1.pi;
 [a b c].signalPlot
 ~~~
 
-![](sw/spl/Help/Image/arcTan-C.svg)
+![](Help/Image/arcTan-C.svg)
 
 Note:
 The two argument form reverses the argument order to _arcTan:_ in Smalltalk.

@@ -10,7 +10,7 @@ Answer the parametric equation for the hyperbolic helicoid.
 )
 ~~~
 
-![](sw/spl/Help/Image/hyperbolicHelicoid-A.svg)
+![](Help/Image/hyperbolicHelicoid-A.svg)
 
 * * *
 

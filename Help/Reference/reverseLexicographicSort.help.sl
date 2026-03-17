@@ -80,7 +80,7 @@ OEIS [A066099](https://oeis.org/A066099):
 }.catenate.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/reverseLexicographicSort-A.svg)
+![](Help/Image/reverseLexicographicSort-A.svg)
 
 Alternating sums of integer compositions in reverse lexicographic order,
 OEIS [A124754](https://oeis.org/A124754):
@@ -93,7 +93,7 @@ OEIS [A124754](https://oeis.org/A124754):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/reverseLexicographicSort-B.svg)
+![](Help/Image/reverseLexicographicSort-B.svg)
 
 Inverse binomial sum of compositions in standard order,
 OEIS [A124756](https://oeis.org/A124756):
@@ -108,7 +108,7 @@ OEIS [A124756](https://oeis.org/A124756):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/reverseLexicographicSort-C.svg)
+![](Help/Image/reverseLexicographicSort-C.svg)
 
 First differences of integer compositions in reverse lexicographic order,
 OEIS [A358133](https://oeis.org/A358133):
@@ -121,7 +121,7 @@ OEIS [A358133](https://oeis.org/A358133):
 .catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/reverseLexicographicSort-D.svg)
+![](Help/Image/reverseLexicographicSort-D.svg)
 
 Irregular array read by rows where row _k_ lists the run-sums of the _k_-th composition in standard order,
 OEIS [A353932](https://oeis.org/A353932):
@@ -136,7 +136,7 @@ OEIS [A353932](https://oeis.org/A353932):
 }.catenate.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/reverseLexicographicSort-E.svg)
+![](Help/Image/reverseLexicographicSort-E.svg)
 
 * * *
 

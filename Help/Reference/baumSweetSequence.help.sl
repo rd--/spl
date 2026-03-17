@@ -64,7 +64,7 @@ Recurrence plot of sequence:
 .Bitmap
 ~~~
 
-![](sw/spl/Help/Image/baumSweetSequence-A.png)
+![](Help/Image/baumSweetSequence-A.png)
 
 The Baum–Sweet sequence,
 OEIS [A086747](https://oeis.org/A086747):
@@ -73,7 +73,7 @@ OEIS [A086747](https://oeis.org/A086747):
 115.baumSweetSequence.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/baumSweetSequence-B.svg)
+![](Help/Image/baumSweetSequence-B.svg)
 
 * * *
 

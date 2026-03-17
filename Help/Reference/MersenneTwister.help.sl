@@ -30,7 +30,7 @@ Plot 99 random floating point numbers between `zero` and `one`:
 MersenneTwister(98765).next(99).linePlot
 ~~~
 
-![](sw/spl/Help/Image/MersenneTwister-A.svg)
+![](Help/Image/MersenneTwister-A.svg)
 
 Plot histogram:
 
@@ -40,7 +40,7 @@ MersenneTwister(387912)
 .histogramPlot
 ~~~
 
-![](sw/spl/Help/Image/MersenneTwister-B.svg)
+![](Help/Image/MersenneTwister-B.svg)
 
 Difference between empirical and expected mean and standard deviation:
 

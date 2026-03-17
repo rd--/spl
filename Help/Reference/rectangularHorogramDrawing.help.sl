@@ -19,7 +19,7 @@ and rows are descending:
 ].rectangularHorogramDrawing
 ~~~
 
-![](sw/spl/Help/Image/rectangularHorogramDrawing-A.svg)
+![](Help/Image/rectangularHorogramDrawing-A.svg)
 
 A drawing of the _5/12_ moment of symmetry scale construction:
 
@@ -32,7 +32,7 @@ A drawing of the _5/12_ moment of symmetry scale construction:
 ].rectangularHorogramDrawing
 ~~~
 
-![](sw/spl/Help/Image/rectangularHorogramDrawing-B.svg)
+![](Help/Image/rectangularHorogramDrawing-B.svg)
 
 A drawing of the first eleven steps of an irrational moment of symmetry scale construction:
 
@@ -42,7 +42,7 @@ A drawing of the first eleven steps of an irrational moment of symmetry scale co
 .rectangularHorogramDrawing
 ~~~
 
-![](sw/spl/Help/Image/rectangularHorogramDrawing-C.svg)
+![](Help/Image/rectangularHorogramDrawing-C.svg)
 
 * * *
 

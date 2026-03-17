@@ -50,7 +50,7 @@ OEIS [A047842](https://oeis.org/A047842):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/lookAndSay-A.svg)
+![](Help/Image/lookAndSay-A.svg)
 
 * * *
 

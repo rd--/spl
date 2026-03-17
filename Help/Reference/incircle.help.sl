@@ -16,7 +16,7 @@ let t = sssTriangle(3, 4, 5);
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/incircle-A.svg)
+![](Help/Image/incircle-A.svg)
 
 Draw at `Rectangle`:
 
@@ -29,7 +29,7 @@ let r = Rectangle([0 0], [1 1]);
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/incircle-B.svg)
+![](Help/Image/incircle-B.svg)
 
 * * *
 

@@ -17,7 +17,7 @@ Probability mass function, varying α:
 )
 ~~~
 
-![](sw/spl/Help/Image/BetaBinomialDistribution-A.svg)
+![](Help/Image/BetaBinomialDistribution-A.svg)
 
 Probability mass function, varying β:
 
@@ -31,7 +31,7 @@ Probability mass function, varying β:
 )
 ~~~
 
-![](sw/spl/Help/Image/BetaBinomialDistribution-B.svg)
+![](Help/Image/BetaBinomialDistribution-B.svg)
 
 Generate a sample of pseudo-random numbers from a beta binomial distribution:
 
@@ -42,7 +42,7 @@ BetaBinomialDistribution(2, 3, 50)
 .histogramPlot
 ~~~
 
-![](sw/spl/Help/Image/BetaBinomialDistribution-C.svg)
+![](Help/Image/BetaBinomialDistribution-C.svg)
 
 Compare to `pdf`:
 
@@ -54,7 +54,7 @@ Compare to `pdf`:
 )
 ~~~
 
-![](sw/spl/Help/Image/BetaBinomialDistribution-D.svg)
+![](Help/Image/BetaBinomialDistribution-D.svg)
 
 Four `pdf` functions:
 
@@ -69,7 +69,7 @@ Four `pdf` functions:
 )
 ~~~
 
-![](sw/spl/Help/Image/BetaBinomialDistribution-E.svg)
+![](Help/Image/BetaBinomialDistribution-E.svg)
 
 Define the Pólya distribution:
 

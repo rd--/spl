@@ -17,7 +17,7 @@ rucklidgeEquation(2, 6.7)
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/rucklidgeEquation-A.svg)
+![](Help/Image/rucklidgeEquation-A.svg)
 
 * * *
 

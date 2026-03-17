@@ -15,7 +15,7 @@ A sine table:
 (2 ^ 10).gen10([1]).linePlot
 ~~~
 
-![](sw/spl/Help/Image/gen10-A.svg)
+![](Help/Image/gen10-A.svg)
 
 An approximation of a sawtooth wave, fundamental and eight harmonics:
 
@@ -28,7 +28,7 @@ An approximation of a sawtooth wave, fundamental and eight harmonics:
 ).linePlot
 ~~~
 
-![](sw/spl/Help/Image/gen10-B.svg)
+![](Help/Image/gen10-B.svg)
 
 An approximation of a square wave, fundamental and eight harmonics, four zeroed:
 
@@ -38,7 +38,7 @@ An approximation of a square wave, fundamental and eight harmonics, four zeroed:
 ).linePlot
 ~~~
 
-![](sw/spl/Help/Image/gen10-C.svg)
+![](Help/Image/gen10-C.svg)
 
 An approximation of a pulse wave, fundamental and eight harmonics:
 
@@ -48,7 +48,7 @@ An approximation of a pulse wave, fundamental and eight harmonics:
 ).linePlot
 ~~~
 
-![](sw/spl/Help/Image/gen10-D.svg)
+![](Help/Image/gen10-D.svg)
 
 * * *
 

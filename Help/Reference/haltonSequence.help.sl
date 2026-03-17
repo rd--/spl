@@ -60,7 +60,7 @@ Plot first few terms of the _2,3_ Halton sequence:
 [2 3].haltonSequence(100).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/haltonSequence-A.svg)
+![](Help/Image/haltonSequence-A.svg)
 
 As _b_ increases sample values can exhibit surprisingly regular patterns:
 
@@ -68,7 +68,7 @@ As _b_ increases sample values can exhibit surprisingly regular patterns:
 [29 31].haltonSequence(100).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/haltonSequence-B.svg)
+![](Help/Image/haltonSequence-B.svg)
 
 * * *
 

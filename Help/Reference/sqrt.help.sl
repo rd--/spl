@@ -206,7 +206,7 @@ OEIS [A023531](https://oeis.org/A023531):
 ]
 ```
 
-![](sw/spl/Help/Image/sqrt-D.svg)
+![](Help/Image/sqrt-D.svg)
 
 Plot over a subset of the reals:
 
@@ -214,7 +214,7 @@ Plot over a subset of the reals:
 (0 -- 10).functionPlot(sqrt:/1)
 ~~~
 
-![](sw/spl/Help/Image/sqrt-A.svg)
+![](Help/Image/sqrt-A.svg)
 
 The signature sequence of √2,
 OEIS [A007336](https://oeis.org/A007336):
@@ -224,7 +224,7 @@ OEIS [A007336](https://oeis.org/A007336):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/sqrt-B.svg)
+![](Help/Image/sqrt-B.svg)
 
 A permutation of the positive integers,
 OEIS [A101369](https://oeis.org/A101369):
@@ -240,7 +240,7 @@ let m = 2.sqrt;
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/sqrt-C.svg)
+![](Help/Image/sqrt-C.svg)
 
 A self-generating sequence,
 there are _a(n)_ threes between successive twos,
@@ -254,7 +254,7 @@ let a = 1:65.collect { :n |
 (a - 2).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/sqrt-D.svg)
+![](Help/Image/sqrt-D.svg)
 
 Differences of _⌊(n*√2+½)_,
 OEIS [A006338](https://oeis.org/A006338):
@@ -266,7 +266,7 @@ let a = 1:85.collect { :n |
 (a - 1).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/sqrt-E.svg)
+![](Help/Image/sqrt-E.svg)
 
 `sqrt` is an alias for `squareRoot`.
 

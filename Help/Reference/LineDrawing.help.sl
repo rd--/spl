@@ -20,7 +20,7 @@ and a `Rectangle`:
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/LineDrawing-A.svg)
+![](Help/Image/LineDrawing-A.svg)
 
 Twenty unit circles at equaly spaced points on the unit circle:
 
@@ -31,7 +31,7 @@ Twenty unit circles at equaly spaced points on the unit circle:
 }.LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/LineDrawing-B.svg)
+![](Help/Image/LineDrawing-B.svg)
 
 Compare first two Bessel functions:
 
@@ -43,7 +43,7 @@ Compare first two Bessel functions:
 .LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/LineDrawing-C.svg)
+![](Help/Image/LineDrawing-C.svg)
 
 * * *
 

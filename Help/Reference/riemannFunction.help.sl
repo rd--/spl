@@ -8,7 +8,7 @@ Plot:
 (0 -- 1.pi).functionPlot(riemannFunction:/1)
 ~~~
 
-![](sw/spl/Help/Image/riemannFunction-A.svg)
+![](Help/Image/riemannFunction-A.svg)
 
 Plot with _a_ of _2,3,4_:
 
@@ -22,7 +22,7 @@ Plot with _a_ of _2,3,4_:
 )
 ~~~
 
-![](sw/spl/Help/Image/riemannFunction-B.svg)
+![](Help/Image/riemannFunction-B.svg)
 
 Plot over the complex numbers in _(-1/2π,1/2π)_:
 
@@ -32,7 +32,7 @@ Plot over the complex numbers in _(-1/2π,1/2π)_:
 }
 ~~~
 
-![](sw/spl/Help/Image/riemannFunction-C.svg)
+![](Help/Image/riemannFunction-C.svg)
 
 * * *
 

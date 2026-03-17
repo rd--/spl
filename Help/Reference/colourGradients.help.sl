@@ -45,7 +45,7 @@ system
 .asColourGradient
 ~~~
 
-![](sw/spl/Help/Image/colourGradients-A.svg)
+![](Help/Image/colourGradients-A.svg)
 
 Plot the sixteen colour _Spring_ gradient from the _Mathworks_ collection:
 
@@ -55,7 +55,7 @@ system
 .asColourGradient
 ~~~
 
-![](sw/spl/Help/Image/colourGradients-B.svg)
+![](Help/Image/colourGradients-B.svg)
 
 Plot the one-hundred and twenty-eight colour _Plasma_ gradient from the _Viridis_ collection,
 resampled to sixteen colours:
@@ -67,7 +67,7 @@ system
 .resample(16)
 ~~~
 
-![](sw/spl/Help/Image/colourGradients-C.svg)
+![](Help/Image/colourGradients-C.svg)
 
 Plot the two-hundred and sixty colour _Rainbow_ gradient from the _Mathematica_ collection,
 resampled to twenty-four colours:
@@ -82,7 +82,7 @@ system
 .resample(24)
 ~~~
 
-![](sw/spl/Help/Image/colourGradients-D.svg)
+![](Help/Image/colourGradients-D.svg)
 
 Plot the one-hundred twenty-eight colour _Isol_ gradient from the _Niccoli_ collection:
 
@@ -96,7 +96,7 @@ system
 .resample(32)
 ~~~
 
-![](sw/spl/Help/Image/colourGradients-E.svg)
+![](Help/Image/colourGradients-E.svg)
 
 The `asBlock` method of `ColourGradient` answers a one argument `Block` that reads the gradient at the indicated position.
 Use a resampled form of the _Pastel_ gradient from the _Mathematica_ collection to colour a plot of a sine function:
@@ -114,7 +114,7 @@ let f:/1 = system.colourGradients[
 }.table(i, i).Image
 ~~~
 
-![](sw/spl/Help/Image/colourGradients-F.png)
+![](Help/Image/colourGradients-F.png)
 
 Resample and plot the _ocean.deep_ gradient from the _pals_ collection:
 
@@ -128,7 +128,7 @@ system
 .resample(32)
 ~~~
 
-![](sw/spl/Help/Image/colourGradients-G.svg)
+![](Help/Image/colourGradients-G.svg)
 
 Resample and plot the _Isoluminant-Cgo-80-C38_ gradient from the _Kovesi_ collection:
 
@@ -142,7 +142,7 @@ system
 .resample(32)
 ~~~
 
-![](sw/spl/Help/Image/colourGradients-H.svg)
+![](Help/Image/colourGradients-H.svg)
 
 A cyclic colour gradient,
 _Cyclic-Mygbm-30-95-C78S25_,
@@ -158,7 +158,7 @@ system
 .resample(32)
 ~~~
 
-![](sw/spl/Help/Image/colourGradients-I.svg)
+![](Help/Image/colourGradients-I.svg)
 
 Sources for each collection:
 _Kovesi_: [1](https://github.com/peterkovesi/PerceptualColourMaps.jl) [2](https://colorcet.com/download/index.html),

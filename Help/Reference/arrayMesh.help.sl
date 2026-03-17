@@ -15,7 +15,7 @@ A nine-cell polyomino:
 ].arrayMesh
 ~~~
 
-![](sw/spl/Help/Image/arrayMesh-A.svg)
+![](Help/Image/arrayMesh-A.svg)
 
 A seven-cell polyomino specified as a table:
 
@@ -25,7 +25,7 @@ A seven-cell polyomino specified as a table:
 }.table(1:3, 1:3).arrayMesh
 ~~~
 
-![](sw/spl/Help/Image/arrayMesh-B.svg)
+![](Help/Image/arrayMesh-B.svg)
 
 An eight-cell polyomino with a hole:
 
@@ -38,7 +38,7 @@ An eight-cell polyomino with a hole:
 ].arrayMesh
 ~~~
 
-![](sw/spl/Help/Image/arrayMesh-C.svg)
+![](Help/Image/arrayMesh-C.svg)
 
 A disconnected sparse five-cell mesh:
 
@@ -49,7 +49,7 @@ A disconnected sparse five-cell mesh:
 }.SparseArray.normal.arrayMesh
 ~~~
 
-![](sw/spl/Help/Image/arrayMesh-D.svg)
+![](Help/Image/arrayMesh-D.svg)
 
 A mesh of an elementary cellular automaton:
 
@@ -60,7 +60,7 @@ A mesh of an elementary cellular automaton:
 ).arrayMesh
 ~~~
 
-![](sw/spl/Help/Image/arrayMesh-E.svg)
+![](Help/Image/arrayMesh-E.svg)
 
 A chessboard:
 
@@ -71,7 +71,7 @@ A chessboard:
 .arrayMesh
 ~~~
 
-![](sw/spl/Help/Image/arrayMesh-F.svg)
+![](Help/Image/arrayMesh-F.svg)
 
 * * *
 

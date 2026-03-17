@@ -11,7 +11,7 @@ The _{5/2}_ star polygon, the pentagram:
 5.starPolygon(2)
 ~~~
 
-![](sw/spl/Help/Image/starPolygon-A.svg)
+![](Help/Image/starPolygon-A.svg)
 
 The _{7/2}_ star polygon, heptagram:
 
@@ -19,7 +19,7 @@ The _{7/2}_ star polygon, heptagram:
 7.starPolygon(2)
 ~~~
 
-![](sw/spl/Help/Image/starPolygon-B.svg)
+![](Help/Image/starPolygon-B.svg)
 
 The _{8/3}_ star polygon, the octagram:
 
@@ -27,7 +27,7 @@ The _{8/3}_ star polygon, the octagram:
 8.starPolygon(3)
 ~~~
 
-![](sw/spl/Help/Image/starPolygon-C.svg)
+![](Help/Image/starPolygon-C.svg)
 
 The _{10/3}_ star polygon, the decagram:
 
@@ -35,7 +35,7 @@ The _{10/3}_ star polygon, the decagram:
 10.starPolygon(3)
 ~~~
 
-![](sw/spl/Help/Image/starPolygon-D.svg)
+![](Help/Image/starPolygon-D.svg)
 
 The _{12/5}_ star polygon, the dodecagram:
 
@@ -43,7 +43,7 @@ The _{12/5}_ star polygon, the dodecagram:
 12.starPolygon(5)
 ~~~
 
-![](sw/spl/Help/Image/starPolygon-E.svg)
+![](Help/Image/starPolygon-E.svg)
 
 When _q_ is `one` the a _p_-regular polygon is obtained,
 the {5} star polygon:
@@ -52,7 +52,7 @@ the {5} star polygon:
 5.starPolygon(1)
 ~~~
 
-![](sw/spl/Help/Image/starPolygon-F.svg)
+![](Help/Image/starPolygon-F.svg)
 
 The _{9/2}_ star polygon:
 
@@ -60,7 +60,7 @@ The _{9/2}_ star polygon:
 9.starPolygon(2)
 ~~~
 
-![](sw/spl/Help/Image/starPolygon-G.svg)
+![](Help/Image/starPolygon-G.svg)
 
 The three heptagrams _{7}+{7/2}+{7/3}_:
 
@@ -70,7 +70,7 @@ The three heptagrams _{7}+{7/2}+{7/3}_:
 }.LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/starPolygon-H.svg)
+![](Help/Image/starPolygon-H.svg)
 
 The _{19/7}_ star polygon:
 
@@ -78,7 +78,7 @@ The _{19/7}_ star polygon:
 19.starPolygon(7)
 ~~~
 
-![](sw/spl/Help/Image/starPolygon-I.svg)
+![](Help/Image/starPolygon-I.svg)
 
 * * *
 

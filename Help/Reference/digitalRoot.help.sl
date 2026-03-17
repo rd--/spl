@@ -62,7 +62,7 @@ OEIS [A010888](https://oeis.org/A010888):
 }
 ~~~
 
-![](sw/spl/Help/Image/digitalRoot-A.svg)
+![](Help/Image/digitalRoot-A.svg)
 
 Digital root of Fibonacci numbers,
 OEIS [A030132](https://oeis.org/A030132):
@@ -73,7 +73,7 @@ OEIS [A030132](https://oeis.org/A030132):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/digitalRoot-B.svg)
+![](Help/Image/digitalRoot-B.svg)
 
 Array read by antidiagonals,
 places are the digital root of _n×k_,
@@ -85,7 +85,7 @@ OEIS [A353109](https://oeis.org/A353109):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/digitalRoot-C.svg)
+![](Help/Image/digitalRoot-C.svg)
 
 * * *
 

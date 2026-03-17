@@ -155,7 +155,7 @@ OEIS [A132292](https://oeis.org/A132292):
 }
 ~~~
 
-![](sw/spl/Help/Image/quotient-A.svg)
+![](Help/Image/quotient-A.svg)
 
 The quotient table of two integers:
 
@@ -165,7 +165,7 @@ The quotient table of two integers:
 }.table(1:10, 1:10).matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/quotient-B.svg)
+![](Help/Image/quotient-B.svg)
 
 The quotient of a function:
 
@@ -177,7 +177,7 @@ The quotient of a function:
 }
 ~~~
 
-![](sw/spl/Help/Image/quotient-C.svg)
+![](Help/Image/quotient-C.svg)
 
 Representation of _n_ in base three using digits _-1,0,1_,
 OEIS [A059095](https://oeis.org/A059095):
@@ -197,7 +197,7 @@ let f = { :n |
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/quotient-D.svg)
+![](Help/Image/quotient-D.svg)
 
 Triangular array of quotients,
 OEIS [A003988](https://oeis.org/A003988):
@@ -208,7 +208,7 @@ OEIS [A003988](https://oeis.org/A003988):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/quotient-E.svg)
+![](Help/Image/quotient-E.svg)
 
 At `Symbol`:
 

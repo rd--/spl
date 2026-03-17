@@ -55,7 +55,7 @@ A step plot:
 .stepPlot
 ~~~
 
-![](sw/spl/Help/Image/bresenhamLineAlgorithm-A.svg)
+![](Help/Image/bresenhamLineAlgorithm-A.svg)
 
 A matrix plot:
 
@@ -69,7 +69,7 @@ let l = [
 }.table(1:y2, 1:x2).matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/bresenhamLineAlgorithm-B.svg)
+![](Help/Image/bresenhamLineAlgorithm-B.svg)
 
 A bitmap drawing:
 
@@ -83,7 +83,7 @@ let l = [
 }.table(1:y2, 1:x2).Bitmap
 ~~~
 
-![](sw/spl/Help/Image/bresenhamLineAlgorithm-C.png)
+![](Help/Image/bresenhamLineAlgorithm-C.png)
 
 * * *
 

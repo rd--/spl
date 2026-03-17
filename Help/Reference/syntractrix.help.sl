@@ -14,7 +14,7 @@ Plot at _k=1/4,1/2,1,3/2_:
 )
 ~~~
 
-![](sw/spl/Help/Image/syntractrix-A.svg)
+![](Help/Image/syntractrix-A.svg)
 
 Plot at _k=1,2,3,7_:
 
@@ -26,7 +26,7 @@ Plot at _k=1,2,3,7_:
 )
 ~~~
 
-![](sw/spl/Help/Image/syntractrix-B.svg)
+![](Help/Image/syntractrix-B.svg)
 
 * * *
 

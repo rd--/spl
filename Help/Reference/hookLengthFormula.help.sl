@@ -67,7 +67,7 @@ OEIS [A117506](https://oeis.org/A117506):
 }.catenate.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/hookLengthFormula-A.svg)
+![](Help/Image/hookLengthFormula-A.svg)
 
 Table of dimensions of integer partitions in ascending order,
 OEIS [A060240](https://oeis.org/A060240):
@@ -99,7 +99,7 @@ OEIS [A060240](https://oeis.org/A060240):
 }.catenate.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/hookLengthFormula-B.svg)
+![](Help/Image/hookLengthFormula-B.svg)
 
 * * *
 

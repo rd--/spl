@@ -10,7 +10,7 @@ Drawing of the 2nd step of the Sierpiński carpet:
 2.sierpinskiCarpet.matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/sierpinskiCarpet-A.svg)
+![](Help/Image/sierpinskiCarpet-A.svg)
 
 Drawing of the 4th step of the Sierpiński carpet:
 
@@ -18,7 +18,7 @@ Drawing of the 4th step of the Sierpiński carpet:
 4.sierpinskiCarpet.Bitmap
 ~~~
 
-![](sw/spl/Help/Image/sierpinskiCarpet-B.png)
+![](Help/Image/sierpinskiCarpet-B.png)
 
 * * *
 

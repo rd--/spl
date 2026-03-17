@@ -62,7 +62,7 @@ Visualize the recurring pattern when shuffling a list:
 }.matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/outShuffle-A.svg)
+![](Help/Image/outShuffle-A.svg)
 
 * * *
 

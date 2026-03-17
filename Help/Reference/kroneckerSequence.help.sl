@@ -35,7 +35,7 @@ Plot a one-dimensional Kronecker sequence with _α=φ_:
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/kroneckerSequence-A.svg)
+![](Help/Image/kroneckerSequence-A.svg)
 
 Plot a two-dimensional Kronecker sequence with optimized _α_:
 
@@ -47,7 +47,7 @@ Plot a two-dimensional Kronecker sequence with optimized _α_:
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/kroneckerSequence-B.svg)
+![](Help/Image/kroneckerSequence-B.svg)
 
 Plot a _n_-dimensional Kronecker sequence with _α_ derived from the _n_-th harmonious number:
 
@@ -57,7 +57,7 @@ let r = 2.harmoniousNumber;
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/kroneckerSequence-C.svg)
+![](Help/Image/kroneckerSequence-C.svg)
 
 * * *
 

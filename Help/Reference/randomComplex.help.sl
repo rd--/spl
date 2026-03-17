@@ -57,7 +57,7 @@ Circle(
 ).LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/randomComplex-A.svg)
+![](Help/Image/randomComplex-A.svg)
 
 Random walk in the complex plane:
 
@@ -69,7 +69,7 @@ Sfc32(184293)
 .Line
 ~~~
 
-![](sw/spl/Help/Image/randomComplex-B.svg)
+![](Help/Image/randomComplex-B.svg)
 
 * * *
 

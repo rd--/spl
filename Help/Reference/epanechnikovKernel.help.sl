@@ -12,7 +12,7 @@ Plot over _(-1, 1)_:
 )
 ~~~
 
-![](sw/spl/Help/Image/epanechnikovKernel-A.svg)
+![](Help/Image/epanechnikovKernel-A.svg)
 
 * * *
 

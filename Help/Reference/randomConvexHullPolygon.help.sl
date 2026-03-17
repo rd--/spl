@@ -16,7 +16,7 @@ Sfc32(789341)
 )
 ~~~
 
-![](sw/spl/Help/Image/randomConvexHullPolygon-A.svg)
+![](Help/Image/randomConvexHullPolygon-A.svg)
 
 Draw the convex hull of 13 binormally distributed randomly generated coordinates:
 
@@ -28,7 +28,7 @@ Sfc32(793841)
 )
 ~~~
 
-![](sw/spl/Help/Image/randomConvexHullPolygon-B.svg)
+![](Help/Image/randomConvexHullPolygon-B.svg)
 
 * * *
 

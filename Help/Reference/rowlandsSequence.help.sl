@@ -192,7 +192,7 @@ OEIS [A106108](https://oeis.org/A106108):
 .stepPlot
 ~~~
 
-![](sw/spl/Help/Image/rowlandsSequence-A.svg)
+![](Help/Image/rowlandsSequence-A.svg)
 
 Omit the ones from Rowland’s sequence,
 OEIS [A137613](https://oeis.org/A137613):
@@ -206,7 +206,7 @@ OeisEntry('A137613').then { :e |
 }
 ~~~
 
-![](sw/spl/Help/Image/rowlandsSequence-B.svg)
+![](Help/Image/rowlandsSequence-B.svg)
 
 New primes found by Rowland’s recurrence,
 OEIS [A221869](https://oeis.org/A221869):
@@ -220,7 +220,7 @@ OeisEntry('A221869').then { :e |
 }
 ~~~
 
-![](sw/spl/Help/Image/rowlandsSequence-C.svg)
+![](Help/Image/rowlandsSequence-C.svg)
 
 Least prime in each Rowland’s sequence,
 step plot,
@@ -233,7 +233,7 @@ OEIS [A230504](https://oeis.org/A230504):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/rowlandsSequence-D.svg)
+![](Help/Image/rowlandsSequence-D.svg)
 
 Least prime in each Rowland’s sequence,
 scatter plot,
@@ -246,7 +246,7 @@ OEIS [A230504](https://oeis.org/A230504):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/rowlandsSequence-E.svg)
+![](Help/Image/rowlandsSequence-E.svg)
 
 _a(n)/n_,
 where _a_ is Rowland’s sequence,
@@ -261,7 +261,7 @@ allButFirst(2)
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/rowlandsSequence-F.svg)
+![](Help/Image/rowlandsSequence-F.svg)
 
 Delayed divison of the Cloitre sequence,
 OEIS [A135506](https://oeis.org/A135506):
@@ -272,7 +272,7 @@ OEIS [A135506](https://oeis.org/A135506):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/rowlandsSequence-G.svg)
+![](Help/Image/rowlandsSequence-G.svg)
 
 `gcd` of the Cloitre sequence and offset indices,
 OEIS [A361470](https://oeis.org/A361470):
@@ -285,7 +285,7 @@ let k = 100;
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/rowlandsSequence-H.svg)
+![](Help/Image/rowlandsSequence-H.svg)
 
 _a(n)%4=3_,
 where _a_ is the delayed divison of the Cloitre sequence,
@@ -297,7 +297,7 @@ let a = c.adjacentPairsCollect(/.swap) - 1;
 ((a % 4) =.each 3).boole.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/rowlandsSequence-I.svg)
+![](Help/Image/rowlandsSequence-I.svg)
 
 * * *
 

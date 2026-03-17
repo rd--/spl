@@ -12,7 +12,7 @@ let curve = 0;
 128.gen16([1 512 curve 0]).linePlot
 ~~~
 
-![](sw/spl/Help/Image/gen16-A.svg)
+![](Help/Image/gen16-A.svg)
 
 Slowly decaying (convex) curves when _curve_ `>` `zero`:
 
@@ -21,7 +21,7 @@ let curve = 4;
 128.gen16([1 512 curve 0]).linePlot
 ~~~
 
-![](sw/spl/Help/Image/gen16-B.svg)
+![](Help/Image/gen16-B.svg)
 
 Quickly decaying (convex) curves when _curve_ `<` `zero`:
 
@@ -30,7 +30,7 @@ let curve = -4;
 128.gen16([1 512 curve 0]).linePlot
 ~~~
 
-![](sw/spl/Help/Image/gen16-C.svg)
+![](Help/Image/gen16-C.svg)
 
 Equal curves for ascent and descent, percussive envelope:
 
@@ -41,7 +41,7 @@ let curve = -4;
 ).linePlot
 ~~~
 
-![](sw/spl/Help/Image/gen16-D.svg)
+![](Help/Image/gen16-D.svg)
 
 * * *
 

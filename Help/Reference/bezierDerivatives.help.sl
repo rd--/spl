@@ -45,7 +45,7 @@ let d1 = d[1] * 0.2;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/bezierDerivatives-A.svg)
+![](Help/Image/bezierDerivatives-A.svg)
 
 Draw a quintic Bézier curve and the first (cubic) and second (quadratic) derivatives (rescaled):
 
@@ -67,7 +67,7 @@ let l = (0, 0.01 .. 1).collect { :x |
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/bezierDerivatives-B.svg)
+![](Help/Image/bezierDerivatives-B.svg)
 
 Zero curvature (rescaled):
 
@@ -86,7 +86,7 @@ let l = (0, 0.01 .. 1).collect { :x |
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/bezierDerivatives-C.svg)
+![](Help/Image/bezierDerivatives-C.svg)
 
 Inflection (rescaled):
 
@@ -114,7 +114,7 @@ let f = { :l |
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/bezierDerivatives-D.svg)
+![](Help/Image/bezierDerivatives-D.svg)
 
 * * *
 

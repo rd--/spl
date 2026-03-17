@@ -11,7 +11,7 @@ the square:
 2.rookGraph.graphPlot
 ~~~
 
-![](sw/spl/Help/Image/rookGraph-A.svg)
+![](Help/Image/rookGraph-A.svg)
 
 Plot the rook graph _R(2,3)_,
 the prism:
@@ -20,7 +20,7 @@ the prism:
 2.rookGraph(3).graphPlot
 ~~~
 
-![](sw/spl/Help/Image/rookGraph-B.svg)
+![](Help/Image/rookGraph-B.svg)
 
 Plot the rook graph _R(3,3)_,
 the generalised quadrangle:
@@ -29,7 +29,7 @@ the generalised quadrangle:
 3.rookGraph.graphPlot
 ~~~
 
-![](sw/spl/Help/Image/rookGraph-C.svg)
+![](Help/Image/rookGraph-C.svg)
 
 Plot the rook graph _R(5,5)_,
 the twenty-five cyclotomic graph:
@@ -38,7 +38,7 @@ the twenty-five cyclotomic graph:
 5.rookGraph.graphPlot
 ~~~
 
-![](sw/spl/Help/Image/rookGraph-D.svg)
+![](Help/Image/rookGraph-D.svg)
 
 * * *
 

@@ -13,7 +13,7 @@ Line drawing:
 ).Line
 ~~~
 
-![](sw/spl/Help/Image/lHospitalQuintic-A.svg)
+![](Help/Image/lHospitalQuintic-A.svg)
 
 * * *
 

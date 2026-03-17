@@ -43,7 +43,7 @@ OEIS [A301573](https://oeis.org/A301573):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isPerfectPower-A.svg)
+![](Help/Image/isPerfectPower-A.svg)
 
 * * *
 

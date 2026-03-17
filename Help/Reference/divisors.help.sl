@@ -339,7 +339,7 @@ showing the sigmoid shape typical of divisor sets:
 8640.divisors.log2.linePlot
 ~~~
 
-![](sw/spl/Help/Image/divisors-A.svg)
+![](Help/Image/divisors-A.svg)
 
 At higher resolution (ie. the divisor set of a moderately large integer):
 
@@ -347,7 +347,7 @@ At higher resolution (ie. the divisor set of a moderately large integer):
 345600.divisors.log2.linePlot
 ~~~
 
-![](sw/spl/Help/Image/divisors-B.svg)
+![](Help/Image/divisors-B.svg)
 
 A logarithmic plot of the intervals between consecutive divisors:
 
@@ -355,7 +355,7 @@ A logarithmic plot of the intervals between consecutive divisors:
 8640.divisors.log2.differences.linePlot
 ~~~
 
-![](sw/spl/Help/Image/divisors-C.svg)
+![](Help/Image/divisors-C.svg)
 
 Array read by rows in which row _n_ lists the divisors of _n_ that are _≥√n_,
 OEIS [A161908](https://oeis.org/A161908):
@@ -368,7 +368,7 @@ OEIS [A161908](https://oeis.org/A161908):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/divisors-D.svg)
+![](Help/Image/divisors-D.svg)
 
 Sum of the nonprime divisors of _n_,
 OEIS [A023890](https://oeis.org/A023890):
@@ -379,7 +379,7 @@ OEIS [A023890](https://oeis.org/A023890):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/divisors-E.svg)
+![](Help/Image/divisors-E.svg)
 
 Largest divisor of _n_,
 _≤√n_,
@@ -394,7 +394,7 @@ OEIS [A033676](https://oeis.org/A033676):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/divisors-F.svg)
+![](Help/Image/divisors-F.svg)
 
 Number of odd divisors of _n_,
 OEIS [A001227](https://oeis.org/A001227):
@@ -405,7 +405,7 @@ OEIS [A001227](https://oeis.org/A001227):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/divisors-G.svg)
+![](Help/Image/divisors-G.svg)
 
 Number of torus knots with _n_ crossings,
 OEIS [A051764](https://oeis.org/A051764):
@@ -421,7 +421,7 @@ OEIS [A051764](https://oeis.org/A051764):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/divisors-H.svg)
+![](Help/Image/divisors-H.svg)
 
 Least number that is not a sum of distinct divisors of _n_,
 OEIS [A030057](https://oeis.org/A030057):
@@ -437,7 +437,7 @@ OEIS [A030057](https://oeis.org/A030057):
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/divisors-I.svg)
+![](Help/Image/divisors-I.svg)
 
 Number of permutations of _1:n_ with order dividing _k_,
 read by antidiagonals,
@@ -460,7 +460,7 @@ let t = { :n :k |
 }.catenate.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/divisors-J.svg)
+![](Help/Image/divisors-J.svg)
 
 Squarefree part of _n^2-1_,
 OEIS [A068310](https://oeis.org/A068310):
@@ -473,7 +473,7 @@ OEIS [A068310](https://oeis.org/A068310):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/divisors-K.svg)
+![](Help/Image/divisors-K.svg)
 
 Smallest remainder of _p+q%n_,
 where _p*q=n^2-1_,
@@ -502,7 +502,7 @@ OEIS [A069817](https://oeis.org/A069817):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/divisors-L.svg)
+![](Help/Image/divisors-L.svg)
 
 Triangle read by rows listing the divisors of _n_,
 OEIS [A027750](https://oeis.org/A027750):
@@ -511,7 +511,7 @@ OEIS [A027750](https://oeis.org/A027750):
 1:23.divisors.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/divisors-M.svg)
+![](Help/Image/divisors-M.svg)
 
 Number of perfect partitions of _n_,
 OEIS [A002033](https://oeis.org/A002033):
@@ -528,7 +528,7 @@ let a = Map { :n |
 a[1:200].log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/divisors-N.svg)
+![](Help/Image/divisors-N.svg)
 
 Irregular triangle of the proper divisors of _n_,
 OEIS [A027751](https://oeis.org/A027751):
@@ -539,7 +539,7 @@ OEIS [A027751](https://oeis.org/A027751):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/divisors-O.svg)
+![](Help/Image/divisors-O.svg)
 
 Sum of divisors scaled by reverse index,
 OEIS [A064945](https://oeis.org/A064945):
@@ -552,7 +552,7 @@ OEIS [A064945](https://oeis.org/A064945):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/divisors-P.svg)
+![](Help/Image/divisors-P.svg)
 
 Number of odd divisors minus number of even divisors,
 OEIS [A048272](https://oeis.org/A048272):
@@ -565,7 +565,7 @@ OEIS [A048272](https://oeis.org/A048272):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/divisors-Q.svg)
+![](Help/Image/divisors-Q.svg)
 
 The arithmetic function _v±(n,3)_,
 OEIS [A290988](https://oeis.org/A290988):
@@ -581,7 +581,7 @@ let h = 3;
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/divisors-R.svg)
+![](Help/Image/divisors-R.svg)
 
 The arithmetic function _v3(n,3)_,
 OEIS [A289435](https://oeis.org/A289435):
@@ -595,7 +595,7 @@ OEIS [A289435](https://oeis.org/A289435):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/divisors-S.svg)
+![](Help/Image/divisors-S.svg)
 
 * * *
 

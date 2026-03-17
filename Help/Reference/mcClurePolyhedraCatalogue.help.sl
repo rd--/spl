@@ -38,7 +38,7 @@ system
 .asPerspectiveDrawing
 ~~~
 
-![](sw/spl/Help/Image/mcClurePolyhedraCatalogue-A.svg)
+![](Help/Image/mcClurePolyhedraCatalogue-A.svg)
 
 _Note:_
 The catalogue is a `LibraryItem`,

@@ -15,7 +15,7 @@ WienerProcess(0, 0.5)
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/WienerProcess-A.svg)
+![](Help/Image/WienerProcess-A.svg)
 
 Simulate an ensemble of paths:
 
@@ -26,7 +26,7 @@ WienerProcess(0, 0.5)
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/WienerProcess-B.svg)
+![](Help/Image/WienerProcess-B.svg)
 
 Simulate a Wiener process in three dimensions:
 
@@ -39,7 +39,7 @@ WienerProcess(0, 1)
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/WienerProcess-C.svg)
+![](Help/Image/WienerProcess-C.svg)
 
 * * *
 

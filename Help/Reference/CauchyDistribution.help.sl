@@ -14,7 +14,7 @@ Plot `pdf` over a subset of the reals:
 )
 ~~~
 
-![](sw/spl/Help/Image/CauchyDistribution-A.svg)
+![](Help/Image/CauchyDistribution-A.svg)
 
 Plot `cdf` over a subset of the reals:
 
@@ -24,7 +24,7 @@ Plot `cdf` over a subset of the reals:
 )
 ~~~
 
-![](sw/spl/Help/Image/CauchyDistribution-B.svg)
+![](Help/Image/CauchyDistribution-B.svg)
 
 Plot `quantile` over a subset of the reals:
 
@@ -36,7 +36,7 @@ Plot `quantile` over a subset of the reals:
 )
 ~~~
 
-![](sw/spl/Help/Image/CauchyDistribution-C.svg)
+![](Help/Image/CauchyDistribution-C.svg)
 
 Plot `randomVariate`, clamped to _(-1, 1)_:
 
@@ -48,7 +48,7 @@ CauchyDistribution(0, 0.025)
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/CauchyDistribution-D.svg)
+![](Help/Image/CauchyDistribution-D.svg)
 
 Two dimensional Cauchy noise:
 
@@ -60,7 +60,7 @@ CauchyDistribution(0, 0.025)
 .asGreymap
 ~~~
 
-![](sw/spl/Help/Image/CauchyDistribution-E.png)
+![](Help/Image/CauchyDistribution-E.png)
 
 Generate a sample of pseudorandom numbers from a Cauchy distribution:
 
@@ -71,7 +71,7 @@ CauchyDistribution(3, 2.5)
 .histogramPlot([-18 20 1])
 ~~~
 
-![](sw/spl/Help/Image/CauchyDistribution-F.svg)
+![](Help/Image/CauchyDistribution-F.svg)
 
 Plot unclamped random variate:
 
@@ -82,7 +82,7 @@ CauchyDistribution(0, 1 / 9)
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/CauchyDistribution-G.svg)
+![](Help/Image/CauchyDistribution-G.svg)
 
 Plot a Lévy flight in two dimensions:
 
@@ -95,7 +95,7 @@ let v = d.randomVariate(r, [k]);
 u.anglePath(v, [0 0]).Line
 ~~~
 
-![](sw/spl/Help/Image/CauchyDistribution-H.svg)
+![](Help/Image/CauchyDistribution-H.svg)
 
 * * *
 

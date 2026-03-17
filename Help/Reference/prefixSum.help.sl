@@ -109,7 +109,7 @@ OEIS [A000217](https://oeis.org/A000217):
 1:12.prefixSum.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/prefixSum-A.svg)
+![](Help/Image/prefixSum-A.svg)
 
 Find and plot the repeats for the triangular numbers modulo _n_,
 for the first few values of _n_:
@@ -121,7 +121,7 @@ let t = 0:100.prefixSum;
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/prefixSum-B.svg)
+![](Help/Image/prefixSum-B.svg)
 
 Plot three later terms,
 _n=63:65_,
@@ -138,7 +138,7 @@ constructed using an iterative algorithm:
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/prefixSum-C.svg)
+![](Help/Image/prefixSum-C.svg)
 
 Sequence which is the partial sums of the proper divisors of its own elements,
 OEIS [A389395](https://oeis.org/A389395):
@@ -153,7 +153,7 @@ let a = [1 2 4 5 6 8 11];
 a.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/prefixSum-D.svg)
+![](Help/Image/prefixSum-D.svg)
 
 First differences of sequence which is the partial sums of the proper divisors of its own elements,
 OEIS [A389613](https://oeis.org/A389613):
@@ -168,7 +168,7 @@ let a = [1 2 4 5 6 8 11];
 a.differences.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/prefixSum-E.svg)
+![](Help/Image/prefixSum-E.svg)
 
 Sequence which is the partial sums of the divisors of its own elements,
 OEIS [A389395](https://oeis.org/A389395):
@@ -183,7 +183,7 @@ let a = [1 2 4 5 7 11];
 a.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/prefixSum-F.svg)
+![](Help/Image/prefixSum-F.svg)
 
 Indicate self-referential structure of
 OEIS [A389609](https://oeis.org/A389609):
@@ -208,7 +208,7 @@ OEIS [A197410](https://oeis.org/A197410):
 }.log.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/prefixSum-G.svg)
+![](Help/Image/prefixSum-G.svg)
 
 Number of on cells at _n_-th stage in the Ulam-Warburton two-dimensional cellular automaton,
 OEIS [A147562](https://oeis.org/A147562):
@@ -219,7 +219,7 @@ let b = [0 1] ++ (4 * (3 ^ (a - 1)));
 b.prefixSum.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/prefixSum-H.svg)
+![](Help/Image/prefixSum-H.svg)
 
 Total number of ones in binary expansions,
 OEIS [A000788](https://oeis.org/A000788):
@@ -230,7 +230,7 @@ OEIS [A000788](https://oeis.org/A000788):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/prefixSum-I.svg)
+![](Help/Image/prefixSum-I.svg)
 
 * * *
 

@@ -140,7 +140,7 @@ round is a staircase function:
 (0 -- 7).functionPlot(round:/1)
 ~~~
 
-![](sw/spl/Help/Image/round-A.svg)
+![](Help/Image/round-A.svg)
 
 Plot _√x-⌊√x⌉_ over a subset of the reals:
 
@@ -151,7 +151,7 @@ Plot _√x-⌊√x⌉_ over a subset of the reals:
 }
 ~~~
 
-![](sw/spl/Help/Image/round-B.svg)
+![](Help/Image/round-B.svg)
 
 Nearest integer to _n×sin(n)_,
 discrete plot,
@@ -162,7 +162,7 @@ let n = 0:65;
 (n * n.sin).round.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/round-C.svg)
+![](Help/Image/round-C.svg)
 
 Nearest integer to _n×sin(n)_,
 scatter plot,
@@ -173,7 +173,7 @@ let n = 0:250;
 (n * n.sin).round.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/round-D.svg)
+![](Help/Image/round-D.svg)
 
 Nearest integer to _n×tan(n)_,
 discrete plot,
@@ -184,7 +184,7 @@ let n = 0:115;
 (n * n.tan).round.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/round-E.svg)
+![](Help/Image/round-E.svg)
 
 Nearest integer to _n×tan(n)_,
 log scale scatter plot,
@@ -195,7 +195,7 @@ let n = 0:250;
 (n * n.tan).round.logScale.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/round-F.svg)
+![](Help/Image/round-F.svg)
 
 Nearest integer to _4n/3_ unless that is an integer and then _2n/3_,
 OEIS [A006369](https://oeis.org/A006369):
@@ -210,7 +210,7 @@ OEIS [A006369](https://oeis.org/A006369):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/round-G.svg)
+![](Help/Image/round-G.svg)
 
 _Note_: The parameter α is not the integer number of places to round to but the multiple.
 To round to two places set _α=0.01_.

@@ -11,7 +11,7 @@ Plot a complete graph on eight vertices:
 13.completeGraph.circularGraphPlot
 ~~~
 
-![](sw/spl/Help/Image/circularGraphPlot-A.svg)
+![](Help/Image/circularGraphPlot-A.svg)
 
 Plot a random graph of fifteen vertices.
 The probablity of an edge occuring is 5%:
@@ -23,7 +23,7 @@ Sfc32(379714)
 .circularGraphPlot
 ~~~
 
-![](sw/spl/Help/Image/circularGraphPlot-B.svg)
+![](Help/Image/circularGraphPlot-B.svg)
 
 Draw the Herschel graph:
 
@@ -33,7 +33,7 @@ Draw the Herschel graph:
 .circularGraphPlot
 ~~~
 
-![](sw/spl/Help/Image/circularGraphPlot-C.svg)
+![](Help/Image/circularGraphPlot-C.svg)
 
 * * *
 

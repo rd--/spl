@@ -15,7 +15,7 @@ ColourGradient(
 )
 ~~~
 
-![](sw/spl/Help/Image/turboGradient-A.svg)
+![](Help/Image/turboGradient-A.svg)
 
 * * *
 

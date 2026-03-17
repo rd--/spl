@@ -23,7 +23,7 @@ An approximation of a square wave:
 ).linePlot
 ~~~
 
-![](sw/spl/Help/Image/gen09-A.svg)
+![](Help/Image/gen09-A.svg)
 
 The same partials and amplitude as above, with phase shifts:
 
@@ -37,7 +37,7 @@ The same partials and amplitude as above, with phase shifts:
 ).linePlot
 ~~~
 
-![](sw/spl/Help/Image/gen09-B.svg)
+![](Help/Image/gen09-B.svg)
 
 * * *
 

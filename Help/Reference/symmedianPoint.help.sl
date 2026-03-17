@@ -36,7 +36,7 @@ let c = p.centroid;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/symmedianPoint-A.svg)
+![](Help/Image/symmedianPoint-A.svg)
 
 * * *
 

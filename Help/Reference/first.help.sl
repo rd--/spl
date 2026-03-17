@@ -78,7 +78,7 @@ OEIS [A028233](https://oeis.org/A028233):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/first-A.svg)
+![](Help/Image/first-A.svg)
 
 * * *
 

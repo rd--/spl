@@ -91,7 +91,7 @@ using `~` to compare items:
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/findTransientRepeat-A.svg)
+![](Help/Image/findTransientRepeat-A.svg)
 
 The sum of the digits in the decimal expansion of _1/n_ up to the point where it repeats for the first time,
 OEIS [A048997](https://oeis.org/A048997):
@@ -107,7 +107,7 @@ Fraction(1, 1:75).collect { :n |
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/findTransientRepeat-B.svg)
+![](Help/Image/findTransientRepeat-B.svg)
 
 * * *
 

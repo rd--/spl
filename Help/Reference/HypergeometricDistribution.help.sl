@@ -20,7 +20,7 @@ Probability mass function, varying _n_:
 )
 ~~~
 
-![](sw/spl/Help/Image/HypergeometricDistribution-A.svg)
+![](Help/Image/HypergeometricDistribution-A.svg)
 
 Generate a sample of pseudo-random numbers:
 
@@ -31,7 +31,7 @@ HypergeometricDistribution(20, 50, 100)
 .histogramPlot([4.5 16.5 1])
 ~~~
 
-![](sw/spl/Help/Image/HypergeometricDistribution-B.svg)
+![](Help/Image/HypergeometricDistribution-B.svg)
 
 * * *
 

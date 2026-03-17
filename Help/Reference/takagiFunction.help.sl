@@ -34,7 +34,7 @@ Plot the Takagi function:
 )
 ~~~
 
-![](sw/spl/Help/Image/takagiFunction-A.svg)
+![](Help/Image/takagiFunction-A.svg)
 
 * * *
 

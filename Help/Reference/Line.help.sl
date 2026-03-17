@@ -53,7 +53,7 @@ a line drawing of a complete graph with eleven vertices:
 }.tuples(2).Line.LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/Line-A.svg)
+![](Help/Image/Line-A.svg)
 
 A vector field:
 
@@ -66,7 +66,7 @@ A vector field:
 }.table(0:10, 0:10).LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/Line-B.svg)
+![](Help/Image/Line-B.svg)
 
 A random walk on a regular lattice:
 
@@ -77,7 +77,7 @@ let p = m.randomChoice(r, [1000]).accumulate;
 p.Line.nest.LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/Line-C.svg)
+![](Help/Image/Line-C.svg)
 
 Moiré pattern:
 
@@ -90,7 +90,7 @@ Moiré pattern:
 }.Line.LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/Line-D.svg)
+![](Help/Image/Line-D.svg)
 
 A horizontal line along the _x_ axis,
 the drawing specifies a minimal bounding box of _[0 0; 1 1]_:
@@ -99,7 +99,7 @@ the drawing specifies a minimal bounding box of _[0 0; 1 1]_:
 [[0 0; 1 0].Line].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/Line-E.svg)
+![](Help/Image/Line-E.svg)
 
 Draw a line in three dimensions:
 
@@ -112,7 +112,7 @@ Draw a line in three dimensions:
 ].Line.asPerspectiveDrawing
 ~~~
 
-![](sw/spl/Help/Image/Line-F.svg)
+![](Help/Image/Line-F.svg)
 
 Plot line and points given by derived polynomial:
 
@@ -131,7 +131,7 @@ let c = b.polynomial;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/Line-G.svg)
+![](Help/Image/Line-G.svg)
 
 Draw circle tangent lines:
 
@@ -144,7 +144,7 @@ Draw circle tangent lines:
 }.LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/Line-H.svg)
+![](Help/Image/Line-H.svg)
 
 The ternary form of `Line` is a unit generator.
 `Line` generates a line from the start value to the end value.

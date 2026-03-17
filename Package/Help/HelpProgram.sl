@@ -67,7 +67,7 @@ HelpProgram : [Object] { | topic language commentary annotations programText |
 			self.isImageProgram.if {
 				[
 					'',
-					'![](sw/spl/Help/Image/%)'.format(
+					'![](Help/Image/%)'.format(
 						[
 							self.imageFileName
 						]

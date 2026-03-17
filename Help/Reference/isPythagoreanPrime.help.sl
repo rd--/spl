@@ -27,7 +27,7 @@ OEIS [A002144](https://oeis.org/A002144):
 ).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isPythagoreanPrime-A.svg)
+![](Help/Image/isPythagoreanPrime-A.svg)
 
 * * *
 

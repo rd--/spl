@@ -22,7 +22,7 @@ Plot over a subset of the reals:
 }
 ~~~
 
-![](sw/spl/Help/Image/besselY-A.svg)
+![](Help/Image/besselY-A.svg)
 
 * * *
 

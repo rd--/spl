@@ -36,7 +36,7 @@ OEIS [A014781](https://oeis.org/A014781):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/seidelTriangle-A.svg)
+![](Help/Image/seidelTriangle-A.svg)
 
 * * *
 

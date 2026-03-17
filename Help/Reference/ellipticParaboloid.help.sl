@@ -10,7 +10,7 @@ Answer the parametric equation for the elliptic paraboloid.
 )
 ~~~
 
-![](sw/spl/Help/Image/ellipticParaboloid-A.svg)
+![](Help/Image/ellipticParaboloid-A.svg)
 
 * * *
 

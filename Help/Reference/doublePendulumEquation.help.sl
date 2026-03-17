@@ -29,7 +29,7 @@ v.collect { :v |
 }.downsample(2).linePlot
 ~~~
 
-![](sw/spl/Help/Image/doublePendulumEquation-A.svg)
+![](Help/Image/doublePendulumEquation-A.svg)
 
 Plot _(x,y)_ coordinates of second mass:
 
@@ -52,7 +52,7 @@ v.collect { :v |
 }.downsample(5).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/doublePendulumEquation-B.svg)
+![](Help/Image/doublePendulumEquation-B.svg)
 
 * * *
 

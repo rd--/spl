@@ -235,7 +235,7 @@ Plot the sequence with a fixed modulus:
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/modularInverse-A.svg)
+![](Help/Image/modularInverse-A.svg)
 
 Modular inverses of sums of two squares:
 
@@ -248,7 +248,7 @@ let p = 200.prime;
 .Greymap
 ~~~
 
-![](sw/spl/Help/Image/modularInverse-B.png)
+![](Help/Image/modularInverse-B.png)
 
 A psuedo-random number generator:
 
@@ -274,7 +274,7 @@ prng(789714739, 250)
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/modularInverse-C.svg)
+![](Help/Image/modularInverse-C.svg)
 
 * * *
 

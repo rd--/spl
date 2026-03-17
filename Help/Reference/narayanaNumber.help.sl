@@ -34,7 +34,7 @@ OEIS [A001263](https://oeis.org/A001263):
 ).catenate.log.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/narayanaNumber-A.svg)
+![](Help/Image/narayanaNumber-A.svg)
 
 * * *
 

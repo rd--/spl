@@ -202,7 +202,7 @@ let y = { :x |
 (y - 1).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/split-A.svg)
+![](Help/Image/split-A.svg)
 
 Lengths of each generation,
 OEIS [A306215](https://oeis.org/A306215):
@@ -229,7 +229,7 @@ OEIS [A037014](https://oeis.org/A037014):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/split-B.svg)
+![](Help/Image/split-B.svg)
 
 Add one to every other term of the number of runs in the binary expansion of _n_,
 OEIS [A072219](https://oeis.org/A072219):
@@ -242,7 +242,7 @@ OEIS [A072219](https://oeis.org/A072219):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/split-C.svg)
+![](Help/Image/split-C.svg)
 
 Number of runs of ones in the binary representation of _n_,
 OEIS [A069010](https://oeis.org/A069010):
@@ -255,7 +255,7 @@ OEIS [A069010](https://oeis.org/A069010):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/split-D.svg)
+![](Help/Image/split-D.svg)
 
 One less than the number of runs of ones in the binary representations of _n_ and _2n-1_,
 OEIS [A072339](https://oeis.org/A072339):
@@ -271,7 +271,7 @@ let f = { :n |
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/split-E.svg)
+![](Help/Image/split-E.svg)
 
 * * *
 

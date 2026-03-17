@@ -64,7 +64,7 @@ Plot over a subset of the reals:
 (-5 -- 5).functionPlot(arcCot:/1)
 ~~~
 
-![](sw/spl/Help/Image/arcCot-A.svg)
+![](Help/Image/arcCot-A.svg)
 
 Plot over a subset of the complexes:
 
@@ -72,7 +72,7 @@ Plot over a subset of the complexes:
 [-3J-2 3J2].complexPlot(arcCot:/1)
 ~~~
 
-![](sw/spl/Help/Image/arcCot-B.png)
+![](Help/Image/arcCot-B.png)
 
 * * *
 

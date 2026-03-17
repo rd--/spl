@@ -33,7 +33,7 @@ Sfc32(372861)
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/combSortMatrix-A.svg)
+![](Help/Image/combSortMatrix-A.svg)
 
 Sort longer list:
 
@@ -47,7 +47,7 @@ Sfc32(372861)
 .Greymap
 ~~~
 
-![](sw/spl/Help/Image/combSortMatrix-B.png)
+![](Help/Image/combSortMatrix-B.png)
 
 * * *
 

@@ -14,7 +14,7 @@ LsAt(
 ).upToEnd.linePlot
 ~~~
 
-![](sw/spl/Help/Image/LsAt-A.svg)
+![](Help/Image/LsAt-A.svg)
 
 * * *
 

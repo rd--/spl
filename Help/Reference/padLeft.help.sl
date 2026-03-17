@@ -106,7 +106,7 @@ OEIS [A051340](https://oeis.org/A051340):
 }.catenate.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/padLeft-A.svg)
+![](Help/Image/padLeft-A.svg)
 
 Infinitesimal Pascal matrix,
 OEIS [A132440](https://oeis.org/A132440):
@@ -117,7 +117,7 @@ OEIS [A132440](https://oeis.org/A132440):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/padLeft-B.svg)
+![](Help/Image/padLeft-B.svg)
 
 The infinitesimal Lah matrix,
 OEIS [A132792](https://oeis.org/A132792):
@@ -128,7 +128,7 @@ OEIS [A132792](https://oeis.org/A132792):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/padLeft-C.svg)
+![](Help/Image/padLeft-C.svg)
 
 Riordan array _(1+x,1)_ read by rows,
 OEIS [A097806](https://oeis.org/A097806):
@@ -139,7 +139,7 @@ OEIS [A097806](https://oeis.org/A097806):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/padLeft-D.svg)
+![](Help/Image/padLeft-D.svg)
 
 * * *
 

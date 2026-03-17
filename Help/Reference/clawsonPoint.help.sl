@@ -26,7 +26,7 @@ let t = sssTriangle(1, 1.15, 1.3);
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/clawsonPoint-A.svg)
+![](Help/Image/clawsonPoint-A.svg)
 
 * * *
 

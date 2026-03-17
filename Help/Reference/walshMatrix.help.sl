@@ -80,7 +80,7 @@ let n = 2 ^ 3;
 n.walshMatrix.max(0).matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/walshMatrix-A.svg)
+![](Help/Image/walshMatrix-A.svg)
 
 Draw the 128×128 Walsh matrix:
 
@@ -88,7 +88,7 @@ Draw the 128×128 Walsh matrix:
 128.walshMatrix.max(0).Bitmap
 ~~~
 
-![](sw/spl/Help/Image/walshMatrix-B.png)
+![](Help/Image/walshMatrix-B.png)
 
 The gray code permutation of the Walsh matrix,
 called the dyadic or Paley ordering:
@@ -102,7 +102,7 @@ p.dot(n.walshMatrix)
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/walshMatrix-C.svg)
+![](Help/Image/walshMatrix-C.svg)
 
 Signal plot of the 16×16 Walsh matrix:
 
@@ -110,7 +110,7 @@ Signal plot of the 16×16 Walsh matrix:
 16.walshMatrix.signalPlot
 ~~~
 
-![](sw/spl/Help/Image/walshMatrix-D.svg)
+![](Help/Image/walshMatrix-D.svg)
 
 * * *
 

@@ -135,7 +135,7 @@ OEIS [A007434](https://oeis.org/A007434):
 2.jordanTotient(1:150).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/jordanTotient-A.svg)
+![](Help/Image/jordanTotient-A.svg)
 
 Jordan function _k=3_,
 OEIS [A059376](https://oeis.org/A059376):
@@ -144,7 +144,7 @@ OEIS [A059376](https://oeis.org/A059376):
 3.jordanTotient(1:100).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/jordanTotient-B.svg)
+![](Help/Image/jordanTotient-B.svg)
 
 Array of values of Jordan function _Jₖ(n)_ read by antidiagonals,
 OEIS [A059379](https://oeis.org/A059379):
@@ -155,7 +155,7 @@ OEIS [A059379](https://oeis.org/A059379):
 ).catenate.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/jordanTotient-C.svg)
+![](Help/Image/jordanTotient-C.svg)
 
 _J(3,n)/J(1,n)_,
 OEIS [A160889](https://oeis.org/A160889):
@@ -167,7 +167,7 @@ let b = 1.jordanTotient(n);
 (a / b).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/jordanTotient-D.svg)
+![](Help/Image/jordanTotient-D.svg)
 
 * * *
 

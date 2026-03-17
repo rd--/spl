@@ -19,7 +19,7 @@ a blue-green close to the Munsell blue-green:
 RgbColour([0 0.65 0.61], 1)
 ~~~
 
-![](sw/spl/Help/Image/RgbColour-A.svg)
+![](Help/Image/RgbColour-A.svg)
 
 * * *
 

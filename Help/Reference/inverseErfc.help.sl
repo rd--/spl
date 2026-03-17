@@ -53,7 +53,7 @@ Plot over range:
 }
 ~~~
 
-![](sw/spl/Help/Image/inverseErfc-A.svg)
+![](Help/Image/inverseErfc-A.svg)
 
 Generate Gaussian-distributed random numbers:
 
@@ -64,7 +64,7 @@ Sfc32(789141)
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/inverseErfc-B.svg)
+![](Help/Image/inverseErfc-B.svg)
 
 Avoid round-off errors using inverse complementary error function:
 

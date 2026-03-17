@@ -19,7 +19,7 @@ a.do { :i |
 b.first(n).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/oeisTerms-A.svg)
+![](Help/Image/oeisTerms-A.svg)
 
 Ordinal transform of
 OEIS [A265332](https://oeis.org/A265332),
@@ -35,7 +35,7 @@ a.ordinalTransform
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/oeisTerms-B.svg)
+![](Help/Image/oeisTerms-B.svg)
 
 * * *
 

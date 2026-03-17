@@ -39,7 +39,7 @@ bracelets(8, 2)
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/bracelets-A.svg)
+![](Help/Image/bracelets-A.svg)
 
 Circular matrix plot of _3,3_ bracelets:
 
@@ -48,7 +48,7 @@ bracelets(3, 3)
 .circularMatrixPlot
 ~~~
 
-![](sw/spl/Help/Image/bracelets-B.svg)
+![](Help/Image/bracelets-B.svg)
 
 * * *
 

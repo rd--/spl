@@ -116,7 +116,7 @@ OEIS [A144112](https://oeis.org/A144112):
 }.catenate.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/padRight-A.svg)
+![](Help/Image/padRight-A.svg)
 
 The Fredholm-Rueppel sequence,
 OEIS [A036987](https://oeis.org/A036987):
@@ -127,7 +127,7 @@ OEIS [A036987](https://oeis.org/A036987):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/padRight-B.svg)
+![](Help/Image/padRight-B.svg)
 
 * * *
 

@@ -12,7 +12,7 @@ Answers a one argument `Block` that implements the specified gradient function.
 ).asContinuousColourGradient
 ~~~
 
-![](sw/spl/Help/Image/cubeHelix-A.svg)
+![](Help/Image/cubeHelix-A.svg)
 
 * * *
 

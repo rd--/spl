@@ -11,7 +11,7 @@ Even _k_ and even _n_:
 hararyGraph(4, 8).graphPlot
 ~~~
 
-![](sw/spl/Help/Image/hararyGraph-A.svg)
+![](Help/Image/hararyGraph-A.svg)
 
 Even _k_ and odd _n_:
 
@@ -19,7 +19,7 @@ Even _k_ and odd _n_:
 hararyGraph(4, 7).graphPlot
 ~~~
 
-![](sw/spl/Help/Image/hararyGraph-B.svg)
+![](Help/Image/hararyGraph-B.svg)
 
 Odd _k_ and even _n_:
 
@@ -27,7 +27,7 @@ Odd _k_ and even _n_:
 hararyGraph(3, 8).graphPlot
 ~~~
 
-![](sw/spl/Help/Image/hararyGraph-C.svg)
+![](Help/Image/hararyGraph-C.svg)
 
 Odd _k_ and odd _n_:
 
@@ -35,7 +35,7 @@ Odd _k_ and odd _n_:
 hararyGraph(3, 7).graphPlot
 ~~~
 
-![](sw/spl/Help/Image/hararyGraph-D.svg)
+![](Help/Image/hararyGraph-D.svg)
 
 A wheel graph:
 
@@ -43,7 +43,7 @@ A wheel graph:
 hararyGraph(3, 5).graphPlot
 ~~~
 
-![](sw/spl/Help/Image/hararyGraph-E.svg)
+![](Help/Image/hararyGraph-E.svg)
 
 `cycleGraph` is a special case of `hararyGraph`,
 the triangle graph:
@@ -52,7 +52,7 @@ the triangle graph:
 hararyGraph(2, 3).graphPlot
 ~~~
 
-![](sw/spl/Help/Image/hararyGraph-F.svg)
+![](Help/Image/hararyGraph-F.svg)
 
 Tetrahedral graph:
 
@@ -60,7 +60,7 @@ Tetrahedral graph:
 hararyGraph(3, 4).graphPlot
 ~~~
 
-![](sw/spl/Help/Image/hararyGraph-G.svg)
+![](Help/Image/hararyGraph-G.svg)
 
 _H(n - 1, n)_ is the complete graph _K(n)_,
 `completeGraph` is a special case of `hararyGraph`:
@@ -69,7 +69,7 @@ _H(n - 1, n)_ is the complete graph _K(n)_,
 hararyGraph(5, 6).graphPlot
 ~~~
 
-![](sw/spl/Help/Image/hararyGraph-H.svg)
+![](Help/Image/hararyGraph-H.svg)
 
 * * *
 

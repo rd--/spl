@@ -31,7 +31,7 @@ Draw the _xy_ projection of the unit dodecahedron:
 }
 ~~~
 
-![](sw/spl/Help/Image/unitDodecahedron-A.svg)
+![](Help/Image/unitDodecahedron-A.svg)
 
 Draw an axonometric projection of the unit dodecahedron:
 
@@ -41,7 +41,7 @@ Draw an axonometric projection of the unit dodecahedron:
 .asPerspectiveDrawing
 ~~~
 
-![](sw/spl/Help/Image/unitDodecahedron-B.svg)
+![](Help/Image/unitDodecahedron-B.svg)
 
 * * *
 

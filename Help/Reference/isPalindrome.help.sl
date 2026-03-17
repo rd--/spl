@@ -168,7 +168,7 @@ OEIS [A006995](https://oeis.org/A006995):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isPalindrome-A.svg)
+![](Help/Image/isPalindrome-A.svg)
 
 Palindromic primes,
 OEIS [A002385](https://oeis.org/A002385):
@@ -179,7 +179,7 @@ OEIS [A002385](https://oeis.org/A002385):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isPalindrome-B.svg)
+![](Help/Image/isPalindrome-B.svg)
 
 Least _k>0_ such that _(2n-1)k_ is a palindrome in base two,
 OEIS [A141707](https://oeis.org/A141707):
@@ -199,7 +199,7 @@ OEIS [A141707](https://oeis.org/A141707):
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isPalindrome-C.svg)
+![](Help/Image/isPalindrome-C.svg)
 
 Smallest positive multiplier _m_ such that _m*n_ is palindromic,
 or zero if no such _m_ exists,
@@ -221,7 +221,7 @@ OEIS [A050782](https://oeis.org/A050782):
 }.log.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/isPalindrome-D.svg)
+![](Help/Image/isPalindrome-D.svg)
 
 * * *
 

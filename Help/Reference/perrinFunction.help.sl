@@ -46,7 +46,7 @@ Plot over a subset of the reals:
 )
 ~~~
 
-![](sw/spl/Help/Image/perrinFunction-A.svg)
+![](Help/Image/perrinFunction-A.svg)
 
 * * *
 

@@ -15,7 +15,7 @@ Plot:
 (-1 -- 1).functionPlot(heavisidePi:/1)
 ~~~
 
-![](sw/spl/Help/Image/heavisidePi-A.svg)
+![](Help/Image/heavisidePi-A.svg)
 
 * * *
 

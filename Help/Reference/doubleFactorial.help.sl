@@ -124,7 +124,7 @@ Plot over subset of the reals:
 }
 ~~~
 
-![](sw/spl/Help/Image/doubleFactorial-A.svg)
+![](Help/Image/doubleFactorial-A.svg)
 
 Plot the ratio of doubled factorials over double factorial:
 
@@ -136,7 +136,7 @@ Plot the ratio of doubled factorials over double factorial:
 }
 ~~~
 
-![](sw/spl/Help/Image/doubleFactorial-B.svg)
+![](Help/Image/doubleFactorial-B.svg)
 
 _Note_: Both the integer and generalised forms can be requested especially:
 

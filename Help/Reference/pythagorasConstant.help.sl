@@ -60,7 +60,7 @@ Scatter plot of the digits of Pythagoras’ constant:
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/pythagorasConstant-A.svg)
+![](Help/Image/pythagorasConstant-A.svg)
 
 * * *
 

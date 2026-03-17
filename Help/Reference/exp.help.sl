@@ -132,7 +132,7 @@ Plot over a subset of the reals:
 (-1 -- 1).functionPlot(exp:/1)
 ~~~
 
-![](sw/spl/Help/Image/exp-A.svg)
+![](Help/Image/exp-A.svg)
 
 Plot `exp` alongside a Padé approximation:
 
@@ -143,7 +143,7 @@ Plot `exp` alongside a Padé approximation:
 ])
 ~~~
 
-![](sw/spl/Help/Image/exp-B.svg)
+![](Help/Image/exp-B.svg)
 
 Plot over a subset of the complexes:
 
@@ -153,7 +153,7 @@ Plot over a subset of the complexes:
 }
 ~~~
 
-![](sw/spl/Help/Image/exp-C.png)
+![](Help/Image/exp-C.png)
 
 * * *
 

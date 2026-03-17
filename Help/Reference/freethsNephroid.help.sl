@@ -13,7 +13,7 @@ Line drawing:
 ).Line
 ~~~
 
-![](sw/spl/Help/Image/freethsNephroid-A.svg)
+![](Help/Image/freethsNephroid-A.svg)
 
 * * *
 

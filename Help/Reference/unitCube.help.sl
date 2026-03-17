@@ -42,7 +42,7 @@ Draw the unit cube:
 [0 0 0].unitCube.asPerspectiveDrawing
 ~~~
 
-![](sw/spl/Help/Image/unitCube-A.svg)
+![](Help/Image/unitCube-A.svg)
 
 Draw two unit cubes:
 
@@ -52,7 +52,7 @@ Draw two unit cubes:
 .PerspectiveDrawing
 ~~~
 
-![](sw/spl/Help/Image/unitCube-B.svg)
+![](Help/Image/unitCube-B.svg)
 
 * * *
 

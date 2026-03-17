@@ -47,7 +47,7 @@ Plot over a subset of the reals:
 }
 ~~~
 
-![](sw/spl/Help/Image/factorialOrGamma-A.svg)
+![](Help/Image/factorialOrGamma-A.svg)
 
 Plot the volume of the unit hypersphere as a function of dimension:
 
@@ -57,7 +57,7 @@ Plot the volume of the unit hypersphere as a function of dimension:
 }
 ~~~
 
-![](sw/spl/Help/Image/factorialOrGamma-B.svg)
+![](Help/Image/factorialOrGamma-B.svg)
 
 * * *
 

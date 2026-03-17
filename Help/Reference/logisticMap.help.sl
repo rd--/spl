@@ -12,7 +12,7 @@ logisticMap(3.6)
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/logisticMap-A.svg)
+![](Help/Image/logisticMap-A.svg)
 
 Plot first few terms at _r=3.7_:
 
@@ -22,7 +22,7 @@ logisticMap(3.7)
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/logisticMap-B.svg)
+![](Help/Image/logisticMap-B.svg)
 
 Plot first few terms at _r=3.9_:
 
@@ -32,7 +32,7 @@ logisticMap(3.9)
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/logisticMap-C.svg)
+![](Help/Image/logisticMap-C.svg)
 
 Poincaré plot of first few terms at _r=3.99_:
 
@@ -42,7 +42,7 @@ logisticMap(3.99)
 .poincarePlot
 ~~~
 
-![](sw/spl/Help/Image/logisticMap-D.svg)
+![](Help/Image/logisticMap-D.svg)
 
 Plot laminar and burst behaviour within first few terms at _r=3.828327_:
 
@@ -52,7 +52,7 @@ logisticMap(3.828327)
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/logisticMap-E.svg)
+![](Help/Image/logisticMap-E.svg)
 
 The first few terms for _r=-2_ and _a₀=0.31_:
 
@@ -62,7 +62,7 @@ logisticMap(-2)
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/logisticMap-F.svg)
+![](Help/Image/logisticMap-F.svg)
 
 The first few terms for _r=-4_ and _a₀=0.42_,
 equivalent to the `tentMap` with _μ=1_:
@@ -73,7 +73,7 @@ logisticMap(4)
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/logisticMap-G.svg)
+![](Help/Image/logisticMap-G.svg)
 
 Cobweb plot of first few terms with _r=3.741_ and _a₀=0.00079_:
 
@@ -82,7 +82,7 @@ logisticMap(3.741)
 .cobwebPlot(0.00079, 13)
 ~~~
 
-![](sw/spl/Help/Image/logisticMap-H.svg)
+![](Help/Image/logisticMap-H.svg)
 
 Sparse plot of a fragment of the bifurcation diagram:
 
@@ -96,7 +96,7 @@ Sparse plot of a fragment of the bifurcation diagram:
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/logisticMap-I.svg)
+![](Help/Image/logisticMap-I.svg)
 
 * * *
 

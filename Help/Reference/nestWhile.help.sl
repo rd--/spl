@@ -45,7 +45,7 @@ OEIS [A003602](https://oeis.org/A003602):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/nestWhile-A.svg)
+![](Help/Image/nestWhile-A.svg)
 
 * * *
 

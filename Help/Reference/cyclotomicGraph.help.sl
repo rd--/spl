@@ -33,7 +33,7 @@ The 7-cyclotomic graph is the 7-cycle graph:
 7.cyclotomicGraph.circularGraphPlot
 ~~~
 
-![](sw/spl/Help/Image/cyclotomicGraph-A.svg)
+![](Help/Image/cyclotomicGraph-A.svg)
 
 The 13-cyclotomic graph:
 
@@ -41,7 +41,7 @@ The 13-cyclotomic graph:
 13.cyclotomicGraph.circularGraphPlot
 ~~~
 
-![](sw/spl/Help/Image/cyclotomicGraph-B.svg)
+![](Help/Image/cyclotomicGraph-B.svg)
 
 The 19-cyclotomic graph:
 
@@ -49,7 +49,7 @@ The 19-cyclotomic graph:
 19.cyclotomicGraph.circularGraphPlot
 ~~~
 
-![](sw/spl/Help/Image/cyclotomicGraph-C.svg)
+![](Help/Image/cyclotomicGraph-C.svg)
 
 _Note_:
 Not implemented for non-prime _p_.

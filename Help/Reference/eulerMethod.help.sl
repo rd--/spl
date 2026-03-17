@@ -16,7 +16,7 @@ let [_, y] = { :x :y |
 y.linePlot
 ~~~
 
-![](sw/spl/Help/Image/eulerMethod-A.svg)
+![](Help/Image/eulerMethod-A.svg)
 
 Newton’s cooling law, with initial value 100, and with time running from 0 to 100 in steps of 2, downsampled:
 
@@ -50,7 +50,7 @@ let [_, y] = { :x :y |
 y.linePlot
 ~~~
 
-![](sw/spl/Help/Image/eulerMethod-B.svg)
+![](Help/Image/eulerMethod-B.svg)
 
 Compare to analytic solution:
 
@@ -60,7 +60,7 @@ Compare to analytic solution:
 }
 ~~~
 
-![](sw/spl/Help/Image/eulerMethod-C.svg)
+![](Help/Image/eulerMethod-C.svg)
 
 * * *
 

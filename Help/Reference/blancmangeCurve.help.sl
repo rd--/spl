@@ -24,7 +24,7 @@ Plot ninth iteration:
 9.blancmangeCurve.linePlot
 ~~~
 
-![](sw/spl/Help/Image/blancmangeCurve-A.svg)
+![](Help/Image/blancmangeCurve-A.svg)
 
 Plot using the functional form of the curve:
 
@@ -42,7 +42,7 @@ let k = 9;
 }
 ~~~
 
-![](sw/spl/Help/Image/blancmangeCurve-B.svg)
+![](Help/Image/blancmangeCurve-B.svg)
 
 The name is derived from the shape of the second iteration:
 
@@ -50,7 +50,7 @@ The name is derived from the shape of the second iteration:
 2.blancmangeCurve.linePlot
 ~~~
 
-![](sw/spl/Help/Image/blancmangeCurve-C.svg)
+![](Help/Image/blancmangeCurve-C.svg)
 
 * * *
 

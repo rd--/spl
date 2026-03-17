@@ -67,7 +67,7 @@ OEIS [A001223](https://oeis.org/A001223):
 1:99.functionPlot(primeGap:/1)
 ~~~
 
-![](sw/spl/Help/Image/primeGap-A.svg)
+![](Help/Image/primeGap-A.svg)
 
 Prime gaps,
 differences between consecutive primes,
@@ -79,7 +79,7 @@ OEIS [A001223](https://oeis.org/A001223):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/primeGap-B.svg)
+![](Help/Image/primeGap-B.svg)
 
 * * *
 

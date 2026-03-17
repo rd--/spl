@@ -15,7 +15,7 @@ let d = system.nistData('MAVRO', [1]);
 (d * 10).lagPlot(1)
 ~~~
 
-![](sw/spl/Help/Image/lagPlot-A.svg)
+![](Help/Image/lagPlot-A.svg)
 
 Plot of two hundred normal random numbers showing that
 the data are random,
@@ -27,7 +27,7 @@ system.nistData('NORMAL2', [1])
 .lagPlot(1)
 ~~~
 
-![](sw/spl/Help/Image/lagPlot-B.svg)
+![](Help/Image/lagPlot-B.svg)
 
 A circular pattern in a lag plot indicates that a sinusoidal model might be appropriate:
 
@@ -36,7 +36,7 @@ system.nistData('LEW', [1])
 .lagPlot(1)
 ~~~
 
-![](sw/spl/Help/Image/lagPlot-C.svg)
+![](Help/Image/lagPlot-C.svg)
 
 A lag plot of data from an underlying autoregressive model with moderate positive autocorrelation,
 the data contain no outliers:
@@ -46,7 +46,7 @@ system.nistData('FLICKER', [1])
 .lagPlot(1)
 ~~~
 
-![](sw/spl/Help/Image/lagPlot-D.svg)
+![](Help/Image/lagPlot-D.svg)
 
 A lag plot of data from an underlying autoregressive model with strong positive autocorrelation,
 the data contain no outliers:
@@ -56,7 +56,7 @@ system.nistData('RANDWALK', [1])
 .lagPlot(1)
 ~~~
 
-![](sw/spl/Help/Image/lagPlot-E.svg)
+![](Help/Image/lagPlot-E.svg)
 
 * * *
 

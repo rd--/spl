@@ -20,7 +20,7 @@ let [_, v] = coulletEquation(
 v.linePlot
 ~~~
 
-![](sw/spl/Help/Image/coulletEquation-A.svg)
+![](Help/Image/coulletEquation-A.svg)
 
 * * *
 

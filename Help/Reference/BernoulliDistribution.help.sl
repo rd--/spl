@@ -23,7 +23,7 @@ Plot `pdf` over a subset of the reals:
 )
 ~~~
 
-![](sw/spl/Help/Image/BernoulliDistribution-A.svg)
+![](Help/Image/BernoulliDistribution-A.svg)
 
 Plot `cdf` over a subset of the reals:
 
@@ -33,7 +33,7 @@ Plot `cdf` over a subset of the reals:
 )
 ~~~
 
-![](sw/spl/Help/Image/BernoulliDistribution-B.svg)
+![](Help/Image/BernoulliDistribution-B.svg)
 
 Skewness:
 
@@ -43,7 +43,7 @@ Skewness:
 }
 ~~~
 
-![](sw/spl/Help/Image/BernoulliDistribution-C.svg)
+![](Help/Image/BernoulliDistribution-C.svg)
 
 Kurtosis:
 
@@ -53,7 +53,7 @@ Kurtosis:
 }
 ~~~
 
-![](sw/spl/Help/Image/BernoulliDistribution-D.svg)
+![](Help/Image/BernoulliDistribution-D.svg)
 
 Simulate a sequence of fair coin tosses:
 
@@ -82,7 +82,7 @@ let b = d.randomVariate(r, 100);
 (b * 2 - 1).prefixSum.linePlot
 ~~~
 
-![](sw/spl/Help/Image/BernoulliDistribution-E.svg)
+![](Help/Image/BernoulliDistribution-E.svg)
 
 * * *
 

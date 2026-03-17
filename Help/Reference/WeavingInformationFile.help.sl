@@ -20,7 +20,7 @@ An Estonian linen pattern:
 }
 ~~~
 
-![](sw/spl/Help/Image/WeavingInformationFile-A.png)
+![](Help/Image/WeavingInformationFile-A.png)
 
 Another Estonian linen pattern:
 
@@ -36,7 +36,7 @@ Another Estonian linen pattern:
 }
 ~~~
 
-![](sw/spl/Help/Image/WeavingInformationFile-B.png)
+![](Help/Image/WeavingInformationFile-B.png)
 
 A rosepath pattern:
 
@@ -53,7 +53,7 @@ A rosepath pattern:
 }
 ~~~
 
-![](sw/spl/Help/Image/WeavingInformationFile-C.png)
+![](Help/Image/WeavingInformationFile-C.png)
 
 Threading matrix of Estonian design:
 
@@ -69,7 +69,7 @@ Threading matrix of Estonian design:
 }
 ~~~
 
-![](sw/spl/Help/Image/WeavingInformationFile-D.svg)
+![](Help/Image/WeavingInformationFile-D.svg)
 
 Treadling matrix of Estonian design:
 
@@ -85,7 +85,7 @@ Treadling matrix of Estonian design:
 }
 ~~~
 
-![](sw/spl/Help/Image/WeavingInformationFile-E.svg)
+![](Help/Image/WeavingInformationFile-E.svg)
 
 The tieup matrix of an Estonian design:
 
@@ -101,7 +101,7 @@ The tieup matrix of an Estonian design:
 }
 ~~~
 
-![](sw/spl/Help/Image/WeavingInformationFile-F.svg)
+![](Help/Image/WeavingInformationFile-F.svg)
 
 A sample design that includes two patterns separated by an empty row:
 
@@ -117,7 +117,7 @@ A sample design that includes two patterns separated by an empty row:
 }
 ~~~
 
-![](sw/spl/Help/Image/WeavingInformationFile-G.svg)
+![](Help/Image/WeavingInformationFile-G.svg)
 
 An initial fragment of a diamond design:
 
@@ -133,7 +133,7 @@ An initial fragment of a diamond design:
 }
 ~~~
 
-![](sw/spl/Help/Image/WeavingInformationFile-H.png)
+![](Help/Image/WeavingInformationFile-H.png)
 
 A design from an old German pattern book:
 
@@ -149,7 +149,7 @@ A design from an old German pattern book:
 }
 ~~~
 
-![](sw/spl/Help/Image/WeavingInformationFile-I.png)
+![](Help/Image/WeavingInformationFile-I.png)
 
 Plot a drawdown matrix from a weaving information file specified using a liftplan:
 
@@ -165,7 +165,7 @@ Plot a drawdown matrix from a weaving information file specified using a liftpla
 }
 ~~~
 
-![](sw/spl/Help/Image/WeavingInformationFile-J.svg)
+![](Help/Image/WeavingInformationFile-J.svg)
 
 * * *
 

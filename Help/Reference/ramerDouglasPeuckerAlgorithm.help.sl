@@ -17,7 +17,7 @@ let d = l.ramerDouglasPeuckerAlgorithm(0.1);
 [l.Line, d.Line].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/ramerDouglasPeuckerAlgorithm-A.svg)
+![](Help/Image/ramerDouglasPeuckerAlgorithm-A.svg)
 
 The same `sin` approximation simplified to six places:
 
@@ -30,7 +30,7 @@ let d = l.ramerDouglasPeuckerAlgorithm(0.5);
 [l.Line, d.Line].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/ramerDouglasPeuckerAlgorithm-B.svg)
+![](Help/Image/ramerDouglasPeuckerAlgorithm-B.svg)
 
 * * *
 

@@ -13,7 +13,7 @@ let i = (-1 -- 1).discretize(100);
 }.table(i, i).reliefPlot
 ~~~
 
-![](sw/spl/Help/Image/reliefPlot-A.png)
+![](Help/Image/reliefPlot-A.png)
 
 Plot trigonometric function:
 
@@ -24,7 +24,7 @@ let x = (-4 -- 4).discretize(100);
 }.table(x, x).reliefPlot
 ~~~
 
-![](sw/spl/Help/Image/reliefPlot-B.png)
+![](Help/Image/reliefPlot-B.png)
 
 * * *
 

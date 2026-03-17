@@ -10,7 +10,7 @@ Implement the parametric equation for the catenoid.
 )
 ~~~
 
-![](sw/spl/Help/Image/catenoid-A.svg)
+![](Help/Image/catenoid-A.svg)
 
 * * *
 

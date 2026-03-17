@@ -27,7 +27,7 @@ OEIS [A139250](https://oeis.org/A139250):
 200.toothpickSequence.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/toothpickSequence-A.svg)
+![](Help/Image/toothpickSequence-A.svg)
 
 First differences of toothpicks numbers,
 OEIS [A139251](https://oeis.org/A139251):
@@ -38,7 +38,7 @@ OEIS [A139251](https://oeis.org/A139251):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/toothpickSequence-B.svg)
+![](Help/Image/toothpickSequence-B.svg)
 
 First differences of toothpicks numbers,
 further terms,
@@ -51,7 +51,7 @@ OEIS [A139251](https://oeis.org/A139251):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/toothpickSequence-C.svg)
+![](Help/Image/toothpickSequence-C.svg)
 
 * * *
 

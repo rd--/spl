@@ -33,7 +33,7 @@ OEIS [A263003](https://oeis.org/A263003):
 }.catenate.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/hookLengths-A.svg)
+![](Help/Image/hookLengths-A.svg)
 
 Row sums of the partition array,
 OEIS [A263004](https://oeis.org/A263004):

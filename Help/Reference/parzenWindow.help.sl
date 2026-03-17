@@ -17,7 +17,7 @@ Plot Parzen window:
 (-1 -- 1).functionPlot(parzenWindow:/1)
 ~~~
 
-![](sw/spl/Help/Image/parzenWindow-A.svg)
+![](Help/Image/parzenWindow-A.svg)
 
 Translated and dilated Parzen window:
 
@@ -27,7 +27,7 @@ Translated and dilated Parzen window:
 }
 ~~~
 
-![](sw/spl/Help/Image/parzenWindow-B.svg)
+![](Help/Image/parzenWindow-B.svg)
 
 Discrete Parzen window of length 15:
 
@@ -38,7 +38,7 @@ Discrete Parzen window of length 15:
 ).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/parzenWindow-C.svg)
+![](Help/Image/parzenWindow-C.svg)
 
 Compare to Gaussian window:
 
@@ -49,7 +49,7 @@ Compare to Gaussian window:
 ])
 ~~~
 
-![](sw/spl/Help/Image/parzenWindow-D.svg)
+![](Help/Image/parzenWindow-D.svg)
 
 * * *
 

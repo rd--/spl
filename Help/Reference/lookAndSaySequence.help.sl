@@ -106,7 +106,7 @@ Plot digits of _k='A'_ sequence:
 .stepPlot
 ~~~
 
-![](sw/spl/Help/Image/lookAndSaySequence-A.svg)
+![](Help/Image/lookAndSaySequence-A.svg)
 
 Plot digits of _k='LS'_ sequence:
 
@@ -116,7 +116,7 @@ Plot digits of _k='LS'_ sequence:
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/lookAndSaySequence-B.svg)
+![](Help/Image/lookAndSaySequence-B.svg)
 
 * * *
 

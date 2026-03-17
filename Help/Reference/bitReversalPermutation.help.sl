@@ -65,7 +65,7 @@ OEIS [A049773](https://oeis.org/A049773):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitReversalPermutation-A.svg)
+![](Help/Image/bitReversalPermutation-A.svg)
 
 Plot a Hammersley set whose coordinates are the integers _0:255_ paired with their bit-reversals:
 
@@ -75,7 +75,7 @@ let y = 8.bitReversalPermutation;
 [x, y].transpose.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitReversalPermutation-B.svg)
+![](Help/Image/bitReversalPermutation-B.svg)
 
 * * *
 

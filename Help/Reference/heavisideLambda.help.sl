@@ -25,7 +25,7 @@ Plot in one dimension:
 )
 ~~~
 
-![](sw/spl/Help/Image/heavisideLambda-A.svg)
+![](Help/Image/heavisideLambda-A.svg)
 
 Plot a function involving `heavisideLambda`:
 
@@ -35,7 +35,7 @@ Plot a function involving `heavisideLambda`:
 }
 ~~~
 
-![](sw/spl/Help/Image/heavisideLambda-B.svg)
+![](Help/Image/heavisideLambda-B.svg)
 
 * * *
 

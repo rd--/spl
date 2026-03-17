@@ -52,7 +52,7 @@ guyShuffle:/1.nestList([], 15)
 .catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/guyShuffle-A.svg)
+![](Help/Image/guyShuffle-A.svg)
 
 * * *
 

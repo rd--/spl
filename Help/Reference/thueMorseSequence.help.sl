@@ -71,7 +71,7 @@ OEIS [A010060](http://oeis.org/A010060):
 99.thueMorseSequence.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/thueMorseSequence-A.svg)
+![](Help/Image/thueMorseSequence-A.svg)
 
 The first differences of the Thue–Morse sequence form an infinite square-free word over an alphabet of size three,
 OEIS [A029883](https://oeis.org/A029883):
@@ -94,7 +94,7 @@ OEIS [A029883](https://oeis.org/A029883):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/thueMorseSequence-B.svg)
+![](Help/Image/thueMorseSequence-B.svg)
 
 Plot Thue–Morse sequence as a series of turns:
 
@@ -104,7 +104,7 @@ Plot Thue–Morse sequence as a series of turns:
 .Line
 ~~~
 
-![](sw/spl/Help/Image/thueMorseSequence-C.svg)
+![](Help/Image/thueMorseSequence-C.svg)
 
 Partial sums of the Thue–Morse sequence,
 OEIS [A115384](https://oeis.org/A115384):
@@ -113,7 +113,7 @@ OEIS [A115384](https://oeis.org/A115384):
 35.thueMorseSequence.prefixSum.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/thueMorseSequence-D.svg)
+![](Help/Image/thueMorseSequence-D.svg)
 
 The _+1,-1_ form of the Thue-Morse sequence,
 OEIS [A106400](https://oeis.org/A106400):
@@ -123,7 +123,7 @@ let a = 102.thueMorseSequence;
 ((1 - a) * 2 - 1).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/thueMorseSequence-E.svg)
+![](Help/Image/thueMorseSequence-E.svg)
 
 * * *
 

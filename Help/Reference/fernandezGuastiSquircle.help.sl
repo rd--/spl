@@ -12,7 +12,7 @@ At _s=0_, a circle:
 )
 ~~~
 
-![](sw/spl/Help/Image/fernandezGuastiSquircle-A.svg)
+![](Help/Image/fernandezGuastiSquircle-A.svg)
 
 At _s=1_, a square:
 
@@ -22,7 +22,7 @@ At _s=1_, a square:
 )
 ~~~
 
-![](sw/spl/Help/Image/fernandezGuastiSquircle-B.svg)
+![](Help/Image/fernandezGuastiSquircle-B.svg)
 
 At _s=0.928_, a squircle:
 
@@ -32,7 +32,7 @@ At _s=0.928_, a squircle:
 )
 ~~~
 
-![](sw/spl/Help/Image/fernandezGuastiSquircle-C.svg)
+![](Help/Image/fernandezGuastiSquircle-C.svg)
 
 Varying _s_, note non-linearity:
 
@@ -44,7 +44,7 @@ Varying _s_, note non-linearity:
 )
 ~~~
 
-![](sw/spl/Help/Image/fernandezGuastiSquircle-D.svg)
+![](Help/Image/fernandezGuastiSquircle-D.svg)
 
 * * *
 

@@ -25,7 +25,7 @@ let y = [0 0.3 0.6 -0.2 3];
 )
 ~~~
 
-![](sw/spl/Help/Image/cubicSplineInterpolator-A.svg)
+![](Help/Image/cubicSplineInterpolator-A.svg)
 
 Plot an interpolation extrapolating beyond the specified _x_ range:
 
@@ -37,7 +37,7 @@ let y = [0 0.3 0.6 -0.2 3];
 )
 ~~~
 
-![](sw/spl/Help/Image/cubicSplineInterpolator-B.svg)
+![](Help/Image/cubicSplineInterpolator-B.svg)
 
 Cubic spline impulse response:
 
@@ -49,7 +49,7 @@ let y = [0 0 1 0 0];
 )
 ~~~
 
-![](sw/spl/Help/Image/cubicSplineInterpolator-C.svg)
+![](Help/Image/cubicSplineInterpolator-C.svg)
 
 Plot an interpolation between a sequence of _(x,y)_ coordinates,
 along with the set of interpolated points:
@@ -62,7 +62,7 @@ let c = (1 -- k).subdivide(100).collect(i);
 [PointCloud(p), Line(c)].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/cubicSplineInterpolator-D.svg)
+![](Help/Image/cubicSplineInterpolator-D.svg)
 
 * * *
 

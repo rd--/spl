@@ -26,7 +26,7 @@ system.svgColourDictionary
 .arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/svgColourDictionary-A.svg)
+![](Help/Image/svgColourDictionary-A.svg)
 
 * * *
 

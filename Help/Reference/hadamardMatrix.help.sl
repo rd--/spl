@@ -180,7 +180,7 @@ Matrix plot of the 16×16 Hadamard matrix:
 (16.hadamardMatrix + 1).matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/hadamardMatrix-A.svg)
+![](Help/Image/hadamardMatrix-A.svg)
 
 Draw the 128×128 Hadamard matrix:
 
@@ -188,7 +188,7 @@ Draw the 128×128 Hadamard matrix:
 (128.hadamardMatrix + 1 / 2).Bitmap
 ~~~
 
-![](sw/spl/Help/Image/hadamardMatrix-B.png)
+![](Help/Image/hadamardMatrix-B.png)
 
 Signal plot of the 16×16 Hadamard matrix:
 
@@ -196,7 +196,7 @@ Signal plot of the 16×16 Hadamard matrix:
 16.hadamardMatrix.signalPlot
 ~~~
 
-![](sw/spl/Help/Image/hadamardMatrix-C.svg)
+![](Help/Image/hadamardMatrix-C.svg)
 
 * * *
 

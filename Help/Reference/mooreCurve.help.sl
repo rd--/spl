@@ -19,7 +19,7 @@ Drawing of the 3rd step of the Moore curve:
 3.mooreCurve.Line
 ~~~
 
-![](sw/spl/Help/Image/mooreCurve-A.svg)
+![](Help/Image/mooreCurve-A.svg)
 
 Drawing of the 4th step of the Moore curve:
 
@@ -27,7 +27,7 @@ Drawing of the 4th step of the Moore curve:
 4.mooreCurve.Line
 ~~~
 
-![](sw/spl/Help/Image/mooreCurve-B.svg)
+![](Help/Image/mooreCurve-B.svg)
 
 * * *
 

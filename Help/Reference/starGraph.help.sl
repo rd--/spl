@@ -56,7 +56,7 @@ Drawing of the star graph on six vertices:
 6.starGraph.graphPlot
 ~~~
 
-![](sw/spl/Help/Image/starGraph-A.svg)
+![](Help/Image/starGraph-A.svg)
 
 Drawing of the line graph of the star graph on six vertices:
 
@@ -64,7 +64,7 @@ Drawing of the line graph of the star graph on six vertices:
 6.starGraph.lineGraph.graphPlot
 ~~~
 
-![](sw/spl/Help/Image/starGraph-B.svg)
+![](Help/Image/starGraph-B.svg)
 
 * * *
 

@@ -35,7 +35,7 @@ OEIS [A046109](https://oeis.org/A046109):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/j-A.svg)
+![](Help/Image/j-A.svg)
 
 * * *
 

@@ -114,7 +114,7 @@ OEIS [A001359](https://oeis.org/A001359):
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/isLesserTwinPrime-A.svg)
+![](Help/Image/isLesserTwinPrime-A.svg)
 
 List of twin primes,
 OEIS [A001097](https://oeis.org/A001097):
@@ -129,7 +129,7 @@ let a = 3:1607.select(
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/isLesserTwinPrime-B.svg)
+![](Help/Image/isLesserTwinPrime-B.svg)
 
 List of twin primes modulo four,
 OEIS [A122567](https://oeis.org/A122567):
@@ -143,7 +143,7 @@ let c = b.deleteDuplicates;
 (c % 4).stepPlot
 ~~~
 
-![](sw/spl/Help/Image/isLesserTwinPrime-C.svg)
+![](Help/Image/isLesserTwinPrime-C.svg)
 
 * * *
 

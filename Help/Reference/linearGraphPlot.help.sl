@@ -14,7 +14,7 @@ Graph(
 ).linearGraphPlot
 ~~~
 
-![](sw/spl/Help/Image/linearGraphPlot-A.svg)
+![](Help/Image/linearGraphPlot-A.svg)
 
 Plot a chord diagram where _n=7_:
 
@@ -29,7 +29,7 @@ Graph(
 ).linearGraphPlot
 ~~~
 
-![](sw/spl/Help/Image/linearGraphPlot-B.svg)
+![](Help/Image/linearGraphPlot-B.svg)
 
 * * *
 

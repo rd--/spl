@@ -50,7 +50,7 @@ Draw cycle graph on five vertices:
 5.cycleGraph.graphPlot
 ~~~
 
-![](sw/spl/Help/Image/cycleGraph-A.svg)
+![](Help/Image/cycleGraph-A.svg)
 
 The adjacency matrix is banded:
 
@@ -60,7 +60,7 @@ The adjacency matrix is banded:
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/cycleGraph-B.svg)
+![](Help/Image/cycleGraph-B.svg)
 
 The incidence matrix is banded:
 
@@ -70,7 +70,7 @@ The incidence matrix is banded:
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/cycleGraph-C.svg)
+![](Help/Image/cycleGraph-C.svg)
 
 * * *
 

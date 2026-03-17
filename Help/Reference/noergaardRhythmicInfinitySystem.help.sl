@@ -27,7 +27,7 @@ Discrete plot of first few terms:
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/noergaardRhythmicInfinitySystem-A.svg)
+![](Help/Image/noergaardRhythmicInfinitySystem-A.svg)
 
 Scatter plot of first few terms:
 
@@ -36,7 +36,7 @@ Scatter plot of first few terms:
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/noergaardRhythmicInfinitySystem-B.svg)
+![](Help/Image/noergaardRhythmicInfinitySystem-B.svg)
 
 * * *
 

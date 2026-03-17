@@ -12,7 +12,7 @@ With _ω=1.4_, _q=a/b=15/5_ and _d=10_:
 )
 ~~~
 
-![](sw/spl/Help/Image/sphericalTrochoid-A.svg)
+![](Help/Image/sphericalTrochoid-A.svg)
 
 * * *
 

@@ -42,7 +42,7 @@ Plot first few terms:
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/stolarskyIndex-A.svg)
+![](Help/Image/stolarskyIndex-A.svg)
 
 The column index of _n_ in the Stolarsky array,
 OEIS [A098862](https://oeis.org/A098862):
@@ -69,7 +69,7 @@ Plot first few terms:
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/stolarskyIndex-B.svg)
+![](Help/Image/stolarskyIndex-B.svg)
 
 * * *
 

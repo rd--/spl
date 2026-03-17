@@ -15,7 +15,7 @@ Draw the standard _isometric_ projection of the unit dodecahedron:
 )
 ~~~
 
-![](sw/spl/Help/Image/namedAxonometricProjection-A.svg)
+![](Help/Image/namedAxonometricProjection-A.svg)
 
 Draw a _cabinet oblique_ projection of the unit icosahedron,
 with the _Z_-axis angle set to _pi/6_:
@@ -29,7 +29,7 @@ with the _Z_-axis angle set to _pi/6_:
 )
 ~~~
 
-![](sw/spl/Help/Image/namedAxonometricProjection-B.svg)
+![](Help/Image/namedAxonometricProjection-B.svg)
 
 * * *
 

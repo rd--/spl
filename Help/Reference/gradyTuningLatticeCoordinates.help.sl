@@ -61,7 +61,7 @@ Compare Grady and Wilson tuning lattice templates using a 7-note 13-limit scale
 )
 ~~~
 
-![](sw/spl/Help/Image/gradyTuningLatticeCoordinates-A.svg)
+![](Help/Image/gradyTuningLatticeCoordinates-A.svg)
 
 Draw points at each vertex of an _m×m_ _k_ dimensional grid:
 
@@ -76,7 +76,7 @@ List(k, [0 m]).coordinateBoundsArray(List(k, 1))
 }.PointCloud
 ~~~
 
-![](sw/spl/Help/Image/gradyTuningLatticeCoordinates-B.svg)
+![](Help/Image/gradyTuningLatticeCoordinates-B.svg)
 
 * * *
 

@@ -10,7 +10,7 @@ _m=5_ and _n=2_:
 residueDesignPlot(5, 2)
 ~~~
 
-![](sw/spl/Help/Image/residueDesignPlot-A.svg)
+![](Help/Image/residueDesignPlot-A.svg)
 
 _m=20_ and _n=17_:
 
@@ -18,7 +18,7 @@ _m=20_ and _n=17_:
 residueDesignPlot(20, 17)
 ~~~
 
-![](sw/spl/Help/Image/residueDesignPlot-B.svg)
+![](Help/Image/residueDesignPlot-B.svg)
 
 _m=44_ and _n=10_:
 
@@ -26,7 +26,7 @@ _m=44_ and _n=10_:
 residueDesignPlot(44, 10)
 ~~~
 
-![](sw/spl/Help/Image/residueDesignPlot-C.svg)
+![](Help/Image/residueDesignPlot-C.svg)
 
 _m=156_ and _n=13_:
 
@@ -34,7 +34,7 @@ _m=156_ and _n=13_:
 residueDesignPlot(156, 13)
 ~~~
 
-![](sw/spl/Help/Image/residueDesignPlot-D.svg)
+![](Help/Image/residueDesignPlot-D.svg)
 
 _m=195_ and _n=25_:
 
@@ -42,7 +42,7 @@ _m=195_ and _n=25_:
 residueDesignPlot(195, 25)
 ~~~
 
-![](sw/spl/Help/Image/residueDesignPlot-E.svg)
+![](Help/Image/residueDesignPlot-E.svg)
 
 _m=5_ and _n=0_:
 
@@ -50,7 +50,7 @@ _m=5_ and _n=0_:
 residueDesignPlot(5, 0)
 ~~~
 
-![](sw/spl/Help/Image/residueDesignPlot-F.svg)
+![](Help/Image/residueDesignPlot-F.svg)
 
 _m=10_ and _n=3_:
 
@@ -58,7 +58,7 @@ _m=10_ and _n=3_:
 residueDesignPlot(10, 3)
 ~~~
 
-![](sw/spl/Help/Image/residueDesignPlot-G.svg)
+![](Help/Image/residueDesignPlot-G.svg)
 
 Perpendicular chords,
 _m=10_ and _n=4_:
@@ -67,7 +67,7 @@ _m=10_ and _n=4_:
 residueDesignPlot(10, 4)
 ~~~
 
-![](sw/spl/Help/Image/residueDesignPlot-H.svg)
+![](Help/Image/residueDesignPlot-H.svg)
 
 _m=18_ and _n=8_:
 
@@ -75,7 +75,7 @@ _m=18_ and _n=8_:
 residueDesignPlot(18, 8)
 ~~~
 
-![](sw/spl/Help/Image/residueDesignPlot-I.svg)
+![](Help/Image/residueDesignPlot-I.svg)
 
 _m=24_ and _n=11_:
 
@@ -83,7 +83,7 @@ _m=24_ and _n=11_:
 residueDesignPlot(24, 11)
 ~~~
 
-![](sw/spl/Help/Image/residueDesignPlot-J.svg)
+![](Help/Image/residueDesignPlot-J.svg)
 
 Epicycloid, _m=2_ plots a cardioid:
 
@@ -91,7 +91,7 @@ Epicycloid, _m=2_ plots a cardioid:
 residueDesignPlot(24, 2)
 ~~~
 
-![](sw/spl/Help/Image/residueDesignPlot-K.svg)
+![](Help/Image/residueDesignPlot-K.svg)
 
 Epicycloid, _m=3_ plots a nephroid:
 
@@ -99,7 +99,7 @@ Epicycloid, _m=3_ plots a nephroid:
 residueDesignPlot(24, 3)
 ~~~
 
-![](sw/spl/Help/Image/residueDesignPlot-L.svg)
+![](Help/Image/residueDesignPlot-L.svg)
 
 _m=53_ and _n=3_:
 
@@ -107,7 +107,7 @@ _m=53_ and _n=3_:
 residueDesignPlot(53, 3)
 ~~~
 
-![](sw/spl/Help/Image/residueDesignPlot-M.svg)
+![](Help/Image/residueDesignPlot-M.svg)
 
 _m=176_ and _n=20_:
 
@@ -115,7 +115,7 @@ _m=176_ and _n=20_:
 residueDesignPlot(176, 20)
 ~~~
 
-![](sw/spl/Help/Image/residueDesignPlot-N.svg)
+![](Help/Image/residueDesignPlot-N.svg)
 
 _m=219_ and _n=25_:
 
@@ -123,7 +123,7 @@ _m=219_ and _n=25_:
 residueDesignPlot(219, 25)
 ~~~
 
-![](sw/spl/Help/Image/residueDesignPlot-O.svg)
+![](Help/Image/residueDesignPlot-O.svg)
 
 _m=58_ and _n=20_:
 
@@ -131,7 +131,7 @@ _m=58_ and _n=20_:
 residueDesignPlot(58, 20)
 ~~~
 
-![](sw/spl/Help/Image/residueDesignPlot-P.svg)
+![](Help/Image/residueDesignPlot-P.svg)
 
 _m=42_ and _n=7_:
 
@@ -139,7 +139,7 @@ _m=42_ and _n=7_:
 residueDesignPlot(42, 7)
 ~~~
 
-![](sw/spl/Help/Image/residueDesignPlot-Q.svg)
+![](Help/Image/residueDesignPlot-Q.svg)
 
 * * *
 

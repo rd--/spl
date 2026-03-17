@@ -12,7 +12,7 @@ Construct a graph from a Kirchhoff matrix:
 .graphPlot
 ~~~
 
-![](sw/spl/Help/Image/kirchhoffGraph-A.svg)
+![](Help/Image/kirchhoffGraph-A.svg)
 
 A symmetric Kirchhoff matrix results in an undirected graph:
 
@@ -22,7 +22,7 @@ A symmetric Kirchhoff matrix results in an undirected graph:
 .graphPlot
 ~~~
 
-![](sw/spl/Help/Image/kirchhoffGraph-B.svg)
+![](Help/Image/kirchhoffGraph-B.svg)
 
 Use `table` to specify the Kirchhoff matrix:
 
@@ -34,7 +34,7 @@ Use `table` to specify the Kirchhoff matrix:
 .graphPlot
 ~~~
 
-![](sw/spl/Help/Image/kirchhoffGraph-C.svg)
+![](Help/Image/kirchhoffGraph-C.svg)
 
 * * *
 

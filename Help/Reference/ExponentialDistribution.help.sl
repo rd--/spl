@@ -18,7 +18,7 @@ monotonically decreasing:
 )
 ~~~
 
-![](sw/spl/Help/Image/ExponentialDistribution-A.svg)
+![](Help/Image/ExponentialDistribution-A.svg)
 
 Cumulative distribution function:
 
@@ -28,7 +28,7 @@ Cumulative distribution function:
 )
 ~~~
 
-![](sw/spl/Help/Image/ExponentialDistribution-B.svg)
+![](Help/Image/ExponentialDistribution-B.svg)
 
 Generate a sample of pseudorandom numbers from a geometric distribution:
 
@@ -41,7 +41,7 @@ ExponentialDistribution(3.5)
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/ExponentialDistribution-C.svg)
+![](Help/Image/ExponentialDistribution-C.svg)
 
 The `inverseCdf`, or percent point function:
 
@@ -52,7 +52,7 @@ The `inverseCdf`, or percent point function:
 )
 ~~~
 
-![](sw/spl/Help/Image/ExponentialDistribution-D.svg)
+![](Help/Image/ExponentialDistribution-D.svg)
 
 The `inverseSurvivalFunction`:
 
@@ -63,7 +63,7 @@ The `inverseSurvivalFunction`:
 )
 ~~~
 
-![](sw/spl/Help/Image/ExponentialDistribution-E.svg)
+![](Help/Image/ExponentialDistribution-E.svg)
 
 Compute `cdf` at specific value:
 

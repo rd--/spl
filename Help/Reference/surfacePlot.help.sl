@@ -30,7 +30,7 @@ At `Interval`, which is implicitly discretized by `surfacePlot`:
 }
 ~~~
 
-![](sw/spl/Help/Image/surfacePlot-A.svg)
+![](Help/Image/surfacePlot-A.svg)
 
 A `sin` and `cos` plot with dampened _z_:
 
@@ -41,7 +41,7 @@ A `sin` and `cos` plot with dampened _z_:
 }
 ~~~
 
-![](sw/spl/Help/Image/surfacePlot-B.svg)
+![](Help/Image/surfacePlot-B.svg)
 
 A `sin` plot:
 
@@ -54,7 +54,7 @@ A `sin` plot:
 }
 ~~~
 
-![](sw/spl/Help/Image/surfacePlot-C.svg)
+![](Help/Image/surfacePlot-C.svg)
 
 A `sin` and `cos` plot with dampened _z_:
 
@@ -65,7 +65,7 @@ A `sin` and `cos` plot with dampened _z_:
 }
 ~~~
 
-![](sw/spl/Help/Image/surfacePlot-D.svg)
+![](Help/Image/surfacePlot-D.svg)
 
 A height plot:
 
@@ -76,7 +76,7 @@ A height plot:
 }
 ~~~
 
-![](sw/spl/Help/Image/surfacePlot-E.svg)
+![](Help/Image/surfacePlot-E.svg)
 
 A dilated half sphere:
 
@@ -92,7 +92,7 @@ A dilated half sphere:
 }
 ~~~
 
-![](sw/spl/Help/Image/surfacePlot-F.svg)
+![](Help/Image/surfacePlot-F.svg)
 
 Dini’s surface:
 
@@ -102,7 +102,7 @@ Dini’s surface:
 )
 ~~~
 
-![](sw/spl/Help/Image/surfacePlot-G.svg)
+![](Help/Image/surfacePlot-G.svg)
 
 A pseudosphere:
 
@@ -110,7 +110,7 @@ A pseudosphere:
 [-2 2; 0 2.pi].surfacePlot(pseudosphere:/2)
 ~~~
 
-![](sw/spl/Help/Image/surfacePlot-H.svg)
+![](Help/Image/surfacePlot-H.svg)
 
 A one-dimensional potential energy equation plotted as the parameter λ is varied:
 
@@ -122,7 +122,7 @@ A one-dimensional potential energy equation plotted as the parameter λ is varie
 }
 ~~~
 
-![](sw/spl/Help/Image/surfacePlot-I.svg)
+![](Help/Image/surfacePlot-I.svg)
 
 Plot Möbius strip:
 
@@ -132,7 +132,7 @@ Plot Möbius strip:
 )
 ~~~
 
-![](sw/spl/Help/Image/surfacePlot-J.svg)
+![](Help/Image/surfacePlot-J.svg)
 
 Plot one half of Plücker’s conoid:
 
@@ -142,7 +142,7 @@ Plot one half of Plücker’s conoid:
 )
 ~~~
 
-![](sw/spl/Help/Image/surfacePlot-K.svg)
+![](Help/Image/surfacePlot-K.svg)
 
 Plot a double cone:
 
@@ -155,7 +155,7 @@ Plot a double cone:
 }
 ~~~
 
-![](sw/spl/Help/Image/surfacePlot-L.svg)
+![](Help/Image/surfacePlot-L.svg)
 
 Plot a torus:
 
@@ -167,7 +167,7 @@ let f:/2 = torus(2.5);
 }
 ~~~
 
-![](sw/spl/Help/Image/surfacePlot-M.svg)
+![](Help/Image/surfacePlot-M.svg)
 
 Plot a catenoid:
 
@@ -177,7 +177,7 @@ Plot a catenoid:
 )
 ~~~
 
-![](sw/spl/Help/Image/surfacePlot-N.svg)
+![](Help/Image/surfacePlot-N.svg)
 
 Plot a helicoid:
 
@@ -187,7 +187,7 @@ Plot a helicoid:
 )
 ~~~
 
-![](sw/spl/Help/Image/surfacePlot-O.svg)
+![](Help/Image/surfacePlot-O.svg)
 
 Plot a hyperbolic helicoid:
 
@@ -197,7 +197,7 @@ Plot a hyperbolic helicoid:
 )
 ~~~
 
-![](sw/spl/Help/Image/surfacePlot-P.svg)
+![](Help/Image/surfacePlot-P.svg)
 
 Plot an umbilic torus:
 
@@ -208,7 +208,7 @@ Plot an umbilic torus:
 }
 ~~~
 
-![](sw/spl/Help/Image/surfacePlot-Q.svg)
+![](Help/Image/surfacePlot-Q.svg)
 
 Plot a hyperbolic paraboloid:
 
@@ -218,7 +218,7 @@ Plot a hyperbolic paraboloid:
 }
 ~~~
 
-![](sw/spl/Help/Image/surfacePlot-R.svg)
+![](Help/Image/surfacePlot-R.svg)
 
 Plot a maxima parabaloid:
 
@@ -228,7 +228,7 @@ Plot a maxima parabaloid:
 }
 ~~~
 
-![](sw/spl/Help/Image/surfacePlot-S.svg)
+![](Help/Image/surfacePlot-S.svg)
 
 * * *
 

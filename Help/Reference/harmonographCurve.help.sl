@@ -26,7 +26,7 @@ the Lemniscate of Gerono:
 )
 ~~~
 
-![](sw/spl/Help/Image/harmonographCurve-A.svg)
+![](Help/Image/harmonographCurve-A.svg)
 
 With frequency ratio three quarters,
 the Lincoln Laboratory:
@@ -42,7 +42,7 @@ the Lincoln Laboratory:
 )
 ~~~
 
-![](sw/spl/Help/Image/harmonographCurve-B.svg)
+![](Help/Image/harmonographCurve-B.svg)
 
 The Lincoln Laboratory curve with _d=1%_ and domain _0-8π_:
 
@@ -58,7 +58,7 @@ The Lincoln Laboratory curve with _d=1%_ and domain _0-8π_:
 )
 ~~~
 
-![](sw/spl/Help/Image/harmonographCurve-C.svg)
+![](Help/Image/harmonographCurve-C.svg)
 
 Specifying all four parameters allows for distinct ratios at _x_ and _y_:
 
@@ -74,7 +74,7 @@ Specifying all four parameters allows for distinct ratios at _x_ and _y_:
 )
 ~~~
 
-![](sw/spl/Help/Image/harmonographCurve-D.svg)
+![](Help/Image/harmonographCurve-D.svg)
 
 A near octave:
 
@@ -90,7 +90,7 @@ A near octave:
 )
 ~~~
 
-![](sw/spl/Help/Image/harmonographCurve-E.svg)
+![](Help/Image/harmonographCurve-E.svg)
 
 Near octaves:
 
@@ -106,7 +106,7 @@ Near octaves:
 )
 ~~~
 
-![](sw/spl/Help/Image/harmonographCurve-F.svg)
+![](Help/Image/harmonographCurve-F.svg)
 
 * * *
 

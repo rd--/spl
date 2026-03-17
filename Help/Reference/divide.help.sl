@@ -153,7 +153,7 @@ the _y_ coordinate is given by the order of the divisions:
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/divide-A.svg)
+![](Help/Image/divide-A.svg)
 
 Triangle read by rows,
 _n/k_ if _k_ is a divisor of _n_ else zero,
@@ -165,7 +165,7 @@ OEIS [A127093](https://oeis.org/A127093):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/divide-B.svg)
+![](Help/Image/divide-B.svg)
 
 * * *
 

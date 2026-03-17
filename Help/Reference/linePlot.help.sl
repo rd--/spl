@@ -18,7 +18,7 @@ Plot a six-vector:
 [1 1 2 3 5 8].linePlot
 ~~~
 
-![](sw/spl/Help/Image/linePlot-A.svg)
+![](Help/Image/linePlot-A.svg)
 
 If _c_ is a matrix of one column,
 plot as a list of _y_ values.
@@ -28,7 +28,7 @@ Plot a 5×1 matrix:
 [1; 3; 2; 5; 4].linePlot
 ~~~
 
-![](sw/spl/Help/Image/linePlot-B.svg)
+![](Help/Image/linePlot-B.svg)
 
 If _c_ is a matrix of two columns,
 plot as a list of _(x, y)_ pairs.
@@ -44,7 +44,7 @@ let n = 5;
 }.linePlot
 ~~~
 
-![](sw/spl/Help/Image/linePlot-C.svg)
+![](Help/Image/linePlot-C.svg)
 
 If _c_ is a matrix of three columns,
 plot as a list of _(x, y, z)_ triples.
@@ -63,7 +63,7 @@ Plot an 8×3 matrix:
 ].linePlot
 ~~~
 
-![](sw/spl/Help/Image/linePlot-D.svg)
+![](Help/Image/linePlot-D.svg)
 
 Plot the prime counting sequence:
 
@@ -71,7 +71,7 @@ Plot the prime counting sequence:
 1:50.collect(primePi:/1).linePlot
 ~~~
 
-![](sw/spl/Help/Image/linePlot-E.svg)
+![](Help/Image/linePlot-E.svg)
 
 C.f. `functionPlot`:
 
@@ -79,7 +79,7 @@ C.f. `functionPlot`:
 1:50.functionPlot(primePi:/1)
 ~~~
 
-![](sw/spl/Help/Image/linePlot-F.svg)
+![](Help/Image/linePlot-F.svg)
 
 Plot a trigonometric function:
 
@@ -89,7 +89,7 @@ Plot a trigonometric function:
 }.linePlot
 ~~~
 
-![](sw/spl/Help/Image/linePlot-G.svg)
+![](Help/Image/linePlot-G.svg)
 
 C.f. `functionPlot`:
 
@@ -99,7 +99,7 @@ C.f. `functionPlot`:
 }
 ~~~
 
-![](sw/spl/Help/Image/linePlot-H.svg)
+![](Help/Image/linePlot-H.svg)
 
 Plot a random walk in one dimension:
 
@@ -110,7 +110,7 @@ Sfc32(31804)
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/linePlot-I.svg)
+![](Help/Image/linePlot-I.svg)
 
 Plot a random walk in two dimensions:
 
@@ -121,7 +121,7 @@ Sfc32(41975)
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/linePlot-J.svg)
+![](Help/Image/linePlot-J.svg)
 
 Plot a random walk on a lattice:
 
@@ -132,7 +132,7 @@ let r = Sfc32(80415);
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/linePlot-K.svg)
+![](Help/Image/linePlot-K.svg)
 
 If _c_ is an _n×m×2_ array,
 plot as a set of _(x, y)_ lines.
@@ -145,7 +145,7 @@ Plot two lines:
 ].linePlot
 ~~~
 
-![](sw/spl/Help/Image/linePlot-L.svg)
+![](Help/Image/linePlot-L.svg)
 
 If _c_ is a `List` of two column matrices,
 plot as a set of _(x, y)_ lines.
@@ -158,7 +158,7 @@ Plot two lines with different numbers of points:
 ].linePlot
 ~~~
 
-![](sw/spl/Help/Image/linePlot-M.svg)
+![](Help/Image/linePlot-M.svg)
 
 If _c_ is an _n×m×1_ array,
 plot as a set of _y_ values.
@@ -171,7 +171,7 @@ Plot list of column vectors:
 ].linePlot
 ~~~
 
-![](sw/spl/Help/Image/linePlot-N.svg)
+![](Help/Image/linePlot-N.svg)
 
 If _c_ is a list of vectors,
 and is not a one, two or three column matrix,
@@ -185,7 +185,7 @@ Plot multiple sets of _y_ data:
 ].linePlot
 ~~~
 
-![](sw/spl/Help/Image/linePlot-O.svg)
+![](Help/Image/linePlot-O.svg)
 
 Compare the n^(th) prime to an estimate:
 
@@ -196,7 +196,7 @@ Compare the n^(th) prime to an estimate:
 ].linePlot
 ~~~
 
-![](sw/spl/Help/Image/linePlot-P.svg)
+![](Help/Image/linePlot-P.svg)
 
 Values that are not finite are elided,
 and the line segmented:
@@ -206,7 +206,7 @@ and the line segmented:
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/linePlot-Q.svg)
+![](Help/Image/linePlot-Q.svg)
 
 * * *
 

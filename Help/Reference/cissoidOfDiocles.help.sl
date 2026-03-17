@@ -15,7 +15,7 @@ let t = (-1/3.pi -- 1/3.pi).discretize(100);
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/cissoidOfDiocles-A.svg)
+![](Help/Image/cissoidOfDiocles-A.svg)
 
 * * *
 

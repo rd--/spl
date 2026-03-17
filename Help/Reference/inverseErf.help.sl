@@ -68,7 +68,7 @@ Plot over a subset of the reals:
 (-0.99 -- 0.99).functionPlot(inverseErf:/1)
 ~~~
 
-![](sw/spl/Help/Image/inverseErf-A.svg)
+![](Help/Image/inverseErf-A.svg)
 
 * * *
 

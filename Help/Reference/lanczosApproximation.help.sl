@@ -45,7 +45,7 @@ Compare `gamma` and `lanczosApproximation` for small _z_:
 )
 ~~~
 
-![](sw/spl/Help/Image/lanczosApproximation-A.svg)
+![](Help/Image/lanczosApproximation-A.svg)
 
 * * *
 

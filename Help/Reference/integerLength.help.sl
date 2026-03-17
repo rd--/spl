@@ -110,7 +110,7 @@ Plot for base 10 from -25 to 25:
 }
 ~~~
 
-![](sw/spl/Help/Image/integerLength-A.svg)
+![](Help/Image/integerLength-A.svg)
 
 Plot for base 2 from 1 to 1023:
 
@@ -120,7 +120,7 @@ Plot for base 2 from 1 to 1023:
 }
 ~~~
 
-![](sw/spl/Help/Image/integerLength-B.svg)
+![](Help/Image/integerLength-B.svg)
 
 Plot for base 10 for factorials, minus pre-factorial value:
 
@@ -130,7 +130,7 @@ Plot for base 10 for factorials, minus pre-factorial value:
 }
 ~~~
 
-![](sw/spl/Help/Image/integerLength-C.svg)
+![](Help/Image/integerLength-C.svg)
 
 Sloping binary numbers,
 OEIS [A102370](https://oeis.org/A102370):
@@ -144,7 +144,7 @@ OEIS [A102370](https://oeis.org/A102370):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/integerLength-D.svg)
+![](Help/Image/integerLength-D.svg)
 
 A variant of the sloping binary numbers sequence,
 organised in blocks and a permutation of the integers,
@@ -159,7 +159,7 @@ OEIS [A102370](https://oeis.org/A102370):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/integerLength-E.svg)
+![](Help/Image/integerLength-E.svg)
 
 * * *
 

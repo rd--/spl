@@ -33,7 +33,7 @@ let r = m.ellipticK * 4;
 }
 ~~~
 
-![](sw/spl/Help/Image/jacobiSn-A.svg)
+![](Help/Image/jacobiSn-A.svg)
 
 Solution of the pendulum equation:
 
@@ -52,7 +52,7 @@ let alpha = { :phi |
 )
 ~~~
 
-![](sw/spl/Help/Image/jacobiSn-B.svg)
+![](Help/Image/jacobiSn-B.svg)
 
 Plot with `sin`:
 
@@ -67,7 +67,7 @@ let p = 4 * m.ellipticK;
 )
 ~~~
 
-![](sw/spl/Help/Image/jacobiSn-C.svg)
+![](Help/Image/jacobiSn-C.svg)
 
 * * *
 

@@ -66,7 +66,7 @@ let m = (k ^ 2 + 1) - k.spiralMatrix;
 m.transpose.isPrime.boole.matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/spiralMatrix-A.svg)
+![](Help/Image/spiralMatrix-A.svg)
 
 Less small Ulam spiral:
 
@@ -76,7 +76,7 @@ let m = (k ^ 2 + 1) - k.spiralMatrix;
 m.transpose.isPrime.boole.Bitmap
 ~~~
 
-![](sw/spl/Help/Image/spiralMatrix-B.png)
+![](Help/Image/spiralMatrix-B.png)
 
 Plot matrix:
 
@@ -84,7 +84,7 @@ Plot matrix:
 13.spiralMatrix.matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/spiralMatrix-C.svg)
+![](Help/Image/spiralMatrix-C.svg)
 
 * * *
 

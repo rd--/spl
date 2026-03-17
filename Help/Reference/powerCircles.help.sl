@@ -14,7 +14,7 @@ let m = t.medialTriangle;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/powerCircles-A.svg)
+![](Help/Image/powerCircles-A.svg)
 
 * * *
 

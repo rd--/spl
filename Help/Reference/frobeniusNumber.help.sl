@@ -47,7 +47,7 @@ Plot Frobenius numbers of length-4 runs:
 }.differences.linePlot
 ~~~
 
-![](sw/spl/Help/Image/frobeniusNumber-A.svg)
+![](Help/Image/frobeniusNumber-A.svg)
 
 Some Frobenius numbers:
 

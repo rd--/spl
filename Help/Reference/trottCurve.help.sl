@@ -11,7 +11,7 @@ let i = (-1 -- 1).discretize(50);
 trottCurve:/2.contourPlot(i, i, [0])
 ~~~
 
-![](sw/spl/Help/Image/trottCurve-A.svg)
+![](Help/Image/trottCurve-A.svg)
 
 * * *
 

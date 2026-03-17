@@ -94,7 +94,7 @@ OEIS [A008683](https://oeis.org/A008683):
 1:100.moebiusMu.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/moebiusMu-A.svg)
+![](Help/Image/moebiusMu-A.svg)
 
 Mertens’s function _M(n)_ sums μ over _1:n_,
 OEIS [A002321](https://oeis.org/A002321):
@@ -121,7 +121,7 @@ OEIS [A002321](https://oeis.org/A002321):
 1:250.moebiusMu.prefixSum.linePlot
 ~~~
 
-![](sw/spl/Help/Image/moebiusMu-B.svg)
+![](Help/Image/moebiusMu-B.svg)
 
 Numbers such that Mertens’s function is zero,
 OEIS [A028442](https://oeis.org/A028442):
@@ -196,7 +196,7 @@ OEIS [A037227](https://oeis.org/A037227):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/moebiusMu-C.svg)
+![](Help/Image/moebiusMu-C.svg)
 
 A sequence by I.Gutkovskiy,
 OEIS [A318583](https://oeis.org/A318583):
@@ -216,7 +216,7 @@ let a:/1 = { :n |
 1:175.collect(a:/1).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/moebiusMu-D.svg)
+![](Help/Image/moebiusMu-D.svg)
 
 Dirichlet inverse of sigma function,
 OEIS [A046692](http://oeis.org/A046692):
@@ -235,7 +235,7 @@ OEIS [A046692](http://oeis.org/A046692):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/moebiusMu-E.svg)
+![](Help/Image/moebiusMu-E.svg)
 
 A unform length walk where turn angles are given by the Möbius function:
 
@@ -244,7 +244,7 @@ let m = 1:500.collect(moebiusMu:/1);
 (m * 1/3.pi).anglePath.linePlot
 ~~~
 
-![](sw/spl/Help/Image/moebiusMu-F.svg)
+![](Help/Image/moebiusMu-F.svg)
 
 Moebius function applied to divisors of _n_,
 OEIS [A225817](https://oeis.org/A225817):
@@ -255,7 +255,7 @@ OEIS [A225817](https://oeis.org/A225817):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/moebiusMu-G.svg)
+![](Help/Image/moebiusMu-G.svg)
 
 Number of transformation groups of order _n_,
 OEIS [A000113](https://oeis.org/A000113):
@@ -273,7 +273,7 @@ OEIS [A000113](https://oeis.org/A000113):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/moebiusMu-H.svg)
+![](Help/Image/moebiusMu-H.svg)
 
 Dedekind ψ function,
 OEIS [A001615](https://oeis.org/A001615):
@@ -286,7 +286,7 @@ OEIS [A001615](https://oeis.org/A001615):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/moebiusMu-I.svg)
+![](Help/Image/moebiusMu-I.svg)
 
 The truncated Mertens function,
 OEIS [A088004](https://oeis.org/A088004):
@@ -297,7 +297,7 @@ OEIS [A088004](https://oeis.org/A088004):
 }.prefixSum.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/moebiusMu-J.svg)
+![](Help/Image/moebiusMu-J.svg)
 
 Mertens conjectured that _|M(n)|<√(n)_,
 now known to be false,
@@ -309,7 +309,7 @@ OEIS [A059571](https://oeis.org/A059571):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/moebiusMu-K.svg)
+![](Help/Image/moebiusMu-K.svg)
 
 _μ(n/k)_ if _k_ divides _n_ else zero,
 OEIS [A054525](https://oeis.org/A054525):
@@ -324,7 +324,7 @@ OEIS [A054525](https://oeis.org/A054525):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/moebiusMu-L.svg)
+![](Help/Image/moebiusMu-L.svg)
 
 _μ(n)×n_,
 OEIS [A055615](https://oeis.org/A055615):
@@ -334,7 +334,7 @@ let n = 1:85;
 (n.moebiusMu * n).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/moebiusMu-M.svg)
+![](Help/Image/moebiusMu-M.svg)
 
 * * *
 

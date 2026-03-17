@@ -11,7 +11,7 @@ LsIBrown(1, 99, 3, 99, Sfc32(789143))
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/LsIBrown-A.svg)
+![](Help/Image/LsIBrown-A.svg)
 
 * * *
 

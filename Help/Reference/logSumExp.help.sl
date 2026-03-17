@@ -21,7 +21,7 @@ Surface plot:
 }
 ~~~
 
-![](sw/spl/Help/Image/logSumExp-A.svg)
+![](Help/Image/logSumExp-A.svg)
 
 Matrix plot:
 
@@ -32,7 +32,7 @@ let i = (-2 -- 4).discretize(12);
 }.table(i, i).matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/logSumExp-B.svg)
+![](Help/Image/logSumExp-B.svg)
 
 Compare to surface plot of `max`:
 
@@ -42,7 +42,7 @@ Compare to surface plot of `max`:
 }
 ~~~
 
-![](sw/spl/Help/Image/logSumExp-C.svg)
+![](Help/Image/logSumExp-C.svg)
 
 * * *
 

@@ -33,7 +33,7 @@ Plot the indigestibility of the first one hundred integers:
 1:100.functionPlot(barlowIndigestibility:/1)
 ~~~
 
-![](sw/spl/Help/Image/barlowIndigestibility-A.svg)
+![](Help/Image/barlowIndigestibility-A.svg)
 
 * * *
 

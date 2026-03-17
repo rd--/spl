@@ -57,7 +57,7 @@ Plot the seven degree Bell polynomial over a subset of the reals:
 )
 ~~~
 
-![](sw/spl/Help/Image/bellB-A.svg)
+![](Help/Image/bellB-A.svg)
 
 Plot the first five polynomials over a subset of the reals:
 
@@ -71,7 +71,7 @@ Plot the first five polynomials over a subset of the reals:
 )
 ~~~
 
-![](sw/spl/Help/Image/bellB-B.svg)
+![](Help/Image/bellB-B.svg)
 
 Evaluate symbolically:
 

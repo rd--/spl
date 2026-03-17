@@ -18,7 +18,7 @@ x.addSine(9, 1 / 3, 1.pi, 0);
 x.linePlot
 ~~~
 
-![](sw/spl/Help/Image/addSine-A.svg)
+![](Help/Image/addSine-A.svg)
 
 * * *
 

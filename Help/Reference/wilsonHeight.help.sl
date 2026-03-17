@@ -39,7 +39,7 @@ let y = 1 - x.wilsonHeight.rescale;
 (x -> y).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/wilsonHeight-A.svg)
+![](Help/Image/wilsonHeight-A.svg)
 
 * * *
 

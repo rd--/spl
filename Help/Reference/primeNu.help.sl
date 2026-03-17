@@ -81,7 +81,7 @@ OEIS [A001221](https://oeis.org/A001221):
 1:100.functionPlot(primeNu:/1)
 ~~~
 
-![](sw/spl/Help/Image/primeNu-A.svg)
+![](Help/Image/primeNu-A.svg)
 
 Rational knots of determinant _2n+1_,
 counting chiral pairs twice,
@@ -96,7 +96,7 @@ OEIS [A089266](https://oeis.org/A089266):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/primeNu-B.svg)
+![](Help/Image/primeNu-B.svg)
 
 Barriers for _ω(n)_,
 OEIS [A005236](https://oeis.org/A005236):
@@ -110,7 +110,7 @@ OEIS [A005236](https://oeis.org/A005236):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/primeNu-C.svg)
+![](Help/Image/primeNu-C.svg)
 
 `lcm` of all divisors _d_ of _n_ such that _d+1_ is a prime power,
 OEIS [A049073](https://oeis.org/A049073):
@@ -123,7 +123,7 @@ OEIS [A049073](https://oeis.org/A049073):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/primeNu-D.svg)
+![](Help/Image/primeNu-D.svg)
 
 Count of non-unitary divisors of _n_,
 OEIS [A048105](https://oeis.org/A048105):
@@ -134,7 +134,7 @@ OEIS [A048105](https://oeis.org/A048105):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/primeNu-E.svg)
+![](Help/Image/primeNu-E.svg)
 
 Number of ways of writing _n_ as _p*q_ where _p<=q_ and _gcd(p,q)=1_,
 OEIS [A007875](https://oeis.org/A007875):
@@ -145,7 +145,7 @@ OEIS [A007875](https://oeis.org/A007875):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/primeNu-F.svg)
+![](Help/Image/primeNu-F.svg)
 
 Least size of generators for multiplicative group of integers modulo _n_,
 OEIS [A046072](https://oeis.org/A046072):
@@ -168,7 +168,7 @@ OEIS [A046072](https://oeis.org/A046072):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/primeNu-G.svg)
+![](Help/Image/primeNu-G.svg)
 
 _ω(n)=1_,
 OEIS [A069513](https://oeis.org/A069513):
@@ -179,7 +179,7 @@ OEIS [A069513](https://oeis.org/A069513):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/primeNu-H.svg)
+![](Help/Image/primeNu-H.svg)
 
 _ω(n)≤1_,
 OEIS [A010055](https://oeis.org/A010055):
@@ -190,7 +190,7 @@ OEIS [A010055](https://oeis.org/A010055):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/primeNu-I.svg)
+![](Help/Image/primeNu-I.svg)
 
 * * *
 

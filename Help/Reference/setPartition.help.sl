@@ -56,7 +56,7 @@ Plot the set partition _167-234-5_:
 .partitionPlot
 ~~~
 
-![](sw/spl/Help/Image/setPartition-A.svg)
+![](Help/Image/setPartition-A.svg)
 
 * * *
 

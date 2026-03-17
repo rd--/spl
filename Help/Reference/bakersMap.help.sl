@@ -13,7 +13,7 @@ bakersMap(1.1)
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/bakersMap-A.svg)
+![](Help/Image/bakersMap-A.svg)
 
 Plot with _a=b=0.947_:
 
@@ -24,7 +24,7 @@ bakersMap(0.947)
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/bakersMap-B.svg)
+![](Help/Image/bakersMap-B.svg)
 
 * * *
 

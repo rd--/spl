@@ -261,7 +261,7 @@ the prepresentation has 115 places:
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/zeckendorfRepresentation-A.svg)
+![](Help/Image/zeckendorfRepresentation-A.svg)
 
 Counts of the Zeckendorf representation of a large integer,
 indicating the proportions of zeroes and ones:
@@ -301,7 +301,7 @@ OEIS [A007895](https://oeis.org/A007895):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/zeckendorfRepresentation-B.svg)
+![](Help/Image/zeckendorfRepresentation-B.svg)
 
 Zeckendorf representation as binary integer,
 OEIS [A003714](https://oeis.org/A003714):
@@ -313,7 +313,7 @@ OEIS [A003714](https://oeis.org/A003714):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/zeckendorfRepresentation-C.svg)
+![](Help/Image/zeckendorfRepresentation-C.svg)
 
 Summands for each entry,
 OEIS [A035517](https://oeis.org/A035517):
@@ -326,7 +326,7 @@ OEIS [A035517](https://oeis.org/A035517):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/zeckendorfRepresentation-D.svg)
+![](Help/Image/zeckendorfRepresentation-D.svg)
 
 Integers whose Zeckendorf representation is palindromic,
 OEIS [A094202](https://oeis.org/A094202):
@@ -338,7 +338,7 @@ OEIS [A094202](https://oeis.org/A094202):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/zeckendorfRepresentation-E.svg)
+![](Help/Image/zeckendorfRepresentation-E.svg)
 
 The number of runs of identical bits in the binary Zeckendorf representation of _n_,
 OEIS [A104324](https://oeis.org/A104324):
@@ -351,7 +351,7 @@ OEIS [A104324](https://oeis.org/A104324):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/zeckendorfRepresentation-F.svg)
+![](Help/Image/zeckendorfRepresentation-F.svg)
 
 Matrix plot of Zeckendorf representations of length seven:
 
@@ -360,7 +360,7 @@ Matrix plot of Zeckendorf representations of length seven:
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/zeckendorfRepresentation-G.svg)
+![](Help/Image/zeckendorfRepresentation-G.svg)
 
 Number of zeroes in the Zeckendorf representation of _n_,
 OEIS [A102364](https://oeis.org/A102364):
@@ -387,7 +387,7 @@ OEIS [A102364](https://oeis.org/A102364):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/zeckendorfRepresentation-H.svg)
+![](Help/Image/zeckendorfRepresentation-H.svg)
 
 Zeckendorf representations,
 OEIS [A189920](https://oeis.org/A189920):
@@ -398,7 +398,7 @@ OEIS [A189920](https://oeis.org/A189920):
 ).catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/zeckendorfRepresentation-I.svg)
+![](Help/Image/zeckendorfRepresentation-I.svg)
 
 * * *
 

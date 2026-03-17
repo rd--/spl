@@ -24,7 +24,7 @@ Plot:
 )
 ~~~
 
-![](sw/spl/Help/Image/blackmanHarrisWindow-A.svg)
+![](Help/Image/blackmanHarrisWindow-A.svg)
 
 Discrete Blackman-Harris window of length 15:
 
@@ -36,7 +36,7 @@ Discrete Blackman-Harris window of length 15:
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/blackmanHarrisWindow-B.svg)
+![](Help/Image/blackmanHarrisWindow-B.svg)
 
 Frequency response of the Blackman-Harris window:
 
@@ -46,7 +46,7 @@ Frequency response of the Blackman-Harris window:
 ).fftPlot(512, 'Centered', 'Logarithmic')
 ~~~
 
-![](sw/spl/Help/Image/blackmanHarrisWindow-C.svg)
+![](Help/Image/blackmanHarrisWindow-C.svg)
 
 * * *
 

@@ -78,7 +78,7 @@ let n = 7;
 ).LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/midpoint-A.svg)
+![](Help/Image/midpoint-A.svg)
 
 * * *
 

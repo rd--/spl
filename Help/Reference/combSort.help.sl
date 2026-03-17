@@ -40,7 +40,7 @@ let r = [];
 r.downsample(k).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/combSort-A.svg)
+![](Help/Image/combSort-A.svg)
 
 * * *
 

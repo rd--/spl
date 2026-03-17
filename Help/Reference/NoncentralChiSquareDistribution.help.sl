@@ -14,7 +14,7 @@ NoncentralChiSquareDistribution(5, 10)
 .histogramPlot
 ~~~
 
-![](sw/spl/Help/Image/NoncentralChiSquareDistribution-A.svg)
+![](Help/Image/NoncentralChiSquareDistribution-A.svg)
 
 * * *
 

@@ -13,7 +13,7 @@ With _n=1_, called Archimedes’ spiral:
 )
 ~~~
 
-![](sw/spl/Help/Image/archimedeanSpiral-A.svg)
+![](Help/Image/archimedeanSpiral-A.svg)
 
 With _n=2_, called Fermat’s spiral, or the parabolic spiral:
 
@@ -24,7 +24,7 @@ With _n=2_, called Fermat’s spiral, or the parabolic spiral:
 )
 ~~~
 
-![](sw/spl/Help/Image/archimedeanSpiral-B.svg)
+![](Help/Image/archimedeanSpiral-B.svg)
 
 With _n=-1_, called the hyperbolic spiral, or the inverse spiral:
 
@@ -35,7 +35,7 @@ With _n=-1_, called the hyperbolic spiral, or the inverse spiral:
 )
 ~~~
 
-![](sw/spl/Help/Image/archimedeanSpiral-C.svg)
+![](Help/Image/archimedeanSpiral-C.svg)
 
 With _n=-2_, called the lituus:
 
@@ -46,7 +46,7 @@ With _n=-2_, called the lituus:
 )
 ~~~
 
-![](sw/spl/Help/Image/archimedeanSpiral-D.svg)
+![](Help/Image/archimedeanSpiral-D.svg)
 
 * * *
 

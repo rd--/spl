@@ -26,7 +26,7 @@ OEIS [A143305](https://oeis.org/A143305):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/vanDerCorputsConstant-A.svg)
+![](Help/Image/vanDerCorputsConstant-A.svg)
 
 * * *
 

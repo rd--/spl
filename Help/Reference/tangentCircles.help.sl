@@ -15,7 +15,7 @@ let b = a.contactTriangle;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/tangentCircles-A.svg)
+![](Help/Image/tangentCircles-A.svg)
 
 * * *
 

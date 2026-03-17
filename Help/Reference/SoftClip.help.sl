@@ -11,7 +11,7 @@ Plot:
 (-1 -- 1).functionPlot(SoftClip:/1)
 ~~~
 
-![](sw/spl/Help/Image/SoftClip-A.svg)
+![](Help/Image/SoftClip-A.svg)
 
 Linearly increase amplitude introducing distortion:
 

@@ -107,7 +107,7 @@ isCoprime:/2.relationGraph(
 ).graphPlot
 ~~~
 
-![](sw/spl/Help/Image/relationGraph-A.svg)
+![](Help/Image/relationGraph-A.svg)
 
 Construct a graph from its adjacency matrix:
 

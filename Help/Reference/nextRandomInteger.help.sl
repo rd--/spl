@@ -34,7 +34,7 @@ let r = Sfc32(901813);
 ).linePlot
 ~~~
 
-![](sw/spl/Help/Image/nextRandomInteger-A.svg)
+![](Help/Image/nextRandomInteger-A.svg)
 
 * * *
 

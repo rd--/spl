@@ -10,7 +10,7 @@ Plot seven integers:
 [1 1 2 2 3 4 4].scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/scatterPlot-A.svg)
+![](Help/Image/scatterPlot-A.svg)
 
 Plot the catenation of three `Range` values:
 
@@ -18,7 +18,7 @@ Plot the catenation of three `Range` values:
 (1:20 ++ 20:1:-1 ++ 1:30).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/scatterPlot-B.svg)
+![](Help/Image/scatterPlot-B.svg)
 
 Plot the first few terms of the Stern-Brocot sequence:
 
@@ -28,7 +28,7 @@ Plot the first few terms of the Stern-Brocot sequence:
 ).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/scatterPlot-C.svg)
+![](Help/Image/scatterPlot-C.svg)
 
 Plot a table:
 
@@ -38,7 +38,7 @@ Plot a table:
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/scatterPlot-D.svg)
+![](Help/Image/scatterPlot-D.svg)
 
 Plot values of iterative map:
 
@@ -55,7 +55,7 @@ let f = { :a :b :c :d :p |
 }.nestList([0.1 0], 256).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/scatterPlot-E.svg)
+![](Help/Image/scatterPlot-E.svg)
 
 Plot a list of _y_ values:
 
@@ -63,7 +63,7 @@ Plot a list of _y_ values:
 1:25.prime.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/scatterPlot-F.svg)
+![](Help/Image/scatterPlot-F.svg)
 
 Plot a list of _(x, y)_  pairs:
 
@@ -74,7 +74,7 @@ BinormalDistribution([4 4], [1 1], 0.5)
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/scatterPlot-G.svg)
+![](Help/Image/scatterPlot-G.svg)
 
 Plot several data sets:
 
@@ -85,7 +85,7 @@ Plot several data sets:
 ].scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/scatterPlot-H.svg)
+![](Help/Image/scatterPlot-H.svg)
 
 The decimal expansion of the limit of the ratio of consecutive terms in the tetranacci sequence,
 OEIS [A086088](https://oeis.org/A086088):
@@ -101,7 +101,7 @@ OEIS [A086088](https://oeis.org/A086088):
 ].scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/scatterPlot-I.svg)
+![](Help/Image/scatterPlot-I.svg)
 
 * * *
 

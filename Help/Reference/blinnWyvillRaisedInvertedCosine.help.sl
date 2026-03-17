@@ -13,7 +13,7 @@ Plot with standard library function:
 ])
 ~~~
 
-![](sw/spl/Help/Image/blinnWyvillRaisedInvertedCosine-A.svg)
+![](Help/Image/blinnWyvillRaisedInvertedCosine-A.svg)
 
 * * *
 

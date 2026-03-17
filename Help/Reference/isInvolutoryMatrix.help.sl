@@ -81,7 +81,7 @@ Plot the twenty-six 5×5 involutory permutation matrices:
 .PlotSet([5 6])
 ~~~
 
-![](sw/spl/Help/Image/isInvolutoryMatrix-A.svg)
+![](Help/Image/isInvolutoryMatrix-A.svg)
 
 * * *
 

@@ -11,7 +11,7 @@ A nonoverlapping partition:
 .partitionPlot
 ~~~
 
-![](sw/spl/Help/Image/partitionPlot-A.svg)
+![](Help/Image/partitionPlot-A.svg)
 
 A variant nonoverlapping partition:
 
@@ -20,7 +20,7 @@ A variant nonoverlapping partition:
 .partitionPlot
 ~~~
 
-![](sw/spl/Help/Image/partitionPlot-B.svg)
+![](Help/Image/partitionPlot-B.svg)
 
 * * *
 

@@ -14,7 +14,7 @@ A 3×3 matrix:
 ].asGreyscaleDrawing
 ~~~
 
-![](sw/spl/Help/Image/asGreyscaleDrawing-A.svg)
+![](Help/Image/asGreyscaleDrawing-A.svg)
 
 A 5×9 matrix:
 
@@ -22,7 +22,7 @@ A 5×9 matrix:
 [5 9].iota.asGreyscaleDrawing
 ~~~
 
-![](sw/spl/Help/Image/asGreyscaleDrawing-B.svg)
+![](Help/Image/asGreyscaleDrawing-B.svg)
 
 _Note_:
 This is `asLineDrawing` of `ColourGrid` of `greyscaleMatrix`.

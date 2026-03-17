@@ -10,7 +10,7 @@ Plot:
 (0 -- 1.pi).discretize(100, 1.bifoliate).Line
 ~~~
 
-![](sw/spl/Help/Image/bifoliate-A.svg)
+![](Help/Image/bifoliate-A.svg)
 
 * * *
 

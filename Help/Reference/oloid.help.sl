@@ -21,7 +21,7 @@ Drawing of a small face count oloid:
 32.oloid
 ~~~
 
-![](sw/spl/Help/Image/oloid-A.svg)
+![](Help/Image/oloid-A.svg)
 
 Plot the decimal expansion of the Oloid’s volume:
 
@@ -36,7 +36,7 @@ Plot the decimal expansion of the Oloid’s volume:
 ].scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/oloid-B.svg)
+![](Help/Image/oloid-B.svg)
 
 * * *
 

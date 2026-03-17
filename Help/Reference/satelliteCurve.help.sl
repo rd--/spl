@@ -15,7 +15,7 @@ With _α=3/4π_ and _k=2_:
 )
 ~~~
 
-![](sw/spl/Help/Image/satelliteCurve-A.svg)
+![](Help/Image/satelliteCurve-A.svg)
 
 With _k=3_:
 
@@ -25,7 +25,7 @@ With _k=3_:
 )
 ~~~
 
-![](sw/spl/Help/Image/satelliteCurve-B.svg)
+![](Help/Image/satelliteCurve-B.svg)
 
 * * *
 

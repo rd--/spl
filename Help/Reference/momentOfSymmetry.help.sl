@@ -158,7 +158,7 @@ points upwards and intervals increase clockwise:
 .horogramDrawing
 ~~~
 
-![](sw/spl/Help/Image/momentOfSymmetry-A.svg)
+![](Help/Image/momentOfSymmetry-A.svg)
 
 A moment of symmetry with a generator derived as the phi-weighted mediant of _1/5_ and _3/14_,
 considered to a depth of nine places:
@@ -169,7 +169,7 @@ considered to a depth of nine places:
 .horogramDrawing
 ~~~
 
-![](sw/spl/Help/Image/momentOfSymmetry-B.svg)
+![](Help/Image/momentOfSymmetry-B.svg)
 
 An outer ring of the least step equally dividing the period can be appended before drawing:
 
@@ -185,7 +185,7 @@ let appendOuterRing = { :mos |
 .horogramDrawing
 ~~~
 
-![](sw/spl/Help/Image/momentOfSymmetry-C.svg)
+![](Help/Image/momentOfSymmetry-C.svg)
 
 `rectangularHorogramDrawing` answers a line drawing of a rectangular Wilson horogram showing the scale structure.
 `zero` is at the left,
@@ -198,7 +198,7 @@ and rows are descending:
 .rectangularHorogramDrawing
 ~~~
 
-![](sw/spl/Help/Image/momentOfSymmetry-D.svg)
+![](Help/Image/momentOfSymmetry-D.svg)
 
 A rectangular drawing of the same phi-weighted mediant scale as above:
 
@@ -208,7 +208,7 @@ A rectangular drawing of the same phi-weighted mediant scale as above:
 .rectangularHorogramDrawing
 ~~~
 
-![](sw/spl/Help/Image/momentOfSymmetry-E.svg)
+![](Help/Image/momentOfSymmetry-E.svg)
 
 `horogramTable` answers a `Html` table of a rectangular Wilson horogram showing the scale structure.
 Requires that the scale have only integer step sizes:

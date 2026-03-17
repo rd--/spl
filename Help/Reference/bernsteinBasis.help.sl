@@ -31,7 +31,7 @@ Plot:
 }
 ~~~
 
-![](sw/spl/Help/Image/bernsteinBasis-A.svg)
+![](Help/Image/bernsteinBasis-A.svg)
 
 * * *
 

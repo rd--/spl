@@ -190,7 +190,7 @@ Plot the gcd for a number with 12:
 1:72.functionPlot { :x | x.gcd(12) }
 ~~~
 
-![](sw/spl/Help/Image/gcd-A.svg)
+![](Help/Image/gcd-A.svg)
 
 Matrix plot of table:
 
@@ -199,7 +199,7 @@ Matrix plot of table:
 .Greymap
 ~~~
 
-![](sw/spl/Help/Image/gcd-B.png)
+![](Help/Image/gcd-B.png)
 
 Fibonacci numbers:
 
@@ -212,7 +212,7 @@ let m = { :j :k |
 .Greymap
 ~~~
 
-![](sw/spl/Help/Image/gcd-C.png)
+![](Help/Image/gcd-C.png)
 
 Form the greatest common divisors of one with rational numbers:
 
@@ -222,7 +222,7 @@ Form the greatest common divisors of one with rational numbers:
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/gcd-D.svg)
+![](Help/Image/gcd-D.svg)
 
 Matrix plot of first one-hundred and twenty-one places:
 
@@ -230,7 +230,7 @@ Matrix plot of first one-hundred and twenty-one places:
 gcd:/2.table(1:11, 1:11).matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/gcd-E.svg)
+![](Help/Image/gcd-E.svg)
 
 Groups of order _2n_ that have _Z/nZ_ as a subgroup,
 OEIS [A147848](https://oeis.org/A147848):
@@ -253,7 +253,7 @@ OEIS [A147848](https://oeis.org/A147848):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/gcd-F.svg)
+![](Help/Image/gcd-F.svg)
 
 Numerators in canonical bijection from positive integers to positive rationals,
 OEIS [A020652](http://oeis.org/A020652):
@@ -270,7 +270,7 @@ let a = [];
 a.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/gcd-G.svg)
+![](Help/Image/gcd-G.svg)
 
 Denominators in canonical bijection from positive integers to positive rationals,
 OEIS [A020653](http://oeis.org/A020653):
@@ -286,7 +286,7 @@ OEIS [A020653](http://oeis.org/A020653):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/gcd-H.svg)
+![](Help/Image/gcd-H.svg)
 
 Greatest common divisor of _n!_ and _n^n_,
 OEIS [A051696](http://oeis.org/A051696):
@@ -297,7 +297,7 @@ OEIS [A051696](http://oeis.org/A051696):
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/gcd-I.svg)
+![](Help/Image/gcd-I.svg)
 
 Numerators in canonical bijection from positive integers to positive rationals _≤1_,
 OEIS [A038566](http://oeis.org/A038566):
@@ -310,7 +310,7 @@ OEIS [A038566](http://oeis.org/A038566):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/gcd-J.svg)
+![](Help/Image/gcd-J.svg)
 
 `gcd` of _n_ and _2^n-1_,
 OEIS [A014491](https://oeis.org/A014491):
@@ -323,7 +323,7 @@ OEIS [A014491](https://oeis.org/A014491):
 ).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/gcd-K.svg)
+![](Help/Image/gcd-K.svg)
 
 Enumeration of rationals sorted by sum on components,
 numerators,
@@ -338,7 +338,7 @@ OEIS [A182972](https://oeis.org/A182972):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/gcd-L.svg)
+![](Help/Image/gcd-L.svg)
 
 Enumeration of rationals sorted by sum on components,
 denominators,
@@ -353,7 +353,7 @@ OEIS [A182973](https://oeis.org/A182973):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/gcd-M.svg)
+![](Help/Image/gcd-M.svg)
 
 Primes and then products of adjacent terms divided by square of `gcd`,
 OEIS [A255483](https://oeis.org/A255483):
@@ -373,7 +373,7 @@ let t = { :n :m |
 }.catenate.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/gcd-N.svg)
+![](Help/Image/gcd-N.svg)
 
 _gcd(k+n/k)_, where _k_ is over all divisors of _n_,
 OEIS [A143771](https://oeis.org/A143771):
@@ -386,7 +386,7 @@ OEIS [A143771](https://oeis.org/A143771):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/gcd-O.svg)
+![](Help/Image/gcd-O.svg)
 
 Triangle read by rows,
 _gcd(k,⌈(n/k))_,
@@ -400,7 +400,7 @@ let a = 1:13.triangularArray { :n :k |
 (a.catenate - 1).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/gcd-P.svg)
+![](Help/Image/gcd-P.svg)
 
 * * *
 

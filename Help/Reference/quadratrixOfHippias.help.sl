@@ -14,7 +14,7 @@ Plot over _(-π/2,π/2)_:
 )
 ~~~
 
-![](sw/spl/Help/Image/quadratrixOfHippias-A.svg)
+![](Help/Image/quadratrixOfHippias-A.svg)
 
 Plot over _(-4π,4π)_:
 
@@ -24,7 +24,7 @@ Plot over _(-4π,4π)_:
 )
 ~~~
 
-![](sw/spl/Help/Image/quadratrixOfHippias-B.svg)
+![](Help/Image/quadratrixOfHippias-B.svg)
 
 * * *
 

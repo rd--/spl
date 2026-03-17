@@ -62,7 +62,7 @@ Plot over a subset of the reals:
 (-2 -- 2).functionPlot(integerPart:/1)
 ~~~
 
-![](sw/spl/Help/Image/integerPart-A.svg)
+![](Help/Image/integerPart-A.svg)
 
 Implement the Frisch continuous-but-nowhere-differentiable function:
 
@@ -83,7 +83,7 @@ let f = { :x :n |
 }.linePlot
 ~~~
 
-![](sw/spl/Help/Image/integerPart-B.svg)
+![](Help/Image/integerPart-B.svg)
 
 Plot quantized quadratic function:
 
@@ -93,7 +93,7 @@ Plot quantized quadratic function:
 }
 ~~~
 
-![](sw/spl/Help/Image/integerPart-C.svg)
+![](Help/Image/integerPart-C.svg)
 
 Integer part of square root of _n_-th prime,
 OEIS [A000006](https://oeis.org/A000006):
@@ -102,7 +102,7 @@ OEIS [A000006](https://oeis.org/A000006):
 1:65.prime.sqrt.integerPart.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/integerPart-D.svg)
+![](Help/Image/integerPart-D.svg)
 
 * * *
 

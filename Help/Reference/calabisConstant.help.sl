@@ -46,7 +46,7 @@ OEIS [A046095](https://oeis.org/A046095):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/calabisConstant-A.svg)
+![](Help/Image/calabisConstant-A.svg)
 
 * * *
 

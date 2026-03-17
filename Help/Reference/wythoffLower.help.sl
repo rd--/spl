@@ -30,7 +30,7 @@ OEIS [A000201](https://oeis.org/A000201):
 1:23.wythoffLower.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/wythoffLower-A.svg)
+![](Help/Image/wythoffLower-A.svg)
 
 Column indices of the Wythoff array that contains _L(n)_,
 OEIS [A255670](https://oeis.org/A255670):
@@ -47,7 +47,7 @@ OEIS [A255670](https://oeis.org/A255670):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/wythoffLower-B.svg)
+![](Help/Image/wythoffLower-B.svg)
 
 First differences of the lower Wythoff sequence,
 a Fibonacci word,
@@ -59,7 +59,7 @@ OEIS [A014675](https://oeis.org/A014675):
 .stepPlot
 ~~~
 
-![](sw/spl/Help/Image/wythoffLower-C.svg)
+![](Help/Image/wythoffLower-C.svg)
 
 Second differences of the lower Wythoff sequence,
 essentially
@@ -71,7 +71,7 @@ OEIS [A014677](https://oeis.org/A014677):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/wythoffLower-D.svg)
+![](Help/Image/wythoffLower-D.svg)
 
 * * *
 

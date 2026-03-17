@@ -79,7 +79,7 @@ Plot matrix:
 13.evoluteSpiralMatrix.matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/evoluteSpiralMatrix-A.svg)
+![](Help/Image/evoluteSpiralMatrix-A.svg)
 
 Small Ulam spiral:
 
@@ -88,7 +88,7 @@ Small Ulam spiral:
 .transpose.isPrime.boole.matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/evoluteSpiralMatrix-B.svg)
+![](Help/Image/evoluteSpiralMatrix-B.svg)
 
 * * *
 

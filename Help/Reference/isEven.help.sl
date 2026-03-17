@@ -148,7 +148,7 @@ let a = Map { :n |
 a[1:125].log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isEven-A.svg)
+![](Help/Image/isEven-A.svg)
 
 _a(2n)=-2*a(n)_ and _a(2n+1)=2*a(n)-1_,
 OEIS [A104895](https://oeis.org/A104895):
@@ -168,7 +168,7 @@ let a = Map { :n |
 a[0:150].scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isEven-B.svg)
+![](Help/Image/isEven-B.svg)
 
 Fixed point of dividing the digits according to parity and multiplying the parts,
 OEIS [A059707](https://oeis.org/A059707):
@@ -188,7 +188,7 @@ OEIS [A059707](https://oeis.org/A059707):
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isEven-C.svg)
+![](Help/Image/isEven-C.svg)
 
 The main diagonal of Kimberling’s expulsion array
 OEIS [A007063](https://oeis.org/A007063):
@@ -210,7 +210,7 @@ let k = { :i :j |
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isEven-D.svg)
+![](Help/Image/isEven-D.svg)
 
 Hermite’s problem,
 OEIS [A069981](https://oeis.org/A069981):
@@ -225,7 +225,7 @@ OEIS [A069981](https://oeis.org/A069981):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/isEven-E.svg)
+![](Help/Image/isEven-E.svg)
 
 Alcuin’s sequence,
 OEIS [A005044](https://oeis.org/A005044):
@@ -240,7 +240,7 @@ OEIS [A005044](https://oeis.org/A005044):
 }.round.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/isEven-F.svg)
+![](Help/Image/isEven-F.svg)
 
 A permutation of the positive integers,
 OEIS [A163511](https://oeis.org/A163511):
@@ -261,7 +261,7 @@ let a = Map { :n |
 a[0:250].log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isEven-G.svg)
+![](Help/Image/isEven-G.svg)
 
 Least positive integers whose convolution forms a sequence whose odd-indexed terms are twice the odd primes,
 OEIS [A073739](https://oeis.org/A073739):
@@ -282,7 +282,7 @@ let a = Map { :n |
 a[0:150].scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isEven-H.svg)
+![](Help/Image/isEven-H.svg)
 
 Self convolution of
 OEIS [A073739](https://oeis.org/A073739),
@@ -318,7 +318,7 @@ let a = Map { :n |
 a[0:150].log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isEven-I.svg)
+![](Help/Image/isEven-I.svg)
 
 Even numbers interleaved with repeated odd numbers,
 OEIS [A186421](https://oeis.org/A186421):
@@ -333,7 +333,7 @@ OEIS [A186421](https://oeis.org/A186421):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/isEven-J.svg)
+![](Help/Image/isEven-J.svg)
 
 First differences of even numbers interleaved with repeated odd numbers,
 OEIS [A186422](https://oeis.org/A186422):
@@ -348,7 +348,7 @@ OEIS [A186422](https://oeis.org/A186422):
 }.differences.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/isEven-K.svg)
+![](Help/Image/isEven-K.svg)
 
 * * *
 

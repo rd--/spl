@@ -19,7 +19,7 @@ Draw the twelve pitches of the `divisors` set of sixty:
 60.divisors.kurenniemiNotation
 ~~~
 
-![](sw/spl/Help/Image/kurenniemiNotation-A.svg)
+![](Help/Image/kurenniemiNotation-A.svg)
 
 The pitches in the drawing are _C1 C2 C3_, _G2 G3 G4_, _E3 E4 E5_ and _B4 B5 B6_.
 Note that _G3_ is midway between the _F3_ and _A3_ lines,

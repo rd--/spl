@@ -35,7 +35,7 @@ system.svgColourCatalogue
 .reshape([2 6 3]).arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/isGreen-A.svg)
+![](Help/Image/isGreen-A.svg)
 
 Svg colours with _green_ in the name that are not selected:
 
@@ -52,7 +52,7 @@ Svg colours with _green_ in the name that are not selected:
 ).enclose.arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/isGreen-B.svg)
+![](Help/Image/isGreen-B.svg)
 
 * * *
 

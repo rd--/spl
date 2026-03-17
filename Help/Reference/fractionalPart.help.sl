@@ -103,7 +103,7 @@ fraction part is a sawtooth function:
 (-2 -- 2).functionPlot(fractionalPart:/1)
 ~~~
 
-![](sw/spl/Help/Image/fractionalPart-A.svg)
+![](Help/Image/fractionalPart-A.svg)
 
 * * *
 

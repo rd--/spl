@@ -12,7 +12,7 @@ First few terms with initial _x=0.6781_:
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/procacciaSchuster-A.svg)
+![](Help/Image/procacciaSchuster-A.svg)
 
 First few terms with initial _x=0.2314_:
 
@@ -22,7 +22,7 @@ First few terms with initial _x=0.2314_:
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/procacciaSchuster-B.svg)
+![](Help/Image/procacciaSchuster-B.svg)
 
 Plot spectrum:
 
@@ -32,7 +32,7 @@ Plot spectrum:
 .spectralPlot
 ~~~
 
-![](sw/spl/Help/Image/procacciaSchuster-C.svg)
+![](Help/Image/procacciaSchuster-C.svg)
 
 * * *
 

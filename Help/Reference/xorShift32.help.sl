@@ -32,7 +32,7 @@ Step plot of first few terms:
 .stepPlot
 ~~~
 
-![](sw/spl/Help/Image/xorShift32-A.svg)
+![](Help/Image/xorShift32-A.svg)
 
 Plot histogram:
 
@@ -41,7 +41,7 @@ Plot histogram:
 .histogramPlot
 ~~~
 
-![](sw/spl/Help/Image/xorShift32-B.svg)
+![](Help/Image/xorShift32-B.svg)
 
 Matrix plot:
 
@@ -52,7 +52,7 @@ let n = 100;
 .Greymap
 ~~~
 
-![](sw/spl/Help/Image/xorShift32-C.png)
+![](Help/Image/xorShift32-C.png)
 
 * * *
 

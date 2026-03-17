@@ -23,7 +23,7 @@ aizawaEquation(a, b, c, d, e, f)
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/aizawaEquation-A.svg)
+![](Help/Image/aizawaEquation-A.svg)
 
 * * *
 

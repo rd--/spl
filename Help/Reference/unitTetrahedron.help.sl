@@ -33,7 +33,7 @@ Draw the _xy_ projection of the unit tetrahedron:
 }
 ~~~
 
-![](sw/spl/Help/Image/unitTetrahedron-A.svg)
+![](Help/Image/unitTetrahedron-A.svg)
 
 * * *
 

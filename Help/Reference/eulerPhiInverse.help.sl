@@ -95,7 +95,7 @@ OEIS [A032447](https://oeis.org/A032447):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/eulerPhiInverse-A.svg)
+![](Help/Image/eulerPhiInverse-A.svg)
 
 * * *
 

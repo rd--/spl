@@ -44,7 +44,7 @@ OEIS [A005940](https://oeis.org/A005940):
 75.doudnaSequence.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/doudnaSequence-A.svg)
+![](Help/Image/doudnaSequence-A.svg)
 
 The Doudna sequence,
 log-scale plot,
@@ -54,7 +54,7 @@ OEIS [A005940](https://oeis.org/A005940):
 250.doudnaSequence.logScale.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/doudnaSequence-B.svg)
+![](Help/Image/doudnaSequence-B.svg)
 
 The least number with the same prime signature as the Doudna sequence entry,
 OEIS [A278222](https://oeis.org/A278222):
@@ -69,7 +69,7 @@ OEIS [A278222](https://oeis.org/A278222):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/doudnaSequence-C.svg)
+![](Help/Image/doudnaSequence-C.svg)
 
 Restricted growth sequence of least number with the same prime signature as the Doudna sequence entry,
 OEIS [A286622](https://oeis.org/A286622):
@@ -85,7 +85,7 @@ OEIS [A286622](https://oeis.org/A286622):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/doudnaSequence-D.svg)
+![](Help/Image/doudnaSequence-D.svg)
 
 Ordinal transform of the restricted growth sequence of least number with the same prime signature as the Doudna sequence entry,
 OEIS [A286552](https://oeis.org/A286552):
@@ -102,7 +102,7 @@ OEIS [A286552](https://oeis.org/A286552):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/doudnaSequence-E.svg)
+![](Help/Image/doudnaSequence-E.svg)
 
 * * *
 

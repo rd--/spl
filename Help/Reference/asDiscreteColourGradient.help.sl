@@ -15,7 +15,7 @@ system
 .asDiscreteColourGradient
 ~~~
 
-![](sw/spl/Help/Image/asDiscreteColourGradient-A.svg)
+![](Help/Image/asDiscreteColourGradient-A.svg)
 
 * * *
 

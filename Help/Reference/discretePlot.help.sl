@@ -12,7 +12,7 @@ Plot a sequence of fifty places:
 1:50.collect(primePi:/1).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/discretePlot-A.svg)
+![](Help/Image/discretePlot-A.svg)
 
 Plot a random permutation of the integers up to ninety nine:
 
@@ -22,7 +22,7 @@ let l = r.randomSample(1:99, 99);
 l.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/discretePlot-B.svg)
+![](Help/Image/discretePlot-B.svg)
 
 A dense discrete plot of a cosine function:
 
@@ -32,7 +32,7 @@ A dense discrete plot of a cosine function:
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/discretePlot-C.svg)
+![](Help/Image/discretePlot-C.svg)
 
 Values that are not finite are elided:
 
@@ -41,7 +41,7 @@ Values that are not finite are elided:
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/discretePlot-D.svg)
+![](Help/Image/discretePlot-D.svg)
 
 * * *
 

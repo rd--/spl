@@ -16,7 +16,7 @@ let [_, y] = { :x :y |
 y.linePlot
 ~~~
 
-![](sw/spl/Help/Image/rungeKuttaMethod-A.svg)
+![](Help/Image/rungeKuttaMethod-A.svg)
 
 Over a smaller domain with smaller time step:
 
@@ -27,7 +27,7 @@ let [_, y] = { :x :y |
 y.linePlot
 ~~~
 
-![](sw/spl/Help/Image/rungeKuttaMethod-B.svg)
+![](Help/Image/rungeKuttaMethod-B.svg)
 
 An equation that does not consult _y_:
 
@@ -38,7 +38,7 @@ let [_, y] = { :x :y |
 y.linePlot
 ~~~
 
-![](sw/spl/Help/Image/rungeKuttaMethod-C.svg)
+![](Help/Image/rungeKuttaMethod-C.svg)
 
 Solve with timestep of 0.1 and downsample to show results at time steps of one:
 
@@ -73,7 +73,7 @@ let [_, y] = vanDerPolEquation(1)
 y.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/rungeKuttaMethod-D.svg)
+![](Help/Image/rungeKuttaMethod-D.svg)
 
 Solve the Duffing equation,
 a non-linear second-order ordinary differential equation,
@@ -86,7 +86,7 @@ let [_, y] = duffingEquation(0.3, 0.25, 1)
 y.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/rungeKuttaMethod-E.svg)
+![](Help/Image/rungeKuttaMethod-E.svg)
 
 * * *
 

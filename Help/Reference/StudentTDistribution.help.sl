@@ -20,7 +20,7 @@ Probability density function with standard μ and σ:
 )
 ~~~
 
-![](sw/spl/Help/Image/StudentTDistribution-A.svg)
+![](Help/Image/StudentTDistribution-A.svg)
 
 Cumulative distribution function with standard μ and σ:
 
@@ -33,7 +33,7 @@ Cumulative distribution function with standard μ and σ:
 )
 ~~~
 
-![](sw/spl/Help/Image/StudentTDistribution-B.svg)
+![](Help/Image/StudentTDistribution-B.svg)
 
 Probability density function of a generalised Student _t_ distribution:
 
@@ -46,7 +46,7 @@ Probability density function of a generalised Student _t_ distribution:
 )
 ~~~
 
-![](sw/spl/Help/Image/StudentTDistribution-C.svg)
+![](Help/Image/StudentTDistribution-C.svg)
 
 Cumulative distribution function of a generalised Student _t_ distribution:
 
@@ -59,7 +59,7 @@ Cumulative distribution function of a generalised Student _t_ distribution:
 )
 ~~~
 
-![](sw/spl/Help/Image/StudentTDistribution-D.svg)
+![](Help/Image/StudentTDistribution-D.svg)
 
 Generate a sample of pseudorandom numbers from a Student _t_ distribution:
 
@@ -70,7 +70,7 @@ StudentTDistribution(0, 1, 10)
 .histogramPlot
 ~~~
 
-![](sw/spl/Help/Image/StudentTDistribution-E.svg)
+![](Help/Image/StudentTDistribution-E.svg)
 
 * * *
 

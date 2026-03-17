@@ -59,7 +59,7 @@ OEIS [A008292](https://oeis.org/A008292):
 ).catenate.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/eulerianNumber-A.svg)
+![](Help/Image/eulerianNumber-A.svg)
 
 The Euler triangle,
 log scale scatter plot,
@@ -71,7 +71,7 @@ OEIS [A173018](https://oeis.org/A173018):
 ).catenate.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/eulerianNumber-B.svg)
+![](Help/Image/eulerianNumber-B.svg)
 
 * * *
 

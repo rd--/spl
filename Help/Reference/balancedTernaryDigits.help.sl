@@ -58,7 +58,7 @@ Matrix plot of first few terms:
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/balancedTernaryDigits-A.svg)
+![](Help/Image/balancedTernaryDigits-A.svg)
 
 Compare to equivalent ternary plot:
 
@@ -70,7 +70,7 @@ Compare to equivalent ternary plot:
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/balancedTernaryDigits-B.svg)
+![](Help/Image/balancedTernaryDigits-B.svg)
 
 * * *
 

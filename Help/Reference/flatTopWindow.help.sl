@@ -17,7 +17,7 @@ Plot flat-top window:
 (-1 -- 1).functionPlot(flatTopWindow:/1)
 ~~~
 
-![](sw/spl/Help/Image/flatTopWindow-A.svg)
+![](Help/Image/flatTopWindow-A.svg)
 
 Translated and dilated flat-top window:
 
@@ -27,7 +27,7 @@ Translated and dilated flat-top window:
 }
 ~~~
 
-![](sw/spl/Help/Image/flatTopWindow-B.svg)
+![](Help/Image/flatTopWindow-B.svg)
 
 Discrete flat-top window of length 15:
 
@@ -38,7 +38,7 @@ Discrete flat-top window of length 15:
 ).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/flatTopWindow-C.svg)
+![](Help/Image/flatTopWindow-C.svg)
 
 Frequency response of the flat-top window:
 
@@ -48,7 +48,7 @@ Frequency response of the flat-top window:
 ).fftPlot(512, 'Centered', 'Logarithmic')
 ~~~
 
-![](sw/spl/Help/Image/flatTopWindow-D.svg)
+![](Help/Image/flatTopWindow-D.svg)
 
 * * *
 

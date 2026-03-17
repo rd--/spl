@@ -36,7 +36,7 @@ let q = p.medialTriangle;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/medialTriangle-A.svg)
+![](Help/Image/medialTriangle-A.svg)
 
 At `Triangle`:
 
@@ -48,7 +48,7 @@ let t = sssTriangle(1, 1, 1);
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/medialTriangle-B.svg)
+![](Help/Image/medialTriangle-B.svg)
 
 The triangle centroid is at the intersection of the triangle medians:
 
@@ -65,7 +65,7 @@ let [p, q, r] = m.vertexCoordinates;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/medialTriangle-C.svg)
+![](Help/Image/medialTriangle-C.svg)
 
 Barymetric subdivision:
 
@@ -91,7 +91,7 @@ Barymetric subdivision:
 ).LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/medialTriangle-D.svg)
+![](Help/Image/medialTriangle-D.svg)
 
 * * *
 

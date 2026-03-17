@@ -42,7 +42,7 @@ Plot over a subset of the reals:
 (-5 -- 5).functionPlot(sech:/1)
 ~~~
 
-![](sw/spl/Help/Image/sech-A.svg)
+![](Help/Image/sech-A.svg)
 
 Polar plot:
 
@@ -50,7 +50,7 @@ Polar plot:
 (-2.pi -- 2.pi).polarPlot(sech:/1)
 ~~~
 
-![](sw/spl/Help/Image/sech-B.svg)
+![](Help/Image/sech-B.svg)
 
 * * *
 

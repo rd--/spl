@@ -13,7 +13,7 @@ FractionalBrownianMotionProcess(0.3)
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/FractionalBrownianMotionProcess-A.svg)
+![](Help/Image/FractionalBrownianMotionProcess-A.svg)
 
 Simulate an ensemble of paths:
 
@@ -24,7 +24,7 @@ FractionalBrownianMotionProcess(0.3)
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/FractionalBrownianMotionProcess-B.svg)
+![](Help/Image/FractionalBrownianMotionProcess-B.svg)
 
 With a larger Hurst index:
 
@@ -35,7 +35,7 @@ FractionalBrownianMotionProcess(0.7)
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/FractionalBrownianMotionProcess-C.svg)
+![](Help/Image/FractionalBrownianMotionProcess-C.svg)
 
 * * *
 

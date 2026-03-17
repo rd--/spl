@@ -101,7 +101,7 @@ OEIS [A056973](http://oeis.org/A056973):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/sequenceCount-A.svg)
+![](Help/Image/sequenceCount-A.svg)
 
 Number of occurrences of _01_ in the binary expansion of _n_,
 OEIS [A037800](http://oeis.org/A037800):
@@ -113,7 +113,7 @@ OEIS [A037800](http://oeis.org/A037800):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/sequenceCount-B.svg)
+![](Help/Image/sequenceCount-B.svg)
 
 Number of occurrences of _10_ in the binary expansion of _n_,
 OEIS [A033264](http://oeis.org/A033264):
@@ -125,7 +125,7 @@ OEIS [A033264](http://oeis.org/A033264):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/sequenceCount-C.svg)
+![](Help/Image/sequenceCount-C.svg)
 
 Number of occurrences of _11_ in the binary expansion of _n_,
 OEIS [A014081](http://oeis.org/A014081):
@@ -137,7 +137,7 @@ OEIS [A014081](http://oeis.org/A014081):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/sequenceCount-D.svg)
+![](Help/Image/sequenceCount-D.svg)
 
 Number of occurrences of _111_ in the binary expansion of _n_,
 OEIS [A014082](http://oeis.org/A014082):
@@ -149,7 +149,7 @@ OEIS [A014082](http://oeis.org/A014082):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/sequenceCount-E.svg)
+![](Help/Image/sequenceCount-E.svg)
 
 * * *
 

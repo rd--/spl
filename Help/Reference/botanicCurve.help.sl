@@ -13,7 +13,7 @@ With parameters _c=2/3,d=1_:
 )
 ~~~
 
-![](sw/spl/Help/Image/botanicCurve-A.svg)
+![](Help/Image/botanicCurve-A.svg)
 
 With parameters _c=2/3,d=2_:
 
@@ -23,7 +23,7 @@ With parameters _c=2/3,d=2_:
 )
 ~~~
 
-![](sw/spl/Help/Image/botanicCurve-B.svg)
+![](Help/Image/botanicCurve-B.svg)
 
 With parameters _c=4,d=1/4_:
 
@@ -33,7 +33,7 @@ With parameters _c=4,d=1/4_:
 )
 ~~~
 
-![](sw/spl/Help/Image/botanicCurve-C.svg)
+![](Help/Image/botanicCurve-C.svg)
 
 With parameters _c=1/2,d=2_, called Freeth’s nephroid:
 
@@ -44,7 +44,7 @@ With parameters _c=1/2,d=2_, called Freeth’s nephroid:
 ).Line
 ~~~
 
-![](sw/spl/Help/Image/botanicCurve-D.svg)
+![](Help/Image/botanicCurve-D.svg)
 
 With parameter _c=1_ called the limaçon,
 and with _d=2_ called the limaçon trisectrix:
@@ -56,7 +56,7 @@ and with _d=2_ called the limaçon trisectrix:
 ).Line
 ~~~
 
-![](sw/spl/Help/Image/botanicCurve-E.svg)
+![](Help/Image/botanicCurve-E.svg)
 
 With parameters _c=2,d=2_ called Ceva’s trisectrix:
 
@@ -67,7 +67,7 @@ With parameters _c=2,d=2_ called Ceva’s trisectrix:
 ).Line
 ~~~
 
-![](sw/spl/Help/Image/botanicCurve-F.svg)
+![](Help/Image/botanicCurve-F.svg)
 
 * * *
 

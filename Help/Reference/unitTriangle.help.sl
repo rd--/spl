@@ -15,7 +15,7 @@ Plot:
 (-2 -- 2).functionPlot(unitTriangle:/1)
 ~~~
 
-![](sw/spl/Help/Image/unitTriangle-A.svg)
+![](Help/Image/unitTriangle-A.svg)
 
 Plot in two dimensions:
 
@@ -25,7 +25,7 @@ Plot in two dimensions:
 }
 ~~~
 
-![](sw/spl/Help/Image/unitTriangle-B.svg)
+![](Help/Image/unitTriangle-B.svg)
 
 * * *
 

@@ -99,7 +99,7 @@ OEIS [A051037](https://oeis.org/A051037):
 }.linePlot
 ~~~
 
-![](sw/spl/Help/Image/isSmoothNumber-A.svg)
+![](Help/Image/isSmoothNumber-A.svg)
 
 * * *
 

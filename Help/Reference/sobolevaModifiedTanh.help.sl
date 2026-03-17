@@ -14,7 +14,7 @@ Effect of varying parameter _d_:
 )
 ~~~
 
-![](sw/spl/Help/Image/sobolevaModifiedTanh-A.svg)
+![](Help/Image/sobolevaModifiedTanh-A.svg)
 
 Effect of varying parameter _c_:
 
@@ -26,7 +26,7 @@ Effect of varying parameter _c_:
 )
 ~~~
 
-![](sw/spl/Help/Image/sobolevaModifiedTanh-B.svg)
+![](Help/Image/sobolevaModifiedTanh-B.svg)
 
 Effect of varying parameter _b=d_:
 
@@ -38,7 +38,7 @@ Effect of varying parameter _b=d_:
 )
 ~~~
 
-![](sw/spl/Help/Image/sobolevaModifiedTanh-C.svg)
+![](Help/Image/sobolevaModifiedTanh-C.svg)
 
 Effect of varying parameters _c_ and _d_:
 
@@ -52,7 +52,7 @@ Effect of varying parameters _c_ and _d_:
 )
 ~~~
 
-![](sw/spl/Help/Image/sobolevaModifiedTanh-D.svg)
+![](Help/Image/sobolevaModifiedTanh-D.svg)
 
 * * *
 

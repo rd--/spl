@@ -227,7 +227,7 @@ OEIS [A030101](https://oeis.org/A030101):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/fromDigits-A.svg)
+![](Help/Image/fromDigits-A.svg)
 
 Sum of digits in ascending and descending sequence,
 OEIS [A052008](https://oeis.org/A052008):
@@ -239,7 +239,7 @@ OEIS [A052008](https://oeis.org/A052008):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/fromDigits-B.svg)
+![](Help/Image/fromDigits-B.svg)
 
 Write _n_ and _3n_ in ternary and add all digits modulo three,
 OEIS [A242399](https://oeis.org/A242399):
@@ -253,7 +253,7 @@ OEIS [A242399](https://oeis.org/A242399):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/fromDigits-C.svg)
+![](Help/Image/fromDigits-C.svg)
 
 Difference between _4n_ and _n_ and _3n_ written in ternary and all digits summed modulo three,
 OEIS [A242400](https://oeis.org/A242400):
@@ -267,7 +267,7 @@ OEIS [A242400](https://oeis.org/A242400):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/fromDigits-D.svg)
+![](Help/Image/fromDigits-D.svg)
 
 Tersum _n+n_,
 OEIS [A004488](https://oeis.org/A004488):
@@ -279,7 +279,7 @@ OEIS [A004488](https://oeis.org/A004488):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/fromDigits-E.svg)
+![](Help/Image/fromDigits-E.svg)
 
 Write _n_ in quaternary and swap digits one and three,
 OEIS [A048647](https://oeis.org/A048647):
@@ -294,7 +294,7 @@ OEIS [A048647](https://oeis.org/A048647):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/fromDigits-F.svg)
+![](Help/Image/fromDigits-F.svg)
 
 Rebase _n_ from four to two,
 OEIS [A065362](https://oeis.org/A065362):
@@ -304,7 +304,7 @@ OEIS [A065362](https://oeis.org/A065362):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/fromDigits-G.svg)
+![](Help/Image/fromDigits-G.svg)
 
 * * *
 

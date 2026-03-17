@@ -79,7 +79,7 @@ let t = 1:6.collect(f:/1);
 (t - 1).catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/catenate-A.svg)
+![](Help/Image/catenate-A.svg)
 
 Where supported `catenate` is displayed as ⧻.
 

@@ -10,7 +10,7 @@ The _3,1_ tree:
 cayleyTree(3, 1).graphPlot
 ~~~
 
-![](sw/spl/Help/Image/cayleyTree-A.svg)
+![](Help/Image/cayleyTree-A.svg)
 
 The _3,2_ tree:
 
@@ -18,7 +18,7 @@ The _3,2_ tree:
 cayleyTree(3, 2).graphPlot
 ~~~
 
-![](sw/spl/Help/Image/cayleyTree-B.svg)
+![](Help/Image/cayleyTree-B.svg)
 
 The _3,3_ tree:
 
@@ -26,7 +26,7 @@ The _3,3_ tree:
 cayleyTree(3, 3).graphPlot
 ~~~
 
-![](sw/spl/Help/Image/cayleyTree-C.svg)
+![](Help/Image/cayleyTree-C.svg)
 
 The _4,1_ tree:
 
@@ -34,7 +34,7 @@ The _4,1_ tree:
 cayleyTree(4, 1).graphPlot
 ~~~
 
-![](sw/spl/Help/Image/cayleyTree-D.svg)
+![](Help/Image/cayleyTree-D.svg)
 
 The _4,2_ tree:
 
@@ -42,7 +42,7 @@ The _4,2_ tree:
 cayleyTree(4, 2).graphPlot
 ~~~
 
-![](sw/spl/Help/Image/cayleyTree-E.svg)
+![](Help/Image/cayleyTree-E.svg)
 
 The _4,3_ tree:
 
@@ -50,7 +50,7 @@ The _4,3_ tree:
 cayleyTree(4, 3).graphPlot
 ~~~
 
-![](sw/spl/Help/Image/cayleyTree-F.svg)
+![](Help/Image/cayleyTree-F.svg)
 
 * * *
 

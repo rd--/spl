@@ -23,7 +23,7 @@ let x = [0, 0.02 .. 4];
 ].signalPlot
 ~~~
 
-![](sw/spl/Help/Image/signalPlot-A.svg)
+![](Help/Image/signalPlot-A.svg)
 
 The sawtooth signal above is uni-polar,
 below it is scaled to be descending and bi-polar:
@@ -36,7 +36,7 @@ let x = [0, 0.02 .. 3];
 ].signalPlot
 ~~~
 
-![](sw/spl/Help/Image/signalPlot-B.svg)
+![](Help/Image/signalPlot-B.svg)
 
 * * *
 

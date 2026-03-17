@@ -15,7 +15,7 @@ Plot:
 (-1 -- 1).functionPlot(unitBox:/1)
 ~~~
 
-![](sw/spl/Help/Image/unitBox-A.svg)
+![](Help/Image/unitBox-A.svg)
 
 Plot in two dimensions:
 
@@ -25,7 +25,7 @@ Plot in two dimensions:
 }
 ~~~
 
-![](sw/spl/Help/Image/unitBox-B.svg)
+![](Help/Image/unitBox-B.svg)
 
 The convolution of the rectangle function with itself is the triangle function:
 
@@ -34,7 +34,7 @@ let u = (-1 -- 1).discretize(50, unitBox:/1);
 convolve(u, u).linePlot
 ~~~
 
-![](sw/spl/Help/Image/unitBox-C.svg)
+![](Help/Image/unitBox-C.svg)
 
 * * *
 

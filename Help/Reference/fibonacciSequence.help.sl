@@ -182,7 +182,7 @@ let n = 201;
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/fibonacciSequence-A.svg)
+![](Help/Image/fibonacciSequence-A.svg)
 
 The semi-Fibonacci sequence,
 OEIS [A030067](https://oeis.org/A030067):
@@ -193,7 +193,7 @@ OEIS [A030067](https://oeis.org/A030067):
 ).log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/fibonacciSequence-B.svg)
+![](Help/Image/fibonacciSequence-B.svg)
 
 A variant of the semi-Fibonacci numbers,
 OEIS [A109671](https://oeis.org/A109671):
@@ -219,7 +219,7 @@ let a = Map { :n |
 a[1:150].scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/fibonacciSequence-C.svg)
+![](Help/Image/fibonacciSequence-C.svg)
 
 * * *
 

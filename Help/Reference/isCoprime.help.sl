@@ -121,7 +121,7 @@ Visualize when two numbers are coprime:
 }.table(1:99, 1:99).Bitmap
 ~~~
 
-![](sw/spl/Help/Image/isCoprime-A.png)
+![](Help/Image/isCoprime-A.png)
 
 Numerators in canonical bijection from positive integers to positive rationals,
 OEIS [A020652](https://oeis.org/A020652):
@@ -138,7 +138,7 @@ let y = [];
 y.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isCoprime-B.svg)
+![](Help/Image/isCoprime-B.svg)
 
 Least number coprime to _n+0:3_,
 OEIS [A053672](https://oeis.org/A053672):
@@ -153,7 +153,7 @@ OEIS [A053672](https://oeis.org/A053672):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/isCoprime-C.svg)
+![](Help/Image/isCoprime-C.svg)
 
 Lexicographically earliest sequence of distinct terms such that every pair of consecutive terms contains a term that is a unitary divisor of the other term,
 OEIS [A282291](https://oeis.org/A282291):
@@ -167,7 +167,7 @@ OEIS [A282291](https://oeis.org/A282291):
 }.log.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/isCoprime-D.svg)
+![](Help/Image/isCoprime-D.svg)
 
 Where supported `isCoprime` is displayed as ⟂.
 

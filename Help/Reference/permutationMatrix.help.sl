@@ -145,7 +145,7 @@ Sfc32(326871)
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/permutationMatrix-A.svg)
+![](Help/Image/permutationMatrix-A.svg)
 
 * * *
 

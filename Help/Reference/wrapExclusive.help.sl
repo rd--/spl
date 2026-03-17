@@ -49,7 +49,7 @@ Plot a sawtooth wave formed by wrapping a line:
 }
 ~~~
 
-![](sw/spl/Help/Image/wrapExclusive-A.svg)
+![](Help/Image/wrapExclusive-A.svg)
 
 * * *
 

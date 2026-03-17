@@ -18,7 +18,7 @@ Plot for various _a_:
 )
 ~~~
 
-![](sw/spl/Help/Image/conchoidOfDeSluze-A.svg)
+![](Help/Image/conchoidOfDeSluze-A.svg)
 
 * * *
 

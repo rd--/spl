@@ -14,7 +14,7 @@ A quadratic Bézier curve:
 }
 ~~~
 
-![](sw/spl/Help/Image/quadraticBezierFunctionAt-A.svg)
+![](Help/Image/quadraticBezierFunctionAt-A.svg)
 
 A symmetric quadratic Bézier curve (an arc):
 
@@ -25,7 +25,7 @@ A symmetric quadratic Bézier curve (an arc):
 }
 ~~~
 
-![](sw/spl/Help/Image/quadraticBezierFunctionAt-B.svg)
+![](Help/Image/quadraticBezierFunctionAt-B.svg)
 
 * * *
 

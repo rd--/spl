@@ -17,7 +17,7 @@ let e = t.excentralTriangle;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/antipedalTriangle-A.svg)
+![](Help/Image/antipedalTriangle-A.svg)
 
 Plot tangential triangle:
 
@@ -31,7 +31,7 @@ let b = a.tangentialTriangle;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/antipedalTriangle-B.svg)
+![](Help/Image/antipedalTriangle-B.svg)
 
 The antipedal triangle of the first Fermat point is equilateral:
 
@@ -45,7 +45,7 @@ let p = t.firstFermatPoint;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/antipedalTriangle-C.svg)
+![](Help/Image/antipedalTriangle-C.svg)
 
 * * *
 

@@ -18,7 +18,7 @@ _z²_ is a conformal map:
 )
 ~~~
 
-![](sw/spl/Help/Image/conformalPlot-A.svg)
+![](Help/Image/conformalPlot-A.svg)
 
 _1/z_ is a conformal map:
 
@@ -28,7 +28,7 @@ _1/z_ is a conformal map:
 }.conformalPlot([-2J-2 2J2], [6 6], [75 75])
 ~~~
 
-![](sw/spl/Help/Image/conformalPlot-B.svg)
+![](Help/Image/conformalPlot-B.svg)
 
 _cos(z)_ is a conformal map:
 
@@ -42,7 +42,7 @@ _cos(z)_ is a conformal map:
 )
 ~~~
 
-![](sw/spl/Help/Image/conformalPlot-C.svg)
+![](Help/Image/conformalPlot-C.svg)
 
 _z³_ is a conformal map:
 
@@ -56,7 +56,7 @@ _z³_ is a conformal map:
 )
 ~~~
 
-![](sw/spl/Help/Image/conformalPlot-D.svg)
+![](Help/Image/conformalPlot-D.svg)
 
 _z+1/z_ is a conformal map:
 
@@ -70,7 +70,7 @@ _z+1/z_ is a conformal map:
 )
 ~~~
 
-![](sw/spl/Help/Image/conformalPlot-E.svg)
+![](Help/Image/conformalPlot-E.svg)
 
 ~~~spl svg=F
 { :z |
@@ -82,7 +82,7 @@ _z+1/z_ is a conformal map:
 )
 ~~~
 
-![](sw/spl/Help/Image/conformalPlot-F.svg)
+![](Help/Image/conformalPlot-F.svg)
 
 The Cayley transform, _(z-i)/(z+i)_:
 
@@ -95,7 +95,7 @@ cayleyTransform:/1
 )
 ~~~
 
-![](sw/spl/Help/Image/conformalPlot-G.svg)
+![](Help/Image/conformalPlot-G.svg)
 
 The identity transform:
 
@@ -108,7 +108,7 @@ identity:/1
 )
 ~~~
 
-![](sw/spl/Help/Image/conformalPlot-H.svg)
+![](Help/Image/conformalPlot-H.svg)
 
 * * *
 

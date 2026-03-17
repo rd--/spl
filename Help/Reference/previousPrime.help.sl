@@ -68,7 +68,7 @@ OEIS [A064924](https://oeis.org/A064924):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/previousPrime-A.svg)
+![](Help/Image/previousPrime-A.svg)
 
 Ordinal transform of the next prime function,
 calculated as _n-f(n)+1_ for composite _n_,
@@ -84,7 +84,7 @@ OEIS [A175851](https://oeis.org/A175851):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/previousPrime-B.svg)
+![](Help/Image/previousPrime-B.svg)
 
 Numerators of rational valued sequence whose Dirichlet convolution with itself yields the ordinal transform of the next prime function,
 OEIS [A317830](https://oeis.org/A317830):
@@ -114,7 +114,7 @@ let f = Dictionary { :n |
 f[1:115].numerator.logScale.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/previousPrime-C.svg)
+![](Help/Image/previousPrime-C.svg)
 
 * * *
 

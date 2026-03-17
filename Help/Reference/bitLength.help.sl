@@ -64,7 +64,7 @@ OEIS [A029837](https://oeis.org/A029837):
 (-25:25).bitLength.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/bitLength-A.svg)
+![](Help/Image/bitLength-A.svg)
 
 _2^l(n)_,
 [A003817](https://oeis.org/A003817):
@@ -73,7 +73,7 @@ _2^l(n)_,
 (2 ^ 0:50.bitLength).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/bitLength-B.svg)
+![](Help/Image/bitLength-B.svg)
 
 Sum of _n_ modulo _2^k_ for _k_ in `bitLength` of _n_,
 OEIS [A049802](https://oeis.org/A049802):
@@ -87,7 +87,7 @@ OEIS [A049802](https://oeis.org/A049802):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitLength-C.svg)
+![](Help/Image/bitLength-C.svg)
 
 The characteristic function of the powers of two,
 OEIS [A209229](https://oeis.org/A209229):
@@ -97,7 +97,7 @@ OEIS [A209229](https://oeis.org/A209229):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/bitLength-D.svg)
+![](Help/Image/bitLength-D.svg)
 
 `bitLength` up to _2^9_,
 OEIS [A029837](https://oeis.org/A029837):
@@ -107,7 +107,7 @@ let n = 2 ^ 9;
 0:n.bitLength.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/bitLength-E.svg)
+![](Help/Image/bitLength-E.svg)
 
 Simple self-inverse permutation of natural numbers,
 OEIS [A054429](https://oeis.org/A054429):
@@ -118,7 +118,7 @@ OEIS [A054429](https://oeis.org/A054429):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/bitLength-F.svg)
+![](Help/Image/bitLength-F.svg)
 
 Denominators of Farey tree fractions,
 OEIS [A007306](https://oeis.org/A007306):
@@ -135,7 +135,7 @@ let a = Map { :n |
 a[0:260].scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitLength-G.svg)
+![](Help/Image/bitLength-G.svg)
 
 * * *
 

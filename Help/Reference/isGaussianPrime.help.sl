@@ -88,7 +88,7 @@ Plot Gaussian primes in the complex plane:
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isGaussianPrime-A.svg)
+![](Help/Image/isGaussianPrime-A.svg)
 
 Plot a 200×200 matrix of Gaussian primes in the complex plane:
 
@@ -101,7 +101,7 @@ Plot a 200×200 matrix of Gaussian primes in the complex plane:
 .Bitmap
 ~~~
 
-![](sw/spl/Help/Image/isGaussianPrime-B.png)
+![](Help/Image/isGaussianPrime-B.png)
 
 * * *
 

@@ -53,7 +53,7 @@ system
 )
 ~~~
 
-![](sw/spl/Help/Image/leitnerCrystalStructureCatalogue-A.svg)
+![](Help/Image/leitnerCrystalStructureCatalogue-A.svg)
 
 _Note:_
 The catalogue is a `LibraryItem`,

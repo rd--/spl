@@ -35,7 +35,7 @@ draw a point and a unit circle at the origin:
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/Point-A.svg)
+![](Help/Image/Point-A.svg)
 
 Threads over lists:
 
@@ -45,7 +45,7 @@ Threads over lists:
 }.Point.LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/Point-B.svg)
+![](Help/Image/Point-B.svg)
 
 Use as a simple way to visualize volumes:
 
@@ -63,7 +63,7 @@ let p = [];
 p.PerspectiveDrawing
 ~~~
 
-![](sw/spl/Help/Image/Point-C.svg)
+![](Help/Image/Point-C.svg)
 
 * * *
 

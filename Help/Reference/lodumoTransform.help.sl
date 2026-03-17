@@ -53,7 +53,7 @@ OEIS [A160019](https://oeis.org/A160019):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/lodumoTransform-A.svg)
+![](Help/Image/lodumoTransform-A.svg)
 
 _L(2)_ of Kolakoski sequence,
 OEIS [A160051](https://oeis.org/A160051):
@@ -64,7 +64,7 @@ OEIS [A160051](https://oeis.org/A160051):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/lodumoTransform-B.svg)
+![](Help/Image/lodumoTransform-B.svg)
 
 _L(5)_ of Fibonacci sequence,
 OEIS [A160081](https://oeis.org/A160081):
@@ -75,7 +75,7 @@ OEIS [A160081](https://oeis.org/A160081):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/lodumoTransform-C.svg)
+![](Help/Image/lodumoTransform-C.svg)
 
 * * *
 

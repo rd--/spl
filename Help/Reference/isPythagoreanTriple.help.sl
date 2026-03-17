@@ -34,7 +34,7 @@ let i = (-64 .. 64);
 }.table(i, i).Bitmap
 ~~~
 
-![](sw/spl/Help/Image/isPythagoreanTriple-A.png)
+![](Help/Image/isPythagoreanTriple-A.png)
 
 _n_ such that _n-1,n_ is a Pythagorean triple,
 OEIS [A046090](https://oeis.org/A046090):
@@ -57,7 +57,7 @@ let i = (-64 .. 64);
 }.table(i, i).Bitmap
 ~~~
 
-![](sw/spl/Help/Image/isPythagoreanTriple-B.png)
+![](Help/Image/isPythagoreanTriple-B.png)
 
 * * *
 

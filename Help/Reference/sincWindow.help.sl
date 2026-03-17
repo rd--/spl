@@ -27,7 +27,7 @@ Plot:
 }
 ~~~
 
-![](sw/spl/Help/Image/sincWindow-A.svg)
+![](Help/Image/sincWindow-A.svg)
 
 Shape of a sinc window using a specified parameter:
 
@@ -37,7 +37,7 @@ Shape of a sinc window using a specified parameter:
 }
 ~~~
 
-![](sw/spl/Help/Image/sincWindow-B.svg)
+![](Help/Image/sincWindow-B.svg)
 
 Discrete sinc window of length 15:
 
@@ -48,7 +48,7 @@ Discrete sinc window of length 15:
 ).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/sincWindow-C.svg)
+![](Help/Image/sincWindow-C.svg)
 
 Frequency response of the sinc window:
 
@@ -58,7 +58,7 @@ Frequency response of the sinc window:
 }.fftPlot(512, 'Centered', 'Logarithmic')
 ~~~
 
-![](sw/spl/Help/Image/sincWindow-D.svg)
+![](Help/Image/sincWindow-D.svg)
 
 * * *
 

@@ -23,7 +23,7 @@ let t = [1 1; 0 1; 1 1];
 )
 ~~~
 
-![](sw/spl/Help/Image/cubicHermiteFunction-A.svg)
+![](Help/Image/cubicHermiteFunction-A.svg)
 
 Equal _p_ and _t_ except for central tangent:
 
@@ -35,7 +35,7 @@ let t = [1 1; 1 -1; 1 1];
 )
 ~~~
 
-![](sw/spl/Help/Image/cubicHermiteFunction-B.svg)
+![](Help/Image/cubicHermiteFunction-B.svg)
 
 * * *
 

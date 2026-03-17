@@ -14,7 +14,7 @@ Plot with various bias parameters:
 )
 ~~~
 
-![](sw/spl/Help/Image/perlinBiasFunction-A.svg)
+![](Help/Image/perlinBiasFunction-A.svg)
 
 * * *
 

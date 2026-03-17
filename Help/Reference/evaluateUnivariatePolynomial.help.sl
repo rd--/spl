@@ -42,7 +42,7 @@ let c = [
 }
 ~~~
 
-![](sw/spl/Help/Image/evaluateUnivariatePolynomial-A.svg)
+![](Help/Image/evaluateUnivariatePolynomial-A.svg)
 
 * * *
 

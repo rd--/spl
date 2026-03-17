@@ -10,7 +10,7 @@ An algebraic curve studied by Descartes in 1638.
 )
 ~~~
 
-![](sw/spl/Help/Image/foliumOfDescartes-A.svg)
+![](Help/Image/foliumOfDescartes-A.svg)
 
 * * *
 

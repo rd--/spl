@@ -64,7 +64,7 @@ Plot first few terms:
 63.moserDeBruijnSequence.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/moserDeBruijnSequence-A.svg)
+![](Help/Image/moserDeBruijnSequence-A.svg)
 
 * * *
 

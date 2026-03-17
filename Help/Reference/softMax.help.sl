@@ -55,7 +55,7 @@ Plot:
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/softMax-A.svg)
+![](Help/Image/softMax-A.svg)
 
 * * *
 

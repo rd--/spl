@@ -30,7 +30,7 @@ A cubic Bézier curve:
 )
 ~~~
 
-![](sw/spl/Help/Image/bezierFunction-A.svg)
+![](Help/Image/bezierFunction-A.svg)
 
 A symmetric cubic Bézier curve:
 
@@ -41,7 +41,7 @@ A symmetric cubic Bézier curve:
 )
 ~~~
 
-![](sw/spl/Help/Image/bezierFunction-B.svg)
+![](Help/Image/bezierFunction-B.svg)
 
 An arc:
 
@@ -52,7 +52,7 @@ An arc:
 )
 ~~~
 
-![](sw/spl/Help/Image/bezierFunction-C.svg)
+![](Help/Image/bezierFunction-C.svg)
 
 A cubic Bézier curve in one dimension:
 
@@ -62,7 +62,7 @@ A cubic Bézier curve in one dimension:
 ).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/bezierFunction-D.svg)
+![](Help/Image/bezierFunction-D.svg)
 
 Plot the same one dimensional cubic Bézier curve in one dimension:
 
@@ -74,7 +74,7 @@ let f:/1 = [0 0.25 1.75 2].bezierFunction;
 }.Line.LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/bezierFunction-E.svg)
+![](Help/Image/bezierFunction-E.svg)
 
 * * *
 

@@ -45,7 +45,7 @@ Scatter plot of the digits of the Feigenbaum constant:
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/feigenbaumConstant-A.svg)
+![](Help/Image/feigenbaumConstant-A.svg)
 
 * * *
 

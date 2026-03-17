@@ -32,7 +32,7 @@ OEIS [A051699](http://oeis.org/A051699):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/primeDistance-A.svg)
+![](Help/Image/primeDistance-A.svg)
 
 * * *
 

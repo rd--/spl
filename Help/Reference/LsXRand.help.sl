@@ -58,7 +58,7 @@ LsXRand(
 .stepPlot
 ~~~
 
-![](sw/spl/Help/Image/LsXRand-A.svg)
+![](Help/Image/LsXRand-A.svg)
 
 * * *
 

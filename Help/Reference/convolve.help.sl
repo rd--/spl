@@ -77,7 +77,7 @@ let u = x.collect(unitBox:/1);
 u.convolve(u).linePlot
 ~~~
 
-![](sw/spl/Help/Image/convolve-A.svg)
+![](Help/Image/convolve-A.svg)
 
 Smooth triangle function:
 
@@ -88,7 +88,7 @@ let v = u.convolve(u);
 v.convolve(v).linePlot
 ~~~
 
-![](sw/spl/Help/Image/convolve-B.svg)
+![](Help/Image/convolve-B.svg)
 
 Autocorrelation of white noise is an impulse:
 
@@ -99,7 +99,7 @@ let v = u.reverse;
 u.convolve(v).linePlot
 ~~~
 
-![](sw/spl/Help/Image/convolve-C.svg)
+![](Help/Image/convolve-C.svg)
 
 Find the autocorrelation of a list:
 
@@ -109,7 +109,7 @@ let v = u.reverse;
 (u ++ u).convolve(v).middle(100).linePlot
 ~~~
 
-![](sw/spl/Help/Image/convolve-D.svg)
+![](Help/Image/convolve-D.svg)
 
 Self convolution of
 OEIS [A073739](https://oeis.org/A073739),
@@ -133,7 +133,7 @@ let b = a[0:k];
 b.convolve(b).first(k + 1).log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/convolve-E.svg)
+![](Help/Image/convolve-E.svg)
 
 Self-convolution of the inverse of sixth cyclotomic polynomial,
 OEIS [A010892](https://oeis.org/A010892),
@@ -145,7 +145,7 @@ let k = a.size;
 a.convolve(a).first(k).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/convolve-F.svg)
+![](Help/Image/convolve-F.svg)
 
 * * *
 

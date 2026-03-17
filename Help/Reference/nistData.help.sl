@@ -60,7 +60,7 @@ system.nistData('LEW3', [1 2])
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/nistData-A.svg)
+![](Help/Image/nistData-A.svg)
 
 Plot the first two columns of the _CHWIRUT2_ data set,
 which show an exponential relationship:
@@ -70,7 +70,7 @@ system.nistData('CHWIRUT2', [1 2])
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/nistData-B.svg)
+![](Help/Image/nistData-B.svg)
 
 Plot the intial values of the _LUTHER_ data set,
 which show a damped sinusoidal relationship:
@@ -81,7 +81,7 @@ system.nistData('LUTHER', [1])
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/nistData-C.svg)
+![](Help/Image/nistData-C.svg)
 
 Plot the first two columns of the _BERGER1_ data set,
 which shows heteroscedasticity,
@@ -94,7 +94,7 @@ system.nistData('BERGER1', [2 1])
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/nistData-D.svg)
+![](Help/Image/nistData-D.svg)
 
 To clear the library item from the cache:
 

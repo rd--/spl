@@ -12,7 +12,7 @@ Linear plot:
 )
 ~~~
 
-![](sw/spl/Help/Image/bWeightingCurve-A.svg)
+![](Help/Image/bWeightingCurve-A.svg)
 
 Logarithmic plot:
 
@@ -22,7 +22,7 @@ Logarithmic plot:
 )
 ~~~
 
-![](sw/spl/Help/Image/bWeightingCurve-B.svg)
+![](Help/Image/bWeightingCurve-B.svg)
 
 Logarithmic plot:
 
@@ -32,7 +32,7 @@ Logarithmic plot:
 }
 ~~~
 
-![](sw/spl/Help/Image/bWeightingCurve-C.svg)
+![](Help/Image/bWeightingCurve-C.svg)
 
 * * *
 

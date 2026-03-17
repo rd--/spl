@@ -15,7 +15,7 @@ Plot a stacked list of  values:
 ].stackedListPlot
 ~~~
 
-![](sw/spl/Help/Image/stackedListPlot-A.svg)
+![](Help/Image/stackedListPlot-A.svg)
 
 * * *
 

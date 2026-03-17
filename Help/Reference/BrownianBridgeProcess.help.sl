@@ -13,7 +13,7 @@ BrownianBridgeProcess(1, [0 0], [1 0])
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/BrownianBridgeProcess-A.svg)
+![](Help/Image/BrownianBridgeProcess-A.svg)
 
 Simulate an ensemble of paths:
 
@@ -24,7 +24,7 @@ BrownianBridgeProcess(1, [0 -1], [2 1])
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/BrownianBridgeProcess-B.svg)
+![](Help/Image/BrownianBridgeProcess-B.svg)
 
 * * *
 

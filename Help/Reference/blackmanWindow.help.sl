@@ -24,7 +24,7 @@ Plot:
 )
 ~~~
 
-![](sw/spl/Help/Image/blackmanWindow-A.svg)
+![](Help/Image/blackmanWindow-A.svg)
 
 Discrete Blackman window of length 15:
 
@@ -35,7 +35,7 @@ Discrete Blackman window of length 15:
 ).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/blackmanWindow-B.svg)
+![](Help/Image/blackmanWindow-B.svg)
 
 Frequency response of the Blackman window:
 
@@ -45,7 +45,7 @@ Frequency response of the Blackman window:
 ).fftPlot(512, 'Centered', 'Logarithmic')
 ~~~
 
-![](sw/spl/Help/Image/blackmanWindow-C.svg)
+![](Help/Image/blackmanWindow-C.svg)
 
 * * *
 

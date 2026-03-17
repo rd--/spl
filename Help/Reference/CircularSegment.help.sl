@@ -12,7 +12,7 @@ CircularSegment(
 )
 ~~~
 
-![](sw/spl/Help/Image/CircularSegment-A.svg)
+![](Help/Image/CircularSegment-A.svg)
 
 Draw the segment or a major sector,
 not properly a segment:
@@ -23,7 +23,7 @@ CircularSegment(
 )
 ~~~
 
-![](sw/spl/Help/Image/CircularSegment-B.svg)
+![](Help/Image/CircularSegment-B.svg)
 
 * * *
 

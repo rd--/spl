@@ -13,7 +13,7 @@ let r = w.boundingBox.asRectangle;
 [c, w, r].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/Writing-A.svg)
+![](Help/Image/Writing-A.svg)
 
 Letters randomly placed in a circle:
 
@@ -30,7 +30,7 @@ let w = l.collect { :each |
 [c, w].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/Writing-B.svg)
+![](Help/Image/Writing-B.svg)
 
 * * *
 

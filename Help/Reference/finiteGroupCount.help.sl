@@ -42,7 +42,7 @@ OEIS [A000001](https://oeis.org/A000001):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/finiteGroupCount-A.svg)
+![](Help/Image/finiteGroupCount-A.svg)
 
 The number of finite groups of order _n_,
 log scale scatter plot,
@@ -54,7 +54,7 @@ OEIS [A000001](https://oeis.org/A000001):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/finiteGroupCount-B.svg)
+![](Help/Image/finiteGroupCount-B.svg)
 
 * * *
 

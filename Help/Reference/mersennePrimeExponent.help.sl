@@ -47,7 +47,7 @@ Log plot of first few terms:
 ).log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/mersennePrimeExponent-A.svg)
+![](Help/Image/mersennePrimeExponent-A.svg)
 
 * * *
 

@@ -17,7 +17,7 @@ A colour palette specifed in _Hex-Triplet_ notation:
 .ColourPalette
 ~~~
 
-![](sw/spl/Help/Image/ColourPalette-A.svg)
+![](Help/Image/ColourPalette-A.svg)
 
 The `namedColourPalette` method answers a `ColourPalette` value:
 
@@ -26,7 +26,7 @@ The `namedColourPalette` method answers a `ColourPalette` value:
 .namedColourPalette
 ~~~
 
-![](sw/spl/Help/Image/ColourPalette-B.svg)
+![](Help/Image/ColourPalette-B.svg)
 
 * * *
 

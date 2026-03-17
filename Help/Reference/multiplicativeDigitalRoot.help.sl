@@ -43,7 +43,7 @@ Step plot of first few terms:
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/multiplicativeDigitalRoot-A.svg)
+![](Help/Image/multiplicativeDigitalRoot-A.svg)
 
 Scatter plot of first few terms where _b=10_:
 

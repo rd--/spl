@@ -36,7 +36,7 @@ let u = (-0.125 -- 0.125).discretize(n);
 .arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/oklabToXyz-A.svg)
+![](Help/Image/oklabToXyz-A.svg)
 
 A slice of the _Oklab_ colour space at _L=0.75_,
 where `Image` replaces out of gamut colours with _transparent_:
@@ -54,7 +54,7 @@ let u = (-0.25 -- 0.25).discretize(n);
 .Image
 ~~~
 
-![](sw/spl/Help/Image/oklabToXyz-B.png)
+![](Help/Image/oklabToXyz-B.png)
 
 * * *
 

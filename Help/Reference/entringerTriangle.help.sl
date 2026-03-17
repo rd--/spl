@@ -40,7 +40,7 @@ OEIS [A008281](https://oeis.org/A008281):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/entringerTriangle-A.svg)
+![](Help/Image/entringerTriangle-A.svg)
 
 * * *
 

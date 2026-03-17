@@ -47,7 +47,7 @@ Plot first few terms:
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/catalanRank-A.svg)
+![](Help/Image/catalanRank-A.svg)
 
 * * *
 

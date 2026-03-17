@@ -14,7 +14,7 @@ Plot kernels for _n_ of two, four and six:
 )
 ~~~
 
-![](sw/spl/Help/Image/fejerKernel-A.svg)
+![](Help/Image/fejerKernel-A.svg)
 
 * * *
 

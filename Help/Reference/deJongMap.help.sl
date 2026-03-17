@@ -12,7 +12,7 @@ deJongMap(-2.24, 0.43, -0.65, -2.43)
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/deJongMap-A.svg)
+![](Help/Image/deJongMap-A.svg)
 
 Plot small iteration count:
 
@@ -22,7 +22,7 @@ deJongMap(-2.7, -0.09, -0.86, -2.2)
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/deJongMap-B.svg)
+![](Help/Image/deJongMap-B.svg)
 
 * * *
 

@@ -27,7 +27,7 @@ let t = [3 4 5].sssTriangle;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/spiekerCenter-A.svg)
+![](Help/Image/spiekerCenter-A.svg)
 
 * * *
 

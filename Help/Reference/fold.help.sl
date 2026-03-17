@@ -36,7 +36,7 @@ Plot a triangle wave formed by folding a line:
 }
 ~~~
 
-![](sw/spl/Help/Image/fold-A.svg)
+![](Help/Image/fold-A.svg)
 
 * * *
 

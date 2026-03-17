@@ -36,7 +36,7 @@ over a subset of the reals:
 )
 ~~~
 
-![](sw/spl/Help/Image/NormalDistribution-A.svg)
+![](Help/Image/NormalDistribution-A.svg)
 
 Plot the cumulative distribution function,
 `cdf`,
@@ -48,7 +48,7 @@ over a subset of the reals:
 )
 ~~~
 
-![](sw/spl/Help/Image/NormalDistribution-B.svg)
+![](Help/Image/NormalDistribution-B.svg)
 
 Plot `randomVariate`:
 
@@ -59,7 +59,7 @@ NormalDistribution(0, 1)
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/NormalDistribution-C.svg)
+![](Help/Image/NormalDistribution-C.svg)
 
 Two dimensional Gaussian noise:
 
@@ -70,7 +70,7 @@ NormalDistribution(0, 1)
 .asGreymap
 ~~~
 
-![](sw/spl/Help/Image/NormalDistribution-D.png)
+![](Help/Image/NormalDistribution-D.png)
 
 Generate a sample of pseudorandom numbers from a normal distribution:
 
@@ -81,7 +81,7 @@ NormalDistribution(1, 3)
 .histogramPlot
 ~~~
 
-![](sw/spl/Help/Image/NormalDistribution-E.svg)
+![](Help/Image/NormalDistribution-E.svg)
 
 PLot with mean at zero and small deviation:
 
@@ -92,7 +92,7 @@ NormalDistribution(0, 1 / 9)
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/NormalDistribution-F.svg)
+![](Help/Image/NormalDistribution-F.svg)
 
 Plot sorted random list:
 
@@ -104,7 +104,7 @@ NormalDistribution(0, 1)
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/NormalDistribution-G.svg)
+![](Help/Image/NormalDistribution-G.svg)
 
 * * *
 

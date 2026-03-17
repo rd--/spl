@@ -21,7 +21,7 @@ the radius depending on the initial phase difference:
 )
 ~~~
 
-![](sw/spl/Help/Image/rotaryHarmonographCurve-A.svg)
+![](Help/Image/rotaryHarmonographCurve-A.svg)
 
 The ratio _2:1_:
 
@@ -34,7 +34,7 @@ The ratio _2:1_:
 ).Line
 ~~~
 
-![](sw/spl/Help/Image/rotaryHarmonographCurve-B.svg)
+![](Help/Image/rotaryHarmonographCurve-B.svg)
 
 The ratio _-2:1_:
 
@@ -47,7 +47,7 @@ The ratio _-2:1_:
 ).Line
 ~~~
 
-![](sw/spl/Help/Image/rotaryHarmonographCurve-C.svg)
+![](Help/Image/rotaryHarmonographCurve-C.svg)
 
 The ratio _3:2_:
 
@@ -60,7 +60,7 @@ The ratio _3:2_:
 ).Line
 ~~~
 
-![](sw/spl/Help/Image/rotaryHarmonographCurve-D.svg)
+![](Help/Image/rotaryHarmonographCurve-D.svg)
 
 The ratio _-3:2_:
 
@@ -73,7 +73,7 @@ The ratio _-3:2_:
 ).Line
 ~~~
 
-![](sw/spl/Help/Image/rotaryHarmonographCurve-E.svg)
+![](Help/Image/rotaryHarmonographCurve-E.svg)
 
 A near unison:
 
@@ -86,7 +86,7 @@ A near unison:
 ).Line
 ~~~
 
-![](sw/spl/Help/Image/rotaryHarmonographCurve-F.svg)
+![](Help/Image/rotaryHarmonographCurve-F.svg)
 
 A near octave, with damping:
 
@@ -99,7 +99,7 @@ A near octave, with damping:
 ).Line
 ~~~
 
-![](sw/spl/Help/Image/rotaryHarmonographCurve-G.svg)
+![](Help/Image/rotaryHarmonographCurve-G.svg)
 
 A near negated octave, with damping:
 
@@ -112,7 +112,7 @@ A near negated octave, with damping:
 ).Line
 ~~~
 
-![](sw/spl/Help/Image/rotaryHarmonographCurve-H.svg)
+![](Help/Image/rotaryHarmonographCurve-H.svg)
 
 A near fifth, negated:
 
@@ -125,7 +125,7 @@ A near fifth, negated:
 ).Line
 ~~~
 
-![](sw/spl/Help/Image/rotaryHarmonographCurve-I.svg)
+![](Help/Image/rotaryHarmonographCurve-I.svg)
 
 A minor sixth:
 
@@ -138,7 +138,7 @@ A minor sixth:
 ).Line
 ~~~
 
-![](sw/spl/Help/Image/rotaryHarmonographCurve-J.svg)
+![](Help/Image/rotaryHarmonographCurve-J.svg)
 
 * * *
 

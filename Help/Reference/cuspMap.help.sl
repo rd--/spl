@@ -8,7 +8,7 @@ The univarirate cusp function.
 (-3 -- 3).functionPlot(cuspMap:/1)
 ~~~
 
-![](sw/spl/Help/Image/cuspMap-A.svg)
+![](Help/Image/cuspMap-A.svg)
 
 * * *
 

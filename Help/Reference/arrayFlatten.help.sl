@@ -75,7 +75,7 @@ Iterate a two-dimensional substitution system:
 }.nestList([[1]], 3).last.matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/arrayFlatten-A.svg)
+![](Help/Image/arrayFlatten-A.svg)
 
 * * *
 

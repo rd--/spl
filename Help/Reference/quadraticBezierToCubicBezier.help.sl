@@ -22,7 +22,7 @@ let p = [0 0; 1 1; 2 0];
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/quadraticBezierToCubicBezier-A.svg)
+![](Help/Image/quadraticBezierToCubicBezier-A.svg)
 
 Draw equivalent cubic Bézier curve:
 
@@ -36,7 +36,7 @@ let q = p.quadraticBezierToCubicBezier;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/quadraticBezierToCubicBezier-B.svg)
+![](Help/Image/quadraticBezierToCubicBezier-B.svg)
 
 * * *
 

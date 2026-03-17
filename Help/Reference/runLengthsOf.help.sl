@@ -64,7 +64,7 @@ Plot:
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/runLengthsOf-A.svg)
+![](Help/Image/runLengthsOf-A.svg)
 
 * * *
 

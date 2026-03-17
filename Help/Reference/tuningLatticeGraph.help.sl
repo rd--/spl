@@ -24,7 +24,7 @@ A 7-note 7-limit tuning:
 )
 ~~~
 
-![](sw/spl/Help/Image/tuningLatticeGraph-A.svg)
+![](Help/Image/tuningLatticeGraph-A.svg)
 
 A 22-note 11-limit tuning:
 
@@ -43,7 +43,7 @@ A 22-note 11-limit tuning:
 )
 ~~~
 
-![](sw/spl/Help/Image/tuningLatticeGraph-B.svg)
+![](Help/Image/tuningLatticeGraph-B.svg)
 
 The `divisors` set of sixty,
 drawn on a tuning lattice including the octave,
@@ -58,7 +58,7 @@ where the _y_ axis indicates pitch in logarithmic space:
 )
 ~~~
 
-![](sw/spl/Help/Image/tuningLatticeGraph-C.svg)
+![](Help/Image/tuningLatticeGraph-C.svg)
 
 In the unary case the primes list is either _3 5 7 11 13 17 19 23_,
 or is derived from the tuning using `tuningLatticePrimes`,
@@ -78,7 +78,7 @@ A 24-note 19-limit draft tuning by Ben Johnston:
 .tuningLatticeGraph
 ~~~
 
-![](sw/spl/Help/Image/tuningLatticeGraph-D.svg)
+![](Help/Image/tuningLatticeGraph-D.svg)
 
 A 17-tone 13-limit scale by Larry Polansky for the Harrison-Colvig transfer harp:
 
@@ -92,7 +92,7 @@ A 17-tone 13-limit scale by Larry Polansky for the Harrison-Colvig transfer harp
 .tuningLatticeGraph
 ~~~
 
-![](sw/spl/Help/Image/tuningLatticeGraph-E.svg)
+![](Help/Image/tuningLatticeGraph-E.svg)
 
 A 47-tone 11-limit scale by Paul Johnson,
 _3,7,11_ is drawn upon what is ordinarily the _3,5,7_ tuning lattice:
@@ -126,7 +126,7 @@ _3,7,11_ is drawn upon what is ordinarily the _3,5,7_ tuning lattice:
 )
 ~~~
 
-![](sw/spl/Help/Image/tuningLatticeGraph-F.svg)
+![](Help/Image/tuningLatticeGraph-F.svg)
 
 Draw a _1,3,5,7,11,13_ diamond on a circular tuning lattice:
 
@@ -143,7 +143,7 @@ let n = [1 3 5 7 11 13];
 )
 ~~~
 
-![](sw/spl/Help/Image/tuningLatticeGraph-G.svg)
+![](Help/Image/tuningLatticeGraph-G.svg)
 
 Tuning lattice graph of regular numbers within the octave double _(360,720)_:
 
@@ -157,7 +157,7 @@ let n = 6.!;
 .tuningLatticeGraph
 ~~~
 
-![](sw/spl/Help/Image/tuningLatticeGraph-H.svg)
+![](Help/Image/tuningLatticeGraph-H.svg)
 
 _Rationale_:
 While the unary case is useful for drawing simple examples,

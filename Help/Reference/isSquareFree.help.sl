@@ -103,7 +103,7 @@ OEIS [A005117](https://oeis.org/A005117):
 1:99.select(isSquareFree:/1).linePlot
 ~~~
 
-![](sw/spl/Help/Image/isSquareFree-A.svg)
+![](Help/Image/isSquareFree-A.svg)
 
 Squareful numbers,
 OEIS [A013929](https://oeis.org/A013929):
@@ -112,7 +112,7 @@ OEIS [A013929](https://oeis.org/A013929):
 1:99.reject(isSquareFree:/1).linePlot
 ~~~
 
-![](sw/spl/Help/Image/isSquareFree-B.svg)
+![](Help/Image/isSquareFree-B.svg)
 
 Least square-free _m>n_ with _gcd(m,n)>1_,
 OEIS [A071888](https://oeis.org/A071888):
@@ -131,7 +131,7 @@ OEIS [A071888](https://oeis.org/A071888):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isSquareFree-C.svg)
+![](Help/Image/isSquareFree-C.svg)
 
 First differences of sequence of nonsquarefree numbers,
 OEIS [A078147](https://oeis.org/A078147):
@@ -141,7 +141,7 @@ OEIS [A078147](https://oeis.org/A078147):
 .differences.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/isSquareFree-D.svg)
+![](Help/Image/isSquareFree-D.svg)
 
 Second differences of sequence of nonsquarefree numbers,
 OEIS [A376593](https://oeis.org/A376593):
@@ -151,7 +151,7 @@ OEIS [A376593](https://oeis.org/A376593):
 .differences(2).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/isSquareFree-E.svg)
+![](Help/Image/isSquareFree-E.svg)
 
 The characteristic function of square free numbers,
 OEIS [A008966](https://oeis.org/A008966):
@@ -162,7 +162,7 @@ OEIS [A008966](https://oeis.org/A008966):
 ).boole.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/isSquareFree-F.svg)
+![](Help/Image/isSquareFree-F.svg)
 
 * * *
 

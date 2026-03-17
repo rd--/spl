@@ -86,7 +86,7 @@ let p = 5.chebyshevT;
 }
 ~~~
 
-![](sw/spl/Help/Image/chebyshevT-A.svg)
+![](Help/Image/chebyshevT-A.svg)
 
 Plot the tenth degree polynomial over a subset of the reals:
 
@@ -97,7 +97,7 @@ let p = 10.chebyshevT;
 }
 ~~~
 
-![](sw/spl/Help/Image/chebyshevT-B.svg)
+![](Help/Image/chebyshevT-B.svg)
 
 Plot the first five polynomial over a subset of the reals:
 
@@ -112,7 +112,7 @@ let p = 0:4.collect(chebyshevT:/1);
 )
 ~~~
 
-![](sw/spl/Help/Image/chebyshevT-C.svg)
+![](Help/Image/chebyshevT-C.svg)
 
 Plot a slice of a Banchoff–Chmutov surface:
 
@@ -124,7 +124,7 @@ let i = (-1.15 -- 1.15).subdivide(100);
 }.table(i, i).rescale.Greymap
 ~~~
 
-![](sw/spl/Help/Image/chebyshevT-D.png)
+![](Help/Image/chebyshevT-D.png)
 
 Log scale plot of succesive coefficients,
 including zeroes,
@@ -137,7 +137,7 @@ OEIS [A053120](https://oeis.org/A053120):
 }.catenate.logScale.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/chebyshevT-E.svg)
+![](Help/Image/chebyshevT-E.svg)
 
 Monic integer version of Chebyshev T-polynomials,
 OEIS [A127672](https://oeis.org/A127672):
@@ -150,7 +150,7 @@ OEIS [A127672](https://oeis.org/A127672):
 }.catenate.logScale.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/chebyshevT-F.svg)
+![](Help/Image/chebyshevT-F.svg)
 
 Evaluate symbolically:
 

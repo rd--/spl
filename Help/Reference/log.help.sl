@@ -156,7 +156,7 @@ Plot over a subset of the reals:
 (0.01 -- 5).functionPlot(log:/1)
 ~~~
 
-![](sw/spl/Help/Image/log-A.svg)
+![](Help/Image/log-A.svg)
 
 Polar plot:
 
@@ -164,7 +164,7 @@ Polar plot:
 (0.01 -- 6.pi).polarPlot(log:/1)
 ~~~
 
-![](sw/spl/Help/Image/log-B.svg)
+![](Help/Image/log-B.svg)
 
 Plot `log` at integer points:
 
@@ -180,7 +180,7 @@ Plot `log` at integer points:
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/log-C.svg)
+![](Help/Image/log-C.svg)
 
 Complex plot:
 
@@ -190,7 +190,7 @@ Complex plot:
 }
 ~~~
 
-![](sw/spl/Help/Image/log-D.png)
+![](Help/Image/log-D.png)
 
 Calculate the time for a given principal to double under compound interest at rate _r_,
 given conversion period _n_:
@@ -203,7 +203,7 @@ let n = 1;
 }
 ~~~
 
-![](sw/spl/Help/Image/log-E.svg)
+![](Help/Image/log-E.svg)
 
 * * *
 

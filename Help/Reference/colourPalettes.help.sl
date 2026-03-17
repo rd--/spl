@@ -90,7 +90,7 @@ system
 .arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/colourPalettes-A.svg)
+![](Help/Image/colourPalettes-A.svg)
 
 Plot the six colour _Charmonix_ palette from the _NationalParks_ collection by constructing a `ColourPalette` value:
 
@@ -102,7 +102,7 @@ system
 .ColourPalette
 ~~~
 
-![](sw/spl/Help/Image/colourPalettes-B.svg)
+![](Help/Image/colourPalettes-B.svg)
 
 Plot the four colour _Fernande_ palette from the _Ltc_ collection:
 
@@ -115,7 +115,7 @@ system
 .arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/colourPalettes-C.svg)
+![](Help/Image/colourPalettes-C.svg)
 
 Plot the nine colour _Jewel Bright_ palette from the _Tableau_ collection:
 
@@ -127,7 +127,7 @@ system
 .arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/colourPalettes-D.svg)
+![](Help/Image/colourPalettes-D.svg)
 
 `asDiscreteColourGradient` translates a _colour palette_ to a `ColourGradient`,
 arranged to have discrete sections.
@@ -140,7 +140,7 @@ system
 .asDiscreteColourGradient
 ~~~
 
-![](sw/spl/Help/Image/colourPalettes-E.svg)
+![](Help/Image/colourPalettes-E.svg)
 
 `asContinuousColourGradient` translates a _colour palette_ to a `ColourGradient`,
 arranged to be a continous gradient with equally spaced positions.
@@ -153,7 +153,7 @@ system
 .asContinuousColourGradient
 ~~~
 
-![](sw/spl/Help/Image/colourPalettes-F.svg)
+![](Help/Image/colourPalettes-F.svg)
 
 Sources for each collection:
 _Carto_: [1](https://github.com/Nowosad/rcartocolor),

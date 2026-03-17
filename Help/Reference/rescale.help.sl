@@ -149,7 +149,7 @@ Plot over a subset of the reals:
 ])
 ~~~
 
-![](sw/spl/Help/Image/rescale-A.svg)
+![](Help/Image/rescale-A.svg)
 
 * * *
 

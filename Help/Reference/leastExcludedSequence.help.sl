@@ -19,7 +19,7 @@ OEIS [A064417](https://oeis.org/A064417):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/leastExcludedSequence-A.svg)
+![](Help/Image/leastExcludedSequence-A.svg)
 
 Least excluded sequence such that the `gcd` of adjacent terms is _≠1_,
 called the Ekg sequence,
@@ -32,7 +32,7 @@ OEIS [A064413](https://oeis.org/A064413):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/leastExcludedSequence-B.svg)
+![](Help/Image/leastExcludedSequence-B.svg)
 
 Least excluded sequence such that adjacent terms are part of a Pythagorean triple,
 OEIS [A235598](https://oeis.org/A235598):
@@ -47,7 +47,7 @@ OEIS [A235598](https://oeis.org/A235598):
 }.log.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/leastExcludedSequence-C.svg)
+![](Help/Image/leastExcludedSequence-C.svg)
 
 * * *
 

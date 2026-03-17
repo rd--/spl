@@ -96,7 +96,7 @@ let n = 256;
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/subdivide-A.svg)
+![](Help/Image/subdivide-A.svg)
 
 * * *
 

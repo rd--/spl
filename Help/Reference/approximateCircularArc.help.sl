@@ -13,7 +13,7 @@ At origin with radius one and angle from zero to ½π:
 )
 ~~~
 
-![](sw/spl/Help/Image/approximateCircularArc-A.svg)
+![](Help/Image/approximateCircularArc-A.svg)
 
 Approximate circle as four sucessive arcs:
 
@@ -24,7 +24,7 @@ Approximate circle as four sucessive arcs:
 }.LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/approximateCircularArc-B.svg)
+![](Help/Image/approximateCircularArc-B.svg)
 
 * * *
 

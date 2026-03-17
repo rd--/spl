@@ -27,7 +27,7 @@ Plot three ellipses, including a circle:
 )
 ~~~
 
-![](sw/spl/Help/Image/ellipseCurve-A.svg)
+![](Help/Image/ellipseCurve-A.svg)
 
 Plot an ellipse through four rotatations:
 
@@ -39,7 +39,7 @@ Plot an ellipse through four rotatations:
 )
 ~~~
 
-![](sw/spl/Help/Image/ellipseCurve-B.svg)
+![](Help/Image/ellipseCurve-B.svg)
 
 Draw equidistant points:
 
@@ -50,7 +50,7 @@ Draw equidistant points:
 ).PointCloud
 ~~~
 
-![](sw/spl/Help/Image/ellipseCurve-C.svg)
+![](Help/Image/ellipseCurve-C.svg)
 
 Plot ¾ of a circular ellipse beginning at ¼:
 
@@ -61,7 +61,7 @@ Plot ¾ of a circular ellipse beginning at ¼:
 ).PointCloud
 ~~~
 
-![](sw/spl/Help/Image/ellipseCurve-D.svg)
+![](Help/Image/ellipseCurve-D.svg)
 
 * * *
 

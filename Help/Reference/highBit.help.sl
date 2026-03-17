@@ -44,7 +44,7 @@ Plot it:
 (0 .. 2 ^ 11 - 1).functionPlot(highBit:/1)
 ~~~
 
-![](sw/spl/Help/Image/highBit-A.svg)
+![](Help/Image/highBit-A.svg)
 
 * * *
 

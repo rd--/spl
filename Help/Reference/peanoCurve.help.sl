@@ -26,7 +26,7 @@ Drawing of the 2nd step of the Peano curve:
 2.peanoCurve.Line
 ~~~
 
-![](sw/spl/Help/Image/peanoCurve-A.svg)
+![](Help/Image/peanoCurve-A.svg)
 
 Drawing of the 3rd step of the Peano curve:
 
@@ -34,7 +34,7 @@ Drawing of the 3rd step of the Peano curve:
 3.peanoCurve.Line
 ~~~
 
-![](sw/spl/Help/Image/peanoCurve-B.svg)
+![](Help/Image/peanoCurve-B.svg)
 
 * * *
 

@@ -60,7 +60,7 @@ OEIS [A130799](https://oeis.org/A130799):
 3:50.antiDivisors.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/antiDivisors-A.svg)
+![](Help/Image/antiDivisors-A.svg)
 
 Anti-divisor counts of _n_,
 OEIS [A066272](https://oeis.org/A066272):
@@ -71,7 +71,7 @@ OEIS [A066272](https://oeis.org/A066272):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/antiDivisors-B.svg)
+![](Help/Image/antiDivisors-B.svg)
 
 Anti-divisor sums of _n_,
 OEIS [A058838](https://oeis.org/A058838):
@@ -81,7 +81,7 @@ let a = 1:50.antiDivisors;
 (a.collect(sum:/1) + 1).stepPlot
 ~~~
 
-![](sw/spl/Help/Image/antiDivisors-C.svg)
+![](Help/Image/antiDivisors-C.svg)
 
 Anti-divisor class sums of _n_,
 OEIS [A066518](https://oeis.org/A066518):
@@ -92,7 +92,7 @@ OEIS [A066518](https://oeis.org/A066518):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/antiDivisors-D.svg)
+![](Help/Image/antiDivisors-D.svg)
 
 Gaps between successive numbers with an anti-divisor class sum of zero,
 OEIS [A066519](https://oeis.org/A066519):
@@ -105,7 +105,7 @@ OEIS [A066519](https://oeis.org/A066519):
 .stepPlot
 ~~~
 
-![](sw/spl/Help/Image/antiDivisors-E.svg)
+![](Help/Image/antiDivisors-E.svg)
 
 * * *
 

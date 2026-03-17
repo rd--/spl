@@ -30,7 +30,7 @@ let t = TurtleGeometry();
 t
 ~~~
 
-![](sw/spl/Help/Image/TurtleGeometry-A.svg)
+![](Help/Image/TurtleGeometry-A.svg)
 
 The `repeat` command provides the turtle geometry object as both parameter and answer:
 
@@ -42,7 +42,7 @@ TurtleGeometry()
 }
 ~~~
 
-![](sw/spl/Help/Image/TurtleGeometry-B.svg)
+![](Help/Image/TurtleGeometry-B.svg)
 
 Draw a set of circles:
 
@@ -54,7 +54,7 @@ TurtleGeometry()
 }
 ~~~
 
-![](sw/spl/Help/Image/TurtleGeometry-C.svg)
+![](Help/Image/TurtleGeometry-C.svg)
 
 Draw a flower:
 
@@ -69,7 +69,7 @@ TurtleGeometry()
 }
 ~~~
 
-![](sw/spl/Help/Image/TurtleGeometry-D.svg)
+![](Help/Image/TurtleGeometry-D.svg)
 
 Draw a sun:
 
@@ -84,7 +84,7 @@ TurtleGeometry()
 }
 ~~~
 
-![](sw/spl/Help/Image/TurtleGeometry-E.svg)
+![](Help/Image/TurtleGeometry-E.svg)
 
 Draw polygons:
 
@@ -106,7 +106,7 @@ TurtleGeometry()
 }
 ~~~
 
-![](sw/spl/Help/Image/TurtleGeometry-F.svg)
+![](Help/Image/TurtleGeometry-F.svg)
 
 Draw spirolateral:
 
@@ -120,7 +120,7 @@ TurtleGeometry()
 }
 ~~~
 
-![](sw/spl/Help/Image/TurtleGeometry-G.svg)
+![](Help/Image/TurtleGeometry-G.svg)
 
 Draw generalised spirolateral:
 
@@ -138,7 +138,7 @@ TurtleGeometry()
 }
 ~~~
 
-![](sw/spl/Help/Image/TurtleGeometry-H.svg)
+![](Help/Image/TurtleGeometry-H.svg)
 
 Draw two interleaved regular polygons,
 a square and a nonagon:
@@ -151,7 +151,7 @@ TurtleGeometry()
 }
 ~~~
 
-![](sw/spl/Help/Image/TurtleGeometry-I.svg)
+![](Help/Image/TurtleGeometry-I.svg)
 
 Draw two interleaved regular polygons,
 of 36 and 24 sides:
@@ -164,7 +164,7 @@ TurtleGeometry()
 }
 ~~~
 
-![](sw/spl/Help/Image/TurtleGeometry-J.svg)
+![](Help/Image/TurtleGeometry-J.svg)
 
 Draw polygon with local phase change:
 
@@ -178,7 +178,7 @@ TurtleGeometry()
 }
 ~~~
 
-![](sw/spl/Help/Image/TurtleGeometry-K.svg)
+![](Help/Image/TurtleGeometry-K.svg)
 
 * * *
 

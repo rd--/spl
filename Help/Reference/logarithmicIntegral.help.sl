@@ -56,7 +56,7 @@ Plot over a subset of the reals:
 }
 ~~~
 
-![](sw/spl/Help/Image/logarithmicIntegral-A.svg)
+![](Help/Image/logarithmicIntegral-A.svg)
 
 * * *
 

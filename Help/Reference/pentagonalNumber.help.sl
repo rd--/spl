@@ -46,7 +46,7 @@ OEIS [A000326](https://oeis.org/A000326):
 1:85.pentagonalNumber.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/pentagonalNumber-A.svg)
+![](Help/Image/pentagonalNumber-A.svg)
 
 * * *
 

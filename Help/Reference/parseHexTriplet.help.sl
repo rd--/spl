@@ -31,7 +31,7 @@ Draw parsed colour:
 '#E0A32E'.parseHexTriplet.asColour
 ~~~
 
-![](sw/spl/Help/Image/parseHexTriplet-A.svg)
+![](Help/Image/parseHexTriplet-A.svg)
 
 A rainbow:
 
@@ -48,7 +48,7 @@ A rainbow:
 .enclose.arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/parseHexTriplet-B.svg)
+![](Help/Image/parseHexTriplet-B.svg)
 
 * * *
 

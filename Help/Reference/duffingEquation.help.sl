@@ -18,7 +18,7 @@ let [_, v] = duffingEquation(
 v.linePlot
 ~~~
 
-![](sw/spl/Help/Image/duffingEquation-A.svg)
+![](Help/Image/duffingEquation-A.svg)
 
 Period-four oscillation, γ=0.29, phase plot:
 
@@ -31,7 +31,7 @@ let [_, v] = duffingEquation(
 v.linePlot
 ~~~
 
-![](sw/spl/Help/Image/duffingEquation-B.svg)
+![](Help/Image/duffingEquation-B.svg)
 
 Period-four oscillation, γ=0.29, _f(t)_ plot:
 
@@ -45,7 +45,7 @@ let [x, _] = v.downsample(2).transpose;
 x.linePlot
 ~~~
 
-![](sw/spl/Help/Image/duffingEquation-C.svg)
+![](Help/Image/duffingEquation-C.svg)
 
 * * *
 

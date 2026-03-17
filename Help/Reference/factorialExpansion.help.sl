@@ -31,7 +31,7 @@ OEIS [A034968](https://oeis.org/A034968):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/factorialExpansion-A.svg)
+![](Help/Image/factorialExpansion-A.svg)
 
 Ordinal transform of minimal number of factorials that add to _n_,
 OEIS [A286478](https://oeis.org/A286478):
@@ -44,7 +44,7 @@ OEIS [A286478](https://oeis.org/A286478):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/factorialExpansion-B.svg)
+![](Help/Image/factorialExpansion-B.svg)
 
 * * *
 

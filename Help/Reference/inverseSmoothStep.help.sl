@@ -33,7 +33,7 @@ Inverse smooth step function:
 )
 ~~~
 
-![](sw/spl/Help/Image/inverseSmoothStep-A.svg)
+![](Help/Image/inverseSmoothStep-A.svg)
 
 * * *
 

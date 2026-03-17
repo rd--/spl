@@ -13,7 +13,7 @@ let i = (0 -- 4.pi).subdivide(50);
 }.contourPlot(i, i, [0.5])
 ~~~
 
-![](sw/spl/Help/Image/contourPlot-A.svg)
+![](Help/Image/contourPlot-A.svg)
 
 A contour plot of a sparsely sampled trigonometric function at three _z_ values:
 
@@ -24,7 +24,7 @@ let i = (0 -- 4.pi).subdivide(20);
 }.contourPlot(i, i, [-0.75 0 0.75])
 ~~~
 
-![](sw/spl/Help/Image/contourPlot-B.svg)
+![](Help/Image/contourPlot-B.svg)
 
 Display the contours of the Matlab peaks function at _z = 1_:
 
@@ -35,7 +35,7 @@ let i = (-3 -- 3).subdivide(20);
 }.contourPlot(i, i, [1])
 ~~~
 
-![](sw/spl/Help/Image/contourPlot-C.svg)
+![](Help/Image/contourPlot-C.svg)
 
 Display the contours of the Matlab peaks function at three _z_ levels:
 
@@ -46,7 +46,7 @@ let i = (-3 -- 3).subdivide(20);
 }.contourPlot(i, i, [-4 0 2])
 ~~~
 
-![](sw/spl/Help/Image/contourPlot-D.svg)
+![](Help/Image/contourPlot-D.svg)
 
 Contour plot of an exponential function:
 
@@ -59,7 +59,7 @@ let i = (-5 -- 5).subdivide(20);
 }.contourPlot(i, i, [0.2, 0.4 .. 1.2])
 ~~~
 
-![](sw/spl/Help/Image/contourPlot-E.svg)
+![](Help/Image/contourPlot-E.svg)
 
 Contour plot of Watts curve:
 
@@ -73,7 +73,7 @@ wattsCurve(a, b, c)
 .contourPlot(i, i, [0])
 ~~~
 
-![](sw/spl/Help/Image/contourPlot-F.svg)
+![](Help/Image/contourPlot-F.svg)
 
 Plot the trident curve given by _xy+x³+x²+x-1=0_:
 
@@ -82,7 +82,7 @@ let i = (-10 -- 10).subdivide(100);
 [1 1 1 1].tridentCurve.contourPlot(i, i, [0])
 ~~~
 
-![](sw/spl/Help/Image/contourPlot-G.svg)
+![](Help/Image/contourPlot-G.svg)
 
 Plot the implicit curve _sin(x+y)-cos(xy)+1=0_:
 
@@ -93,7 +93,7 @@ let i = (-5 -- 5).subdivide(35);
 }.contourPlot(i, i, [0])
 ~~~
 
-![](sw/spl/Help/Image/contourPlot-H.svg)
+![](Help/Image/contourPlot-H.svg)
 
 Plot the bow curve:
 
@@ -102,7 +102,7 @@ let i = (-0.5 -- 0.5).subdivide(50);
 bowCurve:/2.contourPlot(i, i, [0])
 ~~~
 
-![](sw/spl/Help/Image/contourPlot-I.svg)
+![](Help/Image/contourPlot-I.svg)
 
 Plot the stirrup curve:
 
@@ -111,7 +111,7 @@ let i = (-5 -- 5).subdivide(50);
 stirrupCurve:/2.contourPlot(i, i, [0])
 ~~~
 
-![](sw/spl/Help/Image/contourPlot-J.svg)
+![](Help/Image/contourPlot-J.svg)
 
 Plot the bicuspid curve:
 
@@ -120,7 +120,7 @@ let i = (-2 -- 2).subdivide(35);
 bicuspidCurve(1).contourPlot(i, i, [0])
 ~~~
 
-![](sw/spl/Help/Image/contourPlot-K.svg)
+![](Help/Image/contourPlot-K.svg)
 
 Plot the equation for a generalised circle:
 
@@ -138,7 +138,7 @@ let i = (-2 -- 2).subdivide(35);
 }.contourPlot(i, i, [0])
 ~~~
 
-![](sw/spl/Help/Image/contourPlot-L.svg)
+![](Help/Image/contourPlot-L.svg)
 
 Plot a _y,x_ Cassini oval:
 
@@ -149,7 +149,7 @@ cassiniOval(0.9, 1)
 .contourPlot(i, i, [0])
 ~~~
 
-![](sw/spl/Help/Image/contourPlot-M.svg)
+![](Help/Image/contourPlot-M.svg)
 
 * * *
 

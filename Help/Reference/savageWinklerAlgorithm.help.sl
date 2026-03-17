@@ -124,7 +124,7 @@ Plot the five-bit Savage-Winkler monotonic Gray code:
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/savageWinklerAlgorithm-A.svg)
+![](Help/Image/savageWinklerAlgorithm-A.svg)
 
 Plot the six-bit Savage-Winkler monotonic Gray code:
 
@@ -134,7 +134,7 @@ Plot the six-bit Savage-Winkler monotonic Gray code:
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/savageWinklerAlgorithm-B.svg)
+![](Help/Image/savageWinklerAlgorithm-B.svg)
 
 Plot the seven-bit Savage-Winkler monotonic Gray code:
 
@@ -144,7 +144,7 @@ Plot the seven-bit Savage-Winkler monotonic Gray code:
 .Bitmap
 ~~~
 
-![](sw/spl/Help/Image/savageWinklerAlgorithm-C.png)
+![](Help/Image/savageWinklerAlgorithm-C.png)
 
 * * *
 

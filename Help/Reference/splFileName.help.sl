@@ -16,7 +16,7 @@ The directory holding the Sᴘʟ help files:
 
 ```
 >>> system.splFileName('Help')
-'/home/rohan/sw/spl/Help'
+'/home/rohan/Help'
 ```
 
 * * *

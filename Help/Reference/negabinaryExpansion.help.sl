@@ -98,7 +98,7 @@ OEIS [A005351](https://oeis.org/A005351):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/negabinaryExpansion-A.svg)
+![](Help/Image/negabinaryExpansion-A.svg)
 
 Alternating sum of reverse of negabinary expansion of _n_,
 OEIS [A065360](https://oeis.org/A065360):
@@ -111,7 +111,7 @@ OEIS [A065360](https://oeis.org/A065360):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/negabinaryExpansion-B.svg)
+![](Help/Image/negabinaryExpansion-B.svg)
 
 Number of ones when _n_ is written in base negative two,
 OEIS [A027615](https://oeis.org/A027615):
@@ -123,7 +123,7 @@ OEIS [A027615](https://oeis.org/A027615):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/negabinaryExpansion-C.svg)
+![](Help/Image/negabinaryExpansion-C.svg)
 
 * * *
 

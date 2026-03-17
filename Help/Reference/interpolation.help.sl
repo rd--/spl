@@ -16,7 +16,7 @@ let y = [1 2 3 5 8 5];
 )
 ~~~
 
-![](sw/spl/Help/Image/interpolation-A.svg)
+![](Help/Image/interpolation-A.svg)
 
 Interpolate between points at arbitrary _(x, y)_ values:
 
@@ -27,7 +27,7 @@ let p = [0 0; 0.1 0.3; 0.5 0.6; 1 -0.2; 2 3];
 )
 ~~~
 
-![](sw/spl/Help/Image/interpolation-B.svg)
+![](Help/Image/interpolation-B.svg)
 
 Interpolate through a set of _(x, y)_ points with a spline:
 
@@ -41,7 +41,7 @@ let x = [1 .. y.size];
 )
 ~~~
 
-![](sw/spl/Help/Image/interpolation-C.svg)
+![](Help/Image/interpolation-C.svg)
 
 Interpolate the sequence of primes:
 
@@ -53,7 +53,7 @@ let f:/1 = y.interpolation('Akima');
 }
 ~~~
 
-![](sw/spl/Help/Image/interpolation-D.svg)
+![](Help/Image/interpolation-D.svg)
 
 Interpolate a `TimeSeries`:
 
@@ -64,7 +64,7 @@ Interpolate a `TimeSeries`:
 )
 ~~~
 
-![](sw/spl/Help/Image/interpolation-E.svg)
+![](Help/Image/interpolation-E.svg)
 
 * * *
 

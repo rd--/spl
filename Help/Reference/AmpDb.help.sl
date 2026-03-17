@@ -26,7 +26,7 @@ Plot curve:
 (0.001 -- 1).functionPlot(AmpDb:/1)
 ~~~
 
-![](sw/spl/Help/Image/AmpDb-A.svg)
+![](Help/Image/AmpDb-A.svg)
 
 Compare linear and exponential curves as frequency control:
 

@@ -33,7 +33,7 @@ Drawing of the 6th step of the Lévy C curve:
 6.levyCCurve.Line
 ~~~
 
-![](sw/spl/Help/Image/levyCCurve-A.svg)
+![](Help/Image/levyCCurve-A.svg)
 
 Drawing of the 9th step of the Lévy C curve:
 
@@ -41,7 +41,7 @@ Drawing of the 9th step of the Lévy C curve:
 9.levyCCurve.Line
 ~~~
 
-![](sw/spl/Help/Image/levyCCurve-B.svg)
+![](Help/Image/levyCCurve-B.svg)
 
 * * *
 

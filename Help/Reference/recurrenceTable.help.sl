@@ -112,7 +112,7 @@ let p0 = [0.142857, 0.33];
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/recurrenceTable-A.svg)
+![](Help/Image/recurrenceTable-A.svg)
 
 Study the behavior of the logistic equation:
 
@@ -124,7 +124,7 @@ let r = 3.6;
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/recurrenceTable-B.svg)
+![](Help/Image/recurrenceTable-B.svg)
 
 The Cliff random number generator:
 
@@ -135,7 +135,7 @@ The Cliff random number generator:
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/recurrenceTable-C.svg)
+![](Help/Image/recurrenceTable-C.svg)
 
 Find fixed points of a nonlinear recurrence equation:
 
@@ -146,7 +146,7 @@ Find fixed points of a nonlinear recurrence equation:
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/recurrenceTable-D.svg)
+![](Help/Image/recurrenceTable-D.svg)
 
 Next term is sum of the digits of the sum of the previous two terms,
 OEIS [A030133](https://oeis.org/A030133):
@@ -157,7 +157,7 @@ OEIS [A030133](https://oeis.org/A030133):
 }.recurrenceTable([2 1], 48).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/recurrenceTable-E.svg)
+![](Help/Image/recurrenceTable-E.svg)
 
 _|a(n-1)+2a(n-2)-n|_,
 OEIS [A005210](https://oeis.org/A005210):
@@ -168,7 +168,7 @@ OEIS [A005210](https://oeis.org/A005210):
 }.recurrenceTable([1 1], 85).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/recurrenceTable-F.svg)
+![](Help/Image/recurrenceTable-F.svg)
 
 * * *
 

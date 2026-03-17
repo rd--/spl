@@ -121,7 +121,7 @@ let x = List(n, 0);
 (x / (2 ^ 32)).stepPlot
 ~~~
 
-![](sw/spl/Help/Image/bitShiftLeft-A.svg)
+![](Help/Image/bitShiftLeft-A.svg)
 
 _n⊻(n≪1)_,
 OEIS [A048724](https://oeis.org/A048724):
@@ -132,7 +132,7 @@ OEIS [A048724](https://oeis.org/A048724):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/bitShiftLeft-B.svg)
+![](Help/Image/bitShiftLeft-B.svg)
 
 * * *
 

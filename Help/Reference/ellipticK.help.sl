@@ -28,7 +28,7 @@ Plot over a subset of the reals:
 }
 ~~~
 
-![](sw/spl/Help/Image/ellipticK-A.svg)
+![](Help/Image/ellipticK-A.svg)
 
 Plot the small-angle approximation to the period of a pendulum versus the initial angle:
 
@@ -40,7 +40,7 @@ Plot the small-angle approximation to the period of a pendulum versus the initia
 }
 ~~~
 
-![](sw/spl/Help/Image/ellipticK-B.svg)
+![](Help/Image/ellipticK-B.svg)
 
 Probability that a random walker in a cubic lattice returns to the origin:
 

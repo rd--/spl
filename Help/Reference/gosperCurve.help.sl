@@ -35,7 +35,7 @@ Drawing of the third step of the Gosper curve:
 3.gosperCurve.Line
 ~~~
 
-![](sw/spl/Help/Image/gosperCurve-A.svg)
+![](Help/Image/gosperCurve-A.svg)
 
 The curve enumerates the tiles of a hexagonal grid:
 
@@ -45,7 +45,7 @@ The curve enumerates the tiles of a hexagonal grid:
 }.LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/gosperCurve-B.svg)
+![](Help/Image/gosperCurve-B.svg)
 
 * * *
 

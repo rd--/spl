@@ -15,7 +15,7 @@ let t = [6 5 6].sssTriangle;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/symmedialTriangle-A.svg)
+![](Help/Image/symmedialTriangle-A.svg)
 
 * * *
 

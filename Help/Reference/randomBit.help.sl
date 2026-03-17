@@ -40,7 +40,7 @@ Sfc32(67814)
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/randomBit-A.svg)
+![](Help/Image/randomBit-A.svg)
 
 A `Bitmap` of a 50×90 matrix where each cell has a 33% probablity of being `one`,
 or equally a 66% chance of being `zero`:
@@ -51,7 +51,7 @@ Sfc32(701459)
 .Bitmap
 ~~~
 
-![](sw/spl/Help/Image/randomBit-B.png)
+![](Help/Image/randomBit-B.png)
 
 * * *
 

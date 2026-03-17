@@ -60,7 +60,7 @@ OEIS [A048720](https://oeis.org/A048720):
 ).catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/carryLessMultiplication-A.svg)
+![](Help/Image/carryLessMultiplication-A.svg)
 
 Exponentiation table for base two,
 read by antidiagonals,
@@ -72,7 +72,7 @@ OEIS [A048723](https://oeis.org/A048723):
 ).catenate.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/carryLessMultiplication-B.svg)
+![](Help/Image/carryLessMultiplication-B.svg)
 
 * * *
 

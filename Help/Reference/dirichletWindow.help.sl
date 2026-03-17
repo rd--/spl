@@ -23,7 +23,7 @@ Plot:
 (-1 -- 1).functionPlot(dirichletWindow:/1)
 ~~~
 
-![](sw/spl/Help/Image/dirichletWindow-A.svg)
+![](Help/Image/dirichletWindow-A.svg)
 
 Discrete Dirichlet window of length 15:
 
@@ -43,7 +43,7 @@ Frequency response of the Dirichlet window:
 ).fftPlot(512, 'Centered', 'Logarithmic')
 ~~~
 
-![](sw/spl/Help/Image/dirichletWindow-B.svg)
+![](Help/Image/dirichletWindow-B.svg)
 
 * * *
 

@@ -24,7 +24,7 @@ let m = t.mittenpunkt;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/mittenpunkt-A.svg)
+![](Help/Image/mittenpunkt-A.svg)
 
 Plot mittenpunkt and related triangle centers:
 
@@ -46,7 +46,7 @@ let s = t.spiekerCenter;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/mittenpunkt-B.svg)
+![](Help/Image/mittenpunkt-B.svg)
 
 * * *
 

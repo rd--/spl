@@ -13,7 +13,7 @@ x.sineFill(1 / 1:6, [0]);
 x.normalizeSignal.linePlot
 ~~~
 
-![](sw/spl/Help/Image/sineFill-A.svg)
+![](Help/Image/sineFill-A.svg)
 
 * * *
 

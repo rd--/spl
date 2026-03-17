@@ -278,7 +278,7 @@ Plot the fractional part of multiples of the golden ratio:
 }
 ~~~
 
-![](sw/spl/Help/Image/goldenRatio-A.svg)
+![](Help/Image/goldenRatio-A.svg)
 
 Position of ones in a Fibonacci substitution system:
 
@@ -289,7 +289,7 @@ Position of ones in a Fibonacci substitution system:
 }.prefixSum.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/goldenRatio-B.svg)
+![](Help/Image/goldenRatio-B.svg)
 
 Draw the golden rectangle,
 partitioned into a unit square and another golden rectangle:
@@ -303,7 +303,7 @@ let y = phi - 1;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/goldenRatio-C.svg)
+![](Help/Image/goldenRatio-C.svg)
 
 A low discrepancy quasirandom sequence:
 
@@ -315,7 +315,7 @@ let a = 1 / phi;
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/goldenRatio-D.svg)
+![](Help/Image/goldenRatio-D.svg)
 
 A rectangle in proportion √φ partitioned into three similar rectangles:
 
@@ -331,7 +331,7 @@ let c = phi ^ 1/2;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/goldenRatio-E.svg)
+![](Help/Image/goldenRatio-E.svg)
 
 The golden triangle:
 
@@ -340,7 +340,7 @@ let phi = 1.goldenRatio;
 sssTriangle(phi, phi, 1)
 ~~~
 
-![](sw/spl/Help/Image/goldenRatio-F.svg)
+![](Help/Image/goldenRatio-F.svg)
 
 The tips of a pentagram are golden triangles:
 
@@ -348,7 +348,7 @@ The tips of a pentagram are golden triangles:
 [0 0].pentagram(1, 1/10.pi)
 ~~~
 
-![](sw/spl/Help/Image/goldenRatio-G.svg)
+![](Help/Image/goldenRatio-G.svg)
 
 The binary case answers a `Decimal` value with _m_ decimal places:
 
@@ -376,7 +376,7 @@ Scatter plot of the digits of φ:
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/goldenRatio-H.svg)
+![](Help/Image/goldenRatio-H.svg)
 
 Signature sequence of 1/φ,
 OEIS [A084531](https://oeis.org/A084531):
@@ -387,7 +387,7 @@ phi.signatureSequence(200)
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/goldenRatio-I.svg)
+![](Help/Image/goldenRatio-I.svg)
 
 An array of numbers for a ternary numeration system read by antidiagonals,
 OEIS [A038150](https://oeis.org/A038150):
@@ -406,7 +406,7 @@ let t = { :n :j |
 }.catenate.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/goldenRatio-J.svg)
+![](Help/Image/goldenRatio-J.svg)
 
 Powers of phi in the representation of the integer _n_ as a sum of increasing nonconsecutive powers of the golden ratio,
 OEIS [A104605](https://oeis.org/A104605):
@@ -419,7 +419,7 @@ OeisEntry('A104605').then { :e |
 }
 ~~~
 
-![](sw/spl/Help/Image/goldenRatio-K.svg)
+![](Help/Image/goldenRatio-K.svg)
 
 An _eta-sequence_,
 the differences of the rounded multiples of φ,
@@ -430,7 +430,7 @@ let x = 0:93.collect(goldenRatio:/1);
 (x.round.differences - 1).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/goldenRatio-L.svg)
+![](Help/Image/goldenRatio-L.svg)
 
 Array _⌊nφ-⌊kφ-⌊(nφ-kφ)_,
 read by antidiagonals,
@@ -443,7 +443,7 @@ let r = 1.goldenRatio;
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/goldenRatio-M.svg)
+![](Help/Image/goldenRatio-M.svg)
 
 Note that the constant is correctly rounded,
 unlike the calculation in terms of `sqrt`,

@@ -60,7 +60,7 @@ Plot Eisenstein integer primes on the complex plane:
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/EisensteinInteger-A.svg)
+![](Help/Image/EisensteinInteger-A.svg)
 
 * * *
 

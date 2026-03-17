@@ -21,7 +21,7 @@ Draw the first few terms of the Z-order curve:
 }.Line
 ~~~
 
-![](sw/spl/Help/Image/zOrderCurve-A.svg)
+![](Help/Image/zOrderCurve-A.svg)
 
 * * *
 

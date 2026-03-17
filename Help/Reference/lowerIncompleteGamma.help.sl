@@ -52,7 +52,7 @@ Plot regularized lower incomplete gamma function:
 )
 ~~~
 
-![](sw/spl/Help/Image/lowerIncompleteGamma-A.svg)
+![](Help/Image/lowerIncompleteGamma-A.svg)
 
 * * *
 

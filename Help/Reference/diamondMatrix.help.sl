@@ -56,7 +56,7 @@ Draw `diamondMatrix`:
 33.diamondMatrix.Bitmap
 ~~~
 
-![](sw/spl/Help/Image/diamondMatrix-A.png)
+![](Help/Image/diamondMatrix-A.png)
 
 * * *
 

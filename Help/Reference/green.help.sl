@@ -30,7 +30,7 @@ Plot greens with increasing α:
 .arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/green-A.svg)
+![](Help/Image/green-A.svg)
 
 * * *
 

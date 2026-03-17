@@ -159,7 +159,7 @@ OEIS [A046147](https://oeis.org/A046147):
 .catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/primitiveRootList-A.svg)
+![](Help/Image/primitiveRootList-A.svg)
 
 Sums of primitive roots of _n_
 OEIS [A121380](https://oeis.org/A121380):
@@ -170,7 +170,7 @@ OEIS [A121380](https://oeis.org/A121380):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/primitiveRootList-B.svg)
+![](Help/Image/primitiveRootList-B.svg)
 
 Least primitive root of _n_-th prime,
 OEIS [A001918](https://oeis.org/A001918):
@@ -181,7 +181,7 @@ OEIS [A001918](https://oeis.org/A001918):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/primitiveRootList-C.svg)
+![](Help/Image/primitiveRootList-C.svg)
 
 Sum of primitive roots of _n_-th prime,
 OEIS [A088144](https://oeis.org/A088144):
@@ -192,7 +192,7 @@ OEIS [A088144](https://oeis.org/A088144):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/primitiveRootList-D.svg)
+![](Help/Image/primitiveRootList-D.svg)
 
 _(Σ(R(p(n))) - μ(p(n)-1))/p(n)_,
 OEIS [A088145](https://oeis.org/A088145):
@@ -205,7 +205,7 @@ OEIS [A088145](https://oeis.org/A088145):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/primitiveRootList-E.svg)
+![](Help/Image/primitiveRootList-E.svg)
 
 Triangle in which _n_-th row lists all primitive roots modulo the _n_-th prime,
 OEIS [A060749](https://oeis.org/A060749):
@@ -216,7 +216,7 @@ OEIS [A060749](https://oeis.org/A060749):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/primitiveRootList-F.svg)
+![](Help/Image/primitiveRootList-F.svg)
 
 Smallest primitive root modulo _n_ or 0 if no root exists,
 OEIS [A046145](https://oeis.org/A046145):
@@ -228,7 +228,7 @@ OEIS [A046145](https://oeis.org/A046145):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/primitiveRootList-G.svg)
+![](Help/Image/primitiveRootList-G.svg)
 
 Largest primitive root modulo _n_ or 0 if no root exists,
 OEIS [A046146](https://oeis.org/A046146):
@@ -240,7 +240,7 @@ OEIS [A046146](https://oeis.org/A046146):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/primitiveRootList-H.svg)
+![](Help/Image/primitiveRootList-H.svg)
 
 Least positive prime primitive root of _n_-th prime,
 OEIS [A002233](https://oeis.org/A002233):
@@ -252,7 +252,7 @@ OEIS [A002233](https://oeis.org/A002233):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/primitiveRootList-I.svg)
+![](Help/Image/primitiveRootList-I.svg)
 
 * * *
 

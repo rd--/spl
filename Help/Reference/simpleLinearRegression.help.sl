@@ -79,7 +79,7 @@ let y = (b * x) + a;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/simpleLinearRegression-A.svg)
+![](Help/Image/simpleLinearRegression-A.svg)
 
 * * *
 

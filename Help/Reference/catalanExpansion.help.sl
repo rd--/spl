@@ -70,7 +70,7 @@ OEIS [A014418](https://oeis.org/A014418):
 ).++.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/catalanExpansion-A.svg)
+![](Help/Image/catalanExpansion-A.svg)
 
 Catalan expansions of integers,
 read as decimal integers,
@@ -83,7 +83,7 @@ OEIS [A014418](https://oeis.org/A014418):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/catalanExpansion-B.svg)
+![](Help/Image/catalanExpansion-B.svg)
 
 * * *
 

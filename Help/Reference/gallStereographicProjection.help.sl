@@ -17,7 +17,7 @@ where _x_ is in _±π/√2_ and _y_ is in _±1+√2/2_.
 ).catenate.PointCloud
 ~~~
 
-![](sw/spl/Help/Image/gallStereographicProjection-A.svg)
+![](Help/Image/gallStereographicProjection-A.svg)
 
 * * *
 

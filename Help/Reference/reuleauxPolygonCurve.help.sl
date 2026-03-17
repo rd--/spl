@@ -12,7 +12,7 @@ Plot a Reuleaux triangle:
 )
 ~~~
 
-![](sw/spl/Help/Image/reuleauxPolygonCurve-A.svg)
+![](Help/Image/reuleauxPolygonCurve-A.svg)
 
 Plot a Reuleaux 5-polygon:
 
@@ -22,7 +22,7 @@ Plot a Reuleaux 5-polygon:
 )
 ~~~
 
-![](sw/spl/Help/Image/reuleauxPolygonCurve-B.svg)
+![](Help/Image/reuleauxPolygonCurve-B.svg)
 
 * * *
 

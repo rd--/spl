@@ -50,7 +50,7 @@ Plot the second-largest function over a subset of the reals:
 }
 ~~~
 
-![](sw/spl/Help/Image/rankedMin-A.svg)
+![](Help/Image/rankedMin-A.svg)
 
 Plot the second-largest function over a subset of the reals:
 
@@ -60,7 +60,7 @@ Plot the second-largest function over a subset of the reals:
 }
 ~~~
 
-![](sw/spl/Help/Image/rankedMin-B.svg)
+![](Help/Image/rankedMin-B.svg)
 
 Plot the second-largest function over a subset of the reals:
 
@@ -71,7 +71,7 @@ Plot the second-largest function over a subset of the reals:
 }
 ~~~
 
-![](sw/spl/Help/Image/rankedMin-C.svg)
+![](Help/Image/rankedMin-C.svg)
 
 * * *
 

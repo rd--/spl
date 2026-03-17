@@ -116,7 +116,7 @@ Plot first few terms:
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isDyckWord-A.svg)
+![](Help/Image/isDyckWord-A.svg)
 
 * * *
 

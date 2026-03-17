@@ -13,7 +13,7 @@ FRatioDistribution(25, 50)
 .histogramPlot
 ~~~
 
-![](sw/spl/Help/Image/FRatioDistribution-A.svg)
+![](Help/Image/FRatioDistribution-A.svg)
 
 * * *
 

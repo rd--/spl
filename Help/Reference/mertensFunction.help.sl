@@ -22,7 +22,7 @@ OEIS [A002321](https://oeis.org/A002321):
 .stepPlot
 ~~~
 
-![](sw/spl/Help/Image/mertensFunction-A.svg)
+![](Help/Image/mertensFunction-A.svg)
 
 * * *
 

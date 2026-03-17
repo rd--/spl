@@ -45,7 +45,7 @@ Plot curve:
 )
 ~~~
 
-![](sw/spl/Help/Image/srgbDecode-A.svg)
+![](Help/Image/srgbDecode-A.svg)
 
 * * *
 

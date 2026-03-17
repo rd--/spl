@@ -13,7 +13,7 @@ Regular polygons, _n=1_:
 }.LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/spirolateral-A.svg)
+![](Help/Image/spirolateral-A.svg)
 
 A simple spirolateral with a small whole divisor angle, _n=4_:
 
@@ -21,7 +21,7 @@ A simple spirolateral with a small whole divisor angle, _n=4_:
 [].spirolateral(4, 5/7.pi)
 ~~~
 
-![](sw/spl/Help/Image/spirolateral-B.svg)
+![](Help/Image/spirolateral-B.svg)
 
 A simple spirolateral with a small rational divisor angle, _n=6_:
 
@@ -29,7 +29,7 @@ A simple spirolateral with a small rational divisor angle, _n=6_:
 [].spirolateral(6, 1/12.pi)
 ~~~
 
-![](sw/spl/Help/Image/spirolateral-C.svg)
+![](Help/Image/spirolateral-C.svg)
 
 A general spirolateral:
 
@@ -37,7 +37,7 @@ A general spirolateral:
 [3].spirolateral(3, 1/5.pi)
 ~~~
 
-![](sw/spl/Help/Image/spirolateral-D.svg)
+![](Help/Image/spirolateral-D.svg)
 
 A general spirolateral that is simpler than the simple form:
 
@@ -45,7 +45,7 @@ A general spirolateral that is simpler than the simple form:
 [3].spirolateral(3, 3/5.pi)
 ~~~
 
-![](sw/spl/Help/Image/spirolateral-E.svg)
+![](Help/Image/spirolateral-E.svg)
 
 Simple spirolateral, _n=100_, four cycles:
 
@@ -53,7 +53,7 @@ Simple spirolateral, _n=100_, four cycles:
 [].spirolateral(100, 2/3.pi)
 ~~~
 
-![](sw/spl/Help/Image/spirolateral-F.svg)
+![](Help/Image/spirolateral-F.svg)
 
 Regular unexpected closed spirolateral:
 
@@ -61,7 +61,7 @@ Regular unexpected closed spirolateral:
 [1 5].spirolateral(8, 1/2.pi)
 ~~~
 
-![](sw/spl/Help/Image/spirolateral-G.svg)
+![](Help/Image/spirolateral-G.svg)
 
 _54/6 → 18/2_:
 
@@ -69,7 +69,7 @@ _54/6 → 18/2_:
 [].spirolateral(6, 7/9.pi)
 ~~~
 
-![](sw/spl/Help/Image/spirolateral-H.svg)
+![](Help/Image/spirolateral-H.svg)
 
 _60/6 → 30/3_:
 
@@ -77,7 +77,7 @@ _60/6 → 30/3_:
 [].spirolateral(6, 5/4.pi)
 ~~~
 
-![](sw/spl/Help/Image/spirolateral-I.svg)
+![](Help/Image/spirolateral-I.svg)
 
 Crossed rectangle:
 
@@ -85,7 +85,7 @@ Crossed rectangle:
 [2].spirolateral(2, 1/3.pi, 4)
 ~~~
 
-![](sw/spl/Help/Image/spirolateral-J.svg)
+![](Help/Image/spirolateral-J.svg)
 
 A part of an infinite or open simple spirolateral:
 
@@ -93,7 +93,7 @@ A part of an infinite or open simple spirolateral:
 [].spirolateral(9, 60.degree, 48)
 ~~~
 
-![](sw/spl/Help/Image/spirolateral-K.svg)
+![](Help/Image/spirolateral-K.svg)
 
 * * *
 

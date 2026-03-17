@@ -60,7 +60,7 @@ Plot over a subset of the reals:
 }
 ~~~
 
-![](sw/spl/Help/Image/arcCsch-A.svg)
+![](Help/Image/arcCsch-A.svg)
 
 * * *
 

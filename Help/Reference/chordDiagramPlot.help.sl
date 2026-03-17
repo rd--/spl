@@ -11,7 +11,7 @@ Plot a chord diagram specified as a length vector:
 .chordDiagramPlot
 ~~~
 
-![](sw/spl/Help/Image/chordDiagramPlot-A.svg)
+![](Help/Image/chordDiagramPlot-A.svg)
 
 Plot a chord diagram specified as an edge list:
 
@@ -20,7 +20,7 @@ Plot a chord diagram specified as an edge list:
 .chordDiagramPlot
 ~~~
 
-![](sw/spl/Help/Image/chordDiagramPlot-B.svg)
+![](Help/Image/chordDiagramPlot-B.svg)
 
 Plot a chord diagram specified as a `ChordDiagram` value:
 
@@ -34,7 +34,7 @@ ChordDiagram(
 ).chordDiagramPlot
 ~~~
 
-![](sw/spl/Help/Image/chordDiagramPlot-C.svg)
+![](Help/Image/chordDiagramPlot-C.svg)
 
 * * *
 

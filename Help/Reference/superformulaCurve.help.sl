@@ -14,7 +14,7 @@ A sixteen pointed snowflake like curve:
 )
 ~~~
 
-![](sw/spl/Help/Image/superformulaCurve-A.svg)
+![](Help/Image/superformulaCurve-A.svg)
 
 A pinched rectangular curve:
 
@@ -26,7 +26,7 @@ A pinched rectangular curve:
 )
 ~~~
 
-![](sw/spl/Help/Image/superformulaCurve-B.svg)
+![](Help/Image/superformulaCurve-B.svg)
 
 A seven pointed blob:
 
@@ -38,7 +38,7 @@ A seven pointed blob:
 )
 ~~~
 
-![](sw/spl/Help/Image/superformulaCurve-C.svg)
+![](Help/Image/superformulaCurve-C.svg)
 
 * * *
 

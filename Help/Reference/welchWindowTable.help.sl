@@ -8,7 +8,7 @@ Answer a `List` describing a _Welch window_ of the indicated size.
 128.welchWindowTable(1).linePlot
 ~~~
 
-![](sw/spl/Help/Image/welchWindowTable-A.svg)
+![](Help/Image/welchWindowTable-A.svg)
 
 * * *
 

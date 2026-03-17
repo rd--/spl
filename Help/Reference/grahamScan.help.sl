@@ -33,7 +33,7 @@ let i = p.grahamScan;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/grahamScan-A.svg)
+![](Help/Image/grahamScan-A.svg)
 
 * * *
 

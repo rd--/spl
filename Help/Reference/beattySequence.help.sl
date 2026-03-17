@@ -96,7 +96,7 @@ let c = 2.sqrt;
 ].interleave.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/beattySequence-A.svg)
+![](Help/Image/beattySequence-A.svg)
 
 * * *
 

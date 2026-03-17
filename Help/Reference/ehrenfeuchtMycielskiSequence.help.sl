@@ -28,7 +28,7 @@ OEIS [A038219](https://oeis.org/A038219):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/ehrenfeuchtMycielskiSequence-A.svg)
+![](Help/Image/ehrenfeuchtMycielskiSequence-A.svg)
 
 Run lengths of the Ehrenfeucht-Mycielski sequence,
 OEIS [A201881](https://oeis.org/A201881):
@@ -40,7 +40,7 @@ OEIS [A201881](https://oeis.org/A201881):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/ehrenfeuchtMycielskiSequence-B.svg)
+![](Help/Image/ehrenfeuchtMycielskiSequence-B.svg)
 
 Indices of zeroes in the Ehrenfeucht-Mycielski sequence,
 OEIS [A253060](https://oeis.org/A253060):
@@ -51,7 +51,7 @@ OEIS [A253060](https://oeis.org/A253060):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/ehrenfeuchtMycielskiSequence-C.svg)
+![](Help/Image/ehrenfeuchtMycielskiSequence-C.svg)
 
 Indices of the first occurrences of the _n_-th binary vector in the Ehrenfeucht-Mycielski sequence,
 OEIS [A308173](https://oeis.org/A308173):
@@ -68,7 +68,7 @@ let x = 500.ehrenfeuchtMycielskiSequence;
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/ehrenfeuchtMycielskiSequence-D.svg)
+![](Help/Image/ehrenfeuchtMycielskiSequence-D.svg)
 
 * * *
 

@@ -16,7 +16,7 @@ system.colourPalettes
 .asContinuousColourGradient
 ~~~
 
-![](sw/spl/Help/Image/asContinuousColourGradient-A.svg)
+![](Help/Image/asContinuousColourGradient-A.svg)
 
 The discrete gradient of the same palette,
 retrieved using `namedColourPalette`:
@@ -27,7 +27,7 @@ retrieved using `namedColourPalette`:
 .asDiscreteColourGradient
 ~~~
 
-![](sw/spl/Help/Image/asContinuousColourGradient-B.svg)
+![](Help/Image/asContinuousColourGradient-B.svg)
 
 * * *
 

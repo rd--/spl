@@ -51,7 +51,7 @@ Draw the four-cube, also called tesseract and octachoron:
 4.cubeGraph.graphPlot
 ~~~
 
-![](sw/spl/Help/Image/cubeGraph-A.svg)
+![](Help/Image/cubeGraph-A.svg)
 
 Plot the adjacency matrix:
 
@@ -59,7 +59,7 @@ Plot the adjacency matrix:
 5.cubeGraph.adjacencyMatrix.matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/cubeGraph-B.svg)
+![](Help/Image/cubeGraph-B.svg)
 
 * * *
 

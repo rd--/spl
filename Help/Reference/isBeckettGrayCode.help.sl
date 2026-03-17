@@ -264,7 +264,7 @@ GrayCode(
 ).sequence.transpose.matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/isBeckettGrayCode-A.svg)
+![](Help/Image/isBeckettGrayCode-A.svg)
 
 Plot a 7-bit Beckett-Gray code:
 
@@ -283,7 +283,7 @@ GrayCode(
 ).sequence.transpose.Bitmap
 ~~~
 
-![](sw/spl/Help/Image/isBeckettGrayCode-B.png)
+![](Help/Image/isBeckettGrayCode-B.png)
 
 Plot an 8-bit Beckett-Gray code:
 
@@ -310,7 +310,7 @@ GrayCode(
 ).sequence.transpose.Bitmap
 ~~~
 
-![](sw/spl/Help/Image/isBeckettGrayCode-C.png)
+![](Help/Image/isBeckettGrayCode-C.png)
 
 Plot a 6-bit Beckett-Gray code:
 
@@ -323,7 +323,7 @@ Plot a 6-bit Beckett-Gray code:
 ].GrayCode.sequence.transpose.matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/isBeckettGrayCode-D.svg)
+![](Help/Image/isBeckettGrayCode-D.svg)
 
 * * *
 

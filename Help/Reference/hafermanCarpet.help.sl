@@ -25,7 +25,7 @@ Drawing of the 2nd step of the Haferman carpet:
 2.hafermanCarpet.matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/hafermanCarpet-A.svg)
+![](Help/Image/hafermanCarpet-A.svg)
 
 Drawing of the 4th step of the Haferman carpet:
 
@@ -33,7 +33,7 @@ Drawing of the 4th step of the Haferman carpet:
 4.hafermanCarpet.Bitmap
 ~~~
 
-![](sw/spl/Help/Image/hafermanCarpet-B.png)
+![](Help/Image/hafermanCarpet-B.png)
 
 * * *
 

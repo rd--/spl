@@ -52,7 +52,7 @@ let x = p.collect { :x |
 (x.fft / n).abs.linePlot
 ~~~
 
-![](sw/spl/Help/Image/fft-A.svg)
+![](Help/Image/fft-A.svg)
 
 Plot half spectrum of two sine tones with added white noise:
 
@@ -68,7 +68,7 @@ let y = r.randomReal([-1 1], [n]);
 ((x + y).fft.first(m) / n).abs.linePlot
 ~~~
 
-![](sw/spl/Help/Image/fft-B.svg)
+![](Help/Image/fft-B.svg)
 
 Plot 1/8 spectrum of five octaves of sine tones at increasing amplitudes:
 
@@ -84,7 +84,7 @@ let y = x.collect { :t |
 (y.fft.first(m) / n).abs.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/fft-C.svg)
+![](Help/Image/fft-C.svg)
 
 * * *
 

@@ -15,7 +15,7 @@ Plot at _b=1/2,3/2,5/2_:
 )
 ~~~
 
-![](sw/spl/Help/Image/limacon-A.svg)
+![](Help/Image/limacon-A.svg)
 
 * * *
 

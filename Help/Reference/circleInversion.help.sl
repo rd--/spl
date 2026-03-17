@@ -99,7 +99,7 @@ let q = p.circleInversion(c);
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/circleInversion-A.svg)
+![](Help/Image/circleInversion-A.svg)
 
 Draw circle inversion of a circle:
 
@@ -119,7 +119,7 @@ let r = c.center;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/circleInversion-B.svg)
+![](Help/Image/circleInversion-B.svg)
 
 Inversion with respect to a circle does not map the center of the circle to the center of its image:
 
@@ -137,7 +137,7 @@ let b = [0.15 0.25 0.35 0.45].collect { :r |
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/circleInversion-C.svg)
+![](Help/Image/circleInversion-C.svg)
 
 Orthogonal circles are invariant under inversion with respect to each other,
 however points exchange places:
@@ -157,7 +157,7 @@ let r = a.center;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/circleInversion-D.svg)
+![](Help/Image/circleInversion-D.svg)
 
 The circle inversions of an annular Steiner chain is another Steiner chain:
 
@@ -171,7 +171,7 @@ let c = b.circleInversion(a);
 [a b c].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/circleInversion-E.svg)
+![](Help/Image/circleInversion-E.svg)
 
 * * *
 

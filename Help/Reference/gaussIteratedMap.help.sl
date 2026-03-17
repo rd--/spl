@@ -12,7 +12,7 @@ gaussIteratedMap(4.9, -0.58)
 .cobwebPlot(0.315, 4)
 ~~~
 
-![](sw/spl/Help/Image/gaussIteratedMap-A.svg)
+![](Help/Image/gaussIteratedMap-A.svg)
 
 Plot first few terms at _α=4.9_ and _β=-0.58_:
 
@@ -22,7 +22,7 @@ gaussIteratedMap(4.9, -0.58)
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/gaussIteratedMap-B.svg)
+![](Help/Image/gaussIteratedMap-B.svg)
 
 Sparse plot of a fragment of the bifurcation diagram:
 
@@ -37,7 +37,7 @@ Sparse plot of a fragment of the bifurcation diagram:
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/gaussIteratedMap-C.svg)
+![](Help/Image/gaussIteratedMap-C.svg)
 
 * * *
 

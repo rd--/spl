@@ -48,7 +48,7 @@ dotGraph.dotLayout(
 }
 ~~~
 
-![](sw/spl/Help/Image/dotLayout-A.svg)
+![](Help/Image/dotLayout-A.svg)
 
 In _Small Kansas_ the following will display an _Svg_ drawing of the graph:
 

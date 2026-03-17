@@ -21,7 +21,7 @@ system.colourGradients[
 .resample(32)
 ~~~
 
-![](sw/spl/Help/Image/ColourGradient-A.svg)
+![](Help/Image/ColourGradient-A.svg)
 
 The method `namedColourGradient` answers a `ColourGradient` value:
 
@@ -31,7 +31,7 @@ The method `namedColourGradient` answers a `ColourGradient` value:
 .resample(24)
 ~~~
 
-![](sw/spl/Help/Image/ColourGradient-B.svg)
+![](Help/Image/ColourGradient-B.svg)
 
 * * *
 

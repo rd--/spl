@@ -23,7 +23,7 @@ OEIS [A000203](https://oeis.org/A000203):
 }
 ~~~
 
-![](sw/spl/Help/Image/divisorSum-A.svg)
+![](Help/Image/divisorSum-A.svg)
 
 Generalised sum of divisors function,
 OEIS [A002129](https://oeis.org/A002129):
@@ -36,7 +36,7 @@ OEIS [A002129](https://oeis.org/A002129):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/divisorSum-B.svg)
+![](Help/Image/divisorSum-B.svg)
 
 The multiplicative partition function,
 OEIS [A001055](https://oeis.org/A001055):
@@ -57,7 +57,7 @@ let t = { :n :m |
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/divisorSum-C.svg)
+![](Help/Image/divisorSum-C.svg)
 
 Moebius transform applied twice to the sequence one then zero,
 OEIS [A007427](https://oeis.org/A007427):
@@ -72,7 +72,7 @@ OEIS [A007427](https://oeis.org/A007427):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/divisorSum-D.svg)
+![](Help/Image/divisorSum-D.svg)
 
 The inverse Moebius transform of the Fredholm-Rueppel sequence,
 OEIS [A154402](https://oeis.org/A154402):
@@ -85,7 +85,7 @@ OEIS [A154402](https://oeis.org/A154402):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/divisorSum-E.svg)
+![](Help/Image/divisorSum-E.svg)
 
 Divisor sum _-1^(d-1)*d^2_,
 OEIS [A321543](https://oeis.org/A321543):
@@ -98,7 +98,7 @@ OEIS [A321543](https://oeis.org/A321543):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/divisorSum-F.svg)
+![](Help/Image/divisorSum-F.svg)
 
 Expansion of a modular form related to Apery numbers,
 OEIS [A006353](https://oeis.org/A006353):
@@ -112,7 +112,7 @@ let a = [0 5 4 6 4 5];
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/divisorSum-G.svg)
+![](Help/Image/divisorSum-G.svg)
 
 * * *
 

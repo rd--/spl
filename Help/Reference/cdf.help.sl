@@ -16,7 +16,7 @@ Plot `cdf` for a standard normal distribution:
 )
 ~~~
 
-![](sw/spl/Help/Image/cdf-A.svg)
+![](Help/Image/cdf-A.svg)
 
 * * *
 

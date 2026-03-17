@@ -27,7 +27,7 @@ system
 .LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/schareinMinimalLinkCatalogue-A.svg)
+![](Help/Image/schareinMinimalLinkCatalogue-A.svg)
 
 _Note:_
 The catalogue is a `LibraryItem`,

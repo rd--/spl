@@ -46,7 +46,7 @@ Plot over a subset of the reals:
 )
 ~~~
 
-![](sw/spl/Help/Image/factorialPower-A.svg)
+![](Help/Image/factorialPower-A.svg)
 
 * * *
 

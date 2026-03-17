@@ -104,7 +104,7 @@ partitioned into a 100×100 matrix:
 }.reshape([100 100]).rescale.Greymap
 ~~~
 
-![](sw/spl/Help/Image/kaprekarSequence-A.png)
+![](Help/Image/kaprekarSequence-A.png)
 
 The Kaprekar binary numbers in decimal,
 OEIS [A160761](https://oeis.org/A160761):
@@ -115,7 +115,7 @@ OEIS [A160761](https://oeis.org/A160761):
 }.without(0).stepPlot
 ~~~
 
-![](sw/spl/Help/Image/kaprekarSequence-B.svg)
+![](Help/Image/kaprekarSequence-B.svg)
 
 * * *
 

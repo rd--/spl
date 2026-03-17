@@ -47,7 +47,7 @@ legendreSymbol:/2
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/legendreSymbol-A.svg)
+![](Help/Image/legendreSymbol-A.svg)
 
 * * *
 

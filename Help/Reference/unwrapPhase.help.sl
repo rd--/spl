@@ -42,7 +42,7 @@ let c = b.unwrapPhase(1);
 [b, c + 1].linePlot
 ~~~
 
-![](sw/spl/Help/Image/unwrapPhase-A.svg)
+![](Help/Image/unwrapPhase-A.svg)
 
 * * *
 

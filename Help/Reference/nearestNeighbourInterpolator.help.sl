@@ -47,7 +47,7 @@ let y = [0 0.3 0.6 -0.2 3];
 )
 ~~~
 
-![](sw/spl/Help/Image/nearestNeighbourInterpolator-A.svg)
+![](Help/Image/nearestNeighbourInterpolator-A.svg)
 
 Plot an interpolation extrapolating beyond the specified _x_ range:
 
@@ -59,7 +59,7 @@ let y = [0 0.3 0.6 -0.2 3];
 )
 ~~~
 
-![](sw/spl/Help/Image/nearestNeighbourInterpolator-B.svg)
+![](Help/Image/nearestNeighbourInterpolator-B.svg)
 
 Nearest neighbour impulse response:
 
@@ -71,7 +71,7 @@ let y = [0 0 1 0 0];
 )
 ~~~
 
-![](sw/spl/Help/Image/nearestNeighbourInterpolator-C.svg)
+![](Help/Image/nearestNeighbourInterpolator-C.svg)
 
 * * *
 

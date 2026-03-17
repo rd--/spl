@@ -19,7 +19,7 @@ Drawing of the 2nd step of the Sierpiński curve:
 2.sierpinskiCurve.Line
 ~~~
 
-![](sw/spl/Help/Image/sierpinskiCurve-A.svg)
+![](Help/Image/sierpinskiCurve-A.svg)
 
 Drawing of the 3rd step of the Sierpiński curve:
 
@@ -27,7 +27,7 @@ Drawing of the 3rd step of the Sierpiński curve:
 3.sierpinskiCurve.Line
 ~~~
 
-![](sw/spl/Help/Image/sierpinskiCurve-B.svg)
+![](Help/Image/sierpinskiCurve-B.svg)
 
 * * *
 

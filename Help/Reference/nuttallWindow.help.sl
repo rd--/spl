@@ -31,7 +31,7 @@ Plot:
 )
 ~~~
 
-![](sw/spl/Help/Image/nuttallWindow-A.svg)
+![](Help/Image/nuttallWindow-A.svg)
 
 Discrete Nuttall window of length 15:
 
@@ -42,7 +42,7 @@ Discrete Nuttall window of length 15:
 ).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/nuttallWindow-B.svg)
+![](Help/Image/nuttallWindow-B.svg)
 
 Frequency response of the Nuttall window:
 
@@ -52,7 +52,7 @@ Frequency response of the Nuttall window:
 ).fftPlot(512, 'Centered', 'Logarithmic')
 ~~~
 
-![](sw/spl/Help/Image/nuttallWindow-C.svg)
+![](Help/Image/nuttallWindow-C.svg)
 
 * * *
 

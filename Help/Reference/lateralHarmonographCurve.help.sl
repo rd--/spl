@@ -21,7 +21,7 @@ depending on the initial phase difference:
 )
 ~~~
 
-![](sw/spl/Help/Image/lateralHarmonographCurve-A.svg)
+![](Help/Image/lateralHarmonographCurve-A.svg)
 
 The ratio _2:1_:
 
@@ -35,7 +35,7 @@ The ratio _2:1_:
 )
 ~~~
 
-![](sw/spl/Help/Image/lateralHarmonographCurve-B.svg)
+![](Help/Image/lateralHarmonographCurve-B.svg)
 
 The ratio _3:2_:
 
@@ -49,7 +49,7 @@ The ratio _3:2_:
 )
 ~~~
 
-![](sw/spl/Help/Image/lateralHarmonographCurve-C.svg)
+![](Help/Image/lateralHarmonographCurve-C.svg)
 
 A near unison, with damping:
 
@@ -62,7 +62,7 @@ A near unison, with damping:
 )
 ~~~
 
-![](sw/spl/Help/Image/lateralHarmonographCurve-D.svg)
+![](Help/Image/lateralHarmonographCurve-D.svg)
 
 A near octave, with damping:
 
@@ -75,7 +75,7 @@ A near octave, with damping:
 )
 ~~~
 
-![](sw/spl/Help/Image/lateralHarmonographCurve-E.svg)
+![](Help/Image/lateralHarmonographCurve-E.svg)
 
 A whole tone:
 
@@ -88,7 +88,7 @@ A whole tone:
 )
 ~~~
 
-![](sw/spl/Help/Image/lateralHarmonographCurve-F.svg)
+![](Help/Image/lateralHarmonographCurve-F.svg)
 
 * * *
 

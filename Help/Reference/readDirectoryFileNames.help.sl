@@ -13,7 +13,7 @@ Only ordinary files are listed, not sub-directories.
 >>> 	system.splFileName('Help')
 >>> )
 [
-	'/home/rohan/sw/spl/Help/Index.text'
+	'/home/rohan/Help/Index.text'
 ]
 ```
 

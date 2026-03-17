@@ -64,7 +64,7 @@ let q = p.standardize;
 [p.sort, q.sort].linePlot
 ~~~
 
-![](sw/spl/Help/Image/standardize-A.svg)
+![](Help/Image/standardize-A.svg)
 
 * * *
 

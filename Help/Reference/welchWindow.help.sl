@@ -24,7 +24,7 @@ Plot:
 (-1 -- 1).functionPlot(welchWindow:/1)
 ~~~
 
-![](sw/spl/Help/Image/welchWindow-A.svg)
+![](Help/Image/welchWindow-A.svg)
 
 Shape of a _Welch_ window using a specified parameter:
 
@@ -34,7 +34,7 @@ Shape of a _Welch_ window using a specified parameter:
 }
 ~~~
 
-![](sw/spl/Help/Image/welchWindow-B.svg)
+![](Help/Image/welchWindow-B.svg)
 
 Discrete Welch window of length 15:
 
@@ -45,7 +45,7 @@ Discrete Welch window of length 15:
 ).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/welchWindow-C.svg)
+![](Help/Image/welchWindow-C.svg)
 
 Frequency response of the Welch window:
 
@@ -55,7 +55,7 @@ Frequency response of the Welch window:
 }.fftPlot(512, 'Centered', 'Logarithmic')
 ~~~
 
-![](sw/spl/Help/Image/welchWindow-D.svg)
+![](Help/Image/welchWindow-D.svg)
 
 * * *
 

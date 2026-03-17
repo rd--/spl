@@ -11,7 +11,7 @@ Colour swatch for _NCS S 0580-Y10R_:
 'NCS S 0580-Y10R'.ncsLookup
 ~~~
 
-![](sw/spl/Help/Image/ncsLookup-A.svg)
+![](Help/Image/ncsLookup-A.svg)
 
 Colour swatch for _NCS 4055-R90B_:
 
@@ -19,7 +19,7 @@ Colour swatch for _NCS 4055-R90B_:
 'NCS 4055-R90B'.ncsLookup
 ~~~
 
-![](sw/spl/Help/Image/ncsLookup-B.svg)
+![](Help/Image/ncsLookup-B.svg)
 
 * * *
 

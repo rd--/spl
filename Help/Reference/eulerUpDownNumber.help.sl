@@ -88,7 +88,7 @@ OEIS [A247453](https://oeis.org/A247453):
 }.catenate.logScale.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/eulerUpDownNumber-A.svg)
+![](Help/Image/eulerUpDownNumber-A.svg)
 
 * * *
 

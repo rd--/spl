@@ -43,7 +43,7 @@ Parallelepiped(
 ).asPolyhedron
 ~~~
 
-![](sw/spl/Help/Image/Parallelepiped-A.svg)
+![](Help/Image/Parallelepiped-A.svg)
 
 A cube:
 
@@ -58,7 +58,7 @@ Parallelepiped(
 ).asPolyhedron
 ~~~
 
-![](sw/spl/Help/Image/Parallelepiped-B.svg)
+![](Help/Image/Parallelepiped-B.svg)
 
 A parallelepiped can tile space:
 
@@ -71,7 +71,7 @@ A parallelepiped can tile space:
 .GeometryCollection
 ~~~
 
-![](sw/spl/Help/Image/Parallelepiped-C.svg)
+![](Help/Image/Parallelepiped-C.svg)
 
 * * *
 

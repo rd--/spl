@@ -22,7 +22,7 @@ AnnotatedGeometry(
 )
 ~~~
 
-![](sw/spl/Help/Image/AnnotatedGeometry-A.svg)
+![](Help/Image/AnnotatedGeometry-A.svg)
 
 * * *
 

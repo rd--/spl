@@ -117,7 +117,7 @@ binaryCombinations(3, 4)
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/binaryCombinations-A.svg)
+![](Help/Image/binaryCombinations-A.svg)
 
 Circular matrix plot of _s=3,t=2_:
 
@@ -126,7 +126,7 @@ binaryCombinations(3, 2)
 .circularMatrixPlot
 ~~~
 
-![](sw/spl/Help/Image/binaryCombinations-B.svg)
+![](Help/Image/binaryCombinations-B.svg)
 
 * * *
 

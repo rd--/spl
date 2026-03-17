@@ -14,7 +14,7 @@ A 3×3×3 matrix:
 ].arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/arrayPlot-A.svg)
+![](Help/Image/arrayPlot-A.svg)
 
 A 5×7×3 matrix:
 
@@ -24,7 +24,7 @@ Sfc32(821343)
 .arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/arrayPlot-B.svg)
+![](Help/Image/arrayPlot-B.svg)
 
 Plot a 1×6×3 colour map:
 
@@ -34,7 +34,7 @@ Plot a 1×6×3 colour map:
 }.enclose.arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/arrayPlot-C.svg)
+![](Help/Image/arrayPlot-C.svg)
 
 Interpolate between a list of _Rgb_ triples,
 plotting a 12×36×3 matrix:
@@ -59,7 +59,7 @@ let g = (1 -- c.size).discretize(36).collect(
 }.arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/arrayPlot-D.svg)
+![](Help/Image/arrayPlot-D.svg)
 
 * * *
 

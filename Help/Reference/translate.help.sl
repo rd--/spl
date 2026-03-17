@@ -36,7 +36,7 @@ Touching circles:
 .LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/translate-A.svg)
+![](Help/Image/translate-A.svg)
 
 Touching rectangles:
 
@@ -48,7 +48,7 @@ let phi = 1.goldenRatio;
 .LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/translate-B.svg)
+![](Help/Image/translate-B.svg)
 
 Touching polygons:
 
@@ -59,7 +59,7 @@ Touching polygons:
 .LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/translate-C.svg)
+![](Help/Image/translate-C.svg)
 
 * * *
 

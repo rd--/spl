@@ -62,7 +62,7 @@ OEIS [A064391](https://oeis.org/A064391):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/dysonCrank-A.svg)
+![](Help/Image/dysonCrank-A.svg)
 
 * * *
 

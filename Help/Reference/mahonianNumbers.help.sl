@@ -28,7 +28,7 @@ OEIS [A008302](https://oeis.org/A008302):
 .catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/mahonianNumbers-A.svg)
+![](Help/Image/mahonianNumbers-A.svg)
 
 * * *
 

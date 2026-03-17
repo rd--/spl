@@ -12,7 +12,7 @@ Plot:
 )
 ~~~
 
-![](sw/spl/Help/Image/cycloid-A.svg)
+![](Help/Image/cycloid-A.svg)
 
 Plot varying _r_:
 
@@ -22,7 +22,7 @@ Plot varying _r_:
 )
 ~~~
 
-![](sw/spl/Help/Image/cycloid-B.svg)
+![](Help/Image/cycloid-B.svg)
 
 Drawing:
 
@@ -38,7 +38,7 @@ Drawing:
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/cycloid-C.svg)
+![](Help/Image/cycloid-C.svg)
 
 * * *
 

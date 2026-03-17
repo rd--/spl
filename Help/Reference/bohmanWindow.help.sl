@@ -34,7 +34,7 @@ Plot:
 )
 ~~~
 
-![](sw/spl/Help/Image/bohmanWindow-A.svg)
+![](Help/Image/bohmanWindow-A.svg)
 
 Discrete Bohman window of length 15:
 
@@ -44,7 +44,7 @@ Discrete Bohman window of length 15:
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/bohmanWindow-B.svg)
+![](Help/Image/bohmanWindow-B.svg)
 
 Frequency response of the Bohman window:
 
@@ -54,7 +54,7 @@ Frequency response of the Bohman window:
 }.fftPlot(512, 'Centered', 'Logarithmic')
 ~~~
 
-![](sw/spl/Help/Image/bohmanWindow-C.svg)
+![](Help/Image/bohmanWindow-C.svg)
 
 * * *
 

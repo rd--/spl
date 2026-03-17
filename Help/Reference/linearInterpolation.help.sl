@@ -40,7 +40,7 @@ Plot the line that interpolates from _1_ to _3_:
 }
 ~~~
 
-![](sw/spl/Help/Image/linearInterpolation-A.svg)
+![](Help/Image/linearInterpolation-A.svg)
 
 Plot the line that interpolates from _(1,3)_ to _(3,-1)_:
 
@@ -50,7 +50,7 @@ Plot the line that interpolates from _(1,3)_ to _(3,-1)_:
 }
 ~~~
 
-![](sw/spl/Help/Image/linearInterpolation-B.svg)
+![](Help/Image/linearInterpolation-B.svg)
 
 Linear impulse response:
 
@@ -63,7 +63,7 @@ Linear impulse response:
 )
 ~~~
 
-![](sw/spl/Help/Image/linearInterpolation-C.svg)
+![](Help/Image/linearInterpolation-C.svg)
 
 * * *
 

@@ -74,7 +74,7 @@ Plot over the unit interval:
 (0 -- 1).functionPlot(cantorStaircase:/1)
 ~~~
 
-![](sw/spl/Help/Image/cantorStaircase-A.svg)
+![](Help/Image/cantorStaircase-A.svg)
 
 * * *
 

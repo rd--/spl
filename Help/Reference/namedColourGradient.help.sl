@@ -14,7 +14,7 @@ Lookup the _Plasma_ gradient in the _Viridis_ collection:
 .resample(24)
 ~~~
 
-![](sw/spl/Help/Image/namedColourGradient-A.svg)
+![](Help/Image/namedColourGradient-A.svg)
 
 The unary form answers a gradients that are uniquely named across all collections.
 Lookup the _Isol_ gradient,
@@ -24,7 +24,7 @@ which is in the _Niccoli_ collection:
 'Isol'.namedColourGradient.resample(24)
 ~~~
 
-![](sw/spl/Help/Image/namedColourGradient-B.svg)
+![](Help/Image/namedColourGradient-B.svg)
 
 The unary form allows specifying the collection and gradient names separated by a forward slash:
 
@@ -34,7 +34,7 @@ The unary form allows specifying the collection and gradient names separated by 
 .resample(24)
 ~~~
 
-![](sw/spl/Help/Image/namedColourGradient-C.svg)
+![](Help/Image/namedColourGradient-C.svg)
 
 * * *
 

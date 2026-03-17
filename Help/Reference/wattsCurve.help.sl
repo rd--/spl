@@ -16,7 +16,7 @@ wattsCurve(a, b, c)
 .contourPlot(i, i, [0])
 ~~~
 
-![](sw/spl/Help/Image/wattsCurve-A.svg)
+![](Help/Image/wattsCurve-A.svg)
 
 * * *
 

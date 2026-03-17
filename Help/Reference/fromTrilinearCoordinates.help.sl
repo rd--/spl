@@ -22,7 +22,7 @@ let q = c.collect(
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/fromTrilinearCoordinates-A.svg)
+![](Help/Image/fromTrilinearCoordinates-A.svg)
 
 Compare to barycentric coordinates:
 
@@ -42,7 +42,7 @@ let q = c.collect { :each |
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/fromTrilinearCoordinates-B.svg)
+![](Help/Image/fromTrilinearCoordinates-B.svg)
 
 * * *
 

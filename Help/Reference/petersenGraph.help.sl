@@ -37,7 +37,7 @@ Plot the _5,1_ generalised Petersen graph:
 .graphPlot
 ~~~
 
-![](sw/spl/Help/Image/petersenGraph-A.svg)
+![](Help/Image/petersenGraph-A.svg)
 
 Plot the adjacency matrix of the _7,2_ Petersen graph:
 
@@ -47,7 +47,7 @@ Plot the adjacency matrix of the _7,2_ Petersen graph:
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/petersenGraph-B.svg)
+![](Help/Image/petersenGraph-B.svg)
 
 When _k=1_ generates the _n_-prism graph:
 
@@ -56,7 +56,7 @@ When _k=1_ generates the _n_-prism graph:
 .graphPlot
 ~~~
 
-![](sw/spl/Help/Image/petersenGraph-C.svg)
+![](Help/Image/petersenGraph-C.svg)
 
 Plot the Dürer graph:
 
@@ -65,7 +65,7 @@ Plot the Dürer graph:
 .graphPlot
 ~~~
 
-![](sw/spl/Help/Image/petersenGraph-D.svg)
+![](Help/Image/petersenGraph-D.svg)
 
 Plot the Desargues graph:
 
@@ -74,7 +74,7 @@ Plot the Desargues graph:
 .graphPlot
 ~~~
 
-![](sw/spl/Help/Image/petersenGraph-E.svg)
+![](Help/Image/petersenGraph-E.svg)
 
 Plot the cubic symmetric graph _F(048)A_:
 
@@ -83,7 +83,7 @@ Plot the cubic symmetric graph _F(048)A_:
 .graphPlot
 ~~~
 
-![](sw/spl/Help/Image/petersenGraph-F.svg)
+![](Help/Image/petersenGraph-F.svg)
 
 Plot the Petersen graph,
 the _(5,2)_ generalised Petersen graph:
@@ -93,7 +93,7 @@ the _(5,2)_ generalised Petersen graph:
 .graphPlot
 ~~~
 
-![](sw/spl/Help/Image/petersenGraph-G.svg)
+![](Help/Image/petersenGraph-G.svg)
 
 Plot the line graph of the Petersen graph:
 
@@ -103,7 +103,7 @@ Plot the line graph of the Petersen graph:
 .circularGraphPlot
 ~~~
 
-![](sw/spl/Help/Image/petersenGraph-H.svg)
+![](Help/Image/petersenGraph-H.svg)
 
 * * *
 

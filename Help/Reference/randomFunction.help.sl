@@ -18,7 +18,7 @@ WienerProcess(0, 0.5)
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/randomFunction-A.svg)
+![](Help/Image/randomFunction-A.svg)
 
 * * *
 

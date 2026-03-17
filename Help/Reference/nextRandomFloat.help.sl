@@ -53,7 +53,7 @@ let rng = Sfc32(698412);
 ).linePlot
 ~~~
 
-![](sw/spl/Help/Image/nextRandomFloat-A.svg)
+![](Help/Image/nextRandomFloat-A.svg)
 
 * * *
 

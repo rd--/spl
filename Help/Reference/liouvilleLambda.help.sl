@@ -131,7 +131,7 @@ OEIS [A008836](https://oeis.org/A008836):
 1:115.liouvilleLambda.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/liouvilleLambda-A.svg)
+![](Help/Image/liouvilleLambda-A.svg)
 
 Parity of number of primes dividing _n_,
 OEIS [A007421](https://oeis.org/A007421):
@@ -142,7 +142,7 @@ OEIS [A007421](https://oeis.org/A007421):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/liouvilleLambda-B.svg)
+![](Help/Image/liouvilleLambda-B.svg)
 
 Liouville’s function,
 OEIS [A002819](https://oeis.org/A002819):
@@ -152,7 +152,7 @@ OEIS [A002819](https://oeis.org/A002819):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/liouvilleLambda-C.svg)
+![](Help/Image/liouvilleLambda-C.svg)
 
 Least value of _m_ for which Liouville’s function is _-n_,
 OEIS [A002053](https://oeis.org/A002053):
@@ -164,7 +164,7 @@ let l = 1:3000.liouvilleLambda.prefixSum;
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/liouvilleLambda-D.svg)
+![](Help/Image/liouvilleLambda-D.svg)
 
 Parity of _Ω(n)_,
 OEIS [A066829](https://oeis.org/A066829):
@@ -175,7 +175,7 @@ OEIS [A066829](https://oeis.org/A066829):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/liouvilleLambda-E.svg)
+![](Help/Image/liouvilleLambda-E.svg)
 
 Characteristic function of the numbers with an even number of prime factors,
 counted with multiplicity,
@@ -187,7 +187,7 @@ OEIS [A065043](https://oeis.org/A065043):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/liouvilleLambda-F.svg)
+![](Help/Image/liouvilleLambda-F.svg)
 
 Matrix plot of Liouville lambda for the sum of two squares:
 
@@ -198,7 +198,7 @@ Matrix plot of Liouville lambda for the sum of two squares:
 }.table(1:20, 1:20).rescale.matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/liouvilleLambda-G.svg)
+![](Help/Image/liouvilleLambda-G.svg)
 
 * * *
 

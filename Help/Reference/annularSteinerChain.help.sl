@@ -10,7 +10,7 @@ The annular Steiner chain with _n=6_:
 6.annularSteinerChain([0 0], 1)
 ~~~
 
-![](sw/spl/Help/Image/annularSteinerChain-A.svg)
+![](Help/Image/annularSteinerChain-A.svg)
 
 The annular Steiner chain with _n=12_:
 
@@ -18,7 +18,7 @@ The annular Steiner chain with _n=12_:
 12.annularSteinerChain([0 0], 1)
 ~~~
 
-![](sw/spl/Help/Image/annularSteinerChain-B.svg)
+![](Help/Image/annularSteinerChain-B.svg)
 
 The annular Steiner chain with _n=18_:
 
@@ -26,7 +26,7 @@ The annular Steiner chain with _n=18_:
 18.annularSteinerChain([0 0], 1)
 ~~~
 
-![](sw/spl/Help/Image/annularSteinerChain-C.svg)
+![](Help/Image/annularSteinerChain-C.svg)
 
 The circle inversions of an annular Steiner chain is another Steiner chain:
 
@@ -35,7 +35,7 @@ The circle inversions of an annular Steiner chain is another Steiner chain:
 .circleInversion(Circle([-5 -5], 0.5))
 ~~~
 
-![](sw/spl/Help/Image/annularSteinerChain-D.svg)
+![](Help/Image/annularSteinerChain-D.svg)
 
 * * *
 

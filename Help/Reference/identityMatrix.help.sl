@@ -65,7 +65,7 @@ Draw `identityMatrix`:
 33.identityMatrix.Bitmap
 ~~~
 
-![](sw/spl/Help/Image/identityMatrix-A.png)
+![](Help/Image/identityMatrix-A.png)
 
 * * *
 

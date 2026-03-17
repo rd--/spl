@@ -10,7 +10,7 @@ and with all three angles equal.
 [0 0].equilateralTriangle(1, 1/4.pi)
 ~~~
 
-![](sw/spl/Help/Image/equilateralTriangle-A.svg)
+![](Help/Image/equilateralTriangle-A.svg)
 
 Draw triangle vortex:
 
@@ -28,7 +28,7 @@ let l = [];
 l.LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/equilateralTriangle-B.svg)
+![](Help/Image/equilateralTriangle-B.svg)
 
 Draw iterated triangles, scaling radius and shifting angle:
 
@@ -46,7 +46,7 @@ let l = [];
 l.LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/equilateralTriangle-C.svg)
+![](Help/Image/equilateralTriangle-C.svg)
 
 An equilateral triangle is equivalent to a regular polygon:
 
@@ -54,7 +54,7 @@ An equilateral triangle is equivalent to a regular polygon:
 3.regularPolygon([0 0], 1, 1/4.pi)
 ~~~
 
-![](sw/spl/Help/Image/equilateralTriangle-D.svg)
+![](Help/Image/equilateralTriangle-D.svg)
 
 * * *
 

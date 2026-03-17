@@ -15,7 +15,7 @@ let [b, c, _] = t.brocardPoints;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/brocardMidpoint-A.svg)
+![](Help/Image/brocardMidpoint-A.svg)
 
 * * *
 

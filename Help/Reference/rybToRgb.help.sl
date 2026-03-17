@@ -59,7 +59,7 @@ system.rybColourTable
 .arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/rybToRgb-A.svg)
+![](Help/Image/rybToRgb-A.svg)
 
 * * *
 

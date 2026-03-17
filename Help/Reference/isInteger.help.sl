@@ -155,7 +155,7 @@ OEIS [A133388](https://oeis.org/A133388):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/isInteger-A.svg)
+![](Help/Image/isInteger-A.svg)
 
 The characteristic function of the cubic numbers,
 one if _n_ is a cube else zero,
@@ -167,7 +167,7 @@ OEIS [A010057](https://oeis.org/A010057):
 }.boole.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/isInteger-B.svg)
+![](Help/Image/isInteger-B.svg)
 
 _Rationale_:
 Note that this is not a `Type` predicate,

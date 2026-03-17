@@ -35,7 +35,7 @@ Decimal(1/7, 100)
 )
 ~~~
 
-![](sw/spl/Help/Image/colourCalculatorPlot-A.svg)
+![](Help/Image/colourCalculatorPlot-A.svg)
 
 Plot 72 places in a 6×12 grid:
 
@@ -49,7 +49,7 @@ Decimal(1/7, 72)
 )
 ~~~
 
-![](sw/spl/Help/Image/colourCalculatorPlot-B.svg)
+![](Help/Image/colourCalculatorPlot-B.svg)
 
 Plot 102 places in a 6×17 grid:
 
@@ -64,7 +64,7 @@ Decimal(1/7, 102)
 )
 ~~~
 
-![](sw/spl/Help/Image/colourCalculatorPlot-C.svg)
+![](Help/Image/colourCalculatorPlot-C.svg)
 
 Plot 81 places of 226/999 in a 9×9 grid:
 
@@ -79,7 +79,7 @@ Decimal(226/999, 81)
 )
 ~~~
 
-![](sw/spl/Help/Image/colourCalculatorPlot-D.svg)
+![](Help/Image/colourCalculatorPlot-D.svg)
 
 * * *
 

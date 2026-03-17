@@ -73,7 +73,7 @@ Draw a triangle in planar (two dimensional) space:
 Triangle([0 0; 1 3; 2 0])
 ~~~
 
-![](sw/spl/Help/Image/Triangle-A.svg)
+![](Help/Image/Triangle-A.svg)
 
 Draw a triangle in three dimensional space:
 
@@ -84,7 +84,7 @@ Draw a triangle in three dimensional space:
 ].PerspectiveDrawing
 ~~~
 
-![](sw/spl/Help/Image/Triangle-B.svg)
+![](Help/Image/Triangle-B.svg)
 
 The flag of Guyana:
 
@@ -96,7 +96,7 @@ The flag of Guyana:
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/Triangle-C.svg)
+![](Help/Image/Triangle-C.svg)
 
 The flag of Saint Lucia:
 
@@ -115,7 +115,7 @@ let f = e - 4;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/Triangle-D.svg)
+![](Help/Image/Triangle-D.svg)
 
 * * *
 

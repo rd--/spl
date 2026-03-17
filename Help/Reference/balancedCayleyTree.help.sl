@@ -10,7 +10,7 @@ The _3,1_ tree:
 balancedCayleyTree(3, 1).graphPlot
 ~~~
 
-![](sw/spl/Help/Image/balancedCayleyTree-A.svg)
+![](Help/Image/balancedCayleyTree-A.svg)
 
 The _3,2_ tree:
 
@@ -18,7 +18,7 @@ The _3,2_ tree:
 balancedCayleyTree(3, 2).graphPlot
 ~~~
 
-![](sw/spl/Help/Image/balancedCayleyTree-B.svg)
+![](Help/Image/balancedCayleyTree-B.svg)
 
 The _3,3_ tree:
 
@@ -26,7 +26,7 @@ The _3,3_ tree:
 balancedCayleyTree(3, 3).graphPlot
 ~~~
 
-![](sw/spl/Help/Image/balancedCayleyTree-C.svg)
+![](Help/Image/balancedCayleyTree-C.svg)
 
 The _3,4_ tree:
 
@@ -34,7 +34,7 @@ The _3,4_ tree:
 balancedCayleyTree(3, 4).graphPlot
 ~~~
 
-![](sw/spl/Help/Image/balancedCayleyTree-D.svg)
+![](Help/Image/balancedCayleyTree-D.svg)
 
 The _4,1_ tree:
 
@@ -42,7 +42,7 @@ The _4,1_ tree:
 balancedCayleyTree(4, 1).graphPlot
 ~~~
 
-![](sw/spl/Help/Image/balancedCayleyTree-E.svg)
+![](Help/Image/balancedCayleyTree-E.svg)
 
 The _4,2_ tree:
 
@@ -50,7 +50,7 @@ The _4,2_ tree:
 balancedCayleyTree(4, 2).graphPlot
 ~~~
 
-![](sw/spl/Help/Image/balancedCayleyTree-F.svg)
+![](Help/Image/balancedCayleyTree-F.svg)
 
 The _4,3_ tree:
 
@@ -58,7 +58,7 @@ The _4,3_ tree:
 balancedCayleyTree(4, 3).graphPlot
 ~~~
 
-![](sw/spl/Help/Image/balancedCayleyTree-G.svg)
+![](Help/Image/balancedCayleyTree-G.svg)
 
 The _n=2_ trees are path graphs,
 the _2,5_ tree:
@@ -68,7 +68,7 @@ balancedCayleyTree(2, 5)
 .circularGraphPlot
 ~~~
 
-![](sw/spl/Help/Image/balancedCayleyTree-H.svg)
+![](Help/Image/balancedCayleyTree-H.svg)
 
 The number of nodes at each level _k_ for _n=3_,
 OEIS [A003945](https://oeis.org/A003945):

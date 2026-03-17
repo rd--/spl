@@ -106,7 +106,7 @@ OEIS [A000290](https://oeis.org/A000290):
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/square-A.svg)
+![](Help/Image/square-A.svg)
 
 Square roots of unity modulo _m_,
 OEIS [A060594](https://oeis.org/A060594):
@@ -119,7 +119,7 @@ OEIS [A060594](https://oeis.org/A060594):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/square-B.svg)
+![](Help/Image/square-B.svg)
 
 _a(n)_ is the smallest integer _m_ not equal to _n_ such that _n=(⌊(n²/m)+m)/2_,
 OEIS [A134986](https://oeis.org/A134986):
@@ -135,7 +135,7 @@ OEIS [A134986](https://oeis.org/A134986):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/square-C.svg)
+![](Help/Image/square-C.svg)
 
 Square numbers,
 OEIS [A000290](https://oeis.org/A000290):
@@ -144,7 +144,7 @@ OEIS [A000290](https://oeis.org/A000290):
 0:65.square.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/square-D.svg)
+![](Help/Image/square-D.svg)
 
 _x²_ plotted on a Cartesian plane:
 
@@ -152,7 +152,7 @@ _x²_ plotted on a Cartesian plane:
 (-2 -- 2).functionPlot(square:/1)
 ~~~
 
-![](sw/spl/Help/Image/square-E.svg)
+![](Help/Image/square-E.svg)
 
 Where supported `square` is displayed as ².
 

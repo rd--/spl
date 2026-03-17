@@ -98,7 +98,7 @@ let p = [0 0; 1 1; 2 -1; 3 0];
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/BezierCurve-A.svg)
+![](Help/Image/BezierCurve-A.svg)
 
 A composite cubic Bézier curve and its control points:
 
@@ -111,7 +111,7 @@ let p = [0 0; 1 1; 2 -1; 3 0; 5 2; 6 -1; 7 3];
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/BezierCurve-B.svg)
+![](Help/Image/BezierCurve-B.svg)
 
 A composite cubic Bézier flower:
 
@@ -123,7 +123,7 @@ let p = (0, 4 .. 156).collect { :k |
 p.BezierCurve(3)
 ~~~
 
-![](sw/spl/Help/Image/BezierCurve-C.svg)
+![](Help/Image/BezierCurve-C.svg)
 
 Six random cubic Bézier curves,
 threads over lists:
@@ -135,7 +135,7 @@ Sfc32(314729)
 .LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/BezierCurve-D.svg)
+![](Help/Image/BezierCurve-D.svg)
 
 A closed cubic Bézier curve:
 
@@ -148,7 +148,7 @@ let p = [0 0; 0 2; 2 0; 0 0];
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/BezierCurve-E.svg)
+![](Help/Image/BezierCurve-E.svg)
 
 A quadratic Bézier curve:
 
@@ -161,7 +161,7 @@ let p = [0 0; 1 1; 2 0];
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/BezierCurve-F.svg)
+![](Help/Image/BezierCurve-F.svg)
 
 A Bézier curve with spline degree 1 is equivalent to `Line`:
 
@@ -170,7 +170,7 @@ A Bézier curve with spline degree 1 is equivalent to `Line`:
 .BezierCurve(1)
 ~~~
 
-![](sw/spl/Help/Image/BezierCurve-G.svg)
+![](Help/Image/BezierCurve-G.svg)
 
 A cubic Bézier curve with a crossing:
 
@@ -182,7 +182,7 @@ let p = [1 1; 8 7; 2 8; 6 0];
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/BezierCurve-H.svg)
+![](Help/Image/BezierCurve-H.svg)
 
 The distance between equally spaced indices is not, in general, equal:
 
@@ -193,7 +193,7 @@ let i = (0 -- 1).discretize(d.size);
 [i, d / d.last].transpose.linePlot
 ~~~
 
-![](sw/spl/Help/Image/BezierCurve-I.svg)
+![](Help/Image/BezierCurve-I.svg)
 
 A single cubic Bézier curve:
 
@@ -206,7 +206,7 @@ let p = [0 0; 1 2; 2 2; 3 0];
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/BezierCurve-J.svg)
+![](Help/Image/BezierCurve-J.svg)
 
 A composite Bézier curve:
 
@@ -219,7 +219,7 @@ let p = [0 0; 1 3; 2 3; 3 0; 4 3; 5 0; 6 3];
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/BezierCurve-K.svg)
+![](Help/Image/BezierCurve-K.svg)
 
 Draw a simple cubic Bézier curve overlayed with an approximation:
 
@@ -234,7 +234,7 @@ let c = p.BezierCurve(3);
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/BezierCurve-L.svg)
+![](Help/Image/BezierCurve-L.svg)
 
 Draw a downsampled `approximation` as a `PointCloud`,
 indicating the non-uniform distances along the curve between equidistant sampling points:
@@ -247,7 +247,7 @@ indicating the non-uniform distances along the curve between equidistant samplin
 .PointCloud
 ~~~
 
-![](sw/spl/Help/Image/BezierCurve-M.svg)
+![](Help/Image/BezierCurve-M.svg)
 
 A downsampled approximation of a composite cubic Bézier curve:
 
@@ -259,7 +259,7 @@ A downsampled approximation of a composite cubic Bézier curve:
 .PointCloud
 ~~~
 
-![](sw/spl/Help/Image/BezierCurve-N.svg)
+![](Help/Image/BezierCurve-N.svg)
 
 Approximation of a circle as a cubic Bézier curves with four components:
 
@@ -276,7 +276,7 @@ let c = 0.99873327689;
 ].BezierCurve(3)
 ~~~
 
-![](sw/spl/Help/Image/BezierCurve-O.svg)
+![](Help/Image/BezierCurve-O.svg)
 
 Approximation of circular arcs as a cubic Bézier curves:
 
@@ -287,7 +287,7 @@ Approximation of circular arcs as a cubic Bézier curves:
 }.LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/BezierCurve-P.svg)
+![](Help/Image/BezierCurve-P.svg)
 
 * * *
 

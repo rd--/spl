@@ -13,7 +13,7 @@ Plot the hyperbolic tangent function:
 (1 -- 100).logLinearPlot(tanh:/1)
 ~~~
 
-![](sw/spl/Help/Image/logLinearPlot-A.svg)
+![](Help/Image/logLinearPlot-A.svg)
 
 Plot the cosine function:
 
@@ -21,7 +21,7 @@ Plot the cosine function:
 (0.1 -- 10).logLinearPlot(cos:/1)
 ~~~
 
-![](sw/spl/Help/Image/logLinearPlot-B.svg)
+![](Help/Image/logLinearPlot-B.svg)
 
 Plot the error function:
 
@@ -29,7 +29,7 @@ Plot the error function:
 (0.01 -- 10).logLinearPlot(erf:/1)
 ~~~
 
-![](sw/spl/Help/Image/logLinearPlot-C.svg)
+![](Help/Image/logLinearPlot-C.svg)
 
 Plot the logarithmic function,
 which is a straight line in a log-linear plot:
@@ -38,7 +38,7 @@ which is a straight line in a log-linear plot:
 (0.1 -- 10).logLinearPlot(log:/1)
 ~~~
 
-![](sw/spl/Help/Image/logLinearPlot-D.svg)
+![](Help/Image/logLinearPlot-D.svg)
 
 Apply `log` to the _y_ value to draw a log-log plot:
 
@@ -51,7 +51,7 @@ Apply `log` to the _y_ value to draw a log-log plot:
 }
 ~~~
 
-![](sw/spl/Help/Image/logLinearPlot-E.svg)
+![](Help/Image/logLinearPlot-E.svg)
 
 Plot the A-weighting curve:
 
@@ -61,7 +61,7 @@ Plot the A-weighting curve:
 )
 ~~~
 
-![](sw/spl/Help/Image/logLinearPlot-F.svg)
+![](Help/Image/logLinearPlot-F.svg)
 
 Plot multiple functions:
 
@@ -75,7 +75,7 @@ Plot multiple functions:
 )
 ~~~
 
-![](sw/spl/Help/Image/logLinearPlot-G.svg)
+![](Help/Image/logLinearPlot-G.svg)
 
 * * *
 

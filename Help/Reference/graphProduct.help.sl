@@ -24,7 +24,7 @@ an _m,2_ grid graph:
 ).graphPlot
 ~~~
 
-![](sw/spl/Help/Image/graphProduct-A.svg)
+![](Help/Image/graphProduct-A.svg)
 
 Plot the _2,3,3,2_ grid graph:
 
@@ -35,7 +35,7 @@ Plot the _2,3,3,2_ grid graph:
 .graphPlot
 ~~~
 
-![](sw/spl/Help/Image/graphProduct-B.svg)
+![](Help/Image/graphProduct-B.svg)
 
 Plot a three-prism graph:
 
@@ -46,7 +46,7 @@ Plot a three-prism graph:
 ).graphPlot
 ~~~
 
-![](sw/spl/Help/Image/graphProduct-C.svg)
+![](Help/Image/graphProduct-C.svg)
 
 Plot a stacked five-prism graph:
 
@@ -57,7 +57,7 @@ Plot a stacked five-prism graph:
 ).graphPlot
 ~~~
 
-![](sw/spl/Help/Image/graphProduct-D.svg)
+![](Help/Image/graphProduct-D.svg)
 
 Plot a torus grid graph:
 
@@ -68,7 +68,7 @@ Plot a torus grid graph:
 ).graphPlot
 ~~~
 
-![](sw/spl/Help/Image/graphProduct-E.svg)
+![](Help/Image/graphProduct-E.svg)
 
 Plot a book graph:
 
@@ -79,7 +79,7 @@ Plot a book graph:
 ).graphPlot
 ~~~
 
-![](sw/spl/Help/Image/graphProduct-F.svg)
+![](Help/Image/graphProduct-F.svg)
 
 Plot a stacked book graph:
 
@@ -90,7 +90,7 @@ Plot a stacked book graph:
 ).graphPlot
 ~~~
 
-![](sw/spl/Help/Image/graphProduct-G.svg)
+![](Help/Image/graphProduct-G.svg)
 
 Plot a four-crown graph,
 which is the cubical graph:
@@ -102,7 +102,7 @@ which is the cubical graph:
 ).complement.graphPlot
 ~~~
 
-![](sw/spl/Help/Image/graphProduct-H.svg)
+![](Help/Image/graphProduct-H.svg)
 
 Plot a 4×4 rook graph:
 
@@ -113,7 +113,7 @@ Plot a 4×4 rook graph:
 ).graphPlot
 ~~~
 
-![](sw/spl/Help/Image/graphProduct-I.svg)
+![](Help/Image/graphProduct-I.svg)
 
 Plot a _4,2_ Hamming graph,
 which is the hypercube graph:
@@ -124,7 +124,7 @@ List(4, 2.completeGraph)
 .graphPlot
 ~~~
 
-![](sw/spl/Help/Image/graphProduct-J.svg)
+![](Help/Image/graphProduct-J.svg)
 
 Plot _7,7_ king graph,
 the strong (normal) product of two path graphs:
@@ -136,7 +136,7 @@ the strong (normal) product of two path graphs:
 ).graphPlot
 ~~~
 
-![](sw/spl/Help/Image/graphProduct-K.svg)
+![](Help/Image/graphProduct-K.svg)
 
 * * *
 

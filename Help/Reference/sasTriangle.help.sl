@@ -44,7 +44,7 @@ Varying one angle:
 }.LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/sasTriangle-A.svg)
+![](Help/Image/sasTriangle-A.svg)
 
 The indicated angle is γ,
 which is opposite to the side with length _c_:
@@ -60,7 +60,7 @@ let [_, _, c] = t.sideLengths;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/sasTriangle-B.svg)
+![](Help/Image/sasTriangle-B.svg)
 
 * * *
 

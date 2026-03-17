@@ -57,7 +57,7 @@ OEIS [A066272](https://oeis.org/A066272):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/count-A.svg)
+![](Help/Image/count-A.svg)
 
 * * *
 

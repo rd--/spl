@@ -22,7 +22,7 @@ OEIS [A005229](http://oeis.org/A005229):
 99.mallowsSequence.linePlot
 ~~~
 
-![](sw/spl/Help/Image/mallowsSequence-A.svg)
+![](Help/Image/mallowsSequence-A.svg)
 
 * * *
 

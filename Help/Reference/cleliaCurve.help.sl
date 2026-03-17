@@ -12,7 +12,7 @@ Perspective drawing with _c=1/2_ and period _4π_:
 )
 ~~~
 
-![](sw/spl/Help/Image/cleliaCurve-A.svg)
+![](Help/Image/cleliaCurve-A.svg)
 
 With _c=7/6_ and period _12π_:
 
@@ -23,7 +23,7 @@ With _c=7/6_ and period _12π_:
 )
 ~~~
 
-![](sw/spl/Help/Image/cleliaCurve-B.svg)
+![](Help/Image/cleliaCurve-B.svg)
 
 With _c=1_ and period _2π_ the trace is Viviani’s curve:
 
@@ -33,7 +33,7 @@ With _c=1_ and period _2π_ the trace is Viviani’s curve:
 )
 ~~~
 
-![](sw/spl/Help/Image/cleliaCurve-C.svg)
+![](Help/Image/cleliaCurve-C.svg)
 
 With _c=8_ and period _π_ the trace is a spherical spiral,
 analogous to an Archimedean spiral in the plane:
@@ -45,7 +45,7 @@ analogous to an Archimedean spiral in the plane:
 )
 ~~~
 
-![](sw/spl/Help/Image/cleliaCurve-D.svg)
+![](Help/Image/cleliaCurve-D.svg)
 
 * * *
 

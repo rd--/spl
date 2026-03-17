@@ -18,7 +18,7 @@ The 5-Paley graph is the 5-cycle graph:
 5.paleyGraph.circularGraphPlot
 ~~~
 
-![](sw/spl/Help/Image/paleyGraph-A.svg)
+![](Help/Image/paleyGraph-A.svg)
 
 The 9-Paley graph is the generalised quadrangle,
 or triangular duoprism:
@@ -27,7 +27,7 @@ or triangular duoprism:
 9.paleyGraph.circularGraphPlot
 ~~~
 
-![](sw/spl/Help/Image/paleyGraph-B.svg)
+![](Help/Image/paleyGraph-B.svg)
 
 The 13-Paley graph:
 
@@ -35,7 +35,7 @@ The 13-Paley graph:
 13.paleyGraph.circularGraphPlot
 ~~~
 
-![](sw/spl/Help/Image/paleyGraph-C.svg)
+![](Help/Image/paleyGraph-C.svg)
 
 The 17-Paley graph:
 
@@ -43,7 +43,7 @@ The 17-Paley graph:
 17.paleyGraph.circularGraphPlot
 ~~~
 
-![](sw/spl/Help/Image/paleyGraph-D.svg)
+![](Help/Image/paleyGraph-D.svg)
 
 The 25-Paley graph:
 
@@ -51,7 +51,7 @@ The 25-Paley graph:
 25.paleyGraph.circularGraphPlot
 ~~~
 
-![](sw/spl/Help/Image/paleyGraph-E.svg)
+![](Help/Image/paleyGraph-E.svg)
 
 * * *
 

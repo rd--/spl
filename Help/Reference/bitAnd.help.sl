@@ -96,7 +96,7 @@ let n = 1:100;
 n.bitAnd(n - 1).linePlot
 ~~~
 
-![](sw/spl/Help/Image/bitAnd-A.svg)
+![](Help/Image/bitAnd-A.svg)
 
 Bitwise and of _n_ and _2n_,
 OEIS [A213370](https://oeis.org/A213370):
@@ -106,7 +106,7 @@ let n = 1:64;
 n.bitAnd(n * 2).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/bitAnd-B.svg)
+![](Help/Image/bitAnd-B.svg)
 
 Bitwise and of _n_ and _2n_ and _3n_:
 
@@ -116,7 +116,7 @@ Bitwise and of _n_ and _2n_ and _3n_:
 }
 ~~~
 
-![](sw/spl/Help/Image/bitAnd-C.svg)
+![](Help/Image/bitAnd-C.svg)
 
 Lexicographically earliest sequence such that,
 for any distinct _i_ and _j_,
@@ -140,7 +140,7 @@ let a = [];
 a.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitAnd-D.svg)
+![](Help/Image/bitAnd-D.svg)
 
 Bitwise and of positive and negative integers:
 
@@ -151,7 +151,7 @@ bitAnd:/2
 .Greymap
 ~~~
 
-![](sw/spl/Help/Image/bitAnd-E.png)
+![](Help/Image/bitAnd-E.png)
 
 Calculate run length transform of `fibonacci`,
 OEIS [A246028](https://oeis.org/A246028):
@@ -167,7 +167,7 @@ OEIS [A246028](https://oeis.org/A246028):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitAnd-F.svg)
+![](Help/Image/bitAnd-F.svg)
 
 Least multiple to have no common one bit in binary expansion,
 OEIS [A261892](https://oeis.org/A261892):
@@ -184,7 +184,7 @@ OEIS [A261892](https://oeis.org/A261892):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitAnd-G.svg)
+![](Help/Image/bitAnd-G.svg)
 
 Maximal number of linearly independent smooth nowhere-zero vector fields on a _2n+1_-sphere,
 OEIS [A053381](https://oeis.org/A053381):
@@ -203,7 +203,7 @@ OEIS [A053381](https://oeis.org/A053381):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/bitAnd-H.svg)
+![](Help/Image/bitAnd-H.svg)
 
 Array giving the length of the longest carry sequence when adding _k_ to _n_ in binary,
 OEIS [A080080](https://oeis.org/A080080):
@@ -225,7 +225,7 @@ let add = { :x :y :z |
 }.catenate.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/bitAnd-I.svg)
+![](Help/Image/bitAnd-I.svg)
 
 Next larger integer with same binary weight as _n_,
 OEIS [A057168](https://oeis.org/A057168):
@@ -238,7 +238,7 @@ OEIS [A057168](https://oeis.org/A057168):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/bitAnd-J.svg)
+![](Help/Image/bitAnd-J.svg)
 
 Shifts left under _and_-convolution with itself,
 OEIS [A007461](https://oeis.org/A007461):
@@ -257,7 +257,7 @@ let a = Map { :n |
 a[0:75].discretePlot
 ~~~
 
-![](sw/spl/Help/Image/bitAnd-K.svg)
+![](Help/Image/bitAnd-K.svg)
 
 _n&⌊(n/2)_,
 OEIS [A048735](https://oeis.org/A048735):
@@ -268,7 +268,7 @@ OEIS [A048735](https://oeis.org/A048735):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitAnd-L.svg)
+![](Help/Image/bitAnd-L.svg)
 
 _k&(n-k)_,
 OEIS [A004198](https://oeis.org/A004198):
@@ -279,7 +279,7 @@ OEIS [A004198](https://oeis.org/A004198):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/bitAnd-M.svg)
+![](Help/Image/bitAnd-M.svg)
 
 Bitwise logical and,
 triangular array,
@@ -290,7 +290,7 @@ OEIS [A080099](https://oeis.org/A080099):
 .catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitAnd-N.svg)
+![](Help/Image/bitAnd-N.svg)
 
 * * *
 

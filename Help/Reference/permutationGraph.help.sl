@@ -35,7 +35,7 @@ Draw graph:
 .graphPlot
 ~~~
 
-![](sw/spl/Help/Image/permutationGraph-A.svg)
+![](Help/Image/permutationGraph-A.svg)
 
 * * *
 

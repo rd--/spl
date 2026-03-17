@@ -27,7 +27,7 @@ Plot over a subset of the reals:
 (0 -- 3).functionPlot(triangleWave:/1)
 ~~~
 
-![](sw/spl/Help/Image/triangleWave-A.svg)
+![](Help/Image/triangleWave-A.svg)
 
 * * *
 

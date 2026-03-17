@@ -23,7 +23,7 @@ Plot over a subset of the reals:
 (-5 -- 5).functionPlot(200, fresnelS:/1)
 ~~~
 
-![](sw/spl/Help/Image/fresnelS-A.svg)
+![](Help/Image/fresnelS-A.svg)
 
 * * *
 

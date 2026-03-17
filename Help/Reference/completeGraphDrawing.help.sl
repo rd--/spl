@@ -10,7 +10,7 @@ Complete graph on five vertices:
 5.completeGraphDrawing(1)
 ~~~
 
-![](sw/spl/Help/Image/completeGraphDrawing-A.svg)
+![](Help/Image/completeGraphDrawing-A.svg)
 
 Complete graph on seven vertices:
 
@@ -18,7 +18,7 @@ Complete graph on seven vertices:
 7.completeGraphDrawing(1)
 ~~~
 
-![](sw/spl/Help/Image/completeGraphDrawing-B.svg)
+![](Help/Image/completeGraphDrawing-B.svg)
 
 * * *
 

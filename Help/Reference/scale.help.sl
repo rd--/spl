@@ -55,7 +55,7 @@ Nested circles:
 .LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/scale-A.svg)
+![](Help/Image/scale-A.svg)
 
 Nested rectangles:
 
@@ -67,7 +67,7 @@ let phi = 1.goldenRatio;
 .LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/scale-B.svg)
+![](Help/Image/scale-B.svg)
 
 Nested polygons:
 
@@ -78,7 +78,7 @@ Nested polygons:
 .LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/scale-C.svg)
+![](Help/Image/scale-C.svg)
 
 * * *
 

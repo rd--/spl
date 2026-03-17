@@ -11,7 +11,7 @@ as in `pointLinePlot`.
 [1 1 2 3 5 8].pointLinePlot
 ~~~
 
-![](sw/spl/Help/Image/pointLinePlot-A.svg)
+![](Help/Image/pointLinePlot-A.svg)
 
 * * *
 

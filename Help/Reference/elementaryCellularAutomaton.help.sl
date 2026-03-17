@@ -76,7 +76,7 @@ Rule 18:
 ).Bitmap
 ~~~
 
-![](sw/spl/Help/Image/elementaryCellularAutomaton-A.png)
+![](Help/Image/elementaryCellularAutomaton-A.png)
 
 Rule 30:
 
@@ -87,7 +87,7 @@ Rule 30:
 ).Bitmap
 ~~~
 
-![](sw/spl/Help/Image/elementaryCellularAutomaton-B.png)
+![](Help/Image/elementaryCellularAutomaton-B.png)
 
 Rule 57:
 
@@ -98,7 +98,7 @@ Rule 57:
 ).Bitmap
 ~~~
 
-![](sw/spl/Help/Image/elementaryCellularAutomaton-C.png)
+![](Help/Image/elementaryCellularAutomaton-C.png)
 
 Rule 73:
 
@@ -109,7 +109,7 @@ Rule 73:
 ).Bitmap
 ~~~
 
-![](sw/spl/Help/Image/elementaryCellularAutomaton-D.png)
+![](Help/Image/elementaryCellularAutomaton-D.png)
 
 Rule 110:
 
@@ -120,7 +120,7 @@ Rule 110:
 ).Bitmap
 ~~~
 
-![](sw/spl/Help/Image/elementaryCellularAutomaton-E.png)
+![](Help/Image/elementaryCellularAutomaton-E.png)
 
 Rule 110, a finite spaceship pattern, moving right:
 
@@ -135,7 +135,7 @@ Rule 110, a finite spaceship pattern, moving right:
 ).Bitmap
 ~~~
 
-![](sw/spl/Help/Image/elementaryCellularAutomaton-F.png)
+![](Help/Image/elementaryCellularAutomaton-F.png)
 
 Rule 110, a finite spaceship pattern, moving left:
 
@@ -150,7 +150,7 @@ Rule 110, a finite spaceship pattern, moving left:
 ).Bitmap
 ~~~
 
-![](sw/spl/Help/Image/elementaryCellularAutomaton-G.png)
+![](Help/Image/elementaryCellularAutomaton-G.png)
 
 Rule 184 from a random initial state:
 
@@ -162,7 +162,7 @@ Rule 184 from a random initial state:
 ).Bitmap
 ~~~
 
-![](sw/spl/Help/Image/elementaryCellularAutomaton-H.png)
+![](Help/Image/elementaryCellularAutomaton-H.png)
 
 Ones in the _n_-th generation of Rule 30,
 OEIS [A070952](https://oeis.org/A070952):
@@ -175,7 +175,7 @@ let k = 100;
 ).collect(sum:/1).stepPlot
 ~~~
 
-![](sw/spl/Help/Image/elementaryCellularAutomaton-I.svg)
+![](Help/Image/elementaryCellularAutomaton-I.svg)
 
 * * *
 

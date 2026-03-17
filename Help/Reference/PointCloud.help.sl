@@ -12,7 +12,7 @@ Sfc32(376814)
 .PointCloud
 ~~~
 
-![](sw/spl/Help/Image/PointCloud-A.svg)
+![](Help/Image/PointCloud-A.svg)
 
 Disperse a grid of points, _g_, about a focus point _c_:
 
@@ -30,7 +30,7 @@ g.collect { :x |
 }.PointCloud
 ~~~
 
-![](sw/spl/Help/Image/PointCloud-B.svg)
+![](Help/Image/PointCloud-B.svg)
 
 _Rationale_:
 The type is not called _PointSet_ since it is not a _set_ in the usual sense,

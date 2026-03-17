@@ -30,7 +30,7 @@ Sfc32(376581)
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/oddEvenSortMatrix-A.svg)
+![](Help/Image/oddEvenSortMatrix-A.svg)
 
 Sort longer list:
 
@@ -44,7 +44,7 @@ Sfc32(376581)
 .Greymap
 ~~~
 
-![](sw/spl/Help/Image/oddEvenSortMatrix-B.png)
+![](Help/Image/oddEvenSortMatrix-B.png)
 
 * * *
 

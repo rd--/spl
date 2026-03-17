@@ -45,7 +45,7 @@ OEIS [A112526](https://oeis.org/A112526):
 .boole.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/isPowerfulNumber-A.svg)
+![](Help/Image/isPowerfulNumber-A.svg)
 
 * * *
 

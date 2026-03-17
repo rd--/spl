@@ -15,7 +15,7 @@ Plot `pdf` for a standard normal distribution:
 )
 ~~~
 
-![](sw/spl/Help/Image/pdf-A.svg)
+![](Help/Image/pdf-A.svg)
 
 * * *
 

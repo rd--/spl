@@ -119,7 +119,7 @@ OEIS [A008289](https://oeis.org/A008289):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/partitionFunctionQ-A.svg)
+![](Help/Image/partitionFunctionQ-A.svg)
 
 Table of non-zero values of _Q(n,k)_,
 log scaled,
@@ -135,7 +135,7 @@ OEIS [A008289](https://oeis.org/A008289):
 }.catenate.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/partitionFunctionQ-B.svg)
+![](Help/Image/partitionFunctionQ-B.svg)
 
 The initial part of the triangle _Q(n,k)_,
 OEIS [A060016](https://oeis.org/A060016):
@@ -146,7 +146,7 @@ OEIS [A060016](https://oeis.org/A060016):
 ).++.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/partitionFunctionQ-C.svg)
+![](Help/Image/partitionFunctionQ-C.svg)
 
 * * *
 

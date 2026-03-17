@@ -118,7 +118,7 @@ OEIS [A004018](https://oeis.org/A004018):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/squaresR-A.svg)
+![](Help/Image/squaresR-A.svg)
 
 The characteristic function of the triangular numbers,
 one if _n_ is a triangular number otherwise zero,
@@ -130,7 +130,7 @@ OEIS [A010054](https://oeis.org/A010054):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/squaresR-B.svg)
+![](Help/Image/squaresR-B.svg)
 
 Number of ways of writing _n_ as a sum of four squares,
 OEIS [A000118](https://oeis.org/A000118):
@@ -141,7 +141,7 @@ OEIS [A000118](https://oeis.org/A000118):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/squaresR-C.svg)
+![](Help/Image/squaresR-C.svg)
 
 * * *
 

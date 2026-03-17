@@ -58,7 +58,7 @@ OEIS [A121758](https://oeis.org/A121758):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/withIndexCollect-A.svg)
+![](Help/Image/withIndexCollect-A.svg)
 
 Take even digits of _n_ with negative sign,
 OEIS [A121759](https://oeis.org/A121759):
@@ -73,7 +73,7 @@ OEIS [A121759](https://oeis.org/A121759):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/withIndexCollect-B.svg)
+![](Help/Image/withIndexCollect-B.svg)
 
 * * *
 

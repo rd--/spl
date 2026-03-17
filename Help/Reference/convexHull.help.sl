@@ -33,7 +33,7 @@ let h = p.atAll(i);
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/convexHull-A.svg)
+![](Help/Image/convexHull-A.svg)
 
 * * *
 

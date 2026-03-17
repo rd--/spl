@@ -22,7 +22,7 @@ Plot in one dimension at integer values:
 }.linePlot
 ~~~
 
-![](sw/spl/Help/Image/griewankFunction-A.svg)
+![](Help/Image/griewankFunction-A.svg)
 
 Plot in one dimension:
 
@@ -32,7 +32,7 @@ Plot in one dimension:
 }
 ~~~
 
-![](sw/spl/Help/Image/griewankFunction-B.svg)
+![](Help/Image/griewankFunction-B.svg)
 
 Plot at integer points in two dimensions:
 
@@ -42,7 +42,7 @@ Plot at integer points in two dimensions:
 }.table(-5:5, -5:5).matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/griewankFunction-C.svg)
+![](Help/Image/griewankFunction-C.svg)
 
 Plot in two dimensions:
 
@@ -53,7 +53,7 @@ let c = (-100 -- 100).subdivide(100);
 }.table(c, c).rescale.Greymap
 ~~~
 
-![](sw/spl/Help/Image/griewankFunction-D.png)
+![](Help/Image/griewankFunction-D.png)
 
 * * *
 

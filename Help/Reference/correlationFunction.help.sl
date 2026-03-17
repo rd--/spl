@@ -59,7 +59,7 @@ let y = 0:n.collect { :x |
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/correlationFunction-A.svg)
+![](Help/Image/correlationFunction-A.svg)
 
 * * *
 

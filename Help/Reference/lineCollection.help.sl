@@ -26,7 +26,7 @@ Complete graph with nine nodes:
 .lineCollection
 ~~~
 
-![](sw/spl/Help/Image/lineCollection-A.svg)
+![](Help/Image/lineCollection-A.svg)
 
 A vector field:
 
@@ -40,7 +40,7 @@ A vector field:
 .lineCollection
 ~~~
 
-![](sw/spl/Help/Image/lineCollection-B.svg)
+![](Help/Image/lineCollection-B.svg)
 
 A random collection of lines in two-dimensions:
 
@@ -50,7 +50,7 @@ Sfc32(3627814)
 .lineCollection
 ~~~
 
-![](sw/spl/Help/Image/lineCollection-C.svg)
+![](Help/Image/lineCollection-C.svg)
 
 * * *
 

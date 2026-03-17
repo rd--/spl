@@ -28,7 +28,7 @@ OEIS [A002024](https://oeis.org/A002024):
 65.selfCountingSequence.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/selfCountingSequence-A.svg)
+![](Help/Image/selfCountingSequence-A.svg)
 
 * * *
 

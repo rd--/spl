@@ -26,7 +26,7 @@ OEIS [A000688](https://oeis.org/A000688):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/finiteAbelianGroupCount-A.svg)
+![](Help/Image/finiteAbelianGroupCount-A.svg)
 
 Scatter plot of first few terms,
 OEIS [A000688](https://oeis.org/A000688):
@@ -36,7 +36,7 @@ OEIS [A000688](https://oeis.org/A000688):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/finiteAbelianGroupCount-B.svg)
+![](Help/Image/finiteAbelianGroupCount-B.svg)
 
 Number of non-Abelian groups of order _n_,
 OEIS [A060689](https://oeis.org/A060689):
@@ -59,7 +59,7 @@ let b = 1:n.finiteAbelianGroupCount;
 (a - b).log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/finiteAbelianGroupCount-C.svg)
+![](Help/Image/finiteAbelianGroupCount-C.svg)
 
 Compare cumulative counts of even and odd numbers of Abelian groups:
 
@@ -73,7 +73,7 @@ let c = b / n;
 c.drop(10).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/finiteAbelianGroupCount-D.svg)
+![](Help/Image/finiteAbelianGroupCount-D.svg)
 
 Plot successive differences modulo two:
 
@@ -87,7 +87,7 @@ let d = differences:/1
 (d % 2).padRight.matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/finiteAbelianGroupCount-E.svg)
+![](Help/Image/finiteAbelianGroupCount-E.svg)
 
 * * *
 

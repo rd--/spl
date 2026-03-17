@@ -16,7 +16,7 @@ OrnsteinUhlenbeckProcess(0, 0.1, 0.3, 1)
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/OrnsteinUhlenbeckProcess-A.svg)
+![](Help/Image/OrnsteinUhlenbeckProcess-A.svg)
 
 Simulate an ensemble of paths:
 
@@ -27,7 +27,7 @@ OrnsteinUhlenbeckProcess(0.3, 0.5, 0.4)
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/OrnsteinUhlenbeckProcess-B.svg)
+![](Help/Image/OrnsteinUhlenbeckProcess-B.svg)
 
 * * *
 

@@ -13,7 +13,7 @@ Line drawing:
 ).Line
 ~~~
 
-![](sw/spl/Help/Image/inverseNorwichSpiral-A.svg)
+![](Help/Image/inverseNorwichSpiral-A.svg)
 
 * * *
 

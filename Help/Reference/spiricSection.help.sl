@@ -13,7 +13,7 @@ spiricSection(1, 2, 0.8)
 .contourPlot(i, i, [0])
 ~~~
 
-![](sw/spl/Help/Image/spiricSection-A.svg)
+![](Help/Image/spiricSection-A.svg)
 
 Plot with _b=5/4_ and _c=1/2_:
 
@@ -24,7 +24,7 @@ spiricSection(1, 1.25, 0.5)
 .contourPlot(i, i, [0])
 ~~~
 
-![](sw/spl/Help/Image/spiricSection-B.svg)
+![](Help/Image/spiricSection-B.svg)
 
 * * *
 

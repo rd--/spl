@@ -142,7 +142,7 @@ OEIS [A123477](https://oeis.org/A123477):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/inverseMoebiusTransform-A.svg)
+![](Help/Image/inverseMoebiusTransform-A.svg)
 
 * * *
 

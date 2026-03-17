@@ -56,7 +56,7 @@ let r = [];
 r.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bubbleSort-A.svg)
+![](Help/Image/bubbleSort-A.svg)
 
 * * *
 

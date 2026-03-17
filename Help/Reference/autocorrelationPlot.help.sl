@@ -12,7 +12,7 @@ system.nistData('FLICKER', [1])
 .autocorrelationPlot(250)
 ~~~
 
-![](sw/spl/Help/Image/autocorrelationPlot-A.svg)
+![](Help/Image/autocorrelationPlot-A.svg)
 
 An autocorrelation plot of uniformly random data,
 there are no significant autocorrelations:
@@ -22,7 +22,7 @@ system.nistData('RANDU', [1])
 .autocorrelationPlot(250)
 ~~~
 
-![](sw/spl/Help/Image/autocorrelationPlot-B.svg)
+![](Help/Image/autocorrelationPlot-B.svg)
 
 An autocorrelation plot of data from an underlying autoregressive model with strong positive autocorrelation:
 
@@ -31,7 +31,7 @@ system.nistData('RANDWALK', [1])
 .autocorrelationPlot(125)
 ~~~
 
-![](sw/spl/Help/Image/autocorrelationPlot-C.svg)
+![](Help/Image/autocorrelationPlot-C.svg)
 
 An autocorrelation plot of data from an underlying sinusoidal model:
 
@@ -40,7 +40,7 @@ system.nistData('LEW', [1])
 .autocorrelationPlot(50)
 ~~~
 
-![](sw/spl/Help/Image/autocorrelationPlot-D.svg)
+![](Help/Image/autocorrelationPlot-D.svg)
 
 An autocorrelation plot of a regular time series giving the luteinizing hormone in blood samples at ten minute intervals,
 if _k_ is not specified it is selected automatically:
@@ -55,7 +55,7 @@ if _k_ is not specified it is selected automatically:
 ].autocorrelationPlot
 ~~~
 
-![](sw/spl/Help/Image/autocorrelationPlot-E.svg)
+![](Help/Image/autocorrelationPlot-E.svg)
 
 * * *
 

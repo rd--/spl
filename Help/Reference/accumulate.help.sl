@@ -71,7 +71,7 @@ Sfc32(89714)
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/accumulate-A.svg)
+![](Help/Image/accumulate-A.svg)
 
 * * *
 

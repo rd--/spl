@@ -44,7 +44,7 @@ Plot over a subset of the reals:
 }
 ~~~
 
-![](sw/spl/Help/Image/ellipticPi-A.svg)
+![](Help/Image/ellipticPi-A.svg)
 
 * * *
 

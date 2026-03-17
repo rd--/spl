@@ -19,7 +19,7 @@ Draw a parallelogram:
 Parallelogram([0 0], [3 0; 1 4])
 ~~~
 
-![](sw/spl/Help/Image/Parallelogram-A.svg)
+![](Help/Image/Parallelogram-A.svg)
 
 A parallelogram with sides that form right angles is a rectangle:
 
@@ -27,7 +27,7 @@ A parallelogram with sides that form right angles is a rectangle:
 Parallelogram([2 1], [1 2; 4 -2])
 ~~~
 
-![](sw/spl/Help/Image/Parallelogram-B.svg)
+![](Help/Image/Parallelogram-B.svg)
 
 A parallelogram can tile the plane:
 
@@ -40,7 +40,7 @@ A parallelogram can tile the plane:
 }.table(1:5, 1:5).LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/Parallelogram-C.svg)
+![](Help/Image/Parallelogram-C.svg)
 
 Two parallelograms having equal bases and equal altitudes are also of equal content,
 three equal area parallelograms:
@@ -54,7 +54,7 @@ let y = 1.85;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/Parallelogram-D.svg)
+![](Help/Image/Parallelogram-D.svg)
 
 Any triangle is always of equal area to a certain parallelogram having an equal base and an altitude half as great as that of the triangle:
 
@@ -65,7 +65,7 @@ Any triangle is always of equal area to a certain parallelogram having an equal 
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/Parallelogram-E.svg)
+![](Help/Image/Parallelogram-E.svg)
 
 * * *
 

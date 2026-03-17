@@ -34,7 +34,7 @@ Plot over a subset of the reals:
 (-1 / 1.e -- 10).functionPlot(lambertW:/1)
 ~~~
 
-![](sw/spl/Help/Image/lambertW-A.svg)
+![](Help/Image/lambertW-A.svg)
 
 Polar plot:
 
@@ -42,7 +42,7 @@ Polar plot:
 (0 -- 6.pi).polarPlot(lambertW:/1)
 ~~~
 
-![](sw/spl/Help/Image/lambertW-B.svg)
+![](Help/Image/lambertW-B.svg)
 
 * * *
 

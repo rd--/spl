@@ -52,7 +52,7 @@ Drawing of a pentagon:
 5.regularPolygon([0 0], 1, 0)
 ~~~
 
-![](sw/spl/Help/Image/regularPolygon-A.svg)
+![](Help/Image/regularPolygon-A.svg)
 
 Drawing of a hexagon:
 
@@ -60,7 +60,7 @@ Drawing of a hexagon:
 6.regularPolygon([0 0], 1, 0)
 ~~~
 
-![](sw/spl/Help/Image/regularPolygon-B.svg)
+![](Help/Image/regularPolygon-B.svg)
 
 Drawing of a diamond:
 
@@ -68,7 +68,7 @@ Drawing of a diamond:
 4.regularPolygon([0 0], 1, 0)
 ~~~
 
-![](sw/spl/Help/Image/regularPolygon-C.svg)
+![](Help/Image/regularPolygon-C.svg)
 
 Drawing of a square:
 
@@ -76,7 +76,7 @@ Drawing of a square:
 4.regularPolygon([0 0], 1, 1.pi / 4)
 ~~~
 
-![](sw/spl/Help/Image/regularPolygon-D.svg)
+![](Help/Image/regularPolygon-D.svg)
 
 Drawing of an _X_-axis aligned pentagon:
 
@@ -84,7 +84,7 @@ Drawing of an _X_-axis aligned pentagon:
 5.regularPolygon([0 0], 1, 1.pi / 10)
 ~~~
 
-![](sw/spl/Help/Image/regularPolygon-E.svg)
+![](Help/Image/regularPolygon-E.svg)
 
 Visualize a tiling with lattice points:
 
@@ -98,7 +98,7 @@ let p = PointCloud(c);
 [p, t].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/regularPolygon-F.svg)
+![](Help/Image/regularPolygon-F.svg)
 
 A collection of random regular polygons:
 
@@ -114,7 +114,7 @@ let p = {
 p.LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/regularPolygon-G.svg)
+![](Help/Image/regularPolygon-G.svg)
 
 Overlap regular polygons of increasing radii and vertices:
 
@@ -126,7 +126,7 @@ Overlap regular polygons of increasing radii and vertices:
 }.LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/regularPolygon-H.svg)
+![](Help/Image/regularPolygon-H.svg)
 
 The `arcLength` of successive regular polygons with radius `one` approximates _2π_:
 
@@ -137,7 +137,7 @@ The `arcLength` of successive regular polygons with radius `one` approximates _2
 }
 ~~~
 
-![](sw/spl/Help/Image/regularPolygon-I.svg)
+![](Help/Image/regularPolygon-I.svg)
 
 * * *
 

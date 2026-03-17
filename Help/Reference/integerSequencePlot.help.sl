@@ -14,7 +14,7 @@ Plot two cycles of the squares modulo thirty:
 .integerSequencePlot
 ~~~
 
-![](sw/spl/Help/Image/integerSequencePlot-A.svg)
+![](Help/Image/integerSequencePlot-A.svg)
 
 This residue sequence has only twelve distinct values:
 
@@ -33,7 +33,7 @@ whereby values are moved down to fill in gaps:
 .integerSequencePlot
 ~~~
 
-![](sw/spl/Help/Image/integerSequencePlot-B.svg)
+![](Help/Image/integerSequencePlot-B.svg)
 
 The sequence can also be _normalized_,
 whereby each distinct term is assigned a consecutive integer value from one in turn:
@@ -44,7 +44,7 @@ whereby each distinct term is assigned a consecutive integer value from one in t
 .integerSequencePlot
 ~~~
 
-![](sw/spl/Help/Image/integerSequencePlot-C.svg)
+![](Help/Image/integerSequencePlot-C.svg)
 
 The Pisano period tells the period of the Fibonacci sequence at a give modulus:
 
@@ -63,7 +63,7 @@ Plot four cycles of the Fibonacci sequence modulo eight:
 .integerSequencePlot
 ~~~
 
-![](sw/spl/Help/Image/integerSequencePlot-D.svg)
+![](Help/Image/integerSequencePlot-D.svg)
 
 Plot two cycles of the Fibonacci sequence modulo twelve:
 
@@ -72,7 +72,7 @@ Plot two cycles of the Fibonacci sequence modulo twelve:
 .integerSequencePlot
 ~~~
 
-![](sw/spl/Help/Image/integerSequencePlot-E.svg)
+![](Help/Image/integerSequencePlot-E.svg)
 
 The implicit value of _k_ is 'RowReverse'.
 'Row' indicates that the sequence items tell the indices of the non-zero rows in each column,
@@ -85,7 +85,7 @@ here one indicates the last row and seven the first:
 .integerSequencePlot('RowReverse')
 ~~~
 
-![](sw/spl/Help/Image/integerSequencePlot-F.svg)
+![](Help/Image/integerSequencePlot-F.svg)
 
 With _k='Row'_,
 here one indicates the first row and seven the last:
@@ -95,7 +95,7 @@ here one indicates the first row and seven the last:
 .integerSequencePlot('Row')
 ~~~
 
-![](sw/spl/Help/Image/integerSequencePlot-G.svg)
+![](Help/Image/integerSequencePlot-G.svg)
 
 With _k='ColumnReverse'_,
 here one indicates the last column and four the first:
@@ -105,7 +105,7 @@ here one indicates the last column and four the first:
 .integerSequencePlot('ColumnReverse')
 ~~~
 
-![](sw/spl/Help/Image/integerSequencePlot-H.svg)
+![](Help/Image/integerSequencePlot-H.svg)
 
 With _k='Column'_,
 here one indicates the first column and four the last:
@@ -115,7 +115,7 @@ here one indicates the first column and four the last:
 .integerSequencePlot('Column')
 ~~~
 
-![](sw/spl/Help/Image/integerSequencePlot-I.svg)
+![](Help/Image/integerSequencePlot-I.svg)
 
 * * *
 

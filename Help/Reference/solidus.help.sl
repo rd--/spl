@@ -47,7 +47,7 @@ OEIS [A061037](https://oeis.org/A061037):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/solidus-A.svg)
+![](Help/Image/solidus-A.svg)
 
 * * *
 

@@ -57,7 +57,7 @@ let s = 2L ^ a[1];
 a.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitAt-A.svg)
+![](Help/Image/bitAt-A.svg)
 
 _Or-numbral_ multiplication table,
 read by antidiagonals,
@@ -78,7 +78,7 @@ OEIS [A067138](https://oeis.org/A067138):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitAt-B.svg)
+![](Help/Image/bitAt-B.svg)
 
 * * *
 

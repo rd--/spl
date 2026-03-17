@@ -36,7 +36,7 @@ Plot:
 (-10, -9.9 .. 10).sincHistorical.linePlot
 ~~~
 
-![](sw/spl/Help/Image/sincHistorical-A.svg)
+![](Help/Image/sincHistorical-A.svg)
 
 Single-slit diffraction pattern for a 4λ slit:
 
@@ -50,7 +50,7 @@ Single-slit diffraction pattern for a 4λ slit:
 }
 ~~~
 
-![](sw/spl/Help/Image/sincHistorical-B.svg)
+![](Help/Image/sincHistorical-B.svg)
 
 The normalilzed sinc function multiplies the input by π (`pi`):
 
@@ -59,7 +59,7 @@ let z = (-10, -9.9 .. 10);
 z.pi.sincHistorical.linePlot
 ~~~
 
-![](sw/spl/Help/Image/sincHistorical-C.svg)
+![](Help/Image/sincHistorical-C.svg)
 
 The unnormalized sinc function is also the zeroth spherical Bessel function.
 

@@ -63,7 +63,7 @@ OEIS [A034448](https://oeis.org/A034448):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/unitaryDivisorSigma-A.svg)
+![](Help/Image/unitaryDivisorSigma-A.svg)
 
 _σ⃰ₖ(n)_ where _k=2_,
 OEIS [A034676](https://oeis.org/A034676):
@@ -74,7 +74,7 @@ OEIS [A034676](https://oeis.org/A034676):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/unitaryDivisorSigma-B.svg)
+![](Help/Image/unitaryDivisorSigma-B.svg)
 
 _uσ(n)-n_,
 OEIS [A034460](https://oeis.org/A034460),
@@ -87,7 +87,7 @@ OEIS [A063919](https://oeis.org/A063919):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/unitaryDivisorSigma-C.svg)
+![](Help/Image/unitaryDivisorSigma-C.svg)
 
 * * *
 

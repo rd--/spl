@@ -112,7 +112,7 @@ Plot over a subset of the reals:
 (-5 -- 5).functionPlot(lucasNumber:/1)
 ~~~
 
-![](sw/spl/Help/Image/lucasNumber-A.svg)
+![](Help/Image/lucasNumber-A.svg)
 
 Plot modulo _n-1_:
 
@@ -122,7 +122,7 @@ Plot modulo _n-1_:
 }
 ~~~
 
-![](sw/spl/Help/Image/lucasNumber-B.svg)
+![](Help/Image/lucasNumber-B.svg)
 
 * * *
 

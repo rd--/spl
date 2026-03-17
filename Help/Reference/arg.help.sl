@@ -67,7 +67,7 @@ Plot over a subset of the reals:
 (-3 -- 3).functionPlot(arg:/1)
 ~~~
 
-![](sw/spl/Help/Image/arg-A.svg)
+![](Help/Image/arg-A.svg)
 
 Plot _arg(x+i)_ on the reals:
 
@@ -77,7 +77,7 @@ Plot _arg(x+i)_ on the reals:
 }
 ~~~
 
-![](sw/spl/Help/Image/arg-B.svg)
+![](Help/Image/arg-B.svg)
 
 * * *
 

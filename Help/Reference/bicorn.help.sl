@@ -10,7 +10,7 @@ Plot:
 (0 -- 2.pi).functionPlot(bicorn(1))
 ~~~
 
-![](sw/spl/Help/Image/bicorn-A.svg)
+![](Help/Image/bicorn-A.svg)
 
 * * *
 

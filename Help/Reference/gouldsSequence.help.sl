@@ -75,7 +75,7 @@ OEIS [A001316](https://oeis.org/A001316):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/gouldsSequence-A.svg)
+![](Help/Image/gouldsSequence-A.svg)
 
 Partial sums of Gould’s sequence,
 scatter plot,
@@ -87,7 +87,7 @@ OEIS [A006046](https://oeis.org/A006046):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/gouldsSequence-B.svg)
+![](Help/Image/gouldsSequence-B.svg)
 
 First differences of Gould’s sequence,
 OEIS [A151930](https://oeis.org/A151930):
@@ -98,7 +98,7 @@ OEIS [A151930](https://oeis.org/A151930):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/gouldsSequence-C.svg)
+![](Help/Image/gouldsSequence-C.svg)
 
 * * *
 

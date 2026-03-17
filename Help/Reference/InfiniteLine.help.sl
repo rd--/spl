@@ -73,7 +73,7 @@ InfiniteLine([0 0], [2/3 1])
 .contourPlot(i, i, [0])
 ~~~
 
-![](sw/spl/Help/Image/InfiniteLine-A.svg)
+![](Help/Image/InfiniteLine-A.svg)
 
 * * *
 

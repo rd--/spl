@@ -13,7 +13,7 @@ Probability mass function:
 ).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/GeometricDistribution-A.svg)
+![](Help/Image/GeometricDistribution-A.svg)
 
 Cumulative distribution function:
 
@@ -23,7 +23,7 @@ Cumulative distribution function:
 ).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/GeometricDistribution-B.svg)
+![](Help/Image/GeometricDistribution-B.svg)
 
 Skewness:
 
@@ -33,7 +33,7 @@ Skewness:
 }
 ~~~
 
-![](sw/spl/Help/Image/GeometricDistribution-C.svg)
+![](Help/Image/GeometricDistribution-C.svg)
 
 Generate a sample of pseudorandom numbers from a geometric distribution:
 
@@ -44,7 +44,7 @@ GeometricDistribution(0.1)
 .histogramPlot
 ~~~
 
-![](sw/spl/Help/Image/GeometricDistribution-D.svg)
+![](Help/Image/GeometricDistribution-D.svg)
 
 A coin-tossing experiment consists of tossing a fair coin repeatedly until a tail results. Simulate the process:
 
@@ -64,7 +64,7 @@ GeometricDistribution(0.5)
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/GeometricDistribution-E.svg)
+![](Help/Image/GeometricDistribution-E.svg)
 
 Compute the expected number of coin tosses:
 

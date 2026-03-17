@@ -12,7 +12,7 @@ _h_ is the distance from _P_ to the center of the circle _C_.
 )
 ~~~
 
-![](sw/spl/Help/Image/epitrochoid-A.svg)
+![](Help/Image/epitrochoid-A.svg)
 
 With five cusps and _P_ outside of _C_:
 
@@ -23,7 +23,7 @@ With five cusps and _P_ outside of _C_:
 )
 ~~~
 
-![](sw/spl/Help/Image/epitrochoid-B.svg)
+![](Help/Image/epitrochoid-B.svg)
 
 With _c>a>b_:
 
@@ -34,7 +34,7 @@ With _c>a>b_:
 )
 ~~~
 
-![](sw/spl/Help/Image/epitrochoid-C.svg)
+![](Help/Image/epitrochoid-C.svg)
 
 An `epicycloid` is a special case of an epitrochoid where _h=b_.
 

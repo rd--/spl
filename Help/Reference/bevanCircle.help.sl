@@ -15,7 +15,7 @@ let t = sssTriangle(3, 4, 5);
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/bevanCircle-A.svg)
+![](Help/Image/bevanCircle-A.svg)
 
 * * *
 

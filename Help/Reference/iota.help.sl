@@ -80,7 +80,7 @@ OEIS [A002260](https://oeis.org/A002260):
 1:17.collect(iota:/1).catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/iota-A.svg)
+![](Help/Image/iota-A.svg)
 
 Start counting again and again,
 backwards,
@@ -92,7 +92,7 @@ OEIS [A004736](https://oeis.org/A004736):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/iota-B.svg)
+![](Help/Image/iota-B.svg)
 
 Where supported `iota` is displayed as ⍳.
 

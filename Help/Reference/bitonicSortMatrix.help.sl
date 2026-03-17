@@ -37,7 +37,7 @@ Sfc32(362718)
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/bitonicSortMatrix-A.svg)
+![](Help/Image/bitonicSortMatrix-A.svg)
 
 Sort longer list:
 
@@ -51,7 +51,7 @@ Sfc32(362718)
 .Greymap
 ~~~
 
-![](sw/spl/Help/Image/bitonicSortMatrix-B.png)
+![](Help/Image/bitonicSortMatrix-B.png)
 
 * * *
 

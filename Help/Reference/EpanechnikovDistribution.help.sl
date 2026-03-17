@@ -16,7 +16,7 @@ let c = 5.sqrt;
 )
 ~~~
 
-![](sw/spl/Help/Image/EpanechnikovDistribution-A.svg)
+![](Help/Image/EpanechnikovDistribution-A.svg)
 
 Plot the cumulative distribution function,
 `cdf`,
@@ -29,7 +29,7 @@ let c = 5.sqrt;
 )
 ~~~
 
-![](sw/spl/Help/Image/EpanechnikovDistribution-B.svg)
+![](Help/Image/EpanechnikovDistribution-B.svg)
 
 _Note_:
 The Epanechnikov distribution can be viewed as a special case of a Beta distribution.

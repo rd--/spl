@@ -36,7 +36,7 @@ Plot first few terms:
 }.flatten.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/lobbNumber-A.svg)
+![](Help/Image/lobbNumber-A.svg)
 
 * * *
 

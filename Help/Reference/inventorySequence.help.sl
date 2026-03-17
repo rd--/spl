@@ -47,7 +47,7 @@ OEIS [A342585](https://oeis.org/A342585):
 99.inventorySequence.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/inventorySequence-A.svg)
+![](Help/Image/inventorySequence-A.svg)
 
 The inventory sequence,
 log scale scatter plot,
@@ -60,7 +60,7 @@ OEIS [A342585](https://oeis.org/A342585):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/inventorySequence-B.svg)
+![](Help/Image/inventorySequence-B.svg)
 
 * * *
 

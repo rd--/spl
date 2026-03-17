@@ -172,7 +172,7 @@ Plot the `Graph` of the `Tree` of a `SymbolicExpression`:
 𝒙.Hypotenuse(𝒚).asTree.treePlot
 ~~~
 
-![](sw/spl/Help/Image/SymbolicExpression-A.svg)
+![](Help/Image/SymbolicExpression-A.svg)
 
 * * *
 

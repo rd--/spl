@@ -17,7 +17,7 @@ Sfc32(3278194)
 .LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/poissonDiskSampling-A.svg)
+![](Help/Image/poissonDiskSampling-A.svg)
 
 Draw points and circles for less dense sampling,
 indicate the region sampled:
@@ -34,7 +34,7 @@ let c = r.poissonDiskSampling(
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/poissonDiskSampling-B.svg)
+![](Help/Image/poissonDiskSampling-B.svg)
 
 * * *
 

@@ -31,7 +31,7 @@ OEIS [A054532](https://oeis.org/A054532):
 ).catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/ramanujansSum-A.svg)
+![](Help/Image/ramanujansSum-A.svg)
 
 Triangular array giving Ramanujan’s sum,
 OEIS [A054533](https://oeis.org/A054533):
@@ -42,7 +42,7 @@ OEIS [A054533](https://oeis.org/A054533):
 ).catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/ramanujansSum-B.svg)
+![](Help/Image/ramanujansSum-B.svg)
 
 Ramanujan’s sum read by falling antidiagonals,
 OEIS [A054534](https://oeis.org/A054534):
@@ -53,7 +53,7 @@ OEIS [A054534](https://oeis.org/A054534):
 ).catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/ramanujansSum-C.svg)
+![](Help/Image/ramanujansSum-C.svg)
 
 Ramanujan’s sum read by rising antidiagonals,
 OEIS [A054535](https://oeis.org/A054535):
@@ -64,7 +64,7 @@ OEIS [A054535](https://oeis.org/A054535):
 ).collect(reverse:/1).catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/ramanujansSum-D.svg)
+![](Help/Image/ramanujansSum-D.svg)
 
 * * *
 

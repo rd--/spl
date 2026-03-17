@@ -78,7 +78,7 @@ let a = NumericArray([7 23].iota);
 ((a * 7).sin - (a * 13).cos).matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/NumericArray-A.svg)
+![](Help/Image/NumericArray-A.svg)
 
 * * *
 

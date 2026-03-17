@@ -41,7 +41,7 @@ Plot the Mangoldt lambda sequence for the first few numbers:
 .stepPlot
 ~~~
 
-![](sw/spl/Help/Image/mangoldtLambda-A.svg)
+![](Help/Image/mangoldtLambda-A.svg)
 
 Plot `exp` of the Mangoldt lambda sequence for the first few numbers:
 
@@ -50,7 +50,7 @@ Plot `exp` of the Mangoldt lambda sequence for the first few numbers:
 .exp.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/mangoldtLambda-B.svg)
+![](Help/Image/mangoldtLambda-B.svg)
 
 Plot Mangoldt lambda for the sum of two squares:
 
@@ -61,7 +61,7 @@ let m = { :a :b |
 (1 - m.rescale).Greymap
 ~~~
 
-![](sw/spl/Help/Image/mangoldtLambda-C.png)
+![](Help/Image/mangoldtLambda-C.png)
 
 * * *
 

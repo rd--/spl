@@ -19,7 +19,7 @@ Draw the standard _isometric_ projection of the unit cube:
 )
 ~~~
 
-![](sw/spl/Help/Image/asAxonometricProjection-A.svg)
+![](Help/Image/asAxonometricProjection-A.svg)
 
 * * *
 

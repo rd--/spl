@@ -36,7 +36,7 @@ Plot of 23×23 Hilbert matrix:
 }.arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/hilbertMatrix-A.svg)
+![](Help/Image/hilbertMatrix-A.svg)
 
 * * *
 

@@ -10,7 +10,7 @@ Plot:
 (0 -- 1.pi).discretize(100, 1.trifolium).Line
 ~~~
 
-![](sw/spl/Help/Image/trifolium-A.svg)
+![](Help/Image/trifolium-A.svg)
 
 There is also a generalised form:
 
@@ -21,7 +21,7 @@ There is also a generalised form:
 ).Line
 ~~~
 
-![](sw/spl/Help/Image/trifolium-B.svg)
+![](Help/Image/trifolium-B.svg)
 
 Alternate parameters:
 
@@ -32,7 +32,7 @@ Alternate parameters:
 ).Line
 ~~~
 
-![](sw/spl/Help/Image/trifolium-C.svg)
+![](Help/Image/trifolium-C.svg)
 
 * * *
 

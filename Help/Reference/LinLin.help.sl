@@ -76,7 +76,7 @@ Invert a bipolar sine signal and scale to be unipolar:
 }
 ~~~
 
-![](sw/spl/Help/Image/LinLin-A.svg)
+![](Help/Image/LinLin-A.svg)
 
 * * *
 

@@ -22,7 +22,7 @@ Superellipse([0 0], 1, 1, 0.5)
 .Line
 ~~~
 
-![](sw/spl/Help/Image/Superellipse-A.svg)
+![](Help/Image/Superellipse-A.svg)
 
 * * *
 

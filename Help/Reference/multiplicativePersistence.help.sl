@@ -52,7 +52,7 @@ OEIS [A031346](https://oeis.org/A031346):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/multiplicativePersistence-A.svg)
+![](Help/Image/multiplicativePersistence-A.svg)
 
 The ordinal transform of the multiplicative persistence,
 discrete plot,
@@ -64,7 +64,7 @@ OEIS [A263131](https://oeis.org/A263131):
 }.ordinalTransform.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/multiplicativePersistence-B.svg)
+![](Help/Image/multiplicativePersistence-B.svg)
 
 The ordinal transform of the multiplicative persistence,
 scatter plot,
@@ -76,7 +76,7 @@ OEIS [A263131](https://oeis.org/A263131):
 }.ordinalTransform.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/multiplicativePersistence-C.svg)
+![](Help/Image/multiplicativePersistence-C.svg)
 
 * * *
 

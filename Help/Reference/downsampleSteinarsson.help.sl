@@ -47,7 +47,7 @@ Sfc32(378916)
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/downsampleSteinarsson-A.svg)
+![](Help/Image/downsampleSteinarsson-A.svg)
 
 Downsample to one-hundred places:
 
@@ -59,7 +59,7 @@ Sfc32(378916)
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/downsampleSteinarsson-B.svg)
+![](Help/Image/downsampleSteinarsson-B.svg)
 
 Downsample to thirty places:
 
@@ -71,7 +71,7 @@ Sfc32(378916)
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/downsampleSteinarsson-C.svg)
+![](Help/Image/downsampleSteinarsson-C.svg)
 
 * * *
 

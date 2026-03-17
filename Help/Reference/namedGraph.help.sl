@@ -12,7 +12,7 @@ Plot the Shrikhande graph:
 .circularGraphPlot
 ~~~
 
-![](sw/spl/Help/Image/namedGraph-A.svg)
+![](Help/Image/namedGraph-A.svg)
 
 Plot the Heawood graph:
 
@@ -22,7 +22,7 @@ Plot the Heawood graph:
 .circularGraphPlot
 ~~~
 
-![](sw/spl/Help/Image/namedGraph-B.svg)
+![](Help/Image/namedGraph-B.svg)
 
 Plot the Tutte _(3,8)_-Cage graph:
 
@@ -32,7 +32,7 @@ Plot the Tutte _(3,8)_-Cage graph:
 .circularGraphPlot
 ~~~
 
-![](sw/spl/Help/Image/namedGraph-C.svg)
+![](Help/Image/namedGraph-C.svg)
 
 Plot the Coxeter graph:
 
@@ -42,7 +42,7 @@ Plot the Coxeter graph:
 .graphPlot
 ~~~
 
-![](sw/spl/Help/Image/namedGraph-D.svg)
+![](Help/Image/namedGraph-D.svg)
 
 Plot the Tutte graph:
 
@@ -52,7 +52,7 @@ Plot the Tutte graph:
 .graphPlot
 ~~~
 
-![](sw/spl/Help/Image/namedGraph-E.svg)
+![](Help/Image/namedGraph-E.svg)
 
 Plot the adjacency matrix of the Tutte graph:
 
@@ -63,7 +63,7 @@ Plot the adjacency matrix of the Tutte graph:
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/namedGraph-F.svg)
+![](Help/Image/namedGraph-F.svg)
 
 Plot the Owens graph:
 
@@ -73,7 +73,7 @@ Plot the Owens graph:
 .graphPlot
 ~~~
 
-![](sw/spl/Help/Image/namedGraph-G.svg)
+![](Help/Image/namedGraph-G.svg)
 
 Plot the Herschel graph:
 
@@ -83,7 +83,7 @@ Plot the Herschel graph:
 .graphPlot
 ~~~
 
-![](sw/spl/Help/Image/namedGraph-H.svg)
+![](Help/Image/namedGraph-H.svg)
 
 Plot the Goldner-Harary graph:
 
@@ -93,7 +93,7 @@ Plot the Goldner-Harary graph:
 .graphPlot
 ~~~
 
-![](sw/spl/Help/Image/namedGraph-I.svg)
+![](Help/Image/namedGraph-I.svg)
 
 Plot the Clebsch graph:
 
@@ -103,7 +103,7 @@ Plot the Clebsch graph:
 .circularGraphPlot
 ~~~
 
-![](sw/spl/Help/Image/namedGraph-J.svg)
+![](Help/Image/namedGraph-J.svg)
 
 * * *
 

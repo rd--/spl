@@ -62,7 +62,7 @@ Draw `crossMatrix`:
 33.crossMatrix.Bitmap
 ~~~
 
-![](sw/spl/Help/Image/crossMatrix-A.png)
+![](Help/Image/crossMatrix-A.png)
 
 * * *
 

@@ -26,7 +26,7 @@ let p = [0 0; 0 1 ; 1 0];
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/ninePointCircle-A.svg)
+![](Help/Image/ninePointCircle-A.svg)
 
 At `Triangle`:
 
@@ -39,7 +39,7 @@ let t = sssTriangle(1, 1, 1);
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/ninePointCircle-B.svg)
+![](Help/Image/ninePointCircle-B.svg)
 
 * * *
 

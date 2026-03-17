@@ -34,7 +34,7 @@ let b = 'FECB00'.parseBase16;
 RgbColour(b.contents / 255, 1)
 ~~~
 
-![](sw/spl/Help/Image/parseBase16-A.svg)
+![](Help/Image/parseBase16-A.svg)
 
 _Note_:
 This is aliased with `base16Decode`.

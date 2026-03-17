@@ -54,7 +54,7 @@ A two dimensional geometric series diagram by Nicole Oresme:
 }.LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/geometricProgression-A.svg)
+![](Help/Image/geometricProgression-A.svg)
 
 * * *
 

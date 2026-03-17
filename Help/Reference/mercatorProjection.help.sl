@@ -16,7 +16,7 @@ where _x_ is in _(-π,π)_ and _y_ is in _~(-π,π)_ while ϕ is in _~(-85,85)°
 ).catenate.PointCloud
 ~~~
 
-![](sw/spl/Help/Image/mercatorProjection-A.svg)
+![](Help/Image/mercatorProjection-A.svg)
 
 * * *
 

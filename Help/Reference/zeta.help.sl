@@ -164,7 +164,7 @@ Plot over a subset of the reals:
 }
 ~~~
 
-![](sw/spl/Help/Image/zeta-A.svg)
+![](Help/Image/zeta-A.svg)
 
 Plot the real part of the zeta function on the critical line:
 
@@ -174,7 +174,7 @@ Plot the real part of the zeta function on the critical line:
 }
 ~~~
 
-![](sw/spl/Help/Image/zeta-B.svg)
+![](Help/Image/zeta-B.svg)
 
 Plot the zeta function on the critical line:
 
@@ -184,7 +184,7 @@ Plot the zeta function on the critical line:
 }
 ~~~
 
-![](sw/spl/Help/Image/zeta-C.svg)
+![](Help/Image/zeta-C.svg)
 
 * * *
 

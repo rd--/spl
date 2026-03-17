@@ -242,7 +242,7 @@ OEIS [A000040](https://oeis.org/A000040):
 1:50.functionPlot(prime:/1)
 ~~~
 
-![](sw/spl/Help/Image/prime-A.svg)
+![](Help/Image/prime-A.svg)
 
 Generate a path based on the prime sequence:
 
@@ -252,7 +252,7 @@ Generate a path based on the prime sequence:
 }.anglePath.Line
 ~~~
 
-![](sw/spl/Help/Image/prime-B.svg)
+![](Help/Image/prime-B.svg)
 
 The width of the moat of composite numbers surrounding the n-th prime,
 OEIS [A046929](https://oeis.org/A046929):
@@ -266,7 +266,7 @@ let k = 65;
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/prime-C.svg)
+![](Help/Image/prime-C.svg)
 
 A permutation of the natural numbers,
 OEIS [A243353](https://oeis.org/A243353):
@@ -288,7 +288,7 @@ let f = { :n :i :x |
 }.logScale.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/prime-D.svg)
+![](Help/Image/prime-D.svg)
 
 Prefix sum of primes modulo four minus two,
 OEIS [A038698](https://oeis.org/A038698):
@@ -300,7 +300,7 @@ OEIS [A038698](https://oeis.org/A038698):
 ).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/prime-E.svg)
+![](Help/Image/prime-E.svg)
 
 Triangle _(n,k)_ indicating if the _k_-th prime is a square modulo the _n_-th prime,
 OEIS [A060038](https://oeis.org/A060038):
@@ -316,7 +316,7 @@ OEIS [A060038](https://oeis.org/A060038):
 }.triangularArrayPlot
 ~~~
 
-![](sw/spl/Help/Image/prime-F.svg)
+![](Help/Image/prime-F.svg)
 
 Excess of _3n-1_ primes over _3n+1_ primes,
 OEIS [A112632](https://oeis.org/A112632):
@@ -331,7 +331,7 @@ let a = List(m, 1);
 a.differences.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/prime-G.svg)
+![](Help/Image/prime-G.svg)
 
 Size of sea of composite numbers surrounding _n_-th prime,
 OEIS [A046930](https://oeis.org/A046930):
@@ -342,7 +342,7 @@ OEIS [A046930](https://oeis.org/A046930):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/prime-H.svg)
+![](Help/Image/prime-H.svg)
 
 Triangular array of means of two odd primes,
 OEIS [A065305](https://oeis.org/A065305):
@@ -353,7 +353,7 @@ OEIS [A065305](https://oeis.org/A065305):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/prime-I.svg)
+![](Help/Image/prime-I.svg)
 
 The Goldbach permutation,
 OEIS [A065306](https://oeis.org/A065306):
@@ -366,7 +366,7 @@ let b = a.deleteDuplicates - 2;
 a.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/prime-J.svg)
+![](Help/Image/prime-J.svg)
 
 Least _k_ such that sum of first _k_ primes is _n_ times a prime,
 OEIS [A045985](https://oeis.org/A045985):
@@ -382,7 +382,7 @@ let t = [1:m, p].transpose;
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/prime-K.svg)
+![](Help/Image/prime-K.svg)
 
 _a(n)+a(n-1)=p(n)_,
 OEIS [A036467](https://oeis.org/A036467):
@@ -395,7 +395,7 @@ OEIS [A036467](https://oeis.org/A036467):
 }.abs.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/prime-L.svg)
+![](Help/Image/prime-L.svg)
 
 _Σ{i=0…n-1}-1^i*p(n-i)_,
 OEIS [A008347](https://oeis.org/A008347):
@@ -404,7 +404,7 @@ OEIS [A008347](https://oeis.org/A008347):
 -.swap.foldList(0, 1:200.prime).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/prime-M.svg)
+![](Help/Image/prime-M.svg)
 
 Cald’s sequence,
 OEIS [A006509](https://oeis.org/A006509):
@@ -432,7 +432,7 @@ let y = [1];
 y.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/prime-N.svg)
+![](Help/Image/prime-N.svg)
 
 Inverse Moebius transform of primes,
 OEIS [A007445](https://oeis.org/A007445):
@@ -443,7 +443,7 @@ OEIS [A007445](https://oeis.org/A007445):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/prime-O.svg)
+![](Help/Image/prime-O.svg)
 
 Squares of primes (_e_),
 or products of pairs of consecutive primes (_o_),
@@ -459,7 +459,7 @@ let o = q.collect(product:/1);
 e.riffle(o).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/prime-P.svg)
+![](Help/Image/prime-P.svg)
 
 _P(n)%n_
 OEIS [A004648](https://oeis.org/A004648):
@@ -470,7 +470,7 @@ OEIS [A004648](https://oeis.org/A004648):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/prime-Q.svg)
+![](Help/Image/prime-Q.svg)
 
 _P(n)%(n+1)_
 OEIS [A004650](https://oeis.org/A004650):
@@ -481,7 +481,7 @@ OEIS [A004650](https://oeis.org/A004650):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/prime-R.svg)
+![](Help/Image/prime-R.svg)
 
 * * *
 

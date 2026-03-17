@@ -28,7 +28,7 @@ ChordDiagram([1 7; 2 4; 3 6; 5 8])
 .chordDiagramPlot
 ~~~
 
-![](sw/spl/Help/Image/ChordDiagram-A.svg)
+![](Help/Image/ChordDiagram-A.svg)
 
 Plot chord diagram, _n=3_:
 
@@ -37,7 +37,7 @@ ChordDiagram([1 2; 3 5; 4 6])
 .chordDiagramPlot
 ~~~
 
-![](sw/spl/Help/Image/ChordDiagram-B.svg)
+![](Help/Image/ChordDiagram-B.svg)
 
 * * *
 

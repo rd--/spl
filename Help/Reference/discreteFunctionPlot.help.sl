@@ -12,7 +12,7 @@ Plot the `pochhammer` function over a `Range` of integer values:
 }
 ~~~
 
-![](sw/spl/Help/Image/discreteFunctionPlot-A.svg)
+![](Help/Image/discreteFunctionPlot-A.svg)
 
 * * *
 

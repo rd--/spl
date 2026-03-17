@@ -68,7 +68,7 @@ Plot adjacency matrix:
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/gridGraph-A.svg)
+![](Help/Image/gridGraph-A.svg)
 
 Plot graph:
 
@@ -76,7 +76,7 @@ Plot graph:
 [2 2 3 2].gridGraph.graphPlot
 ~~~
 
-![](sw/spl/Help/Image/gridGraph-B.svg)
+![](Help/Image/gridGraph-B.svg)
 
 * * *
 

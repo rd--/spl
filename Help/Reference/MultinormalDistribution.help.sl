@@ -21,7 +21,7 @@ MultinormalDistribution(
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/MultinormalDistribution-A.svg)
+![](Help/Image/MultinormalDistribution-A.svg)
 
 * * *
 

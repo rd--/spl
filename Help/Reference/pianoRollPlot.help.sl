@@ -22,7 +22,7 @@ notes may overlap and there may be gaps:
 ].pianoRollPlot
 ~~~
 
-![](sw/spl/Help/Image/pianoRollPlot-A.svg)
+![](Help/Image/pianoRollPlot-A.svg)
 
 The matrix does not need to be sorted,
 and note numbers need not be integers:
@@ -35,7 +35,7 @@ UniformDistribution(
 .pianoRollPlot
 ~~~
 
-![](sw/spl/Help/Image/pianoRollPlot-B.svg)
+![](Help/Image/pianoRollPlot-B.svg)
 
 * * *
 

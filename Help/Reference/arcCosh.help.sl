@@ -56,7 +56,7 @@ Plot over a subset of the reals:
 (1 -- 10).functionPlot(arcCosh:/1)
 ~~~
 
-![](sw/spl/Help/Image/arcCosh-A.svg)
+![](Help/Image/arcCosh-A.svg)
 
 Plot of complex `arcCosh` function:
 
@@ -64,7 +64,7 @@ Plot of complex `arcCosh` function:
 [-2J-2 2J2].complexPlot(arcCosh:/1)
 ~~~
 
-![](sw/spl/Help/Image/arcCosh-B.png)
+![](Help/Image/arcCosh-B.png)
 
 Polar plot:
 
@@ -72,7 +72,7 @@ Polar plot:
 (1 -- 8.pi).polarPlot(arcCosh:/1)
 ~~~
 
-![](sw/spl/Help/Image/arcCosh-C.svg)
+![](Help/Image/arcCosh-C.svg)
 
 Plot the real and imaginary parts:
 
@@ -83,7 +83,7 @@ Plot the real and imaginary parts:
 ])
 ~~~
 
-![](sw/spl/Help/Image/arcCosh-D.svg)
+![](Help/Image/arcCosh-D.svg)
 
 * * *
 

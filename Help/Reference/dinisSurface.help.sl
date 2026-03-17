@@ -10,7 +10,7 @@ Implement the parametric equation for Dini’s surface.
 )
 ~~~
 
-![](sw/spl/Help/Image/dinisSurface-A.svg)
+![](Help/Image/dinisSurface-A.svg)
 
 * * *
 

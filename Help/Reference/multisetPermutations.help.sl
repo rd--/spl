@@ -109,7 +109,7 @@ Matrix plot:
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/multisetPermutations-A.svg)
+![](Help/Image/multisetPermutations-A.svg)
 
 Matrix plot,
 in lexicographic order:
@@ -121,7 +121,7 @@ in lexicographic order:
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/multisetPermutations-B.svg)
+![](Help/Image/multisetPermutations-B.svg)
 
 Circular matrix plot:
 
@@ -130,7 +130,7 @@ Circular matrix plot:
 .circularMatrixPlot
 ~~~
 
-![](sw/spl/Help/Image/multisetPermutations-C.svg)
+![](Help/Image/multisetPermutations-C.svg)
 
 * * *
 

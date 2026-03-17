@@ -66,7 +66,7 @@ numericalRecipesLinearCongruential(98765)
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/LinearCongruential-A.svg)
+![](Help/Image/LinearCongruential-A.svg)
 
 Plot histogram:
 
@@ -76,7 +76,7 @@ numericalRecipesLinearCongruential(387912)
 .histogramPlot
 ~~~
 
-![](sw/spl/Help/Image/LinearCongruential-B.svg)
+![](Help/Image/LinearCongruential-B.svg)
 
 Difference between empirical and expected mean and standard deviation:
 

@@ -15,7 +15,7 @@ Sfc32(791742)
 }.linePlot
 ~~~
 
-![](sw/spl/Help/Image/circleMap-A.svg)
+![](Help/Image/circleMap-A.svg)
 
 Plot with _k=1,Ω=0.2_:
 
@@ -28,7 +28,7 @@ Sfc32(348014)
 }.linePlot
 ~~~
 
-![](sw/spl/Help/Image/circleMap-B.svg)
+![](Help/Image/circleMap-B.svg)
 
 Plot with _k=1,Ω=0.7_:
 
@@ -41,7 +41,7 @@ Sfc32(348014)
 }.linePlot
 ~~~
 
-![](sw/spl/Help/Image/circleMap-C.svg)
+![](Help/Image/circleMap-C.svg)
 
 * * *
 

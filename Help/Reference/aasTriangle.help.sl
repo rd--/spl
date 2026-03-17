@@ -34,7 +34,7 @@ Varying an angle:
 }.LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/aasTriangle-A.svg)
+![](Help/Image/aasTriangle-A.svg)
 
 The indicated side length is _a_,
 which is opposite to angle α:
@@ -49,7 +49,7 @@ let [_, _, c] = t.sideLengths;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/aasTriangle-B.svg)
+![](Help/Image/aasTriangle-B.svg)
 
 * * *
 

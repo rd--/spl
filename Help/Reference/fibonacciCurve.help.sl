@@ -10,7 +10,7 @@ Draw the curve of _F(11)_ steps:
 89.fibonacciCurve.Line
 ~~~
 
-![](sw/spl/Help/Image/fibonacciCurve-A.svg)
+![](Help/Image/fibonacciCurve-A.svg)
 
 Draw the curve of _F(16)_ steps:
 
@@ -18,7 +18,7 @@ Draw the curve of _F(16)_ steps:
 987.fibonacciCurve.Line
 ~~~
 
-![](sw/spl/Help/Image/fibonacciCurve-B.svg)
+![](Help/Image/fibonacciCurve-B.svg)
 
 * * *
 

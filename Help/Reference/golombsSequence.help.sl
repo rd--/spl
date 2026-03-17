@@ -58,7 +58,7 @@ OEIS [A001462](https://oeis.org/A001462):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/golombsSequence-A.svg)
+![](Help/Image/golombsSequence-A.svg)
 
 Partial sums of Golomb’s sequence,
 OEIS [A001463](https://oeis.org/A001463):
@@ -68,7 +68,7 @@ OEIS [A001463](https://oeis.org/A001463):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/golombsSequence-B.svg)
+![](Help/Image/golombsSequence-B.svg)
 
 * * *
 

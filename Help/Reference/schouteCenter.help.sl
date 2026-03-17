@@ -17,7 +17,7 @@ let c = t.symmedianPoint;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/schouteCenter-A.svg)
+![](Help/Image/schouteCenter-A.svg)
 
 * * *
 

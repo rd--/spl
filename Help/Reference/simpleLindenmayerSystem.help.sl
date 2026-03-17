@@ -22,7 +22,7 @@ Draw a Koch curve:
 ).Line
 ~~~
 
-![](sw/spl/Help/Image/simpleLindenmayerSystem-A.svg)
+![](Help/Image/simpleLindenmayerSystem-A.svg)
 
 The underlying substitution system:
 
@@ -52,7 +52,7 @@ A branching system:
 ).Line
 ~~~
 
-![](sw/spl/Help/Image/simpleLindenmayerSystem-B.svg)
+![](Help/Image/simpleLindenmayerSystem-B.svg)
 
 A Sierpiński pentagon:
 
@@ -69,7 +69,7 @@ A Sierpiński pentagon:
 ).Line
 ~~~
 
-![](sw/spl/Help/Image/simpleLindenmayerSystem-C.svg)
+![](Help/Image/simpleLindenmayerSystem-C.svg)
 
 First iteration of a simple rule and an intitial string specifying a square:
 
@@ -84,7 +84,7 @@ First iteration of a simple rule and an intitial string specifying a square:
 ).Line
 ~~~
 
-![](sw/spl/Help/Image/simpleLindenmayerSystem-D.svg)
+![](Help/Image/simpleLindenmayerSystem-D.svg)
 
 The second iteration of a related rule:
 
@@ -99,7 +99,7 @@ The second iteration of a related rule:
 ).Line
 ~~~
 
-![](sw/spl/Help/Image/simpleLindenmayerSystem-E.svg)
+![](Help/Image/simpleLindenmayerSystem-E.svg)
 
 * * *
 

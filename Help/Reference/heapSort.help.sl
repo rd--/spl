@@ -27,7 +27,7 @@ let r = [];
 r.downsample(4).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/heapSort-A.svg)
+![](Help/Image/heapSort-A.svg)
 
 * * *
 

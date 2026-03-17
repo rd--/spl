@@ -76,7 +76,7 @@ Plot the number of restricted partitions:
 1:47.partitionsQ.log.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/partitionsQ-A.svg)
+![](Help/Image/partitionsQ-A.svg)
 
 Successive differences of `partitionsQ` modulo two:
 
@@ -89,7 +89,7 @@ let n = 47;
 ).Bitmap
 ~~~
 
-![](sw/spl/Help/Image/partitionsQ-B.png)
+![](Help/Image/partitionsQ-B.png)
 
 A walk based on `partitionsQ`:
 
@@ -102,7 +102,7 @@ let n = 47;
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/partitionsQ-C.svg)
+![](Help/Image/partitionsQ-C.svg)
 
 * * *
 

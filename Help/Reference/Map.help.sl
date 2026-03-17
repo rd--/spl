@@ -49,7 +49,7 @@ let a = Map { :n |
 a[1:75].scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/Map-A.svg)
+![](Help/Image/Map-A.svg)
 
 Note: `Map` is _IdentityDictionary_ in Smalltalk.
 

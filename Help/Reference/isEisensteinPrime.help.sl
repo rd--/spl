@@ -20,7 +20,7 @@ let omega = (-1 + (0J1 * 3.sqrt)) / 2;
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isEisensteinPrime-A.svg)
+![](Help/Image/isEisensteinPrime-A.svg)
 
 Plot Eisenstein primes on a linear _(a,b)_ grid:
 
@@ -32,7 +32,7 @@ Plot Eisenstein primes on a linear _(a,b)_ grid:
 .Bitmap
 ~~~
 
-![](sw/spl/Help/Image/isEisensteinPrime-B.png)
+![](Help/Image/isEisensteinPrime-B.png)
 
 * * *
 

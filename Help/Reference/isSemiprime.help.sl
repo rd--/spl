@@ -40,7 +40,7 @@ OEIS [A001358](https://oeis.org/A001358):
 1:250.select(isSemiprime:/1).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isSemiprime-A.svg)
+![](Help/Image/isSemiprime-A.svg)
 
 The characteristic function of the semiprime numbers,
 OEIS [A064911](https://oeis.org/A064911):
@@ -51,7 +51,7 @@ OEIS [A064911](https://oeis.org/A064911):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/isSemiprime-B.svg)
+![](Help/Image/isSemiprime-B.svg)
 
 The squarefree semiprimes,
 OEIS [A006881](https://oeis.org/A006881):
@@ -64,7 +64,7 @@ OEIS [A006881](https://oeis.org/A006881):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isSemiprime-C.svg)
+![](Help/Image/isSemiprime-C.svg)
 
 * * *
 

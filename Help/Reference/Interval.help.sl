@@ -171,7 +171,7 @@ Sample a function uniformly on an interval:
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/Interval-A.svg)
+![](Help/Image/Interval-A.svg)
 
 * * *
 

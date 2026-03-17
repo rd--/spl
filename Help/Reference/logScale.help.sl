@@ -37,7 +37,7 @@ Plot positive half over _(0,100)_:
 (0 -- 100).functionPlot(logScale:/1)
 ~~~
 
-![](sw/spl/Help/Image/logScale-A.svg)
+![](Help/Image/logScale-A.svg)
 
 Plot negative half over _(-1,0)_:
 
@@ -45,7 +45,7 @@ Plot negative half over _(-1,0)_:
 (-1 -- 0).functionPlot(logScale:/1)
 ~~~
 
-![](sw/spl/Help/Image/logScale-B.svg)
+![](Help/Image/logScale-B.svg)
 
 * * *
 

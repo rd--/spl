@@ -23,7 +23,7 @@ MultivariateTDistribution(
 )
 ~~~
 
-![](sw/spl/Help/Image/MultivariateTDistribution-A.svg)
+![](Help/Image/MultivariateTDistribution-A.svg)
 
 * * *
 

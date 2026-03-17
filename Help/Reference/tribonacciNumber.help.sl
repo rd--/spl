@@ -77,7 +77,7 @@ OEIS [A046738](https://oeis.org/A046738):
 ).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/tribonacciNumber-A.svg)
+![](Help/Image/tribonacciNumber-A.svg)
 
 Semi-tribonacci numbers,
 OEIS [A074364](https://oeis.org/A074364):
@@ -97,7 +97,7 @@ let a = Map { :n |
 a[0:150].log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/tribonacciNumber-B.svg)
+![](Help/Image/tribonacciNumber-B.svg)
 
 * * *
 

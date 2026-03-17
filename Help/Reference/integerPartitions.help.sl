@@ -326,7 +326,7 @@ OEIS [A036036](https://oeis.org/A036036):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerPartitions-A.svg)
+![](Help/Image/integerPartitions-A.svg)
 
 Partitions in graded reverse lexicographic ordering (Mathematica),
 OEIS [A080577](https://oeis.org/A080577):
@@ -381,7 +381,7 @@ OEIS [A080577](https://oeis.org/A080577):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerPartitions-B.svg)
+![](Help/Image/integerPartitions-B.svg)
 
 Partitions in graded reflected lexicographic order (Maple),
 OEIS [A080576](https://oeis.org/A080576):
@@ -436,7 +436,7 @@ OEIS [A080576](https://oeis.org/A080576):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerPartitions-C.svg)
+![](Help/Image/integerPartitions-C.svg)
 
 Partitions in graded lexicographical ordering,
 OEIS [A193073](https://oeis.org/A193073):
@@ -491,7 +491,7 @@ OEIS [A193073](https://oeis.org/A193073):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerPartitions-D.svg)
+![](Help/Image/integerPartitions-D.svg)
 
 Partitions in graded colexicographical ordering,
 OEIS [A036037](https://oeis.org/A036037):
@@ -546,7 +546,7 @@ OEIS [A036037](https://oeis.org/A036037):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerPartitions-E.svg)
+![](Help/Image/integerPartitions-E.svg)
 
 Number of decompositions of _2n_ into an unordered sum of two odd primes,
 OEIS [A002375](https://oeis.org/A002375):
@@ -562,7 +562,7 @@ OEIS [A002375](https://oeis.org/A002375):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerPartitions-F.svg)
+![](Help/Image/integerPartitions-F.svg)
 
 The number of partitions of _n_ such that the sum of the parts, counted without multiplicities, is equal to _k_,
 OEIS [A116861](https://oeis.org/A116861):
@@ -575,7 +575,7 @@ OEIS [A116861](https://oeis.org/A116861):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/integerPartitions-G.svg)
+![](Help/Image/integerPartitions-G.svg)
 
 Number of ways to distribute _n_ indistinguishable objects in _k_ indistinguishable containers,
 OEIS [A072233](https://oeis.org/A072233):
@@ -586,7 +586,7 @@ OEIS [A072233](https://oeis.org/A072233):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/integerPartitions-H.svg)
+![](Help/Image/integerPartitions-H.svg)
 
 The number of integer partitions of _n_ with median _k_,
 OEIS [A359901](https://oeis.org/A359901):
@@ -599,7 +599,7 @@ OEIS [A359901](https://oeis.org/A359901):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/integerPartitions-I.svg)
+![](Help/Image/integerPartitions-I.svg)
 
 * * *
 

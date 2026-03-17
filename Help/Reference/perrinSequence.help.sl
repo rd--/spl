@@ -41,7 +41,7 @@ OEIS [A001608](https://oeis.org/A001608):
 35.perrinSequence.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/perrinSequence-A.svg)
+![](Help/Image/perrinSequence-A.svg)
 
 * * *
 

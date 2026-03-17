@@ -13,7 +13,7 @@ Line drawing:
 ).Line
 ~~~
 
-![](sw/spl/Help/Image/tschirnhausenCubic-A.svg)
+![](Help/Image/tschirnhausenCubic-A.svg)
 
 * * *
 

@@ -46,7 +46,7 @@ OEIS [A000120](https://oeis.org/A000120):
 0:99.hammingWeight.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/hammingWeight-A.svg)
+![](Help/Image/hammingWeight-A.svg)
 
 Hamming weight of the first eight-bit integers,
 line plot,
@@ -56,7 +56,7 @@ OEIS [A000120](https://oeis.org/A000120):
 0:255.hammingWeight.linePlot
 ~~~
 
-![](sw/spl/Help/Image/hammingWeight-B.svg)
+![](Help/Image/hammingWeight-B.svg)
 
 Integers with hamming weight of three,
 OEIS [A014311](https://oeis.org/A014311):
@@ -67,7 +67,7 @@ OEIS [A014311](https://oeis.org/A014311):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/hammingWeight-C.svg)
+![](Help/Image/hammingWeight-C.svg)
 
 Hamming weight of _3n_,
 OEIS [A036555](https://oeis.org/A036555):
@@ -76,7 +76,7 @@ OEIS [A036555](https://oeis.org/A036555):
 (0:250 * 3).hammingWeight.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/hammingWeight-D.svg)
+![](Help/Image/hammingWeight-D.svg)
 
 Partial sums of _w(n)!_,
 OEIS [A188064](https://oeis.org/A188064):
@@ -88,7 +88,7 @@ OEIS [A188064](https://oeis.org/A188064):
 .stepPlot
 ~~~
 
-![](sw/spl/Help/Image/hammingWeight-E.svg)
+![](Help/Image/hammingWeight-E.svg)
 
 _w(n)!_,
 OEIS [A093659](https://oeis.org/A093659):
@@ -100,7 +100,7 @@ OEIS [A093659](https://oeis.org/A093659):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/hammingWeight-F.svg)
+![](Help/Image/hammingWeight-F.svg)
 
 Irregular triangle read by rows of _0:2^n-1_ sorted by _w_,
 OEIS [A294648](https://oeis.org/A294648):
@@ -112,7 +112,7 @@ OEIS [A294648](https://oeis.org/A294648):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/hammingWeight-G.svg)
+![](Help/Image/hammingWeight-G.svg)
 
 Plot only the sixth row of the table:
 
@@ -122,7 +122,7 @@ Plot only the sixth row of the table:
 .stepPlot
 ~~~
 
-![](sw/spl/Help/Image/hammingWeight-H.svg)
+![](Help/Image/hammingWeight-H.svg)
 
 Least _k_ such that the _w(k)_ equals the _w(k×n)_,
 OEIS [A292849](https://oeis.org/A292849):
@@ -137,7 +137,7 @@ OEIS [A292849](https://oeis.org/A292849):
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/hammingWeight-I.svg)
+![](Help/Image/hammingWeight-I.svg)
 
 Triangle,
 read by rows,
@@ -150,7 +150,7 @@ OEIS [A262881](https://oeis.org/A262881):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/hammingWeight-J.svg)
+![](Help/Image/hammingWeight-J.svg)
 
 Lexicographically earliest sequence of distinct positive terms
 such that for consecutive terms _w(i+j)≥10_,
@@ -162,7 +162,7 @@ OEIS [A287639](https://oeis.org/A287639):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/hammingWeight-K.svg)
+![](Help/Image/hammingWeight-K.svg)
 
 Lexicographically earliest sequence of distinct positive terms
 such that for consecutive terms _w(i+j)≥10_,
@@ -177,7 +177,7 @@ OeisEntry('A287639').then { :e |
 }
 ~~~
 
-![](sw/spl/Help/Image/hammingWeight-L.svg)
+![](Help/Image/hammingWeight-L.svg)
 
 Lexicographically earliest sequence of distinct positive terms
 such that for consecutive terms _w(i+j)≥10_,
@@ -192,7 +192,7 @@ OeisEntry('A287639').then { :e |
 }
 ~~~
 
-![](sw/spl/Help/Image/hammingWeight-M.svg)
+![](Help/Image/hammingWeight-M.svg)
 
 _2^(n-w(n))_,
 OEIS [A060818](https://oeis.org/A060818):
@@ -203,7 +203,7 @@ OEIS [A060818](https://oeis.org/A060818):
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/hammingWeight-N.svg)
+![](Help/Image/hammingWeight-N.svg)
 
 _3^(w(n-1)-1)_,
 OEIS [A147610](https://oeis.org/A147610):
@@ -215,7 +215,7 @@ let a = 3 ^ (w - 1);
 a.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/hammingWeight-O.svg)
+![](Help/Image/hammingWeight-O.svg)
 
 Partial sums of _3^(w(n-1)-1)_,
 OEIS [A151920](https://oeis.org/A151920):
@@ -227,7 +227,7 @@ let a = 3 ^ (w - 1);
 a.prefixSum.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/hammingWeight-P.svg)
+![](Help/Image/hammingWeight-P.svg)
 
 T-toothpick sequence,
 OEIS [A160172](https://oeis.org/A160172):
@@ -248,7 +248,7 @@ let a = Map { :n |
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/hammingWeight-Q.svg)
+![](Help/Image/hammingWeight-Q.svg)
 
 Running sum of every third term in the _+1,-1_-version of Thue-Morse sequence,
 OEIS [A005599](https://oeis.org/A005599):
@@ -261,7 +261,7 @@ OEIS [A005599](https://oeis.org/A005599):
 }.linePlot
 ~~~
 
-![](sw/spl/Help/Image/hammingWeight-R.svg)
+![](Help/Image/hammingWeight-R.svg)
 
 Table of Hamming distances between binary vectors,
 read by antidiagonals,
@@ -273,7 +273,7 @@ OEIS [A101080](https://oeis.org/A101080):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/hammingWeight-S.svg)
+![](Help/Image/hammingWeight-S.svg)
 
 * * *
 

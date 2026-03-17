@@ -24,7 +24,7 @@ let c = [
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/sutherlandHodgmanAlgorithm-A.svg)
+![](Help/Image/sutherlandHodgmanAlgorithm-A.svg)
 
 * * *
 

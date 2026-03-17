@@ -31,7 +31,7 @@ Plot the fifteen modes of limited transposition for _m=12_:
 }.reshape([3 5]).PlotSet
 ~~~
 
-![](sw/spl/Help/Image/spokePlot-A.svg)
+![](Help/Image/spokePlot-A.svg)
 
 A diatonic collection:
 
@@ -39,7 +39,7 @@ A diatonic collection:
 12.spokePlot([0 2 4 5 7 9 11])
 ~~~
 
-![](sw/spl/Help/Image/spokePlot-B.svg)
+![](Help/Image/spokePlot-B.svg)
 
 A second kind of spoke plot shows the correlation between two circular variables _x_ and _y_,
 each a sequence of values in radians:
@@ -51,7 +51,7 @@ each a sequence of values in radians:
 ].degree.spokePlot
 ~~~
 
-![](sw/spl/Help/Image/spokePlot-C.svg)
+![](Help/Image/spokePlot-C.svg)
 
 Plot pair of observations, at 45° and 90° respectively:
 
@@ -59,7 +59,7 @@ Plot pair of observations, at 45° and 90° respectively:
 [45; 90].degree.spokePlot
 ~~~
 
-![](sw/spl/Help/Image/spokePlot-D.svg)
+![](Help/Image/spokePlot-D.svg)
 
 Perfectly correlated and equally spaced data:
 
@@ -68,7 +68,7 @@ let x = [0, 15 .. 345].degree;
 [x x].spokePlot
 ~~~
 
-![](sw/spl/Help/Image/spokePlot-E.svg)
+![](Help/Image/spokePlot-E.svg)
 
 Random, decorrelated, data:
 
@@ -78,7 +78,7 @@ Sfc32(637821)
 .spokePlot
 ~~~
 
-![](sw/spl/Help/Image/spokePlot-F.svg)
+![](Help/Image/spokePlot-F.svg)
 
 Random, perturbed, data:
 
@@ -91,7 +91,7 @@ let y = b.randomReal([-0.25 0.25], [n]);
 [x, x + y].spokePlot
 ~~~
 
-![](sw/spl/Help/Image/spokePlot-G.svg)
+![](Help/Image/spokePlot-G.svg)
 
 * * *
 

@@ -39,7 +39,7 @@ let n = 1:200;
 (n.collect(f:/1) / (n ^ 3.log(2))).linePlot
 ~~~
 
-![](sw/spl/Help/Image/stolarskyHarborthConstant-A.svg)
+![](Help/Image/stolarskyHarborthConstant-A.svg)
 
 * * *
 

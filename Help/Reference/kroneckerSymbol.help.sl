@@ -182,7 +182,7 @@ kroneckerSymbol:/2
 .arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/kroneckerSymbol-A.svg)
+![](Help/Image/kroneckerSymbol-A.svg)
 
 Theta series of planar hexagonal lattice _A2_,
 OEIS [A004016](https://oeis.org/A004016):
@@ -199,7 +199,7 @@ OEIS [A004016](https://oeis.org/A004016):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/kroneckerSymbol-B.svg)
+![](Help/Image/kroneckerSymbol-B.svg)
 
 Number of different partitions of _n_ into parts of -3 different kinds,
 OEIS [A010816](https://oeis.org/A010816):
@@ -216,7 +216,7 @@ OEIS [A010816](https://oeis.org/A010816):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/kroneckerSymbol-C.svg)
+![](Help/Image/kroneckerSymbol-C.svg)
 
 From Euler’s pentagonal theorem,
 also number of different partitions of _n_ into parts of -1 different kinds,
@@ -233,7 +233,7 @@ OEIS [A010815](https://oeis.org/A010815):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/kroneckerSymbol-D.svg)
+![](Help/Image/kroneckerSymbol-D.svg)
 
 Glaisher’s J numbers,
 OEIS [A002325](https://oeis.org/A002325):
@@ -246,7 +246,7 @@ OEIS [A002325](https://oeis.org/A002325):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/kroneckerSymbol-E.svg)
+![](Help/Image/kroneckerSymbol-E.svg)
 
 _|a_4(n)|_,
 OEIS [A033715](https://oeis.org/A033715):
@@ -263,7 +263,7 @@ OEIS [A033715](https://oeis.org/A033715):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/kroneckerSymbol-F.svg)
+![](Help/Image/kroneckerSymbol-F.svg)
 
 Unique cusp form of weight two for congruence group _Γ1(11)_,
 OEIS [A006571](https://oeis.org/A006571):
@@ -300,7 +300,7 @@ let f = { :p :e |
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/kroneckerSymbol-G.svg)
+![](Help/Image/kroneckerSymbol-G.svg)
 
 Number of fixed points of _γ0(n)_ of type _i_,
 OEIS [A000095](https://oeis.org/A000095):
@@ -324,7 +324,7 @@ let k = { :d |
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/kroneckerSymbol-H.svg)
+![](Help/Image/kroneckerSymbol-H.svg)
 
 Kronecker symbol where _m=2_,
 period eight,
@@ -336,7 +336,7 @@ OEIS [A091337](https://oeis.org/A091337):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/kroneckerSymbol-I.svg)
+![](Help/Image/kroneckerSymbol-I.svg)
 
 Coefficients of Dedekind zeta function for the quadratic number field of discriminant seventeen,
 OEIS [A035199](https://oeis.org/A035199):
@@ -349,7 +349,7 @@ OEIS [A035199](https://oeis.org/A035199):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/kroneckerSymbol-J.svg)
+![](Help/Image/kroneckerSymbol-J.svg)
 
 Kronecker symbol _-1,n_,
 the regular paperfolding sequence,
@@ -361,7 +361,7 @@ OEIS [A034947](https://oeis.org/A034947):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/kroneckerSymbol-K.svg)
+![](Help/Image/kroneckerSymbol-K.svg)
 
 Divisor sum of Kronecker symbol _-6,d_,
 the coefficients of the powers of _q_ in Fine’s equation,
@@ -375,7 +375,7 @@ OEIS [A000377](https://oeis.org/A000377):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/kroneckerSymbol-L.svg)
+![](Help/Image/kroneckerSymbol-L.svg)
 
 * * *
 

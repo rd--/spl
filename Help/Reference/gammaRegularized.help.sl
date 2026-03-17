@@ -29,7 +29,7 @@ Plot regularized (upper incomplete) gamma function:
 )
 ~~~
 
-![](sw/spl/Help/Image/gammaRegularized-A.svg)
+![](Help/Image/gammaRegularized-A.svg)
 
 Plot regularized (lower incomplete) gamma function:
 
@@ -43,7 +43,7 @@ Plot regularized (lower incomplete) gamma function:
 )
 ~~~
 
-![](sw/spl/Help/Image/gammaRegularized-B.svg)
+![](Help/Image/gammaRegularized-B.svg)
 
 * * *
 

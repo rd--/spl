@@ -19,7 +19,7 @@ Drawing of the 4th step of the Koch curve:
 4.kochCurve.Line
 ~~~
 
-![](sw/spl/Help/Image/kochCurve-A.svg)
+![](Help/Image/kochCurve-A.svg)
 
 Drawing of the 5th step of the Koch curve:
 
@@ -27,7 +27,7 @@ Drawing of the 5th step of the Koch curve:
 5.kochCurve.Line
 ~~~
 
-![](sw/spl/Help/Image/kochCurve-B.svg)
+![](Help/Image/kochCurve-B.svg)
 
 * * *
 

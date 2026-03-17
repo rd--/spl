@@ -19,7 +19,7 @@ Scatter plot of left sequence when sorting a low-discrepancy van der Corput sequ
 ).at(2).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/sortTracingComparisons-A.svg)
+![](Help/Image/sortTracingComparisons-A.svg)
 
 Scatter plot of right sequence when sorting the same low-discrepancy van der Corput sequence:
 
@@ -30,7 +30,7 @@ Scatter plot of right sequence when sorting the same low-discrepancy van der Cor
 ).at(3).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/sortTracingComparisons-B.svg)
+![](Help/Image/sortTracingComparisons-B.svg)
 
 Step plot of both left and right sequence when sorting the same low-discrepancy van der Corput sequence:
 
@@ -41,7 +41,7 @@ Step plot of both left and right sequence when sorting the same low-discrepancy 
 ).atAll([2, 3]).stepPlot
 ~~~
 
-![](sw/spl/Help/Image/sortTracingComparisons-C.svg)
+![](Help/Image/sortTracingComparisons-C.svg)
 
 Scatter plot of both left and right sequence when sorting a low-discrepancy van der Corput sequence using a merge sort algorithm:
 
@@ -52,7 +52,7 @@ Scatter plot of both left and right sequence when sorting a low-discrepancy van 
 ).atAll([2, 3]).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/sortTracingComparisons-D.svg)
+![](Help/Image/sortTracingComparisons-D.svg)
 
 Scatter plot of left sequence when sorting a low-discrepancy van der Corput sequence using Hoare’s quick sort algorithm:
 
@@ -63,7 +63,7 @@ Scatter plot of left sequence when sorting a low-discrepancy van der Corput sequ
 ).at(2).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/sortTracingComparisons-E.svg)
+![](Help/Image/sortTracingComparisons-E.svg)
 
 The trace reflects the input sequence,
 plot traces for sort of two shorter van der Corput sequences:
@@ -77,7 +77,7 @@ plot traces for sort of two shorter van der Corput sequences:
 }.PlotSet([2 1])
 ~~~
 
-![](sw/spl/Help/Image/sortTracingComparisons-F.svg)
+![](Help/Image/sortTracingComparisons-F.svg)
 
 * * *
 

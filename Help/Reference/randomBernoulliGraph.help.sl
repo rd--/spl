@@ -12,7 +12,7 @@ Sfc32(789214)
 .graphPlot
 ~~~
 
-![](sw/spl/Help/Image/randomBernoulliGraph-A.svg)
+![](Help/Image/randomBernoulliGraph-A.svg)
 
 A pseudorandom graph of seventeen vertices and edge probability of twenty-percent:
 
@@ -22,7 +22,7 @@ Sfc32(281634)
 .graphPlot
 ~~~
 
-![](sw/spl/Help/Image/randomBernoulliGraph-B.svg)
+![](Help/Image/randomBernoulliGraph-B.svg)
 
 Edge probability of one results in the complete graph:
 
@@ -32,7 +32,7 @@ Sfc32(281634)
 .graphPlot
 ~~~
 
-![](sw/spl/Help/Image/randomBernoulliGraph-C.svg)
+![](Help/Image/randomBernoulliGraph-C.svg)
 
 * * *
 

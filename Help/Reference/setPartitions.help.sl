@@ -92,7 +92,7 @@ Plot the fifteen partitions of the set _1,2,3,4_:
 .PlotSet
 ~~~
 
-![](sw/spl/Help/Image/setPartitions-A.svg)
+![](Help/Image/setPartitions-A.svg)
 
 * * *
 

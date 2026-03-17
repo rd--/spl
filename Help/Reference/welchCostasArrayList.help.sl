@@ -64,7 +64,7 @@ Plot a 13×13 array:
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/welchCostasArrayList-A.svg)
+![](Help/Image/welchCostasArrayList-A.svg)
 
 Plot a 43×43 array:
 
@@ -75,7 +75,7 @@ Plot a 43×43 array:
 .Bitmap
 ~~~
 
-![](sw/spl/Help/Image/welchCostasArrayList-B.png)
+![](Help/Image/welchCostasArrayList-B.png)
 
 * * *
 

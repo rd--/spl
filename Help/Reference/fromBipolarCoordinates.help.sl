@@ -14,7 +14,7 @@ is a circle in cartesian coordinates:
 }
 ~~~
 
-![](sw/spl/Help/Image/fromBipolarCoordinates-A.svg)
+![](Help/Image/fromBipolarCoordinates-A.svg)
 
 A curve with constant σ in bipolar coordinates,
 is a circle in cartesian coordinates,
@@ -26,7 +26,7 @@ note spacing of coordinates:
 }.PointCloud
 ~~~
 
-![](sw/spl/Help/Image/fromBipolarCoordinates-B.svg)
+![](Help/Image/fromBipolarCoordinates-B.svg)
 
 Plot varying τ:
 
@@ -43,7 +43,7 @@ Plot varying τ:
 )
 ~~~
 
-![](sw/spl/Help/Image/fromBipolarCoordinates-C.svg)
+![](Help/Image/fromBipolarCoordinates-C.svg)
 
 Plot varying σ:
 
@@ -58,7 +58,7 @@ Plot varying σ:
 }.LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/fromBipolarCoordinates-D.svg)
+![](Help/Image/fromBipolarCoordinates-D.svg)
 
 Draw Apollonian circles:
 
@@ -93,7 +93,7 @@ let tauCircles = { :i |
 ].catenate.linePlot
 ~~~
 
-![](sw/spl/Help/Image/fromBipolarCoordinates-E.svg)
+![](Help/Image/fromBipolarCoordinates-E.svg)
 
 * * *
 

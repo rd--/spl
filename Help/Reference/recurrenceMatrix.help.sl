@@ -19,7 +19,7 @@ NormalDistribution(0, 1)
 .Bitmap
 ~~~
 
-![](sw/spl/Help/Image/recurrenceMatrix-A.png)
+![](Help/Image/recurrenceMatrix-A.png)
 
 Recurrence plot of a random walk:
 
@@ -31,7 +31,7 @@ let r = Sfc32(789314);
 .Bitmap
 ~~~
 
-![](sw/spl/Help/Image/recurrenceMatrix-B.png)
+![](Help/Image/recurrenceMatrix-B.png)
 
 Recurrence plot of a harmonic oscillation with two frequencies:
 
@@ -42,7 +42,7 @@ Recurrence plot of a harmonic oscillation with two frequencies:
 .Bitmap
 ~~~
 
-![](sw/spl/Help/Image/recurrenceMatrix-C.png)
+![](Help/Image/recurrenceMatrix-C.png)
 
 Recurrence plot of a harmonic oscillation with two frequencies,
 without thesholding:
@@ -54,7 +54,7 @@ without thesholding:
 .rescale.Greymap
 ~~~
 
-![](sw/spl/Help/Image/recurrenceMatrix-D.png)
+![](Help/Image/recurrenceMatrix-D.png)
 
 * * *
 

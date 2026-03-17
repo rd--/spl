@@ -34,7 +34,7 @@ Scatter plot of the digits of Apéry’s constant:
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/aperysConstant-A.svg)
+![](Help/Image/aperysConstant-A.svg)
 
 * * *
 

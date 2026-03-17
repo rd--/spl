@@ -25,7 +25,7 @@ let t = [4 5 4].sssTriangle;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/extouchTriangle-A.svg)
+![](Help/Image/extouchTriangle-A.svg)
 
 * * *
 

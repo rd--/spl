@@ -54,7 +54,7 @@ Compare Wilson and Grady tuning lattice templates using a 7-note 13-limit scale
 )
 ~~~
 
-![](sw/spl/Help/Image/wilsonTuningLatticeCoordinates-A.svg)
+![](Help/Image/wilsonTuningLatticeCoordinates-A.svg)
 
 * * *
 

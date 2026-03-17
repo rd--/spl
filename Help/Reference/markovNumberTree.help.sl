@@ -46,7 +46,7 @@ Plot the first five levels:
 5.markovNumberTree.treePlot
 ~~~
 
-![](sw/spl/Help/Image/markovNumberTree-A.svg)
+![](Help/Image/markovNumberTree-A.svg)
 
 * * *
 

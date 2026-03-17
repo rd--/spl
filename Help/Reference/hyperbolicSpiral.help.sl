@@ -12,7 +12,7 @@ Draw:
 )
 ~~~
 
-![](sw/spl/Help/Image/hyperbolicSpiral-A.svg)
+![](Help/Image/hyperbolicSpiral-A.svg)
 
 * * *
 

@@ -13,7 +13,7 @@ An epicycloid with one cusp is called a cardioid:
 .Line
 ~~~
 
-![](sw/spl/Help/Image/epicycloid-A.svg)
+![](Help/Image/epicycloid-A.svg)
 
 An epicycloid with two cusps is called a nephroid:
 
@@ -23,7 +23,7 @@ An epicycloid with two cusps is called a nephroid:
 .Line
 ~~~
 
-![](sw/spl/Help/Image/epicycloid-B.svg)
+![](Help/Image/epicycloid-B.svg)
 
 An epicycloid with five cusps is called a ranunculoid:
 
@@ -33,7 +33,7 @@ An epicycloid with five cusps is called a ranunculoid:
 .Line
 ~~~
 
-![](sw/spl/Help/Image/epicycloid-C.svg)
+![](Help/Image/epicycloid-C.svg)
 
 An epicycloid with non-integer _a_ and period _4π_:
 
@@ -43,7 +43,7 @@ An epicycloid with non-integer _a_ and period _4π_:
 .Line
 ~~~
 
-![](sw/spl/Help/Image/epicycloid-D.svg)
+![](Help/Image/epicycloid-D.svg)
 
 * * *
 

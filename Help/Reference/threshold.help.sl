@@ -44,7 +44,7 @@ let l = (-1 -- 1).subdivide(100);
 l.threshold(0.3).linePlot
 ~~~
 
-![](sw/spl/Help/Image/threshold-A.svg)
+![](Help/Image/threshold-A.svg)
 
 * * *
 

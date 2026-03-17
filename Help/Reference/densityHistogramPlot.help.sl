@@ -16,7 +16,7 @@ NormalDistribution(0, 2)
 .densityHistogramPlot
 ~~~
 
-![](sw/spl/Help/Image/densityHistogramPlot-A.svg)
+![](Help/Image/densityHistogramPlot-A.svg)
 
 Visualize the density of two-dimensional normal noise data,
 specifying bins:
@@ -31,7 +31,7 @@ BinormalDistribution([0 0], [1 1], 0.5)
 )
 ~~~
 
-![](sw/spl/Help/Image/densityHistogramPlot-B.svg)
+![](Help/Image/densityHistogramPlot-B.svg)
 
 Histogram plot of four discrete values,
 asymetrical to show that the _x_-axis is left to right,
@@ -45,7 +45,7 @@ and the _y_-axis is ascending:
 )
 ~~~
 
-![](sw/spl/Help/Image/densityHistogramPlot-C.svg)
+![](Help/Image/densityHistogramPlot-C.svg)
 
 * * *
 

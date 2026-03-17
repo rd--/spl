@@ -146,7 +146,7 @@ Plot for _n={1,2,3}_ over a subset of the reals:
 )
 ~~~
 
-![](sw/spl/Help/Image/qBinomial-A.svg)
+![](Help/Image/qBinomial-A.svg)
 
 Triangle read by rows where _q=-1_,
 OEIS [A051159](https://oeis.org/A051159):
@@ -157,7 +157,7 @@ OEIS [A051159](https://oeis.org/A051159):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/qBinomial-B.svg)
+![](Help/Image/qBinomial-B.svg)
 
 Losanitsch’s triangle,
 OEIS [A034851](https://oeis.org/A034851):
@@ -169,7 +169,7 @@ OEIS [A034851](https://oeis.org/A034851):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/qBinomial-C.svg)
+![](Help/Image/qBinomial-C.svg)
 
 * * *
 

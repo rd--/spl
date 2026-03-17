@@ -26,7 +26,7 @@ let p = t.firstFermatPoint;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/firstFermatPoint-A.svg)
+![](Help/Image/firstFermatPoint-A.svg)
 
 * * *
 

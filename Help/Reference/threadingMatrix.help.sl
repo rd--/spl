@@ -26,7 +26,7 @@ WeavingInformationFile (
 ).threadingMatrix.matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/threadingMatrix-A.svg)
+![](Help/Image/threadingMatrix-A.svg)
 
 Note that ordinarily weaving drafts draw the threading matrix in reverse row order,
 with the last row highest.

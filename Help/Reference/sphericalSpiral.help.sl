@@ -14,7 +14,7 @@ Plot:
 )
 ~~~
 
-![](sw/spl/Help/Image/sphericalSpiral-A.svg)
+![](Help/Image/sphericalSpiral-A.svg)
 
 * * *
 

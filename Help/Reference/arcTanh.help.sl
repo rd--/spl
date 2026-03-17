@@ -38,7 +38,7 @@ Plot over a subset of the reals:
 }
 ~~~
 
-![](sw/spl/Help/Image/arcTanh-A.svg)
+![](Help/Image/arcTanh-A.svg)
 
 Plot of complex `arcTanh` function:
 
@@ -46,7 +46,7 @@ Plot of complex `arcTanh` function:
 [-2J-2 2J2].complexPlot(arcTanh:/1)
 ~~~
 
-![](sw/spl/Help/Image/arcTanh-B.png)
+![](Help/Image/arcTanh-B.png)
 
 * * *
 

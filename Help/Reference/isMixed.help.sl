@@ -33,7 +33,7 @@ Draw a mixed graph:
 .graphPlot
 ~~~
 
-![](sw/spl/Help/Image/isMixed-A.svg)
+![](Help/Image/isMixed-A.svg)
 
 * * *
 

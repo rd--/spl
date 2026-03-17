@@ -43,7 +43,7 @@ system
 .arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/crayolaColourCatalogue-A.svg)
+![](Help/Image/crayolaColourCatalogue-A.svg)
 
 Sorted by `relativeLuminance`:
 
@@ -57,7 +57,7 @@ system
 .arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/crayolaColourCatalogue-B.svg)
+![](Help/Image/crayolaColourCatalogue-B.svg)
 
 _Note:_
 The catalogue is a `LibraryItem`,

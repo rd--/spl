@@ -46,7 +46,7 @@ Plot 9×9 Hankel matrix:
 9.hankelMatrix.matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/hankelMatrix-A.svg)
+![](Help/Image/hankelMatrix-A.svg)
 
 * * *
 

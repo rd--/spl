@@ -65,7 +65,7 @@ Plot seven-spiral:
 211.squareSpiral.Line
 ~~~
 
-![](sw/spl/Help/Image/squareSpiral-A.svg)
+![](Help/Image/squareSpiral-A.svg)
 
 Plot eleven-spiral:
 
@@ -73,7 +73,7 @@ Plot eleven-spiral:
 507.squareSpiral.Line
 ~~~
 
-![](sw/spl/Help/Image/squareSpiral-B.svg)
+![](Help/Image/squareSpiral-B.svg)
 
 First few _x_-coordinates,
 OEIS [A174344](https://oeis.org/A174344):
@@ -82,7 +82,7 @@ OEIS [A174344](https://oeis.org/A174344):
 65.squareSpiral.column(1).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/squareSpiral-C.svg)
+![](Help/Image/squareSpiral-C.svg)
 
 First few _y_-coordinates,
 OEIS [A268038](https://oeis.org/A268038):
@@ -91,7 +91,7 @@ OEIS [A268038](https://oeis.org/A268038):
 65.squareSpiral.column(2).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/squareSpiral-D.svg)
+![](Help/Image/squareSpiral-D.svg)
 
 First few _y_-coordinates,
 counterclockwise,
@@ -102,7 +102,7 @@ OEIS [A274923](https://oeis.org/A274923):
 .column(2).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/squareSpiral-E.svg)
+![](Help/Image/squareSpiral-E.svg)
 
 Plot nine-spiral, counterclockwise:
 
@@ -110,7 +110,7 @@ Plot nine-spiral, counterclockwise:
 211.squareSpiral('Counterclockwise').Line
 ~~~
 
-![](sw/spl/Help/Image/squareSpiral-F.svg)
+![](Help/Image/squareSpiral-F.svg)
 
 * * *
 

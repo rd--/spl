@@ -54,7 +54,7 @@ let w = 1:23.collect(wythoffPair:/1);
 ].scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/wythoffPair-A.svg)
+![](Help/Image/wythoffPair-A.svg)
 
 Wythoff pairs sequence,
 OEIS [A072061](https://oeis.org/A072061):
@@ -64,7 +64,7 @@ OEIS [A072061](https://oeis.org/A072061):
 .catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/wythoffPair-B.svg)
+![](Help/Image/wythoffPair-B.svg)
 
 Positive integers with swaps according to Wythoff pairs,
 OEIS [A002251](https://oeis.org/A002251):
@@ -81,7 +81,7 @@ w.do { :p |
 a.first(k).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/wythoffPair-C.svg)
+![](Help/Image/wythoffPair-C.svg)
 
 * * *
 

@@ -31,7 +31,7 @@ let p = c.lagrangeInterpolatingPolynomial;
 }
 ~~~
 
-![](sw/spl/Help/Image/lagrangeInterpolatingPolynomial-A.svg)
+![](Help/Image/lagrangeInterpolatingPolynomial-A.svg)
 
 Plot interpolation over four points:
 
@@ -43,7 +43,7 @@ let p = c.lagrangeInterpolatingPolynomial;
 }
 ~~~
 
-![](sw/spl/Help/Image/lagrangeInterpolatingPolynomial-B.svg)
+![](Help/Image/lagrangeInterpolatingPolynomial-B.svg)
 
 Interpolation divergence for a set of Lagrange polynomials:
 
@@ -57,7 +57,7 @@ let p = c.lagrangeInterpolatingPolynomial;
 }
 ~~~
 
-![](sw/spl/Help/Image/lagrangeInterpolatingPolynomial-C.svg)
+![](Help/Image/lagrangeInterpolatingPolynomial-C.svg)
 
 * * *
 

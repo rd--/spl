@@ -25,7 +25,7 @@ let c = t.farOutPoint;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/farOutPoint-A.svg)
+![](Help/Image/farOutPoint-A.svg)
 
 * * *
 

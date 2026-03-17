@@ -28,7 +28,7 @@ OEIS [A071789](https://oeis.org/A071789):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/decimalSelvageNumber-A.svg)
+![](Help/Image/decimalSelvageNumber-A.svg)
 
 The second decimal selvage number,
 OEIS [A071790](https://oeis.org/A071790):
@@ -56,7 +56,7 @@ OEIS [A071790](https://oeis.org/A071790):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/decimalSelvageNumber-B.svg)
+![](Help/Image/decimalSelvageNumber-B.svg)
 
 The third decimal selvage number,
 OEIS [A071791](https://oeis.org/A071791):
@@ -83,7 +83,7 @@ OEIS [A071791](https://oeis.org/A071791):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/decimalSelvageNumber-C.svg)
+![](Help/Image/decimalSelvageNumber-C.svg)
 
 The fourth decimal selvage number,
 OEIS [A071792](https://oeis.org/A071792):
@@ -109,7 +109,7 @@ OEIS [A071792](https://oeis.org/A071792):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/decimalSelvageNumber-D.svg)
+![](Help/Image/decimalSelvageNumber-D.svg)
 
 The fifth decimal selvage number,
 OEIS [A071793](https://oeis.org/A071793):
@@ -134,7 +134,7 @@ OEIS [A071793](https://oeis.org/A071793):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/decimalSelvageNumber-E.svg)
+![](Help/Image/decimalSelvageNumber-E.svg)
 
 The sixth decimal selvage number,
 OEIS [A071873](https://oeis.org/A071873):
@@ -159,7 +159,7 @@ OEIS [A071873](https://oeis.org/A071873):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/decimalSelvageNumber-F.svg)
+![](Help/Image/decimalSelvageNumber-F.svg)
 
 * * *
 

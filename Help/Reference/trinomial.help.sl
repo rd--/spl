@@ -115,7 +115,7 @@ Plot over a subset of the reals as a function of its first parameter:
 }
 ~~~
 
-![](sw/spl/Help/Image/trinomial-A.svg)
+![](Help/Image/trinomial-A.svg)
 
 Plot over a subset of the reals as a function of its second parameter:
 
@@ -125,7 +125,7 @@ Plot over a subset of the reals as a function of its second parameter:
 }
 ~~~
 
-![](sw/spl/Help/Image/trinomial-B.svg)
+![](Help/Image/trinomial-B.svg)
 
 * * *
 

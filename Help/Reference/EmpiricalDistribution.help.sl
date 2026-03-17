@@ -17,7 +17,7 @@ let r = Sfc32(678132);
 )
 ~~~
 
-![](sw/spl/Help/Image/EmpiricalDistribution-A.svg)
+![](Help/Image/EmpiricalDistribution-A.svg)
 
 Larger datasets lead to better approximations of the underlying distribution:
 
@@ -32,7 +32,7 @@ let r = Sfc32(678132);
 )
 ~~~
 
-![](sw/spl/Help/Image/EmpiricalDistribution-B.svg)
+![](Help/Image/EmpiricalDistribution-B.svg)
 
 Generate psuedo-random numbers from an empirical distribution:
 
@@ -47,7 +47,7 @@ EmpiricalDistribution(
 .histogramPlot
 ~~~
 
-![](sw/spl/Help/Image/EmpiricalDistribution-C.svg)
+![](Help/Image/EmpiricalDistribution-C.svg)
 
 An empirical distribution from weighted input data:
 
@@ -68,7 +68,7 @@ EmpiricalDistribution(
 .histogramPlot
 ~~~
 
-![](sw/spl/Help/Image/EmpiricalDistribution-D.svg)
+![](Help/Image/EmpiricalDistribution-D.svg)
 
 Plot inverse cummulative distribution functions:
 
@@ -88,7 +88,7 @@ let e = EmpiricalDistribution(
 )
 ~~~
 
-![](sw/spl/Help/Image/EmpiricalDistribution-E.svg)
+![](Help/Image/EmpiricalDistribution-E.svg)
 
 * * *
 

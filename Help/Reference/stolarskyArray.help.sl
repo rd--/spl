@@ -31,7 +31,7 @@ Plot upper left 11×11 area of the array:
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/stolarskyArray-A.svg)
+![](Help/Image/stolarskyArray-A.svg)
 
 The infinite Stolarsky array,
 read by antidiagonals,
@@ -43,7 +43,7 @@ OEIS [A035506](https://oeis.org/A035506):
 ).catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/stolarskyArray-B.svg)
+![](Help/Image/stolarskyArray-B.svg)
 
 _Note_:
 The definition is recursive and the system caches the array on construction.

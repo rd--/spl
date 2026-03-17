@@ -20,7 +20,7 @@ arneodoEquation(-5.5, 3.5, -1)
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/arneodoEquation-A.svg)
+![](Help/Image/arneodoEquation-A.svg)
 
 * * *
 

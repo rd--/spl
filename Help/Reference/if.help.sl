@@ -86,7 +86,7 @@ let f = { :m :k |
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/if-A.svg)
+![](Help/Image/if-A.svg)
 
 _Rationale:_
 Spl follows Smalltalk in having no special purpose conditional evaluation mechanisms.

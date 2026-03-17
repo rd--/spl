@@ -30,7 +30,7 @@ let r = Rectangle([-1 -1], [1 1]);
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/cohenSutherlandAlgorithm-A.svg)
+![](Help/Image/cohenSutherlandAlgorithm-A.svg)
 
 Clip lines at every fourth degree of rotation:
 
@@ -43,7 +43,7 @@ let r = Rectangle([-0.25 -0.25], [0.25 0.25]);
 }.LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/cohenSutherlandAlgorithm-B.svg)
+![](Help/Image/cohenSutherlandAlgorithm-B.svg)
 
 * * *
 

@@ -31,7 +31,7 @@ An _x_-axis aligned Stadium with _a=r=2_:
 StadiumShape([-1 0; 1 0], 2)
 ~~~
 
-![](sw/spl/Help/Image/StadiumShape-A.svg)
+![](Help/Image/StadiumShape-A.svg)
 
 A Stadium aligned on the line _y=x_,
 with _a=2√2_ and _r=1_:
@@ -40,7 +40,7 @@ with _a=2√2_ and _r=1_:
 StadiumShape([-1 -1; 1 1], 1)
 ~~~
 
-![](sw/spl/Help/Image/StadiumShape-B.svg)
+![](Help/Image/StadiumShape-B.svg)
 
 A _y_-axis aligned Stadium with _a=1_ and _r=4_:
 
@@ -48,7 +48,7 @@ A _y_-axis aligned Stadium with _a=1_ and _r=4_:
 StadiumShape([0 0; 0 1], 4)
 ~~~
 
-![](sw/spl/Help/Image/StadiumShape-C.svg)
+![](Help/Image/StadiumShape-C.svg)
 
 With varying radii:
 
@@ -58,7 +58,7 @@ With varying radii:
 }.LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/StadiumShape-D.svg)
+![](Help/Image/StadiumShape-D.svg)
 
 With varying coordinates:
 
@@ -70,7 +70,7 @@ With varying coordinates:
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/StadiumShape-E.svg)
+![](Help/Image/StadiumShape-E.svg)
 
 A family of stadiums:
 
@@ -82,7 +82,7 @@ A family of stadiums:
 }.LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/StadiumShape-F.svg)
+![](Help/Image/StadiumShape-F.svg)
 
 * * *
 

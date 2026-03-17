@@ -86,7 +86,7 @@ OEIS [A006577](https://oeis.org/A006577):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/collatzSequence-A.svg)
+![](Help/Image/collatzSequence-A.svg)
 
 The maximum value in each orbit of the Collatz sequence:
 OEIS [A025586](https://oeis.org/A025586):
@@ -97,7 +97,7 @@ OEIS [A025586](https://oeis.org/A025586):
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/collatzSequence-B.svg)
+![](Help/Image/collatzSequence-B.svg)
 
 The Collatz sequence orbit for twenty-seven,
 which has one-hundred and twelve places,
@@ -107,7 +107,7 @@ OEIS [A008884](https://oeis.org/A008884):
 27.collatzSequence.linePlot
 ~~~
 
-![](sw/spl/Help/Image/collatzSequence-C.svg)
+![](Help/Image/collatzSequence-C.svg)
 
 Numbers sorted by their Collatz stopping time,
 OEIS [A127824](https://oeis.org/A127824):
@@ -129,7 +129,7 @@ let t = 1:15.collect { :unused |
 ([1] ++ t.catenate).log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/collatzSequence-D.svg)
+![](Help/Image/collatzSequence-D.svg)
 
 There is also a variant defined for rational numbers of the form _1/(2n+1)_,
 where the parity of the numerator is considered,
@@ -167,7 +167,7 @@ Plot first few Collatz sequences:
 }.catenate.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/collatzSequence-E.svg)
+![](Help/Image/collatzSequence-E.svg)
 
 Sequence lengths for Collatz problem with rational numbers,
 OEIS [A210468](https://oeis.org/A210468):
@@ -182,7 +182,7 @@ OEIS [A210468](https://oeis.org/A210468):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/collatzSequence-F.svg)
+![](Help/Image/collatzSequence-F.svg)
 
 There are also variants defined for both the indirect and direct _Px+1_ sequences.
 
@@ -399,7 +399,7 @@ Trajectory of 109 under the _109x+1_ map:
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/collatzSequence-G.svg)
+![](Help/Image/collatzSequence-G.svg)
 
 Number of terms before entering cycle in trajectory of _p(n)_,
 OEIS [A057691](https://oeis.org/A057691):
@@ -438,7 +438,7 @@ OEIS [A057691](https://oeis.org/A057691):
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/collatzSequence-H.svg)
+![](Help/Image/collatzSequence-H.svg)
 
 Indirect Collatz sequences:
 
@@ -451,7 +451,7 @@ Indirect Collatz sequences:
 }.catenate.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/collatzSequence-I.svg)
+![](Help/Image/collatzSequence-I.svg)
 
 The number of iterations required to reach a power of two in the Collatz sequence,
 starting at _n_,
@@ -465,7 +465,7 @@ OEIS [A208981](https://oeis.org/A208981):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/collatzSequence-J.svg)
+![](Help/Image/collatzSequence-J.svg)
 
 Number of tripling steps to reach one from _n_ in the _3x+1_ problem,
 OEIS [A006667](https://oeis.org/A006667),
@@ -481,7 +481,7 @@ when one is added:
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/collatzSequence-K.svg)
+![](Help/Image/collatzSequence-K.svg)
 
 Number of tripling or halving steps to reach one from _n_ in the _3x+1_ problem,
 also called the Collatz problem,
@@ -493,7 +493,7 @@ OEIS [A006577](https://oeis.org/A006577):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/collatzSequence-L.svg)
+![](Help/Image/collatzSequence-L.svg)
 
 Number of halving steps to reach one from _n_ in the _3x+1_ problem,
 also called the Collatz problem,
@@ -505,7 +505,7 @@ OEIS [A006666](https://oeis.org/A006666):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/collatzSequence-M.svg)
+![](Help/Image/collatzSequence-M.svg)
 
 Next odd term in Collatz trajectory with starting value _n_,
 OEIS [A139391](https://oeis.org/A139391):
@@ -518,7 +518,7 @@ OEIS [A139391](https://oeis.org/A139391):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/collatzSequence-N.svg)
+![](Help/Image/collatzSequence-N.svg)
 
 * * *
 

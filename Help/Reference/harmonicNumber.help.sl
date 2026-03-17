@@ -48,7 +48,7 @@ Plot over a subset of the integers:
 1:100.functionPlot(harmonicNumber:/1)
 ~~~
 
-![](sw/spl/Help/Image/harmonicNumber-A.svg)
+![](Help/Image/harmonicNumber-A.svg)
 
 * * *
 

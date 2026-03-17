@@ -21,7 +21,7 @@ let f:/1 = rosenbrockFunction(1, 100);
 }
 ~~~
 
-![](sw/spl/Help/Image/rosenbrockFunction-A.svg)
+![](Help/Image/rosenbrockFunction-A.svg)
 
 Plot at _x=1_:
 
@@ -32,7 +32,7 @@ let f:/1 = rosenbrockFunction(1, 100);
 }
 ~~~
 
-![](sw/spl/Help/Image/rosenbrockFunction-B.svg)
+![](Help/Image/rosenbrockFunction-B.svg)
 
 Matrix plot, log scaled and rounded:
 
@@ -50,7 +50,7 @@ let f:/1 = rosenbrockFunction(1, 100);
 .Greymap
 ~~~
 
-![](sw/spl/Help/Image/rosenbrockFunction-C.png)
+![](Help/Image/rosenbrockFunction-C.png)
 
 Contour plot of sparse sampling:
 
@@ -64,7 +64,7 @@ let f:/1 = rosenbrockFunction(1, 100);
 }.contourPlot(x, y, 10 ^ [0 .. 3])
 ~~~
 
-![](sw/spl/Help/Image/rosenbrockFunction-D.svg)
+![](Help/Image/rosenbrockFunction-D.svg)
 
 * * *
 

@@ -15,7 +15,7 @@ let e = d.collect { :x | Line([b, x]) };
 [a, Point(b), c, e].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/cevianTriangle-A.svg)
+![](Help/Image/cevianTriangle-A.svg)
 
 * * *
 

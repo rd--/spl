@@ -15,7 +15,7 @@ Circle([0, 0], 1).randomPoint(
 ).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/randomPoint-A.svg)
+![](Help/Image/randomPoint-A.svg)
 
 At `Rectangle` answers points _in_ the rectangle:
 
@@ -26,7 +26,7 @@ Rectangle([0, 0], [1 1])
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/randomPoint-B.svg)
+![](Help/Image/randomPoint-B.svg)
 
 At `Sphere` answers points _on_ the surface of the sphere.
 A plot of one hundred random points on the surface of the unit sphere:
@@ -41,7 +41,7 @@ Sphere([0 0 0], 1)
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/randomPoint-C.svg)
+![](Help/Image/randomPoint-C.svg)
 
 At `Ball` answers points _in_ the ball.
 A plot of one hundred random points in the unit ball:
@@ -56,7 +56,7 @@ Ball([0 0 0], 1)
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/randomPoint-D.svg)
+![](Help/Image/randomPoint-D.svg)
 
 * * *
 

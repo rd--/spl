@@ -17,7 +17,7 @@ CoxIngersollRossProcess(0.3, 0.5, 1, 2)
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/CoxIngersollRossProcess-A.svg)
+![](Help/Image/CoxIngersollRossProcess-A.svg)
 
 Simulate an ensemble of random paths for a Cox–Ingersoll–Ross process:
 
@@ -28,7 +28,7 @@ CoxIngersollRossProcess(0.3, 0.5, 1, 2)
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/CoxIngersollRossProcess-B.svg)
+![](Help/Image/CoxIngersollRossProcess-B.svg)
 
 * * *
 

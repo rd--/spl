@@ -10,7 +10,7 @@ The circulant graph with ten vertices and jumps two and four:
 10.circulantGraph([2 4]).graphPlot
 ~~~
 
-![](sw/spl/Help/Image/circulantGraph-A.svg)
+![](Help/Image/circulantGraph-A.svg)
 
 The circulant graph _C(n, 1:n/2)_ gives the complete graph:
 
@@ -18,7 +18,7 @@ The circulant graph _C(n, 1:n/2)_ gives the complete graph:
 6.circulantGraph([1 2 3]).graphPlot
 ~~~
 
-![](sw/spl/Help/Image/circulantGraph-B.svg)
+![](Help/Image/circulantGraph-B.svg)
 
 The circulant graph with jump `one` gives the cycle graph:
 
@@ -26,7 +26,7 @@ The circulant graph with jump `one` gives the cycle graph:
 6.circulantGraph([1]).graphPlot
 ~~~
 
-![](sw/spl/Help/Image/circulantGraph-C.svg)
+![](Help/Image/circulantGraph-C.svg)
 
 The adjacency matrix of the circulant graph is circulant:
 
@@ -36,7 +36,7 @@ The adjacency matrix of the circulant graph is circulant:
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/circulantGraph-D.svg)
+![](Help/Image/circulantGraph-D.svg)
 
 A circulant graph with seventeen vertices:
 
@@ -44,7 +44,7 @@ A circulant graph with seventeen vertices:
 17.circulantGraph([1, 13]).graphPlot
 ~~~
 
-![](sw/spl/Help/Image/circulantGraph-E.svg)
+![](Help/Image/circulantGraph-E.svg)
 
 The adjacency matrix of a circulant graph of ninety-nine edges:
 
@@ -54,7 +54,7 @@ The adjacency matrix of a circulant graph of ninety-nine edges:
 .Bitmap
 ~~~
 
-![](sw/spl/Help/Image/circulantGraph-F.png)
+![](Help/Image/circulantGraph-F.png)
 
 * * *
 

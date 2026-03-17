@@ -14,7 +14,7 @@ ResidueSet([0 2 4 5 7 9 11], 12)
 .necklacePlot
 ~~~
 
-![](sw/spl/Help/Image/necklacePlot-A.svg)
+![](Help/Image/necklacePlot-A.svg)
 
 The binary form at `List` requires a position vector and a modulus,
 and specifies a two colour necklace:
@@ -23,7 +23,7 @@ and specifies a two colour necklace:
 [0 3 6 10 12].necklacePlot(16)
 ~~~
 
-![](sw/spl/Help/Image/necklacePlot-B.svg)
+![](Help/Image/necklacePlot-B.svg)
 
 At `BitSet`,
 which specifies a two colour necklace:
@@ -33,7 +33,7 @@ BitSet([0 4 8 11], 16)
 .necklacePlot
 ~~~
 
-![](sw/spl/Help/Image/necklacePlot-C.svg)
+![](Help/Image/necklacePlot-C.svg)
 
 In the unary form at `List`,
 each value indicates the bead colour at that position,
@@ -44,7 +44,7 @@ here plot a three colour five bead necklace:
 .necklacePlot
 ~~~
 
-![](sw/spl/Help/Image/necklacePlot-D.svg)
+![](Help/Image/necklacePlot-D.svg)
 
 * * *
 

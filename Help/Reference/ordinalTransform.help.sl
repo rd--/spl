@@ -85,7 +85,7 @@ OEIS [A081373](https://oeis.org/A081373):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/ordinalTransform-A.svg)
+![](Help/Image/ordinalTransform-A.svg)
 
 The ordinal transform of the ordinal transform of _φ(n)_,
 OEIS [A303777](https://oeis.org/A303777):
@@ -97,7 +97,7 @@ OEIS [A303777](https://oeis.org/A303777):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/ordinalTransform-B.svg)
+![](Help/Image/ordinalTransform-B.svg)
 
 Ordinal transform of largest difference between consecutive divisors of _n_,
 OEIS [A322871](https://oeis.org/A322871):
@@ -108,7 +108,7 @@ OEIS [A322871](https://oeis.org/A322871):
 }.ordinalTransform.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/ordinalTransform-C.svg)
+![](Help/Image/ordinalTransform-C.svg)
 
 Ordinal transform of Moebius transform of largest difference between consecutive divisors of _n_,
 OEIS [A322873](https://oeis.org/A322873):
@@ -121,7 +121,7 @@ OEIS [A322873](https://oeis.org/A322873):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/ordinalTransform-D.svg)
+![](Help/Image/ordinalTransform-D.svg)
 
 Ordinal transform of edited
 OEIS [A143771](https://oeis.org/A143771),
@@ -137,7 +137,7 @@ a[1] := 1;
 a.ordinalTransform.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/ordinalTransform-E.svg)
+![](Help/Image/ordinalTransform-E.svg)
 
 Ordinal transform of the largest five-smooth divisor of _n_,
 OEIS [A379006](https://oeis.org/A379006):
@@ -150,7 +150,7 @@ OEIS [A379006](https://oeis.org/A379006):
 }.ordinalTransform.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/ordinalTransform-F.svg)
+![](Help/Image/ordinalTransform-F.svg)
 
 Ordinal transform of ones in binary reflected Gray code of _n_,
 OEIS [A286558](https://oeis.org/A286558):
@@ -161,7 +161,7 @@ OEIS [A286558](https://oeis.org/A286558):
 }.ordinalTransform.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/ordinalTransform-G.svg)
+![](Help/Image/ordinalTransform-G.svg)
 
 Ordinal transform of the largest prime factor of the _n_-th term of EKG-sequence,
 OEIS [A304734](https://oeis.org/A304734):
@@ -173,7 +173,7 @@ OEIS [A304734](https://oeis.org/A304734):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/ordinalTransform-H.svg)
+![](Help/Image/ordinalTransform-H.svg)
 
 Ordinal transform of
 OEIS [A306246](https://oeis.org/A306246),
@@ -185,7 +185,7 @@ OEIS [A306251](https://oeis.org/A306251):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/ordinalTransform-I.svg)
+![](Help/Image/ordinalTransform-I.svg)
 
 Ordinal transform of Moebius transform of _φ(n)_,
 OEIS [A322874](https://oeis.org/A322874):
@@ -197,7 +197,7 @@ OEIS [A322874](https://oeis.org/A322874):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/ordinalTransform-J.svg)
+![](Help/Image/ordinalTransform-J.svg)
 
 Ordinal transform of Kempner function,
 OEIS [A345934](https://oeis.org/A345934):
@@ -208,7 +208,7 @@ OEIS [A345934](https://oeis.org/A345934):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/ordinalTransform-K.svg)
+![](Help/Image/ordinalTransform-K.svg)
 
 Ordinal transform of _τ(n)_,
 OEIS [A067004](http://oeis.org/A067004):
@@ -219,7 +219,7 @@ OEIS [A067004](http://oeis.org/A067004):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/ordinalTransform-L.svg)
+![](Help/Image/ordinalTransform-L.svg)
 
 Ordinal transform of the arithmetic derivative of _n_,
 OEIS [A263111](https://oeis.org/A263111):
@@ -230,7 +230,7 @@ OEIS [A263111](https://oeis.org/A263111):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/ordinalTransform-M.svg)
+![](Help/Image/ordinalTransform-M.svg)
 
 Ordinal transform of the sums of the unique strict partition of _n_ with π encoding,
 OEIS [A266476](https://oeis.org/A266476):
@@ -243,7 +243,7 @@ OEIS [A266476](https://oeis.org/A266476):
 }.ordinalTransform.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/ordinalTransform-N.svg)
+![](Help/Image/ordinalTransform-N.svg)
 
 Ordinal transform of maximum divisor of _n_,
 OEIS [A286477](https://oeis.org/A286477):
@@ -254,7 +254,7 @@ OEIS [A286477](https://oeis.org/A286477):
 }.ordinalTransform.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/ordinalTransform-O.svg)
+![](Help/Image/ordinalTransform-O.svg)
 
 Irregular table read by rows,
 initially _1_,
@@ -273,7 +273,7 @@ let a = Map { :n |
 a[1:9].catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/ordinalTransform-P.svg)
+![](Help/Image/ordinalTransform-P.svg)
 
 The ordinal transform of the final nonzero digits of _n!_,
 OEIS [A367799](https://oeis.org/A367799):
@@ -283,7 +283,7 @@ let a = 0:85.!.withoutTrailingZeroes % 10;
 a.ordinalTransform.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/ordinalTransform-Q.svg)
+![](Help/Image/ordinalTransform-Q.svg)
 
 The ordinal transform of _gcd(1+n,ψ(n))_,
 OEIS [A344771](https://oeis.org/A344771):
@@ -294,7 +294,7 @@ OEIS [A344771](https://oeis.org/A344771):
 }.ordinalTransform.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/ordinalTransform-R.svg)
+![](Help/Image/ordinalTransform-R.svg)
 
 The ordinal transform of the leading digits of _n!_,
 OEIS [A368010](https://oeis.org/A368010):
@@ -305,7 +305,7 @@ let n = 0:115.!;
 .ordinalTransform.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/ordinalTransform-S.svg)
+![](Help/Image/ordinalTransform-S.svg)
 
 The ordinal transform of the binary expansion of _n_ modulo two and contracted,
 OEIS [A371944](https://oeis.org/A371944):
@@ -318,7 +318,7 @@ OEIS [A371944](https://oeis.org/A371944):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/ordinalTransform-T.svg)
+![](Help/Image/ordinalTransform-T.svg)
 
 The ordinal transform of the number of iterations of _φ(x)_ at _n_ needed to reach one,
 OEIS [A289152](https://oeis.org/A289152):
@@ -332,7 +332,7 @@ OEIS [A289152](https://oeis.org/A289152):
 }.ordinalTransform.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/ordinalTransform-U.svg)
+![](Help/Image/ordinalTransform-U.svg)
 
 * * *
 

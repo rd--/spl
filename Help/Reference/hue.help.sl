@@ -60,7 +60,7 @@ system.svgColourDictionary
 }.values.reshape([2 6]).arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/hue-A.svg)
+![](Help/Image/hue-A.svg)
 
 Select entries from the Svg colour catalogue that are within 30° of blue (240°):
 
@@ -100,7 +100,7 @@ system.svgColourDictionary
 }.values.reshape([3 6]).arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/hue-B.svg)
+![](Help/Image/hue-B.svg)
 
 Select entries from the Svg colour catalogue that are within 30° of green (120°):
 
@@ -137,7 +137,7 @@ system.svgColourDictionary
 }.values.reshape([3 5]).arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/hue-C.svg)
+![](Help/Image/hue-C.svg)
 
 Select entries from the Svg colour catalogue that are within 10° of orange (30°):
 
@@ -179,7 +179,7 @@ system.svgColourDictionary
 }.values.reshape([4 5]).arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/hue-D.svg)
+![](Help/Image/hue-D.svg)
 
 * * *
 

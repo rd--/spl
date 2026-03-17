@@ -49,7 +49,7 @@ let p = [0 0; 0 1];
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/circleThrough-A.svg)
+![](Help/Image/circleThrough-A.svg)
 
 Plot two points and the circle passing through them:
 
@@ -61,7 +61,7 @@ let p = [0 0; 1 1];
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/circleThrough-B.svg)
+![](Help/Image/circleThrough-B.svg)
 
 Plot three points and the circle passing through them:
 
@@ -73,7 +73,7 @@ let p = [0 0; 0 1; 1 0];
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/circleThrough-C.svg)
+![](Help/Image/circleThrough-C.svg)
 
 Plot three points and the circle passing through them:
 
@@ -89,7 +89,7 @@ let p = [
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/circleThrough-D.svg)
+![](Help/Image/circleThrough-D.svg)
 
 * * *
 

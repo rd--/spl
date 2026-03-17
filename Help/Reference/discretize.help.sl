@@ -31,7 +31,7 @@ Plot `exp` function from `zero` to `five`:
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/discretize-A.svg)
+![](Help/Image/discretize-A.svg)
 
 Plot `hannFunction`:
 
@@ -41,7 +41,7 @@ Plot `hannFunction`:
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/discretize-B.svg)
+![](Help/Image/discretize-B.svg)
 
 Sample a function uniformly on an interval:
 
@@ -53,7 +53,7 @@ Sample a function uniformly on an interval:
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/discretize-C.svg)
+![](Help/Image/discretize-C.svg)
 
 Plot the sine function:
 
@@ -61,7 +61,7 @@ Plot the sine function:
 (0 -- 4.pi).discretize(100, sin:/1).linePlot
 ~~~
 
-![](sw/spl/Help/Image/discretize-D.svg)
+![](Help/Image/discretize-D.svg)
 
 Plot half phase-space orbits for the Kepler problem:
 
@@ -88,7 +88,7 @@ let p = { :r :e |
 }.linePlot
 ~~~
 
-![](sw/spl/Help/Image/discretize-E.svg)
+![](Help/Image/discretize-E.svg)
 
 * * *
 

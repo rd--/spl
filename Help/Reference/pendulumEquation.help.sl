@@ -33,7 +33,7 @@ v.collect { :v |
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/pendulumEquation-A.svg)
+![](Help/Image/pendulumEquation-A.svg)
 
 Plot time-sequence of `sin` of θ of a chaotic set of parameters:
 
@@ -52,7 +52,7 @@ v.collect { :v |
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/pendulumEquation-B.svg)
+![](Help/Image/pendulumEquation-B.svg)
 
 Plot time-sequence of the cartesian coordinates of a simple damped pendulum:
 
@@ -72,7 +72,7 @@ v.collect { :v |
 }.pathPlot(t)
 ~~~
 
-![](sw/spl/Help/Image/pendulumEquation-C.svg)
+![](Help/Image/pendulumEquation-C.svg)
 
 * * *
 

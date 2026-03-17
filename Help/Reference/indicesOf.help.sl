@@ -57,7 +57,7 @@ OEIS [A019565](https://oeis.org/A019565):
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/indicesOf-A.svg)
+![](Help/Image/indicesOf-A.svg)
 
 A self-referential sequence related to Mancala solitaire,
 OEIS [A130747](https://oeis.org/A130747):
@@ -77,7 +77,7 @@ let a = [
 a.first(m).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/indicesOf-B.svg)
+![](Help/Image/indicesOf-B.svg)
 
 * * *
 

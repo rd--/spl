@@ -69,7 +69,7 @@ OEIS [A049296](https://oeis.org/A049296):
 }.differences.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isRoughNumber-A.svg)
+![](Help/Image/isRoughNumber-A.svg)
 
 First differences of 13-rough numbers,
 apart from first term also
@@ -82,7 +82,7 @@ OEIS [A236187](https://oeis.org/A236187):
 }.differences.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isRoughNumber-B.svg)
+![](Help/Image/isRoughNumber-B.svg)
 
 First differences of 17-rough numbers,
 apart from first term also
@@ -95,7 +95,7 @@ OEIS [A236188](https://oeis.org/A236188):
 }.differences.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isRoughNumber-C.svg)
+![](Help/Image/isRoughNumber-C.svg)
 
 First differences of 19-rough numbers,
 apart from first term also
@@ -109,7 +109,7 @@ OEIS [A236189](https://oeis.org/A236189):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isRoughNumber-D.svg)
+![](Help/Image/isRoughNumber-D.svg)
 
 First differences of 23-rough numbers,
 apart from first term also, initially,
@@ -122,7 +122,7 @@ OEIS [A001223](https://oeis.org/A001223):
 }.differences.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/isRoughNumber-E.svg)
+![](Help/Image/isRoughNumber-E.svg)
 
 * * *
 

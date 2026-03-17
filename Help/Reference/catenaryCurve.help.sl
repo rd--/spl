@@ -13,7 +13,7 @@ Plot:
 )
 ~~~
 
-![](sw/spl/Help/Image/catenaryCurve-A.svg)
+![](Help/Image/catenaryCurve-A.svg)
 
 A collection of catenary curves:
 
@@ -25,7 +25,7 @@ A collection of catenary curves:
 )
 ~~~
 
-![](sw/spl/Help/Image/catenaryCurve-B.svg)
+![](Help/Image/catenaryCurve-B.svg)
 
 A catenary curve with varying weight:
 
@@ -37,7 +37,7 @@ A catenary curve with varying weight:
 )
 ~~~
 
-![](sw/spl/Help/Image/catenaryCurve-C.svg)
+![](Help/Image/catenaryCurve-C.svg)
 
 * * *
 

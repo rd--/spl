@@ -138,7 +138,7 @@ OEIS [A071766](https://oeis.org/A071766):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/fromContinuedFraction-A.svg)
+![](Help/Image/fromContinuedFraction-A.svg)
 
 The numerator sequence,
 OEIS [A071585](https://oeis.org/A071585):
@@ -149,7 +149,7 @@ OeisEntry('A071585').then { :e |
 }
 ~~~
 
-![](sw/spl/Help/Image/fromContinuedFraction-B.svg)
+![](Help/Image/fromContinuedFraction-B.svg)
 
 The denominator sequence,
 OEIS [A071766](https://oeis.org/A071766):
@@ -160,7 +160,7 @@ OeisEntry('A071766').then { :e |
 }
 ~~~
 
-![](sw/spl/Help/Image/fromContinuedFraction-C.svg)
+![](Help/Image/fromContinuedFraction-C.svg)
 
 * * *
 

@@ -41,7 +41,7 @@ Sfc32(372816)
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/shellSortMatrix-A.svg)
+![](Help/Image/shellSortMatrix-A.svg)
 
 Sort longer list, using Ciuria’s gap sequence:
 
@@ -55,7 +55,7 @@ Sfc32(372816)
 .Greymap
 ~~~
 
-![](sw/spl/Help/Image/shellSortMatrix-B.png)
+![](Help/Image/shellSortMatrix-B.png)
 
 * * *
 

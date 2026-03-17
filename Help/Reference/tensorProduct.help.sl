@@ -166,7 +166,7 @@ OeisEntry('A322967').then { :e |
 }
 ~~~
 
-![](sw/spl/Help/Image/tensorProduct-A.svg)
+![](Help/Image/tensorProduct-A.svg)
 
 * * *
 

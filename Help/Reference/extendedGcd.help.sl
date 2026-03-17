@@ -66,7 +66,7 @@ Plot matrix:
 .Greymap
 ~~~
 
-![](sw/spl/Help/Image/extendedGcd-A.png)
+![](Help/Image/extendedGcd-A.png)
 
 * * *
 

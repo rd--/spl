@@ -451,7 +451,7 @@ A complete binary tree:
 .treePlot
 ~~~
 
-![](sw/spl/Help/Image/Tree-A.svg)
+![](Help/Image/Tree-A.svg)
 
 A complete ternary tree:
 
@@ -462,7 +462,7 @@ A complete ternary tree:
 .treePlot
 ~~~
 
-![](sw/spl/Help/Image/Tree-B.svg)
+![](Help/Image/Tree-B.svg)
 
 A symmetric tree:
 
@@ -473,7 +473,7 @@ A symmetric tree:
 .treePlot
 ~~~
 
-![](sw/spl/Help/Image/Tree-C.svg)
+![](Help/Image/Tree-C.svg)
 
 An asymmetric tree:
 
@@ -484,7 +484,7 @@ An asymmetric tree:
 .treePlot
 ~~~
 
-![](sw/spl/Help/Image/Tree-D.svg)
+![](Help/Image/Tree-D.svg)
 
 * * *
 

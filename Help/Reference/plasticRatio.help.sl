@@ -84,7 +84,7 @@ OEIS [A205579](https://oeis.org/A205579):
 (1.plasticRatio ^ 0:35).round.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/plasticRatio-A.svg)
+![](Help/Image/plasticRatio-A.svg)
 
 * * *
 

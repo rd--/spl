@@ -153,7 +153,7 @@ let r = Sfc32(28974);
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/randomChoice-A.svg)
+![](Help/Image/randomChoice-A.svg)
 
 Plot at `Range`:
 
@@ -164,7 +164,7 @@ let r = Sfc32(902132);
 .stepPlot
 ~~~
 
-![](sw/spl/Help/Image/randomChoice-B.svg)
+![](Help/Image/randomChoice-B.svg)
 
 Plot at `IdentityMultiset`:
 
@@ -176,7 +176,7 @@ let r = Sfc32(134717);
 .stepPlot
 ~~~
 
-![](sw/spl/Help/Image/randomChoice-C.svg)
+![](Help/Image/randomChoice-C.svg)
 
 Planar random lattice walk with eight directions:
 
@@ -188,7 +188,7 @@ let r = Sfc32(789417);
 .Line
 ~~~
 
-![](sw/spl/Help/Image/randomChoice-D.svg)
+![](Help/Image/randomChoice-D.svg)
 
 Volumetric random lattice walk:
 
@@ -201,7 +201,7 @@ let r = Sfc32(192133);
 .asPerspectiveDrawing
 ~~~
 
-![](sw/spl/Help/Image/randomChoice-E.svg)
+![](Help/Image/randomChoice-E.svg)
 
 Random walk on a hexagonal lattice:
 
@@ -216,7 +216,7 @@ let r = Sfc32(379379);
 .Line
 ~~~
 
-![](sw/spl/Help/Image/randomChoice-F.svg)
+![](Help/Image/randomChoice-F.svg)
 
 Random array of three shades of colours (greyscale):
 
@@ -226,7 +226,7 @@ let r = Sfc32(131939);
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/randomChoice-G.svg)
+![](Help/Image/randomChoice-G.svg)
 
 * * *
 

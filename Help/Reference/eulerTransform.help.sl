@@ -186,7 +186,7 @@ OEIS [A005928](https://oeis.org/A005928):
 ).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/eulerTransform-A.svg)
+![](Help/Image/eulerTransform-A.svg)
 
 Euler transform of _-1,-1,-2_,
 OEIS [A030203](https://oeis.org/A030203):
@@ -198,7 +198,7 @@ OEIS [A030203](https://oeis.org/A030203):
 ).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/eulerTransform-B.svg)
+![](Help/Image/eulerTransform-B.svg)
 
 * * *
 

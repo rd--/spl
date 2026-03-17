@@ -13,7 +13,7 @@ Draw curve:
 ).Line
 ~~~
 
-![](sw/spl/Help/Image/cayleysSextic-A.svg)
+![](Help/Image/cayleysSextic-A.svg)
 
 * * *
 

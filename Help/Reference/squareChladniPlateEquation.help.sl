@@ -14,7 +14,7 @@ squareChladniPlateEquation(1, 5)
 .contourPlot(i, i, [0])
 ~~~
 
-![](sw/spl/Help/Image/squareChladniPlateEquation-A.svg)
+![](Help/Image/squareChladniPlateEquation-A.svg)
 
 Plot for _2:5_:
 
@@ -24,7 +24,7 @@ squareChladniPlateEquation(2, 5)
 .contourPlot(i, i, [0])
 ~~~
 
-![](sw/spl/Help/Image/squareChladniPlateEquation-B.svg)
+![](Help/Image/squareChladniPlateEquation-B.svg)
 
 Plot for _3:5_:
 
@@ -34,7 +34,7 @@ squareChladniPlateEquation(3, 5)
 .contourPlot(i, i, [0])
 ~~~
 
-![](sw/spl/Help/Image/squareChladniPlateEquation-C.svg)
+![](Help/Image/squareChladniPlateEquation-C.svg)
 
 Plot for _4:5_:
 
@@ -44,7 +44,7 @@ squareChladniPlateEquation(4, 5)
 .contourPlot(i, i, [0])
 ~~~
 
-![](sw/spl/Help/Image/squareChladniPlateEquation-D.svg)
+![](Help/Image/squareChladniPlateEquation-D.svg)
 
 Plot for _1:4_:
 
@@ -54,7 +54,7 @@ squareChladniPlateEquation(1, 4)
 .contourPlot(i, i, [0])
 ~~~
 
-![](sw/spl/Help/Image/squareChladniPlateEquation-E.svg)
+![](Help/Image/squareChladniPlateEquation-E.svg)
 
 Plot for _2:4_:
 
@@ -64,7 +64,7 @@ squareChladniPlateEquation(2, 4)
 .contourPlot(i, i, [0])
 ~~~
 
-![](sw/spl/Help/Image/squareChladniPlateEquation-F.svg)
+![](Help/Image/squareChladniPlateEquation-F.svg)
 
 Plot for _2:7_:
 
@@ -74,7 +74,7 @@ squareChladniPlateEquation(2, 7)
 .contourPlot(i, i, [0])
 ~~~
 
-![](sw/spl/Help/Image/squareChladniPlateEquation-G.svg)
+![](Help/Image/squareChladniPlateEquation-G.svg)
 
 * * *
 

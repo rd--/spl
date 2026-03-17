@@ -69,7 +69,7 @@ Plot over a subset of the reals:
 (-2 -- 5).functionPlot(riemannXi:/1)
 ~~~
 
-![](sw/spl/Help/Image/riemannXi-A.svg)
+![](Help/Image/riemannXi-A.svg)
 
 * * *
 

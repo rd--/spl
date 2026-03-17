@@ -80,7 +80,7 @@ DyckWord(
 ).heightList.pointLinePlot
 ~~~
 
-![](sw/spl/Help/Image/DyckWord-A.svg)
+![](Help/Image/DyckWord-A.svg)
 
 Plot the word _(((())())(()))_ interpreted as a tree,
 _n=7_:
@@ -92,7 +92,7 @@ DyckWord(
 ).treePlot
 ~~~
 
-![](sw/spl/Help/Image/DyckWord-B.svg)
+![](Help/Image/DyckWord-B.svg)
 
 Plot the word _()()()_ interpreted as a chord diagram,
 _n=3_:
@@ -102,7 +102,7 @@ DyckWord([1 0 1 0 1 0])
 .chordDiagramPlot
 ~~~
 
-![](sw/spl/Help/Image/DyckWord-C.svg)
+![](Help/Image/DyckWord-C.svg)
 
 Plot the word _((((()))()()))_ interpreted as a chord diagram,
 _n=7_:
@@ -112,7 +112,7 @@ DyckWord([1 1 1 1 1 0 0 0 1 0 1 0 0 0])
 .chordDiagramPlot
 ~~~
 
-![](sw/spl/Help/Image/DyckWord-D.svg)
+![](Help/Image/DyckWord-D.svg)
 
 Plot the word _()(())_ interpreted as a graph on a line,
 _n=3_:
@@ -122,7 +122,7 @@ DyckWord([1 0 1 1 0 0])
 .linearGraphPlot
 ~~~
 
-![](sw/spl/Help/Image/DyckWord-E.svg)
+![](Help/Image/DyckWord-E.svg)
 
 Plot the word _()()(()()(()))_ interpreted as a set partition,
 the associated restricted growth string is _1112223_,
@@ -133,7 +133,7 @@ DyckWord([1 0 1 0 1 1 0 1 0 1 1 0 0 0])
 .partitionPlot
 ~~~
 
-![](sw/spl/Help/Image/DyckWord-F.svg)
+![](Help/Image/DyckWord-F.svg)
 
 * * *
 

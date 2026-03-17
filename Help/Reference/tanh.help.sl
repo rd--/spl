@@ -70,7 +70,7 @@ Plot over a subset of the reals:
 (-4 -- 4).functionPlot(tanh:/1)
 ~~~
 
-![](sw/spl/Help/Image/tanh-A.svg)
+![](Help/Image/tanh-A.svg)
 
 Plot `tanh` alongside a Padé approximation:
 
@@ -83,7 +83,7 @@ Plot `tanh` alongside a Padé approximation:
 )
 ~~~
 
-![](sw/spl/Help/Image/tanh-B.svg)
+![](Help/Image/tanh-B.svg)
 
 Plot a nonlinear function:
 
@@ -93,7 +93,7 @@ Plot a nonlinear function:
 }
 ~~~
 
-![](sw/spl/Help/Image/tanh-C.svg)
+![](Help/Image/tanh-C.svg)
 
 Plot a tractrix pursuit curve:
 
@@ -103,7 +103,7 @@ Plot a tractrix pursuit curve:
 }
 ~~~
 
-![](sw/spl/Help/Image/tanh-D.svg)
+![](Help/Image/tanh-D.svg)
 
 Plot `tanh` alongside a simple approximation suitable for use as a non-linear distortion function:
 
@@ -120,7 +120,7 @@ Plot `tanh` alongside a simple approximation suitable for use as a non-linear di
 )
 ~~~
 
-![](sw/spl/Help/Image/tanh-E.svg)
+![](Help/Image/tanh-E.svg)
 
 * * *
 

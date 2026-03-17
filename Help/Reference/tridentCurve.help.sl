@@ -13,7 +13,7 @@ let i = (-10 -- 10).subdivide(100);
 .contourPlot(i, i, [0])
 ~~~
 
-![](sw/spl/Help/Image/tridentCurve-A.svg)
+![](Help/Image/tridentCurve-A.svg)
 
 * * *
 

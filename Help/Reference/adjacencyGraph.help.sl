@@ -25,7 +25,7 @@ let m = [0 1 0; 0 0 1; 1 0 0];
 m.adjacencyGraph.graphPlot
 ~~~
 
-![](sw/spl/Help/Image/adjacencyGraph-A.svg)
+![](Help/Image/adjacencyGraph-A.svg)
 
 A symmetric adjacency matrix results in an undirected graph:
 
@@ -43,7 +43,7 @@ let m = [0 1 1; 1 0 1; 1 1 0];
 m.adjacencyGraph.graphPlot
 ~~~
 
-![](sw/spl/Help/Image/adjacencyGraph-B.svg)
+![](Help/Image/adjacencyGraph-B.svg)
 
 Matrices with diagonal entries create self-loops:
 
@@ -56,7 +56,7 @@ Matrices with diagonal entries create self-loops:
 ].adjacencyGraph.graphPlot
 ~~~
 
-![](sw/spl/Help/Image/adjacencyGraph-C.svg)
+![](Help/Image/adjacencyGraph-C.svg)
 
 Construct graph by rule:
 
@@ -67,7 +67,7 @@ let m = { :i :j |
 m.adjacencyGraph.graphPlot
 ~~~
 
-![](sw/spl/Help/Image/adjacencyGraph-D.svg)
+![](Help/Image/adjacencyGraph-D.svg)
 
 Represent a network with an adjacency matrix:
 
@@ -81,7 +81,7 @@ Represent a network with an adjacency matrix:
 .graphPlot
 ~~~
 
-![](sw/spl/Help/Image/adjacencyGraph-E.svg)
+![](Help/Image/adjacencyGraph-E.svg)
 
 * * *
 

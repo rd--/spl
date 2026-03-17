@@ -15,7 +15,7 @@ Line drawing:
 ).Line
 ~~~
 
-![](sw/spl/Help/Image/cochleoid-A.svg)
+![](Help/Image/cochleoid-A.svg)
 
 * * *
 

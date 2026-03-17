@@ -10,7 +10,7 @@ Compute and plot a Gaussian vector:
 20.gaussianVector(10).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/gaussianVector-A.svg)
+![](Help/Image/gaussianVector-A.svg)
 
 The vector sums to `one`:
 

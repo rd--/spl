@@ -187,7 +187,7 @@ stirlingS1:/2
 .surfacePlot
 ~~~
 
-![](sw/spl/Help/Image/stirlingS1-A.svg)
+![](Help/Image/stirlingS1-A.svg)
 
 Sums of digits:
 
@@ -197,7 +197,7 @@ Sums of digits:
 }.table(1:16, 1:16).matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/stirlingS1-B.svg)
+![](Help/Image/stirlingS1-B.svg)
 
 Triangle of arctangent numbers,
 OEIS [A008309](https://oeis.org/A008309):
@@ -222,7 +222,7 @@ OEIS [A008309](https://oeis.org/A008309):
 }.catenate.logScale.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/stirlingS1-C.svg)
+![](Help/Image/stirlingS1-C.svg)
 
 Triangle of _s(n,n-k+1)_,
 OEIS [A008276](https://oeis.org/A008276):
@@ -233,7 +233,7 @@ OEIS [A008276](https://oeis.org/A008276):
 }.catenate.logScale.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/stirlingS1-D.svg)
+![](Help/Image/stirlingS1-D.svg)
 
 The triangle of signed Stirling numbers of the first kind,
 OEIS [A008275](http://oeis.org/A008275):
@@ -243,7 +243,7 @@ OEIS [A008275](http://oeis.org/A008275):
 .catenate.logScale.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/stirlingS1-E.svg)
+![](Help/Image/stirlingS1-E.svg)
 
 Generalized Stirling number triangle of first kind,
 OEIS [A049444](https://oeis.org/A049444):
@@ -262,7 +262,7 @@ OEIS [A049444](https://oeis.org/A049444):
 }.catenate.logScale.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/stirlingS1-F.svg)
+![](Help/Image/stirlingS1-F.svg)
 
 _k!×S1(n,k)_,
 OEIS [A048594](https://oeis.org/A048594):
@@ -273,7 +273,7 @@ OEIS [A048594](https://oeis.org/A048594):
 }.catenate.logScale.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/stirlingS1-G.svg)
+![](Help/Image/stirlingS1-G.svg)
 
 * * *
 

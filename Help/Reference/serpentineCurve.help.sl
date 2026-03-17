@@ -10,7 +10,7 @@ An algebraic curve studied by L’Hôpital and Huygens, and named and classified
 )
 ~~~
 
-![](sw/spl/Help/Image/serpentineCurve-A.svg)
+![](Help/Image/serpentineCurve-A.svg)
 
 Plot functional form:
 
@@ -24,7 +24,7 @@ let b = 1;
 }
 ~~~
 
-![](sw/spl/Help/Image/serpentineCurve-B.svg)
+![](Help/Image/serpentineCurve-B.svg)
 
 * * *
 

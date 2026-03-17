@@ -10,7 +10,7 @@ Compute and plot a square Gaussian matrix:
 10.gaussianMatrix(5).matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/gaussianMatrix-A.svg)
+![](Help/Image/gaussianMatrix-A.svg)
 
 Compute and plot a rectangular Gaussian matrix:
 
@@ -18,7 +18,7 @@ Compute and plot a rectangular Gaussian matrix:
 [2 10].gaussianMatrix([1 5]).matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/gaussianMatrix-B.svg)
+![](Help/Image/gaussianMatrix-B.svg)
 
 The matrix is symmetrical, print upper left quadrant:
 
@@ -54,7 +54,7 @@ Compute and plot a Gaussian vector:
 20.gaussianVector(2).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/gaussianMatrix-C.svg)
+![](Help/Image/gaussianMatrix-C.svg)
 
 * * *
 

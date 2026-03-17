@@ -27,7 +27,7 @@ DelaunayTriangulation(
 ).polygonMesh
 ~~~
 
-![](sw/spl/Help/Image/DelaunayTriangulation-A.svg)
+![](Help/Image/DelaunayTriangulation-A.svg)
 
 Draw the `vertexCoordinates` and `edgeList` of the Delaunay triangulation of a hexagon:
 
@@ -37,7 +37,7 @@ DelaunayTriangulation(
 ).asLineDrawing
 ~~~
 
-![](sw/spl/Help/Image/DelaunayTriangulation-B.svg)
+![](Help/Image/DelaunayTriangulation-B.svg)
 
 Plot the `graph` of the Delaunay triangulation of a hexagon:
 
@@ -47,7 +47,7 @@ DelaunayTriangulation(
 ).graph.graphPlot
 ~~~
 
-![](sw/spl/Help/Image/DelaunayTriangulation-C.svg)
+![](Help/Image/DelaunayTriangulation-C.svg)
 
 Draw a set of five random points,
 _p_,
@@ -75,7 +75,7 @@ let c = d.faceIndices.collect { :each |
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/DelaunayTriangulation-D.svg)
+![](Help/Image/DelaunayTriangulation-D.svg)
 
 Draw a set of seventeen random points,
 _p_,
@@ -99,7 +99,7 @@ let e = d.voronoiEdgeList.collect { :each |
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/DelaunayTriangulation-E.svg)
+![](Help/Image/DelaunayTriangulation-E.svg)
 
 * * *
 

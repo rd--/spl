@@ -128,7 +128,7 @@ A line drawing of the interval structure:
 Scale(1, [2 2 1 2 2 2 1], 'Maj.')
 ~~~
 
-![](sw/spl/Help/Image/Scale-A.svg)
+![](Help/Image/Scale-A.svg)
 
 * * *
 

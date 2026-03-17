@@ -45,7 +45,7 @@ Plot 99 random floating point numbers between `zero` and `one`:
 Sfc32(98765).next(99).linePlot
 ~~~
 
-![](sw/spl/Help/Image/Sfc32-A.svg)
+![](Help/Image/Sfc32-A.svg)
 
 Plot histogram:
 
@@ -55,7 +55,7 @@ Sfc32(387912)
 .histogramPlot
 ~~~
 
-![](sw/spl/Help/Image/Sfc32-B.svg)
+![](Help/Image/Sfc32-B.svg)
 
 Difference between empirical and expected mean and standard deviation:
 

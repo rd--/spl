@@ -12,7 +12,7 @@ Probability mass function:
 ).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/BinomialDistribution-A.svg)
+![](Help/Image/BinomialDistribution-A.svg)
 
 Cumulative distribution function:
 
@@ -22,7 +22,7 @@ Cumulative distribution function:
 ).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/BinomialDistribution-B.svg)
+![](Help/Image/BinomialDistribution-B.svg)
 
 Skewness:
 
@@ -38,7 +38,7 @@ Skewness:
 )
 ~~~
 
-![](sw/spl/Help/Image/BinomialDistribution-C.svg)
+![](Help/Image/BinomialDistribution-C.svg)
 
 Kurtosis:
 
@@ -54,7 +54,7 @@ Kurtosis:
 )
 ~~~
 
-![](sw/spl/Help/Image/BinomialDistribution-D.svg)
+![](Help/Image/BinomialDistribution-D.svg)
 
 Generate a sample of pseudo-random numbers from a binomial distribution:
 
@@ -65,7 +65,7 @@ BinomialDistribution(10, 0.4)
 .histogramPlot
 ~~~
 
-![](sw/spl/Help/Image/BinomialDistribution-E.svg)
+![](Help/Image/BinomialDistribution-E.svg)
 
 * * *
 

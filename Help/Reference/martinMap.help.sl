@@ -12,7 +12,7 @@ martinMap(0.4, 1, 0)
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/martinMap-A.svg)
+![](Help/Image/martinMap-A.svg)
 
 Martin map, _a=-2,b=0.33,c=0.01_:
 
@@ -22,7 +22,7 @@ martinMap(-2, -0.33, 0.01)
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/martinMap-B.svg)
+![](Help/Image/martinMap-B.svg)
 
 Martin map, _a=6,b=-1,c=3_:
 
@@ -32,7 +32,7 @@ martinMap(6, -1, 3)
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/martinMap-C.svg)
+![](Help/Image/martinMap-C.svg)
 
 * * *
 

@@ -162,7 +162,7 @@ let n = 20;
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/times-A.svg)
+![](Help/Image/times-A.svg)
 
 * * *
 

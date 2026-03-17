@@ -78,7 +78,7 @@ let a = { :n |
 0:92.collect(a:/1).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/which-A.svg)
+![](Help/Image/which-A.svg)
 
 Earliest sequence with _a(a(n))=6n_,
 OEIS [A054786](https://oeis.org/A054786):
@@ -107,7 +107,7 @@ let a = Map { :n |
 a[1:115].scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/which-B.svg)
+![](Help/Image/which-B.svg)
 
 * * *
 

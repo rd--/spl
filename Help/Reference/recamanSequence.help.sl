@@ -31,7 +31,7 @@ OEIS [A005132](https://oeis.org/A005132):
 300.recamanSequence.linePlot
 ~~~
 
-![](sw/spl/Help/Image/recamanSequence-A.svg)
+![](Help/Image/recamanSequence-A.svg)
 
 Recamáns sequence,
 scatter plot,
@@ -41,7 +41,7 @@ OEIS [A005132](https://oeis.org/A005132):
 300.recamanSequence.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/recamanSequence-B.svg)
+![](Help/Image/recamanSequence-B.svg)
 
 Drawing connecting adjacent elements of Recamáns sequence with arcs,
 radii are proportionate to distance:
@@ -63,7 +63,7 @@ let x = n.recamanSequence;
 }.LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/recamanSequence-C.svg)
+![](Help/Image/recamanSequence-C.svg)
 
 A variant of Recamáns sequence,
 _k_ begins at _n_ and then flips signs and increments until a value is located,
@@ -89,7 +89,7 @@ let d = IdentitySet(a);
 a.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/recamanSequence-D.svg)
+![](Help/Image/recamanSequence-D.svg)
 
 Sign of first differences of Recamán’s sequence,
 OEIS [A160357](https://oeis.org/A160357):
@@ -101,7 +101,7 @@ OEIS [A160357](https://oeis.org/A160357):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/recamanSequence-E.svg)
+![](Help/Image/recamanSequence-E.svg)
 
 Height of terms of Recamán’s sequence,
 OEIS [A064289](https://oeis.org/A064289):
@@ -112,7 +112,7 @@ r.addFirst(0);
 r.differences.sign.prefixSum.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/recamanSequence-F.svg)
+![](Help/Image/recamanSequence-F.svg)
 
 A variant of Recamáns sequence,
 OEIS [A063733](https://oeis.org/A063733):
@@ -130,7 +130,7 @@ OEIS [A063733](https://oeis.org/A063733):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/recamanSequence-G.svg)
+![](Help/Image/recamanSequence-G.svg)
 
 * * *
 

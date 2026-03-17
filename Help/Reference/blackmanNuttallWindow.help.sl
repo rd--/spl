@@ -32,7 +32,7 @@ Plot:
 )
 ~~~
 
-![](sw/spl/Help/Image/blackmanNuttallWindow-A.svg)
+![](Help/Image/blackmanNuttallWindow-A.svg)
 
 Discrete Blackman-Nuttall window of length 15:
 
@@ -43,7 +43,7 @@ Discrete Blackman-Nuttall window of length 15:
 ).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/blackmanNuttallWindow-B.svg)
+![](Help/Image/blackmanNuttallWindow-B.svg)
 
 Frequency response of the Blackman-Nuttall window:
 
@@ -53,7 +53,7 @@ Frequency response of the Blackman-Nuttall window:
 ).fftPlot(512, 'Centered', 'Logarithmic')
 ~~~
 
-![](sw/spl/Help/Image/blackmanNuttallWindow-C.svg)
+![](Help/Image/blackmanNuttallWindow-C.svg)
 
 * * *
 

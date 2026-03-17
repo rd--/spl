@@ -202,7 +202,7 @@ OEIS [A000120](https://oeis.org/A000120):
 }
 ~~~
 
-![](sw/spl/Help/Image/digitCount-A.svg)
+![](Help/Image/digitCount-A.svg)
 
 The number of odd elements in the first _n_ rows of Pascal’s triangle,
 OEIS [A006046](https://oeis.org/A006046):
@@ -216,7 +216,7 @@ let b = { :k | k.digitCount(2, 1) };
 }
 ~~~
 
-![](sw/spl/Help/Image/digitCount-B.svg)
+![](Help/Image/digitCount-B.svg)
 
 The Cantor numbers,
 OEIS [A005823](https://oeis.org/A005823):
@@ -227,7 +227,7 @@ OEIS [A005823](https://oeis.org/A005823):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/digitCount-C.svg)
+![](Help/Image/digitCount-C.svg)
 
 Number of ones in binary reflected Gray code of _n_,
 OEIS [A005811](https://oeis.org/A005811):
@@ -238,7 +238,7 @@ OEIS [A005811](https://oeis.org/A005811):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/digitCount-D.svg)
+![](Help/Image/digitCount-D.svg)
 
 Count zeroes in binary expansion,
 OEIS [A023416](https://oeis.org/A023416),
@@ -251,7 +251,7 @@ if initial terms is zero:
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/digitCount-E.svg)
+![](Help/Image/digitCount-E.svg)
 
 Total number of zeroes in binary expansions,
 a form of the Takagi curve,
@@ -263,7 +263,7 @@ OEIS [A059015](https://oeis.org/A059015):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/digitCount-F.svg)
+![](Help/Image/digitCount-F.svg)
 
 The number of ones in the binary expansion of _3ⁿ_,
 scatter plot,
@@ -274,7 +274,7 @@ OEIS [A011754](https://oeis.org/A011754):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/digitCount-G.svg)
+![](Help/Image/digitCount-G.svg)
 
 _3^w(n)_,
 OEIS [A048883](https://oeis.org/A048883):
@@ -285,7 +285,7 @@ OEIS [A048883](https://oeis.org/A048883):
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/digitCount-H.svg)
+![](Help/Image/digitCount-H.svg)
 
 Sum of _2e-w(2e)_ of prime signature of _n_,
 OEIS [A046645](https://oeis.org/A046645):
@@ -298,7 +298,7 @@ OEIS [A046645](https://oeis.org/A046645):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/digitCount-I.svg)
+![](Help/Image/digitCount-I.svg)
 
 Numbers having no more than one zero in their binary representation,
 OEIS [A089633](https://oeis.org/A089633):
@@ -309,7 +309,7 @@ OEIS [A089633](https://oeis.org/A089633):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/digitCount-J.svg)
+![](Help/Image/digitCount-J.svg)
 
 Numbers having at least two zeroes in their binary representation,
 OEIS [A158582](https://oeis.org/A158582):
@@ -320,7 +320,7 @@ OEIS [A158582](https://oeis.org/A158582):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/digitCount-K.svg)
+![](Help/Image/digitCount-K.svg)
 
 The only infinite sequence such that _a(n-1)=a(n)-f(a(n))_,
 where _f_ counts ones in the binary expansion,
@@ -336,7 +336,7 @@ OEIS [A179016](https://oeis.org/A179016):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/digitCount-L.svg)
+![](Help/Image/digitCount-L.svg)
 
 Numbers whose base three representation contains no two,
 a Stanley sequence,
@@ -348,7 +348,7 @@ OEIS [A005836](https://oeis.org/A005836):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/digitCount-M.svg)
+![](Help/Image/digitCount-M.svg)
 
 Number of first-quadrant cells born at stage _n_ of the Holladay-Ulam cellular automaton,
 OEIS [A079314](https://oeis.org/A079314),
@@ -362,7 +362,7 @@ let a = 3 ^ (w - 1) + 1;
 ([1] ++ a).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/digitCount-N.svg)
+![](Help/Image/digitCount-N.svg)
 
 Number of first-quadrant cells that are on after _n_-th stage of the Holladay-Ulam cellular automaton,
 OEIS [A151922](https://oeis.org/A151922),
@@ -376,7 +376,7 @@ let a = 3 ^ (w - 1) + 1;
 ([1] ++ a).prefixSum.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/digitCount-O.svg)
+![](Help/Image/digitCount-O.svg)
 
 _2^w(⌊(n/2))_,
 OEIS [A060632](https://oeis.org/A060632):
@@ -387,7 +387,7 @@ let a = 2 ^ (n / 2).floor.digitCount(2, 1);
 a.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/digitCount-P.svg)
+![](Help/Image/digitCount-P.svg)
 
 Count number of zero digits in _n_,
 OEIS [A055641](https://oeis.org/A055641):
@@ -396,7 +396,7 @@ OEIS [A055641](https://oeis.org/A055641):
 0:150.digitCount(10, 0).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/digitCount-Q.svg)
+![](Help/Image/digitCount-Q.svg)
 
 _2*(n-w(n))/3_ where _w_ is the one count in the base negative two expansion,
 OEIS [A073504](https://oeis.org/A073504):
@@ -407,7 +407,7 @@ OEIS [A073504](https://oeis.org/A073504):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/digitCount-R.svg)
+![](Help/Image/digitCount-R.svg)
 
 Characteristic function of numbers with an even number of ones in their binary expansion,
 OEIS [A010059](https://oeis.org/A010059):
@@ -418,7 +418,7 @@ OEIS [A010059](https://oeis.org/A010059):
 }.characteristicFunction.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/digitCount-S.svg)
+![](Help/Image/digitCount-S.svg)
 
 * * *
 

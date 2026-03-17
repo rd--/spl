@@ -22,7 +22,7 @@ let p = [1 1; 2 3; 3 -1; 4 1; 5 0];
 )
 ~~~
 
-![](sw/spl/Help/Image/bSplineFunction-A.svg)
+![](Help/Image/bSplineFunction-A.svg)
 
 Create a vector-valued function of dimension two:
 
@@ -34,7 +34,7 @@ let p = r.randomReal([0 1], [10 2]);
 )
 ~~~
 
-![](sw/spl/Help/Image/bSplineFunction-B.svg)
+![](Help/Image/bSplineFunction-B.svg)
 
 Create a vector-valued function of dimension three:
 
@@ -46,7 +46,7 @@ let p = r.randomReal([0 1], [10 3]);
 )
 ~~~
 
-![](sw/spl/Help/Image/bSplineFunction-C.svg)
+![](Help/Image/bSplineFunction-C.svg)
 
 * * *
 

@@ -36,7 +36,7 @@ Plot first few terms:
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/nearestPrime-A.svg)
+![](Help/Image/nearestPrime-A.svg)
 
 * * *
 

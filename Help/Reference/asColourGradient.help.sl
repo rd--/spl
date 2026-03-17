@@ -19,7 +19,7 @@ Answer a yellow-magenta-blue gradient with the magenta positioned at two-thirds:
 ].asColourGradient
 ~~~
 
-![](sw/spl/Help/Image/asColourGradient-A.svg)
+![](Help/Image/asColourGradient-A.svg)
 
 * * *
 

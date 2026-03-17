@@ -60,7 +60,7 @@ Sfc32(235617)
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/fourier-A.svg)
+![](Help/Image/fourier-A.svg)
 
 Show the logarithmic spectrum, including the first (zero-frequency) component:
 
@@ -74,7 +74,7 @@ Sfc32(235617)
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/fourier-B.svg)
+![](Help/Image/fourier-B.svg)
 
 The spectrum of an impulse is completely flat:
 
@@ -96,7 +96,7 @@ Power spectrum of the Thue–Morse sequence:
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/fourier-C.svg)
+![](Help/Image/fourier-C.svg)
 
 The Fourier transform is equivalent to multiplication with a `fourierMatrix`:
 

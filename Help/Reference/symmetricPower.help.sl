@@ -48,7 +48,7 @@ Plot:
 ).linePlot
 ~~~
 
-![](sw/spl/Help/Image/symmetricPower-A.svg)
+![](Help/Image/symmetricPower-A.svg)
 
 * * *
 

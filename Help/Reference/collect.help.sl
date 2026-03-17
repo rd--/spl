@@ -122,7 +122,7 @@ OEIS [A057145](https://oeis.org/A057145):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/collect-A.svg)
+![](Help/Image/collect-A.svg)
 
 Tribonacci array,
 OEIS [A027023](https://oeis.org/A027023):
@@ -145,7 +145,7 @@ let t = { :n :k |
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/collect-B.svg)
+![](Help/Image/collect-B.svg)
 
 Collect is implemented in terms of `new`, `do` and `add` for unordered collections,
 and in terms of `ofSize`, `size`, `at` and `atPut` for sequences.

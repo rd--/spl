@@ -48,7 +48,7 @@ perspectiveScene()
 )
 ~~~
 
-![](<sw/spl/Help/Image/Perspective Drawings-A.svg>)
+![](<Help/Image/Perspective Drawings-A.svg>)
 
 Another convention is that
 _x_ is left to right,
@@ -70,7 +70,7 @@ perspectiveScene()
 )
 ~~~
 
-![](<sw/spl/Help/Image/Perspective Drawings-B.svg>)
+![](<Help/Image/Perspective Drawings-B.svg>)
 
 Another convention is that
 _x_ is left to right,
@@ -94,7 +94,7 @@ perspectiveScene()
 )
 ~~~
 
-![](<sw/spl/Help/Image/Perspective Drawings-C.svg>)
+![](<Help/Image/Perspective Drawings-C.svg>)
 
 The `linePlot` method follows the first convention:
 
@@ -107,7 +107,7 @@ The `linePlot` method follows the first convention:
 ].linePlot
 ~~~
 
-![](<sw/spl/Help/Image/Perspective Drawings-D.svg>)
+![](<Help/Image/Perspective Drawings-D.svg>)
 
 * * *
 

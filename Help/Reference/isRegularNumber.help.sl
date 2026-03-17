@@ -39,7 +39,7 @@ Plot sequence of regular numbers:
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/isRegularNumber-A.svg)
+![](Help/Image/isRegularNumber-A.svg)
 
 * * *
 

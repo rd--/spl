@@ -96,7 +96,7 @@ Log plot of 4×4 Pascal matrix:
 7.pascalMatrix.log.matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/pascalMatrix-A.svg)
+![](Help/Image/pascalMatrix-A.svg)
 
 Scatter plot of row order upper triangular Pascal matrix:
 
@@ -105,7 +105,7 @@ Scatter plot of row order upper triangular Pascal matrix:
 .catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/pascalMatrix-B.svg)
+![](Help/Image/pascalMatrix-B.svg)
 
 * * *
 

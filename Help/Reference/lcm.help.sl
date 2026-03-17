@@ -121,7 +121,7 @@ Plot the least common multiple for a number with 12:
 }
 ~~~
 
-![](sw/spl/Help/Image/lcm-A.svg)
+![](Help/Image/lcm-A.svg)
 
 Visualize the least common multiples of two integers:
 
@@ -131,7 +131,7 @@ Visualize the least common multiples of two integers:
 }.table(1:50, 1:50).rescale.Greymap
 ~~~
 
-![](sw/spl/Help/Image/lcm-B.png)
+![](Help/Image/lcm-B.png)
 
 Fibonacci numbers:
 
@@ -145,7 +145,7 @@ let m = f[30];
 }.table(1:75, 1:75).rescale.Greymap
 ~~~
 
-![](sw/spl/Help/Image/lcm-C.png)
+![](Help/Image/lcm-C.png)
 
 Form the least common multiples of `one` with rational numbers:
 
@@ -159,7 +159,7 @@ Form the least common multiples of `one` with rational numbers:
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/lcm-D.svg)
+![](Help/Image/lcm-D.svg)
 
 * * *
 

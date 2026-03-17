@@ -35,7 +35,7 @@ Plot a lower Christoffel word:
 ).Line
 ~~~
 
-![](sw/spl/Help/Image/staircasePath-A.svg)
+![](Help/Image/staircasePath-A.svg)
 
 Plot in three dimensions:
 
@@ -47,7 +47,7 @@ Plot in three dimensions:
 ).Line
 ~~~
 
-![](sw/spl/Help/Image/staircasePath-B.svg)
+![](Help/Image/staircasePath-B.svg)
 
 * * *
 

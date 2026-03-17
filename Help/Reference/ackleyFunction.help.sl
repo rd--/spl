@@ -18,7 +18,7 @@ let f:/1 = ackleyFunction(20, 0.2, 2.pi);
 .Greymap
 ~~~
 
-![](sw/spl/Help/Image/ackleyFunction-A.png)
+![](Help/Image/ackleyFunction-A.png)
 
 Contour plot of sparse sampling:
 
@@ -31,7 +31,7 @@ let f:/1 = ackleyFunction(20, 0.2, 2.pi);
 }.contourPlot(i, i, [1 3 5 7])
 ~~~
 
-![](sw/spl/Help/Image/ackleyFunction-B.svg)
+![](Help/Image/ackleyFunction-B.svg)
 
 * * *
 

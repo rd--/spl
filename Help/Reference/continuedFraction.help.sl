@@ -315,7 +315,7 @@ OEIS [A141821](https://oeis.org/A141821):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/continuedFraction-A.svg)
+![](Help/Image/continuedFraction-A.svg)
 
 The least maxima of
 the least number _k<n_ and coprime to _n_ such that the largest term of the continued fraction of _k/n_ is as small as possible,
@@ -333,7 +333,7 @@ OEIS [A141822](https://oeis.org/A141822):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/continuedFraction-B.svg)
+![](Help/Image/continuedFraction-B.svg)
 
 Numerators of rationals _≥1_ whose continued fractions consist only of ones and twos,
 OEIS [A072728](https://oeis.org/A072728):
@@ -349,7 +349,7 @@ OEIS [A072728](https://oeis.org/A072728):
 ].scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/continuedFraction-C.svg)
+![](Help/Image/continuedFraction-C.svg)
 
 Denominators of rationals _≥1_ whose continued fractions consist only of ones and twos,
 OEIS [A072729](https://oeis.org/A072729):
@@ -365,7 +365,7 @@ OEIS [A072729](https://oeis.org/A072729):
 ].scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/continuedFraction-D.svg)
+![](Help/Image/continuedFraction-D.svg)
 
 Rationals _≥1_ whose continued fractions consist only of ones and twos:
 
@@ -390,7 +390,7 @@ Fraction(
 ).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/continuedFraction-E.svg)
+![](Help/Image/continuedFraction-E.svg)
 
 Continued fractions of rationals _≥1_ whose continued fractions consist only of ones and twos,
 shifted to alphabet of _-1,1_:
@@ -416,7 +416,7 @@ let c = Fraction(n, d).continuedFraction;
 (c.catenate - 1 * 2 - 1).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/continuedFraction-F.svg)
+![](Help/Image/continuedFraction-F.svg)
 
 * * *
 

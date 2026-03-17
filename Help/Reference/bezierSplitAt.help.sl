@@ -26,7 +26,7 @@ let p = [5 5; 1 3; 10 0; 10 10];
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/bezierSplitAt-A.svg)
+![](Help/Image/bezierSplitAt-A.svg)
 
 Draw the same cubic Bézier curve split into two parts,
 and both the initial and the derived control points:
@@ -43,7 +43,7 @@ let [q, r] = p.bezierSplitAt(0.5);
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/bezierSplitAt-B.svg)
+![](Help/Image/bezierSplitAt-B.svg)
 
 * * *
 

@@ -69,7 +69,7 @@ signature:/1.map(
 ).partition(4 ^ 2).rescale.matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/signature-A.svg)
+![](Help/Image/signature-A.svg)
 
 Plot signatures of indices of a 5×5×5×5×5 array,
 partitioned into a rectangular matrix:
@@ -80,7 +80,7 @@ signature:/1.map(
 ).partition(5 ^ 3).abs.matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/signature-B.svg)
+![](Help/Image/signature-B.svg)
 
 Plot signatures of indices of a 6×6×6×6×6×6 array,
 partitioned into a rectangular matrix:
@@ -91,7 +91,7 @@ signature:/1.map(
 ).partition(6 ^ 3).abs.Bitmap
 ~~~
 
-![](sw/spl/Help/Image/signature-C.png)
+![](Help/Image/signature-C.png)
 
 * * *
 

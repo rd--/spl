@@ -78,7 +78,7 @@ Scatter plot of the digits of Gausss’s constant:
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/gausssConstant-A.svg)
+![](Help/Image/gausssConstant-A.svg)
 
 The continued fraction at the higher precision decimal constant is accurate to many more places:
 
@@ -110,7 +110,7 @@ Log scale scatter plot of the continued fraction:
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/gausssConstant-B.svg)
+![](Help/Image/gausssConstant-B.svg)
 
 * * *
 

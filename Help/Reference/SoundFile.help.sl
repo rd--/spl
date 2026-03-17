@@ -33,7 +33,7 @@ SoundFile(url).then { :soundFile |
 }
 ~~~
 
-![](sw/spl/Help/Image/SoundFile-A.svg)
+![](Help/Image/SoundFile-A.svg)
 
 Define a 128 place sine table,
 construct a SoundFile to hold it,

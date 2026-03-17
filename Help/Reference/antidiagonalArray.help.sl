@@ -56,7 +56,7 @@ OEIS [A114327](https://oeis.org/A114327):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/antidiagonalArray-A.svg)
+![](Help/Image/antidiagonalArray-A.svg)
 
 Table _|n-k|_,
 read by upwards antidiagonals,
@@ -68,7 +68,7 @@ OEIS [A049581](https://oeis.org/A049581):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/antidiagonalArray-B.svg)
+![](Help/Image/antidiagonalArray-B.svg)
 
 The multiplication table,
 read by antidiagonals,
@@ -79,7 +79,7 @@ OEIS [A004247](https://oeis.org/A004247):
 .catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/antidiagonalArray-C.svg)
+![](Help/Image/antidiagonalArray-C.svg)
 
 * * *
 

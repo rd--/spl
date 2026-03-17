@@ -20,7 +20,7 @@ Plot transform of Gaussian integers:
 }.table(-7:7, 0:7).complexListPlot
 ~~~
 
-![](sw/spl/Help/Image/cayleyTransform-A.svg)
+![](Help/Image/cayleyTransform-A.svg)
 
 Plot over half unit square:
 
@@ -28,7 +28,7 @@ Plot over half unit square:
 [-1J0 1J1].complexPlot(cayleyTransform:/1)
 ~~~
 
-![](sw/spl/Help/Image/cayleyTransform-B.png)
+![](Help/Image/cayleyTransform-B.png)
 
 Plot transform of Gaussian integers of the form _(m-ni)/(p+qi)_:
 
@@ -44,7 +44,7 @@ Plot transform of Gaussian integers of the form _(m-ni)/(p+qi)_:
 }.deleteMissing.complexListPlot
 ~~~
 
-![](sw/spl/Help/Image/cayleyTransform-C.svg)
+![](Help/Image/cayleyTransform-C.svg)
 
 * * *
 

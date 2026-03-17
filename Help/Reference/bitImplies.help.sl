@@ -67,7 +67,7 @@ OEIS [A265705](https://oeis.org/A265705):
 .catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitImplies-A.svg)
+![](Help/Image/bitImplies-A.svg)
 
 Bitwise logical implication _n→2n_,
 OEIS [A265716](https://oeis.org/A265716):
@@ -78,7 +78,7 @@ OEIS [A265716](https://oeis.org/A265716):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/bitImplies-B.svg)
+![](Help/Image/bitImplies-B.svg)
 
 Bitwise logical implication _n→2n_,
 scatter plot,
@@ -90,7 +90,7 @@ OEIS [A265716](https://oeis.org/A265716):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitImplies-C.svg)
+![](Help/Image/bitImplies-C.svg)
 
 Bitwise logical implication _n→P(n)_,
 OEIS [A265885](https://oeis.org/A265885):
@@ -101,7 +101,7 @@ OEIS [A265885](https://oeis.org/A265885):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/bitImplies-D.svg)
+![](Help/Image/bitImplies-D.svg)
 
 Bitwise logical implication _n→P(n)_,
 scatter plot,
@@ -113,7 +113,7 @@ OEIS [A265885](https://oeis.org/A265885):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitImplies-E.svg)
+![](Help/Image/bitImplies-E.svg)
 
 * * *
 

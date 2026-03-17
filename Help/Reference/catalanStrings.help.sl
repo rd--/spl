@@ -54,7 +54,7 @@ Matrix plot of length five two-Catalan strings:
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/catalanStrings-A.svg)
+![](Help/Image/catalanStrings-A.svg)
 
 * * *
 

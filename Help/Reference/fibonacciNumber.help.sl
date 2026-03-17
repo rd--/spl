@@ -26,7 +26,7 @@ OEIS [A002708](https://oeis.org/A002708):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/fibonacciNumber-A.svg)
+![](Help/Image/fibonacciNumber-A.svg)
 
 Fibonacci numbers modulo twenty-five,
 period is one-hundred:
@@ -36,7 +36,7 @@ period is one-hundred:
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/fibonacciNumber-B.svg)
+![](Help/Image/fibonacciNumber-B.svg)
 
 * * *
 

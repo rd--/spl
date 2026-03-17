@@ -24,7 +24,7 @@ Plot:
 (-1 -- 1).functionPlot(cosineWindow:/1)
 ~~~
 
-![](sw/spl/Help/Image/cosineWindow-A.svg)
+![](Help/Image/cosineWindow-A.svg)
 
 Shape of a cosine window using a specified parameter:
 
@@ -34,7 +34,7 @@ Shape of a cosine window using a specified parameter:
 }
 ~~~
 
-![](sw/spl/Help/Image/cosineWindow-B.svg)
+![](Help/Image/cosineWindow-B.svg)
 
 Discrete cosine window of length 15:
 
@@ -45,7 +45,7 @@ Discrete cosine window of length 15:
 ).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/cosineWindow-C.svg)
+![](Help/Image/cosineWindow-C.svg)
 
 Frequency response of the cosine window:
 
@@ -55,7 +55,7 @@ Frequency response of the cosine window:
 ).fftPlot(512, 'Centered', 'Logarithmic')
 ~~~
 
-![](sw/spl/Help/Image/cosineWindow-D.svg)
+![](Help/Image/cosineWindow-D.svg)
 
 * * *
 

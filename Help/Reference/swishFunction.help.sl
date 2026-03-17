@@ -11,7 +11,7 @@ Plot over a subset of the reals:
 (-5 -- 5).functionPlot(1.swishFunction)
 ~~~
 
-![](sw/spl/Help/Image/swishFunction-A.svg)
+![](Help/Image/swishFunction-A.svg)
 
 Varying β:
 
@@ -23,7 +23,7 @@ Varying β:
 )
 ~~~
 
-![](sw/spl/Help/Image/swishFunction-B.svg)
+![](Help/Image/swishFunction-B.svg)
 
 * * *
 

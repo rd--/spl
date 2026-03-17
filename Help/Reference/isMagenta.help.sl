@@ -29,7 +29,7 @@ system.svgColourCatalogue
 .enclose.arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/isMagenta-A.svg)
+![](Help/Image/isMagenta-A.svg)
 
 * * *
 

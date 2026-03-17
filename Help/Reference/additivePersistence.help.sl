@@ -31,7 +31,7 @@ OEIS [A031286](https://oeis.org/A031286):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/additivePersistence-A.svg)
+![](Help/Image/additivePersistence-A.svg)
 
 * * *
 

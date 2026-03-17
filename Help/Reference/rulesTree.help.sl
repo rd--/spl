@@ -69,7 +69,7 @@ Construct a tree of the House of Atreus:
 ).rulesTree.treePlot
 ~~~
 
-![](sw/spl/Help/Image/rulesTree-A.svg)
+![](Help/Image/rulesTree-A.svg)
 
 * * *
 

@@ -10,7 +10,7 @@ Plot the _(3,3)_ knight graph:
 3.knightGraph.graphPlot
 ~~~
 
-![](sw/spl/Help/Image/knightGraph-A.svg)
+![](Help/Image/knightGraph-A.svg)
 
 Plot the _(4,4)_ knight graph:
 
@@ -18,7 +18,7 @@ Plot the _(4,4)_ knight graph:
 4.knightGraph.graphPlot
 ~~~
 
-![](sw/spl/Help/Image/knightGraph-B.svg)
+![](Help/Image/knightGraph-B.svg)
 
 Draw the _(4,4)_ knight graph,
 the answered graph has vertex specified:
@@ -27,7 +27,7 @@ the answered graph has vertex specified:
 4.knightGraph.asLineDrawing
 ~~~
 
-![](sw/spl/Help/Image/knightGraph-C.svg)
+![](Help/Image/knightGraph-C.svg)
 
 Draw the _(5,5)_ knight graph:
 
@@ -35,7 +35,7 @@ Draw the _(5,5)_ knight graph:
 5.knightGraph.asLineDrawing
 ~~~
 
-![](sw/spl/Help/Image/knightGraph-D.svg)
+![](Help/Image/knightGraph-D.svg)
 
 Draw the _(7,9)_ knight graph:
 
@@ -43,7 +43,7 @@ Draw the _(7,9)_ knight graph:
 knightGraph(7, 9).asLineDrawing
 ~~~
 
-![](sw/spl/Help/Image/knightGraph-E.svg)
+![](Help/Image/knightGraph-E.svg)
 
 * * *
 

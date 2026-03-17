@@ -57,7 +57,7 @@ Plot over a subset of the reals:
 (-3 -- 3).functionPlot(abs:/1)
 ~~~
 
-![](sw/spl/Help/Image/abs-A.svg)
+![](Help/Image/abs-A.svg)
 
 Plot _|1 + x|_:
 
@@ -65,7 +65,7 @@ Plot _|1 + x|_:
 (-2 -- 4).functionPlot(abs:/1)
 ~~~
 
-![](sw/spl/Help/Image/abs-B.svg)
+![](Help/Image/abs-B.svg)
 
 Plot `abs` at Gaussian integers:
 
@@ -75,7 +75,7 @@ Plot `abs` at Gaussian integers:
 }.table(-36:36, -36:36).Bitmap
 ~~~
 
-![](sw/spl/Help/Image/abs-C.png)
+![](Help/Image/abs-C.png)
 
 Absolute value of the first digit of _n_ minus the last digit,
 OEIS [A040163](https://oeis.org/A040163):
@@ -87,7 +87,7 @@ OEIS [A040163](https://oeis.org/A040163):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/abs-D.svg)
+![](Help/Image/abs-D.svg)
 
 Absolute value of the first digit of _n_ minus the sum of the remaining digits,
 OEIS [A040997](https://oeis.org/A040997):
@@ -99,7 +99,7 @@ OEIS [A040997](https://oeis.org/A040997):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/abs-E.svg)
+![](Help/Image/abs-E.svg)
 
 * * *
 

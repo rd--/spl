@@ -39,7 +39,7 @@ Plot comparing `factorial` and `stirlingsApproximation` for small _n_:
 )
 ~~~
 
-![](sw/spl/Help/Image/stirlingsApproximation-A.svg)
+![](Help/Image/stirlingsApproximation-A.svg)
 
 * * *
 

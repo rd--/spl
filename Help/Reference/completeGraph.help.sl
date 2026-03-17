@@ -51,7 +51,7 @@ Draw complete graph on three vertices:
 3.completeGraph.graphPlot
 ~~~
 
-![](sw/spl/Help/Image/completeGraph-A.svg)
+![](Help/Image/completeGraph-A.svg)
 
 Draw complete graph on five vertices:
 
@@ -59,7 +59,7 @@ Draw complete graph on five vertices:
 5.completeGraph.graphPlot
 ~~~
 
-![](sw/spl/Help/Image/completeGraph-B.svg)
+![](Help/Image/completeGraph-B.svg)
 
 * * *
 

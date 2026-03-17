@@ -39,7 +39,7 @@ Plot _J0_ over a subset of the reals:
 (0 -- 50).functionPlot { :x | 0.besselJ(x) }
 ~~~
 
-![](sw/spl/Help/Image/besselJ-A.svg)
+![](Help/Image/besselJ-A.svg)
 
 Plot _J0_ for _(-1, 9)_, showing the first three zero crossings:
 
@@ -47,7 +47,7 @@ Plot _J0_ for _(-1, 9)_, showing the first three zero crossings:
 (-1 -- 9).functionPlot { :x | 0.besselJ(x) }
 ~~~
 
-![](sw/spl/Help/Image/besselJ-B.svg)
+![](Help/Image/besselJ-B.svg)
 
 Plot _J1_ for _(0, 15)_, showing the first four zero crossings:
 
@@ -55,7 +55,7 @@ Plot _J1_ for _(0, 15)_, showing the first four zero crossings:
 (0 -- 15).functionPlot { :x | 1.besselJ(x) }
 ~~~
 
-![](sw/spl/Help/Image/besselJ-C.svg)
+![](Help/Image/besselJ-C.svg)
 
 Plot the intensity of the Fraunhofer diffraction pattern of a circular aperture versus diffraction angle:
 
@@ -67,7 +67,7 @@ Plot the intensity of the Fraunhofer diffraction pattern of a circular aperture 
 }
 ~~~
 
-![](sw/spl/Help/Image/besselJ-D.svg)
+![](Help/Image/besselJ-D.svg)
 
 * * *
 

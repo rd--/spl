@@ -46,7 +46,7 @@ Plot over a subset of the reals:
 (-4 -- 4).functionPlot(cosh:/1)
 ~~~
 
-![](sw/spl/Help/Image/cosh-A.svg)
+![](Help/Image/cosh-A.svg)
 
 Plot `cosh` alongside a Padé approximation:
 
@@ -57,7 +57,7 @@ Plot `cosh` alongside a Padé approximation:
 ])
 ~~~
 
-![](sw/spl/Help/Image/cosh-B.svg)
+![](Help/Image/cosh-B.svg)
 
 `cosh` of _x_ is the average of `exp` _x_ and _-x_:
 
@@ -69,7 +69,7 @@ Plot `cosh` alongside a Padé approximation:
 ])
 ~~~
 
-![](sw/spl/Help/Image/cosh-C.svg)
+![](Help/Image/cosh-C.svg)
 
 Plot over a subset of the complexes:
 
@@ -78,7 +78,7 @@ Plot over a subset of the complexes:
 .complexPlot(cosh:/1)
 ~~~
 
-![](sw/spl/Help/Image/cosh-D.png)
+![](Help/Image/cosh-D.png)
 
 * * *
 

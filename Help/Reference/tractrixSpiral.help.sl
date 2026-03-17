@@ -14,7 +14,7 @@ let f:/1 = tractrixSpiral(1);
 }.Line
 ~~~
 
-![](sw/spl/Help/Image/tractrixSpiral-A.svg)
+![](Help/Image/tractrixSpiral-A.svg)
 
 * * *
 

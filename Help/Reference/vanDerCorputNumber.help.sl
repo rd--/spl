@@ -177,7 +177,7 @@ Plot decimal van der Corput sequence:
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/vanDerCorputNumber-A.svg)
+![](Help/Image/vanDerCorputNumber-A.svg)
 
 Plot numerators of decimal van der Corput sequence:
 
@@ -187,7 +187,7 @@ Plot numerators of decimal van der Corput sequence:
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/vanDerCorputNumber-B.svg)
+![](Help/Image/vanDerCorputNumber-B.svg)
 
 Plot the binary radical inverse:
 
@@ -197,7 +197,7 @@ Plot the binary radical inverse:
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/vanDerCorputNumber-C.svg)
+![](Help/Image/vanDerCorputNumber-C.svg)
 
 Plot progressive filling of the interval _(0,1)_:
 
@@ -207,7 +207,7 @@ Plot progressive filling of the interval _(0,1)_:
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/vanDerCorputNumber-D.svg)
+![](Help/Image/vanDerCorputNumber-D.svg)
 
 Plot sorted binary sequence of length 2⁶:
 
@@ -217,7 +217,7 @@ Plot sorted binary sequence of length 2⁶:
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/vanDerCorputNumber-E.svg)
+![](Help/Image/vanDerCorputNumber-E.svg)
 
 Show decimal sequence at length halfway between 10ⁱ and 10²:
 
@@ -227,7 +227,7 @@ Show decimal sequence at length halfway between 10ⁱ and 10²:
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/vanDerCorputNumber-F.svg)
+![](Help/Image/vanDerCorputNumber-F.svg)
 
 Numerators of binary van der Corput sequence,
 OEIS [A030101](https://oeis.org/A030101):
@@ -238,7 +238,7 @@ OEIS [A030101](https://oeis.org/A030101):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/vanDerCorputNumber-G.svg)
+![](Help/Image/vanDerCorputNumber-G.svg)
 
 Generate a two-dimensional Halton sequence with bases two and three:
 
@@ -250,7 +250,7 @@ Generate a two-dimensional Halton sequence with bases two and three:
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/vanDerCorputNumber-H.svg)
+![](Help/Image/vanDerCorputNumber-H.svg)
 
 Generate a two-dimensional Hammersley sequence:
 
@@ -264,7 +264,7 @@ let n = 256;
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/vanDerCorputNumber-I.svg)
+![](Help/Image/vanDerCorputNumber-I.svg)
 
 Continued fraction elements constructed out of a van der Corput sequence,
 OEIS [A089618](https://oeis.org/A089618):
@@ -274,7 +274,7 @@ let n = 1:250.vanDerCorputNumber(2);
 (1 / (2 ^ n - 1)).floor.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/vanDerCorputNumber-J.svg)
+![](Help/Image/vanDerCorputNumber-J.svg)
 
 * * *
 

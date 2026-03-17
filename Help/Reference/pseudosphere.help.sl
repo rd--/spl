@@ -8,7 +8,7 @@ Implement the parametric equation for the pseudosphere.
 [-2 2; 0 2.pi].surfacePlot(pseudosphere:/2)
 ~~~
 
-![](sw/spl/Help/Image/pseudosphere-A.svg)
+![](Help/Image/pseudosphere-A.svg)
 
 * * *
 

@@ -41,7 +41,7 @@ OEIS [A076662](https://oeis.org/A076662):
 .stepPlot
 ~~~
 
-![](sw/spl/Help/Image/wythoffUpper-A.svg)
+![](Help/Image/wythoffUpper-A.svg)
 
 Second differences of the upper Wythoff sequence,
 essentially
@@ -53,7 +53,7 @@ OEIS [A014677](https://oeis.org/A014677):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/wythoffUpper-B.svg)
+![](Help/Image/wythoffUpper-B.svg)
 
 * * *
 

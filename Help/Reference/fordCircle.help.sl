@@ -18,7 +18,7 @@ Draw Ford circles for the ninth-order Farey sequence:
 .LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/fordCircle-A.svg)
+![](Help/Image/fordCircle-A.svg)
 
 * * *
 

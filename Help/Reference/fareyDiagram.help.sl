@@ -10,7 +10,7 @@ Diagram of sequence of order five:
 5.fareyDiagram('Square')
 ~~~
 
-![](sw/spl/Help/Image/fareyDiagram-A.svg)
+![](Help/Image/fareyDiagram-A.svg)
 
 Diagram of sequence of order nine:
 
@@ -18,7 +18,7 @@ Diagram of sequence of order nine:
 9.fareyDiagram('Square')
 ~~~
 
-![](sw/spl/Help/Image/fareyDiagram-B.svg)
+![](Help/Image/fareyDiagram-B.svg)
 
 * * *
 

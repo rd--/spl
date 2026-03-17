@@ -31,7 +31,7 @@ let m = [1 0.75; 1.3 0.63; 1.5 0.55; 2 0.49];
 }
 ~~~
 
-![](sw/spl/Help/Image/nevillesAlgorithm-A.svg)
+![](Help/Image/nevillesAlgorithm-A.svg)
 
 Plot interpolation of a triangular signal:
 
@@ -43,7 +43,7 @@ let m = [0 0; 1 1; 2 0; 3 -1; 4 0];
 }
 ~~~
 
-![](sw/spl/Help/Image/nevillesAlgorithm-B.svg)
+![](Help/Image/nevillesAlgorithm-B.svg)
 
 * * *
 

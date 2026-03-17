@@ -27,7 +27,7 @@ Plot over a subset of the reals:
 (-2 -- 2).functionPlot(sawtoothWave:/1)
 ~~~
 
-![](sw/spl/Help/Image/sawtoothWave-A.svg)
+![](Help/Image/sawtoothWave-A.svg)
 
 * * *
 

@@ -27,7 +27,7 @@ Polyhedron(
 )
 ~~~
 
-![](sw/spl/Help/Image/Polyhedron-A.svg)
+![](Help/Image/Polyhedron-A.svg)
 
 * * *
 

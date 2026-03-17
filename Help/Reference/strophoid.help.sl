@@ -13,7 +13,7 @@ Line drawing, _a=π/2_:
 ).Line
 ~~~
 
-![](sw/spl/Help/Image/strophoid-A.svg)
+![](Help/Image/strophoid-A.svg)
 
 Line drawing, _a=π/8_:
 
@@ -24,7 +24,7 @@ Line drawing, _a=π/8_:
 ).Line
 ~~~
 
-![](sw/spl/Help/Image/strophoid-B.svg)
+![](Help/Image/strophoid-B.svg)
 
 Line drawing, _a=2π/3_:
 
@@ -35,7 +35,7 @@ Line drawing, _a=2π/3_:
 ).Line
 ~~~
 
-![](sw/spl/Help/Image/strophoid-C.svg)
+![](Help/Image/strophoid-C.svg)
 
 * * *
 

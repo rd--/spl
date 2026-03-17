@@ -26,7 +26,7 @@ greyLevel:/2
 .arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/greyLevel-A.svg)
+![](Help/Image/greyLevel-A.svg)
 
 * * *
 

@@ -80,7 +80,7 @@ OEIS [A035513](https://oeis.org/A035513):
 ).catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/wythoffArray-A.svg)
+![](Help/Image/wythoffArray-A.svg)
 
 Wythoff array read by rising antidiagonals,
 OEIS [A083412](https://oeis.org/A083412):
@@ -91,7 +91,7 @@ OEIS [A083412](https://oeis.org/A083412):
 ).catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/wythoffArray-B.svg)
+![](Help/Image/wythoffArray-B.svg)
 
 Matrix plot of Wythoff array:
 
@@ -100,7 +100,7 @@ wythoffArray:/2.table(1:13, 1:13)
 .log.matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/wythoffArray-C.svg)
+![](Help/Image/wythoffArray-C.svg)
 
 * * *
 

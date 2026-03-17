@@ -11,7 +11,7 @@ Plot the stacked book graph _B(3,4)_:
 .graphPlot
 ~~~
 
-![](sw/spl/Help/Image/stackedBookGraph-A.svg)
+![](Help/Image/stackedBookGraph-A.svg)
 
 Plot the adjacency matrix of the stacked book graph _B(5,7)_:
 
@@ -21,7 +21,7 @@ Plot the adjacency matrix of the stacked book graph _B(5,7)_:
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/stackedBookGraph-B.svg)
+![](Help/Image/stackedBookGraph-B.svg)
 
 * * *
 

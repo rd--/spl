@@ -46,7 +46,7 @@ let i = (-2 -- 2).subdivide(k);
 .Greymap
 ~~~
 
-![](sw/spl/Help/Image/rastriginFunction-A.png)
+![](Help/Image/rastriginFunction-A.png)
 
 Contour plot of sparse sampling:
 
@@ -58,7 +58,7 @@ let i = (-2.5 -- 2.5).subdivide(k);
 }.contourPlot(i, i, [5 15 30])
 ~~~
 
-![](sw/spl/Help/Image/rastriginFunction-B.svg)
+![](Help/Image/rastriginFunction-B.svg)
 
 * * *
 

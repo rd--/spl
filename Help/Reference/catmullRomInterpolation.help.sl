@@ -21,7 +21,7 @@ Catmull-Rom impulse response:
 )
 ~~~
 
-![](sw/spl/Help/Image/catmullRomInterpolation-A.svg)
+![](Help/Image/catmullRomInterpolation-A.svg)
 
 * * *
 

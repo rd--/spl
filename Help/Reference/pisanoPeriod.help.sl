@@ -221,7 +221,7 @@ OEIS [A001175](https://oeis.org/A001175):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/pisanoPeriod-A.svg)
+![](Help/Image/pisanoPeriod-A.svg)
 
 Number of different residues for the Fibonacci numbers modulo _n_,
 OEIS [A066853](https://oeis.org/A066853):
@@ -234,7 +234,7 @@ OEIS [A066853](https://oeis.org/A066853):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/pisanoPeriod-B.svg)
+![](Help/Image/pisanoPeriod-B.svg)
 
 First differences of Pisano periods:
 
@@ -244,7 +244,7 @@ First differences of Pisano periods:
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/pisanoPeriod-C.svg)
+![](Help/Image/pisanoPeriod-C.svg)
 
 Fixed point of Pisano period _n_,
 OEIS [A235249](https://oeis.org/A235249):
@@ -256,7 +256,7 @@ OEIS [A235249](https://oeis.org/A235249):
 }.log.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/pisanoPeriod-D.svg)
+![](Help/Image/pisanoPeriod-D.svg)
 
 Table of the fundamental Pisano period of the Fibonacci sequence modulo _n_,
 OEIS [A161553](https://oeis.org/A161553):
@@ -268,7 +268,7 @@ OEIS [A161553](https://oeis.org/A161553):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/pisanoPeriod-E.svg)
+![](Help/Image/pisanoPeriod-E.svg)
 
 Number of missing residues in Fibonacci sequence modulo _n_,
 OEIS [A118965](https://oeis.org/A118965):
@@ -283,7 +283,7 @@ OEIS [A118965](https://oeis.org/A118965):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/pisanoPeriod-F.svg)
+![](Help/Image/pisanoPeriod-F.svg)
 
 Number of distinct residues in Fibonacci sequence modulo _p(n)_,
 OEIS [A137750](https://oeis.org/A137750):
@@ -296,7 +296,7 @@ OEIS [A137750](https://oeis.org/A137750):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/pisanoPeriod-G.svg)
+![](Help/Image/pisanoPeriod-G.svg)
 
 * * *
 

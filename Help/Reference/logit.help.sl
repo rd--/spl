@@ -27,7 +27,7 @@ Plot over a subset of the reals:
 )
 ~~~
 
-![](sw/spl/Help/Image/logit-A.svg)
+![](Help/Image/logit-A.svg)
 
 * * *
 

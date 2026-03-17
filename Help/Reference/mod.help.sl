@@ -442,7 +442,7 @@ OEIS [A010877](https://oeis.org/A010877):
 (0:65 % 8).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/mod-A.svg)
+![](Help/Image/mod-A.svg)
 
 An integer modulo an integer sequence,
 _100%n_,
@@ -453,7 +453,7 @@ OEIS [A090976](https://oeis.org/A090976):
 (100 % 1:65).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/mod-B.svg)
+![](Help/Image/mod-B.svg)
 
 Binomial coefficients modulo two:
 
@@ -468,7 +468,7 @@ let k = [0L .. 64L];
 }.table(k, k).Bitmap
 ~~~
 
-![](sw/spl/Help/Image/mod-C.png)
+![](Help/Image/mod-C.png)
 
 A spiral matrix where numbers are colored based on their congruence:
 
@@ -477,7 +477,7 @@ A spiral matrix where numbers are colored based on their congruence:
 .Greymap
 ~~~
 
-![](sw/spl/Help/Image/mod-D.png)
+![](Help/Image/mod-D.png)
 
 Modular addition tables:
 
@@ -487,7 +487,7 @@ Modular addition tables:
 }.table(0:8, 0:8).matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/mod-E.svg)
+![](Help/Image/mod-E.svg)
 
 Modulo sum pattern:
 
@@ -499,7 +499,7 @@ let n = 2;
 }.table(0:25, 0:25).boole.matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/mod-F.svg)
+![](Help/Image/mod-F.svg)
 
 Simulate a particle bouncing in a noncommensurate box:
 
@@ -509,7 +509,7 @@ Simulate a particle bouncing in a noncommensurate box:
 }.Line
 ~~~
 
-![](sw/spl/Help/Image/mod-G.svg)
+![](Help/Image/mod-G.svg)
 
 Number of squares modulo _n_,
 OEIS [A000224](https://oeis.org/A000224):
@@ -522,7 +522,7 @@ OEIS [A000224](https://oeis.org/A000224):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/mod-H.svg)
+![](Help/Image/mod-H.svg)
 
 Quadratic residue triangle,
 OEIS [A048152](https://oeis.org/A048152):
@@ -533,7 +533,7 @@ OEIS [A048152](https://oeis.org/A048152):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/mod-I.svg)
+![](Help/Image/mod-I.svg)
 
 Modular multiplication table:
 
@@ -544,7 +544,7 @@ let m = 14;
 }.table(1:m, 1:m).matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/mod-J.svg)
+![](Help/Image/mod-J.svg)
 
 Left inverse of binary expansions,
 OEIS [A028897](https://oeis.org/A028897):
@@ -564,7 +564,7 @@ let a = { :n |
 0:200.collect(a:/1).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/mod-K.svg)
+![](Help/Image/mod-K.svg)
 
 First differences of the ones-counting sequence,
 OEIS [A088705](https://oeis.org/A088705):
@@ -584,7 +584,7 @@ let a = Map { :n |
 a[0:127].discretePlot
 ~~~
 
-![](sw/spl/Help/Image/mod-L.svg)
+![](Help/Image/mod-L.svg)
 
 Implement the Park-Miller generator,
 which is correct when caculated with 64-bit IEEE floating point math:
@@ -600,7 +600,7 @@ let r = { :x |
 (r / m).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/mod-M.svg)
+![](Help/Image/mod-M.svg)
 
 The largest _m_ such that _n_ is congruent to -1, 0 or 1 `mod` _k_ for all _k_ from 1 to _m_,
 OEIS [A187824](https://oeis.org/A187824):
@@ -618,7 +618,7 @@ OEIS [A187824](https://oeis.org/A187824):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/mod-N.svg)
+![](Help/Image/mod-N.svg)
 
 The smallest non-negative integer not already in the sequence such that _a(n-1)_ is congruent to _a(n)%n_,
 OEIS [A125717](https://oeis.org/A125717):
@@ -635,7 +635,7 @@ let l = [0];
 l.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/mod-O.svg)
+![](Help/Image/mod-O.svg)
 
 The table of _n%k_ read by downward antidiagonals,
 OEIS [A051126](https://oeis.org/A051126):
@@ -648,7 +648,7 @@ OEIS [A051126](https://oeis.org/A051126):
 }.catenate.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/mod-P.svg)
+![](Help/Image/mod-P.svg)
 
 Earliest sequence with _a(a(n))=2n_,
 OEIS [A002516](https://oeis.org/A002516):
@@ -673,7 +673,7 @@ let a = { :n |
 0:200.collect(a:/1).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/mod-Q.svg)
+![](Help/Image/mod-Q.svg)
 
 Triangle of descending moduli,
 OEIS [A051778](https://oeis.org/A051778):
@@ -687,7 +687,7 @@ OEIS [A051778](https://oeis.org/A051778):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/mod-R.svg)
+![](Help/Image/mod-R.svg)
 
 Prefix sum of _n%9_,
 OEIS [A130487](https://oeis.org/A130487):
@@ -696,7 +696,7 @@ OEIS [A130487](https://oeis.org/A130487):
 (0:44 % 9).prefixSum.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/mod-S.svg)
+![](Help/Image/mod-S.svg)
 
 Multiplicative suborder of _2_ and _2n+1_,
 OEIS [A003558](https://oeis.org/A003558):
@@ -715,7 +715,7 @@ OEIS [A003558](https://oeis.org/A003558):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/mod-T.svg)
+![](Help/Image/mod-T.svg)
 
 _P(n)%(n-1)_,
 OEIS [A003558](https://oeis.org/A003558):
@@ -726,7 +726,7 @@ OEIS [A003558](https://oeis.org/A003558):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/mod-U.svg)
+![](Help/Image/mod-U.svg)
 
 * * *
 

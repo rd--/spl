@@ -14,7 +14,7 @@ Plot with _a=1,b=0.75_:
 )
 ~~~
 
-![](sw/spl/Help/Image/hippopede-A.svg)
+![](Help/Image/hippopede-A.svg)
 
 Plot with varying _a_:
 
@@ -26,7 +26,7 @@ Plot with varying _a_:
 )
 ~~~
 
-![](sw/spl/Help/Image/hippopede-B.svg)
+![](Help/Image/hippopede-B.svg)
 
 Plot with varying _b_:
 
@@ -38,7 +38,7 @@ Plot with varying _b_:
 )
 ~~~
 
-![](sw/spl/Help/Image/hippopede-C.svg)
+![](Help/Image/hippopede-C.svg)
 
 * * *
 

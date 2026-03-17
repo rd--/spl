@@ -126,7 +126,7 @@ OEIS [A048881](https://oeis.org/A048881):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/catalanNumber-A.svg)
+![](Help/Image/catalanNumber-A.svg)
 
 * * *
 

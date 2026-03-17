@@ -94,7 +94,7 @@ OEIS [A181391](https://oeis.org/A181391):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/vanEckSequence-A.svg)
+![](Help/Image/vanEckSequence-A.svg)
 
 The van Eck sequence,
 discrete plot,
@@ -104,7 +104,7 @@ OEIS [A181391](https://oeis.org/A181391):
 65.vanEckSequence.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/vanEckSequence-B.svg)
+![](Help/Image/vanEckSequence-B.svg)
 
 The van Eck sequence,
 starting with _1,0_,
@@ -115,7 +115,7 @@ OEIS [A171911](https://oeis.org/A171911):
 85.vanEckSequence([1 0]).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/vanEckSequence-C.svg)
+![](Help/Image/vanEckSequence-C.svg)
 
 The van Eck sequence,
 starting with _1,0_,
@@ -126,7 +126,7 @@ OEIS [A171911](https://oeis.org/A171911):
 250.vanEckSequence([1 0]).log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/vanEckSequence-D.svg)
+![](Help/Image/vanEckSequence-D.svg)
 
 The van Eck sequence,
 starting with _2,0_,
@@ -137,7 +137,7 @@ OEIS [A171912](https://oeis.org/A171912):
 85.vanEckSequence([2 0]).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/vanEckSequence-E.svg)
+![](Help/Image/vanEckSequence-E.svg)
 
 Positions of ones in the van Eck sequence,
 OEIS [A171951](https://oeis.org/A171951):
@@ -148,7 +148,7 @@ OEIS [A171951](https://oeis.org/A171951):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/vanEckSequence-F.svg)
+![](Help/Image/vanEckSequence-F.svg)
 
 Positions of zeroes in the van Eck sequence,
 OEIS [A171865](https://oeis.org/A171865):
@@ -159,7 +159,7 @@ OEIS [A171865](https://oeis.org/A171865):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/vanEckSequence-G.svg)
+![](Help/Image/vanEckSequence-G.svg)
 
 First differences of positions of zeroes in the van Eck sequence,
 OEIS [A171868](https://oeis.org/A171868):
@@ -171,7 +171,7 @@ OEIS [A171868](https://oeis.org/A171868):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/vanEckSequence-H.svg)
+![](Help/Image/vanEckSequence-H.svg)
 
 * * *
 

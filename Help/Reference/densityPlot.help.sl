@@ -12,7 +12,7 @@ Plot a function:
 }.densityPlot(-1 -- 1, -1 -- 1)
 ~~~
 
-![](sw/spl/Help/Image/densityPlot-A.png)
+![](Help/Image/densityPlot-A.png)
 
 Plot a function:
 
@@ -22,7 +22,7 @@ Plot a function:
 }.densityPlot(-3 -- 3, -1 -- 1)
 ~~~
 
-![](sw/spl/Help/Image/densityPlot-B.png)
+![](Help/Image/densityPlot-B.png)
 
 Plot a function:
 
@@ -32,7 +32,7 @@ Plot a function:
 }.densityPlot(-3 -- 3, -3 -- 3)
 ~~~
 
-![](sw/spl/Help/Image/densityPlot-C.png)
+![](Help/Image/densityPlot-C.png)
 
 Plot a function:
 
@@ -42,7 +42,7 @@ Plot a function:
 }.densityPlot(0 -- 2.pi, 0 -- 2.pi)
 ~~~
 
-![](sw/spl/Help/Image/densityPlot-D.png)
+![](Help/Image/densityPlot-D.png)
 
 Plot a trigonometric function:
 
@@ -52,7 +52,7 @@ Plot a trigonometric function:
 }.densityPlot(-4 -- 4, -4 -- 4)
 ~~~
 
-![](sw/spl/Help/Image/densityPlot-E.png)
+![](Help/Image/densityPlot-E.png)
 
 * * *
 

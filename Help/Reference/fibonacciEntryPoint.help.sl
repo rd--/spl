@@ -20,7 +20,7 @@ Plot first few terms:
 ).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/fibonacciEntryPoint-A.svg)
+![](Help/Image/fibonacciEntryPoint-A.svg)
 
 * * *
 

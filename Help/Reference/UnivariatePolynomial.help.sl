@@ -244,7 +244,7 @@ let p = Polynomial([-2 -1 1]);
 }
 ~~~
 
-![](sw/spl/Help/Image/UnivariatePolynomial-A.svg)
+![](Help/Image/UnivariatePolynomial-A.svg)
 
 Polynomial of degree three:
 
@@ -255,7 +255,7 @@ let p = Polynomial([-8 -6 3 1]);
 }
 ~~~
 
-![](sw/spl/Help/Image/UnivariatePolynomial-B.svg)
+![](Help/Image/UnivariatePolynomial-B.svg)
 
 Polynomial of degree four:
 
@@ -266,7 +266,7 @@ let p = Polynomial([0 1 -2 0 1]);
 }
 ~~~
 
-![](sw/spl/Help/Image/UnivariatePolynomial-C.svg)
+![](Help/Image/UnivariatePolynomial-C.svg)
 
 Polynomial of degree six:
 
@@ -278,7 +278,7 @@ let p = Polynomial(c);
 }
 ~~~
 
-![](sw/spl/Help/Image/UnivariatePolynomial-D.svg)
+![](Help/Image/UnivariatePolynomial-D.svg)
 
 Polynomial of degree seven, in this case the seventh Chebyshev polynomial of the first kind:
 
@@ -290,7 +290,7 @@ let p = Polynomial(c);
 }
 ~~~
 
-![](sw/spl/Help/Image/UnivariatePolynomial-E.svg)
+![](Help/Image/UnivariatePolynomial-E.svg)
 
 Sum of two polynomials of degrees seven and eleven:
 
@@ -303,7 +303,7 @@ let p3 = p1 + p2;
 }
 ~~~
 
-![](sw/spl/Help/Image/UnivariatePolynomial-F.svg)
+![](Help/Image/UnivariatePolynomial-F.svg)
 
 * * *
 

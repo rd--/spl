@@ -16,7 +16,7 @@ TelegraphProcess(1.3)
 ).stepPlot
 ~~~
 
-![](sw/spl/Help/Image/TelegraphProcess-A.svg)
+![](Help/Image/TelegraphProcess-A.svg)
 
 With smaller μ over a longer time period:
 
@@ -29,7 +29,7 @@ TelegraphProcess(0.15)
 ).stepPlot
 ~~~
 
-![](sw/spl/Help/Image/TelegraphProcess-B.svg)
+![](Help/Image/TelegraphProcess-B.svg)
 
 * * *
 

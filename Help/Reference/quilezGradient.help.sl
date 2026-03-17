@@ -34,7 +34,7 @@ Draw a gradient that places the red, green and blue components at equal phase di
 ).asContinuousColourGradient
 ~~~
 
-![](sw/spl/Help/Image/quilezGradient-A.svg)
+![](Help/Image/quilezGradient-A.svg)
 
 Draw a gradient that cycles red twice, green once and blue not at all:
 
@@ -49,7 +49,7 @@ Draw a gradient that cycles red twice, green once and blue not at all:
 ).asContinuousColourGradient
 ~~~
 
-![](sw/spl/Help/Image/quilezGradient-B.svg)
+![](Help/Image/quilezGradient-B.svg)
 
 Draw a gradient where green and blue are in phase,
 and red is scaled low and biased high:
@@ -65,7 +65,7 @@ and red is scaled low and biased high:
 ).asContinuousColourGradient
 ~~~
 
-![](sw/spl/Help/Image/quilezGradient-C.svg)
+![](Help/Image/quilezGradient-C.svg)
 
 An orange, magenta, blue gradient where the coefficients answer values outside of _(0, 1)_,
 and are therefore clipped:
@@ -83,7 +83,7 @@ and are therefore clipped:
 .asContinuousColourGradient
 ~~~
 
-![](sw/spl/Help/Image/quilezGradient-D.svg)
+![](Help/Image/quilezGradient-D.svg)
 
 A yellow, magenta, cyan gradient:
 
@@ -100,7 +100,7 @@ A yellow, magenta, cyan gradient:
 .asContinuousColourGradient
 ~~~
 
-![](sw/spl/Help/Image/quilezGradient-E.svg)
+![](Help/Image/quilezGradient-E.svg)
 
 * * *
 

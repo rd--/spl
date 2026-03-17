@@ -12,7 +12,7 @@ Tetrahedron(
 ).asPerspectiveDrawing
 ~~~
 
-![](sw/spl/Help/Image/Tetrahedron-A.svg)
+![](Help/Image/Tetrahedron-A.svg)
 
 Draw a Kuhn tetrahedron:
 
@@ -22,7 +22,7 @@ Tetrahedron(
 ).asPerspectiveDrawing
 ~~~
 
-![](sw/spl/Help/Image/Tetrahedron-B.svg)
+![](Help/Image/Tetrahedron-B.svg)
 
 * * *
 

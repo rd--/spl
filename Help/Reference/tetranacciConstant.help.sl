@@ -36,7 +36,7 @@ Scatter plot of the digits of the tetranacci constant:
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/tetranacciConstant-A.svg)
+![](Help/Image/tetranacciConstant-A.svg)
 
 * * *
 

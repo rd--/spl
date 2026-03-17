@@ -25,7 +25,7 @@ Plot first few places:
 47.primesList.linePlot
 ~~~
 
-![](sw/spl/Help/Image/primesList-A.svg)
+![](Help/Image/primesList-A.svg)
 
 * * *
 

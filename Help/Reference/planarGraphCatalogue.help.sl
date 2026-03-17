@@ -23,7 +23,7 @@ system
 .at('convexpolytopes_8.233')
 ~~~
 
-![](sw/spl/Help/Image/planarGraphCatalogue-A.svg)
+![](Help/Image/planarGraphCatalogue-A.svg)
 
 Draw the entry for the 9th cyclically 4-connected non-Hamiltonian graph of 46 vertices:
 
@@ -33,7 +33,7 @@ system
 .at('nonham46c4.8')
 ~~~
 
-![](sw/spl/Help/Image/planarGraphCatalogue-B.svg)
+![](Help/Image/planarGraphCatalogue-B.svg)
 
 Draw the entry for the 138th graph in the set _quadrangulations\_17_,
 the set of quadrangulations of seventeen vertices:
@@ -44,7 +44,7 @@ system
 .at('quadrangulations_17.137')
 ~~~
 
-![](sw/spl/Help/Image/planarGraphCatalogue-C.svg)
+![](Help/Image/planarGraphCatalogue-C.svg)
 
 Draw the 471st graph in the set _5reg\_26-41_,
 the set of five regular graphs of 26 vertices and 41 faces:
@@ -55,7 +55,7 @@ system
 .at('5reg_26-41.470')
 ~~~
 
-![](sw/spl/Help/Image/planarGraphCatalogue-D.svg)
+![](Help/Image/planarGraphCatalogue-D.svg)
 
 _Note:_
 The catalogue is a `LibraryItem`,

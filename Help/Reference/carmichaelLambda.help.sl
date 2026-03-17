@@ -85,7 +85,7 @@ Discrete plot of the first few terms:
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/carmichaelLambda-A.svg)
+![](Help/Image/carmichaelLambda-A.svg)
 
 Scatter plot of the first few terms:
 
@@ -94,7 +94,7 @@ Scatter plot of the first few terms:
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/carmichaelLambda-B.svg)
+![](Help/Image/carmichaelLambda-B.svg)
 
 * * *
 

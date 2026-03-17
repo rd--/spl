@@ -14,7 +14,7 @@ Probability density function:
 )
 ~~~
 
-![](sw/spl/Help/Image/LaplaceDistribution-A.svg)
+![](Help/Image/LaplaceDistribution-A.svg)
 
 Cumulative distribution function:
 
@@ -26,7 +26,7 @@ Cumulative distribution function:
 )
 ~~~
 
-![](sw/spl/Help/Image/LaplaceDistribution-B.svg)
+![](Help/Image/LaplaceDistribution-B.svg)
 
 Generate a sample of pseudorandom numbers from a Laplace distribution:
 
@@ -37,7 +37,7 @@ LaplaceDistribution(3, 3.5)
 .histogramPlot
 ~~~
 
-![](sw/spl/Help/Image/LaplaceDistribution-C.svg)
+![](Help/Image/LaplaceDistribution-C.svg)
 
 * * *
 

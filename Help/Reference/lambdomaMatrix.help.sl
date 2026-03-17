@@ -48,7 +48,7 @@ Log scale matrix plot of _12×12_ matrix:
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/lambdomaMatrix-A.svg)
+![](Help/Image/lambdomaMatrix-A.svg)
 
 Matrix plot of the numerators of the _12×12_ matrix:
 
@@ -58,7 +58,7 @@ Matrix plot of the numerators of the _12×12_ matrix:
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/lambdomaMatrix-B.svg)
+![](Help/Image/lambdomaMatrix-B.svg)
 
 Matrix plot of the denominators of the _12×12_ matrix:
 
@@ -68,7 +68,7 @@ Matrix plot of the denominators of the _12×12_ matrix:
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/lambdomaMatrix-C.svg)
+![](Help/Image/lambdomaMatrix-C.svg)
 
 Colour plot of the 16×16 matrix in octave reduced form:
 
@@ -81,7 +81,7 @@ let m = [16 16].lambdomaMatrix;
 )
 ~~~
 
-![](sw/spl/Help/Image/lambdomaMatrix-D.svg)
+![](Help/Image/lambdomaMatrix-D.svg)
 
 Colour directly as hue value:
 
@@ -93,7 +93,7 @@ Colour directly as hue value:
 }
 ~~~
 
-![](sw/spl/Help/Image/lambdomaMatrix-E.svg)
+![](Help/Image/lambdomaMatrix-E.svg)
 
 * * *
 

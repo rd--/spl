@@ -68,7 +68,7 @@ let r = [];
 r.downsample(4).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/mergeSort-A.svg)
+![](Help/Image/mergeSort-A.svg)
 
 * * *
 

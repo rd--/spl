@@ -14,7 +14,7 @@ A linear Bézier curve, a straight line:
 }
 ~~~
 
-![](sw/spl/Help/Image/linearBezierFunctionAt-A.svg)
+![](Help/Image/linearBezierFunctionAt-A.svg)
 
 * * *
 

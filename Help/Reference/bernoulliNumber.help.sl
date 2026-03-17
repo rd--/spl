@@ -106,7 +106,7 @@ OEIS [A027641](https://oeis.org/A027641):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bernoulliNumber-A.svg)
+![](Help/Image/bernoulliNumber-A.svg)
 
 Numerators of Bernoulli numbers,
 `log` scale plot,
@@ -119,7 +119,7 @@ OEIS [A027641](https://oeis.org/A027641):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bernoulliNumber-B.svg)
+![](Help/Image/bernoulliNumber-B.svg)
 
 Denominators of Bernoulli numbers,
 `log` scale plot,
@@ -132,7 +132,7 @@ OEIS [A027642](https://oeis.org/A027642):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/bernoulliNumber-C.svg)
+![](Help/Image/bernoulliNumber-C.svg)
 
 * * *
 

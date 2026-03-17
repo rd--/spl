@@ -78,7 +78,7 @@ sobolSequence(64, 1)
 .stepPlot
 ~~~
 
-![](sw/spl/Help/Image/sobolSequence-A.svg)
+![](Help/Image/sobolSequence-A.svg)
 
 Scatter plot of first few terms of _k=2_ Sobol sequence:
 
@@ -87,7 +87,7 @@ Scatter plot of first few terms of _k=2_ Sobol sequence:
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/sobolSequence-B.svg)
+![](Help/Image/sobolSequence-B.svg)
 
 Matrix plot of first sixteen rows of the twelve dimensional sequence:
 
@@ -95,7 +95,7 @@ Matrix plot of first sixteen rows of the twelve dimensional sequence:
 [16 12].sobolSequence.matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/sobolSequence-C.svg)
+![](Help/Image/sobolSequence-C.svg)
 
 Matrix plot of first sixty-four rows of the two-hundred and fifty-six dimensional sequence:
 
@@ -103,7 +103,7 @@ Matrix plot of first sixty-four rows of the two-hundred and fifty-six dimensiona
 [64 256].sobolSequence.Greymap
 ~~~
 
-![](sw/spl/Help/Image/sobolSequence-D.png)
+![](Help/Image/sobolSequence-D.png)
 
 Numerators of _k=1_ Sobol sequence,
 discrete plot,
@@ -113,7 +113,7 @@ OEIS [A280995](https://oeis.org/A280995):
 63.sobolSequence(1).numerator.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/sobolSequence-E.svg)
+![](Help/Image/sobolSequence-E.svg)
 
 Denominators of _k=1_ Sobol sequence,
 discrete plot,
@@ -123,7 +123,7 @@ discrete plot,
 63.sobolSequence(1).denominator.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/sobolSequence-F.svg)
+![](Help/Image/sobolSequence-F.svg)
 
 Numerators of _k=1_ Sobol sequence,
 scatter plot,
@@ -133,7 +133,7 @@ OEIS [A280995](https://oeis.org/A280995):
 255.sobolSequence(1).numerator.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/sobolSequence-G.svg)
+![](Help/Image/sobolSequence-G.svg)
 
 Denominators of _k=1_ Sobol sequence,
 step plot,
@@ -143,7 +143,7 @@ step plot,
 255.sobolSequence(1).denominator.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/sobolSequence-H.svg)
+![](Help/Image/sobolSequence-H.svg)
 
 * * *
 

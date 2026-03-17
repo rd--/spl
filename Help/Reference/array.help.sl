@@ -154,7 +154,7 @@ Array of `gcd`:
 gcd:/2.array([20 20]).matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/array-A.svg)
+![](Help/Image/array-A.svg)
 
 * * *
 

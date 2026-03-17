@@ -29,7 +29,7 @@ let c = p @* t;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/nearestNeighbourAlgorithm-A.svg)
+![](Help/Image/nearestNeighbourAlgorithm-A.svg)
 
 Nearest neighbour tour of randomly generated coordinates:
 
@@ -43,7 +43,7 @@ let i = p.nearestNeighbourAlgorithm(1);
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/nearestNeighbourAlgorithm-B.svg)
+![](Help/Image/nearestNeighbourAlgorithm-B.svg)
 
 * * *
 

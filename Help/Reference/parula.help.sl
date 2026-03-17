@@ -12,7 +12,7 @@ Plot the _parula_ colour gradient sampled at sixteen steps:
 16.parula.asContinuousColourGradient
 ~~~
 
-![](sw/spl/Help/Image/parula-A.svg)
+![](Help/Image/parula-A.svg)
 
 * * *
 

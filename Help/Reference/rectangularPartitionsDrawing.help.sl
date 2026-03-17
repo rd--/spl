@@ -15,7 +15,7 @@ and rows are descending:
 .rectangularPartitionsDrawing
 ~~~
 
-![](sw/spl/Help/Image/rectangularPartitionsDrawing-A.svg)
+![](Help/Image/rectangularPartitionsDrawing-A.svg)
 
 * * *
 

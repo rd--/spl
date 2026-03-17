@@ -34,7 +34,7 @@ Sfc32(327481)
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/radixSortMatrix-A.svg)
+![](Help/Image/radixSortMatrix-A.svg)
 
 Sort longer list:
 
@@ -49,7 +49,7 @@ Sfc32(327481)
 .Greymap
 ~~~
 
-![](sw/spl/Help/Image/radixSortMatrix-B.png)
+![](Help/Image/radixSortMatrix-B.png)
 
 * * *
 

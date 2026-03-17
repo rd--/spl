@@ -27,7 +27,7 @@ Plot the inverse survival function for a standard normal distribution:
 )
 ~~~
 
-![](sw/spl/Help/Image/inverseSurvivalFunction-A.svg)
+![](Help/Image/inverseSurvivalFunction-A.svg)
 
 * * *
 

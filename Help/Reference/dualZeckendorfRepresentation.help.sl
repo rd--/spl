@@ -184,7 +184,7 @@ Discrete plot of a representation with 114 places:
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/dualZeckendorfRepresentation-A.svg)
+![](Help/Image/dualZeckendorfRepresentation-A.svg)
 
 Counts of above plot,
 indicating the proportions of zeroes and ones:
@@ -205,7 +205,7 @@ OEIS [A112310](https://oeis.org/A112310):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/dualZeckendorfRepresentation-B.svg)
+![](Help/Image/dualZeckendorfRepresentation-B.svg)
 
 Numbers with no adjacent zeroes in binary expansion,
 OEIS [A003754](https://oeis.org/A003754):
@@ -217,7 +217,7 @@ OEIS [A003754](https://oeis.org/A003754):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/dualZeckendorfRepresentation-C.svg)
+![](Help/Image/dualZeckendorfRepresentation-C.svg)
 
 Triangle read by rows,
 row _n_ has terms in lazy Fibonacci representation of _n_,
@@ -232,7 +232,7 @@ OEIS [A112309](https://oeis.org/A112309):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/dualZeckendorfRepresentation-D.svg)
+![](Help/Image/dualZeckendorfRepresentation-D.svg)
 
 Integers whose Dual Zeckendorf representation is palindromic,
 OEIS [A331191](https://oeis.org/A331191):
@@ -244,7 +244,7 @@ OEIS [A331191](https://oeis.org/A331191):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/dualZeckendorfRepresentation-E.svg)
+![](Help/Image/dualZeckendorfRepresentation-E.svg)
 
 The number of runs of identical bits in the Dual Zeckendorf representation of _n_,
 OEIS [A104325](https://oeis.org/A104325):
@@ -257,7 +257,7 @@ OEIS [A104325](https://oeis.org/A104325):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/dualZeckendorfRepresentation-F.svg)
+![](Help/Image/dualZeckendorfRepresentation-F.svg)
 
 * * *
 

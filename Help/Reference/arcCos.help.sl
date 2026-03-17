@@ -62,7 +62,7 @@ Plot over a subset of the reals:
 (-0.95 -- 0.95).functionPlot(arcCos:/1)
 ~~~
 
-![](sw/spl/Help/Image/arcCos-A.svg)
+![](Help/Image/arcCos-A.svg)
 
 Plot over a subset of the complexes:
 
@@ -70,7 +70,7 @@ Plot over a subset of the complexes:
 [-4J-2 2J2].complexPlot(arcCos:/1)
 ~~~
 
-![](sw/spl/Help/Image/arcCos-B.png)
+![](Help/Image/arcCos-B.png)
 
 Phyllotaxis pattern:
 
@@ -84,7 +84,7 @@ Phyllotaxis pattern:
 }.PerspectiveDrawing
 ~~~
 
-![](sw/spl/Help/Image/arcCos-C.svg)
+![](Help/Image/arcCos-C.svg)
 
 Plot arch function:
 
@@ -94,7 +94,7 @@ Plot arch function:
 }
 ~~~
 
-![](sw/spl/Help/Image/arcCos-D.svg)
+![](Help/Image/arcCos-D.svg)
 
 * * *
 

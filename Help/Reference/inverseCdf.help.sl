@@ -50,7 +50,7 @@ Plot `inverseCdf` of `NormalDistribution`:
 )
 ~~~
 
-![](sw/spl/Help/Image/inverseCdf-A.svg)
+![](Help/Image/inverseCdf-A.svg)
 
 Generate random data for a distribution:
 
@@ -65,7 +65,7 @@ UniformDistribution([0 1])
 .histogramPlot
 ~~~
 
-![](sw/spl/Help/Image/inverseCdf-B.svg)
+![](Help/Image/inverseCdf-B.svg)
 
 * * *
 

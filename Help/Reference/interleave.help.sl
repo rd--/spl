@@ -116,7 +116,7 @@ let n = 1:35;
 [n, -n].interleave.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/interleave-A.svg)
+![](Help/Image/interleave-A.svg)
 
 Interleave _n_ and _3n_,
 OEIS [A064455](https://oeis.org/A064455):
@@ -126,7 +126,7 @@ let n = 1:35;
 [n, 3 * n].interleave.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/interleave-B.svg)
+![](Help/Image/interleave-B.svg)
 
 Interleave _3(n-1)+1_ and _n_,
 OEIS [A123684](https://oeis.org/A123684):
@@ -136,7 +136,7 @@ let n = 1:35;
 [3 * (n - 1) + 1, n].interleave.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/interleave-C.svg)
+![](Help/Image/interleave-C.svg)
 
 Interleave _2n-1_ and _3n_,
 OEIS [A080512](https://oeis.org/A080512):
@@ -146,7 +146,7 @@ let n = 1:35;
 [2 * n - 1, 3 * n].interleave.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/interleave-D.svg)
+![](Help/Image/interleave-D.svg)
 
 Interleave _n_ and _2n_,
 OEIS [A029578](https://oeis.org/A029578):
@@ -156,7 +156,7 @@ let n = 0:35;
 [n, 2 * n].interleave.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/interleave-E.svg)
+![](Help/Image/interleave-E.svg)
 
 Interleave _n+7_ and _13-n_,
 OEIS [A122874](https://oeis.org/A122874):
@@ -166,7 +166,7 @@ let n = 0:32;
 [n + 7, 13 - n].interleave.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/interleave-F.svg)
+![](Help/Image/interleave-F.svg)
 
 * * *
 

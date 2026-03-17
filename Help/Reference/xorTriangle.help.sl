@@ -64,7 +64,7 @@ the seventh entry in the list of such triangles:
 .triangularArrayPlot
 ~~~
 
-![](sw/spl/Help/Image/xorTriangle-A.svg)
+![](Help/Image/xorTriangle-A.svg)
 
 A rotationally symmetrical triangle with side length sixteen that has a central triangles of zeroes,
 the fortieth entry in the list of such triangles:
@@ -76,7 +76,7 @@ the fortieth entry in the list of such triangles:
 .triangularArrayPlot
 ~~~
 
-![](sw/spl/Help/Image/xorTriangle-B.svg)
+![](Help/Image/xorTriangle-B.svg)
 
 Another rotationally symmetrical triangle that has a central triangles of zeroes,
 the fourty-fifth entry in the list of such triangles:
@@ -88,7 +88,7 @@ the fourty-fifth entry in the list of such triangles:
 .triangularArrayPlot
 ~~~
 
-![](sw/spl/Help/Image/xorTriangle-C.svg)
+![](Help/Image/xorTriangle-C.svg)
 
 Numbers whose binary expansion generates rotationally symmetric _xor_-triangles,
 OEIS [A334556](https://oeis.org/A334556):
@@ -99,7 +99,7 @@ OeisEntry('A334556').then { :e |
 }
 ~~~
 
-![](sw/spl/Help/Image/xorTriangle-D.svg)
+![](Help/Image/xorTriangle-D.svg)
 
 Numbers whose binary expansion generate rotationally symmetrical _xor_-triangles that have central triangles of zeros,
 OEIS [A334769](https://oeis.org/A334769):
@@ -110,7 +110,7 @@ OeisEntry('A334769').then { :e |
 }
 ~~~
 
-![](sw/spl/Help/Image/xorTriangle-E.svg)
+![](Help/Image/xorTriangle-E.svg)
 
 * * *
 

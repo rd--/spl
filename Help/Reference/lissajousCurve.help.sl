@@ -12,7 +12,7 @@ With parameters _a=1,b=2_ (Lemniscate of Gerono):
 )
 ~~~
 
-![](sw/spl/Help/Image/lissajousCurve-A.svg)
+![](Help/Image/lissajousCurve-A.svg)
 
 With parameters _a=3,b=2_:
 
@@ -22,7 +22,7 @@ With parameters _a=3,b=2_:
 )
 ~~~
 
-![](sw/spl/Help/Image/lissajousCurve-B.svg)
+![](Help/Image/lissajousCurve-B.svg)
 
 With parameters _a=3,b=4_ (Lincoln Laboratory):
 
@@ -32,7 +32,7 @@ With parameters _a=3,b=4_ (Lincoln Laboratory):
 )
 ~~~
 
-![](sw/spl/Help/Image/lissajousCurve-C.svg)
+![](Help/Image/lissajousCurve-C.svg)
 
 With parameters _a=5,b=4_:
 
@@ -42,7 +42,7 @@ With parameters _a=5,b=4_:
 )
 ~~~
 
-![](sw/spl/Help/Image/lissajousCurve-D.svg)
+![](Help/Image/lissajousCurve-D.svg)
 
 With parameters _a=1,b=3_ (Australian Broadcasting Corporation):
 
@@ -52,7 +52,7 @@ With parameters _a=1,b=3_ (Australian Broadcasting Corporation):
 )
 ~~~
 
-![](sw/spl/Help/Image/lissajousCurve-E.svg)
+![](Help/Image/lissajousCurve-E.svg)
 
 With parameters _δ=3π/4,a=2,b=3_:
 
@@ -62,7 +62,7 @@ With parameters _δ=3π/4,a=2,b=3_:
 )
 ~~~
 
-![](sw/spl/Help/Image/lissajousCurve-F.svg)
+![](Help/Image/lissajousCurve-F.svg)
 
 With parameters _a=b=1_ and varying δ,
 plot a circle and two ellipses:
@@ -75,7 +75,7 @@ plot a circle and two ellipses:
 )
 ~~~
 
-![](sw/spl/Help/Image/lissajousCurve-G.svg)
+![](Help/Image/lissajousCurve-G.svg)
 
 Evaluate symbolically:
 

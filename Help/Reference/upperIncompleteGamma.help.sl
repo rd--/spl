@@ -65,7 +65,7 @@ Plot regularized upper incomplete gamma function:
 )
 ~~~
 
-![](sw/spl/Help/Image/upperIncompleteGamma-A.svg)
+![](Help/Image/upperIncompleteGamma-A.svg)
 
 * * *
 

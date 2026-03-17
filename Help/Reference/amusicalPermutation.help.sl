@@ -59,7 +59,7 @@ OEIS [A006368](https://oeis.org/A006368):
 0:65.amusicalPermutation.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/amusicalPermutation-A.svg)
+![](Help/Image/amusicalPermutation-A.svg)
 
 The smallest number in the trajectory of the amusical permutation map,
 OEIS [A028397](https://oeis.org/A028397):
@@ -71,7 +71,7 @@ OEIS [A028397](https://oeis.org/A028397):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/amusicalPermutation-B.svg)
+![](Help/Image/amusicalPermutation-B.svg)
 
 Iterate the amusical permutation map starting at eight,
 OEIS [A028393](https://oeis.org/A028393):
@@ -82,7 +82,7 @@ amusicalPermutation:/1
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/amusicalPermutation-C.svg)
+![](Help/Image/amusicalPermutation-C.svg)
 
 Iterate the amusical permutation map starting at eight,
 log scale scatter plot,
@@ -95,7 +95,7 @@ amusicalPermutation:/1
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/amusicalPermutation-D.svg)
+![](Help/Image/amusicalPermutation-D.svg)
 
 Iterate the amusical permutation map starting at fourteen,
 OEIS [A028395](https://oeis.org/A028395):
@@ -107,7 +107,7 @@ amusicalPermutation:/1
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/amusicalPermutation-E.svg)
+![](Help/Image/amusicalPermutation-E.svg)
 
 Iterate the amusical permutation map starting at fourty,
 OEIS [A182205](https://oeis.org/A182205):
@@ -119,7 +119,7 @@ amusicalPermutation:/1
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/amusicalPermutation-F.svg)
+![](Help/Image/amusicalPermutation-F.svg)
 
 The amusical permutation applied twice,
 OEIS [A168221](https://oeis.org/A168221):
@@ -129,7 +129,7 @@ OEIS [A168221](https://oeis.org/A168221):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/amusicalPermutation-G.svg)
+![](Help/Image/amusicalPermutation-G.svg)
 
 Dirichlet inverse of the amusical permutation function,
 OEIS [A349351](https://oeis.org/A349351):
@@ -141,7 +141,7 @@ OEIS [A349351](https://oeis.org/A349351):
 ).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/amusicalPermutation-H.svg)
+![](Help/Image/amusicalPermutation-H.svg)
 
 Sum of the amusical permutation and it’s dirichlet inverse,
 OEIS [A349352](https://oeis.org/A349352):
@@ -154,7 +154,7 @@ let g:/1 = f:/1.dirichletInverse;
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/amusicalPermutation-I.svg)
+![](Help/Image/amusicalPermutation-I.svg)
 
 Initial segment of table of iterations,
 read by rising antidiagonals.
@@ -173,7 +173,7 @@ let b = [];
 b.log.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/amusicalPermutation-J.svg)
+![](Help/Image/amusicalPermutation-J.svg)
 
 * * *
 

@@ -24,7 +24,7 @@ Plot:
 }
 ~~~
 
-![](sw/spl/Help/Image/kaiserWindow-A.svg)
+![](Help/Image/kaiserWindow-A.svg)
 
 Shape of a Kaiser window using a specified parameter:
 
@@ -34,7 +34,7 @@ Shape of a Kaiser window using a specified parameter:
 }
 ~~~
 
-![](sw/spl/Help/Image/kaiserWindow-B.svg)
+![](Help/Image/kaiserWindow-B.svg)
 
 Variation of the shape as a function of the parameter α:
 
@@ -44,7 +44,7 @@ Variation of the shape as a function of the parameter α:
 }
 ~~~
 
-![](sw/spl/Help/Image/kaiserWindow-C.svg)
+![](Help/Image/kaiserWindow-C.svg)
 
 Discrete Kaiser window of length 15:
 
@@ -55,7 +55,7 @@ Discrete Kaiser window of length 15:
 ).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/kaiserWindow-D.svg)
+![](Help/Image/kaiserWindow-D.svg)
 
 Frequency response of the Kaiser window:
 
@@ -65,7 +65,7 @@ Frequency response of the Kaiser window:
 }.fftPlot(512, 'Centered', 'Logarithmic')
 ~~~
 
-![](sw/spl/Help/Image/kaiserWindow-E.svg)
+![](Help/Image/kaiserWindow-E.svg)
 
 * * *
 

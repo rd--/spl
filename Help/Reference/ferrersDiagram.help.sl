@@ -10,7 +10,7 @@ The Ferrers diagram of a partition of fifteen:
 [6 3 3 2 1].ferrersDiagram
 ~~~
 
-![](sw/spl/Help/Image/ferrersDiagram-A.svg)
+![](Help/Image/ferrersDiagram-A.svg)
 
 The conjugate partition of _(6,3,3,2,1)_:
 
@@ -18,7 +18,7 @@ The conjugate partition of _(6,3,3,2,1)_:
 [5 4 3 1 1 1].ferrersDiagram
 ~~~
 
-![](sw/spl/Help/Image/ferrersDiagram-B.svg)
+![](Help/Image/ferrersDiagram-B.svg)
 
 A self-conjugate partition:
 
@@ -26,7 +26,7 @@ A self-conjugate partition:
 [5 2 1 1 1].ferrersDiagram
 ~~~
 
-![](sw/spl/Help/Image/ferrersDiagram-C.svg)
+![](Help/Image/ferrersDiagram-C.svg)
 
 An twenty-one part integer partition of ninety-six:
 
@@ -38,7 +38,7 @@ An twenty-one part integer partition of ninety-six:
 ].ferrersDiagram
 ~~~
 
-![](sw/spl/Help/Image/ferrersDiagram-D.svg)
+![](Help/Image/ferrersDiagram-D.svg)
 
 * * *
 

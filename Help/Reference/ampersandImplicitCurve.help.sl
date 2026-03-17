@@ -12,7 +12,7 @@ ampersandImplicitCurve:/2.
 contourPlot(i, i, [0])
 ~~~
 
-![](sw/spl/Help/Image/ampersandImplicitCurve-A.svg)
+![](Help/Image/ampersandImplicitCurve-A.svg)
 
 * * *
 

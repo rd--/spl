@@ -87,7 +87,7 @@ Plot over a subset of the complex numbers:
 [-2J-2 2J2].complexPlot(conjugate:/1)
 ~~~
 
-![](sw/spl/Help/Image/conjugate-A.png)
+![](Help/Image/conjugate-A.png)
 
 Plot the absolute value of  function:
 
@@ -97,7 +97,7 @@ Plot the absolute value of  function:
 }
 ~~~
 
-![](sw/spl/Help/Image/conjugate-B.svg)
+![](Help/Image/conjugate-B.svg)
 
 * * *
 

@@ -62,7 +62,7 @@ Plot first few terms:
 )
 ~~~
 
-![](sw/spl/Help/Image/fibonacciPolynomial-A.svg)
+![](Help/Image/fibonacciPolynomial-A.svg)
 
 * * *
 

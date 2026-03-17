@@ -10,7 +10,7 @@ Draw a diamond:
 [0 0; 1 1; 2 0; 1 -1].closedLine
 ~~~
 
-![](sw/spl/Help/Image/closedLine-A.svg)
+![](Help/Image/closedLine-A.svg)
 
 Compare to `Line` at the same matrix,
 which is not closed:
@@ -19,7 +19,7 @@ which is not closed:
 [0 0; 1 1; 2 0; 1 -1].Line
 ~~~
 
-![](sw/spl/Help/Image/closedLine-B.svg)
+![](Help/Image/closedLine-B.svg)
 
 * * *
 

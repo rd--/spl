@@ -33,7 +33,7 @@ OEIS [A002162](https://oeis.org/A002162):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/namedConstant-A.svg)
+![](Help/Image/namedConstant-A.svg)
 
 The continued fraction of the natural logarithm of two,
 OEIS [A016730](https://oeis.org/A016730):
@@ -45,7 +45,7 @@ OEIS [A016730](https://oeis.org/A016730):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/namedConstant-B.svg)
+![](Help/Image/namedConstant-B.svg)
 
 * * *
 

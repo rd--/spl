@@ -35,7 +35,7 @@ Plot:
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/mahonianNumber-A.svg)
+![](Help/Image/mahonianNumber-A.svg)
 
 * * *
 

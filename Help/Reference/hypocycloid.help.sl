@@ -14,7 +14,7 @@ a 4-cusped hypocycloid also called a tetracuspid, cubocycloid, or paracycle:
 )
 ~~~
 
-![](sw/spl/Help/Image/hypocycloid-A.svg)
+![](Help/Image/hypocycloid-A.svg)
 
 A _deltoid_,
 a 3-cusped hypocycloid, also called a tricuspoid:
@@ -25,7 +25,7 @@ a 3-cusped hypocycloid, also called a tricuspoid:
 ).Line
 ~~~
 
-![](sw/spl/Help/Image/hypocycloid-B.svg)
+![](Help/Image/hypocycloid-B.svg)
 
 A hypocycloid with non-integer _a_:
 
@@ -35,7 +35,7 @@ A hypocycloid with non-integer _a_:
 )
 ~~~
 
-![](sw/spl/Help/Image/hypocycloid-C.svg)
+![](Help/Image/hypocycloid-C.svg)
 
 A _Tusi couple_,
 a 2-cusped hypocycloid,
@@ -54,7 +54,7 @@ let c = [0 0.25 0.5 0.75 1].pi.collect(
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/hypocycloid-D.svg)
+![](Help/Image/hypocycloid-D.svg)
 
 Nested hypocycloids scaled to lie on the same circle:
 
@@ -67,7 +67,7 @@ Nested hypocycloids scaled to lie on the same circle:
 )
 ~~~
 
-![](sw/spl/Help/Image/hypocycloid-E.svg)
+![](Help/Image/hypocycloid-E.svg)
 
 * * *
 

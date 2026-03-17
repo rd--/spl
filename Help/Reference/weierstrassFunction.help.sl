@@ -12,7 +12,7 @@ Plot over the reals in _(-1,1)_ with _a=0.634_ and _b=9_:
 }
 ~~~
 
-![](sw/spl/Help/Image/weierstrassFunction-A.svg)
+![](Help/Image/weierstrassFunction-A.svg)
 
 Plot over with varying _a_ and _b_:
 
@@ -30,7 +30,7 @@ let b = [7 15 23];
 )
 ~~~
 
-![](sw/spl/Help/Image/weierstrassFunction-B.svg)
+![](Help/Image/weierstrassFunction-B.svg)
 
 Plot over with varying _a_ and _b_:
 
@@ -48,7 +48,7 @@ let b = [9 11 13 17 19];
 )
 ~~~
 
-![](sw/spl/Help/Image/weierstrassFunction-C.svg)
+![](Help/Image/weierstrassFunction-C.svg)
 
 * * *
 

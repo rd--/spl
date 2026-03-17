@@ -89,7 +89,7 @@ Plot the imaginary part of the 24×24 Fourier matrix:
 24.fourierMatrix.imaginary.matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/fourierMatrix-A.svg)
+![](Help/Image/fourierMatrix-A.svg)
 
 * * *
 

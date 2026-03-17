@@ -81,7 +81,7 @@ Plot Legendre polynomials two through five:
 )
 ~~~
 
-![](sw/spl/Help/Image/legendreP-A.svg)
+![](Help/Image/legendreP-A.svg)
 
 Generalised Lissajous figures:
 
@@ -93,7 +93,7 @@ Generalised Lissajous figures:
 )
 ~~~
 
-![](sw/spl/Help/Image/legendreP-B.svg)
+![](Help/Image/legendreP-B.svg)
 
 * * *
 

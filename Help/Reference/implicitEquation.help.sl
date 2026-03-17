@@ -14,7 +14,7 @@ InfiniteLine([0 0], [1 1])
 .contourPlot(i, i, [0])
 ~~~
 
-![](sw/spl/Help/Image/implicitEquation-A.svg)
+![](Help/Image/implicitEquation-A.svg)
 
 Matrix plot of `InfiniteLine`:
 
@@ -26,7 +26,7 @@ InfiniteLine([0 0], [1 1])
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/implicitEquation-B.svg)
+![](Help/Image/implicitEquation-B.svg)
 
 Contour plot of `Circle`,
 the implicit equation is _(x-a)²+(y-b)²-r²=0_:
@@ -38,7 +38,7 @@ Circle([0 0], 1)
 .contourPlot(i, i, [0])
 ~~~
 
-![](sw/spl/Help/Image/implicitEquation-C.svg)
+![](Help/Image/implicitEquation-C.svg)
 
 Matrix plot of `Circle`:
 
@@ -50,7 +50,7 @@ Circle([0 0], 1)
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/implicitEquation-D.svg)
+![](Help/Image/implicitEquation-D.svg)
 
 Contour plot of `Ellipse`,
 the implicit equation is _(x-x₀)²/a²+(y-y₀)²/b²-1=0_:
@@ -62,7 +62,7 @@ Ellipse([0 0], [1.5 1])
 .contourPlot(i, i, [0])
 ~~~
 
-![](sw/spl/Help/Image/implicitEquation-E.svg)
+![](Help/Image/implicitEquation-E.svg)
 
 Matrix plot of `Ellipse`:
 
@@ -74,7 +74,7 @@ Ellipse([0 0], [1.5 1])
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/implicitEquation-F.svg)
+![](Help/Image/implicitEquation-F.svg)
 
 * * *
 

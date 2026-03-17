@@ -195,7 +195,7 @@ OEIS [A020639](https://oeis.org/A020639):
 }.table(2:43).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/primeFactors-A.svg)
+![](Help/Image/primeFactors-A.svg)
 
 Least prime factors,
 log scale plot,
@@ -207,7 +207,7 @@ OEIS [A020639](https://oeis.org/A020639):
 }.table(2:300).log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/primeFactors-B.svg)
+![](Help/Image/primeFactors-B.svg)
 
 Sum of the prime factors of _n_,
 OEIS [A001414](https://oeis.org/A001414):
@@ -218,7 +218,7 @@ OEIS [A001414](https://oeis.org/A001414):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/primeFactors-C.svg)
+![](Help/Image/primeFactors-C.svg)
 
 The sum of the prime factors of the sum of the preceding terms,
 log scale scatter plot,
@@ -232,7 +232,7 @@ let x = [1 1];
 x.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/primeFactors-D.svg)
+![](Help/Image/primeFactors-D.svg)
 
 Number of primes congruent to one modulo four dividing _n_,
 OEIS [A083025](https://oeis.org/A083025):
@@ -245,7 +245,7 @@ OEIS [A083025](https://oeis.org/A083025):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/primeFactors-E.svg)
+![](Help/Image/primeFactors-E.svg)
 
 Alternating sum of the prime indices of _n_,
 OEIS [A316524](https://oeis.org/A316524):
@@ -258,7 +258,7 @@ OEIS [A316524](https://oeis.org/A316524):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/primeFactors-F.svg)
+![](Help/Image/primeFactors-F.svg)
 
 Alternating sum of all prime factors of _n_,
 OEIS [A071321](https://oeis.org/A071321):
@@ -270,7 +270,7 @@ OEIS [A071321](https://oeis.org/A071321):
 }.logScale.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/primeFactors-G.svg)
+![](Help/Image/primeFactors-G.svg)
 
 * * *
 

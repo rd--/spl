@@ -58,7 +58,7 @@ let b = [1];
 a.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/whileTrue-A.svg)
+![](Help/Image/whileTrue-A.svg)
 
 A self-describing sequence made of strings of consecutive integers,
 OEIS [A113138](https://oeis.org/A113138):
@@ -87,7 +87,7 @@ let r = 1;
 (a - 1).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/whileTrue-B.svg)
+![](Help/Image/whileTrue-B.svg)
 
 In the unary case, simply evaluate _condition_ repeatedly as long as it answers `true`.
 

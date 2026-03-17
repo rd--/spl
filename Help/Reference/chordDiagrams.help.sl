@@ -70,7 +70,7 @@ Plot the five chord diagrams of length three:
 .PlotSet
 ~~~
 
-![](sw/spl/Help/Image/chordDiagrams-A.svg)
+![](Help/Image/chordDiagrams-A.svg)
 
 * * *
 

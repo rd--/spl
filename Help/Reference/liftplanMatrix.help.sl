@@ -47,7 +47,7 @@ Plot a liftplan from a weaving information file:
 }
 ~~~
 
-![](sw/spl/Help/Image/liftplanMatrix-A.svg)
+![](Help/Image/liftplanMatrix-A.svg)
 
 * * *
 

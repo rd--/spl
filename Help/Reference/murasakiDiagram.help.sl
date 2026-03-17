@@ -15,7 +15,7 @@ Suma (須磨):
 [1 3 4; 2 5].murasakiDiagram
 ~~~
 
-![](sw/spl/Help/Image/murasakiDiagram-A.svg)
+![](Help/Image/murasakiDiagram-A.svg)
 
 Hatsune (初音):
 
@@ -23,7 +23,7 @@ Hatsune (初音):
 [1 3; 2 4; 5].murasakiDiagram
 ~~~
 
-![](sw/spl/Help/Image/murasakiDiagram-B.svg)
+![](Help/Image/murasakiDiagram-B.svg)
 
 Yūgiri (夕霧):
 
@@ -31,7 +31,7 @@ Yūgiri (夕霧):
 [1 4; 2; 3 5].murasakiDiagram
 ~~~
 
-![](sw/spl/Help/Image/murasakiDiagram-C.svg)
+![](Help/Image/murasakiDiagram-C.svg)
 
 Nioumiya (匂宮):
 
@@ -39,7 +39,7 @@ Nioumiya (匂宮):
 [1 2 4; 3 5].murasakiDiagram
 ~~~
 
-![](sw/spl/Help/Image/murasakiDiagram-D.svg)
+![](Help/Image/murasakiDiagram-D.svg)
 
 A three-partition of six:
 
@@ -47,7 +47,7 @@ A three-partition of six:
 [1 2 6; 3 5; 4].murasakiDiagram
 ~~~
 
-![](sw/spl/Help/Image/murasakiDiagram-E.svg)
+![](Help/Image/murasakiDiagram-E.svg)
 
 Plot the set partitions of four:
 
@@ -57,7 +57,7 @@ Plot the set partitions of four:
 ).PlotSet([3 5])
 ~~~
 
-![](sw/spl/Help/Image/murasakiDiagram-F.svg)
+![](Help/Image/murasakiDiagram-F.svg)
 
 Plot the non-crossing set partitions of four,
 enumerated by the Dyck words:
@@ -70,7 +70,7 @@ enumerated by the Dyck words:
 }.PlotSet([2 7])
 ~~~
 
-![](sw/spl/Help/Image/murasakiDiagram-G.svg)
+![](Help/Image/murasakiDiagram-G.svg)
 
 * * *
 

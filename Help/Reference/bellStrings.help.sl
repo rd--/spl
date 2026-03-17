@@ -69,7 +69,7 @@ the last column is elided since it is always zero:
 .circularMatrixPlot
 ~~~
 
-![](sw/spl/Help/Image/bellStrings-A.svg)
+![](Help/Image/bellStrings-A.svg)
 
 * * *
 

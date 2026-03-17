@@ -17,7 +17,7 @@ Probability density function, varying α:
 )
 ~~~
 
-![](sw/spl/Help/Image/ExtremeValueDistribution-A.svg)
+![](Help/Image/ExtremeValueDistribution-A.svg)
 
 Probability density function, varying β:
 
@@ -32,7 +32,7 @@ Probability density function, varying β:
 )
 ~~~
 
-![](sw/spl/Help/Image/ExtremeValueDistribution-B.svg)
+![](Help/Image/ExtremeValueDistribution-B.svg)
 
 Cumulative distribution function, varying α:
 
@@ -47,7 +47,7 @@ Cumulative distribution function, varying α:
 )
 ~~~
 
-![](sw/spl/Help/Image/ExtremeValueDistribution-C.svg)
+![](Help/Image/ExtremeValueDistribution-C.svg)
 
 Cumulative distribution function, varying β:
 
@@ -62,7 +62,7 @@ Cumulative distribution function, varying β:
 )
 ~~~
 
-![](sw/spl/Help/Image/ExtremeValueDistribution-D.svg)
+![](Help/Image/ExtremeValueDistribution-D.svg)
 
 Generate a sample of pseudorandom numbers:
 
@@ -73,7 +73,7 @@ ExtremeValueDistribution(3, 2.5)
 .histogramPlot
 ~~~
 
-![](sw/spl/Help/Image/ExtremeValueDistribution-E.svg)
+![](Help/Image/ExtremeValueDistribution-E.svg)
 
 * * *
 

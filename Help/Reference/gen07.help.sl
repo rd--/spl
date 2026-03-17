@@ -11,7 +11,7 @@ Sawtooth up and down, starting and ending at zero:
 1024.gen07([0 512 1 0 -1 512 0]).linePlot
 ~~~
 
-![](sw/spl/Help/Image/gen07-A.svg)
+![](Help/Image/gen07-A.svg)
 
 A square from positive to negative:
 
@@ -19,7 +19,7 @@ A square from positive to negative:
 1024.gen07([1 512 1 0 -1 512 -1]).linePlot
 ~~~
 
-![](sw/spl/Help/Image/gen07-B.svg)
+![](Help/Image/gen07-B.svg)
 
 A sawtooth down, a straight line from positive to negative:
 
@@ -27,7 +27,7 @@ A sawtooth down, a straight line from positive to negative:
 1024.gen07([1 1024 -1]).linePlot
 ~~~
 
-![](sw/spl/Help/Image/gen07-C.svg)
+![](Help/Image/gen07-C.svg)
 
 * * *
 

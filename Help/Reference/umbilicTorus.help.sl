@@ -11,7 +11,7 @@ Answer the parametric equation for the umbilic torus.
 }
 ~~~
 
-![](sw/spl/Help/Image/umbilicTorus-A.svg)
+![](Help/Image/umbilicTorus-A.svg)
 
 * * *
 

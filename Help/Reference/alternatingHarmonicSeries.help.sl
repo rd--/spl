@@ -28,7 +28,7 @@ Plot the sum of the first few terms:
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/alternatingHarmonicSeries-A.svg)
+![](Help/Image/alternatingHarmonicSeries-A.svg)
 
 * * *
 

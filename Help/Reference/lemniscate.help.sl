@@ -11,7 +11,7 @@ Defined as the locus of points such that the product of distances from two fixed
 )
 ~~~
 
-![](sw/spl/Help/Image/lemniscate-A.svg)
+![](Help/Image/lemniscate-A.svg)
 
 * * *
 

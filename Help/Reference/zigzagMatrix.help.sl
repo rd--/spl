@@ -31,7 +31,7 @@ Plot the 11×15 zigzag matrix:
 [11 15].zigzagMatrix.matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/zigzagMatrix-A.svg)
+![](Help/Image/zigzagMatrix-A.svg)
 
 * * *
 

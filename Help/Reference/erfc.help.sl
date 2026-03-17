@@ -27,7 +27,7 @@ Plot over a subset of the reals:
 (-3 -- 3).functionPlot(erfc:/1)
 ~~~
 
-![](sw/spl/Help/Image/erfc-A.svg)
+![](Help/Image/erfc-A.svg)
 
 * * *
 

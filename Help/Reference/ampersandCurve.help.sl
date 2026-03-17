@@ -14,7 +14,7 @@ deleting missing values:
 .PointCloud
 ~~~
 
-![](sw/spl/Help/Image/ampersandCurve-A.svg)
+![](Help/Image/ampersandCurve-A.svg)
 
 * * *
 

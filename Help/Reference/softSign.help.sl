@@ -11,7 +11,7 @@ Plot over a subset of the reals:
 (-3 -- 3).functionPlot(softSign:/1)
 ~~~
 
-![](sw/spl/Help/Image/softSign-A.svg)
+![](Help/Image/softSign-A.svg)
 
 * * *
 

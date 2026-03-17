@@ -15,7 +15,7 @@ let beta = 0.723;
 ).Line
 ~~~
 
-![](sw/spl/Help/Image/geocentricOrbitCurve-A.svg)
+![](Help/Image/geocentricOrbitCurve-A.svg)
 
 Apparent geocentric orbit of Juno over thirteen years:
 
@@ -28,7 +28,7 @@ let beta = 2.67;
 ).Line
 ~~~
 
-![](sw/spl/Help/Image/geocentricOrbitCurve-B.svg)
+![](Help/Image/geocentricOrbitCurve-B.svg)
 
 Apparent geocentric orbit of Mars over fifteen years:
 
@@ -41,7 +41,7 @@ let beta = 1.523;
 ).Line
 ~~~
 
-![](sw/spl/Help/Image/geocentricOrbitCurve-C.svg)
+![](Help/Image/geocentricOrbitCurve-C.svg)
 
 Apparent geocentric orbit of Mercury over six years:
 
@@ -54,7 +54,7 @@ let beta = 0.387;
 ).Line
 ~~~
 
-![](sw/spl/Help/Image/geocentricOrbitCurve-D.svg)
+![](Help/Image/geocentricOrbitCurve-D.svg)
 
 * * *
 

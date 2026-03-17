@@ -20,7 +20,7 @@ OEIS [A323907](https://oeis.org/A323907):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/restrictedGrowthSequenceTransform-A.svg)
+![](Help/Image/restrictedGrowthSequenceTransform-A.svg)
 
 Restricted growth sequence transform of the ordered pair of two-adic and three-adic valuations,
 OEIS [A322026](https://oeis.org/A322026):
@@ -35,7 +35,7 @@ OEIS [A322026](https://oeis.org/A322026):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/restrictedGrowthSequenceTransform-B.svg)
+![](Help/Image/restrictedGrowthSequenceTransform-B.svg)
 
 * * *
 

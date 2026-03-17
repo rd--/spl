@@ -67,7 +67,7 @@ system
 .tuningLatticeGraph
 ~~~
 
-![](sw/spl/Help/Image/scalaTuningArchive-A.svg)
+![](Help/Image/scalaTuningArchive-A.svg)
 
 _Note:_
 The archive is a `LibraryItem`,

@@ -16,7 +16,7 @@ RandomWalkProcess(0.5, 0.5)
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/RandomWalkProcess-A.svg)
+![](Help/Image/RandomWalkProcess-A.svg)
 
 For a three-step random walk:
 
@@ -27,7 +27,7 @@ RandomWalkProcess(0.2, 0.3)
 .stepPlot
 ~~~
 
-![](sw/spl/Help/Image/RandomWalkProcess-B.svg)
+![](Help/Image/RandomWalkProcess-B.svg)
 
 Simulate an ensemble of random paths:
 
@@ -38,7 +38,7 @@ RandomWalkProcess(0.7, 0.3)
 .stepPlot
 ~~~
 
-![](sw/spl/Help/Image/RandomWalkProcess-C.svg)
+![](Help/Image/RandomWalkProcess-C.svg)
 
 A symmetric random walk in two-dimensions:
 
@@ -51,7 +51,7 @@ RandomWalkProcess(0.5, 0.5)
 .Line
 ~~~
 
-![](sw/spl/Help/Image/RandomWalkProcess-D.svg)
+![](Help/Image/RandomWalkProcess-D.svg)
 
 A symmetric random walk in three-dimensions:
 
@@ -65,7 +65,7 @@ RandomWalkProcess(0.5, 0.5)
 .asPerspectiveDrawing
 ~~~
 
-![](sw/spl/Help/Image/RandomWalkProcess-E.svg)
+![](Help/Image/RandomWalkProcess-E.svg)
 
 * * *
 

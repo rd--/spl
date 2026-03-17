@@ -30,7 +30,7 @@ Scatter plot of first few terms:
 ).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/noergaardInfinityNumber-A.svg)
+![](Help/Image/noergaardInfinityNumber-A.svg)
 
 * * *
 

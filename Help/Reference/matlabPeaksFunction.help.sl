@@ -12,7 +12,7 @@ Plot the function on a small mesh:
 }
 ~~~
 
-![](sw/spl/Help/Image/matlabPeaksFunction-A.svg)
+![](Help/Image/matlabPeaksFunction-A.svg)
 
 * * *
 

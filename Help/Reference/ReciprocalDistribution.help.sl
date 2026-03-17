@@ -15,7 +15,7 @@ Plot `pdf` over a subset of the reals:
 )
 ~~~
 
-![](sw/spl/Help/Image/ReciprocalDistribution-A.svg)
+![](Help/Image/ReciprocalDistribution-A.svg)
 
 Plot `cdf` over a subset of the reals:
 
@@ -25,7 +25,7 @@ Plot `cdf` over a subset of the reals:
 )
 ~~~
 
-![](sw/spl/Help/Image/ReciprocalDistribution-B.svg)
+![](Help/Image/ReciprocalDistribution-B.svg)
 
 Plot histogram of `randomVariate`:
 
@@ -36,7 +36,7 @@ ReciprocalDistribution(1, 4)
 .histogramPlot([0 5 0.25])
 ~~~
 
-![](sw/spl/Help/Image/ReciprocalDistribution-C.svg)
+![](Help/Image/ReciprocalDistribution-C.svg)
 
 Plot histogram of `log` of `randomVariate`:
 
@@ -48,7 +48,7 @@ ReciprocalDistribution(1, 4)
 .histogramPlot
 ~~~
 
-![](sw/spl/Help/Image/ReciprocalDistribution-D.svg)
+![](Help/Image/ReciprocalDistribution-D.svg)
 
 * * *
 

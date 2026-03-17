@@ -51,7 +51,7 @@ let a = p.circularArcThrough;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/circularArcThrough-A.svg)
+![](Help/Image/circularArcThrough-A.svg)
 
 Plot a major circular arc passing through three points:
 
@@ -67,7 +67,7 @@ let a = p.circularArcThrough;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/circularArcThrough-B.svg)
+![](Help/Image/circularArcThrough-B.svg)
 
 Plot a minor circular arc passing through three points:
 
@@ -83,7 +83,7 @@ let a = p.circularArcThrough;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/circularArcThrough-C.svg)
+![](Help/Image/circularArcThrough-C.svg)
 
 Plot a major circular arc passing through three points:
 
@@ -99,7 +99,7 @@ let a = p.circularArcThrough;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/circularArcThrough-D.svg)
+![](Help/Image/circularArcThrough-D.svg)
 
 Draw a minor arc, ascending from _(0,0)_ to _(1,1)_:
 
@@ -115,7 +115,7 @@ let a = p.circularArcThrough;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/circularArcThrough-E.svg)
+![](Help/Image/circularArcThrough-E.svg)
 
 Draw a minor arc, ascending from _(0,0)_ to _(1,1)_:
 
@@ -131,7 +131,7 @@ let a = p.circularArcThrough;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/circularArcThrough-F.svg)
+![](Help/Image/circularArcThrough-F.svg)
 
 * * *
 

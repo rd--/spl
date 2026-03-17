@@ -36,7 +36,7 @@ let c = p @* t;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/findShortestTour-A.svg)
+![](Help/Image/findShortestTour-A.svg)
 
 Calculate shortest tour:
 
@@ -70,7 +70,7 @@ let [_, i] = p.findShortestTour;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/findShortestTour-B.svg)
+![](Help/Image/findShortestTour-B.svg)
 
 Perspective drawing of the shortest tour of a dodecahedron:
 
@@ -83,7 +83,7 @@ let v = g.vertexCoordinates;
 Line(v.atAll(t))
 ~~~
 
-![](sw/spl/Help/Image/findShortestTour-C.svg)
+![](Help/Image/findShortestTour-C.svg)
 
 * * *
 

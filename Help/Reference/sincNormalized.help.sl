@@ -36,7 +36,7 @@ Plot:
 (-10, -9.9 .. 10).sincNormalized.linePlot
 ~~~
 
-![](sw/spl/Help/Image/sincNormalized-A.svg)
+![](Help/Image/sincNormalized-A.svg)
 
 Perform ideal bandlimited interpolation of a random signal sampled at integer spacings.
 Assume that the signal to interpolate,
@@ -56,7 +56,7 @@ let y = (tsM - tM).sincNormalized.dot(x);
 [ts, y.collect(first:/1)].transpose.linePlot
 ~~~
 
-![](sw/spl/Help/Image/sincNormalized-B.svg)
+![](Help/Image/sincNormalized-B.svg)
 
 * * *
 

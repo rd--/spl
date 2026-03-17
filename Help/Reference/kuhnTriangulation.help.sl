@@ -14,7 +14,7 @@ In two dimensions divides a square into two triangles:
 .LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/kuhnTriangulation-A.svg)
+![](Help/Image/kuhnTriangulation-A.svg)
 
 In three dimensions divides a cube into six tetrahedra:
 
@@ -31,7 +31,7 @@ let k = 3.kuhnTriangulation;
 }.PerspectiveDrawing
 ~~~
 
-![](sw/spl/Help/Image/kuhnTriangulation-B.svg)
+![](Help/Image/kuhnTriangulation-B.svg)
 
 * * *
 

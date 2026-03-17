@@ -150,7 +150,7 @@ let [r1, r2] = [0.5 0.75];
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/planarAngle-A.svg)
+![](Help/Image/planarAngle-A.svg)
 
 * * *
 

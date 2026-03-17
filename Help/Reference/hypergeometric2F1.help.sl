@@ -94,7 +94,7 @@ let [a, b, c] = [1 / 3, 1 / 3, 2 / 3];
 }
 ~~~
 
-![](sw/spl/Help/Image/hypergeometric2F1-A.svg)
+![](Help/Image/hypergeometric2F1-A.svg)
 
 Plot varying _z_ for three distinct _c_:
 
@@ -110,7 +110,7 @@ Plot varying _z_ for three distinct _c_:
 )
 ~~~
 
-![](sw/spl/Help/Image/hypergeometric2F1-B.svg)
+![](Help/Image/hypergeometric2F1-B.svg)
 
 The number of Schroeder paths of length _2n_ and having _k_ peaks at height one,
 OEIS [A104219](https://oeis.org/A104219):
@@ -127,7 +127,7 @@ OEIS [A104219](https://oeis.org/A104219):
 }.catenate.log.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/hypergeometric2F1-C.svg)
+![](Help/Image/hypergeometric2F1-C.svg)
 
 _₂F₁(-2k,2k-2n;1;-1)_,
 OEIS [A184879](https://oeis.org/A184879):
@@ -140,7 +140,7 @@ OEIS [A184879](https://oeis.org/A184879):
 }.catenate.logScale.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/hypergeometric2F1-D.svg)
+![](Help/Image/hypergeometric2F1-D.svg)
 
 * * *
 

@@ -10,7 +10,7 @@ A gradient, rescaled from _(1,10000)_ to _(0,1)_:
 [100 100].iota.asGreymap
 ~~~
 
-![](sw/spl/Help/Image/asGreymap-A.png)
+![](Help/Image/asGreymap-A.png)
 
 * * *
 

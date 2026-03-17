@@ -93,7 +93,7 @@ The graph of _eˣ_ has gradient `one` at `zero`:
 ])
 ~~~
 
-![](sw/spl/Help/Image/e-A.svg)
+![](Help/Image/e-A.svg)
 
 The binary case answers a `Decimal` value with _m_ decimal places:
 
@@ -121,7 +121,7 @@ Scatter plot of the digits of `e`:
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/e-B.svg)
+![](Help/Image/e-B.svg)
 
 The continued fraction at the higher precision decimal constant is accurate to many more places:
 

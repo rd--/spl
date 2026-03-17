@@ -22,7 +22,7 @@ LsWhite(-1, 1, 99, Sfc32(240981))
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/LsWhite-A.svg)
+![](Help/Image/LsWhite-A.svg)
 
 Diverging range:
 
@@ -35,7 +35,7 @@ LsWhite(
 ).upToEnd.linePlot
 ~~~
 
-![](sw/spl/Help/Image/LsWhite-B.svg)
+![](Help/Image/LsWhite-B.svg)
 
 * * *
 

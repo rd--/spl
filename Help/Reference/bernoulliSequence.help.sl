@@ -32,7 +32,7 @@ OEIS [A027641](https://oeis.org/A027641):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bernoulliSequence-A.svg)
+![](Help/Image/bernoulliSequence-A.svg)
 
 Denominators of Bernoulli sequence,
 OEIS [A027642](https://oeis.org/A027642):
@@ -44,7 +44,7 @@ OEIS [A027642](https://oeis.org/A027642):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bernoulliSequence-B.svg)
+![](Help/Image/bernoulliSequence-B.svg)
 
 * * *
 

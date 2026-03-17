@@ -19,7 +19,7 @@ Plot the Plomp-Levelt dissonance function over one octave with the specified ref
 }.linePlot
 ~~~
 
-![](sw/spl/Help/Image/plompLeveltDissonance-A.svg)
+![](Help/Image/plompLeveltDissonance-A.svg)
 
 * * *
 

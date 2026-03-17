@@ -116,7 +116,7 @@ OEIS [A268833](https://oeis.org/A268833):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/hammingDistance-A.svg)
+![](Help/Image/hammingDistance-A.svg)
 
 * * *
 

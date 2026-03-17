@@ -43,7 +43,7 @@ let z = x * (0 - (x ^ 2) - (y ^ 2)).exp * 21;
 z.surfacePlot
 ~~~
 
-![](sw/spl/Help/Image/meshGrid-A.svg)
+![](Help/Image/meshGrid-A.svg)
 
 * * *
 

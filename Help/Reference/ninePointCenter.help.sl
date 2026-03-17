@@ -25,7 +25,7 @@ let t = sssTriangle(3, 4.4, 5);
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/ninePointCenter-A.svg)
+![](Help/Image/ninePointCenter-A.svg)
 
 * * *
 

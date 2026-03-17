@@ -40,7 +40,7 @@ let r = [];
 r.downsample(k).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/gnomeSort-A.svg)
+![](Help/Image/gnomeSort-A.svg)
 
 * * *
 

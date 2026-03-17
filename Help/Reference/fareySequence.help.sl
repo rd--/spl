@@ -147,7 +147,7 @@ Terms of Farey sequence:
 23.fareySequence.linePlot
 ~~~
 
-![](sw/spl/Help/Image/fareySequence-A.svg)
+![](Help/Image/fareySequence-A.svg)
 
 Numerators of Farey sequence of order twenty-three:
 
@@ -156,7 +156,7 @@ Numerators of Farey sequence of order twenty-three:
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/fareySequence-B.svg)
+![](Help/Image/fareySequence-B.svg)
 
 Denominators of Farey sequence of order twenty-three:
 
@@ -166,7 +166,7 @@ Denominators of Farey sequence of order twenty-three:
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/fareySequence-C.svg)
+![](Help/Image/fareySequence-C.svg)
 
 Diferrences between adjacent mediants:
 
@@ -179,7 +179,7 @@ let f = 20.fareySequence;
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/fareySequence-D.svg)
+![](Help/Image/fareySequence-D.svg)
 
 Draw the Farey sunburst:
 
@@ -195,7 +195,7 @@ let c = b.collect(reverse:/1);
 }.LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/fareySequence-E.svg)
+![](Help/Image/fareySequence-E.svg)
 
 The first twelve sequences,
 the _y_ coordinate is given by the order:
@@ -208,7 +208,7 @@ the _y_ coordinate is given by the order:
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/fareySequence-F.svg)
+![](Help/Image/fareySequence-F.svg)
 
 A metric by Neville where _u/v=2/7_:
 
@@ -220,7 +220,7 @@ let [u, v] = [2, 7];
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/fareySequence-G.svg)
+![](Help/Image/fareySequence-G.svg)
 
 Plot the difference between the mean and mediant of adjacent pairs of a Farey sequence:
 
@@ -232,7 +232,7 @@ Plot the difference between the mean and mediant of adjacent pairs of a Farey se
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/fareySequence-H.svg)
+![](Help/Image/fareySequence-H.svg)
 
 Plot the relative term-wise difference between the mean and mediant of adjacent pairs of a Farey sequence:
 
@@ -245,7 +245,7 @@ Plot the relative term-wise difference between the mean and mediant of adjacent 
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/fareySequence-I.svg)
+![](Help/Image/fareySequence-I.svg)
 
 The numerators of the sequences in turn,
 OEIS [A006842](https://oeis.org/A006842):
@@ -256,7 +256,7 @@ OEIS [A006842](https://oeis.org/A006842):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/fareySequence-J.svg)
+![](Help/Image/fareySequence-J.svg)
 
 The denominators of the sequences in turn,
 OEIS [A006843](https://oeis.org/A006843):
@@ -267,7 +267,7 @@ OEIS [A006843](https://oeis.org/A006843):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/fareySequence-K.svg)
+![](Help/Image/fareySequence-K.svg)
 
 Number of fractions in Farey series of order _n_,
 OEIS [A005728](https://oeis.org/A005728):
@@ -278,7 +278,7 @@ OEIS [A005728](https://oeis.org/A005728):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/fareySequence-L.svg)
+![](Help/Image/fareySequence-L.svg)
 
 * * *
 

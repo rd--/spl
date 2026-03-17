@@ -30,7 +30,7 @@ system
 .LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/continentOutlines-A.svg)
+![](Help/Image/continentOutlines-A.svg)
 
 _Note:_
 The outline data sets are `LibraryItem` instances,

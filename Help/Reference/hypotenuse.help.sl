@@ -30,7 +30,7 @@ let i = (-1 -- 1).subdivide(99);
 }.table(i, i).clip([0 1]).Greymap
 ~~~
 
-![](sw/spl/Help/Image/hypotenuse-A.png)
+![](Help/Image/hypotenuse-A.png)
 
 * * *
 

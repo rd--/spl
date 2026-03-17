@@ -79,7 +79,7 @@ Draw the Gall-Peters projection of the geographic regions labeled 'Africa' and '
 }
 ~~~
 
-![](sw/spl/Help/Image/GeoJson-A.svg)
+![](Help/Image/GeoJson-A.svg)
 
 Draw the Gall stereographic projection of the country labeled 'Australia':
 
@@ -103,7 +103,7 @@ Draw the Gall stereographic projection of the country labeled 'Australia':
 }
 ~~~
 
-![](sw/spl/Help/Image/GeoJson-B.svg)
+![](Help/Image/GeoJson-B.svg)
 
 Draw the Mercator projection of the sub-region labeled 'Australia and New Zealand':
 
@@ -124,7 +124,7 @@ Draw the Mercator projection of the sub-region labeled 'Australia and New Zealan
 }
 ~~~
 
-![](sw/spl/Help/Image/GeoJson-C.svg)
+![](Help/Image/GeoJson-C.svg)
 
 Draw the Plate Carrée projection of the island groups labeled 'Micronesia' and 'New Zealand':
 
@@ -147,7 +147,7 @@ Draw the Plate Carrée projection of the island groups labeled 'Micronesia' and 
 }
 ~~~
 
-![](sw/spl/Help/Image/GeoJson-D.svg)
+![](Help/Image/GeoJson-D.svg)
 
 Construct an empty feature:
 

@@ -15,7 +15,7 @@ dyadicMap(2)
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/dyadicMap-A.svg)
+![](Help/Image/dyadicMap-A.svg)
 
 Plot small iteration count where _β=2_ and _x₀=-3+π_:
 
@@ -25,7 +25,7 @@ dyadicMap(2)
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/dyadicMap-B.svg)
+![](Help/Image/dyadicMap-B.svg)
 
 * * *
 

@@ -13,7 +13,7 @@ FractionalGaussianNoiseProcess(0.4)
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/FractionalGaussianNoiseProcess-A.svg)
+![](Help/Image/FractionalGaussianNoiseProcess-A.svg)
 
 Simulate an ensemble of paths:
 
@@ -24,7 +24,7 @@ FractionalGaussianNoiseProcess(0.4)
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/FractionalGaussianNoiseProcess-B.svg)
+![](Help/Image/FractionalGaussianNoiseProcess-B.svg)
 
 With a larger Hurst index:
 
@@ -35,7 +35,7 @@ FractionalGaussianNoiseProcess(0.9)
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/FractionalGaussianNoiseProcess-C.svg)
+![](Help/Image/FractionalGaussianNoiseProcess-C.svg)
 
 * * *
 

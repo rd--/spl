@@ -57,7 +57,7 @@ Plot first few terms:
 200.calkinWilfSequence.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/calkinWilfSequence-A.svg)
+![](Help/Image/calkinWilfSequence-A.svg)
 
 Scatter plot of first few terms with the numerator on the _x_-axis,
 and the denominator on the _y_-axis:
@@ -68,7 +68,7 @@ and the denominator on the _y_-axis:
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/calkinWilfSequence-B.svg)
+![](Help/Image/calkinWilfSequence-B.svg)
 
 Log plot first few terms:
 
@@ -76,7 +76,7 @@ Log plot first few terms:
 200.calkinWilfSequence.log.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/calkinWilfSequence-C.svg)
+![](Help/Image/calkinWilfSequence-C.svg)
 
 * * *
 

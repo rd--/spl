@@ -33,7 +33,7 @@ Draw the _2_ combination product set of _1 3 5 7 11_:
 .tuningLatticeGraph
 ~~~
 
-![](sw/spl/Help/Image/combinationProductSet-A.svg)
+![](Help/Image/combinationProductSet-A.svg)
 
 Draw the _3_ combination product set of _1 3 5 7 11_:
 
@@ -43,7 +43,7 @@ Draw the _3_ combination product set of _1 3 5 7 11_:
 .tuningLatticeGraph
 ~~~
 
-![](sw/spl/Help/Image/combinationProductSet-B.svg)
+![](Help/Image/combinationProductSet-B.svg)
 
 A worked example:
 

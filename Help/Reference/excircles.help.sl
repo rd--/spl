@@ -10,7 +10,7 @@ let c = t.excircles;
 [t, c].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/excircles-A.svg)
+![](Help/Image/excircles-A.svg)
 
 * * *
 

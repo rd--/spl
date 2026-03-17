@@ -97,7 +97,7 @@ using `~` to compare items:
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/findRepeat-A.svg)
+![](Help/Image/findRepeat-A.svg)
 
 * * *
 

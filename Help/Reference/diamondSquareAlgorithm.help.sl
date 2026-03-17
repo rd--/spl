@@ -19,7 +19,7 @@ Sfc32(803184)
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/diamondSquareAlgorithm-A.svg)
+![](Help/Image/diamondSquareAlgorithm-A.svg)
 
 A heightmap of _65×65_ places with _h=0.85_,
 _c_ is elided and the corners are initialized to `zero`:
@@ -31,7 +31,7 @@ diamondSquareAlgorithm(r, 6, 0.85)
 .Greymap
 ~~~
 
-![](sw/spl/Help/Image/diamondSquareAlgorithm-B.png)
+![](Help/Image/diamondSquareAlgorithm-B.png)
 
 * * *
 

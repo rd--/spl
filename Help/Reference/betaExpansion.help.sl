@@ -179,7 +179,7 @@ betaExpansion(2, 3/2, 430)
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/betaExpansion-A.svg)
+![](Help/Image/betaExpansion-A.svg)
 
 Count number of ones in the base-φ representation of _n_,
 OEIS [A055778](https://oeis.org/A055778):
@@ -211,7 +211,7 @@ let phi = 1.goldenRatio;
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/betaExpansion-B.svg)
+![](Help/Image/betaExpansion-B.svg)
 
 Number of ones in the base-φ representation of _n_ modulo two,
 OEIS [A330037](https://oeis.org/A330037):
@@ -225,7 +225,7 @@ let c = 2:125.collect { :n |
 (c % 2).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/betaExpansion-C.svg)
+![](Help/Image/betaExpansion-C.svg)
 
 List of powers of φ in the representation of _n_,
 OEIS [A104605](https://oeis.org/A104605):
@@ -277,7 +277,7 @@ let phi = 1.goldenRatio;
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/betaExpansion-D.svg)
+![](Help/Image/betaExpansion-D.svg)
 
 The part of _n_ in base φ left of the decimal point,
 OEIS [A105424](https://oeis.org/A105424):
@@ -359,7 +359,7 @@ let phi = 1.goldenRatio;
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/betaExpansion-E.svg)
+![](Help/Image/betaExpansion-E.svg)
 
 The part of _n_ in base φ right of the decimal point,
 reversed,

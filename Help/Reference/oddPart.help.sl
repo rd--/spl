@@ -23,7 +23,7 @@ Plot:
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/oddPart-A.svg)
+![](Help/Image/oddPart-A.svg)
 
 * * *
 

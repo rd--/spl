@@ -13,7 +13,7 @@ A _y,z_ projection of one hundred points on the surface of the unit sphere:
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/spherePoints-A.svg)
+![](Help/Image/spherePoints-A.svg)
 
 * * *
 

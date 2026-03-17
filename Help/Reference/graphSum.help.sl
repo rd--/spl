@@ -45,7 +45,7 @@ Draw the sum of the three cycle and path graphs:
 ).graphPlot
 ~~~
 
-![](sw/spl/Help/Image/graphSum-A.svg)
+![](Help/Image/graphSum-A.svg)
 
 * * *
 

@@ -63,7 +63,7 @@ let q = p.movingAverage(3);
 [x, p, q].linePlot
 ~~~
 
-![](sw/spl/Help/Image/movingAverage-A.svg)
+![](Help/Image/movingAverage-A.svg)
 
 Average with long window:
 
@@ -74,7 +74,7 @@ Sfc32(367214)
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/movingAverage-B.svg)
+![](Help/Image/movingAverage-B.svg)
 
 * * *
 

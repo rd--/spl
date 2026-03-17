@@ -151,7 +151,7 @@ Plot the sequence varying _m_:
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/jacobiSymbol-A.svg)
+![](Help/Image/jacobiSymbol-A.svg)
 
 Successive differences modulo two:
 
@@ -166,7 +166,7 @@ let j = differences:/1.nestList(
 .Bitmap
 ~~~
 
-![](sw/spl/Help/Image/jacobiSymbol-B.png)
+![](Help/Image/jacobiSymbol-B.png)
 
 Triangle in which _n_-th row gives quadratic non-residues modulo the _n_-th prime,
 OEIS [A063988](https://oeis.org/A063988):
@@ -181,7 +181,7 @@ OEIS [A063988](https://oeis.org/A063988):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/jacobiSymbol-C.svg)
+![](Help/Image/jacobiSymbol-C.svg)
 
 Legendre symbol _(n,17)_,
 OEIS [A011584](https://oeis.org/A011584):
@@ -190,7 +190,7 @@ OEIS [A011584](https://oeis.org/A011584):
 0:85.jacobiSymbol(17).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/jacobiSymbol-D.svg)
+![](Help/Image/jacobiSymbol-D.svg)
 
 Legendre symbol _(n,29)_,
 OEIS [A011587](https://oeis.org/A011587):
@@ -199,7 +199,7 @@ OEIS [A011587](https://oeis.org/A011587):
 0:85.jacobiSymbol(29).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/jacobiSymbol-E.svg)
+![](Help/Image/jacobiSymbol-E.svg)
 
 * * *
 

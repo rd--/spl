@@ -87,7 +87,7 @@ The distribution of Gaussian composite numbers:
 }.table(1:100, 1:100).Bitmap
 ~~~
 
-![](sw/spl/Help/Image/isComposite-A.png)
+![](Help/Image/isComposite-A.png)
 
 Smallest number _m_ such that _2*m-p_ is composite for the first _n_ primes,
 OEIS [A051169](https://oeis.org/A051169):
@@ -104,7 +104,7 @@ let p = 1:k.prime;
 }.log.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/isComposite-B.svg)
+![](Help/Image/isComposite-B.svg)
 
 Characteristic function of composite numbers,
 OEIS [A066247](https://oeis.org/A066247):
@@ -113,7 +113,7 @@ OEIS [A066247](https://oeis.org/A066247):
 1:100.isComposite.boole.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/isComposite-C.svg)
+![](Help/Image/isComposite-C.svg)
 
 * * *
 

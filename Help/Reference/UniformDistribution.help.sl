@@ -55,7 +55,7 @@ Plot `pdf` over a subset of the reals:
 )
 ~~~
 
-![](sw/spl/Help/Image/UniformDistribution-A.svg)
+![](Help/Image/UniformDistribution-A.svg)
 
 Plot `cdf` over a subset of the reals:
 
@@ -65,7 +65,7 @@ Plot `cdf` over a subset of the reals:
 )
 ~~~
 
-![](sw/spl/Help/Image/UniformDistribution-B.svg)
+![](Help/Image/UniformDistribution-B.svg)
 
 Plot `randomVariate` of a uni-variate uniform distribution:
 
@@ -76,7 +76,7 @@ UniformDistribution([0 1])
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/UniformDistribution-C.svg)
+![](Help/Image/UniformDistribution-C.svg)
 
 Two dimensional uni-variate uniform noise:
 
@@ -87,7 +87,7 @@ UniformDistribution([0 1])
 .Greymap
 ~~~
 
-![](sw/spl/Help/Image/UniformDistribution-D.png)
+![](Help/Image/UniformDistribution-D.png)
 
 Generate a sample of pseudorandom numbers from a uniform distribution:
 
@@ -98,7 +98,7 @@ UniformDistribution([1 3])
 .histogramPlot
 ~~~
 
-![](sw/spl/Help/Image/UniformDistribution-E.svg)
+![](Help/Image/UniformDistribution-E.svg)
 
 Multi-variate uniform noise,
 plot as _(r,g,b)_ array:
@@ -112,7 +112,7 @@ UniformDistribution(
 .arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/UniformDistribution-F.svg)
+![](Help/Image/UniformDistribution-F.svg)
 
 Multi-variate uniform noise, plot as _(r, θ)_:
 
@@ -126,7 +126,7 @@ UniformDistribution(
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/UniformDistribution-G.svg)
+![](Help/Image/UniformDistribution-G.svg)
 
 * * *
 

@@ -14,7 +14,7 @@ A line drawing:
 ).Line
 ~~~
 
-![](sw/spl/Help/Image/logarithmicSpiral-A.svg)
+![](Help/Image/logarithmicSpiral-A.svg)
 
 The golden spiral is a logarithmic spiral whose growth factor is φ:
 
@@ -26,7 +26,7 @@ let b = 1.goldenRatio.log / 0.5.pi;
 ).Line
 ~~~
 
-![](sw/spl/Help/Image/logarithmicSpiral-B.svg)
+![](Help/Image/logarithmicSpiral-B.svg)
 
 * * *
 

@@ -44,7 +44,7 @@ Plot Utf-8 code points of a String:
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/utf8ByteArray-A.svg)
+![](Help/Image/utf8ByteArray-A.svg)
 
 * * *
 

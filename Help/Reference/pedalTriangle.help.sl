@@ -16,7 +16,7 @@ let e = d.collect { :x | Line([b, x]) };
 [a, Point(b), c, e].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/pedalTriangle-A.svg)
+![](Help/Image/pedalTriangle-A.svg)
 
 If _p_ is the `orthocenter`, then the pedal triangle is the orthic triangle:
 
@@ -29,7 +29,7 @@ let e = d.collect { :x | Line([b, x]) };
 [a, Point(b), c, e].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/pedalTriangle-B.svg)
+![](Help/Image/pedalTriangle-B.svg)
 
 If _p_ is the `circumcenter`, then the pedal triangle is the medial triangle:
 
@@ -44,7 +44,7 @@ let f = a.circumcircle;
 .LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/pedalTriangle-C.svg)
+![](Help/Image/pedalTriangle-C.svg)
 
 Draw pedal triangles of the two Brocard points:
 
@@ -64,7 +64,7 @@ let d = t.secondBrocardTriangle;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/pedalTriangle-D.svg)
+![](Help/Image/pedalTriangle-D.svg)
 
 * * *
 

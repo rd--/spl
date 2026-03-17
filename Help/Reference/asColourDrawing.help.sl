@@ -15,7 +15,7 @@ understood as a 3×3 or _(r,g,b)_ triples:
 ].asColourDrawing
 ~~~
 
-![](sw/spl/Help/Image/asColourDrawing-A.svg)
+![](Help/Image/asColourDrawing-A.svg)
 
 A 5×11×3 array,
 understood as a 5×11 matrix of _(r,g,b)_ triples:
@@ -26,7 +26,7 @@ Sfc32(731894)
 .asColourDrawing
 ~~~
 
-![](sw/spl/Help/Image/asColourDrawing-B.svg)
+![](Help/Image/asColourDrawing-B.svg)
 
 _Note_:
 This is `asLineDrawing` of `ColourGrid`.

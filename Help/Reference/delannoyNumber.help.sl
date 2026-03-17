@@ -60,7 +60,7 @@ Matrix plot of square array of Delannoy numbers modulo three:
 }.table(0:80, 0:80).Greymap
 ~~~
 
-![](sw/spl/Help/Image/delannoyNumber-A.png)
+![](Help/Image/delannoyNumber-A.png)
 
 Square array of Delannoy numbers read by antidiagonals,
 OEIS [A008288](https://oeis.org/A008288):
@@ -71,7 +71,7 @@ OEIS [A008288](https://oeis.org/A008288):
 ).catenate.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/delannoyNumber-B.svg)
+![](Help/Image/delannoyNumber-B.svg)
 
 * * *
 

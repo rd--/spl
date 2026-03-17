@@ -12,7 +12,7 @@ Plot at _a=3,b=1_:
 )
 ~~~
 
-![](sw/spl/Help/Image/conchoidOfDurer-A.svg)
+![](Help/Image/conchoidOfDurer-A.svg)
 
 Plot at _a=3,b=3_:
 
@@ -22,7 +22,7 @@ Plot at _a=3,b=3_:
 )
 ~~~
 
-![](sw/spl/Help/Image/conchoidOfDurer-B.svg)
+![](Help/Image/conchoidOfDurer-B.svg)
 
 See also: conchoidOfDeSluze
 

@@ -41,7 +41,7 @@ OEIS [A000002](https://oeis.org/A000002):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/kolakoskiSequence-A.svg)
+![](Help/Image/kolakoskiSequence-A.svg)
 
 The _1,2_ Kolakoski sequence,
 OEIS [A000002](https://oeis.org/A000002),
@@ -52,7 +52,7 @@ offset terms to be at `zero` and `one`:
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/kolakoskiSequence-B.svg)
+![](Help/Image/kolakoskiSequence-B.svg)
 
 A direct form for the offset Kolakoski sequence,
 with an additional two leading terms,
@@ -77,7 +77,7 @@ let i = 3;
 a.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/kolakoskiSequence-C.svg)
+![](Help/Image/kolakoskiSequence-C.svg)
 
 The _1,3_ Kolakoski sequence,
 OEIS [A064353](https://oeis.org/A064353):
@@ -87,7 +87,7 @@ OEIS [A064353](https://oeis.org/A064353):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/kolakoskiSequence-D.svg)
+![](Help/Image/kolakoskiSequence-D.svg)
 
 The _2,3_ Kolakoski sequence,
 OEIS [A071820](https://oeis.org/A071820):
@@ -97,7 +97,7 @@ OEIS [A071820](https://oeis.org/A071820):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/kolakoskiSequence-E.svg)
+![](Help/Image/kolakoskiSequence-E.svg)
 
 Let _a(n)_ be the prefix sum of the Kolakoski sequence,
 _3n - 2a(n)_,
@@ -109,7 +109,7 @@ let a = n.kolakoskiSequence.prefixSum;
 ((3 * 1:n) - (2 * a)).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/kolakoskiSequence-F.svg)
+![](Help/Image/kolakoskiSequence-F.svg)
 
 Count ones in the Kolakoski sequence,
 OEIS [A156077](https://oeis.org/A156077):
@@ -120,7 +120,7 @@ let a = n.kolakoskiSequence.prefixSum;
 ((2 * 1:n) - a).stepPlot
 ~~~
 
-![](sw/spl/Help/Image/kolakoskiSequence-G.svg)
+![](Help/Image/kolakoskiSequence-G.svg)
 
 First differences of Kolakoski sequence,
 OEIS [A054354](https://oeis.org/A054354):
@@ -131,7 +131,7 @@ OEIS [A054354](https://oeis.org/A054354):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/kolakoskiSequence-H.svg)
+![](Help/Image/kolakoskiSequence-H.svg)
 
 Second differences of Kolakoski sequence,
 OEIS [A376604](https://oeis.org/A376604):
@@ -142,7 +142,7 @@ OEIS [A376604](https://oeis.org/A376604):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/kolakoskiSequence-I.svg)
+![](Help/Image/kolakoskiSequence-I.svg)
 
 The _1,4_ Kolakoski sequence,
 OEIS [A071907](https://oeis.org/A071907),
@@ -153,7 +153,7 @@ minus one:
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/kolakoskiSequence-J.svg)
+![](Help/Image/kolakoskiSequence-J.svg)
 
 The _2,4_ Kolakoski sequence,
 OEIS [A071928](https://oeis.org/A071928),
@@ -164,7 +164,7 @@ minus two:
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/kolakoskiSequence-K.svg)
+![](Help/Image/kolakoskiSequence-K.svg)
 
 The _3,4_ Kolakoski sequence,
 OEIS [A071942](https://oeis.org/A071942),
@@ -175,7 +175,7 @@ minus three:
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/kolakoskiSequence-L.svg)
+![](Help/Image/kolakoskiSequence-L.svg)
 
 The _1,3_ Kolakoski sequence,
 OEIS [A362927](https://oeis.org/A362927),
@@ -186,7 +186,7 @@ minus two:
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/kolakoskiSequence-M.svg)
+![](Help/Image/kolakoskiSequence-M.svg)
 
 * * *
 

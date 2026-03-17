@@ -54,7 +54,7 @@ Plot approach to limit:
 }
 ~~~
 
-![](sw/spl/Help/Image/eulerGamma-A.svg)
+![](Help/Image/eulerGamma-A.svg)
 
 The binary case answers a `Decimal` value with _m_ decimal places:
 
@@ -82,7 +82,7 @@ Scatter plot of the digits of γ:
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/eulerGamma-B.svg)
+![](Help/Image/eulerGamma-B.svg)
 
 * * *
 

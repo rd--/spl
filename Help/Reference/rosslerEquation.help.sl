@@ -16,7 +16,7 @@ rosslerEquation(0.2, 0.2, 8)
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/rosslerEquation-A.svg)
+![](Help/Image/rosslerEquation-A.svg)
 
 Plot of _x_ over _t_ in _(0,50)_ for the same initial conditions:
 
@@ -27,7 +27,7 @@ let [x, y, z] = v.transpose;
 x.linePlot
 ~~~
 
-![](sw/spl/Help/Image/rosslerEquation-B.svg)
+![](Help/Image/rosslerEquation-B.svg)
 
 * * *
 

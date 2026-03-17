@@ -60,7 +60,7 @@ Plot the number of restricted partitions,
 1:33.partitionsP.log.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/partitionsP-A.svg)
+![](Help/Image/partitionsP-A.svg)
 
 Successive differences of `partitionsP` modulo two:
 
@@ -78,7 +78,7 @@ let n = 31;
 ).matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/partitionsP-B.svg)
+![](Help/Image/partitionsP-B.svg)
 
 A walk based on `partitionsP`:
 
@@ -91,7 +91,7 @@ let n = 37;
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/partitionsP-C.svg)
+![](Help/Image/partitionsP-C.svg)
 
 * * *
 

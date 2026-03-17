@@ -84,7 +84,7 @@ OEIS [A077610](https://oeis.org/A077610):
 .catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/unitaryDivisors-A.svg)
+![](Help/Image/unitaryDivisors-A.svg)
 
 Plot harmonic mean of unitary divisors:
 
@@ -94,7 +94,7 @@ Plot harmonic mean of unitary divisors:
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/unitaryDivisors-B.svg)
+![](Help/Image/unitaryDivisors-B.svg)
 
 Numerators of the unitary harmonic means,
 OEIS [A103339](https://oeis.org/A103339):
@@ -105,7 +105,7 @@ OEIS [A103339](https://oeis.org/A103339):
 }.numerator.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/unitaryDivisors-C.svg)
+![](Help/Image/unitaryDivisors-C.svg)
 
 Denominators of the unitary harmonic means,
 OEIS [A103340](https://oeis.org/A103340):
@@ -116,7 +116,7 @@ OEIS [A103340](https://oeis.org/A103340):
 }.denominator.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/unitaryDivisors-D.svg)
+![](Help/Image/unitaryDivisors-D.svg)
 
 Number of odd unitary divisors of _n_,
 OEIS [A068068](https://oeis.org/A068068):
@@ -127,7 +127,7 @@ OEIS [A068068](https://oeis.org/A068068):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/unitaryDivisors-E.svg)
+![](Help/Image/unitaryDivisors-E.svg)
 
 * * *
 

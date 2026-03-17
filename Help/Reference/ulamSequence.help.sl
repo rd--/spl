@@ -140,7 +140,7 @@ OEIS [A002858](https://oeis.org/A002858):
 80.ulamSequence.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/ulamSequence-A.svg)
+![](Help/Image/ulamSequence-A.svg)
 
 First differences of the Ulam sequence,
 OEIS [A072832](https://oeis.org/A072832):
@@ -151,7 +151,7 @@ OEIS [A072832](https://oeis.org/A072832):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/ulamSequence-B.svg)
+![](Help/Image/ulamSequence-B.svg)
 
 * * *
 

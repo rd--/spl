@@ -49,7 +49,7 @@ TemporalData(
 ).linePlot
 ~~~
 
-![](sw/spl/Help/Image/TemporalData-A.svg)
+![](Help/Image/TemporalData-A.svg)
 
 Attach temporal information to some values:
 
@@ -59,7 +59,7 @@ let t = [1 2 5 10 12 15];
 TemporalData([v], [t]).linePlot
 ~~~
 
-![](sw/spl/Help/Image/TemporalData-B.svg)
+![](Help/Image/TemporalData-B.svg)
 
 Create a collection of paths with equivalent times:
 
@@ -70,7 +70,7 @@ let t = [1 2 5 10 12 15];
 TemporalData([p q], [t t]).linePlot
 ~~~
 
-![](sw/spl/Help/Image/TemporalData-C.svg)
+![](Help/Image/TemporalData-C.svg)
 
 Resample irregular time series:
 
@@ -82,7 +82,7 @@ PoissonProcess(5)
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/TemporalData-D.svg)
+![](Help/Image/TemporalData-D.svg)
 
 Resample multiple paths at equal times:
 
@@ -95,7 +95,7 @@ PoissonProcess(5)
 ).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/TemporalData-E.svg)
+![](Help/Image/TemporalData-E.svg)
 
 * * *
 

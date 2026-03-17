@@ -128,7 +128,7 @@ Fraction(1, 1:200)
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/decimalPeriod-A.svg)
+![](Help/Image/decimalPeriod-A.svg)
 
 Period of decimal expansion of reciprocal of the _n_-th prime,
 OEIS [A002371](https://oeis.org/A002371):
@@ -164,7 +164,7 @@ OEIS [A002371](https://oeis.org/A002371):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/decimalPeriod-B.svg)
+![](Help/Image/decimalPeriod-B.svg)
 
 Periods of reciprocals of integers coprime to ten,
 OEIS [A002329](https://oeis.org/A002329):
@@ -177,7 +177,7 @@ OEIS [A002329](https://oeis.org/A002329):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/decimalPeriod-C.svg)
+![](Help/Image/decimalPeriod-C.svg)
 
 * * *
 

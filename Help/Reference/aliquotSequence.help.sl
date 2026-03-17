@@ -200,7 +200,7 @@ OEIS [A044050](https://oeis.org/A044050):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/aliquotSequence-A.svg)
+![](Help/Image/aliquotSequence-A.svg)
 
 The Aliquot sequence starting at 276,
 OEIS [A008892](https://oeis.org/A008892):
@@ -209,7 +209,7 @@ OEIS [A008892](https://oeis.org/A008892):
 276.aliquotSequence(23).log.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/aliquotSequence-B.svg)
+![](Help/Image/aliquotSequence-B.svg)
 
 The aliquot sequences up to twenty three that reach one,
 OEIS [A032451](https://oeis.org/A032451):
@@ -220,7 +220,7 @@ OEIS [A032451](https://oeis.org/A032451):
 .catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/aliquotSequence-C.svg)
+![](Help/Image/aliquotSequence-C.svg)
 
 The aliquot sequences up to sixty that reach one,
 OEIS [A032451](https://oeis.org/A032451):
@@ -231,7 +231,7 @@ OEIS [A032451](https://oeis.org/A032451):
 .catenate.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/aliquotSequence-D.svg)
+![](Help/Image/aliquotSequence-D.svg)
 
 * * *
 

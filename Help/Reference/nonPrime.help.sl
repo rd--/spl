@@ -56,7 +56,7 @@ OEIS [A005171](https://oeis.org/A005171):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/nonPrime-A.svg)
+![](Help/Image/nonPrime-A.svg)
 
 Dispersion of the primes,
 OEIS [A114537](https://oeis.org/A114537):
@@ -70,7 +70,7 @@ OEIS [A114537](https://oeis.org/A114537):
 }.catenate.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/nonPrime-B.svg)
+![](Help/Image/nonPrime-B.svg)
 
 * * *
 

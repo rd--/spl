@@ -20,7 +20,7 @@ Cosine impulse response:
 )
 ~~~
 
-![](sw/spl/Help/Image/cosineInterpolation-A.svg)
+![](Help/Image/cosineInterpolation-A.svg)
 
 * * *
 

@@ -44,7 +44,7 @@ Plot over _(0,1)_:
 }
 ~~~
 
-![](sw/spl/Help/Image/fabiusFunction-A.svg)
+![](Help/Image/fabiusFunction-A.svg)
 
 Plot over _(0,10)_:
 
@@ -54,7 +54,7 @@ Plot over _(0,10)_:
 }
 ~~~
 
-![](sw/spl/Help/Image/fabiusFunction-B.svg)
+![](Help/Image/fabiusFunction-B.svg)
 
 * * *
 

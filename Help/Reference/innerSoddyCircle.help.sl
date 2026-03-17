@@ -14,7 +14,7 @@ let t = [3.5 2.5 4].sssTriangle;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/innerSoddyCircle-A.svg)
+![](Help/Image/innerSoddyCircle-A.svg)
 
 * * *
 

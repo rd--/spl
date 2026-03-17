@@ -143,7 +143,7 @@ OEIS [A003188](https://oeis.org/A003188):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitXor-A.svg)
+![](Help/Image/bitXor-A.svg)
 
 Matrix plot of `bitXor`:
 
@@ -152,7 +152,7 @@ let n = 127;
 (bitXor:/2.array([n n]) / n).Greymap
 ~~~
 
-![](sw/spl/Help/Image/bitXor-B.png)
+![](Help/Image/bitXor-B.png)
 
 Gray encoding of _n_,
 line plot,
@@ -166,7 +166,7 @@ OEIS [A003188](https://oeis.org/A003188):
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/bitXor-C.svg)
+![](Help/Image/bitXor-C.svg)
 
 Plot a grid satisfying _xor(a,b)<n_:
 
@@ -177,7 +177,7 @@ let n = 5;
 }.table(0:15, 0:15).matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/bitXor-D.svg)
+![](Help/Image/bitXor-D.svg)
 
 The Nim-sum table,
 the antidiagonals of the Cayley table,
@@ -214,7 +214,7 @@ OEIS [A003987](https://oeis.org/A003987):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitXor-E.svg)
+![](Help/Image/bitXor-E.svg)
 
 Replace each pair of adjacent bits with their sum,
 OEIS [A038554](https://oeis.org/A038554):
@@ -226,7 +226,7 @@ OEIS [A038554](https://oeis.org/A038554):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitXor-F.svg)
+![](Help/Image/bitXor-F.svg)
 
 Table for binary multiplication without carries,
 OEIS [A048720](https://oeis.org/A048720):
@@ -254,7 +254,7 @@ let multiply = { :n :m |
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitXor-G.svg)
+![](Help/Image/bitXor-G.svg)
 
 Binary coding of a polynomial over _GF(2)_,
 Arndt’s blue code,
@@ -277,7 +277,7 @@ let a = Map { :n |
 a[0:127].scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitXor-H.svg)
+![](Help/Image/bitXor-H.svg)
 
 Implement and plot a simple linear-feedback shift register used by Nintendo,
 the low two bits are _Xor_-ed,
@@ -294,7 +294,7 @@ and the result of the _Xor_ is put into the now-empty high bit:
 }.nestList(16r7FFF, 127).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitXor-I.svg)
+![](Help/Image/bitXor-I.svg)
 
 The bitwise _Xor_ of the squares of first _n_ natural numbers,
 OEIS [A145768](https://oeis.org/A145768):
@@ -306,7 +306,7 @@ bitXor:/2
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/bitXor-J.svg)
+![](Help/Image/bitXor-J.svg)
 
 The bitwise _Xor_ of the first _n_ triangular numbers,
 OEIS [A193232](https://oeis.org/A193232):
@@ -319,7 +319,7 @@ OEIS [A193232](https://oeis.org/A193232):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/bitXor-K.svg)
+![](Help/Image/bitXor-K.svg)
 
 Prefix sum of exclusive or of adjacent integers,
 _n⊕(n-1)_,
@@ -331,7 +331,7 @@ OEIS [A080277](https://oeis.org/A080277):
 }.prefixSum.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/bitXor-L.svg)
+![](Help/Image/bitXor-L.svg)
 
 Exclusive or of adjacent integers,
 _n⊕(n-1)_,
@@ -343,7 +343,7 @@ OEIS [A038712](https://oeis.org/A038712):
 }.log.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/bitXor-M.svg)
+![](Help/Image/bitXor-M.svg)
 
 A variant of the Van Eck sequence,
 c.f. `vanEckSequence`,
@@ -365,7 +365,7 @@ let r = [0];
 a.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitXor-O.svg)
+![](Help/Image/bitXor-O.svg)
 
 Nim-sum table,
 lower left triangle,
@@ -377,7 +377,7 @@ OEIS [A051933](https://oeis.org/A051933):
 .catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitXor-P.svg)
+![](Help/Image/bitXor-P.svg)
 
 Sprague-Grundy value for Grundy’s game when starting with _n_ tokens,
 OEIS [A002188](https://oeis.org/A002188):
@@ -397,7 +397,7 @@ let a = List(k + 2, 0);
 a.allButLast.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitXor-Q.svg)
+![](Help/Image/bitXor-Q.svg)
 
 Logical convolution,
 OEIS [A142149](https://oeis.org/A142149):
@@ -412,7 +412,7 @@ OEIS [A142149](https://oeis.org/A142149):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/bitXor-R.svg)
+![](Help/Image/bitXor-R.svg)
 
 Exclusive or of _n_ and _2n_,
 reversing binary representation of _-n_,
@@ -426,7 +426,7 @@ OESI [A048726](https://oeis.org/A048726) when multiplied by two:
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitXor-S.svg)
+![](Help/Image/bitXor-S.svg)
 
 Exclusive or of _n_ and _4n_,
 OEIS [A048725](https://oeis.org/A048725):
@@ -437,7 +437,7 @@ OEIS [A048725](https://oeis.org/A048725):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitXor-T.svg)
+![](Help/Image/bitXor-T.svg)
 
 Reversing binary representation of _n_,
 OEIS [A065621](https://oeis.org/A065621):
@@ -448,7 +448,7 @@ OEIS [A065621](https://oeis.org/A065621):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitXor-U.svg)
+![](Help/Image/bitXor-U.svg)
 
 Difference betwen _3n_ and exclusive or of _n_ and _2n_,
 OEIS [A048728](https://oeis.org/A048728):
@@ -459,7 +459,7 @@ OEIS [A048728](https://oeis.org/A048728):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitXor-V.svg)
+![](Help/Image/bitXor-V.svg)
 
 _n⊻P(n)_,
 OEIS [A070883](https://oeis.org/A070883):
@@ -470,7 +470,7 @@ OEIS [A070883](https://oeis.org/A070883):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitXor-W.svg)
+![](Help/Image/bitXor-W.svg)
 
 * * *
 

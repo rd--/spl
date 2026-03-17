@@ -21,7 +21,7 @@ let h1 = h(f0);
 }.linePlot
 ~~~
 
-![](sw/spl/Help/Image/setharesDissonance-A.svg)
+![](Help/Image/setharesDissonance-A.svg)
 
 Calculate cents values of the minima of the dissonance function:
 

@@ -10,7 +10,7 @@ Plot:
 (-4 -- 4).functionPlot(tractrix:/1)
 ~~~
 
-![](sw/spl/Help/Image/tractrix-A.svg)
+![](Help/Image/tractrix-A.svg)
 
 * * *
 

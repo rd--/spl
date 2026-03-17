@@ -296,7 +296,7 @@ Plot the sequence with a fixed modulus:
 }
 ~~~
 
-![](sw/spl/Help/Image/multiplicativeOrder-A.svg)
+![](Help/Image/multiplicativeOrder-A.svg)
 
 Plot the sequence, varying the modulus:
 
@@ -306,7 +306,7 @@ Plot the sequence, varying the modulus:
 }
 ~~~
 
-![](sw/spl/Help/Image/multiplicativeOrder-B.svg)
+![](Help/Image/multiplicativeOrder-B.svg)
 
 Multiplicative order of ten modulo _n_,
 OEIS [A084680](https://oeis.org/A084680):
@@ -321,7 +321,7 @@ OEIS [A084680](https://oeis.org/A084680):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/multiplicativeOrder-C.svg)
+![](Help/Image/multiplicativeOrder-C.svg)
 
 Number of different cycles of digits in the decimal expansions of reciprocals of primes,
 OEIS [A006556](https://oeis.org/A006556):
@@ -332,7 +332,7 @@ OEIS [A006556](https://oeis.org/A006556):
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/multiplicativeOrder-D.svg)
+![](Help/Image/multiplicativeOrder-D.svg)
 
 Shuffling _2n_ cards,
 OEIS [A002139](https://oeis.org/A002139):
@@ -350,7 +350,7 @@ OEIS [A002139](https://oeis.org/A002139):
 }.logScale.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/multiplicativeOrder-E.svg)
+![](Help/Image/multiplicativeOrder-E.svg)
 
 _(Σ(R(p(n))) - μ(p(n)-1))/p(n)_,
 OEIS [A088145](https://oeis.org/A088145):
@@ -373,7 +373,7 @@ let a = 1:m.collect { :n |
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/multiplicativeOrder-F.svg)
+![](Help/Image/multiplicativeOrder-F.svg)
 
 Order of two modulo the _n_-th prime,
 OEIS [A014664](https://oeis.org/A014664):
@@ -384,7 +384,7 @@ OEIS [A014664](https://oeis.org/A014664):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/multiplicativeOrder-G.svg)
+![](Help/Image/multiplicativeOrder-G.svg)
 
 Order of two modulo _2n+1_,
 OEIS [A002326](https://oeis.org/A002326):
@@ -395,7 +395,7 @@ OEIS [A002326](https://oeis.org/A002326):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/multiplicativeOrder-H.svg)
+![](Help/Image/multiplicativeOrder-H.svg)
 
 Penny flipping sequence,
 OEIS [A089645](https://oeis.org/A089645):
@@ -416,7 +416,7 @@ OEIS [A089645](https://oeis.org/A089645):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/multiplicativeOrder-I.svg)
+![](Help/Image/multiplicativeOrder-I.svg)
 
 Period of base four representation of _1/n_,
 OEIS [A007735](https://oeis.org/A007735):
@@ -429,7 +429,7 @@ OEIS [A007735](https://oeis.org/A007735):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/multiplicativeOrder-J.svg)
+![](Help/Image/multiplicativeOrder-J.svg)
 
 * * *
 

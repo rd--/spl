@@ -37,7 +37,7 @@ OEIS [A004709](https://oeis.org/A004709):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/isCubeFree-A.svg)
+![](Help/Image/isCubeFree-A.svg)
 
 Cubeful numbers,
 OEIS [A046099](https://oeis.org/A046099):
@@ -47,7 +47,7 @@ OEIS [A046099](https://oeis.org/A046099):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/isCubeFree-B.svg)
+![](Help/Image/isCubeFree-B.svg)
 
 Characteristic function of cube-free numbers,
 OEIS [A212793](https://oeis.org/A212793):
@@ -57,7 +57,7 @@ OEIS [A212793](https://oeis.org/A212793):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/isCubeFree-C.svg)
+![](Help/Image/isCubeFree-C.svg)
 
 * * *
 

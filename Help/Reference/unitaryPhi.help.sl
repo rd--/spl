@@ -28,7 +28,7 @@ Scatter plot of first few terms:
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/unitaryPhi-A.svg)
+![](Help/Image/unitaryPhi-A.svg)
 
 * * *
 

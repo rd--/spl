@@ -59,7 +59,7 @@ OEIS [A061036](https://oeis.org/A061036):
 }.++.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/denominator-A.svg)
+![](Help/Image/denominator-A.svg)
 
 Denominator of _1/4-1/n^2_,
 OEIS [A061038](https://oeis.org/A061038):
@@ -70,7 +70,7 @@ OEIS [A061038](https://oeis.org/A061038):
 }.denominator.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/denominator-B.svg)
+![](Help/Image/denominator-B.svg)
 
 * * *
 

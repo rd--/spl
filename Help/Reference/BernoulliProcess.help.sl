@@ -14,7 +14,7 @@ BernoulliProcess(1 / 3)
 .stepPlot
 ~~~
 
-![](sw/spl/Help/Image/BernoulliProcess-A.svg)
+![](Help/Image/BernoulliProcess-A.svg)
 
 * * *
 

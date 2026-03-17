@@ -108,7 +108,7 @@ Draw `exchangeMatrix`:
 33.exchangeMatrix.Bitmap
 ~~~
 
-![](sw/spl/Help/Image/exchangeMatrix-A.png)
+![](Help/Image/exchangeMatrix-A.png)
 
 * * *
 

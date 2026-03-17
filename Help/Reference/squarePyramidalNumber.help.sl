@@ -40,7 +40,7 @@ OEIS [A000330](https://oeis.org/A000330):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/squarePyramidalNumber-A.svg)
+![](Help/Image/squarePyramidalNumber-A.svg)
 
 * * *
 

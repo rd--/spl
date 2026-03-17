@@ -72,7 +72,7 @@ OEIS [A006530](https://oeis.org/A006530):
 .logScale.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/greatestPrimeFactor-A.svg)
+![](Help/Image/greatestPrimeFactor-A.svg)
 
 `primePi` of `greatestPrimeFactor`,
 OEIS [A061395](https://oeis.org/A061395):
@@ -83,7 +83,7 @@ OEIS [A061395](https://oeis.org/A061395):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/greatestPrimeFactor-B.svg)
+![](Help/Image/greatestPrimeFactor-B.svg)
 
 Least inverse of the Kempner function,
 OEIS [A046021](https://oeis.org/A046021):
@@ -99,7 +99,7 @@ OEIS [A046021](https://oeis.org/A046021):
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/greatestPrimeFactor-C.svg)
+![](Help/Image/greatestPrimeFactor-C.svg)
 
 Greatest prime divisor of all composite numbers between _P(n)_ and the next prime,
 OEIS [A052248](https://oeis.org/A052248):
@@ -114,7 +114,7 @@ OEIS [A052248](https://oeis.org/A052248):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/greatestPrimeFactor-D.svg)
+![](Help/Image/greatestPrimeFactor-D.svg)
 
 * * *
 

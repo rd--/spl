@@ -68,7 +68,7 @@ Plot over a subset of the reals:
 }
 ~~~
 
-![](sw/spl/Help/Image/cot-A.svg)
+![](Help/Image/cot-A.svg)
 
 Plot at integer points:
 
@@ -79,7 +79,7 @@ Plot at integer points:
 .rescale.Greymap
 ~~~
 
-![](sw/spl/Help/Image/cot-B.png)
+![](Help/Image/cot-B.png)
 
 _|⌊(cot(n))_,
 OEIS [A037448](https://oeis.org/A037448):
@@ -89,7 +89,7 @@ OEIS [A037448](https://oeis.org/A037448):
 .log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/cot-C.svg)
+![](Help/Image/cot-C.svg)
 
 _⌊(cot(n))_,
 OEIS [A037448](https://oeis.org/A037448):
@@ -99,7 +99,7 @@ OEIS [A037448](https://oeis.org/A037448):
 .logScale.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/cot-D.svg)
+![](Help/Image/cot-D.svg)
 
 * * *
 

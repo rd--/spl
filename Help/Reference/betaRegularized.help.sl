@@ -19,7 +19,7 @@ Plot over a subset of the reals:
 }
 ~~~
 
-![](sw/spl/Help/Image/betaRegularized-A.svg)
+![](Help/Image/betaRegularized-A.svg)
 
 Plot over a subset of the reals,
 with varying _a_ and _b_:
@@ -35,7 +35,7 @@ with varying _a_ and _b_:
 )
 ~~~
 
-![](sw/spl/Help/Image/betaRegularized-B.svg)
+![](Help/Image/betaRegularized-B.svg)
 
 _Note_:
 Only defined for _z_ in _(0,1)_ and integer _a_ and _b_.

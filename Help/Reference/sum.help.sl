@@ -232,7 +232,7 @@ let a = [1];
 a.logScale.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/sum-A.svg)
+![](Help/Image/sum-A.svg)
 
 Recursive two-parameter sequence allowing Ramanujan’s sum calculation,
 OEIS [A282634](https://oeis.org/A282634):
@@ -261,7 +261,7 @@ let b:/2 = { :n :m |
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/sum-B.svg)
+![](Help/Image/sum-B.svg)
 
 Count number of partitions combining with _inclusive or_,
 OEIS [A054244](https://oeis.org/A054244):
@@ -279,7 +279,7 @@ let f = { :n |
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/sum-C.svg)
+![](Help/Image/sum-C.svg)
 
 Euler transform of _-3,-3,-2_,
 OEIS [A005928](https://oeis.org/A005928):
@@ -297,7 +297,7 @@ let u = [1 -1 -3 1 -1 3 1 -1 0];
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/sum-D.svg)
+![](Help/Image/sum-D.svg)
 
 _b⊛c_ where _b(h)=h_ and _c(h)=h+n-1_,
 OEIS [A213500](https://oeis.org/A213500):
@@ -311,7 +311,7 @@ OEIS [A213500](https://oeis.org/A213500):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/sum-E.svg)
+![](Help/Image/sum-E.svg)
 
 _Σi^2*-1^i_ for _n:2n_,
 OEIS [A225144](https://oeis.org/A225144):
@@ -325,7 +325,7 @@ OEIS [A225144](https://oeis.org/A225144):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/sum-F.svg)
+![](Help/Image/sum-F.svg)
 
 _Σ0:n𝒙|n_,
 OEIS [A224915](https://oeis.org/A224915):
@@ -338,7 +338,7 @@ OEIS [A224915](https://oeis.org/A224915):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/sum-G.svg)
+![](Help/Image/sum-G.svg)
 
 _Σ0:n|n_,
 OEIS [A350093](https://oeis.org/A350093):
@@ -351,7 +351,7 @@ OEIS [A350093](https://oeis.org/A350093):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/sum-H.svg)
+![](Help/Image/sum-H.svg)
 
 A variant of the inventory sequence,
 OEIS [A347738](https://oeis.org/A347738):
@@ -377,7 +377,7 @@ let a = Map { :n |
 a[1:150].scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/sum-I.svg)
+![](Help/Image/sum-I.svg)
 
 A symmetric square array,
 read by antidiagonals,
@@ -405,7 +405,7 @@ let t = { :n :k |
 .catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/sum-J.svg)
+![](Help/Image/sum-J.svg)
 
 Molien series for three-dimensional group _[2,n]=*22n_,
 OEIS [A008728](https://oeis.org/A008728):
@@ -419,7 +419,7 @@ OEIS [A008728](https://oeis.org/A008728):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/sum-K.svg)
+![](Help/Image/sum-K.svg)
 
 Where supported `sum` is displayed as Σ.
 

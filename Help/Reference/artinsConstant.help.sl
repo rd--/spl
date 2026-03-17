@@ -34,7 +34,7 @@ Scatter plot of the digits of Artin’s constant:
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/artinsConstant-A.svg)
+![](Help/Image/artinsConstant-A.svg)
 
 * * *
 

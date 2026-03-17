@@ -79,7 +79,7 @@ Varying one side length:
 }.LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/sssTriangle-A.svg)
+![](Help/Image/sssTriangle-A.svg)
 
 The _3,4,5_ triangle is the only right triangle with sides in an arithmetic series:
 
@@ -87,7 +87,7 @@ The _3,4,5_ triangle is the only right triangle with sides in an arithmetic seri
 [3 4 5].sssTriangle
 ~~~
 
-![](sw/spl/Help/Image/sssTriangle-B.svg)
+![](Help/Image/sssTriangle-B.svg)
 
 The _1,√φ,φ_ triangle is the only right triangle with sides in a geometric series:
 
@@ -96,7 +96,7 @@ let phi = 1.goldenRatio;
 [1 phi.sqrt phi].sssTriangle
 ~~~
 
-![](sw/spl/Help/Image/sssTriangle-C.svg)
+![](Help/Image/sssTriangle-C.svg)
 
 Draw pythagorean triples with equal area:
 
@@ -106,7 +106,7 @@ Draw pythagorean triples with equal area:
 .LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/sssTriangle-D.svg)
+![](Help/Image/sssTriangle-D.svg)
 
 Draw pythagorean triples with equal area:
 
@@ -119,7 +119,7 @@ Draw pythagorean triples with equal area:
 .LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/sssTriangle-E.svg)
+![](Help/Image/sssTriangle-E.svg)
 
 The supergolden triangle, a reciprocal proportion triangle:
 
@@ -132,7 +132,7 @@ let t = sssTriangle(x ^ -1, 1, x);
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/sssTriangle-F.svg)
+![](Help/Image/sssTriangle-F.svg)
 
 The Kepler triangle, a reciprocal proportion triangle:
 
@@ -145,7 +145,7 @@ let t = sssTriangle(x ^ -1, 1, x);
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/sssTriangle-G.svg)
+![](Help/Image/sssTriangle-G.svg)
 
 The plastic triangle, a reciprocal proportion triangle:
 
@@ -158,7 +158,7 @@ let t = sssTriangle(x ^ -1, 1, x);
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/sssTriangle-H.svg)
+![](Help/Image/sssTriangle-H.svg)
 
 * * *
 

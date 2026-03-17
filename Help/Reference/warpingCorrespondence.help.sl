@@ -50,7 +50,7 @@ x.warpingCorrespondence(y)
 .transpose.linePlot
 ~~~
 
-![](sw/spl/Help/Image/warpingCorrespondence-A.svg)
+![](Help/Image/warpingCorrespondence-A.svg)
 
 Plot correspondence between 13 and 17- vectors:
 
@@ -67,7 +67,7 @@ x.warpingCorrespondence(y)
 .transpose.linePlot
 ~~~
 
-![](sw/spl/Help/Image/warpingCorrespondence-B.svg)
+![](Help/Image/warpingCorrespondence-B.svg)
 
 Plot correspondence between 13 and 5- vectors:
 
@@ -78,7 +78,7 @@ x.warpingCorrespondence(y)
 .transpose.linePlot
 ~~~
 
-![](sw/spl/Help/Image/warpingCorrespondence-C.svg)
+![](Help/Image/warpingCorrespondence-C.svg)
 
 * * *
 

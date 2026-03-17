@@ -17,7 +17,7 @@ Probability density function:
 )
 ~~~
 
-![](sw/spl/Help/Image/ChiSquareDistribution-A.svg)
+![](Help/Image/ChiSquareDistribution-A.svg)
 
 Cumulative distribution function:
 
@@ -30,7 +30,7 @@ Cumulative distribution function:
 )
 ~~~
 
-![](sw/spl/Help/Image/ChiSquareDistribution-B.svg)
+![](Help/Image/ChiSquareDistribution-B.svg)
 
 Generate a sample of pseudo-random numbers:
 
@@ -41,7 +41,7 @@ ChiSquareDistribution(3)
 .histogramPlot
 ~~~
 
-![](sw/spl/Help/Image/ChiSquareDistribution-C.svg)
+![](Help/Image/ChiSquareDistribution-C.svg)
 
 Mean and variance:
 

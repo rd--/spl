@@ -19,7 +19,7 @@ Drawing of the 2nd step of the Vicsek curve:
 2.vicsekCurve.Line
 ~~~
 
-![](sw/spl/Help/Image/vicsekCurve-A.svg)
+![](Help/Image/vicsekCurve-A.svg)
 
 Drawing of the 3rd step of the Vicsek curve:
 
@@ -27,7 +27,7 @@ Drawing of the 3rd step of the Vicsek curve:
 3.vicsekCurve.Line
 ~~~
 
-![](sw/spl/Help/Image/vicsekCurve-B.svg)
+![](Help/Image/vicsekCurve-B.svg)
 
 * * *
 

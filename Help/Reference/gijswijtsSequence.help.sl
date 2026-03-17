@@ -27,7 +27,7 @@ Plot first few terms:
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/gijswijtsSequence-A.svg)
+![](Help/Image/gijswijtsSequence-A.svg)
 
 * * *
 

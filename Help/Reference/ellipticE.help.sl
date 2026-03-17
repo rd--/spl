@@ -50,7 +50,7 @@ Plot over a subset of the reals:
 (0 -- 1).functionPlot(ellipticE:/1)
 ~~~
 
-![](sw/spl/Help/Image/ellipticE-A.svg)
+![](Help/Image/ellipticE-A.svg)
 
 * * *
 

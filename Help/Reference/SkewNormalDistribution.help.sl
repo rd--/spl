@@ -18,7 +18,7 @@ Probability density function, varying alpha:
 )
 ~~~
 
-![](sw/spl/Help/Image/SkewNormalDistribution-A.svg)
+![](Help/Image/SkewNormalDistribution-A.svg)
 
 Generate a sample of pseudorandom numbers from a skew normal distribution:
 
@@ -29,7 +29,7 @@ SkewNormalDistribution(0, 2, 3)
 .histogramPlot
 ~~~
 
-![](sw/spl/Help/Image/SkewNormalDistribution-B.svg)
+![](Help/Image/SkewNormalDistribution-B.svg)
 
 * * *
 

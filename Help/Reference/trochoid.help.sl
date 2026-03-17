@@ -12,7 +12,7 @@ Where _a=b_, a cycloid:
 )
 ~~~
 
-![](sw/spl/Help/Image/trochoid-A.svg)
+![](Help/Image/trochoid-A.svg)
 
 Where _b<a_, a curtate cycloid:
 
@@ -22,7 +22,7 @@ Where _b<a_, a curtate cycloid:
 )
 ~~~
 
-![](sw/spl/Help/Image/trochoid-B.svg)
+![](Help/Image/trochoid-B.svg)
 
 Where _b>a_, a prolate cycloid:
 
@@ -32,7 +32,7 @@ Where _b>a_, a prolate cycloid:
 )
 ~~~
 
-![](sw/spl/Help/Image/trochoid-C.svg)
+![](Help/Image/trochoid-C.svg)
 
 * * *
 

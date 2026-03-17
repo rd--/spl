@@ -21,7 +21,7 @@ OEIS [A001316](https://oeis.org/A001316):
 )
 ~~~
 
-![](sw/spl/Help/Image/gouldsNumber-A.svg)
+![](Help/Image/gouldsNumber-A.svg)
 
 * * *
 

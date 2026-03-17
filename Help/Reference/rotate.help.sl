@@ -37,7 +37,7 @@ let g = [1 3].unitSquare;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/rotate-A.svg)
+![](Help/Image/rotate-A.svg)
 
 * * *
 

@@ -38,7 +38,7 @@ Plot over a subset of the reals:
 )
 ~~~
 
-![](sw/spl/Help/Image/plancksRadiationFunction-A.svg)
+![](Help/Image/plancksRadiationFunction-A.svg)
 
 * * *
 

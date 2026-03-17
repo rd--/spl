@@ -51,7 +51,7 @@ Plot first few terms:
 ).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/indexOfPrime-A.svg)
+![](Help/Image/indexOfPrime-A.svg)
 
 * * *
 

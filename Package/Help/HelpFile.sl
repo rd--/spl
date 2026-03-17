@@ -453,7 +453,7 @@ HelpFile : [Object, Equatable, Cache] { | origin source cache |
 				'- `%`'.format([n])
 			] ++ e.withIndexCollect { :p :i |
 				[n, e.size, i].postLine;
-				'  %. ![](sw/spl/Help/Image/%)'
+				'  %. ![](Help/Image/%)'
 				.format(
 					[
 						i,
@@ -557,9 +557,9 @@ HelpFile : [Object, Equatable, Cache] { | origin source cache |
 				[
 					d[1],
 					'',
-					'~~~',
+					'```',
 					e.withoutTrailingBlanks,
-					'~~~',
+					'```',
 					'',
 					d[2]
 				].unlines

@@ -33,7 +33,7 @@ OEIS [A003278](https://oeis.org/A003278):
 192.szekeresSequence.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/szekeresSequence-A.svg)
+![](Help/Image/szekeresSequence-A.svg)
 
 * * *
 

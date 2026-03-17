@@ -18,7 +18,7 @@ Sfc32(278193)
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/hoskingMethod-A.svg)
+![](Help/Image/hoskingMethod-A.svg)
 
 The same trace of fractional Gaussian noise:
 
@@ -28,7 +28,7 @@ Sfc32(278193)
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/hoskingMethod-B.svg)
+![](Help/Image/hoskingMethod-B.svg)
 
 Mean of sample of fractional Gaussian noise,
 the predicted value is `zero`:

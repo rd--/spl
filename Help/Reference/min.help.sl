@@ -175,7 +175,7 @@ OEIS [A037904](https://oeis.org/A037904):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/min-A.svg)
+![](Help/Image/min-A.svg)
 
 * * *
 

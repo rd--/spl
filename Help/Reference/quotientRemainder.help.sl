@@ -104,7 +104,7 @@ OEIS [A002266](https://oeis.org/A002266):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/quotientRemainder-A.svg)
+![](Help/Image/quotientRemainder-A.svg)
 
 Remainder of _n_ and five,
 OEIS [A010874](https://oeis.org/A010874):
@@ -115,7 +115,7 @@ OEIS [A010874](https://oeis.org/A010874):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/quotientRemainder-B.svg)
+![](Help/Image/quotientRemainder-B.svg)
 
 Kimberling’s expulsion array read by antidiagonals,
 OEIS [A035486](https://oeis.org/A035486):
@@ -139,7 +139,7 @@ let a = { :n :k |
 .catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/quotientRemainder-C.svg)
+![](Help/Image/quotientRemainder-C.svg)
 
 Write _n_ in balanced ternary and then replace negative ones with twos,
 OEIS [A117967](https://oeis.org/A117967):
@@ -164,7 +164,7 @@ OEIS [A117967](https://oeis.org/A117967):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/quotientRemainder-D.svg)
+![](Help/Image/quotientRemainder-D.svg)
 
 * * *
 

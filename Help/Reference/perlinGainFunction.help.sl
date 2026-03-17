@@ -14,7 +14,7 @@ Plot with various gain parameters:
 )
 ~~~
 
-![](sw/spl/Help/Image/perlinGainFunction-A.svg)
+![](Help/Image/perlinGainFunction-A.svg)
 
 * * *
 

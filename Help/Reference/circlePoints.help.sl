@@ -46,7 +46,7 @@ Draw a pentagon:
 .Polygon
 ~~~
 
-![](sw/spl/Help/Image/circlePoints-A.svg)
+![](Help/Image/circlePoints-A.svg)
 
 Unit circles at each circle point:
 
@@ -56,7 +56,7 @@ Unit circles at each circle point:
 }.LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/circlePoints-B.svg)
+![](Help/Image/circlePoints-B.svg)
 
 Three concentric complete graph drawings:
 
@@ -68,7 +68,7 @@ Three concentric complete graph drawings:
 }.LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/circlePoints-C.svg)
+![](Help/Image/circlePoints-C.svg)
 
 Connect every fifth point of twelve,
 place circles within outer polgons:
@@ -86,7 +86,7 @@ let q = 12.circlePoints([0 0], 9 / 17, 0);
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/circlePoints-D.svg)
+![](Help/Image/circlePoints-D.svg)
 
 An annular Steiner chain:
 
@@ -106,7 +106,7 @@ let rr = (theta.sec + theta.tan).square * r;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/circlePoints-E.svg)
+![](Help/Image/circlePoints-E.svg)
 
 Recursively construct circles at circle points:
 
@@ -123,7 +123,7 @@ Circle(
 ).LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/circlePoints-F.svg)
+![](Help/Image/circlePoints-F.svg)
 
 Circles within a circle:
 
@@ -136,7 +136,7 @@ let p = n.circlePoints([0 0], 1, 0);
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/circlePoints-G.svg)
+![](Help/Image/circlePoints-G.svg)
 
 Draw the [Enneagram](https://en.wikipedia.org/wiki/Enneagram_of_Personality) figure:
 
@@ -152,7 +152,7 @@ let q = [3 6 9; 1 4 2 8 5 7];
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/circlePoints-H.svg)
+![](Help/Image/circlePoints-H.svg)
 
 * * *
 

@@ -12,7 +12,7 @@ Plot:
 )
 ~~~
 
-![](sw/spl/Help/Image/circleCurve-A.svg)
+![](Help/Image/circleCurve-A.svg)
 
 * * *
 

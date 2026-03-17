@@ -36,7 +36,7 @@ Scatter plot of a phyllotaxis pattern:
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/goldenAngle-A.svg)
+![](Help/Image/goldenAngle-A.svg)
 
 * * *
 

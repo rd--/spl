@@ -17,7 +17,7 @@ longer segments are traversed at higher velocity:
 .pathPlot
 ~~~
 
-![](sw/spl/Help/Image/pathPlot-A.svg)
+![](Help/Image/pathPlot-A.svg)
 
 A square traversed at the specified timing sequence:
 
@@ -27,7 +27,7 @@ A square traversed at the specified timing sequence:
 )
 ~~~
 
-![](sw/spl/Help/Image/pathPlot-B.svg)
+![](Help/Image/pathPlot-B.svg)
 
 Plot solution to the double pendulum equation,
 indicating the trajectory of the second mass:
@@ -51,7 +51,7 @@ v.collect { :v |
 }.pathPlot(t)
 ~~~
 
-![](sw/spl/Help/Image/pathPlot-C.svg)
+![](Help/Image/pathPlot-C.svg)
 
 * * *
 

@@ -27,7 +27,7 @@ Plot the first few terms:
 2.hammersleyPointSet(100).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/hammersleyPointSet-A.svg)
+![](Help/Image/hammersleyPointSet-A.svg)
 
 * * *
 

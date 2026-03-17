@@ -21,7 +21,7 @@ Plot over a subset of the reals:
 )
 ~~~
 
-![](sw/spl/Help/Image/logisticSigmoid-A.svg)
+![](Help/Image/logisticSigmoid-A.svg)
 
 Compute the elementwise values of an array using automatic threading:
 
@@ -51,7 +51,7 @@ Polar plot with phi:
 (-2.pi -- 3.pi).polarPlot(logisticSigmoid:/1)
 ~~~
 
-![](sw/spl/Help/Image/logisticSigmoid-B.svg)
+![](Help/Image/logisticSigmoid-B.svg)
 
 Plot varying _k_:
 
@@ -63,7 +63,7 @@ Plot varying _k_:
 )
 ~~~
 
-![](sw/spl/Help/Image/logisticSigmoid-C.svg)
+![](Help/Image/logisticSigmoid-C.svg)
 
 Plot over a subset of the complexes:
 
@@ -73,7 +73,7 @@ Plot over a subset of the complexes:
 )
 ~~~
 
-![](sw/spl/Help/Image/logisticSigmoid-D.png)
+![](Help/Image/logisticSigmoid-D.png)
 
 * * *
 

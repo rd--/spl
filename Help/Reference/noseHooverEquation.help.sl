@@ -17,7 +17,7 @@ noseHooverEquation(-1.1)
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/noseHooverEquation-A.svg)
+![](Help/Image/noseHooverEquation-A.svg)
 
 Plot system with _α=-6.3_:
 
@@ -32,7 +32,7 @@ noseHooverEquation(-6.3)
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/noseHooverEquation-B.svg)
+![](Help/Image/noseHooverEquation-B.svg)
 
 Plot system with _α=-0.4_:
 
@@ -47,7 +47,7 @@ noseHooverEquation(-0.4)
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/noseHooverEquation-C.svg)
+![](Help/Image/noseHooverEquation-C.svg)
 
 Continue with above plot:
 
@@ -62,7 +62,7 @@ noseHooverEquation(-0.4)
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/noseHooverEquation-D.svg)
+![](Help/Image/noseHooverEquation-D.svg)
 
 * * *
 

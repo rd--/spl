@@ -16,7 +16,7 @@ Revolve a function curve around the _z_ axis:
 }
 ~~~
 
-![](sw/spl/Help/Image/revolutionPlot-A.svg)
+![](Help/Image/revolutionPlot-A.svg)
 
 Revolve a parametric curve around the _z_ axis:
 
@@ -26,7 +26,7 @@ Revolve a parametric curve around the _z_ axis:
 }
 ~~~
 
-![](sw/spl/Help/Image/revolutionPlot-B.svg)
+![](Help/Image/revolutionPlot-B.svg)
 
 A cylinder:
 
@@ -36,7 +36,7 @@ A cylinder:
 }
 ~~~
 
-![](sw/spl/Help/Image/revolutionPlot-C.svg)
+![](Help/Image/revolutionPlot-C.svg)
 
 A cone:
 
@@ -46,7 +46,7 @@ A cone:
 }
 ~~~
 
-![](sw/spl/Help/Image/revolutionPlot-D.svg)
+![](Help/Image/revolutionPlot-D.svg)
 
 An ellipsoid:
 
@@ -56,7 +56,7 @@ An ellipsoid:
 }
 ~~~
 
-![](sw/spl/Help/Image/revolutionPlot-E.svg)
+![](Help/Image/revolutionPlot-E.svg)
 
 * * *
 

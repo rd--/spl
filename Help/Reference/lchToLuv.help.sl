@@ -35,7 +35,7 @@ let u = (0 -- 1).discretize(n);
 }.table(u, u).arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/lchToLuv-A.svg)
+![](Help/Image/lchToLuv-A.svg)
 
 * * *
 

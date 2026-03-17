@@ -40,7 +40,7 @@ Non-commensurate waves (quasiperiodic function):
 }
 ~~~
 
-![](sw/spl/Help/Image/cosDegrees-A.svg)
+![](Help/Image/cosDegrees-A.svg)
 
 * * *
 

@@ -14,7 +14,7 @@ let r = c.collect { :each |
 [c.Line, r].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/theodorusSpiral-A.svg)
+![](Help/Image/theodorusSpiral-A.svg)
 
 Plot the first few terms at equal radii,
 the angles exhibit the equidistribution property:
@@ -25,7 +25,7 @@ the angles exhibit the equidistribution property:
 .PointCloud
 ~~~
 
-![](sw/spl/Help/Image/theodorusSpiral-B.svg)
+![](Help/Image/theodorusSpiral-B.svg)
 
 * * *
 

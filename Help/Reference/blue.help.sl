@@ -28,7 +28,7 @@ Plot blues with increasing α:
 .arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/blue-A.svg)
+![](Help/Image/blue-A.svg)
 
 * * *
 

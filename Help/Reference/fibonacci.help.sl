@@ -424,7 +424,7 @@ Plot Fibonacci over a subset of the reals:
 (-2 -- 2).functionPlot(fibonacci:/1)
 ~~~
 
-![](sw/spl/Help/Image/fibonacci-A.svg)
+![](Help/Image/fibonacci-A.svg)
 
 Fibonacci numbers modulo seven,
 period is sixteen,
@@ -435,7 +435,7 @@ OEIS [A105870](https://oeis.org/A105870):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/fibonacci-B.svg)
+![](Help/Image/fibonacci-B.svg)
 
 Fibonacci numbers modulo ten,
 period is sixty,
@@ -446,7 +446,7 @@ OEIS [A003893](https://oeis.org/A003893):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/fibonacci-C.svg)
+![](Help/Image/fibonacci-C.svg)
 
 Fibonacci modulo _n_,
 OEIS [A002708](https://oeis.org/A002708):
@@ -457,7 +457,7 @@ OEIS [A002708](https://oeis.org/A002708):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/fibonacci-D.svg)
+![](Help/Image/fibonacci-D.svg)
 
 Log plot of positive and negative Fibonacci numbers:
 
@@ -467,7 +467,7 @@ Log plot of positive and negative Fibonacci numbers:
 }
 ~~~
 
-![](sw/spl/Help/Image/fibonacci-E.svg)
+![](Help/Image/fibonacci-E.svg)
 
 Plot over a larger subset of the reals:
 
@@ -477,7 +477,7 @@ Plot over a larger subset of the reals:
 )
 ~~~
 
-![](sw/spl/Help/Image/fibonacci-F.svg)
+![](Help/Image/fibonacci-F.svg)
 
 Plot with _n=0.5_:
 
@@ -487,7 +487,7 @@ Plot with _n=0.5_:
 }
 ~~~
 
-![](sw/spl/Help/Image/fibonacci-G.svg)
+![](Help/Image/fibonacci-G.svg)
 
 Plot the Fibonacci polynomial for various orders:
 
@@ -501,7 +501,7 @@ Plot the Fibonacci polynomial for various orders:
 )
 ~~~
 
-![](sw/spl/Help/Image/fibonacci-H.svg)
+![](Help/Image/fibonacci-H.svg)
 
 Number of representations of _n_ as a sum of distinct Fibonacci numbers,
 OEIS [A000119](https://oeis.org/A000119):
@@ -520,7 +520,7 @@ OEIS [A000119](https://oeis.org/A000119):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/fibonacci-I.svg)
+![](Help/Image/fibonacci-I.svg)
 
 The number of ways to express _n_ as the sum of an odd prime, a positive Fibonacci number and twice a positive Fibonacci number,
 OEIS [A155114](https://oeis.org/A155114):
@@ -541,7 +541,7 @@ let pq = { :m |
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/fibonacci-J.svg)
+![](Help/Image/fibonacci-J.svg)
 
 Smallest positive Fibonacci number divisible by _n_,
 OEIS [A047930](https://oeis.org/A047930):
@@ -555,7 +555,7 @@ let x = 1:250.fibonacci;
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/fibonacci-K.svg)
+![](Help/Image/fibonacci-K.svg)
 
 Fibonacci modulo twelve,
 period is twenty-four,
@@ -566,7 +566,7 @@ OEIS [A089911](https://oeis.org/A089911):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/fibonacci-L.svg)
+![](Help/Image/fibonacci-L.svg)
 
 Fibonacci modulo fourteen,
 period is fourty-eight,
@@ -577,7 +577,7 @@ OEIS [A105995](https://oeis.org/A105995):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/fibonacci-M.svg)
+![](Help/Image/fibonacci-M.svg)
 
 Characteristic function of Fibonacci numbers,
 OEIS [A010056](https://oeis.org/A010056):
@@ -590,7 +590,7 @@ let k = a.max;
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/fibonacci-N.svg)
+![](Help/Image/fibonacci-N.svg)
 
 Sum of digits of Fibonacci numbers,
 OEIS [A004090](https://oeis.org/A004090):
@@ -601,7 +601,7 @@ OEIS [A004090](https://oeis.org/A004090):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/fibonacci-O.svg)
+![](Help/Image/fibonacci-O.svg)
 
 The golden triangle,
 OEIS [A180662](https://oeis.org/A180662):
@@ -612,7 +612,7 @@ OEIS [A180662](https://oeis.org/A180662):
 }.catenate.log.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/fibonacci-P.svg)
+![](Help/Image/fibonacci-P.svg)
 
 * * *
 

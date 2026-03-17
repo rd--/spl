@@ -20,7 +20,7 @@ let p = t.anglePath(r, [0 0]);
 p.Line
 ~~~
 
-![](sw/spl/Help/Image/anglePath-A.svg)
+![](Help/Image/anglePath-A.svg)
 
 Advance 20 steps, always turning 110° toward the left:
 
@@ -28,7 +28,7 @@ Advance 20 steps, always turning 110° toward the left:
 List(20, 110.degree).anglePath.Line
 ~~~
 
-![](sw/spl/Help/Image/anglePath-B.svg)
+![](Help/Image/anglePath-B.svg)
 
 With unit step sizes:
 
@@ -36,7 +36,7 @@ With unit step sizes:
 (1.pi / [2 3 -4]).anglePath.Line
 ~~~
 
-![](sw/spl/Help/Image/anglePath-C.svg)
+![](Help/Image/anglePath-C.svg)
 
 With specified step sizes:
 
@@ -47,7 +47,7 @@ With specified step sizes:
 ).Line
 ~~~
 
-![](sw/spl/Help/Image/anglePath-D.svg)
+![](Help/Image/anglePath-D.svg)
 
 Make a random walk where successive steps change direction by at most 20°:
 
@@ -59,7 +59,7 @@ Sfc32(57951)
 .Line
 ~~~
 
-![](sw/spl/Help/Image/anglePath-E.svg)
+![](Help/Image/anglePath-E.svg)
 
 Generate a dragon curve:
 
@@ -71,7 +71,7 @@ let theta = [90 -90].degree @* (c + 1);
 theta.anglePath.Line
 ~~~
 
-![](sw/spl/Help/Image/anglePath-F.svg)
+![](Help/Image/anglePath-F.svg)
 
 Generate a Koch snowflake curve:
 
@@ -80,7 +80,7 @@ let t = 256.thueMorseSequence;
 (t * 2.pi / 3).anglePath.Line
 ~~~
 
-![](sw/spl/Help/Image/anglePath-G.svg)
+![](Help/Image/anglePath-G.svg)
 
 Another pattern based on the Thue-Morse sequence:
 
@@ -89,7 +89,7 @@ let t = 256.thueMorseSequence;
 (t * 2.pi / 5).anglePath.Line
 ~~~
 
-![](sw/spl/Help/Image/anglePath-H.svg)
+![](Help/Image/anglePath-H.svg)
 
 Draw a line for which consecutive relative angles increase and are modulated by a `sin` function:
 
@@ -99,7 +99,7 @@ Draw a line for which consecutive relative angles increase and are modulated by 
 }.anglePath.Line
 ~~~
 
-![](sw/spl/Help/Image/anglePath-I.svg)
+![](Help/Image/anglePath-I.svg)
 
 Turtle geometry,
 the path _p_ is given as _turn_ and _forward_ pairs:
@@ -119,7 +119,7 @@ let [t, r] = p.repeat(4).transpose;
 anglePath(t.degree, r, [0 0]).Line
 ~~~
 
-![](sw/spl/Help/Image/anglePath-J.svg)
+![](Help/Image/anglePath-J.svg)
 
 * * *
 

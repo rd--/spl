@@ -94,7 +94,7 @@ OEIS [A073646](https://oeis.org/A073646):
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/decimalExpansion-A.svg)
+![](Help/Image/decimalExpansion-A.svg)
 
 Initial digit of _n_,
 OEIS [A000030](https://oeis.org/A000030):
@@ -105,7 +105,7 @@ OEIS [A000030](https://oeis.org/A000030):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/decimalExpansion-B.svg)
+![](Help/Image/decimalExpansion-B.svg)
 
 * * *
 

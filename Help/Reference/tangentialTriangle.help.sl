@@ -16,7 +16,7 @@ let t = [1 1 1].sssTriangle;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/tangentialTriangle-A.svg)
+![](Help/Image/tangentialTriangle-A.svg)
 
 At an obtuse reference triangle:
 
@@ -30,7 +30,7 @@ let t = [3 4.75 3].sssTriangle;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/tangentialTriangle-B.svg)
+![](Help/Image/tangentialTriangle-B.svg)
 
 * * *
 

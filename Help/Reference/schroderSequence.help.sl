@@ -64,7 +64,7 @@ OEIS [A006318](https://oeis.org/A006318):
 25.schroderSequence.log.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/schroderSequence-A.svg)
+![](Help/Image/schroderSequence-A.svg)
 
 * * *
 

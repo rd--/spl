@@ -12,7 +12,7 @@ Plot in one dimension:
 )
 ~~~
 
-![](sw/spl/Help/Image/heavisideTheta-A.svg)
+![](Help/Image/heavisideTheta-A.svg)
 
 * * *
 

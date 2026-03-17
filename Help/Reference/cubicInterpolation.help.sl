@@ -21,7 +21,7 @@ Cubic impulse response:
 )
 ~~~
 
-![](sw/spl/Help/Image/cubicInterpolation-A.svg)
+![](Help/Image/cubicInterpolation-A.svg)
 
 * * *
 

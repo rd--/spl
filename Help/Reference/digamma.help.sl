@@ -42,7 +42,7 @@ Plot over a subset of the reals:
 (0.25 -- 3).functionPlot(digamma:/1)
 ~~~
 
-![](sw/spl/Help/Image/digamma-A.svg)
+![](Help/Image/digamma-A.svg)
 
 * * *
 

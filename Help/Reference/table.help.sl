@@ -256,7 +256,7 @@ Plot a table:
 prime:/1.table(1:50).linePlot
 ~~~
 
-![](sw/spl/Help/Image/table-A.svg)
+![](Help/Image/table-A.svg)
 
 Plot Eisenstein integers,
 which form a triangular lattice in the complex plane:
@@ -271,7 +271,7 @@ let omega = (-1 + (0J1 * 3.sqrt)) / 2;
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/table-B.svg)
+![](Help/Image/table-B.svg)
 
 * * *
 

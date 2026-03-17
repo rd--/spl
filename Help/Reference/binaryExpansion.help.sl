@@ -76,7 +76,7 @@ OEIS [A343029](https://oeis.org/A343029):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/binaryExpansion-A.svg)
+![](Help/Image/binaryExpansion-A.svg)
 
 Number of ones in the binary expansion of _n_ which have an odd number of zeroes at less significant positions,
 OEIS [A343030](https://oeis.org/A343030):
@@ -99,7 +99,7 @@ OEIS [A343030](https://oeis.org/A343030):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/binaryExpansion-B.svg)
+![](Help/Image/binaryExpansion-B.svg)
 
 The Danish composer Per Nørgård’s infinity sequence,
 OEIS [A004718](https://oeis.org/A004718):
@@ -124,7 +124,7 @@ OEIS [A004718](https://oeis.org/A004718):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/binaryExpansion-C.svg)
+![](Help/Image/binaryExpansion-C.svg)
 
 Restricted growth sequence transform of the ordered pair of counts of ones in the binary expansion of _n_ which have an even and odd number of zeroes at less significant positions,
 OEIS [A361020](https://oeis.org/A361020):
@@ -150,7 +150,7 @@ OEIS [A361020](https://oeis.org/A361020):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/binaryExpansion-D.svg)
+![](Help/Image/binaryExpansion-D.svg)
 
 Restricted growth sequence transform of the ordered triple of binary carry sequence and the counts of ones in the binary expansion of _n_ which have an even and odd number of zeroes at less significant positions,
 OEIS [A389896](https://oeis.org/A389896):
@@ -177,7 +177,7 @@ OEIS [A389896](https://oeis.org/A389896):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/binaryExpansion-E.svg)
+![](Help/Image/binaryExpansion-E.svg)
 
 Number of trailing equal digits in binary representation of _n_,
 OEIS [A136480](https://oeis.org/A136480):
@@ -188,7 +188,7 @@ OEIS [A136480](https://oeis.org/A136480):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/binaryExpansion-E.svg)
+![](Help/Image/binaryExpansion-E.svg)
 
 Write in binary, complement, reverse,
 OEIS [A036044](https://oeis.org/A036044):
@@ -201,7 +201,7 @@ OEIS [A036044](https://oeis.org/A036044):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/binaryExpansion-F.svg)
+![](Help/Image/binaryExpansion-F.svg)
 
 Primes having initial digits _11_ in their binary representation,
 OEIS [A080166](https://oeis.org/A080166):
@@ -212,7 +212,7 @@ OEIS [A080166](https://oeis.org/A080166):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/binaryExpansion-G.svg)
+![](Help/Image/binaryExpansion-G.svg)
 
 Primes having initial and final digits _11_ in their binary representation,
 OEIS [A080168](https://oeis.org/A080168):
@@ -226,7 +226,7 @@ OEIS [A080168](https://oeis.org/A080168):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/binaryExpansion-H.svg)
+![](Help/Image/binaryExpansion-H.svg)
 
 Working in base two replace _n_ with the concatenation of its prime divisors in increasing order,
 OEIS [A048985](https://oeis.org/A048985):
@@ -240,7 +240,7 @@ OEIS [A048985](https://oeis.org/A048985):
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/binaryExpansion-I.svg)
+![](Help/Image/binaryExpansion-I.svg)
 
 Working in base two replace _n_ with the concatenation of its prime divisors in increasing order,
 OEIS [A064841](https://oeis.org/A064841):
@@ -253,7 +253,7 @@ OEIS [A064841](https://oeis.org/A064841):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/binaryExpansion-J.svg)
+![](Help/Image/binaryExpansion-J.svg)
 
 The difference between the number of zeroes and ones in the base-two representation _n_,
 OEIS [A037861](https://oeis.org/A037861):
@@ -267,7 +267,7 @@ OEIS [A037861](https://oeis.org/A037861):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/binaryExpansion-K.svg)
+![](Help/Image/binaryExpansion-K.svg)
 
 In the binary expansion of _n_,
 sum the exponents associated with one terms and subtract the exponents associated with zero terms,
@@ -282,7 +282,7 @@ OEIS [A309983](https://oeis.org/A309983):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/binaryExpansion-L.svg)
+![](Help/Image/binaryExpansion-L.svg)
 
 _2^n_ zeroes followed by _2^n_ ones,
 OEIS [A079944](https://oeis.org/A079944):
@@ -293,7 +293,7 @@ OEIS [A079944](https://oeis.org/A079944):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/binaryExpansion-M.svg)
+![](Help/Image/binaryExpansion-M.svg)
 
 * * *
 

@@ -44,7 +44,7 @@ let n = 0:65.!.withoutTrailingZeroes;
 (n % 10).stepPlot
 ~~~
 
-![](sw/spl/Help/Image/withoutTrailingZeroes-A.svg)
+![](Help/Image/withoutTrailingZeroes-A.svg)
 
 * * *
 

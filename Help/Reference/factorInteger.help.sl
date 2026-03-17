@@ -235,7 +235,7 @@ OEIS [A001221](https://oeis.org/A001221):
 }
 ~~~
 
-![](sw/spl/Help/Image/factorInteger-A.svg)
+![](Help/Image/factorInteger-A.svg)
 
 Primorial inflation of the prime shadow of _n_,
 OEIS [A124859](https://oeis.org/A124859):
@@ -253,7 +253,7 @@ OEIS [A124859](https://oeis.org/A124859):
 }.map(1:50).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/factorInteger-B.svg)
+![](Help/Image/factorInteger-B.svg)
 
 A generalisation of Euler’s totient function,
 OEIS [A321029](https://oeis.org/A321029):
@@ -273,7 +273,7 @@ let f = { :p :e |
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/factorInteger-C.svg)
+![](Help/Image/factorInteger-C.svg)
 
 The arithmetic derivative of _n_,
 OEIS [A003415](https://oeis.org/A003415):
@@ -291,7 +291,7 @@ OEIS [A003415](https://oeis.org/A003415):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/factorInteger-D.svg)
+![](Help/Image/factorInteger-D.svg)
 
 Completely multiplicative with _a(P(k))=P(k+1)_,
 OEIS [A003961](https://oeis.org/A003961):
@@ -314,7 +314,7 @@ let a = { :n |
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/factorInteger-E.svg)
+![](Help/Image/factorInteger-E.svg)
 
 Replace even exponents with two and odd exponents with one,
 OEIS [A066990](https://oeis.org/A066990):
@@ -328,7 +328,7 @@ OEIS [A066990](https://oeis.org/A066990):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/factorInteger-F.svg)
+![](Help/Image/factorInteger-F.svg)
 
 The minimal number _m_ such that the symmetric group _Sm_ has an element of order _n_,
 OEIS [A008475](https://oeis.org/A008475):
@@ -341,7 +341,7 @@ OEIS [A008475](https://oeis.org/A008475):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/factorInteger-G.svg)
+![](Help/Image/factorInteger-G.svg)
 
 The two-adic valuation of the Hardy-Ramanujan integers,
 OEIS [A051282](https://oeis.org/A051282):
@@ -362,7 +362,7 @@ let l = [];
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/factorInteger-H.svg)
+![](Help/Image/factorInteger-H.svg)
 
 The two-adic valuation of the Hardy-Ramanujan integers,
 further terms,
@@ -376,7 +376,7 @@ OeisEntry('A051282').then { :e |
 }
 ~~~
 
-![](sw/spl/Help/Image/factorInteger-I.svg)
+![](Help/Image/factorInteger-I.svg)
 
 The number of triangular numbers modulo _n_,
 OEIS [A117484](https://oeis.org/A117484):
@@ -395,7 +395,7 @@ OEIS [A117484](https://oeis.org/A117484):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/factorInteger-J.svg)
+![](Help/Image/factorInteger-J.svg)
 
 Dirichlet inverse of the gcd-sum function,
 OEIS [A101035](https://oeis.org/A101035):
@@ -413,7 +413,7 @@ OEIS [A101035](https://oeis.org/A101035):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/factorInteger-K.svg)
+![](Help/Image/factorInteger-K.svg)
 
 Product of the sums of the prime and exponent of the factors of _n_,
 OEIS [A008473](https://oeis.org/A008473):
@@ -426,7 +426,7 @@ OEIS [A008473](https://oeis.org/A008473):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/factorInteger-L.svg)
+![](Help/Image/factorInteger-L.svg)
 
 Mosaic numbers,
 OEIS [A000026](https://oeis.org/A000026):
@@ -437,7 +437,7 @@ OEIS [A000026](https://oeis.org/A000026):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/factorInteger-M.svg)
+![](Help/Image/factorInteger-M.svg)
 
 Characteristic function for
 numbers not divisible by _p^p_ for any prime _p_,
@@ -451,7 +451,7 @@ OEIS [A359550](https://oeis.org/A359550):
 }.boole.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/factorInteger-N.svg)
+![](Help/Image/factorInteger-N.svg)
 
 Number of ways of writing _n_ as a sum of at most two nonzero squares where order matters,
 OEIS [A002654](https://oeis.org/A002654):
@@ -473,7 +473,7 @@ OEIS [A002654](https://oeis.org/A002654):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/factorInteger-O.svg)
+![](Help/Image/factorInteger-O.svg)
 
 Self-inverse permutation of the positive integers,
 OEIS [A122111](https://oeis.org/A122111):
@@ -492,7 +492,7 @@ OEIS [A122111](https://oeis.org/A122111):
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/factorInteger-P.svg)
+![](Help/Image/factorInteger-P.svg)
 
 Shift prime exponents to the previous prime or to `one`,
 OEIS [A064989](https://oeis.org/A064989):
@@ -509,7 +509,7 @@ OEIS [A064989](https://oeis.org/A064989):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/factorInteger-Q.svg)
+![](Help/Image/factorInteger-Q.svg)
 
 * * *
 

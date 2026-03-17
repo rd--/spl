@@ -31,7 +31,7 @@ Plot a Josephus sequence:
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/josephusSequence-A.svg)
+![](Help/Image/josephusSequence-A.svg)
 
 Plot the inverse permutation of the same Josephus sequence:
 
@@ -42,7 +42,7 @@ Plot the inverse permutation of the same Josephus sequence:
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/josephusSequence-B.svg)
+![](Help/Image/josephusSequence-B.svg)
 
 * * *
 

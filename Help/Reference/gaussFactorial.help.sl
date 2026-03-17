@@ -45,7 +45,7 @@ Plot first few terms:
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/gaussFactorial-A.svg)
+![](Help/Image/gaussFactorial-A.svg)
 
 The 2-adic factorial function,
 also known as Morita’s 2-adic gamma function,
@@ -91,7 +91,7 @@ Plot:
 }.logScale.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/gaussFactorial-B.svg)
+![](Help/Image/gaussFactorial-B.svg)
 
 * * *
 

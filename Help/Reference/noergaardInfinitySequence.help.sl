@@ -46,7 +46,7 @@ OEIS [A004718](https://oeis.org/A004718):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/noergaardInfinitySequence-A.svg)
+![](Help/Image/noergaardInfinitySequence-A.svg)
 
 Per Nørgård’s infinity sequence,
 scatter plot,
@@ -57,7 +57,7 @@ OEIS [A004718](https://oeis.org/A004718):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/noergaardInfinitySequence-B.svg)
+![](Help/Image/noergaardInfinitySequence-B.svg)
 
 Positions of zeroes,
 zero-indexed,
@@ -111,7 +111,7 @@ OEIS [A256184](https://oeis.org/A256184):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/noergaardInfinitySequence-C.svg)
+![](Help/Image/noergaardInfinitySequence-C.svg)
 
 The second variant of Per Nørgård’s infinity sequence,
 OEIS [A256185](https://oeis.org/A256185):
@@ -147,7 +147,7 @@ OEIS [A256185](https://oeis.org/A256185):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/noergaardInfinitySequence-D.svg)
+![](Help/Image/noergaardInfinitySequence-D.svg)
 
 First differences of Nørgård’s infinity sequence,
 OEIS [A256187](https://oeis.org/A256187):
@@ -157,7 +157,7 @@ OEIS [A256187](https://oeis.org/A256187):
 .differences.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/noergaardInfinitySequence-E.svg)
+![](Help/Image/noergaardInfinitySequence-E.svg)
 
 One for zero else zero in Nørgård’s infinity sequence,
 OEIS [A361016](https://oeis.org/A361016):
@@ -167,7 +167,7 @@ OEIS [A361016](https://oeis.org/A361016):
 .collect(isZero:/1).boole.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/noergaardInfinitySequence-F.svg)
+![](Help/Image/noergaardInfinitySequence-F.svg)
 
 * * *
 

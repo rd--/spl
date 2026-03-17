@@ -73,7 +73,7 @@ OEIS [A327490](https://oeis.org/A327490):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitIff-A.svg)
+![](Help/Image/bitIff-A.svg)
 
 A sequence by Clark Kimberling,
 OEIS [A050057](https://oeis.org/A050057):
@@ -90,7 +90,7 @@ let a = Map { :n |
 a[1:85].log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/bitIff-B.svg)
+![](Help/Image/bitIff-B.svg)
 
 * * *
 

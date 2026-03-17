@@ -51,7 +51,7 @@ let a = Map { :n |
 a[1:85].scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/minimumExcludedValue-A.svg)
+![](Help/Image/minimumExcludedValue-A.svg)
 
 * * *
 

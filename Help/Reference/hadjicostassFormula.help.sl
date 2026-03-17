@@ -19,7 +19,7 @@ Plot over a subset of the reals:
 )
 ~~~
 
-![](sw/spl/Help/Image/hadjicostassFormula-A.svg)
+![](Help/Image/hadjicostassFormula-A.svg)
 
 * * *
 

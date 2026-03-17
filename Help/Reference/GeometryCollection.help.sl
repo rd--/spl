@@ -18,7 +18,7 @@ Draw a collection of objects with an `embeddingDimension` of two:
 ].GeometryCollection
 ~~~
 
-![](sw/spl/Help/Image/GeometryCollection-A.svg)
+![](Help/Image/GeometryCollection-A.svg)
 
 * * *
 

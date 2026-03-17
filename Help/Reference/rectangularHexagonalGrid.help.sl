@@ -14,7 +14,7 @@ let c = [-5 -5; 5 5];
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/rectangularHexagonalGrid-A.svg)
+![](Help/Image/rectangularHexagonalGrid-A.svg)
 
 A rectangular hexagonal grid:
 
@@ -26,7 +26,7 @@ let c = [-3 -3; 2 9];
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/rectangularHexagonalGrid-B.svg)
+![](Help/Image/rectangularHexagonalGrid-B.svg)
 
 * * *
 

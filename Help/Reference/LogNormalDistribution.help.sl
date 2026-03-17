@@ -13,7 +13,7 @@ LogNormalDistribution(0, 1)
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/LogNormalDistribution-A.svg)
+![](Help/Image/LogNormalDistribution-A.svg)
 
 Two dimensional log-normal noise:
 
@@ -24,7 +24,7 @@ LogNormalDistribution(0, 1 / 3)
 .asGreymap
 ~~~
 
-![](sw/spl/Help/Image/LogNormalDistribution-B.png)
+![](Help/Image/LogNormalDistribution-B.png)
 
 Probability density function, varying _mu_:
 
@@ -38,7 +38,7 @@ Probability density function, varying _mu_:
 )
 ~~~
 
-![](sw/spl/Help/Image/LogNormalDistribution-C.svg)
+![](Help/Image/LogNormalDistribution-C.svg)
 
 Probability density function, varying _sigma_:
 
@@ -51,7 +51,7 @@ Probability density function, varying _sigma_:
 )
 ~~~
 
-![](sw/spl/Help/Image/LogNormalDistribution-D.svg)
+![](Help/Image/LogNormalDistribution-D.svg)
 
 Generate a sample of pseudorandom numbers from a log normal distribution:
 
@@ -62,7 +62,7 @@ LogNormalDistribution(2, 0.3)
 .histogramPlot([0 15 0.5])
 ~~~
 
-![](sw/spl/Help/Image/LogNormalDistribution-E.svg)
+![](Help/Image/LogNormalDistribution-E.svg)
 
 * * *
 

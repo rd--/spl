@@ -94,7 +94,7 @@ let h = p.collect { :c |
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/fromHexagonalCoordinates-A.svg)
+![](Help/Image/fromHexagonalCoordinates-A.svg)
 
 Generate a 6×9 hexagonal grid,
 eliding the _s_ coordinate which can be inferred:
@@ -107,7 +107,7 @@ eliding the _s_ coordinate which can be inferred:
 }.table(1:6, 1:9).LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/fromHexagonalCoordinates-B.svg)
+![](Help/Image/fromHexagonalCoordinates-B.svg)
 
 Generate a 5×5 hexagonal grid,
 without adjusting _q_ by _r_:
@@ -120,7 +120,7 @@ without adjusting _q_ by _r_:
 }.table(1:5, 1:5).LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/fromHexagonalCoordinates-C.svg)
+![](Help/Image/fromHexagonalCoordinates-C.svg)
 
 Generate a 5×5 hexagonal grid,
 without adjusting _q_ by _r_,
@@ -137,7 +137,7 @@ let theta = -30.degree;
 }.table(1:5, 1:5).LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/fromHexagonalCoordinates-D.svg)
+![](Help/Image/fromHexagonalCoordinates-D.svg)
 
 * * *
 

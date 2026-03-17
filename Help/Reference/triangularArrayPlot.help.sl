@@ -18,7 +18,7 @@ An order six triangular array:
 ].triangularArrayPlot
 ~~~
 
-![](sw/spl/Help/Image/triangularArrayPlot-A.svg)
+![](Help/Image/triangularArrayPlot-A.svg)
 
 An inverted triangular array with side length eight:
 
@@ -29,7 +29,7 @@ An inverted triangular array with side length eight:
 .triangularArrayPlot
 ~~~
 
-![](sw/spl/Help/Image/triangularArrayPlot-B.svg)
+![](Help/Image/triangularArrayPlot-B.svg)
 
 Plot Pascal’s triangle,
 rescaled to lie in _(0,1)_:
@@ -40,7 +40,7 @@ rescaled to lie in _(0,1)_:
 .triangularArrayPlot
 ~~~
 
-![](sw/spl/Help/Image/triangularArrayPlot-C.svg)
+![](Help/Image/triangularArrayPlot-C.svg)
 
 Plot Sierpiński’s triangle:
 
@@ -49,7 +49,7 @@ Plot Sierpiński’s triangle:
 .triangularArrayPlot
 ~~~
 
-![](sw/spl/Help/Image/triangularArrayPlot-D.svg)
+![](Help/Image/triangularArrayPlot-D.svg)
 
 * * *
 

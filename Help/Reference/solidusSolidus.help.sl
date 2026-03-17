@@ -47,7 +47,7 @@ Plot the spiral matrix of the quotient:
 (99.spiralMatrix // 654).rescale.Greymap
 ~~~
 
-![](sw/spl/Help/Image/solidusSolidus-A.png)
+![](Help/Image/solidusSolidus-A.png)
 
 Plot the quotient of two integers:
 
@@ -57,7 +57,7 @@ Plot the quotient of two integers:
 }.table(1:10, 1:10).matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/solidusSolidus-B.svg)
+![](Help/Image/solidusSolidus-B.svg)
 
 The name of this operator is `solidusSolidus`.
 

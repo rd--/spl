@@ -12,7 +12,7 @@ hammingGraph(1, 5)
 .graphPlot
 ~~~
 
-![](sw/spl/Help/Image/hammingGraph-A.svg)
+![](Help/Image/hammingGraph-A.svg)
 
 The _(2,q)_ Hamming graph is the _(q,q)_ rook graph:
 
@@ -21,7 +21,7 @@ hammingGraph(2, 4)
 .graphPlot
 ~~~
 
-![](sw/spl/Help/Image/hammingGraph-B.svg)
+![](Help/Image/hammingGraph-B.svg)
 
 The _(2,3)_ Hamming graph is the _(2,1)_ generalised quadrangle,
 a generalised polygon of order four:
@@ -31,7 +31,7 @@ hammingGraph(2, 3)
 .graphPlot
 ~~~
 
-![](sw/spl/Help/Image/hammingGraph-C.svg)
+![](Help/Image/hammingGraph-C.svg)
 
 The _(d,2)_ Hamming graph is _d_ hypercube graph:
 
@@ -40,7 +40,7 @@ hammingGraph(4, 2)
 .graphPlot
 ~~~
 
-![](sw/spl/Help/Image/hammingGraph-D.svg)
+![](Help/Image/hammingGraph-D.svg)
 
 The _(3,3)_ Hamming graph:
 
@@ -49,7 +49,7 @@ hammingGraph(3, 3)
 .graphPlot
 ~~~
 
-![](sw/spl/Help/Image/hammingGraph-E.svg)
+![](Help/Image/hammingGraph-E.svg)
 
 * * *
 

@@ -39,7 +39,7 @@ Plot first few terms:
 250.grahlSequence.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/grahlSequence-A.svg)
+![](Help/Image/grahlSequence-A.svg)
 
 Variant by R. Stanley,
 avoiding weakly increasing arithmetic progression,
@@ -67,7 +67,7 @@ Plot first few terms:
 250.grahlSequence('Stanley').scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/grahlSequence-B.svg)
+![](Help/Image/grahlSequence-B.svg)
 
 * * *
 

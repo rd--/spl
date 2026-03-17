@@ -15,7 +15,7 @@ and divisions increase clockwise:
 .circularPartitionsDrawing
 ~~~
 
-![](sw/spl/Help/Image/circularPartitionsDrawing-A.svg)
+![](Help/Image/circularPartitionsDrawing-A.svg)
 
 * * *
 

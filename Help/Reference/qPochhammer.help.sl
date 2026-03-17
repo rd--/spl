@@ -28,7 +28,7 @@ Plot over a subset of the reals:
 }
 ~~~
 
-![](sw/spl/Help/Image/qPochhammer-A.svg)
+![](Help/Image/qPochhammer-A.svg)
 
 Plot over a subset of the complexes with _q=0.5_:
 
@@ -38,7 +38,7 @@ Plot over a subset of the complexes with _q=0.5_:
 }
 ~~~
 
-![](sw/spl/Help/Image/qPochhammer-B.png)
+![](Help/Image/qPochhammer-B.png)
 
 Plot over a subset of the complexes with _q=a_:
 
@@ -52,7 +52,7 @@ Plot over a subset of the complexes with _q=a_:
 }
 ~~~
 
-![](sw/spl/Help/Image/qPochhammer-C.png)
+![](Help/Image/qPochhammer-C.png)
 
 * * *
 

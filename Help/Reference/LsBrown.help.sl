@@ -12,7 +12,7 @@ LsBrown(-1, 1, 1 / 100, 99, r)
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/LsBrown-A.svg)
+![](Help/Image/LsBrown-A.svg)
 
 * * *
 

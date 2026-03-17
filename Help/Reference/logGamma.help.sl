@@ -38,7 +38,7 @@ Plot over a subset of the reals:
 (0.02 -- 5).functionPlot(logGamma:/1)
 ~~~
 
-![](sw/spl/Help/Image/logGamma-A.svg)
+![](Help/Image/logGamma-A.svg)
 
 * * *
 

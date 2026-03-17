@@ -16,7 +16,7 @@ Probability density function:
 )
 ~~~
 
-![](sw/spl/Help/Image/TriangularDistribution-A.svg)
+![](Help/Image/TriangularDistribution-A.svg)
 
 Cumulative distribution function:
 
@@ -29,7 +29,7 @@ Cumulative distribution function:
 )
 ~~~
 
-![](sw/spl/Help/Image/TriangularDistribution-B.svg)
+![](Help/Image/TriangularDistribution-B.svg)
 
 Generate a sample of pseudorandom numbers from a triangular distribution:
 
@@ -40,7 +40,7 @@ TriangularDistribution(-1 -- 2, 1)
 .histogramPlot
 ~~~
 
-![](sw/spl/Help/Image/TriangularDistribution-C.svg)
+![](Help/Image/TriangularDistribution-C.svg)
 
 Plot random variate:
 
@@ -51,7 +51,7 @@ TriangularDistribution(-1 -- 1, 0)
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/TriangularDistribution-D.svg)
+![](Help/Image/TriangularDistribution-D.svg)
 
 * * *
 

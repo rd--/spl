@@ -88,7 +88,7 @@ Plot at _s=4/7_:
 ).Line
 ~~~
 
-![](sw/spl/Help/Image/lowerChristoffelWord-A.svg)
+![](Help/Image/lowerChristoffelWord-A.svg)
 
 * * *
 

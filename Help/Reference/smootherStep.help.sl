@@ -33,7 +33,7 @@ SmootherStep function:
 )
 ~~~
 
-![](sw/spl/Help/Image/smootherStep-A.svg)
+![](Help/Image/smootherStep-A.svg)
 
 Plot `smoothStep` and `smootherStep` functions:
 
@@ -44,7 +44,7 @@ Plot `smoothStep` and `smootherStep` functions:
 ])
 ~~~
 
-![](sw/spl/Help/Image/smootherStep-B.svg)
+![](Help/Image/smootherStep-B.svg)
 
 `smootherStep` is `smoothStepFunction` of two:
 
@@ -55,7 +55,7 @@ Plot `smoothStep` and `smootherStep` functions:
 ])
 ~~~
 
-![](sw/spl/Help/Image/smootherStep-C.svg)
+![](Help/Image/smootherStep-C.svg)
 
 * * *
 

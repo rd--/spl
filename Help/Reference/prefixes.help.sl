@@ -81,7 +81,7 @@ OEIS [A099375](https://oeis.org/A099375):
 .catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/prefixes-A.svg)
+![](Help/Image/prefixes-A.svg)
 
 Prefixes of the natural numbers,
 OEIS [A002260](https://oeis.org/A002260):
@@ -90,7 +90,7 @@ OEIS [A002260](https://oeis.org/A002260):
 1:13.prefixes.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/prefixes-B.svg)
+![](Help/Image/prefixes-B.svg)
 
 Prefixes of the odd numbers,
 OEIS [A158405](https://oeis.org/A158405):
@@ -99,7 +99,7 @@ OEIS [A158405](https://oeis.org/A158405):
 1:23:2.prefixes.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/prefixes-C.svg)
+![](Help/Image/prefixes-C.svg)
 
 Right-truncatable primes,
 every prefix is prime,
@@ -116,7 +116,7 @@ OEIS [A024770](https://oeis.org/A024770):
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/prefixes-D.svg)
+![](Help/Image/prefixes-D.svg)
 
 * * *
 

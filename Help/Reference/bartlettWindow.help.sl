@@ -25,7 +25,7 @@ Plot:
 )
 ~~~
 
-![](sw/spl/Help/Image/bartlettWindow-A.svg)
+![](Help/Image/bartlettWindow-A.svg)
 
 Discrete Bartlett window of length 15:
 
@@ -36,7 +36,7 @@ Discrete Bartlett window of length 15:
 ).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/bartlettWindow-B.svg)
+![](Help/Image/bartlettWindow-B.svg)
 
 Frequency response of the Bartlett window:
 
@@ -46,7 +46,7 @@ Frequency response of the Bartlett window:
 ).fftPlot(512, 'Centered', 'Logarithmic')
 ~~~
 
-![](sw/spl/Help/Image/bartlettWindow-C.svg)
+![](Help/Image/bartlettWindow-C.svg)
 
 * * *
 

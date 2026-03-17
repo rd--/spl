@@ -31,7 +31,7 @@ let c = a.excenters;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/extangentsTriangle-A.svg)
+![](Help/Image/extangentsTriangle-A.svg)
 
 * * *
 

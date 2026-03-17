@@ -17,7 +17,7 @@ Draw a quadratic Bézier curve using de Casteljaus algorithm:
 }
 ~~~
 
-![](sw/spl/Help/Image/deCasteljausAlgorithm-A.svg)
+![](Help/Image/deCasteljausAlgorithm-A.svg)
 
 Draw a cubic Bézier curve:
 
@@ -28,7 +28,7 @@ Draw a cubic Bézier curve:
 }
 ~~~
 
-![](sw/spl/Help/Image/deCasteljausAlgorithm-B.svg)
+![](Help/Image/deCasteljausAlgorithm-B.svg)
 
 Draw the same cubic Bézier curve using only a small number of divisions:
 
@@ -39,7 +39,7 @@ Draw the same cubic Bézier curve using only a small number of divisions:
 }
 ~~~
 
-![](sw/spl/Help/Image/deCasteljausAlgorithm-C.svg)
+![](Help/Image/deCasteljausAlgorithm-C.svg)
 
 * * *
 

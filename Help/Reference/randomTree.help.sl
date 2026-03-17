@@ -11,7 +11,7 @@ Generate a random tree with ten nodes:
 Sfc32(329372).randomTree(10).treePlot
 ~~~
 
-![](sw/spl/Help/Image/randomTree-A.svg)
+![](Help/Image/randomTree-A.svg)
 
 Generate a random tree with seven nodes:
 
@@ -19,7 +19,7 @@ Generate a random tree with seven nodes:
 Sfc32(319437).randomTree(7).treePlot
 ~~~
 
-![](sw/spl/Help/Image/randomTree-B.svg)
+![](Help/Image/randomTree-B.svg)
 
 Generate a random tree with five nodes:
 
@@ -27,7 +27,7 @@ Generate a random tree with five nodes:
 Sfc32(112212).randomTree(5).treePlot
 ~~~
 
-![](sw/spl/Help/Image/randomTree-C.svg)
+![](Help/Image/randomTree-C.svg)
 
 * * *
 

@@ -44,7 +44,7 @@ Ellipse(
 ).LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/Ellipse-A.svg)
+![](Help/Image/Ellipse-A.svg)
 
 Draw an ellipse indicating the center _c_,
 the two foci _f₁,f₂_,
@@ -64,7 +64,7 @@ let [v1, v2] = e.vertices;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/Ellipse-B.svg)
+![](Help/Image/Ellipse-B.svg)
 
 Plot using implicit equation:
 
@@ -76,7 +76,7 @@ Ellipse([0 0], [x 1])
 .contourPlot(i, i, [0])
 ~~~
 
-![](sw/spl/Help/Image/Ellipse-C.svg)
+![](Help/Image/Ellipse-C.svg)
 
 * * *
 

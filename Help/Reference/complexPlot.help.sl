@@ -16,7 +16,7 @@ The colour function proceeds counterclockwise around zeroes of a function:
 }
 ~~~
 
-![](sw/spl/Help/Image/complexPlot-A.png)
+![](Help/Image/complexPlot-A.png)
 
 At a multiple zero, the colours cycle around the zero multiple times:
 
@@ -26,7 +26,7 @@ At a multiple zero, the colours cycle around the zero multiple times:
 }
 ~~~
 
-![](sw/spl/Help/Image/complexPlot-B.png)
+![](Help/Image/complexPlot-B.png)
 
 At a pole, the colours cycle around the point in the reverse direction:
 
@@ -36,7 +36,7 @@ At a pole, the colours cycle around the point in the reverse direction:
 }
 ~~~
 
-![](sw/spl/Help/Image/complexPlot-C.png)
+![](Help/Image/complexPlot-C.png)
 
 At an essential singularity, the colours cycle infinitely often:
 
@@ -46,7 +46,7 @@ At an essential singularity, the colours cycle infinitely often:
 }
 ~~~
 
-![](sw/spl/Help/Image/complexPlot-D.png)
+![](Help/Image/complexPlot-D.png)
 
 At a saddle point:
 
@@ -56,7 +56,7 @@ At a saddle point:
 }
 ~~~
 
-![](sw/spl/Help/Image/complexPlot-E.png)
+![](Help/Image/complexPlot-E.png)
 
 The following plot shows multiple features of the Joukowski transformation:
 
@@ -66,7 +66,7 @@ The following plot shows multiple features of the Joukowski transformation:
 }
 ~~~
 
-![](sw/spl/Help/Image/complexPlot-F.png)
+![](Help/Image/complexPlot-F.png)
 
 The following plot shows a function with simple zeroes,
 a double pole,
@@ -80,7 +80,7 @@ and a saddle point:
 }
 ~~~
 
-![](sw/spl/Help/Image/complexPlot-G.png)
+![](Help/Image/complexPlot-G.png)
 
 Plot complex functions of a complex variable:
 
@@ -90,7 +90,7 @@ Plot complex functions of a complex variable:
 }
 ~~~
 
-![](sw/spl/Help/Image/complexPlot-H.png)
+![](Help/Image/complexPlot-H.png)
 
 Plot features of a complex function of a complex variable,
 here indicating a triple zero,
@@ -113,7 +113,7 @@ and an essential singularity:
 }
 ~~~
 
-![](sw/spl/Help/Image/complexPlot-I.png)
+![](Help/Image/complexPlot-I.png)
 
 Plot a complex function with zeroes at poles:
 
@@ -124,7 +124,7 @@ Plot a complex function with zeroes at poles:
 }
 ~~~
 
-![](sw/spl/Help/Image/complexPlot-J.png)
+![](Help/Image/complexPlot-J.png)
 
 Plot over non-square complex domain:
 
@@ -136,7 +136,7 @@ Plot over non-square complex domain:
 }
 ~~~
 
-![](sw/spl/Help/Image/complexPlot-K.png)
+![](Help/Image/complexPlot-K.png)
 
 Complex plot of _z³-1_:
 
@@ -146,7 +146,7 @@ Complex plot of _z³-1_:
 }
 ~~~
 
-![](sw/spl/Help/Image/complexPlot-L.png)
+![](Help/Image/complexPlot-L.png)
 
 Contour plot of the absolute value of _z³-1_:
 
@@ -158,7 +158,7 @@ let i = (-2 -- 2).discretize(50);
 }.contourPlot(i, i, [0.5 1 1.5])
 ~~~
 
-![](sw/spl/Help/Image/complexPlot-M.svg)
+![](Help/Image/complexPlot-M.svg)
 
 Contour plot of the argument of _z³-1_:
 
@@ -170,7 +170,7 @@ let i = (-2 -- 2).discretize(25);
 }.contourPlot(i, i, [-1/2.pi 1/2.pi])
 ~~~
 
-![](sw/spl/Help/Image/complexPlot-N.svg)
+![](Help/Image/complexPlot-N.svg)
 
 * * *
 

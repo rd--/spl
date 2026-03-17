@@ -31,7 +31,7 @@ Plot:
 2:72.primeLimit.linePlot
 ~~~
 
-![](sw/spl/Help/Image/primeLimit-A.svg)
+![](Help/Image/primeLimit-A.svg)
 
 At `RatioTuning`:
 

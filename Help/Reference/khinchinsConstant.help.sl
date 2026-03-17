@@ -38,7 +38,7 @@ OEIS [A002210](https://oeis.org/A002210):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/khinchinsConstant-A.svg)
+![](Help/Image/khinchinsConstant-A.svg)
 
 * * *
 

@@ -27,7 +27,7 @@ let b = a.orthicTriangle;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/orthicTriangle-A.svg)
+![](Help/Image/orthicTriangle-A.svg)
 
 In an obtuse triangle the orthocenter is external,
 and the incenter of the orthic triangle is the obtuse vertex:
@@ -43,7 +43,7 @@ let b = a.orthicTriangle;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/orthicTriangle-B.svg)
+![](Help/Image/orthicTriangle-B.svg)
 
 The orthic triangle of a right triangle does not exist:
 
@@ -53,7 +53,7 @@ let c = t.orthicTriangle.vertexCoordinates;
 [t, PointCloud(c)].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/orthicTriangle-C.svg)
+![](Help/Image/orthicTriangle-C.svg)
 
 * * *
 

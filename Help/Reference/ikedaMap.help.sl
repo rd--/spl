@@ -15,7 +15,7 @@ Sfc32(678214)
 }.catenate.PointCloud
 ~~~
 
-![](sw/spl/Help/Image/ikedaMap-A.svg)
+![](Help/Image/ikedaMap-A.svg)
 
 * * *
 

@@ -27,7 +27,7 @@ let h = x[2] - x[1];
 [y, y.discreteLaplacian(h) * 4].linePlot
 ~~~
 
-![](sw/spl/Help/Image/discreteLaplacian-A.svg)
+![](Help/Image/discreteLaplacian-A.svg)
 
 * * *
 

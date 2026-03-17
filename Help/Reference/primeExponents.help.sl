@@ -31,7 +31,7 @@ OeisEntry('A025487').then { :e |
 }
 ~~~
 
-![](sw/spl/Help/Image/primeExponents-A.svg)
+![](Help/Image/primeExponents-A.svg)
 
 * * *
 

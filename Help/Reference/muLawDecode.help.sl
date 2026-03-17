@@ -18,7 +18,7 @@ Plot:
 (-1 -- 1).functionPlot(muLawDecode:/1)
 ~~~
 
-![](sw/spl/Help/Image/muLawDecode-A.svg)
+![](Help/Image/muLawDecode-A.svg)
 
 * * *
 

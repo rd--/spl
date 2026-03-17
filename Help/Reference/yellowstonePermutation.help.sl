@@ -27,7 +27,7 @@ Plot first few terms:
 125.yellowstonePermutation.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/yellowstonePermutation-A.svg)
+![](Help/Image/yellowstonePermutation-A.svg)
 
 * * *
 

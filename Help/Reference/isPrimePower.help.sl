@@ -148,7 +148,7 @@ OEIS [A025473](https://oeis.org/A025473):
 .stepPlot
 ~~~
 
-![](sw/spl/Help/Image/isPrimePower-A.svg)
+![](Help/Image/isPrimePower-A.svg)
 
 If _n_ is a prime power _p^m_ then _m_ else zero,
 OEIS [A100995](https://oeis.org/A100995):
@@ -163,7 +163,7 @@ OEIS [A100995](https://oeis.org/A100995):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/isPrimePower-B.svg)
+![](Help/Image/isPrimePower-B.svg)
 
 * * *
 

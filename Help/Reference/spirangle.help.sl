@@ -18,7 +18,7 @@ and iteration count of four:
 3.spirangle(4, [0 0], [1 9], 0)
 ~~~
 
-![](sw/spl/Help/Image/spirangle-A.svg)
+![](Help/Image/spirangle-A.svg)
 
 Draw a four-angle spirangle, or square spiral, of six iterations
 
@@ -26,7 +26,7 @@ Draw a four-angle spirangle, or square spiral, of six iterations
 4.spirangle(6, [0 0], [1 4], 0)
 ~~~
 
-![](sw/spl/Help/Image/spirangle-B.svg)
+![](Help/Image/spirangle-B.svg)
 
 Draw a seven-angle spirangle or heptagon spiral, of nine iterations:
 
@@ -34,7 +34,7 @@ Draw a seven-angle spirangle or heptagon spiral, of nine iterations:
 7.spirangle(9, [0 0], [1 2], 0)
 ~~~
 
-![](sw/spl/Help/Image/spirangle-C.svg)
+![](Help/Image/spirangle-C.svg)
 
 * * *
 

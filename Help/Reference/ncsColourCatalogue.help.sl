@@ -50,7 +50,7 @@ system.ncsColourCatalogue
 .arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/ncsColourCatalogue-A.svg)
+![](Help/Image/ncsColourCatalogue-A.svg)
 
 Plot the next 13×25 entries:
 
@@ -62,7 +62,7 @@ system.ncsColourCatalogue
 .arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/ncsColourCatalogue-B.svg)
+![](Help/Image/ncsColourCatalogue-B.svg)
 
 To clear the library item from the cache:
 

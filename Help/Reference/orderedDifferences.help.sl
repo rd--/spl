@@ -112,7 +112,7 @@ OEIS [A204890](https://oeis.org/A204890):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/orderedDifferences-A.svg)
+![](Help/Image/orderedDifferences-A.svg)
 
 Ordered differences of Fibonacci numbers,
 OEIS [A204922](https://oeis.org/A204922):
@@ -124,7 +124,7 @@ OEIS [A204922](https://oeis.org/A204922):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/orderedDifferences-B.svg)
+![](Help/Image/orderedDifferences-B.svg)
 
 Ordered differences of primes,
 row reversed,
@@ -138,7 +138,7 @@ OEIS [A090321](https://oeis.org/A090321):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/orderedDifferences-C.svg)
+![](Help/Image/orderedDifferences-C.svg)
 
 * * *
 

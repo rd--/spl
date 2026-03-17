@@ -25,7 +25,7 @@ system
 .closedLine
 ~~~
 
-![](sw/spl/Help/Image/schareinMinimalKnotCatalogue-A.svg)
+![](Help/Image/schareinMinimalKnotCatalogue-A.svg)
 
 _Note:_
 The catalogue is a `LibraryItem`,

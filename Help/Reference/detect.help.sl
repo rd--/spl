@@ -69,7 +69,7 @@ OEIS [A028920](https://oeis.org/A028920):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/detect-A.svg)
+![](Help/Image/detect-A.svg)
 
 Ordinal transform of
 pit harvesting sequence for winning solitaire Tchoukaillon,
@@ -85,7 +85,7 @@ OEIS [A028920](https://oeis.org/A028920):
 }.ordinalTransform.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/detect-B.svg)
+![](Help/Image/detect-B.svg)
 
 * * *
 

@@ -73,7 +73,7 @@ OEIS [A007953](http://oeis.org/A007953):
 1:100.collect(digitSum:/1).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/digitSum-A.svg)
+![](Help/Image/digitSum-A.svg)
 
 The sum of the digits of _n_,
 where _b=2_,
@@ -85,7 +85,7 @@ OEIS [A000120](http://oeis.org/A000120):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/digitSum-B.svg)
+![](Help/Image/digitSum-B.svg)
 
 The sum of the digits of _n_,
 where _b=8_,
@@ -97,7 +97,7 @@ OEIS [A053829](http://oeis.org/A053829):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/digitSum-C.svg)
+![](Help/Image/digitSum-C.svg)
 
 Array read by antidiagonals,
 places are the digit sum of _n×k_,
@@ -109,7 +109,7 @@ OEIS [A336225](https://oeis.org/A336225):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/digitSum-D.svg)
+![](Help/Image/digitSum-D.svg)
 
 * * *
 

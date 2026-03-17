@@ -21,7 +21,7 @@ Draw an annulus sector:
 AnnulusSector([0 0], [0.5 1], [-1/3 2/3].pi)
 ~~~
 
-![](sw/spl/Help/Image/AnnulusSector-A.svg)
+![](Help/Image/AnnulusSector-A.svg)
 
 A circular grid:
 
@@ -38,7 +38,7 @@ let theta = 2.pi / n;
 }.table(1:m, 1:n).LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/AnnulusSector-B.svg)
+![](Help/Image/AnnulusSector-B.svg)
 
 * * *
 

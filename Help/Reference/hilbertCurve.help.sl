@@ -38,7 +38,7 @@ Drawing of the 4th step of the Hilbert curve:
 4.hilbertCurve.Line
 ~~~
 
-![](sw/spl/Help/Image/hilbertCurve-A.svg)
+![](Help/Image/hilbertCurve-A.svg)
 
 Drawing of the 5th step of the Hilbert curve:
 
@@ -46,7 +46,7 @@ Drawing of the 5th step of the Hilbert curve:
 5.hilbertCurve.Line
 ~~~
 
-![](sw/spl/Help/Image/hilbertCurve-B.svg)
+![](Help/Image/hilbertCurve-B.svg)
 
 * * *
 

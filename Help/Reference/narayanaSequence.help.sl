@@ -28,7 +28,7 @@ Plot first few terms:
 23.narayanaSequence.linePlot
 ~~~
 
-![](sw/spl/Help/Image/narayanaSequence-A.svg)
+![](Help/Image/narayanaSequence-A.svg)
 
 * * *
 

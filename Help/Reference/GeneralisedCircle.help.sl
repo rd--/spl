@@ -108,7 +108,7 @@ GeneralisedCircle(1, 0J0, -1)
 .contourPlot(i, i, [0])
 ~~~
 
-![](sw/spl/Help/Image/GeneralisedCircle-A.svg)
+![](Help/Image/GeneralisedCircle-A.svg)
 
 Plot the implicit equation for a line:
 
@@ -119,7 +119,7 @@ GeneralisedCircle(0, -1J1, 2)
 .contourPlot(i, i, [0])
 ~~~
 
-![](sw/spl/Help/Image/GeneralisedCircle-B.svg)
+![](Help/Image/GeneralisedCircle-B.svg)
 
 * * *
 

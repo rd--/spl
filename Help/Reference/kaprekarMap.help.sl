@@ -44,7 +44,7 @@ OEIS [A151949](https://oeis.org/A151949):
 0:99.collect(kaprekarMap:/1).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/kaprekarMap-A.svg)
+![](Help/Image/kaprekarMap-A.svg)
 
 Kaprekar map,
 _b=10_,
@@ -55,7 +55,7 @@ OEIS [A151949](https://oeis.org/A151949):
 0:250.collect(kaprekarMap:/1).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/kaprekarMap-B.svg)
+![](Help/Image/kaprekarMap-B.svg)
 
 Kaprekar map,
 _b=2_,
@@ -68,7 +68,7 @@ OEIS [A164884](https://oeis.org/A164884):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/kaprekarMap-C.svg)
+![](Help/Image/kaprekarMap-C.svg)
 
 Kaprekar map,
 _b=3_,
@@ -81,7 +81,7 @@ OEIS [A164993](https://oeis.org/A164993):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/kaprekarMap-D.svg)
+![](Help/Image/kaprekarMap-D.svg)
 
 Kaprekar map,
 _b=4_,
@@ -94,7 +94,7 @@ OEIS [A165012](https://oeis.org/A165012):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/kaprekarMap-E.svg)
+![](Help/Image/kaprekarMap-E.svg)
 
 Kaprekar map,
 _b=5_,
@@ -107,7 +107,7 @@ OEIS [A165032](https://oeis.org/A165032):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/kaprekarMap-F.svg)
+![](Help/Image/kaprekarMap-F.svg)
 
 Kaprekar map,
 _b=6_,
@@ -120,7 +120,7 @@ OEIS [A165051](https://oeis.org/A165051):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/kaprekarMap-G.svg)
+![](Help/Image/kaprekarMap-G.svg)
 
 Kaprekar map,
 _b=7_,
@@ -133,7 +133,7 @@ OEIS [A165071](https://oeis.org/A165071):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/kaprekarMap-H.svg)
+![](Help/Image/kaprekarMap-H.svg)
 
 Kaprekar map,
 _b=8_,
@@ -146,7 +146,7 @@ OEIS [A165090](https://oeis.org/A165090):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/kaprekarMap-I.svg)
+![](Help/Image/kaprekarMap-I.svg)
 
 Kaprekar map,
 _b=9_,
@@ -159,7 +159,7 @@ OEIS [A165110](https://oeis.org/A165110):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/kaprekarMap-J.svg)
+![](Help/Image/kaprekarMap-J.svg)
 
 Length of preperiodic part of trajectory of _n_ under iteration of the base-two Kaprekar map,
 OEIS [A164885](https://oeis.org/A164885),
@@ -174,7 +174,7 @@ OEIS [A164886](https://oeis.org/A164886):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/kaprekarMap-K.svg)
+![](Help/Image/kaprekarMap-K.svg)
 
 Some later terms of the _b=10_ map,
 divided by nine,
@@ -185,7 +185,7 @@ OEIS [A151950](https://oeis.org/A151950):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/kaprekarMap-L.svg)
+![](Help/Image/kaprekarMap-L.svg)
 
 * * *
 

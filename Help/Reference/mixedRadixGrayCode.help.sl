@@ -51,7 +51,7 @@ Matrix plot of _2,3,4_ mixed radix Gray code:
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/mixedRadixGrayCode-A.svg)
+![](Help/Image/mixedRadixGrayCode-A.svg)
 
 Matrix plot of _5,3,2_ mixed radix Gray code:
 
@@ -61,7 +61,7 @@ Matrix plot of _5,3,2_ mixed radix Gray code:
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/mixedRadixGrayCode-B.svg)
+![](Help/Image/mixedRadixGrayCode-B.svg)
 
 * * *
 

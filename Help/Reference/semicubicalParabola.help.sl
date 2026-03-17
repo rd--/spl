@@ -14,7 +14,7 @@ Plot upper half of semicubical parabola:
 )
 ~~~
 
-![](sw/spl/Help/Image/semicubicalParabola-A.svg)
+![](Help/Image/semicubicalParabola-A.svg)
 
 * * *
 

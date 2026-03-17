@@ -15,7 +15,7 @@ let f:/1 = torusKnotCurve(4, 7);
 }
 ~~~
 
-![](sw/spl/Help/Image/torusKnotCurve-A.svg)
+![](Help/Image/torusKnotCurve-A.svg)
 
 * * *
 

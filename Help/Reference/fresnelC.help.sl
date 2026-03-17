@@ -23,7 +23,7 @@ Plot over a subset of the reals:
 (-5 -- 5).functionPlot(200, fresnelC:/1)
 ~~~
 
-![](sw/spl/Help/Image/fresnelC-A.svg)
+![](Help/Image/fresnelC-A.svg)
 
 Intensity of a wave diffracted by a half-plane:
 
@@ -35,7 +35,7 @@ Intensity of a wave diffracted by a half-plane:
 }
 ~~~
 
-![](sw/spl/Help/Image/fresnelC-B.svg)
+![](Help/Image/fresnelC-B.svg)
 
 Plot a Cornu, or Euler, spiral, also called a clothoid:
 
@@ -45,7 +45,7 @@ Plot a Cornu, or Euler, spiral, also called a clothoid:
 }.Line
 ~~~
 
-![](sw/spl/Help/Image/fresnelC-C.svg)
+![](Help/Image/fresnelC-C.svg)
 
 Plot _C(t)/S(t)_:
 
@@ -55,7 +55,7 @@ Plot _C(t)/S(t)_:
 }
 ~~~
 
-![](sw/spl/Help/Image/fresnelC-D.svg)
+![](Help/Image/fresnelC-D.svg)
 
 Plot _S(t)/C(t)_:
 
@@ -65,7 +65,7 @@ Plot _S(t)/C(t)_:
 }
 ~~~
 
-![](sw/spl/Help/Image/fresnelC-E.svg)
+![](Help/Image/fresnelC-E.svg)
 
 * * *
 

@@ -55,7 +55,7 @@ Plot over a subset of the reals:
 (-2 -- 2).functionPlot(pellNumber:/1)
 ~~~
 
-![](sw/spl/Help/Image/pellNumber-A.svg)
+![](Help/Image/pellNumber-A.svg)
 
 * * *
 

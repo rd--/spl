@@ -19,7 +19,7 @@ and intervals increase clockwise:
 ].horogramDrawing
 ~~~
 
-![](sw/spl/Help/Image/horogramDrawing-A.svg)
+![](Help/Image/horogramDrawing-A.svg)
 
 A drawing of the _5/12_ moment of symmetry scale construction:
 
@@ -32,7 +32,7 @@ A drawing of the _5/12_ moment of symmetry scale construction:
 ].horogramDrawing
 ~~~
 
-![](sw/spl/Help/Image/horogramDrawing-B.svg)
+![](Help/Image/horogramDrawing-B.svg)
 
 * * *
 

@@ -43,7 +43,7 @@ Polynomial(
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/BivariatePolynomial-A.svg)
+![](Help/Image/BivariatePolynomial-A.svg)
 
 * * *
 

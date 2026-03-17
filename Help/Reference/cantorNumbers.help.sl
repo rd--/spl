@@ -33,7 +33,7 @@ OEIS [A005823](https://oeis.org/A005823):
 192.cantorNumbers.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/cantorNumbers-A.svg)
+![](Help/Image/cantorNumbers-A.svg)
 
 * * *
 

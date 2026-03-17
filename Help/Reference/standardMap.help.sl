@@ -22,7 +22,7 @@ Sfc32(637214)
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/standardMap-A.svg)
+![](Help/Image/standardMap-A.svg)
 
 * * *
 

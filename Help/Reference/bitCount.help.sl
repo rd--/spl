@@ -36,7 +36,7 @@ Plot sequence:
 0:255.functionPlot(bitCount:/1)
 ~~~
 
-![](sw/spl/Help/Image/bitCount-A.svg)
+![](Help/Image/bitCount-A.svg)
 
 * * *
 

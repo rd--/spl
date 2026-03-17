@@ -11,7 +11,7 @@ First-order Chebyshev, _x_:
 129.gen03(-1, 1, [0 1]).linePlot
 ~~~
 
-![](sw/spl/Help/Image/gen03-A.svg)
+![](Help/Image/gen03-A.svg)
 
 C.f.:
 
@@ -19,7 +19,7 @@ C.f.:
 (-1 -- 1).functionPlot(identity:/1)
 ~~~
 
-![](sw/spl/Help/Image/gen03-B.svg)
+![](Help/Image/gen03-B.svg)
 
 Second-order Chebyshev, _2x^2 - 1_:
 
@@ -27,7 +27,7 @@ Second-order Chebyshev, _2x^2 - 1_:
 129.gen03(-1, 1, [-1 0 2]).linePlot
 ~~~
 
-![](sw/spl/Help/Image/gen03-C.svg)
+![](Help/Image/gen03-C.svg)
 
 C.f.:
 
@@ -37,7 +37,7 @@ C.f.:
 }
 ~~~
 
-![](sw/spl/Help/Image/gen03-D.svg)
+![](Help/Image/gen03-D.svg)
 
 Third-order Chebyshev, _4x^3 - 3x_:
 
@@ -45,7 +45,7 @@ Third-order Chebyshev, _4x^3 - 3x_:
 129.gen03(-1, 1, [0 -3 0 4]).linePlot
 ~~~
 
-![](sw/spl/Help/Image/gen03-E.svg)
+![](Help/Image/gen03-E.svg)
 
 C.f.
 
@@ -55,7 +55,7 @@ C.f.
 }
 ~~~
 
-![](sw/spl/Help/Image/gen03-F.svg)
+![](Help/Image/gen03-F.svg)
 
 Seventh-order Chebyshev, _64x^7 - 112x^5 + 56x^3 - 7x_:
 
@@ -68,7 +68,7 @@ Seventh-order Chebyshev, _64x^7 - 112x^5 + 56x^3 - 7x_:
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/gen03-G.svg)
+![](Help/Image/gen03-G.svg)
 
 C.f.:
 
@@ -84,7 +84,7 @@ C.f.:
 }
 ~~~
 
-![](sw/spl/Help/Image/gen03-H.svg)
+![](Help/Image/gen03-H.svg)
 
 A 4th order polynomial function:
 
@@ -92,7 +92,7 @@ A 4th order polynomial function:
 129.gen03(-1, 1, [5 4 3 2 2 1]).linePlot
 ~~~
 
-![](sw/spl/Help/Image/gen03-I.svg)
+![](Help/Image/gen03-I.svg)
 
 * * *
 

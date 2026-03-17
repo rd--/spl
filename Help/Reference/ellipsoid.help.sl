@@ -10,7 +10,7 @@ Implement the parametric equation for the ellipsoid.
 )
 ~~~
 
-![](sw/spl/Help/Image/ellipsoid-A.svg)
+![](Help/Image/ellipsoid-A.svg)
 
 * * *
 

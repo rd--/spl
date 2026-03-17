@@ -737,7 +737,7 @@ Plot over a subset of the reals:
 }
 ~~~
 
-![](sw/spl/Help/Image/power-A.svg)
+![](Help/Image/power-A.svg)
 
 Plot the `sin` function raised to the first three powers:
 
@@ -751,7 +751,7 @@ Plot the `sin` function raised to the first three powers:
 )
 ~~~
 
-![](sw/spl/Help/Image/power-B.svg)
+![](Help/Image/power-B.svg)
 
 The coefficient of _1/n_ in the base _n_ representation of _√n_,
 OEIS [A074704](https://oeis.org/A074704):
@@ -762,7 +762,7 @@ OEIS [A074704](https://oeis.org/A074704):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/power-C.svg)
+![](Help/Image/power-C.svg)
 
 _x_ raised to a scaled power of _x_:
 
@@ -772,7 +772,7 @@ _x_ raised to a scaled power of _x_:
 }
 ~~~
 
-![](sw/spl/Help/Image/power-D.svg)
+![](Help/Image/power-D.svg)
 
 _x_ raised to a scaled power of _x_:
 
@@ -782,7 +782,7 @@ _x_ raised to a scaled power of _x_:
 }
 ~~~
 
-![](sw/spl/Help/Image/power-E.svg)
+![](Help/Image/power-E.svg)
 
 Number of solutions to _x^2+1=0_ modulo _n_,
 OEIS [A000089](https://oeis.org/A000089):
@@ -795,7 +795,7 @@ OEIS [A000089](https://oeis.org/A000089):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/power-F.svg)
+![](Help/Image/power-F.svg)
 
 Exponentiation table,
 read by antidiagonals,
@@ -807,7 +807,7 @@ OEIS [A004248](https://oeis.org/A004248):
 ).catenate.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/power-G.svg)
+![](Help/Image/power-G.svg)
 
 A sequence by Tidjani Negadi,
 OEIS [A054398](https://oeis.org/A054398):
@@ -826,7 +826,7 @@ let a = Map { :n |
 a[0:5].catenate.log.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/power-H.svg)
+![](Help/Image/power-H.svg)
 
 A recurrence table,
 _a[n-1]+(-1ᵐa[m])_ where _m=⌊(n/2)_,
@@ -839,7 +839,7 @@ OEIS [A089045](https://oeis.org/A089045):
 }.recurrenceTable([1], 85).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/power-I.svg)
+![](Help/Image/power-I.svg)
 
 _(n-2)(-1^n)_,
 OEIS [A097141](https://oeis.org/A097141):
@@ -849,7 +849,7 @@ let n = 1:65;
 ((n - 2) * (-1 ^ n)).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/power-J.svg)
+![](Help/Image/power-J.svg)
 
 * * *
 

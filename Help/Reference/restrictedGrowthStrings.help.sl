@@ -103,7 +103,7 @@ restrictedGrowthStrings(5, 2)
 }.PlotSet([3 5])
 ~~~
 
-![](sw/spl/Help/Image/restrictedGrowthStrings-A.svg)
+![](Help/Image/restrictedGrowthStrings-A.svg)
 
 Plot the fifteen four letter restricted growth strings,
 interpreted as set partitions:
@@ -116,7 +116,7 @@ interpreted as set partitions:
 }.PlotSet([3 5])
 ~~~
 
-![](sw/spl/Help/Image/restrictedGrowthStrings-B.svg)
+![](Help/Image/restrictedGrowthStrings-B.svg)
 
 * * *
 

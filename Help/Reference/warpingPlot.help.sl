@@ -15,7 +15,7 @@ let c = x.warpingCorrespondence(y);
 x.warpingPlot(y, c)
 ~~~
 
-![](sw/spl/Help/Image/warpingPlot-A.svg)
+![](Help/Image/warpingPlot-A.svg)
 
 Warping between 11- and 13- vectors:
 
@@ -26,7 +26,7 @@ let c = x.warpingCorrespondence(y);
 x.warpingPlot(y, c)
 ~~~
 
-![](sw/spl/Help/Image/warpingPlot-B.svg)
+![](Help/Image/warpingPlot-B.svg)
 
 Warping between 11- and 13- vectors with mismatched contours:
 
@@ -37,7 +37,7 @@ let c = x.warpingCorrespondence(y);
 x.warpingPlot(y, c)
 ~~~
 
-![](sw/spl/Help/Image/warpingPlot-C.svg)
+![](Help/Image/warpingPlot-C.svg)
 
 Warping plot of phase shifted and amplitude scaled Hann tables:
 
@@ -50,7 +50,7 @@ let c = warpingCorrespondence(x, y);
 warpingPlot(x, y, c)
 ~~~
 
-![](sw/spl/Help/Image/warpingPlot-D.svg)
+![](Help/Image/warpingPlot-D.svg)
 
 * * *
 

@@ -60,7 +60,7 @@ OEIS [A051714](https://oeis.org/A051714):
 .catenate.logScale.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/akiyamaTanigawaNumber-A.svg)
+![](Help/Image/akiyamaTanigawaNumber-A.svg)
 
 Denominators,
 read by antidiagonals,
@@ -73,7 +73,7 @@ OEIS [A051715](https://oeis.org/A051715):
 .catenate.logScale.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/akiyamaTanigawaNumber-B.svg)
+![](Help/Image/akiyamaTanigawaNumber-B.svg)
 
 Akiyama-Tanigawa numbers,
 read by antidiagonals:
@@ -84,7 +84,7 @@ read by antidiagonals:
 ).catenate.logScale.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/akiyamaTanigawaNumber-C.svg)
+![](Help/Image/akiyamaTanigawaNumber-C.svg)
 
 * * *
 

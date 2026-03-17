@@ -51,7 +51,7 @@ system.seedRandom(297142);
 ).stepPlot
 ~~~
 
-![](sw/spl/Help/Image/atRandom-A.svg)
+![](Help/Image/atRandom-A.svg)
 
 * * *
 

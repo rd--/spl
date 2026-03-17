@@ -19,7 +19,7 @@ HiddenMarkovProcess(
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/HiddenMarkovProcess-A.svg)
+![](Help/Image/HiddenMarkovProcess-A.svg)
 
 Use `viterbiDecoding` to find the most likely hidden state sequence from the given emissions:
 

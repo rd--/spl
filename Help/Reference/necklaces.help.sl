@@ -75,7 +75,7 @@ necklaces(5, 2)
 .PlotSet
 ~~~
 
-![](sw/spl/Help/Image/necklaces-A.svg)
+![](Help/Image/necklaces-A.svg)
 
 Matrix plot of the thirty-six _8,2_ necklaces:
 
@@ -85,7 +85,7 @@ necklaces(8, 2)
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/necklaces-B.svg)
+![](Help/Image/necklaces-B.svg)
 
 * * *
 

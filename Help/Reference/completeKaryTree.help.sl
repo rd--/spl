@@ -10,7 +10,7 @@ A complete binary tree with four levels:
 completeKaryTree(4, 2).treePlot
 ~~~
 
-![](sw/spl/Help/Image/completeKaryTree-A.svg)
+![](Help/Image/completeKaryTree-A.svg)
 
 A complete ternary tree with three levels:
 
@@ -18,7 +18,7 @@ A complete ternary tree with three levels:
 completeKaryTree(3, 3).treePlot
 ~~~
 
-![](sw/spl/Help/Image/completeKaryTree-B.svg)
+![](Help/Image/completeKaryTree-B.svg)
 
 * * *
 

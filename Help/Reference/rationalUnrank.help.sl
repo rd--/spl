@@ -58,7 +58,7 @@ Plot first few terms of the _'Canonical'_ method:
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/rationalUnrank-A.svg)
+![](Help/Image/rationalUnrank-A.svg)
 
 Log scale plot of first few terms of the _'Canonical'_ method:
 
@@ -67,7 +67,7 @@ Log scale plot of first few terms of the _'Canonical'_ method:
 .log.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/rationalUnrank-B.svg)
+![](Help/Image/rationalUnrank-B.svg)
 
 Scatter plot of first few terms of the _'Canonical'_ method
 with the numerator on the _x_-axis,
@@ -79,7 +79,7 @@ and the denominator on the _y_-axis:
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/rationalUnrank-C.svg)
+![](Help/Image/rationalUnrank-C.svg)
 
 * * *
 

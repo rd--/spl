@@ -55,7 +55,7 @@ let a = [1 .. 200];
 a.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/removeAtAll-A.svg)
+![](Help/Image/removeAtAll-A.svg)
 
 Ternary sieve,
 OEIS [A007951](https://oeis.org/A007951):
@@ -70,7 +70,7 @@ let a = [1 .. 150];
 a.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/removeAtAll-B.svg)
+![](Help/Image/removeAtAll-B.svg)
 
 Quaternary sieve,
 OEIS [A092418](https://oeis.org/A092418):
@@ -85,7 +85,7 @@ let a = [1 .. 100];
 a.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/removeAtAll-C.svg)
+![](Help/Image/removeAtAll-C.svg)
 
 * * *
 

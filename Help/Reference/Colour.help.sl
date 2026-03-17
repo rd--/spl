@@ -27,7 +27,7 @@ Colour values can be drawn as swatches:
 '#F97306'.parseHexColour
 ~~~
 
-![](sw/spl/Help/Image/Colour-A.svg)
+![](Help/Image/Colour-A.svg)
 
 Colour as hash-prefixed hexadecimal string:
 

@@ -20,7 +20,7 @@ let i = (-2, -1.5 .. 2);
 }.table(i, i).logScale.matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/goldsteinPriceFunction-A.svg)
+![](Help/Image/goldsteinPriceFunction-A.svg)
 
 Plot log scaled and rounded:
 
@@ -35,7 +35,7 @@ let c = (-2 -- 2).subdivide(100);
 .Greymap
 ~~~
 
-![](sw/spl/Help/Image/goldsteinPriceFunction-B.png)
+![](Help/Image/goldsteinPriceFunction-B.png)
 
 * * *
 

@@ -20,7 +20,7 @@ Probability density function:
 )
 ~~~
 
-![](sw/spl/Help/Image/ParetoDistribution-A.svg)
+![](Help/Image/ParetoDistribution-A.svg)
 
 Cumulative distribution function:
 
@@ -38,7 +38,7 @@ Cumulative distribution function:
 )
 ~~~
 
-![](sw/spl/Help/Image/ParetoDistribution-B.svg)
+![](Help/Image/ParetoDistribution-B.svg)
 
 Generate a sample of pseudorandom numbers from a Pareto distribution:
 
@@ -49,7 +49,7 @@ ParetoDistribution(2, 5)
 .histogramPlot([2 6 0.2])
 ~~~
 
-![](sw/spl/Help/Image/ParetoDistribution-C.svg)
+![](Help/Image/ParetoDistribution-C.svg)
 
 Plot a Lévy flight in two dimensions:
 
@@ -62,7 +62,7 @@ let v = d.randomVariate(r, [k]);
 u.anglePath(v, [0 0]).Line
 ~~~
 
-![](sw/spl/Help/Image/ParetoDistribution-D.svg)
+![](Help/Image/ParetoDistribution-D.svg)
 
 * * *
 

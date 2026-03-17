@@ -81,7 +81,7 @@ Plot plain changes of _S3_:
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/plainChanges-A.svg)
+![](Help/Image/plainChanges-A.svg)
 
 * * *
 

@@ -38,7 +38,7 @@ Draw the complete bipartite graph _(2, 3)_:
 .graphPlot
 ~~~
 
-![](sw/spl/Help/Image/completeBipartiteGraph-A.svg)
+![](Help/Image/completeBipartiteGraph-A.svg)
 
 Circular drawing of the same graph:
 
@@ -47,7 +47,7 @@ Circular drawing of the same graph:
 .circularGraphPlot
 ~~~
 
-![](sw/spl/Help/Image/completeBipartiteGraph-B.svg)
+![](Help/Image/completeBipartiteGraph-B.svg)
 
 * * *
 

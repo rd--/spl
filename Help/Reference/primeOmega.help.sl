@@ -131,7 +131,7 @@ OEIS [A001222](https://oeis.org/A001222):
 1:100.functionPlot(primeOmega:/1)
 ~~~
 
-![](sw/spl/Help/Image/primeOmega-A.svg)
+![](Help/Image/primeOmega-A.svg)
 
 The number of positive integers less than or equal to _n_,
 with the same number of prime factors as _n_,
@@ -149,7 +149,7 @@ let f = { :x |
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/primeOmega-B.svg)
+![](Help/Image/primeOmega-B.svg)
 
 Difference between number of oddly and evenly factored numbers,
 OEIS [A072203](https://oeis.org/A072203):
@@ -162,7 +162,7 @@ OEIS [A072203](https://oeis.org/A072203):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/primeOmega-C.svg)
+![](Help/Image/primeOmega-C.svg)
 
 Parity of _Ω(n)_,
 OEIS [A066829](https://oeis.org/A066829):
@@ -174,7 +174,7 @@ OEIS [A066829](https://oeis.org/A066829):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/primeOmega-D.svg)
+![](Help/Image/primeOmega-D.svg)
 
 Is _n_ an odd number with an even number of prime factors,
 OEIS [A353557](https://oeis.org/A353557):
@@ -187,7 +187,7 @@ OEIS [A353557](https://oeis.org/A353557):
 }.boole.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/primeOmega-E.svg)
+![](Help/Image/primeOmega-E.svg)
 
 Characteristic function of `one` and primes,
 OEIS [A080339](https://oeis.org/A080339):
@@ -198,7 +198,7 @@ OEIS [A080339](https://oeis.org/A080339):
 }.boole.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/primeOmega-F.svg)
+![](Help/Image/primeOmega-F.svg)
 
 Number of prime factors of the number of divisors of _n_,
 OEIS [A058061](https://oeis.org/A058061):
@@ -209,7 +209,7 @@ OEIS [A058061](https://oeis.org/A058061):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/primeOmega-G.svg)
+![](Help/Image/primeOmega-G.svg)
 
 * * *
 

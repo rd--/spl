@@ -71,7 +71,7 @@ OEIS [A000594](https://oeis.org/A000594):
 .stepPlot
 ~~~
 
-![](sw/spl/Help/Image/ramanujanTau-A.svg)
+![](Help/Image/ramanujanTau-A.svg)
 
 The Ramanujan τ function,
 further terms,
@@ -84,7 +84,7 @@ OEIS [A000594](https://oeis.org/A000594):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/ramanujanTau-B.svg)
+![](Help/Image/ramanujanTau-B.svg)
 
 * * *
 

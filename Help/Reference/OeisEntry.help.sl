@@ -46,7 +46,7 @@ OeisEntry('A000001').then { :e |
 }
 ~~~
 
-![](sw/spl/Help/Image/OeisEntry-A.svg)
+![](Help/Image/OeisEntry-A.svg)
 
 The first few items of `bFileData`,
 as given in B-file associated with the OEIS entry,
@@ -61,7 +61,7 @@ OeisEntry('A000001').then { :e |
 }
 ~~~
 
-![](sw/spl/Help/Image/OeisEntry-B.svg)
+![](Help/Image/OeisEntry-B.svg)
 
 The first few items of `bFileData` for a sequence that is non-trivial to calculate,
 OEIS [A059471](https://oeis.org/A059471):
@@ -75,7 +75,7 @@ OeisEntry('A059471').then { :e |
 }
 ~~~
 
-![](sw/spl/Help/Image/OeisEntry-C.svg)
+![](Help/Image/OeisEntry-C.svg)
 
 Limit of _f(f(f(...f(2)...)))%n_ as the number of iterations of _f(x)=2^x-1_ grows,
 OEIS [A254410](https://oeis.org/A254410):
@@ -88,7 +88,7 @@ OeisEntry('A254410').then { :e |
 }
 ~~~
 
-![](sw/spl/Help/Image/OeisEntry-D.svg)
+![](Help/Image/OeisEntry-D.svg)
 
 The lexicographically earliest sequence of positive numbers which is identical to the run lengths of its first differences,
 OEIS [A380317](https://oeis.org/A380317):
@@ -101,7 +101,7 @@ OeisEntry('A380317').then { :e |
 }
 ~~~
 
-![](sw/spl/Help/Image/OeisEntry-E.svg)
+![](Help/Image/OeisEntry-E.svg)
 
 Entries are cached on construction,
 and B-file data is fetched using `cachedFetch`:

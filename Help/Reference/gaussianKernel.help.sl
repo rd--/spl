@@ -14,7 +14,7 @@ Plot over _(-5, 5)_ with increasing σ of _0.3_, _1_, and _2_:
 )
 ~~~
 
-![](sw/spl/Help/Image/gaussianKernel-A.svg)
+![](Help/Image/gaussianKernel-A.svg)
 
 * * *
 

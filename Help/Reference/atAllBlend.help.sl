@@ -20,7 +20,7 @@ Plot:
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/atAllBlend-A.svg)
+![](Help/Image/atAllBlend-A.svg)
 
 * * *
 

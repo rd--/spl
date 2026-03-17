@@ -11,7 +11,7 @@ Draw:
 (-4 -- 4).discretize(100, eulerSpiral:/1).Line
 ~~~
 
-![](sw/spl/Help/Image/fresnelC-C.svg)
+![](Help/Image/fresnelC-C.svg)
 
 * * *
 

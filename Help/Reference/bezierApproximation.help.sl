@@ -50,7 +50,7 @@ indicating the non-uniform distances along the curve between equidistant samplin
 .PointCloud
 ~~~
 
-![](sw/spl/Help/Image/bezierApproximation-A.svg)
+![](Help/Image/bezierApproximation-A.svg)
 
 See `bezierTrace` to derive a sampling that is uniformly spaced along the curve.
 

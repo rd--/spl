@@ -51,7 +51,7 @@ Step plot of distances between lucky numbers:
 .stepPlot
 ~~~
 
-![](sw/spl/Help/Image/luckyNumbers-A.svg)
+![](Help/Image/luckyNumbers-A.svg)
 
 Plot the points at lucky number indices on the first seventeen turns of the spiral:
 
@@ -62,7 +62,7 @@ let p = k.luckyNumbers;
 h.atAll(p).PointCloud
 ~~~
 
-![](sw/spl/Help/Image/luckyNumbers-B.svg)
+![](Help/Image/luckyNumbers-B.svg)
 
 Log scale plot of first few terms of lucky and prime number sequences:
 
@@ -72,7 +72,7 @@ let b = (1 .. a.size).prime;
 [a, b].logScale.linePlot
 ~~~
 
-![](sw/spl/Help/Image/luckyNumbers-C.svg)
+![](Help/Image/luckyNumbers-C.svg)
 
 * * *
 

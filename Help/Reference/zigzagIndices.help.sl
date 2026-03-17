@@ -27,7 +27,7 @@ Plot square matrix index path:
 [9 9].zigzagIndices.Line
 ~~~
 
-![](sw/spl/Help/Image/zigzagIndices-A.svg)
+![](Help/Image/zigzagIndices-A.svg)
 
 Plot rectangular matrix index path, _m<n_:
 
@@ -35,7 +35,7 @@ Plot rectangular matrix index path, _m<n_:
 [7 13].zigzagIndices.Line
 ~~~
 
-![](sw/spl/Help/Image/zigzagIndices-B.svg)
+![](Help/Image/zigzagIndices-B.svg)
 
 Plot rectangular matrix index path, _m>n_:
 
@@ -43,7 +43,7 @@ Plot rectangular matrix index path, _m>n_:
 [13 7].zigzagIndices.Line
 ~~~
 
-![](sw/spl/Help/Image/zigzagIndices-C.svg)
+![](Help/Image/zigzagIndices-C.svg)
 
 * * *
 

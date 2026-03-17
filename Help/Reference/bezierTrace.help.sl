@@ -16,7 +16,7 @@ indicating the uniform distances along the curve between equidistant sampling po
 .PointCloud
 ~~~
 
-![](sw/spl/Help/Image/bezierTrace-A.svg)
+![](Help/Image/bezierTrace-A.svg)
 
 * * *
 

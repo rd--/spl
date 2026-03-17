@@ -14,7 +14,7 @@ Plot the vector field _(y,-x)_:
 }.vectorPlot(-3 -- 3, -3 -- 3)
 ~~~
 
-![](sw/spl/Help/Image/vectorPlot-A.svg)
+![](Help/Image/vectorPlot-A.svg)
 
 Plot the vector field _(x+y,y-x)_:
 
@@ -24,7 +24,7 @@ Plot the vector field _(x+y,y-x)_:
 }.vectorPlot(-3 -- 3, -3 -- 3)
 ~~~
 
-![](sw/spl/Help/Image/vectorPlot-B.svg)
+![](Help/Image/vectorPlot-B.svg)
 
 Plot the vector field _(y,x+y)_:
 
@@ -34,7 +34,7 @@ Plot the vector field _(y,x+y)_:
 }.vectorPlot(-3 -- 3, -3 -- 3)
 ~~~
 
-![](sw/spl/Help/Image/vectorPlot-C.svg)
+![](Help/Image/vectorPlot-C.svg)
 
 Plot the vector field _(-1-x²+y,1+x-y²)_:
 
@@ -44,7 +44,7 @@ Plot the vector field _(-1-x²+y,1+x-y²)_:
 }.vectorPlot(-3 -- 3, -3 -- 3)
 ~~~
 
-![](sw/spl/Help/Image/vectorPlot-D.svg)
+![](Help/Image/vectorPlot-D.svg)
 
 Plot the vector field _(y²,x²-y²)_:
 
@@ -54,7 +54,7 @@ Plot the vector field _(y²,x²-y²)_:
 }.vectorPlot(-3 -- 3, -3 -- 3)
 ~~~
 
-![](sw/spl/Help/Image/vectorPlot-E.svg)
+![](Help/Image/vectorPlot-E.svg)
 
 Plot the vector field _(x,y)_:
 
@@ -64,7 +64,7 @@ Plot the vector field _(x,y)_:
 }.vectorPlot(-3 -- 3, -3 -- 3)
 ~~~
 
-![](sw/spl/Help/Image/vectorPlot-F.svg)
+![](Help/Image/vectorPlot-F.svg)
 
 Plot the vector field _(y-αx,-x-αy)_ where _α=(1-x²-y²)²_:
 
@@ -78,7 +78,7 @@ Plot the vector field _(y-αx,-x-αy)_ where _α=(1-x²-y²)²_:
 }.vectorPlot(-3 -- 3, -3 -- 3)
 ~~~
 
-![](sw/spl/Help/Image/vectorPlot-G.svg)
+![](Help/Image/vectorPlot-G.svg)
 
 Plot the vector field _(1,y(1-y))_:
 
@@ -88,7 +88,7 @@ Plot the vector field _(1,y(1-y))_:
 }.vectorPlot(0 -- 2, 0 -- 2)
 ~~~
 
-![](sw/spl/Help/Image/vectorPlot-H.svg)
+![](Help/Image/vectorPlot-H.svg)
 
 Plot the vector field _(y,sin(-x))_:
 
@@ -98,7 +98,7 @@ Plot the vector field _(y,sin(-x))_:
 }.vectorPlot(-3.pi -- 3.pi, -4 -- 4)
 ~~~
 
-![](sw/spl/Help/Image/vectorPlot-I.svg)
+![](Help/Image/vectorPlot-I.svg)
 
 Plot the vector field _(sin(y),cos(x))_:
 
@@ -108,7 +108,7 @@ Plot the vector field _(sin(y),cos(x))_:
 }.vectorPlot(-1.pi -- 1.pi, -1.pi -- 1.pi)
 ~~~
 
-![](sw/spl/Help/Image/vectorPlot-J.svg)
+![](Help/Image/vectorPlot-J.svg)
 
 In the binary form,
 a list of points for showing field vectors is specified:
@@ -121,7 +121,7 @@ let c = r.randomReal([-3 3], [300 2]);
 }.vectorPlot(c)
 ~~~
 
-![](sw/spl/Help/Image/vectorPlot-K.svg)
+![](Help/Image/vectorPlot-K.svg)
 
 Plot the zero vector field to see the default grid,
 which is an offset square grid:
@@ -132,7 +132,7 @@ which is an offset square grid:
 }.vectorPlot(-1 -- 1, -1 -- 1)
 ~~~
 
-![](sw/spl/Help/Image/vectorPlot-L.svg)
+![](Help/Image/vectorPlot-L.svg)
 
 * * *
 

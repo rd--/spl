@@ -11,7 +11,7 @@ Remove self-loops from an undirected graph:
 .graphPlot
 ~~~
 
-![](sw/spl/Help/Image/simpleGraph-A.svg)
+![](Help/Image/simpleGraph-A.svg)
 
 Remove self-loops from a directed graph:
 
@@ -22,7 +22,7 @@ Remove self-loops from a directed graph:
 .graphPlot
 ~~~
 
-![](sw/spl/Help/Image/simpleGraph-B.svg)
+![](Help/Image/simpleGraph-B.svg)
 
 Remove self-loops and multiple edges from an undirected graph:
 
@@ -33,7 +33,7 @@ Remove self-loops and multiple edges from an undirected graph:
 .graphPlot
 ~~~
 
-![](sw/spl/Help/Image/simpleGraph-C.svg)
+![](Help/Image/simpleGraph-C.svg)
 
 Remove self-loops and multiple edges from a mixed graph:
 
@@ -48,7 +48,7 @@ Remove self-loops and multiple edges from a mixed graph:
 .graphPlot
 ~~~
 
-![](sw/spl/Help/Image/simpleGraph-D.svg)
+![](Help/Image/simpleGraph-D.svg)
 
 * * *
 

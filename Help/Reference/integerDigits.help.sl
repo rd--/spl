@@ -558,7 +558,7 @@ let k = 200;
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerDigits-A.svg)
+![](Help/Image/integerDigits-A.svg)
 
 Balanced ternary enumeration of integers,
 OEIS [A117966](https://oeis.org/A117966):
@@ -572,7 +572,7 @@ let k = 123;
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerDigits-B.svg)
+![](Help/Image/integerDigits-B.svg)
 
 Bit patterns for _n_-bit integers:
 
@@ -584,7 +584,7 @@ let m = 2 ^ (n - 1) - 1;
 }.matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/integerDigits-C.svg)
+![](Help/Image/integerDigits-C.svg)
 
 The least not occurring integer such that partial sum,
 written in binary,
@@ -613,7 +613,7 @@ let k = 1;
 a.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerDigits-D.svg)
+![](Help/Image/integerDigits-D.svg)
 
 _n_ minus the product of the nonzero digits of _n_,
 OEIS [A063543](https://oeis.org/A063543):
@@ -625,7 +625,7 @@ OEIS [A063543](https://oeis.org/A063543):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerDigits-E.svg)
+![](Help/Image/integerDigits-E.svg)
 
 Scatter plot of the first half of the integer digits of the decimal representation of _1/503_:
 
@@ -635,7 +635,7 @@ Decimal(1/503, 251)
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerDigits-F.svg)
+![](Help/Image/integerDigits-F.svg)
 
 Number of runs in binary expansion of _n_,
 OEIS [A005811](https://oeis.org/A005811):
@@ -649,7 +649,7 @@ OEIS [A005811](https://oeis.org/A005811):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerDigits-G.svg)
+![](Help/Image/integerDigits-G.svg)
 
 Product of run lengths in binary representation,
 OEIS [A167489](https://oeis.org/A167489):
@@ -663,7 +663,7 @@ OEIS [A167489](https://oeis.org/A167489):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerDigits-H.svg)
+![](Help/Image/integerDigits-H.svg)
 
 Count the number of occurrences of the _n_-th digit of the sequence among the first _n_ digits,
 OEIS [A322182](https://oeis.org/A322182):
@@ -682,7 +682,7 @@ let d = [1];
 a.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerDigits-I.svg)
+![](Help/Image/integerDigits-I.svg)
 
 Product of decimal digits of _n_,
 OEIS [A007954](https://oeis.org/A007954):
@@ -693,7 +693,7 @@ OEIS [A007954](https://oeis.org/A007954):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerDigits-J.svg)
+![](Help/Image/integerDigits-J.svg)
 
 Making numbers into palindromic numbers,
 OEIS [A033865](https://oeis.org/A033865):
@@ -710,7 +710,7 @@ OEIS [A033865](https://oeis.org/A033865):
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerDigits-K.svg)
+![](Help/Image/integerDigits-K.svg)
 
 Primes where every suffix is prime,
 OEIS [A033664](https://oeis.org/A033664):
@@ -725,7 +725,7 @@ OEIS [A033664](https://oeis.org/A033664):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerDigits-L.svg)
+![](Help/Image/integerDigits-L.svg)
 
 Numbers that cubed have only even digits,
 OEIS [A052004](https://oeis.org/A052004):
@@ -737,7 +737,7 @@ OEIS [A052004](https://oeis.org/A052004):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/integerDigits-M.svg)
+![](Help/Image/integerDigits-M.svg)
 
 Numbers written in the dyadic system,
 OEIS [A007931](https://oeis.org/A007931):
@@ -749,7 +749,7 @@ OEIS [A007931](https://oeis.org/A007931):
 }.logScale.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerDigits-N.svg)
+![](Help/Image/integerDigits-N.svg)
 
 Expected time until the _n_-th possible sequence of coin tosses,
 OEIS [A059943](https://oeis.org/A059943):
@@ -767,7 +767,7 @@ OEIS [A059943](https://oeis.org/A059943):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/integerDigits-O.svg)
+![](Help/Image/integerDigits-O.svg)
 
 Triangle of values of _n_ written in base _k_ with digits reversed,
 OEIS [A191780](https://oeis.org/A191780):
@@ -780,7 +780,7 @@ OEIS [A191780](https://oeis.org/A191780):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerDigits-P.svg)
+![](Help/Image/integerDigits-P.svg)
 
 Least _k>1_ with _k=Σ(d(k^n))_,
 OEIS [A046017](https://oeis.org/A046017):
@@ -797,7 +797,7 @@ OEIS [A046017](https://oeis.org/A046017):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/integerDigits-Q.svg)
+![](Help/Image/integerDigits-Q.svg)
 
 Integers on the positive x-axis of clockwise spiral on a square lattice,
 OEIS [A033953](https://oeis.org/A033953):
@@ -821,7 +821,7 @@ let a = 0:m.collect(
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/integerDigits-R.svg)
+![](Help/Image/integerDigits-R.svg)
 
 Enumeration of partitions by binary representation,
 OEIS [A125106](https://oeis.org/A125106):
@@ -835,7 +835,7 @@ OEIS [A125106](https://oeis.org/A125106):
 }.catenate.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/integerDigits-S.svg)
+![](Help/Image/integerDigits-S.svg)
 
 Write _n_ in base three and reverse order of digits,
 OEIS [A030341](https://oeis.org/A030341):
@@ -846,7 +846,7 @@ OEIS [A030341](https://oeis.org/A030341):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/integerDigits-T.svg)
+![](Help/Image/integerDigits-T.svg)
 
 Sum of squares of digits of _n_,
 OEIS [A003132](https://oeis.org/A003132):
@@ -857,7 +857,7 @@ OEIS [A003132](https://oeis.org/A003132):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerDigits-U.svg)
+![](Help/Image/integerDigits-U.svg)
 
 * * *
 

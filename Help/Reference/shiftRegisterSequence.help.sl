@@ -85,7 +85,7 @@ i.shiftRegisterSequence(t, n)
 .Bitmap
 ~~~
 
-![](sw/spl/Help/Image/shiftRegisterSequence-A.png)
+![](Help/Image/shiftRegisterSequence-A.png)
 
 The NES linear-feedback shift register:
 
@@ -100,7 +100,7 @@ shiftRegisterSequence(i, t, n)
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/shiftRegisterSequence-B.svg)
+![](Help/Image/shiftRegisterSequence-B.svg)
 
 * * *
 

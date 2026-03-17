@@ -24,7 +24,7 @@ Convert a table of boolean values for plotting:
 }.table(1:30, 1:10).boole.matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/boole-A.svg)
+![](Help/Image/boole-A.svg)
 
 The inverse of `boole` is `asBoolean`:
 
@@ -61,7 +61,7 @@ OEIS [A127093](https://oeis.org/A127093):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/boole-B.svg)
+![](Help/Image/boole-B.svg)
 
 Number of partitions of _n_ into three squares,
 allowing part zero,
@@ -81,7 +81,7 @@ OEIS [A000164](https://oeis.org/A000164):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/boole-C.svg)
+![](Help/Image/boole-C.svg)
 
 * * *
 

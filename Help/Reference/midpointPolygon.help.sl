@@ -15,7 +15,7 @@ let r = [0 0].unitSquare;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/midpointPolygon-A.svg)
+![](Help/Image/midpointPolygon-A.svg)
 
 At `Polygon`:
 
@@ -27,7 +27,7 @@ let h = 6.regularPolygon([0 0], 1, 0);
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/midpointPolygon-B.svg)
+![](Help/Image/midpointPolygon-B.svg)
 
 * * *
 

@@ -122,7 +122,7 @@ OEIS [A000161](https://oeis.org/A000161):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/integerSquareRoot-A.svg)
+![](Help/Image/integerSquareRoot-A.svg)
 
 * * *
 

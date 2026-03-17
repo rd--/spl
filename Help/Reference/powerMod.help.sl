@@ -224,7 +224,7 @@ The sequence with fixed powers:
 }
 ~~~
 
-![](sw/spl/Help/Image/powerMod-A.svg)
+![](Help/Image/powerMod-A.svg)
 
 The sequence with varying powers:
 
@@ -234,7 +234,7 @@ The sequence with varying powers:
 }
 ~~~
 
-![](sw/spl/Help/Image/powerMod-B.svg)
+![](Help/Image/powerMod-B.svg)
 
 A list of powers of 3 where the exponent is varied, modulo some prime number:
 
@@ -245,7 +245,7 @@ let n = 44.prime;
 }
 ~~~
 
-![](sw/spl/Help/Image/powerMod-C.svg)
+![](Help/Image/powerMod-C.svg)
 
 Table,
 read by rows,
@@ -262,7 +262,7 @@ OEIS [A096008](https://oeis.org/A096008):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/powerMod-D.svg)
+![](Help/Image/powerMod-D.svg)
 
 Smallest pseudoprime _>n_ to base _n_,
 OEIS [A007535](https://oeis.org/A007535):
@@ -281,7 +281,7 @@ OEIS [A007535](https://oeis.org/A007535):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/powerMod-E.svg)
+![](Help/Image/powerMod-E.svg)
 
 Number of distinct residues,
 OEIS [A195637](https://oeis.org/A195637):
@@ -293,7 +293,7 @@ OEIS [A195637](https://oeis.org/A195637):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/powerMod-F.svg)
+![](Help/Image/powerMod-F.svg)
 
 Smallest number _m>1_ such that _m^(p-1)-1_ is divisible by _p^2_,
 OEIS [A039678](https://oeis.org/A039678):
@@ -307,7 +307,7 @@ OEIS [A039678](https://oeis.org/A039678):
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/powerMod-G.svg)
+![](Help/Image/powerMod-G.svg)
 
 Shadow transform of the squares,
 OEIS [A000188](https://oeis.org/A000188):
@@ -320,7 +320,7 @@ OEIS [A000188](https://oeis.org/A000188):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/powerMod-H.svg)
+![](Help/Image/powerMod-H.svg)
 
 Number of distinct primes among the squares modulo _n_,
 OEIS [A132213](https://oeis.org/A132213):
@@ -333,7 +333,7 @@ OEIS [A132213](https://oeis.org/A132213):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/powerMod-I.svg)
+![](Help/Image/powerMod-I.svg)
 
 _a(n)=2^a(n-1)_ modulo _n_,
 OEIS [A131644](https://oeis.org/A131644):
@@ -345,7 +345,7 @@ let s = 0;
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/powerMod-J.svg)
+![](Help/Image/powerMod-J.svg)
 
 * * *
 

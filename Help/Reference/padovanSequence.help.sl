@@ -128,7 +128,7 @@ OEIS [A000931](https://oeis.org/A000931):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/padovanSequence-A.svg)
+![](Help/Image/padovanSequence-A.svg)
 
 * * *
 

@@ -12,7 +12,7 @@ Lookup _Orange_ in the _Svg_ catalogue:
 'Svg'.namedColour('Orange')
 ~~~
 
-![](sw/spl/Help/Image/namedColour-A.svg)
+![](Help/Image/namedColour-A.svg)
 
 Threads over lists:
 
@@ -26,7 +26,7 @@ Threads over lists:
 ).reshape([1 3]).arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/namedColour-B.svg)
+![](Help/Image/namedColour-B.svg)
 
 There are many shades of blue:
 
@@ -57,7 +57,7 @@ There are many shades of blue:
 ).reshape([4 5]).arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/namedColour-C.svg)
+![](Help/Image/namedColour-C.svg)
 
 Shades of yellow:
 
@@ -71,7 +71,7 @@ Shades of yellow:
 ].namedColour.enclose.arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/namedColour-D.svg)
+![](Help/Image/namedColour-D.svg)
 
 Shades of red:
 
@@ -88,7 +88,7 @@ Shades of red:
 ).enclose.arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/namedColour-E.svg)
+![](Help/Image/namedColour-E.svg)
 
 Shades of green:
 
@@ -115,7 +115,7 @@ Shades of green:
 ).reshape([3 5]).arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/namedColour-F.svg)
+![](Help/Image/namedColour-F.svg)
 
 A rainbow:
 
@@ -133,7 +133,7 @@ A rainbow:
 ).enclose.arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/namedColour-G.svg)
+![](Help/Image/namedColour-G.svg)
 
 A rainbow from the Crayola catalogue:
 
@@ -151,7 +151,7 @@ A rainbow from the Crayola catalogue:
 ).enclose.arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/namedColour-H.svg)
+![](Help/Image/namedColour-H.svg)
 
 Colour swatch for _NCS S 0580-Y10R_:
 
@@ -159,7 +159,7 @@ Colour swatch for _NCS S 0580-Y10R_:
 'Ncs'.namedColour('S 0580-Y10R')
 ~~~
 
-![](sw/spl/Help/Image/namedColour-I.svg)
+![](Help/Image/namedColour-I.svg)
 
 * * *
 

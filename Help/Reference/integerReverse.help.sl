@@ -100,7 +100,7 @@ OEIS [A007500](https://oeis.org/A007500):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerReverse-A.svg)
+![](Help/Image/integerReverse-A.svg)
 
 The `gcd` of _n_ and the reverse of _n_,
 log scatter plot,
@@ -112,7 +112,7 @@ OEIS [A055483](https://oeis.org/A055483):
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerReverse-B.svg)
+![](Help/Image/integerReverse-B.svg)
 
 _R(Π(R(F(n))))_,
 OEIS [A161594](https://oeis.org/A161594):
@@ -125,7 +125,7 @@ OEIS [A161594](https://oeis.org/A161594):
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerReverse-C.svg)
+![](Help/Image/integerReverse-C.svg)
 
 _Π(R(F(n)))_,
 OEIS [A071786](https://oeis.org/A071786):
@@ -137,7 +137,7 @@ OEIS [A071786](https://oeis.org/A071786):
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerReverse-D.svg)
+![](Help/Image/integerReverse-D.svg)
 
 Integer reverse,
 OEIS [A004086](https://oeis.org/A004086):
@@ -146,7 +146,7 @@ OEIS [A004086](https://oeis.org/A004086):
 0:400.integerReverse.linePlot
 ~~~
 
-![](sw/spl/Help/Image/integerReverse-E.svg)
+![](Help/Image/integerReverse-E.svg)
 
 Bijective bit-reverse of _n_,
 OEIS [A057889](https://oeis.org/A057889):
@@ -158,7 +158,7 @@ OEIS [A057889](https://oeis.org/A057889):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerReverse-F.svg)
+![](Help/Image/integerReverse-F.svg)
 
 _n_-th prime minus its reversal,
 OEIS [A068396](https://oeis.org/A068396):
@@ -169,7 +169,7 @@ OEIS [A068396](https://oeis.org/A068396):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/integerReverse-G.svg)
+![](Help/Image/integerReverse-G.svg)
 
 The reverse and add sequence,
 OEIS [A056964](https://oeis.org/A056964):
@@ -180,7 +180,7 @@ OEIS [A056964](https://oeis.org/A056964):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/integerReverse-H.svg)
+![](Help/Image/integerReverse-H.svg)
 
 Array read by antidiagonals,
 places are the integer reverse of _n×k_,
@@ -192,7 +192,7 @@ OEIS [A391365](https://oeis.org/A391365):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerReverse-I.svg)
+![](Help/Image/integerReverse-I.svg)
 
 * * *
 

@@ -11,7 +11,7 @@ logisticMap(3.741)
 .cobwebPlot(0.00079, 23)
 ~~~
 
-![](sw/spl/Help/Image/cobwebPlot-A.svg)
+![](Help/Image/cobwebPlot-A.svg)
 
 With _r=4_:
 
@@ -20,7 +20,7 @@ logisticMap(4)
 .cobwebPlot(0.00079, 23)
 ~~~
 
-![](sw/spl/Help/Image/cobwebPlot-B.svg)
+![](Help/Image/cobwebPlot-B.svg)
 
 * * *
 

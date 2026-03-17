@@ -22,7 +22,7 @@ let s = 0:127.collect { :n |
 (s + n).periodogramArray.linePlot
 ~~~
 
-![](sw/spl/Help/Image/periodogramArray-A.svg)
+![](Help/Image/periodogramArray-A.svg)
 
 Specify the partition length:
 

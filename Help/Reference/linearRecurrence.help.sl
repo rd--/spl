@@ -875,7 +875,7 @@ linearRecurrence(k, i, 100)
 .Line
 ~~~
 
-![](sw/spl/Help/Image/linearRecurrence-A.svg)
+![](Help/Image/linearRecurrence-A.svg)
 
 Molien series of binary octahedral group of order 48,
 OEIS [A008647](http://oeis.org/A008647):
@@ -888,7 +888,7 @@ linearRecurrence(
 ).stepPlot
 ~~~
 
-![](sw/spl/Help/Image/linearRecurrence-B.svg)
+![](Help/Image/linearRecurrence-B.svg)
 
 Twelfth-order linear recurrence for sixth-order alternating sum,
 OEIS [A051794](https://oeis.org/A051794):
@@ -901,7 +901,7 @@ linearRecurrence(
 ).logScale.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/linearRecurrence-C.svg)
+![](Help/Image/linearRecurrence-C.svg)
 
 Eighth-order linear recurrence for fourth-order alternating sum,
 OEIS [A051793](https://oeis.org/A051793):
@@ -913,7 +913,7 @@ OEIS [A051793](https://oeis.org/A051793):
 ).logScale.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/linearRecurrence-D.svg)
+![](Help/Image/linearRecurrence-D.svg)
 
 Expansion of exponential generating function _sin(x)*exp(x)_,
 also Lucas _U(2,2)_ sequence,
@@ -924,7 +924,7 @@ linearRecurrence([2 -2], [0 1], 110)
 .logScale.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/linearRecurrence-E.svg)
+![](Help/Image/linearRecurrence-E.svg)
 
 Expansion of exponential generating function _cos(x)/exp(x)_,
 OEIS [A009116](https://oeis.org/A009116):
@@ -934,7 +934,7 @@ linearRecurrence([-2 -2], [1 -1], 110)
 .logScale.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/linearRecurrence-F.svg)
+![](Help/Image/linearRecurrence-F.svg)
 
 A knot sequence,
 OEIS [A099254](https://oeis.org/A099254):
@@ -945,7 +945,7 @@ OEIS [A099254](https://oeis.org/A099254):
 ).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/linearRecurrence-G.svg)
+![](Help/Image/linearRecurrence-G.svg)
 
 Lexicographically earliest sequence such that _|a(n+1)-a(n)|_ is a square,
 OEIS [A277616](https://oeis.org/A277616):
@@ -958,7 +958,7 @@ OEIS [A277616](https://oeis.org/A277616):
 ).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/linearRecurrence-H.svg)
+![](Help/Image/linearRecurrence-H.svg)
 
 Scaled Chebyshev U-polynomials evaluated at _√3/2_,
 OEIS [A057083](https://oeis.org/A057083):
@@ -968,7 +968,7 @@ OEIS [A057083](https://oeis.org/A057083):
 .logScale.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/linearRecurrence-I.svg)
+![](Help/Image/linearRecurrence-I.svg)
 
 Length of the continued fraction for _⌊(F(n)*φ)/F(n)_,
 where _F_ is the Fibonacci function,
@@ -980,7 +980,7 @@ OEIS [A057083](https://oeis.org/A057083):
 ).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/linearRecurrence-J.svg)
+![](Help/Image/linearRecurrence-J.svg)
 
 The odd numbers interleaved with their negations,
 OEIS [A296063](https://oeis.org/A296063):
@@ -991,7 +991,7 @@ OEIS [A296063](https://oeis.org/A296063):
 ).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/linearRecurrence-K.svg)
+![](Help/Image/linearRecurrence-K.svg)
 
 A permutation of the integers,
 two positives then one negative,
@@ -1003,7 +1003,7 @@ OEIS [A166711](https://oeis.org/A166711):
 ).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/linearRecurrence-L.svg)
+![](Help/Image/linearRecurrence-L.svg)
 
 A permutation of the integers,
 three positives then two negatives,
@@ -1015,7 +1015,7 @@ OEIS [A166871](https://oeis.org/A166871):
 ).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/linearRecurrence-M.svg)
+![](Help/Image/linearRecurrence-M.svg)
 
 Interleave _n_ and _1-n_,
 OEIS [A097140](https://oeis.org/A097140):
@@ -1025,7 +1025,7 @@ OEIS [A097140](https://oeis.org/A097140):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/linearRecurrence-N.svg)
+![](Help/Image/linearRecurrence-N.svg)
 
 * * *
 

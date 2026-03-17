@@ -10,7 +10,7 @@ Generate a binary tree with ten vertices:
 karyTree(10, 2).treePlot
 ~~~
 
-![](sw/spl/Help/Image/karyTree-A.svg)
+![](Help/Image/karyTree-A.svg)
 
 Generate a ternary tree with fifteen vertices:
 
@@ -18,7 +18,7 @@ Generate a ternary tree with fifteen vertices:
 karyTree(15, 3).treePlot
 ~~~
 
-![](sw/spl/Help/Image/karyTree-B.svg)
+![](Help/Image/karyTree-B.svg)
 
 Generate a quaternary tree with eight vertices:
 
@@ -26,7 +26,7 @@ Generate a quaternary tree with eight vertices:
 karyTree(8, 4).treePlot
 ~~~
 
-![](sw/spl/Help/Image/karyTree-C.svg)
+![](Help/Image/karyTree-C.svg)
 
 * * *
 

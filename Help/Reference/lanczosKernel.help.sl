@@ -14,7 +14,7 @@ Plot kernels for _a_ of one, two and three:
 )
 ~~~
 
-![](sw/spl/Help/Image/lanczosKernel-A.svg)
+![](Help/Image/lanczosKernel-A.svg)
 
 * * *
 

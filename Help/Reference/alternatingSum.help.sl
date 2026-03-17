@@ -30,7 +30,7 @@ OEIS [A055017](https://oeis.org/A055017):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/alternatingSum-A.svg)
+![](Help/Image/alternatingSum-A.svg)
 
 Alternating sum of decimal expansion of _n_,
 OEIS [A225693](https://oeis.org/A225693):
@@ -42,7 +42,7 @@ OEIS [A225693](https://oeis.org/A225693):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/alternatingSum-B.svg)
+![](Help/Image/alternatingSum-B.svg)
 
 Least _m_ such that the alternating sum of _m_ is _n_,
 OEIS [A061479](https://oeis.org/A061479):
@@ -56,7 +56,7 @@ OEIS [A061479](https://oeis.org/A061479):
 }.log.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/alternatingSum-C.svg)
+![](Help/Image/alternatingSum-C.svg)
 
 Alternating sum of reverse of binary expansion of _n_,
 OEIS [A065359](https://oeis.org/A065359):
@@ -69,7 +69,7 @@ OEIS [A065359](https://oeis.org/A065359):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/alternatingSum-D.svg)
+![](Help/Image/alternatingSum-D.svg)
 
 Partial sums of alternating sum of reverse of binary expansion of _n_,
 OEIS [A005536](https://oeis.org/A005536):
@@ -82,7 +82,7 @@ OEIS [A005536](https://oeis.org/A005536):
 }.prefixSum.linePlot
 ~~~
 
-![](sw/spl/Help/Image/alternatingSum-E.svg)
+![](Help/Image/alternatingSum-E.svg)
 
 Absolute first differences of alternating sum of reverse of binary expansion of _n_,
 OEIS [A056832](https://oeis.org/A056832):
@@ -95,7 +95,7 @@ OEIS [A056832](https://oeis.org/A056832):
 }.differences.abs.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/alternatingSum-F.svg)
+![](Help/Image/alternatingSum-F.svg)
 
 Select _n_ where alternating sum of reverse of binary expansion is zero,
 OEIS [A039004](https://oeis.org/A039004):
@@ -108,7 +108,7 @@ OEIS [A039004](https://oeis.org/A039004):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/alternatingSum-G.svg)
+![](Help/Image/alternatingSum-G.svg)
 
 Alternating sum of reverse of ternary expansion of _n_,
 OEIS [A065368](https://oeis.org/A065368):
@@ -121,7 +121,7 @@ OEIS [A065368](https://oeis.org/A065368):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/alternatingSum-H.svg)
+![](Help/Image/alternatingSum-H.svg)
 
 Alternating sum of reverse of binary expansion of the _n_-th prime,
 OEIS [A065081](https://oeis.org/A065081):
@@ -134,7 +134,7 @@ OEIS [A065081](https://oeis.org/A065081):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/alternatingSum-I.svg)
+![](Help/Image/alternatingSum-I.svg)
 
 * * *
 

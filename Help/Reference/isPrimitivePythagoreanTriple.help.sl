@@ -52,7 +52,7 @@ let i = (-64 .. 64);
 }.table(i, i).Bitmap
 ~~~
 
-![](sw/spl/Help/Image/isPrimitivePythagoreanTriple-A.png)
+![](Help/Image/isPrimitivePythagoreanTriple-A.png)
 
 * * *
 

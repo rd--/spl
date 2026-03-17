@@ -109,7 +109,7 @@ OEIS [A007376](https://oeis.org/A007376):
 10.champernowneSequence(65).stepPlot
 ~~~
 
-![](sw/spl/Help/Image/champernowneSequence-A.svg)
+![](Help/Image/champernowneSequence-A.svg)
 
 The _b=2_ Champernowne sequence,
 OEIS [A030190](https://oeis.org/A030190):
@@ -119,7 +119,7 @@ OEIS [A030190](https://oeis.org/A030190):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/champernowneSequence-B.svg)
+![](Help/Image/champernowneSequence-B.svg)
 
 The _b=3_ Champernowne sequence,
 OEIS [A054635](https://oeis.org/A054635):
@@ -129,7 +129,7 @@ OEIS [A054635](https://oeis.org/A054635):
 .stepPlot
 ~~~
 
-![](sw/spl/Help/Image/champernowneSequence-C.svg)
+![](Help/Image/champernowneSequence-C.svg)
 
 The _b=8_ Champernowne sequence,
 OEIS [A054634](https://oeis.org/A054634):
@@ -139,7 +139,7 @@ OEIS [A054634](https://oeis.org/A054634):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/champernowneSequence-D.svg)
+![](Help/Image/champernowneSequence-D.svg)
 
 The _b=4_ Champernowne sequence,
 OEIS [A030373](https://oeis.org/A030373):
@@ -149,7 +149,7 @@ OEIS [A030373](https://oeis.org/A030373):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/champernowneSequence-E.svg)
+![](Help/Image/champernowneSequence-E.svg)
 
 * * *
 

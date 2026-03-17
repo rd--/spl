@@ -44,7 +44,7 @@ Downsample a sine function from 512 to 64 places:
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/resample-A.svg)
+![](Help/Image/resample-A.svg)
 
 At `ColourGradient`, resamples the gradient to have the specified number of equally spaced positions.
 
@@ -58,7 +58,7 @@ system
 .resample(48)
 ~~~
 
-![](sw/spl/Help/Image/resample-B.svg)
+![](Help/Image/resample-B.svg)
 
 Subsample a `TimeSeries`:
 
@@ -68,7 +68,7 @@ TimeSeries([4 1 3 2 5], [1 .. 5])
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/resample-C.svg)
+![](Help/Image/resample-C.svg)
 
 * * *
 

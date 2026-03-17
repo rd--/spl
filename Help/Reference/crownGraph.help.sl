@@ -18,7 +18,7 @@ The 3-crown graph is the 6-cycle graph:
 3.crownGraph.graphPlot
 ~~~
 
-![](sw/spl/Help/Image/crownGraph-A.svg)
+![](Help/Image/crownGraph-A.svg)
 
 The 4-crown graph is the cubical graph:
 
@@ -26,7 +26,7 @@ The 4-crown graph is the cubical graph:
 4.crownGraph.graphPlot
 ~~~
 
-![](sw/spl/Help/Image/crownGraph-B.svg)
+![](Help/Image/crownGraph-B.svg)
 
 The 5-crown graph:
 
@@ -34,7 +34,7 @@ The 5-crown graph:
 5.crownGraph.circularGraphPlot
 ~~~
 
-![](sw/spl/Help/Image/crownGraph-C.svg)
+![](Help/Image/crownGraph-C.svg)
 
 The 6-crown graph:
 
@@ -42,7 +42,7 @@ The 6-crown graph:
 6.crownGraph.circularGraphPlot
 ~~~
 
-![](sw/spl/Help/Image/crownGraph-D.svg)
+![](Help/Image/crownGraph-D.svg)
 
 * * *
 

@@ -56,7 +56,7 @@ Step plot of bits of four letter code:
 .stepPlot
 ~~~
 
-![](sw/spl/Help/Image/binaryReflectedGrayCode-A.svg)
+![](Help/Image/binaryReflectedGrayCode-A.svg)
 
 Step plot of prefix sum of bits of four letter code:
 
@@ -67,7 +67,7 @@ Step plot of prefix sum of bits of four letter code:
 .stepPlot
 ~~~
 
-![](sw/spl/Help/Image/binaryReflectedGrayCode-B.svg)
+![](Help/Image/binaryReflectedGrayCode-B.svg)
 
 * * *
 

@@ -221,7 +221,7 @@ let m = differences:/1.nestList(
 (m % 2).matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/differences-A.svg)
+![](Help/Image/differences-A.svg)
 
 Differentiate a sampled sine signal:
 
@@ -232,7 +232,7 @@ let y = x.sin;
 [y, y.differences / dx].linePlot
 ~~~
 
-![](sw/spl/Help/Image/differences-B.svg)
+![](Help/Image/differences-B.svg)
 
 `numerator` of `differences` of _n/((n+1)(n+2))_,
 OEIS [A051712](https://oeis.org/A051712):
@@ -246,7 +246,7 @@ OEIS [A051712](https://oeis.org/A051712):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/differences-C.svg)
+![](Help/Image/differences-C.svg)
 
 Differences between numbers _k_ for which _σ(k)<σ(k+1)_,
 OEIS [A053230](https://oeis.org/A053230):
@@ -259,7 +259,7 @@ OEIS [A053230](https://oeis.org/A053230):
 }.differences.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/differences-D.svg)
+![](Help/Image/differences-D.svg)
 
 Absolute values of differences between digits of _n+10_,
 OEIS [A040114](https://oeis.org/A040114):
@@ -270,7 +270,7 @@ OEIS [A040114](https://oeis.org/A040114):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/differences-E.svg)
+![](Help/Image/differences-E.svg)
 
 Join absolute values of differences between digits of _n_,
 OEIS [A040115](https://oeis.org/A040115):
@@ -284,7 +284,7 @@ OEIS [A040115](https://oeis.org/A040115):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/differences-F.svg)
+![](Help/Image/differences-F.svg)
 
 Table,
 read by upward antidiagonals,
@@ -302,7 +302,7 @@ let t = { :x |
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/differences-G.svg)
+![](Help/Image/differences-G.svg)
 
 Second differences of primes,
 OEIS [A036263](https://oeis.org/A036263):
@@ -311,7 +311,7 @@ OEIS [A036263](https://oeis.org/A036263):
 1:85.prime.differences(2).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/differences-H.svg)
+![](Help/Image/differences-H.svg)
 
 Total variation of base-ten digits of _n_,
 OEIS [A297330](https://oeis.org/A297330):
@@ -326,7 +326,7 @@ OEIS [A297330](https://oeis.org/A297330):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/differences-I.svg)
+![](Help/Image/differences-I.svg)
 
 * * *
 

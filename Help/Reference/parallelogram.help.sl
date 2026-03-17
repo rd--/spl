@@ -10,7 +10,7 @@ Draw a parallelogram:
 [0 0].parallelogram([3 0; 1 4])
 ~~~
 
-![](sw/spl/Help/Image/parallelogram-A.svg)
+![](Help/Image/parallelogram-A.svg)
 
 Calculate the `area` of a standard parallelogram:
 
@@ -70,7 +70,7 @@ Draw a rectanglular parallelogram:
 [2 1].parallelogram([1 2; 4 -2])
 ~~~
 
-![](sw/spl/Help/Image/parallelogram-B.svg)
+![](Help/Image/parallelogram-B.svg)
 
 * * *
 

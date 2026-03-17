@@ -15,7 +15,7 @@ vanDerPolEquation(0.5)
 .second.linePlot
 ~~~
 
-![](sw/spl/Help/Image/vanDerPolEquation-A.svg)
+![](Help/Image/vanDerPolEquation-A.svg)
 
 Phase plot of the van der Pol equation with μ=2.3:
 
@@ -25,7 +25,7 @@ vanDerPolEquation(2.3)
 .second.linePlot
 ~~~
 
-![](sw/spl/Help/Image/vanDerPolEquation-B.svg)
+![](Help/Image/vanDerPolEquation-B.svg)
 
 _f(t)_ plot of the van der Pol equation with μ=3.7:
 
@@ -36,7 +36,7 @@ let [x, y] = v.downsample(2).transpose;
 x.linePlot
 ~~~
 
-![](sw/spl/Help/Image/vanDerPolEquation-C.svg)
+![](Help/Image/vanDerPolEquation-C.svg)
 
 * * *
 

@@ -52,7 +52,7 @@ Plot over a subset of the reals:
 (0 -- 100).functionPlot(MidiCps:/1)
 ~~~
 
-![](sw/spl/Help/Image/MidiCps-A.svg)
+![](Help/Image/MidiCps-A.svg)
 
 Evaluate symbolically:
 

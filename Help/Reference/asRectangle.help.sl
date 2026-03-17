@@ -25,7 +25,7 @@ as the enclosure of three squares:
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/asRectangle-A.svg)
+![](Help/Image/asRectangle-A.svg)
 
 * * *
 

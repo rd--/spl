@@ -19,7 +19,7 @@ let [x, y, px, py] = v.transpose;
 [y py].transpose.linePlot
 ~~~
 
-![](sw/spl/Help/Image/henonHeilesEquation-A.svg)
+![](Help/Image/henonHeilesEquation-A.svg)
 
 * * *
 

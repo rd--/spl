@@ -13,7 +13,7 @@ let t = [5 3.5 5].sssTriangle;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/cosineCircle-A.svg)
+![](Help/Image/cosineCircle-A.svg)
 
 * * *
 

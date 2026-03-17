@@ -16,7 +16,7 @@ let [x, y, z] = v.transpose;
 [x, y].transpose.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/lorenzEquation-A.svg)
+![](Help/Image/lorenzEquation-A.svg)
 
 * * *
 

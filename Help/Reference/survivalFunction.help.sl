@@ -24,7 +24,7 @@ A survival function for a continuous univariate distribution:
 )
 ~~~
 
-![](sw/spl/Help/Image/survivalFunction-A.svg)
+![](Help/Image/survivalFunction-A.svg)
 
 A survival function for a discrete univariate distribution:
 
@@ -35,7 +35,7 @@ A survival function for a discrete univariate distribution:
 ).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/survivalFunction-B.svg)
+![](Help/Image/survivalFunction-B.svg)
 
 * * *
 

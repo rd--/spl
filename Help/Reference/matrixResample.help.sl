@@ -43,7 +43,7 @@ Resample a 2×2 matrix to a 5×5 matrix and draw image:
 }.arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/matrixResample-A.svg)
+![](Help/Image/matrixResample-A.svg)
 
 Resample a 2×2 matrix to a 100×100 matrix and draw image:
 
@@ -56,7 +56,7 @@ Resample a 2×2 matrix to a 100×100 matrix and draw image:
 .Image
 ~~~
 
-![](sw/spl/Help/Image/matrixResample-B.png)
+![](Help/Image/matrixResample-B.png)
 
 * * *
 

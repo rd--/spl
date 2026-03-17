@@ -35,7 +35,7 @@ Plot least prime factors of integers up to one hundred:
 100.leastPrimeFactorList.first.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/leastPrimeFactorList-A.svg)
+![](Help/Image/leastPrimeFactorList-A.svg)
 
 * * *
 

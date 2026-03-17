@@ -27,7 +27,7 @@ Plot:
 )
 ~~~
 
-![](sw/spl/Help/Image/hannWindow-A.svg)
+![](Help/Image/hannWindow-A.svg)
 
 Discrete Hann window of length 15:
 
@@ -38,7 +38,7 @@ Discrete Hann window of length 15:
 ).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/hannWindow-B.svg)
+![](Help/Image/hannWindow-B.svg)
 
 Frequency response of the Hann window:
 
@@ -48,7 +48,7 @@ Frequency response of the Hann window:
 }.fftPlot(512, 'Centered', 'Logarithmic')
 ~~~
 
-![](sw/spl/Help/Image/hannWindow-C.svg)
+![](Help/Image/hannWindow-C.svg)
 
 * * *
 

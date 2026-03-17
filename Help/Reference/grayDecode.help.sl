@@ -99,7 +99,7 @@ OEIS [A006068](https://oeis.org/A006068):
 0:127.grayDecode.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/grayDecode-A.svg)
+![](Help/Image/grayDecode-A.svg)
 
 Square of Gray decode,
 OEIS [A064707](https://oeis.org/A064707):
@@ -108,7 +108,7 @@ OEIS [A064707](https://oeis.org/A064707):
 0:127.grayDecode.grayDecode.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/grayDecode-B.svg)
+![](Help/Image/grayDecode-B.svg)
 
 * * *
 

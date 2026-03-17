@@ -107,7 +107,7 @@ Truncate is a staircase function:
 (0 -- 8).functionPlot(truncate:/1)
 ~~~
 
-![](sw/spl/Help/Image/truncate-A.svg)
+![](Help/Image/truncate-A.svg)
 
 * * *
 

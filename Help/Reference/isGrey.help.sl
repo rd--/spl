@@ -36,7 +36,7 @@ system.svgColourCatalogue
 .enclose.arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/isGrey-A.svg)
+![](Help/Image/isGrey-A.svg)
 
 * * *
 

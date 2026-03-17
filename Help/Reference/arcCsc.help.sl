@@ -76,7 +76,7 @@ Plot over a subset of the reals:
 (-5 -- 5).functionPlot(arcCsc:/1)
 ~~~
 
-![](sw/spl/Help/Image/arcCsc-A.svg)
+![](Help/Image/arcCsc-A.svg)
 
 * * *
 

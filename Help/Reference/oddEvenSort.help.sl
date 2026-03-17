@@ -40,7 +40,7 @@ let r = [];
 r.downsample(k).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/oddEvenSort-A.svg)
+![](Help/Image/oddEvenSort-A.svg)
 
 * * *
 

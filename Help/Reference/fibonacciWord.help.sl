@@ -119,7 +119,7 @@ Recurrence plot of Fibonacci word:
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/fibonacciWord-A.svg)
+![](Help/Image/fibonacciWord-A.svg)
 
 The tenth Fibonacci word,
 OEIS [A003849](https://oeis.org/A003849):
@@ -128,7 +128,7 @@ OEIS [A003849](https://oeis.org/A003849):
 1:55.fibonacciWord.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/fibonacciWord-B.svg)
+![](Help/Image/fibonacciWord-B.svg)
 
 Fourier transform of the tenth Fibonacci word:
 
@@ -139,7 +139,7 @@ Fourier transform of the tenth Fibonacci word:
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/fibonacciWord-C.svg)
+![](Help/Image/fibonacciWord-C.svg)
 
 Adjacent terms of the Fibonacci word interpreted as binary values,
 OEIS [A143667](https://oeis.org/A143667):
@@ -152,7 +152,7 @@ OEIS [A143667](https://oeis.org/A143667):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/fibonacciWord-D.svg)
+![](Help/Image/fibonacciWord-D.svg)
 
 Direct calculation of terms of the Fibonacci word,
 OEIS [A143667](https://oeis.org/A143667):
@@ -171,7 +171,7 @@ let a = 1 / 1.goldenRatio;
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/fibonacciWord-E.svg)
+![](Help/Image/fibonacciWord-E.svg)
 
 Infinite Fibonacci word fractal sequence,
 OEIS [A156596](https://oeis.org/A156596):
@@ -185,7 +185,7 @@ let m = [0: [1 2], 1: [1 0], 2: [0 2]];
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/fibonacciWord-F.svg)
+![](Help/Image/fibonacciWord-F.svg)
 
 * * *
 

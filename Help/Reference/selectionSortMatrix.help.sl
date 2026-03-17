@@ -29,7 +29,7 @@ Sfc32(326871)
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/selectionSortMatrix-A.svg)
+![](Help/Image/selectionSortMatrix-A.svg)
 
 Sort longer list:
 
@@ -43,7 +43,7 @@ Sfc32(326871)
 .Greymap
 ~~~
 
-![](sw/spl/Help/Image/selectionSortMatrix-B.png)
+![](Help/Image/selectionSortMatrix-B.png)
 
 * * *
 

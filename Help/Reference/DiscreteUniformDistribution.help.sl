@@ -15,7 +15,7 @@ DiscreteUniformDistribution([1 23])
 .histogramPlot
 ~~~
 
-![](sw/spl/Help/Image/DiscreteUniformDistribution-A.svg)
+![](Help/Image/DiscreteUniformDistribution-A.svg)
 
 Multi-variate uniform random integers, plot as _(r, θ)_:
 
@@ -33,7 +33,7 @@ DiscreteUniformDistribution(
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/DiscreteUniformDistribution-B.svg)
+![](Help/Image/DiscreteUniformDistribution-B.svg)
 
 Multi-variate discrete uniform noise,
 plot as _(r,g,b)_ array:
@@ -47,7 +47,7 @@ let c = DiscreteUniformDistribution(
 (c / 5).arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/DiscreteUniformDistribution-C.svg)
+![](Help/Image/DiscreteUniformDistribution-C.svg)
 
 * * *
 

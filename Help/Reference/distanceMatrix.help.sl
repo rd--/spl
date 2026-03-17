@@ -120,7 +120,7 @@ let m = { :x :y |
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/distanceMatrix-A.svg)
+![](Help/Image/distanceMatrix-A.svg)
 
 Cross-recurrence plot of two trigonometric functions:
 
@@ -131,7 +131,7 @@ let x = (0 -- 25).discretize(100);
 .Bitmap
 ~~~
 
-![](sw/spl/Help/Image/distanceMatrix-B.png)
+![](Help/Image/distanceMatrix-B.png)
 
 Plot 6×6 distance matrix:
 
@@ -141,7 +141,7 @@ let m = v.distanceMatrix;
 (1 - m.rescale).matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/distanceMatrix-C.svg)
+![](Help/Image/distanceMatrix-C.svg)
 
 * * *
 

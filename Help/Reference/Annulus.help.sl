@@ -17,7 +17,7 @@ Draw the standard annulus:
 Annulus([0 0], [0.5 1])
 ~~~
 
-![](sw/spl/Help/Image/Annulus-A.svg)
+![](Help/Image/Annulus-A.svg)
 
 A family of annuli:
 
@@ -31,7 +31,7 @@ let n = 13;
 }.LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/Annulus-B.svg)
+![](Help/Image/Annulus-B.svg)
 
 * * *
 

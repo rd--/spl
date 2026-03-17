@@ -11,7 +11,7 @@ Plot a complete graph on eight vertices:
 8.completeGraph.graphPlot
 ~~~
 
-![](sw/spl/Help/Image/graphPlot-A.svg)
+![](Help/Image/graphPlot-A.svg)
 
 Plot a random graph of twenty vertices.
 The probablity of an edge occuring is 5%:
@@ -23,7 +23,7 @@ Sfc32(379714)
 .graphPlot
 ~~~
 
-![](sw/spl/Help/Image/graphPlot-B.svg)
+![](Help/Image/graphPlot-B.svg)
 
 A graph of 32 vertices,
 edges indicate that one number can been derived from the other by the insertion of one bit:
@@ -39,7 +39,7 @@ edges indicate that one number can been derived from the other by the insertion 
 }.flatten.nub.asGraph.graphPlot
 ~~~
 
-![](sw/spl/Help/Image/graphPlot-C.svg)
+![](Help/Image/graphPlot-C.svg)
 
 Draw the [Herschel Graph](https://mathworld.wolfram.com/HerschelGraph.html):
 
@@ -49,7 +49,7 @@ Draw the [Herschel Graph](https://mathworld.wolfram.com/HerschelGraph.html):
 .graphPlot
 ~~~
 
-![](sw/spl/Help/Image/graphPlot-D.svg)
+![](Help/Image/graphPlot-D.svg)
 
 Draw the 76-node [Owens graph](https://mathworld.wolfram.com/OwensGraphs.html):
 
@@ -59,7 +59,7 @@ Draw the 76-node [Owens graph](https://mathworld.wolfram.com/OwensGraphs.html):
 .graphPlot
 ~~~
 
-![](sw/spl/Help/Image/graphPlot-E.svg)
+![](Help/Image/graphPlot-E.svg)
 
 A graph given by an edge re-writing rule,
 the vertices are given by
@@ -80,7 +80,7 @@ OEIS [A228853](https://oeis.org/A228853):
 .graphPlot
 ~~~
 
-![](sw/spl/Help/Image/graphPlot-F.svg)
+![](Help/Image/graphPlot-F.svg)
 
 * * *
 

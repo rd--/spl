@@ -57,7 +57,7 @@ Plot minimum change sequence of _S3_:
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/minimumChangePermutations-A.svg)
+![](Help/Image/minimumChangePermutations-A.svg)
 
 * * *
 

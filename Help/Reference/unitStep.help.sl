@@ -29,7 +29,7 @@ Plot:
 (-1 -- 1).functionPlot(unitStep:/1)
 ~~~
 
-![](sw/spl/Help/Image/unitStep-A.svg)
+![](Help/Image/unitStep-A.svg)
 
 Plot in two dimensions:
 
@@ -39,7 +39,7 @@ Plot in two dimensions:
 }
 ~~~
 
-![](sw/spl/Help/Image/unitStep-B.svg)
+![](Help/Image/unitStep-B.svg)
 
 Generate a square wave:
 
@@ -49,7 +49,7 @@ Generate a square wave:
 }
 ~~~
 
-![](sw/spl/Help/Image/unitStep-C.svg)
+![](Help/Image/unitStep-C.svg)
 
 * * *
 

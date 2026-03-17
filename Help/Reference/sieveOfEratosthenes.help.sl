@@ -106,7 +106,7 @@ Plot the prime counting function:
 }
 ~~~
 
-![](sw/spl/Help/Image/sieveOfEratosthenes-A.svg)
+![](Help/Image/sieveOfEratosthenes-A.svg)
 
 * * *
 

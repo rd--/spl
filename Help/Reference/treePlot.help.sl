@@ -10,7 +10,7 @@ A tree with two leaves:
 ('a' -> ['b' 'c']).rulesTree.treePlot
 ~~~
 
-![](sw/spl/Help/Image/treePlot-A.svg)
+![](Help/Image/treePlot-A.svg)
 
 A tree with multiple levels:
 
@@ -20,7 +20,7 @@ A tree with multiple levels:
 .treePlot
 ~~~
 
-![](sw/spl/Help/Image/treePlot-B.svg)
+![](Help/Image/treePlot-B.svg)
 
 A tree with data only in the leaves:
 
@@ -30,7 +30,7 @@ A tree with data only in the leaves:
 .treePlot
 ~~~
 
-![](sw/spl/Help/Image/treePlot-C.svg)
+![](Help/Image/treePlot-C.svg)
 
 A tree with only `nil` data:
 
@@ -40,7 +40,7 @@ A tree with only `nil` data:
 .treePlot
 ~~~
 
-![](sw/spl/Help/Image/treePlot-D.svg)
+![](Help/Image/treePlot-D.svg)
 
 * * *
 

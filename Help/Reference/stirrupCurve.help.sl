@@ -22,7 +22,7 @@ stirrupCurve:/2
 .contourPlot(i, i, [0])
 ~~~
 
-![](sw/spl/Help/Image/stirrupCurve-A.svg)
+![](Help/Image/stirrupCurve-A.svg)
 
 * * *
 

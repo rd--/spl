@@ -16,7 +16,7 @@ StableDistribution(2, 0, 0, 1)
 .histogramPlot
 ~~~
 
-![](sw/spl/Help/Image/StableDistribution-A.svg)
+![](Help/Image/StableDistribution-A.svg)
 
 With α=1 and β=0 gives the Cauchy distribution:
 
@@ -29,7 +29,7 @@ StableDistribution(1, 0, 0, 1)
 }.histogramPlot
 ~~~
 
-![](sw/spl/Help/Image/StableDistribution-B.svg)
+![](Help/Image/StableDistribution-B.svg)
 
 With α=½ and β=0 gives the Lévy distribution:
 
@@ -42,7 +42,7 @@ StableDistribution(0.5, 1, 0, 1)
 }.histogramPlot
 ~~~
 
-![](sw/spl/Help/Image/StableDistribution-C.svg)
+![](Help/Image/StableDistribution-C.svg)
 
 Map–Airy distribution:
 
@@ -59,7 +59,7 @@ StableDistribution(
 }.histogramPlot
 ~~~
 
-![](sw/spl/Help/Image/StableDistribution-D.svg)
+![](Help/Image/StableDistribution-D.svg)
 
 Plot a Lévy flight in two dimensions:
 
@@ -72,7 +72,7 @@ let v = d.randomVariate(r, [k]);
 u.anglePath(v, [0 0]).Line
 ~~~
 
-![](sw/spl/Help/Image/StableDistribution-E.svg)
+![](Help/Image/StableDistribution-E.svg)
 
 * * *
 

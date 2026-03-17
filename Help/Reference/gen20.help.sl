@@ -10,7 +10,7 @@ Hamming window:
 129.gen20(1, 1, []).linePlot
 ~~~
 
-![](sw/spl/Help/Image/gen20-A.svg)
+![](Help/Image/gen20-A.svg)
 
 Hann window:
 
@@ -18,7 +18,7 @@ Hann window:
 129.gen20(2, 1, []).linePlot
 ~~~
 
-![](sw/spl/Help/Image/gen20-B.svg)
+![](Help/Image/gen20-B.svg)
 
 Bartlett window:
 
@@ -26,7 +26,7 @@ Bartlett window:
 129.gen20(3, 1, []).linePlot
 ~~~
 
-![](sw/spl/Help/Image/gen20-C.svg)
+![](Help/Image/gen20-C.svg)
 
 Blackman window:
 
@@ -34,7 +34,7 @@ Blackman window:
 129.gen20(4, 1, []).linePlot
 ~~~
 
-![](sw/spl/Help/Image/gen20-D.svg)
+![](Help/Image/gen20-D.svg)
 
 Blackman-Harris window:
 
@@ -42,7 +42,7 @@ Blackman-Harris window:
 129.gen20(5, 1, []).linePlot
 ~~~
 
-![](sw/spl/Help/Image/gen20-E.svg)
+![](Help/Image/gen20-E.svg)
 
 Gaussian window, α=1::
 
@@ -50,7 +50,7 @@ Gaussian window, α=1::
 129.gen20(6, 1, [1]).linePlot
 ~~~
 
-![](sw/spl/Help/Image/gen20-F.svg)
+![](Help/Image/gen20-F.svg)
 
 Gaussian window, α=2:
 
@@ -58,7 +58,7 @@ Gaussian window, α=2:
 129.gen20(6, 1, [2]).linePlot
 ~~~
 
-![](sw/spl/Help/Image/gen20-G.svg)
+![](Help/Image/gen20-G.svg)
 
 Kaiser window, α=5:
 
@@ -66,7 +66,7 @@ Kaiser window, α=5:
 129.gen20(7, 1, [5]).linePlot
 ~~~
 
-![](sw/spl/Help/Image/gen20-H.svg)
+![](Help/Image/gen20-H.svg)
 
 Kaiser window, α=10:
 
@@ -74,7 +74,7 @@ Kaiser window, α=10:
 129.gen20(7, 1, [10]).linePlot
 ~~~
 
-![](sw/spl/Help/Image/gen20-I.svg)
+![](Help/Image/gen20-I.svg)
 
 Sinc window, α=1:
 
@@ -82,7 +82,7 @@ Sinc window, α=1:
 129.gen20(9, 1, [1]).linePlot
 ~~~
 
-![](sw/spl/Help/Image/gen20-J.svg)
+![](Help/Image/gen20-J.svg)
 
 Sinc window, α=3:
 
@@ -90,7 +90,7 @@ Sinc window, α=3:
 129.gen20(9, 1, [3]).linePlot
 ~~~
 
-![](sw/spl/Help/Image/gen20-K.svg)
+![](Help/Image/gen20-K.svg)
 
 * * *
 

@@ -15,7 +15,7 @@ let i = [2 1; 2 2; 3 2; 3 1];
 PolygonWithHoles(o, [i])
 ~~~
 
-![](sw/spl/Help/Image/PolygonWithHoles-A.svg)
+![](Help/Image/PolygonWithHoles-A.svg)
 
 Retrieve the outer and inner polygons:
 

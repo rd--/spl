@@ -28,7 +28,7 @@ OEIS [A246028](https://oeis.org/A246028):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/runLengthTransform-A.svg)
+![](Help/Image/runLengthTransform-A.svg)
 
 Run length transform of `primorial`,
 OEIS [A278159](https://oeis.org/A278159):
@@ -51,7 +51,7 @@ OEIS [A278159](https://oeis.org/A278159):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/runLengthTransform-B.svg)
+![](Help/Image/runLengthTransform-B.svg)
 
 * * *
 

@@ -20,7 +20,7 @@ Plot values of Stieltjes gamma:
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/stieltjesGamma-A.svg)
+![](Help/Image/stieltjesGamma-A.svg)
 
 * * *
 

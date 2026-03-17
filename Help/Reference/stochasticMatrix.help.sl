@@ -36,7 +36,7 @@ let o = r.randomInteger([1 20], [2 100]);
 o.stochasticMatrix.matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/stochasticMatrix-A.svg)
+![](Help/Image/stochasticMatrix-A.svg)
 
 * * *
 

@@ -29,7 +29,7 @@ Step plot of sixth word:
 6.tribonacciWord.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/tribonacciWord-A.svg)
+![](Help/Image/tribonacciWord-A.svg)
 
 * * *
 

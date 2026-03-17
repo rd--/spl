@@ -56,7 +56,7 @@ OEIS [A182097](https://oeis.org/A182097):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/vanDerLaanSequence-A.svg)
+![](Help/Image/vanDerLaanSequence-A.svg)
 
 * * *
 

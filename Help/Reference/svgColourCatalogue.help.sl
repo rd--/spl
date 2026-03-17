@@ -43,7 +43,7 @@ system
 .arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/svgColourCatalogue-A.svg)
+![](Help/Image/svgColourCatalogue-A.svg)
 
 Sorted lexicographically:
 
@@ -56,7 +56,7 @@ system
 .arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/svgColourCatalogue-B.svg)
+![](Help/Image/svgColourCatalogue-B.svg)
 
 _Note:_
 The catalogue is a `LibraryItem`,

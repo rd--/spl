@@ -157,7 +157,7 @@ OEIS [A006257](https://oeis.org/A006257):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/josephusProblem-A.svg)
+![](Help/Image/josephusProblem-A.svg)
 
 The Josephus problem at _k=3_,
 OEIS [A054995](https://oeis.org/A054995):
@@ -168,7 +168,7 @@ OEIS [A054995](https://oeis.org/A054995):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/josephusProblem-B.svg)
+![](Help/Image/josephusProblem-B.svg)
 
 Triangle of answers for the Josephus problem at _n=1-14_,
 OEIS [A032434](https://oeis.org/A032434):
@@ -181,7 +181,7 @@ OEIS [A032434](https://oeis.org/A032434):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/josephusProblem-C.svg)
+![](Help/Image/josephusProblem-C.svg)
 
 Partial sums of the Josephus problem at _k=2_,
 OEIS [A256249](https://oeis.org/A256249):
@@ -192,7 +192,7 @@ OEIS [A256249](https://oeis.org/A256249):
 }.prefixSum.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/josephusProblem-D.svg)
+![](Help/Image/josephusProblem-D.svg)
 
 * * *
 

@@ -32,7 +32,7 @@ Plot over a subset of the reals:
 (-4 -- 4).functionPlot(sinh:/1)
 ~~~
 
-![](sw/spl/Help/Image/sinh-A.svg)
+![](Help/Image/sinh-A.svg)
 
 Draw a hyperbola:
 
@@ -40,7 +40,7 @@ Draw a hyperbola:
 (-1 -- 1).parametricPlot(sinh:/1, cosh:/1)
 ~~~
 
-![](sw/spl/Help/Image/sinh-B.svg)
+![](Help/Image/sinh-B.svg)
 
 Plot `sinh` alongside a Padé approximation:
 
@@ -51,7 +51,7 @@ Plot `sinh` alongside a Padé approximation:
 ])
 ~~~
 
-![](sw/spl/Help/Image/sinh-C.svg)
+![](Help/Image/sinh-C.svg)
 
 Plot over a subset of the complexes:
 
@@ -60,7 +60,7 @@ Plot over a subset of the complexes:
 .complexPlot(sinh:/1)
 ~~~
 
-![](sw/spl/Help/Image/sinh-D.png)
+![](Help/Image/sinh-D.png)
 
 * * *
 

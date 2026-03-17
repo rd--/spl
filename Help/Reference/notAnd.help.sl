@@ -43,7 +43,7 @@ let a = [1];
 a.log.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/notAnd-A.svg)
+![](Help/Image/notAnd-A.svg)
 
 * * *
 

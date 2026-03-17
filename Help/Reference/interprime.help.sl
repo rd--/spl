@@ -24,7 +24,7 @@ Plot:
 .stepPlot
 ~~~
 
-![](sw/spl/Help/Image/interprime-A.svg)
+![](Help/Image/interprime-A.svg)
 
 * * *
 

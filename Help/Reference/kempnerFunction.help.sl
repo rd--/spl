@@ -48,7 +48,7 @@ OEIS [A002034](https://oeis.org/A002034):
 1:65.kempnerFunction.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/kempnerFunction-A.svg)
+![](Help/Image/kempnerFunction-A.svg)
 
 * * *
 

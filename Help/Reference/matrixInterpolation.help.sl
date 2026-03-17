@@ -51,7 +51,7 @@ let i = (1 -- 2).subdivide(23);
 .arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/matrixInterpolation-A.svg)
+![](Help/Image/matrixInterpolation-A.svg)
 
 * * *
 

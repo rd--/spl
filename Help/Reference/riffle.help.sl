@@ -67,7 +67,7 @@ OEIS [A142150](https://oeis.org/A142150):
 0:50.riffle(0).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/riffle-A.svg)
+![](Help/Image/riffle-A.svg)
 
 Write _n_ in binary and count zeroes between ones and also the edge,
 OEIS [A163510](https://oeis.org/A163510):
@@ -84,7 +84,7 @@ OEIS [A163510](https://oeis.org/A163510):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/riffle-B.svg)
+![](Help/Image/riffle-B.svg)
 
 * * *
 

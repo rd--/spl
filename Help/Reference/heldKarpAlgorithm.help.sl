@@ -75,7 +75,7 @@ let [_, t] = m.heldKarpAlgorithm;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/heldKarpAlgorithm-A.svg)
+![](Help/Image/heldKarpAlgorithm-A.svg)
 
 A 20×20 distance matrix:
 

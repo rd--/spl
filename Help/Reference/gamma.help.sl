@@ -105,7 +105,7 @@ Plot the Euler gamma function:
 }
 ~~~
 
-![](sw/spl/Help/Image/gamma-A.svg)
+![](Help/Image/gamma-A.svg)
 
 Plot γ with _γ + sin_, note intersection at positive integers:
 
@@ -116,7 +116,7 @@ Plot γ with _γ + sin_, note intersection at positive integers:
 ])
 ~~~
 
-![](sw/spl/Help/Image/gamma-B.svg)
+![](Help/Image/gamma-B.svg)
 
 Plot over a subset of the complexes:
 
@@ -124,7 +124,7 @@ Plot over a subset of the complexes:
 [-2J-2 2J2].complexPlot(gamma:/1)
 ~~~
 
-![](sw/spl/Help/Image/gamma-C.png)
+![](Help/Image/gamma-C.png)
 
 * * *
 

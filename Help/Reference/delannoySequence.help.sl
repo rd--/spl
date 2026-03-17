@@ -21,7 +21,7 @@ Logarithmic scatter plot of the first few terms:
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/delannoySequence-A.svg)
+![](Help/Image/delannoySequence-A.svg)
 
 * * *
 

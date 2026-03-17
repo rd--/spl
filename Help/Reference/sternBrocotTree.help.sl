@@ -103,7 +103,7 @@ OEIS [A007305](https://oeis.org/A007305):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/sternBrocotTree-A.svg)
+![](Help/Image/sternBrocotTree-A.svg)
 
 Denominators of Farey (or Stern-Brocot) tree fractions,
 OEIS [A047679](https://oeis.org/A047679):
@@ -115,7 +115,7 @@ OEIS [A047679](https://oeis.org/A047679):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/sternBrocotTree-B.svg)
+![](Help/Image/sternBrocotTree-B.svg)
 
 * * *
 

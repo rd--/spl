@@ -15,7 +15,7 @@ let [i, d] = p.bezierDistanceTable(128);
 [i, d / d.last].transpose.linePlot
 ~~~
 
-![](sw/spl/Help/Image/bezierDistanceTable-A.svg)
+![](Help/Image/bezierDistanceTable-A.svg)
 
 * * *
 

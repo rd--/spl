@@ -45,7 +45,7 @@ system
 .asColour
 ~~~
 
-![](sw/spl/Help/Image/colourCheckerChart-A.svg)
+![](Help/Image/colourCheckerChart-A.svg)
 
 Plot colour checker chart:
 
@@ -57,7 +57,7 @@ system
 .arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/colourCheckerChart-B.svg)
+![](Help/Image/colourCheckerChart-B.svg)
 
 _Note:_
 The chart is a `LibraryItem`,

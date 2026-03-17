@@ -14,7 +14,7 @@ BinomialProcess(1 / 3)
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/BinomialProcess-A.svg)
+![](Help/Image/BinomialProcess-A.svg)
 
 Simulate an ensemble of paths:
 
@@ -25,7 +25,7 @@ BinomialProcess(2 / 5)
 .stepPlot
 ~~~
 
-![](sw/spl/Help/Image/BinomialProcess-B.svg)
+![](Help/Image/BinomialProcess-B.svg)
 
 * * *
 

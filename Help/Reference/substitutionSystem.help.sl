@@ -324,7 +324,7 @@ the Sierpiński carpet:
 .Bitmap
 ~~~
 
-![](sw/spl/Help/Image/substitutionSystem-A.png)
+![](Help/Image/substitutionSystem-A.png)
 
 Generate a "C curve" fractal:
 
@@ -342,7 +342,7 @@ Generate a "C curve" fractal:
 .Line
 ~~~
 
-![](sw/spl/Help/Image/substitutionSystem-B.svg)
+![](Help/Image/substitutionSystem-B.svg)
 
 Approximate a Cantor staircase function:
 
@@ -354,7 +354,7 @@ Approximate a Cantor staircase function:
 .linePlot
 ~~~
 
-![](sw/spl/Help/Image/substitutionSystem-C.svg)
+![](Help/Image/substitutionSystem-C.svg)
 
 Draw the Cantor square fractal, the binary complement of Cantor dust:
 
@@ -368,7 +368,7 @@ Draw the Cantor square fractal, the binary complement of Cantor dust:
 .Bitmap
 ~~~
 
-![](sw/spl/Help/Image/substitutionSystem-D.png)
+![](Help/Image/substitutionSystem-D.png)
 
 Draw the partial complement of the Haferman carpet:
 
@@ -382,7 +382,7 @@ Draw the partial complement of the Haferman carpet:
 .Bitmap
 ~~~
 
-![](sw/spl/Help/Image/substitutionSystem-E.png)
+![](Help/Image/substitutionSystem-E.png)
 
 The trajectory of 1 under the morphism _0→11,1→10_,
 OEIS [A035263](https://oeis.org/A035263):
@@ -396,7 +396,7 @@ OEIS [A035263](https://oeis.org/A035263):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/substitutionSystem-F.svg)
+![](Help/Image/substitutionSystem-F.svg)
 
 Fixed point of morphism _0→0,1→110_,
 OEIS [A079559](https://oeis.org/A079559):
@@ -410,7 +410,7 @@ OEIS [A079559](https://oeis.org/A079559):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/substitutionSystem-G.svg)
+![](Help/Image/substitutionSystem-G.svg)
 
 A block-fractal and reverse block-fractal sequence,
 OEIS [A001468](https://oeis.org/A001468):
@@ -424,7 +424,7 @@ OEIS [A001468](https://oeis.org/A001468):
 .stepPlot
 ~~~
 
-![](sw/spl/Help/Image/substitutionSystem-H.svg)
+![](Help/Image/substitutionSystem-H.svg)
 
 A ternary tribonacci triangle,
 OEIS [A059832](https://oeis.org/A059832):
@@ -435,7 +435,7 @@ OEIS [A059832](https://oeis.org/A059832):
 .catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/substitutionSystem-I.svg)
+![](Help/Image/substitutionSystem-I.svg)
 
 Fixed point of the mapping _00→0010 01→010 10→000_ starting with _00_,
 OEIS [A289016](https://oeis.org/A289016):
@@ -449,7 +449,7 @@ OEIS [A289016](https://oeis.org/A289016):
 .last.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/substitutionSystem-J.svg)
+![](Help/Image/substitutionSystem-J.svg)
 
 * * *
 

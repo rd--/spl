@@ -44,7 +44,7 @@ OEIS [A278159](https://oeis.org/A278159):
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/primorial-A.svg)
+![](Help/Image/primorial-A.svg)
 
 * * *
 

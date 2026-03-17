@@ -12,7 +12,7 @@ Probability mass function:
 ).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/PoissonDistribution-A.svg)
+![](Help/Image/PoissonDistribution-A.svg)
 
 Cumulative distribution function:
 
@@ -22,7 +22,7 @@ Cumulative distribution function:
 ).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/PoissonDistribution-B.svg)
+![](Help/Image/PoissonDistribution-B.svg)
 
 Generate a sample of pseudorandom numbers from a Poisson distribution:
 
@@ -33,7 +33,7 @@ PoissonDistribution(3)
 .histogramPlot
 ~~~
 
-![](sw/spl/Help/Image/PoissonDistribution-C.svg)
+![](Help/Image/PoissonDistribution-C.svg)
 
 Step plot with small mean and variance:
 
@@ -44,7 +44,7 @@ PoissonDistribution(1 / 9)
 .stepPlot
 ~~~
 
-![](sw/spl/Help/Image/PoissonDistribution-D.svg)
+![](Help/Image/PoissonDistribution-D.svg)
 
 Step plot with less small mean and variance:
 
@@ -55,7 +55,7 @@ PoissonDistribution(9)
 .stepPlot
 ~~~
 
-![](sw/spl/Help/Image/PoissonDistribution-E.svg)
+![](Help/Image/PoissonDistribution-E.svg)
 
 Mean and variance:
 

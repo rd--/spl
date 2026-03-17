@@ -16,7 +16,7 @@ where _x_ is in _(-π,π)_ and _y_ is in _(-2,2)_.
 ).catenate.PointCloud
 ~~~
 
-![](sw/spl/Help/Image/gallPetersProjection-A.svg)
+![](Help/Image/gallPetersProjection-A.svg)
 
 * * *
 

@@ -433,7 +433,7 @@ OEIS [A000005](https://oeis.org/A000005):
 }
 ~~~
 
-![](sw/spl/Help/Image/divisorSigma-A.svg)
+![](Help/Image/divisorSigma-A.svg)
 
 Divisor function _σ₁(n)_ up to _n=100_,
 OEIS [A000203](https://oeis.org/A000203):
@@ -444,7 +444,7 @@ OEIS [A000203](https://oeis.org/A000203):
 }
 ~~~
 
-![](sw/spl/Help/Image/divisorSigma-B.svg)
+![](Help/Image/divisorSigma-B.svg)
 
 Plot the log of the divisor function _σ₂(n)_ up to _n=100_:
 
@@ -454,7 +454,7 @@ Plot the log of the divisor function _σ₂(n)_ up to _n=100_:
 }
 ~~~
 
-![](sw/spl/Help/Image/divisorSigma-C.svg)
+![](Help/Image/divisorSigma-C.svg)
 
 _σ₀(n)_,
 also called _τ(n)_,
@@ -465,7 +465,7 @@ let n = 200;
 0.divisorSigma(1:n).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/divisorSigma-D.svg)
+![](Help/Image/divisorSigma-D.svg)
 
 Number of divisors of _n_ that are at most _√n_,
 OEIS [A038548](http://oeis.org/A038548):
@@ -493,7 +493,7 @@ OEIS [A038548](http://oeis.org/A038548):
 }.floor.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/divisorSigma-E.svg)
+![](Help/Image/divisorSigma-E.svg)
 
 Smallest _k_ such that _σ(k)=n_, or zero if there is no such _k_,
 OEIS [A051444](https://oeis.org/A051444):
@@ -513,7 +513,7 @@ let m = 10 ^ 2;
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/divisorSigma-F.svg)
+![](Help/Image/divisorSigma-F.svg)
 
 First differences between numbers _k_ for which _σ(k)>σ(k+1)_,
 OEIS [A053238](https://oeis.org/A053238):
@@ -526,7 +526,7 @@ OEIS [A053238](https://oeis.org/A053238):
 }.differences.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/divisorSigma-G.svg)
+![](Help/Image/divisorSigma-G.svg)
 
 Number of integers less than _n_ but with the same number of divisors,
 OEIS [A047983](https://oeis.org/A047983):
@@ -541,7 +541,7 @@ OEIS [A047983](https://oeis.org/A047983):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/divisorSigma-H.svg)
+![](Help/Image/divisorSigma-H.svg)
 
 _a(n+1)=a(n)+σ(a(n))_,
 OEIS [A064491](https://oeis.org/A064491):
@@ -552,7 +552,7 @@ OEIS [A064491](https://oeis.org/A064491):
 }.nestList(1, 47).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/divisorSigma-I.svg)
+![](Help/Image/divisorSigma-I.svg)
 
 Step plot of _σ3(n)_,
 OEIS [A001158](https://oeis.org/A001158):
@@ -563,7 +563,7 @@ OEIS [A001158](https://oeis.org/A001158):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/divisorSigma-J.svg)
+![](Help/Image/divisorSigma-J.svg)
 
 Product of the proper divisors of _n_,
 OEIS [A007956](https://oeis.org/A007956):
@@ -574,7 +574,7 @@ OEIS [A007956](https://oeis.org/A007956):
 }.log.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/divisorSigma-K.svg)
+![](Help/Image/divisorSigma-K.svg)
 
 Where _σ(m)_ rises by at least _n_,
 OEIS [A058197](https://oeis.org/A058197):
@@ -589,7 +589,7 @@ let d = sigma.differences;
 }.log.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/divisorSigma-L.svg)
+![](Help/Image/divisorSigma-L.svg)
 
 Shadow transform of _σ(n)_,
 OEIS [A072463](https://oeis.org/A072463):
@@ -606,7 +606,7 @@ let s = Map { :n |
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/divisorSigma-M.svg)
+![](Help/Image/divisorSigma-M.svg)
 
 Inverse Moebius transform applied twice to natural numbers,
 OEIS [A007429](https://oeis.org/A007429):
@@ -617,7 +617,7 @@ OEIS [A007429](https://oeis.org/A007429):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/divisorSigma-N.svg)
+![](Help/Image/divisorSigma-N.svg)
 
 Sum of σ of `divisors` of _n_,
 OEIS [A007425](https://oeis.org/A007425):
@@ -630,7 +630,7 @@ OEIS [A007425](https://oeis.org/A007425):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/divisorSigma-O.svg)
+![](Help/Image/divisorSigma-O.svg)
 
 Deficiency of _n_,
 OEIS [A033879](https://oeis.org/A033879):
@@ -641,7 +641,7 @@ OEIS [A033879](https://oeis.org/A033879):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/divisorSigma-P.svg)
+![](Help/Image/divisorSigma-P.svg)
 
 Number of divisors of _2n-1_,
 OEIS [A099774](https://oeis.org/A099774):
@@ -652,7 +652,7 @@ OEIS [A099774](https://oeis.org/A099774):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/divisorSigma-Q.svg)
+![](Help/Image/divisorSigma-Q.svg)
 
 _⌊(σ(n^2)/σ(n))_,
 OEIS [A079553](https://oeis.org/A079553):
@@ -667,7 +667,7 @@ OEIS [A079553](https://oeis.org/A079553):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/divisorSigma-R.svg)
+![](Help/Image/divisorSigma-R.svg)
 
 A sequence by David James Sycamore,
 OEIS [A360179](https://oeis.org/A360179):
@@ -702,7 +702,7 @@ let u = 1;
 a.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/divisorSigma-S.svg)
+![](Help/Image/divisorSigma-S.svg)
 
 A sequence by David James Sycamore,
 OEIS [A345147](https://oeis.org/A345147):
@@ -732,7 +732,7 @@ let m = 250;
 a.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/divisorSigma-T.svg)
+![](Help/Image/divisorSigma-T.svg)
 
 A variant of a sequence by David James Sycamore,
 OEIS [A361511](https://oeis.org/A361511):
@@ -755,7 +755,7 @@ let m = 1;
 a.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/divisorSigma-U.svg)
+![](Help/Image/divisorSigma-U.svg)
 
 Abundance of _n_,
 OEIS [A033880](https://oeis.org/A033880):
@@ -765,7 +765,7 @@ let n = 1:70;
 (1.divisorSigma(n) - (2 * n)).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/divisorSigma-V.svg)
+![](Help/Image/divisorSigma-V.svg)
 
 Coefficients in expansion of Eisenstein series _E2_,
 OEIS [A006352](https://oeis.org/A006352):
@@ -778,7 +778,7 @@ OEIS [A006352](https://oeis.org/A006352):
 ).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/divisorSigma-W.svg)
+![](Help/Image/divisorSigma-W.svg)
 
 List in which _n_ appears _τ(n)_ times,
 OEIS [A061017](https://oeis.org/A061017):
@@ -789,7 +789,7 @@ OEIS [A061017](https://oeis.org/A061017):
 }.catenate.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/divisorSigma-X.svg)
+![](Help/Image/divisorSigma-X.svg)
 
 First differences of _σ₁(n)_,
 OEIS [A053222](https://oeis.org/A053222):
@@ -800,7 +800,7 @@ OEIS [A053222](https://oeis.org/A053222):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/divisorSigma-Y.svg)
+![](Help/Image/divisorSigma-Y.svg)
 
 * * *
 

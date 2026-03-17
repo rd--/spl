@@ -14,7 +14,7 @@ in centered form with logarithmic scaling:
 .fftPlot(512, 'Centered', 'Logarithmic')
 ~~~
 
-![](sw/spl/Help/Image/fftPlot-A.svg)
+![](Help/Image/fftPlot-A.svg)
 
 Plot the `fft` of a square wave,
 in half form with linear scaling:
@@ -24,7 +24,7 @@ in half form with linear scaling:
 .fftPlot(512, 'Half', 'Linear')
 ~~~
 
-![](sw/spl/Help/Image/fftPlot-B.svg)
+![](Help/Image/fftPlot-B.svg)
 
 * * *
 

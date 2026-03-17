@@ -19,7 +19,7 @@ Quadratic:
 ])
 ~~~
 
-![](sw/spl/Help/Image/easingFunction-A.svg)
+![](Help/Image/easingFunction-A.svg)
 
 Cubic:
 
@@ -32,7 +32,7 @@ Cubic:
 ])
 ~~~
 
-![](sw/spl/Help/Image/easingFunction-B.svg)
+![](Help/Image/easingFunction-B.svg)
 
 Quartic:
 
@@ -45,7 +45,7 @@ Quartic:
 ])
 ~~~
 
-![](sw/spl/Help/Image/easingFunction-C.svg)
+![](Help/Image/easingFunction-C.svg)
 
 Quintic:
 
@@ -58,7 +58,7 @@ Quintic:
 ])
 ~~~
 
-![](sw/spl/Help/Image/easingFunction-D.svg)
+![](Help/Image/easingFunction-D.svg)
 
 Sine:
 
@@ -71,7 +71,7 @@ Sine:
 ])
 ~~~
 
-![](sw/spl/Help/Image/easingFunction-E.svg)
+![](Help/Image/easingFunction-E.svg)
 
 Exponential:
 
@@ -84,7 +84,7 @@ Exponential:
 ])
 ~~~
 
-![](sw/spl/Help/Image/easingFunction-F.svg)
+![](Help/Image/easingFunction-F.svg)
 
 Circular:
 
@@ -97,7 +97,7 @@ Circular:
 ])
 ~~~
 
-![](sw/spl/Help/Image/easingFunction-G.svg)
+![](Help/Image/easingFunction-G.svg)
 
 Bounce:
 
@@ -110,7 +110,7 @@ Bounce:
 ])
 ~~~
 
-![](sw/spl/Help/Image/easingFunction-H.svg)
+![](Help/Image/easingFunction-H.svg)
 
 Back:
 
@@ -123,7 +123,7 @@ Back:
 ])
 ~~~
 
-![](sw/spl/Help/Image/easingFunction-I.svg)
+![](Help/Image/easingFunction-I.svg)
 
 Elastic:
 
@@ -136,7 +136,7 @@ Elastic:
 ])
 ~~~
 
-![](sw/spl/Help/Image/easingFunction-J.svg)
+![](Help/Image/easingFunction-J.svg)
 
 ArcTan:
 
@@ -148,7 +148,7 @@ ArcTan:
 ])
 ~~~
 
-![](sw/spl/Help/Image/easingFunction-K.svg)
+![](Help/Image/easingFunction-K.svg)
 
 * * *
 

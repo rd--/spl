@@ -24,7 +24,7 @@ let t = sssTriangle(3, 4, 5);
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/exeterPoint-A.svg)
+![](Help/Image/exeterPoint-A.svg)
 
 * * *
 

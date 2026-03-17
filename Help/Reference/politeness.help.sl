@@ -54,7 +54,7 @@ Plot politeness of first few numbers:
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/politeness-A.svg)
+![](Help/Image/politeness-A.svg)
 
 * * *
 

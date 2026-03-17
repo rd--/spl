@@ -154,7 +154,7 @@ Plot first few cyclotomic polynomials:
 )
 ~~~
 
-![](sw/spl/Help/Image/cyclotomic-A.svg)
+![](Help/Image/cyclotomic-A.svg)
 
 Plot `degree`, or `exponent`, of first few cyclotomic polynomials:
 
@@ -164,7 +164,7 @@ Plot `degree`, or `exponent`, of first few cyclotomic polynomials:
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/cyclotomic-B.svg)
+![](Help/Image/cyclotomic-B.svg)
 
 Plot number of non-zero coefficients of the first few cyclotomic polynomials:
 
@@ -176,7 +176,7 @@ Plot number of non-zero coefficients of the first few cyclotomic polynomials:
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/cyclotomic-C.svg)
+![](Help/Image/cyclotomic-C.svg)
 
 Nonzero coefficients of successive cyclotomic polynomials:
 
@@ -187,7 +187,7 @@ Nonzero coefficients of successive cyclotomic polynomials:
 }.padRight.matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/cyclotomic-D.svg)
+![](Help/Image/cyclotomic-D.svg)
 
 Quotients of consecutive values of `lcm`,
 OEIS [A051417](https://oeis.org/A051417):
@@ -198,7 +198,7 @@ OEIS [A051417](https://oeis.org/A051417):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/cyclotomic-E.svg)
+![](Help/Image/cyclotomic-E.svg)
 
 Cyclotomic polynomials evaluated at _x=-1_,
 OEIS [A020513](https://oeis.org/A020513):
@@ -209,7 +209,7 @@ OEIS [A020513](https://oeis.org/A020513):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/cyclotomic-F.svg)
+![](Help/Image/cyclotomic-F.svg)
 
 Values of successive cyclotomic polynomials at _x=1_,
 OEIS [A020500](https://oeis.org/A020500):
@@ -220,7 +220,7 @@ OEIS [A020500](https://oeis.org/A020500):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/cyclotomic-G.svg)
+![](Help/Image/cyclotomic-G.svg)
 
 Table of the first few cyclotomic polynomials,
 OEIS [A013595](https://oeis.org/A013595):
@@ -231,7 +231,7 @@ OEIS [A013595](https://oeis.org/A013595):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/cyclotomic-H.svg)
+![](Help/Image/cyclotomic-H.svg)
 
 * * *
 

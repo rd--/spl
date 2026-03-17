@@ -13,7 +13,7 @@ Plot the butterfly curve, _θ=(0,12π)_:
 )
 ~~~
 
-![](sw/spl/Help/Image/butterflyCurve-A.svg)
+![](Help/Image/butterflyCurve-A.svg)
 
 * * *
 

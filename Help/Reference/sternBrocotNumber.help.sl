@@ -41,7 +41,7 @@ OEIS [A002487](https://oeis.org/A002487):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/sternBrocotNumber-A.svg)
+![](Help/Image/sternBrocotNumber-A.svg)
 
 The smallest number _k_ such that _fusc(k)=n_,
 OEIS [A020946](https://oeis.org/A020946):
@@ -54,7 +54,7 @@ OEIS [A020946](https://oeis.org/A020946):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/sternBrocotNumber-B.svg)
+![](Help/Image/sternBrocotNumber-B.svg)
 
 * * *
 

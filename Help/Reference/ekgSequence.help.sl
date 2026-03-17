@@ -64,7 +64,7 @@ OEIS [A064413](https://oeis.org/A064413):
 37.ekgSequence.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/ekgSequence-A.svg)
+![](Help/Image/ekgSequence-A.svg)
 
 The Ekg sequence,
 scatter plot,
@@ -74,7 +74,7 @@ OEIS [A064413](https://oeis.org/A064413):
 125.ekgSequence.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/ekgSequence-B.svg)
+![](Help/Image/ekgSequence-B.svg)
 
 `gcd` of consecutive terms,
 OEIS [A073734](https://oeis.org/A073734):
@@ -85,7 +85,7 @@ OEIS [A073734](https://oeis.org/A073734):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/ekgSequence-C.svg)
+![](Help/Image/ekgSequence-C.svg)
 
 Regard the Ekg sequence as giving a permutation of the positive integers,
 calculate the inverse permutation,
@@ -100,7 +100,7 @@ let k = e.minimumExcludedValue(u);
 e.ordering.take(k).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/ekgSequence-D.svg)
+![](Help/Image/ekgSequence-D.svg)
 
 Sequence starting at three instead of two,
 OEIS [A169837](https://oeis.org/A169837):
@@ -109,7 +109,7 @@ OEIS [A169837](https://oeis.org/A169837):
 85.ekgSequence([3]).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/ekgSequence-E.svg)
+![](Help/Image/ekgSequence-E.svg)
 
 Sequence starting at five instead of two,
 OEIS [A169837](https://oeis.org/A169837):
@@ -118,7 +118,7 @@ OEIS [A169837](https://oeis.org/A169837):
 85.ekgSequence([3]).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/ekgSequence-F.svg)
+![](Help/Image/ekgSequence-F.svg)
 
 The largest prime factor of the _n_-th term of EKG-sequence,
 OEIS [A304733](https://oeis.org/A304733):
@@ -129,7 +129,7 @@ OEIS [A304733](https://oeis.org/A304733):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/ekgSequence-G.svg)
+![](Help/Image/ekgSequence-G.svg)
 
 * * *
 

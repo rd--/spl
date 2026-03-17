@@ -14,7 +14,7 @@ Plot raised cosine impulse response at three values of α:
 )
 ~~~
 
-![](sw/spl/Help/Image/raisedCosinePulse-A.svg)
+![](Help/Image/raisedCosinePulse-A.svg)
 
 * * *
 

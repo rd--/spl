@@ -44,7 +44,7 @@ LsRand(
 .stepPlot
 ~~~
 
-![](sw/spl/Help/Image/LsRand-A.svg)
+![](Help/Image/LsRand-A.svg)
 
 * * *
 

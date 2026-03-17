@@ -245,7 +245,7 @@ OEIS [A212171](https://oeis.org/A212171):
 .catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/primeSignature-A.svg)
+![](Help/Image/primeSignature-A.svg)
 
 The smallest number with the same prime signature as _n_,
 OEIS [A046523](https://oeis.org/A046523):
@@ -276,7 +276,7 @@ OEIS [A046523](https://oeis.org/A046523):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/primeSignature-B.svg)
+![](Help/Image/primeSignature-B.svg)
 
 The prime shadow of _n_,
 OEIS [A181819](https://oeis.org/A181819):
@@ -297,7 +297,7 @@ OEIS [A181819](https://oeis.org/A181819):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/primeSignature-C.svg)
+![](Help/Image/primeSignature-C.svg)
 
 The number of positive integers up to _n_ with the same prime signature as _n_,
 OEIS [A064839](https://oeis.org/A064839):
@@ -310,7 +310,7 @@ OEIS [A064839](https://oeis.org/A064839):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/primeSignature-D.svg)
+![](Help/Image/primeSignature-D.svg)
 
 For each _n_,
 the index of the first occurence of the prime signature of _n_,
@@ -331,7 +331,7 @@ let ln = [];
 ln.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/primeSignature-E.svg)
+![](Help/Image/primeSignature-E.svg)
 
 Π of _σ+1_ of the prime signature,
 OEIS [A049599](https://oeis.org/A049599):
@@ -344,7 +344,7 @@ OEIS [A049599](https://oeis.org/A049599):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/primeSignature-F.svg)
+![](Help/Image/primeSignature-F.svg)
 
 Additive function defined by the recursion _a(p^k)=a(k)_ for any prime _p_,
 OEIS [A064372](https://oeis.org/A064372):
@@ -360,7 +360,7 @@ let a = Map { :n |
 a[1:105].stepPlot
 ~~~
 
-![](sw/spl/Help/Image/primeSignature-G.svg)
+![](Help/Image/primeSignature-G.svg)
 
 Product of exponents of prime factorization of _n_,
 OEIS [A005361](https://oeis.org/A005361):
@@ -371,7 +371,7 @@ OEIS [A005361](https://oeis.org/A005361):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/primeSignature-H.svg)
+![](Help/Image/primeSignature-H.svg)
 
 Highest exponent in the prime factorization of the _n_-th central binomial coefficient,
 OEIS [A263922](https://oeis.org/A263922):
@@ -384,7 +384,7 @@ OEIS [A263922](https://oeis.org/A263922):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/primeSignature-I.svg)
+![](Help/Image/primeSignature-I.svg)
 
 Number of infinitary divisors of _n_,
 OEIS [A037445](https://oeis.org/A037445):
@@ -397,7 +397,7 @@ OEIS [A037445](https://oeis.org/A037445):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/primeSignature-J.svg)
+![](Help/Image/primeSignature-J.svg)
 
 Sum of binary digits in the exponents of the prime factorization of _n_,
 OEIS [A064547](https://oeis.org/A064547):
@@ -410,7 +410,7 @@ OEIS [A064547](https://oeis.org/A064547):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/primeSignature-K.svg)
+![](Help/Image/primeSignature-K.svg)
 
 * * *
 

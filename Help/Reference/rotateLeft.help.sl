@@ -160,7 +160,7 @@ OEIS [A038556](https://oeis.org/A038556):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/rotateLeft-A.svg)
+![](Help/Image/rotateLeft-A.svg)
 
 A version of Josephus problem,
 OEIS [A054995](https://oeis.org/A054995):
@@ -173,7 +173,7 @@ OEIS [A054995](https://oeis.org/A054995):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/rotateLeft-B.svg)
+![](Help/Image/rotateLeft-B.svg)
 
 * * *
 

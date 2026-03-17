@@ -13,7 +13,7 @@ Lookup the _Summer_ palette in the _Tableau_ collection:
 'Tableau'.namedColourPalette('Summer')
 ~~~
 
-![](sw/spl/Help/Image/namedColourPalette-A.svg)
+![](Help/Image/namedColourPalette-A.svg)
 
 The unary form answers palettes that are uniquely named across all collections.
 Lookup the _Accent_ palette,
@@ -23,7 +23,7 @@ which is in the _ColorBrewer_ collection:
 'Accent'.namedColourPalette
 ~~~
 
-![](sw/spl/Help/Image/namedColourPalette-B.svg)
+![](Help/Image/namedColourPalette-B.svg)
 
 The unary form allows specifying the collection and palette names separated by a forward slash:
 
@@ -32,7 +32,7 @@ The unary form allows specifying the collection and palette names separated by a
 .namedColourPalette
 ~~~
 
-![](sw/spl/Help/Image/namedColourPalette-C.svg)
+![](Help/Image/namedColourPalette-C.svg)
 
 * * *
 

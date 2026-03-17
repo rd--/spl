@@ -56,7 +56,7 @@ Step plot of the thirty-two place permutation:
 32.faurePermutation.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/faurePermutation-A.svg)
+![](Help/Image/faurePermutation-A.svg)
 
 Scatter plot of the two-hundred and fifty-six place permutation:
 
@@ -64,7 +64,7 @@ Scatter plot of the two-hundred and fifty-six place permutation:
 256.faurePermutation.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/faurePermutation-B.svg)
+![](Help/Image/faurePermutation-B.svg)
 
 * * *
 

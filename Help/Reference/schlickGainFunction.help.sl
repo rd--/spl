@@ -14,7 +14,7 @@ Plot with various gain parameters:
 )
 ~~~
 
-![](sw/spl/Help/Image/schlickGainFunction-A.svg)
+![](Help/Image/schlickGainFunction-A.svg)
 
 Can be evaluated symbolically:
 

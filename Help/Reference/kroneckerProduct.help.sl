@@ -110,7 +110,7 @@ let d = (e + e.transpose) - (2 * i);
 ).matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/kroneckerProduct-A.svg)
+![](Help/Image/kroneckerProduct-A.svg)
 
 * * *
 

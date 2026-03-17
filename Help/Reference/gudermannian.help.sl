@@ -19,7 +19,7 @@ Plot over a subset of the reals:
 )
 ~~~
 
-![](sw/spl/Help/Image/gudermannian-A.svg)
+![](Help/Image/gudermannian-A.svg)
 
 * * *
 

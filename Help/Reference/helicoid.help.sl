@@ -10,7 +10,7 @@ Answer the parametric equation for the helicoid.
 )
 ~~~
 
-![](sw/spl/Help/Image/helicoid-A.svg)
+![](Help/Image/helicoid-A.svg)
 
 * * *
 

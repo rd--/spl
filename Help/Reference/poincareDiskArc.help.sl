@@ -15,7 +15,7 @@ Draw the unit circle and an equilateral triangle:
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/poincareDiskArc-A.svg)
+![](Help/Image/poincareDiskArc-A.svg)
 
 Draw the unit circle and a square:
 
@@ -28,7 +28,7 @@ Draw the unit circle and a square:
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/poincareDiskArc-B.svg)
+![](Help/Image/poincareDiskArc-B.svg)
 
 Diameters are lines:
 
@@ -40,7 +40,7 @@ Diameters are lines:
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/poincareDiskArc-C.svg)
+![](Help/Image/poincareDiskArc-C.svg)
 
 * * *
 

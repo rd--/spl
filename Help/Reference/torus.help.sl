@@ -12,7 +12,7 @@ let f:/2 = torus(2.5);
 }
 ~~~
 
-![](sw/spl/Help/Image/torus-A.svg)
+![](Help/Image/torus-A.svg)
 
 * * *
 

@@ -35,7 +35,7 @@ OEIS [A032924](https://oeis.org/A032924):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/ternaryExpansion-A.svg)
+![](Help/Image/ternaryExpansion-A.svg)
 
 Rebase _n_ from three to two,
 OEIS [A065361](https://oeis.org/A065361):
@@ -45,7 +45,7 @@ OEIS [A065361](https://oeis.org/A065361):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/ternaryExpansion-B.svg)
+![](Help/Image/ternaryExpansion-B.svg)
 
 Number of numbers _≤n_ having no zero in their ternary representation,
 OEIS [A081608](https://oeis.org/A081608):
@@ -56,7 +56,7 @@ OEIS [A081608](https://oeis.org/A081608):
 }.boole.prefixSum.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/ternaryExpansion-C.svg)
+![](Help/Image/ternaryExpansion-C.svg)
 
 Numbers whose ternary representation begins with one,
 OEIS [A132141](https://oeis.org/A132141):
@@ -67,7 +67,7 @@ OEIS [A132141](https://oeis.org/A132141):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/ternaryExpansion-D.svg)
+![](Help/Image/ternaryExpansion-D.svg)
 
 Write _n_ in base three and juxtapose,
 OEIS [A003137](https://oeis.org/A003137):
@@ -77,7 +77,7 @@ OEIS [A003137](https://oeis.org/A003137):
 .catenate.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/ternaryExpansion-E.svg)
+![](Help/Image/ternaryExpansion-E.svg)
 
 Numbers in base three,
 OEIS [A007089](https://oeis.org/A007089):
@@ -88,7 +88,7 @@ OEIS [A007089](https://oeis.org/A007089):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/ternaryExpansion-F.svg)
+![](Help/Image/ternaryExpansion-F.svg)
 
 * * *
 

@@ -33,7 +33,7 @@ Sfc32(396871)
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/quickSortMatrix-A.svg)
+![](Help/Image/quickSortMatrix-A.svg)
 
 Sort longer list:
 
@@ -47,7 +47,7 @@ Sfc32(369781)
 .Greymap
 ~~~
 
-![](sw/spl/Help/Image/quickSortMatrix-B.png)
+![](Help/Image/quickSortMatrix-B.png)
 
 * * *
 

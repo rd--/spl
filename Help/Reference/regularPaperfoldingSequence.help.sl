@@ -64,7 +64,7 @@ let i = 300.regularPaperfoldingSequence;
 ((i - 0.5) * 1.pi).anglePath.Line
 ~~~
 
-![](sw/spl/Help/Image/regularPaperfoldingSequence-A.svg)
+![](Help/Image/regularPaperfoldingSequence-A.svg)
 
 Recurrence plot of regular paperfolding sequence,
 OEIS [A014577](https://oeis.org/A014577):
@@ -75,7 +75,7 @@ OEIS [A014577](https://oeis.org/A014577):
 .Bitmap
 ~~~
 
-![](sw/spl/Help/Image/regularPaperfoldingSequence-B.png)
+![](Help/Image/regularPaperfoldingSequence-B.png)
 
 The regular paperfolding sequence,
 OEIS [A014577](https://oeis.org/A014577):
@@ -85,7 +85,7 @@ OEIS [A014577](https://oeis.org/A014577):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/regularPaperfoldingSequence-C.svg)
+![](Help/Image/regularPaperfoldingSequence-C.svg)
 
 First differences of the regular paperfolding sequence,
 OEIS [A343173](https://oeis.org/A343173):
@@ -96,7 +96,7 @@ OEIS [A343173](https://oeis.org/A343173):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/regularPaperfoldingSequence-D.svg)
+![](Help/Image/regularPaperfoldingSequence-D.svg)
 
 * * *
 

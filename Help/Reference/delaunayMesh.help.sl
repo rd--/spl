@@ -23,7 +23,7 @@ Draw the mesh of the unit square:
 .delaunayMesh
 ~~~
 
-![](sw/spl/Help/Image/delaunayMesh-A.svg)
+![](Help/Image/delaunayMesh-A.svg)
 
 The Delaunay triangulation of a hexagon:
 
@@ -31,7 +31,7 @@ The Delaunay triangulation of a hexagon:
 6.circlePoints(1).delaunayMesh
 ~~~
 
-![](sw/spl/Help/Image/delaunayMesh-B.svg)
+![](Help/Image/delaunayMesh-B.svg)
 
 The Delaunay triangulation of a random set of seventeen points:
 
@@ -41,7 +41,7 @@ Sfc32(323193)
 .delaunayMesh
 ~~~
 
-![](sw/spl/Help/Image/delaunayMesh-C.svg)
+![](Help/Image/delaunayMesh-C.svg)
 
 * * *
 

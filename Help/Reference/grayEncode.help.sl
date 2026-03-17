@@ -144,7 +144,7 @@ OEIS [A003188](https://oeis.org/A003188):
 0:250.grayEncode.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/grayEncode-A.svg)
+![](Help/Image/grayEncode-A.svg)
 
 Gray encodings of integers,
 line plot,
@@ -154,7 +154,7 @@ OEIS [A003188](https://oeis.org/A003188):
 1:100.grayEncode.linePlot
 ~~~
 
-![](sw/spl/Help/Image/grayEncode-B.svg)
+![](Help/Image/grayEncode-B.svg)
 
 Successive values differ in only one bit in the binary representation,
 plot differences:
@@ -166,7 +166,7 @@ plot differences:
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/grayEncode-C.svg)
+![](Help/Image/grayEncode-C.svg)
 
 Scatter plot of the modular ternary gray encodings of the first few integers:
 
@@ -174,7 +174,7 @@ Scatter plot of the modular ternary gray encodings of the first few integers:
 0:225.grayEncode(3).scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/grayEncode-D.svg)
+![](Help/Image/grayEncode-D.svg)
 
 Line plot of the modular ternary gray encodings of the first few integers:
 
@@ -182,7 +182,7 @@ Line plot of the modular ternary gray encodings of the first few integers:
 0:80.grayEncode(3).linePlot
 ~~~
 
-![](sw/spl/Help/Image/grayEncode-E.svg)
+![](Help/Image/grayEncode-E.svg)
 
 First differences of Gray encoding,
 log scale scatter plot,
@@ -195,7 +195,7 @@ OEIS [A055975](https://oeis.org/A055975):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/grayEncode-F.svg)
+![](Help/Image/grayEncode-F.svg)
 
 Square of Gray code,
 OEIS [A064706](https://oeis.org/A064706):
@@ -204,7 +204,7 @@ OEIS [A064706](https://oeis.org/A064706):
 0:127.grayEncode.grayEncode.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/grayEncode-G.svg)
+![](Help/Image/grayEncode-G.svg)
 
 Consecutive powers of the Gray code permutation,
 OEIS [A195467](https://oeis.org/A195467):
@@ -220,7 +220,7 @@ OEIS [A195467](https://oeis.org/A195467):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/grayEncode-H.svg)
+![](Help/Image/grayEncode-H.svg)
 
 Table of binary Walsh functions,
 columns read as binary numbers,
@@ -240,7 +240,7 @@ OEIS [A197819](https://oeis.org/A197819):
 }.catenate.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/grayEncode-I.svg)
+![](Help/Image/grayEncode-I.svg)
 
 Derivative of _n_,
 OEIS [A038554](https://oeis.org/A038554):
@@ -251,7 +251,7 @@ OEIS [A038554](https://oeis.org/A038554):
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/grayEncode-J.svg)
+![](Help/Image/grayEncode-J.svg)
 
 * * *
 

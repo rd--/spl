@@ -16,7 +16,7 @@ Linear interpolation:
 )
 ~~~
 
-![](sw/spl/Help/Image/listInterpolation-A.svg)
+![](Help/Image/listInterpolation-A.svg)
 
 Cosine interpolation:
 
@@ -29,7 +29,7 @@ Cosine interpolation:
 )
 ~~~
 
-![](sw/spl/Help/Image/listInterpolation-B.svg)
+![](Help/Image/listInterpolation-B.svg)
 
 For interpolation functions that require points to the left and right,
 that is where the number of arguments is five not three,
@@ -45,7 +45,7 @@ Cubic interpolation:
 )
 ~~~
 
-![](sw/spl/Help/Image/listInterpolation-C.svg)
+![](Help/Image/listInterpolation-C.svg)
 
 Catmull-Rom interpolation:
 
@@ -58,7 +58,7 @@ Catmull-Rom interpolation:
 )
 ~~~
 
-![](sw/spl/Help/Image/listInterpolation-D.svg)
+![](Help/Image/listInterpolation-D.svg)
 
 No interpolation, use next sample point:
 
@@ -71,7 +71,7 @@ No interpolation, use next sample point:
 )
 ~~~
 
-![](sw/spl/Help/Image/listInterpolation-E.svg)
+![](Help/Image/listInterpolation-E.svg)
 
 No interpolation, use previous sample point:
 
@@ -84,7 +84,7 @@ No interpolation, use previous sample point:
 )
 ~~~
 
-![](sw/spl/Help/Image/listInterpolation-F.svg)
+![](Help/Image/listInterpolation-F.svg)
 
 No interpolation, use nearest sample point:
 
@@ -97,7 +97,7 @@ No interpolation, use nearest sample point:
 )
 ~~~
 
-![](sw/spl/Help/Image/listInterpolation-G.svg)
+![](Help/Image/listInterpolation-G.svg)
 
 Compare linear and Catmull-Rom interpolation using test data that connects multiple flat regions:
 
@@ -114,7 +114,7 @@ let n = l.size;
 )
 ~~~
 
-![](sw/spl/Help/Image/listInterpolation-H.svg)
+![](Help/Image/listInterpolation-H.svg)
 
 * * *
 

@@ -14,7 +14,7 @@ Plot with various bias parameters:
 )
 ~~~
 
-![](sw/spl/Help/Image/schlickBiasFunction-A.svg)
+![](Help/Image/schlickBiasFunction-A.svg)
 
 * * *
 

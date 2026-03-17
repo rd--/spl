@@ -41,7 +41,7 @@ Plot over a subset of the reals:
 )
 ~~~
 
-![](sw/spl/Help/Image/sec-A.svg)
+![](Help/Image/sec-A.svg)
 
 Plot over a subset of the complex numbers:
 
@@ -52,7 +52,7 @@ let i = (-1.pi -- 1.pi).subdivide(100);
 }.table(i, i).Greymap
 ~~~
 
-![](sw/spl/Help/Image/sec-B.png)
+![](Help/Image/sec-B.png)
 
 Plot the sum of the `sec` and `tan` functions:
 
@@ -62,7 +62,7 @@ Plot the sum of the `sec` and `tan` functions:
 }
 ~~~
 
-![](sw/spl/Help/Image/sec-C.svg)
+![](Help/Image/sec-C.svg)
 
 Draw an epispiral:
 
@@ -73,7 +73,7 @@ let a = 7;
 }
 ~~~
 
-![](sw/spl/Help/Image/sec-D.svg)
+![](Help/Image/sec-D.svg)
 
 Draw a hyperbola:
 
@@ -83,7 +83,7 @@ Draw a hyperbola:
 }
 ~~~
 
-![](sw/spl/Help/Image/sec-E.svg)
+![](Help/Image/sec-E.svg)
 
 * * *
 

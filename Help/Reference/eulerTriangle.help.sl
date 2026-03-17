@@ -14,7 +14,7 @@ let t = [1 1 1].sssTriangle;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/eulerTriangle-A.svg)
+![](Help/Image/eulerTriangle-A.svg)
 
 Plot the Euler, medial, and orthic triangles:
 
@@ -29,7 +29,7 @@ let t = [6 5 6].sssTriangle;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/eulerTriangle-B.svg)
+![](Help/Image/eulerTriangle-B.svg)
 
 * * *
 

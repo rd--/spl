@@ -48,7 +48,7 @@ OEIS [A001318](https://oeis.org/A001318):
 .stepPlot
 ~~~
 
-![](sw/spl/Help/Image/generalisedPentagonalNumbers-A.svg)
+![](Help/Image/generalisedPentagonalNumbers-A.svg)
 
 Characteristic function of generalized pentagonal numbers,
 OEIS [A080995](https://oeis.org/A080995):
@@ -61,7 +61,7 @@ let k = a.max;
 }.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/generalisedPentagonalNumbers-B.svg)
+![](Help/Image/generalisedPentagonalNumbers-B.svg)
 
 * * *
 

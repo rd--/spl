@@ -24,7 +24,7 @@ let phi = 1.goldenRatio;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/centeredRectangle-A.svg)
+![](Help/Image/centeredRectangle-A.svg)
 
 * * *
 

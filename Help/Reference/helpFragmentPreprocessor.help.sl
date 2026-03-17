@@ -5,16 +5,19 @@
 Run the help fragment pre-processor on the string _s_.
 
 ```
->> '<<<baumSweetSequence,svg,B'
->> .helpFragmentPreprocessor
-The Baum–Sweet sequence,
-OEIS [A086747](https://oeis.org/A086747):
-
-~~~
-115.baumSweetSequence.discretePlot
-~~~
-
-![](sw/spl/Help/Image/baumSweetSequence-B.svg)
+>>> '<<<baumSweetSequence,svg,B'
+>>> .helpFragmentPreprocessor
+>>> .lines
+[
+	'The Baum–Sweet sequence,'
+	'OEIS [A086747](https://oeis.org/A086747):'
+	''
+	'```'
+	'115.baumSweetSequence.discretePlot'
+	'```'
+	''
+	'![](Help/Image/baumSweetSequence-B.svg)'
+]
 ```
 
 The method `helpFilePreprocessor` reads a help file specified by a topic,
@@ -24,6 +27,6 @@ to a file with the usual '.help.sl' suffix.
 
 * * *
 
-See also: splHelpFragment
+See also: helpFragment
 
 Guides: Help Functions

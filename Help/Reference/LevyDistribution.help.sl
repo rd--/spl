@@ -14,7 +14,7 @@ Plot `pdf` at varying _σ_:
 )
 ~~~
 
-![](sw/spl/Help/Image/LevyDistribution-A.svg)
+![](Help/Image/LevyDistribution-A.svg)
 
 Generate a sample of pseudorandom numbers from a Lévy distribution:
 
@@ -27,7 +27,7 @@ LevyDistribution(0, 2)
 }.histogramPlot
 ~~~
 
-![](sw/spl/Help/Image/LevyDistribution-B.svg)
+![](Help/Image/LevyDistribution-B.svg)
 
 * * *
 

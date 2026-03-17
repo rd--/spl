@@ -86,7 +86,7 @@ Plot a string:
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/toCharacterCode-A.svg)
+![](Help/Image/toCharacterCode-A.svg)
 
 * * *
 

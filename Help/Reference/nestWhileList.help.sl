@@ -102,7 +102,7 @@ OEIS [A063574](https://oeis.org/A063574):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/nestWhileList-A.svg)
+![](Help/Image/nestWhileList-A.svg)
 
 Multiplicative persistence,
 OEIS [A031346](https://oeis.org/A031346):
@@ -117,7 +117,7 @@ OEIS [A031346](https://oeis.org/A031346):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/nestWhileList-B.svg)
+![](Help/Image/nestWhileList-B.svg)
 
 Two-multiplicative persistence,
 OEIS [A031348](https://oeis.org/A031348):
@@ -132,7 +132,7 @@ OEIS [A031348](https://oeis.org/A031348):
 }.stepPlot
 ~~~
 
-![](sw/spl/Help/Image/nestWhileList-C.svg)
+![](Help/Image/nestWhileList-C.svg)
 
 * * *
 

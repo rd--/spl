@@ -13,7 +13,7 @@ At _n=1_, a circle:
 ).Line
 ~~~
 
-![](sw/spl/Help/Image/sinusoidalSpiral-A.svg)
+![](Help/Image/sinusoidalSpiral-A.svg)
 
 At _n=3_, the Kiepert curve:
 
@@ -24,7 +24,7 @@ At _n=3_, the Kiepert curve:
 ).Line
 ~~~
 
-![](sw/spl/Help/Image/sinusoidalSpiral-B.svg)
+![](Help/Image/sinusoidalSpiral-B.svg)
 
 * * *
 

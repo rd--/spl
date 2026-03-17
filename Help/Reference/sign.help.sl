@@ -119,7 +119,7 @@ Plot the `real` part of the `sign` function:
 }
 ~~~
 
-![](sw/spl/Help/Image/sign-A.svg)
+![](Help/Image/sign-A.svg)
 
 Plot the `imaginary` part of the `sign` function:
 
@@ -129,7 +129,7 @@ Plot the `imaginary` part of the `sign` function:
 }
 ~~~
 
-![](sw/spl/Help/Image/sign-B.svg)
+![](Help/Image/sign-B.svg)
 
 Characteristic function of numbers that are not multiples of four,
 OEIS [A166486](https://oeis.org/A166486):
@@ -138,7 +138,7 @@ OEIS [A166486](https://oeis.org/A166486):
 (0:44 % 4).sign.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/sign-C.svg)
+![](Help/Image/sign-C.svg)
 
 * * *
 

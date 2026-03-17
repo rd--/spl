@@ -26,7 +26,7 @@ let e = t.cevianTriangle(n);
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/nagelPoint-A.svg)
+![](Help/Image/nagelPoint-A.svg)
 
 * * *
 

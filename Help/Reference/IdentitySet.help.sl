@@ -53,7 +53,7 @@ let t = [1 1];
 t.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/IdentitySet-A.svg)
+![](Help/Image/IdentitySet-A.svg)
 
 Calculate sequence where each term is the least integer such that adjacent products are distinct,
 OEIS [A088177](https://oeis.org/A088177) _(a)_,
@@ -82,7 +82,7 @@ let x = 1;
 b.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/IdentitySet-B.svg)
+![](Help/Image/IdentitySet-B.svg)
 
 * * *
 

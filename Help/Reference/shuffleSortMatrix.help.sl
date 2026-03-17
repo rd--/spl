@@ -30,7 +30,7 @@ Sfc32(375694)
 .matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/shuffleSortMatrix-A.svg)
+![](Help/Image/shuffleSortMatrix-A.svg)
 
 Sort longer list:
 
@@ -44,7 +44,7 @@ Sfc32(375694)
 .Greymap
 ~~~
 
-![](sw/spl/Help/Image/shuffleSortMatrix-B.png)
+![](Help/Image/shuffleSortMatrix-B.png)
 
 * * *
 

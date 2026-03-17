@@ -14,7 +14,7 @@ Plot a function with a logarithmically scaled  axis:
 }
 ~~~
 
-![](sw/spl/Help/Image/logPlot-A.svg)
+![](Help/Image/logPlot-A.svg)
 
 Plot several functions:
 
@@ -28,7 +28,7 @@ Plot several functions:
 )
 ~~~
 
-![](sw/spl/Help/Image/logPlot-B.svg)
+![](Help/Image/logPlot-B.svg)
 
 Plot _x²_ and _x⁴_:
 
@@ -41,7 +41,7 @@ Plot _x²_ and _x⁴_:
 )
 ~~~
 
-![](sw/spl/Help/Image/logPlot-C.svg)
+![](Help/Image/logPlot-C.svg)
 
 Plot `abs` of `gamma` at higher resolution:
 
@@ -51,7 +51,7 @@ Plot `abs` of `gamma` at higher resolution:
 }
 ~~~
 
-![](sw/spl/Help/Image/logPlot-D.svg)
+![](Help/Image/logPlot-D.svg)
 
 * * *
 

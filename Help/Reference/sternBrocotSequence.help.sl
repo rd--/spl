@@ -67,7 +67,7 @@ OEIS [A002487](https://oeis.org/A002487):
 200.sternBrocotSequence.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/sternBrocotSequence-A.svg)
+![](Help/Image/sternBrocotSequence-A.svg)
 
 Stern’s diatomic series,
 scatter plot,
@@ -77,7 +77,7 @@ OEIS [A002487](https://oeis.org/A002487):
 300.sternBrocotSequence.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/sternBrocotSequence-B.svg)
+![](Help/Image/sternBrocotSequence-B.svg)
 
 Record values of Stern’s diatomic series,
 OEIS [A212289](https://oeis.org/A212289):
@@ -88,7 +88,7 @@ OEIS [A212289](https://oeis.org/A212289):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/sternBrocotSequence-C.svg)
+![](Help/Image/sternBrocotSequence-C.svg)
 
 First differences of Stern’s diatomic series,
 discarding initial two terms,
@@ -101,7 +101,7 @@ OEIS [A070990](https://oeis.org/A070990):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/sternBrocotSequence-D.svg)
+![](Help/Image/sternBrocotSequence-D.svg)
 
 Second differences of Stern’s diatomic series,
 OEIS [A283104](https://oeis.org/A283104):
@@ -112,7 +112,7 @@ OEIS [A283104](https://oeis.org/A283104):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/sternBrocotSequence-E.svg)
+![](Help/Image/sternBrocotSequence-E.svg)
 
 The smallest number _k_ such that _fusc(k)=n_,
 OEIS [A020946](https://oeis.org/A020946):
@@ -127,7 +127,7 @@ let a = k.sternBrocotSequence;
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/sternBrocotSequence-F.svg)
+![](Help/Image/sternBrocotSequence-F.svg)
 
 Partial sums of Stern’s diatomic series,
 OEIS [A174868](https://oeis.org/A174868):
@@ -138,7 +138,7 @@ OEIS [A174868](https://oeis.org/A174868):
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/sternBrocotSequence-G.svg)
+![](Help/Image/sternBrocotSequence-G.svg)
 
 * * *
 

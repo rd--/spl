@@ -120,7 +120,7 @@ Plot over the unit interval:
 )
 ~~~
 
-![](sw/spl/Help/Image/minkowskiQuestionMark-A.svg)
+![](Help/Image/minkowskiQuestionMark-A.svg)
 
 Plot difference from input:
 
@@ -130,7 +130,7 @@ Plot difference from input:
 }
 ~~~
 
-![](sw/spl/Help/Image/minkowskiQuestionMark-B.svg)
+![](Help/Image/minkowskiQuestionMark-B.svg)
 
 Plot from -2 to 2, _?(x)_ is surjective:
 
@@ -140,7 +140,7 @@ Plot from -2 to 2, _?(x)_ is surjective:
 )
 ~~~
 
-![](sw/spl/Help/Image/minkowskiQuestionMark-C.svg)
+![](Help/Image/minkowskiQuestionMark-C.svg)
 
 * * *
 

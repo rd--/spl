@@ -28,7 +28,7 @@ Scatter plot of the digits of Apéry’s constant:
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/madelungConstant-A.svg)
+![](Help/Image/madelungConstant-A.svg)
 
 * * *
 

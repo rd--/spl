@@ -24,7 +24,7 @@ OEIS [A006519](https://oeis.org/A006519):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/evenPart-A.svg)
+![](Help/Image/evenPart-A.svg)
 
 * * *
 

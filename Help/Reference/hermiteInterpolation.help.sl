@@ -28,7 +28,7 @@ Hermite impulse response, tension of negative three:
 )
 ~~~
 
-![](sw/spl/Help/Image/hermiteInterpolation-A.svg)
+![](Help/Image/hermiteInterpolation-A.svg)
 
 Hermite impulse response, tension of positive three:
 
@@ -41,7 +41,7 @@ Hermite impulse response, tension of positive three:
 )
 ~~~
 
-![](sw/spl/Help/Image/hermiteInterpolation-B.svg)
+![](Help/Image/hermiteInterpolation-B.svg)
 
 Hermite impulse response, tension of negative one and bias of two-thirds:
 
@@ -54,7 +54,7 @@ Hermite impulse response, tension of negative one and bias of two-thirds:
 )
 ~~~
 
-![](sw/spl/Help/Image/hermiteInterpolation-C.svg)
+![](Help/Image/hermiteInterpolation-C.svg)
 
 * * *
 

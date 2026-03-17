@@ -10,7 +10,7 @@ Plot the hexagonal prism graph:
 6.prismGraph.graphPlot
 ~~~
 
-![](sw/spl/Help/Image/prismGraph-A.svg)
+![](Help/Image/prismGraph-A.svg)
 
 * * *
 

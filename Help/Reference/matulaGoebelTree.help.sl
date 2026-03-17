@@ -34,7 +34,7 @@ Plot the 78th Matula tree:
 78.matulaGoebelTree.treePlot
 ~~~
 
-![](sw/spl/Help/Image/matulaGoebelTree-A.svg)
+![](Help/Image/matulaGoebelTree-A.svg)
 
 Leaf counts of first few trees,
 OEIS [A109129](https://oeis.org/A109129):
@@ -53,7 +53,7 @@ Plot:
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/matulaGoebelTree-B.svg)
+![](Help/Image/matulaGoebelTree-B.svg)
 
 Depth counts of first few trees,
 OEIS [A358552](https://oeis.org/A358552):
@@ -72,7 +72,7 @@ Plot:
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/matulaGoebelTree-C.svg)
+![](Help/Image/matulaGoebelTree-C.svg)
 
 Plot tree with arbitrarily chosen Matula-Göbel number _n=987654321_:
 
@@ -80,7 +80,7 @@ Plot tree with arbitrarily chosen Matula-Göbel number _n=987654321_:
 987654321.matulaGoebelTree.treePlot
 ~~~
 
-![](sw/spl/Help/Image/matulaGoebelTree-D.svg)
+![](Help/Image/matulaGoebelTree-D.svg)
 
 * * *
 

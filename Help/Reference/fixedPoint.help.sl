@@ -63,7 +63,7 @@ OEIS [A039634](https://oeis.org/A039634):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/fixedPoint-A.svg)
+![](Help/Image/fixedPoint-A.svg)
 
 * * *
 

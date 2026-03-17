@@ -67,7 +67,7 @@ OEIS [A104894](https://oeis.org/A104894):
 }.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/thueMorse-A.svg)
+![](Help/Image/thueMorse-A.svg)
 
 A binary array,
 read by falling antidiagonals,
@@ -81,7 +81,7 @@ OEIS [A104894](https://oeis.org/A104894):
 }.triangularArrayPlot
 ~~~
 
-![](sw/spl/Help/Image/thueMorse-B.svg)
+![](Help/Image/thueMorse-B.svg)
 
 * * *
 

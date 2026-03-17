@@ -39,7 +39,7 @@ Visualize the recurring pattern when shuffling a list:
 }.matrixPlot
 ~~~
 
-![](sw/spl/Help/Image/mongesShuffle-A.svg)
+![](Help/Image/mongesShuffle-A.svg)
 
 * * *
 
