@@ -1,11 +1,26 @@
 HelpProgram : [Object] { | topic language commentary annotations programText |
 
+	annotation { :self :key |
+		self.annotations.at(key)
+	}
+
 	fencedCodeBlock { :self |
 		[
 			'~~~spl',
 			self.programText,
 			'~~~'
 		].unlines
+	}
+
+	hasAnnotation { :self :key |
+		self.annotations.includesKey(key)
+	}
+
+	hasAnnotation { :self :key :value |
+		let a = self.annotations;
+		a.includesKey(key) & {
+			a.at(key) = value
+		}
 	}
 
 	imageFileName { :self |
@@ -19,27 +34,51 @@ HelpProgram : [Object] { | topic language commentary annotations programText |
 	}
 
 	imageIdentifier { :self |
-		self.annotations.at(self.imageType)
+		self.annotation(self.imageType)
 	}
 
 	imageType { :self |
 		['png' 'svg'].detect { :each |
-			self.annotations.includesKey(each)
+			self.hasAnnotation(each)
 		}
 	}
 
 	isDefinitionProgram { :self |
-		self.annotations.includesKey('define')
+		self.hasAnnotation('define')
 	}
 
 	isImageProgram { :self |
 		['png' 'svg'].anySatisfy { :each |
-			self.annotations.includesKey(each)
+			self.hasAnnotation(each)
 		}
 	}
 
 	isOeisProgram { :self |
-		self.annotations.includesKey('oeis')
+		self.hasAnnotation('oeis')
+	}
+
+	markdownText { :self |
+		[
+			self.commentary,
+			'',
+			self.fencedCodeBlock,
+			self.isImageProgram.if {
+				[
+					'',
+					'![](sw/spl/Help/Image/%)'.format(
+						[
+							self.imageFileName
+						]
+					)
+				].unlines
+			} {
+				nil
+			}
+		].deleteMissing.unlines
+	}
+
+	oeisIdentifier { :self |
+		self.annotation('oeis')
 	}
 
 }

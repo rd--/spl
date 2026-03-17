@@ -84,7 +84,7 @@ Binary expansion of cubic numbers,
 matrix plot,
 OEIS [A000578](https://oeis.org/A000578):
 
-~~~spl svg=A oeis=A000578
+~~~spl svg=A oeis=A000578 variant
 0:63.cube
 .binaryExpansion
 .padLeft

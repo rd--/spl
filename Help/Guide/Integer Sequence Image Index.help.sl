@@ -1453,6 +1453,16 @@ OEIS [A002448](https://oeis.org/A002448):
 
 ![](sw/spl/Help/Image/isPerfectSquare-E.svg)
 
+Stern’s diatomic series,
+OEIS [A002487](https://oeis.org/A002487):
+
+~~~spl
+1500.sternBrocotSequence
+.denseScatterPlot
+~~~
+
+![](sw/spl/Help/Image/denseScatterPlot-A.png)
+
 Stern-Brocot sequence,
 OEIS [A002487](https://oeis.org/A002487):
 
@@ -9918,6 +9928,19 @@ discarding initial two terms,
 OEIS [A070990](https://oeis.org/A070990):
 
 ~~~spl
+1500.sternBrocotSequence
+.allButFirst(2)
+.differences
+.denseScatterPlot
+~~~
+
+![](sw/spl/Help/Image/denseScatterPlot-B.png)
+
+First differences of Stern’s diatomic series,
+discarding initial two terms,
+OEIS [A070990](https://oeis.org/A070990):
+
+~~~spl
 115.sternBrocotSequence
 .allButFirst(2)
 .differences
@@ -15609,6 +15632,8 @@ OEIS [A236189](https://oeis.org/A236189):
 ~~~spl
 1:650.select { :each |
 	each.isRoughNumber(19)
+}.differences
+.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/isRoughNumber-D.svg)
@@ -16371,13 +16396,14 @@ let a = [1];
 2:200.do { :n |
 	let m = n - 1;
 	a.add(
-		m.select { :d |
+		1:m.select { :d |
 			(n - 2) % d = 0
 		}.sum { :d |
 			a[d]
 		}.negate
 	)
 };
+a.logScale.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/sum-A.svg)
@@ -16449,6 +16475,17 @@ let b:/2 = { :n :m |
 ~~~
 
 ![](sw/spl/Help/Image/sum-B.svg)
+
+Second differences of Stern’s diatomic series,
+OEIS [A283104](https://oeis.org/A283104):
+
+~~~spl
+1500.sternBrocotSequence
+.differences(2)
+.denseScatterPlot
+~~~
+
+![](sw/spl/Help/Image/denseScatterPlot-C.png)
 
 Second differences of Stern’s diatomic series,
 OEIS [A283104](https://oeis.org/A283104):

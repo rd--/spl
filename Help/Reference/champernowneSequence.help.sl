@@ -25,8 +25,11 @@ OEIS [A007376](https://oeis.org/A007376):
 ]
 ```
 
-First few terms of the base-two Champernowne sequence:
-OEIS [A030190](https://oeis.org/A030190):
+First few terms of the base-two Champernowne sequence,
+OEIS [A030190](https://oeis.org/A030190),
+also,
+excepting initial term,
+OEIS [A030302](https://oeis.org/A030302):
 
 ```
 >>> 2.champernowneSequence(105)
@@ -137,6 +140,16 @@ OEIS [A054634](https://oeis.org/A054634):
 ~~~
 
 ![](sw/spl/Help/Image/champernowneSequence-D.svg)
+
+The _b=4_ Champernowne sequence,
+OEIS [A030373](https://oeis.org/A030373):
+
+~~~spl svg=E oeis=A030373
+4.champernowneSequence(115)
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/champernowneSequence-E.svg)
 
 * * *
 

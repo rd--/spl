@@ -192,9 +192,11 @@ The unary form generates the _s1={0,1}_ sequence using a distinct algorithm:
 [0 1].stanleySequence(192)
 ```
 
-Plot first few terms of _s1={0,1}_:
+The Stanley sequence with _s1={0,1}_,
+the numbers whose ternary expansion contain no twos,
+OEIS [A005836](https://oeis.org/A005836):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A005836
 [0 1].stanleySequence(192).scatterPlot
 ~~~
 

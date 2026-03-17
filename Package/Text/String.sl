@@ -1223,6 +1223,10 @@ String! : [Object, Storeable, Equatable, Comparable, Json, Iterable, Indexable, 
 		self.stringIntercalate('\n')
 	}
 
+	unparagraphs { :self |
+		self.stringIntercalate('\n\n')
+	}
+
 	unwords { :self |
 		self.stringIntercalate(' ')
 	}

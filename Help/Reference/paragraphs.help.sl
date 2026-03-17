@@ -29,6 +29,16 @@ At empty `String` has one paragraph which is empty:
 ['']
 ```
 
+The inverse is `unparagraphs`:
+
+```
+>>> 'a\nb\n\nc'.paragraphs
+['a\nb' 'c']
+
+>>> ['a\nb' 'c'].unparagraphs
+'a\nb\n\nc'
+```
+
 * * *
 
 See also: lines, sentences, unlines, words

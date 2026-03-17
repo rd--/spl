@@ -5,33 +5,9 @@ A `Type` holding a program from the SPL help files.
 Print the `Integer Sequence Image Index`:
 
 ~~~spl console
-let oeisPrograms = [];
-system.helpProgramsDo { :helpProgram |
-	helpProgram
-	.annotations
-	.includesKey('oeis').ifTrue {
-		oeisPrograms.add(helpProgram)
-	}
-};
-oeisPrograms.sortOn { :helpProgram |
-	helpProgram.annotations.at('oeis')
-};
-oeisPrograms.do { :helpProgram |
-	let annotations = helpProgram.annotations;
-	[
-		helpProgram.commentary,
-		'',
-		helpProgram.fencedCodeBlock,
-		'',
-		'![](sw/spl/Help/Image/%)'.format(
-			[
-				helpProgram.imageFileName
-			]
-		),
-		''
-	].unlines.postLine
-};
-nil
+let oeisPrograms = system.helpProgramsSelect(isOeisProgram:/1);
+oeisPrograms.sortOn(oeisIdentifier:/1);
+oeisPrograms.collect(markdownText:/1).unparagraphs.postLine
 ~~~
 
 * * *

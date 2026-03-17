@@ -408,6 +408,18 @@ HelpFile : [Object, Equatable, Cache] { | origin source cache |
 
 +System {
 
+	helpFiles { :self :kind |
+		self.cached('helpFiles' ++ kind) {
+			let answer = [];
+			self.helpFilesDo(
+				kind, '.*', false
+			) { :each |
+				answer.add(each)
+			};
+			answer
+		}
+	}
+
 	helpFilesDo { :self :kind :pattern :verbose :aBlock:/1 |
 		let directoryName = self.splFileName('Help/' ++ kind);
 		self
@@ -430,30 +442,13 @@ HelpFile : [Object, Equatable, Cache] { | origin source cache |
 		}
 	}
 
-	helpImageProgramDictionary { :self |
-		self.cached('helpImageProgramDictionary') {
-			self.helpIndex.names('Reference').collect { :n |
-				let c = self.readHelpFile(n).imageHelpPrograms;
-				c.ifEmpty {
-					nil
-				} {
-					n -> c
-				}
-			}.deleteMissing.asRecord
-		}
-	}
-
-	helpImageProgramTable { :self |
-		self.cached('helpImageProgramTable') {
-			self.helpImageProgramDictionary.keysAndEachValue
-		}
-	}
-
 	helpImageIndex { :self |
 		[
 			'# Help Image Index',
 			''
-		] ++ self.helpImageProgramDictionary.keysAndValuesCollect { :n :e |
+		] ++ self.helpProgramDictionary(
+			isImageProgram:/1
+		).keysAndValuesCollect { :n :e |
 			[
 				'- `%`'.format([n])
 			] ++ e.withIndexCollect { :p :i |
@@ -469,10 +464,39 @@ HelpFile : [Object, Equatable, Cache] { | origin source cache |
 		}.values.catenate
 	}
 
+	helpProgramDictionary { :self |
+		self.cached('helpProgramDictionary') {
+			let answer = (:);
+			self.helpFiles('Reference').do { :each |
+				let p = each.helpPrograms;
+				p.ifNotEmpty {
+					answer.add(each.originName -> p)
+				}
+			};
+			answer
+		}
+	}
+
+	helpProgramDictionary { :self :aBlock:/1 |
+		self.helpProgramDictionary.collect { :each |
+			each.select(aBlock:/1)
+		}.select(isNotEmpty:/1)
+	}
+
+	helpProgramTable { :self |
+		self.cached('helpProgramTable') {
+			self.helpProgramDictionary.keysAndEachValue
+		}
+	}
+
+	helpProgramTable { :self :aBlock:/1 |
+		self.helpProgramTable.select { :each |
+			aBlock(each[2])
+		}
+	}
+
 	helpProgramsDo { :self :aBlock:/1 |
-		self.helpFilesDo(
-			'Reference', '.*', false
-		) { :helpFile |
+		self.helpFiles('Reference').do { :helpFile |
 			helpFile.helpPrograms.do(aBlock:/1)
 		}
 	}

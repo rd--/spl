@@ -253,7 +253,7 @@ where _a_ is Rowland’s sequence,
 OEIS [A106108](https://oeis.org/A106108),
 values are real numbers in _(2,3)_:
 
-~~~spl svg=F oeis=A106108
+~~~spl svg=F oeis=A106108 variant
 let n = 200;
 let a = 7.rowlandsSequence(n);
 (a / 1:n).

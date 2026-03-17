@@ -69,6 +69,27 @@ OEIS [A132141](https://oeis.org/A132141):
 
 ![](sw/spl/Help/Image/ternaryExpansion-D.svg)
 
+Write _n_ in base three and juxtapose,
+OEIS [A003137](https://oeis.org/A003137):
+
+~~~spl svg=E oeis=A003137
+1:35.ternaryExpansion
+.catenate.stepPlot
+~~~
+
+![](sw/spl/Help/Image/ternaryExpansion-E.svg)
+
+Numbers in base three,
+OEIS [A007089](https://oeis.org/A007089):
+
+~~~spl svg=E oeis=A007089
+0:65.ternaryExpansion
+.decimalContraction
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/ternaryExpansion-F.svg)
+
 * * *
 
 See also: binaryExpansion, cantorNumbers, decimalExpansion, unaryExpansion

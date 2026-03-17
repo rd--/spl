@@ -1743,12 +1743,12 @@ Reference/helpFilesDo.help.sl
 Reference/helpFragment.help.sl
 Reference/helpFragmentPreprocessor.help.sl
 Reference/helpImageIndex.help.sl
-Reference/helpImageProgramDictionary.help.sl
-Reference/helpImageProgramTable.help.sl
 Reference/helpIndex.help.sl
 Reference/HelpIndex.help.sl
+Reference/helpProgramDictionary.help.sl
 Reference/HelpProgram.help.sl
 Reference/helpProgramsDo.help.sl
+Reference/helpProgramTable.help.sl
 Reference/HelpViewer.help.sl
 Reference/henonAreaPreservingMap.help.sl
 Reference/HenonC.help.sl
