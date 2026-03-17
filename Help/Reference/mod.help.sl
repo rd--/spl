@@ -718,10 +718,10 @@ OEIS [A003558](https://oeis.org/A003558):
 ![](Help/Image/mod-T.svg)
 
 _P(n)%(n-1)_,
-OEIS [A003558](https://oeis.org/A003558):
+OEIS [A004649](https://oeis.org/A004649):
 
-~~~spl svg=U oeis=A003558
-1:135.collect { :n |
+~~~spl svg=U oeis=A004649
+2:135.collect { :n |
 	n.prime % (n - 1)
 }.scatterPlot
 ~~~

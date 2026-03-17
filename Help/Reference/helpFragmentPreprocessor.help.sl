@@ -5,18 +5,17 @@
 Run the help fragment pre-processor on the string _s_.
 
 ```
->>> '<<<baumSweetSequence,svg,B'
+>>> '<<<abs,svg,A'
 >>> .helpFragmentPreprocessor
 >>> .lines
 [
-	'The Baum–Sweet sequence,'
-	'OEIS [A086747](https://oeis.org/A086747):'
+	'Plot over a subset of the reals:'
 	''
 	'```'
-	'115.baumSweetSequence.discretePlot'
+	'(-3 -- 3).functionPlot(abs:/1)'
 	'```'
 	''
-	'![](Help/Image/baumSweetSequence-B.svg)'
+	'![](Help/Image/abs-A.svg)'
 ]
 ```
 
