@@ -164,6 +164,17 @@ OEIS [A008966](https://oeis.org/A008966):
 
 ![](Help/Image/isSquareFree-F.svg)
 
+Numbers _k_ such that _3k_ is not squarefree,
+OEIS [A366288](https://oeis.org/A366288):
+
+~~~spl svg=G oeis=A366288
+1:115.reject { :n |
+	(3 * n).isSquareFree
+}.discretePlot
+~~~
+
+![](Help/Image/isSquareFree-G.svg)
+
 * * *
 
 See also: factorInteger, factor, isCubeFree, isDuplicateFree, isPerfectSquare, isPowerfulNumber, isPrime, isPrimePower, moebiusMu, primeOmega, primeNu

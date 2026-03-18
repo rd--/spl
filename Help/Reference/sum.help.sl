@@ -207,6 +207,23 @@ OEIS [A008728](https://oeis.org/A008728):
 ]
 ```
 
+Numbers that can be written as the sum of three of their divisors,
+not necessarily distinct,
+OEIS [A355200](https://oeis.org/A355200):
+
+```
+>>> let v = [3 4 6];
+>>> 1:40.select { :n |
+>>> 	1:3.sum { :i |
+>>> 		(n % v[i] = 0).boole
+>>> 	} > 0
+>>> }
+[
+	 3  4  6  8  9 12 15 16 18 20
+	21 24 27 28 30 32 33 36 39 40
+]
+```
+
 Evaluate symbolically:
 
 ```

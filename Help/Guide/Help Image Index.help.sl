@@ -771,6 +771,7 @@
   2. ![](Help/Image/champernowneSequence-B.svg)
   3. ![](Help/Image/champernowneSequence-C.svg)
   4. ![](Help/Image/champernowneSequence-D.svg)
+  5. ![](Help/Image/champernowneSequence-E.svg)
 - `chebyshevT`
   1. ![](Help/Image/chebyshevT-A.svg)
   2. ![](Help/Image/chebyshevT-B.svg)
@@ -1686,6 +1687,7 @@
   1. ![](Help/Image/exp-A.svg)
   2. ![](Help/Image/exp-B.svg)
   3. ![](Help/Image/exp-C.png)
+  4. ![](Help/Image/exp-D.svg)
 - `ExponentialDistribution`
   1. ![](Help/Image/ExponentialDistribution-A.svg)
   2. ![](Help/Image/ExponentialDistribution-B.svg)
@@ -2665,6 +2667,8 @@
 - `isBlue`
   1. ![](Help/Image/isBlue-A.svg)
   2. ![](Help/Image/isBlue-B.svg)
+- `isChenPrime`
+  1. ![](Help/Image/isChenPrime-A.svg)
 - `isComposite`
   1. ![](Help/Image/isComposite-A.png)
   2. ![](Help/Image/isComposite-B.svg)
@@ -2771,6 +2775,8 @@
 - `isRed`
   1. ![](Help/Image/isRed-A.svg)
   2. ![](Help/Image/isRed-B.svg)
+- `isRefactorableNumber`
+  1. ![](Help/Image/isRefactorableNumber-A.svg)
 - `isRegularNumber`
   1. ![](Help/Image/isRegularNumber-A.svg)
 - `isRoughNumber`
@@ -3080,6 +3086,7 @@
   12. ![](Help/Image/linearRecurrence-L.svg)
   13. ![](Help/Image/linearRecurrence-M.svg)
   14. ![](Help/Image/linearRecurrence-N.svg)
+  15. ![](Help/Image/linearRecurrence-O.svg)
 - `lineCollection`
   1. ![](Help/Image/lineCollection-A.svg)
   2. ![](Help/Image/lineCollection-B.svg)
@@ -3124,6 +3131,8 @@
   5. ![](Help/Image/lissajousCurve-E.svg)
   6. ![](Help/Image/lissajousCurve-F.svg)
   7. ![](Help/Image/lissajousCurve-G.svg)
+- `List`
+  1. ![](Help/Image/List-A.svg)
 - `listInterpolation`
   1. ![](Help/Image/listInterpolation-A.svg)
   2. ![](Help/Image/listInterpolation-B.svg)
@@ -4334,6 +4343,8 @@
   5. ![](Help/Image/RandomWalkProcess-E.svg)
 - `randomWeightedIndex`
   1. ![](Help/Image/randomWeightedIndex-A.svg)
+- `Range`
+  1. ![](Help/Image/Range-A.svg)
 - `rankedMin`
   1. ![](Help/Image/rankedMin-A.svg)
   2. ![](Help/Image/rankedMin-B.svg)
@@ -5251,6 +5262,8 @@
   2. ![](Help/Image/ternaryExpansion-B.svg)
   3. ![](Help/Image/ternaryExpansion-C.svg)
   4. ![](Help/Image/ternaryExpansion-D.svg)
+  5. ![](Help/Image/ternaryExpansion-E.svg)
+  6. ![](Help/Image/ternaryExpansion-E.svg)
 - `tetrahedralNumber`
   1. ![](Help/Image/tetrahedralNumber-A.svg)
   2. ![](Help/Image/tetrahedralNumber-B.svg)

@@ -433,6 +433,44 @@ OEIS [A010873](https://oeis.org/A010873):
 [0 1 2 3 0 1 2 3 0 1 2 3 0 1 2 3]
 ```
 
+Numbers that are zero modulo four or have a divisor of the form _x^2-1_,
+OEIS [A059267](https://oeis.org/A059267):
+
+```
+>>> 0:40.select { :n |
+>>> 	n.divisors.anySatisfy { :d |
+>>> 		n % (d + 2) = 0
+>>> 	}
+>>> }
+[
+	 3  4  6  8  9 12 15 16 18 20
+	21 24 27 28 30 32 33 35 36 39
+	40
+]
+```
+
+Polyrhythmic sequence _P(3,4)_,
+OEIS [A267027](https://oeis.org/A267027),
+the first differences are _3,1,2,2,1,3_ repeating:
+
+```
+>>> 1:40.select { :n |
+>>> 	n % 3 = 1 | { n % 4 = 1 }
+>>> }
+[
+	 1  4  5  7  9 10 13 16 17 19
+	21 22 25 28 29 31 33 34 37 40
+]
+
+>>> [2 -2 2 -2 2 -1].linearRecurrence(
+>>> 	[1 4 5 7 9 10], 20
+>>> )
+[
+	 1  4  5  7  9 10 13 16 17 19
+	21 22 25 28 29 31 33 34 37 40
+]
+
+```
 An integer sequence modulo an integer,
 _n%8_,
 i.e. with a fixed modulus,

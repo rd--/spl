@@ -45,9 +45,9 @@ OEIS [A000002](https://oeis.org/A000002):
 
 The _1,2_ Kolakoski sequence,
 OEIS [A000002](https://oeis.org/A000002),
-offset terms to be at `zero` and `one`:
+minus one so that terms are `zero` and `one`:
 
-~~~spl svg=B oeis=A000002 variant
+~~~spl svg=B oeis=A000002 offset
 (85.kolakoskiSequence - 1)
 .discretePlot
 ~~~
@@ -80,9 +80,10 @@ a.discretePlot
 ![](Help/Image/kolakoskiSequence-C.svg)
 
 The _1,3_ Kolakoski sequence,
-OEIS [A064353](https://oeis.org/A064353):
+OEIS [A064353](https://oeis.org/A064353),
+minus one:
 
-~~~spl svg=D oeis=A064353 variant
+~~~spl svg=D oeis=A064353 offset
 (85.kolakoskiSequence([1 3]) - 1)
 .discretePlot
 ~~~
@@ -90,9 +91,10 @@ OEIS [A064353](https://oeis.org/A064353):
 ![](Help/Image/kolakoskiSequence-D.svg)
 
 The _2,3_ Kolakoski sequence,
-OEIS [A071820](https://oeis.org/A071820):
+OEIS [A071820](https://oeis.org/A071820),
+minus two:
 
-~~~spl svg=E oeis=A071820 variant
+~~~spl svg=E oeis=A071820 offset
 (107.kolakoskiSequence([2 3]) - 2)
 .discretePlot
 ~~~
@@ -148,7 +150,7 @@ The _1,4_ Kolakoski sequence,
 OEIS [A071907](https://oeis.org/A071907),
 minus one:
 
-~~~spl svg=J oeis=A071907 variant
+~~~spl svg=J oeis=A071907 offset
 (105.kolakoskiSequence([1 4]) - 1)
 .discretePlot
 ~~~
@@ -159,7 +161,7 @@ The _2,4_ Kolakoski sequence,
 OEIS [A071928](https://oeis.org/A071928),
 minus two:
 
-~~~spl svg=K oeis=A071928 variant
+~~~spl svg=K oeis=A071928 offset
 (105.kolakoskiSequence([2 4]) - 2)
 .discretePlot
 ~~~
@@ -170,7 +172,7 @@ The _3,4_ Kolakoski sequence,
 OEIS [A071942](https://oeis.org/A071942),
 minus three:
 
-~~~spl svg=L oeis=A071942 variant
+~~~spl svg=L oeis=A071942 offset
 (105.kolakoskiSequence([3 4]) - 3)
 .discretePlot
 ~~~
@@ -181,7 +183,7 @@ The _1,3_ Kolakoski sequence,
 OEIS [A362927](https://oeis.org/A362927),
 minus two:
 
-~~~spl svg=M oeis=A362927 variant
+~~~spl svg=M oeis=A362927 offset
 (85.kolakoskiSequence([1 3]) - 2)
 .discretePlot
 ~~~

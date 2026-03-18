@@ -25,7 +25,7 @@ Base three reversal permutation:
 ```
 >>> 0:4.collect { :n |
 >>> 	n.reversalPermutation(3)
->>> }.++
+>>> }
 [
 	1
 	;
