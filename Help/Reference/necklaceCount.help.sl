@@ -28,7 +28,7 @@ OEIS [A054631](https://oeis.org/A054631):
 ]
 ```
 
-First few counts for _k=2_,
+Necklace counts for _k=2_,
 OEIS [A000031](https://oeis.org/A000031):
 
 ```

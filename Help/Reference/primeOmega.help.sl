@@ -123,6 +123,16 @@ OEIS [A022559](https://oeis.org/A022559):
 [0 0 1 2 4 5 7 8 11 13 15 16 19 20 22 24]
 ```
 
+Odd nonprimes,
+OEIS [A014076](https://oeis.org/A014076):
+
+```
+>>> 1:57:2.select { :n |
+>>> 	n.primeOmega != 1
+>>> }
+[1 9 15 21 25 27 33 35 39 45 49 51 55 57]
+```
+
 Number of prime divisors of _n_,
 counted with multiplicity,
 OEIS [A001222](https://oeis.org/A001222):

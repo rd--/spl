@@ -4,7 +4,8 @@
 
 Answer the first _n_ elements of the Narayana sequence.
 
-The first few elements:
+The Narayana sequence,
+OEIS [A000930](https://oeis.org/A000930):
 
 ```
 >>> 23.narayanaSequence
@@ -22,9 +23,10 @@ The limit ratio between consecutive terms is the supergolden ratio:
 1.supergoldenRatio
 ```
 
-Plot first few terms:
+The Narayana sequence,
+OEIS [A000930](https://oeis.org/A000930):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A000930
 23.narayanaSequence.linePlot
 ~~~
 

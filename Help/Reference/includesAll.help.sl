@@ -72,7 +72,7 @@ true
 
 * * *
 
-See also: includes, includesAny
+See also: includes, includesAny, includesNone
 
 Guides: List Functions
 

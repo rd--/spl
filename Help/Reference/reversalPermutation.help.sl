@@ -20,12 +20,12 @@ OEIS [A049773](https://oeis.org/A049773):
 ]
 ```
 
-Base three:
+Base three reversal permutation:
 
 ```
 >>> 0:4.collect { :n |
 >>> 	n.reversalPermutation(3)
->>> }
+>>> }.++
 [
 	1
 	;
@@ -48,7 +48,7 @@ Base three:
 ]
 ```
 
-Plot first few terms for _b=3_:
+Base three reversal permutation:
 
 ~~~spl svg=A
 0:5.collect { :n |

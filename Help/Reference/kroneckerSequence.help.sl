@@ -7,7 +7,7 @@ given initial term,
 also called Cranley–Patterson rotation,
 _k₀_.
 
-First few terms with _α=φ_:
+Kronecker sequence with _α=φ_:
 
 ```
 >>> 1.goldenRatio
@@ -27,7 +27,7 @@ First few terms with _α=φ_:
 [0 0.61803 0.23607 0.85410 0.47214]
 ```
 
-Plot a one-dimensional Kronecker sequence with _α=φ_:
+One-dimensional Kronecker sequence with _α=φ_:
 
 ~~~spl svg=A
 1.goldenRatio
@@ -37,7 +37,7 @@ Plot a one-dimensional Kronecker sequence with _α=φ_:
 
 ![](Help/Image/kroneckerSequence-A.svg)
 
-Plot a two-dimensional Kronecker sequence with optimized _α_:
+Two-dimensional Kronecker sequence with optimized _α_:
 
 ~~~spl svg=B
 [
@@ -49,7 +49,7 @@ Plot a two-dimensional Kronecker sequence with optimized _α_:
 
 ![](Help/Image/kroneckerSequence-B.svg)
 
-Plot a _n_-dimensional Kronecker sequence with _α_ derived from the _n_-th harmonious number:
+_n_-dimensional Kronecker sequence with _α_ derived from the _n_-th harmonious number:
 
 ~~~spl svg=C
 let r = 2.harmoniousNumber;
@@ -62,3 +62,5 @@ let r = 2.harmoniousNumber;
 * * *
 
 See also: haltonSequence
+
+Guides: Low-Discrepancy Sequence Functions

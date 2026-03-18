@@ -146,6 +146,10 @@
 		self.collect(cantorStaircase:/1)
 	}
 
+	carmichaelLambda { :self |
+		self.collect(carmichaelLambda:/1)
+	}
+
 	[ceiling, >] { :self |
 		self.collect(ceiling:/1)
 	}

@@ -4,7 +4,7 @@
 
 Answer the _n_-th Genocchi number.
 
-The first few Genocchi numbers,
+Genocchi numbers,
 threads over lists
 OEIS [A036968](https://oeis.org/A036968):
 

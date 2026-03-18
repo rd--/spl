@@ -3,7 +3,9 @@
 - _carmichaelLambda(n)_
 
 Answer the Carmichael function _λ(n)_,
-also called the reduced totient function.
+also called the reduced totient function _ψ(n)_.
+the least _k_ such that _x^k=1_ modulo _n_ for all _x_ prime to _n_.
+Also called the universal exponent of _n_.
 
 Compute the Carmichael lambda function:
 
@@ -15,11 +17,12 @@ Compute the Carmichael lambda function:
 4
 ```
 
-The first few terms,
+The Carmichael lambda function,
+threads over lists,
 OEIS [A002322](https://oeis.org/A002322):
 
 ```
->>> 1:81.collect(carmichaelLambda:/1)
+>>> 1:81.carmichaelLambda
 [
 	 1  1  2  2  4  2  6  2  6  4
 	10  2 12  6  4  4 16  6 18  4
@@ -36,9 +39,7 @@ OEIS [A002322](https://oeis.org/A002322):
 The `lcm` of `carmichaelLambda` is equal to `carmichaelLambda` of the `lcm`:
 
 ```
->>> [3 8].collect(
->>> 	carmichaelLambda:/1
->>> ).lcm
+>>> [3 8].carmichaelLambda.lcm
 2
 
 >>> [3 8].lcm.carmichaelLambda
@@ -78,20 +79,22 @@ OEIS [A002997](https://oeis.org/A002997):
 true
 ```
 
-Discrete plot of the first few terms:
+The Carmichael lambda function,
+discrete plot,
+OEIS [A002322](https://oeis.org/A002322):
 
-~~~spl svg=A
-1:50.collect(carmichaelLambda:/1)
-.discretePlot
+~~~spl svg=A oeis=A002322
+1:50.carmichaelLambda.discretePlot
 ~~~
 
 ![](Help/Image/carmichaelLambda-A.svg)
 
-Scatter plot of the first few terms:
+The Carmichael lambda function,
+scatter plot,
+OEIS [A002322](https://oeis.org/A002322):
 
-~~~spl svg=B
-1:250.collect(carmichaelLambda:/1)
-.scatterPlot
+~~~spl svg=B oeis=A002322
+1:250.carmichaelLambda.scatterPlot
 ~~~
 
 ![](Help/Image/carmichaelLambda-B.svg)

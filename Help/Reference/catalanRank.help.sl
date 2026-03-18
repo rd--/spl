@@ -4,7 +4,7 @@
 
 Implement a ranking algorithm for the lexicographic ordering of the Catalan families.
 
-First few terms,
+First few terms of Catalan unranking algorithm,
 OEIS [A215406](https://oeis.org/A215406):
 
 ```
@@ -40,9 +40,10 @@ Relation to `isDyckWord`:
 [0 .. 24]
 ```
 
-Plot first few terms:
+Catalan unranking algorithm,
+OEIS [A215406](https://oeis.org/A215406):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A215406
 0:300.collect(catalanRank:/1)
 .scatterPlot
 ~~~

@@ -155,6 +155,27 @@ Plot over a subset of the complexes:
 
 ![](Help/Image/exp-C.png)
 
+Plot the circle of Pythagorean fifths,
+for thirteen places,
+there are three interval sizes,
+two sizes of semitone,
+and the Pythagorean comma:
+
+~~~spl svg=D
+let r = 13.geometricProgression(1, 3 / 2);
+let c = r.collect { :v |
+	(2.pi.i * v.log2).exp
+};
+let p = c.realImaginary;
+[
+	Circle([0 0], 1),
+	p.PointCloud,
+	p.Line
+].LineDrawing
+~~~
+
+![](Help/Image/exp-D.svg)
+
 * * *
 
 See also: ^, log

@@ -4,7 +4,7 @@
 
 Answer `true` if the integer _n_ is cube free.
 
-The first few cube free numbers,
+Cube free numbers,
 OEIS [A004709](https://oeis.org/A004709):
 
 ```

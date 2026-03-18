@@ -43,10 +43,11 @@ Index of the previous and next primes of sixteen-eighty:
 264
 ```
 
-Plot first few terms:
+_π(n)_ if _n_ is prime else zero,
+OEIS [A049084](https://oeis.org/A049084):
 
-~~~spl svg=A
-0:99.collect(
+~~~spl svg=A oeis=A049084
+1:99.collect(
 	indexOfPrime:/1
 ).discretePlot
 ~~~
@@ -60,5 +61,7 @@ See also: prime, primePi, primesList
 Guides: Prime Number Functions
 
 References:
+_OEIS_
+[1](https://oeis.org/A049084)
 _W_
 [1](https://en.wikipedia.org/wiki/List_of_prime_numbers)

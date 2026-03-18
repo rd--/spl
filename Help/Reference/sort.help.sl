@@ -91,6 +91,40 @@ Sort strings by length:
 ['b' 'ba' 'aa' 'aaa' 'abb']
 ```
 
+Sort the characters of a string:
+
+```
+>>> 'eCaBdAbc'
+>>> .characters
+>>> .sort
+>>> .stringJoin
+'aAbBcCde'
+
+>>> 'eCaBdAbc'
+>>> .sortCharacters
+'aAbBcCde'
+
+>>> 'eCaBdAbc'
+>>> .codePoints
+>>> .sort
+>>> .fromCodePoints
+'ABCabcde'
+
+>>> 'eCaBdAbc'
+>>> .sortCodePoints
+'ABCabcde'
+
+>>> 'eCaBdAbc'
+>>> .toCharacterCode('Ascii')
+>>> .sort
+>>> .fromCharacterCode('Ascii')
+'ABCabcde'
+
+>>> 'eCaBdAbc'
+>>> .sortCharacterCode('Ascii')
+'ABCabcde'
+```
+
 Sort vectors by the Euclidean norm:
 
 ```

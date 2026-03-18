@@ -2,7 +2,10 @@
 
 - _gijswijtsSequence(n)_
 
-Answer the first _n_ terms of the Gijswijt’s sequence.
+Answer the first _n_ terms of Gijswijt’s sequence.
+
+Gijswijt’s sequence,
+OEIS [A090822](https://oeis.org/A090822):
 
 ```
 >>> 99.gijswijtsSequence
@@ -20,9 +23,10 @@ Answer the first _n_ terms of the Gijswijt’s sequence.
 ]
 ```
 
-Plot first few terms:
+Gijswijt’s sequence,
+OEIS [A090822](https://oeis.org/A090822):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A090822
 99.gijswijtsSequence
 .scatterPlot
 ~~~

@@ -5,7 +5,7 @@
 Answer the first _n_ terms of the the Moser–de Bruijn sequence,
 an integer sequence consisting of the sums of distinct powers of four.
 
-First few terms,
+The Moser–de Bruijn sequence,
 OEIS [A000695](https://oeis.org/A000695):
 
 ```
@@ -58,9 +58,10 @@ Equivalently, they are the numbers whose binary representations are nonzero only
 ]
 ```
 
-Plot first few terms:
+The Moser–de Bruijn sequence,
+OEIS [A000695](https://oeis.org/A000695):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A000695
 63.moserDeBruijnSequence.scatterPlot
 ~~~
 

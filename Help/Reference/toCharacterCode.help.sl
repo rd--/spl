@@ -1,9 +1,9 @@
 # toCharacterCode
 
-- _toCharacterCode(aString, encoding)_
+- _toCharacterCode(s, e)_
 
-Answer a `List` of the integer codes corresponding to the characters in _aString_,
-according to the specified _encoding_.
+Answer a `List` of the integer codes corresponding to the characters in the string _s_,
+according to the specified encoding _e_.
 
 Find Ascii or Unicode Utf-8 and Utf-16 character codes:
 

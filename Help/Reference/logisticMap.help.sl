@@ -4,7 +4,7 @@
 
 A discrete dynamical system defined by a quadratic difference equation.
 
-Plot first few terms at _r=3.6_:
+The logistic map at _r=3.6_:
 
 ~~~spl svg=A
 logisticMap(3.6)
@@ -14,7 +14,7 @@ logisticMap(3.6)
 
 ![](Help/Image/logisticMap-A.svg)
 
-Plot first few terms at _r=3.7_:
+The logistic map at _r=3.7_:
 
 ~~~spl svg=B
 logisticMap(3.7)
@@ -24,7 +24,7 @@ logisticMap(3.7)
 
 ![](Help/Image/logisticMap-B.svg)
 
-Plot first few terms at _r=3.9_:
+The logistic map at _r=3.9_:
 
 ~~~spl svg=C
 logisticMap(3.9)
@@ -34,7 +34,7 @@ logisticMap(3.9)
 
 ![](Help/Image/logisticMap-C.svg)
 
-Poincaré plot of first few terms at _r=3.99_:
+Poincaré plot of the logistic map at _r=3.99_:
 
 ~~~spl svg=D
 logisticMap(3.99)
@@ -44,7 +44,7 @@ logisticMap(3.99)
 
 ![](Help/Image/logisticMap-D.svg)
 
-Plot laminar and burst behaviour within first few terms at _r=3.828327_:
+Laminar and burst behaviour of the logistic map at _r=3.828327_:
 
 ~~~spl svg=E
 logisticMap(3.828327)
@@ -54,7 +54,7 @@ logisticMap(3.828327)
 
 ![](Help/Image/logisticMap-E.svg)
 
-The first few terms for _r=-2_ and _a₀=0.31_:
+The logistic map at _r=-2_ and _a₀=0.31_:
 
 ~~~spl svg=F
 logisticMap(-2)
@@ -64,7 +64,7 @@ logisticMap(-2)
 
 ![](Help/Image/logisticMap-F.svg)
 
-The first few terms for _r=-4_ and _a₀=0.42_,
+The logistic map at at _r=-4_ and _a₀=0.42_,
 equivalent to the `tentMap` with _μ=1_:
 
 ~~~spl svg=G
@@ -75,7 +75,7 @@ logisticMap(4)
 
 ![](Help/Image/logisticMap-G.svg)
 
-Cobweb plot of first few terms with _r=3.741_ and _a₀=0.00079_:
+Cobweb plot of the logistic map at _r=3.741_ and _a₀=0.00079_:
 
 ~~~spl svg=H
 logisticMap(3.741)
@@ -84,7 +84,7 @@ logisticMap(3.741)
 
 ![](Help/Image/logisticMap-H.svg)
 
-Sparse plot of a fragment of the bifurcation diagram:
+A fragment of the bifurcation diagram of the logistic map:
 
 ~~~spl svg=I
 (3.55 -- 3.7).discretize(25) { :r |

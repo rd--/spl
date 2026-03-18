@@ -72,7 +72,8 @@ At `zero` and `one`:
 [false false]
 ```
 
-Select first few terms:
+Select first few terms,
+OEIS [A002808](https://oeis.org/A002808):
 
 ```
 >>> 1:14.select(isComposite:/1)

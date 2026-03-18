@@ -102,7 +102,7 @@ e.ordering.take(k).scatterPlot
 
 ![](Help/Image/ekgSequence-D.svg)
 
-Sequence starting at three instead of two,
+Ekg-sequence starting at three instead of two,
 OEIS [A169837](https://oeis.org/A169837):
 
 ~~~spl svg=E oeis=A169837
@@ -111,7 +111,7 @@ OEIS [A169837](https://oeis.org/A169837):
 
 ![](Help/Image/ekgSequence-E.svg)
 
-Sequence starting at five instead of two,
+Ekg-sequence starting at five instead of two,
 OEIS [A169837](https://oeis.org/A169837):
 
 ~~~spl svg=F oeis=A169837

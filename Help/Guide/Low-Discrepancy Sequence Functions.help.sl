@@ -5,6 +5,7 @@ Low-Discrepancy Functions:
 - `ehrenfeuchtMycielskiSequence`
 - `haltonSequence`
 - `hammersleyPointSet`
+- `kroneckerSequence`
 - `sobolSequence`
 - `vanDerCorputNumber`
 

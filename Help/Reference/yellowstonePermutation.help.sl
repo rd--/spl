@@ -4,7 +4,7 @@
 
 Answer the first _n_ terms of the Yellowstone permutation.
 
-First few terms,
+The Yellowstone permutation,
 OEIS [A098550](https://oeis.org/A098550):
 
 ```
@@ -21,9 +21,10 @@ OEIS [A098550](https://oeis.org/A098550):
 ]
 ```
 
-Plot first few terms:
+The Yellowstone permutation,
+OEIS [A098550](https://oeis.org/A098550):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A098550
 125.yellowstonePermutation.scatterPlot
 ~~~
 

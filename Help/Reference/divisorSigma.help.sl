@@ -90,7 +90,7 @@ Threads elementwise over lists:
 [1 5 10 21 26]
 ```
 
-First few terms at _k=0_,
+Divisor sigma at _k=0_,
 _τ(n)_,
 OEIS [A000005](https://oeis.org/A000005):
 

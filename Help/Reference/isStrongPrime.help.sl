@@ -4,7 +4,7 @@
 
 Answer `true` if _n_ is a strong prime, else `false`.
 
-The first few strong primes,
+Strong prime numbers,
 OEIS [A051634](https://oeis.org/A051634):
 
 ```

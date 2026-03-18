@@ -10,11 +10,9 @@ Lobb numbers form a natural generalisation of the Catalan numbers,
 which count the number of complete strings of balanced parentheses of a given length.
 
 ```
->>> 0:6.collect { :m |
->>> 	0:m.collect { :n |
->>> 		n.lobbNumber(m)
->>> 	}
->>> }
+>>> 0:6.triangularArray(
+>>> 	lobbNumber:/2.swap
+>>> )
 [
 	1;
 	1 1;
@@ -26,14 +24,13 @@ which count the number of complete strings of balanced parentheses of a given le
 ]
 ```
 
-Plot first few terms:
+The Lobb numbers,
+OEIS [A039599](https://oeis.org/A039599):
 
-~~~spl svg=A
-0:19.collect { :m |
-	0:m.collect { :n |
-		n.lobbNumber(m)
-	}
-}.flatten.log.scatterPlot
+~~~spl svg=A oeis=A039599
+0:19.triangularArray(
+	lobbNumber:/2.swap
+).catenate.log.scatterPlot
 ~~~
 
 ![](Help/Image/lobbNumber-A.svg)

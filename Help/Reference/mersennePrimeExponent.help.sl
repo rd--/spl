@@ -4,7 +4,8 @@
 
 Answer the _n_-th Mersenne exponents.
 
-The first few Mersenne prime exponents:
+The first few Mersenne prime exponents,
+OEIS [A000043](https://oeis.org/A000043):
 
 ```
 >>> 1:10.collect(
@@ -39,9 +40,10 @@ Check that they are all primes:
 true
 ```
 
-Log plot of first few terms:
+The Mersenne prime exponents,
+OEIS [A000043](https://oeis.org/A000043):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A000043
 1:50.collect(
 	mersennePrimeExponent:/1
 ).log.scatterPlot

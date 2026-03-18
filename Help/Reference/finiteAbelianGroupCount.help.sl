@@ -18,7 +18,8 @@ OEIS [A000688](https://oeis.org/A000688):
 ]
 ```
 
-Discrete plot of first few terms,
+The number of finite Abelian groups of order _n_,
+discrete plot,
 OEIS [A000688](https://oeis.org/A000688):
 
 ~~~spl svg=A oeis=A000688
@@ -28,7 +29,8 @@ OEIS [A000688](https://oeis.org/A000688):
 
 ![](Help/Image/finiteAbelianGroupCount-A.svg)
 
-Scatter plot of first few terms,
+The number of finite Abelian groups of order _n_,
+scatter plot,
 OEIS [A000688](https://oeis.org/A000688):
 
 ~~~spl svg=B oeis=A000688

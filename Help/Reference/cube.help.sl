@@ -16,7 +16,7 @@ The inverse is `cubeRoot`:
 3
 ```
 
-First few cubic numbers,
+Cubic numbers,
 threads over lists,
 OEIS [A000578](https://oeis.org/A000578):
 

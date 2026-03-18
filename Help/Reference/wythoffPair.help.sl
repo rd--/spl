@@ -4,7 +4,8 @@
 
 Answer the _n_-th Wythoff pair.
 
-First few terms,
+Wythoff pairs,
+first few terms,
 OEIS [A072061](https://oeis.org/A072061):
 
 ```

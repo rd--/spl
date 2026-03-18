@@ -4,7 +4,7 @@
 
 Answer the _n_-th Fibonacci polynomial.
 
-The fist few terms,
+The Fibonacci polynomials,
 a signed variant is catalogued as
 OEIS [A049310](https://oeis.org/A049310):
 
@@ -51,7 +51,7 @@ OEIS [A162515](https://oeis.org/A162515):
 ]
 ```
 
-Plot first few terms:
+Fibonacci polynomials:
 
 ~~~spl svg=A
 (-1 -- 1).functionPlot(

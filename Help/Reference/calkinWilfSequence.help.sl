@@ -4,7 +4,7 @@
 
 Answer the first _n_ terms of the Calkin-Wilf sequence of rational numbers.
 
-The first fifteen terms:
+The first fifteen terms of the Calkin-Wilf sequence:
 
 ```
 >>> 15.calkinWilfSequence
@@ -51,15 +51,17 @@ The numerator of each succesive term is equal to the denominator of the previous
 true
 ```
 
-Plot first few terms:
+Plot first few terms of the Calkin-Wilf sequence:
 
 ~~~spl svg=A
-200.calkinWilfSequence.scatterPlot
+200.calkinWilfSequence
+.scatterPlot
 ~~~
 
 ![](Help/Image/calkinWilfSequence-A.svg)
 
-Scatter plot of first few terms with the numerator on the _x_-axis,
+Scatter plot of first few terms of the Calkin-Wilf sequence,
+with the numerator on the _x_-axis,
 and the denominator on the _y_-axis:
 
 ~~~spl svg=B
@@ -70,7 +72,7 @@ and the denominator on the _y_-axis:
 
 ![](Help/Image/calkinWilfSequence-B.svg)
 
-Log plot first few terms:
+Log plot first few terms of the Calkin-Wilf sequence:
 
 ~~~spl svg=C
 200.calkinWilfSequence.log.discretePlot

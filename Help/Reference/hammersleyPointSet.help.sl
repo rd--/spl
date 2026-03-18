@@ -4,7 +4,7 @@
 
 Answer the _n_ place Hammersley point set in _d_ dimensions.
 
-The first few terms:
+Hammersley point set where _d=2_:
 
 ```
 >>> 2.hammersleyPointSet(9)
@@ -21,7 +21,7 @@ The first few terms:
 ]
 ```
 
-Plot the first few terms:
+Hammersley point set where _d=2_:
 
 ~~~spl svg=A
 2.hammersleyPointSet(100).scatterPlot
@@ -33,7 +33,7 @@ Plot the first few terms:
 
 See also: haltonSequence, poissonDiskSampling, vanDerCorputNumber
 
-Guides: Geometric Functions, Sequence Functions
+Guides: Geometric Functions, Low-Discrepancy Sequence Functions, Sequence Functions
 
 References:
 _Mathematica_

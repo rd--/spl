@@ -886,6 +886,18 @@ String! : [Object, Storeable, Equatable, Comparable, Json, Iterable, Indexable, 
 		self.countUtf16CodeUnits
 	}
 
+	sortCharacterCode { :self :encoding |
+		self.toCharacterCode(encoding).sort.fromCharacterCode(encoding)
+	}
+
+	sortCharacters { :self |
+		self.characters.sort.stringJoin
+	}
+
+	sortCodePoints { :self |
+		self.codePoints.sort.fromCodePoints
+	}
+
 	splitBy { :self :aString |
 		<primitive: return _self.split(_aString);>
 	}
@@ -1156,6 +1168,10 @@ String! : [Object, Storeable, Equatable, Comparable, Json, Iterable, Indexable, 
 				each.fromCharacterCode(encoding)
 			}
 		}
+	}
+
+	fromCodePoints { :self |
+		self.collect(fromCodePoint:/1).stringJoin
 	}
 
 	isPrintableAscii { :self |

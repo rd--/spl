@@ -4,7 +4,7 @@
 
 Answer the Paley graph for integer _p_.
 
-The first few values of _p_ for which there are simple Paley graphs,
+Values of _p_ for which there are simple Paley graphs,
 OEIS [A085759](https://oeis.org/A085759):
 
 ```

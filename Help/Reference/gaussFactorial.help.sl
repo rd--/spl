@@ -5,7 +5,7 @@
 Answer the Gauss factorial.
 In the unary case _n=m_.
 
-First few terms,
+The Gauss factorial,
 OEIS [A001783](https://oeis.org/A001783):
 
 ```
@@ -37,9 +37,10 @@ OEIS [A001783](https://oeis.org/A001783):
 ]
 ```
 
-Plot first few terms:
+The Gauss factorial,
+OEIS [A001783](https://oeis.org/A001783):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A001783
 1:99.collect(gaussFactorial:/1)
 .log
 .scatterPlot
@@ -47,8 +48,8 @@ Plot first few terms:
 
 ![](Help/Image/gaussFactorial-A.svg)
 
-The 2-adic factorial function,
-also known as Morita’s 2-adic gamma function,
+The two-adic factorial function,
+also known as Morita’s two-adic gamma function,
 OEIS [A055634](https://oeis.org/A055634):
 
 ```
@@ -83,9 +84,11 @@ OEIS [A055634](https://oeis.org/A055634):
 ]
 ```
 
-Plot:
+The two-adic factorial function,
+also known as Morita’s two-adic gamma function,
+OEIS [A055634](https://oeis.org/A055634):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A055634
 0:99.collect { :n |
 	(-1 ^ n) * n.gaussFactorial(2)
 }.logScale.scatterPlot

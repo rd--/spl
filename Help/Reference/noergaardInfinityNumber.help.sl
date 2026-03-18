@@ -8,7 +8,7 @@ which Nørgård defined as a recurrence,
 is given by a form of signed Hamming weight of _n_,
 where zero entries in the binary word invert the parity of the accumulating sum.
 
-Calculate first few terms,
+Per Nørgårds infinity sequence,
 OEIS [A004718](https://oeis.org/A004718):
 
 ```
@@ -22,9 +22,10 @@ OEIS [A004718](https://oeis.org/A004718):
 ]
 ```
 
-Scatter plot of first few terms:
+Per Nørgårds infinity sequence,
+OEIS [A004718](https://oeis.org/A004718):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A004718
 0:250.collect(
 	noergaardInfinityNumber:/1
 ).scatterPlot

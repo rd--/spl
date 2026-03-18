@@ -2,9 +2,9 @@
 
 - _stirlingsApproximation(n)_
 
-Answer Stirlingy’s approximation for the `factorial` function.
+Answer Stirling’s approximation for the `factorial` function.
 
-Approximation for first few integers:
+Stirling’s approximation of !:
 
 ```
 >>> 0:9.collect { :n |
@@ -28,7 +28,7 @@ Approximation for first few integers:
 ]
 ```
 
-Plot comparing `factorial` and `stirlingsApproximation` for small _n_:
+Compare `factorial` and `stirlingsApproximation` for small _n_:
 
 ~~~spl svg=A
 (0 -- 3).functionPlot(

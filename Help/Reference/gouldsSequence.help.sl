@@ -5,7 +5,7 @@
 Answer the first _k_ terms of Gould’s sequence.
 The sequence counts how many odd numbers are in each row of Pascal’s triangle.
 
-The first few terms of Gould’s sequence,
+Gould’s sequence,
 OEIS [A001316](https://oeis.org/A001316):
 
 ```
@@ -23,7 +23,7 @@ OEIS [A001316](https://oeis.org/A001316):
 ]
 ```
 
-It consists only of powers of two:
+Gould’s sequence consists only of powers of two:
 
 ```
 >>> 88.gouldsSequence
@@ -31,7 +31,7 @@ It consists only of powers of two:
 true
 ```
 
-The prefix sum,
+The prefix sum of Gould’s sequence,
 OEIS [A006046](https://oeis.org/A006046):
 
 ```
@@ -52,7 +52,7 @@ OEIS [A006046](https://oeis.org/A006046):
 ]
 ```
 
-The binary logarithm,
+The binary logarithm of Gould’s sequence,
 OEIS [A000120](https://oeis.org/A000120):
 
 ```

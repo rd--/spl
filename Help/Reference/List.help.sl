@@ -139,6 +139,33 @@ false
 false
 ```
 
+_3n+2_,
+OEIS [A016789](https://oeis.org/A016789):
+
+```
+>>> [2, 5 .. 44]
+[2 5 8 11 14 17 20 23 26 29 32 35 38 41 44]
+```
+
+Siffervisan,
+OEIS [A091978](https://oeis.org/A091978):
+
+~~~spl svg=A oeis=A091978
+[
+	  1   2  75   6   7
+	 75   6   7  75   6
+	  7   1   2  75   6
+	  7  75   6   7  73
+	107 103 102 107   6
+	 19  27  17  18  16
+	 15  13  19  14  17
+	 19  16  15  11   8
+	 47
+].discretePlot
+~~~
+
+![](Help/Image/List-A.svg)
+
 * * *
 
 See also: #, !, asList, asCollection, ByteArray, enclose, Float64Array, nest, Type

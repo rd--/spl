@@ -35,9 +35,11 @@ OEIS [A031347](https://oeis.org/A031347):
 ]
 ```
 
-Step plot of first few terms:
+The base-10 digital roots of the first few integers,
+step plot,
+OEIS [A031347](https://oeis.org/A031347):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A031347
 1:75.collect { :n |
 	n.multiplicativeDigitalRoot(10)
 }.stepPlot
@@ -45,9 +47,12 @@ Step plot of first few terms:
 
 ![](Help/Image/multiplicativeDigitalRoot-A.svg)
 
-Scatter plot of first few terms where _b=10_:
 
-~~~spl svg=B
+The base-10 digital roots of the first few integers,
+scatter plot,
+OEIS [A031347](https://oeis.org/A031347):
+
+~~~spl svg=B oeis=A031347
 1:150.collect { :n |
 	n.multiplicativeDigitalRoot(10)
 }.scatterPlot

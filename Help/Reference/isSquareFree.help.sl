@@ -33,7 +33,7 @@ true
 false
 ```
 
-The first few squarefree numbers,
+Squarefree numbers,
 OEIS [A005117](https://oeis.org/A005117):
 
 ```
@@ -45,7 +45,7 @@ OEIS [A005117](https://oeis.org/A005117):
 ```
 
 A number is squareful, or nonsquarefree, if it contains at least one square.
-The first few squareful numbers are
+Squareful numbers,
 OEIS [A013929](https://oeis.org/A013929):
 
 ```

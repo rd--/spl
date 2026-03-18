@@ -5,7 +5,7 @@
 Answer the _n_-th tetrahedral number,
 also called the triangular pyramidal number.
 
-First few tetrahedral numbers,
+Tetrahedral numbers,
 threads over lists,
 OEIS [A000292](https://oeis.org/A000292):
 

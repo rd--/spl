@@ -251,6 +251,15 @@ Work with infinite ranges:
 9
 ```
 
+Count backwards from one hundred to zero,
+OEIS [A096582](https://oeis.org/A096582):
+
+~~~spl svg=A oeis=A096582
+[100, 99 .. 0].discretePlot
+~~~
+
+![](Help/Image/Range-A.svg)
+
 * * *
 
 See also: .., ArithmeticProgression, characterRange, discretize, do, downTo, end, Interval, isIntegerRange, last, reverseDo, RelativeRange, start, stop, subdivide, thenTo, to, toBy, upOrDownTo

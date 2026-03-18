@@ -4,7 +4,7 @@
 
 Answers the _n_-th sorting number.
 
-First few terms,
+Sorting numbers,
 OEIS [A001855](https://oeis.org/A001855):
 
 ```

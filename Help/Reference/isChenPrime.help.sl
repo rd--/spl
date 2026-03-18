@@ -2,9 +2,12 @@
 
 - _isChenPrime(n)_
 
-Answer `true` if _n_ is a Chen prime, else `false`.
+Answer `true` if _n_ is a Chen prime,
+primes _p_ such that _p+2_ is either a prime or a semiprime,
+else `false`.
 
-The first few Chen primes:
+Chen primes,
+OEIS [A109611](https://oeis.org/A109611):
 
 ```
 >>> 1:101.select(isChenPrime:/1)
@@ -15,7 +18,8 @@ The first few Chen primes:
 ]
 ```
 
-The first few primes that are not Chen primes:
+Primes that are not Chen primes,
+OEIS [A102540](https://oeis.org/A102540):
 
 ```
 >>> 1:151.select { :n |
@@ -23,6 +27,16 @@ The first few primes that are not Chen primes:
 >>> }
 [43 61 73 79 97 103 151]
 ```
+
+Chen primes,
+OEIS [A109611](https://oeis.org/A109611):
+
+~~~spl svg=A oeis=A109611
+1:600.select(isChenPrime:/1)
+.discretePlot
+~~~
+
+![](Help/Image/isChenPrime-A.svg)
 
 * * *
 
@@ -34,6 +48,7 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/ChenPrime.html),
 _OEIS_
-[1](https://oeis.org/A109611),
+[1](https://oeis.org/A109611)
+[2](https://oeis.org/A102540),
 _W_
 [1](https://en.wikipedia.org/wiki/Chen_prime)

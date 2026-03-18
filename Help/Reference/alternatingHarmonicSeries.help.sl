@@ -5,6 +5,8 @@
 Answer the first _n_ terms of the alternating harmonic series,
 which is conditionally convergent to the natural logarithm of two.
 
+The alternating harmonic series:
+
 ```
 >>> 9.alternatingHarmonicSeries
 [1 -1/2 1/3 -1/4 1/5 -1/6 1/7 -1/8 1/9]
@@ -19,7 +21,7 @@ which is conditionally convergent to the natural logarithm of two.
 0.693147
 ```
 
-Plot the sum of the first few terms:
+Plot the partial sums of the first few terms of the alternating harmonic series:
 
 ~~~spl svg=A
 47

@@ -4,6 +4,9 @@
 
 Square matrix of Delannoy numbers _D(i,j)_ read by antidiagonals.
 
+Square array of Delannoy numbers read by antidiagonals,
+OEIS [A008288](https://oeis.org/A008288):
+
 ```
 >>> 25.delannoySequence
 [
@@ -13,9 +16,10 @@ Square matrix of Delannoy numbers _D(i,j)_ read by antidiagonals.
 ]
 ```
 
-Logarithmic scatter plot of the first few terms:
+Square array of Delannoy numbers read by antidiagonals,
+OEIS [A008288](https://oeis.org/A008288):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A008288
 99.delannoySequence
 .log
 .scatterPlot

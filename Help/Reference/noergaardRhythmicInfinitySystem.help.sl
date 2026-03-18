@@ -4,7 +4,8 @@
 
 Answer the first _n_ terms of Per Nørgårds _rhythmic infinity system_.
 
-Calculate first few terms:
+Per Nørgårds rhythmic infinity system,
+OEIS [A073334](https://oeis.org/A073334):
 
 ```
 >>> 77.noergaardRhythmicInfinitySystem
@@ -20,18 +21,22 @@ Calculate first few terms:
 ]
 ```
 
-Discrete plot of first few terms:
+Per Nørgårds rhythmic infinity system,
+discrete plot,
+OEIS [A073334](https://oeis.org/A073334):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A073334
 99.noergaardRhythmicInfinitySystem
 .discretePlot
 ~~~
 
 ![](Help/Image/noergaardRhythmicInfinitySystem-A.svg)
 
-Scatter plot of first few terms:
+Per Nørgårds rhythmic infinity system,
+scatter plot,
+OEIS [A073334](https://oeis.org/A073334):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A073334
 333.noergaardRhythmicInfinitySystem
 .scatterPlot
 ~~~

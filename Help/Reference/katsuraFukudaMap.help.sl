@@ -4,7 +4,7 @@
 
 Answer the iterative form of the Katsura-Fukuda map.
 
-First few terms:
+The Katsura-Fukuda map:
 
 ```
 >>> 3/7.sqrt.katsuraFukudaMap
@@ -20,7 +20,7 @@ First few terms:
 ]
 ```
 
-Plot first few terms:
+The Katsura-Fukuda map:
 
 ~~~spl svg=A
 3/7.sqrt.katsuraFukudaMap

@@ -12,7 +12,7 @@ The nearest prime to a prime is itself:
 23
 ```
 
-First few terms:
+The prime number nearest _n_,
 OEIS [A051697](http://oeis.org/A051697):
 
 ```
@@ -29,9 +29,10 @@ OEIS [A051697](http://oeis.org/A051697):
 ]
 ```
 
-Plot first few terms:
+The prime number nearest _n_,
+OEIS [A051697](http://oeis.org/A051697):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A051697
 0:50.collect(nearestPrime:/1)
 .scatterPlot
 ~~~

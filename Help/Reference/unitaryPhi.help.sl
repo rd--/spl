@@ -4,7 +4,7 @@
 
 Implement the unitary totient, or unitary phi, function.
 
-First few terms,
+The unitary totient function,
 OEIS [A047994](https://oeis.org/A047994):
 
 ```
@@ -21,9 +21,10 @@ OEIS [A047994](https://oeis.org/A047994):
 ]
 ```
 
-Scatter plot of first few terms:
+The unitary totient function,
+OEIS [A047994](https://oeis.org/A047994):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A047994
 1:99.collect(unitaryPhi:/1)
 .scatterPlot
 ~~~

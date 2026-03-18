@@ -1027,6 +1027,17 @@ OEIS [A097140](https://oeis.org/A097140):
 
 ![](Help/Image/linearRecurrence-N.svg)
 
+_-1^n/4-(2n-3)/4+C(1,n)-C(0,n)_,
+OEIS [A168050](https://oeis.org/A168050):
+
+~~~spl svg=O oeis=A168050
+[1 1 -1].linearRecurrence(
+	[1 1 0 -1 -1], 65
+).discretePlot
+~~~
+
+![](Help/Image/linearRecurrence-O.svg)
+
 * * *
 
 See also: shiftRegisterSequence

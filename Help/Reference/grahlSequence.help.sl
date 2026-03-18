@@ -5,7 +5,7 @@
 Answer the first _n_ terms of the "forest fire" sequence,
 the least sequence such that no three equally spaced terms form an arithmetic progression.
 
-First few terms,
+The Grahl, or "forest fire", sequence,
 OEIS [A229037](https://oeis.org/A229037):
 
 ```
@@ -33,15 +33,16 @@ Show there are no three term arithmetic progressions:
 nil
 ```
 
-Plot first few terms:
+The Grahl, or "forest fire", sequence,
+OEIS [A229037](https://oeis.org/A229037):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A229037
 250.grahlSequence.scatterPlot
 ~~~
 
 ![](Help/Image/grahlSequence-A.svg)
 
-Variant by R. Stanley,
+Variant of the Grahl sequence by R. Stanley,
 avoiding weakly increasing arithmetic progression,
 OEIS [A309890](https://oeis.org/A309890):
 
@@ -61,9 +62,10 @@ OEIS [A309890](https://oeis.org/A309890):
 ]
 ```
 
-Plot first few terms:
+Variant of the Grahl sequence by R. Stanley,
+OEIS [A309890](https://oeis.org/A309890):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A309890
 250.grahlSequence('Stanley').scatterPlot
 ~~~
 

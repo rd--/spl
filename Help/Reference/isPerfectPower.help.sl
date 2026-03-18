@@ -4,7 +4,7 @@
 
 Answer `true` if the integer _n_ is a perfect power, and `false` otherwise.
 
-The first few perfect powers,
+Perfect powers,
 OEIS [A001597](http://oeis.org/A001597):
 
 ```

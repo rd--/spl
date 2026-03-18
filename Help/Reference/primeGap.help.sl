@@ -6,7 +6,7 @@ Answer the _n_-th prime gap.
 A prime gap is the difference between two successive prime numbers.
 The _n_-th prime gap is the difference between the _n+1_-th and the _n_-th prime numbers.
 
-First few terms,
+Prime gaps,
 OEIS [A001223](https://oeis.org/A001223):
 
 ```

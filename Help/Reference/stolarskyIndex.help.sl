@@ -34,9 +34,10 @@ OEIS [A098861](https://oeis.org/A098861):
 ]
 ```
 
-Plot first few terms:
+The row index of _n_ in the Stolarsky array,
+OEIS [A098861](https://oeis.org/A098861):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A098861
 1:150.collect { :n |
 	n.stolarskyIndex[1] - 1
 }.scatterPlot
@@ -61,9 +62,10 @@ OEIS [A098862](https://oeis.org/A098862):
 ]
 ```
 
-Plot first few terms:
+The column index of _n_ in the Stolarsky array,
+OEIS [A098862](https://oeis.org/A098862):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A098862
 1:150.collect { :n |
 	n.stolarskyIndex[2] - 1
 }.scatterPlot

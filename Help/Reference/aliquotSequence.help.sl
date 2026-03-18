@@ -46,7 +46,7 @@ OEIS [A072890](https://oeis.org/A072890):
 [14316 19116 31704 47616 83328]
 ```
 
-The first few sequences that do not reach one,
+Aliquot sequences that do not reach one,
 threads over lists:
 
 ```
@@ -54,7 +54,7 @@ threads over lists:
 [6; 25 6; 28]
 ```
 
-The first few sequences that reach one,
+Aliquot sequences that reach one,
 OEIS [A032451](https://oeis.org/A032451):
 
 ```
@@ -94,7 +94,7 @@ OEIS [A032451](https://oeis.org/A032451):
 ]
 ```
 
-The length of the first few aliquot sequences,
+The length of the aliquot sequences,
 OEIS [A044050](https://oeis.org/A044050):
 
 ```
@@ -191,7 +191,7 @@ OEIS [A008892](https://oeis.org/A008892):
 ]
 ```
 
-The length of the first few aliquot sequences,
+The length of the aliquot sequences,
 OEIS [A044050](https://oeis.org/A044050):
 
 ~~~spl svg=A oeis=A044050

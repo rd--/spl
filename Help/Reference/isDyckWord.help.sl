@@ -109,9 +109,10 @@ There are large gaps:
 [992 2730]
 ```
 
-Plot first few terms:
+List of integers where the binary representation is a Dyck word,
+OEIS [A014486](https://oeis.org/A014486):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A014486
 0:999.select(isDyckWord:/1)
 .scatterPlot
 ~~~

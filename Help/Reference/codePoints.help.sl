@@ -54,9 +54,17 @@ if the code points are in range:
 ]
 ```
 
+The inverse is `fromCodePoints`:
+
+```
+>>> [99 111 100 101 80 111 105 110 116 115]
+>>> .fromCodePoints
+'codePoints'
+```
+
 * * *
 
-See also: Character, characterList, codePoint, String, utf8ByteArray, utf16List
+See also: Character, characterList, codePoint, String, toCharacterCode, utf8ByteArray, utf16List
 
 Guides: String Functions
 

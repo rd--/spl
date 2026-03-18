@@ -8,7 +8,7 @@ sums the Euler totient function,
 written _φ(n)_,
 over the integers from one to _n_.
 
-First few terms,
+_Φ(n)_,
 OEIS [A002088](https://oeis.org/A002088):
 
 ```
@@ -24,9 +24,10 @@ OEIS [A002088](https://oeis.org/A002088):
 ]
 ```
 
-Plot first few terms:
+_Φ(n)_,
+OEIS [A002088](https://oeis.org/A002088):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A002088
 0:50.collect(
 	totientSummatoryFunction:/1
 ).stepPlot

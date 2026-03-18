@@ -4,7 +4,7 @@
 
 Answer the least _k>=1_ such that _n_ divides Fibonacci number _F(k)_.
 
-First few terms,
+The Fibonacci entry points,
 OEIS [A001177](https://oeis.org/A001177):
 
 ```
@@ -12,9 +12,10 @@ OEIS [A001177](https://oeis.org/A001177):
 [1 3 4 6 5 12 8 6 12 15 10 12 7 24 20 12 9]
 ```
 
-Plot first few terms:
+The Fibonacci entry points,
+OEIS [A001177](https://oeis.org/A001177):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A001177
 1:100.collect(
 	fibonacciEntryPoint:/1
 ).discretePlot

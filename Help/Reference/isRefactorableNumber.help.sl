@@ -4,7 +4,7 @@
 
 Answer `true` if _n_ is a refactorable number.
 
-The first few refactorable numbers,
+Refactorable numbers,
 OEIS [A033950](http://oeis.org/A033950):
 
 ```
@@ -17,6 +17,16 @@ OEIS [A033950](http://oeis.org/A033950):
 	136 152 156 180 184
 ]
 ```
+
+Refactorable numbers,
+OEIS [A033950](http://oeis.org/A033950):
+
+~~~spl svg=A oeis=A033950
+1:500.select(isRefactorableNumber:/1)
+.discretePlot
+~~~
+
+![](Help/Image/isRefactorableNumber-A.svg)
 
 * * *
 

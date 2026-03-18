@@ -37,9 +37,10 @@ OEIS [A019586](https://oeis.org/A019586):
 ]
 ```
 
-Plot first few terms:
+The vertical para-Fibonacci sequence,
+OEIS [A019586](https://oeis.org/A019586):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A019586
 1:200.collect { :n |
 	n.wythoffIndex[1] - 1
 }.scatterPlot
@@ -49,7 +50,9 @@ Plot first few terms:
 
 The horizontal para-Fibonacci sequence,
 OEIS [A035612](https://oeis.org/A035612)
-and OEIS [A035614](https://oeis.org/A035614):
+and also,
+minus one,
+OEIS [A035614](https://oeis.org/A035614):
 
 ```
 >>> 1:81.collect { :n |
@@ -68,9 +71,10 @@ and OEIS [A035614](https://oeis.org/A035614):
 ]
 ```
 
-Plot first few terms:
+The horizontal para-Fibonacci sequence,
+OEIS [A035614](https://oeis.org/A035614):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A035614
 1:200.collect { :n |
 	n.wythoffIndex[2] - 1
 }.scatterPlot

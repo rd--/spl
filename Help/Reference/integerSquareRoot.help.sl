@@ -19,7 +19,7 @@ Threads over lists:
 [2 2 2 3]
 ```
 
-Integer square root of the first few integers,
+The integer square root,
 OEIS [A000196](https://oeis.org/A000196):
 
 ```
@@ -35,7 +35,7 @@ OEIS [A000196](https://oeis.org/A000196):
 ]
 ```
 
-Integer square root of the first few odd powers of seven:
+The integer square root of odd powers of seven:
 
 ```
 >>> (7L ^ 1:21:2).integerSquareRoot

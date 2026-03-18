@@ -4,7 +4,7 @@
 
 Answer the lucky numbers less than or equal to _n_.
 
-First few terms,
+The lucky numbers,
 OEIS [A000959](https://oeis.org/A000959):
 
 ```
@@ -43,9 +43,10 @@ Lucky numbers that are also primes:
 ]
 ```
 
-Step plot of distances between lucky numbers:
+Step plot of distances between lucky numbers,
+OEIS [A031883](https://oeis.org/A031883):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A031883
 1000.luckyNumbers
 .differences
 .stepPlot
@@ -53,7 +54,7 @@ Step plot of distances between lucky numbers:
 
 ![](Help/Image/luckyNumbers-A.svg)
 
-Plot the points at lucky number indices on the first seventeen turns of the spiral:
+Plot the points at lucky number indices on the first seventeen turns of the triangular spiral:
 
 ~~~spl svg=B
 let h = (17 * 3).triangularSpiralPoints;
