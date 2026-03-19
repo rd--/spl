@@ -6,19 +6,85 @@ Traits and Types:
 - `Matrix`
 - `NumericArray`
 
-Constructing:
+General Constructors
 
+- `antidiagonalArray`
 - `array`
 - `binaryMatrix`
-- `helicalScanMatrix`
+- `centerArray`
+- `constantArray`
+- `dispersionArray`
+- `integerSequenceMatrix`
+- `iota`
 - `repeatMatrix`
+- `reshape`
 - `table`
 - `triangularArray`
+
+Specific Matrices:
+
+- `adjacencyMatrix`
+- `antidiagonalMatrix`
+- `blockDiagonalMatrix`
+- `boxMatrix`
+- `cauchyMatrix`
+- `cayleyMengerMatrix`
+- `circulantMatrix`
+- `condensedDistanceMatrix`
+- `connectionMatrix`
+- `crossMatrix`
+- `designMatrix`
+- `diagonalMatrix`
+- `diamondMatrix`
+- `diskMatrix`
+- `distanceMatrix`
+- `drawdownMatrix`
+- `eulerMatrix`
+- `evoluteSpiralMatrix`
+- `exchangeMatrix`
+- `fourierMatrix`
+- `frobeniusCompanionMatrix`
+- `gaussianMatrix`
+- `graphDistanceMatrix`
+- `hadamardMatrix`
+- `hankelMatrix`
+- `helicalScanMatrix`
+- `hilbertMatrix`
+- `homogeneousTranslationMatrix`
+- `identityMatrix`
+- `incidenceMatrix`
+- `intervalMatrix`
+- `kirchhoffMatrix`
+- `lambdomaMatrix`
+- `liftplanMatrix`
+- `pascalMatrix`
+- `permutationMatrix`
+- `recurrenceMatrix`
+- `reflectionMatrix`
+- `repeatMatrix`
+- `rotationMatrix`
+- `scalingMatrix`
+- `seidelAdjacencyMatrix`
+- `singleEntryMatrix`
+- `spiralMatrix`
+- `stochasticMatrix`
+- `stolarskyArray`
+- `sylvesterMatrix`
+- `threadingMatrix`
+- `tieupMatrix`
+- `toeplitzMatrix`
+- `vandermondeMatrix`
+- `walshMatrix`
+- `welchCostasArrayList`
+- `wythoffArray`
+- `zeroMatrix`
+- `zigzagMatrix`
 
 Converting:
 
 - `asList`: convert matrix to list of lists
 - `asMatrix`: convert list of lists to matrix
+- `fromTrilinearVertexMatrix`
 
 Querying:
 
@@ -47,6 +113,7 @@ Rearranging:
 Predicates:
 
 - `isAntisymmetricMatrix`
+- `isBinaryMatrix`
 - `isBisymmetricMatrix`
 - `isCentrosymmetricMatrix`
 - `isDiagonalMatrix`
@@ -62,39 +129,6 @@ Predicates:
 - `isSymmetricMatrix`
 - `isUnitaryMatrix`
 - `isUpperTriangularMatrix`
-
-Specific Matrices:
-
-- `antidiagonalMatrix`: matrix with list items on antidiagonal
-- `blockDiagonalMatrix`: matrix with matrices on block diagonal
-- `boxMatrix`: square matrix
-- `cauchyMatrix`: Cauchy matrix
-- `circulantMatrix`: circulant (rotational) matrix
-- `crossMatrix`: cross matrix
-- `diagonalMatrix`: matrix with list items on diagonal
-- `diamondMatrix`: diamond matrix
-- `diskMatrix`: disk matrix
-- `distanceMatrix`: distance matrix
-- `evoluteSpiralMatrix`
-- `exchangeMatrix`: exchange matrix
-- `fourierMatrix`: square Fourier matrix
-- `frobeniusCompanionMatrix`: Frobenius companion matrix
-- `gaussianMatrix`
-- `hadamardMatrix`: Hadamard matrix
-- `hilbertMatrix`: Hilbert matrix
-- `identityMatrix`: identity matrix
-- `pascalMatrix`
-- `permutationMatrix`: permutation matrix
-- `recurrenceMatrix`: recurrence matrix
-- `singleEntryMatrix`
-- `spiralMatrix`
-- `sylvesterMatrix`: Sylvester matrix
-- `toeplitzMatrix`: Toeplitz matrix
-- `vandermondeMatrix`: Vandermonde matrix
-- `walshMatrix`: Walsh matrix
-- `welchCostasArrayList`
-- `zeroMatrix`: zero matrix
-- `zigzagMatrix`
 
 General:
 
@@ -172,6 +206,22 @@ Tuning:
 Algorithms:
 
 - `kuhnMunkresAlgorithm`
+
+Sorting Matrix
+
+- `bitonicSortMatrix`
+- `bubbleSortMatrix`
+- `combSortMatrix`
+- `cycleSortMatrix`
+- `gnomeSortMatrix`
+- `insertionSortMatrix`
+- `mergeSortMatrix`
+- `oddEvenSortMatrix`
+- `quickSortMatrix`
+- `radixSortMatrix`
+- `selectionSortMatrix`
+- `shellSortMatrix`
+- `shuffleSortMatrix`
 
 * * *
 
