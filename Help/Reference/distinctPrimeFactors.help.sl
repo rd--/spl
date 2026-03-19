@@ -107,6 +107,19 @@ OEIS [A129251](https://oeis.org/A129251):
 
 ![](Help/Image/distinctPrimeFactors-C.svg)
 
+Numbers having no prime gaps in their factorization,
+OEIS [A073491](https://oeis.org/A073491):
+
+~~~spl svg=D oeis=A073491
+2:135.select { :n |
+	let f = n.distinctPrimeFactors;
+	let k = f.size;
+	f[k].primePi - f[1].primePi = (k - 1)
+}.discretePlot
+~~~
+
+![](Help/Image/distinctPrimeFactors-D.svg)
+
 * * *
 
 See also: factorInteger, gcd, isPrime, isPrimePower, isSquareFree, primeNu, primeOmega

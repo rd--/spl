@@ -140,6 +140,32 @@ OEIS [A174868](https://oeis.org/A174868):
 
 ![](Help/Image/sternBrocotSequence-G.svg)
 
+Bitwise exclusive or of adjacent terms of the Stern-Brocot sequence,
+OEIS [A283987](https://oeis.org/A283987):
+
+~~~spl svg=H oeis=A283987
+let k = 250;
+let a = k.sternBrocotSequence;
+2:k.collect { :n |
+	a[n - 1].bitXor(a[n])
+}.scatterPlot
+~~~
+
+![](Help/Image/sternBrocotSequence-H.svg)
+
+Bitwise and of adjacent terms of the Stern-Brocot sequence,
+OEIS [A283988](https://oeis.org/A283988):
+
+~~~spl svg=I oeis=A283988
+let k = 250;
+let a = k.sternBrocotSequence;
+2:k.collect { :n |
+	a[n - 1].bitAnd(a[n])
+}.scatterPlot
+~~~
+
+![](Help/Image/sternBrocotSequence-I.svg)
+
 * * *
 
 See also: fareySequence, sternBrocotNumber, sternBrocotTree

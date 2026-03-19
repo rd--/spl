@@ -242,6 +242,33 @@ OEIS [A304106](https://oeis.org/A304106):
 
 ![](Help/Image/nextPrime-G.svg)
 
+Prime factorization representation of Stern polynomials,
+log scale scatter plot,
+OEIS [A260443](https://oeis.org/A260443):
+
+~~~spl svg=H oeis=A260443
+let b = { :n |
+	n.factorInteger.product { :x |
+		x[1].nextPrime ^ x[2]
+	}
+};
+let a = Map { :n |
+	(n < 2).if {
+		n + 1L
+	} {
+		let h = n // 2;
+		(n \\ 2 = 0).if {
+			b(a[h])
+		} {
+			a[h] * a[n - h]
+		}
+	}
+};
+a[0:250].logScale.scatterPlot
+~~~
+
+![](Help/Image/nextPrime-H.svg)
+
 * * *
 
 See also: isPrime, previousPrime

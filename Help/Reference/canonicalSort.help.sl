@@ -48,6 +48,13 @@ Sort matrix of strings:
 ['bx' 'xa'; 'c' 'a']
 ```
 
+Case rule:
+
+```
+>>> ['A' 'a' 'B' 'b'].canonicalSort
+['a' 'A' 'b' 'B']
+```
+
 * * *
 
 See also: lexicographicSort, precedes, sort

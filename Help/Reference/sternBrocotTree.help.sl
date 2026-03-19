@@ -17,8 +17,9 @@ The terms of the tree to depth five in level order:
 ]
 ```
 
-Numerators of Farey (or Stern-Brocot) tree fractions,
-OEIS [A007305](https://oeis.org/A007305):
+Numerators of Stern-Brocot (and also Farey) tree fractions,
+OEIS [A007305](https://oeis.org/A007305),
+omitting first two terms:
 
 ```
 >>> 5.sternBrocotTree
@@ -33,7 +34,7 @@ OEIS [A007305](https://oeis.org/A007305):
 ]
 ```
 
-Denominators of Farey (or Stern-Brocot) tree fractions,
+Denominators of Stern-Brocot tree fractions,
 OEIS [A047679](https://oeis.org/A047679):
 
 ```
@@ -93,7 +94,7 @@ The Stern-Brocot tree is a binary tree:
 true
 ```
 
-Numerators of Farey (or Stern-Brocot) tree fractions,
+Numerators of Stern-Brocot (and also Farey) tree fractions,
 OEIS [A007305](https://oeis.org/A007305):
 
 ~~~spl svg=A oeis=A007305
@@ -105,7 +106,7 @@ OEIS [A007305](https://oeis.org/A007305):
 
 ![](Help/Image/sternBrocotTree-A.svg)
 
-Denominators of Farey (or Stern-Brocot) tree fractions,
+Denominators of Stern-Brocot tree fractions,
 OEIS [A047679](https://oeis.org/A047679):
 
 ~~~spl svg=B oeis=A047679
@@ -117,6 +118,36 @@ OEIS [A047679](https://oeis.org/A047679):
 
 ![](Help/Image/sternBrocotTree-B.svg)
 
+Replace each fraction _p/q_ in the Farey tree with _2p+q_,
+OEIS [A049465](https://oeis.org/A049465):
+
+~~~spl svg=C oeis=A049465
+9.sternBrocotTree
+.levelOrderValues
+.select { :x |
+	x <= 1
+}.collect { :x |
+	(2 * x.numerator) + x.denominator
+}.scatterPlot
+~~~
+
+![](Help/Image/sternBrocotTree-C.svg)
+
+Sum of numerator and denominator of fractions in the Farey tree,
+OEIS [A049448](https://oeis.org/A049448):
+
+~~~spl svg=D oeis=A049448
+9.sternBrocotTree
+.levelOrderValues
+.select { :x |
+	x <= 1
+}.collect { :x |
+	x.numerator + x.denominator
+}.scatterPlot
+~~~
+
+![](Help/Image/sternBrocotTree-D.svg)
+
 * * *
 
 See also: calkinWilfTree, mediant, sternBrocotNumber, sternBrocotSequence
@@ -125,7 +156,10 @@ Guides: Mathematical Sequences
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/Stern-BrocotTree.html)
+[1](https://mathworld.wolfram.com/Stern-BrocotTree.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Stern%E2%80%93Brocot_tree)
+[2](https://en.wikipedia.org/wiki/Farey_sequence)
 
 Further Reading: Lehmer 1929, Stern 1858
 

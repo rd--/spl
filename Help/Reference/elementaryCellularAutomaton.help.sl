@@ -177,6 +177,23 @@ let k = 100;
 
 ![](Help/Image/elementaryCellularAutomaton-I.svg)
 
+Number of zeroes in the _n_-th generation of Rule 30,
+OEIS [A070951](https://oeis.org/A070951):
+
+~~~spl svg=J oeis=A070951
+let n = 115;
+let m = n * 2 - 1;
+30.elementaryCellularAutomaton(
+	[1].centerArray(m, 0),
+	n - 1
+).withIndexCollect { :x :i |
+	x.middle(i * 2 - 1)
+	.occurrencesOf(0)
+}.scatterPlot
+~~~
+
+![](Help/Image/elementaryCellularAutomaton-J.svg)
+
 * * *
 
 See also: arrayFilter, blockMap, centerArray, convolve, fromDigits, integerDigits, partition, substitutionSystem

@@ -282,7 +282,7 @@ OEIS [A005728](https://oeis.org/A005728):
 
 * * *
 
-See also: Fraction, eulerPhi, gcd, isFareyPair, minkowskiQuestionMark, sternBrocotSequence, subdivide, totientSummatoryFunction
+See also: Fraction, eulerPhi, gcd, isFareyPair, minkowskiQuestionMark, sternBrocotSequence, sternBrocotTree, subdivide, totientSummatoryFunction
 
 Guides: Integer Functions, Integer Sequence Functions, Mathematical Sequences
 

@@ -51,6 +51,28 @@ a[1:75].scatterPlot
 
 ![](Help/Image/Map-A.svg)
 
+Calculate the Stern-Brocot sequence,
+OEIS [A002487](https://oeis.org/A002487):
+
+~~~spl svg=B oeis=A002487
+let a = Map { :n |
+	(n < 2).if {
+		n
+	} {
+		n.isEven.if {
+			a[n / 2]
+		} {
+			a[(n - 1) / 2]
+			+
+			a[(n + 1) / 2]
+		}
+	}
+};
+a[0:200].scatterPlot
+~~~
+
+![](Help/Image/Map-B.svg)
+
 Note: `Map` is _IdentityDictionary_ in Smalltalk.
 
 * * *

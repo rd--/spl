@@ -25,6 +25,11 @@ The answer is sorted by factor.
 >>> 7.!.factorInteger
 [2 4; 3 2; 5 1; 7 1]
 
+>>> 7.!.factorInteger.product { :f | 
+>>> 	f[1] ^ f[2]
+>>> }
+7.!
+
 >>> 20.!.factorInteger
 [
 	 2 18;
@@ -133,10 +138,14 @@ Compute the original number from a factorization:
 >>> 120.factorInteger
 [2 3; 3 1; 5 1]
 
+>>> [2 3; 3 1; 5 1].product { :x |
+>>> 	x[1] ^ x[2]
+>>> }
+120
+
 >>> [2 3; 3 1; 5 1].collect { :x |
 >>> 	x[1] ^ x[2]
 >>> }.product
-120
 ```
 
 `divisors` gives the list of divisors including prime divisors:

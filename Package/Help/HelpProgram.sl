@@ -59,6 +59,14 @@ HelpProgram : [Object] { | topic language commentary annotations programText |
 		}
 	}
 
+	markdownImageReference { :self |
+		'![](Help/Image/%)'.format(
+			[
+				self.imageFileName
+			]
+		)
+	}
+
 	markdownText { :self |
 		[
 			self.commentary,
@@ -67,11 +75,7 @@ HelpProgram : [Object] { | topic language commentary annotations programText |
 			self.isImageProgram.if {
 				[
 					'',
-					'![](Help/Image/%)'.format(
-						[
-							self.imageFileName
-						]
-					)
+					self.markdownImageReference
 				].unlines
 			} {
 				nil

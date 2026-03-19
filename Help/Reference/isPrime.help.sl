@@ -483,6 +483,34 @@ OEIS [A187757](https://oeis.org/A187757):
 
 ![](Help/Image/isPrime-L.svg)
 
+Number of ways to write the _n_-th odd number in the form _p+2^x+11*2^y_,
+with _p_ a prime congruent to five modulo six,
+OEIS [A157242](https://oeis.org/A157242):
+
+~~~spl svg=M
+1:150.collect { :n |
+	let a = (2 * n) - 1;
+	let b = (a / 11).log2;
+	Range(1, b, 1).sum { :x |
+		let c = a - (11 * (2 ^ x));
+		let d = 2.max(c).log2;
+		Range(1, c, 1).sum { :y |
+			let e = c - (2 ^ y);
+			(
+				e > 1 & {
+					e % 6 = 5 & {
+						e.isPrime
+					}
+				}
+			).boole
+		}
+	}
+}.scatterPlot
+~~~
+
+![](Help/Image/isPrime-M.svg)
+
+
 * * *
 
 See also: isComposite, isGaussianPrime, isPrimePower, isPrimeTrialDivision, isSemiprime, isSternPrime, millerRabinPrimalityTest, nextPrime, prime, primesList

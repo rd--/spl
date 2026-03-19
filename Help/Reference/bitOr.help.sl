@@ -151,6 +151,19 @@ OEIS [A265705](https://oeis.org/A265705):
 
 ![](Help/Image/bitOr-I.svg)
 
+Bitwise or of adjacent terms of the Stern-Brocot sequence,
+OEIS [A283986](https://oeis.org/A283986):
+
+~~~spl svg=J oeis=A283986
+let k = 200;
+let a = k.sternBrocotSequence;
+2:k.collect { :n |
+	a[n - 1].bitOr(a[n])
+}.scatterPlot
+~~~
+
+![](Help/Image/bitOr-J.svg)
+
 * * *
 
 See also: or, bitAnd, bitNot, bitXor
