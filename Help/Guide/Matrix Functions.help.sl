@@ -10,6 +10,7 @@ Constructing:
 
 - `array`
 - `binaryMatrix`
+- `helicalScanMatrix`
 - `repeatMatrix`
 - `table`
 - `triangularArray`

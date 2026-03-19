@@ -88,6 +88,30 @@ let f = { :m :k |
 
 ![](Help/Image/if-A.svg)
 
+Triangle whose rows show the result of flipping the first,
+first two,
+and finally first _n_ coins when starting with the stack _1:n_,
+OEIS [A056951](https://oeis.org/A056951):
+
+~~~spl svg=B oeis=A056951
+1:13.triangularArray { :n :k |
+	(k = 1).if {
+		-n
+	} {
+		(n = k).if {
+			n - 1
+		} {
+			let m = (
+				(2 * k) <= (n + 1)
+			).boole + 1;
+			2 * k - n - m
+		}
+	}
+}.catenate.discretePlot
+~~~
+
+![](Help/Image/if-B.svg)
+
 _Rationale:_
 Spl follows Smalltalk in having no special purpose conditional evaluation mechanisms.
 Conditional expressions are implemented as ordinary blocks.

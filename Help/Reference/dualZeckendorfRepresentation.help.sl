@@ -2,7 +2,8 @@
 
 - _dualZeckendorfRepresentation(n)_
 
-Answer the Dual Zeckendorf representation of the positive integer _n_.
+Answer the dual Zeckendorf representation of the positive integer _n_,
+also called the maximal or lazy Fibonacci representation.
 
 The Zeckendorf representation of 1⏨:
 
@@ -15,7 +16,7 @@ The Zeckendorf representation of 1⏨:
 ]
 ```
 
-Reconstruct integer from Zeckendorf representation:
+Reconstruct integer from dual Zeckendorf representation:
 
 ```
 >>> let n = 10 ^ 10;
@@ -127,7 +128,24 @@ Of a not very small integer:
 )
 ```
 
-Number of terms in the Dual Zeckendorf representation of _n_,
+Number of digits in the dual Zeckendorf representation of _n_,
+OEIS [A095791](https://oeis.org/A095791):
+
+```
+>>> 0:98.collect { :n |
+>>> 	n.dualZeckendorfRepresentation
+>>> 	.size
+>>> }
+[
+	1 1 2 2 3 3 3 4 4 4 4 4 5 5 5 5 5 5 5 5
+	6 6 6 6 6 6 6 6 6 6 6 6 6 7 7 7 7 7 7 7
+	7 7 7 7 7 7 7 7 7 7 7 7 7 7 8 8 8 8 8 8
+	8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+	8 8 8 8 8 8 8 8 9 9 9 9 9 9 9 9 9 9 9
+]
+```
+
+Number of terms in the dual Zeckendorf representation of _n_,
 OEIS [A112310](https://oeis.org/A112310):
 
 ```
@@ -177,7 +195,7 @@ OEIS [A328212](https://oeis.org/A328212):
 ]
 ```
 
-Discrete plot of a representation with 114 places:
+Discrete plot of a dual Zeckendorf representation with 114 places:
 
 ~~~spl svg=A
 9E23.dualZeckendorfRepresentation
@@ -195,7 +213,7 @@ indicating the proportions of zeroes and ones:
 [0 -> 33, 1 -> 81]
 ```
 
-Number of terms in lazy Fibonacci representation of _n_,
+Number of terms in the dual Zeckendorf representation of _n_,
 OEIS [A112310](https://oeis.org/A112310):
 
 ~~~spl svg=B oeis=A112310
@@ -220,7 +238,7 @@ OEIS [A003754](https://oeis.org/A003754):
 ![](Help/Image/dualZeckendorfRepresentation-C.svg)
 
 Triangle read by rows,
-row _n_ has terms in lazy Fibonacci representation of _n_,
+row _n_ has terms in the dual Zeckendorf representation of _n_,
 OEIS [A112309](https://oeis.org/A112309):
 
 ~~~spl svg=D oeis=A112309
@@ -234,7 +252,7 @@ OEIS [A112309](https://oeis.org/A112309):
 
 ![](Help/Image/dualZeckendorfRepresentation-D.svg)
 
-Integers whose Dual Zeckendorf representation is palindromic,
+Integers whose dual Zeckendorf representation is palindromic,
 OEIS [A331191](https://oeis.org/A331191):
 
 ~~~spl svg=E oeis=A331191
@@ -246,7 +264,7 @@ OEIS [A331191](https://oeis.org/A331191):
 
 ![](Help/Image/dualZeckendorfRepresentation-E.svg)
 
-The number of runs of identical bits in the Dual Zeckendorf representation of _n_,
+The number of runs of identical bits in the dual Zeckendorf representation of _n_,
 OEIS [A104325](https://oeis.org/A104325):
 
 ~~~spl svg=F oeis=A104325
@@ -258,6 +276,31 @@ OEIS [A104325](https://oeis.org/A104325):
 ~~~
 
 ![](Help/Image/dualZeckendorfRepresentation-F.svg)
+
+Number of digits in the dual Zeckendorf representation of _n_,
+OEIS [A095791](https://oeis.org/A095791):
+
+~~~spl svg=G oeis=A095791
+0:65.collect { :n |
+	n.dualZeckendorfRepresentation
+	.size
+}.discretePlot
+~~~
+
+![](Help/Image/dualZeckendorfRepresentation-G.svg)
+
+Numbers whose dual Zeckendorf representation has an even number of summands,
+OEIS [A095880](https://oeis.org/A095880):
+
+~~~spl svg=H oeis=A095880
+0:125.select { :n |
+	n.dualZeckendorfRepresentation
+	.occurrencesOf(1)
+	.isEven
+}.discretePlot
+~~~
+
+![](Help/Image/dualZeckendorfRepresentation-H.svg)
 
 * * *
 

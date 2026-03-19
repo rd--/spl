@@ -101,6 +101,37 @@ OEIS [A040997](https://oeis.org/A040997):
 
 ![](Help/Image/abs-E.svg)
 
+Triangle read by rows,
+row _n_ counts down from _n_ in steps of two
+and then counts up the remaining elements in the set,
+again in steps of two,
+OEIS [A130517](https://oeis.org/A130517),
+also,
+when multiplied by two,
+OEIS [A162630](https://oeis.org/A162630),
+also,
+the absolute value of
+OEIS [A056951](https://oeis.org/A056951):
+
+~~~spl svg=F oeis=A130517
+1:13.triangularArray { :n :k |
+	(k = 1).if {
+		n
+	} {
+		(n = k).if {
+			n - 1
+		} {
+			let m = (
+				(2 * k) <= (n + 1)
+			).boole + 1;
+			(2 * k - n - m).abs
+		}
+	}
+}.catenate.discretePlot
+~~~
+
+![](Help/Image/abs-F.svg)
+
 * * *
 
 See also: absArg, arg, hypot, imaginary, norm, sign, real

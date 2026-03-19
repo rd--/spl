@@ -154,6 +154,25 @@ _x²_ plotted on a Cartesian plane:
 
 ![](Help/Image/square-E.svg)
 
+The quarter-squares sequence,
+OEIS [A002620](https://oeis.org/A002620):
+
+~~~spl svg=F oeis=A002620
+(0:65.square / 4).floor.discretePlot
+~~~
+
+![](Help/Image/square-F.svg)
+
+Coordination sequence for cubic lattice,
+_4n²+2_,
+OEIS [A005899](https://oeis.org/A005899):
+
+~~~spl svg=G oeis=A005899
+((4 * 1:65.square) + 2).discretePlot
+~~~
+
+![](Help/Image/square-G.svg)
+
 Where supported `square` is displayed as ².
 
 * * *

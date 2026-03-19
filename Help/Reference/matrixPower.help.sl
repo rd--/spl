@@ -113,6 +113,40 @@ OEIS [A002524](https://oeis.org/A002524):
 [1 2 6 14 31 73 172 400 932 2177 5081]
 ```
 
+Triangular matrix _T_ where column _n_ equals _T^(n+1)_ when read by rows,
+OEIS [A105540](https://oeis.org/A105540):
+
+~~~spl svg=A oeis=A105540
+let t = { :n |
+	(((8 * n + 1).sqrt - 1) / 2).floor
+};
+let j = { :n :m |
+	n - (m * (m + 1) / 2) + 1
+};
+let f = { :a :r :c |
+	let tc = t(r - c);
+	let m = a.matrixPower(c + 1);
+	let n = m[tc + 1][j(r - c, tc)];
+	a[r + 1][c + 1] := n
+};
+let t = { :n :k |
+	let shape = [n + 1, n + 1];
+	let a = >=.array(shape).boole;
+	let tk = t(n - k);
+	0.toDo(n) { :r |
+		0.toDo(r) { :c |
+			f(a, r, c)
+		}
+	};
+	a := a.matrixPower(k + 1);
+	a[tk + 1][j(n - k, tk)]
+};
+0:9.triangularArray(t:/2)
+.catenate.log.scatterPlot
+~~~
+
+![](Help/Image/matrixPower-A.svg)
+
 * * *
 
 See also: dot

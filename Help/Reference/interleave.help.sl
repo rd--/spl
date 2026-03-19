@@ -107,6 +107,19 @@ OEIS [A122874](https://oeis.org/A122874):
 ]
 ```
 
+Alternating clock-face numbers,
+OEIS [A059857](https://oeis.org/A059857):
+
+```
+>>> let a = [1 .. 12];
+>>> [a.reverse, a].interleave
+[
+	12  1 11  2 10  3  9  4  8  5
+	 7  6  6  7  5  8  4  9  3 10
+	 2 11  1 12
+]
+```
+
 Alternate positive and negative integers,
 OEIS [A001057](https://oeis.org/A001057)
 without the leading zero:
@@ -167,6 +180,17 @@ let n = 0:32;
 ~~~
 
 ![](Help/Image/interleave-F.svg)
+
+Alternating clock-face numbers,
+OEIS [A059857](https://oeis.org/A059857):
+
+~~~spl svg=G oeis=A059857
+let a = [1 .. 12];
+[a.reverse, a].interleave.repeat(3)
+.discretePlot
+~~~
+
+![](Help/Image/interleave-G.svg)
 
 * * *
 

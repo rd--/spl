@@ -194,6 +194,25 @@ OEIS [A003056](https://oeis.org/A003056):
 
 ![](Help/Image/triangularNumber-C.svg)
 
+Triangular numbers repeated,
+OEIS [A008805](https://oeis.org/A008805):
+
+~~~spl svg=D oeis=A008805
+(2 # 1:35.triangularNumber)
+.discretePlot
+~~~
+
+![](Help/Image/triangularNumber-D.svg)
+
+Triangular numbers,
+OEIS [A000217](https://oeis.org/A000217):
+
+~~~spl svg=E oeis=A000217
+1:65.triangularNumber.discretePlot
+~~~
+
+![](Help/Image/triangularNumber-E.svg)
+
 * * *
 
 See also: binomial, cube, inverseTriangularNumber, pascalTriangle, polygonalNumber, square, tetrahedralNumber

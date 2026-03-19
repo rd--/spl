@@ -122,6 +122,17 @@ OEIS [A069133](https://oeis.org/A069133):
 [1 21 61 121 201 301 421 561 721]
 ```
 
+Centered square numbers,
+OEIS [A001844](https://oeis.org/A001844):
+
+~~~spl svg=A oeis=A001844
+1:65.collect { :n |
+	4.centeredPolygonalNumber(n)
+}.discretePlot
+~~~
+
+![](Help/Image/centeredPolygonalNumber-A.svg)
+
 * * *
 
 See also: tetrahedralNumber, triangularNumber
@@ -134,7 +145,7 @@ _Mathematica_
 [2](https://mathworld.wolfram.com/CenteredTriangularNumber.html)
 [3](https://mathworld.wolfram.com/CenteredSquareNumber.html)
 [4](https://mathworld.wolfram.com/CenteredPentagonalNumber.html)
-[5](https://mathworld.wolfram.com/HexNumber.html)
+[5](https://mathworld.wolfram.com/HexNumber.html),
 _OEIS_
 [1](https://oeis.org/A005448)
 [2](https://oeis.org/A001844)

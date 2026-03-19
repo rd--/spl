@@ -81,6 +81,33 @@ OEIS [A004247](https://oeis.org/A004247):
 
 ![](Help/Image/antidiagonalArray-C.svg)
 
+Square array,
+read by antidiagonals,
+based on triangular numbers with each term being the sum of two consecutive terms in the previous row,
+OEIS [A058395](https://oeis.org/A058395):
+
+~~~spl svg=D oeis=A058395
+let t = { :n :k |
+	(n = 0).if {
+		k.isOdd.if {
+			0
+		} {
+			(k + 2) * (k + 4) / 8
+		}
+	} {
+		(k = 0).if {
+			1
+		} {
+			t(n - 1, k - 1) + t(n - 1, k)
+		}
+	}
+};
+0:10.antidiagonalArray(t:/2)
+.catenate.logScale.discretePlot
+~~~
+
+![](Help/Image/antidiagonalArray-D.svg)
+
 * * *
 
 See also: antidiagonal, antidiagonalIndicesDo, antidiagonalMatrix, triangularArray

@@ -2,7 +2,8 @@
 
 - _zeckendorfRepresentation(n)_
 
-Answer the Zeckendorf representation of the positive integer _n_.
+Answer the Zeckendorf representation of the positive integer _n_,
+also called the minimal Fibonacci representation.
 Zeckendorf’s theorem states that every positive integer can be represented as the sum of distinct Fibonacci numbers,
 using no two consecutive numbers,
 and that such a representation is unique.

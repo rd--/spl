@@ -297,6 +297,14 @@ OEIS [A100047](https://oeis.org/A100047):
 ]
 ```
 
+Repeat _1317_,
+OEIS [A112132](https://oeis.org/A112132):
+
+```
+>>> [1 3 1 7].repeat(5)
+[1 3 1 7 1 3 1 7 1 3 1 7 1 3 1 7 1 3 1 7]
+```
+
 A Chebyshev transform of the Fibonacci numbers,
 OEIS [A100047](https://oeis.org/A100047):
 

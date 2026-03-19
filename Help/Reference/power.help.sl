@@ -729,6 +729,25 @@ OEIS [A001792](https://oeis.org/A001792)
 [1 3 8 20 48 112 256 576 1280 2816 6144]
 ```
 
+_n(n+1)2^(n-2)_,
+OEIS [A001788](https://oeis.org/A001788):
+
+```
+>>> let n = 0:9;
+>>> n * (n + 1) * (2 ^ (n - 2))
+[0 1 6 24 80 240 672 1792 4608 11520]
+```
+
+Björner-Welker sequence,
+OEIS [A055580](https://oeis.org/A055580):
+
+```
+>>> let n = 0:9;
+>>> (n * (n + 1) * (2 ^ (n - 2)))
+>>> .prefixSum.allButFirst
+[1 7 31 111 351 1023 2815 7423 18943]
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A

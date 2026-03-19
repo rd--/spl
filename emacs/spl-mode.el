@@ -77,6 +77,10 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
     (browse-url
      (format "%s?t=spl&e=Help/Reference/%s.help.sl" spl-help-url-prefix topic))))
 
+(defun spl-insert-oeis-reference (oeisId)
+  (interactive "MOeis Identifier: ")
+  (insert (format "OEIS [%s](https://oeis.org/%s)" oeisId oeisId)))
+
 (defun spl-write-text-file (filename text)
   "Write TEXT to FILENAME"
   (write-region text nil filename))

@@ -347,6 +347,21 @@ let s = 0;
 
 ![](Help/Image/powerMod-J.svg)
 
+Triangular array,
+read by rows,
+of _k^4%n+n^4%k_,
+OEIS [A049771](https://oeis.org/A049771)
+
+~~~spl svg=K oeis=A049771
+1:18.triangularArray { :n :k |
+	k.powerMod(4, n)
+	+
+	n.powerMod(4, k)
+}.catenate.scatterPlot
+~~~
+
+![](Help/Image/powerMod-K.svg)
+
 * * *
 
 See also: ^, %

@@ -443,6 +443,45 @@
 		k / k.deepSum
 	}
 
+	helicalScanMatrixData { :self :step |
+		let shape = self.shape;
+		let a = List(shape.product);
+		shape.helicalScanIndicesDo(step) { :i :j :k |
+			a[k] := self[i][j]
+		};
+		a
+	}
+
+	helicalScanMatrixData { :self |
+		self.helicalScanMatrixData([1 1])
+	}
+
+	helicalScanIndicesDo { :shape :step :aBlock:/3 |
+		let [r, c] = shape;
+		let [p, q] = step;
+		let i = 1;
+		let j = 1;
+		let k = 1;
+		(r * c).timesRepeat {
+			aBlock(i, j, k);
+			i := (i + p).mod(r, 1);
+			j := (j + q).mod(c, 1);
+			k := k + 1
+		}
+	}
+
+	helicalScanMatrix { :self :shape :step |
+		let m = shape.constantArray(nil);
+		shape.helicalScanIndicesDo(step) { :i :j :k |
+			m[i][j] := self[k]
+		};
+		m
+	}
+
+	helicalScanMatrix { :self :shape |
+		self.helicalScanMatrix(shape, [1 1])
+	}
+
 	identityMatrix { :shape |
 		let [m, n] = shape;
 		let answer = [m, n].zeroMatrix;

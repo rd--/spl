@@ -121,6 +121,22 @@ let m = (2 ^ 4).hadamardMatrix;
 
 ![](Help/Image/lexicographicSort-A.svg)
 
+Lexicographic ordering of lattice points,
+OEIS [A057554](https://oeis.org/A057554),
+also,
+OEIS [A057555](https://oeis.org/A057555)
+minus one:
+
+~~~spl svg=B oeis=A057554
+2:11.collect { :n |
+	n.integerPartitions([2]).collect { :p |
+		p.permutations.nub
+	}.catenate.lexicographicSort - 1
+}.catenate.catenate.discretePlot
+~~~
+
+![](Help/Image/lexicographicSort-B.svg)
+
 * * *
 
 See also: colexicographicSort, canonicalSort, precedes, sort

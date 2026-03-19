@@ -469,8 +469,8 @@ the first differences are _3,1,2,2,1,3_ repeating:
 	 1  4  5  7  9 10 13 16 17 19
 	21 22 25 28 29 31 33 34 37 40
 ]
-
 ```
+
 An integer sequence modulo an integer,
 _n%8_,
 i.e. with a fixed modulus,
