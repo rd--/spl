@@ -6,14 +6,9 @@ Answer the _n_-th Catalan number _C(n)_.
 The Catalan numbers are a sequence of natural numbers that occur in various counting problems,
 often involving recursively defined objects.
 
-The first eleven Catalan numbers:
-
-```
->>> 0:10.collect(catalanNumber:/1)
-[1 1 2 5 14 42 132 429 1430 4862 16796]
-```
-
-Threads over lists:
+The first eleven Catalan numbers,
+threads over lists,
+OEIS [A000108](https://oeis.org/A000108):
 
 ```
 >>> 0:10.catalanNumber

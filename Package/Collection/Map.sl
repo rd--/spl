@@ -2,12 +2,12 @@
 
 Map! : [Object, Storeable, Equatable, Iterable, Indexable, Collection, Extensible, Removable, Dictionary, PrimitiveMap] {
 
-	asJson { :self |
-		self.asJson(nil, '')
+	encodeJson { :self |
+		self.encodeJson(nil, '')
 	}
 
-	asJson { :self :replacer :space |
-		self.asRecord.asJson(replacer, space)
+	encodeJson { :self :replacer :space |
+		self.asRecord.encodeJson(replacer, space)
 	}
 
 	atPut { :self :key :value |

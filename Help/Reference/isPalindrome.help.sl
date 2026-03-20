@@ -223,6 +223,17 @@ OEIS [A050782](https://oeis.org/A050782):
 
 ![](Help/Image/isPalindrome-D.svg)
 
+Palindromic primes in base eight,
+OEIS [A029976](https://oeis.org/A029976):
+
+~~~spl svg=E oeis=A029976
+1:5000.prime.select { :n |
+	n.integerDigits(8).isPalindrome
+}.discretePlot
+~~~
+
+![](Help/Image/isPalindrome-E.svg)
+
 * * *
 
 See also: =, reverse

@@ -7,9 +7,9 @@ Initialization File (Ini):
 
 JavaScript Object Notation (Json):
 
-- `asJson`
-- `isJson`
 - `Json`
+- `encodeJson`
+- `isJson`
 - `parseJson`
 
 Open Sound Control (Osc):

@@ -169,7 +169,8 @@ An infinite series by Ramanujan, 1910:
 1.pi
 ```
 
-Continued fraction:
+Continued fraction,
+OEIS [A001203](https://oeis.org/A001203)
 
 ```
 >>> 1.pi.continuedFraction(13)

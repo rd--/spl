@@ -2321,7 +2321,7 @@ The index can be written stored as a Json file by:
 'data/SplOeisReferences.json'
 .splFilePath
 .writeTextFile(
-	system.splOeisReferences.asJson
+	system.splOeisReferences.encodeJson
 )
 ~~~
 

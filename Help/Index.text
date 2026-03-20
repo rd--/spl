@@ -480,7 +480,7 @@ Reference/asIdentitySet.help.sl
 Reference/asInteger.help.sl
 Reference/asIntegers.help.sl
 Reference/asIterator.help.sl
-Reference/asJson.help.sl
+Reference/encodeJson.help.sl
 Reference/asLargeInteger.help.sl
 Reference/asLargerPowerOfTwo.help.sl
 Reference/asLineDrawing.help.sl

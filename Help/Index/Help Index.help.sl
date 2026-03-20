@@ -387,7 +387,7 @@
 
 ## Json
 
-- `asJson`, `isJson`, `Json`, `parseJson`
+- `Json`, `encodeJson`, `isJson`, `parseJson`
 
 ## Mathematical Constants
 

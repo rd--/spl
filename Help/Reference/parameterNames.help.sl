@@ -11,7 +11,7 @@ Answer a `List` of `String` items giving the names of the parameters of the _n_-
 >>> randomChoice:/3.parameterNames
 ['self' 'r' 'shape']
 
->>> asJson:/3.parameterNames
+>>> encodeJson:/3.parameterNames
 ['self' 'replacer' 'space']
 ```
 

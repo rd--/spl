@@ -207,6 +207,16 @@ OEIS [A037227](https://oeis.org/A037227):
 [1 3 1 5 1 3 1 7 1 3 1 5 1 3 1 9 1]
 ```
 
+Numbers whose binary representation ends in an even number of zeros,
+OEIS [A003159](https://oeis.org/A003159):
+
+```
+>>> 1:150.select { :n |
+>>> 	n.integerExponent(2).isEven
+>>> }
+[1 3 4 5 7 9 11 12 13 15 16 17 19 20 21 23]
+```
+
 Powers of two in successive integers,
 the binary carry sequence,
 also called the ruler sequence,
@@ -473,6 +483,17 @@ OEIS [A025480](https://oeis.org/A025480):
 ~~~
 
 ![](Help/Image/integerExponent-R.svg)
+
+Numbers whose binary representation ends in an even number of zeros,
+OEIS [A003159](https://oeis.org/A003159):
+
+~~~spl svg=S oeis=A003159
+1:100.select { :n |
+	n.integerExponent(2).isEven
+}.discretePlot
+~~~
+
+![](Help/Image/integerExponent-S.svg)
 
 * * *
 

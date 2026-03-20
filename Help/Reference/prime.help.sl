@@ -509,4 +509,6 @@ _Python_
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Integer.html#-nthPrime)
 
+Unicode: U+2032 ′ Prime
+
 Categories: Math

@@ -91,7 +91,7 @@ and sequences:
 
 * * *
 
-See also: asJson, asRecord, Association, Dictionary, Map
+See also: asRecord, encodeJson, Association, Dictionary, Map
 
 Guides: Dictionary Functions, Record Syntax
 

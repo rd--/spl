@@ -405,7 +405,7 @@ let a = List(1); a[1].isNil = true /* array slots are initialised to nil */
 { let a = [1]; a[3] := 'x' }.hasError /* out of bound mutation is an error */
 List:/1.newFrom(Range(1, 5, 2)) = [1, 3, 5]
 [1 .. 9].count(isEven:/1) = 4
-[nil, true, false, 3.141, 23, 'str'].asJson = '[null,true,false,3.141,23,"str"]' /* json encodings */
+[nil, true, false, 3.141, 23, 'str'].encodeJson = '[null,true,false,3.141,23,"str"]' /* json encodings */
 '[null,true,false,3.141,23,"str"]'.parseJson = [nil, true, false, 3.141, 23, 'str'] /* json parsing */
 [1, 2, 3].select { :x | x > 1 } = [2, 3] /* select items in collection */
 [1 .. 9].select { :x | true } = [1 .. 9] /* select everything */
@@ -778,7 +778,7 @@ true && true = true /* non-evaluating form of & (requires boolean operand) */
 { false | false }.hasError /* | applies the rhs, which must be a block */
 false || true = true /* non-evaluating form of | (requires boolean operand) */
 { false || 'true' }.hasError /* it is an error if operand is not a boolean */
-[true.asJson, false.asJson] = ['true', 'false'] /* booleans have json encodings */
+[true.encodeJson, false.encodeJson] = ['true', 'false'] /* booleans have json encodings */
 ['true', 'false'].collect(parseJson:/1) = [true, false] /* parse json booleans */
 true.ifTrue { true }
 false.ifFalse { true }
@@ -2131,7 +2131,7 @@ let c = Map(); c[2] := 'two'; c[1] := 'one'; c.removeKey(2); c[1] := 'one'; c.re
 (x: 1, y: 2).asMap ++ (x: 2, y: 1) = (x: 2, y: 1).asMap /* appending a record to a Map answers a Map, biases right */
 (x: 1, y: 2, z: 3).asMap ++ (x: 2, y: 1) = (x: 2, y: 1, z: 3).asMap /* append record to Map */
 (x: 1, y: 2).asMap ++ (x: 2, y: 1, z: 3) = (x: 2, y: 1, z: 3).asMap /* append record to Map */
-(x: 1, y: 2).asMap.asJson = '{"x":1,"y":2}' /* maps with string keys are encoded as records */
+(x: 1, y: 2).asMap.encodeJson = '{"x":1,"y":2}' /* maps with string keys are encoded as records */
 (x: 1, y: 2, z: 3).asMap.indices = ['x', 'y', 'z'] /* indices of map (an array) */
 let m = (x: 1, y: 2).asMap; m.removeAssociation('x' -> 1); m = (y: 2).asMap /* remove association */
 let m = (x: 1, y: 2).asMap; m.removeAll; m.isEmpty /* remove all entries */
@@ -2202,7 +2202,7 @@ ifNil(nil) { true } = true /* nil conditional */
 ifNil(0) { false } = 0 /* nil conditional */
 nil.printString = 'nil' /* nil print string */
 nil.storeString = 'nil' /* nil store string */
-nil.asJson = 'null' /* nil has a Json representation */
+nil.encodeJson = 'null' /* nil has a Json representation */
 'null'.parseJson = nil /* nil has a Json representation */
 let c = nil; c ? { 'red' } = 'red' /* nil-coalescing operator, if lhs is nil evaluate rhs */
 let c = 'blue'; c ? { 'red' } = 'blue' /* nil-coalescing operator */
@@ -2432,7 +2432,7 @@ let m = { system.nextRandomFloat }.!(9).mean; m > 0 & { m < 1 }
 ({ system.nextRandomFloat } ! 9).size = 9 /* the size of the answer is as requested */
 ({ system.nextRandomFloat } ! 3).allSatisfy(isNumber:/1) = true
 &.parameterNames = ['self', 'aBlock:/0'] /* answer names of method parameters */
-asJson:/3.parameterNames = ['self', 'replacer', 'space'] /* answer names of method parameters */
+encodeJson:/3.parameterNames = ['self', 'replacer', 'space'] /* answer names of method parameters */
 randomReal:/3.parameterNames = ['self', 'range', 'shape'] /* answer names of method parameters */
 system.methodDictionary['at'][2]['Map'].information.parameterNames = ['self', 'key']
 let c = []; let a = []; 1:3.do { :i | c.add { a.add(i) } }; c.do(value:/1); a = [1, 2, 3]
@@ -2630,7 +2630,7 @@ let d = Record(); d['x'] := 1; d['y'] := 2; d.size = 2
 ['x' -> 1, 'y' -> 2].asRecord = (x: 1, y: 2) /* association array to record */
 ['x' -> 1, 'y' -> 2].asRecord['y'] = 2 /* association array to record */
 { Record().atPut(1, 1) }.hasError
-(x: 3.141, y: 23).asJson = '{"x":3.141,"y":23}' /* records have a json encoding where values do */
+(x: 3.141, y: 23).encodeJson = '{"x":3.141,"y":23}' /* records have a json encoding where values do */
 '{"x":3.141,"y":23}'.parseJson = (x: 3.141, y: 23) /* parse json record */
 let d = (x: 1, y: 2); let i = 9; d.associationsDo { :each | i := i - each.value }; i = 6 /* iterate over associations */
 let d = (x: 1, y: 2); d.collect { :each | each * 9 } = (x: 9, y: 18)
@@ -3119,7 +3119,7 @@ let total = 0; 9.timesRepeat { total := total + system.nextRandomFloat }; total 
 system.randomInteger([1 9], []).isInteger = true
 system.randomReal([0 9], []).isInteger = false /* possible it could be an integer, but very unlikely */
 system.randomReal([0 1.pi], []).isInteger = false
-[3.141.asJson, 23.asJson] = ['3.141', '23'] /* numbers have json encodings */
+[3.141.encodeJson, 23.encodeJson] = ['3.141', '23'] /* numbers have json encodings */
 ['3.141', '23'].collect(parseJson:/1) = [3.141, 23] /* parse json numbers */
 let r = nil; 1.toDo(5) { :each | r := each }; r = 5
 let r = nil; 1.to(0).do { :each | r := each }; r = nil
@@ -3371,7 +3371,7 @@ system.includesPackage('String') /* package */
 { 'string'[3] := nil }.hasError /* strings are immutable */
 '{"x": 3.141, "y": 23}'.parseJson = (x: 3.141, y: 23)
 { '_'.parseJson }.hasError
-'a text string'.asJson = '"a text string"' /* json encoding of string */
+'a text string'.encodeJson = '"a text string"' /* json encoding of string */
 '"a text string"'.parseJson = 'a text string' /* parse json string */
 'string'.first = 's' /* first character */
 'element'.first.isVowel = true /* is first letter a vowel? */

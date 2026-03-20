@@ -109,6 +109,22 @@
 		set.size
 	}
 
+	countIntegers { :self :operand |
+		let [p, q] = operand;
+		let answer = List(q - p + 1, 0);
+		self.do { :each |
+			(
+				each >= p & {
+					each <= q
+				}
+			).ifTrue {
+				let index = each - p + 1;
+				answer[index] := answer[index] + 1
+			}
+		};
+		answer
+	}
+
 	countOccurences { :self :anObject |
 		self.count { :each |
 			each = anObject

@@ -80,6 +80,14 @@ OEIS [A001511](https://oeis.org/A001511):
 ]
 ```
 
+The quarter-squares sequence,
+OEIS [A002620](https://oeis.org/A002620):
+
+```
+>>> 0:13.square >> 2
+[0 0 1 2 4 6 9 12 16 20 25 30 36 42]
+```
+
 _n⊻(n≫1)_,
 OEIS [A003188](https://oeis.org/A003188):
 

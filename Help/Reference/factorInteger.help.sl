@@ -142,10 +142,6 @@ Compute the original number from a factorization:
 >>> 	x[1] ^ x[2]
 >>> }
 120
-
->>> [2 3; 3 1; 5 1].collect { :x |
->>> 	x[1] ^ x[2]
->>> }.product
 ```
 
 `divisors` gives the list of divisors including prime divisors:
@@ -292,10 +288,9 @@ OEIS [A003415](https://oeis.org/A003415):
 	(n < 2).if {
 		0
 	} {
-		n.abs.factorInteger
-		.collect { :x |
+		n.factorInteger.sum { :x |
 			x[2] / x[1]
-		}.sum * n
+		} * n
 	}
 }.scatterPlot
 ~~~

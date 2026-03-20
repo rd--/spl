@@ -199,6 +199,20 @@ Log scale matrix plot of table of derivatives of _i/j_ for small _i,j_:
 
 ![](Help/Image/arithmeticDerivative-E.svg)
 
+Number of integer solutions to _x′=n_,
+where _x′_ is the arithmetic derivative of _x_,
+OEIS [A099302](https://oeis.org/A099302):
+
+~~~spl svg=F oeis=A099302
+let m = 250;
+let k = m.square // 4;
+3:k.collect(arithmeticDerivative:/1)
+.countIntegers([2 m])
+.scatterPlot
+~~~
+
+![](Help/Image/arithmeticDerivative-F.svg)
+
 * * *
 
 See also: factorInteger

@@ -41,7 +41,7 @@
 	}
 
 	printString { :self |
-		self.asRecord.asJson(nil, '	')
+		self.asRecord.encodeJson(nil, '	')
 	}
 
 	pseudoSlotNameList { :self |

@@ -1,6 +1,6 @@
-# asJson
+# encodeJson
 
-- _asJson(x)_
+- _encodeJson(x)_
 
 Encode the object _x_ as a _Json_ value.
 The encoding is defined by _ECMA-404: The JSON Data Interchange Standard_.
@@ -9,54 +9,58 @@ Answers a `String`.
 The following types have standard Json encodings:
 `Nil`, `Boolean`, `SmallFloat`, `String`, `List` and `Record`.
 
-Any type or trait may implement `asJson`,
+Any type or trait may implement `encodeJson`,
 however only the types listed above will be answered by `parseJson`.
-For these types `asJson` and `parseJson` are partial inverses.
+For these types `encodeJson` and `parseJson` are partial inverses.
 
 At `Nil`:
 
 ```
->>> nil.asJson
+>>> nil.encodeJson
 'null'
 ```
 
 At `Boolean`:
 
 ```
->>> [true false].collect(asJson:/1)
+>>> [true false].collect(encodeJson:/1)
 ['true' 'false']
 ```
 
 At `SmallFloat`:
 
 ```
->>> [3.141 23].collect(asJson:/1)
+>>> [3.141 23].collect(encodeJson:/1)
 ['3.141' '23']
 ```
 
 At `String`:
 
 ```
->>> 'str'.asJson
+>>> 'str'.encodeJson
 '"str"'
 ```
 
 At `List`:
 
 ```
->>> [3.141 23].asJson
+>>> [3.141 23].encodeJson
 '[3.141,23]'
 ```
 
 At `Record`:
 
 ```
->>> (x: 3.141, y: 23).asJson
+>>> (x: 3.141, y: 23).encodeJson
 '{"x":3.141,"y":23}'
+```
 
+Other dictionary types can be encoded by first translating them to records:
+
+```
 >>> ['x' -> 3.141, 'y' -> 23]
 >>> .asRecord
->>> .asJson
+>>> .encodeJson
 '{"x":3.141,"y":23}'
 ```
 

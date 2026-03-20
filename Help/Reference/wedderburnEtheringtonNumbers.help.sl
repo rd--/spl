@@ -4,7 +4,7 @@
 
 Answer the first _n_ Wedderburn-Etherington numbers.
 
-First few terms,
+First few Wedderburn-Etherington numbers,
 OEIS [A001190](https://oeis.org/A001190):
 
 ```
