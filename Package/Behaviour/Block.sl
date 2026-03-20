@@ -627,3 +627,49 @@ Block! : [Object, Equatable] {
 	}
 
 }
+
++Block{
+
+	predicateAnd { :self:/1 :operand:/1 |
+		{ :anObject |
+			self(anObject) & {
+				operand(anObject)
+			}
+		}
+	}
+
+	predicateNot { :self:/1 |
+		{ :anObject |
+			self(anObject).not
+		}
+	}
+
+	predicateOr { :self:/1 :operand:/1 |
+		{ :anObject |
+			self(anObject) | {
+				operand(anObject)
+			}
+		}
+	}
+
+}
+
++List{
+
+	predicateAnd { :self |
+		{ :anObject |
+			self.allSatisfy { :aBlock:/1 |
+				aBlock(anObject)
+			}
+		}
+	}
+
+	predicateOr { :self |
+		{ :anObject |
+			self.anySatisfy { :aBlock:/1 |
+				aBlock(anObject)
+			}
+		}
+	}
+
+}

@@ -766,9 +766,39 @@ OEIS [A004649](https://oeis.org/A004649):
 
 ![](Help/Image/mod-U.svg)
 
+Triangle of modular inverses of _b_ modulo _m_ for where zero indicates no modular inverse exists,
+OEIS [A102057](https://oeis.org/A102057):
+
+~~~spl svg=V oeis=A102057
+let g = { :m :b :x :y |
+	(b = 0).if {
+		(m = 1).if {
+			x
+		} {
+			0
+		}
+	} {
+		g(
+			b,
+			m % b,
+			y,
+			x - (y * (m // b))
+		)
+	}
+};
+2:15.collect { :m |
+	let n = m - 1;
+	1:n.collect { :b |
+		g(m, b, 0, 1) % m
+	}
+}.catenate.discretePlot
+~~~
+
+![](Help/Image/mod-V.svg)
+
 * * *
 
-See also: %, /, //, \\, commonResidue, minimalResidue, positiveResidue, quotient, remainder
+See also: %, /, //, \\, commonResidue, minimalResidue, modularInverse, positiveResidue, quotient, remainder
 
 Guides: Arithemtic Functions, Integer Functions
 

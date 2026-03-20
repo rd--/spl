@@ -27,16 +27,16 @@ ResidueSet : [Object, Storeable, Equatable, Iterable, Collection, Extensible] { 
 		self.contents.asBitSet(self.modulus)
 	}
 
-	asBitString { :self |
-		self.asBitSet.asString
-	}
-
 	asList { :self |
 		self.positionVector
 	}
 
 	asIdentitySet { :self |
 		self.contents.copy
+	}
+
+	bitString { :self |
+		self.asBitSet.asString
 	}
 
 	bitVector { :self |

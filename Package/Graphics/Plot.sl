@@ -1063,6 +1063,13 @@ Plot : [Object] { | pages format options |
 		)
 	}
 
+	residueSetPlot { :self |
+		residueSetPlot(
+			self.positionVector,
+			self.modulus
+		)
+	}
+
 }
 
 +BitSet {

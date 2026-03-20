@@ -280,6 +280,12 @@
 		self % modulus
 	}
 
+	congruencePredicate { :c :m |
+		{ :b |
+			b % m = c
+		}
+	}
+
 	decimalExpansion { :n |
 		n.integerDigits(10)
 	}
@@ -794,6 +800,10 @@
 				6064949221531200, 224403121196654400L
 			].includes(n)
 		}
+	}
+
+	isCongruence { :b :c :m |
+		b % m = c
 	}
 
 	isCubeFree { :n |

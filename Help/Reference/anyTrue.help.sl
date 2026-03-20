@@ -1,8 +1,8 @@
 # anyTrue
 
-- _anyTrue(aCollection)_
+- _anyTrue(c)_
 
-Answer `true` if any items in _aCollection_ are `true`, else `false`.
+Answer `true` if any items in the collection _c_ are `true`, else `false`.
 This is equal to the unary form of `||`.
 
 ```

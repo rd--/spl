@@ -7,7 +7,8 @@ Plot the residue set _r_ having the modulus _m_.
 A _#=7,m=12_ set:
 
 ~~~spl svg=A
-[0 2 3 5 7 9 10].residueSetPlot(12)
+ResidueSet([0 2 3 5 7 9 10], 12)
+.residueSetPlot
 ~~~
 
 ![](Help/Image/residueSetPlot-A.svg)

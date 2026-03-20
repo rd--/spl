@@ -44,6 +44,9 @@ Predicates:
 - `deepAllSatisfy`
 - `noneSatisfy`
 - `noneTrue`
+- `predicateAnd`
+- `predicateNot`
+- `predicateOr`
 
 Bitwise Functions:
 

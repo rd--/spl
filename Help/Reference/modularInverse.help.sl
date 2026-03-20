@@ -276,6 +276,24 @@ prng(789714739, 250)
 
 ![](Help/Image/modularInverse-C.svg)
 
+Triangle of modular inverses of _b_ modulo _m_ for where zero indicates no modular inverse exists,
+OEIS [A102057](https://oeis.org/A102057):
+
+~~~spl svg=D oeis=A102057
+2:23.collect { :m |
+	let n = m - 1;
+	1:n.collect { :b |
+		b.isCoprime(m).if {
+			b.modularInverse(m)
+		} {
+			0
+		}
+	}
+}.catenate.scatterPlot
+~~~
+
+![](Help/Image/modularInverse-D.svg)
+
 * * *
 
 See also: ^, eulerPhi, extendedEuclideanAlgorithm, extendedGcd, isCoprime, mod, powerMod

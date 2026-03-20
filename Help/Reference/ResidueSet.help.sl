@@ -75,21 +75,21 @@ ResidueSet([1 3 5], 6)
 16
 ```
 
-`asBitString` answers a `String` of `modulus` places,
+`bitString` answers a `String` of `modulus` places,
 indicating the presence of entries in the set:
 
 ```
 >>> ResidueSet([0 2 4 5 7 9 11], 12)
->>> .asBitString
+>>> .bitString
 '101011010101'
 
 >>> ResidueSet([0 2 4 5 7 9 11], 12)
 >>> .complement
->>> .asBitString
+>>> .bitString
 '010100101010'
 
 >>> ResidueSet([0 2 3 5 7 8 10], 12)
->>> .asBitString
+>>> .bitString
 '101101011010'
 ```
 
