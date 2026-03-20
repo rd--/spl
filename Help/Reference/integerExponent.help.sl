@@ -211,10 +211,15 @@ Numbers whose binary representation ends in an even number of zeros,
 OEIS [A003159](https://oeis.org/A003159):
 
 ```
->>> 1:150.select { :n |
+>>> 1:23.select { :n |
 >>> 	n.integerExponent(2).isEven
 >>> }
 [1 3 4 5 7 9 11 12 13 15 16 17 19 20 21 23]
+
+>>> 1:35.select { :n |
+>>> 	n.integerExponent(2).isEven
+>>> }.differences
+[2 1 1 2 2 2 1 1 2 1 1 2 1 1 2 2 2 1 1 2 2 2]
 ```
 
 Powers of two in successive integers,
@@ -494,6 +499,32 @@ OEIS [A003159](https://oeis.org/A003159):
 ~~~
 
 ![](Help/Image/integerExponent-S.svg)
+
+Numbers whose binary expansion does not encode for any Schreier set,
+OEIS [A373347](https://oeis.org/A373347):
+
+~~~spl svg=T oeis=A373347
+1:85.select { :n |
+	n.hammingWeight
+	>
+	(n * 2).integerExponent(2)
+}.discretePlot
+~~~
+
+![](Help/Image/integerExponent-T.svg)
+
+First differences of numbers whose binary expansion does not encode for any Schreier set,
+OEIS [A373360](https://oeis.org/A373360):
+
+~~~spl svg=U oeis=A373360
+1:85.select { :n |
+	n.hammingWeight
+	>
+	(n * 2).integerExponent(2)
+}.differences.stepPlot
+~~~
+
+![](Help/Image/integerExponent-U.svg)
 
 * * *
 

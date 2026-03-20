@@ -480,7 +480,6 @@ Reference/asIdentitySet.help.sl
 Reference/asInteger.help.sl
 Reference/asIntegers.help.sl
 Reference/asIterator.help.sl
-Reference/encodeJson.help.sl
 Reference/asLargeInteger.help.sl
 Reference/asLargerPowerOfTwo.help.sl
 Reference/asLineDrawing.help.sl
@@ -1034,6 +1033,7 @@ Reference/countDistinct.help.sl
 Reference/counterClockwiseVectorAngle.help.sl
 Reference/count.help.sl
 Reference/countingSort.help.sl
+Reference/countIntegers.help.sl
 Reference/countsBy.help.sl
 Reference/counts.help.sl
 Reference/covarianceFunction.help.sl
@@ -1330,6 +1330,7 @@ Reference/encode.help.sl
 Reference/encodeIni.help.sl
 Reference/encodeInt16.help.sl
 Reference/encodeInt32.help.sl
+Reference/encodeJson.help.sl
 Reference/encodeOn.help.sl
 Reference/encodeUri.help.sl
 Reference/endsWithAny.help.sl
@@ -2025,6 +2026,7 @@ Reference/isColumnVector.help.sl
 Reference/isComplex.help.sl
 Reference/isComplexString.help.sl
 Reference/isComposite.help.sl
+Reference/isConguence.help.sl
 Reference/isConstantStructure.help.sl
 Reference/isConvex.help.sl
 Reference/isCoprime.help.sl
@@ -3186,6 +3188,9 @@ Reference/powerSet.help.sl
 Reference/precedes.help.sl
 Reference/precedesOrEqualTo.help.sl
 Reference/precision.help.sl
+Reference/predicateAnd.help.sl
+Reference/predicateNot.help.sl
+Reference/predicateOr.help.sl
 Reference/Preferences.help.sl
 Reference/prefixes.help.sl
 Reference/prefixSum.help.sl

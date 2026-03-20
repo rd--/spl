@@ -257,9 +257,10 @@ let a = 1:65.collect { :n |
 ![](Help/Image/sqrt-D.svg)
 
 Differences of _⌊(n*√2+½)_,
-OEIS [A006338](https://oeis.org/A006338):
+OEIS [A006338](https://oeis.org/A006338),
+minus one:
 
-~~~spl svg=E oeis=A006338
+~~~spl svg=E oeis=A006338 offset
 let a = 1:85.collect { :n |
 	(n * 2.sqrt + 0.5).floor
 }.differences;
@@ -267,6 +268,17 @@ let a = 1:85.collect { :n |
 ~~~
 
 ![](Help/Image/sqrt-E.svg)
+
+First differences of the _√2_ Beatty sequence,
+OEIS [A006337](https://oeis.org/A006337):
+
+~~~spl svg=F oeis=A006337
+65.beattySequence(2.sqrt)
+.differences
+.stepPlot
+~~~
+
+![](Help/Image/sqrt-F.svg)
 
 `sqrt` is an alias for `squareRoot`.
 

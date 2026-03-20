@@ -25,6 +25,7 @@ Equivalent to, but more efficent than:
 >>> 1:5.collect { :n |
 >>> 	c.occurrencesOf(n)
 >>> }
+[2 0 2 0 1]
 ```
 
 * * *

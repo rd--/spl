@@ -125,6 +125,19 @@ let a = 102.thueMorseSequence;
 
 ![](Help/Image/thueMorseSequence-E.svg)
 
+Length of _n_-th run of identical symbols in the Thue-Morse sequence,
+OEIS [A026465](https://oeis.org/A026465):
+
+~~~spl svg=F oeis=A026465
+99.thueMorseSequence
+.split(=)
+.collect(size:/1)
+.allButFirst
+.stepPlot
+~~~
+
+![](Help/Image/thueMorseSequence-F.svg)
+
 * * *
 
 See also: grayDecode, hammingWeight, integerDigits, thueMorse
