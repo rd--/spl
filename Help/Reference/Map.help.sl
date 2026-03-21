@@ -143,6 +143,28 @@ let a = Map { :n |
 
 ![](Help/Image/Map-F.svg)
 
+A recurrence by Ctibor O. Zizka that becomes quasi-periodic,
+OEIS [A133058](https://oeis.org/A133058):
+
+~~~spl png=G oeis=A133058
+let a = Map { :n |
+	(n < 2).if {
+		1
+	} {
+		let m = a[n - 1];
+		let g = n.gcd(m);
+		(g = 1).if {
+			m + n + 1
+		} {
+			m // g
+		}
+	}
+};
+a[0:750].log.denseScatterPlot
+~~~
+
+![](Help/Image/Map-G.png)
+
 Note: `Map` is _IdentityDictionary_ in Smalltalk.
 
 * * *

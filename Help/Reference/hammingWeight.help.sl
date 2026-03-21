@@ -275,6 +275,18 @@ OEIS [A101080](https://oeis.org/A101080):
 
 ![](Help/Image/hammingWeight-S.svg)
 
+Numerator of Woon’s Bernoulli tree,
+OEIS [A242179](https://oeis.org/A242179):
+
+~~~spl svg=T oeis=A242179
+1:65.collect { :n |
+	let w = n.hammingWeight;
+	0 - (-1 ^ (n.log2.floor - w))
+}.discretePlot
+~~~
+
+![](Help/Image/hammingWeight-T.svg)
+
 * * *
 
 See also: digitCount, gouldsSequence, thueMorseSequence

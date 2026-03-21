@@ -533,6 +533,19 @@ OEIS [A128064](https://oeis.org/A128064):
 
 ![](Help/Image/triangularArray-L.svg)
 
+Riordan array _(1/(1-x-x^2),x/(1-x))_,
+OEIS [A105809](https://oeis.org/A105809):
+
+~~~spl svg=M oeis=A105809
+0:9.triangularArray { :n :k |
+	0:n.sum { :j |
+		(n - j).binomial(k + j)
+	}
+}.catenate.discretePlot
+~~~
+
+![](Help/Image/triangularArray-M.svg)
+
 * * *
 
 See also: antidiagonalArray, array, collect, isTriangularArray, table

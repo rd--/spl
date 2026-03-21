@@ -335,6 +335,16 @@
 		0.to(self - 1).triangularArray(binomial:/2)
 	}
 
+	pascalTriangle { :n :m |
+		0.to(n).triangularArray { :n :k |
+			(n = k).if {
+				m
+			} {
+				n.binomial(k) * (1 + ((m - 1) * k / n))
+			}
+		}
+	}
+
 	pentagonalNumber { :n |
 		(3 * n.square - n) / 2
 	}

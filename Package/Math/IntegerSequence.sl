@@ -769,7 +769,7 @@
 	noergaardInfinitySequence { :self :variant |
 		variant.caseOf(
 			[
-				0 -> {
+				'A' -> {
 					let f:/1 = { :n |
 						[
 							{ n = 0 } -> { 0 },
@@ -779,7 +779,7 @@
 					}.memoize(true);
 					0.toCollect(self - 1, f:/1)
 				},
-				1 -> {
+				'B' -> {
 					let f:/1 = { :n |
 						[
 							{ n = 0 } ->  { 0 },
@@ -790,7 +790,7 @@
 					}.memoize(true);
 					0.toCollect(self - 1, f:/1)
 				},
-				2 -> {
+				'C' -> {
 					let f:/1 = { :n |
 						[
 							{ n = 0 } ->  { 0 },
@@ -800,13 +800,25 @@
 						].which
 					}.memoize(true);
 					0.toCollect(self - 1, f:/1)
+				},
+				'Z' -> {
+					let f:/1 = { :n |
+						[
+							{ n = 0 } ->  { 0 },
+							{ n % 4 = 0 } -> { f(n // 4) },
+							{ n % 4 = 1 } -> { f(n // 4) - 2 },
+							{ n % 4 = 2 } -> { -1 - f(n // 4) },
+							{ n % 4 = 3 } -> { 2 + f(n // 4) }
+						].which
+					}.memoize(true);
+					0.toCollect(self - 1, f:/1)
 				}
 			]
 		)
 	}
 
 	noergaardInfinitySequence { :self |
-		self.noergaardInfinitySequence(0)
+		self.noergaardInfinitySequence('A')
 	}
 
 	noergaardRhythmicInfinitySystem { :n |

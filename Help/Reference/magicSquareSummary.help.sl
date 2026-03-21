@@ -8,7 +8,12 @@ a vector-matrix product sums the columns,
 also shows the diagonal and antidiagonal sums and the matrix rank.
 
 The only 3×3 magic square,
-OEIS [A033812](https://oeis.org/A033812):
+called the Loh-Shu square,
+lexicographically largest variant when read by columns,
+OEIS [A033812](https://oeis.org/A033812),
+also,
+with rows reversed,
+OEIS [A126709](https://oeis.org/A126709):
 
 ```
 >>> let m = 3.magicSquare;
@@ -30,6 +35,39 @@ OEIS [A033812](https://oeis.org/A033812):
 )
 ```
 
+The Loh-Shu magic square multiplied by five,
+OEIS [A126652](https://oeis.org/A126652):
+
+```
+>>> let m = 3.magicSquare * 5;
+>>> (m, m.magicSquareSummary.values)
+(
+	[40 5 30; 15 25 35; 20 45 10],
+	[15, [75 75 75], [75 75 75], 75, 75, 3]
+)
+```
+
+The Loh-Shu magic square multiplied by three,
+OEIS [A126653](https://oeis.org/A126653):
+
+```
+>>> let m = 3.magicSquare * 3;
+>>> (m, m.magicSquareSummary.values)
+(
+	[24 3 18; 9 15 21; 12 27 6],
+	[15, [45 45 45], [45 45 45], 45, 45, 3]
+)
+```
+
+A 3×3 magic square,
+OEIS [A126654](https://oeis.org/A126654):
+
+```
+>>> [32 4 24; 12 20 28; 16 36 8]
+>>> .magicSquareSummary.values
+[15, [60 60 60], [60 60 60], 60, 60, 3]
+```
+
 A 4×4 magic square:
 
 ```
@@ -49,6 +87,21 @@ A 4×4 magic square:
 )
 ```
 
+A 4×4 magic square,
+found in a Jaina inscription of the twelfth century,
+OEIS [A126710](https://oeis.org/A126710):
+
+
+```
+>>> [
+>>> 	7 12 1 14;
+>>> 	2 13 8 11;
+>>> 	16 3 10 5;
+>>> 	9 6 15 4
+>>> ].magicSquareSummary.values
+[34, [34 34 34 34], [34 34 34 34], 34, 34, 3]
+```
+
 A 5×5 magic square,
 OEIS [A127907](https://oeis.org/A127907):
 
@@ -61,6 +114,21 @@ OEIS [A127907](https://oeis.org/A127907):
 >>> 	11 18 25  2  9
 >>> ].magicSquareSummary.values
 [65, 5 # [65], 5 # [65], 65, 65, 5]
+```
+
+A 6×6 magic square,
+OEIS [A126976](https://oeis.org/A126976):
+
+```
+>>> [
+>>> 	6 32 3 34 35 1;
+>>> 	7 11 27 28 8 30;
+>>> 	19 14 16 15 23 24;
+>>> 	18 20 22 21 17 13;
+>>> 	25 29 10 9 26 12;
+>>> 	36 5 33 4 2 31
+>>> ].magicSquareSummary.values
+[111, 6 # [111], 6 # [111], 111, 111, 6]
 ```
 
 A 7×7 magic square,
@@ -95,6 +163,96 @@ OEIS [A126650](https://oeis.org/A126650):
 >>> 	06  78 12  9 74 45 46 47 52
 >>> ].magicSquareSummary.values
 [369, 9 # [369], 9 # [369], 369, 369, 9]
+```
+
+Dürer’s 4×4 magic square,
+OEIS [A080992](https://oeis.org/A080992):
+
+```
+>>> [
+>>> 	16 3 2 13;
+>>> 	5 10 11 8;
+>>> 	9 6 7 12;
+>>> 	4 15 14 1
+>>> ].magicSquareSummary.values
+[34, [34 34 34 34], [34 34 34 34], 34, 34, 3]
+```
+
+A 4×4 permutation-free magic square,
+OEIS [A125519](https://oeis.org/A125519):
+
+```
+>>> [
+>>> 	831 326 267 574;
+>>> 	584 257 316 841;
+>>> 	158 683 742 415;
+>>> 	425 732 673 168
+>>> ].magicSquareSummary.values
+[34, 4 # [1998], 4 # [1998], 1998, 1998, 4]
+
+```
+
+Benjamin Franklin’s 16×16 magic square,
+OEIS [A124472](https://oeis.org/A124472):
+
+```
+>>> [
+>>> 	200 217 232 249 8 25 40 57
+>>> 	72 89 104 121 136 153 168 185
+>>> 	;
+>>> 	58 39 26 7 250 231 218 199
+>>> 	186 167 154 135 122 103 90 71
+>>> 	;
+>>> 	198 219 230 251 6 27 38 59
+>>> 	70 91 102 123 134 155 166 187
+>>> 	;
+>>> 	60 37 28 5 252 229 220 197
+>>> 	188 165 156 133 124 101 92 69
+>>> 	;
+>>> 	201 216 233 248 9 24 41 56
+>>> 	73 88 105 120 137 152 169 184
+>>> 	;
+>>> 	55 42 23 10 247 234 215 202
+>>> 	183 170 151 138 119 106 87 74
+>>> 	;
+>>> 	203 214 235 246 11 22 43 54
+>>> 	75 86 107 118 139 150 171 182
+>>> 	;
+>>> 	53 44 21 12 245 236 213 204
+>>> 	181 172 149 140 117 108 85 76
+>>> 	;
+>>> 	205 212 237 244 13 20 45 52
+>>> 	77 84 109 116 141 148 173 180
+>>> 	;
+>>> 	51 46 19 14 243 238 211 206
+>>> 	179 174 147 142 115 110 83 78
+>>> 	;
+>>> 	207 210 239 242 15 18 47 50
+>>> 	79 82 111 114 143 146 175 178
+>>> 	;
+>>> 	49 48 17 16 241 240 209 208
+>>> 	177 176 145 144 113 112 81 80
+>>> 	;
+>>> 	196 221 228 253 4 29 36 61 68
+>>> 	93 100 125 132 157 164 189
+>>> 	;
+>>> 	62 35 30 3 254 227 222 195 190
+>>> 	163 158 131 126 99 94 67
+>>> 	;
+>>> 	194 223 226 255 2 31 34 63
+>>> 	66 95 98 127 130 159 162 191
+>>> 	;
+>>> 	64 33 32 1 256 225 224 193
+>>> 	192 161 160 129 128 97 96 65
+>>> ].magicSquareSummary.values
+[
+	2056,
+	16 # [2056],
+	16 # [2056],
+	1928,
+	2184,
+	3
+]
 ```
 
 A non-magic square:

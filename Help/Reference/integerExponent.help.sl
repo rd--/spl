@@ -526,6 +526,28 @@ OEIS [A373360](https://oeis.org/A373360):
 
 ![](Help/Image/integerExponent-U.svg)
 
+Denominators of Woon’s Bernoulli tree,
+OEIS [A106831](https://oeis.org/A106831):
+
+~~~spl svg=V
+let a = Map { :n |
+	(n = 0).if {
+		1
+	} {
+		n.isOdd.if {
+			2 * a[(n - 1) / 2]
+		} {
+			(2 + n.integerExponent(2))
+			*
+			a[n / 2]
+		}
+	}
+};
+a[1:250].log.scatterPlot
+~~~
+
+![](Help/Image/integerExponent-V.svg)
+
 * * *
 
 See also: ^, digitCount, factorInteger, integerDigits, log2, log10, rulerFunction

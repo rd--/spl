@@ -1,11 +1,11 @@
 # pascalTriangle
 
-- _pascalTriangle(n)_
+- _pascalTriangle(n, m=1)_
 
 Answer the first _n_ rows of Pascal’s triangle,
 also known as meru-prastāra, مثلث خیام and Yang Hui’s triangle.
 
-The first eleven rows,
+The first eleven rows of Pascal’s triangle,
 OEIS [A007318](https://oeis.org/A007318):
 
 ```
@@ -89,6 +89,83 @@ OEIS [A001317](https://oeis.org/A001317):
 [
 	1 3 5 15 17 51 85 255 257 771 1285
 	3855 4369 13107 21845 65535 65537
+]
+```
+
+Pascal _1,2_ triangle,
+also called the Lucas triangle or Vieta’s array,
+OEIS [A029635](https://oeis.org/A029635):
+
+```
+>>> 9.pascalTriangle(2)
+[
+	2;
+	1 2;
+	1 3 2;
+	1 4 5 2;
+	1 5 9 7 2;
+	1 6 14 16 9 2;
+	1 7 20 30 25 11 2;
+	1 8 27 50 55 36 13 2;
+	1 9 35 77 105 91 49 15 2;
+	1 10 44 112 182 196 140 64 17 2
+]
+```
+
+Pascal _1,3_ triangle,
+OEIS [A095660](https://oeis.org/A095660):
+
+```
+>>> 9.pascalTriangle(3)
+[
+	3;
+	1 3;
+	1 4 3;
+	1 5 7 3;
+	1 6 12 10 3;
+	1 7 18 22 13 3;
+	1 8 25 40 35 16 3;
+	1 9 33 65 75 51 19 3;
+	1 10 42 98 140 126 70 22 3;
+	1 11 52 140 238 266 196 92 25 3
+]
+```
+
+Pascal _1,4_ triangle,
+OEIS [A095666](https://oeis.org/A095666):
+
+```
+>>> 9.pascalTriangle(4)
+[
+	4;
+	1 4;
+	1 5 4;
+	1 6 9 4;
+	1 7 15 13 4;
+	1 8 22 28 17 4;
+	1 9 30 50 45 21 4;
+	1 10 39 80 95 66 25 4;
+	1 11 49 119 175 161 91 29 4;
+	1 12 60 168 294 336 252 120 33 4
+]
+```
+
+Pascal _1,5_ triangle,
+OEIS [A096940](https://oeis.org/A096940):
+
+```
+>>> 9.pascalTriangle(5)
+[
+	5;
+	1 5;
+	1 6 5;
+	1 7 11 5;
+	1 8 18 16 5;
+	1 9 26 34 21 5;
+	1 10 35 60 55 26 5;
+	1 11 45 95 115 81 31 5;
+	1 12 56 140 210 196 112 36 5;
+	1 13 68 196 350 406 308 148 41 5
 ]
 ```
 

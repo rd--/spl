@@ -274,6 +274,21 @@ OEIS [A118006](https://oeis.org/A118006):
 
 ![](Help/Image/iterate-F.svg)
 
+A Rauzy sequence,
+the trajectory of one under the morphism _1→2,3;2→3;3→1_,
+OEIS [A245553](https://oeis.org/A245553):
+
+~~~spl svg=G oeis=A245553
+let m = [1: [2 3], 2: [3], 3: [1]];
+{ :x |
+	x ++ x.collect { :n |
+		m[n]
+	}.catenate
+}.iterate([1], 5).stepPlot
+~~~
+
+![](Help/Image/iterate-G.svg)
+
 _Rationale:_
 This notation can be more compact than a written out loop,
 and can also be written in the middle of a sequence of bindings,

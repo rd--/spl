@@ -227,6 +227,16 @@ OEIS [A038567](http://oeis.org/A038567):
 [1 2 3 3 4 4 5 5 5 5 6 6 7 7 7 7 7 7 8 8 8 8]
 ```
 
+Numbers with distinct prime factors two, three, and five,
+OEIS [A143207](https://oeis.org/A143207):
+
+```
+>>> 1:360.select { :n |
+>>> 	n.eulerPhi / n = 4/15
+>>> }
+[30 60 90 120 150 180 240 270 300 360]
+```
+
 The Euler totient function,
 OEIS [A000010](https://oeis.org/A000010):
 

@@ -797,6 +797,24 @@ OEIS [A061654](https://oeis.org/A061654):
 [1 10 154 2458 39322 629146 10066330]
 ```
 
+Moment of inertia of all magic squares of order _n_,
+OEIS [A126275](https://oeis.org/A126275):
+
+```
+>>> let n = 2:9;
+>>> (n ^ 2) * (n ^ 4 - 1) / 12
+[5 60 340 1300 3885 9800 21840 44280]
+```
+
+Moment of inertia of all magic cubes of order _n_,
+OEIS [A126276](https://oeis.org/A126276):
+
+```
+>>> let n = 2:8;
+>>> (n ^ 3) * (n ^ 3 + 1) * (n ^ 2 - 1) / 12
+[18 504 5200 31500 136710 471968 1378944]
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A

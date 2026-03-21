@@ -1,6 +1,6 @@
 # noergaardInfinitySequence
 
-- _noergaardInfinitySequence(n, v=0)_
+- _noergaardInfinitySequence(n, v='A')_
 
 Answer the first _n_ terms of Per Nørgård’s _infinity sequence_.
 
@@ -35,6 +35,23 @@ The sequence is square free:
 >>> 200.noergaardInfinitySequence
 >>> .isSquareFreeWord
 true
+```
+
+Another variant of Per Nørgård’s infinity sequence,
+OEIS [A255723](https://oeis.org/A255723):
+
+```
+>>> 74.noergaardInfinitySequence('Z')
+[
+	0 -2 -1 2 -2 -4 1 0 -1 -3
+	0 1 2 0 -3 4 -2 -4 1 0
+	-4 -6 3 -2 1 -1 -2 3 0 -2
+	-1 2 -1 -3 0 1 -3 -5 2 -1
+	0 -2 -1 2 1 -1 -2 3 2
+	0 -3 4 0 -2 -1 2 -3 -5 2 -1
+	4 2 -5 6 -2 -4 1 0 -4 -6
+	3 -2 1 -1
+]
 ```
 
 Per Nørgård’s infinity sequence,
@@ -78,7 +95,7 @@ The first variant of Per Nørgård’s infinity sequence,
 OEIS [A256184](https://oeis.org/A256184):
 
 ```
->>> 72.noergaardInfinitySequence(1)
+>>> 72.noergaardInfinitySequence('B')
 [
 	 0 -2 -1  2 -4 -3  1 -3 -2 -2
 	 0  1  4 -6 -5  3 -5 -4 -1 -1
@@ -94,11 +111,11 @@ OEIS [A256184](https://oeis.org/A256184):
 Note repetition of order three:
 
 ```
->>> 72.noergaardInfinitySequence(1)
+>>> 72.noergaardInfinitySequence('B')
 >>> .atAll(33:35)
 [-1 -1 -1]
 
->>> 36.noergaardInfinitySequence(1)
+>>> 36.noergaardInfinitySequence('B')
 >>> .isSquareFreeWord
 false
 ```
@@ -107,7 +124,7 @@ The first variant of Per Nørgård’s infinity sequence,
 OEIS [A256184](https://oeis.org/A256184):
 
 ~~~spl svg=C oeis=A256184
-250.noergaardInfinitySequence(1)
+250.noergaardInfinitySequence('B')
 .scatterPlot
 ~~~
 
@@ -117,7 +134,7 @@ The second variant of Per Nørgård’s infinity sequence,
 OEIS [A256185](https://oeis.org/A256185):
 
 ```
->>> 73.noergaardInfinitySequence(2)
+>>> 73.noergaardInfinitySequence('C')
 [
 	  0 -3 -2  3 -6  1  2  -5  0 -3
 	  0 -5  6 -9  4 -1 -2  -3 -2 -1
@@ -133,7 +150,7 @@ OEIS [A256185](https://oeis.org/A256185):
 Note that only odd intervals occur:
 
 ```
->>> 73.noergaardInfinitySequence(2)
+>>> 73.noergaardInfinitySequence('C')
 >>> .differences
 >>> .allSatisfy(isOdd:/1)
 true
@@ -143,7 +160,7 @@ The second variant of Per Nørgård’s infinity sequence,
 OEIS [A256185](https://oeis.org/A256185):
 
 ~~~spl svg=D oeis=A256185
-250.noergaardInfinitySequence(2)
+250.noergaardInfinitySequence('C')
 .scatterPlot
 ~~~
 
@@ -168,6 +185,16 @@ OEIS [A361016](https://oeis.org/A361016):
 ~~~
 
 ![](Help/Image/noergaardInfinitySequence-F.svg)
+
+Another variant of Per Nørgård’s infinity sequence,
+OEIS [A255723](https://oeis.org/A255723):
+
+~~~spl svg=G oeis=A255723
+250.noergaardInfinitySequence('Z')
+.scatterPlot
+~~~
+
+![](Help/Image/noergaardInfinitySequence-G.svg)
 
 * * *
 
