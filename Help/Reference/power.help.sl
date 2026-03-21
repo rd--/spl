@@ -748,6 +748,55 @@ OEIS [A055580](https://oeis.org/A055580):
 [1 7 31 111 351 1023 2815 7423 18943]
 ```
 
+Fourth powers,
+OEIS [A000583](http://oeis.org/A000583):
+
+```
+>>> 0:9 ^ 4
+[0 1 16 81 256 625 1296 2401 4096 6561]
+```
+
+_2^(2n+1)_,
+OEIS [A004171](https://oeis.org/A004171):
+
+```
+>>> 2 ^ (2 * 0:8 + 1)
+[2 8 32 128 512 2048 8192 32768 131072]
+```
+
+_n*(n^2 + 1)/2_,
+OEIS [A006003](https://oeis.org/A006003):
+
+```
+>>> let n = 0:11;
+>>> n * (n ^ 2 + 1) / 2
+[0 1 5 15 34 65 111 175 260 369 505 671]
+```
+
+_4^(n+1)+3*2^n+1_,
+OEIS [A036562](https://oeis.org/A036562):
+
+```
+>>> let n = 0:7;
+>>> (4 ^ (n + 1)) + (3 * (2 ^ n)) + 1
+[8 23 77 281 1073 4193 16577 65921]
+
+>>> [7 -14 8].linearRecurrence([8 23 77], 8)
+[8 23 77 281 1073 4193 16577 65921]
+```
+
+_(3*16^n+2)/5_,
+OEIS [A061654](https://oeis.org/A061654):
+
+```
+>>> let n = 0:6;
+>>> (3 * (16 ^ n) + 2) / 5
+[1 10 154 2458 39322 629146 10066330]
+
+>>> [17 -16].linearRecurrence([1 10], 7)
+[1 10 154 2458 39322 629146 10066330]
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A
@@ -869,6 +918,33 @@ let n = 1:65;
 ~~~
 
 ![](Help/Image/power-J.svg)
+
+Number of partitions of _n_ into fourth powers,
+OEIS [A046042](https://oeis.org/A046042):
+
+~~~spl svg=K oeis=A046042
+let f = { :n :i |
+	(n = 0).if {
+		1
+	} {
+		(i < 1).if {
+			0
+		} {
+			let j = i ^ 4;
+			f(n, i - 1) + (j > n).if {
+				0
+			} {
+				f(n - j, i)
+			}
+		}
+	}
+};
+1:102.collect { :n |
+	f(n, n.nthRoot(4).floor)
+}.discretePlot
+~~~
+
+![](Help/Image/power-K.svg)
 
 * * *
 

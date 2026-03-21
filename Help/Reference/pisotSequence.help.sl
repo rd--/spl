@@ -75,6 +75,14 @@ OEIS [A020717](https://oeis.org/A020717):
 [6 9 14 22 35 56 90 145 234 378 611]
 ```
 
+Pisot sequence _E(2,3)_,
+OEIS [A020695](https://oeis.org/A020695):
+
+```
+>>> pisotSequence('E', 2, 3, 13)
+[2 3 5 8 13 21 34 55 89 144 233 377 610]
+```
+
 * * *
 
 See also: power, recurrenceTable

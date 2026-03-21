@@ -418,6 +418,15 @@ OEIS [A010098](https://oeis.org/A010098):
 [1 3 3 9 27 243 6561 1594323 10460353203]
 ````
 
+_2^n-F(n+2)_,
+OEIS [A008466](https://oeis.org/A008466):
+
+```
+>>> let n = 0:12;
+>>> 2 ^ n - (n + 2).fibonacci
+[0 0 1 3 8 19 43 94 201 423 880 1815 3719]
+```
+
 Plot Fibonacci over a subset of the reals:
 
 ~~~spl svg=A

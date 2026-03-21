@@ -73,6 +73,76 @@ a[0:200].scatterPlot
 
 ![](Help/Image/Map-B.svg)
 
+A Conway sequence,
+OEIS [A055748](https://oeis.org/A055748):
+
+~~~spl svg=C oeis=A055748
+let a = Map { :n |
+	(n < 3).if {
+		1
+	} {
+		a[a[n - 1]] + a[n - a[n - 2] - 1]
+	}
+};
+a[1:250].scatterPlot
+~~~
+
+![](Help/Image/Map-C.svg)
+
+A ternary code related to the Tower of Hanoi,
+OEIS [A060583](https://oeis.org/A060583):
+
+~~~spl svg=D oeis=A060583
+let a = Map { :n |
+	(n = 0).if {
+		0
+	} {
+		let i = (n / 3).floor;
+		3 * a[i] + ((0 - a[i] - n) % 3)
+	}
+};
+a[0:65].discretePlot
+~~~
+
+![](Help/Image/Map-D.svg)
+
+A ternary code,
+OEIS [A060587](https://oeis.org/A060587),
+inverse of
+OEIS [A060583](https://oeis.org/A060583):
+
+~~~spl svg=E oeis=A060587
+let a = Map { :n |
+	(n = 0).if {
+		0
+	} {
+		let i = (n / 3).floor;
+		3 * a[i] + ((0 - i - n) % 3)
+	}
+};
+a[0:65].scatterPlot
+~~~
+
+![](Help/Image/Map-E.svg)
+
+A ternary code related to the Tower of Hanoi,
+modulo three
+OEIS [A060582](https://oeis.org/A060582):
+
+~~~spl svg=F oeis=A060582
+let a = Map { :n |
+	(n = 0).if {
+		0
+	} {
+		let i = (n / 3).floor;
+		3 * a[i] + ((0 - a[i] - n) % 3)
+	}
+};
+(a[0:65] % 3).stepPlot
+~~~
+
+![](Help/Image/Map-F.svg)
+
 Note: `Map` is _IdentityDictionary_ in Smalltalk.
 
 * * *

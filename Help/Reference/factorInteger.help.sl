@@ -515,6 +515,20 @@ OEIS [A064989](https://oeis.org/A064989):
 
 ![](Help/Image/factorInteger-Q.svg)
 
+Number of digits in the prime factorization of _n_,
+OEIS [A050252](https://oeis.org/A050252):
+
+~~~spl svg=R oeis=A050252
+2:102.collect { :n |
+	n.factorInteger
+	.catenate.select { :x |
+		x > 1
+	}.sum(integerLength:/1)
+}.scatterPlot
+~~~
+
+![](Help/Image/factorInteger-R.svg)
+
 * * *
 
 See also: divisors, isPrime, primeFactors, primeFactorization, product

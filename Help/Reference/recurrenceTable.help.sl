@@ -170,6 +170,42 @@ OEIS [A005210](https://oeis.org/A005210):
 
 ![](Help/Image/recurrenceTable-F.svg)
 
+Rauzy’s sequence with initial values _0,1_,
+OEIS [A071996](https://oeis.org/A071996):
+
+~~~spl svg=G oeis=A071996
+{ :a :n |
+	let i = (n / 3).floor;
+	a[i] + a[n - i]
+}.recurrenceTable([0 1], 500).linePlot
+~~~
+
+![](Help/Image/recurrenceTable-G.svg)
+
+Rauzy’s sequence with initial values _1,1_,
+OEIS [A071991](https://oeis.org/A071991):
+
+~~~spl svg=H oeis=A071991
+{ :a :n |
+	let i = (n / 3).floor;
+	a[i] + a[n - i]
+}.recurrenceTable([1 1], 65).discretePlot
+~~~
+
+![](Help/Image/recurrenceTable-H.svg)
+
+Rauzy’s sequence with initial values _1,0_,
+OEIS [A071995](https://oeis.org/A071995):
+
+~~~spl svg=I oeis=A071995
+{ :a :n |
+	let i = (n / 3).floor;
+	a[i] + a[n - i]
+}.recurrenceTable([1 0], 65).scatterPlot
+~~~
+
+![](Help/Image/recurrenceTable-I.svg)
+
 * * *
 
 See also: linearRecurrence, recurrenceFilter, recurrenceMatrix, table

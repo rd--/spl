@@ -471,6 +471,32 @@ the first differences are _3,1,2,2,1,3_ repeating:
 ]
 ```
 
+The y-coordinates of the magic tori that display the Agrippa _Saturn_ magic square,
+OEIS [A060588](https://oeis.org/A060588):
+
+```
+>>> let n = 0:26;
+>>> (-n - (n / 3).floor) % 3
+[
+	0 2 1 2 1 0 1 0 2
+	0 2 1 2 1 0 1 0 2
+	0 2 1 2 1 0 1 0 2
+]
+```
+
+Repeat _0,1,2,2,0,1,1,2,0_,
+OEIS [A270740](https://oeis.org/A270740):
+
+```
+>>> let n = 0:26;
+>>> (n - (n // 3)) % 3
+[
+	0 1 2 2 0 1 1 2 0
+	0 1 2 2 0 1 1 2 0
+	0 1 2 2 0 1 1 2 0
+]
+```
+
 An integer sequence modulo an integer,
 _n%8_,
 i.e. with a fixed modulus,

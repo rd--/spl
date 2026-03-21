@@ -4,7 +4,7 @@
 
 Answer the base _b_ Champernowne number.
 
-Base ten:
+The base ten Champernowne number
 
 ```
 >>> 10.champernowneNumber

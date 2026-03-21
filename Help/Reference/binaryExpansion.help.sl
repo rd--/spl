@@ -295,6 +295,17 @@ OEIS [A079944](https://oeis.org/A079944):
 
 ![](Help/Image/binaryExpansion-M.svg)
 
+Write _n_ in base two and reverse order of digits,
+OEIS [A030308](https://oeis.org/A030308):
+
+~~~spl svg=N oeis=A030308
+0:23.collect { :n |
+	n.binaryExpansion.reverse
+}.catenate.discretePlot
+~~~
+
+![](Help/Image/binaryExpansion-N.svg)
+
 * * *
 
 See also: decimalExpansion, integerDigits

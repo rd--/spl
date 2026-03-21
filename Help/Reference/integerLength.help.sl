@@ -161,6 +161,16 @@ OEIS [A102370](https://oeis.org/A102370):
 
 ![](Help/Image/integerLength-E.svg)
 
+Number of digits in the decimal expansion of _n_,
+OEIS [A055642](https://oeis.org/A055642):
+
+~~~spl svg=F oeis=A055642
+1:250.collect(integerLength:/1)
+.stepPlot
+~~~
+
+![](Help/Image/integerLength-F.svg)
+
 * * *
 
 See also: bitLength, digitCount, integerDigits, log, log2, log10, integerExponent, numberOfDigitsInBase

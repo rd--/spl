@@ -111,6 +111,33 @@ _x³_ plotted on a Cartesian plane:
 
 ![](Help/Image/cube-C.svg)
 
+Number of partitions of _n_ into cubes,
+OEIS [A003108](https://oeis.org/A003108):
+
+~~~spl svg=D oeis=A003108
+let f = { :n :i |
+	(n = 0).if {
+		1
+	} {
+		(i < 1).if {
+			0
+		} {
+			let j = i.cube;
+			f(n, i - 1) + (j > n).if {
+				0
+			} {
+				f(n - j, i)
+			}
+		}
+	}
+};
+0:86.collect { :n |
+	f(n, n.cubeRoot.floor)
+}.discretePlot
+~~~
+
+![](Help/Image/cube-D.svg)
+
 Where supported `cube` is displayed as ³.
 
 * * *

@@ -173,6 +173,33 @@ OEIS [A005899](https://oeis.org/A005899):
 
 ![](Help/Image/square-G.svg)
 
+Number of partitions of _n_ into squares,
+OEIS [A001156](https://oeis.org/A001156):
+
+~~~spl svg=H oeis=A001156
+let f = { :n :i |
+	(n = 0).if {
+		1
+	} {
+		(i < 1).if {
+			0
+		} {
+			let j = i.square;
+			f(n, i - 1) + (j > n).if {
+				0
+			} {
+				f(n - j, i)
+			}
+		}
+	}
+};
+0:65.collect { :n |
+	f(n, n.sqrt.floor)
+}.discretePlot
+~~~
+
+![](Help/Image/square-H.svg)
+
 Where supported `square` is displayed as ².
 
 * * *

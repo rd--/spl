@@ -451,6 +451,17 @@ OEIS [A289016](https://oeis.org/A289016):
 
 ![](Help/Image/substitutionSystem-J.svg)
 
+Tribonacci word,
+OEIS [A080843](https://oeis.org/A080843):
+
+~~~spl svg=K oeis=A080843
+[0: [0 1], 1: [0 2], 2: [0]]
+.substitutionSystem([0], 7)
+.last.stepPlot
+~~~
+
+![](Help/Image/substitutionSystem-K.svg)
+
 * * *
 
 See also: Association, fibonacciWord, locallyCatenativeSequence, Map, rudinShapiro, simpleLindenmayerSystem, thueMorse

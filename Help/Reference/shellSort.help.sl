@@ -24,6 +24,16 @@ Sort is in place:
 ([1 2 3 3 4 5], true)
 ```
 
+Good sequence of increments for Shell sort,
+OEIS [A033622](https://oeis.org/A033622):
+
+```
+>>> [1 6 -6 -8 8].linearRecurrence(
+>>> 	[1 5 19 41 109], 11
+>>> )
+[1 5 19 41 109 209 505 929 2161 3905 8929]
+```
+
 Show every _k_-th comparison made in doing a sort:
 
 ~~~spl svg=A

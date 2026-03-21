@@ -1,6 +1,6 @@
 # sternsDiatomicArray
 
-- _sternsDiatomicArray(n)_
+- _sternsDiatomicArray(n, k='A')_
 
 Answer the first _n_ rows of Stern’s diatomic array.
 
@@ -94,6 +94,21 @@ OEIS [A070879](https://oeis.org/A070879):
 ```
 
 Stern’s diatomic array,
+fourth version,
+OEIS [A049455](https://oeis.org/A049455):
+
+```
+>>> 5.sternsDiatomicArray('D')
+[
+	0 1;
+	0 1 1;
+	0 1 1 2 1;
+	0 1 1 2 1 3 2 3 1;
+	0 1 1 2 1 3 2 3 1 4 3 5 2 5 3 4 1
+]
+```
+
+Stern’s diatomic array,
 discrete plot,
 OEIS [A049456](https://oeis.org/A049456):
 
@@ -136,6 +151,17 @@ OEIS [A070879](https://oeis.org/A070879):
 ~~~
 
 ![](Help/Image/sternsDiatomicArray-D.svg)
+
+Stern’s diatomic array,
+fourth version,
+OEIS [A049455](https://oeis.org/A049455):
+
+~~~spl svg=E oeis=A049455
+8.sternsDiatomicArray('D')
+.catenate.scatterPlot
+~~~
+
+![](Help/Image/sternsDiatomicArray-E.svg)
 
 * * *
 

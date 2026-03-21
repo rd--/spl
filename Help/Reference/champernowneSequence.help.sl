@@ -6,7 +6,10 @@ Answer the first _n_ terms of the base-_b_ Champernowne sequence,
 
 First few terms of the base-ten Champernowne sequence,
 also called the Barbier infinite word,
-OEIS [A007376](https://oeis.org/A007376):
+OEIS [A007376](https://oeis.org/A007376),
+also,
+without initial zero,
+OEIS [A033307](https://oeis.org/A033307):
 
 ```
 >>> 10.champernowneSequence(106)

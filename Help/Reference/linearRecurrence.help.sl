@@ -865,6 +865,14 @@ OEIS [A080956](https://oeis.org/A080956):
 [1 1 0 -2 -5 -9 -14 -20 -27 -35 -44 -54 -65]
 ```
 
+Number of compositions of _n_ with at least one even part,
+OEIS [A027934](https://oeis.org/A027934):
+
+```
+>>> [3 -1 -2].linearRecurrence([0 1 2], 12)
+[0 1 2 5 11 24 51 107 222 457 935 1904]
+```
+
 Draw spiral:
 
 ~~~spl svg=A

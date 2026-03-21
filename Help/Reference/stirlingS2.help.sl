@@ -252,6 +252,19 @@ OEIS [A163626](https://oeis.org/A163626):
 
 ![](Help/Image/stirlingS2-D.svg)
 
+Reflected triangle of Stirling numbers of the second kind,
+OEIS [A008278](https://oeis.org/A008278):
+
+~~~spl svg=E oeis=A008278
+1:23.collect { :n |
+	n:1:-1.collect { :k |
+		n.stirlingS2(k)
+	}
+}.catenate.log.scatterPlot
+~~~
+
+![](Help/Image/stirlingS2-E.svg)
+
 * * *
 
 See also: bellNumber, stirlingS1

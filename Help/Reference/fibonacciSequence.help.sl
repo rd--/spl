@@ -173,6 +173,32 @@ OEIS [A030067](https://oeis.org/A030067):
 ]
 ```
 
+Second-order Fibonacci numbers,
+OEIS [A010049](https://oeis.org/A010049):
+
+```
+>>> [2 1 -2 -1].linearRecurrence(
+>>> 	[0 1 1 3], 14
+>>> )
+[0 1 1 3 5 10 18 33 59 105 185 324 564 977]
+```
+
+Fibonacci sequence beginning _1,5_,
+OEIS [A022095](https://oeis.org/A022095):
+
+```
+>>> [1 1].linearRecurrence([1 5], 13)
+[1 5 6 11 17 28 45 73 118 191 309 500 809]
+```
+
+Fibonacci sequence beginning _1,6_,
+OEIS [A022096](https://oeis.org/A022096):
+
+```
+>>> [1 1].linearRecurrence([1 6], 13)
+[1 6 7 13 20 33 53 86 139 225 364 589 953]
+```
+
 Fibonacci modulo _n_,
 OEIS [A002708](https://oeis.org/A002708):
 
