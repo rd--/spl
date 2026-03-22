@@ -249,7 +249,7 @@ let a = [1];
 		}.sum
 	)
 };
-a.log.discretePlot
+a.discretePlot.log
 ~~~
 
 ![](Help/Image/divisible-G.svg)
@@ -281,7 +281,7 @@ OEIS [A113552](https://oeis.org/A113552):
 			}
 		}
 	}
-}.log.discretePlot
+}.discretePlot.log
 ~~~
 
 ![](Help/Image/divisible-I.svg)

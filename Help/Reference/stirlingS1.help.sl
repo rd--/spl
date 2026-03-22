@@ -219,7 +219,7 @@ OEIS [A008309](https://oeis.org/A008309):
 		};
 		a * b * c
 	}
-}.catenate.logScale.discretePlot
+}.catenate.discretePlot.logScale
 ~~~
 
 ![](Help/Image/stirlingS1-C.svg)
@@ -230,7 +230,7 @@ OEIS [A008276](https://oeis.org/A008276):
 ~~~spl svg=D oeis=A008276
 1:11.triangularArray { :n :k |
 	stirlingS1(n, n - k + 1)
-}.catenate.logScale.discretePlot
+}.catenate.discretePlot.logScale
 ~~~
 
 ![](Help/Image/stirlingS1-D.svg)
@@ -240,7 +240,7 @@ OEIS [A008275](http://oeis.org/A008275):
 
 ~~~spl svg=E oeis=A008275
 1:17.triangularArray(stirlingS1:/2)
-.catenate.logScale.scatterPlot
+.catenate.scatterPlot.logScale
 ~~~
 
 ![](Help/Image/stirlingS1-E.svg)
@@ -259,7 +259,7 @@ OEIS [A049444](https://oeis.org/A049444):
 			stirlingS1(n - k, i)
 		].product
 	}
-}.catenate.logScale.discretePlot
+}.catenate.discretePlot.logScale
 ~~~
 
 ![](Help/Image/stirlingS1-F.svg)
@@ -270,7 +270,7 @@ OEIS [A048594](https://oeis.org/A048594):
 ~~~spl svg=G oeis=A048594
 1:12.triangularArray { :n :k |
 	k.! * stirlingS1(n, k)
-}.catenate.logScale.discretePlot
+}.catenate.discretePlot.logScale
 ~~~
 
 ![](Help/Image/stirlingS1-G.svg)

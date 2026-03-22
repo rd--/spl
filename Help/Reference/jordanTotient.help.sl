@@ -152,7 +152,7 @@ OEIS [A059379](https://oeis.org/A059379):
 ~~~spl svg=C oeis=A059379
 1:13.antidiagonalArray(
 	jordanTotient:/2
-).catenate.log.scatterPlot
+).catenate.scatterPlot.log
 ~~~
 
 ![](Help/Image/jordanTotient-C.svg)

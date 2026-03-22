@@ -134,7 +134,7 @@ OEIS [A292849](https://oeis.org/A292849):
 		=
 		(k * n).hammingWeight
 	}
-}.log.scatterPlot
+}.scatterPlot.log
 ~~~
 
 ![](Help/Image/hammingWeight-I.svg)
@@ -200,7 +200,7 @@ OEIS [A060818](https://oeis.org/A060818):
 ~~~spl svg=N oeis=A060818
 0:50.collect { :n |
 	2 ^ (n - n.hammingWeight)
-}.log.scatterPlot
+}.scatterPlot.log
 ~~~
 
 ![](Help/Image/hammingWeight-N.svg)

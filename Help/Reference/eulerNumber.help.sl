@@ -80,7 +80,7 @@ OEIS [A153641](https://oeis.org/A153641):
 		*
 		(2 * k).eulerNumber
 	}
-}.catenate.logScale.discretePlot
+}.catenate.discretePlot.logScale
 ~~~
 
 ![](Help/Image/eulerNumber-B.svg)

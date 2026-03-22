@@ -571,7 +571,7 @@ OEIS [A007956](https://oeis.org/A007956):
 ~~~spl svg=K oeis=A007956
 1:200.collect { :n |
 	n ^ (0.divisorSigma(n) / 2 - 1)
-}.log.scatterPlot
+}.scatterPlot.log
 ~~~
 
 ![](Help/Image/divisorSigma-K.svg)
@@ -586,7 +586,7 @@ let d = sigma.differences;
 	d.detectIndex { :x |
 		x >= n
 	}
-}.log.stepPlot
+}.stepPlot.log
 ~~~
 
 ![](Help/Image/divisorSigma-L.svg)

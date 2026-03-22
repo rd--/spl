@@ -40,7 +40,7 @@ let a = [1];
 	};
 	a.add(k)
 };
-a.log.discretePlot
+a.discretePlot.log
 ~~~
 
 ![](Help/Image/notAnd-A.svg)

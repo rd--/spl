@@ -54,7 +54,7 @@ OEIS [A019565](https://oeis.org/A019565):
 	.indicesOf(1)
 	.prime
 	.product
-}.log.scatterPlot
+}.scatterPlot.log
 ~~~
 
 ![](Help/Image/indicesOf-A.svg)

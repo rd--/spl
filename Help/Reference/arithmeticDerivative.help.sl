@@ -183,7 +183,7 @@ OEIS [A258651](https://oeis.org/A258651):
 ~~~spl svg=D oeis=A258651
 0:27.antidiagonalArray { :n :k |
 	arithmeticDerivative:/1.iterate(n, k)
-}.catenate.log.scatterPlot
+}.catenate.scatterPlot.log
 ~~~
 
 ![](Help/Image/arithmeticDerivative-D.svg)
@@ -194,7 +194,7 @@ Log scale matrix plot of table of derivatives of _i/j_ for small _i,j_:
 { :i :j |
 	Fraction(i, j)
 	.arithmeticDerivative
-}.table(1:10, 1:10).logScale.matrixPlot
+}.table(1:10, 1:10).matrixPlot.logScale
 ~~~
 
 ![](Help/Image/arithmeticDerivative-E.svg)

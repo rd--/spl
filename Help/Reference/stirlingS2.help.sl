@@ -232,7 +232,7 @@ OEIS [A008277](https://oeis.org/A008277):
 
 ~~~spl svg=C oeis=A008277
 1:17.triangularArray(stirlingS2:/2)
-.catenate.log.scatterPlot
+.catenate.scatterPlot.log
 ~~~
 
 ![](Help/Image/stirlingS2-C.svg)
@@ -247,7 +247,7 @@ OEIS [A163626](https://oeis.org/A163626):
 	k.!
 	*
 	(n + 1).stirlingS2(k + 1)
-}.catenate.logScale.scatterPlot
+}.catenate.scatterPlot.logScale
 ~~~
 
 ![](Help/Image/stirlingS2-D.svg)
@@ -260,7 +260,7 @@ OEIS [A008278](https://oeis.org/A008278):
 	n:1:-1.collect { :k |
 		n.stirlingS2(k)
 	}
-}.catenate.log.scatterPlot
+}.catenate.scatterPlot.log
 ~~~
 
 ![](Help/Image/stirlingS2-E.svg)

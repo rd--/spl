@@ -94,7 +94,7 @@ OEIS [A025586](https://oeis.org/A025586):
 ~~~spl svg=B oeis=A025586
 1:200.collect { :each |
 	each.collatzSequence.max
-}.log.scatterPlot
+}.scatterPlot.log
 ~~~
 
 ![](Help/Image/collatzSequence-B.svg)
@@ -126,7 +126,7 @@ let t = 1:15.collect { :unused |
 	s := ((2 * s) ++ u).nub.sort;
 	s
 };
-([1] ++ t.catenate).log.scatterPlot
+([1] ++ t.catenate).scatterPlot.log
 ~~~
 
 ![](Help/Image/collatzSequence-D.svg)
@@ -164,7 +164,7 @@ Plot first few Collatz sequences:
 1:15.collect { :n |
 	let x = Fraction(1, (2 * n + 1));
 	x.collatzSequence
-}.catenate.log.scatterPlot
+}.catenate.scatterPlot.log
 ~~~
 
 ![](Help/Image/collatzSequence-E.svg)
@@ -435,7 +435,7 @@ OEIS [A057691](https://oeis.org/A057691):
 		'Indirect'
 	);
 	x.indexOf(y) - 1
-}.log.scatterPlot
+}.scatterPlot.log
 ~~~
 
 ![](Help/Image/collatzSequence-H.svg)
@@ -448,7 +448,7 @@ Indirect Collatz sequences:
 		p,
 		'Indirect'
 	).first
-}.catenate.log.scatterPlot
+}.catenate.scatterPlot.log
 ~~~
 
 ![](Help/Image/collatzSequence-I.svg)

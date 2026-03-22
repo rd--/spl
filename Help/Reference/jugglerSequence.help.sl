@@ -104,7 +104,7 @@ Log scale plot of heights:
 ~~~spl svg=B
 1:250.collect { :a |
 	a.jugglerSequence.max
-}.log.scatterPlot
+}.scatterPlot.log
 ~~~
 
 ![](Help/Image/jugglerSequence-B.svg)

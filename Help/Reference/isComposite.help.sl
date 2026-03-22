@@ -102,7 +102,7 @@ let p = 1:k.prime;
 			(2 * x - y).isComposite
 		}
 	}
-}.log.stepPlot
+}.stepPlot.log
 ~~~
 
 ![](Help/Image/isComposite-B.svg)

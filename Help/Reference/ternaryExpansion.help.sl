@@ -82,7 +82,7 @@ OEIS [A003137](https://oeis.org/A003137):
 Numbers in base three,
 OEIS [A007089](https://oeis.org/A007089):
 
-~~~spl svg=E oeis=A007089
+~~~spl svg=F oeis=A007089
 0:65.ternaryExpansion
 .decimalContraction
 .discretePlot

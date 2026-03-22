@@ -132,7 +132,7 @@ OEIS [A008289](https://oeis.org/A008289):
 	}.select { :i |
 		i > 0
 	}
-}.catenate.log.scatterPlot
+}.catenate.scatterPlot.log
 ~~~
 
 ![](Help/Image/partitionFunctionQ-B.svg)

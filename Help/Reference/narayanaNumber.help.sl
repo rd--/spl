@@ -31,7 +31,7 @@ OEIS [A001263](https://oeis.org/A001263):
 ~~~spl svg=A oeis=A001263
 1:11.triangularArray(
 	narayanaNumber:/2
-).catenate.log.discretePlot
+).catenate.discretePlot.log
 ~~~
 
 ![](Help/Image/narayanaNumber-A.svg)

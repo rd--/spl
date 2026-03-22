@@ -52,7 +52,7 @@ discrete log plot,
 OEIS [A000110](https://oeis.org/A000110):
 
 ~~~spl svg=A oeis=A000110
-1:99.bellNumber.log.discretePlot
+1:99.bellNumber.discretePlot.log
 ~~~
 
 ![](Help/Image/bellNumber-A.svg)

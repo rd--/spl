@@ -76,7 +76,7 @@ OEIS [A053825](https://oeis.org/A053825):
 	{ :n |
 		3.divisorSigma(n)
 	}.dirichletInverse
-).logScale.discretePlot
+).discretePlot.logScale
 ~~~
 
 ![](Help/Image/dirichletInverse-F.svg)

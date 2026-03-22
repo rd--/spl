@@ -155,7 +155,7 @@ let c = { :p |
 };
 1:11.collect { :n |
 	n.integerPartitions.collect(c:/1)
-}.catenate.logScale.scatterPlot
+}.catenate.scatterPlot.logScale
 ~~~
 
 ![](Help/Image/product-C.svg)

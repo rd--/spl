@@ -113,7 +113,7 @@ OEIS [A024770](https://oeis.org/A024770):
 		x.fromDigits
 		.isPrime
 	}
-}.log.scatterPlot
+}.scatterPlot.log
 ~~~
 
 ![](Help/Image/prefixes-D.svg)

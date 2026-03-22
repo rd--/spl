@@ -906,7 +906,7 @@ linearRecurrence(
 	[0 -1 0 -1 0 -1 0 1 0 1 0 1],
 	[1 1 1 1 1 1 0 1 1 1 1 1],
 	100
-).logScale.discretePlot
+).discretePlot.logScale
 ~~~
 
 ![](Help/Image/linearRecurrence-C.svg)
@@ -918,7 +918,7 @@ OEIS [A051793](https://oeis.org/A051793):
 [0 -1 0 -1 0 1 0 1].linearRecurrence(
 	[1 1 1 1 0 1 1 1],
 	115
-).logScale.discretePlot
+).discretePlot.logScale
 ~~~
 
 ![](Help/Image/linearRecurrence-D.svg)
@@ -929,7 +929,7 @@ OEIS [A009545](https://oeis.org/A009545):
 
 ~~~spl svg=E oeis=A009545
 linearRecurrence([2 -2], [0 1], 110)
-.logScale.discretePlot
+.discretePlot.logScale
 ~~~
 
 ![](Help/Image/linearRecurrence-E.svg)
@@ -939,7 +939,7 @@ OEIS [A009116](https://oeis.org/A009116):
 
 ~~~spl svg=F oeis=A009116
 linearRecurrence([-2 -2], [1 -1], 110)
-.logScale.discretePlot
+.discretePlot.logScale
 ~~~
 
 ![](Help/Image/linearRecurrence-F.svg)
@@ -973,7 +973,7 @@ OEIS [A057083](https://oeis.org/A057083):
 
 ~~~spl svg=I oeis=A057083
 [3L -3].linearRecurrence([1 3], 66)
-.logScale.discretePlot
+.discretePlot.logScale
 ~~~
 
 ![](Help/Image/linearRecurrence-I.svg)

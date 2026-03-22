@@ -145,7 +145,7 @@ let a = Map { :n |
 		}
 	}
 };
-a[1:125].log.scatterPlot
+a[1:125].scatterPlot.log
 ~~~
 
 ![](Help/Image/isEven-A.svg)
@@ -185,7 +185,7 @@ OEIS [A059707](https://oeis.org/A059707):
 			n
 		}
 	}.fixedPoint(i)
-}.log.scatterPlot
+}.scatterPlot.log
 ~~~
 
 ![](Help/Image/isEven-C.svg)
@@ -258,7 +258,7 @@ let a = Map { :n |
 		}
 	}
 };
-a[0:250].log.scatterPlot
+a[0:250].scatterPlot.log
 ~~~
 
 ![](Help/Image/isEven-G.svg)
@@ -315,7 +315,7 @@ let a = Map { :n |
 		}
 	}
 };
-a[0:150].log.scatterPlot
+a[0:150].scatterPlot.log
 ~~~
 
 ![](Help/Image/isEven-I.svg)

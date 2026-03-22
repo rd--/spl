@@ -353,7 +353,7 @@ OEIS [A038699](https://oeis.org/A038699):
 		m := m + 1
 	};
 	x
-}.log.scatterPlot
+}.scatterPlot.log
 ~~~
 
 ![](Help/Image/isPrime-C.svg)

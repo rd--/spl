@@ -69,7 +69,7 @@ OEIS [A006530](https://oeis.org/A006530):
 
 ~~~spl svg=A oeis=A006530
 2:200.collect(greatestPrimeFactor:/1)
-.logScale.scatterPlot
+.scatterPlot.logScale
 ~~~
 
 ![](Help/Image/greatestPrimeFactor-A.svg)
@@ -96,7 +96,7 @@ OEIS [A046021](https://oeis.org/A046021):
 		((n - 1) / (p ^ k)).floor
 	};
 	p ^ (1 + q)
-}.log.scatterPlot
+}.scatterPlot.log
 ~~~
 
 ![](Help/Image/greatestPrimeFactor-C.svg)

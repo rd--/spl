@@ -57,7 +57,7 @@ OEIS [A008282](https://oeis.org/A008282):
 ~~~spl svg=A oeis=A008282
 1:11.triangularArray(
  	entringerNumber:/2
-).catenate.logScale.scatterPlot
+).catenate.scatterPlot.logScale
 ~~~
 
 ![](Help/Image/entringerNumber-A.svg)

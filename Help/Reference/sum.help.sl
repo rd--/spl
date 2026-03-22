@@ -246,7 +246,7 @@ let a = [1];
 		}.negate
 	)
 };
-a.logScale.scatterPlot
+a.scatterPlot.logScale
 ~~~
 
 ![](Help/Image/sum-A.svg)
@@ -293,7 +293,7 @@ let f = { :n |
 };
 1:200.collect { :n |
 	f(n.digitCount(2, 1))
-}.log.scatterPlot
+}.scatterPlot.log
 ~~~
 
 ![](Help/Image/sum-C.svg)

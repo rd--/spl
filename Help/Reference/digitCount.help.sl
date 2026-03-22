@@ -282,7 +282,7 @@ OEIS [A048883](https://oeis.org/A048883):
 ~~~spl svg=H oeis=A048883
 0:250.collect { :n |
 	3 ^ n.digitCount(2, 1)
-}.log.scatterPlot
+}.scatterPlot.log
 ~~~
 
 ![](Help/Image/digitCount-H.svg)

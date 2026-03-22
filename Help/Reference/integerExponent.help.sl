@@ -342,7 +342,7 @@ OEIS [A371094](https://oeis.org/A371094):
 	let m = 1 + (3 * n);
 	let e = m.integerExponent(2);
 	(m * (2 ^ e)) + (((4 ^ e) - 1) / 3)
-}.log.scatterPlot
+}.scatterPlot.log
 ~~~
 
 ![](Help/Image/integerExponent-I.svg)
@@ -386,7 +386,7 @@ OEIS [A220466](https://oeis.org/A220466):
 	let a = (4 ^ p) * (m - 1);
 	let b = (2 ^ (p - 1)) * (1 + (2 ^ p));
 	a + b
-}.log.scatterPlot
+}.scatterPlot.log
 ~~~
 
 ![](Help/Image/integerExponent-L.svg)
@@ -543,7 +543,7 @@ let a = Map { :n |
 		}
 	}
 };
-a[1:250].log.scatterPlot
+a[1:250].scatterPlot.log
 ~~~
 
 ![](Help/Image/integerExponent-V.svg)

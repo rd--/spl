@@ -76,7 +76,7 @@ OEIS [A111596](https://oeis.org/A111596):
 ~~~spl svg=A oeis=A111596
 0:11.triangularArray { :n :k |
 	(-1 ^ (n - k)) * lahNumber(n, k)
-}.catenate.logScale.discretePlot
+}.catenate.discretePlot.logScale
 ~~~
 
 ![](Help/Image/lahNumber-A.svg)
@@ -87,7 +87,7 @@ OEIS [A008297](https://oeis.org/A008297):
 ~~~spl svg=B oeis=A008297
 0:11.triangularArray { :n :k |
 	(-1 ^ n) * lahNumber(n, k)
-}.catenate.logScale.scatterPlot
+}.catenate.scatterPlot.logScale
 ~~~
 
 ![](Help/Image/lahNumber-B.svg)

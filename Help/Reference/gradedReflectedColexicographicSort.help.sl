@@ -51,7 +51,7 @@ Plot:
 	n.integerPartitions
 	.gradedReflectedColexicographicSort
 	.collect(multinomial:/1)
-}.catenate.log.scatterPlot
+}.catenate.scatterPlot.log
 ~~~
 
 ![](Help/Image/gradedReflectedColexicographicSort-A.svg)

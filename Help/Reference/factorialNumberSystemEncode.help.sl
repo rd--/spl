@@ -110,7 +110,7 @@ OEIS [A085198](https://oeis.org/A085198):
 ~~~spl svg=A oeis=A085198
 0:150.collect(
 	oeisFunction('A085198')
-).logScale.scatterPlot
+).scatterPlot.logScale
 ~~~
 
 ![](Help/Image/factorialNumberSystemEncode-A.svg)

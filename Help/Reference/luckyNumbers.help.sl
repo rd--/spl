@@ -70,7 +70,7 @@ Log scale plot of first few terms of lucky and prime number sequences:
 ~~~spl svg=C
 let a = 1000.luckyNumbers;
 let b = (1 .. a.size).prime;
-[a, b].logScale.linePlot
+[a, b].linePlot.logScale
 ~~~
 
 ![](Help/Image/luckyNumbers-C.svg)

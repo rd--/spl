@@ -53,7 +53,7 @@ OEIS [A061479](https://oeis.org/A061479):
 		let d = m.integerDigits;
 		d.alternatingSum = n
 	}
-}.log.discretePlot
+}.discretePlot.log
 ~~~
 
 ![](Help/Image/alternatingSum-C.svg)

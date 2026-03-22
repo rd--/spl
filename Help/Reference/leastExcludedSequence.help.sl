@@ -44,7 +44,7 @@ OEIS [A235598](https://oeis.org/A235598):
 	(p + q).isPerfectSquare | {
 		(q - p).abs.sqrt.isInteger
 	}
-}.log.discretePlot
+}.discretePlot.log
 ~~~
 
 ![](Help/Image/leastExcludedSequence-C.svg)

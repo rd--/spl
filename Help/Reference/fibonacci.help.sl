@@ -561,7 +561,7 @@ let x = 1:250.fibonacci;
 	x.detect { :x |
 		x.divisible(n)
 	}
-}.log.scatterPlot
+}.scatterPlot.log
 ~~~
 
 ![](Help/Image/fibonacci-K.svg)
@@ -618,7 +618,7 @@ OEIS [A180662](https://oeis.org/A180662):
 ~~~spl svg=P oeis=A180662
 0:10.triangularArray { :n :k |
 	[k, k + 1].fibonacci.product
-}.catenate.log.discretePlot
+}.catenate.discretePlot.log
 ~~~
 
 ![](Help/Image/fibonacci-P.svg)

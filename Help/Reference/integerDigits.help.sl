@@ -707,7 +707,7 @@ OEIS [A033865](https://oeis.org/A033865):
 		let j = i.integerDigits;
 		j.isPalindrome.not
 	}
-}.log.scatterPlot
+}.scatterPlot.log
 ~~~
 
 ![](Help/Image/integerDigits-K.svg)
@@ -746,7 +746,7 @@ OEIS [A007931](https://oeis.org/A007931):
 1:94.collect { :n |
 	let a = (n + 1).integerDigits(2);
 	(a + 1).allButFirst.fromDigits
-}.logScale.scatterPlot
+}.scatterPlot.logScale
 ~~~
 
 ![](Help/Image/integerDigits-N.svg)

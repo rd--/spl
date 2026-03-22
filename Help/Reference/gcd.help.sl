@@ -294,7 +294,7 @@ OEIS [A051696](http://oeis.org/A051696):
 ~~~spl svg=I oeis=A051696
 (1L .. 200L).collect { :n |
 	gcd(n.!, n ^ n)
-}.log.scatterPlot
+}.scatterPlot.log
 ~~~
 
 ![](Help/Image/gcd-I.svg)
@@ -370,7 +370,7 @@ let t = { :n :m |
 };
 0:12.triangularArray { :d :n |
 	t(n, 1 + d - n)
-}.catenate.log.scatterPlot
+}.catenate.scatterPlot.log
 ~~~
 
 ![](Help/Image/gcd-N.svg)

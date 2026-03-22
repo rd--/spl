@@ -253,7 +253,7 @@ OEIS [A235249](https://oeis.org/A235249):
 1:65.collect { :n |
 	pisanoPeriod:/1
 	.fixedPoint(n, =)
-}.log.stepPlot
+}.stepPlot.log
 ~~~
 
 ![](Help/Image/pisanoPeriod-D.svg)

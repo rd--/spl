@@ -123,7 +123,7 @@ log scale scatter plot,
 OEIS [A171911](https://oeis.org/A171911):
 
 ~~~spl svg=D oeis=A171911
-250.vanEckSequence([1 0]).log.scatterPlot
+250.vanEckSequence([1 0]).scatterPlot.log
 ~~~
 
 ![](Help/Image/vanEckSequence-D.svg)

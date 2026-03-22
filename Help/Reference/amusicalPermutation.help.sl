@@ -170,7 +170,7 @@ let b = [];
 1:k.sum.antidiagonalIndicesDo { :i :j |
 	b.add(a[j][i])
 };
-b.log.discretePlot
+b.discretePlot.log
 ~~~
 
 ![](Help/Image/amusicalPermutation-J.svg)

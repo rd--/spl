@@ -51,7 +51,7 @@ log-scale plot,
 OEIS [A005940](https://oeis.org/A005940):
 
 ~~~spl svg=B oeis=A005940
-250.doudnaSequence.logScale.scatterPlot
+250.doudnaSequence.scatterPlot.logScale
 ~~~
 
 ![](Help/Image/doudnaSequence-B.svg)

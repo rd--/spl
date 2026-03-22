@@ -73,7 +73,7 @@ The super Catalan numbers,
 OEIS [A001003](https://oeis.org/A001003):
 
 ~~~spl svg=A oeis=A001003
-1:25.superCatalanNumber.log.discretePlot
+1:25.superCatalanNumber.discretePlot.log
 ~~~
 
 ![](Help/Image/superCatalanNumber-A.svg)

@@ -21,7 +21,7 @@ log scale discrete plot,
 OEIS [A001006](https://oeis.org/A001006):
 
 ~~~spl svg=A oeis=A001006
-1:35.motzkinNumber.log.discretePlot
+1:35.motzkinNumber.discretePlot.log
 ~~~
 
 ![](Help/Image/motzkinNumber-A.svg)

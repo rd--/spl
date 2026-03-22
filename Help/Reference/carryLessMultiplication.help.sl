@@ -69,7 +69,7 @@ OEIS [A048723](https://oeis.org/A048723):
 ~~~spl svg=B oeis=A048723
 0L:21.antidiagonalArray(
 	carryLessPower:/2
-).catenate.log.scatterPlot
+).catenate.scatterPlot.log
 ~~~
 
 ![](Help/Image/carryLessMultiplication-B.svg)

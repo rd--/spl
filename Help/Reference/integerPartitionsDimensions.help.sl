@@ -52,7 +52,7 @@ OEIS [A060240](https://oeis.org/A060240):
 1:11.collect { :n |
 	n.integerPartitionsDimensions
 	.sort
-}.catenate.log.stepPlot
+}.catenate.stepPlot.log
 ~~~
 
 ![](Help/Image/integerPartitionsDimensions-B.svg)

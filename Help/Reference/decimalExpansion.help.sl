@@ -91,7 +91,7 @@ OEIS [A073646](https://oeis.org/A073646):
 	.decimalExpansion
 	.catenate
 	.decimalContraction
-}.log.scatterPlot
+}.scatterPlot.log
 ~~~
 
 ![](Help/Image/decimalExpansion-A.svg)

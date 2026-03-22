@@ -134,7 +134,7 @@ OEIS [A053120](https://oeis.org/A053120):
 0:13.collect { :n |
 	n.chebyshevT
 	.coefficientList
-}.catenate.logScale.scatterPlot
+}.catenate.scatterPlot.logScale
 ~~~
 
 ![](Help/Image/chebyshevT-E.svg)
@@ -147,7 +147,7 @@ OEIS [A127672](https://oeis.org/A127672):
 	let p = n.chebyshevT;
 	let c = p.coefficientList;
 	(c * 2) / (2 ^ 0:n)
-}.catenate.logScale.scatterPlot
+}.catenate.scatterPlot.logScale
 ~~~
 
 ![](Help/Image/chebyshevT-F.svg)

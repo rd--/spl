@@ -216,7 +216,7 @@ OEIS [A030067](https://oeis.org/A030067):
 ~~~spl svg=B oeis=A030067
 125.fibonacciSequence(
 	'Semi-Fibonacci'
-).log.scatterPlot
+).scatterPlot.log
 ~~~
 
 ![](Help/Image/fibonacciSequence-B.svg)

@@ -394,7 +394,7 @@ OEIS [A223541](https://oeis.org/A223541):
 ~~~spl svg=S oeis=A223541
 1:21.antidiagonalArray { :m :n |
 	(2 ^ n).nimMultiplication(2 ^ m)
-}.++.log.scatterPlot
+}.++.scatterPlot.log
 ~~~
 
 ![](Help/Image/nimMultiplication-S.svg)
@@ -407,7 +407,7 @@ OEIS [A223540](https://oeis.org/A223540):
 ~~~spl svg=T oeis=A223540
 0:15.triangularArray{ :m :n |
 	(2 ^ n).nimMultiplication(2 ^ m)
-}.catenate.log.scatterPlot
+}.catenate.scatterPlot.log
 ~~~
 
 ![](Help/Image/nimMultiplication-T.svg)
@@ -419,7 +419,7 @@ OEIS [A223543](https://oeis.org/A223543):
 let k = 2 ^ 5 - 1;
 let i = 2 ^ 0:k;
 nimMultiplication:/2.table(i, i)
-.catenate.unique.log.linePlot
+.catenate.unique.linePlot.log
 ~~~
 
 ![](Help/Image/nimMultiplication-U.svg)

@@ -204,7 +204,7 @@ OEIS [A020639](https://oeis.org/A020639):
 ~~~spl svg=B oeis=A020639
 { :n |
 	n.primeFactors.min
-}.table(2:300).log.scatterPlot
+}.table(2:300).scatterPlot.log
 ~~~
 
 ![](Help/Image/primeFactors-B.svg)
@@ -229,7 +229,7 @@ let x = [1 1];
 150.timesRepeat {
 	x.add(x.sum.primeFactors.sum)
 };
-x.log.scatterPlot
+x.scatterPlot.log
 ~~~
 
 ![](Help/Image/primeFactors-D.svg)
@@ -267,7 +267,7 @@ OEIS [A071321](https://oeis.org/A071321):
 1:85.collect { :n |
 	n.primeFactors
 	.alternatingSum
-}.logScale.discretePlot
+}.discretePlot.logScale
 ~~~
 
 ![](Help/Image/primeFactors-G.svg)

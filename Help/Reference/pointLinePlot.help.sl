@@ -5,7 +5,7 @@
 Plot data from a collection _c_ as both points,
 as in `scatterPlot`,
 and lines,
-as in `pointLinePlot`.
+as in `linePlot`.
 
 ~~~spl svg=A
 [1 1 2 3 5 8].pointLinePlot

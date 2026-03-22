@@ -403,7 +403,7 @@ let t = { :n :j |
 };
 1:11.triangularArray { :n :m |
 	t(n - m + 1, m)
-}.catenate.log.scatterPlot
+}.catenate.scatterPlot.log
 ~~~
 
 ![](Help/Image/goldenRatio-J.svg)

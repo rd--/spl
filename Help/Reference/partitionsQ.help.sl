@@ -73,7 +73,7 @@ OEIS [A095941](http://oeis.org/A095941):
 Plot the number of restricted partitions:
 
 ~~~spl svg=A
-1:47.partitionsQ.log.discretePlot
+1:47.partitionsQ.discretePlot.log
 ~~~
 
 ![](Help/Image/partitionsQ-A.svg)

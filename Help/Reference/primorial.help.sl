@@ -41,7 +41,7 @@ OEIS [A278159](https://oeis.org/A278159):
 	let b = n.binaryExpansion;
 	let r = b.runLengthsOf(1);
 	r.collect(primorial:/1).product
-}.log.scatterPlot
+}.scatterPlot.log
 ~~~
 
 ![](Help/Image/primorial-A.svg)

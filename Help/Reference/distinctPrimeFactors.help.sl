@@ -89,7 +89,7 @@ OEIS [A027748](https://oeis.org/A027748):
 
 ~~~spl svg=B oeis=A027748
 2:115.collect(distinctPrimeFactors:/1)
-.catenate.log.scatterPlot
+.catenate.scatterPlot.log
 ~~~
 
 ![](Help/Image/distinctPrimeFactors-B.svg)

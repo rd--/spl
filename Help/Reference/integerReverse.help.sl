@@ -109,7 +109,7 @@ OEIS [A055483](https://oeis.org/A055483):
 ~~~spl svg=B oeis=A055483
 1:120.collect { :n |
 	gcd(n, n.integerReverse)
-}.log.scatterPlot
+}.scatterPlot.log
 ~~~
 
 ![](Help/Image/integerReverse-B.svg)
@@ -122,7 +122,7 @@ OEIS [A161594](https://oeis.org/A161594):
 	n.primeFactors
 	.product(integerReverse:/1)
 	.integerReverse
-}.log.scatterPlot
+}.scatterPlot.log
 ~~~
 
 ![](Help/Image/integerReverse-C.svg)
@@ -134,7 +134,7 @@ OEIS [A071786](https://oeis.org/A071786):
 1:250.collect { :n |
 	n.primeFactors
 	.product(integerReverse:/1)
-}.log.scatterPlot
+}.scatterPlot.log
 ~~~
 
 ![](Help/Image/integerReverse-D.svg)

@@ -130,7 +130,7 @@ let a = Map { :n |
 	}
 };
 let b = a[0:k];
-b.convolve(b).first(k + 1).log.scatterPlot
+b.convolve(b).first(k + 1).scatterPlot.log
 ~~~
 
 ![](Help/Image/convolve-E.svg)

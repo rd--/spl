@@ -164,7 +164,7 @@ OEIS [A282291](https://oeis.org/A282291):
 	q.divisible(p) & {
 		p.isCoprime(q / p)
 	}
-}.log.discretePlot
+}.discretePlot.log
 ~~~
 
 ![](Help/Image/isCoprime-D.svg)

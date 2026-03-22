@@ -192,7 +192,7 @@ OEIS [A274086](https://oeis.org/A274086):
 
 ~~~spl svg=F oeis=A274086
 let n = 0:250;
-(n * n.tan).round.logScale.scatterPlot
+(n * n.tan).round.scatterPlot.logScale
 ~~~
 
 ![](Help/Image/round-F.svg)

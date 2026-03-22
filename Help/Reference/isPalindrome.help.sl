@@ -196,7 +196,7 @@ OEIS [A141707](https://oeis.org/A141707):
 		k := k + 1
 	};
 	k
-}.log.scatterPlot
+}.scatterPlot.log
 ~~~
 
 ![](Help/Image/isPalindrome-C.svg)
@@ -218,7 +218,7 @@ OEIS [A050782](https://oeis.org/A050782):
 		};
 		i
 	}
-}.log.discretePlot
+}.discretePlot.log
 ~~~
 
 ![](Help/Image/isPalindrome-D.svg)

@@ -30,7 +30,7 @@ OEIS [A263003](https://oeis.org/A263003):
 	n.integerPartitions.collect { :p |
 		p.hookLengths.catenate.product
 	}
-}.catenate.log.scatterPlot
+}.catenate.scatterPlot.log
 ~~~
 
 ![](Help/Image/hookLengths-A.svg)

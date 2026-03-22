@@ -64,7 +64,7 @@ Log scale plot of first few terms of the _'Canonical'_ method:
 
 ~~~spl svg=B
 1:100.rationalUnrank('Canonical')
-.log.discretePlot
+.discretePlot.log
 ~~~
 
 ![](Help/Image/rationalUnrank-B.svg)

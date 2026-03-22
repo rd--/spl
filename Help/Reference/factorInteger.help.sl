@@ -493,7 +493,7 @@ OEIS [A122111](https://oeis.org/A122111):
 			(j >= i).boole
 		}.prime
 	}
-}.log.scatterPlot
+}.scatterPlot.log
 ~~~
 
 ![](Help/Image/factorInteger-P.svg)

@@ -93,7 +93,7 @@ Calculate modulo seven:
 Log plot of 4×4 Pascal matrix:
 
 ~~~spl svg=A
-7.pascalMatrix.log.matrixPlot
+7.pascalMatrix.matrixPlot.log
 ~~~
 
 ![](Help/Image/pascalMatrix-A.svg)

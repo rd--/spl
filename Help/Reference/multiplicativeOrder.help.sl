@@ -329,7 +329,7 @@ OEIS [A006556](https://oeis.org/A006556):
 ~~~spl svg=D oeis=A006556
 4:150.prime.collect { :n |
 	(n - 1) / 10.multiplicativeOrder(n)
-}.log.scatterPlot
+}.scatterPlot.log
 ~~~
 
 ![](Help/Image/multiplicativeOrder-D.svg)
@@ -347,7 +347,7 @@ OEIS [A002139](https://oeis.org/A002139):
 	} {
 		x.lcm(x + 1)
 	}
-}.logScale.scatterPlot
+}.scatterPlot.logScale
 ~~~
 
 ![](Help/Image/multiplicativeOrder-E.svg)

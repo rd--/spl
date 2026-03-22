@@ -30,7 +30,7 @@ OEIS [A039599](https://oeis.org/A039599):
 ~~~spl svg=A oeis=A039599
 0:19.triangularArray(
 	lobbNumber:/2.swap
-).catenate.log.scatterPlot
+).catenate.scatterPlot.log
 ~~~
 
 ![](Help/Image/lobbNumber-A.svg)

@@ -103,7 +103,7 @@ OEIS [A049310](https://oeis.org/A049310):
 	let p = n.chebyshevU;
 	let c = p.coefficientList;
 	c / (2 ^ 0:n)
-}.catenate.logScale.scatterPlot
+}.catenate.scatterPlot.logScale
 ~~~
 
 ![](Help/Image/chebyshevU-D.svg)

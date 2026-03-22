@@ -285,7 +285,7 @@ let f = { :n :i :x |
 };
 0:250.collect { :n |
 	f(n.bitXor((n / 2).floor), 1, 1)
-}.logScale.scatterPlot
+}.scatterPlot.logScale
 ~~~
 
 ![](Help/Image/prime-D.svg)
@@ -379,7 +379,7 @@ let t = [1:m, p].transpose;
 	t.detect { :x |
 		(x[2] / n).isPrime
 	}.first
-}.log.scatterPlot
+}.scatterPlot.log
 ~~~
 
 ![](Help/Image/prime-K.svg)

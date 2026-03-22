@@ -103,7 +103,7 @@ let t = { :n :k |
 	}
 };
 0:10.antidiagonalArray(t:/2)
-.catenate.logScale.discretePlot
+.catenate.discretePlot.logScale
 ~~~
 
 ![](Help/Image/antidiagonalArray-D.svg)

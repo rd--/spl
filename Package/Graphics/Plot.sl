@@ -1,9 +1,11 @@
 /* Requires: Decimal Interval */
 
-Plot : [Object] { | pages format options |
+Plot : [Object] { | pageList format options |
 
 	asLineDrawingXy { :self |
-		let segments = self.pages.collect(segmentPlotData:/1).catenate;
+		let segments = self.pageList.collect { :each |
+			each.segmentPlotData(self.scale.scaleFunction)
+		}.catenate;
 		let r = segments.catenate.coordinateBoundingBox.asRectangle;
 		let w = r.width;
 		let h = r.height;
@@ -75,7 +77,7 @@ Plot : [Object] { | pages format options |
 					[x.negate, z, y.negate].p
 				}
 			};
-			let l = self.pages.collect { :each |
+			let l = self.pageList.collect { :each |
 				each.t.Line
 			};
 			LineDrawing(l, (height: self.height))
@@ -86,7 +88,7 @@ Plot : [Object] { | pages format options |
 
 	asLineDrawingY { :self |
 		Plot(
-			self.pages.collect { :each |
+			self.pageList.collect { :each |
 				each.withIndexCollect { :item :x |
 					let [y] = item;
 					[x, y]
@@ -100,12 +102,20 @@ Plot : [Object] { | pages format options |
 		self.format.caseOf(
 			[
 				'array' -> {
-					let [contents] = self.pages;
-					ColourGrid(contents).asLineDrawing
+					let [contents] = self.pageList;
+					ColourGrid(
+						contents.deepCollect(
+							self.scale.scaleFunction
+						)
+					).asLineDrawing
 				},
 				'matrix' -> {
-					let [contents] = self.pages;
-					ColourGrid(contents.greyscaleMatrix).asLineDrawing
+					let [contents] = self.pageList;
+					ColourGrid(
+						contents.deepCollect(
+							self.scale.scaleFunction
+						).greyscaleMatrix
+					).asLineDrawing
 				}
 			]
 		) {
@@ -128,7 +138,7 @@ Plot : [Object] { | pages format options |
 	}
 
 	columnCount { :self |
-		let counts = self.pages.collect { :each |
+		let counts = self.pageList.collect { :each |
 			let [rowCount, columnCount] = each.shape;
 			columnCount
 		}.nub;
@@ -142,17 +152,9 @@ Plot : [Object] { | pages format options |
 	drawing { :self |
 		self.format.caseOf(
 			[
-				'array' -> {
-					let [contents] = self.pages;
-					ColourGrid(contents).drawing
-				},
 				'graph' -> {
-					let [graph] = self.pages;
+					let [graph] = self.pageList;
 					graph.dotDrawing(self.options)
-				},
-				'matrix' -> {
-					let [contents] = self.pages;
-					ColourGrid(contents.greyscaleMatrix).drawing
 				}
 			]
 		) {
@@ -170,8 +172,38 @@ Plot : [Object] { | pages format options |
 		self.options.atPut('height', aNumber)
 	}
 
+	log { :self |
+		self.options['scale'] := 'log';
+		self
+	}
+
+	logScale { :self |
+		self.options['scale'] := 'logScale';
+		self
+	}
+
 	pageCount { :self |
-		self.pages.size
+		self.pageList.size
+	}
+
+	scale { :self |
+		self.options.atIfAbsent('scale') {
+			'linear'
+		}
+	}
+
+}
+
++String {
+
+	scaleFunction { :self |
+		self.caseOf(
+			[
+				'linear' -> { identity:/1 },
+				'log' -> { log:/1 },
+				'logScale' -> { logScale:/1 }
+			]
+		)
 	}
 
 }
@@ -411,12 +443,14 @@ Plot : [Object] { | pages format options |
 		self.typedSwitchingPlot('scatter')
 	}
 
-	segmentPlotData { :self |
+	segmentPlotData { :self :aBlock:/1 |
 		let answer = [];
 		let segment = [];
-		self.do { :each |
-			each.isFinite.if {
-				segment.add(each)
+		self.do { :pre |
+			let [i, x] = pre;
+			let post = [i, aBlock(x)];
+			post.isFinite.if {
+				segment.add(post)
 			} {
 				segment.isEmpty.ifFalse {
 					answer.add(segment);
@@ -680,14 +714,7 @@ Plot : [Object] { | pages format options |
 	}
 
 	logPlot { :self :divisions :operand |
-		self.functionPlot(
-			divisions,
-			operand.nest.collect { :f:/1 |
-				{ :x |
-					f(x).log
-				}
-			}
-		)
+		self.functionPlot(divisions, operand).log
 	}
 
 	logPlot { :self :operand |

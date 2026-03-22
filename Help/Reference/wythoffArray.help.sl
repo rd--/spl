@@ -97,7 +97,7 @@ Matrix plot of Wythoff array:
 
 ~~~spl svg=C
 wythoffArray:/2.table(1:13, 1:13)
-.log.matrixPlot
+.matrixPlot.log
 ~~~
 
 ![](Help/Image/wythoffArray-C.svg)

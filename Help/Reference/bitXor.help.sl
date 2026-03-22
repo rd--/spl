@@ -340,7 +340,7 @@ OEIS [A038712](https://oeis.org/A038712):
 ~~~spl svg=M oeis=A038712
 1:125.collect { :n |
 	n.bitXor(n - 1)
-}.log.discretePlot
+}.discretePlot.log
 ~~~
 
 ![](Help/Image/bitXor-M.svg)

@@ -131,7 +131,7 @@ OEIS [A020639](https://oeis.org/A020639):
 
 ~~~spl svg=A oeis=A020639
 2:100.leastPrimeFactor
-.logScale.scatterPlot
+.scatterPlot.logScale
 ~~~
 
 ![](Help/Image/leastPrimeFactor-A.svg)

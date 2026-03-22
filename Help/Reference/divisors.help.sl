@@ -434,7 +434,7 @@ OEIS [A030057](https://oeis.org/A030057):
 	1:m.detect { :n |
 		b.includes(n).not
 	}
-}.log.scatterPlot
+}.scatterPlot.log
 ~~~
 
 ![](Help/Image/divisors-I.svg)
@@ -457,7 +457,7 @@ let t = { :n :k |
 };
 1:13.triangularArray { :n :k |
 	t(n - k, k)
-}.catenate.log.scatterPlot
+}.catenate.scatterPlot.log
 ~~~
 
 ![](Help/Image/divisors-J.svg)
@@ -525,7 +525,7 @@ let a = Map { :n |
 		a.atAll(d.allButLast).sum
 	}
 };
-a[1:200].log.scatterPlot
+a[1:200].scatterPlot.log
 ~~~
 
 ![](Help/Image/divisors-N.svg)

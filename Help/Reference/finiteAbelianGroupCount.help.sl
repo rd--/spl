@@ -58,7 +58,7 @@ OEIS [A060689](https://oeis.org/A060689):
 let n = 200;
 let a = 1:n.finiteGroupCount;
 let b = 1:n.finiteAbelianGroupCount;
-(a - b).log.scatterPlot
+(a - b).scatterPlot.log
 ~~~
 
 ![](Help/Image/finiteAbelianGroupCount-C.svg)

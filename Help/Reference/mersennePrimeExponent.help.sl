@@ -46,7 +46,7 @@ OEIS [A000043](https://oeis.org/A000043):
 ~~~spl svg=A oeis=A000043
 1:50.collect(
 	mersennePrimeExponent:/1
-).log.scatterPlot
+).scatterPlot.log
 ~~~
 
 ![](Help/Image/mersennePrimeExponent-A.svg)

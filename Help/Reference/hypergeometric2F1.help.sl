@@ -124,7 +124,7 @@ OEIS [A104219](https://oeis.org/A104219):
 	hypergeometric2F1(
 		k - n, n + 1, k + 2, 2
 	)
-}.catenate.log.discretePlot
+}.catenate.discretePlot.log
 ~~~
 
 ![](Help/Image/hypergeometric2F1-C.svg)
@@ -137,7 +137,7 @@ OEIS [A184879](https://oeis.org/A184879):
 	hypergeometric2F1(
 		-2 * k, (2 * k) - (2 * n), 1, -1
 	)
-}.catenate.logScale.scatterPlot
+}.catenate.scatterPlot.logScale
 ~~~
 
 ![](Help/Image/hypergeometric2F1-D.svg)

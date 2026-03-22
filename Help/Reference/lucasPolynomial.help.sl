@@ -34,7 +34,7 @@ OEIS [A114525](https://oeis.org/A114525):
 0:17.collect { :n |
 	n.lucasPolynomial
 	.coefficientList
-}.catenate.log.scatterPlot
+}.catenate.scatterPlot.log
 ~~~
 
 ![](Help/Image/lucasPolynomial-A.svg)

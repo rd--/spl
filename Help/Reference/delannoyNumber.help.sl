@@ -68,7 +68,7 @@ OEIS [A008288](https://oeis.org/A008288):
 ~~~spl svg=B oeis=A008288
 0:17.antidiagonalArray(
 	delannoyNumber:/2
-).catenate.log.scatterPlot
+).catenate.scatterPlot.log
 ~~~
 
 ![](Help/Image/delannoyNumber-B.svg)

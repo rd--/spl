@@ -85,7 +85,7 @@ OEIS [A247453](https://oeis.org/A247453):
 	(n - k).eulerUpDownNumber
 	*
 	(-1 ^ (n - k))
-}.catenate.logScale.discretePlot
+}.catenate.discretePlot.logScale
 ~~~
 
 ![](Help/Image/eulerUpDownNumber-A.svg)

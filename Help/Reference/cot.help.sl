@@ -86,7 +86,7 @@ OEIS [A037448](https://oeis.org/A037448):
 
 ~~~spl svg=C oeis=A037448
 1:200.cot.floor.abs
-.log.scatterPlot
+.scatterPlot.log
 ~~~
 
 ![](Help/Image/cot-C.svg)
@@ -96,7 +96,7 @@ OEIS [A037448](https://oeis.org/A037448):
 
 ~~~spl svg=D oeis=A037448
 1:200.cot.floor
-.logScale.scatterPlot
+.scatterPlot.logScale
 ~~~
 
 ![](Help/Image/cot-D.svg)

@@ -206,7 +206,7 @@ The Aliquot sequence starting at 276,
 OEIS [A008892](https://oeis.org/A008892):
 
 ~~~spl svg=B oeis=A008892
-276.aliquotSequence(23).log.stepPlot
+276.aliquotSequence(23).stepPlot.log
 ~~~
 
 ![](Help/Image/aliquotSequence-B.svg)
@@ -228,7 +228,7 @@ OEIS [A032451](https://oeis.org/A032451):
 ~~~spl svg=D oeis=A032451
 1:60.aliquotSequence
 .select { :x | x.last = 1 }
-.catenate.log.scatterPlot
+.catenate.scatterPlot.log
 ~~~
 
 ![](Help/Image/aliquotSequence-D.svg)

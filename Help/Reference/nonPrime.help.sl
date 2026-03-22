@@ -67,7 +67,7 @@ OEIS [A114537](https://oeis.org/A114537):
 		(n - 1).nonPrime,
 		k - 1
 	)
-}.catenate.log.scatterPlot
+}.catenate.scatterPlot.log
 ~~~
 
 ![](Help/Image/nonPrime-B.svg)

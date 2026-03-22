@@ -415,7 +415,7 @@ let t = { :n :k |
 	}
 };
 1:30.triangularArray(t:/2)
-.catenate.log.scatterPlot
+.catenate.scatterPlot.log
 ~~~
 
 ![](Help/Image/triangularArray-D.svg)
@@ -459,7 +459,7 @@ OEIS [A065602](https://oeis.org/A065602):
 		let c = ((2 * n) - k - 1 - (2 * j));
 		a * b / c
 	}
-}.catenate.log.scatterPlot
+}.catenate.scatterPlot.log
 ~~~
 
 ![](Help/Image/triangularArray-G.svg)

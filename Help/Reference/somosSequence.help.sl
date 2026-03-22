@@ -159,7 +159,7 @@ discrete log plot,
 OEIS [A006720](https://oeis.org/A006720):
 
 ~~~spl svg=A oeis=A006720
-4.somosSequence(35).log.discretePlot
+4.somosSequence(35).discretePlot.log
 ~~~
 
 ![](Help/Image/somosSequence-A.svg)
@@ -169,7 +169,7 @@ discrete log plot,
 OEIS [A006723](https://oeis.org/A006723):
 
 ~~~spl svg=B oeis=A006723
-7.somosSequence(35).log.discretePlot
+7.somosSequence(35).discretePlot.log
 ~~~
 
 ![](Help/Image/somosSequence-B.svg)

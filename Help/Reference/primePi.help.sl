@@ -183,7 +183,7 @@ OEIS [A156552](https://oeis.org/A156552):
 		let a = 1L << (p.primePi - 1);
 		a << (i - 1)
 	}.sum
-}.logScale.scatterPlot
+}.scatterPlot.logScale
 ~~~
 
 ![](Help/Image/primePi-B.svg)
@@ -214,7 +214,7 @@ let a = { :n |
 		}
 	}
 };
-1:200.collect(a:/1).log.scatterPlot
+1:200.collect(a:/1).scatterPlot.log
 ~~~
 
 ![](Help/Image/primePi-D.svg)

@@ -237,7 +237,7 @@ OEIS [A048985](https://oeis.org/A048985):
 	.binaryExpansion
 	.catenate
 	.binaryContraction
-}.log.scatterPlot
+}.scatterPlot.log
 ~~~
 
 ![](Help/Image/binaryExpansion-I.svg)

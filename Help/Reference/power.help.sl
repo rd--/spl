@@ -890,7 +890,7 @@ OEIS [A004248](https://oeis.org/A004248):
 ~~~spl svg=G oeis=A004248
 0:21.antidiagonalArray(
 	power:/2
-).catenate.log.scatterPlot
+).catenate.scatterPlot.log
 ~~~
 
 ![](Help/Image/power-G.svg)
@@ -909,7 +909,7 @@ let a = Map { :n |
 		p ++ [q] ++ p
 	}
 };
-a[0:5].catenate.log.discretePlot
+a[0:5].catenate.discretePlot.log
 ~~~
 
 ![](Help/Image/power-H.svg)

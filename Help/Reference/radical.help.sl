@@ -58,7 +58,7 @@ log plot,
 OEIS [A007947](https://oeis.org/A007947):
 
 ~~~spl svg=B oeis=A007947
-1:300.radical.log.scatterPlot
+1:300.radical.scatterPlot.log
 ~~~
 
 ![](Help/Image/radical-B.svg)
@@ -157,7 +157,7 @@ OEIS [A062760](https://oeis.org/A062760):
 	let p = n.divisors;
 	let q = p.select(isSquareFree:/1).last;
 	n / (q ^n.integerExponent(q))
-}.log.discretePlot
+}.discretePlot.log
 ~~~
 
 ![](Help/Image/radical-K.svg)

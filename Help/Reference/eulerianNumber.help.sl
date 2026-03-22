@@ -56,7 +56,7 @@ OEIS [A008292](https://oeis.org/A008292):
 ~~~spl svg=A oeis=A008292
 (0L .. 20L).triangularArray(
 	eulerianNumber:/2, -1
-).catenate.log.scatterPlot
+).catenate.scatterPlot.log
 ~~~
 
 ![](Help/Image/eulerianNumber-A.svg)
@@ -68,7 +68,7 @@ OEIS [A173018](https://oeis.org/A173018):
 ~~~spl svg=B oeis=A173018
 (0L .. 20L).triangularArray(
 	eulerianNumber:/2
-).catenate.log.scatterPlot
+).catenate.scatterPlot.log
 ~~~
 
 ![](Help/Image/eulerianNumber-B.svg)

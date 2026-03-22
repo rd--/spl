@@ -75,7 +75,7 @@ and the denominator on the _y_-axis:
 Log plot first few terms of the Calkin-Wilf sequence:
 
 ~~~spl svg=C
-200.calkinWilfSequence.log.discretePlot
+200.calkinWilfSequence.discretePlot.log
 ~~~
 
 ![](Help/Image/calkinWilfSequence-C.svg)

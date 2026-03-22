@@ -111,7 +111,7 @@ let f = Dictionary { :n |
 		(a[n] - p) / 2
 	}
 };
-f[1:115].numerator.logScale.discretePlot
+f[1:115].numerator.discretePlot.logScale
 ~~~
 
 ![](Help/Image/previousPrime-C.svg)

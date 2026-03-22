@@ -57,7 +57,7 @@ OEIS [A051714](https://oeis.org/A051714):
 0:21.antidiagonalArray(
 	akiyamaTanigawaNumber:/2
 ).numerator
-.catenate.logScale.scatterPlot
+.catenate.scatterPlot.logScale
 ~~~
 
 ![](Help/Image/akiyamaTanigawaNumber-A.svg)
@@ -70,7 +70,7 @@ OEIS [A051715](https://oeis.org/A051715):
 0:21.antidiagonalArray(
 	akiyamaTanigawaNumber:/2
 ).denominator
-.catenate.logScale.scatterPlot
+.catenate.scatterPlot.logScale
 ~~~
 
 ![](Help/Image/akiyamaTanigawaNumber-B.svg)
@@ -81,7 +81,7 @@ read by antidiagonals:
 ~~~spl svg=C
 5:21.antidiagonalArray(
 	akiyamaTanigawaNumber:/2
-).catenate.logScale.scatterPlot
+).catenate.scatterPlot.logScale
 ~~~
 
 ![](Help/Image/akiyamaTanigawaNumber-C.svg)

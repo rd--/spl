@@ -91,7 +91,7 @@ OEIS [A055634](https://oeis.org/A055634):
 ~~~spl svg=B oeis=A055634
 0:99.collect { :n |
 	(-1 ^ n) * n.gaussFactorial(2)
-}.logScale.scatterPlot
+}.scatterPlot.logScale
 ~~~
 
 ![](Help/Image/gaussFactorial-B.svg)

@@ -130,7 +130,7 @@ OEIS [A059717](https://oeis.org/A059717):
 			n
 		}
 	}.fixedPoint(i)
-}.log.scatterPlot
+}.scatterPlot.log
 ~~~
 
 ![](Help/Image/isOdd-B.svg)

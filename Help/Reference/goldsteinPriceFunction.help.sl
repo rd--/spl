@@ -17,7 +17,7 @@ Plot at half-integer points, log scaled:
 let i = (-2, -1.5 .. 2);
 { :x :y |
 	[x y].goldsteinPriceFunction
-}.table(i, i).logScale.matrixPlot
+}.table(i, i).matrixPlot.logScale
 ~~~
 
 ![](Help/Image/goldsteinPriceFunction-A.svg)

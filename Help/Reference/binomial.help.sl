@@ -778,7 +778,7 @@ OEIS [A182309](https://oeis.org/A182309):
 			)
 		}
 	}
-}.catenate.log.linePlot
+}.catenate.linePlot.log
 ~~~
 
 ![](Help/Image/binomial-F.svg)
@@ -797,7 +797,7 @@ OEIS [A047996](https://oeis.org/A047996):
 			binomial(n / d, k / d)
 		} / n
 	}
-}.catenate.log.discretePlot
+}.catenate.discretePlot.log
 ~~~
 
 ![](Help/Image/binomial-G.svg)
@@ -813,7 +813,7 @@ OEIS [A051632](https://oeis.org/A051632):
 	let d = a * binomial(n, k);
 	let e = c * binomial(n, -k + n);
 	0 - d + e
-}.catenate.logScale.discretePlot
+}.catenate.discretePlot.logScale
 ~~~
 
 ![](Help/Image/binomial-H.svg)
@@ -824,7 +824,7 @@ OEIS [A021009](https://oeis.org/A021009):
 ~~~spl svg=I oeis=A021009
 0:13.triangularArray { :n :k |
 	(-1 ^ k) * n.! * binomial(n, k) / k.!
-}.catenate.logScale.discretePlot
+}.catenate.discretePlot.logScale
 ~~~
 
 ![](Help/Image/binomial-I.svg)
@@ -836,7 +836,7 @@ OEIS [A108299](https://oeis.org/A108299):
 0:13.triangularArray { :n :k |
 	let a = (k + 1) // 2;
 	(-1 ^ a) * binomial(n - a, k // 2)
-}.catenate.logScale.discretePlot
+}.catenate.discretePlot.logScale
 ~~~
 
 ![](Help/Image/binomial-J.svg)
@@ -848,7 +848,7 @@ OEIS [A130595](https://oeis.org/A130595):
 ~~~spl svg=K oeis=A130595
 0:11.triangularArray { :n :k |
 	(-1 ^ (n + k)) * binomial(n, k)
-}.catenate.logScale.discretePlot
+}.catenate.discretePlot.logScale
 ~~~
 
 ![](Help/Image/binomial-K.svg)
@@ -867,7 +867,7 @@ OEIS [A110162](https://oeis.org/A110162):
 		let b = binomial(p - 1, q - 1);
 		(-1 ^ q) * (a + b)
 	}
-}.catenate.logScale.discretePlot
+}.catenate.discretePlot.logScale
 ~~~
 
 ![](Help/Image/binomial-L.svg)
@@ -878,7 +878,7 @@ OEIS [A109466](https://oeis.org/A109466):
 ~~~spl svg=M oeis=A109466
 0:12.triangularArray { :n :k |
 	(-1 ^ (n - k)) * binomial(k, n - k)
-}.catenate.logScale.discretePlot
+}.catenate.discretePlot.logScale
 ~~~
 
 ![](Help/Image/binomial-M.svg)
@@ -889,7 +889,7 @@ OEIS [A109466](https://oeis.org/A109466):
 ~~~spl svg=N oeis=A109466
 0:15.triangularArray { :n :k |
 	binomial(n - 1, k - 1)
-}.catenate.logScale.scatterPlot
+}.catenate.scatterPlot.logScale
 ~~~
 
 ![](Help/Image/binomial-N.svg)
@@ -913,7 +913,7 @@ OEIS [A039598](https://oeis.org/A039598):
 	binomial(2 * n, n - k)
 	-
 	binomial(2 * n, n - k - 2)
-}.catenate.log.scatterPlot
+}.catenate.scatterPlot.log
 ~~~
 
 ![](Help/Image/binomial-P.svg)
@@ -924,7 +924,7 @@ OEIS [A356546](https://oeis.org/A356546):
 ~~~spl svg=Q oeis=A356546
 0:10.triangularArray { :n :k |
 	binomial(2 * n, n) * binomial(n, k)
-}.catenate.log.scatterPlot
+}.catenate.scatterPlot.log
 ~~~
 
 ![](Help/Image/binomial-Q.svg)

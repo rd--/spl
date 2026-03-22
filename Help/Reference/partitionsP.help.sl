@@ -57,7 +57,7 @@ Plot the number of restricted partitions,
 `log` scaled:
 
 ~~~spl svg=A
-1:33.partitionsP.log.discretePlot
+1:33.partitionsP.discretePlot.log
 ~~~
 
 ![](Help/Image/partitionsP-A.svg)

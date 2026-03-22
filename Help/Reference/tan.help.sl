@@ -78,7 +78,7 @@ unsigned variant of
 OEIS [A000503](https://oeis.org/A000503):
 
 ~~~spl svg=C oeis=A000503 variant
-0:150.tan.floor.abs.log.scatterPlot
+0:150.tan.floor.abs.scatterPlot.log
 ~~~
 
 ![](Help/Image/tan-C.svg)
@@ -87,7 +87,7 @@ _⌊(tan(n))_,
 OEIS [A000503](https://oeis.org/A000503):
 
 ~~~spl svg=D oeis=A000503
-0:150.tan.floor.logScale.scatterPlot
+0:150.tan.floor.scatterPlot.logScale
 ~~~
 
 ![](Help/Image/tan-D.svg)
@@ -96,7 +96,7 @@ _⌊(tan(n)²)_,
 OEIS [A005657](https://oeis.org/A005657):
 
 ~~~spl svg=E oeis=A005657
-0:150.tan.square.floor.log.scatterPlot
+0:150.tan.square.floor.scatterPlot.log
 ~~~
 
 ![](Help/Image/tan-E.svg)

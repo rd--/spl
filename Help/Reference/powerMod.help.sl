@@ -304,7 +304,7 @@ OEIS [A039678](https://oeis.org/A039678):
 	2:Infinity.detect { :a |
 		a.powerMod(p - 1, p ^ 2) = 1
 	}
-}.log.scatterPlot
+}.scatterPlot.log
 ~~~
 
 ![](Help/Image/powerMod-G.svg)

@@ -271,7 +271,7 @@ OEIS [A089618](https://oeis.org/A089618):
 
 ~~~spl svg=J oeis=A089618 continuedFraction
 let n = 1:250.vanDerCorputNumber(2);
-(1 / (2 ^ n - 1)).floor.log.scatterPlot
+(1 / (2 ^ n - 1)).floor.scatterPlot.log
 ~~~
 
 ![](Help/Image/vanDerCorputNumber-J.svg)

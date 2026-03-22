@@ -94,7 +94,7 @@ let a = Map { :n |
 		}
 	}
 };
-a[0:150].log.scatterPlot
+a[0:150].scatterPlot.log
 ~~~
 
 ![](Help/Image/tribonacciNumber-B.svg)

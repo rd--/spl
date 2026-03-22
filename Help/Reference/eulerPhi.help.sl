@@ -298,7 +298,7 @@ let f = { :n |
 };
 1:99.collect { :n |
 	f(n).denominator
-}.log.scatterPlot
+}.scatterPlot.log
 ~~~
 
 ![](Help/Image/eulerPhi-D.svg)
@@ -441,7 +441,7 @@ OEIS [A047917](https://oeis.org/A047917):
 	} {
 		0
 	}
-}.catenate.log.discretePlot
+}.catenate.discretePlot.log
 ~~~
 
 ![](Help/Image/eulerPhi-N.svg)

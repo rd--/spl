@@ -6,7 +6,7 @@ Plot the unary function _f_ over the domain _x_,
 which may be discrete or continous,
 scaling the _y_ value by `log`.
 
-Plot a function with a logarithmically scaled  axis:
+Plot a function with a logarithmically scaled _y_ axis:
 
 ~~~spl svg=A
 (1 -- 5).logPlot { :x |
@@ -52,6 +52,16 @@ Plot `abs` of `gamma` at higher resolution:
 ~~~
 
 ![](Help/Image/logPlot-D.svg)
+
+`logPlot` if equivalent to `log` of `functionPlot`:
+
+~~~spl svg=E
+(-5 -- 2).functionPlot(300) { :x |
+	x.gamma.abs.clip([0 150])
+}.log
+~~~
+
+![](Help/Image/logPlot-E.svg)
 
 * * *
 
