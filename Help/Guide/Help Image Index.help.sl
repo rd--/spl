@@ -9,8 +9,10 @@
   3. ![](Help/Image/abs-C.png)
   4. ![](Help/Image/abs-D.svg)
   5. ![](Help/Image/abs-E.svg)
+  6. ![](Help/Image/abs-F.svg)
 - `accumulate`
   1. ![](Help/Image/accumulate-A.svg)
+  2. ![](Help/Image/accumulate-B.svg)
 - `ackleyFunction`
   1. ![](Help/Image/ackleyFunction-A.png)
   2. ![](Help/Image/ackleyFunction-B.svg)
@@ -120,6 +122,7 @@
   1. ![](Help/Image/antidiagonalArray-A.svg)
   2. ![](Help/Image/antidiagonalArray-B.svg)
   3. ![](Help/Image/antidiagonalArray-C.svg)
+  4. ![](Help/Image/antidiagonalArray-D.svg)
 - `antiDivisors`
   1. ![](Help/Image/antiDivisors-A.svg)
   2. ![](Help/Image/antiDivisors-B.svg)
@@ -200,6 +203,7 @@
   3. ![](Help/Image/arithmeticDerivative-C.svg)
   4. ![](Help/Image/arithmeticDerivative-D.svg)
   5. ![](Help/Image/arithmeticDerivative-E.svg)
+  6. ![](Help/Image/arithmeticDerivative-F.svg)
 - `arithmeticGeometricMean`
   1. ![](Help/Image/arithmeticGeometricMean-A.svg)
   2. ![](Help/Image/arithmeticGeometricMean-B.svg)
@@ -471,6 +475,7 @@
   12. ![](Help/Image/binaryExpansion-K.svg)
   13. ![](Help/Image/binaryExpansion-L.svg)
   14. ![](Help/Image/binaryExpansion-M.svg)
+  15. ![](Help/Image/binaryExpansion-N.svg)
 - `binaryMatrix`
   1. ![](Help/Image/binaryMatrix-A.svg)
 - `binaryReflectedGrayCode`
@@ -575,6 +580,7 @@
   7. ![](Help/Image/bitOr-G.svg)
   8. ![](Help/Image/bitOr-H.svg)
   9. ![](Help/Image/bitOr-I.svg)
+  10. ![](Help/Image/bitOr-J.svg)
 - `bitReversalPermutation`
   1. ![](Help/Image/bitReversalPermutation-A.svg)
   2. ![](Help/Image/bitReversalPermutation-B.svg)
@@ -760,6 +766,9 @@
   2. ![](Help/Image/ceiling-B.svg)
   3. ![](Help/Image/ceiling-C.svg)
   4. ![](Help/Image/ceiling-D.svg)
+  5. ![](Help/Image/ceiling-E.svg)
+- `centeredPolygonalNumber`
+  1. ![](Help/Image/centeredPolygonalNumber-A.svg)
 - `centeredRectangle`
   1. ![](Help/Image/centeredRectangle-A.svg)
 - `centroid`
@@ -1007,6 +1016,9 @@
 - `conjugate`
   1. ![](Help/Image/conjugate-A.png)
   2. ![](Help/Image/conjugate-B.svg)
+- `connellSequence`
+  1. ![](Help/Image/connellSequence-A.svg)
+  2. ![](Help/Image/connellSequence-B.svg)
 - `contactTriangle`
   1. ![](Help/Image/contactTriangle-A.svg)
   2. ![](Help/Image/contactTriangle-B.svg)
@@ -1056,6 +1068,9 @@
   1. ![](Help/Image/coordinateBoundsArray-A.svg)
   2. ![](Help/Image/coordinateBoundsArray-B.svg)
   3. ![](Help/Image/coordinateBoundsArray-C.svg)
+- `copelandErdosSequence`
+  1. ![](Help/Image/copelandErdosSequence-A.svg)
+  2. ![](Help/Image/copelandErdosSequence-B.svg)
 - `correlationFunction`
   1. ![](Help/Image/correlationFunction-A.svg)
 - `correspondancePlot`
@@ -1127,6 +1142,7 @@
   1. ![](Help/Image/cube-A.svg)
   2. ![](Help/Image/cube-B.svg)
   3. ![](Help/Image/cube-C.svg)
+  4. ![](Help/Image/cube-D.svg)
 - `cubeGraph`
   1. ![](Help/Image/cubeGraph-A.svg)
   2. ![](Help/Image/cubeGraph-B.svg)
@@ -1186,6 +1202,15 @@
   1. ![](Help/Image/deBruijnGraph-A.svg)
   2. ![](Help/Image/deBruijnGraph-B.svg)
   3. ![](Help/Image/deBruijnGraph-C.svg)
+- `deBruijnSequence`
+  1. ![](Help/Image/deBruijnSequence-A.svg)
+  2. ![](Help/Image/deBruijnSequence-B.svg)
+  3. ![](Help/Image/deBruijnSequence-C.svg)
+  4. ![](Help/Image/deBruijnSequence-D.svg)
+  5. ![](Help/Image/deBruijnSequence-E.svg)
+  6. ![](Help/Image/deBruijnSequence-F.svg)
+  7. ![](Help/Image/deBruijnSequence-G.svg)
+  8. ![](Help/Image/deBruijnSequence-H.svg)
 - `deCasteljausAlgorithm`
   1. ![](Help/Image/deCasteljausAlgorithm-A.svg)
   2. ![](Help/Image/deCasteljausAlgorithm-B.svg)
@@ -1366,6 +1391,7 @@
   1. ![](Help/Image/distinctPrimeFactors-A.svg)
   2. ![](Help/Image/distinctPrimeFactors-B.svg)
   3. ![](Help/Image/distinctPrimeFactors-C.svg)
+  4. ![](Help/Image/distinctPrimeFactors-D.svg)
 - `Distort`
   1. ![](Help/Image/Distort-A.svg)
 - `divide`
@@ -1489,6 +1515,8 @@
   4. ![](Help/Image/dualZeckendorfRepresentation-D.svg)
   5. ![](Help/Image/dualZeckendorfRepresentation-E.svg)
   6. ![](Help/Image/dualZeckendorfRepresentation-F.svg)
+  7. ![](Help/Image/dualZeckendorfRepresentation-G.svg)
+  8. ![](Help/Image/dualZeckendorfRepresentation-H.svg)
 - `duffingEquation`
   1. ![](Help/Image/duffingEquation-A.svg)
   2. ![](Help/Image/duffingEquation-B.svg)
@@ -1547,6 +1575,7 @@
   7. ![](Help/Image/elementaryCellularAutomaton-G.png)
   8. ![](Help/Image/elementaryCellularAutomaton-H.png)
   9. ![](Help/Image/elementaryCellularAutomaton-I.svg)
+  10. ![](Help/Image/elementaryCellularAutomaton-J.svg)
 - `Ellipse`
   1. ![](Help/Image/Ellipse-A.svg)
   2. ![](Help/Image/Ellipse-B.svg)
@@ -1743,6 +1772,7 @@
   15. ![](Help/Image/factorInteger-O.svg)
   16. ![](Help/Image/factorInteger-P.svg)
   17. ![](Help/Image/factorInteger-Q.svg)
+  18. ![](Help/Image/factorInteger-R.svg)
 - `fareyDiagram`
   1. ![](Help/Image/fareyDiagram-A.svg)
   2. ![](Help/Image/fareyDiagram-B.svg)
@@ -2165,6 +2195,7 @@
   11. ![](Help/Image/goldenRatio-K.svg)
   12. ![](Help/Image/goldenRatio-L.svg)
   13. ![](Help/Image/goldenRatio-M.svg)
+  14. ![](Help/Image/goldenRatio-N.svg)
 - `goldsteinPriceFunction`
   1. ![](Help/Image/goldsteinPriceFunction-A.svg)
   2. ![](Help/Image/goldsteinPriceFunction-B.png)
@@ -2303,6 +2334,7 @@
   17. ![](Help/Image/hammingWeight-Q.svg)
   18. ![](Help/Image/hammingWeight-R.svg)
   19. ![](Help/Image/hammingWeight-S.svg)
+  20. ![](Help/Image/hammingWeight-T.svg)
 - `hammingWindow`
   1. ![](Help/Image/hammingWindow-A.svg)
   2. ![](Help/Image/hammingWindow-B.svg)
@@ -2358,6 +2390,12 @@
   2. ![](Help/Image/heighwayDragonCurve-B.svg)
 - `heldKarpAlgorithm`
   1. ![](Help/Image/heldKarpAlgorithm-A.svg)
+- `helicalScanMatrix`
+  1. ![](Help/Image/helicalScanMatrix-A.svg)
+  2. ![](Help/Image/helicalScanMatrix-B.svg)
+  3. ![](Help/Image/helicalScanMatrix-C.svg)
+  4. ![](Help/Image/helicalScanMatrix-D.svg)
+  5. ![](Help/Image/helicalScanMatrix-E.svg)
 - `helicoid`
   1. ![](Help/Image/helicoid-A.svg)
 - `henonAreaPreservingMap`
@@ -2475,6 +2513,8 @@
   2. ![](Help/Image/IdentitySet-B.svg)
 - `if`
   1. ![](Help/Image/if-A.svg)
+  2. ![](Help/Image/if-B.svg)
+  3. ![](Help/Image/if-C.svg)
 - `ikedaMap`
   1. ![](Help/Image/ikedaMap-A.svg)
 - `implicitEquation`
@@ -2558,12 +2598,17 @@
   16. ![](Help/Image/integerExponent-P.svg)
   17. ![](Help/Image/integerExponent-Q.svg)
   18. ![](Help/Image/integerExponent-R.svg)
+  19. ![](Help/Image/integerExponent-S.svg)
+  20. ![](Help/Image/integerExponent-T.svg)
+  21. ![](Help/Image/integerExponent-U.svg)
+  22. ![](Help/Image/integerExponent-V.svg)
 - `integerLength`
   1. ![](Help/Image/integerLength-A.svg)
   2. ![](Help/Image/integerLength-B.svg)
   3. ![](Help/Image/integerLength-C.svg)
   4. ![](Help/Image/integerLength-D.svg)
   5. ![](Help/Image/integerLength-E.svg)
+  6. ![](Help/Image/integerLength-F.svg)
 - `integerPart`
   1. ![](Help/Image/integerPart-A.svg)
   2. ![](Help/Image/integerPart-B.svg)
@@ -2616,6 +2661,7 @@
   4. ![](Help/Image/interleave-D.svg)
   5. ![](Help/Image/interleave-E.svg)
   6. ![](Help/Image/interleave-F.svg)
+  7. ![](Help/Image/interleave-G.svg)
 - `interpolation`
   1. ![](Help/Image/interpolation-A.svg)
   2. ![](Help/Image/interpolation-B.svg)
@@ -2737,6 +2783,7 @@
   2. ![](Help/Image/isPalindrome-B.svg)
   3. ![](Help/Image/isPalindrome-C.svg)
   4. ![](Help/Image/isPalindrome-D.svg)
+  5. ![](Help/Image/isPalindrome-E.svg)
 - `isPerfectPower`
   1. ![](Help/Image/isPerfectPower-A.svg)
 - `isPerfectSquare`
@@ -2760,6 +2807,7 @@
   10. ![](Help/Image/isPrime-J.svg)
   11. ![](Help/Image/isPrime-K.svg)
   12. ![](Help/Image/isPrime-L.svg)
+  13. ![](Help/Image/isPrime-M.svg)
 - `isPrimePower`
   1. ![](Help/Image/isPrimePower-A.svg)
   2. ![](Help/Image/isPrimePower-B.svg)
@@ -2801,6 +2849,7 @@
   4. ![](Help/Image/isSquareFree-D.svg)
   5. ![](Help/Image/isSquareFree-E.svg)
   6. ![](Help/Image/isSquareFree-F.svg)
+  7. ![](Help/Image/isSquareFree-G.svg)
 - `isYellow`
   1. ![](Help/Image/isYellow-A.svg)
   2. ![](Help/Image/isYellow-B.svg)
@@ -2811,6 +2860,7 @@
   4. ![](Help/Image/iterate-D.svg)
   5. ![](Help/Image/iterate-E.svg)
   6. ![](Help/Image/iterate-F.svg)
+  7. ![](Help/Image/iterate-G.svg)
 - `j`
   1. ![](Help/Image/j-A.svg)
 - `jacobiCn`
@@ -2843,6 +2893,7 @@
 - `josephusSequence`
   1. ![](Help/Image/josephusSequence-A.svg)
   2. ![](Help/Image/josephusSequence-B.svg)
+  3. ![](Help/Image/josephusSequence-C.svg)
 - `jugglerSequence`
   1. ![](Help/Image/jugglerSequence-A.svg)
   2. ![](Help/Image/jugglerSequence-B.svg)
@@ -3038,6 +3089,7 @@
   1. ![](Help/Image/levysConstant-A.svg)
 - `lexicographicSort`
   1. ![](Help/Image/lexicographicSort-A.svg)
+  2. ![](Help/Image/lexicographicSort-B.svg)
 - `lHospitalQuintic`
   1. ![](Help/Image/lHospitalQuintic-A.svg)
 - `liftplanMatrix`
@@ -3206,6 +3258,7 @@
   2. ![](Help/Image/logPlot-B.svg)
   3. ![](Help/Image/logPlot-C.svg)
   4. ![](Help/Image/logPlot-D.svg)
+  5. ![](Help/Image/logPlot-E.svg)
 - `logScale`
   1. ![](Help/Image/logScale-A.svg)
   2. ![](Help/Image/logScale-B.svg)
@@ -3254,6 +3307,8 @@
   2. ![](Help/Image/lucasNumber-B.svg)
 - `lucasPolynomial`
   1. ![](Help/Image/lucasPolynomial-A.svg)
+- `lucasSequence`
+  1. ![](Help/Image/lucasSequence-A.svg)
 - `luckyNumbers`
   1. ![](Help/Image/luckyNumbers-A.svg)
   2. ![](Help/Image/luckyNumbers-B.svg)
@@ -3275,6 +3330,12 @@
   3. ![](Help/Image/mangoldtLambda-C.png)
 - `Map`
   1. ![](Help/Image/Map-A.svg)
+  2. ![](Help/Image/Map-B.svg)
+  3. ![](Help/Image/Map-C.svg)
+  4. ![](Help/Image/Map-D.svg)
+  5. ![](Help/Image/Map-E.svg)
+  6. ![](Help/Image/Map-F.svg)
+  7. ![](Help/Image/Map-G.png)
 - `markovNumberTree`
   1. ![](Help/Image/markovNumberTree-A.svg)
 - `martinMap`
@@ -3297,6 +3358,8 @@
   6. ![](Help/Image/matrixPlot-F.svg)
   7. ![](Help/Image/matrixPlot-G.svg)
   8. ![](Help/Image/matrixPlot-H.svg)
+- `matrixPower`
+  1. ![](Help/Image/matrixPower-A.svg)
 - `matrixResample`
   1. ![](Help/Image/matrixResample-A.svg)
   2. ![](Help/Image/matrixResample-B.png)
@@ -3389,10 +3452,12 @@
   19. ![](Help/Image/mod-S.svg)
   20. ![](Help/Image/mod-T.svg)
   21. ![](Help/Image/mod-U.svg)
+  22. ![](Help/Image/mod-V.svg)
 - `modularInverse`
   1. ![](Help/Image/modularInverse-A.svg)
   2. ![](Help/Image/modularInverse-B.png)
   3. ![](Help/Image/modularInverse-C.svg)
+  4. ![](Help/Image/modularInverse-D.svg)
 - `moebiusMu`
   1. ![](Help/Image/moebiusMu-A.svg)
   2. ![](Help/Image/moebiusMu-B.svg)
@@ -3577,6 +3642,7 @@
   5. ![](Help/Image/nextPrime-E.svg)
   6. ![](Help/Image/nextPrime-F.svg)
   7. ![](Help/Image/nextPrime-G.svg)
+  8. ![](Help/Image/nextPrime-H.svg)
 - `nextRandomFloat`
   1. ![](Help/Image/nextRandomFloat-A.svg)
 - `nextRandomInteger`
@@ -3629,6 +3695,7 @@
   4. ![](Help/Image/noergaardInfinitySequence-D.svg)
   5. ![](Help/Image/noergaardInfinitySequence-E.svg)
   6. ![](Help/Image/noergaardInfinitySequence-F.svg)
+  7. ![](Help/Image/noergaardInfinitySequence-G.svg)
 - `noergaardRhythmicInfinitySystem`
   1. ![](Help/Image/noergaardRhythmicInfinitySystem-A.svg)
   2. ![](Help/Image/noergaardRhythmicInfinitySystem-B.svg)
@@ -4051,6 +4118,7 @@
   8. ![](Help/Image/power-H.svg)
   9. ![](Help/Image/power-I.svg)
   10. ![](Help/Image/power-J.svg)
+  11. ![](Help/Image/power-K.svg)
 - `powerCircles`
   1. ![](Help/Image/powerCircles-A.svg)
 - `powerMod`
@@ -4064,6 +4132,7 @@
   8. ![](Help/Image/powerMod-H.svg)
   9. ![](Help/Image/powerMod-I.svg)
   10. ![](Help/Image/powerMod-J.svg)
+  11. ![](Help/Image/powerMod-K.svg)
 - `prefixes`
   1. ![](Help/Image/prefixes-A.svg)
   2. ![](Help/Image/prefixes-B.svg)
@@ -4396,6 +4465,9 @@
   4. ![](Help/Image/recurrenceTable-D.svg)
   5. ![](Help/Image/recurrenceTable-E.svg)
   6. ![](Help/Image/recurrenceTable-F.svg)
+  7. ![](Help/Image/recurrenceTable-G.svg)
+  8. ![](Help/Image/recurrenceTable-H.svg)
+  9. ![](Help/Image/recurrenceTable-I.svg)
 - `red`
   1. ![](Help/Image/red-A.svg)
 - `regularPaperfoldingSequence`
@@ -4962,12 +5034,16 @@
   3. ![](Help/Image/sqrt-C.svg)
   4. ![](Help/Image/sqrt-D.svg)
   5. ![](Help/Image/sqrt-E.svg)
+  6. ![](Help/Image/sqrt-F.svg)
 - `square`
   1. ![](Help/Image/square-A.svg)
   2. ![](Help/Image/square-B.svg)
   3. ![](Help/Image/square-C.svg)
   4. ![](Help/Image/square-D.svg)
   5. ![](Help/Image/square-E.svg)
+  6. ![](Help/Image/square-F.svg)
+  7. ![](Help/Image/square-G.svg)
+  8. ![](Help/Image/square-H.svg)
 - `squareChladniPlateEquation`
   1. ![](Help/Image/squareChladniPlateEquation-A.svg)
   2. ![](Help/Image/squareChladniPlateEquation-B.svg)
@@ -5073,14 +5149,19 @@
   5. ![](Help/Image/sternBrocotSequence-E.svg)
   6. ![](Help/Image/sternBrocotSequence-F.svg)
   7. ![](Help/Image/sternBrocotSequence-G.svg)
+  8. ![](Help/Image/sternBrocotSequence-H.svg)
+  9. ![](Help/Image/sternBrocotSequence-I.svg)
 - `sternBrocotTree`
   1. ![](Help/Image/sternBrocotTree-A.svg)
   2. ![](Help/Image/sternBrocotTree-B.svg)
+  3. ![](Help/Image/sternBrocotTree-C.svg)
+  4. ![](Help/Image/sternBrocotTree-D.svg)
 - `sternsDiatomicArray`
   1. ![](Help/Image/sternsDiatomicArray-A.svg)
   2. ![](Help/Image/sternsDiatomicArray-B.svg)
   3. ![](Help/Image/sternsDiatomicArray-C.svg)
   4. ![](Help/Image/sternsDiatomicArray-D.svg)
+  5. ![](Help/Image/sternsDiatomicArray-E.svg)
 - `stieltjesGamma`
   1. ![](Help/Image/stieltjesGamma-A.svg)
 - `stirlingS1`
@@ -5096,6 +5177,7 @@
   2. ![](Help/Image/stirlingS2-B.svg)
   3. ![](Help/Image/stirlingS2-C.svg)
   4. ![](Help/Image/stirlingS2-D.svg)
+  5. ![](Help/Image/stirlingS2-E.svg)
 - `stirlingsApproximation`
   1. ![](Help/Image/stirlingsApproximation-A.svg)
 - `stirrupCurve`
@@ -5137,6 +5219,7 @@
   8. ![](Help/Image/substitutionSystem-H.svg)
   9. ![](Help/Image/substitutionSystem-I.svg)
   10. ![](Help/Image/substitutionSystem-J.svg)
+  11. ![](Help/Image/substitutionSystem-K.svg)
 - `sum`
   1. ![](Help/Image/sum-A.svg)
   2. ![](Help/Image/sum-B.svg)
@@ -5263,7 +5346,7 @@
   3. ![](Help/Image/ternaryExpansion-C.svg)
   4. ![](Help/Image/ternaryExpansion-D.svg)
   5. ![](Help/Image/ternaryExpansion-E.svg)
-  6. ![](Help/Image/ternaryExpansion-E.svg)
+  6. ![](Help/Image/ternaryExpansion-F.svg)
 - `tetrahedralNumber`
   1. ![](Help/Image/tetrahedralNumber-A.svg)
   2. ![](Help/Image/tetrahedralNumber-B.svg)
@@ -5290,6 +5373,7 @@
   3. ![](Help/Image/thueMorseSequence-C.svg)
   4. ![](Help/Image/thueMorseSequence-D.svg)
   5. ![](Help/Image/thueMorseSequence-E.svg)
+  6. ![](Help/Image/thueMorseSequence-F.svg)
 - `tieupMatrix`
   1. ![](Help/Image/tieupMatrix-A.svg)
 - `timelinePlot`
@@ -5370,6 +5454,7 @@
   10. ![](Help/Image/triangularArray-J.svg)
   11. ![](Help/Image/triangularArray-K.svg)
   12. ![](Help/Image/triangularArray-L.svg)
+  13. ![](Help/Image/triangularArray-M.svg)
 - `triangularArrayPlot`
   1. ![](Help/Image/triangularArrayPlot-A.svg)
   2. ![](Help/Image/triangularArrayPlot-B.svg)
@@ -5384,6 +5469,8 @@
   1. ![](Help/Image/triangularNumber-A.svg)
   2. ![](Help/Image/triangularNumber-B.svg)
   3. ![](Help/Image/triangularNumber-C.svg)
+  4. ![](Help/Image/triangularNumber-D.svg)
+  5. ![](Help/Image/triangularNumber-E.svg)
 - `triangularSpiralPoints`
   1. ![](Help/Image/triangularSpiralPoints-A.svg)
   2. ![](Help/Image/triangularSpiralPoints-B.svg)
@@ -5398,6 +5485,8 @@
   2. ![](Help/Image/tribonacciNumber-B.svg)
 - `tribonacciWord`
   1. ![](Help/Image/tribonacciWord-A.svg)
+  2. ![](Help/Image/tribonacciWord-B.svg)
+  3. ![](Help/Image/tribonacciWord-C.svg)
 - `tridentCurve`
   1. ![](Help/Image/tridentCurve-A.svg)
 - `tridentOfNewton`
