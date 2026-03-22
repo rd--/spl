@@ -2,7 +2,11 @@
 
 - _copelandErdosSequence(n)_
 
-Answer the first _n_ digits of the Copeland-Erdős constant.
+Answer the first _n_ digits of the Copeland-Erdős constant,
+the concatenated primes.
+
+The Copeland-Erdős sequence,
+OEIS [A033308](https://oeis.org/A033308):
 
 ```
 >>> 101.copelandErdosSequence
@@ -20,6 +24,52 @@ Answer the first _n_ digits of the Copeland-Erdős constant.
 	1
 ]
 ```
+
+Continued fraction for Copeland-Erdős constant,
+OEIS [A030168](https://oeis.org/A030168):
+
+```
+>>> let k = 500;
+>>> let a = k.copelandErdosSequence;
+>>> let n = a.fromDigits;
+>>> let m = Fraction(n, 10L ^ k);
+>>> let c = m.continuedFraction;
+>>> c.take(100)
+[
+	0   4  4  8 16 18  5  1    1 1
+	1   7  1  1  6  2  9 58    1 3
+	4   2  2  1  1  2  1  4   39 4
+	4   5  2  1  1 87 16  1    2 1
+	2   1  1  3  1  8  1  3    1 1
+	6   1 13 27  1  1  3  1   41 1
+	2   1  1 19  1  1  1  1    3 1
+	1 484  1  4  1 19  3  6    8 1
+	5   1 17  9  2  3  5 25 1468 1
+	1   3  1  2  8  1  1 11    1 1
+]
+```
+
+The Copeland-Erdős sequence,
+discrete plot,
+OEIS [A033308](https://oeis.org/A033308):
+
+~~~spl svg=A oeis=A033308
+85.copelandErdosSequence
+.discretePlot
+~~~
+
+![](Help/Image/copelandErdosSequence-A.svg)
+
+The Copeland-Erdős sequence,
+scatter plot,
+OEIS [A033308](https://oeis.org/A033308):
+
+~~~spl svg=B oeis=A033308
+150.copelandErdosSequence
+.scatterPlot
+~~~
+
+![](Help/Image/copelandErdosSequence-B.svg)
 
 * * *
 

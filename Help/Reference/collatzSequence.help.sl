@@ -13,7 +13,8 @@ in which each term is obtained from the previous term as either
 
 Also called a hailstone sequence.
 
-The sequence starting at three, which arrives at `one` after seven steps,
+The Collatz sequence starting at three,
+which arrives at `one` after seven steps,
 OEIS [A033478](https://oeis.org/A033478):
 
 ```
@@ -21,7 +22,8 @@ OEIS [A033478](https://oeis.org/A033478):
 [3 10 5 16 8 4 2 1]
 ```
 
-The sequence starting at seven, which arrives at `one` after sixteen steps:
+The Collatz sequence starting at seven,
+which arrives at `one` after sixteen steps:
 
 ```
 >>> 7.collatzSequence
@@ -31,7 +33,8 @@ The sequence starting at seven, which arrives at `one` after sixteen steps:
 ]
 ```
 
-The sequence starting at nine, which arrives at `one` after nineteen steps:
+The Collatz sequence starting at nine,
+which arrives at `one` after nineteen steps:
 
 ```
 >>> 9.collatzSequence
@@ -41,7 +44,7 @@ The sequence starting at nine, which arrives at `one` after nineteen steps:
 ]
 ```
 
-The table of sequences obtained for the first few starting values,
+The table of Collatz sequences,
 OEIS [A070165](http://oeis.org/A070165):
 
 ```
@@ -56,7 +59,7 @@ OEIS [A070165](http://oeis.org/A070165):
 ]
 ```
 
-The number of steps required to reach one for the first few integers,
+The number of steps required to reach one for the Collatz sequences,
 OEIS [A006577](https://oeis.org/A006577):
 
 ```
@@ -66,7 +69,7 @@ OEIS [A006577](https://oeis.org/A006577):
 [0 1 7 2 5 8 16 3 19 6 14 9 9 17 17 4 12 20]
 ```
 
-Number of odd terms,
+Number of odd terms in Collatz sequences,
 OEIS [A078719](https://oeis.org/A078719):
 
 ```
@@ -77,7 +80,7 @@ OEIS [A078719](https://oeis.org/A078719):
 [1 1 3 1 2 3 6 1 7 2 5 3 3 6 6 1 4 7 7 2 2 5]
 ```
 
-Number of halving and tripling steps to reach one in _3x+1_ problem,
+Number of halving and tripling steps to reach one in the _3x+1_ problem,
 OEIS [A006577](https://oeis.org/A006577):
 
 ~~~spl svg=A oeis=A006577
@@ -158,7 +161,7 @@ The first few sequences:
 ]
 ```
 
-Plot first few Collatz sequences:
+Plot first few rational Collatz sequences:
 
 ~~~spl svg=E
 1:15.collect { :n |
@@ -395,8 +398,7 @@ Trajectory of 109 under the _109x+1_ map:
 ~~~spl svg=G
 109.collatzSequence(109, 'Indirect')
 .first
-.log
-.scatterPlot
+.scatterPlot.log
 ~~~
 
 ![](Help/Image/collatzSequence-G.svg)

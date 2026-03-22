@@ -44,8 +44,7 @@ Log scale matrix plot of _12×12_ matrix:
 
 ~~~spl svg=A
 [12 12].lambdomaMatrix
-.logScale
-.matrixPlot
+.matrixPlot.logScale
 ~~~
 
 ![](Help/Image/lambdomaMatrix-A.svg)

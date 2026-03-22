@@ -103,11 +103,8 @@ Plot : [Object] { | pageList format options |
 			[
 				'array' -> {
 					let [contents] = self.pageList;
-					ColourGrid(
-						contents.deepCollect(
-							self.scale.scaleFunction
-						)
-					).asLineDrawing
+					self.assertScaleIsLinear;
+					ColourGrid(contents).asLineDrawing
 				},
 				'matrix' -> {
 					let [contents] = self.pageList;
@@ -134,6 +131,12 @@ Plot : [Object] { | pageList format options |
 			) {
 				self.unimplementedCase('asLineDrawing')
 			}
+		}
+	}
+
+	assertScaleIsLinear { :self |
+		(self.scale = 'linear').ifFalse {
+			self.error('scale not linear')
 		}
 	}
 

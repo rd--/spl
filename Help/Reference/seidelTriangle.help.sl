@@ -32,8 +32,7 @@ OEIS [A014781](https://oeis.org/A014781):
 ~~~spl svg=A oeis=A014781
 13.seidelTriangle
 .catenate
-.logScale
-.scatterPlot
+.scatterPlot.logScale
 ~~~
 
 ![](Help/Image/seidelTriangle-A.svg)

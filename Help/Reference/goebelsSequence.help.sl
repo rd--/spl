@@ -4,6 +4,9 @@
 
 Answer the first _n_ terms of the Göbel sequence.
 
+The Göbel sequence,
+OEIS [A003504](https://oeis.org/A003504):
+
 ```
 >>> 12.goebelsSequence
 [

@@ -1395,8 +1395,8 @@
 	ramanujanTau { :n |
 		let a = 65/756 * divisorSigma(11, n);
 		let b = 691/756 * divisorSigma(5, n);
-		let c = 691/3 * 1.to(n - 1).sum { :k |
-			divisorSigma(5, k) * divisorSigma(5, n - k)
+		let c = 691/3 * 1L.to(n - 1).sum { :k |
+			divisorSigma(5L, k) * divisorSigma(5L, n - k)
 		};
 		a + b - c
 	}

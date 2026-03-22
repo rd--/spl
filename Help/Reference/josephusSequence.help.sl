@@ -10,7 +10,12 @@ The answer to the _n,k_ Josephus problem is the last item in the _n,k_ Josephus 
 
 >>> 5.josephusProblem(2)
 3
+```
 
+The original Josephus problem,
+OEIS [A209258](https://oeis.org/A209258):
+
+```
 >>> 41.josephusSequence(3)
 [
 	 3  6  9 12 15 18 21 24 27 30
@@ -43,6 +48,15 @@ Plot the inverse permutation of the same Josephus sequence:
 ~~~
 
 ![](Help/Image/josephusSequence-B.svg)
+
+The original Josephus problem,
+OEIS [A209258](https://oeis.org/A209258):
+
+~~~spl svg=C oeis=A209258
+41.josephusSequence(3).discretePlot
+~~~
+
+![](Help/Image/josephusSequence-C.svg)
 
 * * *
 

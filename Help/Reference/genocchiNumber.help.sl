@@ -84,8 +84,7 @@ OEIS [A036968](https://oeis.org/A036968):
 
 ~~~spl svg=A oeis=A036968
 0:27.genocchiNumber
-.logScale
-.scatterPlot
+.scatterPlot.logScale
 ~~~
 
 ![](Help/Image/genocchiNumber-A.svg)

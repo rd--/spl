@@ -1175,13 +1175,13 @@
 
 	fromDigits { :self :radix |
 		self.isVector.if {
-			let answer = 0;
-			let m = 1;
+			let answer = 0L;
+			let m = 1L;
 			self.reverseDo { :each |
 				answer := answer + (each * m);
 				m := m * radix
 			};
-			answer
+			answer.normal
 		} {
 			self.collect { :each |
 				each.fromDigits(radix)

@@ -28,9 +28,7 @@ OEIS [A008280](https://oeis.org/A008280):
 
 ~~~spl svg=A oeis=A008280
 13.seidelEntringerArnoldTriangle
-.catenate
-.logScale
-.scatterPlot
+.catenate.scatterPlot.logScale
 ~~~
 
 ![](Help/Image/seidelEntringerArnoldTriangle-A.svg)

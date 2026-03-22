@@ -32,7 +32,10 @@ Lemniscate constant:
 1.lemniscateConstant
 ```
 
-Continued fraction,
+Continued fraction of Gauss’s constant,
+OEIS [A053002](https://oeis.org/A053002),
+also,
+without initial zero,
 OEIS [A053003](https://oeis.org/A053003):
 
 ```
@@ -69,9 +72,11 @@ OEIS [A014549](http://oeis.org/A014549):
 (0.834627, 107)
 ```
 
-Scatter plot of the digits of Gausss’s constant:
+Decimal digits of Gausss’s constant,
+scatter plot,
+OEIS [A014549](http://oeis.org/A014549):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A014549
 'GausssConstant'
 .namedConstant
 .integerDigits
@@ -80,7 +85,7 @@ Scatter plot of the digits of Gausss’s constant:
 
 ![](Help/Image/gausssConstant-A.svg)
 
-The continued fraction at the higher precision decimal constant is accurate to many more places:
+The continued fraction of Gausss’s constant at the higher precision decimal constant is accurate to many more places:
 
 ```
 >>> 'GausssConstant'
@@ -100,14 +105,15 @@ The continued fraction at the higher precision decimal constant is accurate to m
 ]
 ```
 
-Log scale scatter plot of the continued fraction:
+Continued fraction of Gauss’s constant,
+log scale scatter plot,
+OEIS [A053002](https://oeis.org/A053002):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A053002
 'GausssConstant'
 .namedConstant
 .continuedFraction(100)
-.log
-.scatterPlot
+.scatterPlot.log
 ~~~
 
 ![](Help/Image/gausssConstant-B.svg)

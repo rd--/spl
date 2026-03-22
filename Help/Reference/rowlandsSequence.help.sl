@@ -281,8 +281,7 @@ OEIS [A361470](https://oeis.org/A361470):
 let k = 100;
 1L.rowlandsSequence(k - 1, lcm:/2)
 .gcd(2:k)
-.log
-.scatterPlot
+.scatterPlot.log
 ~~~
 
 ![](Help/Image/rowlandsSequence-H.svg)

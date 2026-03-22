@@ -227,7 +227,7 @@
 	}
 
 	connellSequence { :self |
-		0.toCollect(self) { :n |
+		0.toCollect(self - 1) { :n |
 			2 * 1.to(n + 1) + (n ^ 2) - 1
 		}
 	}

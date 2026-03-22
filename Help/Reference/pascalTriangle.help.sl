@@ -177,8 +177,7 @@ OEIS [A007318](https://oeis.org/A007318):
 ~~~spl svg=A oeis=A007318
 21.pascalTriangle
 .catenate
-.log
-.scatterPlot
+.scatterPlot.log
 ~~~
 
 ![](Help/Image/pascalTriangle-A.svg)

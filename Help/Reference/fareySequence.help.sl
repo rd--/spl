@@ -247,7 +247,7 @@ Plot the relative term-wise difference between the mean and mediant of adjacent 
 
 ![](Help/Image/fareySequence-I.svg)
 
-The numerators of the sequences in turn,
+The numerators of the Farey sequences in turn,
 OEIS [A006842](https://oeis.org/A006842):
 
 ~~~spl svg=J oeis=A006842
@@ -258,7 +258,7 @@ OEIS [A006842](https://oeis.org/A006842):
 
 ![](Help/Image/fareySequence-J.svg)
 
-The denominators of the sequences in turn,
+The denominators of the Farey sequences in turn,
 OEIS [A006843](https://oeis.org/A006843):
 
 ~~~spl svg=K oeis=A006843

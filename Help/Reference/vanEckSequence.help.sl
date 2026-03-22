@@ -90,8 +90,7 @@ OEIS [A181391](https://oeis.org/A181391):
 
 ~~~spl svg=A oeis=A181391
 250.vanEckSequence
-.log
-.scatterPlot
+.scatterPlot.log
 ~~~
 
 ![](Help/Image/vanEckSequence-A.svg)

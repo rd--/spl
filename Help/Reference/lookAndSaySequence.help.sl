@@ -5,7 +5,8 @@
 Answer the first _n_ terms of the look and say sequence of type _k_.
 The answers are given as lists of digits.
 
-The _A_ sequence begins with one and each following term describes the previous term:
+The _A_ type look and say sequence begins with one and each following term describes the previous term,
+OEIS [A034002](https://oeis.org/A034002):
 
 ```
 >>> 10.lookAndSaySequence('A')
@@ -23,7 +24,7 @@ The _A_ sequence begins with one and each following term describes the previous 
 ]
 ```
 
-The digit counts of the first few terms of _k='A'_,
+The digit counts of the first few terms of _k='A'_ look and say sequence,
 OEIS [A005341](https://oeis.org/A005341):
 
 ```
@@ -38,7 +39,7 @@ OEIS [A005341](https://oeis.org/A005341):
 ]
 ```
 
-Convert terms of _k='A'_ to to large integers,
+Convert terms of the _k='A'_ look and say sequence to large integers,
 OEIS [A005150](https://oeis.org/A005150):
 
 ```
@@ -61,7 +62,7 @@ OEIS [A005150](https://oeis.org/A005150):
 ]
 ```
 
-The sequence _k='LS'_ describes the first _n_ integers starting at zero:
+The look and say sequence _k='LS'_ describes the first _n_ integers starting at zero:
 
 ```
 >>> 16.lookAndSaySequence('LS')
@@ -85,7 +86,7 @@ The sequence _k='LS'_ describes the first _n_ integers starting at zero:
 ]
 ```
 
-The sequence _k='LS'_ describes the first _n_ integers starting at zero,
+The look and say sequence _k='LS'_ describes the first _n_ integers starting at zero,
 as integers,
 OEIS [A045918](https://oeis.org/A045918):
 
@@ -98,9 +99,10 @@ OEIS [A045918](https://oeis.org/A045918):
 ]
 ```
 
-Plot digits of _k='A'_ sequence:
+Plot digits of _k='A'_ look and say sequence,
+OEIS [A034002](https://oeis.org/A034002):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A034002
 11.lookAndSaySequence('A')
 .catenate
 .stepPlot
@@ -108,7 +110,7 @@ Plot digits of _k='A'_ sequence:
 
 ![](Help/Image/lookAndSaySequence-A.svg)
 
-Plot digits of _k='LS'_ sequence:
+Plot digits of _k='LS'_ look and say sequence:
 
 ~~~spl svg=B
 50.lookAndSaySequence('LS')

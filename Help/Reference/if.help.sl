@@ -112,6 +112,31 @@ OEIS [A056951](https://oeis.org/A056951):
 
 ![](Help/Image/if-B.svg)
 
+Positive integers,
+each occurring twice in the sequence,
+such that _a(n)=a(k)_ when _n+k=4*a(n)_,
+and filling the next vacant position with the smallest unused number,
+OEIS [A117384](https://oeis.org/A117384):
+
+~~~spl svg=C oeis=A117384
+let k = 85;
+let a = List(k, 0);
+let t = 1;
+1:k.do { :n |
+	(a[n] = 0).ifTrue {
+		let d = 4 * t - n;
+		a[n] := t;
+		(d <= k).ifTrue {
+			a[d] := a[n];
+			t := t + 1
+		}
+	}
+};
+a.scatterPlot
+~~~
+
+![](Help/Image/if-C.svg)
+
 _Rationale:_
 Spl follows Smalltalk in having no special purpose conditional evaluation mechanisms.
 Conditional expressions are implemented as ordinary blocks.

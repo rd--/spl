@@ -85,8 +85,7 @@ OEIS [A039834](https://oeis.org/A039834):
 ~~~spl svg=A oeis=A039834
 1:65.fibonacci
 .inverseBinomialTransform
-.logScale
-.discretePlot
+.discretePlot.logScale
 ~~~
 
 ![](Help/Image/inverseBinomialTransform-A.svg)
@@ -97,8 +96,7 @@ OEIS [A007442](https://oeis.org/A007442):
 ~~~spl svg=B oeis=A007442
 1:65.prime
 .inverseBinomialTransform
-.logScale
-.discretePlot
+.discretePlot.logScale
 ~~~
 
 ![](Help/Image/inverseBinomialTransform-B.svg)
@@ -109,8 +107,7 @@ OEIS [A124841](https://oeis.org/A124841):
 ~~~spl svg=C oeis=A124841
 (1 - 1:65.fibonacciWord)
 .inverseBinomialTransform
-.logScale
-.discretePlot
+.discretePlot.logScale
 ~~~
 
 ![](Help/Image/inverseBinomialTransform-C.svg)
@@ -121,8 +118,7 @@ OEIS [A061084](https://oeis.org/A061084):
 ~~~spl svg=D oeis=A061084
 65.lucasSequence
 .inverseBinomialTransform
-.logScale
-.discretePlot
+.discretePlot.logScale
 ~~~
 
 ![](Help/Image/inverseBinomialTransform-D.svg)

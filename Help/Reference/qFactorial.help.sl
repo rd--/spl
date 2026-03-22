@@ -58,6 +58,30 @@ Value at zero:
 1
 ```
 
+The three `qFactorial` numbers,
+threads over lists:
+
+```
+>>> 2.qFactorial(0:9)
+[1 2 3 4 5 6 7 8 9 10]
+```
+
+The three-`qFactorial` numbers,
+OEIS [A069778](https://oeis.org/A069778):
+
+```
+>>> 3.qFactorial(0:9)
+[1 6 21 52 105 186 301 456 657 910]
+```
+
+The four-`qFactorial` numbers,
+OEIS [A069779](https://oeis.org/A069779):
+
+```
+>>> 4.qFactorial(0:7)
+[1 24 315 2080 8925 29016 77959 182400]
+```
+
 * * *
 
 See also: qBinomial, qPochhammer, UnivariatePolynomial

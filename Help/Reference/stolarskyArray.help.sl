@@ -27,8 +27,7 @@ Plot upper left 11×11 area of the array:
 { :m :n |
 	m.stolarskyArray(n)
 }.table(1:11, 1:11)
-.logScale
-.matrixPlot
+.matrixPlot.logScale
 ~~~
 
 ![](Help/Image/stolarskyArray-A.svg)

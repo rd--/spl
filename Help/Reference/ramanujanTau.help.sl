@@ -65,23 +65,21 @@ logarithmic plot,
 OEIS [A000594](https://oeis.org/A000594):
 
 ~~~spl svg=A oeis=A000594
-1:33
+1:28
 .collect(ramanujanTau:/1)
-.logScale
-.stepPlot
+.stepPlot.logScale
 ~~~
 
 ![](Help/Image/ramanujanTau-A.svg)
 
 The Ramanujan τ function,
-further terms,
+further terms are innacurate,
 OEIS [A000594](https://oeis.org/A000594):
 
 ~~~spl svg=B oeis=A000594
 1:85
 .collect(ramanujanTau:/1)
-.logScale
-.discretePlot
+.discretePlot.logScale
 ~~~
 
 ![](Help/Image/ramanujanTau-B.svg)

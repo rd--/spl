@@ -519,6 +519,10 @@ OEIS [A000124](https://oeis.org/A000124):
 	1036 1082 1129 1177 1226
 	1276 1327 1379
 ]
+
+>>> linearRecurrence([3 -3 1], [1 2 4], 53)
+>>> .differences
+[1 .. 52]
 ```
 
 Tetranacci numbers,
@@ -785,6 +789,16 @@ OEIS [A026474](https://oeis.org/A026474):
 
 >>> [1 2 4 8] ++ 15:85:7
 [1 2 4 8 15 22 29 36 43 50 57 64 71 78 85]
+```
+
+The four-Stöhr sequence,
+OEIS [A026474](https://oeis.org/A026474):
+
+```
+>>> [2 -1].linearRecurrence(
+>>> 	[1 2 4 8 16 31], 14
+>>> )
+[1 2 4 8 16 31 46 61 76 91 106 121 136 151]
 ```
 
 The odd numbers interleaved with their negations,

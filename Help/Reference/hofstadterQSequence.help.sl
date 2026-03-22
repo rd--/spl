@@ -38,7 +38,7 @@ OEIS [A005185](https://oeis.org/A005185):
 
 ![](Help/Image/hofstadterQSequence-B.svg)
 
-The obscure sequence
+An obscure sequence derived from the Hofstadter Q-sequence,
 OEIS [A086267](https://oeis.org/A086267):
 
 ~~~spl svg=C oeis=A086267

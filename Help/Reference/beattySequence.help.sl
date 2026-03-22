@@ -18,7 +18,7 @@ OEIS [A001952](https://oeis.org/A001952):
 [3 6 10 13 17 20 23 27 30 34 37 40 44]
 ```
 
-The sequences for _α=√3_
+The Beatty sequences for _α=√3_
 OEIS [A022838](https://oeis.org/A022838) and
 OEIS [A054406](https://oeis.org/A054406):
 
@@ -32,7 +32,7 @@ OEIS [A054406](https://oeis.org/A054406):
 [2 4 7 9 11 14 16 18 21 23 26 28 30]
 ```
 
-The sequences for _α=e_,
+The Beatty sequences for _α=e_,
 OEIS [A022843](https://oeis.org/A022843)
 and [A054385](https://oeis.org/A054385):
 
@@ -46,7 +46,7 @@ and [A054385](https://oeis.org/A054385):
 [1 3 4 6 7 9 11 12 14 15 17 18 20]
 ```
 
-The sequences for _α=π_,
+The Beatty sequences for _α=π_,
 OEIS [A022844](https://oeis.org/A022844)
 and [A054386](https://oeis.org/A054386):
 
@@ -60,7 +60,7 @@ and [A054386](https://oeis.org/A054386):
 [1 2 4 5 7 8 10 11 13 14 16 17 19]
 ```
 
-The sequences for _α=φ_,
+The Beatty sequences for _α=φ_,
 the lower and upper Wythoff sequences,
 OEIS [A000201](https://oeis.org/A000201)
 and [A001950](https://oeis.org/A001950):
@@ -75,7 +75,7 @@ and [A001950](https://oeis.org/A001950):
 [2 5 7 10 13 15 18 20 23 26 28 31 34]
 ```
 
-Prefix sums,
+Prefix sum of lower Wythoff sequence,
 OEIS [A054347](https://oeis.org/A054347):
 
 ```

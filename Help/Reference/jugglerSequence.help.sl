@@ -24,7 +24,7 @@ OEIS [A389383](https://oeis.org/A389383):
 ]
 ```
 
-The size of the first few sequences,
+The size of the first few juggler sequences,
 OEIS [A007320](https://oeis.org/A007320):
 
 ```
@@ -45,7 +45,7 @@ OEIS [A007320](https://oeis.org/A007320):
 ]
 ```
 
-The largest value in trajectory of under the juggler map:
+The largest value in trajectory of under the juggler map,
 OEIS [A094716](https://oeis.org/A094716):
 
 ```
@@ -64,7 +64,7 @@ OEIS [A094716](https://oeis.org/A094716):
 ]
 ```
 
-The sequence function,
+The juggler sequence function,
 OEIS [A094683](https://oeis.org/A094683):
 
 ```
@@ -89,9 +89,10 @@ OEIS [A094683](https://oeis.org/A094683):
 ]
 ```
 
-Plot of sizes:
+The size of the first few juggler sequences,
+OEIS [A007320](https://oeis.org/A007320):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A007320
 1:150.collect { :a |
 	a.jugglerSequence.size - 1
 }.scatterPlot
@@ -99,9 +100,11 @@ Plot of sizes:
 
 ![](Help/Image/jugglerSequence-A.svg)
 
-Log scale plot of heights:
+The largest value in trajectory of under the juggler map,
+log scale plot,
+OEIS [A094716](https://oeis.org/A094716):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A094716
 1:250.collect { :a |
 	a.jugglerSequence.max
 }.scatterPlot.log
@@ -109,13 +112,13 @@ Log scale plot of heights:
 
 ![](Help/Image/jugglerSequence-B.svg)
 
-Log plot of table:
+Juggler sequences,
+log plot,
+OEIS [A389383](https://oeis.org/A389383):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A389383
 1:23.collect(jugglerSequence:/1)
-.catenate
-.log
-.scatterPlot
+.catenate.scatterPlot.log
 ~~~
 
 ![](Help/Image/jugglerSequence-C.svg)

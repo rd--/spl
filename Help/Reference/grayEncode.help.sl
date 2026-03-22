@@ -191,8 +191,7 @@ OEIS [A055975](https://oeis.org/A055975):
 ~~~spl svg=F oeis=A055975
 0:250.grayEncode
 .differences
-.logScale
-.scatterPlot
+.scatterPlot.logScale
 ~~~
 
 ![](Help/Image/grayEncode-F.svg)

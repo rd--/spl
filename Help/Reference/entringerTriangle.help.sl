@@ -36,8 +36,7 @@ OEIS [A008281](https://oeis.org/A008281):
 ~~~spl svg=A oeis=A008281
 13.entringerTriangle
 .catenate
-.logScale
-.scatterPlot
+.scatterPlot.logScale
 ~~~
 
 ![](Help/Image/entringerTriangle-A.svg)

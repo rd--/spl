@@ -754,8 +754,7 @@ let t = { :n :k |
 };
 0:13.triangularArray(t:/2)
 .catenate
-.log
-.scatterPlot
+.scatterPlot.log
 ~~~
 
 ![](Help/Image/binomial-E.svg)

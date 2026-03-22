@@ -73,6 +73,15 @@ Sfc32(89714)
 
 ![](Help/Image/accumulate-A.svg)
 
+Central polygonal numbers,
+OEIS [A000124](https://oeis.org/A000124):
+
+~~~spl svg=B oeis=A000124
+(0:56.accumulate + 1).discretePlot
+~~~
+
+![](Help/Image/accumulate-B.svg)
+
 * * *
 
 See also: +, differences, foldList, prefixSum, scan, sum

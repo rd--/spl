@@ -100,10 +100,8 @@ OEIS [A027641](https://oeis.org/A027641):
 
 ~~~spl svg=A oeis=A027641 variant
 0:50.bernoulliNumber
-.numerator
-.abs
-.logScale
-.scatterPlot
+.numerator.abs
+.scatterPlot.logScale
 ~~~
 
 ![](Help/Image/bernoulliNumber-A.svg)
@@ -115,8 +113,7 @@ OEIS [A027641](https://oeis.org/A027641):
 ~~~spl svg=B oeis=A027641
 0:50.bernoulliNumber
 .numerator
-.logScale
-.scatterPlot
+.scatterPlot.logScale
 ~~~
 
 ![](Help/Image/bernoulliNumber-B.svg)
@@ -128,8 +125,7 @@ OEIS [A027642](https://oeis.org/A027642):
 ~~~spl svg=C oeis=A027642
 0:50.bernoulliNumber
 .denominator
-.logScale
-.discretePlot
+.discretePlot.logScale
 ~~~
 
 ![](Help/Image/bernoulliNumber-C.svg)

@@ -54,10 +54,8 @@ log scale scatter plot,
 OEIS [A342585](https://oeis.org/A342585):
 
 ~~~spl svg=B oeis=A342585
-333
-.inventorySequence
-.logScale
-.scatterPlot
+333.inventorySequence
+.scatterPlot.logScale
 ~~~
 
 ![](Help/Image/inventorySequence-B.svg)

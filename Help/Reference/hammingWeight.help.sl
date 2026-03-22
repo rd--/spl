@@ -96,8 +96,7 @@ OEIS [A093659](https://oeis.org/A093659):
 ~~~spl svg=F oeis=A093659
 0:250.hammingWeight
 .factorial
-.log
-.scatterPlot
+.scatterPlot.log
 ~~~
 
 ![](Help/Image/hammingWeight-F.svg)

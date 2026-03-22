@@ -21,8 +21,7 @@ OEIS [A008288](https://oeis.org/A008288):
 
 ~~~spl svg=A oeis=A008288
 99.delannoySequence
-.log
-.scatterPlot
+.scatterPlot.log
 ~~~
 
 ![](Help/Image/delannoySequence-A.svg)

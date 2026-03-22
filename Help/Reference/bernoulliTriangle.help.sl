@@ -30,9 +30,7 @@ OEIS [A008949](https://oeis.org/A008949):
 
 ~~~spl svg=A oeis=A008949
 20.bernoulliTriangle
-.catenate
-.log
-.scatterPlot
+.catenate.scatterPlot.log
 ~~~
 
 ![](Help/Image/bernoulliTriangle-A.svg)

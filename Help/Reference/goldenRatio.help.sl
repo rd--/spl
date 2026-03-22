@@ -445,6 +445,20 @@ let r = 1.goldenRatio;
 
 ![](Help/Image/goldenRatio-M.svg)
 
+Inverse of the Lucas sequence,
+nearly,
+OEIS [A130241](https://oeis.org/A130241),
+also,
+from second term on,
+OEIS [A130247](https://oeis.org/A130247):
+
+~~~spl svg=N oeis=A130241
+let n = 2:65;
+(n + 0.5).log(1.goldenRatio).floor.discretePlot
+~~~
+
+![](Help/Image/goldenRatio-N.svg)
+
 Note that the constant is correctly rounded,
 unlike the calculation in terms of `sqrt`,
 and that this distinction is important for some calculations:

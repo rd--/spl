@@ -4,7 +4,8 @@
 
 Answer a de Bruijn sequence on the elements _x_ taken _n_ at a time.
 
-A de Bruijn sequence of order two on the list _0,1_:
+A de Bruijn sequence of order two on the list _0,1_,
+OEIS [A021913](https://oeis.org/A021913):
 
 ```
 >>> [0 1].deBruijnSequence(2)
@@ -14,7 +15,8 @@ A de Bruijn sequence of order two on the list _0,1_:
 4
 ```
 
-A de Bruijn sequence of order three:
+A de Bruijn sequence of order three,
+OEIS [A169675](https://oeis.org/A169675):
 
 ```
 >>> [0 1].deBruijnSequence(3)
@@ -24,7 +26,8 @@ A de Bruijn sequence of order three:
 8
 ```
 
-A de Bruijn sequence of order four:
+A de Bruijn sequence of order four,
+OEIS [A080679](https://oeis.org/A080679):
 
 ```
 >>> [0 1].deBruijnSequence(4)
@@ -34,7 +37,8 @@ A de Bruijn sequence of order four:
 16
 ```
 
-A de Bruijn sequence of order five:
+A de Bruijn sequence of order five,
+OEIS [A169672](https://oeis.org/A169672):
 
 ```
 >>> [0 1].deBruijnSequence(5)
@@ -49,7 +53,68 @@ A de Bruijn sequence of order five:
 32
 ```
 
-A de Bruijn sequence on the elements _0,1,2_:
+A de Bruijn sequence of order six,
+OEIS [A169671](https://oeis.org/A169671):
+
+```
+>>> [0 1].deBruijnSequence(6)
+[
+	0 0 0 0 0 0 1 0 0 0 0 1 1 0 0 0 1 0 1 0
+	0 0 1 1 1 0 0 1 0 0 1 0 1 1 0 0 1 1 0 1
+	0 0 1 1 1 1 0 1 0 1 0 1 1 1 0 1 1 0 1 1
+	1 1 1 1
+]
+
+>>> 2 ^ 6
+64
+```
+
+A de Bruijn sequence of order seven,
+OEIS [A169673](https://oeis.org/A169673):
+
+```
+>>> [0 1].deBruijnSequence(7)
+[
+	0 0 0 0 0 0 0 1 0 0 0 0 0 1 1 0 0 0 0 1
+	0 1 0 0 0 0 1 1 1 0 0 0 1 0 0 1 0 0 0 1
+	0 1 1 0 0 0 1 1 0 1 0 0 0 1 1 1 1 0 0 1
+	0 0 1 1 0 0 1 0 1 0 1 0 0 1 0 1 1 1 0 0
+	1 1 0 1 1 0 0 1 1 1 0 1 0 0 1 1 1 1 1 0
+	1 0 1 0 1 1 0 1 0 1 1 1 1 0 1 1 0 1 1 1
+	0 1 1 1 1 1 1 1
+]
+
+>>> 2 ^ 7
+128
+```
+
+A de Bruijn sequence of order eight,
+OEIS [A169674](https://oeis.org/A169674):
+
+```
+>>> [0 1].deBruijnSequence(8)
+[
+	0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 1 0 0 0
+	0 0 1 0 1 0 0 0 0 0 1 1 1 0 0 0 0 1 0 0
+	1 0 0 0 0 1 0 1 1 0 0 0 0 1 1 0 1 0 0 0
+	0 1 1 1 1 0 0 0 1 0 0 0 1 0 0 1 1 0 0 0
+	1 0 1 0 1 0 0 0 1 0 1 1 1 0 0 0 1 1 0 0
+	1 0 0 0 1 1 0 1 1 0 0 0 1 1 1 0 1 0 0 0
+	1 1 1 1 1 0 0 1 0 0 1 0 1 0 0 1 0 0 1 1
+	1 0 0 1 0 1 0 1 1 0 0 1 0 1 1 0 1 0 0 1
+	0 1 1 1 1 0 0 1 1 0 0 1 1 0 1 0 1 0 0 1
+	1 0 1 1 1 0 0 1 1 1 0 1 1 0 0 1 1 1 1 0
+	1 0 0 1 1 1 1 1 1 0 1 0 1 0 1 0 1 1 1 0
+	1 0 1 1 0 1 1 0 1 0 1 1 1 1 1 0 1 1 0 1
+	1 1 1 0 1 1 1 0 1 1 1 1 1 1 1 1
+]
+
+>>> 2 ^ 8
+256
+```
+
+A de Bruijn sequence on the elements _0,1,2_,
+OEIS [A169676](https://oeis.org/A169676):
 
 ```
 >>> [0 1 2].deBruijnSequence(2)
@@ -157,6 +222,86 @@ Use `shiftRegisterSequence` to generate a binary de Bruijn sequence:
 >>> [0] ++ shiftRegisterSequence(i, t, n)
 [0 1].deBruijnSequence(4)
 ```
+
+A de Bruijn sequence of order two on the list _0,1_,
+OEIS [A021913](https://oeis.org/A021913):
+
+~~~spl svg=A oeis=A021913
+[0 1].deBruijnSequence(2).repeat(16)
+.discretePlot
+~~~
+
+![](Help/Image/deBruijnSequence-A.svg)
+
+A de Bruijn sequence of order three,
+OEIS [A169675](https://oeis.org/A169675):
+
+~~~spl svg=B oeis=A169675
+[0 1].deBruijnSequence(3).repeat(8)
+.discretePlot
+~~~
+
+![](Help/Image/deBruijnSequence-B.svg)
+
+A de Bruijn sequence of order four,
+OEIS [A080679](https://oeis.org/A080679):
+
+~~~spl svg=C oeis=A080679
+[0 1].deBruijnSequence(4).repeat(4)
+.discretePlot
+~~~
+
+![](Help/Image/deBruijnSequence-C.svg)
+
+A de Bruijn sequence of order five,
+OEIS [A169672](https://oeis.org/A169672):
+
+~~~spl svg=D oeis=A169672
+[0 1].deBruijnSequence(5).repeat(2)
+.discretePlot
+~~~
+
+![](Help/Image/deBruijnSequence-D.svg)
+
+A de Bruijn sequence of order six,
+OEIS [A169671](https://oeis.org/A169671):
+
+~~~spl svg=E oeis=A169671
+[0 1].deBruijnSequence(6)
+.discretePlot
+~~~
+
+![](Help/Image/deBruijnSequence-E.svg)
+
+A de Bruijn sequence of order seven,
+OEIS [A169673](https://oeis.org/A169673):
+
+~~~spl svg=F oeis=A169673
+[0 1].deBruijnSequence(7)
+.discretePlot
+~~~
+
+![](Help/Image/deBruijnSequence-F.svg)
+
+A de Bruijn sequence of order eight,
+OEIS [A169674](https://oeis.org/A169674):
+
+~~~spl svg=G oeis=A169674
+[0 1].deBruijnSequence(8)
+.discretePlot
+~~~
+
+![](Help/Image/deBruijnSequence-G.svg)
+
+A de Bruijn sequence on the elements _0,1,2_,
+OEIS [A169676](https://oeis.org/A169676):
+
+~~~spl svg=H oeis=A169676
+[0 1 2].deBruijnSequence(2).repeat(7)
+.stepPlot
+~~~
+
+![](Help/Image/deBruijnSequence-H.svg)
 
 * * *
 

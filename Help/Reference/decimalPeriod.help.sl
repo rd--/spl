@@ -124,8 +124,7 @@ OEIS [A051626](https://oeis.org/A051626):
 ~~~spl svg=A oeis=A051626
 Fraction(1, 1:200)
 .collect(decimalPeriod:/1)
-.logScale
-.scatterPlot
+.scatterPlot.logScale
 ~~~
 
 ![](Help/Image/decimalPeriod-A.svg)

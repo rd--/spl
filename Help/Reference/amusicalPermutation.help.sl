@@ -91,8 +91,7 @@ OEIS [A028393](https://oeis.org/A028393):
 ~~~spl svg=D oeis=A028393
 amusicalPermutation:/1
 .nestList(8, 250)
-.log
-.linePlot
+.linePlot.log
 ~~~
 
 ![](Help/Image/amusicalPermutation-D.svg)
@@ -103,8 +102,7 @@ OEIS [A028395](https://oeis.org/A028395):
 ~~~spl svg=E oeis=A028395
 amusicalPermutation:/1
 .nestList(14, 250)
-.log
-.linePlot
+.linePlot.log
 ~~~
 
 ![](Help/Image/amusicalPermutation-E.svg)
@@ -115,8 +113,7 @@ OEIS [A182205](https://oeis.org/A182205):
 ~~~spl svg=F oeis=A182205
 amusicalPermutation:/1
 .nestList(40, 250)
-.log
-.linePlot
+.linePlot.log
 ~~~
 
 ![](Help/Image/amusicalPermutation-F.svg)

@@ -1,8 +1,8 @@
 # degreeSequence
 
-- _degreeSequence(aGraph)_
+- _degreeSequence(g)_
 
-Answer the degree sequence of _aGraph_.
+Answer the degree sequence of the graph _g_.
 The degree sequence of an undirected graph is a monotonic nonincreasing sequence of its vertex degrees (valencies).
 A graph whose degree sequence contains only multiple copies of a single integer is called a regular graph.
 

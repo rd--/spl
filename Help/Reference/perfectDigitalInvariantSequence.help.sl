@@ -41,7 +41,7 @@ OEIS [A046197](https://oeis.org/A046197):
 [153; 370; 371; 407]
 ```
 
-The sequence lengths for the first few terms of the _p=2_ sequences,
+The sequence lengths for the first few terms of the _p=2_ perfect digital invariant sequences,
 OEIS [A193995](https://oeis.org/A193995):
 
 ```
@@ -62,7 +62,7 @@ OEIS [A193995](https://oeis.org/A193995):
 ]
 ```
 
-The sequence lengths for the first few terms of the _p=2_ sequences,
+The sequence lengths for the first few terms of the _p=2_ perfect digital invariant sequences,
 OEIS [A193995](https://oeis.org/A193995):
 
 ~~~spl svg=A oeis=A193995

@@ -47,8 +47,7 @@ OEIS [A139251](https://oeis.org/A139251):
 ~~~spl svg=C oeis=A139251
 250.toothpickSequence
 .differences
-.log
-.scatterPlot
+.scatterPlot.log
 ~~~
 
 ![](Help/Image/toothpickSequence-C.svg)

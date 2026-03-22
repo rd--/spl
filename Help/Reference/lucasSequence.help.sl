@@ -113,6 +113,17 @@ OEIS [A014551](https://oeis.org/A014551):
 [1 2].linearRecurrence([2 1], 12)
 ```
 
+Characteristic function of the Lucas numbers,
+OEIS [A102460](https://oeis.org/A102460):
+
+~~~spl svg=A oeis=A102460
+11.lucasSequence
+.characteristicFunction(0:125)
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/lucasSequence-A.svg)
+
 * * *
 
 See also: fibonacciSequence, lucasNumber, lucasPellSequence, pellSequence

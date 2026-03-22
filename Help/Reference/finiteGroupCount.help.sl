@@ -50,8 +50,7 @@ OEIS [A000001](https://oeis.org/A000001):
 
 ~~~spl svg=B oeis=A000001
 1:250.finiteGroupCount
-.log
-.scatterPlot
+.scatterPlot.log
 ~~~
 
 ![](Help/Image/finiteGroupCount-B.svg)

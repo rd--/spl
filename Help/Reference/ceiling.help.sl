@@ -169,6 +169,16 @@ OEIS [A235791](https://oeis.org/A235791):
 
 ![](Help/Image/ceiling-D.svg)
 
+The number of partitions of _2n_ into at most three parts,
+OEIS [A007980](https://oeis.org/A007980):
+
+~~~spl svg=E oeis=A007980
+let n = 1:56;
+(n * (n + 1) / 3).ceiling.discretePlot
+~~~
+
+![](Help/Image/ceiling-E.svg)
+
 Where supported `ceiling` is displayed as ⌈.
 
 * * *

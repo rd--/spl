@@ -47,8 +47,7 @@ OEIS [A278159](https://oeis.org/A278159):
 
 ~~~spl svg=B oeis=A278159
 100.runLengthTransform(primorial:/1)
-.log
-.scatterPlot
+.scatterPlot.log
 ~~~
 
 ![](Help/Image/runLengthTransform-B.svg)

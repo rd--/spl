@@ -28,8 +28,7 @@ OEIS [A027641](https://oeis.org/A027641):
 ~~~spl svg=A oeis=A027641
 99.bernoulliSequence
 .numerator
-.logScale
-.scatterPlot
+.scatterPlot.logScale
 ~~~
 
 ![](Help/Image/bernoulliSequence-A.svg)
@@ -40,8 +39,7 @@ OEIS [A027642](https://oeis.org/A027642):
 ~~~spl svg=B oeis=A027642
 99.bernoulliSequence
 .denominator
-.log
-.scatterPlot
+.scatterPlot.log
 ~~~
 
 ![](Help/Image/bernoulliSequence-B.svg)

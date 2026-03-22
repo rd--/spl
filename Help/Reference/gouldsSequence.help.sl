@@ -71,8 +71,7 @@ OEIS [A001316](https://oeis.org/A001316):
 
 ~~~spl svg=A oeis=A001316
 99.gouldsSequence
-.log
-.scatterPlot
+.scatterPlot.log
 ~~~
 
 ![](Help/Image/gouldsSequence-A.svg)

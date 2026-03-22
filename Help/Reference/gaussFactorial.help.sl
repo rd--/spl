@@ -42,8 +42,7 @@ OEIS [A001783](https://oeis.org/A001783):
 
 ~~~spl svg=A oeis=A001783
 1:99.collect(gaussFactorial:/1)
-.log
-.scatterPlot
+.scatterPlot.log
 ~~~
 
 ![](Help/Image/gaussFactorial-A.svg)

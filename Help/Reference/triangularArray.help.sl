@@ -371,8 +371,7 @@ let f = { :n :k |
 };
 0:10.triangularArray(f:/2)
 .catenate
-.logScale
-.scatterPlot
+.scatterPlot.logScale
 ~~~
 
 ![](Help/Image/triangularArray-A.svg)

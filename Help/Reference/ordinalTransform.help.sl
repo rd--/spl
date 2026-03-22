@@ -81,7 +81,6 @@ OEIS [A081373](https://oeis.org/A081373):
 ~~~spl svg=A oeis=A081373
 1:250.eulerPhi
 .ordinalTransform
-.log
 .scatterPlot
 ~~~
 
