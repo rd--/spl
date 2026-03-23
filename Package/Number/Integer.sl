@@ -802,8 +802,9 @@
 		}
 	}
 
-	isCongruence { :b :c :m |
-		b % m = c
+	isCongruence { :b :x :m |
+		let c = x % m;
+		(b % m) = c
 	}
 
 	isCubeFree { :n |

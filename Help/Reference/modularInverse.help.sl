@@ -298,7 +298,7 @@ OEIS [A102057](https://oeis.org/A102057):
 
 See also: ^, eulerPhi, extendedEuclideanAlgorithm, extendedGcd, isCoprime, mod, powerMod
 
-Guides: Integer Functions
+Guides: Integer Functions, Modular Arithmetic Functions
 
 References:
 _Mathematica_

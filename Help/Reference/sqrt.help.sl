@@ -280,6 +280,24 @@ OEIS [A006337](https://oeis.org/A006337):
 
 ![](Help/Image/sqrt-F.svg)
 
+Nearest integer to square root of _n_,
+OEIS [A000194](https://oeis.org/A000194):
+
+~~~spl svg=G oeis=A000194
+0:65.sqrt.round.discretePlot
+~~~
+
+![](Help/Image/sqrt-G.svg)
+
+Ceiling of square root of _n_,
+OEIS [A003059](https://oeis.org/A003059):
+
+~~~spl svg=H oeis=A003059
+0:65.sqrt.ceiling.stepPlot
+~~~
+
+![](Help/Image/sqrt-H.svg)
+
 `sqrt` is an alias for `squareRoot`.
 
 Where supported `sqrt` is displayed as √.

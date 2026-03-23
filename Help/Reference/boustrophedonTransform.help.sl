@@ -32,6 +32,15 @@ OEIS [A062162](https://oeis.org/A062162):
 [1 0 0 1 0 5 10 61 280 1665 10470 73621]
 ```
 
+The boustrophedon transform of `one` and then two,
+OEIS [A000674](https://oeis.org/A000674):
+
+```
+>>> [1 2 2 2 2 2 2 2 2 2]
+>>> .boustrophedonTransform
+[1 3 7 16 43 138 527 2346 11943 68418]
+```
+
 The boustrophedon transform from the `prime` numbers,
 OEIS [A000747](https://oeis.org/A000747):
 

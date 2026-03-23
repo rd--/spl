@@ -18,7 +18,7 @@ Answer the common residue of _n_ (modulo _m_).
 
 See also: %, minimalResidue, positiveResidue, Residue
 
-Guides: Integer Functions
+Guides: Integer Functions, Modular Arithmetic Functions
 
 References:
 _Mathematica_

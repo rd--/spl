@@ -165,11 +165,33 @@ Number of digits in the decimal expansion of _n_,
 OEIS [A055642](https://oeis.org/A055642):
 
 ~~~spl svg=F oeis=A055642
-1:250.collect(integerLength:/1)
+1:250.integerLength(10)
 .stepPlot
 ~~~
 
 ![](Help/Image/integerLength-F.svg)
+
+Increments in the number of decimal digits of _4^n_,
+not periodic,
+OEIS [A125144](https://oeis.org/A125144):
+
+~~~spl svg=G oeis=A125144
+(4L ^ 1:85).integerLength(10)
+.differences
+.discretePlot
+~~~
+
+![](Help/Image/integerLength-G.svg)
+
+The number of decimal digits of _4^n_,
+OEIS [A210434](https://oeis.org/A210434):
+
+~~~spl svg=H oeis=A210434
+(4L ^ 1:85).integerLength(10)
+.discretePlot
+~~~
+
+![](Help/Image/integerLength-H.svg)
 
 * * *
 

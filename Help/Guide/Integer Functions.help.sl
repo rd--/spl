@@ -38,6 +38,10 @@ Division-Related Functions:
 - `quotientRemainder`
 - `quotient`
 
+Modular Arithmetic Functions:
+
+- `Modular Arithmetic Functions`: Guide
+
 Recurrence and Sum Functions:
 
 - `bernoulliNumber`

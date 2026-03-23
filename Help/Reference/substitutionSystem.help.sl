@@ -311,7 +311,37 @@ OEIS [A305391](https://oeis.org/A305391) _i=3_:
 ]
 ```
 
-Create an analogous two-dimensional nested object,
+Fixed point of the morphism _0→01, 1→011_,
+another version of the Fibonacci word,
+OEIS [A096270](https://oeis.org/A096270):
+
+```
+>>> [0 -> [0 1], 1 -> [0 1 1]]
+>>> .substitutionSystem([0], 3)
+[
+	0;
+	0 1;
+	0 1 0 1 1;
+	0 1 0 1 1 0 1 0 1 1 0 1 1
+]
+```
+
+Fixed point of the morphism _0→10, 1→110_,
+OEIS [A114986](https://oeis.org/A114986):
+
+```
+>>> [0 -> [1 0], 1 -> [1 1 0]]
+>>> .substitutionSystem([1], 3)
+[
+	1;
+	1 1 0;
+	1 1 0 1 1 0 1 0;
+	1 1 0 1 1 0 1 0 1 1 0 1 1 0 1 0 1 1 0 1 0
+]
+```
+
+Create a two-dimensional nested object,
+analogous to a Cantor set,
 the Sierpiński carpet:
 
 ~~~spl png=A

@@ -13,6 +13,20 @@ such that the _k_ ones are distributed as evenly as possible among the _n - k_ z
 [1 0 0 1 0 1 0 0 1 0 1 0 0]
 ```
 
+The sequence may be periodic:
+
+```
+>>> 9.bjorklundsAlgorithm(15)
+[1 0 1 1 0 1 0 1 1 0 1 0 1 1 0]
+
+>>> 9.bjorklundsAlgorithm(15)
+>>> .findRepeat
+[1 0 1 1 0]
+
+>>> [1 0 1 1 0].repeat(3)
+[1 0 1 1 0 1 0 1 1 0 1 0 1 1 0]
+```
+
 Corresponds to moment of symmetry scale structures.
 Consider:
 

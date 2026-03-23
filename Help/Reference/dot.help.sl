@@ -371,16 +371,40 @@ The matrix product of a 4×3 and a 3×3 matrix is a 4×3 matrix:
 [5 4 3; 8 9 5; 6 5 3; 11 9 6]
 ```
 
+Implement the Block & Douthett weighting function for interval vectors:
+
+```
+>>> let w = [-1 0 0 0 1 0];
+>>> [
+>>> 	2 5 4 3 6 1;
+>>> 	4 6 5 4 7 2;
+>>> 	6 7 6 6 8 3
+>>> ].collect { :i |
+>>> 	i.dot(w)
+>>> }
+[4 3 2]
+
+>>> let w = [-1 1 0.5 -0.75 -0.9 -1.25];
+>>> [
+>>> 	0 2 0 1 0 0;
+>>> 	1 2 2 0 1 0;
+>>> 	0 1 1 0 1 0;
+>>> 	1 1 1 0 0 0
+>>> ].collect { :i |
+>>> 	i.dot(w)
+>>> }
+[1.25 1.1 0.6 0.5]
+```
+
 Evaluate symbolically:
 
 ```
->>> [`a` `b`; `c` `d`]
->>> .dot([`w` `x`; `y` `z`])
->>> .collect(printString:/1)
-[
-	'[(+ (* a w) (* b y)), (+ (* a x) (* b z))]',
-	'[(+ (* c w) (* d y)), (+ (* c x) (* d z))]'
-]
+>> [`a` `b`; `c` `d`]
+>> .dot([`w` `x`; `y` `z`])
+>> .collect(printString:/1)
+>> .unlines
+[(+ (* a w) (* b y)), (+ (* a x) (* b z))]
+[(+ (* c w) (* d y)), (+ (* c x) (* d z))]
 ```
 
 * * *

@@ -45,6 +45,29 @@ OEIS [A301573](https://oeis.org/A301573):
 
 ![](Help/Image/isPerfectPower-A.svg)
 
+Number of perfect powers _≤n_,
+OEIS [A069623](https://oeis.org/A069623):
+
+~~~spl svg=A oeis=
+1:85.collect { :n |
+	n - 2:n.sum { :k |
+		n.log(k).floor.mertensFunction
+	}
+}.discretePlot
+~~~
+
+![](Help/Image/isPerfectPower-B.svg)
+
+Perfect powers,
+OEIS [A001597](http://oeis.org/A001597):
+
+~~~spl svg=C oeis=A001597
+1:2000.select(isPerfectPower:/1)
+.discretePlot
+~~~
+
+![](Help/Image/isPerfectPower-C.svg)
+
 * * *
 
 See also: isPerfectSquare
@@ -53,7 +76,7 @@ Guides: Integer Functions, Integer Sequence Functions
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/PerfectPower.html)
+[1](https://mathworld.wolfram.com/PerfectPower.html),
 _OEIS_
 [1](http://oeis.org/A001597),
 _W_

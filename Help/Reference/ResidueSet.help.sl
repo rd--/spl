@@ -134,4 +134,4 @@ Box notation:
 
 See also: commonResidue, IdentitySet, leastResidueSystem, Residue, Set
 
-Gudies: Set Functions
+Guides: Modular Arithmetic Functions, Set Functions

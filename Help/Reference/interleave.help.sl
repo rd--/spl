@@ -120,6 +120,14 @@ OEIS [A059857](https://oeis.org/A059857):
 ]
 ```
 
+Powers of two alternating with zeros,
+OEIS [A077957](https://oeis.org/A077957):
+
+```
+>>> [2 ^ 0:7, [0]].interleave
+[1 0 2 0 4 0 8 0 16 0 32 0 64 0 128 0]
+```
+
 Alternate positive and negative integers,
 OEIS [A001057](https://oeis.org/A001057)
 without the leading zero:

@@ -826,7 +826,7 @@ let g = { :m :b :x :y |
 
 See also: %, /, //, \\, commonResidue, minimalResidue, modularInverse, positiveResidue, quotient, remainder
 
-Guides: Arithemtic Functions, Integer Functions
+Guides: Arithemtic Functions, Integer Functions, Modular Arithmetic Functions
 
 References:
 _Mathematica_

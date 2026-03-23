@@ -158,12 +158,12 @@
 		tally
 	}
 
+	sortedCounts { :self :aBlock:/2|
+		self.contents.associationsSwapped.sortBy(aBlock:/2)
+	}
+
 	sortedCounts { :self |
-		let answer = [];
-		self.contents.associationsDo { :anAssociation |
-			answer.add(anAssociation.value -> anAssociation.key)
-		};
-		answer.sortBy(succeedsOrEqualTo:/2)
+		self.sortedCounts(succeedsOrEqualTo:/2)
 	}
 
 	sortedElements { :self |

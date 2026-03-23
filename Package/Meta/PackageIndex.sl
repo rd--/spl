@@ -201,6 +201,7 @@
 	'Math-MathematicalConstant'
 	'Math-MatrixFunctions'
 	'Math-MixedRadix'
+	'Math-ModularArithmetic'
 	'Math-Nim'
 	'Math-NumericalFunctions'
 	'Math-NumericalFunctions'

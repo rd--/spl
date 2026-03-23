@@ -107,6 +107,14 @@
 		answer
 	}
 
+	associationsSwapped { :self |
+		let answer = [];
+		self.associationsDo { :anAssociation |
+			answer.add(anAssociation.value -> anAssociation.key)
+		};
+		answer
+	}
+
 	atIfAbsent { :self :key :ifAbsent:/0 |
 		self.typeResponsibility('@Dictionary>>atIfAbsent')
 	}

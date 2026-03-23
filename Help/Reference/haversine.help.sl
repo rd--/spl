@@ -8,6 +8,9 @@ Answers the haversine of _z_.
 >>> 0.5.haversine
 0.0612087
 
+>>> let x = 0.5.haversine;
+>>> x.sqrt.arcSin * 2
+
 >>> 0.8.haversine
 0.151647
 ```

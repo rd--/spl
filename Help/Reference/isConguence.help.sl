@@ -18,6 +18,29 @@ true
 true
 ```
 
+_c_ does not need to be given in least residue form:
+
+```
+>>> 38.isCongruence(14, 12)
+true
+
+>>> 14.isCongruence(38, 12)
+true
+```
+
+The definition of congruence also applies to negative values:
+
+```
+>>> 2.isCongruence(-3, 5)
+true
+
+>>> -8.isCongruence(7, 5)
+true
+
+>>> -3.isCongruence(-8, 5)
+true
+```
+
 * * *
 
 See also: %, mod, Residue
@@ -28,4 +51,5 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Congruence.html),
 _W_
-[1](https://en.wikipedia.org/wiki/Congruence_relation)
+[1](https://en.wikipedia.org/wiki/Modular_arithmetic)
+[2](https://en.wikipedia.org/wiki/Congruence_relation)

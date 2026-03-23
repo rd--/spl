@@ -1,6 +1,6 @@
 # toSphericalCoordinates
 
-- _toSphericalCoordinates(aSequence)_
+- _toSphericalCoordinates([x y z])_
 
 Answers the _(r,θ,ϕ)_ spherical coordinates corresponding to the Cartesian coordinates _(x,y,z)_,
 where θ is azimuth & ϕ is inclination.

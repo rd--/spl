@@ -177,6 +177,30 @@ OEIS [A037904](https://oeis.org/A037904):
 
 ![](Help/Image/min-A.svg)
 
+A symmetric _0,1_-triangle,
+OEIS [A154957](https://oeis.org/A154957):
+
+~~~spl svg=B oeis=A154957
+0:11.triangularArray { :n :k |
+	let m = k.min(n -k);
+	0:m.sum { :j |
+		(j + 1 % 2) - (j % 2)
+	}
+}.catenate.discretePlot
+~~~
+
+![](Help/Image/min-B.svg)
+
+Array of `min` read by antidiagonals,
+OEIS [A003983](https://oeis.org/A003983):
+
+~~~spl svg=C oeis=A003983
+0:11.antidiagonalArray(min:/2)
+.catenate.discretePlot
+~~~
+
+![](Help/Image/min-C.svg)
+
 * * *
 
 See also: clip, deepMin, floor, max, minBy, minDetect, minimalBy, minMax, takeSmallest, rankedMin, ordering

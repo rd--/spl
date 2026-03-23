@@ -93,6 +93,34 @@ Continued fraction constants:
 ]
 ```
 
+Convergents of _√2_,
+OEIS [A001333](https://oeis.org/A001333)
+and
+OEIS [A000129](https://oeis.org/A000129):
+
+```
+>>> 2.sqrt.continuedFraction(11).convergents
+[
+	1/1
+	3/2
+	7/5
+	17/12
+	41/29
+	99/70
+	239/169
+	577/408
+	1393/985
+	3363/2378
+	8119/5741
+]
+
+>>> linearRecurrence([2 1], [1 1], 12)
+[1 1 3 7 17 41 99 239 577 1393 3363 8119]
+
+>>> linearRecurrence([2 1], [0 1], 12)
+[0 1 2 5 12 29 70 169 408 985 2378 5741]
+```
+
 Convergents of _√53_,
 OEIS [A041090](https://oeis.org/A041090)
 & [A041091](https://oeis.org/A041091):

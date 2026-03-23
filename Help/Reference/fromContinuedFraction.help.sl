@@ -20,6 +20,72 @@ Reconstructs a number from the list of its continued fraction terms.
 [2 3 11/4 47/17]
 ```
 
+The continued fraction of the square root of two,
+OEIS [A040000](https://oeis.org/A040000):
+
+```
+>>> [1 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2]
+>>> .fromContinuedFraction
+2.sqrt
+```
+
+Continued fraction of _(3+√5)/4_,
+also decimal expansion of _121/90_,
+OEIS [A113311](https://oeis.org/A113311):
+
+```
+>>> [1 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4]
+>>> .fromContinuedFraction
+(3 + 5.sqrt) / 4
+
+>>> 121 / 90
+1.34444444444444
+```
+
+Continued fraction of _(132-√17)/103_,
+also decimal expansion of _1331/900_,
+OEIS [A115291](https://oeis.org/A115291):
+
+```
+>>> [1 4 7 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8]
+>>> .fromContinuedFraction
+(132 - 17.sqrt) / 103
+
+>>> 1331 / 900
+1.4788888888888888
+```
+
+Continued fraction expansion of _(55305+√65)/46231_,
+OEIS [A171418](https://oeis.org/A171418):
+
+```
+>>> [1 5 11 15 16 16 16 16 16 16 16 16 16]
+>>> .fromContinuedFraction
+(55305 + 65.sqrt) / 46231
+```
+
+Continued fraction expansion of _(229657824-√257)/197139199_,
+OEIS [A171440](https://oeis.org/A171440):
+
+```
+>>> [1 6 16 26 31 32 32 32 32 32 32 32 32]
+>>> .fromContinuedFraction
+(229657824 - 257.sqrt) / 197139199
+```
+
+Continued fraction expansion of _1+(1233212607598+5*√41)/8688482797079_,
+OEIS [A171441](https://oeis.org/A171441):
+
+```
+>>> [1 7 22 42 57 63 64 64 64 64 64 64 64]
+>>> .fromContinuedFraction
+1 + (
+	(1233212607598 + (5 * 41.sqrt))
+	/
+	8688482797079
+)
+```
+
 Quadratic irrationals have recurring continued fractions,
 which are not marked, instead a truncation is taken:
 

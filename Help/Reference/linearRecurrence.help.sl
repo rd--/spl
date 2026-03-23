@@ -593,14 +593,19 @@ OEIS [A065171](https://oeis.org/A065171):
 ]
 ```
 
-Numerators and denominators of continued fraction convergents to √2,
-OEIS [A001333](https://oeis.org/A001333)
-and [A000129](https://oeis.org/A000129):
+Numerators of continued fraction convergents to √2,
+also called Pell-Lucas numbers,
+OEIS [A001333](https://oeis.org/A001333):
 
 ```
 >>> linearRecurrence([2 1], [1 1], 12)
 [1 1 3 7 17 41 99 239 577 1393 3363 8119]
+```
 
+denominators of continued fraction convergents to √2,
+[A000129](https://oeis.org/A000129):
+
+```
 >>> linearRecurrence([2 1], [0 1], 12)
 [0 1 2 5 12 29 70 169 408 985 2378 5741]
 ```

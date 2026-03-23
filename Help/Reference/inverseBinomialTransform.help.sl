@@ -79,6 +79,16 @@ OEIS [A061084](https://oeis.org/A061084):
 [2 -1 3 -4 7 -11 18 -29 47 -76 123]
 ```
 
+Powers of two alternating with zeros,
+the inverse binomial transform of the Pell-Lucas numbers,
+OEIS [A077957](https://oeis.org/A077957):
+
+```
+>>> linearRecurrence([2 1], [1 1], 16)
+>>> .inverseBinomialTransform
+[1 0 2 0 4 0 8 0 16 0 32 0 64 0 128 0]
+```
+
 The signed Fibonacci numbers,
 OEIS [A039834](https://oeis.org/A039834):
 

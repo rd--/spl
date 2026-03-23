@@ -18,6 +18,20 @@ OEIS [A001952](https://oeis.org/A001952):
 [3 6 10 13 17 20 23 27 30 34 37 40 44]
 ```
 
+The Beatty sequences for _α=1+√2_,
+OEIS [A0031521](https://oeis.org/A0031521) and
+OEIS [A0031522](https://oeis.org/A0031522):
+
+```
+>>> 13.beattySequence(1 + 2.sqrt)
+[2 4 7 9 12 14 16 19 21 24 26 28 31]
+
+>>> let alpha = 1 + 2.sqrt;
+>>> let beta = alpha / (alpha - 1);
+>>> 13.beattySequence(beta)
+[1 3 5 6 8 10 11 13 15 17 18 20 22]
+```
+
 The Beatty sequences for _α=√3_
 OEIS [A022838](https://oeis.org/A022838) and
 OEIS [A054406](https://oeis.org/A054406):
@@ -97,6 +111,16 @@ let c = 2.sqrt;
 ~~~
 
 ![](Help/Image/beattySequence-A.svg)
+
+First differences of the Beatty sequences for _α=1+√2_,
+OEIS [A276862](https://oeis.org/A276862):
+
+~~~spl svg=B oeis=A276862
+45.beattySequence(1 + 2.sqrt)
+.differences.stepPlot
+~~~
+
+![](Help/Image/beattySequence-B.svg)
 
 * * *
 

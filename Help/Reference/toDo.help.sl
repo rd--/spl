@@ -20,6 +20,41 @@ If _j_ is less than _i_ the range is empty and there are no values to iterate ov
 []
 ```
 
+Spiral constructed on the nodes of the triangular net
+in which each new term is the least nonnegative integer distinct from its neighbors,
+OEIS [A274921](https://oeis.org/A274921),
+minus two,
+also
+OEIS [A274920](https://oeis.org/A274920),
+minus one:
+
+~~~spl svg=A oeis=A274921
+let a = [1 2 3];
+let b = 3;
+let c = 2;
+let d = 2;
+let e = 1;
+let f = 1;
+3.toDo(200) { :n |
+	a.add(
+		(n = b).if {
+			let r = b;
+			b := c + d - f + 1;
+			f := e;
+			e := d;
+			d := c;
+			c := r;
+			a[n - 1]
+		} {
+			6 - a[n] - a[n - 1]
+		}
+	)
+};
+(a - 2).discretePlot
+~~~
+
+![](sw/spl/Help/Image/toDo-A.svg)
+
 * * *
 
 See also: do, downToDo, Range, to, toByDo

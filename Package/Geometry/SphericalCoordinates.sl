@@ -163,3 +163,13 @@ SphericalCoordinates : [Object, Storeable, Equatable] { | coordinates |
 	}
 
 }
+
++List{
+
+	sphericalDistance { :self :operand |
+		let [theta1, phi1] = self;
+		let [theta2, phi2] = operand;
+		((phi1.cos * phi2.cos) + ((theta1 - theta2).cos * phi1.sin * phi2.sin)).arcCos
+	}
+
+}

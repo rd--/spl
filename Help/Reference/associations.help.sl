@@ -63,9 +63,19 @@ At `RunArray`:
 [1 -> 'a', 3 -> 'b', 5 -> 'c']
 ```
 
+To get the associations swapped,
+so that the left hand side is the value and the right hand side is the key,
+use `associationsSwapped`:
+
+```
+>>> (x: 1, y: 2, z: 3)
+>>> .associationsSwapped
+[1 -> 'x', 2 -> 'y', 3 -> 'z']
+```
+
 * * *
 
-See also: ->, associationsDo, Association, Dictionary, indexValueAssociations, keys, values
+See also: ->, associationsDo, associationsSwapped, Association, Dictionary, indexValueAssociations, keys, values
 
 Guides: Dictionary Functions
 

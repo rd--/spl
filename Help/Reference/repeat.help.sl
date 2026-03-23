@@ -45,6 +45,14 @@ OEIS [A000012](http://oeis.org/A000012):
 [1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1]
 ```
 
+Repeat two,
+OEIS [A007395](https://oeis.org/A007395):
+
+```
+>>> [2].repeat(22)
+[2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2]
+```
+
 Repeat `zero`,
 the all zeroes sequence,
 OEIS [A000004](http://oeis.org/A000004):
@@ -311,6 +319,14 @@ OEIS [A130196](https://oeis.org/A130196):
 ```
 >>> [1 2 2].repeat(7)
 [1 2 2 1 2 2 1 2 2 1 2 2 1 2 2 1 2 2 1 2 2]
+```
+
+Repeat _1,0,-1,0,1_,
+OEIS [A131670](https://oeis.org/A131670):
+
+```
+>>> [1 0 -1 0 1].repeat(4)
+[1 0 -1 0 1 1 0 -1 0 1 1 0 -1 0 1 1 0 -1 0 1]
 ```
 
 A Chebyshev transform of the Fibonacci numbers,

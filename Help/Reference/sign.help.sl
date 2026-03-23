@@ -46,6 +46,22 @@ Threads over lists:
 [-1 0 1]
 ```
 
+Sign of nonnegative integers,
+OEIS [A057427](https://oeis.org/A057427):
+
+```
+>>> 0:17.sign
+[0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1]
+```
+
+Sign of negative one and the nonnegative integers,
+OEIS [A261012](https://oeis.org/A261012):
+
+```
+>>> -1:17.sign
+[-1 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1]
+```
+
 At `Fraction`:
 
 ```

@@ -163,3 +163,5 @@ true
 * * *
 
 See also: %, commonResidue, modularInverse, ResidueSet
+
+Guides: Modular Arithmetic Functions

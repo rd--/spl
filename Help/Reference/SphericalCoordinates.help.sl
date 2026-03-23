@@ -53,7 +53,7 @@ Where supported `r` is displayed as 𝑟, `rho` as ρ, `theta` as θ, and `phi` 
 
 See also: asCartesianCoordinates, CartesianCoordinates, fromSphericalCoordinates, PolarCoordinates, IsoSphericalCoordinates, PlanarCoordinates
 
-Guides: Guides: Coordinate System Functions, Geometry Functions
+Guides: Coordinate System Functions, Geometry Functions
 
 References:
 _Mathematica_

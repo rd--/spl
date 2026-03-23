@@ -13,14 +13,16 @@ OEIS [A000001](https://oeis.org/A000001):
 [0 1 1 1 2 1 2 1 5 2 2 1 5 1 2 1 14 1 5 1]
 ```
 
-At primes answer `one`:
+At primes answer `one`,
+OEIS [A000012](http://oeis.org/A000012):
 
 ```
 >>> 1:20.prime.finiteGroupCount
 [1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1]
 ```
 
-At square of prime:
+At square of prime answer two,
+OEIS [A007395](https://oeis.org/A007395):
 
 ```
 >>> 1:14.prime.square.finiteGroupCount
@@ -54,6 +56,17 @@ OEIS [A000001](https://oeis.org/A000001):
 ~~~
 
 ![](Help/Image/finiteGroupCount-B.svg)
+
+First differences of the number of groups of order _n_,
+OEIS [A298739](https://oeis.org/A298739):
+
+~~~spl svg=C oeis=A298739
+1:115.finiteGroupCount
+.differences
+.discretePlot.logScale
+~~~
+
+![](Help/Image/finiteGroupCount-C.svg)
 
 * * *
 

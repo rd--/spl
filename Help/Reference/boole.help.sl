@@ -16,6 +16,16 @@ Threads over lists, convert a list of truth values to integers:
 [1 0 1 1 0]
 ```
 
+One and thereafter _4n_,
+OEIS [A008574](https://oeis.org/A008574):
+
+```
+>>> 0:13.collect { :n |
+>>> 	(4 * n) + (n = 0).boole
+>>> }
+[1 4 8 12 16 20 24 28 32 36 40 44 48 52]
+```
+
 Convert a table of boolean values for plotting:
 
 ~~~spl svg=A
@@ -82,6 +92,44 @@ OEIS [A000164](https://oeis.org/A000164):
 ~~~
 
 ![](Help/Image/boole-C.svg)
+
+A sum of sums of products of _n-x+1_ for coprime _x_,
+OEIS [A115004](https://oeis.org/A115004):
+
+~~~spl svg=D oeis=A115004
+1:40.collect { :n |
+	1:n.sum { :i |
+		1:n.sum { :j |
+			(n - i + 1)
+			*
+			(n - j + 1)
+			*
+			i.isCoprime(j).boole
+		}
+	}
+}.discretePlot
+~~~
+
+![](Help/Image/boole-D.svg)
+
+Triangle of sum of sums of _(n+1-i)(k+1-j)_ for coprime _i,j_,
+OEIS [A320541](https://oeis.org/A320541)
+
+~~~spl svg=D oeis=A320541
+1:10.triangularArray { :n :k |
+	1:n.sum { :i |
+		1:k.sum { :j |
+			(n + 1 - i)
+			*
+			(k + 1 - j)
+			*
+			i.isCoprime(j).boole
+		}
+	}
+}.catenate.discretePlot
+~~~
+
+![](Help/Image/boole-E.svg)
 
 * * *
 

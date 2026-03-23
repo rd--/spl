@@ -99,6 +99,26 @@ OEIS [A049802](https://oeis.org/A049802):
 
 ![](Help/Image/log2-B.svg)
 
+Floor of log base two of _n_,
+OEIS [A000523](https://oeis.org/A000523):
+
+~~~spl svg=C oeis=A000523
+let n = 0:65;
+n.log2.floor.discretePlot
+~~~
+
+![](Help/Image/log2-C.svg)
+
+Ceiling of log base two of _n_,
+OEIS [A029837](https://oeis.org/A029837):
+
+~~~spl svg=D oeis=A029837
+let n = 0:65;
+n.log2.ceiling.scatterPlot
+~~~
+
+![](Help/Image/log2-D.svg)
+
 * * *
 
 See also: log, log10

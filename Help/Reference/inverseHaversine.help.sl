@@ -2,7 +2,8 @@
 
 - _inverseHaversine(z)_
 
-Answers the inverse haversine of _z_.
+Answers the inverse haversine of _z_,
+also called the arc haversine.
 
 ```
 >>> 0.0612087.inverseHaversine

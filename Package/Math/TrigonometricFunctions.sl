@@ -194,12 +194,12 @@
 		(1 / self).arcTan
 	}
 
-	haversine { :self |
-		0.5 * (1 - self.cos)
+	[arcHarversine, inverseHaversine] { :self |
+		2 * self.sqrt.arcSin
 	}
 
-	inverseHaversine { :self |
-		2 * self.sqrt.arcSin
+	haversine { :self |
+		0.5 * (1 - self.cos)
 	}
 
 }
