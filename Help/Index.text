@@ -140,6 +140,7 @@ Guide/Message Cascades.help.sl
 Guide/Method Arity.help.sl
 Guide/Method Dictionary.help.sl
 Guide/Method Syntax.help.sl
+Guide/Modular Arithmetic Functions.help.sl
 Guide/Named Controls.help.sl
 Guide/Network Functions.help.sl
 Guide/Nil Functions.help.sl
@@ -2058,6 +2059,7 @@ Reference/isEdgeWeightedGraph.help.sl
 Reference/isEisensteinPrime.help.sl
 Reference/isEmpty.help.sl
 Reference/isEqualSymbolicExpression.help.sl
+Reference/isErdosDeep.help.sl
 Reference/isError.help.sl
 Reference/isEven.help.sl
 Reference/isExact.help.sl
@@ -2268,6 +2270,7 @@ Reference/isVeryCloseTo.help.sl
 Reference/isVowel.help.sl
 Reference/isWeakPrime.help.sl
 Reference/isWeirdNumber.help.sl
+Reference/isWinogradDeep.help.sl
 Reference/isYamanouchiWord.help.sl
 Reference/isYellow.help.sl
 Reference/isZero.help.sl
@@ -3749,6 +3752,7 @@ Reference/Sphere.help.sl
 Reference/spherePointsFibonacci.help.sl
 Reference/spherePoints.help.sl
 Reference/SphericalCoordinates.help.sl
+Reference/sphericalDistance.help.sl
 Reference/sphericalPlot.help.sl
 Reference/sphericalSpiral.help.sl
 Reference/sphericalTrochoid.help.sl
