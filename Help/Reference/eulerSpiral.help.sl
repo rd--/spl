@@ -5,13 +5,14 @@
 The Euler spiral is a curve whose curvature changes linearly with its curve length.
 Also called a clothoid or Cornu spiral.
 
-Draw:
+The Euler spiral:
 
 ~~~spl svg=A
-(-4 -- 4).discretize(100, eulerSpiral:/1).Line
+(-4 -- 4).discretize(100, eulerSpiral:/1)
+.Line
 ~~~
 
-![](Help/Image/fresnelC-C.svg)
+![](Help/Image/eulerSpiral-A.svg)
 
 * * *
 

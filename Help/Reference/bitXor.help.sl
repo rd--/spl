@@ -161,9 +161,7 @@ OEIS [A003188](https://oeis.org/A003188):
 ~~~spl svg=C oeis=A003188
 { :i |
 	i.bitXor((i / 2).floor)
-}.table(1:64)
-
-.linePlot
+}.table(1:64).linePlot
 ~~~
 
 ![](Help/Image/bitXor-C.svg)

@@ -44,7 +44,7 @@ The `vertexList` and `edgeList` of a cycle graph:
 )
 ```
 
-Draw cycle graph on five vertices:
+The cycle graph on five vertices:
 
 ~~~spl svg=A
 5.cycleGraph.graphPlot
@@ -52,7 +52,7 @@ Draw cycle graph on five vertices:
 
 ![](Help/Image/cycleGraph-A.svg)
 
-The adjacency matrix is banded:
+The adjacency matrix of a cycle graph is banded:
 
 ~~~spl svg=B
 17.cycleGraph
@@ -62,7 +62,7 @@ The adjacency matrix is banded:
 
 ![](Help/Image/cycleGraph-B.svg)
 
-The incidence matrix is banded:
+The incidence matrix of a cycle graph is banded:
 
 ~~~spl svg=C
 17.cycleGraph

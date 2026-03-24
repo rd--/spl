@@ -16,16 +16,6 @@ let m = 0.8;
 
 ![](Help/Image/seiffertsSpiral-A.svg)
 
-A closed spiral, _n=1_ and _p=4_:
-
-~~~spl svg=B
-let m = 0.060584;
-(0 -- 8.pi).functionPlot(
-	400,
-	m.seiffertsSpiral
-)
-~~~
-
 The spiral will be closed if the following equation holds:
 
 ```
@@ -35,6 +25,16 @@ The spiral will be closed if the following equation holds:
 >>> m.ellipticK * m.sqrt * (2 / 1.pi)
 n / p
 ```
+
+A closed spiral, _n=1_ and _p=4_:
+
+~~~spl svg=B
+let m = 0.060584;
+(0 -- 8.pi).functionPlot(
+	400,
+	m.seiffertsSpiral
+)
+~~~
 
 ![](Help/Image/seiffertsSpiral-B.svg)
 

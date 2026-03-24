@@ -48,7 +48,7 @@ OEIS [A301573](https://oeis.org/A301573):
 Number of perfect powers _≤n_,
 OEIS [A069623](https://oeis.org/A069623):
 
-~~~spl svg=A oeis=
+~~~spl svg=B oeis=A069623
 1:85.collect { :n |
 	n - 2:n.sum { :k |
 		n.log(k).floor.mertensFunction

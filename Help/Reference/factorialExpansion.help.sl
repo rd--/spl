@@ -39,9 +39,7 @@ OEIS [A286478](https://oeis.org/A286478):
 ~~~spl svg=B oeis=A286478
 0:250.collect { :n |
 	n.factorialExpansion.sum
-}.ordinalTransform
-
-.scatterPlot
+}.ordinalTransform.scatterPlot
 ~~~
 
 ![](Help/Image/factorialExpansion-B.svg)

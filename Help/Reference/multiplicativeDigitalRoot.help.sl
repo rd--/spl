@@ -47,7 +47,6 @@ OEIS [A031347](https://oeis.org/A031347):
 
 ![](Help/Image/multiplicativeDigitalRoot-A.svg)
 
-
 The base-10 digital roots of the first few integers,
 scatter plot,
 OEIS [A031347](https://oeis.org/A031347):
@@ -57,6 +56,8 @@ OEIS [A031347](https://oeis.org/A031347):
 	n.multiplicativeDigitalRoot(10)
 }.scatterPlot
 ~~~
+
+![](Help/Image/multiplicativeDigitalRoot-B.svg)
 
 * * *
 

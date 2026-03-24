@@ -4,7 +4,7 @@
 
 Answer the _n_-prism graph.
 
-Plot the hexagonal prism graph:
+The hexagonal prism graph:
 
 ~~~spl svg=A
 6.prismGraph.graphPlot

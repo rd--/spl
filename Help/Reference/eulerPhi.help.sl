@@ -449,7 +449,7 @@ OEIS [A047917](https://oeis.org/A047917):
 First differences of _φ(n)_,
 OEIS [A057000](https://oeis.org/A057000):
 
-~~~spl svg=N oeis=A057000
+~~~spl svg=O oeis=A057000
 1:115.eulerPhi.differences
 .discretePlot
 ~~~

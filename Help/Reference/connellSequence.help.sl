@@ -52,7 +52,7 @@ OEIS [A001614](https://oeis.org/A001614):
 9.connellSequence.catenate.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/connellSequence-A.svg)
+![](Help/Image/connellSequence-A.svg)
 
 Complement of the Connell sequence,
 OEIS [A118011](https://oeis.org/A118011):
@@ -63,7 +63,7 @@ let a = (2 * n) + (2 * n).sqrt.round;
 a.discretePlot
 ~~~
 
-![](sw/spl/Help/Image/connellSequence-B.svg)
+![](Help/Image/connellSequence-B.svg)
 
 * * *
 

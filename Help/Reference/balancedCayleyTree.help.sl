@@ -12,7 +12,7 @@ balancedCayleyTree(3, 1).graphPlot
 
 ![](Help/Image/balancedCayleyTree-A.svg)
 
-The _3,2_ tree:
+The _3,2_ balanced Cayley tree:
 
 ~~~spl svg=B
 balancedCayleyTree(3, 2).graphPlot
@@ -20,7 +20,7 @@ balancedCayleyTree(3, 2).graphPlot
 
 ![](Help/Image/balancedCayleyTree-B.svg)
 
-The _3,3_ tree:
+The _3,3_ balanced Cayley tree:
 
 ~~~spl svg=C
 balancedCayleyTree(3, 3).graphPlot
@@ -28,7 +28,7 @@ balancedCayleyTree(3, 3).graphPlot
 
 ![](Help/Image/balancedCayleyTree-C.svg)
 
-The _3,4_ tree:
+The _3,4_ balanced Cayley tree:
 
 ~~~spl svg=D
 balancedCayleyTree(3, 4).graphPlot
@@ -36,7 +36,7 @@ balancedCayleyTree(3, 4).graphPlot
 
 ![](Help/Image/balancedCayleyTree-D.svg)
 
-The _4,1_ tree:
+The _4,1_ balanced Cayley tree:
 
 ~~~spl svg=E
 balancedCayleyTree(4, 1).graphPlot
@@ -44,7 +44,7 @@ balancedCayleyTree(4, 1).graphPlot
 
 ![](Help/Image/balancedCayleyTree-E.svg)
 
-The _4,2_ tree:
+The _4,2_ balanced Cayley tree:
 
 ~~~spl svg=F
 balancedCayleyTree(4, 2).graphPlot
@@ -52,7 +52,7 @@ balancedCayleyTree(4, 2).graphPlot
 
 ![](Help/Image/balancedCayleyTree-F.svg)
 
-The _4,3_ tree:
+The _4,3_ balanced Cayley tree:
 
 ~~~spl svg=G
 balancedCayleyTree(4, 3).graphPlot
@@ -60,7 +60,7 @@ balancedCayleyTree(4, 3).graphPlot
 
 ![](Help/Image/balancedCayleyTree-G.svg)
 
-The _n=2_ trees are path graphs,
+The _n=2_ balanced Cayley trees are path graphs,
 the _2,5_ tree:
 
 ~~~spl svg=H
@@ -81,7 +81,7 @@ OEIS [A003945](https://oeis.org/A003945):
 [3 6 12 24 48 96 192 384 768 1536 3072]
 ```
 
-Same for _n=4_,
+The number of nodes at each level _k_ for _n=4_,
 OEIS [A003946](https://oeis.org/A003946):
 
 ```
@@ -92,7 +92,7 @@ OEIS [A003946](https://oeis.org/A003946):
 [4 12 36 108 324 972 2916 8748 26244]
 ```
 
-Same for _n=5_,
+The number of nodes at each level _k_ for _n=5_,
 OEIS [A003947](https://oeis.org/A003947):
 
 ```
@@ -111,7 +111,7 @@ OEIS [A083329](https://oeis.org/A083329):
 [1 2 5 11 23 47 95 191 383 767 1535]
 ```
 
-Same for _n=4_,
+The least node label at each level _k_ for _n=4_,
 OEIS [A025192](https://oeis.org/A025192):
 
 ```
@@ -119,7 +119,7 @@ OEIS [A025192](https://oeis.org/A025192):
 [2 6 18 54 162 486 1458 4374 13122]
 ```
 
-Same for _n=5_,
+The least node label at each level _k_ for _n=5_,
 OEIS [A136412](https://oeis.org/A136412):
 
 ```

@@ -14,8 +14,7 @@ The product of two path graphs is a grid graph:
 [3 6].gridGraph
 ```
 
-Plot an _m_-ladder graph,
-an _m,2_ grid graph:
+An _m_-ladder graph, the _m,2_ grid graph:
 
 ~~~spl svg=A
 5.pathGraph
@@ -26,7 +25,7 @@ an _m,2_ grid graph:
 
 ![](Help/Image/graphProduct-A.svg)
 
-Plot the _2,3,3,2_ grid graph:
+The _2,3,3,2_ grid graph:
 
 ~~~spl svg=B
 [2 3 2 3]
@@ -37,7 +36,7 @@ Plot the _2,3,3,2_ grid graph:
 
 ![](Help/Image/graphProduct-B.svg)
 
-Plot a three-prism graph:
+A three-prism graph:
 
 ~~~spl svg=C
 3.cycleGraph
@@ -48,7 +47,7 @@ Plot a three-prism graph:
 
 ![](Help/Image/graphProduct-C.svg)
 
-Plot a stacked five-prism graph:
+A stacked five-prism graph:
 
 ~~~spl svg=D
 5.cycleGraph
@@ -59,7 +58,7 @@ Plot a stacked five-prism graph:
 
 ![](Help/Image/graphProduct-D.svg)
 
-Plot a torus grid graph:
+A torus grid graph:
 
 ~~~spl svg=E
 5.cycleGraph
@@ -70,7 +69,7 @@ Plot a torus grid graph:
 
 ![](Help/Image/graphProduct-E.svg)
 
-Plot a book graph:
+A book graph:
 
 ~~~spl svg=F
 (4 + 1).starGraph
@@ -81,7 +80,7 @@ Plot a book graph:
 
 ![](Help/Image/graphProduct-F.svg)
 
-Plot a stacked book graph:
+A stacked book graph:
 
 ~~~spl svg=G
 (3 + 1).starGraph
@@ -92,7 +91,7 @@ Plot a stacked book graph:
 
 ![](Help/Image/graphProduct-G.svg)
 
-Plot a four-crown graph,
+A four-crown graph,
 which is the cubical graph:
 
 ~~~spl svg=H
@@ -104,7 +103,7 @@ which is the cubical graph:
 
 ![](Help/Image/graphProduct-H.svg)
 
-Plot a 4×4 rook graph:
+A 4×4 rook graph:
 
 ~~~spl svg=I
 4.completeGraph
@@ -115,7 +114,7 @@ Plot a 4×4 rook graph:
 
 ![](Help/Image/graphProduct-I.svg)
 
-Plot a _4,2_ Hamming graph,
+A _4,2_ Hamming graph,
 which is the hypercube graph:
 
 ~~~spl svg=J
@@ -126,7 +125,7 @@ List(4, 2.completeGraph)
 
 ![](Help/Image/graphProduct-J.svg)
 
-Plot _7,7_ king graph,
+The _7,7_ king graph,
 the strong (normal) product of two path graphs:
 
 ~~~spl svg=K

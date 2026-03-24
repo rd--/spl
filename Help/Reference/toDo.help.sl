@@ -53,7 +53,7 @@ let f = 1;
 (a - 2).discretePlot
 ~~~
 
-![](sw/spl/Help/Image/toDo-A.svg)
+![](Help/Image/toDo-A.svg)
 
 * * *
 

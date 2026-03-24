@@ -19,6 +19,19 @@ system.helpFilesDo(
 nil
 ~~~
 
+Print reference help files that have an invalid image sequence:
+
+~~~
+system.helpFilesDo(
+	'Reference', '.*', false
+) { :each |
+	each.hasValidImageSequence.ifFalse {
+		each.name.postLine
+	}
+};
+nil
+~~~
+
 * * *
 
 See also: HelpFile, splDirectory, splFileName

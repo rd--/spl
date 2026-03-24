@@ -301,6 +301,8 @@ let q = 3;
 }
 ~~~
 
+![](Help/Image/functionPlot-Z.svg)
+
 * * *
 
 See also: discreteFunctionPlot, discretePlot, graphPlot, linePlot, matrixPlot, parametricPlot, scatterPlot, surfacePlot

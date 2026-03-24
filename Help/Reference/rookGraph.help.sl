@@ -2,9 +2,10 @@
 
 - _rookGraph(m, n=m)_
 
-Answer the rook graph _R(m,n)_.
+Answer the rook’s graph _R(m,n)_.
+The rook’s graph is the graph product of the _m_ and _n_ complete graphs.
 
-Plot the rook graph _R(2,2)_,
+The rook’s graph _R(2,2)_,
 the square:
 
 ~~~spl svg=A
@@ -13,7 +14,7 @@ the square:
 
 ![](Help/Image/rookGraph-A.svg)
 
-Plot the rook graph _R(2,3)_,
+The rook’s graph _R(2,3)_,
 the prism:
 
 ~~~spl svg=B
@@ -22,7 +23,7 @@ the prism:
 
 ![](Help/Image/rookGraph-B.svg)
 
-Plot the rook graph _R(3,3)_,
+The rook’s graph _R(3,3)_,
 the generalised quadrangle:
 
 ~~~spl svg=C
@@ -31,7 +32,7 @@ the generalised quadrangle:
 
 ![](Help/Image/rookGraph-C.svg)
 
-Plot the rook graph _R(5,5)_,
+The rook’s graph _R(5,5)_,
 the twenty-five cyclotomic graph:
 
 ~~~spl svg=D
@@ -39,6 +40,39 @@ the twenty-five cyclotomic graph:
 ~~~
 
 ![](Help/Image/rookGraph-D.svg)
+
+The rook’s graph _R(5,5)_,
+the twenty-five cyclotomic graph:
+
+~~~spl svg=E
+5.rookGraph
+.adjacencyMatrix
+.matrixPlot
+~~~
+
+![](Help/Image/rookGraph-E.svg)
+
+The rook’s graph _R(3,5)_,
+the twenty-five cyclotomic graph:
+
+~~~spl svg=F
+rookGraph(3, 5)
+.adjacencyMatrix
+.matrixPlot
+~~~
+
+![](Help/Image/rookGraph-F.svg)
+
+The rook’s graph _R(5,3)_,
+the twenty-five cyclotomic graph:
+
+~~~spl svg=G
+rookGraph(5, 3)
+.adjacencyMatrix
+.matrixPlot
+~~~
+
+![](Help/Image/rookGraph-G.svg)
 
 * * *
 

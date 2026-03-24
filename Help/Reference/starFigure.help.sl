@@ -35,7 +35,7 @@ The _{10/5}=2{5}_ star figure, two pentagrams:
 10.starFigure(2)
 ~~~
 
-![](Help/Image/starFigure-C.svg)
+![](Help/Image/starFigure-D.svg)
 
 * * *
 

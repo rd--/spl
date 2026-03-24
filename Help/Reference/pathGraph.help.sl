@@ -52,6 +52,16 @@ The `vertexDegree` of a `pathGraph`:
 [1 2 2 2 2 2 2 2 1]
 ```
 
+The adjacency matrix of the _n=15_ path graph:
+
+~~~spl svg=A
+23.pathGraph
+.adjacencyMatrix
+.matrixPlot
+~~~
+
+![](Help/Image/pathGraph-A.svg)
+
 * * *
 
 See also: cycleGraph, Graph

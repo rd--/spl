@@ -30,7 +30,7 @@ The Petersen graph is the complement of the line graph of the complete graph of 
 (10, 15, true)
 ```
 
-Plot the _5,1_ generalised Petersen graph:
+The _5,1_ generalised Petersen graph:
 
 ~~~spl svg=A
 5.petersenGraph(1)
@@ -39,7 +39,7 @@ Plot the _5,1_ generalised Petersen graph:
 
 ![](Help/Image/petersenGraph-A.svg)
 
-Plot the adjacency matrix of the _7,2_ Petersen graph:
+The adjacency matrix of the _7,2_ Petersen graph:
 
 ~~~spl svg=B
 7.petersenGraph(2)
@@ -49,7 +49,7 @@ Plot the adjacency matrix of the _7,2_ Petersen graph:
 
 ![](Help/Image/petersenGraph-B.svg)
 
-When _k=1_ generates the _n_-prism graph:
+When _k=1_, `petersenGraph` generates the _n_-prism graph:
 
 ~~~spl svg=C
 4.petersenGraph(1)
@@ -58,7 +58,7 @@ When _k=1_ generates the _n_-prism graph:
 
 ![](Help/Image/petersenGraph-C.svg)
 
-Plot the Dürer graph:
+The Dürer graph:
 
 ~~~spl svg=D
 6.petersenGraph(2)
@@ -67,7 +67,7 @@ Plot the Dürer graph:
 
 ![](Help/Image/petersenGraph-D.svg)
 
-Plot the Desargues graph:
+The Desargues graph:
 
 ~~~spl svg=E
 10.petersenGraph(3)
@@ -76,7 +76,7 @@ Plot the Desargues graph:
 
 ![](Help/Image/petersenGraph-E.svg)
 
-Plot the cubic symmetric graph _F(048)A_:
+The cubic symmetric graph _F(048)A_:
 
 ~~~spl svg=F
 24.petersenGraph(5)
@@ -85,7 +85,7 @@ Plot the cubic symmetric graph _F(048)A_:
 
 ![](Help/Image/petersenGraph-F.svg)
 
-Plot the Petersen graph,
+The Petersen graph,
 the _(5,2)_ generalised Petersen graph:
 
 ~~~spl svg=G
@@ -95,7 +95,7 @@ the _(5,2)_ generalised Petersen graph:
 
 ![](Help/Image/petersenGraph-G.svg)
 
-Plot the line graph of the Petersen graph:
+The line graph of the Petersen graph:
 
 ~~~spl svg=H
 5.petersenGraph(2)

@@ -576,9 +576,7 @@ let h = 3;
 	let d = n.divisors;
 	let a = (d - 2) / (2 * h);
 	((2 * a.floor + 1) * n / d).max
-}
-
-.scatterPlot
+}.scatterPlot
 ~~~
 
 ![](Help/Image/divisors-R.svg)

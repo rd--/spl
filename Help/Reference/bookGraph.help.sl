@@ -4,7 +4,7 @@
 
 Answer the book graph _B(n)_.
 
-Plot the book graph _B(3)_:
+The book graph _B(3)_:
 
 ~~~spl svg=A
 3.bookGraph.graphPlot
@@ -12,10 +12,12 @@ Plot the book graph _B(3)_:
 
 ![](Help/Image/bookGraph-A.svg)
 
-Plot the adjacency matrix of the book graph _B(17)_:
+The adjacency matrix of the book graph _B(17)_:
 
 ~~~spl svg=B
-17.bookGraph.adjacencyMatrix.matrixPlot
+17.bookGraph
+.adjacencyMatrix
+.matrixPlot
 ~~~
 
 ![](Help/Image/bookGraph-B.svg)

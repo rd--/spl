@@ -188,19 +188,6 @@ OEIS [A136480](https://oeis.org/A136480):
 }.discretePlot
 ~~~
 
-![](Help/Image/binaryExpansion-E.svg)
-
-Write in binary, complement, reverse,
-OEIS [A036044](https://oeis.org/A036044):
-
-~~~spl svg=F oeis=A036044
-0:63.collect { :n |
-	(1 - n.binaryExpansion)
-	.reverse
-	.binaryContraction
-}.discretePlot
-~~~
-
 ![](Help/Image/binaryExpansion-F.svg)
 
 Primes having initial digits _11_ in their binary representation,
@@ -305,6 +292,19 @@ OEIS [A030308](https://oeis.org/A030308):
 ~~~
 
 ![](Help/Image/binaryExpansion-N.svg)
+
+Write in binary, complement, reverse,
+OEIS [A036044](https://oeis.org/A036044):
+
+~~~spl svg=O oeis=A036044
+0:63.collect { :n |
+	(1 - n.binaryExpansion)
+	.reverse
+	.binaryContraction
+}.discretePlot
+~~~
+
+![](Help/Image/binaryExpansion-O.svg)
 
 * * *
 

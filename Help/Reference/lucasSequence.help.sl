@@ -122,7 +122,7 @@ OEIS [A102460](https://oeis.org/A102460):
 .discretePlot
 ~~~
 
-![](sw/spl/Help/Image/lucasSequence-A.svg)
+![](Help/Image/lucasSequence-A.svg)
 
 * * *
 

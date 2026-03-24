@@ -339,6 +339,7 @@
   2. ![](Help/Image/baumSweetSequence-B.svg)
 - `beattySequence`
   1. ![](Help/Image/beattySequence-A.svg)
+  2. ![](Help/Image/beattySequence-B.svg)
 - `bellB`
   1. ![](Help/Image/bellB-A.svg)
   2. ![](Help/Image/bellB-B.svg)
@@ -647,6 +648,8 @@
   1. ![](Help/Image/boole-A.svg)
   2. ![](Help/Image/boole-B.svg)
   3. ![](Help/Image/boole-C.svg)
+  4. ![](Help/Image/boole-D.svg)
+  5. ![](Help/Image/boole-E.svg)
 - `botanicCurve`
   1. ![](Help/Image/botanicCurve-A.svg)
   2. ![](Help/Image/botanicCurve-B.svg)
@@ -1680,6 +1683,7 @@
   12. ![](Help/Image/eulerPhi-L.svg)
   13. ![](Help/Image/eulerPhi-M.svg)
   14. ![](Help/Image/eulerPhi-N.svg)
+  15. ![](Help/Image/eulerPhi-O.svg)
 - `eulerPhiInverse`
   1. ![](Help/Image/eulerPhiInverse-A.svg)
 - `eulerSpiral`
@@ -1877,6 +1881,7 @@
 - `finiteGroupCount`
   1. ![](Help/Image/finiteGroupCount-A.svg)
   2. ![](Help/Image/finiteGroupCount-B.svg)
+  3. ![](Help/Image/finiteGroupCount-C.svg)
 - `first`
   1. ![](Help/Image/first-A.svg)
 - `firstBrocardPoint`
@@ -2283,6 +2288,7 @@
 - `gridGraph`
   1. ![](Help/Image/gridGraph-A.svg)
   2. ![](Help/Image/gridGraph-B.svg)
+  3. ![](Help/Image/gridGraph-C.svg)
 - `griewankFunction`
   1. ![](Help/Image/griewankFunction-A.svg)
   2. ![](Help/Image/griewankFunction-B.svg)
@@ -2609,6 +2615,8 @@
   4. ![](Help/Image/integerLength-D.svg)
   5. ![](Help/Image/integerLength-E.svg)
   6. ![](Help/Image/integerLength-F.svg)
+  7. ![](Help/Image/integerLength-G.svg)
+  8. ![](Help/Image/integerLength-H.svg)
 - `integerPart`
   1. ![](Help/Image/integerPart-A.svg)
   2. ![](Help/Image/integerPart-B.svg)
@@ -2786,6 +2794,8 @@
   5. ![](Help/Image/isPalindrome-E.svg)
 - `isPerfectPower`
   1. ![](Help/Image/isPerfectPower-A.svg)
+  2. ![](Help/Image/isPerfectPower-A.svg)
+  3. ![](Help/Image/isPerfectPower-C.svg)
 - `isPerfectSquare`
   1. ![](Help/Image/isPerfectSquare-A.svg)
   2. ![](Help/Image/isPerfectSquare-B.svg)
@@ -2954,6 +2964,10 @@
   3. ![](Help/Image/knightGraph-C.svg)
   4. ![](Help/Image/knightGraph-D.svg)
   5. ![](Help/Image/knightGraph-E.svg)
+  6. ![](Help/Image/knightGraph-F.svg)
+  7. ![](Help/Image/knightGraph-G.svg)
+  8. ![](Help/Image/knightGraph-H.svg)
+  9. ![](Help/Image/knightGraph-I.svg)
 - `kochCurve`
   1. ![](Help/Image/kochCurve-A.svg)
   2. ![](Help/Image/kochCurve-B.svg)
@@ -3211,6 +3225,8 @@
 - `log2`
   1. ![](Help/Image/log2-A.svg)
   2. ![](Help/Image/log2-B.svg)
+  3. ![](Help/Image/log2-C.svg)
+  4. ![](Help/Image/log2-D.svg)
 - `logarithmicIntegral`
   1. ![](Help/Image/logarithmicIntegral-A.svg)
 - `logarithmicSpiral`
@@ -3410,6 +3426,8 @@
   2. ![](Help/Image/milsteinMethod-B.svg)
 - `min`
   1. ![](Help/Image/min-A.svg)
+  2. ![](Help/Image/min-B.svg)
+  3. ![](Help/Image/min-C.svg)
 - `minimumChangePermutations`
   1. ![](Help/Image/minimumChangePermutations-A.svg)
 - `minimumExcludedValue`
@@ -3914,6 +3932,8 @@
   9. ![](Help/Image/pascalTriangle-I.svg)
   10. ![](Help/Image/pascalTriangle-J.svg)
   11. ![](Help/Image/pascalTriangle-K.svg)
+- `pathGraph`
+  1. ![](Help/Image/pathGraph-A.svg)
 - `pathPlot`
   1. ![](Help/Image/pathPlot-A.svg)
   2. ![](Help/Image/pathPlot-B.svg)
@@ -4584,11 +4604,21 @@
 - `riffle`
   1. ![](Help/Image/riffle-A.svg)
   2. ![](Help/Image/riffle-B.svg)
+- `ringLatticeGraph`
+  1. ![](Help/Image/ringLatticeGraph-A.svg)
+  2. ![](Help/Image/ringLatticeGraph-B.svg)
+  3. ![](Help/Image/ringLatticeGraph-C.svg)
+  4. ![](Help/Image/ringLatticeGraph-D.svg)
+  5. ![](Help/Image/ringLatticeGraph-E.svg)
+  6. ![](Help/Image/ringLatticeGraph-F.svg)
 - `rookGraph`
   1. ![](Help/Image/rookGraph-A.svg)
   2. ![](Help/Image/rookGraph-B.svg)
   3. ![](Help/Image/rookGraph-C.svg)
   4. ![](Help/Image/rookGraph-D.svg)
+  5. ![](Help/Image/rookGraph-E.svg)
+  6. ![](Help/Image/rookGraph-F.svg)
+  7. ![](Help/Image/rookGraph-G.svg)
 - `rosenbrockFunction`
   1. ![](Help/Image/rosenbrockFunction-A.svg)
   2. ![](Help/Image/rosenbrockFunction-B.svg)
@@ -5035,6 +5065,8 @@
   4. ![](Help/Image/sqrt-D.svg)
   5. ![](Help/Image/sqrt-E.svg)
   6. ![](Help/Image/sqrt-F.svg)
+  7. ![](Help/Image/sqrt-G.svg)
+  8. ![](Help/Image/sqrt-H.svg)
 - `square`
   1. ![](Help/Image/square-A.svg)
   2. ![](Help/Image/square-B.svg)
@@ -5391,6 +5423,8 @@
   6. ![](Help/Image/TimeSeries-F.svg)
 - `toCharacterCode`
   1. ![](Help/Image/toCharacterCode-A.svg)
+- `toDo`
+  1. ![](Help/Image/toDo-A.svg)
 - `tonalityDiamond`
   1. ![](Help/Image/tonalityDiamond-A.svg)
 - `tonelliShanksAlgorithm`
@@ -5689,6 +5723,12 @@
   4. ![](Help/Image/warpingPlot-D.svg)
 - `wattsCurve`
   1. ![](Help/Image/wattsCurve-A.svg)
+- `wattsStrogatzModel`
+  1. ![](Help/Image/wattsStrogatzModel-A.svg)
+  2. ![](Help/Image/wattsStrogatzModel-B.svg)
+  3. ![](Help/Image/wattsStrogatzModel-C.svg)
+  4. ![](Help/Image/wattsStrogatzModel-D.svg)
+  5. ![](Help/Image/wattsStrogatzModel-E.svg)
 - `WeavingInformationFile`
   1. ![](Help/Image/WeavingInformationFile-A.png)
   2. ![](Help/Image/WeavingInformationFile-B.png)

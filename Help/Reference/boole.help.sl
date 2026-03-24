@@ -115,7 +115,7 @@ OEIS [A115004](https://oeis.org/A115004):
 Triangle of sum of sums of _(n+1-i)(k+1-j)_ for coprime _i,j_,
 OEIS [A320541](https://oeis.org/A320541)
 
-~~~spl svg=D oeis=A320541
+~~~spl svg=E oeis=A320541
 1:10.triangularArray { :n :k |
 	1:n.sum { :i |
 		1:k.sum { :j |

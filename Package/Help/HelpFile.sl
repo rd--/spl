@@ -141,6 +141,18 @@ HelpFile : [Object, Equatable, Cache] { | origin source cache |
 		self.unicode.isNotEmpty
 	}
 
+	hasValidImageSequence { :self |
+		let c = self.imageCodeBlocks;
+		c.isEmpty | {
+			let l = c.collect { :each |
+				each.codeBlockImageIdentifier.asciiValue
+			};
+			let k = l.size;
+			let a = 'A'.asciiValue;
+			(l != [a .. a + k])
+		}
+	}
+
 	helpPrograms { :self |
 		let paragraphs = self.paragraphs;
 		let topic = self.originName;
@@ -152,7 +164,13 @@ HelpFile : [Object, Equatable, Cache] { | origin source cache |
 			let codeBlock = paragraphs[i].lines;
 			let annotations = codeBlock[1].allButFirst(6).parseUnquotedAttributeList;
 			let programText = codeBlock.allButFirstAndLast.unlines;
-			HelpProgram(topic, language, commentary, annotations, programText)
+			let helpProgram = HelpProgram(topic, language, commentary, annotations, programText);
+			helpProgram.isImageProgram.ifTrue {
+				(helpProgram.markdownImageReference != paragraphs[i + 1]).ifTrue {
+					['helpPrograms: Image reference mismatch?', topic, annotations].postLine
+				}
+			};
+			helpProgram
 		}
 	}
 

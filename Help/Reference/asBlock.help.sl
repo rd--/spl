@@ -22,6 +22,8 @@ answer a block that evaluates the polynomial:
 )
 ~~~
 
+![](Help/Image/asBlock-A.svg)
+
 * * *
 
 See also: BivariatePolynomial, ColourGradient, UnivariatePolynomial
