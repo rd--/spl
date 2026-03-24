@@ -468,15 +468,15 @@
   4. ![](Help/Image/binaryExpansion-D.svg)
   5. ![](Help/Image/binaryExpansion-E.svg)
   6. ![](Help/Image/binaryExpansion-F.svg)
-  7. ![](Help/Image/binaryExpansion-F.svg)
-  8. ![](Help/Image/binaryExpansion-G.svg)
-  9. ![](Help/Image/binaryExpansion-H.svg)
-  10. ![](Help/Image/binaryExpansion-I.svg)
-  11. ![](Help/Image/binaryExpansion-J.svg)
-  12. ![](Help/Image/binaryExpansion-K.svg)
-  13. ![](Help/Image/binaryExpansion-L.svg)
-  14. ![](Help/Image/binaryExpansion-M.svg)
-  15. ![](Help/Image/binaryExpansion-N.svg)
+  7. ![](Help/Image/binaryExpansion-G.svg)
+  8. ![](Help/Image/binaryExpansion-H.svg)
+  9. ![](Help/Image/binaryExpansion-I.svg)
+  10. ![](Help/Image/binaryExpansion-J.svg)
+  11. ![](Help/Image/binaryExpansion-K.svg)
+  12. ![](Help/Image/binaryExpansion-L.svg)
+  13. ![](Help/Image/binaryExpansion-M.svg)
+  14. ![](Help/Image/binaryExpansion-N.svg)
+  15. ![](Help/Image/binaryExpansion-O.svg)
 - `binaryMatrix`
   1. ![](Help/Image/binaryMatrix-A.svg)
 - `binaryReflectedGrayCode`
@@ -2794,7 +2794,7 @@
   5. ![](Help/Image/isPalindrome-E.svg)
 - `isPerfectPower`
   1. ![](Help/Image/isPerfectPower-A.svg)
-  2. ![](Help/Image/isPerfectPower-A.svg)
+  2. ![](Help/Image/isPerfectPower-B.svg)
   3. ![](Help/Image/isPerfectPower-C.svg)
 - `isPerfectSquare`
   1. ![](Help/Image/isPerfectSquare-A.svg)

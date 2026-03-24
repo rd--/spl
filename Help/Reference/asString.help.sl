@@ -3,7 +3,7 @@
 - _asString(x)_
 
 Answer the `printString` of the object _x_,
-unless it is a `String`, in which case answer the receiver itself,
+unless it is a `String`, in which case answer _x_ itself,
 or a `Character`, in which case answer a single character string.
 
 At `SmallFloat`:

@@ -2642,6 +2642,7 @@ Reference/mcClurePolyhedraCatalogue.help.sl
 Reference/mcWortersPentigree.help.sl
 Reference/meanDeviation.help.sl
 Reference/meanFilter.help.sl
+Reference/meanGraphDistance.help.sl
 Reference/mean.help.sl
 Reference/meanShiftFilter.help.sl
 Reference/meanShift.help.sl
@@ -3485,6 +3486,7 @@ Reference/rightInversionCount.help.sl
 Reference/rightInversionCountToPermutation.help.sl
 Reference/rightParenthesis.help.sl
 Reference/rightSquareBracket.help.sl
+Reference/ringLatticeGraph.help.sl
 Reference/RingzBank.help.sl
 Reference/Ringz.help.sl
 Reference/Rlpf.help.sl
@@ -3593,6 +3595,7 @@ Reference/selectedText.help.sl
 Reference/selectedTextOrWordAtCaret.help.sl
 Reference/select.help.sl
 Reference/Select.help.sl
+Reference/selectIndices.help.sl
 Reference/selection.help.sl
 Reference/Selection.help.sl
 Reference/selectionSort.help.sl
@@ -3766,6 +3769,7 @@ Reference/spirolateral.help.sl
 Reference/Splay2.help.sl
 Reference/SplayAz.help.sl
 Reference/Splay.help.sl
+Reference/splCondenseProgramText.help.sl
 Reference/splDirectory.help.sl
 Reference/splFileName.help.sl
 Reference/splitBy.help.sl
@@ -4219,6 +4223,7 @@ Reference/warpingDistance.help.sl
 Reference/warpingMatrices.help.sl
 Reference/warpingPlot.help.sl
 Reference/wattsCurve.help.sl
+Reference/wattsStrogatzModel.help.sl
 Reference/WeakMap.help.sl
 Reference/WeavingInformationFile.help.sl
 Reference/WebSocket.help.sl

@@ -32,7 +32,7 @@ Count entries with specific annotations:
 >>> 		.includesKey(k)
 >>> 	}
 >>> }
-[4246 179 1505]
+[4246 179 1507]
 ```
 
 * * *

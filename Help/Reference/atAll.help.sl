@@ -2,7 +2,8 @@
 
 - _atAll(c, [i₁ i₂ …])_
 
-Answer a new collection like the collection _c_ containing all elements at indices _i_.
+If _c_ is a sequential collection,
+answer a new collection like the collection _c_ containing all elements at indices _i_.
 
 At `List`:
 
@@ -29,11 +30,21 @@ At `String`:
 'bdace'
 ```
 
-At `Record`, the order of the keys is not defined:
+If _c_ is a dictionary,
+answer a new collection that is like the collection _i_:
+
+At `Record`:
 
 ```
 >>> (x: 1, y: 2, z: 3).atAll(['z' 'x'])
-(x: 1, z: 3)
+[3 1]
+```
+
+At `Map`:
+
+```
+>>> [0: 3, 1: 2, 2: 1].atAll([2 1 0])
+[1 2 3]
 ```
 
 The infix form of `atAll` is `@*`:
@@ -43,7 +54,7 @@ The infix form of `atAll` is `@*`:
 ['3' '2' '4']
 
 >>> (x: 1, y: 2, z: 3) @* ['x' 'z']
-(x: 1, z: 3)
+[1 3]
 ```
 
 It is an error if the index is not a collection:

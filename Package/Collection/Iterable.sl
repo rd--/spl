@@ -427,7 +427,8 @@
 
 	maximalBy { :self :aBlock:/1 |
 		let z = self.collect(aBlock:/1);
-		self.atAll(z.indicesOf(z.max))
+		let i = z.indicesOf(z.max);
+		self.selectIndices(i)
 	}
 
 	min { :self |
@@ -446,7 +447,8 @@
 
 	minimalBy { :self :aBlock:/1 |
 		let z = self.collect(aBlock:/1);
-		self.atAll(z.indicesOf(z.min))
+		let i = z.indicesOf(z.min);
+		self.selectIndices(i)
 	}
 
 	minMax { :self |

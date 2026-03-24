@@ -120,9 +120,14 @@
 	}
 
 	atAll { :self :keys |
-		self.associationsSelect { :each |
-			keys.includesBy(each.key, self.comparator)
+		keys.collect { :each |
+			self.at(each)
 		}
+	}
+
+	atAllPath { :self :operand |
+		let [keys] = operand;
+		self.atAll(keys)
 	}
 
 	atPut { :self :key :value |
@@ -424,6 +429,12 @@
 		};
 		answer
 	}
+
+	[selectIndices, selectKeys] { :self :keys |
+		self.associationsSelect { :each |
+			keys.includesBy(each.key, self.comparator)
+                }
+        }
 
 	size { :self |
 		self.typeResponsibility('@Dictionary>>size')

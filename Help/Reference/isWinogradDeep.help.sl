@@ -60,6 +60,19 @@ The underlying structure is the modular distance multiset:
 ]
 ```
 
+Select items in the Rahn set-class table that are Winograd deep:
+
+```
+>>> system.rahnSetClassTable
+>>> .select { :x |
+>>> 	x.isWinogradDeep(12)
+>>> }
+(
+	'7-1': [0 1 2 3 4 5 6],
+	'7-35': [0 1 3 5 6 8 10]
+)
+```
+
 * * *
 
 See also: isErdosDeep, modularDistance, modularDistanceMultiset

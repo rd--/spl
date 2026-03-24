@@ -2,7 +2,7 @@
 
 - _isErdosDeep([x₁ x₂ …], m)_
 
-Answer `true` if the integer set _x_ is Erdos-deep modulo _m_,
+Answer `true` if the integer set _x_ is Erdös-deep modulo _m_,
 that is if it has exactly one modular distance of multiplicity _i_ for _i_ in _1…n−1_,
 where _n_ is the size of _x_,
 else `false`.
@@ -26,6 +26,23 @@ true
 
 >>> [0 2 3 5 7 9 11 13 15]
 >>> .isErdosDeep(17)
+true
+```
+
+By convention neither the empty set not any singleton set are Erdös deep:
+
+```
+>>> [].isErdosDeep(12)
+false
+
+>>> [0].isErdosDeep(12)
+false
+```
+
+By definition all two element sets are Erdös deep:
+
+```
+>>> [0 6].isErdosDeep(12)
 true
 ```
 
@@ -82,6 +99,33 @@ The underlying structure is the modular distance multiset:
 >>> .modularDistanceMultiset(10)
 >>> .sortedCounts
 [2 -> 3, 1 -> 4]
+```
+
+Select items in the Rahn set-class table that are Erdös deep:
+
+```
+>>> system.rahnSetClassTable
+>>> .select { :x |
+>>> 	x.size > 2 & {
+>>> 		x.isErdosDeep(12)
+>>> 	}
+>>> }
+(
+	'3-1': [0 1 2],
+	'3-6': [0 2 4],
+	'3-9': [0 2 7],
+	'3-10': [0 3 6],
+	'4-1': [0 1 2 3],
+	'4-21': [0 2 4 6],
+	'4-23': [0 2 5 7],
+	'4-24': [0 2 4 8],
+	'5-1': [0 1 2 3 4],
+	'5-35': [0 2 4 7 9],
+	'6-1': [0 1 2 3 4 5],
+	'6-32': [0 2 4 5 7 9],
+	'7-1': [0 1 2 3 4 5 6],
+	'7-35': [0 1 3 5 6 8 10]
+)
 ```
 
 * * *

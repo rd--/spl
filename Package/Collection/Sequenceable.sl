@@ -236,7 +236,7 @@
 		answer
 	}
 
-	atAll { :self :indexList |
+	[atAll, selectIndices] { :self :indexList |
 		self.atAllUsing(indexList, at:/2)
 	}
 

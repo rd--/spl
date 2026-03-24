@@ -38,7 +38,7 @@ Prune a `Record` to its maximal values:
 
 * * *
 
-See also: <, max, maxOn, min, minimalBy
+See also: <, max, maxOn, min, minimalBy, selectIndices
 
 Guides: Sort Functions
 

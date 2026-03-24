@@ -52,6 +52,14 @@ The @* operator expresses this operation succinctly at vectors:
 [7 6 5 4 3]
 ```
 
+At `Map`:
+
+```
+>>> let m = [0: 3, 1: 2, 2: 1];
+>>> m[0:2]
+[3 2 1]
+```
+
 * * *
 
 See also: @*, at, atAll, atPath

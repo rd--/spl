@@ -1,10 +1,10 @@
 # removeAllKeys
 
-- _removeAllKeys(aDictionary, aCollection)_
+- _removeAllKeys(d, c)_
 
-Remove any elements from _aDictionary_ which are stored at the keys specified in _aCollection_.
-This message has the same effect on the receiver as repeatedly sending the `removeKey` message for each element in _aCollection_.
-The answer is the keys removed.
+Remove any elements from the dictionary _d_ which are stored at the keys specified in the collection _c_.
+This message has the same effect on _d_ as repeatedly sending the `removeKey` message for each element in _c_.
+The answer is the keys of the items removed.
 
 ```
 >>> let d = (x: 1, y: 2, z: 3);
@@ -12,7 +12,7 @@ The answer is the keys removed.
 (['x' 'z'], (y: 2))
 ```
 
-The answer does not contain keys from _aCollection_ that do not exist at _aDictionary_:
+The answer does not contain keys from _c_ that do not exist at _d_:
 
 ```
 >>> let d = (x: 1, y: 2, z: 3);

@@ -1,9 +1,10 @@
 # printString
 
 - _printString(x)_
-- _printString(n, radix)_
+- _printString(n, radix=10)_
 
-Answer a `String` that is a description of the receiver.
+Answer a `String` that is a description of the object _x_.
+In the case that the object is an integer the _radix_ may be specified.
 
 At `Integer`:
 

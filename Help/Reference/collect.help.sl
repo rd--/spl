@@ -5,7 +5,7 @@
 - _collect(c₁, c₂, c₃, f:/3)_
 
 Evaluate the block _f_ with each element of the collection _c_ as the argument.
-Collect the resulting values into a collection like the receiver.
+Collect the resulting values into a collection like _c_.
 Answer the new collection.
 
 At `Range`:

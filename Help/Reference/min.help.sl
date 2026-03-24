@@ -66,7 +66,7 @@ To find the minimum of all elements of a matrix see `deepMin`:
 1
 ```
 
-The binary form answer the receiver or the argument, whichever has the least magnitude.
+The binary form answer either x₁ or x₂, whichever has the least magnitude:
 
 ```
 >>> [4 3 2 3 1 5 7].reduce(min:/2)

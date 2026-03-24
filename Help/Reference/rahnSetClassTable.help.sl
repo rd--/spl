@@ -6,7 +6,7 @@ Answer a `Record` giving the Forte pitch-class set table with prime forms given 
 
 ```
 >>> system.rahnSetClassTable
->>> .atAll(
+>>> .selectKeys(
 >>> 	[
 >>> 		'5-20'
 >>> 		'6-Z29' '6-31'

@@ -3,7 +3,7 @@
 - _perform(x, s)_
 - _perform(x, s, y)_
 
-Look up the named method _s_ in the method table for the type of the receiver _x_ and apply it.
+Look up the named method _s_ in the method table for the type of the object _x_ and apply it.
 
 Perform a named unary method, the name is given without the arity qualifier:
 

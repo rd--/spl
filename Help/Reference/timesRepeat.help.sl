@@ -1,8 +1,10 @@
 # timesRepeat
 
-- _timesRepeat(anInteger, aBlock:/0)_
+- _timesRepeat(n, f:/0)_
 
-Evaluate the argument, _aBlock:/0_, the number of times represented by the receiver.
+Evaluate the no-argument block _f_ the number of times represented by the integer _n_.
+
+Iterate a program mutating a value:
 
 ```
 >>> let n = 2;
@@ -11,17 +13,31 @@ Evaluate the argument, _aBlock:/0_, the number of times represented by the recei
 >>> };
 >>> n
 256
+
+>>> square:/1.iterate(2, 3)
+256
 ```
 
 Generate a symbolic continued fraction:
 
 ```
->>> let t = 3;
->>> 5.timesRepeat {
->>> 	t := 1 / (1 + t)
->>> };
->>> t
-1 / (1 + (1 / (1 + (1 / (1 + (1 / (1 + (1 / (1 + 3)))))))))
+>> let t = `x`;
+>> 3.timesRepeat {
+>> 	t := 1 / (1 + t)
+>> };
+>> t
+(/ 1 (+ 1 (/ 1 (+ 1 (/ 1 (+ 1 x))))))
+
+>>> { :x | 1 / (1 + x) }.iterate(4, 3)
+1 / (
+	1 + (
+		1 / (
+			1 + (
+				1 / (1 + 4)
+			)
+		)
+	)
+)
 ```
 
 Build up a list of Mersenne primes:

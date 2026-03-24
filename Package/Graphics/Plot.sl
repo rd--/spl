@@ -2,6 +2,12 @@
 
 Plot : [Object] { | pageList format options |
 
+	arrayColourGrid { :self |
+		let [contents] = self.pageList;
+		self.assertScaleIsLinear;
+		ColourGrid(contents)
+	}
+
 	asLineDrawingXy { :self |
 		let segments = self.pageList.collect { :each |
 			each.segmentPlotData(self.scale.scaleFunction)
@@ -102,17 +108,10 @@ Plot : [Object] { | pageList format options |
 		self.format.caseOf(
 			[
 				'array' -> {
-					let [contents] = self.pageList;
-					self.assertScaleIsLinear;
-					ColourGrid(contents).asLineDrawing
+					self.arrayColourGrid.asLineDrawing
 				},
 				'matrix' -> {
-					let [contents] = self.pageList;
-					ColourGrid(
-						contents.deepCollect(
-							self.scale.scaleFunction
-						).greyscaleMatrix
-					).asLineDrawing
+					self.matrixColourGrid.asLineDrawing
 				}
 			]
 		) {
@@ -153,11 +152,18 @@ Plot : [Object] { | pageList format options |
 	}
 
 	drawing { :self |
+		/* The array and matrix cases are to retain the distinct direct form.  The Help/Image files are currently stored in the direct form. */
 		self.format.caseOf(
 			[
+				'array' -> {
+					self.arrayColourGrid.drawing
+				},
 				'graph' -> {
 					let [graph] = self.pageList;
 					graph.dotDrawing(self.options)
+				},
+				'matrix' -> {
+					self.matrixColourGrid.drawing
 				}
 			]
 		) {
@@ -183,6 +189,15 @@ Plot : [Object] { | pageList format options |
 	logScale { :self |
 		self.options['scale'] := 'logScale';
 		self
+	}
+
+	matrixColourGrid { :self |
+		let [contents] = self.pageList;
+		ColourGrid(
+			contents.deepCollect(
+				self.scale.scaleFunction
+			).greyscaleMatrix
+		)
 	}
 
 	pageCount { :self |

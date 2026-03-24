@@ -3,7 +3,7 @@
 - _reject(c, f₁)_
 
 Evaluate the block _f_ with each of the elements of the collection _c_ as the argument.
-Collect into a new collection like the receiver only those elements for which _f_ evaluates to `false`.
+Collect into a new collection like _c_ only those elements for which _f_ evaluates to `false`.
 Answer the new collection.
 
 At `Range`, answers `List`:
