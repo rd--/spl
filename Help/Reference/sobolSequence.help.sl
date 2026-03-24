@@ -92,7 +92,8 @@ Scatter plot of first few terms of _k=2_ Sobol sequence:
 Matrix plot of first sixteen rows of the twelve dimensional sequence:
 
 ~~~spl svg=C
-[16 12].sobolSequence.matrixPlot
+[16 12].sobolSequence
+.matrixPlot
 ~~~
 
 ![](Help/Image/sobolSequence-C.svg)
@@ -110,7 +111,9 @@ discrete plot,
 OEIS [A280995](https://oeis.org/A280995):
 
 ~~~spl svg=E oeis=A280995
-63.sobolSequence(1).numerator.discretePlot
+63.sobolSequence(1)
+.numerator
+.discretePlot
 ~~~
 
 ![](Help/Image/sobolSequence-E.svg)
@@ -120,7 +123,9 @@ discrete plot,
 [A062383](https://oeis.org/A062383):
 
 ~~~spl svg=F oeis=A062383
-63.sobolSequence(1).denominator.discretePlot
+63.sobolSequence(1)
+.denominator
+.discretePlot
 ~~~
 
 ![](Help/Image/sobolSequence-F.svg)
@@ -130,7 +135,9 @@ scatter plot,
 OEIS [A280995](https://oeis.org/A280995):
 
 ~~~spl svg=G oeis=A280995
-255.sobolSequence(1).numerator.scatterPlot
+255.sobolSequence(1)
+.numerator
+.scatterPlot
 ~~~
 
 ![](Help/Image/sobolSequence-G.svg)
@@ -140,7 +147,9 @@ step plot,
 [A062383](https://oeis.org/A062383):
 
 ~~~spl svg=H oeis=A062383
-255.sobolSequence(1).denominator.stepPlot
+255.sobolSequence(1)
+.denominator
+.stepPlot
 ~~~
 
 ![](Help/Image/sobolSequence-H.svg)

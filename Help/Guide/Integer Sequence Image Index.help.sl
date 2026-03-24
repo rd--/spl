@@ -1,5 +1,3 @@
-# Integer Sequence Image Index
-
 - [A000001](https://oeis.org/A000001/)
   1. ![](Help/Image/finiteGroupCount-A.svg)
   2. ![](Help/Image/finiteGroupCount-B.svg)

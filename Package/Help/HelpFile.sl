@@ -529,6 +529,25 @@ HelpFile : [Object, Equatable, Cache] { | origin source cache |
 		answer
 	}
 
+	oeisImageIndex { :self |
+		let oeisPrograms = self.helpProgramsSelect(
+			isOeisProgram:/1
+		);
+		let oeisIdentifiers = oeisPrograms.collect(
+			oeisIdentifier:/1
+		).unique;
+		oeisIdentifiers.collect { :i |
+			[
+				'- [%](https://oeis.org/%/)'.format([i, i]),
+				oeisPrograms.select { :p |
+					p.oeisIdentifier = i
+				}.withIndexCollect { :p :j |
+					'  %. %'.format([j, p.markdownImageReference])
+				}.unlines
+			].unlines
+		}
+	}
+
 	readHelpFile { :self :topic |
 		let fileName = self.splFileName(
 			topic.helpFileName

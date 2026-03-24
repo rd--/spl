@@ -104,8 +104,7 @@ OEIS [A001317](https://oeis.org/A001317):
 ```
 
 Compute the first dimension of the Sobol sequence,
-OEIS [A280995](https://oeis.org/A280995)
-and [A062383](https://oeis.org/A062383):
+c.f. `sobolSequence`:
 
 ~~~spl svg=A
 let n = 64;

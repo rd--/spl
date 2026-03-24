@@ -21,7 +21,7 @@ nil
 
 Print reference help files that have an invalid image sequence:
 
-~~~
+~~~spl console
 system.helpFilesDo(
 	'Reference', '.*', false
 ) { :each |

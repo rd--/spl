@@ -190,10 +190,7 @@ Trott’s constant:
 ```
 
 The continued fraction expansion whose terms are the first-order differences of exponents in the binary representation of _4n_,
-all of the rationals are uniquely represented by this sequence,
-OEIS [A071585](https://oeis.org/A071585)
-/
-OEIS [A071766](https://oeis.org/A071766):
+all of the rationals are uniquely represented by this sequence:
 
 ~~~spl svg=A
 1:100.collect { :n |
@@ -206,7 +203,7 @@ OEIS [A071766](https://oeis.org/A071766):
 
 ![](Help/Image/fromContinuedFraction-A.svg)
 
-The numerator sequence,
+The numerators of the continued fraction expansion of the differences of exponents in the binary representation of _4n_,
 OEIS [A071585](https://oeis.org/A071585):
 
 ~~~spl svg=B oeis=A071585
@@ -217,7 +214,7 @@ OeisEntry('A071585').then { :e |
 
 ![](Help/Image/fromContinuedFraction-B.svg)
 
-The denominator sequence,
+The denominator of the continued fraction expansion of the differences of exponents in the binary representation of _4n_,
 OEIS [A071766](https://oeis.org/A071766):
 
 ~~~spl svg=C oeis=A071766
