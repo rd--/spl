@@ -196,7 +196,7 @@ OEIS [A044050](https://oeis.org/A044050):
 
 ~~~spl svg=A oeis=A044050
 1:85.collect { :n |
- 	n.aliquotSequence.size
+	n.aliquotSequence.size
 }.discretePlot
 ~~~
 

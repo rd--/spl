@@ -433,8 +433,8 @@
 	[selectIndices, selectKeys] { :self :keys |
 		self.associationsSelect { :each |
 			keys.includesBy(each.key, self.comparator)
-                }
-        }
+		}
+	}
 
 	size { :self |
 		self.typeResponsibility('@Dictionary>>size')
