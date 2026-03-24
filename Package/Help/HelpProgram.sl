@@ -4,6 +4,10 @@ HelpProgram : [Object] { | topic language commentary annotations programText |
 		self.annotations.at(key)
 	}
 
+	condensedProgramText { :self |
+		self.programText.splCondenseProgramText
+	}
+
 	fencedCodeBlock { :self |
 		[
 			'~~~spl',
@@ -59,28 +63,53 @@ HelpProgram : [Object] { | topic language commentary annotations programText |
 		}
 	}
 
-	markdownImageReference { :self |
-		'![](Help/Image/%)'.format(
+	markdownImageReference { :self :options |
+		let imageTitleText = options['imageProgramText'].if {
+			' "%"'.format([self.condensedProgramText])
+		} {
+			''
+		};
+		'![](Help/Image/%%)'.format(
 			[
-				self.imageFileName
+				self.imageFileName,
+				imageTitleText
 			]
 		)
 	}
 
-	markdownText { :self |
+	markdownImageReference { :self |
+		self.markdownImageReference (
+			imageProgramText: false
+		)
+	}
+
+	markdownText { :self :options |
 		[
 			self.commentary,
-			'',
-			self.fencedCodeBlock,
+			options['programText'].if {
+				[
+					'',
+					self.fencedCodeBlock
+				].unlines
+			} {
+				nil
+			},
 			self.isImageProgram.if {
 				[
 					'',
-					self.markdownImageReference
+					self.markdownImageReference(options)
 				].unlines
 			} {
 				nil
 			}
 		].deleteMissing.unlines
+	}
+
+	markdownText { :self |
+		self.markdownText (
+			programText: true,
+			imageProgramText: false
+		)
 	}
 
 	oeisIdentifier { :self |

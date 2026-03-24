@@ -99,7 +99,7 @@ OEIS [A045918](https://oeis.org/A045918):
 ]
 ```
 
-Plot digits of _k='A'_ look and say sequence,
+The digits of the _k='A'_ look and say sequence,
 OEIS [A034002](https://oeis.org/A034002):
 
 ~~~spl svg=A oeis=A034002
@@ -110,7 +110,7 @@ OEIS [A034002](https://oeis.org/A034002):
 
 ![](Help/Image/lookAndSaySequence-A.svg)
 
-Plot digits of _k='LS'_ look and say sequence:
+The digits of the _k='LS'_ look and say sequence:
 
 ~~~spl svg=B
 50.lookAndSaySequence('LS')

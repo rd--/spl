@@ -8,8 +8,7 @@ Regular expressions:
 >>> [
 >>> 	'A tree, an apple, four pears.'
 >>> 	'And more: two sacks'
->>> ]
->>> .unwords
+>>> ].unwords
 >>> .splitByRegularExpression('\\W+')
 [
 	'A' 'tree' 'an' 'apple' 'four' 'pears'
@@ -17,7 +16,7 @@ Regular expressions:
 ]
 ```
 
-Split into substrings separated by either delimiter:
+Split into substrings separated by either a hypen or colon delimiter:
 
 ```
 >>> 'a-b:c-d:e-f-g'

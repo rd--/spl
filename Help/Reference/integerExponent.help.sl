@@ -529,7 +529,7 @@ OEIS [A373360](https://oeis.org/A373360):
 Denominators of Woon’s Bernoulli tree,
 OEIS [A106831](https://oeis.org/A106831):
 
-~~~spl svg=V
+~~~spl svg=V oeis=A106831
 let a = Map { :n |
 	(n = 0).if {
 		1

@@ -379,6 +379,21 @@ System! : [Object, Cache, RandomNumberGenerator] {
 		<primitive: return sl.isSplSyntaxToken(_self);>
 	}
 
+	splCondenseProgramText { :self |
+		let deleteAfter = RegularExpression(
+			'([\\[\\(])\\s+',
+			'g'
+		);
+		let deleteBefore = RegularExpression(
+			'\\s+([\\]\\)\\.])',
+			'g'
+		);
+		let a = self.normalizeWhitespace;
+		let b = deleteAfter.replaceAllWith(a, '$1');
+		let c = deleteBefore.replaceAllWith(b, '$1');
+		c
+	}
+
 	splOperatorNameToken { :self |
 		valueWithReturn { :return:/1 |
 			system.splOperatorNameTable.associationsDo { :each |

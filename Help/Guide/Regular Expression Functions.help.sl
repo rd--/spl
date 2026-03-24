@@ -39,9 +39,9 @@ Querying:
 Replacing:
 
 - `replaceAllModifying`
-- `replaceAllWith`: replace all
+- `replaceAllWith`
 - `replaceModifying`
-- `replaceWith`: replace first
+- `replaceWith`
 
 Searching:
 

@@ -62,6 +62,20 @@ system.helpProgramsDo { :p |
 nil
 ~~~
 
+Print condensed Oeis help programs,
+one per line:
+
+~~~
+system.helpProgramsDo { :p |
+	p.annotations.includesKey(
+		'oeis'
+	).ifTrue {
+		p.condensedProgramText.postLine
+	}
+};
+nil
+~~~
+
 * * *
 
 See also: helpFilesDo, HelpProgram

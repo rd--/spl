@@ -501,7 +501,7 @@ Number of ways to write the _n_-th odd number in the form _p+2^x+11*2^y_,
 with _p_ a prime congruent to five modulo six,
 OEIS [A157242](https://oeis.org/A157242):
 
-~~~spl svg=M
+~~~spl svg=M oeis=A157242
 1:150.collect { :n |
 	let a = (2 * n) - 1;
 	let b = (a / 11).log2;
