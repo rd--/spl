@@ -7,10 +7,12 @@ Answer the distance from source vertex _s_ to target vertex _t_ in the graph _g_
 Answer the distances between vertices of a grid graph:
 
 ```
->>> [3 4].gridGraph.graphDistance(2, 9)
+>>> [3 4].gridGraph
+>>> .graphDistance(2, 9)
 3
 
->>> [3 4].gridGraph.graphDistance(5, 11)
+>>> [3 4].gridGraph
+>>> .graphDistance(5, 11)
 3
 ```
 
@@ -39,7 +41,8 @@ Answer the distance between vertices of a weighted graph:
 Find the distance between opposite corners of a `gridGraph` of size _(6, 6)_:
 
 ```
->>> [6 6].gridGraph.graphDistance(1, 36)
+>>> [6 6].gridGraph
+>>> .graphDistance(1, 36)
 10
 ```
 

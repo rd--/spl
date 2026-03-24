@@ -51,6 +51,11 @@ DirectedEdge : [Object, Storeable, Equatable, Comparable, Indexable] { | vertexL
 		true
 	}
 
+	isSelfLoop { :self |
+		let [i, j] = self.vertexList;
+		i = j
+	}
+
 	isUndirected { :self |
 		false
 	}

@@ -496,6 +496,11 @@
 		Graph(v, e)
 	}
 
+	meanGraphDistance { :self |
+		let m = self.graphDistanceMatrix;
+		m.offDiagonalMean
+	}
+
 	neighbourhoodGraph { :self :vertex |
 		let vertexList = [];
 		self.incidenceList(vertex).do { :each |
@@ -1044,6 +1049,21 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 		petersenGraph(n, 1)
 	}
 
+	ringLatticeGraph { :n :k |
+		k.isEven.if {
+			let m = k / 2;
+			let v = [1 .. n];
+			let e = v.collect { :i |
+				1:m.collect { :j |
+					[i, (i + j).mod(n, 1)]
+				}
+			}.catenate;
+			Graph(v, e)
+		} {
+			[n, k].error('ringLatticeGraph: k not even')
+		}
+	}
+
 	rookGraph { :m :n |
 		m.completeGraph
 		.graphProduct(
@@ -1294,6 +1314,39 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 			let c = [a, b].sort;
 			(a != b & { e.includes(c).not }).ifTrue {
 				e.add(c)
+			}
+		};
+		Graph(v, e)
+	}
+
+	wattsStrogatzModel { :r :n :k :beta |
+		let m = k / 2;
+		let v = [1 .. n];
+		let e = [];
+		v.do { :i |
+			1:m.do { :j |
+				let x = r.randomBoolean(beta, []).if {
+					let z = nil;
+					{
+						z.isNil
+					}.whileTrue {
+						let y = r.randomInteger([1 n], []);
+						z := i --- y;
+						(
+							z.isSelfLoop | {
+								e.anySatisfy { :each |
+									each.matchesEdge(z)
+								}
+							}
+						).ifTrue {
+							z := nil
+						}
+					};
+					z
+				} {
+					i --- (i + j).mod(n, 1)
+				};
+				e.add(x)
 			}
 		};
 		Graph(v, e)

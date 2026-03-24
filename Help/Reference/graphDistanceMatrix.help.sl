@@ -52,7 +52,7 @@ Answer the distance matrix of a weighted graph:
 ]
 ```
 
-Plot the distance matrix of a `gridGraph` of size _(5, 5)_:
+Plot the distance matrix of a `gridGraph` of size _5,5_:
 
 ~~~spl svg=A
 [5 5]

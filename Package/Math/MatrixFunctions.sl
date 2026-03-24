@@ -738,6 +738,21 @@
 		}.table(1.to(m), 1.to(n))
 	}
 
+	offDiagonalMean { :self |
+		let [m, n] = self.shape;
+		let k = (m * n) - m.min(n);
+		let z = 0;
+		1.toDo(m) { :i |
+			let r = self[i];
+			1.toDo(n) { :j |
+				(i != j).ifTrue {
+					z := z + r[j]
+				}
+			}
+		};
+		z / k
+	}
+
 	orthogonalize { :self |
 		self.gramSchmidtProcess
 	}

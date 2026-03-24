@@ -13,12 +13,14 @@ Constructor Functions:
 - `kirchhoffGraph`
 - `permutationGraph`
 - `relationGraph`
+- `ringLatticeGraph`
 - `weightedAdjacencyGraph`
 
 Random Graphs:
 
 - `randomBernoulliGraph`
 - `randomUniformGraph`
+- `wattsStrogatzModel`
 
 Specific Graphs:
 

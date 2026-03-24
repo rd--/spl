@@ -52,6 +52,11 @@ UndirectedEdge : [Object, Storeable, Equatable, Comparable, Indexable] { | verte
 		true
 	}
 
+	isSelfLoop { :self |
+		let [i, j] = self.vertexList;
+		i = j
+	}
+
 	isUndirected { :self |
 		true
 	}

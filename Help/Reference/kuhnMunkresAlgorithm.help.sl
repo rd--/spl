@@ -3,7 +3,7 @@
 - _kuhnMunkresAlgorithm(m)_
 
 The Kuhn–Munkres algorithm,
-also called the Hungarian method,
+also called the Hungarian method or Hungarian algorithm,
 is a combinatorial optimization algorithm that solves the assignment problem in polynomial time.
 
 The input _m_ is ordinarily a square cost matrix,

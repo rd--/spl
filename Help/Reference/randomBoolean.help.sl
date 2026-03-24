@@ -7,12 +7,20 @@ with probablity _p_,
 in an array of shape ⍴,
 utilising the random number generator _r_.
 
+A random boolean value:
+
+```
+>>> Sfc32(890313)
+>>> .randomBoolean(0.5, [])
+true
+```
+
 A random 3×3 matrix of boolean values,
 with equal probablity of being `zero` or `one`:
 
 ```
->>> let rng = Sfc32(194783);
->>> rng.randomBoolean(0.5, [3 3])
+>>> Sfc32(194783)
+>>> .randomBoolean(0.5, [3 3])
 [
 	false true true;
 	true false false;
@@ -24,8 +32,8 @@ A random 4×4 matrix of boolean values,
 biased towards `true` values:
 
 ```
->>> let rng = Sfc32(380142);
->>> rng.randomBoolean(0.85, [4 4])
+>>> Sfc32(380142)
+>>> .randomBoolean(0.85, [4 4])
 [
 	true true true false;
 	false true false false;

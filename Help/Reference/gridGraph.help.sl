@@ -1,9 +1,9 @@
 # gridGraph
 
-- _gridGraph(shape)_
+- _gridGraph(⍴)_
 
-Answer the _k_-dimensional grid graph of _shape_,
-where _shape_ is a `List` of _k_ places.
+Answer the _k_-dimensional grid graph of shape _⍴_,
+where _⍴_ is a `List` of _k_ places.
 
 The _2,4_ grid graph:
 
@@ -70,13 +70,21 @@ Plot adjacency matrix:
 
 ![](Help/Image/gridGraph-A.svg)
 
-Plot graph:
+The _2,2,3,2_ grid graph:
 
 ~~~spl svg=B
 [2 2 3 2].gridGraph.graphPlot
 ~~~
 
 ![](Help/Image/gridGraph-B.svg)
+
+The _3,2_ grid graph:
+
+~~~spl svg=C
+[3 2].gridGraph.graphPlot
+~~~
+
+![](Help/Image/gridGraph-C.svg)
 
 * * *
 
