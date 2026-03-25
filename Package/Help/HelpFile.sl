@@ -460,7 +460,7 @@ HelpFile : [Object, Equatable, Cache] { | origin source cache |
 		}
 	}
 
-	helpImageIndex { :self |
+	helpImageIndex { :self :options |
 		[
 			'# Help Image Index',
 			''
@@ -470,16 +470,36 @@ HelpFile : [Object, Equatable, Cache] { | origin source cache |
 			[
 				'- `%`'.format([n])
 			] ++ e.withIndexCollect { :p :i |
+				let imageTitle = options['imageProgramText'].if {
+					' "%"'.format([p.condensedProgramText])
+				} {
+					''
+				};
 				[n, e.size, i].postLine;
-				'  %. ![](Help/Image/%)'
+				'  %. ![](Help/Image/%%)'
 				.format(
 					[
 						i,
-						p.imageFileName
+						p.imageFileName,
+						imageTitle
 					]
 				)
 			}
 		}.values.catenate
+	}
+
+	helpImageIndex { :self |
+		self.helpImageIndex (
+			imageProgramText: false
+		)
+	}
+
+	helpImageProgramsText { :self :options |
+		system.helpProgramsSelect(
+			isImageProgram:/1
+		).collect { :p |
+			p.markdownText(options)
+		}
 	}
 
 	helpProgramDictionary { :self |
@@ -545,6 +565,18 @@ HelpFile : [Object, Equatable, Cache] { | origin source cache |
 					'  %. %'.format([j, p.markdownImageReference])
 				}.unlines
 			].unlines
+		}
+	}
+
+	oeisImageProgramsText { :self :options |
+		system.helpProgramsSelect(
+			isImageProgram:/1.predicateAnd(
+				isOeisProgram:/1
+			)
+		).sortOn(
+			oeisIdentifier:/1
+		).collect { :p |
+			p.markdownText(options)
 		}
 	}
 

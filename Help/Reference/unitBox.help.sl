@@ -9,7 +9,7 @@ The unit box function is equal to `one` for values in _(-1/2, 1/2)_ and `zero` o
 0
 ```
 
-Plot:
+The unit box function:
 
 ~~~spl svg=A
 (-1 -- 1).functionPlot(unitBox:/1)
@@ -17,7 +17,7 @@ Plot:
 
 ![](Help/Image/unitBox-A.svg)
 
-Plot in two dimensions:
+The unit box function in two dimensions:
 
 ~~~spl svg=B
 (-1 -- 1).surfacePlot { :x :y |

@@ -2,15 +2,20 @@
 
 - _riemannFunction(x, a=2, n=100)_
 
-Plot:
+A pathological function published by Weierstrass,
+studied earlier by Riemann.
+
+The Riemann function, _a=2_:
 
 ~~~spl svg=A
-(0 -- 1.pi).functionPlot(riemannFunction:/1)
+(0 -- 1.pi).functionPlot(
+	riemannFunction:/1
+)
 ~~~
 
 ![](Help/Image/riemannFunction-A.svg)
 
-Plot with _a_ of _2,3,4_:
+The Riemann function _a_ of _2,3,4_:
 
 ~~~spl svg=B
 (0 -- 1.pi).functionPlot(

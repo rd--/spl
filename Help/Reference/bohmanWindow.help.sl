@@ -26,7 +26,7 @@ The area under the Bohman window:
 4 / 1.pi.square
 ```
 
-Plot:
+The Bohman window:
 
 ~~~spl svg=A
 (-1 -- 1).functionPlot(

@@ -176,6 +176,40 @@ let p = c.realImaginary;
 
 ![](Help/Image/exp-D.svg)
 
+A Gaussian probability distribution function used by Xenakis in _Pithoprakta_,
+shown for three values of shape parameter α:
+
+~~~spl svg=E
+let k = 1.pi.sqrt;
+(-1 -- 1).functionPlot(
+	[0.25 0.5 0.75].collect { :alpha |
+		let a = alpha.square;
+		let b = 2 / (alpha * k);
+		{ :v |
+			b * (v * v / a).-.exp
+		}
+	}
+)
+~~~
+
+![](Help/Image/exp-E.svg)
+
+A Poisson probability distribution function used by Xenakis in _Achorripsis_,
+shown for three values of shape parameter λ:
+
+~~~spl svg=F
+(0 -- 4).functionPlot(
+	[0.4 0.6 0.8].collect { :lambda |
+		let a = lambda.-.exp;
+		{ :k |
+			(lambda ^ k) * a / k.!
+		}
+	}
+)
+~~~
+
+![](Help/Image/exp-F.svg)
+
 * * *
 
 See also: ^, log

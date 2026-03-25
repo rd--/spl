@@ -169,6 +169,23 @@ OEIS [A282291](https://oeis.org/A282291):
 
 ![](Help/Image/isCoprime-D.svg)
 
+Index of the least prime not dividing _n_,
+OEIS [A257993](https://oeis.org/A257993):
+
+~~~spl svg=E oeis=A257993
+1:65.collect { :n |
+	let k = 1;
+	{
+		k.prime.isCoprime(n)
+	}.whileFalse {
+		k := k + 1
+	};
+	k
+}.discretePlot
+~~~
+
+![](Help/Image/isCoprime-D.svg)
+
 Where supported `isCoprime` is displayed as ⟂.
 
 * * *

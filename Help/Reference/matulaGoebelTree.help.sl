@@ -45,9 +45,10 @@ OEIS [A109129](https://oeis.org/A109129):
 [1 1 2 1 2 2 3 2 2 1 3 2 3 2 4 2 3 3 3 3 2 2]
 ```
 
-Plot:
+Leaf counts of first few trees,
+OEIS [A109129](https://oeis.org/A109129):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A109129
 2:75.matulaGoebelTree
 .collect(leafCount:/1)
 .scatterPlot
@@ -64,9 +65,10 @@ OEIS [A358552](https://oeis.org/A358552):
 [1 2 3 2 4 3 3 2 3 4 5 3 4 3 4 2 4 3 3 4 3]
 ```
 
-Plot:
+Depth counts of first few trees,
+OEIS [A358552](https://oeis.org/A358552):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A358552
 2:75.matulaGoebelTree
 .collect(depth:/1)
 .scatterPlot
@@ -77,7 +79,8 @@ Plot:
 Plot tree with arbitrarily chosen Matula-Göbel number _n=987654321_:
 
 ~~~spl svg=D
-987654321.matulaGoebelTree.treePlot
+987654321.matulaGoebelTree
+.treePlot
 ~~~
 
 ![](Help/Image/matulaGoebelTree-D.svg)

@@ -5,7 +5,7 @@
 Answer the paramteric equation for the spherical spiral,
 a special case of a loxodrome.
 
-Plot:
+The spherical spiral:
 
 ~~~spl svg=A
 (-6.pi -- 6.pi).functionPlot(

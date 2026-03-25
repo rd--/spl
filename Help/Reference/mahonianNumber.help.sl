@@ -24,9 +24,10 @@ OEIS [A008302](https://oeis.org/A008302):
 ]
 ```
 
-Plot:
+Table of Mahonian numbers,
+OEIS [A008302](https://oeis.org/A008302):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A008302
 1:6.collect { :n |
 	let m = (n - 1).triangularNumber;
 	0:m.collect { :k |

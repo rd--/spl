@@ -30,7 +30,7 @@ Threads elementwise over lists and matrices:
 ]
 ```
 
-Plot:
+The historical unnormalized sinc function:
 
 ~~~spl svg=A
 (-10, -9.9 .. 10).sincHistorical.linePlot

@@ -535,6 +535,22 @@ OEIS [A266475](https://oeis.org/A266475):
 
 ![](Help/Image/primePi-W.svg)
 
+The smallest _P(m)_ such that the interval _(P(m)*n,P(m+1)*n)_ contains exactly seven primes,
+OEIS [A198469](https://oeis.org/A198469):
+
+~~~spl svg=X oeis=A198469
+2:45.collect { :n |
+	1:Infinity.detect { :m |
+		let p = m.prime;
+		let a = n * (m + 1).prime;
+		let b = n * p;
+		a.primePi - b.primePi = 7
+	}.prime
+}.scatterPlot.log
+~~~
+
+![](Help/Image/primePi-X.svg)
+
 * * *
 
 See also: eulerPhi, nextPrime, primesList, primesUpTo, sieveOfEratosthenes

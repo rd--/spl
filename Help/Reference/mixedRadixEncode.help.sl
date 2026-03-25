@@ -206,6 +206,46 @@ Solving permutation puzzles, ie. <https://xkcd.com/287/>:
 ]
 ```
 
+_n_ written in primorial base,
+OEIS [A049345](https://oeis.org/A049345):
+
+```
+>>> let b = 1:8.prime.reverse;
+>>> 0:17.collect { :n |
+>>> 	let d = n.mixedRadixEncode(b);
+>>> 	d.fromDigits(10)
+>>> }
+[
+	0 1 10 11 20 21 100 101 110 111
+	120 121 200 201 210 211 220 221
+]
+```
+
+Sum of digits when _n_ is written in primorial base,
+OEIS [A276150](https://oeis.org/A276150):
+
+~~~spl svg=A oeis=A276150
+let b = 1:8.prime.reverse;
+0:115.collect { :n |
+	n.mixedRadixEncode(b).sum
+}.scatterPlot
+~~~
+
+![](Help/Image/mixedRadixEncode-A.svg)
+
+Digits of _n_ written in primorial base,
+OEIS [A049345](https://oeis.org/A049345):
+
+~~~spl svg=B oeis=A049345
+let b = 1:8.prime.reverse;
+0:35.collect { :n |
+	let d = n.mixedRadixEncode(b);
+	d.withoutLeadingZeroes
+}.catenate.discretePlot
+~~~
+
+![](Help/Image/mixedRadixEncode-B.svg)
+
 * * *
 
 See also: mixedRadixDecode, numberDecompose

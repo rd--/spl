@@ -5,7 +5,7 @@
 Answer the odd part of the integer _n_,
 the highest odd divisor of _n_.
 
-The first few terms,
+The odd part of _n_,
 OEIS [A000265](https://oeis.org/A000265):
 
 ```
@@ -16,9 +16,10 @@ OEIS [A000265](https://oeis.org/A000265):
 ]
 ```
 
-Plot:
+The odd part of _n_,
+OEIS [A000265](https://oeis.org/A000265):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A000265
 1:150.collect(oddPart:/1)
 .scatterPlot
 ~~~

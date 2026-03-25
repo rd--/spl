@@ -14,7 +14,7 @@ Reset does not reset random number generator:
 (0, true)
 ```
 
-Plot:
+Uniform distribution of numbers in _-1,1_:
 
 ~~~spl svg=A
 LsWhite(-1, 1, 99, Sfc32(240981))

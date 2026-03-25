@@ -18,7 +18,7 @@ Area and vertex coordinates of a trapezoid:
 )
 ```
 
-Plot:
+A trapezoid draw inside a square:
 
 ~~~spl svg=A
 [

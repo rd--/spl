@@ -329,6 +329,21 @@ OEIS [A011772](https://oeis.org/A011772):
 
 ![](Help/Image/divisible-L.svg)
 
+Least _k>0_ such that _n_ divides _1^1+2^2+...+k^k_,
+OEIS [A387662](https://oeis.org/A387662):
+
+~~~spl svg=M oeis=A387662
+1:35.collect { :n |
+	1:Infinity.detect { :k |
+		1:k.sum { :i |
+			i ^ i
+		}.divisible(n)
+	}
+}.discretePlot
+~~~
+
+![](Help/Image/divisible-M.svg)
+
 * * *
 
 See also: %, divisors, even, gcd, mod, quotient, round

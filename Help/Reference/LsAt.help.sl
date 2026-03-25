@@ -4,7 +4,7 @@
 
 At each step answer _at_ of _indices_ into _list_.
 
-Plot:
+Index into list of odd numbers using integer brownian motion:
 
 ~~~spl svg=A
 let l = [1, 3 .. 23];

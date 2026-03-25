@@ -5,7 +5,7 @@
 The curve a hanging wire assumes when supported at its ends and acted upon by a uniform gravitational force.
 The binary form specifies a _weighted_ catenary.
 
-Plot:
+The catenary curve function:
 
 ~~~spl svg=A
 (-1/2.pi -- 1/2.pi).functionPlot(

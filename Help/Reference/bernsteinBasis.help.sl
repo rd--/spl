@@ -23,7 +23,7 @@ Evaluate a Bernstein basis polynomial numerically:
 ]
 ```
 
-Plot:
+The _4,3_ Bernstein basis polynomial:
 
 ~~~spl svg=A
 (0 -- 1).functionPlot { :x |

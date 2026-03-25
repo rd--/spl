@@ -151,6 +151,18 @@ OEIS [A014082](http://oeis.org/A014082):
 
 ![](Help/Image/sequenceCount-E.svg)
 
+Numbers whose binary representation contains no two adjacent ones,
+OEIS [A003714](https://oeis.org/A003714):
+
+~~~spl svg=F oeis=A003714
+0:275.select { :n |
+	n.integerDigits(2)
+	.sequenceCount([1 1]) = 0
+}.discretePlot
+~~~
+
+![](Help/Image/sequenceCount-F.svg)
+
 * * *
 
 See also: count, sequencePosition

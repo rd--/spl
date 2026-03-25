@@ -4,7 +4,7 @@
 
 Answer the bicorn curve.
 
-Plot:
+The bicorn curve:
 
 ~~~spl svg=A
 (0 -- 2.pi).functionPlot(bicorn(1))

@@ -269,6 +269,26 @@ a[0:250].scatterPlot.logScale
 
 ![](Help/Image/nextPrime-H.svg)
 
+Prime product form of primorial base expansion of _n_,
+OEIS [A276086](https://oeis.org/A276086):
+
+~~~spl svg=I oeis=A276086
+0:179.collect { :n |
+	let m = 1;
+	let p = 2;
+	{
+		n > 0
+	}.whileTrue {
+		m := m * (p ^ (n % p));
+		n := (n / p).floor;
+		p := p.nextPrime
+	};
+	m
+}.scatterPlot.log
+~~~
+
+![](Help/Image/nextPrime-I.svg)
+
 * * *
 
 See also: isPrime, previousPrime

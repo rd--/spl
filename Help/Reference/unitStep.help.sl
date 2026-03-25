@@ -23,7 +23,7 @@ Threads over lists:
 [0 1]
 ```
 
-Plot:
+The unit step function:
 
 ~~~spl svg=A
 (-1 -- 1).functionPlot(unitStep:/1)
@@ -31,7 +31,7 @@ Plot:
 
 ![](Help/Image/unitStep-A.svg)
 
-Plot in two dimensions:
+The unit step function in two dimensions:
 
 ~~~spl svg=B
 (-1 -- 1).surfacePlot { :x :y |

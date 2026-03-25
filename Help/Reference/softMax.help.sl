@@ -47,7 +47,7 @@ each row of the matrix is normalized:
 ]
 ```
 
-Plot:
+The softmax function:
 
 ~~~spl svg=A
 (-1 -- 1).discretize(100)

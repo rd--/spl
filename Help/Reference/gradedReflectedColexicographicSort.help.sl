@@ -44,9 +44,10 @@ OEIS [A036038](https://oeis.org/A036038):
 ]
 ```
 
-Plot:
+The multinomial coefficients for the partitions of _n_ listed in Abramowitz-Stegun order,
+OEIS [A036038](https://oeis.org/A036038):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A036038
 1:9.collect { :n |
 	n.integerPartitions
 	.gradedReflectedColexicographicSort

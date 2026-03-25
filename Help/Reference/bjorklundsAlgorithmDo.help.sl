@@ -8,15 +8,18 @@ to retain use `deepCopy` or `flatten`.
 
 ```
 >>> let l = [];
->>> 3.bjorklundsAlgorithmDo(8) { :each |
+>>> let r = 3.bjorklundsAlgorithmDo(8) { :each |
 >>> 	l.add(each.flatten)
 >>> };
->>> l
-[
-	1 1 1 0 0 0 0 0;
-	1 0 1 0 1 0 0 0;
-	1 0 0 1 0 0 1 0
-]
+>>> (l, r)
+(
+	[
+		1 1 1 0 0 0 0 0;
+		1 0 1 0 1 0 0 0;
+		1 0 0 1 0 0 1 0
+	],
+	[1 0 0 1 0 0 1 0]
+)
 ```
 
 * * *

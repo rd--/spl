@@ -19,7 +19,7 @@ Threads over lists, zero outside of _(-½,½)_:
 [0 0 1 0 0]
 ```
 
-Plot:
+The sinc window function:
 
 ~~~spl svg=A
 (-0.5 -- 0.5).functionPlot { :x |

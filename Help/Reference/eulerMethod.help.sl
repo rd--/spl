@@ -41,7 +41,7 @@ Newton’s cooling law, with initial value 100, and with time running from 0 to 
 ]
 ```
 
-Plot:
+Newton’s cooling law, with initial value 100, and with time running from 0 to 100 in steps of 2, downsampled:
 
 ~~~spl svg=B
 let [_, y] = { :x :y |

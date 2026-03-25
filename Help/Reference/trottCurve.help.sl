@@ -4,7 +4,7 @@
 
 Implement the implicit equation of the Trott curve.
 
-Plot:
+The Trott curve, contour plot:
 
 ~~~spl svg=A
 let i = (-1 -- 1).discretize(50);

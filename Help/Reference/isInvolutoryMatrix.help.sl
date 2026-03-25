@@ -71,7 +71,7 @@ The twenty-six length five permutation that give involutory matrices,
 ]
 ```
 
-Plot the twenty-six 5×5 involutory permutation matrices:
+The twenty-six 5×5 involutory permutation matrices:
 
 ~~~spl svg=A
 [1 .. 5].permutations

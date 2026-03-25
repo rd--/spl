@@ -40,7 +40,7 @@ Compare with `^`:
 0.353553
 ```
 
-Plot:
+Symmetric power with _x=-0.25_ and _y_ in _0,1_:
 
 ~~~spl svg=A
 -0.25.symmetricPower(

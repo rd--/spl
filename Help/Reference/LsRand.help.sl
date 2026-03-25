@@ -33,7 +33,7 @@ Can be implemented using `BlockStream` and `atRandom`:
 [1 3 5 7 9].asIdentitySet
 ```
 
-Plot:
+Randomly select from a list of odd integers:
 
 ~~~spl svg=A
 LsRand(

@@ -5,7 +5,7 @@
 Answer the _n_--th interprime number,
 the average of two consecutive odd primes.
 
-First few terms,
+The interprime numbers,
 OEIS [A024675](https://oeis.org/A024675):
 
 ```
@@ -17,9 +17,10 @@ OEIS [A024675](https://oeis.org/A024675):
 ]
 ```
 
-Plot:
+The interprime numbers,
+OEIS [A024675](https://oeis.org/A024675):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A024675
 1:99.collect(interprime:/1)
 .stepPlot
 ~~~

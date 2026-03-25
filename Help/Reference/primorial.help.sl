@@ -22,7 +22,7 @@ the product of the first _n_ primes.
 200560490130
 ```
 
-The first few terms,
+Primorial numbers,
 OEIS [A002110](https://oeis.org/A002110):
 
 ```

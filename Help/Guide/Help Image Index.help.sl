@@ -615,6 +615,8 @@
   22. ![](Help/Image/bitXor-W.svg)
 - `BivariatePolynomial`
   1. ![](Help/Image/BivariatePolynomial-A.svg)
+- `bjorklundsAlgorithm`
+  1. ![](Help/Image/bjorklundsAlgorithm-A.svg)
 - `black`
   1. ![](Help/Image/black-A.svg)
 - `blackmanHarrisWindow`

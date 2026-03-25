@@ -49,6 +49,33 @@ OEIS [A235598](https://oeis.org/A235598):
 
 ![](Help/Image/leastExcludedSequence-C.svg)
 
+Least excluded sequence such that
+adjacent terms have no adjacent ones in the binary expansion of their product,
+OEIS [A269361](https://oeis.org/A269361):
+
+~~~spl svg=D oeis=A269361
+[1].leastExcludedSequence(115) { :a :n :m |
+	(a[n - 1] * m).integerDigits(2)
+	.sequenceCount([1 1]) = 0
+}.discretePlot
+~~~
+
+![](Help/Image/leastExcludedSequence-D.svg)
+
+Least excluded sequence such that
+adjacent terms have no isolated ones in the binary expansion of their product,
+OEIS [A289194](https://oeis.org/A289194):
+
+~~~spl svg=E oeis=A289194
+[1].leastExcludedSequence(150) { :a :n :m |
+	(a[n - 1] * m).binaryExpansion
+	.runLengthsOf(1)
+	.min >= 2
+}.scatterPlot
+~~~
+
+![](Help/Image/leastExcludedSequence-E.svg)
+
 * * *
 
 See also: detect, includes, Map

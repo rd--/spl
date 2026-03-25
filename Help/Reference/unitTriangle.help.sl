@@ -9,7 +9,7 @@ Answer the unit triangle function on the interval _(-1,1)_.
 0.2
 ```
 
-Plot:
+The unit triangle function:
 
 ~~~spl svg=A
 (-2 -- 2).functionPlot(unitTriangle:/1)
@@ -17,7 +17,7 @@ Plot:
 
 ![](Help/Image/unitTriangle-A.svg)
 
-Plot in two dimensions:
+The unit triangle function in two dimensions:
 
 ~~~spl svg=B
 (-1 -- 1).surfacePlot { :x :y |

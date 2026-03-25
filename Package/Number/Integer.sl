@@ -236,6 +236,14 @@
 		k.bjorklundsAlgorithmDo(n) { :each | nil }
 	}
 
+	bjorklundsAlgorithmSequence { :k :n |
+		let a = [];
+		k.bjorklundsAlgorithmDo(n) { :each |
+			a.add(each.flatten)
+		};
+		a
+	}
+
 	carryLessMultiplication { :m :n :b |
 		(b = 2).if {
 			let s = m.zero;
