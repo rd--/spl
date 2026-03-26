@@ -16,7 +16,7 @@ As amplitude envelope:
 WhiteNoise().AmClip(SinOsc(1, 0) * 0.2)
 ```
 
-Plot:
+Two quadrant multiply:
 
 ~~~spl svg=A
 (0 -- 4.pi).functionPlot { :x |

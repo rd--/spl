@@ -522,7 +522,7 @@ If the string begins with a doctest, also delete all non doctest lines."
   "Install Spl keybindings into MAP."
   (define-key map (kbd "C-c >") 'spl-see-spl)
   (define-key map (kbd "C-c C-h") 'spl-help)
-  (define-key map (kbd "C-c C-H") 'spl-browse-help)
+  (define-key map (kbd "C-c C-b") 'spl-browse-help)
   (define-key map (kbd "C-c C-a") 'spl-play-paragraph)
   (define-key map (kbd "C-c C-g") 'spl-draw-paragraph)
   (define-key map (kbd "C-c C-p") 'spl-print-promise)

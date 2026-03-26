@@ -23,7 +23,7 @@ At _m=0_ and _m=1_:
 (z.sin, z.tanh)
 ```
 
-Plot:
+The Jacobi elliptic function:
 
 ~~~spl svg=A
 let m = 1 / 3;
@@ -54,7 +54,7 @@ let alpha = { :phi |
 
 ![](Help/Image/jacobiSn-B.svg)
 
-Plot with `sin`:
+Plot the Jacobi elliptic function with `sin`:
 
 ~~~spl svg=C
 let m = 0.5.square;

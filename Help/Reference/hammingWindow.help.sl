@@ -16,7 +16,7 @@ Threads over lists, zero outside _(-½,½)_:
 [0 2/23 1 2/23 0]
 ```
 
-Plot:
+The Hamming window function:
 
 ~~~spl svg=A
 (-0.5 -- 0.5).functionPlot(

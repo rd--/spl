@@ -16,7 +16,7 @@ Threads over lists, zero outside of _(-½,½)_:
 [0 0.20488 1 0.20488 0]
 ```
 
-Plot:
+The Kaiser window function:
 
 ~~~spl svg=A
 (-1 -- 1).functionPlot { :x |

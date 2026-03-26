@@ -1,6 +1,6 @@
 # primeFactors
 
-- _primeFactors(n)
+- _primeFactors(n)_
 
 Answer the `List` of prime factors the `product` of which is _n_.
 The list is in increasing order.
@@ -210,6 +210,7 @@ OEIS [A020639](https://oeis.org/A020639):
 ![](Help/Image/primeFactors-B.svg)
 
 Sum of the prime factors of _n_,
+also called _sopfr_ for sum of prime factors with repetition,
 OEIS [A001414](https://oeis.org/A001414):
 
 ~~~spl svg=C oeis=A001414
@@ -271,6 +272,54 @@ OEIS [A071321](https://oeis.org/A071321):
 ~~~
 
 ![](Help/Image/primeFactors-G.svg)
+
+Length of fixed point list for the sum of the prime factors of _n_,
+OEIS [A002217](https://oeis.org/A002217):
+
+~~~spl svg=H oeis=A002217
+2:65.collect { :n |
+	{ :i |
+		i.primeFactors.sum
+	}.fixedPointList(n).size - 1
+}.discretePlot
+~~~
+
+![](Help/Image/primeFactors-H.svg)
+
+Smallest number whose prime divisors sum to _n_,
+OEIS [A056240](https://oeis.org/A056240):
+
+~~~spl svg=I oeis=A056240
+2:65.collect { :n |
+	1:Infinity.detect { :m |
+		m.primeFactors.sum = n
+	}
+}.discretePlot
+~~~
+
+![](Help/Image/primeFactors-I.svg)
+
+Sum of cubes of prime factors of _n_,
+OEIS [A224787](https://oeis.org/A224787):
+
+~~~spl svg=J oeis=A224787
+1:65.collect { :n |
+	n.primeFactors.cube.sum
+}.discretePlot
+~~~
+
+![](Help/Image/primeFactors-J.svg)
+
+Sum of squares of prime factors of _n_,
+OEIS [A067666](https://oeis.org/A067666):
+
+~~~spl svg=K oeis=A067666
+1:65.collect { :n |
+	n.primeFactors.square.sum
+}.discretePlot
+~~~
+
+![](Help/Image/primeFactors-K.svg)
 
 * * *
 

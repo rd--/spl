@@ -24,7 +24,7 @@ The area under the Blackman–Nuttall window:
 0.3635819
 ```
 
-Plot:
+The Blackman-Nuttall window function:
 
 ~~~spl svg=A
 (-0.5 -- 0.5).functionPlot(

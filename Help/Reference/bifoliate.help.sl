@@ -4,7 +4,7 @@
 
 Answer the bifoliate quartic plane curve.
 
-Plot:
+The bifoliate quartic plane curve:
 
 ~~~spl svg=A
 (0 -- 1.pi).discretize(100, 1.bifoliate).Line

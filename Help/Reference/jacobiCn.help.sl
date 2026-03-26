@@ -23,7 +23,7 @@ At _m=0_ and _m=1_:
 (z.cos, z.sech)
 ```
 
-Plot:
+The Jacobi elliptic function:
 
 ~~~spl svg=A
 let m = 1 / 3;
@@ -35,7 +35,7 @@ let r = m.ellipticK * 4;
 
 ![](Help/Image/jacobiCn-A.svg)
 
-Plot for various _m_:
+Plot the Jacobi elliptic function for various _m_:
 
 ~~~spl svg=B
 (0 -- 4.pi).functionPlot(

@@ -4,7 +4,7 @@
 
 Answer the cycloid curve with radius _r_.
 
-Plot:
+The cycloid curve:
 
 ~~~spl svg=A
 (0 -- 2.pi).functionPlot(
@@ -14,7 +14,8 @@ Plot:
 
 ![](Help/Image/cycloid-A.svg)
 
-Plot varying _r_:
+The cycloid curve,
+plot varying _r_:
 
 ~~~spl svg=B
 (0 -- 2.pi).functionPlot(

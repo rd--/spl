@@ -15,7 +15,7 @@ Calculate at specific value:
 8/25
 ```
 
-Plot:
+The hazard function for the Weibull distribution:
 
 ~~~spl svg=A
 (0.1 -- 3).functionPlot(

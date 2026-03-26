@@ -5,7 +5,7 @@
 Nonlinear distortion.
 Distortion with a perfectly linear region from -0.5 to +0.5.
 
-Plot:
+The soft clip function:
 
 ~~~spl svg=A
 (-1 -- 1).functionPlot(SoftClip:/1)

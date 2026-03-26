@@ -17,7 +17,7 @@ Threads over lists, zero outside of _(-½,½)_:
 [0 1 1 1 0]
 ```
 
-Plot:
+The Dirichlet window function:
 
 ~~~spl svg=A
 (-1 -- 1).functionPlot(dirichletWindow:/1)

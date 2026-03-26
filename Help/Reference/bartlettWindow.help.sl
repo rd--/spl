@@ -17,7 +17,7 @@ Threads over lists, zero at each end-point:
 [0 0 1 0 0]
 ```
 
-Plot:
+The Bartlett window function:
 
 ~~~spl svg=A
 (-0.5 -- 0.5).functionPlot(

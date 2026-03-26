@@ -4,7 +4,7 @@
 
 Answer the parametric equation for the circle with radius _r_ centered at _x,y_.
 
-Plot:
+The circle parametric equation:
 
 ~~~spl svg=A
 (0 -- 2.pi).functionPlot(

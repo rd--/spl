@@ -146,6 +146,19 @@ OEIS [A008795](https://oeis.org/A008795):
 [1 0 3 1 6 3 10 6 15 10 21 15 28 21 36 28]
 ```
 
+Maximal size of an Abelian subgroup of the symmetric group _Sn_,
+OEIS [A000792](https://oeis.org/A000792):
+
+```
+>>> 2:15.collect { :n |
+>>> 	let m = n - 1;
+>>> 	let a = 2 ^ (-n %  3);
+>>> 	let b = 3 ^ ((m //  3) + (m % 3) - 1);
+>>> 	a * b
+>>> }
+[2 3 4 6 9 12 18 27 36 54 81 108 162 243]
+```
+
 Quotients of eight,
 OEIS [A132292](https://oeis.org/A132292):
 

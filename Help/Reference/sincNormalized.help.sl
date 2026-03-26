@@ -30,10 +30,11 @@ Threads elementwise over lists and matrices:
 ]
 ```
 
-Plot:
+The normalized sinc function:
 
 ~~~spl svg=A
-(-10, -9.9 .. 10).sincNormalized.linePlot
+(-10, -9.9 .. 10).sincNormalized
+.linePlot
 ~~~
 
 ![](Help/Image/sincNormalized-A.svg)

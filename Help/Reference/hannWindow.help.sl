@@ -2,7 +2,7 @@
 
 - _hannWindow(x)_
 
-Answer the _Hann_ window function at the number _x_,
+Answer the Hann window function at the number _x_,
 also known as the raised cosine window.
 
 At specific values:
@@ -19,7 +19,7 @@ Threads over lists, zero at each end-point:
 [0 0 1 0 0]
 ```
 
-Plot:
+Hann window function:
 
 ~~~spl svg=A
 (-0.5 -- 0.5).functionPlot(

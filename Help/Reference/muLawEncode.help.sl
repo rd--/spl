@@ -24,7 +24,7 @@ encoding followed by decoding:
 0
 ```
 
-Plot:
+The continuous μ-law encoder:
 
 ~~~spl svg=A
 (-1 -- 1).functionPlot(muLawEncode:/1)

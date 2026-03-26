@@ -4,7 +4,7 @@
 
 Answer the trifolium quartic plane curve.
 
-Plot:
+The trifolium quartic plane curve:
 
 ~~~spl svg=A
 (0 -- 1.pi).discretize(100, 1.trifolium).Line

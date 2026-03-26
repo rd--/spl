@@ -12,7 +12,7 @@ Specific values:
 [0 0.25 0.5 0.75 1]
 ```
 
-Plot:
+The continuous μ-law decoder:
 
 ~~~spl svg=A
 (-1 -- 1).functionPlot(muLawDecode:/1)

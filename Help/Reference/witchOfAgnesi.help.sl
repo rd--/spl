@@ -4,7 +4,7 @@
 
 A curve studied by Maria Agnesi in 1748.
 
-Plot:
+The witch of Agnesi curve:
 
 ~~~spl svg=A
 (-2 -- 2).functionPlot(

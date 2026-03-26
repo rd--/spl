@@ -42,7 +42,7 @@ The first two steps of rule 30:
 ]
 ```
 
-The first _n_ rows of the triangular array of Rule 30,
+The first _n_ rows of the triangular array of rule 30,
 OEIS [A070950](https://oeis.org/A070950):
 
 ```
@@ -67,7 +67,7 @@ OEIS [A070950](https://oeis.org/A070950):
 ]
 ```
 
-Rule 18:
+Elementary cellular automaton rule 18:
 
 ~~~spl png=A
 18.elementaryCellularAutomaton(
@@ -78,7 +78,7 @@ Rule 18:
 
 ![](Help/Image/elementaryCellularAutomaton-A.png)
 
-Rule 30:
+Elementary cellular automaton rule 30:
 
 ~~~spl png=B
 30.elementaryCellularAutomaton(
@@ -89,7 +89,7 @@ Rule 30:
 
 ![](Help/Image/elementaryCellularAutomaton-B.png)
 
-Rule 57:
+Elementary cellular automaton rule 57:
 
 ~~~spl png=C
 57.elementaryCellularAutomaton(
@@ -100,7 +100,7 @@ Rule 57:
 
 ![](Help/Image/elementaryCellularAutomaton-C.png)
 
-Rule 73:
+Elementary cellular automaton rule 73:
 
 ~~~spl png=D
 73.elementaryCellularAutomaton(
@@ -111,7 +111,7 @@ Rule 73:
 
 ![](Help/Image/elementaryCellularAutomaton-D.png)
 
-Rule 110:
+Elementary cellular automaton rule 110:
 
 ~~~spl png=E
 110.elementaryCellularAutomaton(
@@ -122,7 +122,7 @@ Rule 110:
 
 ![](Help/Image/elementaryCellularAutomaton-E.png)
 
-Rule 110, a finite spaceship pattern, moving right:
+Elementary cellular automaton rule 110, a finite spaceship pattern, moving right:
 
 ~~~spl png=F
 110.elementaryCellularAutomaton(
@@ -137,7 +137,7 @@ Rule 110, a finite spaceship pattern, moving right:
 
 ![](Help/Image/elementaryCellularAutomaton-F.png)
 
-Rule 110, a finite spaceship pattern, moving left:
+Elementary cellular automaton rule 110, a finite spaceship pattern, moving left:
 
 ~~~spl png=G
 110.elementaryCellularAutomaton(
@@ -152,7 +152,7 @@ Rule 110, a finite spaceship pattern, moving left:
 
 ![](Help/Image/elementaryCellularAutomaton-G.png)
 
-Rule 184 from a random initial state:
+Elementary cellular automaton rule 184 from a random initial state:
 
 ~~~spl png=H
 184.elementaryCellularAutomaton(
@@ -164,7 +164,7 @@ Rule 184 from a random initial state:
 
 ![](Help/Image/elementaryCellularAutomaton-H.png)
 
-Ones in the _n_-th generation of Rule 30,
+Ones in the _n_-th generation of elementary cellular automaton rule 30,
 OEIS [A070952](https://oeis.org/A070952):
 
 ~~~spl svg=I oeis=A070952
@@ -177,7 +177,7 @@ let k = 100;
 
 ![](Help/Image/elementaryCellularAutomaton-I.svg)
 
-Number of zeroes in the _n_-th generation of Rule 30,
+Number of zeroes in the _n_-th generation of elementary cellular automaton rule 30,
 OEIS [A070951](https://oeis.org/A070951):
 
 ~~~spl svg=J oeis=A070951
@@ -193,6 +193,19 @@ let m = n * 2 - 1;
 ~~~
 
 ![](Help/Image/elementaryCellularAutomaton-J.svg)
+
+Elementary cellular automaton rule 109 from a random initial state,
+note multiple independent local repeating patterns:
+
+~~~spl png=K
+109.elementaryCellularAutomaton(
+	Sfc32(385724)
+	.randomInteger([0 1], [101]),
+	101
+).Bitmap
+~~~
+
+![](Help/Image/elementaryCellularAutomaton-K.png)
 
 * * *
 

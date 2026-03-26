@@ -5,7 +5,7 @@
 Answer a `List` of the first _n_ Fibonacci numbers.
 The first entry is for _F(0)_.
 
-First few terms,
+Fibonacci numbers,
 OEIS [A000045](https://oeis.org/A000045):
 
 ```

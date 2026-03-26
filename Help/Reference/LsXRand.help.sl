@@ -47,7 +47,7 @@ Equivalent to `LsRemDup` of `LsRand`:
 true
 ```
 
-Plot:
+Randomly select from a list of odd integers avoiding immediate repeats:
 
 ~~~spl svg=A
 LsXRand(

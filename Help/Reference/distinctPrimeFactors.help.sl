@@ -74,6 +74,7 @@ OEIS [A027748](https://oeis.org/A027748):
 ```
 
 Sum of the distinct prime factors of _n_,
+also called _sopf_ for sum of prime factors,
 OEIS [A008472](https://oeis.org/A008472):
 
 ~~~spl svg=A oeis=A008472
@@ -119,6 +120,17 @@ OEIS [A073491](https://oeis.org/A073491):
 ~~~
 
 ![](Help/Image/distinctPrimeFactors-D.svg)
+
+Partial sums of the sum of the distinct prime factors of _n_,
+OEIS [A024924](https://oeis.org/A024924):
+
+~~~spl svg=E oeis=A024924
+1:65.collect { :n |
+	n.distinctPrimeFactors.sum
+}.prefixSum.scatterPlot
+~~~
+
+![](Help/Image/distinctPrimeFactors-E.svg)
 
 * * *
 

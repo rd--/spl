@@ -524,6 +524,16 @@ OEIS [A157242](https://oeis.org/A157242):
 
 ![](Help/Image/isPrime-M.svg)
 
+Triangle telling if the `gcd` of _n_ and _k_ is prime,
+OEIS [A122414](https://oeis.org/A122414):
+
+~~~spl svg=N oeis=A122414
+1:14.triangularArray { :n :k |
+	n.gcd(k).isPrime.boole
+}.catenate.discretePlot
+~~~
+
+![](Help/Image/isPrime-N.svg)
 
 * * *
 
