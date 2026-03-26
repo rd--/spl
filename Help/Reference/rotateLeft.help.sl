@@ -175,6 +175,19 @@ OEIS [A054995](https://oeis.org/A054995):
 
 ![](Help/Image/rotateLeft-B.svg)
 
+Write _n_ in base three then rotate left one place,
+OEIS [A048787](https://oeis.org/A048787):
+
+~~~spl svg=C oeis=A048787
+1:65.collect { :n |
+	n.integerDigits(3)
+	.rotateLeft(1)
+	.fromDigits(3)
+}.discretePlot
+~~~
+
+![](Help/Image/rotateLeft-C.svg)
+
 * * *
 
 See also: atWrap, rotateRight

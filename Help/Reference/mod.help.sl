@@ -732,6 +732,24 @@ OEIS [A047383](https://oeis.org/A047383):
 [1 5 8 12 15 19 22 26 29 33 36]
 ```
 
+Numbers that are congruent to _0,3,6_ modulo eight,
+OEIS [A047399](https://oeis.org/A047399):
+
+```
+>>> 0:36.select { :n |
+>>> 	[0 3 6].includes(n % 8)
+>>> }
+[0 3 6 8 11 14 16 19 22 24 27 30 32 35]
+
+>>> let n = 0:13;
+>>> 3 * n - (n / 3).floor
+[0 3 6 8 11 14 16 19 22 24 27 30 32 35]
+
+>>> let n = 1:14;
+>>> ((8 * n - 6) / 3).floor
+[0 3 6 8 11 14 16 19 22 24 27 30 32 35]
+```
+
 An integer sequence modulo an integer,
 _n%8_,
 i.e. with a fixed modulus,

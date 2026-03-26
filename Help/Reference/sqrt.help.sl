@@ -206,9 +206,23 @@ OEIS [A023531](https://oeis.org/A023531):
 ]
 ```
 
-![](Help/Image/sqrt-D.svg)
+Integer greater than _n√7_,
+OEIS [A198084](https://oeis.org/A198084):
 
-Plot over a subset of the reals:
+```
+>>> (0:13 * 7.sqrt).ceiling
+[0 3 6 8 11 14 16 19 22 24 27 30 32 35]
+```
+
+Integer nearest _n√8_,
+OEIS [A022851](https://oeis.org/A022851):
+
+```
+>>> (0:13 * 8.sqrt).round
+[0 3 6 8 11 14 17 20 23 25 28 31 34 37]
+```
+
+Plot square root over a subset of the reals:
 
 ~~~spl svg=A
 (0 -- 10).functionPlot(sqrt:/1)

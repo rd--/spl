@@ -98,6 +98,20 @@ OEIS [A054347](https://oeis.org/A054347):
 [1 4 8 14 22 31 42 54 68 84 101 120 141]
 ```
 
+The Beatty sequences for _α=√7_,
+OEIS [A022841](https://oeis.org/A022841) and
+OEIS [A285676](https://oeis.org/A285676):
+
+```
+>>> 13.beattySequence(7.sqrt)
+[2 5 7 10 13 15 18 21 23 26 29 31 34]
+
+>>> let alpha = 7.sqrt;
+>>> let beta = alpha / (alpha - 1);
+>>> 13.beattySequence(beta)
+[3 6 10 13 17 20 23 27 30 34 37 40 44]
+```
+
 Two interleaved Beatty sequences,
 OEIS [A094077](https://oeis.org/A094077):
 

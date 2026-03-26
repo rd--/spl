@@ -270,6 +270,16 @@ In terms of `sqrt`, `cos` and `arcSin`:
 1/2.goldenRatio
 ```
 
+_⌈(nφ²)_,
+OEIS [A004957](https://oeis.org/A004957):
+
+```
+>>> let phi = 1.goldenRatio;
+>>> let n = 0:14;
+>>> (n * phi.square).ceiling
+[0 3 6 8 11 14 16 19 21 24 27 29 32 35 37]
+```
+
 Plot the fractional part of multiples of the golden ratio:
 
 ~~~spl svg=A
