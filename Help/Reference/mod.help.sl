@@ -497,6 +497,241 @@ OEIS [A270740](https://oeis.org/A270740):
 ]
 ```
 
+Numbers that are congruent to _0,2,4,6,9_ modulo twelve,
+a major pentatonic scale,
+OEIS [A175884](https://oeis.org/A175884):
+
+```
+>>> 0:33.select { :n |
+>>> 	[0 2 4 7 9].includes(n % 12)
+>>> }
+[0 2 4 7 9 12 14 16 19 21 24 26 28 31 33]
+
+>>> let n = 0:14;
+>>> (12 * n) // 5
+[0 2 4 7 9 12 14 16 19 21 24 26 28 31 33]
+
+>>> let n = 1:15;
+>>> let a = ((n - 4) / 5).floor;
+>>> let b = ((n - 1) / 5).floor;
+>>> (2 * n) - 1 + a + b
+[0 2 4 7 9 12 14 16 19 21 24 26 28 31 33]
+```
+
+Numbers that are congruent to _0,2,4,5,7,9,11_ modulo twelve,
+a major diatonic scale,
+OEIS [A083026](https://oeis.org/A083026):
+
+```
+>>> 0:24.select { :n |
+>>> 	[0 2 4 5 7 9 11].includes(n % 12)
+>>> }
+[0 2 4 5 7 9 11 12 14 16 17 19 21 23 24]
+
+>>> let n = 1:15;
+>>> (12 * n) // 7 - 1
+[0 2 4 5 7 9 11 12 14 16 17 19 21 23 24]
+```
+
+Numbers that are congruent to _0,2,3,5,7,8,11_ modulo twelve,
+a minor diatonic scale with a raised seventh,
+OEIS [A083028](https://oeis.org/A083028):
+
+```
+>>> 0:24.select { :n |
+>>> 	[0 2 3 5 7 8 11].includes(n % 12)
+>>> }
+[0 2 3 5 7 8 11 12 14 15 17 19 20 23 24]
+```
+
+Numbers that are congruent to _0,2,4,6,7,9,11_ modulo twelve,
+the Lydian mode,
+OEIS [A083089](https://oeis.org/A083089):
+
+```
+>>> 0:24.select { :n |
+>>> 	[0 2 4 6 7 9 11].includes(n % 12)
+>>> }
+[0 2 4 6 7 9 11 12 14 16 18 19 21 23 24]
+
+>>> let n = 1:15;
+>>> let m = 2 * (n - 1);
+>>> m - (m // 7)
+[0 2 4 6 7 9 11 12 14 16 18 19 21 23 24]
+```
+
+Numbers that are congruent to _0,2,4,5,7,9,10_ modulo twelve,
+the Mixolydian mode,
+OEIS [A083120](https://oeis.org/A083120):
+
+```
+>>> 0:24.select { :n |
+>>> 	[0 2 4 5 7 9 10].includes(n % 12)
+>>> }
+[0 2 4 5 7 9 10 12 14 16 17 19 21 22 24]
+
+>>> let n = 1:15;
+>>> (4 * (3 * n - 2)) // 7
+[0 2 4 5 7 9 10 12 14 16 17 19 21 22 24]
+```
+
+Numbers that are congruent to _0,2,3,5,7,9,10_ modulo twelve,
+the Dorian mode,
+OEIS [A083033](https://oeis.org/A083033):
+
+```
+>>> 0:24.select { :n |
+>>> 	[0 2 3 5 7 9 10].includes(n % 12)
+>>> }
+[0 2 3 5 7 9 10 12 14 15 17 19 21 22 24]
+
+>>> let n = 1:15;
+>>> (3 * (4 * n - 3)) // 7
+[0 2 3 5 7 9 10 12 14 15 17 19 21 22 24]
+```
+
+Numbers that are congruent to _0,2,3,5,7,8,10_ modulo twelve,
+the Aeolian mode,
+OEIS [A060107](https://oeis.org/A060107):
+
+```
+>>> 0:24.select { :n |
+>>> 	[0 2 3 5 7 8 10].includes(n % 12)
+>>> }
+[0 2 3 5 7 8 10 12 14 15 17 19 20 22 24]
+
+>>> let n = 1:15;
+>>> (3 * (4 * n - 3)) // 7
+[0 2 3 5 7 9 10 12 14 15 17 19 21 22 24]
+```
+
+Numbers that are congruent to _0,1,3,5,6,8,10_ modulo twelve,
+the Hypophrygian mode,
+also Fludd’s sequence,
+OEIS [A082977](https://oeis.org/A082977):
+
+```
+>>> 0:24.select { :n |
+>>> 	[0 1 3 5 6 8 10].includes(n % 12)
+>>> }
+[0 1 3 5 6 8 10 12 13 15 17 18 20 22 24]
+
+>>> let n = 0:14;
+>>> (n * 12 / 7).floor
+[0 1 3 5 6 8 10 12 13 15 17 18 20 22 24]
+```
+
+Numbers that are congruent to _0,1,3,5,7,8,10_ modulo twelve,
+the Phrygian mode,
+OEIS [A083034](https://oeis.org/A083034):
+
+```
+>>> 0:24.select { :n |
+>>> 	[0 1 3 5 7 8 10].includes(n % 12)
+>>> }
+[0 1 3 5 7 8 10 12 13 15 17 19 20 22 24]
+
+>>> let n = 1:15;
+>>> (n * 12 - 11) // 7
+[0 1 3 5 7 8 10 12 13 15 17 19 20 22 24]
+```
+
+Numbers that are congruent to _0,4,7_ modulo twelve,
+the major common chord,
+OEIS [A083030](https://oeis.org/A083030):
+
+```
+>>> 0:48.select { :n |
+>>> 	[0 4 7].includes(n % 12)
+>>> }
+[0 4 7 12 16 19 24 28 31 36 40 43 48]
+
+>>> [1 0 1 -1].linearRecurrence(
+>>> 	[0 4 7 12], 13
+>>> )
+[0 4 7 12 16 19 24 28 31 36 40 43 48]
+```
+
+Numbers that are congruent to _0,3,7_ modulo twelve,
+the minor common chord,
+OEIS [A083031](https://oeis.org/A083031):
+
+```
+>>> 0:48.select { :n |
+>>> 	[0 3 7].includes(n % 12)
+>>> }
+[0 3 7 12 15 19 24 27 31 36 39 43 48]
+
+>>> [1 0 1 -1].linearRecurrence(
+>>> 	[0 3 7 12], 13
+>>> )
+[0 3 7 12 15 19 24 27 31 36 39 43 48]
+```
+
+Numbers that are congruent to _0,4,7,10_ modulo twelve,
+the dominant seventh chord,
+OEIS [A083032](https://oeis.org/A083032):
+
+```
+>>> 0:36.select { :n |
+>>> 	[0 4 7 10].includes(n % 12)
+>>> }
+[0 4 7 10 12 16 19 22 24 28 31 34 36]
+```
+
+Numbers that are congruent to _1,2,3,5,6_ modulo seven,
+OEIS [A032796](https://oeis.org/A032796):
+
+```
+>>> 0:22.select { :n |
+>>> 	[1 2 3 5 6].includes(n % 7)
+>>> }
+[1 2 3 5 6 8 9 10 12 13 15 16 17 19 20 22]
+```
+
+Numbers that are congruent to _1,3,5,6_ modulo seven,
+also Fludd’s sequence,
+OEIS [A047329](https://oeis.org/A047329):
+
+```
+>>> 0:22.select { :n |
+>>> 	[1 3 5 6].includes(n % 7)
+>>> }
+[1 3 5 6 8 10 12 13 15 17 19 20 22]
+
+>>> let n = 1:13;
+>>> ((7 * n - 1) / 4).floor
+[1 3 5 6 8 10 12 13 15 17 19 20 22]
+```
+
+Numbers that are congruent to _3,6_ modulo seven,
+OEIS [A047280](https://oeis.org/A047280):
+
+```
+>>> 0:36.select { :n |
+>>> 	[3 6].includes(n % 7)
+>>> }
+[3 6 10 13 17 20 24 27 31 34]
+
+>>> let n = 1:10;
+>>> 4 * n - 1 - (n / 2).floor
+[3 6 10 13 17 20 24 27 31 34]
+```
+
+Numbers that are congruent to _1,5_ modulo seven,
+OEIS [A047383](https://oeis.org/A047383):
+
+```
+>>> 0:36.select { :n |
+>>> 	[1 5].includes(n % 7)
+>>> }
+[1 5 8 12 15 19 22 26 29 33 36]
+
+>>> let n = 1:11;
+>>> 7 * n // 2 - 2
+[1 5 8 12 15 19 22 26 29 33 36]
+```
+
 An integer sequence modulo an integer,
 _n%8_,
 i.e. with a fixed modulus,

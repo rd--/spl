@@ -51,3 +51,6 @@ See also: Graph, graphDistance, graphDistanceMatrix, offDiagonalMean
 
 Guides: Distance Functions, Graph Functions
 
+References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/MeanGraphDistance.html)

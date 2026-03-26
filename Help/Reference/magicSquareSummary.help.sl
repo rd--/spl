@@ -91,7 +91,6 @@ A 4×4 magic square,
 found in a Jaina inscription of the twelfth century,
 OEIS [A126710](https://oeis.org/A126710):
 
-
 ```
 >>> [
 >>> 	7 12 1 14;

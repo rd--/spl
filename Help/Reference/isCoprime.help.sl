@@ -184,7 +184,7 @@ OEIS [A257993](https://oeis.org/A257993):
 }.discretePlot
 ~~~
 
-![](Help/Image/isCoprime-D.svg)
+![](Help/Image/isCoprime-E.svg)
 
 Where supported `isCoprime` is displayed as ⟂.
 

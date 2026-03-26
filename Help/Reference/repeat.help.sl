@@ -329,6 +329,23 @@ OEIS [A131670](https://oeis.org/A131670):
 [1 0 -1 0 1 1 0 -1 0 1 1 0 -1 0 1 1 0 -1 0 1]
 ```
 
+Number of half tones between successive pitches in a major scale,
+OEIS [A291454](https://oeis.org/A291454):
+
+```
+>>> [2 2 1 2 2 2 1].repeat(3)
+[2 2 1 2 2 2 1 2 2 1 2 2 2 1 2 2 1 2 2 2 1]
+
+>>> let n = 1:21;
+>>> (12 / 7 * (n + 1)).floor
+>>> -
+>>> (12 / 7 * n).floor
+[2 2 1 2 2 2 1 2 2 1 2 2 2 1 2 2 1 2 2 2 1]
+
+>>> 737407/3333333
+0.22122212212221
+```
+
 A Chebyshev transform of the Fibonacci numbers,
 OEIS [A100047](https://oeis.org/A100047):
 
@@ -367,6 +384,17 @@ OEIS [A168184](https://oeis.org/A168184):
 ~~~
 
 ![](Help/Image/repeat-D.svg)
+
+Arrangement of keys on a piano,
+OEIS [A059620](https://oeis.org/A059620):
+
+~~~spl svg=E oeis=A059620
+[0 1 0 0 1 0 1 0 0 1 0 1]
+.repeat(8)
+.discretePlot
+~~~
+
+![](Help/Image/repeat-E.svg)
 
 * * *
 

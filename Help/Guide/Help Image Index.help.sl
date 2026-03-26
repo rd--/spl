@@ -1265,6 +1265,7 @@
   1. ![](Help/Image/denseScatterPlot-A.png)
   2. ![](Help/Image/denseScatterPlot-B.png)
   3. ![](Help/Image/denseScatterPlot-C.png)
+  4. ![](Help/Image/denseScatterPlot-D.png)
 - `densityHistogramPlot`
   1. ![](Help/Image/densityHistogramPlot-A.svg)
   2. ![](Help/Image/densityHistogramPlot-B.svg)
@@ -1397,6 +1398,7 @@
   2. ![](Help/Image/distinctPrimeFactors-B.svg)
   3. ![](Help/Image/distinctPrimeFactors-C.svg)
   4. ![](Help/Image/distinctPrimeFactors-D.svg)
+  5. ![](Help/Image/distinctPrimeFactors-E.svg)
 - `Distort`
   1. ![](Help/Image/Distort-A.svg)
 - `divide`
@@ -1415,6 +1417,7 @@
   10. ![](Help/Image/divisible-J.svg)
   11. ![](Help/Image/divisible-K.svg)
   12. ![](Help/Image/divisible-L.svg)
+  13. ![](Help/Image/divisible-M.svg)
 - `divisorPlot`
   1. ![](Help/Image/divisorPlot-A.svg)
   2. ![](Help/Image/divisorPlot-B.svg)
@@ -1441,6 +1444,7 @@
   17. ![](Help/Image/divisors-Q.svg)
   18. ![](Help/Image/divisors-R.svg)
   19. ![](Help/Image/divisors-S.svg)
+  20. ![](Help/Image/divisors-T.svg)
 - `divisorSigma`
   1. ![](Help/Image/divisorSigma-A.svg)
   2. ![](Help/Image/divisorSigma-B.svg)
@@ -1581,6 +1585,7 @@
   8. ![](Help/Image/elementaryCellularAutomaton-H.png)
   9. ![](Help/Image/elementaryCellularAutomaton-I.svg)
   10. ![](Help/Image/elementaryCellularAutomaton-J.svg)
+  11. ![](Help/Image/elementaryCellularAutomaton-K.png)
 - `Ellipse`
   1. ![](Help/Image/Ellipse-A.svg)
   2. ![](Help/Image/Ellipse-B.svg)
@@ -1656,6 +1661,7 @@
   2. ![](Help/Image/eulerGamma-B.svg)
 - `eulerGradusSuavitatis`
   1. ![](Help/Image/eulerGradusSuavitatis-A.svg)
+  2. ![](Help/Image/eulerGradusSuavitatis-B.svg)
 - `eulerianNumber`
   1. ![](Help/Image/eulerianNumber-A.svg)
   2. ![](Help/Image/eulerianNumber-B.svg)
@@ -1723,6 +1729,8 @@
   2. ![](Help/Image/exp-B.svg)
   3. ![](Help/Image/exp-C.png)
   4. ![](Help/Image/exp-D.svg)
+  5. ![](Help/Image/exp-E.svg)
+  6. ![](Help/Image/exp-F.svg)
 - `ExponentialDistribution`
   1. ![](Help/Image/ExponentialDistribution-A.svg)
   2. ![](Help/Image/ExponentialDistribution-B.svg)
@@ -2734,6 +2742,7 @@
   2. ![](Help/Image/isCoprime-B.svg)
   3. ![](Help/Image/isCoprime-C.svg)
   4. ![](Help/Image/isCoprime-D.svg)
+  5. ![](Help/Image/isCoprime-E.svg)
 - `isCubeFree`
   1. ![](Help/Image/isCubeFree-A.svg)
   2. ![](Help/Image/isCubeFree-B.svg)
@@ -2820,6 +2829,7 @@
   11. ![](Help/Image/isPrime-K.svg)
   12. ![](Help/Image/isPrime-L.svg)
   13. ![](Help/Image/isPrime-M.svg)
+  14. ![](Help/Image/isPrime-N.svg)
 - `isPrimePower`
   1. ![](Help/Image/isPrimePower-A.svg)
   2. ![](Help/Image/isPrimePower-B.svg)
@@ -3069,6 +3079,8 @@
   1. ![](Help/Image/leastExcludedSequence-A.svg)
   2. ![](Help/Image/leastExcludedSequence-B.svg)
   3. ![](Help/Image/leastExcludedSequence-C.svg)
+  4. ![](Help/Image/leastExcludedSequence-D.svg)
+  5. ![](Help/Image/leastExcludedSequence-E.svg)
 - `leastPrimeFactor`
   1. ![](Help/Image/leastPrimeFactor-A.svg)
   2. ![](Help/Image/leastPrimeFactor-B.svg)
@@ -3447,6 +3459,9 @@
 - `mittenpunkt`
   1. ![](Help/Image/mittenpunkt-A.svg)
   2. ![](Help/Image/mittenpunkt-B.svg)
+- `mixedRadixEncode`
+  1. ![](Help/Image/mixedRadixEncode-A.svg)
+  2. ![](Help/Image/mixedRadixEncode-B.svg)
 - `mixedRadixGrayCode`
   1. ![](Help/Image/mixedRadixGrayCode-A.svg)
   2. ![](Help/Image/mixedRadixGrayCode-B.svg)
@@ -3501,6 +3516,7 @@
   6. ![](Help/Image/moebiusTransform-F.svg)
   7. ![](Help/Image/moebiusTransform-G.svg)
   8. ![](Help/Image/moebiusTransform-H.svg)
+  9. ![](Help/Image/moebiusTransform-I.svg)
 - `momentOfSymmetry`
   1. ![](Help/Image/momentOfSymmetry-A.svg)
   2. ![](Help/Image/momentOfSymmetry-B.svg)
@@ -3663,6 +3679,7 @@
   6. ![](Help/Image/nextPrime-F.svg)
   7. ![](Help/Image/nextPrime-G.svg)
   8. ![](Help/Image/nextPrime-H.svg)
+  9. ![](Help/Image/nextPrime-I.svg)
 - `nextRandomFloat`
   1. ![](Help/Image/nextRandomFloat-A.svg)
 - `nextRandomInteger`
@@ -4205,6 +4222,10 @@
   5. ![](Help/Image/primeFactors-E.svg)
   6. ![](Help/Image/primeFactors-F.svg)
   7. ![](Help/Image/primeFactors-G.svg)
+  8. ![](Help/Image/primeFactors-H.svg)
+  9. ![](Help/Image/primeFactors-I.svg)
+  10. ![](Help/Image/primeFactors-J.svg)
+  11. ![](Help/Image/primeFactors-K.svg)
 - `primeGap`
   1. ![](Help/Image/primeGap-A.svg)
   2. ![](Help/Image/primeGap-B.svg)
@@ -4252,6 +4273,7 @@
   21. ![](Help/Image/primePi-U.svg)
   22. ![](Help/Image/primePi-V.svg)
   23. ![](Help/Image/primePi-W.svg)
+  24. ![](Help/Image/primePi-X.svg)
 - `primeSignature`
   1. ![](Help/Image/primeSignature-A.svg)
   2. ![](Help/Image/primeSignature-B.svg)
@@ -4683,6 +4705,10 @@
   5. ![](Help/Image/rungeKuttaMethod-E.svg)
 - `runLengthsOf`
   1. ![](Help/Image/runLengthsOf-A.svg)
+  2. ![](Help/Image/runLengthsOf-B.svg)
+  3. ![](Help/Image/runLengthsOf-C.svg)
+  4. ![](Help/Image/runLengthsOf-D.svg)
+  5. ![](Help/Image/runLengthsOf-E.svg)
 - `runLengthTransform`
   1. ![](Help/Image/runLengthTransform-A.svg)
   2. ![](Help/Image/runLengthTransform-B.svg)
@@ -4799,6 +4825,7 @@
   3. ![](Help/Image/sequenceCount-C.svg)
   4. ![](Help/Image/sequenceCount-D.svg)
   5. ![](Help/Image/sequenceCount-E.svg)
+  6. ![](Help/Image/sequenceCount-F.svg)
 - `serpentineCurve`
   1. ![](Help/Image/serpentineCurve-A.svg)
   2. ![](Help/Image/serpentineCurve-B.svg)

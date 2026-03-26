@@ -19,8 +19,8 @@ OEIS [A001952](https://oeis.org/A001952):
 ```
 
 The Beatty sequences for _α=1+√2_,
-OEIS [A0031521](https://oeis.org/A0031521) and
-OEIS [A0031522](https://oeis.org/A0031522):
+OEIS [A003151](https://oeis.org/A003151) and
+OEIS [A003152](https://oeis.org/A003152):
 
 ```
 >>> 13.beattySequence(1 + 2.sqrt)

@@ -11,7 +11,7 @@
 - A000008: `frobeniusSolve`
 - A000009: `partitionFunctionQ`, `partitionsQ`
 - A000010: `eulerPhi`, `inverseMoebiusTransform`, `moebiusTransform`, `ordinalTransform`
-- A000012: `binomialTransform`, `inverseBinomialTransform`, `inverseMoebiusTransform`, `moebiusTransform`, `repeat`
+- A000012: `binomialTransform`, `finiteGroupCount`, `inverseBinomialTransform`, `inverseMoebiusTransform`, `moebiusTransform`, `repeat`
 - A000015: `isPrimePower`
 - A000026: `factorInteger`
 - A000027: `arithmeticProgression`, `dirichletConvolve`, `engelExpansion`, `inverseBinomialTransform`, `inverseMoebiusTransform`, `moebiusTransform`, `polygonalNumber`
@@ -52,7 +52,7 @@
 - A000124: `accumulate`, `cartesianIndexToDiagonalIndex`, `foldList`, `linearRecurrence`, `polygonalNumber`
 - A000125: `binomial`
 - A000127: `binomial`, `linearRecurrence`
-- A000129: `delannoyNumber`, `fibonacci`, `linearRecurrence`, `lucasSequence`, `pellNumber`, `pellSequence`
+- A000129: `convergents`, `delannoyNumber`, `fibonacci`, `linearRecurrence`, `lucasSequence`, `pellNumber`, `pellSequence`
 - A000142: `factorial`
 - A000161: `integerSquareRoot`
 - A000164: `boole`
@@ -61,6 +61,7 @@
 - A000179: `binomial`
 - A000182: `stirlingS2`
 - A000188: `powerMod`, `shadowTransform`
+- A000194: `sqrt`
 - A000196: `integerSquareRoot`
 - A000201: `beattySequence`, `wythoffLower`, `wythoffPair`
 - A000203: `divisorSigma`, `divisorSum`, `inverseMoebiusTransform`, `moebiusTransform`
@@ -108,6 +109,7 @@
 - A000494: `sin`
 - A000503: `tan`
 - A000522: `foldList`, `shadowTransform`
+- A000523: `log2`
 - A000537: `cube`, `triangularNumber`
 - A000566: `figurateNumber`, `polygonalNumber`
 - A000567: `polygonalNumber`
@@ -120,6 +122,7 @@
 - A000629: `stirlingS2`
 - A000667: `boustrophedonTransform`
 - A000670: `orderedBellNumber`
+- A000674: `boustrophedonTransform`
 - A000688: `finiteAbelianGroupCount`
 - A000695: `moserDeBruijnSequence`, `negabinaryExpansion`
 - A000700: `conjugatePartition`
@@ -128,6 +131,7 @@
 - A000744: `boustrophedonTransform`
 - A000747: `boustrophedonTransform`
 - A000788: `digitCount`, `prefixSum`
+- A000792: `quotient`
 - A000796: `pi`
 - A000914: `stirlingS1`
 - A000918: `power`
@@ -185,7 +189,7 @@
 - A001316: `gouldsNumber`, `gouldsSequence`, `pascalTriangle`
 - A001317: `binomial`, `bitShiftLeft`, `oeisFunction`, `pascalTriangle`
 - A001318: `generalisedPentagonalNumbers`
-- A001333: `linearRecurrence`
+- A001333: `convergents`, `linearRecurrence`
 - A001348: `prime`
 - A001358: `isAlmostPrime`, `isSemiprime`
 - A001359: `isLesserTwinPrime`, `isPrime`
@@ -271,6 +275,7 @@
 - A002210: `khinchinsConstant`, `levysConstant`
 - A002211: `khinchinsConstant`
 - A002212: `MemoizationTable`
+- A002217: `primeFactors`
 - A002233: `primitiveRootList`
 - A002251: `wythoffPair`
 - A002260: `binomial`, `iota`, `ordinalTransform`, `prefixes`, `triangularArray`
@@ -334,10 +339,13 @@
 - A003001: `multiplicativePersistence`
 - A003022: `optimalGolombRulers`
 - A003056: `repeat`, `triangularArray`, `triangularNumber`
+- A003059: `sqrt`
 - A003106: `integerPartitions`
 - A003108: `cube`
 - A003132: `integerDigits`
 - A003137: `ternaryExpansion`
+- A003151: `beattySequence`
+- A003152: `beattySequence`
 - A003159: `integerExponent`
 - A003188: `bitShiftRight`, `bitXor`, `grayEncode`
 - A003215: `centeredHexagonalNumber`, `centeredPolygonalNumber`
@@ -385,6 +393,7 @@
 - A003961: `factorInteger`, `inverseMoebiusTransform`, `moebiusTransform`
 - A003963: `primePi`
 - A003972: `inverseMoebiusTransform`, `moebiusTransform`
+- A003983: `min`
 - A003986: `bitOr`
 - A003987: `bitXor`
 - A003988: `quotient`
@@ -531,7 +540,7 @@
 - A006509: `prime`
 - A006512: `isLesserTwinPrime`
 - A006519: `evenPart`
-- A006530: `greatestPrimeFactor`
+- A006530: `greatestPrimeFactor`, `primeLimit`
 - A006542: `binomial`
 - A006556: `multiplicativeOrder`
 - A006559: `multiplicativeOrder`
@@ -586,6 +595,7 @@
 - A007337: `signatureSequence`
 - A007366: `eulerPhiInverse`
 - A007376: `champernowneSequence`, `decimalExpansion`, `integerDigits`
+- A007395: `finiteGroupCount`, `repeat`
 - A007412: `cubeRoot`
 - A007421: `liouvilleLambda`
 - A007422: `divisors`
@@ -667,6 +677,7 @@
 - A008473: `factorInteger`
 - A008475: `factorInteger`
 - A008517: `eulerianNumberSecondOrder`, `secondOrderEulerianTriangle`
+- A008574: `boole`
 - A008578: `prime`
 - A008585: `arithmeticProgression`, `times`
 - A008586: `arithmeticProgression`
@@ -865,6 +876,7 @@
 - A024675: `interprime`
 - A024770: `prefixes`
 - A024916: `divisorSigma`
+- A024924: `distinctPrimeFactors`
 - A025192: `balancedCayleyTree`
 - A025473: `isPrimePower`
 - A025475: `eulerPhi`
@@ -911,7 +923,7 @@
 - A028931: `nestList`
 - A029578: `interleave`
 - A029635: `binomial`, `pascalTriangle`
-- A029837: `bitLength`
+- A029837: `bitLength`, `log2`
 - A029883: `thueMorseSequence`
 - A029898: `powerMod`
 - A029931: `integerDigits`
@@ -949,6 +961,7 @@
 - A032451: `aliquotSequence`
 - A032742: `leastPrimeFactor`
 - A032766: `mod`
+- A032796: `mod`
 - A032924: `ternaryExpansion`
 - A033184: `catalanTriangle`
 - A033264: `sequenceCount`
@@ -972,6 +985,7 @@
 - A033948: `primitiveRootList`
 - A033950: `isRefactorableNumber`
 - A033953: `integerDigits`
+- A033996: `knightGraph`
 - A033999: `power`, `repeat`
 - A034002: `lookAndSaySequence`
 - A034090: `aliquotSum`
@@ -1030,6 +1044,7 @@
 - A038207: `binomial`
 - A038219: `ehrenfeuchtMycielskiSequence`
 - A038369: `isSumProductNumber`
+- A038374: `runLengthsOf`
 - A038504: `binomialTransform`
 - A038548: `divisorSigma`
 - A038554: `bitXor`, `grayEncode`
@@ -1053,6 +1068,7 @@
 - A039834: `inverseBinomialTransform`, `linearRecurrence`
 - A039941: `isOdd`
 - A039951: `powerMod`
+- A040000: `fromContinuedFraction`
 - A040051: `partitionFunctionP`
 - A040114: `differences`
 - A040115: `differences`
@@ -1109,6 +1125,9 @@
 - A047266: `mod`
 - A047269: `mod`
 - A047270: `includes`
+- A047280: `mod`
+- A047329: `mod`
+- A047383: `mod`
 - A047679: `sternBrocotTree`
 - A047713: `jacobiSymbol`
 - A047842: `lookAndSay`
@@ -1146,6 +1165,7 @@
 - A049108: `eulerPhi`
 - A049296: `differences`, `isRoughNumber`
 - A049310: `chebyshevU`, `fibonacciPolynomial`
+- A049345: `mixedRadixEncode`
 - A049347: `repeat`
 - A049444: `stirlingS1`
 - A049448: `sternBrocotTree`
@@ -1167,7 +1187,7 @@
 - A050603: `rulerFunction`
 - A050782: `isPalindrome`
 - A051022: `riffle`
-- A051037: `isRegularNumber`, `isSmoothNumber`
+- A051037: `isRegularNumber`, `isSmoothNumber`, `primeLimit`
 - A051038: `isSmoothNumber`
 - A051049: `linearRecurrence`
 - A051126: `mod`
@@ -1304,6 +1324,7 @@
 - A055975: `grayEncode`
 - A056220: `square`
 - A056239: `primePi`
+- A056240: `primeFactors`
 - A056530: `linearRecurrence`
 - A056594: `repeat`
 - A056757: `divisorSigma`
@@ -1312,6 +1333,7 @@
 - A056951: `abs`, `if`
 - A056964: `integerReverse`
 - A056973: `sequenceCount`
+- A057000: `eulerPhi`
 - A057077: `repeat`
 - A057078: `repeat`
 - A057079: `repeat`
@@ -1320,6 +1342,8 @@
 - A057164: `oeisFunction`
 - A057168: `bitAnd`
 - A057216: `collatzSequence`
+- A057354: `quotient`
+- A057427: `sign`
 - A057446: `collatzSequence`
 - A057514: `catalanUnrank`
 - A057522: `collatzSequence`
@@ -1360,6 +1384,7 @@
 - A059471: `OeisEntry`
 - A059481: `triangularArray`
 - A059571: `moebiusMu`
+- A059620: `repeat`
 - A059678: `binomial`
 - A059707: `isEven`
 - A059717: `isOdd`
@@ -1374,6 +1399,7 @@
 - A060007: `harmoniousNumber`
 - A060016: `partitionFunctionQ`, `triangularArray`
 - A060038: `prime`
+- A060107: `mod`
 - A060142: `isOdd`
 - A060240: `hookLengthFormula`, `integerPartitionsDimensions`
 - A060295: `gelfondsConstant`
@@ -1412,7 +1438,7 @@
 - A062089: `sierpinskiConstant`
 - A062162: `boustrophedonTransform`
 - A062251: `nextPrime`
-- A062383: `bitIff`, `bitShiftLeft`, `replicate`, `sobolSequence`, `vanDerCorputNumber`
+- A062383: `bitIff`, `replicate`, `sobolSequence`, `vanDerCorputNumber`
 - A062537: `primePi`
 - A062539: `lemniscateConstant`
 - A062756: `integerDigits`
@@ -1490,6 +1516,7 @@
 - A067076: `prime`
 - A067138: `bitAt`
 - A067251: `decimalExpansion`
+- A067666: `primeFactors`
 - A068068: `shadowTransform`, `unitaryDivisors`, `unitaryDivisorSigma`
 - A068310: `divisors`
 - A068346: `arithmeticDerivative`
@@ -1506,6 +1533,7 @@
 - A069284: `logarithmicIntegral`
 - A069359: `dirichletConvolve`
 - A069513: `primeNu`
+- A069623: `isPerfectPower`
 - A069778: `connellSequence`, `qFactorial`
 - A069779: `qFactorial`
 - A069817: `divisors`
@@ -1590,6 +1618,7 @@
 - A077610: `unitaryDivisors`
 - A077761: `meisselMertensConstant`
 - A077800: `isLesserTwinPrime`
+- A077957: `interleave`, `inverseBinomialTransform`
 - A078147: `isSquareFree`
 - A078310: `radical`
 - A078313: `radical`
@@ -1642,8 +1671,18 @@
 - A082116: `pisanoPeriod`
 - A082117: `pisanoPeriod`
 - A082885: `primeGap`
+- A082977: `mod`
 - A083025: `primeFactors`
+- A083026: `mod`
+- A083028: `mod`
+- A083030: `mod`
+- A083031: `mod`
+- A083032: `mod`
+- A083033: `mod`
+- A083034: `mod`
+- A083089: `mod`
 - A083093: `pascalTriangle`
+- A083120: `mod`
 - A083221: `leastPrimeFactor`, `sieveOfEratosthenes`
 - A083254: `eulerPhi`
 - A083329: `balancedCayleyTree`
@@ -1658,6 +1697,7 @@
 - A084895: `arithmeticGeometricMean`
 - A084896: `arithmeticGeometricMean`
 - A084897: `arithmeticGeometricMean`
+- A085020: `divisors`
 - A085046: `power`
 - A085198: `factorialNumberSystemEncode`
 - A085365: `keplerBouwkampConstant`
@@ -1736,6 +1776,7 @@
 - A096008: `powerMod`, `quadraticResidues`
 - A096103: `quadraticResidues`
 - A096268: `periodDoublingSequence`, `substitutionSystem`
+- A096270: `substitutionSystem`
 - A096470: `triangularArray`
 - A096582: `Range`
 - A096650: `pellSequence`
@@ -1837,13 +1878,17 @@
 - A112798: `integerPartitionUnrank`, `primePi`
 - A112881: `perrinFunction`
 - A113138: `whileTrue`
+- A113311: `fromContinuedFraction`
 - A113552: `divisible`
 - A114327: `antidiagonalArray`
 - A114525: `lucasPolynomial`
 - A114537: `dispersionArray`, `nonPrime`
 - A114897: `isPrime`
+- A114986: `substitutionSystem`
+- A115004: `boole`
 - A115020: `Range`
 - A115114: `eulerPhi`
+- A115291: `fromContinuedFraction`
 - A115384: `thueMorseSequence`
 - A116425: `silverConstant`
 - A116861: `integerPartitions`
@@ -1865,6 +1910,7 @@
 - A118914: `primeSignature`
 - A118965: `pisanoPeriod`
 - A119415: `ekgSequence`
+- A120007: `moebiusTransform`
 - A120889: `gcd`
 - A121053: `primePi`
 - A121262: `isInteger`
@@ -1874,6 +1920,7 @@
 - A121759: `withIndexCollect`
 - A122045: `eulerNumber`
 - A122111: `factorInteger`, `partialInversePermutation`
+- A122414: `isPrime`
 - A122567: `isLesserTwinPrime`
 - A122840: `integerExponent`
 - A122874: `interleave`
@@ -1890,6 +1937,7 @@
 - A124841: `inverseBinomialTransform`
 - A124859: `factorInteger`
 - A125106: `integerDigits`
+- A125144: `integerLength`
 - A125519: `magicSquareSummary`
 - A125717: `mod`
 - A125959: `vedicSquare`
@@ -1928,6 +1976,7 @@
 - A131503: `cos`
 - A131577: `linearRecurrence`
 - A131644: `powerMod`
+- A131670: `repeat`
 - A131743: `lodumoTransform`, `repeat`
 - A132141: `ternaryExpansion`
 - A132199: `rowlandsSequence`
@@ -1983,6 +2032,9 @@
 - A144595: `lowerChristoffelWord`
 - A144596: `lowerChristoffelWord`
 - A144608: `lowerChristoffelWord`
+- A144789: `runLengthsOf`
+- A144790: `runLengthsOf`
+- A144795: `runLengthsOf`
 - A144869: `shadowTransform`
 - A144944: `superCatalanNumber`
 - A145768: `bitXor`
@@ -2000,6 +2052,7 @@
 - A153485: `aliquotSum`
 - A153641: `eulerNumber`
 - A154402: `divisorSum`
+- A154957: `min`
 - A155085: `divisorSigma`
 - A155114: `fibonacci`
 - A156061: `primePi`
@@ -2065,6 +2118,9 @@
 - A169675: `deBruijnSequence`
 - A169676: `deBruijnSequence`
 - A169837: `ekgSequence`
+- A171418: `fromContinuedFraction`
+- A171440: `fromContinuedFraction`
+- A171441: `fromContinuedFraction`
 - A171865: `vanEckSequence`
 - A171868: `vanEckSequence`
 - A171887: `vanEckSequence`
@@ -2076,6 +2132,7 @@
 - A174344: `sin`, `squareSpiral`
 - A174868: `sternBrocotSequence`
 - A175851: `nextPrime`, `previousPrime`
+- A175884: `mod`
 - A178300: `numberOfCompositionsWeak`
 - A178858: `divisors`
 - A178877: `divisors`
@@ -2134,6 +2191,7 @@
 - A196020: `inverseTriangularNumber`
 - A197410: `prefixSum`
 - A197819: `grayEncode`
+- A198469: `primePi`
 - A201881: `ehrenfeuchtMycielskiSequence`
 - A204016: `max`
 - A204890: `orderedDifferences`
@@ -2144,6 +2202,7 @@
 - A208981: `collatzSequence`
 - A209229: `bitLength`, `integerExponent`
 - A209258: `josephusSequence`
+- A210434: `integerLength`
 - A210468: `collatzSequence`
 - A210523: `dedekindPsi`
 - A212171: `primeSignature`
@@ -2172,6 +2231,7 @@
 - A223541: `nimMultiplication`
 - A223542: `nimMultiplication`
 - A223543: `nimMultiplication`
+- A224787: `primeFactors`
 - A224915: `sum`
 - A225144: `sum`
 - A225395: `primePi`
@@ -2232,9 +2292,11 @@
 - A256187: `noergaardInfinitySequence`
 - A256249: `josephusProblem`
 - A257886: `factorial`
+- A257993: `isCoprime`
 - A258651: `arithmeticDerivative`
 - A259180: `isAmicablePair`
 - A260443: `nextPrime`
+- A261012: `sign`
 - A261892: `bitAnd`
 - A262881: `hammingWeight`
 - A263003: `hookLengths`
@@ -2256,14 +2318,20 @@
 - A268833: `hammingDistance`
 - A268868: `primeFactors`
 - A269347: `divisible`
+- A269361: `leastExcludedSequence`
 - A270740: `mod`
 - A271703: `lahNumber`
 - A272695: `round`
 - A272755: `fabiusFunction`
 - A272757: `fabiusFunction`
 - A274086: `round`
+- A274920: `toDo`
+- A274921: `toDo`
 - A274923: `squareSpiral`
 - A275314: `eulerGradusSuavitatis`
+- A276086: `nextPrime`
+- A276150: `mixedRadixEncode`
+- A276862: `beattySequence`
 - A277616: `linearRecurrence`
 - A278159: `primorial`, `runLengthTransform`
 - A278169: `injectInto`
@@ -2271,7 +2339,7 @@
 - A279125: `bitAnd`
 - A279340: `integerExponent`
 - A280509: `integerExponent`
-- A280995: `bitShiftLeft`, `grayEncode`, `sobolSequence`
+- A280995: `grayEncode`, `sobolSequence`
 - A281488: `sum`
 - A282291: `isCoprime`, `notAnd`
 - A282634: `sum`
@@ -2288,9 +2356,11 @@
 - A287639: `hammingWeight`
 - A289016: `substitutionSystem`
 - A289152: `ordinalTransform`
+- A289194: `denseScatterPlot`, `leastExcludedSequence`
 - A289435: `divisors`
 - A290323: `caseOf`
 - A290988: `divisors`
+- A291454: `repeat`
 - A292849: `hammingWeight`
 - A293160: `sternsDiatomicArray`
 - A294442: `keplerTree`
@@ -2299,6 +2369,7 @@
 - A295664: `integerExponent`
 - A296063: `linearRecurrence`
 - A297330: `differences`
+- A298739: `finiteGroupCount`
 - A299174: `arithmeticProgression`
 - A300721: `moebiusTransform`
 - A301573: `isPerfectPower`
@@ -2326,6 +2397,7 @@
 - A317950: `tribonacciWord`
 - A318583: `moebiusMu`
 - A319198: `tribonacciWord`
+- A320541: `boole`
 - A321029: `factorInteger`
 - A321298: `josephusProblem`
 - A321543: `divisorSum`
@@ -2429,6 +2501,7 @@
 - A381124: `supergoldenRatio`
 - A381125: `supergoldenRatio`
 - A385459: `LinearCongruential`, `nestList`
+- A387662: `divisible`
 - A389383: `jugglerSequence`
 - A389395: `prefixSum`
 - A389609: `prefixSum`

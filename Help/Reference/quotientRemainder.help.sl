@@ -96,6 +96,7 @@ the dividend is equal to the product of the quotient and the divisor plus the re
 ```
 
 Quotient of _n_ and five,
+integers repeated five times,
 OEIS [A002266](https://oeis.org/A002266):
 
 ~~~spl svg=A oeis=A002266

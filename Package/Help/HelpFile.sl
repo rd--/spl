@@ -556,7 +556,10 @@ HelpFile : [Object, Equatable, Cache] { | origin source cache |
 		let oeisIdentifiers = oeisPrograms.collect(
 			oeisIdentifier:/1
 		).unique;
-		oeisIdentifiers.collect { :i |
+		[
+			'# Integer Sequence Image Index',
+			''
+		] ++ oeisIdentifiers.collect { :i |
 			[
 				'- [%](https://oeis.org/%/)'.format([i, i]),
 				oeisPrograms.select { :p |

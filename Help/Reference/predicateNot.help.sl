@@ -30,7 +30,6 @@ The numbers that are not odd are the even numbers:
 [2 4 6 8]
 ```
 
-
 The numbers that are not prime are the composite numbers:
 
 ```
