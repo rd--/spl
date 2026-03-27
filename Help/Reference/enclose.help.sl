@@ -19,11 +19,24 @@ Answers a `List` of one place.
 1
 ```
 
+Inverses are `first`, `at` of `one` and `unenclose`:
+
+```
+>>> 1.enclose.at(1)
+1
+
+>>> 1.enclose.first
+1
+
+>>> 1.enclose.unenclose
+1
+```
+
 _enclose(x)_ can be written _[x]_.
 
 * * *
 
-See also: first, nest
+See also: first, nest, unenclose
 
 Guides: List Functions
 

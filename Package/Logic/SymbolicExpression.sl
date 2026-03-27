@@ -1,3 +1,11 @@
++@Number {
+
+	isConstant { :self :operand |
+		self = operand
+	}
+
+}
+
 @SymbolicObject {
 
 	[equal, =] { :self :anObject |
@@ -65,7 +73,11 @@
 	}
 
 	[divide, /] { :self :operand |
-		'/'.symbolicPrimitive([self, operand])
+		operand.isConstant(1).if {
+			self
+		} {
+			'/'.symbolicPrimitive([self, operand])
+		}
 	}
 
 	[exp, ^] { :self |
@@ -77,7 +89,11 @@
 	}
 
 	[plus, +] { :self :operand |
-		'+'.symbolicPrimitive([self, operand])
+		operand.isConstant(0).if {
+			self
+		} {
+			'+'.symbolicPrimitive([self, operand])
+		}
 	}
 
 	[power, ^] { :self :operand |
@@ -93,11 +109,19 @@
 	}
 
 	[subtract, -] { :self :operand |
-		'-'.symbolicPrimitive([self, operand])
+		operand.isZero.if {
+			self
+		} {
+			'-'.symbolicPrimitive([self, operand])
+		}
 	}
 
 	[times, *] { :self :operand |
-		'*'.symbolicPrimitive([self, operand])
+		operand.isConstant(1).if {
+			self
+		} {
+			'*'.symbolicPrimitive([self, operand])
+		}
 	}
 
 	abs { :self |
@@ -109,7 +133,7 @@
 		SymbolicExpression(
 			name.splOperatorNameToken ? { name },
 			[receiver, self]
-		)
+		).constantFolding
 	}
 
 	cos { :self |
@@ -126,6 +150,10 @@
 
 	gamma { :self |
 		'gamma'.symbolicPrimitive([self])
+	}
+
+	isConstant { :unused :unusedOperand |
+		false
 	}
 
 	isInteger { :unused |
@@ -228,6 +256,33 @@ SymbolicExpression : [Object, Storeable, Number, SymbolicObject, SymbolicBoolean
 			}
 		};
 		common.asList
+	}
+
+	constantFolding { :self |
+		(self.operands.size = 2).if {
+			let [p, q] = self.operands;
+			let simplify = { :k |
+				p.isConstant(k).if {
+					q
+				} {
+					q.isConstant(k).if {
+						p
+					} {
+						self
+					}
+				}
+			};
+			self.operator.name.caseOf(
+				[
+					'+' -> { simplify(0) },
+					'*' -> { simplify(1) }
+				]
+			) {
+				self
+			}
+		} {
+			self
+		}
 	}
 
 	do { :self :aBlock:/1 |

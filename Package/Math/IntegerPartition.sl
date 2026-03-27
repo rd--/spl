@@ -221,7 +221,7 @@ IntegerPartitions : [Object, Equatable, Storeable] { | contents:<List> |
 		p(self, anInteger)
 	}
 
-	partitionFunctionP { :n |
+	[partitionFunctionP, partitionsP] { :n |
 		let a = List(n + 1);
 		a[1] := 1L;
 		1.toDo(n) { :i |
@@ -248,7 +248,7 @@ IntegerPartitions : [Object, Equatable, Storeable] { | contents:<List> |
 		a[n + 1]
 	}
 
-	partitionFunctionQ { :n |
+	[partitionFunctionQ, partitionsQ] { :n |
 		(n < 1).if {
 			1
 		} {
@@ -260,14 +260,6 @@ IntegerPartitions : [Object, Equatable, Storeable] { | contents:<List> |
 
 	partitionFunctionQ { :n :k |
 		partitionFunctionP(n - k.binomial(2), k)
-	}
-
-	partitionsP { :n |
-		n.partitionFunctionP
-	}
-
-	partitionsQ { :n |
-		n.partitionFunctionQ
 	}
 
 }

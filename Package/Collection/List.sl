@@ -254,6 +254,14 @@ List! : [Object, Storeable, Equatable, Comparable, Json, Iterable, Indexable, Co
 		self.printString(storeString:/1)
 	}
 
+	unenclose { :self |
+		(self.size = 1).if {
+			self.at(1)
+		} {
+			self.error('unenclose: not one element list')
+		}
+	}
+
 	valueSort { :self |
 		self.sortOn(value:/1)
 	}

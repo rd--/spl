@@ -23,6 +23,8 @@ Answers either a `List` of one place, holding _x_, or _x_.
 
 See also: enclose
 
+Guides: List Functions
+
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/Nest)

@@ -68,6 +68,37 @@ OEIS [A004799](https://oeis.org/A004799):
 ]
 ```
 
+Multiply numbers by convolving digit lists:
+
+```
+>>> let u = 24561.integerDigits;
+>>> let v = 1247.integerDigits;
+>>> let w = convolve(u, v);
+>>> (w, w.fromDigits, 24561 * 1247)
+(
+	[2 8 21 46 61 61 46 7],
+	30627567,
+	30627567
+)
+```
+
+At `Symbol`:
+
+```
+>> [`x` `y`].convolve([`a` `b` `c`])
+>> .allButFirstAndLast
+[(+ (* b x) (* a y)), (+ (* c x) (* b y))]
+
+>>> [`x` `y`].convolve([`a` `b` `c`])
+>>> .collect(printString:/1)
+[
+	'(* a x)',
+	'(+ (* b x) (* a y))',
+	'(+ (* c x) (* b y))',
+	'(* c y)'
+]
+```
+
 A convolution typically smooths the function.
 Smooth box function (to a triangle function):
 
@@ -135,7 +166,7 @@ b.convolve(b).first(k + 1).scatterPlot.log
 
 ![](Help/Image/convolve-E.svg)
 
-Self-convolution of the inverse of sixth cyclotomic polynomial,
+Self-convolution of the inverse of the sixth cyclotomic polynomial,
 OEIS [A010892](https://oeis.org/A010892),
 OEIS [A099254](https://oeis.org/A099254):
 
@@ -146,6 +177,18 @@ a.convolve(a).first(k).discretePlot
 ~~~
 
 ![](Help/Image/convolve-F.svg)
+
+From Bertrand’s postulate,
+_2*P(n)-P(n+1)_,
+OEIS [A062234](https://oeis.org/A062234):
+
+~~~spl svg=G oeis=A062234
+[-1 2].convolve(1:61.prime)
+.allButFirstAndLast
+.discretePlot
+~~~
+
+![](Help/Image/convolve-G.svg)
 
 * * *
 
@@ -160,6 +203,8 @@ _Mathematica_
 _OEIS_
 [1](https://oeis.org/A001629),
 _Mathworks_
-[1](https://mathworks.com/help/matlab/ref/conv.html)
+[1](https://mathworks.com/help/matlab/ref/conv.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Convolution)
 
 Unicode: U+229B ⊛ Circled Asterisk Operator

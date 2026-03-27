@@ -15,6 +15,20 @@ OEIS [A024675](https://oeis.org/A024675):
 	39 42 45 50 56 60 64 69 72 76
 	81 86 93 99
 ]
+
+>>> 2:26.prime.partition(2, 1)
+>>> .collect(mean:/1)
+1:24.collect(interprime:/1)
+```
+
+The interprime numbers,
+as a convolution of the prime numbers,
+OEIS [A024675](https://oeis.org/A024675):
+
+```
+>>> ([1 1] / 2).convolve(2:26.prime)
+>>> .allButFirstAndLast
+1:24.collect(interprime:/1)
 ```
 
 The interprime numbers,

@@ -573,11 +573,11 @@
 		}
 	}
 
-	partitionsP { :self |
+	[partitionFunctionP, partitionsP] { :self |
 		self.collect(partitionsP:/1)
 	}
 
-	partitionsQ { :self |
+	[partitionFunctionQ, partitionsQ] { :self |
 		self.collect(partitionsQ:/1)
 	}
 

@@ -9,10 +9,11 @@ The binary form denotes the number of ways of writing _n_ as a `sum` of exactly 
 or, equivalently, the number of partitions into parts of which the largest is exactly _k_.
 
 First few partition numbers,
+threads over lists,
 OEIS [A000041](https://oeis.org/A000041):
 
 ```
->>> 0:32.collect(partitionFunctionP:/1)
+>>> 0:32.partitionFunctionP
 [
 	   1    1    2    3    5
 	   7   11   15   22   30

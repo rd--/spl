@@ -13,7 +13,8 @@ An alias for the unary form of `partitionFunctionP`.
 [2 5 11]
 ```
 
-Threads over lists, first few terms of
+Partition numbers,
+threads over lists,
 OEIS [A000041](https://oeis.org/A000041):
 
 ```

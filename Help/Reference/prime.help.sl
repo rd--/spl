@@ -235,6 +235,16 @@ OEIS [A067076](https://oeis.org/A067076):
 [0 1 2 4 5 7 8 10 13 14 17 19 20 22 25 28]
 ```
 
+From Bertrand’s postulate,
+_2*P(n)-P(n+1)_,
+OEIS [A062234](https://oeis.org/A062234):
+
+```
+>>> let n = 1:16;
+>>> 2 * n.prime - (n + 1).prime
+[1 1 3 3 9 9 15 15 17 27 25 33 39 39 41 47]
+```
+
 Prime numbers,
 OEIS [A000040](https://oeis.org/A000040):
 

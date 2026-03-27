@@ -123,6 +123,22 @@
 		m.dot(self)
 	}
 
+	listConvolve { :u :v |
+		(u.isEmpty | { v.isEmpty }).if {
+			'listConvolve: invalid vector'.error
+		} {
+			let m = u.size;
+			let n = v.size;
+			1.toCollect(n - m + 1) { :i |
+				let x = 0;
+				1.toDo(m) { :j |
+					x := x + (v[i + m - j] * u[j])
+				};
+				x
+			}
+		}
+	}
+
 	periodogramArray { :self |
 		self.fft.absSquare / self.size
 	}

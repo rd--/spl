@@ -201,6 +201,19 @@ OEIS [A038555](https://oeis.org/A038555):
 
 ![](Help/Image/partition-B.svg)
 
+Primes that are the sum of three consecutive primes,
+OEIS [A034962](https://oeis.org/A034962):
+
+~~~spl svg=C oeis=A034962
+2:122.prime
+.partition(3, 1)
+.collect(sum:/1)
+.select(isPrime:/1)
+.discretePlot
+~~~
+
+![](Help/Image/partition-C.svg)
+
 * * *
 
 See also: clump, adjacentPairsCollect, movingMap, pairsCollect, pairsDo, partitionDo, takeList, windowedReduce

@@ -166,6 +166,28 @@ List common subexpressions:
 [(* x x)]
 ```
 
+Constant folding operations:
+
+```
+>> 𝒙 + 0
+x
+
+>> 0 + 𝒙
+x
+
+>> 𝒙 - 0
+x
+
+>> 𝒙 * 1
+x
+
+>> 1 * 𝒙
+x
+
+>> 𝒙 / 1
+x
+```
+
 Plot the `Graph` of the `Tree` of a `SymbolicExpression`:
 
 ~~~spl svg=A
