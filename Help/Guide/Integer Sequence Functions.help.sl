@@ -34,6 +34,7 @@ Named Sequences:
 - `beattySequence`
 - `bernoulliSequence`
 - `calkinWilfSequence`
+- `cantorNumbers`
 - `champernowneSequence`
 - `collatzSequence`
 - `connellSequence`
@@ -46,12 +47,14 @@ Named Sequences:
 - `fareySequence`
 - `fibonacciSequence`
 - `finesSequence`
+- `generalisedPentagonalNumbers`
 - `gijswijtsSequence`
 - `goebelsSequence`
 - `golombsSequence`
 - `gouldsSequence`
 - `grahlSequence`
 - `haltonSequence`
+- `hammingNumbers`
 - `hofstadterQSequence`
 - `inventorySequence`
 - `josephusSequence`
@@ -61,6 +64,9 @@ Named Sequences:
 - `kroneckerSequence`
 - `lookAndSaySequence`
 - `lucasSequence`
+- `luckyNumbers`
+- `ludicNumbers`
+- `mahonianNumbers`
 - `mallowsSequence`
 - `moserDeBruijnSequence`
 - `motzkinSequence`
@@ -87,6 +93,7 @@ Named Sequences:
 - `ulamSequence`
 - `vanDerLaanSequence`
 - `vanEckSequence`
+- `wedderburnEtheringtonNumbers`
 
 Predicates:
 

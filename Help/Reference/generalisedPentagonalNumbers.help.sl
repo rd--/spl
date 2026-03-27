@@ -4,7 +4,7 @@
 
 Answer the first _n_ generalised pentagonal numbers.
 
-The first few terms,
+The generalised pentagonal numbers,
 OEIS [A001318](https://oeis.org/A001318):
 
 ```
@@ -25,7 +25,7 @@ OEIS [A001318](https://oeis.org/A001318):
 ]
 ```
 
-First differences,
+First differences of the generalised pentagonal numbers,
 OEIS [A026741](https://oeis.org/A026741):
 
 ```

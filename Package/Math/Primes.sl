@@ -401,6 +401,19 @@
 		l
 	}
 
+	ludicNumbers { :n |
+		let t = [2 .. n];
+		let r = [1];
+		{
+			t.size > 0
+		}.whileTrue {
+			let k = t[1];
+			r.add(k);
+			t.removeAtAll(Range(1, t.size, k))
+		};
+		r
+	}
+
 	mangoldtLambda { :n |
 		let primeFactors = n.factorInteger;
 		let isPrimePower = primeFactors.size = 1 & {

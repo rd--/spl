@@ -534,10 +534,10 @@
 		}
 	}
 
-	hammingNumbersFromUpTo { :self :limit |
+	hammingNumbers { :end :start |
 		let answer = IdentitySet();
 		let step = { :n |
-			(n <= limit).ifTrue {
+			(n <= end).ifTrue {
 				answer.includes(n).ifFalse {
 					answer.uncheckedInclude(n);
 					step(n * 2);
@@ -546,8 +546,12 @@
 				}
 			}
 		};
-		step(self);
+		step(start);
 		answer.asSortedList.contents
+	}
+
+	hammingNumbers { :end |
+		hammingNumbers(end, end.one)
 	}
 
 	hammingWeight { :self |

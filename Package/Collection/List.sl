@@ -205,6 +205,16 @@ List! : [Object, Storeable, Equatable, Comparable, Json, Iterable, Indexable, Co
 		}
 	}
 
+	rejectIndices { :self :indices |
+		let answer = [];
+		1.toDo(self.size) { :i |
+			indices.includes(i).ifFalse {
+				answer.add(self[i])
+			}
+		};
+		answer
+	}
+
 	removeAll { :self |
 		<primitive: return _self.splice(0);>
 	}
