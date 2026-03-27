@@ -2478,6 +2478,8 @@ Reference/linspace.help.sl
 Reference/LinXFade2.help.sl
 Reference/liouvilleLambda.help.sl
 Reference/lissajousCurve.help.sl
+Reference/listConvolve.help.sl
+Reference/listCorrelate.help.sl
 Reference/List.help.sl
 Reference/listInterpolation.help.sl
 Reference/ListView.help.sl

@@ -1,7 +1,15 @@
 +@Number {
 
-	isConstant { :self :operand |
+	isNumericConstant { :self :operand |
 		self = operand
+	}
+
+}
+
++@Collection {
+
+	isNumericConstant { :unused :unusedOperand |
+		false
 	}
 
 }
@@ -73,7 +81,7 @@
 	}
 
 	[divide, /] { :self :operand |
-		operand.isConstant(1).if {
+		operand.isNumericConstant(1).if {
 			self
 		} {
 			'/'.symbolicPrimitive([self, operand])
@@ -89,7 +97,7 @@
 	}
 
 	[plus, +] { :self :operand |
-		operand.isConstant(0).if {
+		operand.isNumericConstant(0).if {
 			self
 		} {
 			'+'.symbolicPrimitive([self, operand])
@@ -109,7 +117,7 @@
 	}
 
 	[subtract, -] { :self :operand |
-		operand.isZero.if {
+		operand.isNumericConstant(0).if {
 			self
 		} {
 			'-'.symbolicPrimitive([self, operand])
@@ -117,7 +125,7 @@
 	}
 
 	[times, *] { :self :operand |
-		operand.isConstant(1).if {
+		operand.isNumericConstant(1).if {
 			self
 		} {
 			'*'.symbolicPrimitive([self, operand])
@@ -133,7 +141,7 @@
 		SymbolicExpression(
 			name.splOperatorNameToken ? { name },
 			[receiver, self]
-		).constantFolding
+		).simplifyConstantMath
 	}
 
 	cos { :self |
@@ -152,11 +160,11 @@
 		'gamma'.symbolicPrimitive([self])
 	}
 
-	isConstant { :unused :unusedOperand |
+	isInteger { :unused |
 		false
 	}
 
-	isInteger { :unused |
+	isNumericConstant { :unused :unusedOperand |
 		false
 	}
 
@@ -258,33 +266,6 @@ SymbolicExpression : [Object, Storeable, Number, SymbolicObject, SymbolicBoolean
 		common.asList
 	}
 
-	constantFolding { :self |
-		(self.operands.size = 2).if {
-			let [p, q] = self.operands;
-			let simplify = { :k |
-				p.isConstant(k).if {
-					q
-				} {
-					q.isConstant(k).if {
-						p
-					} {
-						self
-					}
-				}
-			};
-			self.operator.name.caseOf(
-				[
-					'+' -> { simplify(0) },
-					'*' -> { simplify(1) }
-				]
-			) {
-				self
-			}
-		} {
-			self
-		}
-	}
-
 	do { :self :aBlock:/1 |
 		aBlock(self);
 		self.operator.isSymbolicExpression.if {
@@ -333,6 +314,33 @@ SymbolicExpression : [Object, Storeable, Number, SymbolicObject, SymbolicBoolean
 					}.unwords
 				]
 			)
+		}
+	}
+
+	simplifyConstantMath { :self |
+		(self.operands.size = 2).if {
+			let [p, q] = self.operands;
+			let simplify = { :k |
+				p.isNumericConstant(k).if {
+					q
+				} {
+					q.isNumericConstant(k).if {
+						p
+					} {
+						self
+					}
+				}
+			};
+			self.operator.name.caseOf(
+				[
+					'+' -> { simplify(0) },
+					'*' -> { simplify(1) }
+				]
+			) {
+				self
+			}
+		} {
+			self
 		}
 	}
 

@@ -141,6 +141,21 @@
 		b
 	}
 
+	butcherTreeCount { :self |
+		let a = Map { :n |
+			(n < 2).if {
+				n
+			} {
+				(1 .. n - 1).sum { :m |
+					(1 .. (n - 1) / m).sum { :k |
+						m * a[m] * a[n - (k * m)]
+					}
+				} / (n - 1)
+			}
+		};
+		a[1:self]
+	}
+
 	calkinWilfSequence { :self |
 		let answer = List(self);
 		answer[1] := 1/1;

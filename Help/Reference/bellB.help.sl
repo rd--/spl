@@ -77,7 +77,7 @@ Evaluate symbolically:
 
 ```
 >> 3.bellB.at(`x`)
-(+ (* x (+ (* x (+ (* x 1) 3)) 1)) 0)
+(* x (+ (* x (+ x 3)) 1))
 ```
 
 * * *

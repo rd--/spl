@@ -139,6 +139,10 @@
 		}
 	}
 
+	listCorrelate { :u :v |
+		listConvolve(u.reverse, v)
+	}
+
 	periodogramArray { :self |
 		self.fft.absSquare / self.size
 	}

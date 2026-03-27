@@ -156,10 +156,10 @@ Evaluate symbolically:
 
 ```
 >> 2.chebyshevT(`x`)
-(+ (* x (+ (* x 2) 0)) -1)
+(+ (* x (* x 2)) -1)
 
 >> 3.chebyshevT(`x`)
-(+ (* x (+ (* x (+ (* x 4) 0)) -3)) 0)
+(* x (+ (* x (* x 4)) -3))
 ```
 
 * * *

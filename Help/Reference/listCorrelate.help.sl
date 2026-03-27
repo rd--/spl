@@ -4,12 +4,6 @@
 
 Answer the correlation of the kernel _u_ with the list _v_.
 
-+List{
-	listCorrelate { :u :v |
-		listConvolve(u.reverse, v)
-	}
-}
-
 At `Symbol`:
 
 ```
@@ -24,7 +18,6 @@ At `Fraction`:
 >>> let v = Fraction(1, 1:20);
 >>> u.listCorrelate(v)
 [
-
 	52489/2520 40499/2520
 	124189/9240 64591/5544
 	531397/51480 371809/40040

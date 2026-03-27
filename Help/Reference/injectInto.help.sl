@@ -67,7 +67,7 @@ Form an alternating sum:
 >> [`a` `b` `c` `d` `e`]
 >> .reverse
 >> .injectInto(0, -.swap)
-(- a (- b (- c (- d (- e 0)))))
+(- a (- b (- c (- d e))))
 ```
 
 Successively partition a list:

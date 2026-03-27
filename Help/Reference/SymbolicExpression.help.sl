@@ -166,7 +166,7 @@ List common subexpressions:
 [(* x x)]
 ```
 
-Constant folding operations:
+Simplify constant math operations:
 
 ```
 >> 𝒙 + 0

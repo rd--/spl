@@ -109,7 +109,7 @@ OEIS [A285676](https://oeis.org/A285676):
 >>> let alpha = 7.sqrt;
 >>> let beta = alpha / (alpha - 1);
 >>> 13.beattySequence(beta)
-[3 6 10 13 17 20 23 27 30 34 37 40 44]
+[1 3 4 6 8 9 11 12 14 16 17 19 20]
 ```
 
 Two interleaved Beatty sequences,
