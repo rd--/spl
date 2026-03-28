@@ -2590,6 +2590,7 @@ Reference/lucasPolynomial.help.sl
 Reference/lucasSequence.help.sl
 Reference/luckyNumbers.help.sl
 Reference/luDecomposition.help.sl
+Reference/ludicArray.help.sl
 Reference/ludicNumbers.help.sl
 Reference/lukasiewiczWord.help.sl
 Reference/luvToXyz.help.sl
@@ -3958,6 +3959,7 @@ Reference/Tan.help.sl
 Reference/tanh.help.sl
 Reference/Tanh.help.sl
 Reference/TChoose.help.sl
+Reference/tchoukaillonNumbers.help.sl
 Reference/TDelay.help.sl
 Reference/TDuty.help.sl
 Reference/TelegraphProcess.help.sl

@@ -48,7 +48,7 @@ Number of unlabeled rooted trees with at most _n_ nodes,
 OEIS [A087803](https://oeis.org/A087803):
 
 ```
->>> 31.butcherTreeCount.prefixSum
+>>> 12.butcherTreeCount.prefixSum
 [1 2 4 8 17 37 85 200 486 1205 3047 7813]
 ```
 

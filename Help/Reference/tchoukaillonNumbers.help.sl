@@ -41,7 +41,7 @@ OEIS [A007952](https://oeis.org/A007952):
 First differences of Tchoukaillon numbers,
 OEIS [A028913](https://oeis.org/A028913):
 
-~~~spl svg=A oeis=A028913
+~~~spl svg=B oeis=A028913
 85.tchoukaillonNumbers
 .differences
 .discretePlot
