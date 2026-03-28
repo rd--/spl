@@ -338,6 +338,25 @@ OEIS [A001044](https://oeis.org/A001044):
 [1 1 4 36 576 14400 518400 25401600]
 ```
 
+A factorial sequence related to the Hausdorff power moment problem,
+OEIS [A394642](https://oeis.org/A394642):
+
+```
+>>> let n = 0:8;
+>>> (7 * n).! /  (n.! * (((2 * n).!) ^ 3L))
+[
+	1
+	630
+	3153150
+	22813670880
+	193806353490750
+	1802031190366286880L
+	17755578493589035663200L
+	182158430416168427065152000L
+	1925260201766867818810402194750L
+]
+```
+
 The [Kempner_function](https://en.wikipedia.org/wiki/Kempner_function),
 also sometimes called the Smarandache function or Kempner numbers,
 the smallest positive integer _m_ such that _n_ divides _m!_,

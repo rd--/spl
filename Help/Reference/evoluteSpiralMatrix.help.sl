@@ -73,7 +73,7 @@ The 7×7 evolute spiral:
 ]
 ```
 
-Plot matrix:
+Plot evolute spiral matrix:
 
 ~~~spl svg=A
 13.evoluteSpiralMatrix.matrixPlot

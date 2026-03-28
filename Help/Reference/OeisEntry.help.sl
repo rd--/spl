@@ -10,7 +10,7 @@ _n_ is the entry identifier, either as an integer or an _A-_ string.
 'A000001'
 ```
 
-Read the `identifier`, `number`, `name`, `keywords`, `offset` and `data` fields:
+Read the `identifier`, `number`, `name`, `stableKeywords`, `offset`, `data` and `bFileData` fields:
 
 ```
 >>> OeisEntry('A000001').then { :e |
@@ -29,7 +29,7 @@ Read the `identifier`, `number`, `name`, `keywords`, `offset` and `data` fields:
 	1,
 	'Number of groups of order n.',
 	['nonn' 'core' 'nice' 'hard'],
-	0,
+	[0 5],
 	94,
 	2048
 )
@@ -115,7 +115,7 @@ true
 
 * * *
 
-See also: cachedFetch
+See also: cachedFetch, OeisSequenceFile
 
 Guides: Integer Sequence Functions
 

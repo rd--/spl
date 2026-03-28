@@ -109,3 +109,10 @@ RunArray(
 
 * * *
 
+See also: ludicNumbers
+
+Guides: Integer Sequence Functions
+
+References:
+_OEIS_
+[1](https://oeis.org/A007952)

@@ -2913,6 +2913,7 @@ Reference/oddPart.help.sl
 Reference/OeisEntry.help.sl
 Reference/oeisFunction.help.sl
 Reference/oeisImageIndex.help.sl
+Reference/OeisSequenceFile.help.sl
 Reference/oeisTerms.help.sl
 Reference/OffsetOut.help.sl
 Reference/ofSize.help.sl
@@ -3784,6 +3785,7 @@ Reference/splitByRegularExpression.help.sl
 Reference/split.help.sl
 Reference/SplitMix.help.sl
 Reference/splitPlaces.help.sl
+Reference/splOeisReferences.help.sl
 Reference/splOperatorCharacters.help.sl
 Reference/splOperatorNameTable.help.sl
 Reference/splOperatorNameToken.help.sl

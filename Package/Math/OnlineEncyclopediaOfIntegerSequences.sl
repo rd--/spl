@@ -350,15 +350,7 @@
 
 }
 
-OeisEntry : [Object, Storeable, Equatable] { | identifier:<String> contents bFile |
-
-	bFileData { :self |
-		self.bFile.ifNil {
-			self.error('bFileData: not fetched')
-		} { :bFile |
-			bFile.column(2)
-		}
-	}
+@OeisSequence {
 
 	bFileUrl { :self |
 		Url(
@@ -372,51 +364,19 @@ OeisEntry : [Object, Storeable, Equatable] { | identifier:<String> contents bFil
 	}
 
 	data { :self |
-		self.lookupField('data')
+		self.dataText
 		.splitBy(',')
 		.collect { :x |
 			x.parseLargeInteger.normal
 		}
 	}
 
-	equalBy { :self :operand :aBlock:/2 |
-		aBlock(self.identifier, operand.identifier)
-	}
-
-	fetch { :self |
-		[
-			self.fetchContents,
-			self.fetchBFile
-		].allFulfilled.then { :unused |
-			self
-		}
-	}
-
-	fetchContents { :self |
-		self.contents.ifNil {
-			self.jsonUrl.fetchMimeType(
-				'application/json'
-			).then { :data |
-				let [entry] = data;
-				self.contents := entry
-			}
-		} { :contents |
-			contents.resolvedPromise
-		}
-	}
-
-	fetchBFile { :self |
-		self.bFileUrl.cachedFetchMimeType(
-			'OnlineEncyclopediaOfIntegerSequences',
-			'text/plain'
-		).then { :data |
-			self.bFile := data.oeisParseBFile;
-			self
-		}
-	}
-
 	isChanged { :self |
 		self.keywords.includes('changed')
+	}
+
+	isComplete { :self |
+		self.keywords.includes('full')
 	}
 
 	isConstant { :self |
@@ -425,6 +385,10 @@ OeisEntry : [Object, Storeable, Equatable] { | identifier:<String> contents bFil
 
 	isCore { :self |
 		self.keywords.includes('core')
+	}
+
+	isEasy { :self |
+		self.keywords.includes('easy')
 	}
 
 	isEigensequence { :self |
@@ -477,6 +441,87 @@ OeisEntry : [Object, Storeable, Equatable] { | identifier:<String> contents bFil
 		)
 	}
 
+	offset { :self |
+		self.offsetText
+		.splitBy(',')
+		.collect(parseDecimalInteger:/1)
+	}
+
+	readSequenceFile { :self :directoryName |
+		system.readTextFile(
+			self.sequenceFileName(directoryName)
+		)
+	}
+
+	sequenceFileName { :self :directoryName |
+		let k = self.identifier;
+		let j = k.first(4);
+		'%/seq/%/%.seq'.format([directoryName, j, k])
+	}
+
+	stableKeywords { :self |
+		let unstable = ['changed', 'new'];
+		self.keywords.reject { :each |
+			unstable.includes(each)
+		}
+	}
+
+	subscriptOfFirstTerm { :self |
+		self.offset.at(1)
+	}
+
+}
+
+OeisEntry : [Object, Storeable, Equatable, OeisSequence] { | identifier:<String> contents bFile |
+
+	bFileData { :self |
+		self.bFile.ifNil {
+			self.error('bFileData: not fetched')
+		} { :bFile |
+			bFile.column(2)
+		}
+	}
+
+	dataText { :self |
+		self.lookupField('data')
+	}
+
+	equalBy { :self :operand :aBlock:/2 |
+		aBlock(self.identifier, operand.identifier)
+	}
+
+	fetch { :self |
+		[
+			self.fetchContents,
+			self.fetchBFile
+		].allFulfilled.then { :unused |
+			self
+		}
+	}
+
+	fetchContents { :self |
+		self.contents.ifNil {
+			self.jsonUrl.fetchMimeType(
+				'application/json'
+			).then { :data |
+				let [entry] = data;
+				self.contents := entry
+			}
+		} { :contents |
+			contents.resolvedPromise
+		}
+	}
+
+	fetchBFile { :self |
+		self.bFileUrl.cachedFetchMimeType(
+			'OnlineEncyclopediaOfIntegerSequences',
+			'text/plain'
+		).then { :data |
+			self.bFile := data.oeisParseBFile;
+			self
+		}
+	}
+
 	keywords { :self |
 		self.lookupField('keyword').splitBy(',')
 	}
@@ -498,18 +543,8 @@ OeisEntry : [Object, Storeable, Equatable] { | identifier:<String> contents bFil
 		self.lookupField('number')
 	}
 
-	offset { :self |
+	offsetText { :self |
 		self.lookupField('offset')
-		.splitBy(',')
-		.at(1)
-		.parseDecimalInteger
-	}
-
-	stableKeywords { :self |
-		let unstable = ['changed', 'new'];
-		self.keywords.reject { :each |
-			unstable.includes(each)
-		}
 	}
 
 	storeString { :self |
@@ -528,6 +563,82 @@ OeisEntry : [Object, Storeable, Equatable] { | identifier:<String> contents bFil
 		system.oeisEntries.atIfAbsentPut(self) {
 			newOeisEntry().initializeSlots(self, nil, nil)
 		}
+	}
+
+}
+
+OeisSequenceFile : [Object, Equatable, OeisSequence] { | identifier contents |
+
+	author { :self |
+		self.uniqueField('%A')
+	}
+
+	dataText { :self |
+		let s = self.uniqueField('%S');
+		let t = self.uniqueFieldOrNil('%T');
+		let u = self.uniqueFieldOrNil('%U');
+		[s, t, u].deleteMissing.stringCatenate
+	}
+
+	field { :self :code |
+		let prefix = '% % '.format([code, self.identifier]);
+		self.contents.select { :each |
+			each.beginsWith(prefix)
+		}.collect { :each |
+			each.drop(11)
+		}
+	}
+
+	name { :self |
+		self.uniqueField('%N')
+	}
+
+	keywords { :self |
+		self.uniqueField('%K').splitBy(',')
+	}
+
+	number { :self |
+		self.identifier.allButFirst.parseDecimalInteger
+	}
+
+	offsetText { :self |
+		self.uniqueField('%O')
+	}
+
+	uniqueField { :self :code |
+		let [e] = self.field(code);
+		e
+	}
+
+	uniqueFieldOrNil { :self :code |
+		let e = self.field(code);
+		e.size.caseOf(
+			[
+				0 -> { nil },
+				1 -> { e[1] }
+			]
+		) {
+			self.error('uniqueFieldOrNil')
+		}
+	}
+
+}
+
++String {
+
+	OeisSequenceFile { :self :directoryName |
+		newOeisSequenceFile()
+		.initializeSlots(
+			self,
+			OeisEntry(self).readSequenceFile(directoryName).lines
+		)
+	}
+
+	OeisSequenceFile { :self |
+		OeisSequenceFile(
+			self,
+			system.environmentVariable('OEIS_DATA')
+		)
 	}
 
 }

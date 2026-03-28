@@ -156,6 +156,36 @@ OEIS [A166486](https://oeis.org/A166486):
 
 ![](Help/Image/sign-C.svg)
 
+A quaternion-generated sequence by Creighton Dement,
+OEIS [A108618](https://oeis.org/A108618):
+
+~~~spl svg=D oeis=A108618
+let f = { :n |
+	n.sign * (n % 2)
+};
+let a = Map { :n |
+	(n = 0).if {
+		0
+	} {
+		let m = n - 1;
+		let p = a[m] - (3 * b[m]);
+		let q = a[m] + b[m];
+		(p / 2) + (3 * f(q / 2)) + f(p / 2) + 1
+	}
+};
+let b = Map { :n |
+	(n = 0).if {
+		0
+	} {
+		let m = n - 1;
+		(a[m] + b[m]) / 2 + 1
+	}
+};
+a[1:115].discretePlot
+~~~
+
+![](Help/Image/sign-D.svg)
+
 * * *
 
 See also: *, abs, copySignTo, negate, signBit

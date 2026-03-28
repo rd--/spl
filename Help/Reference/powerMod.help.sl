@@ -46,15 +46,13 @@ If _b_ is negative answer the multiplicative modular inverse of _a^|b|_ and _m_:
 3
 ```
 
-Threads over first argument:
+Threads over base and exponent:
 
 ```
 >>> 1:4.powerMod(4, 5)
 [1 1 1 1]
 
->>> 10:14.collect { :b |
->>> 	2.powerMod(b, 5)
->>> }
+>>> 2.powerMod(10:14, 5)
 [4 3 1 2 4]
 ```
 
@@ -214,6 +212,14 @@ OEIS [A193356](https://oeis.org/A193356):
 >>> 	n.powerMod(n, 2 * n)
 >>> }
 [1 0 3 0 5 0 7 0 9 0 11 0 13 0 15 0 17 0]
+```
+
+Final two digits of _7^n_,
+OEIS [A014390](https://oeis.org/A014390):
+
+```
+>>> 7.powerMod([0 .. 11], 100)
+[1 7 49 43 1 7 49 43 1 7 49 43]
 ```
 
 The sequence with fixed powers:

@@ -692,25 +692,31 @@
 	}
 
 	powerMod { :base :exponent :modulo |
-		(exponent > 0).if {
-			(modulo = 1).if {
-				0
-			} {
-				let r = 1;
-				let b = base % modulo;
-				let e = exponent;
-				let m = modulo;
-				{ e > 0 }.whileTrue {
-					((e % 2) = 1).ifTrue {
-						r := (r * b) % m
-					};
-					b := (b * b) % m;
-					e := (e / 2).floor
-				};
-				r
+		exponent.isCollection.if {
+			exponent.collect { :each |
+				base.powerMod(each, modulo)
 			}
 		} {
-			(base ^ exponent.abs).modularInverse(modulo)
+			(exponent > 0).if {
+				(modulo = 1).if {
+					0
+				} {
+					let r = 1;
+					let b = base % modulo;
+					let e = exponent;
+					let m = modulo;
+					{ e > 0 }.whileTrue {
+						((e % 2) = 1).ifTrue {
+							r := (r * b) % m
+						};
+						b := (b * b) % m;
+						e := (e / 2).floor
+					};
+					r
+				}
+			} {
+				(base ^ exponent.abs).modularInverse(modulo)
+			}
 		}
 	}
 

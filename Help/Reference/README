@@ -26,4 +26,4 @@ grep '!\[\](' ~/sw/spl/Help/Reference/* | wc -l
 
 Total => 568
 
-Linting: 4070 file(s)
+Linting: 4076 file(s)
