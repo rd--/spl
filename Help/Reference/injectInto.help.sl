@@ -162,6 +162,23 @@ OEIS [A278169](https://oeis.org/A278169):
 
 ![](Help/Image/injectInto-C.svg)
 
+The sieve of Tchoukaillon,
+or Mancala,
+or Kalahari,
+a variant of Flavius Josephus’s sieve,
+OEIS [A007952](https://oeis.org/A007952):
+
+~~~spl svg=D oeis=A007952
+1:65.collect { :n |
+	let m = n - 1;
+	m:1:-1.injectInto(n) { :a :b |
+		b * (a / b + 1).floor
+	}
+}.discretePlot
+~~~
+
+![](Help/Image/injectInto-D.svg)
+
 * * *
 
 See also: foldLeft, foldRight, reduce

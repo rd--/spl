@@ -93,7 +93,9 @@ OEIS [A006590](https://oeis.org/A006590):
 ```
 
 Smallest number of stones in Tchoukaillon solitaire that make use of _n_-th hole,
-OEIS [A002491](https://oeis.org/A002491):
+OEIS [A002491](https://oeis.org/A002491),
+also OEIS [A007952](https://oeis.org/A007952) plus one,
+also OEIS [A108696](https://oeis.org/A108696) plus two:
 
 ```
 >>> 0:22.collect { :n |

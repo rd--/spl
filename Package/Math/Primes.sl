@@ -1120,6 +1120,24 @@
 
 +List {
 
+	ludicArray { :shape |
+		let [m, n] = shape;
+		let l = (m * n).square / 2;
+		let t = [2 .. l];
+		let a = [];
+		{
+			a.size <= m
+		}.whileTrue {
+			let k = t[1];
+			let r = Range(1, t.size, k);
+			let u = t.rejectIndices(r);
+			let v = t.complement(u);
+			a.add(v.first(n));
+			t := u
+		};
+		a
+	}
+
 	primesListExtendedToIndex { :self :anInteger |
 		let p = self.last;
 		(anInteger - self.size).timesRepeat {

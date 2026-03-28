@@ -245,6 +245,20 @@ OEIS [A010551](https://oeis.org/A010551):
 [1 1 2 4 12 36 144 576 2880 14400]
 ```
 
+A triangle of quotients,
+OEIS [A140061](https://oeis.org/A140061)
+
+~~~spl svg=A oeis=A140061
+1:11.collect { :i |
+	let j = i - 1;
+	{ :a :b |
+		b * floor(a / b + 1)
+	}.foldList(i, j:1:-1).reverse
+}.catenate.scatterPlot
+~~~
+
+![](Help/Image/foldList-A.svg)
+
 * * *
 
 See also: accumulate, collect, differences, foldLeft, injectInto, ratios

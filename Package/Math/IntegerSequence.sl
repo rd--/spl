@@ -42,6 +42,18 @@
 		b.clearZeroSignBit
 	}
 
+	tchoukaillonNumbers { :self |
+		0.toCollect(self - 1) { :n |
+			let x = 1;
+			x:n.do { :p |
+				let a = n + 2 - p;
+				let b = n + 1 - p;
+				x := (a * x / b).ceiling
+			};
+			x - 1
+		}
+	}
+
 }
 
 +@Integer {

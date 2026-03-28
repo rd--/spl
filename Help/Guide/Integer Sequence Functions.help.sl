@@ -88,6 +88,7 @@ Named Sequences:
 - `sternBrocotSequence`
 - `sylvestersSequence`
 - `szekeresSequence`
+- `tchoukaillonNumbers`
 - `thueMorseSequence`
 - `toothpickSequence`
 - `ulamSequence`

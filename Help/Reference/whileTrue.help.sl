@@ -4,6 +4,7 @@
 
 Conditional evaluation.
 Evaluate the block _f_ as long as the value of the block _condition_ is `true`.
+In the unary case, simply evaluate _condition_ repeatedly as long as it answers `true`.
 
 Ordinarily _condition_ and _f_ are literal no-argument blocks written using `Trailing Block Syntax`.
 
@@ -89,7 +90,43 @@ let r = 1;
 
 ![](Help/Image/whileTrue-B.svg)
 
-In the unary case, simply evaluate _condition_ repeatedly as long as it answers `true`.
+The number of Mancala numbers _≤n-1_,
+OEIS [A082447](https://oeis.org/A082447):
+
+~~~spl svg=C oeis=A082447
+1:65.collect { :n |
+	let s = n;
+	let c = 1;
+	{
+		s - (s % c) > 0
+	}.whileTrue {
+		s := s - (s % c);
+		c := c + 1
+	};
+	c - 1
+}.discretePlot
+~~~
+
+![](Help/Image/whileTrue-C.svg)
+
+Least _k_ such that _k³⌊(x(k-1)/k³)_ is zero,
+OEIS [A082528](https://oeis.org/A082528):
+
+~~~spl svg=D oeis=A082528
+0:115.collect { :n |
+	let s = n;
+	let c = 1;
+	{
+		s - (s % (c ^ 3)) > 0
+	}.whileTrue {
+		s := s - (s % (c ^ 3));
+		c := c + 1
+	};
+	c
+}.stepPlot
+~~~
+
+![](Help/Image/whileTrue-D.svg)
 
 * * *
 

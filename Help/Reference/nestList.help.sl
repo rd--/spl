@@ -303,6 +303,33 @@ OEIS [A012257](https://oeis.org/A012257):
 
 ![](Help/Image/nestList-D.svg)
 
+Triangular array of winning positions in Tchoukaillon, or Mancala, solitaire,
+OEIS [A028932](https://oeis.org/A028932):
+
+~~~spl svg=E oeis=A028932
+{ :y |
+	let x = y ++ [0];
+	let i = 1;
+	{
+		x[i] != 0
+	}.whileTrue {
+		x[i] := x[i] - 1;
+		i := i + 1
+	};
+	x[i] := i;
+	(x.last = 0).if {
+		x.allButLast
+	} {
+		x
+	}
+}.nestList([], 20)
+.collect(reverse:/1)
+.catenate
+.discretePlot
+~~~
+
+![](Help/Image/nestList-E.svg)
+
 * * *
 
 See also: foldLeft, iterate, reduce, scan

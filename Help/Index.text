@@ -754,6 +754,7 @@ Reference/BufFrames.help.sl
 Reference/BufRd.help.sl
 Reference/bulgarianSolitaire.help.sl
 Reference/burrowsWheelerTransform.help.sl
+Reference/butcherTreeCount.help.sl
 Reference/butterflyCurve.help.sl
 Reference/bWeightingCurve.help.sl
 Reference/ByteArray.help.sl
@@ -1704,7 +1705,7 @@ Reference/halve.help.sl
 Reference/hammersleyPointSet.help.sl
 Reference/hammingDistance.help.sl
 Reference/hammingGraph.help.sl
-Reference/hammingNumbersFromUpTo.help.sl
+Reference/hammingNumbers.help.sl
 Reference/hammingWeight.help.sl
 Reference/hammingWindow.help.sl
 Reference/hammingWindowTable.help.sl
@@ -2589,6 +2590,7 @@ Reference/lucasPolynomial.help.sl
 Reference/lucasSequence.help.sl
 Reference/luckyNumbers.help.sl
 Reference/luDecomposition.help.sl
+Reference/ludicNumbers.help.sl
 Reference/lukasiewiczWord.help.sl
 Reference/luvToXyz.help.sl
 Reference/lyndonWords.help.sl
