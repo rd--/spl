@@ -120,6 +120,84 @@ OEIS [A059269](https://oeis.org/A059269):
 
 ![](Help/Image/select-A.svg)
 
+Primes congruent to one or two modulo four,
+OEIS [A002313](https://oeis.org/A002313):
+
+~~~spl svg=B oeis=A002313
+1:115.prime.select { :n |
+	n % 4 != 3
+}.discretePlot
+~~~
+
+![](Help/Image/select-B.svg)
+
+Numbers _k_ such that _4k+1_ is prime,
+OEIS [A005098](https://oeis.org/A005098):
+
+~~~spl svg=C oeis=A005098
+1:200.select { :n |
+	(4 * n + 1).isPrime
+}.discretePlot
+~~~
+
+![](Help/Image/select-C.svg)
+
+Numbers of the form _x²+4y²_,
+OEIS [A020668](https://oeis.org/A020668):
+
+~~~spl svg=D oeis=A020668
+0:200.select { :n |
+	2.squaresR(n) != 0 & {
+		n % 4 != 2
+	}
+}.discretePlot
+~~~
+
+![](Help/Image/select-D.svg)
+
+Primes of the form _4n+3_,
+OEIS [A002145](https://oeis.org/A002145):
+
+~~~spl svg=E oeis=A002145
+(1:150 * 4 - 1).select(isPrime:/1)
+.discretePlot
+~~~
+
+![](Help/Image/select-E.svg)
+
+Primes of the form _6n+1_,
+OEIS [A002476](https://oeis.org/A002476):
+
+~~~spl svg=F oeis=A002476
+(1:150 * 6 + 1).select(isPrime:/1)
+.discretePlot
+~~~
+
+![](Help/Image/select-F.svg)
+
+Primes of the form _8n+1_,
+OEIS [A007519](https://oeis.org/A007519):
+
+~~~spl svg=G oeis=A007519
+(1:170 * 8 + 1).select(isPrime:/1)
+.discretePlot
+~~~
+
+![](Help/Image/select-G.svg)
+
+One less than primes congruent to one modulo four,
+OEIS [A152680](https://oeis.org/A152680):
+
+~~~spl svg=H oeis=A152680
+(
+	1:100.prime.select { :n |
+		n % 4 = 1
+	} - 1
+).scatterPlot
+~~~
+
+![](Help/Image/select-H.svg)
+
 * * *
 
 See also: collect, detect, groupBy, keySelect, reject

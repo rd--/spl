@@ -2,7 +2,9 @@
 
 - _isPythagoreanPrime(n)_
 
-Answer `true` if _n_ is a Pythagorean prime, else `false`.
+Answer `true` if _n_ is a Pythagorean prime,
+a prime of the form _4k+1_,
+else `false`.
 
 The first few Pythagorean primes,
 OEIS [A002144](https://oeis.org/A002144):
@@ -16,6 +18,9 @@ OEIS [A002144](https://oeis.org/A002144):
 	 41  53  61  73  89
 	 97 101 109 113
 ]
+
+>>> (4 * 1:23 + 1).select(isPrime:/1)
+[5 13 17 29 37 41 53 61 73 89]
 ```
 
 The first few Pythagorean primes,

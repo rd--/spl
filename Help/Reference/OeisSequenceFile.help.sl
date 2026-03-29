@@ -41,7 +41,6 @@ FilePath('/tmp/splOeisReferences.json')
 	.values
 	.catenate
 	.unique
-	.allButLast
 	.collect { :n |
 		let o = OeisSequenceFile(n);
 		n -> (

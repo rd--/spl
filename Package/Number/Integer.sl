@@ -839,6 +839,33 @@
 		self.isInteger
 	}
 
+	/*
+	isFundamentalDiscriminant { :d |
+		let e = d % 4;
+		(e > 1).if {
+			false
+		} {
+			(e = 1).if {
+				d.isSquareFree & { d != 1 }
+			} {
+				let m = d / 4;
+				m.isSquareFree & { m % 4 > 1 }
+			}
+		}
+	}
+	*/
+
+	isFundamentalDiscriminant { :n |
+		n != 1 & {
+			n % 4 = 1 | {
+				let m = n % 16;
+				m = 8 | { m = 12 }
+			}
+		} & {
+			(n / (2 ^ n.integerExponent(2))).isSquareFree
+		}
+	}
+
 	isHappyNumber { :self |
 		self.perfectDigitalInvariantSequence(10, 2).last = 1
 	}

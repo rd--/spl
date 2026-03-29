@@ -892,6 +892,16 @@ OEIS [A027934](https://oeis.org/A027934):
 [0 1 2 5 11 24 51 107 222 457 935 1904]
 ```
 
+A floretion-generated sequence relating to centered square numbers,
+OEIS [A104563](https://oeis.org/A104563):
+
+```
+>>> [3 -4 4 -3 1].linearRecurrence(
+>>> 	[0 1 3 5 8], 15
+>>> )
+[0 1 3 5 8 13 19 25 32 41 51 61 72 85 99]
+```
+
 Draw spiral:
 
 ~~~spl svg=A

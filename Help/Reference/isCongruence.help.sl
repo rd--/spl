@@ -41,9 +41,23 @@ true
 true
 ```
 
+Numbers that are divisible only by primes congruent to one modulo four,
+OEIS [A004613](https://oeis.org/A004613):
+
+~~~spl svg=A oeis=A004613
+1:500.select { :n |
+	n.distinctPrimeFactors
+	.allSatisfy { :p |
+		p.isCongruence(1, 4)
+	}
+}.discretePlot
+~~~
+
+![](Help/Image/isCongruence-A.svg)
+
 * * *
 
-See also: %, mod, Residue
+See also: =, equal, %, mod, Residue
 
 Guides: Integer Functions
 

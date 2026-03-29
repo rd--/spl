@@ -104,6 +104,16 @@ Plot first 250 prime numbers:
 
 ![](Help/Image/fromPolarCoordinates-F.svg)
 
+A spiral on five radial lines:
+
+~~~spl svg=G
+0:60.collect { :n |
+	[n, n.pi / 5/2]
+}.fromPolarCoordinates.Line
+~~~
+
+![](Help/Image/fromPolarCoordinates-G.svg)
+
 * * *
 
 See also: fromBipolarCoordinates, PolarCoordinates, toPolarCoordinates, fromSphericalCoordinates

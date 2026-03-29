@@ -140,6 +140,27 @@ OEIS [A053671](https://oeis.org/A053671):
 
 ![](Help/Image/Infinity-C.svg)
 
+Minimal integer square root of -1 modulo _p_,
+where _p_ is the _n_-th prime of the form _4k+1_,
+OEIS [A002314](https://oeis.org/A002314):
+
+~~~spl svg=D oeis=A002314
+let a = [];
+1:150.do { :n |
+	let p = n.prime;
+	(p % 4 = 1).ifTrue {
+		a.add(
+			1:Infinity.detect { :k |
+				(k.square + 1) % p = 0
+			}
+		)
+	}
+};
+a.discretePlot
+~~~
+
+![](Help/Image/Infinity-D.svg)
+
 * * *
 
 See also: e, inf, NaN, pi

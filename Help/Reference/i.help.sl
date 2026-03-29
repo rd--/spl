@@ -30,6 +30,28 @@ Threads over lists:
 [0J3 0J-4 0J6]
 ```
 
+Function defined multiplicatively on the complex numbers,
+OEIS [A076340](https://oeis.org/A076340) and
+OEIS [A076341](https://oeis.org/A076341):
+
+~~~spl svg=A
+2:115.collect { :n |
+	n.factorInteger.product { :f |
+		let [p, e] = f;
+		(p = 2).if {
+			2
+		} {
+			let a = (p / 4).floor;
+			let b = (p % 4 / 2).floor;
+			let c = (2 - (p % 4)).i;
+			(a + b) * 4 + c
+		} ^ e
+	}
+}.realImaginary.transpose.scatterPlot
+~~~
+
+![](Help/Image/i-A.svg)
+
 * * *
 
 See also: Complex, imaginary, j, real

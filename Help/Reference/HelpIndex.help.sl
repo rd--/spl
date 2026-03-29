@@ -18,7 +18,7 @@ Count _Reference_ files:
 >>> system.helpIndex
 >>> .names('Reference')
 >>> .size
-4070
+4076
 ```
 
 Count _Guide_ files:
