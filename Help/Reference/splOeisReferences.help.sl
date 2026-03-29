@@ -8,7 +8,7 @@ Count entries:
 
 ```
 >>> system.splOeisReferences.size
-616
+620
 ```
 
 Count unique OEIS identitfiers:
@@ -16,7 +16,7 @@ Count unique OEIS identitfiers:
 ```
 >>> system.splOeisReferences
 >>> .values.catenate.unique.size
-2542
+2564
 ```
 
 Lookup OEIS references at `zeta`:
@@ -29,3 +29,5 @@ Lookup OEIS references at `zeta`:
 * * *
 
 See also: oeisImageIndex
+
+Guides: Integer Sequence Functions
