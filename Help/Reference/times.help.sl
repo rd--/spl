@@ -176,6 +176,34 @@ OEIS [A017581](https://oeis.org/A017581):
 [5 17 29 41 53 65 77 89 101 113 125 137]
 ```
 
+_2n(2n+1)_,
+OEIS [A002943](https://oeis.org/A002943):
+
+```
+>>> let n = 0:15;
+>>> 2 * n * (2 * n + 1)
+[
+	  0   6  20  42  72
+	110 156 210 272 342
+	420 506 600 702 812
+	930
+]
+```
+
+_2n(2n-1)_,
+OEIS [A002939](https://oeis.org/A002939):
+
+```
+>>> let n = 0:15;
+>>> 2 * n * (2 * n - 1)
+[
+	  0   2  12  30  56
+	 90 132 182 240 306
+	380 462 552 650 756
+	870
+]
+```
+
 Plot multiples of each the integers up to _n_ extending to _m_,
 the _y_ coordinate is given by the multiplier:
 

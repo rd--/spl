@@ -312,6 +312,19 @@ OEIS [A003059](https://oeis.org/A003059):
 
 ![](Help/Image/sqrt-H.svg)
 
+The clockwise square spiral steps,
+one through four represent moves to the right, down, left and up,
+OEIS [A063826](https://oeis.org/A063826):
+
+~~~spl svg=I oeis=A063826
+0:104.collect { :n |
+	let m = 4 * n + 1;
+	(m.sqrt.floor + 3) % 4 + 1
+}.stepPlot
+~~~
+
+![](Help/Image/sqrt-I.svg)
+
 `sqrt` is an alias for `squareRoot`.
 
 Where supported `sqrt` is displayed as √.

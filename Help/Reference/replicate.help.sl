@@ -129,6 +129,14 @@ OEIS [A062383](https://oeis.org/A062383):
 [2 4 4 8 8 8 8 16 16 16 16 16 16 16 16]
 ```
 
+Nonnegative integers repeated four times,
+OEIS [A002265](https://oeis.org/A002265):
+
+```
+>>> 4 # 1:5
+[1 1 1 1 2 2 2 2 3 3 3 3 4 4 4 4 5 5 5 5]
+```
+
 If _n_ is a scalar integer it re-written as a list:
 
 ```

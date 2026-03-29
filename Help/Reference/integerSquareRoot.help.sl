@@ -106,6 +106,14 @@ Show that the expression _f_ below answers non-square numbers:
 )
 ```
 
+Integer part of square root of _4n+1_,
+OEIS [A000267](https://oeis.org/A000267):
+
+```
+>>> (4 * 0:19 + 1).integerSquareRoot
+[1 2 3 3 4 4 5 5 5 6 6 6 7 7 7 7 8 8 8 8]
+```
+
 Number of partitions of _n_ into two squares,
 OEIS [A000161](https://oeis.org/A000161):
 
@@ -123,6 +131,16 @@ OEIS [A000161](https://oeis.org/A000161):
 ~~~
 
 ![](Help/Image/integerSquareRoot-A.svg)
+
+Integer part of square root of _4n+1_,
+OEIS [A000267](https://oeis.org/A000267):
+
+~~~spl svg=B oeis=A000267
+(4 * 0:45 + 1).integerSquareRoot
+.discretePlot
+~~~
+
+![](Help/Image/integerSquareRoot-B.svg)
 
 * * *
 

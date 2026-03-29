@@ -2028,7 +2028,7 @@ Reference/isColumnVector.help.sl
 Reference/isComplex.help.sl
 Reference/isComplexString.help.sl
 Reference/isComposite.help.sl
-Reference/isConguence.help.sl
+Reference/isCongruence.help.sl
 Reference/isConstantStructure.help.sl
 Reference/isConvex.help.sl
 Reference/isCoprime.help.sl
@@ -2071,6 +2071,7 @@ Reference/isFormFeed.help.sl
 Reference/isFraction.help.sl
 Reference/isFractionString.help.sl
 Reference/isFullReptendPrime.help.sl
+Reference/isFundamentalDiscriminant.help.sl
 Reference/isGaussianInteger.help.sl
 Reference/isGaussianPrime.help.sl
 Reference/isGeometricProgression.help.sl
@@ -3810,6 +3811,7 @@ Reference/Square.help.sl
 Reference/squarePyramidalNumber.help.sl
 Reference/squareSpiral.help.sl
 Reference/squareSpiralPoints.help.sl
+Reference/squareSpiralUnrank.help.sl
 Reference/squaresR.help.sl
 Reference/squareWave.help.sl
 Reference/srgbDecode.help.sl

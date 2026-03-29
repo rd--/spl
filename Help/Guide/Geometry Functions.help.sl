@@ -272,6 +272,7 @@ Spiral Functions:
 - `spiralMatrix`
 - `squareSpiral`
 - `squareSpiralPoints`
+- `squareSpiralUnrank`
 - `theodorusSpiral`
 - `tractrixSpiral`
 - `triangularSpiralPoints`

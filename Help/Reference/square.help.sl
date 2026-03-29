@@ -71,7 +71,7 @@ OEIS [A000330](https://oeis.org/A000330):
 ]
 ```
 
-_n^2-1_,
+_n²-1_,
 or equally _n(n+2)_,
 OEIS [A005563](https://oeis.org/A005563):
 
@@ -86,12 +86,34 @@ OEIS [A005563](https://oeis.org/A005563):
 [0 3 8 15 24 35 48 63 80 99 120 143 168]
 ```
 
-_2(n^2)-1_,
+_2n²-1_,
 OEIS [A056220](https://oeis.org/A056220):
 
 ```
 >>> 2 * 0:9.square - 1
 [-1 1 7 17 31 49 71 97 127 161]
+```
+
+_n²+n-⌊((n-1)/2)_,
+OEIS [A317186](https://oeis.org/A317186):
+
+```
+>>> let n = 0:12;
+>>> n.square + n - ((n - 1) / 2).floor
+[1 2 6 11 19 28 40 53 69 86 106 127 151]
+
+>>> [2 0 -2 1].linearRecurrence(
+>>> 	[1 2 6 11], 13
+>>> )
+[1 2 6 11 19 28 40 53 69 86 106 127 151]
+```
+
+Even squares, _(2n)²_,
+OEIS [A016742](https://oeis.org/A016742):
+
+```
+>>> (2 * 0:10).square
+[0 4 16 36 64 100 144 196 256 324 400]
 ```
 
 Binary expansion of square numbers,
@@ -155,7 +177,9 @@ _x²_ plotted on a Cartesian plane:
 ![](Help/Image/square-E.svg)
 
 The quarter-squares sequence,
-OEIS [A002620](https://oeis.org/A002620):
+OEIS [A002620](https://oeis.org/A002620),
+also one less than
+OEIS [A033638](https://oeis.org/A033638):
 
 ~~~spl svg=F oeis=A002620
 (0:65.square / 4).floor.discretePlot

@@ -122,6 +122,41 @@
 		answer
 	}
 
+	squareSpiralRankZeroIndexed { :x :y |
+		(y >= x.abs).if {
+			4 * y.square - y - x
+		} {
+			(-x >= y.abs).if {
+				4 * x.square - x - y
+			} {
+				(-y >= x.abs).if {
+					(4 * y - 3) * y + x
+				} {
+					(4 * x - 3) * x + y
+				}
+			}
+		}
+	}
+
+	squareSpiralUnrank { :n |
+		let m = (n - 1).integerSquareRoot;
+		let k = (m / 2).ceiling;
+		n := n - 1 - (4 * k.square);
+		(n < 0).if {
+			(n < -m).if {
+				[k, 3 * k + n]
+			} {
+				[-k - n, k]
+			}
+		} {
+			(n < m).if {
+				[-k, k - n]
+			} {
+				[n - (3 * k), -k]
+			}
+		}
+	}
+
 	tractrixSpiral { :a |
 		{ :t |
 			[
@@ -133,3 +168,23 @@
 
 }
 
++@Collection {
+
+	squareSpiralUnrank { :self |
+		self.collect(squareSpiralUnrank:/1)
+	}
+
+}
+
++List {
+
+	squareSpiralRank { :self |
+		self.isVector.if {
+			let [x, y] = self;
+			squareSpiralRankZeroIndexed(x, y) + 1
+		} {
+			self.collect(squareSpiralRank:/1)
+		}
+	}
+
+}
