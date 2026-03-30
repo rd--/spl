@@ -14,7 +14,8 @@ First ten coordinates:
 ]
 ```
 
-The inverse is `squareSpiralRank`:
+The inverse is `squareSpiralRank`,
+which threads over lists:
 
 ```
 >>> 1:10.squareSpiralUnrank

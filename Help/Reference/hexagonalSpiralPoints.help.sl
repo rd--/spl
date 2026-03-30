@@ -17,7 +17,8 @@ Points on the first four sides of the spiral:
 ]
 ```
 
-The number of points in the first n sides:
+The number of points in the first n sides,
+OEIS [A001399](https://oeis.org/A001399):
 
 ```
 >>> 0:20.collect { :n |

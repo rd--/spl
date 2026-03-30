@@ -1,8 +1,8 @@
 # binarySearchRightmost
 
-- _binarySearchRightmost(aSequence, anObject)_
+- _binarySearchRightmost([x₁ x₂ …], y)_
 
-Answer the index of _anObject_ in _aSequence_,
+Answer the index of the object _y_ in the sequence _x_,
 which is known to be sorted.
 
 ```
@@ -16,7 +16,7 @@ which is known to be sorted.
 ```
 
 If the item is not in the sequence
-answer the index of the first item in the sequence that is greater than _anObject_:
+answer the index of the first item in the sequence that is greater than _y_:
 
 ```
 >>> let x = [1 3 6 10 15 21 28 36 45 55 57];

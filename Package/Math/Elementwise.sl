@@ -1001,10 +1001,14 @@
 +List {
 
 	atVectorOrElementwise { :self :aBlock:/1 |
-		self.isVector.if {
-			aBlock(self)
+		self.isEmpty.if {
+			[]
 		} {
-			self.collect(aBlock:/1)
+			self.isVector.if {
+				aBlock(self)
+			} {
+				self.collect(aBlock:/1)
+			}
 		}
 	}
 

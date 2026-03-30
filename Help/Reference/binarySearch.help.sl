@@ -1,9 +1,9 @@
 # binarySearch
 
-- _binarySearch(aSequence, anObject)_
+- _binarySearch([x₁ x₂ …], y)_
 
-Answer the index of _anObject_ in _aSequence_, which is known to be sorted.
-If _anObject_ is not in _aSequence_ answer `zero`.
+Answer the index of the object _y_ in the sequence _x_, which is known to be sorted.
+If _y_ is not in _x_ answer `zero`.
 
 Find an integer in a sorted list of integers:
 
@@ -58,6 +58,6 @@ See also: binaryDetectIndex, binarySearchLeftmost, binarySearchRightmost, detect
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/BinarySearch.html)
+[1](https://mathworld.wolfram.com/BinarySearch.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Binary_search)

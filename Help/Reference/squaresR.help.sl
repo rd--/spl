@@ -109,6 +109,37 @@ OEIS [A014200](https://oeis.org/A014200):
 ]
 ```
 
+Number of points with Euclidean length less than or equal to _n²_ in square lattice,
+OEIS [A000328](https://oeis.org/A000328):
+
+```
+>>> 0:11.collect { :n |
+>>> 	let m = n.square;
+>>> 	0:m.sum { :k |
+>>> 		2.squaresR(k)
+>>> 	}
+>>> }
+[1 5 13 29 49 81 113 149 197 253 317 377]
+```
+
+One if _n_ is of the form _m(m+3)/2_ else zero,
+OEIS [A023531](https://oeis.org/A023531):
+
+```
+>>> 0:27.collect { :n |
+>>> 	1.squaresR(8 * n + 9) / 2
+>>> }
+[
+	1
+	0 1
+	0 0 1
+	0 0 0 1
+	0 0 0 0 1
+	0 0 0 0 0 1
+	0 0 0 0 0 0 1
+]
+```
+
 Number of ways of writing _n_ as a sum of two squares,
 OEIS [A004018](https://oeis.org/A004018):
 
@@ -142,6 +173,23 @@ OEIS [A000118](https://oeis.org/A000118):
 ~~~
 
 ![](Help/Image/squaresR-C.svg)
+
+A sum over the predicate _n=m(m+3)/2_,
+OEIS [A024317](https://oeis.org/A024317):
+
+~~~spl svg=D oeis=A024317
+let f = { :n |
+	1.squaresR(8 * n + 9) / 2
+};
+1:150.collect { :n |
+	let m = ((n + 1) / 2).floor;
+	1:m.sum { :j |
+		f(j) * (1 - f(n - j + 1))
+	}
+}.scatterPlot
+~~~
+
+![](Help/Image/squaresR-D.svg)
 
 * * *
 

@@ -201,6 +201,27 @@ OEIS [A003983](https://oeis.org/A003983):
 
 ![](Help/Image/min-C.svg)
 
+List of _y_-coordinates of a point moving in a smooth counterclockwise spiral rotated by _π/4_,
+OEIS [A305258](https://oeis.org/A305258):
+
+~~~spl svg=D oeis=A305258
+let u = -1;
+let x = 0;
+let a = [0];
+1.toDo(12) { :s |
+	let y = nil;
+	u := -u;
+	x := x + s;
+	y := x + s + 1;
+	x.toDo(y - 1) { :k |
+		a.add(u * (k - x).min(y - k))
+	}
+};
+a.discretePlot
+~~~
+
+![](Help/Image/min-D.svg)
+
 * * *
 
 See also: clip, deepMin, floor, max, minBy, minDetect, minimalBy, minMax, takeSmallest, rankedMin, ordering

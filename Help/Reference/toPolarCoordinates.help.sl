@@ -1,6 +1,6 @@
 # toPolarCoordinates
 
-- _toPolarCoordinates([x y])_
+- _toPolarCoordinates([x y], k='Signed')_
 
 Answers the _(r,θ)_ polar coordinates corresponding to the Cartesian coordinates _(x,y)_.
 The angle is give in radians in _(-π,π)_.
@@ -25,6 +25,19 @@ Collects over lists:
 >>> .toPolarCoordinates
 >>> .collect(second:/1)
 [0 1/3 2/3 1 -2/3 -1/3].pi
+```
+
+Unsigned angle:
+
+```
+>>> [-1 -1]
+>>> .toPolarCoordinates('Unsigned')
+[2.sqrt 5/4.pi]
+
+>>> 6.circlePoints([0 0], 1, 0)
+>>> .toPolarCoordinates('Unsigned')
+>>> .collect(second:/1)
+[0 1/3 2/3 1 4/3 5/3].pi
 ```
 
 `toPolarCoordinates` converts pairs of real numbers to their polar representation:

@@ -125,6 +125,58 @@ OEIS [A002448](https://oeis.org/A002448):
 
 ![](Help/Image/isPerfectSquare-E.svg)
 
+_x_-coordinates of lattice points sorted first by _x²+y²_ then by _x_ then by _y_,
+OEIS [A283307](https://oeis.org/A283307):
+
+~~~spl svg=F oeis=A283307
+let a = [];
+0.toDo(26) { :i |
+	let j = i.sqrt.round;
+	-j.toDo(j) { :x |
+		let k = i - x.square;
+		k.isPerfectSquare.ifTrue {
+			(k = 0).ifFalse {
+				a.add(x)
+			};
+			a.add(x)
+		}
+	}
+};
+a.discretePlot
+~~~
+
+![](Help/Image/isPerfectSquare-F.svg)
+
+_y_-coordinates of lattice points sorted first by _x²+y²_ then by _x_ then by _y_,
+OEIS [A283308](https://oeis.org/A283308):
+
+~~~spl svg=G oeis=A283308
+let f = { :x |
+	x.abs.sqrt.round
+};
+let g = { :x |
+	f(x) * x.sign
+};
+let a = [];
+0.toDo(26) { :i |
+	let j = f(i);
+	-i.toDo(i) { :x |
+		let k = i - x.square;
+		k.isPerfectSquare.ifTrue {
+			(k = 0).if {
+				a.add(g(0))
+			} {
+				a.add(g(-k));
+				a.add(g(k))
+			}
+		}
+	}
+};
+a.discretePlot
+~~~
+
+![](Help/Image/isPerfectSquare-G.svg)
+
 * * *
 
 See also: square, sqrt

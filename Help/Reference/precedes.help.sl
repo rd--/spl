@@ -77,6 +77,40 @@ Sort power-set lexicographically:
 ]
 ```
 
+Lattice points sorted first by _x²+y²_ then by _x_ then by _y_,
+OEIS [A283307](https://oeis.org/A283307)
+and
+OEIS [A283308](https://oeis.org/A283308):
+
+~~~spl svg=A
+let i = -5:5;
+{ :x :y |
+	[x.square + y.square, x, y]
+}.table(i, i)
+.catenate
+.sort(precedes:/2)
+.columns([2 3])
+.pathPlot
+~~~
+
+![](sw/spl/Help/Image/precedes-A.svg)
+
+Lattice points sorted first by radial coordinate then by unsigned polar angle,
+OEIS [A305575](https://oeis.org/A305575)
+and
+OEIS [A305576](https://oeis.org/A305576):
+
+~~~spl svg=B
+let i = -5:5;
+[i, i].tuples
+.toPolarCoordinates('Unsigned')
+.sort(precedes:/2)
+.fromPolarCoordinates
+.pathPlot
+~~~
+
+![](sw/spl/Help/Image/precedes-B.svg)
+
 Where supported `precedes` is displayed as ≺.
 
 * * *

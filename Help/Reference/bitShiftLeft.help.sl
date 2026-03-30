@@ -67,7 +67,8 @@ At `SmallFloat` the integers are taken to be 32-bit signed integers:
 [4 8 16 64]
 ```
 
-The operator form is `<<`, written ≪:
+The operator form is `<<`,
+where supported `<<` is displayed as ≪:
 
 ```
 >>> 32 << 7

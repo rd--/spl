@@ -507,7 +507,7 @@ _i=j_,
 OEIS [A023531](https://oeis.org/A023531):
 
 ~~~spl svg=K oeis=A023531
-0:11.triangularArray(=)
+0:13.triangularArray(=)
 .catenate.boole.discretePlot
 ~~~
 

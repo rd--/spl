@@ -142,6 +142,35 @@ OEIS [A000267](https://oeis.org/A000267):
 
 ![](Help/Image/integerSquareRoot-B.svg)
 
+Up once, down twice, up three times, down four times,
+OEIS [A010751](https://oeis.org/A010751):
+
+~~~spl svg=C
+0:80.collect { :n |
+	let m = (n + 1 << 3).integerSquareRoot + 1 >> 1;
+	(m.bitAnd(1) = 1).if {
+		n - (m.square >> 1)
+	} {
+		(m.square >> 1) - n
+	}
+}.discretePlot
+~~~
+
+![](Help/Image/integerSquareRoot-C.svg)
+
+Pyramidal sequence,
+distance to nearest triangular number,
+OEIS [A053616](https://oeis.org/A053616)
+
+~~~spl svg=D oeis=A053616
+0:85.collect { :n |
+	let t = (2 * n).integerSquareRoot;
+	(t.square + t - (2 * n)).abs / 2
+}.discretePlot
+~~~
+
+![](Help/Image/integerSquareRoot-D.svg)
+
 * * *
 
 See also: Integer, LargeInteger, sqrt

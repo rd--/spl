@@ -204,6 +204,78 @@ OEIS [A002939](https://oeis.org/A002939):
 ]
 ```
 
+Second hexagonal numbers,
+OEIS [A014105](https://oeis.org/A014105):
+
+```
+>>> let n = 0:11;
+>>> n * (2 * n + 1)
+[0 3 10 21 36 55 78 105, 136 171 210 253]
+
+>>> [3 -3 1].linearRecurrence([0 3 10], 12)
+[0 3 10 21 36 55 78 105, 136 171 210 253]
+```
+
+Decagonal numbers,
+OEIS [A001107](https://oeis.org/A001107):
+
+```
+>>> let n = 0:11;
+>>> n * (4 * n - 3)
+[0 1 10 27 52 85 126 175 232 297 370 451]
+
+>>> 10.polygonalNumber(0:11)
+[0 1 10 27 52 85 126 175 232 297 370 451]
+
+>>> [3 -3 1].linearRecurrence([0 1 10], 12)
+[0 1 10 27 52 85 126 175 232 297 370 451]
+```
+
+Decagonal pyramidal numbers,
+OEIS [A007585](https://oeis.org/A007585):
+
+```
+>>> let n = 0:10;
+>>> n * (n + 1) * (8 * n - 5) / 6
+[0 1 11 38 90 175 301 476 708 1005 1375]
+```
+
+Twice pentagonal numbers,
+OEIS [A049450](https://oeis.org/A049450):
+
+```
+>>> let n = 0:10;
+>>> n * (3 * n - 1)
+[0 2 10 24 44 70 102 140 184 234 290]
+```
+
+Twice second pentagonal numbers,
+OEIS [A049451](https://oeis.org/A049451):
+
+```
+>>> let n = 0:10;
+>>> n * (3 * n + 1)
+[0 4 14 30 52 80 114 154 200 252 310]
+```
+
+Rhombic matchstick numbers,
+OEIS [A045944](https://oeis.org/A045944)
+
+```
+>>> let n = 0:10;
+>>> n * (3 * n + 2)
+[0 5 16 33 56 85 120 161 208 261 320]
+```
+
+Octagonal numbers,
+OEIS [A000567](https://oeis.org/A000567):
+
+```
+>>> let n = 0:10;
+>>> n * (3 * n - 2)
+[0 1 8 21 40 65 96 133 176 225 280]
+```
+
 Plot multiples of each the integers up to _n_ extending to _m_,
 the _y_ coordinate is given by the multiplier:
 

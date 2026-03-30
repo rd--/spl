@@ -143,7 +143,7 @@ atan2(2, 0.5)
 
 * * *
 
-See also: arcCos, arcSin, cos, sin, tan
+See also: arcCos, arcSin, atan2, cos, sin, tan
 
 Guides: Trigonometric Functions
 

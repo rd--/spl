@@ -139,6 +139,31 @@ let theta = -30.degree;
 
 ![](Help/Image/fromHexagonalCoordinates-D.svg)
 
+A counterclockwise spiral on an hexagonal grid,
+OEIS [A307011](https://oeis.org/A307011)
+and
+OEIS [A307012](https://oeis.org/A307012):
+
+~~~spl svg=E
+let a = [
+	0   1  0 -1 -1  0  1  2  2  1
+	0  -1 -2 -2 -2 -1  0  1  2  3
+	3   3  2  1  0 -1 -2 -3 -3 -3
+	-3 -2 -1  0  1  2  3  4  4  4
+];
+let b = [
+	0   0  1  1  0 -1 -1 -1  0  1
+	2   2  2  1  0 -1 -2 -2 -2 -2
+	-1  0  1  2  3  3  3  3  2  1
+	0  -1 -2 -3 -3 -3 -3 -3 -2 -1
+];
+let c = [a, b].transpose;
+let d = c.fromHexagonalCoordinates;
+[d.PointCloud, d.Line].LineDrawing
+~~~
+
+![](Help/Image/fromHexagonalCoordinates-E.svg)
+
 * * *
 
 See also: HexagonalCoordinates, polygonalHexgonalGrid, toHexagonalCoordinates

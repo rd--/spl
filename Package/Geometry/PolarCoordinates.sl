@@ -72,20 +72,30 @@ PolarCoordinates : [Object, Storeable, Equatable] { | coordinates |
 	}
 
 	fromPolarCoordinates { :self |
-		self.isVector.if {
-			let [r, theta] = self;
+		self.atVectorOrElementwise { :v |
+			let [r, theta] = v;
 			[r * theta.cos, r * theta.sin]
-		} {
-			self.collect(fromPolarCoordinates:/1)
 		}
 	}
 
+	toPolarCoordinates { :self :rule |
+		rule.caseOf(
+			[
+				'Signed' -> { self.toPolarCoordinates },
+				'Unsigned' -> {
+					self.atVectorOrElementwise { :v |
+						let [x, y] = v;
+						[(x.square + y.square).sqrt, atan2(y, x) % 2.pi]
+					}
+				}
+			]
+		)
+	}
+
 	toPolarCoordinates { :self |
-		self.isVector.if {
-			let [x, y] = self;
+		self.atVectorOrElementwise { :v |
+			let [x, y] = v;
 			[(x.square + y.square).sqrt, atan2(y, x)]
-		} {
-			self.collect(toPolarCoordinates:/1)
 		}
 	}
 

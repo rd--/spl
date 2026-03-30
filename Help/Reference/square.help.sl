@@ -116,6 +116,21 @@ OEIS [A016742](https://oeis.org/A016742):
 [0 4 16 36 64 100 144 196 256 324 400]
 ```
 
+_2n²_,
+OEIS [A001105](https://oeis.org/A001105):
+
+```
+>>> 2 * 0:10.square
+[0 2 8 18 32 50 72 98 128 162 200]
+```
+_3n²_,
+OEIS [A033428](https://oeis.org/A033428):
+
+```
+>>> 3 * 0:10.square
+[0 3 12 27 48 75 108 147 192 243 300]
+```
+
 Binary expansion of square numbers,
 matrix plot,
 OEIS [A000290](https://oeis.org/A000290):

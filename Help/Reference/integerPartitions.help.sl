@@ -255,6 +255,11 @@ OEIS [A001399](https://oeis.org/A001399):
 >>> 	[1 1 2 3 4 5], 17
 >>> )
 [1 1 2 3 4 5 7 8 10 12 14 16 19 21 24 27 30]
+
+>>> 0:16.collect { :n |
+>>> 	round((n + 3) ^ 2 / 12)
+>>> }
+[1 1 2 3 4 5 7 8 10 12 14 16 19 21 24 27 30]
 ```
 
 Partitions in graded reflected colexicographic order (Abramowitz and Stegun),

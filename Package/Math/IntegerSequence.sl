@@ -1893,3 +1893,32 @@
 	}
 
 }
+
++SmallFloat {
+
+	langtonsAntPath { :n :c :b :d |
+		let steps = [1 0; 0 1; -1 0; 0 -1];
+		let cells = IdentitySet(b.squareSpiralRank);
+		let [x, y] = c;
+		let path = [c];
+		(n - 1).timesRepeat {
+			let r = squareSpiralRank(x, y, 1);
+			cells.includes(r).if {
+				cells.remove(r);
+				d := d + 1
+			} {
+				cells.add(r);
+				d := d - 1
+			};
+			[x, y] := [x, y] + steps[d.mod(4, 1)];
+			path.add([x, y])
+		};
+		path
+	}
+
+	langtonsAntPath { :n |
+		n.langtonsAntPath([0, 0], [], 3)
+	}
+
+}
+
