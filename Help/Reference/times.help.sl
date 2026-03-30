@@ -276,6 +276,14 @@ OEIS [A000567](https://oeis.org/A000567):
 [0 1 8 21 40 65 96 133 176 225 280]
 ```
 
+Multiples of sixteen,
+OEIS [A008598](https://oeis.org/A008598):
+
+```
+>>> 0:10 * 16
+[0 16 32 48 64 80 96 112 128 144 160]
+```
+
 Plot multiples of each the integers up to _n_ extending to _m_,
 the _y_ coordinate is given by the multiplier:
 

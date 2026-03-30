@@ -48,6 +48,71 @@ Drawing of the 5th step of the Hilbert curve:
 
 ![](Help/Image/hilbertCurve-B.svg)
 
+_x_-coordinates of Hilbert curve for _n=5_,
+OEIS [A059252](https://oeis.org/A059252):
+
+~~~spl svg=C oeis=A059252
+5.hilbertCurve
+.first(150)
+.column(1)
+.stepPlot
+~~~
+
+![](Help/Image/hilbertCurve-C.svg)
+
+_y_-coordinates of Hilbert curve for _n=5_,
+OEIS [A059253](https://oeis.org/A059253):
+
+~~~spl svg=D oeis=A059253
+5.hilbertCurve
+.first(150)
+.column(2)
+.stepPlot
+~~~
+
+![](Help/Image/hilbertCurve-D.svg)
+
+Hilbert curve in _n×n_ grid by descending antidiagonals,
+OEIS [A163363](https://oeis.org/A163363),
+also
+OEIS [A163359](https://oeis.org/A163359)
+plus one:
+
+~~~spl svg=E oeis=A163363
+let h = 4.hilbertCurve.round;
+0:13.antidiagonalArray { :n :k |
+	h.indexOf([n, k])
+}.catenate.discretePlot
+~~~
+
+![](Help/Image/hilbertCurve-E.svg)
+
+First differences of _y_-coordinates of Hilbert curve for _n=5_,
+OEIS [A163538](https://oeis.org/A163538):
+
+~~~spl svg=F oeis=A163538
+5.hilbertCurve
+.first(150)
+.column(2)
+.differences
+.discretePlot
+~~~
+
+![](Help/Image/hilbertCurve-F.svg)
+
+First differences of _x_-coordinates of Hilbert curve for _n=5_,
+OEIS [A163539](https://oeis.org/A163539):
+
+~~~spl svg=G oeis=A163539
+5.hilbertCurve
+.first(150)
+.column(1)
+.differences
+.discretePlot
+~~~
+
+![](Help/Image/hilbertCurve-G.svg)
+
 * * *
 
 See also: angleVector, peanoCurve, substitutionSystem

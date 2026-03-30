@@ -553,6 +553,7 @@ Reference/atAllPut.help.sl
 Reference/atAllSymmetrical.help.sl
 Reference/atAllValid.help.sl
 Reference/atAllWrap.help.sl
+Reference/atan2.help.sl
 Reference/atBlend.help.sl
 Reference/atEnd.help.sl
 Reference/atFold.help.sl
@@ -1178,6 +1179,7 @@ Reference/diagonalIndexToCartesianIndex.help.sl
 Reference/diagonalMatrix.help.sl
 Reference/diameter.help.sl
 Reference/diamondMatrix.help.sl
+Reference/diamondSpiral.help.sl
 Reference/diamondSquareAlgorithm.help.sl
 Reference/diaschisma.help.sl
 Reference/Dibrown.help.sl
@@ -2361,6 +2363,7 @@ Reference/lanczosKernel.help.sl
 Reference/lanczosWindow.help.sl
 Reference/landauConstant.help.sl
 Reference/landauRamanujanConstant.help.sl
+Reference/langtonsAntPath.help.sl
 Reference/LaplaceDistribution.help.sl
 Reference/LargeInteger.help.sl
 Reference/lassalleNumber.help.sl

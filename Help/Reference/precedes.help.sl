@@ -93,7 +93,7 @@ let i = -5:5;
 .pathPlot
 ~~~
 
-![](sw/spl/Help/Image/precedes-A.svg)
+![](Help/Image/precedes-A.svg)
 
 Lattice points sorted first by radial coordinate then by unsigned polar angle,
 OEIS [A305575](https://oeis.org/A305575)
@@ -109,7 +109,7 @@ let i = -5:5;
 .pathPlot
 ~~~
 
-![](sw/spl/Help/Image/precedes-B.svg)
+![](Help/Image/precedes-B.svg)
 
 Where supported `precedes` is displayed as ≺.
 
