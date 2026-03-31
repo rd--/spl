@@ -22,7 +22,7 @@ Draw the curve of _F(16)_ steps:
 
 * * *
 
-See also: fibonacciWord
+See also: fibonacciWord, fibonacciWordFractal
 
 Guides: Curve Functions
 

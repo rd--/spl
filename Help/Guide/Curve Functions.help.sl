@@ -90,12 +90,14 @@ Fractal Curve Functions:
 - `cantorDust`
 - `cantorStaircase`
 - `fibonacciCurve`
+- `fibonacciWordFractal`
 - `gosperCurve`
 - `hafermanCarpet`
 - `heighwayDragonCurve`
 - `hilbertCurve`
 - `kochCurve`
 - `levyCCurve`
+- `minkowskiCurve`
 - `mcWortersPentigree`
 - `minkowskiQuestionMark`
 - `peanoCurve`
@@ -109,6 +111,7 @@ Fractal Curve Functions:
 - `takagiFunction`
 - `vicsekCurve`
 - `weierstrassFunction`
+- `wunderlichCurve`
 - `zOrderCurve`
 
 Piecewise Curve Functions:

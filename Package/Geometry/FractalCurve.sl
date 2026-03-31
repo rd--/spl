@@ -72,6 +72,18 @@
 		answer
 	}
 
+	fibonacciWordFractal { :n :theta |
+		let t = 90.degree;
+		1:n.collect { :k |
+			let w = k.fibonacciWord;
+			(w = 0).if {
+				k.isEven.if { -t } { t }
+			} {
+				0
+			}
+		}.anglePath([1], [0 0], -t + theta).round
+	}
+
 	gosperCurve { :self |
 		'AB'.simpleLindenmayerSystem(
 			[1/3.pi -1/3.pi],
@@ -204,16 +216,62 @@
 		)
 	}
 
-	sierpinskiArrowheadCurve { :self |
-		'F'.simpleLindenmayerSystem(
-			[1/3.pi -1/3.pi],
+	sierpinskiArrowheadCurve { :self :method |
+		method.caseOf(
 			[
-				'X' -> 'YF+XF+Y',
-				'Y' -> 'XF-YF-X',
-				'F' -> 'F'
-			],
-			'YF',
-			self
+				'A' -> {
+					'F'.simpleLindenmayerSystem(
+						[1/3.pi -1/3.pi],
+						[
+							'X' -> 'YF+XF+Y',
+							'Y' -> 'XF-YF-X',
+							'F' -> 'F'
+						],
+						'YF',
+						self
+					)
+				},
+				'B' -> {
+					let dz = [1 0J1 -1J1 -1 0J-1 1J-1];
+					let k = dz.size;
+					let z = 0;
+					let d = 0;
+					let n = -1;
+					let a = [];
+					let move = {
+						z := z + dz[1 + (d % k)];
+						a.add(z)
+					};
+					let x = { :r |
+						r := r - 1;
+						(r >= 0).ifTrue {
+							y(r);
+							move();
+							d := d + 1;
+							x(r);
+							move();
+							d := d + 1;
+							y(r)
+						}
+					};
+					let y = { :r |
+						r := r - 1;
+						(r >= 0).ifTrue {
+							x(r);
+							move();
+							d := d - 1;
+							y(r);
+							move();
+							d := d - 1;
+							x(r)
+						}
+					};
+					a.add(z);
+					x(self);
+					move();
+					a.realImaginary
+				}
+			]
 		)
 	}
 

@@ -1,6 +1,6 @@
 # binaryExpansion
 
-- _binaryExpansion(n)_
+- _binaryExpansion(n, k=auto)_
 
 Answer the binary expansion of _n_,
 also called binary words or binary vectors.
@@ -306,6 +306,22 @@ OEIS [A036044](https://oeis.org/A036044):
 
 ![](Help/Image/binaryExpansion-O.svg)
 
+Array,
+read by antidiagonals
+bits of binary expansions of _n_ and _k_ interleaved,
+OEIS [A054238](https://oeis.org/A054238):
+
+~~~spl svg=P oeis=A054238
+0:15.antidiagonalArray { :n :k |
+	let i = n.bitLength.max(k.bitLength);
+	let a = n.binaryExpansion(i);
+	let b = k.binaryExpansion(i);
+	[a, b].interleave.binaryContraction
+}.catenate.scatterPlot
+~~~
+
+![](Help/Image/binaryExpansion-P.svg)
+
 * * *
 
 See also: decimalExpansion, integerDigits
@@ -314,6 +330,6 @@ Guides: Integer Functions
 
 References:
 _OEIS_
-[1](https://oeis.org/A007088)
+[1](https://oeis.org/A007088),
 _W_
 [1](https://en.wikipedia.org/wiki/Binary_number)

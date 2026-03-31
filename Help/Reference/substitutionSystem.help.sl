@@ -492,6 +492,25 @@ OEIS [A080843](https://oeis.org/A080843):
 
 ![](Help/Image/substitutionSystem-K.svg)
 
+The right half of a bi-infinite word invariant under a balanced morphism,
+OEIS [A307672](https://oeis.org/A307672):
+
+~~~spl svg=L oeis=A307672
+let r = [
+	0 -> [5 0 1],
+	1 -> [2 1 0],
+	2 -> [1 2 3],
+	3 -> [4 3 2],
+	4 -> [3 4 5],
+	5 -> [0 5 4]
+];
+let s = r.substitutionSystem([0], 5).last;
+let k = (s.size / 2).ceiling;
+s.last(k).discretePlot
+~~~
+
+![](Help/Image/substitutionSystem-L.svg)
+
 * * *
 
 See also: Association, fibonacciWord, locallyCatenativeSequence, Map, rudinShapiro, simpleLindenmayerSystem, thueMorse

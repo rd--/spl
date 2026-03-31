@@ -703,6 +703,10 @@
   2. ![](Help/Image/cantorDust-B.png)
 - `cantorNumbers`
   1. ![](Help/Image/cantorNumbers-A.svg)
+- `cantorPairingFunction`
+  1. ![](Help/Image/cantorPairingFunction-A.svg)
+  2. ![](Help/Image/cantorPairingFunction-B.svg)
+  3. ![](Help/Image/cantorPairingFunction-C.svg)
 - `cantorStaircase`
   1. ![](Help/Image/cantorStaircase-A.svg)
 - `carmichaelLambda`
@@ -772,6 +776,8 @@
   3. ![](Help/Image/ceiling-C.svg)
   4. ![](Help/Image/ceiling-D.svg)
   5. ![](Help/Image/ceiling-E.svg)
+  6. ![](Help/Image/ceiling-F.svg)
+  7. ![](Help/Image/ceiling-G.svg)
 - `centeredPolygonalNumber`
   1. ![](Help/Image/centeredPolygonalNumber-A.svg)
 - `centeredRectangle`
@@ -1064,6 +1070,7 @@
   4. ![](Help/Image/convolve-D.svg)
   5. ![](Help/Image/convolve-E.svg)
   6. ![](Help/Image/convolve-F.svg)
+  7. ![](Help/Image/convolve-G.svg)
 - `coordinateBoundingBox`
   1. ![](Help/Image/coordinateBoundingBox-A.svg)
 - `coordinateBoundingBoxArray`
@@ -1285,6 +1292,10 @@
   1. ![](Help/Image/dft-A.svg)
 - `diamondMatrix`
   1. ![](Help/Image/diamondMatrix-A.png)
+- `diamondSpiral`
+  1. ![](Help/Image/diamondSpiral-A.svg)
+  2. ![](Help/Image/diamondSpiral-B.svg)
+  3. ![](Help/Image/diamondSpiral-C.svg)
 - `diamondSquareAlgorithm`
   1. ![](Help/Image/diamondSquareAlgorithm-A.svg)
   2. ![](Help/Image/diamondSquareAlgorithm-B.png)
@@ -1873,6 +1884,10 @@
   4. ![](Help/Image/fibonacciWord-D.svg)
   5. ![](Help/Image/fibonacciWord-E.svg)
   6. ![](Help/Image/fibonacciWord-F.svg)
+- `fibonacciWordFractal`
+  1. ![](Help/Image/fibonacciWordFractal-A.svg)
+  2. ![](Help/Image/fibonacciWordFractal-B.svg)
+  3. ![](Help/Image/fibonacciWordFractal-C.svg)
 - `findRepeat`
   1. ![](Help/Image/findRepeat-A.svg)
 - `findShortestTour`
@@ -1921,6 +1936,8 @@
   11. ![](Help/Image/floor-K.svg)
 - `fold`
   1. ![](Help/Image/fold-A.svg)
+- `foldList`
+  1. ![](Help/Image/foldList-A.svg)
 - `foliumOfDescartes`
   1. ![](Help/Image/foliumOfDescartes-A.svg)
 - `fordCircle`
@@ -1992,6 +2009,7 @@
   2. ![](Help/Image/fromHexagonalCoordinates-B.svg)
   3. ![](Help/Image/fromHexagonalCoordinates-C.svg)
   4. ![](Help/Image/fromHexagonalCoordinates-D.svg)
+  5. ![](Help/Image/fromHexagonalCoordinates-E.svg)
 - `fromHexagonalEfficientCoordinates`
   1. ![](Help/Image/fromHexagonalEfficientCoordinates-A.svg)
   2. ![](Help/Image/fromHexagonalEfficientCoordinates-B.svg)
@@ -2002,6 +2020,7 @@
   4. ![](Help/Image/fromPolarCoordinates-D.svg)
   5. ![](Help/Image/fromPolarCoordinates-E.svg)
   6. ![](Help/Image/fromPolarCoordinates-F.svg)
+  7. ![](Help/Image/fromPolarCoordinates-G.svg)
 - `fromTrilinearCoordinates`
   1. ![](Help/Image/fromTrilinearCoordinates-A.svg)
   2. ![](Help/Image/fromTrilinearCoordinates-B.svg)
@@ -2440,6 +2459,11 @@
 - `hilbertCurve`
   1. ![](Help/Image/hilbertCurve-A.svg)
   2. ![](Help/Image/hilbertCurve-B.svg)
+  3. ![](Help/Image/hilbertCurve-C.svg)
+  4. ![](Help/Image/hilbertCurve-D.svg)
+  5. ![](Help/Image/hilbertCurve-E.svg)
+  6. ![](Help/Image/hilbertCurve-F.svg)
+  7. ![](Help/Image/hilbertCurve-G.svg)
 - `hilbertMatrix`
   1. ![](Help/Image/hilbertMatrix-A.svg)
 - `himmelblausFunction`
@@ -2522,6 +2546,8 @@
   1. ![](Help/Image/hypotrochoid-A.svg)
   2. ![](Help/Image/hypotrochoid-B.svg)
   3. ![](Help/Image/hypotrochoid-C.svg)
+- `i`
+  1. ![](Help/Image/i-A.svg)
 - `identityMatrix`
   1. ![](Help/Image/identityMatrix-A.png)
 - `IdentitySet`
@@ -2560,10 +2586,12 @@
   1. ![](Help/Image/Infinity-A.svg)
   2. ![](Help/Image/Infinity-B.svg)
   3. ![](Help/Image/Infinity-C.svg)
+  4. ![](Help/Image/Infinity-D.svg)
 - `injectInto`
   1. ![](Help/Image/injectInto-A.svg)
   2. ![](Help/Image/injectInto-B.svg)
   3. ![](Help/Image/injectInto-C.svg)
+  4. ![](Help/Image/injectInto-D.svg)
 - `innerSoddyCircle`
   1. ![](Help/Image/innerSoddyCircle-A.svg)
 - `insertionSort`
@@ -2672,6 +2700,9 @@
   9. ![](Help/Image/integerSequencePlot-I.svg)
 - `integerSquareRoot`
   1. ![](Help/Image/integerSquareRoot-A.svg)
+  2. ![](Help/Image/integerSquareRoot-B.svg)
+  3. ![](Help/Image/integerSquareRoot-C.svg)
+  4. ![](Help/Image/integerSquareRoot-D.svg)
 - `interleave`
   1. ![](Help/Image/interleave-A.svg)
   2. ![](Help/Image/interleave-B.svg)
@@ -2737,6 +2768,8 @@
   1. ![](Help/Image/isComposite-A.png)
   2. ![](Help/Image/isComposite-B.svg)
   3. ![](Help/Image/isComposite-C.svg)
+- `isCongruence`
+  1. ![](Help/Image/isCongruence-A.svg)
 - `isCoprime`
   1. ![](Help/Image/isCoprime-A.png)
   2. ![](Help/Image/isCoprime-B.svg)
@@ -2769,6 +2802,11 @@
   9. ![](Help/Image/isEven-I.svg)
   10. ![](Help/Image/isEven-J.svg)
   11. ![](Help/Image/isEven-K.svg)
+  12. ![](Help/Image/isEven-L.svg)
+  13. ![](Help/Image/isEven-M.svg)
+- `isFundamentalDiscriminant`
+  1. ![](Help/Image/isFundamentalDiscriminant-A.svg)
+  2. ![](Help/Image/isFundamentalDiscriminant-B.svg)
 - `isGaussianPrime`
   1. ![](Help/Image/isGaussianPrime-A.svg)
   2. ![](Help/Image/isGaussianPrime-B.png)
@@ -2813,6 +2851,8 @@
   3. ![](Help/Image/isPerfectSquare-C.svg)
   4. ![](Help/Image/isPerfectSquare-D.svg)
   5. ![](Help/Image/isPerfectSquare-E.svg)
+  6. ![](Help/Image/isPerfectSquare-F.svg)
+  7. ![](Help/Image/isPerfectSquare-G.svg)
 - `isPowerfulNumber`
   1. ![](Help/Image/isPowerfulNumber-A.svg)
 - `isPrime`
@@ -3057,6 +3097,11 @@
   1. ![](Help/Image/lanczosWindow-A.svg)
   2. ![](Help/Image/lanczosWindow-B.svg)
   3. ![](Help/Image/lanczosWindow-C.svg)
+- `langtonsAntPath`
+  1. ![](Help/Image/langtonsAntPath-A.svg)
+  2. ![](Help/Image/langtonsAntPath-B.svg)
+  3. ![](Help/Image/langtonsAntPath-C.svg)
+  4. ![](Help/Image/langtonsAntPath-D.svg)
 - `LaplaceDistribution`
   1. ![](Help/Image/LaplaceDistribution-A.svg)
   2. ![](Help/Image/LaplaceDistribution-B.svg)
@@ -3110,6 +3155,9 @@
 - `levyCCurve`
   1. ![](Help/Image/levyCCurve-A.svg)
   2. ![](Help/Image/levyCCurve-B.svg)
+  3. ![](Help/Image/levyCCurve-C.svg)
+  4. ![](Help/Image/levyCCurve-D.svg)
+  5. ![](Help/Image/levyCCurve-E.svg)
 - `LevyDistribution`
   1. ![](Help/Image/LevyDistribution-A.svg)
   2. ![](Help/Image/LevyDistribution-B.svg)
@@ -3213,6 +3261,9 @@
   7. ![](Help/Image/lissajousCurve-G.svg)
 - `List`
   1. ![](Help/Image/List-A.svg)
+- `listConvolve`
+  1. ![](Help/Image/listConvolve-A.svg)
+  2. ![](Help/Image/listConvolve-B.svg)
 - `listInterpolation`
   1. ![](Help/Image/listInterpolation-A.svg)
   2. ![](Help/Image/listInterpolation-B.svg)
@@ -3343,6 +3394,16 @@
   1. ![](Help/Image/luckyNumbers-A.svg)
   2. ![](Help/Image/luckyNumbers-B.svg)
   3. ![](Help/Image/luckyNumbers-C.svg)
+- `ludicArray`
+  1. ![](Help/Image/ludicArray-A.svg)
+- `ludicNumbers`
+  1. ![](Help/Image/ludicNumbers-A.svg)
+  2. ![](Help/Image/ludicNumbers-B.svg)
+  3. ![](Help/Image/ludicNumbers-C.svg)
+  4. ![](Help/Image/ludicNumbers-D.svg)
+  5. ![](Help/Image/ludicNumbers-E.svg)
+  6. ![](Help/Image/ludicNumbers-F.svg)
+  7. ![](Help/Image/ludicNumbers-G.svg)
 - `luvToXyz`
   1. ![](Help/Image/luvToXyz-A.svg)
   2. ![](Help/Image/luvToXyz-B.png)
@@ -3442,6 +3503,7 @@
   1. ![](Help/Image/min-A.svg)
   2. ![](Help/Image/min-B.svg)
   3. ![](Help/Image/min-C.svg)
+  4. ![](Help/Image/min-D.svg)
 - `minimumChangePermutations`
   1. ![](Help/Image/minimumChangePermutations-A.svg)
 - `minimumExcludedValue`
@@ -3661,6 +3723,7 @@
   2. ![](Help/Image/nestList-B.svg)
   3. ![](Help/Image/nestList-C.svg)
   4. ![](Help/Image/nestList-D.svg)
+  5. ![](Help/Image/nestList-E.svg)
 - `nestWhile`
   1. ![](Help/Image/nestWhile-A.svg)
 - `nestWhileList`
@@ -3909,6 +3972,7 @@
 - `partition`
   1. ![](Help/Image/partition-A.svg)
   2. ![](Help/Image/partition-B.svg)
+  3. ![](Help/Image/partition-C.svg)
 - `partitionFunctionP`
   1. ![](Help/Image/partitionFunctionP-A.svg)
   2. ![](Help/Image/partitionFunctionP-B.svg)
@@ -3962,6 +4026,8 @@
 - `peanoCurve`
   1. ![](Help/Image/peanoCurve-A.svg)
   2. ![](Help/Image/peanoCurve-B.svg)
+  3. ![](Help/Image/peanoCurve-C.svg)
+  4. ![](Help/Image/peanoCurve-D.svg)
 - `pedalTriangle`
   1. ![](Help/Image/pedalTriangle-A.svg)
   2. ![](Help/Image/pedalTriangle-B.svg)
@@ -4172,6 +4238,9 @@
   9. ![](Help/Image/powerMod-I.svg)
   10. ![](Help/Image/powerMod-J.svg)
   11. ![](Help/Image/powerMod-K.svg)
+- `precedes`
+  1. ![](Help/Image/precedes-A.svg)
+  2. ![](Help/Image/precedes-B.svg)
 - `prefixes`
   1. ![](Help/Image/prefixes-A.svg)
   2. ![](Help/Image/prefixes-B.svg)
@@ -4543,6 +4612,7 @@
   2. ![](Help/Image/repeat-B.svg)
   3. ![](Help/Image/repeat-C.svg)
   4. ![](Help/Image/repeat-D.svg)
+  5. ![](Help/Image/repeat-E.svg)
 - `resample`
   1. ![](Help/Image/resample-A.svg)
   2. ![](Help/Image/resample-B.svg)
@@ -4643,6 +4713,10 @@
   5. ![](Help/Image/rookGraph-E.svg)
   6. ![](Help/Image/rookGraph-F.svg)
   7. ![](Help/Image/rookGraph-G.svg)
+- `rosenbergStrongPairingFunction`
+  1. ![](Help/Image/rosenbergStrongPairingFunction-A.svg)
+  2. ![](Help/Image/rosenbergStrongPairingFunction-B.svg)
+  3. ![](Help/Image/rosenbergStrongPairingFunction-C.svg)
 - `rosenbrockFunction`
   1. ![](Help/Image/rosenbrockFunction-A.svg)
   2. ![](Help/Image/rosenbrockFunction-B.svg)
@@ -4667,6 +4741,7 @@
 - `rotateLeft`
   1. ![](Help/Image/rotateLeft-A.svg)
   2. ![](Help/Image/rotateLeft-B.svg)
+  3. ![](Help/Image/rotateLeft-C.svg)
 - `round`
   1. ![](Help/Image/round-A.svg)
   2. ![](Help/Image/round-B.svg)
@@ -4810,6 +4885,13 @@
   6. ![](Help/Image/seiffertsSpiral-F.svg)
 - `select`
   1. ![](Help/Image/select-A.svg)
+  2. ![](Help/Image/select-B.svg)
+  3. ![](Help/Image/select-C.svg)
+  4. ![](Help/Image/select-D.svg)
+  5. ![](Help/Image/select-E.svg)
+  6. ![](Help/Image/select-F.svg)
+  7. ![](Help/Image/select-G.svg)
+  8. ![](Help/Image/select-H.svg)
 - `selectionSortMatrix`
   1. ![](Help/Image/selectionSortMatrix-A.svg)
   2. ![](Help/Image/selectionSortMatrix-B.png)
@@ -4875,6 +4957,7 @@
   1. ![](Help/Image/sign-A.svg)
   2. ![](Help/Image/sign-B.svg)
   3. ![](Help/Image/sign-C.svg)
+  4. ![](Help/Image/sign-D.svg)
 - `signalPlot`
   1. ![](Help/Image/signalPlot-A.svg)
   2. ![](Help/Image/signalPlot-B.svg)
@@ -5096,6 +5179,7 @@
   6. ![](Help/Image/sqrt-F.svg)
   7. ![](Help/Image/sqrt-G.svg)
   8. ![](Help/Image/sqrt-H.svg)
+  9. ![](Help/Image/sqrt-I.svg)
 - `square`
   1. ![](Help/Image/square-A.svg)
   2. ![](Help/Image/square-B.svg)
@@ -5124,14 +5208,20 @@
   4. ![](Help/Image/squareSpiral-D.svg)
   5. ![](Help/Image/squareSpiral-E.svg)
   6. ![](Help/Image/squareSpiral-F.svg)
+  7. ![](Help/Image/squareSpiral-G.svg)
+  8. ![](Help/Image/squareSpiral-H.svg)
+  9. ![](Help/Image/squareSpiral-I.svg)
 - `squareSpiralPoints`
   1. ![](Help/Image/squareSpiralPoints-A.svg)
   2. ![](Help/Image/squareSpiralPoints-B.svg)
   3. ![](Help/Image/squareSpiralPoints-C.svg)
+- `squareSpiralUnrank`
+  1. ![](Help/Image/squareSpiralUnrank-A.svg)
 - `squaresR`
   1. ![](Help/Image/squaresR-A.svg)
   2. ![](Help/Image/squaresR-B.svg)
   3. ![](Help/Image/squaresR-C.svg)
+  4. ![](Help/Image/squaresR-D.svg)
 - `squareWave`
   1. ![](Help/Image/squareWave-A.svg)
 - `srgbDecode`
@@ -5385,6 +5475,13 @@
   3. ![](Help/Image/tanh-C.svg)
   4. ![](Help/Image/tanh-D.svg)
   5. ![](Help/Image/tanh-E.svg)
+- `tchoukaillonNumbers`
+  1. ![](Help/Image/tchoukaillonNumbers-A.svg)
+  2. ![](Help/Image/tchoukaillonNumbers-B.svg)
+  3. ![](Help/Image/tchoukaillonNumbers-C.svg)
+  4. ![](Help/Image/tchoukaillonNumbers-D.svg)
+  5. ![](Help/Image/tchoukaillonNumbers-E.svg)
+  6. ![](Help/Image/tchoukaillonNumbers-F.svg)
 - `TelegraphProcess`
   1. ![](Help/Image/TelegraphProcess-A.svg)
   2. ![](Help/Image/TelegraphProcess-B.svg)
@@ -5534,6 +5631,10 @@
   3. ![](Help/Image/triangularNumber-C.svg)
   4. ![](Help/Image/triangularNumber-D.svg)
   5. ![](Help/Image/triangularNumber-E.svg)
+- `triangularSpiral`
+  1. ![](Help/Image/triangularSpiral-A.svg)
+  2. ![](Help/Image/triangularSpiral-B.svg)
+  3. ![](Help/Image/triangularSpiral-C.svg)
 - `triangularSpiralPoints`
   1. ![](Help/Image/triangularSpiralPoints-A.svg)
   2. ![](Help/Image/triangularSpiralPoints-B.svg)
@@ -5804,6 +5905,8 @@
 - `whileTrue`
   1. ![](Help/Image/whileTrue-A.svg)
   2. ![](Help/Image/whileTrue-B.svg)
+  3. ![](Help/Image/whileTrue-C.svg)
+  4. ![](Help/Image/whileTrue-D.svg)
 - `white`
   1. ![](Help/Image/white-A.svg)
 - `WienerProcess`
@@ -5831,6 +5934,10 @@
 - `Writing`
   1. ![](Help/Image/Writing-A.svg)
   2. ![](Help/Image/Writing-B.svg)
+- `wunderlichCurve`
+  1. ![](Help/Image/wunderlichCurve-A.svg)
+  2. ![](Help/Image/wunderlichCurve-B.svg)
+  3. ![](Help/Image/wunderlichCurve-C.svg)
 - `wythoffArray`
   1. ![](Help/Image/wythoffArray-A.svg)
   2. ![](Help/Image/wythoffArray-B.svg)

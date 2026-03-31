@@ -39,7 +39,7 @@ The Fibonacci word fractal:
 
 * * *
 
-See also: fibonacciWord
+See also: fibonacciCurve, fibonacciWord
 
 Guides: Integer Sequence Functions
 

@@ -157,6 +157,10 @@
 		d.binomial(n) * (x ^ n) * ((1 - x) ^ (d - n))
 	}
 
+	binaryExpansion { :n :k |
+		n.integerDigits(2, k)
+	}
+
 	binaryExpansion { :n |
 		n.integerDigits(2)
 	}

@@ -7,14 +7,14 @@ Answer the line segments representing the _n_-th Lévy C curve.
 The 1st step of the Lévy C curve:
 
 ```
->>> 1.levyCCurve
+>>> 1.levyCCurve('A')
 [0 0; 0.7071 0.7071; 1.4142 0]
 ```
 
 The 2nd step of the Lévy C curve:
 
 ```
->>> 2.levyCCurve
+>>> 2.levyCCurve('A')
 [0 0; 0 1; 1 1; 2 1; 2 0]
 ```
 
@@ -24,7 +24,7 @@ OEIS [A000051](https://oeis.org/A000051):
 
 ```
 >>> 0:9.collect { :n |
->>> 	n.levyCCurve.size
+>>> 	n.levyCCurve('A').size
 >>> }
 [2 3 5 9 17 33 65 129 257 513]
 
@@ -35,7 +35,7 @@ OEIS [A000051](https://oeis.org/A000051):
 Drawing of the 6th step of the Lévy C curve:
 
 ~~~spl svg=A
-6.levyCCurve.Line
+6.levyCCurve('A').Line
 ~~~
 
 ![](Help/Image/levyCCurve-A.svg)
@@ -43,7 +43,7 @@ Drawing of the 6th step of the Lévy C curve:
 Drawing of the 9th step of the Lévy C curve:
 
 ~~~spl svg=B
-9.levyCCurve.Line
+9.levyCCurve('A').Line
 ~~~
 
 ![](Help/Image/levyCCurve-B.svg)
