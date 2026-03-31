@@ -69,7 +69,7 @@ let r = Sfc32(387612);
 let d = StableDistribution(1, 0, 0, 1);
 let u = r.randomReal([0 2.pi], [k]);
 let v = d.randomVariate(r, [k]);
-u.anglePath(v, [0 0]).Line
+u.anglePath(v, [0 0], 0).Line
 ~~~
 
 ![](Help/Image/StableDistribution-E.svg)

@@ -782,6 +782,7 @@ Reference/cancelSharp.help.sl
 Reference/canonicalSort.help.sl
 Reference/cantorDust.help.sl
 Reference/cantorNumbers.help.sl
+Reference/cantorPairingFunction.help.sl
 Reference/cantorStaircase.help.sl
 Reference/capacity.help.sl
 Reference/capitalize.help.sl
@@ -1477,6 +1478,7 @@ Reference/fibonacciNumber.help.sl
 Reference/fibonacciPolynomial.help.sl
 Reference/fibonacciSequence.help.sl
 Reference/fibonacciSequenceUpTo.help.sl
+Reference/fibonacciWordFractal.help.sl
 Reference/fibonacciWord.help.sl
 Reference/figurateNumber.help.sl
 Reference/fileExists.help.sl
@@ -3504,6 +3506,7 @@ Reference/Rlpf.help.sl
 Reference/romanNumeral.help.sl
 Reference/rookGraph.help.sl
 Reference/rootMeanSquare.help.sl
+Reference/rosenbergStrongPairingFunction.help.sl
 Reference/rosenbrockFunction.help.sl
 Reference/rosslerEquation.help.sl
 Reference/rotaryHarmonographCurve.help.sl
@@ -4062,6 +4065,7 @@ Reference/triangularArray.help.sl
 Reference/triangularArrayPlot.help.sl
 Reference/TriangularDistribution.help.sl
 Reference/triangularNumber.help.sl
+Reference/triangularSpiral.help.sl
 Reference/triangularSpiralPoints.help.sl
 Reference/triangulation.help.sl
 Reference/tribonacciConstant.help.sl
@@ -4313,6 +4317,7 @@ Reference/writeBinaryFile.help.sl
 Reference/WriteStream.help.sl
 Reference/writeTextFile.help.sl
 Reference/Writing.help.sl
+Reference/wunderlichCurve.help.sl
 Reference/wythoffArray.help.sl
 Reference/wythoffIndex.help.sl
 Reference/wythoffLower.help.sl

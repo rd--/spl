@@ -59,7 +59,7 @@ let r = Sfc32(376812);
 let d = ParetoDistribution(1, 1.5);
 let u = r.randomReal([0 2.pi], [k]);
 let v = d.randomVariate(r, [k]);
-u.anglePath(v, [0 0]).Line
+u.anglePath(v, [0 0], 0).Line
 ~~~
 
 ![](Help/Image/ParetoDistribution-D.svg)

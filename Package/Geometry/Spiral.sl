@@ -187,6 +187,20 @@
 		}
 	}
 
+	triangularSpiral { :self |
+		let x = 0.to(self - 1).collect { :n |
+			let m = n.sqrt.ceiling;
+			(-1 ^ (m + 1)) * (0 - m.square + m + n)
+		};
+		let y = 0.to(self - 1).collect { :n |
+			let m = n.sqrt;
+			let a = m * 0.max(2 * (m %  2) - 2);
+			let b = -2 * m * (m % -1);
+			(a.min(b) + (-m / 2).ceiling).floor
+		};
+		[x, y].transpose
+	}
+
 }
 
 +@Collection {

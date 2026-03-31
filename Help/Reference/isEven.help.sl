@@ -350,6 +350,49 @@ OEIS [A186422](https://oeis.org/A186422):
 
 ![](Help/Image/isEven-K.svg)
 
+Boustrophedonic Cantor enumeration,
+OEIS [A319571](https://oeis.org/A319571),
+also interleaved
+OEIS [A319572](https://oeis.org/A319572)
+and
+OEIS [A319573](https://oeis.org/A319573):
+
+~~~spl svg=L oeis=A319571
+0:9.collect { :n |
+	0:n.collect { :m |
+		n.isEven.if {
+			[n - m, m]
+		} {
+			[m, n - m]
+		}
+	}
+}.catenate.catenate.discretePlot
+~~~
+
+![](Help/Image/isEven-L.svg)
+
+Boustrophedonic Rosenberg-Strong function,
+OEIS [A319514](https://oeis.org/A319514):
+
+~~~spl svg=M oeis=A319514
+0:115.collect { :n |
+	let [k, r] = quotientRemainder(n, 2);
+	let m = k.integerSquareRoot;
+	let x = m;
+	let y = k - x.square;
+	(x <= y).ifTrue {
+		[x, y] := [2 * x - y, x]
+	};
+	m.isEven.if {
+		[x, y]
+	} {
+		[y, x]
+	}.at(r + 1)
+}.discretePlot
+~~~
+
+![](Help/Image/isEven-M.svg)
+
 * * *
 
 See also: divisible, isInteger, isOdd

@@ -1,10 +1,10 @@
 # anglePath
 
-- _anglePath([θ₁ θ₂ …], [r₁ r₂ …], o)_
+- _anglePath([θ₁ θ₂ …], [r₁ r₂ …], o, θ₀)_
 
 Answer the `List` of two-dimensional coordinates corresponding to a path that starts at origin _o_,
 then takes a series of steps of length _r_ at successive relative angles _θ_.
-If _r_ and _o_ are elided _r_ is uniformly one, and _o_ is _(0,0)_.
+If _r_ and _o_ are elided _r_ is uniformly one, _o_ is _(0,0)_, and θ₀ is 0.
 
 ```
 >>> List(3, 90.degree).anglePath
@@ -16,7 +16,7 @@ A polyline of three segments:
 ~~~spl svg=A
 let t = [90 130 -85].degree;
 let r = [1.2 2.1 0.7];
-let p = t.anglePath(r, [0 0]);
+let p = t.anglePath(r, [0 0], 0);
 p.Line
 ~~~
 
@@ -43,7 +43,8 @@ With specified step sizes:
 ~~~spl svg=D
 (1.pi / [2 3 -4]).anglePath(
 	[0.7 2.3 3.5],
-	[0 0]
+	[0 0],
+	0
 ).Line
 ~~~
 
@@ -116,7 +117,7 @@ let p = [
 	90 50
 ];
 let [t, r] = p.repeat(4).transpose;
-anglePath(t.degree, r, [0 0]).Line
+anglePath(t.degree, r, [0 0], 0).Line
 ~~~
 
 ![](Help/Image/anglePath-J.svg)

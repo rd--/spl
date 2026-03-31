@@ -130,14 +130,29 @@
 		)
 	}
 
-	levyCCurve { :self |
-		'F'.simpleLindenmayerSystem(
-			[1/4.pi -1/4.pi],
+	levyCCurve { :self :method |
+		method.caseOf(
 			[
-				'F' -> '+F--F+'
-			],
-			'F',
-			self
+				'A' -> {
+					'F'.simpleLindenmayerSystem(
+						[1/4.pi -1/4.pi],
+						[
+							'F' -> '+F--F+'
+						],
+						'F',
+						self
+					)
+				},
+				'B' -> {
+					let z = 0;
+					let a = [0];
+					0.toDo(self - 1) { :n |
+						z := z + (0J1 ^ n.hammingWeight);
+						a.add(z)
+					};
+					a.realImaginary
+				}
+			]
 		)
 	}
 
@@ -245,6 +260,27 @@
 			'F-F-F-F',
 			self
 		)
+	}
+
+	wunderlichCurve { :self |
+		let s = [0 1 2 2J1 1J1 0J1 0J2 1J2 2J2];
+		let w = s.collect { :z |
+			z.imaginary + z.real.i
+		};
+		let r = [0 1 0 3 2 3 0 1 0];
+		1:self.collect { :n |
+			let d = (n > 1).if {
+				(n - 1).integerDigits(9).reverse
+			} {
+				[0]
+			};
+			let z = s[1 + d[1]];
+			2.toDo(d.size) { :i |
+				let c = (3 ^ (i - 1) - 1) / 2 * 1J1;
+				z := 3 ^ (i - 1) * w[1 + d[i]] + c + ((z - c) * (0J1 ^ r[1 + d[i]]))
+			};
+			z.realImaginary
+		}
 	}
 
 	zOrderCurve { :self |

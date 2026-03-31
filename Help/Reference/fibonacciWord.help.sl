@@ -178,7 +178,7 @@ OEIS [A156596](https://oeis.org/A156596):
 
 ~~~spl svg=F oeis=A156596
 let m = [0: [1 2], 1: [1 0], 2: [0 2]];
-1:95.collect(fibonacciWord:/1)
+1:95.fibonacciWord
 .partition(2, 2)
 .collect { :d |
 	m[d.fromDigits(2)]

@@ -149,6 +149,18 @@
 		2 + a - b
 	}
 
+	fibonacciWordFractal { :n :theta |
+		let t = 90.degree;
+		1:n.collect { :k |
+			let w = k.fibonacciWord;
+			(w = 0).if {
+				k.isEven.if { -t } { t }
+			} {
+				0
+			}
+		}.anglePath([1], [0 0], -t + theta).round
+	}
+
 	lucasInteger { :self |
 		(self = 1).if {
 			1

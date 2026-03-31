@@ -181,6 +181,33 @@ let n = 1:56;
 
 ![](Help/Image/ceiling-E.svg)
 
+Successively count to _-1^(n+1)*n_,
+also _x_-coordinate of a point moving in a triangular spiral,
+OEIS [A329116](https://oeis.org/A329116):
+
+~~~spl svg=F oeis=A329116
+0:64.collect { :n |
+	let m = n.sqrt.ceiling;
+	(-1 ^ (m + 1)) * (0 - m.square + m + n)
+}.discretePlot
+~~~
+
+![](Help/Image/ceiling-F.svg)
+
+_y_-coordinate of a point moving in a triangular spiral,
+OEIS [A329972](https://oeis.org/A329972):
+
+~~~spl svg=G oeis=A329972
+0:64.collect { :n |
+	let m = n.sqrt;
+	let a = m * 0.max(2 * (m %  2) - 2);
+	let b = -2 * m * (m % -1);
+	(a.min(b) + (-m / 2).ceiling).floor
+}.discretePlot
+~~~
+
+![](Help/Image/ceiling-G.svg)
+
 Where supported `ceiling` is displayed as ⌈.
 
 * * *

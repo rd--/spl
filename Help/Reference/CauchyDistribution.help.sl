@@ -92,7 +92,7 @@ let r = Sfc32(768712);
 let d = CauchyDistribution(0, 1);
 let u = r.randomReal([0 2.pi], [k]);
 let v = d.randomVariate(r, [k]);
-u.anglePath(v, [0 0]).Line
+u.anglePath(v, [0 0], 0).Line
 ~~~
 
 ![](Help/Image/CauchyDistribution-H.svg)

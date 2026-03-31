@@ -1922,3 +1922,64 @@
 
 }
 
++@Integer {
+
+	cantorPairingFunction { :x :y |
+		x.square + x + (2 * x * y) + (3 * y) + y.square / 2
+	}
+
+	inverseCantorPairingFunction { :z |
+		let w = ((((8 * z) + 1).sqrt - 1) / 2).floor;
+		let t = (w.square + w) / 2;
+		let y = z - t;
+		let x = w - y;
+		[x, y]
+	}
+
+	inverseRosenbergStrongPairingFunction { :z |
+		let m = z.integerSquareRoot;
+		let n = m.square;
+		(z - n < m).if {
+			[z - n, m]
+		} {
+			[m, n + (2 * m) - z]
+		}
+	}
+
+	rosenbergStrongPairingFunction { :x :y |
+		let a = x.max(y);
+		a.square + a + x - y
+	}
+
+}
+
++List {
+
+	cantorPairingFunction { :self |
+		self.atVectorOrElementwise { :v |
+			let [x, y] = v;
+			x.square + x + (2 * x * y) + (3 * y) + y.square / 2
+		}
+	}
+
+	rosenbergStrongPairingFunction { :self |
+		self.atVectorOrElementwise { :v |
+			let [x, y] = v;
+			let a = x.max(y);
+			a.square + a + x - y
+		}
+	}
+
+}
+
++@Collection {
+
+	inverseCantorPairingFunction { :self |
+		self.collect(inverseCantorPairingFunction:/1)
+	}
+
+	inverseRosenbergStrongPairingFunction { :self |
+		self.collect(inverseRosenbergStrongPairingFunction:/1)
+	}
+
+}

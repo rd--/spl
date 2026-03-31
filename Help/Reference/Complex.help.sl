@@ -278,6 +278,7 @@ The matrix form of a complex number:
 )
 ```
 
+
 * * *
 
 See also: abs, absArg, arg, isGaussianInteger, asInteger, asNumber, conjugate, i, imaginary, j, real, SmallFloat

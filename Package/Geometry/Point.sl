@@ -58,9 +58,9 @@ Point : [Object, Storeable, Equatable, Geometry, CartesianCoordinates] { | coord
 
 +List {
 
-	anglePath { :angles :distances :origin |
+	anglePath { :angles :distances :origin :initialAngle |
 		let answer = [origin];
-		let theta = 0;
+		let theta = initialAngle;
 		let p = origin;
 		angles.withIndexDo { :each :index |
 			let r = distances.atWrap(index);
@@ -72,7 +72,7 @@ Point : [Object, Storeable, Equatable, Geometry, CartesianCoordinates] { | coord
 	}
 
 	anglePath { :self |
-		self.anglePath([1], [0 0])
+		self.anglePath([1], [0 0], 0)
 	}
 
 	coordinateBoundingBox { :self |
@@ -351,7 +351,7 @@ Point : [Object, Storeable, Equatable, Geometry, CartesianCoordinates] { | coord
 			[60.degree] ++ List(i - 1, 0)
 		}.catenate;
 		let d = List(a.size, 1);
-		anglePath(a, d, [0 0])
+		anglePath(a, d, [0 0], 0)
 	}
 
 	spherePoints { :n :r |
@@ -401,7 +401,7 @@ Point : [Object, Storeable, Equatable, Geometry, CartesianCoordinates] { | coord
 			[90.degree] ++ List(i - 1, 0)
 		}.catenate;
 		let d = List(a.size, 1);
-		anglePath(a, d, [0 0])
+		anglePath(a, d, [0 0], 0)
 	}
 
 	triangularSpiralPoints { :n |
@@ -410,7 +410,7 @@ Point : [Object, Storeable, Equatable, Geometry, CartesianCoordinates] { | coord
 			[120.degree] ++ List(i - 1, 0)
 		}.catenate;
 		let d = List(a.size, 1);
-		anglePath(a, d, [0 0])
+		anglePath(a, d, [0 0], 0)
 	}
 
 }
