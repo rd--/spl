@@ -3,7 +3,8 @@
 - _regularPaperfoldingSequence(n)_
 
 Answer the first _n_ terms of the regular paperfolding sequence,
-on alphabet _0,1_.
+on alphabet _0,1_,
+also called the dragon curve sequence.
 
 First few terms of the regular paperfolding sequence,
 OEIS [A014577](https://oeis.org/A014577):

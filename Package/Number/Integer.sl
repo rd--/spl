@@ -10,6 +10,12 @@
 		n.divisors.allButLast.sum
 	}
 
+	alternatingBitSum { :self |
+		self.integerDigits(2)
+		.reverse
+		.alternatingSum
+	}
+
 	antiDivisors { :n |
 		let m = n - 1;
 		2:m.select { :x |

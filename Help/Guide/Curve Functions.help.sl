@@ -89,6 +89,7 @@ Fractal Curve Functions:
 - `blancmangeCurve`
 - `cantorDust`
 - `cantorStaircase`
+- `dragonCurve`
 - `fibonacciCurve`
 - `fibonacciWordFractal`
 - `gosperCurve`

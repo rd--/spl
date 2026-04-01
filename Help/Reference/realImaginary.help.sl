@@ -39,6 +39,19 @@ At `SmallFloat` and `LargeInteger` and `Fraction`:
 ]
 ```
 
+The dragon curve:
+
+~~~spl svg=A
+{ :x |
+	x ++ x.i.reverse
+}.iterate([1], 8)
+.prefixSum
+.realImaginary
+.Line
+~~~
+
+![](Help/Image/realImaginary-A.svg)
+
 * * *
 
 See also: asList, Complex, i, j, real, imaginary

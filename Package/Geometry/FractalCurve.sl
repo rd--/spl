@@ -105,16 +105,28 @@
 		.last
 	}
 
-	heighwayDragonCurve { :self |
-		'F'.simpleLindenmayerSystem(
-			[1/2.pi -1/2.pi],
+	[dragonCurve, heighwayDragonCurve] { :self :method |
+		method.caseOf(
 			[
-				'F' -> 'F',
-				'X' -> 'X+YF+',
-				'Y' -> '-FX-Y'
-			],
-			'FX',
-			self
+				'A' -> {
+					'F'.simpleLindenmayerSystem(
+						[1/2.pi -1/2.pi],
+						[
+							'F' -> 'F',
+							'X' -> 'X+YF+',
+							'Y' -> '-FX-Y'
+						],
+						'FX',
+						self
+					)
+				},
+				'B' -> {
+					let a = { :x |
+						x ++ x.i.reverse
+					}.iterate([1], self);
+					([0] ++ a.prefixSum).realImaginary
+				}
+			]
 		)
 	}
 
@@ -131,14 +143,43 @@
 		)
 	}
 
-	kochCurve { :self |
-		'F'.simpleLindenmayerSystem(
-			[1/3.pi -1/3.pi],
+	kochCurve { :self :method |
+		method.caseOf(
 			[
-				'F' -> 'F+F--F+F'
-			],
-			'F',
-			self
+				'A' -> {
+					'F'.simpleLindenmayerSystem(
+						[1/3.pi -1/3.pi],
+						[
+							'F' -> 'F+F--F+F'
+						],
+						'F',
+						self
+					)
+				},
+				'B' -> {
+					let h = [1 0J1 -1J1 -1 0J-1 1J-1];
+					let z = 0;
+					let a = [z];
+					0.toDo(self - 1) { :n |
+						let q = n.integerDigits(4);
+						let r = q.size;
+						let d = 1:r.sum { :k |
+							(q[k] = 1).if {
+								1
+							} {
+								(q[k] = 2).if {
+									-1
+								} {
+									0
+								}
+							}
+						};
+						z := z + h[d % 6 + 1];
+						a.add(z)
+					};
+					a.realImaginary
+				}
+			]
 		)
 	}
 

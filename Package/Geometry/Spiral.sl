@@ -120,6 +120,9 @@
 	squareSpiral { :n :k |
 		k.caseOf(
 			[
+				'Clockwise' -> {
+					n.squareSpiral
+				},
 				'Counterclockwise' -> {
 					let m = n - 2;
 					let d = 0:m.collect { :i |
@@ -128,8 +131,27 @@
 					};
 					([[0, 0]] ++ d).scanLeft(+)
 				},
-				'Clockwise' -> {
-					n.squareSpiral
+				'B' -> {
+					{ :z |
+						let [r, i] = z.realImaginary;
+						let w = r.abs.max(i.abs);
+						(i = -w).if {
+							z + 1
+						} {
+							(i = w).if {
+								z - 1
+							} {
+								(r = -w).if {
+									z - 0J1
+								} {
+									z + 0J1
+								}
+							}
+						}
+					}.nestList(0, n).realImaginary
+				},
+				'C' -> {
+					n.squareSpiralWithFourArms
 				}
 			]
 		)
@@ -176,6 +198,18 @@
 				[n - (3 * k), -k]
 			}
 		}
+	}
+
+	squareSpiralWithFourArms { :self |
+		0.toCollect(self - 1) { :n |
+			let s = n.integerSquareRoot;
+			let r = n - s.square;
+			(r > s).ifTrue {
+				s := s + 1;
+				r := r - (2 * s - 1)
+			};
+			(r - s.i) * (1.i ^ s)
+		}.realImaginary
 	}
 
 	tractrixSpiral { :a |

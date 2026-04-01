@@ -57,7 +57,7 @@ OEIS [A174344](https://oeis.org/A174344):
 ]
 ```
 
-First few _y_-coordinates,
+_y_-coordinates of square spiral,
 clockwise,
 OEIS [A268038](https://oeis.org/A268038),
 and counterclockwise,
@@ -101,7 +101,7 @@ OEIS [A274923](https://oeis.org/A274923):
 ]
 ```
 
-Sum of the _x_ and _y_-coordinates of a point moving in a counter-clockwise spiral,
+Sum of the _x_ and _y_-coordinates of the counter-clockwise square spiral,
 OEIS [A180714](https://oeis.org/A180714):
 
 ```
@@ -114,7 +114,7 @@ OEIS [A180714](https://oeis.org/A180714):
 ]
 ```
 
-Sum of the _x_ and _y_-coordinates of a point moving in a clockwise spiral:
+Sum of the _x_ and _y_-coordinates of the clockwise square spiral:
 
 ```
 >>> 30.squareSpiral.collect(sum:/1)
@@ -154,7 +154,7 @@ Plot eleven-spiral:
 
 ![](Help/Image/squareSpiral-B.svg)
 
-First few _x_-coordinates,
+_x_-coordinates of square spiral,
 OEIS [A174344](https://oeis.org/A174344):
 
 ~~~spl svg=C oeis=A174344
@@ -163,7 +163,7 @@ OEIS [A174344](https://oeis.org/A174344):
 
 ![](Help/Image/squareSpiral-C.svg)
 
-First few _y_-coordinates,
+_y_-coordinates of square spiral,
 OEIS [A268038](https://oeis.org/A268038):
 
 ~~~spl svg=D oeis=A268038
@@ -172,7 +172,7 @@ OEIS [A268038](https://oeis.org/A268038):
 
 ![](Help/Image/squareSpiral-D.svg)
 
-First few _y_-coordinates,
+_y_-coordinates of square spiral,
 counterclockwise,
 OEIS [A274923](https://oeis.org/A274923):
 
@@ -183,7 +183,7 @@ OEIS [A274923](https://oeis.org/A274923):
 
 ![](Help/Image/squareSpiral-E.svg)
 
-Plot nine-spiral, counterclockwise:
+Nine-spiral, counterclockwise:
 
 ~~~spl svg=F
 211.squareSpiral('Counterclockwise')
@@ -192,7 +192,7 @@ Plot nine-spiral, counterclockwise:
 
 ![](Help/Image/squareSpiral-F.svg)
 
-Sum of the _x_ and _y_-coordinates of a point moving in a counter-clockwise spiral,
+Sum of the _x_ and _y_-coordinates the counter-clockwise square spiral,
 OEIS [A180714](https://oeis.org/A180714):
 
 ~~~spl svg=G oeis=A180714
@@ -219,6 +219,86 @@ Pairs of coordinates for successive integers in the clockwise square spiral:
 ~~~
 
 ![](Help/Image/squareSpiral-I.svg)
+
+_x_-coordinates of one arm of a counterclockwise square spiral with four arms,
+OEIS [A340944](https://oeis.org/A340944):
+
+~~~spl svg=J oeis=A340944
+85.squareSpiral('C')
+.column(1)
+.discretePlot
+~~~
+
+![](Help/Image/squareSpiral-J.svg)
+
+_y_-coordinates of one arm of a counterclockwise square spiral with four arms,
+OEIS [A340945](https://oeis.org/A340945):
+
+~~~spl svg=K oeis=A340945
+85.squareSpiral('C')
+.column(2)
+.discretePlot
+~~~
+
+![](Help/Image/squareSpiral-K.svg)
+
+Pairs of coordinates of one arm of a counterclockwise square spiral with four arms:
+
+~~~spl svg=L
+42.squareSpiral('C')
+.catenate
+.discretePlot
+~~~
+
+![](Help/Image/squareSpiral-L.svg)
+
+One arm of a counterclockwise square spiral with four arms:
+
+~~~spl svg=M
+250.squareSpiral('C').Line
+~~~
+
+![](Help/Image/squareSpiral-M.svg)
+
+_x_-coordinates of one arm of a counterclockwise double square spiral,
+OEIS [A340171](https://oeis.org/A340171):
+
+~~~spl svg=N oeis=A340171
+85.squareSpiral('B')
+.column(1)
+.discretePlot
+~~~
+
+![](Help/Image/squareSpiral-N.svg)
+
+_y_-coordinates of one arm of a counterclockwise double square spiral,
+OEIS [A340172](https://oeis.org/A340172):
+
+~~~spl svg=O oeis=A340172
+85.squareSpiral('B')
+.column(2)
+.discretePlot
+~~~
+
+![](Help/Image/squareSpiral-O.svg)
+
+Pairs of coordinates of one arm of a counterclockwise double square spiral:
+
+~~~spl svg=P
+42.squareSpiral('B')
+.catenate
+.discretePlot
+~~~
+
+![](Help/Image/squareSpiral-P.svg)
+
+One arm of a counterclockwise double square spiral:
+
+~~~spl svg=Q
+250.squareSpiral('B').Line
+~~~
+
+![](Help/Image/squareSpiral-Q.svg)
 
 * * *
 
