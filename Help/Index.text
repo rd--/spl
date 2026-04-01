@@ -1270,6 +1270,7 @@ Reference/downsample.help.sl
 Reference/downsampleSteinarsson.help.sl
 Reference/downToDo.help.sl
 Reference/doyleSpiral.help.sl
+Reference/dragonCurve.help.sl
 Reference/Drand.help.sl
 Reference/drawdownMatrix.help.sl
 Reference/drawing.help.sl
@@ -2713,6 +2714,7 @@ Reference/minimalResidue.help.sl
 Reference/minimumChangePermutations.help.sl
 Reference/minimumExcludedValue.help.sl
 Reference/minimumTimeIncrement.help.sl
+Reference/minkowskiCurve.help.sl
 Reference/minkowskiDistance.help.sl
 Reference/minkowskiQuestionMark.help.sl
 Reference/minkowskiQuestionMarkInverse.help.sl

@@ -477,6 +477,7 @@
   13. ![](Help/Image/binaryExpansion-M.svg)
   14. ![](Help/Image/binaryExpansion-N.svg)
   15. ![](Help/Image/binaryExpansion-O.svg)
+  16. ![](Help/Image/binaryExpansion-P.svg)
 - `binaryMatrix`
   1. ![](Help/Image/binaryMatrix-A.svg)
 - `binaryReflectedGrayCode`
@@ -1517,6 +1518,11 @@
   2. ![](Help/Image/doyleSpiral-B.svg)
   3. ![](Help/Image/doyleSpiral-C.svg)
   4. ![](Help/Image/doyleSpiral-D.svg)
+- `dragonCurve`
+  1. ![](Help/Image/dragonCurve-A.svg)
+  2. ![](Help/Image/dragonCurve-B.svg)
+  3. ![](Help/Image/dragonCurve-C.svg)
+  4. ![](Help/Image/dragonCurve-D.svg)
 - `drawdownMatrix`
   1. ![](Help/Image/drawdownMatrix-A.svg)
   2. ![](Help/Image/drawdownMatrix-B.svg)
@@ -2423,6 +2429,8 @@
 - `heighwayDragonCurve`
   1. ![](Help/Image/heighwayDragonCurve-A.svg)
   2. ![](Help/Image/heighwayDragonCurve-B.svg)
+  3. ![](Help/Image/heighwayDragonCurve-C.svg)
+  4. ![](Help/Image/heighwayDragonCurve-D.svg)
 - `heldKarpAlgorithm`
   1. ![](Help/Image/heldKarpAlgorithm-A.svg)
 - `helicalScanMatrix`
@@ -3023,6 +3031,9 @@
 - `kochCurve`
   1. ![](Help/Image/kochCurve-A.svg)
   2. ![](Help/Image/kochCurve-B.svg)
+  3. ![](Help/Image/kochCurve-C.svg)
+  4. ![](Help/Image/kochCurve-D.svg)
+  5. ![](Help/Image/kochCurve-E.svg)
 - `kolakoskiSequence`
   1. ![](Help/Image/kolakoskiSequence-A.svg)
   2. ![](Help/Image/kolakoskiSequence-B.svg)
@@ -3508,6 +3519,10 @@
   1. ![](Help/Image/minimumChangePermutations-A.svg)
 - `minimumExcludedValue`
   1. ![](Help/Image/minimumExcludedValue-A.svg)
+- `minkowskiCurve`
+  1. ![](Help/Image/minkowskiCurve-A.svg)
+  2. ![](Help/Image/minkowskiCurve-B.svg)
+  3. ![](Help/Image/minkowskiCurve-C.svg)
 - `minkowskiQuestionMark`
   1. ![](Help/Image/minkowskiQuestionMark-A.svg)
   2. ![](Help/Image/minkowskiQuestionMark-B.svg)
@@ -4538,6 +4553,8 @@
   1. ![](Help/Image/rationalUnrank-A.svg)
   2. ![](Help/Image/rationalUnrank-B.svg)
   3. ![](Help/Image/rationalUnrank-C.svg)
+- `realImaginary`
+  1. ![](Help/Image/realImaginary-A.svg)
 - `recamanSequence`
   1. ![](Help/Image/recamanSequence-A.svg)
   2. ![](Help/Image/recamanSequence-B.svg)
@@ -4942,6 +4959,9 @@
 - `sierpinskiArrowheadCurve`
   1. ![](Help/Image/sierpinskiArrowheadCurve-A.svg)
   2. ![](Help/Image/sierpinskiArrowheadCurve-B.svg)
+  3. ![](Help/Image/sierpinskiArrowheadCurve-C.svg)
+  4. ![](Help/Image/sierpinskiArrowheadCurve-D.svg)
+  5. ![](Help/Image/sierpinskiArrowheadCurve-E.svg)
 - `sierpinskiCarpet`
   1. ![](Help/Image/sierpinskiCarpet-A.svg)
   2. ![](Help/Image/sierpinskiCarpet-B.png)
@@ -5211,6 +5231,14 @@
   7. ![](Help/Image/squareSpiral-G.svg)
   8. ![](Help/Image/squareSpiral-H.svg)
   9. ![](Help/Image/squareSpiral-I.svg)
+  10. ![](Help/Image/squareSpiral-J.svg)
+  11. ![](Help/Image/squareSpiral-K.svg)
+  12. ![](Help/Image/squareSpiral-L.svg)
+  13. ![](Help/Image/squareSpiral-M.svg)
+  14. ![](Help/Image/squareSpiral-N.svg)
+  15. ![](Help/Image/squareSpiral-O.svg)
+  16. ![](Help/Image/squareSpiral-P.svg)
+  17. ![](Help/Image/squareSpiral-Q.svg)
 - `squareSpiralPoints`
   1. ![](Help/Image/squareSpiralPoints-A.svg)
   2. ![](Help/Image/squareSpiralPoints-B.svg)
@@ -5371,6 +5399,7 @@
   9. ![](Help/Image/substitutionSystem-I.svg)
   10. ![](Help/Image/substitutionSystem-J.svg)
   11. ![](Help/Image/substitutionSystem-K.svg)
+  12. ![](Help/Image/substitutionSystem-L.svg)
 - `sum`
   1. ![](Help/Image/sum-A.svg)
   2. ![](Help/Image/sum-B.svg)
@@ -5993,3 +6022,8 @@
   1. ![](Help/Image/zigzagMatrix-A.svg)
 - `zOrderCurve`
   1. ![](Help/Image/zOrderCurve-A.svg)
+  2. ![](Help/Image/zOrderCurve-B.svg)
+  3. ![](Help/Image/zOrderCurve-C.svg)
+  4. ![](Help/Image/zOrderCurve-D.svg)
+  5. ![](Help/Image/zOrderCurve-E.svg)
+  6. ![](Help/Image/zOrderCurve-F.svg)
