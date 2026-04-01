@@ -902,6 +902,22 @@ OEIS [A104563](https://oeis.org/A104563):
 [0 1 3 5 8 13 19 25 32 41 51 61 72 85 99]
 ```
 
+Keith sequence for the number one-hundred and ninety-seven,
+OEIS [A186830](https://oeis.org/A186830):
+
+```
+>>> [1 1 1].linearRecurrence([1 9 7], 11)
+[1 9 7 17 33 57 107 197 361 665 1223]
+```
+
+Fibonacci sequence beginning _1,9_,
+OEIS [A022099](https://oeis.org/A022099):
+
+```
+>>> [1 1].linearRecurrence([1 9], 11)
+[1 9 10 19 29 48 77 125 202 327 529]
+```
+
 Draw spiral:
 
 ~~~spl svg=A

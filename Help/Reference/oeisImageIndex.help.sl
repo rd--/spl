@@ -1,6 +1,6 @@
 # oeisImageIndex
 
-- oeisImageIndex(system)_
+- _oeisImageIndex(system)_
 
 Answer the Oeis image index in markdown format.
 

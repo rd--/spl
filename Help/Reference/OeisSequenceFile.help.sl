@@ -25,13 +25,25 @@ Read local Oeis sequence file and collect the `identifier`, `name`, `offset`, `d
 	10926,
 	'Binomial coefficients C(10,n).',
 	[0, 2],
-	[1, 10, 45, 120, 210, 252, 210, 120, 45, 10, 1],
+	[1 10 45 120 210 252 210 120 45 10 1],
 	['nonn', 'fini', 'full', 'easy'],
 	'_N. J. A. Sloane_'
 )
 ```
 
-Write summary record:
+The data field stores integers in normal form,
+that is as `SmallFloat` values if applicable,
+else as `LargeInteger` values:
+
+```
+>>> OeisSequenceFile('A394642')
+>>> .data
+>>> .elementTypes
+['SmallFloat' 'LargeInteger']
+```
+
+Write summary record,
+the data field is truncated to include only the entries that are small integers:
 
 ~~~spl io
 FilePath('/tmp/splOeisReferences.json')
@@ -47,7 +59,9 @@ FilePath('/tmp/splOeisReferences.json')
 			identifier: o.identifier,
 			name: o.name,
 			offset: o.offset,
-			data: o.data,
+			data: o.data.takeWhile(
+				isSmallInteger:/1
+			),
 			keywords: o.keywords,
 			author: o.author
 		)

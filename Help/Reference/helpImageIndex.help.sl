@@ -1,6 +1,6 @@
 # helpImageIndex
 
-- helpImageIndex(system)_
+- _helpImageIndex(system)_
 
 Answer the help image index in markdown format.
 
@@ -16,6 +16,6 @@ Write the `Help Image Index` file:
 
 * * *
 
-See also: helpImageProgramDictionary, helpImageProgramTable
+See also: helpProgramDictionary, helpProgramTable
 
 Guides: Help Image Index

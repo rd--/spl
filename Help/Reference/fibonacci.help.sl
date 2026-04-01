@@ -623,6 +623,23 @@ OEIS [A180662](https://oeis.org/A180662):
 
 ![](Help/Image/fibonacci-P.svg)
 
+Array,
+read by ascending antidiagonals,
+_F(j-1)×i+F(j)_,
+OEIS [A109754](https://oeis.org/A109754):
+
+~~~spl svg=Q oeis=A109754
+0:11.antidiagonalArray { :i :j |
+	(j = 0).if {
+		0
+	} {
+		i * fibonacci(j - 1) + fibonacci(j)
+	}
+}.collect(reverse:/1).catenate.discretePlot
+~~~
+
+![](Help/Image/fibonacci-Q.svg)
+
 * * *
 
 See also: binetsFormula, fibonacciEntryPoint, fibonacciNumber, fibonacciPolynomial, fibonacciSequence, goldenRatio, lucasNumber

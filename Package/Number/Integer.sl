@@ -920,6 +920,23 @@
 		self.isKaprekarNumber(10, 2)
 	}
 
+	isKeithNumber { :n :b |
+		let d = n.integerDigits(b);
+		let t = d.size;
+		let x = d.last;
+		{
+			x < n
+		}.whileTrue {
+			x := d.last(t).sum;
+			d.add(x)
+		};
+		(x = n)
+	}
+
+	isKeithNumber { :n |
+		n.isKeithNumber(10)
+	}
+
 	isNarcissisticNumber { :self :base |
 		let power = self.integerLength(base);
 		(self.integerDigits(base) ^ power).sum = self

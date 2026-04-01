@@ -360,7 +360,7 @@
 		self.do { :each |
 			answer.include(each.typeOf)
 		};
-		answer
+		answer.contents
 	}
 
 	emptyCheck { :self |

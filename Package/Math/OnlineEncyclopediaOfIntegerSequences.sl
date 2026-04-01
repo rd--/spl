@@ -460,10 +460,7 @@
 	}
 
 	stableKeywords { :self |
-		let unstable = ['changed', 'new'];
-		self.keywords.reject { :each |
-			unstable.includes(each)
-		}
+		self.keywords.withoutUnstableOeisKeywords
 	}
 
 	subscriptOfFirstTerm { :self |
@@ -760,6 +757,13 @@ LibraryItem(
 )
 
 +List {
+
+	withoutUnstableOeisKeywords { :self |
+		let unstable = ['changed', 'new'];
+		self.reject { :each |
+			unstable.includes(each)
+		}
+	}
 
 	oeisFunction { :self |
 		self.collect(oeisFunction:/1)
