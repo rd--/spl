@@ -10,7 +10,9 @@ _n_ is the entry identifier, either as an integer or an _A-_ string.
 'A000001'
 ```
 
-Read the `identifier`, `number`, `name`, `stableKeywords`, `offset`, `data` and `bFileData` fields:
+Read the `identifier`, `number`, `name`, `stableKeywords`, `offset`, `data` and `bFileSequence` fields,
+and ensure the B-file is valid,
+meaning that the indices are contiguous and agree with the `offset` field:
 
 ```
 >>> OeisEntry('A000001').then { :e |
@@ -21,7 +23,8 @@ Read the `identifier`, `number`, `name`, `stableKeywords`, `offset`, `data` and 
 >>> 		e.stableKeywords,
 >>> 		e.offset,
 >>> 		e.data.size,
->>> 		e.bFileData.size
+>>> 		e.bFileSequence.size,
+>>> 		e.bFileIsValid
 >>> 	)
 >>> }
 (
@@ -31,7 +34,8 @@ Read the `identifier`, `number`, `name`, `stableKeywords`, `offset`, `data` and 
 	['nonn' 'core' 'nice' 'hard'],
 	[0 5],
 	94,
-	2048
+	2048,
+	true
 )
 ```
 
@@ -48,13 +52,13 @@ OeisEntry('A000001').then { :e |
 
 ![](Help/Image/OeisEntry-A.svg)
 
-The first few items of `bFileData`,
-as given in B-file associated with the OEIS entry,
+The first few items of `bFileSequence`,
+as given in the B-file associated with the OEIS entry,
 OEIS [A000001](https://oeis.org/A000001):
 
 ~~~spl svg=B oeis=A000001
 OeisEntry('A000001').then { :e |
-	e.bFileData
+	e.bFileSequence
 	.first(250)
 	.log
 	.scatterPlot
@@ -63,12 +67,12 @@ OeisEntry('A000001').then { :e |
 
 ![](Help/Image/OeisEntry-B.svg)
 
-The first few items of `bFileData` for a sequence that is non-trivial to calculate,
+The first few items of `bFileSequence` for a sequence that is non-trivial to calculate,
 OEIS [A059471](https://oeis.org/A059471):
 
 ~~~spl svg=C oeis=A059471
 OeisEntry('A059471').then { :e |
-	e.bFileData
+	e.bFileSequence
 	.first(125)
 	.log
 	.scatterPlot
@@ -82,7 +86,7 @@ OEIS [A254410](https://oeis.org/A254410):
 
 ~~~spl svg=D oeis=A254410
 OeisEntry('A254410').then { :e |
-	e.bFileData
+	e.bFileSequence
 	.first(150)
 	.scatterPlot
 }
@@ -95,7 +99,7 @@ OEIS [A380317](https://oeis.org/A380317):
 
 ~~~spl svg=E oeis=A380317
 OeisEntry('A380317').then { :e |
-	e.bFileData
+	e.bFileSequence
 	.first(300)
 	.linePlot
 }

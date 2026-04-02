@@ -46,7 +46,7 @@ Write summary record,
 the data field is truncated to include only the entries that are small integers:
 
 ~~~spl io
-FilePath('/tmp/splOeisReferences.json')
+FilePath('/tmp/SplOeisData.json')
 .writeTextFile(
 	system
 	.splOeisReferences

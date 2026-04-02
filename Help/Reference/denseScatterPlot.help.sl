@@ -47,7 +47,7 @@ OEIS [A289194](https://oeis.org/A289194):
 
 ~~~spl png=D oeis=A289194
 OeisEntry('A289194').then { :e |
-	e.bFileData
+	e.bFileSequence
 	.first(10000)
 	.denseScatterPlot
 }

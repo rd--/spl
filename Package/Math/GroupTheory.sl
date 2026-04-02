@@ -9,10 +9,10 @@
 	}
 
 	finiteGroupCount { :n |
-		let t = system.oeisSequenceData.at('A000001');
-		let k = t.size;
+		let a = system.oeisBFileData.at('A000001');
+		let k = a.size;
 		(n < k).if {
-			t.at(n + 1).at(2)
+			a.at(n + 1)
 		} {
 			n.error('finiteGroupCount')
 		}

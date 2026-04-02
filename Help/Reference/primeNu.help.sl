@@ -74,6 +74,17 @@ OEIS [A034444](https://oeis.org/A034444):
 ]
 ```
 
+Pierpont primes,
+primes of the form _2^t*3^u+1_,
+OEIS [A005109](https://oeis.org/A005109):
+
+```
+>>> 3:100.prime.select { :p |
+>>> 	(p - 1).primeNu = (3 - (p % 3))
+>>> }
+[5 7 13 17 19 37 73 97 109 163 193 257 433 487]
+```
+
 The `primeNu` sequence for the first 100 numbers,
 OEIS [A001221](https://oeis.org/A001221):
 

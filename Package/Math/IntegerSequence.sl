@@ -273,12 +273,10 @@
 	}
 
 	ehrenfeuchtMycielskiSequence { :n |
-		let t = system.oeisSequenceData.at('A038219');
-		let k = t.size;
+		let a = system.oeisBFileData.at('A038219');
+		let k = a.size;
 		(n < k).if {
-			1:n.collect { :i |
-				t.at(i).at(2)
-			}
+			a.first(n)
 		} {
 			n.error('ehrenfeuchtMycielskiSequence')
 		}

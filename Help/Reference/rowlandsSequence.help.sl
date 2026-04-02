@@ -199,7 +199,7 @@ OEIS [A137613](https://oeis.org/A137613):
 
 ~~~spl svg=B oeis=A137613
 OeisEntry('A137613').then { :e |
-	e.bFileData
+	e.bFileSequence
 	.first(250)
 	.log
 	.scatterPlot
@@ -213,7 +213,7 @@ OEIS [A221869](https://oeis.org/A221869):
 
 ~~~spl svg=C oeis=A221869
 OeisEntry('A221869').then { :e |
-	e.bFileData
+	e.bFileSequence
 	.first(250)
 	.log
 	.scatterPlot

@@ -374,7 +374,7 @@ OEIS [A051282](https://oeis.org/A051282):
 
 ~~~spl svg=I oeis=A051282
 OeisEntry('A051282').then { :e |
-	e.bFileData
+	e.bFileSequence
 	.first(300)
 	.scatterPlot
 }

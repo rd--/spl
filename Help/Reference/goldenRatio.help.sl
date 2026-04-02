@@ -423,7 +423,7 @@ OEIS [A104605](https://oeis.org/A104605):
 
 ~~~spl svg=K oeis=A104605
 OeisEntry('A104605').then { :e |
-	e.bFileData
+	e.bFileSequence
 	.first(113)
 	.discretePlot
 }

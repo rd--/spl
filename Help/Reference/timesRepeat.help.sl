@@ -40,11 +40,14 @@ Generate a symbolic continued fraction:
 )
 ```
 
-Build up a list of Mersenne primes:
+Build a table of Mersenne exponents and Mersenne primes,
+OEIS [A000043](https://oeis.org/A000043)
+and
+OEIS [A000668](https://oeis.org/A000668):
 
 ```
 >>> let t = [];
->>> 1:19.do { :n |
+>>> 1:23.do { :n |
 >>> 	let m = 2 ^ n - 1;
 >>> 	m.isPrime.ifTrue {
 >>> 		t.add([n, m])

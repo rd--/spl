@@ -5,7 +5,7 @@
 Answer the first _n_ terms of the Ehrenfeucht-Mycielski sequence,
 a recursively defined sequence of binary digits with pseudorandom properties.
 
-First few terms of the Ehrenfeucht-Mycielski sequence,
+The Ehrenfeucht-Mycielski sequence,
 OEIS [A038219](https://oeis.org/A038219):
 
 ```

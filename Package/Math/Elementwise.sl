@@ -523,6 +523,10 @@
 		self.collect(lucasNumber:/1)
 	}
 
+	mersennePrimeExponent { :self |
+		self.collect(mersennePrimeExponent:/1)
+	}
+
 	minkowskiQuestionMark { :self |
 		self.collect(minkowskiQuestionMark:/1)
 	}

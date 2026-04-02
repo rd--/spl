@@ -469,14 +469,26 @@
 
 }
 
-OeisEntry : [Object, Storeable, Equatable, OeisSequence] { | identifier:<String> contents bFile |
+OeisEntry : [Object, Storeable, Equatable, OeisSequence] { | identifier:<String> contents bFileCache |
 
 	bFileData { :self |
-		self.bFile.ifNil {
+		self.bFileCache.ifNil {
 			self.error('bFileData: not fetched')
-		} { :bFile |
-			bFile.column(2)
+		} { :bFileData |
+			bFileData
 		}
+	}
+
+	bFileIsValid { :self |
+		let data = self.bFileData;
+		let k = data.size;
+		let indices = data.column(1);
+		let i = self.subscriptOfFirstTerm;
+		indices = [i .. i + k - 1]
+	}
+
+	bFileSequence { :self |
+		self.bFileData.column(2)
 	}
 
 	dataText { :self |
@@ -514,7 +526,7 @@ OeisEntry : [Object, Storeable, Equatable, OeisSequence] { | identifier:<String>
 			'OnlineEncyclopediaOfIntegerSequences',
 			'text/plain'
 		).then { :data |
-			self.bFile := data.oeisParseBFile;
+			self.bFileCache := data.oeisParseBFile;
 			self
 		}
 	}
@@ -742,16 +754,16 @@ OeisSequenceFile : [Object, Equatable, OeisSequence] { | identifier contents |
 		}
 	}
 
-	oeisSequenceData { :self |
-		self.requireLibraryItem('OeisSequenceData')
+	oeisBFileData { :self |
+		self.requireLibraryItem('OeisBFileData')
 	}
 
 }
 
 LibraryItem(
-	name: 'OeisSequenceData',
+	name: 'OeisBFileData',
 	category: 'Math/IntegerSequences',
-	url: 'https://rohandrape.net/sw/hsc3-data/data/oeis/oeis.json',
+	url: 'https://rohandrape.net/sw/hsc3-data/data/oeis/OeisBFileData.json',
 	mimeType: 'application/json',
 	parser: identity:/1
 )

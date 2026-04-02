@@ -546,6 +546,17 @@ OEIS [A117971](https://oeis.org/A117971):
 [0 1 0 1 2 1 4 1 0 1 2 1 3 1 3 1 2 1 5 1 8 1]
 ```
 
+The non-octal numbers,
+numbers containing an eight or nine,
+OEIS [A057104](https://oeis.org/A057104):
+
+```
+>>> 1:70.select { :n |
+>>> 	n.integerDigits.max > 7
+>>> }
+[8 9 18 19 28 29 38 39 48 49 58 59 68 69]
+```
+
 _n_-th prime minus its binary reversal,
 OEIS [A265326](https://oeis.org/A265326):
 

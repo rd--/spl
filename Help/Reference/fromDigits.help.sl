@@ -216,6 +216,43 @@ OEIS [A001733](https://oeis.org/A001733):
 [7 7 7 10 11 12 13 21 111 1111111]
 ```
 
+Numbers in base six,
+OEIS [A007092](https://oeis.org/A007092):
+
+```
+>>> 0:15.integerDigits(6).fromDigits
+[0 1 2 3 4 5 10 11 12 13 14 15 20 21 22 23]
+
+>>> 0:23.select { :n |
+>>> 	n.integerDigits.max < 6
+>>> }
+[0 1 2 3 4 5 10 11 12 13 14 15 20 21 22 23]
+```
+
+Numbers in base eight,
+OEIS [A007094](https://oeis.org/A007094):
+
+```
+>>> 0:16.integerDigits(8).fromDigits
+[0 1 2 3 4 5 6 7 10 11 12 13 14 15 16 17 20]
+```
+
+Primes written in base six,
+OEIS [A004680](https://oeis.org/A004680):
+
+```
+>>> 1:14.prime.integerDigits(6).fromDigits
+[2 3 5 11 15 21 25 31 35 45 51 101 105 111]
+```
+
+Primes written in base eight,
+OEIS [A004682](https://oeis.org/A004682):
+
+```
+>>> 1:15.prime.integerDigits(8).fromDigits
+[2 3 5 7 13 15 21 23 27 35 37 45 51 53 57]
+```
+
 Binary reversal,
 OEIS [A030101](https://oeis.org/A030101):
 

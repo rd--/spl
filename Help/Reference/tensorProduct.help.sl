@@ -159,7 +159,7 @@ OEIS [A322967](https://oeis.org/A322967):
 
 ~~~spl svg=A oeis=A322967
 OeisEntry('A322967').then { :e |
-	e.bFileData
+	e.bFileSequence
 	.first(135)
 	.log
 	.scatterPlot

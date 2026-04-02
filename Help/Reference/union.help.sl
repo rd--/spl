@@ -73,6 +73,34 @@ At `Multiset`:
 Multiset([|'x' -> 3, 'y' -> 3, 'z' -> 3|])
 ```
 
+Note that the answer is not sorted,
+in the `List` case the answer has the unique elements of _c₁_ followed by the elements of _c₂_ not already present:
+
+```
+>>> [5 3 1].union([1 2 3 4 5])
+[5 3 1 2 4]
+```
+
+Sums of distinct positive cubes,
+OEIS [A003997](https://oeis.org/A003997),
+the complement of
+OEIS [A001476](https://oeis.org/A001476):
+
+~~~spl svg=A oeis=A003997
+let limit = 8;
+let s = [0];
+1.toDo(limit) { :n |
+	s := s.union(s + (n ^ 3))
+};
+s.sort.select { :n |
+	0 < n & {
+		n <= (limit ^ 3)
+	}
+}.discretePlot
+~~~
+
+![](Help/Image/union-A.svg)
+
 Where supported `union` is displayed as ∪.
 
 * * *

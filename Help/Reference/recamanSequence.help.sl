@@ -2,11 +2,11 @@
 
 - _recamanSequence(n)_
 
-Answer the first _n_ terms of Recamáns sequence.
+Answer the first _n_ terms of Recamán’s sequence.
 The _n_-the term is _a[n-1]-n_ if non-negative and not already in the sequence,
 otherwise _a[n-1]+n_.
 
-First few terms of Recamáns sequence,
+Recamán’s sequence,
 OEIS [A005132](https://oeis.org/A005132):
 
 ```
@@ -23,7 +23,7 @@ OEIS [A005132](https://oeis.org/A005132):
 ]
 ```
 
-Recamáns sequence,
+Recamán’s sequence,
 line plot,
 OEIS [A005132](https://oeis.org/A005132):
 
@@ -33,7 +33,7 @@ OEIS [A005132](https://oeis.org/A005132):
 
 ![](Help/Image/recamanSequence-A.svg)
 
-Recamáns sequence,
+Recamán’s sequence,
 scatter plot,
 OEIS [A005132](https://oeis.org/A005132):
 
@@ -43,7 +43,7 @@ OEIS [A005132](https://oeis.org/A005132):
 
 ![](Help/Image/recamanSequence-B.svg)
 
-Drawing connecting adjacent elements of Recamáns sequence with arcs,
+Drawing connecting adjacent elements of Recamán’s sequence with arcs,
 radii are proportionate to distance:
 
 ~~~spl svg=C
@@ -65,7 +65,7 @@ let x = n.recamanSequence;
 
 ![](Help/Image/recamanSequence-C.svg)
 
-A variant of Recamáns sequence,
+A variant of Recamán’s sequence,
 _k_ begins at _n_ and then flips signs and increments until a value is located,
 OEIS [A064389](https://oeis.org/A064389):
 
@@ -114,7 +114,7 @@ r.differences.sign.prefixSum.scatterPlot
 
 ![](Help/Image/recamanSequence-F.svg)
 
-A variant of Recamáns sequence,
+A variant of Recamán’s sequence,
 OEIS [A063733](https://oeis.org/A063733):
 
 ~~~spl svg=G oeis=A063733
@@ -131,6 +131,96 @@ OEIS [A063733](https://oeis.org/A063733):
 ~~~
 
 ![](Help/Image/recamanSequence-G.svg)
+
+First differences of Recamán’s sequence,
+OEIS [A160356](https://oeis.org/A160356):
+
+~~~spl svg=H oeis=A160356
+115.recamanSequence
+.differences
+.discretePlot
+~~~
+
+![](Help/Image/recamanSequence-H.svg)
+
+Indices of addition steps in Recamán’s sequence,
+OEIS [A057165](https://oeis.org/A057165):
+
+~~~spl svg=I oeis=A057165
+115.recamanSequence
+.differences
+.detectIndices(isPositive:/1)
+.discretePlot
+~~~
+
+![](Help/Image/recamanSequence-I.svg)
+
+Indices of subtraction steps in Recamán’s sequence,
+OEIS [A057166](https://oeis.org/A057166):
+
+~~~spl svg=J oeis=A057166
+115.recamanSequence
+.differences
+.detectIndices(isNegative:/1)
+.discretePlot
+~~~
+
+![](Help/Image/recamanSequence-J.svg)
+
+Partial sums of Recamán’s sequence,
+OEIS [A065056](https://oeis.org/A065056):
+
+~~~spl svg=K oeis=A065056
+115.recamanSequence
+.prefixSum
+.discretePlot
+~~~
+
+![](Help/Image/recamanSequence-K.svg)
+
+Term in Recamán’s sequence where _n_ appears for first time,
+OEIS [A057167](https://oeis.org/A057167):
+
+~~~spl svg=L oeis=A057167
+let r = 181654.recamanSequence;
+1:100.collect { :n |
+	r.indexOf(n) - 1
+}.scatterPlot.log
+~~~
+
+![](Help/Image/recamanSequence-L.svg)
+
+Lengths of runs of alternating terms in the signs of the differences of Recamán’s sequence,
+OEIS [A119632](https://oeis.org/A119632):
+
+~~~spl svg=M oeis=A119632
+let n = 2000;
+let a = n.recamanSequence.differences.sign;
+let b = [];
+let c = 1;
+2.toDo(n - 1) { :i |
+	(a[i] = a[i - 1]).if {
+		b.add(c);
+		c := 1
+	} {
+		c := c + 1
+	}
+};
+b.allButLast.discretePlot
+~~~
+
+![](Help/Image/recamanSequence-M.svg)
+
+Record values in Recamáns sequence
+OEIS [A064291](https://oeis.org/A064291):
+
+~~~spl svg=N oeis=A064291
+500.recamanSequence
+.recordValues
+.discretePlot
+~~~
+
+![](Help/Image/recamanSequence-N.svg)
 
 * * *
 

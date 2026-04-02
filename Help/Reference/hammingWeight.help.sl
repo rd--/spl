@@ -170,7 +170,7 @@ OEIS [A287639](https://oeis.org/A287639):
 
 ~~~spl svg=L oeis=A287639
 OeisEntry('A287639').then { :e |
-	e.bFileData
+	e.bFileSequence
 	.first(300)
 	.scatterPlot
 }
@@ -185,7 +185,7 @@ OEIS [A287639](https://oeis.org/A287639):
 
 ~~~spl svg=M oeis=A287639
 OeisEntry('A287639').then { :e |
-	e.bFileData
+	e.bFileSequence
 	.copyFromTo(950, 1200)
 	.scatterPlot
 }
