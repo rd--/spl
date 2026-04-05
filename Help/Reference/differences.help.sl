@@ -330,14 +330,15 @@ OEIS [A297330](https://oeis.org/A297330):
 
 * * *
 
-See also: -, accumulate, differencesBy, discreteLaplacian, foldList, gradient, orderedDifferences, prefixSum, ratios
+See also: -, accumulate, differencesBy, differenceTable, discreteLaplacian, foldList, gradient, orderedDifferences, prefixSum, ratios, triangularDifferenceTable
 
 Guides: List Functions
 
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/CommonDifference.html)
-[2](https://reference.wolfram.com/language/ref/Differences.html),
+[2](https://mathworld.wolfram.com/FiniteDifference.html)
+[3](https://reference.wolfram.com/language/ref/Differences.html),
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/double.diff.html),
 _OEIS_

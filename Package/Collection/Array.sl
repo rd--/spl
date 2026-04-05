@@ -140,6 +140,14 @@
 		}
 	}
 
+	isCostasArray { :self |
+		self.isPermutationList & {
+			self
+			.triangularDifferenceTable
+			.allSatisfy(isDuplicateFree:/1)
+		}
+	}
+
 	isMatrix { :self :aBlock:/1 |
 		self.isArray(2, aBlock:/1)
 	}

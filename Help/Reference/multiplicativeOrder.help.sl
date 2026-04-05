@@ -1,6 +1,6 @@
 # multiplicativeOrder
 
-- _multiplicativeOrder(k, n)_
+- _multiplicativeOrder(k, n, [r₁ r₂ …]=[1])_
 
 Answer the multiplicative order of _k_ modulo _n_,
 defined as the smallest integer _m_ such that _(k^m)%n=1_.
@@ -56,6 +56,16 @@ Generalised multiplicative order:
 ```
 >>> 5.multiplicativeOrder(7, [3 11])
 2
+```
+
+Discrete logarithm of _n_ to the base two modulo thirteen,
+OEIS [A008831](https://oeis.org/A008831):
+
+```
+>>> 2:12.collect { :r |
+>>> 	2.multiplicativeOrder(13, [r])
+>>> }
+[1 4 2 9 5 11 3 8 10 7 6]
 ```
 
 Find all primitive roots modulo 43:

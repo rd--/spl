@@ -761,6 +761,12 @@
 		}
 	}
 
+	differenceTable { :self |
+		1.toCollect(self.size - 1) { :n |
+			self.differences(n)
+		}
+	}
+
 	differences { :self |
 		self.partitionCollect(2, 1) { :each |
 			each[2] - each[1]
@@ -2664,6 +2670,15 @@
 		1.toAsCollect(n, self.first.species) { :index |
 			self.collect { :row |
 				row.atWrap(index)
+			}
+		}
+	}
+
+	triangularDifferenceTable { :a |
+		let k = a.size;
+		1.toCollect(k - 1) { :n |
+			1.toCollect(k - n) { :i |
+				a[i + n] - a[i]
 			}
 		}
 	}

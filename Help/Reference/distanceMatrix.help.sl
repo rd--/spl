@@ -109,6 +109,23 @@ Distance matrix of a 3×2 matrix:
 ]
 ```
 
+Distance matrix using subtraction,
+the upper right triangle,
+read by falling diagonals,
+is the triangular difference table:
+
+```
+>>> let v = [1 3 4 2 5];
+>>> v.distanceMatrix(v, -.swap)
+[
+	 0  2  3  1  4;
+	-2  0  1 -1  2;
+	-3 -1  0 -2  1;
+	-1  1  2  0  3;
+	-4 -2 -1 -3  0
+]
+```
+
 Recurrence plot of a trigonometric operation:
 
 ~~~spl svg=A
