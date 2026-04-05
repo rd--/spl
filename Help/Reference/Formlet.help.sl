@@ -62,6 +62,8 @@ Formlet(
 
 See also: Formant
 
+Guides: Unit Generators
+
 References:
 _Csound_
 [1](https://csound.com/docs/manual/fof.html)

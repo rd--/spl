@@ -56,6 +56,8 @@ Rotate2(x, y, MouseX(0, 2, 0, 0.2))
 
 See also: BiPanB2, DecodeB2, PanB, PanB2
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Rotate2.html)

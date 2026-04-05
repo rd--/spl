@@ -33,6 +33,8 @@ let minmax = MouseX(0, 1, 0, 0.2);
 
 See also: BiLinRand, IRand, NRand, Rand, Rand2
 
+Guides: Unit Generators
+
 References:
 _Csound_
 [1](https://csound.com/docs/manual/linrand.html),

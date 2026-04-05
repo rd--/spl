@@ -35,6 +35,8 @@ MoogFf(in, freq, 0.83 * 4, 0) * 0.5
 
 See also: Dfm1
 
+Guides: Unit Generators
+
 References:
 Fontana, F. (2007)
 "Preserving the Digital Structure of the Moog VCF".

@@ -35,6 +35,8 @@ This may not be the most efficient way if each input is Cpu-expensive.
 
 See also: Multiplexer, Select, TChoose, TwIndex
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/TWChoose.html)

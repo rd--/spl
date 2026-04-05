@@ -1,8 +1,8 @@
 # Divide
 
-- _Divide(aNumber, anotherNumber)_
+- _Divide(n, m)_
 
-Answer the division of _aNumber_ and _anotherNumber_.
+Answer the division of _n_ and _m_.
 `Divide` is an alias for `/`.
 
 At `SmallFloat`:

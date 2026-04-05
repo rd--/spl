@@ -44,4 +44,6 @@ let z = Hpf(
 
 See also: KNearest
 
+Guides: Unit Generators
+
 Categories: Ugen

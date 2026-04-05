@@ -77,6 +77,8 @@ Show calculation of feedback coefficient and decay time:
 
 See also: AllpassC, AllpassN, CombL
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/AllpassL.html)

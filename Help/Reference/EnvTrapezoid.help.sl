@@ -69,4 +69,6 @@ osc.Splay
 
 See also: Env, EnvGen
 
+Guides: Unit Generators
+
 Categories: Ugen, Envelope

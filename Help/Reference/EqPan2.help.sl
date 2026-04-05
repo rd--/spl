@@ -20,4 +20,6 @@ EqPan2(
 
 See also: LinPan2, Pan2
 
+Guides: Unit Generators
+
 Categories: Ugen, Panning

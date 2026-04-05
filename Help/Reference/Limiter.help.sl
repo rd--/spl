@@ -34,4 +34,6 @@ Limiter(z, MouseX(0, 1, 0, 0.2), 0.01) * 0.2
 
 See also: Compander
 
+Guides: Unit Generators
+
 Categories: Ugen, Amplitude

@@ -61,4 +61,6 @@ Sine sweeps:
 
 See also: Dust
 
+Guides: Unit Generators
+
 Categories: Ugen

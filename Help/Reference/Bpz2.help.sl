@@ -24,6 +24,8 @@ Bpz2(WhiteNoise() * 0.1)
 
 See also: Bpf
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/BPZ2.html)

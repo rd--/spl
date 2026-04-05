@@ -82,6 +82,16 @@ At `LargeInteger`:
 -26953727934L
 ```
 
+Note errors in floating point math:
+
+```
+>>> 3L ^ 41 % 13
+9
+
+>>> 3 ^ 41 % 13
+8
+```
+
 At `Fraction`:
 
 ```

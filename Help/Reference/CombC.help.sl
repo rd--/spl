@@ -51,6 +51,8 @@ CombC(z, 0.2, 0.2, 3)
 
 See also: AllpassC, CombL
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/CombC.html),

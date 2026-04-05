@@ -26,4 +26,8 @@ Svf(
 
 * * *
 
+See also: Bpf, Hpf, Lpf
+
+Guides: Unit Generators
+
 Categories: Ugen

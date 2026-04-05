@@ -24,4 +24,6 @@ Silent(8) ++ DecodeB2(8, w, x, y, 0)
 
 See also: DecodeB2
 
+Guides: Unit Generators
+
 Categories: Ugen

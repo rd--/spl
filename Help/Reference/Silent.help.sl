@@ -23,6 +23,8 @@ Silent(8) ++ (
 
 See also: Dc
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Silent.html)

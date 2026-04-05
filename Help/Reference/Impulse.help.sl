@@ -31,6 +31,8 @@ Impulse(4, [0, MouseX(0, 1, 0, 0.2)]) * 0.2
 
 See also: Blip
 
+Guides: Unit Generators
+
 References:
 _Csound_
 [1](https://csound.com/docs/manual/mpulse.html),

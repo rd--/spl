@@ -45,4 +45,6 @@ Texture:
 
 * * *
 
+Guides: Unit Generators
+
 Categories: Ugen

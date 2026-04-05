@@ -61,3 +61,5 @@ let h = p.bezierHull(0.5);
 * * *
 
 See also: BezierCurve
+
+Guides: Geometry Functions

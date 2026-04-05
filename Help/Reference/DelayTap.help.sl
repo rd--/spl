@@ -12,4 +12,6 @@ C.f. `DelayWrite`.
 
 See also: DelayWrite
 
+Guides: Unit Generators
+
 Categories: Ugen

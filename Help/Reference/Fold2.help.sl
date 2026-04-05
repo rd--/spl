@@ -45,4 +45,6 @@ o * e
 
 See also: Clip2, Wrap2
 
+Guides: Unit Generators
+
 Categories: Ugen, Math, Operator

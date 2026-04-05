@@ -15,4 +15,6 @@ SinOsc(1000, 0).Wrap2(
 
 See also: Clip2, Wrap
 
+Guides: Unit Generators
+
 Categories: Ugen

@@ -31,6 +31,8 @@ tr.Lag(0.05) * SinOsc(f, 0) * a
 
 See also: Trig
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Trig1.html)

@@ -31,4 +31,6 @@ SawDpw(MouseX(50, 10000, 1, 0.2), 0) * 0.1
 
 See also: PulseDpw, Saw
 
+Guides: Unit Generators
+
 Categories: Ugen

@@ -36,4 +36,6 @@ SinOsc(
 
 See also: BrownNoise, LfBrownNoise0, LfBrownNoise2
 
+Guides: Unit Generators
+
 Categories: Ugen

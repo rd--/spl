@@ -44,6 +44,8 @@ let trig = Impulse(20, 0) * (
 
 See also: Coin
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/CoinGate.html)

@@ -19,4 +19,6 @@ n.Abs - n
 
 See also: BiLinRand, LinRand
 
+Guides: Unit Generators
+
 Categories: Ugen, Math, Operator

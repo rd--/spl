@@ -59,6 +59,10 @@ PitchShift(
 
 * * *
 
+See also: FreqShift
+
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/PitchShift.html)

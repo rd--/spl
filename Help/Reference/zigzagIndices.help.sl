@@ -48,3 +48,5 @@ Plot rectangular matrix index path, _m>n_:
 * * *
 
 See also: zigzagMatrix, zigzagScan
+
+Guides: Indexing Functions, Matrix Functions

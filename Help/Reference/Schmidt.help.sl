@@ -26,7 +26,9 @@ Misnomer for _Schmitt_.
 
 * * *
 
-See also:
+See also: Trig
+
+Guides: Unit Generators
 
 References:
 _SuperCollider_

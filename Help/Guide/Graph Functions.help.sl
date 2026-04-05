@@ -43,6 +43,7 @@ Specific Graphs:
 - `nearestNeighbourGraph`
 - `paleyGraph`
 - `pathGraph`
+- `perfectDifferenceSetGraph`
 - `petersenGraph`
 - `rookGraph`
 - `stackedBookGraph`

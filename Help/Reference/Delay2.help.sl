@@ -17,6 +17,8 @@ let z = Dust(1000);
 
 See also: Delay1, DelayC, DelayL, DelayN
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Delay2.html)

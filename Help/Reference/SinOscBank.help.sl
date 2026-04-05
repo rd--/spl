@@ -42,6 +42,8 @@ Equivalent to:
 
 See also: RingzBank
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Klang.html)

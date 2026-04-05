@@ -27,6 +27,8 @@ FreeVerb(
 
 See also: FreeVerb2, GVerb
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/FreeVerb.html)

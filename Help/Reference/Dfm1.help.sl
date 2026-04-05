@@ -41,4 +41,6 @@ Dfm1(in, freq, 1.1, 2, 0, 0.0003) * 0.2
 
 See also: MoogFf
 
+Guides: Unit Generators
+
 Categories: Ugen, Filter

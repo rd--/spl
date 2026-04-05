@@ -36,4 +36,8 @@ ExpRandRange(
 
 * * *
 
+See also: ExpRand
+
+Guides: Unit Generators
+
 Categories: Ugen, Math

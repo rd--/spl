@@ -20,4 +20,6 @@ Demand rate random sequence generator.
 
 See also: Demand, TChoose
 
+Guides: Unit Generators
+
 Categories: Ugen

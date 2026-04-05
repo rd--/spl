@@ -30,4 +30,6 @@ Two quadrant multiply:
 
 See also: Clip, Clip2
 
+Guides: Unit Generators
+
 Categories: Ugen, Math

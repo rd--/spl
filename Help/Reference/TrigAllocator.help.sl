@@ -56,4 +56,6 @@ o.Splay / 4
 
 See also: Trig, Trig1, TrigRoundRobin
 
+Guides: Unit Generators
+
 Categories: Ugen

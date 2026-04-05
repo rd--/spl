@@ -24,6 +24,8 @@ Rlpf(
 
 See also: Pulse, SawDpw
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/PulseDPW.html)

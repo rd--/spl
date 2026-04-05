@@ -21,4 +21,6 @@ let z = LfPulse(800, 0, 0.5) * 0.1;
 
 See also: Lag, LagUd
 
+Guides: Unit Generators
+
 Categories: Ugen

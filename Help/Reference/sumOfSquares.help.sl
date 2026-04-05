@@ -38,6 +38,19 @@ At an array, answers a matrix:
 )
 ```
 
+Matrix plot of sum of squares table modulo nineteen:
+
+~~~spl svg=A
+let m = 19;
+let n = [0 .. m - 1];
+{ :i :j |
+	[i, j].sumOfSquares % m
+}.table(n, n)
+.matrixPlot
+~~~
+
+![](Help/Image/sumOfSquares-A.svg)
+
 * * *
 
 See also: +, *, injectInto, square, sum

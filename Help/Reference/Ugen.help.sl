@@ -19,3 +19,5 @@ Unit generator that have multiple outputs are represented as a `List` of `Ugen`:
 * * *
 
 See also: ScUgen, UgenGraph
+
+Guides: Unit Generators

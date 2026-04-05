@@ -24,6 +24,8 @@ Dust2(XLine(20000, 2, 10)) * 0.1
 
 See also: Dust, DustRange
 
+Guides: Unit Generators
+
 References:
 _Csound_
 [1](https://csound.com/docs/manual/dust2.html),

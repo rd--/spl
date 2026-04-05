@@ -18,6 +18,8 @@ let a = LfPulse(800, 0, 0.5) * 0.5 + 0.5;
 
 See also: Dc
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/LeakDC.html)

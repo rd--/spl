@@ -18,6 +18,8 @@ SinOsc(ff * 400 + 800, 0) * 0.1
 
 See also: SetResetFf
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/ToggleFF.html)

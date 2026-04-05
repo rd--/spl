@@ -170,6 +170,10 @@
 		self.noneSatisfy(isList:/1)
 	}
 
+	ones { :self |
+		[1].reshape(self)
+	}
+
 	padLeft { :self :aList :anObject |
 		self.padRight(aList.negate, anObject)
 	}

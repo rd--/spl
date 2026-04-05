@@ -57,4 +57,6 @@ SplayAz(
 
 See also: Pan2, PanAz, Splay, Splay2
 
+Guides: Unit Generators
+
 Categories: Panning

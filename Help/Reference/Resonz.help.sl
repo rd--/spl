@@ -68,6 +68,8 @@ let x = {
 
 See also: Formlet, Rhpf, Rlpf, Ringz
 
+Guides: Unit Generators
+
 References:
 _Csound_
 [1](https://csound.com/docs/manual/resonz.html),

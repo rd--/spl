@@ -25,6 +25,8 @@ LfTri(LfTri(1, 0) * 400 + 400, 0) * 0.1
 
 See also: LfPulse, LfSaw
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/LFTri.html)

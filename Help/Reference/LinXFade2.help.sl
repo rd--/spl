@@ -22,6 +22,8 @@ LinXFade2(
 
 See also: XFade2
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/LinXFade2.html)

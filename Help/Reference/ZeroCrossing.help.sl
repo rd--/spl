@@ -23,6 +23,8 @@ let a = SinOsc(
 
 See also: Pitch
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/ZeroCrossing.html),

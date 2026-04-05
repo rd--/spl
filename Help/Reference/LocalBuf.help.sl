@@ -14,4 +14,6 @@ Most but not all Ugens that require a buffer number input accept local buffers.
 
 See also: asLocalBuf, ClearBuf, SetBuf
 
+Guides: Unit Generators
+
 Categories: Buffer

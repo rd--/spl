@@ -51,6 +51,8 @@ BufRd(1, sf, ph, 1, 2)
 
 See also: Line, Phasor
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Sweep.html)

@@ -26,4 +26,6 @@ EqPan(
 
 See also: EqPan2, LinPan2, Pan2, PanAz
 
+Guides: Unit Generators
+
 Categories: Ugen, Panning

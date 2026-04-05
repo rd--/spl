@@ -18,4 +18,6 @@ DelayN(AudioIn([1, 2]), 1, 1)
 
 See also: ControlIn, In
 
+Guides: Unit Generators
+
 Categories: Ugen

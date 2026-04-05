@@ -32,6 +32,8 @@ let [a, b, c, d] = DecodeB2(4, w, x, y, 0.5);
 
 See also: PanB2, Rotate2
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/DecodeB2.html)

@@ -34,4 +34,6 @@ This may not be the most efficient way if each input is Cpu-expensive.
 
 See also: Select
 
+Guides: Unit Generators
+
 Categories: Ugen

@@ -53,6 +53,8 @@ Latch(d, d).soundPlot(0.1)
 
 See also: Gate
 
+Guides: Unit Generators
+
 References:
 _Csound_
 [1](http://csound.com/docs/manual/samphold.html),

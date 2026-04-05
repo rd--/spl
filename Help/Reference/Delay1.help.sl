@@ -17,6 +17,8 @@ let z = Dust(1000);
 
 See also: DelayC, DelayL, DelayN, Delay2, DelayTap, DelayWrite
 
+Guides: Unit Generators
+
 References:
 _Csound_
 [1](https://csound.com/docs/manual/delay1.html),

@@ -24,6 +24,8 @@ Lpz1(WhiteNoise() * 0.1)
 
 See also: Hpz1, Hpz2, Lpz2
 
+Guides: Unit Generators
+
 References:
 _Csound_
 [1](http://csound.com/docs/manual/integ.html),

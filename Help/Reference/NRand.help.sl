@@ -24,6 +24,8 @@ let n = MouseX(1, 9, 0, 0.2).RoundTo(1);
 
 See also: ExpRand, IRand, LinRand, Rand, TExpRand, TiRand, TRand
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/NRand.html)

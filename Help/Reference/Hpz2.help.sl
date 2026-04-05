@@ -24,6 +24,8 @@ Hpz2(WhiteNoise()) * 0.1
 
 See also: Bpz2, Brz2, Lpz2, Hpz1
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/HPZ2.html)

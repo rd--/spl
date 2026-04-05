@@ -51,4 +51,6 @@ PingPongDelay(
 
 See also: BufRd, ClearBuf, DelayTap, DelayWrite, LocalBuf, Phasor, RecordBuf, SampleRate, Wrap
 
+Guides: Unit Generators
+
 Categories: Ugen

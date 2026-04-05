@@ -20,4 +20,6 @@ Answers a `Ugen` holding a `LocalControl` with the given _name_ and _defautValue
 
 See also: LocalControl, ScUgen, Ugen
 
+Guides: Unit Generators
+
 Categories: Ugen

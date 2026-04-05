@@ -56,6 +56,8 @@ BfDecode1(
 
 See also: BfEncode1
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/BFDecode1.html)

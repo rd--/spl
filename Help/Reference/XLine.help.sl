@@ -22,6 +22,8 @@ _Note_: This is the Sc _XLine_ Ugen without the _doneAction_ input.
 
 See also: Line, TLine, TxLine
 
+Guides: Unit Generators
+
 References:
 _Csound_
 [1](https://csound.com/docs/manual/expon.html),

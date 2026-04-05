@@ -63,6 +63,8 @@ let c = l.LinCurve(-1, 1, -1, 1, XLine(-3, -100, 0.1));
 
 See also: LinExp, LinLin
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/UGen.html#-lincurve)

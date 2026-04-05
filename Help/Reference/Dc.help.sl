@@ -35,6 +35,8 @@ Offset one random sine tone by one silent channel:
 
 See also: LeakDc, Silent
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/DC.html)

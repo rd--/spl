@@ -15,4 +15,6 @@ Convert from Cie _Xyz_ tristimulus values in _(0,1)_ to an Adobe _Rgb_ colourspa
 
 See also: adobeRgbEncode, Colour, xyzToRgb
 
+Guides: Colour Functions
+
 Categories: Colour

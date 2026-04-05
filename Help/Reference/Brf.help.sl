@@ -26,6 +26,8 @@ Brf(
 
 See also: Bpf, Hpf, Lpf
 
+Guides: Unit Generators
+
 References:
 _Csound_
 [1](https://csound.com/docs/manual/butterbr.html),

@@ -41,6 +41,8 @@ let n = LfNoise1([3, 3]);
 
 See also: asLocalBuf, degreeToKey
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/DegreeToKey.html)

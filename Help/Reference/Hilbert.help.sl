@@ -12,6 +12,8 @@ Due to the method used, distortion occurs in the upper octave of the frequency s
 
 See also: FreqShift
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Hilbert.html)

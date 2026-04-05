@@ -125,6 +125,8 @@ An overlapping texture program:
 
 See also: Gendy2, Gendy3
 
+Guides: Unit Generators
+
 References:
 _Csound_
 [1](https://csound.com/docs/manual/gendy.html)

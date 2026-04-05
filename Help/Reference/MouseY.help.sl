@@ -10,6 +10,8 @@ Same as `MouseX`, but for Y axis.
 
 See also: MouseButton, MouseX
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/MouseY.html)

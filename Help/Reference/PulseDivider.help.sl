@@ -53,6 +53,8 @@ Impulse(8, 0)
 
 See also: Impulse
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/PulseDivider.html)

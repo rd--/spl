@@ -42,6 +42,8 @@ let freq = LfPulse(3, 0, 0.3);
 
 See also: LfSaw, Saw, SyncSaw
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/VarSaw.html)

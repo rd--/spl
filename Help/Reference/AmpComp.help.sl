@@ -41,6 +41,8 @@ Pulse(freq, 0.5) * mul * 0.1
 
 See also: AmpCompA
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/AmpComp.html)

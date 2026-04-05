@@ -20,6 +20,8 @@ centered at point _c_ with radius _r_.
 
 See also: center, Circle, Ellipse, radius, randomPoint, Sphere, volume
 
+Guides: Geometry Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Ball.html)

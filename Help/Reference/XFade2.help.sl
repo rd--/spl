@@ -34,6 +34,8 @@ XFade2(
 
 See also: Balance2, LinXFade2
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/XFade2.html)

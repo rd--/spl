@@ -82,6 +82,8 @@ Invert a bipolar sine signal and scale to be unipolar:
 
 See also: LinExp, rescale
 
+Guides: Unit Generators
+
 References:
 _Csound_
 [1](https://csound.com/docs/manual/linlin.html),

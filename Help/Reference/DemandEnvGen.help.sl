@@ -167,6 +167,8 @@ SinOsc(freq, 0) * 0.1
 
 See also: Demand, Duty, EnvGen, TDuty
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/DemandEnvGen.html)

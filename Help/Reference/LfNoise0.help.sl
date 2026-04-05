@@ -23,4 +23,6 @@ LfNoise0(XLine(1000, 10000, 10)) * 0.05
 
 See also: LfNoise1, LfNoise2
 
+Guides: Unit Generators
+
 Categories: Ugen

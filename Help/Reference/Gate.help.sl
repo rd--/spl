@@ -23,6 +23,8 @@ SinOsc(gatedNoise * 100 + 200, 0) * 0.1
 
 See also: Latch
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Gate.html)

@@ -90,4 +90,6 @@ Texture of variation of above:
 
 See also: Resonz, Ringz, SinOscBank
 
+Guides: Unit Generators
+
 Categories: Filter

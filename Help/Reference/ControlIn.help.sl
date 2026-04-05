@@ -54,4 +54,6 @@ SinOsc(
 
 See also: AudioIn, ControlOut, In, Out
 
+Guides: Unit Generators
+
 Categories: Ugen

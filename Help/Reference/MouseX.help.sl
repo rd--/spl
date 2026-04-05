@@ -40,6 +40,8 @@ MouseX and MouseY can report unexpected values on systems with multiple displays
 
 See also: MouseY, MouseButton
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/MouseX.html)

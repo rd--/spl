@@ -25,6 +25,8 @@ SinOsc(
 
 See also: LfNoise3
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/LFDNoise3.html)

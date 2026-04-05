@@ -8,4 +8,6 @@ Comb filter.
 
 See also: AllpassL, CombC, CombN
 
+Guides: Unit Generators
+
 Categories: Ugen, Filter

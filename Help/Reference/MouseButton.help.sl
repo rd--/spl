@@ -11,6 +11,8 @@ _maxval_ is the output value when the button is pressed.
 
 See also: KeyState, MouseX, MouseY
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/MouseButton.html)

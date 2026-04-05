@@ -32,4 +32,6 @@ SinOsc(freq, 0) * 0.1
 
 See also: Demand, Duty, TDuty
 
+Guides: Unit Generators
+
 Categories: Ugen

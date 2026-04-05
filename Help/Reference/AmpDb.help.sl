@@ -51,6 +51,8 @@ Evaluate symbolically:
 
 See also: DbAmp
 
+Guides: Unit Generators
+
 References:
 _Csound_
 [1](https://csound.com/docs/manual/ampdb.html),

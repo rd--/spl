@@ -889,6 +889,22 @@
 		self.ceiling
 	}
 
+	scaleNegative { :self :operand |
+		self.isNegative.if {
+			self * operand
+		} {
+			self
+		}
+	}
+
+	scalePositive { :self :operand |
+		self.isPositive.if {
+			self * operand
+		} {
+			self
+		}
+	}
+
 	schlickBiasFunction { :b :x |
 		b.schlickBiasFunction.value(x)
 	}

@@ -24,4 +24,6 @@ LinPan2(FSinOsc(800, 0), FSinOsc(3, 0), 0.1)
 
 See also: EqPan2, Pan2, Splay2
 
+Guides: Unit Generators
+
 Categories: Panning

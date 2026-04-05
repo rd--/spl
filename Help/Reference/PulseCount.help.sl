@@ -22,6 +22,8 @@ SinOsc(count * 200, 0) * 0.05
 
 See also: Impulse, PulseDivider, Stepper
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/PulseCount.html)

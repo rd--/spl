@@ -16,6 +16,8 @@ y * 0.1 <! LocalOut(y * 0.8)
 
 See also: DelayC
 
+Guides: Unit Generators
+
 References:
 _Csound_
 [1](https://csound.com/docs/manual/delay.html),

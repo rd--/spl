@@ -24,6 +24,8 @@ Fos(LfSaw(200, 0) * 0.1, 1 - x.Abs, x, 0)
 
 See also: Sos
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/FOS.html)

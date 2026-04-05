@@ -40,6 +40,8 @@ let f = XLine(1000, 20000, 10);
 
 See also: LfdNoise0, LfNoise1
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/LFDNoise0.html)

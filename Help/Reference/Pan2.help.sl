@@ -22,6 +22,8 @@ Pan2(
 
 See also: EqPan2, LinPan2
 
+Guides: Unit Generators
+
 References:
 _Csound_
 [1](https://csound.com/docs/manual/pan2.html),

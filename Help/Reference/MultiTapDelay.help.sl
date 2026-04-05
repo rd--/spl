@@ -66,4 +66,6 @@ let z = Decay2(
 
 See also: DelayC, DelayTap, DelayWrite
 
+Guides: Unit Generators
+
 Categories: Delay

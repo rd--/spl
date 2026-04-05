@@ -82,4 +82,6 @@ CombN(z, 0.26, 0.26, 4).SoftClip
 
 See also: ImpulseSequencer
 
+Guides: Unit Generators
+
 Categories: Ugen

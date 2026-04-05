@@ -14,4 +14,6 @@ SinOsc(440, 0) * env * 0.1
 
 See also: Adsr, EnvGen, Perc
 
+Guides: Unit Generators
+
 Categories: Ugen, Envelope

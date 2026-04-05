@@ -57,4 +57,6 @@ let t = system.sessionTime;
 
 See also: Asr, Cutoff
 
+Guides: Unit Generators
+
 Categories: Ugen

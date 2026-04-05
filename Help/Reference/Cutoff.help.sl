@@ -18,4 +18,6 @@ Cutoff(4, 1, -4) * SinOsc(220, 0) * 0.1
 
 See also: Release
 
+Guides: Unit Generators
+
 Categories: Ugen, Envelope

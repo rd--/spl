@@ -41,6 +41,8 @@ SinOsc(
 
 See also: ControlDur, RadiansPerSample, SampleDur, SampleRate
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/ControlRate.html)

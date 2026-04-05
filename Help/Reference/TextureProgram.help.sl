@@ -33,4 +33,6 @@ and the _delayTime_ block selects a random integer to divide down:
 
 See also: collectTextureProgram, OverlapTexture, overlapTextureProgram, spawnTextureProgram, xFadeTextureProgram
 
+Guides: Unit Generators
+
 Categories: Scheduling

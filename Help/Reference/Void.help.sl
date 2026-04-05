@@ -22,4 +22,6 @@ true
 
 See also: nil, Nil
 
+Guides: Reflection Functions
+
 Categories: Object, Type

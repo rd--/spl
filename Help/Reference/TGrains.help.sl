@@ -223,6 +223,8 @@ TGrains(
 
 See also: GrainFm, Warp1
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/TGrains.html)

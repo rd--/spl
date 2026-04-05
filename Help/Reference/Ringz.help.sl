@@ -122,6 +122,8 @@ let k = 222;
 
 See also: Formlet, Resonz, Rhpf, Rlpf
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Ringz.html)

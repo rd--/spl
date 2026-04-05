@@ -22,6 +22,8 @@ Rhpf(
 
 See also: Formlet, Rlpf, Resonz, Ringz
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/RHPF.html)

@@ -41,6 +41,8 @@ OneZero(
 
 See also: OnePole, TwoZero
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/OneZero.html)

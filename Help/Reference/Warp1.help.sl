@@ -63,6 +63,8 @@ EqPan(sound, pointer * 2 - 1) / 4
 
 See also: GrainFm, TGrains
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Warp1.html)

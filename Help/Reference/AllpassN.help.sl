@@ -8,6 +8,8 @@ All pass delay line, no interpolation.
 
 See also: AllpassC, AllpassL
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/AllpassN.html)

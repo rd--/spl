@@ -1,8 +1,8 @@
 # doesNotInclude
 
-- _doesNotInclude(aCollection, anObject)_
+- _doesNotInclude(c, x)_
 
-Answer whether _aCollection_ does not contain _anObject_ as a member.
+Answer whether the collection _c_ does not contain the object _x_ as a member.
 
 At `List`:
 
@@ -23,6 +23,8 @@ Where supported `doesNotInclude` is displayed as ∌.
 * * *
 
 See also: includes, noneSatisfy
+
+Guides: Collection Functions, Dictionary Functions, List Functions
 
 Unicode: U+220C ∌ Does not contain as member
 

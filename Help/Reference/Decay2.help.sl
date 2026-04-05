@@ -55,6 +55,8 @@ let noise = LfNoise2(3000) * env;
 
 See also: Decay
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Decay2.html)

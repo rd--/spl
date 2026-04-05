@@ -22,6 +22,8 @@ Lpz2(WhiteNoise() * 0.1)
 
 * * *
 
-See also: Lpz1
+See also: Hpz2, Lpz1
+
+Guides: Unit Generators
 
 Categories: Ugen

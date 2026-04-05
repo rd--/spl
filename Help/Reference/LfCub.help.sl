@@ -37,6 +37,8 @@ LfCub(XLine(100, 8000, 30), 0) * 0.1
 
 See also: LfPar
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/LFPar.html)

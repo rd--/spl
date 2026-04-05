@@ -25,6 +25,8 @@ SinOsc(440 + ([s, d] * 440), 0) * 0.1
 
 See also: Hpz1, Hpz2
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Changed.html)

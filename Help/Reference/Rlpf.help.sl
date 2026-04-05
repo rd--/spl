@@ -22,6 +22,8 @@ Rlpf(
 
 See also: Formlet, Resonz, Rhpf, Ringz
 
+Guides: Unit Generators
+
 References:
 _Csound_
 [1](https://csound.com/docs/manual/lowpass2.html)

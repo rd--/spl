@@ -19,6 +19,8 @@ Clip(SinOsc(440, 0) * 0.2, -0.07, 0.07)
 
 See also: clip, Clip2, Fold, Wrap
 
+Guides: Unit Generators
+
 References:
 _Max_
 [1](https://docs.cycling74.com/reference/gen_common_clamp/)

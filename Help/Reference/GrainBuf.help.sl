@@ -51,6 +51,8 @@ GrainBuf(
 
 See also: GrainIn, GrainFm, GrainSin
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/GrainBuf.html)

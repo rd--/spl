@@ -40,4 +40,6 @@ SinOsc(
 
 See also: PeakFollower
 
+Guides: Unit Generators
+
 Categories: Ugen, Analysis

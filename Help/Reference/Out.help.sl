@@ -37,6 +37,8 @@ Out(0, SinOsc([440, 443], 0) * 0.1)
 
 See also: In, AudioIn, NumOutputBuses
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Out.html)

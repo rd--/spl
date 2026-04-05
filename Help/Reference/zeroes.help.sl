@@ -57,6 +57,8 @@ Use `zero` to copy element type of existing array:
 
 See also: ones, reshape, zero, zeroMatrix
 
+Guides: Matrix Functions
+
 Rererences:
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/zeros.html),

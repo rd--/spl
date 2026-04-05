@@ -28,6 +28,8 @@ GVerb(s, 10, 3, 0.5, 0.5, 15, 1, 0.7, 0.5, 300).Mix
 
 See also: FreeVerb, FreeVerb2
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/GVerb.html)

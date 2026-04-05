@@ -74,6 +74,8 @@ signal can be generated using `PulseCount` and `Impulse` as:
 
 See also: Demand, Dgeom, Duty, TDuty
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Dseries.html)

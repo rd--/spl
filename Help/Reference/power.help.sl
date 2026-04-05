@@ -964,6 +964,19 @@ let f = { :n :i |
 
 ![](Help/Image/power-K.svg)
 
+Matrix plot of the power table modulo seventeen:
+
+~~~spl svg=L
+let m = 17L;
+let n = [0 .. m - 1];
+{ :i :j |
+	i ^ j % m
+}.table(n, n)
+.matrixPlot
+~~~
+
+![](Help/Image/power-L.svg)
+
 * * *
 
 See also: +, -, *, /, exp, factorialPower, matrixPower, log, powerMod, powerRange, sqrt, symmetricPower

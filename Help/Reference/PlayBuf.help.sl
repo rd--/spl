@@ -40,6 +40,8 @@ PlayBuf(1, sf, rate, 0, 0, 1, 0)
 
 See also: BufRd
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/PlayBuf.html)

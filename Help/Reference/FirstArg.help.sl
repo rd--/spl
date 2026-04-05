@@ -12,4 +12,6 @@ Required where graphs have multiple end points, such as graphs using `LocalOut` 
 
 See also: <!, multipleRootGraph
 
+Guides: Unit Generators
+
 Categories: Ugen

@@ -32,4 +32,6 @@ A pair of sine oscillators crossfading between randomly shifting pitches and ste
 
 See also: OverlapTexture, xFadeTextureProgram
 
+Guides: Unit Generators
+
 Categories: Ugen, Texture

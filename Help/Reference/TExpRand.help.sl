@@ -22,4 +22,6 @@ SinOsc(TExpRand(300, 3000, tr), 0) * 0.1
 
 See also: ExpRand
 
+Guides: Unit Generators
+
 Categories: Ugen

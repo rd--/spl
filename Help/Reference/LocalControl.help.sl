@@ -6,4 +6,6 @@ A `Type` representing a local control input in a unit generator graph.
 
 See also: localControls, NamedControl, ScUgen, Ugen, UgenGraph
 
+Guides: Unit Generators
+
 Categories: Ugen

@@ -1,6 +1,6 @@
 # Excess
 
-- _Excess(aNumber, anotherNumber)_
+- _Excess(n, m)_
 
 Residual of clipping.
 _Excess(α, β)_ answers the difference of the original signal and its clipped form,
@@ -18,5 +18,7 @@ SinOsc(
 * * *
 
 See also: Clip2, Fold2, Wrap2
+
+Guides: Unit Generators
 
 Categories: Ugen, Math, Operator

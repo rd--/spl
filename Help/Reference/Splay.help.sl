@@ -27,4 +27,6 @@ the input is sent directly and no panning is performed.
 
 See also: EqPan, Mix, Pan2, PanAz, Splay2, SplayAz
 
+Guides: Unit Generators
+
 Categories: Panner

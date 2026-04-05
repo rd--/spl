@@ -8,4 +8,6 @@ Random number generator.
 
 See also: Rand, Rand0
 
+Guides: Unit Generators
+
 Categories: Ugen

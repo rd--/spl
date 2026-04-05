@@ -32,4 +32,6 @@ let mod = SinOsc(Line(1, 10, 10), 0);
 
 See also: LinLin
 
+Guides: Unit Generators
+
 Categories: Ugen

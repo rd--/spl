@@ -21,6 +21,8 @@ SinOsc(800, 0) * KeyState(38, 0, 0.1, 0.2)
 
 See also: MouseButton
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/KeyState.html)

@@ -54,4 +54,8 @@ CombL(
 
 * * *
 
+See also: Pluck
+
+Guides: Unit Generators
+
 Categories: Ugen

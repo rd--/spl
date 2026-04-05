@@ -89,6 +89,8 @@ Plot window function:
 
 See also: BufFrames, PlayBuf
 
+Guides: Unit Generators
+
 References:
 _Csound_
 [1](https://csound.com/docs/manual/table.html)

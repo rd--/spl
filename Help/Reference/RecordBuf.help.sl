@@ -24,4 +24,6 @@ The number of channels is fixed, it cannot vary depending on which buffer you us
 
 See also: PlayBuf
 
+Guides: Unit Generators
+
 Categories: Ugen, Recording

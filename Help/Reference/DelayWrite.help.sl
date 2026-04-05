@@ -180,4 +180,6 @@ mixedSignal <! writer
 
 See also: DelayTap
 
+Guides: Unit Generators
+
 Categories: Ugen

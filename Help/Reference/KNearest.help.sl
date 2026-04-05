@@ -47,4 +47,6 @@ Select(n, z)
 
 See also: Distances
 
+Guides: Unit Generators
+
 Categories: Ugen

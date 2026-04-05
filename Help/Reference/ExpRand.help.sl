@@ -36,6 +36,8 @@ o.Splay
 
 See also: IRand, LinRand, NRand, Rand, TExpRand, TiRand, TRand
 
+Guides: Unit Generators
+
 References:
 _Csound_
 [1](https://csound.com/docs/manual/exprand.html),

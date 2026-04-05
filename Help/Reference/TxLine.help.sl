@@ -26,4 +26,6 @@ EqPan(
 
 See also: Line, TLine, XLine
 
+Guides: Unit Generators
+
 Categories: Ugen

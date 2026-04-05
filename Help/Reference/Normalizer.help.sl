@@ -24,4 +24,6 @@ let z = Decay2(
 
 * * *
 
+Guides: Unit Generators
+
 Categories: Ugen

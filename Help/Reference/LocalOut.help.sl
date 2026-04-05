@@ -37,6 +37,8 @@ d <! LocalOut(d.reverse * 0.8)
 
 See also: <!, LocalIn
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/LocalOut.html)

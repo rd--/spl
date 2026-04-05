@@ -184,6 +184,8 @@ _Note_: This is the Sc _Line_ Ugen without the _doneAction_ input.
 
 See also: HalfLine, InfiniteLine, lineCollection, Point, XLine
 
+Guides: Geometry Functions, Unit Generators
+
 References:
 _Csound_
 [1](https://csound.com/docs/manual/line.html),

@@ -32,6 +32,8 @@ MidEq(in, SinOsc(0.2, 0.5.pi) * 2 + 600, 0.01, -24)
 
 See also: Bpf, Hpf, Lpf
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/MidEQ.html)

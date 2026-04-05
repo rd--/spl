@@ -44,4 +44,6 @@ let sum = RunningSum(input ^ power, numsamp);
 
 * * *
 
+Guides: Unit Generators
+
 Categories: Ugen

@@ -13,6 +13,8 @@ This is useful for smoothing out control signals, where _fade in_ should be diff
 
 See also: Lag, Lag2, Lag3, Lag2Ud, Lag3Ud
 
+Guides: Unit Generators
+
 References:
 _Csound_
 [1](https://csound.com/docs/manual/lagud.html),

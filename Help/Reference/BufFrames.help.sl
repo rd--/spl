@@ -39,4 +39,6 @@ BufRd(1, sf, ph, 1, 2)
 
 See also: BufChannels, BufDur, BufRateScale, BufSampleRate, BufSamples
 
+Guides: Unit Generators
+
 Categories: Ugen, Buffer

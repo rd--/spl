@@ -47,6 +47,8 @@ For selecting from a list of constants consider also `BufRd`.
 
 See also: BufRd, SelectX, SelectXFocus, LinSelectX
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Select.html)

@@ -25,4 +25,6 @@ RandRange(
 
 See also: Rand, TRand, WhiteNoise
 
+Guides: Unit Generators
+
 Categories: Ugen

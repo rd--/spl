@@ -16,4 +16,6 @@ _Note_: Not implemented in Spl
 
 * * *
 
+Guides: Unit Generators
+
 Categories: Ugen

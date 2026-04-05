@@ -28,4 +28,6 @@ Random sine sweeps, `TLine` is in linear pitch space:
 
 See also: Line, TxLine
 
+Guides: Unit Generators
+
 Categories: Ugen

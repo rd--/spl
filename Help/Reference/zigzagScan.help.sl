@@ -2,7 +2,9 @@
 
 - _zigzagScan(m)_
 
-Scan the matrix _m_ using the zigzag method.
+Scan the matrix _m_ using the zigzag method,
+reading antidiagonals in alternating directions,
+initially ascending.
 
 A 3×3 square matrix:
 
@@ -77,5 +79,7 @@ A 6×5 matrix:
 * * *
 
 See also: zigzagIndices, zigzagMatrix
+
+Guides: Matrix Functions
 
 Further Reading: Tescher 1973

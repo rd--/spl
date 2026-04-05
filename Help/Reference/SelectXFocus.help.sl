@@ -101,4 +101,6 @@ SelectXFocus(
 
 See also: Select, SelectX
 
+Guides: Unit Generators
+
 Categories: Mixing

@@ -26,6 +26,8 @@ DelayC(z, 0.2, 0.2) + z
 
 See also: DelayL, DelayN
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/DelayC.html)

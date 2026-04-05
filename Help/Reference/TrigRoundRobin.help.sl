@@ -26,4 +26,6 @@ o.Splay
 
 See also: Trig, Trig1, TrigAllocator
 
+Guides: Unit Generators
+
 Categories: Ugen

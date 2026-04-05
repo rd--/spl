@@ -300,6 +300,19 @@ let n = 20;
 
 ![](Help/Image/times-A.svg)
 
+Matrix plot of multiplication table modulo nineteen:
+
+~~~spl svg=B
+let m = 19;
+let n = [0 .. m - 1];
+{ :i :j |
+	i * j % m
+}.table(n, n)
+.matrixPlot
+~~~
+
+![](Help/Image/times-B.svg)
+
 * * *
 
 See also: *, +, -, /, ^, cross, divide, dot, product, sign

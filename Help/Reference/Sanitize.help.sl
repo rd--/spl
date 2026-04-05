@@ -11,4 +11,6 @@ Replaces infinities, NaNs, and subnormal numbers (denormals) with a given signal
 
 See also: CheckBadValues
 
+Guides: Unit Generators
+
 Categories: Ugen

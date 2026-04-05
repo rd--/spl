@@ -21,6 +21,8 @@ SinOsc(TRand(300, 3000, tr), 0) * 0.1
 
 See also: IRand, Rand, TiRand
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/TRand.html)

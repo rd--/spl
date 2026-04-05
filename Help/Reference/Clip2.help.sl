@@ -31,4 +31,6 @@ SinOsc(1000, 0).Clip2(Line(0, 1, 23)) / 2
 
 See also: Clip, Excess, Fold2, Wrap2
 
+Guides: Unit Generators
+
 Categories: Math, Ugen

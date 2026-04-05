@@ -8,4 +8,6 @@ Comb filter.
 
 See also: CombC
 
+Guides: Unit Generators
+
 Categories: Ugen, Filter

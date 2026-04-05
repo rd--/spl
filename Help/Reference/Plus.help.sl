@@ -50,4 +50,6 @@ not _TimesPlus_.
 
 See also: +, Divide, Subtract, Times
 
+Guides: Unit Generators
+
 Categories: Math, Ugen

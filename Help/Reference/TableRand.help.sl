@@ -73,4 +73,6 @@ GrainFm(
 
 See also: asRandomTable
 
+Guides: Unit Generators
+
 Categories: Ugen

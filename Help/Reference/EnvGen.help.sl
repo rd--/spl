@@ -69,6 +69,8 @@ SinOsc(440, 0) * env
 
 See also: Decay, Line, XLine
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/EnvGen.html)

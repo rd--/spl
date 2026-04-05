@@ -134,6 +134,8 @@ SinOsc(
 
 See also: Latch, TDuty
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Duty.html)

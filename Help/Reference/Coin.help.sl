@@ -30,4 +30,6 @@ SinOsc(440, 0) * Coin(Dc(0.999)) * 0.1
 
 See also: BiLinRand, LinRand, Sum3Rand
 
+Guides: Unit Generators
+
 Categories: Ugen, Math, Operator

@@ -32,4 +32,6 @@ FeedforwardFeedbackward(
 
 See also: <!, BufAlloc, BufClear, DelayTap, DelayWrite
 
+Guides: Unit Generators
+
 Categories: Ugen

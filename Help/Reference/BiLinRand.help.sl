@@ -25,4 +25,6 @@ WhiteNoise() * SinOsc(0.1, 0) * 0.1
 
 See also: LinRand
 
+Guides: Unit Generators
+
 Categories: Math, Operator

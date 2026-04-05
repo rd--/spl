@@ -1,4 +1,4 @@
-# SetResetFF
+# SetResetFf
 
 - _SetResetFf(trig=0, reset=0)_
 
@@ -20,6 +20,8 @@ SetResetFf(Dust(5), Dust(5)) * BrownNoise() * 0.1
 * * *
 
 See also: ToggleFf
+
+Guides: Unit Generators
 
 References:
 _SuperCollider_

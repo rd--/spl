@@ -60,6 +60,8 @@ _Note:_ The Sc Ugen is called _Splay_.
 
 See also: Pan2, Splay, SplayAz
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Splay.html)

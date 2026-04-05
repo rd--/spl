@@ -40,6 +40,8 @@ SyncSaw(
 
 See also: LfSaw, Saw, VarSaw
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/SyncSaw.html)

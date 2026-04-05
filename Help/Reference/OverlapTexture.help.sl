@@ -67,4 +67,6 @@ let right = DelayC(
 
 See also: overlapTextureProgram, XFadeTexture
 
+Guides: Unit Generators
+
 Categories: Texture, Ugen

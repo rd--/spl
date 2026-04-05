@@ -64,6 +64,8 @@ let trigSeq = Demand(
 
 See also: Duty, TDuty
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Demand.html)

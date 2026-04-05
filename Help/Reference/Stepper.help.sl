@@ -117,6 +117,8 @@ OnePole(out, 0.9) * 0.5
 
 See also: PulseCount
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Stepper.html)

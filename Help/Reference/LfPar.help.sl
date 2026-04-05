@@ -47,6 +47,8 @@ Used as phase modulator (behaves like a triangular modulator in fm):
 
 See also: LfCub, LfPar, LfPulse, LfSaw, LfTri
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/LFPar.html)

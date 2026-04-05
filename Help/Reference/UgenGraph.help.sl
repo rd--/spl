@@ -51,3 +51,5 @@ Collect names of `LocalControl` and `ScUgen` values:
 * * *
 
 See also: Graph, name, ScUgen, Ugen
+
+Guides: Unit Generators

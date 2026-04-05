@@ -23,4 +23,6 @@ Pan2(
 
 See also: PenDown, PenY, PenZ
 
+Guides: Unit Generators
+
 Categories: Ugen

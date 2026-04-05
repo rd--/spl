@@ -54,6 +54,8 @@ Splay(
 
 See also: OnePole, WhiteNoise
 
+Guides: Unit Generators
+
 References:
 _Csound_
 [1](https://csound.com/docs/manual/pluck.html),

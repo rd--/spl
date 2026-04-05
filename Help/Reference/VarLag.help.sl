@@ -22,6 +22,8 @@ let crv = VarLag(sqr, 0.2, Line(-8, 8, 15));
 
 See also: Lag, Lag2, Lag3, LagUd
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/VarLag.html)

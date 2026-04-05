@@ -45,4 +45,6 @@ DelayN(In(1, NumOutputBuses() + [0, 1]), 1, 1)
 
 See also: AudioIn, ControlIn, InFeedback, Out
 
+Guides: Unit Generators
+
 Categories: Ugen

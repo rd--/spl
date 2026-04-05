@@ -32,6 +32,8 @@ let o = SinOsc(500, 0);
 
 See also: Distort
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Overviews/Operators.html#.softclip)

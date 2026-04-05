@@ -45,6 +45,8 @@ _Synth-O-Matic_ (1990) had an impulse generator called blip, hence that name her
 
 See also: Impulse
 
+Guides: Unit Generators
+
 References:
 _Csound_
 [1](https://csound.com/docs/manual/buzz.html)

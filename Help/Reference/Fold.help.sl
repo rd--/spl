@@ -31,6 +31,8 @@ Fold(SinOsc(440, 0) * 0.2, -0.2, x)
 
 See also: Clip, Clip2, fold, Fold2, Wrap, Wrap2
 
+Guides: Unit Generators
+
 References:
 _Max_
 [1](https://docs.cycling74.com/reference/gen_common_fold/),
