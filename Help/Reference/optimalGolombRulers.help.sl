@@ -111,14 +111,32 @@ Calculate all differences for order eight:
 ]
 ```
 
+Marks on lexicographically earliest _n_-mark optimal Golomb rulers,
+OEIS [A106683](https://oeis.org/A106683):
+
+```
+>>> 2:8.collect { :m |
+>>>  	m.optimalGolombRulers.first
+>>> }
+[
+	0 1;
+	0 1 3;
+	0 1 4 6;
+	0 1 4 9 11;
+	0 1 4 10 12 17;
+	0 1 4 10 18 23 25;
+	0 1 4 9 15 22 32 34
+]
+```
+
 Triangle read by rows,
 each row gives marks on lexicographically earliest _n_-mark optimal Golomb ruler,
 OEIS [A106683](https://oeis.org/A106683):
 
 ~~~spl svg=A oeis=A106683
->>> 2:12.collect { :m |
->>> 	m.optimalGolombRulers.first
->>> }.catenate.discretePlot
+2:12.collect { :m |
+	m.optimalGolombRulers.first
+}.catenate.discretePlot
 ~~~
 
 ![](Help/Image/optimalGolombRulers-A.svg)

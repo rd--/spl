@@ -2109,6 +2109,7 @@ Reference/isIsosceles.help.sl
 Reference/isIterator.help.sl
 Reference/isJson.help.sl
 Reference/isKaprekarNumber.help.sl
+Reference/isKeithNumber.help.sl
 Reference/isLargeInteger.help.sl
 Reference/isLatinSquare.help.sl
 Reference/isLatticeWord.help.sl
@@ -2159,6 +2160,7 @@ Reference/isOrthogonalCircle.help.sl
 Reference/isOrthogonalMatrix.help.sl
 Reference/IsoSphericalCoordinates.help.sl
 Reference/isPalindrome.help.sl
+Reference/isPerfectDifferenceSet.help.sl
 Reference/isPerfectNumber.help.sl
 Reference/isPerfectPower.help.sl
 Reference/isPerfectSquare.help.sl
@@ -2931,6 +2933,7 @@ Reference/omegaConstant.help.sl
 Reference/once.help.sl
 Reference/one.help.sl
 Reference/OnePole.help.sl
+Reference/ones.help.sl
 Reference/OneZero.help.sl
 Reference/onRejection.help.sl
 Reference/openIn.help.sl
@@ -3069,6 +3072,7 @@ Reference/PenX.help.sl
 Reference/percent.help.sl
 Reference/percentile.help.sl
 Reference/percentSign.help.sl
+Reference/perfectDifferenceSetGraph.help.sl
 Reference/perfectDigitalInvariantSequence.help.sl
 Reference/perfectNumber.help.sl
 Reference/perform.help.sl
@@ -3565,6 +3569,7 @@ Reference/ScalaTuning.help.sl
 Reference/scalaTuningMetaArchive.help.sl
 Reference/scale.help.sl
 Reference/Scale.help.sl
+Reference/scaleNegative.help.sl
 Reference/ScaleNeg.help.sl
 Reference/scalingMatrix.help.sl
 Reference/scan.help.sl

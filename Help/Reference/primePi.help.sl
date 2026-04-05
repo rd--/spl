@@ -164,6 +164,14 @@ OEIS [A002815](https://oeis.org/A002815):
 ]
 ```
 
+Number of odd primes _<=n_,
+OEIS [A033270](https://oeis.org/A033270):
+
+```
+>>> 2:23.collect { :n | n.primePi - 1 }
+[0 1 1 2 2 3 3 3 3 4 4 5 5 5 5 6 6 7 7 7 7 8]
+```
+
 The prime counting function _π(n)_,
 OEIS [A000720](https://oeis.org/A000720):
 

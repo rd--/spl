@@ -95,6 +95,15 @@ OEIS [A230952](https://oeis.org/A230952):
 [0 1 3 8 23 72 280 1242 6331 36236 230726]
 ```
 
+Boustrophedon transform of odd primes,
+OEIS [A230953](https://oeis.org/A230953):
+
+```
+>>> [3 5 7 11 13 17 19 23 29 31]
+>>> .boustrophedonTransform
+[3 8 20 53 154 505 1944 8651 44046 252271]
+```
+
 * * *
 
 See also: boustrophedonTriangle, eulerTransform, triangularArray

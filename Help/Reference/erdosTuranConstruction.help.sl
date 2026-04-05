@@ -7,15 +7,30 @@ Implement the Erdős–Turán construction to answer a Golomb ruler for the odd 
 A Golomb ruler of order five:
 
 ```
->>> erdosTuranConstruction(5)
+>>> 5.erdosTuranConstruction
 [0 11 24 34 41]
 ```
 
-Order seven:
+A Golomb ruler of order seven:
 
 ```
->>> erdosTuranConstruction(7)
+>>> 7.erdosTuranConstruction
 [0 15 32 44 58 74 85]
+```
+
+Erdős-Turán Golomb rulers,
+OEIS [A217793](https://oeis.org/A217793):
+
+```
+>>> [3 5 7 11].collect(
+>>> 	erdosTuranConstruction:/1
+>>> )
+[
+	0 7 13;
+	0 11 24 34 41;
+	0 15 32 44 58 74 85;
+	0 23 48 75 93 113 135 159 185 202 221
+]
 ```
 
 Calculate all differences for order five:
@@ -35,6 +50,17 @@ Calculate all differences for order five:
 	7
 ]
 ```
+
+Erdős-Turán Golomb rulers,
+OEIS [A217793](https://oeis.org/A217793):
+
+~~~spl svg=A oeis=A217793
+[3 5 7 11 13 17 19].collect(
+	erdosTuranConstruction:/1
+).catenate.discretePlot
+~~~
+
+![](Help/Image/erdosTuranConstruction-A.svg)
 
 * * *
 
