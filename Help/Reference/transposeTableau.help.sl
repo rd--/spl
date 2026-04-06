@@ -37,9 +37,9 @@ If the matrix is regular this is equal to `transpose`:
 
 * * *
 
-See also: transpose, transposeIrregular
+See also: transpose, transposeIrregular, transposeTriangle
 
-Guides: Combinatorial Functions
+Guides: Array Functions, Combinatorial Functions
 
 References:
 _Mathematica_

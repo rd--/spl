@@ -19,7 +19,8 @@ A Golomb ruler of order seven:
 ```
 
 Erdős-Turán Golomb rulers,
-OEIS [A217793](https://oeis.org/A217793):
+OEIS [A217793](https://oeis.org/A217793),
+row lengths are odd primes:
 
 ```
 >>> [3 5 7 11].collect(
@@ -36,13 +37,18 @@ OEIS [A217793](https://oeis.org/A217793):
 Calculate all differences for order five:
 
 ```
->>> let r = erdosTuranConstruction(5);
->>> let k = r.size;
->>> [1 .. k - 1].collect { :i |
->>> 	[i + 1 .. k].collect { :j |
->>> 		r[j] - r[i]
->>> 	}
->>> }
+>>> 5.erdosTuranConstruction
+>>> .triangularDifferenceTable
+[
+	11 13 10 7;
+	24 23 17;
+	34 30;
+	41
+]
+
+>>> 5.erdosTuranConstruction
+>>> .triangularDifferenceTable
+>>> .transposeTriangle
 [
 	11 24 34 41;
 	13 23 30;
@@ -65,6 +71,8 @@ OEIS [A217793](https://oeis.org/A217793):
 * * *
 
 See also: optimalGolombRulers
+
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

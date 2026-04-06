@@ -325,6 +325,17 @@ OEIS [A063826](https://oeis.org/A063826):
 
 ![](Help/Image/sqrt-I.svg)
 
+A sequence related to sparse rulers,
+OEIS [A309407](https://oeis.org/A309407):
+
+~~~spl svg=J oeis=A309407
+let n = 1:65;
+((3 * n) + (9 / 4)).sqrt.round
+.discretePlot
+~~~
+
+![](Help/Image/sqrt-J.svg)
+
 `sqrt` is an alias for `squareRoot`.
 
 Where supported `sqrt` is displayed as √.

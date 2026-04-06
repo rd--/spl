@@ -35,4 +35,6 @@ If the matrix is regular this is equal to `transpose`:
 
 * * *
 
-See also: transpose, transposeTableau
+See also: transpose, transposeTableau, transposeTriangle
+
+Guides: Array Functions

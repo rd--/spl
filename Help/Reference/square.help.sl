@@ -239,6 +239,17 @@ let f = { :n :i |
 
 ![](Help/Image/square-H.svg)
 
+Maximum length of a perfect Wichmann ruler with _n_ segments,
+OEIS [A289761](https://oeis.org/A289761):
+
+~~~spl svg=I oeis=A289761
+let n = 2:66;
+(n + ((n.square - (n % 6 - 3).square) / 3))
+.discretePlot
+~~~
+
+![](Help/Image/square-I.svg)
+
 Where supported `square` is displayed as ².
 
 * * *

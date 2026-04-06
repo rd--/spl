@@ -206,6 +206,18 @@ OEIS [A071995](https://oeis.org/A071995):
 
 ![](Help/Image/recurrenceTable-I.svg)
 
+Each term is sum of three previous terms modulo nine,
+OEIS [A107410](https://oeis.org/A107410):
+
+~~~spl svg=J oeis=A107410
+{ :a :n |
+	(a[n - 1] + a[n - 2] + a[n - 3]) % 9
+}.recurrenceTable([0 1 2], 65)
+.discretePlot
+~~~
+
+![](Help/Image/recurrenceTable-J.svg)
+
 * * *
 
 See also: linearRecurrence, recurrenceFilter, recurrenceMatrix, table

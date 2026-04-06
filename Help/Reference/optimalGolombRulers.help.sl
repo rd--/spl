@@ -145,6 +145,8 @@ OEIS [A106683](https://oeis.org/A106683):
 
 See also: erdosTuranConstruction, welchCostasArrayList
 
+Guides: Integer Sequence Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/GolombRuler.html),

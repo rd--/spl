@@ -7,7 +7,7 @@ The first row gives the differences of adjacent items,
 the second row the differences of items separated by one place,
 and so on.
 
-The triangular difference table of a Costas array:
+The triangular difference table of a fifth-order Costas array:
 
 ```
 >>> [1 3 4 2 5]
@@ -30,6 +30,24 @@ The triangular difference table of a Costas array:
 
 >>> [5 - 1]
 4
+```
+
+The triangular difference table of a tenth-order Costas array:
+
+```
+>>> [2 4 8 5 10 9 7 3 6 1]
+>>> .triangularDifferenceTable
+[
+	2 4 -3 5 -1 -2 -4 3 -5;
+	6 1 2 4 -3 -6 -1 -2;
+	3 6 1 2 -7 -3 -6;
+	8 5 -1 -2 -4 -8;
+	7 3 -5 1 -9;
+	5 -1 -2 -4;
+	1 2 -7;
+	4 -3;
+	-1
+]
 ```
 
 Compare to `differenceTable`:

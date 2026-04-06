@@ -1192,6 +1192,7 @@ Reference/differenceAll.help.sl
 Reference/difference.help.sl
 Reference/differencesBy.help.sl
 Reference/differences.help.sl
+Reference/differenceTable.help.sl
 Reference/differentiate.help.sl
 Reference/digamma.help.sl
 Reference/digest.help.sl
@@ -2037,6 +2038,7 @@ Reference/isCongruence.help.sl
 Reference/isConstantStructure.help.sl
 Reference/isConvex.help.sl
 Reference/isCoprime.help.sl
+Reference/isCostasArray.help.sl
 Reference/isCubeFree.help.sl
 Reference/isCubicResidue.help.sl
 Reference/isCyan.help.sl
@@ -4061,6 +4063,7 @@ Reference/transpose.help.sl
 Reference/transposeInPlace.help.sl
 Reference/transposeIrregular.help.sl
 Reference/transposeTableau.help.sl
+Reference/transposeTriangle.help.sl
 Reference/trapezoidalRule.help.sl
 Reference/trapezoid.help.sl
 Reference/Tree.help.sl
@@ -4070,6 +4073,7 @@ Reference/Triangle.help.sl
 Reference/triangleWave.help.sl
 Reference/triangularArray.help.sl
 Reference/triangularArrayPlot.help.sl
+Reference/triangularDifferenceTable.help.sl
 Reference/TriangularDistribution.help.sl
 Reference/triangularNumber.help.sl
 Reference/triangularSpiral.help.sl

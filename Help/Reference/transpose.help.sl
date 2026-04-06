@@ -309,7 +309,7 @@ Where supported `transpose` is displayed as ᵀ.
 
 * * *
 
-See also: transposeInPlace, transposeIrregular, transposeTableau
+See also: transposeInPlace, transposeIrregular, transposeTableau, transposeTriangle
 
 Guides: Matrix Functions
 

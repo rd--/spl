@@ -339,6 +339,15 @@
 		}
 	}
 
+	transposeTriangle { :a |
+		let k = a.size;
+		1.toCollect(k) { :c |
+			1.toCollect(k - c + 1) { :r |
+				a[r][c]
+			}
+		}
+	}
+
 	zeroes { :self |
 		[0].reshape(self)
 	}

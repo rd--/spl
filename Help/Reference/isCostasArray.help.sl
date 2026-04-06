@@ -11,6 +11,23 @@ A fifth-order Costas array:
 true
 ```
 
+A tenth-order Costas array:
+
+```
+>>> [2 4 8 5 10 9 7 3 6 1]
+>>> .isCostasArray
+```
+
+An order twenty-six Costas array:
+
+```
+>>> [
+>>> 	6 9 21 17 19 16 5 26 14 20
+>>> 	7 11 3 1 10 25 15 22 4 24
+>>> 	23 8 2 12 13 18
+>>> ].isCostasArray
+```
+
 Costas arrays for small _n_:
 
 ```
@@ -41,6 +58,8 @@ Costas arrays for small _n_:
 true
 ```
 
+* * *
+
 See also: allSatisfy, differences, isDuplicateFree, subtract, triangularDifferenceTable, welchCostasArrayList
 
 Guides: List Functions
@@ -48,3 +67,5 @@ Guides: List Functions
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/CostasArray.html)
+
+Further Reading: Costas 1984

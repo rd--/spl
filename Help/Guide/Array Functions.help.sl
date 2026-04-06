@@ -54,6 +54,13 @@ Transforming:
 - `reshape`
 - `slice`
 
+Transposition:
+
+- `transpose`
+- `transposeIrregular`
+- `transposeTableau`
+- `transposeTriangle`
+
 * * *
 
 Guides: Apl Perspective, Indexing Functions, Matrix Functions
