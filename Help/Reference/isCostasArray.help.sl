@@ -16,6 +16,7 @@ A tenth-order Costas array:
 ```
 >>> [2 4 8 5 10 9 7 3 6 1]
 >>> .isCostasArray
+true
 ```
 
 An order twenty-six Costas array:
@@ -26,6 +27,7 @@ An order twenty-six Costas array:
 >>> 	7 11 3 1 10 25 15 22 4 24
 >>> 	23 8 2 12 13 18
 >>> ].isCostasArray
+true
 ```
 
 Costas arrays for small _n_:

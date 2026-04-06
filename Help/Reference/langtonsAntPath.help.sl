@@ -65,4 +65,3 @@ _OEIS_
 [2](https://oeis.org/A274370),
 _W_
 [1](https://en.wikipedia.org/wiki/Langton%27s_ant)
-

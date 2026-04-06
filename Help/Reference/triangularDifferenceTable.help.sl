@@ -29,7 +29,7 @@ The triangular difference table of a fifth-order Costas array:
 [1 2]
 
 >>> [5 - 1]
-4
+[4]
 ```
 
 The triangular difference table of a tenth-order Costas array:
