@@ -1,8 +1,9 @@
 # withIndefiniteArticle
 
-- _withIndefiniteArticle(aString)_
+- _withIndefiniteArticle(s)_
 
-Prepend the indefinite article to _aString_, which is presumably a noun or noun phrase.
+Prepend the indefinite article to the string _s_,
+which is presumably a noun or noun phrase.
 
 ```
 >>> 'List'.withIndefiniteArticle
@@ -25,5 +26,7 @@ The article depends on the first letter of the noun:
 * * *
 
 See also: indefiniteArticle
+
+Guides: String Functions
 
 Categories: Printing

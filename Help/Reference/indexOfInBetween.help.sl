@@ -51,6 +51,8 @@ Out of range items answer the first and last indices:
 
 See also: atBlend, indexOf, linearInterpolation, listInterpolation
 
+Guides: Indexing Functions
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/SequenceableCollection.html#-indexInBetween)

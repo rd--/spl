@@ -1,8 +1,8 @@
 # equalTemperamentTuning
 
-- _equalTemperamentTuning(anInteger)_
+- _equalTemperamentTuning(n)_
 
-Answer a `CentsTuning` holding an equal tempered tuning of _anInteger_ places.
+Answer a `CentsTuning` holding an equal tempered tuning of _n_ places.
 
 Twelve tone equal temperament:
 

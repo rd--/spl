@@ -37,7 +37,7 @@ let d = ModDif(
 
 * * *
 
-See also: AbsDif
+See also: AbsDif, modularDistance
 
 References:
 _SuperCollider_

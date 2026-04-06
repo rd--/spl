@@ -16,4 +16,4 @@ The disharmonicity is the inverse of the harmonicity.
 
 See also: barlowHarmonicity, barlowIndigestibility
 
-Guides: Xenharmonic Functions
+Guides: Tuning Functions, Xenharmonic Functions

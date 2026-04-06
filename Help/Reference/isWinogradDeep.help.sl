@@ -42,24 +42,6 @@ Six sets which have equal sum of pairwise geodesic distances:
 [false false false false false false]
 ```
 
-The underlying structure is the modular distance multiset:
-
-```
->>> [0 2 3 5 7 9 11 13 15]
->>> .modularDistanceMultiset(17)
->>> .sortedCounts
-[
-	8 -> 2,
-	7 -> 4,
-	6 -> 6,
-	5 -> 8,
-	4 -> 7,
-	3 -> 5,
-	2 -> 3,
-	1 -> 1
-]
-```
-
 Select items in the Rahn set-class table that are Winograd deep:
 
 ```

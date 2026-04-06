@@ -68,4 +68,6 @@ The type caches the value of `primeLimit` since it is used to construct a large 
 
 See also: asRatioTuning, CentsTuning, ScalaTuning, Tuning
 
+Guides: Tuning Functions
+
 Categories: Tuning, Type

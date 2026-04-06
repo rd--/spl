@@ -81,4 +81,6 @@ and this function requires the item be in the interpreter cache.
 
 See also: LibraryItem, namedInterval, scalaIntervalArchive
 
+Guides: Tuning Functions
+
 Categories: Tuning

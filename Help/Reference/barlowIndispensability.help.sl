@@ -38,6 +38,6 @@ The sequence of all indispensability values is a permutation of the integers fro
 
 See also: barlowBasicIndispensability, barlowIndispensabilities
 
-Guides: Xenharmonic Functions
+Guides: Tuning Functions, Xenharmonic Functions
 
 Further Reading: Barlow 1987

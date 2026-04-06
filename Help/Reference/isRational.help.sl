@@ -1,6 +1,6 @@
 # isRational
 
-- _isRational(aNumber | aTuning)_
+- _isRational(x)_
 
 At `Number`,
 answer `true` if the number is either an `Integer` or a `Fraction`.
@@ -41,5 +41,7 @@ false
 * * *
 
 See also: asRatios, CentsTuning, RatioTuning, Tuning
+
+Guides: Number Functions, Tuning Functions
 
 Categories: Testing, Tuning

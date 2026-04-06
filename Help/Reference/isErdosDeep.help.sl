@@ -75,32 +75,6 @@ Six sets which have equal sum of pairwise geodesic distances:
 [true false false false true false]
 ```
 
-The underlying structure is the modular distance multiset:
-
-```
->>> [0 4 5 9 10 14 15]
->>> .modularDistanceMultiset(16)
->>> .sortedCounts
-[
-	6 -> 5,
-	5 -> 6,
-	4 -> 1,
-	3 -> 4,
-	2 -> 7,
-	1 -> 2
-]
-
->>> [0 2 4 7 9 11]
->>> .modularDistanceMultiset(12)
->>> .sortedCounts
-[5 -> 5, 4 -> 2, 3 -> 3, 2 -> 4, 1 -> 1]
-
->>> [0 4 7]
->>> .modularDistanceMultiset(10)
->>> .sortedCounts
-[2 -> 3, 1 -> 4]
-```
-
 Select items in the Rahn set-class table that are Erdös deep:
 
 ```

@@ -47,6 +47,6 @@ Guides: Mathematical Constants
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/GoldenAngle.html)
-[2](https://reference.wolfram.com/language/ref/GoldenAngle.html)
+[2](https://reference.wolfram.com/language/ref/GoldenAngle.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Golden_angle)

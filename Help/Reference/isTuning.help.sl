@@ -1,8 +1,8 @@
 # isTuning
 
-- _isTuning(anObject)_
+- _isTuning(x)_
 
-Answer `true` if _anObject_ implements the `Tuning` trait.
+Answer `true` if the object _x_ implements the `Tuning` trait.
 
 ```
 >>> 12.equalTemperamentTuning.isTuning
@@ -17,5 +17,7 @@ true
 * * *
 
 See also: CentsTuning, RatioTuning, ScalaTuning, Tuning
+
+Guides: Tuning Functions
 
 Categories: Testing

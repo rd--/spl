@@ -77,6 +77,8 @@ and _l_ is _(0.2,0.8)_ along the _Y_-axis:
 
 See also: hslToHsv, hsvToHsl, hsvToRgb, rgbToHsl, rgbToHsv
 
+Guides: Colour Functions
+
 References:
 _Python_
 [1](https://colour.readthedocs.io/en/latest/generated/colour.HSL_to_RGB.html),

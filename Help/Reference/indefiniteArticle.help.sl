@@ -1,8 +1,9 @@
 # indefiniteArticle
 
-- _indefiniteArticle(aString)_
+- _indefiniteArticle(s)_
 
-Answer the indefinite article of _aString_, which is presumably a noun or noun phrase.
+Answer the indefinite article of the string _s_,
+which is presumably a noun or noun phrase.
 
 ```
 >>> 'List'.indefiniteArticle
@@ -19,5 +20,7 @@ The article depends on the first letter of the noun:
 * * *
 
 See also: withIndefiniteArticle
+
+Guides: String Functions
 
 Categories: Printing

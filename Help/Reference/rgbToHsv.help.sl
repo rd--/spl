@@ -46,6 +46,8 @@ convert table of _Rgb_ values to _Hsv_.
 
 See also: Colour, Hsv, hsv, hsvToRgb, hue
 
+Guides: Colour Functions
+
 References:
 _Python_
 [1](https://colour.readthedocs.io/en/develop/generated/colour.RGB_to_HSV.html)

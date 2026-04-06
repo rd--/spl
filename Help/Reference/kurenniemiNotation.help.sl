@@ -1,8 +1,8 @@
 # kurenniemiNotation
 
-- _kurenniemiNotation(pitchList)_
+- _kurenniemiNotation([p₁ p₂ …])_
 
-Answer a `LineDrawing` showing the _pitchList_ using Kurenniemi’s notation.
+Answer a `LineDrawing` showing the pitch list _p_ using Kurenniemi’s notation.
 
 Staff and ledger lines are drawn in logarithmic space,
 and pitches are drawn at precisely their pitch,
@@ -28,5 +28,7 @@ there is space below for _F#3_ and space above for _G#3_.
 * * *
 
 See also: divisors, LineDrawing
+
+Guides: Tuning Functions
 
 Further Reading: Kurenniemi 2015

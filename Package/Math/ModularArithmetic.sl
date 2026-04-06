@@ -8,8 +8,7 @@
 
 +List {
 
-	isErdosDeep { :a :m |
-		let n = a.size - 1;
+	hasUniqueModularDistanceCounts { :a :m :n |
 		n > 0 & {
 			let d = a.modularDistanceMultiset(m);
 			let k = d.sortedCounts.keys;
@@ -17,13 +16,12 @@
 		}
 	}
 
+	isErdosDeep { :a :m |
+		a.hasUniqueModularDistanceCounts(m, a.size - 1)
+	}
+
 	isWinogradDeep { :a :m |
-		let n = m // 2;
-		n > 0 & {
-			let d = a.modularDistanceMultiset(m);
-			let k = d.sortedCounts.keys;
-			k = [n, n - 1 .. 1]
-		}
+		a.hasUniqueModularDistanceCounts(m, m // 2)
 	}
 
 	modularDistanceMultiset { :a :m |

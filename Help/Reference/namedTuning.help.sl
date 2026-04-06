@@ -1,8 +1,8 @@
 # namedTuning
 
-- _namedTuning(aString)_
+- _namedTuning(s)_
 
-Answer the `ScalaTuning` which is the tuning named by _aString_,
+Answer the `ScalaTuning` which is the tuning named by the string _s_,
 according to the Scala tuning archive.
 
 Lookup rational tuning:
@@ -39,3 +39,5 @@ and this function requires the item be in the interpreter cache.
 * * *
 
 See also: LibraryItem, scalaTuningArchive, ScalaTuning
+
+Guides: Tuning Functions

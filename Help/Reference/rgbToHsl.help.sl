@@ -27,6 +27,8 @@ Inverse is `hslToRgb`:
 
 See also: hslToHsv, hslToRgb, rgbToHsv
 
+Guides: Colour Functions
+
 References:
 _Python_
 [1](https://colour.readthedocs.io/en/latest/generated/colour.RGB_to_HSL.html),

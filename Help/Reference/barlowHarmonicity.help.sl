@@ -51,4 +51,4 @@ Table of harmonicities:
 
 See also: barlowDisharmonicity, barlowIndigestibility, eulerGradusSuavitatis, tenneyHeight
 
-Guides: Xenharmonic Functions
+Guides: Tuning Functions, Xenharmonic Functions

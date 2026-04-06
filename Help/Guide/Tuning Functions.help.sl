@@ -1,5 +1,13 @@
 # Tuning Functions
 
+Traits & Types:
+
+- `CentsTuning`
+- `RatioTuning`
+- `ScalaTuning`
+- `Scale`
+- `Tuning`
+
 Accessing:
 
 - `asCents`: intervals in cents
@@ -63,9 +71,9 @@ Instance Creation:
 
 Interval Functions:
 
-- `intervalName`: interval name
-- `intervalNameList`: interval name
-- `namedInterval`: interval lookup
+- `intervalName`
+- `intervalNameList`
+- `namedInterval`
 
 Interval Complexity Measures:
 
@@ -96,11 +104,11 @@ Library Items:
 
 Metric Functions:
 
-- `barlowDisharmonicity`: disharmonicity
-- `barlowHarmonicity`: harmonicity
-- `barlowIndigestibility`: indigestibility
-- `barlowIndispensability`: indispensability
-- `kurenniemiMajorMinorIndex`: quality
+- `barlowDisharmonicity`
+- `barlowHarmonicity`
+- `barlowIndigestibility`
+- `barlowIndispensability`
+- `kurenniemiMajorMinorIndex`
 
 Naming Function:
 
@@ -109,30 +117,23 @@ Naming Function:
 
 Notation Functions:
 
-- `kurenniemiNotation`: draw chord
+- `kurenniemiNotation`
 
 Prime Numbers:
 
-- `factorInteger`: primes factors
-- `primeExponents`: primes exponents
-- `primeFactorization`: prime factors
-- `primeFactors`: prime factors
+- `Prime Number Functions`: Guide
+- `factorInteger`
+- `primeExponents`
+- `primeFactorization`
+- `primeFactors`
 
 Testing:
 
-- `isConstantStructure`: is CS
-- `isPythagorean`: is Pythagorean
-- `isRational`: is rational
-- `isSuperparticular`: is superparticular
-- `isTuning`: is tuning
-
-Traits & Types:
-
-- `CentsTuning`: cents tuning
-- `RatioTuning`: ratio tuning
-- `ScalaTuning`: Scala tuning
-- `Scale`: scale type
-- `Tuning`: tuning trait
+- `isConstantStructure`
+- `isPythagorean`
+- `isRational`
+- `isSuperparticular`
+- `isTuning`
 
 * * *
 

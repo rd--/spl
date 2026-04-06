@@ -43,6 +43,8 @@ Resample sequence:
 
 See also: at, atAllBlend, atFold, atPin, atWrap, blend, indexOfInBetween, linearInterpolation, listInterpolation, resample
 
+Guides: Indexing Functions
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/SequenceableCollection.html#-atBlend)

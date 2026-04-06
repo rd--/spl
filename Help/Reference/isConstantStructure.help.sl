@@ -1,8 +1,8 @@
 # isConstantStructure
 
-- _isConstantStructure(aTuning)_
+- _isConstantStructure(t)_
 
-Answer `true` if _aTuning_ is a constant structure, else `false`.
+Answer `true` if the tuning _t_ is a constant structure, else `false`.
 A scale is said to have constant structure if its interval classes are distinct,
 that is if each interval size that occurs in the scale always subtends the same number of steps.
 This is the case if each interval in the `intervalMatrix` occurs in only one column.

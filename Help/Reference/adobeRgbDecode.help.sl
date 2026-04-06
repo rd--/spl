@@ -34,3 +34,5 @@ Plot curve:
 * * *
 
 See also: Colour, adobeRgbEncode
+
+Guides: Colour Functions

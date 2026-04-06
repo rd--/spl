@@ -16,3 +16,5 @@ answers the index where the object _x_ would be inserted.
 * * *
 
 See also: binarySearchLeftmost, SortedList
+
+Guides: Indexing Functions

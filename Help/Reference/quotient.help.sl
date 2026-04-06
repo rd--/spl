@@ -262,4 +262,6 @@ _OEIS_
 _Smalltalk_
 5.6.2.26
 
+Unicode: U+02AFD ⫽ Double Solidus Operator
+
 Categories: Math, Arithmetic
