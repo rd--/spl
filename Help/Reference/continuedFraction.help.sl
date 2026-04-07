@@ -190,7 +190,8 @@ OEIS [A000034](https://oeis.org/A000034):
 Constant two,
 OEIS [A007395](https://oeis.org/A007395):
 
-```>>> (1 + 2.sqrt)
+```
+>>> (1 + 2.sqrt)
 >>> .continuedFraction(17)
 [2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2]
 ```

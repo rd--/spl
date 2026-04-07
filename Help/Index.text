@@ -2739,6 +2739,8 @@ Reference/Mix.help.sl
 Reference/ModDif.help.sl
 Reference/mod.help.sl
 Reference/modificationTime.help.sl
+Reference/modularDistance.help.sl
+Reference/modularDistanceMultiset.help.sl
 Reference/modularInverse.help.sl
 Reference/moebiusMu.help.sl
 Reference/moebiusTransform.help.sl
@@ -3920,6 +3922,7 @@ Reference/Superellipse.help.sl
 Reference/superformulaCurve.help.sl
 Reference/supergoldenRatio.help.sl
 Reference/supersilverRatio.help.sl
+Reference/surd.help.sl
 Reference/surfaceNormal.help.sl
 Reference/surfacePlot.help.sl
 Reference/survivalFunction.help.sl

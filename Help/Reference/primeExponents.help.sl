@@ -85,7 +85,7 @@ OEIS [A059404](https://oeis.org/A059404):
 Perfect powers of squarefree kernels,
 OEIS [A062770](https://oeis.org/A062770):
 
-~~~spl svg=D oeis=A062770
+~~~spl svg=F oeis=A062770
 1:85.select { :n |
 	let e = n.primeExponents;
 	let u = e.without(0).deleteDuplicates;
