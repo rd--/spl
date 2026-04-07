@@ -760,6 +760,24 @@ OEIS [A047399](https://oeis.org/A047399):
 [0 3 6 8 11 14 16 19 22 24 27 30 32 35]
 ```
 
+Numbers _k_ such that the fractional part of _(3/2)^k_ decreases monotonically to zero,
+integer harmonics that offer monotonically closer approximations to the stacks of just-intonated perfect fifths,
+OEIS [A081464](https://oeis.org/A081464):
+
+```
+>>> let i = 1;
+>>> let a = [];
+>>> 1.toDo(10 ^ 3) { :n |
+>>> 	let j = (3/2 ^ n) % 1;
+>>> 	(j < i).ifTrue {
+>>> 		a.add(n);
+>>> 		i := j
+>>> 	}
+>>> };
+>>> a
+[1 2 4 29 95 153 532 613 840]
+```
+
 An integer sequence modulo an integer,
 _n%8_,
 i.e. with a fixed modulus,
@@ -1084,6 +1102,45 @@ let g = { :m :b :x :y |
 ~~~
 
 ![](Help/Image/mod-V.svg)
+
+Pattern by Andy Newark,
+OEIS [A132376](https://oeis.org/A132376):
+
+~~~spl svg=W oeis=A132376
+let a = [0 3 5 9 11 13 18 23 26 27];
+let b = [6 9 14 15 16 21 26 30 31];
+let f = { :n |
+	a.includes(n % 32).if {
+		2
+	} {
+		g(n)
+	}
+};
+let g = { :n |
+	b.includes(n % 32).if {
+		3
+	} {
+		h(n)
+	}
+};
+let h = { :n |
+	(n % 32 = 20).if {
+		1
+	} {
+		k(n)
+	}
+};
+let k = { :n |
+	(n % 32 = 19).if {
+		4
+	} {
+		5
+	}
+};
+1:150.collect(f:/1).scatterPlot
+~~~
+
+![](Help/Image/mod-W.svg)
 
 * * *
 

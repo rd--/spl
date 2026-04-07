@@ -815,6 +815,15 @@ OEIS [A126276](https://oeis.org/A126276):
 [18 504 5200 31500 136710 471968 1378944]
 ```
 
+Decimal expansion of twelfth root of two,
+the frequency ratio of a semitone in equal temperament,
+OEIS [A010774](https://oeis.org/A010774):
+
+```
+>>> 2 ^ 1/12
+1.0594630943592953
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A

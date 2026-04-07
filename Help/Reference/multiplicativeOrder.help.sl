@@ -441,6 +441,85 @@ OEIS [A007735](https://oeis.org/A007735):
 
 ![](Help/Image/multiplicativeOrder-J.svg)
 
+Dual Josephus-two primes,
+OEIS [A163781](https://oeis.org/A163781):
+
+~~~spl svg=K oeis=A163781
+1:378.select { :n |
+	n % 4 >= 2 & {
+		let m = 2 * n + 1;
+		m.isPrime & {
+			let l = n.isOdd.if {
+				n
+			} {
+				2 * n
+			};
+			2.multiplicativeOrder(m) = l
+		}
+	}
+}.discretePlot
+~~~
+
+![](Help/Image/multiplicativeOrder-K.svg)
+
+Queneau numbers,
+OEIS [A054639](https://oeis.org/A054639):
+
+~~~spl svg=L oeis=A054639
+1:240.select { :n |
+	let m = n % 4;
+	let p = 2 * n + 1;
+	let r = 2.multiplicativeOrder(p);
+	n = 1 | {
+		m != 4 & {
+			p.isPrime & {
+				(
+					m = 3 & {
+						r = n
+					}
+				) | {
+					r = (2 * n)
+				}
+			}
+		}
+	}
+}.discretePlot
+~~~
+
+![](Help/Image/multiplicativeOrder-L.svg)
+
+Even Queneau numbers,
+OEIS [A163777](https://oeis.org/A163777):
+
+~~~spl svg=M oeis=A163777
+1:870.select { :n |
+	n.isEven & {
+		let m = 2 * n + 1;
+		m.isPrime & {
+			2.multiplicativeOrder(m) = (2 * n)
+		}
+	}
+}.discretePlot
+~~~
+
+![](Help/Image/multiplicativeOrder-M.svg)
+
+Queneau numbers equal to three modulo four,
+OEIS [A163780](https://oeis.org/A163780):
+
+~~~spl svg=N oeis=A163780
+1:879.select { :n |
+	n % 4 = 3 & {
+		let m = 2 * n + 1;
+		m.isPrime & {
+			2.multiplicativeOrder(m) = n
+		}
+	}
+}.discretePlot
+~~~
+
+![](Help/Image/multiplicativeOrder-N.svg)
+
 * * *
 
 See also: %, carmichaelLambda, eulerPhi, powerMod, primitiveRootList

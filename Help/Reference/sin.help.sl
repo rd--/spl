@@ -259,6 +259,19 @@ OEIS [A000493](https://oeis.org/A000493):
 
 ![](Help/Image/sin-M.svg)
 
+A digitized pure tuning tone,
+sampled at standard settings for consumer audio,
+OEIS [A320277](https://oeis.org/A320277):
+
+~~~spl svg=N oeis=A320277
+0:101.collect { :n |
+	let p = 2.pi * (440 / 44100) * n;
+	(p.sin * 32767).floor
+}.discretePlot
+~~~
+
+![](Help/Image/sin-N.svg)
+
 * * *
 
 See also: arcSin, cos, csc, haversine, sinDegrees, sinh, tan

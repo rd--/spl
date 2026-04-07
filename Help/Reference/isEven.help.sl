@@ -393,6 +393,17 @@ OEIS [A319514](https://oeis.org/A319514):
 
 ![](Help/Image/isEven-M.svg)
 
+If _n_ is even then one, otherwise _n_,
+OEIS [A093178](https://oeis.org/A093178):
+
+~~~spl svg=N oeis=A093178
+1:45.collect { :n |
+	n.isEven.if { 1 } { n }
+}.stepPlot
+~~~
+
+![](Help/Image/isEven-N.svg)
+
 * * *
 
 See also: divisible, isInteger, isOdd

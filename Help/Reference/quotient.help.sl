@@ -232,6 +232,33 @@ OEIS [A003988](https://oeis.org/A003988):
 
 ![](Help/Image/quotient-E.svg)
 
+Frequency ratios for notes of C-major scale starting at _c=1_,
+OEIS [A071831](https://oeis.org/A071831)
+and
+OEIS [A071832](https://oeis.org/A071832):
+
+~~~spl svg=F
+let r = [1 9/8 5/4 4/3 3/2 5/3 15/8];
+0:66.collect { :n |
+	r[n % 7 + 1] * (2 ^ (n // 7))
+}.discretePlot
+~~~
+
+![](Help/Image/quotient-F.svg)
+
+Frequency ratios for notes of C-major scale starting at _c=24_,
+using Ptolemy’s intense diatonic scale,
+OEIS [A071833](https://oeis.org/A071833):
+
+~~~spl svg=G
+let r = [24 27 30 32 36 40 45];
+0:48.collect { :n |
+	r[n % 7 + 1] * (2 ^ (n // 7))
+}.discretePlot
+~~~
+
+![](Help/Image/quotient-G.svg)
+
 At `Symbol`:
 
 ```

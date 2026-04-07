@@ -33,6 +33,68 @@ OeisEntry('A025487').then { :e |
 
 ![](Help/Image/primeExponents-A.svg)
 
+Number of distinct exponents when _n_ is factorized as a product of primes,
+OEIS [A071625](https://oeis.org/A071625):
+
+~~~spl svg=B oeis=A071625
+1:85.collect { :n |
+	n.primeExponents
+	.without(0)
+	.deleteDuplicates
+	.size
+}.stepPlot
+~~~
+
+![](Help/Image/primeExponents-B.svg)
+
+Maximum exponent in the prime factorization of _n_,
+OEIS [A051903](https://oeis.org/A051903):
+
+~~~spl svg=C oeis=A051903
+2:85.collect { :n |
+	n.primeExponents.max
+}.stepPlot
+~~~
+
+![](Help/Image/primeExponents-C.svg)
+
+Minimum exponent in the prime factorization of _n_,
+OEIS [A051904](https://oeis.org/A051904):
+
+~~~spl svg=D oeis=A051904
+2:85.collect { :n |
+	n.primeExponents.min
+}.stepPlot
+~~~
+
+![](Help/Image/primeExponents-D.svg)
+
+Numbers with different exponents in their prime factorizations,
+OEIS [A059404](https://oeis.org/A059404):
+
+~~~spl svg=E oeis=A059404
+1:200.select { :n |
+	let e = n.primeExponents;
+	let u = e.without(0).deleteDuplicates;
+	u.size > 1
+}.discretePlot
+~~~
+
+![](Help/Image/primeExponents-E.svg)
+
+Perfect powers of squarefree kernels,
+OEIS [A062770](https://oeis.org/A062770):
+
+~~~spl svg=D oeis=A062770
+1:85.select { :n |
+	let e = n.primeExponents;
+	let u = e.without(0).deleteDuplicates;
+	u.size = 1
+}.discretePlot
+~~~
+
+![](Help/Image/primeExponents-F.svg)
+
 * * *
 
 See also: factorInteger, primeFactors

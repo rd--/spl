@@ -283,6 +283,7 @@
 		"A000747",
 		"A062162",
 		"A230952",
+		"A230953",
 		"A230954",
 		"A230955",
 		"A230960"
@@ -294,6 +295,7 @@
 	"calabisConstant": ["A046095", "A046096"],
 	"calkinWilfSequence": ["A002487"],
 	"cantorNumbers": ["A005823"],
+	"cantorPairingFunction": ["A002262", "A025581"],
 	"cantorStaircase": ["A095844", "A095845"],
 	"carmichaelLambda": ["A002322", "A002997"],
 	"carryLessMultiplication": ["A048720", "A048723"],
@@ -475,6 +477,7 @@
 	"denseScatterPlot": ["A002487", "A070990", "A283104", "A289194"],
 	"derangements": ["A000166"],
 	"detect": ["A028920"],
+	"diamondSpiral": ["A010751", "A305258"],
 	"differences": [
 		"A036262",
 		"A036263",
@@ -677,6 +680,7 @@
 	"divisorSummatoryFunction": ["A006218", "A078567"],
 	"doubleFactorial": ["A000165", "A001147", "A076668"],
 	"doudnaSequence": ["A005940", "A278222", "A286552", "A286622"],
+	"dragonCurve": ["A332383", "A332384"],
 	"dualZeckendorfRepresentation": [
 		"A003754",
 		"A095791",
@@ -708,6 +712,7 @@
 	"entringerTriangle": ["A008281"],
 	"equispacedTriples": ["A002620"],
 	"erdosSelfridgeFunction": ["A003458"],
+	"erdosTuranConstruction": ["A217793"],
 	"euclidNumber": ["A006862"],
 	"eulerGamma": ["A001620", "A002852", "A094640"],
 	"eulerGradusSuavitatis": ["A275314"],
@@ -836,6 +841,7 @@
 		"A104626",
 		"A105870",
 		"A105995",
+		"A109754",
 		"A155114",
 		"A180662"
 	],
@@ -859,6 +865,7 @@
 		"A109671"
 	],
 	"fibonacciWord": ["A003849", "A005614", "A143667", "A156596"],
+	"fibonacciWordFractal": ["A332298", "A332299"],
 	"figurateNumber": [
 		"A000292",
 		"A000566",
@@ -928,9 +935,13 @@
 		"A001733",
 		"A003678",
 		"A004488",
+		"A004680",
+		"A004682",
 		"A007088",
 		"A007089",
 		"A007090",
+		"A007092",
+		"A007094",
 		"A019518",
 		"A030101",
 		"A048647",
@@ -1104,6 +1115,7 @@
 		"A046017",
 		"A048793",
 		"A052004",
+		"A057104",
 		"A059943",
 		"A062756",
 		"A063543",
@@ -1334,6 +1346,7 @@
 		"A039941",
 		"A059717",
 		"A060142",
+		"A065091",
 		"A065620"
 	],
 	"isPalindrome": [
@@ -1544,6 +1557,7 @@
 	"lahNumber": ["A000262", "A008297", "A105278", "A111596", "A271703"],
 	"landauConstant": ["A081760"],
 	"landauRamanujanConstant": ["A081760"],
+	"langtonsAntPath": ["A274369", "A274370"],
 	"lassalleNumber": ["A180874"],
 	"lcm": ["A003418", "A051451", "A109043"],
 	"leastExcludedSequence": [
@@ -1622,6 +1636,7 @@
 		"A009545",
 		"A017817",
 		"A017827",
+		"A022099",
 		"A022998",
 		"A024206",
 		"A026474",
@@ -1653,6 +1668,7 @@
 		"A166711",
 		"A166871",
 		"A168050",
+		"A186830",
 		"A277616",
 		"A296063",
 		"A366043"
@@ -1758,11 +1774,12 @@
 	"MemoizationTable": ["A000045", "A002083", "A002212", "A089591"],
 	"memoize": ["A002083", "A004001", "A005043"],
 	"mersenneNumber": ["A000225"],
-	"mersennePrimeExponent": ["A000043"],
+	"mersennePrimeExponent": ["A000043", "A000668"],
 	"mertensFunction": ["A002321"],
 	"metallicMean": ["A001622", "A014176", "A098316", "A098317", "A098318"],
 	"min": ["A003983", "A037904", "A154957", "A305258"],
 	"minimumExcludedValue": ["A094077"],
+	"minkowskiCurve": ["A332246", "A332247"],
 	"minkowskiQuestionMark": ["A048819"],
 	"mixedRadixEncode": ["A049345", "A276150"],
 	"mod": [
@@ -1873,6 +1890,7 @@
 		"A006694",
 		"A007732",
 		"A007735",
+		"A008831",
 		"A014664",
 		"A019334",
 		"A019335",
@@ -1989,7 +2007,15 @@
 	"oeisTerms": ["A004001", "A051135", "A162598", "A265332"],
 	"oloid": ["A215447"],
 	"omegaConstant": ["A030178", "A030797"],
-	"optimalGolombRulers": ["A003022"],
+	"optimalGolombRulers": [
+		"A003022",
+		"A036501",
+		"A079283",
+		"A079287",
+		"A079423",
+		"A079425",
+		"A106683"
+	],
 	"orderedBellNumber": ["A000670"],
 	"orderedDifferences": ["A086800", "A090321", "A204890", "A204922"],
 	"ordinalTransform": [
@@ -2260,6 +2286,7 @@
 	"primeLimit": ["A006530", "A051037"],
 	"primeNu": [
 		"A001221",
+		"A005109",
 		"A005236",
 		"A007875",
 		"A010055",
@@ -2288,6 +2315,7 @@
 		"A002815",
 		"A003963",
 		"A014085",
+		"A033270",
 		"A049084",
 		"A056239",
 		"A062537",
@@ -2397,7 +2425,20 @@
 	"ramanujanTau": ["A000594"],
 	"Range": ["A096582", "A115020"],
 	"rationalUnrank": ["A020652", "A020653"],
-	"recamanSequence": ["A005132", "A063733", "A064289", "A064389", "A160357"],
+	"recamanSequence": [
+		"A005132",
+		"A057165",
+		"A057166",
+		"A057167",
+		"A063733",
+		"A064289",
+		"A064291",
+		"A064389",
+		"A065056",
+		"A119632",
+		"A160356",
+		"A160357"
+	],
 	"reciprocalFibonacciConstant": ["A079586"],
 	"recurrenceTable": [
 		"A000304",
@@ -2407,7 +2448,8 @@
 		"A071991",
 		"A071995",
 		"A071996",
-		"A106108"
+		"A106108",
+		"A107410"
 	],
 	"regularPaperfoldingSequence": ["A014577", "A034947", "A343173"],
 	"removeAtAll": ["A007950", "A007951", "A092418"],
@@ -2579,7 +2621,8 @@
 		"A054770",
 		"A063826",
 		"A101369",
-		"A198084"
+		"A198084",
+		"A309407"
 	],
 	"square": [
 		"A000290",
@@ -2595,6 +2638,7 @@
 		"A056220",
 		"A060594",
 		"A134986",
+		"A289761",
 		"A317186"
 	],
 	"squareFreePart": ["A007913"],
@@ -2782,6 +2826,7 @@
 		"A049450",
 		"A049451"
 	],
+	"timesRepeat": ["A000043", "A000668"],
 	"toDo": ["A274920", "A274921"],
 	"toothpickSequence": ["A139250", "A139251"],
 	"totientSummatoryFunction": ["A002088"],
@@ -2828,6 +2873,7 @@
 		"A097571",
 		"A104382"
 	],
+	"triangularSpiral": ["A329116", "A329972"],
 	"tribonacciConstant": ["A058265"],
 	"tribonacciNumber": [
 		"A000073",
@@ -2851,6 +2897,7 @@
 		"A072832"
 	],
 	"unaryExpansion": ["A000042"],
+	"union": ["A001476", "A003997"],
 	"unique": ["A050376", "A180410"],
 	"unitaryDivisors": [
 		"A006086",
@@ -2890,6 +2937,7 @@
 	"whileTrue": ["A082447", "A082528", "A113138", "A322522"],
 	"withIndexCollect": ["A121758", "A121759"],
 	"withoutTrailingZeroes": ["A004151", "A004154", "A008904"],
+	"wunderlichCurve": ["A323258", "A323259"],
 	"wythoffArray": ["A003622", "A035513", "A083412"],
 	"wythoffIndex": ["A019586", "A035612", "A035614"],
 	"wythoffLower": ["A000201", "A014675", "A014677", "A255670"],

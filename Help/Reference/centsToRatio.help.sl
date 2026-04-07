@@ -1,8 +1,8 @@
 # centsToRatio
 
-- _centsToRatio(x)_
+- _centsToRatio(c)_
 
-Answer a `SmallFloat` representing the size of the interval represented by the cents value the number _x_ as a ratio.
+Answer a `SmallFloat` representing the size of the interval _c_ cents as a ratio.
 There are 1200 cents in an octave.
 
 ```
@@ -12,13 +12,15 @@ There are 1200 cents in an octave.
 >>> 386.3.centsToRatio
 1.25
 
->>> 386.3.centsToRatio.asFraction
+>>> 386.3.centsToRatio
+>>> .asFraction
 5/4
 
 >>> 400.centsToRatio
 2 ^ 1/3
 
->>> 21.5.centsToRatio.asFraction
+>>> 21.5.centsToRatio
+>>> .asFraction
 81/80
 
 >>> 702.centsToRatio
@@ -69,7 +71,7 @@ The inverse is `ratioToCents`:
 
 See also: asFraction, ratioToCents, Tuning
 
-Guides: Xenharmonic Functions
+Guides: Tuning Functions, Xenharmonic Functions
 
 References:
 _Csound_

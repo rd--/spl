@@ -237,6 +237,24 @@ OEIS [A143207](https://oeis.org/A143207):
 [30 60 90 120 150 180 240 270 300 360]
 ```
 
+Number of necklaces of sets of beads containing a total of _n_ beads,
+OEIS [A008965](https://oeis.org/A008965):
+
+```
+>>> 1:25.collect { :n |
+>>> 	n.divisors.sum { :d |
+>>> 		eulerPhi(d) * (2 ^ (n / d))
+>>> 	} / n - 1
+>>> }
+[
+	1 2 3 5 7
+	13 19 35 59 107
+	187 351 631 1181 2191
+	4115 7711 14601 27595 52487
+	99879 190745 364723 699251 1342183
+]
+```
+
 The Euler totient function,
 OEIS [A000010](https://oeis.org/A000010):
 

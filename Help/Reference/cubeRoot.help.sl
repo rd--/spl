@@ -63,6 +63,22 @@ OEIS [A007412](https://oeis.org/A007412):
 ]
 ```
 
+Decimal expansion of cube root of 83,
+OEIS [A010653](https://oeis.org/A010653):
+
+```
+>>> 83.cubeRoot
+4.362070671454838
+```
+
+Continued fraction for cube root of 19,
+OEIS [A010249](https://oeis.org/A010249):
+
+```
+>>> 19.cubeRoot.continuedFraction(15)
+[2 1 2 63 1 2 2 2 1 95 2 1 1 2 7]
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A

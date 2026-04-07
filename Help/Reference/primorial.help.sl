@@ -33,6 +33,16 @@ OEIS [A002110](https://oeis.org/A002110):
 ]
 ```
 
+Chernoff sequence,
+OEIS [A006939](https://oeis.org/A006939):
+
+```
+>>> 0:6.collect { :n |
+>>> 	0:n.collect(primorial:/1).product
+>>> }
+[1 2 12 360 75600 174636000 5244319080000]
+```
+
 Run length transform of primorials,
 OEIS [A278159](https://oeis.org/A278159):
 

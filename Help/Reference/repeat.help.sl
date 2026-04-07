@@ -346,6 +346,14 @@ OEIS [A291454](https://oeis.org/A291454):
 0.22122212212221
 ```
 
+Single paradiddle,
+OEIS [A130198](https://oeis.org/A130198):
+
+```
+>>> [0 1 0 0 1 0 1 1].repeat(3)
+[0 1 0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1 0 0 1 0 1 1]
+```
+
 A Chebyshev transform of the Fibonacci numbers,
 OEIS [A100047](https://oeis.org/A100047):
 

@@ -107,6 +107,17 @@ OEIS [A000030](https://oeis.org/A000030):
 
 ![](Help/Image/decimalExpansion-B.svg)
 
+Decimal expansion of _1/607_,
+OEIS [A021611](https://oeis.org/A021611):
+
+~~~spl svg=C oeis=A021611
+Decimal(1/607, 85)
+.decimalExpansion
+.discretePlot
+~~~
+
+![](Help/Image/decimalExpansion-C.svg)
+
 * * *
 
 See also: binaryExpansion, integerDigits

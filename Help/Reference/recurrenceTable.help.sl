@@ -218,6 +218,34 @@ OEIS [A107410](https://oeis.org/A107410):
 
 ![](Help/Image/recurrenceTable-J.svg)
 
+Queneau’s _s-additive sequence_,
+OEIS [A003044](https://oeis.org/A003044):
+
+~~~spl svg=K oeis=A003044
+{ :a :n |
+	let b = a[n - 1] + 1;
+	{ :break:/0 |
+		let c = 0;
+		1.toDo(n - 1) { :i |
+			(i + 1).toDo(n - 1) { :j |
+				(a[i] + a[j] = b).ifTrue {
+					c := c + 1
+				}
+			}
+		};
+		(c = 2).ifTrue {
+			break()
+		};
+		b := b + 1
+	}.repeatForeverWithBreak;
+	b
+}.recurrenceTable(
+	[1 2 3 4], 56
+).discretePlot
+~~~
+
+![](Help/Image/recurrenceTable-K.svg)
+
 * * *
 
 See also: linearRecurrence, recurrenceFilter, recurrenceMatrix, table

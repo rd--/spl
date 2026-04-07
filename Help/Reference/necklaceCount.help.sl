@@ -29,6 +29,7 @@ OEIS [A054631](https://oeis.org/A054631):
 ```
 
 Necklace counts for _k=2_,
+the number of distinct classes of scales and chords in an _n_-note equal-tempered tuning system,
 OEIS [A000031](https://oeis.org/A000031):
 
 ```

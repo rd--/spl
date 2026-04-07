@@ -4,7 +4,7 @@
 
 Answer the number of finite groups of order _n_.
 
-First few terms,
+The number of finite groups of order _n_,
 threads over lists,
 OEIS [A000001](https://oeis.org/A000001):
 

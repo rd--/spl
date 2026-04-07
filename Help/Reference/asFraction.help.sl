@@ -68,6 +68,8 @@ At negative numbers:
 
 See also: asApproximateFraction, asFloat, asInteger, asNumber, rationalize
 
+Guides: Number Functions
+
 References:
 _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/xco),

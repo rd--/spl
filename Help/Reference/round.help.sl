@@ -133,6 +133,41 @@ Negative numbers also round to the nearest integer:
 [-2 -2 -3]
 ```
 
+Rounded frequencies of notes in a Pythagorean scale,
+starting with _C=260.7Hz_,
+OEIS [A131062](https://oeis.org/A131062):
+
+```
+>>> let r = [
+>>> 	1/1 9/8 81/64 4/3
+>>> 	3/2 27/16 243/128
+>>> ];
+>>> let f0 = 260.7;
+>>> 0:2.collect { :n |
+>>> 	f0 * (r * (2 ^ n))
+>>> }.round
+[
+	261 293 330 348 391 440 495;
+	521 587 660 695 782 880 990;
+	1043 1173 1320 1390 1564 1760 1980
+]
+```
+
+Pythagorean tuning,
+twelve note scale,
+starting with _C=260.74Hz_,
+OEIS [A131071](https://oeis.org/A131071):
+
+```
+>>> let r = [
+>>> 	1/1 256/243 9/8 32/27 81/64 4/3 1024/729
+>>> 	3/2 128/81 27/16 16/9 243/128 2/1
+>>> ];
+>>> let f0 = 260.74;
+>>> (f0 * r).round
+[261 275 293 309 330 348 366 391 412 440 464 495 521]
+```
+
 Plot the function over a subset of the reals
 round is a staircase function:
 

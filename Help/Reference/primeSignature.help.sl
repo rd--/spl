@@ -169,8 +169,9 @@ OEIS [A025487](https://oeis.org/A025487):
 
 Prime signatures of first few integers,
 OEIS [A118914](https://oeis.org/A118914),
-also
-OEIS [A124010](https://oeis.org/A124010) without initial term:
+also,
+without initial term,
+OEIS [A212171](https://oeis.org/A212171):
 
 ```
 >>> 1:20.collect(primeSignature:/1)
@@ -411,6 +412,33 @@ OEIS [A064547](https://oeis.org/A064547):
 ~~~
 
 ![](Help/Image/primeSignature-K.svg)
+
+Ordered prime signature,
+OEIS [A124010](https://oeis.org/A124010):
+
+~~~spl svg=L oeis=A124010
+1:55.collect { :n |
+	n.factorInteger.column(2)
+}.catenate.stepPlot
+~~~
+
+![](Help/Image/primeSignature-L.svg)
+
+A recurrence table indexed by prime shadow,
+OEIS [A323014](https://oeis.org/A323014):
+
+~~~spl svg=M oeis=A323014
+{ :a :n |
+	n.isPrime.if {
+		1
+	} {
+		1 + a[n.primeSignature.prime.product]
+	}
+}.recurrenceTable([0], 85)
+.discretePlot
+~~~
+
+![](Help/Image/primeSignature-M.svg)
 
 * * *
 

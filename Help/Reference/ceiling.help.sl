@@ -124,6 +124,19 @@ OEIS [A005578](https://oeis.org/A005578):
 [1 1 2 3 6 11 22 43 86 171 342 683 1366]
 ```
 
+Octave of _n_-th prefect fifth,
+OEIS [A098294](https://oeis.org/A098294):
+
+```
+>>> let c = 1.5.log2;
+>>> (0:20 * c).ceiling
+[
+	 0  1  2  2  3  3  4  5  5  6
+	 6  7  8  8  9  9 10 10 11 12
+	12
+]
+```
+
 Ceiling is a staircase function:
 
 ~~~spl svg=A
@@ -207,6 +220,33 @@ OEIS [A329972](https://oeis.org/A329972):
 ~~~
 
 ![](Help/Image/ceiling-G.svg)
+
+Odd Queneau numbers,
+the Archimedes-one primes,
+OEIS [A163778](https://oeis.org/A163778):
+
+~~~spl svg=H oeis=A163778
+let follow = { :s :f:/1 |
+	let t = f(s);
+	let k = 1;
+	{ t > s }.whileTrue {
+		k := k + 1;
+		t := f(t)
+	};
+	(s = t).if { k } { 0 }
+};
+1:430.select { :n |
+	n > 1 & {
+		n = 1.follow { :j |
+			let a = (n / 2).ceiling;
+			let b = ((j - 1) / 2).ceiling;
+			a + (-1 ^ j * b)
+		}
+	}
+}.discretePlot
+~~~
+
+![](Help/Image/ceiling-H.svg)
 
 Where supported `ceiling` is displayed as ⌈.
 

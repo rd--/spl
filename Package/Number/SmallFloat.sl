@@ -707,6 +707,14 @@ SmallFloat! : [Object, Storeable, Equatable, Comparable, Json, Magnitude, Number
 		}
 	}
 
+	surd { :x :n |
+		(x < 0).if {
+			0 - surd(0 - x, n)
+		} {
+			x ^ (1 / n)
+		}
+	}
+
 	storeString { :self |
 		self.printString(10)
 	}

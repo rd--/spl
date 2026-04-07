@@ -76,6 +76,14 @@ OEIS [A049039](https://oeis.org/A049039):
 ]
 ```
 
+Continued fraction expansion for low two of three,
+OEIS [A028507](https://oeis.org/A028507):
+
+```
+>>> 3.log2.continuedFraction(16)
+[1 1 1 2 2 3 1 5 2 23 2 2 1 1 55 1]
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A

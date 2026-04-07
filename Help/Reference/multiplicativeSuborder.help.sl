@@ -89,6 +89,36 @@ OEIS [A003558](https://oeis.org/A003558):
 
 ![](Help/Image/multiplicativeSuborder-C.svg)
 
+Coach numbers,
+OEIS [A135303](https://oeis.org/A135303):
+
+~~~spl svg=D oeis=A135303
+1:85.collect { :n |
+	let m = 2 * n + 1;
+	m.eulerPhi
+	/
+	(2 * 2.multiplicativeSuborder(m))
+}.stepPlot
+~~~
+
+![](Help/Image/multiplicativeSuborder-D.svg)
+
+Odd primes with one coach,
+OEIS [A216371](https://oeis.org/A216371):
+
+~~~spl svg=E oeis=A216371
+1:85.prime.select { :p |
+	let a = (p - 1) / 2;
+	let b = 2 * a + 1;
+	let c = b.eulerPhi;
+	let d = 2 * 2.multiplicativeSuborder(b);
+	let e = c / d;
+	e = 1
+}.discretePlot
+~~~
+
+![](Help/Image/multiplicativeSuborder-E.svg)
+
 * * *
 
 See also: gcd, mod, multiplicativeOrder

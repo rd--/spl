@@ -254,6 +254,28 @@ OEIS [A002233](https://oeis.org/A002233):
 
 ![](Help/Image/primitiveRootList-I.svg)
 
+Josephus-two primes,
+OEIS [A163782](https://oeis.org/A163782):
+
+~~~spl svg=J oeis=A163782
+let a = [];
+2L.toDo(200) { :n |
+	let i = 2 ^ n + 1;
+	let j = 2 * n + 1;
+	(
+		(i / j).isInteger & {
+			let k = j.primitiveRootList;
+			k.includes(2)
+		}
+	).ifTrue {
+		a.add(n)
+	}
+};
+a.discretePlot
+~~~
+
+![](Help/Image/primitiveRootList-J.svg)
+
 * * *
 
 See also: mangoldtLambda, multiplicativeOrder, welchCostasArrayList

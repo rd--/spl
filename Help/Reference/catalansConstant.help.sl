@@ -11,7 +11,12 @@ the alternating sum of the reciprocals of the odd square numbers.
 
 >>> 1 / (1.catalansConstant ^ 100)
 6487.6
+```
 
+Continued fraction for Catalan’s constant,
+OEIS [A014538](https://oeis.org/A014538):
+
+```
 >>> 1.catalansConstant
 >>> .continuedFraction(14)
 [0 1 10 1 8 1 88 4 1 1 7 22 1 2]
@@ -35,9 +40,11 @@ OEIS [A006752](https://oeis.org/A006752):
 (0.915965, 105)
 ```
 
-Scatter plot of the digits of Catalans’s constant:
+Decimal expansion of Catalans’s constant,
+scatter plot,
+OEIS [A006752](https://oeis.org/A006752):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A006752
 1.catalansConstant(105)
 .integerDigits
 .scatterPlot

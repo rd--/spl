@@ -159,7 +159,7 @@ Decimal : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | frac
 		)
 	}
 
-	integerDigits { :self |
+	[integerDigits, decimalExpansion] { :self |
 		let [d, n] = self.realDigits;
 		(n < 0).if {
 			List(n.abs, 0) ++ d

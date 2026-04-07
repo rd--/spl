@@ -85,26 +85,67 @@ Does not simplify final term:
 [0 2 13].fromContinuedFraction
 ```
 
-Quadratic irrational (recurring continued fraction):
+Quadratic irrationals have recurring continued fractions.
+
+Continued fraction of _√3_,
+OEIS [A040001](https://oeis.org/A040001):
 
 ```
 >>> 3.sqrt.continuedFraction(5)
 [1 1 2 1 2]
+```
 
+Continued fraction of _√5_,
+OEIS [A040002](https://oeis.org/A040002):
+
+```
 >>> 5.sqrt.continuedFraction(3)
 [2 4 4]
+```
 
+Continued fraction of _√6_,
+OEIS [A040003](https://oeis.org/A040003):
+
+```
 >>> 6.sqrt.continuedFraction(5)
 [2 2 4 2 4]
+```
 
+Continued fraction of _√7_,
+OEIS [A010121](https://oeis.org/A010121):
+
+```
 >>> 7.sqrt.continuedFraction(9)
 [2 1 1 1 4 1 1 1 4]
+```
 
+Continued fraction of _√13_,
+OEIS [A010122](https://oeis.org/A010122):
+
+```
 >>> 13.sqrt.continuedFraction(16)
 [3 1 1 1 1 6 1 1 1 1 6 1 1 1 1 6]
 ```
 
-The continued fractions for _n-th_ roots of `e` are very regular:
+Continued fraction of _√23_,
+OEIS [A010127](https://oeis.org/A010127):
+
+```
+>>> 23.sqrt.continuedFraction(16)
+[4 1 3 1 8 1 3 1 8 1 3 1 8 1 3 1]
+```
+
+Continued fraction of _√109_,
+OEIS [A010175](https://oeis.org/A010175):
+
+```
+>>> 109.sqrt.continuedFraction(16)
+[10 2 3 1 2 4 1 6 6 1 4 2 1 3 2 20]
+```
+
+The continued fractions for _n-th_ roots of `e` are very regular.
+Continued fraction for square root of _e_,
+OEIS [A058281](https://oeis.org/A058281):
 
 ```
 >>> 1.e.sqrt.continuedFraction(17)
@@ -123,7 +164,8 @@ The continued fractions for _n-th_ roots of `e` are very regular:
 1.pi
 ```
 
-The continued fraction of the `goldenRatio` is uniformly one:
+The continued fraction of the `goldenRatio` is uniformly one,
+OEIS [A000012](https://oeis.org/A000012):
 
 ```
 >>> 1.goldenRatio.continuedFraction(9)
@@ -134,21 +176,59 @@ The continued fraction of the `goldenRatio` is uniformly one:
 [1 2 1 1 1 1 1 1 1]
 ```
 
-Other low order repeating continued fractions:
+Other low order repeating continued fractions.
+
+_1,2_ repeated,
+OEIS [A000034](https://oeis.org/A000034):
 
 ```
 >>> ((1 + 3.sqrt) / 2)
 >>> .continuedFraction(16)
 [1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2]
+```
 
->>> (1 + 2.sqrt)
+Constant two,
+OEIS [A007395](https://oeis.org/A007395):
+
+```>>> (1 + 2.sqrt)
 >>> .continuedFraction(17)
 [2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2]
+```
+
+_1,1,2,2_ repeat,
+OEIS [A130658](https://oeis.org/A130658):
+
+```
+>>> ((9 + 221.sqrt) / 14)
+>>> .continuedFraction(17)
+[1 1 2 2 1 1 2 2 1 1 2 2 1 1 2 2 1]
 
 >>> ((9 + 221.sqrt) / 10)
 >>> .continuedFraction(17)
 [2 2 1 1 2 2 1 1 2 2 1 1 2 2 1 1 2]
+```
 
+_1,2,3_ repeat,
+OEIS [A010882](https://oeis.org/A010882):
+
+```
+>>> ((4 + 37.sqrt) / 7)
+>>> .continuedFraction(18)
+[1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3]
+```
+
+_1,2,3,4_ repeat,
+OEIS [A010883](https://oeis.org/A010883):
+
+```
+>>> ((9 + (2 * 39.sqrt)) / 15)
+>>> .continuedFraction(16)
+[1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4]
+```
+
+Other simple repeats:
+
+```
 >>> ((23 + 1517.sqrt) / 26)
 >>> .continuedFraction(19)
 [2 2 1 1 1 1 2 2 1 1 1 1 2 2 1 1 1 1 2]
@@ -156,14 +236,6 @@ Other low order repeating continued fractions:
 >>> ((5 + 7565.sqrt) / 58)
 >>> .continuedFraction(19)
 [1 1 1 2 2 2 2 1 1 2 2 2 2 1 1 2 2 2 2]
-
->>> ((4 + 37.sqrt) / 7)
->>> .continuedFraction(18)
-[1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3]
-
->>> ((9 + (2 * 39.sqrt)) / 15)
->>> .continuedFraction(16)
-[1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4]
 ```
 
 The continued fractions of integer square roots:
@@ -184,6 +256,17 @@ Objects showing regularity in their continued fractions:
 ```
 >>> 1.coth.continuedFraction(8)
 [1 3 5 7 9 11 13 15]
+```
+
+Continued fraction for _e_,
+OEIS [A003417](https://oeis.org/A003417):
+
+```
+>>> 1.e.continuedFraction(20)
+[
+	2 1 2 1 1 4 1 1 6 1
+	1 8 1 1 10 1 1 12 1 1
+]
 ```
 
 Examples of rational and irrational numbers:
@@ -208,13 +291,6 @@ Examples of rational and irrational numbers:
 [
 	1 1 2 1 2 1 2 1 2 1 2;
 	0 1 1 2 1 2 1 2 1 2 1
-]
-
->>> 1.e.continuedFraction(21)
-[
-	2 1 2 1 1 4 1 1 6 1
-	1 8 1 1 10 1 1 12 1 1
-	11
 ]
 
 >>> 1.tan.continuedFraction(21)
@@ -297,6 +373,15 @@ OEIS [A028356](https://oeis.org/A028356):
 >>> ((28 + 2730.sqrt) / 56)
 >>> .continuedFraction(17)
 [1 2 3 4 3 2 1 2 3 4 3 2 1 2 3 4 3]
+```
+
+Continued fraction of twelfth root of two,
+the frequency ratio of a semitone in equal temperament,
+OEIS [A103922](https://oeis.org/A103922):
+
+```
+>>> (2 ^ 1/12).continuedFraction(15)
+[1 16 1 4 2 7 1 1 2 2 7 4 1 2 1]
 ```
 
 Scatter plot of the

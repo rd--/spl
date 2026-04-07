@@ -10,7 +10,8 @@ The Pythagorean, or ditonic, comma is the interval with the ratio 531441/524288.
 >>> 1.pythagoreanComma
 531441/524288
 
->>> 1.pythagoreanComma.ratioToCents
+>>> 1.pythagoreanComma
+>>> .ratioToCents
 23.46
 ```
 
@@ -81,6 +82,23 @@ and it is conventionally taken as 24 cents:
 >>> .ratioToCents
 >>> .ceiling
 24
+```
+
+Decimal expansion of the Pythagorean comma,
+OEIS [A221363](https://oeis.org/A221363):
+
+```
+>>> Decimal(1.pythagoreanComma, 19)
+>>> .decimalExpansion
+[1 0 1 3 6 4 3 2 6 4 7 7 0 5 0 7 8 1 2 5]
+```
+
+Continued fraction:
+
+```
+>>> 1.pythagoreanComma
+>>> .continuedFraction
+[1 73 3 2 1 1 1 23 2 5]
 ```
 
 * * *

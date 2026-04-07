@@ -150,6 +150,17 @@ true
 true
 ```
 
+The ratio between step sizes of the diatonic and chromatic semitones
+produced by a circle of 12 perfect fifths in Pythagorean tuning,
+OEIS [A358029](https://oeis.org/A358029):
+
+```
+>>> let a = (7 * 3.log) - (11 * 2.log);
+>>> let b = (8 * 2.log) - (5 * 3.log);
+>>> a / b
+1.2600167526708
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A

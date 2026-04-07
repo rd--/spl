@@ -45,6 +45,14 @@ The inverse is `arcTan`:
 1
 ```
 
+Continued fraction expansion for _tan(1)_,
+OEIS [A093178](https://oeis.org/A093178):
+
+```
+>>> 1.tan.continuedFraction(17)
+[1 1 1 3 1 5 1 7 1 9 1 11 1 13 1 15 1]
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A
