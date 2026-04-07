@@ -105,6 +105,21 @@ fraction part is a sawtooth function:
 
 ![](Help/Image/fractionalPart-A.svg)
 
+Fractal sequence given by orderings of the fractional parts multiples of _-φ_,
+OEIS [A194832](https://oeis.org/A194832):
+
+~~~spl svg=B oeis=A194832
+let r = -1.goldenRatio;
+1:20.collect { :n |
+	let x = (1:n * r).fractionalPart;
+	x.sorted.collect { :y |
+		x.indexOf(y)
+	}
+}.catenate.discretePlot
+~~~
+
+![](Help/Image/fractionalPart-B.svg)
+
 * * *
 
 See also: integerPart, truncate

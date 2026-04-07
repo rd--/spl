@@ -280,6 +280,14 @@ OEIS [A004957](https://oeis.org/A004957):
 [0 3 6 8 11 14 16 19 21 24 27 29 32 35 37]
 ```
 
+_⌈(n/φ)_,
+OEIS [A019446](https://oeis.org/A019446):
+
+```
+>>> (1:17 / 1.goldenRatio).ceiling
+[1 2 2 3 4 4 5 5 6 7 7 8 9 9 10 10 11]
+```
+
 Plot the fractional part of multiples of the golden ratio:
 
 ~~~spl svg=A
@@ -469,6 +477,51 @@ let n = 2:65;
 
 ![](Help/Image/goldenRatio-N.svg)
 
+The left budding sequence,
+OEIS [A019587](https://oeis.org/A019587):
+
+~~~spl svg=O oeis=A019587
+let r = 1.goldenRatio;
+let p:/1 = fractionalPart:/1;
+1:100.collect { :n |
+	1:n.sum { :k |
+		(p(k * r) <= p(n * r)).boole
+	}
+}.scatterPlot
+~~~
+
+![](Help/Image/goldenRatio-O.svg)
+
+The right budding sequence,
+OEIS [A019588](https://oeis.org/A019588):
+
+~~~spl svg=P oeis=A019588
+let r = -1.goldenRatio;
+let p:/1 = fractionalPart:/1;
+1:100.collect { :n |
+	1:n.sum { :k |
+		(p(k * r) <= p(n * r)).boole
+	}
+}.scatterPlot
+~~~
+
+![](Help/Image/goldenRatio-P.svg)
+
+Number of _k<n_ such that _p(k*r)>p(n*r)_ where _p(x)_ is the fractional part of _x_,
+OEIS [A194733](https://oeis.org/A194733):
+
+~~~spl svg=Q oeis=A194733
+let r = 1.goldenRatio;
+let p:/1 = fractionalPart:/1;
+1:100.collect { :n |
+	1:n.sum { :k |
+		(p(k * r) > p(n * r)).boole
+	}
+}.scatterPlot
+~~~
+
+![](Help/Image/goldenRatio-Q.svg)
+
 Note that the constant is correctly rounded,
 unlike the calculation in terms of `sqrt`,
 and that this distinction is important for some calculations:
@@ -505,6 +558,6 @@ _W_
 _Xenharmonic_
 [1](https://en.xen.wiki/w/Acoustic_phi)
 
-Unicode: U+03C6 φ Greek Small Letter Phi
+Unicode: U+03C6 φ Greek Small Letter Phi; U+03C4 τ Greek Small Letter Tau
 
 Categories: Math, Constant

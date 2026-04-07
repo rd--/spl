@@ -28,6 +28,14 @@ The Pythagorean chromatic semitone is wider:
 113.685
 ```
 
+Continued fraction:
+
+```
+>>> 1.pythagoreanLimma
+>>> .continuedFraction
+[1 18 1 2 4]
+```
+
 * * *
 
 See also: mercatorsComma, octaveReduce, pythagoreanChroma, pythagoreanComma, septimalComma, syntonicComma

@@ -168,6 +168,14 @@ OEIS [A131071](https://oeis.org/A131071):
 [261 275 293 309 330 348 366 391 412 440 464 495 521]
 ```
 
+Fundamental piano frequencies in Hertz rounded to nearest integer,
+OEIS [A079731](https://oeis.org/A079731):
+
+```
+>>> (27.5 * (2 ^ 0:7)).round
+[28 55 110 220 440 880 1760 3520]
+```
+
 Plot the function over a subset of the reals
 round is a staircase function:
 
@@ -246,6 +254,17 @@ OEIS [A006369](https://oeis.org/A006369):
 ~~~
 
 ![](Help/Image/round-G.svg)
+
+Piano key whose frequency is closest to _n_ Hertz,
+OEIS [A254531](https://oeis.org/A254531):
+
+~~~spl svg=H oeis=A254531
+let n = 27:256;
+((12 * (n / 440).log / 2.log).round + 49)
+.stepPlot
+~~~
+
+![](Help/Image/round-H.svg)
 
 _Note_: The parameter α is not the integer number of places to round to but the multiple.
 To round to two places set _α=0.01_.

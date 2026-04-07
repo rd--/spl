@@ -25,6 +25,25 @@ OEIS [A007337](https://oeis.org/A007337):
 ]
 ```
 
+Signature sequence of √6,
+OEIS [A023127](https://oeis.org/A023127):
+
+```
+>>> 6.sqrt
+>>> .signatureSequence(86)
+[
+	 1  2  3  1  4  2  5  3  1  6
+	 4  2  7  5  3  8  1  6  4  9
+	 2  7  5 10  3  8  1  6 11  4
+	 9  2  7 12  5 10  3  8 13  1
+	 6 11  4  9 14  2  7 12  5 10
+	15  3  8 13  1  6 11 16  4  9
+	14  2  7 12 17  5 10 15  3  8
+	13 18  1  6 11 16  4  9 14 19
+	 2  7 12 17  5 10
+]
+```
+
 Signature sequence of φ,
 OEIS [A084531](https://oeis.org/A084531):
 
@@ -95,6 +114,17 @@ OEIS [A118276](https://oeis.org/A118276):
 ~~~
 
 ![](Help/Image/signatureSequence-A.svg)
+
+Signature sequence of √6,
+OEIS [A023127](https://oeis.org/A023127):
+
+~~~spl svg=B oeis=A023127
+6.sqrt
+.signatureSequence(200)
+.scatterPlot
+~~~
+
+![](Help/Image/signatureSequence-B.svg)
 
 * * *
 

@@ -1,6 +1,6 @@
 # pythagoreanChroma
 
-- _pythagoreanChroma(aNumber)_
+- _pythagoreanChroma(n)_
 
 The Pythagorean chroma,
 or apotome,
@@ -11,7 +11,8 @@ is the chromatic semitone in the Pythagorean tuning.
 >>> 1.pythagoreanChroma
 2187/2048
 
->>> 1.pythagoreanChroma.ratioToCents
+>>> 1.pythagoreanChroma
+>>> .ratioToCents
 113.685
 ```
 
@@ -25,7 +26,8 @@ It is the 3-limit interval between seven perfect just fifths (3/2) and four octa
 The Pythagorean minor second is narrower:
 
 ```
->>> 1.pythagoreanLimma.ratioToCents
+>>> 1.pythagoreanLimma
+>>> .ratioToCents
 90.225
 ```
 

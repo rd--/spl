@@ -778,6 +778,26 @@ OEIS [A081464](https://oeis.org/A081464):
 [1 2 4 29 95 153 532 613 840]
 ```
 
+Circle of fifths cycle,
+counterclockwise,
+OEIS [A258054](https://oeis.org/A258054):
+
+```
+>>> let n = 1:12;
+>>> (5 * (n - 1) + 1).mod(12, 1)
+[1 6 11 4 9 2 7 12 5 10 3 8]
+```
+
+Circle of fifths cycle,
+clockwise,
+OEIS [A257811](https://oeis.org/A257811):
+
+```
+>>> let n = 1:12;
+>>> (7 * (n - 1) + 1).mod(12, 1)
+[1 8 3 10 5 12 7 2 9 4 11 6]
+```
+
 An integer sequence modulo an integer,
 _n%8_,
 i.e. with a fixed modulus,

@@ -252,6 +252,19 @@ OEIS [A006368](https://oeis.org/A006368):
 
 ![](Help/Image/floor-K.svg)
 
+
+Integer part of A440 equal tempered piano key frequencies,
+A0 is the first key,
+OEIS [A214832](https://oeis.org/A214832):
+
+~~~spl svg=L oeis=A214832
+let n = 1:88;
+(2 ^ ((n - 49) / 12) * 440).floor
+.stepPlot
+~~~
+
+![](Help/Image/floor-L.svg)
+
 Where supported `floor` is displayed as ⌊.
 
 * * *

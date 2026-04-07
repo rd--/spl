@@ -146,9 +146,27 @@ OEIS [A041090](https://oeis.org/A041090)
 ]
 ```
 
+Numerators of convergents to _log₂(3)_,
+OEIS [A005663](https://oeis.org/A005663):
+
+```
+>>> 3.log(2)
+>>> .continuedFraction(16)
+>>> .convergents
+>>> .numerator
+[
+	1 2 3 8 19
+	65 84 485 1054 24727
+	50508 125743 176251 301994 16785921
+	17087915
+]
+```
+
 * * *
 
 See also: /, continuedFraction, fromContinuedFraction, rationalize, semiconvergents
+
+Guides: Number Functions
 
 References:
 _Mathematica_

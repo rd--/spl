@@ -13,6 +13,15 @@
 		).decimalSelvageNumber(d)
 	}
 
+	kimberlingFractalSequence { :r :k |
+		1:k.collect { :n |
+			let x = (1:n * r).fractionalPart;
+			x.sorted.collect { :y |
+				x.indexOf(y)
+			}
+		}
+	}
+
 	mahonianNumber { :n :k |
 		[1 .. n].permutations.count { :p |
 			p.majorIndex = k
