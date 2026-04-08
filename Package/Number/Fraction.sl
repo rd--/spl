@@ -836,6 +836,49 @@ Fraction : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | num
 
 }
 
++SmallFloat {
+
+	fareyConvergence { :x :n |
+		let n1 = 0;
+		let d1 = 1;
+		let n9 = 1;
+		let d9 = 1;
+		let f = 0;
+		let fp = x.fractionalPart;
+		let a = [
+			Fraction(
+				(2 * fp > 1).if { x.ceiling } { x.floor },
+				1
+			)
+		];
+		{
+			d1 + d9 < n
+		}.whileTrue {
+			let a1 = Fraction(n1, d1);
+			let a9 = Fraction(n9, d9);
+			let n0 = n1 + n9;
+			let d0 = d1 + d9;
+			let a0 = Fraction(n0, d0);
+			(a0 < fp).if {
+				a1 := a0;
+				n1 := n0;
+				d1 := d0
+			} {
+				a9 := a0;
+				n9 := n0;
+				d9 := d0
+			};
+			(abs(fp - f) > abs(fp - a0)).ifTrue {
+				f := a0;
+				a.add(a0 + x.integerPart)
+			}
+		};
+		a
+	}
+
+}
+
+
 /*
 
 The elementwise forms of numerator and denominator have been edited to answer small integers.

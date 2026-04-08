@@ -204,6 +204,22 @@
 		)
 	}
 
+	pellianArray { :n :k |
+		(n = 0).if {
+			k.isEven.if {
+				0
+			} {
+				2 ^ ((k - 1 // 2))
+			}
+		} {
+			(k = 0).if {
+				n.pellNumber.round
+			} {
+				pellianArray(n, k - 1) + pellianArray(n - 1,k - 1)
+			}
+		}
+	}
+
 	pellLucasSequence { :self |
 		[2 1].linearRecurrence([2 2], self)
 	}

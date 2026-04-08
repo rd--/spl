@@ -918,6 +918,30 @@ OEIS [A022099](https://oeis.org/A022099):
 [1 9 10 19 29 48 77 125 202 327 529]
 ```
 
+Interleave denominators and numerators of convergents to _√2_,
+OEIS [A002965](https://oeis.org/A002965):
+
+```
+>>> linearRecurrence(
+>>> 	[0 2 0 1],
+>>> 	[0 1 1 1],
+>>> 	22
+>>> )
+[
+	0 1
+	1 1
+	2 3
+	5 7
+	12 17
+	29 41
+	70 99
+	169 239
+	408 577
+	985 1393
+	2378 3363
+]
+```
+
 Draw spiral:
 
 ~~~spl svg=A
