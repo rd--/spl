@@ -23,8 +23,12 @@ Approximations of `pi`:
 
 ```
 >>> 1.pi.continuedFraction
->>> .semiconvergents(1E-2)
-[2/1 3/1 13/4 16/5 19/6 22/7]
+>>> .semiconvergents(1E-4)
+[
+	2/1 3/1	13/4 16/5 19/6
+	22/7 179/57 201/64 223/71 245/78
+	267/85 289/92 311/99 333/106
+]
 ```
 
 The best rational approximations to _(3 / 2).log2_ define equal divisions of the octave,
@@ -72,6 +76,25 @@ Semiconvergents to the 300-cent interval:
 
 >>> 25/21.ratioToCents
 301.85
+```
+
+Semiconvergents of the continued fraction of `exp` of one ninth:
+
+```
+>>> 1/9.exp.continuedFraction(13)
+>>> .semiconvergents(1E-4)
+[
+	1/1
+	6/5
+	7/6
+	8/7
+	9/8
+	10/9
+	19/17
+	257/230
+	276/247
+	295/264
+]
 ```
 
 * * *

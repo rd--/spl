@@ -330,9 +330,31 @@ OEIS [A028932](https://oeis.org/A028932):
 
 ![](Help/Image/nestList-E.svg)
 
+The Sisyphus sequence,
+halve if even,
+add next prime if odd,
+OEIS [A350877](https://oeis.org/A350877):
+
+~~~spl svg=F oeis=A350877
+{ :x |
+	let [p, a] = x;
+	let c = a.isEven.if { a / 2 } { a + p };
+	[
+		a.isEven.if { p } { p.nextPrime },
+		c
+	]
+}.nestList([2 1], 115)
+.column(2)
+.discretePlot
+~~~
+
+![](Help/Image/nestList-F.svg)
+
 * * *
 
 See also: foldLeft, iterate, reduce, scan
+
+Guides: List Functions
 
 References:
 _Mathematica_

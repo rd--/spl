@@ -191,6 +191,30 @@ A complete binary tree:
 ]
 ```
 
+Plain Bob Infinity,
+OEIS [A330612](https://oeis.org/A330612):
+
+```
+>>> { :a |
+>>> 	let k = a.size;
+>>> 	let m = a.max;
+>>> 	a.add(m + 1);
+>>> 	a.insertAt(m + 2, k);
+>>> 	a
+>>> }.iterate([2 3 1], 39)
+[
+	 2  3  5  1  7  4  9  6 11  8
+	13 10 15 12 17 14 19 16 21 18
+	23 20 25 22 27 24 29 26 31 28
+	33 30 35 32 37 34 39 36 41 38
+	43 40 45 42 47 44 49 46 51 48
+	53 50 55 52 57 54 59 56 61 58
+	63 60 65 62 67 64 69 66 71 68
+	73 70 75 72 77 74 79 76 81 78
+	80
+]
+```
+
 Matrix plot of Reverend Back’s abbey floor,
 the table indices _i_ are given by
 OEIS [A118006](https://oeis.org/A118006):

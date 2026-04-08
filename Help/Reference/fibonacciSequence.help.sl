@@ -247,6 +247,17 @@ a[1:150].scatterPlot
 
 ![](Help/Image/fibonacciSequence-C.svg)
 
+The exact power of two that divides the _n_-th Fibonacci number,
+OEIS [A060865](https://oeis.org/A060865):
+
+~~~spl svg=D oeis=A060865
+let n = 65.fibonacciSequence;
+let e = n.integerExponent(2);
+(2 ^ e).discretePlot
+~~~
+
+![](Help/Image/fibonacciSequence-D.svg)
+
 * * *
 
 See also: binetsFormula, fibonacci, fibonacciNumber, fibonacciWord, goldenRatio, linearRecurrence, pellSequence

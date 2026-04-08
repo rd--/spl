@@ -25,6 +25,15 @@ at `Fraction`:
 
 >>> 17/24.continuedFraction
 [0 1 2 2 3]
+
+>>> 37/112.continuedFraction
+[0 3 37]
+
+>>> 1 / (3 + 1/37)
+37/112
+
+>>> 11/37.continuedFraction
+[0 3 2 1 3]
 ```
 
 At negative _x_:
@@ -383,6 +392,13 @@ OEIS [A103922](https://oeis.org/A103922):
 ```
 >>> (2 ^ 1/12).continuedFraction(15)
 [1 16 1 4 2 7 1 1 2 2 7 4 1 2 1]
+```
+
+Continued fraction of `exp` of one ninth:
+
+```
+>>> 1/9.exp.continuedFraction(13)
+[1 8 1 1 26 1 1 44 1 1 62 1 1]
 ```
 
 Scatter plot of the

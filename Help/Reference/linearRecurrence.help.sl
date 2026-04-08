@@ -942,6 +942,16 @@ OEIS [A002965](https://oeis.org/A002965):
 ]
 ```
 
+Plain Bob Minimus,
+OEIS [A090281](https://oeis.org/A090281):
+
+```
+>>> [1 0 0 -1 1].linearRecurrence(
+>>> 	[1 2 3 4 4], 16
+>>> )
+[1 2 3 4 4 3 2 1 1 2 3 4 4 3 2 1]
+```
+
 Draw spiral:
 
 ~~~spl svg=A

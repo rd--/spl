@@ -211,6 +211,28 @@ OEIS [A112732](https://oeis.org/A112732):
 ]
 ```
 
+Convergents of the continued fraction of `exp` of one ninth:
+
+```
+>>> 1/9.exp.continuedFraction(13)
+>>> .convergents
+[
+	1/1
+	9/8
+	10/9
+	19/17
+	504/451
+	523/468
+	1027/919
+	45711/40904
+	46738/41823
+	92449/82727
+	5778576/5170897
+	5871025/5253624
+	11649601/10424521
+]
+```
+
 * * *
 
 See also: /, continuedFraction, fromContinuedFraction, rationalize, semiconvergents

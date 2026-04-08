@@ -88,6 +88,53 @@ Applying `permute` to a vector is equivalent to multiplying the vector from the 
 )
 ```
 
+Plain Bob Minimus,
+columns are
+OEIS [https://oeis.org/A090277](https://oeis.org/https://oeis.org/A090277),
+OEIS [https://oeis.org/A090278](https://oeis.org/https://oeis.org/A090278),
+OEIS [https://oeis.org/A090279](https://oeis.org/https://oeis.org/A090279),
+and
+OEIS [https://oeis.org/A090280](https://oeis.org/https://oeis.org/A090280):
+
+```
+>>> let i = [1; 2; 3; 4];
+>>> let p = [1 2; 3 4];
+>>> let q = [1; 2 3; 4];
+>>> let r = [1; 2; 3 4];
+>>> let c = [p q p q p q p r];
+>>> let a = [1 2 3 4];
+>>> ([i] ++ c.repeat(3)).collect { :x |
+>>> 	a := a.permute(x)
+>>> }
+[
+	1 2 3 4;
+	2 1 4 3;
+	2 4 1 3;
+	4 2 3 1;
+	4 3 2 1;
+	3 4 1 2;
+	3 1 4 2;
+	1 3 2 4;
+	1 3 4 2;
+	3 1 2 4;
+	3 2 1 4;
+	2 3 4 1;
+	2 4 3 1;
+	4 2 1 3;
+	4 1 2 3;
+	1 4 3 2;
+	1 4 2 3;
+	4 1 3 2;
+	4 3 1 2;
+	3 4 2 1;
+	3 2 4 1;
+	2 3 1 4;
+	2 1 3 4;
+	1 2 4 3;
+	1 2 3 4
+]
+```
+
 * * *
 
 See also: cycles, findPermutation, permutationMatrix, permutationReplace

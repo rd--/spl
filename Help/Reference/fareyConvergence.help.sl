@@ -24,13 +24,66 @@ The Farey convergence to π:
 	333/106
 	355/113
 ]
+
+>>> 1.pi.continuedFraction(15)
+>>> .semiconvergents(1E-4)
+[
+	2/1
+	3/1
+	13/4
+	16/5
+	19/6
+	22/7
+	179/57
+	201/64
+	223/71
+	245/78
+	267/85
+	289/92
+	311/99
+	333/106
+]
+```
+
+Farey convergence of a rational number:
+
+```
+>>> 0.84375.fareyConvergence(35)
+[1/1 1/2 2/3 3/4 4/5 5/6 11/13 16/19 27/32]
+
+>>> 27 / 32
+0.84375
+
+>>> 27/32.continuedFraction
+>>> .semiconvergents(1E-4)
+[1/1 3/4 4/5 5/6 11/13 16/19 27/32]
 ```
 
 The Farey convergence to √2:
 
 ```
->>> 2.sqrt.fareyConvergence(70)
-[1/1 3/2 4/3 7/5 17/12 24/17 41/29 99/70]
+>>> 2.sqrt.fareyConvergence(35000)
+[
+	1/1
+	3/2
+	4/3
+	7/5
+	17/12
+	24/17
+	41/29
+	99/70
+	140/99
+	239/169
+	577/408
+	816/577
+	1393/985
+	3363/2378
+	4756/3363
+	8119/5741
+	11482/8119
+	19601/13860
+	47321/33461
+]
 ```
 
 Numerator of convergents to π by Farey fractions,
