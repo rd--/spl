@@ -962,6 +962,7 @@ Reference/components.help.sl
 Reference/compose.help.sl
 Reference/composeLeft.help.sl
 Reference/composeRight.help.sl
+Reference/compositePi.help.sl
 Reference/concatenation.help.sl
 Reference/conchoidOfDeSluze.help.sl
 Reference/conchoidOfDurer.help.sl
@@ -1445,6 +1446,7 @@ Reference/factorialOrGamma.help.sl
 Reference/factorialPower.help.sl
 Reference/factorInteger.help.sl
 Reference/false.help.sl
+Reference/fareyConvergence.help.sl
 Reference/fareyDiagram.help.sl
 Reference/fareySequence.help.sl
 Reference/farOutPoint.help.sl
@@ -2337,6 +2339,7 @@ Reference/keyUnion.help.sl
 Reference/keyValue.help.sl
 Reference/khinchinsConstant.help.sl
 Reference/kimberlingCenter.help.sl
+Reference/kimberlingFractalSequence.help.sl
 Reference/kingGraph.help.sl
 Reference/kirchhoffGraph.help.sl
 Reference/kirchhoffMatrix.help.sl
@@ -3065,6 +3068,7 @@ Reference/pedalTriangle.help.sl
 Reference/peekFor.help.sl
 Reference/peek.help.sl
 Reference/peekPriority.help.sl
+Reference/pellianArray.help.sl
 Reference/pellLucasSequence.help.sl
 Reference/pellNumber.help.sl
 Reference/pellSequence.help.sl
