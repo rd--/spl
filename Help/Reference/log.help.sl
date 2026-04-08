@@ -161,6 +161,14 @@ OEIS [A358029](https://oeis.org/A358029):
 1.2600167526708
 ```
 
+Decimal expansion of _log(4/3)/log(3/2)_,
+OEIS [A369522](https://oeis.org/A369522):
+
+```
+>>> 4/3.log / 3/2.log
+0.7095112913514547
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A

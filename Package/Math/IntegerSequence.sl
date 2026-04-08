@@ -1661,6 +1661,12 @@
 		self.zeroIndexedListTransform(binomialTransform:/1)
 	}
 
+	dispersionArray { :a :shape |
+		{ :n |
+			a[n]
+		}.dispersionArray(shape)
+	}
+
 	inverseBinomialTransform { :self |
 		self.zeroIndexedListTransform(inverseBinomialTransform:/1)
 	}

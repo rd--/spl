@@ -176,6 +176,45 @@ OEIS [A079731](https://oeis.org/A079731):
 [28 55 110 220 440 880 1760 3520]
 ```
 
+Rounded frequencies in Hertz of the notes of the equal-tempered chromatic scale,
+beginning at A1=55,
+OEIS [A101286](https://oeis.org/A101286):
+
+```
+>>> let n = 1:48;
+>>> (55 * (2 ^ ((n - 1) / 12))).round
+[
+	 55  58  62  65  69
+	 73  78  82  87  92
+	 98 104 110 117 123
+	131 139 147 156 165
+	175 185 196 208 220
+	233 247 262 277 294
+	311 330 349 370 392
+	415 440 466 494 523
+	554 587 622 659 698
+	740 784 831
+]
+```
+
+Rounded frequencies in Hertz of the notes of the equal-tempered A-minor scale,
+beginning at A1=55,
+OEIS [A101285](https://oeis.org/A101285):
+
+```
+>>> let n = 1:30;
+>>> let m = (3 * (4 * n - 1) / 7).floor;
+>>> (55 * (2 ^ ((m - 1) / 12))).round
+[
+	 55  62  65  73  82
+	 87  98 110 123 131
+	147 165 175 196 220
+	247 262 294 330 349
+	392 440 494 523 587
+	659 698 784 880 988
+]
+```
+
 Plot the function over a subset of the reals
 round is a staircase function:
 
@@ -265,6 +304,16 @@ let n = 27:256;
 ~~~
 
 ![](Help/Image/round-H.svg)
+
+The rounded number of semitones in the interval perceived when a string is divided into _n_ parts,
+OEIS [A143800](https://oeis.org/A143800):
+
+~~~spl svg=I oeis=A143800
+let n = 1:65;
+(n.log2 * 12).round.discretePlot
+~~~
+
+![](Help/Image/round-I.svg)
 
 _Note_: The parameter α is not the integer number of places to round to but the multiple.
 To round to two places set _α=0.01_.

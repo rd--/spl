@@ -18,7 +18,10 @@ First few terms:
 ```
 
 The vertical para-Fibonacci sequence,
-OEIS [A019586](https://oeis.org/A019586):
+OEIS [A019586](https://oeis.org/A019586),
+also
+OEIS [A003603](https://oeis.org/A003603):
+when one-indexed:
 
 ```
 >>> 1:87.collect { :n |
@@ -51,8 +54,8 @@ OEIS [A019586](https://oeis.org/A019586):
 The horizontal para-Fibonacci sequence,
 OEIS [A035612](https://oeis.org/A035612)
 and also,
-minus one,
-OEIS [A035614](https://oeis.org/A035614):
+OEIS [A035614](https://oeis.org/A035614),
+when zero indexed:
 
 ```
 >>> 1:81.collect { :n |

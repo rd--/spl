@@ -260,6 +260,18 @@ OEIS [A096582](https://oeis.org/A096582):
 
 ![](Help/Image/Range-A.svg)
 
+Count down by twos from successive integers,
+a fractal sequence,
+OEIS [A122196](https://oeis.org/A122196):
+
+~~~spl svg=B oeis=A122196
+1:13.collect { :n |
+	n:1:-2
+}.catenate.discretePlot
+~~~
+
+![](Help/Image/Range-B.svg)
+
 * * *
 
 See also: .., ArithmeticProgression, characterRange, discretize, do, downTo, end, Interval, isIntegerRange, last, reverseDo, RelativeRange, start, stop, subdivide, thenTo, to, toBy, upOrDownTo

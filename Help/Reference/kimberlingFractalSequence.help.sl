@@ -61,7 +61,7 @@ OEIS [A194835](https://oeis.org/A194835):
 
 * * *
 
-See also:
+See also: fractionalPart, sort
 
 Guides: Integer Sequence Functions
 

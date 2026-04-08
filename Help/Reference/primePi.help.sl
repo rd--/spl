@@ -559,6 +559,18 @@ OEIS [A198469](https://oeis.org/A198469):
 
 ![](Help/Image/primePi-X.svg)
 
+Fractal sequence of the dispersion of the prime numbers,
+OEIS [A022447](https://oeis.org/A022447):
+
+~~~spl svg=Y oeis=A022447
+1:65.collect { :n |
+	let x = primePi:/1.nestWhile(n, isPrime:/1);
+	x - x.primePi
+}.discretePlot
+~~~
+
+![](Help/Image/primePi-Y.svg)
+
 * * *
 
 See also: eulerPhi, nextPrime, primesList, primesUpTo, sieveOfEratosthenes

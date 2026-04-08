@@ -1,8 +1,8 @@
 # semiconvergents
 
-- _semiconvergents(aList, epsilon)_
+- _semiconvergents([x₁ x₂ …], epsilon)_
 
-Answer a `List` of the semiconvergents corresponding to the continued fraction terms in _aList_.
+Answer a `List` of the semiconvergents corresponding to the continued fraction terms in the list _x_.
 Stop when the current semiconvergent is within _epsilon_ of the last convergent.
 
 ```
@@ -78,11 +78,13 @@ Semiconvergents to the 300-cent interval:
 
 See also: /, continuedFraction, convergents, fromContinuedFraction, rationalize
 
+Guides: Number Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/ConvergentSequence.html)
 [2](https://mathworld.wolfram.com/AsymptoticSeries.html),
 _W_
-[1](https://en.wikipedia.org/wiki/Continued_fraction#Best_rational_approximations),
+[1](https://en.wikipedia.org/wiki/Simple_continued_fraction#Semiconvergents),
 _Xenharmonic_
 [1](https://en.xen.wiki/w/Nearest_just_interval)

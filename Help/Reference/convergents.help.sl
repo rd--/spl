@@ -162,6 +162,55 @@ OEIS [A005663](https://oeis.org/A005663):
 ]
 ```
 
+Denominators of convergents to _log₂(3)_,
+OEIS [A005664](https://oeis.org/A005664):
+
+```
+>>> 3.log(2)
+>>> .continuedFraction(16)
+>>> .convergents
+>>> .denominator
+[
+	1 1 2 5 12
+	41 53 306 665 15601
+	31867 79335 111202 190537 10590737
+	10781274
+]
+```
+
+Denominators of convergents to the reciprocal of _log₂(3)_,
+OEIS [A046102](https://oeis.org/A046102):
+
+```
+>>> 3/2.log2
+>>> .reciprocal
+>>> .continuedFraction(16)
+>>> .convergents
+>>> .denominator
+[
+	1 1 3 7 24
+	31 179 389 9126 18641
+	46408 65049 111457 6195184 6306641
+	31421748
+]
+```
+
+Denominators of convergents to _log₂(5)/4_,
+OEIS [A112732](https://oeis.org/A112732):
+
+```
+>>> (5.log2 / 4)
+>>> .continuedFraction(16)
+>>> .convergents
+>>> .denominator
+>>> .allButFirst
+[
+	1 2 5 7 12
+	19 31 174 205 789
+	2572 3361 9294 12655 97879
+]
+```
+
 * * *
 
 See also: /, continuedFraction, fromContinuedFraction, rationalize, semiconvergents

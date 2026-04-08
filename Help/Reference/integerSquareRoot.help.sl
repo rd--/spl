@@ -171,6 +171,22 @@ OEIS [A053616](https://oeis.org/A053616)
 
 ![](Help/Image/integerSquareRoot-D.svg)
 
+_a(n-⌊(√n))+n_,
+OEIS [A076644](https://oeis.org/A076644):
+
+~~~spl svg=E oeis=A076644
+let a = Map { :n |
+	(n < 2).if {
+		(n > 0).boole
+	} {
+		n + a[n - n.integerSquareRoot]
+	}
+};
+a[1:65].discretePlot
+~~~
+
+![](Help/Image/integerSquareRoot-E.svg)
+
 * * *
 
 See also: Integer, LargeInteger, sqrt

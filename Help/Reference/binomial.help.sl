@@ -970,6 +970,31 @@ OEIS [A133890](https://oeis.org/A133890):
 
 ![](Help/Image/binomial-T.svg)
 
+Triangle read by rows,
+number of bracelets with _n_ beads, _k_ of which are black and _n-k_ are white,
+OEIS [A052307](https://oeis.org/A052307):
+
+~~~spl svg=U oeis=A052307
+0:11.triangularArray { :n :k |
+	(n = 0).if {
+		1
+	} {
+		let a = (k % 2) * (1 - (n % 2));
+		let b = (n // 2) - a;
+		let c = b.binomial(k // 2) / 2;
+		let d = n.gcd(k).divisors;
+		let e = d.sum { :x |
+			x.eulerPhi
+			*
+			(n // x).binomial(k // x)
+		};
+		c + (e / (2 * n))
+	}
+}.catenate.discretePlot
+~~~
+
+![](Help/Image/binomial-U.svg)
+
 * * *
 
 See also: factorial, multinomial, trinomial

@@ -33,6 +33,16 @@
 		}
 	}
 
+	compositePi { :n |
+		1:n.collect { :i |
+			{ :x |
+				i + x.primePi + 1
+			}.fixedPoint(i + i.primePi + 1)
+		}.select { :x |
+			x <= n
+		}.size
+	}
+
 	copelandErdosSequence { :n |
 		let answer = [];
 		let i = 1;

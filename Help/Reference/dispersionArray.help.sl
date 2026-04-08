@@ -108,6 +108,22 @@ OEIS [A191455](https://oeis.org/A191455):
 ]
 ```
 
+At `List`,
+the dispersion array of the composite numbers:
+OEIS [A114577](https://oeis.org/A114577):
+
+```
+>>> 1:100.select(isComposite:/1)
+>>> .dispersionArray([5 5])
+[
+	1  4  9 16 26;
+	2  6 12 21 33;
+	3  8 15 25 38;
+	5 10 18 28 42;
+	7 14 24 36 52
+]
+```
+
 * * *
 
 See also: stolarskyArray, wythoffArray

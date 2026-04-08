@@ -233,6 +233,7 @@ OEIS [A048601](https://oeis.org/A048601):
 ```
 
 Start counting again and again,
+each are fractal sequences,
 OEIS [A002260](https://oeis.org/A002260)
 and [A004736](https://oeis.org/A004736):
 
