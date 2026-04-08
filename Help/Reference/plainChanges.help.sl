@@ -6,6 +6,16 @@ Answer a `List` of the permutations of _1…n_ in the _plain changes_ sequence,
 whereby only one swap is made at each step,
 following the Steinhaus–Johnson–Trotter algorithm.
 
+Plain changes of _S2_:
+
+```
+>>> 2.plainChanges
+[1 2; 2 1]
+
+>>> 2.!
+2
+```
+
 Plain changes of _S3_:
 
 ```
@@ -82,6 +92,33 @@ Plot plain changes of _S3_:
 ~~~
 
 ![](Help/Image/plainChanges-A.svg)
+
+List of permutations in the order given by the Steinhaus-Johnson-Trotter algorithm,
+OEIS [A207324](https://oeis.org/A207324):
+
+~~~spl svg=B oeis=A207324
+1:4.collect(
+	steinhausJohnsonTrotter:/1
+).catenate.catenate.stepPlot
+~~~
+
+![](Help/Image/plainChanges-B.svg)
+
+The ordering of the permutations given by the Steinhaus-Johnson-Trotter algorithm,
+in relation to their reverse colexicographic sequence,
+OEIS [A280319](https://oeis.org/A280319):
+
+~~~spl svg=C oeis=A280319
+1:5.collect { :n |
+	let p = n.steinhausJohnsonTrotter;
+	let q = p.copy.reverseColexicographicSort;
+	p.collect { :x |
+		q.indexOf(x) - 1
+	}
+}.catenate.discretePlot
+~~~
+
+![](Help/Image/plainChanges-C.svg)
 
 * * *
 

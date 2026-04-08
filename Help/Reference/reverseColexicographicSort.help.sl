@@ -55,6 +55,22 @@ Sort binary combinations:
 ]
 ```
 
+The ordering of the permutations given by the Steinhaus-Johnson-Trotter algorithm,
+in relation to their reverse colexicographic sequence,
+OEIS [A280319](https://oeis.org/A280319):
+
+~~~spl png=A oeis=A280319
+1:6.collect { :n |
+	let p = n.steinhausJohnsonTrotter;
+	let q = p.copy.reverseColexicographicSort;
+	p.collect { :x |
+		q.indexOf(x) - 1
+	}
+}.catenate.denseScatterPlot
+~~~
+
+![](Help/Image/reverseColexicographicSort-A.png)
+
 * * *
 
 See also: canonicalSort, lexicographicSort, sort

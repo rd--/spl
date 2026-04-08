@@ -357,6 +357,24 @@ OEIS [A394642](https://oeis.org/A394642):
 ]
 ```
 
+Lah numbers,
+OEIS [A001286](https://oeis.org/A001286):
+
+```
+>>> let n = 2:9;
+>>> (n - 1) * n.! / 2
+[1 6 36 240 1800 15120 141120 1451520]
+```
+
+_n×n!_,
+OEIS [A001563](https://oeis.org/A001563):
+
+```
+>>> let n = 0:9;
+>>> n * n.!
+[0 1 4 18 96 600 4320 35280 322560 3265920]
+```
+
 The [Kempner_function](https://en.wikipedia.org/wiki/Kempner_function),
 also sometimes called the Smarandache function or Kempner numbers,
 the smallest positive integer _m_ such that _n_ divides _m!_,

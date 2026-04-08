@@ -37,6 +37,37 @@ The number of distinct permutations of a multiset is given by `multinomial`:
 12
 ```
 
+List of permutations in lexicographic order,
+OEIS [A030298](https://oeis.org/A030298):
+
+~~~spl svg=A oeis=A030298
+1:4.collect { :n |
+	[1 .. n]
+	.lexicographicPermutations
+}.catenate.catenate.stepPlot
+~~~
+
+![](Help/Image/lexicographicPermutations-A.svg)
+
+The lexicograph permutations,
+each replaced with the number of its fixed points,
+OEIS [A170942](https://oeis.org/A170942):
+
+~~~spl svg=B oeis=A170942
+1:5.collect { :n |
+	[1 .. n]
+	.lexicographicPermutations
+	.collect { :p |
+		p.permutationCycles(false)
+		.count { :x |
+			x.size = 1
+		}
+	}
+}.catenate.discretePlot
+~~~
+
+![](Help/Image/lexicographicPermutations-B.svg)
+
 * * *
 
 See also: lexicographicPermutationsDo, minimumChangePermutations, multinomial, nextPermutationLexicographic, permutations, plainChanges

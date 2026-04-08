@@ -104,6 +104,18 @@ OEIS [A040001](https://oeis.org/A040001):
 [1 1 2 1 2]
 ```
 
+Compare with reciprocal:
+
+```
+>>> [3.sqrt, 1 / 3.sqrt].collect { :n |
+>>> 	n.continuedFraction(11)
+>>> }
+[
+	  1 1 2 1 2 1 2 1 2 1 2;
+	0 1 1 2 1 2 1 2 1 2 1
+]
+```
+
 Continued fraction of _√5_,
 OEIS [A040002](https://oeis.org/A040002):
 
@@ -295,14 +307,6 @@ Examples of rational and irrational numbers:
 	1 1 1 1
 ]
 
->>> [3.sqrt, 1 / 3.sqrt].collect { :n |
->>> 	n.continuedFraction(11)
->>> }
-[
-	1 1 2 1 2 1 2 1 2 1 2;
-	0 1 1 2 1 2 1 2 1 2 1
-]
-
 >>> 1.tan.continuedFraction(21)
 [
 	1 1 1 3 1 5 1 7 1 9
@@ -313,7 +317,21 @@ Examples of rational and irrational numbers:
 >>> (5 / 4).log2.reciprocal
 >>> .continuedFraction(9)
 [3 9 2 2 4 6 2 1 1]
+```
 
+Continued fraction for _log₂(5)_,
+OEIS [A028508](https://oeis.org/A028508):
+
+```
+>>> 5.log2
+>>> .continuedFraction(17)
+[2 3 9 2 2 4 6 2 1 1 3 1 18 1 6 1 2]
+```
+
+Continued fraction for Gauss’s constant,
+OEIS [A053002](https://oeis.org/A053002):
+
+```
 >>> 1.gausssConstant
 >>> .continuedFraction(16)
 [0 1 5 21 3 4 14 1 1 1 1 1 3 1 15 1]

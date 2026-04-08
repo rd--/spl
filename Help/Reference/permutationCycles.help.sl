@@ -11,6 +11,16 @@ Cyclic form of a permutation list of length 3:
 [[1 3]]
 ```
 
+The unary cycles may be retained:
+
+```
+>>> [1 2 3].permutationCycles
+[]
+
+>>> [1 2 3].permutationCycles(false)
+[1; 2; 3]
+```
+
 Permutation with two three-cycles:
 
 ```

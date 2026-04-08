@@ -544,7 +544,7 @@ Permutation : [Object, Storeable, Equatable] { | cycles degree |
 		Permutation(self).majorIndex
 	}
 
-	minimumChangePermutations { :self |
+	[minimumChangePermutations, heapsAlgorithm] { :self |
 		let answer = [];
 		self.minimumChangePermutationsDo { :each |
 			answer.add(each.copy)
@@ -649,7 +649,7 @@ Permutation : [Object, Storeable, Equatable] { | cycles degree |
 		}
 	}
 
-	plainChanges { :self |
+	[plainChanges, steinhausJohnsonTrotter] { :self |
 		let answer = [];
 		self.plainChangesDo { :each |
 			answer.add(each.copy)
@@ -657,7 +657,7 @@ Permutation : [Object, Storeable, Equatable] { | cycles degree |
 		answer
 	}
 
-	plainChangesDo { :self :aBlock:/1 |
+	[plainChangesDo, steinhausJohnsonTrotterDo] { :self :aBlock:/1 |
 		let p = self.copy;
 		let q = self.copy;
 		let n = p.size;
@@ -979,11 +979,34 @@ Permutation : [Object, Storeable, Equatable] { | cycles degree |
 		self.iota.heapsAlgorithm
 	}
 
-	minimumChangePermutations { :self |
+	insertionPermutations { :self :method |
+		let reorder:/1 = method.caseOf(
+			[
+				'FrontToBack' -> { identity:/1 },
+				'BackToFront' -> { reverse:/1 }
+			]
+		);
+		let f:/1 = { :n |
+			(n = 1).if {
+				[[1]]
+			} {
+				f(n - 1).collect { :x |
+					[1 .. n].reorder.collect { :i |
+						let y = x.copy;
+						y.insertAt(n, i);
+						y
+					}
+				}.catenate
+			}
+		}.memoize;
+		1.toCollect(self, f:/1)
+	}
+
+	[minimumChangePermutations, heapsAlgorithm] { :self |
 		self.iota.minimumChangePermutations
 	}
 
-	plainChanges { :self |
+	[plainChanges, steinhausJohnsonTrotter] { :self |
 		(self < 1).if {
 			self.error('@Integer>>plainChanges: n < 1')
 		} {
@@ -995,14 +1018,6 @@ Permutation : [Object, Storeable, Equatable] { | cycles degree |
 		[0 .. b ^ n - 1].collect { :i |
 			i.integerReverse(b, n) + 1
 		}
-	}
-
-	steinhausJohnsonTrotterDo { :self :aBlock:/1 |
-		self.plainChangesDo(aBlock:/1)
-	}
-
-	steinhausJohnsonTrotter { :self |
-		self.plainChanges
 	}
 
 	unrankPermutation { :rank :degree |

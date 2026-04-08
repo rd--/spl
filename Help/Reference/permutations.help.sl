@@ -4,6 +4,13 @@
 
 Answer a `List` of the permutations containing at most _n_ elements of the sequence _x_.
 
+The two length two permutations of two elements:
+
+```
+>>> [1 2].permutations
+[1 2; 2 1]
+```
+
 The six length three permutations of three elements:
 
 ```
@@ -15,6 +22,38 @@ The six length three permutations of three elements:
 	2 3 1;
 	3 2 1;
 	3 1 2
+]
+```
+
+The twenty-four length four permutations of four elements:
+
+```
+>>> [1 2 3 4].permutations
+[
+	1 2 3 4;
+	1 2 4 3;
+	1 3 2 4;
+	1 3 4 2;
+	1 4 3 2;
+	1 4 2 3;
+	2 1 3 4;
+	2 1 4 3;
+	2 3 1 4;
+	2 3 4 1;
+	2 4 3 1;
+	2 4 1 3;
+	3 2 1 4;
+	3 2 4 1;
+	3 1 2 4;
+	3 1 4 2;
+	3 4 1 2;
+	3 4 2 1;
+	4 2 3 1;
+	4 2 1 3;
+	4 3 2 1;
+	4 3 1 2;
+	4 1 3 2;
+	4 1 2 3
 ]
 ```
 

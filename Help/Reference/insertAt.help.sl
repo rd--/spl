@@ -24,6 +24,22 @@ Equivalent to `addBeforeIndex`:
 (3, [1 2 3 4 5 6], 3)
 ```
 
+let f:/1 = { :n |
+	(n = 1).if {
+		[[1]]
+	} {
+		f(n - 1).collect { :x |
+			1:n.collect { :i |
+				let y = x.copy;
+				[n, x, y, i].postLine;
+				y.insertAt(n, i);
+				y
+			}
+		}.catenate
+	}
+}.memoize;
+1:4.collect(f:/1).catenate.catenate.scatterPlot
+
 * * *
 
 See also: addAfter, addAfterIndex, addBeforeIndex, at, copyReplaceFromToWith, removeAt

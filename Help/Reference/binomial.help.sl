@@ -5,7 +5,8 @@
 The binomial coefficients are the positive integers that occur as coefficients in the binomial theorem.
 Commonly, a binomial coefficient is indexed by a pair of integers _n ≥ k ≥ 0_.
 Tells the number of combinations of _n_ elements taken _k_ at a time,
-usually pronounced _n choose k_.
+usually pronounced _n choose k_,
+and often written _C(n,k)_.
 
 With positive integer _n_ and _k_:
 
@@ -684,6 +685,29 @@ OEIS [A002415](https://oeis.org/A002415):
 >>> 	binomial(n ^ 2, 2) / 6
 >>> }
 [0 0 1 6 20 50 105 196 336 540]
+```
+
+_C(n,2k)*C(2k,k)_,
+OEIS [A089627](https://oeis.org/A089627):
+
+```
+>>> 0:9.triangularArray { :n :k |
+>>> 	binomial(n, 2 * k)
+>>> 	*
+>>> 	binomial(2 * k, k)
+>>> }
+[
+	1;
+	1 0;
+	1 2 0;
+	1 6 0 0;
+	1 12 6 0 0;
+	1 20 30 0 0 0;
+	1 30 90 20 0 0 0;
+	1 42 210 140 0 0 0 0;
+	1 56 420 560 70 0 0 0 0;
+	1 72 756 1680 630 0 0 0 0 0
+]
 ```
 
 Plot over a subset of the reals as a function of its first parameter:

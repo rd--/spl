@@ -242,6 +242,15 @@ OEIS [A000079](https://oeis.org/A000079):
 [1 1 1 1 1 1 1 1 1 1 1]
 ```
 
+Lah numbers,
+OEIS [A001286](https://oeis.org/A001286):
+
+```
+>>> binomialTransform:/1
+>>> .iterate([1 1 1 25 25 745 3145], 5)
+[1 6 36 240 1800 15120 141120]
+```
+
 * * *
 
 See also: binomial, boustrophedonTransform, eulerTransform, inverseBinomialTransform, runLengthTransform
