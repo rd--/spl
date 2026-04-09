@@ -710,6 +710,65 @@ OEIS [A089627](https://oeis.org/A089627):
 ]
 ```
 
+The Franel numbers,
+OEIS [A000172](https://oeis.org/A000172):
+
+```
+>>> 0:8.collect { :n |
+>>> 	0:n.sum { :k |
+>>> 		 binomial(n, k).cube
+>>> 	}
+>>> }
+[1 2 10 56 346 2252 15184 104960 739162]
+```
+
+Apéry numbers,
+OEIS [A005258](https://oeis.org/A005258):
+
+```
+>>> 0:7.collect { :n |
+>>> 	0:n.sum { :k |
+>>> 		binomial(n, k).square
+>>> 		*
+>>> 		binomial(n + k, k)
+>>> 	}
+>>> }
+[1 3 19 147 1251 11253 104959 1004307]
+```
+
+Apéry numbers,
+OEIS [A005259](https://oeis.org/A005259):
+
+```
+>>> 0:6.collect { :n |
+>>> 	0:n.sum { :k |
+>>> 		(
+>>> 			binomial(n, k)
+>>> 			*
+>>> 			binomial(n + k, k)
+>>> 		).square
+>>> 	}
+>>> }
+[1 5 73 1445 33001 819005 21460825]
+```
+
+The Domb numbers,
+OEIS [A002895](https://oeis.org/A002895):
+
+```
+>>> 0:7.collect { :n |
+>>> 	0:n.sum { :k |
+>>> 		let m = (2 * n) - (2 * k);
+>>> 		binomial(n, k).square
+>>> 		*
+>>> 		binomial(m, n - k)
+>>> 		*
+>>> 		binomial(2 * k, k)
+>>> 	}
+>>> }
+[1 4 28 256 2716 31504 387136 4951552]
+```
+
 Plot over a subset of the reals as a function of its first parameter:
 
 ~~~spl svg=A

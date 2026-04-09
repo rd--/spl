@@ -334,6 +334,12 @@
 		self.collect(hammingWeight:/1)
 	}
 
+	harmonicNumber { :n :r |
+		n.collect { :x |
+			x.harmonicNumber(r)
+		}
+	}
+
 	harmonicNumber { :self |
 		self.collect(harmonicNumber:/1)
 	}

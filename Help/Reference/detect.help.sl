@@ -89,7 +89,7 @@ OEIS [A028920](https://oeis.org/A028920):
 
 * * *
 
-See also: detectIfFoundIfNone, detectIfNone, detectIndex, detectMin, findFirst, reject, select
+See also: detectIfFoundIfNone, detectIfNone, detectIndex, detectLast, detectMin, findFirst, reject, select
 
 Guides: Collection Functions, Dictionary Functions, List Functions
 

@@ -210,8 +210,12 @@
 	}
 
 	detectIfFoundIfNone { :self :aBlock:/1 :foundBlock:/1 :exceptionBlock:/0 |
+		self.detectIfFoundIfNoneUsing(aBlock:/1, foundBlock:/1, exceptionBlock:/0, do:/2)
+	}
+
+	detectIfFoundIfNoneUsing { :self :aBlock:/1 :foundBlock:/1 :exceptionBlock:/0 :doBlock:/2 |
 		valueWithReturn { :return:/1 |
-			self.do { :each |
+			doBlock(self) { :each |
 				aBlock(each).ifTrue {
 					foundBlock(each).return
 				}

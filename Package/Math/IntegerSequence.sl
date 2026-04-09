@@ -519,8 +519,14 @@
 		}
 	}
 
-	harmonicNumber { :self |
-		1.to(self).reciprocal.sum
+	harmonicNumber { :n :r |
+		n.one.to(n).sum { :i |
+			1 / (i ^ r)
+		}
+	}
+
+	harmonicNumber { :n |
+		n.harmonicNumber(1)
 	}
 
 	harmoniousNumber { :d :n |

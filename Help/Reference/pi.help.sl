@@ -67,7 +67,11 @@ Fractions approximating π:
 Square and cube root approximations:
 
 ```
->>> [10.sqrt, 31.nthRoot(3), 3 + (2.sqrt / 10)]
+>>> [
+>>> 	10.sqrt,
+>>> 	31.nthRoot(3),
+>>> 	3 + (2.sqrt / 10)
+>>> ]
 [3.1623, 3.1414, 3.1414]
 ```
 
@@ -169,17 +173,25 @@ An infinite series by Ramanujan, 1910:
 1.pi
 ```
 
-Continued fraction,
+Continued fraction for π,
 OEIS [A001203](https://oeis.org/A001203)
 
 ```
 >>> 1.pi.continuedFraction(13)
 [3 7 15 1 292 1 1 1 2 1 3 1 14]
+```
 
+Convergents for π:
+
+```
 >>> 1.pi.continuedFraction(5)
 >>> .convergents
 [3 22/7 333/106 355/113 103993/33102]
+```
 
+Semiconvergents for π:
+
+```
 >>> 1.pi.continuedFraction
 >>> .semiconvergents(1E-6)
 [
@@ -219,6 +231,39 @@ OEIS [A000796](https://oeis.org/A000796):
 >>> let k = n.namedConstant;
 >>> (k, k.scale)
 (3.141593, 104)
+```
+
+Simple continued fraction expansion of π,
+OEIS [A001203](https://oeis.org/A001203):
+
+```
+>>> 1.pi(104)
+>>> .continuedFraction
+[
+	3 7 15 1 292 1 1 1 2 1
+	3 1 14 2 1 1 2 2 2 2
+	1 84 2 1
+]
+```
+
+At `SmallFloat` the continued fraction expansion is accurate to thirteen places:
+
+```
+>>> 1.pi.continuedFraction(13)
+[3 7 15 1 292 1 1 1 2 1	3 1 14]
+```
+
+Continued fraction for π/4,
+OEIS [A070989](https://oeis.org/A070989):
+
+```
+>>> 1/4.pi(104)
+>>> .continuedFraction
+[
+	0 1 3 1 1 1 15 2 72 1
+	9 1 17 1 2 1 5 1 1 10
+	1 2 2 20
+]
 ```
 
 Scatter plot of the digits of π,

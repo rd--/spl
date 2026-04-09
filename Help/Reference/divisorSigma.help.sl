@@ -424,6 +424,26 @@ OEIS [A049820](https://oeis.org/A049820):
 ]
 ```
 
+Numerator of sum of reciprocals of divisors of _n_,
+OEIS [A017665](https://oeis.org/A017665):
+
+```
+>>> 1:16.collect { :n |
+>>> 	1L.divisorSigma(n) / n
+>>> }.numerator
+[1 3 4 7 6 2 8 15 13 9 12 7 14 12 8 31]
+```
+
+Denominator of sum of reciprocals of divisors of _n_,
+OEIS [A017666](https://oeis.org/A017666):
+
+```
+>>> 1:16.collect { :n |
+>>> 	1L.divisorSigma(n) / n
+>>> }.denominator
+[1 2 3 4 5 1 7 8 9 5 11 3 13 7 5 16]
+```
+
 Divisor function _σ₀(n)_ up to _n=100_,
 OEIS [A000005](https://oeis.org/A000005):
 

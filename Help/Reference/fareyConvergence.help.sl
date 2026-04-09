@@ -86,7 +86,7 @@ The Farey convergence to √2:
 ]
 ```
 
-Numerator of convergents to π by Farey fractions,
+Numerators of convergents to π by Farey fractions,
 OEIS [A063674](https://oeis.org/A063674),
 note accuracy of _355/113_:
 
@@ -120,7 +120,8 @@ note accuracy of _355/113_:
 ```
 >>> 1.pi.fareyConvergence(16750)
 >>> .denominator
-[1
+[
+	1
 	4
 	5
 	6
@@ -141,6 +142,6 @@ note accuracy of _355/113_:
 
 * * *
 
-See also: fareySequence, Fraction, fractionalPart
+See also: fareyApproximants, fareySequence, Fraction, fractionalPart
 
 Guides: Number Functions

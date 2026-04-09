@@ -18,6 +18,12 @@ a list of distinct unit fractions that sum to _n/d_.
 
 >>> 8/11.sylvesterExpansion
 [1/2 1/5 1/37 1/4070]
+
+>>> 43/48.sylvesterExpansion
+[1/2 1/3 1/16]
+
+>>> 5/8.sylvesterExpansion
+[1/2 1/8]
 ```
 
 The expansion can be quite long, with large denominators:
@@ -34,6 +40,13 @@ The expansion can be quite long, with large denominators:
 
 >>> [1/33 1/121 1/363].sum
 5/121
+```
+
+Numbers greater than one have leading ones:
+
+```
+>>> 15/7.sylvesterExpansion
+[1/1 1/1 1/7]
 ```
 
 Size of expansions for fractal sequence of fractions,

@@ -838,6 +838,22 @@ Fraction : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | num
 
 +SmallFloat {
 
+	fareyApproximants { :x :n |
+		let p = Fraction(x.floor, 1);
+		let q = p + 1;
+		let a = [p, q];
+		(n - 2).timesRepeat {
+			let p = a.detectLast { :y |
+				y < x
+			};
+			let q = a.detectLast { :y |
+				y > x
+			};
+			a.add(p.mediant(q))
+		};
+		a
+	}
+
 	fareyConvergence { :x :n |
 		let n1 = 0;
 		let d1 = 1;

@@ -1,10 +1,25 @@
 # triangularArray
 
 - _triangularArray(m:n, f:/2, k=0)_
+- _triangularArray([x₁ x₂ …], f:/2)_
 
 Answer a triangular array of _m:n_ rows,
 where the _i_-th row has _i+k_ columns,
 and each cell is given by _f(i,j)_.
+
+Show indices:
+
+```
+>>> 1:4.triangularArray { :i :j |
+>>> 	[i, j]
+>>> }
+[
+	1 1:;
+	2 1; 2 2:;
+	3 1; 3 2; 3 3:;
+	4 1; 4 2; 4 3; 4 4
+]
+```
 
 Pascal’s triangle,
 OEIS [A007318](https://oeis.org/A007318):
@@ -348,6 +363,21 @@ OEIS [A059481](https://oeis.org/A059481):
 	1 5 15 35 70 126;
 	1 6 21 56 126 252 462;
 	1 7 28 84 210 462 924 1716
+]
+```
+
+In the `List` case the indices are given by the terms of the list,
+which need not be integers:
+
+```
+>>> [3 1 7 5].triangularArray { :i :j |
+>>> 	[i, j]
+>>> }
+[
+	3 3:;
+	1 3; 1 1:;
+	7 3; 7 1; 7 7:;
+	5 3; 5 1; 5 7; 5 5
 ]
 ```
 

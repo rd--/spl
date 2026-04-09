@@ -94,7 +94,8 @@ OEIS [A005728](https://oeis.org/A005728):
 [2 3 5 7 11 13 19 23 29 33 43 47]
 ```
 
-Compare with a closed-form formula in terms of Euler’s totient function `eulerPhi`:
+Compare with a closed-form formula in terms of Euler’s totient function `eulerPhi`,
+OEIS [A005728](https://oeis.org/A005728):
 
 ```
 >>> 1:12.collect { :n |
@@ -139,6 +140,22 @@ then _200,300,400,500_:
 >>> 	n.fareySequence.size
 >>> }
 [12233 27399 48679 76117]
+```
+
+The number of Farey fractions of order _n_ that are _<=1/2_,
+OEIS [A049806](https://oeis.org/A049806):
+
+```
+>>> 1:23.collect { :n |
+>>> 	n.fareySequence.count { :x |
+>>> 		x <= 1/2
+>>> 	}
+>>> }
+[
+	 1  2  3  4  6  7 10 12 15 17
+	22 24 30 33 37 41 49 52 61 65
+	71 76 87
+]
 ```
 
 Terms of Farey sequence:
@@ -279,6 +296,20 @@ OEIS [A005728](https://oeis.org/A005728):
 ~~~
 
 ![](Help/Image/fareySequence-L.svg)
+
+Triangular array read by rows,
+the number of Farey fractions of order _n_ that are _<=1/k_,
+OEIS [A049805](https://oeis.org/A049805):
+
+~~~spl svg=M oeis=A049805
+1:11.triangularArray { :n :k |
+	n.fareySequence.count { :x |
+		x <= (1 / k)
+	}
+}.catenate.discretePlot
+~~~
+
+![](Help/Image/fareySequence-M.svg)
 
 * * *
 

@@ -183,6 +183,15 @@ Tree : [Object, Storeable, Equatable, Iterable, Indexable] { | value subTrees |
 		}
 	}
 
+	levelOrderTable { :self |
+		let k = self.depth;
+		let a = { [] } ! k;
+		self.withLevelDo { :x :i |
+			a[i + 1].add(x.value)
+		};
+		a
+	}
+
 	levelOrderValues { :self |
 		let answer = [];
 		0.to(self.depth - 1).collect { :each |
@@ -383,6 +392,13 @@ Tree : [Object, Storeable, Equatable, Iterable, Indexable] { | value subTrees |
 
 	sternBrocotTree { :n |
 		n.sternBrocotTree(1/1)
+	}
+
+	fareyTree { :self |
+		(self + 1)
+		.sternBrocotTree
+		.subTrees
+		.first
 	}
 
 	unfoldTree { :anInteger :anObject :aBlock:/1 |

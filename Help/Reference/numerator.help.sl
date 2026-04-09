@@ -41,6 +41,14 @@ OEIS [A051724](https://oeis.org/A051724):
 [0 1 1 1 1 5 1 7 2 3 5 11 1 13]
 ```
 
+Numerator of _n/2_,
+OEIS [A026741](https://oeis.org/A026741):
+
+```
+>>> Fraction(0:13, 2).numerator
+[0 1 1 3 2 5 3 7 4 9 5 11 6 13]
+```
+
 Numerator of _n/12_,
 OEIS [A051724](https://oeis.org/A051724):
 
@@ -94,9 +102,22 @@ OEIS [A061037](https://oeis.org/A061037):
 
 ![](Help/Image/numerator-D.svg)
 
+Numerator of sum of reciprocals of divisors of _n_,
+OEIS [A017665](https://oeis.org/A017665):
+
+~~~spl svg=E oeis=A017665
+1:65.collect { :n |
+	1L.divisorSigma(n) / n
+}.numerator.discretePlot
+~~~
+
+![](Help/Image/numerator-E.svg)
+
 * * *
 
 See also: denominator, Fraction, isFraction
+
+Guides: Number Functions
 
 References:
 _Mathematica_

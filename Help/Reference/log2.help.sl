@@ -2,7 +2,8 @@
 
 - _log2(x)_
 
-The base two logarithm of the number _x_.
+The base two logarithm of the number _x_,
+_log₂(x)_.
 
 ```
 >>> (2 ^ 10).log2

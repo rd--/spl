@@ -255,6 +255,14 @@ OEIS [A008965](https://oeis.org/A008965):
 ]
 ```
 
+Number of partitions of _n_ into two relatively prime parts,
+OEIS [A023022](https://oeis.org/A023022):
+
+```
+>>> [1] ++ (3:17.eulerPhi / 2)
+[1 1 1 2 1 3 2 3 2 5 2 6 3 4 4 8]
+```
+
 The Euler totient function,
 OEIS [A000010](https://oeis.org/A000010):
 

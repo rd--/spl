@@ -304,6 +304,16 @@
 		self * (10 ^ aNumber)
 	}
 
+	egyptianFraction { :x :n |
+		let a = [];
+		n.timesRepeat {
+			let s = (1 / x).ceiling;
+			a.add(s);
+			x := x - (1 / s)
+		};
+		a
+	}
+
 	epanechnikovKernel { :u |
 		0.75 * (1 - (u * u))
 	}

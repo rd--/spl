@@ -741,6 +741,16 @@
 		answer
 	}
 
+	detectLast { :self :aBlock:/1 |
+		self.detectLastIfFoundIfNone(aBlock:/1, identity:/1) {
+			self.error('detectLast')
+		}
+	}
+
+	detectLastIfFoundIfNone { :self :aBlock:/1 :foundBlock:/1 :exceptionBlock:/0 |
+		self.detectIfFoundIfNoneUsing(aBlock:/1, foundBlock:/1, exceptionBlock:/0, reverseDo:/2)
+	}
+
 	detectStartingAt { :self :predicate:/1 :startIndex |
 		self.detectStartingAtIfFoundIfNone(predicate:/1, startIndex) { :item |
 			item

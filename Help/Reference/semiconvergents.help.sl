@@ -22,8 +22,8 @@ Stop when the current semiconvergent is within _epsilon_ of the last convergent.
 Approximations of `pi`:
 
 ```
->>> 1.pi.continuedFraction
->>> .semiconvergents(1E-4)
+>>> 1.pi.continuedFraction(13)
+>>> .semiconvergents(1E-4).numerator
 [
 	2/1 3/1	13/4 16/5 19/6
 	22/7 179/57 201/64 223/71 245/78

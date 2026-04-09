@@ -646,4 +646,11 @@
 		}
 	}
 
+	triangularArray { :self :aBlock:/2 |
+		let k = self.size;
+		1:k.triangularArray { :i :j |
+			aBlock(self[i], self[j])
+		}
+	}
+
 }

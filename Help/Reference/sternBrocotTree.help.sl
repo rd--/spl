@@ -17,6 +17,19 @@ The terms of the tree to depth five in level order:
 ]
 ```
 
+The first four levels of the tree as an irregular table:
+
+```
+>>> 4.sternBrocotTree
+>>> .levelOrderTable
+[
+	1/1;
+	1/2 2/1;
+	1/3 2/3 3/2 3/1;
+	1/4 2/5 3/5 3/4 4/3 5/3 5/2 4/1
+]
+```
+
 Numerators of Stern-Brocot (and also Farey) tree fractions,
 OEIS [A007305](https://oeis.org/A007305),
 omitting first two terms:
@@ -47,6 +60,23 @@ OEIS [A047679](https://oeis.org/A047679):
 	3 3 2 1
 	4 5 5 4 3 3 2 1
 	5 7 8 7 7 8 7 5 4 5 5 4 3 3 2 1
+]
+```
+
+Product of numerator and denominator in Stern-Brocot tree,
+OEIS [A119272](https://oeis.org/A119272):
+
+```
+>>> 5.sternBrocotTree
+>>> .levelOrderValues
+>>> .collect { :x |
+>>> 	x.numerator * x.denominator
+>>> }
+[
+	 1  2  2  3  6  6  3  4 10 15
+	12 12 15 10  4  5 14 24 21 28
+	40 35 20 20 35 40 28 21 24 14
+	 5
 ]
 ```
 

@@ -16,7 +16,7 @@ threads over lists:
 ]
 ```
 
-Numerators are
+Numerators of Bernoulli numbers,
 OEIS [A027641](https://oeis.org/A027641);
 
 ```
@@ -24,7 +24,7 @@ OEIS [A027641](https://oeis.org/A027641);
 [1 -1 1 0 -1 0 1 0 -1 0 5 0 -691 0 7 0 -3617]
 ```
 
-Denominators are
+Denominators of Bernoulli numbers,
 OEIS [A027642](https://oeis.org/A027642):
 
 ```

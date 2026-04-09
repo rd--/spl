@@ -4,10 +4,6 @@
 		self.sum / self.size
 	}
 
-	average { :self |
-		self.mean
-	}
-
 	centralFeature { :self :aBlock:/2 |
 		let n = self.size;
 		let m = Infinity;
@@ -41,6 +37,11 @@
 		self.size / self.reciprocal.sum
 	}
 
+
+	[integerMean, integerAverage] { :self |
+		Fraction(self.sum, self.size)
+	}
+
 	interquartileRange { :self :o |
 		let [q1, q2, q3] = self.quartiles(o);
 		q3 - q1
@@ -63,7 +64,7 @@
 		}
 	}
 
-	mean { :self |
+	[mean, average] { :self |
 		self.sum / self.size
 	}
 

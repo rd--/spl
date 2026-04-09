@@ -118,7 +118,7 @@ OEIS [A112798](https://oeis.org/A112798):
 ]
 ```
 
-The sum of the partitions in the above sequence,
+The sum of the multiset of prime indices of _n_,
 OEIS [A056239](https://oeis.org/A056239):
 
 ```
@@ -137,6 +137,28 @@ OEIS [A056239](https://oeis.org/A056239):
 	 8 14 23  8 10 15 12  8 24  8
 	10
 ]
+```
+
+Numerator of the average of the multiset of prime indices of _n_,
+OEIS [A326567](https://oeis.org/A326567):
+
+```
+>>> 2:23.collect { :n |
+>>> 	n.primeFactors.primePi
+>>> 	.integerAverage
+>>> }.numerator
+[1 2 1 3 3 4 1 2 2 5 4 6 5 5 1 7 5 8 5 3 3 9]
+```
+
+Denominator of the average of the multiset of prime indices of _n_,
+OEIS [A326568](https://oeis.org/A326568):
+
+```
+>>> 2:23.collect { :n |
+>>> 	n.primeFactors.primePi
+>>> 	.integerAverage
+>>> }.denominator
+[1 1 1 1 2 1 1 1 1 1 3 1 2 2 1 1 3 1 3 1 1 1]
 ```
 
 The smallest number _m_ such that the _m_-th prime has the _n_-th prime decimal digits,
