@@ -1,4 +1,4 @@
-import ohm from 'https://unpkg.com/ohm-js@17/dist/ohm.esm.js';
+import ohm from 'https://unpkg.com/ohm-js@17.1.0/dist/ohm.esm.js';
 
 import { arraySum } from '../lib/jssc3/ts/kernel/array.ts';
 

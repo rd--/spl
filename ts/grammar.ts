@@ -1,5 +1,5 @@
-import ohm from 'https://unpkg.com/ohm-js@17/dist/ohm.esm.js';
-import { extras } from 'https://unpkg.com/ohm-js@17/dist/ohm.esm.js';
+import ohm from 'https://unpkg.com/ohm-js@17.1.0/dist/ohm.esm.js';
+import { extras } from 'https://unpkg.com/ohm-js@17.1.0/dist/ohm.esm.js';
 
 export const slGrammarDefinition: string = String.raw`
 Sl {
