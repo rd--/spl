@@ -16,6 +16,6 @@ Write the `Help Image Index` file:
 
 * * *
 
-See also: helpProgramDictionary, helpProgramTable
+See also: helpProgramDictionary, helpProgramTable, oeisImageIndex
 
 Guides: Help Image Index

@@ -580,6 +580,7 @@ Reference/atSymmetrical.help.sl
 Reference/atWrap.help.sl
 Reference/AudioIn.help.sl
 Reference/autocorrelationPlot.help.sl
+Reference/average.help.sl
 Reference/avogadroConstant.help.sl
 Reference/aWeightingCurve.help.sl
 Reference/AxonometricProjection.help.sl
@@ -1169,6 +1170,7 @@ Reference/detectIfNone.help.sl
 Reference/detectIndex.help.sl
 Reference/detectIndexIfFoundIfNone.help.sl
 Reference/detectIndices.help.sl
+Reference/detectLast.help.sl
 Reference/detectMax.help.sl
 Reference/detectMin.help.sl
 Reference/detectStartingAt.help.sl
@@ -1307,6 +1309,7 @@ Reference/edgeCount.help.sl
 Reference/edgeLabels.help.sl
 Reference/edgeList.help.sl
 Reference/editDistance.help.sl
+Reference/egyptianFraction.help.sl
 Reference/e.help.sl
 Reference/E.help.sl
 Reference/ehrenfeuchtMycielskiSequence.help.sl
@@ -1446,9 +1449,11 @@ Reference/factorialOrGamma.help.sl
 Reference/factorialPower.help.sl
 Reference/factorInteger.help.sl
 Reference/false.help.sl
+Reference/fareyApproximants.help.sl
 Reference/fareyConvergence.help.sl
 Reference/fareyDiagram.help.sl
 Reference/fareySequence.help.sl
+Reference/fareyTree.help.sl
 Reference/farOutPoint.help.sl
 Reference/farthestFirstTraversal.help.sl
 Reference/fastWalshHadamardTransform.help.sl
@@ -1918,12 +1923,14 @@ Reference/innerSoddyCircle.help.sl
 Reference/inradius.help.sl
 Reference/InRange.help.sl
 Reference/insertAt.help.sl
+Reference/insertionPermutations.help.sl
 Reference/insertionSort.help.sl
 Reference/insertionSortMatrix.help.sl
 Reference/inShuffle.help.sl
 Reference/inspectAsList.help.sl
 Reference/instanceOf.help.sl
 Reference/instructionSetArchitecture.help.sl
+Reference/integerAverage.help.sl
 Reference/integerBinomial.help.sl
 Reference/integerCompositionsDo.help.sl
 Reference/integerCompositions.help.sl
