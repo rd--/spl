@@ -49,12 +49,15 @@ General:
 Enumeration:
 
 - `bitReversalPermutation`
+- `heapsAlgorithm`
+- `insertionPermutations`
 - `lexicographicPermutations`
-- `minimumChangePermutations`: Heap’s algorithm
+- `minimumChangePermutations`
 - `multisetPermutations`
 - `permutations`
-- `plainChanges`: Steinhaus-Johnson-Trotter
+- `plainChanges`
 - `reversalPermutation`
+- `steinhausJohnsonTrotter`
 
 Lists:
 
