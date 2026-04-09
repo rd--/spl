@@ -608,6 +608,21 @@ OEIS [A085020](https://oeis.org/A085020)
 
 ![](Help/Image/divisors-T.svg)
 
+Mapping from the ordering by product to the ordering by sum of ordered pairs,
+OEIS [A056534](https://oeis.org/A056534):
+
+~~~spl svg=U oeis=A056534
+let a = [];
+1:21.do { :i |
+	i.divisors.do { :j |
+		a.add(binomial(i / j + j - 1, 2) + j)
+	}
+};
+a.discretePlot
+~~~
+
+![](Help/Image/divisors-U.svg)
+
 * * *
 
 See also: divisorSigma, divisorSum, gcd, remainder

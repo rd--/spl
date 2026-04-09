@@ -272,6 +272,19 @@ OEIS [A122196](https://oeis.org/A122196):
 
 ![](Help/Image/Range-B.svg)
 
+Triangle read by rows,
+_n+k_,
+OEIS [A094727](https://oeis.org/A094727):
+
+~~~spl svg=C oeis=A094727
+1:12.collect { :n |
+	let m = n - 1;
+	n + 0:m
+}.catenate.scatterPlot
+~~~
+
+![](Help/Image/Range-C.svg)
+
 * * *
 
 See also: .., ArithmeticProgression, characterRange, discretize, do, downTo, end, Interval, isIntegerRange, last, reverseDo, RelativeRange, start, stop, subdivide, thenTo, to, toBy, upOrDownTo

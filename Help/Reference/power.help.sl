@@ -986,6 +986,19 @@ let n = [0 .. m - 1];
 
 ![](Help/Image/power-L.svg)
 
+Count up to _k_ sequence with alternating signs,
+_k_ always positive,
+OEIS [A140756](https://oeis.org/A140756):
+
+~~~spl svg=M oeis=A140756
+1:12.collect { :n |
+	let k = 1:n;
+	-1 ^ (n + k) * k
+}.catenate.discretePlot
+~~~
+
+![](Help/Image/power-M.svg)
+
 * * *
 
 See also: +, -, *, /, exp, factorialPower, matrixPower, log, powerMod, powerRange, sqrt, symmetricPower

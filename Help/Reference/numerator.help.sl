@@ -49,6 +49,14 @@ OEIS [A026741](https://oeis.org/A026741):
 [0 1 1 3 2 5 3 7 4 9 5 11 6 13]
 ```
 
+Number of even permutations of _n_ letters,
+OEIS [A001710](https://oeis.org/A001710):
+
+```
+>>> Fraction(0:8.!, 2).numerator
+[1 1 1 3 12 60 360 2520 20160]
+```
+
 Numerator of _n/12_,
 OEIS [A051724](https://oeis.org/A051724):
 

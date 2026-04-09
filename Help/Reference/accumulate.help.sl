@@ -82,6 +82,20 @@ OEIS [A000124](https://oeis.org/A000124):
 
 ![](Help/Image/accumulate-B.svg)
 
+Prefix sum of
+count up to _k_ sequence with alternating signs,
+_k_ always positive,
+OEIS [A140757](https://oeis.org/A140757):
+
+~~~spl svg=C oeis=A140757
+1:12.collect { :n |
+	let k = 1:n;
+	-1 ^ (n + k) * k
+}.catenate.accumulate.discretePlot
+~~~
+
+![](Help/Image/accumulate-C.svg)
+
 * * *
 
 See also: +, differences, foldList, prefixSum, scan, sum
