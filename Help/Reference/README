@@ -15,10 +15,10 @@ system.helpFilesDo('Reference', '.*', true, writeImageFiles:/1); nil
 ~~~
 
 ls ~/sw/spl/Help/Image/* | wc -l
-=> 4,545
+=> 4,658
 
 grep '!\[\](' ~/sw/spl/Help/Reference/* | wc -l
-=> 4,544
+=> 4,656
 
 ~~~
 'Help/Reference'.splFilePath.terseSuperColliderGraphSummary(verbose: false, pattern: '.*')
@@ -26,4 +26,4 @@ grep '!\[\](' ~/sw/spl/Help/Reference/* | wc -l
 
 Total => 568
 
-Linting: 4076 file(s)
+Linting: 4113 file(s)

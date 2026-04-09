@@ -252,7 +252,6 @@ OEIS [A006368](https://oeis.org/A006368):
 
 ![](Help/Image/floor-K.svg)
 
-
 Integer part of A440 equal tempered piano key frequencies,
 A0 is the first key,
 OEIS [A214832](https://oeis.org/A214832):

@@ -8,7 +8,7 @@ Count entries:
 
 ```
 >>> system.splOeisReferences.size
-649
+650
 ```
 
 Count unique OEIS identitfiers:
@@ -16,7 +16,7 @@ Count unique OEIS identitfiers:
 ```
 >>> system.splOeisReferences
 >>> .values.catenate.unique.size
-2770
+2772
 ```
 
 Lookup OEIS references at `zeta`:
