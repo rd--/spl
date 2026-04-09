@@ -222,6 +222,16 @@ OEIS [A014390](https://oeis.org/A014390):
 [1 7 49 43 1 7 49 43 1 7 49 43]
 ```
 
+Numbers _k_ such that _k|3^k+1_,
+OEIS [A015949](https://oeis.org/A015949):
+
+```
+>>> 1:6250.select { :n |
+>>> 	3.powerMod(n, n) = (n - 1)
+>>> }
+[1 2 10 50 250 1250 5050 6250]
+```
+
 The sequence with fixed powers:
 
 ~~~spl svg=A

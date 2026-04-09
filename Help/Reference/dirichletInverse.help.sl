@@ -93,6 +93,34 @@ OEIS [A317843](https://oeis.org/A317843):
 
 ![](Help/Image/dirichletInverse-G.svg)
 
+Dirichlet inverse of _τ₁₀(n)_,
+OEIS [A341836](https://oeis.org/A341836):
+
+~~~spl svg=H oeis=A341836
+2:65.collect { :n |
+	n.primeSignature.product { :e |
+		(-1 ^ e) * binomial(10, e)
+	}
+}.discretePlot
+~~~
+
+![](Help/Image/dirichletInverse-H.svg)
+
+Dirichlet inverse of _τ₁₀(n)_,
+OEIS [A341836](https://oeis.org/A341836):
+
+~~~spl svg=I oeis==A341836
+2:115.collect(
+	{ :n |
+		n.primeSignature.product { :e |
+			binomial(e + 9, 9)
+		}
+	}.dirichletInverse
+).discretePlot
+~~~
+
+![](Help/Image/dirichletInverse-I.svg)
+
 * * *
 
 See also: dirichletConvolve, divisors

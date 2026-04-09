@@ -179,7 +179,7 @@ a.discretePlot
 
 * * *
 
-See also: square, sqrt
+See also: isPerfectCube, square, sqrt
 
 Guides: Integer Functions, Integer Sequence Functions
 

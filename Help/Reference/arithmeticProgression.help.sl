@@ -5,14 +5,18 @@
 Answer a `List` holding the first _n_ places of the arithmetic sequence counting from _a_ by _d_.
 
 The natural numbers,
-OEIS [A000027](https://oeis.org/A000027)
-and [A001477](https://oeis.org/A001477):
+OEIS [A000027](https://oeis.org/A000027):
 
 ```
-15.arithmeticProgression(1, 1)
+>>> 15.arithmeticProgression(1, 1)
 [1 2 3 4 5 6 7 8 9 10 11 12 13 14 15]
+```
 
-15.arithmeticProgression(0, 1)
+The non-negative numbers,
+OEIS [A001477](https://oeis.org/A001477):
+
+```
+>>> 15.arithmeticProgression(0, 1)
 [0 1 2 3 4 5 6 7 8 9 10 11 12 13 14]
 ```
 
@@ -25,29 +29,44 @@ OEIS [A001489](https://oeis.org/A001489):
 ```
 
 Arithmetic sequence of five places by two,
-OEIS [A005408](https://oeis.org/A005408),
-[A005843](https://oeis.org/A005843)
-and [A299174](https://oeis.org/A299174):
+the odd numbers,
+OEIS [A005408](https://oeis.org/A005408):
 
 ```
 >>> 5.arithmeticProgression(1, 2)
 [1 3 5 7 9]
+```
 
+The even numbers,
+from zero,
+OEIS [A005843](https://oeis.org/A005843):
+
+```
 >>> 5.arithmeticProgression(0, 2)
 [0 2 4 6 8]
+```
 
+The even numbers,
+from two,
+OEIS [A299174](https://oeis.org/A299174):
+
+```
 >>> 5.arithmeticProgression(2, 2)
 [2 4 6 8 10]
 ```
 
-Counting by three and four,
-OEIS [A008585](https://oeis.org/A008585)
-and [A008586](https://oeis.org/A008586):
+Counting by three,
+OEIS [A008585](https://oeis.org/A008585):
 
 ```
 >>> 5.arithmeticProgression(0, 3)
 [0 3 6 9 12]
+```
 
+Counting by four,
+OEIS [A008586](https://oeis.org/A008586):
+
+```
 >>> 5.arithmeticProgression(0, 4)
 [0 4 8 12 16]
 ```
@@ -75,6 +94,8 @@ let freq = 8.arithmeticProgression(a, d);
 * * *
 
 See also: arithmeticoGeometricSequence, differences, geometricProgression, Range
+
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

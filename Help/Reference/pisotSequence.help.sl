@@ -21,6 +21,14 @@ OEIS [A008776](https://oeis.org/A008776):
 [2 6 18 54 162 486 1458 4374 13122 39366]
 ```
 
+Pisot sequences _(2,10)_,
+OEIS [A020729](https://oeis.org/A020729):
+
+```
+>>> pisotSequence('E', 2, 10, 9)
+[2 10 50 250 1250 6250 31250 156250 781250]
+```
+
 Pisot sequences _(4,8)_,
 OEIS [A008776](https://oeis.org/A008776):
 

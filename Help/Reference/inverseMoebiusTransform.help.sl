@@ -132,6 +132,17 @@ OEIS [A048272](https://oeis.org/A048272):
 [1 0 2 -1 2 0 2 -2 3 0 2 -2 2 0 4 -3]
 ```
 
+Inverse Möbius transform of all ones,
+OEIS [A000005](https://oeis.org/A000005):
+
+>>> List(23, 1)
+>>> .inverseMoebiusTransform
+[1 2 2 3 2 4 2 4 3 4 2 6 2 4 4 5 2 6 2 6 4 4 2]
+
+>>> 0.divisorSigma(1:23)
+[1 2 2 3 2 4 2 4 3 4 2 6 2 4 4 5 2 6 2 6 4 4 2]
+```
+
 Inverse Möbius transform of periodic _1,-1,-3,1,-1,3,1,-1,0_,
 OEIS [A123477](https://oeis.org/A123477):
 

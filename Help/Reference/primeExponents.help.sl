@@ -97,7 +97,7 @@ OEIS [A062770](https://oeis.org/A062770):
 
 * * *
 
-See also: factorInteger, primeFactors
+See also: factorInteger, primeFactors, primeSignature
 
 Guides: Prime Number Functions
 

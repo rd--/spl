@@ -38,6 +38,8 @@ tell the number of failed trials in a Bernoulli processes with success probabili
 
 See also: arithmeticGeometricMean, arithmeticProgression, geometricProgression
 
+Guides: Integer Sequence Functions
+
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Arithmetic%E2%80%93geometric_mean)

@@ -4,14 +4,16 @@
 
 `powerRange` starts from _start_ and successively multiplies by _grow_ until the result is larger than _end_.
 
-Generate a list of powers of 10 from 1 to 1 million:
+Generate a list of powers of 10 from 1 to 1 million,
+OEIS [A011557](https://oeis.org/A011557):
 
 ```
 >>> 1.powerRange(10 ^ 6, 10)
 [1 10 100 1000 10000 100000 1000000]
 ```
 
-Generate a list of powers of 2 less than a hundred:
+Generate a list of powers of 2 less than a hundred,
+OEIS [A000079](https://oeis.org/A000079):
 
 ```
 >>> 1.powerRange(100, 2)

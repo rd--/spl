@@ -4,6 +4,9 @@
 
 Answer a `List` holding the first _n_ places of the geometric sequence _a,ar,ar²,ar³,…_.
 
+Powers of three,
+OEIS [A000244](https://oeis.org/A000244):
+
 ```
 >>> 7.geometricProgression(1, 3)
 [1 3 9 27 81 243 729]
@@ -12,7 +15,7 @@ Answer a `List` holding the first _n_ places of the geometric sequence _a,ar,ar�
 [729 243 81 27 9 3 1]
 ```
 
-The `differences` of a geometric sequence is a geometric sequence:
+The first `differences` of a geometric sequence is a geometric sequence:
 
 ```
 >>> 7.geometricProgression(1, 3)
@@ -32,7 +35,9 @@ The `ratios` of a geometric sequence are _r_:
 [3 3 3 3 3 3]
 ```
 
-The `powerRange` method gives the same sequence, requiring a limit, or stop, value rather than a _n_:
+The `powerRange` method gives the same sequence, requiring a limit, or stop, value rather than a _n_.
+Powers of ten,
+OEIS [A011557](https://oeis.org/A011557):
 
 ```
 >>> 1.powerRange(10 ^ 6, 10)
@@ -60,7 +65,7 @@ A two dimensional geometric series diagram by Nicole Oresme:
 
 See also: arithmeticProgression, arithmeticoGeometricSequence, isGeometricProgression, powerRange, Range, ratios
 
-Guides: List Functions
+Guides: Integer Sequence Functions, List Functions
 
 References:
 _Mathematica_

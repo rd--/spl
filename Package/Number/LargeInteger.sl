@@ -268,6 +268,10 @@ LargeInteger! : [Object, Storeable, Equatable, Comparable, Binary, Magnitude, Nu
 		true
 	}
 
+	isInteger { :unusedSelf :unusedEpsilon |
+		true
+	}
+
 	isLiteral { :unused |
 		true
 	}

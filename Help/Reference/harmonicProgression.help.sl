@@ -17,10 +17,11 @@ the reciprocal of the arithmetic progression.
 `harmonicNumber` is the sum of the unit harmonic progression:
 
 ```
->>> 17.harmonicProgression(1, 1).sum
+>>> 17.harmonicProgression(1L, 1)
+>>> .sum
 42142223/12252240
 
->>> 17.harmonicNumber
+>>> 17L.harmonicNumber
 42142223/12252240
 
 >>> Fraction(1, 1:17).sum
@@ -39,6 +40,8 @@ Plot the first few terms of a harmonic progression:
 * * *
 
 See also: arithmeticProgression, geometricProgression, harmonicNumber
+
+Guides: Number Functions
 
 References:
 _Mathematica_

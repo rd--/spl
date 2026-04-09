@@ -264,6 +264,22 @@ let n = 1:88;
 
 ![](Help/Image/floor-L.svg)
 
+Alternating sum of _⌊(n/i)_,
+this is a finite sum,
+OEIS [A059851](https://oeis.org/A059851):
+
+~~~spl svg=M oeis=A059851
+0:65.collect { :n |
+	1:n.sum { :k |
+		(n / k).floor
+		-
+		(2 * (n / (2 * k)).floor)
+	}
+}.discretePlot
+~~~
+
+![](Help/Image/floor-M.svg)
+
 Where supported `floor` is displayed as ⌊.
 
 * * *

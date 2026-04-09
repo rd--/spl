@@ -118,6 +118,32 @@ Decimal(1/607, 85)
 
 ![](Help/Image/decimalExpansion-C.svg)
 
+The product of the cubes of the nonzero digits of _n_,
+OEIS [A352172](https://oeis.org/A352172):
+
+~~~spl svg=D oeis=A352172
+0:215.collect { :n |
+	n.decimalExpansion
+	.select(isPositive:/1)
+	.product ^ 3
+}.scatterPlot.log
+~~~
+
+![](Help/Image/decimalExpansion-D.svg)
+
+The product of the nonzero digits of _n_,
+OEIS [A051801](https://oeis.org/A051801):
+
+~~~spl svg=E oeis=A051801
+0:215.collect { :n |
+	n.decimalExpansion
+	.select(isPositive:/1)
+	.product
+}.scatterPlot
+~~~
+
+![](Help/Image/decimalExpansion-E.svg)
+
 * * *
 
 See also: binaryExpansion, integerDigits

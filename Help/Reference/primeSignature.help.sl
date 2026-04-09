@@ -440,6 +440,44 @@ OEIS [A323014](https://oeis.org/A323014):
 
 ![](Help/Image/primeSignature-M.svg)
 
+Number of ordered factorizations of _n_ ten-factorizations,
+OEIS [A111220](https://oeis.org/A111220):
+
+~~~spl svg=N oeis=A111220
+let tau = { :n :k |
+	(n = 1).if {
+		1
+	} {
+		n.primeSignature.product { :e |
+			binomial(e + k - 1, k - 1)
+		}
+	}
+};
+1:65.collect { :n |
+	n.tau(10)
+}.discretePlot
+~~~
+
+![](Help/Image/primeSignature-N.svg)
+
+Table by antidiagonals of _τ(n,k)_,
+the _k_-th Piltz function,
+OEIS [A077592](https://oeis.org/A077592):
+
+~~~spl svg=O oeis=A077592
+1:21.antidiagonalArray { :n :k |
+	(n = 1).if {
+		1
+	} {
+		n.primeSignature.product { :e |
+			binomial(e + k - 1, k - 1)
+		}
+	}
+}.catenate.scatterPlot.log
+~~~
+
+![](Help/Image/primeSignature-O.svg)
+
 * * *
 
 See also: factorInteger

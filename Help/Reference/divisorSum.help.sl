@@ -114,6 +114,19 @@ let a = [0 5 4 6 4 5];
 
 ![](Help/Image/divisorSum-G.svg)
 
+Number of cubes dividing _n_,
+OEIS [A061704](https://oeis.org/A061704):
+
+~~~spl svg=H oeis=A061704
+1:85.collect { :n |
+	n.divisorSum { :d |
+		d.isPerfectCube.boole
+	}
+}.stepPlot
+~~~
+
+![](Help/Image/divisorSum-H.svg)
+
 * * *
 
 See also: aliquotSum, divisors, divisorSigma, sum

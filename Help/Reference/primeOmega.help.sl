@@ -221,6 +221,19 @@ OEIS [A058061](https://oeis.org/A058061):
 
 ![](Help/Image/primeOmega-G.svg)
 
+Totally multiplicative sequence with _a(p)=10*(p-3)_ for prime _p_,
+OEIS [A167320](https://oeis.org/A167320):
+
+~~~spl svg=H oeis=A167320
+2:100.collect { :n |
+	n.factorInteger.product { :f |
+		(f[1] - 3) ^ (f[2])
+	} * (10 ^ n.primeOmega)
+}.discretePlot.logScale
+~~~
+
+![](Help/Image/primeOmega-H.svg)
+
 * * *
 
 See also: factorInteger, isPrimePower, primeNu

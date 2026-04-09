@@ -954,6 +954,10 @@
 		self.isPalindrome(10)
 	}
 
+	isPerfectCube { :n |
+		n.cubeRoot.isInteger(1E-14)
+	}
+
 	isPerfectDigitalInvariant { :self :base :power |
 		self.perfectDigitalInvariantFunction(base, power) = self
 	}
@@ -970,7 +974,7 @@
 	}
 
 	isPerfectSquare { :self |
-		self.sqrt.isInteger
+		self.sqrt.isInteger(1E-14)
 	}
 
 	isPositiveInteger { :self |

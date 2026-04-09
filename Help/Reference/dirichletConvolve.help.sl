@@ -88,9 +88,23 @@ OEIS [A000027](https://oeis.org/A000027):
 
 ![](Help/Image/dirichletConvolve-F.svg)
 
+Dirichlet convolution of the Liouville function with itself,
+OEIS [A329484](https://oeis.org/A329484):
+
+~~~spl svg=G oeis=A329484
+1:85.collect(
+	dirichletConvolve(
+		liouvilleLambda:/1,
+		liouvilleLambda:/1
+	)
+).discretePlot
+~~~
+
+![](Help/Image/dirichletConvolve-G.svg)
+
 * * *
 
-See also: dirichletInverse, divisorSum
+See also: dirichletInverse, divisorSum, moebiusMu
 
 References:
 _Mathematica_
