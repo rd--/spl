@@ -96,6 +96,21 @@ OEIS [A140757](https://oeis.org/A140757):
 
 ![](Help/Image/accumulate-C.svg)
 
+Product of alternating harmonic sum and least common multiple,
+OEIS [A025530](https://oeis.org/A025530):
+
+~~~spl svg=D oeis=A025530
+let k = 65;
+let f = 1:k.collect { :n |
+	1 / (n * (-1L ^ (n - 1)))
+}.accumulate;
+1:k.collect { :n |
+	f[n] * 1L:n.lcm
+}.scatterPlot.log
+~~~
+
+![](Help/Image/accumulate-D.svg)
+
 * * *
 
 See also: +, differences, foldList, prefixSum, scan, sum

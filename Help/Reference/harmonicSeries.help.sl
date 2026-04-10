@@ -9,9 +9,19 @@ Answer the first _n_ terms of the harmonic series.
 1 / [1 .. 17]
 ```
 
+The harmonic series:
+
+~~~spl svg=A
+17.harmonicSeries.discretePlot
+~~~
+
+![](Help/Image/harmonicSeries-A.svg)
+
 * * *
 
 See also: alternatingHarmonicSeries, harmonicNumber, harmonicProgression
+
+Guides: Integer Functions
 
 References:
 _Mathematica_

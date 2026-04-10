@@ -285,6 +285,17 @@ OEIS [A094727](https://oeis.org/A094727):
 
 ![](Help/Image/Range-C.svg)
 
+Count and repeat last item and restart,
+OEIS [A194258](https://oeis.org/A194258):
+
+~~~spl svg=D oeis=A194258
+1:9.collect { :n |
+	Range(1, n - 1, 1) ++ List(n, n)
+}.catenate.discretePlot
+~~~
+
+![](Help/Image/Range-D.svg)
+
 * * *
 
 See also: .., ArithmeticProgression, characterRange, discretize, do, downTo, end, Interval, isIntegerRange, last, reverseDo, RelativeRange, start, stop, subdivide, thenTo, to, toBy, upOrDownTo

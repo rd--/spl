@@ -21,16 +21,62 @@ The alternating harmonic series:
 0.693147
 ```
 
+Numerator of the _n_-th alternating harmonic number
+OEIS [A058313](https://oeis.org/A058313):
+
+```
+>>> 11.alternatingHarmonicSeries
+>>> .prefixSum.numerator
+[1 1 5 7 47 37 319 533 1879 1627 20417]
+```
+
+Denominator of the _n_-th alternating harmonic number
+OEIS [A058312](https://oeis.org/A058312):
+
+```
+>>> 11.alternatingHarmonicSeries
+>>> .prefixSum.denominator
+[1 2 6 12 60 60 420 840 2520 2520 27720]
+```
+
 Plot the partial sums of the first few terms of the alternating harmonic series:
 
 ~~~spl svg=A
-47
-.alternatingHarmonicSeries
+47.alternatingHarmonicSeries
 .prefixSum
 .linePlot
 ~~~
 
 ![](Help/Image/alternatingHarmonicSeries-A.svg)
+
+The alternating harmonic series:
+
+~~~spl svg=B
+65.alternatingHarmonicSeries
+.discretePlot.logScale
+~~~
+
+![](Help/Image/alternatingHarmonicSeries-B.svg)
+
+Numerator of the _n_-th alternating harmonic number
+OEIS [A058313](https://oeis.org/A058313):
+
+~~~spl svg=C oeis=A058313
+65.alternatingHarmonicSeries
+.prefixSum.numerator.discretePlot.log
+~~~
+
+![](Help/Image/alternatingHarmonicSeries-C.svg)
+
+Denominator of the _n_-th alternating harmonic number
+OEIS [A058312](https://oeis.org/A058312):
+
+~~~spl svg=D oeis=A058312
+65.alternatingHarmonicSeries
+.prefixSum.denominator.discretePlot.log
+~~~
+
+![](Help/Image/alternatingHarmonicSeries-D.svg)
 
 * * *
 

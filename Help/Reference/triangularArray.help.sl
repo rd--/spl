@@ -576,6 +576,21 @@ OEIS [A105809](https://oeis.org/A105809):
 
 ![](Help/Image/triangularArray-M.svg)
 
+Array of square numbers read by antidiagonals in up direction,
+OEIS [A060736](https://oeis.org/A060736):
+
+~~~spl svg=N oeis=A060736
+1:10.triangularArray { :n :k |
+	(n < (2 * k -1)).if {
+		k.square + k - n
+	} {
+		(n - k).square + k
+	}
+}.catenate.scatterPlot
+~~~
+
+![](Help/Image/triangularArray-N.svg)
+
 * * *
 
 See also: antidiagonalArray, array, collect, isTriangularArray, table

@@ -113,6 +113,14 @@ OEIS [A014551](https://oeis.org/A014551):
 [1 2].linearRecurrence([2 1], 12)
 ```
 
+The _U(-2,1)_ sequence,
+OEIS [A181983](https://oeis.org/A181983):
+
+```
+>>> 15.lucasSequence('U', -2, 1)
+[0 1 -2 3 -4 5 -6 7 -8 9 -10 11 -12 13 -14]
+```
+
 Characteristic function of the Lucas numbers,
 OEIS [A102460](https://oeis.org/A102460):
 
@@ -123,6 +131,13 @@ OEIS [A102460](https://oeis.org/A102460):
 ~~~
 
 ![](Help/Image/lucasSequence-A.svg)
+
+The _U(-2,1)_ sequence,
+OEIS [A181983](https://oeis.org/A181983):
+
+~~~spl svg=B oeis=A181983
+65.lucasSequence('U', -2, 1).discretePlot
+~~~
 
 * * *
 

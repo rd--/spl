@@ -39,7 +39,9 @@ Threads over lists:
 Inverse Rosenberg-Strong pairing function:
 
 ~~~spl svg=A
-0:65.rosenbergStrongPairingFunction.Line
+0:65
+.inverseRosenbergStrongPairingFunction
+.Line
 ~~~
 
 ![](Help/Image/rosenbergStrongPairingFunction-A.svg)

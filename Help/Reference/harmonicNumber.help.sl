@@ -100,6 +100,18 @@ OEIS [A007407](https://oeis.org/A007407):
 [1 4 36 144 3600 3600 176400 705600]
 ```
 
+Numerator of the _2n_-th alternating harmonic number,
+OEIS [A082687](https://oeis.org/A082687):
+
+```
+>>> 1L:9.collect { :n |
+>>> 	(2 * n).harmonicNumber
+>>> 	-
+>>> 	n.harmonicNumber
+>>> }.numerator
+[1 7 37 533 1627 18107 237371 95549 1632341]
+```
+
 Plot over a subset of the integers:
 
 ~~~spl svg=A

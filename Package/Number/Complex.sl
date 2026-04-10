@@ -268,11 +268,15 @@ Complex : [Object, Storeable, Equatable, Comparable, Number] { | real imaginary 
 		[1J0 -1J0 0J1 0J-1].includes(self)
 	}
 
-	isInteger { :self |
+	isInteger { :unused |
 		false
 	}
 
-	isLiteral { :self |
+	isInteger { :unusedSelf :unusedEpsilon |
+		false
+	}
+
+	isLiteral { :unused |
 		true
 	}
 
