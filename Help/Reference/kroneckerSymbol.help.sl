@@ -377,6 +377,32 @@ OEIS [A000377](https://oeis.org/A000377):
 
 ![](Help/Image/kroneckerSymbol-L.svg)
 
+Kronecker’s triangle read by rows,
+OEIS [A372728](https://oeis.org/A372728):
+
+~~~spl svg=M oeis=A372728
+0:17.triangularArray { :n :k |
+	n.kroneckerSymbol(k)
+}.catenate.discretePlot
+~~~
+
+![](Help/Image/kroneckerSymbol-M.svg)
+
+Gauss’s triangle read by rows,
+OEIS [A373223](https://oeis.org/A373223):
+
+~~~spl svg=N oeis=A373223
+1:15.triangularArray { :n :k |
+	let p = n.prime;
+	let q = k.prime;
+	p.kroneckerSymbol(q)
+	*
+	q.kroneckerSymbol(p)
+}.catenate.discretePlot
+~~~
+
+![](Help/Image/kroneckerSymbol-N.svg)
+
 * * *
 
 See also: jacobiSymbol, legendreSymbol

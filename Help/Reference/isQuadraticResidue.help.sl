@@ -32,6 +32,9 @@ The complete list of quadratic residues modulo ten:
 >>> }
 [1 4 5 6 9]
 
+>>> 10.quadraticResidues
+[1 4 5 6 9]
+
 >>> 1:9.collect { :q |
 >>> 	powerMod(q, 2, 10)
 >>> }
@@ -47,6 +50,26 @@ Plot boolean triangle:
 ~~~
 
 ![](Help/Image/isQuadraticResidue-A.png)
+
+Triangle read by rows,
+_k_ if _k_ is a quadratic residue modulo _n_ otherwise is _-k_,
+OEIS [A373748](https://oeis.org/A373748):
+
+~~~spl svg=B oeis=A373748
+0:15.triangularArray { :n :k |
+	(
+		n = k | {
+			k.isQuadraticResidue(n)
+		}
+	).if {
+		k
+	} {
+		-k
+	}
+}.catenate.discretePlot
+~~~
+
+![](Help/Image/isQuadraticResidue-B.svg)
 
 * * *
 

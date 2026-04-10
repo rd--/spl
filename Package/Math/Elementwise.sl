@@ -583,6 +583,10 @@
 		}
 	}
 
+	numeratorDenominator { :self |
+		self.collect(numeratorDenominator:/1)
+	}
+
 	[partitionFunctionP, partitionsP] { :self |
 		self.collect(partitionsP:/1)
 	}

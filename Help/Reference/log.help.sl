@@ -169,6 +169,21 @@ OEIS [A369522](https://oeis.org/A369522):
 0.7095112913514547
 ```
 
+The additive property of logarithms,
+_log(ab)=log(a)+log(b)_,
+a fifth plus a fourth equals an octave:
+
+```
+>>> (3/2 * 4/3).log
+2/1.log
+
+>>> 3/2.log + 4/3.log
+2/1.log
+
+>>> 3/2 * 4/3
+2/1
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A

@@ -56,7 +56,7 @@ with weights assigned as _1_ and φ.
 
 See also: isPhiWeightedMediantNoble, mediant, weightedMediant
 
-Guides: Xenharmonic Functions
+Guides: Tuning Functions, Xenharmonic Functions
 
 References:
 _Anaphoria_

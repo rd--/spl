@@ -42,6 +42,8 @@ Harmonic mean of the first thirty integers:
 
 See also: contraharmonicMean, geometricMean, mean
 
+Guides: Statistics Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/HarmonicMean.html),

@@ -1,6 +1,6 @@
 # isPhiWeightedMediantNoble
 
-- _isPhiWeightedMediantNoble(aFraction, anotherFraction)_
+- _isPhiWeightedMediantNoble(n₁/d₁, n₂/d₂)_
 
 Answer `true` if the φ-weighted mediant of two fractions is a noble number.
 A number is noble if its continued fraction becomes an infinite sequence of ones.
@@ -34,5 +34,7 @@ See also: convergents, mediant, phiWeightedMediant, weightedMediant
 Guides: Xenharmonic Functions
 
 References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/NobleNumber.html),
 _Xenharmonic_
 [1](https://en.xen.wiki/w/Merciful_intonation)

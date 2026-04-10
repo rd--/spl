@@ -51,6 +51,17 @@ Plot Sierpiński’s triangle:
 
 ![](Help/Image/triangularArrayPlot-D.svg)
 
+Euclid’s triangle,
+OEIS [A217831](https://oeis.org/A217831):
+
+~~~spl svg=E oeis=A217831
+0:20.triangularArray { :m :n |
+	n.isCoprime(m).boole
+}.triangularArrayPlot
+~~~
+
+![](Help/Image/triangularArrayPlot-E.svg)
+
 * * *
 
 See also: triangularArray

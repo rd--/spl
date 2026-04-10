@@ -52,7 +52,7 @@ And so on indefinitely.
 
 See also: isMomentOfSymmetry, momentOfSymmetry, Scale
 
-Guides: Xenharmonic Functions
+Guides: Tuning Functions, Xenharmonic Functions
 
 References:
 _Anaphoria_

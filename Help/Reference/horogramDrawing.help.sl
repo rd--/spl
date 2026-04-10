@@ -38,7 +38,7 @@ A drawing of the _5/12_ moment of symmetry scale construction:
 
 See also: Circle, circularPartitionsDrawing, horogramTable, Line, LineDrawing, momentOfSymmetry, rectangularHorogramDrawing
 
-Guides: Scale Functions
+Guides: Scale Functions, Xenharmonic Functions
 
 _Anaphoria_
 [1](https://www.anaphoria.com/wilsonscaletree.html)

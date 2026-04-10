@@ -1,8 +1,8 @@
 # horogramTable
 
-- _horogramTable(aList)_
+- _horogramTable(c)_
 
-Answer an `Html` table showing a rectangular Wilson horogram of the interval sequences at _aList_,
+Answer an `Html` table showing a rectangular Wilson horogram of the interval sequences at the list _c_,
 which should each sum to the same value,
 and should contain only integer steps.
 A final row of unit divisions of the period is automatically appended.

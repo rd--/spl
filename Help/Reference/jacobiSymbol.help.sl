@@ -201,6 +201,32 @@ OEIS [A011587](https://oeis.org/A011587):
 
 ![](Help/Image/jacobiSymbol-E.svg)
 
+Jacobi’s triangle read by rows,
+OEIS [A372877](https://oeis.org/A372877):
+
+~~~spl svg=F oeis=A372877
+0:20.triangularArray { :n :k |
+	k.isEven.if {
+		0
+	} {
+		n.jacobiSymbol(k)
+	}
+}.catenate.discretePlot
+~~~
+
+![](Help/Image/jacobiSymbol-F.svg)
+
+Legendre’s triangle read by rows,
+OEIS [A372726](https://oeis.org/A372726):
+
+~~~spl svg=G oeis=A372726
+0:15.triangularArray { :n :k |
+	n.jacobiSymbol((k + 2).prime)
+}.catenate.discretePlot
+~~~
+
+![](Help/Image/jacobiSymbol-G.svg)
+
 * * *
 
 See also: factorInteger, kroneckerSymbol, legendreSymbol

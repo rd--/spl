@@ -1,11 +1,11 @@
 # momentOfSymmetry
 
-- _momentOfSymmetry(generator, period, maxDepth)_
+- _momentOfSymmetry(g, p, k=∞)_
 
-Answer the sequence of moment of symmetry scales specified by a _generator_ and a _period_.
+Answer the sequence of moment of symmetry scales specified by generator _g_ and period _p_.
 The sequence ends when the next step would have only one interval size,
 according to `~`,
-or when _maxDepth_, which may be omitted, is reached.
+or when the maximum depth _k_ is reached.
 
 The diatonic scale is the last item in the _5/12_ sequence:
 

@@ -417,6 +417,21 @@ Tree : [Object, Storeable, Equatable, Iterable, Indexable] { | value subTrees |
 
 }
 
++List {
+
+	coprimeTree { :self :depth |
+		depth.unfoldTree(self) { :p |
+			let [m, n] = p;
+			[
+				[2 * m - n, m],
+				[2 * m + n, m],
+				[m + (2 * n), n]
+			]
+		}
+	}
+
+}
+
 +Block {
 
 	nestTree { :aBlock:/1 :aTree :depth |

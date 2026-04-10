@@ -186,6 +186,38 @@ OEIS [A257993](https://oeis.org/A257993):
 
 ![](Help/Image/isCoprime-E.svg)
 
+Coprime matrix for small _n_:
+
+~~~spl svg=F
+{ :i :j |
+	i.isCoprime(j).boole
+}.table(12:1:-1, 1:12).matrixPlot
+~~~
+
+![](Help/Image/isCoprime-F.svg)
+
+Coprime grid for small _n_:
+
+~~~spl svg=G
+1:24.tuples(2).select { :x |
+	x[1].isCoprime(x[2])
+}.scatterPlot
+~~~
+
+![](Help/Image/isCoprime-G.svg)
+
+Euclid’s triangle,
+read by rows,
+OEIS [A217831](https://oeis.org/A217831):
+
+~~~spl svg=H oeis=A217831
+0:13.triangularArray { :m :n |
+	n.isCoprime(m).boole
+}.catenate.discretePlot
+~~~
+
+![](Help/Image/isCoprime-H.svg)
+
 Where supported `isCoprime` is displayed as ⟂.
 
 * * *

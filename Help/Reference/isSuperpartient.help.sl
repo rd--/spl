@@ -2,7 +2,9 @@
 
 - _isSuperpartient(n/d)_
 
-Answer `true` if the fraction _n/d_ is a superpartient ratio, else `false`.
+Answer `true` if the fraction _n/d_ is a superpartient ratio,
+also called superpartient number or epimeric ratio,
+else `false`.
 
 ```
 >>> 5/3.isSuperpartient

@@ -60,7 +60,7 @@ Compare Wilson and Grady tuning lattice templates using a 7-note 13-limit scale
 
 See also: gradyTuningLatticeCoordinates, tuningLatticeGraph, Tuning
 
-Guides: Tuning Functions
+Guides: Tuning Functions, Xenharmonic Functions
 
 References:
 _Anaphoria_

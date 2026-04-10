@@ -82,7 +82,7 @@ List(k, [0 m]).coordinateBoundsArray(List(k, 1))
 
 See also: wilsonTuningLatticeCoordinates, tuningLatticeGraph, Tuning
 
-Guides: Tuning Functions
+Guides: Tuning Functions, Xenharmonic Functions
 
 References:
 _Anaphoria_

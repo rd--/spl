@@ -25,7 +25,7 @@ OEIS [A010434](https://oeis.org/A010434):
 ]
 ```
 
-Table of nonzero quadratic residues modulo _p_,
+Table of nonzero quadratic residues modulo _n_,
 OEIS [A046071](https://oeis.org/A046071):
 
 ```
@@ -89,9 +89,9 @@ OEIS [A096008](https://oeis.org/A096008):
 
 ```
 >>> 1.to(20).collect { :n |
->>> 	0.to(n - 1).collect { :k |
->>> 		powerMod(k, 2, n)
->>> 	}.nub.sort
+>>> 	let r = n.quadraticResidues;
+>>> 	r.addFirst(0);
+>>> 	r
 >>> }
 [
 	0;
@@ -146,6 +146,16 @@ OEIS [A096103](https://oeis.org/A096103):
 ]
 ```
 
+The number of non-zero quadratic residues modulo the _n_-th prime,
+OEIS [A130290](https://oeis.org/A130290):
+
+```
+>>> 1:17.collect { :n |
+>>> 	n.prime.quadraticResidues.size
+>>> }
+[1 1 2 3 5 6 8 9 11 14 15 18 20 21 23 26 29]
+```
+
 Number of nonzero quadratic residues,
 OEIS [A105612](https://oeis.org/A105612):
 
@@ -180,6 +190,41 @@ OEIS [A096103](https://oeis.org/A096103):
 ~~~
 
 ![](Help/Image/quadraticResidues-C.svg)
+
+Irregular triangle,
+the _n_-th row gives the quadratic residues modulo the _n_-th prime,
+OEIS [A063987](https://oeis.org/A063987):
+
+~~~spl svg=D oeis=A063987
+1:14.collect { :n |
+	n.prime.quadraticResidues
+}.catenate.discretePlot
+~~~
+
+![](Help/Image/quadraticResidues-D.svg)
+
+Nonzero quadratic residues modulo _n_,
+OEIS [A046071](https://oeis.org/A046071):
+
+~~~spl svg=E oeis=A046071
+2:27.collect(
+	quadraticResidues:/1
+).catenate.scatterPlot
+~~~
+
+![](Help/Image/quadraticResidues-E.svg)
+
+Nonzero quadratic residues modulo _n_,
+dense scatter plot,
+OEIS [A046071](https://oeis.org/A046071):
+
+~~~spl png=F oeis=A046071
+2:100.collect(
+	quadraticResidues:/1
+).catenate.denseScatterPlot
+~~~
+
+![](Help/Image/quadraticResidues-F.png)
 
 * * *
 

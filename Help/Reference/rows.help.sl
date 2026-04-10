@@ -1,6 +1,6 @@
 # rows
 
-- _rows(m, c)_
+- _rows(m, r)_
 
 Answer the rows of the matrix _m_ specified in the list _r_ as a matrix.
 
@@ -37,6 +37,6 @@ Table([3 3].iota).rows([1 3]).asHtml
 
 * * *
 
-See also: at, column, List, Matrix, row, submatrix, transpose
+See also: at, columns, List, Matrix, row, submatrix, transpose
 
 Guides: Matrix Functions

@@ -1,8 +1,8 @@
 # faceCount
 
-- _faceCount(aGeometry)_
+- _faceCount(g)_
 
-Answer the number of faces at _aGeometry_.
+Answer the number of faces at the geometry _g_.
 
 At `Triangle`:
 
@@ -43,6 +43,8 @@ At the unit cube, a `Polyhedron`:
 * * *
 
 See also: faceIndices, Polygon, Polyhedron, vertexCoordinates, vertexCount
+
+Guides: Geometry Functions
 
 References:
 _Mathematica_

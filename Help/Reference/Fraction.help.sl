@@ -315,6 +315,13 @@ Convert degrees/minutes/seconds to precise rational representation:
 207917/3600
 ```
 
+A fifth plus a fourth equals an octave:
+
+```
+>>> 3/2 * 4/3
+2/1
+```
+
 Print `String`:
 
 ```

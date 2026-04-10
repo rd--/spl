@@ -1,9 +1,9 @@
 # nestTree
 
-- _nestTree(aBlock:/1, aTree)_
+- _nestTree(f:/1, t, n)_
 
-Add children to each leaf of _aTree_,
-_aBlock_ answers the new leaves given the existing leaf _value_.
+Add children to each leaf of the tree _t_,
+the block _f_ answers the new leaves given the existing leaf _value_.
 
 Add one level to a tree:
 

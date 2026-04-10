@@ -250,6 +250,22 @@ A table of successively longer lists:
 ]
 ```
 
+Table of harmonics and priveleged frequencies for a tube open at both ends,
+with a natural frequency of 240hz:
+
+```
+>>> { :i :j |
+>>> 	j * 120 / i
+>>> }.table(1:5, 1:9)
+[
+	120 240 360 480 600 720 840 960 1080;
+	 60 120 180 240 300 360 420 480  540;
+	 40  80 120 160 200 240 280 320  360;
+	 30  60  90 120 150 180 210 240  270;
+	 24  48  72  96 120 144 168 192  216
+]
+```
+
 Plot a table:
 
 ~~~spl svg=A

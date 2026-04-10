@@ -1,12 +1,12 @@
 # nubCumulatively
 
-- _nubCumulatively(aList, compareBlock:/2)_
-- _nubCumulatively(aList)_
+- _nubCumulatively(c, f:/2)_
+- _nubCumulatively(c)_
 
-Remove from each sublist at _aList_ any items that appear in any earlier sublist,
-according to _compareBlock_,
+Remove from each sublist at the list _c_ any items that appear in any earlier sublist,
+according to the comparison block _f_,
 which is set to `=` in the unary case.
-As with `nub` retained items will remain in sequence.
+As with `nub`, retained items will remain in sequence.
 
 ```
 >>> [1; 1 2; 1 2 3; 1 2 3 4].nubCumulatively
@@ -29,5 +29,7 @@ Relation to `nub`:
 * * *
 
 See also: add, IdentitySet, includesBy, nub, nubBy, nubIdentical, nubSieve, select
+
+Guides: List Functions
 
 Categories: Copying

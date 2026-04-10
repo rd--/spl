@@ -272,6 +272,17 @@ OEIS [A320277](https://oeis.org/A320277):
 
 ![](Help/Image/sin-N.svg)
 
+Interference pattern for pure tones at relative frequencies _480:477_:
+
+~~~spl svg=O
+let x = (0 -- 16.pi).discretize(200);
+let a = (48.0 * x).sin;
+let b = (47.7 * x).sin;
+[a, b, (a + b) / 2].signalPlot
+~~~
+
+![](Help/Image/sin-O.svg)
+
 * * *
 
 See also: arcSin, cos, csc, haversine, sinDegrees, sinh, tan

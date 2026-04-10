@@ -76,7 +76,7 @@ Guides: Tuning Functions, Xenharmonic Functions
 
 References:
 _Anaphoria_
-[1](https://anaphoria.com/wilsoncps.html)
+[1](https://anaphoria.com/wilsoncps.html),
 _Xenharmonic_
 [1](https://en.xen.wiki/w/Combination_product_set)
 

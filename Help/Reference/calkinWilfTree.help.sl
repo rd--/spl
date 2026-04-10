@@ -37,6 +37,27 @@ The level-order values of the tree are the terms of the `calkinWilfSequence`:
 ]
 ```
 
+Draw the Calkin-Wilf tree:
+
+~~~spl svg=A
+4.calkinWilfTree.treePlot
+~~~
+
+![](Help/Image/calkinWilfTree-A.svg)
+
+Draw the entries of the Calkin-Wilf tree,
+with the numerator on the _x_-axis,
+and the denominator on the _y_-axis:
+
+~~~spl svg=B
+8.calkinWilfTree
+.values
+.numeratorDenominator
+.scatterPlot
+~~~
+
+![](Help/Image/calkinWilfTree-B.svg)
+
 * * *
 
 See also: calkinWilfSequence, sternBrocotSequence, sternBrocotTree, Tree
