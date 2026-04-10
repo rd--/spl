@@ -1006,6 +1006,7 @@ Reference/coordinateBoundsArray.help.sl
 Reference/coordinateBounds.help.sl
 Reference/coordinates.help.sl
 Reference/copelandErdosSequence.help.sl
+Reference/coprimeTree.help.sl
 Reference/copyFromTo.help.sl
 Reference/copy.help.sl
 Reference/copyList.help.sl
@@ -2171,6 +2172,7 @@ Reference/isOrthogonalCircle.help.sl
 Reference/isOrthogonalMatrix.help.sl
 Reference/IsoSphericalCoordinates.help.sl
 Reference/isPalindrome.help.sl
+Reference/isPerfectCube.help.sl
 Reference/isPerfectDifferenceSet.help.sl
 Reference/isPerfectNumber.help.sl
 Reference/isPerfectPower.help.sl

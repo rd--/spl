@@ -1130,17 +1130,17 @@
 		}
 	}
 
-	jacobiSymbol { :a :n |
-		n.isOdd.if {
-			(n = 1).if {
+	jacobiSymbol { :n :m |
+		m.isOdd.if {
+			(m = 1).if {
 				1
 			} {
-				n.factorInteger.collect { :each |
-					a.legendreSymbol(each[1]) ^ each[2]
+				m.factorInteger.collect { :each |
+					n.legendreSymbol(each[1]) ^ each[2]
 				}.product
 			}
 		} {
-			[a, n].error('jacobiSymbol: even n?')
+			[n, m].error('jacobiSymbol: even m?')
 		}
 	}
 	jordanTotient { :k :n |

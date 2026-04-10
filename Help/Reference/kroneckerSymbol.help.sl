@@ -174,7 +174,7 @@ OEIS [A188510](https://oeis.org/A188510):
 ]
 ```
 
-Plot table:
+Kronecker symbol table:
 
 ~~~spl svg=A
 kroneckerSymbol:/2
@@ -377,7 +377,8 @@ OEIS [A000377](https://oeis.org/A000377):
 
 ![](Help/Image/kroneckerSymbol-L.svg)
 
-Kronecker’s triangle read by rows,
+Kronecker’s triangle,
+read by rows,
 OEIS [A372728](https://oeis.org/A372728):
 
 ~~~spl svg=M oeis=A372728
@@ -388,7 +389,8 @@ OEIS [A372728](https://oeis.org/A372728):
 
 ![](Help/Image/kroneckerSymbol-M.svg)
 
-Gauss’s triangle read by rows,
+Gauss’s triangle,
+read by rows,
 OEIS [A373223](https://oeis.org/A373223):
 
 ~~~spl svg=N oeis=A373223
@@ -403,9 +405,60 @@ OEIS [A373223](https://oeis.org/A373223):
 
 ![](Help/Image/kroneckerSymbol-N.svg)
 
+Kronecker’s triangle,
+OEIS [A372728](https://oeis.org/A372728):
+
+~~~spl svg=O oeis=A372728
+0:14.triangularArray { :n :k |
+	n.kroneckerSymbol(k)
+}.rescale.triangularArrayPlot
+~~~
+
+![](Help/Image/kroneckerSymbol-O.svg)
+
+Gauss’s triangle,
+OEIS [A373223](https://oeis.org/A373223):
+
+~~~spl svg=P oeis=A373223
+1:16.triangularArray { :n :k |
+	let p = n.prime;
+	let q = k.prime;
+	p.kroneckerSymbol(q)
+	*
+	q.kroneckerSymbol(p)
+}.rescale.triangularArrayPlot
+~~~
+
+![](Help/Image/kroneckerSymbol-P.svg)
+
+Legendre symbol _(n,7)_,
+period equals seven,
+OEIS [A175629](https://oeis.org/A175629):
+
+~~~spl svg=Q oeis=A175629
+1:65.collect { :m |
+	7.kroneckerSymbol(m)
+}.discretePlot
+~~~
+
+![](Help/Image/kroneckerSymbol-Q.svg)
+
+Kronecker symbol _7/n_,
+OEIS [A089509](https://oeis.org/A089509):
+
+~~~spl svg=Q oeis=A089509
+1:65.collect { :n |
+	n.kroneckerSymbol(7)
+}.discretePlot
+~~~
+
+![](Help/Image/kroneckerSymbol-Q.svg)
+
 * * *
 
 See also: jacobiSymbol, legendreSymbol
+
+Guides: Integer Functions
 
 References:
 _Mathematica_

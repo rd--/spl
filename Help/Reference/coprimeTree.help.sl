@@ -24,7 +24,7 @@ The _3,1_ coprime tree:
 
 ```
 >>> [3 1].coprimeTree(3)
->>> .levelOrderValues.++
+>>> .levelOrderValues
 [
 	3 1;
 	5 3; 7 3; 5 1;

@@ -201,7 +201,8 @@ OEIS [A011587](https://oeis.org/A011587):
 
 ![](Help/Image/jacobiSymbol-E.svg)
 
-Jacobi’s triangle read by rows,
+Jacobi’s triangle,
+read by rows,
 OEIS [A372877](https://oeis.org/A372877):
 
 ~~~spl svg=F oeis=A372877
@@ -216,7 +217,8 @@ OEIS [A372877](https://oeis.org/A372877):
 
 ![](Help/Image/jacobiSymbol-F.svg)
 
-Legendre’s triangle read by rows,
+Legendre’s triangle,
+read by rows,
 OEIS [A372726](https://oeis.org/A372726):
 
 ~~~spl svg=G oeis=A372726
@@ -226,6 +228,22 @@ OEIS [A372726](https://oeis.org/A372726):
 ~~~
 
 ![](Help/Image/jacobiSymbol-G.svg)
+
+Triangle,
+read by rows,
+_L(k,p)_ where _p_ is the _n_-th prime,
+OEIS [A097343](https://oeis.org/A097343):
+
+~~~spl svg=H oeis=A097343
+2:8.collect { :i |
+	let m = i.prime;
+	1:m.collect { :n |
+		n.jacobiSymbol(m)
+	}
+}.catenate.discretePlot
+~~~
+
+![](Help/Image/jacobiSymbol-H.svg)
 
 * * *
 
