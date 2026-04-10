@@ -139,6 +139,8 @@ OEIS [A181983](https://oeis.org/A181983):
 65.lucasSequence('U', -2, 1).discretePlot
 ~~~
 
+![](Help/Image/lucasSequence-B.svg)
+
 * * *
 
 See also: fibonacciSequence, lucasNumber, lucasPellSequence, pellSequence
