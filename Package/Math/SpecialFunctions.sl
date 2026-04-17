@@ -257,8 +257,7 @@
 		0.5.pi / aN * (1 + zetaN)
 	}
 
-	ellipticTheta { :a :u :q |
-		let k = 4;
+	ellipticTheta { :a :u :q :k |
 		a.caseOf(
 			[
 				1 -> {
@@ -287,6 +286,11 @@
 				}
 			]
 		)
+	}
+
+	ellipticTheta { :a :u :q |
+		let k = 4;
+		ellipticTheta(a, u, q, k)
 	}
 
 	jacobianEllipticFunctions { :u :m |
