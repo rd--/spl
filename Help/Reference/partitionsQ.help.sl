@@ -10,7 +10,9 @@ An alias for the unary form of `partitionFunctionQ`.
 [1 2 4]
 ```
 
-Threads over lists:
+The strict partition numbers,
+threads over lists,
+OEIS [A000009](https://oeis.org/A000009):
 
 ```
 >>> 0:12.partitionsQ
@@ -70,7 +72,28 @@ OEIS [A095941](http://oeis.org/A095941):
 ]
 ```
 
-Plot the number of restricted partitions:
+Number of overpartitions of _n_,
+OEIS [A015128](https://oeis.org/A015128):
+
+```
+>>> 0:23.collect { :n |
+>>> 	0:n.sum { :k |
+>>> 		(n - k).partitionsP
+>>> 		*
+>>> 		k.partitionsQ
+>>> 	}
+>>> }
+[
+	   1    2     4     8    14
+	  24   40    64   100   154
+	 232  344   504   728  1040
+	1472 2062  2864  3948  5400
+	7336 9904 13288 17728
+]
+```
+
+Plot the number of restricted partitions,
+OEIS [A000009](https://oeis.org/A000009):
 
 ~~~spl svg=A
 1:47.partitionsQ.discretePlot.log

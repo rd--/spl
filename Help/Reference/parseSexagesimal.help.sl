@@ -1,8 +1,8 @@
 # parseSexagesimal
 
-- _parseSexagesimal(aString)_
+- _parseSexagesimal(s)_
 
-Parse Otto Neugebauer’s notational system for sexagesimal numbers.
+Parse Otto Neugebauer’s notational system for sexagesimal numbers at the string _s_.
 A semicolon separate the integral and fractional portions of the number,
 and a comma separates the positions within each portion.
 Each component is written in decimal.
@@ -13,6 +13,12 @@ Each component is written in decimal.
 
 >>> [1 2 3] * (60 ^ [2 1 0])
 [3600 120 3]
+
+>>> '22,22;0'.parseSexagesimal
+1342
+
+>>> [22 22] * (60 ^ [1 0])
+[1320 22]
 
 >>> '10;25,59,23,31,12'.parseSexagesimal
 10.433164
@@ -79,7 +85,7 @@ any fraction in which the denominator is a regular number may be expressed exact
 
 * * *
 
-See also: fromDms, dmsList, parseDecimalInteger, parseNumber
+See also: fromDms, dmsList, numberDecompose, parseDecimalInteger, parseNumber
 
 Guides: Parsing Functions
 
@@ -88,3 +94,5 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/Sexagesimal.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Sexagesimal)
+
+Further Reading: Neugebauer 1952

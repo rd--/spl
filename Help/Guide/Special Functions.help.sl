@@ -11,6 +11,7 @@ Elliptic Integrals:
 - `ellipticE`
 - `ellipticK`
 - `ellipticPi`
+- `ellipticTheta`
 - `jacobiCn`
 - `jacobiDn`
 - `jacobiSn`

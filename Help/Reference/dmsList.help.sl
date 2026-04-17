@@ -54,7 +54,7 @@ At `Quantity`:
 
 * * *
 
-See also: degree, degrees, fromDms, numberDecompose
+See also: degree, degrees, fromDms, numberDecompose, parseSexagesimal
 
 Guides: Trigonometric Functions
 

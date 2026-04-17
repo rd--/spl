@@ -32,6 +32,55 @@ A linear recurrence:
 0:22.pentagonalNumber
 ```
 
+One formulation:
+
+```
+>>> 0:22.collect { :z |
+>>> 	1/2 * z * (3 * z - 1)
+>>> }
+0:22.pentagonalNumber
+```
+
+The second pentagonal numbers,
+also called the card house numbers,
+OEIS [A005449](https://oeis.org/A005449):
+
+```
+>>> 0:22.collect { :z |
+>>> 	1/2 * z * (3 * z + 1)
+>>> }
+[
+	  0   2   7  15  26
+	 40  57  77 100 126
+	155 187 222 260 301
+	345 392 442 495 551
+	610 672 737
+]
+```
+
+First differences of the second pentagonal numbers,
+OEIS [A016789](https://oeis.org/A016789):
+
+```
+>>> 0:15.collect { :z |
+>>> 	1/2 * z * (3 * z + 1)
+>>> }.differences
+[2 5 8 11 14 17 20 23 26 29 32 35 38 41 44]
+```
+
+Partial sums of the second pentagonal numbers,
+OEIS [A006002](https://oeis.org/A006002):
+
+```
+>>> 0:17.collect { :z |
+>>> 	1/2 * z * (3 * z + 1)
+>>> }.prefixSum
+[
+	0 2 9 24 50 90 147 224 324 450 605
+	792 1014 1274 1575 1920 2312 2754
+]
+```
+
 C.f. `polygonalNumber`:
 
 ```

@@ -27,7 +27,7 @@ A signed angle:
 
 * * *
 
-See also: degree, dmsList, numberCompose, PlaneAngle
+See also: degree, dmsList, numberCompose, parseSexagesimal, PlaneAngle
 
 Guides: Trigonometric Functions
 

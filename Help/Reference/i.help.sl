@@ -52,6 +52,36 @@ OEIS [A076341](https://oeis.org/A076341):
 
 ![](Help/Image/i-A.svg)
 
+A Cornu spiral
+(Coutsias and Kazarinoff 1987):
+
+~~~spl svg=B
+let k = 127;
+let n = (0 .. k * 2);
+(n.square * 1.pi * 1.i / k)
+.exp
+.prefixSum
+.realImaginary
+.PointCloud
+~~~
+
+![](Help/Image/i-B.svg)
+
+A periodic lattice of simple Cornu spirals
+(Coutsias and Kazarinoff 1987):
+
+~~~spl svg=C
+let k = 149;
+let n = (0 .. k * 2);
+(n.square * 4.pi * 1.i / k)
+.exp
+.prefixSum
+.realImaginary
+.PointCloud
+~~~
+
+![](Help/Image/i-C.svg)
+
 * * *
 
 See also: Complex, imaginary, j, real

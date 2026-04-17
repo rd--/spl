@@ -1,8 +1,8 @@
 # theta
 
-- _theta(aPoint)_
+- _theta(p)_
 
-Answer the `theta` field of _aPoint_.
+Answer the `theta` field of the point _p_.
 
 The two-dimensional case:
 

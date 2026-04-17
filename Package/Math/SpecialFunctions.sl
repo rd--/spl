@@ -257,6 +257,38 @@
 		0.5.pi / aN * (1 + zetaN)
 	}
 
+	ellipticTheta { :a :u :q |
+		let k = 4;
+		a.caseOf(
+			[
+				1 -> {
+					2 * (0 .. k).sum { :n |
+						(-1 ^ n) * (q ^ ((n + 0.5) ^ 2)) * ((2 * n + 1) * u).sin
+					}
+				},
+				2 -> {
+					2 * (0 .. k).sum { :n |
+						(q ^ ((n + 0.5) ^ 2)) * ((2 * n + 1) * u).cos
+					}
+				},
+				3 -> {
+					1 + (
+						2 * (1 .. k + 1).sum { :n |
+							(q ^ (n ^ 2)) * (2 * n * u).cos
+						}
+					)
+				},
+				4 -> {
+					1 + (
+						2 * (1 .. k + 1).sum { :n |
+							(-1 ^ n) * (q ^ (n ^ 2)) * (2 * n * u).cos
+						}
+					)
+				}
+			]
+		)
+	}
+
 	jacobianEllipticFunctions { :u :m |
 		/* https://observablehq.com/@dan-reznik/jacobi-elliptic-functions */
 		<primitive:
