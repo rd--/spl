@@ -74,6 +74,7 @@ Implicit Curve Functions:
 - `ampersandImplicitCurve`
 - `bicuspidCurve`
 - `bowCurve`
+- `burnsideCurve`
 - `cassiniOval`
 - `ellipticCurve`
 - `hyperbolaCurve`

@@ -151,6 +151,18 @@ cassiniOval(0.9, 1)
 
 ![](Help/Image/contourPlot-M.svg)
 
+
+Plot the Burnside curve:
+
+~~~spl svg=N
+let i = (-1.5 -- 1.5).subdivide(25);
+{ :x :y |
+	y.square - (x * (x ^ 4 - 1))
+}.contourPlot(i, i, [0])
+~~~
+
+![](Help/Image/contourPlot-N.svg)
+
 * * *
 
 See also: bourkeContourAlgorithm, densityPlot

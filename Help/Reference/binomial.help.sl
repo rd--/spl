@@ -769,6 +769,25 @@ OEIS [A002895](https://oeis.org/A002895):
 [1 4 28 256 2716 31504 387136 4951552]
 ```
 
+A modified Apéry sequence,
+OEIS [A036917](https://oeis.org/A036917):
+
+```
+>>> 0:9.collect { :n |
+>>> 	0:n.sum { :k |
+>>> 		binomial(2 * (n - k), n - k)
+>>> 		*
+>>> 		binomial(2 * k, k)
+>>> 		^
+>>> 		2
+>>> 	}
+>>> }
+[
+	1 8 88 1088 14296 195008 2728384
+	38879744 561787864 8206324928
+]
+```
+
 Plot over a subset of the reals as a function of its first parameter:
 
 ~~~spl svg=A

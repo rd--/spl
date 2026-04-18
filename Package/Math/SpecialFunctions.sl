@@ -227,6 +227,10 @@
 		1.pi / (2 * arithmeticGeometricMean(1, (1 - m).sqrt))
 	}
 
+	ellipticNomeQ { :m |
+		(-1.pi * (1 - m).ellipticK / m.ellipticK).exp
+	}
+
 	ellipticPi { :n :m |
 		/* https://github.com/duetosymmetry/elliptic-integrals-js */
 		let i = 0;

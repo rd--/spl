@@ -10,6 +10,7 @@ Elliptic Integrals:
 
 - `ellipticE`
 - `ellipticK`
+- `ellipticNomeQ`
 - `ellipticPi`
 - `ellipticTheta`
 - `jacobiCn`

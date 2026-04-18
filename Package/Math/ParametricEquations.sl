@@ -454,6 +454,10 @@
 		(x ^ 4) - ((x ^ 2) * y) + (y ^ 3)
 	}
 
+	burnsideCurve { :x :y |
+		(y ^ 2) - (x * ((x ^ 4) - 1))
+	}
+
 	cassiniOval { :a :b |
 		{ :x :y |
 			(((x ^ 2) + (y ^ 2) + (a ^ 2)) ^ 2)

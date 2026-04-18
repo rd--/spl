@@ -232,6 +232,10 @@
 		self.collect(ellipticK:/1)
 	}
 
+	ellipticNomeQ { :self |
+		self.collect(ellipticNomeQ:/1)
+	}
+
 	ellipticPi { :self |
 		self.collect(ellipticPi:/1)
 	}
