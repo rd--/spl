@@ -44,7 +44,9 @@ Guides: Protocol Functions, String Functions
 
 References:
 _Json_
-[1](https://www.json.org/json-en.html)
+[1](https://www.json.org/json-en.html),
+_Tc39_
+[1](https://ecma-international.org/publications-and-standards/standards/ecma-404/)
 
 Further Reading: Crockford 2006
 

@@ -755,6 +755,7 @@ Reference/bubbleSortMatrix.help.sl
 Reference/BufFrames.help.sl
 Reference/BufRd.help.sl
 Reference/bulgarianSolitaire.help.sl
+Reference/burnsideCurve.help.sl
 Reference/burrowsWheelerTransform.help.sl
 Reference/butcherTreeCount.help.sl
 Reference/butterflyCurve.help.sl
@@ -1331,8 +1332,10 @@ Reference/ellipticCurve.help.sl
 Reference/ellipticCurveOverFiniteField.help.sl
 Reference/ellipticE.help.sl
 Reference/ellipticK.help.sl
+Reference/ellipticNomeQ.help.sl
 Reference/ellipticParaboloid.help.sl
 Reference/ellipticPi.help.sl
+Reference/ellipticTheta.help.sl
 Reference/embeddingDimension.help.sl
 Reference/EmpiricalDistribution.help.sl
 Reference/enclose.help.sl

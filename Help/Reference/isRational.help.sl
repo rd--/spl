@@ -5,19 +5,33 @@
 At `Number`,
 answer `true` if the number is either an `Integer` or a `Fraction`.
 
+At `SmallFloat`:
+
 ```
 >>> 23.isRational
 true
 
->>> 23L.isRational
-true
-
->>> 1/2.isRational
-true
-
 >>> 0.5.isRational
 false
+```
 
+At `LargeInteger`:
+
+```
+>>> 23L.isRational
+true
+```
+
+At `Fraction`:
+
+```
+>>> 1/2.isRational
+true
+```
+
+At `Complex`:
+
+```
 >>> 2J3.isRational
 false
 ```
@@ -40,8 +54,8 @@ false
 
 * * *
 
-See also: asRatios, CentsTuning, RatioTuning, Tuning
+See also: asRatios, CentsTuning, isFraction, isInteger, RatioTuning, Tuning
 
-Guides: Number Functions, Tuning Functions
+Guides: Number Functions, Predicate Functions, Tuning Functions
 
 Categories: Testing, Tuning

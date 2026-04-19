@@ -1,8 +1,8 @@
 # isSmallFloat
 
-- _isSmallFloat(anObject)_
+- _isSmallFloat(x)_
 
-Answers `true` if _anObject_ is a `SmallFloat`, else `false`.
+Answers `true` if the object _x_ is a `SmallFloat`, else `false`.
 
 Floating point literal:
 
