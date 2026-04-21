@@ -1081,6 +1081,7 @@ Reference/cumulativeMax.help.sl
 Reference/cumulativeMin.help.sl
 Reference/currentDate.help.sl
 Reference/currentWorkingDirectory.help.sl
+Reference/curvilinearProjection.help.sl
 Reference/CuspL.help.sl
 Reference/cuspMap.help.sl
 Reference/Cutoff.help.sl
@@ -3842,6 +3843,7 @@ Reference/squareFreePart.help.sl
 Reference/square.help.sl
 Reference/Square.help.sl
 Reference/squarePyramidalNumber.help.sl
+Reference/squareRoot.help.sl
 Reference/squareSpiral.help.sl
 Reference/squareSpiralPoints.help.sl
 Reference/squareSpiralUnrank.help.sl
