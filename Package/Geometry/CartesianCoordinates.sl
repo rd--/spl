@@ -200,3 +200,19 @@ CartesianCoordinates : [Object, Storeable, Copyable, Equatable, Comparable, Inde
 	}
 
 }
+
++List {
+
+	curvilinearProjection { :self :radius |
+		self.atVectorOrElementwise { :v |
+			let [x, y, z] = v;
+			let d = (x.square + y.square + z.square).sqrt;
+			[(x * radius) / d, (y * radius) / d]
+		}
+	}
+
+	curvilinearProjection { :self |
+		self.curvilinearProjection(1)
+	}
+
+}
