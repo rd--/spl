@@ -135,6 +135,7 @@ OEIS [A048272](https://oeis.org/A048272):
 Inverse Möbius transform of all ones,
 OEIS [A000005](https://oeis.org/A000005):
 
+```
 >>> List(23, 1)
 >>> .inverseMoebiusTransform
 [1 2 2 3 2 4 2 4 3 4 2 6 2 4 4 5 2 6 2 6 4 4 2]

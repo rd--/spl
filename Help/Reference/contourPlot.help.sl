@@ -151,7 +151,6 @@ cassiniOval(0.9, 1)
 
 ![](Help/Image/contourPlot-M.svg)
 
-
 Plot the Burnside curve:
 
 ~~~spl svg=N

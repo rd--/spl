@@ -28,4 +28,3 @@ The `cause` need not be another `Error`:
 See also: cause, description, Error, messageText
 
 Guides: Error Functions
-

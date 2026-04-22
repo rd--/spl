@@ -1,8 +1,9 @@
 # enumerate
 
-- _enumerate(aSequence | aStream)_
+- _enumerate(s)_
 
-Return a `Stream` that enumerates the items of the input sequence.
+Return a `Stream` that enumerates the items of the input sequence _s_,
+which may be a sequence or a stream.
 The `next` method at the answer will answer a counter and the next item of the input.
 
 At `List`:
@@ -35,6 +36,8 @@ At `Sfc32`, which implements `Stream`:
 * * *
 
 See also: BlockStream, Iterable, Iterator, Sequence
+
+Guides: List Functions
 
 References:
 _Python_

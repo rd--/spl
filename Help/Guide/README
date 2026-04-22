@@ -1,6 +1,6 @@
 'Help/Guide'.splFilePath.terseReferenceSummary(verbose: false, pattern: '.*')
 
-Total => 621
+Total => 622
 
 Write image files:
 
@@ -8,4 +8,6 @@ Write image files:
 system.helpFilesDo('Guide', '.*', true, writeImageFiles:/1); nil
 ~~~
 
-Linting: 258 file(s)
+$ (cd ~/sw/spl/Help/Guide; make lint)
+
+Linting: 268 file(s)

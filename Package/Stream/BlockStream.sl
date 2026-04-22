@@ -90,24 +90,24 @@ BlockStream : [Object, Iterator, Stream] { | onNext onReset nextItem |
 
 +@Stream {
 
-	[divide, /] { :lhs :rhs |
-		rhs.adaptToStreamAndApply(lhs, /)
+	[divide, /] { :self :anObject |
+		anObject.adaptToStreamAndApply(self, /)
 	}
 
-	[plus, +] { :lhs :rhs |
-		rhs.adaptToStreamAndApply(lhs, +)
+	[plus, +] { :self :anObject |
+		anObject.adaptToStreamAndApply(self, +)
 	}
 
-	[power, ^] { :lhs :rhs |
-		rhs.adaptToStreamAndApply(lhs, ^)
+	[power, ^] { :self :anObject |
+		anObject.adaptToStreamAndApply(self, ^)
 	}
 
-	[subtract, -] { :lhs :rhs |
-		rhs.adaptToStreamAndApply(lhs, -)
+	[subtract, -] { :self :anObject |
+		anObject.adaptToStreamAndApply(self, -)
 	}
 
-	[times, *] { :lhs :rhs |
-		rhs.adaptToStreamAndApply(lhs, *)
+	[times, *] { :self :anObject |
+		anObject.adaptToStreamAndApply(self, *)
 	}
 
 	adaptToNumberAndApply { :self :aNumber :aBlock:/2 |
@@ -233,8 +233,8 @@ BlockStream : [Object, Iterator, Stream] { | onNext onReset nextItem |
 		}
 	}
 
-	round { :lhs :rhs |
-		rhs.adaptToStreamAndApply(lhs, round:/2)
+	round { :self :anObject |
+		anObject.adaptToStreamAndApply(self, round:/2)
 	}
 
 	round { :self |

@@ -1,6 +1,7 @@
 # Integer Sequence Index
 
 [OEIS](https://oeis.org/) _A_-References:
+
 - A000001: `finiteGroupCount`, `OeisEntry`
 - A000002: `kolakoskiSequence`
 - A000004: `repeat`, `zero`

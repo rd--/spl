@@ -13,9 +13,10 @@ the algorithm is part of the _PractRand_ test suite, which it passes.
 >>> (
 >>> 	rng.isSfc32,
 >>> 	rng.isRandomNumberGenerator,
+>>> 	rng.isIterator,
 >>> 	rng.isStream
 >>> )
-(true, true, true)
+(true, true, true, true)
 ```
 
 The first three random numbers given the seed _12345_,
@@ -71,7 +72,7 @@ Difference between empirical and expected mean and standard deviation:
 
 * * *
 
-See also: LinearCongruential, MersenneTwister, RandomNumberGenerator, SplitMix, Stream
+See also: Iterator, LinearCongruential, MersenneTwister, RandomNumberGenerator, SplitMix, Stream
 
 Guides: Random Number Generators
 

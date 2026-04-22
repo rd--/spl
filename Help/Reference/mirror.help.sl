@@ -42,6 +42,8 @@ Plot the `mirror` of the `++` of the `prefixes` of the arithmetic sequence _1:13
 
 See also: first, last, pyramid, reverse
 
+Guides: List Functions
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Array.html#-mirror)

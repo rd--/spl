@@ -14,11 +14,17 @@ starting _stepSize_ places after the last.
 >>> ).upToEnd
 [1 2 3; 3 4 5; 5 6 7; 7 8 9]
 
+>>> 1:9.partition(3, 2)
+[1 2 3; 3 4 5; 5 6 7; 7 8 9]
+
 >>> LsSlidingWindows(
 >>> 	LsSeries(1, 1, 9),
 >>> 	3,
 >>> 	4
 >>> ).upToEnd
+[1 2 3; 5 6 7]
+
+>>> 1:9.partition(3, 4)
 [1 2 3; 5 6 7]
 
 >>> LsSlidingWindows(
@@ -28,11 +34,17 @@ starting _stepSize_ places after the last.
 >>> ).upToEnd
 [1 2 3; 4 5 6; 7 8 9]
 
+>>> 1:9.partition(3, 3)
+[1 2 3; 4 5 6; 7 8 9]
+
 >>> LsSlidingWindows(
 >>> 	LsSeries(1, 1, Infinity),
 >>> 	4,
 >>> 	2
 >>> ).next(3)
+[1 2 3 4; 3 4 5 6; 5 6 7 8]
+
+>>> 1:8.partition(4, 2)
 [1 2 3 4; 3 4 5 6; 5 6 7 8]
 
 >>> LsSlidingWindows(
@@ -48,5 +60,7 @@ This is the stream equivalent of `partition`.
 * * *
 
 See also: partition, windowedReduce
+
+Guides: Stream Functions
 
 Categories: Stream

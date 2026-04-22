@@ -866,6 +866,10 @@
 		}
 	}
 
+	duplicateEach { :self :count |
+		count.replicate(self)
+	}
+
 	duplicateFreePrefix { :self |
 		let seen = Set();
 		self.takeWhile { :x |

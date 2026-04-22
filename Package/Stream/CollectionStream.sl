@@ -82,11 +82,7 @@ CollectionStream : [Object, Equatable, Iterator, Stream, PositionableStream] { |
 
 +[List, Range] {
 
-	asIterator { :self |
-		self.asStream
-	}
-
-	asStream { :self |
+	[asIterator, asStream] { :self |
 		newCollectionStream().initializeSlots(self, 0, self.size)
 	}
 
