@@ -17,7 +17,7 @@ Generate an `Error` value and then `signal` it.
 
 See also: Error, signal
 
-Guides: Control Functions
+Guides: Control Functions, Error Functions
 
 References:
 _Smalltalk_

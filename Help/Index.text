@@ -58,6 +58,7 @@ Guide/Drawing Functions.help.sl
 Guide/Elementwise Functions.help.sl
 Guide/Emacs Editor.help.sl
 Guide/Enumeration Functions.help.sl
+Guide/Error Functions.help.sl
 Guide/Error Handling.help.sl
 Guide/Experimental Assignment Operator Syntax.help.sl
 Guide/Experimental AtIfAbsentPut Syntax.help.sl
@@ -817,6 +818,8 @@ Reference/catenoid.help.sl
 Reference/catmullRomInterpolation.help.sl
 Reference/CauchyDistribution.help.sl
 Reference/cauchyMatrix.help.sl
+Reference/cause.help.sl
+Reference/causeText.help.sl
 Reference/cayleyMengerDeterminant.help.sl
 Reference/cayleyMengerMatrix.help.sl
 Reference/cayleysSextic.help.sl
@@ -1385,6 +1388,7 @@ Reference/erfc.help.sl
 Reference/erf.help.sl
 Reference/error.help.sl
 Reference/Error.help.sl
+Reference/errorMessage.help.sl
 Reference/euclideanAlgorithm.help.sl
 Reference/euclideanDistance.help.sl
 Reference/euclidNumber.help.sl
@@ -1413,6 +1417,7 @@ Reference/evenPart.help.sl
 Reference/evoluteSpiralMatrix.help.sl
 Reference/excenters.help.sl
 Reference/excentralTriangle.help.sl
+Reference/Exception.help.sl
 Reference/Excess.help.sl
 Reference/exchangeMatrix.help.sl
 Reference/excircles.help.sl
@@ -1858,6 +1863,7 @@ Reference/ifNil.help.sl
 Reference/ifNotEmpty.help.sl
 Reference/ifNotNil.help.sl
 Reference/ifTrue.help.sl
+Reference/ignoreError.help.sl
 Reference/i.help.sl
 Reference/ikedaMap.help.sl
 Reference/image.help.sl

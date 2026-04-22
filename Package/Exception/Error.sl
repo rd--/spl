@@ -4,11 +4,15 @@
 		self.shouldNotImplement('copy')
 	}
 
+	hasCause { :self |
+		self.cause.isNotNil
+	}
+
 	description { :self |
-		self.cause.ifNil {
-			self.name ++ ': ' ++ self.messageText
-		} {
+		self.hasCause.if {
 			self.name ++ ': ' ++ self.messageText ++ ': ' ++ self.causeText
+		} {
+			self.name ++ ': ' ++ self.messageText
 		}
 	}
 
@@ -40,7 +44,7 @@
 		self.cause.isError.if {
 			self.cause.description
 		} {
-			self.asString
+			self.cause.asString
 		}
 	}
 
@@ -69,7 +73,16 @@ Error! : [Object, Storeable, Equatable, Exception, PrimitiveError] {
 	}
 
 	storeString { :self |
-		'Error(\'' ++ self.messageText ++ '\')'
+		self.hasCause.if {
+			'Error(%, %)'.format(
+				[
+					self.messageText.storeString,
+					self.cause.storeString
+				]
+			)
+		} {
+			'Error(%)'.format([self.messageText.storeString])
+		}
 	}
 
 }
@@ -99,6 +112,10 @@ TypeError! : [Object, Exception, PrimitiveError] {
 }
 
 +String {
+
+	Error { :self :cause |
+		<primitive: return Error(_self, {cause: _cause});>
+	}
 
 	Error { :self |
 		<primitive: return Error(_self);>

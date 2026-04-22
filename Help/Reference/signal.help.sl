@@ -20,7 +20,7 @@ If no such block exists, the program will terminate.
 
 See also: ensure, error, Error, ifError
 
-Guides: Control Functions
+Guides: Control Functions, Error Functions
 
 References:
 _Mdn_

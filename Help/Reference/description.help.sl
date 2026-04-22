@@ -39,15 +39,18 @@ At `Error`, describes in a human readable form an occurrence of an exception.
 If an explicit message text was provided by the signaler of the exception, that text should be incorporated into the description.
 
 ```
->>> Error('message text').description
-'Error: message text'
+>>> Error('Invalid key').description
+'Error: Invalid key'
+
+>>> Error('Invalid key', -1).description
+'Error: Invalid key: -1'
 ```
 
 * * *
 
 See also: error, Error, messageText, reason, Scale
 
-Guides: Scale Functions, Tuning Functions
+Guides: Error Functions, Scale Functions, Tuning Functions
 
 References:
 _Smalltalk_

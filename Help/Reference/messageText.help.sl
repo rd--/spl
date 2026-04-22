@@ -5,13 +5,16 @@
 Answer the message text of the exception _e_.
 
 ```
->>> Error('message text').messageText
+>>> Error('message text')
+>>> .messageText
 'message text'
 ```
 
 * * *
 
 See also: description, error, Error
+
+Guides: Error Functions
 
 References:
 _Smalltalk_
