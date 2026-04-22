@@ -841,6 +841,25 @@ OEIS [A101165](https://oeis.org/A101165):
 [0 3 15 43 94 175 293 455 668 939 1275]
 ```
 
+Fix zero and exchange even and odd numbers,
+OEIS [A014681](https://oeis.org/A014681):
+
+```
+>>> let n = 1:14;
+>>> let a = n - (-1 ^ n);
+>>> [0] ++ a
+[0 2 1 4 3 6 5 8 7 10 9 12 11 14 13]
+```
+
+Exchange even and odd numbers,
+OEIS [A103889](https://oeis.org/A103889):
+
+```
+>>> let n = 1:14;
+>>> n - (-1 ^ n)
+[2 1 4 3 6 5 8 7 10 9 12 11 14 13]
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A

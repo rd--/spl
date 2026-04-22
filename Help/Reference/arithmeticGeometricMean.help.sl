@@ -65,7 +65,12 @@ arithmeticGeometricMean:/2
 
 ![](Help/Image/arithmeticGeometricMean-B.svg)
 
-Special values: OEIS A068521, A084895, A084896 & A084897:
+Special values
+OEIS [A068521](https://oeis.org/A068521),
+OEIS [A084895](https://oeis.org/A084895),
+OEIS [A084896](https://oeis.org/A084896),
+and
+OEIS [A084897](https://oeis.org/A084897):
 
 ```
 >>> 1.arithmeticGeometricMean([2 3 4 5])

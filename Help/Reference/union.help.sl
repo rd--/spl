@@ -81,6 +81,19 @@ in the `List` case the answer has the unique elements of _c₁_ followed by the 
 [5 3 1 2 4]
 ```
 
+Numbers of the form _(4^k-1)/3_ or _2^k_,
+OEIS [A160967](https://oeis.org/A160967):
+
+```
+>>> [2 ^ 0:10, (4 ^ 0:6 - 1) / 3].union.sort
+[
+	   0    1    2    4    5
+	   8   16   21   32   64
+	  85  128  256  341  512
+	1024 1365
+]
+```
+
 Sums of distinct positive cubes,
 OEIS [A003997](https://oeis.org/A003997),
 the complement of

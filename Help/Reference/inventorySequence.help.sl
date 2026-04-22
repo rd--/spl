@@ -10,7 +10,7 @@ Answer the first _n_ terms of the inventory sequence,
 > and so on, until a zero is recorded and the inventory then starts again,
 > recording the number of zeroes.
 
-Calculate the first few terms,
+Calculate the first few terms of the inventory sequence,
 OEIS [A342585](https://oeis.org/A342585):
 
 ```

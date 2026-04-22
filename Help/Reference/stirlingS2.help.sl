@@ -205,6 +205,22 @@ OEIS [A000182](https://oeis.org/A000182):
 ]
 ```
 
+Expansion of _1/(1-2×sinh(x))_,
+OEIS [A000557](https://oeis.org/A000557):
+
+```
+>>> 0:8.collect { :n |
+>>> 	0:n.sum { :k |
+>>> 		k.factorial
+>>> 		*
+>>> 		n.stirlingS2(k)
+>>> 		*
+>>> 		(k + 2).fibonacci
+>>> 	}
+>>> }
+[1 2 8 50 416 4322 53888 783890 13031936]
+```
+
 Plot sums of digits:
 
 ~~~spl svg=A

@@ -107,6 +107,18 @@ OeisEntry('A380317').then { :e |
 
 ![](Help/Image/OeisEntry-E.svg)
 
+Scatter plot of decimal expansion of the arithmetic-geometric mean of one and five,
+OEIS [A084897](https://oeis.org/A084897):
+
+~~~spl svg=F oeis=A084897
+OeisEntry('A084897').then { :e |
+	e.data
+	.scatterPlot
+}
+~~~
+
+![](Help/Image/OeisEntry-F.svg)
+
 Entries are cached on construction,
 and B-file data is fetched using `cachedFetch`:
 

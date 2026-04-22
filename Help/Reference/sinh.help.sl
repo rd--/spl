@@ -26,6 +26,50 @@ Threads elementwise over lists and matrices:
 [0 11.549 267.745 6195.824]
 ```
 
+Integral of product of _(1-x^k)dx_,
+OEIS [A258232](https://oeis.org/A258232):
+
+```
+>>> let a = (23.sqrt.pi / 6).sinh;
+>>> let b = 2 * (23.sqrt.pi / 3).cosh - 1;
+>>> 8 * 3/23.sqrt.pi * a / b
+0.3684125359314336
+```
+
+Decimal expansion of _sinh(1)_,
+OEIS [A073742](https://oeis.org/A073742):
+
+```
+>>> 1.sinh
+1.1752011936438014
+```
+
+Decimal expansion of _π/sinh(π)_,
+OEIS [A090986](https://oeis.org/A090986):
+
+```
+>>> 1.pi / 1.pi.sinh
+0.27202905498213316
+
+>>> 1.pi * 1.pi.csch
+0.27202905498213316
+
+>>> 1J1.gamma * 1J-1.gamma
+0.27202905498213316
+```
+
+_4n(n²-1)_,
+OEIS [A173121](https://oeis.org/A173121):
+
+```
+>>> (2 * 0:9.arcCosh).sinh.square
+[0 0 48 288 960 2400 5040 9408 16128 25920]
+
+>>> let n = 0:9;
+>>> 4 * n.square * (n.square - 1)
+[0 0 48 288 960 2400 5040 9408 16128 25920]
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A

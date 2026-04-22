@@ -284,6 +284,22 @@ OEIS [A008598](https://oeis.org/A008598):
 [0 16 32 48 64 80 96 112 128 144 160]
 ```
 
+_6n+3_,
+OEIS [A016945](https://oeis.org/A016945):
+
+```
+>>> 6 * 0:13 + 3
+[3 9 15 21 27 33 39 45 51 57 63 69 75 81]
+```
+
+_6n+4_,
+OEIS [A016957](https://oeis.org/A016957):
+
+```
+>>> 6 * 0:13 + 4
+[4 10 16 22 28 34 40 46 52 58 64 70 76 82]
+```
+
 Plot multiples of each the integers up to _n_ extending to _m_,
 the _y_ coordinate is given by the multiplier:
 
@@ -334,5 +350,7 @@ _Smalltalk_
 _W_
 [1](https://en.wikipedia.org/wiki/Multiplication)
 [2](https://en.wikipedia.org/wiki/Hadamard_product_(matrices))
+
+Unicode: U+00D7 × Multiplication Sign
 
 Categories: Math, Operator

@@ -210,6 +210,22 @@
 		answer.take(n)
 	}
 
+	collatzFunction { :n |
+		n.isEven.if {
+			n / 2
+		} {
+			(n * 3 + 1) / 2
+		}
+	}
+
+	collatzMap { :n |
+		n.isEven.if {
+			n / 2
+		} {
+			n * 3 + 1
+		}
+	}
+
 	collatzSequence { :z :p |
 		let q = (p - 1).primesUpTo;
 		let a = [z];

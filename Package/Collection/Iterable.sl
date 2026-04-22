@@ -475,6 +475,10 @@
 		x.minimumExcludedValue(0:Infinity)
 	}
 
+	minimumExcludedPositiveInteger { :x |
+		x.minimumExcludedValue(1:Infinity)
+	}
+
 	neumaierSum { :self |
 		let sum = 0.0;
 		let c = 0.0;

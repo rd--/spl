@@ -13,6 +13,41 @@ in which each term is obtained from the previous term as either
 
 Also called a hailstone sequence.
 
+The Collatz function,
+usually denoted _T(n)_,
+OEIS [A014682](https://oeis.org/A014682):
+
+```
+>>> 0:23.collect(collatzFunction:/1)
+[
+	 0  2  1  5  2  8  3 11  4 14
+	 5 17  6 20  7 23  8 26  9 29
+	10 32 11 35
+]
+```
+
+The Collatz map,
+usually denoted _C(n)_,
+OEIS [A006370](https://oeis.org/A006370):
+
+```
+>>> 0:23.collect(collatzMap:/1)
+[
+	 0  4  1 10  2 16  3 22  4 28
+	 5 34  6 40  7 46  8 52  9 58
+	10 64 11 70
+]
+
+>>> [0 2 0 -1].linearRecurrence(
+>>> 	[4 1 10 2], 23
+>>> )
+[
+	    4  1 10  2 16  3 22  4 28
+	 5 34  6 40  7 46  8 52  9 58
+	10 64 11 70
+]
+```
+
 The Collatz sequence starting at three,
 which arrives at `one` after seven steps,
 OEIS [A033478](https://oeis.org/A033478):
@@ -78,6 +113,32 @@ OEIS [A078719](https://oeis.org/A078719):
 >>> 	.count(isOdd:/1)
 >>> }
 [1 1 3 1 2 3 6 1 7 2 5 3 3 6 6 1 4 7 7 2 2 5]
+```
+
+Positive integers which do not appear in a Collatz sequence starting from a smaller positive integer,
+OEIS [A177729](https://oeis.org/A177729),
+closely related to the pure numbers in the Collatz _3x+1_ iteration,
+OEIS [A061641](https://oeis.org/A061641):
+
+```
+>>> let a = [];
+>>> 0:50.collect(
+>>> 	collatzSequence:/1
+>>> ).prefixes.do { :c |
+>>> 	a.addIfNotPresent(
+>>> 		c
+>>> 		.catenate
+>>> 		.minimumExcludedValue(
+>>> 			1:Infinity
+>>> 		)
+>>> 	)
+>>> };
+>>> a
+[
+	 1  2  3  6  7  9 12 15 18 19
+	21 24 25 27 30 33 36 37 39 42
+	43 45 48 51
+]
 ```
 
 Number of halving and tripling steps to reach one in the _3x+1_ problem,
@@ -521,6 +582,22 @@ OEIS [A139391](https://oeis.org/A139391):
 ~~~
 
 ![](Help/Image/collatzSequence-N.svg)
+
+Chain of Collatz sequences,
+OEIS [A192719](https://oeis.org/A192719):
+
+~~~spl svg=O oeis=A192719
+let a = [];
+13.timesRepeat {
+	let i = a.minimumExcludedValue(
+			1:Infinity
+	);
+	a.addAll(i.collatzSequence)
+};
+a.discretePlot
+~~~
+
+![](Help/Image/collatzSequence-O.svg)
 
 * * *
 

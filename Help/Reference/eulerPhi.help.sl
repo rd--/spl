@@ -281,7 +281,7 @@ OEIS [A002088](https://oeis.org/A002088):
 
 ![](Help/Image/eulerPhi-B.svg)
 
-Pillais arithmetical function,
+Pillai’s arithmetical function,
 [A018804](https://oeis.org/A018804):
 
 ~~~spl svg=C oeis=A018804

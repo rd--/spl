@@ -49,6 +49,16 @@ Compute the first 10 complementary Bell numbers:
 [-1 0 1 1 -2 -9 -9 50 267 413]
 ```
 
+Number of partitions of an _n_-element set into an odd number of classes,
+OEIS [A024429](https://oeis.org/A024429):
+
+```
+>>> 0:9.collect { :n |
+>>> 	(n.bellB(1) - n.bellB(-1)) / 2
+>>> }
+[0 1 1 2 7 27 106 443 2045 10440]
+```
+
 Plot the seven degree Bell polynomial over a subset of the reals:
 
 ~~~spl svg=A
