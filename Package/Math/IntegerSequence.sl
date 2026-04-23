@@ -698,6 +698,15 @@
 		}
 	}
 
+	isPureCollatzNumber { :n |
+		(n != 2) & {
+			let m = n - 1;
+			0:m.noneSatisfy { :i |
+				i.collatzSequence.includes(n)
+			}
+		}
+	}
+
 	jacobsthalNumber { :n |
 		((2 ^ n) - (-1 ^ n)) / 3
 	}

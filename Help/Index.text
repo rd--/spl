@@ -910,6 +910,7 @@ Reference/Coin.help.sl
 Reference/colexicographicCompare.help.sl
 Reference/colexicographicSort.help.sl
 Reference/collatzSequence.help.sl
+Reference/collatzTerrasTree.help.sl
 Reference/collectCatenate.help.sl
 Reference/collect.help.sl
 Reference/collectInto.help.sl
@@ -2212,6 +2213,7 @@ Reference/isProperPrime.help.sl
 Reference/isProperSubset.help.sl
 Reference/isPseudoperfectNumber.help.sl
 Reference/isPunctuation.help.sl
+Reference/isPureCollatzNumber.help.sl
 Reference/isPythagorean.help.sl
 Reference/isPythagoreanPrime.help.sl
 Reference/isPythagoreanTriple.help.sl
