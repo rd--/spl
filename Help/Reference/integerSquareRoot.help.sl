@@ -189,7 +189,7 @@ a[1:65].discretePlot
 
 * * *
 
-See also: Integer, LargeInteger, sqrt
+See also: Integer, LargeInteger, sqrt, squareRoot
 
 Guides: Integer Functions
 

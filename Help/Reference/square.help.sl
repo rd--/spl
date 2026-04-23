@@ -132,6 +132,15 @@ OEIS [A033428](https://oeis.org/A033428):
 [0 3 12 27 48 75 108 147 192 243 300]
 ```
 
+_n+(n+1)²_,
+OEIS [A028387](https://oeis.org/A028387):
+
+```
+>>> let n = 0:12;
+>>> n + (n + 1).square
+[1 5 11 19 29 41 55 71 89 109 131 155 181]
+```
+
 Binary expansion of square numbers,
 matrix plot,
 OEIS [A000290](https://oeis.org/A000290):

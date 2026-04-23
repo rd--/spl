@@ -788,6 +788,33 @@ OEIS [A036917](https://oeis.org/A036917):
 ]
 ```
 
+Number of friezes of type _Bn_,
+OEIS [A247416](https://oeis.org/A247416):
+
+```
+>>> 1:9.collect { :n |
+>>> 	let m = (n + 1).integerSquareRoot;
+>>> 	1:m.sum { :i |
+>>> 		binomial(2 * n - i.square + 1, n)
+>>> 	}
+>>> }
+[2 6 21 75 273 1008 3762 14158 53635]
+```
+
+Number of friezes of type _Dn_,
+OEIS [A247415](https://oeis.org/A247415):
+
+```
+>>> 1:9.collect { :n |
+>>> 	1:n.sum { :m |
+>>> 		0.divisorSigma(m)
+>>> 		*
+>>> 		binomial(2 * n - m - 1, n - m)
+>>> 	}
+>>> }
+[1 4 14 51 187 695 2606 9842 37386]
+```
+
 Plot over a subset of the reals as a function of its first parameter:
 
 ~~~spl svg=A

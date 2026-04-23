@@ -342,7 +342,7 @@ Where supported `sqrt` is displayed as √.
 
 * * *
 
-See also: cubeRoot, integerSquareRoot, nthRoot, square
+See also: cubeRoot, integerSquareRoot, nthRoot, square, squareRoot
 
 References:
 _Mathematica_

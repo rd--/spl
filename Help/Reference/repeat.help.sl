@@ -354,6 +354,14 @@ OEIS [A130198](https://oeis.org/A130198):
 [0 1 0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1 0 0 1 0 1 1]
 ```
 
+Repeat _12213_,
+OEIS [A135352](https://oeis.org/A135352):
+
+```
+>>> [1 2 2 1 3].repeat(3)
+[1 2 2 1 3 1 2 2 1 3 1 2 2 1 3]
+```
+
 A Chebyshev transform of the Fibonacci numbers,
 OEIS [A100047](https://oeis.org/A100047):
 
