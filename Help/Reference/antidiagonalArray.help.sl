@@ -7,7 +7,9 @@ Answer rows _n:m_ of the triangular array given by the falling diagonals of the 
 Wythoff array in (falling) antidiagonals:
 
 ```
->>> 1:8.antidiagonalArray(wythoffArray:/2)
+>>> 1:8.antidiagonalArray(
+>>> 	wythoffArray:/2
+>>> )
 [
 	1;
 	2 4;
@@ -107,6 +109,40 @@ let t = { :n :k |
 ~~~
 
 ![](Help/Image/antidiagonalArray-D.svg)
+
+Array read by antidiagonals upwards,
+_T(n,k-1)-(n+k-1)_ if positive and not already in row _n_ else sum,
+OEIS [A066201](https://oeis.org/A066201):
+
+~~~spl svg=E
+let t:/2 = { :n :k |
+	(k = 0).if {
+		1
+	} {
+		let a = t(n, k - 1);
+		let b = n + k - 1;
+		let c = a - b;
+		(
+			c > 0 & {
+				let l = k - 1;
+				0:l.noneSatisfy { :j |
+					t(n, j) = c
+				}
+			}
+		).if {
+			c
+		} {
+			a + b
+		}
+	}
+}.memoize(true);
+0:13.antidiagonalArray(t:/2)
+.collect(reverse:/1)
+.catenate
+.scatterPlot
+~~~
+
+![](Help/Image/antidiagonalArray-E.svg)
 
 * * *
 

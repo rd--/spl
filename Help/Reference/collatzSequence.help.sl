@@ -13,19 +13,6 @@ in which each term is obtained from the previous term as either
 
 Also called a hailstone sequence.
 
-The Collatz function,
-usually denoted _T(n)_,
-OEIS [A014682](https://oeis.org/A014682):
-
-```
->>> 0:23.collect(collatzFunction:/1)
-[
-	 0  2  1  5  2  8  3 11  4 14
-	 5 17  6 20  7 23  8 26  9 29
-	10 32 11 35
-]
-```
-
 The Collatz map,
 usually denoted _C(n)_,
 OEIS [A006370](https://oeis.org/A006370):
@@ -48,6 +35,19 @@ OEIS [A006370](https://oeis.org/A006370):
 ]
 ```
 
+The Terras-modified Collatz function,
+usually denoted _T(n)_,
+OEIS [A014682](https://oeis.org/A014682):
+
+```
+>>> 0:23.collect(collatzFunction:/1)
+[
+	 0  2  1  5  2  8  3 11  4 14
+	 5 17  6 20  7 23  8 26  9 29
+	10 32 11 35
+]
+```
+
 The Collatz sequence starting at three,
 which arrives at `one` after seven steps,
 OEIS [A033478](https://oeis.org/A033478):
@@ -55,6 +55,18 @@ OEIS [A033478](https://oeis.org/A033478):
 ```
 >>> 3.collatzSequence
 [3 10 5 16 8 4 2 1]
+
+>>> 3.collatzSequence(3, 'Indirect')
+[[3 10 5 16 8 4 2 1], 4]
+
+>>> collatzMap:/1.nestList(3, 7)
+[3 10 5 16 8 4 2 1]
+
+>>> collatzFunction:/1.nestList(3, 5)
+[3 5 8 4 2 1]
+
+>>> 3.collatzSequence(3, 'Direct')
+[[3 5 1], 1]
 ```
 
 The Collatz sequence starting at seven,
@@ -66,6 +78,27 @@ which arrives at `one` after sixteen steps:
 	 7 22 11 34 17 52 26 13 40 20
 	10  5 16  8  4  2  1
 ]
+
+>>> 7.collatzSequence(3, 'Indirect')
+[
+	[
+		7 22 11 34 17 52 26 13 40 20
+		10  5 16  8  4  2  1
+	],
+	4
+]
+
+>>> collatzMap:/1.nestList(7, 16)
+[
+	 7 22 11 34 17 52 26 13 40 20
+	10  5 16  8  4  2  1
+]
+
+>>> collatzFunction:/1.nestList(7, 11)
+[7 11 17 26 13 20 10 5 8 4 2 1]
+
+>>> 7.collatzSequence(3, 'Direct')
+[[7 11 17 13 5 1], 1]
 ```
 
 The Collatz sequence starting at nine,
@@ -74,9 +107,30 @@ which arrives at `one` after nineteen steps:
 ```
 >>> 9.collatzSequence
 [
-	9 28 14 7 22 11 34 17 52 26
-	13 40 20 10 5 16 8 4 2 1
+	 9 28 14 7 22 11 34 17 52 26
+	13 40 20 10 5 16  8  4  2  1
 ]
+
+>>> 9.collatzSequence(3, 'Indirect')
+[
+	[
+		 9 28 14 7 22 11 34 17 52 26
+		13 40 20 10 5 16  8  4  2  1
+	],
+	4
+]
+
+>>> collatzMap:/1.nestList(9, 19)
+[
+	 9 28 14 7 22 11 34 17 52 26
+	13 40 20 10 5 16  8  4  2  1
+]
+
+>>> collatzFunction:/1.nestList(9, 13)
+[9 14 7 11 17 26 13 20 10 5 8 4 2 1]
+
+>>> 9.collatzSequence(3, 'Direct')
+[[9 7 11 17 13 5 1], 1]
 ```
 
 The table of Collatz sequences,
@@ -91,6 +145,64 @@ OEIS [A070165](http://oeis.org/A070165):
 	4 2 1;
 	5 16 8 4 2 1;
 	6 3 10 5 16 8 4 2 1
+]
+```
+
+Sum of the numbers in the trajectory of _n_ for the _3x+1_ problem,
+OEIS [A033493](https://oeis.org/A033493),
+also,
+apart from initial term
+OEIS [A049074](https://oeis.org/A049074):
+
+```
+>>> 1:23.collect { :n |
+>>> 	n.collatzSequence.sum
+>>> }
+[
+
+	  1   3  49   7  36
+	 55 288  15 339  46
+	259  67 119 302 694
+	 31 214 357 519  66
+	148 281 633
+]
+```
+
+
+Irregular triangle of Terras-modified Collatz problem,
+OEIS [A070168](https://oeis.org/A070168):
+
+```
+>>> 1:7.collect { :n |
+>>> 	collatzFunction:/1
+>>> 	.nestWhileList(n) { :x |
+>>> 		x > 1
+>>> 	}
+>>> }
+[
+	1;
+	2 1;
+	3 5 8 4 2 1;
+	4 2 1;
+	5 8 4 2 1;
+	6 3 5 8 4 2 1;
+	7 11 17 26 13 20 10 5 8 4 2 1
+]
+```
+
+Sums of the Terras-modified Collatz problem,
+OEIS [A285098](https://oeis.org/A285098):
+
+```
+>>> 1:23.collect { :n |
+>>> 	n.collatzTerrasSequence.sum
+>>> }
+[
+	  1   3  23   7  20
+	 29 124  15 147  30
+	117  41  63 138 296
+	 31 106 165 231  50
+	 84 139 281
 ]
 ```
 
@@ -118,7 +230,9 @@ OEIS [A078719](https://oeis.org/A078719):
 Positive integers which do not appear in a Collatz sequence starting from a smaller positive integer,
 OEIS [A177729](https://oeis.org/A177729),
 closely related to the pure numbers in the Collatz _3x+1_ iteration,
-OEIS [A061641](https://oeis.org/A061641):
+OEIS [A061641](https://oeis.org/A061641),
+also the odd entries give
+OEIS [A187108](https://oeis.org/A187108):
 
 ```
 >>> let a = [];
@@ -139,6 +253,72 @@ OEIS [A061641](https://oeis.org/A061641):
 	21 24 25 27 30 33 36 37 39 42
 	43 45 48 51
 ]
+```
+
+The Collatz-Terras tree,
+OEIS [A248573](https://oeis.org/A248573):
+
+```
+>>> { :x |
+>>> 	x.collect { :y |
+>>> 		(y % 3 = 2).if {
+>>> 			[(2 * y - 1) / 3, 2 * y]
+>>> 		} {
+>>> 			[2 * y]
+>>> 		}
+>>> 	}.catenate
+>>> }.nestList([4], 10)
+[
+	4
+	;
+	8
+	;
+	5 16
+	;
+	3 10 32
+	;
+	6 20 21 64
+	;
+	12 13 40 42 128
+	;
+	24 26 80 84 85
+	256
+	;
+	48 17 52 53 160
+	168 170 512
+	;
+	96 11 34 104 35
+	106 320 336 113 340
+	341 1024
+	;
+	192 7 22 68 69
+	208 23 70 212 213
+	640 672 75 226 680
+	227 682 2048
+	;
+	384 14 44 45 136
+	138 416 15 46 140
+	141 424 426 1280 1344
+	150 452 453 1360 151
+	454 1364 1365 4096
+]
+```
+
+Starting values for the _3x+1_ problem that set new records for the highest point of the trajectory,
+OEIS [A006884](https://oeis.org/A006884):
+
+```
+>>> let a = [];
+>>> let m = 0;
+>>> 1:1000.do { :n |
+>>> 	let r = n.collatzSequence.max;
+>>> 	(r > m).ifTrue {
+>>> 		a.add(n);
+>>> 		m := r
+>>> 	}
+>>> };
+>>> a
+[1 2 3 7 15 27 255 447 639 703]
 ```
 
 Number of halving and tripling steps to reach one in the _3x+1_ problem,
@@ -274,7 +454,7 @@ OEIS [A057687](https://oeis.org/A057687):
 [[29 421 37 179 59 107 97 67 1], 1]
 ```
 
-Trajectory of 23 under the _23x+1_ maps,
+Trajectory of 23 under the _23x+1_ map,
 OEIS [A057686](https://oeis.org/A057686):
 
 ```
@@ -601,7 +781,7 @@ a.discretePlot
 
 * * *
 
-See also: isEven, isOdd, nestWhileList
+See also: collatzTerrasTree, isEven, isOdd, nestWhileList
 
 Guides: Integer Sequence Functions
 
@@ -617,3 +797,5 @@ _OEIS_
 [5](https://oeis.org/A127824),
 _W_
 [1](https://en.wikipedia.org/wiki/Collatz_conjecture)
+
+Further Reading: Terras 1976

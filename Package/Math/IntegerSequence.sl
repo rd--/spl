@@ -278,6 +278,23 @@
 		}
 	}
 
+	collatzTerrasSequence { :self |
+		collatzFunction:/1
+		.nestWhileList(self) { :x |
+			x > 1
+		}
+	}
+
+	collatzTerrasTree { :depth :x |
+		depth.unfoldTree(x) { :y |
+			(y % 3 = 2).if {
+				[(2 * y - 1) / 3, 2 * y]
+			} {
+				[2 * y]
+			}
+		}
+	}
+
 	connellSequence { :self |
 		0.toCollect(self - 1) { :n |
 			2 * 1.to(n + 1) + (n ^ 2) - 1
