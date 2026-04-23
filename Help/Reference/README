@@ -1,6 +1,6 @@
 'Help/Reference'.splFilePath.terseReferenceSummary (verbose: false, pattern: '.*')
 
-Total => 17,055
+Total => 17,133
 
 Note: Requires LibraryItems be at the interpreter cache, i.e.
 
@@ -28,4 +28,4 @@ Total => 568
 
 $ (cd ~/sw/spl/Help/Reference; make lint)
 
-Linting: 4126 file(s)
+Linting: 4128 file(s)

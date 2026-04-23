@@ -159,7 +159,6 @@ OEIS [A049074](https://oeis.org/A049074):
 >>> 	n.collatzSequence.sum
 >>> }
 [
-
 	  1   3  49   7  36
 	 55 288  15 339  46
 	259  67 119 302 694
@@ -167,7 +166,6 @@ OEIS [A049074](https://oeis.org/A049074):
 	148 281 633
 ]
 ```
-
 
 Irregular triangle of Terras-modified Collatz problem,
 OEIS [A070168](https://oeis.org/A070168):
