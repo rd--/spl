@@ -36,6 +36,33 @@ Reflection about a three vector:
 ]
 ```
 
+The determinant of a reflection matrix is _-1_:
+
+```
+>>> [1 1 1].reflectionMatrix.determinant
+-1
+```
+
+The inverse of a reflection matrix is the matrix itself:
+
+```
+>>> let m = [1 1 1].reflectionMatrix;
+>>> m.dot(m)
+[1 0 0; 0 1 0; 0 0 1]
+
+>>> let m = [1 1 1].reflectionMatrix;
+>>> m.inverse
+m
+```
+
+Matrices corresponding to isometric transformations are orthogonal:
+
+```
+>>> [1 -1 1].reflectionMatrix
+>>> .isOrthogonalMatrix
+true
+```
+
 * * *
 
 See also: rotationMatrix, scalingMatrix

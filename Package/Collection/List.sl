@@ -184,23 +184,25 @@ List! : [Object, Storeable, Equatable, Comparable, Json, Iterable, Indexable, Co
 
 	reflectionMatrix { :self |
 		self := self / self.norm;
-		self.size.caseOf([
-			2 -> {
-				let [a, b] = self;
-				[
-					[a.square - b.square, 2 * a * b],
-					[2 * a * b, b.square - a.square]
-				]
-			},
-			3 -> {
-				let [a, b, c] = self;
-				[
-					[1 - (2 * a.square), -2 * a * b, -2 * a * c],
-					[-2 * a * b, 1 - (2 * b.square), -2 * b * c],
-					[-2 * a * c, -2 * b * c, 1 - (2 * c.square)]
-				]
-			}
-		]) {
+		self.size.caseOf(
+			[
+				2 -> {
+					let [a, b] = self;
+					[
+						[a.square - b.square, 2 * a * b],
+						[2 * a * b, b.square - a.square]
+					]
+				},
+				3 -> {
+					let [a, b, c] = self;
+					[
+						[1 - (2 * a.square), -2 * a * b, -2 * a * c],
+						[-2 * a * b, 1 - (2 * b.square), -2 * b * c],
+						[-2 * a * c, -2 * b * c, 1 - (2 * c.square)]
+					]
+				}
+			]
+		) {
 			'List>>reflectionMatrix: not two or three list'.error
 		}
 	}

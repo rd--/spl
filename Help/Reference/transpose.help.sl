@@ -305,6 +305,14 @@ To transpose irregular matrices see `transposeIrregular`:
 [1 5; 2 6; 3 7; 4 5]
 ```
 
+The transpose of an orthogonal matrix is equivalent to the inverse of the original matrix:
+
+```
+>>> let m = [-1 2 2; 2 -1 2; -2 -2 1] / 3;
+>>> m.transpose
+m.inverse
+```
+
 Where supported `transpose` is displayed as ᵀ.
 
 * * *
