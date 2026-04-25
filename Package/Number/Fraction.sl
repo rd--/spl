@@ -195,6 +195,10 @@ Fraction : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | num
 		}
 	}
 
+	decimalExpansion { :self :places |
+		Decimal(self, places + 1).decimalExpansion.allButLast
+	}
+
 	decimalPeriod { :self |
 		let n = self.denominator;
 		(powerMod(10, n, n) = 0).if {

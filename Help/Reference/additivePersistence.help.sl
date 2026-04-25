@@ -5,6 +5,9 @@
 The number of additions required to obtain the `digitalRoot` of _x_ in base _b_.
 
 ```
+>>> 1191.additivePersistence(10)
+2
+
 >>> 9876.additivePersistence(10)
 2
 

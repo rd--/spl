@@ -340,7 +340,7 @@
 		let [m, n] = self;
 		{ :i :j |
 			1 / (i + j - 1)
-		}.table(1.to(m), 1.to(n))
+		}.table(m.one.to(m), n.one.to(n))
 	}
 
 	heldKarpAlgorithm { :self |
@@ -724,6 +724,25 @@
 			m.iota.without(i),
 			n.iota.without(j)
 		).determinant
+	}
+
+	minors { :self :anInteger :aBlock:/1 |
+		let [m, n] = self.shape;
+		let p = 1:m.subsets { :x | x.size = anInteger };
+		let q = 1:n.subsets { :x | x.size = anInteger };
+		p.collect { :i |
+			q.collect { :j |
+				aBlock(self.submatrix(i, j))
+			}
+		}
+	}
+
+	[minors, compoundMatrix] { :self :anInteger |
+		(anInteger = 0).if {
+			[[1]]
+		} {
+			self.minors(anInteger, determinant:/1)
+		}
 	}
 
 	minors { :self |

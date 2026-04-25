@@ -19,13 +19,16 @@ The answer is sorted by factor.
 >>> (2 ^ 3) * (3 ^ 1) * (5 ^ 1)
 120
 
->>> factorInteger(2000)
+>>> 136.factorInteger
+[2 3; 17 1]
+
+>>> 2000.factorInteger
 [2 4; 5 3]
 
 >>> 7.!.factorInteger
 [2 4; 3 2; 5 1; 7 1]
 
->>> 7.!.factorInteger.product { :f | 
+>>> 7.!.factorInteger.product { :f |
 >>> 	f[1] ^ f[2]
 >>> }
 7.!
@@ -229,6 +232,16 @@ OEIS [A048103](https://oeis.org/A048103):
 	15 17 18 19 21 22 23 25 26 29
 	30 31 33
 ]
+```
+
+The inverse of `factorInteger` is `factoredInteger`:
+
+```
+>>> 12.factorInteger
+[2 2; 3 1]
+
+>>> [2 2; 3 1].factoredInteger
+12
 ```
 
 The number of distinct prime factors,
@@ -531,7 +544,7 @@ OEIS [A050252](https://oeis.org/A050252):
 
 * * *
 
-See also: divisors, isPrime, primeFactors, primeFactorization, product
+See also: divisors, factoredInteger, isPrime, isPrimeFactorization, primeFactors, primeFactorization, product
 
 Guides: Integer Functions, Prime Number Functions
 

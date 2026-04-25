@@ -2,7 +2,7 @@
 
 - _hilbertMatrix([m n])_
 
-Answer the _m×n_ Hilbert matrix with elements of the form _1 / (i + j - 1)_.
+Answer the _m×n_ Hilbert matrix with elements of the form _1/(i+j-1)_.
 
 3×3 Hilbert matrix:
 

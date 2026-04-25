@@ -798,6 +798,24 @@ OEIS [A257811](https://oeis.org/A257811):
 [1 8 3 10 5 12 7 2 9 4 11 6]
 ```
 
+Vulgar fractions whose denominators are numbers ending with nine,
+the case 1/19,
+OEIS [A254065](https://oeis.org/A254065):
+
+```
+>>> let n = 1:22;
+>>> (2 ^ (n - 1) % 19) % 10
+[1 2 4 8 6 3 7 4 9 8 7 5 1 3 6 2 5 0 1 2 4 8]
+```
+
+_n%6_,
+OEIS [A010875](https://oeis.org/A010875):
+
+```
+>>> 0:21 % 6
+[0 1 2 3 4 5 0 1 2 3 4 5 0 1 2 3 4 5 0 1 2 3]
+```
+
 An integer sequence modulo an integer,
 _n%8_,
 i.e. with a fixed modulus,

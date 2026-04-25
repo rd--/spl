@@ -20,6 +20,17 @@ The `magicSquare` function answers magic squares:
 true
 ```
 
+A Latin square need not be a magic square:
+
+```
+>>> [
+>>> 	1 2 3;
+>>> 	2 3 1;
+>>> 	3 1 2
+>>> ].isMagicSquare
+false
+```
+
 * * *
 
 See also: isLatinSquare, magicSquare, magicSquareSummary

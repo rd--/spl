@@ -87,4 +87,6 @@ Guides: Array Functions
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/ConstantMatrix.html)
-[2](https://reference.wolfram.com/language/ref/ConstantArray.html)
+[2](https://reference.wolfram.com/language/ref/ConstantArray.html),
+_Mathworks_
+[1](https://au.mathworks.com/help/matlab/ref/createarray.html)

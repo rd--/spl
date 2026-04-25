@@ -1,9 +1,11 @@
 # decimalExpansion
 
 - _decimalExpansion(n)_
+- _decimalExpansion(n/d, k)_
 
-Answer the decimal expansion of _n_,
-also called decimal words or decimal vectors.
+Answer the decimal expansion of the integer _n_,
+also called decimal words or decimal vectors,
+or the first _k_ places of the decimal expansion of the fraction _n/d_.
 
 ```
 >>> 353.decimalExpansion
@@ -111,8 +113,7 @@ Decimal expansion of _1/607_,
 OEIS [A021611](https://oeis.org/A021611):
 
 ~~~spl svg=C oeis=A021611
-Decimal(1/607, 85)
-.decimalExpansion
+1/607.decimalExpansion(85)
 .discretePlot
 ~~~
 
@@ -143,6 +144,29 @@ OEIS [A051801](https://oeis.org/A051801):
 ~~~
 
 ![](Help/Image/decimalExpansion-E.svg)
+
+Matrix plot of the magic square given by the multiples of _1/19_:
+
+~~~spl svg=F
+1:18.collect { :n |
+	Fraction(n, 19)
+	.decimalExpansion(18)
+}.matrixPlot
+~~~
+
+![](Help/Image/decimalExpansion-F.svg)
+
+Matrix plot of the magic square given by the reordered multiples of _1/17_:
+
+~~~spl svg=G
+[1 5 8 6 13 14 2 10 16 12 9 11 4 3 15 7]
+.collect { :n |
+	Fraction(n, 17)
+	.decimalExpansion(16)
+}.matrixPlot
+~~~
+
+![](Help/Image/decimalExpansion-G.svg)
 
 * * *
 

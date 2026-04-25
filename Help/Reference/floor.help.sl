@@ -116,6 +116,14 @@ OEIS [A033409](https://oeis.org/A033409):
 [89 44 29 22 17 14 12 11 9 8 8 7 6 6 5 5 5]
 ```
 
+Nonnegative integers repeated,
+OEIS [A004526](https://oeis.org/A004526):
+
+```
+>>> (0:13 / 2).floor
+[0 0 1 1 2 2 3 3 4 4 5 5 6 6]
+```
+
 Floor is a staircase function:
 
 ~~~spl svg=A
@@ -279,6 +287,16 @@ OEIS [A059851](https://oeis.org/A059851):
 ~~~
 
 ![](Help/Image/floor-M.svg)
+
+
+Largest square less than or equal to _n_,
+OEIS [A048760](https://oeis.org/A048760):
+
+~~~spl svg=N oeis=A048760
+0:80.sqrt.floor.square.discretePlot
+~~~
+
+![](Help/Image/floor-N.svg)
 
 Where supported `floor` is displayed as ⌊.
 

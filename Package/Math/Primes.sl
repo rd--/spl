@@ -1581,3 +1581,30 @@
 	}
 
 }
+
++List {
+
+	factoredInteger { :self |
+		self.isPrimeFactorization.if {
+			self.product { :each |
+				let [p, e] = each;
+				p ^ e
+			}
+		} {
+			self.error('Not prime factorization')
+		}
+	}
+
+	isPrimeFactorization { :self |
+		let [m, n] = self.shape;
+		n = 2 & {
+			self.allSatisfy { :each |
+				let [p, e] = each;
+				p.isPrime & {
+					e.isInteger
+				}
+			}
+		}
+	}
+
+}

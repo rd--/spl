@@ -12,6 +12,16 @@ true
 false
 ```
 
+Does not mutate _p_ or _q_:
+
+```
+>>> let p = [1 2 3 4];
+>>> let q = [4 3 2 1];
+>>> let r = p.isPermutationOf(q);
+>>> (p, q, r)
+([1 2 3 4], [4 3 2 1], true)
+```
+
 * * *
 
 See also: Permutation

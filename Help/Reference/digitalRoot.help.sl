@@ -3,10 +3,14 @@
 - _digitalRoot(x, b=10)_
 
 The digital root of a natural number in a given radix is the (single digit) value obtained by an iterative process of summing digits.
+Also called the additive digital root.
 
 ```
 >>> 6r11.digitalRoot(6)
 1 + 1
+
+>>> 1191.digitalRoot(10)
+3
 
 >>> (
 >>> 	2035.digitalRoot(10),
@@ -24,6 +28,9 @@ The digital root of a natural number in a given radix is the (single digit) valu
 
 >>> 12r1972.digitalRoot(12)
 8
+
+>>> 182.digitalRoot(14)
+13
 ```
 
 The base-10 digital roots of the first few integers,
@@ -51,6 +58,18 @@ OEIS [A010878](https://oeis.org/A010878):
 	0 1 2 3 4 5 6 7 8
 	0 1 2 3 4 5 6 7 8
 ]
+```
+
+Threads over lists:
+
+```
+>>> [1234 54321 66677 8989109898]
+>>> .digitalRoot(10)
+[1 6 5 6]
+
+>>> [1234 54321 66677 8989109898]
+>>> .digitalRoot(7)
+[4 3 5 6]
 ```
 
 The base ten digital root of _n_,
@@ -87,11 +106,19 @@ OEIS [A353109](https://oeis.org/A353109):
 
 ![](Help/Image/digitalRoot-C.svg)
 
+Parity of decimal digital root of _n_,
+period nine,
+OEIS [A113217](https://oeis.org/A113217):
+
+~~~spl svg=D oeis=A113217
+(0:85.digitalRoot(10) % 2).discretePlot
+~~~
+
+![](Help/Image/digitalRoot-D.svg)
+
 * * *
 
 See also: digitalRootSet, digitSum, multiplicativeDigitalRoot
-
-Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

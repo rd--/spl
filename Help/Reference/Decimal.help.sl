@@ -304,8 +304,76 @@ Repeating _123432_,
 OEIS [A028356](https://oeis.org/A028356):
 
 ```
-Decimal(1112/9009, 25)
+>>> Decimal(1112/9009, 25)
 0.1234321234321234321234321D
+```
+
+Decimal expansion of 22/7,
+OEIS [A068028](https://oeis.org/A068028):
+
+```
+>>> Decimal(22/7, 25)
+3.1428571428571428571428571D
+```
+
+Decimal expansion of 1/19,
+OEIS [A021023](https://oeis.org/A021023):
+
+```
+>>> Decimal(1/19, 35)
+0.05263157894736842105263157894736842D
+
+>>> 8 * 105263157894736842L
+842105263157894736L
+```
+
+Decimal expansion of 1/383,
+OEIS [A021387](https://oeis.org/A021387):
+
+```
+>>> Decimal(1/383, 26)
+0.00261096605744125326370757D
+```
+
+
+Decimal expansion of 1/17,
+OEIS [A007450](https://oeis.org/A007450):
+
+```
+>>> Decimal(1/17, 27)
+0.058823529411764705882352941D
+
+>>> 1/17.decimalPeriod
+16
+```
+
+Decimal expansion of 355/113,
+an approximation to π,
+OEIS [A068079](https://oeis.org/A068079):
+
+```
+>>> Decimal(355/113, 27)
+3.141592920353982300884955752D
+```
+
+Decimal expansion of 104348/33215,
+an approximation to π,
+OEIS [A068089](https://oeis.org/A068089):
+
+```
+>>> Decimal(104348/33215, 27)
+3.141592653921421044708715942D
+```
+
+Decimal expansion of _1/23_,
+OEIS [A021027](https://oeis.org/A021027):
+
+```
+>>> Decimal(1/23, 30)
+0.043478260869565217391304347826D
+
+>>> 1/23.decimalPeriod
+22
 ```
 
 _Note_:

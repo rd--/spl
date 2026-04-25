@@ -969,6 +969,7 @@ Reference/compose.help.sl
 Reference/composeLeft.help.sl
 Reference/composeRight.help.sl
 Reference/compositePi.help.sl
+Reference/compoundMatrix.help.sl
 Reference/concatenation.help.sl
 Reference/conchoidOfDeSluze.help.sl
 Reference/conchoidOfDurer.help.sl
@@ -1453,6 +1454,7 @@ Reference/ExtremeValueDistribution.help.sl
 Reference/fabiusFunction.help.sl
 Reference/faceCount.help.sl
 Reference/faceIndices.help.sl
+Reference/factoredInteger.help.sl
 Reference/factorialExpansion.help.sl
 Reference/factorial.help.sl
 Reference/factorialNumberSystemDecode.help.sl
@@ -2160,6 +2162,7 @@ Reference/isMixed.help.sl
 Reference/isMomentOfSymmetry.help.sl
 Reference/isMonotonicallyIncreasing.help.sl
 Reference/isMotzkinWord.help.sl
+Reference/isMutuallyOrthogonalLatinSquareSet.help.sl
 Reference/isNaN.help.sl
 Reference/isNarcissisticNumber.help.sl
 Reference/isNecklace.help.sl

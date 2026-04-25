@@ -5,6 +5,8 @@
 Answer the _n×n_ Hadamard matrix, where _n_ is a power of two.
 The ordering of rows is called the natural ordering,
 see `walshMatrix` for the sequency ordering.
+The answers are given in standardized form,
+where the first row and column entries are all positive one.
 
 The first Hadamard matrix:
 

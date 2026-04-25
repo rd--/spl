@@ -137,6 +137,7 @@ General:
 - `arrayFlatten`: flatten a matrix of matrices
 - `arrayRules`: positions and values of non-zero elements
 - `choleskyDecomposition`: the Cholesky decomposition
+- `compoundMatrix`
 - `conjugateTranspose`: conjugate transpose (Hermitian conjugate)
 - `determinant`: determinant
 - `dot`: outer product

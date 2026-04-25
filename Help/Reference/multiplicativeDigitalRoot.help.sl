@@ -15,7 +15,13 @@ The digital root of a natural number in a given radix is the (single digit) valu
 >>> )
 (8, 42, 8)
 
+>>> 1191.multiplicativeDigitalRoot
+9
+
 >>> 12r1973.multiplicativeDigitalRoot(12)
+6
+
+>>> 1191.multiplicativeDigitalRoot(14)
 6
 ```
 
@@ -33,6 +39,46 @@ OEIS [A031347](https://oeis.org/A031347):
 	0 6 2 8 8 0 8 8 6 0 0 7 4 2 6 5 8 8 0 8
 	0 8 6 8 6 0 6
 ]
+```
+
+Numbers with multiplicative digital root value zero,
+OEIS [A034048](https://oeis.org/A034048):
+
+```
+>>> 0:60.select { :n |
+>>> 	n.multiplicativeDigitalRoot = 0
+>>> }
+[0 10 20 25 30 40 45 50 52 54 55 56 58 59 60]
+```
+
+Numbers with multiplicative digital root value three,
+OEIS [A034050](https://oeis.org/A034050):
+
+```
+>>> 1:400.select { :n |
+>>> 	n.multiplicativeDigitalRoot = 3
+>>> }
+[3 13 31 113 131 311]
+```
+
+Numbers with multiplicative digital root value four,
+OEIS [A034051](https://oeis.org/A034051):
+
+```
+>>> 1:100.select { :n |
+>>> 	n.multiplicativeDigitalRoot = 4
+>>> }
+[4 14 22 27 39 41 72 89 93 98]
+```
+
+Numbers with multiplicative digital root value nine,
+OEIS [A034056](https://oeis.org/A034056):
+
+```
+>>> 1:200.select { :n |
+>>> 	n.multiplicativeDigitalRoot = 9
+>>> }
+[9 19 33 91 119 133 191]
 ```
 
 The base-10 digital roots of the first few integers,

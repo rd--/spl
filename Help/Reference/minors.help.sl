@@ -1,8 +1,10 @@
 # minors
 
-- _minors(aMatrix)_
+- _minors(m, k, f:/1)_
 
-Answer the minors of _aMatrix_.
+Answer the minors of the matrix _m_,
+if _k_ is elided is is on less than the least dimension,
+if _f_ is elided it is `determinant`.
 
 Minors of an exact 3×3 matrix:
 
@@ -47,9 +49,82 @@ Minors of an exact 4×4 matrix:
 ]
 ```
 
+The matrices used to compute the _k=2_ minors of a 3×4 matrix:
+
+```
+>>> 1:12.reshape([3 4]).minors(
+>>> 	2, identity:/1
+>>> )
+[
+	[
+		1 2; 5 6:;
+		1 3; 5 7:;
+		2 3; 6 7:;
+		1 4; 5 8:;
+		2 4; 6 8:;
+		3 4; 7 8
+	],
+	[
+		1 2;  9 10:;
+		1 3;  9 11:;
+		2 3; 10 11:;
+		1 4;  9 12:;
+		2 4; 10 12:;
+		3 4; 11 12
+	],
+	[
+		5 6;  9 10:;
+		5 7;  9 11:;
+		6 7; 10 11:;
+		5 8;  9 12:;
+		6 8; 10 12:;
+		7 8; 11 12
+	]
+]
+```
+
+The identity matrix is not changed by `minors`:
+
+```
+>>> 4.identityMatrix.minors
+4.identityMatrix
+```
+
+Minors of Hilbert matrix:
+
+```
+>>> 4.hilbertMatrix.minors
+[
+	 1/2160  1/1440  1/3600  1/43200;
+	 1/1440  3/2800  1/2240  1/25200;
+	 1/3600  1/2240  1/5040  1/50400;
+	1/43200 1/25200 1/50400 1/378000
+]
+```
+
+By definition, `minors` with _k=0_ is _[[1]]_:
+
+```
+>>> [1 2 3; 4 5 6; 7 8 9].minors(0)
+[[1]]
+```
+
+Matrix plot of _k=3_ minors of a random boolean matrix:
+
+~~~spl svg=A
+Sfc32(683714)
+.randomInteger([0 1], [6 6])
+.minors(3)
+.matrixPlot
+~~~
+
+![](Help/Image/minors-A.svg)
+
 * * *
 
-See also: adjugate, determinant, minor, submatrix, trace
+See also: adjugate, compoundMatrix, determinant, minor, submatrix, trace
+
+Guides: Matrix Functions
 
 References:
 _Mathematica_
@@ -57,5 +132,6 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/Minors.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Minor_(linear_algebra))
+[2](https://en.wikipedia.org/wiki/Compound_matrix)
 
 Categories: Math, Matrix

@@ -189,6 +189,26 @@ Convergents for π:
 [3 22/7 333/106 355/113 103993/33102]
 ```
 
+Numerators of convergents to π,
+OEIS [A002485](https://oeis.org/A002485),
+also
+OEIS [A046947](https://oeis.org/A046947):
+
+```
+>>> 1.pi.continuedFraction(7)
+>>> .convergents.numerator
+[3 22 333 355 103993 104348 208341]
+```
+
+Denominators of convergents to π,
+OEIS [A002486](https://oeis.org/A002486):
+
+```
+>>> 1.pi.continuedFraction(8)
+>>> .convergents.denominator
+[1 7 106 113 33102 33215 66317 99532]
+```
+
 Semiconvergents for π:
 
 ```

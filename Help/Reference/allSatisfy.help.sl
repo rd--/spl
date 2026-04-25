@@ -37,6 +37,15 @@ Does not traverse tree structures, see `deepAllSatisfy`:
 (true, true)
 ```
 
+Does not mutate receiver:
+
+```
+>>> let a = [1 3 5 7 9];
+>>> let b = a.allSatisfy(isOdd:/1);
+>>> (a, b)
+([1 3 5 7 9], true)
+```
+
 * * *
 
 See also: anySatisfy, deepAllSatisfy, noneSatisfy

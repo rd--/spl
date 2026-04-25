@@ -502,7 +502,7 @@ Permutation : [Object, Storeable, Equatable] { | cycles degree |
 
 	isPermutationOf { :self :aSequence |
 		(self.size = aSequence.size) & {
-			self.sort = aSequence.sort
+			self.copy.sort = aSequence.copy.sort
 		}
 	}
 

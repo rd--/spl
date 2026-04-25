@@ -190,7 +190,7 @@
 
 	isLatinSquare { :self |
 		self.isSquareMatrix & {
-			let x = self[1];
+			let x = self.first;
 			(self ++ self.transpose).allSatisfy { :each |
 				each.isPermutationOf(x)
 			}
@@ -215,6 +215,27 @@
 		(self.arrayDepth >= 2) & {
 			self.allSatisfy { :each |
 				each.elementType = elementType
+			}
+		}
+	}
+
+	isMutuallyOrthogonalLatinSquareSet { :self |
+		let shape = self.anyOne.shape;
+		self.allSatisfy { :m |
+			m.shape = shape & {
+				m.isLatinSquare
+			}
+		} & {
+			let c = Set();
+			shape.shapeIndices.noneSatisfy { :i |
+				let x = self.collect { :m |
+					m.atPath(i)
+				};
+				let r = c.includes(x);
+				r.ifFalse {
+					c.add(x)
+				};
+				r
 			}
 		}
 	}

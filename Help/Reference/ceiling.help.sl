@@ -248,6 +248,15 @@ let follow = { :s :f:/1 |
 
 ![](Help/Image/ceiling-H.svg)
 
+Smallest square greater than or equal to _n_,
+OEIS [A048761](https://oeis.org/A048761):
+
+~~~spl svg=I oeis=A048761
+0:81.sqrt.ceiling.square.discretePlot
+~~~
+
+![](Help/Image/ceiling-I.svg)
+
 Where supported `ceiling` is displayed as ⌈.
 
 * * *

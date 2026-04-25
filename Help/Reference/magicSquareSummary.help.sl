@@ -268,6 +268,61 @@ A non-magic square:
 )
 ```
 
+The multiples of 1/7 form a row and column magic square:
+
+```
+>>> 1:6.collect { :n |
+>>> 	Fraction(n, 7)
+>>> 	.decimalExpansion(6)
+>>> }.magicSquareSummary
+(
+	sum: 111,
+	rowSums: [27 27 27 27 27 27],
+	columnSums: [27 27 27 27 27 27],
+	diagonalSum: 31,
+	anitdiagonalSum: 23,
+	rank: 4
+)
+
+>>> (31 + 23) / 2
+27
+```
+
+The sequential multiples of 1/19 form a full magic square:
+
+```
+>>> 1:18.collect { :n |
+>>> 	Fraction(n, 19)
+>>> 	.decimalExpansion(18)
+>>> }.magicSquareSummary
+(
+	sum: 2925,
+	rowSums: List(18, 81),
+	columnSums: List(18, 81),
+	diagonalSum: 81,
+	anitdiagonalSum: 81,
+	rank: 10
+)
+```
+
+The reordered multiples of 1/17 form a full magic square:
+
+```
+>>> [1 5 8 6 13 14 2 10 16 12 9 11 4 3 15 7]
+>>> .collect { :n |
+>>> 	Fraction(n, 17)
+>>> 	.decimalExpansion(16)
+>>> }.magicSquareSummary
+(
+	sum: 2056,
+	rowSums: List(16, 72),
+	columnSums: List(16, 72),
+	diagonalSum: 72,
+	anitdiagonalSum: 72,
+	rank: 9
+)
+```
+
 * * *
 
 See also: antidiagonal, diagonal, isMagicSquare, magicHexagon, magicSquare, matrixRank
