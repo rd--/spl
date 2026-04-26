@@ -31,6 +31,19 @@ At `Complex`, create a `List` of eight evenly spaced points in the interval 1J2 
 ]
 ```
 
+Variants for excluding end point:
+
+```
+>>> linspace(2, 3, 5)
+[2 2.25 2.5 2.75 3]
+
+>>> linspace(2, 2.8, 5)
+[2 2.2 2.4 2.6 2.8]
+
+>>> linspace(2, 3, 6).allButLast
+[2 2.2 2.4 2.6 2.8]
+```
+
 * * *
 
 See also: discretize, logspace, subdivide
@@ -39,4 +52,6 @@ Guides: Interpolation Functions
 
 References:
 _Mathworks_
-[1](https://mathworks.com/help/matlab/ref/linspace.html)
+[1](https://mathworks.com/help/matlab/ref/linspace.html),
+_Python_
+[1](https://numpy.org/doc/stable/reference/generated/numpy.linspace.html)

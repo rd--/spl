@@ -1,8 +1,8 @@
 # singularValueDecomposition
 
-- _singularValueDecomposition(aMatrix)_
+- _singularValueDecomposition(m)_
 
-Answer the singular value decomposition for _aMatrix_ as a list of matrices _[u, σ, v]_,
+Answer the singular value decomposition for the matrix _m_ as a list of matrices _[u, σ, v]_,
 where σ is a diagonal matrix.
 This method is aliased as `svd`.
 

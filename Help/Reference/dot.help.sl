@@ -411,7 +411,7 @@ Evaluate symbolically:
 
 See also: +, *, dotProduct, inner, outer
 
-Guides: List Functions, Vector Functions
+Guides: List Functions, Matrix Functions, Vector Functions
 
 References:
 _Julia_

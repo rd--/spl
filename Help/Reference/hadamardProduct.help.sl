@@ -1,10 +1,10 @@
 # hadamardProduct
 
-- _hadamardProduct(aMatrix, anotherMatrix)_
+- _hadamardProduct(m₁, m₂)_
 
 The Hadamard product,
 also known as the element-wise product, entrywise product or Schur product,
-is a binary operation mutiplies two matrices of the same dimensions elementwise.
+is a binary operation that mutiplies two matrices of the same dimensions elementwise.
 
 For regular matrices of equal `shape`,
 `hadamardProduct` is equivalent to `*`:
@@ -45,6 +45,8 @@ where `hadamardProduct` does:
 * * *
 
 See also: *, dot
+
+Guides: Matrix Functions
 
 References:
 _W_

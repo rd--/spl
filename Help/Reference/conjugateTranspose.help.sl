@@ -2,7 +2,8 @@
 
 - _conjugateTranspose(m)_
 
-Answer the conjugate transpose of the matrix _m_.
+Answer the conjugate transpose of the matrix _m_,
+also known as the Hermitian transpose.
 Equivalent to _m.transpose.conjugate_.
 For real matrices, the conjugate transpose is just the transpose.
 
@@ -27,6 +28,10 @@ Conjugate transpose of a complex-valued matrix:
 >>> [1 0J2 3; 3J4 5 0J1]
 >>> .conjugateTranspose
 [1 3J-4; 0J-2 5; 3 0J-1]
+
+>>> [1 -2J1 5; 1J1 0J1 4J-2]
+>>> .conjugateTranspose
+[1 1J-1; -2J-1 0J-1; 5 4J2]
 ```
 
 `conjugateTranspose` leaves the identity matrix unchanged:
@@ -57,7 +62,7 @@ An anti-Hermitian matrix is `negate` by `conjugateTranspose`:
 
 See also: conjugate, transpose
 
-Guides: Complex Number Functions
+Guides: Complex Number Functions, Matrix Functions
 
 References:
 _Mathematica_

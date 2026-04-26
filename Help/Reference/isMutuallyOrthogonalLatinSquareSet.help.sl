@@ -60,3 +60,9 @@ true
 * * *
 
 See also: isLatinSquare, shape
+
+Guides: Matrix Functions
+
+References:
+_W_
+[1](https://en.wikipedia.org/wiki/Mutually_orthogonal_Latin_squares)

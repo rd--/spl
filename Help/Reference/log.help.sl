@@ -239,6 +239,19 @@ let n = 1;
 
 ![](Help/Image/log-E.svg)
 
+Plot pointwise sum and product of `sin` and `log`:
+
+~~~spl svg=F
+(0 -- 13.75).functionPlot(
+	[
+		{ :x | x.sin + x.log },
+		{ :x | x.sin * x.log }
+	]
+)
+~~~
+
+![](Help/Image/log-F.svg)
+
 * * *
 
 See also: exp, log2, log10, logarithmicIntegral

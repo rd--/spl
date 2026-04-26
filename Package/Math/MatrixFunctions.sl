@@ -218,6 +218,11 @@
 		}.table(1.to(n), 1.to(n))
 	}
 
+	frobeniusInnerProduct { :a :b |
+		/* Real = a.hadamardProduct(b).sum.sum */
+		a.transpose.conjugate.dot(b).trace
+	}
+
 	frobeniusNorm { :self |
 		self.ravel.collect(square:/1).sum.sqrt
 	}

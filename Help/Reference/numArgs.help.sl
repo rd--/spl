@@ -16,11 +16,23 @@ the number of arguments that must be used to evaluate the _n_-ary block _f_.
 2
 ```
 
-`numArgs` is used to implement `cull`.
+`numArgs` is an alias for `argumentCount`:
+
+```
+>>> { }.argumentCount
+0
+```
+
+`numArgs` is used to implement `cull`:
+
+```
+>>> { :x | x + 1 }.cull(3, 7)
+4
+```
 
 * * *
 
-See also: cull, value
+See also: argumentCount, argumentNames, cull, value
 
 Guides: Block Functions, Block Semantics
 

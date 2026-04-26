@@ -148,6 +148,22 @@ Outer product of a three-vector and a two-square matrix:
 ]
 ```
 
+Make a grid of complex numbers:
+
+```
+>>> let o = [5].ones;
+>>> let r = *.outer(o, linspace(-2, 2, 5));
+>>> let i = *.outer(linspace(2, -2, 5).i, o);
+>>> r + i
+[
+	-2J2  -1J2  0J2  1J2  2J2;
+	-2J1  -1J1  0J1  1J1  2J1;
+	-2J0  -1J0  0J0  1J0  2J0;
+	-2J-1 -1J-1 0J-1 1J-1 2J-1;
+	-2J-2 -1J-2 0J-2 1J-2 2J-2
+]
+```
+
 * * *
 
 See also: inner, map, outerProduct, table
@@ -163,6 +179,8 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/CartesianProduct.html)
 [2](https://mathworld.wolfram.com/VectorSpaceTensorProduct.html)
 [3](https://reference.wolfram.com/language/ref/Outer.html)
-[4](https://reference.wolfram.com/language/ref/Table.html)
+[4](https://reference.wolfram.com/language/ref/Table.html),
+_Python_
+[1](https://numpy.org/doc/stable/reference/generated/numpy.outer.html)
 
 Categories: Math, Matrix

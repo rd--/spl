@@ -24,8 +24,16 @@ Threads over lists:
 [1 2 3; 4 0 6]
 ```
 
+Sum a matrix after replacing NaN entries:
+
+```
+>>> [NaN 1 NaN; 3 5 NaN; 4 NaN NaN]
+>>> .replaceNaN(0).sum
+[7 6 0]
+```
+
 * * *
 
 See also: isNaN, NaN
 
-Guides: Error Functions
+Guides: Collection Functions, Error Functions, Mathematical Functions

@@ -110,6 +110,11 @@ Rearranging:
 - `swapColumns`
 - `swapRows`
 
+Matrix Operations
+
+- `dot`
+- `hadamardProduct`
+
 Predicates:
 
 - `isAntisymmetricMatrix`
@@ -122,6 +127,7 @@ Predicates:
 - `isInvolutoryMatrix`
 - `isLowerTriangularMatrix`
 - `isMatrix`
+- `isMutuallyOrthogonalLatinSquareSet`
 - `isNormalMatrix`
 - `isOrthogonalMatrix`
 - `isSignatureMatrix`

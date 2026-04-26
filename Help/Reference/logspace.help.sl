@@ -36,6 +36,16 @@ At `Complex`, create a `List` of eight evenly spaced points in the interval _10^
 ]
 ```
 
+Variant to exclude end point:
+
+```
+>>> logspace(2, 3, 4)
+[100 215.44 464.16 1000]
+
+>>> logspace(2, 3, 5).allButLast
+[100 177.83 316.23 562.34]
+```
+
 * * *
 
 See also: discretize, linspace, subdivide
@@ -44,4 +54,6 @@ Guides: Interpolation Functions
 
 References:
 _Mathworks_
-[1](https://mathworks.com/help/matlab/ref/logspace.html)
+[1](https://mathworks.com/help/matlab/ref/logspace.html),
+_Python_
+[1](https://numpy.org/doc/stable/reference/generated/numpy.logspace.html)

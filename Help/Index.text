@@ -400,6 +400,7 @@ Reference/ArcTan.help.sl
 Reference/arcTanh.help.sl
 Reference/area.help.sl
 Reference/arg.help.sl
+Reference/argumentNames.help.sl
 Reference/arithmeticDerivative.help.sl
 Reference/arithmeticGeometricMean.help.sl
 Reference/arithmeticMean.help.sl
@@ -1589,6 +1590,7 @@ Reference/Frequency.help.sl
 Reference/fresnelC.help.sl
 Reference/fresnelS.help.sl
 Reference/frobeniusCompanionMatrix.help.sl
+Reference/frobeniusInnerProduct.help.sl
 Reference/frobeniusNorm.help.sl
 Reference/frobeniusNumber.help.sl
 Reference/frobeniusSolve.help.sl
@@ -2732,6 +2734,7 @@ Reference/MidiPortBrowser.help.sl
 Reference/MidiRatio.help.sl
 Reference/midpoint.help.sl
 Reference/midpointPolygon.help.sl
+Reference/miles.help.sl
 Reference/millerRabinPrimalityTest.help.sl
 Reference/millioctavesToRatio.help.sl
 Reference/millisecond.help.sl
@@ -3202,6 +3205,7 @@ Reference/pointLineNearest.help.sl
 Reference/pointLinePlot.help.sl
 Reference/pointLineSegmentNearest.help.sl
 Reference/pointPlaneDistance.help.sl
+Reference/pointwise.help.sl
 Reference/poissonDiskSampling.help.sl
 Reference/PoissonDistribution.help.sl
 Reference/PoissonProcess.help.sl
@@ -4382,6 +4386,7 @@ Reference/xyzToLab.help.sl
 Reference/xyzToOklab.help.sl
 Reference/xyzToRgb.help.sl
 Reference/xyzToXyy.help.sl
+Reference/yards.help.sl
 Reference/yCombinator.help.sl
 Reference/year.help.sl
 Reference/yellowstonePermutation.help.sl

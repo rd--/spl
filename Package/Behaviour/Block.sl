@@ -33,10 +33,6 @@ Block! : [Object, Equatable] {
 		self.error('apply: argument is not a list or not of required size')
 	}
 
-	argumentCount { :self |
-		self.numArgs
-	}
-
 	argumentNames { :self |
 		<primitive: return _self.argumentNames;>
 	}
@@ -111,11 +107,7 @@ Block! : [Object, Equatable] {
 		}
 	}
 
-	compose { :self:/1 :aBlock:/1 |
-		self:/1.composeLeft(aBlock:/1)
-	}
-
-	composeLeft { :self:/1 :aBlock:/1 |
+	[composeLeft, compose] { :self:/1 :aBlock:/1 |
 		{ :anObject |
 			self(aBlock(anObject))
 		}
@@ -426,10 +418,8 @@ Block! : [Object, Equatable] {
 		}
 	}
 
-	numArgs { :self |
-		self.numArgsIfAbsent {
-			self.error('numArgs: applied to arity-dispatch block')
-		}
+	[numArgs, argumentCount] { :self |
+		<primitive: return _self.length;>
 	}
 
 	ofSize { :self :aNumber |
@@ -442,6 +432,12 @@ Block! : [Object, Equatable] {
 
 	parameterNames { :self |
 		<primitive: return _self.parameterNames;>
+	}
+
+	pointwise { :f:/2 :p:/1 :q:/1 |
+		{ :x |
+			f(p(x), q(x))
+		}
 	}
 
 	repeatForever { :self:/0 |

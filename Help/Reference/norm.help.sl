@@ -125,6 +125,8 @@ Sfc32(567131)
 
 See also: abs, absSquare, dot, euclideanDistance, hypotenuse, rootMeanSquare
 
+Guides: Matrix Functions, Vector Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Norm.html)
