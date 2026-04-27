@@ -398,7 +398,7 @@
 	asPatternEventMessages { :self :currentTime |
 		let latency = 0.2; /* Preferences */
 		let instrument = self['instrument'];
-		let synthId = 100 + system.uniqueId; /* Node allocator */
+		let synthId = 100 + system.uniqueIdentifier; /* Node allocator */
 		let addAction = 0;
 		let targetNode = 1;
 		let sNewMessage = OscMessage(

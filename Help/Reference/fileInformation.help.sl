@@ -39,6 +39,8 @@ _Mathematica_
 [1](https://reference.wolfram.com/language/ref/FileType.html)
 [2](https://reference.wolfram.com/language/ref/FileDate.html)
 [3](https://reference.wolfram.com/language/ref/FileByteCount.html)
-[4](https://reference.wolfram.com/language/ref/FileSize.html)
+[4](https://reference.wolfram.com/language/ref/FileSize.html),
+_Posix_
+[1](https://pubs.opengroup.org/onlinepubs/9799919799/functions/fstatat.html)
 
 Categories: Files, System

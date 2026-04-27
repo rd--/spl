@@ -3677,9 +3677,8 @@ system.typeOf = 'System' /* system type */
 system.isSystem /* system predicate */
 system.typeDictionary.indices.includes('System') = true
 system.nextRandomFloat < 1 /* system random number generator */
-system.uniqueId.isInteger /* system unique identifier generator, answers are integers */
-system.uniqueId != system.uniqueId /* system unique identifier generator */
-let p = system.uniqueId; let q = system.uniqueId; p + 1 = q /* the generator is a simple counter */
+system.uniqueIdentifier.isInteger /* system unique identifier generator, answers are integers */
+system.uniqueIdentifier != system.uniqueIdentifier /* system unique identifier generator */
 system.highBitPerByteTable.size = 256 /* high bits per byte table */
 system.highBitPerByteTable.asIdentityMultiset.sortedCounts = [128 -> 8, 64 -> 7, 32 -> 6, 16 -> 5, 8 -> 4, 4 -> 3, 2 -> 2, 1 -> 1, 1 -> 0]
 system.lowBitPerByteTable.size = 255 /* low bits per byte table */

@@ -273,16 +273,16 @@ System! : [Object, Cache, RandomNumberGenerator] {
 		<primitive: return performance.now() / 1000;>
 	}
 
-	uniqueId { :self |
-		let answer = self.cached('uniqueId') {
+	uniqueIdentifier { :self |
+		let answer = self.cached('uniqueIdentifier') {
 			1
 		};
-		self.cache['uniqueId'] := answer + 1;
+		self.cache['uniqueIdentifier'] := answer + 1;
 		answer
 	}
 
-	uniqueId { :self :anInteger |
-		self.cache['uniqueId'] := anInteger
+	uniqueIdentifier { :self :anInteger |
+		self.cache['uniqueIdentifier'] := anInteger
 	}
 
 	unixTimeInMilliseconds { :unused |

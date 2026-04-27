@@ -1000,7 +1000,7 @@ String! : [Object, Storeable, Equatable, Comparable, Json, Iterable, Indexable, 
 	}
 
 	unique { :self |
-		self ++ system.uniqueId
+		self ++ system.uniqueIdentifier
 	}
 
 	utf8ByteArray { :self |

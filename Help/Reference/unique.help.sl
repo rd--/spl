@@ -19,11 +19,11 @@ answer the same values as in _x_, but with no repetitions, and in sorted order.
 
 At `String`,
 answers a copy of the string _s_ with a unique identifier appended.
-The appended identifier is given by `uniqueId`.
+The appended identifier is given by `uniqueIdentifier`.
 
 ```
 >>> 'x'.unique
-'x' ++ (system.uniqueId - 1).asString
+'x' ++ (system.uniqueIdentifier - 1).asString
 ```
 
 Unique digits used in _n_ in numerical order,
@@ -63,7 +63,7 @@ t.unique.scatterPlot
 
 * * *
 
-See also: ++, nub, sort, String, uniqueElements, uniqueId
+See also: ++, nub, sort, String, uniqueElements, uniqueIdentifier
 
 Guides: Set Functions
 

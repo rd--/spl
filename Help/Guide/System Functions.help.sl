@@ -21,7 +21,7 @@ Help Functions:
 
 Identifiers:
 
-- `uniqueId`
+- `uniqueIdentifier`
 
 Local Host:
 
