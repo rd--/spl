@@ -933,6 +933,7 @@ Reference/ColourGrid.help.sl
 Reference/Colour.help.sl
 Reference/ColourPalette.help.sl
 Reference/colourPalettes.help.sl
+Reference/columnBinaryMatrix.help.sl
 Reference/ColumnBrowser.help.sl
 Reference/column.help.sl
 Reference/columnsCollect.help.sl
@@ -2019,6 +2020,7 @@ Reference/isAlmostPrime.help.sl
 Reference/isAlphaNumeric.help.sl
 Reference/isAlternating.help.sl
 Reference/isAmicablePair.help.sl
+Reference/isAntihermitianMatrix.help.sl
 Reference/isAntisymmetricMatrix.help.sl
 Reference/isApostrophe.help.sl
 Reference/isArithmeticProgression.help.sl
@@ -2117,6 +2119,7 @@ Reference/isHamiltonianInteger.help.sl
 Reference/isHappyNumber.help.sl
 Reference/isHarmonicDivisorNumber.help.sl
 Reference/isHarshadNumber.help.sl
+Reference/isHermitianMatrix.help.sl
 Reference/isHeronian.help.sl
 Reference/isHighlyAbundantNumber.help.sl
 Reference/isHighlyCompositeNumber.help.sl
