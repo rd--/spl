@@ -126,6 +126,20 @@ At a `Colour`, inverts the value of the colour channels:
 (true, true)
 ```
 
+Does not mutate reciever,
+see `negateInPlace`:
+
+```
+>>> let a = [1 2 3];
+>>> (a, a.negate)
+([1 2 3], [-1 -2 -3])
+
+>>> let a = [1 2 3; 4 5 6];
+>>> a.negateInPlace;
+>>> a
+[-1 -2 -3; -4 -5 -6]
+```
+
 The unary operator form is `-`.
 
 _Rationale_:

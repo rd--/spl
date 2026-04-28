@@ -1327,11 +1327,9 @@
 		n.isPrime.if {
 			let r = n.primitiveRootList;
 			r.collect { :g |
-				SparseArray(
-					1.toCollect(n - 1) { :i |
-						[g.powerMod(i, n), i] -> 1
-					}
-				)
+				1.toCollect(n - 1) { :i |
+					g.powerMod(i, n)
+				}.columnBinaryMatrix
 			}
 		} {
 			n.error('welchCostasArrayList: not prime')

@@ -94,6 +94,14 @@
 		self.choleskyBanachiewiczAlgorithm
 	}
 
+	columnBinaryMatrix { :self |
+		let k = self.size;
+		let c = [1 .. k].collect { :i |
+			[self[i], i] -> 1
+		};
+		SparseArray(c, [k, k], 0)
+	}
+
 	conjugateGradientMethod { :a :b :x :epsilon :n |
 		valueWithReturn { :return:/1 |
 			let r = b - a.dot(x);

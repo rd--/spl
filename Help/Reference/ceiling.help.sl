@@ -137,6 +137,23 @@ OEIS [A098294](https://oeis.org/A098294):
 ]
 ```
 
+Covering numbers _C(n,3,2)_,
+OEIS [A011975](https://oeis.org/A011975):
+
+```
+>>> let k = 3;
+>>> let t = 2;
+>>> 3:17.collect { :n |
+>>> 	let u = 1;
+>>> 	(n - t + 1).toDo(n) { :i |
+>>> 		let j = i - (n - k);
+>>> 		u := (u * i / j).ceiling
+>>> 	};
+>>> 	u
+>>> }
+[1 3 4 6 7 11 12 17 19 24 26 33 35 43 46]
+```
+
 Ceiling is a staircase function:
 
 ~~~spl svg=A

@@ -79,7 +79,7 @@ Plot a 43×43 array:
 
 * * *
 
-See also: erdosTuranConstruction, optimalGolombRulers, powerMod, primitiveRootList
+See also: costasBinaryMatrix, erdosTuranConstruction, optimalGolombRulers, powerMod, primitiveRootList
 
 Guides: Matrix Functions
 

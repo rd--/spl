@@ -59,6 +59,10 @@ Test if an exact matrix is normal:
 >>> [-1 1 0; 0 -1 1; 1 0 -1]
 >>> .isNormalMatrix
 true
+
+>>> [1 1 0; 0 1 1; 1 0 1]
+>>> .isNormalMatrix
+true
 ```
 
 The identity matrix is normal:

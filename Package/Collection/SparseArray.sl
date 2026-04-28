@@ -80,6 +80,10 @@ SparseArray : [Object, Storeable, Equatable, Comparable, Iterable, Indexable, Co
 		self.contents.keys
 	}
 
+	matrixPlot { :self |
+		self.normal.matrixPlot
+	}
+
 	nonZeroPositions { :self |
 		let rho = self.shape;
 		self.contents.keys.collect { :each |

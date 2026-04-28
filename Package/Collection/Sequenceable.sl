@@ -674,6 +674,17 @@
 		n.fromDigits(10)
 	}
 
+	deepReplace { :self :aBlock:/1 |
+		self.indicesDo { :index |
+			let entry = self[index];
+			entry.isSequenceable.if {
+				entry.deepReplace(aBlock:/1)
+			} {
+				self[index] := aBlock(entry)
+			}
+		}
+	}
+
 	deleteAdjacentDuplicates { :self :aBlock:/2 |
 		self.isEmpty.if {
 			[]

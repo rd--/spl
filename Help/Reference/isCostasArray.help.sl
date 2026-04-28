@@ -4,6 +4,13 @@
 
 An order-_n_ Costas array is a permutation on _1…n_ such that the distances in each row of the triangular difference table are distinct.
 
+A fourth-order Costas array:
+
+```
+>>> [2 1 3 4].isCostasArray
+true
+```
+
 A fifth-order Costas array:
 
 ```
@@ -68,6 +75,8 @@ Guides: List Functions
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/CostasArray.html)
+[1](https://mathworld.wolfram.com/CostasArray.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Costas_array)
 
 Further Reading: Costas 1984

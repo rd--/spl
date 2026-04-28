@@ -30,6 +30,7 @@ Specific Matrices:
 - `cauchyMatrix`
 - `cayleyMengerMatrix`
 - `circulantMatrix`
+- `compoundMatrix`
 - `condensedDistanceMatrix`
 - `connectionMatrix`
 - `crossMatrix`
@@ -117,12 +118,14 @@ Matrix Operations
 
 Predicates:
 
+- `isAntihermitianMatrix`
 - `isAntisymmetricMatrix`
 - `isBinaryMatrix`
 - `isBisymmetricMatrix`
 - `isCentrosymmetricMatrix`
 - `isDiagonalMatrix`
 - `isDiagonallyDominantMatrix`
+- `isHermitianMatrix`
 - `isIntegerMatrix`
 - `isInvolutoryMatrix`
 - `isLowerTriangularMatrix`

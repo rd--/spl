@@ -148,6 +148,10 @@
 		self.diagonal(0)
 	}
 
+	isAntihermitianMatrix { :self |
+		self.isVeryCloseTo(self.conjugateTranspose.negate)
+	}
+
 	isAntisymmetricMatrix { :self |
 		self.isSquareMatrix & {
 			self = self.transpose.negate
@@ -180,6 +184,10 @@
 
 	isDiagonalMatrix { :self |
 		self.isDiagonalMatrix(0)
+	}
+
+	isHermitianMatrix { :self |
+		self.isVeryCloseTo(self.conjugateTranspose)
 	}
 
 	isIntegerMatrix { :self |

@@ -2,9 +2,11 @@
 
 - _isAntisymmetricMatrix(m)_
 
-Answer `true` if the matrix _m_ is antisymmetric, else `false`.
+Answer `true` if the matrix _m_ is antisymmetric,
+also called skew-symmetric,
+else `false`.
 
-Test if a 2×2 numeric matrix is antisymmetric:
+Test if a 2×2 matrix is antisymmetric:
 
 ```
 >>> [
@@ -13,6 +15,14 @@ Test if a 2×2 numeric matrix is antisymmetric:
 >>> ].isAntisymmetricMatrix
 true
 
+>>> [0 2 -45; -2 0 -4; 45 4 0]
+>>> .isAntisymmetricMatrix
+true
+```
+
+Test if a 3×3 matrix is antisymmetric:
+
+```
 >>> [0 2 -45; -2 0 -4; 45 4 0]
 >>> .isAntisymmetricMatrix
 true
@@ -44,5 +54,6 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/AntisymmetricMatrixQ.html)
 _W_
 [1](https://en.wikipedia.org/wiki/Antisymmetric_matrix)
+[2](https://en.wikipedia.org/wiki/Skew-symmetric_matrix)
 
 Categories: Testing, Matrix

@@ -97,3 +97,9 @@ An alias for two argument form of `minors`.
 * * *
 
 See also: determinant, minors, submatrix, subsets
+
+Guides: Matrix Functions
+
+References:
+_W_
+[1](https://en.wikipedia.org/wiki/Compound_matrix)

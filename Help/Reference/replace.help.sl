@@ -25,7 +25,7 @@ At `List`:
 
 * * *
 
-See also: collect, replaceWith
+See also: collect, deepReplace, replaceWith
 
 Guides: Dictionary Functions, List Functions
 
