@@ -120,8 +120,8 @@ _J_
 _Mathematica_
 [1](https://mathworld.wolfram.com/NormalDistribution.html),
 _Mathworks_
-[1](https://au.mathworks.com/help/matlab/ref/randn.html)
-[2](https://au.mathworks.com/help/stats/normrnd.html),
+[1](https://mathworks.com/help/matlab/ref/randn.html)
+[2](https://mathworks.com/help/stats/normrnd.html),
 _NIST_
 [1](https://www.itl.nist.gov/div898/handbook/eda/section3/eda3661.htm),
 _W_

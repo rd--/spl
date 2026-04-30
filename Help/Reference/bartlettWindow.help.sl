@@ -59,7 +59,7 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/BartlettFunction.html)
 [2](https://reference.wolfram.com/language/ref/BartlettWindow.html),
 _Mathworks_
-[1](https://au.mathworks.com/help/signal/ref/bartlett.html)
-[2](https://au.mathworks.com/help/signal/ref/triang.html)
+[1](https://mathworks.com/help/signal/ref/bartlett.html)
+[2](https://mathworks.com/help/signal/ref/triang.html)
 
 Categories: Windowing

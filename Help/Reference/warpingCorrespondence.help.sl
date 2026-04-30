@@ -90,6 +90,6 @@ References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/WarpingCorrespondence.html),
 _Mathworks_
-[1](https://au.mathworks.com/help/signal/ref/dtw.html),
+[1](https://mathworks.com/help/signal/ref/dtw.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Dynamic_time_warping)

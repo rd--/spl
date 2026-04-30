@@ -864,8 +864,16 @@ String! : [Object, Storeable, Equatable, Comparable, Json, Iterable, Indexable, 
 		(n = 0).if {
 			self
 		} {
-			self.allButFirst(n) ++ self.first(n)
+			(n > 0).if {
+				self.allButFirst(n) ++ self.first(n)
+			} {
+				self.first(n) ++ self.allButFirst(n)
+			}
 		}
+	}
+
+	rotateRight { :self :anInteger |
+		self.rotateLeft(anInteger.negate)
 	}
 
 	select { :self :aBlock:/1 |

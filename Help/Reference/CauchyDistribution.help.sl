@@ -6,7 +6,7 @@ A `Type` that represents a Cauchy distribution with location parameter _x₀_ an
 The Cauchy distribution is the distribution of the _x_-intercept of a ray issuing from _(x₀, γ)_ with a uniformly distributed angle.
 It is also the distribution of the ratio of two independent normally distributed random variables with `mean` `zero`.
 
-Plot `pdf` over a subset of the reals:
+Plot the `pdf` of the Cauchy distribution over a subset of the reals:
 
 ~~~spl svg=A
 (-7 -- 7).functionPlot(
@@ -16,7 +16,7 @@ Plot `pdf` over a subset of the reals:
 
 ![](Help/Image/CauchyDistribution-A.svg)
 
-Plot `cdf` over a subset of the reals:
+Plot the `cdf` of the Cauchy distribution over a subset of the reals:
 
 ~~~spl svg=B
 (-7 -- 7).functionPlot(

@@ -317,6 +317,12 @@
 		}
 	}
 
+	shiftDimensions { :self :anInteger |
+		self.reshape(
+			self.shape.rotateLeft(anInteger)
+		)
+	}
+
 	subarray { :self :indices |
 		let k = indices.size;
 		let i = indices[1];

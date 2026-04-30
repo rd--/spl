@@ -332,6 +332,17 @@ Construct a 2×2×2×2 array,
 ]
 ```
 
+reshape a 3×4 matrix to a 2×6 matrix.
+
+```
+>>> [1 4 7 10; 2 5 8 11; 3 6 9 12]
+>>> .reshape([2 6])
+[
+	1  4  7 10  2  5;
+	8 11  3  6  9 12
+]
+```
+
 Where supported `reshape` is displayed as ⍴.
 
 The `arrayReshape` variant has different rules for mismatching item counts.

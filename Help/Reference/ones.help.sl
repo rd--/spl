@@ -34,3 +34,7 @@ Use `one` to copy element type of existing array:
 See also: one, reshape, zero, zeroes, zeroMatrix
 
 Guides: Matrix Functions
+
+References:
+_Mathworks_
+[1](https://mathworks.com/help/matlab/ref/ones.html)

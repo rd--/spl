@@ -75,7 +75,7 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/LogNormalDistribution.html)
 [2](https://reference.wolfram.com/language/ref/LogNormalDistribution.html),
 _Mathworks_
-[1](https://au.mathworks.com/help/stats/lognormal-distribution.html),
+[1](https://mathworks.com/help/stats/lognormal-distribution.html),
 _Python_
 [1](https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.lognormal.html),
 _W_

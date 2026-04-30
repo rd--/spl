@@ -9,6 +9,16 @@ Answer the hyperbolic cosine of the number _x_.
 1.81066
 ```
 
+Special values:
+
+```
+>>> 0.cosh
+1
+
+>>> 1.goldenRatio.log.cosh
+5.sqrt / 2
+```
+
 `cosh` can take `Complex` number inputs:
 
 ```
@@ -38,6 +48,14 @@ Minimum of `cosh`:
 ```
 >>> 0.cosh
 1
+```
+
+The denominators of the Taylor series of the hyperbolic cosine,
+OEIS [A010050](https://oeis.org/A010050):
+
+```
+>>> (0:6 * 2).factorial
+[1 2 24 720 40320 3628800 479001600]
 ```
 
 Plot over a subset of the reals:

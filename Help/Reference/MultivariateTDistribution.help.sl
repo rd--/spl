@@ -35,6 +35,6 @@ References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/MultivariateTDistribution.html),
 _Mathworks_
-[1](https://au.mathworks.com/help/stats/mvtpdf.html),
+[1](https://mathworks.com/help/stats/mvtpdf.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Multivariate_t-distribution)

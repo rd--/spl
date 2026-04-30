@@ -69,6 +69,6 @@ Guides: Date and Time Functions
 
 References:
 _Mathworks_
-[1](https://au.mathworks.com/help/matlab/ref/calendarduration.html)
+[1](https://mathworks.com/help/matlab/ref/calendarduration.html)
 
 Categories: Temporal, Type

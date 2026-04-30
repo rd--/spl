@@ -103,4 +103,4 @@ References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/ArrayPad.html),
 _Mathworks_
-[1](https://au.mathworks.com/help/images/ref/padarray.html)
+[1](https://mathworks.com/help/images/ref/padarray.html)

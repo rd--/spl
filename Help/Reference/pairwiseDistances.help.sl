@@ -37,6 +37,6 @@ Guides: Distance Functions
 
 References:
 _Mathworks_
-[1](https://au.mathworks.com/help/stats/pdist.html),
+[1](https://mathworks.com/help/stats/pdist.html),
 _Python_
 [1](https://docs.scipy.org/doc/scipy/reference/generated/scipy.spatial.distance.pdist.html)

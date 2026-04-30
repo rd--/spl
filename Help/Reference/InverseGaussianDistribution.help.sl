@@ -27,7 +27,7 @@ References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/InverseGaussianDistribution.html),
 _Mathworks_
-[1](https://au.mathworks.com/help/stats/prob.inversegaussiandistribution.html),
+[1](https://mathworks.com/help/stats/prob.inversegaussiandistribution.html),
 _Python_
 [1](https://numpy.org/doc/2.2/reference/random/generated/numpy.random.wald.html),
 _W_

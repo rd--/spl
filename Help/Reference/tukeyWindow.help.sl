@@ -74,7 +74,7 @@ References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/TukeyWindow.html),
 _Mathworks_
-[1](https://au.mathworks.com/help/signal/ref/tukeywin.html),
+[1](https://mathworks.com/help/signal/ref/tukeywin.html),
 _Python_
 [1](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.windows.tukey.html)
 

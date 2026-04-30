@@ -29,6 +29,6 @@ Guides: Trigonometric Functions
 
 References:
 _Mathworks_
-[1](https://au.mathworks.com/help/matlab/ref/double.atan2.html),
+[1](https://mathworks.com/help/matlab/ref/double.atan2.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Atan2)

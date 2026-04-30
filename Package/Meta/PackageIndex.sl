@@ -266,6 +266,7 @@
 	'ProbabilityDistribution-GammaDistribution'
 	'ProbabilityDistribution-GeometricDistribution'
 	'ProbabilityDistribution-HypergeometricDistribution'
+	'ProbabilityDistribution-HyperbolicDistribution'
 	'ProbabilityDistribution-InverseGaussianDistribution'
 	'ProbabilityDistribution-LaplaceDistribution'
 	'ProbabilityDistribution-LevyDistribution'

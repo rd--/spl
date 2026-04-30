@@ -147,7 +147,7 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/BetaDistribution.html)
 [2](https://reference.wolfram.com/language/ref/BetaDistribution.html),
 _Mathworks_
-[1](https://au.mathworks.com/help/stats/betarnd.html),
+[1](https://mathworks.com/help/stats/betarnd.html),
 _NIST_
 [1](https://www.itl.nist.gov/div898/handbook/eda/section3/eda366h.htm),
 _W_

@@ -5,12 +5,17 @@
 Rotate the sequence _x_ by _n_ places to the right,
 i.e. _n_ elements from the end are moved to the start.
 The rotation is not in place, a new sequence is answered.
+If _n_ is negative shift left instead.
+Also called a circular shift.
 
 Rotate right by three places:
 
 ```
 >>> 1:7.rotateRight(3)
 [5 6 7 1 2 3 4]
+
+>>> 1:10.rotateRight(3)
+[8 9 10 1 2 3 4 5 6 7]
 ```
 
 Rotate left by four places:
@@ -36,12 +41,26 @@ Rotating evenly and oddly sized vectors left and right by half of the size:
 [4 5 6 7 1 2 3]
 ```
 
+At `String`:
+
+```
+>>> 'racecar'.rotateRight(3)
+'carrace'
+
+>>> 'carrace'.rotateRight(-3)
+'racecar'
+```
+
 * * *
 
 See also: atWrap, rotateLeft
 
+Guides: List Functions
+
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/RotateRight.html)
+[1](https://reference.wolfram.com/language/ref/RotateRight.html),
+_Mathworks_
+[1](https://mathworks.com/help/matlab/ref/circshift.html)
 
 Categories: Ordering

@@ -134,6 +134,56 @@
 		}
 	}
 
+	besselK { :n :z |
+		<primitive:
+		/* https://git.sheetjs.com/SheetJS/bessel */
+		const horner = function(arr, v) { let z = 0; for(let i = 0; i < arr.length; ++i) z = v * z + arr[i]; return z; }
+		const b0_a = [-0.57721566, 0.42278420, 0.23069756, 0.3488590e-1, 0.262698e-2, 0.10750e-3, 0.74e-5].reverse();
+		const b0_b = [1.25331414, -0.7832358e-1, 0.2189568e-1, -0.1062446e-1, 0.587872e-2, -0.251540e-2, 0.53208e-3].reverse();
+		const besseli = function(x, n) { return _besselI_2(n, x); };
+		function bessel0(x) {
+			if(x <= 2) {
+				return -Math.log(x/2) * besseli(x,0) + horner(b0_a, x*x/4);
+			};
+			return Math.exp(-x) / Math.sqrt(x) * horner(b0_b, 2/x);
+		}
+		const b1_a = [1.0, 0.15443144, -0.67278579, -0.18156897, -0.1919402e-1, -0.110404e-2, -0.4686e-4].reverse();
+		const b1_b = [1.25331414, 0.23498619, -0.3655620e-1, 0.1504268e-1, -0.780353e-2, 0.325614e-2, -0.68245e-3].reverse();
+		function bessel1(x) {
+			if(x <= 2) {
+				return Math.log(x/2) * besseli(x,1) + (1/x) * horner(b1_a, x*x/4);
+			}
+			return Math.exp(-x)/Math.sqrt(x)*horner(b1_b, 2/x);
+		}
+		const bessel_iter = function(x, n, f0, f1, sign) {
+			if(n === 0) return f0;
+			if(n === 1) return f1;
+			const tdx = 2 / x;
+			let f2 = f1;
+			for(let o = 1; o < n; ++o) {
+				f2 = f1 * o * tdx + sign * f0;
+				f0 = f1; f1 = f2;
+			}
+			return f2;
+		}
+		const bessel_wrap = function(bessel0, bessel1, _name, nonzero, sign) {
+			return function bessel(x,n) {
+				if(nonzero) {
+					if(x === 0) return (nonzero == 1 ? -Infinity : Infinity);
+					else if(x < 0) return NaN;
+				}
+				if(n === 0) return bessel0(x);
+				if(n === 1) return bessel1(x);
+				if(n < 0) return NaN;
+				n|=0;
+				const b0 = bessel0(x), b1 = bessel1(x);
+				return bessel_iter(x, n, b0, b1, sign);
+			};
+		}
+		return bessel_wrap(bessel0, bessel1, 'BESSELK', 2, 1)(_z, _n);
+		>
+	}
+
 	besselY { :n :z |
 		<primitive:
 		/* https://git.sheetjs.com/SheetJS/bessel */

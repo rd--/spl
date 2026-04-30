@@ -32,6 +32,10 @@ Conjugate transpose of a complex-valued matrix:
 >>> [1 -2J1 5; 1J1 0J1 4J-2]
 >>> .conjugateTranspose
 [1 1J-1; -2J-1 0J-1; 5 4J2]
+
+>>> [1J1 1J-1; 0J-1 0J1]
+>>> .conjugateTranspose
+[1J-1 0J1; 1J1 0J-1]
 ```
 
 `conjugateTranspose` leaves the identity matrix unchanged:

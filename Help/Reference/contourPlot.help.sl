@@ -172,8 +172,8 @@ References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/ContourPlot.html),
 _Mathworks_
-[1](https://au.mathworks.com/help/matlab/ref/contour.html)
-[2](https://au.mathworks.com/help/matlab/ref/fcontour.html),
+[1](https://mathworks.com/help/matlab/ref/contour.html)
+[2](https://mathworks.com/help/matlab/ref/fcontour.html),
 _NIST_
 [1](https://www.itl.nist.gov/div898/handbook/eda/section3/contour.htm),
 _W_

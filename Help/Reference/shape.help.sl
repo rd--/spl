@@ -152,18 +152,25 @@ The empty sequence has shape [0]:
 [0]
 ```
 
-A row vector:
+A row vector, shape is 1×5:
 
 ```
 >>> [[1 2 3 4 5]].shape
 [1 5]
 ```
 
-A column vector:
+A column vector, shape is 5×1:
 
 ```
 >>> [1; 2; 3; 4; 5].shape
 [5 1]
+```
+
+A square matrix, shape is 2×2:
+
+```
+>>> [1 2; 3 4].shape
+[2 2]
 ```
 
 Where supported `shape` is displayed as ⍴.

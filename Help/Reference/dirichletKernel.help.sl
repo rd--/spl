@@ -26,6 +26,6 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/DirichletKernel.html),
 _Mathworks_
-[1](https://au.mathworks.com/help/signal/ref/diric.html),
+[1](https://mathworks.com/help/signal/ref/diric.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Dirichlet_kernel)

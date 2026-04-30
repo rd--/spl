@@ -123,7 +123,7 @@ _Maple_
 _Mathematica_
 [1](https://mathworld.wolfram.com/Truncate.html),
 _Mathworks_
-[1](https://au.mathworks.com/help/matlab/ref/double.fix.html),
+[1](https://mathworks.com/help/matlab/ref/double.fix.html),
 _Python_
 [1](https://docs.python.org/3/library/math.html#math.trunc),
 _Smalltalk_

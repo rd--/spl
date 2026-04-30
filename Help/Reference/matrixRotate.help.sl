@@ -4,6 +4,13 @@
 
 Rotate the matrix _m_ counter-clockwise by 90° _k_ times.
 
+Rotate a matrix counterclockwise by ninety degrees:
+
+```
+>>> [1 2; 3 4].matrixRotate(1)
+[2 4; 1 3]
+```
+
 The three rotations of a 3×3 matrix:
 
 ```

@@ -1,8 +1,8 @@
 # randomVariate
 
-- _randomVariate(d, r, shape)_
+- _randomVariate(d, r, ⍴)_
 
-Answer _shape_ pseudo-random variates from the probablity distribution _d_,
+Answer an array of shape _⍴_ of pseudo-random variates from the probablity distribution _d_,
 drawn using the random number generator _r_.
 
 Plot `randomVariate` of `CauchyDistribution`:

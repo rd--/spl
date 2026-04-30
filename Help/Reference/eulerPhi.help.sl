@@ -263,6 +263,33 @@ OEIS [A023022](https://oeis.org/A023022):
 [1 1 1 2 1 3 2 3 2 5 2 6 3 4 4 8]
 ```
 
+The number of distinct output sequences of a binary _n_-stage shift register,
+feeding back the complement of the last stage,
+OEIS [A000016](https://oeis.org/A000016),
+also,
+multiplied by two,
+OEIS [A063776](https://oeis.org/A063776):
+
+```
+>>> 1:19.collect { :n |
+>>> 	n.divisors.sum { :k |
+>>> 		(k % 2)
+>>> 		*
+>>> 		k.eulerPhi
+>>> 		*
+>>> 		(2 ^ (n / k))
+>>> 		/
+>>> 		(2 * n)
+>>> 	}
+>>> }
+[
+	1 1 2 2 4
+	6 10 16 30 52
+	94 172 316 586 1096
+	2048 3856 7286 13798
+]
+```
+
 The Euler totient function,
 OEIS [A000010](https://oeis.org/A000010):
 

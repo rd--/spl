@@ -59,7 +59,7 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/BlackmanHarrisFunction.html)
 [2](https://reference.wolfram.com/language/ref/BlackmanHarrisWindow.html),
 _Mathworks_
-[1](https://au.mathworks.com/help/signal/ref/blackmanharris.html),
+[1](https://mathworks.com/help/signal/ref/blackmanharris.html),
 _Python_
 [1](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.windows.blackmanharris.html),
 _W_

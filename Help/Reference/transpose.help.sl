@@ -313,6 +313,17 @@ The transpose of an orthogonal matrix is equivalent to the inverse of the origin
 m.inverse
 ```
 
+Transpose a square matrix:
+
+```
+>>> 3.magicSquare.transpose
+[
+	8 3 4;
+	1 5 9;
+	6 7 2
+]
+```
+
 Where supported `transpose` is displayed as ᵀ.
 
 * * *

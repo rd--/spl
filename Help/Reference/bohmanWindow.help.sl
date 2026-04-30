@@ -66,7 +66,7 @@ References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/BohmanWindow.html),
 _Mathworks_
-[1](https://au.mathworks.com/help/signal/ref/bohmanwin.html),
+[1](https://mathworks.com/help/signal/ref/bohmanwin.html),
 _Python_
 [1](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.windows.bohman.html)
 

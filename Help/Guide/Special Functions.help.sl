@@ -4,6 +4,7 @@ Bessel and Related Functions:
 
 - `besselI`
 - `besselJ`
+- `besselK`
 - `besselY`
 
 Elliptic Integrals:

@@ -55,6 +55,21 @@ OEIS [A007088](https://oeis.org/A007088):
 [1 0 1 1 0 1]
 ```
 
+Numbers whose binary representation contains no _01_,
+OEIS [A023758](https://oeis.org/A023758):
+
+```
+>>> 0:50.select { :n |
+>>> 	n.binaryExpansion
+>>> 	.includesSubstring([0 1])
+>>> 	.not
+>>> }
+[
+	 0  1  2  3  4  6  7  8 12 14
+	15 16 24 28 30 31 32 48
+]
+```
+
 Number of ones in the binary expansion of _n_ which have an even number of zeroes at less significant positions,
 OEIS [A343029](https://oeis.org/A343029):
 

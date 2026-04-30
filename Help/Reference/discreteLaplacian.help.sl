@@ -35,4 +35,4 @@ See also: differences, gradient
 
 References:
 _Mathworks_
-[1](https://au.mathworks.com/help/matlab/ref/del2.html)
+[1](https://mathworks.com/help/matlab/ref/del2.html)

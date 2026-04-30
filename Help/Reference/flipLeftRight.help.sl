@@ -19,6 +19,9 @@ Of a vector:
 Of a matrix:
 
 ```
+>>> [1 2; 3 4].flipLeftRight
+[2 1; 4 3]
+
 >>> [1 2 3; 4 5 6; 7 8 9].flipLeftRight
 [3 2 1; 6 5 4; 9 8 7]
 
@@ -38,6 +41,16 @@ Of a volume:
 >>> .flipLeftRight
 >>> .flipLeftRight
 [1 2; 3 4:; 5 6; 7 8]
+```
+
+To flip a matrix in the up-down direction use `reverse`:
+
+```
+>>> [1 2; 3 4].reverse
+[3 4; 1 2]
+
+>>> [1; 2; 3; 4].reverse
+[4; 3; 2; 1]
 ```
 
 * * *

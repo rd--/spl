@@ -22,6 +22,7 @@ Types:
 - `FRatioDistribution`
 - `GammaDistribution`
 - `GeometricDistribution`
+- `HyperbolicDistribution`
 - `HypergeometricDistribution`
 - `InverseGaussianDistribution`
 - `LaplaceDistribution`

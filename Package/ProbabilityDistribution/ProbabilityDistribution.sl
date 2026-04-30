@@ -1,7 +1,11 @@
 @ProbabilityDistribution {
 
-	cdf { :self :x |
+	[cdf, cumulativeDistributionFunction] { :self :x |
 		self.cdf.value(x)
+	}
+
+	cumulativeDistributionFunction { :self |
+		self.cdf
 	}
 
 	hazardFunction { :self :x |
@@ -16,8 +20,12 @@
 		self.inverseSurvivalFunction.value(x)
 	}
 
-	pdf { :self :x |
+	[pdf, probabilityDensityFunction] { :self :x |
 		self.pdf.value(x)
+	}
+
+	probabilityDensityFunction { :self |
+		self.pdf
 	}
 
 	quantile { :self :x |
