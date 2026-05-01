@@ -3,9 +3,9 @@
 A `Trait` for behaviours related to probablity distributions.
 
 ```
->>> system
->>> .traitDictionary['ProbabilityDistribution']
->>> .isTrait
+>>> system.traitDictionary.at(
+>>> 	'ProbabilityDistribution'
+>>> ).isTrait
 true
 ```
 
@@ -16,6 +16,7 @@ Types implementing `ProbabilityDistribution`:
 >>> 	'@ProbabilityDistribution'
 >>> ).sort
 [
+	'ArcSinDistribution'
 	'BernoulliDistribution'
 	'BetaBinomialDistribution'
 	'BetaDistribution'
@@ -27,16 +28,19 @@ Types implementing `ProbabilityDistribution`:
 	'ExtremeValueDistribution'
 	'GammaDistribution'
 	'GeometricDistribution'
+	'HyperbolicDistribution'
 	'HypergeometricDistribution'
 	'LaplaceDistribution'
 	'LevyDistribution'
 	'LogisticDistribution'
 	'LogNormalDistribution'
+	'MeixnerDistribution'
 	'NoncentralBetaDistribution'
 	'NoncentralChiSquareDistribution'
 	'NormalDistribution'
 	'ParetoDistribution'
 	'PoissonDistribution'
+	'SechDistribution'
 	'SkewNormalDistribution'
 	'StableDistribution'
 	'StudentTDistribution'

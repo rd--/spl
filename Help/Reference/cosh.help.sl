@@ -9,6 +9,21 @@ Answer the hyperbolic cosine of the number _x_.
 1.81066
 ```
 
+The inverse hyperbolic cosine is `arcCosh`:
+
+```
+>>> 1.2.cosh.arcCosh
+1.2
+```
+
+`cosh` of _x_ is the average of `exp` _x_ and _-x_:
+
+```
+>>> let x = 1.2;
+>>> ((x.exp + -x.exp) / 2, x.cosh)
+(1.81066, 1.81066)
+```
+
 Special values:
 
 ```
@@ -80,11 +95,13 @@ Plot `cosh` alongside a Padé approximation:
 `cosh` of _x_ is the average of `exp` _x_ and _-x_:
 
 ~~~spl svg=C
-(-1.pi -- 1.pi).functionPlot([
-	cosh:/1,
-	exp:/1,
-	{ :x | -x.exp }
-])
+(-1.pi -- 1.pi).functionPlot(
+	[
+		cosh:/1,
+		exp:/1,
+		{ :x | -x.exp }
+	]
+)
 ~~~
 
 ![](Help/Image/cosh-C.svg)
@@ -97,6 +114,22 @@ Plot over a subset of the complexes:
 ~~~
 
 ![](Help/Image/cosh-D.png)
+
+Hyperbolic cosine function raised to different powers,
+log scale plot:
+
+~~~spl svg=E
+(-3 -- 3).functionPlot(
+	[1 2 3].collect { :n |
+		{ :x |
+			(x.cosh ^ n)
+			.logScale
+		}
+	}
+)
+~~~
+
+![](Help/Image/cosh-E.svg)
 
 * * *
 

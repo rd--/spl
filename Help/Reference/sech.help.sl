@@ -9,6 +9,13 @@ Answer the hyperbolic secant of _z_.
 0.321805
 ```
 
+The inverse hyperbolic secant is `arcSech`:
+
+```
+>>> 1.8.sech.arcSech
+1.8
+```
+
 At `Complex`:
 
 ```

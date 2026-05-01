@@ -236,6 +236,7 @@
 
 	/* Random - ProbabilityDistribution */
 	'ProbabilityDistribution' /* Trait */
+	'ArcSinDistribution'
 	'BernoulliDistribution'
 	'BetaDistribution'
 	'BetaBinomialDistribution'
@@ -257,6 +258,7 @@
 	'LevyDistribution'
 	'LogisticDistribution'
 	'LogNormalDistribution'
+	'MeixnerDistribution'
 	'MultinormalDistribution'
 	'MultivariateTDistribution'
 	'NoncentralBetaDistribution'
@@ -265,6 +267,7 @@
 	'ParetoDistribution'
 	'PoissonDistribution'
 	'ReciprocalDistribution'
+	'SechDistribution'
 	'SkewNormalDistribution'
 	'StableDistribution'
 	'StudentTDistribution'

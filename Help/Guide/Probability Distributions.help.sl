@@ -6,6 +6,7 @@ Traits
 
 Types:
 
+- `ArcSinDistribution`
 - `BernoulliDistribution`
 - `BetaDistribution`
 - `BetaBinomialDistribution`
@@ -37,6 +38,7 @@ Types:
 - `ParetoDistribution`
 - `PoissonDistribution`
 - `ReciprocalDistribution`
+- `SechDistribution`
 - `SkewNormalDistribution`
 - `StableDistribution`
 - `StudentTDistribution`

@@ -9,6 +9,14 @@ Answer the hyperbolic sine of the number _x_.
 1.90430
 ```
 
+`sinh` of _x_ is the residual mean of `exp` _x_ and _-x_:
+
+```
+>>> let x = 1.4;
+>>> ((x.exp - -x.exp) / 2, x.sinh)
+(1.90430, 1.90430)
+```
+
 `sinh` can take `Complex` number inputs:
 
 ```

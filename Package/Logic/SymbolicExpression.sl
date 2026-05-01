@@ -184,6 +184,10 @@
 		1
 	}
 
+	sech { :self |
+		'sech'.symbolicPrimitive([self])
+	}
+
 	sin { :self |
 		'sin'.symbolicPrimitive([self])
 	}

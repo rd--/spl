@@ -1,5 +1,9 @@
 @ProbabilityDistribution {
 
+	[cdf, cumulativeDistributionFunction] { :self |
+		self.typeResponsibility('cdf')
+	}
+
 	[cdf, cumulativeDistributionFunction] { :self :x |
 		self.cdf.value(x)
 	}
@@ -18,6 +22,10 @@
 
 	inverseSurvivalFunction { :self :x |
 		self.inverseSurvivalFunction.value(x)
+	}
+
+	[pdf, probabilityDensityFunction] { :self |
+		self.typeResponsibility('pdf')
 	}
 
 	[pdf, probabilityDensityFunction] { :self :x |
