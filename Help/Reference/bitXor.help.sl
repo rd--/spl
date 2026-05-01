@@ -6,6 +6,9 @@ Answer bitwise exclusive or of _i_ and _j_.
 Also Nim-sum, written _i⊕j_.
 
 ```
+>>> 2r0011.bitXor(2r0101)
+2r0110
+
 >>> 16r5A463CA6.bitXor(16r67376856)
 16r3D7154F0
 ```

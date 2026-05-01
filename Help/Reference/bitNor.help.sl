@@ -6,6 +6,9 @@ Answers the bitwise not of the bitwise or of the integers _a_ and _b_.
 All bits that are unset in both inputs will be set in the output.
 
 ```
+>>> 2r0011.bitNor(2r0101, 4)
+2r1000
+
 >>> let a = 2r0110_0001;
 >>> let b = 2r0110_0010;
 >>> bitNor(a, b, 8)

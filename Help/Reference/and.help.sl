@@ -3,7 +3,7 @@
 - _b & f:/0_
 - _c.&_
 
-Nonevaluating conjunction.
+Nonevaluating logical conjunction.
 `true` if the boolean _b_ is `true` and the block _f_ evaluates to `true`, else `false`.
 If _b_ is `false` then _f_ is not evaluated.
 The operator form is `&`.
