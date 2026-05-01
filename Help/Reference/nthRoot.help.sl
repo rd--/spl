@@ -99,6 +99,14 @@ On the negative real axis, `nthRoot` is undefined for even _n_:
 true
 ```
 
+Decimal expansion of fourth root of fourty-five,
+OEIS [A011039](https://oeis.org/A011039):
+
+```
+>>> 45.nthRoot(4)
+2.590020064111351
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A

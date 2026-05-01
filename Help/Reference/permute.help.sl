@@ -135,6 +135,29 @@ OEIS [https://oeis.org/A090280](https://oeis.org/https://oeis.org/A090280):
 ]
 ```
 
+A permutation sequence,
+the rule is that the central pair changes order,
+then the two middle pairs,
+then the outer pairs,
+the period is twenty:
+
+~~~
+let p = [
+	3 4:;
+	2 3; 4 5:;
+	1 2; 5 6
+];
+let a = [1 2 3 4 5 6];
+let b = [];
+1:19.do { :i |
+	b.add(a.copy);
+	a := a.permute(p.atWrap(i))
+};
+b.transpose.matrixPlot
+~~~
+
+![](Help/Image/permute-A.svg)
+
 * * *
 
 See also: cycles, findPermutation, permutationMatrix, permutationReplace

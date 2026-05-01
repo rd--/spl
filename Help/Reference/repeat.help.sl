@@ -362,6 +362,14 @@ OEIS [A135352](https://oeis.org/A135352):
 [1 2 2 1 3 1 2 2 1 3 1 2 2 1 3]
 ```
 
+Repeat _1:6_,
+OEIS [A010885](https://oeis.org/A010885):
+
+```
+>>> [1 .. 6].repeat(3)
+[1 2 3 4 5 6 1 2 3 4 5 6 1 2 3 4 5 6]
+```
+
 A Chebyshev transform of the Fibonacci numbers,
 OEIS [A100047](https://oeis.org/A100047):
 

@@ -61,6 +61,30 @@ t.unique.scatterPlot
 
 ![](Help/Image/unique-B.svg)
 
+A construction by Clark Kimberling,
+OEIS [A030747](https://oeis.org/A030747)
+and
+OEIS [A030748](https://oeis.org/A030748):
+
+~~~spl svg=C
+let a = [4];
+let b = [];
+16.timesRepeat {
+	let c = (a ++ b);
+	let d = c.unique;
+	let e = c.Multiset.sortedElements;
+	let f = e.collect(value:/1);
+	b.addAll(d);
+	a.addAll(f)
+};
+PlotSet(
+	[a b].collect(scatterPlot:/1),
+	[2 1]
+)
+~~~
+
+![](Help/Image/unique-C.svg)
+
 * * *
 
 See also: ++, nub, sort, String, uniqueElements, uniqueIdentifier

@@ -104,6 +104,21 @@ OEIS [A118276](https://oeis.org/A118276):
 ]
 ```
 
+Signature sequence of _1/π_,
+OEIS [A023134](https://oeis.org/A023134):
+
+```
+>>> (1 / 1.pi)
+>>> .signatureSequence(92)
+[
+	1 1 1 1 2 1 2 1 2 1 2 3 1 2 3 1 2 3 1 2
+	3 4 1 2 3 4 1 2 3 4 1 2 3 4 5 1 2 3 4 5
+	1 2 3 4 5 1 2 3 4 5 6 1 2 3 4 5 6 1 2 3
+	4 5 6 1 2 3 4 5 6 7 1 2 3 4 5 6 7 1 2 3
+	4 5 6 7 1 2 3 4 5 6 7 8
+]
+```
+
 Signature sequence of φ²,
 OEIS [A118276](https://oeis.org/A118276):
 

@@ -4,6 +4,18 @@
 
 A discrete dynamical system defined by a quadratic difference equation.
 
+Oscillator behavior:
+
+```
+>>> logisticMap(3.1).nestList(0.5, 15)
+[
+	0.5000 0.7750 0.5406 0.7699
+	0.5492 0.7675 0.5532 0.7662
+	0.5553 0.7655 0.5564 0.7651
+	0.5571 0.7649 0.5575 0.7648
+]
+```
+
 The logistic map at _r=3.6_:
 
 ~~~spl svg=A

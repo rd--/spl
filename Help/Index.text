@@ -392,6 +392,7 @@ Reference/arcMinute.help.sl
 Reference/arcSec.help.sl
 Reference/arcSech.help.sl
 Reference/arcSecond.help.sl
+Reference/ArcSinDistribution.help.sl
 Reference/arcSin.help.sl
 Reference/ArcSin.help.sl
 Reference/arcSinh.help.sl
@@ -627,6 +628,7 @@ Reference/bernoulliTriangle.help.sl
 Reference/bernsteinBasis.help.sl
 Reference/besselI.help.sl
 Reference/besselJ.help.sl
+Reference/besselK.help.sl
 Reference/besselY.help.sl
 Reference/BetaBinomialDistribution.help.sl
 Reference/BetaDistribution.help.sl
@@ -1839,6 +1841,7 @@ Reference/hue.help.sl
 Reference/HuffmanCoding.help.sl
 Reference/huffmanEncode.help.sl
 Reference/hyperbolaCurve.help.sl
+Reference/HyperbolicDistribution.help.sl
 Reference/hyperbolicHelicoid.help.sl
 Reference/hyperbolicSpiral.help.sl
 Reference/hyperfactorial.help.sl
@@ -2703,6 +2706,7 @@ Reference/median.help.sl
 Reference/Median.help.sl
 Reference/mediant.help.sl
 Reference/meisselMertensConstant.help.sl
+Reference/MeixnerDistribution.help.sl
 Reference/MemoizationTable.help.sl
 Reference/memoize.help.sl
 Reference/Menu.help.sl
@@ -3637,6 +3641,7 @@ Reference/scottsRule.help.sl
 Reference/ScSynth.help.sl
 Reference/ScUgen.help.sl
 Reference/search.help.sl
+Reference/SechDistribution.help.sl
 Reference/sec.help.sl
 Reference/sech.help.sl
 Reference/secondBrocardTriangle.help.sl
@@ -3696,6 +3701,7 @@ Reference/shapeIndices.help.sl
 Reference/sharp.help.sl
 Reference/shellSort.help.sl
 Reference/shellSortMatrix.help.sl
+Reference/shiftDimensions.help.sl
 Reference/shiftRegisterSequence.help.sl
 Reference/shoelaceFormula.help.sl
 Reference/show.help.sl
