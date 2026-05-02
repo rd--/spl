@@ -222,6 +222,23 @@ OEIS [A022851](https://oeis.org/A022851):
 [0 3 6 8 11 14 17 20 23 25 28 31 34 37]
 ```
 
+⌊(n/√2),
+OEIS [A049472](https://oeis.org/A049472):
+
+```
+>>> (0:14 / 2.sqrt).floor
+[0 0 1 2 2 3 4 4 5 6 7 7 8 9 9]
+```
+
+First differences of ⌊(n/√2),
+a Sturmian word,
+OEIS [A080764](https://oeis.org/A080764):
+
+```
+>>> (1:23 / 2.sqrt).floor.differences
+[1 1 0 1 1 0 1 1 1 0 1 1 0 1 1 1 0 1 1 0 1 1]
+```
+
 Plot square root over a subset of the reals:
 
 ~~~spl svg=A

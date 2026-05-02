@@ -2044,3 +2044,29 @@
 	}
 
 }
+
++@Number {
+
+	christoffelWord { :c :k |
+		let x = 1;
+		let y = 0;
+		let a = [0];
+		1.toDo(k - 1) { :n |
+			((y + 1) <= (c * x)).if {
+				a.add(1);
+				y := y + 1
+			} {
+				a.add(0);
+				x := x + 1
+			}
+		};
+		a
+	}
+
+	sturmianWord { :c :k |
+		1:k.collect { :n |
+			floor((n + 1) * c) - floor(n * c)
+		}
+	}
+
+}

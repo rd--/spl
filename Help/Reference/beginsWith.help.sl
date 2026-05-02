@@ -63,7 +63,7 @@ false
 
 * * *
 
-See also: beginsWithAnyOf, endsWith, first
+See also: beginsWithAnyOf, endsWith, first, isPrefixOf
 
 Guides: List Functions, String Functions
 

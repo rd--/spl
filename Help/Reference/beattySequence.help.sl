@@ -112,6 +112,29 @@ OEIS [A285676](https://oeis.org/A285676):
 [1 3 4 6 8 9 11 12 14 16 17 19 20]
 ```
 
+The Beatty sequences for _α=e+1_,
+OEIS [A000572](https://oeis.org/A000572)
+and
+OEIS [A006594](https://oeis.org/A006594),
+and the cutting sequence for _1/e_,
+OEIS [A085369](https://oeis.org/A085369):
+
+```
+>>> 13.beattySequence(1.e + 1)
+[3 7 11 14 18 22 26 29 33 37 40 44 48]
+
+>>> let alpha = 1.e + 1;
+>>> let beta = alpha / (alpha - 1);
+>>> 13.beattySequence(beta)
+[1 2 4 5 6 8 9 10 12 13 15 16 17]
+
+>>> let alpha = 1.e + 1;
+>>> let beta = alpha / (alpha - 1);
+>>> 16.beattySequence(beta)
+>>> .characteristicFunction
+[1 1 0 1 1 1 0 1 1 1 0 1 1 0 1 1 1 0 1 1 1]
+```
+
 Two interleaved Beatty sequences,
 OEIS [A094077](https://oeis.org/A094077):
 

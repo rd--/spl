@@ -184,6 +184,30 @@ a fifth plus a fourth equals an octave:
 2/1
 ```
 
+Index of _3^n_ in sequence of three-smooth numbers,
+OEIS [A022330](https://oeis.org/A022330):
+
+```
+>>> 1:13.collect { :n |
+>>> 	1 + 1:n.sum { :j |
+>>> 		(j * 3.log(2)).ceiling
+>>> 	}
+>>> }
+[3 7 12 19 27 37 49 62 77 93 111 131 152]
+```
+
+Index of _2^n_ in sequence of three-smooth numbers,
+OEIS [A022331](https://oeis.org/A022331):
+
+```
+>>> 1:13.collect { :n |
+>>> 	1 + 1:n.sum { :j |
+>>> 		(j * 2.log(3)).ceiling
+>>> 	}
+>>> }
+[2 4 6 9 13 17 22 28 34 41 48 56 65]
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A

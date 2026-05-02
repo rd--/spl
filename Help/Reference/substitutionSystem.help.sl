@@ -511,6 +511,19 @@ s.last(k).discretePlot
 
 ![](Help/Image/substitutionSystem-L.svg)
 
+Fixed point of morphism _0→0,1;1→0,1,0_,
+a Sturmian word,
+OEIS [A159684](https://oeis.org/A159684):
+
+~~~spl svg=M oeis=A159684
+[0 -> [0 1], 1 -> [0 1 0]]
+.substitutionSystem([1], 6)
+.last
+.discretePlot
+~~~
+
+![](Help/Image/substitutionSystem-M.svg)
+
 * * *
 
 See also: Association, fibonacciWord, locallyCatenativeSequence, Map, rudinShapiro, simpleLindenmayerSystem, thueMorse

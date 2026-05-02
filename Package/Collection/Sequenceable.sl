@@ -1537,6 +1537,10 @@
 		}
 	}
 
+	isPrefixOf { :self :operand |
+		operand.beginsWith(self)
+	}
+
 	isRegularlySpaced { :self |
 		let k = self.size;
 		(k <= 2).if {

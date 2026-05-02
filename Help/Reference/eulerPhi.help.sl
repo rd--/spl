@@ -290,6 +290,16 @@ OEIS [A063776](https://oeis.org/A063776):
 ]
 ```
 
+The number of bispecial Sturmian words of length _n_,
+OEIS [A180444](https://oeis.org/A180444):
+
+```
+>>> 0:13.collect { :n |
+>>> 	(2 * n) + 2 - (n + 2).eulerPhi
+>>> }
+[1 2 4 4 8 6 10 10 14 10 18 12 20 20]
+```
+
 The Euler totient function,
 OEIS [A000010](https://oeis.org/A000010):
 

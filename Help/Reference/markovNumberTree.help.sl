@@ -2,7 +2,7 @@
 
 - _markovNumberTree(n)_
 
-Answer the Markov number tree to depth _n_.
+Answer the Markov, or Markoff, number tree to depth _n_.
 
 The first six levels of the infinite Markov number tree:
 
@@ -38,6 +38,14 @@ All entries in the Markov tree are Markov numbers:
 >>> .catenate
 >>> .allSatisfy(isMarkovNumber:/1)
 true
+```
+
+Markov numbers,
+OEIS [A002559](https://oeis.org/A002559):
+
+```
+>>> 1:12.collect(markovNumber:/1)
+[1 2 5 13 29 34 89 169 194 233 433 610]
 ```
 
 Plot the first five levels:

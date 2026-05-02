@@ -288,6 +288,14 @@ OEIS [A019446](https://oeis.org/A019446):
 [1 2 2 3 4 4 5 5 6 7 7 8 9 9 10 10 11]
 ```
 
+_⌊(nφ)+1_,
+OEIS [A026351](https://oeis.org/A026351):
+
+```
+>>> (0:13 * 1.goldenRatio).floor + 1
+[1 2 4 5 7 9 10 12 13 15 17 18 20 22]
+```
+
 Plot the fractional part of multiples of the golden ratio:
 
 ~~~spl svg=A

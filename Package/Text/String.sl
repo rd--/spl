@@ -575,6 +575,10 @@ String! : [Object, Storeable, Equatable, Comparable, Json, Iterable, Indexable, 
 		self.characters.isPalindrome
 	}
 
+	isPrefixOf { :self :operand |
+		operand.beginsWith(self)
+	}
+
 	isPrintableAscii { :self |
 		self.utf8ByteArray.allSatisfy { :each |
 			each.betweenAnd(32, 126)

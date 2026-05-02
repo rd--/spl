@@ -952,6 +952,30 @@ OEIS [A090281](https://oeis.org/A090281):
 [1 2 3 4 4 3 2 1 1 2 3 4 4 3 2 1]
 ```
 
+The Faase sequence,
+OEIS [A003688](https://oeis.org/A003688):
+
+```
+>>> [3 1].linearRecurrence([1 4], 10)
+[1 4 13 43 142 469 1549 5116 16897 55807]
+```
+
+Bronze Fibonacci numbers,
+OEIS [A006190](https://oeis.org/A006190):
+
+```
+>>> [3 1].linearRecurrence([0 1], 10)
+[0 1 3 10 33 109 360 1189 3927 12970]
+```
+
+An elephant sequence,
+OEIS [A006138](https://oeis.org/A006138):
+
+```
+>>> [1 3].linearRecurrence([1 2], 10)
+[1 2 5 11 26 59 137 314 725 1667]
+```
+
 Draw spiral:
 
 ~~~spl svg=A
