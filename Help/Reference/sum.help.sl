@@ -231,6 +231,23 @@ Evaluate symbolically:
 (+ (+ x y) z)
 ```
 
+A matrix of transition probabilities,
+columns sum to `one` (Xenakis 1992, p.89):
+
+```
+>>> [
+>>> 	021 357 084 189 165 204 408 096;
+>>> 	084 089 076 126 150 136 072 144;
+>>> 	084 323 021 126 150 036 272 144;
+>>> 	336 081 019 084 135 024 048 216;
+>>> 	019 063 336 171 110 306 102 064;
+>>> 	076 016 304 114 100 204 018 096;
+>>> 	076 057 084 114 100 054 068 096;
+>>> 	304 014 076 076 090 036 012 144
+>>> ].transpose.collect(sum:/1) / 1000
+[1 1 1 1 1 1 1 1]
+```
+
 Sum previous terms at offset divisors,
 OEIS [A281488](https://oeis.org/A281488):
 

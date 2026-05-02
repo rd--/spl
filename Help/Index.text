@@ -866,6 +866,7 @@ Reference/chordDiagramCount.help.sl
 Reference/ChordDiagram.help.sl
 Reference/chordDiagramPlot.help.sl
 Reference/chordDiagrams.help.sl
+Reference/christoffelWord.help.sl
 Reference/chroma.help.sl
 Reference/chunksOfFrom.help.sl
 Reference/chunksOf.help.sl
@@ -2211,6 +2212,7 @@ Reference/isPositiveOddInteger.help.sl
 Reference/isPowerfulNumber.help.sl
 Reference/isPowerOfTwo.help.sl
 Reference/isPracticalNumber.help.sl
+Reference/isPrefixOf.help.sl
 Reference/isPrime.help.sl
 Reference/isPrimePower.help.sl
 Reference/isPrimeTrialDivision.help.sl
@@ -3934,6 +3936,7 @@ Reference/stringReverse.help.sl
 Reference/strophoid.help.sl
 Reference/StudentTDistribution.help.sl
 Reference/sturgesRule.help.sl
+Reference/sturmianWord.help.sl
 Reference/styleSheetList.help.sl
 Reference/subarray.help.sl
 Reference/subdivide.help.sl
