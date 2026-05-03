@@ -248,6 +248,38 @@ columns sum to `one` (Xenakis 1992, p.89):
 [1 1 1 1 1 1 1 1]
 ```
 
+_1+R_,
+OEIS [A073115](https://oeis.org/A073115):
+
+```
+>>> 0:9.sum { :k |
+>>> 	0.5 ^ (k * 1.goldenRatio).floor
+>>> }
+1 + 1.rabbitConstant
+```
+
+The decimal expansions of constants defined by binary sums involving Beatty sequences,
+OEIS [A119809](https://oeis.org/A119809)
+and
+OEIS [A119812](https://oeis.org/A119812):
+
+```
+>>> let c = 'Sqrt(2)'.namedConstant;
+>>> [c, c / 2].collect { :t |
+>>> 	1:20.collect { :n |
+>>> 		let k = 10 * n;
+>>> 		let x = 1:k.sum { :m |
+>>> 			(m * t).floor / (2 ^ m)
+>>> 		};
+>>> 		(10 ^ n * x).floor % 10
+>>> 	}
+>>> }
+[
+	3 2 2 5 8 8 5 2 2 5 8 8 0 6 7 7 3 0 1 2;
+	8 5 8 2 6 7 6 5 6 4 6 1 0 0 2 0 5 5 7 9
+]
+```
+
 Sum previous terms at offset divisors,
 OEIS [A281488](https://oeis.org/A281488):
 

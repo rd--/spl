@@ -71,6 +71,10 @@ Pyhsical Constants:
 - `reducedPlanckConstant`: ℏ
 - `speedOfLight`: _c_
 
+Named Constants:
+
+- `namedConstant`
+
 * * *
 
 See also: degree, e, eulerGamma, goldenRatio, pi

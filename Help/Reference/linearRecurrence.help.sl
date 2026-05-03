@@ -976,6 +976,30 @@ OEIS [A006138](https://oeis.org/A006138):
 [1 2 5 11 26 59 137 314 725 1667]
 ```
 
+Number of distributive lattices,
+OEIS [A006359](https://oeis.org/A006359):
+
+```
+>>> [3 6 -4 -5 1 1].linearRecurrence(
+>>> 	[1 6 21 91 371 1547], 13
+>>> )
+[
+	1 6 21 91 371
+	1547 6405 26585 110254 457379
+	1897214 7869927 32645269
+]
+```
+
+Dying rabbits,
+OEIS [A023434](https://oeis.org/A023434):
+
+```
+>>> [1 1 0 -1].linearRecurrence(
+>>> 	[0 1 1 2], 15
+>>> )
+[0 1 1 2 3 4 6 8 11 15 20 27 36 48 64]
+```
+
 Draw spiral:
 
 ~~~spl svg=A

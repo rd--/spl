@@ -2070,3 +2070,38 @@
 	}
 
 }
+
++SmallFloat {
+
+	rationalOrderingFibonacci { :self |
+		{ :r |
+			(
+				r.collect { :x |
+					(x > 1).if {
+						[x, 1L / x - 1]
+					} {
+						[x / 1L]
+					}
+				}.catenate
+			) + 1
+		}.nestList([1/1], self - 1)
+	}
+
+}
+
++String {
+
+	rationalOrdering { :self :anInteger |
+		self.caseOf(
+			[
+				'Fibonacci' -> {
+					let a = anInteger.fibonacciSequenceUpTo;
+					let b = a.size - 2;
+					let c = b.rationalOrderingFibonacci;
+					c.catenate.first(anInteger)
+				}
+			]
+		)
+	}
+
+}

@@ -408,6 +408,11 @@ OEIS [A000301](https://oeis.org/A000301):
 	1 2 2 4 8 32 256 8192 2097152
 	17179869184 36028797018963968L
 ]
+
+>>> let c = 2L ^ 0:10.fibonacci;
+>>> c.addFirst(0);
+>>> c.fromContinuedFraction
+1.rabbitConstant
 ```
 
 _3^F(n)_,
@@ -425,6 +430,49 @@ OEIS [A008466](https://oeis.org/A008466):
 >>> let n = 0:12;
 >>> 2 ^ n - (n + 2).fibonacci
 [0 0 1 3 8 19 43 94 201 423 880 1815 3719]
+```
+
+Fibonacci numbers,
+or rabbit sequence,
+converted to decimal,
+OEIS [A005203](https://oeis.org/A005203):
+
+```
+>>> let a = Map { :n |
+>>> 	(n < 2).if {
+>>> 		n
+>>> 	} {
+>>> 		let f = (n - 1).fibonacci;
+>>> 		a[n - 1] * (2L ^ f) + a[n - 2]
+>>> 	}
+>>> };
+>>> a[0:10]
+[
+	0
+	1
+	2
+	5
+	22
+	181
+	5814
+	1488565
+	12194330294
+	25573364166211253L
+	439347050970302571643057846L
+]
+```
+
+The prefix sum of the Fibonacci numbers is equal to _F(n+2)-1_:
+
+```
+>>> 1:14.fibonacci
+[1 1 2 3 5 8 13 21 34 55 89 144 233 377]
+
+>>> 1:14.fibonacci.prefixSum
+3:16.fibonacci - 1
+
+>>> 1:13.fibonacci.prefixSum
+[1 2 4 7 12 20 33 54 88 143 232 376 609]
 ```
 
 Plot Fibonacci over a subset of the reals:

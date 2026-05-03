@@ -349,5 +349,6 @@ _Smalltalk_
 5.6.9.1,
 _W_
 [1](https://en.wikipedia.org/wiki/Fraction)
+[2](https://en.wikipedia.org/wiki/Rational_number)
 
 Categories: Arithmetic, Math

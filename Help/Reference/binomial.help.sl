@@ -815,6 +815,24 @@ OEIS [A247415](https://oeis.org/A247415):
 [1 4 14 51 187 695 2606 9842 37386]
 ```
 
+_C(k,n-k)_,
+OEIS [A030528](https://oeis.org/A030528):
+
+```
+>>> 1:7.triangularArray { :n :k |
+>>> 	binomial(k, n - k)
+>>> }
+[
+	1;
+	1 1;
+	0 2 1;
+	0 1 3 1;
+	0 0 3 4 1;
+	0 0 1 6 5 1;
+	0 0 0 4 10 6 1
+]
+```
+
 Plot over a subset of the reals as a function of its first parameter:
 
 ~~~spl svg=A

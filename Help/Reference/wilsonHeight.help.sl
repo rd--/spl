@@ -1,6 +1,6 @@
 # wilsonHeight
 
-- _wilsonHeight(aFraction)_
+- _wilsonHeight(n/d)_
 
 The Wilson is given by the sum of prime factors with repetition.
 

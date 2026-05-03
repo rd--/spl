@@ -238,6 +238,23 @@ OEIS [A000379](https://oeis.org/A000379):
 ]
 ```
 
+Numbers having in their canonical prime factorization mutually distinct exponents,
+OEIS [A130091](https://oeis.org/A130091):
+
+```
+>>> 1:99.select { :n |
+>>> 	n.primeSignature.isDuplicateFree
+>>> }
+[
+	 1  2  3  4  5  7  8  9 11 12
+	13 16 17 18 19 20 23 24 25 27
+	28 29 31 32 37 40 41 43 44 45
+	47 48 49 50 52 53 54 56 59 61
+	63 64 67 68 71 72 73 75 76 79
+	80 81 83 88 89 92 96 97 98 99
+]
+```
+
 Prime signature of _n_,
 OEIS [A212171](https://oeis.org/A212171):
 
@@ -477,6 +494,30 @@ OEIS [A077592](https://oeis.org/A077592):
 ~~~
 
 ![](Help/Image/primeSignature-O.svg)
+
+Number of divisors of _n_ whose prime factorizations contain no repeated positive exponents,
+OEIS [A181796](https://oeis.org/A181796):
+
+~~~spl svg=P oeis=A181796
+1:105.collect { :n |
+	n.divisorSum { :d |
+		d.primeSignature.isDuplicateFree.boole
+	}
+}.scatterPlot
+~~~
+
+![](Help/Image/primeSignature-P.svg)
+
+Number of odd exponents in the canonical prime factorization of _n_,
+OEIS [A162642](https://oeis.org/A162642):
+
+~~~spl svg=Q oeis=A162642
+1:85.collect { :n |
+	n.primeSignature.count(isOdd:/1)
+}.stepPlot
+~~~
+
+![](Help/Image/primeSignature-Q.svg)
 
 * * *
 

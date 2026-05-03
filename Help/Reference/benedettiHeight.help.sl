@@ -1,8 +1,8 @@
 # benedettiHeight
 
-- _benedettiHeight(aFraction)_
+- _benedettiHeight(n/d)_
 
-The `product` of the `numerator` and `denominator`.
+The `product` of the `numerator` _n_ and `denominator` _d_.
 
 ```
 >>> 81/64.benedettiHeight
@@ -19,6 +19,8 @@ Threads over lists:
 * * *
 
 See also: tenneyHeight
+
+Guides: Xenharmonic Functions
 
 References:
 _Xenharmonic_

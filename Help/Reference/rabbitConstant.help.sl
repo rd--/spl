@@ -19,6 +19,14 @@ Continued fraction:
 [1 2 2 4 8 32 256]
 ```
 
+The binary case answers a `Decimal` value with _m_ decimal places,
+OEIS [A014565](https://oeis.org/A014565):
+
+```
+>>> 1.rabbitConstant(34)
+0.7098034428612913146417873994445755D
+```
+
 * * *
 
 See also: fibonacciWord

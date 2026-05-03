@@ -89,6 +89,16 @@ OEIS [A077957](https://oeis.org/A077957):
 [1 0 2 0 4 0 8 0 16 0 32 0 64 0 128 0]
 ```
 
+The inverse binomial transform of
+the continued fraction of the square root of two,
+OEIS [A165326](https://oeis.org/A165326):
+
+```
+>>> [1 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2]
+>>> .inverseBinomialTransform
+[1 1 -1 1 -1 1 -1 1 -1 1 -1 1 -1 1 -1 1 -1]
+```
+
 The signed Fibonacci numbers,
 OEIS [A039834](https://oeis.org/A039834):
 

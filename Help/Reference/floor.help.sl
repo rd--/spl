@@ -298,6 +298,30 @@ OEIS [A048760](https://oeis.org/A048760):
 
 ![](Help/Image/floor-N.svg)
 
+_-1^(⌊(3k/2))*C(⌊((n+k)/2),k)_,
+OEIS [A187660](https://oeis.org/A187660):
+
+~~~spl svg=O oeis=A187660
+0:12.triangularArray { :n :k |
+	(-1 ^ (3 * k / 2).floor)
+	*
+	binomial(((n + k) / 2).floor, k)
+}.catenate.discretePlot
+~~~
+
+![](Help/Image/floor-O.svg)
+
+_C(⌊((n+k)/2),k)_,
+OEIS [A046854](https://oeis.org/A046854):
+
+~~~spl svg=P oeis=A046854
+0:12.triangularArray { :n :k |
+	binomial(((n + k) / 2).floor, k)
+}.catenate.discretePlot
+~~~
+
+![](Help/Image/floor-P.svg)
+
 Where supported `floor` is displayed as ⌊.
 
 * * *

@@ -22,6 +22,19 @@ OEIS [A001597](http://oeis.org/A001597):
 ]
 ```
 
+Numbers that are not perfect powers,
+OEIS [A007916](https://oeis.org/A007916):
+
+```
+>>> 2:50.reject(isPerfectPower:/1)
+[
+	 2  3  5  6  7 10 11 12 13 14
+	15 17 18 19 20 21 22 23 24 26
+	28 29 30 31 33 34 35 37 38 39
+	40 41 42 43 44 45 46 47 48 50
+]
+```
+
 Distance to nearest perfect power,
 OEIS [A301573](https://oeis.org/A301573):
 

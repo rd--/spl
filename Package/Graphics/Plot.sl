@@ -1452,8 +1452,8 @@ Plot : [Object] { | pageList format options |
 		let yScalar = (h - 1) / yRange;
 		/*[xMin,xMax,xRange,xScalar,yMin,yMax,yRange,yScalar].postLine;*/
 		1:k.do { :i |
-			let r = ((y[i] - yMin) * yScalar).round;
-			let c = ((x[i] - xMin) * xScalar).round;
+			let r = ((y[i] - yMin) * yScalar).round.normal;
+			let c = ((x[i] - xMin) * xScalar).round.normal;
 			/*[i, y[i], r, x[i], c].postLine;*/
 			m[h - r][c + 1] := 1
 		};

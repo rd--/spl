@@ -2,7 +2,8 @@
 
 - _fibonacciWord(n)_
 
-Answer the _n_-th letter in the infinite Fibonacci word.
+Answer the _n_-th letter in the infinite Fibonacci word,
+a Sturmian word and specifically, a morphic word
 
 Calculate the first one hundred elements,
 threads over lists,
@@ -37,10 +38,11 @@ Derive the binary complement of the Fibonacci word,
 OEIS [A005614](https://oeis.org/A005614):
 
 ```
->>> 1 - 1:20.fibonacciWord
+>>> 1 - 1:30.fibonacciWord
 [
 	1 0 1 1 0 1 0 1 1 0
 	1 1 0 1 0 1 1 0 1 0
+	1 1 0 1 1 0 1 0 1 1
 ]
 ```
 
