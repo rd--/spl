@@ -290,6 +290,16 @@
 		}
 	}
 
+	cumulativeAverages { :self |
+		let z = 0;
+		let k = 0;
+		self.collect { :x |
+			z := z + x;
+			k := k + 1;
+			z / k
+		}
+	}
+
 	median { :self |
 		self.asSortedList(<=).median
 	}

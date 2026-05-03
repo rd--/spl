@@ -2421,54 +2421,6 @@
 		sequenceReplace(list, rules, Infinity)
 	}
 
-	shiftRegisterSequence { :initialState :taps :count |
-		let register = initialState.copy;
-		let k = register.size;
-		let step = {
-			let bit = taps.collect { :i |
-				register[k + 1 - i]
-			}.reduce(+) % 2;
-			register.removeLast;
-			register.addFirst(bit);
-			bit
-		};
-		let answer = [register.first];
-		(count - 1).timesRepeat {
-			answer.add(step())
-		};
-		answer
-	}
-
-	suffixesStream { :self |
-		let n = self.size;
-		let i = 0;
-		BlockStream {
-			i := i + 1;
-			(i <= n).if {
-				self.copyFromTo(i, n)
-			} {
-				nil
-			}
-		} {
-			i := 0
-		}
-	}
-
-	suffixesDo { :self :aBlock:/1 |
-		let size = self.size;
-		1.toDo(size) { :each |
-			aBlock(self.copyFromTo(each, size))
-		}
-	}
-
-	suffixes { :self |
-		let answer = [];
-		self.suffixesDo { :each |
-			answer.add(each)
-		};
-		answer
-	}
-
 	second { :self |
 		self[1 + 1]
 	}
@@ -2489,6 +2441,24 @@
 			}
 		};
 		self.species.newFrom(answer)
+	}
+
+	shiftRegisterSequence { :initialState :taps :count |
+		let register = initialState.copy;
+		let k = register.size;
+		let step = {
+			let bit = taps.collect { :i |
+				register[k + 1 - i]
+			}.reduce(+) % 2;
+			register.removeLast;
+			register.addFirst(bit);
+			bit
+		};
+		let answer = [register.first];
+		(count - 1).timesRepeat {
+			answer.add(step())
+		};
+		answer
 	}
 
 	softMax { :z :beta |
@@ -2567,6 +2537,40 @@
 			let j = each.mixedRadixEncode(b) + 1;
 			i.withCollect(j, at:/2)
 		}
+	}
+
+	suffixesStream { :self |
+		let n = self.size;
+		let i = 0;
+		BlockStream {
+			i := i + 1;
+			(i <= n).if {
+				self.copyFromTo(i, n)
+			} {
+				nil
+			}
+		} {
+			i := 0
+		}
+	}
+
+	suffixesDo { :self :aBlock:/1 |
+		let size = self.size;
+		1.toDo(size) { :each |
+			aBlock(self.copyFromTo(each, size))
+		}
+	}
+
+	suffixes { :self |
+		let answer = [];
+		self.suffixesDo { :each |
+			answer.add(each)
+		};
+		answer
+	}
+
+	[suffixSum, reverseAccumulate] { :self |
+		self.reverse.accumulate.reverse
 	}
 
 	swapAllWith { :self :indices |

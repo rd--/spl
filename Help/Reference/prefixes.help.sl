@@ -4,6 +4,24 @@
 
 Answer a List of all of the prefixes of the sequence _x_.
 
+Generate a sequence of factorials:
+
+```
+>>> 1:9.prefixes.collect(product:/1)
+[1 2 6 24 120 720 5040 40320 362880]
+
+>>> 1:9.!
+[1 2 6 24 120 720 5040 40320 362880]
+```
+
+Find the running maximum of a list:
+
+```
+>>> [3 5 7 8 8 5 7 9 2 5].prefixes
+>>> .collect(max:/1)
+[3 5 7 8 8 8 8 9 9 9]
+```
+
 Prefixes of the natural numbers,
 OEIS [A002260](https://oeis.org/A002260):
 

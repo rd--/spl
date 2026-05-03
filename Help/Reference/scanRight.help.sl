@@ -1,9 +1,9 @@
 # scanRight
 
-- _scanRight(aSequence, aBlock:2)_
+- _scanRight([x₁ x₂ …], f:2)_
 
-_scanRight_ is the right-to-left dual of _scanLeft_.
-Note that the order of parameters on the accumulating function are reversed compared to _scanLeft_.
+`scanRight` is the right-to-left dual of `scanLeft`.
+Note that the order of parameters on the accumulating function are reversed compared to `scanLeft`.
 
 ```
 >>> [1 .. 4].scanRight(+)
