@@ -124,6 +124,16 @@ OEIS [A174344](https://oeis.org/A174344):
 ]
 ```
 
+Almost integer:
+
+```
+>>> 11.sin
+-0.99999
+
+>>> (1 - 22.cos) / 2
+0.99998
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A

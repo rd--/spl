@@ -228,6 +228,20 @@ Complex : [Object, Storeable, Equatable, Comparable, Number] { | real imaginary 
 		Complex(self.imaginary.negate, self.real)
 	}
 
+	integerChop { :self :epsilon |
+		let x = self.real.integerChop(epsilon);
+		let y = self.imaginary.integerChop(epsilon);
+		y.isZero.if {
+			x
+		} {
+			Complex(x, y)
+		}
+	}
+
+	integerChop { :self |
+		self.integerChop(1E-10)
+	}
+
 	integerPart { :self |
 		Complex(self.real.integerPart, self.imaginary.integerPart)
 	}

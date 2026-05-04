@@ -35,6 +35,16 @@ At `Fraction` answer the normalized form:
 ([2 4], [1 2])
 ```
 
+The normal form of a `Fraction` with a unit denominator is a `Fraction`:
+
+```
+>>> 3/1.normal
+3/1
+
+>>> 3/1.normal.isFraction
+true
+```
+
 Fractions are ordinarily normalized by construction.
 
 ```

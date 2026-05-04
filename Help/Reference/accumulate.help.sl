@@ -62,6 +62,14 @@ OEIS [A000124](https://oeis.org/A000124):
 ]
 ```
 
+Denominators of harmonic numbers,
+OEIS [A002805](https://oeis.org/A002805):
+
+```
+>>> (1L / 1:11).accumulate.denominator
+[1 2 6 12 60 20 140 280 2520 2520 27720]
+```
+
 Plot a random walk:
 
 ~~~spl svg=A

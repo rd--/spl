@@ -298,6 +298,19 @@ IntegerPartitions : [Object, Equatable, Storeable] { | contents:<List> |
 		answer
 	}
 
+	durfeeSquare { :p |
+		let k = p.size;
+		let i = 1;
+		{
+			i <= k & {
+				p[i] >= i
+			}
+		}.whileTrue {
+			i := i + 1
+		};
+		i - 1
+	}
+
 	dysonCrank { :p |
 		let omega = p.occurrencesOf(1);
 		(omega = 0).if {

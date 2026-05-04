@@ -35,6 +35,15 @@ If the matrix is regular this is equal to `transpose`:
 ]
 ```
 
+The input need not be properly a tableau,
+that is with the size of the rows either increasing or decreasing:
+
+```
+>>> [1; 2 3; 4 5 6; 7 8; 9]
+>>> .transposeTableau
+[1 2 4 7 9; 3 5 8; 6]
+```
+
 * * *
 
 See also: transpose, transposeIrregular, transposeTriangle

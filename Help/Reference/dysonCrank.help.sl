@@ -71,6 +71,9 @@ See also: integerPartitions
 Guides: Partition Functions
 
 References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/PartitionFunctionPCongruences.html)
+[2](https://resources.wolframcloud.com/FunctionRepository/resources/PartitionCrank/),
 _OEIS_
 [1](https://oeis.org/A064391),
 _W_

@@ -54,6 +54,26 @@ Ramanujan discovered and proved analytically that the number of partitions of _1
 ]
 ```
 
+Numbers _k_ such that the _k_-th partition number is prime,
+OEIS [A046063](https://oeis.org/A046063):
+
+```
+>>> 1:150.select { :n |
+>>> 	n.partitionsP.isPrime
+>>> }
+[2 3 4 5 6 13 36 77 132]
+```
+
+Prime partition numbers,
+OEIS [A049575](https://oeis.org/A049575):
+
+```
+>>> 1:150.partitionsP.select { :n |
+>>> 	n.isPrime
+>>> }
+[2 3 5 7 11 101 17977 10619863 6620830889]
+```
+
 Plot the number of restricted partitions,
 `log` scaled:
 

@@ -42,6 +42,7 @@ Plotting Functions:
 - `murasakiDiagram`
 - `necklacePlot`
 - `parametricPlot`
+- `parallelAxisPlot`
 - `partitionPlot`
 - `pathPlot`
 - `periodogramPlot`

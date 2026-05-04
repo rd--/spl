@@ -119,6 +119,13 @@ x.sin
 x.tan
 ```
 
+Almost integer:
+
+```
+>>> 1.pi.exp - 1.pi
+19.999
+```
+
 At `Symbol`:
 
 ```

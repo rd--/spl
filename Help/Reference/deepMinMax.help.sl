@@ -1,8 +1,8 @@
 # deepMinMax
 
-- _deepMinMax(aCollection)_
+- _deepMinMax(c)_
 
-Equivalent to `deepMin` and `deepMax`.
+Equivalent to `deepMin` and `deepMax` of the collection _c_.
 
 At a `List`:
 

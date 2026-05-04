@@ -138,7 +138,10 @@ and the complement sequence
 ```
 
 Exponent of the largest power of two dividing _(2n)!_,
-OEIS [A005187](https://oeis.org/A005187):
+OEIS [A005187](https://oeis.org/A005187),
+also,
+with terms repeated,
+OEIS [A011371](https://oeis.org/A011371):
 
 ```
 >>> 0:51.collect { :n |

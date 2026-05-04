@@ -860,6 +860,20 @@ OEIS [A103889](https://oeis.org/A103889):
 [2 1 4 3 6 5 8 7 10 9 12 11 14 13]
 ```
 
+Almost integers:
+
+```
+>>> let a = [1782 1841] ^ 12L;
+>>> let b = 1922 ^ 12L;
+>>> a.sum / b
+0.99999999972
+
+>>> let a = [3987 4365] ^ 12L;
+>>> let b = 4472 ^ 12L;
+>>> a.sum / b
+1.0000000000189
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A

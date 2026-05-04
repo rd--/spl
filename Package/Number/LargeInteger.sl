@@ -34,7 +34,7 @@ LargeInteger! : [Object, Storeable, Equatable, Comparable, Binary, Magnitude, Nu
 	}
 
 	[divide, /] { :self :anObject |
-		anObject.isInteger.if {
+		anObject.isScalarInteger.if {
 			let fraction = Fraction(self, anObject.asLargeInteger);
 			fraction.isInteger.if {
 				fraction.numerator

@@ -34,10 +34,6 @@
 		counts.replicate(items, identity:/1)
 	}
 
-	accumulate { :self |
-		self.scan(+)
-	}
-
 	adaptToCollectionAndApply { :self :anObject :aBlock:/2 |
 		anObject.isSequenceable.if {
 			anObject.withCollect(self, aBlock:/2)
@@ -2119,7 +2115,11 @@
 		self.scan(*)
 	}
 
-	prefixSum { :self |
+	prefixSum { :self :x0 |
+		self.scanLeft(+, x0)
+	}
+
+	[prefixSum, accumulate] { :self |
 		self.scan(+)
 	}
 
@@ -2309,23 +2309,27 @@
 		}
 	}
 
-	scan { :self :aBlock:/2 |
-		self.scanLeft(aBlock:/2)
-	}
-
-	scanLeft { :self :aBlock:/2 |
+	scanLeft { :self :aBlock:/2 :x0 :i0 |
 		self.ifEmpty {
 			self.copy
 		} {
 			let answer = self.species.new(self.size);
-			let next = self[1];
+			let next = x0;
 			answer[1] := next;
-			2.toDo(self.size) { :index |
-				next := aBlock(next, self[index]);
-				answer[index] := next
+			1.toDo(self.size - 1) { :index |
+				next := aBlock(next, self[index + i0]);
+				answer[index + 1] := next
 			};
 			answer
 		}
+	}
+
+	[scanLeft, scan] { :self :aBlock:/2 :x0 |
+		self.scanLeft(aBlock:/2, x0, 0)
+	}
+
+	[scanLeft, scan] { :self :aBlock:/2 |
+		self.scanLeft(aBlock:/2, self[1], 1)
 	}
 
 	scanLeftAssociatingRight { :self :aBlock:/2 |
@@ -2569,8 +2573,12 @@
 		answer
 	}
 
+	suffixProduct { :self |
+		self.scanRight(*)
+	}
+
 	[suffixSum, reverseAccumulate] { :self |
-		self.reverse.accumulate.reverse
+		self.scanRight(+)
 	}
 
 	swapAllWith { :self :indices |

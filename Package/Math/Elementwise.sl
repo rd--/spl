@@ -368,6 +368,10 @@
 		self.collect(increment:/1)
 	}
 
+	integerChop { :self |
+		self.collect(integerChop:/1)
+	}
+
 	integerDigits { :self :base :count |
 		self.collect { :each |
 			each.integerDigits(base, count)

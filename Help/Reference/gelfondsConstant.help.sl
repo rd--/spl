@@ -13,9 +13,13 @@ Answer _n_ times Gelfond’s constant.
 
 >>> 1.pi ^ 1.e
 22.459158
+```
 
+Almost integer:
+
+```
 >>> 1.gelfondsConstant - 1.pi
-20
+19.999
 ```
 
 Ramanujan’s constant

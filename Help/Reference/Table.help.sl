@@ -1,8 +1,10 @@
 # Table
 
-- _Table(data, labels, types)_
+- _Table(m, l, t)_
 
-A type representing a rectangular table of values where columns are labeled and have types.
+A type representing a rectangular table of values given by the matrix _m_,
+where columns are labeled by _l_,
+and have types _t_.
 
 The `contents` method answers the table data as a `List` matrix,
 the `columnLabels` and `columnTypes` answer the column labels and types:

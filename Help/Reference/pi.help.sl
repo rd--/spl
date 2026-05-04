@@ -286,6 +286,13 @@ OEIS [A070989](https://oeis.org/A070989):
 ]
 ```
 
+Almost integer:
+
+```
+>>> 22 * (1.pi ^ 4)
+2143.00000
+```
+
 Scatter plot of the digits of π,
 OEIS [A000796](https://oeis.org/A000796):
 

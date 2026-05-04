@@ -82,6 +82,18 @@ The sum of the first eight subharmonics:
 3
 ```
 
+Almost integers:
+
+```
+>>> 1.supergoldenRatio ^ 11
+67.000
+
+>>> (2.sqrt.supergoldenRatio ^ 24)
+>>> -
+>>> 31.sqrt.pi.exp
+24.0000
+```
+
 The supergolden rectangle,
 partitiond into a unit square and two smaller supergolden rectangles:
 

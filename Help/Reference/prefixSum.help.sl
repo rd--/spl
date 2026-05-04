@@ -16,6 +16,21 @@ OEIS [A000217](https://oeis.org/A000217):
 [0 1 3 6 10 15 21]
 ```
 
+The unary form answers the inclusive scan,
+the binary form answers the exclusive scan,
+`foldList` answers another variant:
+
+```
+>>> [1 2 3 4 5 6].prefixSum
+[1 3 6 10 15 21]
+
+>>> [1 2 3 4 5 6].prefixSum(0)
+[0 1 3 6 10 15]
+
+>>> +.foldList(0, [1 2 3 4 5 6])
+[0 1 3 6 10 15 21]
+```
+
 It is also equivalent to `sum` of each of the `prefixes`:
 
 ```
@@ -234,7 +249,7 @@ OEIS [A000788](https://oeis.org/A000788):
 
 * * *
 
-See also: +, accumulate, differences, prefixes, prefixProduct, scan, sum
+See also: +, accumulate, differences, prefixes, prefixProduct, scan, suffixSum, sum
 
 Guides: List Functions, Mathematical Functions
 

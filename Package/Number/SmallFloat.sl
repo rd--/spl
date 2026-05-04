@@ -346,6 +346,19 @@ SmallFloat! : [Object, Storeable, Equatable, Comparable, Json, Magnitude, Number
 		anObject.adaptToNumberAndApply(self, hypotenuse:/2)
 	}
 
+	integerChop { :self :epsilon |
+		let nearestInteger = self.round;
+		((self - nearestInteger).abs < epsilon).if {
+			nearestInteger
+		} {
+			self
+		}
+	}
+
+	integerChop { :self |
+		self.integerChop(1E-10)
+	}
+
 	isBinary { :self |
 		<primitive: return sl.isBitwise(_self);>
 	}

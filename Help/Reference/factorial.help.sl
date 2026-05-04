@@ -375,6 +375,14 @@ OEIS [A001563](https://oeis.org/A001563):
 [0 1 4 18 96 600 4320 35280 322560 3265920]
 ```
 
+Superfactorials,
+OEIS [A000178](https://oeis.org/A000178):
+
+```
+>>> *.foldList(1, 1:6.!)
+[1 1 2 12 288 34560 24883200]
+```
+
 The [Kempner_function](https://en.wikipedia.org/wiki/Kempner_function),
 also sometimes called the Smarandache function or Kempner numbers,
 the smallest positive integer _m_ such that _n_ divides _m!_,

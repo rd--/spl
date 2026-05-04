@@ -1466,3 +1466,30 @@ Plot : [Object] { | pageList format options |
 
 }
 
++List {
+
+	parallelAxisPlot { :m |
+		let c = m.transpose;
+		let s = c.collect(minMax:/1);
+		let y = c.withCollect(s) { :p :q |
+			p.rescale(q)
+		};
+		let x = (0 -- 1.goldenRatio).discretize(c.size);
+		[
+			AnnotatedGeometry(
+				GeometryCollection(
+					x.collect { :p |
+						Line([p 0; p 1])
+					}
+				),
+				(
+					strokeColour: RgbColour([0.65 0.65 0.65], 1)
+				)
+			),
+			y.transpose.collect { :p |
+				[x, p].transpose.Line
+			}
+		].LineDrawing
+	}
+
+}

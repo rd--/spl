@@ -16,7 +16,12 @@ Cumulative sums of the elements of the list:
 
 >>> [1 1 1 1].foldList(3, +)
 [3 4 5 6 7]
+```
 
+Triangular numbers,
+OEIS [A000217](https://oeis.org/A000217):
+
+```
 >>> +.foldList(0, 1:9)
 [0 1 3 6 10 15 21 28 36 45]
 
@@ -57,7 +62,8 @@ Successively append to a string:
 ['0' '01' '012' '0123' '01234']
 ```
 
-Compute successive factorials:
+Compute successive factorials,
+OEIS [A000142](https://oeis.org/A000142):
 
 ```
 >>> 1:10.foldList(1, *)
@@ -67,7 +73,9 @@ Compute successive factorials:
 ]
 ```
 
-Compute products of successive primes:
+Compute products of successive primes,
+the primorial numbers,
+OEIS [A002110](https://oeis.org/A002110):
 
 ```
 >>> 1:10.prime.foldList(1, *)
@@ -152,7 +160,9 @@ Folding with an empty list does not apply the function at all:
 Compute the minimum number of coins of different value needed to make up an amount:
 
 ```
->>> [25 10 5].foldList(163, %) // [25 10 5 1]
+>>> [25 10 5].foldList(163, %)
+>>> //
+>>> [25 10 5 1]
 [6 1 0 3]
 ```
 
@@ -199,6 +209,22 @@ OEIS [A002061](https://oeis.org/A002061):
 [1 1 3 7 13 21 31 43 57 73 91 111 133 157]
 ```
 
+Centered square numbers,
+OEIS [A001844](https://oeis.org/A001844):
+
+```
+>>> +.foldList(1, 4 * 1:11)
+[1 5 13 25 41 61 85 113 145 181 221 265]
+```
+
+Centered hexagonal numbers,
+OEIS [A003215](https://oeis.org/A003215):
+
+```
+>>> +.foldList(1, 6 * 1:11)
+[1 7 19 37 61 91 127 169 217 271 331 397]
+```
+
 The number of one-to-one sequences that can be formed from _n_ distinct objects,
 OEIS [A000522](https://oeis.org/A000522):
 
@@ -243,6 +269,48 @@ OEIS [A010551](https://oeis.org/A010551):
 ```
 >>> *.foldList(2 # 1:5)
 [1 1 2 4 12 36 144 576 2880 14400]
+```
+
+The minimal exponent of the symmetric group _Sn_,
+OEIS [A003418](https://oeis.org/A003418):
+
+```
+>>> lcm:/2.foldList(1, 1:13)
+[1 1 2 6 12 60 60 420 840 2520 2520 27720]
+```
+
+Primorial numbers,
+second definition,
+OEIS [A034386](https://oeis.org/A034386):
+
+```
+>>> let p = *.foldList(1, 1:9.prime);
+>>> 0:12.collect { :n |
+>>> 	p[n.primePi + 1]
+>>> }
+[1 1 2 6 6 30 30 210 210 210 210 2310 2310]
+```
+
+Concatenate the decimal numbers,
+OEIS [A007908](https://oeis.org/A007908):
+
+```
+>>> { :i :j |
+>>> 	j + (i * (10 ^ j.integerLength))
+>>> }.foldList(1, 2:11)
+[
+	1
+	12
+	123
+	1234
+	12345
+	123456
+	1234567
+	12345678
+	123456789
+	12345678910
+	1234567891011
+]
 ```
 
 A triangle of quotients,

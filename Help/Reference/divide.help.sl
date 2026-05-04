@@ -52,6 +52,13 @@ At `LargeInteger` answers a `Fraction`:
 (2/3, true)
 ```
 
+At `LargeInteger`, with collection operand:
+
+```
+>>> 1L / 1:9
+[1 1/2 1/3 1/4 1/5 1/6 1/7 1/8 1/9]
+```
+
 At `SmallFloat` answers a `SmallFloat`,
 to answer a `Fraction` divide by a fraction literal:
 

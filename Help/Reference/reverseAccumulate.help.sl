@@ -41,15 +41,15 @@ for a survival list and an annual discount value of 0.8:
 Written out:
 
 ```
->>> [1 2 3 4].reverse.accumulate.reverse
+>>> [1 2 3 4].scanRight(+)
 [10 9 7 4]
 
->>> [1 2 3 4].scanRight(+)
+>>> [1 2 3 4].reverse.accumulate.reverse
 [10 9 7 4]
 ```
 
 * * *
 
-See also: accumulate, prefixSum, reverse, scanRight
+See also: accumulate, prefixSum, reverse, scanRight, suffixSum
 
 Guides: List Functions

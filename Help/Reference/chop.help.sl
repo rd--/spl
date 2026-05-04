@@ -4,11 +4,20 @@
 
 Replaces approximate real numbers that are close to zero by the exact `zero`.
 
-Zero out elements that are very close to zero:
+Zero out elements that are very close to zero,
+here delete all imaginary components:
 
 ```
->>> [1 .. 20].fourier.inverseFourier.chop
-[1 .. 20]
+>>> let a = [1 .. 20];
+>>> let b = a.fourier.inverseFourier;
+>>> let c = b.chop;
+>>> (
+>>> 	b.allSatisfy(isComplex:/1),
+>>> 	c.noneSatisfy(isComplex:/1),
+>>> 	c.noneSatisfy(isInteger:/1),
+>>> 	c
+>>> )
+(true, true, true, [1 .. 20])
 ```
 
 Drop small imaginary parts:
@@ -31,7 +40,9 @@ Test if two numbers are the same to a certain tolerance:
 
 * * *
 
-See also: clip, floor, integerPart, rationalize, round, threshold
+See also: clip, floor, integerChop, integerPart, rationalize, round, threshold
+
+Guides: Rounding Functions
 
 References:
 _Mathematica_
