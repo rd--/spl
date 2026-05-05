@@ -2329,7 +2329,11 @@
 	}
 
 	[scanLeft, scan] { :self :aBlock:/2 |
-		self.scanLeft(aBlock:/2, self[1], 1)
+		self.ifEmpty {
+			self.copy
+		} {
+			self.scanLeft(aBlock:/2, self[1], 1)
+		}
 	}
 
 	scanLeftAssociatingRight { :self :aBlock:/2 |

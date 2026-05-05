@@ -1468,28 +1468,69 @@ Plot : [Object] { | pageList format options |
 
 +List {
 
-	parallelAxisPlot { :m |
-		let c = m.transpose;
-		let s = c.collect(minMax:/1);
-		let y = c.withCollect(s) { :p :q |
-			p.rescale(q)
+	parallelAxisPlot { :rowData |
+		let columnData = rowData.transpose;
+		let columnMinMax = columnData.collect(minMax:/1);
+		let scaledColumnData = columnData.withCollect(columnMinMax) { :column :minMax |
+			column.rescale(minMax)
 		};
-		let x = (0 -- 1.goldenRatio).discretize(c.size);
-		[
-			AnnotatedGeometry(
-				GeometryCollection(
-					x.collect { :p |
-						Line([p 0; p 1])
-					}
-				),
-				(
-					strokeColour: RgbColour([0.65 0.65 0.65], 1)
-				)
+		let xCoordinates = (0 -- 1.goldenRatio).discretize(columnData.size);
+		let grey = RgbColour([0.65 0.65 0.65], 1);
+		let verticalLines = AnnotatedGeometry(
+			GeometryCollection(
+				xCoordinates.collect { :x |
+					Line([x 0; x 1])
+				}
 			),
-			y.transpose.collect { :p |
-				[x, p].transpose.Line
-			}
-		].LineDrawing
+			(
+				strokeColour: grey
+			)
+		);
+		let horizontalLines = scaledColumnData.transpose.collect { :yCoordinates |
+			[xCoordinates, yCoordinates].transpose.Line
+		};
+		[
+			verticalLines,
+			horizontalLines
+		].GeometryCollection
+	}
+
+	radialAxisPlot { :self |
+		self.isVector.if {
+			[self].radialAxisPlot
+		} {
+			let rowData = self;
+			let columnCount = rowData.anyOne.size;
+			let dataMax = rowData.deepMax;
+			let radius = 100;
+			let scaledRowData = rowData * (radius / dataMax);
+			let thetaCoordinates = (0 -- 2.pi).discretize(columnCount + 1).allButFirst.reverse + 0.5.pi;
+			let grey = { :g |
+				AnnotatedGeometry(
+					GeometryCollection(g),
+					(strokeColour: RgbColour([0.65 0.65 0.65], 1))
+				)
+			};
+			let axisLines = thetaCoordinates.collect { :theta |
+				Line(
+					[
+						[0, 0],
+						[radius, theta].fromPolarCoordinates
+					]
+				)
+			}.grey;
+			let circleLines = (0 -- radius).discretize(6).collect { :r |
+				Circle([0 0], r)
+			}.grey;
+			let dataLines = scaledRowData.collect { :radii |
+				[radii, thetaCoordinates].transpose.fromPolarCoordinates.closedLine
+			};
+			[
+				circleLines,
+				axisLines,
+				dataLines
+			].GeometryCollection
+		}
 	}
 
 }

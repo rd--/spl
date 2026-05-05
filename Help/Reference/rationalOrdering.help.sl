@@ -125,21 +125,21 @@ There is a direct form for calculating the Fibonacci, or rabbit, ordering of the
 	;
 	5/1 1/4 4/3 5/2 2/3
 	;
-	6/1 1/5 5/4 7/3 3/4 7/2 2/5 5/3
+	6/1 1/5 5/4 7/3 3/4
+	7/2 2/5 5/3
 	;
-	7/1 1/6 6/5 9/4 4/5 10/3 3/7 7/4
-	9/2 2/7 7/5 8/3 3/5
+	7/1 1/6 6/5 9/4 4/5
+	10/3 3/7 7/4 9/2 2/7
+	7/5 8/3 3/5
 ]
 ```
 
-The size of each row is,
-in most cases,
-given by the Fibonacci numbers:
+The size of each row is given by the Fibonacci numbers:
 
 ```
 >>> 14.rationalOrderingFibonacci
 >>> .collect(size:/1)
-[1 1 2 3 5 8 14 21 34 55 89 144 233 377]
+[1 1 2 3 5 8 13 21 34 55 89 144 233 377]
 
 >>> 1:14.fibonacci
 [1 1 2 3 5 8 13 21 34 55 89 144 233 377]

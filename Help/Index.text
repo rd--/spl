@@ -1087,6 +1087,7 @@ Reference/cubicInterpolation.help.sl
 Reference/cubicSplineInterpolator.help.sl
 Reference/Cuboid.help.sl
 Reference/cull.help.sl
+Reference/cumulativeAverages.help.sl
 Reference/cumulativeMax.help.sl
 Reference/cumulativeMin.help.sl
 Reference/currentDate.help.sl
@@ -1306,6 +1307,7 @@ Reference/duplicate.help.sl
 Reference/duplicates.help.sl
 Reference/Duration.help.sl
 Reference/durationString.help.sl
+Reference/durfeeSquare.help.sl
 Reference/Dust2.help.sl
 Reference/Dust.help.sl
 Reference/DustRange.help.sl
@@ -1954,6 +1956,7 @@ Reference/instanceOf.help.sl
 Reference/instructionSetArchitecture.help.sl
 Reference/integerAverage.help.sl
 Reference/integerBinomial.help.sl
+Reference/integerChop.help.sl
 Reference/integerCompositionsDo.help.sl
 Reference/integerCompositions.help.sl
 Reference/integerCompositionsWeak.help.sl
@@ -3035,6 +3038,7 @@ Reference/paperFoldingConstant.help.sl
 Reference/paragraphAtCaret.help.sl
 Reference/paragraphAtIndex.help.sl
 Reference/paragraphs.help.sl
+Reference/parallelAxisPlot.help.sl
 Reference/Parallelepiped.help.sl
 Reference/parallelogram.help.sl
 Reference/Parallelogram.help.sl
@@ -3262,6 +3266,7 @@ Reference/predicateNot.help.sl
 Reference/predicateOr.help.sl
 Reference/Preferences.help.sl
 Reference/prefixes.help.sl
+Reference/prefixProduct.help.sl
 Reference/prefixSum.help.sl
 Reference/previousPrime.help.sl
 Reference/primeBounds.help.sl
@@ -3347,6 +3352,7 @@ Reference/quotientBy.help.sl
 Reference/quotient.help.sl
 Reference/quotientRemainder.help.sl
 Reference/rabbitConstant.help.sl
+Reference/radialAxisPlot.help.sl
 Reference/radians.help.sl
 Reference/RadiansPerSample.help.sl
 Reference/radiansToDegrees.help.sl
@@ -3408,6 +3414,7 @@ Reference/ranking.help.sl
 Reference/rastriginFunction.help.sl
 Reference/RatioMidi.help.sl
 Reference/rationalize.help.sl
+Reference/rationalOrdering.help.sl
 Reference/rationalUnrank.help.sl
 Reference/ratios.help.sl
 Reference/ratioToCents.help.sl
@@ -3519,6 +3526,7 @@ Reference/restrictedGrowthStrings.help.sl
 Reference/resultant.help.sl
 Reference/reuleauxPolygonCurve.help.sl
 Reference/reversalPermutation.help.sl
+Reference/reverseAccumulate.help.sl
 Reference/reverseColexicographicSort.help.sl
 Reference/reverseDo.help.sl
 Reference/reverse.help.sl

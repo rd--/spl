@@ -63,7 +63,8 @@ In the case where the range of each column is equal the basic shape is equivalen
 
 ![](Help/Image/parallelAxisPlot-D.svg)
 
-The _special diagram_ Xenakis gives to connect the orchestral composition with density is a transposed parallel coordinates plot (Xenakis 1989, p.139):
+The _special diagram_ Xenakis gives to connect the orchestral composition with density is a transposed parallel coordinates plot (Xenakis 1989, p.139),
+the lines do not intersect:
 
 ~~~spl svg=E
 [
@@ -76,7 +77,7 @@ The _special diagram_ Xenakis gives to connect the orchestral composition with d
 	16 18 2 26 3 11 12 12
 ].collect { :x |
 	+.foldList(0, x)
-}.transpose.parallelAxisPlot
+}.transpose.radialAxisPlot
 ~~~
 
 ![](Help/Image/parallelAxisPlot-E.svg)
