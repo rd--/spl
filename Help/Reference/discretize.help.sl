@@ -3,24 +3,59 @@
 - _discretize(i—j, n)_
 - _discretize(i—j, n, f:/1)_
 
-Answer a `Range` of _n_ places having a linear interpolation of the `Interval` _(i,j)_.
+Answer a sequence of _n_ places having a linear interpolation of the `Interval` _(i,j)_.
+
+Odd _n_:
 
 ```
->>> (-0.5 -- 0.5).discretize(3)
-(-0.5, 0 .. 0.5)
+>>> (-0.5 -- 0.5).discretize(3).asList
+[-0.5 0 0.5]
 
->>> (-0.5 -- 0.5).discretize(5)
-(-0.5, -0.25 .. 0.5)
+>>> (-0.5 -- 0.5).discretize(5).asList
+[-0.5 -0.25 0 0.25 0.5]
 
->>> (-0.5 -- 0.5).discretize(9)
-(-0.5, -0.375 .. 0.5)
+>>> (-0.5 -- 0.5).discretize(9).asList
+[
+	-0.5  -0.375 -0.25 -0.125
+	 0
+	 0.125 0.25   0.375 0.5
+]
 ```
 
-In the ternary form apply _aBlock_ to each element during construction.
+Even _n_:
+
+```
+>>> (0 -- 7).discretize(8).asList
+[0 1 2 3 4 5 6 7]
+
+>>> (0 -- 14).discretize(8).asList
+[0 2 4 6 8 10 12 14]
+
+>>> (0 -- 6).discretize(4).asList
+[0 2 4 6]
+```
+
+Note that the answer is strictly of the requested size,
+unlike a `Range` value that may,
+due to precision errors,
+have an unexpected size:
+
+```
+>>> (0 -- 1).discretize(100).size
+100
+
+>>> Range(0, 1, 1 / (100 - 1)).size
+99
+```
+
+In the ternary form apply the unary block _f_ to each element during construction.
 
 ```
 >>> (0 -- 1).discretize(3, exp:/1)
 [1 1.648721 2.718282]
+
+>>> (0 -- 6).discretize(4, square:/1)
+[0 4 16 36]
 ```
 
 Plot `exp` function from `zero` to `five`:
@@ -49,8 +84,7 @@ Sample a function uniformly on an interval:
 (0 -- 2.pi)
 .discretize(48) { :i |
 	(2 * i).sin - (3 * i).cos
-}
-.discretePlot
+}.discretePlot
 ~~~
 
 ![](Help/Image/discretize-C.svg)

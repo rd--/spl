@@ -50,6 +50,8 @@ Plotting Functions:
 - `poincarePlot`
 - `pointLinePlot`
 - `polarPlot`
+- `quantilePlot`
+- `radialAxisPlot`
 - `reliefPlot`
 - `residueDesignPlot`
 - `residueSetPlot`

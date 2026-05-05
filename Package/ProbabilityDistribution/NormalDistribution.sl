@@ -89,6 +89,15 @@ NormalDistribution : [Object, Equatable, ProbabilityDistribution] { | mu sigma |
 		}
 	}
 
+	quantile { :self |
+		let mu = self.mu;
+		let sigma = self.sigma;
+		let a = 2.sqrt;
+		{ :q |
+			mu - (a * sigma * (2 * q).inverseErfc)
+		}
+	}
+
 	randomVariate { :self :rng :shape |
 		let mu = self.mu;
 		let sigma = self.sigma;

@@ -106,6 +106,36 @@ NormalDistribution(0, 1)
 
 ![](Help/Image/NormalDistribution-G.svg)
 
+Quantile function,
+varying σ:
+
+~~~spl svg=H
+(0 -- 1).functionPlot(
+	[0.5 1 2].collect { :sigma |
+		NormalDistribution(-2, sigma)
+		.quantile
+		.clip([-6 2])
+	}
+)
+~~~
+
+![](Help/Image/NormalDistribution-H.svg)
+
+Quantile function,
+varying μ:
+
+~~~spl svg=I
+(0 -- 1).functionPlot(
+	[-1 1 4].collect { :mu |
+		NormalDistribution(mu, 2)
+		.quantile
+		.clip([-10 15])
+	}
+)
+~~~
+
+![](Help/Image/NormalDistribution-I.svg)
+
 * * *
 
 See also: MultinormalDistribution, ProbabilityDistribution, SkewNormalDistribution, StableDistribution, StudentTDistribution

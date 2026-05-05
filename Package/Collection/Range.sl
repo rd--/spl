@@ -253,3 +253,15 @@ Range : [Object, Storeable, Equatable, Comparable, Iterable, Collection, Indexab
 	}
 
 }
+
+FixedSizeRange : [Object, Storeable, Equatable, Comparable, Iterable, Collection, Indexable, Sequenceable, ArithmeticProgression] { | start step size |
+
+}
+
++@Number {
+
+	FixedSizeRange { :start :step :size |
+		newFixedSizeRange().initializeSlots(start, step, size)
+	}
+
+}

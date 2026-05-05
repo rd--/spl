@@ -128,6 +128,19 @@ UniformDistribution(
 
 ![](Help/Image/UniformDistribution-G.svg)
 
+Quantile function:
+
+~~~spl svg=H
+(0 -- 1).functionPlot(
+	[1 3 5].collect { :max |
+		UniformDistribution([0 max])
+		.quantile
+	}
+)
+~~~
+
+![](Help/Image/UniformDistribution-H.svg)
+
 * * *
 
 See also: CauchyDistribution, DiscreteUniformDistribution, MultinormalDistribution, NormalDistribution, ReciprocalDistribution, WeibullDistribution

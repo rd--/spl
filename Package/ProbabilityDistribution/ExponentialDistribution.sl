@@ -84,6 +84,12 @@ ExponentialDistribution : [Object, Equatable, ProbabilityDistribution] { | lambd
 		}
 	}
 
+	quantile { :self |
+		{ :q |
+			((1 - q).log / self.lambda).negate
+		}
+	}
+
 	randomVariate { :self :rng :shape |
 		let lambda = self.lambda;
 		{

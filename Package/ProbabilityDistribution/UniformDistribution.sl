@@ -65,6 +65,22 @@ UniformDistribution : [Object, Equatable, ProbabilityDistribution] { | a b |
 		}
 	}
 
+	quantile { :self |
+		let a = self.a;
+		let b = self.b;
+		{ :q |
+			(q < 0).if {
+				a
+			} {
+				(q > 1).if {
+					b
+				} {
+					(a * (1 - q)) + (b * q)
+				}
+			}
+		}
+	}
+
 	randomVariate { :self :r :shape |
 		let a = self.a;
 		let b = self.b;

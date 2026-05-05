@@ -79,6 +79,7 @@ Visualization:
 - `autocorrelationPlot`
 - `histogramPlot`
 - `lagPlot`
+- `quantilePlot`
 - `runSequencePlot`
 - `spectralPlot`
 

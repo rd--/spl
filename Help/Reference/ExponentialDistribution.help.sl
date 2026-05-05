@@ -65,6 +65,20 @@ The `inverseSurvivalFunction`:
 
 ![](Help/Image/ExponentialDistribution-E.svg)
 
+Quantile function:
+
+~~~spl svg=F
+(0 -- 1).functionPlot(
+	[0.5 1 3].collect { :lambda |
+		ExponentialDistribution(lambda)
+		.quantile
+		.clip([0 5])
+	}
+)
+~~~
+
+![](Help/Image/ExponentialDistribution-F.svg)
+
 Compute `cdf` at specific value:
 
 ```

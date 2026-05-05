@@ -428,6 +428,20 @@ Plot : [Object] { | pageList format options |
 		self.typedSwitchingPlot('pointLine')
 	}
 
+	quantilePlot { :self :aProbabilityDistribution |
+		let k = self.size;
+		let y = self.sorted;
+		let q:/1 = aProbabilityDistribution.quantile;
+		let x = (0 -- 1).discretize(k, q:/1);
+		let r = y.minMax;
+		let i = (r[1] -- r[2]).discretize(50).asList;
+		x.postLine;
+		[
+			[x, y].transpose,
+			[i, i].transpose
+		].scatterPlot
+	}
+
 	reliefPlot { :self :options |
 		let [m, n] = self.shape;
 		let [z0, z1] = self.deepMinMax;
