@@ -402,6 +402,20 @@ let a = 1:13.triangularArray { :n :k |
 
 ![](Help/Image/gcd-P.svg)
 
+Triangle in which row _n_ has the _n_ smallest numbers coprime to _n_,
+OEIS [A077581](https://oeis.org/A077581):
+
+~~~spl svg=Q oeis=A077581
+1:23.collect { :n |
+	let m = n.square;
+	1:m.select { :x |
+		gcd(x, n) = 1
+	}.take(n)
+}.catenate.scatterPlot
+~~~
+
+![](Help/Image/gcd-Q.svg)
+
 * * *
 
 See also: ||, chineseRemainder, divisible, euclideanAlgorithm, extendedGcd, Fraction, isCoprime, isPrime, lcm

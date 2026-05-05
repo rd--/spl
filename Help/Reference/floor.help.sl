@@ -124,6 +124,15 @@ OEIS [A004526](https://oeis.org/A004526):
 [0 0 1 1 2 2 3 3 4 4 5 5 6 6]
 ```
 
+Concentric hexagonal numbers,
+OEIS [A032528](https://oeis.org/A032528):
+
+```
+>>> let n = 0:9;
+>>> (3 * n.square / 2).floor
+[0 1 6 13 24 37 54 73 96 121]
+```
+
 Floor is a staircase function:
 
 ~~~spl svg=A

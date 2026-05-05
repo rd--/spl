@@ -232,6 +232,16 @@ OEIS [A015949](https://oeis.org/A015949):
 [1 2 10 50 250 1250 5050 6250]
 ```
 
+Numbers k such that _gcd(3k,8^k+1)=3_,
+OEIS [A070191](https://oeis.org/A070191):
+
+```
+>>> 1:43.select { :n |
+>>> 	gcd(3 * n, 8.powerMod(n, 3 * n) + 1) = 3
+>>> }
+[1 5 7 11 13 17 19 23 25 29 31 35 37 41 43]
+```
+
 The sequence with fixed powers:
 
 ~~~spl svg=A

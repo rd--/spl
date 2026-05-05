@@ -93,6 +93,18 @@ OEIS [A002445](https://oeis.org/A002445):
 [1 6 30 42 30 66 2730 6 510 798 330 138]
 ```
 
+Numbers k that divide the numerator of _B(2k)_,
+OEIS [A069040](https://oeis.org/A069040):
+
+```
+>>> 1:23.select { :k |
+>>> 	let b = (2 * k).bernoulliNumber;
+>>> 	let n = b.numerator;
+>>> 	n.divisible(k)
+>>> }
+[1 5 7 11 13 17 19 23]
+```
+
 Absolute value of numerators of Bernoulli numbers,
 `log` scale plot,
 the unsigned variant of

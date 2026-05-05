@@ -15,7 +15,7 @@ as in `linePlot`.
 
 * * *
 
-See also: linePlot, scatterPlot
+See also: linePlot, pathPlot, scatterPlot
 
 Guides: Plotting Functions
 

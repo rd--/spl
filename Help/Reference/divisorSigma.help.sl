@@ -444,6 +444,16 @@ OEIS [A017666](https://oeis.org/A017666):
 [1 2 3 4 5 1 7 8 9 5 11 3 13 7 5 16]
 ```
 
+Numbers _n_ such that _P(n)>n×τ(n)_,
+OEIS [A067291](https://oeis.org/A067291):
+
+```
+>>> 1:35.select { :n |
+>>> 	n.prime > (n * 0.divisorSigma(n))
+>>> }
+[1 5 7 11 13 17 19 23 25 29 31 33 34 35]
+```
+
 Divisor function _σ₀(n)_ up to _n=100_,
 OEIS [A000005](https://oeis.org/A000005):
 
