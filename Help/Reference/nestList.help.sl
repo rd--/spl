@@ -247,10 +247,6 @@ OEIS [A008776](https://oeis.org/A008776):
 [2 6 18 54 162 486 1458 4374 13122 39366]
 ```
 
-
-.numerator
-.denseScatterPlot
-
 The first few terms of the `dyadicMap`:
 
 ~~~spl svg=A

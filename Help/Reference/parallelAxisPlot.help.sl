@@ -93,3 +93,5 @@ _Mathematica_
 [1](https://reference.wolfram.com/language/ref/ParallelAxisPlot.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Parallel_coordinates)
+
+Further Reading: Inselberg 1985

@@ -275,7 +275,7 @@ The minimal exponent of the symmetric group _Sn_,
 OEIS [A003418](https://oeis.org/A003418):
 
 ```
->>> lcm:/2.foldList(1, 1:13)
+>>> lcm:/2.foldList(1, 1:11)
 [1 1 2 6 12 60 60 420 840 2520 2520 27720]
 ```
 

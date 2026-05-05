@@ -27,6 +27,7 @@ A partition of fifteen and its conjugate:
 
 A partition of thirty and its conjugate:
 
+```
 >>> [8 5 5 3 3 2 2 2].conjugatePartition
 [8 8 5 3 3 1 1 1]
 ```

@@ -335,7 +335,6 @@ OEIS [A021387](https://oeis.org/A021387):
 0.00261096605744125326370757D
 ```
 
-
 Decimal expansion of 1/17,
 OEIS [A007450](https://oeis.org/A007450):
 

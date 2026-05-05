@@ -288,7 +288,6 @@ OEIS [A059851](https://oeis.org/A059851):
 
 ![](Help/Image/floor-M.svg)
 
-
 Largest square less than or equal to _n_,
 OEIS [A048760](https://oeis.org/A048760):
 
