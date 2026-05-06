@@ -816,7 +816,7 @@ OEIS [A010875](https://oeis.org/A010875):
 [0 1 2 3 4 5 0 1 2 3 4 5 0 1 2 3 4 5 0 1 2 3]
 ```
 
-Residual classes obtained by ordinary multiplication,
+Group and sub-group of residual classes obtained by ordinary multiplication,
 followed by reduction relative to the modulus eighteen
 (Xenakis 1989, p.232):
 
@@ -830,6 +830,14 @@ followed by reduction relative to the modulus eighteen
 	11  1  5 13 17  7;
 	13 11  1 17  7  5;
 	17 13 11  7  5  1
+]
+
+>>> let i = [1 7 13];
+>>> { :a :b | (a * b) % 18 }.table(i, i)
+[
+	 1  7 13;
+	 7 13  1;
+	13  1  7
 ]
 ```
 

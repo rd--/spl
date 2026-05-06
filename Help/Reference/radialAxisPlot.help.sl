@@ -128,6 +128,8 @@ A plot of a 2×6 matrix indicating expected and actual values:
 
 See also: linePlot, parallelAxisPlot, polarPlot
 
+Guides: Plotting Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/RadialAxisPlot.html),

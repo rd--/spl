@@ -39,6 +39,7 @@ Plotting Functions:
 - `logLinearPlot`
 - `logPlot`
 - `matrixPlot`
+- `mosaicPlot`
 - `murasakiDiagram`
 - `necklacePlot`
 - `parametricPlot`

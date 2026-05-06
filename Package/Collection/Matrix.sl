@@ -2,6 +2,11 @@
 
 +[List, NumericArray] {
 
+	columnCount { :self |
+		let [_, j] = self.shape;
+		j
+	}
+
 	isColumnVector { :self |
 		self.isMatrix & {
 			self.numberOfColumns = 1
@@ -35,6 +40,11 @@
 	numberOfColumns { :self |
 		let [_, n] = self.dimensions(2);
 		n
+	}
+
+	rowCount { :self |
+		let [i, _] = self.shape;
+		i
 	}
 
 }

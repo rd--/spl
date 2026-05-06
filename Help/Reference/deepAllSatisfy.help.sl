@@ -19,4 +19,8 @@ See also: allSatisfy, deepDo, isArray
 
 Guides: Boolean Functions, Array Functions
 
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/ArrayQ.html)
+
 Categories: Testing

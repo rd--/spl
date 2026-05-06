@@ -450,6 +450,18 @@
 		self.collect(isNegative:/1)
 	}
 
+	isNegativeZero { :self |
+		self.collect(isNegativeZero:/1)
+	}
+
+	isNonNegative { :self |
+		self.collect(isNonNegative:/1)
+	}
+
+	isPositive { :self |
+		self.collect(isPositive:/1)
+	}
+
 	isPrime { :self |
 		self.collect(isPrime:/1)
 	}

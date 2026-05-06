@@ -84,7 +84,7 @@ the lines do not intersect:
 
 * * *
 
-See also: linePlot
+See also: linePlot, radialAxisPlot
 
 Guides: Plotting Functions
 

@@ -4,10 +4,11 @@
 
 Answer `true` if the number _x_ is greater than `zero`.
 
-Evaluate at different types of numbers:
+Evaluate at different types of numbers,
+threads over lists:
 
 ```
->>> [1.6 3/4 1.pi 0 -5].collect(isPositive:/1)
+>>> [1.6 3/4 1.pi 0 -5].isPositive
 [true true true false false]
 ```
 

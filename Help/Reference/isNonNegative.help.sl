@@ -4,8 +4,10 @@
 
 Answers `true` if the number _x_ is greater than or equal to `zero`.
 
+Threads over lists:
+
 ```
->>> [-1 0 1].collect(isNonNegative:/1)
+>>> [-1 0 1].isNonNegative
 [false true true]
 ```
 
@@ -19,6 +21,8 @@ true
 * * *
 
 See also: >=, isNegative, isNegativeZero, isPositive, isZero, zero
+
+Guides: Predicate Functions
 
 References:
 _Smalltalk_

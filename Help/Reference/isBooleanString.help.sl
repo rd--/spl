@@ -9,10 +9,19 @@ else `false`.
 >>> 'true'.isBooleanString
 true
 
+>>> true.isBoolean
+true
+
 >>> 'false'.isBooleanString
 true
 
->>> 'neither'.isBooleanString
+>>> false.isBoolean
+true
+
+>>> 'Infinity'.isBooleanString
+false
+
+>>> Infinity.isBoolean
 false
 ```
 

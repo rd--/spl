@@ -1482,6 +1482,35 @@ Plot : [Object] { | pageList format options |
 
 +List {
 
+	mosaicPlot { :rowData |
+		let rowCount = rowData.rowCount;
+		let columnCount = rowData.columnCount;
+		let scaledRowData = rowData.collect { :row |
+			row * (100 / row.sum)
+		};
+		let rowSums = rowData.collect(sum:/1);
+		let rowSumMax = rowSums.max;
+		let rowHeight = 10;
+		let gapSize = 1.5;
+		let rowHeights = rowSums.reverse * (rowHeight / rowSumMax);
+		let yCoordinates = rowHeights.collect { :each |
+			each + gapSize
+		}.scanLeft(+, 0);
+		let xCoordinates = scaledRowData.collect { :row |
+			row.collect { :each |
+				each + gapSize
+			}.scanLeft(+, 0)
+		};
+		{ :i :j |
+			let k = rowCount - i + 1;
+			let x1 = xCoordinates[k][j];
+			let x2 = x1 + scaledRowData[k][j];
+			let y1 = yCoordinates[i];
+			let y2 = y1 + rowHeights[i];
+			Rectangle([x1, y1], [x2, y2])
+		}.table(1:rowCount, 1:columnCount).GeometryCollection
+	}
+
 	parallelAxisPlot { :rowData |
 		let columnData = rowData.transpose;
 		let columnMinMax = columnData.collect(minMax:/1);

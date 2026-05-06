@@ -4,8 +4,10 @@
 
 Answer `true` if the number _x_ is negative `zero`, else `false`.
 
+Threads over lists:
+
 ```
->>> [-1 -0 0 1].collect(isNegativeZero:/1)
+>>> [-1 -0 0 1].isNegativeZero
 [false true false false]
 ```
 
@@ -29,5 +31,7 @@ false
 * * *
 
 See also: =, ==, <, isZero, isNegative
+
+Guides: Predicate Functions
 
 Categories: Testing, Math

@@ -65,6 +65,16 @@ false
 false
 ```
 
+Test whether an array consists of even integers:
+
+```
+>>> [2 4; 6 10].isArray(2, isEven:/1)
+true
+
+>>> [1 4; 6 10].isArray(2, isEven:/1)
+false
+```
+
 The nonnegative even numbers,
 Messiaen’s first mode of limited transposition,
 OEIS [A005843](https://oeis.org/A005843):
