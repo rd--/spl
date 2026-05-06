@@ -12,7 +12,7 @@ Equivalent to `enclose` if _x_ is a vector.
 
 * * *
 
-See also: enclose, isRowVector, List, Matrix
+See also: columnVector, enclose, isRowVector, List, Matrix
 
 Guides: Matrix Functions
 

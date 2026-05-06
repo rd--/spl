@@ -230,6 +230,17 @@ Plot a maxima parabaloid:
 
 ![](Help/Image/surfacePlot-S.svg)
 
+Plot the _monkey saddle_,
+_x³-3xy²_:
+
+~~~spl svg=T
+(-1.35 -- 1.35).surfacePlot { :x :y |
+	x * (x.square - (3 * y.square))
+}
+~~~
+
+![](Help/Image/surfacePlot-T.svg)
+
 * * *
 
 See also: discretePlot, functionPlot, graphPlot, LineDrawing, linePlot, matrixPlot, meshGrid, parametricPlot, scatterPlot
