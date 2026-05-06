@@ -81,8 +81,9 @@ _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:-45-),
 _Mathematica_
 [1](https://mathworld.wolfram.com/Minus.html)
-[2](https://reference.wolfram.com/language/ref/Subtract.html)
-[3](https://reference.wolfram.com/language/ref/Minus.html),
+[2](https://mathworld.wolfram.com/ComplexSubtraction.html)
+[3](https://reference.wolfram.com/language/ref/Subtract.html)
+[4](https://reference.wolfram.com/language/ref/Minus.html),
 _Smalltalk_
 5.6.2.3,
 _W_

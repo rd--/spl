@@ -21,6 +21,9 @@ The operator form is `+`.
 ```
 >>> 2J1 + 3J-7
 5J-6
+
+>>> 2J2 + -2.5J1.75
+-0.5J3.75
 ```
 
 Plus threads element-wise over lists:
@@ -97,7 +100,9 @@ _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/plus),
 _Mathematica_
 [1](https://mathworld.wolfram.com/Plus.html)
-[2](https://reference.wolfram.com/language/ref/Plus.html),
+[2](https://mathworld.wolfram.com/VectorAddition.html)
+[3](https://mathworld.wolfram.com/ComplexAddition.html)
+[4](https://reference.wolfram.com/language/ref/Plus.html),
 _Smalltalk_
 5.6.2.2,
 _W_

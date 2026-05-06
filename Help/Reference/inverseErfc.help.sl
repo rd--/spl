@@ -80,6 +80,8 @@ Infinity
 
 See also: erf, erfc, inverseCdf, inverseErf, NormalDistribution
 
+Guides: Special Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/InverseErfc.html)

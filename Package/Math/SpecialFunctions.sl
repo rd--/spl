@@ -72,6 +72,50 @@
 		}
 	}
 
+	productLog { :self |
+		<primitive:
+		/* https://github.com/howion/lambert-w-function */
+		function log1Exp(x) {
+			return x <= 0 ? Math.log1p(Math.exp(x)) : x + log1Exp(-x)
+		}
+		function lambertW0Log_xmodar(logX) {
+			if (Number.isNaN(logX)) {
+				return NaN;
+			};
+			const logXE = +logX + 1;
+			const logY = 0.5 * log1Exp(logXE);
+			const logZ = Math.log(log1Exp(logY));
+			const logN = log1Exp(/* log(b)= */ 0.13938040121300527 + logY);
+			const logD = log1Exp(/* log(c)= */ -0.7875514895451805 + logZ);
+			let w = -1 + /* a= */ 2.036 * (logN - logD);
+			w *= (logXE - Math.log(w)) / (1 + w);
+			w *= (logXE - Math.log(w)) / (1 + w);
+			w *= (logXE - Math.log(w)) / (1 + w);
+			return Number.isNaN(w) ? (logXE < 0 ? 0 : Infinity) : w
+		}
+		function lambertW0_IaconoBoyd(x) {
+			if (x >= 0) {
+				return lambertW0Log_xmodar(Math.log(x));
+			};
+			const xE = x * Math.E;
+			if (Number.isNaN(x) || xE < -1) {
+				console.log('x',x, xE);
+				return NaN;
+			};
+			const y = (1 + xE) ** 0.5;
+			const z = Math.log(y + 1);
+			const n = 1 + /* b= */ 1.1495613113577325 * y;
+			const d = 1 + /* c= */ 0.4549574005654461 * z;
+			let w = -1 + /* a= */ 2.036 * Math.log(n / d);
+			w *= Math.log(xE / w) / (1 + w);
+			w *= Math.log(xE / w) / (1 + w);
+			w *= Math.log(xE / w) / (1 + w);
+			return Number.isNaN(w) ? (xE < -0.5 ? -1 : x) : w
+		}
+		return lambertW0_IaconoBoyd(_self);
+		>
+	}
+
 }
 
 +@Number {

@@ -16,14 +16,23 @@ Compare to `Range`:
 ```
 >>> let k = 1 / (100 - 1);
 >>> let r = FiniteRange(0, 1, k, 100);
->>> (r.size, r.last)
-(100, 1)
+>>> (r.size, r.step, r.last)
+(100, 0.010101, 1)
 
 >>> let k = 1 / (100 - 1);
 >>> let r = Range(0, 1, k);
->>> (r.size, r.last)
-(99, 0.989898)
+>>> (r.size, r.step, r.last)
+(99, 0.010101, 0.989898)
+
+>>> let k = 1 / (100 - 1);
+>>> (1 / k, 1.quotient(k))
+(98.999999, 98)
 ```
+
+_Rationale_:
+The `Range` type allows for specifying infinite sequences,
+and for the specification of finite sequences to omit the sequence size.
+Due to floating point imprecision it is not possible to ensure that the inferred size of a `Range` will be equal to the size used to calculate the `step` value.
 
 * * *
 

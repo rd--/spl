@@ -189,7 +189,7 @@ Range : [Object, Storeable, Equatable, Comparable, Iterable, Collection, Indexab
 		nonemptyRange(start, stop, then - start)
 	}
 
-	Range { :start :stop :step |
+	[Range, to, toBy] { :start :stop :step |
 		step.isZero.if {
 			start.error('@Number>>Range: step is zero')
 		} {
@@ -207,10 +207,6 @@ Range : [Object, Storeable, Equatable, Comparable, Iterable, Collection, Indexab
 		} {
 			Range(self, stop, 1)
 		}
-	}
-
-	toBy { :self :stop :step |
-		Range(self, stop, step)
 	}
 
 	upOrDownTo { :self :stop |

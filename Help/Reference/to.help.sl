@@ -1,12 +1,12 @@
 # to
 
-- _to(i, j)_
+- _to(i, j, k=1)_
 
 Construct a `Range` by counting from the start value _i_ up to the stop value _j_ by `one`.
 
 ```
->>> 1.to(5).asList
-[1 2 3 4 5]
+>>> 1.to(5)
+Range(1, 5, 1)
 
 >>> to(6, 10).asList
 [6 7 8 9 10]
@@ -23,23 +23,27 @@ If _j_ is less than _i_ the `Range` is empty:
 []
 ```
 
-To write a descending `Range` see `Range Syntax`, `Range Literal Syntax`, `thenTo` or `toBy`:
+To write a descending `Range` set _k_ to be negative,
+also see `Range Syntax`, `Range Literal Syntax`, `thenTo` or `toBy`:
 
 ```
->>> 7:3:-1.asList
-[7 6 5 4 3]
+>>> 7.to(3, -1)
+Range(7, 3, -1)
 
->>> (7, 6 .. 3).asList
-[7 6 5 4 3]
+>>> 7:3:-1
+Range(7, 3, -1)
 
->>> 7.toBy(3, -1).asList
-[7 6 5 4 3]
+>>> (7, 6 .. 3)
+Range(7, 3, -1)
 
->>> 7.thenTo(6, 3).asList
-[7 6 5 4 3]
+>>> 7.toBy(3, -1)
+Range(7, 3, -1)
+
+>>> 7.thenTo(6, 3)
+Range(7, 3, -1)
 ```
 
-Threads over lists:
+THe binary form threads over lists:
 
 ```
 >>> [0 2].to(4)
@@ -60,7 +64,9 @@ where _k_ may be zero.
 
 * * *
 
-See also: Range, thenTo, toBy, upOrDownTo
+See also: FiniteRange, Range, thenTo, toBy, upOrDownTo
+
+Guides: Sequence Functions
 
 References:
 _Haskell_

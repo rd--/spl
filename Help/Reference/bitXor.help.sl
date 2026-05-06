@@ -136,6 +136,16 @@ OEIS [A038183](https://oeis.org/A038183):
 ]
 ```
 
+Primes congruent to five or seven modulo eight,
+OEIS [A003628](https://oeis.org/A003628):
+
+```
+>>> 1:27.prime.select { :p |
+>>> 	p.bitXor(5) = (p - 5)
+>>> }
+[5 7 13 23 29 31 37 47 53 61 71 79 101 103]
+```
+
 Gray encoding of _n_,
 scatter plot,
 OEIS [A003188](https://oeis.org/A003188):

@@ -352,7 +352,9 @@ _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/star),
 _Mathematica_
 [1](https://mathworld.wolfram.com/Times.html)
-[2](https://reference.wolfram.com/language/ref/Times.html),
+[2](https://mathworld.wolfram.com/Multiplication.html)
+[3](https://mathworld.wolfram.com/ComplexMultiplication.html)
+[4](https://reference.wolfram.com/language/ref/Times.html),
 _Smalltalk_
 5.6.2.1,
 _W_

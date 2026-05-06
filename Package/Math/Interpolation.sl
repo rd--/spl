@@ -89,7 +89,7 @@
 
 }
 
-+[List, Range] {
++[List, Range, FiniteRange] {
 
 	akimaInterpolatorCoefficientList { :x :y |
 		/* https://github.com/chdh/commons-math-interpolation */

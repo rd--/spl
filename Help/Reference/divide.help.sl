@@ -190,7 +190,8 @@ _J_
 _Mathematica_
 [1](https://mathworld.wolfram.com/Division.html)
 [2](https://mathworld.wolfram.com/Divide.html)
-[3](https://reference.wolfram.com/language/ref/Divide.html),
+[3](https://mathworld.wolfram.com/ComplexDivision.html)
+[4](https://reference.wolfram.com/language/ref/Divide.html),
 _Smalltalk_
 5.6.2.4
 5.6.2.29,

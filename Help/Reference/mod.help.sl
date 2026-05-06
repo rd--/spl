@@ -841,6 +841,26 @@ followed by reduction relative to the modulus eighteen
 ]
 ```
 
+Primes congruent to five or seven modulo eight,
+OEIS [A003628](https://oeis.org/A003628):
+
+```
+>>> 1:27.prime.select { :p |
+>>> 	[5 7].includes(p % 8)
+>>> }
+[5 7 13 23 29 31 37 47 53 61 71 79 101 103]
+```
+
+Primes congruent to one or three modulo eight,
+OEIS [A033200](https://oeis.org/A033200):
+
+```
+>>> 1:27.prime.select { :p |
+>>> 	[1 3].includes(p % 8)
+>>> }
+[3 11 17 19 41 43 59 67 73 83 89 97]
+```
+
 An integer sequence modulo an integer,
 _n%8_,
 i.e. with a fixed modulus,

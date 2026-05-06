@@ -462,10 +462,10 @@
 	[mod, %] { :self :anObject | Mod(self, anObject) }
 	[equal, =] { :self :anObject | Equal(self, anObject) }
 	[unequal, !=] { :self :anObject | Unequal(self, anObject) }
-	[less, <] { :self :anObject | LessThan(self, anObject) }
-	[greater, >] { :self :anObject | GreaterThan(self, anObject) }
-	[lessEqual, <=] { :self :anObject | LessThanOrEqual(self, anObject) }
-	[greaterEqual, >=] { :self :anObject | GreaterThanOrEqual(self, anObject) }
+	[less, <] { :self :anObject | Less(self, anObject) }
+	[greater, >] { :self :anObject | Greater(self, anObject) }
+	[lessEqual, <=] { :self :anObject | LessEqual(self, anObject) }
+	[greaterEqual, >=] { :self :anObject | GreaterEqual(self, anObject) }
 	[bitShiftLeft, <<] { :self :anObject | ShiftLeft(self, anObject) }
 	[bitShiftRight, >>] { :self :anObject | ShiftRight(self, anObject) }
 

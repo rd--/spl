@@ -3,7 +3,7 @@
 - _toBy(i, j, k)_
 
 Construct a `Range` by counting up or down from the start value _i_ to the stop value _j_ by step _k_.
-This method is an alias for `Range`.
+This method is an alias for `Range` and also the ternary form of `to`.
 
 ```
 >>> 1.toBy(9, 2)

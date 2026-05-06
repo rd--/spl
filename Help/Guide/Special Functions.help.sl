@@ -42,6 +42,13 @@ Gamma and Related Functions:
 - `qPochhammer`
 - `upperIncompleteGamma`
 
+Inverse Functions
+
+- `inverseErf`
+- `inverseErfc`
+- `lambertW`
+- `productLog`
+
 Zeta Functions:
 
 - `zeta`

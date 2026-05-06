@@ -18,6 +18,10 @@ Answer _n_ times the Omega constant Ω.
 >>> let omega = 1.omegaConstant;
 >>> omega * exp(omega)
 1
+
+>>> let omega = 1.omegaConstant;
+>>> omega.-.exp
+omega
 ```
 
 * * *

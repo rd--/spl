@@ -115,6 +115,16 @@ true
 At `Complex`:
 
 ```
+>>> 1J1 ^ 1J1
+0.273957J0.583701
+
+>>> let a = 0.25.pi + (0.5 * 2.log);
+>>> 2.sqrt * -0.25.pi.exp * (a.cos + a.sin.i)
+0.273957J0.583701
+
+>>> 0J1 ^ 0J1
+-0.5.pi.exp
+
 >>> 2 ^ 0J1
 0.769239J0.638961
 
@@ -874,6 +884,43 @@ Almost integers:
 1.0000000000189
 ```
 
+_2^n-n_,
+OEIS [A000325](https://oeis.org/A000325):
+
+```
+>>> let n = 1:13;
+>>> (2 ^ n) - n
+[1 2 5 12 27 58 121 248 503 1014 2037 4084 8179]
+```
+
+Primes of the form _2^n-n_,
+OEIS [A081296](https://oeis.org/A081296):
+
+```
+>>> let n = 1:13;
+>>> ((2 ^ n) - n).select(isPrime:/1)
+[2 5 503 8179]
+```
+
+Primes of the form _2^n-n+1_,
+OEIS [A100362](https://oeis.org/A100362):
+
+```
+>>> let n = 0:13;
+>>> ((2 ^ n) - n + 1).select(isPrime:/1)
+[2 2 3 13 59]
+```
+
+Wagstaff numbers,
+OEIS [A000978](https://oeis.org/A000978):
+
+```
+>>> 2:14.prime.select { :n |
+>>> 	((2 ^ n + 1) / 3).isPrime
+>>> }
+[3 5 7 11 13 17 19 23 31 43]
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A
@@ -1049,6 +1096,16 @@ OEIS [A140756](https://oeis.org/A140756):
 
 ![](Help/Image/power-M.svg)
 
+Plot the imaginary part of _ik^ik_:
+
+~~~spl svg=N
+(0 -- 6).functionPlot { :k |
+	(k.i ^ k.i).imaginary
+}
+~~~
+
+![](Help/Image/power-N.svg)
+
 * * *
 
 See also: +, -, *, /, exp, factorialPower, matrixPower, log, powerMod, powerRange, sqrt, symmetricPower
@@ -1062,7 +1119,8 @@ _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/hat#dyadic),
 _Mathematica_
 [1](https://mathworld.wolfram.com/Power.html)
-[2](https://reference.wolfram.com/language/ref/Power.html),
+[2](https://mathworld.wolfram.com/ComplexExponentiation.html)
+[3](https://reference.wolfram.com/language/ref/Power.html),
 _OEIS_
 [1](https://oeis.org/A000272)
 [2](https://oeis.org/A000051)

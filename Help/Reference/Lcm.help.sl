@@ -1,6 +1,6 @@
 # Lcm
 
-- _Lcm(aNumber, anotherNumber)_
+- _Lcm(m, n)_
 
 Least common multiple.
 
@@ -25,19 +25,6 @@ This makes it consistent with the lattice-theoretical interpretation and it’s 
 
 >>> 513.lcm(513.gcd(44))
 513
-```
-
-Following the example of the programming language _J_, `Lcm` is analogous to logical and:
-
-```
->>> Lcm:/2.table([0 1], [0 1])
-[0 0; 0 1]
-
->>> &&.table([false true], [false true])
-[false false; false true]
-
->>> lcm:/2.table([0 1], [0 1])
-[0 0; 0 1]
 ```
 
 Mouse control of frequency:

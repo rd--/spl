@@ -46,7 +46,7 @@ Polar plot:
 
 * * *
 
-See also: log, exp, omegaConstant
+See also: log, exp, omegaConstant, productLog
 
 Guides: Special Functions
 
