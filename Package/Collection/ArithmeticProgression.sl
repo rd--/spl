@@ -104,10 +104,22 @@
 		}
 	}
 
+	isMatrix { :unused |
+		false
+	}
+
 	isNormal { :self |
 		self.isEmpty.not & {
 			self.start <= self.end
 		}
+	}
+
+	isRegularlySpaced { :unused |
+		true
+	}
+
+	isVector { :unused |
+		true
 	}
 
 	last { :self |

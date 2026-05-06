@@ -426,6 +426,10 @@
 		self.collect(inverseErfc:/1)
 	}
 
+	inverseGudermannian { :self |
+		self.collect(inverseGudermannian:/1)
+	}
+
 	inverseTriangularNumber { :self |
 		self.collect(inverseTriangularNumber:/1)
 	}

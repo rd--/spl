@@ -78,18 +78,6 @@ Range : [Object, Storeable, Equatable, Comparable, Iterable, Collection, Indexab
 		}
 	}
 
-	isMatrix { :unused |
-		false
-	}
-
-	isRegularlySpaced { :unused |
-		true
-	}
-
-	isVector { :unused |
-		true
-	}
-
 	rangeSyntaxString { :self |
 		(
 			self.step = 1 & {
@@ -251,6 +239,10 @@ Range : [Object, Storeable, Equatable, Comparable, Iterable, Collection, Indexab
 }
 
 FiniteRange : [Object, Storeable, Equatable, Comparable, Iterable, Collection, Indexable, Sequenceable, ArithmeticProgression] { | start stop step size |
+
+	species { :self |
+		List:/1
+	}
 
 }
 
