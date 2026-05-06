@@ -30,7 +30,7 @@ Find peaks of cosine function:
 >>> (-2.pi -- 2.pi).subdivide(100)
 >>> .cos
 >>> .findPeaks
-[1 1; 51 1; 100 0.9921]
+[1 1; 51 1; 101 1]
 ```
 
 * * *

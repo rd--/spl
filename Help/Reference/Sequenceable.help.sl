@@ -18,6 +18,7 @@ Types implementing `Sequenceable`:
 [
 	'AsciiString'
 	'ByteArray'
+	'FiniteRange'
 	'Float32Array'
 	'Float64Array'
 	'LinkedList'

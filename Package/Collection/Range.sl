@@ -254,14 +254,26 @@ Range : [Object, Storeable, Equatable, Comparable, Iterable, Collection, Indexab
 
 }
 
-FixedSizeRange : [Object, Storeable, Equatable, Comparable, Iterable, Collection, Indexable, Sequenceable, ArithmeticProgression] { | start step size |
+FiniteRange : [Object, Storeable, Equatable, Comparable, Iterable, Collection, Indexable, Sequenceable, ArithmeticProgression] { | start stop step size |
 
 }
 
 +@Number {
+	FiniteRange { :start :stop :step :size |
+		let calculatedStop = start + (step * (size - 1));
+		calculatedStop.isVeryCloseTo(stop).if {
+			newFiniteRange().initializeSlots(start, stop, step, size)
+		} {
+			start.error('FiniteRange')
+		}
+	}
+}
 
-	FixedSizeRange { :start :step :size |
-		newFixedSizeRange().initializeSlots(start, step, size)
++List {
+
+	FiniteRange { :self |
+		let [start, stop, step, size] = self;
+		FiniteRange(start, stop, step, size)
 	}
 
 }

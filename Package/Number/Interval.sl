@@ -95,7 +95,7 @@ Interval : [Object, Storeable, Equatable, Number] { | min max |
 		let start = self.min;
 		let stop = self.max;
 		let step = (stop - start) / (size - 1);
-		FixedSizeRange(start, step, size)
+		FiniteRange(start, stop, step, size)
 	}
 
 	endPoints { :self |

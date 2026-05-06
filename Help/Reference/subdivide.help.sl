@@ -24,21 +24,21 @@ Subdivide the interval `zero` to `one` into 100 equal parts:
 
 ```
 >>> (0 -- 1).subdivide(100)
-(0, 0.01 .. 1)
+FiniteRange(0, 1, 0.01, 101)
 ```
 
 Subdivide the interval 0 to 10 into 5 equal parts:
 
 ```
 >>> (0 -- 10).subdivide(5)
-(0, 2 .. 10)
+FiniteRange(0, 10, 2, 6)
 ```
 
 Subdivide the interval -1 to 1 into 8 equal parts:
 
 ```
 >>> (-1 -- 1).subdivide(8)
-(-1, -0.75 .. 1)
+FiniteRange(-1, 1, 0.25, 9)
 ```
 
 Subdivide the interval from `e` to `pi`:
@@ -52,13 +52,13 @@ Compare `subdivide` and `Range Syntax`:
 
 ```
 >>> (3 -- 11).subdivide(4)
-(3, 5 .. 11)
+FiniteRange(3, 11, 2, 5)
 
 >>> [3, 5 .. 11]
 [3 5 7 9 11]
 
 >>> (-1 -- 2).subdivide(5)
-(-1, -0.4 .. 2)
+FiniteRange(-1, 2, 0.6, 6)
 
 >>> [-1, -0.4 .. 2]
 [-1 -0.4 0.2 0.8 1.4 2]
@@ -68,18 +68,23 @@ Compare `subdivide` and `discretize`:
 
 ```
 >>> (1 -- 10).subdivide(9)
-1:10
+FiniteRange(1, 10, 1, 10)
 
 >>> (1 -- 10).discretize(10)
-1:10
+FiniteRange(1, 10, 1, 10)
 ```
 
 The last value is treated especially to avoid range errors:
 
 ```
->>> let l = (1 -- 5).subdivide(100).asList;
->>> (l[100] > 4.96, l[101] > 5)
-(true, false)
+>>> let r = (1 -- 5).subdivide(100);
+>>> let l = r.asList;
+>>> (r, l[100] > 4.96, l[101] > 5)
+(
+	FiniteRange(1, 5, 0.04, 101),
+	true,
+	false
+)
 ```
 
 A cyclical sine table of _n_ places,

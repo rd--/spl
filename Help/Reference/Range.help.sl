@@ -2,7 +2,7 @@
 
 - _Range([i j k])_
 
-A `Range` is a `Type` that represents a finite arithmetic progression,
+A `Range` is a `Type` that represents an arithmetic progression,
 ranging from _i_ to _j_ by step _k_.
 The range is closed, it includes both the lower and upper bound.
 
@@ -298,7 +298,7 @@ OEIS [A194258](https://oeis.org/A194258):
 
 * * *
 
-See also: .., ArithmeticProgression, characterRange, discretize, do, downTo, end, Interval, isIntegerRange, last, reverseDo, RelativeRange, start, stop, subdivide, thenTo, to, toBy, upOrDownTo
+See also: .., ArithmeticProgression, characterRange, discretize, do, downTo, end, FiniteRange, Interval, isIntegerRange, last, reverseDo, RelativeRange, start, stop, subdivide, thenTo, to, toBy, upOrDownTo
 
 Guides: Range Syntax, Range Literal Syntax
 

@@ -1538,6 +1538,7 @@ Reference/finesSequence.help.sl
 Reference/fineStructureConstant.help.sl
 Reference/finiteAbelianGroupCount.help.sl
 Reference/finiteGroupCount.help.sl
+Reference/FiniteRange.help.sl
 Reference/FirstArg.help.sl
 Reference/firstBrocardPoint.help.sl
 Reference/firstBrocardTriangle.help.sl
@@ -2797,6 +2798,7 @@ Reference/MoogFf.help.sl
 Reference/mooreCurve.help.sl
 Reference/mooreNeighborhood.help.sl
 Reference/morseCode.help.sl
+Reference/mosaicPlot.help.sl
 Reference/moserDeBruijnSequence.help.sl
 Reference/motzkinNumber.help.sl
 Reference/motzkinSequence.help.sl
@@ -3332,6 +3334,7 @@ Reference/quadraticNonresidues.help.sl
 Reference/quadraticResidues.help.sl
 Reference/quadratrixOfHippias.help.sl
 Reference/quantile.help.sl
+Reference/quantilePlot.help.sl
 Reference/QuantityArray.help.sl
 Reference/Quantity.help.sl
 Reference/quarterToneFlat.help.sl

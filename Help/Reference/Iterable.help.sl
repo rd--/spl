@@ -20,6 +20,7 @@ Types implementing `Iterable`:
 	'BitSet'
 	'ByteArray'
 	'Dictionary'
+	'FiniteRange'
 	'Float32Array'
 	'Float64Array'
 	'Heap'

@@ -21,6 +21,7 @@ Types implementing `Indexable`:
 	'CartesianCoordinates'
 	'Dictionary'
 	'DirectedEdge'
+	'FiniteRange'
 	'Float32Array'
 	'Float64Array'
 	'LinkedList'
