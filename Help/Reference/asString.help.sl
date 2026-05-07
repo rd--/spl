@@ -98,7 +98,7 @@ At `Range`:
 
 ```
 >>> 1:99.asString
-'Range(1, 99, 1)'
+'Range(1, 99, 1, 99)'
 ```
 
 At `Association`:

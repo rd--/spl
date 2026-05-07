@@ -343,6 +343,10 @@ String! : [Object, Storeable, Equatable, Comparable, Json, Iterable, Indexable, 
 		}
 	}
 
+	empty { :unused |
+		''
+	}
+
 	endsWith { :self :aString |
 		<primitive:
 		if(typeof _aString === 'string') {

@@ -141,7 +141,7 @@ then the two middle pairs,
 then the outer pairs,
 the period is twenty:
 
-~~~
+~~~spl svg=A
 let p = [
 	3 4:;
 	2 3; 4 5:;

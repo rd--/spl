@@ -286,6 +286,10 @@ Fraction : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | num
 		(b * c) - (a * d) = 1
 	}
 
+	isFinite { :unused |
+		true
+	}
+
 	isInteger { :self |
 		self.denominator = 1
 	}

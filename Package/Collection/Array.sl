@@ -555,7 +555,7 @@
 
 }
 
-+[Range, FiniteRange] {
++Range {
 
 	arrayDepth { :unused |
 		1

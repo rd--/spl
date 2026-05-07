@@ -2,7 +2,7 @@
 
 - _FiniteRange([i j k n])_
 
-A `FiniteRange` is a `Type` that represents a finite arithmetic progression,
+`FiniteRange` answers a finite `Range` value representing a finite arithmetic progression,
 ranging from _i_ to _j_ by step _k_ and having _n_ places.
 
 ```
@@ -11,7 +11,7 @@ ranging from _i_ to _j_ by step _k_ and having _n_ places.
 (1, 10, 1, 10, [1 2 3 4 5 6 7 8 9 10])
 ```
 
-Compare to `Range`:
+Compare to ternary form of `Range`:
 
 ```
 >>> let k = 1 / (100 - 1);
@@ -33,6 +33,7 @@ _Rationale_:
 The `Range` type allows for specifying infinite sequences,
 and for the specification of finite sequences to omit the sequence size.
 Due to floating point imprecision it is not possible to ensure that the inferred size of a `Range` will be equal to the size used to calculate the `step` value.
+There is a quaternary `Range` form however it also allows infinite and improper `Range` values.
 
 * * *
 

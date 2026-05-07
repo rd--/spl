@@ -1873,8 +1873,8 @@ Range(-2, 2, 1).collect(isEven:/1) = [true, false, true, false, true]
 1:9.copyFromTo(3, 7) = 3:7 /* copy from start to end indices, inclusive */
 1:16.copyFromTo(1, 8) = 1:8 /* copy from start to end indices, inclusive */
 let i = 1; 1.to(9).do { :each | i := i + each }; i = 46
-Range(-1, 1, 1).printString = 'Range(-1, 1, 1)'
-Range(-1, 1, 1).storeString = 'Range(-1, 1, 1)'
+Range(-1, 1, 1).printString = 'Range(-1, 1, 1, 3)'
+Range(-1, 1, 1).storeString = 'Range(-1, 1, 1, 3)'
 Range(1, 9, 1) = 1:9
 Range(1, 10, 3).size = 4
 Range(1, 10, 3).asList = [1, 4, 7, 10]
@@ -1888,9 +1888,9 @@ let i = 1:9; i.first = i[1] /* one-indexed */
 let i = 1:9; i.last = i[9] /* one-indexed */
 1:6.sum = 21
 Range(-1, 1, 1).asList = [-1, 0, 1]
-1.to(99).asString = 'Range(1, 99, 1)'
-1:99.asString = 'Range(1, 99, 1)'
-toBy(1, -1, -1).asString = 'Range(1, -1, -1)'
+1.to(99).asString = 'Range(1, 99, 1, 99)'
+1:99.asString = 'Range(1, 99, 1, 99)'
+toBy(1, -1, -1).asString = 'Range(1, -1, -1, 3)'
 1.to(99).sum = 4950
 1.to(99).asList.sum = 4950
 1:9.size = 9

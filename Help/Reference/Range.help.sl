@@ -244,11 +244,20 @@ Range([1 9 2])
 Work with infinite ranges:
 
 ```
+>>> 1:Infinity
+Range(1, Infinity, 1, Infinity)
+
 >>> 1:Infinity.indexOf(9)
 9
 
 >>> 1:Infinity.detect { :x | x = 9 }
 9
+
+>>> 1:Infinity:2
+Range(1, Infinity, 2, Infinity)
+
+>>> 1:Infinity:2.indexOf(9)
+5
 ```
 
 Count backwards from one hundred to zero,
@@ -298,7 +307,7 @@ OEIS [A194258](https://oeis.org/A194258):
 
 * * *
 
-See also: .., ArithmeticProgression, characterRange, discretize, do, downTo, end, FiniteRange, Interval, isIntegerRange, last, reverseDo, RelativeRange, start, stop, subdivide, thenTo, to, toBy, upOrDownTo
+See also: .., ArithmeticProgression, characterRange, discretize, do, downTo, end, Interval, isIntegerRange, last, reverseDo, RelativeRange, start, stop, subdivide, thenTo, to, toBy, upOrDownTo
 
 Guides: Range Syntax, Range Literal Syntax, Sequence Functions
 

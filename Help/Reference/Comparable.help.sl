@@ -27,7 +27,6 @@ Types implementing `Comparable`:
 	'Decimal'
 	'DirectedEdge'
 	'Duration'
-	'FiniteRange'
 	'Float32Array'
 	'Float64Array'
 	'Fraction'

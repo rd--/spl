@@ -20,7 +20,6 @@ Types implementing `Collection`:
 	'BitSet'
 	'ByteArray'
 	'Dictionary'
-	'FiniteRange'
 	'Float32Array'
 	'Float64Array'
 	'Heap'

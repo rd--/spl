@@ -14,10 +14,13 @@ and if the `stop` value is the `last` value:
 
 >>> 1:1.isProper
 true
+```
+
+An empty range signals an `error` for `last`:
 
 >>> let r = Range(9, 1, 1);
->>> (r.isEmpty, r.isProper)
-(true, false)
+>>> (r.isEmpty, r.isProper, { r.last }.hasError)
+(true, false, true)
 ```
 
 A `Scale` is proper (Rothenberg 1977) if its `intervalClasses` are ascending,

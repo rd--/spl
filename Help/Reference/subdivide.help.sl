@@ -10,7 +10,7 @@ Subdivide the unit interval into 10 equal parts:
 
 ```
 >>> 10.subdivide
-Range(0, 1, 1/10)
+Range(0, 1, 1/10, 11)
 
 >>> 10.subdivide.asList
 [
@@ -24,21 +24,21 @@ Subdivide the interval `zero` to `one` into 100 equal parts:
 
 ```
 >>> (0 -- 1).subdivide(100)
-FiniteRange(0, 1, 0.01, 101)
+Range(0, 1, 0.01, 101)
 ```
 
 Subdivide the interval 0 to 10 into 5 equal parts:
 
 ```
 >>> (0 -- 10).subdivide(5)
-FiniteRange(0, 10, 2, 6)
+Range(0, 10, 2, 6)
 ```
 
 Subdivide the interval -1 to 1 into 8 equal parts:
 
 ```
 >>> (-1 -- 1).subdivide(8)
-FiniteRange(-1, 1, 0.25, 9)
+Range(-1, 1, 0.25, 9)
 ```
 
 Subdivide the interval from `e` to `pi`:
@@ -48,17 +48,45 @@ Subdivide the interval from `e` to `pi`:
 [2.7183 2.8241 2.9299 3.0358 3.1416]
 ```
 
+Subdivide the interval from -π to π,
+note that the inferred size of the `Range` given by the calculated step size is not equal:
+
+```
+>>> (-1.pi -- 1.pi).subdivide(100)
+Range(-1.pi, 1.pi, 1/50.pi, 101)
+
+>>> Range(-1.pi, 1.pi, 1/50.pi).size
+100
+```
+
+Subdivide the interval from `zero` to _2π_,
+note that the inferred size of the `Range` given by the calculated step size is not equal:
+
+```
+>>> (0 -- 2.pi).subdivide(100)
+Range(0, 2.pi, 1/50.pi, 101)
+
+>>> Range(0, 2.pi, 1/50.pi).size
+100
+```
+
 Compare `subdivide` and `Range Syntax`:
 
 ```
 >>> (3 -- 11).subdivide(4)
-FiniteRange(3, 11, 2, 5)
+Range(3, 11, 2, 5)
+
+>>> (3, 5 .. 11)
+Range(3, 11, 2, 5)
 
 >>> [3, 5 .. 11]
 [3 5 7 9 11]
 
 >>> (-1 -- 2).subdivide(5)
-FiniteRange(-1, 2, 0.6, 6)
+Range(-1, 2, 0.6, 6)
+
+>>> (-1, -0.4 .. 2)
+Range(-1, 2, 0.6, 6)
 
 >>> [-1, -0.4 .. 2]
 [-1 -0.4 0.2 0.8 1.4 2]
@@ -68,10 +96,10 @@ Compare `subdivide` and `discretize`:
 
 ```
 >>> (1 -- 10).subdivide(9)
-FiniteRange(1, 10, 1, 10)
+Range(1, 10, 1, 10)
 
 >>> (1 -- 10).discretize(10)
-FiniteRange(1, 10, 1, 10)
+Range(1, 10, 1, 10)
 ```
 
 The last value is treated especially to avoid range errors:
@@ -81,7 +109,7 @@ The last value is treated especially to avoid range errors:
 >>> let l = r.asList;
 >>> (r, l[100] > 4.96, l[101] > 5)
 (
-	FiniteRange(1, 5, 0.04, 101),
+	Range(1, 5, 0.04, 101),
 	true,
 	false
 )

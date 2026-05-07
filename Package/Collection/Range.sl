@@ -1,10 +1,11 @@
-Range : [Object, Storeable, Equatable, Comparable, Iterable, Collection, Indexable, Sequenceable, ArithmeticProgression] { | start stop step |
+Range : [Object, Storeable, Equatable, Comparable, Iterable, Collection, Indexable, Sequenceable, ArithmeticProgression] { | start stop step size |
 
 	[negate, -] { :self |
 		Range(
 			self.start.negate,
 			self.stop.negate,
-			self.step.negate
+			self.step.negate,
+			self.size
 		)
 	}
 
@@ -13,7 +14,8 @@ Range : [Object, Storeable, Equatable, Comparable, Iterable, Collection, Indexab
 			Range(
 				self.start + operand,
 				self.stop + operand,
-				self.step
+				self.step,
+				self.size
 			)
 		} {
 			operand.adaptToCollectionAndApply(self, +)
@@ -25,7 +27,8 @@ Range : [Object, Storeable, Equatable, Comparable, Iterable, Collection, Indexab
 			Range(
 				self.start - operand,
 				self.stop - operand,
-				self.step
+				self.step,
+				self.size
 			)
 		} {
 			operand.adaptToCollectionAndApply(self, -)
@@ -44,8 +47,8 @@ Range : [Object, Storeable, Equatable, Comparable, Iterable, Collection, Indexab
 		self.start.typeOf
 	}
 
-	empty { :self |
-		Range(1, 0, 1)
+	empty { :unused |
+		Range(1, 0, 1, 0)
 	}
 
 	equalBy { :self :operand :aBlock:/2 |
@@ -84,16 +87,20 @@ Range : [Object, Storeable, Equatable, Comparable, Iterable, Collection, Indexab
 				self.isEmpty.not
 			}
 		).if {
-			'%:%'.format([
-				self.start,
-				self.stop
-			])
+			'%:%'.format(
+				[
+					self.start,
+					self.stop
+				]
+			)
 		} {
-			'%:%:%'.format([
-				self.start.printString,
-				self.step.printString,
-				self.stop.printString
-			])
+			'%:%:%'.format(
+				[
+					self.start.printString,
+					self.step.printString,
+					self.stop.printString
+				]
+			)
 		}
 	}
 
@@ -103,6 +110,7 @@ Range : [Object, Storeable, Equatable, Comparable, Iterable, Collection, Indexab
 		} {
 			let removed = self.start;
 			self.start := self.start + self.step;
+			self.size := self.size - 1;
 			removed
 		}
 	}
@@ -113,6 +121,7 @@ Range : [Object, Storeable, Equatable, Comparable, Iterable, Collection, Indexab
 		} {
 			let removed = self.stop;
 			self.stop := self.stop - self.step;
+			self.size := self.size - 1;
 			removed
 		}
 	}
@@ -127,23 +136,6 @@ Range : [Object, Storeable, Equatable, Comparable, Iterable, Collection, Indexab
 
 	reverse { :self |
 		self.copy.reverseInPlace
-	}
-
-	size { :self |
-		let derived = (self.stop - self.start).quotient(self.step) + 1;
-		(self.step < 0).if {
-			(self.start < self.stop).if {
-				0
-			} {
-				derived
-			}
-		} {
-			(self.stop < self.start).if {
-				0
-			} {
-				derived
-			}
-		}
 	}
 
 	sort { :self |
@@ -165,24 +157,49 @@ Range : [Object, Storeable, Equatable, Comparable, Iterable, Collection, Indexab
 
 +@Number {
 
-	nonemptyRange { :start :stop :step |
-		Range(start, stop, step).also { :x |
-			x.isEmpty.ifTrue {
-				x.error('Range: invalid (empty) range')
+	inferredRangeSize { :start :stop :step |
+		let k = (stop - start).quotient(step) + 1;
+		k := k.normal;
+		(step < 0).if {
+			(start < stop).if {
+				0
+			} {
+				k
+			}
+		} {
+			(stop < start).if {
+				0
+			} {
+				k
 			}
 		}
+	}
+
+	nonemptyRange { :start :stop :step |
+		let r = Range(start, stop, step);
+		r.isEmpty.ifTrue {
+			r.error('nonemptyRange: invalid (empty) range')
+		};
+		r
 	}
 
 	nonemptyThenTo { :start :then :stop |
 		nonemptyRange(start, stop, then - start)
 	}
 
-	[Range, to, toBy] { :start :stop :step |
-		step.isZero.if {
+	Range { :start :stop :step :size |
+		step.isZero.ifTrue {
 			start.error('@Number>>Range: step is zero')
-		} {
-			newRange().initializeSlots(start, stop, step)
-		}
+		};
+		start.isFinite.ifFalse {
+			start.error('@Number>>Range: start is not finite')
+		};
+		newRange().initializeSlots(start, stop, step, size)
+	}
+
+	[Range, to, toBy] { :start :stop :step |
+		let size = inferredRangeSize(start, stop, step);
+		Range(start, stop, step, size)
 	}
 
 	thenTo { :self :second :last |
@@ -214,8 +231,12 @@ Range : [Object, Storeable, Equatable, Comparable, Iterable, Collection, Indexab
 +List {
 
 	Range { :self |
-		let [start, stop, step] = self;
-		Range(start, stop, step)
+		self.size.caseOf(
+			[
+				3 -> { Range(self[1], self[2], self[3]) },
+				4 -> { Range(self[1], self[2], self[3], self[4]) }
+			]
+		)
 	}
 
 }
@@ -238,23 +259,27 @@ Range : [Object, Storeable, Equatable, Comparable, Iterable, Collection, Indexab
 
 }
 
-FiniteRange : [Object, Storeable, Equatable, Comparable, Iterable, Collection, Indexable, Sequenceable, ArithmeticProgression] { | start stop step size |
-
-	species { :self |
-		List:/1
-	}
-
-}
-
 +@Number {
+
 	FiniteRange { :start :stop :step :size |
-		let calculatedStop = start + (step * (size - 1));
-		calculatedStop.isVeryCloseTo(stop).if {
-			newFiniteRange().initializeSlots(start, stop, step, size)
+		(
+			start.isFinite & {
+				stop.isFinite & {
+					step != 0 & {
+						size.isFinite
+					} & {
+						let calculatedStop = start + (step * (size - 1));
+						calculatedStop.isVeryCloseTo(stop)
+					}
+				}
+			}
+		).if {
+			Range(start, stop, step, size)
 		} {
 			start.error('FiniteRange')
 		}
 	}
+
 }
 
 +List {

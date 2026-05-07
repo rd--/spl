@@ -15,7 +15,7 @@ IdentitySet:/0
 IdentitySet()
 ```
 
-The unary form, for collections where `species` answers a one-argument block:
+The binary form, for collections where `species` answers a one-argument block:
 
 ```
 >>> [].species

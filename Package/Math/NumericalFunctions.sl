@@ -32,7 +32,7 @@
 
 }
 
-+[List, Range, FiniteRange] {
++[List, Range] {
 
 	cosineWave { :self |
 		self.collect(cosineWave:/1)

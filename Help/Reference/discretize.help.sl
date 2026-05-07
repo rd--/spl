@@ -41,11 +41,23 @@ due to precision errors,
 have an unexpected size:
 
 ```
->>> (0 -- 1).discretize(100).size
-100
+>>> (0 -- 1).discretize(100)
+Range(0, 1, 1 / 99, 100)
 
->>> Range(0, 1, 1 / (100 - 1)).size
-99
+>>> Range(0, 1, 1 / 99)
+Range(0, 1, 1 / 99, 99)
+
+>>> (-1 -- 1).discretize(100)
+Range(-1, 1, 2 / 99, 100)
+
+>>> Range(-1, 1, 2 / 99)
+Range(-1, 1, 2 / 99, 99)
+
+>>> (0 -- 4).discretize(100)
+Range(0, 4, 4 / 99, 100)
+
+>>> Range(0, 4, 4 / 99)
+Range(0, 4, 4 / 99, 99)
 ```
 
 In the ternary form apply the unary block _f_ to each element during construction.

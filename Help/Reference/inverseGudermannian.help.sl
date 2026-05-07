@@ -56,8 +56,6 @@ Plot over a subset of the reals:
 )
 ~~~
 
-0.5.pi.inverseGudermannian
-
 ![](Help/Image/inverseGudermannian-A.svg)
 
 * * *
