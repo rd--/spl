@@ -9,6 +9,7 @@ Plotting Functions:
 
 - `arrayPlot`
 - `autocorrelationPlot`
+- `barChart`
 - `bubbleChart`
 - `carpetPlot`
 - `chordDiagramPlot`
@@ -16,6 +17,8 @@ Plotting Functions:
 - `circularMatrixPlot`
 - `cobwebPlot`
 - `colourCalculatorPlot`
+- `colouredBarChart`
+- `colouredRectangleChart`
 - `complexListPlot`
 - `complexPlot`
 - `conformalPlot`
@@ -55,6 +58,7 @@ Plotting Functions:
 - `polarPlot`
 - `quantilePlot`
 - `radialAxisPlot`
+- `rectangleChart`
 - `reliefPlot`
 - `residueDesignPlot`
 - `residueSetPlot`

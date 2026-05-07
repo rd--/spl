@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="161.8" height="100.0" viewBox="-5.0 -5.0 171.8 110.0">
 <g fill="none" stroke="black" stroke-width="0.5000%" transform="translate(0, 100.0000) scale(1.0000, -1.0000)">
-<g fill="rgb(120,27,134)" ><rect x="0.0" y="0.0" width="23.1" height="100.0" /></g>
-<g fill="rgb(63,78,203)" ><rect x="23.1" y="0.0" width="23.1" height="84.2" /></g>
-<g fill="rgb(82,154,182)" ><rect x="46.2" y="0.0" width="23.1" height="47.4" /></g>
-<g fill="rgb(131,186,112)" ><rect x="69.3" y="0.0" width="23.1" height="15.8" /></g>
-<g fill="rgb(196,186,69)" ><rect x="92.5" y="0.0" width="23.1" height="36.8" /></g>
-<g fill="rgb(230,135,52)" ><rect x="115.6" y="0.0" width="23.1" height="10.5" /></g>
-<g fill="rgb(219,33,33)" ><rect x="138.7" y="0.0" width="23.1" height="89.5" /></g>
+<rect x="0.0" y="0.0" width="23.1" height="100.0" />
+<rect x="23.1" y="0.0" width="23.1" height="84.2" />
+<rect x="46.2" y="0.0" width="23.1" height="47.4" />
+<rect x="69.3" y="0.0" width="23.1" height="15.8" />
+<rect x="92.5" y="0.0" width="23.1" height="36.8" />
+<rect x="115.6" y="0.0" width="23.1" height="10.5" />
+<rect x="138.7" y="0.0" width="23.1" height="89.5" />
 </g>
 </svg>

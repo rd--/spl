@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="161.8" height="100.0" viewBox="-5.0 -5.0 171.8 110.0">
 <g fill="none" stroke="black" stroke-width="0.5000%" transform="translate(0, 100.0000) scale(1.0000, -1.0000)">
-<g fill="rgb(120,27,134)" ><rect x="0.0" y="0.0" width="27.0" height="12.5" /></g>
-<g fill="rgb(63,98,208)" ><rect x="27.0" y="0.0" width="27.0" height="12.5" /></g>
-<g fill="rgb(99,172,154)" ><rect x="53.9" y="0.0" width="27.0" height="25.0" /></g>
-<g fill="rgb(170,190,82)" ><rect x="80.9" y="0.0" width="27.0" height="37.5" /></g>
-<g fill="rgb(228,153,56)" ><rect x="107.9" y="0.0" width="27.0" height="62.5" /></g>
-<g fill="rgb(219,33,33)" ><rect x="134.8" y="0.0" width="27.0" height="100.0" /></g>
+<rect x="0.0" y="0.0" width="27.0" height="12.5" />
+<rect x="27.0" y="0.0" width="27.0" height="12.5" />
+<rect x="53.9" y="0.0" width="27.0" height="25.0" />
+<rect x="80.9" y="0.0" width="27.0" height="37.5" />
+<rect x="107.9" y="0.0" width="27.0" height="62.5" />
+<rect x="134.8" y="0.0" width="27.0" height="100.0" />
 </g>
 </svg>

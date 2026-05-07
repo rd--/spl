@@ -1,8 +1,8 @@
 # arrayDepth
 
-- _arrayDepth(aList)_
+- _arrayDepth(a)_
 
-Answer the depth to which _aList_ is a full array,
+Answer the depth to which the list _a_ is a full array,
 with all the parts at a particular level having the same length.
 Unlike `rank`, `arrayDepth` always answers an integer.
 
@@ -90,6 +90,8 @@ At `Range`:
 * * *
 
 See also: arrayFlatten, depth, dimensions, isArray, isMatrix, isVector, rank, shape, size
+
+Guides: Array Functions
 
 References:
 _Mathematica_

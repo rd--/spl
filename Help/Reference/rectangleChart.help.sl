@@ -70,10 +70,23 @@ A four rectangle chart:
 
 ![](Help/Image/rectangleChart-G.svg)
 
-Multiple data sets,
-two three rectangle charts:
+The left Riemann sum of _sin(x)_ in _0,π_:
 
 ~~~spl svg=H
+let n = 12;
+let z = 1.pi / n;
+Range(0, 1.pi - z, z).sin.collect { :x |
+	[z, x]
+}.rectangleChart
+~~~
+
+![](Help/Image/rectangleChart-H.svg)
+
+Multiple data sets,
+equal positions have equal colours,
+two three rectangle charts:
+
+~~~spl svg=I
 [
 	1 1; 1 2; 2 3
 	:;
@@ -81,11 +94,11 @@ two three rectangle charts:
 ].rectangleChart
 ~~~
 
-![](Help/Image/rectangleChart-H.svg)
+![](Help/Image/rectangleChart-I.svg)
 
 * * *
 
-See also: barChart, sectorChart
+See also: barChart, colouredRectangleChart, sectorChart
 
 Guides: Plotting Functions
 

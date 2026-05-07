@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="89.9" height="100.0" viewBox="-5.0 -49.4 99.9 110.0">
 <g fill="none" stroke="black" stroke-width="0.9000%" transform="translate(0, 11.1111) scale(0.5556, -0.5556)">
-<g fill="rgb(120,27,134)" ><rect x="0.0" y="0.0" width="32.4" height="20.0" /></g>
-<g fill="rgb(68,124,205)" ><rect x="32.4" y="-40.0" width="32.4" height="40.0" /></g>
-<g fill="rgb(131,186,112)" ><rect x="64.7" y="0.0" width="32.4" height="60.0" /></g>
-<g fill="rgb(221,171,60)" ><rect x="97.1" y="-80.0" width="32.4" height="80.0" /></g>
-<g fill="rgb(219,33,33)" ><rect x="129.4" y="0.0" width="32.4" height="100.0" /></g>
+<rect x="0.0" y="0.0" width="32.4" height="20.0" />
+<rect x="32.4" y="-40.0" width="32.4" height="40.0" />
+<rect x="64.7" y="0.0" width="32.4" height="60.0" />
+<rect x="97.1" y="-80.0" width="32.4" height="80.0" />
+<rect x="129.4" y="0.0" width="32.4" height="100.0" />
 </g>
 </svg>

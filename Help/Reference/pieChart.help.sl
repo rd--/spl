@@ -48,8 +48,7 @@ A pie chart of five integers:
 A pie chart of eight real numbers:
 
 ~~~spl svg=F
-[5.3 27.3 5.7 2.0 9.2 37.7 3.7 9.0]
-.pieChart
+[5.3 27.3 5.7 2.0 9.2 37.7 3.7 9.0].pieChart
 ~~~
 
 ![](Help/Image/pieChart-F.svg)
@@ -58,8 +57,7 @@ A pie chart of six real numbers,
 with one very small value:
 
 ~~~spl svg=G
-[25.1 28.8 0.6 12.2 12.5 20.8]
-.pieChart
+[25.1 28.8 0.6 12.2 12.5 20.8].pieChart
 ~~~
 
 ![](Help/Image/pieChart-G.svg)
@@ -76,7 +74,7 @@ in ascending order:
 ].pieChart
 ~~~
 
-![](Help/Image/pieCshart-H.svg)
+![](Help/Image/pieChart-H.svg)
 
 * * *
 

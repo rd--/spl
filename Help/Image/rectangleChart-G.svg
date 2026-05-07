@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="161.8" height="100.0" viewBox="-5.0 -5.0 171.8 110.0">
 <g fill="none" stroke="black" stroke-width="0.5000%" transform="translate(0, 100.0000) scale(1.0000, -1.0000)">
-<g fill="rgb(120,27,134)" ><rect x="0.0" y="0.0" width="61.5" height="56.5" /></g>
-<g fill="rgb(82,154,182)" ><rect x="61.5" y="0.0" width="38.8" height="100.0" /></g>
-<g fill="rgb(196,186,69)" ><rect x="100.3" y="0.0" width="32.4" height="30.4" /></g>
-<g fill="rgb(219,33,33)" ><rect x="132.7" y="0.0" width="29.1" height="47.8" /></g>
+<rect x="0.0" y="0.0" width="61.5" height="56.5" />
+<rect x="61.5" y="0.0" width="38.8" height="100.0" />
+<rect x="100.3" y="0.0" width="32.4" height="30.4" />
+<rect x="132.7" y="0.0" width="29.1" height="47.8" />
 </g>
 </svg>

@@ -79,5 +79,10 @@ Sfc32(813749)
 
 * * *
 
-See also: pieChart
+See also: barChart, bubbleChart, pieChart, rectangleChart
 
+Guides: Plotting Functions
+
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/SectorChart.html)

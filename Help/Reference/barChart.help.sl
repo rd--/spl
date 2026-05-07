@@ -44,10 +44,11 @@ A bar chart of four integers:
 
 ![](Help/Image/barChart-E.svg)
 
-A bar chart of five integers:
+A bar chart of nine integers,
+four `zero`:
 
 ~~~spl svg=F
-[8 3 5 4 9].barChart
+[8 0 3 0 5 0 4 0 9].barChart
 ~~~
 
 ![](Help/Image/barChart-F.svg)
@@ -61,9 +62,22 @@ two negative:
 
 ![](Help/Image/barChart-G.svg)
 
+Multiple data sets,
+equal positions have equal colours,
+two four item charts:
+
+~~~spl svg=H
+[
+	1 -2 3 -4;
+	-1 3 -2 4
+].barChart
+~~~
+
+![](Help/Image/barChart-H.svg)
+
 * * *
 
-See also: pieChart, rectangleChart
+See also: colouredBarChart, pieChart, rectangleChart
 
 Guides: Plotting Functions
 

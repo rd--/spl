@@ -113,6 +113,8 @@ At `Range`:
 
 See also: arrayDepth, deepIndices, depth, rank, shape
 
+Guides: Array Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Dimensions.html)
