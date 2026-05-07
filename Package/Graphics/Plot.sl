@@ -435,7 +435,6 @@ Plot : [Object] { | pageList format options |
 		let x = (0 -- 1).discretize(k, q:/1);
 		let r = y.minMax;
 		let i = (r[1] -- r[2]).discretize(50).asList;
-		x.postLine;
 		[
 			[x, y].transpose,
 			[i, i].transpose
@@ -1580,10 +1579,40 @@ Plot : [Object] { | pageList format options |
 
 +List {
 
+	barChart { :self |
+		self.collect { :each |
+			[1, each]
+		}.rectangleChart
+	}
+
+	bubbleChart { :self |
+		self.bubbleChart(
+			(:)
+		)
+	}
+
+	bubbleChart { :self :options |
+		self.rank.caseOf(
+			[
+				2 -> { [self].uncheckedBubbleChart(options) },
+				3 -> { self.uncheckedBubbleChart(options) }
+			]
+		)
+	}
+
 	pieChart { :self |
 		self.collect { :each |
 			[each, 1]
 		}.sectorChart
+	}
+
+	rectangleChart { :self |
+		self.rank.caseOf(
+			[
+				2 -> { [self].uncheckedRectangleChart },
+				3 -> { self.uncheckedRectangleChart }
+			]
+		)
 	}
 
 	sectorChart { :self |
@@ -1593,13 +1622,61 @@ Plot : [Object] { | pageList format options |
 		let radius = b * (r / b.max);
 		let g = 'Mathematica'.namedColourGradient('Rainbow');
 		let c = g.resample(self.size).colourList; /* .inShuffle(2) */
-		radius.postLine;
 		1.toCollect(self.size) { :i |
 			AnnotatedGeometry(
 				AnnulusSector([0, 0], [0, radius[i]], [theta[i], theta[i + 1]]),
 				(
 					fillColour: RgbColour(
 						c[i],
+						1
+					)
+				)
+			)
+		}.GeometryCollection
+	}
+
+	uncheckedBubbleChart { :self :options |
+		let g = 'Mathematica'.namedColourGradient('Rainbow');
+		let k = self.size;
+		let c = (k = 1).if { [[0.5, 0.5, 0.5]] } { g.resample(k).colourList };
+		let zScalar = options.atIfAbsent('zScalar') {
+			let xyz = self.catenate;
+			let xyRange = xyz.collect(allButLast:/1).catenate.range;
+			let zMax = xyz.collect(last:/1).max;
+			(xyRange / zMax) / 12
+		};
+		self.withIndexCollect { :d :i |
+			d.collect { :p |
+				let [x, y, z] = p;
+				AnnotatedGeometry(
+					Circle([x, y], z * zScalar),
+					(
+						fillColour: RgbColour(
+							c.atWrap(i),
+							1
+						)
+					)
+				)
+			}
+		}.GeometryCollection
+	}
+
+	uncheckedRectangleChart { :self |
+		let h = 100;
+		let w = 100.goldenRatio;
+		let [a, b] = self.catenate.transpose;
+		let k = a.size;
+		let x = a.foldList(0, +) * (w / a.sum);
+		let y = b * (h / b.max);
+		let g = 'Mathematica'.namedColourGradient('Rainbow');
+		let c = g.resample(self.anyOne.size).colourList;
+		1.toCollect(k) { :i |
+			let [y1, y2] = [0, y[i]].sort;
+			AnnotatedGeometry(
+				Rectangle([x[i], y1], [x[i + 1], y2]),
+				(
+					fillColour: RgbColour(
+						c.atWrap(i),
 						1
 					)
 				)

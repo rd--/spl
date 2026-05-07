@@ -9,6 +9,7 @@ Plotting Functions:
 
 - `arrayPlot`
 - `autocorrelationPlot`
+- `bubbleChart`
 - `carpetPlot`
 - `chordDiagramPlot`
 - `circularGraphPlot`

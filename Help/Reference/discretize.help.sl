@@ -22,6 +22,13 @@ Odd _n_:
 ]
 ```
 
+Cannot discretize to one place:
+
+```
+>>> { (0 -- 1).discretize(1) }.hasError
+true
+```
+
 Even _n_:
 
 ```

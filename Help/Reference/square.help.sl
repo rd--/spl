@@ -260,6 +260,17 @@ let n = 2:66;
 
 ![](Help/Image/square-I.svg)
 
+_y=x²%67_:
+
+~~~spl svg=J
+1:250.collect { :x |
+	let y = x.square % 67;
+	[x y]
+}.scatterPlot
+~~~
+
+![](Help/Image/square-J.svg)
+
 Where supported `square` is displayed as ².
 
 * * *
