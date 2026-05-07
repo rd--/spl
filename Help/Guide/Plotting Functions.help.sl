@@ -48,6 +48,7 @@ Plotting Functions:
 - `pathPlot`
 - `periodogramPlot`
 - `pianoRollPlot`
+- `pieChart`
 - `poincarePlot`
 - `pointLinePlot`
 - `polarPlot`
@@ -59,6 +60,7 @@ Plotting Functions:
 - `revolutionPlot`
 - `runSequencePlot`
 - `scatterPlot`
+- `sectorChart`
 - `signalPlot`
 - `soundPlot`
 - `spectralPlot`

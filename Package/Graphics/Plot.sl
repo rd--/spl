@@ -1577,3 +1577,34 @@ Plot : [Object] { | pageList format options |
 	}
 
 }
+
++List {
+
+	pieChart { :self |
+		self.collect { :each |
+			[each, 1]
+		}.sectorChart
+	}
+
+	sectorChart { :self |
+		let r = 100;
+		let [a, b] = self.reverse.transpose;
+		let theta = a.foldList(0, +) * (2.pi / a.sum) + 1.pi;
+		let radius = b * (r / b.max);
+		let g = 'Mathematica'.namedColourGradient('Rainbow');
+		let c = g.resample(self.size).colourList; /* .inShuffle(2) */
+		radius.postLine;
+		1.toCollect(self.size) { :i |
+			AnnotatedGeometry(
+				AnnulusSector([0, 0], [0, radius[i]], [theta[i], theta[i + 1]]),
+				(
+					fillColour: RgbColour(
+						c[i],
+						1
+					)
+				)
+			)
+		}.GeometryCollection
+	}
+
+}
