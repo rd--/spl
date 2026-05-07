@@ -2,7 +2,8 @@
 
 - _rectangleChart([x₁ y₁; x₂ y₂ …])_
 
-Answer a rectangle chart with bars of width _x_ and height _y_.
+Answer a rectangle chart with bars of width _x_ and height _y_,
+also called a variable-width bar chart.
 
 A three rectangle chart:
 

@@ -58,6 +58,16 @@ Draw `diamondMatrix`:
 
 ![](Help/Image/diamondMatrix-A.png)
 
+The sum of a one diamond matrix and a three identity matrix:
+
+~~~spl svg=B
+(
+	1.diamondMatrix + 3.identityMatrix
+).matrixPlot
+~~~
+
+![](Help/Image/diamondMatrix-B.svg)
+
 * * *
 
 See also: boxMatrix, crossMatrix, diskMatrix, manhattanDistance

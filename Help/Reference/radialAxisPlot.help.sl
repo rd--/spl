@@ -3,7 +3,7 @@
 - _radialAxisPlot(d)_
 
 Answer a radial axis plot where the data points are displayed on radial axes equally spaced around the origin,
-also known as a radar plot.
+also known as a radar plot or radar chart.
 
 Plot multidimensional data,
 a 6-vector:

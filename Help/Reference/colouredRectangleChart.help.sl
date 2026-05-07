@@ -84,7 +84,7 @@ Range(0, 1.pi - z, z).sin.collect { :x |
 
 * * *
 
-See also: barChart, rectangleChart, sectorChart
+See also: barChart, colouredBarChart, rectangleChart, sectorChart
 
 Guides: Plotting Functions
 
