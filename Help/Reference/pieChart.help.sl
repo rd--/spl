@@ -78,7 +78,7 @@ in ascending order:
 
 * * *
 
-See also: discretePlot, linePlot, polarPlot, sectorChart
+See also: discretePlot, linePlot, polarPlot, sectorChart, squareChart
 
 Guides: Plotting Functions
 

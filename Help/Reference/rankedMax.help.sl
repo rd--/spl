@@ -1,9 +1,9 @@
 # rankedMax
 
-- _rankedMax(aList, anInteger)_
+- _rankedMax([x₁ x₂ …], n)_
 
-Answer the _n_-th largest element in _aList_.
-If the integer is negative answer the _n_-th smallest element in _aList_.
+Answer the _n_-th largest element in the list _x_.
+If the integer is negative answer the _n_-th smallest element in _x_.
 
 The second largest of three numbers:
 
@@ -19,7 +19,7 @@ The third largest of four numbers:
 1.e
 ```
 
-The fourth smallest,
+The fourth largest,
 i.e. the smallest,
 of four numbers:
 

@@ -1654,6 +1654,23 @@ Plot : [Object] { | pageList format options |
 		}.GeometryCollection
 	}
 
+	squareChart { :self :shape |
+		let total = shape.product;
+		let [rowCount, _] = shape;
+		let roundedData = total.roundedPercentageAllocation(self, 1);
+		let rowData = roundedData.withIndexCollect { :k :i |
+			List(k, i)
+		}.catenate.reshape(shape);
+		2.toByDo(rowCount, 2) { :i |
+			rowData[i].reverseInPlace
+		};
+		rowData.reverse.colouredMatrixPlot
+	}
+
+	squareChart { :self |
+		self.squareChart([10, 10])
+	}
+
 	uncheckedBubbleChart { :self :options |
 		let k = self.size;
 		let colourGradient = 'Mathematica'.namedColourGradient('Rainbow');

@@ -594,6 +594,7 @@ Reference/Balance2.help.sl
 Reference/balancedCayleyTree.help.sl
 Reference/balancedTernaryDigits.help.sl
 Reference/Ball.help.sl
+Reference/barChart.help.sl
 Reference/bareissAlgorithm.help.sl
 Reference/barlowBasicIndispensability.help.sl
 Reference/barlowDisharmonicity.help.sl
@@ -754,6 +755,7 @@ Reference/BrownNoise.help.sl
 Reference/brunsConstant.help.sl
 Reference/Brz2.help.sl
 Reference/bSplineFunction.help.sl
+Reference/bubbleChart.help.sl
 Reference/bubbleSort.help.sl
 Reference/bubbleSortMatrix.help.sl
 Reference/BufFrames.help.sl
@@ -930,6 +932,9 @@ Reference/colonSolidus.help.sl
 Reference/colourCalculatorPlot.help.sl
 Reference/colourCheckerChart.help.sl
 Reference/ColourChooser.help.sl
+Reference/colouredBarChart.help.sl
+Reference/colouredMatrixPlot.help.sl
+Reference/colouredRectangleChart.help.sl
 Reference/ColourGradient.help.sl
 Reference/colourGradients.help.sl
 Reference/ColourGrid.help.sl
@@ -992,6 +997,7 @@ Reference/connectLineSegments.help.sl
 Reference/connellSequence.help.sl
 Reference/constantArray.help.sl
 Reference/constant.help.sl
+Reference/constantImage.help.sl
 Reference/contactTriangle.help.sl
 Reference/containsOnly.help.sl
 Reference/containsPoint.help.sl
@@ -1276,6 +1282,7 @@ Reference/dollarSign.help.sl
 Reference/doSeparatedBy.help.sl
 Reference/dot.help.sl
 Reference/dotLayout.help.sl
+Reference/dotPlot.help.sl
 Reference/dotProduct.help.sl
 Reference/doubleFactorial.help.sl
 Reference/double.help.sl
@@ -1352,6 +1359,7 @@ Reference/ellipticPi.help.sl
 Reference/ellipticTheta.help.sl
 Reference/embeddingDimension.help.sl
 Reference/EmpiricalDistribution.help.sl
+Reference/empty.help.sl
 Reference/enclose.help.sl
 Reference/encodeFloat32.help.sl
 Reference/encodeFloat64.help.sl
@@ -3173,6 +3181,7 @@ Reference/phiWeightedMediant.help.sl
 Reference/pianoRollPlot.help.sl
 Reference/pick.help.sl
 Reference/Piecewise.help.sl
+Reference/pieChart.help.sl
 Reference/pi.help.sl
 Reference/PingPongDelay.help.sl
 Reference/PinkNoise.help.sl
@@ -3442,6 +3451,7 @@ Reference/recogniseSymbolicExpression.help.sl
 Reference/RecordBuf.help.sl
 Reference/Record.help.sl
 Reference/recordValues.help.sl
+Reference/rectangleChart.help.sl
 Reference/Rectangle.help.sl
 Reference/rectangularHexagonalGrid.help.sl
 Reference/rectangularHorogramDrawing.help.sl
@@ -3580,6 +3590,7 @@ Reference/rotateLeft.help.sl
 Reference/rotateRight.help.sl
 Reference/rotationMatrix.help.sl
 Reference/roundDown.help.sl
+Reference/roundedPercentageAllocation.help.sl
 Reference/round.help.sl
 Reference/roundTiesEven.help.sl
 Reference/RoundTo.help.sl
@@ -3665,6 +3676,7 @@ Reference/secondLast.help.sl
 Reference/secondOrderEulerianTriangle.help.sl
 Reference/seconds.help.sl
 Reference/sectorArea.help.sl
+Reference/sectorChart.help.sl
 Reference/seedRandom.help.sl
 Reference/segmentArea.help.sl
 Reference/seidelAdjacencyMatrix.help.sl
@@ -3875,6 +3887,7 @@ Reference/Spring.help.sl
 Reference/SqrDif.help.sl
 Reference/sqrt.help.sl
 Reference/Sqrt.help.sl
+Reference/squareChart.help.sl
 Reference/squareChladniPlateEquation.help.sl
 Reference/squaredEuclideanDistance.help.sl
 Reference/squareForm.help.sl

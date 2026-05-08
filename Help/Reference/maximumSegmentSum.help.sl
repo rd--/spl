@@ -1,8 +1,8 @@
 # maximumSegmentSum
 
-- _maximumSegmentSum(aList)_
+- _maximumSegmentSum([x₁ x₂ …])_
 
-Answer the largest sum of any contiguous subsequence of _aList_,
+Answer the largest sum of any contiguous subsequence of _x_,
 along with the start and end indices of the subsequence.
 
 ```

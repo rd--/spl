@@ -874,6 +874,18 @@
 		(self + (self.sign / 2)).truncate
 	}
 
+	roundedPercentageAllocation { :total :proportions :multiple |
+		let scaledData = (proportions / proportions.sum) * total;
+		let roundedData = scaledData.round(multiple);
+		let roundingError = total - roundedData.sum;
+		roundingError.isZero.ifFalse {
+			let maxItem = roundedData.max;
+			let maxIndex = roundedData.indexOf(maxItem);
+			roundedData[maxIndex] := maxItem + roundingError
+		};
+		roundedData
+	}
+
 	roundToPrecision { :self :aNumber |
 		let scalar = 10 ^ aNumber;
 		(self * scalar).round / scalar

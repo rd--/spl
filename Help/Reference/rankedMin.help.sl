@@ -1,9 +1,9 @@
 # rankedMin
 
-- _rankedMin(aList, anInteger)_
+- _rankedMin([x₁ x₂ …], n)_
 
-Answer the _n_-th smallest element in _aList_.
-If the integer is negative answer the _n_-th largest element in _aList_.
+Answer the _n_-th smallest element in the list _x_.
+If the integer is negative answer the _n_-th largest element in _x_.
 
 The second smallest of three numbers:
 

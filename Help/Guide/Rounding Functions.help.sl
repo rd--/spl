@@ -17,6 +17,10 @@ Number Parts:
 - `integerPart`
 - `fractionalPart`
 
+Collective Rounding:
+
+- `roundedPercentageAllocation`
+
 * * *
 
 Guides: Mathematical Functions

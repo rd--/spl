@@ -1,6 +1,8 @@
 # minDetect
 
-- _minDetect(aList)_
+- _minDetect([x₁ x₂ …])_
+
+Indicate local minima at _x_.
 
 Local minima of a list:
 

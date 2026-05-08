@@ -77,7 +77,7 @@ two four item charts:
 
 * * *
 
-See also: colouredBarChart, pieChart, rectangleChart
+See also: colouredBarChart, pieChart, rectangleChart, squareChart
 
 Guides: Plotting Functions
 

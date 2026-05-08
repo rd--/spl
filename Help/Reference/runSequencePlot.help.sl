@@ -2,7 +2,8 @@
 
 - _runSequencePlot(y)_
 
-Answer a run sequence plot of the univariate numeric data at the list _y_.
+Answer a run sequence plot of the univariate numeric data at the list _y_,
+also called a run chart.
 
 Plot data with a location shift for the last third of the data:
 

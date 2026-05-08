@@ -1,6 +1,8 @@
 # maxDetect
 
-- _maxDetect(aList)_
+- _maxDetect([x₁ x₂ …])_
+
+Indicate local maxima at _x_.
 
 Local maxima of a list:
 

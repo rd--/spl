@@ -73,6 +73,7 @@ Plotting Functions:
 - `spectralPlot`
 - `sphericalPlot`
 - `spokePlot`
+- `squareChart`
 - `stackedListPlot`
 - `stemLeafPlot`
 - `stepPlot`

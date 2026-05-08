@@ -92,6 +92,9 @@ Threads elementwise over lists:
 
 >>> [1.5 2.5 3.5 4.5].round
 [2 3 4 5]
+
+>>> [1, 1.2 .. 4].round(0.5)
+[1 1 1.5 1.5 2 2 2 2.5 2.5 3 3 3 3.5 3.5 4 4]
 ```
 
 Value at Infinity:
