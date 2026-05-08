@@ -128,9 +128,26 @@ columns sum to `one` (Xenakis 1992, p.89):
 
 ![](Help/Image/matrixPlot-I.svg)
 
+Plot a solution to Scott’s pentomino problem (Scott 1958):
+
+~~~spl svg=J
+[
+	3 3 2  4  4  4  4  4;
+	3 2 2  2  5  5  5  6;
+	3 3 2  5  5  6  6  6;
+	7 7 8  0  0 13 13  6;
+	7 7 8  0  0 11 13 13;
+	9 7 8 11 11 11 12 13;
+	9 8 8 11 10 12 12 12;
+	9 9 9 10 10 10 10 12
+].matrixPlot
+~~~
+
+![](Help/Image/matrixPlot-J.svg)
+
 * * *
 
-See also: arrayPlot, asGreyscaleSvg, Bitmap, discretePlot, functionPlot, graphPlot, Greymap, linePlot, parametricPlot, scatterPlot, surfacePlot
+See also: arrayPlot, asGreyscaleSvg, Bitmap, colouredMatrixPlot, discretePlot, functionPlot, graphPlot, Greymap, linePlot, parametricPlot, scatterPlot, surfacePlot
 
 Guides: Matrix Functions, Plotting Functions
 

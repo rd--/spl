@@ -1,6 +1,10 @@
 Image : [Object] { | contents |
 
-	asPpm { :self :maxDepth |
+	drawing { :self |
+		self
+	}
+
+	encodePpm { :self :maxDepth |
 		let [rowCount, columnCount, pixelCount] = self.contents.shape;
 		let header = [
 			'P3',
@@ -17,10 +21,6 @@ Image : [Object] { | contents |
 			}.unwords
 		};
 		(header ++ rows ++ ['']).unlines
-	}
-
-	drawing { :self |
-		self
 	}
 
 	height { :self |
@@ -40,7 +40,7 @@ Image : [Object] { | contents |
 	writePpm { :self :fileName |
 		system.writeTextFile(
 			fileName,
-			self.asPpm(255)
+			self.encodePpm(255)
 		)
 	}
 
@@ -60,6 +60,34 @@ Image : [Object] { | contents |
 		} {
 			self.error('Image: not array')
 		}
+	}
+
+}
+
++SmallFloat {
+
+	constantImage { :self :shape |
+		shape.constantArray(
+			[self, self, self]
+		).Image
+	}
+
+}
+
++List {
+
+	constantImage { :self :shape |
+		shape.constantArray(
+			self
+		).Image
+	}
+
+}
+
++RgbColour {
+
+	constantImage { :self :shape |
+		self.rgb.constantImage(shape)
 	}
 
 }

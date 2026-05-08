@@ -91,6 +91,14 @@ Plot the imaginary part of the 24×24 Fourier matrix:
 
 ![](Help/Image/fourierMatrix-A.svg)
 
+Plot the imaginary part of the 25×25 Fourier matrix:
+
+~~~spl svg=B
+25.fourierMatrix.imaginary.matrixPlot
+~~~
+
+![](Help/Image/fourierMatrix-B.svg)
+
 * * *
 
 See also: hadamardMatrix, fourier, vandermondeMatrix, walshMatrix

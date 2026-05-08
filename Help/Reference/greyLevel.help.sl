@@ -9,6 +9,20 @@ Answer a colour in the greyscale color space with grey level _n_ and alpha trans
 RgbColour([0.5 0.5 0.5], 0.75)
 ```
 
+Black with _α=0.5_:
+
+```
+>>> 0.greyLevel(0.5)
+0.5.black
+```
+
+White with _α=0.5_:
+
+```
+>>> 1.greyLevel(0.5)
+0.5.white
+```
+
 The unary form:
 
 ```
@@ -30,7 +44,7 @@ greyLevel:/2
 
 * * *
 
-See also: blue, Colour, green, red, RgbColour
+See also: black, blue, Colour, green, hue, red, RgbColour, white
 
 Guides: Colour Functions
 

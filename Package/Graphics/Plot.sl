@@ -1611,25 +1611,6 @@ Plot : [Object] { | pageList format options |
 		)
 	}
 
-	colouredBarChart { :self |
-		self.isVector.if {
-			barChart(self, (colouredChart: true))
-		} {
-			self.error('colouredBarChart')
-		}
-	}
-
-	colouredRectangleChart { :self |
-		self.isMatrix.if {
-			rectangleChart(
-				self,
-				(colouredChart: true)
-			)
-		} {
-			self.error('colouredRectangleChart')
-		}
-	}
-
 	pieChart { :self |
 		self.collect { :each |
 			[each, 1]
@@ -1736,6 +1717,35 @@ Plot : [Object] { | pageList format options |
 				)
 			}
 		}.GeometryCollection
+	}
+
+}
+
++List {
+
+	colouredBarChart { :self |
+		self.isVector.if {
+			barChart(self, (colouredChart: true))
+		} {
+			self.error('colouredBarChart')
+		}
+	}
+
+	colouredMatrixPlot { :self |
+		let colourGradient = 'Mathematica'.namedColourGradient('Rainbow');
+		let colourFunction:/1 = colourGradient.asBlock;
+		self.rescale.deepCollect(colourFunction:/1).ColourGrid
+	}
+
+	colouredRectangleChart { :self |
+		self.isMatrix.if {
+			rectangleChart(
+				self,
+				(colouredChart: true)
+			)
+		} {
+			self.error('colouredRectangleChart')
+		}
 	}
 
 }

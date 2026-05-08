@@ -61,6 +61,12 @@ let g = (1 -- c.size).discretize(36).collect(
 
 ![](Help/Image/arrayPlot-D.svg)
 
+[
+	1 0 0 0.3;
+	1 1 0 0.3;
+	1 0 1 0.7
+].arrayPlot
+
 * * *
 
 See also: asColourDrawing, Bitmap, discretePlot, functionPlot, graphPlot, Greymap, Image, linePlot, matrixPlot, parametricPlot, scatterPlot, surfacePlot

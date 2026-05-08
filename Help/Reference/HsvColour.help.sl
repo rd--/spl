@@ -4,12 +4,49 @@
 
 Answer an `RgbColour` value given `hue`, `saturation` and `value`, all in _(0,1)_.
 `HsvColour` is a cylindrical-coordinate representations of points in an `RgbColour` colour model.
+The `value` field is also called `brightness`.
 
 ~~~spl svg=A
 HsvColour([1/3 1/4 1], 1)
 ~~~
 
 ![](Help/Image/HsvColour-A.svg)
+
+The hue value is cyclic with period `one`:
+
+~~~spl svg=B
+ColourGrid(
+	Range(0, 2, 1/8).collect { :h |
+		HsvColour([h 1 1], 1)
+	}.enclose
+)
+~~~
+
+![](Help/Image/HsvColour-B.svg)
+
+Saturation determines how vivid the color is:
+
+~~~spl svg=C
+ColourGrid(
+	Range(0, 1, 1/7).collect { :s |
+		HsvColour([1/4 s 1], 1)
+	}.enclose
+)
+~~~
+
+![](Help/Image/HsvColour-C.svg)
+
+Brightness determines the brightness of the color:
+
+~~~spl svg=D
+ColourGrid(
+	Range(0, 1, 1/7).collect { :v |
+		HsvColour([1/4 1 v], 1)
+	}.enclose
+)
+~~~
+
+![](Help/Image/HsvColour-D.svg)
 
 Value of `zero` is black:
 

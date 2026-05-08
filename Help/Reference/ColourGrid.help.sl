@@ -30,7 +30,7 @@ Sfc32(731894)
 
 * * *
 
-See also: asColour, Colour
+See also: arrayPlot, asColour, Colour, matrixPlot
 
 Guides: Colour Functions, Image Functions
 

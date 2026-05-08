@@ -270,7 +270,8 @@ RgbColour : [Object, Storeable, Equatable, Colour] { | rgb alpha |
 	}
 
 	RgbColour { :self :alpha |
-		newRgbColour().initializeSlots(self, alpha)
+		let [r, g, b] = self;
+		newRgbColour().initializeSlots([r, g, b], alpha)
 	}
 
 	RybColour { :ryb :alpha |
@@ -297,10 +298,6 @@ RgbColour : [Object, Storeable, Equatable, Colour] { | rgb alpha |
 
 	adobeRgbEncode { :self |
 		self ^ (256 / 563)
-	}
-
-	asColour { :self |
-		self.greyLevel
 	}
 
 	black { :alpha |
@@ -333,7 +330,7 @@ RgbColour : [Object, Storeable, Equatable, Colour] { | rgb alpha |
 		RgbColour([level, level, level], alpha)
 	}
 
-	greyLevel { :level |
+	[greyLevel, asColour] { :level |
 		level.greyLevel(1)
 	}
 

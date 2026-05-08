@@ -92,6 +92,17 @@ and _v_ is _(0.2,0.8)_ along the _Y_-axis:
 
 ![](Help/Image/hsvToRgb-D.png)
 
+A portion of _Hsv_ color space with maximal brightness:
+
+~~~spl png=E
+let i = (0, 0.01 .. 1);
+{ :s :h |
+	[h s 1].hsvToRgb
+}.table(i, i).Image
+~~~
+
+![](Help/Image/hsvToRgb-E.png)
+
 * * *
 
 See also: Colour, Hsv, hslToHsv, hslToRgb, hsv, hsvToHsl, hue, rgbToHsv

@@ -58,7 +58,8 @@ Draw `diamondMatrix`:
 
 ![](Help/Image/diamondMatrix-A.png)
 
-The sum of a one diamond matrix and a three identity matrix:
+The sum of a one diamond matrix and a three identity matrix,
+two chair trominoes next to three monominoes:
 
 ~~~spl svg=B
 (

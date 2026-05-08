@@ -18,6 +18,7 @@ Plotting Functions:
 - `cobwebPlot`
 - `colourCalculatorPlot`
 - `colouredBarChart`
+- `colouredMatrixPlot`
 - `colouredRectangleChart`
 - `complexListPlot`
 - `complexPlot`

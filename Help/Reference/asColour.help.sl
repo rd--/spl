@@ -4,7 +4,19 @@
 - _asColour([r g b α=1])_
 
 Answer an `RgbColour` value specified as either the greyscale level _g_,
+where `zero` is black and `one` is white,
 or as _(r,g,b)_ or _(r,g,b,α)_ parameters.
+
+Opaque black:
+
+```
+>>> let c = 0.asColour;
+>>> (c, c.isBlack)
+(RgbColour([0 0 0], 1), true)
+
+>>> 0.greyLevel = 0.asColour
+true
+```
 
 Opaque grey:
 
@@ -12,6 +24,20 @@ Opaque grey:
 >>> let c = 0.5.asColour;
 >>> (c, c.isGrey)
 (RgbColour([0.5 0.5 0.5], 1), true)
+
+>>> 0.5.greyLevel = 0.5.asColour
+true
+```
+
+Opaque white:
+
+```
+>>> let c = 1.asColour;
+>>> (c, c.isWhite)
+(RgbColour([1 1 1], 1), true)
+
+>>> 1.greyLevel = 1.asColour
+true
 ```
 
 Opaque yellow:
@@ -67,9 +93,12 @@ A light grey colour patch:
 
 ![](Help/Image/asColour-B.svg)
 
+_Note_:
+At `SmallFloat`, `asColour` is an alias for `greyLevel`.
+
 * * *
 
-See also: Colour, parseHexColour, RgbColour
+See also: Colour, greyLevel, parseHexColour, RgbColour
 
 Guides: Colour Functions
 
