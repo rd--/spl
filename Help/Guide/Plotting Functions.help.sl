@@ -31,6 +31,7 @@ Plotting Functions:
 - `discreteFunctionPlot`
 - `discretePlot`
 - `divisorPlot`
+- `dotPlot`
 - `fareyDiagram`
 - `ferrersDiagram`
 - `fftPlot`

@@ -1749,3 +1749,26 @@ Plot : [Object] { | pageList format options |
 	}
 
 }
+
++Multiset {
+
+	dotPlot { :self |
+		let e = self.sortedElements;
+		let k = e.size;
+		e.collect { :p |
+			let x = p.key;
+			1.toCollect(p.value) { :y |
+				Disk([x, y], 0.15)
+			}
+		}.LineDrawing
+	}
+
+}
+
++List {
+
+	dotPlot { :self |
+		self.asMultiset.dotPlot
+	}
+
+}

@@ -145,6 +145,20 @@ Plot a solution to Scott’s pentomino problem (Scott 1958):
 
 ![](Help/Image/matrixPlot-J.svg)
 
+Plot a binary matrix:
+
+~~~spl svg=K
+[
+	0 1 1 0 1;
+	1 0 1 1 0;
+	1 1 0 1 1;
+	0 1 1 0 1;
+	1 0 1 1 0
+].matrixPlot
+~~~
+
+![](Help/Image/matrixPlot-K.svg)
+
 * * *
 
 See also: arrayPlot, asGreyscaleSvg, Bitmap, colouredMatrixPlot, discretePlot, functionPlot, graphPlot, Greymap, linePlot, parametricPlot, scatterPlot, surfacePlot
