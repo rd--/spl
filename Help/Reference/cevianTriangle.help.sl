@@ -21,7 +21,7 @@ let e = d.collect { :x | Line([b, x]) };
 
 See also: pedalTriangle, Triangle
 
-Guides: Geometry Functions
+Guides: Geometry Functions, Triangle Functions
 
 References:
 _Mathematica_

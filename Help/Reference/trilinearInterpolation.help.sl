@@ -31,6 +31,8 @@ using function data on the lattice points.
 
 See also: linearInterpolation, bilinearInterpolation, volumeResample
 
+Guides: Interpolation Functions
+
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Trilinear_interpolation)

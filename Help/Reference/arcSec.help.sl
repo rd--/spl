@@ -66,8 +66,9 @@ Inverse is `sec`:
 Relation to `arcCos`:
 
 ```
->>> 2.arcSec
-(1 / 2).arcCos
+>>> let z = 1.65;
+>>> z.arcSec
+(1 / z).arcCos
 ```
 
 Plot over a subset of the reals:

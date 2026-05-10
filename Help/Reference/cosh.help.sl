@@ -131,6 +131,14 @@ log scale plot:
 
 ![](Help/Image/cosh-E.svg)
 
+`cosh` and `sinh`:
+
+~~~spl svg=F
+(-3 -- 3).functionPlot([cosh:/1, sinh:/1])
+~~~
+
+![](Help/Image/cosh-F.svg)
+
 * * *
 
 See also: arcCosh, cos, sin, sech, sinh

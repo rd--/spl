@@ -18,6 +18,14 @@ Answers the cosine of the number _x_.
 0.362358
 ```
 
+Definition:
+
+```
+>>> let z = 0.65;
+>>> (z.i.exp + -z.i.exp) / 2
+z.cos
+```
+
 `cos` can take `Complex` number inputs:
 
 ```

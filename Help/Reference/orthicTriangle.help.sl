@@ -4,7 +4,7 @@
 
 Answer the orthic triangle of the reference triangle _t_.
 
-The orthic triangle is both the pedal triangle and Cevian triangle with respect to the  orthocenter.
+The orthic triangle is both the pedal triangle and Cevian triangle with respect to the orthocenter.
 
 ```
 >>> let t = [3 4.5 6].sssTriangle;
@@ -59,7 +59,7 @@ let c = t.orthicTriangle.vertexCoordinates;
 
 See also: fromTrilinearVertexMatrix, orthocenter, pedalTriangle, Triangle, sec
 
-Guides: Geometry Functions
+Guides: Geometry Functions, Triangle Functions
 
 References:
 _Mathematica_

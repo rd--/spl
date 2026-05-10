@@ -4,7 +4,7 @@
 
 Answer a density plot of _f_ as a function of _x_ and _y_ over their respective intervals.
 
-Plot a function:
+Plot a trigonometric function:
 
 ~~~spl png=A
 { :x :y |
@@ -14,7 +14,7 @@ Plot a function:
 
 ![](Help/Image/densityPlot-A.png)
 
-Plot a function:
+Plot a trigonometric function:
 
 ~~~spl png=B
 { :x :y |
@@ -24,7 +24,7 @@ Plot a function:
 
 ![](Help/Image/densityPlot-B.png)
 
-Plot a function:
+Plot a trigonometric function:
 
 ~~~spl png=C
 { :x :y |
@@ -34,7 +34,7 @@ Plot a function:
 
 ![](Help/Image/densityPlot-C.png)
 
-Plot a function:
+Plot a trigonometric function:
 
 ~~~spl png=D
 { :x :y |
@@ -53,6 +53,26 @@ Plot a trigonometric function:
 ~~~
 
 ![](Help/Image/densityPlot-E.png)
+
+Plot an exponential function:
+
+~~~spl png=F
+{ :x :y |
+	(x.square.- + (y / 3)).exp
+}.densityPlot(-3 -- 3, -2 -- 2)
+~~~
+
+![](Help/Image/densityPlot-F.png)
+
+Plot a trigonometric function:
+
+~~~spl png=G
+{ :x :y |
+	x * (x * y).cos
+}.densityPlot(0 -- 3, 0 -- 5)
+~~~
+
+![](Help/Image/densityPlot-G.png)
 
 * * *
 

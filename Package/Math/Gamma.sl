@@ -401,3 +401,11 @@
 	}
 
 }
+
++Fraction {
+
+	gamma { :self |
+		self.asFloat.gamma
+	}
+
+}

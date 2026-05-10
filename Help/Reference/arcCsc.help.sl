@@ -66,8 +66,9 @@ Inverse is `csc`:
 Relation to `arcSin`:
 
 ```
->>> 2.arcCsc
-(1 / 2).arcSin
+>>> let z = 1.65;
+>>> z.arcCsc
+(1 / z).arcSin
 ```
 
 Plot over a subset of the reals:

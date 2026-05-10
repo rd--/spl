@@ -5,6 +5,14 @@
 Answer the cotangent of the number _z_,
 often abbreviated as _cot_.
 
+Equal to the reciprocal of `tan`:
+
+```
+>>> let z = 0.65;
+>>> z.cot
+1 / z.tan
+```
+
 The argument of `cot` is assumed to be in radians:
 
 ```

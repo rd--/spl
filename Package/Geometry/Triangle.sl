@@ -133,6 +133,19 @@ Triangle : [Object, Storeable, Equatable, Geometry] { | vertexCoordinates |
 		self.circumcircle.radius
 	}
 
+	circumtangentialTriangle { :self |
+		let [a, b, c] = self.interiorAngles;
+		let f = { :x |
+			((1 / 3) * x).csc
+		};
+		let m = [
+			[f(c - b), f(b + (2 * c)), 0 - f(c + (2 * b))],
+			[0 - f(a + (2 * c)), f(a - c), f(c + (2 * a))],
+			[f(a + (2 * b)), 0 - f(b + (2 * a)), f(b - a)]
+		];
+		self.fromTrilinearVertexMatrix(m)
+	}
+
 	clawsonPoint { :self |
 		self.triangleCentreA { :a :b :c |
 			a.tan
@@ -444,6 +457,20 @@ Triangle : [Object, Storeable, Equatable, Geometry] { | vertexCoordinates |
 
 	kimberlingCenter { :self :n |
 		n.kimberlingCenter.value(self)
+	}
+
+	lemoineTriangle { :self |
+		let [a, b, c] = self.sideLengths;
+		let f = { :i :j :k |
+			(i * a.square) + (j * b.square) + (k * c.square)
+		};
+		self.fromTrilinearVertexMatrix(
+			[
+				[0, (a * c) / f(-2, 1, -2), (a * b) / f(-2, -2, 1)],
+				[(a * c) / f(1, -2, -2), 0, (a * b) / f(-2, -2, 1)],
+				[(a * c) / f(1, -2, -2), (a * b) / f(-2, 1, -2), 0]
+			]
+		)
 	}
 
 	medialTriangle { :self |

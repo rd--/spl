@@ -25,7 +25,7 @@ let m = b.medialTriangle;
 
 See also: antipedalTriangle, medialTriangle, orthocenter, Triangle
 
-Guides: Geometry Functions
+Guides: Geometry Functions, Triangle Functions
 
 References:
 _Mathematica_

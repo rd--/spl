@@ -50,6 +50,19 @@ Plot over a subset of the reals:
 
 ![](Help/Image/coth-A.svg)
 
+Plot `coth` and `tanh`:
+
+~~~spl svg=A
+(-3 -- 3).functionPlot(
+	[
+		coth:/1.clip([-5 5]),
+		tanh:/1
+	]
+)
+~~~
+
+![](Help/Image/coth-B.svg)
+
 * * *
 
 See also: cosh, cot, sinh

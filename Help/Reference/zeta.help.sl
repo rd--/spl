@@ -40,6 +40,19 @@ Threads over lists:
 ]
 ```
 
+At integer arguments:
+
+```
+>>> 2.zeta
+1.pi.square / 6
+
+>>> 4.zeta
+(1.pi ^ 4) / 90
+
+>>> 6.zeta
+(1.pi ^ 6) / 945
+```
+
 At negative integers:
 
 ```

@@ -21,6 +21,14 @@ Answers the tangent of the number _x_.
 1
 ```
 
+Definition:
+
+```
+>>> let z = 0.65;
+>>> z.sin / z.cos
+z.tan
+```
+
 `tan` can take `Complex` number inputs:
 
 ```

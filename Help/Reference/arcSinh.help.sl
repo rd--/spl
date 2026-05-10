@@ -68,6 +68,19 @@ Plot of complex `arcSinh` function:
 
 ![](Help/Image/arcSinh-B.png)
 
+Plot `arcSinh` and real part of `arcCosh`:
+
+~~~spl svg=C
+(-4 -- 4).functionPlot(
+	[
+		arcSinh:/1,
+		arcCosh:/1
+	]
+)
+~~~
+
+![](Help/Image/arcSinh-C.svg)
+
 * * *
 
 See also: arcSin, cos, sin, tan

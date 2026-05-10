@@ -15,7 +15,7 @@ Answer the arc cotangent of _z_ in radians:
 Relation to `arcTan`:
 
 ```
->>> let z = 2.5;
+>>> let z = 1.65;
 >>> z.arcCot
 (1 / z).arcTan
 ```

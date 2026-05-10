@@ -83,6 +83,7 @@ Derived Triangles:
 - `excentralTriangle`
 - `extouchTriangle`
 - `firstBrocardTriangle`
+- `lemoineTriangle`
 - `medialTriangle`
 - `orthicTriangle`
 - `pedalTriangle`

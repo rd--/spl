@@ -101,6 +101,12 @@ Block! : [Object, Equatable] {
 		self()
 	}
 
+	clip { :aBlock:/1 :minMax :replaceWith |
+		{ :x |
+			aBlock(x).clip(minMax, replaceWith)
+		}
+	}
+
 	clip { :aBlock:/1 :minMax |
 		{ :x |
 			aBlock(x).clip(minMax)

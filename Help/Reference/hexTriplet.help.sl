@@ -4,12 +4,24 @@
 
 Answer the number sign prefixed two character per byte hexadecimal _Rgb_ notation string of the colour _c_.
 
+Red:
+
+```
+>>> RgbColour([1 0 0], 1)
+>>> .hexTriplet
+'#FF0000'
+```
+
 If the _alpha_ channel is one it is not given:
 
 ```
 >>> RgbColour([0.2 0.5 0.7], 1)
 >>> .hexTriplet
 '#3380B3'
+
+>>> RgbColour([0.368 0.507 0.710], 1)
+>>> .hexTriplet
+'#5E81B5'
 
 >>> HsvColour([0.5 0.25 0.85], 1)
 >>> .hexTriplet
@@ -32,5 +44,7 @@ See also: Colour, parseHexColour, parseHexTriplet, printString, RgbColour
 Guides: Colour Functions
 
 References:
+_Mathematica_
+[1](https://resources.wolframcloud.com/FunctionRepository/resources/ColorToHex/),
 _W_
 [1](https://en.wikipedia.org/wiki/Web_colors)

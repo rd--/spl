@@ -18,6 +18,14 @@ Answers the sin of _z_.
 1 / (5.sqrt + 1)
 ```
 
+Definition:
+
+```
+>>> let z = 0.65;
+>>> (z.i.exp - -z.i.exp) / 2.i
+z.sin
+```
+
 Prefix notation:
 
 ```

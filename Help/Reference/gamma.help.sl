@@ -36,9 +36,6 @@ Evaluate numerically:
 
 >>> 2.5.gamma
 1.32934
-
->>> 0.5.gamma
-1.7725
 ```
 
 Evaluate several values of the gamma function between [-3.5 3.5]:
@@ -59,6 +56,44 @@ For integers, _n.gamma = (n - 1).!_:
 8:12.factorial
 ```
 
+Relation to the double factorial:
+
+```
+>>> 2:16:2.collect { :n |
+>>> 	let m = n / 2;
+>>> 	(2 ^ m) * (m + 1).gamma
+>>> }
+[2 8 48 384 3840 46080 645120 10321920]
+
+>>> 2:16:2.!!
+[2 8 48 384 3840 46080 645120 10321920]
+
+>>> 1:15:2.collect { :n |
+>>> 	let m = n / 2;
+>>> 	(1.pi ^ -1/2) * (2 ^ (m + 1/2)) * (m + 1).gamma
+>>> }
+[1 3 15 105 945 10395 135135 2027025]
+
+>>> 1:15:2.!!
+[1 3 15 105 945 10395 135135 2027025]
+```
+
+Recurrence, for all _z_:
+
+```
+>>> let z = 2.1;
+>>> (z + 1).gamma
+z * z.gamma
+```
+
+Reflection, for all _z_:
+
+```
+>>> let z = 2.1;
+>>> z.gamma * (1 - z).gamma
+1.pi / z.pi.sin
+```
+
 At `Complex`:
 
 ```
@@ -69,11 +104,36 @@ At `Complex`:
 0.719141J0.540614
 ```
 
-At `zero`:
+At `one` and `zero` and one half:
 
 ```
+>>> 1.gamma
+1
+
 >>> [0 0J0].gamma
 [Infinity Infinity]
+
+>>> 0.5.gamma
+1.7725
+
+>>> 1.pi ^ 1/2
+1.7725
+```
+
+At `Fraction`:
+
+```
+>>> 1/3.gamma
+2.6789
+
+>>> 2/3.gamma
+1.3541
+
+>>> 1/4.gamma
+3.6256
+
+>>> 3/4.gamma
+1.2254
 ```
 
 Minimum value:
@@ -142,6 +202,8 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/Gamma.html),
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/gamma.html),
+_NIST_
+[1](https://dlmf.nist.gov/5)
 _W_
 [1](https://en.wikipedia.org/wiki/Gamma_function)
 

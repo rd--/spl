@@ -152,7 +152,7 @@
 		'cot'.symbolicPrimitive([self])
 	}
 
-	csc { :self |
+	[csc, cosecant] { :self |
 		'csc'.symbolicPrimitive([self])
 	}
 
@@ -182,6 +182,10 @@
 
 	one { :unused |
 		1
+	}
+
+	[sec, secant] { :self |
+		'sec'.symbolicPrimitive([self])
 	}
 
 	sech { :self |

@@ -22,6 +22,7 @@ Interpolation Functions:
 - `linearInterpolation`
 - `listInterpolation`
 - `matrixInterpolation`
+- `trilinearInterpolation`
 
 Resampling Functions:
 

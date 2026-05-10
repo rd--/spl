@@ -49,11 +49,11 @@
 		1 / self.tan
 	}
 
-	csc { :self |
+	[csc, cosecant] { :self |
 		1 / self.sin
 	}
 
-	sec { :self |
+	[sec, secant] { :self |
 		1 / self.cos
 	}
 
@@ -170,11 +170,11 @@
 		self.i.cosh
 	}
 
-	csc { :self |
+	[csc, cosecant] { :self |
 		1 / self.sin
 	}
 
-	sec { :self |
+	[sec, secant] { :self |
 		1 / self.cos
 	}
 
@@ -222,18 +222,6 @@
 
 }
 
-+[SmallFloat, Complex] {
-
-	cosecant { :self |
-		1.csc
-	}
-
-	secant { :self |
-		1.sec
-	}
-
-}
-
 +@Collection {
 
 	arcCos { :self |
@@ -272,7 +260,7 @@
 		self.collect(cot:/1)
 	}
 
-	csc { :self |
+	[csc, cosecant] { :self |
 		self.collect(csc:/1)
 	}
 
@@ -284,7 +272,7 @@
 		self.collect(inverseHaversine:/1)
 	}
 
-	sec { :self |
+	[sec, secant] { :self |
 		self.collect(sec:/1)
 	}
 
