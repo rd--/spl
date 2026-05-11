@@ -13,6 +13,9 @@ the logarithm to base _e_:
 >>> 1.5.log
 0.405465
 
+>>> 2.71828.log
+1
+
 >>> 1.e.log
 1
 

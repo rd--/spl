@@ -158,6 +158,12 @@
 		self.diagonal(0)
 	}
 
+	diagonalIrregular { :self |
+		1.toCollect(self.size) { :i |
+			self[i][i]
+		}
+	}
+
 	isAntihermitianMatrix { :self |
 		self.isVeryCloseTo(self.conjugateTranspose.negate)
 	}

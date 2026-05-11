@@ -29,6 +29,21 @@ Definition:
 z.tan
 ```
 
+Maclaurin series:
+
+```
+>>> 0.5.tan
+0.546302
+
+>>> let x = 0.5;
+>>> 0:7.sum { :n |
+>>> 	let b = (2 * n).bernoulliNumber;
+>>> 	let c = b * (-4 ^ n) * (1 - (4 ^ n));
+>>> 	(c / (2 * n).!) * (x ^ (2 * n - 1))
+>>> }
+0.546302
+```
+
 `tan` can take `Complex` number inputs:
 
 ```

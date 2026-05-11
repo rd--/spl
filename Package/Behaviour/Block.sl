@@ -675,3 +675,25 @@ Block! : [Object, Equatable] {
 	}
 
 }
+
++Block {
+
+	derivative { :self :anInteger |
+		(anInteger = 0).if {
+			self
+		} {
+			self.name.caseOf(
+				[
+					'cos:/1' -> { anInteger.cosDerivative },
+					'exp:/1' -> { exp:/1 },
+					'sin:/1' -> { anInteger.sinDerivative }
+				]
+			)
+		}
+	}
+
+	derivative { :self |
+		self.derivative(1)
+	}
+
+}

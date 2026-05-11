@@ -114,6 +114,17 @@ Plot over a subset of the complexes:
 
 ![](Help/Image/sinh-D.png)
 
+Plot _(1+sinh(x))/exp(x)_,
+the limit at _x=∞_ is one half:
+
+~~~spl svg=E
+(0 -- 10).functionPlot { :x |
+	(1 + x.sinh) / x.exp
+}
+~~~
+
+![](Help/Image/sinh-E.svg)
+
 * * *
 
 See also: arcSinh, cosh, csch, sin

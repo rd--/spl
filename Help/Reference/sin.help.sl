@@ -301,6 +301,17 @@ let b = (47.7 * x).sin;
 
 ![](Help/Image/sin-O.svg)
 
+Plot _sin(x)/x_,
+the limit at _x=0_ is `one`:
+
+~~~spl svg=P
+(-1 -- 1).functionPlot { :x |
+	x.sin / x
+}
+~~~
+
+![](Help/Image/sin-P.svg)
+
 * * *
 
 See also: arcSin, cos, csc, haversine, sinDegrees, sinh, tan

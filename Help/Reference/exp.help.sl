@@ -74,7 +74,7 @@ The inverse of `exp` is `log`:
 123.45
 ```
 
-Power series, Taylor or Maclaurin series:
+Power series at real _x_, Taylor or Maclaurin series:
 
 ```
 >>> let n = 11;
@@ -84,8 +84,24 @@ Power series, Taylor or Maclaurin series:
 >>> }
 4.48169
 
->>> 1.5.exp
+>>> let x = 1.5;
+>>> x.exp
 4.48169
+```
+
+Power series at complex _x_, Taylor or Maclaurin series:
+
+```
+>>> let n = 15;
+>>> let x = 1.5J2.3;
+>>> 0:n.sum { :i |
+>>> 	(x ^ i) / i.!
+>>> }
+-2.98604J3.34202
+
+>>> let x = 1.5J2.3;
+>>> x.exp
+-2.98604J3.34202
 ```
 
 Functional equation:

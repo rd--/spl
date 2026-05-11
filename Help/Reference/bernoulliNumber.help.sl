@@ -17,7 +17,10 @@ threads over lists:
 ```
 
 Numerators of Bernoulli numbers,
-OEIS [A027641](https://oeis.org/A027641);
+OEIS [A027641](https://oeis.org/A027641),
+also,
+apart from sign of second entry,
+OEIS [A164555](https://oeis.org/A164555):
 
 ```
 >>> 0:16.bernoulliNumber.numerator
@@ -67,14 +70,6 @@ The _2n_-th Bernoulli numbers divided by _2n_:
 	1/12 -1/120 1/252 -1/240 1/132
 	-691/32760 1/12 -3617/8160
 ]
-```
-
-Numerators of Bernoulli numbers,
-OEIS [A164555](https://oeis.org/A164555):
-
-```
->>> 0:16.bernoulliNumber.numerator
-[1 -1 1 0 -1 0 1 0 -1 0 5 0 -691 0 7 0 -3617]
 ```
 
 Numerators of Bernoulli numbers _2n_,

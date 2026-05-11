@@ -49,6 +49,9 @@ Zero to the power of zero is one:
 ```
 >>> 0 ^ 0
 1
+
+>>> -9:9 ^ 0
+[1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1]
 ```
 
 Fractional exponents:

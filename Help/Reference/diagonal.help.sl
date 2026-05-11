@@ -105,7 +105,7 @@ Construct an off-diagonal matrix:
 
 * * *
 
-See also: antidiagonal, diagonalMatrix, isDiagonalMatrix, trace
+See also: antidiagonal, diagonalIrregular, diagonalMatrix, isDiagonalMatrix, trace
 
 Guides: Matrix Functions
 

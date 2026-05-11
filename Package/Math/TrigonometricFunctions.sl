@@ -317,3 +317,29 @@
 	}
 
 }
+
++@Integer {
+
+	cosDerivative { :self |
+		(self % 4).caseOf(
+			[
+				0 -> { cos:/1 },
+				1 -> { { :x | 0 - x.sin } },
+				2 -> { { :x | 0 - x.cos } },
+				3 -> { sin:/1 }
+			]
+		)
+	}
+
+	sinDerivative { :self |
+		(self % 4).caseOf(
+			[
+				0 -> { sin:/1 },
+				1 -> { cos:/1 },
+				2 -> { { :x | 0 - x.sin } },
+				3 -> { { :x | 0 - x.cos } }
+			]
+		)
+	}
+
+}

@@ -169,6 +169,60 @@ OEIS [A010057](https://oeis.org/A010057):
 
 ![](Help/Image/isInteger-B.svg)
 
+Least integer obtained when _n_ is divided by succesive primes,
+stopping as soon as one of the primes does not divide it,
+OEIS [A111701](https://oeis.org/A111701):
+
+~~~spl svg=C oeis=A111701
+1:85.collect { :n |
+	let m = n;
+	let k = 1;
+	{
+		(m / k.prime).isInteger
+	}.whileTrue {
+		m := m / k.prime;
+		k := k + 1
+	};
+	m
+}.discretePlot
+~~~
+
+![](Help/Image/isInteger-C.svg)
+
+Greatest primorial number which divides _n_,
+OEIS [A053589](https://oeis.org/A053589):
+
+~~~spl svg=D oeis=A053589
+1:85.collect { :n |
+	let k = 1;
+	{
+		(n / k.primorial).isInteger
+	}.whileTrue {
+		k := k + 1
+	};
+	(k - 1).primorial
+}.discretePlot
+~~~
+
+![](Help/Image/isInteger-D.svg)
+
+Smallest integer of the form _n/k!_,
+OEIS [A076934](https://oeis.org/A076934):
+
+~~~spl svg=E oeis=A076934
+1:85.collect { :n |
+	let k = 1;
+	{
+		(n / k.factorial).isInteger
+	}.whileTrue {
+		k := k + 1
+	};
+	n / (k - 1).factorial
+}.discretePlot
+~~~
+
+![](Help/Image/isInteger-E.svg)
+
 _Rationale_:
 Note that this is not a `Type` predicate,
 and is only implemeted for numeric values.
