@@ -52,7 +52,7 @@ Plot over a subset of the reals:
 
 Plot `coth` and `tanh`:
 
-~~~spl svg=A
+~~~spl svg=B
 (-3 -- 3).functionPlot(
 	[
 		coth:/1.clip([-5 5]),

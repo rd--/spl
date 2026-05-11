@@ -893,6 +893,7 @@ Reference/circumference.help.sl
 Reference/circumflexAccent.help.sl
 Reference/circumradius.help.sl
 Reference/circumsphere.help.sl
+Reference/circumtangentialTriangle.help.sl
 Reference/cissoidOfDiocles.help.sl
 Reference/clawsonPoint.help.sl
 Reference/cleliaCurve.help.sl
@@ -1181,6 +1182,7 @@ Reference/densityPlot.help.sl
 Reference/depth.help.sl
 Reference/dequanLiEquation.help.sl
 Reference/derangements.help.sl
+Reference/derivative.help.sl
 Reference/description.help.sl
 Reference/designMatrix.help.sl
 Reference/detectEquispacedTriple.help.sl
@@ -1200,6 +1202,7 @@ Reference/Dfm1.help.sl
 Reference/dft.help.sl
 Reference/diagonal.help.sl
 Reference/diagonalIndexToCartesianIndex.help.sl
+Reference/diagonalIrregular.help.sl
 Reference/diagonalMatrix.help.sl
 Reference/diameter.help.sl
 Reference/diamondMatrix.help.sl
@@ -2458,6 +2461,7 @@ Reference/leibnizHarmonicTriangle.help.sl
 Reference/leitnerCrystalStructureCatalogue.help.sl
 Reference/lemniscateConstant.help.sl
 Reference/lemniscate.help.sl
+Reference/lemoineTriangle.help.sl
 Reference/Length.help.sl
 Reference/lengthWhile.help.sl
 Reference/lessEqual.help.sl
