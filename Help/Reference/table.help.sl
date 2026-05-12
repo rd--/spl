@@ -266,6 +266,39 @@ with a natural frequency of 240hz:
 ]
 ```
 
+Multiplication table for odd numbers modulo eight:
+
+```
+>>> let x = [1 3 5 7];
+>>> { :i :j | i * j % 8 }.table(x, x)
+[
+	1 3 5 7;
+	3 1 7 5;
+	5 7 1 3;
+	7 5 3 1
+]
+```
+
+Multiplication table for numbers coprime to fifteen,
+modulo fifteen:
+
+```
+>>> let x = 1:15.select { :n |
+>>> 	n.isCoprime(15)
+>>> };
+>>> { :i :j | i * j % 15 }.table(x, x)
+[
+	 1  2  4  7  8 11 13 14;
+	 2  4  8 14  1  7 11 13;
+	 4  8  1 13  2 14  7 11;
+	 7 14 13  4 11  2  1  8;
+	 8  1  2 11  4 13 14  7;
+	11  7 14  2 13  1  8  4;
+	13 11  7  1 14  8  4  2;
+	14 13 11  8  7  4  2  1
+]
+```
+
 Plot a table:
 
 ~~~spl svg=A
@@ -288,6 +321,21 @@ let omega = (-1 + (0J1 * 3.sqrt)) / 2;
 ~~~
 
 ![](Help/Image/table-B.svg)
+
+Plot multiplication table for numbers coprime to _k_,
+modulo _k_,
+for _k=21_:
+
+~~~spl svg=C
+let k = 21;
+let x = 1:k.select { :n |
+	n.isCoprime(k)
+};
+{ :i :j | i * j % k }.table(x, x)
+.colouredMatrixPlot
+~~~
+
+![](Help/Image/table-C.svg)
 
 * * *
 

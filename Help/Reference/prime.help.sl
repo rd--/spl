@@ -245,6 +245,14 @@ OEIS [A062234](https://oeis.org/A062234):
 [1 1 3 3 9 9 15 15 17 27 25 33 39 39 41 47]
 ```
 
+Nonnegative numbers _n_ such that _2n+15_ is prime,
+OEIS [A089559](https://oeis.org/A089559):
+
+```
+>>> (7:22.prime - 15) / 2
+[1 2 4 7 8 11 13 14 16 19 22 23 26 28 29 32]
+```
+
 Prime numbers,
 OEIS [A000040](https://oeis.org/A000040):
 

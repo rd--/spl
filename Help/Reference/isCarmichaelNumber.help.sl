@@ -11,6 +11,11 @@ There is one Carmichael less than one thousand:
 >>> 	isCarmichaelNumber:/1
 >>> )
 [561]
+
+>>> 0:560.allSatisfy { :b |
+>>> 	b ^ 561L % 561 = b
+>>> }
+true
 ```
 
 The first Carmichael numbers with four prime factors:
@@ -35,6 +40,19 @@ OEIS [A002997](https://oeis.org/A002997):
 ```
 >>> [561 1105 1729 2465 2821 6601 8911]
 >>> .allSatisfy(isCarmichaelNumber:/1)
+true
+```
+
+For a Carmichael number _c_,
+the entire group of multiplicative units modulo _c_ are _false witnesses_:
+
+```
+>>> let c = 1105;
+>>> 1:c.select { :n |
+>>> 	n.isCoprime(c)
+>>> }.allSatisfy { :n |
+>>> 	n ^ (c - 1L) % c = 1
+>>> }
 true
 ```
 
