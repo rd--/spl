@@ -13,6 +13,8 @@
 - `accumulate`
   1. ![](Help/Image/accumulate-A.svg)
   2. ![](Help/Image/accumulate-B.svg)
+  3. ![](Help/Image/accumulate-C.svg)
+  4. ![](Help/Image/accumulate-D.svg)
 - `ackleyFunction`
   1. ![](Help/Image/ackleyFunction-A.png)
   2. ![](Help/Image/ackleyFunction-B.svg)
@@ -63,6 +65,9 @@
   6. ![](Help/Image/aliquotSum-F.svg)
 - `alternatingHarmonicSeries`
   1. ![](Help/Image/alternatingHarmonicSeries-A.svg)
+  2. ![](Help/Image/alternatingHarmonicSeries-B.svg)
+  3. ![](Help/Image/alternatingHarmonicSeries-C.svg)
+  4. ![](Help/Image/alternatingHarmonicSeries-D.svg)
 - `alternatingSum`
   1. ![](Help/Image/alternatingSum-A.svg)
   2. ![](Help/Image/alternatingSum-B.svg)
@@ -123,6 +128,7 @@
   2. ![](Help/Image/antidiagonalArray-B.svg)
   3. ![](Help/Image/antidiagonalArray-C.svg)
   4. ![](Help/Image/antidiagonalArray-D.svg)
+  5. ![](Help/Image/antidiagonalArray-E.svg)
 - `antiDivisors`
   1. ![](Help/Image/antiDivisors-A.svg)
   2. ![](Help/Image/antiDivisors-B.svg)
@@ -184,9 +190,13 @@
   1. ![](Help/Image/arcSin-A.svg)
   2. ![](Help/Image/arcSin-B.png)
   3. ![](Help/Image/arcSin-C.svg)
+- `ArcSinDistribution`
+  1. ![](Help/Image/ArcSinDistribution-A.svg)
+  2. ![](Help/Image/ArcSinDistribution-B.svg)
 - `arcSinh`
   1. ![](Help/Image/arcSinh-A.svg)
   2. ![](Help/Image/arcSinh-B.png)
+  3. ![](Help/Image/arcSinh-C.svg)
 - `arcTan`
   1. ![](Help/Image/arcTan-A.svg)
   2. ![](Help/Image/arcTan-B.png)
@@ -321,6 +331,15 @@
 - `balancedTernaryDigits`
   1. ![](Help/Image/balancedTernaryDigits-A.svg)
   2. ![](Help/Image/balancedTernaryDigits-B.svg)
+- `barChart`
+  1. ![](Help/Image/barChart-A.svg)
+  2. ![](Help/Image/barChart-B.svg)
+  3. ![](Help/Image/barChart-C.svg)
+  4. ![](Help/Image/barChart-D.svg)
+  5. ![](Help/Image/barChart-E.svg)
+  6. ![](Help/Image/barChart-F.svg)
+  7. ![](Help/Image/barChart-G.svg)
+  8. ![](Help/Image/barChart-H.svg)
 - `barlowIndigestibility`
   1. ![](Help/Image/barlowIndigestibility-A.svg)
 - `barronCurve`
@@ -376,6 +395,8 @@
   2. ![](Help/Image/besselJ-B.svg)
   3. ![](Help/Image/besselJ-C.svg)
   4. ![](Help/Image/besselJ-D.svg)
+- `besselK`
+  1. ![](Help/Image/besselK-A.svg)
 - `besselY`
   1. ![](Help/Image/besselY-A.svg)
 - `beta`
@@ -681,6 +702,13 @@
   1. ![](Help/Image/bSplineFunction-A.svg)
   2. ![](Help/Image/bSplineFunction-B.svg)
   3. ![](Help/Image/bSplineFunction-C.svg)
+- `bubbleChart`
+  1. ![](Help/Image/bubbleChart-A.svg)
+  2. ![](Help/Image/bubbleChart-B.svg)
+  3. ![](Help/Image/bubbleChart-C.svg)
+  4. ![](Help/Image/bubbleChart-D.svg)
+  5. ![](Help/Image/bubbleChart-E.svg)
+  6. ![](Help/Image/bubbleChart-F.svg)
 - `bubbleSort`
   1. ![](Help/Image/bubbleSort-A.svg)
 - `bubbleSortMatrix`
@@ -688,6 +716,8 @@
   2. ![](Help/Image/bubbleSortMatrix-B.png)
 - `BufRd`
   1. ![](Help/Image/BufRd-A.svg)
+- `burnsideCurve`
+  1. ![](Help/Image/burnsideCurve-A.svg)
 - `butterflyCurve`
   1. ![](Help/Image/butterflyCurve-A.svg)
 - `bWeightingCurve`
@@ -700,6 +730,9 @@
   1. ![](Help/Image/calkinWilfSequence-A.svg)
   2. ![](Help/Image/calkinWilfSequence-B.svg)
   3. ![](Help/Image/calkinWilfSequence-C.svg)
+- `calkinWilfTree`
+  1. ![](Help/Image/calkinWilfTree-A.svg)
+  2. ![](Help/Image/calkinWilfTree-B.svg)
 - `cantorDust`
   1. ![](Help/Image/cantorDust-A.svg)
   2. ![](Help/Image/cantorDust-B.png)
@@ -781,6 +814,7 @@
   6. ![](Help/Image/ceiling-F.svg)
   7. ![](Help/Image/ceiling-G.svg)
   8. ![](Help/Image/ceiling-H.svg)
+  9. ![](Help/Image/ceiling-I.svg)
 - `centeredPolygonalNumber`
   1. ![](Help/Image/centeredPolygonalNumber-A.svg)
 - `centeredRectangle`
@@ -896,6 +930,8 @@
   3. ![](Help/Image/circumcircle-C.svg)
   4. ![](Help/Image/circumcircle-D.svg)
   5. ![](Help/Image/circumcircle-E.svg)
+- `circumtangentialTriangle`
+  1. ![](Help/Image/circumtangentialTriangle-A.svg)
 - `cissoidOfDiocles`
   1. ![](Help/Image/cissoidOfDiocles-A.svg)
 - `clawsonPoint`
@@ -936,6 +972,9 @@
   12. ![](Help/Image/collatzSequence-L.svg)
   13. ![](Help/Image/collatzSequence-M.svg)
   14. ![](Help/Image/collatzSequence-N.svg)
+  15. ![](Help/Image/collatzSequence-O.svg)
+- `collatzTerrasTree`
+  1. ![](Help/Image/collatzTerrasTree-A.svg)
 - `collect`
   1. ![](Help/Image/collect-A.svg)
   2. ![](Help/Image/collect-B.svg)
@@ -949,6 +988,27 @@
 - `colourCheckerChart`
   1. ![](Help/Image/colourCheckerChart-A.svg)
   2. ![](Help/Image/colourCheckerChart-B.svg)
+- `colouredBarChart`
+  1. ![](Help/Image/colouredBarChart-A.svg)
+  2. ![](Help/Image/colouredBarChart-B.svg)
+  3. ![](Help/Image/colouredBarChart-C.svg)
+  4. ![](Help/Image/colouredBarChart-D.svg)
+  5. ![](Help/Image/colouredBarChart-E.svg)
+  6. ![](Help/Image/colouredBarChart-F.svg)
+  7. ![](Help/Image/colouredBarChart-G.svg)
+- `colouredMatrixPlot`
+  1. ![](Help/Image/colouredMatrixPlot-A.svg)
+  2. ![](Help/Image/colouredMatrixPlot-B.svg)
+  3. ![](Help/Image/colouredMatrixPlot-C.svg)
+- `colouredRectangleChart`
+  1. ![](Help/Image/colouredRectangleChart-A.svg)
+  2. ![](Help/Image/colouredRectangleChart-B.svg)
+  3. ![](Help/Image/colouredRectangleChart-C.svg)
+  4. ![](Help/Image/colouredRectangleChart-D.svg)
+  5. ![](Help/Image/colouredRectangleChart-E.svg)
+  6. ![](Help/Image/colouredRectangleChart-F.svg)
+  7. ![](Help/Image/colouredRectangleChart-G.svg)
+  8. ![](Help/Image/colouredRectangleChart-H.svg)
 - `ColourGradient`
   1. ![](Help/Image/ColourGradient-A.svg)
   2. ![](Help/Image/ColourGradient-B.svg)
@@ -1036,6 +1096,10 @@
 - `connellSequence`
   1. ![](Help/Image/connellSequence-A.svg)
   2. ![](Help/Image/connellSequence-B.svg)
+- `constantImage`
+  1. ![](Help/Image/constantImage-A.png)
+  2. ![](Help/Image/constantImage-B.png)
+  3. ![](Help/Image/constantImage-C.png)
 - `contactTriangle`
   1. ![](Help/Image/contactTriangle-A.svg)
   2. ![](Help/Image/contactTriangle-B.svg)
@@ -1065,6 +1129,7 @@
   11. ![](Help/Image/contourPlot-K.svg)
   12. ![](Help/Image/contourPlot-L.svg)
   13. ![](Help/Image/contourPlot-M.svg)
+  14. ![](Help/Image/contourPlot-N.svg)
 - `convexHull`
   1. ![](Help/Image/convexHull-A.svg)
 - `convexHullIndices`
@@ -1089,6 +1154,16 @@
 - `copelandErdosSequence`
   1. ![](Help/Image/copelandErdosSequence-A.svg)
   2. ![](Help/Image/copelandErdosSequence-B.svg)
+- `coprimeTree`
+  1. ![](Help/Image/coprimeTree-A.svg)
+  2. ![](Help/Image/coprimeTree-B.svg)
+  3. ![](Help/Image/coprimeTree-C.svg)
+  4. ![](Help/Image/coprimeTree-D.svg)
+  5. ![](Help/Image/coprimeTree-E.svg)
+  6. ![](Help/Image/coprimeTree-F.svg)
+  7. ![](Help/Image/coprimeTree-G.svg)
+  8. ![](Help/Image/coprimeTree-H.svg)
+  9. ![](Help/Image/coprimeTree-I.svg)
 - `correlationFunction`
   1. ![](Help/Image/correlationFunction-A.svg)
 - `correspondancePlot`
@@ -1113,6 +1188,8 @@
   2. ![](Help/Image/cosh-B.svg)
   3. ![](Help/Image/cosh-C.svg)
   4. ![](Help/Image/cosh-D.png)
+  5. ![](Help/Image/cosh-E.svg)
+  6. ![](Help/Image/cosh-F.svg)
 - `cosineCircle`
   1. ![](Help/Image/cosineCircle-A.svg)
 - `cosineInterpolation`
@@ -1129,6 +1206,7 @@
   4. ![](Help/Image/cot-D.svg)
 - `coth`
   1. ![](Help/Image/coth-A.svg)
+  2. ![](Help/Image/coth-B.svg)
 - `coulletEquation`
   1. ![](Help/Image/coulletEquation-A.svg)
 - `count`
@@ -1188,6 +1266,12 @@
   2. ![](Help/Image/Cuboid-B.svg)
   3. ![](Help/Image/Cuboid-C.svg)
   4. ![](Help/Image/Cuboid-D.svg)
+- `cumulativeAverages`
+  1. ![](Help/Image/cumulativeAverages-A.svg)
+- `curvilinearProjection`
+  1. ![](Help/Image/curvilinearProjection-A.svg)
+  2. ![](Help/Image/curvilinearProjection-B.svg)
+  3. ![](Help/Image/curvilinearProjection-C.svg)
 - `cuspMap`
   1. ![](Help/Image/cuspMap-A.svg)
 - `cycleGraph`
@@ -1237,6 +1321,10 @@
   1. ![](Help/Image/decimalExpansion-A.svg)
   2. ![](Help/Image/decimalExpansion-B.svg)
   3. ![](Help/Image/decimalExpansion-C.svg)
+  4. ![](Help/Image/decimalExpansion-D.svg)
+  5. ![](Help/Image/decimalExpansion-E.svg)
+  6. ![](Help/Image/decimalExpansion-F.svg)
+  7. ![](Help/Image/decimalExpansion-G.svg)
 - `decimalPeriod`
   1. ![](Help/Image/decimalPeriod-A.svg)
   2. ![](Help/Image/decimalPeriod-B.svg)
@@ -1290,8 +1378,12 @@
   3. ![](Help/Image/densityPlot-C.png)
   4. ![](Help/Image/densityPlot-D.png)
   5. ![](Help/Image/densityPlot-E.png)
+  6. ![](Help/Image/densityPlot-F.png)
+  7. ![](Help/Image/densityPlot-G.png)
 - `dequanLiEquation`
   1. ![](Help/Image/dequanLiEquation-A.svg)
+- `derivative`
+  1. ![](Help/Image/derivative-A.svg)
 - `detect`
   1. ![](Help/Image/detect-A.svg)
   2. ![](Help/Image/detect-B.svg)
@@ -1299,6 +1391,7 @@
   1. ![](Help/Image/dft-A.svg)
 - `diamondMatrix`
   1. ![](Help/Image/diamondMatrix-A.png)
+  2. ![](Help/Image/diamondMatrix-B.svg)
 - `diamondSpiral`
   1. ![](Help/Image/diamondSpiral-A.svg)
   2. ![](Help/Image/diamondSpiral-B.svg)
@@ -1322,6 +1415,7 @@
   1. ![](Help/Image/digitalRoot-A.svg)
   2. ![](Help/Image/digitalRoot-B.svg)
   3. ![](Help/Image/digitalRoot-C.svg)
+  4. ![](Help/Image/digitalRoot-D.svg)
 - `digitCount`
   1. ![](Help/Image/digitCount-A.svg)
   2. ![](Help/Image/digitCount-B.svg)
@@ -1362,6 +1456,7 @@
   4. ![](Help/Image/dirichletConvolve-D.svg)
   5. ![](Help/Image/dirichletConvolve-E.svg)
   6. ![](Help/Image/dirichletConvolve-F.svg)
+  7. ![](Help/Image/dirichletConvolve-G.svg)
 - `DirichletDistribution`
   1. ![](Help/Image/DirichletDistribution-A.svg)
   2. ![](Help/Image/DirichletDistribution-B.svg)
@@ -1374,6 +1469,8 @@
   5. ![](Help/Image/dirichletInverse-E.svg)
   6. ![](Help/Image/dirichletInverse-F.svg)
   7. ![](Help/Image/dirichletInverse-G.svg)
+  8. ![](Help/Image/dirichletInverse-H.svg)
+  9. ![](Help/Image/dirichletInverse-I.svg)
 - `dirichletKernel`
   1. ![](Help/Image/dirichletKernel-A.svg)
 - `dirichletWindow`
@@ -1463,6 +1560,7 @@
   18. ![](Help/Image/divisors-R.svg)
   19. ![](Help/Image/divisors-S.svg)
   20. ![](Help/Image/divisors-T.svg)
+  21. ![](Help/Image/divisors-U.svg)
 - `divisorSigma`
   1. ![](Help/Image/divisorSigma-A.svg)
   2. ![](Help/Image/divisorSigma-B.svg)
@@ -1497,8 +1595,13 @@
   5. ![](Help/Image/divisorSum-E.svg)
   6. ![](Help/Image/divisorSum-F.svg)
   7. ![](Help/Image/divisorSum-G.svg)
+  8. ![](Help/Image/divisorSum-H.svg)
 - `dotLayout`
   1. ![](Help/Image/dotLayout-A.svg)
+- `dotPlot`
+  1. ![](Help/Image/dotPlot-A.svg)
+  2. ![](Help/Image/dotPlot-B.svg)
+  3. ![](Help/Image/dotPlot-C.svg)
 - `doubleFactorial`
   1. ![](Help/Image/doubleFactorial-A.svg)
   2. ![](Help/Image/doubleFactorial-B.svg)
@@ -1636,10 +1739,18 @@
 - `ellipticK`
   1. ![](Help/Image/ellipticK-A.svg)
   2. ![](Help/Image/ellipticK-B.svg)
+- `ellipticNomeQ`
+  1. ![](Help/Image/ellipticNomeQ-A.svg)
 - `ellipticParaboloid`
   1. ![](Help/Image/ellipticParaboloid-A.svg)
 - `ellipticPi`
   1. ![](Help/Image/ellipticPi-A.svg)
+- `ellipticTheta`
+  1. ![](Help/Image/ellipticTheta-A.svg)
+  2. ![](Help/Image/ellipticTheta-B.svg)
+  3. ![](Help/Image/ellipticTheta-C.svg)
+  4. ![](Help/Image/ellipticTheta-D.svg)
+  5. ![](Help/Image/ellipticTheta-E.svg)
 - `EmpiricalDistribution`
   1. ![](Help/Image/EmpiricalDistribution-A.svg)
   2. ![](Help/Image/EmpiricalDistribution-B.svg)
@@ -1762,6 +1873,7 @@
   3. ![](Help/Image/ExponentialDistribution-C.svg)
   4. ![](Help/Image/ExponentialDistribution-D.svg)
   5. ![](Help/Image/ExponentialDistribution-E.svg)
+  6. ![](Help/Image/ExponentialDistribution-F.svg)
 - `expRand`
   1. ![](Help/Image/expRand-A.svg)
 - `extangentsTriangle`
@@ -1958,6 +2070,10 @@
   10. ![](Help/Image/floor-J.svg)
   11. ![](Help/Image/floor-K.svg)
   12. ![](Help/Image/floor-L.svg)
+  13. ![](Help/Image/floor-M.svg)
+  14. ![](Help/Image/floor-N.svg)
+  15. ![](Help/Image/floor-O.svg)
+  16. ![](Help/Image/floor-P.svg)
 - `fold`
   1. ![](Help/Image/fold-A.svg)
 - `foldList`
@@ -1972,6 +2088,7 @@
   3. ![](Help/Image/fourier-C.svg)
 - `fourierMatrix`
   1. ![](Help/Image/fourierMatrix-A.svg)
+  2. ![](Help/Image/fourierMatrix-B.svg)
 - `FractionalBrownianMotionProcess`
   1. ![](Help/Image/FractionalBrownianMotionProcess-A.svg)
   2. ![](Help/Image/FractionalBrownianMotionProcess-B.svg)
@@ -2139,6 +2256,7 @@
   14. ![](Help/Image/gcd-N.svg)
   15. ![](Help/Image/gcd-O.svg)
   16. ![](Help/Image/gcd-P.svg)
+  17. ![](Help/Image/gcd-Q.svg)
 - `gen03`
   1. ![](Help/Image/gen03-A.svg)
   2. ![](Help/Image/gen03-B.svg)
@@ -2427,6 +2545,8 @@
   3. ![](Help/Image/harmonicNumber-C.svg)
 - `harmonicProgression`
   1. ![](Help/Image/harmonicProgression-A.svg)
+- `harmonicSeries`
+  1. ![](Help/Image/harmonicSeries-A.svg)
 - `harmoniousNumber`
   1. ![](Help/Image/harmoniousNumber-A.svg)
 - `harmonographCurve`
@@ -2539,11 +2659,15 @@
   4. ![](Help/Image/hslToRgb-D.png)
 - `HsvColour`
   1. ![](Help/Image/HsvColour-A.svg)
+  2. ![](Help/Image/HsvColour-B.svg)
+  3. ![](Help/Image/HsvColour-C.svg)
+  4. ![](Help/Image/HsvColour-D.svg)
 - `hsvToRgb`
   1. ![](Help/Image/hsvToRgb-A.svg)
   2. ![](Help/Image/hsvToRgb-B.svg)
   3. ![](Help/Image/hsvToRgb-C.png)
   4. ![](Help/Image/hsvToRgb-D.png)
+  5. ![](Help/Image/hsvToRgb-E.png)
 - `hue`
   1. ![](Help/Image/hue-A.svg)
   2. ![](Help/Image/hue-B.svg)
@@ -2554,6 +2678,9 @@
   2. ![](Help/Image/hyperbolaCurve-B.svg)
   3. ![](Help/Image/hyperbolaCurve-C.svg)
   4. ![](Help/Image/hyperbolaCurve-D.svg)
+- `HyperbolicDistribution`
+  1. ![](Help/Image/HyperbolicDistribution-A.svg)
+  2. ![](Help/Image/HyperbolicDistribution-B.svg)
 - `hyperbolicHelicoid`
   1. ![](Help/Image/hyperbolicHelicoid-A.svg)
 - `hyperbolicSpiral`
@@ -2580,6 +2707,8 @@
   3. ![](Help/Image/hypotrochoid-C.svg)
 - `i`
   1. ![](Help/Image/i-A.svg)
+  2. ![](Help/Image/i-B.svg)
+  3. ![](Help/Image/i-C.svg)
 - `identityMatrix`
   1. ![](Help/Image/identityMatrix-A.png)
 - `IdentitySet`
@@ -2591,6 +2720,8 @@
   3. ![](Help/Image/if-C.svg)
 - `ikedaMap`
   1. ![](Help/Image/ikedaMap-A.svg)
+- `Image`
+  1. ![](Help/Image/Image-A.png)
 - `implicitEquation`
   1. ![](Help/Image/implicitEquation-A.svg)
   2. ![](Help/Image/implicitEquation-B.svg)
@@ -2739,6 +2870,8 @@
   3. ![](Help/Image/integerSquareRoot-C.svg)
   4. ![](Help/Image/integerSquareRoot-D.svg)
   5. ![](Help/Image/integerSquareRoot-E.svg)
+  6. ![](Help/Image/integerSquareRoot-F.svg)
+  7. ![](Help/Image/integerSquareRoot-G.svg)
 - `interleave`
   1. ![](Help/Image/interleave-A.svg)
   2. ![](Help/Image/interleave-B.svg)
@@ -2812,6 +2945,9 @@
   3. ![](Help/Image/isCoprime-C.svg)
   4. ![](Help/Image/isCoprime-D.svg)
   5. ![](Help/Image/isCoprime-E.svg)
+  6. ![](Help/Image/isCoprime-F.svg)
+  7. ![](Help/Image/isCoprime-G.svg)
+  8. ![](Help/Image/isCoprime-H.svg)
 - `isCubeFree`
   1. ![](Help/Image/isCubeFree-A.svg)
   2. ![](Help/Image/isCubeFree-B.svg)
@@ -2855,6 +2991,9 @@
 - `isInteger`
   1. ![](Help/Image/isInteger-A.svg)
   2. ![](Help/Image/isInteger-B.svg)
+  3. ![](Help/Image/isInteger-C.svg)
+  4. ![](Help/Image/isInteger-D.svg)
+  5. ![](Help/Image/isInteger-E.svg)
 - `isInvolutoryMatrix`
   1. ![](Help/Image/isInvolutoryMatrix-A.svg)
 - `isLesserTwinPrime`
@@ -2890,6 +3029,8 @@
   5. ![](Help/Image/isPerfectSquare-E.svg)
   6. ![](Help/Image/isPerfectSquare-F.svg)
   7. ![](Help/Image/isPerfectSquare-G.svg)
+- `isPositive`
+  1. ![](Help/Image/isPositive-A.png)
 - `isPowerfulNumber`
   1. ![](Help/Image/isPowerfulNumber-A.svg)
 - `isPrime`
@@ -2912,6 +3053,8 @@
   2. ![](Help/Image/isPrimePower-B.svg)
 - `isPrimitivePythagoreanTriple`
   1. ![](Help/Image/isPrimitivePythagoreanTriple-A.png)
+- `isPureCollatzNumber`
+  1. ![](Help/Image/isPureCollatzNumber-A.svg)
 - `isPythagoreanPrime`
   1. ![](Help/Image/isPythagoreanPrime-A.svg)
 - `isPythagoreanTriple`
@@ -2919,6 +3062,7 @@
   2. ![](Help/Image/isPythagoreanTriple-B.png)
 - `isQuadraticResidue`
   1. ![](Help/Image/isQuadraticResidue-A.png)
+  2. ![](Help/Image/isQuadraticResidue-B.svg)
 - `isRed`
   1. ![](Help/Image/isRed-A.svg)
   2. ![](Help/Image/isRed-B.svg)
@@ -2979,6 +3123,9 @@
   3. ![](Help/Image/jacobiSymbol-C.svg)
   4. ![](Help/Image/jacobiSymbol-D.svg)
   5. ![](Help/Image/jacobiSymbol-E.svg)
+  6. ![](Help/Image/jacobiSymbol-F.svg)
+  7. ![](Help/Image/jacobiSymbol-G.svg)
+  8. ![](Help/Image/jacobiSymbol-H.svg)
 - `jordanTotient`
   1. ![](Help/Image/jordanTotient-A.svg)
   2. ![](Help/Image/jordanTotient-B.svg)
@@ -3103,6 +3250,12 @@
   10. ![](Help/Image/kroneckerSymbol-J.svg)
   11. ![](Help/Image/kroneckerSymbol-K.svg)
   12. ![](Help/Image/kroneckerSymbol-L.svg)
+  13. ![](Help/Image/kroneckerSymbol-M.svg)
+  14. ![](Help/Image/kroneckerSymbol-N.svg)
+  15. ![](Help/Image/kroneckerSymbol-O.svg)
+  16. ![](Help/Image/kroneckerSymbol-P.svg)
+  17. ![](Help/Image/kroneckerSymbol-Q.svg)
+  18. ![](Help/Image/kroneckerSymbol-Q.svg)
 - `kuhnTriangulation`
   1. ![](Help/Image/kuhnTriangulation-A.svg)
   2. ![](Help/Image/kuhnTriangulation-B.svg)
@@ -3194,6 +3347,8 @@
   1. ![](Help/Image/leitnerCrystalStructureCatalogue-A.svg)
 - `lemniscate`
   1. ![](Help/Image/lemniscate-A.svg)
+- `lemoineTriangle`
+  1. ![](Help/Image/lemoineTriangle-A.svg)
 - `levskayaPolyhedraCatalogue`
   1. ![](Help/Image/levskayaPolyhedraCatalogue-A.svg)
 - `levyCCurve`
@@ -3332,6 +3487,7 @@
   3. ![](Help/Image/log-C.svg)
   4. ![](Help/Image/log-D.png)
   5. ![](Help/Image/log-E.svg)
+  6. ![](Help/Image/log-F.svg)
 - `log10`
   1. ![](Help/Image/log10-A.svg)
 - `log2`
@@ -3437,6 +3593,7 @@
   1. ![](Help/Image/lucasPolynomial-A.svg)
 - `lucasSequence`
   1. ![](Help/Image/lucasSequence-A.svg)
+  2. ![](Help/Image/lucasSequence-B.svg)
 - `luckyNumbers`
   1. ![](Help/Image/luckyNumbers-A.svg)
   2. ![](Help/Image/luckyNumbers-B.svg)
@@ -3496,6 +3653,9 @@
   6. ![](Help/Image/matrixPlot-F.svg)
   7. ![](Help/Image/matrixPlot-G.svg)
   8. ![](Help/Image/matrixPlot-H.svg)
+  9. ![](Help/Image/matrixPlot-I.svg)
+  10. ![](Help/Image/matrixPlot-J.svg)
+  11. ![](Help/Image/matrixPlot-K.svg)
 - `matrixPower`
   1. ![](Help/Image/matrixPower-A.svg)
 - `matrixResample`
@@ -3520,6 +3680,9 @@
 - `median`
   1. ![](Help/Image/median-A.svg)
   2. ![](Help/Image/median-B.svg)
+- `MeixnerDistribution`
+  1. ![](Help/Image/MeixnerDistribution-A.svg)
+  2. ![](Help/Image/MeixnerDistribution-B.svg)
 - `mercatorProjection`
   1. ![](Help/Image/mercatorProjection-A.svg)
 - `mergeSort`
@@ -3568,6 +3731,8 @@
   1. ![](Help/Image/minkowskiQuestionMarkInverse-A.svg)
   2. ![](Help/Image/minkowskiQuestionMarkInverse-B.svg)
   3. ![](Help/Image/minkowskiQuestionMarkInverse-C.svg)
+- `minors`
+  1. ![](Help/Image/minors-A.svg)
 - `mirror`
   1. ![](Help/Image/mirror-A.svg)
 - `mittenpunkt`
@@ -3643,6 +3808,9 @@
 - `mooreCurve`
   1. ![](Help/Image/mooreCurve-A.svg)
   2. ![](Help/Image/mooreCurve-B.svg)
+- `mosaicPlot`
+  1. ![](Help/Image/mosaicPlot-A.svg)
+  2. ![](Help/Image/mosaicPlot-B.svg)
 - `moserDeBruijnSequence`
   1. ![](Help/Image/moserDeBruijnSequence-A.svg)
 - `motzkinNumber`
@@ -3877,6 +4045,8 @@
   5. ![](Help/Image/NormalDistribution-E.svg)
   6. ![](Help/Image/NormalDistribution-F.svg)
   7. ![](Help/Image/NormalDistribution-G.svg)
+  8. ![](Help/Image/NormalDistribution-H.svg)
+  9. ![](Help/Image/NormalDistribution-I.svg)
 - `norwichSpiral`
   1. ![](Help/Image/norwichSpiral-A.svg)
 - `noseHooverEquation`
@@ -3919,6 +4089,7 @@
   3. ![](Help/Image/OeisEntry-C.svg)
   4. ![](Help/Image/OeisEntry-D.svg)
   5. ![](Help/Image/OeisEntry-E.svg)
+  6. ![](Help/Image/OeisEntry-F.svg)
 - `oeisFunction`
   1. ![](Help/Image/oeisFunction-A.svg)
   2. ![](Help/Image/oeisFunction-B.svg)
@@ -3995,6 +4166,12 @@
   3. ![](Help/Image/paleyGraph-C.svg)
   4. ![](Help/Image/paleyGraph-D.svg)
   5. ![](Help/Image/paleyGraph-E.svg)
+- `parallelAxisPlot`
+  1. ![](Help/Image/parallelAxisPlot-A.svg)
+  2. ![](Help/Image/parallelAxisPlot-B.svg)
+  3. ![](Help/Image/parallelAxisPlot-C.svg)
+  4. ![](Help/Image/parallelAxisPlot-D.svg)
+  5. ![](Help/Image/parallelAxisPlot-E.svg)
 - `Parallelepiped`
   1. ![](Help/Image/Parallelepiped-A.svg)
   2. ![](Help/Image/Parallelepiped-B.svg)
@@ -4140,6 +4317,8 @@
   1. ![](Help/Image/permutationOrderList-A.svg)
   2. ![](Help/Image/permutationOrderList-B.svg)
   3. ![](Help/Image/permutationOrderList-C.svg)
+- `permute`
+  1. ![](Help/Image/permute-A.svg)
 - `perrinFunction`
   1. ![](Help/Image/perrinFunction-A.svg)
 - `perrinSequence`
@@ -4165,6 +4344,15 @@
   2. ![](Help/Image/Piecewise-B.svg)
   3. ![](Help/Image/Piecewise-C.svg)
   4. ![](Help/Image/Piecewise-D.svg)
+- `pieChart`
+  1. ![](Help/Image/pieChart-A.svg)
+  2. ![](Help/Image/pieChart-B.svg)
+  3. ![](Help/Image/pieChart-C.svg)
+  4. ![](Help/Image/pieChart-D.svg)
+  5. ![](Help/Image/pieChart-E.svg)
+  6. ![](Help/Image/pieChart-F.svg)
+  7. ![](Help/Image/pieChart-G.svg)
+  8. ![](Help/Image/pieChart-H.svg)
 - `pisanoPeriod`
   1. ![](Help/Image/pisanoPeriod-A.svg)
   2. ![](Help/Image/pisanoPeriod-B.svg)
@@ -4230,6 +4418,8 @@
   2. ![](Help/Image/PointCloud-B.svg)
 - `pointLinePlot`
   1. ![](Help/Image/pointLinePlot-A.svg)
+- `pointwise`
+  1. ![](Help/Image/pointwise-A.svg)
 - `poissonDiskSampling`
   1. ![](Help/Image/poissonDiskSampling-A.svg)
   2. ![](Help/Image/poissonDiskSampling-B.svg)
@@ -4297,6 +4487,8 @@
   10. ![](Help/Image/power-J.svg)
   11. ![](Help/Image/power-K.svg)
   12. ![](Help/Image/power-L.svg)
+  13. ![](Help/Image/power-M.svg)
+  14. ![](Help/Image/power-N.svg)
 - `powerCircles`
   1. ![](Help/Image/powerCircles-A.svg)
 - `powerMod`
@@ -4396,6 +4588,7 @@
   5. ![](Help/Image/primeOmega-E.svg)
   6. ![](Help/Image/primeOmega-F.svg)
   7. ![](Help/Image/primeOmega-G.svg)
+  8. ![](Help/Image/primeOmega-H.svg)
 - `primePi`
   1. ![](Help/Image/primePi-A.svg)
   2. ![](Help/Image/primePi-B.svg)
@@ -4436,6 +4629,10 @@
   11. ![](Help/Image/primeSignature-K.svg)
   12. ![](Help/Image/primeSignature-L.svg)
   13. ![](Help/Image/primeSignature-M.svg)
+  14. ![](Help/Image/primeSignature-N.svg)
+  15. ![](Help/Image/primeSignature-O.svg)
+  16. ![](Help/Image/primeSignature-P.svg)
+  17. ![](Help/Image/primeSignature-Q.svg)
 - `primesList`
   1. ![](Help/Image/primesList-A.svg)
 - `primitiveRootList`
@@ -4462,8 +4659,19 @@
   2. ![](Help/Image/product-B.svg)
   3. ![](Help/Image/product-C.svg)
   4. ![](Help/Image/product-D.svg)
+- `productLog`
+  1. ![](Help/Image/productLog-A.svg)
+  2. ![](Help/Image/productLog-B.svg)
 - `pseudosphere`
   1. ![](Help/Image/pseudosphere-A.svg)
+- `pyramid`
+  1. ![](Help/Image/pyramid-A.svg)
+  2. ![](Help/Image/pyramid-B.svg)
+  3. ![](Help/Image/pyramid-C.svg)
+  4. ![](Help/Image/pyramid-D.svg)
+  5. ![](Help/Image/pyramid-E.svg)
+  6. ![](Help/Image/pyramid-F.svg)
+  7. ![](Help/Image/pyramid-G.svg)
 - `pythagorasConstant`
   1. ![](Help/Image/pythagorasConstant-A.svg)
 - `qBinomial`
@@ -4484,9 +4692,14 @@
   1. ![](Help/Image/quadraticResidues-A.svg)
   2. ![](Help/Image/quadraticResidues-B.svg)
   3. ![](Help/Image/quadraticResidues-C.svg)
+  4. ![](Help/Image/quadraticResidues-D.svg)
+  5. ![](Help/Image/quadraticResidues-E.svg)
+  6. ![](Help/Image/quadraticResidues-F.png)
 - `quadratrixOfHippias`
   1. ![](Help/Image/quadratrixOfHippias-A.svg)
   2. ![](Help/Image/quadratrixOfHippias-B.svg)
+- `quantilePlot`
+  1. ![](Help/Image/quantilePlot-A.svg)
 - `quickSort`
   1. ![](Help/Image/quickSort-A.svg)
   2. ![](Help/Image/quickSort-B.svg)
@@ -4512,6 +4725,17 @@
   2. ![](Help/Image/quotientRemainder-B.svg)
   3. ![](Help/Image/quotientRemainder-C.svg)
   4. ![](Help/Image/quotientRemainder-D.svg)
+- `radialAxisPlot`
+  1. ![](Help/Image/radialAxisPlot-A.svg)
+  2. ![](Help/Image/radialAxisPlot-B.svg)
+  3. ![](Help/Image/radialAxisPlot-C.svg)
+  4. ![](Help/Image/radialAxisPlot-D.svg)
+  5. ![](Help/Image/radialAxisPlot-E.svg)
+  6. ![](Help/Image/radialAxisPlot-F.svg)
+  7. ![](Help/Image/radialAxisPlot-G.svg)
+  8. ![](Help/Image/radialAxisPlot-H.svg)
+  9. ![](Help/Image/radialAxisPlot-I.svg)
+  10. ![](Help/Image/radialAxisPlot-J.svg)
 - `radical`
   1. ![](Help/Image/radical-A.svg)
   2. ![](Help/Image/radical-B.svg)
@@ -4612,6 +4836,8 @@
 - `Range`
   1. ![](Help/Image/Range-A.svg)
   2. ![](Help/Image/Range-B.svg)
+  3. ![](Help/Image/Range-C.svg)
+  4. ![](Help/Image/Range-D.svg)
 - `rankedMin`
   1. ![](Help/Image/rankedMin-A.svg)
   2. ![](Help/Image/rankedMin-B.svg)
@@ -4619,6 +4845,12 @@
 - `rastriginFunction`
   1. ![](Help/Image/rastriginFunction-A.png)
   2. ![](Help/Image/rastriginFunction-B.svg)
+- `rationalOrdering`
+  1. ![](Help/Image/rationalOrdering-A.svg)
+  2. ![](Help/Image/rationalOrdering-B.svg)
+  3. ![](Help/Image/rationalOrdering-C.svg)
+  4. ![](Help/Image/rationalOrdering-D.png)
+  5. ![](Help/Image/rationalOrdering-E.png)
 - `rationalUnrank`
   1. ![](Help/Image/rationalUnrank-A.svg)
   2. ![](Help/Image/rationalUnrank-B.svg)
@@ -4651,6 +4883,16 @@
   3. ![](Help/Image/Rectangle-C.svg)
   4. ![](Help/Image/Rectangle-D.svg)
   5. ![](Help/Image/Rectangle-E.svg)
+- `rectangleChart`
+  1. ![](Help/Image/rectangleChart-A.svg)
+  2. ![](Help/Image/rectangleChart-B.svg)
+  3. ![](Help/Image/rectangleChart-C.svg)
+  4. ![](Help/Image/rectangleChart-D.svg)
+  5. ![](Help/Image/rectangleChart-E.svg)
+  6. ![](Help/Image/rectangleChart-F.svg)
+  7. ![](Help/Image/rectangleChart-G.svg)
+  8. ![](Help/Image/rectangleChart-H.svg)
+  9. ![](Help/Image/rectangleChart-I.svg)
 - `rectangularHexagonalGrid`
   1. ![](Help/Image/rectangularHexagonalGrid-A.svg)
   2. ![](Help/Image/rectangularHexagonalGrid-B.svg)
@@ -4970,10 +5212,22 @@
 - `sech`
   1. ![](Help/Image/sech-A.svg)
   2. ![](Help/Image/sech-B.svg)
+- `SechDistribution`
+  1. ![](Help/Image/SechDistribution-A.svg)
+  2. ![](Help/Image/SechDistribution-B.svg)
 - `secondBrocardTriangle`
   1. ![](Help/Image/secondBrocardTriangle-A.svg)
 - `secondLast`
   1. ![](Help/Image/secondLast-A.svg)
+- `sectorChart`
+  1. ![](Help/Image/sectorChart-A.svg)
+  2. ![](Help/Image/sectorChart-B.svg)
+  3. ![](Help/Image/sectorChart-C.svg)
+  4. ![](Help/Image/sectorChart-D.svg)
+  5. ![](Help/Image/sectorChart-E.svg)
+  6. ![](Help/Image/sectorChart-F.svg)
+  7. ![](Help/Image/sectorChart-G.svg)
+  8. ![](Help/Image/sectorChart-H.svg)
 - `seidelEntringerArnoldTriangle`
   1. ![](Help/Image/seidelEntringerArnoldTriangle-A.svg)
 - `seidelTriangle`
@@ -5108,6 +5362,8 @@
   12. ![](Help/Image/sin-L.svg)
   13. ![](Help/Image/sin-M.svg)
   14. ![](Help/Image/sin-N.svg)
+  15. ![](Help/Image/sin-O.svg)
+  16. ![](Help/Image/sin-P.svg)
 - `sincHistorical`
   1. ![](Help/Image/sincHistorical-A.svg)
   2. ![](Help/Image/sincHistorical-B.svg)
@@ -5132,6 +5388,7 @@
   2. ![](Help/Image/sinh-B.svg)
   3. ![](Help/Image/sinh-C.svg)
   4. ![](Help/Image/sinh-D.png)
+  5. ![](Help/Image/sinh-E.svg)
 - `sinusoidalSpiral`
   1. ![](Help/Image/sinusoidalSpiral-A.svg)
   2. ![](Help/Image/sinusoidalSpiral-B.svg)
@@ -5298,6 +5555,16 @@
   7. ![](Help/Image/square-G.svg)
   8. ![](Help/Image/square-H.svg)
   9. ![](Help/Image/square-I.svg)
+  10. ![](Help/Image/square-J.svg)
+- `squareChart`
+  1. ![](Help/Image/squareChart-A.svg)
+  2. ![](Help/Image/squareChart-B.svg)
+  3. ![](Help/Image/squareChart-C.svg)
+  4. ![](Help/Image/squareChart-D.svg)
+  5. ![](Help/Image/squareChart-E.svg)
+  6. ![](Help/Image/squareChart-F.svg)
+  7. ![](Help/Image/squareChart-G.svg)
+  8. ![](Help/Image/squareChart-H.svg)
 - `squareChladniPlateEquation`
   1. ![](Help/Image/squareChladniPlateEquation-A.svg)
   2. ![](Help/Image/squareChladniPlateEquation-B.svg)
@@ -5470,6 +5737,8 @@
   3. ![](Help/Image/StudentTDistribution-C.svg)
   4. ![](Help/Image/StudentTDistribution-D.svg)
   5. ![](Help/Image/StudentTDistribution-E.svg)
+- `sturmianWord`
+  1. ![](Help/Image/sturmianWord-A.svg)
 - `subdivide`
   1. ![](Help/Image/subdivide-A.svg)
 - `subfactorial`
@@ -5489,6 +5758,7 @@
   10. ![](Help/Image/substitutionSystem-J.svg)
   11. ![](Help/Image/substitutionSystem-K.svg)
   12. ![](Help/Image/substitutionSystem-L.svg)
+  13. ![](Help/Image/substitutionSystem-M.svg)
 - `sum`
   1. ![](Help/Image/sum-A.svg)
   2. ![](Help/Image/sum-B.svg)
@@ -5546,6 +5816,7 @@
   17. ![](Help/Image/surfacePlot-Q.svg)
   18. ![](Help/Image/surfacePlot-R.svg)
   19. ![](Help/Image/surfacePlot-S.svg)
+  20. ![](Help/Image/surfacePlot-T.svg)
 - `survivalFunction`
   1. ![](Help/Image/survivalFunction-A.svg)
   2. ![](Help/Image/survivalFunction-B.svg)
@@ -5738,11 +6009,13 @@
   11. ![](Help/Image/triangularArray-K.svg)
   12. ![](Help/Image/triangularArray-L.svg)
   13. ![](Help/Image/triangularArray-M.svg)
+  14. ![](Help/Image/triangularArray-N.svg)
 - `triangularArrayPlot`
   1. ![](Help/Image/triangularArrayPlot-A.svg)
   2. ![](Help/Image/triangularArrayPlot-B.svg)
   3. ![](Help/Image/triangularArrayPlot-C.svg)
   4. ![](Help/Image/triangularArrayPlot-D.svg)
+  5. ![](Help/Image/triangularArrayPlot-E.svg)
 - `TriangularDistribution`
   1. ![](Help/Image/TriangularDistribution-A.svg)
   2. ![](Help/Image/TriangularDistribution-B.svg)
@@ -5841,11 +6114,13 @@
   5. ![](Help/Image/UniformDistribution-E.svg)
   6. ![](Help/Image/UniformDistribution-F.svg)
   7. ![](Help/Image/UniformDistribution-G.svg)
+  8. ![](Help/Image/UniformDistribution-H.svg)
 - `union`
   1. ![](Help/Image/union-A.svg)
 - `unique`
   1. ![](Help/Image/unique-A.svg)
   2. ![](Help/Image/unique-B.svg)
+  3. ![](Help/Image/unique-C.svg)
 - `unitaryDivisors`
   1. ![](Help/Image/unitaryDivisors-A.svg)
   2. ![](Help/Image/unitaryDivisors-B.svg)

@@ -156,7 +156,7 @@ and compare to correct value obtained by the alternative factoring:
 	1.862645149230957E-9,
 	1.862645151833042E-9,
 	2.602085213965211E-18,
-	1.862645151833042E-9
+	1.862645151833042E-9,
 	false
 )
 ```
