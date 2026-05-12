@@ -57,9 +57,23 @@ A multiplication table:
 ]
 ```
 
+Relation to Kronecker product:
+
+```
+>>> [1 2 3].outerProduct([4 5])
+[
+	 4  5;
+	 8 10;
+	12 15
+]
+
+>>> [1; 2; 3].kroneckerProduct([4; 5])
+[4; 5; 8; 10; 12; 15]
+```
+
 * * *
 
-See also: *, dot, inner, outer
+See also: *, dot, inner, kroneckerProduct, outer
 
 Guides: Array Functions
 

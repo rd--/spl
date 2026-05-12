@@ -85,6 +85,13 @@ Transpose a 3×3 numerical matrix:
 [3 2 5; 4 3 4; 1 1 2]
 ```
 
+Transpose a column matrix into a row matrix:
+
+```
+>>> [1.5; 2.2; 3.1].transpose
+[[1.5 2.2 3.1]]
+```
+
 Transpose a row matrix into a column matrix:
 
 ```
@@ -341,7 +348,9 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/Tranpose.html)
 [2](https://reference.wolfram.com/language/ref/Transpose.html),
 _Mathworks_
-[1](https://mathworks.com/help/matlab/ref/permute.html)
+[1](https://mathworks.com/help/matlab/ref/permute.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Transpose)
 
 Unicode: U+1D40 ᵀ Modifier Letter Capital T
 

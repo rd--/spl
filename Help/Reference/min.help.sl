@@ -116,10 +116,14 @@ Smallest element in each matrix row:
 [1.2 1.3]
 ```
 
-At `Interval`:
+At `Interval`,
+also called `infimum`:
 
 ```
 >>> (1 -- 9).min
+1
+
+>>> (1 -- 9).infimum
 1
 ```
 

@@ -83,7 +83,7 @@ Interval : [Object, Storeable, Equatable, Number] { | min max |
 		}
 	}
 
-	center { :self |
+	[center, midpoint] { :self |
 		(self.min + self.max) / 2
 	}
 
@@ -133,6 +133,10 @@ Interval : [Object, Storeable, Equatable, Number] { | min max |
 
 	includes { :self :operand |
 		operand.betweenAnd(self.min, self.max)
+	}
+
+	infimum { :self |
+		self.min
 	}
 
 	intersection { :self :operand |
@@ -204,6 +208,10 @@ Interval : [Object, Storeable, Equatable, Number] { | min max |
 		self.discretize(n + 1)
 	}
 
+	supremum { :self |
+		self.max
+	}
+
 	union { :self :operand |
 		operand.isInterval.if {
 			self.isDisjoint(operand).if {
@@ -221,6 +229,10 @@ Interval : [Object, Storeable, Equatable, Number] { | min max |
 
 	upperBound { :self |
 		self.max
+	}
+
+	[width, range] { :self |
+		self.max - self.min
 	}
 
 	zero { :self |

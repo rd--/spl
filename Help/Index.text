@@ -1216,6 +1216,7 @@ Reference/dictionaryJoin.help.sl
 Reference/diesis.help.sl
 Reference/differenceAll.help.sl
 Reference/difference.help.sl
+Reference/differenceOfSquares.help.sl
 Reference/differencesBy.help.sl
 Reference/differences.help.sl
 Reference/differenceTable.help.sl
@@ -1840,6 +1841,7 @@ Reference/host.help.sl
 Reference/hostName.help.sl
 Reference/hour.help.sl
 Reference/hours.help.sl
+Reference/householderMatrix.help.sl
 Reference/Hpf.help.sl
 Reference/Hpz1.help.sl
 Reference/Hpz2.help.sl

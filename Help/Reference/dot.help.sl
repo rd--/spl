@@ -42,6 +42,15 @@ Scalar product of vectors in three dimensions:
 
 >>> [3 4 5].dot([4 3 5])
 49
+
+>>> [4 -1 2].dot([2 -2 -1])
+8
+
+>>> [1 3 -5].dot([4 -2 -1])
+3
+
+>>> [1 3 -5].dot([1 3 -5])
+35
 ```
 
 Dot product of exact vectors:
@@ -65,6 +74,12 @@ Dot allows complex inputs, but does not conjugate any of them:
 >>> let v = [z 3];
 >>> u.dot(v)
 (6J-3 + z)
+
+>>> let a = [1J1 1J-1 -1J1 -1J-1];
+>>> let b = [3J-4 6J-2 1J2 4J3];
+>>> let c = a.conjugate;
+>>> (c.dot(b), c.dot(a))
+(1J-5, 8)
 ```
 
 Compute the `norm` of a vector using the Hermitian inner product:
@@ -76,7 +91,18 @@ Compute the `norm` of a vector using the Hermitian inner product:
 (6.sqrt, 6.sqrt)
 ```
 
-`dot` of a 1×4 row vector and a 4×1 column vector is a 1×1 scalar:
+`dot` of a 1×3 row vector and a 3×1 column vector,
+a 1×1 scalar:
+
+```
+>>> [[1 3 -5]].dot([4; -2; -1])
+[[3]]
+
+>>> [1 3 -5].dot([4; -2; -1])
+[3]
+```
+
+`dot` of a 1×4 vector and a 4×1 column vector:
 
 ```
 >>> let a = [1 1 0 0];
@@ -187,6 +213,25 @@ Multiply 3×3 integer matrices:
 	201 216 231;
 	318 342 366
 ]
+
+>>> let a = [1 2 3;4 5 6;7 8 9];
+>>> let b = [9 8 7;6 5 4;3 2 1];
+>>> let c = a.transpose;
+>>> let d = b.transpose;
+>>> (
+>>> 	a.dot(b),
+>>> 	a.withCollect(b, dot:/2),
+>>> 	c.withCollect(d, dot:/2)
+>>> )
+(
+	[
+		30 24 18;
+		84 69 54;
+		138 114 90
+	],
+	[46 73 46],
+	[54 57 54]
+)
 ```
 
 Multiply 3×3 real matrices:
@@ -409,7 +454,7 @@ Evaluate symbolically:
 
 * * *
 
-See also: +, *, dotProduct, inner, outer
+See also: +, *, dotProduct, inner, outer, scalarTripleProduct
 
 Guides: List Functions, Matrix Functions, Vector Functions
 

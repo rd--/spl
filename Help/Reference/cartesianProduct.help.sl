@@ -24,6 +24,21 @@ The Cartesian product of two three-vectors is a 9×2 matrix:
 [1 9; 1 3; 1 2; 8 9; 8 3; 8 2; 6 9; 6 3; 6 2]
 ```
 
+The Cartesian product is not commutative:
+
+```
+>>> let a = [1 2];
+>>> let b = [3 4];
+>>> (
+>>> 	a.cartesianProduct(b),
+>>> 	b.cartesianProduct(a)
+>>> )
+(
+	[1 3; 1 4; 2 3; 2 4],
+	[3 1; 3 2; 4 1; 4 2]
+)
+```
+
 `cartesianProduct` is a special case of `tuples`:
 
 ```
@@ -42,6 +57,8 @@ Guides: Combinatorial Functions, List Functions
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/CartesianProduct.html)
+[1](https://mathworld.wolfram.com/CartesianProduct.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Cartesian_product)
 
 Categories: Enumerating

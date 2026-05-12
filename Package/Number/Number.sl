@@ -242,6 +242,10 @@
 		self * 0.01745329251994329547 /* 1/180.pi */
 	}
 
+	differenceOfSquares { :self :operand |
+		(self - operand) * (self + operand)
+	}
+
 	diracComb { :x :z |
 		x.isInteger.if {
 			z

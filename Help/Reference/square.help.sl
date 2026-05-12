@@ -141,6 +141,26 @@ OEIS [A028387](https://oeis.org/A028387):
 [1 5 11 19 29 41 55 71 89 109 131 155 181]
 ```
 
+Show _catastrophic cancellation_ in calculating sum of squares,
+and compare to correct value obtained by the alternative factoring:
+
+```
+>>> let x = 1 + (2 ^ -29);
+>>> let y = 1 + (2 ^ -30);
+>>> let a = x.square - y.square;
+>>> let b = (x + y) * (x - y);
+>>> let c = (2 ^ -59) + (2 ^ -60);
+>>> let d = a + c;
+>>> (a, b, c, d, a.isVeryCloseTo(b))
+(
+	1.862645149230957E-9,
+	1.862645151833042E-9,
+	2.602085213965211E-18,
+	1.862645151833042E-9
+	false
+)
+```
+
 Binary expansion of square numbers,
 matrix plot,
 OEIS [A000290](https://oeis.org/A000290):

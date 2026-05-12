@@ -16,6 +16,42 @@ The inverse is `cubeRoot`:
 3
 ```
 
+Sum of two cubes:
+
+```
+>>> let a = 7;
+>>> let b = 23;
+>>> let c = a.cube + b.cube;
+>>> let d = a.square - (a * b) + b.square;
+>>> let e = (a + b) * d;
+>>> (c, e)
+(12510, 12510)
+```
+
+The Ramanujan number,
+the second taxicab number:
+
+```
+>>> 1.cube + 12.cube
+1729
+
+>>> 9.cube + 10.cube
+1729
+```
+
+The third taxicab number:
+
+```
+>>> 436.cube + 167.cube
+87539319
+
+>>> 423.cube + 228.cube
+87539319
+
+>>> 414.cube + 255.cube
+87539319
+```
+
 Cubic numbers,
 threads over lists,
 OEIS [A000578](https://oeis.org/A000578):

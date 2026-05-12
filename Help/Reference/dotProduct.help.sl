@@ -55,6 +55,8 @@ At `CartesianCoordinates`:
 
 See also: dot
 
+Guides: List Functions, Vector Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/DotProduct.html)

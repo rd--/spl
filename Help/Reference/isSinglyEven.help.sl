@@ -4,6 +4,7 @@
 
 Answer `true` if the number _n_ is a singly even integer, else `false`.
 
+Positive integers congruent to two modulo four,
 OEIS [A016825](http://oeis.org/A016825):
 
 ```

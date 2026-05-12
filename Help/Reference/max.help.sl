@@ -20,6 +20,17 @@ At `List`:
 7
 ```
 
+At `Interval`,
+also called `supremum`:
+
+```
+>>> (1 -- 9).max
+9
+
+>>> (1 -- 9).supremum
+9
+```
+
 It is an error if the collection is empty:
 
 ```

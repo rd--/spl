@@ -18,6 +18,17 @@ At `List`:
 21
 ```
 
+At `Interval`,
+also called `width`:
+
+```
+>>> (1 -- 20).range
+19
+
+>>> (1 -- 20).width
+19
+```
+
 At `List` of lists:
 
 ```

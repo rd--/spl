@@ -72,6 +72,37 @@ Threads over lists:
 [4 3 5 6]
 ```
 
+Numbers with digital root in _1,4,7,9_,
+OEIS [A056991](https://oeis.org/A056991):
+
+```
+>>> 1:35.select { :n |
+>>> 	let r = n.digitalRoot(10);
+>>> 	[1 4 7 9].includes(r)
+>>> }
+[1 4 7 9 10 13 16 18 19 22 25 27 28 31 34]
+
+>>> [1 0 0 1 -1].linearRecurrence(
+>>> 	[1 4 7 9 10], 15
+>>> )
+[1 4 7 9 10 13 16 18 19 22 25 27 28 31 34]
+```
+
+Digital roots of square numbers
+palindromic with period of nine,
+OEIS [A056992](https://oeis.org/A056992):
+
+```
+>>> 1:18.square.digitalRoot(10)
+[1 4 9 7 7 9 4 1 9 1 4 9 7 7 9 4 1 9]
+
+>>> [7 9 4 1 9 1 4 9 7].isPalindrome
+true
+
+>>> Decimal(499264730/333333333, 18)
+1.497794191497794191D
+```
+
 The base ten digital root of _n_,
 OEIS [A010888](https://oeis.org/A010888):
 

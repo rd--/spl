@@ -2,7 +2,8 @@
 
 - _includes(c, x)_
 
-Answer whether the collection _c_ contains the object _x_ as a member.
+Answer whether the collection _c_ contains the object _x_ as an element,
+also called a member.
 
 Is five an element of a `List`:
 
@@ -23,6 +24,15 @@ At `Interval`:
 ```
 >>> (1 -- 5).includes(1.pi)
 true
+
+>>> (1 -- 5).includes(1)
+true
+
+>>> (1 -- 5).includes(5)
+true
+
+>>> (1 -- 5).includes(2.pi)
+false
 ```
 
 Test whether one interval lies within another:
@@ -125,6 +135,9 @@ OEIS [A047270](https://oeis.org/A047270):
 
 Where supported `includes` is displayed as ∋.
 
+_Rationale_:
+The predicate `isElement` corresponding to ∈ is not defined because methods at `Object` are discouraged.
+
 * * *
 
 See also: anySatisfy, includesAll, includesBy
@@ -135,11 +148,14 @@ References:
 _Apl_
 [1](https://aplwiki.com/wiki/Membership),
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/MemberQ.html)
-[2](https://reference.wolfram.com/language/ref/IntervalMemberQ.html),
+[1](https://mathworld.wolfram.com/Element.html)
+[2](https://reference.wolfram.com/language/ref/MemberQ.html)
+[3](https://reference.wolfram.com/language/ref/IntervalMemberQ.html),
 _Smalltalk_
-5.7.1.15
+5.7.1.15,
+_W_
+[1](https://en.wikipedia.org/wiki/Element_of_a_set)
 
-Unicode: U+220B ∋ Contains as Member
+Unicode: U+220B ∋ Contains as Member, U+2208 ∈ Element Of
 
 Categories: Testing

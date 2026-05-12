@@ -420,6 +420,12 @@
 		answer
 	}
 
+	householderMatrix { :v |
+		v.size.identityMatrix
+		-
+		(2 * [v].transpose.dot([v]) / (v.dot(v)))
+	}
+
 	inverse { :self |
 		self.isSquareMatrix.if {
 			let n = self.numberOfRows;

@@ -59,6 +59,17 @@ For coordinates, `midpoint` gives the same result as `mean`:
 [1 2; -3 5].mean
 ```
 
+At `Interval`,
+also called `center`:
+
+```
+>>> (10 -- 20).midpoint
+15
+
+>>> (10 -- 20).center
+15
+```
+
 Draw a series of seven pentagons,
 each placed at the midpoints of the line segments of the last:
 

@@ -25,6 +25,18 @@ The arc sine is the inverse sine function.
 1.16462J1.65869
 ```
 
+Compare accuracy of method to the direct evaluation of the logarithmic formula:
+
+```
+>>> let z = 0J-1234567;
+>>> z.arcSin
+0J-14.71937803983977
+
+>>> let z = 0J-1234567;
+>>> ((1 - z.square).sqrt - (z * 1.i)).log.i
+0J-14.71964426356397
+```
+
 Threads elementwise over lists:
 
 ```

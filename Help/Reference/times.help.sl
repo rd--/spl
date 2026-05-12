@@ -359,7 +359,8 @@ _Smalltalk_
 5.6.2.1,
 _W_
 [1](https://en.wikipedia.org/wiki/Multiplication)
-[2](https://en.wikipedia.org/wiki/Hadamard_product_(matrices))
+[2](https://en.wikipedia.org/wiki/Vector_multiplication)
+[3](https://en.wikipedia.org/wiki/Hadamard_product_(matrices))
 
 Unicode: U+00D7 × Multiplication Sign
 

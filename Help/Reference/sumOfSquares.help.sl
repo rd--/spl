@@ -7,7 +7,7 @@ Answer the sum of the squared elements of the collection _c_.
 At a vector:
 
 ```
->>> [3].iota.sumOfSquares
+>>> [1 2 3].sumOfSquares
 14
 
 >>> (1 ^ 2) + (2 ^ 2) + (3 ^ 2)
@@ -54,6 +54,8 @@ let n = [0 .. m - 1];
 * * *
 
 See also: +, *, injectInto, square, sum
+
+Guides: Collection Functions, Mathematical Functions
 
 References:
 _Mathworks_

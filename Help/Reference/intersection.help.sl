@@ -77,6 +77,9 @@ At `Interval`:
 ```
 >>> (-2 -- 3).intersection(1 -- 4)
 (1 -- 3)
+
+>>> (1 -- 10).intersection(5 -- 15)
+(5 -- 10)
 ```
 
 At `Multiset`:

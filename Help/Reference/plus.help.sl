@@ -107,5 +107,6 @@ _Smalltalk_
 5.6.2.2,
 _W_
 [1](https://en.wikipedia.org/wiki/Addition)
+[2](https://en.wikipedia.org/wiki/Vector_addition)
 
 Categories: Arithmetic, Math, Operator
