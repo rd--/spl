@@ -31,6 +31,11 @@ Polyhedron : [Object, Storeable, Equatable, Geometry, PolygonMesh] { | vertexCoo
 		)
 	}
 
+	Cuboid { :self |
+		let [p, q] = self;
+		Cuboid(p, q)
+	}
+
 	Polyhedron { :vertexCoordinates :faceIndices |
 		newPolyhedron().initializeSlots(vertexCoordinates, faceIndices)
 	}

@@ -26,25 +26,19 @@ ie. from the reference plane upward (towards to the positive _z_-axis) to the ra
 The depression angle is the negative of the elevation angle.
 
 ```
->>> let u = [
+>>> SphericalCoordinates[
 >>> 	2.sqrt,
 >>> 	1.pi / 4,
 >>> 	1.pi / 2
->>> ];
->>> let v = [1 1 0];
->>> SphericalCoordinates(u)
->>> .asCartesianCoordinates
-CartesianCoordinates(v)
+>>> ].asCartesianCoordinates
+CartesianCoordinates[1 1 0]
 
->>> let u = [
+>>> SphericalCoordinates[
 >>> 	3.sqrt,
 >>> 	0.25.pi,
 >>> 	2.sqrt.arcTan
->>> ];
->>> let v = [1 1 1];
->>> SphericalCoordinates(u)
->>> .asCartesianCoordinates
-CartesianCoordinates(v)
+>>> ].asCartesianCoordinates
+CartesianCoordinates[1 1 1]
 ```
 
 Where supported `r` is displayed as 𝑟, `rho` as ρ, `theta` as θ, and `phi` as φ.

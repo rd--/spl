@@ -7,23 +7,23 @@ Enode the `TypedArray` _a_ into a `ByteArray`.
 `Float32Array` encoding of `pi` and `e`:
 
 ```
->>> Float32Array([1.pi 1.e])
+>>> Float32Array[1.pi 1.e]
 >>> .encode(true)
-[
+ByteArray[
 	219  15  73  64
 	 84 248  45  64
-].asByteArray
+]
 ```
 
 `Float64Array` encoding of `pi` and `e`:
 
 ```
->>> Float64Array([1.pi 1.e])
+>>> Float64Array[1.pi 1.e]
 >>> .encode(true)
-[
+ByteArray[
 	 24  45  68  84 251  33   9  64
 	105  87  20 139  10 191   5  64
-].asByteArray
+]
 ```
 
 * * *

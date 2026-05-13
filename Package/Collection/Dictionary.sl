@@ -30,14 +30,6 @@
 		aCollection
 	}
 
-	asList { :self |
-		let answer = [];
-		self.valuesDo { :each |
-			answer.add(each)
-		};
-		answer
-	}
-
 	assertIsValidKey { :self :key |
 		self.includesKey(key).if {
 			key
@@ -156,6 +148,14 @@
 				nil
 			}
 		}
+	}
+
+	[dictionaryToList, asList] { :self |
+		let answer = [];
+		self.valuesDo { :each |
+			answer.add(each)
+		};
+		answer
 	}
 
 	do { :self :aBlock:/1 |

@@ -90,16 +90,6 @@
 		}
 	}
 
-	asList { :self |
-		let answer = List(self.size);
-		let index = 1;
-		self.do { :each |
-			answer[index] := each;
-			index := index + 1
-		};
-		answer
-	}
-
 	asCollection { :self |
 		self
 	}

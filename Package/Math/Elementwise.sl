@@ -1042,6 +1042,22 @@
 
 +List {
 
+	atMatrixOrElementwise { :self :aBlock:/1 |
+		self.isEmpty.if {
+			[]
+		} {
+			self.isVector.if {
+				self.error('rank < 2')
+			} {
+				self.isMatrix.if {
+					aBlock(self)
+				} {
+					self.collect(aBlock:/1)
+				}
+			}
+		}
+	}
+
 	atVectorOrElementwise { :self :aBlock:/1 |
 		self.isEmpty.if {
 			[]

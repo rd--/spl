@@ -166,19 +166,19 @@ CartesianCoordinates : [Object, Storeable, Copyable, Equatable, Comparable, Inde
 
 +List {
 
-	asCartesianCoordinates { :self |
-		CartesianCoordinates(self)
-	}
-
 	CartesianCoordinates { :self |
 		newCartesianCoordinates().initializeSlots(self)
+	}
+
+	[listToCartesianCoordinates, asCartesianCoordinates] { :self |
+		CartesianCoordinates(self)
 	}
 
 }
 
 +Record {
 
-	asCartesianCoordinates { :self |
+	CartesianCoordinates { :self |
 		self.size.caseOf(
 			[
 				2 -> {
@@ -195,8 +195,12 @@ CartesianCoordinates : [Object, Storeable, Copyable, Equatable, Comparable, Inde
 				}
 			]
 		) {
-			self.error('asCartesianCoordinates: not x,y or x,y,z or x,y,z,w')
+			self.error('CartesianCoordinates: not x,y or x,y,z or x,y,z,w')
 		}
+	}
+
+	[recordToCartesianCoordinates, asCartesianCoordinates] { :self |
+		CartesianCoordinates(self)
 	}
 
 }

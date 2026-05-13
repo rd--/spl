@@ -9,23 +9,22 @@ Unlike `List`, a `Float32Array` is of fixed size.
 
 ```
 >>> Float32Array(5)
-[0 0 0 0 0].asFloat32Array
+Float32Array[0 0 0 0 0]
 ```
 
 The `encode` method answers a `ByteArray`,
 the boolean parameter indicates if the encoding is in little (`true`) or big (`false`) endian form.
 
 ```
->>> [1 2 3 4 5]
->>> .asFloat32Array
+>>> Float32Array[1 2 3 4 5]
 >>> .encode(true)
-[
+ByteArray[
 	0 0 128 63
 	0 0 0 64
 	0 0 64 64
 	0 0 128 64
 	0 0 160 64
-].asByteArray
+]
 ```
 
 * * *

@@ -56,7 +56,7 @@
 
 +@Dictionary {
 
-	asSet { :self |
+	[dictionaryToSet, asSet] { :self |
 		self.values.asSet
 	}
 
@@ -64,7 +64,7 @@
 
 +@Collection {
 
-	asSet { :self |
+	[collectionToSet, asSet] { :self |
 		SortedSet(self)
 	}
 

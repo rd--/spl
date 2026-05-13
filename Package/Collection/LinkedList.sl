@@ -1,17 +1,5 @@
 @Link {
 
-	asList { :self |
-		let h = self;
-		let answer = [];
-		{
-			h.isNotNil
-		}.whileTrue {
-			answer.add(h.value);
-			h := h.nextLink
-		};
-		answer
-	}
-
 	asLink { :self |
 		self
 	}
@@ -66,6 +54,18 @@
 		}
 	}
 
+	[linkToList, asList] { :self |
+		let h = self;
+		let answer = [];
+		{
+			h.isNotNil
+		}.whileTrue {
+			answer.add(h.value);
+			h := h.nextLink
+		};
+		answer
+	}
+
 	lastLink { :self |
 		let next = self;
 		{ next.nextLink.isNil }.whileFalse {
@@ -113,16 +113,6 @@ LinkedList : [Object, Equatable, Storeable, Copyable, Comparable, Iterable, Inde
 		};
 		self.lastLink := aLink;
 		aLink
-	}
-
-	asList { :self |
-		let answer = List(self.size);
-		let index = 1;
-		self.do { :each |
-			answer[index] := each;
-			index := index + 1
-		};
-		answer
 	}
 
 	atIfAbsent { :self :index :ifAbsent:/0 |
@@ -203,6 +193,16 @@ LinkedList : [Object, Equatable, Storeable, Copyable, Comparable, Iterable, Inde
 		} {
 			self.firstLink.linkAtIfAbsent(index, errorBlock:/0)
 		}
+	}
+
+	[linkedListToList, asList] { :self |
+		let answer = List(self.size);
+		let index = 1;
+		self.do { :each |
+			answer[index] := each;
+			index := index + 1
+		};
+		answer
 	}
 
 	linkOf { :self :anObject |

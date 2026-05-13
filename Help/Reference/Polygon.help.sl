@@ -7,11 +7,11 @@ A Polygon is a `Type` representing a polygon with vertex coordinates given by _v
 The `area` and `centroid` of two triangles:
 
 ```
->>> let p = [1 0; 0 3.sqrt; -1 0].Polygon;
+>>> let p = Polygon[1 0; 0 3.sqrt; -1 0];
 >>> (p.area, p.centroid, p.boundingBox)
 (3.sqrt, [0, 3.sqrt / 3], [-1 0; 1 3.sqrt])
 
->>> let p = [1 0; 1 1; 0 0].Polygon;
+>>> let p = Polygon[1 0; 1 1; 0 0];
 >>> (p.area, p.centroid)
 (1/2, [2/3 1/3])
 ```
@@ -19,7 +19,7 @@ The `area` and `centroid` of two triangles:
 The `area`, `centroid` and `interiorAngles` of a pentagon:
 
 ```
->>> let p = [1 6; 3 1; 7 2; 4 4; 8 5].Polygon;
+>>> let p = Polygon[1 6; 3 1; 7 2; 4 4; 8 5];
 >>> (
 >>> 	p.area,
 >>> 	p.centroid,
@@ -87,7 +87,7 @@ Sfc32(147982)
 The outline of a glyph:
 
 ~~~spl svg=D
-[
+Polygon[
 	2 3;
 	0.8125 0.625;
 	0.9375 0.625;
@@ -99,7 +99,7 @@ The outline of a glyph:
 	1.875 2.5;
 	1.375 1.5;
 	2.375 1.5
-].Polygon.LineDrawing
+].LineDrawing
 ~~~
 
 ![](Help/Image/Polygon-D.svg)

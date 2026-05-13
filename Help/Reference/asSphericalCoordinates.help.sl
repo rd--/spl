@@ -2,13 +2,13 @@
 
 - _asSphericalCoordinates(c)_
 
-Answer a `SphericalCoordinates` given a collection _c_..
+Answer a `SphericalCoordinates` given a collection _c_.
 
 `List` case:
 
 ```
 >>> [1 2 3].asSphericalCoordinates
-SphericalCoordinates([1 2 3])
+SphericalCoordinates[1 2 3]
 ```
 
 `Record` case:
@@ -16,15 +16,15 @@ SphericalCoordinates([1 2 3])
 ```
 >>> (r: 1, theta: 2, phi: 3)
 >>> .asSphericalCoordinates
-SphericalCoordinates([1 2 3])
+SphericalCoordinates[1 2 3]
 ```
 
 In the `SphericalCoordinates` cases answer `identity`:
 
 ```
->>> let p = SphericalCoordinates([1 2 3]);
->>> p.asSphericalCoordinates
-p
+>>> let c = SphericalCoordinates[1 2 3];
+>>> c.asSphericalCoordinates == c
+true
 ```
 
 * * *

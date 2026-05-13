@@ -7,9 +7,12 @@ A `Type` representing a tetrahedron with corners _a_, _b_, _c_ and _d_.
 Draw a standard tetrahedron:
 
 ~~~spl svg=A
-Tetrahedron(
-	[0 0 0; 1 0 0; 0 1 0; 0 0 1]
-).asPerspectiveDrawing
+Tetrahedron[
+	0 0 0;
+	1 0 0;
+	0 1 0;
+	0 0 1
+].asPerspectiveDrawing
 ~~~
 
 ![](Help/Image/Tetrahedron-A.svg)
@@ -17,9 +20,12 @@ Tetrahedron(
 Draw a Kuhn tetrahedron:
 
 ~~~spl svg=B
-Tetrahedron(
-	[0 0 0; 1 0 0; 1 1 0; 1 1 1]
-).asPerspectiveDrawing
+Tetrahedron[
+	0 0 0;
+	1 0 0;
+	1 1 0;
+	1 1 1
+].asPerspectiveDrawing
 ~~~
 
 ![](Help/Image/Tetrahedron-B.svg)
@@ -27,6 +33,8 @@ Tetrahedron(
 * * *
 
 See also: kuhnTriangulation, Polyhedron, Simplex, Triangle, unitTetrahedron
+
+Guides: Geometry Functions
 
 References:
 _Mathematica_

@@ -9,38 +9,38 @@ also called a polyline or polygonal chain.
 Compute the `arcLength` of a line:
 
 ```
->>> [0 0; 1 1; 1 0; 2 0].Line.arcLength
+>>> Line[0 0; 1 1; 1 0; 2 0].arcLength
 2.sqrt + 2
 ```
 
 Compute the `midpoint` of a line in two dimensions:
 
 ```
->>> [0 0; 1 1; 1 0; 2 0].Line.midpoint
+>>> Line[0 0; 1 1; 1 0; 2 0].midpoint
 [1, 2.sqrt / 2]
 ```
 
 In three dimensions:
 
 ```
->>> [
+>>> Line[
 >>> 	0 0 0;
 >>> 	1 1 1;
 >>> 	1 0 1;
 >>> 	0 0 1
->>> ].Line.midpoint
+>>> ].midpoint
 [1, 3.sqrt / 2, 1]
 ```
 
 The `arcLength` of a `Line` in three-dimensions:
 
 ```
->>> [
+>>> Line[
 >>> 	0 0 0;
 >>> 	1 1 1;
 >>> 	0 1 1;
 >>> 	0 1 0
->>> ].Line.arcLength
+>>> ].arcLength
 (3.sqrt + 2)
 ```
 
@@ -59,10 +59,10 @@ A vector field:
 
 ~~~spl svg=B
 { :x :y |
-	[
+	Line[
 		[x, y],
 		[x, y] + ([y, x] / 5) - 1
-	].Line
+	]
 }.table(0:10, 0:10).LineDrawing
 ~~~
 
@@ -96,7 +96,9 @@ A horizontal line along the _x_ axis,
 the drawing specifies a minimal bounding box of _[0 0; 1 1]_:
 
 ~~~spl svg=E
-[[0 0; 1 0].Line].LineDrawing
+[
+	Line[0 0; 1 0]
+].LineDrawing
 ~~~
 
 ![](Help/Image/Line-E.svg)
@@ -104,12 +106,12 @@ the drawing specifies a minimal bounding box of _[0 0; 1 1]_:
 Draw a line in three dimensions:
 
 ~~~spl svg=F
-[
+Line[
 	0 0 0;
 	0 0 1;
 	0 1 1;
 	1 1 1
-].Line.asPerspectiveDrawing
+].asPerspectiveDrawing
 ~~~
 
 ![](Help/Image/Line-F.svg)
@@ -117,8 +119,8 @@ Draw a line in three dimensions:
 Plot line and points given by derived polynomial:
 
 ~~~spl svg=G
-let a = Line([-3 -2; 3 4]);
-let b = InfiniteLine([-3 -2; 3 4]);
+let a = Line[-3 -2; 3 4];
+let b = InfiniteLine[-3 -2; 3 4];
 let c = b.polynomial;
 [
 	a,
@@ -140,7 +142,7 @@ Draw circle tangent lines:
 	let theta = n.degree;
 	let u = [theta.cos, theta.sin];
 	let v = [theta.sin.-, theta.cos];
-	Line([u, u + (v * 2)])
+	Line[u, u + (v * 2)]
 }.LineDrawing
 ~~~
 

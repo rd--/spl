@@ -22,20 +22,8 @@
 		self
 	}
 
-	asList { :self |
-		let answer = [];
-		self.do { :each |
-			answer.add(each)
-		};
-		answer
-	}
-
 	associations { :self |
 		self.contents.associations
-	}
-
-	asSet { :self |
-		self.contents.indices.asSet
 	}
 
 	basicAddWithOccurrences { :self :anObject :anInteger |
@@ -110,6 +98,18 @@
 
 	min { :self |
 		self.contents.indices.reduce(min:/2)
+	}
+
+	[multitsetToList, asList] { :self |
+		let answer = [];
+		self.do { :each |
+			answer.add(each)
+		};
+		answer
+	}
+
+	[multisetToSet, asSet] { :self |
+		self.contents.indices.asSet
 	}
 
 	occurrencesOf { :self :anObject |
@@ -216,8 +216,8 @@ Multiset : [Object, Storeable, Copyable, Equatable, Iterable, Collection, Extens
 
 +Dictionary {
 
-	asMultiset { :self |
-		self.Multiset
+	[dictionaryToMultiset, asMultiset] { :self |
+		Multiset(self)
 	}
 
 	Multiset { :self |
@@ -229,7 +229,11 @@ Multiset : [Object, Storeable, Copyable, Equatable, Iterable, Collection, Extens
 +List {
 
 	Multiset { :self |
-		self.asMultiset
+		self.isAssociationList.if {
+			Multiset(Dictionary(self))
+		} {
+			self.collectionToMultiset
+		}
 	}
 
 	sortedCounts { :self |
@@ -244,7 +248,7 @@ Multiset : [Object, Storeable, Copyable, Equatable, Iterable, Collection, Extens
 
 +@Collection {
 
-	asMultiset { :self |
+	[collectionToMultiset, asMultiset] { :self |
 		let answer = Multiset();
 		answer.addAll(self);
 		answer

@@ -12,7 +12,7 @@ Theta, or phi, is the angle of counter-clockwise rotation from the positive _x_ 
 with _0 <= theta < 2.pi_.
 
 ```
->>> let p = PolarCoordinates([2.sqrt, 0.25.pi]);
+>>> let p = PolarCoordinates[2.sqrt 0.25.pi];
 >>> (
 >>> 	p.r, p.theta,
 >>> 	p.rho, p.phi,
@@ -23,18 +23,18 @@ with _0 <= theta < 2.pi_.
 	2.sqrt, 0.25.pi,
 	2.sqrt, 0.25.pi,
 	1, 1,
-	PlanarCoordinates([1 1])
+	PlanarCoordinates[1 1]
 )
 ```
 
 Threads over lists:
 
 ```
->>> PolarCoordinates([1 1.pi; 2 1/2.pi; 3 1/3.pi])
+>>> PolarCoordinates[1 1.pi; 2 1/2.pi; 3 1/3.pi]
 [
-	PolarCoordinates([1 1.pi]),
-	PolarCoordinates([2 1/2.pi]),
-	PolarCoordinates([3 1/3.pi])
+	PolarCoordinates[1 1.pi],
+	PolarCoordinates[2 1/2.pi],
+	PolarCoordinates[3 1/3.pi]
 ]
 ```
 

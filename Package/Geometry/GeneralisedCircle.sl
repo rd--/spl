@@ -1,6 +1,6 @@
 GeneralisedCircle : [Object, Storeable, Equatable, Geometry] { | c alpha d |
 
-	asCircle { :self |
+	[generalisedCircleToCircle, asCircle] { :self |
 		let [c, alpha, _] = self.assertIsCircle.coefficientList;
 		let [a, b] = alpha.realImaginary;
 		Circle(
@@ -9,12 +9,12 @@ GeneralisedCircle : [Object, Storeable, Equatable, Geometry] { | c alpha d |
 		)
 	}
 
-	asLine { :self |
+	[generalisedCircleToLine, asLine] { :self |
 		let [a, b, c] = self.lineEquation;
 		InfiniteLine(a, b, c)
 	}
 
-	asPoint { :self |
+	[generalisedCircleToPoint, asPoint] { :self |
 		let [c, alpha, _] = self.assertIsPoint.coefficientList;
 		let [r, i] = alpha.realImaginary;
 		Point(

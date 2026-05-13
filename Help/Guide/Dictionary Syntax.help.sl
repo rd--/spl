@@ -18,7 +18,7 @@ With `String` keys:
 
 ```
 >>> [|'x' -> 1, 'y' -> 2, 'z' -> 3|]
-Dictionary(['x' -> 1, 'y' -> 2, 'z' -> 3])
+Dictionary['x' -> 1, 'y' -> 2, 'z' -> 3]
 ```
 
 With `SmallFloat` keys:

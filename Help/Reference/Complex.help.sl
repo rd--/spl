@@ -26,7 +26,7 @@ Answer a `Complex` number:
 >>> Complex(1, 5)
 1J5
 
->>> Complex([1 5])
+>>> Complex[1 5]
 1J5
 ```
 
@@ -36,7 +36,7 @@ Threads overs lists and arrays:
 >>> Complex(1:5, 5:9)
 [1J5 2J6 3J7 4J8 5J9]
 
->>> Complex([1 5; 2 6; 3 7; 4 8; 5 9])
+>>> Complex[1 5; 2 6; 3 7; 4 8; 5 9]
 [1J5 2J6 3J7 4J8 5J9]
 ```
 

@@ -8,22 +8,22 @@ Answer a `PlanarCoordinates` given a collection _c_.
 
 ```
 >>> [1 2].asPlanarCoordinates
-PlanarCoordinates([1 2])
+PlanarCoordinates[1 2]
 ```
 
 `Record` case:
 
 ```
 >>> (x: 1, y: 2).asPlanarCoordinates
-PlanarCoordinates([1 2])
+PlanarCoordinates[1 2]
 ```
 
 In the `PlanarCoordinates` cases answer `identity`:
 
 ```
->>> let p = PlanarCoordinates([1 2]);
->>> p.asPlanarCoordinates
-p
+>>> let c = PlanarCoordinates[1 2];
+>>> c.asPlanarCoordinates == c
+true
 ```
 
 * * *

@@ -21,7 +21,7 @@ At `Line`,
 the number of edges is one less than the number of vertices:
 
 ```
->>> let l = Line([0 0; 1 1; 2 0]);
+>>> let l = Line[0 0; 1 1; 2 0];
 >>> (l.vertexCount, l.edgeCount)
 (3, 2)
 ```

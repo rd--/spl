@@ -1,6 +1,6 @@
 # CartesianCoordinates
 
-- _CartesianCoordinates([x y …])_
+- _CartesianCoordinates[x y …]_
 
 A `Type` representing a point in _n_-dimensional Cartesian space.
 
@@ -19,7 +19,7 @@ A `Type` representing a point in _n_-dimensional Cartesian space.
 Implements `size` and `at`:
 
 ```
->>> let p = CartesianCoordinates([1 2 3]);
+>>> let p = CartesianCoordinates[1 2 3];
 >>> (p.size, [p[3], p[2], p[1]])
 (3, [3 2 1])
 ```
@@ -27,7 +27,7 @@ Implements `size` and `at`:
 allowing terms to be fetched using `List Assignment Syntax`:
 
 ```
->>> let p = CartesianCoordinates([1 2 3]);
+>>> let p = CartesianCoordinates[1 2 3];
 >>> let [x, y, z] = p;
 >>> [z y x]
 [3 2 1]
@@ -37,26 +37,28 @@ Implements `<|`,
 meaning behind, below and to the left of:
 
 ```
->>> let u = CartesianCoordinates([0 0 0]);
->>> let v = CartesianCoordinates([1 1 1]);
+>>> let u = CartesianCoordinates[0 0 0];
+>>> let v = CartesianCoordinates[1 1 1];
 >>> (u <| v, u = v, u |> v)
 (true, false, false)
 ```
 
-Converting from `Record`:
+`Record` constructor:
 
 ```
->>> (x: 1, y: 2)
->>> .asCartesianCoordinates
-CartesianCoordinates([1 2])
+>>> CartesianCoordinates(x: 1, y: 2)
+CartesianCoordinates[1 2]
 
->>> (x: 1, y: 2, z: 3)
->>> .asCartesianCoordinates
-CartesianCoordinates([1 2 3])
+>>> CartesianCoordinates(x: 1, y: 2, z: 3)
+CartesianCoordinates[1 2 3]
 
->>> (x: 1, y: 2, z: 3, w: 4)
->>> .asCartesianCoordinates
-CartesianCoordinates([1 2 3 4])
+>>> CartesianCoordinates(
+>>> 	x: 1,
+>>> 	y: 2,
+>>> 	z: 3,
+>>> 	w: 4
+>>> )
+CartesianCoordinates[1 2 3 4]
 ```
 
 * * *

@@ -299,14 +299,6 @@ Rectangle : [Object, Storeable, Equatable, Geometry] { | lowerLeft upperRight |
 
 +List {
 
-	asRectangle { :self |
-		(self.shape = [2 2]).if {
-			Rectangle(self.first, self.second)
-		} {
-			self.error('List>>asRectangle: invalid shape')
-		}
-	}
-
 	boundingBoxMerging { :self |
 		let lowerLeft = self[1][1];
 		let upperRight = self[1][2];
@@ -330,6 +322,10 @@ Rectangle : [Object, Storeable, Equatable, Geometry] { | lowerLeft upperRight |
 		answer
 	}
 
+	[listToRectangle, asRectangle] { :self |
+		Rectangle(self)
+	}
+
 	rectangleMerging { :self |
 		self.boundingBoxMerging.asRectangle
 	}
@@ -339,6 +335,13 @@ Rectangle : [Object, Storeable, Equatable, Geometry] { | lowerLeft upperRight |
 			lowerLeft.withCollect(upperRight.nest, Rectangle:/2)
 		} {
 			newRectangle().initializeSlots(lowerLeft, upperRight)
+		}
+	}
+
+	Rectangle { :self |
+		self.atMatrixOrElementwise { :m |
+			let [lowerLeft, upperRight] = m;
+			Rectangle(lowerLeft, upperRight)
 		}
 	}
 

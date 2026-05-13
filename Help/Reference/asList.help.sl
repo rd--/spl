@@ -47,10 +47,10 @@ At `Multiset`:
 At `NumericArray` answers the `normal` `List` array:
 
 ```
->>> NumericArray([1 2; 3 4; 5 6]).asList
+>>> NumericArray[1 2; 3 4; 5 6].asList
 [1 2; 3 4; 5 6]
 
->>> NumericArray([1 2; 3 4; 5 6]).normal
+>>> NumericArray[1 2; 3 4; 5 6].normal
 [1 2; 3 4; 5 6]
 ```
 

@@ -44,6 +44,7 @@
 ## Collection Notation Syntax
 
 - `Dictionary Syntax`
+- `List Constructor Syntax`
 - `List Syntax`
 - `Map Syntax`
 - `Matrix Syntax`

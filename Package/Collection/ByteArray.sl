@@ -145,7 +145,7 @@ ByteArray! : [Object, Storeable, Equatable, Comparable, Iterable, Indexable, Col
 
 +List {
 
-	asByteArray { :self |
+	[listToByteArray, asByteArray] { :self |
 		ByteArray(self)
 	}
 
@@ -173,7 +173,7 @@ ByteArray! : [Object, Storeable, Equatable, Comparable, Iterable, Indexable, Col
 
 +@ArithmeticProgression {
 
-	asByteArray { :self |
+	[arithmeticProgressionToByteArray, asByteArray] { :self |
 		ByteArray(self)
 	}
 

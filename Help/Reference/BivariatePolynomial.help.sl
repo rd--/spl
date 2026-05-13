@@ -8,14 +8,12 @@ Coefficients at _c_ are specified as a matrix telling terms _cᵢⱼxⁱyʲ_.
 ```
 >>> let x = 5;
 >>> let y = 7;
->>> Polynomial(
->>> 	[
->>> 		0  0  0 -1;
->>> 		0  2  0  0;
->>> 		3  0  0  0;
->>> 		0  0  0  0
->>> 	]
->>> ).evaluate(x, y)
+>>> Polynomial[
+>>> 	0  0  0 -1;
+>>> 	0  2  0  0;
+>>> 	3  0  0  0;
+>>> 	0  0  0  0
+>>> ].evaluate(x, y)
 -198
 ```
 

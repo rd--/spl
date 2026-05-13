@@ -8,7 +8,7 @@ Answer `CartesianCoordinates` given a collection _c_.
 
 ```
 >>> [1 2 3].asCartesianCoordinates
-CartesianCoordinates([1 2 3])
+CartesianCoordinates[1 2 3]
 ```
 
 `Record` case:
@@ -16,15 +16,15 @@ CartesianCoordinates([1 2 3])
 ```
 >>> (x: 1, y: 2, z: 3)
 >>> .asCartesianCoordinates
-CartesianCoordinates([1 2 3])
+CartesianCoordinates[1 2 3]
 ```
 
 In the `CartesianCoordinates` cases answer `identity`:
 
 ```
->>> let p = CartesianCoordinates([1 2 3]);
->>> p.asCartesianCoordinates
-p
+>>> let c = CartesianCoordinates[1 2 3];
+>>> c.asCartesianCoordinates == c
+true
 ```
 
 * * *

@@ -4,20 +4,20 @@ AsciiString : [Object, Storeable, Equatable, Iterable, Indexable, Collection, Se
 		self
 	}
 
-	asByteArray { :self |
+	[asciiStringToByteArray, asByteArray] { :self |
 		self.contents.copy
 	}
 
-	asHexString { :self |
-		self.contents.base16Encode.asAsciiString
-	}
-
-	asList { :self |
+	[asciiStringToList, asList] { :self |
 		let answer = List(self.size);
 		self.withIndexDo { :each :index |
 			answer[index] := each.asCharacter
 		};
 		answer
+	}
+
+	asHexString { :self |
+		self.contents.base16Encode.asAsciiString
 	}
 
 	atIfAbsent { :self :anInteger :ifAbsent:/0 |

@@ -10,7 +10,7 @@ The coordinates have the invariant that they sum to `zero`,
 allowing the _s_ coordinate to be elided.
 
 ```
->>> HexagonalCoordinates([1 3])
+>>> HexagonalCoordinates[1 3]
 >>> .coordinates
 [1 3 -4]
 ```
@@ -18,8 +18,8 @@ allowing the _s_ coordinate to be elided.
 Calculate Manhattan and Euclidean distances:
 
 ```
->>> let a = HexagonalCoordinates([0 0]);
->>> let b = HexagonalCoordinates([3 7]);
+>>> let a = HexagonalCoordinates[0 0];
+>>> let b = HexagonalCoordinates[3 7];
 >>> (
 >>> 	a.manhattanDistance(b),
 >>> 	a.euclideanDistance(b)
@@ -32,7 +32,7 @@ in counter-clockwise order,
 beginning with the cell one column to the right:
 
 ```
->>> HexagonalCoordinates([0 0 0])
+>>> HexagonalCoordinates[0 0 0]
 >>> .nearestNeighbours
 >>> .collect(coordinates:/1)
 [
@@ -48,7 +48,7 @@ beginning with the cell one column to the right:
 Draw the six nearest neighbours of the _(0, 0, 0)_ cell:
 
 ~~~spl svg=A
-HexagonalCoordinates([0 0 0])
+HexagonalCoordinates[0 0 0]
 .nearestNeighbours
 .collect { :p |
 	let c = p.asCartesianCoordinates.coordinates;
@@ -64,7 +64,7 @@ in counter-clockwise order,
 beginning with the least clockwise diagonal neighbour:
 
 ~~~spl svg=B
-HexagonalCoordinates([0 0 0])
+HexagonalCoordinates[0 0 0]
 .diagonalNeighbours
 .collect { :p |
 	let c = p.asCartesianCoordinates.coordinates;

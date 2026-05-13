@@ -33,21 +33,6 @@ Tree : [Object, Storeable, Equatable, Iterable, Indexable] { | value subTrees |
 		}
 	}
 
-	asList { :self |
-		let subLists = self.subTrees.collect { :each |
-			each.isLeaf.if {
-				each.value
-			} {
-				each.asList
-			}
-		};
-		self.value.ifNil {
-			subLists
-		} {
-			[self.value] ++ subLists
-		}
-	}
-
 	atIfAbsent { :self :index :ifAbsent:/0 |
 		self.subTrees.atIfAbsent(index, ifAbsent:/0)
 	}
@@ -238,6 +223,21 @@ Tree : [Object, Storeable, Equatable, Iterable, Indexable] { | value subTrees |
 
 	treePlot { :self |
 		self.asGraph.treePlot
+	}
+
+	[treeToList, asList] { :self |
+		let subLists = self.subTrees.collect { :each |
+			each.isLeaf.if {
+				each.value
+			} {
+				each.asList
+			}
+		};
+		self.value.ifNil {
+			subLists
+		} {
+			[self.value] ++ subLists
+		}
 	}
 
 	values { :self |

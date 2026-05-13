@@ -8,14 +8,10 @@ also called a _bag_.
 
 The type `Multiset` collates elements according `=`, see also `IdentityMultiset`.
 
-To convert a collection to a `Multiset` use `asMultiset`,
-to convert a `Multiset` to a `Set` use `asSet`,
-to convert a `Multiset` to a `List` use `asList`:
-
 ```
 >>> let a = [1 1 1 3 3 5];
->>> let b = a.Multiset;
->>> let c = b.Set;
+>>> let b = Multiset(a);
+>>> let c = Set(b);
 >>> (
 >>> 	a.size,
 >>> 	b.size,
@@ -108,6 +104,10 @@ Store string:
 >>> .storeString
 'Multiset([|1 -> 3, 2 -> 1, 3 -> 2|])'
 ```
+
+To convert a collection to a `Multiset` use `collectionToMultiset` (or `asMultiset`),
+to convert a `Multiset` to a `Set` use `multisetToSet` (or `asSet`),
+to convert a `Multiset` to a `List` use `multitsetToList` (or `asList`).
 
 * * *
 

@@ -8,14 +8,14 @@ answer a `Float64Array` of _n_ places, each initialized to `zero`.
 
 ```
 >>> Float64Array(5)
-Float64Array([0 0 0 0 0])
+Float64Array[0 0 0 0 0]
 ```
 
 In the `List` case,
 answer a `Float64Array` initialized to _[x, …]_:
 
 ```
->>> Float64Array([1 2 3 4 5])
+>>> Float64Array[1 2 3 4 5]
 >>> .asList
 [1 2 3 4 5]
 ```

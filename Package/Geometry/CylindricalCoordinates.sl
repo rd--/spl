@@ -2,17 +2,17 @@
 
 CylindricalCoordinates : [Object, Equatable] { | coordinates |
 
-	asList { :self |
-		self.coordinates.copy
-	}
-
 	asCartesianCoordinates { :self |
 		CartesianCoordinates(
 			self.coordinates.fromCylindricalCoordinates
 		)
 	}
 
-	asRecord { :self |
+	[cylindricalCoordinatesToList, asList] { :self |
+		self.coordinates.copy
+	}
+
+	[cylindricalCoordinatesToRecord, asRecord] { :self |
 		let [rho, phi, z] = self.coordinates;
 		(rho: rho, phi: phi, z: z)
 	}
@@ -49,7 +49,7 @@ CylindricalCoordinates : [Object, Equatable] { | coordinates |
 
 +List {
 
-	asCylindricalCoordinates { :self |
+	[listToCylindricalCoordinates, asCylindricalCoordinates] { :self |
 		CylindricalCoordinates(self)
 	}
 

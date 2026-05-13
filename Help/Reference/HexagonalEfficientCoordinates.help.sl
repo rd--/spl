@@ -9,7 +9,7 @@ in counter-clockwise order,
 beginning with cell one column to the right:
 
 ```
->>> HexagonalEfficientCoordinates([0 0 0])
+>>> HexagonalEfficientCoordinates[0 0 0]
 >>> .nearestNeighbours
 >>> .collect(coordinates:/1)
 [
@@ -25,7 +25,7 @@ beginning with cell one column to the right:
 Draw the six nearest neighbours of the _(0, 0, 0)_ cell:
 
 ~~~spl svg=A
-HexagonalEfficientCoordinates([0 0 0])
+HexagonalEfficientCoordinates[0 0 0]
 .nearestNeighbours
 .collect { :p |
 	let c = p.asCartesianCoordinates.coordinates;

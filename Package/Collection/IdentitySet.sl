@@ -2,10 +2,6 @@
 
 IdentitySet! : [Object, Storeable, Equatable, Iterable, Collection, Extensible, Removable, Unordered, Set] {
 
-	asList { :self |
-		<primitive: return Array.from(_self);>
-	}
-
 	copy { :self |
 		<primitive: return new Set(_self);>
 	}
@@ -21,6 +17,10 @@ IdentitySet! : [Object, Storeable, Equatable, Iterable, Collection, Extensible, 
 		});
 		>
 		self
+	}
+
+	[identitySetToList, asList] { :self |
+		<primitive: return Array.from(_self);>
 	}
 
 	include { :self :anObject |

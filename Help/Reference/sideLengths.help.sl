@@ -10,7 +10,7 @@ or not including,
 the point:
 
 ```
->>> Triangle([0 0; 1 0; 1 1])
+>>> Triangle[0 0; 1 0; 1 1]
 >>> .sideLengths
 [1 2.sqrt 1]
 ```
@@ -18,16 +18,15 @@ the point:
 For a `Polygon` this is generalised to answer the side lengths between adjacent vertices starting at the second vertex:
 
 ```
->>> Polygon([0 0; 1 0; 1 1])
+>>> Polygon[0 0; 1 0; 1 1]
 >>> .sideLengths
 [1 2.sqrt 1]
 
->>> Polygon([0 0; 1 0; 1 1; 0 1])
+>>> Polygon[0 0; 1 0; 1 1; 0 1]
 >>> .sideLengths
 [1 1 1 1]
 
->>> [1 6; 3 1; 7 2; 4 4; 8 5]
->>> .Polygon
+>>> Polygon[1 6; 3 1; 7 2; 4 4; 8 5]
 >>> .sideLengths
 [4.1231 3.6056 4.1231 7.0711 5.3852]
 ```

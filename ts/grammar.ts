@@ -55,6 +55,7 @@ Sl {
 		| DotExpressionWithAssignmentSyntax
 		| DotExpression
 		| Block
+        | ListConstructorSyntax
 		| ApplyWithTrailingRecordSyntax
 		| ApplyWithTrailingClosuresSyntax
 		| ApplySyntax
@@ -104,6 +105,7 @@ Sl {
 	ApplyWithTrailingClosuresSyntax = selectorName NonEmptyParameterList? Block+
 	ApplyWithTrailingRecordSyntax = selectorName NonEmptyRecordSyntax+
 	ApplySyntax = (selectorName | boundOperator) ParameterList
+    ListConstructorSyntax = typeName (EmptyListSyntax | VectorSyntax | MatrixSyntax | VolumeSyntax | ListSyntax)
 	ParenthesisedExpression = "(" Expression ")"
 	NonEmptyRecordSyntax = "(" NonemptyListOf<RecordSyntaxItem, ","> ")"
 	EmptyRecordSyntax = "(" ":" ")"

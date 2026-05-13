@@ -8,10 +8,10 @@ See `isImmediate` for deciding if a value is suitable as a key.
 Construct a `Map` from a list of lists:
 
 ```
->>> Map([1 2; 3 4; 5 6])
+>>> Map[1 2; 3 4; 5 6]
 [1: 2, 3: 4, 5: 6]
 
->>> Map([[1, [2, 3]], [3, [4, 5, 6]]])
+>>> Map[[1, [2, 3]], [3, [4, 5, 6]]]
 [1: [2 3], 3: [4 5 6]]
 ```
 
@@ -20,6 +20,19 @@ Construct an empty `Map`:
 ```
 >>> Map()
 [:]
+
+>>> Map[]
+[:]
+```
+
+Construct a `Map` from an association list:
+
+```
+>>> Map[1 -> 2, 3 -> 4, 5 -> 6]
+[1: 2, 3: 4, 5: 6]
+
+>>> Map[1 -> [2, 3], 3 -> [4, 5, 6]]
+[1: [2 3], 3: [4 5 6]]
 ```
 
 `Map` treats negative zero as zero when used as a key:

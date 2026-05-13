@@ -23,14 +23,12 @@ At `Triangle`:
 At `Tetrahedron`:
 
 ```
->>> Tetrahedron(
->>> 	[
->>> 		1 1 1;
->>> 		3 3 10;
->>> 		3 6 1;
->>> 		6 1 1
->>> 	]
->>> ).toBarycentricCoordinates([3 3 3])
+>>> Tetrahedron[
+>>> 	1 1 1;
+>>> 	3 3 10;
+>>> 	3 6 1;
+>>> 	6 1 1
+>>> ].toBarycentricCoordinates([3 3 3])
 [7/25 2/9 14/45 14/75]
 ```
 
@@ -39,6 +37,8 @@ The inverse is `fromBarycentricCoordinates`.
 * * *
 
 See also: fromBarycentricCoordinates
+
+Guides: Coordinate System Functions, Geometry Functions
 
 References:
 _Mathematica_

@@ -118,10 +118,6 @@ String! : [Object, Storeable, Equatable, Comparable, Json, Iterable, Indexable, 
 		IdentitySet(self.characters)
 	}
 
-	asSet { :self |
-		Set(self.characters)
-	}
-
 	asString { :self |
 		self
 	}
@@ -950,6 +946,10 @@ String! : [Object, Storeable, Equatable, Comparable, Json, Iterable, Indexable, 
 
 	stringReverse { :self |
 		self.reverse
+	}
+
+	[stringToSet, asSet] { :self |
+		Set(self.characters)
 	}
 
 	take { :self :anInteger |

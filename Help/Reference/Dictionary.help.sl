@@ -55,6 +55,28 @@ the identity dictionary type,
 and `Record`,
 the string dictionary type.
 
+A `Dictionary` with `String` keys:
+
+```
+>>> Dictionary['x' -> 1, 'y' -> 2, 'z' -> 3]
+>>> .keysAndValues
+['x' 1; 'y' 2; 'z' 3]
+```
+
+A `Dictionary` with `SmallFloat` keys:
+
+```
+>>> let d = Dictionary[
+>>> 	1 -> 'x', 2 -> 'y', 3 -> 'z'
+>>> ];
+>>> (d.keys, d.values, d.associations)
+(
+	[1 2 3],
+	['x' 'y' 'z'],
+	[1 -> 'x', 2 -> 'y', 3 -> 'z']
+)
+```
+
 There is a literal syntax for `Dictionary`:
 
 ```

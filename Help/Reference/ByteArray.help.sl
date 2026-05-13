@@ -12,37 +12,37 @@ each initialized to `zero`.
 
 ```
 >>> ByteArray(5)
-ByteArray([0 0 0 0 0])
+ByteArray[0 0 0 0 0]
 ```
 
 At `List`,
 answer a `ByteArray` with the specified bytes:
 
 ```
->>> ByteArray([1 2 3 4 5])
-ByteArray([1 2 3 4 5])
+>>> ByteArray[1 2 3 4 5]
+ByteArray[1 2 3 4 5]
 ```
 
 At `Range`:
 
 ```
 >>> ByteArray(1:5)
-ByteArray([1 2 3 4 5])
+ByteArray[1 2 3 4 5]
 ```
 
 `ByteArray` implements `Collection`:
 
 ```
->>> ByteArray([1 3 5 7]) ^ 2
-ByteArray([1 9 25 49])
+>>> ByteArray[1 3 5 7] ^ 2
+ByteArray[1 9 25 49]
 ```
 
 `ByteArray` implements `Sequence`:
 
 ```
->>> ByteArray([1 3 5 7 9])
+>>> ByteArray[1 3 5 7 9]
 >>> .last(3)
-ByteArray([5 7 9])
+ByteArray[5 7 9]
 ```
 
 The inverse of `asByteArray` is `asList`:
@@ -65,12 +65,14 @@ Reverse a `ByteArray`:
 
 ```
 >>> ByteArray(1:5).reverse
-ByteArray([5 4 3 2 1])
+ByteArray[5 4 3 2 1]
 ```
 
 * * *
 
 See also: asByteArray, asList, List, Float64Array
+
+Guides: Array Functions, Collection Functions
 
 References:
 _Mathematica_

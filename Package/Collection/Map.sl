@@ -157,20 +157,24 @@ Map! : [Object, Storeable, Equatable, Iterable, Indexable, Collection, Extensibl
 		}
 	}
 
-	asMap { :self |
+	Map { :self |
 		self.isEmpty.if {
 			Map()
 		} {
 			self.anyOne.isAssociation.if {
 				self.associationListToMap
 			} {
-				self.matrixToMap
+				self.isMatrix.if {
+					self.matrixToMap
+				} {
+					self.error('Map: invalid list')
+				}
 			}
 		}
 	}
 
-	Map { :self |
-		self.matrixToMap
+	[listToMap, asMap] { :self |
+		Map(self)
 	}
 
 	substitutionSystem { :self :initialCondition :anInteger |

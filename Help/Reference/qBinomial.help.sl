@@ -8,47 +8,45 @@ also called a Gaussian coefficient or a Gaussian polynomial.
 
 ```
 >>> qBinomial(2, 1)
-Polynomial([1 1])
+Polynomial[1 1]
 
 >>> qBinomial(3, 1)
-Polynomial([1 1 1])
+Polynomial[1 1 1]
 
 >>> qBinomial(3, 2)
-Polynomial([1 1 1])
+Polynomial[1 1 1]
 
 >>> qBinomial(4, 1)
-Polynomial([1 1 1 1])
+Polynomial[1 1 1 1]
 
 >>> qBinomial(4, 2)
-Polynomial([1 1 2 1 1])
+Polynomial[1 1 2 1 1]
 
 >>> qBinomial(6, 3)
-Polynomial([1 1 2 3 3 3 3 2 1 1])
+Polynomial[1 1 2 3 3 3 3 2 1 1]
 
 >>> qBinomial(10, 3)
-Polynomial(
-	[
-		 1  1  2  3  4  5  7  8  9 10 10
-		10 10  9  8  7  5  4  3  2  1  1
-	]
-)
+Polynomial[
+	1  1  2  3  4  5  7  8  9 10 10
+	10 10  9  8  7  5  4  3  2  1  1
+]
 ```
 
 Value at _m=0_:
 
 ```
 >>> qBinomial(0, 0)
-Polynomial([1])
+Polynomial[1]
 
 >>> qBinomial(5, 0)
-Polynomial([1])
+Polynomial[1]
 ```
 
 Zero at _m>n_:
 
 ```
 >>> qBinomial(5, 12)
-Polynomial([])
+Polynomial[]
 ```
 
 Specific values:

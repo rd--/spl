@@ -10,7 +10,7 @@
 		}
 	}
 
-	asList { :self |
+	[arithmeticProgressionToList, asList] { :self |
 		self.collect(identity:/1)
 	}
 

@@ -4,11 +4,12 @@
 
 Answer a `Rectangle` given lower left and upper right coordinates.
 
-At `List`:
+At `List`,
+alias for `Rectangle`:
 
 ```
 >>> [-1 -1; 1 1].asRectangle
-Rectangle([-1 -1], [1 1])
+Rectangle[-1 -1; 1 1]
 ```
 
 The archetypal Pythagorean triangle,
@@ -16,9 +17,9 @@ as the enclosure of three squares:
 
 ~~~spl svg=A
 [
-	[0 -3; 3 0].asRectangle,
-	[3 0; 7 4].asRectangle,
-	[0 0; 5 5].asRectangle.rotate(
+	Rectangle[0 -3; 3 0],
+	Rectangle[3 0; 7 4],
+	Rectangle[0 0; 5 5].rotate(
 		1/2.pi - (4 / 5).arcCos,
 		[0 0]
 	)

@@ -15,7 +15,7 @@ Circle([105 1545/19], 5 * 203762.sqrt / 19)
 The `circumcircle` of an isosceles right triangle:
 
 ~~~spl svg=A
-let t = Triangle([0 0; 0 1; 1 0]);
+let t = Triangle[0 0; 0 1; 1 0];
 [t, t.circumcircle].LineDrawing
 ~~~
 

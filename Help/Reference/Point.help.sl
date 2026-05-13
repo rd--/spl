@@ -8,7 +8,7 @@ A two-dimensional cartesian co-ordinate has a `dimension` of `zero`,
 and an `embeddingDimension` of two, which is also its `size`:
 
 ```
->>> let p = Point([1 2]);
+>>> let p = Point[1 2];
 >>> (
 >>> 	p.dimension,
 >>> 	p.embeddingDimension,
@@ -20,7 +20,7 @@ and an `embeddingDimension` of two, which is also its `size`:
 A three-dimensional cartesian co-ordinate:
 
 ```
->>> let p = Point([1 2 3]);
+>>> let p = Point[1 2 3];
 >>> (p.dimension, p.embeddingDimension)
 (0, 3)
 ```
@@ -30,7 +30,7 @@ draw a point and a unit circle at the origin:
 
 ~~~spl svg=A
 [
-	Point([0 0]),
+	Point[0 0],
 	Circle([0 0], 1)
 ].LineDrawing
 ~~~

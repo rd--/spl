@@ -370,12 +370,12 @@ List! : [Object, Storeable, Equatable, Comparable, Json, Iterable, Indexable, Co
 
 +@Collection {
 
-	asList { :self |
+	[collectionToList, asList] { :self |
 		let answer = List(self.size);
-		let index = 0;
+		let index = 1;
 		self.do { :each |
-			index := index + 1;
-			answer[index] := each
+			answer[index] := each;
+			index := index + 1
 		};
 		answer
 	}
@@ -384,7 +384,7 @@ List! : [Object, Storeable, Equatable, Comparable, Json, Iterable, Indexable, Co
 
 +@Sequenceable {
 
-	asList { :self |
+	[sequenceableToList, asList] { :self |
 		let answer = List(self.size);
 		self.indicesDo { :index |
 			answer[index] := self[index]

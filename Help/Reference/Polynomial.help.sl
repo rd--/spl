@@ -4,12 +4,21 @@
 
 Answer either a `UnivariatePolynomial` or a `BivariatePolynomial` depending on the type of _c_.
 
-```
->>> Polynomial([1 2 3])
-UnivariatePolynomial([1 2 3])
+At `List`:
 
->>> Polynomial([1 2; 3 4])
-BivariatePolynomial([1 2; 3 4])
+```
+>>> Polynomial[1 2 3]
+UnivariatePolynomial[1 2 3]
+
+>>> Polynomial[1 2; 3 4]
+BivariatePolynomial[1 2; 3 4]
+```
+
+At `Map`:
+
+```
+>>> Polynomial([0: 1, 5: 5])
+UnivariatePolynomial[1 0 0 0 0 5]
 ```
 
 Number of representations of _n_ as a sum of distinct Lucas numbers,

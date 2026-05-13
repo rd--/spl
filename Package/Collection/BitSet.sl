@@ -24,10 +24,6 @@ BitSet : [Object, Storeable, Copyable, Equatable, Iterable, Collection, Extensib
 		anInteger
 	}
 
-	asList { :self |
-		self.positionVector
-	}
-
 	asString { :self |
 		let ascii = ByteArray(self.capacity);
 		self.bitsWithIndexDo { :each :index |
@@ -74,6 +70,10 @@ BitSet : [Object, Storeable, Copyable, Equatable, Iterable, Collection, Extensib
 		self.indices.do { :index |
 			aBlock(self.bitAt(index))
 		}
+	}
+
+	[bitSetToList, asList] { :self |
+		self.positionVector
 	}
 
 	bitsWithIndexDo { :self :aBlock:/2 |

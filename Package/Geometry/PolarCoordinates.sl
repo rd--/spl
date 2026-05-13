@@ -1,9 +1,5 @@
 PolarCoordinates : [Object, Storeable, Equatable] { | coordinates |
 
-	asList { :self |
-		self.coordinates.copy
-	}
-
 	asPolarCoordinates { :self |
 		self
 	}
@@ -22,6 +18,10 @@ PolarCoordinates : [Object, Storeable, Equatable] { | coordinates |
 
 	phi { :self |
 		self.theta
+	}
+
+	[polarCoordinatesToList, asList] { :self |
+		self.coordinates.copy
 	}
 
 	r { :self |

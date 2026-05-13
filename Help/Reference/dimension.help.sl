@@ -9,7 +9,7 @@ the dimension of a planar point is `zero`,
 the embedding dimension is two:
 
 ```
->>> let p = Point([0, 0]);
+>>> let p = Point[0 0];
 >>> (p.dimension, p.embeddingDimension)
 (0, 2)
 ```
@@ -19,7 +19,7 @@ the dimension of a volumetric point is `zero`,
 the embedding dimension is three:
 
 ```
->>> let p = Point([0, 0, 0]);
+>>> let p = Point[0 0 0];
 >>> (p.dimension, p.embeddingDimension)
 (0, 3)
 ```
@@ -27,7 +27,7 @@ the embedding dimension is three:
 The dimension of a `Line` is `one`:
 
 ```
->>> Line([0 0; 1 1]).dimension
+>>> Line[0 0; 1 1].dimension
 1
 ```
 
@@ -41,7 +41,7 @@ The dimension of a `Circle` is `one`:
 The dimension of a `Rectangle` is two:
 
 ```
->>> Rectangle([0 0], [1 1]).dimension
+>>> Rectangle[0 0; 1 1].dimension
 2
 ```
 

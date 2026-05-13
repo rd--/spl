@@ -5,7 +5,7 @@
 Answer the _hue_ of the colour _c_.
 
 ```
->>> RgbColour([0.75 1 0.75], 1).hue
+>>> RgbColour[0.75 1 0.75].hue
 1/3
 ```
 

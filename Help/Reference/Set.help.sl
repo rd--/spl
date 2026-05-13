@@ -33,7 +33,7 @@ also a `Set` from an empty list:
 >>> Set().size
 0
 
->>> Set([]).size
+>>> Set[].size
 0
 ```
 
@@ -54,8 +54,8 @@ Sets are collections,
 and have the expected mathematical behavior in relation to scalars:
 
 ```
->>> Set([1 2 3]) * 5
-Set([5 10 15])
+>>> Set[1 2 3] * 5
+Set[5 10 15]
 ```
 
 Note that `Set` may be significantly less efficient that `IdentitySet`,
@@ -68,12 +68,12 @@ false
 >>> 1 == 1L
 false
 
->>> Set([1 1L])
+>>> Set[1 1L]
 >>> .asList
 [1]
 
 >>> {
->>> 	IdentitySet([1 1L])
+>>> 	IdentitySet[1 1L]
 >>> }.hasError
 true
 
@@ -83,12 +83,12 @@ false
 >>> 1J1 = 1J1
 true
 
->>> Set([1J1 1J1])
+>>> Set[1J1 1J1]
 >>> .asList
 [1J1]
 
 >>> {
->>> 	IdentitySet([1J1 1J1])
+>>> 	IdentitySet[1J1 1J1]
 >>> }.hasError
 true
 ```

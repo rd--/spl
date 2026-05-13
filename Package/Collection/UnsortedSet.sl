@@ -1,9 +1,5 @@
 UnsortedSet : [Object, Storeable, Equatable, Iterable, Collection, Extensible, Removable, Unordered, Set] { | contents comparator |
 
-	asList { :self |
-		self.contents.copy
-	}
-
 	do { :self :aBlock:/1 |
 		self.contents.do(aBlock:/1);
 		self
@@ -41,6 +37,10 @@ UnsortedSet : [Object, Storeable, Equatable, Iterable, Collection, Extensible, R
 
 	storeString { :self |
 		self.storeStringAsInitializeSlotsOmitting(['comparator'])
+	}
+
+	[unsortedSetToList, asList] { :self |
+		self.contents.copy
 	}
 
 }

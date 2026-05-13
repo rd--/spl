@@ -12,7 +12,7 @@ and embedding dimension of a `Triangle`
 (the dimension is in all cases two):
 
 ```
->>> let t = Triangle([0 0; 1 0; 0 1]);
+>>> let t = Triangle[0 0; 1 0; 0 1];
 >>> (
 >>> 	t.area,
 >>> 	t.centroid,
@@ -34,7 +34,7 @@ and embedding dimension of a `Triangle`
 Area, centroid and arc length of an equilateral triangle:
 
 ```
->>> let t = Triangle([0 0; 2 0; 1 3.sqrt]);
+>>> let t = Triangle[0 0; 2 0; 1 3.sqrt];
 >>> (
 >>> 	t.area,
 >>> 	t.centroid,
@@ -52,7 +52,7 @@ Area, centroid and arc length of an equilateral triangle:
 Area, centroid and arc length of an isosceles triangle:
 
 ```
->>> let t = Triangle([0 0], [2 0], [1 3]);
+>>> let t = Triangle[0 0; 2 0; 1 3];
 >>> (
 >>> 	t.area,
 >>> 	t.centroid,
@@ -70,7 +70,7 @@ Area, centroid and arc length of an isosceles triangle:
 Draw a triangle in planar (two dimensional) space:
 
 ~~~spl svg=A
-Triangle([0 0; 1 3; 2 0])
+Triangle[0 0; 1 3; 2 0]
 ~~~
 
 ![](Help/Image/Triangle-A.svg)
@@ -79,8 +79,8 @@ Draw a triangle in three dimensional space:
 
 ~~~spl svg=B
 [
-	Cuboid([0 0 0], [1 1 1]),
-	Triangle([0 0 0; 1 0 1; 0 1 1])
+	Cuboid[0 0 0; 1 1 1],
+	Triangle[0 0 0; 1 0 1; 0 1 1]
 ].PerspectiveDrawing
 ~~~
 
@@ -90,9 +90,9 @@ The flag of Guyana:
 
 ~~~spl svg=C
 [
-	[0 0; 5 3].asRectangle,
-	[0 0; 5 1.5; 0 3].Triangle,
-	[0 0; 2.5 1.5; 0 3].Triangle
+	Rectangle[0 0; 5 3],
+	Triangle[0 0; 5 1.5; 0 3],
+	Triangle[0 0; 2.5 1.5; 0 3]
 ].LineDrawing
 ~~~
 
@@ -108,10 +108,10 @@ let d = c + b;
 let e = c + (2 * b);
 let f = e - 4;
 [
-	[0 0; 72 36].asRectangle,
-	[24 c; 48 c; 36 d].Triangle,
-	[24 c; 48 c; 36 e].Triangle,
-	[25.5 c; 46.5 c; 36 f].Triangle
+	Rectangle[0 0; 72 36],
+	Triangle[24 c; 48 c; 36 d],
+	Triangle[24 c; 48 c; 36 e],
+	Triangle[25.5 c; 46.5 c; 36 f]
 ].LineDrawing
 ~~~
 

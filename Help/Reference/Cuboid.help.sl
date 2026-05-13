@@ -1,13 +1,13 @@
 # Cuboid
 
-- _Cuboid(p⌊, p⌈)_
+- _Cuboid([p⌊ p⌈])_
 
 Answer a `Polyhedron` of an axis-aligned cuboid with lower corner _p⌊_ and upper corner _p⌈_.
 
 A unit cuboid:
 
 ~~~spl svg=A
-Cuboid([0 0 0], [1 1 1])
+Cuboid[0 0 0; 1 1 1]
 .asPerspectiveDrawing
 ~~~
 
@@ -17,8 +17,8 @@ Cuboids with different sizes:
 
 ~~~spl svg=B
 [
-	Cuboid([0 0 0], [1 3 1]),
-	Cuboid([2 1 1], [4 2 3])
+	Cuboid[0 0 0; 1 3 1],
+	Cuboid[2 1 1; 4 2 3]
 ].PerspectiveDrawing
 ~~~
 
@@ -28,8 +28,8 @@ The same geometry with indicated projection:
 
 ~~~spl svg=C
 [
-	Cuboid([0 0 0], [1 3 1]),
-	Cuboid([2 1 1], [4 2 3])
+	Cuboid[0 0 0; 1 3 1],
+	Cuboid[2 1 1; 4 2 3]
 ].PerspectiveDrawing(
 	projection: [
 		1 -1/6.pi;
@@ -42,7 +42,8 @@ The same geometry with indicated projection:
 
 ![](Help/Image/Cuboid-C.svg)
 
-Random cuboid collection:
+Random cuboid collection,
+binary constructor form:
 
 ~~~spl svg=D
 let rng = Sfc32(397371);

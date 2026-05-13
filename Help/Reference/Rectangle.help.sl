@@ -1,13 +1,13 @@
 # Rectangle
 
-- _Rectangle([x₁ y₁ …], [x₂ y₂ …])_
+- _Rectangle([x₁ y₁ …; x₂ y₂ …])_
 
 A `Type` that represents an axis-aligned rectangle,
 from the lower left coordinate _(x₁,y₁,…)_
 to the upper right coordinate _(x₂,y₂,…)_.
 
 ```
->>> let r = Rectangle([0 0], [1 1]);
+>>> let r = Rectangle[0 0; 1 1];
 >>> (
 >>> 	r.isRectangle,
 >>> 	r.center,
@@ -20,7 +20,7 @@ to the upper right coordinate _(x₂,y₂,…)_.
 Quadrants:
 
 ```
->>> let r = [0 0; 1 1].asRectangle;
+>>> let r = Rectangle[0 0; 1 1];
 >>> (
 >>> 	r.lowerLeftQuadrant.center,
 >>> 	r.upperRightQuadrant.center
@@ -34,7 +34,7 @@ Quadrants:
 Calculate the `circumcircle` and `incircle`, the latter only existing for squares:
 
 ```
->>> let r = [-1 -1; 1 1].asRectangle;
+>>> let r = Rectangle[-1 -1; 1 1];
 >>> (r.circumcircle, r.incircle)
 (Circle([0 0], 2 * 2.sqrt), Circle([0 0], 1))
 ```
@@ -42,17 +42,19 @@ Calculate the `circumcircle` and `incircle`, the latter only existing for square
 Calculate the `centroid`:
 
 ```
->>> Rectangle([0 1], [3 3]).centroid
+>>> Rectangle[0 1; 3 3].centroid
 [3/2 2]
 ```
 
-Two squares:
+Two squares,
+threads over lists:
 
 ~~~spl svg=A
-Rectangle(
-	[0 0; 0.5 0.5],
-	[1 1; 1.5 1.5]
-).LineDrawing
+Rectangle[
+	0 0; 0.5 0.5
+	:;
+	1 1; 1.5 1.5
+].LineDrawing
 ~~~
 
 ![](Help/Image/Rectangle-A.svg)
@@ -60,7 +62,7 @@ Rectangle(
 Two golden rectangles, one rotated:
 
 ~~~spl svg=B
-let r = Rectangle([0 0], [1.goldenRatio 1]);
+let r = Rectangle[0 0; 1.goldenRatio 1];
 [
 	r,
 	r.asPolygon.rotate(1/3.pi)
@@ -70,7 +72,8 @@ let r = Rectangle([0 0], [1.goldenRatio 1]);
 ![](Help/Image/Rectangle-B.svg)
 
 A sequence of nine randomly displaced squares,
-each rotated:
+each rotated,
+binary constructor:
 
 ~~~spl svg=C
 let rng = Sfc32(314920);
@@ -105,7 +108,7 @@ let f = { :n |
 };
 0:7.collect { :k |
 	let [a, b, c, d] = f(k);
-	Rectangle([a, b.-], [c, d.-])
+	Rectangle[a -b; c -d]
 }.LineDrawing
 ~~~
 
@@ -114,7 +117,7 @@ let f = { :n |
 Plot scaled quadrants:
 
 ~~~spl svg=E
-let r = Rectangle([-2 -1], [2 1]);
+let r = Rectangle[-2 -1; 2 1];
 [
 	r.lowerLeftQuadrant,
 	r.lowerRightQuadrant,

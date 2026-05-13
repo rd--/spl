@@ -24,7 +24,7 @@ represents a line with equation _ax-by+½d=0_:
 ```
 >>> GeneralisedCircle(0, 0J1, 0)
 >>> .asLine
-InfiniteLine([0 0; 1 0])
+InfiniteLine[0 0; 1 0]
 ```
 
 Derive a generalised circle from a `Circle`:
@@ -58,45 +58,45 @@ Circle([3 -4], 3)
 Derive a generalised circle from an `InfiniteLine`:
 
 ```
->>> InfiniteLine([0 0; 1 0])
+>>> InfiniteLine[0 0; 1 0]
 >>> .asGeneralisedCircle
 GeneralisedCircle(0, 0J1, 0)
 
 >>> GeneralisedCircle(0, 0J1, 0)
 >>> .asLine
-InfiniteLine([0 0; 1 0])
+InfiniteLine[0 0; 1 0]
 
->>> InfiniteLine([0 0; 0 1])
+>>> InfiniteLine[0 0; 0 1]
 >>> .asGeneralisedCircle
 GeneralisedCircle(0, 1J0, 0)
 
 >>> GeneralisedCircle(0, 1J0, 0)
 >>> .asLine
-InfiniteLine([0 0; 0 1])
+InfiniteLine[0 0; 0 1]
 
->>> InfiniteLine([0 0; 1 1])
+>>> InfiniteLine[0 0; 1 1]
 >>> .asGeneralisedCircle
 GeneralisedCircle(0, 1J1, 0)
 
 >>> GeneralisedCircle(0, 1J1, 0)
 >>> .asLine
-InfiniteLine([0 0; 1 1])
+InfiniteLine[0 0; 1 1]
 
->>> InfiniteLine([0 1; 1 2])
+>>> InfiniteLine[0 1; 1 2]
 >>> .asGeneralisedCircle
 GeneralisedCircle(0, 1J1, 2)
 
 >>> GeneralisedCircle(0, 1J1, 2)
 >>> .asLine
-InfiniteLine([0 1; 1 2])
+InfiniteLine[0 1; 1 2]
 
->>> InfiniteLine([0 1; 1 0])
+>>> InfiniteLine[0 1; 1 0]
 >>> .asGeneralisedCircle
 GeneralisedCircle(0, -1J1, 2)
 
 >>> GeneralisedCircle(0, -1J1, 2)
 >>> .asLine
-InfiniteLine([0 1; 1 0])
+InfiniteLine[0 1; 1 0]
 ```
 
 Plot the implicit equation for a circle:

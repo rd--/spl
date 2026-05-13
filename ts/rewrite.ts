@@ -499,6 +499,9 @@ const asSl: ohm.ActionDict<string> = {
 		).join('; ');
 		return `({ let ${rhsListName} = ${rhs.asSl}; ${slots} } . ())`;
 	},
+	ListConstructorSyntax(typ, lst) {
+		return `${typ.asSl}(${lst.asSl})`;
+	},
 	ListInitializer(_l, lhs, _r, _e, rhs) {
 		const namesArray = lhs.asIteration().children.map((c) => c.asSl);
 		const rhsName = genVarSym();

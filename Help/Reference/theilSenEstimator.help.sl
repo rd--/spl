@@ -70,15 +70,15 @@ let y = x.collect { :y |
 		y + ((b - 0.5) * 10)
 	}
 };
-let l = Line([1 1; n n]);
+let l = Line[1 1; n n];
 let p = [x y].transpose.PointCloud;
 let [y0, m] = y.theilSenEstimator;
 let [y0L, mL, _] = y.simpleLinearRegression;
 [
-	Line([1 1; n n]),
+	Line[1 1; n n],
 	[x y].transpose.PointCloud,
-	Line([[0, y0], [n, n * m]]),
-	Line([[0, y0L], [n, n * mL]])
+	Line[[0, y0], [n, n * m]],
+	Line[[0, y0L], [n, n * mL]]
 ].LineDrawing
 ~~~
 

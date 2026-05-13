@@ -7,11 +7,11 @@ Answer the extouch triangle of the reference triangle _t_.
 ```
 >>> [1 1 1].sssTriangle
 >>> .extouchTriangle
-Triangle([0.75 0.433; 0.25 0.433; 0.5 0])
+Triangle[0.75 0.433; 0.25 0.433; 0.5 0]
 
 >>> let t = [1 1 1].sssTriangle;
 >>> t.pedalTriangle(t.bevanPoint)
-Triangle([0.75 0.433; 0.25 0.433; 0.5 0])
+Triangle[0.75 0.433; 0.25 0.433; 0.5 0]
 ```
 
 Plot extouch triangle:

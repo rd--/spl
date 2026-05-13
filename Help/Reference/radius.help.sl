@@ -1,27 +1,27 @@
 # radius
 
-- _radius(anObject)_
+- _radius(x)_
 
-Answer the _radius_ of _anObject_.
+Answer the _radius_ of the object _x_.
 
 At `PlanarCoordinates`:
 
 ```
->>> PlanarCoordinates([1 1]).radius
+>>> PlanarCoordinates[1 1].radius
 2.sqrt
 ```
 
 At `CartesianCoordinates`:
 
 ```
->>> CartesianCoordinates([1 0 1]).radius
+>>> CartesianCoordinates[1 0 1].radius
 2.sqrt
 ```
 
 At `PolarCoordinates`, also named `rho` and `r`:
 
 ```
->>> let p = PolarCoordinates([1 0]);
+>>> let p = PolarCoordinates[1 0];
 >>> (p.r, p.rho, p.radius)
 (1, 1, 1)
 ```

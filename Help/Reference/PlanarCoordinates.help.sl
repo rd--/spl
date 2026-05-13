@@ -10,7 +10,7 @@ as well as for _r_ and _theta_ (equivalently _rho_ and _phi_),
 and for converting to a `PolarCoordinates`:
 
 ```
->>> let p = PlanarCoordinates([1 1]);
+>>> let p = PlanarCoordinates[1 1];
 >>> (
 >>> 	p.x, p.y,
 >>> 	p.radius, p.theta,
@@ -21,18 +21,18 @@ and for converting to a `PolarCoordinates`:
 	1, 1,
 	2.sqrt, 0.25.pi,
 	2.sqrt, 0.25.pi,
-	PolarCoordinates([2.sqrt 0.25.pi])
+	PolarCoordinates[2.sqrt 0.25.pi]
 )
 ```
 
 Threads over lists:
 
 ```
->>> PlanarCoordinates([1 4; 2 5; 3 6])
+>>> PlanarCoordinates[1 4; 2 5; 3 6]
 [
-	PlanarCoordinates([1 4]),
-	PlanarCoordinates([2 5]),
-	PlanarCoordinates([3 6])
+	PlanarCoordinates[1 4],
+	PlanarCoordinates[2 5],
+	PlanarCoordinates[3 6]
 ]
 ```
 

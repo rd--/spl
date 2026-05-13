@@ -15,7 +15,7 @@ Decode a four item Base-16 string:
 ```
 >>> '0F00F010'
 >>> .parseBase16
-ByteArray([15 0 240 16])
+ByteArray[15 0 240 16]
 ```
 
 Decode a hexadecimal encoding of an Ascii encoding of a `String`:

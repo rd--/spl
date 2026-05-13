@@ -241,6 +241,10 @@ RgbColour : [Object, Storeable, Equatable, Colour] { | rgb alpha |
 		)
 	}
 
+	HsvColour { :self |
+		HsvColour(self, 1)
+	}
+
 	isBlue { :self |
 		self.asColour.isBlue
 	}
@@ -272,6 +276,10 @@ RgbColour : [Object, Storeable, Equatable, Colour] { | rgb alpha |
 	RgbColour { :self :alpha |
 		let [r, g, b] = self;
 		newRgbColour().initializeSlots([r, g, b], alpha)
+	}
+
+	RgbColour { :self |
+		RgbColour(self, 1)
 	}
 
 	RybColour { :ryb :alpha |

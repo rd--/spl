@@ -1,13 +1,13 @@
 # RgbColour
 
-- _RgbColour([r g b], alpha)_
+- _RgbColour([r g b], alpha=1)_
 
 A `Type` representing a colour in the _Rgb_ colour space,
 using red, blue and green components,
 with an `alpha` channel.
 
 ```
->>> let c = RgbColour([1 0 0], 1);
+>>> let c = RgbColour[1 0 0];
 >>> (c.rgbString, c.isRed)
 ('rgb(255,0,0)', true)
 ```
@@ -16,7 +16,7 @@ Plot as colour swatch,
 a blue-green close to the Munsell blue-green:
 
 ~~~spl svg=A
-RgbColour([0 0.65 0.61], 1)
+RgbColour[0 0.65 0.61]
 ~~~
 
 ![](Help/Image/RgbColour-A.svg)
