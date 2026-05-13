@@ -32,6 +32,9 @@ At integer _m_ and _n_:
 
 >>> (17 % 5, 17.mod(5))
 (2, 2)
+
+>>> (23 % 10, 23 % 8)
+(3, 7)
 ```
 
 A number modulo itself is `zero`:
@@ -90,6 +93,16 @@ Note errors in floating point math:
 
 >>> 3 ^ 41 % 13
 8
+```
+
+Find last two digits or a large integer:
+
+```
+>>> 2L ^ 100 % 100
+76
+
+>>> 2L ^ 100
+1267650600228229401496703205376L
 ```
 
 At `Fraction`:
@@ -859,6 +872,18 @@ OEIS [A033200](https://oeis.org/A033200):
 >>> 	[1 3].includes(p % 8)
 >>> }
 [3 11 17 19 41 43 59 67 73 83 89 97]
+```
+
+Addition table modulo three:
+
+```
+>>> { :i :j | i + j % 3 }
+>>> .table(0:2, 0:2)
+[
+	0 1 2;
+	1 2 0;
+	2 0 1
+]
 ```
 
 An integer sequence modulo an integer,

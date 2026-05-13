@@ -44,10 +44,10 @@ Size of a `Record`:
 Size of a `Map`:
 
 ```
->>> [1: 'x', 2: 'y'].size
+>>> Map[1 -> 'x', 2 -> 'y'].size
 2
 
->>> [:].size
+>>> Map[].size
 0
 ```
 
@@ -64,7 +64,7 @@ Size of a `String`:
 Size of a `Multiset` is the total number of items:
 
 ```
->>> Multiset([|'x' -> 1, 'y' -> 2, 'z' -> 3|])
+>>> Multiset(['x' -> 1, 'y' -> 2, 'z' -> 3])
 >>> .size
 6
 ```

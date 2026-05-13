@@ -8,11 +8,11 @@ sorted by _decreasing_ count.
 At `Multiset`:
 
 ```
->>> [1 2 3 1 2 1].Multiset
+>>> Multiset[1 2 3 1 2 1]
 >>> .sortedCounts
 [3 -> 1, 2 -> 2, 1 -> 3]
 
->>> [1 2 3 1 3 1].Multiset
+>>> Multiset[1 2 3 1 3 1]
 >>> .sortedCounts
 [3 -> 1, 2 -> 3, 1 -> 2]
 

@@ -13,11 +13,13 @@ Operators:
 Functions:
 
 - `commonResidue`
+- `eulerPhi`
 - `minimalResidue`
 - `mod`
 - `modularDistanceMultiset`
 - `modularDistance`
 - `modularInverse`
+- `multiplicativeOrder`
 - `positiveResidue`
 - `powerMod`
 - `quotient`

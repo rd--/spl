@@ -16,7 +16,7 @@ or as neither.
 A permutation in cyclic notation:
 
 ```
->>> Permutation([1 3 2; 4 5])
+>>> Permutation[1 3 2; 4 5]
 >>> .list
 [3 1 2 5 4]
 ```
@@ -24,7 +24,7 @@ A permutation in cyclic notation:
 A permutation in one-line (permutation list) notation:
 
 ```
->>> Permutation([3 1 2 5 4])
+>>> Permutation[3 1 2 5 4]
 >>> .cycles
 [1 3 2; 4 5]
 ```
@@ -32,16 +32,15 @@ A permutation in one-line (permutation list) notation:
 Identity permutation predicate:
 
 ```
->>> let p = Permutation([]);
->>> p.isIdentity
+>>> Permutation[].isIdentity
 true
 ```
 
 When comparing permutations, the degree is not considered:
 
 ```
->>> let p = [1 2 3; 4].Permutation;
->>> let q = [1 2 3; 4; 5].Permutation;
+>>> let p = Permutation[1 2 3; 4];
+>>> let q = Permutation[1 2 3; 4; 5];
 >>> p = q
 true
 ```
@@ -49,32 +48,32 @@ true
 A `Permutation` applied to a single point using `image`:
 
 ```
->>> let p = [1 3 2; 4 5].Permutation;
->>> p.image(3)
+>>> Permutation[1 3 2; 4 5]
+>>> .image(3)
 2
 ```
 
 Points not present in the permutation are mapped onto themselves:
 
 ```
->>> let p = [1 3 2; 4 5].Permutation;
->>> p.image(7)
+>>> Permutation[1 3 2; 4 5]
+>>> .image(7)
 7
 ```
 
 Apply identity permutation:
 
 ```
->>> let p = [].Permutation;
->>> p.apply([1 3 2 5 4])
+>>> Permutation[]
+>>> .apply([1 3 2 5 4])
 [1 3 2 5 4]
 ```
 
 Apply a permutation:
 
 ```
->>> let p = [1 3 2; 4; 5].Permutation;
->>> p.apply([1 2 3 4 5])
+>>> Permutation[1 3 2; 4; 5]
+>>> .apply([1 2 3 4 5])
 [2 3 1 4 5]
 ```
 
@@ -82,15 +81,15 @@ Answer the `max` of a permuation,
 i.e. the maximum entry in any cycle:
 
 ```
->>> let p = [1 4 3; 2 5];
->>> p.Permutation.max
+>>> Permutation[1 4 3; 2 5]
+>>> .max
 5
 ```
 
 The `max` of a `Permutation` is the `max` of the `support`:
 
 ```
->>> let p = [1 4 3; 2 5].Permutation;
+>>> let p = Permutation[1 4 3; 2 5];
 >>> (p.max, p.support.max)
 (5, 5)
 ```
@@ -98,28 +97,30 @@ The `max` of a `Permutation` is the `max` of the `support`:
 The identity permutation has `max` zero:
 
 ```
->>> [].Permutation.max
+>>> Permutation[].max
 0
 ```
 
 `inverse` answers the inverse permutation:
 
 ```
->>> [1 4 3; 2 5].Permutation.inverse
-[1 3 4; 2 5].Permutation
+>>> Permutation[1 4 3; 2 5]
+>>> .inverse
+Permutation[1 3 4; 2 5]
 ```
 
 `list` answers the permutation list:
 
 ```
->>> [1 4 2; 3].Permutation.list
+>>> Permutation[1 4 2; 3]
+>>> .list
 [4 1 3 2]
 ```
 
 Permutation list as permutation:
 
 ```
->>> Permutation([4 5 1 3 2])
+>>> Permutation[4 5 1 3 2]
 >>> .cycles
 [1 4 3; 2 5]
 ```
@@ -127,14 +128,15 @@ Permutation list as permutation:
 Permutation cycles as permutation list:
 
 ```
->>> [1 4 3; 2 5].Permutation.list
+>>> Permutation[1 4 3; 2 5]
+>>> .list
 [4 5 1 3 2]
 ```
 
-`matrrix` answers the permutation matrix:
+`matrix` answers the permutation matrix:
 
 ```
->>> [1 4 2; 3].Permutation
+>>> Permutation[1 4 2; 3]
 >>> .matrix
 [
 	0 0 0 1;
@@ -147,22 +149,22 @@ Permutation cycles as permutation list:
 Product of two permutations:
 
 ```
->>> let p = [1 2 3; 4].Permutation;
->>> let q = [1; 2 3; 4].Permutation;
+>>> let p = Permutation[1 2 3; 4];
+>>> let q = Permutation[1; 2 3; 4];
 >>> p * q
-[1 3; 2; 4].Permutation
+Permutation[1 3; 2; 4]
 ```
 
 Multiplication of permutations is not commutative:
 
 ```
->>> let p = [1 2 3; 4].Permutation;
->>> let q = [1; 2 3; 4].Permutation;
+>>> let p = Permutation[1 2 3; 4];
+>>> let q = Permutation[1; 2 3; 4];
 >>> q * p
-[1 2; 3; 4].Permutation
+Permutation[1 2; 3; 4]
 
->>> let p = Permutation([2 1 3]);
->>> let q = Permutation([3 1 2]);
+>>> let p = Permutation[2 1 3];
+>>> let q = Permutation[3 1 2];
 >>> ((p * q).list, (q * p).list)
 ([1 3 2], [3 2 1])
 ```
@@ -170,8 +172,8 @@ Multiplication of permutations is not commutative:
 For clarity there are the methods `leftActionProduct`:
 
 ```
->>> let p = [2 1 3].Permutation;
->>> let q = [3 1 2].Permutation;
+>>> let p = Permutation[2 1 3];
+>>> let q = Permutation[3 1 2];
 >>> p.leftActionProduct(q).list
 [3 2 1]
 ```
@@ -179,8 +181,8 @@ For clarity there are the methods `leftActionProduct`:
 and `rightActionProduct`:
 
 ```
->>> let p = [2 1 3].Permutation;
->>> let q = [3 1 2].Permutation;
+>>> let p = Permutation[2 1 3];
+>>> let q = Permutation[3 1 2];
 >>> p.rightActionProduct(q).list
 [1 3 2]
 ```
@@ -188,7 +190,7 @@ and `rightActionProduct`:
 The inversions of a permutation:
 
 ```
->>> [3 2 4 1 5].Permutation
+>>> Permutation[3 2 4 1 5]
 >>> .inversions
 [1 2; 1 4; 2 4; 3 4]
 ```
@@ -196,27 +198,31 @@ The inversions of a permutation:
 The `runs` of a permutation, c.f. `orderedSubstrings`:
 
 ```
->>> [2 4 1 3].Permutation.runs
+>>> Permutation[2 4 1 3]
+>>> .runs
 [2 4; 1 3]
 
->>> [6 1 7 3 4 5 2].Permutation.runs
+>>> Permutation[6 1 7 3 4 5 2]
+>>> .runs
 [6; 1 7; 3 4 5; 2]
 
->>> [1 2 3 4].Permutation.runs
+>>> Permutation[1 2 3 4]
+>>> .runs
 [[1 2 3 4]]
 
->>> [4 3 2 1].Permutation.runs
+>>> Permutation[4 3 2 1]
+>>> .runs
 [4; 3; 2; 1]
 
->>> [1].Permutation.runs
+>>> Permutation[1]
+>>> .runs
 [[1]]
 ```
 
 The `decreasingRuns`:
 
 ```
->>> [2 8 3 9 6 4 5 1 7]
->>> .Permutation
+>>> Permutation[2 8 3 9 6 4 5 1 7]
 >>> .decreasingRuns
 [2; 8 3; 9 6 4; 5 1; 7]
 ```
@@ -229,17 +235,17 @@ The runs of two random permutations:
 >>> (p, p.collect(runs:/1))
 (
 	[
-		[
+		Permutation[
 			1 2 3;
 			4 5 8 7 9;
 			6 12;
 			11 13
-		].Permutation,
-		[
+		],
+		Permutation[
 			1 7 10 11;
 			2 8 3;
 			4 12 9 13 5 6
-		].Permutation
+		]
 	],
 	[
 		[
@@ -267,20 +273,20 @@ The runs of two random permutations:
 `dictionary` answers a `Map` form of a permutation:
 
 ```
->>> [2 1 3].Permutation
+>>> Permutation[2 1 3]
 >>> .dictionary
-[1: 2, 2: 1, 3: 3]
+Map[1 -> 2, 2 -> 1, 3 -> 3]
 
->>> [1 2 5 3 7; 4; 6].Permutation
+>>> Permutation[1 2 5 3 7; 4; 6]
 >>> .dictionary
-[
-	1: 2,
-	2: 5,
-	3: 7,
-	4: 4,
-	5: 3,
-	6: 6,
-	7: 1
+Map[
+	1 -> 2,
+	2 -> 5,
+	3 -> 7,
+	4 -> 4,
+	5 -> 3,
+	6 -> 6,
+	7 -> 1
 ]
 ```
 
@@ -288,14 +294,14 @@ Cauchy’s two-line notation lists the elements of S in the first row,
 and the image of each element below it in the second row.
 
 ```
->>> [1 2 6; 3 5].Permutation
+>>> Permutation[1 2 6; 3 5]
 >>> .twoLineNotation
 [
 	1 2 3 4 5 6;
 	2 6 5 4 3 1
 ]
 
->>> [1 2 5 3 7; 4; 6].Permutation
+>>> Permutation[1 2 5 3 7; 4; 6]
 >>> .twoLineNotation
 [
 	1 2 3 4 5 6 7;
@@ -306,34 +312,39 @@ and the image of each element below it in the second row.
 The `^` operator answers a permutation raised to an integer power:
 
 ```
->>> [1 4 5 6 2 3].Permutation ^ 2
-[1; 2 6 5 4 3].Permutation
+>>> Permutation[1 4 5 6 2 3] ^ 2
+Permutation[1; 2 6 5 4 3]
 ```
 
 The `rank` of a permutation is its zero-based index into the lexicographic ordering of the symmetric group to which it belongs:
 
 ```
->>> [1 2 4 6 3 5].Permutation.rank
+>>> Permutation[1 2 4 6 3 5]
+>>> .rank
 10
 ```
 
 The rank of the identity permutation is in all cases zero:
 
 ```
->>> [1; 2; 3; 4; 5; 6].Permutation.rank
+>>> Permutation[1; 2; 3; 4; 5; 6]
+>>> .rank
 0
 ```
 
 Answer the indices of the peaks of a permutation:
 
 ```
->>> [1 3 2 4 5].Permutation.peaks
+>>> Permutation[1 3 2 4 5]
+>>> .peaks
 [2]
 
->>> [4 1 3 2 6 5].Permutation.peaks
+>>> Permutation[4 1 3 2 6 5]
+>>> .peaks
 [3 5]
 
->>> [].Permutation.peaks
+>>> Permutation[]
+>>> .peaks
 []
 ```
 
@@ -342,7 +353,7 @@ The permutation that maps a sequence to its sort is equal to `reducedPermutation
 ```
 >>> let l = [4 2 7];
 >>> l.findPermutation(l.sorted)
-[1 2; 3].Permutation
+Permutation[1 2; 3]
 
 >>> [4 2 5].reducedPermutation
 [2 1 3]
@@ -351,48 +362,55 @@ The permutation that maps a sequence to its sort is equal to `reducedPermutation
 A _descent_ of a permutation _p_ is an integer _i_ such that _p(i) > p(i + 1)_:
 
 ```
->>> [3 1 2].Permutation.descents
+>>> Permutation[3 1 2]
+>>> .descents
 [1]
 
->>> [1 4 3 2].Permutation.descents
+>>> Permutation[1 4 3 2]
+>>> .descents
 [2 3]
 
->>> [4 3 2 1].Permutation.descents
+>>> Permutation[4 3 2 1]
+>>> .descents
 [1 2 3]
 ```
 
 An _ascent_ is the inverse of a descent:
 
 ```
->>> [3 1 2].Permutation.ascents
+>>> Permutation[3 1 2]
+>>> .ascents
 [2]
 
->>> [1 4 3 2].Permutation.ascents
+>>> Permutation[1 4 3 2]
+>>> .ascents
 [1]
 
->>> [4 3 2 1].Permutation.ascents
+>>> Permutation[4 3 2 1]
+>>> .ascents
 []
 
->>> [1 2 3 4].Permutation.ascents
+>>> Permutation[1 2 3 4]
+>>> .ascents
 [1 2 3]
 ```
 
 The sum of the `descents` is called the `majorIndex`:
 
 ```
->>> [2 1 3].Permutation
+>>> Permutation[2 1 3]
 >>> .majorIndex
 1
 
->>> [3 4 1 2].Permutation
+>>> Permutation[3 4 1 2]
 >>> .majorIndex
 2
 
->>> [4 3 2 1].Permutation
+>>> Permutation[4 3 2 1]
 >>> .majorIndex
 6
 
->>> [4 6 2 5 1 3].Permutation
+>>> Permutation[4 6 2 5 1 3]
 >>> .majorIndex
 6
 ```

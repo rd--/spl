@@ -8,11 +8,11 @@ sorted by increasing element.
 At `Multiset`:
 
 ```
->>> [1 3 5 1 3 1].Multiset
+>>> Multiset[1 3 5 1 3 1]
 >>> .sortedElements
 [1 -> 3, 3 -> 2, 5 -> 1]
 
->>> [1 3 5 1 5 1].Multiset
+>>> Multiset[1 3 5 1 5 1]
 >>> .sortedElements
 [1 -> 3, 3 -> 1, 5 -> 2]
 

@@ -58,7 +58,7 @@ the string dictionary type.
 A `Dictionary` with `String` keys:
 
 ```
->>> Dictionary['x' -> 1, 'y' -> 2, 'z' -> 3]
+>>> Dictionary(x: 1, y: 2, z: 3)
 >>> .keysAndValues
 ['x' 1; 'y' 2; 'z' 3]
 ```
@@ -77,10 +77,10 @@ A `Dictionary` with `SmallFloat` keys:
 )
 ```
 
-There is a literal syntax for `Dictionary`:
+A `Dictionary` specified as a two column matrix:
 
 ```
->>> let d = [|1 -> 'x', 2 -> 'y'|];
+>>> let d = Dictionary[1 'x'; 2 'y'];
 >>> (d.keys, d.values)
 ([1 2], ['x' 'y'])
 ```
@@ -88,7 +88,7 @@ There is a literal syntax for `Dictionary`:
 The empty `Dictionary`:
 
 ```
->>> let d = [| |];
+>>> let d = Dictionary();
 >>> (d.size, d.isEmpty, d.comparator)
 (0, true, =)
 ```
@@ -96,10 +96,10 @@ The empty `Dictionary`:
 A `Dictionary` with lists for keys:
 
 ```
->>> let d = [|
+>>> let d = Dictionary[
 >>> 	[1 2] -> 3,
 >>> 	[4 5] -> 6
->>> |];
+>>> ];
 >>> (
 >>> 	d.keys,
 >>> 	d.keys.collect { :each | d[each] },

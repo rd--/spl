@@ -129,14 +129,14 @@ Record([['x', 1], ['y', 2]])
 Record()
 ```
 
-`Map Syntax` is rewritten as `Apply Syntax` and `List Syntax`:
+`List Constructor Syntax` is rewritten as `Apply Syntax` and `List Syntax`:
 
 ```
->> '[x: 1, y: 2]'.splSimplify
+>> 'Map[x 1; y 2]'.splSimplify
 Map([[x, 1], [y, 2]])
 
->> '[:]'.splSimplify
-Map()
+>> 'Map[]'.splSimplify
+Map([])
 ```
 
 `Tuple Syntax` is rewritten as `Apply Syntax` and `List Syntax`:

@@ -92,8 +92,8 @@ keys that are given in both records will retain the value from the right hand si
 At `Map`:
 
 ```
->>> ['x': 1] ++ ['y': 2, 'z': 3]
-['x': 1, 'y': 2, 'z': 3]
+>>> Map['x' -> 1] ++ Map['y' -> 2, 'z' -> 3]
+Map['x' -> 1, 'y' -> 2, 'z' -> 3]
 ```
 
 * * *

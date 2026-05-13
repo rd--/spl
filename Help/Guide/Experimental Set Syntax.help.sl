@@ -1,20 +1,20 @@
-# Set Syntax
+# Experimental Set Syntax
 
 Rewrite rule:
 
 - _{|x, …|}_ ⟹ _Set([x, …])_
 
-Sets are written as lists between special curly brackets:
+Sets are written as lists between special curly brackets.
 
 ```
->> '{|x, y, z|}'.splSimplify
+>> 'Set[x y z]'.splSimplify
 Set([x, y, z])
 ```
 
 A set of integers:
 
 ```
->>> {|1, 2, 3|}
+>>> Set[1 2 3]
 Set([1, 2, 3])
 ```
 
@@ -23,7 +23,7 @@ note that the space character is required,
 the expression `{||}` is parsed as a `Block` answering the binary operator `||`:
 
 ```
->>> let x = {| |};
+>>> let x = Set[];
 >>> (x.isSet, x.isEmpty)
 (true, true)
 ```

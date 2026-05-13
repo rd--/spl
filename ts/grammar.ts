@@ -72,11 +72,6 @@ Sl {
 		| ParenthesisedExpression
 		| EmptyRecordSyntax
 		| NonEmptyRecordSyntax
-		| EmptyMapSyntax
-		| NonEmptyMapSyntax
-		| DictionarySyntax
-		| EmptySetSyntax
-		| SetSyntax
 		| TupleSyntax
 		| RangeSyntax
 		| ListRangeSyntax
@@ -113,12 +108,6 @@ Sl {
 	RecordKeyAssociation = recordKeyToken Expression
 	StringAssociation = singleQuotedStringLiteral ":" Expression
 	RecordInitializerItem = recordKeyToken varName
-	EmptyMapSyntax = "[" ":" "]"
-	NonEmptyMapSyntax = "[" NonemptyListOf<MapSyntaxItem, ","> "]"
-	MapSyntaxItem = Expression ":" Expression
-	DictionarySyntax = "[|" ListOf<BinaryOperatorExpression, ","> "|]"
-	EmptySetSyntax = "{|" "|}"
-	SetSyntax = "{|" ListOf<Expression, ","> "|}"
 	TupleSyntax = "(" NonemptyListOf<Expression, ","> ")"
 	ListSyntax = "[" ListOf<Expression, ","> "]"
 	RangeSyntax = RangeFromToSyntax | RangeFromThenToSyntax | RangeFromToBySyntax

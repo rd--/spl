@@ -53,18 +53,6 @@ SortedSet : [Object, Storeable, Copyable, Equatable, Iterable, Collection, Exten
 	}
 
 	storeString { :self |
-		self.storeStringLiteral
-	}
-
-	storeStringLiteral { :self |
-		'{|%|}'.format(
-			[
-				self.contents.contents.collect(storeString:/1).commaSeparated
-			]
-		)
-	}
-
-	storeStringExpression { :self |
 		'SortedSet([%])'.format(
 			[
 				self.contents.contents.collect(storeString:/1).commaSeparated

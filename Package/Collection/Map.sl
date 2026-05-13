@@ -68,6 +68,10 @@ Map! : [Object, Storeable, Equatable, Iterable, Indexable, Collection, Extensibl
 	}
 
 	storeString { :self |
+		'Map(%)'.format([self.keysAndValues.storeString])
+	}
+
+	storeStringLiteral { :self |
 		self.storeStringLiteral('[:]', '[', ']', storeString:/1, ': ', storeString:/1)
 	}
 
@@ -197,8 +201,12 @@ Map! : [Object, Storeable, Equatable, Iterable, Indexable, Collection, Extensibl
 
 +Record {
 
-	asMap { :self |
+	Map { :self |
 		<primitive: return new Map(Object.entries(_self));>
+	}
+
+	[recordToMap, asMap] { :self |
+		Map(self)
 	}
 
 }

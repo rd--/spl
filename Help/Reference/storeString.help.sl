@@ -4,6 +4,8 @@
 
 Answer a `String` representation of the object _x_ from which it can be reconstructed.
 
+At `Association`:
+
 ```
 >>> let x = (1 -> 2);
 >>> let s = x.storeString;

@@ -46,7 +46,8 @@ A 3×3 matrix with no entries in the third column or second row:
 A similar matrix specified using a `Map`:
 
 ```
->>> [2: [2], 4: [2]].binaryMatrix([5 3])
+>>> Map[2 -> [2], 4 -> [2]]
+>>> .binaryMatrix([5 3])
 [
 	0 0 0;
 	0 1 0;

@@ -20,7 +20,7 @@ false
 At `Set`:
 
 ```
->>> {|1|}.isSingleton
+>>> Set[1].isSingleton
 true
 ```
 

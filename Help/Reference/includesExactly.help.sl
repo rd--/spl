@@ -18,7 +18,7 @@ At `Record`:
 
 ```
 >>> (x: 1, y: 2).includesExactly(
->>> 	[|'x' -> 2, 'y' -> 1|]
+>>> 	Map['x' -> 2, 'y' -> 1]
 >>> )
 true
 

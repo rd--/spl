@@ -31,6 +31,10 @@ Record! : [Object, Storeable, Equatable, Json, Iterable, Indexable, Collection, 
 		self.primitiveDeepCopy
 	}
 
+	Dictionary { :self |
+		Dictionary(self.associations)
+	}
+
 	encodeIni { :self |
 		<primitive: return sl.encodeIni(_self);>
 	}

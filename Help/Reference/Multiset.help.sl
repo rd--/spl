@@ -1,10 +1,34 @@
 # Multiset
 
 - _Multiset([x₁ x₂ …])_
-- _Multiset([|c₁→i₁, c₂→i₂, …|])_
+- _Multiset([c₁→i₁, c₂→i₂, …])_
 
 A `Type` and associated `Trait` holding an unordered collection of possibly duplicated elements,
 also called a _bag_.
+
+At a `List` of associations:
+
+```
+>>> Multiset[1 -> 3, 2 -> 2, 3 -> 1]
+>>> .associations
+[1 -> 3, 2 -> 2, 3 -> 1]
+```
+
+At a `List`:
+
+```
+>>> Multiset[1 1 1 2 2 3]
+>>> .asList
+[1 1 1 2 2 3]
+```
+
+At a `Dictionary`:
+
+```
+>>> Dictionary[1 -> 3, 2 -> 2, 3 -> 1]
+>>> .Multiset.associations
+[1 -> 3, 2 -> 2, 3 -> 1]
+```
 
 The type `Multiset` collates elements according `=`, see also `IdentityMultiset`.
 
@@ -24,7 +48,7 @@ The type `Multiset` collates elements according `=`, see also `IdentityMultiset`
 To get the elements as a `List` of `Association`s use `sortedCounts` or `sortedElements`.
 
 ```
->>> let a = [1 1 1 3 3 5].Multiset;
+>>> let a = Multiset[1 1 1 3 3 5];
 >>> (
 >>> 	a.sortedCounts,
 >>> 	a.sortedElements
@@ -38,15 +62,15 @@ To get the elements as a `List` of `Association`s use `sortedCounts` or `sortedE
 To get the elements as a `Dictionary` use `valuesAndCounts`:
 
 ```
->>> [1 1 1 3 3 5].Multiset
+>>> Multiset[1 1 1 3 3 5]
 >>> .valuesAndCounts
-[|1 -> 3, 3 -> 2, 5 -> 1|]
+Dictionary[1 -> 3, 3 -> 2, 5 -> 1]
 ```
 
 To get the elements as a two column matrix use `elementsAndCounts`:
 
 ```
->>> [1 1 1 3 3 5].Multiset
+>>> Multiset[1 1 1 3 3 5]
 >>> .elementsAndCounts
 [1 3; 3 2; 5 1]
 ```
@@ -54,7 +78,7 @@ To get the elements as a two column matrix use `elementsAndCounts`:
 To count the occurences of an item, also called the _multiplicity_, use `occurrencesOf`:
 
 ```
->>> [1 1 1 3 3 5].Multiset
+>>> Multiset[1 1 1 3 3 5]
 >>> .occurrencesOf(3)
 2
 ```
@@ -62,7 +86,7 @@ To count the occurences of an item, also called the _multiplicity_, use `occurre
 The `size`, also called the _cardinality_, of a `Multiset` is the `sum` of the counts:
 
 ```
->>> [1 1 1 3 3 5].Multiset
+>>> Multiset[1 1 1 3 3 5]
 >>> .size
 3 + 2 + 1
 ```
@@ -70,7 +94,7 @@ The `size`, also called the _cardinality_, of a `Multiset` is the `sum` of the c
 To add an element to a `Multiset` use `add` or `addWithOccurrences`:
 
 ```
->>> let a = [1 1 1].Multiset;
+>>> let a = Multiset[1 1 1];
 >>> a.addWithOccurrences(3, 2);
 >>> a.add(5);
 >>> a.sortedElements
@@ -80,7 +104,7 @@ To add an element to a `Multiset` use `add` or `addWithOccurrences`:
 To remove an element from a `Multiset` use `remove`:
 
 ```
->>> let a = [1 1 1 3 3 5].Multiset;
+>>> let a = Multiset[1 1 1 3 3 5];
 >>> a.remove(1);
 >>> a.remove(3);
 >>> a.remove(5);
@@ -91,8 +115,8 @@ To remove an element from a `Multiset` use `remove`:
 Compare for equality:
 
 ```
->>> let a = [1 1 1 3 3 5].Multiset;
->>> let b = [1 3 5 1 3 1].Multiset;
+>>> let a = Multiset[1 1 1 3 3 5];
+>>> let b = Multiset[1 3 5 1 3 1];
 >>> a = b
 true
 ```
@@ -100,9 +124,13 @@ true
 Store string:
 
 ```
->>> [1 1 1 2 3 3].Multiset
->>> .storeString
-'Multiset([|1 -> 3, 2 -> 1, 3 -> 2|])'
+>> Multiset[1 1 1 2 3 3]
+>> .storeString
+Multiset(
+	Dictionary(
+		[1 -> 3, 2 -> 1, 3 -> 2]
+	)
+)
 ```
 
 To convert a collection to a `Multiset` use `collectionToMultiset` (or `asMultiset`),

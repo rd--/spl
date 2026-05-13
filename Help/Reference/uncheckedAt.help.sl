@@ -17,7 +17,7 @@ Lookup and existing index:
 >>> .uncheckedAt('x')
 1
 
->>> [1: 'x', 2: 'y', 3: 'z']
+>>> Map[1 -> 'x', 2 -> 'y', 3 -> 'z']
 >>> .uncheckedAt(3)
 'z'
 ```
@@ -33,7 +33,7 @@ nil
 >>> .uncheckedAt('u')
 nil
 
->>> [1: 'x', 2: 'y', 3: 'z']
+>>> Map[1 -> 'x', 2 -> 'y', 3 -> 'z']
 >>> .uncheckedAt(0)
 nil
 ```

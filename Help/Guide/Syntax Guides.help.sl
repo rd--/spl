@@ -22,7 +22,6 @@
 - `Let Syntax`
 - `List Assignment Syntax`
 - `List Range Syntax`
-- `Map Syntax`
 - `Method Syntax`
 - `Operator Syntax`
 - `Range Literal Syntax`
@@ -43,13 +42,11 @@
 
 ## Collection Notation Syntax
 
-- `Dictionary Syntax`
 - `List Constructor Syntax`
 - `List Syntax`
 - `Map Syntax`
 - `Matrix Syntax`
 - `Record Syntax`
-- `Set Syntax`
 - `Tuple Syntax`
 - `Vector Syntax`
 - `Volume Syntax`
@@ -66,10 +63,13 @@
 - `Experimental AtIfAbsentPut Syntax`
 - `Experimental AtPutDelegateTo Syntax`
 - `Experimental Constant Syntax`
+- `Experimental Dictionary Syntax`
 - `Experimental Initialised Temporaries Syntax`
+- `Experimental Map Syntax`
 - `Experimental MessageSend Syntax`
 - `Experimental Quoted AtIfAbsent Syntax`
 - `Experimental Quoted AtIfAbsentPut Syntax`
+- `Experimental Set Syntax`
 - `Experimental Slot Access Syntax`
 - `Experimental Temporary Block Syntax`
 

@@ -3580,7 +3580,7 @@ var x, y, z; (x: x, y: y, z: z) := (x: 1 * 2, y: 3 * 4, z: 5 * 6); [z, y, x] = [
 ```
 (:).isRecord /* (:) is the empty dictionary */
 (:) = [].asRecord /* (:) the empty dictionary */
-(:) = [:].asRecord /* (:) the empty dictionary */
+(:) = Map().asRecord /* (:) the empty dictionary */
 (x: 1, y: 2) = ['x' -> 1, 'y' -> 2].asRecord /* dictionary literal syntax */
 (x: 1, y: 2).printString = '(x: 1, y: 2)' /* Record print string */
 (x: 1, y: 2).storeString = '(x: 1, y: 2)' /* Record print string */

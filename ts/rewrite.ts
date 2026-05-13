@@ -436,9 +436,6 @@ const asSl: ohm.ActionDict<string> = {
 	BlockLiteralInitializer(name, _e, blk) {
 		return `${name.sourceString} = ${blk.asSl}`;
 	},
-	DictionarySyntax(_l, items, _r) {
-		return `Dictionary([${commaListSl(items.asIteration().children)}])`;
-	},
 	DotExpression(lhs, _dot, names, args) {
 		let rcv = lhs.asSl;
 		const namesArray = names.children.map((c) => c.asSl);
@@ -470,14 +467,8 @@ const asSl: ohm.ActionDict<string> = {
 	EmptyListSyntax(_l, _r) {
 		return '[]';
 	},
-	EmptyMapSyntax(_l, _, _r) {
-		return 'Map()';
-	},
 	EmptyRecordSyntax(_l, _c, _r) {
 		return 'Record()';
-	},
-	EmptySetSyntax(_l, _r) {
-		return 'Set()';
 	},
 	ExpressionInitializer(name, _e, exp) {
 		return `${name.sourceString} = ${exp.asSl}`;
@@ -522,9 +513,6 @@ const asSl: ohm.ActionDict<string> = {
 	ListSyntax(_l, items, _r) {
 		return `[${commaListSl(items.asIteration().children)}]`;
 	},
-	MapSyntaxItem(lhs, _c, rhs) {
-		return `[${lhs.asSl}, ${rhs.asSl}]`;
-	},
 	MatrixSyntax(_l, items, _r) {
 		return `[${commaListSl(items.asIteration().children)}]`;
 	},
@@ -536,9 +524,6 @@ const asSl: ohm.ActionDict<string> = {
 		const middle = rewriteMethodListToCore(mn, mb);
 		const end = '}\n';
 		return [begin, middle, end].flat().join('\n');
-	},
-	NonEmptyMapSyntax(_l, d, _r) {
-		return `Map([${commaListSl(d.asIteration().children)}])`;
 	},
 	NonEmptyParameterList(_leftParen, sq, _rightParen) {
 		return commaListSl(sq.asIteration().children);
@@ -605,9 +590,6 @@ const asSl: ohm.ActionDict<string> = {
 	},
 	ScalarAssignment(lhs, _e, rhs) {
 		return `${lhs.asSl} := ${rhs.asSl}`;
-	},
-	SetSyntax(_l, items, _r) {
-		return `Set([${commaListSl(items.asIteration().children)}])`;
 	},
 	StringAssociation(lhs, _c, rhs) {
 		return `[${lhs.sourceString}, ${rhs.asSl}]`;

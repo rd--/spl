@@ -51,9 +51,9 @@ threads over lists:
 
 ~~~spl svg=A
 Rectangle[
-	0 0; 0.5 0.5
+	0 0; 1 1
 	:;
-	1 1; 1.5 1.5
+	0.5 0.5; 1.5 1.5
 ].LineDrawing
 ~~~
 

@@ -14,7 +14,7 @@ Sort the elements in a `Record` by key:
 At `Map`:
 
 ```
->>> ['c': 1, 'b': 2, 'a': 3]
+>>> Map(c: 1, b: 2, a: 3)
 >>> .keySort
 ['a' -> 3, 'b' -> 2, 'c' -> 1]
 ```

@@ -15,7 +15,7 @@ At `Record`:
 At `Map`:
 
 ```
->>> [1: 'x', 2: 'y', 3: 'z']
+>>> Map[1 -> 'x', 2 -> 'y', 3 -> 'z']
 >>> .keyType
 'SmallFloat'
 ```
@@ -31,14 +31,14 @@ At an association list:
 At empty `Record`:
 
 ```
->>> (:).keyType
+>>> Record().keyType
 'String'
 ```
 
 At empty `Map`:
 
 ```
->>> [:].keyType
+>>> Map().keyType
 nil
 ```
 

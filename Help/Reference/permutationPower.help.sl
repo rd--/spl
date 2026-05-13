@@ -12,7 +12,7 @@ Sixth power of a permutation:
 ```
 >>> let p = [1 7 6 3; 2 5 4];
 >>> p.permutationPower(6)
-[1 6; 2; 3 7; 4; 5].Permutation
+Permutation[1 6; 2; 3 7; 4; 5]
 ```
 
 The same answer arrived at using `permutationProduct`:
@@ -20,35 +20,35 @@ The same answer arrived at using `permutationProduct`:
 ```
 >>> let p = [1 7 6 3; 2 5 4].cycles;
 >>> List(6, p).permutationProduct
-[1 6; 2; 3 7; 4; 5].Permutation
+Permutation[1 6; 2; 3 7; 4; 5]
 ```
 
 Second power of the inverse permutation:
 
 ```
 >>> [1 7 6 3; 2 5 4].permutationPower(-2)
-[1 6; 2 5 4; 3 7].Permutation
+Permutation[1 6; 2 5 4; 3 7]
 ```
 
 `permutationPower` can yield the identity permutation:
 
 ```
 >>> [1 7 6 3; 2 5 4].permutationPower(12)
-[1; 2; 3; 4; 5; 6; 7].Permutation
+Permutation[1; 2; 3; 4; 5; 6; 7]
 ```
 
 When _n_ is zero, `permutationPower` answers the identity permutation:
 
 ```
 >>> [1 7 6 3; 2 5 4].permutationPower(0)
-[1; 2; 3; 4; 5; 6; 7].Permutation
+Permutation[1; 2; 3; 4; 5; 6; 7]
 ```
 
 Square of permutation given in list form:
 
 ```
 >>> [1 4 5 6 2 3].permutationPower(2)
-[1 6 2 3 4 5].Permutation
+Permutation[1 6 2 3 4 5]
 ```
 
 Powers of permutation _235174968_:

@@ -55,7 +55,7 @@ The @* operator expresses this operation succinctly at vectors:
 At `Map`:
 
 ```
->>> let m = [0: 3, 1: 2, 2: 1];
+>>> let m = Map[0 3; 1 2; 2 1];
 >>> m[0:2]
 [3 2 1]
 ```

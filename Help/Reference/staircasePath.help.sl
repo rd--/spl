@@ -25,10 +25,11 @@ At `List`:
 [0 0; 1 0; 1 1; 2 1; 3 1; 3 2; 4 2; 4 3; 4 4]
 ```
 
-Plot a lower Christoffel word:
+Plot a lower Christoffel word,
+at `Map`:
 
 ~~~spl svg=A
-[0: [1 0], 1: [0 1]]
+Map[0 -> [1 0], 1 -> [0 1]]
 .staircasePath(
 	9/11.lowerChristoffelWord(23),
 	[0 0]

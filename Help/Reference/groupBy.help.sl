@@ -7,26 +7,26 @@ The answer is a `Map` keyed by the answers of _f_.
 
 ```
 >>> [1 .. 5].groupBy(isEven:/1)
-[
-	false: [1 3 5],
-	true: [2 4]
+Map[
+	false -> [1 3 5],
+	true -> [2 4]
 ]
 
 >>> [1 .. 5].groupBy(isEven:/1).keys
-[false, true]
+[false true]
 
 >>> [1 .. 5].groupBy(isEven:/1)[true]
-[2, 4]
+[2 4]
 
 >>> [
 >>> 	'it' 'was' 'the' 'best' 'of' 'times'
 >>> 	'it' 'was' 'the' 'worst' 'of' 'times'
 >>> ].groupBy(size:/1)
-[
-	2: ['it' 'of' 'it' 'of'],
-	3: ['was' 'the' 'was' 'the'],
-	4: ['best'],
-	5: ['times' 'worst' 'times']
+Map[
+	2 -> ['it' 'of' 'it' 'of'],
+	3 -> ['was' 'the' 'was' 'the'],
+	4 -> ['best'],
+	5 -> ['times' 'worst' 'times']
 ]
 ```
 

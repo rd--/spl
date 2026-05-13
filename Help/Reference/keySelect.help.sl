@@ -16,9 +16,9 @@ At `Record`, select keys that are letters:
 At `Map`, select keys that are even:
 
 ```
->>> [1: 'a', 2: 'b', 3: 'c']
+>>> Map[1 -> 'a', 2 -> 'b', 3 -> 'c']
 >>> .keySelect(isEven:/1)
-[2: 'b']
+Map[2 -> 'b']
 ```
 
 At `List`, select keys that odd:

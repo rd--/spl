@@ -623,6 +623,10 @@ Dictionary : [Object, Storeable, Copyable, Equatable, Iterable, Indexable, Colle
 	}
 
 	storeString { :self |
+		'Dictionary(%)'.format([self.associations])
+	}
+
+	storeStringLiteral { :self |
 		self.storeStringLiteral(
 			'[| |]',
 			'[|', '|]',

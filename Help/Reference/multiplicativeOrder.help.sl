@@ -49,6 +49,12 @@ Compute using integers:
 
 >>> -5.multiplicativeOrder(7)
 3
+
+>>> 2.multiplicativeOrder(5)
+4
+
+>>> 2.multiplicativeOrder(11)
+10
 ```
 
 Generalised multiplicative order:
@@ -565,7 +571,7 @@ OEIS [A163780](https://oeis.org/A163780):
 
 See also: %, carmichaelLambda, eulerPhi, powerMod, primitiveRootList
 
-Guides: Mathematical Functions
+Guides: Mathematical Functions, Modular Arithmetic Functions
 
 References:
 _Mathematica_

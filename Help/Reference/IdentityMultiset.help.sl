@@ -8,7 +8,7 @@ also called a _multiset_.
 At `Map`:
 
 ```
->>> [1: 3, 2: 1, 3: 5]
+>>> Map[1 -> 3, 2 -> 1, 3 -> 5]
 >>> .IdentityMultiset
 >>> .sortedCounts
 [5 -> 3, 3 -> 1, 1 -> 2]
@@ -54,7 +54,7 @@ To get the elements as a `Map` use `valuesAndCounts`:
 >>> [1 1 1 3 3 5]
 >>> .asIdentityMultiset
 >>> .valuesAndCounts
-[1: 3, 3: 2, 5: 1]
+Map[1 -> 3, 3 -> 2, 5 -> 1]
 ```
 
 To count the occurences of an item, also called the _multiplicity_, use `occurrencesOf`:

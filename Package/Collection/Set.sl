@@ -25,6 +25,10 @@
 		}
 	}
 
+	isDuplicateFree { :unused |
+		true
+	}
+
 	isSet { :unused |
 		true
 	}

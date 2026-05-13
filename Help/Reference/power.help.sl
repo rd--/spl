@@ -924,6 +924,32 @@ OEIS [A000978](https://oeis.org/A000978):
 [3 5 7 11 13 17 19 23 31 43]
 ```
 
+The powers of two modulo five and eleven:
+
+```
+>>> 2 ^ 1:4 % 5
+[2 4 3 1]
+
+>>> 2 ^ 1:10 % 11
+[2 4 8 5 10 9 7 3 6 1]
+```
+
+The table of powers modulo seven:
+
+```
+>>> { :i :j |
+>>> 	i ^ j % 7
+>>> }.table(1:6, 1:6)
+[
+	1 1 1 1 1 1;
+	2 4 1 2 4 1;
+	3 2 6 4 5 1;
+	4 2 1 4 2 1;
+	5 4 6 2 3 1;
+	6 1 6 1 6 1
+]
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A

@@ -81,7 +81,7 @@ OEIS [A144608](https://oeis.org/A144608):
 Plot at _s=4/7_:
 
 ~~~spl svg=A
-[0: [1 0], 1: [0 1]]
+Map[0 -> [1 0], 1 -> [0 1]]
 .staircasePath(
 	4/7.lowerChristoffelWord(47),
 	[0 0]

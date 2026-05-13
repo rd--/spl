@@ -9,30 +9,34 @@ Construct a `Map` from a list of lists:
 
 ```
 >>> Map[1 2; 3 4; 5 6]
-[1: 2, 3: 4, 5: 6]
+>>> .keysAndValues
+[1 2; 3 4; 5 6]
 
 >>> Map[[1, [2, 3]], [3, [4, 5, 6]]]
-[1: [2 3], 3: [4 5 6]]
+>>> .keysAndValues
+[[1, [2, 3]], [3, [4, 5, 6]]]
 ```
 
 Construct an empty `Map`:
 
 ```
->>> Map()
-[:]
+>>> Map().isEmpty
+true
 
->>> Map[]
-[:]
+>>> Map[].size
+0
 ```
 
 Construct a `Map` from an association list:
 
 ```
 >>> Map[1 -> 2, 3 -> 4, 5 -> 6]
-[1: 2, 3: 4, 5: 6]
+>>> .associations
+[1 -> 2, 3 -> 4, 5 -> 6]
 
 >>> Map[1 -> [2, 3], 3 -> [4, 5, 6]]
-[1: [2 3], 3: [4 5 6]]
+>>> .associations
+[1 -> [2, 3], 3 -> [4, 5, 6]]
 ```
 
 `Map` treats negative zero as zero when used as a key:
@@ -46,6 +50,14 @@ Construct a `Map` from an association list:
 >>> 	m.values.first.isNegativeZero
 >>> )
 ([0 -> -0], false, true)
+```
+
+The storage string format:
+
+```
+>> Map[1 2; 3 4; 5 6]
+>> .storeString
+Map([[1, 2], [3, 4], [5, 6]])
 ```
 
 A Conway sequence,

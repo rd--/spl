@@ -83,7 +83,7 @@ true
 true
 ```
 
-_eulerPhi_ gives the count of the positive integers up to _n_ that are relatively prime to _n_:
+`eulerPhi` gives the count of the positive integers up to _n_ that are relatively prime to _n_:
 
 ```
 >>> 20.eulerPhi
@@ -111,6 +111,34 @@ true
 
 >>> 6.lcm(11)
 (6 * 11)
+```
+
+Coprime integer table,
+OEIS [A038566](https://oeis.org/A038566):
+
+```
+>>> 1:12.collect { :n |
+>>> 	1:n.select { :i |
+>>> 		i.isCoprime(n)
+>>> 	}
+>>> }
+[
+	1;
+	1;
+	1 2;
+	1 3;
+	1 2 3 4;
+	1 5;
+	1 2 3 4 5 6;
+	1 3 5 7;
+	1 2 4 5 7 8;
+	1 3 7 9;
+	1 2 3 4 5 6 7 8 9 10;
+	1 5 7 11
+]
+
+>>> 1:12.eulerPhi
+[1 1 2 2 4 2 6 4 6 4 10 4]
 ```
 
 Visualize when two numbers are coprime:

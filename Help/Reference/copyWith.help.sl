@@ -15,16 +15,16 @@ At `List`:
 At `Set`:
 
 ```
->>> {|1, 2, 3|}.copyWith(4)
-{|1, 2, 3, 4|}
+>>> Set[1 2 3].copyWith(4)
+Set[1 2 3 4]
 ```
 
 At `Multiset`:
 
 ```
->>> Multiset([|'x' -> 2, 'y' -> 1|])
+>>> Multiset(['x' -> 2, 'y' -> 1])
 >>> .copyWith('y')
-Multiset([|'x' -> 2, 'y' -> 2|])
+Multiset(['x' -> 2, 'y' -> 2])
 ```
 
 * * *

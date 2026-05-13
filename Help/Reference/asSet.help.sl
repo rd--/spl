@@ -9,16 +9,15 @@ At `List`:
 ```
 >>> [1 1 2 1 2 3]
 >>> .asSet
-{|1, 2, 3|}
+Set[1 2 3]
 ```
 
 At `Multiset`:
 
 ```
->>> [1 1 2 1 2 3]
->>> .asMultiset
+>>> Multiset[1 1 2 1 2 3]
 >>> .asSet
-{|1, 2, 3|}
+Set[1 2 3]
 ```
 
 At `String`:
@@ -26,14 +25,14 @@ At `String`:
 ```
 >>> 'abracadabra'
 >>> .asSet
-{|'a', 'b', 'r', 'c', 'd'|}
+Set['a' 'b' 'r' 'c' 'd']
 ```
 
 At a list of lists:
 
 ```
 >>> [1 1; 1 1].asSet
-{|[1, 1]|}
+Set[[1 1]]
 ```
 
 * * *

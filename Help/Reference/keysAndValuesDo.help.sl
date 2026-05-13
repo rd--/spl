@@ -9,7 +9,7 @@ Iterate over keys and values at `Map`:
 ```
 >>> let n = 0;
 >>> let c = [];
->>> ['x': 1, 'y': 2, 'z': 3]
+>>> Map('x': 1, 'y': 2, 'z': 3)
 >>> .keysAndValuesDo { :key :value |
 >>> 	n := n + value;
 >>> 	c.add([key n])

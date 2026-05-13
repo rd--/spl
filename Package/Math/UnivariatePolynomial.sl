@@ -533,7 +533,9 @@ UnivariatePolynomial : [Object, Storeable, Copyable, Equatable] { | coefficientL
 
 	cachedCyclotomic { :self |
 		self.cached('cyclotomic') {
-			[1: UnivariatePolynomial([-1 1])]
+			Map(
+				[1 -> UnivariatePolynomial([-1 1])]
+			)
 		}
 	}
 

@@ -485,8 +485,11 @@ Tribonacci word,
 OEIS [A080843](https://oeis.org/A080843):
 
 ~~~spl svg=K oeis=A080843
-[0: [0 1], 1: [0 2], 2: [0]]
-.substitutionSystem([0], 7)
+Map[
+	0 -> [0 1],
+	1 -> [0 2],
+	2 -> [0]
+].substitutionSystem([0], 7)
 .last.stepPlot
 ~~~
 

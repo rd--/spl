@@ -21,13 +21,15 @@ At dictionaries `selectIndices` answers a dictionary,
 where `atAll` answers a `List`:
 
 ```
->>> [0: 1, 1: 3, 2: 5, 3: 2, 4: 4, 5: 6]
->>> .selectIndices(2:4)
-[2: 5, 3: 2, 4: 4]
-
->>> [0: 1, 1: 3, 2: 5, 3: 2, 4: 4, 5: 6]
->>> .atAll(2:4)
-[5 2 4]
+>>> let m = Map[
+>>> 	0 -> 1, 1 -> 3, 2 -> 5,
+>>> 	3 -> 2, 4 -> 4, 5 -> 6
+>>> ];
+>>> (m.selectIndices(2:4), m.atAll(2:4))
+(
+	Map[2 -> 5, 3 -> 2, 4 -> 4],
+	[5 2 4]
+)
 ```
 
 * * *

@@ -565,11 +565,11 @@ OEIS [A000119](https://oeis.org/A000119):
 
 ~~~spl svg=I oeis=A000119
 1:150.collect { :n |
-	let a = Polynomial([0: 1, n: n]);
+	let a = Polynomial(Map[0 -> 1, n -> n]);
 	let m = 2;
 	let f = m.fibonacci;
 	{ f <= n }.whileTrue {
-		a := a * Polynomial([0: 1, f: 1]);
+		a := a * Polynomial(Map[0 -> 1, f -> 1]);
 		m := m + 1;
 		f := m.fibonacci
 	};

@@ -9,15 +9,16 @@ The values are the keys and the counts are the values.
 At `Multiset` answers a `Dictionary`:
 
 ```
->>> let l = [3 2 1 2 3 1 2 1 0];
->>> let m = l.Multiset;
+>>> let m = Multiset[3 2 1 2 3 1 2 1 0];
 >>> (
 >>> 	m.valuesAndCounts,
 >>> 	m.elementsAndCounts,
 >>> 	m.sortedElements
 >>> )
 (
-	[|3 -> 2, 2 -> 3, 1 -> 3, 0 -> 1|],
+	Dictionary[
+		3 -> 2, 2 -> 3, 1 -> 3, 0 -> 1
+	],
 	[3 2; 2 3; 1 3; 0 1],
 	[0 -> 1, 1 -> 3, 2 -> 3, 3 -> 2]
 )
@@ -29,7 +30,7 @@ At `IdentityMultiset` answers a `Map`:
 >>> [3 2 1 2 3 1 2 1 0]
 >>> .IdentityMultiset
 >>> .valuesAndCounts
-[3: 2, 2: 3, 1: 3, 0: 1]
+Map[3 -> 2, 2 -> 3, 1 -> 3, 0 -> 1]
 ```
 
 * * *

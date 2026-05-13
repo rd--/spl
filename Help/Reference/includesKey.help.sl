@@ -21,7 +21,7 @@ true
 At `Map`:
 
 ```
->>> ['w': 1, 'x': 2, 'y': 3]
+>>> Map['w' -> 1, 'x' -> 2, 'y' -> 3]
 >>> .includesKey('x')
 true
 ```

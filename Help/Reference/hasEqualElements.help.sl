@@ -12,7 +12,7 @@ A `Map` and a `Record` are never equal but may have equal elements:
 
 ```
 >>> let a = (x: 1, y: 2);
->>> let b = [|'y' -> 2, 'x' -> 1|];
+>>> let b = Map(y:2, x: 1);
 >>> (a = b, a.hasEqualElements(b, =))
 (false, true)
 ```

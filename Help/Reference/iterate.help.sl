@@ -276,7 +276,7 @@ Fixed point of morphism _0→0,1→110_,
 OEIS [A079559](https://oeis.org/A079559):
 
 ~~~spl svg=E oeis=A079559
-let m = [0: [0], 1: [1 1 0]];
+let m = Map[0 -> [0], 1 -> [1 1 0]];
 { :x |
 	x.collect { :i |
 		m[i]
@@ -303,7 +303,7 @@ the trajectory of one under the morphism _1→2,3;2→3;3→1_,
 OEIS [A245553](https://oeis.org/A245553):
 
 ~~~spl svg=G oeis=A245553
-let m = [1: [2 3], 2: [3], 3: [1]];
+let m = Map[1 -> [2 3], 2 -> [3], 3 -> [1]];
 { :x |
 	x ++ x.collect { :n |
 		m[n]

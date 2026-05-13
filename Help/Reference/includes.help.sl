@@ -55,7 +55,7 @@ true
 At `Dictionary`:
 
 ```
->>> [|1L -> 'A', 2L -> 'B'|].includes('A')
+>>> Dictionary[1L -> 'A', 2L -> 'B'].includes('A')
 true
 ```
 

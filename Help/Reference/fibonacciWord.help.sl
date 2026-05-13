@@ -179,7 +179,11 @@ Infinite Fibonacci word fractal sequence,
 OEIS [A156596](https://oeis.org/A156596):
 
 ~~~spl svg=F oeis=A156596
-let m = [0: [1 2], 1: [1 0], 2: [0 2]];
+let m = Map[
+	0 -> [1 2],
+	1 -> [1 0],
+	2 -> [0 2]
+];
 1:95.fibonacciWord
 .partition(2, 2)
 .collect { :d |

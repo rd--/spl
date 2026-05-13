@@ -1,11 +1,16 @@
 +Void {
 
 	MandelbrotBenchmark {
-		Benchmark('Mandelbrot', [
-			1: 128,
-			500: 191,
-			750: 50
-		]) { :size |
+		Benchmark(
+			'Mandelbrot',
+			Map(
+				[
+					1 -> 128,
+					500 -> 191,
+					750 -> 50
+				]
+			)
+		) { :size |
 			let sum = 0;
 			let byteAcc = 0;
 			let bitNum = 0;

@@ -32,15 +32,15 @@ The unary case at `List`:
 The binary case at `Set`:
 
 ```
->>> {|1, 2, 3|}.union({|2, 3, 4|})
-{|1, 2, 3, 4|}
+>>> Set[1 2 3].union([2 3 4])
+Set[1 2 3 4]
 ```
 
 The binary case at `IdentitySet`:
 
 ```
->>> [1 2 3].asIdentitySet.union([2 3 4])
-[1 2 3 4].asIdentitySet
+>>> IdentitySet[1 2 3].union([2 3 4])
+IdentitySet[1 2 3 4]
 ```
 
 Find divisors that occur in any of 10, 12, and 20:
@@ -67,10 +67,10 @@ At `Interval`:
 At `Multiset`:
 
 ```
->>> let a = [|'x' -> 1, 'y' -> 2, 'z' -> 3|];
->>> let b = [|'x' -> 2, 'y' -> 1|];
+>>> let a = ['x' -> 1, 'y' -> 2, 'z' -> 3];
+>>> let b = ['x' -> 2, 'y' -> 1];
 >>> Multiset(a).union(Multiset(b))
-Multiset([|'x' -> 3, 'y' -> 3, 'z' -> 3|])
+Multiset(['x' -> 3, 'y' -> 3, 'z' -> 3])
 ```
 
 Note that the answer is not sorted,

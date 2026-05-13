@@ -423,7 +423,7 @@ A variant of the inventory sequence,
 OEIS [A347738](https://oeis.org/A347738):
 
 ~~~spl svg=I oeis=A347738
-let b = [1: 0];
+let b = Map[1 -> 0];
 let a = Map { :n |
 	(n = 1).if {
 		0

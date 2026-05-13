@@ -366,10 +366,18 @@
 
 	qBinomialDirect { :n :m |
 		let a = 0.to(m - 1).product { :i |
-			Polynomial([0: 1, (n - i): -1])
+			Polynomial(
+				Map(
+					[0 -> 1, (n - i) -> -1]
+				)
+			)
 		};
 		let b = 0.to(m - 1).product { :i |
-			Polynomial([0: 1, (i + 1): -1])
+			Polynomial(
+				Map(
+					[0 -> 1, (i + 1) -> -1]
+				)
+			)
 		};
 		a.polynomialQuotient(b)
 	}

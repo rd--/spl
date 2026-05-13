@@ -15,14 +15,14 @@ false
 At `Record`:
 
 ```
->>> (:).isNotEmpty
+>>> Record().isNotEmpty
 false
 ```
 
 At `Map`:
 
 ```
->>> [:].isNotEmpty
+>>> Map().isNotEmpty
 false
 ```
 

@@ -37,16 +37,21 @@ With secondary index:
 6
 ```
 
-All dictionaries, including `Record` and `Map`, are indexable:
+All dictionaries, including `Record` and `Map`, are indexable.
+At `Record`:
 
 ```
 >>> (x: 1, y: 2).at('x')
 1
+```
 
->>> ['x': 1, 'y': 2].at('x')
+At `Map`:
+
+```
+>>> Map['x' -> 1, 'y' -> 2].at('x')
 1
 
->>> [1: 'x', 2: 'y'].at(1)
+>>> Map[1 -> 'x', 2 -> 'y'].at(1)
 'x'
 ```
 

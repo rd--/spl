@@ -13,6 +13,9 @@ Compute the Euler totient function:
 >>> 10.eulerPhi
 4
 
+>>> 540.eulerPhi
+144
+
 >>> 17400.eulerPhi
 4480
 ```
@@ -298,6 +301,16 @@ OEIS [A180444](https://oeis.org/A180444):
 >>> 	(2 * n) + 2 - (n + 2).eulerPhi
 >>> }
 [1 2 4 4 8 6 10 10 14 10 18 12 20 20]
+```
+
+_φ(mn)=φ(m)φ(n)_ for coprime _m,n_:
+
+```
+>>> 23.isCoprime(37)
+true
+
+>>> 23.eulerPhi * 37.eulerPhi
+(23 * 37).eulerPhi
 ```
 
 The Euler totient function,

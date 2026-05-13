@@ -51,6 +51,9 @@ Compute using integers:
 
 >>> (111 * 1) % 10
 1
+
+>>> 11.modularInverse(80)
+51
 ```
 
 At large integers:

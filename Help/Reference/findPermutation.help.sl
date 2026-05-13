@@ -14,11 +14,11 @@ Permutation relating two expressions with the same elements:
 
 >>> [1 2 3 4 5 6]
 >>> .findPermutation([2 1 3 5 4 6])
-[1 2; 4 5].Permutation
+Permutation[1 2; 4 5]
 
 >>> [2 1 3 5 4 6]
 >>> .findPermutation([2 3 1 4 5 6])
-[2 3; 4 5].Permutation
+Permutation[2 3; 4 5]
 ```
 
 Verify the result using `permute`:

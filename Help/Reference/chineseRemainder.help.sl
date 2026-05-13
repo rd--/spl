@@ -18,6 +18,16 @@ Find the smallest positive integer giving remainders _2,3,5_ when divided by _3,
 68
 ```
 
+Other three element systems with solutions:
+
+```
+>>> [2 4 6].chineseRemainder([3 5 7])
+104
+
+>>> [4 9 3].chineseRemainder([7 11 13])
+900
+```
+
 Define a residue number system,
 define two numbers and their representation in the residue system,
 and demonstrate both multiplying & recovering and adding & recovering:

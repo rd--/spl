@@ -7,17 +7,20 @@ Convert the collection _c_ to a `Record`.
 At a `List` of `Association` values:
 
 ```
->>> ['x' -> 1, 'y' -> 2, 'z' -> 3].asRecord
+>>> ['x' -> 1, 'y' -> 2, 'z' -> 3]
+>>> .asRecord
 (x: 1, y: 2, z: 3)
 
->>> ['A' -> ['B' 'C']].asRecord
+>>> ['A' -> ['B' 'C']]
+>>> .asRecord
 (A: ['B' 'C'])
 ```
 
 At a `List` holding a 2-column _matrix_:
 
 ```
->>> ['x' 1; 'y' 2; 'z' 3].asRecord
+>>> ['x' 1; 'y' 2; 'z' 3]
+>>> .asRecord
 (x: 1, y: 2, z: 3)
 ```
 
@@ -39,7 +42,8 @@ true
 At a `Map`:
 
 ```
->>> ['x': 1, 'y': 2, 'z': 3].asRecord
+>>> Map['x' -> 1, 'y' -> 2, 'z' -> 3]
+>>> .asRecord
 (x: 1, y: 2, z: 3)
 ```
 

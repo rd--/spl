@@ -25,15 +25,14 @@ false
 A `Set` is, by definition, duplicate free:
 
 ```
->>> {|1, 2, 3|}.isDuplicateFree
+>>> Set[1 2 3].isDuplicateFree
 true
 ```
 
-Use `asMultiset` to reveal duplicate elements:
+Use `Multiset` to reveal duplicate elements:
 
 ```
->>> [1 7 8 4 3 4 1 9 9 2]
->>> .asMultiset
+>>> Multiset[1 7 8 4 3 4 1 9 9 2]
 >>> .sortedElements
 [
 	1 -> 2,

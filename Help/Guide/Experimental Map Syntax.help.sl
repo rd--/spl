@@ -1,4 +1,4 @@
-# Map Syntax
+# Experimental Map Syntax
 
 Rewrite rules:
 
@@ -8,14 +8,14 @@ Rewrite rules:
 The notation _[p: x, q: y]_ constructs a `Map` with associations _p → x_ and _q → y_.
 
 ```
->> '[p: x, q: y]'.splSimplify
+>> 'Map[p x; q y]'.splSimplify
 Map([[p, x], [q, y]])
 ```
 
 With `String` keys:
 
 ```
->>> ['x': 1, 'y': 2, 'z': 3]
+>>> Map['x' 1; 'y' 2; 'z' 3]
 >>> .asRecord
 (x: 1, y: 2, z: 3)
 ```
@@ -23,8 +23,8 @@ With `String` keys:
 With `SmallFloat` keys:
 
 ```
->>> let d = [1: 'x', 2: 'y', 3: 'z'];
->>> (d.keys, d.values, d.associations)
+>>> let m = Map[1 'x'; 2 'y'; 3 'z'];
+>>> (m.keys, m.values, m.associations)
 (
 	[1 2 3],
 	['x' 'y' 'z'],
@@ -35,7 +35,7 @@ With `SmallFloat` keys:
 Empty `Map`:
 
 ```
->>> let d = [:];
+>>> let d = Map[];
 >>> (d.isMap, d.isEmpty)
 (true, true)
 ```

@@ -18,21 +18,21 @@ true
 At `Record`:
 
 ```
->>> (:).isEmpty
+>>> Record().isEmpty
 true
 ```
 
 At `Map`:
 
 ```
->>> [:].isEmpty
+>>> Map().isEmpty
 true
 ```
 
 At `Set`:
 
 ```
->>> {| |}.isEmpty
+>>> Set().isEmpty
 true
 ```
 

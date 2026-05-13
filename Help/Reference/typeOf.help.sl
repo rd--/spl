@@ -30,7 +30,7 @@ The names of the primitive collection types:
 >>> (:).typeOf
 'Record'
 
->>> [:].typeOf
+>>> Map().typeOf
 'Map'
 ```
 
