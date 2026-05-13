@@ -1000,6 +1000,16 @@ OEIS [A023434](https://oeis.org/A023434):
 [0 1 1 2 3 4 6 8 11 15 20 27 36 48 64]
 ```
 
+The number of _n_-tosses having a run of three or more heads for a fair coin,
+OEIS [A050231](https://oeis.org/A050231):
+
+```
+>>> [3 -1 -1 -2].linearRecurrence(
+>>> 	[0 0 1 3], 10
+>>> )
+[0 0 1 3 8 20 47 107 238 520]
+```
+
 Draw spiral:
 
 ~~~spl svg=A

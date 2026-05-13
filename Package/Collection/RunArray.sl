@@ -242,6 +242,10 @@ RunArray : [Object, Equatable, Storeable, Indexable] { | runs values cachedIndex
 
 +List {
 
+	runLengths { :self |
+		self.asRunArray.runs
+	}
+
 	runLengthsOf { :self :anObject |
 		self.asRunArray.runLengthsOf(anObject)
 	}

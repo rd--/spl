@@ -761,7 +761,7 @@
 		self.integerReverse(10)
 	}
 
-	integerSquareRoot { :self |
+	[integerSquareRoot, isqrt] { :self |
 		(self < 0).if {
 			self.error('integerSquareRoot: negative')
 		} {

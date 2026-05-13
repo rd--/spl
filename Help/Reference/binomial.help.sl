@@ -795,7 +795,10 @@ OEIS [A247416](https://oeis.org/A247416):
 >>> 1:9.collect { :n |
 >>> 	let m = (n + 1).integerSquareRoot;
 >>> 	1:m.sum { :i |
->>> 		binomial(2 * n - i.square + 1, n)
+>>> 		binomial(
+>>> 			2 * n - i.square + 1,
+>>> 			n
+>>> 		)
 >>> 	}
 >>> }
 [2 6 21 75 273 1008 3762 14158 53635]
@@ -809,7 +812,10 @@ OEIS [A247415](https://oeis.org/A247415):
 >>> 	1:n.sum { :m |
 >>> 		0.divisorSigma(m)
 >>> 		*
->>> 		binomial(2 * n - m - 1, n - m)
+>>> 		binomial(
+>>> 			2 * n - m - 1,
+>>> 			n - m
+>>> 		)
 >>> 	}
 >>> }
 [1 4 14 51 187 695 2606 9842 37386]
@@ -830,6 +836,29 @@ OEIS [A030528](https://oeis.org/A030528):
 	0 0 3 4 1;
 	0 0 1 6 5 1;
 	0 0 0 4 10 6 1
+]
+```
+
+Coefficients of the shifted cyclotomic polynomial,
+OEIS [A059260](https://oeis.org/A059260):
+
+```
+>>> 0:9.triangularArray { :n :k |
+>>> 	0:n.sum { :j |
+>>> 		(-1 ^ (n - j)) * binomial(j, k)
+>>> 	}
+>>> }
+[
+	1;
+	0 1;
+	1 1 1;
+	0 2 2 1;
+	1 2 4 3 1;
+	0 3 6 7 4 1;
+	1 3 9 13 11 5 1;
+	0 4 12 22 24 16 6 1;
+	1 4 16 34 46 40 22 7 1;
+	0 5 20 50 80 86 62 29 8 1
 ]
 ```
 

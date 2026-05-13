@@ -7,6 +7,9 @@ Answer a list of primitive roots of _n_.
 Lists of primitive roots:
 
 ```
+>>> 7.primitiveRootList
+[3 5]
+
 >>> 9.primitiveRootList
 [2 5]
 

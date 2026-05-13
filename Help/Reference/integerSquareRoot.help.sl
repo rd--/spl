@@ -3,13 +3,27 @@
 - _integerSquareRoot(n)_
 
 Answer the integer square root of the integer _n_.
+`isqrt` is an alias for `integerSquareRoot`,
+as `sqrt` is an alias for `squareRoot`.
 
 ```
+>>> (27.integerSquareRoot, 27.isqrt)
+5
+
+>>> (27.squareRoot, 27.sqrt)
+(5.19615, 5.19615)
+
 >>> 293.integerSquareRoot
 17
 
 >>> (9 / 4).integerSquareRoot
 1
+
+>>> 131072.integerSquareRoot
+362
+
+>>> 2000000.integerSquareRoot
+1414
 ```
 
 Threads over lists:
@@ -33,6 +47,15 @@ OEIS [A000196](https://oeis.org/A000196):
 	7 7 7 7 7 7 7 7 7 7
 	7 7 7 7 8 8
 ]
+```
+
+The run lengths are the odd numbers,
+OEIS [A005408](https://oeis.org/A005408):
+
+```
+>>> 0:99.integerSquareRoot
+>>> .runLengths
+[1 3 5 7 9 11 13 15 17 19]
 ```
 
 The integer square root of odd powers of seven:
@@ -211,9 +234,20 @@ let b = a + Fraction(n, a);
 
 ![](Help/Image/integerSquareRoot-G.svg)
 
+The integer square root,
+a staircase function,
+OEIS [A000196](https://oeis.org/A000196):
+
+~~~spl svg=H oeis=A000196
+0:65.integerSquareRoot
+.discretePlot
+~~~
+
+![](Help/Image/integerSquareRoot-H.svg)
+
 * * *
 
-See also: Integer, LargeInteger, sqrt, squareRoot
+See also: Integer, isqrt, LargeInteger, sqrt, squareRoot
 
 Guides: Integer Functions
 

@@ -48,7 +48,8 @@ Guides: List Functions
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/Run-LengthEncoding.html),
+[1](https://mathworld.wolfram.com/Run-LengthEncoding.html)
+[2](https://mathworld.wolfram.com/Run.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Run-length_encoding)
 

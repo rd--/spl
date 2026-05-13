@@ -414,7 +414,7 @@
 		self.collect(integerReverse:/1)
 	}
 
-	integerSquareRoot { :self |
+	[integerSquareRoot, isqrt] { :self |
 		self.collect(integerSquareRoot:/1)
 	}
 
@@ -551,6 +551,10 @@
 
 	lucasNumber { :self |
 		self.collect(lucasNumber:/1)
+	}
+
+	mersenneNumber { :self |
+		self.collect(mersenneNumber:/1)
 	}
 
 	mersennePrimeExponent { :self |
