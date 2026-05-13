@@ -18,7 +18,7 @@ White, black, red, yellow, blue:
 Yellow and blue is green:
 
 ~~~spl svg=B
-RybColour([0 1 1])
+RybColour[0 1 1]
 ~~~
 
 ![](Help/Image/RybColour-B.svg)
@@ -26,7 +26,7 @@ RybColour([0 1 1])
 Red and yellow is orange:
 
 ~~~spl svg=C
-RybColour([1 1 0])
+RybColour[1 1 0]
 ~~~
 
 ![](Help/Image/RybColour-C.svg)
@@ -34,7 +34,7 @@ RybColour([1 1 0])
 Red and blue is purple:
 
 ~~~spl svg=D
-RybColour([1 0 1])
+RybColour[1 0 1]
 ~~~
 
 ![](Help/Image/RybColour-D.svg)
@@ -43,7 +43,7 @@ Blue and green is cyan,
 here green is given as _(0,0.5,0.5)_ and blue as _(0,0,0.5)_:
 
 ~~~spl svg=E
-RybColour([0 0.5 1])
+RybColour[0 0.5 1]
 ~~~
 
 ![](Help/Image/RybColour-E.svg)

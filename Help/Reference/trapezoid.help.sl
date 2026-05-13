@@ -23,7 +23,7 @@ A trapezoid draw inside a square:
 ~~~spl svg=A
 [
 	trapezoid(2, 60.degree, 6, 30.degree),
-	Rectangle([0 0], [6 6])
+	Rectangle[0 0; 6 6]
 ].LineDrawing
 ~~~
 
@@ -34,7 +34,7 @@ A trapezoid where _a=0_ represents a triangle:
 ~~~spl svg=B
 [
 	trapezoid(0, 45.degree, 8, 30.degree),
-	Rectangle([0 0], [8 8])
+	Rectangle[0 0; 8 8]
 ].LineDrawing
 ~~~
 
@@ -47,7 +47,7 @@ let alpha = (90 - 2.5).degree;
 let beta = (90 - 7.5).degree;
 [
 	trapezoid(7, alpha, 8, beta),
-	Rectangle([0 0], [8 8])
+	Rectangle[0 0; 8 8]
 ].LineDrawing
 ~~~
 

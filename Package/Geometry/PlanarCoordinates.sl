@@ -153,11 +153,7 @@ PlanarCoordinates : [Object, Storeable, Copyable, Equatable, Comparable, Indexab
 
 +List {
 
-	asPlanarCoordinates { :self |
-		PlanarCoordinates(self)
-	}
-
-	PlanarCoordinates { :self |
+	[PlanarCoordinates, asPlanarCoordinates] { :self |
 		self.isMatrix.if {
 			self.collect(PlanarCoordinates:/1)
 		} {
@@ -170,7 +166,7 @@ PlanarCoordinates : [Object, Storeable, Copyable, Equatable, Comparable, Indexab
 
 +Record {
 
-	asPlanarCoordinates { :self |
+	[PlanarCoordinates, asPlanarCoordinates] { :self |
 		PlanarCoordinates([self['x'], self['y']])
 	}
 

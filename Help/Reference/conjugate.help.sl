@@ -25,8 +25,8 @@ At `Complex`:
 At `Quaternion`:
 
 ```
->>> Quaternion([1 2 3 4]).conjugate
-Quaternion([1 -2 -3 -4])
+>>> Quaternion[1 2 3 4].conjugate
+Quaternion[1 -2 -3 -4]
 ```
 
 Threads elementwise over lists and matrices:

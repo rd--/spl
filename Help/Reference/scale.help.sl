@@ -27,12 +27,12 @@ Circle([1 0], 2)
 At `Rectangle`:
 
 ```
->>> let a = Rectangle([0 0], [2 1]);
+>>> let a = Rectangle[0 0; 2 1];
 >>> let b = a.scale(2);
 >>> (a.center, b, b.center)
 (
 	[1 0.5],
-	Rectangle([-1, -0.5], [3, 1.5]),
+	Rectangle[-1 -0.5; 3 1.5],
 	[1 0.5]
 )
 ```
@@ -63,7 +63,7 @@ Nested rectangles:
 let phi = 1.goldenRatio;
 { :c |
 	c.scale(phi)
-}.nestList(Rectangle([0 0], [1 phi]), 4)
+}.nestList(Rectangle[0 0; 1 phi], 4)
 .LineDrawing
 ~~~
 

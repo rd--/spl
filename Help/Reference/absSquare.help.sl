@@ -34,7 +34,7 @@ also known as the squared `norm`:
 At `Quaternion`:
 
 ```
->>> Quaternion([1 2 3 4]).absSquare
+>>> Quaternion[1 2 3 4].absSquare
 30
 
 >>> [1 2 3 4].square.sum

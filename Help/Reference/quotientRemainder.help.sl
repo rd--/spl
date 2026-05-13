@@ -76,22 +76,22 @@ find the quotient and remainder after dividing one polynomial by another,
 the dividend is equal to the product of the quotient and the divisor plus the remainder:
 
 ```
->>> let n = Polynomial([1 2 0 0 1]);
->>> let d = Polynomial([1 0 1]);
+>>> let n = Polynomial[1 2 0 0 1];
+>>> let d = Polynomial[1 0 1];
 >>> let [q, r] = n.quotientRemainder(d);
 >>> (q, r, (q * d) + r = n)
 (
-	Polynomial([-1 0 1]),
-	Polynomial([2 2]),
+	Polynomial[-1 0 1],
+	Polynomial[2 2],
 	true
 )
 
->>> let n = Polynomial([1 1 1]);
->>> let d = Polynomial([1 2]);
+>>> let n = Polynomial[1 1 1];
+>>> let d = Polynomial[1 2];
 >>> n.quotientRemainder(d)
 [
-	Polynomial([1/4 1/2]),
-	Polynomial([3/4])
+	Polynomial[1/4 1/2],
+	Polynomial[3/4]
 ]
 ```
 

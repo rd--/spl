@@ -24,9 +24,9 @@ At `List`:
 At `RgbColour`:
 
 ```
->>> RgbColour([0.66519 0.48453 0.85431], 1)
+>>> RgbColour[0.66519 0.48453 0.85431]
 >>> .srgbDecode
-RgbColour([0.4 0.2 0.7], 1)
+RgbColour[0.4 0.2 0.7]
 ```
 
 Threads over lists:

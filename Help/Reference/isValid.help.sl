@@ -8,7 +8,7 @@ else `false`.
 At `Rgba`:
 
 ```
->>> RgbColour([0 0 0], 1)
+>>> RgbColour[0 0 0]
 >>> .isValid
 true
 
@@ -16,7 +16,7 @@ true
 >>> .isValid
 false
 
->>> RgbColour([3 2 1], 1)
+>>> RgbColour[3 2 1]
 >>> .isValid
 false
 ```

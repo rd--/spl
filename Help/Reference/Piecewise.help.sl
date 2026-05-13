@@ -52,7 +52,7 @@ If values are not specified in a region, they are assumed to be zero:
 
 ~~~spl svg=C
 let piece = { :x | x.sqrt } <- { :x | x > 0 };
-let pieceWise = Piecewise([piece]);
+let pieceWise = Piecewise[piece];
 (-2 -- 2).functionPlot { :x |
 	pieceWise.value(x)
 }

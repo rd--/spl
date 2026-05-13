@@ -23,7 +23,7 @@ real numbers and quaternions are also complex numbers in that they answer `real`
 >>> 3.141.imaginary
 0
 
->>> Quaternion([1 2 3 4])
+>>> Quaternion[1 2 3 4]
 >>> .realImaginary
 [1, [2 3 4]]
 ```

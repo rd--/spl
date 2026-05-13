@@ -31,6 +31,16 @@ At `Matrix` syntax:
 [0 0; 1 1]
 ```
 
+At `List Range Syntax`:
+
+```
+>>> Set[1 .. 3]
+Set([1 .. 3])
+
+>>> Set[1, 3 .. 9]
+Set([1, 3 .. 9])
+```
+
 `Map` constructors:
 
 ```
@@ -82,6 +92,9 @@ It avoids a proliferation of literal collection syntaxes,
 typing _Set[…]_ is no worse than typing _{|…|}_,
 and is much clearer.
 
+_Note_:
+The lower case form, _c[x]_, is `At Syntax`.
+
 * * *
 
-Guides: List Syntax, Syntax Guides, Vector Syntax
+Guides: At Syntax, List Syntax, Syntax Guides, Vector Syntax

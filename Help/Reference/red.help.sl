@@ -7,7 +7,7 @@ answer the value of the _red_ channel of the colour _x_.
 The value is in _(0,1)_.
 
 ```
->>> HsvColour([111 / 360, 0.5, 0.5], 1).red
+>>> HsvColour[111/360 0.5 0.5].red
 0.2875
 ```
 

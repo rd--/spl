@@ -9,7 +9,7 @@ A non-empty range:
 
 ```
 >>> nonemptyRange(1, 9, 1)
-Range([1 9 1])
+Range[1 9 1]
 ```
 
 An error:

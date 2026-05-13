@@ -1,6 +1,6 @@
 # Date
 
-- _Date([y, m, d])_
+- _Date([y m d])_
 
 `Date` is `Type` representing a date in the Gregorian calendar.
 
@@ -8,7 +8,7 @@ Construct a `Date` value from a `List`,
 the month and day of month fields are _one-indexed_:
 
 ```
->>> Date([2025 04 08])
+>>> Date[2025 04 08]
 >>> .dateString
 '2025-04-08'
 ```
@@ -41,7 +41,7 @@ There are methods to access the elements of the date,
 i.e. `year`, `month`, `dayOfMonth`:
 
 ```
->>> let d = Date([1970, 01, 01]);
+>>> let d = Date[1970 01 01];
 >>> [d.year, d.month, d.dayOfMonth]
 [1970 1 1]
 ```

@@ -8,7 +8,7 @@ Implemented for `List`, `ByteArray` and `Float64Array`.
 At `ByteArray` encloses data:
 
 ```
->>> let x = ByteArray([1 .. 9]);
+>>> let x = ByteArray[1 .. 9];
 >>> let b = x.asBinaryLargeObject;
 >>> (x.size, b.size, b.type)
 (9, 9, '')
@@ -17,7 +17,7 @@ At `ByteArray` encloses data:
 At `Float64Array` encloses data as a byte array:
 
 ```
->>> let x = Float64Array([1 .. 9]);
+>>> let x = Float64Array[1 .. 9];
 >>> let b = x.asBinaryLargeObject;
 >>> (x.size, b.size, b.type)
 (9, 72, '')

@@ -1,65 +1,51 @@
 # y
 
-- _y(aPoint)_
+- _y(p)_
 
-Answer the _y_ coordinate of a two or three dimensional point.
+Answer the _y_ coordinate of a two or three dimensional point _p_.
 
 At `Point`:
 
 ```
->>> ([1 2].asPoint.y, [3 4 5].asPoint.y)
+>>> (Point[1 2].y, Point[3 4 5].y)
 (2, 4)
-```
-
-At `Tuple`:
-
-```
->>> [(1, 2).asPoint.y, (3, 4, 5).asPoint.y]
-[2 4]
-```
-
-At `Record`:
-
-```
->>> (x: 1, y: 2, z: 3).asPoint.y
-2
 ```
 
 Two-dimensional case:
 
 ```
->>> PlanarCoordinates([1 2]).y
+>>> PlanarCoordinates[1 2].y
 2
 
->>> (x: 1, y: 2).asPlanarCoordinates.y
+>>> PlanarCoordinates(x: 1, y: 2).y
 2
 ```
 
 `PolarCoordinates` implements `y`:
 
 ```
->>> PolarCoordinates([1, 3.pi / 2]).y
+>>> PolarCoordinates[1 3/2.pi].y
 -1
 ```
 
 Three-dimensional case:
 
 ```
->>> CartesianCoordinates([1 2 3]).y
+>>> CartesianCoordinates[1 2 3].y
 2
 
->>> (x: 1, y: 2, z: 3)
->>> .asCartesianCoordinates
->>> .y
+>>> CartesianCoordinates(
+>>> 	x: 1, y: 2, z: 3
+>>> ).y
 2
 ```
 
 `SphericalCoordinates` implements `y`:
 
 ```
->>> SphericalCoordinates(
->>> 	[1, -1.pi / 2, 1.pi / 2]
->>> ).y
+>>> SphericalCoordinates[
+>>> 	1 -1/2.pi 1/2.pi
+>>> ].y
 -1
 ```
 

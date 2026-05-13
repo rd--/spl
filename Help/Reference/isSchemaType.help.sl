@@ -51,7 +51,7 @@ true
 Predicate for `Date` type:
 
 ```
->>> Date([2025, 5, 1])
+>>> Date[2025 5 1]
 >>> .isSchemaType('Date')
 true
 ```
@@ -59,7 +59,7 @@ true
 Predicate for `DateAndTime` type:
 
 ```
->>> DateAndTime([2025, 5, 1, 2, 22, 10])
+>>> DateAndTime[2025 5 1 2 22 10]
 >>> .isSchemaType('DateAndTime')
 true
 ```

@@ -6,7 +6,7 @@ Answer a triple of _hue_, _saturation_ and _lightness_.
 _Hsl_ is a cylindrical-coordinate representation of points in an _Rgb_ colour model.
 
 ```
->>> RgbColour([0.75 1 0.75], 1).hsl
+>>> RgbColour[0.75 1 0.75].hsl
 [1/3 1 7/8]
 ```
 

@@ -8,9 +8,9 @@ Construct a _UTC_ date,
 the month and day of month fields are _one-indexed_:
 
 ```
->>> DateAndTime(
->>> 	[2025 04 08 07 30 00.000]
->>> ).dateAndTimeString
+>>> DateAndTime[
+>>> 	2025 04 08 07 30 00.000
+>>> ].dateAndTimeString
 '2025-04-08T07:30:00.000Z'
 ```
 
@@ -34,9 +34,9 @@ There are methods to access the elements of the date,
 i.e. `year`, `month`, `dayOfMonth`, `hour`, `minute`, `second`:
 
 ```
->>> let d = DateAndTime(
->>> 	[1970, 01, 01, 00, 00, 00.000]
->>> );
+>>> let d = DateAndTime[
+>>> 	1970 01 01 00 00 00.000
+>>> ];
 >>> [
 >>> 	d.year,
 >>> 	d.month,

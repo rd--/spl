@@ -347,11 +347,7 @@ LinkedList : [Object, Equatable, Storeable, Copyable, Comparable, Iterable, Inde
 
 +@Collection {
 
-	asLinkedList { :self |
-		LinkedList(self)
-	}
-
-	LinkedList { :self |
+	[LinkedList, asLinkedList] { :self |
 		let answer = LinkedList();
 		self.do { :each |
 			answer.add(each)

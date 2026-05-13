@@ -100,7 +100,7 @@ Sl {
 	ApplyWithTrailingClosuresSyntax = selectorName NonEmptyParameterList? Block+
 	ApplyWithTrailingRecordSyntax = selectorName NonEmptyRecordSyntax+
 	ApplySyntax = (selectorName | boundOperator) ParameterList
-    ListConstructorSyntax = typeName (EmptyListSyntax | VectorSyntax | MatrixSyntax | VolumeSyntax | ListSyntax)
+    ListConstructorSyntax = typeName (EmptyListSyntax | VectorSyntax | MatrixSyntax | VolumeSyntax | ListSyntax | ListRangeSyntax)
 	ParenthesisedExpression = "(" Expression ")"
 	NonEmptyRecordSyntax = "(" NonemptyListOf<RecordSyntaxItem, ","> ")"
 	EmptyRecordSyntax = "(" ":" ")"

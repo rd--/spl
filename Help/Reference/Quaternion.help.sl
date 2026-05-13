@@ -1,6 +1,6 @@
 # Quaternion
 
-- _Quaternion([a b c d])_
+- _Quaternion([a b c d]_
 
 A `Type` representing a number in the quaternion number system.
 
@@ -8,10 +8,10 @@ A `Type` representing a number in the quaternion number system.
 and have the following basic multiplication rules:
 
 ```
->>> let u = Quaternion([1 0 0 0]);
->>> let i = Quaternion([0 1 0 0]);
->>> let j = Quaternion([0 0 1 0]);
->>> let k = Quaternion([0 0 0 1]);
+>>> let u = Quaternion[1 0 0 0];
+>>> let i = Quaternion[0 1 0 0];
+>>> let j = Quaternion[0 0 1 0];
+>>> let k = Quaternion[0 0 0 1];
 >>> (
 >>> 	u * u, i * i, j * j, k * k,
 >>> 	i * j, j.- * i,
@@ -29,9 +29,9 @@ and have the following basic multiplication rules:
 Basic arithemtic:
 
 ```
->>> let a = Quaternion([1 2 3 4]);
->>> let b = Quaternion([2 3 4 5]);
->>> let c = Quaternion([3 4 5 6]);
+>>> let a = Quaternion[1 2 3 4];
+>>> let b = Quaternion[2 3 4 5];
+>>> let c = Quaternion[3 4 5 6];
 >>> let d = 7;
 >>> (
 >>> 	a.absSquare, a.abs, a.norm,
@@ -45,13 +45,13 @@ Basic arithemtic:
 >>> )
 (
 	30, 30.sqrt, 30.sqrt,
-	Quaternion([-1 -2 -3 -4]),
-	Quaternion([1 -2 -3 -4]),
-	Quaternion([8 2 3 4]),
-	Quaternion([5 7 9 11]),
-	Quaternion([7 14 21 28]),
-	Quaternion([-56 16 24 26]),
-	Quaternion([-56 18 20 28])
+	Quaternion[-1 -2 -3 -4],
+	Quaternion[1 -2 -3 -4],
+	Quaternion[8 2 3 4],
+	Quaternion[5 7 9 11],
+	Quaternion[7 14 21 28],
+	Quaternion[-56 16 24 26],
+	Quaternion[-56 18 20 28]
 )
 ```
 
@@ -61,7 +61,7 @@ Convert a real number to a quaternion:
 >>> let a = 3.141;
 >>> let b = a.asQuaternion;
 >>> (b, b.real)
-(Quaternion([3.141 0 0 0]), 3.141)
+(Quaternion[3.141 0 0 0], 3.141)
 ```
 
 Convert a complex number to a quaternion,
@@ -71,13 +71,13 @@ the `imaginary` part of a quaternion is a three-vector:
 >>> let a = 3J4;
 >>> let b = a.asQuaternion;
 >>> (b, b.real, b.imaginary)
-(Quaternion([3 4 0 0]), 3, [4 0 0])
+(Quaternion[3 4 0 0], 3, [4 0 0])
 ```
 
 The matrix form of a quaternion number:
 
 ```
->>> let a = Quaternion([1 2 3 4]);
+>>> let a = Quaternion[1 2 3 4];
 >>> let b = a.asMatrix;
 >>> (
 >>> 	b,

@@ -30,7 +30,7 @@ true
 Linked list from list:
 
 ```
->>> LinkedList([1 2 3]).size
+>>> LinkedList[1 2 3].size
 3
 ```
 
@@ -68,16 +68,16 @@ Add to end
 Collect:
 
 ```
->>> 1:9.asLinkedList.collect { :each |
+>>> LinkedList(1:9).collect { :each |
 >>> 	10 - each
 >>> }
-LinkedList([9 8 7 6 5 4 3 2 1])
+LinkedList[9 8 7 6 5 4 3 2 1]
 ```
 
 Remove first:
 
 ```
->>> let l = LinkedList([1 .. 9]);
+>>> let l = LinkedList[1 .. 9];
 >>> l.removeFirst;
 >>> l.first
 2
@@ -86,7 +86,7 @@ Remove first:
 Remove last:
 
 ```
->>> let l = LinkedList([1 .. 9]);
+>>> let l = LinkedList[1 .. 9];
 >>> l.removeLast;
 >>> l.last
 8
@@ -95,7 +95,7 @@ Remove last:
 In place reject:
 
 ```
->>> let l = LinkedList([1 .. 5]);
+>>> let l = LinkedList[1 .. 5];
 >>> l.removeAllSuchThat(isOdd:/1);
 >>> l.contents
 [2, 4]
@@ -104,7 +104,7 @@ In place reject:
 Remove all:
 
 ```
->>> let l = 1:99.asLinkedList;
+>>> let l = LinkedList(1:99);
 >>> let n = l.size;
 >>> l.removeAll;
 >>> (n, l.isEmpty)
@@ -114,7 +114,7 @@ Remove all:
 Select:
 
 ```
->>> 1:99.asLinkedList
+>>> LinkedList(1:99)
 >>> .select(isEven:/1)
 >>> .contents
 [2, 4 .. 98]
@@ -123,7 +123,7 @@ Select:
 Avoid intermediate collection:
 
 ```
->>> 1:9.asLinkedList
+>>> LinkedList(1:9)
 >>> .selectThenCollect(
 >>> 	isEven:/1,
 >>> 	square:/1
@@ -134,7 +134,7 @@ Avoid intermediate collection:
 Avoid intermediate collection:
 
 ```
->>> 1:9.asLinkedList
+>>> LinkedList(1:9)
 >>> .collectThenSelect(square:/1) { :each |
 >>> 	each > 36
 >>> }.contents
@@ -144,7 +144,7 @@ Avoid intermediate collection:
 Indexing and mutation:
 
 ```
->>> let l = 1:5.asLinkedList;
+>>> let l = LinkedList(1:5);
 >>> l[1] := -1;
 >>> (l[1], l[3])
 (-1, 3)
@@ -153,7 +153,7 @@ Indexing and mutation:
 First link, last link and next link:
 
 ```
->>> let l = LinkedList([1 2 3 4 5]);
+>>> let l = LinkedList[1 2 3 4 5];
 >>> let a = l.firstLink;
 >>> let b = l.lastLink;
 >>> let c = a.nextLink;
@@ -164,7 +164,7 @@ First link, last link and next link:
 Mutate link value:
 
 ```
->>> let l = LinkedList([1 2 3]);
+>>> let l = LinkedList[1 2 3];
 >>> l.firstLink.value := -1;
 >>> l.contents
 [-1 2 3]
@@ -173,11 +173,11 @@ Mutate link value:
 Is sorted predicte:
 
 ```
->>> 1:9.asLinkedList
+>>> LinkedList(1:9)
 >>> .isSorted
 true
 
->>> 9:1:-1.asLinkedList
+>>> LinkedList(9:1:-1)
 >>> .isSortedBy(>)
 true
 ```
@@ -185,19 +185,19 @@ true
 Indices, answers a `Range`:
 
 ```
->>> LinkedList([1, 3 .. 9]).indices
+>>> LinkedList[1, 3 .. 9].indices
 1:5
 ```
 
 Copies are equal but not identical:
 
 ```
->>> let a = 1:9.asLinkedList;
+>>> let a = LinkedList(1:9);
 >>> let b = a.copy;
 >>> (a = b, a == b)
 (true, false)
 
->>> let a = 1:9.asLinkedList;
+>>> let a = LinkedList(1:9);
 >>> let b = a.copy;
 >>> a[3] := -3;
 >>> (a[3], b[3])

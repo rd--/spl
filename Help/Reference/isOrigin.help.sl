@@ -24,21 +24,21 @@ true
 At `Point`:
 
 ```
->>> Point([0 0 0]).isOrigin
+>>> Point[0 0 0].isOrigin
 true
 ```
 
 At `CartesianCoordinates`:
 
 ```
->>> CartesianCoordinates([0 0 0]).isOrigin
+>>> CartesianCoordinates[0 0 0].isOrigin
 true
 ```
 
 At `PolarCoordinates`, tests if ρ=0:
 
 ```
->>> PolarCoordinates([0 0.25.pi]).isOrigin
+>>> PolarCoordinates[0 0.25.pi].isOrigin
 true
 ```
 

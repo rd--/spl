@@ -17,7 +17,7 @@ At `Triangle`:
 At `Rectangle`:
 
 ```
->>> Rectangle([0 0], [1 1]).inradius
+>>> Rectangle[0 0; 1 1].inradius
 1/2
 ```
 

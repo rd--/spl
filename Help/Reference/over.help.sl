@@ -36,8 +36,8 @@ Add the `max` of two lists:
 At `Colour` place one colour over another:
 
 ```
->>> let red = RgbColour([1, 0, 0], 0.5);
->>> let green = RgbColour([0, 1, 0], 0.5);
+>>> let red = RgbColour([1 0 0], 0.5);
+>>> let green = RgbColour([0 1 0], 0.5);
 >>> red.over(green)
 RgbColour([1 / 3, 2 / 3, 0], 3 / 4)
 ```

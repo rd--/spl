@@ -71,7 +71,7 @@ A silver triangle has height _δs/2_:
 Draw silver rectangle:
 
 ~~~spl svg=A
-Rectangle([0, 0], [1.silverRatio 1])
+Rectangle[0 0; 1.silverRatio 1]
 ~~~
 
 ![](Help/Image/silverRatio-A.svg)
@@ -91,8 +91,8 @@ Silver rectangle and silver triangle in regular octagon:
 let p = 8.regularPolygon([0 0], 1, 1/8.pi);
 let c = p.vertexCoordinates;
 let r = Polygon(c.atAll([8 1 4 5]));
-let t = Triangle([c[6], c[7], [0 0]]);
-LineDrawing([p, r, t])
+let t = Triangle[c[6], c[7], [0 0]];
+LineDrawing[p r t]
 ~~~
 
 ![](Help/Image/silverRatio-C.svg)

@@ -1,11 +1,12 @@
 # rho
 
-- _rho(aPoint)_
+- _rho(p)_
 
-Another name for `r`:
+Answer ρ of point _p_.
+Another name for `r`.
 
 ```
->>> PolarCoordinates([1 0]).rho
+>>> PolarCoordinates[1 0].rho
 1
 ```
 

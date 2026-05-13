@@ -7,17 +7,17 @@ ranging from _i_ to _j_ by step _k_.
 The range is closed, it includes both the lower and upper bound.
 
 ```
->>> Range([1 9 1]).asList
+>>> Range[1 9 1].asList
 [1 2 3 4 5 6 7 8 9]
 
->>> Range([1 9 2]).asList
+>>> Range[1 9 2].asList
 [1 3 5 7 9]
 ```
 
 `step` may be negative:
 
 ```
->>> Range([9 1 -2]).asList
+>>> Range[9 1 -2].asList
 [9 7 5 3 1]
 ```
 
@@ -25,7 +25,7 @@ Count backwards by seven,
 OEIS [A115020](https://oeis.org/A115020):
 
 ```
->>> Range([100 2 -7]).asList
+>>> Range[100 2 -7].asList
 [
 	100  93  86  79  72  65
 	 58  51  44  37  30  23
@@ -39,11 +39,11 @@ However the `step` value may specify a range that not include `stop`,
 in which case it is not a proper range:
 
 ```
->>> let x = Range([1 9 3]);
+>>> let x = Range[1 9 3];
 >>> (x.asList, x.isProper)
 ([1 4 7], false)
 
->>> let x = Range([0 10 3]);
+>>> let x = Range[0 10 3];
 >>> (x.asList, x.isProper)
 ([0 3 6 9], false)
 ```
@@ -51,7 +51,7 @@ in which case it is not a proper range:
 Note in particular that with non-integer values _stop_ may not be in the list of values specified by the `Range`:
 
 ```
->>> let x = Range([1.2 2.2 0.15]);
+>>> let x = Range[1.2 2.2 0.15];
 >>> (x.size, x.asList, x.isProper)
 (
 	7,
@@ -63,7 +63,7 @@ Note in particular that with non-integer values _stop_ may not be in the list of
 The `last`, `min` and `max` methods report the true value:
 
 ```
->>> let x = Range([1.2 2.2 0.15]);
+>>> let x = Range[1.2 2.2 0.15];
 >>> (x.last, x.end, x.max, x.isProper)
 (2.1, 2.1, 2.1, false)
 ```
@@ -77,7 +77,7 @@ which is handled specially:
 >>> }.iterate(0, 100) > 1
 true
 
->>> let a = Range([0 1 0.01]);
+>>> let a = Range[0 1 0.01];
 >>> let b = a.asList;
 >>> (a.last > 1, b.last > 1, a.isProper)
 (false, false, true)
@@ -89,10 +89,10 @@ and can specify arbitrary ranges:
 
 ```
 >>> (1 .. 4)
-Range([1 4 1])
+Range[1 4 1]
 
 >>> (1, 3 .. 9)
-Range([1 9 2])
+Range[1 9 2]
 ```
 
 A `Range` is _proper_ if it is not empty and if the _stop_ value is the last value:
@@ -129,30 +129,30 @@ true
 true
 
 >>> 7:5
-Range([7 5 1])
+Range[7 5 1]
 ```
 
 Use a step of 2:
 
 ```
->>> Range([1 10 2]).asList
+>>> Range[1 10 2].asList
 [1 3 5 7 9]
 ```
 
 Use a negative step:
 
 ```
->>> Range([10 1 -1]).asList
+>>> Range[10 1 -1].asList
 [10 9 8 7 6 5 4 3 2 1]
 ```
 
 Use a non-integer step:
 
 ```
->>> Range([0 10 1.pi]).asList
+>>> Range[0 10 1.pi].asList
 [0 3.14159 6.28319 9.42478]
 
->>> Range([0 2.pi 0.5.pi]).collect { :x |
+>>> Range[0 2.pi 0.5.pi].collect { :x |
 >>> 	[x, x.radiansToDegrees.floor]
 >>> }
 [
@@ -188,7 +188,7 @@ A `Range` may have only one place:
 By convention a `Range` where the step is in the wrong direction is empty:
 
 ```
->>> let r = Range([1 0 1]);
+>>> let r = Range[1 0 1];
 >>> (r.size, r.isEmpty, r.asList)
 (0, true, [])
 ```
@@ -197,7 +197,7 @@ A `Range` may not have a `step` of `zero`:
 
 ```
 >>> {
->>> 	Range([1 9 0])
+>>> 	Range[1 9 0]
 >>> }.hasError
 true
 ```
@@ -235,10 +235,10 @@ or _i:j:k_ where _j_ is the step size.
 
 ```
 >>> 1:4
-Range([1 4 1])
+Range[1 4 1]
 
 >>> 1:9:2
-Range([1 9 2])
+Range[1 9 2]
 ```
 
 Work with infinite ranges:

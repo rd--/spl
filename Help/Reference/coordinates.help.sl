@@ -7,7 +7,7 @@ Answer a `List` of the coordinates of the object _x_.
 At `BarycentricCoordinates`:
 
 ```
->>> BarycentricCoordinates([1 3 5])
+>>> BarycentricCoordinates[1 3 5]
 >>> .coordinates
 [1 3 5]
 ```
@@ -15,7 +15,7 @@ At `BarycentricCoordinates`:
 At `CartesianCoordinates`:
 
 ```
->>> CartesianCoordinates([1 3 5])
+>>> CartesianCoordinates[1 3 5]
 >>> .coordinates
 [1 3 5]
 ```
@@ -23,7 +23,7 @@ At `CartesianCoordinates`:
 At `CylindricalCoordinates`:
 
 ```
->>> CylindricalCoordinates([1 3 5])
+>>> CylindricalCoordinates[1 3 5]
 >>> .coordinates
 [1 3 5]
 ```
@@ -31,7 +31,7 @@ At `CylindricalCoordinates`:
 At `GeodeticCoordinates`:
 
 ```
->>> GeodeticCoordinates([1 3 5])
+>>> GeodeticCoordinates[1 3 5]
 >>> .coordinates
 [1 3 5]
 ```
@@ -39,7 +39,7 @@ At `GeodeticCoordinates`:
 At `HexagonalCoordinates`:
 
 ```
->>> HexagonalCoordinates([1 3 5])
+>>> HexagonalCoordinates[1 3 5]
 >>> .coordinates
 [1 3 5]
 ```
@@ -47,7 +47,7 @@ At `HexagonalCoordinates`:
 At `HexagonalEfficientCoordinates`:
 
 ```
->>> HexagonalEfficientCoordinates([1 3 5])
+>>> HexagonalEfficientCoordinates[1 3 5]
 >>> .coordinates
 [1 3 5]
 ```
@@ -55,7 +55,7 @@ At `HexagonalEfficientCoordinates`:
 At `PlanarCoordinates`:
 
 ```
->>> PlanarCoordinates([1 3])
+>>> PlanarCoordinates[1 3]
 >>> .coordinates
 [1 3]
 ```
@@ -63,7 +63,7 @@ At `PlanarCoordinates`:
 At `PolarCoordinates`:
 
 ```
->>> PolarCoordinates([1 3])
+>>> PolarCoordinates[1 3]
 >>> .coordinates
 [1 3]
 ```
@@ -71,7 +71,7 @@ At `PolarCoordinates`:
 At `SphericalCoordinates`:
 
 ```
->>> SphericalCoordinates([1 3 5])
+>>> SphericalCoordinates[1 3 5]
 >>> .coordinates
 [1 3 5]
 ```

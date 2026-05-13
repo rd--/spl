@@ -65,7 +65,7 @@ draw the points and the shortest tour:
 ~~~spl svg=A
 let k = 13;
 let r = Sfc32(608513);
-let d = UniformDistribution([0 1]);
+let d = UniformDistribution[0 1];
 let p = d.randomVariate(r, [k 2]);
 let m = p.distanceMatrix;
 let [_, t] = m.heldKarpAlgorithm;

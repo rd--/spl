@@ -5,7 +5,7 @@
 Answer the _rgba_ components of the colour _c_.
 
 ```
->>> HsvColour([180 / 360, 1, 1], 1).rgba
+>>> HsvColour[180/360 1 1].rgba
 [0 1 1 1]
 ```
 

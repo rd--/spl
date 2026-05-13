@@ -21,17 +21,17 @@ Evaluate symbolically:
 Cyan, magenta and yellow are the negations of red, green and blue.
 
 ```
->>> RgbColour([1 0 0], 1)
+>>> RgbColour[1 0 0]
 >>> .negate
 >>> .isCyan
 true
 
->>> RgbColour([0 1 0], 1)
+>>> RgbColour[0 1 0]
 >>> .negate
 >>> .isMagenta
 true
 
->>> RgbColour([0 0 1], 1)
+>>> RgbColour[0 0 1]
 >>> .negate
 >>> .isYellow
 true

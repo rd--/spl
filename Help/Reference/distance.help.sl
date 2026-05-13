@@ -10,7 +10,7 @@ Calcuate the distance from a plane to the origin, along the plane’s normal:
 
 ```
 >>> InfinitePlane(1, 2, 2, -2).distance(
->>> 	Point([2, 5, 4])
+>>> 	Point[2 5 4]
 >>> )
 6
 ```

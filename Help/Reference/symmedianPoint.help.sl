@@ -32,7 +32,7 @@ let c = p.centroid;
 [
 	t,
 	p,
-	PointCloud([s c])
+	PointCloud[s c]
 ].LineDrawing
 ~~~
 

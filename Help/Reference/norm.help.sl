@@ -18,7 +18,7 @@ At `Complex`:
 At `Quaternion`:
 
 ```
->>> Quaternion([1 2 3 4]).norm
+>>> Quaternion[1 2 3 4].norm
 30.sqrt
 ```
 
