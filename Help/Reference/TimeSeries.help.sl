@@ -76,7 +76,7 @@ if the key already exists the associated value is replaced,
 else a new entry is made:
 
 ```
->>> let ts = [1 3; 2 2; 3 1].TimeSeries;
+>>> let ts = TimeSeries[1 3; 2 2; 3 1];
 >>> ts.atPut(1, 5);
 >>> ts[4] := -1;
 >>> ts[2] := 3;
@@ -87,10 +87,10 @@ else a new entry is made:
 `window` selects a section of a time series:
 
 ```
->>> [1 1; 2 2; 3 3; 4 4; 5 5]
->>> .TimeSeries
->>> .window(2, 4)
-[2 2; 3 3; 4 4].TimeSeries
+>>> TimeSeries[
+>>> 	1 1; 2 2; 3 3; 4 4; 5 5
+>>> ].window(2, 4)
+TimeSeries[2 2; 3 3; 4 4]
 ```
 
 The binary form of `TimeSeries` constructs a time series from separate data and time lists:
@@ -120,13 +120,16 @@ TimeSeries[1 2; 2 1; 3 6; 4 5; 5 7; 6 4]
 `merge` merges two time series to create a third:
 
 ```
->>> let p = [1 -1; 3 -3; 5 -5].TimeSeries;
->>> let q = [2 -2; 4 -4].TimeSeries;
+>>> let p = TimeSeries[1 -1; 3 -3; 5 -5];
+>>> let q = TimeSeries[2 -2; 4 -4];
 >>> let a = p.merge(q);
 >>> let b = q.merge(p);
 >>> (a, a = b)
 (
-	TimeSeries([-1, -2 .. -5], [1 .. 5]),
+	TimeSeries(
+		[-1, -2 .. -5],
+		[1 .. 5]
+	),
 	true
 )
 ```
@@ -135,13 +138,16 @@ The ternary form allows a two argument block that is used to resolve conflicts,
 else conflicts are treated as errors:
 
 ```
->>> let p = [1 -1; 2 -2; 3 -3].TimeSeries;
->>> let q = [2 '?'; 4 -4; 5 -5].TimeSeries;
+>>> let p = TimeSeries[1 -1; 2 -2; 3 -3];
+>>> let q = TimeSeries[2 '?'; 4 -4; 5 -5];
 >>> let a = p.merge(q, leftIdentity:/2);
 >>> let b = q.merge(p, rightIdentity:/2);
 >>> (a, a = b)
 (
-	TimeSeries([-1, -2 .. -5], [1 .. 5]),
+	TimeSeries(
+		[-1, -2 .. -5],
+		[1 .. 5]
+	),
 	true
 )
 ```

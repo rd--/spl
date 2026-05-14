@@ -9,7 +9,7 @@ or a multi-variate uniform distribution with minima _(x₁,y₁…)_ and maxima 
 Calculate `entropy`, `mean`, `median`, `kurtosis`, `skewness`, `standardDeviation` and `variance`:
 
 ```
->>> let d = [0 2.pi].UniformDistribution;
+>>> let d = UniformDistribution[0 2.pi];
 >>> (
 >>> 	d.entropy,
 >>> 	d.mean,
@@ -33,17 +33,17 @@ Calculate `entropy`, `mean`, `median`, `kurtosis`, `skewness`, `standardDeviatio
 Probability density function at specific value:
 
 ```
->>> [0 1].UniformDistribution.pdf(0.5)
+>>> UniformDistribution[0 1].pdf(0.5)
 1
 
->>> [-1 1].UniformDistribution.pdf(0.5)
+>>> UniformDistribution[-1 1].pdf(0.5)
 1/2
 ```
 
 Cumulative distribution function at specific value:
 
 ```
->>> [0 1].UniformDistribution.cdf(0.5)
+>>> UniformDistribution[0 1].cdf(0.5)
 0.5
 ```
 
@@ -51,7 +51,7 @@ Plot `pdf` over a subset of the reals:
 
 ~~~spl svg=A
 (-1 -- 2).functionPlot(
-	[0 1].UniformDistribution.pdf
+	UniformDistribution[0 1].pdf
 )
 ~~~
 
@@ -61,7 +61,7 @@ Plot `cdf` over a subset of the reals:
 
 ~~~spl svg=B
 (-1 -- 2).functionPlot(
-	[0 1].UniformDistribution.cdf
+	UniformDistribution[0 1].cdf
 )
 ~~~
 
@@ -71,7 +71,7 @@ Plot `randomVariate` of a uni-variate uniform distribution:
 
 ~~~spl svg=C
 let r = Sfc32(378914);
-UniformDistribution([0 1])
+UniformDistribution[0 1]
 .randomVariate(r, 99)
 .linePlot
 ~~~
@@ -82,7 +82,7 @@ Two dimensional uni-variate uniform noise:
 
 ~~~spl png=D
 let r = Sfc32(180513);
-UniformDistribution([0 1])
+UniformDistribution[0 1]
 .randomVariate(r, [100 100])
 .Greymap
 ~~~
@@ -93,7 +93,7 @@ Generate a sample of pseudorandom numbers from a uniform distribution:
 
 ~~~spl svg=E
 let r = Sfc32(318420);
-UniformDistribution([1 3])
+UniformDistribution[1 3]
 .randomVariate(r, [10 ^ 4])
 .histogramPlot
 ~~~
@@ -105,10 +105,9 @@ plot as _(r,g,b)_ array:
 
 ~~~spl svg=F
 let r = Sfc32(367814);
-UniformDistribution(
-	[0 0.75; 0.25 0.75; 0 1]
-)
-.randomVariate(r, [5 15])
+UniformDistribution[
+	0 0.75; 0.25 0.75; 0 1
+].randomVariate(r, [5 15])
 .arrayPlot
 ~~~
 
@@ -118,10 +117,9 @@ Multi-variate uniform noise, plot as _(r, θ)_:
 
 ~~~spl svg=G
 let r = Sfc32(379312);
-UniformDistribution(
-	[0 1; -0.25.pi 0.25.pi]
-)
-.randomVariate(r, [2 ^ 7])
+UniformDistribution[
+	0 1; -0.25.pi 0.25.pi
+].randomVariate(r, [2 ^ 7])
 .collect(fromPolarCoordinates:/1)
 .scatterPlot
 ~~~
@@ -133,7 +131,7 @@ Quantile function:
 ~~~spl svg=H
 (0 -- 1).functionPlot(
 	[1 3 5].collect { :max |
-		UniformDistribution([0 max])
+		UniformDistribution[0 max]
 		.quantile
 	}
 )

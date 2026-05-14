@@ -8,14 +8,14 @@ Clips the subject polygon _s_ to the clipping polygon _c_.
 Draw _s_ and _c_ and a translated copy of answer:
 
 ~~~spl svg=A
-let s = [
+let s = Polygon[
 	50 150; 200  50; 350 150; 350 300;
 	250 300; 200 250; 150 350; 100 250;
 	100 200
-].Polygon;
-let c = [
+];
+let c = Polygon[
 	100 100; 300 100; 300 300; 100 300
-].Polygon;
+];
 [
 	s,
 	c,

@@ -16,7 +16,7 @@ Interior angles of a triangle:
 C.f. `Polygon` and `interiorAngles`:
 
 ```
->>> [0 0; 5 0; 3.2 2.4].Polygon
+>>> Polygon[0 0; 5 0; 3.2 2.4]
 >>> .interiorAngles
 [(4 / 5).arcCos, (3 / 5).arcCos, 1/2.pi]
 ```
@@ -24,7 +24,7 @@ C.f. `Polygon` and `interiorAngles`:
 C.f. `Triangle`:
 
 ```
->>> Triangle([0 0], [5 0], [3.2 2.4])
+>>> Triangle[0 0; 5 0; 3.2 2.4]
 >>> .interiorAngles
 [(4 / 5).arcCos, (3 / 5).arcCos, 1/2.pi]
 ```

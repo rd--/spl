@@ -8,7 +8,7 @@ The `sum` of interior angles in any _n_-gon is given by _(n-2)π_ radians.
 At `Polygon`:
 
 ```
->>> let p = [0 0; 1 0; 0 1].Polygon;
+>>> let p = Polygon[0 0; 1 0; 0 1];
 >>> let a = p.interiorAngles;
 >>> (a, a.sum)
 (

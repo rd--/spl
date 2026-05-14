@@ -23,16 +23,16 @@ At `Record`:
 At `IdentityMultiset`:
 
 ```
->>> [2 3 3 4 4 4].IdentityMultiset
+>>> IdentityMultiset[2 3 3 4 4 4]
 >>> .occurrencesOf(4)
 3
 ```
 
-The number of occurrences of an element in set will be zero or one.
+The number of occurrences of an element in a set will be zero or one.
 At `IdentitySet`:
 
 ```
->>> [1 2 2 3 3 3].IdentitySet
+>>> IdentitySet[1 2 2 3 3 3]
 >>> .occurrencesOf(3)
 1
 ```

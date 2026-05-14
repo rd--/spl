@@ -75,11 +75,11 @@ true
 At `Set`:
 
 ```
->>> [2 3].Set.add(1)
+>>> Set[2 3].add(1)
 1
 
 >>> {
->>> 	[1 2 3].Set.add(1)
+>>> 	Set[1 2 3].add(1)
 >>> }.hasError
 true
 ```

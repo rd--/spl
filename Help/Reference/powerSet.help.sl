@@ -38,7 +38,7 @@ At `List`, different occurrences of the same element are treated as distinct:
 At `IdentitySet`:
 
 ```
->>> [1 2 3].asIdentitySet.powerSet
+>>> IdentitySet[1 2 3].powerSet
 [
 	;
 	1; 2;

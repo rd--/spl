@@ -9,7 +9,7 @@ Unless the stream is at the start, this is also the index of the previous elemen
 The position index corresponding to the beginning of the stream is `zero`.
 
 ```
->>> let s = [1 3 5 7 9].asStream;
+>>> let s = Stream[1 3 5 7 9];
 >>> (s.position, s.next(2), s.position)
 (0, [1 3], 2)
 ```
@@ -23,7 +23,7 @@ Move to indicated position,
 which is the index before the next element:
 
 ```
->>> let s = [1 3 5 7 9].asStream;
+>>> let s = Stream[1 3 5 7 9];
 >>> s.position(3);
 >>> s.next
 7
@@ -33,12 +33,12 @@ It is an `error` to move the position out of bounds:
 
 ```
 >>> {
->>> 	[].asStream.position := -1
+>>> 	Stream[].position := -1
 >>> }.hasError
 true
 
 >>> {
->>> 	[].asStream.position := 1
+>>> 	Stream[].position := 1
 >>> }.hasError
 true
 ```

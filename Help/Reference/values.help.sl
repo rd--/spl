@@ -29,7 +29,7 @@ At an `Association` `List`:
 At `TimeSeries`:
 
 ```
->>> [1 1; 2 3; 3 5].TimeSeries.values
+>>> TimeSeries[1 1; 2 3; 3 5].values
 [1 3 5]
 ```
 

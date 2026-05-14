@@ -7,30 +7,30 @@ Apply the projection _p_ to the geometry _g_.
 At `Point`:
 
 ```
->>> [1 2 3].Point.project { :each |
+>>> Point[1 2 3].project { :each |
 >>> 	each @* [1 2]
 >>> }
-[1 2].Point
+Point[1 2]
 ```
 
 At `Line`:
 
 ```
->>> [1 2 3; 4 5 6].Line.project { :each |
+>>> Line[1 2 3; 4 5 6].project { :each |
 >>> 	each @* [1 2]
 >>> }
-[1 2; 4 5].Line
+Line[1 2; 4 5]
 ```
 
 At `Polygon`:
 
 ```
->>> [1 2 3; 4 5 6; 7 8 9]
->>> .Polygon
->>> .project { :each |
+>>> Polygon[
+>>> 	1 2 3; 4 5 6; 7 8 9
+>>> ].project { :each |
 >>> 	each @* [1 2]
 >>> }
-[1 2; 4 5; 7 8].Polygon
+Polygon[1 2; 4 5; 7 8]
 ```
 
 At `Polyhedron` answer `PolygonMesh`:
@@ -48,3 +48,5 @@ PolygonMesh(
 * * *
 
 See also: AxonometricProjection, Line, Point, Polygon, PolygonMesh, Polyhedron, projection
+
+Guides: Geometry Functions

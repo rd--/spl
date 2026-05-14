@@ -18,10 +18,10 @@ let b = t.firstBrocardPoint;
 let [p, q, r] = t.vertexCoordinates;
 [
 	t,
-	[p, q, b].circleThrough,
-	[p, r, b].circleThrough,
-	[q, r, b].circleThrough,
-	[b, p, q, r].PointCloud
+	[p q b].circleThrough,
+	[p r b].circleThrough,
+	[q r b].circleThrough,
+	[b p q r].PointCloud
 ].LineDrawing
 ~~~
 

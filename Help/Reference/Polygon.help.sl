@@ -63,11 +63,11 @@ let d = 2.pi / 12;
 	let dx = { :x |
 		d * (q + x)
 	};
-	[
+	Polygon[
 		(8 - r) * [-1.dx.cos, -1.dx.sin],
 		(8 - r) * [1.dx.cos, 1.dx.sin],
 		(10 - r) * [0.dx.cos, 0.dx.sin]
-	].Polygon
+	]
 }.table(1:6, 1:12).LineDrawing
 ~~~
 

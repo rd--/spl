@@ -113,7 +113,7 @@ At `Stream` answers the number of elements altogether,
 not the number of elements remaining:
 
 ```
->>> let s = [1 3 5 7 9].asStream;
+>>> let s = Stream[1 3 5 7 9];
 >>> (s.next(3), s.size)
 ([1 3 5], 5)
 ```

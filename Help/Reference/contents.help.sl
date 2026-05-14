@@ -40,10 +40,10 @@ At `SortedList` answers the stored list,
 use `asList` to get a copy:
 
 ```
->>> [1 3 5 4 2 0].SortedList.contents
+>>> SortedList[1 3 5 4 2 0].contents
 [0 1 2 3 4 5]
 
->>> [1 3 5 4 2 0].SortedList.asList
+>>> SortedList[1 3 5 4 2 0].asList
 [0 1 2 3 4 5]
 ```
 

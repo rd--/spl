@@ -60,8 +60,8 @@ let [p, q, r] = m.vertexCoordinates;
 [
 	t,
 	m,
-	[a p; b q; c r].Line,
-	t.centroid.Point
+	Line[a p; b q; c r],
+	Point(t.centroid)
 ].LineDrawing
 ~~~
 

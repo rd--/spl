@@ -18,7 +18,7 @@ Gray code from bit count:
 Gray code from matrix:
 
 ```
->>> GrayCode([0 0; 0 1; 1 1; 1 0])
+>>> GrayCode[0 0; 0 1; 1 1; 1 0]
 >>> .transitionSequence
 [2 1 2 1]
 ```
@@ -26,7 +26,7 @@ Gray code from matrix:
 Gray code from transition sequence:
 
 ```
->>> GrayCode([2 1 2 1])
+>>> GrayCode[2 1 2 1]
 >>> .sequence
 [0 0; 0 1; 1 1; 1 0]
 ```

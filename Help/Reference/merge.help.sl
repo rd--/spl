@@ -8,11 +8,14 @@ merge two time series,
 using _f_ to resolve conflicts:
 
 ```
->>> [1 -1; 3 -3; 5 -5].TimeSeries
+>>> TimeSeries[1 -1; 3 -3; 5 -5]
 >>> .merge(
->>> 	[2 -2; 4 -4].TimeSeries
+>>> 	TimeSeries[2 -2; 4 -4]
 >>> )
-TimeSeries([-1, -2 .. -5], [1 .. 5])
+TimeSeries(
+	[-1, -2 .. -5],
+	[1 .. 5]
+)
 ```
 
 At a `List` of dictionaries,
