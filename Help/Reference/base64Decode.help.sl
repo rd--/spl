@@ -9,7 +9,7 @@ Decode an encode `ByteArray`:
 ```
 >>> 'AQIDBAUGBwgJCgsMDQ4PEB'
 >>> .base64Decode
-[1 .. 16].asByteArray
+ByteArray[1 .. 16]
 ```
 
 Decode an encode Ascii `String`:

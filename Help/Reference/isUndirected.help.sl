@@ -7,7 +7,7 @@ Answers `true` if graph or edge _x_ is undirected, else `false`.
 A graph is undirected if all of its edges are undirected.
 
 ```
->>> let g = [1 2; 2 3; 3 1].asGraph;
+>>> let g = Graph[1 2; 2 3; 3 1];
 >>> let e = g.edgeList;
 >>> (
 >>> 	g.isUndirected,

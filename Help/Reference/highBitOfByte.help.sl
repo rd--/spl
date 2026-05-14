@@ -1,8 +1,8 @@
 # highBitOfByte
 
-- _highBitOfByte(anInteger)_
+- _highBitOfByte(n)_
 
-Answer the high bit of _anInteger_ in the range (0, 255).
+Answer the high bit of the integer _n_ in the range (0, 255).
 
 ```
 >>> 32.highBitOfByte
@@ -16,7 +16,7 @@ Consults a lookup table:
 
 ```
 >>> system.highBitPerByteTable.first(16)
-[0 1 2 2 3 3 3 3 4 4 4 4 4 4 4 4].asByteArray
+ByteArray[0 1 2 2 3 3 3 3 4 4 4 4 4 4 4 4]
 ```
 
 * * *

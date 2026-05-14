@@ -67,13 +67,13 @@ Rank-3 totally antisymmetric (Levi-Civita) tensor:
 The `permutationSymbol` is the _signature_ of a `Permutation`:
 
 ```
->>> [4 2 3 1 5].asPermutation.signature
+>>> Permutation[4 2 3 1 5].signature
 -1
 
->>> [1 3 2 5 4].asPermutation.signature
+>>> Permutation[1 3 2 5 4].signature
 1
 
->>> [].asPermutation.signature
+>>> Permutation[].signature
 -1 ^ 0
 ```
 

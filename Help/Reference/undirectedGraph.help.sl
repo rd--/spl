@@ -1,13 +1,13 @@
 # undirectedGraph
 
-- _undirectedGraph(aGraph)_
+- _undirectedGraph(g)_
 
-Answer an undirected graph from a directed graph.
+Answer an undirected graph from the directed graph _g_.
 
 ```
->>> let g = [
+>>> let g = Graph[
 >>> 	1 -> 2, 2 -> 3, 3 -> 1, 3 -> 4
->>> ].asGraph;
+>>> ];
 >>> let h = g.undirectedGraph;
 >>> (
 >>> 	g.isDirected,
@@ -24,7 +24,7 @@ Answer an undirected graph from a directed graph.
 The graph is unchanged if already undirected:
 
 ```
->>> let g = [1 2; 2 3; 3 1; 3 4].asGraph;
+>>> let g = Graph[1 2; 2 3; 3 1; 3 4];
 >>> let h = g.undirectedGraph;
 >>> (
 >>> 	g.isUndirected,
@@ -41,7 +41,7 @@ The graph is unchanged if already undirected:
 Directed edges with different directions convert to one undirected edge:
 
 ```
->>> let g = [1 -> 2, 2 -> 1].asGraph;
+>>> let g = Graph[1 -> 2, 2 -> 1];
 >>> g.undirectedGraph.edgeList
 [[1, 2]].asEdgeList
 ```

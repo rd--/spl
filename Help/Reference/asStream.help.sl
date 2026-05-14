@@ -10,7 +10,7 @@ At `List` and `Range`, answer a `CollectionStream` on the collection _c_.
 (1, 2, 3)
 ```
 
-Alias for `asIterator`.
+Alias for both `asIterator` and `Stream`.
 
 * * *
 

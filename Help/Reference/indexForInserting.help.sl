@@ -6,7 +6,7 @@ At the `SortedList` _c_,
 answers the index where the object _x_ would be inserted.
 
 ```
->>> let l = [0 2.5 5 7.5 10].asSortedList;
+>>> let l = SortedList[0 2.5 5 7.5 10];
 >>> -1:11.collect { :each |
 >>> 	l.indexForInserting(each)
 >>> }

@@ -8,12 +8,12 @@ A nearest neighbour graph for integers in the range one to six:
 
 ```
 >>> [1 .. 5].nearestNeighbourGraph
-[
+Graph[
 	1 --> 2, 2 --> 1,
 	2 --> 3, 3 --> 2,
 	3 --> 4, 4 --> 3,
 	4 --> 5, 5 --> 4
-].asGraph
+]
 ```
 
 Edges are directed,
@@ -21,7 +21,7 @@ the nearest neighour relation is not symmetrical:
 
 ```
 >>> [1 2 5].nearestNeighbourGraph
-[1 --> 2, 2 --> 1, 3 --> 2].asGraph
+Graph[1 --> 2, 2 --> 1, 3 --> 2]
 ```
 
 A nearest neighbour graph:

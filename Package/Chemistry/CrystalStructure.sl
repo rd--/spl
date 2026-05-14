@@ -2,16 +2,6 @@
 
 CrystalStructure : [Object] { | name description vertexCount edges vertexLabels vertexCoordinates |
 
-	asGraph { :self |
-		let answer = Graph(
-			self.vertexList,
-			self.edges
-		);
-		answer.vertexLabels(self.vertexLabels);
-		answer.vertexCoordinates(self.vertexCoordinates);
-		answer
-	}
-
 	asPerspectiveDrawing { :self :projection |
 		self.asGraph.asPerspectiveDrawing(projection)
 	}
@@ -30,6 +20,16 @@ CrystalStructure : [Object] { | name description vertexCount edges vertexLabels 
 
 	bonds { :self |
 		self.edges
+	}
+
+	[crystalStructureToGraph, asGraph] { :self |
+		let answer = Graph(
+			self.vertexList,
+			self.edges
+		);
+		answer.vertexLabels(self.vertexLabels);
+		answer.vertexCoordinates(self.vertexCoordinates);
+		answer
 	}
 
 	vertexList { :self |

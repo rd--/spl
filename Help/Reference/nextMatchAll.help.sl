@@ -6,7 +6,7 @@ Reads the next _x.size_ objects from the stream _s_ and answer `true` if the obj
 and `false` if not.
 
 ```
->>> let s = [1 3 5 7 9].asIterator;
+>>> let s = Iterator[1 3 5 7 9];
 >>> (s.nextMatchAll([1 3 5]), s.next)
 (true, 7)
 ```

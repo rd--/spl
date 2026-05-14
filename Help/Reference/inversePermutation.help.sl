@@ -16,16 +16,16 @@ Inverse of permutations in one-line (permutation list) notation:
 
 ```
 >>> [4 8 5 2 1 3 7 6].inversePermutation
-[5 4 6 1 3 8 7 2].asPermutation
+Permutation[5 4 6 1 3 8 7 2]
 
 >>> [
 >>> 	3 8 5 10 9
 >>> 	4 6 1 7 2
 >>> ].inversePermutation
-[8 10 1 6 3 7 9 2 5 4].asPermutation
+Permutation[8 10 1 6 3 7 9 2 5 4]
 
 >>> [2 4 1 5 3].inversePermutation
-[3 1 5 2 4].asPermutation
+Permutation[3 1 5 2 4]
 ```
 
 The product of a permutation with its inverse gives the identity permutation:

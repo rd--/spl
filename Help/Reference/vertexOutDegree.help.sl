@@ -14,11 +14,11 @@ For an undirected graph, an edge is taken to be both an in-edge or an out-edge.
 At a directed graph:
 
 ```
->>> let g = [
+>>> let g = Graph[
 >>> 	1 -> 2,
 >>> 	2 -> 3, 2 -> 4,
 >>> 	3 -> 1
->>> ].asGraph;
+>>> ];
 >>> (
 >>> 	g.vertexOutDegree,
 >>> 	g.vertexOutDegree(2)
@@ -29,7 +29,7 @@ At a directed graph:
 At an undirected graph:
 
 ```
->>> let g = [1 2; 2 3; 3 1; 3 4].asGraph;
+>>> let g = Graph[1 2; 2 3; 3 1; 3 4];
 >>> (
 >>> 	g.vertexOutDegree,
 >>> 	g.vertexOutDegree(2)
@@ -40,11 +40,11 @@ At an undirected graph:
 At a multigraph:
 
 ```
->>> let g = [
+>>> let g = Graph[
 >>> 	1 -> 2, 1 -> 2,
 >>> 	2 -> 3,
 >>> 	3 -> 1
->>> ].asGraph;
+>>> ];
 >>> (
 >>> 	g.vertexOutDegree,
 >>> 	g.vertexOutDegree(2)

@@ -24,7 +24,8 @@ At a directed graph:
 At a multigraph:
 
 ```
->>> [1 -> 2, 1 -> 2].asGraph.vertexList
+>>> Graph[1 -> 2, 1 -> 2]
+>>> .vertexList
 [1 2]
 ```
 

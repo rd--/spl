@@ -8,22 +8,25 @@ Undirected edges match directed edges in both directions:
 
 ```
 >>> 5.starGraph
-[1 2; 1 3; 1 4; 1 5].asGraph
+Graph[1 2; 1 3; 1 4; 1 5]
 
->>> 5.starGraph.includesEdge(1 --- 5)
+>>> 5.starGraph
+>>> .includesEdge(1 --- 5)
 true
 
->>> 5.starGraph.includesEdge(1 --> 5)
+>>> 5.starGraph
+>>> .includesEdge(1 --> 5)
 true
 
->>> 5.starGraph.includesEdge(5 --> 1)
+>>> 5.starGraph
+>>> .includesEdge(5 --> 1)
 true
 ```
 
 Directed edges match undirected edges and directed edges that are equal:
 
 ```
->>> let g = [1 -> 2, 2 -> 3, 3 -> 1].asGraph;
+>>> let g = Graph[1 -> 2, 2 -> 3, 3 -> 1];
 >>> [1 --- 3, 1 --> 3, 3 --> 1].collect { :each |
 >>> 	g.includesEdge(each)
 >>> }

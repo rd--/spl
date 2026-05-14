@@ -1,15 +1,15 @@
 ChordDiagram : [Object, Storeable] { | lengthVector |
 
-	asGraph { :self |
-		Graph(
-			self.vertexList,
-			self.edgeList
-		)
-	}
-
 	chordDiagramPlot { :self |
 		self.asGraph.circularGraphPlot (
 			drawCircle: true
+		)
+	}
+
+	[chordDiagramToGraph, asGraph] { :self |
+		Graph(
+			self.vertexList,
+			self.edgeList
 		)
 	}
 

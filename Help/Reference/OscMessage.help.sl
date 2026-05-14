@@ -31,17 +31,17 @@ The `encode` method answers the binary encoding of the message as a `ByteArray`:
 
 ```
 >>> OscMessage('/x', []).encode
-[
+ByteArray[
 	47 120   0   0
 	44   0   0   0
-].asByteArray
+]
 
 >>> OscMessage('/y', [3.141]).encode
-[
+ByteArray[
 	47 121   0   0
 	44 102   0   0
 	64  73   6  37
-].asByteArray
+]
 ```
 
 * * *

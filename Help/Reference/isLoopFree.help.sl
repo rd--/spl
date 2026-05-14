@@ -8,7 +8,7 @@ Answers `true` if the graph _g_ has no self-loops, else `false`.
 >>> 5.completeGraph.isLoopFree
 true
 
->>> [1 1; 1 2].asGraph.isLoopFree
+>>> Graph[1 1; 1 2].isLoopFree
 false
 ```
 

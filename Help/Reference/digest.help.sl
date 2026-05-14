@@ -7,12 +7,12 @@ Answer a digest of the data _d_ using the algorithm _a_.
 At `ByteArray` promises a `ByteArray`:
 
 ```
->>> let d = [
+>>> let d = ByteArray[
 >>> 	11 244 116 137  99  99  80  94
 >>> 	94 165 229 214 172 232 235 251
 >>> 	19 167  96 164   9 177 251  70
 >>> 	125  66 143 199  22 249 242 132
->>> ].asByteArray;
+>>> ];
 >>> 'digest'
 >>> .utf8ByteArray
 >>> .digest('SHA-256').then { :x |

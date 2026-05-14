@@ -54,8 +54,8 @@ Identity permutation list, written with unary cycles:
 When applied to a `Permutation` object the answer has unary cycles removed:
 
 ```
->>> let p = [1 .. 5].asPermutation;
->>> p.permutationCycles
+>>> Permutation[1 .. 5]
+>>> .permutationCycles
 []
 ```
 

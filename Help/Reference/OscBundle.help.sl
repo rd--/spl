@@ -19,11 +19,11 @@ The `encode` method answers the binary encoding of the bundle as a `ByteArray`:
 ```
 >>> let m = OscMessage('/x', []);
 >>> OscBundle(0, [m]).encode
-[
+ByteArray[
 	35 98 117 110 100 108 101 0 131 170
 	126 128 0 0 0 0 0 0 0 8
 	47 120 0 0 44 0 0 0
-].asByteArray
+]
 ```
 
 * * *

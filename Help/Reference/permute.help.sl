@@ -7,7 +7,7 @@ Answers the reordering of the sequence _x_ according to the permutation _p_.
 Cyclic permutation of three elements in a list:
 
 ```
->>> let p = [[1 3 2]].asPermutation;
+>>> let p = Permutation[[1 3 2]];
 >>> [1 .. 5].permute(p)
 [2 3 1 4 5]
 ```
@@ -15,7 +15,7 @@ Cyclic permutation of three elements in a list:
 Equivalent action with a permutation list:
 
 ```
->>> let p = [3 1 2].asPermutation;
+>>> let p = Permutation[3 1 2];
 >>> [1 .. 5].permute(p)
 [2 3 1 4 5]
 ```
@@ -24,7 +24,7 @@ Exchange the first and last characters of the english alphabet:
 
 ```
 >>> let a = 'english'.namedAlphabet;
->>> let p = [[1 26]].asPermutation;
+>>> let p = Permutation[[1 26]];
 >>> a.permute(p).stringJoin
 'zbcdefghijklmnopqrstuvwxya'
 ```
@@ -34,7 +34,7 @@ Permute several characters:
 ```
 >>> let a = 'english'.namedAlphabet;
 >>> let c = [1 6 18 2; 3 20 11];
->>> let p = c.asPermutation;
+>>> let p = Permutation(c);
 >>> a.permute(p).stringJoin
 'brkdeaghijtlmnopqfscuvwxyz'
 ```

@@ -14,11 +14,11 @@ For a directed graph, an edge is incident to a vertex whether it is an in-edge o
 At a directed graph:
 
 ```
->>> let g = [
+>>> let g = Graph[
 >>> 	1 -> 2,
 >>> 	2 -> 3, 2 -> 4,
 >>> 	3 -> 1
->>> ].asGraph;
+>>> ];
 >>> (
 >>> 	g.vertexDegree,
 >>> 	g.vertexDegree(2)
@@ -29,7 +29,7 @@ At a directed graph:
 At an undirected graph:
 
 ```
->>> let g = [1 2; 2 3; 3 1; 2 4].asGraph;
+>>> let g = Graph[1 2; 2 3; 3 1; 2 4];
 >>> (
 >>> 	g.vertexDegree,
 >>> 	g.vertexDegree(2)
@@ -40,11 +40,11 @@ At an undirected graph:
 At a multigraph:
 
 ```
->>> let g = [
+>>> let g = Graph[
 >>> 	1 -> 2, 1 -> 2,
 >>> 	2 -> 3,
 >>> 	3 -> 1
->>> ].asGraph;
+>>> ];
 >>> (
 >>> 	g.vertexDegree,
 >>> 	g.vertexDegree(2)
@@ -71,11 +71,11 @@ Every graph has an even number of vertices with odd degree:
 The vertex degrees of an undirected graph can be obtained from its adjacency matrix:
 
 ```
->>> let g = [
+>>> let g = Graph[
 >>> 	1 1; 1 2; 1 3;
 >>> 	2 3;
 >>> 	3 4
->>> ].asGraph;
+>>> ];
 >>> let m = g.adjacencyMatrix;
 >>> (
 >>> 	m,

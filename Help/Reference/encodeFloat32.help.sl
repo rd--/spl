@@ -7,20 +7,20 @@ in _littleEndian_ format if the flag is `true`.
 
 ```
 >>> 1.encodeFloat32(true)
-[0, 0, 128, 63].asByteArray
+ByteArray[0, 0, 128, 63]
 
 >>> 1.encodeFloat32(false)
-[63, 128, 0, 0].asByteArray
+ByteArray[63, 128, 0, 0]
 ```
 
 Encode `pi` and `e`:
 
 ```
 >>> 1.pi.encodeFloat32(true)
-[219 15 73 64].asByteArray
+ByteArray[219 15 73 64]
 
 >>> 1.e.encodeFloat32(true)
-[84 248 45 64].asByteArray
+ByteArray[84 248 45 64]
 ```
 
 * * *

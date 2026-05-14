@@ -8,7 +8,7 @@ where _k_ is a number of objects equal to the lesser of _n_ and the number of re
 Relative re-positioning:
 
 ```
->>> let s = [1 2 3 4 5].asStream;
+>>> let s = Stream[1 2 3 4 5];
 >>> s.position(3);
 >>> s.skip(-1);
 >>> s.next
@@ -18,7 +18,7 @@ Relative re-positioning:
 Skip to a position:
 
 ```
->>> let s = [1 3 5 7 9].asStream;
+>>> let s = Stream[1 3 5 7 9];
 >>> s.skip(2);
 >>> s.upToEnd
 [5 7 9]
@@ -26,7 +26,7 @@ Skip to a position:
 
 * * *
 
-See also: asStream, position, next, skipTo
+See also: asStream, position, next, skipTo, Stream
 
 Guides: Stream Functions
 

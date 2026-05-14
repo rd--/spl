@@ -19,11 +19,11 @@ Answer the distances between vertices of a grid graph:
 Answer the distance between vertices of a directed graph:
 
 ```
->>> [
+>>> Graph[
 >>> 	1 -> 2, 2 -> 3,
 >>> 	3 -> 1, 3 -> 4, 3 -> 5,
 >>> 	4 -> 5
->>> ].asGraph.graphDistance(1, 4)
+>>> ].graphDistance(1, 4)
 3
 ```
 

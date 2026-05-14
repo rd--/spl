@@ -7,7 +7,7 @@ Answer the `ByteArray` encoded in Base-64 at the string _s_.
 ```
 >>> 'AQIDBAUGBwgJCgsMDQ4PEB'
 >>> .parseBase64
-[1 .. 16].asByteArray
+ByteArray[1 .. 16]
 ```
 
 This is another name for `base64Decode`.

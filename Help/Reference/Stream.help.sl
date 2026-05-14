@@ -1,5 +1,7 @@
 # Stream
 
+- _Stream([x₁ x₂ …])_
+
 `Stream` is a `Trait` that represents the ability to maintain a position reference into a collection of objects.
 
 ```
@@ -28,6 +30,13 @@ List of types implementing `Stream`:
 
 `Stream` adds `reset` to the `Iterator` protocol.
 
+The `Stream` constructor method answers a `CollectionStream`:
+
+```
+>>> Stream[1 2 3].typeOf
+'CollectionStream'
+```
+
 _Rationale_:
 > We use the phrase _streaming over a collection_ to mean accessing the
 > elements of a collection in such a way that it is possible to
@@ -38,6 +47,6 @@ _Rationale_:
 
 * * *
 
-See also: BlockStream, Iterator, PositionableStream, reset, WriteStream
+See also: BlockStream, CollectionStream, Iterator, PositionableStream, reset, WriteStream
 
 Guides: Stream Functions

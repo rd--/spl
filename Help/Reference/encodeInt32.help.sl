@@ -7,10 +7,10 @@ in _littleEndian_ format if the flag is `true`.
 
 ```
 >>> 1.encodeInt32(true)
-[1, 0, 0, 0].asByteArray
+ByteArray[1, 0, 0, 0]
 
 >>> 1.encodeInt32(false)
-[0, 0, 0, 1].asByteArray
+ByteArray[0, 0, 0, 1]
 ```
 
 * * *

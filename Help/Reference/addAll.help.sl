@@ -55,7 +55,7 @@ Adding no items to a `List`:
 At `SortedList`:
 
 ```
->>> let l = [7, 5 .. 1].asSortedList;
+>>> let l = SortedList[7, 5 .. 1];
 >>> l.addAll([8, 6 .. 2]);
 >>> l.contents
 [1 .. 8]

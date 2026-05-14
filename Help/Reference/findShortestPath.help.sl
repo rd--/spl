@@ -7,14 +7,13 @@ Answer the shortest path from source vertex _s_ to target vertex _t_ in the `Gra
 Find a shortest path between two individual vertices in a graph:
 
 ```
->>> [
+>>> Graph[
 >>> 	1 2; 1 3; 1 4; 1 5; 1 6;
 >>> 	2 3; 2 6;
 >>> 	3 4;
 >>> 	4 5;
 >>> 	5 6
->>> ].asGraph
->>> .findShortestPath(3, 5)
+>>> ].findShortestPath(3, 5)
 [3 1 5]
 ```
 
@@ -29,22 +28,20 @@ At an undirected `gridGraph`:
 At a directed `Graph`:
 
 ```
->>> [
+>>> Graph[
 >>> 	1 --> 2, 1 --> 3, 2 --> 3,
 >>> 	1 --> 4, 4 --> 5, 5 --> 1
->>> ].asGraph
->>> .findShortestPath(4, 2)
+>>> ].findShortestPath(4, 2)
 [4 5 1 2]
 ```
 
 At a mixed `Graph`:
 
 ```
->>> [
+>>> Graph[
 >>> 	1 --> 2, 1 --> 3, 2 --> 3,
 >>> 	1 --- 4, 4 --> 5, 5 --> 1
->>> ].asGraph
->>> .findShortestPath(4, 2)
+>>> ].findShortestPath(4, 2)
 [4 1 2]
 ```
 

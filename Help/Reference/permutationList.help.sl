@@ -66,7 +66,7 @@ At a permutation list, answer the identity:
 At `Permutation`:
 
 ```
->>> [1 3; 4 5].asPermutation
+>>> Permutation[1 3; 4 5]
 >>> .permutationList
 [3 2 1 5 4]
 ```

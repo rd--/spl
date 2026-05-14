@@ -10,35 +10,40 @@ and all edges connecting them.
 Each vertex in a cycle graph has two neighours:
 
 ```
->>> 5.cycleGraph.neighbourhoodGraph(1)
-[1 --- 2, 1 --- 5].asGraph
+>>> 5.cycleGraph
+>>> .neighbourhoodGraph(1)
+Graph[1 --- 2, 1 --- 5]
 ```
 
 Corner vertices in a grid graph have two neighours:
 
 ```
->>> [4 4].gridGraph.neighbourhoodGraph(1)
-[1 2; 1 5].asGraph
+>>> [4 4].gridGraph
+>>> .neighbourhoodGraph(1)
+Graph[1 2; 1 5]
 ```
 
 Side vertices in a grid graph have three neighours:
 
 ```
->>> [4 4].gridGraph.neighbourhoodGraph(5)
-[1 5; 5 6; 5 9].asGraph
+>>> [4 4].gridGraph
+>>> .neighbourhoodGraph(5)
+Graph[1 5; 5 6; 5 9]
 ```
 
 Interior vertices in a grid graph have four neighours:
 
 ```
->>> [4 4].gridGraph.neighbourhoodGraph(11)
-[7 11; 10 11; 11 12; 11 15].asGraph
+>>> [4 4].gridGraph
+>>> .neighbourhoodGraph(11)
+Graph[7 11; 10 11; 11 12; 11 15]
 ```
 
 The neighbourhood graph of a complete graph is itself:
 
 ```
->>> 5.completeGraph.neighbourhoodGraph(1)
+>>> 5.completeGraph
+>>> .neighbourhoodGraph(1)
 5.completeGraph
 ```
 

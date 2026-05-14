@@ -9,10 +9,10 @@ or a more specific constructor if required.
 >>> [1 3 5].species
 List:/1
 
->>> [1 3 5].asIdentityMultiset.species
+>>> IdentityMultiset[1 3 5].species
 IdentityMultiset:/0
 
->>> [1 3 5].asIdentitySet.species
+>>> IdentitySet[1 3 5].species
 IdentitySet:/0
 
 >>> (x: 1, y: 3, z: 5).species
@@ -27,15 +27,17 @@ This is the mechanism by which `Trait` methods can generate new values of the re
 >>> }
 [3 5]
 
->>> [1 3 5].asIdentitySet.select { :x |
+>>> IdentitySet[1 3 5]
+>>> .select { :x |
 >>> 	x > 1
 >>> }
-[3 5].asIdentitySet
+IdentitySet[3 5]
 
->>> [1 3 5].asIdentityMultiset.select { :x |
+>>> IdentityMultiset[1 3 5]
+>>> .select { :x |
 >>> 	x > 1
 >>> }
-[3 5].asIdentityMultiset
+IdentityMultiset[3 5]
 
 >>> (x: 1, y: 3, z: 5).select { :x |
 >>> 	x > 1
@@ -47,7 +49,7 @@ The `species` of a `ResidueSet` constructs a set with the same modulus:
 
 ```
 >>> 6.leastResidueSystem.select(isOdd:/1)
-[1 3 5].asResidueSet(6)
+ResidueSet([1 3 5], 6)
 ```
 
 * * *

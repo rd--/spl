@@ -16,8 +16,8 @@ It is possible for two topologically distinct graphs to have the same degree seq
 	[1 2; 2 3; 3 4; 4 5].asEdgeList
 )
 
->>> let g = [1 2; 2 3; 3 1; 4 5].asGraph;
->>> g.degreeSequence
+>>> Graph[1 2; 2 3; 3 1; 4 5]
+>>> .degreeSequence
 [2 2 2 1 1]
 ```
 

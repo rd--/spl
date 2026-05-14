@@ -26,7 +26,7 @@ true
 An undirected graph is not directed:
 
 ```
->>> [1 2; 2 3; 3 1].asGraph.isDirected
+>>> Graph[1 2; 2 3; 3 1].isDirected
 false
 ```
 

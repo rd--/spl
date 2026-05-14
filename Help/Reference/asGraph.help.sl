@@ -4,6 +4,7 @@
 
 Answer a `Graph` having the edges specified at _e_.
 The `vertexList` of the graph is inferred.
+Alias for the unary `Graph` method.
 
 At an `Association` `List` makes a directed graph:
 

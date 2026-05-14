@@ -5,11 +5,11 @@
 Answer the byte array _b_ encoded as a Base-16 `String`.
 
 ```
->>> [0 .. 15].asByteArray
+>>> ByteArray[0 .. 15]
 >>> .base16Encode
 '000102030405060708090A0B0C0D0E0F'
 
->>> [248 .. 255].asByteArray
+>>> ByteArray[248 .. 255]
 >>> .base16Encode
 'F8F9FAFBFCFDFEFF'
 ```
@@ -17,7 +17,7 @@ Answer the byte array _b_ encoded as a Base-16 `String`.
 At `ByteArray`:
 
 ```
->>> [9 .. 15].asByteArray
+>>> ByteArray[9 .. 15]
 >>> .base16Encode
 '090A0B0C0D0E0F'
 ```

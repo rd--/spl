@@ -6,18 +6,18 @@ Answer a `ByteArray` of the Utf-8 encoding of the string _s_.
 
 ```
 >>> '€'.utf8ByteArray
-[226 130 172].asByteArray
+ByteArray[226 130 172]
 
 >>> 'aAα'.utf8ByteArray
-[97 65 206 177].asByteArray
+ByteArray[97 65 206 177]
 
 >>> 'abcABCΑΒΓαβγ'.utf8ByteArray
-[
+ByteArray[
 	97 98 99
 	65 66 67
 	206 145 206 146 206 147
 	206 177 206 178 206 179
-].asByteArray
+]
 ```
 
 `utf8String` is the inverse of `utf8ByteArray`:

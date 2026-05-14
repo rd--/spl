@@ -29,8 +29,8 @@ Sets are unordered collections,
 and have the expected mathematical behavior in relation to scalars:
 
 ```
->>> [1 2 3].asIdentitySet * 5
-[5 10 15].asIdentitySet
+>>> IdentitySet[1 2 3] * 5
+IdentitySet[5 10 15]
 ```
 
 Sequence where each term is the least integer such that adjacent products are distinct,

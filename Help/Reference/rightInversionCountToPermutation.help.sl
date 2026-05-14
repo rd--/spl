@@ -8,7 +8,7 @@ The inverse is `rightInversionCount`:
 
 ```
 >>> [1 0 2 1 0].rightInversionCountToPermutation
-[2 1 5 4 3].asPermutation
+Permutation[2 1 5 4 3]
 
 >>> [2 1 5 4 3].rightInversionCount
 [1 0 2 1 0]

@@ -17,10 +17,10 @@ each randomly initialized using the random number generator _r_.
 (	true,
 	16,
 	32,
-	[
+	ByteArray[
 		121 133 92  73   6 148 101 35
 		 32 203 65 217 247 250  62 42
-	].asByteArray
+	]
 )
 ```
 

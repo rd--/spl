@@ -9,20 +9,20 @@ Encode small integer:
 
 ```
 >>> 1.encodeFloat64(true)
-[0 0 0 0 0 0 240 63].asByteArray
+ByteArray[0 0 0 0 0 0 240 63]
 
 >>> 1.encodeFloat64(false)
-[63 240 0 0 0 0 0 0].asByteArray
+ByteArray[63 240 0 0 0 0 0 0]
 ```
 
 Encode `pi` and `e`:
 
 ```
 >>> 1.pi.encodeFloat64(true)
-[24 45 68 84 251 33 9 64].asByteArray
+ByteArray[24 45 68 84 251 33 9 64]
 
 >>> 1.e.encodeFloat64(true)
-[105 87 20 139 10 191 5 64].asByteArray
+ByteArray[105 87 20 139 10 191 5 64]
 ```
 
 * * *

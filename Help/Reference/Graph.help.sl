@@ -1,6 +1,7 @@
 # Graph
 
 - _Graph(v, e)_
+- _Graph(e)_
 
 A `Graph` is a `Type` holding a collection of vertices _v_ and edges _e_.
 
@@ -24,7 +25,7 @@ in which case `edgeLabels` is a `List` of labels, one for each edge.
 `labeledVertexList` answers a `List` of `Associations` between vertices and labels,
 providing a default empty label if `vertexLabels` is `nil`.
 
-The coherence of a Graph can be queried using `isValid`.
+The coherence of a `Graph` can be queried using `isValid`.
 
 * * *
 

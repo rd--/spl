@@ -15,7 +15,7 @@ At `Sfc32`, an instance of `RandomNumberGenerator`:
 At `CollectionStream`:
 
 ```
->>> let i = [].asIterator;
+>>> let i = Iterator[];
 >>> (i.typeOf, i.isIterator)
 ('CollectionStream', true)
 ```

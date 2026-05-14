@@ -8,31 +8,6 @@ Tree : [Object, Storeable, Equatable, Iterable, Indexable] { | value subTrees |
 		}
 	}
 
-	asGraph { :self |
-		let nodeId = 1;
-		let vertexLabels = [];
-		let labeledTree = self.collect { :each |
-			let answer = nodeId -> each;
-			nodeId := nodeId + 1;
-			vertexLabels.add(each);
-			answer
-		};
-		let edgeList = [];
-		labeledTree.do { :i |
-			i.subTrees.collect { :j |
-				edgeList.add(
-					DirectedEdge(
-						i.value.key,
-						j.value.key
-					)
-				)
-			}
-		};
-		edgeList.asGraph.also { :graph |
-			graph.vertexLabels := vertexLabels
-		}
-	}
-
 	atIfAbsent { :self :index :ifAbsent:/0 |
 		self.subTrees.atIfAbsent(index, ifAbsent:/0)
 	}
@@ -223,6 +198,31 @@ Tree : [Object, Storeable, Equatable, Iterable, Indexable] { | value subTrees |
 
 	treePlot { :self |
 		self.asGraph.treePlot
+	}
+
+	[treeToGraph, asGraph] { :self |
+		let nodeId = 1;
+		let vertexLabels = [];
+		let labeledTree = self.collect { :each |
+			let answer = nodeId -> each;
+			nodeId := nodeId + 1;
+			vertexLabels.add(each);
+			answer
+		};
+		let edgeList = [];
+		labeledTree.do { :i |
+			i.subTrees.collect { :j |
+				edgeList.add(
+					DirectedEdge(
+						i.value.key,
+						j.value.key
+					)
+				)
+			}
+		};
+		edgeList.asGraph.also { :graph |
+			graph.vertexLabels := vertexLabels
+		}
 	}
 
 	[treeToList, asList] { :self |

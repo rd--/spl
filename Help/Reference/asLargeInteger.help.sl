@@ -48,7 +48,8 @@ At `Decimal`:
 At `ByteArray`:
 
 ```
->>> [1 3 5 7].asByteArray.asLargeInteger
+>>> ByteArray[1 3 5 7]
+>>> .asLargeInteger
 (1L + (3 << 8) + (5 << 16) + (7 << 24))
 
 >>> let n = 117768961L;
@@ -57,11 +58,11 @@ At `ByteArray`:
 >>> }
 [1L 3L 5L 7L]
 
->>> [
+>>> ByteArray[
 >>> 	245 124 239 253 184
 >>> 	104 49 179 174 168
 >>> 	5 89 18
->>> ].asByteArray.asLargeInteger
+>>> ].asLargeInteger
 1453657932340170668622419557621L
 ```
 

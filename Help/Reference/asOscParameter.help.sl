@@ -28,10 +28,10 @@ At `String`:
 At `ByteArray`:
 
 ```
->>> [1 3 5].asByteArray
+>>> ByteArray[1 3 5]
 >>> .asOscParameter
 >>> .asRecord
-(type: 'b', value: [1 3 5].asByteArray)
+(type: 'b', value: ByteArray[1 3 5])
 ```
 
 * * *

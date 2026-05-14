@@ -21,12 +21,11 @@ Answer the distance matrix of a grid graph:
 Answer the distance matrix of a directed graph:
 
 ```
->>> [
+>>> Graph[
 >>> 	1 -> 2, 2 -> 3,
 >>> 	3 -> 1, 3 -> 4, 3 -> 5,
 >>> 	4 -> 5
->>> ].asGraph
->>> .graphDistanceMatrix
+>>> ].graphDistanceMatrix
 [
 	0 1 2 3 3;
 	2 0 1 2 2;

@@ -33,14 +33,14 @@ c.f. `utf8ByteArray`:
 
 ```
 >>> 'AaBbCcΑαΒβΓγ'.utf8ByteArray
-[
+ByteArray[
 	65 97
 	66 98
 	67 99
 	206 145 206 177
 	206 146 206 178
 	206 147 206 179
-].asByteArray
+]
 ```
 
 The answer will be equal to `utf16List`,

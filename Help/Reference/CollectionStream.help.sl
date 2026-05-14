@@ -1,5 +1,7 @@
 # CollectionStream
 
+- _CollectionStream([x₁ x₂ …])_
+
 A `CollectionStream` is a `Type` that implements a `Stream` which is backed by a `Sequence` type.
 
 `CollectionStream` implements the `Iterator`, `Stream` and `PositionableStream` traits.

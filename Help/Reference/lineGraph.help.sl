@@ -7,14 +7,13 @@ Answer the line graph of the graph _g_.
 The line graph of a directed graph:
 
 ```
->>> let g = [
+>>> Graph[
 >>> 	1 -> 2, 1 -> 3,
 >>> 	2 -> 4,
 >>> 	3 -> 4, 3 -> 5,
 >>> 	4 -> 6,
 >>> 	5 -> 6
->>> ].asGraph;
->>> g.lineGraph.edgeList
+>>> ].lineGraph.edgeList
 [
 	1 --> 3, 2 --> 4, 2 --> 5,
 	3 --> 6, 4 --> 6, 5 --> 7

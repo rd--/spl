@@ -7,7 +7,7 @@ Answer the `List` of edges of the graph _g_ incident to the vertex _v_.
 Edges incident to vertices one through five of an undirected graph:
 
 ```
->>> let g = [
+>>> let g = Graph[
 >>> 	1 3; 1 4; 1 6;
 >>> 	2 4; 2 5; 2 7;
 >>> 	3 5; 3 8;
@@ -17,7 +17,7 @@ Edges incident to vertices one through five of an undirected graph:
 >>> 	7 8;
 >>> 	8 9;
 >>> 	9 10
->>> ].asGraph;
+>>> ];
 >>> 1:5.collect { :each |
 >>> 	g.incidenceList(each)
 >>> }
@@ -58,11 +58,11 @@ Edges incident to vertex one of a directed graph:
 Relation to `adjacencyList`:
 
 ```
->>> let g = [
+>>> let g = Graph[
 >>> 	1 2; 2 3; 3 4; 4 1;
 >>> 	5 6; 6 7; 7 8; 8 1;
 >>> 	1 5; 2 6; 3 7; 4 8
->>> ].asGraph;
+>>> ];
 >>> (
 >>> 	g.adjacencyList(2),
 >>> 	g.incidenceList(2)

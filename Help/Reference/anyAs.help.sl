@@ -14,7 +14,7 @@ At `List`:
 >>> 		IdentitySet()
 >>> 	}
 >>> )
-[1 .. 3].asIdentitySet
+IdentitySet[1 .. 3]
 ```
 
 At `Record`:

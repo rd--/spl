@@ -14,11 +14,11 @@ The binary form is useful for functions like `graphDistanceMatrix`.
 The ternary form is useful for functions like `graphDistance` and `findShortestPath`.
 
 ```
->>> let g = [
+>>> let g = Graph[
 >>> 	1 -> 2, 2 -> 3,
 >>> 	3 -> 1, 3 -> 4, 3 -> 5,
 >>> 	4 -> 5
->>> ].asGraph;
+>>> ];
 >>> (
 >>> 	g.dijkstrasAlgorithm(1),
 >>> 	g.dijkstrasAlgorithm(1, 3)

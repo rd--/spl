@@ -31,19 +31,17 @@ At `cycleGraph`:
 At directed cycle graph:
 
 ```
->>> [
+>>> Graph[
 >>> 	1 -> 2,
 >>> 	2 -> 3,
 >>> 	3 -> 4,
 >>> 	4 -> 1
->>> ].asGraph
->>> .graphComplement
->>> .edgeList
-[
-	1 --> 3, 1 --> 4,
-	2 --> 1, 2 --> 4,
-	3 --> 1, 3 --> 2,
-	4 --> 2, 4 --> 3
+>>> ].graphComplement
+Graph[
+	1 -> 3, 1 -> 4,
+	2 -> 1, 2 -> 4,
+	3 -> 1, 3 -> 2,
+	4 -> 2, 4 -> 3
 ]
 ```
 
@@ -90,10 +88,9 @@ The graphComplement of the line graph of _K(5)_ is a Petersen graph:
 The complement of the union of the two and three path graphs:
 
 ```
->>> [1 2; 3 4; 4 5]
->>> .asGraph
+>>> Graph[1 2; 3 4; 4 5]
 >>> .graphComplement
-[1 3; 1 4; 1 5; 2 3; 2 4; 2 5; 3 5].asGraph
+Graph[1 3; 1 4; 1 5; 2 3; 2 4; 2 5; 3 5]
 ```
 
 * * *

@@ -15,7 +15,7 @@ Encode plain text:
 Encode bytes:
 
 ```
->>> [1 .. 20].asByteArray
+>>> ByteArray[1 .. 20]
 >>> .base64Encode
 'AQIDBAUGBwgJCgsMDQ4PEBESExQ='
 ```

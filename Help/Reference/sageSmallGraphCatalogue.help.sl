@@ -43,7 +43,7 @@ the cycle graph on four vertices
 >>> system
 >>> .sageSmallGraphCatalogue
 >>> .at('C_4')
-[1 --- 3, 3 --- 4, 4 --- 2, 2 --- 1].asGraph
+Graph[1 3; 3 4; 2 4; 1 2]
 ```
 
 'K_5' is K₅,

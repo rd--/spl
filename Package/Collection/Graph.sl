@@ -1208,7 +1208,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 		}
 	}
 
-	asGraph { :self |
+	[Graph, asGraph] { :self |
 		let edgeList = self.collect(asEdge:/1).asList;
 		let vertexList = [];
 		edgeList.do { :each |

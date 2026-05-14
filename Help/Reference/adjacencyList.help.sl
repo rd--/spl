@@ -12,7 +12,7 @@ answer a list of the `adjacencyList` for each vertex of the graph _g_.
 A list of vertices adjacent to vertices one through five of an undirected graph:
 
 ```
->>> let g = [
+>>> let g = Graph[
 >>> 	1 3; 1 4; 1 6;
 >>> 	2 4; 2 5; 2 7;
 >>> 	3 5; 3 8;
@@ -22,7 +22,7 @@ A list of vertices adjacent to vertices one through five of an undirected graph:
 >>> 	7 8;
 >>> 	8 9;
 >>> 	9 10
->>> ].asGraph;
+>>> ];
 >>> 1:5.collect { :each |
 >>> 	g.adjacencyList(each)
 >>> }
@@ -41,7 +41,7 @@ Edges incident to vertex one of an undirected graph:
 Edges incident to vertex one of a directed graph:
 
 ```
->>> [
+>>> Graph[
 >>> 	1 -> 3,
 >>> 	2 -> 1,
 >>> 	3 -> 6,
@@ -49,19 +49,18 @@ Edges incident to vertex one of a directed graph:
 >>> 	1 -> 5,
 >>> 	5 -> 4,
 >>> 	6 -> 1
->>> ].asGraph
->>> .adjacencyList(1)
+>>> ].adjacencyList(1)
 [3 2 5 6]
 ```
 
 Relation to `incidenceList`:
 
 ```
->>> let g = [
+>>> let g = Graph[
 >>> 	1 2; 2 3; 3 4; 4 1;
 >>> 	5 6; 6 7; 7 8; 8 1;
 >>> 	1 5; 2 6; 3 7; 4 8
->>> ].asGraph;
+>>> ];
 >>> (
 >>> 	g.adjacencyList(2),
 >>> 	g.incidenceList(2)
