@@ -1,13 +1,13 @@
 # signedArea
 
-- _signedArea(aTriangle)_
+- _signedArea(t)_
 
-Answer the signed area of a triangle.
+Answer the signed area of the triangle _t_.
 
 The answer is positive if the vertex coordinates are in counter-clockwise order:
 
 ```
->>> Triangle([0 0; 1 0; 1 1])
+>>> Triangle[0 0; 1 0; 1 1]
 >>> .signedArea
 0.5
 
@@ -19,7 +19,7 @@ The answer is positive if the vertex coordinates are in counter-clockwise order:
 The answer is negative if the vertex coordinates are in clockwise order:
 
 ```
->>> Triangle([0 0; 1 1; 1 0])
+>>> Triangle[0 0; 1 1; 1 0]
 >>> .signedArea
 -0.5
 
@@ -31,3 +31,5 @@ The answer is negative if the vertex coordinates are in clockwise order:
 * * *
 
 See also: area, shoelaceFormula, Triangle
+
+Guides: Geometry Functions

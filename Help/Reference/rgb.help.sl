@@ -5,10 +5,10 @@
 Answer the _rgb_ components of the colour _c_.
 
 ```
->>> RgbColour([1, 0.8, 0.25], 1).rgb
+>>> RgbColour[1 0.8 0.25].rgb
 [1 0.8 0.25]
 
->>> RgbColour([1, 0.8, 0.25], 1).srgbEncode.rgb
+>>> RgbColour[1 0.8 0.25].srgbEncode.rgb
 [1 0.9063 0.5371]
 ```
 

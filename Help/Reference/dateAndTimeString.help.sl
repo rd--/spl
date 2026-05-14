@@ -7,7 +7,7 @@ Answers a `String` that formats the temporal object _t_ according to the ISO-860
 At `DateAndTime`:
 
 ```
->>> DateAndTime([1970 01 01 00 00 00.000])
+>>> DateAndTime[1970 01 01 00 00 00.000]
 >>> .dateAndTimeString
 '1970-01-01T00:00:00.000Z'
 ```
@@ -18,7 +18,7 @@ answering a `DateAndTime` value:
 ```
 >>> '2025-04-08T19:45:00.000Z'
 >>> .parseDateAndTime
-DateAndTime([2025 04 08 19 45 00.000])
+DateAndTime[2025 04 08 19 45 00.000]
 ```
 
 At `TimeStamp`:

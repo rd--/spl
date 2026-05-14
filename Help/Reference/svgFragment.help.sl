@@ -24,7 +24,7 @@ At `Ellipse`:
 At `Line`, a line segment:
 
 ```
->>> Line([0 0; 1 1])
+>>> Line[0 0; 1 1]
 >>> .svgFragment(precision: 0)
 '<line x1="0" y1="0" x2="1" y2="1" />'
 ```
@@ -32,7 +32,7 @@ At `Line`, a line segment:
 At `Line`, a polyline:
 
 ```
->>> Line([0 0; 1 1; 1 0])
+>>> Line[0 0; 1 1; 1 0]
 >>> .svgFragment(precision: 0)
 '<polyline points="0,0 1,1 1,0" />'
 ```
@@ -40,7 +40,7 @@ At `Line`, a polyline:
 At `Polygon`:
 
 ```
->>> Polygon([0 0; 1 0; 0 1])
+>>> Polygon[0 0; 1 0; 0 1]
 >>> .svgFragment(precision: 0)
 '<polygon points="0,0 1,0 0,1" />'
 ```
@@ -48,7 +48,7 @@ At `Polygon`:
 At `Triangle`:
 
 ```
->>> Triangle([0 0; 1 0; 0 1])
+>>> Triangle[0 0; 1 0; 0 1]
 >>> .svgFragment(precision: 0)
 '<polygon points="0,0 1,0 0,1" />'
 ```
@@ -80,7 +80,7 @@ At `Parallelogram`:
 At `Point`:
 
 ```
->>> Point([0 0])
+>>> Point[0 0]
 >>> .svgFragment(
 >>> 	precision: 0,
 >>> 	scaleFactor: 0.5
@@ -91,7 +91,7 @@ At `Point`:
 At `Rectangle`:
 
 ```
->>> Rectangle([0 0], [ 1 1])
+>>> Rectangle[0 0; 1 1]
 >>> .svgFragment(precision: 0)
 '<rect x="0" y="0" width="1" height="1" />'
 ```

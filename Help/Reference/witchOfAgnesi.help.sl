@@ -24,7 +24,7 @@ let c = t.collect(
 [
 	Circle([0 1], 1),
 	c.Line,
-	Rectangle([-8 -8], [8 8])
+	Rectangle[-8 -8; 8 8]
 ].LineDrawing
 ~~~
 

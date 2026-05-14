@@ -11,7 +11,7 @@ also an `UnsortedSet` from an empty list:
 >>> UnsortedSet().size
 0
 
->>> UnsortedSet([]).size
+>>> UnsortedSet[].size
 0
 ```
 
@@ -29,8 +29,8 @@ Sets are unordered collections,
 and have the expected mathematical behavior in relation to scalars:
 
 ```
->>> UnsortedSet([1 2 3]) * 5
-UnsortedSet([5 10 15])
+>>> UnsortedSet[1 2 3] * 5
+UnsortedSet[5 10 15]
 ```
 
 Note that `UnsortedSet` may be significantly less efficient that `IdentitySet`,
@@ -43,12 +43,12 @@ false
 >>> 1 == 1L
 false
 
->>> UnsortedSet([1 1L])
+>>> UnsortedSet[1 1L]
 >>> .contents
 [1]
 
 >>> {
->>> 	IdentitySet([1 1L])
+>>> 	IdentitySet[1 1L]
 >>> }.hasError
 true
 
@@ -58,12 +58,12 @@ false
 >>> 1J1 = 1J1
 true
 
->>> UnsortedSet([1J1 1J1])
+>>> UnsortedSet[1J1 1J1]
 >>> .contents
 [1J1]
 
 >>> {
->>> 	IdentitySet([1J1 1J1])
+>>> 	IdentitySet[1J1 1J1]
 >>> }.hasError
 true
 ```
@@ -75,7 +75,7 @@ The comparison method for `UnsortedSet` can be modified:
 >>> x.comparator := ~;
 >>> x.includeAll([1, 1.0001, 2, 1, 2.00001, 3]);
 >>> x
-UnsortedSet([1 2 3])
+UnsortedSet[1 2 3]
 ```
 
 * * *

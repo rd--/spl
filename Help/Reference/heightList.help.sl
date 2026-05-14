@@ -7,16 +7,16 @@ Answer the height list for the Dyck word _w_.
 At `DyckWord`:
 
 ```
->>> DyckWord([1 0]).heightList
+>>> DyckWord[1 0].heightList
 [0 1 0]
 
->>> DyckWord([1 1 0 0]).heightList
+>>> DyckWord[1 1 0 0].heightList
 [0 1 2 1 0]
 
->>> DyckWord([1 0 1 0]).heightList
+>>> DyckWord[1 0 1 0].heightList
 [0 1 0 1 0]
 
->>> DyckWord([1 1 0 0 1 1 1 0 0 0])
+>>> DyckWord[1 1 0 0 1 1 1 0 0 0]
 >>> .heightList
 [0 1 2 1 0 1 2 3 2 1 0]
 ```

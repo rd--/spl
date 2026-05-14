@@ -12,7 +12,7 @@ Opaque black:
 ```
 >>> let c = 0.asColour;
 >>> (c, c.isBlack)
-(RgbColour([0 0 0], 1), true)
+(RgbColour[0 0 0], true)
 
 >>> 0.greyLevel = 0.asColour
 true
@@ -23,7 +23,7 @@ Opaque grey:
 ```
 >>> let c = 0.5.asColour;
 >>> (c, c.isGrey)
-(RgbColour([0.5 0.5 0.5], 1), true)
+(RgbColour[0.5 0.5 0.5], true)
 
 >>> 0.5.greyLevel = 0.5.asColour
 true
@@ -34,7 +34,7 @@ Opaque white:
 ```
 >>> let c = 1.asColour;
 >>> (c, c.isWhite)
-(RgbColour([1 1 1], 1), true)
+(RgbColour[1 1 1], true)
 
 >>> 1.greyLevel = 1.asColour
 true
@@ -45,7 +45,7 @@ Opaque yellow:
 ```
 >>> let c = [1 1 0].asColour;
 >>> (c, c.isYellow)
-(RgbColour([1, 1, 0], 1), true)
+(RgbColour[1 1 0], true)
 ```
 
 With `alpha` channel:

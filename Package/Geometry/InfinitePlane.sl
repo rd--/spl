@@ -69,20 +69,6 @@ InfinitePlane : [Object, Storeable, Equatable] { | a b c d |
 
 +List {
 
-	asInfinitePlane { :self |
-		(self.size = 4).if {
-			let [a, b, c, d] = self;
-			InfinitePlane(a, b, c, d)
-		} {
-			(self.size = 3).if {
-				let [p1, p2, p3] = self;
-				InfinitePlane(p1, p2, p2)
-			} {
-				self.error('List>>asInfinitePlane')
-			}
-		}
-	}
-
 	InfinitePlane { :p1 :p2 :p3 |
 		let [x1, y1, z1] = p1;
 		let [x2, y2, z2] = p2;
@@ -99,6 +85,20 @@ InfinitePlane : [Object, Storeable, Equatable] { | a b c d |
 			[a, b, c, d] := [a b c d].negate
 		};
 		InfinitePlane(a, b, c, d)
+	}
+
+	[InfinitePlane, asInfinitePlane] { :self |
+		self.isVector.if {
+			let [a, b, c, d] = self;
+			InfinitePlane(a, b, c, d)
+		} {
+			self.isMatrix.if {
+				let [p1, p2, p3] = self;
+				InfinitePlane(p1, p2, p3)
+			} {
+				self.error('List>>asInfinitePlane')
+			}
+		}
 	}
 
 }

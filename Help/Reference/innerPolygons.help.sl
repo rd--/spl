@@ -17,7 +17,7 @@ At `PolygonWithHoles`:
 At `Polygon`:
 
 ```
->>> Polygon([0 0; 5 0; 2.5 4])
+>>> Polygon[0 0; 5 0; 2.5 4]
 >>> .innerPolygons
 []
 ```

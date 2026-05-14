@@ -9,27 +9,25 @@ The first few terms:
 
 ```
 >>> 1.qFactorial
-Polynomial([1])
+Polynomial[1]
 
 >>> 2.qFactorial
-Polynomial([1 1])
+Polynomial[1 1]
 
 >>> 3.qFactorial
-Polynomial([1 2 2 1])
+Polynomial[1 2 2 1]
 
 >>> 4.qFactorial
-Polynomial([1 3 5 6 5 3 1])
+Polynomial[1 3 5 6 5 3 1]
 
 >>> 5.qFactorial
-Polynomial([1 4 9 15 20 22 20 15 9 4 1])
+Polynomial[1 4 9 15 20 22 20 15 9 4 1]
 
 >>> 6.qFactorial
-Polynomial(
-	[
-		1 5 14 29 49 71 90 101
-		101 90 71 49 29 14 5 1
-	]
-)
+Polynomial[
+	1 5 14 29 49 71 90 101
+	101 90 71 49 29 14 5 1
+]
 ```
 
 Specific values:

@@ -17,7 +17,7 @@ At `Complex`:
 At `Quaternion`:
 
 ```
->>> Quaternion([1 2 3 4]).real
+>>> Quaternion[1 2 3 4].real
 1
 ```
 

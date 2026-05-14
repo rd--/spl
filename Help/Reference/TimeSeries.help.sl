@@ -16,9 +16,9 @@ or as a pair of _value_ and _time_ vectors.
 and `isMultivariate` tells if the values are not scalar or single column:
 
 ```
->>> let ts = TimeSeries(
->>> 	[1 2; 2 1; 5 6; 10 5; 12 7; 15 4]
->>> );
+>>> let ts = TimeSeries[
+>>> 	1 2; 2 1; 5 6; 10 5; 12 7; 15 4
+>>> ];
 >>> (
 >>> 	ts.pathLength,
 >>> 	ts.valueDimensions,
@@ -66,9 +66,9 @@ and `associations`:
 Time series implements `at` and the `Collection` trait:
 
 ```
->>> let ts = TimeSeries([1 3; 2 2; 3 1]);
+>>> let ts = TimeSeries[1 3; 2 2; 3 1];
 >>> (ts.at(1), ts[3], ts + 1)
-(3, 1, TimeSeries([1 4; 2 3; 3 2]))
+(3, 1, TimeSeries[1 4; 2 3; 3 2])
 ```
 
 Time series implements `atPut`,
@@ -114,7 +114,7 @@ Using list range syntax to specify times:
 
 ```
 >>> TimeSeries([2 1 6 5 7 4], [1 .. 6])
-TimeSeries([1 2; 2 1; 3 6; 4 5; 5 7; 6 4])
+TimeSeries[1 2; 2 1; 3 6; 4 5; 5 7; 6 4]
 ```
 
 `merge` merges two time series to create a third:
@@ -160,17 +160,17 @@ TimeSeries(
 Rescale a time series to run from 0 to 20:
 
 ```
->>> TimeSeries([0 3; 1 5; 2 7; 3 2; 4 5])
+>>> TimeSeries[0 3; 1 5; 2 7; 3 2; 4 5]
 >>> .rescale([0 20])
-TimeSeries([0 3; 5 5; 10 7; 15 2; 20 5])
+TimeSeries[0 3; 5 5; 10 7; 15 2; 20 5]
 ```
 
 Shift the series ahead by two:
 
 ```
->>> TimeSeries([0 3; 1 5; 2 7; 3 2; 4 5])
+>>> TimeSeries[0 3; 1 5; 2 7; 3 2; 4 5]
 >>> .shift(2)
-TimeSeries([2 3; 3 5; 4 7; 5 2; 6 5])
+TimeSeries[2 3; 3 5; 4 7; 5 2; 6 5]
 ```
 
 Square the values in a time series:

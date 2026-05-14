@@ -10,20 +10,18 @@ each descent is labeled according to the matching ascent,
 the blocks are the sets of descents.
 
 ```
->>> DyckWord([1 0 1 0])
+>>> DyckWord[1 0 1 0]
 >>> .noncrossingSetPartition
 [1; 2]
 
->>> DyckWord([1 1 0 0 1 1 0 0])
+>>> DyckWord[1 1 0 0 1 1 0 0]
 >>> .noncrossingSetPartition
 [2 1; 4 3]
 
->>> DyckWord(
->>> 	[
->>> 		1 1 1 0 1 1 0 0 0
->>> 		1 1 0 0 0 1 1 0 0
->>> 	]
->>> ).noncrossingSetPartition
+>>> DyckWord[
+>>> 	1 1 1 0 1 1 0 0 0
+>>> 	1 1 0 0 0 1 1 0 0
+>>> ].noncrossingSetPartition
 [3; 5 4 2; 7 6 1; 9 8]
 ```
 

@@ -7,10 +7,10 @@ Answer a `List` of the lower left and upper right coordinates of the bounding bo
 At `Point`:
 
 ```
->>> Point([0 0]).boundingBox
+>>> Point[0 0].boundingBox
 [0 0; 0 0]
 
->>> Point([0 0 0]).boundingBox
+>>> Point[0 0 0].boundingBox
 [0 0 0; 0 0 0]
 ```
 
@@ -38,11 +38,11 @@ At `Circle`:
 At `Line`:
 
 ```
->>> Line([0 0; 1 1; 2 0])
+>>> Line[0 0; 1 1; 2 0]
 >>> .boundingBox
 [0 0; 2 1]
 
->>> Line([0 0 2; 1 1 -1; 2 0 1])
+>>> Line[0 0 2; 1 1 -1; 2 0 1]
 >>> .boundingBox
 [0 0 -1; 2 1 2]
 ```
@@ -59,7 +59,7 @@ At `Polygon`:
 At `Triangle`:
 
 ```
->>> Triangle([0 0], [2 0], [1 3])
+>>> Triangle[0 0; 2 0; 1 3]
 >>> .boundingBox
 [0 0; 2 3]
 ```

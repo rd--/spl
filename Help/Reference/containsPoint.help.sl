@@ -26,8 +26,8 @@ At `Rectangle` and `Polygon`:
 
 ```
 >>> [
->>> 	[0 0; 10 10].asRectangle,
->>> 	Polygon([0 0; 10 0; 10 10; 0 10])
+>>> 	Rectangle[0 0; 10 10],
+>>> 	Polygon[0 0; 10 0; 10 10; 0 10]
 >>> ].collect { :c |
 >>> 	[
 >>> 		5 5;

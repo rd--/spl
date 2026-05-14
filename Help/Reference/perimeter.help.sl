@@ -15,7 +15,7 @@ At `Circle`:
 At `Rectangle`:
 
 ```
->>> Rectangle([-1 -1], [1 1])
+>>> Rectangle[-1 -1; 1 1]
 >>> .perimeter
 8
 ```

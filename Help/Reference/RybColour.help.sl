@@ -6,11 +6,17 @@ Convert from a red-yellow-blue colour specified by the triple _(r,y,b)_ to a red
 Uses an algorithm by Gossett and Chen,
 the conversion function is `rybToRgb`.
 
-White, black, red, yellow, blue:
+Threads over lists,
+white, black, red, yellow, blue:
 
 ~~~spl svg=A
-[0 0 0; 1 1 1; 1 0 0; 0 1 0; 0 0 1]
-.collect(RybColour:/1).enclose.arrayPlot
+RybColour[
+	0 0 0;
+	1 1 1;
+	1 0 0;
+	0 1 0;
+	0 0 1
+].enclose.arrayPlot
 ~~~
 
 ![](Help/Image/RybColour-A.svg)
@@ -51,7 +57,7 @@ RybColour[0 0.5 1]
 Threads over lists:
 
 ~~~spl svg=F
-[
+RybColour[
 	0 0 0;
 	1 1 1;
 	0 0 1;
@@ -60,7 +66,7 @@ Threads over lists:
 	1 0 1;
 	0 1 1;
 	1 0 0
-].RybColour.enclose.arrayPlot
+].enclose.arrayPlot
 ~~~
 
 ![](Help/Image/RybColour-F.svg)

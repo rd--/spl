@@ -28,14 +28,14 @@ List of traits implemented by `Record`:
 Construct a `Record` from a two-column matrix:
 
 ```
->>> Record(['x' 1; 'y' 2; 'z' 3])
+>>> Record['x' 1; 'y' 2; 'z' 3]
 (x: 1, y: 2, z: 3)
 ```
 
 Construct a `Record` from an association list:
 
 ```
->>> Record(['x' -> 1, 'y' -> 2, 'z' -> 3])
+>>> Record['x' -> 1, 'y' -> 2, 'z' -> 3]
 (x: 1, y: 2, z: 3)
 ```
 
@@ -69,7 +69,7 @@ It is an `error` if any key is not a string:
 
 ```
 >>> {
->>> 	Record([1.pi -> 'pi'])
+>>> 	Record[1.pi -> 'pi']
 >>> }.hasError
 true
 ```

@@ -274,21 +274,21 @@ RgbColour : [Object, Storeable, Equatable, Colour] { | rgb alpha |
 	}
 
 	RgbColour { :self :alpha |
-		let [r, g, b] = self;
-		newRgbColour().initializeSlots([r, g, b], alpha)
+		self.atVectorOrElementwise { :v |
+			let [r, g, b] = v;
+			newRgbColour().initializeSlots([r, g, b], alpha)
+		}
 	}
 
 	RgbColour { :self |
-		RgbColour(self, 1)
+		self.atVectorOrElementwise { :v |
+			RgbColour(v, 1)
+		}
 	}
 
 	RybColour { :ryb :alpha |
-		ryb.isVector.if {
-			RgbColour(ryb.rybToRgb, alpha)
-		} {
-			ryb.collect { :each |
-				RybColour(each, alpha)
-			}
+		ryb.atVectorOrElementwise { :v |
+			RgbColour(v.rybToRgb, alpha)
 		}
 	}
 

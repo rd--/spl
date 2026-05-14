@@ -15,10 +15,9 @@ At `List`:
 At `IdentityMultiset`:
 
 ```
->>> [1 1 2 1 2 3]
->>> .asIdentityMultiset
+>>> IdentityMultiset[1 1 2 1 2 3]
 >>> .asIdentitySet
-[1 2 3].asIdentitySet
+IdentitySet[1 2 3]
 ```
 
 At `String`:

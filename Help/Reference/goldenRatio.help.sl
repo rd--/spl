@@ -324,8 +324,8 @@ partitioned into a unit square and another golden rectangle:
 let phi = 1.goldenRatio;
 let y = phi - 1;
 [
-	Rectangle([0 0], [1 phi]),
-	Line([0 y; 1 y])
+	Rectangle[0 0; 1 phi],
+	Line[0 y; 1 y]
 ].LineDrawing
 ~~~
 
@@ -351,9 +351,9 @@ let a = phi ^ 5/2;
 let b = phi ^ 2;
 let c = phi ^ 1/2;
 [
-	Rectangle([0 0], [a b]),
-	Line([c 0; c b]),
-	Line([0 1; c 1])
+	Rectangle[0 0; a b],
+	Line[c 0; c b],
+	Line[0 1; c 1]
 ].LineDrawing
 ~~~
 

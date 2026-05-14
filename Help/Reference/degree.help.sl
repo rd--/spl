@@ -38,7 +38,7 @@ At `UnivariatePolynomial`,
 answer the largest exponent of the polynomial:
 
 ```
->>> UnivariatePolynomial([1 2 3])
+>>> UnivariatePolynomial[1 2 3]
 >>> .degree
 2
 ```

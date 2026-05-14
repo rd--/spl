@@ -30,7 +30,7 @@ the `columnLabels` and `columnTypes` answer the column labels and types:
 If the column labels are unspecified they are inferred:
 
 ```
->>> Table([1 2 3; 4 5 6])
+>>> Table[1 2 3; 4 5 6]
 >>> .columnLabels
 ['1' '2' '3']
 ```
@@ -38,7 +38,7 @@ If the column labels are unspecified they are inferred:
 If the column types are unspecified they are inferred:
 
 ```
->>> Table(['Third' 1/3; 'Half' 1/2])
+>>> Table['Third' 1/3; 'Half' 1/2]
 >>> .columnTypes
 ['String', 'Fraction']
 ```
@@ -79,12 +79,10 @@ Create a `Table` from a list of `Record` values specifying rows,
 with common keys:
 
 ~~~spl html=C
-Table(
-	[
-		(A: 1, B: 2, C: 3),
-		(A: 4, B: 5, C: 6)
-	]
-).asHtml
+Table[
+	(A: 1, B: 2, C: 3),
+	(A: 4, B: 5, C: 6)
+].asHtml
 ~~~
 
 <table class="TableData">
@@ -96,9 +94,11 @@ Table(
 Create a `Table` from a `Record` specifying the labeled columns:
 
 ~~~spl html=D
-(A: [1 2], B: [3 4], C: [5 6])
-.asTable
-.asHtml
+Table(
+	A: [1 2],
+	B: [3 4],
+	C: [5 6]
+).asHtml
 ~~~
 
 <table class="TableData">
@@ -110,7 +110,8 @@ Create a `Table` from a `Record` specifying the labeled columns:
 Index into a table using row and column indices:
 
 ```
->>> Table([1 2 3; 4 5 6]).at(2, 2)
+>>> Table[1 2 3; 4 5 6]
+>>> .atPath([2 2])
 5
 ```
 
@@ -118,7 +119,7 @@ Index into a table using a row index and a column label:
 
 ```
 >>> Table([1 2; 3 4], ['A' 'B'])
->>> .at(2, 'B')
+>>> .atPath([2 'B'])
 4
 ```
 
@@ -154,6 +155,8 @@ Table([3 3].iota, ['A' 'B' 'C'])
 * * *
 
 See also: columns, Html, List, rows
+
+Guides: Collection Functions, Matrix Functions
 
 References:
 _Mathematica_

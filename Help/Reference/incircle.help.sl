@@ -21,7 +21,7 @@ let t = sssTriangle(3, 4, 5);
 Draw at `Rectangle`:
 
 ~~~spl svg=B
-let r = Rectangle([0 0], [1 1]);
+let r = Rectangle[0 0; 1 1];
 [
 	r,
 	r.incircle,

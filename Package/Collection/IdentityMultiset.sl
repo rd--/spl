@@ -17,8 +17,8 @@ IdentityMultiset : [Object, Storeable, Copyable, Equatable, Iterable, Collection
 		self.contents
 	}
 
-	asIdentitySet { :self |
-		self.contents.indices.asIdentitySet
+	[identityMultisetToIdentitySet, asIdentitySet] { :self |
+		IdentitySet(self.contents.keys)
 	}
 
 	postCopy { :self |
@@ -51,15 +51,19 @@ IdentityMultiset : [Object, Storeable, Copyable, Equatable, Iterable, Collection
 
 +List {
 
-	IdentityMultiset { :self |
-		self.asIdentityMultiset
+	[IdentityMultiset, asIdentityMultiset] { :self |
+		self.isAssociationList.if {
+			IdentityMultiset(Map(self))
+		} {
+			self.collectionToIdentityMultiset
+		}
 	}
 
 }
 
 +@Collection {
 
-	asIdentityMultiset { :self |
+	[collectionToIdentityMultiset, asIdentityMultiset] { :self |
 		let answer = IdentityMultiset();
 		answer.addAll(self);
 		answer

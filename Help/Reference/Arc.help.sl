@@ -52,7 +52,7 @@ Two circular arcs, and a line:
 
 ~~~spl svg=A
 [
-	Line([0 0; 2 0]),
+	Line[0 0; 2 0],
 	Arc([0 0], [1 1], [1.75.pi 0.5.pi]),
 	Arc([2 0], [1 1], [0.75.pi 1.5.pi])
 ].LineDrawing
@@ -96,7 +96,7 @@ let n = 2 * 6.sqrt;
 [
 	Arc([5 0], [5 5], [1/2.pi 1.pi]),
 	Arc([3 0], [5 5], [0 1/2.pi]),
-	Line([4 0; 4 n])
+	Line[4 0; 4 n]
 ].LineDrawing
 ~~~
 

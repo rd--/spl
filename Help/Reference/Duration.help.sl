@@ -1,7 +1,7 @@
 # Duration
 
 - _Duration(s)_
-- _Duration([d, h, m, s])_
+- _Duration([d h m s])_
 
 A `Type` to represent an interval of time,
 specified either in seconds,
@@ -18,27 +18,27 @@ Ninety seconds:
 Seventeen days, five hours, eleven minutes and seventeen seconds:
 
 ```
->>> Duration([17 5 11 17])
+>>> Duration[17 5 11 17]
 Duration(1487477)
 ```
 
 Nine days written three ways:
 
 ```
->>> Duration([9 0 0 0])
+>>> Duration[9 0 0 0]
 Duration(777600)
 
->>> Duration([8 24 0 0])
+>>> Duration[8 24 0 0]
 Duration(777600)
 
->>> Duration([0 216 0 0])
+>>> Duration[0 216 0 0]
 Duration(777600)
 ```
 
 Query the number of seconds a `Duration` represents:
 
 ```
->>> Duration([0 0 3 0]).seconds
+>>> Duration[0 0 3 0].seconds
 180
 ```
 
@@ -60,7 +60,7 @@ A `Duration` can be parsed from a `String` in ISO-8601 format using `parseDurati
 A `Duration` can be formatted as ISO-8601 using `durationString`:
 
 ```
->>> Duration([25 0 0 0])
+>>> Duration[25 0 0 0]
 >>> .durationString
 'P25DT0H0M0S'
 ```
@@ -81,7 +81,7 @@ The `seconds` value may be fractional:
 >>> 'PT3.141S'.parseDuration
 Duration(3.141)
 
->>> Duration([0 0 0 3.141])
+>>> Duration[0 0 0 3.141]
 Duration(3.141)
 
 >>> Duration(3.141).seconds

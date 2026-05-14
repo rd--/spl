@@ -15,7 +15,7 @@ Circle([0 0], 1).asLineDrawing
 At `Rectangle`:
 
 ~~~spl svg=B
-Rectangle([0 0], [1 1]).asLineDrawing
+Rectangle[0 0; 1 1].asLineDrawing
 ~~~
 
 ![](Help/Image/asLineDrawing-B.svg)
@@ -23,7 +23,7 @@ Rectangle([0 0], [1 1]).asLineDrawing
 At `Polygon`:
 
 ~~~spl svg=C
-Polygon([0 0; 1 2; 2 0]).asLineDrawing
+Polygon[0 0; 1 2; 2 0].asLineDrawing
 ~~~
 
 ![](Help/Image/asLineDrawing-C.svg)
@@ -31,7 +31,7 @@ Polygon([0 0; 1 2; 2 0]).asLineDrawing
 At `Triangle`:
 
 ~~~spl svg=D
-Triangle([0 0], [1 2], [2 0]).asLineDrawing
+Triangle[0 0; 1 2; 2 0].asLineDrawing
 ~~~
 
 ![](Help/Image/asLineDrawing-D.svg)

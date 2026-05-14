@@ -30,8 +30,8 @@ Drawing:
 ~~~spl svg=C
 [
 	Circle([0 1], 1),
-	Line([0 0; 0 1]),
-	Line([0 0; 2.pi 0]),
+	Line[0 0; 0 1],
+	Line[0 0; 2.pi 0],
 	Circle([1.pi 0], 1.pi),
 	(0 -- 2.pi).discretize(50,
 		cycloid(1)

@@ -20,7 +20,7 @@ Find the minimum time increment for a list of time-value pairs:
 Find the minimum time increments for a time series:
 
 ```
->>> TimeSeries([1 0; 2 0; 2.5 0; 4 0])
+>>> TimeSeries[1 0; 2 0; 2.5 0; 4 0]
 >>> .minimumTimeIncrement
 0.5
 ```

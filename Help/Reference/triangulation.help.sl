@@ -5,7 +5,7 @@
 Answer a triangulation of the polygon _p_.
 
 ```
->>> Polygon([10 0; 0 50; 60 60; 70 10])
+>>> Polygon[10 0; 0 50; 60 60; 70 10]
 >>> .triangulation
 [2 1 4; 4 3 2]
 ```

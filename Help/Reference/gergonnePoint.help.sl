@@ -19,7 +19,7 @@ let i = t.incircle;
 let c = t.cevianTriangle(g);
 [
 	t,
-	PointCloud([g]),
+	PointCloud[g],
 	i,
 	c
 ].LineDrawing

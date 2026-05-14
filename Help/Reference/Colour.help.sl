@@ -45,21 +45,21 @@ There are a number of colour predicates:
 Is colour black predicate:
 
 ```
->>> RgbColour([0, 0, 0], 1).isBlack
+>>> RgbColour[0 0 0].isBlack
 true
 ```
 
 Is colour white predicate:
 
 ```
->>> RgbColour([1, 1, 1], 1).isWhite
+>>> RgbColour[1 1 1].isWhite
 true
 ```
 
 Is colour grey with particular value:
 
 ```
->>> RgbColour([0.5, 0.5, 0.5], 1)
+>>> RgbColour[0.5 0.5 0.5]
 >>> .isGreyOf(0.5)
 true
 ```
@@ -67,49 +67,49 @@ true
 Is colour grey predicate:
 
 ```
->>> RgbColour([0.5, 0.5, 0.5], 1).isGrey
+>>> RgbColour[0.5 0.5 0.5].isGrey
 true
 ```
 
 Is colour red predicate:
 
 ```
->>> RgbColour([1, 0.2, 0.2], 1).isRed
+>>> RgbColour[1 0.2 0.2].isRed
 true
 ```
 
 Is colour green predicate:
 
 ```
->>> RgbColour([0.2, 1, 0.2], 1).isGreen
+>>> RgbColour[0.2 1 0.2].isGreen
 true
 ```
 
 Is colour blue predicate:
 
 ```
->>> RgbColour([0.2, 0.2, 1], 1).isBlue
+>>> RgbColour[0.2 0.2 1].isBlue
 true
 ```
 
 Is colour yellow predicate:
 
 ```
->>> RgbColour([0.9, 0.75, 0], 1).isYellow
+>>> RgbColour[0.9 0.75 0].isYellow
 true
 ```
 
 Is colour cyan predicate:
 
 ```
->>> RgbColour([0, 0.75, 0.9], 1).isCyan
+>>> RgbColour[0 0.75 0.9].isCyan
 true
 ```
 
 Is colour magenta predicate:
 
 ```
->>> RgbColour([0.9, 0, 0.75], 1).isMagenta
+>>> RgbColour[0.9 0 0.75].isMagenta
 true
 ```
 

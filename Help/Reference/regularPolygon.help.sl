@@ -12,14 +12,14 @@ The regular four polygon is a diamond:
 
 ```
 >>> 4.regularPolygon([0 0], 1, 0)
-Polygon([1 0; 0 1; -1 0; 0 -1])
+Polygon[1 0; 0 1; -1 0; 0 -1]
 ```
 
 or a square:
 
 ```
 >>> 4.regularPolygon([0 0], 2.sqrt, 1.pi / 4)
-Polygon([1 1; -1 1; -1 -1; 1 -1])
+Polygon[1 1; -1 1; -1 -1; 1 -1]
 ```
 
 The `interiorAngles` of a regular polygon are equal:

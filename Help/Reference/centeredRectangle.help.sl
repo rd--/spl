@@ -6,10 +6,10 @@ A `Rectangle` with side lengths of _w_ and _h_ centered at _(x,y)_.
 
 ```
 >>> centeredRectangle([0 0], [1 1])
-Rectangle([-0.5 -0.5], [0.5 0.5])
+Rectangle[-0.5 -0.5; 0.5 0.5]
 
 >>> centeredRectangle([0.5 0.5], [1 1])
-Rectangle([0 0], [1 1])
+Rectangle[0 0; 1 1]
 ```
 
 A drawing:

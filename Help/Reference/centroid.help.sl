@@ -30,7 +30,7 @@ the Kimberling center two:
 Find the centroid of a `Rectangle`:
 
 ```
->>> Rectangle([0 0], [2 2]).centroid
+>>> Rectangle[0 0; 2 2].centroid
 [1 1]
 ```
 

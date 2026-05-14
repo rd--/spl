@@ -7,14 +7,14 @@ Answer the coordinates of the geometry _g_.
 At `Point`, in two dimensions:
 
 ```
->>> Point([0 0]).vertexCoordinates
+>>> Point[0 0].vertexCoordinates
 [[0, 0]]
 ```
 
 At `PointCloud`, in two dimensions:
 
 ```
->>> PointCloud([0 0; 1 1])
+>>> PointCloud[0 0; 1 1]
 >>> .vertexCoordinates
 [0 0; 1 1]
 ```
@@ -22,7 +22,7 @@ At `PointCloud`, in two dimensions:
 At `Line`, in two dimensions:
 
 ```
->>> Line([0 0; 1 1; 2 0])
+>>> Line[0 0; 1 1; 2 0]
 >>> .vertexCoordinates
 [0 0; 1 1; 2 0]
 ```
@@ -30,7 +30,7 @@ At `Line`, in two dimensions:
 At `Triangle`, in two dimensions:
 
 ```
->>> Triangle([0 0], [0 1], [1 0])
+>>> Triangle[0 0; 0 1; 1 0]
 >>> .vertexCoordinates
 [0 0; 0 1; 1 0]
 ```
@@ -38,7 +38,7 @@ At `Triangle`, in two dimensions:
 At `Triangle`, in three dimensions:
 
 ```
->>> Triangle([0 0 0], [1 0 0], [0 1 1])
+>>> Triangle[0 0 0; 1 0 0; 0 1 1]
 >>> .vertexCoordinates
 [0 0 0; 1 0 0; 0 1 1]
 ```
@@ -46,7 +46,7 @@ At `Triangle`, in three dimensions:
 At `Rectangle`, note _winding order_ is counter-clockwise:
 
 ```
->>> Rectangle([0 0], [1 1])
+>>> Rectangle[0 0; 1 1]
 >>> .vertexCoordinates
 [0 0; 1 0; 1 1; 0 1]
 

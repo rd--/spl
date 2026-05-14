@@ -8,7 +8,7 @@ as `sqrt` is an alias for `squareRoot`.
 
 ```
 >>> (27.integerSquareRoot, 27.isqrt)
-5
+(5, 5)
 
 >>> (27.squareRoot, 27.sqrt)
 (5.19615, 5.19615)

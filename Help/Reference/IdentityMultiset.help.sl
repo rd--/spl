@@ -5,12 +5,29 @@
 A `Type` holding an unordered collection of possibly duplicated elements,
 also called a _multiset_.
 
+At a `List` of associations:
+
+```
+>>> IdentityMultiset[
+>>> 	1 -> 3, 2 -> 1, 3 -> 5
+>>> ].sortedElements
+[1 -> 3, 2 -> 1, 3 -> 5]
+```
+
+At `List`:
+
+```
+>>> IdentityMultiset[1 1 1 3 3 5]
+>>> .sortedElements
+[1 -> 3, 3 -> 2, 5 -> 1]
+```
+
 At `Map`:
 
 ```
->>> Map[1 -> 3, 2 -> 1, 3 -> 5]
->>> .IdentityMultiset
->>> .sortedCounts
+>>> IdentityMultiset(
+>>> 	Map[1 -> 3, 2 -> 1, 3 -> 5]
+>>> ).sortedCounts
 [5 -> 3, 3 -> 1, 1 -> 2]
 ```
 
@@ -23,7 +40,7 @@ to convert a `IdentityMultiset` to a `List` use `asList`:
 
 ```
 >>> let a = [1 1 1 3 3 5];
->>> let b = a.asIdentityMultiset;
+>>> let b = IdentityMultiset(a);
 >>> let c = b.asIdentitySet;
 >>> (
 >>> 	a.size,
@@ -37,7 +54,7 @@ to convert a `IdentityMultiset` to a `List` use `asList`:
 To get the elements as a `List` of `Association`s use `sortedCounts` or `sortedElements`.
 
 ```
->>> let a = [1 1 1 3 3 5].asIdentityMultiset;
+>>> let a = IdentityMultiset[1 1 1 3 3 5];
 >>> (
 >>> 	a.sortedCounts,
 >>> 	a.sortedElements
@@ -51,8 +68,7 @@ To get the elements as a `List` of `Association`s use `sortedCounts` or `sortedE
 To get the elements as a `Map` use `valuesAndCounts`:
 
 ```
->>> [1 1 1 3 3 5]
->>> .asIdentityMultiset
+>>> IdentityMultiset[1 1 1 3 3 5]
 >>> .valuesAndCounts
 Map[1 -> 3, 3 -> 2, 5 -> 1]
 ```
@@ -60,7 +76,7 @@ Map[1 -> 3, 3 -> 2, 5 -> 1]
 To count the occurences of an item, also called the _multiplicity_, use `occurrencesOf`:
 
 ```
->>> [1 1 1 3 3 5].asIdentityMultiset
+>>> IdentityMultiset[1 1 1 3 3 5]
 >>> .occurrencesOf(3)
 2
 ```
@@ -68,7 +84,7 @@ To count the occurences of an item, also called the _multiplicity_, use `occurre
 The `size`, also called the _cardinality_, of a `IdentityMultiset` is the `sum` of the counts:
 
 ```
->>> [1 1 1 3 3 5].asIdentityMultiset
+>>> IdentityMultiset[1 1 1 3 3 5]
 >>> .size
 3 + 2 + 1
 ```
@@ -76,7 +92,7 @@ The `size`, also called the _cardinality_, of a `IdentityMultiset` is the `sum` 
 To add an element to an `IdentityMultiset` use `add` or `addWithOccurrences`:
 
 ```
->>> let a = [1 1 1].asIdentityMultiset;
+>>> let a = IdentityMultiset[1 1 1];
 >>> a.addWithOccurrences(3, 2);
 >>> a.add(5);
 >>> a.sortedElements
@@ -86,7 +102,7 @@ To add an element to an `IdentityMultiset` use `add` or `addWithOccurrences`:
 To remove an element from an `IdentityMultiset` use `remove`:
 
 ```
->>> let a = [1 1 1 3 3 5].asIdentityMultiset;
+>>> let a = IdentityMultiset[1 1 1 3 3 5];
 >>> a.remove(1);
 >>> a.remove(3);
 >>> a.remove(5);
@@ -97,8 +113,8 @@ To remove an element from an `IdentityMultiset` use `remove`:
 Compare instances:
 
 ```
->>> let a = [1 2 3].asIdentityMultiset;
->>> let b = [1 2 3].asIdentityMultiset;
+>>> let a = IdentityMultiset[1 2 3];
+>>> let b = IdentityMultiset[1 2 3];
 >>> a = b
 true
 ```

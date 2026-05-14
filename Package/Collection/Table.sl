@@ -17,8 +17,10 @@ Table : [Object, Storeable, Equatable] { | contents columnLabels columnTypes |
 		'<table class="TableData">\n%\n%\n</table>'.format([h, r.unlines])
 	}
 
-	at { :self :i :j |
-		self.contents[i][self.columnIndex(j)]
+	atPath { :self :operand |
+		let [i, j] = operand;
+		let row = self.contents[i];
+		row[self.columnIndex(j)]
 	}
 
 	columnIndex { :self :j |
@@ -73,7 +75,7 @@ Table : [Object, Storeable, Equatable] { | contents columnLabels columnTypes |
 
 +Record {
 
-	asTable { :self |
+	[Table, asTable] { :self |
 		let c = self.keys;
 		let r = c.collect { :each |
 			self.at(each)

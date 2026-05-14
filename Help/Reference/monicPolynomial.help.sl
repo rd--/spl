@@ -6,14 +6,14 @@ Answer the monic polynomial of _p_,
 a non-zero univariate polynomial in which the leading coefficient is equal to one.
 
 ```
->>> UnivariatePolynomial([1 3 2])
+>>> Polynomial[1 3 2]
 >>> .monicPolynomial
-UnivariatePolynomial([1/2 3/2 1])
+Polynomial[1/2 3/2 1]
 ```
 
 * * *
 
-See also: gcd, UnivariatePolynomial
+See also: gcd, Polynomial, UnivariatePolynomial
 
 Guides: Polynomial Functions
 

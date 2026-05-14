@@ -7,7 +7,7 @@ or circumscribed sphere,
 of the `Tetrahedron` _t_.
 
 ```
->>> Tetrahedron([0 0 0; 1 0 0; 0 1 0; 0 0 1])
+>>> Tetrahedron[0 0 0; 1 0 0; 0 1 0; 0 0 1]
 >>> .circumsphere
 Sphere([1/2 1/2 1/2], 1/3.pi.sin)
 ```

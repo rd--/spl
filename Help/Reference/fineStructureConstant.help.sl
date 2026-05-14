@@ -42,7 +42,7 @@ Approximations to the inverse fine-structure constant:
 Stanbury:
 
 ```
->>> UnivariatePolynomial([0 1 1 4])
+>>> UnivariatePolynomial[0 1 1 4]
 >>> .at(1.pi)
 137.036
 ```

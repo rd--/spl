@@ -17,7 +17,7 @@ Colour swatch for _NCS S 4055-R95B_,
 specified as a list:
 
 ~~~spl svg=B
-NcsColour([40 55 'R' 95 'B'])
+NcsColour[40 55 'R' 95 'B']
 ~~~
 
 ![](Help/Image/NcsColour-B.svg)

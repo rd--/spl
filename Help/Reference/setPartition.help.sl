@@ -30,21 +30,21 @@ The set partition _1-2346-5_:
 At `DyckWord`:
 
 ```
->>> DyckWord([1 0 1 1 0 0])
+>>> DyckWord[1 0 1 1 0 0]
 >>> .setPartition
 [1 2; 3]
 
->>> DyckWord([1 1 0 1 0 0])
+>>> DyckWord[1 1 0 1 0 0]
 >>> .setPartition
 [1; 2 3]
 
->>> DyckWord([1 1 1 0 0 0])
+>>> DyckWord[1 1 1 0 0 0]
 >>> .setPartition
 [1; 2; 3]
 
->>> DyckWord(
->>> 	[1 0 1 0 1 1 0 1 0 1 1 0 0 0]
->>> ).setPartition
+>>> DyckWord[
+>>> 	1 0 1 0 1 1 0 1 0 1 1 0 0 0
+>>> ].setPartition
 [1 2 3; 4 5 6; 7]
 ```
 

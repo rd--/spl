@@ -40,7 +40,7 @@ On the letters _1,-1_, _n=4_:
 The Dyck word corresponding to _(())(())_:
 
 ```
->>> let w = DyckWord([1 1 0 0 1 1 0 0]);
+>>> let w = DyckWord[1 1 0 0 1 1 0 0];
 >>> (
 >>> 	w.restrictedGrowthString,
 >>> 	w.setPartition,
@@ -98,7 +98,7 @@ Plot the word _()()()_ interpreted as a chord diagram,
 _n=3_:
 
 ~~~spl svg=C
-DyckWord([1 0 1 0 1 0])
+DyckWord[1 0 1 0 1 0]
 .chordDiagramPlot
 ~~~
 
@@ -108,7 +108,7 @@ Plot the word _((((()))()()))_ interpreted as a chord diagram,
 _n=7_:
 
 ~~~spl svg=D
-DyckWord([1 1 1 1 1 0 0 0 1 0 1 0 0 0])
+DyckWord[1 1 1 1 1 0 0 0 1 0 1 0 0 0]
 .chordDiagramPlot
 ~~~
 
@@ -118,7 +118,7 @@ Plot the word _()(())_ interpreted as a graph on a line,
 _n=3_:
 
 ~~~spl svg=E
-DyckWord([1 0 1 1 0 0])
+DyckWord[1 0 1 1 0 0]
 .linearGraphPlot
 ~~~
 
@@ -129,7 +129,7 @@ the associated restricted growth string is _1112223_,
 the set partition is _123-456-7_:
 
 ~~~spl svg=F
-DyckWord([1 0 1 0 1 1 0 1 0 1 1 0 0 0])
+DyckWord[1 0 1 0 1 1 0 1 0 1 1 0 0 0]
 .partitionPlot
 ~~~
 

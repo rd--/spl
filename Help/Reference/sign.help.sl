@@ -94,7 +94,7 @@ true
 At `Quaternion` likewise:
 
 ```
->>> let a = Quaternion([1 2 3 4]);
+>>> let a = Quaternion[1 2 3 4];
 >>> let b = a.sign;
 >>> (b, b.abs)
 (a / a.abs, 1)

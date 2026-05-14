@@ -49,7 +49,7 @@ Parse a `Date` type:
 ```
 >>> ['2025-05-01' '2025-05' '']
 >>> .parseSchemaType('Date') { nil }
-[Date([2025, 5, 1]), nil, nil]
+[Date[2025 5 1], nil, nil]
 ```
 
 Parse a `DateAndTime` type:
@@ -63,7 +63,7 @@ Parse a `DateAndTime` type:
 >>> 	'DateAndTime'
 >>> ) { nil }
 [
-	DateAndTime([2025, 5, 1, 2, 22, 10]),
+	DateAndTime[2025 5 1 2 22 10],
 	nil,
 	nil
 ]

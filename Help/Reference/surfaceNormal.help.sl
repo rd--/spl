@@ -1,23 +1,23 @@
 # surfaceNormal
 
-- _surfaceNormal(aSurface)_
+- _surfaceNormal()_
 
-Answer the normal vector of _aSurface_,
+Answer the normal vector of the surface _s_,
 which may or may not be a unit vector
 (see `unitNormal` for the unit vector case).
 
 A `Triangle` has a surface normal if its `embeddingDimension` is three:
 
 ```
->>> Triangle([0 0 1], [1 0 0], [0 1 0])
+>>> Triangle[0 0 1; 1 0 0; 0 1 0]
 >>> .surfaceNormal
 [1 1 1]
 
->>> Triangle([0 0 1], [0 1 0], [1 0 0])
+>>> Triangle[0 0 1; 0 1 0; 1 0 0]
 >>> .surfaceNormal
 [-1 -1 -1]
 
->>> Triangle([0 0 0], [2 0 0], [0 2 0])
+>>> Triangle[0 0 0; 2 0 0; 0 2 0]
 >>> .surfaceNormal
 [0 0 4]
 ```
@@ -25,7 +25,7 @@ A `Triangle` has a surface normal if its `embeddingDimension` is three:
 At `InfinitePlane`:
 
 ```
->>> InfinitePlane([0 0 0], [2 0 0], [0 2 0])
+>>> InfinitePlane[0 0 0; 2 0 0; 0 2 0]
 >>> .surfaceNormal
 [0 0 1]
 ```
