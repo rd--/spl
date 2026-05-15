@@ -663,7 +663,7 @@ Dictionary : [Object, Storeable, Copyable, Equatable, Iterable, Indexable, Colle
 	}
 
 	listToDictionary { :self |
-		let [_, m] = self.dimensions;
+		let [_, m] = self.dimensions(2);
 		(m = 2).if {
 			let [keys, values] = self.transpose;
 			let answer = Dictionary();

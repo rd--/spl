@@ -182,6 +182,7 @@
 	'Elementwise'
 	'FeatureDetection'
 	'FibonacciNumbers'
+	'FiniteAutomata'
 	'Fourier'
 	'Gamma'
 	'GrayCode'

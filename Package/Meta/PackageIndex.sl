@@ -187,6 +187,7 @@
 	'Math-Elementwise'
 	'Math-FeatureDetection'
 	'Math-FibonacciNumbers'
+	'Math-FiniteAutomata'
 	'Math-Fourier'
 	'Math-Gamma'
 	'Math-GrayCode'

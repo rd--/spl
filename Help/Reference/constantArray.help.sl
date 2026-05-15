@@ -11,10 +11,13 @@ A vector of five threes:
 [3 3 3 3 3]
 ```
 
-For the vector case see also `List`, `#` and `!`:
+For the vector case see also `List`, `reshape`, `#` and `!`:
 
 ```
 >>> List(5, 3)
+[3 3 3 3 3]
+
+>>> [3].reshape([5])
 [3 3 3 3 3]
 
 >>> 5 # [3]

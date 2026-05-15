@@ -2341,6 +2341,7 @@ Reference/isYamanouchiWord.help.sl
 Reference/isYellow.help.sl
 Reference/isZero.help.sl
 Reference/Iterable.help.sl
+Reference/iteratedFiniteAutomaton.help.sl
 Reference/iterate.help.sl
 Reference/Iterator.help.sl
 Reference/jaccardDissimilarity.help.sl

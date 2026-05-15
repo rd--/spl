@@ -1,8 +1,9 @@
 # centerArray
 
-- _centerArray(aList, anInteger, anObject)_
+- _centerArray([c₁ c₂ …], n, x)_
 
-Answer a `List` of length _anInteger_ with the elements of _aList_ at the center and _anObject_ elsewhere.
+Answer a `List` of length _n_ with the elements of the list _c_ at the center,
+and the object _x_ elsewhere.
 
 A one and four zeroes:
 
