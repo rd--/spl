@@ -1,6 +1,6 @@
 # deepIndices
 
-- _deepIndices(c, f:/1)_
+- _deepIndices(c, f:/1=⍨⊤)_
 
 Answer a `List` of indices, each a `List`, of the paths to each leaf element in the collection _c_
 that satisfies the predicate the block _f_.

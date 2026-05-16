@@ -106,6 +106,8 @@ shiftRegisterSequence(i, t, n)
 
 See also: deBruijnGraph, deBruijnSequence, elementaryCellularAutomaton, linearRecurrence, nestList, randomInteger
 
+Guides: Automata Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/ShiftRegisterSequence.html),

@@ -8,7 +8,8 @@ where the block _f_ is applied to each sub-tree with the corresponding level as 
 Annotate each node of a tree with the level value:
 
 ```
->>> [1, [2, [3]]].withLevelCollect { :z :k |
+>>> [1, [2, [3]]]
+>>> .withLevelCollect { :z :k |
 >>> 	(k, z)
 >>> }
 (0, [(1, 1), (1, [(2, 2), (2, [(3, 3)])])])
@@ -23,7 +24,8 @@ Reverse at each level of a rank three array:
 	7 8; 9 10; 11 12
 ]
 
->>> [2 3 2].iota.withLevelCollect { :z :k |
+>>> [2 3 2].iota
+>>> .withLevelCollect { :z :k |
 >>> 	(k = 0).if { z.reverse } { z }
 >>> }
 [
@@ -31,7 +33,8 @@ Reverse at each level of a rank three array:
 	1 2; 3 4; 5 6
 ]
 
->>> [2 3 2].iota.withLevelCollect { :z :k |
+>>> [2 3 2].iota
+>>> .withLevelCollect { :z :k |
 >>> 	(k = 1).if { z.reverse } { z }
 >>> }
 [
@@ -39,7 +42,8 @@ Reverse at each level of a rank three array:
 	11 12; 9 10; 7 8
 ]
 
->>> [2 3 2].iota.withLevelCollect { :z :k |
+>>> [2 3 2].iota
+>>> .withLevelCollect { :z :k |
 >>> 	(k = 2).if { z.reverse } { z }
 >>> }
 [
@@ -47,7 +51,8 @@ Reverse at each level of a rank three array:
 	8 7; 10 9; 12 11
 ]
 
->>> [2 3 2].iota.withLevelCollect { :z :k |
+>>> [2 3 2].iota
+>>> .withLevelCollect { :z :k |
 >>> 	(k = 3).if { -z } { z }
 >>> }
 [
@@ -59,32 +64,52 @@ Reverse at each level of a rank three array:
 Reverse at each two and three element combination of levels of a rank three array:
 
 ```
->>> [2 3 2].iota.withLevelCollect { :z :k |
->>> 	[0 1].includes(k).if { z.reverse } { z }
+>>> [2 3 2].iota
+>>> .withLevelCollect { :z :k |
+>>> 	[0 1].includes(k).if {
+>>> 		z.reverse
+>>> 	} {
+>>> 		z
+>>> 	}
 >>> }
 [
 	11 12;  9 10;  7  8:;
 	 5  6;  3  4;  1  2
 ]
 
->>> [2 3 2].iota.withLevelCollect { :z :k |
->>> 	[0 2].includes(k).if { z.reverse } { z }
+>>> [2 3 2].iota
+>>> .withLevelCollect { :z :k |
+>>> 	[0 2].includes(k).if {
+>>> 		z.reverse
+>>> 	} {
+>>> 		z
+>>> 	}
 >>> }
 [
 	 8  7; 10  9; 12 11:;
 	 2  1;  4  3;  6  5
 ]
 
->>> [2 3 2].iota.withLevelCollect { :z :k |
->>> 	[1 2].includes(k).if { z.reverse } { z }
+>>> [2 3 2].iota
+>>> .withLevelCollect { :z :k |
+>>> 	[1 2].includes(k).if {
+>>> 		z.reverse
+>>> 	} {
+>>> 		z
+>>> 	}
 >>> }
 [
 	 6  5;  4  3;  2  1:;
 	12 11; 10  9;  8  7
 ]
 
->>> [2 3 2].iota.withLevelCollect { :z :k |
->>> 	[0 1 2].includes(k).if { z.reverse } { z }
+>>> [2 3 2].iota
+>>> .withLevelCollect { :z :k |
+>>> 	[0 1 2].includes(k).if {
+>>> 		z.reverse
+>>> 	} {
+>>> 		z
+>>> 	}
 >>> }
 [
 	12 11; 10  9;  8  7:;

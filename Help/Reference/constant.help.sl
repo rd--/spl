@@ -23,3 +23,5 @@ _Apl_
 [1](https://aplwiki.com/wiki/Constant),
 _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:const)
+
+Unicode: U+2368 ⍨ APL Functional Symbol Tilde Diaeresis
