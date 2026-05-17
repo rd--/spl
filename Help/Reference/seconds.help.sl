@@ -37,4 +37,6 @@ References:
 _Smalltalk_
 5.8.2.17
 
+Unicode: U+2033 ″Double Prime
+
 Categories: Time, Type

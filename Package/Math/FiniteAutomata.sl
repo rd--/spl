@@ -34,3 +34,57 @@
 
 }
 
++List {
+
+	turingMachine { :ruleList :initialConfiguration :stepCount |
+		let initialState = initialConfiguration[1];
+		let [initialCells, cellBackground] = initialConfiguration[2];
+		let defaultCell = { :i |
+			cellBackground.atWrap(i + 1)
+		};
+		let tape = Map(
+			initialCells.withIndexCollect { :c :i |
+				(i - 1) -> c
+			}
+		);
+		let answer = [
+			[[initialState, 0], tape.copy]
+		];
+		let currentState = initialState;
+		let tapeIndex = 0;
+		let minIndex = 0;
+		let maxIndex = 0;
+		let relativeIndex = 0;
+		let tapeToList = { :t |
+			minIndex:maxIndex.collect { :i |
+				t.atIfAbsent(i) { i.defaultCell }
+			}
+		};
+		ruleList.isAssociationList.ifFalse {
+			let [n, s, k] = ruleList;
+			ruleList := turingMachineFromNumber(n, s, k)
+		};
+		stepCount.timesRepeat {
+			let cellValue = tape.atIfAbsent(tapeIndex) { tapeIndex.defaultCell };
+			let [nextState, nextCellValue, indexDifference] = ruleList.detect { :each |
+				each.key = [currentState, cellValue]
+			}.value;
+			currentState := nextState;
+			tape[tapeIndex] := nextCellValue;
+			tapeIndex := tapeIndex + indexDifference;
+			(tapeIndex < minIndex).ifTrue {
+				minIndex := tapeIndex
+			};
+			(tapeIndex > maxIndex).ifTrue {
+				maxIndex := tapeIndex
+			};
+			answer.add([[currentState, tapeIndex], tape.copy])
+		};
+		answer.collect { :each |
+			let [s, dx] = each[1];
+			[[s, dx - minIndex + 1, dx], tapeToList(each[2])]
+		}
+	}
+
+}
+

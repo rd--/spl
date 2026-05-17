@@ -34,4 +34,6 @@ References:
 _Smalltalk_
 5.8.2.12
 
+Unicode: U+2032 ′Prime
+
 Categories: Time, Type

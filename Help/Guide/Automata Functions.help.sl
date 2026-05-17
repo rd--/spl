@@ -6,4 +6,5 @@
 - `shiftRegisterSequence`
 - `substitutionSystem`
 - `thueMorse`
+- `turingMachine`
 - `turingMachineFromNumber`
