@@ -7,11 +7,12 @@ usually written _Li(n)_.
 Calculated using a series expansion due to Ramanujan,
 with the limit set to nine.
 
+Threads over lists:
+
 ```
->>> [1.2, 1.5, 1.8].collect { :each |
->>> 	each.logarithmicIntegral
->>> }
-[-0.933787, 0.125065, 0.732637]
+>>> [1.2 1.5 1.8]
+>>> .logarithmicIntegral
+[-0.933787 0.125065 0.732637]
 
 >>> 0.5.logarithmicIntegral
 -0.37867
@@ -47,6 +48,8 @@ OEIS [A070769](https://oeis.org/A070769):
 0
 ```
 
+2:9.primePi
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A
@@ -58,9 +61,22 @@ Plot over a subset of the reals:
 
 ![](Help/Image/logarithmicIntegral-A.svg)
 
+Plot with the prime counting function, `primePi`:
+
+~~~spl svg=B
+2:150.functionPlot(
+	[
+		logarithmicIntegral:/1,
+		primePi:/1
+	]
+)
+~~~
+
+![](Help/Image/logarithmicIntegral-B.svg)
+
 * * *
 
-See also: eulerGamma, log, logarithmicIntegralRamanujan
+See also: eulerGamma, log, logarithmicIntegralRamanujan, primePi
 
 References:
 _Mathematica_

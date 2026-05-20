@@ -301,6 +301,20 @@ Plot pointwise sum and product of `sin` and `log`:
 
 ![](Help/Image/log-F.svg)
 
+Plot _x/log(x)_ alongside `logarithmicIntegral` and the prime counting function `primePi`:
+
+~~~spl svg=G
+2:150.functionPlot(
+	[
+		logarithmicIntegral:/1,
+		primePi:/1,
+		{ :x | x / x.log }
+	]
+)
+~~~
+
+![](Help/Image/log-G.svg)
+
 * * *
 
 See also: exp, log2, log10, logarithmicIntegral

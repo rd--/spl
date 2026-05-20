@@ -2,7 +2,8 @@
 
 - _primePi(n)_
 
-Answer the number of primes less than or equal to the integer _n_.
+Answer the number of primes less than or equal to the integer _n_,
+the prime-counting function.
 
 Compute the number of primes up to 15 and 100:
 
@@ -595,7 +596,7 @@ OEIS [A022447](https://oeis.org/A022447):
 
 * * *
 
-See also: eulerPhi, nextPrime, primesList, primesUpTo, sieveOfEratosthenes
+See also: eulerPhi, logarithmicIntegral, nextPrime, primesList, primesUpTo, sieveOfEratosthenes
 
 Guides: Prime Number Functions
 
