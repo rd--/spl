@@ -84,7 +84,7 @@
 		{ self < 1 }.whileTrue {
 			self := self * octaveRatio
 		};
-		{ self > octaveRatio }.whileTrue {
+		{ self >= octaveRatio }.whileTrue {
 			self := self / octaveRatio
 		};
 		self

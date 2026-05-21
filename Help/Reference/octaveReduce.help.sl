@@ -19,6 +19,13 @@ At `Fraction`:
 [1/1 3/2 9/8 27/16 81/64 243/128]
 ```
 
+The octave is not included:
+
+```
+>>> 2/1.octaveReduce
+1/1
+```
+
 Threads over lists:
 
 ```

@@ -38,7 +38,7 @@ It is also the difference between a stack of four classical whole tones (10/9) a
 It is also the difference between a stack of four classical minor thirds (6/5) octave-reduced and 28/27:
 
 ```
->>> (6/5 ^ 4).octaveReduce / 28/27
+>>> 28/27 / (6/5 ^ 4).octaveReduce
 4375/4374
 ```
 

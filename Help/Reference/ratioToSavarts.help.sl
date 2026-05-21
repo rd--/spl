@@ -50,7 +50,7 @@ The Pythagorean comma:
 ```
 >>> (3/2 ^ 12).octaveReduce
 >>> .ratioToSavarts
-5.88
+5.885
 ```
 
 Threads over lists:

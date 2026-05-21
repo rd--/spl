@@ -14,6 +14,7 @@ Guide/AtAll Syntax.help.sl
 Guide/Atonal Theory Functions.help.sl
 Guide/AtPut Syntax.help.sl
 Guide/At Syntax.help.sl
+Guide/Automata Functions.help.sl
 Guide/Benchmarking Functions.help.sl
 Guide/Binary Operators.help.sl
 Guide/Binary Operator Syntax.help.sl
@@ -3381,6 +3382,7 @@ Reference/radical.help.sl
 Reference/radius.help.sl
 Reference/radixSort.help.sl
 Reference/radixSortMatrix.help.sl
+Reference/ragisma.help.sl
 Reference/rahnNormalForm.help.sl
 Reference/rahnPrimeForm.help.sl
 Reference/rahnSetClassTable.help.sl
@@ -3439,6 +3441,7 @@ Reference/rationalOrdering.help.sl
 Reference/rationalUnrank.help.sl
 Reference/ratios.help.sl
 Reference/ratioToCents.help.sl
+Reference/ratioToSavarts.help.sl
 Reference/RatioTuning.help.sl
 Reference/ravel.help.sl
 Reference/readBinaryFile.help.sl
@@ -4200,6 +4203,8 @@ Reference/tuplesDo.help.sl
 Reference/tuples.help.sl
 Reference/tuplesIndicesDo.help.sl
 Reference/turboGradient.help.sl
+Reference/turingMachineFromNumber.help.sl
+Reference/turingMachine.help.sl
 Reference/TurtleGeometry.help.sl
 Reference/TwChoose.help.sl
 Reference/TwIndex.help.sl
