@@ -22,6 +22,16 @@ Fraction(3, 4)
 Fraction(2, 3)
 ```
 
+Fraction literals allow underscores to be used as separators:
+
+```
+>> '123_456/456_789'.splSimplify
+Fraction(123_456L, 456_789L)
+
+>>> 123_456/456_789
+123456/456789
+```
+
 Fraction syntax assume that infix operators are written using white-space separators,
 however at present the parser does not require this.
 The expression _x/y/z_ should be an error,

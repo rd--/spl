@@ -90,6 +90,10 @@
 		self.collect(ratioToCents:/1)
 	}
 
+	ratioToSavarts { :self |
+		self.collect(ratioToSavarts:/1)
+	}
+
 }
 
 +Fraction {

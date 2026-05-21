@@ -6,6 +6,9 @@ Answer an _n+1_ element `List` of repeated applications of the unary block _f_ t
 The first item in the answer is _x_.
 
 ```
+>>> { :x | x * 3/2 }.nestList(1/1, 6)
+[1/1 3/2 9/4 27/8 81/16 243/32 729/64]
+
 >>> cos:/1.nestList(1, 10)
 [
 	1.0000 0.5403 0.8576 0.6543 0.7935

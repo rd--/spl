@@ -75,13 +75,23 @@
 		n.max(d)
 	}
 
-	octaveReduce { :self |
-		self.octaveReduce(2)
+	octaveReduceLogRule { :self :octaveRatio |
+		let exponent = self.asFloat.log(octaveRatio.asFloat).floor.negate;
+		self * (2/1 ^ exponent)
 	}
 
 	octaveReduce { :self :octaveRatio |
-		let exponent = self.asFloat.log(octaveRatio.asFloat).floor.negate;
-		self * (2/1 ^ exponent)
+		{ self < 1 }.whileTrue {
+			self := self * octaveRatio
+		};
+		{ self > octaveRatio }.whileTrue {
+			self := self / octaveRatio
+		};
+		self
+	}
+
+	octaveReduce { :self |
+		self.octaveReduce(2)
 	}
 
 	tenneyHeight { :self :base |
@@ -216,6 +226,10 @@
 
 	pythagoreanLimma { :self |
 		256/243 ^ self
+	}
+
+	ragisma { :self |
+		4375/4374 ^ self
 	}
 
 	schisma { :self |

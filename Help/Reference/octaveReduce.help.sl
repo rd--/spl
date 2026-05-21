@@ -7,11 +7,16 @@ Answer the `Fraction` _n/d_ reduced to lie within `one` and the octave specified
 At `Fraction`:
 
 ```
->>> (3/2 ^ 2).octaveReduce(2)
+>>> (3/2 ^ 2).octaveReduce
 9/8
 
->>> (3/2 ^ 12).octaveReduce(2)
+>>> (3/2 ^ 12).octaveReduce
 1.pythagoreanComma
+
+>>> { :x |
+>>> 	(x * 3/2).octaveReduce
+>>> }.nestList(1/1, 5)
+[1/1 3/2 9/8 27/16 81/64 243/128]
 ```
 
 Threads over lists:
@@ -19,6 +24,11 @@ Threads over lists:
 ```
 >>> [3/4 5/2].octaveReduce
 [3/2 5/4]
+
+>>> { :x | (x * 3/2) }
+>>> .nestList(1/1, 5)
+>>> .octaveReduce
+[1/1 3/2 9/8 27/16 81/64 243/128]
 ```
 
 At `Integer`:

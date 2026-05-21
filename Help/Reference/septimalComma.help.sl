@@ -39,6 +39,8 @@ See also: pythagoreanComma, syntonicComma
 Guides: Xenharmonic Functions
 
 References:
+_W_
+[1](https://en.wikipedia.org/wiki/Septimal_comma),
 _Xenharmonic_
 [1](https://en.xen.wiki/w/64/63)
 

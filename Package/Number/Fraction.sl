@@ -414,6 +414,10 @@ Fraction : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | num
 		}
 	}
 
+	log { :self :base |
+		self.asFloat.log(base)
+	}
+
 	log { :self |
 		self.asFloat.log
 	}

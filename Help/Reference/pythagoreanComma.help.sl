@@ -9,7 +9,11 @@ The Pythagorean, or ditonic, comma is the interval with the ratio 531441/524288.
 ```
 >>> 1.pythagoreanComma
 531441/524288
+```
 
+It measures about 23.5¢:
+
+```
 >>> 1.pythagoreanComma
 >>> .ratioToCents
 23.46
@@ -101,6 +105,19 @@ Continued fraction of the Pythagorean comma,
 [1 73 3 2 1 1 1 23 2 5]
 ```
 
+Tenney, Weil and Wilson norms:
+
+```
+>>> 1.pythagoreanComma.tenneyHeight
+38.0196
+
+>>> 1.pythagoreanComma.weilHeight
+38.0391
+
+>>> 1.pythagoreanComma.wilsonHeight
+74
+```
+
 * * *
 
 See also: mercatorsComma, octaveReduce, pythagoreanChroma, septimalComma, syntonicComma
@@ -108,6 +125,9 @@ See also: mercatorsComma, octaveReduce, pythagoreanChroma, septimalComma, synton
 Guides: Xenharmonic Functions
 
 References:
+_W_
+[1](https://en.wikipedia.org/wiki/Pythagorean_comma)
+[2](https://en.wikipedia.org/wiki/Comma_(music)),
 _Xenharmonic_
 [1](https://en.xen.wiki/w/Pythagorean_comma)
 

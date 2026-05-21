@@ -41,6 +41,8 @@ See also: mercatorsComma, octaveReduce, pythagoreanChroma, pythagoreanComma, sep
 Guides: Xenharmonic Functions
 
 References:
+_W_
+[1](https://en.wikipedia.org/wiki/Schisma),
 _Xenharmonic_
 [1](https://en.xen.wiki/w/Schisma)
 

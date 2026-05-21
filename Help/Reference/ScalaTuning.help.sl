@@ -1,6 +1,6 @@
 # ScalaTuning
 
-- _ScalaTuning(aRecord)_
+- _ScalaTuning(r)_
 
 A `Type` holding a `Tuning` stored in the form of the scales held in the Scala tuning archive.
 

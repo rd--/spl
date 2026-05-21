@@ -42,3 +42,5 @@ References:
 _W_
 [1](https://en.wikipedia.org/wiki/Savart)
 [2](https://en.wikipedia.org/wiki/One-third_octave)
+
+Unicode: U+03C3 σ Greek Small Letter Sigma

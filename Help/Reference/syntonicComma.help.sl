@@ -1,14 +1,20 @@
 # syntonicComma
 
-- _syntonicComma(aNumber)_
+- _syntonicComma(n)_
 
-Answer the syntonic comma raised to _aNumber_.
+Answer the syntonic comma,
+also known as the Didymus’ comma or the meantone comma or the Ptolemaic comma,
+raised to the number _n_.
 
-The syntonic (or syntonic or Ptolemaic) comma is the interval with the superparticular ratio 81/80.
+The syntonic comma comma is the interval with the superparticular ratio 81/80.
 
 ```
 >>> 1.syntonicComma
 81/80
+
+>>> 1.syntonicComma
+>>> .isSuperparticular
+true
 ```
 
 It is the difference between the two superparticular ratios 10/9 and 9/8:
@@ -63,6 +69,19 @@ The schisma also is the difference between eight perfect fifths plus a major thi
 32805/32768
 ```
 
+Tenney, Weil and Wilson norms:
+
+```
+>>> 1.syntonicComma.tenneyHeight
+12.6618
+
+>>> 1.syntonicComma.weilHeight
+12.6797
+
+>>> 1.syntonicComma.wilsonHeight
+25
+```
+
 * * *
 
 See also: pythagoreanComma, septimalComma
@@ -70,6 +89,8 @@ See also: pythagoreanComma, septimalComma
 Guides: Xenharmonic Functions
 
 References:
+_W_
+[1](https://en.wikipedia.org/wiki/Syntonic_comma),
 _Xenharmonic_
 [1](https://en.xen.wiki/w/81/80)
 [2](https://en.xen.wiki/w/Schisma)

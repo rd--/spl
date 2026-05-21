@@ -175,7 +175,7 @@ Sl {
 	complexLiteral = integerOrFloatLiteral "J" integerOrFloatLiteral // ("j" | "J")
 	imaginaryLiteral = integerOrFloatLiteral "I" // ("i" | "I")
 	residueLiteral = integerLiteral "Z" digit+ // ("z" | "Z")
-	fractionLiteral = plusOrMinus? digit+ "/" digit+
+	fractionLiteral = plusOrMinus? digits "/" digits
 	largeIntegerLiteral = plusOrMinus? decimalDigits "L"
     radixDigit = digit | "A" | "B" | "C" | "D" | "E" | "F"
 	radixDigitOrUnderscore = radixDigit | "_"
@@ -186,6 +186,7 @@ Sl {
 	smallIntegerLiteral = plusOrMinus? decimalDigits
 	decimalDigits = digit digitOrUnderscore*
 	digitOrUnderscore = digit | "_"
+	digits = digit digitOrUnderscore*
     integerLiteral = largeIntegerLiteral | radixIntegerLiteral | smallIntegerLiteral
     integerOrFloatLiteral = floatLiteral | integerLiteral
 	singleQuotedStringLiteral = "\'" (~"\'" ("\\\'" | "\\\\" | sourceCharacter))* "\'"
