@@ -23,7 +23,7 @@ system.requestLibraryItem(
 
 * * *
 
-See also: asRatioTuning, RatioTuning, SmallKansas
+See also: RatioTuning, SmallKansas
 
 Categories: Kansas
 

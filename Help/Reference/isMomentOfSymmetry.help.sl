@@ -11,7 +11,7 @@ contains two intervals.
 A moment of symmetry scale:
 
 ```
->>> Scale(1, [2 2 1 2 2 2 1], 'Maj.')
+>>> Scale([2 2 1 2 2 2 1], 'Maj.')
 >>> .isMomentOfSymmetry
 true
 ```
@@ -19,7 +19,7 @@ true
 A not moment of symmetry scale:
 
 ```
->>> Scale(1, [2 1 2 2 2 2 1], 'Mel. Min.')
+>>> Scale([2 1 2 2 2 2 1], 'Mel. Min.')
 >>> .isMomentOfSymmetry
 false
 ```

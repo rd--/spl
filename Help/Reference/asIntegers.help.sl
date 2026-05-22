@@ -1,14 +1,14 @@
 # asIntegers
 
-- _asIntegers(aTuning)_
+- _asIntegers(t)_
 
-Of a rational tuning,
+Of a rational tuning _t_,
 answer the intervals specified as integers.
 
 ```
->>> [1/1 8/7 4/3 14/9 16/9]
->>> .asRatioTuning
->>> .asIntegers
+>>> RatioTuning[
+>>> 	1/1 8/7 4/3 14/9 16/9
+>>> ].asIntegers
 [63 72 84 98 112]
 ```
 

@@ -30,9 +30,10 @@ The _3 3 3 5_ genus:
 Draw the _3 3 3 5 5_ genus:
 
 ~~~spl svg=A
-[3 3 3 5 5].eulerFokkerGenus
-.asRatioTuning
-.tuningLatticeGraph
+RatioTuning(
+	[3 3 3 5 5]
+	.eulerFokkerGenus
+).tuningLatticeGraph
 ~~~
 
 ![](Help/Image/eulerFokkerGenus-A.svg)
@@ -40,9 +41,10 @@ Draw the _3 3 3 5 5_ genus:
 Draw the _3 3 3 5 7 11_ genus:
 
 ~~~spl svg=B
-[3 3 3 5 7 11].eulerFokkerGenus
-.asRatioTuning
-.tuningLatticeGraph
+RatioTuning(
+	[3 3 3 5 7 11]
+	.eulerFokkerGenus
+).tuningLatticeGraph
 ~~~
 
 ![](Help/Image/eulerFokkerGenus-B.svg)
@@ -50,9 +52,10 @@ Draw the _3 3 3 5 7 11_ genus:
 Draw the _3 5 7 11 13_ genus:
 
 ~~~spl svg=C
-[3 5 7 11 13].eulerFokkerGenus
-.asRatioTuning
-.tuningLatticeGraph
+RatioTuning(
+	[3 5 7 11 13]
+	.eulerFokkerGenus
+).tuningLatticeGraph
 ~~~
 
 ![](Help/Image/eulerFokkerGenus-C.svg)

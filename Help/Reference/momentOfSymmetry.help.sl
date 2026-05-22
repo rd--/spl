@@ -24,8 +24,7 @@ Each of the scales given is a moment of symmetry scale:
 ```
 >>> 5.momentOfSymmetry(12)
 >>> .allSatisfy { :each |
->>> 	each
->>> 	.asScale
+>>> 	Scale(each)
 >>> 	.isMomentOfSymmetry
 >>> }
 true

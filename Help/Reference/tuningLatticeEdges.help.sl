@@ -6,11 +6,10 @@ Answer a two column matrix telling the edges that the tuning _t_ describes betwe
 Edges connect vertices whose coordinates have a `manhattanDistance` of `one`.
 
 ```
->>> let r = [
+>>> let t = RatioTuning[
 >>> 	1/1 10/9 20/17 4/3
 >>> 	3/2 5/3 30/17
 >>> ];
->>> let t = r.asRatioTuning;
 >>> let p = t.tuningLatticePrimes(false);
 >>> let v = t.tuningLatticeVertexCoordinates(p);
 >>> t.tuningLatticeEdges(v)

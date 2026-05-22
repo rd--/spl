@@ -42,8 +42,7 @@ OEIS [A006530](https://oeis.org/A006530):
 At `RatioTuning`:
 
 ```
->>> [1 8/7 4/3 14/9 16/9]
->>> .asRatioTuning
+>>> RatioTuning[1 8/7 4/3 14/9 16/9]
 >>> .primeLimit
 7
 ```

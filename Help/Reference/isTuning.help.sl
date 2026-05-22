@@ -4,12 +4,18 @@
 
 Answer `true` if the object _x_ implements the `Tuning` trait.
 
-```
->>> 12.equalTemperamentTuning.isTuning
-true
+At `CentsTuning`:
 
->>> [1 6/5 4/3 3/2 8/5]
->>> .asRatioTuning
+```
+>>> 12.equalTemperamentTuning
+>>> .isTuning
+true
+```
+
+At `RatioTuning`:
+
+```
+>>> RatioTuning[1 6/5 4/3 3/2 8/5]
 >>> .isTuning
 true
 ```

@@ -50,7 +50,7 @@ CentsTuning : [Object, Storeable, Equatable, Tuning] { | name description asCent
 
 +List {
 
-	asCentsTuning { :self |
+	[CentsTuning, asCentsTuning] { :self |
 		CentsTuning('Unnamed tuning', 'Undescribed tuning', self, 2)
 	}
 

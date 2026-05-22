@@ -41,8 +41,7 @@ answer `true` if the tuning,
 when considered `asRatios`, answers only proper fractions.
 
 ```
->>> [1/1 6/5 4/3 3/2 8/5]
->>> .asRatioTuning
+>>> RatioTuning[1/1 6/5 4/3 3/2 8/5]
 >>> .isRational
 true
 

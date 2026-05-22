@@ -1079,3 +1079,19 @@
 	}
 
 }
+
++@Collection {
+
+	atIntegerOrElementwise { :self :aBlock:/1 |
+		self.collect(aBlock:/1)
+	}
+
+}
+
++@Integer {
+
+	atIntegerOrElementwise { :self :aBlock:/1 |
+		aBlock(self)
+	}
+
+}

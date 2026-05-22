@@ -9,9 +9,9 @@ that is,
 a set of specific intervals at a given generic interval:
 
 ```
->>> let s = Scale(1, [2 2 1 2 2 2 1], 'Maj.');
->>> (1 .. 7).collect { :each |
->>> 	s.intervalClass(each)
+>>> let s = Scale([2 2 1 2 2 2 1], 'Maj.');
+>>> (1 .. 7).collect { :n |
+>>> 	s.intervalClass(n)
 >>> }
 [1 2; 3 4; 5 6; 6 7; 8 9; 10 11; 12]
 ```

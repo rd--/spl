@@ -7,11 +7,10 @@ where each entry tells the `tuningLatticeVector` of the corresponding entry in t
 in relation to the primes list _p_.
 
 ```
->>> let r = [
+>>> let t = RatioTuning[
 >>> 	1/1 10/9 20/17 4/3
 >>> 	3/2 5/3 30/17
 >>> ];
->>> let t = r.asRatioTuning;
 >>> let p = t.tuningLatticePrimes(false);
 >>> t.tuningLatticeVertexCoordinates(p)
 [

@@ -1,17 +1,17 @@
 # Scale
 
-- _Scale(n, [i₁ i₂ …], d)_
+- _Scale([i₁ i₂ …], n=1, d='')_
 
 A `Scale` is a sub-set of the indices of a `Tuning`.
+
+_i_ is a sequence of integers giving the intervals of the scale,
+the distance of each index from the last.
 
 _n_ is the start index,
 the index at the `Tuning` of the first note of the scale,
 and is usually one.
 
-_i_ is a sequence of integers giving the intervals of the scale,
-the distance of each index from the last.
-
-_d_ is the scale description, a comma separated list names for the scale.
+_d_ is the scale description, a comma separated list of names for the scale.
 
 The `nameList` of a scale is the `description` separated into parts by the sub-string ', '.
 
@@ -26,7 +26,7 @@ starting from one,
 into a `Tuning` of the required size.
 
 ```
->>> Scale(1, [2 2 1 2 2 2 1], 'Maj.')
+>>> Scale([2 2 1 2 2 2 1], 'Maj.')
 >>> .tuningIndices
 [1 3 5 6 8 10 12]
 ```
@@ -34,7 +34,7 @@ into a `Tuning` of the required size.
 `degreeToKey` indexes a scale by _degree_:
 
 ```
->>> Scale(1, [2 2 1 2 2 2 1], 'Maj.')
+>>> Scale([2 2 1 2 2 2 1], 'Maj.')
 >>> .degreeToKey(1:7)
 [1 3 5 6 8 10 12]
 ```
@@ -42,7 +42,7 @@ into a `Tuning` of the required size.
 `stepArity` tells the number of step sizes:
 
 ```
->>> Scale(1, [2 2 1 2 2 2 1], 'Maj.')
+>>> Scale([2 2 1 2 2 2 1], 'Maj.')
 >>> .stepArity
 2
 ```
@@ -50,7 +50,7 @@ into a `Tuning` of the required size.
 `intervalsBy` tells the cyclic intervals at a specified distance:
 
 ```
->>> let s = Scale(1, [2 2 1 2 2 2 1], 'Maj.');
+>>> let s = Scale([2 2 1 2 2 2 1], 'Maj.');
 >>> (1 .. 3).collect { :each |
 >>> 	s.intervalsBy(each)
 >>> }
@@ -64,7 +64,7 @@ into a `Tuning` of the required size.
 `intervalClass` tells the set of intervals in the answer of `intervalsBy`:
 
 ```
->>> let s = Scale(1, [2 2 1 2 2 2 1], 'Maj.');
+>>> let s = Scale([2 2 1 2 2 2 1], 'Maj.');
 >>> (1 .. 7).collect { :each |
 >>> 	s.intervalClass(each)
 >>> }
@@ -74,7 +74,7 @@ into a `Tuning` of the required size.
 `intervalClasses` answers the `intervalClass` for each generic interval in turn:
 
 ```
->>> Scale(1, [2 2 3 2 3], 'Maj. Pentatonic')
+>>> Scale([2 2 3 2 3], 'Maj. Pentatonic')
 >>> .intervalClasses
 [2 3; 4 5; 7 8; 9 10; 12]
 ```
@@ -82,7 +82,7 @@ into a `Tuning` of the required size.
 `isStrictlyProper` tells if `intervalClasses` are strictly ascending:
 
 ```
->>> Scale(1, [2 2 3 2 3], 'Maj. Pentatonic')
+>>> Scale([2 2 3 2 3], 'Maj. Pentatonic')
 >>> .isStrictlyProper
 true
 ```
@@ -91,7 +91,7 @@ true
 allowing for equal elements:
 
 ```
->>> Scale(1, [2 2 1 2 2 2 1], 'Maj.')
+>>> Scale([2 2 1 2 2 2 1], 'Maj.')
 >>> .isProper
 true
 ```
@@ -99,7 +99,7 @@ true
 `isImproper` tells if a scale is not proper:
 
 ```
->>> Scale(1, [2 1 4 1 4], 'Hirajōshi')
+>>> Scale([2 1 4 1 4], 'Hirajōshi')
 >>> .isImproper
 true
 ```
@@ -109,15 +109,29 @@ with the exception of the _period_,
 contains two intervals:
 
 ```
->>> Scale(1, [2 2 1 2 2 2 1], 'Maj.')
+>>> Scale([2 2 1 2 2 2 1], 'Maj.')
 >>> .isMomentOfSymmetry
 true
+```
+
+The unary form of `Scale` takes only the list of intervals _i_,
+the `startIndex` is set to `one`,
+and the description is set to _undescribed scale_.
+
+```
+>>> Scale[2 2 1 2 2 2 1]
+>>> .tuningIndices
+[1 3 5 6 8 10 12]
+
+>>> Scale[2 1 2 2 1 2 2]
+>>> .tuningIndices
+[1 3 4 6 8 9 11]
 ```
 
 A text drawing of the interval structure:
 
 ```
->>> Scale(1, [2 2 1 2 2 2 1], 'Maj.')
+>>> Scale([2 2 1 2 2 2 1], 'Maj.')
 >>> .textDrawing
 '├─┼─┼┼─┼─┼─┼┤'
 ```
@@ -125,7 +139,7 @@ A text drawing of the interval structure:
 A line drawing of the interval structure:
 
 ~~~spl svg=A
-Scale(1, [2 2 1 2 2 2 1], 'Maj.')
+Scale([2 2 1 2 2 2 1], 'Maj.')
 ~~~
 
 ![](Help/Image/Scale-A.svg)

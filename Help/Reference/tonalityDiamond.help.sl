@@ -102,11 +102,11 @@ The scale is symmetrical within the octave:
 Draw the 15-limit diamond:
 
 ~~~spl svg=A
-15.tonalityDiamond
-.catenate
-.unique
-.asRatioTuning
-.tuningLatticeGraph
+RatioTuning(
+	15.tonalityDiamond
+	.catenate
+	.unique
+).tuningLatticeGraph
 ~~~
 
 ![](Help/Image/tonalityDiamond-A.svg)

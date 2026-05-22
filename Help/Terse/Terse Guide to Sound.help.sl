@@ -9,16 +9,16 @@
 12.equalTemperamentTuning.asCents = [0 100 200 300 400 500 600 700 800 900 1000 1100]
 12.equalTemperamentTuning.octave = 2
 7.equalTemperamentTuning.asCents.round = [0 171 343 514 686 857 1029]
-[1/1 6/5 4/3 3/2 8/5].asRatioTuning.asRatios = [1 6/5 4/3 3/2 8/5]
-[1/1 6/5 4/3 3/2 8/5].asRatioTuning.asCents.round = [0 316 498 702 814]
-[1/1 6/5 4/3 3/2 8/5].asRatioTuning.asIntegers = [30 36 40 45 48]
-[1/1 6/5 4/3 3/2 8/5].asRatioTuning.octave = 2
+RatioTuning[1/1 6/5 4/3 3/2 8/5].asRatios = [1 6/5 4/3 3/2 8/5]
+RatioTuning[1/1 6/5 4/3 3/2 8/5].asCents.round = [0 316 498 702 814]
+RatioTuning[1/1 6/5 4/3 3/2 8/5].asIntegers = [30 36 40 45 48]
+RatioTuning[1/1 6/5 4/3 3/2 8/5].octave = 2
 30/17.tuningLatticePrimes(false) = [3 5 17]
 30/17.tuningLatticeVector([3 5 17]) = [1 1 -1]
 30/17.tuningLatticeVectorString([3 5 17]) = ' 1  1 -1'
-[1/1 10/9 20/17 4/3 3/2 5/3 30/17].asRatioTuning.tuningLatticePrimes(false) = [3 5 17] /* Average Bac System */
-[1/1 10/9 20/17 4/3 3/2 5/3 30/17].asRatioTuning.tuningLatticeVertexCoordinates([3 5 17]) = [0 0 0; -2 1 0; 0 1 -1; -1 0 0; 1 0 0; -1 1 0; 1 1 -1]
-let r = [1/1 10/9 20/17 4/3 3/2 5/3 30/17]; let t = r.asRatioTuning; let p = t.tuningLatticePrimes(false); let v = t.tuningLatticeVertexCoordinates(p); t.tuningLatticeEdges(v) = [1 4; 1 5; 2 6; 3 7; 4 6]
+RatioTuning[1/1 10/9 20/17 4/3 3/2 5/3 30/17].tuningLatticePrimes(false) = [3 5 17] /* Average Bac System */
+RatioTuning[1/1 10/9 20/17 4/3 3/2 5/3 30/17].tuningLatticeVertexCoordinates([3 5 17]) = [0 0 0; -2 1 0; 0 1 -1; -1 0 0; 1 0 0; -1 1 0; 1 1 -1]
+let r = [1/1 10/9 20/17 4/3 3/2 5/3 30/17]; let t = RatioTuning(r); let p = t.tuningLatticePrimes(false); let v = t.tuningLatticeVertexCoordinates(p); t.tuningLatticeEdges(v) = [1 4; 1 5; 2 6; 3 7; 4 6]
 ```
 
 ## Music-RatioTuning
@@ -27,14 +27,14 @@ let r = RatioTuning('', '', [1/1 8/7 4/3 14/9 16/9], 2); [r.size, r.primeLimit, 
 RatioTuning('', '', [1/1 8/7 4/3 14/9 16/9], 2).asIntegers =  [63 72 84 98 112]
 RatioTuning('', '', [63 72 84 98 112], 2).asRatios = [1/1 8/7 4/3 14/9 16/9]
 RatioTuning('', '', [1/1 8/7 4/3 14/9 16/9], 2) = RatioTuning('', '', [63 72 84 98 112], 2)
-let t = [63, 72, 84, 98, 112].asRatioTuning; [t.primeLimit, t.size, t.octave] = [7, 5, 2]
-let t = [63, 72, 84, 98, 112].asRatioTuning; t.asRatios = [1, 8/7, 4/3, 14/9, 16/9]
-let t = [63, 72, 84, 98, 112].asRatioTuning; t.asCents.round = [0, 231, 498, 765, 996]
+let t = RatioTuning[63, 72, 84, 98, 112]; [t.primeLimit, t.size, t.octave] = [7, 5, 2]
+let t = RatioTuning[63, 72, 84, 98, 112]; t.asRatios = [1, 8/7, 4/3, 14/9, 16/9]
+let t = RatioTuning[63, 72, 84, 98, 112]; t.asCents.round = [0, 231, 498, 765, 996]
 let r = [1/1, 8/7, 4/3, 14/9, 16/9]; [r.reduce(gcd:/2), r.reduce(lcm:/2)] = [1/63, 112]
 [1, 8/7, 4/3, 14/9, 16/9] / 1/63 = [63, 72, 84, 98, 112]
-[1/1, 8/7, 4/3, 14/9, 16/9].asRatioTuning.asIntegers = [63, 72, 84, 98, 112]
-[63, 72, 84, 98, 112].asRatioTuning.asRatios = [1, 8/7, 4/3, 14/9, 16/9]
-[1, 3].asRatioTuning.asRatios = [1, 3]
+RatioTuning[1/1, 8/7, 4/3, 14/9, 16/9].asIntegers = [63, 72, 84, 98, 112]
+RatioTuning[63, 72, 84, 98, 112].asRatios = [1, 8/7, 4/3, 14/9, 16/9]
+RatioTuning[1, 3].asRatios = [1, 3]
 ```
 
 ## Music-Pitch

@@ -109,7 +109,7 @@ RatioTuning : [Object, Storeable, Equatable, Cache, Tuning] { | name description
 
 +List {
 
-	asRatioTuning { :self |
+	[RatioTuning, asRatioTuning] { :self |
 		RatioTuning(
 			'*Unnamed tuning*',
 			'*Undescribed tuning*',

@@ -7,8 +7,7 @@ Answer a `List` of the intervals of the tuning _t_ in _cents_.
 At `RatioTuning`:
 
 ```
->>> [1/1 8/7 4/3 14/9 16/9]
->>> .asRatioTuning
+>>> RatioTuning[1/1 8/7 4/3 14/9 16/9]
 >>> .asCents
 [0 231.17 498.05 764.92 996.09]
 ```

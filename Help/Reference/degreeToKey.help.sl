@@ -10,7 +10,7 @@ the scale _s_ is an instance of `Scale`,
 and both and indices are counted from `one`:
 
 ```
->>> let s = Scale(1, [2 2 1 2 2 2 1], 'Maj.');
+>>> let s = Scale([2 2 1 2 2 2 1], 'Maj.');
 >>> 1:7.collect { :each |
 >>> 	s.degreeToKey(each)
 >>> }
@@ -20,7 +20,7 @@ and both and indices are counted from `one`:
 Threads over lists:
 
 ```
->>> let s = Scale(1, [2 2 1 2 2 2 1], 'Maj.');
+>>> let s = Scale([2 2 1 2 2 2 1], 'Maj.');
 >>> s.degreeToKey(1:7)
 [1 3 5 6 8 10 12]
 ```
@@ -28,10 +28,10 @@ Threads over lists:
 Multiple octaves:
 
 ```
->>> let s = Scale(1, [2 2 1 2 2 2 1], 'Maj.');
+>>> let s = Scale([2 2 1 2 2 2 1], 'Maj.');
 >>> s.degreeToKey(1:15)
 [
-	1 3 5 6 8 10 12
+	 1  3  5  6  8 10 12
 	13 15 17 18 20 22 24
 	25
 ]
@@ -40,14 +40,14 @@ Multiple octaves:
 Negative (and zero) degrees:
 
 ```
->>> let s = Scale(1, [2 2 1 2 2 2 1], 'Maj.');
+>>> let s = Scale([2 2 1 2 2 2 1], 'Maj.');
 >>> s.degreeToKey(-13:8)
 [
 	-23
 	-21 -19 -18 -16 -14 -12
-	-11 -9 -7 -6 -4 -2 0
-	1 3 5 6 8 10 12
-	13
+	-11  -9  -7  -6  -4  -2  0
+	  1   3   5   6   8  10 12
+	 13
 ]
 ```
 
@@ -62,7 +62,7 @@ The methods `sharp` and `flat` answer appropriately modified degrees:
 At major scale:
 
 ```
->>> let s = Scale(1, [2 2 1 2 2 2 1], 'Maj.');
+>>> let s = Scale([2 2 1 2 2 2 1], 'Maj.');
 >>> let allSharps = [
 >>> 	1 1.sharp 2 2.sharp 3 4
 >>> 	4.sharp 5 5.sharp 6 6.sharp 7
@@ -84,7 +84,7 @@ At major scale:
 At minor scale:
 
 ```
->>> let s = Scale(1, [2 1 2 2 1 2 2], 'Min.');
+>>> let s = Scale([2 1 2 2 1 2 2], 'Min.');
 >>> let d = [
 >>> 	1 2.flat 2 3 3.sharp 4
 >>> 	5.flat 5 6 6.sharp 7 7.sharp
@@ -103,7 +103,7 @@ Likewise the methods `cancelFlat` and `cancelSharp`:
 At minor scale:
 
 ```
->>> let s = Scale(1, [2 1 2 2 1 2 2], 'Min.');
+>>> let s = Scale([2 1 2 2 1 2 2], 'Min.');
 >>> let d = [
 >>> 	1 2.flat 2 3 3.cancelFlat 4
 >>> 	5.flat 5 6 6.cancelFlat 7 7.cancelFlat

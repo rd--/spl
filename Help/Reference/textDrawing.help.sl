@@ -1,13 +1,13 @@
 # textDrawing
 
-- _textDrawing(anObject)_
+- _textDrawing(x)_
 
-Answer a `String` drawing of _anObject_.
+Answer a `String` drawing of the object _x_.
 
 At `Scale`:
 
 ```
->>> Scale(1, [2 2 3 2 3], 'Maj. Pentatonic')
+>>> Scale([2 2 3 2 3], 'Maj. Pentatonic')
 >>> .textDrawing
 '├─┼─┼──┼─┼──┤'
 ```

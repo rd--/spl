@@ -1,4 +1,4 @@
-Scale : [Object, Storeable] { | startIndex intervals description |
+Scale : [Object, Storeable] { | intervals description startIndex |
 
 	asLineDrawing { :self |
 		let i = [0] ++ self.intervals.prefixSum * 3;
@@ -69,8 +69,10 @@ Scale : [Object, Storeable] { | startIndex intervals description |
 		}
 	}
 
-	intervalVariety { :self :anInteger |
-		self.intervalClass(anInteger).size
+	intervalVariety { :self :operand |
+		operand.atIntegerOrElementwise { :anInteger |
+			self.intervalClass(anInteger).size
+		}
 	}
 
 	isBinary { :self |
@@ -156,18 +158,18 @@ Scale : [Object, Storeable] { | startIndex intervals description |
 
 }
 
-+@Integer {
-
-	Scale { :startIndex :intervals :description |
-		newScale().initializeSlots(startIndex, intervals, description)
-	}
-
-}
-
 +List {
 
-	asScale { :self |
-		Scale(1, self, '*undescribed scale*')
+	Scale { :intervals :description :startIndex |
+		newScale().initializeSlots(intervals, description, startIndex)
+	}
+
+	Scale { :intervals :description |
+		Scale(intervals, description, 1)
+	}
+
+	[Scale, asScale] { :intervals |
+		Scale(intervals, '*undescribed scale*', 1)
 	}
 
 }

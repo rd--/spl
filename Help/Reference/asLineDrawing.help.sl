@@ -58,7 +58,7 @@ At `Plot`:
 At `Scale`:
 
 ~~~spl svg=G
-Scale(1, [2 2 3 2 3], 'Maj. Pentatonic')
+Scale([2 2 3 2 3], 'Maj. Pentatonic')
 .asLineDrawing
 ~~~
 
@@ -67,9 +67,9 @@ Scale(1, [2 2 3 2 3], 'Maj. Pentatonic')
 At `Graph`:
 
 ~~~spl svg=H
-[1/1 8/7 3/2 8/5 7/4]
-.asRatioTuning
-.tuningLatticeGraph
+RatioTuning[
+	1/1 8/7 3/2 8/5 7/4
+].tuningLatticeGraph
 .asLineDrawing
 ~~~
 

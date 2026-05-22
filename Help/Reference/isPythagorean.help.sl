@@ -7,9 +7,9 @@ Answer `true` if the tuning _t_ has prime limit of three.
 The following tuning is Pythagorean:
 
 ```
->>> [486 512 576 648 729 768 864]
->>> .asRatioTuning
->>> .isPythagorean
+>>> RatioTuning[
+>>> 	486 512 576 648 729 768 864
+>>> ].isPythagorean
 true
 ```
 

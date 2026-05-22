@@ -20,9 +20,9 @@ At `Fraction`:
 At `Tuning`:
 
 ```
->>> [1/1 10/9 20/17 4/3 3/2 5/3 30/17]
->>> .asRatioTuning
->>> .tuningLatticePrimes(true)
+>>> RatioTuning[
+>>> 	1/1 10/9 20/17 4/3 3/2 5/3 30/17
+>>> ].tuningLatticePrimes(true)
 [2 3 5 17]
 ```
 

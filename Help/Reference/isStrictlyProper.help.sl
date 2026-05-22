@@ -9,7 +9,7 @@ A scale is strictly proper (Rothenberg 1977) if its `intervalClasses` are strict
 A strictly proper scale:
 
 ```
->>> Scale(1, [2 2 3 2 3], 'Maj. Pentatonic')
+>>> Scale([2 2 3 2 3], 'Maj. Pentatonic')
 >>> .isStrictlyProper
 true
 ```
@@ -17,7 +17,7 @@ true
 A scale that is proper, but not strictly proper:
 
 ```
->>> let s = Scale(1, [2 2 1 2 2 2 1], 'Maj.');
+>>> let s = Scale([2 2 1 2 2 2 1], 'Maj.');
 >>> (s.isStrictlyProper, s.isProper)
 (false, true)
 ```

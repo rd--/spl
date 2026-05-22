@@ -53,9 +53,9 @@ Compare Grady and Wilson tuning lattice templates using a 7-note 13-limit scale
 (see `wilsonTuningLatticeCoordinates` for equivalent drawing):
 
 ~~~spl svg=A
-[1/1 21/20 11/10 13/10 7/5 3/2 8/5]
-.asRatioTuning
-.tuningLatticeGraph(
+RatioTuning[
+	1/1 21/20 11/10 13/10 7/5 3/2 8/5
+].tuningLatticeGraph(
 	[3 5 7 11 13],
 	1.gradyTuningLatticeCoordinates
 )

@@ -232,7 +232,7 @@ The type predicates are `isFraction`, `isSmallFloat`, `isDecimal`, `isLargeInteg
 
 * * *
 
-See also: asInteger, Integer, isFraction, isNumber, isGaussianInteger, isScalarInteger, isSmallFloat, isSmallInteger, isLargeInteger, Number, parseLargeInteger, parseSmallInteger
+See also: asInteger, Integer, isFraction, isNumber, isGaussianInteger, isLargeInteger, isScalarInteger, isSmallFloat, isSmallInteger, Number, parseLargeInteger, parseSmallInteger
 
 Guides: Integer Functions, Predicate Functions
 

@@ -4,17 +4,17 @@
 
 Answer the step arity,
 also called step variety,
-of th scale _s_.
+of the scale _s_.
 
 The step arity is the number of step sizes.
 Scales with a step arity of one are called unary scales,
-those with a step arity of two are called binary scales,
-those with a step arity of three are called ternary scales.
+scales with a step arity of two are called binary scales,
+scales with a step arity of three are called ternary scales.
 
 A unary scale:
 
 ```
->>> Scale(1, [2 2 2 2 2 2], 'Whole-tone')
+>>> Scale([2 2 2 2 2 2], 'Whole-tone')
 >>> .stepArity
 1
 ```
@@ -22,7 +22,7 @@ A unary scale:
 A binary scale:
 
 ```
->>> Scale(1, [2 2 1 2 2 2 1], 'Maj.')
+>>> Scale([2 2 1 2 2 2 1], 'Maj.')
 >>> .stepArity
 2
 ```
@@ -30,7 +30,7 @@ A binary scale:
 A ternary scale:
 
 ```
->>> Scale(7, [3, 1, 1, 2], 'Slendro Alit')
+>>> Scale([3, 1, 1, 2], 'Slendro Alit')
 >>> .stepArity
 3
 ```

@@ -7,8 +7,7 @@ Answer an interval matrix representing all possible intervals in the tuning _t_.
 Interval matrix of a five-tone five-limit tuning:
 
 ```
->>> [1/1 9/8 5/4 3/2 5/3]
->>> .asRatioTuning
+>>> RatioTuning[1/1 9/8 5/4 3/2 5/3]
 >>> .intervalMatrix
 [
 	1/1  9/8  5/4  3/2   5/3;
@@ -22,9 +21,9 @@ Interval matrix of a five-tone five-limit tuning:
 Interval matrix of a seven-tone five-limit tuning:
 
 ```
->>> [1/1 9/8 5/4 4/3 3/2 5/3 15/8]
->>> .asRatioTuning
->>> .intervalMatrix
+>>> RatioTuning[
+>>> 	1/1 9/8 5/4 4/3 3/2 5/3 15/8
+>>> ].intervalMatrix
 [
 	1/1  9/8  5/4  4/3  3/2  5/3  15/8;
 	1/1 10/9 32/27 4/3 40/27 5/3  16/9;

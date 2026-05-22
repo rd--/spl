@@ -16,9 +16,9 @@ allowing the graph to be drawn using `draw`.
 A 7-note 7-limit tuning:
 
 ~~~spl svg=A
-[1/1 8/7 6/5 21/16 3/2 8/5 7/4]
-.asRatioTuning
-.tuningLatticeGraph(
+RatioTuning[
+	1/1 8/7 6/5 21/16 3/2 8/5 7/4
+].tuningLatticeGraph(
 	[3 5 7],
 	[1 0; 0 1; 0.2 0.15]
 )
@@ -29,15 +29,13 @@ A 7-note 7-limit tuning:
 A 22-note 11-limit tuning:
 
 ~~~spl svg=B
-[
+RatioTuning[
 	1/1 33/32 16/15 11/10 25/22
 	7/6 40/33 5/4 9/7 4/3
 	11/8 99/70 16/11 3/2 14/9
 	8/5 33/20 12/7 44/25 20/11
 	15/8 64/33
-]
-.asRatioTuning
-.tuningLatticeGraph(
+].tuningLatticeGraph(
 	[3 5 7 11],
 	[1 0; 0 1; 0.2 0.15; -0.15 0.2]
 )
@@ -50,9 +48,9 @@ drawn on a tuning lattice including the octave,
 where the _y_ axis indicates pitch in logarithmic space:
 
 ~~~spl svg=C
-[1 2 3 4 5 6 10 12 15 20 30 60]
-.asRatioTuning
-.tuningLatticeGraph(
+RatioTuning[
+	1 2 3 4 5 6 10 12 15 20 30 60
+].tuningLatticeGraph(
 	[2 3 5],
 	[-0.69 0.69; 0.00 1.10; 1.61 1.61]
 )
@@ -68,14 +66,13 @@ given by `gradyTuningLatticeCoordinates`.
 A 24-note 19-limit draft tuning by Ben Johnston:
 
 ~~~spl svg=D
-[
+RatioTuning[
 	32768 32928 33792 35840 36015
 	37632 38416 38912 40960 41160
 	43008 43904 45056 47040 48020
 	49152 50176 53248 53760 54880
 	57344 57624 61440 62720
-].asRatioTuning
-.tuningLatticeGraph
+].tuningLatticeGraph
 ~~~
 
 ![](Help/Image/tuningLatticeGraph-D.svg)
@@ -83,13 +80,12 @@ A 24-note 19-limit draft tuning by Ben Johnston:
 A 17-tone 13-limit scale by Larry Polansky for the Harrison-Colvig transfer harp:
 
 ~~~spl svg=E
-[
+RatioTuning[
 	65/64 35/32 9/8 7/6
 	6/5 39/32 5/4 21/16 4/3
 	3/2 25/16 13/8 5/3 27/16
 	7/4 15/8 2/1
-].asRatioTuning
-.tuningLatticeGraph
+].tuningLatticeGraph
 ~~~
 
 ![](Help/Image/tuningLatticeGraph-E.svg)
@@ -98,7 +94,7 @@ A 47-tone 11-limit scale by Paul Johnson,
 _3,7,11_ is drawn upon what is ordinarily the _3,5,7_ tuning lattice:
 
 ~~~spl svg=F
-[
+RatioTuning[
 	99/98
 	64/63
 	33/32
@@ -120,7 +116,7 @@ _3,7,11_ is drawn upon what is ordinarily the _3,5,7_ tuning lattice:
 	16/9 231/128
 	21/11 27/14 64/63 63/32 196/99
 	2/1
-].asRatioTuning.tuningLatticeGraph(
+].tuningLatticeGraph(
 	[3 7 11],
 	[1 0; 0 1; 0.2 0.15]
 )
@@ -134,10 +130,11 @@ Draw a _1,3,5,7,11,13_ diamond on a circular tuning lattice:
 let m = [4.35 4.25 3.5 3.35 3.75];
 let v = 5.circlePoints([0 0], 1, 1/4.pi) * m;
 let n = [1 3 5 7 11 13];
-[n, n].tuples
-.collect(Fraction:/1)
-.unique
-.asRatioTuning.tuningLatticeGraph(
+RatioTuning(
+	[n, n].tuples
+	.collect(Fraction:/1)
+	.unique
+).tuningLatticeGraph(
 	[3 5 7 11 13],
 	v
 )
@@ -149,12 +146,12 @@ Tuning lattice graph of regular numbers within the octave double _(360,720)_:
 
 ~~~spl svg=H
 let n = 6.!;
-(n / 2 .. n).select { :x |
-	x.isSmoothNumber(5)
-}.allButLast
-.Fraction(360)
-.asRatioTuning
-.tuningLatticeGraph
+RatioTuning(
+	(n / 2 .. n).select { :x |
+		x.isSmoothNumber(5)
+	}.allButLast
+	.Fraction(360)
+).tuningLatticeGraph
 ~~~
 
 ![](Help/Image/tuningLatticeGraph-H.svg)
@@ -165,7 +162,7 @@ it is more usual to calculate the required primes vector.
 
 * * *
 
-See also: asRatioTuning, draw, gradyTuningLatticeCoordinates, Graph, tuningLatticePrimes, wilsonTuningLatticeCoordinates
+See also: draw, gradyTuningLatticeCoordinates, Graph, RatioTuning, tuningLatticePrimes, wilsonTuningLatticeCoordinates
 
 Guides: Tuning Functions, Xenharmonic Functions
 

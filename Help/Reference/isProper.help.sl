@@ -29,7 +29,7 @@ allowing equal elements at adjacent steps.
 A proper scale:
 
 ```
->>> Scale(1, [2 2 1 2 2 2 1], 'Maj.')
+>>> Scale([2 2 1 2 2 2 1], 'Maj.')
 >>> .isProper
 true
 ```
@@ -37,7 +37,7 @@ true
 An improper scale:
 
 ```
->>> Scale(1, [1 3 2 2 1 1], 'Enigmatic')
+>>> Scale([1 3 2 2 1 1], 'Enigmatic')
 >>> .isProper
 false
 ```
@@ -45,7 +45,7 @@ false
 A strictly proper scale is also proper:
 
 ```
->>> Scale(1, [2 2 3 2 3], 'Maj. Pentatonic')
+>>> Scale([2 2 3 2 3], 'Maj. Pentatonic')
 >>> .isProper
 true
 ```

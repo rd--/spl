@@ -180,7 +180,11 @@ LibraryItem(
 	parser: { :libraryItem |
 		libraryItem.collect { :each |
 			let [zeroIndexedStartIndex, intervals, description] = each;
-			Scale(zeroIndexedStartIndex + 1, intervals, description)
+			Scale(
+				intervals,
+				description,
+				zeroIndexedStartIndex + 1
+			)
 		}
 	}
 )

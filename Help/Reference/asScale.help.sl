@@ -2,9 +2,8 @@
 
 - _asScale([i₁ i₂ …])_
 
-Answer a `Scale` given a list of intervals _i_.
-The `startIndex` is set to `one`,
-and the description is set to _undescribed scale_.
+Answer a `Scale` given a list of intervals _i_,
+an alias for the unary form of `Scale`.
 
 ```
 >>> [2 2 1 2 2 2 1].asScale
