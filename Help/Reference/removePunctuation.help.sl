@@ -19,8 +19,16 @@ Answer a copy of the string _s_ with punctuation characters removed.
 '1 2 3 4'
 ```
 
+Remove only quotation marks:
+
+```
+>>> 'Two "quoted" "words"'
+>>> .removeQuotationMarks
+'Two quoted words'
+```
+
 * * *
 
-See also: removeDiacritics
+See also: removeDiacritics, String
 
 Guides: String Functions

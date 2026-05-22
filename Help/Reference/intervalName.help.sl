@@ -89,7 +89,25 @@ Dieses:
 'septimal diesis, 1/4-tone'
 ```
 
-Semitones, also called minor seconds or limmas or chromas:
+Third-tones:
+
+```
+>>> [28/27 27/26 26/25]
+>>> .ratioToCents
+[62.96 65.34 67.90]
+
+>>> 28/27.intervalName
+>>> .removeQuotationMarks
+'Archytas 1/3-tone'
+
+>>> 27/26.intervalName
+'tridecimal comma'
+
+>>> 26/25.intervalName
+'tridecimal 1/3-tone'
+```
+
+Semitones, also called half-tones or minor seconds or limmas or chromas:
 
 ```
 >>> [25/24 256/243 135/128 128/121 16/15]
@@ -257,11 +275,14 @@ Perfect fifths:
 Minor sixths:
 
 ```
->>> [128/81 8/5].ratioToCents
-[792.18 813.69]
+>>> [128/81 27/17 8/5].ratioToCents
+[792.18 800.91 813.69]
 
 >>> 8/5.intervalName
 'minor sixth'
+
+>>> 27/17.intervalName
+'septendecimal minor sixth'
 
 >>> 128/81.intervalName
 'Pythagorean minor sixth'
@@ -315,8 +336,8 @@ Minor sevenths:
 Major sevenths:
 
 ```
->>> [15/8 243/128 27/14].ratioToCents
-[1088.27 1109.78 1137.04]
+>>> [15/8 243/128 19/10 27/14].ratioToCents
+[1088.27 1109.78 1111.20 1137.04]
 
 >>> 15/8.intervalName
 'classic major seventh'
@@ -327,6 +348,9 @@ Major sevenths:
 >>> (3/2 ^ 5).octaveReduce
 243/128
 
+>>> 19/10.intervalName
+'undevicesimal major seventh'
+
 >>> 27/14.intervalName
 'septimal major seventh'
 ```
@@ -334,8 +358,14 @@ Major sevenths:
 Diminished octaves:
 
 ```
+>>> [48/25 35/18].ratioToCents
+[1129.33 1151.23]
+
 >>> 48/25.intervalName
 'classic diminished octave'
+
+>>> 35/18.intervalName
+'septimal semi-diminished octave'
 ```
 
 The first nine superparticular ratios:

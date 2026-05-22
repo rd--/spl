@@ -837,6 +837,10 @@ String! : [Object, Storeable, Equatable, Comparable, Json, Iterable, Indexable, 
 		<primitive: return _self.replace(/\p{Punctuation}/gu, '');>
 	}
 
+	removeQuotationMarks { :self |
+		<primitive: return _self.replace(/[\u0022\u0027]/gu, '');>
+	}
+
 	repeat { :self :n :m |
 		self.stringRepeat(n, m)
 	}
