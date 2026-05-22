@@ -56,6 +56,19 @@ At `Record`:
 2
 ```
 
+Least positive _k_ such that _(2k+1)‼/(2k)‼≥n_,
+OEIS [A371701](https://oeis.org/A371701):
+
+```
+>>> 0:13.collect { :n |
+>>> 	1:Infinity.detect { :k |
+>>> 		let m = 2 * k;
+>>> 		(m + 1).!! / m.!! >= n
+>>> 	}
+>>> }
+[1 1 3 7 12 19 28 38 50 63 78 95 113 132]
+```
+
 Pit harvesting sequence for winning solitaire Tchoukaillon,
 OEIS [A028920](https://oeis.org/A028920):
 

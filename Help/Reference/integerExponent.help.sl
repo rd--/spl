@@ -551,6 +551,20 @@ a[1:250].scatterPlot.log
 
 ![](Help/Image/integerExponent-V.svg)
 
+Value of _j_ in _n_-th number of form _4ⁱ7ʲ_,
+OEIS [A025666](https://oeis.org/A025666):
+
+~~~spl svg=W oeis=A025666
+let n = 10 ^ 10;
+[0 .. n.log(4)].collect { :i |
+	[0 .. (n / (4 ^ i)).log(7)].collect { :j |
+		(4 ^ i) * (7 ^ j)
+	}
+}.catenate.sort.integerExponent(7).scatterPlot
+~~~
+
+![](Help/Image/integerExponent-W.svg)
+
 * * *
 
 See also: ^, digitCount, factorInteger, integerDigits, log2, log10, rulerFunction

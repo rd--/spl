@@ -71,6 +71,18 @@ OEIS [A008586](https://oeis.org/A008586):
 [0 4 8 12 16]
 ```
 
+Counting by five,
+OEIS [A008587](https://oeis.org/A008587),
+modulo twelve:
+
+```
+>>> 12.arithmeticProgression(0, 5)
+[0 5 10 15 20 25 30 35 40 45 50 55]
+
+>>> 12.arithmeticProgression(0, 5) % 12
+[0 5 10 3 8 1 6 11 4 9 2 7]
+```
+
 The `sum` of a finite arithmetic progression is called an arithmetic series:
 
 ```

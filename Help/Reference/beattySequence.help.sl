@@ -98,6 +98,16 @@ OEIS [A054347](https://oeis.org/A054347):
 [1 4 8 14 22 31 42 54 68 84 101 120 141]
 ```
 
+Column one of the rank array of the golden ratio,
+OEIS [A283733](https://oeis.org/A283733):
+
+```
+>>> let k = 13;
+>>> k.beattySequence(1.goldenRatio)
+>>> .prefixSum + 1:k + 1
+[3 7 12 19 28 38 50 63 78 95 113 133 155]
+```
+
 The Beatty sequences for _α=√7_,
 OEIS [A022841](https://oeis.org/A022841) and
 OEIS [A285676](https://oeis.org/A285676):

@@ -296,6 +296,87 @@ OEIS [A026351](https://oeis.org/A026351):
 [1 2 4 5 7 9 10 12 13 15 17 18 20 22]
 ```
 
+Column one of the rank array of φ,
+OEIS [A283733](https://oeis.org/A283733):
+
+```
+>>> let a = Map { :n |
+>>> 	(n = 0).if {
+>>> 		1
+>>> 	} {
+>>> 		[
+>>> 			a[n - 1],
+>>> 			1,
+>>> 			n.goldenRatio.floor
+>>> 		].sum
+>>> 	}
+>>> };
+>>> a[0:13]
+[1 3 7 12 19 28 38 50 63 78 95 113 133 155]
+```
+
+Joint-rank array of the numbers _j*φ^(i-1)_,
+read by antidiagonals,
+OEIS [A182801](https://oeis.org/A182801):
+
+```
+>>> let r = 1.goldenRatio;
+>>> 1:10.antidiagonalArray { :i :j |
+>>> 	let m = i + log(j, r);
+>>> 	1:m.sum { :k |
+>>> 		(j * (r ^ (i - k))).floor
+>>> 	}
+>>> }
+[
+	1;
+	3 2;
+	5 6 4;
+	7 9 11 8;
+	10 13 16 19 14;
+	12 18 23 28 32 25;
+	15 21 31 39 48 54 42;
+	17 26 36 52 66 81 89 71;
+	20 29 44 61 86 110 134 147 117;
+	22 34 49 73 102 141 181 221 240 193
+]
+```
+
+Interspersion of the signature sequence of φ,
+OEIS [A167267](https://oeis.org/A167267):
+
+```
+>>> let phi = 1.goldenRatio;
+>>> let k = 10;
+>>> let f = { :v |
+>>> 	0:k.collect { :q |
+>>> 		1:q.sum { :i |
+>>> 			(i * v).ceiling
+>>> 		}
+>>> 	}
+>>> };
+>>> let x = f(phi); x
+
+>>> let y = f(1 / phi);
+>>> (0 .. (k - 1) / phi).collect { :q |
+>>> 	(0 .. k - 1).collect { :p |
+>>> 		[
+>>> 			x[p + 1],
+>>> 			p * q,
+>>> 			1,
+>>> 			y[q + 1]
+>>> 		].sum
+>>> 	}
+>>> }
+[
+	 1  3  7 12 19 28 38 50  63  78;
+	 2  5 10 16 24 34 45 58  72  88;
+	 4  8 14 21 30 41 53 67  82  99;
+	 6 11 18 26 36 48 61 76  92 110;
+	 9 15 23 32 43 56 70 86 103 122;
+	13 20 29 39 51 65 80 97 115 135
+]
+```
+
 Plot the fractional part of multiples of the golden ratio:
 
 ~~~spl svg=A
