@@ -850,6 +850,10 @@ String! : [Object, Storeable, Equatable, Comparable, Json, Iterable, Indexable, 
 		/* List(n, self).stringCatenate */
 	}
 
+	replaceApostropheWithRightSingleQuotationMark { :self |
+		<primitive: return _self.replace("'", "’");>
+	}
+
 	replaceString { :self :stringToFind :stringToReplaceWith |
 		stringToFind.assertIsString;
 		stringToReplaceWith.assertIsString;

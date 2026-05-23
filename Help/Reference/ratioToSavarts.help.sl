@@ -62,6 +62,27 @@ Threads over lists:
 [0.9069 0.4629]
 ```
 
+At fractions with large components,
+from a table of lyŭ according to the system of Jing Fang (Daniélou 1943):
+
+```
+>>> ((3L ^ 36) / (2L ^ 57))
+>>> .ratioToSavarts
+17.655
+
+>>> ((3L ^ 48) / (2L ^ 76))
+>>> .ratioToSavarts
+23.541
+
+>>> ((3L ^ 31) / (2L ^ 49))
+>>> .ratioToSavarts
+40.289
+
+>>> ((3L ^ 14) / (2L ^ 22))
+>>> .ratioToSavarts
+57.038
+```
+
 * * *
 
 See also: centsToRatio, savartsToCents, savartsToRatio

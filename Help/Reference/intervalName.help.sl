@@ -24,7 +24,8 @@ Schisma and diaschisma:
 >>> .ratioToCents
 [1.95372 19.55357]
 
->>> 32805/32768.intervalName
+>>> 32805/32768
+>>> .intervalName
 'schisma'
 
 >>> 1.schisma
@@ -45,8 +46,7 @@ Semicommas:
 [10.061 13.795]
 
 >>> 2109375/2097152.intervalName
->>> .removeQuotationMarks
-'semicomma, Fokkers comma'
+'semicomma, Fokker’s comma'
 
 >>> 126/125.intervalName
 'septimal semicomma, Starling comma'
@@ -55,8 +55,10 @@ Semicommas:
 Commas:
 
 ```
->>> [364/363 352/351 100/99 81/80 531_441/524_288 64/63]
->>> .ratioToCents
+>>> [
+>>> 	364/363 352/351 100/99 81/80
+>>> 	531_441/524_288 64/63
+>>> ].ratioToCents
 [4.763 4.925 17.399 21.506 23.460 27.264]
 
 >>> 364/363.intervalName
@@ -69,8 +71,7 @@ Commas:
 'minthma'
 
 >>> 100/99.intervalName
->>> .removeQuotationMarks
-'Ptolemys comma'
+'Ptolemy’s comma'
 
 >>> 81/80.intervalName
 'syntonic comma, Didymus comma'
@@ -84,9 +85,11 @@ Commas:
 >>> 1.pythagoreanComma
 531441/524288
 
+>>> (3L ^ 12) / (2 ^ 19)
+531441/524288
+
 >>> 64/63.intervalName
->>> .removeQuotationMarks
-'septimal comma, Archytas comma'
+'septimal comma, Archytas’ comma'
 ```
 
 Dieses:
@@ -120,8 +123,7 @@ Quarter-tones:
 'septimal diesis, 1/4-tone'
 
 >>> 33/32.intervalName
->>> .removeQuotationMarks
-'undecimal comma, al-Farabis 1/4-tone'
+'undecimal comma, al-Farabi’s 1/4-tone'
 ```
 
 Third-tones:
@@ -132,8 +134,7 @@ Third-tones:
 [62.96 65.34 67.90]
 
 >>> 28/27.intervalName
->>> .removeQuotationMarks
-'Archytas 1/3-tone'
+'Archytas’ 1/3-tone'
 
 >>> 27/26.intervalName
 'tridecimal comma'
@@ -145,9 +146,11 @@ Third-tones:
 Semitones, also called half-tones or minor seconds or limmas or chromas:
 
 ```
->>> [25/24 256/243 135/128 128/121 16/15]
->>> .ratioToCents
-[70.67 90.22 92.18 97.36 111.73]
+>>> [
+>>> 	25/24 256/243 135/128 128/121
+>>> 	16/15 2187/2048
+>>> ].ratioToCents
+[70.67 90.22 92.18 97.36 111.73 113.69]
 
 >>> 25/24.intervalName
 'classic chromatic semitone, minor chroma'
@@ -193,13 +196,38 @@ Semitones, also called half-tones or minor seconds or limmas or chromas:
 
 >>> 2/1 / 15/8
 16/15
+
+>>> 2187/2048.intervalName
+'apotome'
+
+>>> 1.pythagoreanChroma
+2187/2048
+```
+
+Neutral seconds:
+
+```
+>>> [88/81 35/32 11/10].ratioToCents
+[143.50 155.14 165.00]
+
+>>> 88/81.intervalName
+'2nd undecimal neutral second'
+
+>>> 35/32.intervalName
+'septimal neutral second'
+
+>>> 11/10.intervalName
+'Ptolemy’s second, 4/5-tone'
 ```
 
 Whole tones:
 
 ```
->>> [19/17 9/8 17/15].ratioToCents
-[192.56 203.91 216.69]
+>>> [10/9 19/17 9/8 17/15].ratioToCents
+[182.40 192.56 203.91 216.69]
+
+>>> 10/9.intervalName
+'minor whole tone'
 
 >>> 19/17.intervalName
 'quasi-meantone'
@@ -377,7 +405,8 @@ Minor sevenths:
 Major sevenths:
 
 ```
->>> [15/8 243/128 19/10 27/14].ratioToCents
+>>> [15/8 243/128 19/10 27/14]
+>>> .ratioToCents
 [1088.27 1109.78 1111.20 1137.04]
 
 >>> 15/8.intervalName
@@ -409,26 +438,6 @@ Diminished octaves:
 'septimal semi-diminished octave'
 ```
 
-The first nine superparticular ratios:
-
-```
->>> 1:9.collect { :each |
->>> 	Fraction(each + 1, each)
->>> 	.intervalName
->>> }
-[
-	'octave'
-	'perfect fifth'
-	'perfect fourth'
-	'major third'
-	'minor third'
-	'septimal minor third'
-	'septimal whole tone'
-	'major whole tone'
-	'minor whole tone'
-]
-```
-
 Threads over lists:
 
 ```
@@ -442,6 +451,35 @@ Threads over lists:
 ]
 ```
 
+The first twenty-one superparticular ratios:
+
+```
+>>> Fraction(2:22, 1:21).intervalName
+[
+	'octave'
+	'perfect fifth'
+	'perfect fourth'
+	'major third'
+	'minor third'
+	'septimal minor third'
+	'septimal whole tone'
+	'major whole tone'
+	'minor whole tone'
+	'Ptolemy’s second, 4/5-tone'
+	'undecimal neutral second, 3/4-tone'
+	'tridecimal 2/3-tone'
+	'2/3-tone'
+	'major diatonic semitone'
+	'minor diatonic semitone'
+	'17th harmonic'
+	'Arabic lute index finger'
+	'undevicesimal semitone'
+	'small undevicesimal semitone'
+	'minor semitone'
+	'undecimal minor semitone'
+]
+```
+
 Intervals not in the database answer as un-named:
 
 ```
@@ -452,6 +490,7 @@ Intervals not in the database answer as un-named:
 _Note:_
 The database is a `LibraryItem`,
 and this function requires the item be in the interpreter cache.
+The answer replaces apostrophe characters with right single quotation marks.
 
 * * *
 

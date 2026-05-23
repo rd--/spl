@@ -125,7 +125,7 @@ ScalaTuning : [Object, Tuning] { | contents |
 			self.printString
 		) {
 			'*unnamed interval*'
-		}
+		}.replaceApostropheWithRightSingleQuotationMark
 	}
 
 	intervalNameList { :self |

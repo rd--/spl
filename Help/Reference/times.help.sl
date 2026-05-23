@@ -36,6 +36,13 @@ Threads element-wise over lists:
 ]
 ```
 
+At `Fraction`:
+
+```
+>>> 18/17 * 17/16
+9/8
+```
+
 Vector times matrix:
 
 ```

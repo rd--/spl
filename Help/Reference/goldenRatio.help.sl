@@ -354,8 +354,7 @@ OEIS [A167267](https://oeis.org/A167267):
 >>> 		}
 >>> 	}
 >>> };
->>> let x = f(phi); x
-
+>>> let x = f(phi);
 >>> let y = f(1 / phi);
 >>> (0 .. (k - 1) / phi).collect { :q |
 >>> 	(0 .. k - 1).collect { :p |

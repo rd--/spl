@@ -10,6 +10,9 @@ is the chromatic semitone in the Pythagorean tuning.
 ```
 >>> 1.pythagoreanChroma
 2187/2048
+
+>>> (3 ^ 7) / (2 ^ 11)
+2187/2048
 ```
 
 It measures about 113.7¢:

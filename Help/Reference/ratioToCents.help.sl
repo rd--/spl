@@ -71,6 +71,15 @@ The eight tone scale given by harmonics eight through fifteen:
 [0 204 386 551 702 841 969 1088]
 ```
 
+At ratio with large numerator and denominator,
+the temperate half-tone is said to be the interval from the 1,000,000,000 to the 1,059,463,094th harmonic (Daniélou 1943):
+
+```
+>>> 1_059_463_094/1_000_000_000
+>>> .ratioToCents
+100
+```
+
 * * *
 
 See also: centsToRatio, Tuning
