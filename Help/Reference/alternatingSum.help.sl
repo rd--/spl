@@ -19,6 +19,32 @@ which is _x₁-x₂+x₃-x₄+x₅…_.
 3
 ```
 
+The Leibniz formula for π,
+called the Madhava–Leibniz series:
+
+```
+>>> (1 / [1, 3 .. 10_000])
+>>> .alternatingSum
+0.7854
+
+>>> 1/4.pi
+0.7854
+```
+
+The arctangent series, also called Gregory’s series:
+
+```
+>>> let x = 0.5;
+>>> [1, 3 .. 23].collect { :n |
+>>> 	(x ^ n) / n
+>>> }.alternatingSum
+0.46368
+
+>>> let x = 0.5;
+>>> x.arcTan
+0.46368
+```
+
 Alternating sum of reverse of decimal expansion of _n_,
 OEIS [A055017](https://oeis.org/A055017):
 
@@ -148,3 +174,4 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/AlternatingSeries.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Alternating_series)
+[2](https://en.wikipedia.org/wiki/Arctangent_series)

@@ -137,7 +137,7 @@ An infinite series by Nilakantha, 15th century:
 1.pi
 ```
 
-Viète’s formula, 1593:
+[Viète’s formula](https://en.wikipedia.org/wiki/Vi%C3%A8te%27s_formula), 1593:
 
 ```
 >>> let k = 9;
@@ -148,13 +148,20 @@ Viète’s formula, 1593:
 2 / 1.pi
 ```
 
-Wallis product, 1656:
+[Wallis product](https://en.wikipedia.org/wiki/Wallis_product), 1656:
 
 ```
 >>> let k = 1E3;
 >>> 1:k.product { :n |
 >>> 	let m = 4 * (n ^ 2);
 >>> 	m / (m - 1)
+>>> } * 2
+3.141
+
+>>> let k = 1E3;
+>>> 1:k.product { :n |
+>>> 	let m = 2 * n;
+>>> 	(m / (m - 1)) * (m / (m + 1))
 >>> } * 2
 3.141
 ```

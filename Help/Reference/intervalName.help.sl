@@ -4,6 +4,20 @@
 
 Answer a `String` naming the interval ratio _n/d_ according to the Scala interval name database.
 
+Unison and octave:
+
+```
+>>> [1/1 2/1]
+>>> .ratioToCents
+[0 1200]
+
+>>> 1/1.intervalName
+'unison, perfect prime'
+
+>>> 2/1.intervalName
+'octave'
+```
+
 The ragisma:
 
 ```
@@ -41,9 +55,17 @@ Schisma and diaschisma:
 Semicommas:
 
 ```
->>> [2109375/2097152 126/125]
->>> .ratioToCents
-[10.061 13.795]
+>>> [
+>>> 	225/224 15625/15552 2109375/2097152
+>>> 	126/125
+>>> ].ratioToCents
+[7.712 8.107 10.061 13.795]
+
+>>> 225/224.intervalName
+'septimal kleisma'
+
+>>> 15625/15552.intervalName
+'kleisma, semicomma majeur'
 
 >>> 2109375/2097152.intervalName
 'semicomma, Fokker’s comma'
@@ -57,9 +79,9 @@ Commas:
 ```
 >>> [
 >>> 	364/363 352/351 100/99 81/80
->>> 	531_441/524_288 64/63
+>>> 	531_441/524_288 64/63 50/49
 >>> ].ratioToCents
-[4.763 4.925 17.399 21.506 23.460 27.264]
+[4.763 4.925 17.399 21.506 23.460 27.264 34.976]
 
 >>> 364/363.intervalName
 'gentle comma'
@@ -90,6 +112,9 @@ Commas:
 
 >>> 64/63.intervalName
 'septimal comma, Archytas’ comma'
+
+>>> 50/49.intervalName
+'Erlich’s decatonic comma, tritonic diesis'
 ```
 
 Dieses:
@@ -147,10 +172,15 @@ Semitones, also called half-tones or minor seconds or limmas or chromas:
 
 ```
 >>> [
->>> 	25/24 256/243 135/128 128/121
->>> 	16/15 2187/2048
+>>> 	25/24 21/20 256/243 135/128
+>>> 	128/121 17/16 16/15 2187/2048
+>>> 	15/14
 >>> ].ratioToCents
-[70.67 90.22 92.18 97.36 111.73 113.69]
+[
+	70.67 84.47 90.22 92.18
+	97.36 104.96 111.73 113.69
+	119.44
+]
 
 >>> 25/24.intervalName
 'classic chromatic semitone, minor chroma'
@@ -167,6 +197,9 @@ Semitones, also called half-tones or minor seconds or limmas or chromas:
 >>> 15/8 / 9/5
 25/24
 
+>>> 21/20.intervalName
+'minor semitone'
+
 >>> 128/121.intervalName
 'undecimal semitone'
 
@@ -178,6 +211,9 @@ Semitones, also called half-tones or minor seconds or limmas or chromas:
 
 >>> 135/128.intervalName
 'major chroma, major limma'
+
+>>> 17/16.intervalName
+'17th harmonic'
 
 >>> 16/15.intervalName
 'minor diatonic semitone'
@@ -202,16 +238,23 @@ Semitones, also called half-tones or minor seconds or limmas or chromas:
 
 >>> 1.pythagoreanChroma
 2187/2048
+
+>>> 15/14.intervalName
+'major diatonic semitone'
 ```
 
 Neutral seconds:
 
 ```
->>> [88/81 35/32 11/10].ratioToCents
-[143.50 155.14 165.00]
+>>> [88/81 12/11 35/32 11/10]
+>>> .ratioToCents
+[143.50 150.64 155.14 165.00]
 
 >>> 88/81.intervalName
 '2nd undecimal neutral second'
+
+>>> 12/11.intervalName
+'undecimal neutral second, 3/4-tone'
 
 >>> 35/32.intervalName
 'septimal neutral second'
@@ -223,8 +266,9 @@ Neutral seconds:
 Whole tones:
 
 ```
->>> [10/9 19/17 9/8 17/15].ratioToCents
-[182.40 192.56 203.91 216.69]
+>>> [10/9 19/17 9/8 17/15 8/7]
+>>> .ratioToCents
+[182.40 192.56 203.91 216.69 231.17]
 
 >>> 10/9.intervalName
 'minor whole tone'
@@ -237,12 +281,16 @@ Whole tones:
 
 >>> 17/15.intervalName
 'septendecimal whole tone'
+
+>>> 8/7.intervalName
+'septimal whole tone'
 ```
 
 Minor thirds:
 
 ```
->>> [7/6 13/11 32/27 6/5].ratioToCents
+>>> [7/6 13/11 32/27 6/5]
+>>> .ratioToCents
 [266.87 289.21 294.13 315.64]
 
 >>> 7/6.intervalName
@@ -264,7 +312,8 @@ Minor thirds:
 Neutral thirds:
 
 ```
->>> [11/9 16/13].ratioToCents
+>>> [11/9 16/13]
+>>> .ratioToCents
 [347.41 359.47]
 
 >>> 11/9.intervalName
@@ -277,7 +326,8 @@ Neutral thirds:
 Major thirds:
 
 ```
->>> [5/4 24/19 81/64].ratioToCents
+>>> [5/4 24/19 81/64]
+>>> .ratioToCents
 [386.31 404.44 407.82]
 
 >>> 5/4.intervalName
@@ -296,7 +346,8 @@ Major thirds:
 Perfect fourths:
 
 ```
->>> [4/3 75/56].ratioToCents
+>>> [4/3 75/56]
+>>> .ratioToCents
 [498.04 505.76]
 
 >>> 4/3.intervalName
@@ -309,7 +360,8 @@ Perfect fourths:
 Augmented fourths and diminished fifths:
 
 ```
->>> [11/8 729/512 36/25].ratioToCents
+>>> [11/8 729/512 36/25]
+>>> .ratioToCents
 [551.32 611.73 631.29]
 
 >>> 11/8.intervalName
@@ -331,7 +383,8 @@ Augmented fourths and diminished fifths:
 Perfect fifths:
 
 ```
->>> [112/75 3/2].ratioToCents
+>>> [112/75 3/2]
+>>> .ratioToCents
 [694.24 701.96]
 
 >>> 112/75.intervalName
@@ -344,7 +397,8 @@ Perfect fifths:
 Minor sixths:
 
 ```
->>> [128/81 27/17 8/5].ratioToCents
+>>> [128/81 27/17 8/5]
+>>> .ratioToCents
 [792.18 800.91 813.69]
 
 >>> 8/5.intervalName
@@ -360,7 +414,8 @@ Minor sixths:
 Neutral sixths:
 
 ```
->>> [13/8 18/11].ratioToCents
+>>> [13/8 18/11]
+>>> .ratioToCents
 [840.53 852.59]
 
 >>> 13/8.intervalName
@@ -373,7 +428,8 @@ Neutral sixths:
 Major sixths:
 
 ```
->>> [5/3 27/16 22/13].ratioToCents
+>>> [5/3 27/16 22/13]
+>>> .ratioToCents
 [884.36 905.87 910.79]
 
 >>> 5/3.intervalName
@@ -389,7 +445,8 @@ Major sixths:
 Minor sevenths:
 
 ```
->>> [16/9 7/4 9/5].ratioToCents
+>>> [16/9 7/4 9/5]
+>>> .ratioToCents
 [996.09 968.83 1017.60]
 
 >>> 7/4.intervalName
@@ -428,7 +485,8 @@ Major sevenths:
 Diminished octaves:
 
 ```
->>> [48/25 35/18].ratioToCents
+>>> [48/25 35/18]
+>>> .ratioToCents
 [1129.33 1151.23]
 
 >>> 48/25.intervalName
