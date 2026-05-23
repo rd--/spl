@@ -12,6 +12,16 @@ Answer the factored object corresponding to a factorization.
 12
 ```
 
+Fractional values:
+
+```
+>>> 9/8.factorInteger
+[2 -3; 3 2]
+
+>>> [2 -3; 3 2].factoredInteger
+9/8
+```
+
 * * *
 
 See also: factorInteger, isPrimeFactorization

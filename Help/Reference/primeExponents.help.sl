@@ -17,6 +17,16 @@ An exponent of `zero` means that the corresponding prime is not a factor of _n_.
 [1 1 1 0 0 0 1]
 ```
 
+At `Fraction`:
+
+```
+>>> 9/8.primeExponents
+[-3 2]
+
+>>> 45/32.primeExponents
+[-5 2 1]
+```
+
 Table of exponents of prime factorizations in
 OEIS [A025487](https://oeis.org/A025487),
 OEIS [A124832](https://oeis.org/A124832):

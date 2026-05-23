@@ -1,13 +1,15 @@
 # isSquareSuperparticular
 
-- _isSquareSuperparticular(aFraction)_
+- _isSquareSuperparticular(n/d)_
 
-Answer `true` if _aFraction_ is a superparticular ratio and the `numerator` is squareful, else `false`.
+Answer `true` if the fraction _n/d_ is a superparticular ratio and the _n_ is squareful, else `false`.
 An integer is squareful if it is not square free.
 
 ```
->>> [4/3 9/8 16/15 25/24 36/35]
->>> .allSatisfy(isSquareSuperparticular:/1)
+>>> [4/3 9/8 16/15 25/24 36/35 49/48]
+>>> .allSatisfy(
+>>> 	isSquareSuperparticular:/1
+>>> )
 true
 ```
 

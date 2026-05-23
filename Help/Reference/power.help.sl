@@ -32,6 +32,12 @@ With negative exponent:
 ```
 >>> 2 ^ -1
 1/2
+
+>>> 2 ^ -3
+1/8
+
+>>> [5 10 2] ^ [-2 -3 -4]
+[1/25 1/1000 1/16]
 ```
 
 At `LargeInteger`:
@@ -249,6 +255,12 @@ At `Fraction` answers a fraction if the exponent is an integer:
 
 >>> 23/1 ^ 23
 20880467999847912034355032910567/1
+
+>>> 2/1 ^ -3
+1/8
+
+>>> 1/3 ^ -2
+9
 ```
 
 and a `SmallFloat` if not:

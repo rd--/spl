@@ -45,8 +45,8 @@ Semicommas:
 [10.061 13.795]
 
 >>> 2109375/2097152.intervalName
->>> .splitBy(',').first
-'semicomma'
+>>> .removeQuotationMarks
+'semicomma, Fokkers comma'
 
 >>> 126/125.intervalName
 'septimal semicomma, Starling comma'
@@ -55,9 +55,22 @@ Semicommas:
 Commas:
 
 ```
->>> [81/80 531_441/524_288]
+>>> [364/363 352/351 100/99 81/80 531_441/524_288 64/63]
 >>> .ratioToCents
-[21.506 23.460]
+[4.763 4.925 17.399 21.506 23.460 27.264]
+
+>>> 364/363.intervalName
+'gentle comma'
+
+>>> 14/11 * 13/11 / 3/2
+364/363
+
+>>> 352/351.intervalName
+'minthma'
+
+>>> 100/99.intervalName
+>>> .removeQuotationMarks
+'Ptolemys comma'
 
 >>> 81/80.intervalName
 'syntonic comma, Didymus comma'
@@ -70,6 +83,10 @@ Commas:
 
 >>> 1.pythagoreanComma
 531441/524288
+
+>>> 64/63.intervalName
+>>> .removeQuotationMarks
+'septimal comma, Archytas comma'
 ```
 
 Dieses:
@@ -87,6 +104,24 @@ Dieses:
 
 >>> 36/35.intervalName
 'septimal diesis, 1/4-tone'
+```
+
+Quarter-tones:
+
+```
+>>> [1053/1024 36/35 33/32]
+>>> .ratioToCents
+[48.35 48.77 53.27]
+
+>>> 1053/1024.intervalName
+'tridecimal major diesis'
+
+>>> 36/35.intervalName
+'septimal diesis, 1/4-tone'
+
+>>> 33/32.intervalName
+>>> .removeQuotationMarks
+'undecimal comma, al-Farabis 1/4-tone'
 ```
 
 Third-tones:
@@ -179,14 +214,20 @@ Whole tones:
 Minor thirds:
 
 ```
->>> [7/6 32/27 6/5].ratioToCents
-[266.87 294.13 315.64]
+>>> [7/6 13/11 32/27 6/5].ratioToCents
+[266.87 289.21 294.13 315.64]
 
 >>> 7/6.intervalName
 'septimal minor third'
 
+>>> 13/11.intervalName
+'tridecimal minor third'
+
 >>> 32/27.intervalName
 'Pythagorean minor third'
+
+>>> 32/27 / 352/351
+13/11
 
 >>> 6/5.intervalName
 'minor third'

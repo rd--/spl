@@ -592,17 +592,6 @@
 		self.factorInteger.column(1)
 	}
 
-	primeExponents { :self |
-		let p = self.factorInteger;
-		let n = p.last.at(1);
-		let m = p.matrixToMap;
-		n.primesUpTo.collect { :each |
-			m.atIfAbsent(each) {
-				0
-			}
-		}
-	}
-
 	primeFactorization { :self |
 		self.primeFactors.Multiset
 	}
@@ -1020,6 +1009,21 @@
 		let primeFactors = self.factorInteger;
 		primeFactors.size = 1 & {
 			primeFactors[1][1].isPrime
+		}
+	}
+
+}
+
++[@Integer, Fraction] {
+
+	primeExponents { :self |
+		let p = self.factorInteger;
+		let n = p.last.at(1);
+		let m = p.matrixToMap;
+		n.primesUpTo.collect { :each |
+			m.atIfAbsent(each) {
+				0
+			}
 		}
 	}
 
@@ -1586,7 +1590,11 @@
 		self.isPrimeFactorization.if {
 			self.product { :each |
 				let [p, e] = each;
-				p ^ e
+				e.isNegative.if {
+					Fraction(p, 1) ^ e
+				} {
+					p ^ e
+				}
 			}
 		} {
 			self.error('Not prime factorization')

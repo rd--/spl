@@ -82,6 +82,9 @@ At `Fraction` the prime factors of the denominator are given with negative expon
 >>> 3/8.factorInteger
 [2 -3; 3 1]
 
+>>> 9/8.factorInteger
+[2 -3; 3 2]
+
 >>> 225/224.factorInteger
 [2 -5; 3 2; 5 2; 7 -1]
 
