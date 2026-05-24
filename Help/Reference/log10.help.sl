@@ -2,7 +2,8 @@
 
 - _log10(x)_
 
-Answers the base-10 logarithm of the number _x_.
+Answers the base-10 logarithm of the number _x_,
+_log₁₀(x)_.
 
 ```
 >>> (10 ^ 6).log10
@@ -54,6 +55,14 @@ Threads over lists:
 
 >>> [1 2.5 5 7.5 10 25 50 75 100].log10.round
 [0 0 1 1 1 1 2 2 2]
+```
+
+Decimal expansion of _log₁₀(2)_,
+OEIS [A007524](https://oeis.org/A007524):
+
+```
+>>> 2.log10
+0.301029995663981
 ```
 
 Plot over a subset of the reals:

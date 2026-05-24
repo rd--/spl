@@ -49,6 +49,19 @@ true
 true
 ```
 
+The empty record:
+
+```
+>>> Record().isEmpty
+true
+
+>>> Record[].isEmpty
+true
+
+>>> (:).isEmpty
+true
+```
+
 There is a conversion method,
 `asRecord`,
 that is equivalent to `Record`:

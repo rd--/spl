@@ -4,15 +4,36 @@
 
 Answer the `Fraction` _n/d_ reduced to lie within `one` and the octave specified by the number _o_.
 
-At `Fraction`:
+At `Fraction`,
+two just fifths reduces to a whole tone:
 
 ```
 >>> (3/2 ^ 2).octaveReduce
 9/8
 
+>>> 3/2 ^ 2
+9/4
+
+>>> (3/2 ^ 2) / (2/1 ^ 1)
+9/8
+```
+
+Twelve just fifths reduces to a Pythagorean comma:
+
+```
 >>> (3/2 ^ 12).octaveReduce
 1.pythagoreanComma
 
+>>> 3/2 ^ 12
+531441/4096
+
+>>> (3/2 ^ 12) / (2/1 ^ 7)
+1.pythagoreanComma
+```
+
+The first entries of the circle of just fifths:
+
+```
 >>> { :x |
 >>> 	(x * 3/2).octaveReduce
 >>> }.nestList(1/1, 5)
@@ -23,11 +44,11 @@ A succession of fifty-three just fifths approximates thirty-one octaves,
 for comparison the Pythagorean comma is 23.5¢:
 
 ```
->>> ((3/2 ^ 53) / (2 ^ 31)).ratioToCents
-3.615
-
 >>> (3/2 ^ 53).octaveReduce
 >>> .ratioToCents
+3.615
+
+>>> ((3/2 ^ 53) / (2 ^ 31)).ratioToCents
 3.615
 
 >>> (3/2 ^ 12).octaveReduce
@@ -35,7 +56,8 @@ for comparison the Pythagorean comma is 23.5¢:
 23.460
 ```
 
-The octave is not included:
+The octave is not included,
+that is it is reduced to a unison:
 
 ```
 >>> 2/1.octaveReduce

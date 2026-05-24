@@ -121,8 +121,8 @@ ScalaTuning : [Object, Tuning] { | contents |
 +Fraction {
 
 	intervalName { :self |
-		system.scalaIntervalArchive.atIfAbsent(
-			self.printString
+		system.scalaIntervalArchive.keyAtValueIfAbsent(
+			self
 		) {
 			'*unnamed interval*'
 		}.replaceApostropheWithRightSingleQuotationMark
@@ -137,9 +137,16 @@ ScalaTuning : [Object, Tuning] { | contents |
 +String {
 
 	namedInterval { :self |
-		system.scalaIntervalArchive.keyAtValueIfAbsent(self) {
-			self.error('namedInterval: no such interval')
-		}.parseFraction
+		let archive = system.scalaIntervalArchive;
+		archive.atIfAbsent(self) {
+			archive.keys.detectIfFoundIfNone { :key |
+				key.splitBy(', ').includes(self)
+			} { :key |
+				archive.at(key)
+			} {
+				self.error('namedInterval: no such interval')
+			}
+		}
 	}
 
 	namedTuning { :self |
@@ -195,10 +202,12 @@ LibraryItem(
 	url: 'https://rohandrape.net/sw/hmt/data/json/scala-intnam.json',
 	mimeType: 'application/json',
 	parser: { :libraryItem |
-		let answer = (:);
+		let answer = Record();
 		libraryItem.keysAndValuesDo { :key :value |
 			let [n, d] = value;
-			answer.add(Fraction(n, d).printString -> key)
+			answer.add(
+				key -> Fraction(n, d)
+			)
 		};
 		answer
 	}

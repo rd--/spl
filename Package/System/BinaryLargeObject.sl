@@ -59,7 +59,7 @@ BinaryLargeObject! : [Object, Equatable, BinaryLargeObject] {
 	}
 
 	asBinaryLargeObject { :self |
-		BinaryLargeObject([self], (:))
+		BinaryLargeObject([self], Record())
 	}
 
 }

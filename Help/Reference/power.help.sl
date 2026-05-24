@@ -72,6 +72,9 @@ Fractional exponents:
 >>> 2 ^ 1/2
 1.4142
 
+>>> 2 ^ 1/12
+1.05946
+
 >>> -3 ^ 5/7
 -1.36656J1.71362
 ```
@@ -1146,6 +1149,18 @@ Plot the imaginary part of _ik^ik_:
 ~~~
 
 ![](Help/Image/power-N.svg)
+
+Leading digit of _2^n_,
+obeys Benford’s law,
+OEIS [A008952](https://oeis.org/A008952):
+
+~~~spl svg=O oeis=A008952
+0:85.collect { :n |
+	(2 ^ n).integerDigits.first
+}.discretePlot
+~~~
+
+![](Help/Image/power-O.svg)
 
 * * *
 

@@ -17,8 +17,24 @@ If there is no such element, evaluate and answer _ifNone_ block.
 64
 ```
 
+At `Record`:
+
+```
+>>> (x: 1, y: 2, z: 3)
+>>> .detectIfFoundIfNone { :n |
+>>> 	n.isEven
+>>> } { :n |
+>>> 	n ^ 3
+>>> } {
+>>> 	nil
+>>> }
+8
+```
+
 * * *
 
 See also: detect, detectIfNone, findFirst, reject, select
+
+Guides: Collection Functions
 
 Categories: Enumerating

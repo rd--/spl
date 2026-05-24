@@ -164,7 +164,7 @@ BezierCurve : [Object, Equatable, Cache, Geometry] { | controlPoints splineDegre
 				BezierCurve(each, degree)
 			}
 		} {
-			newBezierCurve().initializeSlots(self, degree, (:))
+			newBezierCurve().initializeSlots(self, degree, Record())
 		}
 	}
 

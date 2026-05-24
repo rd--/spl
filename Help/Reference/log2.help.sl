@@ -33,6 +33,13 @@ Log base two of the first few primes:
 ]
 ```
 
+At `Fraction`:
+
+```
+>>> 3/2.log2
+0.5849625
+```
+
 The pitch of A4 in octaves above `one` hertz:
 
 ```

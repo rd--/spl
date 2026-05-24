@@ -668,7 +668,7 @@ Plot : [Object] { | pageList format options |
 	}
 
 	Plot { :self :format |
-		Plot(self, format, (:))
+		Plot(self, format, Record())
 	}
 
 }
@@ -1598,7 +1598,7 @@ Plot : [Object] { | pageList format options |
 
 	bubbleChart { :self |
 		self.bubbleChart(
-			(:)
+			Record()
 		)
 	}
 

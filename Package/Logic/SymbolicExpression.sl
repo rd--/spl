@@ -226,7 +226,7 @@ Symbol : [Object, Storeable, Number, Integer, SymbolicObject, SymbolicBoolean, S
 
 	symbolDictionary { :self |
 		self.cached('symbolDictionary') {
-			(:)
+			Record()
 		}
 	}
 

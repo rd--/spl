@@ -165,7 +165,7 @@
 	}
 
 	nelderMeadMethod { :f:/1 :x0 |
-		nelderMeadMethod(f:/1, x0, (:))
+		nelderMeadMethod(f:/1, x0, Record())
 	}
 
 }

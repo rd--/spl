@@ -33,7 +33,7 @@ HelpFile : [Object, Equatable, Cache] { | origin source cache |
 			self.markdown.codeBlocks.collect { :each |
 				let information = each['information'];
 				information.isEmpty.if {
-					each['attributes'] := (:)
+					each['attributes'] := Record()
 				} {
 					each['attributes'] := information.parseUnquotedAttributeList
 				};
@@ -504,7 +504,7 @@ HelpFile : [Object, Equatable, Cache] { | origin source cache |
 
 	helpProgramDictionary { :self |
 		self.cached('helpProgramDictionary') {
-			let answer = (:);
+			let answer = Record();
 			self.helpFiles('Reference').do { :each |
 				let p = each.helpPrograms;
 				p.ifNotEmpty {

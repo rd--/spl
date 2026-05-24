@@ -31,7 +31,7 @@ File! : [Object, BinaryLargeObject] {
 +[List, BinaryLargeObject, ByteArray, Float64Array] {
 
 	File { :fileBits :fileName |
-		File(fileBits, fileName, (:))
+		File(fileBits, fileName, Record())
 	}
 
 }

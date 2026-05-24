@@ -7,6 +7,10 @@ Answer the `String` items of the list _s_ joined togther with a comma and space 
 ```
 >>> ['a' 'b' 'c'].commaSeparated
 'a, b, c'
+
+>>> ['a' 'b' 'c']
+>>> .stringIntercalate(', ')
+'a, b, c'
 ```
 
 * * *

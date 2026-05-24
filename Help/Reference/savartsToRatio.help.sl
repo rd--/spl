@@ -38,6 +38,8 @@ One hundred savarts is one decidecade, or one-third octave:
 
 See also: centsToRatio, ratioToSavarts, savartsToCents
 
+Guides: Tuning Functions, Xenharmonic Functions
+
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Savart)

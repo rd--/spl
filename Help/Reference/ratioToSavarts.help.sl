@@ -16,6 +16,20 @@ The minor half-tone:
 25/24
 ```
 
+The limma:
+
+```
+>>> 256/243.ratioToSavarts
+22.634
+```
+
+The major limma:
+
+```
+>>> 135/128.ratioToSavarts
+23.12
+```
+
 The major half-tone:
 
 ```
@@ -43,6 +57,22 @@ The comma:
 >>> 5.savartsToRatio
 >>> .rationalize(1E-3)
 81/80
+```
+
+The unison, perfect fifth and octave:
+
+```
+>>> 1/1.ratioToSavarts
+0
+
+>>> 3/2.ratioToSavarts
+176.09
+
+>>> 2/1.ratioToSavarts
+301.03
+
+>>> 2.log10 * 1000
+301.03
 ```
 
 The Pythagorean comma:
@@ -83,9 +113,21 @@ from a table of lyŭ according to the system of Jing Fang (Daniélou 1943):
 57.038
 ```
 
+Plot over four octaves:
+
+~~~spl svg=A
+(1 -- (2 ^ 4)).functionPlot(
+	ratioToSavarts:/1
+)
+~~~
+
+![](Help/Image/ratioToSavarts-A.svg)
+
 * * *
 
 See also: centsToRatio, savartsToCents, savartsToRatio
+
+Guides: Tuning Functions, Xenharmonic Functions
 
 References:
 _W_

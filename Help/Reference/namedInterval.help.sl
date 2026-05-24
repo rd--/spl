@@ -6,10 +6,12 @@ Answer the `Fraction` which is the interval named by the string _s_,
 according to the Scala interval name database.
 
 ```
->>> 'major whole tone'.namedInterval
+>>> 'major whole tone'
+>>> .namedInterval
 9/8
 
->>> 'minor diatonic semitone'.namedInterval
+>>> 'minor diatonic semitone'
+>>> .namedInterval
 16/15
 ```
 
@@ -23,11 +25,32 @@ The inverse is `intervalName`:
 'minor diatonic semitone'
 ```
 
+Some intervals have more than one name,
+in which case any name will select the interval,
+including the composite name:
+
+```
+>>> 'limma'.namedInterval
+256/243
+
+>>> 'Pythagorean minor second'
+>>> .namedInterval
+256/243
+
+>>> 'limma, Pythagorean minor second'
+>>> .namedInterval
+256/243
+
+>>> 256/243.intervalName
+'limma, Pythagorean minor second'
+```
+
 It is an `error` if the name is not in the database:
 
 ```
 >>> {
->>> 	'*unnamed interval*'.namedInterval
+>>> 	'*unnamed interval*'
+>>> 	.namedInterval
 >>> }.hasError
 true
 ```

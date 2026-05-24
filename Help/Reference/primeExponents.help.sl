@@ -25,6 +25,9 @@ At `Fraction`:
 
 >>> 45/32.primeExponents
 [-5 2 1]
+
+>>> 135/124.primeExponents
+[-2 3 1 0 0 0 0 0 0 0 -1]
 ```
 
 Table of exponents of prime factorizations in

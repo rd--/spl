@@ -125,7 +125,7 @@ System! : [Object, Cache, RandomNumberGenerator] {
 
 	preferences { :self |
 		self.cached('preferences') {
-			(:)
+			Record()
 		}
 	}
 

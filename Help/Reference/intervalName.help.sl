@@ -56,8 +56,8 @@ Semicommas:
 
 ```
 >>> [
->>> 	225/224 15625/15552 2109375/2097152
->>> 	126/125
+>>> 	225/224 15625/15552
+>>> 	2109375/2097152 126/125
 >>> ].ratioToCents
 [7.712 8.107 10.061 13.795]
 
@@ -81,7 +81,10 @@ Commas:
 >>> 	364/363 352/351 100/99 81/80
 >>> 	531_441/524_288 64/63 50/49
 >>> ].ratioToCents
-[4.763 4.925 17.399 21.506 23.460 27.264 34.976]
+[
+	4.763 4.925 17.399 21.506
+	23.460 27.264 34.976
+]
 
 >>> 364/363.intervalName
 'gentle comma'
@@ -137,12 +140,15 @@ Dieses:
 Quarter-tones:
 
 ```
->>> [1053/1024 36/35 33/32]
+>>> [1053/1024 36/35 246/239 33/32]
 >>> .ratioToCents
-[48.35 48.77 53.27]
+[48.35 48.77 49.98 53.27]
 
 >>> 1053/1024.intervalName
 'tridecimal major diesis'
+
+>>> 246/239.intervalName
+'Meshaqah’s 1/4-tone'
 
 >>> 36/35.intervalName
 'septimal diesis, 1/4-tone'
@@ -174,12 +180,12 @@ Semitones, also called half-tones or minor seconds or limmas or chromas:
 >>> [
 >>> 	25/24 21/20 256/243 135/128
 >>> 	128/121 17/16 16/15 2187/2048
->>> 	15/14
+>>> 	15/14 27/25
 >>> ].ratioToCents
 [
-	70.67 84.47 90.22 92.18
-	97.36 104.96 111.73 113.69
-	119.44
+	 70.67  84.47  90.22  92.18
+	 97.36 104.96 111.73 113.69
+	119.44 133.24
 ]
 
 >>> 25/24.intervalName
@@ -241,17 +247,27 @@ Semitones, also called half-tones or minor seconds or limmas or chromas:
 
 >>> 15/14.intervalName
 'major diatonic semitone'
+
+>>> 27/25.intervalNameList
+[
+	'large limma'
+	'BP small semitone'
+	'Zarlino semitone'
+]
 ```
 
-Neutral seconds:
+Neutral seconds, three-quarter tones and four-fifth tones:
 
 ```
->>> [88/81 12/11 35/32 11/10]
+>>> [88/81 241/221 12/11 35/32 11/10]
 >>> .ratioToCents
-[143.50 150.64 155.14 165.00]
+[143.50 149.98 150.64 155.14 165.00]
 
 >>> 88/81.intervalName
 '2nd undecimal neutral second'
+
+>>> 241/221.intervalName
+'Meshaqah’s 3/4-tone'
 
 >>> 12/11.intervalName
 'undecimal neutral second, 3/4-tone'
@@ -286,15 +302,35 @@ Whole tones:
 'septimal whole tone'
 ```
 
+Augmented seconds and diminished thirds:
+
+```
+>>> [256/225 81/70 75/64]
+>>> .ratioToCents
+[223.46 252.68 274.58]
+
+>>> 256/225.intervalName
+'Neapolitan diminished third'
+
+>>> 81/70.intervalName
+'Al-Hwarizmi’s lute middle finger'
+
+>>> 75/64.intervalName
+'classic augmented second'
+```
+
 Minor thirds:
 
 ```
->>> [7/6 13/11 32/27 6/5]
+>>> [7/6 27/23 13/11 32/27 6/5 135/112]
 >>> .ratioToCents
-[266.87 289.21 294.13 315.64]
+[266.87 277.59 289.21 294.13 315.64 323.35]
 
 >>> 7/6.intervalName
 'septimal minor third'
+
+>>> 27/23.intervalName
+'vicesimotertial minor third'
 
 >>> 13/11.intervalName
 'tridecimal minor third'
@@ -307,17 +343,26 @@ Minor thirds:
 
 >>> 6/5.intervalName
 'minor third'
+
+>>> 135/112.intervalName
+'septimal wide minor third'
 ```
 
 Neutral thirds:
 
 ```
->>> [11/9 16/13]
+>>> [128/105 11/9 27/22 16/13]
 >>> .ratioToCents
-[347.41 359.47]
+[342.91 347.41 354.58 359.47]
+
+>>> 128/105.intervalName
+'septimal neutral third'
 
 >>> 11/9.intervalName
 'undecimal neutral third'
+
+>>> 27/22.intervalName
+'neutral third, Zalzal wosta of al-Farabi'
 
 >>> 16/13.intervalName
 'tridecimal neutral third'
@@ -326,9 +371,12 @@ Neutral thirds:
 Major thirds:
 
 ```
->>> [5/4 24/19 81/64]
+>>> [100/81 5/4 24/19 81/64]
 >>> .ratioToCents
-[386.31 404.44 407.82]
+[364.81 386.31 404.44 407.82]
+
+>>> 100/81.intervalName
+'grave major third'
 
 >>> 5/4.intervalName
 'major third'
@@ -343,12 +391,32 @@ Major thirds:
 'smaller undevicesimal major third'
 ```
 
+Augmented thirds and diminished fourths:
+
+```
+>>> [8192/6561 32/25 177147/131072]
+>>> .ratioToCents
+[384.36 427.37 521.51]
+
+>>> 8192/6561.intervalName
+'Pythagorean diminished fourth'
+
+>>> 32/25.intervalName
+'classic diminished fourth'
+
+>>> 177147/131072.intervalName
+'Pythagorean augmented third'
+```
+
 Perfect fourths:
 
 ```
->>> [4/3 75/56]
+>>> [320/243 4/3 75/56]
 >>> .ratioToCents
-[498.04 505.76]
+[476.54 498.04 505.76]
+
+>>> 320/243.intervalName
+'grave fourth'
 
 >>> 4/3.intervalName
 'perfect fourth'
@@ -360,12 +428,32 @@ Perfect fourths:
 Augmented fourths and diminished fifths:
 
 ```
->>> [11/8 729/512 36/25]
->>> .ratioToCents
-[551.32 611.73 631.29]
+>>> [
+>>> 	15/11 11/8 18/13 25/18
+>>> 	7/5 45/32 729/512 36/25
+>>> ].ratioToCents
+[
+	536.95 551.32 563.38 568.72
+	582.51 590.22 611.73 631.29
+]
+
+>>> 15/11.intervalName
+'undecimal augmented fourth'
 
 >>> 11/8.intervalName
 'undecimal semi-augmented fourth'
+
+>>> 18/13.intervalName
+'tridecimal augmented fourth'
+
+>>> 25/18.intervalName
+'classic augmented fourth'
+
+>>> 7/5.intervalName
+'septimal or Huygens’ tritone, BP fourth'
+
+>>> 45/32.intervalName
+'diatonic tritone'
 
 >>> 729/512.intervalName
 'Pythagorean tritone'
@@ -383,9 +471,12 @@ Augmented fourths and diminished fifths:
 Perfect fifths:
 
 ```
->>> [112/75 3/2]
+>>> [40/27 112/75 3/2]
 >>> .ratioToCents
-[694.24 701.96]
+[680.45 694.24 701.96]
+
+>>> 40/27.intervalName
+'grave fifth'
 
 >>> 112/75.intervalName
 'marvelous fifth'
@@ -414,23 +505,26 @@ Minor sixths:
 Neutral sixths:
 
 ```
->>> [13/8 18/11]
+>>> [13/8 18/11 105/64]
 >>> .ratioToCents
-[840.53 852.59]
+[840.53 852.59 857.09]
 
 >>> 13/8.intervalName
 'tridecimal neutral sixth'
 
 >>> 18/11.intervalName
 'undecimal neutral sixth'
+
+>>> 105/64.intervalName
+'septimal neutral sixth'
 ```
 
 Major sixths:
 
 ```
->>> [5/3 27/16 22/13]
+>>> [5/3 27/16 22/13 12/7]
 >>> .ratioToCents
-[884.36 905.87 910.79]
+[884.36 905.87 910.79 933.13]
 
 >>> 5/3.intervalName
 'major sixth, BP sixth'
@@ -440,14 +534,37 @@ Major sixths:
 
 >>> 22/13.intervalName
 'tridecimal major sixth'
+
+>>> 12/7.intervalName
+'septimal major sixth'
+```
+
+Augmented sixths and diminished sevenths:
+
+```
+>>> [17/10 128/75 26/15 225/128]
+>>> .ratioToCents
+[918.64 925.42 952.26 976.54]
+
+>>> 17/10.intervalName
+'septendecimal diminished seventh'
+
+>>> 128/75.intervalName
+'diminished seventh'
+
+>>> 26/15.intervalName
+'tridecimal semi-augmented sixth'
+
+>>> 225/128.intervalName
+'augmented sixth'
 ```
 
 Minor sevenths:
 
 ```
->>> [16/9 7/4 9/5]
+>>> [7/4 16/9 9/5 29/16]
 >>> .ratioToCents
-[996.09 968.83 1017.60]
+[968.83 996.09 1017.60 1029.58]
 
 >>> 7/4.intervalName
 'harmonic seventh'
@@ -457,6 +574,9 @@ Minor sevenths:
 
 >>> 9/5.intervalName
 'just minor seventh, BP seventh'
+
+>>> 29/16.intervalName
+'29th harmonic'
 ```
 
 Major sevenths:
@@ -485,12 +605,15 @@ Major sevenths:
 Diminished octaves:
 
 ```
->>> [48/25 35/18]
+>>> [48/25 31/16 35/18]
 >>> .ratioToCents
-[1129.33 1151.23]
+[1129.33 1145.04 1151.23]
 
 >>> 48/25.intervalName
 'classic diminished octave'
+
+>>> 31/16.intervalName
+'31st harmonic'
 
 >>> 35/18.intervalName
 'septimal semi-diminished octave'
@@ -552,7 +675,7 @@ The answer replaces apostrophe characters with right single quotation marks.
 
 * * *
 
-See also: LibraryItem, namedInterval, scalaIntervalArchive
+See also: intervalNameList, LibraryItem, namedInterval, scalaIntervalArchive
 
 Guides: Tuning Functions
 

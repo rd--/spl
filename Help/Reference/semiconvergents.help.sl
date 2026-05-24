@@ -100,6 +100,18 @@ Semiconvergents of the continued fraction of `exp` of one ninth:
 ]
 ```
 
+Semiconvergents of the continued fraction of the `log` base two of one and one-half:
+
+```
+>>> 3/2.log2
+>>> .continuedFraction(7)
+>>> .semiconvergents(1E-4)
+[
+	1/1   1/2   2/3   3/5   4/7
+	7/12 17/29 24/41 31/53
+]
+```
+
 * * *
 
 See also: /, continuedFraction, convergents, fromContinuedFraction, rationalize
