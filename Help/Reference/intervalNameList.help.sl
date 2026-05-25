@@ -39,8 +39,12 @@ Harmonic division of the octave (Daniélou 1943, p. 153):
 		'syntonic comma'
 		'Didymus comma'
 	] -> 21.506,
-	['23rd-partial chroma'] -> 38.05,
-	['31st-partial chroma'] -> 56.77,
+	[
+		'23rd-partial chroma'
+	] -> 38.05,
+	[
+		'31st-partial chroma'
+	] -> 56.77,
 	[
 		'classic chromatic semitone'
 		'minor chroma'
@@ -49,19 +53,27 @@ Harmonic division of the octave (Daniélou 1943, p. 153):
 		'limma'
 		'Pythagorean minor second'
 	] -> 90.22,
-	['minor diatonic semitone'] -> 111.73,
+	[
+		'minor diatonic semitone'
+	] -> 111.73,
 	[
 		'large limma'
 		'BP small semitone'
 		'Zarlino semitone'
 	] -> 133.24,
-	['*unnamed interval*'] -> 147.14,
+	[
+		'*unnamed interval*'
+	] -> 147.14,
 	[
 		'Ptolemy’s second'
 		'4/5-tone'
 	] -> 165.00,
-	['minor whole tone'] -> 182.40,
-	['major whole tone'] -> 203.91
+	[
+		'minor whole tone'
+	] -> 182.40,
+	[
+		'major whole tone'
+	] -> 203.91
 ]
 ```
 

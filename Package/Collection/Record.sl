@@ -176,7 +176,7 @@ Record! : [Object, Storeable, Equatable, Json, Iterable, Indexable, Collection, 
 
 	Record { :self |
 		self.isAssociationList.if {
-			self.collect(keyValue:/1).listToRecord
+			self.collect(keyAndValue:/1).listToRecord
 		} {
 			self.listToRecord
 		}

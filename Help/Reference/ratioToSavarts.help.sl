@@ -27,7 +27,7 @@ The major limma:
 
 ```
 >>> 135/128.ratioToSavarts
-23.12
+23.124
 ```
 
 The major half-tone:

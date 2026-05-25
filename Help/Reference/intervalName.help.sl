@@ -178,15 +178,20 @@ Semitones, also called half-tones or minor seconds or limmas or chromas:
 
 ```
 >>> [
->>> 	25/24 21/20 256/243 135/128
->>> 	128/121 17/16 16/15 2187/2048
->>> 	15/14 27/25
+>>> 	25/24	21/20	256/243
+>>> 	135/128	19/18	128/121
+>>> 	17/16	16/15	2187/2048
+>>> 	15/14	27/25
 >>> ].ratioToCents
 [
-	 70.67  84.47  90.22  92.18
-	 97.36 104.96 111.73 113.69
-	119.44 133.24
+	 70.67	84.47	90.22
+	92.18	 93.60	97.36
+	104.96	111.73	113.69
+	119.44	133.24
 ]
+
+>>> 19/18.intervalName
+'undevicesimal semitone'
 
 >>> 25/24.intervalName
 'classic chromatic semitone, minor chroma'
@@ -664,8 +669,11 @@ The first twenty-one superparticular ratios:
 Intervals not in the database answer as un-named:
 
 ```
->>> 27/28.intervalName
+>>> 135/124.intervalName
 '*unnamed interval*'
+
+>>> 135/124.primeExponents
+[-2 3 1 0 0 0 0 0 0 0 -1]
 ```
 
 _Note:_

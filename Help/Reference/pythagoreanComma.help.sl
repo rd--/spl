@@ -26,7 +26,7 @@ It is approximated by the superparticular ratio 74/73:
 74/73
 ```
 
-It is the amount by which twelve fifths exceed seven octaves.
+It is the amount by which twelve fifths exceed seven octaves:
 
 ```
 >>> (3/2 ^ 12) / (2 ^ 7)
@@ -69,6 +69,9 @@ It has tuning lattice coordinates _-19 12_:
 ```
 >>> 1.pythagoreanComma.factorInteger
 [2 -19; 3 12]
+
+>>> 1.pythagoreanComma.primeExponents
+[-19 12]
 ```
 
 The twelfth part of the ditonic comma is very nearly two cents:
@@ -113,6 +116,7 @@ Tenney, Weil and Wilson norms:
 
 >>> 1.pythagoreanComma.weilHeight
 38.0391
+
 
 >>> 1.pythagoreanComma.wilsonHeight
 74

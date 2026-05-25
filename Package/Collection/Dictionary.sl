@@ -308,9 +308,9 @@
 		self.typeResponsibility('@Dictionary>>keysAndValuesDo')
 	}
 
-	keysAndValuesRemove { :self :keyValueBlock:/2 |
+	keysAndValuesRemove { :self :keyAndValueBlock:/2 |
 		self.associationsRemove { :each |
-			keyValueBlock(each.key, each.value)
+			keyAndValueBlock(each.key, each.value)
 		}
 	}
 
@@ -655,7 +655,9 @@ Dictionary : [Object, Storeable, Copyable, Equatable, Iterable, Indexable, Colle
 			Dictionary()
 		} {
 			self.isAssociationList.if {
-				self.collect(keyValue:/1).listToDictionary
+				self.collect(
+					keyAndValue:/1
+				).listToDictionary
 			} {
 				self.listToDictionary
 			}

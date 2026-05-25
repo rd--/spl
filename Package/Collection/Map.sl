@@ -146,7 +146,7 @@ Map! : [Object, Storeable, Equatable, Iterable, Indexable, Collection, Extensibl
 
 	associationListToMap { :self |
 		self.isAssociationList.if {
-			self.collect(keyValue:/1).uncheckedMatrixToMap
+			self.collect(keyAndValue:/1).uncheckedMatrixToMap
 		} {
 			self.error('List>>associationListToMap')
 		}

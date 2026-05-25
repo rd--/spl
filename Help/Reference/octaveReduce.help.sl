@@ -18,6 +18,32 @@ two just fifths reduces to a whole tone:
 9/8
 ```
 
+Three just fifths reduces to a major sixth:
+
+```
+>>> (3/2 ^ 3).octaveReduce
+27/16
+
+>>> 3/2 ^ 3
+27/8
+
+>>> (3/2 ^ 3) / (2/1 ^ 1)
+27/16
+```
+
+Four just fifths reduces to a major third:
+
+```
+>>> (3/2 ^ 4).octaveReduce
+81/64
+
+>>> 3/2 ^ 4
+81/16
+
+>>> (3/2 ^ 4) / (2/1 ^ 2)
+81/64
+```
+
 Twelve just fifths reduces to a Pythagorean comma:
 
 ```
@@ -92,7 +118,7 @@ It is an error to try and octave reduce a real number:
 true
 ```
 
-Log scale plot of octave reduced powers of _3/2_,
+Log scale plot of octave reduced powers of _3/2_ in cents,
 note that _3/2^53_ is very close to `zero`,
 3.6¢:
 
@@ -105,6 +131,27 @@ note that _3/2^53_ is very close to `zero`,
 ~~~
 
 ![](Help/Image/octaveReduce-A.svg)
+
+Linear scale plot of octave reduced powers of _3/2_ in cents:
+
+~~~spl svg=B
+(3/2 ^ 1:99)
+.octaveReduce
+.ratioToCents
+.scatterPlot
+~~~
+
+![](Help/Image/octaveReduce-B.svg)
+
+Linear scale plot of octave reduced powers of _3/2_:
+
+~~~spl svg=C
+(3/2 ^ 1:99)
+.octaveReduce
+.scatterPlot
+~~~
+
+![](Help/Image/octaveReduce-C.svg)
 
 * * *
 

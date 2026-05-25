@@ -561,8 +561,8 @@ system.includesPackage('Association') /* association package */
 ('x' -> 1).isAssociation /* type predicate */
 Association('x', 1) = ('x' -> 1)
 let a = 'x' -> 1; [a.key, a.value] = ['x', 1] /* key and value accessors */
-('x' -> 1).keyValue = ['x', 1] /* two element [key, value] array */
-['x' -> 1, 'y' -> 2].collect(keyValue:/1) = ['x' 1; 'y' 2]
+('x' -> 1).keyAndValue = ['x', 1] /* two element [key, value] array */
+['x' -> 1, 'y' -> 2].collect(keyAndValue:/1) = ['x' 1; 'y' 2]
 (23 -> 3.141).printString = '23 -> 3.141'
 (23 -> 3.141).storeString = 'Association(23, 3.141)'
 (1 -> '1').key = (1 -> 'one').key
@@ -574,7 +574,7 @@ let a = 'x' -> 1; [a.key, a.value] = ['x', 1] /* key and value accessors */
 (0 -> 1) != (0 -> 2) /* equality considers both key and value, unlike in Smalltalk-80 */
 ('x' -> 1) != ('y' -> 1) /* equality considers both key and value, unlike in Smalltalk-80 */
 ('x' -> 1) != (x: 1) /* an association is not equal to a record */
-let a = 'x' -> 1; a.keyValue('y', 2); a = ('y' -> 2) /* set key and value */
+let a = 'x' -> 1; a.keyAndValue('y', 2); a = ('y' -> 2) /* set key and value */
 ('x' -> 1).first = 'x' /* implements first */
 ('x' -> 1).second = 1 /* implements second */
 ```

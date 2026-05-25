@@ -72,7 +72,9 @@
 				answer.addFirst([-1, 1]);
 				answer
 			} {
-				self.primeFactorization.sortedElements.collect(keyValue:/1)
+				self.primeFactorization
+				.sortedElements
+				.collect(keyAndValue:/1)
 			}
 		}
 	}

@@ -8,8 +8,11 @@ The meaning of _similar_ is determined by the type of _p_.
 At `SmallFloat`:
 
 ```
->>> (1.e ~ 2.7183, 1.pi ~ 3.1416)
-(true, true)
+>>> 1.e ~ 2.7183
+true
+
+>>> 1.pi ~ 3.1416
+true
 
 >>> 23 ~ 23.001
 true
@@ -96,17 +99,35 @@ true
 At `Tuple`:
 
 ```
->>> (1, 2) ~ (1.000000001, 2)
+>>> (1, 2) ~ (1.0001, 2)
 true
 ```
 
 At `Record`:
 
 ```
->>> let a = (x: 1, y: 2);
->>> let b = (y: 2, x: 1.000001);
+>>> let a = (x: 1, y: 2.0001);
+>>> let b = (y: 2, x: 1.0001);
 >>> (a = b, a ~ b)
 (false, true)
+```
+
+At `List` of `Assocation` values:
+
+```
+>>> let a = [1 -> 2.0001, 3 -> 4];
+>>> let b = [1 -> 2, 3 -> 4.0001];
+>>> a ~ b
+true
+```
+
+At `Map`:
+
+```
+>>> let a = Map[1 -> 2.0001, 3 -> 4];
+>>> let b = Map[1 -> 2, 3 -> 4.0001];
+>>> a ~ b
+true
 ```
 
 * * *

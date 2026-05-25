@@ -35,15 +35,21 @@
 	}
 
 	keys { :self |
-		self.assertIsAssociationList.collect(key:/1)
+		self
+		.assertIsAssociationList
+		.collect(key:/1)
 	}
 
 	keysAndValues { :self |
-		self.assertIsAssociationList.collect(keyValue:/1)
+		self
+		.assertIsAssociationList
+		.collect(keyAndValue:/1)
 	}
 
 	keysAndValuesDo { :self :aBlock:/2 |
-		self.assertIsAssociationList.do { :each |
+		self
+		.assertIsAssociationList
+		.do { :each |
 			aBlock(each.key, each.value)
 		}
 	}

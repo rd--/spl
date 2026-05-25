@@ -333,7 +333,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'key'
 		'keyAtValue'
 		'keyAtValueIfAbsent'
-		'keyValue'
+		'keyAndValue'
 		'keys'
 		'keysInOrder'
 		'keysSorted'

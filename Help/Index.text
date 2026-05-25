@@ -2375,6 +2375,7 @@ Reference/keesSemiHeight.help.sl
 Reference/kempnerFunction.help.sl
 Reference/keplerBouwkampConstant.help.sl
 Reference/keplerTree.help.sl
+Reference/keyAndValue.help.sl
 Reference/keyAtValue.help.sl
 Reference/keyAtValueIfAbsent.help.sl
 Reference/key.help.sl
@@ -2391,7 +2392,6 @@ Reference/keySort.help.sl
 Reference/KeyState.help.sl
 Reference/keyType.help.sl
 Reference/keyUnion.help.sl
-Reference/keyValue.help.sl
 Reference/khinchinsConstant.help.sl
 Reference/kimberlingCenter.help.sl
 Reference/kimberlingFractalSequence.help.sl

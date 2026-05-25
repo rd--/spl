@@ -26,11 +26,11 @@ Association : [Object, Storeable, Equatable, Comparable] { | key value |
 		self.key
 	}
 
-	keyValue { :self |
+	keyAndValue { :self |
 		[self.key, self.value]
 	}
 
-	keyValue { :self :key :value |
+	keyAndValue { :self :key :value |
 		self.key := key;
 		self.value := value;
 		self

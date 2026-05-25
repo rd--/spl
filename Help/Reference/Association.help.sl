@@ -62,7 +62,7 @@ The store string is given using the constructor:
 Fetch both key and value:
 
 ```
->>> ('x' -> 1).keyValue
+>>> ('x' -> 1).keyAndValue
 ['x' 1]
 ```
 
