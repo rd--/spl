@@ -1,9 +1,9 @@
 # holdersComma
 
-- _holdersComma(aNumber)_
+- _holdersComma(n)_
 
-Answer Holders, also called Holdrians, comma raised to _aNumber_.
-It is equal to one step of the 53-EDO tuning.
+Answer Holders, also called Holdrians, comma raised to the number _n_.
+It is the irrational number equal to one step of the 53-EDO tuning.
 
 ```
 >>> 1.holdersComma
@@ -12,8 +12,16 @@ It is equal to one step of the 53-EDO tuning.
 >>> 1.holdersComma
 1.0132
 
->>> 1.holdersComma.ratioToCents
+>>> 1.holdersComma
+>>> .ratioToCents
 22.6415
+
+>>> 1.holdersComma
+>>> .ratioToSavarts
+5.6798
+
+>>> 53.holdersComma
+2
 ```
 
 * * *
@@ -25,5 +33,7 @@ Guides: Xenharmonic Functions
 References:
 _Xenharmonic_
 [1](https://en.xen.wiki/w/Holdrian_comma)
+
+Further Reading: Holder 1731
 
 Categories: Math, Contant, Tuning

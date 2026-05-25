@@ -44,6 +44,8 @@ l
 
 See also: drop, numberDecompose, partition, take
 
+Guides: List Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/TakeList.html)

@@ -80,7 +80,7 @@ At `Range`:
 
 * * *
 
-See also: chunksOfFrom, clump, copyFromTo, partition
+See also: chunksOfFrom, clump, copyFromTo, partition, takeList
 
 Guides: List Functions
 

@@ -82,6 +82,8 @@ it answers a copy of the collection without the duplicate elements.
 
 See also: counts, deleteAdjacentDuplicates, nub, nubBy, unique
 
+Guides: List Functions
+
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/Unique),

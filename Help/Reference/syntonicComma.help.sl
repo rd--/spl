@@ -17,6 +17,26 @@ The syntonic comma comma is the interval with the superparticular ratio 81/80.
 true
 ```
 
+It has size of approximately 21.5¢:
+
+```
+>>> 1.syntonicComma
+>>> .ratioToCents
+21.506
+
+>>> 1.syntonicComma
+>>> .ratioToSavarts
+5.395
+```
+
+which is close to one step of 55-EDO:
+
+```
+>>> 2.nthRoot(55)
+>>> .ratioToCents
+21.818
+```
+
 It is the difference between the two superparticular ratios 10/9 and 9/8:
 
 ```
@@ -42,8 +62,13 @@ or more usually between 81/64 and 5/4, the 3- and 5- limit major thirds
 It has tuning lattice coordinates _-4 4 -1_:
 
 ```
->>> 1.syntonicComma.factorInteger
+>>> 1.syntonicComma
+>>> .factorInteger
 [2 -4; 3 4; 5 -1]
+
+>>> 1.syntonicComma
+>>> .primeExponents
+[-4 4 -1]
 ```
 
 It is the distance between the Ptolemaic and Pythagorean chromatic semitones:

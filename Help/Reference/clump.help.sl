@@ -15,7 +15,7 @@ Create a 2×4 matrix from an 8 place vector:
 ]
 ```
 
-If the sequence `size` is not `divisible` by _anInteger_ the last item of the answer will have fewer than _anInteger_ places:
+If the sequence `size` is not `divisible` by _n_ the last item of the answer will have fewer than _n_ places:
 
 ```
 >>> 8.iota.clump(3)
@@ -60,7 +60,7 @@ and `reshape`:
 
 * * *
 
-See also: chunksOf, partition, reshape
+See also: chunksOf, partition, reshape, takeList
 
 Guides: List Functions
 

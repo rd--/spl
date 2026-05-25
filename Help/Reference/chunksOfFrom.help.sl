@@ -1,10 +1,10 @@
 # chunksOfFrom
 
-- _chunksOfFrom(aList | aString, length, start)_
+- _chunksOfFrom([x₁ x₂ …], n, m)_
 
-Split a `List` or `String` into parts of _length_ places starting at _start_.
+Split a `List` or `String` into parts of length _n_ places starting at start index _m_.
 
-Split a `List` of ten places into three parts of three places starting ayt index two:
+Split a `List` of ten places into three parts of three places starting at index two:
 
 ```
 >>> [1 .. 10].chunksOfFrom(3, 2)

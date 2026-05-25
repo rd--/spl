@@ -1,15 +1,17 @@
 # mercatorsComma
 
-- _mercatorsComma(aNumber)_
+- _mercatorsComma(n)_
 
-Answer Mercators comma raised to _aNumber_.
+Answer Mercators comma raised to the number _n_.
 
 Mercators comma, or the 53-comma, is a small comma of 3.615 cents.
 It is the amount by which 53 perfect fifths exceed 31 octaves.
 
 ```
 >>> 1.mercatorsComma
-Fraction(3L ^ 53, 2L ^ 84)
+19383245667680019896796723L
+/
+19342813113834066795298816L
 
 >>> 1.mercatorsComma
 (3 ^ 53) / (2 ^ 84)

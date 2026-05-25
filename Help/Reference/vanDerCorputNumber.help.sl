@@ -269,7 +269,7 @@ let n = 256;
 Continued fraction elements constructed out of a van der Corput sequence,
 OEIS [A089618](https://oeis.org/A089618):
 
-~~~spl svg=J oeis=A089618 continuedFraction
+~~~spl svg=J oeis=A089618
 let n = 1:250.vanDerCorputNumber(2);
 (1 / (2 ^ n - 1)).floor.scatterPlot.log
 ~~~

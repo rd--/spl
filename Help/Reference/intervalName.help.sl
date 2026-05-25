@@ -123,12 +123,18 @@ Commas:
 Dieses:
 
 ```
->>> [128/125 36/35 648/625]
+>>> [128/125 40/39 1053/1024 36/35 648/625]
 >>> .ratioToCents
-[41.059 48.770 62.565]
+[41.059 43.831 48.348 48.770 62.565]
 
 >>> 128/125.intervalName
 'minor diesis, diesis'
+
+>>> 40/39.intervalName
+'tridecimal minor diesis'
+
+>>> 1053/1024.intervalName
+'tridecimal major diesis'
 
 >>> 648/625.intervalName
 'major diesis'
@@ -140,12 +146,9 @@ Dieses:
 Quarter-tones:
 
 ```
->>> [1053/1024 36/35 246/239 33/32]
+>>> [36/35 246/239 33/32 32/31 31/30]
 >>> .ratioToCents
-[48.35 48.77 49.98 53.27]
-
->>> 1053/1024.intervalName
-'tridecimal major diesis'
+[48.77 49.98 53.27 54.96 56.77]
 
 >>> 246/239.intervalName
 'Meshaqah’s 1/4-tone'
@@ -155,6 +158,12 @@ Quarter-tones:
 
 >>> 33/32.intervalName
 'undecimal comma, al-Farabi’s 1/4-tone'
+
+>>> 32/31.intervalName
+'Greek enharmonic 1/4-tone'
+
+>>> 31/30.intervalName
+'31st-partial chroma'
 ```
 
 Third-tones:
@@ -663,6 +672,31 @@ The first twenty-one superparticular ratios:
 	'small undevicesimal semitone'
 	'minor semitone'
 	'undecimal minor semitone'
+]
+```
+
+Simple whole-number ratios that approximate 20-EDO (Balzano 1980):
+
+```
+>>> [
+>>> 	28/27 15/14 10/9 8/7 32/27
+>>> 	49/40 32/25 21/16 48/35 45/32
+>>> ].collect { :r |
+>>> 	r.intervalName
+>>> 	->
+>>> 	r.ratioToCents.round
+>>> }
+[
+	'Archytas’ 1/3-tone' -> 63,
+	'major diatonic semitone' -> 119,
+	'minor whole tone' -> 182,
+	'septimal whole tone' -> 231,
+	'Pythagorean minor third' -> 294,
+	'larger approximation to neutral third' -> 351,
+	'classic diminished fourth' -> 427,
+	'narrow fourth' -> 471,
+	'septimal semi-augmented fourth' -> 547,
+	'diatonic tritone' -> 590
 ]
 ```
 

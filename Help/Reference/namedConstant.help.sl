@@ -57,7 +57,7 @@ OEIS [A002162](https://oeis.org/A002162):
 The continued fraction of the natural logarithm of two,
 OEIS [A016730](https://oeis.org/A016730):
 
-~~~spl svg=B oeis=A016730 continuedFraction
+~~~spl svg=B oeis=A016730
 'Ln(2)'
 .namedConstant
 .continuedFraction(78)

@@ -71,10 +71,10 @@ for comparison the Pythagorean comma is 23.5¢:
 
 ```
 >>> (3/2 ^ 53).octaveReduce
->>> .ratioToCents
-3.615
+1.mercatorsComma
 
->>> ((3/2 ^ 53) / (2 ^ 31)).ratioToCents
+>>> ((3/2 ^ 53) / (2 ^ 31))
+>>> .ratioToCents
 3.615
 
 >>> (3/2 ^ 12).octaveReduce
@@ -107,6 +107,9 @@ At `Integer`:
 ```
 >>> 3.octaveReduce
 3/2
+
+>>> 33.octaveReduce.intervalName
+'undecimal comma, al-Farabi’s 1/4-tone'
 ```
 
 It is an error to try and octave reduce a real number:

@@ -88,7 +88,7 @@ Colour directly as hue value:
 [16 16].lambdomaMatrix
 .octaveReduce
 .arrayPlot { :x |
-	HsvColour([x 0.8 0.8], 1)
+	HsvColour[x 0.8 0.8]
 }
 ~~~
 
@@ -99,5 +99,10 @@ Colour directly as hue value:
 See also: Fraction, swap, table
 
 Guides: Matrix Functions
+
+References:
+_Xenharmonic_
+[1](https://en.xen.wiki/w/Harmonic_series)
+[2](https://en.xen.wiki/w/Subharmonic_series)
 
 Further Reading: Hero 1999

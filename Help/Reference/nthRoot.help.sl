@@ -48,7 +48,7 @@ At `LargeInteger`:
 1.44225
 ```
 
-Note that this is not the same as _x ^ (1 / n)_.
+Note that this is not the same as _x ^ (1 / n)_:
 
 ```
 >>> -4.5.nthRoot(3)

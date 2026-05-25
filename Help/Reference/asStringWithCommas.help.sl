@@ -1,17 +1,17 @@
 # asStringWithCommas
 
-- _asStringWithCommas(aNumber)_
+- _asStringWithCommas(n)_
 
-Answer the number formatted with commas every three digits.
+Answer the number _n_ formatted with commas every three digits.
 
 ```
->>> 123456789.asStringWithCommas
+>>> 123_456_789.asStringWithCommas
 '123,456,789'
 
->>> 123456.789.asStringWithCommas
+>>> 123_456.789.asStringWithCommas
 '123,456.789'
 
->>> 13579.asStringWithCommas
+>>> 13_579.asStringWithCommas
 '13,579'
 ```
 

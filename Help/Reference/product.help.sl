@@ -67,6 +67,20 @@ There is a closed form for arithmetic series:
 948702429675
 ```
 
+Of fractions,
+three tetrachord of Didymus the Musician:
+
+```
+>>> [16/15 10/9 9/8].product
+4/3
+
+>>> [16/15 25/24 6/5].product
+4/3
+
+>>> [32/31 31/30 5/4].product
+4/3
+```
+
 At a matrix answer the products of the columns:
 
 ```

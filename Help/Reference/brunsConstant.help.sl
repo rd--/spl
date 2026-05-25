@@ -18,11 +18,26 @@ has only nine places:
 ```
 >>> 1:999
 >>> .select(isLesserTwinPrime:/1)
->>> .collect { :each |
->>> 	(1 / each) + (1 / (each + 2))
+>>> .collect { :n |
+>>> 	(1 / n) + (1 / (n + 2))
 >>> }.sum
 1.51803
 ```
+
+Plot convergence:
+
+~~~spl svg=A
+1:999
+.select(isLesserTwinPrime:/1)
+.prefixes
+.collect { :q |
+	q.collect { :n |
+		(1 / n) + (1 / (n + 2))
+	}.sum
+}.scatterPlot
+~~~
+
+![](Help/Image/brunsConstant-A.svg)
 
 * * *
 
@@ -34,4 +49,6 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/BrunsConstant.html),
 _OEIS_
-[1](https://oeis.org/A065421)
+[1](https://oeis.org/A065421),
+_W_
+[1](https://en.wikipedia.org/wiki/Brun%27s_theorem)

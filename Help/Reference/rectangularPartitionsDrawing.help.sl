@@ -17,6 +17,21 @@ and rows are descending:
 
 ![](Help/Image/rectangularPartitionsDrawing-A.svg)
 
+The partitions need not be integers,
+draw a diagram of the first five octaves of the harmonic series:
+
+~~~spl svg=B
+1:32.ratios
+.ratioToCents
+.takeList(
+	[1 2 4 8 16]
+).collect(
+	normalizeSum:/1
+).rectangularPartitionsDrawing
+~~~
+
+![](Help/Image/rectangularPartitionsDrawing-B.svg)
+
 * * *
 
 See also: circularPartitionsDrawing, integerPartitions, integerPartitionsTable

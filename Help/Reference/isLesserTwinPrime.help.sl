@@ -3,11 +3,14 @@
 - _isLesserTwinPrime(n)_
 
 Answer `true` if _n_ is the first (lesser) element of a twin prime pair.
-Twin primes are pairs of primes of the form _(p, p + 2)_.
+Twin primes are pairs of primes of the form _(p,p+2)_.
 
 ```
->>> (137.isLesserTwinPrime, 139.isPrime)
-(true, true)
+>>> 137.isLesserTwinPrime
+true
+
+>>> (137 + 2).isPrime
+true
 ```
 
 Lesser of twin primes,
@@ -102,7 +105,85 @@ OEIS [A095958](https://oeis.org/A095958):
 >>> ).collect { :n |
 >>> 	n.integerConcatenation(n + 2, 10)
 >>> }
-[35 57 1113 1719 2931 4143 5961 7173 101103 107109]
+[
+	35 57 1113 1719 2931
+	4143 5961 7173 101103 107109
+]
+```
+
+Decimal expansion of the twin prime constant,
+OEIS [A005597](https://oeis.org/A005597):
+
+```
+>>> 'TwinPrimeConstant'
+>>> .namedConstant(1, 32)
+0.66016181584686957392781211001455D
+```
+
+Decimal expansion of twice the twin primes constant,
+OEIS [A114907](https://oeis.org/A114907):
+
+```
+>>> 'TwinPrimeConstant'
+>>> .namedConstant(2, 32)
+1.32032363169373914785562422002911D
+```
+
+Continued fraction for twin prime constant,
+OEIS [A065645](https://oeis.org/A065645):
+
+```
+>>> 'TwinPrimeConstant'
+>>> .namedConstant
+>>> .continuedFraction
+[
+	 0 1 1  1 16 2 2 2 2  1
+	18 2 2 11  1 1 2 4 1 16
+	 3 2 4 21
+]
+```
+
+Numbers _m_ such that _6m-1_ and _6m+1_ are twin primes,
+OEIS [A002822](https://oeis.org/A002822):
+
+```
+>>> 1:190.select { :n |
+>>> 	(6 * n - 1).isLesserTwinPrime
+>>> }
+[
+	  1   2   3   5   7
+	 10  12  17  18  23
+	 25  30  32  33  38
+	 40  45  47  52  58
+	 70  72  77  87  95
+	100 103 107 110 135
+	137 138 143 147 170
+	172 175 177 182
+]
+```
+
+Single, or isolated, or non-twin, primes,
+OEIS [A007510](https://oeis.org/A007510):
+
+```
+>>> 1:100.prime.select { :p |
+>>> 	(p - 2).isPrime.not & {
+>>> 		(p + 2).isPrime.not
+>>> 	}
+>>> }
+[
+	  2  23  37  47  53
+	 67  79  83  89  97
+	113 127 131 157 163
+	167 173 211 223 233
+	251 257 263 277 293
+	307 317 331 337 353
+	359 367 373 379 383
+	389 397 401 409 439
+	443 449 457 467 479
+	487 491 499 503 509
+	541
+]
 ```
 
 Lesser of twin primes,
@@ -157,6 +238,8 @@ _Mathematica_
 _OEIS_
 [1](https://oeis.org/A001359)
 [2](https://oeis.org/A014574)
-[3](https://oeis.org/A006512)
+[3](https://oeis.org/A006512),
+_W_
+[1](https://en.wikipedia.org/wiki/Twin_prime)
 
 Categories: Testing

@@ -253,6 +253,20 @@ OEIS [A089559](https://oeis.org/A089559):
 [1 2 4 7 8 11 13 14 16 19 22 23 26 28 29 32]
 ```
 
+Decimal expansion of the twin prime constant,
+OEIS [A005597](https://oeis.org/A005597):
+
+```
+>>> 2:5000.prime.product { :p |
+>>> 	1 - (1 / (p - 1).square)
+>>> }
+0.66016
+
+>>> 'TwinPrimeConstant'
+>>> .namedConstant(1, 23)
+0.66016181584686957392781D
+```
+
 Prime numbers,
 OEIS [A000040](https://oeis.org/A000040):
 
