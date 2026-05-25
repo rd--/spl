@@ -319,9 +319,9 @@ Whole tones:
 Augmented seconds and diminished thirds:
 
 ```
->>> [256/225 81/70 75/64]
+>>> [256/225 81/70 75/64 19683/16384]
 >>> .ratioToCents
-[223.46 252.68 274.58]
+[223.46 252.68 274.58 317.60]
 
 >>> 256/225.intervalName
 'Neapolitan diminished third'
@@ -331,14 +331,22 @@ Augmented seconds and diminished thirds:
 
 >>> 75/64.intervalName
 'classic augmented second'
+
+>>> 19683/16384.intervalName
+'Pythagorean augmented second'
 ```
 
 Minor thirds:
 
 ```
->>> [7/6 27/23 13/11 32/27 6/5 135/112]
->>> .ratioToCents
-[266.87 277.59 289.21 294.13 315.64 323.35]
+>>> [
+>>> 	7/6 27/23 13/11 32/27 19/16
+>>> 	25/21 6/5 135/112
+>>> ].ratioToCents
+[
+	266.87 277.59 289.21 294.13 297.51
+	301.85 315.64 323.35
+]
 
 >>> 7/6.intervalName
 'septimal minor third'
@@ -354,6 +362,12 @@ Minor thirds:
 
 >>> 32/27 / 352/351
 13/11
+
+>>> 19/16.intervalName
+'19th harmonic'
+
+>>> 25/21.intervalName
+'BP second, quasi-equal minor third'
 
 >>> 6/5.intervalName
 'minor third'
@@ -408,15 +422,18 @@ Major thirds:
 Augmented thirds and diminished fourths:
 
 ```
->>> [8192/6561 32/25 177147/131072]
+>>> [8192/6561 32/25 125/96 177147/131072]
 >>> .ratioToCents
-[384.36 427.37 521.51]
+[384.36 427.37 456.99 521.51]
 
 >>> 8192/6561.intervalName
 'Pythagorean diminished fourth'
 
 >>> 32/25.intervalName
 'classic diminished fourth'
+
+>>> 125/96.intervalName
+'classic augmented third'
 
 >>> 177147/131072.intervalName
 'Pythagorean augmented third'

@@ -128,6 +128,9 @@ The step sizes of the Carlos’s Alpha, Beta and Gamma scales:
 >>> 1200 / 78
 15.385
 
+>>> 4 * 78
+312
+
 >>> (3 / 2).nthRoot(11).ratioToCents
 63.81
 
