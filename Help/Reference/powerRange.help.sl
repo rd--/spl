@@ -1,8 +1,8 @@
 # powerRange
 
-- _powerRange(start, end, grow)_
+- _powerRange(i, j, k)_
 
-`powerRange` starts from _start_ and successively multiplies by _grow_ until the result is larger than _end_.
+`powerRange` starts from _i_ and successively multiplies by _k_ until the result is larger than _j_.
 
 Generate a list of powers of 10 from 1 to 1 million,
 OEIS [A011557](https://oeis.org/A011557):

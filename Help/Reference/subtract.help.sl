@@ -80,10 +80,12 @@ _J_
 _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:-45-),
 _Mathematica_
-[1](https://mathworld.wolfram.com/Minus.html)
-[2](https://mathworld.wolfram.com/ComplexSubtraction.html)
-[3](https://reference.wolfram.com/language/ref/Subtract.html)
-[4](https://reference.wolfram.com/language/ref/Minus.html),
+[1](https://mathworld.wolfram.com/Subtraction.html)
+[2](https://mathworld.wolfram.com/Minus.html)
+[3](https://mathworld.wolfram.com/ComplexSubtraction.html)
+[4](https://mathworld.wolfram.com/Difference.html)
+[5](https://reference.wolfram.com/language/ref/Subtract.html)
+[6](https://reference.wolfram.com/language/ref/Minus.html),
 _Smalltalk_
 5.6.2.3,
 _W_

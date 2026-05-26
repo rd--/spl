@@ -232,6 +232,24 @@ Block! : [Object, Equatable] {
 		x.allButFirst.foldList(x[1], f:/2)
 	}
 
+	foldPairList { :f:/2 :y :xList :g:/1 |
+		let a = [];
+		xList.do { :x |
+			let r = f(y, x);
+			a.add(g(r));
+			y := r[2]
+		};
+		a
+	}
+
+	foldPairList { :f:/2 :y :xList |
+		f:/2.foldPairList(y, xList, first:/1)
+	}
+
+	foldPairList { :f:/2 :xList |
+		f:/2.foldPairList(xList[1], xList.allButFirst)
+	}
+
 	hasError { :self:/0 |
 		let answer = false;
 		self:/0.ifError {
@@ -308,6 +326,14 @@ Block! : [Object, Equatable] {
 		anObject
 	}
 
+	keyMap { :self:/1 :operand |
+		let answer = operand.species.new;
+		operand.keysAndValuesDo { :key :value |
+			answer.include(self(key) -> value)
+		};
+		answer
+	}
+
 	map { :self:/1 :aCollection |
 		aCollection.collect(self:/1)
 	}
@@ -318,6 +344,16 @@ Block! : [Object, Equatable] {
 
 	map { :self:/3 :aList :anotherList :aThirdList |
 		aList.withWithCollect(anotherList, aThirdList, self:/3)
+	}
+
+	mapApply { :self :aCollection |
+		aCollection.collect { :each |
+			apply(self, each)
+		}
+	}
+
+	mapIndexed { :self:/2 :operand |
+		operand.withIndexCollect(self:/2)
 	}
 
 	memoizeBinary { :self:/2 :requireImmediate |
@@ -620,6 +656,20 @@ Block! : [Object, Equatable] {
 
 +List {
 
+	comap { :self |
+		{ :operand |
+			self.collect { :aBlock:/1 |
+				aBlock(operand)
+			}
+		}
+	}
+
+	comap { :self :operand |
+		self.collect { :aBlock:/1 |
+			aBlock(operand)
+		}
+	}
+
 	composeLeft { :self |
 		self.reduce(composeLeft:/2)
 	}
@@ -630,7 +680,7 @@ Block! : [Object, Equatable] {
 
 }
 
-+Block{
++Block {
 
 	predicateAnd { :self:/1 :operand:/1 |
 		{ :anObject |

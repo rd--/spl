@@ -2,7 +2,7 @@
 
 - _keysAndValuesCollect(d, f:/2)_
 
-Collect over the keys and values of the dictionary _d_ usinf the block _f_.
+Collect over the keys and values of the dictionary _d_ using the block _f_.
 Like `keysAndValuesDo` except that the answers are collected into a new dictionary.
 
 At `Record`:

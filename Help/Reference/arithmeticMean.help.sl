@@ -37,6 +37,8 @@ The arithmetic mean of 9/8 and 10/9 is 161/144:
 161/144
 ```
 
+`arithmeticMean` is an alias for both `mean` and `average`.
+
 * * *
 
 See also: arithmeticGeometricMean, geometricMean, median, size, sum

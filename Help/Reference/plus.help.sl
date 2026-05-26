@@ -9,6 +9,9 @@ The operator form is `+`.
 >>> 3 + 4
 7
 
+>>> 158 + 249
+407
+
 >>> 1 + 2 + 3
 6
 
@@ -99,10 +102,11 @@ _Haskell_
 _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/plus),
 _Mathematica_
-[1](https://mathworld.wolfram.com/Plus.html)
-[2](https://mathworld.wolfram.com/VectorAddition.html)
-[3](https://mathworld.wolfram.com/ComplexAddition.html)
-[4](https://reference.wolfram.com/language/ref/Plus.html),
+[1](https://mathworld.wolfram.com/Addition.html)
+[2](https://mathworld.wolfram.com/Plus.html)
+[3](https://mathworld.wolfram.com/VectorAddition.html)
+[4](https://mathworld.wolfram.com/ComplexAddition.html)
+[5](https://reference.wolfram.com/language/ref/Plus.html),
 _Smalltalk_
 5.6.2.2,
 _W_

@@ -268,3 +268,35 @@
 	}
 
 }
+
+
++SmallFloat {
+
+	yunikSwiftConsonanceTable { :self :operand |
+		(2 .. self).collect { :n |
+			let m = (n / 2).ceiling;
+			(m .. n - 1).select { :d |
+				d.isCoprime(n)
+			}.collect { :d |
+				(n / d)
+				->
+				(n * d).sqrt./
+			}
+		}.catenate.sortOn(value:/1).reverse.first(operand)
+	}
+
+	yunikSwiftScaleMerit { :k |
+		let s = 1200 / k;
+		yunikSwiftConsonanceTable(21, 50).collect { :j |
+			1.to(k - 1).sum { :i |
+				let r = (s * i).centsToRatio;
+				(j.key.relativeChange(r).abs < 0.005).if {
+					j.value
+				} {
+					0
+				}
+			}
+		}.sum / k
+	}
+
+}

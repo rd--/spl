@@ -87,6 +87,11 @@ Data Sets:
 
 - `nistData`
 
+Change Functions:
+
+- `logarithmicChange`
+- `relativeChange`
+
 * * *
 
 Guides: Mathematical Functions

@@ -26,6 +26,9 @@ This form is equivalent to `each`.
 The binary form is a variant of `collect`:
 
 ```
+>>> square:/1.map([3 5 7])
+[9 25 49]
+
 >>> { :x |
 >>> 	x * x
 >>> }.map([3 5 7])
@@ -111,6 +114,8 @@ Guides: Block Functions, List Functions
 References:
 _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Data-List.html#v:map),
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/Map.html),
 _Python_
 [1](https://docs.python.org/3/library/functions.html#map)
 

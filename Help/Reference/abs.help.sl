@@ -132,6 +132,8 @@ OEIS [A056951](https://oeis.org/A056951):
 
 ![](Help/Image/abs-F.svg)
 
+`abs` is an alias for `absoluteValue`.
+
 * * *
 
 See also: absArg, arg, hypot, imaginary, norm, sign, real

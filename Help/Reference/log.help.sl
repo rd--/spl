@@ -4,7 +4,8 @@
 - _log(z, b)_
 
 The unary form answers the natural logarithm of _z_,
-the logarithm to base _e_:
+the logarithm to base _e_,
+sometimes written _ln_.
 
 ```
 >>> 1000.log
@@ -71,7 +72,7 @@ The binary form answers the base _b_ logarithm of the number _z_.
 0
 ```
 
-Complex arguments:
+`Complex` arguments:
 
 ```
 >>> 2.5J1.log
@@ -314,6 +315,33 @@ Plot _x/log(x)_ alongside `logarithmicIntegral` and the prime counting function 
 ~~~
 
 ![](Help/Image/log-G.svg)
+
+Plot nested logarithms over a subset of the reals:
+
+~~~spl svg=H
+(2.75 -- 50).functionPlot(
+	[
+		log:/1,
+		{ :x | x.log.log },
+		{ :x | x.log.log.log }
+	]
+)
+~~~
+
+![](Help/Image/log-H.svg)
+
+Log plot of the Naperian logarithm over a subset of the reals:
+
+~~~spl svg=I
+let a = 10 ^ 7;
+let b = a - 1;
+let c = (a / b).log;
+(0 -- 1).functionPlot { :x |
+	(a / x).log / c
+}.log
+~~~
+
+![](Help/Image/log-I.svg)
 
 * * *
 

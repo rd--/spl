@@ -3,7 +3,10 @@
 - _log10(x)_
 
 Answers the base-10 logarithm of the number _x_,
-_log₁₀(x)_.
+_log₁₀(x)_,
+also called the common logarithm.
+
+At `SmallFloat`:
 
 ```
 >>> (10 ^ 6).log10
@@ -75,7 +78,9 @@ Plot over a subset of the reals:
 
 * * *
 
-See also: ^, log
+See also: ^, log, log2, power, realExponent, integerExponent, powerRange
+
+Guides: Mathematical Functions
 
 References:
 _Mathematica_

@@ -51,6 +51,8 @@ Threads over lists:
 30
 ```
 
+`absSquare` is an alias for `absoluteSquare`.
+
 * * *
 
 See also: abs, Complex, conjugate, square

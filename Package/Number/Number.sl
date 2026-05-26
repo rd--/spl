@@ -68,7 +68,7 @@
 		self.isCloseTo(aNumber)
 	}
 
-	abs { :self |
+	[absoluteValue, abs] { :self |
 		self.isNegative.if {
 			self.negate
 		} {
@@ -80,7 +80,11 @@
 		self.j(0).absArg
 	}
 
-	absSquare { :self |
+	[absoluteDifference, absDif] { :self :operand |
+		(self - operand).absoluteValue
+	}
+
+	[absoluteSquare, absSquare] { :self |
 		let abs = self.abs;
 		abs * abs
 	}
@@ -546,6 +550,16 @@
 		self.asSmallFloat.log2
 	}
 
+	logarithmicChange { :x :y |
+		relativeChange(x, y) { :x :y |
+			x.isVeryCloseTo(y).if {
+				x
+			} {
+				(y - x) / (y / x).log
+			}
+		}
+	}
+
 	logarithmicIntegralRamanujan { :self :limit |
 		self.isZero.if {
 			self
@@ -839,6 +853,14 @@
 
 	realImaginary { :self |
 		[self, self.zero]
+	}
+
+	relativeChange { :x :y :f:/2 |
+		(y - x) / f(x, y)
+	}
+
+	relativeChange { :x :y |
+		relativeChange(x, y) { :x :y | x }
 	}
 
 	remainderBy { :self :aNumber :aBlock:/1 |

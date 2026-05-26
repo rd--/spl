@@ -3,7 +3,8 @@
 - _log2(x)_
 
 The base two logarithm of the number _x_,
-_log₂(x)_.
+_log₂(x)_,
+also called the binary logarithm.
 
 ```
 >>> (2 ^ 10).log2
@@ -152,7 +153,8 @@ Guides: Mathematical Functions
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/BinaryLogarithm.html)
-[2](https://reference.wolfram.com/language/ref/Log2.html),
+[2](https://mathworld.wolfram.com/Lg.html)
+[3](https://reference.wolfram.com/language/ref/Log2.html),
 _OEIS_
 [1](https://oeis.org/A049039),
 _W_

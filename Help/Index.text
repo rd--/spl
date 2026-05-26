@@ -279,6 +279,7 @@ Reference/Abs.help.sl
 Reference/absMax.help.sl
 Reference/absoluteCorrelationFunction.help.sl
 Reference/absoluteCorrelation.help.sl
+Reference/absoluteDifference.help.sl
 Reference/absoluteTime.help.sl
 Reference/absSquare.help.sl
 Reference/accumulate.help.sl
@@ -950,6 +951,7 @@ Reference/column.help.sl
 Reference/columnsCollect.help.sl
 Reference/columns.help.sl
 Reference/columnVector.help.sl
+Reference/comap.help.sl
 Reference/CombC.help.sl
 Reference/combinationProductSet.help.sl
 Reference/combinationsAtATimeDo.help.sl
@@ -1578,6 +1580,7 @@ Reference/Fold.help.sl
 Reference/foldIndex.help.sl
 Reference/foldLeft.help.sl
 Reference/foldList.help.sl
+Reference/foldPairList.help.sl
 Reference/foldRight.help.sl
 Reference/foliumOfDescartes.help.sl
 Reference/FontMenu.help.sl
@@ -2380,6 +2383,7 @@ Reference/keyAtValue.help.sl
 Reference/keyAtValueIfAbsent.help.sl
 Reference/key.help.sl
 Reference/keyIntersection.help.sl
+Reference/keyMap.help.sl
 Reference/keysAndEachValue.help.sl
 Reference/keysAndValuesCollect.help.sl
 Reference/keysAndValuesDo.help.sl
@@ -2681,8 +2685,10 @@ Reference/mangoldtLambda.help.sl
 Reference/manhattanDistance.help.sl
 Reference/mantissaExponent.help.sl
 Reference/MantissaMask.help.sl
+Reference/mapApply.help.sl
 Reference/map.help.sl
 Reference/Map.help.sl
+Reference/mapIndexed.help.sl
 Reference/Markdown.help.sl
 Reference/markdownToHtml.help.sl
 Reference/markovNumberTree.help.sl
@@ -4441,6 +4447,7 @@ Reference/yCombinator.help.sl
 Reference/year.help.sl
 Reference/yellowstonePermutation.help.sl
 Reference/y.help.sl
+Reference/yunikSwiftMerit.help.sl
 Reference/zeckendorfRepresentation.help.sl
 Reference/zeroCrossingCount.help.sl
 Reference/zeroCrossingDetect.help.sl
