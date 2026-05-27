@@ -101,6 +101,25 @@ OEIS [A020857](https://oeis.org/A020857):
 1.584962500721156
 ```
 
+Benson’s variants of Carlos’ α β and γ-scales:
+
+```
+>>> (
+>>> 	[11 6 5] * [3/2 5/4 6/5].log2
+>>> ).sum / [11 6 5].square.sum * 1200
+63.8329
+
+>>> (
+>>> 	[9 5 4] * [3/2 5/4 6/5].log2
+>>> ).sum / [9 5 4].square.sum * 1200
+77.9650
+
+>>> (
+>>> 	[20 11 9] * [3/2 5/4 6/5].log2
+>>> ).sum / [20 11 9].square.sum * 1200
+35.0985
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A

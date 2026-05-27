@@ -1167,6 +1167,10 @@ String! : [Object, Storeable, Equatable, Comparable, Json, Iterable, Indexable, 
 		self.stringIntercalate(', ')
 	}
 
+	commaSeparatedString { :self |
+		self.collect(asString:/1).stringIntercalate(', ')
+	}
+
 	decapitalize { :self |
 		self.collect(decapitalize:/1)
 	}

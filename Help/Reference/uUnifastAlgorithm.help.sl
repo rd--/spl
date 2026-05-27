@@ -14,3 +14,5 @@ Answer a `List` of _n_ random real number that sum to _u_.
 * * *
 
 See also: staffordsAlgorithm, uUnifastDiscardAlgorithm
+
+Guides: Random Functions

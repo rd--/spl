@@ -1,10 +1,10 @@
 # deCasteljausAlgorithm
 
-- _deCasteljausAlgorithm(aList, aNumber)_
+- _deCasteljausAlgorithm([x₁ y₁; x₂ y₂ …], n)_
 
-Calculate the point along the curve given by _aList_,
+Calculate the point along the curve given by _x,y_,
 which should be a list of cartesian coordinates,
-at the location given by _aNumber_,
+at the location given by the number _n_,
 which should lie between `zero` and `one`,
 using de Casteljaus algorithm.
 

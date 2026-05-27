@@ -19,4 +19,6 @@ Implements Staffords algorithm for generating _m_ random vectors of size _n_ tha
 
 See also: randomRealFixedSum, uUnifastAlgorithm, uUnifastDiscardAlgorithm
 
+Guides: Random Functions
+
 Further Reading: Emberson 2010

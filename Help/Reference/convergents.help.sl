@@ -233,6 +233,15 @@ Convergents of the continued fraction of `exp` of one ninth:
 ]
 ```
 
+Convergents to the ratio of the logarithms of the perfect fifth and major third:
+
+```
+>>> (3/2.log / 5/4.log)
+>>> .continuedFraction(6)
+>>> .convergents
+[1/1 2/1 9/5 20/11 129/71 149/82]
+```
+
 * * *
 
 See also: /, continuedFraction, fromContinuedFraction, rationalize, semiconvergents

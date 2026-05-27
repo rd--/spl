@@ -20,6 +20,26 @@ Fractional values:
 
 >>> [2 -3; 3 2].factoredInteger
 9/8
+
+>>> 17/16.factorInteger
+[2 -4; 17 1]
+
+>>> [2 -4; 17 1].factoredInteger
+17/16
+
+>>> 3584/3575.factorInteger
+[2 9; 5 -2; 7 1; 11 -1; 13 -1]
+
+>>> [2 9; 5 -2; 7 1; 11 -1; 13 -1]
+>>> .factoredInteger
+3584/3575
+
+>>> 5625/5488.factorInteger
+[2 -4; 3 2; 5 4; 7 -3]
+
+>>> [2 -4; 3 2; 5 4; 7 -3]
+>>> .factoredInteger
+5625/5488
 ```
 
 * * *

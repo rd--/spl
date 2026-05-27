@@ -1,12 +1,12 @@
 # printString
 
-- _printString(x)_
-- _printString(n, radix=10)_
+- _printString(x, r=10, k=∞)_
 
 Answer a `String` that is a description of the object _x_.
-In the case that the object is an integer the _radix_ may be specified.
+In the case that the object is an integer the radix _r_ may be specified.
+In the case that the object is a floating point number the precision _k_ may be specified.
 
-At `Integer`:
+At integer `SmallFloat`:
 
 ```
 >>> 23.printString
@@ -27,11 +27,45 @@ the answer is a valid Sᴘʟ expression:
 -42
 ```
 
-At `LargeInteger` with radix argument:
+At `LargeInteger`,
+with and without radix argument:
 
 ```
+>>> 254L.printString
+254L
+
 >>> 254L.printString(16)
 '16rFE'
+```
+
+At `Complex`:
+
+```
+>>> 1J2.printString
+'1J2'
+
+>>> 1J0.printString
+'1J0'
+
+>>> 0J1.printString
+'0J1'
+
+>>> 1I.printString
+'0J1'
+```
+
+At `Decimal`:
+
+```
+>>> 3.142D.printString
+'3.142D'
+```
+
+At `SmallFloat` with precision:
+
+```
+>>> 1.pi.printString(10, 3)
+3.142
 ```
 
 Negative zero is printed as it is typed:
@@ -118,7 +152,7 @@ At `Association`:
 
 * * *
 
-See also: asString, conciseString, postLine, printStringShowingDecimalPlaces, storeString
+See also: asString, concisePrintString, postLine, printStringShowingDecimalPlaces, storeString
 
 Guides: String Functions
 

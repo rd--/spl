@@ -208,6 +208,29 @@ A square matrix has an inverse if and only if its determinant is nonzero:
 0
 ```
 
+The determinant of unison vector matrices for tuning lattices tell scale degrees:
+
+```
+>>> [4 -1; 0 3].determinant
+12
+
+>>> [4 -1; -1 5].determinant
+19
+
+>>> [4 2; -1 5].determinant
+22
+
+>>> [4 -1; 3 7].determinant
+31
+
+>>> [8 1; -5 6].determinant
+53
+
+>>> [4 -1 0; 12 0 0; -2 0 -1]
+>>> .determinant
+-12
+```
+
 * * *
 
 See also: bareissAlgorithm, isSquareMatrix, matrixRank, permanent, permutationSymbol, rowReduce, trace

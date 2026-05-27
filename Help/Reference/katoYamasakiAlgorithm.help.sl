@@ -40,4 +40,6 @@ With non-unit minima and maxima:
 
 See also: staffordsAlgorithm, uUnifastAlgorithm, uUnifastDiscardAlgorithm
 
+Guides: Random Functions
+
 Further Reading: Kato & Yamasakial 2008

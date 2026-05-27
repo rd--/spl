@@ -23,3 +23,5 @@ where each is an _n_-vector of random real number that sum to _u_.
 * * *
 
 See also: katoYamasakiAlgorithm, staffordsAlgorithm, uUnifastAlgorithm
+
+Guides: Random Functions

@@ -1,8 +1,8 @@
 # kadanesAlgorithm
 
-- _kadanesAlgorithm(aList)_
+- _kadanesAlgorithm([x₁ x₂ …])_
 
-Answer the largest sum of any contiguous subsequence of _aList_.
+Answer the largest sum of any contiguous subsequence of the list _x_.
 
 ```
 >>> [-2].kadanesAlgorithm

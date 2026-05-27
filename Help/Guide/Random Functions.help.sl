@@ -33,6 +33,15 @@ Random Number Functions:
 - `randomWeightedChoice`
 - `randomWeightedIndex`
 
+Algorithms:
+
+- `diamondSquareAlgorithm`
+- `katoYamasakiAlgorithm`
+- `reservoirSampleAlgorithmL`
+- `staffordsAlgorithm`
+- `uUnifastAlgorithm`
+- `uUnifastDiscardAlgorithm`
+
 * * *
 
 Guides: Probability Distributions, Random Number Generators, Random Processes

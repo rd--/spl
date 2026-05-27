@@ -764,6 +764,14 @@
 		answer
 	}
 
+	printString { :self :radix :placesDesired |
+		(radix = 10).if {
+			self.printStringShowingDecimalPlaces(placesDesired)
+		} {
+			self.error('printString: r≠10 & k≠∞')
+		}
+	}
+
 	printStringShowingDecimalPlaces { :self :placesDesired |
 		(placesDesired <= 0).if {
 			self.round.printString
