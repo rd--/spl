@@ -17,7 +17,7 @@ Cumulative sums of the elements of the list:
 >>> [1 1 1 1].foldList(3, +)
 [3 4 5 6 7]
 
->>> +.foldList(0, [1 .. 10])
+>>> +.foldList(0, [1 .. 9])
 [0 1 3 6 10 15 21 28 36 45]
 ```
 

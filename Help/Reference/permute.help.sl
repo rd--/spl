@@ -20,6 +20,22 @@ Equivalent action with a permutation list:
 [2 3 1 4 5]
 ```
 
+The two Mongean shuffles of twelve:
+
+```
+>>> let p = Permutation[
+>>> 	1 7 10 2 6 4 5 9 11 12; 3 8
+>>> ];
+>>> [1 .. 12].permute(p)
+[12 10 8 6 4 2 1 3 5 7 9 11]
+
+>>> let p = Permutation[
+>>> 	1 6 9 2 7 3 5 4 8 10 11; 12
+>>> ];
+>>> [1 .. 12].permute(p)
+[11 9 7 5 3 1 2 4 6 8 10 12]
+```
+
 Exchange the first and last characters of the english alphabet:
 
 ```

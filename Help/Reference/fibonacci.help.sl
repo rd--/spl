@@ -475,6 +475,23 @@ The prefix sum of the Fibonacci numbers is equal to _F(n+2)-1_:
 [1 2 4 7 12 20 33 54 88 143 232 376 609]
 ```
 
+Product of first _n_ Fibonacci numbers squared,
+OEIS [A382910](https://oeis.org/A382910):
+
+```
+>>> 0:10.collect { :n |
+>>> 	1:n.product { :j |
+>>> 		j.fibonacci.square
+>>> 	}
+>>> }
+[
+	1 1 1
+	4 36 900
+	57600 9734400 4292870400
+	4962558182400 15011738501760000
+]
+```
+
 Plot Fibonacci over a subset of the reals:
 
 ~~~spl svg=A

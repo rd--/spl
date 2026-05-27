@@ -103,6 +103,25 @@ OEIS [A086088](https://oeis.org/A086088):
 
 ![](Help/Image/scatterPlot-I.svg)
 
+Nzakara harp figuration (Chemillier 2002):
+
+~~~spl svg=J
+let p = [2 5; 1 3; 2 4; 3 5; 1 4];
+[
+	        2 3
+	1 2 5 2 5 1
+	4 5 3 5 3 4
+	2 3 1 3 1 2
+	5 1 4 1 4 5
+	3 4 2 4
+].withIndexCollect { :n :i |
+	let [a, b] = p[n];
+	[i a; i b]
+}.catenate.scatterPlot
+~~~
+
+![](Help/Image/scatterPlot-J.svg)
+
 * * *
 
 See also: denseScatterPlot, discretePlot, functionPlot, graphPlot, linePlot, matrixPlot, parametricPlot, runSequencePlot, surfacePlot

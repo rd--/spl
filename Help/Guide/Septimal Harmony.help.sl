@@ -2,7 +2,7 @@
 
 A table of useful unison vectors for septimal harmony:
 
-```
+~~~spl html=A
 [
 	-7 4 1;
 	-1 -2 4;
@@ -83,7 +83,7 @@ A table of useful unison vectors for septimal harmony:
 		c.printString(10, 2)
 	]
 }.Table.asHtml
-```
+~~~
 
 <table class="TableData">
 <tr><th></th><th scope="col">1</th><th scope="col">2</th><th scope="col">3</th></tr>

@@ -206,6 +206,7 @@ Guide/Scale Functions.help.sl
 Guide/Scheduling Functions.help.sl
 Guide/Scheme Perspective.help.sl
 Guide/Scientific Notation.help.sl
+Guide/Septimal Harmony.help.sl
 Guide/Sequence Alignment Functions.help.sl
 Guide/Sequence Functions.help.sl
 Guide/Set Functions.help.sl
@@ -3492,6 +3493,7 @@ Reference/regularPolygon.help.sl
 Reference/rejectedPromise.help.sl
 Reference/reject.help.sl
 Reference/relationGraph.help.sl
+Reference/relativeChange.help.sl
 Reference/RelativeRange.help.sl
 Reference/Release.help.sl
 Reference/reliefPlot.help.sl
@@ -4447,7 +4449,7 @@ Reference/yCombinator.help.sl
 Reference/year.help.sl
 Reference/yellowstonePermutation.help.sl
 Reference/y.help.sl
-Reference/yunikSwiftMerit.help.sl
+Reference/yunikSwiftScaleMerit.help.sl
 Reference/zeckendorfRepresentation.help.sl
 Reference/zeroCrossingCount.help.sl
 Reference/zeroCrossingDetect.help.sl

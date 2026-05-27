@@ -296,9 +296,12 @@ Neutral seconds, three-quarter tones and four-fifth tones:
 Whole tones:
 
 ```
->>> [10/9 19/17 9/8 17/15 8/7]
+>>> [800/729 10/9 19/17 9/8 17/15 8/7]
 >>> .ratioToCents
-[182.40 192.56 203.91 216.69 231.17]
+[160.90 182.40 192.56 203.91 216.69 231.17]
+
+>>> 800/729.intervalName
+'grave whole tone'
 
 >>> 10/9.intervalName
 'minor whole tone'
@@ -553,9 +556,12 @@ Neutral sixths:
 Major sixths:
 
 ```
->>> [5/3 27/16 22/13 12/7]
+>>> [400/243 5/3 27/16 22/13 12/7]
 >>> .ratioToCents
-[884.36 905.87 910.79 933.13]
+[862.85 884.36 905.87 910.79 933.13]
+
+>>> 400/243.intervalName
+'grave major sixth'
 
 >>> 5/3.intervalName
 'major sixth, BP sixth'
@@ -593,9 +599,9 @@ Augmented sixths and diminished sevenths:
 Minor sevenths:
 
 ```
->>> [7/4 16/9 9/5 29/16]
+>>> [7/4 16/9 9/5 29/16 20/11]
 >>> .ratioToCents
-[968.83 996.09 1017.60 1029.58]
+[968.83 996.09 1017.60 1029.58 1035.00]
 
 >>> 7/4.intervalName
 'harmonic seventh'
@@ -608,14 +614,37 @@ Minor sevenths:
 
 >>> 29/16.intervalName
 '29th harmonic'
+
+>>> 20/11.intervalName
+'large minor seventh'
+```
+
+Neutral sevenths:
+
+```
+>>> [64/35 11/6 13/7]
+>>> .ratioToCents
+[1044.86 1049.36 1071.70]
+
+>>> 64/35.intervalName
+'septimal neutral seventh'
+
+>>> 11/6.intervalName
+'undecimal neutral seventh, 21/4-tone'
+
+>>> 13/7.intervalName
+'16/3-tone'
 ```
 
 Major sevenths:
 
 ```
->>> [15/8 243/128 19/10 27/14]
+>>> [50/27 15/8 243/128 19/10 27/14]
 >>> .ratioToCents
-[1088.27 1109.78 1111.20 1137.04]
+[1066.76 1088.27 1109.78 1111.20 1137.04]
+
+>>> 50/27.intervalName
+'grave major seventh'
 
 >>> 15/8.intervalName
 'classic major seventh'

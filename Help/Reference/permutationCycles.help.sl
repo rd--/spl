@@ -4,7 +4,7 @@
 
 Answer a disjoint cycle representation of the permutation _p_.
 
-Cyclic form of a permutation list of length 3:
+Cyclic form of a permutation list of length three:
 
 ```
 >>> [3 2 1].permutationCycles
@@ -19,6 +19,10 @@ The unary cycles may be retained:
 
 >>> [1 2 3].permutationCycles(false)
 [1; 2; 3]
+
+>>> [6 7 5 8 4 9 3 10 2 11 1 12]
+>>> .permutationCycles(false)
+[1 6 9 2 7 3 5 4 8 10 11; 12]
 ```
 
 Permutation with two three-cycles:

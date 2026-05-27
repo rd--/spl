@@ -208,7 +208,23 @@ and the line segmented:
 
 ![](Help/Image/linePlot-Q.svg)
 
-* * *
+Nzakara harp figuration (Chemillier 2002):
+
+~~~spl svg=R
+let p = [2 5; 1 3; 2 4; 3 5; 1 4];
+[
+	        2 3
+	1 2 5 2 5 1
+	4 5 3 5 3 4
+	2 3 1 3 1 2
+	5 1 4 1 4 5
+	3 4 2 4
+].collect { :n |
+	p[n]
+}.transpose.linePlot
+~~~
+
+![](Help/Image/linePlot-R.svg)
 
 See also: discretePlot, functionPlot, graphPlot, matrixPlot, parametricPlot, pointLinePlot, scatterPlot, stepPlot, surfacePlot
 

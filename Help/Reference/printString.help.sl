@@ -32,7 +32,7 @@ with and without radix argument:
 
 ```
 >>> 254L.printString
-254L
+'254L'
 
 >>> 254L.printString(16)
 '16rFE'
@@ -65,7 +65,7 @@ At `SmallFloat` with precision:
 
 ```
 >>> 1.pi.printString(10, 3)
-3.142
+'3.142'
 ```
 
 Negative zero is printed as it is typed:

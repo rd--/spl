@@ -11,7 +11,8 @@ A Fibonacci factorial:
 132622487406311849122176000L
 ```
 
-The first few terms:
+The first few terms,
+OEIS [A003266](https://oeis.org/A003266):
 
 ```
 >>> 1:14.collect(fibonacciFactorial:/1)
@@ -23,6 +24,20 @@ The first few terms:
 	1570247078400 365867569267200
 ]
 ```
+
+Product of first _n_ Fibonacci numbers squared,
+OEIS [A382910](https://oeis.org/A382910):
+
+```
+>>> 1:11.collect(fibonacciFactorial:/1).square
+[
+	1 1 1
+	4 36 900
+	57600 9734400 4292870400
+	4962558182400 15011738501760000
+]
+```
+
 
 * * *
 
