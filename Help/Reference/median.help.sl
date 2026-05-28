@@ -29,6 +29,9 @@ Even length sequence:
 >>> [-20 -24 0 4 24 36 -12 -12 56 -14]
 >>> .median
 -6
+
+>>> [0 10].median
+5
 ```
 
 Find the `median` for the heights of children in a class:

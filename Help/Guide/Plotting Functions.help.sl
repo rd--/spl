@@ -39,9 +39,11 @@ Plotting Functions:
 - `graphPlot`
 - `histogramPlot`
 - `integerSequencePlot`
+- `intervalPlot`
 - `lagPlot`
 - `linearGraphPlot`
 - `linePlot`
+- `longitudinalWavePlot`
 - `logLinearPlot`
 - `logPlot`
 - `matrixPlot`

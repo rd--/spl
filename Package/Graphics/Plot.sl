@@ -350,6 +350,19 @@ Plot : [Object] { | pageList format options |
 		self.histogramList(binSpecification).histogramListPlot
 	}
 
+	intervalPlot { :self |
+		let [a, b] = self.deepMinMax;
+		let c = (b - a).abs;
+		let k = self.size;
+		(self / c).withIndexCollect { :y :i |
+			let x = (i / k) * 1.618;
+			[
+				Point[x y.median],
+				Line[x y.min; x y.max]
+			]
+		}.LineDrawing
+	}
+
 	lagPlot { :self :d |
 		let k = self.size;
 		let n = k - d;
@@ -360,6 +373,27 @@ Plot : [Object] { | pageList format options |
 
 	linePlot { :self |
 		self.typedSwitchingPlot('line')
+	}
+
+	longitudinalWavePlot { :yCoordinates :displacement |
+		let w = 10;
+		let h = 2;
+		let k = yCoordinates.size;
+		let xIncrement = w / k;
+		let xEquilibrium = k.arithmeticProgression(0, xIncrement);
+		let xDisplacements = yCoordinates * displacement * (xIncrement / 2);
+		let xCoordinates = xEquilibrium + xDisplacements;
+		[
+			xCoordinates.collect { :x |
+				Line[x 0; x h]
+			}
+		].LineDrawing (
+			height: 35
+		)
+	}
+
+	longitudinalWavePlot { :yCoordinates |
+		longitudinalWavePlot(yCoordinates, 1)
 	}
 
 	matrixPlot { :self |
