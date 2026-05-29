@@ -47,6 +47,10 @@ Interval : [Object, Storeable, Equatable, Number] { | min max |
 		}
 	}
 
+	[divide, /] { :self :operand |
+		self * operand.reciprocal
+	}
+
 	abs { :self |
 		(self.min >= 0).if {
 			self
@@ -180,6 +184,10 @@ Interval : [Object, Storeable, Equatable, Number] { | min max |
 		self.min
 	}
 
+	[median, mean] { :self |
+		(self.min + self.max) / 2
+	}
+
 	minMax { :self |
 		[self.min, self.max]
 	}
@@ -265,6 +273,14 @@ Interval : [Object, Storeable, Equatable, Number] { | min max |
 		} {
 			newInterval().initializeSlots(min, max)
 		}
+	}
+
+}
+
++List {
+
+	Interval { :self :operand |
+		self.withCollect(operand, Interval:/2)
 	}
 
 }

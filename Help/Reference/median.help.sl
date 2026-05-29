@@ -57,6 +57,16 @@ Note that `median` sorts the input sequence:
 4
 ```
 
+Median of an `Interval`:
+
+```
+>>> (3 -- 9).median
+6
+
+>>> (-3 -- 1).median
+-1
+```
+
 Median prime factor of _1:n_,
 OEIS [A212300](https://oeis.org/A212300):
 

@@ -351,7 +351,8 @@ Plot : [Object] { | pageList format options |
 	}
 
 	intervalPlot { :self |
-		let [a, b] = self.deepMinMax;
+		let a = self.collect(min:/1).min;
+		let b = self.collect(max:/1).max;
 		let c = (b - a).abs;
 		let k = self.size;
 		(self / c).withIndexCollect { :y :i |

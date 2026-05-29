@@ -60,7 +60,7 @@ For coordinates, `midpoint` gives the same result as `mean`:
 ```
 
 At `Interval`,
-also called `center`:
+also called `center` and `median` and `mean`:
 
 ```
 >>> (10 -- 20).midpoint

@@ -64,10 +64,13 @@ Numbers automatically turn into intervals:
 
 ```
 >>> 1.asInterval
-(1 -- 1)
+1 -- 1
 
 >>> (-1 -- 1) + 1 * 0.5
-(0 -- 1)
+0 -- 1
+
+>>> (-1 -- 1) + 1 / 2
+0 -- 1
 ```
 
 Use `min` and `max` to find end points of intervals:
@@ -161,6 +164,13 @@ The `center` and `radius` of an interval:
 >>> 	(7 - 3) / 2
 >>> )
 (5, 5, 2, 2)
+```
+
+Threads over lists:
+
+```
+>>> Interval([1 3 5], [4 5 6])
+[1 -- 4, 3 -- 5, 5 -- 6]
 ```
 
 Sample a function uniformly on an interval:
