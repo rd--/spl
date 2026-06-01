@@ -12,8 +12,7 @@ Linearly decreasing symmetrical intervals about zero:
 
 ~~~spl svg=A
 let a = [1 .. 20].reverse;
-let b = a.negate;
-[b a].transpose.intervalPlot
+Interval(0 - a, a).intervalPlot
 ~~~
 
 ![](Help/Image/intervalPlot-A.svg)
@@ -22,16 +21,14 @@ Linearly decreasing and then increasing symmetrical intervals about zero:
 
 ~~~spl svg=B
 let a = [1 .. 10];
-let b = a.reverse;
-[
-	b.negate ++ a.negate,
-	b ++ a
-].transpose.intervalPlot
+let b = a.reverse ++ a;
+Interval(0 - b, b).intervalPlot
 ~~~
 
 ![](Help/Image/intervalPlot-B.svg)
 
-Linearly increasing intervals with distinct gradients for bounds and median:
+Linearly increasing intervals with distinct gradients for bounds and median,
+specified as a three column matrix:
 
 ~~~spl svg=C
 let a = [1 .. 20];
@@ -46,7 +43,7 @@ Geometrically decreasing increasing symmetrical intervals about zero:
 
 ~~~spl svg=D
 let a = 25.geometricProgression(10, 0.9);
-[a a.negate].transpose.intervalPlot
+Interval(0 - a, a).intervalPlot
 ~~~
 
 ![](Help/Image/intervalPlot-D.svg)

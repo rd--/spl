@@ -746,6 +746,49 @@ Simple whole-number ratios that approximate 20-EDO (Balzano 1980):
 ]
 ```
 
+Tuning of the piano in Ben Johnston’s _Suite for Microtonal Piano_ (Gann 2009):
+
+```
+>>> [
+>>> 	1/1 17/16 9/8 19/16 5/4 21/16
+>>> 	11/8 3/2 13/8 27/16 7/4 15/8
+>>> ].intervalName
+[
+	'unison, perfect prime'
+	'17th harmonic'
+	'major whole tone'
+	'19th harmonic'
+	'major third'
+	'narrow fourth'
+	'undecimal semi-augmented fourth'
+	'perfect fifth'
+	'tridecimal neutral sixth'
+	'Pythagorean major sixth'
+	'harmonic seventh'
+	'classic major seventh'
+]
+
+>>> [
+>>> 	1/1 17/16 9/8 19/16 5/4 21/16
+>>> 	11/8 3/2 13/8 27/16 7/4 15/8
+>>> ].divide(9/8).octaveReduce
+>>> .rotateLeft(2).intervalName
+[
+	'unison, perfect prime'
+	'undevicesimal semitone'
+	'minor whole tone'
+	'septimal minor third'
+	'undecimal neutral third'
+	'perfect fourth'
+	'tridecimal diminished fifth'
+	'perfect fifth'
+	'septimal minor sixth'
+	'major sixth, BP sixth'
+	'Pythagorean minor seventh'
+	'septendecimal major seventh'
+]
+```
+
 Intervals not in the database answer as un-named:
 
 ```

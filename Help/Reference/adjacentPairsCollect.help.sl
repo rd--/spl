@@ -48,6 +48,48 @@ This is equivalent to `partition` with window size of two and step size of one:
 [1 2; 2 3; 3 4; 4 5; 5 6; 6 7]
 ```
 
+Tom Johnson’s _Rational Melody No.16_ (1982):
+
+```
+>>> { :a |
+>>> 	let b = a.adjacentPairsCollect { :i :j |
+>>> 		let [p, q] = [i, j].sort;
+>>> 		let r = p + 1;
+>>> 		(r = q).if { q + 1 } { r }
+>>> 	};
+>>> 	a.riffle(b)
+>>> }.nestList([1 2 1], 6)
+[
+	1 2 1
+	;
+	1 3 2 3 1
+	;
+	1 2 3 4 2 4 3 2 1
+	;
+	1 3 2 4 3 5 4 3 2 3 4 5 3 4 2 3 1
+	;
+	1 2 3 4 2 3 4 5 3 4 5 6 4 5 3 4
+	2
+	4 3 5 4 6 5 4 3 5 4 3 2 4 3 2 1
+	;
+	1 3 2 4 3 5 4 3 2 4 3 5 4 6 5 4
+	3 5 4 6 5 7 6 5 4 6 5 4 3 5 4 3
+	2
+	3 4 5 3 4 5 6 4 5 6 7 5 6 4 5 3
+	4 5 6 4 5 3 4 2 3 4 5 3 4 2 3 1
+	;
+	1 2 3 4 2 3 4 5 3 4 5 6 4 5 3 4
+	2 3 4 5 3 4 5 6 4 5 6 7 5 6 4 5
+	3 4 5 6 4 5 6 7 5 6 7 8 6 7 5 6
+	4 5 6 7 5 6 4 5 3 4 5 6 4 5 3 4
+	2
+	4 3 5 4 6 5 4 3 5 4 6 5 7 6 5 4
+	6 5 7 6 8 7 6 5 7 6 5 4 6 5 4 3
+	5 4 6 5 7 6 5 4 6 5 4 3 5 4 3 2
+	4 3 5 4 6 5 4 3 5 4 3 2 4 3 2 1
+]
+```
+
 * * *
 
 See also: adjacentPairs, adjacentPairsDo, blockMap, collect, pairsCollect, partition, partitionDo
