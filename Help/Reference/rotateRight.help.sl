@@ -51,6 +51,18 @@ At `String`:
 'racecar'
 ```
 
+Visit lattice points on the unit square at integer _z_,
+retaining the location on the square at each _z_ shift:
+
+~~~spl svg=A
+0:7.collect { :z |
+	[0 1 z; 1 1 z; 1 0 z; 0 0 z]
+	.rotateRight(z)
+}.catenate.Line
+~~~
+
+![](Help/Image/rotateRight-A.svg)
+
 * * *
 
 See also: atWrap, rotateLeft
