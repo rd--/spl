@@ -6,8 +6,7 @@ Answer a `String` having an initial '/' followed by the path of the `Url` _u_,
 not including the query string or fragment.
 
 ```
->>> 'http://w3c.org/standards'
->>> .asUrl
+>>> Url'http://w3c.org/standards'
 >>> .pathName
 '/standards'
 ```

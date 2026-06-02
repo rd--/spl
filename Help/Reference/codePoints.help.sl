@@ -14,7 +14,7 @@ At `String`:
 At `AsciiString`:
 
 ```
->>> AsciiString('codePoints').codePoints
+>>> AsciiString'codePoints'.codePoints
 [99 111 100 101 80 111 105 110 116 115]
 ```
 

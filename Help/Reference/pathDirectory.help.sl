@@ -2,7 +2,7 @@
 
 - _pathDirectory(p)_
 
-Answer the directory component of the filename path _p_.
+Answer the directory component of the path _p_.
 
 ```
 >>> '/p/q/r.s'.pathDirectory

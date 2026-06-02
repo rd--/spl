@@ -7,15 +7,15 @@ Over-writes any existing file.
 Signals an error if the write fails.
 
 ~~~
->>> FilePath('/tmp/spl.text')
+>>> FilePath'/tmp/spl.text'
 >>> .writeTextFile('Sᴘʟ')
 nil
 
->>> FilePath('/tmp/spl.text')
+>>> FilePath'/tmp/spl.text'
 >>> .readTextFile
 'Sᴘʟ'
 
->>> FilePath('/tmp/spl.text')
+>>> FilePath'/tmp/spl.text'
 >>> .removeFile
 nil
 ~~~

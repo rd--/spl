@@ -1,8 +1,8 @@
 # pathIsAbsolute
 
-- _pathIsAbsolute(aString)_
+- _pathIsAbsolute(p)_
 
-Answer a `Boolean` telling if the path is absolute or relative.
+Answer a `Boolean` telling if the path at the `String` _p_ is absolute or relative.
 
 ```
 >>> '/p/q/r.s'.pathIsAbsolute

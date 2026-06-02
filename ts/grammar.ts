@@ -56,6 +56,7 @@ Sl {
 		| DotExpression
 		| Block
         | ListConstructorSyntax
+        | StringConstructorSyntax
 		| ApplyWithTrailingRecordSyntax
 		| ApplyWithTrailingClosuresSyntax
 		| ApplySyntax
@@ -101,6 +102,7 @@ Sl {
 	ApplyWithTrailingRecordSyntax = selectorName NonEmptyRecordSyntax+
 	ApplySyntax = (selectorName | boundOperator) ParameterList
     ListConstructorSyntax = typeName (EmptyListSyntax | VectorSyntax | MatrixSyntax | VolumeSyntax | ListSyntax | ListRangeSyntax)
+    StringConstructorSyntax = typeName singleQuotedStringLiteral
 	ParenthesisedExpression = "(" Expression ")"
 	NonEmptyRecordSyntax = "(" NonemptyListOf<RecordSyntaxItem, ","> ")"
 	EmptyRecordSyntax = "(" ":" ")"

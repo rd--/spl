@@ -3,10 +3,16 @@
 - _splDirectory(system)_
 
 Answer the absolute file path of the Sᴘʟ directory.
-This reads the 'SPL_DIR' environment variable.
 
 ```
 >>> system.splDirectory
+'/home/rohan/sw/spl'
+```
+
+This reads the 'SPL_DIR' environment variable:
+
+```
+>>> system.environmentVariable('SPL_DIR')
 '/home/rohan/sw/spl'
 ```
 

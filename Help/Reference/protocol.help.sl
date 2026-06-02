@@ -7,20 +7,20 @@ also called the scheme,
 of the `Url` _u_.
 
 ```
->>> 'http://cern.ch/'.asUrl.protocol
+>>> Url'http://cern.ch/'.protocol
 'http:'
 ```
 
 Mail, telephone and archive addresses:
 
 ```
->>> 'mailto:x@x.x'.asUrl.protocol
+>>> Url'mailto:x@x.x'.protocol
 'mailto:'
 
->>> 'tel:+x-xxx-xxx-xxxx'.asUrl.protocol
+>>> Url'tel:+x-xxx-xxx-xxxx'.protocol
 'tel:'
 
->>> 'git://x.x/x.git'.asUrl.protocol
+>>> Url'git://x.x/x.git'.protocol
 'git:'
 ```
 

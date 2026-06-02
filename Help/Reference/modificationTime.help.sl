@@ -1,11 +1,11 @@
 # modificationTime
 
-- _modificationTime(path)_
+- _modificationTime(p)_
 
-Answer the modification time of the filename path _path_ as milliseconds since the Unix epoch.
+Answer the modification time of the filename path _p_ as milliseconds since the Unix epoch.
 
 ```
->>> FilePath('/tmp')
+>>> FilePath'/tmp'
 >>> .modificationTime > 0
 true
 ```
@@ -13,7 +13,7 @@ true
 If _p_ does not exist, the modification time will be reported as `zero`.
 
 ```
->>> FilePath('/DirectoryDoesNotExist')
+>>> FilePath'/DirectoryDoesNotExist'
 >>> .modificationTime
 0
 ```

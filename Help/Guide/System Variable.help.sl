@@ -16,10 +16,13 @@ The `system` holds the dictionaries that hold the system implementation:
 
 The `System` type implements the `Cache` trait.
 
-`System` is also used as the implementation type,
-in preference to `Void`,
-for methods that access the _host system_,
-such as `absoluteTime`.
+`System` is also used as the implementation type for methods that access the _host system_.
+For methods that would otherwise have no arguments,
+such as `absoluteTime`,
+the `System` type is used in preference to `Void`.
+For methods that have parameters,
+such as `readTextFile`,
+the `System` type 
 
 _Note_:
 There is some inconsistency about the rule for which methods are defined at system.

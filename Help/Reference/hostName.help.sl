@@ -16,7 +16,7 @@ answer a `String` having the name of the `host` subcomponent of address,
 also called the domain:
 
 ```
->>> 'http://cern.ch/'.asUrl.hostName
+>>> Url'http://cern.ch/'.hostName
 'cern.ch'
 ```
 
@@ -24,8 +24,8 @@ The `hostName` does not include the port number,
 unlike `host`:
 
 ```
->>> let url = 'http://cern.ch:8080/'.asUrl;
->>> (url.hostName, url.host)
+>>> let u = Url'http://cern.ch:8080/';
+>>> (u.hostName, u.host)
 ('cern.ch', 'cern.ch:8080')
 ```
 

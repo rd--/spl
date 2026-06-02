@@ -45,7 +45,7 @@ and likewise lists of each:
 
 ```
 >>> let s = 'x';
->>> let c = Character('x');
+>>> let c = Character'x';
 >>> (
 >>> 	s = c, s ~ c,
 >>> 	[s] = [c], [s] ~ [c],

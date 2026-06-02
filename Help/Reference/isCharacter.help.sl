@@ -1,8 +1,8 @@
 # isCharacter
 
-- _isCharacter(aCharacter | aString)_
+- _isCharacter(s)_
 
-Answer `true` if _aString_ has only one place.
+Answer `true` if the string _s_ has only one place.
 
 A one element `String` is both a `Character`
 (in that it implements the `Character` `Trait`)
@@ -16,7 +16,7 @@ and a `String`:
 A `Character` is not a `String`:
 
 ```
->>> let c = Character('c');
+>>> let c = Character'c';
 >>> (c.isCharacter, c.isString)
 (true, false)
 ```

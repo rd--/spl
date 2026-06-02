@@ -5,10 +5,10 @@
 Answer a `String` having the port of the `host` component of the `Url` _u_.
 
 ```
->>> 'http://cern.ch:8080/'.asUrl.port
+>>> Url'http://cern.ch:8080/'.port
 '8080'
 
->>> 'http://cern.ch:8080/'.asUrl.host
+>>> Url'http://cern.ch:8080/'.host
 'cern.ch:8080'
 ```
 

@@ -21,6 +21,7 @@
 - `Infix Method Syntax`
 - `Let Syntax`
 - `List Assignment Syntax`
+- `List Constructor Syntax`
 - `List Range Syntax`
 - `Method Syntax`
 - `Operator Syntax`
@@ -29,6 +30,7 @@
 - `Record Assignment Syntax`
 - `Record Syntax`
 - `Slot Assignment Syntax`
+- `String Constructor Syntax`
 - `Trailing Block Syntax`
 - `Trailing Record Syntax`
 - `Unary Operator Syntax`

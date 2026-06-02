@@ -7,7 +7,7 @@ A `Character` is both a `Trait`, and also a `Type` holding a single character st
 At `String`:
 
 ```
->>> Character('c').codePoint
+>>> Character'c'.codePoint
 99
 ```
 
@@ -24,14 +24,14 @@ The `codePoint` method retrieves the unicode code point:
 >>> 'x'.codePoint
 120
 
->>> Character('x').codePoint
+>>> Character'x'.codePoint
 120
 ```
 
 The `characterString` method retrieves the single element string:
 
 ```
->>> Character('x').characterString
+>>> Character'x'.characterString
 'x'
 
 >>> 'x'.characterString
@@ -41,7 +41,7 @@ The `characterString` method retrieves the single element string:
 Characters are cached on construction, and therefore equal characters are identical:
 
 ```
->>> let c1 = Character('x');
+>>> let c1 = Character'x';
 >>> let c2 = Character(120);
 >>> (c1 = c2, c1 == c2)
 (true, true)
@@ -51,10 +51,10 @@ There is no literal syntax for characters,
 and the `printString` for a `Character` is not equal to the `printString` for a one place `String`:
 
 ```
->> Character('x').printString
+>> Character'x'.printString
 Character('x', 120)
 
->> Character('x').storeString
+>> Character'x'.storeString
 Character('x', 120)
 ```
 
@@ -63,7 +63,7 @@ but it is similar to such:
 
 ```
 >>> let s = 'c';
->>> let c = Character('c');
+>>> let c = Character'c';
 >>> (s = c, c = s, s ~ c, c ~ s)
 (false, false, true, true)
 ```
@@ -71,10 +71,10 @@ but it is similar to such:
 Printing:
 
 ```
->> Character('c').storeString
+>> Character'c'.storeString
 Character('c', 99)
 
->> Character('c').asString
+>> Character'c'.asString
 c
 ```
 

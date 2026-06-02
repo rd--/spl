@@ -8,7 +8,7 @@ The `host` is part of the authority component.
 Includes the port number if specified, unlike `hostName`:
 
 ```
->>> 'http://cern.ch:8080/'.asUrl.host
+>>> Url'http://cern.ch:8080/'.host
 'cern.ch:8080'
 ```
 

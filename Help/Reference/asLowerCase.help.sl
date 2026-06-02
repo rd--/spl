@@ -14,8 +14,8 @@ At `String`:
 At `Character`:
 
 ```
->>> Character('X').asLowerCase
-Character('x', 120)
+>>> Character'X'.asLowerCase
+Character'x'
 ```
 
 * * *

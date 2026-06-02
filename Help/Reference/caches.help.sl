@@ -20,12 +20,15 @@ system
 Delete an item from the cache:
 
 ~~~spl async
-let url = 'https://rohandrape.net/sw/hmt/data/json/masina-consonance-data.json'.asUrl;
+let u = Url(
+	'masina-consonance-data.json',
+	'https://rohandrape.net/sw/hmt/data/json/'
+);
 system
 .caches
 .atIfPresent('SplLibraryItems') { :cache |
 	cache
-	.removeKeyIfAbsent(url) {
+	.removeKeyIfAbsent(u) {
 		'Not present'
 	}
 }

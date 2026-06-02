@@ -1,8 +1,8 @@
 # pathBasename
 
-- _pathBasename(path)_
+- _pathBasename(p)_
 
-Answer the last component of _path_.
+Answer the last component of path _p_.
 Components are ordinarily separated by _solidus_ characters.
 
 ```
@@ -21,7 +21,7 @@ If there is a trailing directory separator:
 
 * * *
 
-See also: pathExtension, pathIsAbsolute, pathJoin, pathNormalize
+See also: pathExtension, pathIsAbsolute, pathJoin, pathNormalize, pathStem
 
 Guides: File Functions
 

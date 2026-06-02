@@ -7,7 +7,7 @@ This object is somewhat like a dictionary, however it allows duplicate keys.
 Implements `size`, `associations`, `keys`, `values` and `asString`.
 
 ```
->>> let u = 'x://?p=i&q=j'.asUrl;
+>>> let u = Url'x://?p=i&q=j';
 >>> let q = u.queryParameters;
 >>> (q.size, q.associations, q.asString)
 (2, ['p' -> 'i', 'q' -> 'j'], 'p=i&q=j')

@@ -19,23 +19,23 @@ and `query` methods.
 Component queries:
 
 ```
->>> Url('http://cern.ch/').hostName
+>>> Url'http://cern.ch/'.hostName
 'cern.ch'
 
->>> Url('http://cern.ch:8080/').port
+>>> Url'http://cern.ch:8080/'.port
 '8080'
 
->>> Url('http://cern.ch/').protocol
+>>> Url'http://cern.ch/'.protocol
 'http:'
 
->>> Url('http://cern.ch/#home').fragment
+>>> Url'http://cern.ch/#home'.fragment
 '#home'
 ```
 
 Deconstruct a `Url`:
 
 ```
->>> let url = Url('A://B:0/C?D=E#F');
+>>> let url = Url'A://B:0/C?D=E#F';
 >>> (
 >>> 	url.protocol,
 >>> 	url.hostName,
@@ -47,10 +47,20 @@ Deconstruct a `Url`:
 ('a:', 'B', '0', '/C', '?D=E', '#F')
 ```
 
+Binary form:
+
+```
+>>> Url('a', 'http://x')
+Url'http://x/a'
+
+>>> Url('a', 'file://')
+Url'file:///a'
+```
+
 `asString` at `Url` answers `href`:
 
 ```
->>> Url('http://cern.ch/').asString
+>>> Url'http://cern.ch/'.asString
 'http://cern.ch/'
 ```
 

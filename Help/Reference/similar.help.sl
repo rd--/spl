@@ -89,10 +89,10 @@ At `Character`,
 answers true to character and the equivalent one place `String`:
 
 ```
->>> Character('x') ~ 'x'
+>>> Character'x' ~ 'x'
 true
 
->>> 'x' ~ Character('x')
+>>> 'x' ~ Character'x'
 true
 ```
 

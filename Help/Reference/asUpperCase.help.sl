@@ -8,8 +8,8 @@ Answer a `String` made up from the string _s_ whose characters are all uppercase
 >>> 'ascii'.asUpperCase
 'ASCII'
 
->>> Character('a').asUpperCase
-Character('A')
+>>> Character'a'.asUpperCase
+Character'A'
 ```
 
 * * *

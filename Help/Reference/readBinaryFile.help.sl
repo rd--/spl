@@ -6,7 +6,7 @@ Answer a `ByteArray` holding the contents of the named file.
 Signal an `Error` if the file does not exist.
 
 ~~~
->>> FilePath('/etc/passwd')
+>>> FilePath'/etc/passwd'
 >>> .readBinaryFile
 >>> .isByteArray
 true

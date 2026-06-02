@@ -12,7 +12,7 @@ Access components using
 `extension`:
 
 ```
->>> let p = FilePath('/etc/cron.d');
+>>> let p = FilePath'/etc/cron.d';
 >>> [
 >>> 	p.absolutePathString,
 >>> 	p.directory,
@@ -32,17 +32,17 @@ Access components using
 Convert to a `Url`:
 
 ```
->>> FilePath('/etc/fstab')
+>>> FilePath'/etc/fstab'
 >>> .asUrl
-Url('file:///etc/fstab')
+Url'file:///etc/fstab'
 ```
 
 Replace extension:
 
 ```
->>> FilePath('plus.help.sl')
+>>> FilePath'plus.help.sl'
 >>> .replaceExtension('.sl', '.md')
-FilePath('plus.help.md')
+FilePath'plus.help.md'
 ```
 
 * * *

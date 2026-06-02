@@ -84,7 +84,7 @@ Visualize the recurring pattern when shuffling a ten-list:
 
 Visualize the recurring pattern when shuffling a twelve-list:
 
-~~~spl svg=A
+~~~spl svg=B
 1:20.collect { :n |
 	1:12.mongesShuffle(n)
 }.matrixPlot

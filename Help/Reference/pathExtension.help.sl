@@ -2,10 +2,11 @@
 
 - _pathExtension(p)_
 
-Answer the extension component of the filename path _p_.
+Answer the extension component of the path _p_.
 The extension includes the leading dot character.
 
-Find the file extension of a string:
+Find the file extension of a string,
+the part before the extension is called the _stem_:
 
 ```
 >>> 'file.text'.pathExtension
@@ -48,7 +49,7 @@ The extension is only the part following the final dot:
 
 * * *
 
-See also: pathBasename, pathDirectory, pathIsAbsolute, pathJoin, pathNormalize
+See also: pathBasename, pathDirectory, pathIsAbsolute, pathJoin, pathNormalize, pathStem
 
 Guides: File Functions
 

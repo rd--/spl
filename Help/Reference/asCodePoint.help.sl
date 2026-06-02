@@ -14,7 +14,7 @@ At `String`:
 At `Character`:
 
 ```
->>> Character('c').asCodePoint
+>>> Character'c'.asCodePoint
 99
 ```
 

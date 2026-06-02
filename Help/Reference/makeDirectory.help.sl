@@ -7,19 +7,19 @@ If _recursive_ is `true` intermediate directories are created.
 The integer _mode_ specifies the file mode, ordinarily it is set to 8r755.
 
 ```
->>> FilePath('/tmp/spl')
+>>> FilePath'/tmp/spl'
 >>> .makeDirectory(
 >>> 	false,
 >>> 	8r755
 >>> )
 nil
 
->>> FilePath('/tmp/spl')
+>>> FilePath'/tmp/spl'
 >>> .fileInformation
 >>> .at('isDirectory')
 true
 
->>> FilePath('/tmp/spl')
+>>> FilePath'/tmp/spl'
 >>> .removeDirectory(false)
 nil
 ```

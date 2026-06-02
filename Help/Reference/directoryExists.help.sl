@@ -16,7 +16,7 @@ true
 An ordinary file is not a directory:
 
 ```
->>> FilePath('/etc/passwd')
+>>> FilePath'/etc/passwd'
 >>> .directoryExists
 false
 ```

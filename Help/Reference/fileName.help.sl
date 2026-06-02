@@ -6,8 +6,7 @@ Answer a `String` having the file name part of the `pathName` of the `Url` _u_,
 which may not name a file.
 
 ```
->>> 'https://www.ubu.com/sound'
->>> .asUrl
+>>> Url'https://www.ubu.com/sound'
 >>> .fileName
 'sound'
 ```
@@ -29,7 +28,7 @@ The empty file Url:
 A Url with trailing directory separator:
 
 ```
->>> 'A://B/C/'.asUrl.fileName
+>>> Url'A://B/C/'.fileName
 ''
 ```
 

@@ -1,12 +1,12 @@
 # fileInformation
 
-- _fileInformation(path)_
+- _fileInformation(p)_
 
-Answer a `Record` holding information about the named file.
+Answer a `Record` holding information about the named file at path _p_.
 The will be at least entries for _isFile_, _isDirectory_, _size_ and _mtime_.
 
 ```
->>> let p = FilePath('/tmp');
+>>> let p = FilePath'/tmp';
 >>> let i = p.fileInformation;
 >>> (
 >>> 	i['isFile'],

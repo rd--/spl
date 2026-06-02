@@ -1,12 +1,11 @@
 # origin
 
-- _origin(aUrl)_
+- _origin(u)_
 
-Answer a `String` having the canonical form of the origin of the Url.
+Answer a `String` having the canonical form of the origin of the Url _u_.
 
 ```
->>> 'http://w3c.org/standards'
->>> .asUrl
+>>> Url'http://w3c.org/standards'
 >>> .origin
 'http://w3c.org'
 ```

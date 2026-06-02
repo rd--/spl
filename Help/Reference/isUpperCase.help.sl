@@ -12,7 +12,7 @@ true
 At `Character`:
 
 ```
->>> Character('A').isUpperCase
+>>> Character'A'.isUpperCase
 true
 ```
 

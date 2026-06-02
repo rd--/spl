@@ -7,7 +7,7 @@ also called the hash component,
 of the `Url` _u_.
 
 ```
->>> 'A://B/C#D'.asUrl.fragment
+>>> Url'A://B/C#D'.fragment
 '#D'
 ```
 

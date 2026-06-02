@@ -7,13 +7,13 @@ Over-writes any existing file.
 Signals an error if the write fails.
 
 ```
->>> FilePath('/tmp/spl.binary')
+>>> FilePath'/tmp/spl.binary'
 >>> .writeBinaryFile(
 >>> 	1:9.asByteArray
 >>> )
 nil
 
->>> FilePath('/tmp/spl.binary')
+>>> FilePath'/tmp/spl.binary'
 >>> .readBinaryFile
 ByteArray(1:9)
 ```

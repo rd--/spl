@@ -7,14 +7,14 @@ If _recursive_ is `true` the directory and all of its contents are removed,
 else only the named directory is removed and it must be empty.
 
 ```
->>> FilePath('/tmp/spl')
+>>> FilePath'/tmp/spl'
 >>> .makeDirectory(
 >>> 	false,
 >>> 	8r755
 >>> )
 nil
 
->>> FilePath('/tmp/spl')
+>>> FilePath'/tmp/spl'
 >>> .removeDirectory(false)
 nil
 ```

@@ -12,7 +12,7 @@ true
 Lower case _w_ is lower case:
 
 ```
->>> Character('w').isLowerCase
+>>> Character'w'.isLowerCase
 true
 ```
 

@@ -7,8 +7,14 @@ Construct a `Url` from the string _s_, with base _b_.
 At `String`:
 
 ```
->>> 'http://cern.ch/'.asUrl.isUrl
-true
+>>> let s = 'http://cern.ch/';
+>>> let u = s.asUrl;
+>>> (u.isUrl, u, u.href)
+(
+	true,
+	Url'http://cern.ch/',
+	'http://cern.ch/'
+)
 ```
 
 With base `Url`:
@@ -16,13 +22,13 @@ With base `Url`:
 ```
 >>> let b = 'http://rfc-editor.org/';
 >>> 'rfc/rfc1738.txt'.asUrl(b)
-'http://rfc-editor.org/rfc/rfc1738.txt'.asUrl
+Url'http://rfc-editor.org/rfc/rfc1738.txt'
 ```
 
 At `Url`:
 
 ```
->>> let u = Url('file:///etc/fstab');
+>>> let u = Url'file:///etc/fstab';
 >>> u.asUrl == u
 true
 ```

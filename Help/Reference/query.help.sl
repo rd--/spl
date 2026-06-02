@@ -7,8 +7,7 @@ also called the search,
 of the `Url` _u_.
 
 ```
->>> 'http://google.com/search?q=cern'
->>> .asUrl
+>>> Url'http://google.com/search?q=cern'
 >>> .query
 '?q=cern'
 ```

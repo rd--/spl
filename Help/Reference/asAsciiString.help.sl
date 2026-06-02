@@ -14,7 +14,7 @@ ByteArray[116 101 120 116]
 At `AsciiString`:
 
 ```
->>> let s = AsciiString('text');
+>>> let s = AsciiString'text';
 >>> s.asAsciiString == s
 true
 ```

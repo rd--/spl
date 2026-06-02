@@ -39,7 +39,9 @@ File Paths:
 - `pathExtension`
 - `pathIsAbsolute`
 - `pathJoin`
+- `pathName`
 - `pathNormalize`
+- `pathStem`
 
 Temporary Files:
 

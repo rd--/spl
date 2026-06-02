@@ -594,6 +594,9 @@ const asSl: ohm.ActionDict<string> = {
 	StringAssociation(lhs, _c, rhs) {
 		return `[${lhs.sourceString}, ${rhs.asSl}]`;
 	},
+	StringConstructorSyntax(typ, str) {
+		return `${typ.asSl}(${str.asSl})`;
+	},
 	TraitDefinition(n, _l, mn, mb, _r) {
 		const begin = `${n.sourceString} {`;
 		const middle = rewriteMethodListToCore(mn, mb);
