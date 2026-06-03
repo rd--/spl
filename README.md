@@ -13,6 +13,6 @@ Videos:
 [Small Kansas](?t=spl&e=md/video.md)
 
 Tested with:
-[deno](https://deno.com/) 2.7.5
+[deno](https://deno.com/) 2.8.1
 
 © [Rohan Drape](http://rohandrape.net/), 2022-2026, [Gpl](http://gnu.org/copyleft/)

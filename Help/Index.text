@@ -227,6 +227,7 @@ Guide/Spelling Rules.help.sl
 Guide/Statistics Functions.help.sl
 Guide/Stochastic Functions.help.sl
 Guide/Stream Functions.help.sl
+Guide/String Constructor Syntax.help.sl
 Guide/String Functions.help.sl
 Guide/String Syntax.help.sl
 Guide/Subsequences and substrings.help.sl
@@ -2015,6 +2016,7 @@ Reference/Interval.help.sl
 Reference/intervalMatrix.help.sl
 Reference/intervalName.help.sl
 Reference/intervalNameList.help.sl
+Reference/intervalPlot.help.sl
 Reference/intervalsBy.help.sl
 Reference/intervals.help.sl
 Reference/intervalVariety.help.sl
@@ -2599,6 +2601,7 @@ Reference/longestCommonSubstringList.help.sl
 Reference/longestCommonSuffix.help.sl
 Reference/longestIncreasingSubsequence.help.sl
 Reference/longestIncreasingSubsequenceList.help.sl
+Reference/longitudinalWavePlot.help.sl
 Reference/lookAndSay.help.sl
 Reference/lookAndSaySequence.help.sl
 Reference/lookup.help.sl
@@ -3126,6 +3129,7 @@ Reference/pathJoin.help.sl
 Reference/pathName.help.sl
 Reference/pathNormalize.help.sl
 Reference/pathPlot.help.sl
+Reference/pathStem.help.sl
 Reference/patienceSort.help.sl
 Reference/pdf.help.sl
 Reference/peakDetect.help.sl
@@ -3884,6 +3888,7 @@ Reference/Splay.help.sl
 Reference/splCondenseProgramText.help.sl
 Reference/splDirectory.help.sl
 Reference/splFileName.help.sl
+Reference/splFilePath.help.sl
 Reference/splitBy.help.sl
 Reference/splitByLimitedTo.help.sl
 Reference/splitByRegularExpression.help.sl
