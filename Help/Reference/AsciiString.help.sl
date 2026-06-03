@@ -83,7 +83,7 @@ Store string:
 
 ```
 >> AsciiString'String'.storeString
-AsciiString'String'
+AsciiString('String')
 ```
 
 * * *

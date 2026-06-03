@@ -37,3 +37,12 @@
 	}
 
 }
+
+Timeout! : [Object] {
+
+	cancel { :self |
+		<primitive: clearTimeout(_self);>
+		nil
+	}
+
+}
