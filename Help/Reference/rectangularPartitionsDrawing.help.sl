@@ -32,6 +32,20 @@ draw a diagram of the first five octaves of the harmonic series:
 
 ![](Help/Image/rectangularPartitionsDrawing-B.svg)
 
+Duration-row permutations of Messiaen’s _Île de Feu II_:
+
+~~~spl svg=C
+let p = Permutation[
+	12 10 8 6 4 2 1 3 5 7 9 11
+];
+{ :x |
+	x.permute(p)
+}.nestList([12, 11 .. 1], 10)
+.rectangularPartitionsDrawing
+~~~
+
+![](Help/Image/rectangularPartitionsDrawing-C.svg)
+
 * * *
 
 See also: circularPartitionsDrawing, integerPartitions, integerPartitionsTable

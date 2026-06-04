@@ -242,6 +242,15 @@ OEIS [A070191](https://oeis.org/A070191):
 [1 5 7 11 13 17 19 23 25 29 31 35 37 41 43]
 ```
 
+_2^n%35_,
+OEIS [A070339](https://oeis.org/A070339),
+period is twelve:
+
+```
+>>> 2.powerMod(0:12, 35)
+[1 2 4 8 16 32 29 23 11 22 9 18 1]
+```
+
 The sequence with fixed powers:
 
 ~~~spl svg=A

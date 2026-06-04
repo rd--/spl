@@ -886,6 +886,90 @@ Addition table modulo three:
 ]
 ```
 
+A modulo-twelve transposition matrix:
+
+```
+>>> let a = [0 10 7 9 2 8];
+>>> a.collect { :n |
+>>> 	a + (a[1] - n) % 12
+>>> }
+[
+	 0 10  7  9  2  8;
+	 2  0  9 11  4 10;
+	 5  3  0  2  7  1;
+	 3  1 10  0  5 11;
+	10  8  5  7  0  6;
+	 4  2 11  1  6  0
+]
+```
+
+A Stravisnky manner rotatational modulo-twelve transposition matrix:
+
+```
+>>> let a = [0 10 7 9 2 8];
+>>> a.withIndexCollect { :n :k |
+>>> 	(a + (a[1] - n) % 12)
+>>> 	.rotateLeft(k - 1)
+>>> }
+[
+	0 10  7  9  2  8;
+	0  9 11  4 10  2;
+	0  2  7  1  5  3;
+	0  5 11  3  1 10;
+	0  6 10  8  5  7;
+	0  4  2 11  1  6
+]
+```
+
+Transpositional combination:
+
+```
+>>> let a = [0 2 5];
+>>> [2 8 9 10].collect { :n |
+>>> 	a + (0 - n) % 12
+>>> }
+[
+	10  0  3;
+	 4  6  9;
+	 3  5  8;
+	 2  4  7
+]
+
+>>> let a = [0 3 6 9];
+>>> [0 4 8].collect { :n |
+>>> 	a + n % 12
+>>> }
+[
+	0  3  6  9;
+	4  7 10  1;
+	8 11  2  5
+]
+```
+
+Variation on _2^n%35_,
+OEIS [A070339](https://oeis.org/A070339):
+
+```
+>>> 2 ^ 0:11 * 3 % 35
+[3 6 12 24 13 26 17 34 33 31 27 19]
+
+>>> (2 ^ 0:11 * 3 % 35)
+>>> .differences
+[3 6 12 -11 13 -9 17 -1 -2 -4 -8]
+
+>>> 2.powerMod(0:11, 35)
+[1 2 4 8 16 32 29 23 11 22 9 18 1]
+
+>>> 2.powerMod(0:11, 35)
+>>> .rotateLeft(5)
+>>> .differences
+[-3 -6 -12 11 -13 9 -17 1 2 4 8]
+
+>>> (2 ^ 0:12 * 3 % 35)
+>>> .differences % 35
+[3 6 12 24 13 26 17 34 33 31 27 19]
+```
+
 An integer sequence modulo an integer,
 _n%8_,
 i.e. with a fixed modulus,

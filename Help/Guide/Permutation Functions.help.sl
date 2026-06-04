@@ -114,6 +114,7 @@ Shuffle Functions:
 - `fisherYatesShuffle`
 - `inShuffle`
 - `klondikeShuffle`
+- `milkShuffle`
 - `mongesShuffle`
 - `outShuffle`
 - `sattoloShuffle`

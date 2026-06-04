@@ -66,7 +66,7 @@ Visualize the recurring pattern when shuffling a list:
 
 * * *
 
-See also: fisherYatesShuffle, inShuffle, mongesShuffle, sattoloShuffle, shuffle
+See also: fisherYatesShuffle, inShuffle, milkShuffle, mongesShuffle, sattoloShuffle, shuffle
 
 Guides: Permutation Functions
 

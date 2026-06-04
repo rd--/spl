@@ -208,6 +208,30 @@ OEIS [A049296](https://oeis.org/A049296):
 ]
 ```
 
+The all-interval twelve-tone row of Berg’s _Lyric Suite_:
+
+```
+>>> [0 11 7 4 2 9 3 8 10 1 5 6]
+>>> .differences % 12
+[11 8 9 10 7 6 5 2 3 4 1]
+
+>>> let c = [0 11 7 4 2 9 3 8 10 1 5 6];
+>>> (c + 6).reverse % 12 = c
+true
+```
+
+The all-interval twelve-tone row due to Pohlman Mallalieu:
+
+```
+>>> [0 1 4 2 9 5 11 3 8 10 7 6]
+>>> .differences % 12
+[1 3 10 7 8 6 4 5 2 9 11]
+
+>>> let c = [0 1 4 2 9 5 11 3 8 10 7 6];
+>>> (c + 6).reverse % 12 = c
+true
+```
+
 Successive differences modulo two of a sequence based on the primes:
 
 ~~~spl svg=A

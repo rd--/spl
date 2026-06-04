@@ -318,6 +318,48 @@ OEIS [A018819](https://oeis.org/A018819):
 [1 2 2 4 4 6 6 10 10 14 14 20 20 26 26 36]
 ```
 
+Landau’s function,
+the largest order of permutation of _n_ elements,
+and equivalently the largest `lcm` of partitions of _n_,
+OEIS [A000793](https://oeis.org/A000793):
+
+```
+>>> 1:15.collect { :n |
+>>> 	n.integerPartitions
+>>> 	.collect(lcm:/1)
+>>> 	.max
+>>> }
+[1 2 3 4 6 6 12 15 20 30 30 60 60 84 105]
+```
+
+Number of partitions of _n_ with at most one odd part,
+OEIS [A100824](https://oeis.org/A100824):
+
+```
+>>> 1:15.collect { :n |
+>>> 	n.integerPartitions
+>>> 	.select { :p |
+>>> 		p.count(isOdd:/1) <= 1
+>>> 	}.size
+>>> }
+[1 1 2 2 4 3 7 5 12 7 19 11 30 15 45]
+```
+
+Number of compositions of _n_ into distinct parts,
+OEIS [A032020](https://oeis.org/A032020):
+
+```
+>>> 1:14.collect { :n |
+>>> 	n.integerPartitions
+>>> 	.select(isDuplicateFree:/1)
+>>> 	.collect { :p |
+>>> 		p.size.factorial
+>>> 	}.sum
+>>> }
+[1 1 3 3 5 11 13 19 27 57 65 101 133 193]
+```
+
+
 All the parts of all reversed partitions,
 sorted first by length and then lexicographically.
 OEIS [A036036](https://oeis.org/A036036):

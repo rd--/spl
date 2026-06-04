@@ -70,6 +70,6 @@ Visualize the recurring pattern when shuffling a list:
 
 * * *
 
-See also: inShuffle, mongesShuffle, outShuffle, spiralShuffle
+See also: inShuffle, milkShuffle, mongesShuffle, outShuffle, spiralShuffle
 
 Guides: Permutation Functions

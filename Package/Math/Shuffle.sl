@@ -82,6 +82,12 @@
 		x
 	}
 
+	milkShuffle { :self |
+		self.atAll(
+			self.size.milkShuffleIndices
+		)
+	}
+
 	mongesShuffle { :self |
 		let answer = [];
 		let top = false;
@@ -169,6 +175,21 @@
 			n := n - 1
 		};
 		x
+	}
+
+}
+
++SmallFloat {
+
+	milkShuffleIndices { :n |
+		let m = n // 2;
+		let a = [1 .. m].reverse;
+		let b = [m + 1 .. n];
+		(a.size >= b.size).if {
+			a.riffle(b)
+		} {
+			b.riffle(a)
+		}
 	}
 
 }

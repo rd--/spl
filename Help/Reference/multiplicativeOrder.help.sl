@@ -567,6 +567,19 @@ OEIS [A163780](https://oeis.org/A163780):
 
 ![](Help/Image/multiplicativeOrder-N.svg)
 
+Number of riffle shuffles of _2n_ cards required to return the deck to its initial state,
+OEIS [A055388](https://oeis.org/A055388),
+also
+OEIS [A065457](https://oeis.org/A065457):
+
+~~~spl svg=O oeis=A055388
+0:65.collect { :n |
+	2.multiplicativeOrder(2 * n + 1)
+}.lcm(2).discretePlot
+~~~
+
+![](Help/Image/multiplicativeOrder-O.svg)
+
 * * *
 
 See also: %, carmichaelLambda, eulerPhi, powerMod, primitiveRootList
