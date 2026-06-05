@@ -131,7 +131,8 @@ The average number of comparisons in Quicksort:
 
 ![](Help/Image/harmonicNumber-B.svg)
 
-Book stacking with the maximal overhang:
+Book stacking with the maximal overhang,
+also called the block-stacking problem or the harmonic staircase:
 
 ~~~spl svg=C
 1:10.collect { :k |

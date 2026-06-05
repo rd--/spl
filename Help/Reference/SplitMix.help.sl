@@ -1,8 +1,8 @@
 # SplitMix
 
-- _SplitMix(anInteger)_
+- _SplitMix(n)_
 
-Answer a pseudo random number generator seeded with _anInteger_.
+Answer a pseudo random number generator seeded with the integer _n_.
 
 `SplitMix` implements `RandomNumberGenerator` and `Stream`:
 

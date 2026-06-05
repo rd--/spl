@@ -105,6 +105,9 @@ OEIS [A000007](https://oeis.org/A000007):
 ```
 >>> [1].padRight([19], 0)
 [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+
+>>> [0].linearRecurrence([1], 19)
+[1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
 ```
 
 Weight array of the natural numbers,

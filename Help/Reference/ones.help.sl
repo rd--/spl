@@ -4,6 +4,16 @@
 
 Create array of all ones with specified _shape_.
 
+A nine-vector of ones:
+
+```
+>>> [9].ones
+[1 1 1 1 1 1 1 1 1]
+
+>>> [1].linearRecurrence([1], 9)
+[1 1 1 1 1 1 1 1 1]
+```
+
 Create a 4×4 matrix of ones:
 
 ```

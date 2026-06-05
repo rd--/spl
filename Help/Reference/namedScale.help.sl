@@ -10,13 +10,21 @@ according to the Scala scale archive.
 [2 2 1 2 2 2 1]
 ```
 
-It is an `error` if the name belongs to more than one scale in the archive:
+It is an `error` if the name belongs to more than one scale in the archive,
+see `namedScaleList`:
 
 ```
 >>> {
 >>> 	'Whole-tone'.namedScale
 >>> }.hasError
 true
+
+>>> 'Whole-tone'.namedScaleList
+>>> .collect(intervals:/1)
+[
+	1 1 1 1 1 1;
+	2 2 2 2 2 2
+]
 ```
 
 It is an `error` if the name is not in the archive:
@@ -34,6 +42,6 @@ and this function requires the item be in the interpreter cache.
 
 * * *
 
-See also: LibraryItem, intervalName, namedScales, Scale
+See also: LibraryItem, intervalName, namedScaleList, scalaScaleArchive, Scale, scaleNameList
 
 Guides: Scale Functions

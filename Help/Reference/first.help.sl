@@ -41,13 +41,17 @@ The first element in a sorted list is the same as finding the minimum element:
 1
 ```
 
-It is an error if there are too few items:
+It is an error if there are too few items,
+see also `take`:
 
 ```
 >>> {
 >>> 	[1 2 3].first(4)
 >>> }.hasError
 true
+
+>>> [1 2 3].take(4)
+[1 2 3]
 ```
 
 The ternary form will fill missing places with the specified value.
@@ -82,7 +86,7 @@ OEIS [A028233](https://oeis.org/A028233):
 
 * * *
 
-See also: fourth, last, middle, second, third
+See also: fourth, last, middle, second, take, third
 
 Guides: List Functions
 

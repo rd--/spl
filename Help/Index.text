@@ -2422,6 +2422,7 @@ Reference/kurenniemiNotation.help.sl
 Reference/kurtosis.help.sl
 Reference/labeledVertexList.help.sl
 Reference/labToXyz.help.sl
+Reference/LaggedFibonacci.help.sl
 Reference/Lag.help.sl
 Reference/lagPlot.help.sl
 Reference/lagrangeInterpolatingPolynomial.help.sl
@@ -2775,6 +2776,7 @@ Reference/MidiRatio.help.sl
 Reference/midpoint.help.sl
 Reference/midpointPolygon.help.sl
 Reference/miles.help.sl
+Reference/milkShuffle.help.sl
 Reference/millerRabinPrimalityTest.help.sl
 Reference/millioctavesToRatio.help.sl
 Reference/millisecond.help.sl
@@ -2869,7 +2871,7 @@ Reference/NamedControl.help.sl
 Reference/namedGraph.help.sl
 Reference/namedInterval.help.sl
 Reference/namedScale.help.sl
-Reference/namedScales.help.sl
+Reference/namedScaleList.help.sl
 Reference/namedTuning.help.sl
 Reference/name.help.sl
 Reference/NaN.help.sl
@@ -3661,6 +3663,7 @@ Reference/ScalaTuning.help.sl
 Reference/scalaTuningMetaArchive.help.sl
 Reference/scale.help.sl
 Reference/Scale.help.sl
+Reference/scaleNameList.help.sl
 Reference/scaleNegative.help.sl
 Reference/ScaleNeg.help.sl
 Reference/scalingMatrix.help.sl

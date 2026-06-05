@@ -4,6 +4,16 @@
 
 Create array of all zeroes with specified _shape_.
 
+A nine-vector of zeroes:
+
+```
+>>> [9].zeroes
+[0 0 0 0 0 0 0 0 0]
+
+>>> [1].linearRecurrence([0], 9)
+[0 0 0 0 0 0 0 0 0]
+```
+
 Create a 4×4 matrix of zeroes:
 
 ```

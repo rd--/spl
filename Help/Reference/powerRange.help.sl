@@ -18,6 +18,9 @@ OEIS [A000079](https://oeis.org/A000079):
 ```
 >>> 1.powerRange(100, 2)
 [1 2 4 8 16 32 64]
+
+>>> [2].linearRecurrence([1], 7)
+[1 2 4 8 16 32 64]
 ```
 
 Specify a power other than 10:

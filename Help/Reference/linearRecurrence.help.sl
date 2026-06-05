@@ -1206,5 +1206,6 @@ _OEIS_
 _W_
 [1](https://en.wikipedia.org/wiki/Recurrence_relation)
 [2](https://en.wikipedia.org/wiki/Linear_recurrence_with_constant_coefficients)
+[3](https://en.wikipedia.org/wiki/Constant-recursive_sequence)
 
 Categories: Math, Sequence

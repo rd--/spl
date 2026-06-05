@@ -228,6 +228,7 @@
 
 	/* Random */
 	'AliasMethod'
+	'LaggedFibonacci'
 	'LinearCongruential'
 	'MersenneTwister'
 	'PoissonDiskSampling'

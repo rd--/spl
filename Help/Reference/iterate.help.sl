@@ -335,6 +335,8 @@ _Mathematica_
 _OEIS_
 [1](https://oeis.org/A014707)
 [2](https://oeis.org/A118006)
-[3](https://oeis.org/A283681)
+[3](https://oeis.org/A283681),
+_W_
+[1](https://en.wikipedia.org/wiki/Iterated_function)
 
 Categories: Enumerating

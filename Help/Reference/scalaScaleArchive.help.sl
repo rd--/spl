@@ -54,19 +54,24 @@ Count the scales where the `stepArity` is not three:
 657
 ```
 
-Look up an entry in the archive by name, and fetch the intervals:
+Look up an entry in the archive by name,
+and fetch the intervals,
+see also `namedScale`:
 
 ```
 >>> system
 >>> .scalaScaleArchive
 >>> .detect { :each |
 >>> 	each.nameList.includes('Major')
->>> }
->>> .intervals
+>>> }.intervals
+[2 2 1 2 2 2 1]
+
+>>> 'Major'.namedScale.intervals
 [2 2 1 2 2 2 1]
 ```
 
-Select set of scales by name:
+Select set of scales by name,
+see also `namedScale`:
 
 ```
 >>> system
@@ -76,6 +81,15 @@ Select set of scales by name:
 >>> 		name = 'Antilydian'
 >>> 	}
 >>> }.collect(intervals:/1)
+[
+	2 2 2 3 2 2 3;
+	3 3 3 4 3 3 4;
+	3 3 3 5 3 3 5;
+	4 4 4 5 4 4 5
+]
+
+>>> 'Antilydian'.namedScaleList
+>>> .collect(intervals:/1)
 [
 	2 2 2 3 2 2 3;
 	3 3 3 4 3 3 4;
@@ -133,6 +147,104 @@ then select only the lexicographically least rotations of each answer:
 	2 2 2 3 3;
 	2 5 2 5 3;
 	3 7 3 7 4
+]
+```
+
+Find scales with 'Messiaen' in the name:
+
+```
+>>> let a = system.scalaScaleArchive;
+>>> a.collect { :x |
+>>> 	x.nameList
+>>> }.catenate.select { :x |
+>>> 	x.includesSubstring('Messiaen')
+>>> }.collect { :x |
+>>> 	x
+>>> 	->
+>>> 	x.namedScaleList
+>>> 	.collect(intervals:/1)
+>>> }
+[
+	'Messiaen truncated mode 6' -> [
+		[1, 2, 1, 2],
+		[2, 4, 2, 4]
+	],
+	'Messiaen truncated mode 6 inverse' -> [
+		[2, 1, 2, 1],
+		[4, 2, 4, 2]
+	],
+	'Messiaen mode 1' -> [
+		[1, 1, 1, 1, 1, 1],
+		[2, 2, 2, 2, 2, 2]
+	],
+	'Messiaen truncated mode 5' -> [
+		[1, 5, 1, 5]
+	],
+	'Messiaen truncated mode 5 inverse' -> [
+		[5, 1, 5, 1]
+	],
+	'Messiaen truncated mode 6' -> [
+		[1, 2, 1, 2],
+		[2, 4, 2, 4]
+	],
+	'Messiaen truncated mode 6 inverse' -> [
+		[2, 1, 2, 1],
+		[4, 2, 4, 2]
+	],
+	'Messiaen mode 1' -> [
+		[1, 1, 1, 1, 1, 1],
+		[2, 2, 2, 2, 2, 2]
+	],
+	'Messiaen mode 5' -> [
+		[1, 1, 4, 1, 1, 4]
+	],
+	'Messiaen mode 5 inverse' -> [
+		[4, 1, 1, 4, 1, 1]
+	],
+	'Messiaen truncated mode 3' -> [
+		[1, 3, 1, 3, 1, 3]
+	],
+	'Messiaen truncated mode 3 inverse' -> [
+		[3, 1, 3, 1, 3, 1]
+	],
+	'Messiaen truncated mode 2' -> [
+		[1, 2, 3, 1, 2, 3],
+		[1, 3, 2, 1, 3, 2]
+	],
+	'Messiaen truncated mode 2' -> [
+		[1, 2, 3, 1, 2, 3],
+		[1, 3, 2, 1, 3, 2]
+	],
+	'Messiaen mode 2 inverse' -> [
+		[2, 1, 2, 1, 2, 1, 2, 1]
+	],
+	'Messiaen mode 2' -> [
+		[1, 2, 1, 2, 1, 2, 1, 2]
+	],
+	'Messiaen mode 4' -> [
+		[1, 1, 1, 3, 1, 1, 1, 3]
+	],
+	'Messiaen mode 4 inverse' -> [
+		[3, 1, 1, 1, 3, 1, 1, 1]
+	],
+	'Messiaen mode 6' -> [
+		[1, 1, 2, 2, 1, 1, 2, 2]
+	],
+	'Messiaen mode 6 inverse' -> [
+		[2, 2, 1, 1, 2, 2, 1, 1]
+	],
+	'Messiaen mode 3' -> [
+		[1, 1, 2, 1, 1, 2, 1, 1, 2]
+	],
+	'Messiaen mode 3 inverse' -> [
+		[2, 1, 1, 2, 1, 1, 2, 1, 1]
+	],
+	'Messiaen mode 7' -> [
+		[1, 1, 1, 1, 2, 1, 1, 1, 1, 2]
+	],
+	'Messiaen mode 7 inverse' -> [
+		[2, 1, 1, 1, 1, 2, 1, 1, 1, 1]
+	]
 ]
 ```
 

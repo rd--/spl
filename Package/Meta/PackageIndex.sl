@@ -305,6 +305,7 @@
 	'Quantity-SiUnit'
 	'Quantity-Time'
 	'Random-AliasMethod'
+	'Random-LaggedFibonacci'
 	'Random-LinearCongruential'
 	'Random-MersenneTwister'
 	'Random-PoissonDiskSampling'

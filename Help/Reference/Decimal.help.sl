@@ -375,6 +375,34 @@ OEIS [A021027](https://oeis.org/A021027):
 22
 ```
 
+Decimal expansion of _1/6_,
+OEIS [A020793](https://oeis.org/A020793):
+
+```
+>>> Decimal(1/6, 7)
+0.1666667D
+
+>>> 1/6.decimalPeriod
+1
+
+>>> [1].linearRecurrence([1 6], 7)
+[1 6 6 6 6 6 6]
+```
+
+Decimal expansion of _1/11_,
+OEIS [A010680](https://oeis.org/A010680):
+
+```
+>>> Decimal(1/11, 8)
+0.09090909D
+
+>>> 1/11.decimalPeriod
+2
+
+>>> [0 1].linearRecurrence([0 9], 8)
+[0 9 0 9 0 9 0 9]
+```
+
 _Note_:
 The implentation is in terms of `Fraction`,
 which is in terms of `LargeInteger`,

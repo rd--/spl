@@ -15,8 +15,9 @@ Accessing:
 
 Catalogues:
 
-- `scalaScaleArchive`
 - `namedScale`
+- `scalaScaleArchive`
+- `scaleNameList`
 
 Converting:
 

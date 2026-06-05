@@ -1,13 +1,13 @@
-# namedScales
+# namedScaleList
 
-- _namedScales(aString)_
+- _namedScaleList(s)_
 
-Answer the `List` of `Scale`s which are named by _aString_,
+Answer the `List` of `Scale`s which are named by the string _s_,
 according to the Scala scale archive.
 
 ```
 >>> 'Whole-tone'
->>> .namedScales
+>>> .namedScaleList
 >>> .collect(intervals:/1)
 [
 	1 1 1 1 1 1;
@@ -19,7 +19,7 @@ It is an `error` if the name is not in the archive:
 
 ```
 >>> {
->>> 	'*unnamed scale*'.namedScales
+>>> 	'*unnamed scale*'.namedScaleList
 >>> }.hasError
 true
 ```

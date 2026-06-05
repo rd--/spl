@@ -37,6 +37,14 @@ A set-type saturated row due to Robert Morris:
 ]
 ```
 
+Four tetrachords:
+
+```
+>>> [0 1 2 3; 0 2 4 7; 0 2 5 8]
+>>> .collect(forteNumber:/1)
+['4-1' '4-22' '4-27']
+```
+
 * * *
 
 See also: rahnNormalForm, rahnPrimeForm

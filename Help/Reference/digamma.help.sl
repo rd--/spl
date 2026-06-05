@@ -8,6 +8,9 @@ Answer the digamma function _ψ(z)_.
 >>> 5.digamma
 25/12 - 1.eulerGamma
 
+>>> 5.digamma
+4.harmonicNumber - 1.eulerGamma
+
 >>> 100.5.digamma
 4.60517
 
@@ -32,8 +35,18 @@ false
 At `one`:
 
 ```
+>>> 1.digamma
+-1.eulerGamma
+
 >>> 0 - 1.digamma
 1.eulerGamma
+```
+
+At one half:
+
+```
+>>> 0.5.digamma
+-1.eulerGamma - (2 * 2.log)
 ```
 
 Plot over a subset of the reals:

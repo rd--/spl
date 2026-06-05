@@ -59,6 +59,9 @@ OEIS [A063524](https://oeis.org/A063524):
 ```
 >>> 0:19.collect { :n | (n = 1).boole }
 [0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+
+>>> [0].linearRecurrence([0 1], 20)
+[0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
 ```
 
 Triangle read by rows,

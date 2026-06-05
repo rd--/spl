@@ -177,21 +177,39 @@ Scale : [Object, Storeable] { | intervals description startIndex |
 +String {
 
 	namedScale { :self |
-		let answers = self.namedScales;
-		(answers.size != 1).ifTrue {
+		let answers = self.namedScaleList;
+		(answers.size != 1).if {
 			self.error('namedScale: no such singular scale')
-		};
-		answers[1]
+		} {
+			answers[1]
+		}
 	}
 
-	namedScales { :self |
+	namedScaleList { :self |
 		let answer = system.scalaScaleArchive.select { :each |
 			each.nameList.includes(self)
 		};
-		answer.isEmpty.ifTrue {
-			self.error('namedScales: no such scale')
-		};
-		answer
+		answer.isEmpty.if {
+			self.error('namedScaleList: no such scale')
+		} {
+			answer
+		}
+	}
+
+}
+
++List {
+
+	scaleNameList { :self |
+		system
+		.scalaScaleArchive
+		.detect { :each |
+			each.intervals = self
+		}.nameList
+	}
+
+	scaleNameList { :self :count |
+		self.scaleNameList.take(count)
 	}
 
 }

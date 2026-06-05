@@ -42,4 +42,5 @@ Guides: Integer Sequence Functions
 
 References:
 _W_
-[1](https://en.wikipedia.org/wiki/Arithmetic%E2%80%93geometric_mean)
+[1](https://en.wikipedia.org/wiki/Arithmetico-geometric_sequence)
+[2](https://en.wikipedia.org/wiki/Arithmetic%E2%80%93geometric_mean)

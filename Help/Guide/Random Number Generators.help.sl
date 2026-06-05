@@ -8,6 +8,7 @@ Traits:
 Pseudo-random Number Generators:
 
 - `Sfc32`: Doty-Humphrey 2018
+- `LaggedFibonacci`
 - `LinearCongruential`: Thomson 1958
 - `MersenneTwister`: Matsumoto 1989
 - `SplitMix`: Steele 2014
