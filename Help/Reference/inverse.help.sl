@@ -177,11 +177,20 @@ The identity matrix is self inverse:
 m
 ```
 
+At `Permutation`,
+an alias for `inversePermutation`:
+
+```
+>>> [1 3 9; 2 6 5; 4 12 10; 7 8 11]
+>>> .cycles.inverse.cycles
+[1 9 3; 2 5 6; 4 10 12; 7 11 8]
+```
+
 * * *
 
-See also: gaussJordanInverse, matrixRank, pseudoInverse, rowReduce
+See also: gaussJordanInverse, inversePermutation, matrixRank, pseudoInverse, rowReduce
 
-Guides: Matrix Functions
+Guides: Matrix Functions, Permutation Functions
 
 References:
 _Mathematica_

@@ -126,8 +126,10 @@ Predicates:
 - `isDiagonalMatrix`
 - `isDiagonallyDominantMatrix`
 - `isHermitianMatrix`
+- `isGilbertSquare`
 - `isIntegerMatrix`
 - `isInvolutoryMatrix`
+- `isLatinSquare`
 - `isLowerTriangularMatrix`
 - `isMatrix`
 - `isMutuallyOrthogonalLatinSquareSet`

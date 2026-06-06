@@ -422,7 +422,7 @@ OEIS [A059620](https://oeis.org/A059620):
 
 * * *
 
-See also: constantArray, findRepeat, stringCatenate, stringJoin, stringRepeat
+See also: constantArray, findRepeat, replicate, stringCatenate, stringJoin, stringRepeat
 
 Guides: List Functions, String Functions
 

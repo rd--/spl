@@ -7,14 +7,17 @@ LaggedFibonacci : [Object, Equatable, Iterator, RandomNumberGenerator, Stream] {
 		self
 	}
 
-	modulus { :unused |
-		2L ^ 63
+	modulus { :self |
+		self.parameters.at(3)
 	}
 
-	nextRandomUnsignedInteger { :self |
+	nextRandomFloat { :self |
+		self.nextRandomFraction.asFloat
+	}
+
+	nextRandomFraction { :self |
 		let [j, k, x] = self.state;
-		let [s, r] = self.parameters;
-		let m = self.modulus;
+		let [s, r, m] = self.parameters;
 		let z = x[k] + x[j] % m;
 		x[k] := z;
 		j := j - 1;
@@ -27,21 +30,12 @@ LaggedFibonacci : [Object, Equatable, Iterator, RandomNumberGenerator, Stream] {
 			}
 		};
 		self.state := [j, k, x];
-		z
-	}
-
-	nextRandomFloat { :self |
-		self.nextRandomFraction.asFloat
-	}
-
-	nextRandomFraction { :self |
-		self.nextRandomUnsignedInteger / self.modulus
+		z / m
 	}
 
 	reset { :self |
-		let [s, r] = self.parameters;
+		let [s, r, m] = self.parameters;
 		let k = self.seed;
-		let m = self.modulus;
 		let x = List(r);
 		1.toDo(r) { :i |
 			k := k * 6364136223846793005L + 1442695040888963407L % m;
@@ -54,8 +48,12 @@ LaggedFibonacci : [Object, Equatable, Iterator, RandomNumberGenerator, Stream] {
 
 +SmallFloat {
 
+	LaggedFibonacci { :s :r :k :m |
+		newLaggedFibonacci().initialize([s, r, LargeInteger(m)], k)
+	}
+
 	LaggedFibonacci { :s :r :k |
-		newLaggedFibonacci().initialize([s, r], k)
+		LaggedFibonacci(s, r, k, 2 ^ 64)
 	}
 
 }

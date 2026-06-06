@@ -202,6 +202,18 @@
 		self.isDiagonalMatrix(0)
 	}
 
+	isGilbertSquare { :m |
+		m.isLatinSquare & {
+			let p = (m ++ m.transpose).collect { :x |
+				x.partition(2, 1)
+			}.catenate.sort;
+			let q = 2.replicate(
+				m.size.gilbertSquareDigrams
+			);
+			p = q
+		}
+	}
+
 	isHermitianMatrix { :self |
 		self.isVeryCloseTo(self.conjugateTranspose)
 	}
@@ -735,6 +747,10 @@
 	gaussianVector { :r :sigma |
 		let k = (-0.5 * [r.- ..  r].square / sigma.square).exp;
 		k / k.sum
+	}
+
+	gilbertSquareDigrams { :k |
+		[1 .. k].tuples(2).select(isDuplicateFree:/1)
 	}
 
 	magicHexagon { :n |

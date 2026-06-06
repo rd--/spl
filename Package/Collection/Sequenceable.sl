@@ -2719,13 +2719,17 @@
 		}
 	}
 
-	triangularDifferenceTable { :a |
+	triangularDifferenceTable { :a :f:/2 |
 		let k = a.size;
 		1.toCollect(k - 1) { :n |
 			1.toCollect(k - n) { :i |
-				a[i + n] - a[i]
+				f(a[i + n], a[i])
 			}
 		}
+	}
+
+	triangularDifferenceTable { :a |
+		a.triangularDifferenceTable(-)
 	}
 
 	tuplesCollect { :self :aBlock:/1 |

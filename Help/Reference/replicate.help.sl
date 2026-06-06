@@ -7,6 +7,9 @@ Replicate each element of the sequence _x_ the number of times indicated by _n_,
 which in the list case must have the same number of places as _x_.
 
 ```
+>>> 2.replicate([1 3 5])
+[1 1 3 3 5 5]
+
 >>> let n = [2 3 4];
 >>> let x = [1 3 5];
 >>> n.replicate(x)
@@ -163,7 +166,7 @@ C.f. `duplicate`:
 
 * * *
 
-See also: !, #, duplicate, fill, reshape, shape
+See also: !, #, duplicate, fill, repeat, reshape, shape
 
 Guides: Copying Functions, List Functions
 

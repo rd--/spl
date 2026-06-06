@@ -331,6 +331,40 @@ Transpose a square matrix:
 ]
 ```
 
+The four arrangements of the first twelve integers into matrices of three and four rows and columns:
+
+```
+>>> 12.iota.reshape([4 3])
+[
+	 1  2  3;
+	 4  5  6;
+	 7  8  9;
+	10 11 12
+]
+
+>>> 12.iota.reshape([3 4])
+[
+	1  2  3  4;
+	5  6  7  8;
+	9 10 11 12
+]
+
+>>> 12.iota.reshape([4 3]).transpose
+[
+	1 4 7 10;
+	2 5 8 11;
+	3 6 9 12
+]
+
+>>> 12.iota.reshape([3 4]).transpose
+[
+	1 5  9;
+	2 6 10;
+	3 7 11;
+	4 8 12
+]
+```
+
 Where supported `transpose` is displayed as ᵀ.
 
 * * *

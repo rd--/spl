@@ -1335,11 +1335,23 @@
 			r.collect { :g |
 				1.toCollect(n - 1) { :i |
 					g.powerMod(i, n)
-				}.columnBinaryMatrix
+				}
 			}
 		} {
 			n.error('welchCostasArrayList: not prime')
 		}
+	}
+
+	welchCostasMatrixList { :n |
+		n.welchCostasArrayList.collect { :each |
+			each.columnBinaryMatrix.normal
+		}
+	}
+
+	welchCostasSparseArrayList { :n |
+		n.welchCostasArrayList.collect(
+			columnBinaryMatrix:/1
+		)
 	}
 
 }

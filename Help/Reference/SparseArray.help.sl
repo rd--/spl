@@ -8,14 +8,12 @@
 Construct a sparse matrix with values at only a few specified positions:
 
 ```
->>> let s = SparseArray(
->>> 	[
->>> 		[1 1] -> 1,
->>> 		[2 2] -> 2,
->>> 		[3 3] -> 3,
->>> 		[1 3] -> 4
->>> 	]
->>> );
+>>> let s = SparseArray[
+>>> 	[1 1] -> 1,
+>>> 	[2 2] -> 2,
+>>> 	[3 3] -> 3,
+>>> 	[1 3] -> 4
+>>> ];
 >>> (
 >>> 	s.normal,
 >>> 	s.shape,
@@ -40,7 +38,9 @@ Make a large sparse vector:
 
 ```
 >>> let s = SparseArray(
->>> 	1:10.collect { :i | [2 ^ i] -> 1}
+>>> 	1:10.collect { :i |
+>>> 		[2 ^ i] -> 1
+>>> 	}
 >>> );
 >>> (s.shape, s.sum, s[4])
 ([1024], 10, 1)
@@ -179,7 +179,8 @@ Create a list with a single nonzero element:
 >>> SparseArray([[10] -> 1], [19], 0)
 >>> .normal
 [
-	0 0 0 0 0 0 0 0 0 1
+	0 0 0 0 0 0 0 0 0
+	1
 	0 0 0 0 0 0 0 0 0
 ]
 ```

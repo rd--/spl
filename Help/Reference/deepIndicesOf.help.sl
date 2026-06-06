@@ -1,8 +1,8 @@
 # deepIndicesOf
 
-- _deepIndicesOf(aCollection, anObject)_
+- _deepIndicesOf(c, x)_
 
-Answer a `List`, possibly empty, of all the deep indices of _anObject_ in _aCollection_.
+Answer a `List`, possibly empty, of all the deep indices of the object _x_ in the collection _c_.
 
 ```
 >>> [1 2 1 1 2 3 2].deepIndicesOf(2)

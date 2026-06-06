@@ -884,6 +884,29 @@ Addition table modulo three:
 	1 2 0;
 	2 0 1
 ]
+
+>>> 0:2 +.table 0:2 % 3
+[
+	0 1 2;
+	1 2 0;
+	2 0 1
+]
+```
+
+Addition table modulo eight:
+
+```
+>>> (1:8 +.table 0:7).mod(8, 1)
+[
+	1 2 3 4 5 6 7 8;
+	2 3 4 5 6 7 8 1;
+	3 4 5 6 7 8 1 2;
+	4 5 6 7 8 1 2 3;
+	5 6 7 8 1 2 3 4;
+	6 7 8 1 2 3 4 5;
+	7 8 1 2 3 4 5 6;
+	8 1 2 3 4 5 6 7
+]
 ```
 
 A modulo-twelve transposition matrix:
@@ -968,6 +991,53 @@ OEIS [A070339](https://oeis.org/A070339):
 >>> (2 ^ 0:12 * 3 % 35)
 >>> .differences % 35
 [3 6 12 24 13 26 17 34 33 31 27 19]
+```
+
+The first twelve indices take at steps of three and two,
+a modulus of thirteen shifts the three-place sequences at each boundary,
+a modulus of twelve cycles through a subset of the indices:
+
+```
+>>> (1:12 * 3).mod(13, 1)
+[3 6 9 12 2 5 8 11 1 4 7 10]
+
+>>> (1:12 * 3).mod(13, 1)
+>>> .differences
+[3 3 3 -10 3 3 3 -10 3 3 3]
+
+>>> [3 6 9 12 2 5 8 11 1 4 7 10]
+>>> .permutationCycles
+[1 3 9; 2 6 5; 4 12 10; 7 8 11]
+
+>>> [3 6 9 12 2 5 8 11 1 4 7 10]
+>>> .inversePermutation.cycles
+[1 9 3; 2 5 6; 4 10 12; 7 11 8]
+
+>>> (1:12 * 3).mod(12, 1)
+[3 6 9 12 3 6 9 12 3 6 9 12]
+```
+
+Similarly,
+the first twelve indices take at steps of four and three:
+
+```
+>>> (1:12 * 4).mod(13, 1)
+[4 8 12 3 7 11 2 6 10 1 5 9]
+
+>>> [4 8 12 3 7 11 2 6 10 1 5 9]
+>>> .differences
+[4 4 -9 4 4 -9 4 4 -9 4 4]
+
+>>> [4 8 12 3 7 11 2 6 10 1 5 9]
+>>> .permutationCycles
+[1 4 3 12 9 10; 2 8 6 11 5 7]
+
+>>> [4 8 12 3 7 11 2 6 10 1 5 9]
+>>> .inversePermutation.cycles
+[1 10 9 12 3 4; 2 7 5 11 6 8]
+
+>>> (1:12 * 4).mod(12, 1)
+[4 8 12 4 8 12 4 8 12 4 8 12]
 ```
 
 An integer sequence modulo an integer,

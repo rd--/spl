@@ -116,7 +116,7 @@ Permutation : [Object, Storeable, Equatable] { | cycles degree |
 		}
 	}
 
-	inverse { :self |
+	[inversePermutation, inverse] { :self |
 		self.cycles.collect { :each |
 			each.reverse
 		}.cycles
@@ -461,7 +461,7 @@ Permutation : [Object, Storeable, Equatable] { | cycles degree |
 	}
 
 	inversePermutation { :self |
-		self.asPermutation.inverse
+		self.asPermutation.inversePermutation
 	}
 
 	inversionVector { :self |

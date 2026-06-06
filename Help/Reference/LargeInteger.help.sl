@@ -35,7 +35,7 @@ true
 ```
 
 Equal values are also identical,
-however LargeInteger values are not considered immediate because the do not compare identically with SmallFloat values:
+however `LargeInteger` values are not considered immediate because the do not compare identically with `SmallFloat` values:
 
 ```
 >>> 23L == 23L

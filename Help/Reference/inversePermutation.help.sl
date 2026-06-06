@@ -9,7 +9,7 @@ Inverse of a permutation in cyclic notation:
 
 ```
 >>> [1 3 2 5; 4 7; 6].inversePermutation
-[1 5 2 3; 4 7].cycles
+[1 5 2 3; 4 7; 6].cycles
 ```
 
 Inverse of permutations in one-line (permutation list) notation:
@@ -66,6 +66,11 @@ Inverting a permutation is equivalent to reversing its cycles:
 ```
 >>> [1 6 12; 2 9].cycles.inverse
 [12 6 1; 9 2].cycles
+
+>>> Permutation[
+>>> 	1 3 9; 2 6 5; 4 12 10; 7 8 11
+>>> ].inversePermutation.cycles
+[1 9 3; 2 5 6; 4 10 12; 7 11 8]
 ```
 
 `ordering` gives the inverse of a permutation list:
@@ -82,7 +87,7 @@ Inverting a permutation is equivalent to reversing its cycles:
 
 * * *
 
-See also: cycles, Permutation, permutationPower
+See also: cycles, inverse, Permutation, permutationPower
 
 Guides: Permutation Functions
 
