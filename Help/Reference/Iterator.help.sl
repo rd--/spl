@@ -19,6 +19,7 @@ List of types implementing `Iterator`:
 	'AliasMethod'
 	'BlockStream'
 	'CollectionStream'
+	'LaggedFibonacci'
 	'LinearCongruential'
 	'MersenneTwister'
 	'MutableCollectionStream'

@@ -82,6 +82,7 @@ Predicates:
 
 - `hasPattern`
 - `isDerangement`
+- `isGracefulPermutation`
 - `isIdentity`
 - `isInvolution`
 - `isPermutationCycles`

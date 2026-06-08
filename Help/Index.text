@@ -1591,6 +1591,7 @@ Reference/fordCircle.help.sl
 Reference/Formant.help.sl
 Reference/format.help.sl
 Reference/Formlet.help.sl
+Reference/forteIntervalVector.help.sl
 Reference/forteNumber.help.sl
 Reference/forteSetClassTable.help.sl
 Reference/fortunateNumber.help.sl
@@ -2139,6 +2140,8 @@ Reference/isFundamentalDiscriminant.help.sl
 Reference/isGaussianInteger.help.sl
 Reference/isGaussianPrime.help.sl
 Reference/isGeometricProgression.help.sl
+Reference/isGilbertSquare.help.sl
+Reference/isGracefulPermutation.help.sl
 Reference/isGraveAccent.help.sl
 Reference/isGrayCode.help.sl
 Reference/isGreen.help.sl
@@ -2686,6 +2689,7 @@ Reference/mahonianNumbers.help.sl
 Reference/majorIndex.help.sl
 Reference/makeDirectory.help.sl
 Reference/mallowsSequence.help.sl
+Reference/mandereauIntervalVector.help.sl
 Reference/mangoldtLambda.help.sl
 Reference/manhattanDistance.help.sl
 Reference/mantissaExponent.help.sl

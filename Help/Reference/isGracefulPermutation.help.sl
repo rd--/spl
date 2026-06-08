@@ -1,13 +1,3 @@
-+List{
-	isGracefulPermutation { :p |
-		p.isPermutationList & {
-			let k = p.size;
-			let q = p.differences.abs.sort;
-			q = [1 .. k - 1]
-		}
-	}
-}
-
 # isGracefulPermutation
 
 - _isGracefulPermutation(p)_
@@ -45,3 +35,9 @@ true
 >>> .differences.abs.sort
 [1 2 3 4 5 6 7 8 9 10 11]
 ```
+
+* * *
+
+See also: abs, differences, isPermutationList, sort
+
+Guides: Permutation Functions

@@ -468,6 +468,14 @@ Permutation : [Object, Storeable, Equatable] { | cycles degree |
 		self.asPermutation.inversionVector
 	}
 
+	isGracefulPermutation { :p |
+		p.isPermutationList & {
+			let k = p.size;
+			let q = p.differences.abs.sort;
+			q = [1 .. k - 1]
+		}
+	}
+
 	isInvolution { :self |
 		self.asPermutation.isInvolution
 	}

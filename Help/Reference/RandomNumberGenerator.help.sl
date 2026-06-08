@@ -16,6 +16,7 @@ Types implementing `RandomNumberGenerator`:
 >>> .traitTypes('RandomNumberGenerator')
 >>> .sort
 [
+	'LaggedFibonacci'
 	'LinearCongruential'
 	'MersenneTwister'
 	'Sfc32'
