@@ -128,6 +128,18 @@ OEIS [A077957](https://oeis.org/A077957):
 [1 0 2 0 4 0 8 0 16 0 32 0 64 0 128 0]
 ```
 
+Interleave circles of fourths and fifths:
+
+```
+>>> [5 7].collect { :n |
+>>> 	0:11 * n % 12
+>>> }.interleave
+[
+	0 0  5 7 10 2 3 9 8  4 1 11
+	6 6 11 1  4 8 9 3 2 10 7  5
+]
+```
+
 Alternate positive and negative integers,
 OEIS [A001057](https://oeis.org/A001057)
 without the leading zero:

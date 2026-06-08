@@ -1,9 +1,35 @@
 +List {
 
+	forteIntervalVector { :self |
+		let t = self.tuples(2).select { :x |
+			x[1] < x[2]
+		};
+		let m = t.collect { :x |
+			let i = x[2] - x[1];
+			(i > 6).if { 12 - i } { i }
+		}.Multiset;
+		[1 .. 6].collect { :x |
+			m.occurrencesOf(x)
+		}
+	}
+
 	forteNumber { :self |
 		system.rahnSetClassTable.keyAtValue(
 			self.rahnPrimeForm
 		)
+	}
+
+	mandereauIntervalVector { :self :modulus |
+		let m = self.tuples(2).collect { :x |
+			(x[2] - x[1]) % modulus
+		}.Multiset;
+		[0 .. modulus - 1].collect { :x |
+			m.occurrencesOf(x)
+		}
+	}
+
+	mandereauIntervalVector { :self |
+		self.mandereauIntervalVector(12)
 	}
 
 	normalForm { :self :f:/2 |

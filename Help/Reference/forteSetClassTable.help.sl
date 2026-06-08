@@ -25,4 +25,10 @@ Show cases where the Forte and Forte prime forms differ:
 
 See also: forteName, rahnSetClassTable
 
+Guides: Atonal Theory Functions
+
+References:
+_W_
+[1](https://en.wikipedia.org/wiki/List_of_set_classes)
+
 Further Reading: Forte 1973

@@ -17,7 +17,7 @@ with smallest largest element (Granville 2008):
 >>> 	71 1163 1283 2663 4523
 >>> 	5651 9311 13883 13931 14423
 >>> 	25943 27611
->>> ].partition(2. 1)
+>>> ].partition(2, 1)
 >>> .collect(average:/1)
 [
 	617 1223 1973 3593 5087

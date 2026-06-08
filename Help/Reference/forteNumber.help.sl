@@ -8,8 +8,32 @@ Answer the Forte number of the pitch-class set _p_.
 >>> [0 4 7].forteNumber
 '3-11'
 
+>>> [0 1 3 5 6 9].forteNumber
+'6-Z28'
+
+>>> [0 1 3 4 7 9].forteNumber
+'6-Z49'
+
 >>> [0 2 4 5 7 9 11].forteNumber
 '7-35'
+```
+
+Complementary sets:
+
+>>> let a = [1 3 6 8 10];
+>>> let b = [0 .. 11].complement(a);
+>>> (a.forteNumber, b.forteNumber)
+('5-35', '7-35')
+
+>>> let a = [0 1 3 5 6 9];
+>>> let b = [0 .. 11].complement(a);
+>>> (a.forteNumber, b.forteNumber)
+('6-Z28', '6-Z49')
+
+>>> let a = [0 1 4 6];
+>>> let b = [0 .. 11].complement(a);
+>>> (a.forteNumber, b.forteNumber)
+('4-Z15', '8-Z15')
 ```
 
 The all-trichord twelve-tone row:

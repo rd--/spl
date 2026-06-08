@@ -40,4 +40,8 @@ See also: forteNumber, forteSetClassTable, rahnPrimeForm
 
 Guides: Atonal Theory Functions
 
+References:
+_W_
+[1](https://en.wikipedia.org/wiki/List_of_set_classes)
+
 Further Reading: Rahn 1980
