@@ -20,6 +20,7 @@ List of types implementing `Stream`:
 [
 	'BlockStream'
 	'CollectionStream'
+	'LaggedFibonacci'
 	'LinearCongruential'
 	'MersenneTwister'
 	'MutableCollectionStream'

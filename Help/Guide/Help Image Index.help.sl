@@ -698,6 +698,8 @@
 - `BrownianBridgeProcess`
   1. ![](Help/Image/BrownianBridgeProcess-A.svg)
   2. ![](Help/Image/BrownianBridgeProcess-B.svg)
+- `brunsConstant`
+  1. ![](Help/Image/brunsConstant-A.svg)
 - `bSplineFunction`
   1. ![](Help/Image/bSplineFunction-A.svg)
   2. ![](Help/Image/bSplineFunction-B.svg)
@@ -2812,6 +2814,7 @@
   20. ![](Help/Image/integerExponent-T.svg)
   21. ![](Help/Image/integerExponent-U.svg)
   22. ![](Help/Image/integerExponent-V.svg)
+  23. ![](Help/Image/integerExponent-W.svg)
 - `integerLength`
   1. ![](Help/Image/integerLength-A.svg)
   2. ![](Help/Image/integerLength-B.svg)
@@ -2872,6 +2875,7 @@
   5. ![](Help/Image/integerSquareRoot-E.svg)
   6. ![](Help/Image/integerSquareRoot-F.svg)
   7. ![](Help/Image/integerSquareRoot-G.svg)
+  8. ![](Help/Image/integerSquareRoot-H.svg)
 - `interleave`
   1. ![](Help/Image/interleave-A.svg)
   2. ![](Help/Image/interleave-B.svg)
@@ -2890,6 +2894,11 @@
   1. ![](Help/Image/interprime-A.svg)
 - `Interval`
   1. ![](Help/Image/Interval-A.svg)
+- `intervalPlot`
+  1. ![](Help/Image/intervalPlot-A.svg)
+  2. ![](Help/Image/intervalPlot-B.svg)
+  3. ![](Help/Image/intervalPlot-C.svg)
+  4. ![](Help/Image/intervalPlot-D.svg)
 - `inventorySequence`
   1. ![](Help/Image/inventorySequence-A.svg)
   2. ![](Help/Image/inventorySequence-B.svg)
@@ -2983,6 +2992,8 @@
 - `isGaussianPrime`
   1. ![](Help/Image/isGaussianPrime-A.svg)
   2. ![](Help/Image/isGaussianPrime-B.png)
+- `isGilbertSquare`
+  1. ![](Help/Image/isGilbertSquare-A.svg)
 - `isGreen`
   1. ![](Help/Image/isGreen-A.svg)
   2. ![](Help/Image/isGreen-B.svg)
@@ -3104,6 +3115,8 @@
   5. ![](Help/Image/iterate-E.svg)
   6. ![](Help/Image/iterate-F.svg)
   7. ![](Help/Image/iterate-G.svg)
+- `iteratedFiniteAutomaton`
+  1. ![](Help/Image/iteratedFiniteAutomaton-A.png)
 - `j`
   1. ![](Help/Image/j-A.svg)
 - `jacobiCn`
@@ -3264,6 +3277,8 @@
 - `labToXyz`
   1. ![](Help/Image/labToXyz-A.svg)
   2. ![](Help/Image/labToXyz-B.png)
+- `LaggedFibonacci`
+  1. ![](Help/Image/LaggedFibonacci-A.svg)
 - `lagPlot`
   1. ![](Help/Image/lagPlot-A.svg)
   2. ![](Help/Image/lagPlot-B.svg)
@@ -3391,6 +3406,9 @@
 - `linearGraphPlot`
   1. ![](Help/Image/linearGraphPlot-A.svg)
   2. ![](Help/Image/linearGraphPlot-B.svg)
+  3. ![](Help/Image/linearGraphPlot-C.svg)
+  4. ![](Help/Image/linearGraphPlot-D.svg)
+  5. ![](Help/Image/linearGraphPlot-E.svg)
 - `linearInterpolation`
   1. ![](Help/Image/linearInterpolation-A.svg)
   2. ![](Help/Image/linearInterpolation-B.svg)
@@ -3443,6 +3461,7 @@
   15. ![](Help/Image/linePlot-O.svg)
   16. ![](Help/Image/linePlot-P.svg)
   17. ![](Help/Image/linePlot-Q.svg)
+  18. ![](Help/Image/linePlot-R.svg)
 - `LinLin`
   1. ![](Help/Image/LinLin-A.svg)
 - `liouvilleLambda`
@@ -3488,6 +3507,9 @@
   4. ![](Help/Image/log-D.png)
   5. ![](Help/Image/log-E.svg)
   6. ![](Help/Image/log-F.svg)
+  7. ![](Help/Image/log-G.svg)
+  8. ![](Help/Image/log-H.svg)
+  9. ![](Help/Image/log-I.svg)
 - `log10`
   1. ![](Help/Image/log10-A.svg)
 - `log2`
@@ -3497,6 +3519,7 @@
   4. ![](Help/Image/log2-D.svg)
 - `logarithmicIntegral`
   1. ![](Help/Image/logarithmicIntegral-A.svg)
+  2. ![](Help/Image/logarithmicIntegral-B.svg)
 - `logarithmicSpiral`
   1. ![](Help/Image/logarithmicSpiral-A.svg)
   2. ![](Help/Image/logarithmicSpiral-B.svg)
@@ -3550,6 +3573,12 @@
   1. ![](Help/Image/logSumExp-A.svg)
   2. ![](Help/Image/logSumExp-B.svg)
   3. ![](Help/Image/logSumExp-C.svg)
+- `longitudinalWavePlot`
+  1. ![](Help/Image/longitudinalWavePlot-A.svg)
+  2. ![](Help/Image/longitudinalWavePlot-B.svg)
+  3. ![](Help/Image/longitudinalWavePlot-C.svg)
+  4. ![](Help/Image/longitudinalWavePlot-D.svg)
+  5. ![](Help/Image/longitudinalWavePlot-E.svg)
 - `lookAndSay`
   1. ![](Help/Image/lookAndSay-A.svg)
 - `lookAndSaySequence`
@@ -3706,6 +3735,9 @@
 - `midpointPolygon`
   1. ![](Help/Image/midpointPolygon-A.svg)
   2. ![](Help/Image/midpointPolygon-B.svg)
+- `milkShuffle`
+  1. ![](Help/Image/milkShuffle-A.svg)
+  2. ![](Help/Image/milkShuffle-B.svg)
 - `milsteinMethod`
   1. ![](Help/Image/milsteinMethod-A.svg)
   2. ![](Help/Image/milsteinMethod-B.svg)
@@ -3805,6 +3837,7 @@
   5. ![](Help/Image/momentOfSymmetry-E.svg)
 - `mongesShuffle`
   1. ![](Help/Image/mongesShuffle-A.svg)
+  2. ![](Help/Image/mongesShuffle-B.svg)
 - `mooreCurve`
   1. ![](Help/Image/mooreCurve-A.svg)
   2. ![](Help/Image/mooreCurve-B.svg)
@@ -3844,6 +3877,7 @@
   12. ![](Help/Image/multiplicativeOrder-L.svg)
   13. ![](Help/Image/multiplicativeOrder-M.svg)
   14. ![](Help/Image/multiplicativeOrder-N.svg)
+  15. ![](Help/Image/multiplicativeOrder-O.svg)
 - `multiplicativePersistence`
   1. ![](Help/Image/multiplicativePersistence-A.svg)
   2. ![](Help/Image/multiplicativePersistence-B.svg)
@@ -4076,6 +4110,10 @@
   1. ![](Help/Image/occurrencesOf-A.svg)
   2. ![](Help/Image/occurrencesOf-B.svg)
   3. ![](Help/Image/occurrencesOf-C.svg)
+- `octaveReduce`
+  1. ![](Help/Image/octaveReduce-A.svg)
+  2. ![](Help/Image/octaveReduce-B.svg)
+  3. ![](Help/Image/octaveReduce-C.svg)
 - `oddEvenSort`
   1. ![](Help/Image/oddEvenSort-A.svg)
 - `oddEvenSortMatrix`
@@ -4396,6 +4434,8 @@
   3. ![](Help/Image/plateauCurve-C.svg)
 - `plompLeveltDissonance`
   1. ![](Help/Image/plompLeveltDissonance-A.svg)
+- `PlotSet`
+  1. ![](Help/Image/PlotSet-A.svg)
 - `plus`
   1. ![](Help/Image/plus-A.svg)
 - `pochhammer`
@@ -4418,6 +4458,7 @@
   2. ![](Help/Image/PointCloud-B.svg)
 - `pointLinePlot`
   1. ![](Help/Image/pointLinePlot-A.svg)
+  2. ![](Help/Image/pointLinePlot-B.svg)
 - `pointwise`
   1. ![](Help/Image/pointwise-A.svg)
 - `poissonDiskSampling`
@@ -4489,6 +4530,7 @@
   12. ![](Help/Image/power-L.svg)
   13. ![](Help/Image/power-M.svg)
   14. ![](Help/Image/power-N.svg)
+  15. ![](Help/Image/power-O.svg)
 - `powerCircles`
   1. ![](Help/Image/powerCircles-A.svg)
 - `powerMod`
@@ -4855,6 +4897,10 @@
   1. ![](Help/Image/rationalUnrank-A.svg)
   2. ![](Help/Image/rationalUnrank-B.svg)
   3. ![](Help/Image/rationalUnrank-C.svg)
+- `ratioToCents`
+  1. ![](Help/Image/ratioToCents-A.svg)
+- `ratioToSavarts`
+  1. ![](Help/Image/ratioToSavarts-A.svg)
 - `realImaginary`
   1. ![](Help/Image/realImaginary-A.svg)
 - `recamanSequence`
@@ -4902,6 +4948,8 @@
   3. ![](Help/Image/rectangularHorogramDrawing-C.svg)
 - `rectangularPartitionsDrawing`
   1. ![](Help/Image/rectangularPartitionsDrawing-A.svg)
+  2. ![](Help/Image/rectangularPartitionsDrawing-B.svg)
+  3. ![](Help/Image/rectangularPartitionsDrawing-C.svg)
 - `recurrenceMatrix`
   1. ![](Help/Image/recurrenceMatrix-A.png)
   2. ![](Help/Image/recurrenceMatrix-B.png)
@@ -5011,6 +5059,7 @@
   5. ![](Help/Image/revolutionPlot-E.svg)
 - `RgbColour`
   1. ![](Help/Image/RgbColour-A.svg)
+  2. ![](Help/Image/RgbColour-B.svg)
 - `rhodonea`
   1. ![](Help/Image/rhodonea-A.svg)
   2. ![](Help/Image/rhodonea-B.svg)
@@ -5082,6 +5131,8 @@
   1. ![](Help/Image/rotateLeft-A.svg)
   2. ![](Help/Image/rotateLeft-B.svg)
   3. ![](Help/Image/rotateLeft-C.svg)
+- `rotateRight`
+  1. ![](Help/Image/rotateRight-A.svg)
 - `round`
   1. ![](Help/Image/round-A.svg)
   2. ![](Help/Image/round-B.svg)
@@ -5184,6 +5235,7 @@
   7. ![](Help/Image/scatterPlot-G.svg)
   8. ![](Help/Image/scatterPlot-H.svg)
   9. ![](Help/Image/scatterPlot-I.svg)
+  10. ![](Help/Image/scatterPlot-J.svg)
 - `schareinKnotCatalogue`
   1. ![](Help/Image/schareinKnotCatalogue-A.svg)
   2. ![](Help/Image/schareinKnotCatalogue-B.svg)
@@ -5846,6 +5898,7 @@
 - `table`
   1. ![](Help/Image/table-A.svg)
   2. ![](Help/Image/table-B.svg)
+  3. ![](Help/Image/table-C.svg)
 - `tagSystem`
   1. ![](Help/Image/tagSystem-A.svg)
   2. ![](Help/Image/tagSystem-B.svg)
@@ -6087,6 +6140,15 @@
   8. ![](Help/Image/tuningLatticeGraph-H.svg)
 - `turboGradient`
   1. ![](Help/Image/turboGradient-A.svg)
+- `turingMachine`
+  1. ![](Help/Image/turingMachine-A.svg)
+  2. ![](Help/Image/turingMachine-B.svg)
+  3. ![](Help/Image/turingMachine-C.svg)
+  4. ![](Help/Image/turingMachine-D.svg)
+  5. ![](Help/Image/turingMachine-E.svg)
+  6. ![](Help/Image/turingMachine-F.svg)
+  7. ![](Help/Image/turingMachine-G.svg)
+  8. ![](Help/Image/turingMachine-H.svg)
 - `TurtleGeometry`
   1. ![](Help/Image/TurtleGeometry-A.svg)
   2. ![](Help/Image/TurtleGeometry-B.svg)
@@ -6287,6 +6349,8 @@
 - `welchCostasArrayList`
   1. ![](Help/Image/welchCostasArrayList-A.svg)
   2. ![](Help/Image/welchCostasArrayList-B.png)
+  3. ![](Help/Image/welchCostasArrayList-C.svg)
+  4. ![](Help/Image/welchCostasArrayList-D.svg)
 - `welchWindow`
   1. ![](Help/Image/welchWindow-A.svg)
   2. ![](Help/Image/welchWindow-B.svg)
@@ -6371,6 +6435,8 @@
   5. ![](Help/Image/xorTriangle-E.svg)
 - `yellowstonePermutation`
   1. ![](Help/Image/yellowstonePermutation-A.svg)
+- `yunikSwiftScaleMerit`
+  1. ![](Help/Image/yunikSwiftScaleMerit-A.svg)
 - `zeckendorfRepresentation`
   1. ![](Help/Image/zeckendorfRepresentation-A.svg)
   2. ![](Help/Image/zeckendorfRepresentation-B.svg)
