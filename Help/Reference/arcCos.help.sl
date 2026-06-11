@@ -96,6 +96,23 @@ Plot arch function:
 
 ![](Help/Image/arcCos-D.svg)
 
+Vertices of the Boerdijk–Coxeter helix:
+
+~~~spl svg=E
+let r = (3 * 3.sqrt) / 10;
+let theta = -2/3.arcCos;
+let h = 1 / 10.sqrt;
+1:45.collect { :n |
+	[
+		r * (n * theta).cos,
+		r * (n * theta).sin,
+		n * h
+	]
+}.Line
+~~~
+
+![](Help/Image/arcCos-E.svg)
+
 * * *
 
 See also: arcCosh, arcSin, cos, sin, tan

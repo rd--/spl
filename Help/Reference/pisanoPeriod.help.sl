@@ -29,7 +29,30 @@ OEIS [A001175](https://oeis.org/A001175):
 ]
 ```
 
-The Fibonacci sequence modulo eight has period twelve:
+The Fibonacci sequence modulo four has period six,
+OEIS [A079343](https://oeis.org/A079343):
+
+```
+>>> 4.pisanoPeriod
+6
+
+>>> (6 * 2).fibonacciSequence % 4
+[0 1 1 2 3 1 0 1 1 2 3 1]
+```
+
+The Fibonacci sequence modulo five has period twenty,
+OEIS [A082116](https://oeis.org/A082116):
+
+```
+>>> 5.pisanoPeriod
+20
+
+>>> 20.fibonacciSequence % 5
+[0 1 1 2 3 0 3 3 1 4 0 4 4 3 2 0 2 2 4 1]
+```
+
+The Fibonacci sequence modulo eight has period twelve,
+OEIS [A079344](https://oeis.org/A079344):
 
 ```
 >>> 8.pisanoPeriod
@@ -40,6 +63,17 @@ The Fibonacci sequence modulo eight has period twelve:
 	0 1 1 2 3 5 0 5 5 2 7 1
 	0 1 1 2 3 5 0 5 5 2 7 1
 ]
+```
+
+The Fibonacci sequence modulo eleven has period ten,
+OEIS [A105955](https://oeis.org/A105955):
+
+```
+>>> 11.pisanoPeriod
+10
+
+>>> (10 * 2).fibonacciSequence % 11
+[0 1 1 2 3 5 8 2 10 1 0 1 1 2 3 5 8 2 10 1n]
 ```
 
 `findRepeat` agrees with `pisanoPeriod`:
@@ -80,11 +114,14 @@ Table of the fundamental Pisano period of the Fibonacci sequence modulo _n_,
 OEIS [A161553](https://oeis.org/A161553),
 individual entries are
 OEIS [A082115](https://oeis.org/A082115) for _n=3_,
+OEIS [A079343](https://oeis.org/A079343) for _n=4_,
 OEIS [A082116](https://oeis.org/A082116) for _n=5_,
 OEIS [A082117](https://oeis.org/A082117) for _n=6_,
 OEIS [A105870](https://oeis.org/A105870) for _n=7_,
+OEIS [A079344](https://oeis.org/A079344) for _n=8_,
 OEIS [A007887](https://oeis.org/A007887) for _n=9_,
 OEIS [A003893](https://oeis.org/A003893) for _n=10_,
+OEIS [A105955](https://oeis.org/A105955) for _n=11_,
 OEIS [A089911](https://oeis.org/A089911) for _n=12_:
 
 ```
@@ -312,3 +349,5 @@ _OEIS_
 [2](https://oeis.org/A066853),
 _W_
 [1](https://en.wikipedia.org/wiki/Pisano_period)
+
+Further Reading: Burr 1971

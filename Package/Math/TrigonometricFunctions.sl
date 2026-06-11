@@ -304,6 +304,14 @@
 
 +Fraction {
 
+	arcCos { :self |
+		self.asFloat.arcCos
+	}
+
+	arcSin { :self |
+		self.asFloat.arcSin
+	}
+
 	cos { :self |
 		self.asFloat.cos
 	}
