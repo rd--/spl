@@ -69,7 +69,12 @@ ColourGrid : [Object] { | contents |
 					'http://www.w3.org/2000/svg',
 					width * cellSize,
 					height * cellSize,
-					self.viewBox.asSvgViewBox(margin: 0, precision: 0)
+					self.viewBox.asSvgViewBox(
+						(
+							margin: 0,
+							precision: 0
+						)
+					)
 				]
 			),
 			items,

@@ -2,15 +2,15 @@
 
 `(` is a balanced syntax token, closed by `)`, it is not an operator.
 
-`(` is a part of `Record Syntax`, `Trailing Record Syntax` and `Tuple Syntax`,
+`(` is a part of `Record Syntax`, `Record Contructor Syntax` and `Tuple Syntax`,
 where it begins either a dictionary or a tuple that is subsequently ended by `)`.
 
 ```
->>> (x: 1, y: 2, z: 3).isDictionary
+>>> (x: 1, y: 2, z: 3).isRecord
 true
 
->>> min(x: 1, y: 2, z: 3)
-1
+>>> Map(x: 1, y: 2, z: 3).isMap
+true
 
 >>> (1, 2, 3).isTuple
 true

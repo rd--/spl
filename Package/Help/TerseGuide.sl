@@ -3,7 +3,11 @@
 +String {
 
 	terseGuideSummary { :self |
-		self.terseGuideSummary(verbose: false)
+		self.terseGuideSummary(
+			(
+				verbose: false
+			)
+		)
 	}
 
 	terseGuideSummary { :self :options |

@@ -489,8 +489,10 @@ HelpFile : [Object, Equatable, Cache] { | origin source cache |
 	}
 
 	helpImageIndex { :self |
-		self.helpImageIndex (
-			imageProgramText: false
+		self.helpImageIndex(
+			(
+				imageProgramText: false
+			)
 		)
 	}
 

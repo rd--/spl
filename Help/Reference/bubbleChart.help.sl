@@ -64,8 +64,10 @@ _y=x²%67_:
 ~~~spl svg=F
 1:150.collect { :i |
 	[i, i.square % 67, i.log]
-}.bubbleChart (
-	zScalar: 0.2
+}.bubbleChart(
+	(
+		zScalar: 0.2
+	)
 )
 ~~~
 

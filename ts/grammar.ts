@@ -50,14 +50,13 @@ Sl {
 		| AtSyntax
 		| UncheckedSlotReadSyntax
 		| ValueApply
-		| DotExpressionWithTrailingRecordSyntax
 		| DotExpressionWithTrailingClosuresSyntax
 		| DotExpressionWithAssignmentSyntax
 		| DotExpression
 		| Block
         | ListConstructorSyntax
+        | RecordConstructorSyntax
         | StringConstructorSyntax
-		| ApplyWithTrailingRecordSyntax
 		| ApplyWithTrailingClosuresSyntax
 		| ApplySyntax
 		| EmptyListSyntax
@@ -87,7 +86,6 @@ Sl {
 	NonEmptyParameterList = "(" NonemptyListOf<Expression, ","> ")"
 
 	DotExpressionWithTrailingClosuresSyntax = Primary "." selectorName NonEmptyParameterList? Block+
-	DotExpressionWithTrailingRecordSyntax = Primary "." selectorName NonEmptyRecordSyntax+
 	DotExpressionWithAssignmentSyntax = Primary "." selectorName ":=" Expression
 	DotExpression = Primary ("." (selectorName | boundOperator) ~("{" | ":=") NonEmptyParameterList? ~("{" | "("))+
 
@@ -99,9 +97,9 @@ Sl {
 	FinalExpression = Expression
 
 	ApplyWithTrailingClosuresSyntax = selectorName NonEmptyParameterList? Block+
-	ApplyWithTrailingRecordSyntax = selectorName NonEmptyRecordSyntax+
 	ApplySyntax = (selectorName | boundOperator) ParameterList
     ListConstructorSyntax = typeName (EmptyListSyntax | VectorSyntax | MatrixSyntax | VolumeSyntax | ListSyntax | ListRangeSyntax)
+    RecordConstructorSyntax = typeName NonEmptyRecordSyntax
     StringConstructorSyntax = typeName singleQuotedStringLiteral
 	ParenthesisedExpression = "(" Expression ")"
 	NonEmptyRecordSyntax = "(" NonemptyListOf<RecordSyntaxItem, ","> ")"

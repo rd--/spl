@@ -155,38 +155,53 @@ SVGTransformList! : [Object] {
 		let dots = points.collect { :each |
 			let [x, y] = each;
 			'circle'.createSvgElement(
-				cx: x,
-				cy: y,
-				r: lineWidth * 2,
-				fill: 'black'
+				(
+					cx: x,
+					cy: y,
+					r: lineWidth * 2,
+					fill: 'black'
+				)
 			)
 		};
 		let lines = self.edgeList.collect { :each |
 			let [i, j] = each;
 			let [x1, y1] = points[i];
 			let [x2, y2] = points[j];
-			'line'.createSvgElement (
-				x1: x1,
-				y1: y1,
-				x2: x2,
-				y2: y2,
-				stroke: 'black',
-				'stroke-width': lineWidth
+			'line'.createSvgElement(
+				(
+					x1: x1,
+					y1: y1,
+					x2: x2,
+					y2: y2,
+					stroke: 'black',
+					'stroke-width': lineWidth
+				)
 			)
 		};
 		let svg = 'svg'.createSvgElement(
-			width: bbox.width,
-			height: bbox.height,
-			viewBox: bbox.asSvgViewBox(margin: 5, precision: 1),
-			preserveAspectRatio: 'xMidYMid meet' /* Default value */
+			(
+				width: bbox.width,
+				height: bbox.height,
+				viewBox: bbox.asSvgViewBox(
+					(
+						margin: 5,
+						precision: 1
+					)
+				),
+				preserveAspectRatio: 'xMidYMid meet' /* Default value */
+			)
 		);
 		let group = 'g'.createSvgElement(
-			transform: [
-				'translate(0, %)'.format([
-					bbox.height + (2 * bbox.lowerLeft[2])
-				]),
-				'scale(1, -1)'
-			].unwords
+			(
+				transform: [
+					'translate(0, %)'.format(
+						[
+							bbox.height + (2 * bbox.lowerLeft[2])
+						]
+					),
+					'scale(1, -1)'
+				].unwords
+			)
 		);
 		group.appendChildren(dots);
 		group.appendChildren(lines);

@@ -388,9 +388,6 @@ const asSl: ohm.ActionDict<string> = {
 			commaListSl(args.children.concat(trailing.children))
 		})`;
 	},
-	ApplyWithTrailingRecordSyntax(name, trailing) {
-		return `${name.sourceString}(${commaListSl(trailing.children)})`;
-	},
 	Arguments(a, _p) {
 		return a.children.map((x) => x.asSl).join(' ');
 	},
@@ -457,11 +454,6 @@ const asSl: ohm.ActionDict<string> = {
 	DotExpressionWithTrailingClosuresSyntax(lhs, _dot, name, args, trailing) {
 		return `${name.sourceString}(${
 			commaListSl([lhs].concat(args.children, trailing.children))
-		})`;
-	},
-	DotExpressionWithTrailingRecordSyntax(lhs, _dot, name, trailing) {
-		return `${name.sourceString}(${
-			commaListSl([lhs].concat(trailing.children))
 		})`;
 	},
 	EmptyListSyntax(_l, _r) {
@@ -572,6 +564,9 @@ const asSl: ohm.ActionDict<string> = {
 			keyVarNamesArray,
 		);
 		return `({ let ${rhsDictionaryName} = assertIsOfSize(${rhs.asSl}, ${keyVarNamesArray.length}); ${slots} } . ())`;
+	},
+	RecordConstructorSyntax(typ, rcd) {
+		return `${typ.asSl}(${rcd.asSl})`;
 	},
 	RecordInitializer(_l, lhs, _r, _e, rhs) {
 		const rhsDictionaryName = genVarSym();

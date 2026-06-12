@@ -1,8 +1,8 @@
 # micro
 
-- _micro(aNumber)_
+- _micro(x)_
 
-Answer _aNumber_ times 1E-6.
+Answer the number _x_ times 1E-6.
 Micro is a unit prefix in the metric system denoting a factor of one millionth.
 It comes from the Greek word μικρός (mikrós), meaning "small".
 It is part of the International System of Units (SI).
@@ -11,9 +11,28 @@ It is part of the International System of Units (SI).
 >>> 23.micro
 0.000023
 
->>> 1.micro * 1E6
-1
+>>> 23.micro * 1E6
+23
 ```
+
+Adjacent units are `nano` and `milli`:
+
+```
+>>> 23.micro * 1E-3
+23.nano
+
+>>> 23.micro * 1E3
+23.milli
+```
+
+At `Quantity`:
+
+```
+>>> 23.metres.micro
+Quantity(2.3E-05, 'metres')
+```
+
+Where supported `micro` is displayed as μ.
 
 * * *
 

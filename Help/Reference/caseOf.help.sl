@@ -61,13 +61,15 @@ true
 ```
 
 Using a `Record` to select a `String` key,
-written using `Trailing Record Syntax`:
+this can be written more concisely using `Experimental Trailing Record Syntax`:
 
 ```
->>> 'y'.caseOf (
->>> 	x: { 1 },
->>> 	y: { 2 },
->>> 	z: { 3 }
+>>> 'y'.caseOf(
+>>> 	(
+>>> 		x: { 1 },
+>>> 		y: { 2 },
+>>> 		z: { 3 }
+>>> 	)
 >>> )
 2
 ```

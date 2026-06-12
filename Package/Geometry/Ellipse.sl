@@ -68,12 +68,14 @@ Ellipse : [Object, Equatable, Geometry] { | center radii |
 		let precision = options['precision'];
 		let [cx, cy] = self.center;
 		let [rx, ry] = self.radii;
-		'<ellipse cx="%" cy="%" rx="%" ry="%" />'.format([
-			cx.printStringToFixed(precision),
-			cy.printStringToFixed(precision),
-			rx.printStringToFixed(precision),
-			ry.printStringToFixed(precision)
-		])
+		'<ellipse cx="%" cy="%" rx="%" ry="%" />'.format(
+			[
+				cx.printStringToFixed(precision),
+				cy.printStringToFixed(precision),
+				rx.printStringToFixed(precision),
+				ry.printStringToFixed(precision)
+			]
+		)
 	}
 
 	vertex { :self |

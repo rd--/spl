@@ -2,7 +2,7 @@
 
 - _Frequency(x)_
 
-Frequency is a `Trait` to for types that represent the number of occurrences of a repeating event per unit of time.
+Frequency is a `Trait` for types that represent the number of occurrences of a repeating event per unit of time.
 It is also a specialized constructor method for `Quantity` values.
 
 Frequency (_f_) is measured in hertz (_Hz_) which is equal to the number of events per second.

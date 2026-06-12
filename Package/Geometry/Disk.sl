@@ -27,7 +27,9 @@ Disk : [Object, Equatable, Geometry] { | center radius |
 
 	svgFragment { :self :options |
 		self.asCircle.AnnotatedGeometry(
-			fillColour: RgbColour([0 0 0], 1)
+			(
+				fillColour: RgbColour([0 0 0], 1)
+			)
 		).svgFragment(options)
 	}
 

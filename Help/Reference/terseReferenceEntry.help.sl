@@ -1,8 +1,8 @@
 # terseReferenceEntry
 
-- _terseReferenceEntry(aHelpFile, aDictionary)_
+- _terseReferenceEntry(g, d)_
 
-Evaluate document tests at _aHelpFile_, reading options from _aDictionary_.
+Evaluate document tests at the help file _h_, reading options from the dictionary _d_.
 
 ~~~
 >>> let topic = 'Markdown';
@@ -12,7 +12,9 @@ Evaluate document tests at _aHelpFile_, reading options from _aDictionary_.
 >>> HelpFile(
 >>> 	fileName.asFileUrl,
 >>> 	text
->>> ).terseReferenceEntry(verbose: false)
+>>> ).terseReferenceEntry(
+>>> 	(verbose: false)
+>>> )
 [4, 4, 0]
 ~~~
 

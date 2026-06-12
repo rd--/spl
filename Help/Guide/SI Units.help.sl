@@ -1,5 +1,34 @@
 # SI Units
 
+Types:
+
+- `Quantity`
+- `SiUnit`
+
+Traits:
+
+- `Frequency`
+- `Length`
+- `Mass`
+- `PlaneAngle`
+- `Time`
+
+Prefixes:
+
+- `centi`
+- `deca`
+- `deci`
+- `giga`
+- `hecto`
+- `kilo`
+- `mega`
+- `micro`
+- `milli`
+- `nano`
+- `pico`
+- `terra
+
+
 A metric prefix is a unit prefix that precedes a basic unit of measure to indicate a multiple or submultiple of the unit.
 
 ```
@@ -23,12 +52,17 @@ the SI prefix methods can answer `LargeInteger` values:
 
 ```
 >>> [1L.kilo 1L.mega 1L.giga 1L.terra]
-[1000L 1000000L 1000000000L 1000000000000L]
+[
+	1000L
+	1000000L
+	1000000000L
+	1000000000000L
+]
 ```
 
 * * *
 
-See also: centi, deci, deca, hecto, giga, kilo, mega, micro, milli, nano, pico, terra
+See also: centi, deci, deca, hecto, giga, kilo, mega, micro, milli, nano, pico, SiUnit, terra
 
 References:
 _W_

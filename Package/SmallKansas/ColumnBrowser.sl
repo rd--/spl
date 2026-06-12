@@ -8,38 +8,56 @@ ColumnBrowser : [Object, View] { | smallKansas browserPane columnsPane previewPa
 
 	createElements { :self :mimeType :withFilter :withStatus :columnProportions :listSize |
 		self.browserPane := 'div'.createElement(
-			class: 'browserPane'
+			(
+				class: 'browserPane'
+			)
 		);
 		self.columnsPane := 'div'.createElement(
-			class: 'columnsPane'
+			(
+				class: 'columnsPane'
+			)
 		);
 		self.previewPane := 'div'.createElement(
-			class: 'previewPane'
+			(
+				class: 'previewPane'
+			)
 		);
 		self.textEditor := self.smallKansas.TextEditor(
 			'ColumnBrowserTextEditor', mimeType, ''
 		);
 		self.columnLists := 1.toCollect(self.numberOfColumns) { :index |
-			ListChooser(withFilter & { index = 1 }, nil, listSize)
+			ListChooser(
+				withFilter & { index = 1 },
+				nil,
+				listSize
+			)
 		};
 		1.toDo(columnProportions.size) { :index |
 			let list = self.columnLists[index].listChooserPane;
-			list.style.setProperties((
-				'flex': columnProportions[index].asString ++ ' 1 16em'
-			))
+			list.style.setProperties(
+				(
+					'flex': columnProportions[index].asString ++ ' 1 16em'
+				)
+			)
 		};
 		self.columnsPane.appendChildren(self.columnLists.collect(listChooserPane:/1));
 		self.previewPane.appendChild(self.textEditor.outerElement);
-		self.browserPane.appendChildren([
-			self.columnsPane,
-			self.previewPane
-		]);
+		self.browserPane.appendChildren(
+			[
+				self.columnsPane,
+				self.previewPane
+			]
+		);
 		withStatus.ifTrue {
 			self.statusPane := 'div'.createElement(
-				class: 'statusPane'
+				(
+					class: 'statusPane'
+				)
 			);
 			self.statusText := 'span'.createElement(
-				class: 'statusText'
+				(
+					class: 'statusText'
+				)
 			);
 			self.statusPane.appendChild(self.statusText);
 			self.browserPane.appendChild(self.statusPane)

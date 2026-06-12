@@ -1,8 +1,10 @@
 ChordDiagram : [Object, Storeable] { | lengthVector |
 
 	chordDiagramPlot { :self |
-		self.asGraph.circularGraphPlot (
-			drawCircle: true
+		self.asGraph.circularGraphPlot(
+			(
+				drawCircle: true
+			)
 		)
 	}
 

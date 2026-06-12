@@ -5,7 +5,9 @@ HelpFileViewer : [Object, UserEventTarget, View] { | smallKansas outerElement ev
 	initialize { :self :smallKansas |
 		self.smallKansas := smallKansas;
 		self.outerElement := 'div'.createElement(
-			class: 'helpFileViewerPane'
+			(
+				class: 'helpFileViewerPane'
+			)
 		);
 		self.eventListeners := Record();
 		self
@@ -22,7 +24,11 @@ HelpFileViewer : [Object, UserEventTarget, View] { | smallKansas outerElement ev
 			lines @* each
 		};
 		let place = { :item |
-			let helpItem = 'div'.createElement(class: 'helpViewerItem');
+			let helpItem = 'div'.createElement(
+				(
+					class: 'helpViewerItem'
+				)
+			);
 			helpItem.appendChild(item.outerElement);
 			self.outerElement.appendChild(helpItem)
 		};

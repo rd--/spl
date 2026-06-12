@@ -36,6 +36,9 @@ the quantity is converted to be in the _base unit_ of the quantity:
 ```
 >>> 250.milliseconds
 Quantity(0.25, 'seconds')
+
+>>> 250.seconds.milli
+Quantity(0.25, 'seconds')
 ```
 
 Unit predicates:
@@ -143,6 +146,9 @@ Frequencies are constructed from `Number` values using the methods `hertz`, `kil
 >>> 3000.hertz
 3.kilohertz
 
+>>> 3.hertz.kilo
+Quantity(3000, 'hertz')
+
 >>> 44.1.kilohertz
 44100.hertz
 ```
@@ -170,11 +176,14 @@ Quantity(0.9144, 'metres')
 0.9144.metres
 ```
 
-There are approximately twelve inches in a foot:
+There are, approximately, twelve inches in a foot:
 
 ```
 >>> 12.inches
 1.feet
+
+>>> 12.inches = 1.feet
+false
 ```
 
 A nautical mile is defined in terms of metres:
@@ -251,6 +260,17 @@ Mass quantity constructors:
 
 >>> 2.grams * 1E3
 2.kilograms
+```
+
+Note that this is the only base unit that has a prefix,
+and that the prefix functions apply to the stored magnitude:
+
+```
+>>> 23.grams.kilo
+Quantity(23, 'kilograms')
+
+>>> 23.grams.milli
+23.milligrams
 ```
 
 Non-SI mass constructors:

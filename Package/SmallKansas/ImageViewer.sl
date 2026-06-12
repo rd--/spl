@@ -6,7 +6,9 @@ ImageViewer : [Object, View] { | title url outerElement |
 		let img = 'img'.createElement;
 		img.src := self.url;
 		self.outerElement := 'div'.createElement(
-			class: 'imageViewerPane'
+			(
+				class: 'imageViewerPane'
+			)
 		);
 		self.outerElement.appendChild(img)
 	}

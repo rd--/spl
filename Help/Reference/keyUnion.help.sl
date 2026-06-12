@@ -16,7 +16,8 @@ Make a list of records with the same keys:
 Use a function to provide missing values:
 
 ```
->>> [(a: 1, b: 2), (b: 3)].keyUnion(nil.constant)
+>>> let m = nil.constant;
+>>> [(a: 1, b: 2), (b: 3)].keyUnion(m)
 [(a: 1, b: 2), (a: nil, b: 3)]
 
 >>> [(a: 1, b: 2), (b: 3)].keyUnion { :key |
@@ -25,10 +26,11 @@ Use a function to provide missing values:
 [(a: 1, b: 2), (a: -1, b: 3)]
 ```
 
-If _f_ is a dictionary lookup missing key values directly:
+If _m_ is a dictionary lookup missing key values directly:
 
 ```
->>> [(a: 1, b: 2), (b: 3)].keyUnion (a: -1, b: -2)
+>>> let m = (a: -1, b: -2);
+>>> [(a: 1, b: 2), (b: 3)].keyUnion(m)
 [(a: 1, b: 2), (a: -1, b: 3)]
 ```
 

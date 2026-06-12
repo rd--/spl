@@ -8,12 +8,16 @@ ColourChooser : [Object, View] { | colourChooserPane colourInput |
 
 	initialize { :self :initialColour :onSelect:/1 |
 		self.colourChooserPane := 'div'.createElement(
-			class: 'colourChooser'
+			(
+				class: 'colourChooser'
+			)
 		);
 		self.colourInput := 'input'.createElement(
-			class: 'colourInput',
-			type: 'color',
-			value: initialColour.hexTriplet
+			(
+				class: 'colourInput',
+				type: 'color',
+				value: initialColour.hexTriplet
+			)
 		);
 		self.colourChooserPane.appendChild(self.colourInput);
 		self.colourInput.addEventListener('input') { :event |

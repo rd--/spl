@@ -1310,7 +1310,7 @@ let d = (:); d.atIfAbsentPut('x') { 1 } = 1 & { d['x'] = 1 }
 let d = (x: 1); let a = 'y' -> 2; d.add(a) = a & { d = (x: 1, y: 2) } /* add association */
 { (x: 1).add('y') }.hasError /* only associations may be added */
 { (x: 1).add('x' -> 2) }.hasError /* add can only add associations for keys that are not already included */
-let d = (x: 1, y: 2); d.includeAll(y: 3, z: 4); d = (x: 1, y: 3, z: 4) /* includeAll replaces existing entries */
+let d = (x: 1, y: 2); d.includeAll((y: 3, z: 4)); d = (x: 1, y: 3, z: 4) /* includeAll replaces existing entries */
 let p = (x: 1); let q = (y: 2); p.declareFrom('y', q); [p, q] = [(x: 1, y: 2), (:)]
 let p = (x: 1); let q = (x: 2); p.declareFrom('x', q); [p, q] = [(x: 1), (x: 2)]
 let p = (:); let q = (x: 1); p.declareFrom('x', q); [p, q] = [(x: 1), (:)]
@@ -2651,7 +2651,7 @@ let (x: x, y: y) = { let n = system.nextRandomFloat; (x: n, y: n) }.value; x = y
 (x:1, y:2, z:3).select(isEven:/1) = (y: 2)
 (x:1, y:2, z:3).sum = 6
 let d = (x: 9); d['x'].sqrt = 3
-size (x: 1, y: 2, z: 3) = 3
+(x: 1, y: 2, z: 3).size = 3
 let c = (y: 2, z: 3); let r = (x: 1); r.addAll(c); r = (x: 1, y: 2, z: 3) /* add all elements of a Dictionary to a Dictionary */
 let c = (y: 2, z: 3); (x: 1).addAll(c) = c /* answer is argument */
 (x: 1) = ('x': 1) /* records with quoted keys */
@@ -2670,13 +2670,13 @@ let r = (x: 1, y: 2); r == r /* Record identity */
 (x: 1, y: 2) = (x: 1, y: 2) /* key sequence and equality */
 (x: 1, y: 2) = (y: 2, x: 1) /* key sequence and equality */
 Record().hasEqualElements(Record()) /* key sequence and equality */
-(x: 1, y: 2).hasEqualElements(x: 1, y: 2) /* key sequence and equality */
-(x: 1, y: 2).hasEqualElements(y: 2, x: 1) /* key sequence and equality */
-(x: 1, y: 2).hasEqualElements(x: 1, z: 2) = false /* has equal keys and values */
-(x: 1, y: 2).hasEqualElements(x: 2, y: 1) = false /* has equal keys and values */
-(x: 1, z: 2).hasEqualElements(z: 1, y: 2) = false /* has equal keys and values */
-(x: 1, y: 2).hasEqualElements(x: 1, y: 2, z: 3) = false /* has equal keys and values */
-(x: 1, y: 2, z: 3).hasEqualElements(x: 1, y: 2) = false /* has equal keys and values */
+(x: 1, y: 2).hasEqualElements((x: 1, y: 2)) /* key sequence and equality */
+(x: 1, y: 2).hasEqualElements((y: 2, x: 1)) /* key sequence and equality */
+(x: 1, y: 2).hasEqualElements((x: 1, z: 2)) = false /* has equal keys and values */
+(x: 1, y: 2).hasEqualElements((x: 2, y: 1)) = false /* has equal keys and values */
+(x: 1, z: 2).hasEqualElements((z: 1, y: 2)) = false /* has equal keys and values */
+(x: 1, y: 2).hasEqualElements((x: 1, y: 2, z: 3)) = false /* has equal keys and values */
+(x: 1, y: 2, z: 3).hasEqualElements((x: 1, y: 2)) = false /* has equal keys and values */
 ```
 
 ## Rectangle -- geometry type

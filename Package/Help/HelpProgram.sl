@@ -78,8 +78,10 @@ HelpProgram : [Object] { | topic language commentary annotations programText |
 	}
 
 	markdownImageReference { :self |
-		self.markdownImageReference (
-			imageProgramText: false
+		self.markdownImageReference(
+			(
+				imageProgramText: false
+			)
 		)
 	}
 
@@ -106,9 +108,11 @@ HelpProgram : [Object] { | topic language commentary annotations programText |
 	}
 
 	markdownText { :self |
-		self.markdownText (
-			programText: true,
-			imageProgramText: false
+		self.markdownText(
+			(
+				programText: true,
+				imageProgramText: false
+			)
 		)
 	}
 

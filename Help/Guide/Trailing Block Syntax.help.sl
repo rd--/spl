@@ -28,6 +28,6 @@ The syntax does not preclude further message sends:
 
 See also: Block
 
-Guides: Syntax Guides, Trailing Record Syntax
+Guides: Experimental Trailing Record Syntax, Syntax Guides
 
 Categories: Syntax

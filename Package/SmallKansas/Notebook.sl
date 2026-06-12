@@ -3,8 +3,17 @@
 Notebook : [Object, View, SmallKansan] { | smallKansas notebookPane cells |
 
 	addCell { :self |
-		let cell = 'details'.createElement(class: 'notebookCell', open: 'true');
-		let summary = 'summary'.createElement(class: 'notebookSummary');
+		let cell = 'details'.createElement(
+			(
+				class: 'notebookCell',
+				open: 'true'
+			)
+		);
+		let summary = 'summary'.createElement(
+			(
+				class: 'notebookSummary'
+			)
+		);
 		let cellNumber = self.count + 1;
 		let program = self.smallKansas.SmallProgram('', '', '');
 		summary.textContent := cellNumber.asString;
@@ -29,7 +38,9 @@ Notebook : [Object, View, SmallKansan] { | smallKansas notebookPane cells |
 		self.smallKansas := smallKansas;
 		self.cells := [];
 		self.notebookPane := 'div'.createElement(
-			class: 'notebookPane'
+			(
+				class: 'notebookPane'
+			)
 		);
 		self.addCell;
 		self

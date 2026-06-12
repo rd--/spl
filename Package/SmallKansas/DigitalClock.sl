@@ -15,7 +15,12 @@ DigitalClock : [Object, SmallKansan] {
 			textEditor.setEditorText(getTime())
 		};
 		textEditor.editable := false;
-		frame.outerElement.style.setProperties((height: '1em', width: '18em'));
+		frame.outerElement.style.setProperties(
+			(
+				height: '1em',
+				width: '18em'
+			)
+		);
 		frame
 	}
 

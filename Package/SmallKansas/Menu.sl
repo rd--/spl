@@ -37,10 +37,14 @@ Menu : [Object, View] { | frame menuPane listPane menuList title isTransient |
 
 	createElements { :self |
 		self.menuPane := 'div'.createElement(
-			class: 'menuPane'
+			(
+				class: 'menuPane'
+			)
 		);
 		self.listPane := 'div'.createElement(
-			class: 'listPane'
+			(
+				class: 'listPane'
+			)
 		);
 		self.menuList := 'select'.createElement;
 		self.listPane.appendChild(self.menuList);

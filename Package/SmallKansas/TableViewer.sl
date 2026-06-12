@@ -2,7 +2,9 @@ TableViewer : [Object, View] { | title tablePane |
 
 	createElements { :self :tableData |
 		self.tablePane := 'div'.createElement(
-			class: 'tablePane'
+			(
+				class: 'tablePane'
+			)
 		);
 		self.tablePane.appendChild(
 			system.window.document.parseHtml(tableData.asHtml)

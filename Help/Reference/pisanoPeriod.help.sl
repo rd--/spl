@@ -73,7 +73,7 @@ OEIS [A105955](https://oeis.org/A105955):
 10
 
 >>> (10 * 2).fibonacciSequence % 11
-[0 1 1 2 3 5 8 2 10 1 0 1 1 2 3 5 8 2 10 1n]
+[0 1 1 2 3 5 8 2 10 1 0 1 1 2 3 5 8 2 10 1]
 ```
 
 `findRepeat` agrees with `pisanoPeriod`:

@@ -88,7 +88,9 @@
 
 	asDot { :self |
 		self.asDot(
-			method: self.isUndirected.if { 'neato' } { 'dot' }
+			(
+				method: self.isUndirected.if { 'neato' } { 'dot' }
+			)
 		)
 	}
 
@@ -831,8 +833,10 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 	}
 
 	completeGraphDrawing { :self :radius |
-		self.completeGraph.circularGraphPlot (
-			radius: radius
+		self.completeGraph.circularGraphPlot(
+			(
+				radius: radius
+			)
 		)
 	}
 

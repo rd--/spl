@@ -178,7 +178,11 @@
 			chordDegrees.collect { :y |
 				Ellipse([7.5, y], [4 / 5, 2 / 3])
 			}
-		].LineDrawing(height: 300)
+		].LineDrawing(
+			(
+				height: 300
+			)
+		)
 	}
 
 }

@@ -8,7 +8,9 @@ Scale : [Object, Storeable] { | intervals description startIndex |
 			},
 			Line([[i.min, 0], [i.max, 0]])
 		].LineDrawing(
-			height: 50
+			(
+				height: 50
+			)
 		)
 	}
 

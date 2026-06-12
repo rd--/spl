@@ -6,8 +6,10 @@ SmallProgram : [Object, UserEventTarget, View, SmallKansan] {
 
 	addToAnswer { :self :programText :result |
 		let answerText = 'pre'.createElement(
-			class: 'answerText',
-			title: programText
+			(
+				class: 'answerText',
+				title: programText
+			)
 		);
 		answerText.textContent := result.printString;
 		self.answer.appendChild(answerText);
@@ -40,23 +42,41 @@ SmallProgram : [Object, UserEventTarget, View, SmallKansan] {
 
 	initialize { :self :smallKansas :description :program :expectedAnswer |
 		self.smallKansas := smallKansas;
-		self.outerElement := 'div'.createElement(class: 'smallProgram');
-		self.description := 'div'.createElement(class: 'description');
+		self.outerElement := 'div'.createElement(
+			(
+				class: 'smallProgram'
+			)
+		);
+		self.description := 'div'.createElement(
+			(
+				class: 'description'
+			)
+		);
 		expectedAnswer.isEmpty.ifFalse {
 			self.description.innerHtml := description.markdownToHtml
 		};
 		self.program := 'textarea'.createElement(
-			class: 'program',
-			spellcheck: 'false'
+			(
+				class: 'program',
+				spellcheck: 'false'
+			)
 		);
 		program.isEmpty.ifFalse {
 			self.setProgramText(program)
 		};
-		self.expectedAnswer := 'div'.createElement(class: 'expectedAnswer');
+		self.expectedAnswer := 'div'.createElement(
+			(
+				class: 'expectedAnswer'
+			)
+		);
 		expectedAnswer.isEmpty.ifFalse {
 			self.expectedAnswer.textContent := expectedAnswer
 		};
-		self.answer := 'div'.createElement(class: 'answer');
+		self.answer := 'div'.createElement(
+			(
+				class: 'answer'
+			)
+		);
 		self.answer.appendChild(self.expectedAnswer);
 		self.historyCursor := nil;
 		self.program.addEventListener('contextmenu') { :event |

@@ -10,18 +10,22 @@ TextEditor : [Object, UserEventTarget, View] {
 
 	createElements { :self |
 		self.editorPane := 'div'.createElement(
-			class: 'editorPane'
+			(
+				class: 'editorPane'
+			)
 		);
 		self.editorText := (self.mimeType = 'text/plain').if {
 			'pre'.createElement
 		} {
 			'div'.createElement
 		};
-		self.editorText.setAttributes((
-			class: 'editorText',
-			contentEditable: 'true',
-			spellcheck: 'false'
-		));
+		self.editorText.setAttributes(
+			(
+				class: 'editorText',
+				contentEditable: 'true',
+				spellcheck: 'false'
+			)
+		);
 		self.editorPane.appendChild(self.editorText)
 	}
 

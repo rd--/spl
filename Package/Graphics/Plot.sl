@@ -26,30 +26,32 @@ Plot : [Object] { | pageList format options |
 			each * [[xScalar, 1]]
 		};
 		let items = [];
-		let gen:/1 = self.format.caseOf (
-			'discrete': {
-				{ :p |
-					p.collect { :each |
-						let [x, y] = each;
-						Line([x 0; x y])
+		let gen:/1 = self.format.caseOf(
+			(
+				'discrete': {
+					{ :p |
+						p.collect { :each |
+							let [x, y] = each;
+							Line([x 0; x y])
+						}
+					}
+				},
+				'line': {
+					{ :p |
+						[p.Line]
+					}
+				},
+				'pointLine': {
+					{ :p |
+						[p.Line, p.PointCloud]
+					}
+				},
+				'scatter': {
+					{ :p |
+						[p.PointCloud]
 					}
 				}
-			},
-			'line': {
-				{ :p |
-					[p.Line]
-				}
-			},
-			'pointLine': {
-				{ :p |
-					[p.Line, p.PointCloud]
-				}
-			},
-			'scatter': {
-				{ :p |
-					[p.PointCloud]
-				}
-			}
+			)
 		);
 		/*
 		r.includesY(0).ifTrue {
@@ -314,14 +316,18 @@ Plot : [Object] { | pageList format options |
 	fftPlot { :x :n :m :s |
 		let a = x.fft(n) / (x.size / 2);
 		let b = (a / a.abs.max).abs;
-		let c = m.caseOf (
-			'Half': { b.first(n // 2) },
-			'Centered': { b.fftShift }
+		let c = m.caseOf(
+			(
+				'Half': { b.first(n // 2) },
+				'Centered': { b.fftShift }
+			)
 		);
 		let d = c.max(1E-6).abs;
-		let e = s.caseOf (
-			'Linear': { d },
-			'Logarithmic': { 20 * d.log(10) }
+		let e = s.caseOf(
+			(
+				'Linear': { d },
+				'Logarithmic': { 20 * d.log(10) }
+			)
 		);
 		e.linePlot
 	}
@@ -388,8 +394,10 @@ Plot : [Object] { | pageList format options |
 			xCoordinates.collect { :x |
 				Line[x 0; x h]
 			}
-		].LineDrawing (
-			height: 35
+		].LineDrawing(
+			(
+				height: 35
+			)
 		)
 	}
 
@@ -494,7 +502,11 @@ Plot : [Object] { | pageList format options |
 	}
 
 	reliefPlot { :self |
-		self.reliefPlot(dataReversed: false)
+		self.reliefPlot(
+			(
+				dataReversed: false
+			)
+		)
 	}
 
 	runSequencePlot { :self |
@@ -531,11 +543,11 @@ Plot : [Object] { | pageList format options |
 	}
 
 	signalPlot { :y :i |
-		signalPlot (
+		(
 			data: y,
 			domain: i,
 			plotType: 'Line'
-		)
+		).signalPlot
 	}
 
 	signalPlot { :y |
@@ -895,7 +907,11 @@ Plot : [Object] { | pageList format options |
 		self:/2.table(
 			xInterval.discretize(k),
 			yInterval.discretize(k)
-		).reliefPlot(dataReversed: true)
+		).reliefPlot(
+			(
+				dataReversed: true
+			)
+		)
 	}
 
 	vectorPlot { :self :xInterval :yInterval |
@@ -1181,9 +1197,11 @@ Plot : [Object] { | pageList format options |
 	signalPlot { :o |
 		let y = o['data'];
 		let [a, b] = o['domain'].minMax;
-		let plot:/1 = o['plotType'].caseOf (
-			'Line': { linePlot:/1 },
-			'Step': { stepPlot:/1 }
+		let plot:/1 = o['plotType'].caseOf(
+			(
+				'Line': { linePlot:/1 },
+				'Step': { stepPlot:/1 }
+			)
 		);
 		let c = b - a;
 		y.isVector.if {

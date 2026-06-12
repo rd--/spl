@@ -88,7 +88,12 @@ Svg : [Object] { | contents |
 					'http://www.w3.org/2000/svg',
 					scaledBoundingBox.width.printStringToFixed(1),
 					scaledBoundingBox.height.printStringToFixed(1),
-					scaledBoundingBox.asSvgViewBox(margin: 5, precision: precision)
+					scaledBoundingBox.asSvgViewBox(
+						(
+							margin: 5,
+							precision: precision
+						)
+					)
 				]
 			),
 			'<g fill="none" stroke="black" stroke-width="%%" transform="translate(0, %) scale(%, %)">'.format(

@@ -17,29 +17,47 @@ Frame : [Object, UserEventTarget] {
 
 	createElements { :self |
 		self.framePane := 'div'.createElement(
-			class: ['framePane', self.subject.typeOf, self.subject.name].unwords
+			(
+				class: [
+					'framePane',
+					self.subject.typeOf,
+					self.subject.name
+				].unwords
+			)
 		);
 		self.titlePane := 'div'.createElement(
-			class: 'titlePane'
+			(
+				class: 'titlePane'
+			)
 		);
 		self.closeButton := 'span'.createElement(
-			class: 'closeButton'
+			(
+				class: 'closeButton'
+			)
 		);
 		self.titleText := 'span'.createElement(
-			class: 'titleText'
+			(
+				class: 'titleText'
+			)
 		);
 		self.menuButton := 'span'.createElement(
-			class: 'menuButton'
+			(
+				class: 'menuButton'
+			)
 		);
-		self.titlePane.appendChildren([
-			self.closeButton,
-			self.titleText,
-			self.menuButton
-		]);
-		self.framePane.appendChildren([
-			self.titlePane,
-			self.subject.outerElement
-		]);
+		self.titlePane.appendChildren(
+			[
+				self.closeButton,
+				self.titleText,
+				self.menuButton
+			]
+		);
+		self.framePane.appendChildren(
+			[
+				self.titlePane,
+				self.subject.outerElement
+			]
+		);
 		self.closeButton.textContent := '×';
 		self.menuButton.textContent := '☰';
 		self.inMove := false

@@ -20,7 +20,7 @@
 
 }
 
-+@Number {
++[@Number, Quantity] {
 
 	centi { :self |
 		self * 1E-2

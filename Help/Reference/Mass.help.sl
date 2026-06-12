@@ -2,7 +2,7 @@
 
 - _Mass(x)_
 
-Mass is a `Trait` to for types that represent a measure for mass.
+Mass is a `Trait` for types that represent a measure for mass.
 It is also a specialized constructor method for `Quantity` values.
 The kilogram (_kg_) is the SI unit of mass.
 

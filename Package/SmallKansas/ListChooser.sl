@@ -28,19 +28,25 @@ ListChooser : [Object] { | listChooserPane filterText select entries ignoreCase 
 	initialize { :self :withFilter :titleText :listSize |
 		self.ignoreCase := true;
 		self.listChooserPane := 'div'.createElement(
-			class: 'listChooserPane'
+			(
+				class: 'listChooserPane'
+			)
 		);
 		titleText.ifNotNil {
 			let title = TextButton(
 				titleText,
-				(class: 'listTitle')
+				(
+					class: 'listTitle'
+				)
 			);
 			self.listChooserPane.appendChild(title)
 		};
 		withFilter.if {
 			self.filterText := TextInput(
 				'',
-				(class: 'filterText')
+				(
+					class: 'filterText'
+				)
 			);
 			self.filterText.addEventListener('change') { :event |
 				self.applyFilter

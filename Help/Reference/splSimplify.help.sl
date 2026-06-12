@@ -217,14 +217,11 @@ f(x, { :i | i })
 f(x, { :i | i })
 ```
 
-`Trailing Record Syntax` is rewritten as `Apply Syntax`:
+`Record Constructor Syntax` is rewritten as `Apply Syntax`:
 
 ```
->> 'f(k: v)'.splSimplify
-f(Record([['k', v]]))
-
->> 'x.f(k: v)'.splSimplify
-f(x, Record([['k', v]]))
+>> 'F(k: v)'.splSimplify
+F(Record([['k', v]]))
 ```
 
 `Slot Assignment Syntax` is rewritten as `Apply Syntax`:

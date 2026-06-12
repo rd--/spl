@@ -27,11 +27,13 @@ PerspectiveDrawing : [Object] { | contents metadata |
 
 	PerspectiveDrawing { :self |
 		self.PerspectiveDrawing(
-			projection: AxonometricProjection(
-				1/6.pi, 0, 0,
-				0.5, 1, -1
-			),
-			height: 100
+			(
+				projection: AxonometricProjection(
+					1/6.pi, 0, 0,
+					0.5, 1, -1
+				),
+				height: 100
+			)
 		)
 	}
 

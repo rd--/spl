@@ -78,6 +78,7 @@ Guide/Experimental Simple Method Arity.help.sl
 Guide/Experimental Slot Access Syntax.help.sl
 Guide/Experimental Slot Assignment Syntax.help.sl
 Guide/Experimental Temporary Block Syntax.help.sl
+Guide/Experimental Trailing Record Syntax.help.sl
 Guide/Experimental Tree Syntax.help.sl
 Guide/Feature Detection Functions.help.sl
 Guide/Fenced Code Blocks.help.sl
@@ -243,7 +244,6 @@ Guide/Text Functions.help.sl
 Guide/Texture Programs.help.sl
 Guide/Time Series Functions.help.sl
 Guide/Trailing Block Syntax.help.sl
-Guide/Trailing Record Syntax.help.sl
 Guide/Tree Functions.help.sl
 Guide/Triangle Functions.help.sl
 Guide/Trigonometric Functions.help.sl

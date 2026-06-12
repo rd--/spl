@@ -1,7 +1,11 @@
 SuperColliderSynthesiserStatusMonitor : [Object, SmallKansan] {
 
 	openIn { :self :smallKansas :event |
-		let textEditor = smallKansas.TextEditor(self.title, 'text/html', '---');
+		let textEditor = smallKansas.TextEditor(
+			self.title,
+			'text/html',
+			'---'
+		);
 		let frame = smallKansas.addFrameWithAnimator(textEditor, event, 1) {
 			textEditor.setEditorText(
 				system.scSynth.isConnected.if {
