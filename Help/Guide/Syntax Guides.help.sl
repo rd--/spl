@@ -32,6 +32,7 @@
 - `Record Syntax`
 - `Slot Assignment Syntax`
 - `String Constructor Syntax`
+- `Temporary Block Syntax`
 - `Trailing Block Syntax`
 - `Unary Operator Syntax`
 
@@ -73,7 +74,6 @@
 - `Experimental Quoted AtIfAbsentPut Syntax`
 - `Experimental Set Syntax`
 - `Experimental Slot Access Syntax`
-- `Experimental Temporary Block Syntax`
 - `Experimental Trailing Record Syntax`
 
 * * *
