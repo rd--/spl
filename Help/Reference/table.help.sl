@@ -279,10 +279,20 @@ Multiplication table for odd numbers modulo eight:
 ]
 ```
 
-Multiplication table for numbers coprime to fifteen,
-modulo fifteen:
+Modular multiplication tables for numbers coprime to twelve and fifteen:
 
 ```
+>>> let x = 1:12.select { :n |
+>>> 	n.isCoprime(12)
+>>> };
+>>> { :i :j | i * j % 12 }.table(x, x)
+[
+	 1  5  7 11;
+	 5  1 11  7;
+	 7 11  1  5;
+	11  7  5  1
+]
+
 >>> let x = 1:15.select { :n |
 >>> 	n.isCoprime(15)
 >>> };

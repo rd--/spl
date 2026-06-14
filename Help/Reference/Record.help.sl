@@ -102,6 +102,29 @@ and sequences:
 (x: [21 27], y: [35 45])
 ```
 
+Records are unordered:
+
+```
+>>> (x: 1, y: 2) = (y: 2, x: 1)
+true
+```
+
+The sequence of associations as written is, however, retained:
+
+```
+>>> (z: 3, x: 1, y: 2).associations
+['z' -> 3, 'x' -> 1, 'y' -> 2]
+```
+
+and assocations are added at the end:
+
+```
+>>> let r = (y: 2);
+>>> r.add('x' -> 1);
+>>> r.associations
+['y' -> 2, 'x' -> 1]
+```
+
 * * *
 
 See also: asRecord, encodeJson, Association, Dictionary, Map
