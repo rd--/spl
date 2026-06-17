@@ -330,8 +330,8 @@ let a = [1 .. 3]; let b = a ++ [4 .. 6]; a !== b & { a = [1 .. 3] } & { b = [1 .
 [1 2 3; 4 5; 6].catenate = [1 .. 6] /* non-square [Matrix Syntax] */
 let a = [1 .. 3]; a[2] = a.at(2) /* [At Syntax] */
 let i = 1:3; i[2] = i.at(2) /* [At Syntax] */
-let m = [1 2 3; 4 5 6; 7 8 9]; m[2, 2] = 5 & { m[3, 1] = 7 } /* [At Syntax] */
-let m = [1 2; 3 4; 5 6]; m[2, 2] := 16; m[3, 1] := 25; m = [1 2; 3 16; 25 6] /* [AtPut Syntax] */
+let m = [1 2 3; 4 5 6; 7 8 9]; m[2][2] = 5 & { m[3][1] = 7 } /* [At Syntax] */
+let m = [1 2; 3 4; 5 6]; m[2][2] := 16; m[3][1] := 25; m = [1 2; 3 16; 25 6] /* [AtPut Syntax] */
 1:5.includesIndex(3) /* is valid index */
 1:5.atIfAbsent(9) { true } /* exception clause if index is invalid */
 1:5.atIfPresentIfAbsent(9) { :x | false } { true } /* ifPresent and ifAbsent clauses */
@@ -3541,25 +3541,25 @@ let m = [1 2 3; 4 5 6; 7 8 9]; m @> [2 3] = 6 & { m @> [3 2] = 8 } /* matrix syn
 
 ## Syntax - At Syntax
 ```
-let m = [1 2 3; 4 5 6; 7 8 9]; m[2, 3] = 6 & { m[3, 2] = 8 } /* [At Syntax] */
-let d = (w: (x: (y: (z: 1)))); d['w', 'x', 'y', 'z'] = 1 /* [At Syntax] */
-let a = [['w', 'x'], ['y', 'z']]; a[1, 2] = 'x' /* [At Syntax] */
-(x: (y: 1))['x', 'y'] = 1 /* [At Syntax] */
-(x: (y: (z: 1)))['x', 'y', 'z'] = 1 /* [At Syntax] */
-(w: (x: (y: (z: 1))))['w', 'x', 'y', 'z'] = 1 /* [At Syntax] */
+let m = [1 2 3; 4 5 6; 7 8 9]; m[2][3] = 6 & { m[3][2] = 8 } /* [At Syntax] */
+let d = (w: (x: (y: (z: 1)))); d['w']['x']['y']['z'] = 1 /* [At Syntax] */
+let a = [['w', 'x'], ['y', 'z']]; a[1][2] = 'x' /* [At Syntax] */
+(x: (y: 1))['x']['y'] = 1 /* [At Syntax] */
+(x: (y: (z: 1)))['x']['y']['z'] = 1 /* [At Syntax] */
+(w: (x: (y: (z: 1))))['w']['x']['y']['z'] = 1 /* [At Syntax] */
 ```
 
 ## AtPut Syntax
 ```
-let m = [1 2 3; 4 5 6]; m[1, 2] := -2; m[2, 3] := -6; m = [1 -2 3; 4 5 -6] /* [AtPut Syntax] */
-let d = (w: (x: (y: (z: 1)))); d['w', 'x', 'y', 'z'] := -1; d = (w: (x: (y: (z: -1)))) /* [AtPut Syntax] */
+let m = [1 2 3; 4 5 6]; m[1][2] := -2; m[2][3] := -6; m = [1 -2 3; 4 5 -6] /* [AtPut Syntax] */
+let d = (w: (x: (y: (z: 1)))); d['w']['x']['y']['z'] := -1; d = (w: (x: (y: (z: -1)))) /* [AtPut Syntax] */
 ```
 
 ## Syntax -- collection access and mutation
 ```
 'text'[3] = 'x' /* [At Syntax] */
 let x = [1 .. 5]; x[3] := '3'; x[3] = '3' /* [AtPut Syntax] */
-(x: 1.pi) :: x = 1.pi /* quoted at syntax */
+(x: 1.pi) :: x = 1.pi /* [Quoted At Syntax] */
 let d = (x: 1); d::x = 1 /* [Quoted At Syntax] */
 let d = (x: 1, y: 2); d::x < d::y /* [Quoted At Syntax] */
 let d = (w: (x: (y: (z: 1)))); d::w::x::y::z = 1 /* [Quoted At Syntax] */
@@ -3770,7 +3770,7 @@ system.methodSignatures('add').includes('@Dictionary>>add:/2') = true
 system.methodLookupAtSignature('@Iterable>>sum:/1').isMethod = true
 system.methodLookupAtType('min', 1, 'List').sourceCode = '{ :self |\n\t\tself.reduce(min:/2)\n\t}'
 system.methodTypes('last:/1').includes('String') = true
-system.multipleArityMethodList.includes('at') = true
+system.multipleArityMethodList.includes('caseOf') = true
 system.onlyZeroArityMethodList.includes('PriorityQueue') = true
 system.splOperatorNameTable['^'] = 'circumflexAccent' = true
 system.doesTraitImplementMethod('Collection', 'select') = true

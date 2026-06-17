@@ -207,10 +207,9 @@ Create a matrix with a single nonzero element:
 >>> let s = l.asSparseArray(0);
 >>> (
 >>> 	l.at(2), s.at(2).normal,
->>> 	l.at(2, 2), s.at(2, 2),
 >>> 	l.atPath([2 2]), s.atPath([2 2])
 >>> )
-([4 5 6], [4 5 6], 5, 5, 5, 5)
+([4 5 6], [4 5 6], 5, 5)
 ```
 
 Sparse identity matrix:

@@ -1,16 +1,12 @@
 # atPut
 
 - _atPut(c, i, x)_
-- _atPut(c, i, j, x)_
-- _atPut(c, i, j, k, x)_
 
-Store the object _x_ at index _i_ of the indexable collection _c_.
+Store the object _x_ at index of key _i_ of the indexable of keyed collection _c_.
 If the collection does not have indexed variables,
 or if the argument is not a valid index,
 then report an error.
 Answer _x_.
-
-In the extended cases _j_ a secondary index and _k_ a tertiary index.
 
 At `List`:
 

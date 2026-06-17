@@ -174,7 +174,7 @@
 				} / (n - 1)
 			}
 		};
-		a[1:self]
+		a.atAll(1:self)
 	}
 
 	calkinWilfSequence { :self |

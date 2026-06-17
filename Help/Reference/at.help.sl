@@ -1,17 +1,11 @@
 # at
 
 - _at(c, i)_
-- _at(c, i, j)_
-- _at(c, i, j, k)_
 
-In the binary case,
-answer the item associated with index _i_ in collection _c_.
-
-In the ternary case _c_ is a collection, _i_ the primary index, and _j_ a secondary index.
-In the quaternary case _k_ is a tertiary index.
+Answer the item associated with index or key _i_ in the collection _c_.
 
 If the collection does not support indexing,
-or if any index is not valid,
+or if the index is not valid,
 report an _error_.
 
 All sequenceable collections, including `List`, are indexable:
@@ -33,7 +27,10 @@ true
 With secondary index:
 
 ```
->>> [1 2 3; 4 5 6].at(2, 3)
+>>> [1 2 3; 4 5 6].at(2).at(3)
+6
+
+>>> [1 2 3; 4 5 6].atPath([2 3])
 6
 ```
 
@@ -112,18 +109,12 @@ With secondary index:
 ```
 >>> let m = [1 2 3; 4 5 6; 7 8 9];
 >>> (
->>> 	m[3, 2],
 >>> 	m[3][2],
->>> 	m.at(3, 2),
->>> 	m.at(3).at(2)
+>>> 	m.at(3).at(2),
+>>> 	m.atPath([3 2])
 >>> )
-(8, 8, 8, 8)
+(8, 8, 8)
 ```
-
-The `Trait` definitions of the extended arity forms are:
-
-- _at(c,i,j)_ = _at(at(c,i),j)_
-- _at(c,i,j,k)_ = _at(at(at(c,i),j),k)_
 
 Collections may implement extended arity forms as required.
 

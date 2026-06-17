@@ -18,7 +18,7 @@ construct a `NumericArray` from a _n_-dimensional array:
 >>> 	a.storageType,
 >>> 	a.normal,
 >>> 	a.ravel,
->>> 	a[2, 3]
+>>> 	a.atPath([2 3])
 >>> )
 (
 	[2 3],

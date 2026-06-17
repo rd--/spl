@@ -4,6 +4,8 @@
 
 Evaluate the block _f_ with each `Association` of the dictionary _d_ as the argument.
 
+At `Record`:
+
 ```
 >>> let list = [];
 >>> (x: 1, y: 2, z: 3).associationsDo { :each |

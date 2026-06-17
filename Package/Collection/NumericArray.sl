@@ -8,21 +8,11 @@ NumericArray : [Object, Storeable, Equatable, Comparable, Iterable, Indexable, C
 		self.normal
 	}
 
-	atifAbsent { :self :i :ifAbsent:/0 |
+	atIfAbsent { :self :i :ifAbsent:/0 |
 		(self.rank = 1).if {
 			self.contents.atIfAbsent(i, ifAbsent:/0)
 		} {
-			self.error('NumericArray>>at')
-		}
-	}
-
-	at { :self :i :j |
-		(self.rank = 2).if {
-			let [m, n] = self.shape;
-			let linearIndex = ((i - 1) * n) + j;
-			self.contents.at(linearIndex)
-		} {
-			self.error('NumericArray>>at')
+			self.error('NumericArray>>atIfAbsent')
 		}
 	}
 
@@ -36,14 +26,11 @@ NumericArray : [Object, Storeable, Equatable, Comparable, Iterable, Indexable, C
 		)
 	}
 
-	atPut { :self :i :j :x |
-		(self.rank = 2).if {
-			let [m, n] = self.shape;
-			let linearIndex = ((i - 1) * n) + j;
-			self.contents.atPut(linearIndex, x)
-		} {
-			self.error('NumericArray>>atPut')
-		}
+	atPathPut { :self :cartesianIndex :x |
+		self.contents.atPut(
+			self.shape.linearIndex(cartesianIndex),
+			x
+		)
 	}
 
 	collect { :self :aBlock:/1 |
@@ -142,10 +129,10 @@ NumericArray : [Object, Storeable, Equatable, Comparable, Iterable, Indexable, C
 			(n = m).if {
 				1.toDo(n) { :i |
 					(i + 1).toDo(n) { :j |
-						let x = self.at(i, j);
-						let y = self.at(j, i);
-						self.atPut(i, j, y);
-						self.atPut(j, i, x)
+						let x = self.atPath([i, j]);
+						let y = self.atPath([j, i]);
+						self.atPathPut([i, j], y);
+						self.atPathPut([j, i], x)
 					}
 				}
 			}{

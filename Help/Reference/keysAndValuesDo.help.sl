@@ -30,15 +30,15 @@ At `Record`:
 ['x' 1 'y' 2 'z' 3]
 ```
 
-At a `List` of associations:
+At a `List` of `Association`s:
 
 ```
->>> let answer = [];
+>>> let a = [];
 >>> [1 -> 'x', 2 -> 'y', 3 -> 'z']
 >>> .keysAndValuesDo { :key :value |
->>> 	answer.addAll([key, value])
+>>> 	a.addAll([key value])
 >>> };
->>> answer
+>>> a
 [1 'x' 2 'y' 3 'z']
 ```
 

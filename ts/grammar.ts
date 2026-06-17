@@ -76,9 +76,9 @@ Sl {
 		| RangeSyntax
 		| ListRangeSyntax
 
-	AtPutSyntax = Primary "[" NonemptyListOf<Expression, ","> "]" ":=" Expression
-	AtSyntax = Primary "[" NonemptyListOf<Expression, ","> "]"
-	AtAllSyntax = Primary "[" NonemptyListOf<(rangeLiteral | ListSyntax), ","> "]"
+	AtPutSyntax = Primary "[" Expression "]" ":=" Expression
+	AtSyntax = Primary "[" Expression "]"
+	AtAllSyntax = Primary "[" (rangeLiteral | ListSyntax) "]"
 	UncheckedSlotReadSyntax = Primary "::" recordKey
 	UncheckedSlotWriteSyntax = Primary "::" recordKey ":=" Expression
 	ValueApply = Primary "." ParameterList

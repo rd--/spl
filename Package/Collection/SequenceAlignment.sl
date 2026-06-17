@@ -153,19 +153,19 @@
 		a.withIndexCollect { :x :i |
 			b.withIndexCollect { :y :j |
 				(x = y).if {
-					lengths[i + 1, j + 1] := lengths[i, j] + 1
+					lengths[i + 1][j + 1] := lengths[i][j] + 1
 				} {
-					lengths[i + 1, j + 1] := lengths[i + 1, j].max(lengths[i, j + 1])
+					lengths[i + 1][j + 1] := lengths[i + 1][j].max(lengths[i][j + 1])
 				}
 			}
 		};
 		{
 			(m > 1) && (n > 1)
 		}.whileTrue {
-			(lengths[m, n] = lengths[m - 1, n]).if {
+			(lengths[m][n] = lengths[m - 1][n]).if {
 				m := m - 1
 			} {
-				(lengths[m, n] = lengths[m, n -  1]).if {
+				(lengths[m][n] = lengths[m][n -  1]).if {
 					n := n - 1
 				} {
 					(a[m - 1] = b[n - 1]).ifFalse {

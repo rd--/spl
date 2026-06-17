@@ -147,9 +147,11 @@
 		let m = self.assertIsMatrix('List>>diagonal');
 		let l = m.shape.min - k.abs;
 		1.to(l).collect { :i |
-			m.at(
-				i - k.min(0),
-				i + k.max(0)
+			m.atPath(
+				[
+					i - k.min(0),
+					i + k.max(0)
+				]
 			)
 		}
 	}

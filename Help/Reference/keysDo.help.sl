@@ -4,6 +4,8 @@
 
 Evaluate the block _f_ with each key of the dictionary _d_ as the argument.
 
+At `Record`:
+
 ```
 >>> let r = [];
 >>> (x: 1, y: 2, z: 3)
@@ -12,6 +14,18 @@ Evaluate the block _f_ with each key of the dictionary _d_ as the argument.
 >>> };
 >>> r
 ['x' 'y' 'z']
+```
+
+At `List` of `Association`s:
+
+```
+>>> let r = [];
+>>> [1 -> 'x', 2 -> 'y', 3 -> 'z']
+>>> .keysDo { :each |
+>>> 	r.add(each)
+>>> };
+>>> r
+[1 2 3]
 ```
 
 * * *

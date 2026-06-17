@@ -1,6 +1,6 @@
 # atPathPut
 
-- _atPathPut(c, i, x)_
+- _atPathPut(c, [i₁ i₂ …], x)_
 
 Store the object _x_ at index _i_ in the collection _c_.
 If _i_ is not a valid path (or cartesian) index of _c_ it is an `error`.

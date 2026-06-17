@@ -392,16 +392,13 @@ const asSl: ohm.ActionDict<string> = {
 		return a.children.map((x) => x.asSl).join(' ');
 	},
 	AtAllSyntax(c, _l, k, _r) {
-		const elem = k.asIteration().children;
-		return `atAllPath(${c.asSl}, [${commaListSl(elem)}])`;
+		return `atAll(${c.asSl}, ${k.asSl})`;
 	},
 	AtPutSyntax(c, _l, k, _r, _e, v) {
-		const elem = k.asIteration().children;
-		return `atPut(${c.asSl}, ${commaListSl(elem)}, ${v.asSl})`;
+		return `atPut(${c.asSl}, ${k.asSl}, ${v.asSl})`;
 	},
 	AtSyntax(c, _l, k, _r) {
-		const elem = k.asIteration().children;
-		return `at(${c.asSl}, ${commaListSl(elem)})`;
+		return `at(${c.asSl}, ${k.asSl})`;
 	},
 	BinaryOperatorExpression(lhs, ops, rhs) {
 		let left = lhs.asSl;

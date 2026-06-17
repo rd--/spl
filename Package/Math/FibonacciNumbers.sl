@@ -265,7 +265,7 @@
 				}
 			}
 		};
-		a[1:m]
+		a.atAll(1:m)
 	}
 
 	stolarskyArray { :m :n |

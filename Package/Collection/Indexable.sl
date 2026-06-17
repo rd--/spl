@@ -40,18 +40,6 @@
 		}
 	}
 
-	at { :self :primaryIndex :secondaryIndex |
-		self.at(primaryIndex).at(secondaryIndex)
-	}
-
-	at { :self :primaryIndex :secondaryIndex :tertiaryIndex |
-		self.at(primaryIndex).at(secondaryIndex).at(tertiaryIndex)
-	}
-
-	at { :self :primaryIndex :secondaryIndex :tertiaryIndex :quaternaryIndex |
-		self.at(primaryIndex).at(secondaryIndex).at(tertiaryIndex).at(quaternaryIndex)
-	}
-
 	atAllPut { :self :anObject |
 		self.indicesDo { :index |
 			self[index] := anObject

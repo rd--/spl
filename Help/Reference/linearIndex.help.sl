@@ -31,7 +31,7 @@ At matrix:
 [4 5 6 7]
 ```
 
-At volume:
+At box, or volume:
 
 ```
 >>> let shape = [2 2 2];
@@ -44,6 +44,8 @@ At volume:
 * * *
 
 See also: cartesianIndex, deepIndices, mixedRadixDecode, shapeIndices
+
+Guides: Indexing Functions
 
 References:
 _MathWorks_

@@ -1205,7 +1205,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 		self.isSquareMatrix.if {
 			let isDirected = self.isSymmetricMatrix.not;
 			{ :i :j |
-				self[i, j]
+				self[i][j]
 			}.edgeCountGraph(isDirected, self.size.iota)
 		} {
 			self.error('List>>adjacencyGraph: not a square matrix')
@@ -1241,7 +1241,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 		self.isSquareMatrix.if {
 			let isDirected = self.isSymmetricMatrix.not;
 			{ :i :j |
-				(self[i, j] = -1).boole
+				(self[i][j] = -1).boole
 			}.edgeCountGraph(isDirected, self.size.iota)
 		} {
 			self.error('List>>kirchhoffGraph: not a square matrix')
@@ -1255,7 +1255,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 		let g = m.adjacencyGraph;
 		let w = g.edgeList.collect { :each |
 			let [i, j] = each;
-			self[i, j]
+			self[i][j]
 		};
 		g.edgeWeights := w;
 		g

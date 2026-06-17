@@ -29,10 +29,6 @@ SparseArray : [Object, Storeable, Equatable, Comparable, Iterable, Indexable, Co
 		}
 	}
 
-	at { :self :i :j |
-		self.at(i).at(j)
-	}
-
 	atLinear { :self :linearIndex |
 		let map = self.contents;
 		map.includesKey(linearIndex).if {

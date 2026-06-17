@@ -67,7 +67,7 @@ i.e. _[p..q]_ would be a list of one range, and not equal to _[p .. q]_.
 
 See also: List, Range, thenTo, upOrDownTo
 
-Guides: List Range Syntax, Literal Range Syntax
+Guides: List Range Syntax, Range Literal Syntax
 
 References:
 _Fortress_

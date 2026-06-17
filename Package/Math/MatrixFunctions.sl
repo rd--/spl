@@ -151,23 +151,23 @@
 	determinant { :self |
 		self.isSquareMatrix.if {
 			let size = self.size;
-			let array = self;
+			let a = self;
 			(size = 2).if {
-				(array[1, 1] * array[2, 2]) - (array[1, 2] * array[2, 1])
+				(a[1][1] * a[2][2]) - (a[1][2] * a[2][1])
 			} {
 				(size = 3).if {
-					(array[1, 1] * array[2, 2] * array[3, 3]) +
-					(array[1, 2] * array[2, 3] * array[3, 1]) +
-					(array[1, 3] * array[2, 1] * array[3, 2]) -
-					(array[1, 3] * array[2, 2] * array[3, 1]) -
-					(array[1, 2] * array[2, 1] * array[3, 3]) -
-					(array[1, 1] * array[2, 3] * array[3, 2])
+					(a[1][1] * a[2][2] * a[3][3]) +
+					(a[1][2] * a[2][3] * a[3][1]) +
+					(a[1][3] * a[2][1] * a[3][2]) -
+					(a[1][3] * a[2][2] * a[3][1]) -
+					(a[1][2] * a[2][1] * a[3][3]) -
+					(a[1][1] * a[2][3] * a[3][2])
 				} {
 					let answer = 0;
 					size.iota.plainChangesDo { :p |
 						let sign = p.permutationSymbol;
 						let entries = p.withIndexCollect { :i :j |
-							array[i][j]
+							a[i][j]
 						};
 						answer := answer + (entries.product * sign)
 					};

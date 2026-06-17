@@ -3,8 +3,6 @@
 Rewrite rule:
 
 - _c[i]_ ⟹ _at(c, i)_
-- _c[i, j]_ ⟹ _at(c, i, j)_
-- _c[i, j, k]_ ⟹ _at(c, i, j, k)_
 
 Syntax for the `at` protocol.
 
@@ -12,11 +10,11 @@ Syntax for the `at` protocol.
 >> 'c[i]'.splSimplify
 at(c, i)
 
->> 'c[i, j]'.splSimplify
-at(c, i, j)
+>> 'c[i][j]'.splSimplify
+at(at(c, i), j)
 
->> 'c[i, j, k]'.splSimplify
-at(c, i, j, k)
+>> 'c[i][j][k]'.splSimplify
+at(at(at(c, i), j), k)
 ```
 
 At `Range`:
@@ -47,7 +45,7 @@ At matrix, a `List` of lists:
 
 ```
 >>> let a = [4 2].iota;
->>> a[2, 1]
+>>> a[2][1]
 3
 ```
 
@@ -55,7 +53,7 @@ At a `Record` of records:
 
 ```
 >>> let a = (x: (p: 1), y: (q: 2), z: (r: 3));
->>> a['z', 'r']
+>>> a['z']['r']
 3
 ```
 
@@ -65,7 +63,7 @@ It is not a syntax for the `atAll` protocol, see `AtAll Syntax`.
 
 ```
 >>> let a = [5 5].iota;
->>> a[1:5, 3:3]
+>>> a.atAllPath([1:5, 3:3])
 [3; 8; 13; 18; 23]
 ```
 

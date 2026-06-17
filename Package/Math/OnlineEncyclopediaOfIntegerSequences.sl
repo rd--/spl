@@ -301,7 +301,7 @@
 				a[a[n - 1]] + a[n - a[n - 1]]
 			}
 		};
-		a[1:k]
+		a.atAll(1:k)
 	}
 
 	oeisA306246Terms { :m |

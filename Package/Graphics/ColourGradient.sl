@@ -160,7 +160,7 @@ ColourGradient : [Object, Storeable] { | colourList positionListOrNil |
 
 	parula { :self |
 		system
-		.colourGradients['Mathworks', 'Parula']
+		.colourGradients['Mathworks']['Parula']
 		.asColourGradient
 		.resample(self)
 		.colourList

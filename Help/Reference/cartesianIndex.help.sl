@@ -38,7 +38,7 @@ At matrix:
 ]
 ```
 
-At volume:
+At box, or volume:
 
 ```
 >>> let shape = [2 2 2];

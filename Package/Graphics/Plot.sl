@@ -272,10 +272,9 @@ Plot : [Object] { | pageList format options |
 	complexPlotBy { :self :k :aspect:/1 :aBlock:/1 |
 		let [min, max] = self;
 		let colourFunction:/1 = system
-		.colourGradients[
-			'Kovesi',
-			'Cyclic-Mygbm-30-95-C78S25'
-		].asColourGradient.asBlock;
+		.colourGradients['Kovesi']['Cyclic-Mygbm-30-95-C78S25']
+		.asColourGradient
+		.asBlock;
 		let r = (min.real -- max.real).subdivide(k);
 		let i = (min.imaginary -- max.imaginary).subdivide(k);
 		{ :x :y |
@@ -624,7 +623,7 @@ Plot : [Object] { | pageList format options |
 		self.isMatrix.if {
 			let [m, n] = self.shape;
 			{ :i :j |
-				[i, j, self[i,j]]
+				[i, j, self[i][j]]
 			}.table(1.to(m), 1.to(n)).surfacePlot
 		} {
 			let [m, n, _] = self.shape;

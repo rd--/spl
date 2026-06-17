@@ -3,6 +3,7 @@
 - _atPath(c, [i₁ i₂ …])_
 
 The indices _i_ describe a path of accesses into the collection _i_, taken in sequence.
+Also called a Cartesian index.
 
 A one element path at a `Record`:
 
@@ -47,7 +48,7 @@ A two element path at a matrix:
 'x'
 ```
 
-The infix form is @>:
+The infix form is `@>`:
 
 ```
 >>> (w: (x: (y: (z: 1)))) @> ['w' 'x' 'y' 'z']
