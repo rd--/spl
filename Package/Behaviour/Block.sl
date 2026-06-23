@@ -97,7 +97,7 @@ Block! : [Object, Equatable] {
 		answer
 	}
 
-	blockValue { :self:/0 |
+	[blockValue, value] { :self:/0 |
 		self()
 	}
 
@@ -367,6 +367,15 @@ Block! : [Object, Equatable] {
 		}
 	}
 
+	memoizeNilary { :self:/0 |
+		let cachedValue = nil;
+		{
+			cachedValue.ifNil {
+				cachedValue := self()
+			}
+		}
+	}
+
 	memoizeUnary { :self:/1 :requireImmediate |
 		let table = requireImmediate.if {
 			Map()
@@ -385,6 +394,9 @@ Block! : [Object, Equatable] {
 	memoize { :self :requireImmediate |
 		self.numArgs.caseOf(
 			[
+				0 -> {
+					self.memoizeNilary
+				},
 				1 -> {
 					self.memoizeUnary(requireImmediate)
 				},
@@ -532,10 +544,6 @@ Block! : [Object, Equatable] {
 
 	unqualifiedName { :self |
 		<primitive: return _self.name.split(':')[0];>
-	}
-
-	value { :self:/0 |
-		self()
 	}
 
 	value { :self:/1 :p1 |

@@ -9,6 +9,7 @@
 	'HashFunction'
 	'Piecewise'
 	'Prototype'
+	'Thunk'
 
 	/* Collection */
 	'Array'

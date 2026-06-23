@@ -1,10 +1,11 @@
 # memoize
 
-- _memoize(f:/1, requireImmediate)_
+- _memoize(f:/n, requireImmediate)_
 
-Answer a one argument `Block` that memoizes the unary block _f_,
+Answer an _n_ argument `Block` that memoizes the _n_-ary block _f_,
 using a `Map` if _requireImmediate_ is `true`,
 else a `Dictionary`.
+Implemented for _n=0,1,2_.
 
 Un-memoized Fibonacci may take several seconds to evaluate for _k>30_:
 
@@ -71,6 +72,21 @@ OEIS [A005043](https://oeis.org/A005043):
 	83097 227475 625992
 ]
 ```
+
+Memoize a no-argument block:
+
+~~~spl svg=A
+let r = Sfc32(673821);
+(
+	{
+		{
+			r.nextRandomFloat
+		}.memoize ! 8
+	} ! 16
+).catenate.stepPlot
+~~~
+
+![](Help/Image/memoize-A.svg)
 
 * * *
 

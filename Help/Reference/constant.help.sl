@@ -2,9 +2,14 @@
 
 - _constant(x)_
 
-Answer a unary `Block` that always answers the object _x_.
+Answer a unary `Block` that always answers the object _x_,
+ignoring the argument value.
 
 ```
+>>> let f:/1 = 42.constant;
+>>> f(23)
+42
+
 >>> 1:4.collect(42.constant)
 [42 42 42 42]
 

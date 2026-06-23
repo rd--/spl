@@ -1,6 +1,6 @@
 # ifNil
 
-- _ifNil(x, f:/0, g:/1)_
+- _ifNil(x, f:/0, g:/1={x})_
 
 Conditional evaluation.
 If the object _x_ is `nil` answer the result of _f_,

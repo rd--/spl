@@ -5,6 +5,7 @@
 	'Behaviour-HashFunction'
 	'Behaviour-Piecewise'
 	'Behaviour-Prototype'
+	'Behaviour-Thunk'
 	'Benchmark-Benchmark'
 	'Benchmark-BounceBenchmark'
 	'Benchmark-HavlakBenchmark'
