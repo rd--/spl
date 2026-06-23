@@ -3,14 +3,14 @@
 - _x.!_
 - _x ! n_
 
-In the unary case the operator form of `factorialOrGamma`:
+The unary case is the operator form of `factorialOrGamma`:
 
 ```
 >>> 9.!
 factorialOrGamma(9)
 ```
 
-In the binary case the operator form of `duplicate`:
+The binary case is the operator form of `duplicate`:
 
 ```
 >>> { 1 } ! [2 3]
