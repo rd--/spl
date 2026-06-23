@@ -17,6 +17,21 @@ The binary case is the operator form of `duplicate`:
 duplicate({ 1 }, [2 3])
 ```
 
+`duplicate` is only defined at `Block`,
+to duplicate a value use `reshape` or enclose the value in a `Block`:
+
+~~~spl svg=A
+let r = Sfc32(738219);
+(
+	{
+		let x = r.nextRandomFloat;
+		{ x } ! 8
+	} ! 16
+).catenate.stepPlot
+~~~
+
+![](Help/Image/exclamationMark-A.svg)
+
 The name of this operator is `exclamationMark`.
 
 `!` is both an operator and a syntax token.

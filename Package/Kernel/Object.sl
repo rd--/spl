@@ -49,10 +49,30 @@
 		self.typeOf.withIndefiniteArticle
 	}
 
+	constant { :self :numArgs |
+		numArgs.caseOf(
+			[
+				0 -> {
+					{
+						self
+					}
+				},
+				1 -> {
+					{ :unusedObject |
+						self
+					}
+				},
+				2 -> {
+					{ :unusedFirstArgument :unusedSecondArgument |
+						self
+					}
+				}
+			]
+		)
+	}
+
 	constant { :self |
-		{ :unusedObject |
-			self
-		}
+		self.constant(1)
 	}
 
 	copy { :self |
