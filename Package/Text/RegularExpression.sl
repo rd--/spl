@@ -293,6 +293,12 @@ RegExp! : [Object, Storeable, Equatable] {
 		self.words.size
 	}
 
+	wordCounts { :self |
+		self.words.Multiset.sortedCounts.collect { :each |
+			each.value -> each.key
+		}
+	}
+
 	wordsBy { :self :separators |
 		self.splitByRegularExpression(
 			separators.characters.stringIntercalate('|')

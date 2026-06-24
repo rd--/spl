@@ -28,6 +28,8 @@ Hyphenated words are treated as a single word:
 
 See also: words
 
+Guides: String Functions, Text Functions
+
 References:
 _Mathematica_
 [1](http://reference.wolfram.com/language/ref/WordCount.html)

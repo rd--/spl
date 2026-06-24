@@ -142,6 +142,7 @@ Syntax:
 Text Analysis:
 
 - `deleteStopWords`
+- `wordCount`
 
 Unicode:
 

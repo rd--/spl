@@ -11,3 +11,7 @@ Converting:
 - `asHtml`
 - `asTree`
 - `markdownToHtml`
+
+Analysis:
+
+- `wordCount`
