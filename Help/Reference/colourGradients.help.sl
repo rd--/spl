@@ -74,10 +74,7 @@ resampled to twenty-four colours:
 
 ~~~spl svg=D
 system
-.colourGradients[
-	'Mathematica',
-	'Rainbow'
-]
+.colourGradients['Mathematica']['Rainbow']
 .asColourGradient
 .resample(24)
 ~~~
@@ -88,10 +85,7 @@ Plot the one-hundred twenty-eight colour _Isol_ gradient from the _Niccoli_ coll
 
 ~~~spl svg=E
 system
-.colourGradients[
-	'Niccoli',
-	'Isol'
-]
+.colourGradients['Niccoli']['Isol']
 .asColourGradient
 .resample(32)
 ~~~
@@ -103,10 +97,9 @@ Use a resampled form of the _Pastel_ gradient from the _Mathematica_ collection 
 
 ~~~spl png=F
 let i = (-2 -- 2).discretize(100);
-let f:/1 = system.colourGradients[
-	'Mathematica',
-	'Pastel'
-].asColourGradient
+let f:/1 = system
+.colourGradients['Mathematica']['Pastel']
+.asColourGradient
 .resample(16)
 .asBlock;
 { :x :y |
@@ -120,10 +113,7 @@ Resample and plot the _ocean.deep_ gradient from the _pals_ collection:
 
 ~~~spl svg=G
 system
-.colourGradients[
-	'Ocean',
-	'Deep'
-]
+.colourGradients['Ocean']['Deep']
 .asColourGradient
 .resample(32)
 ~~~
@@ -134,10 +124,7 @@ Resample and plot the _Isoluminant-Cgo-80-C38_ gradient from the _Kovesi_ collec
 
 ~~~spl svg=H
 system
-.colourGradients[
-	'Kovesi',
-	'Isoluminant-Cgo-80-C38'
-]
+.colourGradients['Kovesi']['Isoluminant-Cgo-80-C38']
 .asColourGradient
 .resample(32)
 ~~~
@@ -150,10 +137,7 @@ from the _Kovesi_ collection:
 
 ~~~spl svg=I
 system
-.colourGradients[
-	'Kovesi',
-	'Cyclic-Mygbm-30-95-C78S25'
-]
+.colourGradients['Kovesi']['Cyclic-Mygbm-30-95-C78S25']
 .asColourGradient
 .resample(32)
 ~~~
@@ -174,6 +158,6 @@ and this function requires the item be in the interpreter cache.
 
 * * *
 
-See also: asColourGradient, colourPalettes, Colour, ColourGradient, cubeHelix, parula, RgbColour
+See also: asColourGradient, colourPalettes, Colour, ColourGradient, cubeHelix, namedColourGradient, parula, RgbColour
 
 Guides: Colour Functions, Library Catalogue

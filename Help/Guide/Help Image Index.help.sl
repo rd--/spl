@@ -162,6 +162,7 @@
   2. ![](Help/Image/arcCos-B.png)
   3. ![](Help/Image/arcCos-C.svg)
   4. ![](Help/Image/arcCos-D.svg)
+  5. ![](Help/Image/arcCos-E.svg)
 - `arcCosh`
   1. ![](Help/Image/arcCosh-A.svg)
   2. ![](Help/Image/arcCosh-B.png)
@@ -1860,6 +1861,8 @@
   1. ![](Help/Image/excircles-A.svg)
 - `excirclesRadicalCircle`
   1. ![](Help/Image/excirclesRadicalCircle-A.svg)
+- `exclamationMark`
+  1. ![](Help/Image/exclamationMark-A.svg)
 - `exeterPoint`
   1. ![](Help/Image/exeterPoint-A.svg)
 - `exp`
@@ -3712,6 +3715,8 @@
 - `MeixnerDistribution`
   1. ![](Help/Image/MeixnerDistribution-A.svg)
   2. ![](Help/Image/MeixnerDistribution-B.svg)
+- `memoize`
+  1. ![](Help/Image/memoize-A.svg)
 - `mercatorProjection`
   1. ![](Help/Image/mercatorProjection-A.svg)
 - `mergeSort`
@@ -4094,6 +4099,8 @@
   1. ![](Help/Image/nthRoot-A.svg)
   2. ![](Help/Image/nthRoot-B.svg)
   3. ![](Help/Image/nthRoot-C.svg)
+- `numberSign`
+  1. ![](Help/Image/numberSign-A.svg)
 - `numerator`
   1. ![](Help/Image/numerator-A.svg)
   2. ![](Help/Image/numerator-B.svg)

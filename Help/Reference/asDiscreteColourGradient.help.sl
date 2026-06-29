@@ -11,7 +11,7 @@ from the _ColorBrewer_ collection of `colourPalettes`:
 
 ~~~spl svg=A
 system
-.colourPalettes['ColorBrewer', 'Set1']
+.colourPalettes['ColorBrewer']['Set1']
 .asDiscreteColourGradient
 ~~~
 

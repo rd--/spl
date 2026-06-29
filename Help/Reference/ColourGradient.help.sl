@@ -14,10 +14,9 @@ from the _Mathematica_ collection of the `colourGradients` library,
 resampled to thirty-two places:
 
 ~~~spl svg=A
-system.colourGradients[
-	'Mathematica',
-	'Pastel'
-].asColourGradient
+system
+.colourGradients['Mathematica']['Pastel']
+.asColourGradient
 .resample(32)
 ~~~
 

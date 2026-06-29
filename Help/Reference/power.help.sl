@@ -50,6 +50,16 @@ At `LargeInteger`:
 -2596148429267413814265248164610048L
 ```
 
+Note floating point errors are introduced for small _m_ and _n_:
+
+```
+>>> 13 ^ 16
+665416609183179900
+
+>>> 13L ^ 16
+665416609183179841L
+```
+
 Zero to the power of zero is one:
 
 ```
@@ -1117,8 +1127,8 @@ let f = { :n :i |
 Matrix plot of the power table modulo seventeen:
 
 ~~~spl svg=L
-let m = 17L;
-let n = [0 .. m - 1];
+let m = 17;
+let n = [0L .. m - 1];
 { :i :j |
 	i ^ j % m
 }.table(n, n)

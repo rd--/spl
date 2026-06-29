@@ -50,10 +50,7 @@ At `ColourGradient`, resamples the gradient to have the specified number of equa
 
 ~~~spl svg=B
 system
-.colourGradients[
-	'Mathematica',
-	'CMYKColors'
-]
+.colourGradients['Mathematica']['CMYKColors']
 .asColourGradient
 .resample(48)
 ~~~
