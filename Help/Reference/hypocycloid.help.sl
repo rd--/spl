@@ -81,7 +81,7 @@ _Mathematica_
 [2](https://mathworld.wolfram.com/Hypocycloid.html)
 [3](https://mathworld.wolfram.com/Astroid.html)
 [4](https://mathworld.wolfram.com/Deltoid.html)
-[5](https://mathworld.wolfram.com/TusiCouple.html)
+[5](https://mathworld.wolfram.com/TusiCouple.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Hypocycloid)
 [2](https://en.wikipedia.org/wiki/Hypocycloid)
