@@ -74,6 +74,13 @@ The fifth level of the _41/58_ sequence:
 [7 7 7 3 7 7 3 7 7 3]
 ```
 
+The fifth level of the _17/41_ sequence:
+
+```
+>>> 17.momentOfSymmetry(41).at(5)
+[3 3 4 3 4 3 3 4 3 4 3 4]
+```
+
 _6L1s_ and _1L6s_ scales:
 
 ```

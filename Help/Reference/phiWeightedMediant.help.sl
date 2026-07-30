@@ -1,11 +1,14 @@
 # phiWeightedMediant
 
-- _phiWeightedMediant(aFraction, anotherFraction)_
+- _phiWeightedMediant(a/b, c/d)_
 
 Answer the weighted mediant of two fractions,
 with weights assigned as _1_ and φ.
 
 ```
+>>> phiWeightedMediant(0/1, 1/1)
+0.61803
+
 >>> phiWeightedMediant(0/1, 1/7)
 0.13127
 
@@ -42,6 +45,15 @@ with weights assigned as _1_ and φ.
 >>> phiWeightedMediant(1/8, 1/7)
 0.13546
 
+>>> phiWeightedMediant(1/7, 1/8)
+0.13127
+
+>>> phiWeightedMediant(1/6, 1/7)
+0.15110
+
+>>> phiWeightedMediant(1/5, 1/6)
+0.17800
+
 >>> phiWeightedMediant(5/4, 9/7)
 1.2764
 
@@ -50,6 +62,16 @@ with weights assigned as _1_ and φ.
 
 >>> phiWeightedMediant(1/2, 1/3)
 0.3820
+```
+
+phi mediant sequence:
+
+```
+>>> [1/8 1/7 1/6 1/5 1/4 1/3]
+>>> .adjacentPairsCollect(
+>>> 	phiWeightedMediant:/2.swap
+>>> )
+[0.13127 0.15110 0.17800 0.21654 0.27639]
 ```
 
 * * *

@@ -1,8 +1,8 @@
 # horogramDrawing
 
-- _horogramDrawing(aList)_
+- _horogramDrawing([i₁ …; i₂ …; …])_
 
-Answer a `LineDrawing` showing a circular Wilson horogram of the interval sequences at _aList_,
+Answer a `LineDrawing` showing a circular Wilson horogram of the interval sequences at _i_,
 which should each sum to the same value.
 
 `zero`,
