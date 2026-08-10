@@ -1,6 +1,6 @@
 # SqrDif
 
-- _SqrDif(aNumber, anotherNumber)_
+- _SqrDif(α, β)_
 
 Square of the difference.
 _SqrDif(a, b)_ is _(a - b) ^ 2_.

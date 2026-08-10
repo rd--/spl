@@ -9,8 +9,36 @@ also called multivariable softplus.
 At `List`:
 
 ```
+>>> [1 2 3 4].logSumExp
+4.44019
+
+>>> [1 2 3 4].exp.sum.log
+4.44019
+
 >>> [1 .. 10].logSumExp
 10.4586
+
+>>> [1 .. 10].exp.sum.log
+10.4586
+```
+
+`logSumExp` can be computed in a numerically stable way even when larger numbers are involved:
+
+```
+>>> [1 2 3995 4000].logSumExp
+4000.0067
+
+>>> [1 2 3995 4000].exp.sum.log
+Infinity
+```
+
+`logSumExp` of `log` is equal to `log` of `sum`,
+in the same way that `sum` of `log` is equal to `log` of `product`:
+
+```
+>>> let x = Sfc32(367814).randomReal([0 1], [10]);
+>>> (x.product.log, x.log.sum, x.sum.log, x.log.logSumExp)
+(-15.93669, -15.93669, 0.86785, 0.86785)
 ```
 
 Surface plot:

@@ -402,6 +402,28 @@
 
 }
 
++SmallFloat {
+
+	logarithmicMean { :x :y |
+		(x = y).if {
+			x
+		} {
+			(x - y) / (x.log - y.log)
+		}
+	}
+
+	stolarskyMean { :p :x :y |
+		(x = y).if {
+			x
+		} {
+			let a = (x ^ p) - (y ^ p);
+			let b = p * (x - y);
+			let c = 1 / (p - 1);
+			(a / b) ^ c
+		}
+	}
+
+}
 
 +System {
 

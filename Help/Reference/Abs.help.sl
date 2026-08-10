@@ -1,6 +1,6 @@
 # Abs
 
-- _Abs(aNumber)_
+- _Abs(x)_
 
 Answer the absolute value.
 

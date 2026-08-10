@@ -1,6 +1,6 @@
 # Tanh
 
-- Tanh(aNumber)
+- Tanh(x)
 
 Hyperbolic tangent.
 Tanh is a form of distortion:

@@ -8,8 +8,10 @@ Location Statistics:
 - `contraharmonicMean`
 - `geometricMean`
 - `harmonicMean`
+- `logarithmicMean`
 - `mean`
 - `median`
+- `stolarskyMean`
 - `trimmedMean`
 - `winsorizedMean`
 
