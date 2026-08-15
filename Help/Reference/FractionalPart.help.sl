@@ -8,7 +8,7 @@ Answer only the fractional part of the signal.
 In the program below a phasor in _(0, 1)_ is scaled and the fractional part taken:
 
 ```
-let mul = MouseX(1, 9, 0, 0.2).RoundTo(1);
+let mul = MouseX(1, 9, 0, 0.2).Round(1);
 let rate = MouseY(1, 9, 0, 0.2) / mul;
 let phase = Phasor(
 	Impulse(rate, 0),

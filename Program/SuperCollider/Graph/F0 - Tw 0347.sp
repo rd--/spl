@@ -3,7 +3,7 @@
 	let c = i / 48;
 	let b = c / 72;
 	VarSaw(
-		(LfSaw(c, 0) * LfSaw(b, 0) * 8 + 9).RoundTo(i % 9 + 1) * 25 + c,
+		(LfSaw(c, 0) * LfSaw(b, 0) * 8 + 9).Round(i % 9 + 1) * 25 + c,
 		c,
 		LfSaw(3, i) + 1 / 3
 	) * (LfSaw(b, i / 1.pi) % 1) / 2

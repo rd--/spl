@@ -132,7 +132,7 @@
 		}
 	}
 
-	abs { :self |
+	[absoluteValue, abs] { :self |
 		'abs'.symbolicPrimitive([self])
 	}
 

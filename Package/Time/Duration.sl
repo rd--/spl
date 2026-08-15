@@ -20,7 +20,7 @@ Duration : [Object, Storeable, Equatable, Comparable, Magnitude] { | seconds |
 		Duration(self.seconds * aNumber)
 	}
 
-	abs { :self |
+	[absoluteValue, abs] { :self |
 		Duration(self.seconds.abs)
 	}
 

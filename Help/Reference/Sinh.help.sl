@@ -1,8 +1,8 @@
 # Sinh
 
-- _Sinh(aNumber)_
+- _Sinh(x)_
 
-Answer the hyperbolic sine of _aNumber_.
+Answer the hyperbolic sine of _x_.
 
 ```
 >>> 1.4.Sinh

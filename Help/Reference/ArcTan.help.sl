@@ -1,6 +1,6 @@
 # ArcTan
 
-- _ArcSin(x)_
+- _ArcTan(x)_
 
 Arc tangent.
 

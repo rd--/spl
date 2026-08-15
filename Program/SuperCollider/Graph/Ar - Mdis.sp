@@ -4,8 +4,8 @@ Voicer(1, 16) { :e |
 	let level = e.z * e.w.LagUd(0, e.y * 4 + 0.1);
 	let f1 = (e.x * 36 + 48).MidiCps;
 	let f2 = f1.Clip(50, 1500);
-	let formantA = TChoose(e.w, [1 2 3]) * withMod.if { (e.k * 2).RoundTo(1).Max(1) } { 1 };
-	let formantB = TChoose(e.w, [3 4 5 6 7]) * withMod.if { (e.j * 4).RoundTo(1).Max(1) } { 1 };
+	let formantA = TChoose(e.w, [1 2 3]) * withMod.if { (e.k * 2).Round(1).Max(1) } { 1 };
+	let formantB = TChoose(e.w, [3 4 5 6 7]) * withMod.if { (e.j * 4).Round(1).Max(1) } { 1 };
 	let overlapA = TChoose(e.w, [0.5 1 2 4]) * withMod.if { e.y * 2 } { 1 };
 	let overlapB = TChoose(e.w, [0.5 1 2]) * withMod.if { e.y * 2 } { 1 };
 	let attackTime = f2.LinLin(50, 1500, 0.1, 0.02);

@@ -107,7 +107,7 @@ Complex : [Object, Storeable, Equatable, Comparable, Number] { | real imaginary 
 		}
 	}
 
-	abs { :self |
+	[absoluteValue, abs] { :self |
 		self.absSquare.sqrt
 	}
 

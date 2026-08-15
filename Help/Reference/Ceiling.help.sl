@@ -18,7 +18,7 @@ SinOsc([m, m.Ceiling].MidiCps, 0) * 0.1
 
 * * *
 
-See also: ceiling, Floor, RoundTo
+See also: ceiling, Floor, Round
 
 References:
 _Csound_

@@ -1,8 +1,8 @@
 # Log
 
-- _Log(aNumber)_
+- _Log(x)_
 
-Natural logarithm.
+Natural logarithm of _x_.
 
 The `Log` of `e` is `one`:
 
@@ -13,6 +13,6 @@ The `Log` of `e` is `one`:
 
 * * *
 
-See also: Exp, Log2, Log10, Pow
+See also: Exp, log, Log2, Log10, Pow
 
 Categories: Ugen

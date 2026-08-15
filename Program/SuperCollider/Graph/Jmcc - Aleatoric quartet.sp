@@ -8,7 +8,7 @@ let rapf = { :in |
 };
 let mkFreq = {
 	let n0 = LfNoise0(Select(IRand(0, 2), [1, 0.5, 0.25]));
-	Lag((n0 * 7 + 66 + Rand(-30, 30)).RoundTo(1), 0.2).MidiCps
+	Lag((n0 * 7 + 66 + Rand(-30, 30)).Round(1), 0.2).MidiCps
 };
 let g = 1:4.collect { :ix |
 	let x = PinkNoise() * (LfNoise1(8) * dMul + dAdd).Max(0);

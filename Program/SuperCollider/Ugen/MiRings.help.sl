@@ -66,7 +66,7 @@ MiRings(in: 0,
 
 /* MiRings ; sympathetic strings ; requires=keywords */
 let trig = Dust(1);
-let pit = Latch(WhiteNoise(), trig).LinLin(-1, 1, 30, 60).RoundTo(1);
+let pit = Latch(WhiteNoise(), trig).LinLin(-1, 1, 30, 60).Round(1);
 let struct = LfNoise2(0.4).LinLin(-1, 1, 0, 1);
 let model = 1;
 let poly = 4;

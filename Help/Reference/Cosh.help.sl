@@ -1,5 +1,7 @@
 # Cosh
 
+- _Cosh(x)_
+
 Hyperbolic cosine.
 
 * * *

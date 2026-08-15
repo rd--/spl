@@ -1,8 +1,8 @@
 # Log2
 
-- _Log2(aNumber)_
+- _Log2(x)_
 
-Base two logarithm.
+Base two logarithm of _x_.
 
 ```
 >>> Log2(Power(2, 10))

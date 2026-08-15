@@ -96,7 +96,7 @@ Decimal : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | frac
 		}
 	}
 
-	abs { :self |
+	[absoluteValue, abs] { :self |
 		UnsimplifiedDecimal(self.fraction.abs, self.scale)
 	}
 

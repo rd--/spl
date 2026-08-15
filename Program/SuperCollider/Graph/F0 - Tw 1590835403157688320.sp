@@ -2,7 +2,7 @@
 let b = [1 .. 9];
 let g = 1 / b / 99;
 let z = Latch(
-	WhiteNoise().RoundTo(0.5) + 2,
+	WhiteNoise().Round(0.5) + 2,
 	BrownNoise() + 1.4 > SinOsc(b / 999, 0)
 );
 let r = Rlpf(

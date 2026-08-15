@@ -524,7 +524,7 @@ let g = FbSineN(
 	0.5,
 	0.1,
 	0.1
-).Sin > (o.reverse % q).Lag(q.Max(0)).RoundTo(q * e);
+).Sin > (o.reverse % q).Lag(q.Max(0)).Round(q * e);
 let x = SinOsc(
 	f,
 	SinOsc(
@@ -554,7 +554,7 @@ Splay(
 							),
 							0
 						) + 1 * 17
-					).RoundTo(
+					).Round(
 						3
 					),
 					t

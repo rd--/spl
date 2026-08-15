@@ -26,7 +26,7 @@ MiBraids(
 ).Pan2(0, 0.05)
 
 /* MiBraids ; vosim ; requires=keywords */
-let pitch = LinLin(LfNoise0(4), -1, 1, 33, 66).RoundTo(1);
+let pitch = LinLin(LfNoise0(4), -1, 1, 33, 66).Round(1);
 let timbre = LfNoise1(0.3) * 0.5 + 0.5;
 let color = LfNoise1(0.3) * 0.5 + 0.5;
 MiBraids(
@@ -91,7 +91,7 @@ MiBraids(
 
 /* MiBraids ; trigger ; 28=plucked ; requires=keywords */
 let tr = Dust(0.6);
-let pitch = TRand(45, 72, tr).RoundTo(1);
+let pitch = TRand(45, 72, tr).Round(1);
 let timbre = 0.5;
 let color = LfNoise1(0.3) * 0.5 + 0.5;
 MiBraids(
@@ -108,7 +108,7 @@ MiBraids(
 
 /* MiBraids ; 34=kick ; requires=keywords */
 let trig = Impulse(4, 0);
-let pitch = LinLin(Latch(PinkNoise(), trig), -1, 1, 30, 50).RoundTo(1);
+let pitch = LinLin(Latch(PinkNoise(), trig), -1, 1, 30, 50).Round(1);
 let timbre = LfNoise1(0.4) * 0.5 + 0.5;
 let color = LfNoise1(0.3) * 0.5 + 0.5;
 MiBraids(

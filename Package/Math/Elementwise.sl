@@ -30,7 +30,7 @@
 		self.collect(sign:/1)
 	}
 
-	abs { :self |
+	[absoluteValue, abs] { :self |
 		self.collect(abs:/1)
 	}
 

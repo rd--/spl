@@ -5,4 +5,4 @@ let o = VarSaw(
 	0,
 	Lag(VarSaw(b / 2000, 0, 0.5) + 1 / 2, 1)
 );
-CombC(o, 1.1, (VarSaw(8 / b, 0, 0.5) % 1).RoundTo(1) + 0.1, 8).Splay / 3
+CombC(o, 1.1, (VarSaw(8 / b, 0, 0.5) % 1).Round(1) + 0.1, 8).Splay / 3

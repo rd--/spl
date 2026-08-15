@@ -1,8 +1,8 @@
 # Log10
 
-- _Log10(aNumber)_
+- _Log10(x)_
 
-Base ten logarithm.
+Base ten logarithm of _x_.
 
 ```
 >>> Log10(Power(10, 6))

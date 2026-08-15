@@ -7,8 +7,8 @@ The collection must be non-empty and contain compatible magnitudes.
 
 ```
 >>> let c = [-9 .. 5];
->>> (c.max, c.absMax)
-(5, 9)
+>>> (c.max, c.absMax, c.abs.max)
+(5, 9, 9)
 ```
 
 * * *

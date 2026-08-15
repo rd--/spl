@@ -54,7 +54,7 @@ Note floating point errors are introduced for small _m_ and _n_:
 
 ```
 >>> 13 ^ 16
-665416609183179900
+665416609183179900.0
 
 >>> 13L ^ 16
 665416609183179841L

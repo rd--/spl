@@ -1,14 +1,14 @@
-# RoundTo
+# Round
 
-- _RoundTo(aNumber, anotherNumber=1)_
+- _Round(a, b=1)_
 
 Round to multiple of.
 Quantization by rounding.
-Rounds _aNumber_ to the nearest multiple of _anotherNumber_.
+Rounds _a_ to the nearest multiple of _b_.
 
 ```
 let l = Line(48, 57, 23);
-SinOsc([l, l.RoundTo(1)].MidiCps, 0) * 0.1
+SinOsc([l, l.Round(1)].MidiCps, 0) * 0.1
 ```
 
 * * *

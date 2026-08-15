@@ -8,7 +8,7 @@
 		9
 	].asLocalBuf;
 	let lfo = LfBrownNoise1(4, dev, 0) * 4 + 5;
-	let index = IndexInBetween(buffer, lfo).RoundTo(1);
+	let index = IndexInBetween(buffer, lfo).Round(1);
 	let intv = Index(buffer, index);
 	{
 		let freq = Lag(intv, 0.1) * root * (LfNoise2(12) * 0.02 + 1);

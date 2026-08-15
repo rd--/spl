@@ -60,7 +60,7 @@ Quaternion : [Object, Storeable, Equatable, Number] { | contents |
 		}
 	}
 
-	abs { :self |
+	[absoluteValue, abs] { :self |
 		self.absSquare.sqrt
 	}
 

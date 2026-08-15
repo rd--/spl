@@ -1,6 +1,6 @@
 /* http://earslap.com/weblog/music-release-laconicism.html */
 let k = Duty(6.4, 0, Dseq(Infinity, [0.05, Drand(1, [0.04, 0.08])]));
-Integrator((LfNoise0([5, 5, 5]) * k).RoundTo(k / 10), 1).Sin.Sqrt.Tanh.Splay2(0.3,1, 0, true)
+Integrator((LfNoise0([5, 5, 5]) * k).Round(k / 10), 1).Sin.Sqrt.Tanh.Splay2(0.3,1, 0, true)
 
 /* http://earslap.com/weblog/music-release-laconicism.html ; wait */
 let x = LfNoise1(0.5 * LocalIn(1, 0) + 0.1) * 0.5 + 0.5;
@@ -59,7 +59,7 @@ let tr = Impulse(8, 0) * LfNoise1(2);
 CombL(
 	(Saw([3, 4]) * Decay(tr, 0.1)).Tanh,
 	1,
-	TRand(0, 0.01, tr).RoundTo(0.00015),
+	TRand(0, 0.01, tr).Round(0.00015),
 	TRand(-30, 30, tr)
 )
 
@@ -75,7 +75,7 @@ let a = Duty(1 / 8, 0, Drand(Infinity, t + 24 ++ t ++ t));
 (BHiPass(LfNoise1(8) ^ 6, [a, a + 7].MidiCps, a / 3000) * (67 - a)).Tanh
 
 /* http://earslap.com/weblog/music-release-laconicism.html */
-AllpassL(SinOsc(55,0).Tanh, 0.4, TExpRand(0.0002, 0.4, Impulse(8, 0)).RoundTo([0.002, 0.004]), 2)
+AllpassL(SinOsc(55,0).Tanh, 0.4, TExpRand(0.0002, 0.4, Impulse(8, 0)).Round([0.002, 0.004]), 2)
 
 /* http://earslap.com/weblog/music-release-laconicism.html */
 let i = { :freq | Impulse(freq, 0) };
@@ -141,7 +141,7 @@ fundamentals.withIndexCollect { :freq0 :index |
 let numVoices = 30;
 let fundamentals = system.randomReal([200 400], [numVoices]).sorted.reverse;
 let finalPitches = (1:numVoices.collect { :each |
-	(each / (numVoices / 6)).RoundTo(1) * 12
+	(each / (numVoices / 6)).Round(1) * 12
 } + 14.5).MidiCps;
 let outerEnv = CurveGen(1, [0 0.1 1], [8 4], [2 4]);
 let ampEnvelope = CurveGen(1, [0 1 1 0], [3 21 3], [2 0 -4]);
@@ -195,6 +195,6 @@ f <! LocalOut(f + CombC(Blip([4, 6], 100 * k + 50) * 0.9, 1, k * 0.3, 50 * f))
 AllpassC(
 	SinOsc(55, 0).Tanh,
 	0.4,
-	TExpRand(0.0002, 0.4, Impulse(8, 0)).RoundTo([0.002, 0.0004]),
+	TExpRand(0.0002, 0.4, Impulse(8, 0)).Round([0.002, 0.0004]),
 	2
 )

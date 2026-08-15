@@ -43,7 +43,7 @@ let freq = DemandEnvGen(
 		Infinity,
 		300,
 		1000
-	).RoundTo(100),
+	).Round(100),
 	0.1,
 	5,
 	0.3,
@@ -61,7 +61,7 @@ Sample and hold (0.5 > gate > 0),
 let x = MouseX(0, 1, 0, 0.2);
 let y = MouseY(0.25, 2, 0, 0.2);
 let freq = DemandEnvGen(
-	Dwhite(Infinity, 300, 1000).RoundTo(100),
+	Dwhite(Infinity, 300, 1000).Round(100),
 	0.1,
 	5,
 	0.3,

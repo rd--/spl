@@ -1,6 +1,6 @@
 # Sin
 
-- _Sin(aNumber)_
+- _Sin(x)_
 
 Sine function.
 

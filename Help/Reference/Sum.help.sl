@@ -1,8 +1,8 @@
 # Sum
 
-- _Sum(inputList)_
+- _Sum(c)_
 
-Sums a list of inputs.
+Sums the list of inputs _c_.
 Unlike `sum`, implements optimization using the `Sum4` primitive `Ugen`.
 
 Sum a list of sawtooth oscillators:

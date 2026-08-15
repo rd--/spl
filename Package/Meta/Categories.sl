@@ -1763,7 +1763,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'RingzBank'
 		'Rlpf'
 		'Rotate2'
-		'RoundTo'
+		'Round'
 		'RunningMax'
 		'RunningSum'
 		'SampleDur'

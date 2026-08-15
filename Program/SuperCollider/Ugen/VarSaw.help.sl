@@ -13,7 +13,7 @@ EqPan(o, TRand(-1, 1, tr)) / 7
 /* VarSaw (Jmcc) */
 let f0 = 80;
 let tr = Impulse(4, 0) * 0.05;
-let n = WhiteNoise().MulAdd(3, 3).RoundTo(0.5) + 1;
+let n = WhiteNoise().MulAdd(3, 3).Round(0.5) + 1;
 let f = Lag(f0 * Latch(n, tr), 0.03);
 let osc = VarSaw(
 	f * [1, 1.004, 1.505, 1.499],

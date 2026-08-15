@@ -3,7 +3,7 @@ let b = (2 .. 5);
 Splay(
 	LfTri(
 		(
-			LfTri(b / 9 / 9 / 9, 0).RoundTo(
+			LfTri(b / 9 / 9 / 9, 0).Round(
 				LfTri(9 - b * 99, 9 - b / 9) * LfTri(b / 9, b / 99)
 			) * (
 				LfTri(9, 0) * (9 - b * 99) + (99 * b)

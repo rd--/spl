@@ -65,7 +65,7 @@ let a = {
 	let fAdd = ExpRand(200, 3000);
 	let fMul = LfNoise0(
 		ExpRand(0.1, 8)
-	).RoundTo(
+	).Round(
 		1 / 6
 	).ExpRange(
 		1,

@@ -1,6 +1,6 @@
 # CpsMidi
 
-- _CpsMidi(aNumber)_
+- _CpsMidi(x)_
 
 Convert cycles per second to midi note number.
 
@@ -39,7 +39,7 @@ let freq = LfNoise2(
 SinOsc(
 	freq
 	.CpsMidi
-	.RoundTo([2 3])
+	.Round([2 3])
 	.Lag(1E-2)
 	.MidiCps,
 	0

@@ -2,7 +2,7 @@
 
 - _AbsDif(α, β)_
 
-Answer the absolute value of the difference.
+Answer the absolute value of the difference of α and β.
 
 ```
 >>> AbsDif(1, 2)
@@ -13,6 +13,9 @@ Written out:
 
 ```
 >>> Abs(Subtract(1, 2))
+1
+
+>>> (1 - 2).abs
 1
 ```
 

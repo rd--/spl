@@ -187,7 +187,7 @@
 - `Power`: raised to
 - `Quotient`: quotient
 - `Reciprocal`: reciprocal
-- `RoundTo`: round to multiple of
+- `Round`: round to multiple of
 - `Sin`: sine
 - `Sinh`: hyperbolic sine
 - `Sqrt`: square root

@@ -111,7 +111,7 @@ Splay(o1 * o2 / 13 + o6) / 3
 /* https://sccode.org/1-4Qy ; f0 ; 0333 ; Splay/Stereo */
 0:7.collect { :i |
 	let b = i + 2 * 99;
-	let f = SinOscFb(i + 1 / 150, 0).RoundTo(1) + 1 + i * 99 + SinOscFb([3, 2], 0);
+	let f = SinOscFb(i + 1 / 150, 0).Round(1) + 1 + i * 99 + SinOscFb([3, 2], 0);
 	(Formant(f, b, b) * SinOscFb(i + 1 / 130, 0).Max(0)).Tanh
 }.Sum.Splay / 7
 
@@ -167,7 +167,7 @@ let o = GrainFm(
 	trigger: LfSaw([0.5 0.6], 0),
 	dur: 16,
 	carFreq: LfSaw(5, 0) * LfSaw(0.015, 0) + 1 * 98,
-	modFreq: (2 ^ LfSaw(4, 0)).RoundTo(0.5) * 99,
+	modFreq: (2 ^ LfSaw(4, 0)).Round(0.5) * 99,
 	index: 2 ^ LfSaw(1 / [8 9], 0) * 8,
 	pan: 0,
 	envBufNum: -1,
@@ -177,7 +177,7 @@ let o = GrainFm(
 
 /* https://sccode.org/1-4Qy ; f0 ; 0340 ; edit (rd) */
 let c = SinOscFb(1 / [12 8], 0) + 3 / 24;
-let m = HoldSequence([0 8 5 1 5 4 5] * (c * 18).RoundTo(1), c) + 60;
+let m = HoldSequence([0 8 5 1 5 4 5] * (c * 18).Round(1), c) + 60;
 AllpassN(SinOscFb(m.MidiCps, c * 2), 0.2, 0.2, 1) / 2
 
 /* f0 ; <https://twitter.com/redFrik/status/1395519538008141835> ; edit (rd) */

@@ -1,8 +1,8 @@
 # ArcSin
 
-- _ArcSin(aNumber)_
+- _ArcSin(x)_
 
-Arc sine.
+Arc sine of _x_.
 
 At `SmallFloat`:
 

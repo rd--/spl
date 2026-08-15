@@ -1,8 +1,9 @@
 # ArcCos
 
-- _ArcCos(aNumber)_
+- _ArcCos(x)_
 
-Arc cosine.
+Arc cosine of _x_.
+Alias of `arcCos`.
 
 At `SmallFloat`:
 

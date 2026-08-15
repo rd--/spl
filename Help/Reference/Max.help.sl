@@ -1,6 +1,6 @@
 # Max
 
-- _Max(aNumber, anotherNumber)_
+- _Max(x₁, x₂)_
 
 Maximum value.
 
@@ -18,6 +18,6 @@ z.Max(SinOsc(0.1, 0)) * 0.1
 
 * * *
 
-See also: Min
+See also: max, Min
 
 Categories: Ugen

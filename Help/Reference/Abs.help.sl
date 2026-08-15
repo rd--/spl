@@ -2,7 +2,8 @@
 
 - _Abs(x)_
 
-Answer the absolute value.
+Answer the absolute value of _x_.
+Alias of `abs` and `absoluteValue`.
 
 ```
 >>> -23.Abs
@@ -47,7 +48,7 @@ let o = SinOsc(
 	0
 ) * (m * (m > 0) + 1);
 let z = o * 0.25 + 0.25;
-(z - z.RoundTo(1)).Abs - 0.25
+(z - z.Round(1)).Abs - 0.25
 ```
 
 * * *

@@ -37,7 +37,7 @@ let rw = { :f1 :f2 :q |
 	4.timesRepeat {
 		z := Brf(
 			z,
-			Rand(f1, f2).RoundTo(10) + (freq * LfNoise1(2 # [Rand(0, rt)])),
+			Rand(f1, f2).Round(10) + (freq * LfNoise1(2 # [Rand(0, rt)])),
 			q
 		)
 	}
@@ -48,7 +48,7 @@ rw(250, 750, 0.1);
 rw(2500, 5000, 0.2);
 z := FreqShift(
 	z,
-	Duty(8, 0, Dwhite(Infinity, -1 * freq * 10, freq * 10).RoundTo(freq / 2)),
+	Duty(8, 0, Dwhite(Infinity, -1 * freq * 10, freq * 10).Round(freq / 2)),
 	0
 ) * 0.25 + z;
 z := CombC(z, 1, 1, 8);

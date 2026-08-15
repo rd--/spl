@@ -129,7 +129,7 @@ SmallFloat! : [Object, Storeable, Equatable, Comparable, Json, Magnitude, Number
 		anObject.adaptToNumberAndApply(self, *)
 	}
 
-	abs { :self |
+	[absoluteValue, abs] { :self |
 		<primitive: return Math.abs(_self)>
 	}
 

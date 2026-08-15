@@ -14,7 +14,7 @@ let d = MouseY(0, 1, 0, 0.2) > 0.5; /* Is pitch space discrete or continuous */
 		CombL(
 			y,
 			0.1,
-			TRand(1, 8, tr).RoundTo(d) / TRand(1, 9, tr).RoundTo(d) * 0.001,
+			TRand(1, 8, tr).Round(d) / TRand(1, 9, tr).Round(d) * 0.001,
 			5
 		)
 	} !+ c;

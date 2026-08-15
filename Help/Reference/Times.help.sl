@@ -1,9 +1,9 @@
 # Times
 
-- _Times(aNumber, anotherNumber)_
+- _Times(a, b)_
 
-Answer the product of _aNumber_ and _anotherNumber_.
-`Times` is an alias for `*`.
+Answer the product of _a_ and _b_.
+`Times` is an alias for `times` and `*`.
 
 At `SmallFloat`:
 

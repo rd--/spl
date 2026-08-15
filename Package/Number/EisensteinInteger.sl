@@ -13,7 +13,7 @@ EisensteinInteger : [Object, Storeable, Equatable] { | a b |
 		)
 	}
 
-	abs { :self |
+	[absoluteValue, abs] { :self |
 		self.asComplex.abs
 	}
 

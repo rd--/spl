@@ -27,6 +27,6 @@ MantissaMask(
 
 * * *
 
-See also: Distort, RoundTo, SoftClip
+See also: Distort, Round, SoftClip
 
 Categories: Ugen

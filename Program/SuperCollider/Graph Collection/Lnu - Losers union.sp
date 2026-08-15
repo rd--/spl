@@ -115,7 +115,7 @@ let c = { :freq |
 	LinCongC(freq, 1.1, 0.13, 1, 0)
 };
 let d = (c(c(p.arcTan) ^ 2 * 4) ^ 4 * 8).Abs;
-let t = c(c(d / p.arcTan).RoundTo(1 / d) ^ 4 * d * 8).Sin;
+let t = c(c(d / p.arcTan).Round(1 / d) ^ 4 * d * 8).Sin;
 let f = TRand(0, 64, t).Ceiling.MidiCps;
 Splay(
 	LeakDc(
@@ -320,7 +320,7 @@ Splay(
 		Formant(
 			[
 				({ a := a + 5 } ! 6).MidiCps,
-				({ f(29).RoundTo(7) } ! 6).MidiRatio
+				({ f(29).Round(7) } ! 6).MidiRatio
 			].product,
 			{ f(1000) } ! 6,
 			{ f(500) } ! 6
@@ -339,7 +339,7 @@ Splay(
 		Formant(
 			[
 				({ a := a + 7 } ! 6).MidiCps,
-				({ f(99).RoundTo(12) } ! 6).MidiRatio
+				({ f(99).Round(12) } ! 6).MidiRatio
 			].product,
 			{ f(2200) } ! 6,
 			{ f(300) } ! 6
@@ -535,7 +535,7 @@ let e = TChoose(
 	[
 		c.Sum,
 		n,
-		c.RoundTo(32),
+		c.Round(32),
 		n.Atan2(m()),
 		c.Sin,
 		c.Tan,
@@ -563,7 +563,7 @@ Splay(
 /* 23 Mars ; https://github.com/lukiss/Losers-Union-SC-Research */
 let d = { :n |
 	{
-		Gendy3(1, 1, 1, 1, LfNoise1(2) + 1, 0.5, 0.5, 12, 12).Abs.RoundTo(1 / 16).kr
+		Gendy3(1, 1, 1, 1, LfNoise1(2) + 1, 0.5, 0.5, 12, 12).Abs.Round(1 / 16).kr
 	} ! n
 };
 let t = Dust(d(5) / 2).kr;
@@ -623,7 +623,7 @@ let w = RecordBuf(b, z, t, 1 - t, t, 1, t, 0, n);
 let p = PlayBuf(
 	1,
 	b,
-	(1 - n.RoundTo(1 / 16)) / TRand(1, z / 100, t).Lag3(0.001),
+	(1 - n.Round(1 / 16)) / TRand(1, z / 100, t).Lag3(0.001),
 	t,
 	z,
 	1,

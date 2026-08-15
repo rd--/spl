@@ -51,7 +51,7 @@ Interval : [Object, Storeable, Equatable, Number] { | min max |
 		self * operand.reciprocal
 	}
 
-	abs { :self |
+	[absoluteValue, abs] { :self |
 		(self.min >= 0).if {
 			self
 		} {

@@ -40,7 +40,7 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/GreatestCommonDivisor.html)
 [2](https://mathworld.wolfram.com/GCD.html),
 _SuperCollider_
-[1](https://doc.sccode.org/Overviews/Operators.html#lcm)
+[1](https://doc.sccode.org/Overviews/Operators.html#gcd)
 
 Further Reading: McDonnell 1975
 

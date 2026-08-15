@@ -434,7 +434,7 @@ let signal = Sum( /* mix a list of 4 instruments */
 				[1, 0.5, 0.25].atRandom /* choose a frequency of pitch change */
 			).MulAdd(7, /* +/- 7 semitones */
 				66 + 30.Rand2 /* random center note */
-			).RoundTo(1), /* round to nearest semitone */
+			).Round(1), /* round to nearest semitone */
 			0.2 /* gliss time */
 		).MidiCps; /* convert to hertz */
 		EqPan2( /* pan each intrument */
