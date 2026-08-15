@@ -401,7 +401,7 @@
 	Lcm { :self :anObject | <primitive: return sc.Lcm(_self, _anObject);> }
 	Gcd { :self :anObject | <primitive: return sc.Gcd(_self, _anObject);> }
 	Round { :self :anObject | <primitive: return sc.RoundTo(_self, _anObject);> }
-	TruncateTo { :self :anObject | <primitive: return sc.Trunc(_self, _anObject);> }
+	Truncate { :self :anObject | <primitive: return sc.Trunc(_self, _anObject);> }
 	Atan2 { :self :anObject | <primitive: return sc.Atan2(_self, _anObject);> }
 	Hypotenuse { :self :anObject | <primitive: return sc.Hypot(_self, _anObject);> }
 	Power { :self :anObject | <primitive: return sc.Pow(_self, _anObject);> }
@@ -440,7 +440,7 @@
 	}
 
 	IntegerPart { :self |
-		TruncateTo(self, 1)
+		Truncate(self, 1)
 	}
 
 	round { :self |
