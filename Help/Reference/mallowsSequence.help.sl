@@ -4,6 +4,8 @@
 
 Answer the first _n_ terms of Mallows’ integer sequence.
 
+The recursion equation is _a(n)=a(a(n-2))+a(n-a(n-2))_.
+
 Mallows’ sequence,
 OEIS [A005229](http://oeis.org/A005229):
 
@@ -26,7 +28,7 @@ OEIS [A005229](http://oeis.org/A005229):
 
 * * *
 
-See also: hofstadterQSequence
+See also: hofstadterQSequence, pinnDSequence
 
 Guides: Integer Sequence Functions
 
@@ -35,3 +37,6 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/MallowsSequence.html),
 _OEIS_
 [1](http://oeis.org/A005229)
+
+Further Reading: Mallows 1991
+

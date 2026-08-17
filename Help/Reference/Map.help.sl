@@ -60,7 +60,7 @@ The storage string format:
 Map([[1, 2], [3, 4], [5, 6]])
 ```
 
-A Conway sequence,
+The Conway _a_-sequence,
 OEIS [A004001](https://oeis.org/A004001):
 
 ~~~spl svg=A oeis=A004001
@@ -98,7 +98,8 @@ a[0:200].scatterPlot
 
 ![](Help/Image/Map-B.svg)
 
-A Conway sequence,
+A Conway-like sequence,
+Pinn’s D-sequence,
 OEIS [A055748](https://oeis.org/A055748):
 
 ~~~spl svg=C oeis=A055748

@@ -4,6 +4,8 @@
 
 Answer the first _n_ terms of the Hofstadter Q-sequence.
 
+The recursion equation is _Q(n)=Q(n-Q(n-1))+Q(n-Q(n-2))_.
+
 Calculate first few terms of the Hofstadter Q-sequence,
 OEIS [A005185](https://oeis.org/A005185):
 
@@ -53,9 +55,27 @@ h.partition(3, 1).collect { :i |
 
 ![](Help/Image/hofstadterQSequence-C.svg)
 
+Plot a longer segment of the sequence:
+
+~~~spl png=D oeis=A005185
+2500.hofstadterQSequence.denseScatterPlot
+~~~
+
+![](Help/Image/hofstadterQSequence-D.png)
+
+Plot _2Q(n)-n_:
+
+~~~spl png=E
+let q = 2500.hofstadterQSequence;
+let n = 1:2500;
+(2 * q - n).denseScatterPlot
+~~~
+
+![](Help/Image/hofstadterQSequence-E.png)
+
 * * *
 
-See also: fibonacciSequence, mallowsSequence, memoize
+See also: fibonacciSequence, mallowsSequence, memoize, pinnDSequence
 
 Guides: Integer Sequence Functions
 

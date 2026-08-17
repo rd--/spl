@@ -38,6 +38,7 @@ Named Sequences:
 - `champernowneSequence`
 - `collatzSequence`
 - `connellSequence`
+- `conwayASequence`
 - `copelandErdosSequence`
 - `deBruijnSequence`
 - `delannoySequence`
@@ -77,6 +78,7 @@ Named Sequences:
 - `pellSequence`
 - `periodDoublingSequence`
 - `perrinSequence`
+- `pinnDSequence`
 - `recamanSequence`
 - `regularPaperfoldingSequence`
 - `rowlandsSequence`

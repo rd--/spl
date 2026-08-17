@@ -301,6 +301,17 @@
 		}
 	}
 
+	conwayASequence { :self |
+		let a = Map { :n |
+			(n <= 2).if {
+				1
+			} {
+				a[a[n - 1]] + a[n - a[n - 1]]
+			}
+		};
+		a[1:self]
+	}
+
 	doudnaSequenceFunction { :n |
 		let a = n.integerDigits(2);
 		let b = a.reverse;
@@ -937,6 +948,17 @@
 
 	perrinSequence { :self |
 		self.padovanSequence([3 0 2])
+	}
+
+	pinnDSequence { :self |
+		let a = Map { :n |
+			(n < 3).if {
+				1
+			} {
+				a[a[n - 1]] + a[n - a[n - 2] - 1]
+			}
+		};
+		a[1:self]
 	}
 
 	politeness { :n |

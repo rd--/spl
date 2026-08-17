@@ -4,7 +4,7 @@
 
 Answer the first _k_ terms of the OEIS sequence _s_.
 
-The number of times _n_ appears in the Conway sequence
+The number of times _n_ appears in the Conway _a_-sequence
 OEIS [A004001](https://oeis.org/A004001),
 OEIS [A051135](https://oeis.org/A051135):
 
