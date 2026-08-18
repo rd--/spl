@@ -5,6 +5,7 @@
 Convert linear amplitude to decibels.
 Equal to `log10` of _x_ `times` twenty.
 Inverse of `DbAmp`.
+Alias of `ampDb`.
 
 ```
 >>> AmpDb(0.1)
@@ -54,7 +55,7 @@ SinOsc(
 Evaluate symbolically:
 
 ```
->> AmpDb(`x`)
+>> ampDb(`x`)
 (* (log10 x) 20)
 ```
 

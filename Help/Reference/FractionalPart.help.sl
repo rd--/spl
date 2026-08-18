@@ -4,6 +4,7 @@
 
 Fractional part.
 Answer only the fractional part of the signal.
+Alias for `fractionPart`.
 
 In the program below a phasor in _(0, 1)_ is scaled and the fractional part taken:
 
@@ -25,5 +26,7 @@ SinOsc(mnn.MidiCps, 0) * 0.1
 * * *
 
 See also: fractionalPart
+
+Guides: Unit Generators
 
 Categories: Ugen

@@ -1,8 +1,9 @@
 # MidiRatio
 
-- _MidiRatio(aNumber)_
+- _MidiRatio(x)_
 
 Convert an interval in midi notes into a frequency ratio.
+Alias for `midiRatio`.
 
 Inverse of `RatioMidi`.
 
@@ -17,7 +18,7 @@ Inverse of `RatioMidi`.
 Evaluate symbolically:
 
 ```
->> MidiRatio(`x`)
+>> midiRatio(`x`)
 (^ 2 (/ x 12))
 ```
 

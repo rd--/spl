@@ -3,6 +3,7 @@
 - _Max(x₁, x₂)_
 
 Maximum value.
+Alias of `max`.
 
 ```
 >>> 9.Max(2)
@@ -19,5 +20,7 @@ z.Max(SinOsc(0.1, 0)) * 0.1
 * * *
 
 See also: max, Min
+
+Guides: Unit Generators
 
 Categories: Ugen

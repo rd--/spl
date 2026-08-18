@@ -43,6 +43,8 @@ SinOsc(freq, 0) * 0.1
 
 See also: &&, gcd, Gcd, lcm
 
+Guides: Unit Generators
+
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/LCM),

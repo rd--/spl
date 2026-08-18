@@ -2,13 +2,17 @@
 
 - _Subtract(m, n)_
 
-`Subtract` is an alias for the binary operator `-`,
+Answer _m_ minus _n_.
+Alias for `subtract` and `-`,
 which is named `hyphenMinus`.
 
 At `SmallFloat`:
 
 ```
 >>> Subtract(3, 4)
+-1
+
+>>> subtract(3, 4)
 -1
 
 >>> 3 - 4
@@ -31,5 +35,7 @@ It answers the sum of _m_ and the negation of _n_:
 * * *
 
 See also: -, +, *, /, Divide, Negate, Plus, Times
+
+Guides: Unit Generators
 
 Categories: Math, Ugen

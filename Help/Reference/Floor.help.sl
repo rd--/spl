@@ -3,6 +3,7 @@
 - _Floor(x)_
 
 Next lower integer.
+Alias of `floor`.
 
 ```
 >>> 1.5.Floor
@@ -20,4 +21,6 @@ SinOsc([m, m.Floor].MidiCps, 0) * 0.1
 
 See also: Ceiling, floor, Round
 
-Categories: Truncating, Rounding
+Guides: Unit Generators
+
+Categories: Truncating, Rounding, Ugen

@@ -156,6 +156,17 @@ OEIS [A123477](https://oeis.org/A123477):
 
 ![](Help/Image/inverseMoebiusTransform-A.svg)
 
+Transform of _2^ω(n)_,
+OEIS [A048691](https://oeis.org/A048691):
+
+~~~spl svg=B oeis=A048691
+1:150.collect { :n | 2 ^ n.primeNu }
+.inverseMoebiusTransform
+.scatterPlot
+~~~
+
+![](Help/Image/inverseMoebiusTransform-B.svg)
+
 * * *
 
 See also: binomialTransform, boustrophedonTransform, eulerTransform, moebiusTransform, runLengthTransform

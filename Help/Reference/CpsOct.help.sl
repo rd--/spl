@@ -1,19 +1,22 @@
 # CpsOct
 
-- _CpsOct(aNumber)_
+- _CpsOct(x)_
 
 Convert cycles per second to decimal octaves.
 Inverse of `OctCps`.
 
 ```
 >>> 440.CpsOct
-(4 + 9/12)
+4 + 9/12
+
+>>> 60.MidiCps.CpsOct
+4
 ```
 
 Evaluate symbolically:
 
 ```
->> CpsOct(`x`)
+>> cpsOct(`x`)
 (+ (log2 (/ x 440)) 4.75)
 ```
 
@@ -21,6 +24,6 @@ Evaluate symbolically:
 
 See also: CpsMidi, RatioMidi, OctCps
 
-Guides: Pitch Functions
+Guides: Pitch Functions, Unit Generators
 
 Categories: Math, Ugen

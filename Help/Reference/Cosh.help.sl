@@ -3,10 +3,13 @@
 - _Cosh(x)_
 
 Hyperbolic cosine.
+Alias for `cosh`.
 
 * * *
 
 See also: Sinh, Tanh
+
+Guides: Unit Generators
 
 References:
 _Csound_

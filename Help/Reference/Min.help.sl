@@ -3,6 +3,7 @@
 - _Min(m, n)_
 
 Minimum value.
+Alias of `min`.
 
 ```
 >>> 9.Min(2)
@@ -19,6 +20,8 @@ z.Min(SinOsc(0.1, 0)) * 0.1
 * * *
 
 See also: Max, min
+
+Guides: Unit Generators
 
 References:
 _Max_

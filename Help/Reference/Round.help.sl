@@ -2,9 +2,9 @@
 
 - _Round(a, b=1)_
 
-Round to multiple of.
+Round _a_ to the nearest multiple of _b_.
 Quantization by rounding.
-Rounds _a_ to the nearest multiple of _b_.
+Alias of `round`.
 
 ```
 let l = Line(48, 57, 23);
@@ -13,7 +13,7 @@ SinOsc([l, l.Round(1)].MidiCps, 0) * 0.1
 
 * * *
 
-See also: Ceiling, Floor
+See also: Ceiling, Floor, round
 
 Guides: Unit Generators
 

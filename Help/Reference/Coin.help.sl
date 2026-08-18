@@ -1,8 +1,9 @@
 # Coin
 
-- _Coin(probablity)_
+- _Coin(p)_
 
-Generates a random number between zero and one and answers 1 if it is less than _probablity_, else 0.
+Generates a random number between zero and one and answers `one` if it is less than probablity _p_,
+else `zero`.
 
 ```
 Coin(SinOsc(0.1, 0)) * 0.1

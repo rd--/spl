@@ -52,7 +52,7 @@
 	DelayN { :in :maxdelaytime :delaytime | <primitive: return sc.DelayN(_in, _maxdelaytime, _delaytime);> }
 	Demand { :trig :reset :demandUGens | <primitive: return sc.Demand(_trig, _reset, _demandUGens);> }
 	DetectSilence { :in :amp :time :doneAction | <primitive: return sc.DetectSilence(_in, _amp, _time, _doneAction);> }
-	Fos { :in :a0 :a1 :b1 | <primitive: return sc.Fos(_in, _a0, _a1, _b1);> }
+	[FirstOrderFilterSection, Fos] { :in :a0 :a1 :b1 | <primitive: return sc.Fos(_in, _a0, _a1, _b1);> }
 	Fold { :in :lo :hi | <primitive: return sc.Fold(_in, _lo, _hi);> }
 	Formlet { :in :freq :attacktime :decaytime | <primitive: return sc.Formlet(_in, _freq, _attacktime, _decaytime);> }
 	FreeVerb { :in :mix :room :damp | <primitive: return sc.FreeVerb(_in, _mix, _room, _damp);> }
@@ -103,7 +103,7 @@
 	Ringz { :in :freq :decaytime | <primitive: return sc.Ringz(_in, _freq, _decaytime);> }
 	RunningMax { :in :trig | <primitive: return sc.RunningMax(_in, _trig);> }
 	RunningSum { :in :numsamp | <primitive: return sc.RunningSum(_in, _numsamp);> }
-	Sos { :in :a0 :a1 :a2 :b1 :b2 | <primitive: return sc.Sos(_in, _a0, _a1, _a2, _b1, _b2);> }
+	[SecondOrderFilterSection, Sos] { :in :a0 :a1 :a2 :b1 :b2 | <primitive: return sc.Sos(_in, _a0, _a1, _a2, _b1, _b2);> }
 	Sanitize { :in :replace | <primitive: return sc.Sanitize(_in, _replace);> }
 	Schmidt { :in :lo :hi | <primitive: return sc.Schmidt(_in, _lo, _hi);> }
 	Slew { :in :up :dn | <primitive: return sc.Slew(_in, _up, _dn);> }
@@ -337,14 +337,7 @@
 +[List, Ugen] {
 	Negate { :self | <primitive: return sc.Neg(_self);> }
 	Square { :self | <primitive: return sc.Squared(_self);> }
-	Cube { :self | <primitive: return sc.Cubed(_self);> }
 	Reciprocal { :self | <primitive: return sc.Recip(_self);> }
-	MidiCps { :self | <primitive: return sc.MidiCps(_self);> }
-	CpsMidi { :self | <primitive: return sc.CpsMidi(_self);> }
-	MidiRatio { :self | <primitive: return sc.MidiRatio(_self);> }
-	RatioMidi { :self | <primitive: return sc.RatioMidi(_self);> }
-	DbAmp { :self | <primitive: return sc.DbAmp(_self);> }
-	AmpDb { :self | <primitive: return sc.AmpDb(_self);> }
 	Distort { :self | <primitive: return sc.Distort(_self);> }
 	SoftClip { :self | <primitive: return sc.SoftClip(_self);> }
 }
@@ -352,32 +345,38 @@
 /* Auto-generated */
 +[List, SmallFloat, Ugen] {
 	Abs { :self | <primitive: return sc.Abs(_self);> }
+	AmpDb { :self | <primitive: return sc.AmpDb(_self);> }
+	ArcCos { :self | <primitive: return sc.ArcCos(_self);> }
+	ArcSin { :self | <primitive: return sc.ArcSin(_self);> }
+	ArcTan { :self | <primitive: return sc.ArcTan(_self);> }
+	BiLinRand { :self | <primitive: return sc.BiLinRand(_self);> }
 	Ceiling { :self | <primitive: return sc.Ceil(_self);> }
+	Coin { :self | <primitive: return sc.Coin(_self);> }
+	Cos { :self | <primitive: return sc.Cos(_self);> }
+	Cosh { :self | <primitive: return sc.Cosh(_self);> }
+	CpsMidi { :self | <primitive: return sc.CpsMidi(_self);> }
+	Cube { :self | <primitive: return sc.Cubed(_self);> }
+	DbAmp { :self | <primitive: return sc.DbAmp(_self);> }
+	Exp { :self | <primitive: return sc.Exp(_self);> }
 	Floor { :self | <primitive: return sc.Floor(_self);> }
 	FractionalPart { :self | <primitive: return sc.Frac(_self);> }
-	Sign { :self | <primitive: return sc.Sign(_self);> }
-	Sqrt { :self | <primitive: return sc.Sqrt(_self);> }
-	Exp { :self | <primitive: return sc.Exp(_self);> }
-	Log { :self | <primitive: return sc.Log(_self);> }
-	Log2 { :self | <primitive: return sc.Log2(_self);> }
-	Log10 { :self | <primitive: return sc.Log10(_self);> }
-	Sin { :self | <primitive: return sc.Sin(_self);> }
-	Cos { :self | <primitive: return sc.Cos(_self);> }
-	Tan { :self | <primitive: return sc.Tan(_self);> }
-	ArcSin { :self | <primitive: return sc.ArcSin(_self);> }
-	ArcCos { :self | <primitive: return sc.ArcCos(_self);> }
-	ArcTan { :self | <primitive: return sc.ArcTan(_self);> }
-	Sinh { :self | <primitive: return sc.Sinh(_self);> }
-	Cosh { :self | <primitive: return sc.Cosh(_self);> }
-	Tanh { :self | <primitive: return sc.Tanh(_self);> }
-	BiLinRand { :self | <primitive: return sc.BiLinRand(_self);> }
-	LinRand { :self | <primitive: return sc.LinRand_(_self);> }
-	Sum3Rand { :self | <primitive: return sc.Sum3Rand(_self);> }
-	Coin { :self | <primitive: return sc.Coin(_self);> }
 	HanWindow { :self | <primitive: return sc.HanWindow(_self);> }
-	WelchWindow { :self | <primitive: return sc.WelchWindow(_self);> }
+	LinRand { :self | <primitive: return sc.LinRand_(_self);> }
+	Log { :self | <primitive: return sc.Log(_self);> }
+	Log10 { :self | <primitive: return sc.Log10(_self);> }
+	Log2 { :self | <primitive: return sc.Log2(_self);> }
+	MidiCps { :self | <primitive: return sc.MidiCps(_self);> }
+	MidiRatio { :self | <primitive: return sc.MidiRatio(_self);> }
+	RatioMidi { :self | <primitive: return sc.RatioMidi(_self);> }
+	Sign { :self | <primitive: return sc.Sign(_self);> }
+	Sin { :self | <primitive: return sc.Sin(_self);> }
+	Sinh { :self | <primitive: return sc.Sinh(_self);> }
+	Sqrt { :self | <primitive: return sc.Sqrt(_self);> }
+	Sum3Rand { :self | <primitive: return sc.Sum3Rand(_self);> }
+	Tan { :self | <primitive: return sc.Tan(_self);> }
+	Tanh { :self | <primitive: return sc.Tanh(_self);> }
 	TriWindow { :self | <primitive: return sc.TriWindow(_self);> }
-
+	WelchWindow { :self | <primitive: return sc.WelchWindow(_self);> }
 }
 
 /* Auto-generated */

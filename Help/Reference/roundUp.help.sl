@@ -2,7 +2,7 @@
 
 - _roundUp(n, α=1)_
 
-Answer the next multiple of the number _n_ toward infinity that is nearest the number _α_.
+Answer the next multiple of the number _α_ toward infinity that is nearest the number _n_.
 
 ```
 >>> 3.1479.roundUp(0.01)

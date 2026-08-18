@@ -3,6 +3,7 @@
 - _Cube(x)_
 
 Answer the cube of _x_.
+Alias for `cube`.
 
 ```
 >>> 3.Cube
@@ -15,5 +16,7 @@ Answer the cube of _x_.
 * * *
 
 See also: cube, square
+
+Guides: Unit Generators
 
 Categories: Math, Ugen

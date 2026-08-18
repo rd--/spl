@@ -3,6 +3,7 @@
 - _ArcTan(x)_
 
 Arc tangent.
+Alias of `arcTan`.
 
 At `SmallFloat`:
 
@@ -13,6 +14,8 @@ At `SmallFloat`:
 
 * * *
 
-See also: arcTan, ArcCos
+See also: arcTan, ArcCos, ArcSin
+
+Guides: Unit Generators
 
 Categories: Math, Ugen, Trigonometry

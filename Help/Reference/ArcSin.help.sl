@@ -3,6 +3,7 @@
 - _ArcSin(x)_
 
 Arc sine of _x_.
+Alias of `arcSin`.
 
 At `SmallFloat`:
 
@@ -14,5 +15,7 @@ At `SmallFloat`:
 * * *
 
 See also: arcSin, ArcCos
+
+Guides: Unit Generators
 
 Categories: Math, Ugen, Trigonometry

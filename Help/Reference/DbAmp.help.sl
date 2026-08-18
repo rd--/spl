@@ -3,6 +3,7 @@
 - _DbAmp(x)_
 
 Convert decibels to linear amplitude.
+Alias for `dbAmp`.
 
 ```
 >>> DbAmp(-20)
@@ -46,13 +47,15 @@ SinOsc(800, 0) * mul
 Evaluate symbolically:
 
 ```
->> DbAmp(`x`)
+>> dbAmp(`x`)
 (^ 10 (* x 0.05))
 ```
 
 * * *
 
 See also: AmpDb
+
+Guides: Unit Generators
 
 References:
 _Csound_

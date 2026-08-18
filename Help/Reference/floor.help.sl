@@ -2,7 +2,7 @@
 
 - _floor(x, ε=0)_
 
-Answer the integer nearest _x_ toward negative infinity.
+Answer the integer nearest _x_ toward -∞, negative infinity.
 
 At `Integer`:
 

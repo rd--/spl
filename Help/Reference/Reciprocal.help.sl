@@ -1,9 +1,10 @@
 # Reciprocal
 
-- _Reciprocal(aNumber)_
+- _Reciprocal(x)_
 
-Answer the reciprocal of _aNumber_,
-which is `one` divided by _aNumber_.
+Answer the reciprocal of _x_,
+which is `one` divided by _x_.
+Alias for `reciprocal`.
 
 ```
 >>> 3.Reciprocal
@@ -19,5 +20,7 @@ which is `one` divided by _aNumber_.
 * * *
 
 See also: /, Divide, reciprocal
+
+Guides: Unit Generators
 
 Categories: Ugen

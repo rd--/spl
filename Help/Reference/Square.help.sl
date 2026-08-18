@@ -3,6 +3,7 @@
 - _Square(x)_
 
 Answer the number _x_ multiplied by itself.
+Alias for `square`.
 
 ```
 >>> 3.Square
@@ -12,5 +13,7 @@ Answer the number _x_ multiplied by itself.
 * * *
 
 See also: square, Sqrt
+
+Guides: Unit Generators
 
 Categories: Ugen

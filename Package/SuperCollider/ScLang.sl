@@ -1,15 +1,19 @@
 +@Collection {
 
-	AmpDb { :self |
-		self.collect(AmpDb:/1)
+	ampDb { :self |
+		self.collect(ampDb:/1)
 	}
 
 	atExtending { :self :index |
 		self.error('atExtending: not a sequence')
 	}
 
-	DbAmp { :self |
-		self.collect(DbAmp:/1)
+	cpsMidi { :self |
+		self.collect(cpsMidi:/1)
+	}
+
+	dbAmp { :self |
+		self.collect(dbAmp:/1)
 	}
 
 	extendTo { :self :size |
@@ -22,8 +26,8 @@
 		}
 	}
 
-	MidiCps { :self |
-		self.collect(MidiCps:/1)
+	midiCps { :self |
+		self.collect(midiCps:/1)
 	}
 
 	powersetBitwise { :self |
@@ -65,25 +69,27 @@
 		(root / freq) ^ exp
 	}
 
-	AmpDb { :self |
+	ampDb { :self |
 		self.log10 * 20
 	}
 
-	CentsRatio { :self |
-		(self / 100).MidiRatio
+	[centsRatio, CentsRatio] { :self |
+		(self / 100).midiRatio
 	}
 
-	CpsMidi { :self |
+	cpsMidi { :self |
 		(self / 440).log2 * 12 + 69
 	}
 
-	CpsOct { :self |
+	[cpsOct, CpsOct] { :self |
 		(self / 440).log2 + 4.75
 	}
 
+	/*
 	Cube { :self |
 		self * self * self
 	}
+	*/
 
 	curveLin { :self :inMin :inMax :outMin :outMax :curve |
 		(self <= inMin).if {
@@ -104,7 +110,7 @@
 		}
 	}
 
-	DbAmp { :self |
+	dbAmp { :self |
 		10 ^ (self * 0.05)
 	}
 
@@ -229,11 +235,11 @@
 		}
 	}
 
-	MidiCps { :self |
+	midiCps { :self |
 		440 * (2 ^ ((self - 69) / 12))
 	}
 
-	MidiRatio { :self |
+	midiRatio { :self |
 		2 ^ (self / 12)
 	}
 
@@ -262,11 +268,11 @@
 		base ^ (self.log(base).ceiling - 1)
 	}
 
-	RatioCents { :self |
-		self.RatioMidi * 100
+	[ratioCents, RatioCents] { :self |
+		self.ratioMidi * 100
 	}
 
-	RatioMidi { :self |
+	ratioMidi { :self |
 		12 * self.log2
 	}
 

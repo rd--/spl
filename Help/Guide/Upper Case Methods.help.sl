@@ -10,45 +10,47 @@ Alternate Definition:
 
 - `Gcd`, `gcd`
 - `Lcm`, `lcm`
-- `Sqrt`, `sqrt`
+- `Sqrt`, `sqrt`, `squareRoot`
 
 Aliases:
 
 - `Abs`, `abs`
 - `ArcCos`, `arcCos`
-- `ArcSin`
-- `ArcTan`
-- `Ceiling`
-- `Cos`
-- `Cosh`
-- `Cube`
-- `Divide`
-- `Exp`
-- `Floor`
+- `ArcSin`, `arcSin`
+- `ArcTan`, `arcTan`
+- `Ceiling`, `ceiling`
+- `Cos`, `cos`
+- `Cosh`, `cosh`
+- `Cube`, `cube`
+- `Divide`, `divide`, `/`
+- `Exp`, `exp`
+- `Floor`, `floor`
+- `FractionalPart`, `fractionalPart`
 - `Less`, `less`
 - `Log10`, `log10`
 - `Log2`, `log2`
 - `Log`, `log`
 - `Max`, `max`
-- `Min`
-- `Negate`
-- `Power`
+- `Min`, `min`
+- `Negate`, `negate`, `-`
+- `Plus`, `plus`, `+`
+- `Power`, `power`, `^`
 - `Round`, `round`
 - `Sin`, `sin`
 - `Sinh`, `sinh`
-- `Square`
-- `Subtract`
+- `Square`, `square`
+- `Subtract`, `subtract`, `-`
 - `Sum`, `sum`
-- `Tan`
-- `Tanh`
-- `Times`
+- `Tan`, `tan`
+- `Tanh`, `tanh`
+- `Times`, `times`, `*`
 
 Non-standard Operator Unit Generators:
 
-- `AbsDif`
-- `ModDif`
-- `SqrDif`
+- `AbsDif`, `absDif`
+- `ModDif`, `modDif`
+- `SqrDif`, `sqrDif`
 
 * * *
 
-Guides: Pitch Functions
+Guides: Pitch Functions, Unit Generators

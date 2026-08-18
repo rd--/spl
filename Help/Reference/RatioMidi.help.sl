@@ -1,8 +1,9 @@
 # RatioMidi
 
-- _RatioMidi(aNumber)_
+- _RatioMidi(x)_
 
 Convert interval as frequency ratio to midi note number.
+Alias for `ratioMidi`.
 
 Inverse of `MidiRatio`.
 
@@ -14,7 +15,7 @@ Inverse of `MidiRatio`.
 A rational perfect fifth is 702 cents:
 
 ```
->>> ((3 / 2).RatioMidi * 100).round
+>>> ((3 / 2).RatioMidi * 100)
 702
 ```
 
@@ -36,7 +37,7 @@ Splay(
 Evaluate symbolically:
 
 ```
->> RatioMidi(`x`)
+>> ratioMidi(`x`)
 (* 12 (log2 x))
 ```
 

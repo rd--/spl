@@ -3,6 +3,7 @@
 - _Log(x)_
 
 Natural logarithm of _x_.
+Alias for `log`.
 
 The `Log` of `e` is `one`:
 
@@ -14,5 +15,7 @@ The `Log` of `e` is `one`:
 * * *
 
 See also: Exp, log, Log2, Log10, Pow
+
+Guides: Unit Generators
 
 Categories: Ugen

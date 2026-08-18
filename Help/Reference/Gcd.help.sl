@@ -31,6 +31,8 @@ SinOsc(z * 30 + 500, 0) * 0.1
 
 See also: ||, gcd, lcm, Lcm
 
+Guides: Unit Generators
+
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/GCD),

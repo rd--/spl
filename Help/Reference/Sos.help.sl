@@ -3,10 +3,9 @@
 - _Sos(in, a0, a1, a2, b1, b2)_
 
 A standard second order filter section.
+Alias for `SecondOrderFilterSection`.
 Filter coefficients are given directly rather than calculated for you.
-Formula is equivalent to:
-
-> _out(i) = (a0 * in(i)) + (a1 * in(i-1)) + (a2 * in(i-2)) + (b1 * out(i-1)) + (b2 * out(i-2))_
+Formula is equivalent to _y(i)=a0·x(i)+a1·x(i-1)+a2·x(i-2)+b1·y(i-1)+b2·y(i-2)_.
 
 Same as `TwoPole`:
 
@@ -15,7 +14,14 @@ let theta = MouseX(0.2.pi, 1.pi, 0, 0.2);
 let rho = MouseY(0.6, 0.99, 0, 0.2);
 let b1 = 2 * rho * theta.Cos;
 let b2 = rho.square.-;
-Sos(LfSaw(200, 0) * 0.1, 1, 0, 0, b1, b2)
+SecondOrderFilterSection(
+	LfSaw(200, 0) * 0.1,
+	1,
+	0,
+	0,
+	b1,
+	b2
+)
 ```
 
 * * *

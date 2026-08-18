@@ -3,6 +3,7 @@
 - _AbsDif(α, β)_
 
 Answer the absolute value of the difference of α and β.
+Alias for `absDif` and `absoluteDifference`.
 
 ```
 >>> AbsDif(1, 2)
@@ -29,5 +30,7 @@ SinOsc(440, 0) * m / 2
 * * *
 
 See also: -, Abs, SqrDif
+
+Guides: Unit Generators
 
 Categories: Math, Ugen

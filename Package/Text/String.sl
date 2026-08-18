@@ -960,9 +960,19 @@ String! : [Object, Storeable, Equatable, Comparable, Json, Iterable, Indexable, 
 		Set(self.characters)
 	}
 
-	take { :self :anInteger |
+	[take, truncateTo] { :self :anInteger |
 		self.copyFromTo(1, anInteger.min(self.size))
 	}
+
+	/*
+	take { :self :smallSize |
+		(self.size <= smallSize).if {
+			self
+		} {
+			self.copyFromTo(1, smallSize)
+		}
+	}
+	*/
 
 	takeDrop { :self :count |
 		[self.take(count), self.drop(count)]
@@ -980,14 +990,6 @@ String! : [Object, Storeable, Equatable, Comparable, Json, Iterable, Indexable, 
 
 	trim { :self |
 		<primitive: return _self.trim();>
-	}
-
-	truncateTo { :self :smallSize |
-		(self.size <= smallSize).if {
-			self
-		} {
-			self.copyFromTo(1, smallSize)
-		}
 	}
 
 	uncheckedConcatenation { :self :aString |

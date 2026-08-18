@@ -2,8 +2,9 @@
 
 - _Negate(x)_
 
-`Negate` is an alias for the unary `-` operator.
-It answers the number _x_ multiplied by negative `one`,
+Answer the negation of _x_.
+Alias for `neagte` and the unary `-` operator.
+Answers the number _x_ multiplied by negative `one`,
 also called inversion.
 
 At `SmallFloat`:
@@ -19,5 +20,7 @@ At `SmallFloat`:
 * * *
 
 See also: -, +, *, /, Divide, Plus, Subtract, Times
+
+Guides: Unit Generators
 
 Categories: Math, Ugen

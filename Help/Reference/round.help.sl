@@ -54,13 +54,6 @@ At negative _n_:
 -2
 ```
 
-Rounds away from zero, c.f. `roundTowardsZero`:
-
-```
->>> -3.99.round
--4
-```
-
 At `Complex` applies separately to real and imaginary parts:
 
 ```

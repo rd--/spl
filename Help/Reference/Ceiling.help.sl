@@ -3,6 +3,7 @@
 - _Ceiling(x)_
 
 Next higher integer.
+Alias of `ceiling`.
 
 ```
 >>> 1.5.Ceiling
@@ -19,6 +20,8 @@ SinOsc([m, m.Ceiling].MidiCps, 0) * 0.1
 * * *
 
 See also: ceiling, Floor, Round
+
+Guides: Unit Generators
 
 References:
 _Csound_

@@ -23,4 +23,6 @@ SinOsc(x * 110 + 110, 0) * 0.1
 
 See also: arcCos, ArcSin, ArcTan, Cos, Sin
 
+Guides: Unit Generators
+
 Categories: Math, Ugen, Trigonometry

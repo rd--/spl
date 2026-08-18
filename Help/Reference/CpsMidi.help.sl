@@ -3,6 +3,7 @@
 - _CpsMidi(x)_
 
 Convert cycles per second to midi note number.
+Alias of `cpsMidi`.
 
 Middle C (_C4_ in scientific pitch notation) is defined to be midi note number 60.
 The A above middle C has a nominal frequency of 440 hertz:
@@ -68,7 +69,7 @@ Plot over a subset of the reals:
 Evaluate symbolically:
 
 ```
->> CpsMidi(`x`)
+>> cpsMidi(`x`)
 (+ (* (log2 (/ x 440)) 12) 69)
 ```
 
@@ -76,7 +77,7 @@ Evaluate symbolically:
 
 See also: MidiCps, RatioMidi
 
-Guides: Pitch Functions
+Guides: Pitch Functions, Unit Generators
 
 References:
 _Csound_

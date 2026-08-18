@@ -3,7 +3,7 @@
 - _SqrDif(α, β)_
 
 Square of the difference.
-_SqrDif(a, b)_ is _(a - b) ^ 2_.
+_SqrDif(a, b)_ is equivalent to _(a-b)^2_.
 This is more efficient than using separate unit generators for each operation.
 
 ```
@@ -28,5 +28,7 @@ let c = a - b;
 * * *
 
 See also: AbsDif
+
+Guides: Unit Generators
 
 Categories: Ugen, Math

@@ -11,7 +11,7 @@ Both the start and end values must be non-zero and have the same sign.
 - dur: duration in seconds
 - tr: trigger at zero crossing
 
-Trigger upwards frequency sweep:
+Trigger upwards frequency sweep every four seconds:
 
 ```
 let tr = Impulse(0.25, 0);

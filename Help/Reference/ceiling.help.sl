@@ -2,7 +2,7 @@
 
 - _ceiling(x)_
 
-Answer the integer nearest _x_ toward infinity.
+Answer the integer nearest _x_ toward ∞, positive infinity.
 
 At integers:
 

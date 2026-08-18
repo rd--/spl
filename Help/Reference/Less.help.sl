@@ -3,6 +3,7 @@
 - _Less(α, β)_
 
 Answer `one` if α is less than β, else `zero`.
+Alias for `less` and `<`.
 
 ```
 >>> Less(0, 1)
@@ -37,5 +38,7 @@ PinkNoise() * Lag(LfSaw(1, -1) < 0, 0.1) * 0.05
 * * *
 
 See also: Greater, Plus, Times
+
+Guides: Unit Generators
 
 Categories: Ugen

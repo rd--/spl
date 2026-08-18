@@ -1,15 +1,18 @@
 # Plus
 
-- _Plus(aNumber, anotherNumber)_
+- _Plus(m, n)_
 
-Answer the sum of _aNumber_ and _anotherNumber_.
-`Plus` is an alias for the `+` operator,
+Answer the sum of _m_ and _n_.
+Alias for `plus` and the `+` operator,
 which is named `plusSign`.
 
 At `SmallFloat`:
 
 ```
 >>> Plus(3, 4)
+7
+
+>>> plus(3, 4)
 7
 
 >>> +(3, 4)

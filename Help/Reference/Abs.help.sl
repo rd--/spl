@@ -55,4 +55,6 @@ let z = o * 0.25 + 0.25;
 
 See also: abs, AbsDif
 
+Guides: Unit Generators
+
 Categories: Math, Ugen

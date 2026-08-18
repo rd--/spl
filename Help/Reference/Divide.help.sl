@@ -3,7 +3,7 @@
 - _Divide(n, m)_
 
 Answer the division of _n_ and _m_.
-`Divide` is an alias for `/`.
+Alias for `divide` and `/`.
 
 At `SmallFloat`:
 
@@ -24,6 +24,8 @@ Divide(
 * * *
 
 See also: /, +, *, +, Plus, Subtract, Times
+
+Guides: Unit Generators
 
 References:
 _Mathematica_

@@ -1,6 +1,6 @@
 # Sum4
 
-- _Sum4(in1, in2, in3, in4)_
+- _Sum4(a, b, c, d)_
 
 Sum four signals. Primitive Ugen to efficiently sum four signals. Should be used via Sum.
 

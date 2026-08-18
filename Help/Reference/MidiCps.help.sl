@@ -3,6 +3,7 @@
 - _MidiCps(x)_
 
 Convert midi note number to cycles per second.
+Alias of `midiCps`.
 
 Middle C (_C4_ in scientific pitch notation) is defined to be midi note number 60.
 
@@ -57,7 +58,7 @@ Plot over a subset of the reals:
 Evaluate symbolically:
 
 ```
->> MidiCps(`x`)
+>> midiCps(`x`)
 (* 440 (^ 2 (/ (- x 69) 12)))
 ```
 
@@ -65,7 +66,7 @@ Evaluate symbolically:
 
 See also: CpsMidi, MidiRatio
 
-Guides: Pitch Functions
+Guides: Pitch Functions, Unit Generators
 
 References:
 _Csound_

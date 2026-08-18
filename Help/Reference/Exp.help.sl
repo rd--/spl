@@ -4,6 +4,7 @@
 
 Exponential.
 Answer the value of `e` (the base of natural logarithms) raised to the power of _x_.
+Alias for `exp`.
 
 At `SmallFloat`:
 
@@ -15,6 +16,8 @@ At `SmallFloat`:
 * * *
 
 See also: ^, e, exp, Log, Power
+
+Guides: Unit Generators
 
 References:
 _Csound_

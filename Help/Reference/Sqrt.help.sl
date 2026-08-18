@@ -3,7 +3,7 @@
 - _Sqrt(x)_
 
 Square root.
-The definition of square root is extended for signals so that _sqrt(x)_ when _x < 0_ answers _-sqrt(-x)_.
+The definition of square root is extended for signals so that _sqrt(x)_ when _x<0_ answers _-sqrt(-x)_.
 
 ```
 >>> -9.Sqrt
@@ -20,5 +20,7 @@ Compare with `sqrt`:
 * * *
 
 See also: ^, cubeRoot, nthRoot, sqrt
+
+Guides: Unit Generators
 
 Categories: Ugen

@@ -3,6 +3,7 @@
 - _Sin(x)_
 
 Sine function.
+Alias of `sin`.
 
 ```
 >>> 1/3.pi.Sin
@@ -12,5 +13,7 @@ Sine function.
 * * *
 
 See also: Cos, sin, Tan
+
+Guides: Unit Generators
 
 Categories: Ugen

@@ -303,3 +303,7 @@
 - `GetTempo`: continuous tempo
 - `OverlapTexture`: overlap events
 - `Silent`: output silence
+
+* * *
+
+Guides: Upper Case Methods

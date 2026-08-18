@@ -3,6 +3,7 @@
 - _Tan(x)_
 
 Answers the tangent of _x_.
+Alias of `tan`.
 
 ```
 >>> 1/6.pi.Tan
@@ -11,6 +12,8 @@ Answers the tangent of _x_.
 
 * * *
 
-See also: ArcTan, Cos, Sin, Tanh
+See also: ArcTan, Cos, Sin, tan, Tanh
+
+Guides: Unit Generators
 
 Categories: Ugen

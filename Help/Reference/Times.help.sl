@@ -3,7 +3,7 @@
 - _Times(a, b)_
 
 Answer the product of _a_ and _b_.
-`Times` is an alias for `times` and `*`.
+Alias for `times` and `*`.
 
 At `SmallFloat`:
 
@@ -24,6 +24,8 @@ Times(
 * * *
 
 See also: +, *, Divide, MulAdd, Plus, Subtract, Power
+
+Guides: Unit Generators
 
 References:
 _Mathematica_

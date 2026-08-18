@@ -3,6 +3,7 @@
 - _Sinh(x)_
 
 Answer the hyperbolic sine of _x_.
+Alias for `sinh`.
 
 ```
 >>> 1.4.Sinh
@@ -12,5 +13,7 @@ Answer the hyperbolic sine of _x_.
 * * *
 
 See also: Cosh, sinh, Tanh
+
+Guides: Unit Generators
 
 Categories: Ugen
