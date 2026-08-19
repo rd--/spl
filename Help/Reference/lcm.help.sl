@@ -276,7 +276,7 @@ Form the least common multiples of `one` with rational numbers:
 
 Matrix plot of the least common multiples of two integers:
 
-~~~spl svg=D
+~~~spl svg=E
 lcm:/2.table(1:20, 1:20).matrixPlot
 ~~~
 
