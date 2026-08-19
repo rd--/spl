@@ -486,7 +486,7 @@
 	}
 	*/
 
-	Gcd { :self :aNumber |
+	[signedGcd, Gcd] { :self :aNumber |
 		(
 			self.isNegative & {
 				aNumber.isNegative
@@ -498,7 +498,7 @@
 		}
 	}
 
-	Lcm { :self :aNumber |
+	[signedLcm, Lcm] { :self :aNumber |
 		(
 			self.isNegative | {
 				aNumber.isNegative
@@ -510,7 +510,7 @@
 		}
 	}
 
-	Sqrt { :self |
+	[signedSqrt, Sqrt] { :self |
 		self.isNegative.if {
 			self.negate.sqrt.negate
 		} {

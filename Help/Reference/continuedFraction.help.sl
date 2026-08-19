@@ -419,6 +419,18 @@ Continued fraction of `exp` of one ninth:
 [1 8 1 1 26 1 1 44 1 1 62 1 1]
 ```
 
+A periodic continued fraction expansion,
+OEIS [A283393](https://oeis.org/A283393):
+
+```
+>>> ((57 + 4579.sqrt) / 114)
+>>> .continuedFraction(16)
+[
+	1 10 1 2 5 2 5 2 1 10
+	1 10 1 2 5 2
+]
+```
+
 Scatter plot of the
 least number _k<n_ and coprime to _n_ such that the largest term of the continued fraction of _k/n_ is as small as possible,
 OEIS [A141821](https://oeis.org/A141821):

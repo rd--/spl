@@ -2,21 +2,8 @@
 
 - _Gcd(m, n)_
 
-Greatest common divisor.
-
-This definition extends the usual definition and returns a negative number if both operands are negative.
-This makes it consistent with the lattice-theoretical interpretation and it’s idempotency, commutative, associative, absorption laws.
-
-```
->>> -1024.Gcd(-256)
--256
-
->>> -1024.Gcd(-1024.Lcm(-256))
--1024
-```
-
-"greater" means "divisible by" in this interpretation, so _Gcd(-1, -1)_ returns a negative number.
-This is necessary to make the whole system consistent (fundamental law of arithmetics, idempotency and absorption laws would fail).
+Signed greatest common divisor.
+Alias of `signedGcd`.
 
 Mouse control of frequency:
 
@@ -29,7 +16,7 @@ SinOsc(z * 30 + 500, 0) * 0.1
 
 * * *
 
-See also: ||, gcd, lcm, Lcm
+See also: ||, gcd, lcm, Lcm, signedGcd
 
 Guides: Unit Generators
 

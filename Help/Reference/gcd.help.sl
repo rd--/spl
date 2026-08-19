@@ -184,10 +184,11 @@ OEIS [A008364](https://oeis.org/A008364):
 ]
 ```
 
-Plot the gcd for a number with 12:
+Plot the `gcd` for a number with twelve,
+OEIS [A109015](https://oeis.org/A109015):
 
-~~~spl svg=A
-1:72.functionPlot { :x | x.gcd(12) }
+~~~spl svg=A oeis=A109015
+1:72.gcd(12).discretePlot
 ~~~
 
 ![](Help/Image/gcd-A.svg)
@@ -416,9 +417,28 @@ OEIS [A077581](https://oeis.org/A077581):
 
 ![](Help/Image/gcd-Q.svg)
 
+A sequence that shifts left under `gcd`-convolution with itself,
+OEIS [A007464](https://oeis.org/A007464):
+
+~~~spl svg=R oeis=A007464
+let a = Map { :n |
+	(n < 2).if {
+		1
+	} {
+		let m = n - 1;
+		0:m.sum { :k |
+			gcd(a[k], a[n - k - 1])
+		}
+	}
+};
+a[0:65].discretePlot
+~~~
+
+![](Help/Image/gcd-R.svg)
+
 * * *
 
-See also: ||, chineseRemainder, divisible, euclideanAlgorithm, extendedGcd, Fraction, isCoprime, isPrime, lcm
+See also: ||, chineseRemainder, divisible, euclideanAlgorithm, extendedGcd, Fraction, isCoprime, isPrime, lcm, signedGcd
 
 Guides: Integer Functions
 

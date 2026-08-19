@@ -91,6 +91,8 @@ Illustrate coefficients:
 
 See also: euclideanAlgorithm, extendedGcd, gcd
 
+Guides: Integer Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/ExtendedGCD.html),

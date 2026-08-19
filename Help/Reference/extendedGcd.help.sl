@@ -72,6 +72,8 @@ Plot matrix:
 
 See also: extendedEuclideanAlgorithm, gcd
 
+Guides: Integer Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/GreatestCommonDivisor.html)

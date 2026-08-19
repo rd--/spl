@@ -44,6 +44,13 @@ At `Collection`:
 232792560
 ```
 
+At `Rational`:
+
+```
+>>> [1/3 2/5 3/7].lcm
+6
+```
+
 Lcm threads elementwise over lists:
 
 ```
@@ -187,12 +194,45 @@ OEIS [A002944](https://oeis.org/A002944):
 ]
 ```
 
-Plot the least common multiple for a number with 12:
+Every divisor of a and b is a divisor of _lcm(a,b)_:
 
-~~~spl svg=A
-1:72.functionPlot { :x |
-	x.lcm(12)
-}
+```
+>>> let a = 24;
+>>> let b = 70;
+>>> let c = a.lcm(b);
+>>> let d = a.divisors ++ b.divisors;
+>>> d.allSatisfy { :x | c.divisible(x) }
+true
+```
+
+Use `gcd` to compute `lcm`:
+
+```
+>>> 27 * 81 / 27.gcd(81)
+81
+
+>>> 27.lcm(81)
+81
+```
+
+The `lcm` of coprime numbers is equal to their product:
+
+```
+>>> [6 11 25].isCoprime
+true
+
+>>> [6 11 25].lcm
+1650
+
+>>> [6 11 25].product
+1650
+```
+
+Plot the least common multiple for a number with twelve,
+OEIS [A109053](https://oeis.org/A109053):
+
+~~~spl svg=A oeis=A109053
+1:72.lcm(12).discretePlot
 ~~~
 
 ![](Help/Image/lcm-A.svg)
@@ -297,7 +337,7 @@ OEIS [A003990](https://oeis.org/A003990):
 
 * * *
 
-See also: &&, extendedGcd, gcd, Gcd, Lcm
+See also: &&, extendedGcd, gcd, signedLcm
 
 Guides: Integer Functions
 
