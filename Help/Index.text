@@ -61,8 +61,10 @@ Guide/Enumeration Functions.help.sl
 Guide/Error Functions.help.sl
 Guide/Error Handling.help.sl
 Guide/Experimental Assignment Operator Syntax.help.sl
+Guide/Experimental AtAllPath Syntax.help.sl
 Guide/Experimental AtIfAbsentPut Syntax.help.sl
 Guide/Experimental AtIfAbsent Syntax.help.sl
+Guide/Experimental AtPath Syntax.help.sl
 Guide/Experimental AtPutDelegateTo Syntax.help.sl
 Guide/Experimental Constant Syntax.help.sl
 Guide/Experimental Dictionary Syntax.help.sl
@@ -77,7 +79,6 @@ Guide/Experimental Set Syntax.help.sl
 Guide/Experimental Simple Method Arity.help.sl
 Guide/Experimental Slot Access Syntax.help.sl
 Guide/Experimental Slot Assignment Syntax.help.sl
-Guide/Experimental Temporary Block Syntax.help.sl
 Guide/Experimental Trailing Record Syntax.help.sl
 Guide/Experimental Tree Syntax.help.sl
 Guide/Feature Detection Functions.help.sl
@@ -241,6 +242,7 @@ Guide/Syntax Tokens.help.sl
 Guide/System Dictionary.help.sl
 Guide/System Functions.help.sl
 Guide/System Variable.help.sl
+Guide/Temporary Block Syntax.help.sl
 Guide/Text Functions.help.sl
 Guide/Texture Programs.help.sl
 Guide/Time Series Functions.help.sl
@@ -257,6 +259,7 @@ Guide/Unchecked Functions.help.sl
 Guide/Unicode Symbols.help.sl
 Guide/Unit Generators.help.sl
 Guide/Unit Prefixes.help.sl
+Guide/Upper Case Methods.help.sl
 Guide/Value Apply Syntax.help.sl
 Guide/Value Protocol.help.sl
 Guide/Var Syntax.help.sl
@@ -1024,6 +1027,7 @@ Reference/convergents.help.sl
 Reference/convexHull.help.sl
 Reference/convexHullIndices.help.sl
 Reference/convolve.help.sl
+Reference/conwayASequence.help.sl
 Reference/conwaysConstant.help.sl
 Reference/coordinateBoundingBoxArray.help.sl
 Reference/coordinateBoundingBox.help.sl
@@ -2584,6 +2588,7 @@ Reference/log2.help.sl
 Reference/Log2.help.sl
 Reference/logarithmicIntegral.help.sl
 Reference/logarithmicIntegralRamanujan.help.sl
+Reference/logarithmicMean.help.sl
 Reference/logarithmicPhi.help.sl
 Reference/logarithmicSpiral.help.sl
 Reference/logGamma.help.sl
@@ -3212,6 +3217,7 @@ Reference/pieChart.help.sl
 Reference/pi.help.sl
 Reference/PingPongDelay.help.sl
 Reference/PinkNoise.help.sl
+Reference/pinnDSequence.help.sl
 Reference/pisanoPeriod.help.sl
 Reference/pisotSequence.help.sl
 Reference/Pitch.help.sl
@@ -3622,8 +3628,8 @@ Reference/rotationMatrix.help.sl
 Reference/roundDown.help.sl
 Reference/roundedPercentageAllocation.help.sl
 Reference/round.help.sl
-Reference/roundTiesEven.help.sl
 Reference/Round.help.sl
+Reference/roundTiesEven.help.sl
 Reference/roundTowardsZero.help.sl
 Reference/roundUp.help.sl
 Reference/rowCatenate.help.sl
@@ -3784,6 +3790,8 @@ Reference/signature.help.sl
 Reference/signatureSequence.help.sl
 Reference/signBit.help.sl
 Reference/signedArea.help.sl
+Reference/signedGcd.help.sl
+Reference/signedLcm.help.sl
 Reference/signedPointPlaneDistance.help.sl
 Reference/signedVectorAngle.help.sl
 Reference/signExponentMantissa.help.sl
@@ -3975,6 +3983,7 @@ Reference/stochasticVector.help.sl
 Reference/stolarskyArray.help.sl
 Reference/stolarskyHarborthConstant.help.sl
 Reference/stolarskyIndex.help.sl
+Reference/stolarskyMean.help.sl
 Reference/stope.help.sl
 Reference/Storage.help.sl
 Reference/storeStringAsInitializeSlots.help.sl
@@ -4422,6 +4431,7 @@ Reference/withWithCollect.help.sl
 Reference/wordAtCaret.help.sl
 Reference/wordAtIndex.help.sl
 Reference/wordCount.help.sl
+Reference/wordCounts.help.sl
 Reference/wordsBy.help.sl
 Reference/words.help.sl
 Reference/Workspace.help.sl
