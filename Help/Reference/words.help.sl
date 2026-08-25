@@ -9,8 +9,8 @@ Trims any white spaces at the beginning and at the end before splitting.
 >>> 'Lorem ipsum\ndolor'.words
 ['Lorem' 'ipsum' 'dolor']
 
->>> ' foo bar '.words
-['foo' 'bar']
+>>> ' ipsum dolor'.words
+['ipsum' 'dolor']
 
 >>> 'first second third fourth'.words
 ['first' 'second' 'third' 'fourth']
@@ -31,7 +31,8 @@ The empty string has zero words:
 []
 ```
 
-`unwords` can sometimes undo `words`:
+`unwords` can sometimes undo `words`,
+though it is not properly an inverse:
 
 ```
 >>> 'The quick brown fox jumps over'

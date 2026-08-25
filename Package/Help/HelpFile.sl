@@ -636,7 +636,7 @@ HelpFile : [Object, Equatable, Cache] { | origin source cache |
 					'```',
 					'',
 					d[2]
-				].unlines
+				].stringIntercalate('\n')
 			} {
 				line
 			}

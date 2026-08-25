@@ -8,8 +8,18 @@ Answer a `String` made by joining together the items of the sequence _s_ with se
 >>> ['Lorem' 'ipsum' 'dolor'].unwords
 'Lorem ipsum dolor'
 
->>> ['foo' 'bar' '' 'baz'].unwords
-'foo bar  baz'
+>>> ['Lorem' 'ipsum' '' 'sit'].unwords
+'Lorem ipsum  sit'
+```
+
+Note that `unwords` is neither left nor right inverse of `words`:
+
+```
+>>> ' '.words.unwords
+''
+
+>>> 'a\nb'.words.unwords
+'a b'
 ```
 
 * * *

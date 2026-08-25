@@ -32,6 +32,8 @@ See also: fetchText, readBinaryFile, writeTextFile
 Guides: File Functions
 
 References:
+_Haskell_
+[1](https://hackage-content.haskell.org/package/base/docs/System-IO.html#v:readFile),
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/ReadString.html)
 

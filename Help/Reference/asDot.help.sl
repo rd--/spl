@@ -1,8 +1,8 @@
 # asDot
 
-- _asDot(aGraph)_
+- _asDot(g)_
 
-Answer a Dot language description of _aGraph_.
+Answer a Dot language description of the graph _g_.
 
 The three `cycleGraph`:
 

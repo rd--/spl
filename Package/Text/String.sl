@@ -1266,7 +1266,9 @@ String! : [Object, Storeable, Equatable, Comparable, Json, Iterable, Indexable, 
 	}
 
 	unlines { :self |
-		self.stringIntercalate('\n')
+		self.collect { :each |
+			each ++ '\n'
+		}.stringJoin
 	}
 
 	unparagraphs { :self |

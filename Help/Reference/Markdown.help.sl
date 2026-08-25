@@ -32,7 +32,6 @@
 		'<li>L2</li>'
 		'</ul>'
 		'<p>P2</p>'
-		''
 	].unlines
 )
 ```
@@ -138,7 +137,6 @@ which are stored as a `Record`:
 >>> 		'~~~ C'
 >>> 		'c'
 >>> 		'~~~'
->>> 		''
 >>> 	].unlines
 >>> );
 >>> m.codeBlocks

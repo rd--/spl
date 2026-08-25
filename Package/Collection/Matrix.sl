@@ -319,6 +319,7 @@
 				n.printStringShowingDecimalPlaces(decimalPlaces)
 			}
 		};
+		let header = [m, '×', n].stringJoin;
 		let table = self.deepCollect(print:/1);
 		let columnWidth = table.flatten.collect(size:/1).max;
 		let text = table.collect { :row |
@@ -326,11 +327,7 @@
 				each.padLeft([columnWidth], ' ')
 			}.stringJoin('   ')
 		};
-		[
-			[m, '×', n].stringJoin,
-			'   ',
-			text.unlines
-		].unlines
+		([header, '   '] ++ text).unlines
 	}
 
 	matrixRotate { :self :k |

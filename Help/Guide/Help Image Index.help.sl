@@ -1145,6 +1145,8 @@
   5. ![](Help/Image/convolve-E.svg)
   6. ![](Help/Image/convolve-F.svg)
   7. ![](Help/Image/convolve-G.svg)
+- `conwayASequence`
+  1. ![](Help/Image/conwayASequence-A.svg)
 - `coordinateBoundingBox`
   1. ![](Help/Image/coordinateBoundingBox-A.svg)
 - `coordinateBoundingBoxArray`
@@ -2262,6 +2264,7 @@
   15. ![](Help/Image/gcd-O.svg)
   16. ![](Help/Image/gcd-P.svg)
   17. ![](Help/Image/gcd-Q.svg)
+  18. ![](Help/Image/gcd-R.svg)
 - `gen03`
   1. ![](Help/Image/gen03-A.svg)
   2. ![](Help/Image/gen03-B.svg)
@@ -2644,6 +2647,8 @@
   1. ![](Help/Image/hofstadterQSequence-A.svg)
   2. ![](Help/Image/hofstadterQSequence-B.svg)
   3. ![](Help/Image/hofstadterQSequence-C.svg)
+  4. ![](Help/Image/hofstadterQSequence-D.png)
+  5. ![](Help/Image/hofstadterQSequence-E.png)
 - `holmesPolyhedraCatalogue`
   1. ![](Help/Image/holmesPolyhedraCatalogue-A.svg)
 - `hookLengthFormula`
@@ -2924,6 +2929,7 @@
   1. ![](Help/Image/inverseGudermannian-A.svg)
 - `inverseMoebiusTransform`
   1. ![](Help/Image/inverseMoebiusTransform-A.svg)
+  2. ![](Help/Image/inverseMoebiusTransform-B.svg)
 - `inverseNorwichSpiral`
   1. ![](Help/Image/inverseNorwichSpiral-A.svg)
 - `inverseSmoothStep`
@@ -3335,6 +3341,12 @@
   2. ![](Help/Image/lcm-B.png)
   3. ![](Help/Image/lcm-C.png)
   4. ![](Help/Image/lcm-D.svg)
+  5. ![](Help/Image/lcm-E.svg)
+  6. ![](Help/Image/lcm-F.svg)
+  7. ![](Help/Image/lcm-G.svg)
+  8. ![](Help/Image/lcm-H.svg)
+  9. ![](Help/Image/lcm-I.svg)
+  10. ![](Help/Image/lcm-J.png)
 - `leastExcludedSequence`
   1. ![](Help/Image/leastExcludedSequence-A.svg)
   2. ![](Help/Image/leastExcludedSequence-B.svg)
@@ -3523,6 +3535,8 @@
 - `logarithmicIntegral`
   1. ![](Help/Image/logarithmicIntegral-A.svg)
   2. ![](Help/Image/logarithmicIntegral-B.svg)
+- `logarithmicMean`
+  1. ![](Help/Image/logarithmicMean-A.svg)
 - `logarithmicSpiral`
   1. ![](Help/Image/logarithmicSpiral-A.svg)
   2. ![](Help/Image/logarithmicSpiral-B.svg)
@@ -4398,6 +4412,10 @@
   6. ![](Help/Image/pieChart-F.svg)
   7. ![](Help/Image/pieChart-G.svg)
   8. ![](Help/Image/pieChart-H.svg)
+- `pinnDSequence`
+  1. ![](Help/Image/pinnDSequence-A.png)
+  2. ![](Help/Image/pinnDSequence-B.png)
+  3. ![](Help/Image/pinnDSequence-C.png)
 - `pisanoPeriod`
   1. ![](Help/Image/pisanoPeriod-A.svg)
   2. ![](Help/Image/pisanoPeriod-B.svg)

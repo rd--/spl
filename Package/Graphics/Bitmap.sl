@@ -13,7 +13,7 @@ Bitmap : [Object] { | contents scale |
 				List(scale, item.asBit.printString).unwords
 			}.unwords
 		};
-		(header ++ (scale # rows) ++ ['']).unlines
+		(header ++ (scale # rows)).unlines
 	}
 
 	drawing { :self |

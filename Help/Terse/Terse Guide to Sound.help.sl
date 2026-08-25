@@ -154,7 +154,7 @@ nil ? { 'x' } = 'x' /* right hand side if nil */
 3/2.RatioCents.round = 702 /* ratio (interval) to cents */
 3/2.RatioCents ~ 702 /* ratio (interval) to cents */
 702.CentsRatio ~ 1.5 /* cents (interval) to ratio */
-3/2.RatioMidi ~ 7.02 /* ratio (interval) to midi */
+1.5.RatioMidi ~ 7.02 /* ratio (interval) to midi */
 7.02.MidiRatio ~ 1.5 /* midi (interval) to ratio */
 [1, 3, 2, 5, 4].ordering = [1, 3, 2, 5, 4] /* indices that would sort reciever */
 'string'.contents.ordering = [6, 4, 5, 3, 1, 2] /* indices that would sort reciever */

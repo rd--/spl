@@ -58,9 +58,13 @@ Two non-empty lines:
 ['one' 'two']
 ```
 
-The inverse is `unlines`:
+A partial inverse is `unlines`:
 
 ```
+>>> 'a\nbc\ndef\n'
+>>> .lines.unlines
+'a\nbc\ndef\n'
+
 >>> ['a' 'bc' 'def']
 >>> .unlines.lines
 ['a' 'bc' 'def']

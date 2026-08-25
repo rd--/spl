@@ -27,6 +27,8 @@ See also: makeDirectory, readTextFile, removeFile, writeBinaryFile
 Guides: File Functions
 
 References:
+_Haskell_
+[1](https://hackage-content.haskell.org/package/base/docs/System-IO.html#v:writeFile),
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/WriteString.html)
 

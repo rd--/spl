@@ -41,12 +41,10 @@
 	asDot { :self :options |
 		let isMixed = self.isMixed;
 		let graphType = self.isUndirected.if { 'graph' } { 'digraph' };
-		let begin = '% {\ngraph [layout="%"];'.format(
-			[
-				graphType,
-				options['method']
-			]
-		);
+		let begin = [
+			'% {'.format([graphType]),
+			'graph [layout="%"];'.format([options['method']])
+		];
 		let vertexLabels = self.hasVertexLabels.if {
 			self.vertexLabels
 		} {
@@ -58,7 +56,7 @@
 				[self.hasVertexLabels.if { 'box' } { 'point' }]
 			),
 			'edge [penwidth="0.75",arrowsize="0.5"];'
-		].unlines;
+		];
 		let nodeText = self.hasVertexLabels.if {
 			self.vertexList.collect { :each |
 				let label = vertexLabels[each];
@@ -69,21 +67,21 @@
 						[each, label.ifNil { '' } { label }]
 					)
 				}
-			}.unlines
+			}
 		} {
-			'/* implicit nodes */'
+			['/* implicit nodes */']
 		};
 		let edgeText = self.edgeList.collect { :each |
 			each.forDot(isMixed)
-		}.unlines;
-		let end = '}';
+		};
+		let end = ['}'];
 		[
 			begin,
 			attributeText,
 			nodeText,
 			edgeText,
 			end
-		].unlines
+		].catenate.unlines
 	}
 
 	asDot { :self |
