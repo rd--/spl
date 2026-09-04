@@ -3,7 +3,7 @@
 - _m / n_
 
 Answers the number _m_ divided by the number _n_.
-The operator form is `/`.
+The operator form is `/`, also called `solidus`.
 
 At `SmallFloat`:
 
@@ -176,7 +176,7 @@ OEIS [A127093](https://oeis.org/A127093):
 
 * * *
 
-See also: /, //, +, -, *, times
+See also: /, //, +, -, *, solidus, times
 
 Guides: Arithmetic Functions, Binary Operators, Mathematical Functions
 

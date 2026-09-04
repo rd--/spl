@@ -32,6 +32,21 @@ Fraction(123_456L, 456_789L)
 123456/456789
 ```
 
+Fractions are automatically reduced:
+
+```
+>>> 6/4
+3/2
+```
+
+Spl does not require binary operators to be white space separated,
+and it is therefore possible to combine `Fraction Syntax` and the `/` binary operator:
+
+```
+>>> (7/6/5, 7/6 / 5, 7 / 6/5)
+(7/30, 7/30, 35/6)
+```
+
 Fraction syntax assume that infix operators are written using white-space separators,
 however at present the parser does not require this.
 The expression _x/y/z_ should be an error,

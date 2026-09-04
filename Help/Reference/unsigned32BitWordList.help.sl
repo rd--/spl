@@ -18,4 +18,6 @@ The words are in machine order.
 
 * * *
 
-See also: byteOrdering
+See also: byteOrdering, isLittleEndian
+
+Guides: System Functions

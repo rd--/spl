@@ -17,11 +17,14 @@ Modulo table:
 ]
 ```
 
-Compute five modulo three:
+Compute five and ten modulo three:
 
 ```
 >>> 5 % 3
 2
+
+>>> 10 % 3
+1
 ```
 
 At integer _m_ and _n_:

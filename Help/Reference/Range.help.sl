@@ -1,5 +1,6 @@
 # Range
 
+- _Range(i, j, k)_
 - _Range([i j k])_
 
 A `Range` is a `Type` that represents an arithmetic progression,
@@ -7,6 +8,10 @@ ranging from _i_ to _j_ by step _k_.
 The range is closed, it includes both the lower and upper bound.
 
 ```
+>>> Range(1, 9, 1)
+>>> .concisePrintString
+'1:9'
+
 >>> Range[1 9 1].asList
 [1 2 3 4 5 6 7 8 9]
 
@@ -81,6 +86,18 @@ true
 >>> let b = a.asList;
 >>> (a.last > 1, b.last > 1, a.isProper)
 (false, false, true)
+```
+
+Fractional `Range` values can be exact:
+
+```
+>>> Range(1/3, 7/3, 1)
+>>> .asList
+[1/3 4/3 7/3]
+
+>>> Range(1/3, 3, 2/3)
+>>> .asList
+[1/3 1/1 5/3 7/3 3/1]
 ```
 
 Range expressions are written _(i .. j)_,
@@ -239,6 +256,10 @@ Range[1 4 1]
 
 >>> 1:9:2
 Range[1 9 2]
+
+>>> Range(1, 9, 1)
+>>> .rangeLiteralSyntaxString
+'1:9'
 ```
 
 Work with infinite ranges:

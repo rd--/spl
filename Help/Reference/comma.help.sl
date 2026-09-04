@@ -51,7 +51,7 @@ The name of this syntax token is `comma`.
 
 * * *
 
-See also: ;, ., .., ++
+See also: ;, ., .., ++, comma
 
 Guides: Syntax Tokens
 

@@ -14,9 +14,9 @@ At `List`:
 >>> [1 2 3; 4 5; 6].catenate
 [1 2 3 4 5 6]
 
->>> let x = ByteArray([1 2 3]);
+>>> let x = ByteArray[1 2 3];
 >>> [x x x].catenate
-ByteArray([1 2 3 1 2 3 1 2 3])
+ByteArray[1 2 3 1 2 3 1 2 3]
 ```
 
 Catenate two matrices vertically, ie. columnwise:

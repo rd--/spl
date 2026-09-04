@@ -16,7 +16,7 @@ which must be a valid Utf-8 sequence.
 At `ByteArray`:
 
 ```
->>> ByteArray([97 65 206 177])
+>>> ByteArray[97 65 206 177]
 >>> .utf8String
 'aAα'
 ```

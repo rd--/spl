@@ -167,6 +167,13 @@ At `Complex`:
 ]
 ```
 
+Complex number powers of _i_:
+
+```
+>>> 1I ^ [2 3 4]
+[-1J0 0J-1 1J0]
+```
+
 De Moivre’s formula:
 
 ```

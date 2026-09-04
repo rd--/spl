@@ -33,7 +33,7 @@ The name of this token is `solidusAsterisk`.
 
 * * *
 
-See also: *, /
+See also: *, /, asterisk, asteriskSolidus, solidus
 
 Guides: Comment Syntax
 

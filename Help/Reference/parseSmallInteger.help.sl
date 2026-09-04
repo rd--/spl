@@ -1,10 +1,11 @@
 # parseSmallInteger
 
-- _parseSmallInteger(aString, radix=10)_
-- _parseSmallInteger(aString, radix, elseClause:/0)_
+- _parseSmallInteger(s, r=10)_
+- _parseSmallInteger(s, r, f:/0)_
 
-Answer the `SmallFloat` of the integer indicated by _aString_ which must be in _radix_ notation.
+Answer the `SmallFloat` of the integer indicated by the string _s_ which must be in radix _r_ notation.
 If the string is not an integer, signal an error.
+Evaluate the else clause _f_ or signal an `error` on failure.
 
 Parse positive decimal integer:
 
@@ -95,7 +96,7 @@ Parse hexadecimal integers:
 -188
 ```
 
-Evaluate _elseClause_ or signal an `error` on failure:
+Evaluate else clause or signal an `error` on failure:
 
 ```
 >>> '3.141'.parseSmallInteger(10) { nil }

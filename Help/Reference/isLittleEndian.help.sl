@@ -7,11 +7,14 @@ Answer `true` if `system` is Little-endian.
 ```
 >>> system.isLittleEndian
 true
+
+>>> 1.unsigned32BitWordList
+[0 16r3FF00000]
 ```
 
 * * *
 
-See also: byteOrdering, isBigEndian
+See also: byteOrdering, isBigEndian, unsigned32BitWordList
 
 Guides: System Functions
 

@@ -40,7 +40,7 @@ Range : [Object, Storeable, Equatable, Comparable, Iterable, Collection, Indexab
 	}
 
 	concisePrintString { :self |
-		self.rangeSyntaxString
+		self.rangeLiteralSyntaxString
 	}
 
 	elementType { :self |
@@ -81,7 +81,7 @@ Range : [Object, Storeable, Equatable, Comparable, Iterable, Collection, Indexab
 		}
 	}
 
-	rangeSyntaxString { :self |
+	rangeLiteralSyntaxString { :self |
 		(
 			self.step = 1 & {
 				self.isEmpty.not

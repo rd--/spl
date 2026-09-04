@@ -8,7 +8,7 @@ The name of this token is `asteriskSolidus`.
 
 * * *
 
-See also: *, /
+See also: *, /, asterisk, solidus, solidusAsterisk
 
 Guides: Comment Syntax
 

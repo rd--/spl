@@ -2,33 +2,33 @@
 
 Arithmetic Operators:
 
-- `+`, `plus`
-- `*`, `times`
-- `-`, `subtract`
-- `/`, `divide`
-- `^`, `power`
-- `%`, `mod`
+- `+`, `plus`, `plusSign`
+- `*`, `times`, `asterisk`
+- `-`, `subtract`, `hyphenMinus`
+- `/`, `divide`, `solidus`
+- `^`, `power`, `circumflexAccent`
+- `%`, `mod`, `percentSign`
 - `//`, `quotient`
 - `\\`, `remainder`
 
 Equality Operators:
 
-- `=`, `equal`
+- `=`, `equal`, `equalsSign`
 - `!=`, `unequal`
 - `==`, `identical`
 
 Comparison Operators:
 
-- `<`, `less`
+- `<`, `less`, `lessThanSign`
 - `<=`, `lessEqual`
-- `>`, `greater`
+- `>`, `greater`, `greaterThanSign`
 - `>=`, `greaterEqual`
 
 Logical Operators:
 
-- `&`, `and`
+- `&`, `and`, `ampersand`
 - `&&`, `evaluatingAnd`
-- `|`, `or`
+- `|`, `or`, `verticalLine`
 - `||`, `evaluatingOr`
 
 Bitwise Operators:
@@ -39,13 +39,13 @@ Bitwise Operators:
 
 Indexing Operators:
 
-- `@`
+- `@`, `at`, `commercialAt`
 - `@>`
 - `@*`
 
 Evaluation Operators:
 
-- `$`
+- `$`, `dollarSign`
 
 List Operators:
 

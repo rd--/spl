@@ -22,6 +22,9 @@ Operator form of `quotient`.
 
 >>> -8 // 7
 -1
+
+>>> 10 // 3
+3
 ```
 
 Threads over lists:

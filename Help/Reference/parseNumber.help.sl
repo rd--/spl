@@ -3,7 +3,7 @@
 - _parseNumber(s, f:/0)_
 
 Answer the `SmallFloat` represented by the string _s_,
-else evaualte _f_ is specified else signal an `error`.
+else evaluate _f_ is specified else signal an `error`.
 
 Parse decimal integer:
 

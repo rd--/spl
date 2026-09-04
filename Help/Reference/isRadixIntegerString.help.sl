@@ -1,8 +1,8 @@
 # isRadixIntegerString
 
-- _isRadixIntegerString(aString, radix)_
+- _isRadixIntegerString(s, r)_
 
-Answer `true` if _aString_ consists only of digits in the specified _radix_,
+Answer `true` if the string _s_ consists only of digits in the specified radix _r_,
 allowing for an initial sign character.
 
 ```

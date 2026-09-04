@@ -49,6 +49,9 @@ OEIS [A061037](https://oeis.org/A061037):
 
 ![](Help/Image/solidus-A.svg)
 
+This glyph also forms part of the `Comment Syntax`,
+as the digraphs `solidusAsterisk` and `asteriskSolidus`.
+
 * * *
 
 See also: //, +, -, *, divide, reciprocal

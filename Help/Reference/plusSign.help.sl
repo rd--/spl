@@ -23,7 +23,7 @@ The name of this operator is `plusSign`.
 
 * * *
 
-See also: -, *, /, conjugate, plus, sum
+See also: -, *, /, conjugate, plus, plusSign, sum
 
 Guides: Binary Operators, Defining Methods
 

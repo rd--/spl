@@ -1,10 +1,10 @@
 # Range Syntax
 
-`Range` syntax rewrite rules:
+- _(α .. β)_
+- _(α, β .. γ)_
+- _(α .. β; γ)_
 
-- _(α .. β)_ ⇒ _Range(α, β, 1)_
-- _(α, β .. γ)_ ⇒ _Range(α, γ, β - α)_
-- _(α .. β; γ)_ ⇒ _Range(α, β, γ)_
+`Range` expression syntax rewrite rules:
 
 ```
 >> '(i .. j)'.splSimplify

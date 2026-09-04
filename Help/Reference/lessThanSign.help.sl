@@ -8,12 +8,18 @@ The binary form is `less`:
 ```
 >>> 3 < 5
 true
+
+>>> less(3, 5)
+true
 ```
 
 The unary form is `floor`:
 
 ```
 >>> 3.141.<
+3
+
+>>> floor(3.141)
 3
 ```
 

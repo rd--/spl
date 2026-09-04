@@ -20,7 +20,8 @@ true
 At `ByteArray`:
 
 ```
->>> ByteArray([0 1 0 0 1 0]).isBitVector
+>>> ByteArray[0 1 0 0 1 0]
+>>> .isBitVector
 true
 ```
 
