@@ -86,11 +86,13 @@ Circle : [Object, Storeable, Equatable, Geometry] { | center radius |
 
 	svgFragment { :self :options |
 		let precision = options['precision'];
-		'<circle cx="%" cy="%" r="%" />'.format([
-			self.center[1].printStringToFixed(precision),
-			self.center[2].printStringToFixed(precision),
-			self.radius.printStringToFixed(precision)
-		])
+		'<circle cx="%" cy="%" r="%" />'.format(
+			[
+				self.center[1].printStringToFixed(precision),
+				self.center[2].printStringToFixed(precision),
+				self.radius.printStringToFixed(precision)
+			]
+		)
 	}
 
 	perimeter { :self |

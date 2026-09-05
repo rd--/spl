@@ -78,7 +78,10 @@ Svg : [Object] { | contents |
 		let yRange = boundingBox.height;
 		let precision = (3 - yRange.log10.round).max(0);
 		let scaleFactor = (height / boundingBox.height);
-		let scaledBoundingBox = Rectangle(boundingBox.lowerLeft * scaleFactor, boundingBox.upperRight * scaleFactor); /* ? */
+		let scaledBoundingBox = Rectangle(
+			boundingBox.lowerLeft * scaleFactor,
+			boundingBox.upperRight * scaleFactor
+		); /* ? */
 		let options = (precision: precision, scaleFactor: scaleFactor);
 		let strokeWith = (0.5 / scaleFactor);
 		let yTranslation = scaledBoundingBox.height + (2 * scaledBoundingBox.lowerLeft[2]);
@@ -107,7 +110,7 @@ Svg : [Object] { | contents |
 			self(options),
 			'</g>',
 			'</svg>'
-		].flatten.unlines.Svg
+		].flatten.reject(isEmpty:/1).unlines.Svg
 	}
 
 }
