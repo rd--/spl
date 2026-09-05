@@ -9,7 +9,12 @@ The modulus operator `mod`.
 mod(8, 3)
 ```
 
-The name of this operator is `percentSign`.
+The name of this operator is `percentSign`:
+
+```
+>>> 'm % n'.splSimplify
+'percentSign(m, n)'
+```
 
 * * *
 

@@ -41,7 +41,7 @@
 	}
 
 	hasEqualSlots { :self :anObject |
-		self.hasEqualSlots(anObject, =)
+		self.hasEqualSlots(anObject, equal:/2)
 	}
 
 	primitiveEquals { :self :anObject |

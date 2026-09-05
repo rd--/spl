@@ -57,8 +57,8 @@
 		}
 	}
 
-	allEqual { :self |
-		self.allEqualBy(=)
+	[allEqual, =] { :self |
+		self.allEqualBy(equal:/2)
 	}
 
 	allEqualTo { :self :anObject |
@@ -267,7 +267,7 @@
 	}
 
 	[deleteDuplicates, nub] { :self |
-		self.deleteDuplicates(=)
+		self.deleteDuplicates(equal:/2)
 	}
 
 	[deleteDuplicates, nubBy] { :self :aBlock:/2 |
@@ -309,7 +309,7 @@
 	}
 
 	differenceAll { :self :aCollection |
-		self.differenceAll(aCollection, =)
+		self.differenceAll(aCollection, equal:/2)
 	}
 
 	discreteDelta { :self |
@@ -716,7 +716,7 @@
 		self.isEmpty.if {
 			0
 		} {
-			self.reduce(+)
+			self.reduce(plus:/2)
 		}
 	}
 
@@ -746,7 +746,7 @@
 	}
 
 	tally { :self |
-		self.tally(=)
+		self.tally(equal:/2)
 	}
 
 	threshold { :self :epsilon |

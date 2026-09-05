@@ -118,7 +118,7 @@
 	}
 
 	levenshteinDistance { :self :other |
-		self.levenshteinDistance(other, =)
+		self.levenshteinDistance(other, equal:/2)
 	}
 
 	levenshteinDistance { :self :other :equalityBlock:/2 |
@@ -149,7 +149,7 @@
 
 	matchingDissimilarity { :u :v |
 		(u.size = v.size).if {
-			u.withCollect(v, =).occurrencesOf(false) / u.size
+			u.withCollect(v, equal:/2).occurrencesOf(false) / u.size
 		} {
 			[u, v].error('matchingDissimilarity: invalid input')
 		}
@@ -697,7 +697,7 @@
 	sequenceAlignment { :a :b |
 		let [c, d] = needlemanWunschAlgorithm(a, b, nil, [1, -1, -1]);
 		let e = c =.each d;
-		let p = split(e, =);
+		let p = split(e, equal:/2);
 		let q = p.collect(size:/1);
 		let r = [1] ++ (q.prefixSum + 1);
 		(1 .. p.size).collect { :i |

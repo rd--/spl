@@ -465,7 +465,7 @@
 	}
 
 	isDiagonallyDominantMatrix { :self |
-		self.isDiagonallyDominantMatrix(>=)
+		self.isDiagonallyDominantMatrix(greaterEqual:/2)
 	}
 
 	isLowerTriangularMatrix { :self :k |

@@ -199,7 +199,7 @@
 	}
 
 	hasEqualElements { :self :aDictionary |
-		self.hasEqualElements(aDictionary, =)
+		self.hasEqualElements(aDictionary, equal:/2)
 	}
 
 	include { :self :anAssociation |
@@ -639,7 +639,7 @@ Dictionary : [Object, Storeable, Copyable, Equatable, Iterable, Indexable, Colle
 +Void {
 
 	Dictionary {
-		newDictionary().initializeSlots([], [], =)
+		newDictionary().initializeSlots([], [], equal:/2)
 	}
 
 }

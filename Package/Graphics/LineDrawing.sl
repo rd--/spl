@@ -4,7 +4,7 @@ LineDrawing : [Object] { | contents metadata |
 		let svgText = self.asSvg;
 		let svgEncoded = svgText.asciiByteArray.base64Encode;
 		let svgEncodedPretty = svgEncoded.chunksOf(76).unlines;
-		'<img src="data:image/svg+xml;base64,\n%\n">'.format([svgEncodedPretty])
+		'<img src="data:image/svg+xml;base64,\n%">'.format([svgEncodedPretty])
 	}
 
 	asLineDrawing { :self |

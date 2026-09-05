@@ -8,7 +8,7 @@ Dictionaries are written as association lists between special squared brackets:
 
 ```
 >> 'Dictionary[k -> v]'.splSimplify
-Dictionary([->(k, v)])
+Dictionary([hyphenMinusGreaterThanSign(k, v)])
 
 >> 'Dictionary[]'.splSimplify
 Dictionary([])

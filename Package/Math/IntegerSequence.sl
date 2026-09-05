@@ -727,7 +727,7 @@
 		fixedLength.ifNotNil {
 			d := d.padLeft([fixedLength], 0)
 		};
-		d.sort(>).fromDigits(base) - d.sort(<).fromDigits(base)
+		d.sort(greater:/2).fromDigits(base) - d.sort(less:/2).fromDigits(base)
 	}
 
 	kaprekarMap { :self :base |
@@ -784,7 +784,7 @@
 
 	lookAndSay { :n :b |
 		n.integerDigits(b)
-		.split(=)
+		.split(equal:/2)
 		.collectCatenate { :x |
 			[x.size, x.first]
 		}
@@ -799,7 +799,7 @@
 			[
 				'A' -> {
 					{ :n |
-						n.split(=)
+						n.split(equal:/2)
 						.collectCatenate { :x |
 							[x.size, x.first]
 						}
@@ -918,7 +918,11 @@
 		let z = [3];
 		1.toDo(n - 1) { :i |
 			z.add(
-				(i.integerDigits(2).split(=).size + 4).fibonacci
+				(
+					i.integerDigits(2)
+					.split(equal:/2)
+					.size + 4
+				).fibonacci
 			)
 		};
 		z

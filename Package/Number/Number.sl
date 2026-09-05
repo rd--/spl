@@ -1019,7 +1019,7 @@
 	}
 
 	stope { :x :p :y |
-		(x + (p * ([1 .. y] - 1))).reduce(*)
+		(x + (p * ([1 .. y] - 1))).reduce(times:/2)
 	}
 
 	strictlyPositive { :self |

@@ -27,11 +27,11 @@ PlotSet : [Object] { | plotMatrix:<List> |
 							),
 							d.drawing.contents,
 							'</g>'
-						].unlines
+						].stringIntercalate('\n')
 					} {
 						''
 					}
-				}.table(1:m, 1:n).catenate.unlines,
+				}.table(1:m, 1:n).catenate.stringIntercalate('\n'),
 				'</svg>'
 			].unlines
 		)

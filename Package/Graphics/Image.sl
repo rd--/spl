@@ -20,7 +20,7 @@ Image : [Object] { | contents |
 				}
 			}.unwords
 		};
-		(header ++ rows ++ ['']).unlines
+		(header ++ rows).unlines
 	}
 
 	height { :self |

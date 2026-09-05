@@ -90,7 +90,7 @@
 	}
 
 	quickSort { :self |
-		self.quickSortBy(<=)
+		self.quickSortBy(lessEqual:/2)
 	}
 
 }

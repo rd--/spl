@@ -14,6 +14,19 @@ At `Block`:
 'sqrt:/1'
 ```
 
+Note that aliased blocks are not equal, because they have different names:
+
+```
+>>> =.name
+'equalsSign:/2'
+
+>>> equal:/2.name
+'equal:/2'
+
+>>> = = equal:/2
+false
+```
+
 The name of an anonymous block is the empty `String`:
 
 ```

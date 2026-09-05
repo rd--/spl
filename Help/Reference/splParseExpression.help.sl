@@ -49,12 +49,12 @@ Infix application is written in prefix form:
 >>> 'x + y'
 >>> .splParseExpression
 >>> .asString
-'(𝒫 (+ x y))'
+'(𝒫 (plusSign x y))'
 
 >>> 'x + (y * z)'
 >>> .splParseExpression
 >>> .asString
-'(𝒫 (+ x (* y z)))'
+'(𝒫 (plusSign x (asterisk y z)))'
 ```
 
 `Fraction`, `Complex` and `Residue` are written as applications:
@@ -111,7 +111,7 @@ The `hypotenuse` function:
 >>> '{ :x :y | ((x * x) + (y * y)).sqrt }'
 >>> .splParseExpression
 >>> .asString
-'(𝒫 (𝜆 (𝓐 x y) (sqrt (+ (* x x) (* y y)))))'
+'(𝒫 (𝜆 (𝓐 x y) (sqrt (plusSign (asterisk x x) (asterisk y y)))))'
 ```
 
 * * *

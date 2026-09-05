@@ -194,17 +194,17 @@ sqrt(9)
 min(-1,1)
 
 >> 'x.-'.splSimplify
--(x)
+hyphenMinus(x)
 ```
 
 `Binary Operator Syntax` is rewritten as `Apply Syntax`:
 
 ```
 >> '3 + 4'.splSimplify
-+(3, 4)
+plusSign(3, 4)
 
 >> '3 + 4 * 0.1'.splSimplify
-*(+(3, 4), 0.1)
+asterisk(plusSign(3, 4), 0.1)
 ```
 
 `Trailing Block Syntax` is rewritten as `Apply Syntax`:
@@ -238,7 +238,7 @@ x(q(p), b(a))
 
 ```
 >> 'c[i + 1]'.splSimplify
-at(c, +(i, 1))
+at(c, plusSign(i, 1))
 ```
 
 `AtPut Syntax` is rewritten as `Apply Syntax`:
@@ -299,9 +299,9 @@ uncheckedSlotWrite(a, 'b', c)
 Simplify `hypotenuse` function:
 
 ```
->> '{ :x :y | ((x * x) + (y * y)).sqrt }'
+>> '{ :x :y | [x y].square.sum.sqrt }'
 >> .splSimplify
-{ :x :y | sqrt((+((*(x, x)), (*(y, y))))) }
+{ :x :y | sqrt(sum(square([x, y]))) }
 ```
 
 _Type Extension_ and _Trait Extension_ expressions are rewritten as a _Method Definitions_ expressions:

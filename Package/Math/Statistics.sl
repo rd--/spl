@@ -123,11 +123,11 @@
 
 	quantile { :self :p :o |
 		self.isVector.if {
-			self.asSortedList(<=).quantile(p, o)
+			self.asSortedList(lessEqual:/2).quantile(p, o)
 		} {
 			self.isMatrix.if {
 				self.transpose.collect { :each |
-					each.asSortedList(<=).quantile(p, o)
+					each.asSortedList(lessEqual:/2).quantile(p, o)
 				}
 			} {
 				'Collection>>quantile: not vector or matrix'
@@ -191,7 +191,7 @@
 		let [f1, f2] = f;
 		let n = self.size;
 		ListView(
-			self.sorted(<=),
+			self.sorted(lessEqual:/2),
 			1 + (f1 * n).floor,
 			n - (f2 * n).floor,
 			1
@@ -301,7 +301,7 @@
 	}
 
 	median { :self |
-		self.asSortedList(<=).median
+		self.asSortedList(lessEqual:/2).median
 	}
 
 	spearmanRho { :u :v |

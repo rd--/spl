@@ -161,4 +161,3 @@ A table of useful unison vectors for septimal harmony:
 * * *
 
 Guides: Tuning Functions, Xenharmonic Functions
-

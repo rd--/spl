@@ -64,7 +64,7 @@ Sl {
 		| literal
 		| identifier
         | systemVariableIdentifier // This is only required in two places, and should be localised (it cannot be written IN Spl though...)
-		| operator
+		| operatorFree
 		| VectorSyntax
 		| MatrixSyntax
 		| VolumeSyntax
@@ -87,7 +87,7 @@ Sl {
 
 	DotExpressionWithTrailingClosuresSyntax = Primary "." selectorName NonEmptyParameterList? Block+
 	DotExpressionWithAssignmentSyntax = Primary "." selectorName ":=" Expression
-	DotExpression = Primary ("." (selectorName | boundOperator) ~("{" | ":=") NonEmptyParameterList? ~("{" | "("))+
+	DotExpression = Primary ("." (selectorName | operatorBound) ~("{" | ":=") NonEmptyParameterList? ~("{" | "("))+
 
 	Block = "{" Arguments? Temporaries? Primitive? Statements? "}"
 	Arguments = argumentName+ "|"
@@ -97,7 +97,7 @@ Sl {
 	FinalExpression = Expression
 
 	ApplyWithTrailingClosuresSyntax = selectorName NonEmptyParameterList? Block+
-	ApplySyntax = (selectorName | boundOperator) ParameterList
+	ApplySyntax = (selectorName | operatorBound) ParameterList
     ListConstructorSyntax = typeName (EmptyListSyntax | VectorSyntax | MatrixSyntax | VolumeSyntax | ListSyntax | ListRangeSyntax)
     RecordConstructorSyntax = typeName NonEmptyRecordSyntax
     StringConstructorSyntax = typeName singleQuotedStringLiteral
@@ -121,7 +121,7 @@ Sl {
 	EmptyListSyntax = "[" "]"
 	VectorSyntax = "[" VectorSyntaxItem+ "]"
 	VectorSyntaxItem = VectorSyntaxUnarySend | literal | reservedIdentifier | identifier
-	VectorSyntaxUnarySend = (literal | identifier) "." (selectorName | boundOperator)
+	VectorSyntaxUnarySend = (literal | identifier) "." (selectorName | operatorBound)
 	MatrixSyntax = "[" NonemptyListOf<MatrixSyntaxItems, ";"> "]"
 	MatrixSyntaxItems = VectorSyntaxItem*
 	VolumeSyntax = "[" NonemptyListOf<VolumeSyntaxItems, ":;"> "]"
@@ -132,7 +132,7 @@ Sl {
 	negatedIdentifier = "-" lowercaseIdentifier
 	arityQualifiedIdentifier = letter letterOrDigit* (":/" digit+)
 	identifier = arityQualifiedIdentifier | unqualifiedIdentifier | negatedIdentifier
-	methodName = unqualifiedIdentifier | operator
+	methodName = unqualifiedIdentifier | operatorBound
 	selectorName = unqualifiedIdentifier
 	unusedVariableIdentifier = "_"
 	systemVariableIdentifier = "__SplVar" digit+
@@ -153,10 +153,11 @@ Sl {
 	reservedIdentifier = ("nil" | "true" | "false") ~letterOrDigit
 	infixMethod = lowercaseIdentifier ":"
 	operator = operatorChar+
-	boundOperator = operatorChar+
+	operatorBound = operatorChar+
+    operatorFree = operatorChar+
 	operatorWithAdverb = operatorWithBinaryAdverb | operatorWithUnaryAdverb
 	operatorWithUnaryAdverb = operator "." selectorName
-	operatorWithBinaryAdverb = operator "." selectorName "(" (operator | arityQualifiedIdentifier | numberLiteral) ")"
+	operatorWithBinaryAdverb = operator "." selectorName "(" (operatorFree | arityQualifiedIdentifier | numberLiteral) ")"
 	operatorChar = "!" | "%" | "&" | "*" | "+" | "/" | "<" | "=" | ">" | "?" | "@" | "~" | "|" | "-" | "^" | "#" | "$" | "\\"
 	plusOrMinus = "+" | "-"
     symbolicCharacterLiteral = "𝒂" | "𝒃" | "𝒄" | "𝒅" | "𝒆" | "𝒇" | "𝒈" | "𝒉" | "𝒊" | "𝒋" | "𝒌" | "𝒍" | "𝒎" | "𝒏" | "𝒐" | "𝒑" | "𝒒" | "𝒓" | "𝒔" | "𝒕" | "𝒖" | "𝒗" | "𝒘" | "𝒙" | "𝒚" | "𝒛"

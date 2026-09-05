@@ -16,7 +16,7 @@ Greymap : [Object] { | contents |
 				}
 			}.unwords
 		};
-		(header ++ rows ++ ['']).unlines
+		(header ++ rows).unlines
 	}
 
 	drawing { :self |

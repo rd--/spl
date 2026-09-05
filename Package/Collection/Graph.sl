@@ -153,7 +153,7 @@
 	}
 
 	degreeSequence { :self |
-		self.vertexDegree.sortBy(>)
+		self.vertexDegree.sortBy(greater:/2)
 	}
 
 	dijkstrasAlgorithm { :g :s :t |

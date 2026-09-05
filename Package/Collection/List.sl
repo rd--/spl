@@ -155,7 +155,7 @@ List! : [Object, Storeable, Equatable, Comparable, Json, Iterable, Indexable, Co
 	}
 
 	recordPositions { :self |
-		self.recordPositions(>)
+		self.recordPositions(greater:/2)
 	}
 
 	recordValuesAndPositions { :self :aBlock:/2 |
@@ -179,7 +179,7 @@ List! : [Object, Storeable, Equatable, Comparable, Json, Iterable, Indexable, Co
 	}
 
 	recordValues { :self |
-		self.recordValues(>)
+		self.recordValues(greater:/2)
 	}
 
 	reflectionMatrix { :self |

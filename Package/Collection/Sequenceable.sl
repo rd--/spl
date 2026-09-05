@@ -696,7 +696,7 @@
 	}
 
 	deleteAdjacentDuplicates { :self |
-		self.deleteAdjacentDuplicates(=)
+		self.deleteAdjacentDuplicates(equal:/2)
 	}
 
 	detectEquispacedTriple { :self :aBlock:/3 |
@@ -1314,7 +1314,7 @@
 	}
 
 	hasEqualElements { :self :otherCollection |
-		self.hasEqualElements(otherCollection, =)
+		self.hasEqualElements(otherCollection, equal:/2)
 	}
 
 	includes { :self :anObject |
@@ -1330,7 +1330,7 @@
 	}
 
 	indexOf { :self :anElement |
-		self.indexOfStartingAtBy(anElement, 1, =)
+		self.indexOfStartingAtBy(anElement, 1, equal:/2)
 	}
 
 	indexOfBy { :self :anElement :aBlock:/2 |
@@ -1338,7 +1338,7 @@
 	}
 
 	indexOfIfAbsent { :self :anElement :exceptionBlock:/0 |
-		let index = self.indexOfStartingAtBy(anElement, 1, =);
+		let index = self.indexOfStartingAtBy(anElement, 1, equal:/2);
 		(index = 0).if {
 			exceptionBlock()
 		} {
@@ -1455,7 +1455,7 @@
 		(self.size <= 1).if {
 			true
 		} {
-			self.isArithmeticProgression(self.second - self.first, =)
+			self.isArithmeticProgression(self.second - self.first, equal:/2)
 		}
 	}
 
@@ -1475,7 +1475,7 @@
 		(self.size <= 1).if {
 			true
 		} {
-			self.isGeometricProgressionBy(self.second / self.first, =)
+			self.isGeometricProgressionBy(self.second / self.first, equal:/2)
 		}
 	}
 
@@ -1619,7 +1619,7 @@
 	}
 
 	isUnimodal { :x |
-		x.isUnimodal(<=)
+		x.isUnimodal(lessEqual:/2)
 	}
 
 	isVeryCloseTo { :self :anObject |
@@ -1929,7 +1929,7 @@
 	}
 
 	nubCumulatively { :self |
-		self.nubCumulatively(=)
+		self.nubCumulatively(equal:/2)
 	}
 
 	nubSieve { :self |
@@ -2162,7 +2162,7 @@
 	replaceAllWith { :self :oldObject :newObject |
 		let index = 0;
 		{
-			index := self.indexOfStartingAtBy(oldObject, index + 1, =);
+			index := self.indexOfStartingAtBy(oldObject, index + 1, equal:/2);
 			index = 0
 		}.whileFalse {
 			self[index] := newObject
@@ -2457,7 +2457,7 @@
 		let step = {
 			let bit = taps.collect { :i |
 				register[k + 1 - i]
-			}.reduce(+) % 2;
+			}.reduce(plus:/2) % 2;
 			register.removeLast;
 			register.addFirst(bit);
 			bit
@@ -2768,7 +2768,7 @@
 	}
 
 	uniqueElements { :self |
-		self.uniqueElements(=)
+		self.uniqueElements(equal:/2)
 	}
 
 	uniqueElements { :self :aBlock:/2 |

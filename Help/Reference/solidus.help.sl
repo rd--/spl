@@ -1,7 +1,7 @@
 # / (solidus)
 
 - _m / n_
-- _m./_
+- _n./_
 
 The binary form is `divide`.
 
@@ -25,7 +25,15 @@ reciprocal(4)
 
 Where supported `/` is displayed as ÷.
 
-The name of this operator is `solidus`.
+The name of this operator is `solidus`:
+
+```
+>>> 'm / n'.splSimplify
+'solidus(m, n)'
+
+>>> 'n./'.splSimplify
+'solidus(n)'
+```
 
 This glyph forms part of the `Fraction Syntax`:
 

@@ -6,9 +6,10 @@ Answers either a new `Promise` resolved with the object _x_,
 or _x_ itself if it is a `Promise`.
 
 ```
->>> let promise = 'answer'.resolvedPromise;
->>> promise.isPromise
-true
+>>> let p = 'x'.resolvedPromise;
+>>> let q = p.resolvedPromise;
+>>> (p.isPromise, q.isPromise, p == q)
+(true, true, true)
 ```
 
 * * *

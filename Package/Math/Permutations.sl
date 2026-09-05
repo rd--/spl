@@ -52,7 +52,7 @@ Permutation : [Object, Storeable, Equatable] { | cycles degree |
 	}
 
 	ascents { :self |
-		self.ascents(<)
+		self.ascents(less:/2)
 	}
 
 	asPermutation { :self |
@@ -60,11 +60,11 @@ Permutation : [Object, Storeable, Equatable] { | cycles degree |
 	}
 
 	decreasingRuns { :self |
-		self.runs(>)
+		self.runs(greater:/2)
 	}
 
 	descents { :self |
-		self.ascents(>)
+		self.ascents(greater:/2)
 	}
 
 	dictionary { :self |
@@ -359,7 +359,7 @@ Permutation : [Object, Storeable, Equatable] { | cycles degree |
 	}
 
 	runs { :self |
-		self.runs(<)
+		self.runs(less:/2)
 	}
 
 	signature { :self |
@@ -845,7 +845,7 @@ Permutation : [Object, Storeable, Equatable] { | cycles degree |
 			(entries.size = 1).if {
 				entries.first
 			} {
-				entries.reduce(*)
+				entries.reduce(times:/2)
 			}
 		}
 	}

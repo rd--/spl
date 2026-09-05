@@ -87,7 +87,7 @@
 	}
 
 	mergeSort { :self |
-		self.mergeSortBy(<)
+		self.mergeSortBy(less:/2)
 	}
 
 	mergeSortWithIndices { :self :sortBlock:/2 |
@@ -103,7 +103,7 @@
 	}
 
 	mergeSortWithIndices { :self |
-		self.mergeSortWithIndices(<)
+		self.mergeSortWithIndices(less:/2)
 	}
 
 }

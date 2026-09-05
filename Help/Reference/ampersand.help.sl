@@ -8,9 +8,20 @@ The operator form of `and`.
 ```
 >>> true & { false }
 and(true, { false })
+
+>>> [{ 3 > 2 }, { 2 > 1 }].&
+true
 ```
 
-The name of this operator is `ampersand`.
+The name of this operator is `ampersand`:
+
+```
+>>> 'p & q'.splSimplify
+'ampersand(p, q)'
+
+>>> 'p.&'.splSimplify
+'ampersand(p)'
+```
 
 _Note:_
 In Smalltalk the evaluating form is called _and:_ and the non-evaluating form _&_.
@@ -18,7 +29,7 @@ In Sᴘʟ the names are _&_ and _&&_.
 
 * * *
 
-See also: |, &&, and, or
+See also: |, &&, allSatisfy, ampersand, and, or
 
 Guides: Boolean Functions, Binary Operators, Logical Operators
 

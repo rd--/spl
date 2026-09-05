@@ -1002,7 +1002,7 @@ Plot : [Object] { | pageList format options |
 					'    <mpath href="#P1" />',
 					'  </animateMotion>',
 					'</circle>'
-				].unlines
+				].stringIntercalate('\n')
 			}.scaledFragments(height, boundingCoordinates)
 		} {
 			self.error('pathPlot')

@@ -711,7 +711,7 @@
 		self.isOne.if {
 			[]
 		} {
-			self.factorInteger.column(2).sort(>)
+			self.factorInteger.column(2).sort(greater:/2)
 		}
 	}
 

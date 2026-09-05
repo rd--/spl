@@ -327,7 +327,7 @@
 	}
 
 	includes { :self :anObject |
-		self.includesBy(anObject, =)
+		self.includesBy(anObject, equal:/2)
 	}
 
 	includesAny { :self :aCollection |
@@ -392,7 +392,7 @@
 	}
 
 	isDuplicateFree { :self |
-		self.isDuplicateFree(=)
+		self.isDuplicateFree(equal:/2)
 	}
 
 	isIterable { :unused |
@@ -539,7 +539,7 @@
 		self.ifEmpty {
 			1
 		} {
-			self.reduce(*)
+			self.reduce(times:/2)
 		}
 	}
 
@@ -605,7 +605,7 @@
 	}
 
 	sum { :self |
-		self.reduce(+)
+		self.reduce(plus:/2)
 	}
 
 	sumOfSquares { :self |

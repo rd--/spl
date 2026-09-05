@@ -23,7 +23,7 @@ DyckWord : [Object, Storeable] { | word tokens |
 		let h = self.heightList;
 		1.toDo(n) { :i |
 			(w[i] = a).ifTrue {
-				let j = h.indexOfStartingAtBy(h[i], i + 1, =) - 1;
+				let j = h.indexOfStartingAtBy(h[i], i + 1, equal:/2) - 1;
 				e.add([i, j])
 			}
 		};

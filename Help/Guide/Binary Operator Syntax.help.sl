@@ -11,7 +11,7 @@ Binary operators are written _α + β_:
 7
 
 >> '3 + 4'.splSimplify
-+(3, 4)
+plusSign(3, 4)
 ```
 
 Binary operators associate to the left, _α + β * γ_ = _(α + β) * γ_:
@@ -21,7 +21,7 @@ Binary operators associate to the left, _α + β * γ_ = _(α + β) * γ_:
 35
 
 >> '3 + 4 * 5'.splSimplify
-*(+(3, 4), 5)
+asterisk(plusSign(3, 4), 5)
 ```
 
 Binary operators are grouped using parentheses:
@@ -31,7 +31,7 @@ Binary operators are grouped using parentheses:
 23
 
 >> '3 + (4 * 5)'.splSimplify
-+(3, (*(4, 5)))
+plusSign(3, (asterisk(4, 5)))
 ```
 
 Binary operators have lower precedence than ordinary application,

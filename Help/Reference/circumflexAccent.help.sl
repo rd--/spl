@@ -1,7 +1,7 @@
 # ^ (circumflexAccent)
 
 - _m ^ n_
-- _m.^_
+- _n.^_
 
 The binary form is `power`.
 
@@ -19,7 +19,15 @@ exp(1)
 
 Where supported `^` is displayed as ˆ.
 
-The name of this operator is `circumflexAccent`.
+The name of this operator is `circumflexAccent`:
+
+```
+>>> 'm ^ n'.splSimplify
+'circumflexAccent(m, n)'
+
+>>> 'n.^'.splSimplify
+'circumflexAccent(n)'
+```
 
 _Note:_
 In Smalltalk ^ is the _return_ operator,
@@ -27,7 +35,7 @@ in C it is the _exclusive or_ operator.
 
 * * *
 
-See also: +, -, *, /, exp, power
+See also: +, -, *, /, circumflexAccent, exp, power
 
 Guides: Arithmetic Functions, Binary Operators
 

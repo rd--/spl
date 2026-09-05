@@ -608,7 +608,7 @@
 	}
 
 	similarity { :self :other |
-		self.similarity(other, =)
+		self.similarity(other, equal:/2)
 	}
 
 	similarity { :self :other :equalityBlock:/2 |

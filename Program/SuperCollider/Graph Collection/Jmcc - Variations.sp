@@ -1,21 +1,18 @@
 /* Alien froggies (Jmcc) #1 ; left-to-right */
 { :tr |
-	let trRand = { :tr :lo :hi | TRand(lo, hi, tr) };
-	let trExpRand = { :tr :lo :hi | TExpRand(lo, hi, tr) };
-	let r = tr.trRand(-0.2, [0.1, 0.2]).Exp.Times(11).Fold(1, 30);
+	let r = TRand(-0.2, [0.1, 0.2], tr).Exp.Times(11).Fold(1, 30);
 	r.Formant(
-		tr.trExpRand([200, 300], 3000),
-		tr.trRand([0, 1], 9).MulAdd(r, r)
+		TExpRand([200, 300], 3000, tr),
+		TRand([0, 1], 9, tr).MulAdd(r, r)
 	).Times(0.05)
 }.OverlapTexture(0.5, 0.25, 5).Mix
 
 /* Alien meadow (Jmcc) #6 ; left-to-right */
 { :tr |
-	let trRand = { :lo :hi | TRand(lo, hi, tr) };
-	let z = trRand(0, 5000);
-	let f = SinOsc(trRand(0, 20), 0).MulAdd(0.1 * z, z);
-	let a = SinOsc(trRand(0, 20), 0).MulAdd(0.05, 0.05);
-	SinOsc(f, 0).Pan2(trRand(-1, 1), a)
+	let z = TRand(0, 5000, tr);
+	let f = SinOsc(TRand(0, 20, tr), 0).MulAdd(0.1 * z, z);
+	let a = SinOsc(TRand(0, 20, tr), 0).MulAdd(0.05, 0.05);
+	SinOsc(f, 0).Pan2(TRand(-1, 1, tr), a)
 }.OverlapTexture(6, 2, 6).Mix
 
 /* Analog bubbles (Jmcc) ; Method notation */
@@ -185,11 +182,10 @@ let s = Pan2(SinOsc(f, 0) * a, LfNoise1(Rand(0, 5)), 1);
 
 /* Deep trip (Jmcc) #9 ; graph rewrite ; left-to-right */
 { :tr |
-	let trRand = { :lo :hi | TRand(lo, hi, tr) };
-	let f = LfNoise1(trRand(0, 0.3)).MulAdd(60, 70).MidiCps;
-	let a = LfNoise2(f.Times(trRand(0, 0.5))).Times((LfNoise1(trRand(0, 8)).Times(SinOsc(trRand(0, 40), 0)).Times(0.1)).Max(0));
-	let s = SinOsc(f, 0).Times(a).Pan2(LfNoise1(trRand(0, 5)), 1);
-	{ s.CombN(0.5, { trRand(0, 0.2) + 0.3 } ! 2, 20) } !+ 2 + s
+	let f = LfNoise1(TRand(0, 0.3, tr)).MulAdd(60, 70).MidiCps;
+	let a = LfNoise2(f.Times(TRand(0, 0.5, tr))).Times((LfNoise1(TRand(0, 8, tr)).Times(SinOsc(TRand(0, 40, tr), 0)).Times(0.1)).Max(0));
+	let s = SinOsc(f, 0).Times(a).Pan2(LfNoise1(TRand(0, 5, tr)), 1);
+	{ s.CombN(0.5, { TRand(0, 0.2, tr) + 0.3 } ! 2, 20) } !+ 2 + s
 }.OverlapTexture(12, 4, 4).Mix
 
 /* Hard sync sawtooth with lfo (Jmcc) #6 ; graph-rewrite ; left-to-right */
@@ -218,9 +214,8 @@ let t = XLine([10, 11], 0.1, 60);
 
 /* Hell is busy (Jmcc) #1 ; graph rewrite ; left-to-right */
 { :tr |
-	let trRand = { :lo :hi | TRand(lo, hi, tr) };
-	let e = LfPulse(trRand(1, 11), 0, trRand(0, 0.7)) * 0.04;
-	SinOsc(trRand(400, 2400), 0).Pan2(trRand(-1, 1), e)
+	let e = LfPulse(TRand(1, 11, tr), 0, TRand(0, 0.7, tr)) * 0.04;
+	SinOsc(TRand(400, 2400, tr), 0).Pan2(TRand(-1, 1, tr), e)
 }.OverlapTexture(4, 4, 8).Mix
 
 /* Lfo modulation (Jmcc) #1 */

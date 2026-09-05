@@ -11,7 +11,7 @@
 	includesScatteredSubsequence { :self :aList |
 		valueWithReturn { :return:/1 |
 			1.to(self.size).powerSetDo { :each |
-				each.isArithmeticProgression(1, =).ifFalse {
+				each.isArithmeticProgression(1, equal:/2).ifFalse {
 					(self @* each = aList).ifTrue {
 						true.return
 					}
@@ -25,7 +25,7 @@
 		valueWithReturn { :return:/1 |
 			let i = 1;
 			aList.do { :each |
-				i := self.indexOfStartingAtBy(each, i, =);
+				i := self.indexOfStartingAtBy(each, i, equal:/2);
 				(i = 0).ifTrue {
 					false.return
 				}

@@ -39,7 +39,7 @@ function genVarSym(): string {
 }
 
 function genName(name: string, arity: number): string {
-	return `${resolveMethodName(name)}_${arity}`;
+	return `${name}_${arity}`;
 }
 
 /*
@@ -61,19 +61,20 @@ function genArityCheck(k: number, a: string): string {
 	].join('\n');
 }
 
-// n = names, b = bodies
-function rewriteMethodListToCore(n: ohm.Node, b: ohm.Node): string[] {
-	const nArray = n.children;
-	const bArray = b.children;
+// nList = names, bList = bodies
+function rewriteMethodListToCore(nList: ohm.Node, bList: ohm.Node): string[] {
+	const nArray = nList.children;
+	const bArray = bList.children;
 	const k = nArray.length;
 	const answer = [];
 	for (let i = 0; i < k; i++) {
 		const n = nArray[i];
+		const nResolved = n.asSl;
 		const b = bArray[i];
 		const bInitial = b.sourceString;
 		const bCore = b.asSl;
 		context.methodBodyInitialSourceTable.set(bCore, bInitial);
-		answer.push('\t' + n.sourceString + ' ' + bCore);
+		answer.push('\t' + nResolved + ' ' + bCore);
 	}
 	return answer;
 }
@@ -298,10 +299,6 @@ const asJs: ohm.ActionDict<string> = {
 	arityQualifiedIdentifier(c1, cN, _s, a) {
 		return `_${c1.sourceString}${cN.sourceString}_${a.sourceString}`;
 	},
-	boundOperator(op) {
-		const name = `_${resolveMethodName(op.sourceString)}`;
-		return name;
-	},
 	floatLiteral(s, i, _, f) {
 		return `${s.sourceString}${i.sourceString}.${f.sourceString}`;
 	},
@@ -381,10 +378,10 @@ slSemantics.addAttribute('asJs', asJs);
 
 const asSl: ohm.ActionDict<string> = {
 	ApplySyntax(rcv, arg) {
-		return `${rcv.sourceString}(${arg.asSl})`;
+		return `${rcv.asSl}(${arg.asSl})`;
 	},
 	ApplyWithTrailingClosuresSyntax(name, args, trailing) {
-		return `${name.sourceString}(${
+		return `${name.asSl}(${
 			commaListSl(args.children.concat(trailing.children))
 		})`;
 	},
@@ -449,7 +446,7 @@ const asSl: ohm.ActionDict<string> = {
 		return `${name.asSl}(${lhs.asSl}, ${rhs.asSl})`;
 	},
 	DotExpressionWithTrailingClosuresSyntax(lhs, _dot, name, args, trailing) {
-		return `${name.sourceString}(${
+		return `${name.asSl}(${
 			commaListSl([lhs].concat(args.children, trailing.children))
 		})`;
 	},
@@ -507,6 +504,9 @@ const asSl: ohm.ActionDict<string> = {
 	},
 	MatrixSyntaxItems(items) {
 		return `[${commaListSl(items.children)}]`;
+	},
+	MethodNameList(_l, items, _r) {
+		return `[${commaListSl(items.asIteration().children)}]`
 	},
 	MethodDefinitions(_p, _l, n, _r, _lc, mn, mb, _rc) {
 		const begin = `+[${n.sourceString}] {`;
@@ -703,13 +703,32 @@ const asSl: ohm.ActionDict<string> = {
 		return `negate(${i.asSl})`;
 	},
 	operator(op) {
-		return op.sourceString;
+		const opName = resolveMethodName(op.sourceString);
+		// console.debug(`operator: ${opName}`);
+		return opName;
+	},
+	operatorBound(op) {
+		const opName = resolveMethodName(op.sourceString);
+		// console.debug(`operatorBound: ${opName}`);
+		return opName;
+	},
+	operatorFree(op) {
+		const opName = resolveMethodName(op.sourceString);
+		const qualifiedOpName = `${opName}:/2`;
+		// console.debug(`operatorFree: ${qualifiedOpName}`);
+		return qualifiedOpName;
 	},
 	operatorWithUnaryAdverb(op, _d, adverb) {
-		return `${adverb.sourceString}(${op.sourceString})`;
+		const opName = resolveMethodName(op.sourceString);
+		const qualifiedOpName = `${opName}:/2`;
+		// console.debug(`operatorWithUnaryAdverb: ${qualifiedOpName}`);
+		return `${adverb.sourceString}(${qualifiedOpName})`;
 	},
 	operatorWithBinaryAdverb(op, _d, adverb, _l, parameter, _r) {
-		return `${adverb.sourceString}(${op.sourceString}, ${parameter.asSl})`;
+		const opName = resolveMethodName(op.sourceString);
+		const qualifiedOpName = `${opName}:/2`;
+		// console.debug(`operatorWithBinaryAdverb: ${qualifiedOpName}`);
+		return `${adverb.sourceString}(${qualifiedOpName}, ${parameter.asSl})`;
 	},
 	radixIntegerLiteral(s, b, _r, i) {
 		const r = Number.parseInt(
@@ -838,8 +857,8 @@ const asAst: ohm.ActionDict<SlAst> = {
 	argumentName(_, x) {
 		return ['Identifier', x.sourceString];
 	},
-	boundOperator(x) {
-		return ['Operator', x.sourceString];
+	arityQualifiedIdentifier(c1, cN, _s, a) {
+		return ['Identitfied', c1.sourceString + cN.sourceString + ':/' + a.sourceString];
 	},
 	floatLiteral(s, i, _, f) {
 		const x = s.sourceString + i.sourceString + '.' + f.sourceString;
@@ -860,9 +879,15 @@ const asAst: ohm.ActionDict<SlAst> = {
 	nanLiteral(_n) {
 		return ['SmallFloat', 'NaN'];
 	},
-	operator(op) {
+	/*operator(op) {
 		return ['Operator', op.sourceString];
 	},
+	operatorBound(op) {
+		return ['Operator', op.sourceString];
+	},
+	operatorFree(op) {
+		return ['Operator', op.sourceString];
+	},*/
 	reservedIdentifier(x) {
 		return ['ReservedIdentifier', x.sourceString];
 	},
@@ -972,11 +997,10 @@ function makeMethod(
 	const blkParameters = methodBlock.parametersOf;
 	const blkJs = methodBlock.asJs;
 	const blkSrc = JSON.stringify(blkInitialSource);
-	const slName = resolveMethodName(methodName);
-	// console.debug('makeMethod', methodName, blkParameters);
+	// console.debug('makeMethod', slProc, methodName, blkParameters, context.packageName);
 	return typeOrTraitNameArray.map(function (typeOrTraitName) {
-		// console.debug(`makeMethod: '${slProc}', '${typeOrTraitName}', '${context.packageName}', '${methodName}'('${slName}'), ${blkParameters}`);
-		return `sl.${slProc}(\n\t'${typeOrTraitName}',\n\t'${context.packageName}',\n\t'${slName}',\n\t${
+		// console.debug('makeMethod', typeOrTraitName);
+		return `sl.${slProc}(\n\t'${typeOrTraitName}',\n\t'${context.packageName}',\n\t'${methodName}',\n\t${
 			JSON.stringify(blkParameters)
 		},\n\t${blkJs},\n\t${blkSrc}\n);\n\n`;
 	}).join('\n');

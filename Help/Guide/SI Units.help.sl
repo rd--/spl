@@ -26,8 +26,7 @@ Prefixes:
 - `milli`
 - `nano`
 - `pico`
-- `terra
-
+- `terra`
 
 A metric prefix is a unit prefix that precedes a basic unit of measure to indicate a multiple or submultiple of the unit.
 

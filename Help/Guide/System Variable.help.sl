@@ -22,7 +22,7 @@ such as `absoluteTime`,
 the `System` type is used in preference to `Void`.
 For methods that have parameters,
 such as `readTextFile`,
-the `System` type 
+the `System` type acts as a kind of _capability_ indicator.
 
 _Note_:
 There is some inconsistency about the rule for which methods are defined at system.
@@ -31,7 +31,7 @@ There is some inconsistency about the rule for which methods are defined at syst
 `splFileName` is defined at `System`,
 `splFilePath` is defined at `String`.
 It could perhaps be helpful to distinguish between the Sᴘʟ system and the _host_ or _device_,
-however that could be equally confusing.
+however that could be equally or more confusing.
 
 * * *
 

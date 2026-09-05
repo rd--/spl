@@ -1,7 +1,7 @@
 # - (hyphenMinus)
 
 - _m - n_
-- _m.-_
+- _n.-_
 
 The binary form is `substract`.
 
@@ -17,7 +17,15 @@ The unary form is `negate`.
 negate(3)
 ```
 
-The name of this operator is `hyphenMinus`.
+The name of this operator is `hyphenMinus`:
+
+```
+>>> 'm - n'.splSimplify
+'hyphenMinus(m, n)'
+
+>>> 'n.-'.splSimplify
+'hyphenMinus(n)'
+```
 
 Where supported `-` is displayed as −.
 

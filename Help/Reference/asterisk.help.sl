@@ -19,7 +19,15 @@ sign(-3)
 
 Where supported `*` is displayed as ×.
 
-The name of this operator is `asterisk`.
+The name of this operator is `asterisk`:
+
+```
+>>> 'm * n'.splSimplify
+'asterisk(m, n)'
+
+>>> 'n.*'.splSimplify
+'asterisk(n)'
+```
 
 * * *
 

@@ -106,7 +106,7 @@
 
 	isMonotonicallyIncreasing { :self |
 		self.isFinite & {
-			self.isSortedBy(<=)
+			self.isSortedBy(lessEqual:/2)
 		}
 	}
 
@@ -142,7 +142,7 @@
 
 	isStrictlyIncreasing { :self |
 		self.isFinite & {
-			self.isSortedBy(<)
+			self.isSortedBy(less:/2)
 		}
 	}
 
@@ -276,7 +276,7 @@
 	}
 
 	sortedWithIndices { :self |
-		self.sortedWithIndices(<)
+		self.sortedWithIndices(less:/2)
 	}
 
 	takeSmallest { :self :anInteger |
@@ -448,7 +448,7 @@
 	}
 
 	bubbleSort { :self |
-		self.bubbleSort(<)
+		self.bubbleSort(less:/2)
 	}
 
 	bubbleSortMatrix { :self |
@@ -484,7 +484,7 @@
 	}
 
 	insertionSort { :self |
-		self.insertionSort(<)
+		self.insertionSort(less:/2)
 	}
 
 	insertionSortMatrix { :self |
@@ -581,7 +581,7 @@
 	}
 
 	combSort { :self |
-		self.combSort(<)
+		self.combSort(less:/2)
 	}
 
 	combSortMatrix { :self |
@@ -706,7 +706,7 @@
 	}
 
 	bitonicSort { :self |
-		self.bitonicSort(<)
+		self.bitonicSort(less:/2)
 	}
 
 	bitonicSortMatrix { :self |
@@ -788,7 +788,7 @@
 	}
 
 	oddEvenSort { :self |
-		self.oddEvenSort(<)
+		self.oddEvenSort(less:/2)
 	}
 
 	oddEvenSortMatrix { :self |
@@ -829,7 +829,7 @@
 	}
 
 	gnomeSort { :self |
-		self.gnomeSort(<)
+		self.gnomeSort(less:/2)
 	}
 
 	gnomeSortMatrix { :self |
@@ -880,7 +880,7 @@
 	}
 
 	shuffleSort { :self |
-		self.shuffleSort(<)
+		self.shuffleSort(less:/2)
 	}
 
 	shuffleSortMatrix { :self |

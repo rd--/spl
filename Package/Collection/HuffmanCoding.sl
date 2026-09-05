@@ -1,7 +1,7 @@
 HuffmanCoding : [Object, Storeable, Equatable] { | symbolTable encoding |
 
 	decode { :self |
-		let codeTable = self.symbolTable.associations.sortByOn(<) { :x |
+		let codeTable = self.symbolTable.associations.sortByOn(less:/2) { :x |
 			x.value.size
 		}.reverse;
 		let codes = self.encoding;

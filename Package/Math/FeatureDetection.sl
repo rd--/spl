@@ -149,7 +149,7 @@
 	}
 
 	findRepeat { :self |
-		self.findRepeat(=)
+		self.findRepeat(equal:/2)
 	}
 
 	findTransientRepeat { :self :n :aBlock:/2 |
@@ -172,7 +172,7 @@
 	}
 
 	findTransientRepeat { :self :n |
-		self.findTransientRepeat(n, =)
+		self.findTransientRepeat(n, equal:/2)
 	}
 
 }

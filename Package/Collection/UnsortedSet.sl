@@ -58,7 +58,7 @@ UnsortedSet : [Object, Storeable, Equatable, Iterable, Collection, Extensible, R
 +Void {
 
 	UnsortedSet {
-		newUnsortedSet().initializeSlots([], =)
+		newUnsortedSet().initializeSlots([], equal:/2)
 	}
 
 }
@@ -80,11 +80,11 @@ UnsortedSet : [Object, Storeable, Equatable, Iterable, Collection, Extensible, R
 	}
 
 	union { :self |
-		self.unionBy(=)
+		self.unionBy(equal:/2)
 	}
 
 	union { :self :aCollection |
-		[self, aCollection].unionBy(=)
+		[self, aCollection].unionBy(equal:/2)
 	}
 
 }

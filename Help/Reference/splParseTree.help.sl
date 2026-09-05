@@ -20,7 +20,7 @@ At program:
 	'Program',
 	[
 		'Apply',
-		['Operator', '+'],
+		['Identifier', 'plusSign'],
 		['Identifier', 'x'],
 		['Identifier', 'y']
 	],
@@ -41,14 +41,14 @@ Reserved identifiers:
 ['ReservedIdentifier', 'false']
 ```
 
-Operators:
+Free operators:
 
 ```
 >>> '+'.splParseTree[2]
-['Operator', '+']
+['Identitfied', 'plusSign:/2']
 
 >>> '<=>'.splParseTree[2]
-['Operator', '<=>']
+['Identitfied', 'lessThanSignEqualsSignGreaterThanSign:/2']
 ```
 
 Lower-case and upper-case initial identifiers:
@@ -125,7 +125,7 @@ and the parse tree of the assigned expression:
 	['Identifier', 'x'],
 	[
 		'Apply',
-		['Operator', '+'],
+		['Identifier', 'plusSign'],
 		['Identifier', 'x'],
 		['SmallInteger', '1']
 	]
@@ -152,7 +152,7 @@ Infix application is not recorded especially:
 >>> 'x + y'.splParseTree[2]
 [
 	'Apply',
-	['Operator', '+'],
+	['Identifier', 'plusSign'],
 	['Identifier', 'x'],
 	['Identifier', 'y']
 ]
@@ -215,7 +215,7 @@ and the parse tree of the expression it is assigned to:
 ]
 ```
 
-If the expression is an _block_ expression,
+If the expression is a _block_ expression,
 the value is a `List` of,
 in sequence,
 any arguments,
@@ -247,7 +247,7 @@ any statements:
 		['Identifier', 'z'],
 		[
 			'Apply',
-			['Operator', '*'],
+			['Identifier', 'asterisk'],
 			['Identifier', 'x'],
 			['Identifier', 'y']
 		]
