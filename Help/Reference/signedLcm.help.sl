@@ -29,6 +29,14 @@ and it’s idempotency, commutative, associative, absorption laws.
 513
 ```
 
+Threads over lists:
+
+```
+>>> [4 1 1624 1624 -1624]
+>>> .signedLcm([6 1 26 -26 -26])
+[12 1 21112 -21112 -21112]
+```
+
 Inner square:
 
 ```

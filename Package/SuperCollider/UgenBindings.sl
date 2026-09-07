@@ -522,12 +522,12 @@
 
 +List {
 
-	signedGcd { :self |
-		self.collect(signedGcd:/1)
+	signedGcd { :self :operand |
+		operand.adaptToCollectionAndApply(self, signedGcd:/2)
 	}
 
-	signedLcm { :self |
-		self.collect(signedLcm:/1)
+	signedLcm { :self :operand |
+		operand.adaptToCollectionAndApply(self, signedLcm:/2)
 	}
 
 	signedSqrt { :self |

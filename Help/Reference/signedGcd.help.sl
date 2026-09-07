@@ -15,11 +15,22 @@ and it’s idempotency, commutative, associative, absorption laws.
 
 >>> -1024.signedGcd(-1024.signedLcm(-256))
 -1024
+
+>>> signedGcd(66, 54) * signedLcm(66, 54)
+66 * 54
 ```
 
 "greater" means "divisible by" in this interpretation,
 so _signedGcd(-1, -1)_ returns a negative number.
 This is necessary to make the whole system consistent.
+
+Threads over lists:
+
+```
+>>> [4 0 1024 1024 -1024]
+>>> .signedGcd([6 1 256 -256 -256])
+[2 1 256 256 -256]
+```
 
 Inner square:
 
