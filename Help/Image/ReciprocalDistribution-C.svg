@@ -1,9 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="161.8" height="100.0" viewBox="-1 -5 172 110">
 <g fill="none" stroke="black" stroke-width="8.0750%" transform="translate(0, 100.0000) scale(0.0619, -0.0619)">
-
-
-
-
 <line x1="619" y1="0" x2="619" y2="1615" />
 <line x1="756" y1="0" x2="756" y2="1340" />
 <line x1="894" y1="0" x2="894" y2="1072" />
@@ -16,9 +12,5 @@
 <line x1="1857" y1="0" x2="1857" y2="537" />
 <line x1="1994" y1="0" x2="1994" y2="485" />
 <line x1="2132" y1="0" x2="2132" y2="487" />
-
-
-
-
 </g>
 </svg>

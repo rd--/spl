@@ -1009,7 +1009,7 @@ Plot : [Object] { | pageList format options |
 					'  </animateMotion>',
 					'</circle>'
 				]
-			}.scaledFragments(height, boundingCoordinates)
+			}.scaledSvgFragments(height, boundingCoordinates)
 		} {
 			self.error('pathPlot')
 		}

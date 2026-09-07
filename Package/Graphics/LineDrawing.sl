@@ -26,7 +26,7 @@ LineDrawing : [Object] { | contents metadata |
 			self.contents.collect { :each |
 				each.svgFragment(options)
 			}
-		}.scaledFragments(
+		}.scaledSvgFragments(
 			self.height,
 			boundingCoordinates
 		)

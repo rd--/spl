@@ -88,10 +88,12 @@ PolygonMesh : [Object, Storeable, Equatable, Geometry, PolygonMesh] { | vertexCo
 	svgFragment { :self :options |
 		let vertexCoordinates = self.vertexCoordinates;
 		self.faceIndices.collect { :each |
-			'<polygon points="%" />'.format([
-				self.vertexCoordinates.atAll(each).asSvgPointList(options)
-			])
-		}.unlines
+			'<polygon points="%" />'.format(
+				[
+					self.vertexCoordinates.atAll(each).asSvgPointList(options)
+				]
+			)
+		}
 	}
 
 }
