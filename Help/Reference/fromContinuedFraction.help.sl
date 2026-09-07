@@ -207,9 +207,9 @@ The numerators of the continued fraction expansion of the differences of exponen
 OEIS [A071585](https://oeis.org/A071585):
 
 ~~~spl svg=B oeis=A071585
-OeisEntry('A071585').then { :e |
-	e.data.scatterPlot
-}
+OeisEntry('A071585').withData(
+	scatterPlot:/1
+)
 ~~~
 
 ![](Help/Image/fromContinuedFraction-B.svg)
@@ -218,9 +218,9 @@ The denominator of the continued fraction expansion of the differences of expone
 OEIS [A071766](https://oeis.org/A071766):
 
 ~~~spl svg=C oeis=A071766
-OeisEntry('A071766').then { :e |
-	e.data.scatterPlot
-}
+OeisEntry('A071766').withData(
+	scatterPlot:/1
+)
 ~~~
 
 ![](Help/Image/fromContinuedFraction-C.svg)

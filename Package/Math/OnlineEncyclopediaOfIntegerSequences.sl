@@ -514,7 +514,8 @@ OeisEntry : [Object, Storeable, Equatable, OeisSequence] { | identifier:<String>
 				'application/json'
 			).then { :data |
 				let [entry] = data;
-				self.contents := entry
+				self.contents := entry;
+				self
 			}
 		} { :contents |
 			contents.resolvedPromise
@@ -562,6 +563,12 @@ OeisEntry : [Object, Storeable, Equatable, OeisSequence] { | identifier:<String>
 
 	then { :self :aBlock:/1 |
 		self.fetch.then(aBlock:/1)
+	}
+
+	withData { :self :aBlock:/1 |
+		self.fetchContents.then { :e |
+			aBlock(e.data)
+		}
 	}
 
 }
