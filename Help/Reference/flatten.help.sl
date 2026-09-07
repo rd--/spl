@@ -26,6 +26,10 @@ Only flatten one level:
 >>> [['a', 'b'], ['c', ['d'], 'e'], ['f', ['g', 'h']]]
 >>> .flatten(1)
 ['a', 'b', 'c', ['d'], 'e', 'f', ['g', 'h']]
+
+>>> [['a', 'b'], ['c', ['d'], 'e'], ['f', ['g', 'h']]]
+>>> .flatten
+['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
 ```
 
 Strings are not flattened to sequences of characters:

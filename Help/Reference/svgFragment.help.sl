@@ -2,7 +2,9 @@
 
 - _svgFragment(x, p)_
 
-Answers a `String` containg an Svg fragment describing the drawable object _x_,
+Answers either a `String`,
+or a collection of strings,
+containing an Svg fragment describing the drawable object _x_,
 given parameters _p_.
 
 At `Circle`:

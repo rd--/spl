@@ -58,7 +58,9 @@ The unary form will undo `characters`:
 The binary form will undo `splitBy`:
 
 ```
->>> 'x, y, z'.splitBy(', ').stringJoin(', ')
+>>> 'x, y, z'
+>>> .splitBy(', ')
+>>> .stringJoin(', ')
 'x, y, z'
 ```
 

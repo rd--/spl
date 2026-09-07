@@ -1,9 +1,10 @@
 # Svg
 
-- _Svg(s)_
+- _Svg(x)_
 
-Answer a value representing the `Svg` drawing encoded in the string _s_.
-A `Type` holding a Scalable Vector Graphics image.
+`Svg` is a `Type` holding a Scalable Vector Graphics image.
+Answer a value representing the `Svg` drawing encoded at _x_,
+which may be either a `String`, or a `List` or `Tree` of strings.
 
 * * *
 

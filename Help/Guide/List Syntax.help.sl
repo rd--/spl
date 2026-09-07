@@ -1,5 +1,8 @@
 # List Syntax
 
+- _[]_
+- _[x₁ x₂ …]_
+
 Lists are written between square brackets.
 List items are separated by commas.
 

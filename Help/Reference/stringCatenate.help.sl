@@ -18,6 +18,15 @@ At the empty list:
 ''
 ```
 
+The items must be `String` values:
+
+```
+>>> {
+>>> 	['1' 2 '3'].stringCatenate
+>>> }.hasError
+true
+```
+
 * * *
 
 See also: catenate, join, interleave, intersperse, splitBy, stringIntercalate, stringJoin

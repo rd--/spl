@@ -956,11 +956,17 @@ Plot : [Object] { | pageList format options |
 +Association {
 
 	discretePlot { :self |
-		[self.key, self.value].transpose.discretePlot
+		[
+			self.key,
+			self.value
+		].transpose.discretePlot
 	}
 
 	linePlot { :self |
-		[self.key, self.value].transpose.linePlot
+		[
+			self.key,
+			self.value
+		].transpose.linePlot
 	}
 
 }
@@ -1002,7 +1008,7 @@ Plot : [Object] { | pageList format options |
 					'    <mpath href="#P1" />',
 					'  </animateMotion>',
 					'</circle>'
-				].stringIntercalate('\n')
+				]
 			}.scaledFragments(height, boundingCoordinates)
 		} {
 			self.error('pathPlot')

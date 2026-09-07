@@ -1,8 +1,8 @@
 # dropWhile
 
-- _dropWhile(aSequence, aBlock:/1)_
+- _dropWhile([x₁ x₂ …], f:/1)_
 
-Answer the suffix of _aSequence_ from where _aBlock_ first answers `false`.
+Answer the suffix of the sequence _x_ beginning where the block _f_ first answers `false`.
 
 ```
 >>> 1:9.dropWhile { :each |
@@ -29,6 +29,8 @@ Answer the suffix of _aSequence_ from where _aBlock_ first answers `false`.
 * * *
 
 See also: drop, takeWhile
+
+Guides: List Functions
 
 References:
 _Haskell_

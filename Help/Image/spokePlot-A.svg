@@ -19,6 +19,7 @@
 <line x1="-0.000" y1="-1.000" x2="0.000" y2="0.000" />
 </g>
 </svg>
+
 </g>
 <g transform="translate(56.25, 0)">
 <svg xmlns="http://www.w3.org/2000/svg" width="45.0" height="45.0" viewBox="-27.500 -27.500 55.000 55.000">
@@ -41,6 +42,7 @@
 <line x1="-0.866" y1="-0.500" x2="0.000" y2="0.000" />
 </g>
 </svg>
+
 </g>
 <g transform="translate(112.5, 0)">
 <svg xmlns="http://www.w3.org/2000/svg" width="45.0" height="45.0" viewBox="-27.500 -27.500 55.000 55.000">
@@ -64,6 +66,7 @@
 <line x1="-0.500" y1="-0.866" x2="0.000" y2="0.000" />
 </g>
 </svg>
+
 </g>
 <g transform="translate(168.75, 0)">
 <svg xmlns="http://www.w3.org/2000/svg" width="45.0" height="45.0" viewBox="-27.500 -27.500 55.000 55.000">
@@ -87,6 +90,7 @@
 <line x1="-0.000" y1="-1.000" x2="0.000" y2="0.000" />
 </g>
 </svg>
+
 </g>
 <g transform="translate(225, 0)">
 <svg xmlns="http://www.w3.org/2000/svg" width="45.0" height="45.0" viewBox="-27.500 -27.500 55.000 55.000">
@@ -110,6 +114,7 @@
 <line x1="-1.000" y1="0.000" x2="0.000" y2="0.000" />
 </g>
 </svg>
+
 </g>
 <g transform="translate(0, 56.25)">
 <svg xmlns="http://www.w3.org/2000/svg" width="45.0" height="45.0" viewBox="-27.500 -27.500 55.000 55.000">
@@ -135,6 +140,7 @@
 <line x1="-0.866" y1="-0.500" x2="0.000" y2="0.000" />
 </g>
 </svg>
+
 </g>
 <g transform="translate(56.25, 56.25)">
 <svg xmlns="http://www.w3.org/2000/svg" width="45.0" height="45.0" viewBox="-27.500 -27.500 55.000 55.000">
@@ -160,6 +166,7 @@
 <line x1="-1.000" y1="0.000" x2="0.000" y2="0.000" />
 </g>
 </svg>
+
 </g>
 <g transform="translate(112.5, 56.25)">
 <svg xmlns="http://www.w3.org/2000/svg" width="45.0" height="45.0" viewBox="-27.500 -27.500 55.000 55.000">
@@ -185,6 +192,7 @@
 <line x1="-1.000" y1="0.000" x2="0.000" y2="0.000" />
 </g>
 </svg>
+
 </g>
 <g transform="translate(168.75, 56.25)">
 <svg xmlns="http://www.w3.org/2000/svg" width="45.0" height="45.0" viewBox="-27.500 -27.500 55.000 55.000">
@@ -210,6 +218,7 @@
 <line x1="-1.000" y1="0.000" x2="0.000" y2="0.000" />
 </g>
 </svg>
+
 </g>
 <g transform="translate(225, 56.25)">
 <svg xmlns="http://www.w3.org/2000/svg" width="45.0" height="45.0" viewBox="-27.500 -27.500 55.000 55.000">
@@ -235,6 +244,7 @@
 <line x1="-0.866" y1="0.500" x2="0.000" y2="0.000" />
 </g>
 </svg>
+
 </g>
 <g transform="translate(0, 112.5)">
 <svg xmlns="http://www.w3.org/2000/svg" width="45.0" height="45.0" viewBox="-27.500 -27.500 55.000 55.000">
@@ -262,6 +272,7 @@
 <line x1="-1.000" y1="0.000" x2="0.000" y2="0.000" />
 </g>
 </svg>
+
 </g>
 <g transform="translate(56.25, 112.5)">
 <svg xmlns="http://www.w3.org/2000/svg" width="45.0" height="45.0" viewBox="-27.500 -27.500 55.000 55.000">
@@ -289,6 +300,7 @@
 <line x1="-0.866" y1="0.500" x2="0.000" y2="0.000" />
 </g>
 </svg>
+
 </g>
 <g transform="translate(112.5, 112.5)">
 <svg xmlns="http://www.w3.org/2000/svg" width="45.0" height="45.0" viewBox="-27.500 -27.500 55.000 55.000">
@@ -316,6 +328,7 @@
 <line x1="-0.866" y1="0.500" x2="0.000" y2="0.000" />
 </g>
 </svg>
+
 </g>
 <g transform="translate(168.75, 112.5)">
 <svg xmlns="http://www.w3.org/2000/svg" width="45.0" height="45.0" viewBox="-27.500 -27.500 55.000 55.000">
@@ -344,6 +357,7 @@
 <line x1="-0.866" y1="0.500" x2="0.000" y2="0.000" />
 </g>
 </svg>
+
 </g>
 <g transform="translate(225, 112.5)">
 <svg xmlns="http://www.w3.org/2000/svg" width="45.0" height="45.0" viewBox="-27.500 -27.500 55.000 55.000">
@@ -373,5 +387,6 @@
 <line x1="-0.866" y1="0.500" x2="0.000" y2="0.000" />
 </g>
 </svg>
+
 </g>
 </svg>

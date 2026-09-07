@@ -29,7 +29,7 @@ PointCloud : [Object, Equatable, Geometry] { | vertexCoordinates |
 	svgFragment { :self :options |
 		self.vertexCoordinates.Point.collect { :each |
 			each.svgFragment(options)
-		}.stringIntercalate('\n')
+		}
 	}
 
 }

@@ -44,6 +44,17 @@ Svg : [Object] { | contents |
 		}.unwords
 	}
 
+	Svg { :self |
+		let stringList = self.flatten;
+		stringList.anySatisfy { :x |
+			x.isString.not
+		}.if {
+			self.error('invalid input')
+		} {
+			stringList.reject(isEmpty:/1).unlines.Svg
+		}
+	}
+
 }
 
 +Rectangle {
@@ -110,7 +121,7 @@ Svg : [Object] { | contents |
 			self(options),
 			'</g>',
 			'</svg>'
-		].flatten.reject(isEmpty:/1).unlines.Svg
+		].Svg
 	}
 
 }

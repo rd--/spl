@@ -712,24 +712,25 @@
 	}
 
 	detectIndex { :self :predicate:/1 |
-		self.detectIndexStartingAtIfFoundIfNone(predicate:/1, 1, identity:/1, { })
+		self.detectIndexStartingAtIfFoundIfNone(predicate:/1, 1, 1, identity:/1, { nil })
 	}
 
 	detectIndexIfFound { :self :predicate:/1 :ifFound:/1 |
-		self.detectIndexStartingAtIfFoundIfNone(predicate:/1, 1, ifFound:/1, { })
+		self.detectIndexStartingAtIfFoundIfNone(predicate:/1, 1, 1, ifFound:/1, { nil })
 	}
 
 	detectIndexIfFoundIfNone { :self :predicate:/1 :ifFound:/1 :ifNone:/0 |
-		self.detectIndexStartingAtIfFoundIfNone(predicate:/1, 1, ifFound:/1, ifNone:/0)
+		self.detectIndexStartingAtIfFoundIfNone(predicate:/1, 1, 1, ifFound:/1, ifNone:/0)
 	}
 
 	detectIndexStartingAt { :self :predicate:/1 :startIndex |
-		self.detectIndexStartingAtIfFoundIfNone(predicate:/1, startIndex, identity:/1, { })
+		self.detectIndexStartingAtIfFoundIfNone(predicate:/1, startIndex, 1, identity:/1, { nil })
 	}
 
-	detectIndexStartingAtIfFoundIfNone { :self :predicate:/1 :startIndex :ifFound:/1 :ifNone:/0 |
+	detectIndexStartingAtIfFoundIfNone { :self :predicate:/1 :startIndex :step :ifFound:/1 :ifNone:/0 |
 		valueWithReturn { :return:/1 |
-			startIndex.toDo(self.size) { :index |
+			let endIndex = step.isNegative.if { 1 } { self.size };
+			startIndex.toByDo(endIndex, step) { :index |
 				predicate(self[index]).ifTrue {
 					ifFound(index).return
 				}
@@ -756,6 +757,10 @@
 
 	detectLastIfFoundIfNone { :self :aBlock:/1 :foundBlock:/1 :exceptionBlock:/0 |
 		self.detectIfFoundIfNoneUsing(aBlock:/1, foundBlock:/1, exceptionBlock:/0, reverseDo:/2)
+	}
+
+	detectLastIndex { :self :predicate:/1 |
+		self.detectIndexStartingAtIfFoundIfNone(predicate:/1, self.size, -1, identity:/1, { nil })
 	}
 
 	detectStartingAt { :self :predicate:/1 :startIndex |

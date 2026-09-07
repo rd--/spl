@@ -9,6 +9,7 @@
 <line x1="1.00" y1="3.50" x2="4.00" y2="3.50" />
 </g>
 </svg>
+
 </g>
 <g transform="translate(56.25, 0)">
 <svg xmlns="http://www.w3.org/2000/svg" width="32.1" height="45.0" viewBox="5.71 -5.00 42.14 55.00">
@@ -18,9 +19,9 @@
 <line x1="3.00" y1="0.00" x2="3.00" y2="4.20" />
 <line x1="1.00" y1="4.20" x2="3.00" y2="4.20" />
 <line x1="4.00" y1="0.00" x2="4.00" y2="4.20" />
-
 </g>
 </svg>
+
 </g>
 <g transform="translate(112.5, 0)">
 <svg xmlns="http://www.w3.org/2000/svg" width="32.1" height="45.0" viewBox="5.71 -5.00 42.14 55.00">
@@ -30,9 +31,9 @@
 <line x1="4.00" y1="0.00" x2="4.00" y2="4.20" />
 <line x1="1.00" y1="4.20" x2="4.00" y2="4.20" />
 <line x1="3.00" y1="0.00" x2="3.00" y2="3.50" />
-
 </g>
 </svg>
+
 </g>
 <g transform="translate(168.75, 0)">
 <svg xmlns="http://www.w3.org/2000/svg" width="32.1" height="45.0" viewBox="5.71 -5.00 42.14 55.00">
@@ -45,6 +46,7 @@
 <line x1="3.00" y1="4.20" x2="4.00" y2="4.20" />
 </g>
 </svg>
+
 </g>
 <g transform="translate(225, 0)">
 <svg xmlns="http://www.w3.org/2000/svg" width="27.6" height="45.0" viewBox="4.18 -5.00 37.55 55.00">
@@ -53,11 +55,10 @@
 <line x1="2.00" y1="0.00" x2="2.00" y2="4.90" />
 <line x1="1.00" y1="4.90" x2="2.00" y2="4.90" />
 <line x1="3.00" y1="0.00" x2="3.00" y2="4.90" />
-
 <line x1="4.00" y1="0.00" x2="4.00" y2="4.90" />
-
 </g>
 </svg>
+
 </g>
 <g transform="translate(0, 56.25)">
 <svg xmlns="http://www.w3.org/2000/svg" width="32.1" height="45.0" viewBox="5.71 -5.00 42.14 55.00">
@@ -67,9 +68,9 @@
 <line x1="4.00" y1="0.00" x2="4.00" y2="4.20" />
 <line x1="1.00" y1="4.20" x2="4.00" y2="4.20" />
 <line x1="2.00" y1="0.00" x2="2.00" y2="3.50" />
-
 </g>
 </svg>
+
 </g>
 <g transform="translate(56.25, 56.25)">
 <svg xmlns="http://www.w3.org/2000/svg" width="32.1" height="45.0" viewBox="5.71 -5.00 42.14 55.00">
@@ -82,6 +83,7 @@
 <line x1="2.00" y1="3.50" x2="4.00" y2="3.50" />
 </g>
 </svg>
+
 </g>
 <g transform="translate(112.5, 56.25)">
 <svg xmlns="http://www.w3.org/2000/svg" width="27.6" height="45.0" viewBox="4.18 -5.00 37.55 55.00">
@@ -90,11 +92,10 @@
 <line x1="3.00" y1="0.00" x2="3.00" y2="4.90" />
 <line x1="1.00" y1="4.90" x2="3.00" y2="4.90" />
 <line x1="2.00" y1="0.00" x2="2.00" y2="4.20" />
-
 <line x1="4.00" y1="0.00" x2="4.00" y2="4.90" />
-
 </g>
 </svg>
+
 </g>
 <g transform="translate(168.75, 56.25)">
 <svg xmlns="http://www.w3.org/2000/svg" width="32.1" height="45.0" viewBox="5.71 -5.00 42.14 55.00">
@@ -107,31 +108,31 @@
 <line x1="2.00" y1="3.50" x2="3.00" y2="3.50" />
 </g>
 </svg>
+
 </g>
 <g transform="translate(225, 56.25)">
 <svg xmlns="http://www.w3.org/2000/svg" width="32.1" height="45.0" viewBox="5.71 -5.00 42.14 55.00">
 <g fill="none" stroke="black" stroke-width="0.0467%" transform="translate(0, 45.0000) scale(10.7143, -10.7143)">
 <line x1="1.00" y1="0.00" x2="1.00" y2="4.20" />
-
 <line x1="2.00" y1="0.00" x2="2.00" y2="4.20" />
 <line x1="3.00" y1="0.00" x2="3.00" y2="4.20" />
 <line x1="4.00" y1="0.00" x2="4.00" y2="4.20" />
 <line x1="2.00" y1="4.20" x2="4.00" y2="4.20" />
 </g>
 </svg>
+
 </g>
 <g transform="translate(0, 112.5)">
 <svg xmlns="http://www.w3.org/2000/svg" width="27.6" height="45.0" viewBox="4.18 -5.00 37.55 55.00">
 <g fill="none" stroke="black" stroke-width="0.0544%" transform="translate(0, 45.0000) scale(9.1837, -9.1837)">
 <line x1="1.00" y1="0.00" x2="1.00" y2="4.90" />
-
 <line x1="2.00" y1="0.00" x2="2.00" y2="4.90" />
 <line x1="3.00" y1="0.00" x2="3.00" y2="4.90" />
 <line x1="2.00" y1="4.90" x2="3.00" y2="4.90" />
 <line x1="4.00" y1="0.00" x2="4.00" y2="4.90" />
-
 </g>
 </svg>
+
 </g>
 <g transform="translate(56.25, 112.5)">
 <svg xmlns="http://www.w3.org/2000/svg" width="27.6" height="45.0" viewBox="4.18 -5.00 37.55 55.00">
@@ -140,50 +141,44 @@
 <line x1="4.00" y1="0.00" x2="4.00" y2="4.90" />
 <line x1="1.00" y1="4.90" x2="4.00" y2="4.90" />
 <line x1="2.00" y1="0.00" x2="2.00" y2="4.20" />
-
 <line x1="3.00" y1="0.00" x2="3.00" y2="4.20" />
-
 </g>
 </svg>
+
 </g>
 <g transform="translate(112.5, 112.5)">
 <svg xmlns="http://www.w3.org/2000/svg" width="27.6" height="45.0" viewBox="4.18 -5.00 37.55 55.00">
 <g fill="none" stroke="black" stroke-width="0.0544%" transform="translate(0, 45.0000) scale(9.1837, -9.1837)">
 <line x1="1.00" y1="0.00" x2="1.00" y2="4.90" />
-
 <line x1="2.00" y1="0.00" x2="2.00" y2="4.90" />
 <line x1="4.00" y1="0.00" x2="4.00" y2="4.90" />
 <line x1="2.00" y1="4.90" x2="4.00" y2="4.90" />
 <line x1="3.00" y1="0.00" x2="3.00" y2="4.20" />
-
 </g>
 </svg>
+
 </g>
 <g transform="translate(168.75, 112.5)">
 <svg xmlns="http://www.w3.org/2000/svg" width="27.6" height="45.0" viewBox="4.18 -5.00 37.55 55.00">
 <g fill="none" stroke="black" stroke-width="0.0544%" transform="translate(0, 45.0000) scale(9.1837, -9.1837)">
 <line x1="1.00" y1="0.00" x2="1.00" y2="4.90" />
-
 <line x1="2.00" y1="0.00" x2="2.00" y2="4.90" />
-
 <line x1="3.00" y1="0.00" x2="3.00" y2="4.90" />
 <line x1="4.00" y1="0.00" x2="4.00" y2="4.90" />
 <line x1="3.00" y1="4.90" x2="4.00" y2="4.90" />
 </g>
 </svg>
+
 </g>
 <g transform="translate(225, 112.5)">
 <svg xmlns="http://www.w3.org/2000/svg" width="24.1" height="45.0" viewBox="3.04 -5.00 34.11 55.00">
 <g fill="none" stroke="black" stroke-width="0.0622%" transform="translate(0, 45.0000) scale(8.0357, -8.0357)">
 <line x1="1.00" y1="0.00" x2="1.00" y2="5.60" />
-
 <line x1="2.00" y1="0.00" x2="2.00" y2="5.60" />
-
 <line x1="3.00" y1="0.00" x2="3.00" y2="5.60" />
-
 <line x1="4.00" y1="0.00" x2="4.00" y2="5.60" />
-
 </g>
 </svg>
+
 </g>
 </svg>

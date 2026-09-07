@@ -39,6 +39,15 @@
 		self.typeResponsibility('svgFragment')
 	}
 
+	svgFragmentText { :self :options |
+		let fragment = self.svgFragment(options);
+		fragment.isString.if {
+			fragment
+		} {
+			fragment.flatten.stringIntercalate('\n')
+		}
+	}
+
 }
 
 AnnotatedGeometry : [Object, Geometry] { | geometry annotation |
@@ -75,9 +84,9 @@ AnnotatedGeometry : [Object, Geometry] { | geometry annotation |
 		} {
 			''
 		};
-		let fragmentText = self.geometry.svgFragment(options);
+		let fragmentText = self.geometry.svgFragmentText(options);
 		fragmentText.includes('\n').ifTrue {
-			fragmentText := '\n' ++ fragmentText ++ '\n'
+                       fragmentText := '\n' ++ fragmentText ++ '\n'
 		};
 		'<g %%%>%</g>'.format(
 			[

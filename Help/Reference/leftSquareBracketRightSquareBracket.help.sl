@@ -1,8 +1,8 @@
 # []
 
-This is the `Empty List Syntax`.
+This is the empty `List Syntax`.
 
-It constructs an empty List.
+It constructs an empty `List`.
 
 ```
 >>> []
@@ -11,4 +11,6 @@ List()
 
 * * *
 
-See also: (), List, Record
+See also: (:), List, Record
+
+Guides: List Syntax, Syntax Guides

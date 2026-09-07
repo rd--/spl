@@ -5,36 +5,34 @@ PlotSet : [Object] { | plotMatrix:<List> |
 		let rowHeight = self.rowHeight;
 		let columnWidth = rowHeight;
 		let [m, n] = plotMatrix.shape;
-		Svg(
-			[
-				'<svg xmlns="http://www.w3.org/2000/svg" width="%" height="%">'.format(
+		[
+			'<svg xmlns="http://www.w3.org/2000/svg" width="%" height="%">'.format(
+				[
+					n * (columnWidth * 1.25),
+					m * (rowHeight * 1.25)
+				]
+			),
+			{ :i :j |
+				let p = plotMatrix[i][j];
+				p.isNotNil.if {
+					let d = p.asLineDrawing;
+					d.height := rowHeight;
 					[
-						n * (columnWidth * 1.25),
-						m * (rowHeight * 1.25)
+						'<g transform="translate(%, %)">'.format(
+							[
+								(j - 1) * (columnWidth * 1.25),
+								(i - 1) * (rowHeight * 1.25)
+							]
+						),
+						d.drawing.contents.withoutTrailingBlanks,
+						'</g>'
 					]
-				),
-				{ :i :j |
-					let p = plotMatrix[i][j];
-					p.isNotNil.if {
-						let d = p.asLineDrawing;
-						d.height := rowHeight;
-						[
-							'<g transform="translate(%, %)">'.format(
-								[
-									(j - 1) * (columnWidth * 1.25),
-									(i - 1) * (rowHeight * 1.25)
-								]
-							),
-							d.drawing.contents,
-							'</g>'
-						].stringIntercalate('\n')
-					} {
-						''
-					}
-				}.table(1:m, 1:n).catenate.stringIntercalate('\n'),
-				'</svg>'
-			].unlines
-		)
+				} {
+					''
+				}
+			}.table(1:m, 1:n),
+			'</svg>'
+		].Svg
 	}
 
 	rowHeight { :self |

@@ -36,7 +36,7 @@
 				self.hexTriplet
 			]),
 			'</svg>'
-		].unlines.Svg
+		].Svg
 	}
 
 	green { :self |

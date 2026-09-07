@@ -37,9 +37,20 @@ Note that for sorted sequences, `binaryDetectIndex` will, on average, be quicker
 4
 ```
 
+To detect from the end, searching backwards, use `detectLastIndex`:
+
+```
+>>> let c = [1, 3 .. 9];
+>>> let i = c.detectLastIndex { :x |
+>>> 	x < 7
+>>> };
+>>> (i, c[i])
+(3, 5)
+```
+
 * * *
 
-See also: binaryDetectIndex, bisect, detect, detectIndexIfFoundIfNone, indexOf
+See also: binaryDetectIndex, bisect, detect, detectIndexIfFoundIfNone, detectLastIndex, indexOf
 
 Guides: Indexing Functions, List Functions
 

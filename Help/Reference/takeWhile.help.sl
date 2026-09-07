@@ -64,6 +64,8 @@ Find the digits of π before the first occurrence of a seven:
 
 See also: doWhileTrue, dropWhile, select, take, while
 
+Guides: List Functions
+
 References:
 _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Data-List.html#v:takeWhile),

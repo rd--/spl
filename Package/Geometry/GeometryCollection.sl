@@ -38,7 +38,7 @@ GeometryCollection : [Object, Equatable, Geometry] { | contents |
 	svgFragment { :self :options |
 		self.contents.collect { :each |
 			each.svgFragment(options)
-		}.stringIntercalate('\n')
+		}
 	}
 
 	project { :self :projection |
