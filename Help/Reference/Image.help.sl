@@ -8,17 +8,14 @@ An `Image` is a discrete image where each cell is an _(r,g,b)_ triple of real nu
 `Image` in portable pixel map format:
 
 ```
->>> [1 0 0; 0 1 0:; 0 0 1; 0 1 1]
->>> .Image
->>> .encodePpm(1)
-[
-	'P3'
-	'2 2'
-	'1'
-	'1 0 0 0 1 0'
-	'0 0 1 0 1 1'
-	''
-].unlines
+>> [1 0 0; 0 1 0:; 0 0 1; 0 1 1]
+>> .Image
+>> .encodePpm(1)
+P3
+2 2
+1
+1 0 0 0 1 0
+0 0 1 0 1 1
 ```
 
 Create an `Image` from a constant array:

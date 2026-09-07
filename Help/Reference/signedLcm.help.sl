@@ -29,6 +29,34 @@ and it’s idempotency, commutative, associative, absorption laws.
 513
 ```
 
+Inner square:
+
+```
+>>> signedLcm:/2
+>>> .table(-3:3, -3:3)
+[
+	-3, -6, -3, -0, -3, -6, -3;
+	-6, -2, -2, -0, -2, -2, -6;
+	-3, -2, -1, -0, -1, -2, -3;
+	-0, -0, -0,  0,  0,  0,  0;
+	-3, -2, -1,  0,  1,  2,  3;
+	-6, -2, -2,  0,  2,  2,  6;
+	-3, -6, -3,  0,  3,  6,  3
+]
+```
+
+Matrix plot of inner square,
+indicates magnitude only,
+equal to plot of `lcm`:
+
+~~~spl svg=A
+signedLcm:/2
+.table(-6:6, -6:6)
+.matrixPlot
+~~~
+
+![](Help/Image/signedLcm-A.svg)
+
 * * *
 
 See also: &&, gcd, signedGcd, lcm

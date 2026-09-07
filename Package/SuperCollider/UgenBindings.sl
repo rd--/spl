@@ -519,3 +519,20 @@
 	}
 
 }
+
++List {
+
+	signedGcd { :self |
+		self.collect(signedGcd:/1)
+	}
+
+	signedLcm { :self |
+		self.collect(signedLcm:/1)
+	}
+
+	signedSqrt { :self |
+		self.collect(signedSqrt:/1)
+	}
+
+}
+

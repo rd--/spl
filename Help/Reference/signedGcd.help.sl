@@ -21,9 +21,38 @@ and it’s idempotency, commutative, associative, absorption laws.
 so _signedGcd(-1, -1)_ returns a negative number.
 This is necessary to make the whole system consistent.
 
+Inner square:
+
+```
+>>> signedGcd:/2
+>>> .table(-3:3, -3:3)
+[
+
+	-3, -1, -1, 3, 1, 1, 3;
+	-1, -2, -1, 2, 1, 2, 1;
+	-1, -1, -1, 1, 1, 1, 1;
+	 3,  2,  1, 0, 1, 2, 3;
+	 1,  1,  1, 1, 1, 1, 1;
+	 1,  2,  1, 2, 1, 2, 1;
+	 3,  1,  1, 3, 1, 1, 3
+]
+```
+
+Matrix plot of inner square,
+indicates magnitude only,
+equal to plot of `gcd`:
+
+~~~spl svg=A
+signedGcd:/2
+.table(-6:6, -6:6)
+.matrixPlot
+~~~
+
+![](Help/Image/signedGcd-A.svg)
+
 * * *
 
-See also: ||, gcd, lcm, signedLcm
+See also: ||, gcd, lcm, signedLcm, signedSqrt
 
 Guides: Integer Functions
 

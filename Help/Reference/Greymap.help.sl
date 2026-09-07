@@ -8,18 +8,15 @@ A `Greymap` is a discrete image where each cell is a real number between `zero` 
 `Greymap` in portable graymap format:
 
 ```
->>> [1 0 0; 0 1 0; 0 0 1]
->>> .Greymap
->>> .asPgm(1)
-[
-	'P2'
-	'3 3'
-	'1'
-	'1 0 0'
-	'0 1 0'
-	'0 0 1'
-	''
-].unlines
+>> [1 0 0; 0 1 0; 0 0 1]
+>> .Greymap
+>> .asPgm(1)
+P2
+3 3
+1
+1 0 0
+0 1 0
+0 0 1
 ```
 
 Plot a table of values of five sine waves in random directions:

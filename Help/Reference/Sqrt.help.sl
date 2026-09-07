@@ -2,8 +2,8 @@
 
 - _Sqrt(x)_
 
-Square root.
-The definition of square root is extended for signals so that _sqrt(x)_ when _x<0_ answers _-sqrt(-x)_.
+Signed square root,
+see `signedSqrt` for the definition.
 
 ```
 >>> -9.Sqrt
@@ -17,9 +17,17 @@ Compare with `sqrt`:
 0J3
 ```
 
+Signed square root of sine oscillator:
+
+```
+let a = SinOsc(440, 0) * 0.1;
+let b = a.Sqrt * 0.1;
+[a b]
+```
+
 * * *
 
-See also: ^, cubeRoot, nthRoot, sqrt
+See also: ^, cubeRoot, nthRoot, signedSqrt, sqrt
 
 Guides: Unit Generators
 

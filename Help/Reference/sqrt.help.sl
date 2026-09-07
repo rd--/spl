@@ -431,6 +431,8 @@ Where supported `sqrt` is displayed as √.
 
 See also: cubeRoot, integerSquareRoot, nthRoot, square, squareRoot
 
+Guides: Mathematical Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/SquareRoot.html)
