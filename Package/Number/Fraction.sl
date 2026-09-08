@@ -744,16 +744,16 @@ Fraction : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | num
 		self.rationalize(epsilon)
 	}
 
-	asFraction { :self |
-		self.asFraction(1E-5)
-	}
-
 	asFraction { :self :epsilon |
 		self.isInteger.if {
 			ReducedFraction(self, 1L)
 		} {
 			self.rationalize(epsilon)
 		}
+	}
+
+	asFraction { :self |
+		self.asFraction(1E-5)
 	}
 
 	rationalize { :self :epsilon |

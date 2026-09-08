@@ -2,7 +2,9 @@
 
 - _asSeconds(x)_
 
-Answer a duration in seconds, either directly from a number, or from a `Duration`.
+Answer a duration in seconds,
+either directly from a number,
+or from a `Duration` or a `Quantity`.
 
 ```
 >>> Duration(5).asSeconds

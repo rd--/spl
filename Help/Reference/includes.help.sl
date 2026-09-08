@@ -2,8 +2,10 @@
 
 - _includes(c, x)_
 
-Answer whether the collection _c_ contains the object _x_ as an element,
-also called a member.
+Answer whether the collection _c_ includes,
+or contains,
+or has a a member,
+the object _x_.
 
 Is five an element of a `List`:
 
@@ -55,7 +57,8 @@ true
 At `Dictionary`:
 
 ```
->>> Dictionary[1L -> 'A', 2L -> 'B'].includes('A')
+>>> Dictionary[1L -> 'A', 2L -> 'B']
+>>> .includes('A')
 true
 ```
 

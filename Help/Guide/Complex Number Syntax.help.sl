@@ -1,9 +1,11 @@
 # Complex Number Syntax
 
-Rewrite rules:
+- _mJn_
+- _nI_
 
-- _aJb_ ⟹ _Complex(a, b)_
-- _aI_ ⟹ _Complex(0, a)_
+Complex numbers are written with an infix _J_ or a postfix _I_.
+
+Rewrite rules:
 
 ```
 >> '3J4'.splSimplify
@@ -17,7 +19,7 @@ A complex number is a number consisting of a _real_ and an _imaginary_ component
 There are two literal notations for complex numbers.
 
 In the first,
-complex numbers may be written using the syntax _aJb_,
+complex numbers may be written using the syntax _mJn_,
 i.e. `3J4` or `2.3J4.5`.
 
 ```

@@ -73,6 +73,7 @@
 
 ## Continued Fraction and Rational Approximation Functions
 
+- `asApproximateFraction`
 - `asFraction`: find rational approximations
 - `continuedFraction`: continued fraction expansion
 - `convergents`: a list of successive convergents of a continued fraction

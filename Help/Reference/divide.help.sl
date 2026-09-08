@@ -50,6 +50,12 @@ At `LargeInteger` answers a `Fraction`:
 >>> let r = 2L / 3L;
 >>> (r, r.isFraction)
 (2/3, true)
+
+>>> 2 / 3L
+2/3
+
+>>> 2L / 3
+2/3
 ```
 
 At `LargeInteger`, with collection operand:
@@ -60,9 +66,12 @@ At `LargeInteger`, with collection operand:
 ```
 
 At `SmallFloat` answers a `SmallFloat`,
-to answer a `Fraction` divide by a fraction literal:
+to answer a `Fraction` divide by a `LargeInteger` or a `Fraction`:
 
 ```
+>>> [1 2 3] / 4L
+[1/4 1/2 3/4]
+
 >>> [1 2 3] / 4/1
 [1/4 1/2 3/4]
 ```

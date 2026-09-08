@@ -1,8 +1,8 @@
 # asApproximateFraction
 
-- _asApproximateFraction(aNumber, epsilon)_
+- _asApproximateFraction(n, ε)_
 
-Convert _aNumber_ to a `Fraction` given error bound _epsilon_.
+Convert the number _n_ to a `Fraction` given error bound _ε_.
 
 ```
 >>> [-1 -2 -3].collect { :each |
@@ -21,5 +21,7 @@ Convert _aNumber_ to a `Fraction` given error bound _epsilon_.
 * * *
 
 See also: asFraction, convergents, rationalize, semiconvergents
+
+Guides: Mathematical Functions
 
 Categories: Converting

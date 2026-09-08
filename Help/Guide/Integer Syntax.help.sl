@@ -49,6 +49,20 @@ Leading signs, both negative and positive, are allowed:
 -1
 ```
 
+Underscores are allowed to separate parts of the number,
+including when a radix is indicated:
+
+```
+>>> 1_234
+1234
+
+>>> 123_456
+123456
+
+>>> 16r12_34_56
+1193046
+```
+
 * * *
 
 See also: Integer, LargeInteger, SmallFloat

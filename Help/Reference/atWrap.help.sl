@@ -18,9 +18,23 @@ If the index is out of bounds, let it wrap around from the end to the beginning 
 [4 5 1 2 3 4 5 1 2 3 4]
 ```
 
+Since Spl sequences are one-indexed,
+the index `zero` answers the last item,
+and the index _-1_ the second last:
+
+```
+>>> 1:5.atWrap(0)
+5
+
+>>> 1:5.atWrap(-1)
+4
+```
+
 * * *
 
 See also: at, atAllWrap, atFold, atPin, atPutWrap
+
+Guides: List Functions, Sequence Functions
 
 References:
 _SuperCollider_

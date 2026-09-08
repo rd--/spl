@@ -4,6 +4,8 @@
 
 Answer the number _n_ formatted with commas every three digits.
 
+At integers:
+
 ```
 >>> 123_456_789.asStringWithCommas
 '123,456,789'
