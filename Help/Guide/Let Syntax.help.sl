@@ -1,10 +1,8 @@
 # Let Syntax
 
-Rewrite rules:
+- _let v = e;_
 
-- _let t = i; let u = j; ..._ ⟹ _var t, u ...; t := i; u := j; ..._
-
-These rules implement a `let` keyword syntax for declaring and initialising temporary variables.
+Let syntax declares a temporary variable _v_ to have the value of the expression _e_.
 
 ```
 >>> let n = 1;
@@ -12,7 +10,7 @@ These rules implement a `let` keyword syntax for declaring and initialising temp
 2
 ```
 
-This rule allows temporaries to be initialised when declared.
+Let syntax allows temporaries to be initialised when declared.
 Note that only one binding is allowed per `let` statement.
 
 The sequence of initiliasers is retained, subsequent initialisations may refer to the value of previous initialisations.
@@ -24,9 +22,16 @@ The sequence of initiliasers is retained, subsequent initialisations may refer t
 7
 ```
 
-Initialising a value to a `Block` literal rewrites the bound name to its arity qualified form:
+Initialising a value to a `Block` literal rewrites the bound name to its arity qualified form,
+unless it is already arity qualified:
 
 ```
+>> 'let f = { :x | x };'.splSimplify
+let f:/1 = { :x | x };
+
+>> 'let f:/1 = { :x | x };'.splSimplify
+let f:/1 = { :x | x };
+
 >>> let f = { :x | x * 2 + 1 };
 >>> (
 >>> 	f:/1 . (11),
@@ -52,10 +57,8 @@ Note that the initialiser syntax, _p = x_, is distinct from the assignment synta
 7
 ```
 
-- _let [e, ...] = c; ..._ ⟹ _let e = at(c, 1); let ...; ..._
-- _let (k: v, ...) = d; ..._ ⟹ _let v = at(d, 'k'); let ...; ..._
-
-These rules allow destructuring `Sequence` and `Dictionary` values respectively.
+There are additional rules to destructure `Sequence` and `Dictionary` values,
+see `List Assignment Syntax` and `Record Assignment Syntax`.
 
 At `List`:
 
@@ -120,6 +123,13 @@ let y = {
 };
 /* add original sound to reverb */
 s + (0.2 * y)
+```
+
+Let syntax is not rewritten by the simplifier:
+
+```
+>> 'let x = 1;'.splSimplify
+let x = 1;
 ```
 
 * * *

@@ -1,10 +1,12 @@
 # Matrix Syntax
 
+- _[p q …; r s …; …]_
+
+Allows writing _matrices_,
+two dimensional arrays,
+as a sequence of _vectors_ separated by semicolons.
+
 Rewrite rule:
-
-- _[p q ...; r s ...; ...]_ ⟹ _[[p, q ...], [r, s ...], ...]_
-
-Allows writing _matrices_, two dimensional arrays, as a sequence of _vectors_ separated by semicolons.
 
 ```
 >> '[p q; r s]'.splSimplify

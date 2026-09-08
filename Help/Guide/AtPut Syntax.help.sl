@@ -1,10 +1,10 @@
 # AtPut Syntax
 
-Rewrite rule:
-
-- _c[i] := x_ ⟹ _atPut(c, i, x)_
+- _c[i] := x_
 
 Syntax for the `atPut` protocol.
+
+Rewrite rule:
 
 ```
 >> 'c[i] := x'.splSimplify

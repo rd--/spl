@@ -1,11 +1,11 @@
 # Tuple Syntax
 
-Rewrite rule:
-
-- _(x, y, z…)_ ⟹ _Tuple([x, y, z…])_
+- _(x, y, z…)_
 
 Tuples are written between parentheses.
 Tuple items are separated by commas.
+
+Rewrite rule:
 
 ```
 >> '(x, y, z)'.splSimplify

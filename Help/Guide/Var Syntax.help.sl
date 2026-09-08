@@ -1,7 +1,14 @@
 # Var Syntax
 
+- _var t₁, t₂…;_
+
 The `var` keyword introduces a set of variable bindings,
 each initialized to `nil`.
+
+```
+>> 'var x, y;'.splSimplify
+let x = nil; let y = nil;
+```
 
 It is a part of `Block Syntax` and `Program Syntax`.
 

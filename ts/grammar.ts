@@ -1,11 +1,20 @@
 import ohm from 'https://unpkg.com/ohm-js@17.1.0/dist/ohm.esm.js';
 import { extras } from 'https://unpkg.com/ohm-js@17.1.0/dist/ohm.esm.js';
 
+// Entries that are re-written (erased) by the simplifier are marked 'S'.
 export const slGrammarDefinition: string = String.raw`
 Sl {
 
-	TopLevel = LibraryExpression+ | Program
-	LibraryExpression = TypeDefinition | TraitDefinition | MethodDefinitions | LibraryItem | TypeExtension | TraitExtension
+	TopLevel
+		= LibraryExpression+
+		| Program
+	LibraryExpression
+		= TypeDefinition
+		| TraitDefinition
+		| MethodDefinitions
+		| LibraryItem
+		| TypeExtension
+		| TraitExtension
     MethodNameList = "[" NonemptyListOf<methodName, ","> "]"
     MethodNameOrMethodNameList = methodName | MethodNameList
 	TypeDefinition = typeName "!"? TraitList "{" SlotDefinitions? (MethodNameOrMethodNameList Block)* "}"
@@ -23,10 +32,10 @@ Sl {
 	Program = Temporaries? ListOf<Expression, ";">
 	Temporaries = VarTemporaries | LetTemporary+
 	Initializer =
-		BlockLiteralInitializer |
+		BlockLiteralInitializer | // S* (The simplifier adds the arity qualifier)
 		ExpressionInitializer |
-		RecordInitializer |
-		ListInitializer
+		RecordInitializer | // S
+		ListInitializer // S
 	BlockLiteralInitializer = varName "=" Block ~("." | operator)
 	ExpressionInitializer = varNameOrUnused "=" Expression
 	RecordInitializer = "(" NonemptyListOf<RecordInitializerItem, ","> ")" "=" Expression
@@ -34,8 +43,14 @@ Sl {
 	LetTemporary = "let" Initializer ";"
 	VarTemporaries = "var" NonemptyListOf<varName, ","> ";"
 
-	Expression = Assignment | BinaryExpression | Primary
-	Assignment = ScalarAssignment | ListAssignment | RecordAssignment
+	Expression
+		= Assignment
+		| BinaryExpression // S
+		| Primary
+	Assignment
+		= ScalarAssignment
+		| ListAssignment // S
+		| RecordAssignment // S
 	ScalarAssignment = varName ":=" Expression
 	ListAssignment = "[" NonemptyListOf<varName, ","> "]" ":=" Expression
 	RecordAssignment = "(" NonemptyListOf<RecordInitializerItem, ","> ")" ":=" Expression
@@ -44,41 +59,41 @@ Sl {
 	BinaryAdverbExpression = Expression (operatorWithAdverb Primary)+
 
 	Primary
-		= AtPutSyntax
-		| UncheckedSlotWriteSyntax
-		| AtAllSyntax
-		| AtSyntax
-		| UncheckedSlotReadSyntax
+		= AtPutSyntax // S
+		| UncheckedSlotWriteSyntax // S
+		| AtAllSyntax // S
+		| AtSyntax // S
+		| UncheckedSlotReadSyntax // S
 		| ValueApply
-		| DotExpressionWithTrailingClosuresSyntax
-		| DotExpressionWithAssignmentSyntax
-		| DotExpression
+		| DotExpressionWithTrailingClosuresSyntax // S
+		| DotExpressionWithAssignmentSyntax // S
+		| DotExpression // S
 		| Block
-        | ListConstructorSyntax
-        | RecordConstructorSyntax
-        | StringConstructorSyntax
-		| ApplyWithTrailingClosuresSyntax
+		| ListConstructorSyntax // S
+		| RecordConstructorSyntax // S
+		| StringConstructorSyntax // S
+		| ApplyWithTrailingClosuresSyntax // S
 		| ApplySyntax
 		| EmptyListSyntax
 		| reservedIdentifier
 		| literal
 		| identifier
-        | systemVariableIdentifier // This is only required in two places, and should be localised (it cannot be written IN Spl though...)
-		| operatorFree
-		| VectorSyntax
-		| MatrixSyntax
-		| VolumeSyntax
-		| ListSyntax
+		| systemVariableIdentifier // This is only required in two places, and should be localised (it cannot be written IN Spl though...)
+		| operatorFree // S
+		| VectorSyntax // S
+		| MatrixSyntax // S
+		| VolumeSyntax // S
+		| NonEmptyListSyntax
 		| ParenthesisedExpression
-		| EmptyRecordSyntax
-		| NonEmptyRecordSyntax
-		| TupleSyntax
-		| RangeSyntax
-		| ListRangeSyntax
+		| EmptyRecordSyntax // S
+		| NonEmptyRecordSyntax // S
+		| TupleSyntax // S
+		| RangeSyntax // S
+		| ListRangeSyntax // S
 
 	AtPutSyntax = Primary "[" Expression "]" ":=" Expression
 	AtSyntax = Primary "[" Expression "]"
-	AtAllSyntax = Primary "[" (rangeLiteral | ListSyntax) "]"
+	AtAllSyntax = Primary "[" (rangeLiteral | NonEmptyListSyntax) "]"
 	UncheckedSlotReadSyntax = Primary "::" recordKey
 	UncheckedSlotWriteSyntax = Primary "::" recordKey ":=" Expression
 	ValueApply = Primary "." ParameterList
@@ -98,7 +113,7 @@ Sl {
 
 	ApplyWithTrailingClosuresSyntax = selectorName NonEmptyParameterList? Block+
 	ApplySyntax = (selectorName | operatorBound) ParameterList
-    ListConstructorSyntax = typeName (EmptyListSyntax | VectorSyntax | MatrixSyntax | VolumeSyntax | ListSyntax | ListRangeSyntax)
+    ListConstructorSyntax = typeName (EmptyListSyntax | VectorSyntax | MatrixSyntax | VolumeSyntax | NonEmptyListSyntax | ListRangeSyntax)
     RecordConstructorSyntax = typeName NonEmptyRecordSyntax
     StringConstructorSyntax = typeName singleQuotedStringLiteral
 	ParenthesisedExpression = "(" Expression ")"
@@ -109,7 +124,7 @@ Sl {
 	StringAssociation = singleQuotedStringLiteral ":" Expression
 	RecordInitializerItem = recordKeyToken varName
 	TupleSyntax = "(" NonemptyListOf<Expression, ","> ")"
-	ListSyntax = "[" ListOf<Expression, ","> "]"
+	NonEmptyListSyntax = "[" ListOf<Expression, ","> "]"
 	RangeSyntax = RangeFromToSyntax | RangeFromThenToSyntax | RangeFromToBySyntax
     RangeFromToSyntax = "(" Expression ".." Expression ")"
 	RangeFromThenToSyntax = "(" Expression "," Expression ".." Expression ")"
@@ -142,19 +157,21 @@ Sl {
 	qualifiedTraitName = "@" uppercaseIdentifier
     typeOrTraitName = typeName | qualifiedTraitName
     lowercaseIdentifier = lower letterOrDigit*
-	varName = arityQualifiedIdentifier | lowercaseIdentifier | systemVariableIdentifier // arity branch should be lowercase
+	varName
+		= arityQualifiedIdentifier // arity branch should be lowercase
+		| lowercaseIdentifier
+		| systemVariableIdentifier
 	varNameOrUnused = (varName | unusedVariableIdentifier)
 	slotNameWithType = lowercaseIdentifier ":" "<" uppercaseIdentifier ">"
 	slotName = lowercaseIdentifier
 	constantName = lowercaseIdentifier
-	recordKey = lowercaseIdentifier | uppercaseIdentifier
-	recordKeyToken = recordKey ":"
+	recordKey = lowercaseIdentifier | uppercaseIdentifier // S
+	recordKeyToken = recordKey ":" // S
 	letterOrDigit = letter | digit
 	reservedIdentifier = ("nil" | "true" | "false") ~letterOrDigit
-	infixMethod = lowercaseIdentifier ":"
-	operator = operatorChar+
-	operatorBound = operatorChar+
-    operatorFree = operatorChar+
+	operator = operatorChar+ // S
+	operatorBound = operatorChar+ // S
+    operatorFree = operatorChar+ // S
 	operatorWithAdverb = operatorWithBinaryAdverb | operatorWithUnaryAdverb
 	operatorWithUnaryAdverb = operator "." selectorName
 	operatorWithBinaryAdverb = operator "." selectorName "(" (operatorFree | arityQualifiedIdentifier | numberLiteral) ")"

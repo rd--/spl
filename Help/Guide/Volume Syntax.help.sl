@@ -1,12 +1,12 @@
 # Volume Syntax
 
+- _[p q; r s:; a b; c d:; …]_
+
+Allows writing _volumes_,
+three-dimensional arrays,
+as _matrices_ separated by `:;` tokens.
+
 Rewrite rule:
-
-- _[p q; r s:; a b; c d:; ...]_\
-  ⟹\
-  _[[[p, q], [r, s]], [[a, b], [c, d]], ...]_
-
-Allows writing _volumes_, three-dimensional arrays, as _matrices_ separated by `:;` tokens.
 
 ```
 >> '[p q; r s:; a b; c d]'.splSimplify

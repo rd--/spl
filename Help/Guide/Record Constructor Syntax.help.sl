@@ -1,8 +1,13 @@
 # Record Constructor Syntax
 
+- _T(k: v, …)_
+
 Rewrite rules:
 
-- _T(k: v, ...)_ ⟹ _T((k: v, ...))_
+```
+>> 'T(k: v)'.splSimplify
+T(Record([['k', v]]))
+```
 
 Uppercase unary functions may elide application parentheses when applied to records.
 

@@ -1,10 +1,24 @@
 # List Constructor Syntax
 
-Rewrite rule:
-
-- _T[…]_ ⟹ _T([…])_
+- _T[…]_
 
 Uppercase unary functions may elide application parenthesis when applied to lists, vectors, matrices and volumes.
+
+Rewrite rule:
+
+```
+>> 'T[]'.splSimplify
+T([])
+
+>> 'T[x, y]'.splSimplify
+T([x, y])
+
+>> 'T[x y]'.splSimplify
+T([x, y])
+
+>> 'T[a b; c d]'.splSimplify
+T([[a, b], [c, d]])
+```
 
 At `List Syntax`:
 
@@ -94,6 +108,7 @@ and is much clearer.
 
 _Note_:
 The lower case form, _c[x]_, is `At Syntax`.
+The syntaxes do not collide because Spl does not allow ordinary variables to begin with an upper case letter.
 
 * * *
 

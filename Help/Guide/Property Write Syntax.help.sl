@@ -1,20 +1,22 @@
 # Property Write Syntax
 
-Rewrite rule:
-
-- _r::p := x_ ⟹ _uncheckedSlotWrite(r, 'p', x)_
-
-```
->> 'r::p := x'.splSimplify
-uncheckedSlotWrite(r, 'p', x)
-```
+- _r::p := x_
 
 _r::p := x_ sets the value of the property _'p'_ at the record _r_ to the value _x_.
 
+Rewrite rule:
+
 ```
->>> let d = (w: (x: (y: (z: 1))));
->>> d::w::x::y::z := -1;
->>> d
+>> 'c::p := x'.splSimplify
+uncheckedSlotWrite(c, 'p', x)
+```
+
+At nested `Record`:
+
+```
+>>> let c = (w: (x: (y: (z: 1))));
+>>> c::w::x::y::z := -1;
+>>> c
 (w: (x: (y: (z: -1))))
 ```
 

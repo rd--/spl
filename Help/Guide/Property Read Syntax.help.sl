@@ -1,22 +1,22 @@
 # Property Read Syntax
 
+- _c::p_
+
+_c::p_ reads the value at the property _'p'_ from the record _c_.
+
 Rewrite rule:
 
-- _c::p_ ⟹ _uncheckedSlotRead(c, 'p')_
-
 ```
->> 'r::p'.splSimplify
-uncheckedSlotRead(r, 'p')
+>> 'c::p'.splSimplify
+uncheckedSlotRead(c, 'p')
 ```
-
-_c::p_ reads the value at the property _'p'_ from the record _r_.
 
 At `Record`:
 
 ```
->>> let d = (x: 1, y: 2);
->>> d::x < d::y
-true
+>>> let c = (x: 1, y: 2);
+>>> (c::x, c::y, c::z)
+(1, 2, nil)
 ```
 
 This syntax is a counterpart to `Record Syntax`.

@@ -1,5 +1,8 @@
 # List Assignment Syntax
 
+- _let [v₁, v₂] = [x₁, x₂];_
+- _[v₁, v₂] := [x₁, x₂];_
+
 There is a list assignment syntax for both temporary variable initialisers:
 
 ```

@@ -20,6 +20,10 @@ function deleteLeadingZeroes(s: string): string {
 	return s.replace(/^0+(?!\.|$)/, '');
 }
 
+function isArityQualifiedName(s: string): boolean {
+	return s.includes(':/');
+}
+
 function initContext(name: string): void {
 	// console.debug('initContext');
 	context.packageName = name;
@@ -186,7 +190,8 @@ const asJs: ohm.ActionDict<string> = {
 		].join('');
 	},
 	BlockLiteralInitializer(name, _eq, blk) {
-		return `${genName(name.asJs, blk.parametersOf.length)} = ${blk.asJs}`;
+		 /* Equivalent to ExpressionInitializer after simplifier, required as grammar is reused */
+		return `${name.asJs} = ${blk.asJs}`;
 	},
 	EmptyListSyntax(_l, _r) {
 		return '[]';
@@ -213,14 +218,14 @@ const asJs: ohm.ActionDict<string> = {
 			mb.children,
 		);
 	},
+	NonEmptyListSyntax(_leftBracket, items, _rightBracket) {
+		return `[${commaListJs(items.asIteration().children)}]`;
+	},
 	NonEmptyParameterList(_l, sq, _r) {
 		return commaListJs(sq.asIteration().children);
 	},
 	NonFinalExpression(e, _semicolon, stm) {
 		return `${e.asJs}; ${stm.asJs};`;
-	},
-	ListSyntax(_leftBracket, items, _rightBracket) {
-		return `[${commaListJs(items.asIteration().children)}]`;
 	},
 	ParameterList(_leftParen, sq, _rightParen) {
 		return commaListJs(sq.asIteration().children);
@@ -234,9 +239,6 @@ const asJs: ohm.ActionDict<string> = {
 	Program(tmp, stm) {
 		return tmp.asJs + stm.asJs;
 	},
-	RecordKeyAssociation(lhs, rhs) {
-		return `['${lhs.asJs}', ${rhs.asJs}]`;
-	},
 	ScalarAssignment(lhs, _ce, rhs) {
 		return `${lhs.asJs} = ${rhs.asJs}`;
 	},
@@ -248,9 +250,6 @@ const asJs: ohm.ActionDict<string> = {
 				return `'${nm}'`;
 			},
 		).join(' ');
-	},
-	StringAssociation(lhs, _c, rhs) {
-		return `[${lhs.sourceString}, ${rhs.asJs}]`;
 	},
 	TraitDefinition(nm, _l, mn, mb, _r) {
 		const unqualifiedTraitName = nm.sourceString.substring(1);
@@ -281,9 +280,6 @@ const asJs: ohm.ActionDict<string> = {
 	},
 	ValueApply(p, _d, a) {
 		return `${p.asJs}(${a.asJs})`;
-	},
-	VarTemporaries(_var, tmp, _sc) {
-		return `let ${commaListJs(tmp.asIteration().children)};`;
 	},
 	VectorSyntax(_l, items, _r) { // Required for unit case. CF Help File
 		let c = items.children;
@@ -321,12 +317,6 @@ const asJs: ohm.ActionDict<string> = {
 	},
 	lowercaseIdentifier(c1, cN) {
 		return `_${c1.sourceString}${cN.sourceString}`;
-	},
-	operator(op) {
-		return `_${genName(op.sourceString, 2)}`;
-	},
-	recordKeyToken(n, _c) {
-		return n.sourceString;
 	},
 	reservedIdentifier(id) {
 		switch (id.sourceString) {
@@ -425,7 +415,13 @@ const asSl: ohm.ActionDict<string> = {
 		return `{ ${argSl}${vBar}${tmp.asSl}${prm.asSl}${stm.asSl} }`;
 	},
 	BlockLiteralInitializer(name, _e, blk) {
-		return `${name.sourceString} = ${blk.asSl}`;
+		let nameStr = name.sourceString;
+		if(isArityQualifiedName(nameStr)) {
+			return `${nameStr} = ${blk.asSl}`;
+		} {
+			let blkArity = blk.parametersOf.length;
+			return `${nameStr}:/${blkArity} = ${blk.asSl}`;
+		}
 	},
 	DotExpression(lhs, _dot, names, args) {
 		let rcv = lhs.asSl;
@@ -496,9 +492,6 @@ const asSl: ohm.ActionDict<string> = {
 	ListRangeFromToBySyntax(_left, start, _comma, to, _semicolon, by, _right) {
 		return `asList(nonemptyRange(${start.asSl}, ${to.asSl}, ${by.asSl}))`;
 	},
-	ListSyntax(_l, items, _r) {
-		return `[${commaListSl(items.asIteration().children)}]`;
-	},
 	MatrixSyntax(_l, items, _r) {
 		return `[${commaListSl(items.asIteration().children)}]`;
 	},
@@ -513,6 +506,9 @@ const asSl: ohm.ActionDict<string> = {
 		const middle = rewriteMethodListToCore(mn, mb);
 		const end = '}\n';
 		return [begin, middle, end].flat().join('\n');
+	},
+	NonEmptyListSyntax(_l, items, _r) {
+		return `[${commaListSl(items.asIteration().children)}]`;
 	},
 	NonEmptyParameterList(_leftParen, sq, _rightParen) {
 		return commaListSl(sq.asIteration().children);
@@ -614,8 +610,9 @@ const asSl: ohm.ActionDict<string> = {
 	ValueApply(p, _d, a) {
 		return `${p.asSl} . (${a.asSl})`;
 	},
-	VarTemporaries(_v, t, _s) {
-		return `var ${t.sourceString};`;
+	VarTemporaries(_var, tmp, _sc) {
+		let f = (x) => `let ${x.sourceString} = nil;`;
+		return procList(tmp.asIteration().children, f, ' ');
 	},
 	VectorSyntax(_l, i, _r) {
 		return `[${commaListSl(i.children)}]`;
@@ -824,7 +821,7 @@ const asAst: ohm.ActionDict<SlAst> = {
 	LetTemporary(_l, tmp, _s) {
 		return ['Let', tmp.asAst].flat(1);
 	},
-	ListSyntax(_l, items, _r) {
+	NonEmptyListSyntax(_l, items, _r) {
 		return ['List'].concat(items.children.map((x) => x.asAst).flat(1));
 	},
 	NonEmptyParameterList(_l, sq, _r) {
@@ -879,15 +876,6 @@ const asAst: ohm.ActionDict<SlAst> = {
 	nanLiteral(_n) {
 		return ['SmallFloat', 'NaN'];
 	},
-	/*operator(op) {
-		return ['Operator', op.sourceString];
-	},
-	operatorBound(op) {
-		return ['Operator', op.sourceString];
-	},
-	operatorFree(op) {
-		return ['Operator', op.sourceString];
-	},*/
 	reservedIdentifier(x) {
 		return ['ReservedIdentifier', x.sourceString];
 	},
@@ -972,8 +960,12 @@ const parametersOf: ohm.ActionDict<string[]> = {
 
 slSemantics.addAttribute('parametersOf', parametersOf);
 
+function procList(nodeArray: ohm.Node[], fn: (x: ohm.Node) => string, sep: string): string {
+	return nodeArray.map(fn).join(sep);
+}
+
 function commaList(nodeArray: ohm.Node[], fn: (x: ohm.Node) => string): string {
-	return nodeArray.map(fn).join(', ');
+	return procList(nodeArray, fn, ', ');
 }
 
 function commaListJs(nodeArray: ohm.Node[]): string {

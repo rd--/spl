@@ -1,11 +1,19 @@
 # AtAll Syntax
 
+- _c[i]_
+
+Syntax for the `atAll` protocol.
+
 Rewrite rule,
 where _i_ is an instance of `Range Literal Syntax` or `List Syntax`:
 
-- _c[i]_ ⟹ _atAll(c, i)_
+```
+>>> 'c[i:j]'.splSimplify
+'atAll(c, rangeOrRelativeRange(i, j, 1))'
 
-Syntax for the `atAll` protocol.
+>>> 'c[[i, j, k]]'.splSimplify
+'atAll(c, [i, j, k])'
+```
 
 At `Range`:
 

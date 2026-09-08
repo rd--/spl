@@ -1,10 +1,10 @@
 # At Syntax
 
-Rewrite rule:
-
-- _c[i]_ ⟹ _at(c, i)_
+- _c[i]_
 
 Syntax for the `at` protocol.
+
+Rewrite rule:
 
 ```
 >> 'c[i]'.splSimplify

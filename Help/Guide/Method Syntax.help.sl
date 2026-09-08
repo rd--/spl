@@ -1,9 +1,17 @@
 # Method Syntax
 
+- _x.f_
+- _x.f(y, …)_
+
 Rewrite rules:
 
-- _x.f_ ⟹ _f(x)_ ⟹ _f:/1 . (x)_
-- _x.f(y, ...)_ ⟹ _f(x, y, ...)_ ⟹ _f:/n . (x, y, ...)_
+```
+>> 'x.f'.splSimplify
+f(x)
+
+>> 'x.f(y)'.splSimplify
+f(x,y)
+```
 
 The unary case:
 

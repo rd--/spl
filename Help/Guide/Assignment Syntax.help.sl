@@ -1,8 +1,8 @@
 # Assignment Syntax
 
-- _variableName := expression_
+- _v := e_
 
-Assign a value to a variable.
+Assign the value of an expression _e_ to a variable name _v_.
 Variables must be declared.
 
 ```

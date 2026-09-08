@@ -1,5 +1,9 @@
 # List Range Syntax
 
+- _[i .. j]_
+- _[i, j .. k]_
+- _[i .. j; k]_
+
 List range expression rewrite rules:
 
 ```

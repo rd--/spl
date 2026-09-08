@@ -1,8 +1,6 @@
 # String Constructor Syntax
 
-Rewrite rule:
-
-- _T'…'_ ⟹ _T('…')_
+- _T'…'_
 
 Uppercase unary functions may elide application parenthesis when applied to single quoted strings.
 

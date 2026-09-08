@@ -1,17 +1,19 @@
 # Binary Operator Syntax
 
+- _x ▯ y_
+
 Rewrite rule:
 
-- _x ▯ y_ ⟹ _▯(x, y)_
+```
+>> '3 + 4'.splSimplify
+plusSign(3, 4)
+```
 
 Binary operators are written _α + β_:
 
 ```
 >>> 3 + 4
 7
-
->> '3 + 4'.splSimplify
-plusSign(3, 4)
 ```
 
 Binary operators associate to the left, _α + β * γ_ = _(α + β) * γ_:
@@ -75,8 +77,9 @@ The names are those given to the glyphs in _The Unicode Standard_.
 true
 ```
 
-These names are in the same space as all other method names,
-defining _&_ defines _ampersand_, and defining _+_ defines _plusSign_.
+The rewriting is done by the simplifier,
+defining _&_ defines _ampersand_,
+and defining _+_ defines _plusSign_:
 
 ```
 >>> plusSign(3, 4)

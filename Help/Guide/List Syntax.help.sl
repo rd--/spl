@@ -34,6 +34,17 @@ A list of the empty list:
 [[]]
 ```
 
+There are no rewrite rules,
+list syntax is not rewritten by the simplifier:
+
+```
+>> '[]'.splSimplify
+[]
+
+>> '[x, y, z]'.splSimplify
+[x, y, z]
+```
+
 * * *
 
 See also: List

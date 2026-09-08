@@ -18,7 +18,6 @@
 - `Apply Syntax`
 - `Binary Operator Syntax`
 - `Comment Syntax`
-- `Infix Method Syntax`
 - `Let Syntax`
 - `List Assignment Syntax`
 - `List Constructor Syntax`
@@ -67,6 +66,7 @@
 - `Experimental AtPutDelegateTo Syntax`
 - `Experimental Constant Syntax`
 - `Experimental Dictionary Syntax`
+- `Experimental Infix Method Syntax`
 - `Experimental Initialised Temporaries Syntax`
 - `Experimental Map Syntax`
 - `Experimental MessageSend Syntax`
