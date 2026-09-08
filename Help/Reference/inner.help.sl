@@ -67,13 +67,13 @@ Generalised inner product of:
 Evaluate symbolically:
 
 ```
->> *.inner([`a` `b`], [`x` `𝒚`], +)
+>> *.inner([`a` `b`], [`x` `y`], +)
 (+ (* a x) (* b y))
 
 >> *.inner([`a` `b`; `c` `d`], [`s` `t`], +)
 [(+ (* a s) (* b t)), (+ (* c s) (* d t))]
 
->> *.inner([`x` `𝒚`], [`a` `b`; `c` `d`], +)
+>> *.inner([`x` `y`], [`a` `b`; `c` `d`], +)
 [(+ (* x a) (* y c)), (+ (* x b) (* y d))]
 
 >>> *.inner(

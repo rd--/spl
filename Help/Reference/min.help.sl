@@ -18,7 +18,7 @@ true
 Evaluate symbolically:
 
 ```
->> [`x` `𝒚` `z`].min
+>> [`x` `y` `z`].min
 (min (min x y) z)
 ```
 
@@ -165,7 +165,7 @@ The cumulative minima is the `scan` of `min`:
 At `Symbol`:
 
 ```
->> `x`.min(`𝒚`)
+>> `x`.min(`y`)
 (min x y)
 ```
 

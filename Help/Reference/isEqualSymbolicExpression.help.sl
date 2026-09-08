@@ -40,7 +40,7 @@ false
 >>> (`x` * `x`).isEqualSymbolicExpression(`x` * `x`)
 true
 
->>> (`x` + 1).isEqualSymbolicExpression(`x` + `𝒚`)
+>>> (`x` + 1).isEqualSymbolicExpression(`x` + `y`)
 false
 ```
 

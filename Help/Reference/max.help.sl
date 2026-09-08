@@ -41,7 +41,7 @@ true
 Evaluate symbolically:
 
 ```
->> [`x` `𝒚` `z`].max
+>> [`x` `y` `z`].max
 (max (max x y) z)
 ```
 

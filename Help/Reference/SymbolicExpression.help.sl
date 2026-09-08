@@ -8,13 +8,13 @@ The `printString` of a symbolic expression is an _S-expression_.
 `SymbolicExpression` implements `=` and `~` symbolically:
 
 ```
->>> (`x` = `𝒚`).isSymbolicExpression
+>>> (`x` = `y`).isSymbolicExpression
 true
 
->>> (`x` = `𝒚`).isSymbolicExpression
+>>> (`x` = `y`).isSymbolicExpression
 true
 
->>> (`x` + `𝒚`).typeOf
+>>> (`x` + `y`).typeOf
 'SymbolicExpression'
 ```
 
@@ -22,23 +22,23 @@ true
 The `operator` is retained as the `unqualifiedName` of the `Block`:
 
 ```
->>> (`x` = `𝒚`).operator.isSymbol
+>>> (`x` = `y`).operator.isSymbol
 true
 
->>> (`x` = `𝒚`).operator.name
+>>> (`x` = `y`).operator.name
 '='
 
->>> min(`x`, `𝒚`).operator.name
+>>> min(`x`, `y`).operator.name
 'min'
 ```
 
 Symbolic predicates:
 
 ```
->> `x` = `𝒚`
+>> `x` = `y`
 (= x y)
 
->> `x` ~ `𝒚`
+>> `x` ~ `y`
 (~ x y)
 
 >> `x` / 2 ~ 0
@@ -52,7 +52,7 @@ Symbolic predicates:
 
 ```
 >>> let a = `x` + 3.141;
->>> let b = `𝒚` * 1.618;
+>>> let b = `y` * 1.618;
 >>> { :i :j |
 >>> 	i.isEqualSymbolicExpression(j)
 >>> }.table([a, b], [a, b])
@@ -98,7 +98,7 @@ Symbolic expressions implement `Number`.
 `Hypotenuse` is the `sqrt` of the sum of the squares:
 
 ```
->> `x`.Hypotenuse(`𝒚`)
+>> `x`.Hypotenuse(`y`)
 (sqrt (+ (* x x) (* y y)))
 ```
 
@@ -111,7 +111,7 @@ is may also be a `SymbolicExpression`:
 >> 		'f',
 >> 		[`x`]
 >> 	),
->> 	[`𝒚`]
+>> 	[`y`]
 >> )
 ((f x) y)
 ```
@@ -154,7 +154,7 @@ Evaluate `inner` using symbolic primitives:
 `contents` answers the expression and each of its parts in a left-biased pre-order traversal:
 
 ```
->> (`x` * `𝒚` + `𝒛`).contents
+>> (`x` * `y` + `𝒛`).contents
 [(+ (* x y) z), +, (* x y), *, x, y, z]
 ```
 
