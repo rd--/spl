@@ -10,7 +10,7 @@ according to `==`.
 This recovers `let` bound variables:
 
 ```
->> let a = 𝒙 * 𝒙;
+>> let a = `x` * `x`;
 >> (a * a).commonSubexpressions(==)
 [(* x x)]
 ```
@@ -19,7 +19,7 @@ List subexpressions that are common,
 according to `==` and `isEqualSymbolicExpression`:
 
 ```
->> let e = ((𝒙 * 𝒙) * (𝒙 * 𝒙));
+>> let e = ((`x` * `x`) * (`x` * `x`));
 >> let a = e.commonSubexpressions(==);
 >> let b = e.commonSubexpressions(
 >> 	isEqualSymbolicExpression:/2

@@ -14,7 +14,7 @@ Convert from _Cmy_ colourspace to _Rgb_ colourspace.
 Evaluate symbolically:
 
 ```
->> [𝒄 𝒎 𝒚].cmyToRgb
+>> [`c` `m` `y`].cmyToRgb
 [(- 1 c), (- 1 m), (- 1 y)]
 ```
 

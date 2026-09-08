@@ -8,13 +8,13 @@ The `printString` of a symbolic expression is an _S-expression_.
 `SymbolicExpression` implements `=` and `~` symbolically:
 
 ```
->>> (𝒙 = 𝒚).isSymbolicExpression
+>>> (`x` = `𝒚`).isSymbolicExpression
 true
 
->>> (𝒙 = 𝒚).isSymbolicExpression
+>>> (`x` = `𝒚`).isSymbolicExpression
 true
 
->>> (𝒙 + 𝒚).typeOf
+>>> (`x` + `𝒚`).typeOf
 'SymbolicExpression'
 ```
 
@@ -22,37 +22,37 @@ true
 The `operator` is retained as the `unqualifiedName` of the `Block`:
 
 ```
->>> (𝒙 = 𝒚).operator.isSymbol
+>>> (`x` = `𝒚`).operator.isSymbol
 true
 
->>> (𝒙 = 𝒚).operator.name
+>>> (`x` = `𝒚`).operator.name
 '='
 
->>> min(𝒙, 𝒚).operator.name
+>>> min(`x`, `𝒚`).operator.name
 'min'
 ```
 
 Symbolic predicates:
 
 ```
->> 𝒙 = 𝒚
+>> `x` = `𝒚`
 (= x y)
 
->> 𝒙 ~ 𝒚
+>> `x` ~ `𝒚`
 (~ x y)
 
->> 𝒙 / 2 ~ 0
+>> `x` / 2 ~ 0
 (~ (/ x 2) 0)
 
->> 3 / 𝒙
+>> 3 / `x`
 (/ 3 x)
 ```
 
 `isEqualSymbolicExpression` tests if two `SymbolicExpression` values are the same:
 
 ```
->>> let a = 𝒙 + 3.141;
->>> let b = 𝒚 * 1.618;
+>>> let a = `x` + 3.141;
+>>> let b = `𝒚` * 1.618;
 >>> { :i :j |
 >>> 	i.isEqualSymbolicExpression(j)
 >>> }.table([a, b], [a, b])
@@ -62,20 +62,20 @@ Symbolic predicates:
 Symbolic expressions implement `adaptToNumberAndApply`:
 
 ```
->> 𝒙 + 23
+>> `x` + 23
 (+ x 23)
 
->> 3.141 / 𝒙
+>> 3.141 / `x`
 (/ 3.141 x)
 
->> (𝒙 ^ 2) + (𝒙 ^ 3)
+>> (`x` ^ 2) + (`x` ^ 3)
 (+ (^ x 2) (^ x 3))
 ```
 
 Symbolic primitives thread over lists:
 
 ```
->> (𝒙 * [2 3] + [4 5])
+>> (`x` * [2 3] + [4 5])
 [(+ (* x 2) 4), (+ (* x 3) 5)]
 ```
 
@@ -83,7 +83,7 @@ When printing symbolic expressions,
 certain constant numbers are recognised as symbolic expressions:
 
 ```
->> 𝒙 * 2.pi
+>> `x` * 2.pi
 (* x (* 2 π))
 ```
 
@@ -91,14 +91,14 @@ Symbolic expressions implement `Number`.
 `square` multiplies a number by itself:
 
 ```
->> (23 - 𝒙).square
+>> (23 - `x`).square
 (* (- 23 x) (- 23 x))
 ```
 
 `Hypotenuse` is the `sqrt` of the sum of the squares:
 
 ```
->> 𝒙.Hypotenuse(𝒚)
+>> `x`.Hypotenuse(`𝒚`)
 (sqrt (+ (* x x) (* y y)))
 ```
 
@@ -109,9 +109,9 @@ is may also be a `SymbolicExpression`:
 >> SymbolicExpression(
 >> 	SymbolicExpression(
 >> 		'f',
->> 		[𝒙]
+>> 		[`x`]
 >> 	),
->> 	[𝒚]
+>> 	[`𝒚`]
 >> )
 ((f x) y)
 ```
@@ -154,14 +154,14 @@ Evaluate `inner` using symbolic primitives:
 `contents` answers the expression and each of its parts in a left-biased pre-order traversal:
 
 ```
->> (𝒙 * 𝒚 + 𝒛).contents
+>> (`x` * `𝒚` + `𝒛`).contents
 [(+ (* x y) z), +, (* x y), *, x, y, z]
 ```
 
 List common subexpressions:
 
 ```
->> let a = 𝒙 * 𝒙;
+>> let a = `x` * `x`;
 >> (a * a).commonSubexpressions(==)
 [(* x x)]
 ```
@@ -169,29 +169,29 @@ List common subexpressions:
 Simplify constant math operations:
 
 ```
->> 𝒙 + 0
+>> `x` + 0
 x
 
->> 0 + 𝒙
+>> 0 + `x`
 x
 
->> 𝒙 - 0
+>> `x` - 0
 x
 
->> 𝒙 * 1
+>> `x` * 1
 x
 
->> 1 * 𝒙
+>> 1 * `x`
 x
 
->> 𝒙 / 1
+>> `x` / 1
 x
 ```
 
 Plot the `Graph` of the `Tree` of a `SymbolicExpression`:
 
 ~~~spl svg=A
-𝒙.Hypotenuse(𝒚).asTree.treePlot
+`x`.Hypotenuse(`y`).asTree.treePlot
 ~~~
 
 ![](Help/Image/SymbolicExpression-A.svg)

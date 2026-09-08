@@ -16,7 +16,9 @@ Sl {
 		| TypeExtension
 		| TraitExtension
     MethodNameList = "[" NonemptyListOf<methodName, ","> "]"
-    MethodNameOrMethodNameList = methodName | MethodNameList
+    MethodNameOrMethodNameList
+		= methodName
+		| MethodNameList
 	TypeDefinition = typeName "!"? TraitList "{" SlotDefinitions? (MethodNameOrMethodNameList Block)* "}"
 	TypeExtension = "+" typeName "{" (MethodNameOrMethodNameList Block)* "}"
 	MethodDefinitions = "+" "[" NonemptyListOf<typeOrTraitName, ","> "]" "{" (MethodNameOrMethodNameList Block)* "}"
@@ -26,11 +28,15 @@ Sl {
 	TraitList = ":" "[" ListOf<unqualifiedTraitName, ","> "]"
 	TraitExtension = "+" qualifiedTraitName "{" (MethodNameOrMethodNameList Block)* "}"
 	TraitDefinition = qualifiedTraitName "{" (MethodNameOrMethodNameList Block)* "}"
-	LibraryItem = LibraryItemLiteral | LibraryItemExpression
+	LibraryItem
+		= LibraryItemLiteral // S
+		| LibraryItemExpression
 	LibraryItemLiteral = "LibraryItem" NonEmptyRecordSyntax
 	LibraryItemExpression = "LibraryItem" ApplySyntax
 	Program = Temporaries? ListOf<Expression, ";">
-	Temporaries = VarTemporaries | LetTemporary+
+	Temporaries
+		= VarTemporaries // S
+		| LetTemporary+
 	Initializer =
 		BlockLiteralInitializer | // S* (The simplifier adds the arity qualifier)
 		ExpressionInitializer |
@@ -54,7 +60,9 @@ Sl {
 	ScalarAssignment = varName ":=" Expression
 	ListAssignment = "[" NonemptyListOf<varName, ","> "]" ":=" Expression
 	RecordAssignment = "(" NonemptyListOf<RecordInitializerItem, ","> ")" ":=" Expression
-	BinaryExpression = BinaryOperatorExpression | BinaryAdverbExpression
+	BinaryExpression
+		= BinaryOperatorExpression // S
+		| BinaryAdverbExpression // S
 	BinaryOperatorExpression = Expression (operator Primary)+
 	BinaryAdverbExpression = Expression (operatorWithAdverb Primary)+
 
@@ -136,7 +144,7 @@ Sl {
 	EmptyListSyntax = "[" "]"
 	VectorSyntax = "[" VectorSyntaxItem+ "]"
 	VectorSyntaxItem = VectorSyntaxUnarySend | literal | reservedIdentifier | identifier
-	VectorSyntaxUnarySend = (literal | identifier) "." (selectorName | operatorBound)
+	VectorSyntaxUnarySend = (literal | identifier) ("." (selectorName | operatorBound))+
 	MatrixSyntax = "[" NonemptyListOf<MatrixSyntaxItems, ";"> "]"
 	MatrixSyntaxItems = VectorSyntaxItem*
 	VolumeSyntax = "[" NonemptyListOf<VolumeSyntaxItems, ":;"> "]"
@@ -146,8 +154,13 @@ Sl {
 	unqualifiedIdentifier = letter letterOrDigit*
 	negatedIdentifier = "-" lowercaseIdentifier
 	arityQualifiedIdentifier = letter letterOrDigit* (":/" digit+)
-	identifier = arityQualifiedIdentifier | unqualifiedIdentifier | negatedIdentifier
-	methodName = unqualifiedIdentifier | operatorBound
+	identifier
+		= arityQualifiedIdentifier
+		| unqualifiedIdentifier
+		| negatedIdentifier
+	methodName
+		= unqualifiedIdentifier
+		| operatorBound
 	selectorName = unqualifiedIdentifier
 	unusedVariableIdentifier = "_"
 	systemVariableIdentifier = "__SplVar" digit+
@@ -155,7 +168,9 @@ Sl {
 	typeName = uppercaseIdentifier
 	unqualifiedTraitName = uppercaseIdentifier
 	qualifiedTraitName = "@" uppercaseIdentifier
-    typeOrTraitName = typeName | qualifiedTraitName
+    typeOrTraitName
+		= typeName
+		| qualifiedTraitName
     lowercaseIdentifier = lower letterOrDigit*
 	varName
 		= arityQualifiedIdentifier // arity branch should be lowercase
@@ -167,26 +182,52 @@ Sl {
 	constantName = lowercaseIdentifier
 	recordKey = lowercaseIdentifier | uppercaseIdentifier // S
 	recordKeyToken = recordKey ":" // S
-	letterOrDigit = letter | digit
+	letterOrDigit
+		= letter
+		| digit
 	reservedIdentifier = ("nil" | "true" | "false") ~letterOrDigit
 	operator = operatorChar+ // S
 	operatorBound = operatorChar+ // S
     operatorFree = operatorChar+ // S
-	operatorWithAdverb = operatorWithBinaryAdverb | operatorWithUnaryAdverb
+	operatorWithAdverb
+		= operatorWithBinaryAdverb // S
+		| operatorWithUnaryAdverb // S
 	operatorWithUnaryAdverb = operator "." selectorName
 	operatorWithBinaryAdverb = operator "." selectorName "(" (operatorFree | arityQualifiedIdentifier | numberLiteral) ")"
 	operatorChar = "!" | "%" | "&" | "*" | "+" | "/" | "<" | "=" | ">" | "?" | "@" | "~" | "|" | "-" | "^" | "#" | "$" | "\\"
 	plusOrMinus = "+" | "-"
-    symbolicCharacterLiteral = "𝒂" | "𝒃" | "𝒄" | "𝒅" | "𝒆" | "𝒇" | "𝒈" | "𝒉" | "𝒊" | "𝒋" | "𝒌" | "𝒍" | "𝒎" | "𝒏" | "𝒐" | "𝒑" | "𝒒" | "𝒓" | "𝒔" | "𝒕" | "𝒖" | "𝒗" | "𝒘" | "𝒙" | "𝒚" | "𝒛"
 
-	literal = rangeLiteral | numberLiteral | singleQuotedStringLiteral | doubleQuotedStringLiteral | backtickQuotedStringLiteral | symbolicCharacterLiteral
-	numberLiteral = decimalLiteral | scientificLiteral | complexLiteral | imaginaryLiteral | residueLiteral | floatLiteral | fractionLiteral | largeIntegerLiteral | radixIntegerLiteral | smallIntegerLiteral | infinityLiteral | nanLiteral
-	rangeLiteral = rangeFromToByLiteral | rangeFromToLiteral
-    rangeLiteralItem = integerLiteral | identifier
+	literal
+		= rangeLiteral
+		| numberLiteral
+		| singleQuotedStringLiteral
+		| doubleQuotedStringLiteral
+		| backtickQuotedStringLiteral
+	numberLiteral
+		= decimalLiteral
+		| scientificLiteral
+		| complexLiteral
+		| imaginaryLiteral
+		| residueLiteral
+		| floatLiteral
+		| fractionLiteral
+		| largeIntegerLiteral
+		| radixIntegerLiteral
+		| smallIntegerLiteral
+		| infinityLiteral
+		| nanLiteral
+	rangeLiteral
+		= rangeFromToByLiteral
+		| rangeFromToLiteral
+    rangeLiteralItem
+		= integerLiteral
+		| identifier
 	rangeFromToByLiteral = rangeLiteralItem ":" rangeLiteralItem ":" integerLiteral
 	rangeFromToLiteral = rangeLiteralItem ":" rangeLiteralItem
 	floatLiteral = plusOrMinus? decimalDigits "." digit+
-	decimalLiteral = floatDecimalLiteral | integerDecimalLiteral
+	decimalLiteral
+		= floatDecimalLiteral
+		| integerDecimalLiteral
 	floatDecimalLiteral = plusOrMinus? digit+ "." digit+ "D" (digit+)? // ("d" | "D")
 	integerDecimalLiteral = plusOrMinus? digit+ "D" (digit+)? // ("d" | "D")
 	scientificLiteral = integerOrFloatLiteral "E" integerLiteral // ("e" | "E")
@@ -205,8 +246,13 @@ Sl {
 	decimalDigits = digit digitOrUnderscore*
 	digitOrUnderscore = digit | "_"
 	digits = digit digitOrUnderscore*
-    integerLiteral = largeIntegerLiteral | radixIntegerLiteral | smallIntegerLiteral
-    integerOrFloatLiteral = floatLiteral | integerLiteral
+    integerLiteral
+		= largeIntegerLiteral
+		| radixIntegerLiteral
+		| smallIntegerLiteral
+    integerOrFloatLiteral
+		= floatLiteral
+		| integerLiteral
 	singleQuotedStringLiteral = "\'" (~"\'" ("\\\'" | "\\\\" | sourceCharacter))* "\'"
 	doubleQuotedStringLiteral = "\"" (~"\"" ("\\\"" | "\\\\" | sourceCharacter))* "\""
 	backtickQuotedStringLiteral = backtickCharacter (~backtickCharacter sourceCharacter)* backtickCharacter

@@ -74,6 +74,7 @@
 - `Experimental Quoted AtIfAbsentPut Syntax`
 - `Experimental Set Syntax`
 - `Experimental Slot Access Syntax`
+- `Experimental Symbol Literals`
 - `Experimental Trailing Record Syntax`
 
 * * *

@@ -32,7 +32,7 @@ PlotSet : [Object] { | plotMatrix:<List> |
 				}
 			}.table(1:m, 1:n),
 			'</svg>'
-		].Svg
+		].joinSvg
 	}
 
 	rowHeight { :self |

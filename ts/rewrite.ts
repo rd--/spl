@@ -618,7 +618,13 @@ const asSl: ohm.ActionDict<string> = {
 		return `[${commaListSl(i.children)}]`;
 	},
 	VectorSyntaxUnarySend(lhs, _d, rhs) {
-		return `${rhs.asSl}(${lhs.asSl})`;
+		let rcv = lhs.asSl;
+		const namesArray = rhs.children.map((c) => c.asSl);
+		while (namesArray.length > 0) {
+			const name = namesArray.shift();
+			rcv = `${name}(${rcv})`;
+		}
+		return rcv;
 	},
 	VolumeSyntax(_l, items, _r) {
 		return `[${commaListSl(items.asIteration().children)}]`;
@@ -751,11 +757,6 @@ const asSl: ohm.ActionDict<string> = {
 	},
 	singleQuotedStringLiteral(_l, s, _r) {
 		return "'" + s.sourceString + "'";
-	},
-	symbolicCharacterLiteral(c) {
-		let i = c.sourceString.codePointAt(0)!;
-		let a = String.fromCodePoint(i - 119841);
-		return "Symbol('" + a + "')";
 	},
 	unqualifiedIdentifier(c1, cN) {
 		return c1.sourceString + cN.sourceString;

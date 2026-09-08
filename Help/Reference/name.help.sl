@@ -39,9 +39,6 @@ At `Symbol`:
 ```
 >>> `x`.name
 'x'
-
->>> 𝒙.name
-'x'
 ```
 
 At `Error`:

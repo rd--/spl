@@ -44,7 +44,7 @@ Svg : [Object] { | contents |
 		}.unwords
 	}
 
-	Svg { :self |
+	joinSvg { :self |
 		let stringList = self.flatten;
 		stringList.anySatisfy { :x |
 			x.isString.not
@@ -122,7 +122,7 @@ Svg : [Object] { | contents |
 			self(options),
 			'</g>',
 			'</svg>'
-		].Svg
+		].joinSvg
 	}
 
 }

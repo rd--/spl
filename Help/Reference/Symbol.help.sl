@@ -19,21 +19,11 @@ There is a literal notation for symbols:
 true
 ```
 
-The set of mathematical lower case bold italic roman letters are symbol literals for the ordinary characters they represent:
-
-```
->>> 𝒙.isSymbol
-true
-
->>> 𝒙.name
-'x'
-```
-
 Symbols implement the `Number` trait,
 answering `SymbolicExpression` values:
 
 ```
->>> (𝒙 + 23).isSymbolicExpression
+>>> (`x` + 23).isSymbolicExpression
 true
 ```
 
@@ -41,7 +31,7 @@ Symbols are cached on construction,
 so that equal symbols compare identically:
 
 ```
->>> 𝒙 == 𝒙
+>>> `x` == `x`
 true
 ```
 
@@ -58,14 +48,14 @@ true
 However `=` is defined symbolically:
 
 ```
->> 𝒙 = 𝒙
+>> `x` = `x`
 (= x x)
 ```
 
 The `storeString` of a `Symbol` uses the constructor notation:
 
 ```
->> 𝒙.storeString
+>> `x`.storeString
 Symbol('x')
 ```
 
@@ -78,7 +68,7 @@ The `printString` of a `Symbol` is its name:
 >>> Symbol('x').asString
 'x'
 
->> 𝒙.printString
+>> `x`.printString
 x
 ```
 

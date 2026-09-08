@@ -1,6 +1,6 @@
 # isEqualSymbolicExpression
 
-- _isEqualSymbolicExpression(anObject, anotherObject)_
+- _isEqualSymbolicExpression(x, y)_
 
 `=` at `SymbolicExpression` answers a `SymbolicExpression`, not a `Boolean`.
 `isEqualSymbolicExpression` answers a `Boolean`.
@@ -8,7 +8,7 @@
 At `Symbol`:
 
 ```
->>> 𝒙.isEqualSymbolicExpression(𝒙)
+>>> `x`.isEqualSymbolicExpression(`x`)
 true
 
 >>> `*`.isEqualSymbolicExpression(`+`)
@@ -17,30 +17,30 @@ false
 >>> `*`.isEqualSymbolicExpression(3.141)
 false
 
->>> 𝒙.isEqualSymbolicExpression(𝒙 + 1)
+>>> `x`.isEqualSymbolicExpression(`x` + 1)
 false
 ```
 
 At `SmallFloat`:
 
 ```
->>> 3.141.isEqualSymbolicExpression(𝒙)
+>>> 3.141.isEqualSymbolicExpression(`x`)
 false
 ```
 
 At `SymbolicExpression`:
 
 ```
->>> (𝒙 + 1).isEqualSymbolicExpression(𝒙)
+>>> (`x` + 1).isEqualSymbolicExpression(`x`)
 false
 
->>> (𝒙 * 𝒙).isEqualSymbolicExpression(𝒙 + 𝒙)
+>>> (`x` * `x`).isEqualSymbolicExpression(`x` + `x`)
 false
 
->>> (𝒙 * 𝒙).isEqualSymbolicExpression(𝒙 * 𝒙)
+>>> (`x` * `x`).isEqualSymbolicExpression(`x` * `x`)
 true
 
->>> (𝒙 + 1).isEqualSymbolicExpression(𝒙 + 𝒚)
+>>> (`x` + 1).isEqualSymbolicExpression(`x` + `𝒚`)
 false
 ```
 

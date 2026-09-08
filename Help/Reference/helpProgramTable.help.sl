@@ -9,7 +9,7 @@ Count help programs:
 
 ```
 >>> system.helpProgramTable.size
-5098
+5101
 ```
 
 A selection predicate may be specified,
@@ -19,7 +19,7 @@ count programs that answer images:
 >>> system.helpProgramTable(
 >>> 	isImageProgram:/1
 >>> ).size
-4958
+4961
 ```
 
 Count entries with specific annotations:
@@ -32,7 +32,7 @@ Count entries with specific annotations:
 >>> 		.includesKey(k)
 >>> 	}
 >>> }
-[4758 200 1771]
+[4761 200 1771]
 ```
 
 * * *

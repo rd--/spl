@@ -33,7 +33,7 @@ ColourGradient : [Object, Storeable] { | colourList positionListOrNil |
 			'<rect width="%" height="%" fill="url(#gradient)" />'.format([w, h]),
 			'</svg>'
 		];
-		[pre, stops, post].Svg
+		[pre, stops, post].joinSvg
 	}
 
 	isEquallySpaced { :self |

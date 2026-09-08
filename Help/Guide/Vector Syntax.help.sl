@@ -18,8 +18,15 @@ Literal items:
 >>> [1 2 3 4 5 6 7 8 9]
 [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
->>> [3.141 1.pi 'text' true false]
-[3.141, 1.pi, 'text', true, false]
+>>> [3.141 1J2 'text' true false]
+[3.141, 1J2, 'text', true, false]
+```
+
+Unary message sends are allowed:
+
+```
+>>> [3.pi.exp 25.sqrt.- 27.sqrt.sqrt]
+[12391.6478, -5, 2.2795]
 ```
 
 Identifier items:
@@ -28,8 +35,8 @@ Identifier items:
 >>> let x = 1;
 >>> let y = 2;
 >>> let z = 3;
->>> [x y z]
-[1, 2, 3]
+>>> [x y z y.square]
+[1, 2, 3, 4]
 ```
 
 Literals and identifiers may be mixed together:

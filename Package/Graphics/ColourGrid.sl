@@ -79,7 +79,7 @@ ColourGrid : [Object] { | contents |
 			),
 			items,
 			'</svg>'
-		].Svg
+		].joinSvg
 	}
 
 	shape { :self |

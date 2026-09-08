@@ -225,7 +225,7 @@ Evaluate numerically:
 Evaluate symbolically:
 
 ```
->> Polynomial[1 2 3].at(𝒙)
+>> Polynomial[1 2 3].at(`x`)
 (+ (* x (+ (* x 3) 2)) 1)
 ```
 

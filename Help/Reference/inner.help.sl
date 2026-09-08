@@ -67,18 +67,18 @@ Generalised inner product of:
 Evaluate symbolically:
 
 ```
->> *.inner([𝒂 𝒃], [𝒙 𝒚], +)
+>> *.inner([`a` `b`], [`x` `𝒚`], +)
 (+ (* a x) (* b y))
 
->> *.inner([𝒂 𝒃; 𝒄 𝒅], [𝒔 𝒕], +)
+>> *.inner([`a` `b`; `c` `d`], [`s` `t`], +)
 [(+ (* a s) (* b t)), (+ (* c s) (* d t))]
 
->> *.inner([𝒙 𝒚], [𝒂 𝒃; 𝒄 𝒅], +)
+>> *.inner([`x` `𝒚`], [`a` `b`; `c` `d`], +)
 [(+ (* x a) (* y c)), (+ (* x b) (* y d))]
 
 >>> *.inner(
->>> 	[𝒂 𝒃; 𝒄 𝒅],
->>> 	[𝒖 𝒗; 𝒘 𝒙],
+>>> 	[`a` `b`; `c` `d`],
+>>> 	[`u` `v`; `w` `x`],
 >>> 	+
 >>> ).deepCollect(printString:/1)
 [

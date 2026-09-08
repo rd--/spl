@@ -36,7 +36,7 @@
 				self.hexTriplet
 			]),
 			'</svg>'
-		].Svg
+		].joinSvg
 	}
 
 	green { :self |
