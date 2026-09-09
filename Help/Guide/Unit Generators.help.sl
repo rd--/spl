@@ -300,6 +300,8 @@
 ## Uncategorized
 
 - `Choose`: demand rate random sequence generator
+- `Gendy1`
+- `Gendy3`
 - `GetTempo`: continuous tempo
 - `OverlapTexture`: overlap events
 - `Silent`: output silence

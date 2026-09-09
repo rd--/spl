@@ -1,6 +1,6 @@
 # Gendy1
 
-- _Gendy1(ampdist=1, durdist=1, adparam=1, ddparam=1, minfreq=440, maxfreq=660, ampscale=0.5, durscale=0.5, initCPs=12, knum)_
+- _Gendy1(ampdist=1, durdist=1, adparam=1, ddparam=1, minfreq=440, maxfreq=660, ampscale=0.5, durscale=0.5, initCPs=12, knum=initCPs)_
 
 Dynamic stochastic synthesis generator.
 

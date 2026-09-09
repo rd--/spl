@@ -232,6 +232,7 @@
 	Pulse { :freq :width | <primitive: return sc.Pulse(_freq, _width);> }
 	PulseCount { :trig :reset | <primitive: return sc.PulseCount(_trig, _reset);> }
 	PulseDivider { :trig :div :start | <primitive: return sc.PulseDivider(_trig, _div, _start);> }
+	QuadN { :freq :a :b :c :xi | <primitive: return sc.QuadN(_freq, _a, _b, _c, _xi);> }
 	QuadC { :freq :a :b :c :xi | <primitive: return sc.QuadC(_freq, _a, _b, _c, _xi);> }
 	QuadL { :freq :a :b :c :xi | <primitive: return sc.QuadL(_freq, _a, _b, _c, _xi);> }
 	Rand { :lo :hi | <primitive: return sc.Rand(_lo, _hi);> }

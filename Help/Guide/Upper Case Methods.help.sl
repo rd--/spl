@@ -2,7 +2,7 @@
 
 In ordinary Spl, upper-case methods names are reserved for _constructors_, and generally have the name of the `Type` that they answer.
 
-In SuperCollider, the unit generator names are upper-cased, and this is carried over for Spl.
+In SuperCollider, the unit generator names are upper-cased, and this is carried over for Sᴘʟ.
 
 The names of various unary and binary operators are also given in an upper-case form to allow SuperCollider programs to be written with a consistent spelling.
 

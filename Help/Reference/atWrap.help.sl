@@ -18,7 +18,7 @@ If the index is out of bounds, let it wrap around from the end to the beginning 
 [4 5 1 2 3 4 5 1 2 3 4]
 ```
 
-Since Spl sequences are one-indexed,
+Since Sᴘʟ sequences are one-indexed,
 the index `zero` answers the last item,
 and the index _-1_ the second last:
 

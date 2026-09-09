@@ -138,7 +138,7 @@ a.scatterPlot
 ![](Help/Image/if-C.svg)
 
 _Rationale:_
-Spl follows Smalltalk in having no special purpose conditional evaluation mechanisms.
+Sᴘʟ follows Smalltalk in having no special purpose conditional evaluation mechanisms.
 Conditional expressions are implemented as ordinary blocks.
 To delay evaluation of alternatives each must be written as a no argument block.
 

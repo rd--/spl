@@ -78,7 +78,7 @@ Transcript : [Object] { | entries |
 
 +System {
 
-	postLine { :self :aString |
+	[printLine, postLine] { :self :aString |
 		self.transcript.addNotification(aString)
 	}
 

@@ -803,7 +803,7 @@ String! : [Object, Storeable, Equatable, Comparable, Json, Iterable, Indexable, 
 		p
 	}
 
-	postLine { :self |
+	[printLine, postLine] { :self |
 		system.postLine(self)
 	}
 
@@ -1116,7 +1116,7 @@ String! : [Object, Storeable, Equatable, Comparable, Json, Iterable, Indexable, 
 
 +@Object {
 
-	postLine { :self |
+	[printLine, postLine] { :self |
 		self.printString.postLine;
 		self
 	}

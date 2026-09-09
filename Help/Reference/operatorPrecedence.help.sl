@@ -11,7 +11,7 @@ Answer the operator precedence of _s_.
 ```
 
 _Note_:
-Spl does not implement operator precedence.
+Sᴘʟ does not implement operator precedence.
 However expressions can me printed more conscisely by eliding unnecessary parentheses.
 
 * * *

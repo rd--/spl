@@ -108,7 +108,7 @@ and is much clearer.
 
 _Note_:
 The lower case form, _c[x]_, is `At Syntax`.
-The syntaxes do not collide because Spl does not allow ordinary variables to begin with an upper case letter.
+The syntaxes do not collide because Sᴘʟ does not allow ordinary variables to begin with an upper case letter.
 
 * * *
 

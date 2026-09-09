@@ -39,7 +39,7 @@ Fractions are automatically reduced:
 3/2
 ```
 
-Spl does not require binary operators to be white space separated,
+Sᴘʟ does not require binary operators to be white space separated,
 and it is therefore possible to combine `Fraction Syntax` and the `/` binary operator:
 
 ```

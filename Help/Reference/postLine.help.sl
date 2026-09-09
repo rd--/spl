@@ -2,7 +2,8 @@
 
 - _postLine(system, x)_
 
-Print the `printString` of the object _x_ to the console, followed by a new line.
+Print the `printString` of the object _x_ to the console,
+followed by a new line.
 Answer _x_.
 
 Print the answer of _3+4_ and answer it multiplied by _7_:

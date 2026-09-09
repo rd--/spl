@@ -58,7 +58,7 @@ CombN(o, 1 / 4, 1 / 2.125, SinOsc(0.005, 1.5.pi).LinLin(-1, 1, 0, 6)).transpose.
 
 /* tw 0120 (f0) ; requires=kr */
 let z = LfTri(1 / [7, 8], 0) * LfTri(1 / 9, 0) * 99;
-let l = 60:79.MidiCps;
+let l = [60 .. 79].MidiCps;
 let f = Select(z, l);
 let w = LfTri(1 / [3, 4], 0) % 1;
 let o = VarSaw(f.kr, 0, w.kr);

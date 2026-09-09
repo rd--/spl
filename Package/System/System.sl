@@ -115,7 +115,7 @@ System! : [Object, Cache, RandomNumberGenerator] {
 		<primitive: return _self.packageDictionary;>
 	}
 
-	postLine { :self :aString |
+	[printLine, postLine] { :self :aString |
 		self.consoleNotification(aString)
 	}
 
