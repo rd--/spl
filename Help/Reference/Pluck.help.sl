@@ -1,6 +1,6 @@
 # Pluck
 
-- _Pluck(in, trig, maxDelayTime, delayTime, decayTime, coef)_
+- _Pluck(in, trig=1, maxDelayTime=0.2, delayTime=0.2, decayTime=1, coef=0.5)_
 
 Karplus-strong algorithm.
 

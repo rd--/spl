@@ -1,6 +1,6 @@
 # GVerb
 
-- _GVerb(in, roomSize, revTime, damping, inputBw, spread, dryLevel, earlyRefLevel, tailLevel, maxRoomSize)_
+- _GVerb(in, roomSize=10, revTime=3, damping=0.5, inputBw=0.5, spread=15, dryLevel=1, earlyRefLevel=0.7, tailLevel=0.5, maxRoomSize=300)_
 
 A two-channel reverb Ugen, based on the _GVerb_ Ladspa effect by Juhana Sadeharju.
 

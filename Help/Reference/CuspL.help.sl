@@ -1,6 +1,6 @@
 # CuspL
 
-- _CuspL(freq, a, b, xi)_
+- _CuspL(freq=22050, a=1, b=1.9, xi=0)_
 
 Cusp map chaotic generator.
 
@@ -11,6 +11,12 @@ Cusp map chaotic generator.
 A linear-interpolating sound generator based on the difference equation:
 
 > _x(n + 1) = a - b * sqrt(|x(n)|)_
+
+Default values:
+
+~~~
+CuspL(22050, 1, 1.9, 0) * 0.1
+~~~
 
 Vary frequency:
 

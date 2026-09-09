@@ -1,3 +1,46 @@
+/* SCSCC-12 "Emergency Sauce" 223 bytes ; https://github.com/lukiss/SCSCC/ */
+let z = { :x | LfSaw(x, 0) };
+let m = { 1 << (LfNoise2(2) + 1 * 2.2) };
+let x = 36;
+let f = 3 * [0 .. x - 1] + 16;
+let a = Sin(z(m() / 32) + 2 * 2.pi * z(MidiCps(f)));
+let b = Sin(Log2(z(m()) + 1 / 2 * (1.1 + z(m() / x) * f)).Sin ^ 8);
+let c = z( { -1 * m() } ! x / (m() * x)).Max(0);
+FreeVerb(
+	Splay(
+		Lpz2(a * b * c),
+		z(m() / 4)
+	),
+	m().Sin + 1 / 3,
+	m() / x,
+	x / m()
+)
+
+/* SCSCC-13 "Waiting for Something Good to Happen" 204 bytes ; https://github.com/lukiss/SCSCC/ */
+let a = [0 8 10 15 18];
+let p = 1 << [0 .. 4];
+let ugenIf = { :p :a :b |
+	(p * (a - b)) + b
+};
+let f = 82 * ugenIf(
+	LfSaw(1 / 5, 0) > 0,
+	a,
+	[3 3 3 3 4] + a
+).MidiRatio;
+Splay(
+	0:4.collect { :n |
+		let q = f[n + 1] * p;
+		(
+			SinOsc(
+				q,
+				SinOsc(p / 5 + 3, 0) * SinOsc(7 / q[1], 0)
+			) * Negate(
+				SinOsc(rotate(p, n) / q, 0) + 3 ^ 2 * p).DbAmp
+		).Sum / 4
+	},
+	SinOsc(1 / 3, 0)
+)
+
 /* SCSCC-14 "Quad Melody" 252 bytes */
 let z = { :x |
 	LfSaw(x, 0)
@@ -52,6 +95,33 @@ Splay(
 	PmOsc(3, 1.pi, 0, 0)
 )
 
+/* SCSCC-25 "Feeling Melancholy at the Spa, In A minor" */
+let r = MidiRatio(12 * [0 .. 4] +.x (5 * [0 .. 4] ++ [19]));
+let z = { :x | LfSaw(x, 0) };
+let h = 1 / 2;
+let w = CuspL(h, 1, 1.9, 0) + 1 / 2 ^ h * 4;
+let t = LfSaw(2 ^ w / 8, [0 .. 7] / 4 - 1).kr;
+GVerb(
+	Hpf(
+		0:7.collect { :n |
+			let a = TChoose(
+				{ t[n + 1] } ! 4,
+				110 * r
+			);
+			Pluck(
+				CuspL(22050, 1, 1.9, 0) / 4,
+				t[n + 1],
+				h,
+				z(n % w) / 77 + 1 / a,
+				z(w + n % h) + 2.1 * 4,
+				1 - z(w % h).Abs ^ 2 * h + h
+			).Sum
+		},
+		50
+	).Sum / 4,
+	10, 3, 0.5, 0.5, 15, 1, 0.7, 0.5, 300
+)
+
 /* SCSCC-26 */
 let c = MidiRatio(12 * (0 .. 2) +.x (5 * (0 .. 3) ++ [19]));
 let m = { LfdNoise3(5 # [0.1]) + 1 / 2 };
@@ -75,6 +145,33 @@ Splay(
 			0.995
 		) / 12
 	}
+)
+
+/* SCSCC #32 Baum 219 */
+let f = Index(
+	(12 * [0 .. 5] +.x (5 * [0 .. 3] ++ [19])).asLocalBuf,
+	Round(
+		QuadC(1, 1, -1, -0.75, 0) + 1 / 2 * 30,
+		Ceiling(QuadC(0.9, 1, -1, -0.75, 0) + 1 * 12)
+	)
+);
+let z = Formlet(
+	Hpz1(f).Abs * QuadC(22050, 1, -1, -0.75, 0),
+	55 * f.MidiRatio,
+	0.002,
+	1
+).Sin;
+let o = PitchShift(
+	z,
+	1,
+	(8 + f).Log,
+	0.1,
+	0.1
+) + z;
+Pan2(
+	CombC(o, 0.2, 0.2, 1) / 6 + o / 4,
+	0,
+	1
 )
 
 /* ScScc-38 "Index" ; https://github.com/lukiss/SCSCC/ */
@@ -149,4 +246,25 @@ Splay(
 		).MidiRatio.kr * 49,
 		0
 	) / 5
+)
+
+/* SCSCC-51 #UntzUntz */
+let f = 98;
+let a = SinOsc(2, 0).Max(0);
+let b = SinOsc(3 / (2 * f), 0) + 1.001 / 11;
+let c = SinOsc(2, 4).Max(0);
+let d = SinOsc(1.9 / f, 0) + 4 * 4;
+let e = SinOsc(SinOsc(4 / f, 0) ^ 1.pi * f + f * SinOsc(f, 0), 0);
+let g = SinOsc(1 / 2, 1.9) ^ (SinOsc(0.992 / 7, 0) + 6 * 66);
+let h = Sum(SinOsc([14 15].fibonacci, 0)) * SinOsc(4 / f, 0) / 2;
+Pan2(
+	LeakDc(
+		SinOsc(
+			Log(a ^ b * 11).Sin ^ 5 * 4 * f,
+			c ^ d * e + (g * h)
+		) / 3,
+		0.995
+	),
+	0,
+	1
 )

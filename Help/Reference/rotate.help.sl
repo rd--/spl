@@ -23,6 +23,13 @@ The rotation is not in place:
 ([1 2 3], [3 1 2])
 ```
 
+Rotation by `zero` is `identity`:
+
+```
+>>> [1 2 3 4].rotate(0)
+[1 2 3 4]
+```
+
 At `Geometry`,
 answer the value _g_ rotated _theta_ radians counter-clockwise about its `centroid`.
 

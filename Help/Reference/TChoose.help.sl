@@ -26,6 +26,20 @@ TChoose(
 ) * 0.2
 ```
 
+At control rate can select from a constant array:
+
+~~~
+Splay(
+	SinOsc(
+		TChoose(
+			Dust([3 5 7]),
+			55 * [1 .. 17]
+		).kr,
+		0
+	)
+) * 0.1
+~~~
+
 Note:
 All Ugens are continuously running.
 This may not be the most efficient way if each input is Cpu-expensive.
