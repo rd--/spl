@@ -1,6 +1,6 @@
 /* http://sccode.org/1-4Qy (F0) ; 0232 ; requires=pyramid */
 let b = [4, 3];
-let q = 9.fibonacciSequence.pyramid(1) * 99;
+let q = [1 .. 9].fibonacci.pyramid(1) * 99;
 let o = SinOsc(Duty(1 / b, 0, Dseq(Infinity, q)), 0);
 let e = SinOsc(b / 9, 0);
 let d = SinOsc(b / 999, 0).Abs + 0.01;
@@ -11,7 +11,7 @@ CombC(o * e, 1.01, d, 9).Tanh / 2
 `pyramid` applies a counting algorithm to a sequence:
 
 ```
->>> 9.fibonacciSequence.pyramid(1)
+>>> [1 .. 9].fibonacci.pyramid(1)
 [
 	1
 	1 1

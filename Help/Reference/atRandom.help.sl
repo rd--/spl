@@ -1,10 +1,11 @@
 # atRandom
 
-- _atRandom(anObject)_
+- _atRandom(x)_
 
-Select elements at random.
+Select elements at random from the object _x_.
 
-At `LargeInteger`, select between `one` and five at random:
+At `LargeInteger`,
+select between `one` and _n_ at random:
 
 ```
 >>> system.seedRandom(52137);
@@ -16,7 +17,8 @@ At `LargeInteger`, select between `one` and five at random:
 ]
 ```
 
-At `SmallFloat`, select between `zero` and `pi` at random:
+At `SmallFloat`,
+select between `zero` and _n_ at random:
 
 ```
 >>> system.seedRandom(83014);
@@ -28,7 +30,8 @@ At `SmallFloat`, select between `zero` and `pi` at random:
 ]
 ```
 
-At `Interval`, select between `one` and five at random:
+At `Interval`,
+select between `min` and `max` at random:
 
 ```
 >>> let i = 1 -- 5;

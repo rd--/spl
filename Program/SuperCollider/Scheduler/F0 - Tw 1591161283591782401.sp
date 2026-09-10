@@ -1,7 +1,7 @@
 /* https://twitter.com/redFrik/status/1591161283591782401 */
 { :nextDelay |
 	let d = 1 / 12;
-	let b = 1:8 / 4;
+	let b = [1 .. 8] / 4;
 	let l = LfTri(d, b) / 8;
 	let m = { [0 2 5 7 9].atRandom + [36 48].atRandom } ! 4 + l;
 	let y = VarSaw(m.MidiCps, 0, l + 0.4);

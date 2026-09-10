@@ -1,6 +1,6 @@
 # scheduleInjecting
 
-- _scheduleInjecting(f:/2, x, n, c)_
+- _scheduleInjecting(f:/2, x, n=0, c=system.clock)_
 
 Schedule applying the block _f_ to the object _x_ in _n_ seconds on clock _c_.
 When evaluated the answer is either a _(delay,nextValue)_ pair to continue,

@@ -174,6 +174,31 @@ Pan2(
 	1
 )
 
+/* SCSCC #33 "Nudge" */
+let m = { LfdNoise3(1 / 3) + 1 / 2 };
+let b = { :x | Blip(x, m() ^ 1.pi * 16) };
+let r = MidiRatio(
+	(2 * [0 .. 1] +.x (5 * [0 .. 3] ++ [19])) +.x (24 * [0 .. 2])
+);
+let c = r.asStream.collect { :x |
+	x * (m:/0 ! 2 / 33 + 1 * 29)
+};
+Splay(
+	{
+		let p = b(m() / 9 + 4).Fold(m() / 9, 1);
+		let q = b(c.next).Fold(b(c.next), b(c.next));
+		LeakDc(
+			Bpf(
+				p ^ 5 * q,
+				b(m() * 8) + 1.1 * 2000 + 100,
+				1 / 3 + m()
+			) / 2,
+			0.995
+		)
+	} ! 10,
+	b(m())
+).transpose.Sum / 2
+
 /* ScScc-38 "Index" ; https://github.com/lukiss/SCSCC/ */
 let t = LfSaw(-7, 0);
 let c = Index(
@@ -237,6 +262,20 @@ Splay(
 	1 / 2
 )
 
+/* SCSCC-45 "Lullaby" ; Sub 256 version 194 bytes */
+let r = 1 << [0 .. 2] * 1.1;
+let a = LfSaw(-1 * r, 1).Max(0).Lag(0.005);
+let m = Select(
+	A2K(QuadN(r, [0 .. 2] / 9 + 1, -1, -0.75, 0) + 1 * 18),
+	(12 * [0 .. 2]) +.x [0 2 3 5 7 10] +.x [19 0]
+).MidiRatio * 49;
+Splay(
+	Blip(
+		Blip(3.1, 33) / 3 + 1 * m,
+		a + 3
+	) * (a ^ 3 + (a ^ 0.3) + 0.1)
+) / 8
+
 /* ScScc-49 Lydia ; https://github.com/lukiss/SCSCC/ */
 Splay(
 	LfSaw(
@@ -268,3 +307,19 @@ Pan2(
 	0,
 	1
 )
+
+/* SCSCC-53 Into the abyss */
+let o = Lpz2(
+	Splay(
+		LeakDc(
+			DelayC(
+				LocalIn(2, 0) + 1 * 2,
+				1,
+				SinOsc(0.009 / [1 .. 8], 0).ExpRange(0.01, 1)
+			),
+			0.995
+		).Sin
+	)
+);
+(o / 5) <! LocalOut(o)
+
