@@ -39,14 +39,13 @@ IntegerPartitions : [Object, Equatable, Storeable] { | contents:<List> |
 		}.whileTrue {
 			let l = k;
 			let m = d[k];
-			let nPrime = nil;
 			{
 				m = 1
 			}.whileTrue {
 				k := k - 1;
 				m := d[k]
 			};
-			nPrime := m + l - k;
+			let nPrime = m + l - k;
 			m := m - 1;
 			{
 				m < nPrime
@@ -68,9 +67,8 @@ IntegerPartitions : [Object, Equatable, Storeable] { | contents:<List> |
 		{
 			k != 1
 		}.whileTrue {
-			var x, l;
 			k := k - 1;
-			x := a[k] + 1;
+			let x = a[k] + 1;
 			{
 				(2 * x) <= y
 			}.whileTrue {
@@ -78,7 +76,7 @@ IntegerPartitions : [Object, Equatable, Storeable] { | contents:<List> |
 				y := y - x;
 				k := k + 1
 			};
-			l := k + 1;
+			let l = k + 1;
 			{
 				x <= y
 			}.whileTrue {

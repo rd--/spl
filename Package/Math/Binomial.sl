@@ -125,16 +125,13 @@
 			};
 			let k = 2;
 			let i = 0;
-			let d = nil;
-			let x = nil;
-			let m = nil;
 			{ z >= t(i, i + 1) }.whileTrue {
 				i := i + 1
 			};
-			d := List(i, 0);
+			let d = List(i, 0);
 			d[1] := 1;
-			x := z - t(i - 1, i);
-			m := i - 1;
+			let x = z - t(i - 1, i);
+			let m = i - 1;
 			{ x > 0 }.whileTrue {
 				let w = 0;
 				let s = 0;

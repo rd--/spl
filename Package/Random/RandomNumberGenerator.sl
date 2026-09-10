@@ -65,7 +65,7 @@
 		let min = range.min;
 		let max = range.max;
 		{
-			var x;
+			let x = nil;
 			{
 				x := (self.nextRandomFloat * (max + 1 - min) + min).floor
 			}.doWhileTrue {

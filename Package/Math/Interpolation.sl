@@ -557,7 +557,6 @@
 			let k = x.size;
 			let slope = [];
 			let count = 0;
-			let m = nil;
 			1.toDo(k) { :i |
 				let x1 = x[i];
 				let y1 = y[i];
@@ -572,9 +571,11 @@
 					}
 				}
 			};
-			m := slope.median;
+			let m = slope.median;
 			[
-				1.to(k).collect { :i | y[i] - (m * x[i]) }.median,
+				1.to(k).collect { :i |
+					y[i] - (m * x[i])
+				}.median,
 				m
 			]
 		} {

@@ -132,16 +132,15 @@ DelaunayTriangulation : [Object] { | vertexCoordinates triangulation |
 		let x1 = coord[2 * h + 1];
 		let y1 = coord[2 * h + 2];
 		1.toDo(hull.size) { :i |
-			var p0, x0, y0, x, y;
 			h := hull[i];
-			p0 := p1;
-			x0 := x1;
-			y0 := y1;
+			let p0 = p1;
+			let x0 = x1;
+			let y0 = y1;
 			p1 := h;
 			x1 := coord[2 * h + 1];
 			y1 := coord[2 * h + 2];
-			x := x1 - x0;
-			y := y0 - y1;
+			let x = x1 - x0;
+			let y = y0 - y1;
 			answer[p0 + 1] := answer[p1] := [y, x]
 		};
 		answer

@@ -535,14 +535,13 @@ Permutation : [Object, Storeable, Equatable] { | cycles degree |
 
 	lexicographicPermutationsDo { :self :aBlock:/1 |
 		let list = self.copy.sort;
-		let next = nil;
 		let continue = true;
 		{
 			continue
 		}.whileTrue {
 			continue := aBlock(list);
 			continue.ifTrue {
-				next := list.nextPermutationLexicographic;
+				let next = list.nextPermutationLexicographic;
 				continue := next.isNotNil
 			}
 		}

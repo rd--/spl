@@ -909,7 +909,6 @@
 		valueWithReturn { :return:/1 |
 			let lead = 1;
 			let [m, n] = self.shape;
-			let d = nil;
 			1.toDo(m) { :r |
 				let i = r;
 				(lead > n).ifTrue {
@@ -928,7 +927,7 @@
 					}
 				};
 				self.swapWith(i, r);
-				d := self[r][lead];
+				let d = self[r][lead];
 				(d.abs > 1E-10).ifTrue {
 					self[r].replace { :each |
 						each / d
@@ -975,19 +974,18 @@
 		let s = a.conjugateTranspose;
 		let v = n.identityMatrix;
 		let err = Infinity;
-		let ss = nil;
 		{
 			err > tolerance & {
 				loopCount < loopMax
 			}
 		}.whileTrue {
-			var q, e, f;
+			let q = nil;
 			[q, s] := qrDecomposition(s.conjugateTranspose);
 			u := u.dot(q);
 			[q, s] := qrDecomposition(s.conjugateTranspose);
 			v := v.dot(q);
-			e := s.deepCopy.upperTriangularize(1).catenate.norm;
-			f := s.diagonal.norm;
+			let e = s.deepCopy.upperTriangularize(1).catenate.norm;
+			let f = s.diagonal.norm;
 			err := (f = 0 || (f = 1)).if {
 				0
 			} {
@@ -995,7 +993,7 @@
 			};
 			loopCount := loopCount + 1
 		};
-		ss := s.diagonal;
+		let ss = s.diagonal;
 		s := [0].reshape([m, n]);
 		1.toDo(ss.size) { :n |
 			let ssn = ss[n];

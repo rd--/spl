@@ -470,6 +470,9 @@ System! : [Object, Cache, RandomNumberGenerator] {
 					},
 					'SmallInteger' -> {
 						p[1].parseSmallInteger(10)
+					},
+					'Statements' -> {
+						p.collect(f:/1)
 					}
 				]
 			) {

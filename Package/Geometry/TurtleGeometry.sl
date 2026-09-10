@@ -57,12 +57,11 @@ TurtleGeometry : [Object, Equatable, Storeable, Geometry] { | instructionList |
 						let [distance, degrees, angle] = argument;
 						let halfDegrees = degrees // 2;
 						let initialPosition = position;
-						let middlePosition = nil;
 						halfDegrees.timesRepeat {
 							position := position + [distance, heading.degree].fromPolarCoordinates;
 							heading := (heading + angle) % 360
 						};
-						middlePosition := position;
+						let middlePosition = position;
 						(degrees - halfDegrees).timesRepeat {
 							position := position + [distance, heading.degree].fromPolarCoordinates;
 							heading := (heading + angle) % 360

@@ -202,7 +202,7 @@ Circle : [Object, Storeable, Equatable, Geometry] { | center radius |
 UnitCircle : [Object] {
 
 	randomPoint { :self :r |
-		var x1, x2, sum, z;
+		var x1, x2, sum;
 		{
 			x1 := r.nextRandomFloat * 2 - 1;
 			x2 := r.nextRandomFloat * 2 - 1;
@@ -210,7 +210,7 @@ UnitCircle : [Object] {
 		}.doWhileTrue {
 			sum >= 1
 		};
-		z := (x1 * x1) - (x2 * x2);
+		let z = (x1 * x1) - (x2 * x2);
 		[
 			z / sum,
 			2 * x1 * x2 / sum

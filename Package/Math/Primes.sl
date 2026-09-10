@@ -445,7 +445,6 @@
 	}
 
 	millerRabinPrimalityTest { :self :k |
-		var d, s, a, x, r;
 		valueWithReturn { :return:/1 |
 			(self = 1).ifTrue {
 				false.return
@@ -456,8 +455,8 @@
 			self.isEven.ifTrue {
 				false.return
 			};
-			d := self - 1;
-			s := 0;
+			let d = self - 1;
+			let s = 0;
 			{
 				d \\ 2 = 0
 			}.whileTrue {
@@ -468,10 +467,10 @@
 				k := k - 1;
 				k >= 0
 			}.whileTrue {
-				a := system.randomLargeInteger(self.one * 2, self - 2);
-				x := (a ^ d) \\ self;
+				let a = system.randomLargeInteger(self.one * 2, self - 2);
+				let x = (a ^ d) \\ self;
 				(x = 1).ifFalse {
-					r := -1;
+					let r = -1;
 					{
 						r := r + 1;
 						r < s & {

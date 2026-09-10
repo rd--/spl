@@ -199,11 +199,11 @@ const asJs: ohm.ActionDict<string> = {
 	ExpressionInitializer(name, _e, exp) {
 		return `${name.asJs} = ${exp.asJs}`;
 	},
-	FinalExpression(e) {
+	FinalStatement(e) {
 		return `return ${e.asJs};`;
 	},
-	LetTemporary(_let, tmp, _sc) {
-		return `let ${tmp.asJs};`;
+	LetBinding(_let, tmp) {
+		return `let ${tmp.asJs}`;
 	},
 	LibraryItemExpression(_libraryItem, aRecord) {
 		return `_addLibraryItem_2(_system, _asLibraryItem_1(${aRecord.asJs}));\n`;
@@ -224,8 +224,8 @@ const asJs: ohm.ActionDict<string> = {
 	NonEmptyParameterList(_l, sq, _r) {
 		return commaListJs(sq.asIteration().children);
 	},
-	NonFinalExpression(e, _semicolon, stm) {
-		return `${e.asJs}; ${stm.asJs};`;
+	NonFinalStatement(e, _semicolon) {
+		return `${e.asJs};`;
 	},
 	ParameterList(_leftParen, sq, _rightParen) {
 		return commaListJs(sq.asIteration().children);
@@ -250,6 +250,9 @@ const asJs: ohm.ActionDict<string> = {
 				return `'${nm}'`;
 			},
 		).join(' ');
+	},
+	Statements(nonFinal, final) {
+		return nonFinal.asJs + final.asJs;
 	},
 	TraitDefinition(nm, _l, mn, mb, _r) {
 		const unqualifiedTraitName = nm.sourceString.substring(1);
@@ -455,11 +458,11 @@ const asSl: ohm.ActionDict<string> = {
 	ExpressionInitializer(name, _e, exp) {
 		return `${name.sourceString} = ${exp.asSl}`;
 	},
-	FinalExpression(e) {
+	FinalStatement(e) {
 		return e.asSl;
 	},
-	LetTemporary(_l, tmp, _s) {
-		return `let ${tmp.asSl}; `;
+	LetBinding(_l, tmp) {
+		return `let ${tmp.asSl}`;
 	},
 	LibraryItemLiteral(_l, aRecord) {
 		return `LibraryItem ${aRecord.asSl}`;
@@ -516,8 +519,8 @@ const asSl: ohm.ActionDict<string> = {
 	NonEmptyRecordSyntax(_l, d, _r) {
 		return `Record([${commaListSl(d.asIteration().children)}])`;
 	},
-	NonFinalExpression(e, _s, stm) {
-		return `${e.asSl}; ${stm.asSl}`;
+	NonFinalStatement(e, _semicolon) {
+		return `${e.asSl};`;
 	},
 	ParameterList(_l, sq, _r) {
 		return commaListSl(sq.asIteration().children);
@@ -530,6 +533,9 @@ const asSl: ohm.ActionDict<string> = {
 	},
 	Program(tmp, stm) {
 		return tmp.asSl + stm.asSl;
+	},
+	Statements(nonFinal, final) {
+		return nonFinal.asSl + final.asSl;
 	},
 	UncheckedSlotReadSyntax(c, _colons, k) {
 		return `uncheckedSlotRead(${c.asSl}, '${k.sourceString}')`;
@@ -610,7 +616,7 @@ const asSl: ohm.ActionDict<string> = {
 	ValueApply(p, _d, a) {
 		return `${p.asSl} . (${a.asSl})`;
 	},
-	VarTemporaries(_var, tmp, _sc) {
+	VarDeclaration(_var, tmp, _sc) {
 		let f = (x) => `let ${x.sourceString} = nil;`;
 		return procList(tmp.asIteration().children, f, ' ');
 	},
@@ -816,10 +822,10 @@ const asAst: ohm.ActionDict<SlAst> = {
 	ExpressionInitializer(name, _e, exp) {
 		return [name.asAst, exp.asAst];
 	},
-	FinalExpression(e) {
-		return [e.asAst];
+	FinalStatement(e) {
+		return e.asAst;
 	},
-	LetTemporary(_l, tmp, _s) {
+	LetBinding(_l, tmp) {
 		return ['Let', tmp.asAst].flat(1);
 	},
 	NonEmptyListSyntax(_l, items, _r) {
@@ -828,8 +834,8 @@ const asAst: ohm.ActionDict<SlAst> = {
 	NonEmptyParameterList(_l, sq, _r) {
 		return sq.children.map((x) => x.asAst);
 	},
-	NonFinalExpression(e, _s, stm) {
-		return [e.asAst].concat(stm.asAst);
+	NonFinalStatement(e, _semicolon) {
+		return e.asAst;
 	},
 	ParameterList(_l, sq, _r) {
 		return sq.children.map((x) => x.asAst);
@@ -843,12 +849,15 @@ const asAst: ohm.ActionDict<SlAst> = {
 	ScalarAssignment(lhs, _e, rhs) {
 		return ['Assignment', [lhs.asAst], [rhs.asAst]].flat(1);
 	},
+	Statements(nonFinal, final) {
+		return nonFinal.children.map((x) => x.asAst).concat([final.asAst]);
+	},
 	ValueApply(p, _d, a) {
 		return [
 			'Apply',
 			[p.asAst].concat(
-				a.asAst,
-			),
+				a.asAst
+			)
 		];
 	},
 
@@ -856,7 +865,7 @@ const asAst: ohm.ActionDict<SlAst> = {
 		return ['Identifier', x.sourceString];
 	},
 	arityQualifiedIdentifier(c1, cN, _s, a) {
-		return ['Identitfied', c1.sourceString + cN.sourceString + ':/' + a.sourceString];
+		return ['Identifier', c1.sourceString + cN.sourceString + ':/' + a.sourceString];
 	},
 	floatLiteral(s, i, _, f) {
 		const x = s.sourceString + i.sourceString + '.' + f.sourceString;
@@ -1046,7 +1055,7 @@ function slFirstLineComment(slText: string): string | null {
 
 export function rewriteSlToCore(slText: string): string {
 	const slCoreText = slParse(slText).asSl;
-	// console.debug(`rewriteSlToCore: ${slText} => ${slCoreText}`);
+	// console.debug(`rewriteSlToCore: Sl=(${slText}) ==> Core=(${slCoreText})`);
 	return slCoreText;
 }
 
@@ -1061,7 +1070,7 @@ export function rewriteSlToAst(slText: string): SlAst {
 export function rewriteSlToJs(slText: string): string {
 	const slCoreText = rewriteSlToCore(slText);
 	const jsText = slParse(slCoreText).asJs;
-	// console.debug(`rewriteSlToJs: ${slText} => ${slCoreText} => ${jsText}`);
+	// console.debug(`rewriteSlToJs: Sl=(${slText}) => Core=(${slCoreText}) => Js=(${jsText})`);
 	const slComment = slFirstLineComment(slText);
 	if (slComment) {
 		return `/* ${slComment} */\n\n` + jsText;

@@ -5,16 +5,16 @@
 	}
 
 	gammaDistribution { :self :alpha :beta |
-		var a, afix, c, d, u, v, x;
+		var a, aFix, u, v, x;
 		(alpha < 1).if {
 			a := alpha + 1;
-			afix := self.nextRandomFloat ^ (1 / alpha)
+			aFix := self.nextRandomFloat ^ (1 / alpha)
 		} {
 			a := alpha;
-			afix := 1
+			aFix := 1
 		};
-		d := a - (1 / 3);
-		c := 1 / (9 * d).sqrt;
+		let d = a - (1 / 3);
+		let c = 1 / (9 * d).sqrt;
 		{
 			{
 				x := self.normalDistribution(0, 1);
@@ -30,7 +30,7 @@
 				u.log >= ((0.5 * x) + (d * (1 - v + v.log)))
 			}
 		};
-		afix * d * v * beta
+		aFix * d * v * beta
 	}
 
 }

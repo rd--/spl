@@ -804,9 +804,8 @@
 				let m = min(n.atAll(q));
 				(m < Infinity).ifTrue {
 					(a[1] // d).timesRepeat {
-						var p, rp;
 						m := m + a[i];
-						p := m % a[1];
+						let p = m % a[1];
 						m := min(m, n[p + 1]);
 						n[p + 1] := m
 					}

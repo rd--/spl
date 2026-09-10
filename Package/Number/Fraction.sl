@@ -388,9 +388,6 @@ Fraction : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | num
 				let n = self.numerator;
 				let d = self.denominator;
 				let continue = true;
-				let k = nil;
-				let bound1 = nil;
-				let bound2 = nil;
 				{
 					continue
 				}.whileTrue {
@@ -402,9 +399,9 @@ Fraction : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | num
 						[p0, q0, p1, q1, n, d] := [p1, q1, p0 + (a * p1), q2, d, n - (a * d)]
 					}
 				};
-				k := (maxDenominator - q0) // q1;
-				bound1 := ReducedFraction(p0 + (k * p1), q0 + (k * q1));
-				bound2 := ReducedFraction(p1, q1);
+				let k = (maxDenominator - q0) // q1;
+				let bound1 = ReducedFraction(p0 + (k * p1), q0 + (k * q1));
+				let bound2 = ReducedFraction(p1, q1);
 				((bound2 - self).abs <= (bound1 - self).abs).if {
 					bound2
 				} {

@@ -231,11 +231,9 @@
 			let m = List(n + 1, 0);
 			let l = 0;
 			let answer = [];
-			let k = nil;
 			0.toDo(n - 1) { :i |
 				let lo = 1;
 				let hi = l;
-				let z = nil;
 				{
 					lo <= hi
 				}.whileTrue {
@@ -246,14 +244,14 @@
 						hi := mid - 1
 					}
 				};
-				z := lo;
+				let z = lo;
 				p[i + 1] := m[z];
 				m[z + 1] := i;
 				(z > l).ifTrue {
 					l := z
 				}
 			};
-			k := m[l + 1];
+			let k = m[l + 1];
 			l.timesRepeat {
 				answer.addFirst(x[k + 1]);
 				k := p[k + 1]

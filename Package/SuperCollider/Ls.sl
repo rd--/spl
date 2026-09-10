@@ -163,10 +163,9 @@
 	}
 
 	LsSwitch { :list :which |
-		let index = nil;
 		list.replace(LsOnce:/1);
 		which := LsForever(which);
-		index := which.next;
+		let index = which.next;
 		BlockStream {
 			let next = list[index].next;
 			next.ifNil {
@@ -470,11 +469,10 @@
 	}
 
 	LsBrownUsing { :low :high :step :randomNumberGenerator :aBlock:/3 |
-		let next = nil;
 		low := LsConstant(low);
 		high := LsConstant(high);
 		step := LsConstant(step);
-		next := aBlock(randomNumberGenerator, [low.next, high.next], []);
+		let next = aBlock(randomNumberGenerator, [low.next, high.next], []);
 		low.withAndCollect(high, step) { :low :high :step |
 			let answer = next;
 			next := (next + aBlock(randomNumberGenerator, [step.negate, step], [])).fold(low, high);

@@ -902,7 +902,6 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 		};
 		let v = [1 .. k];
 		let e = [];
-		let g = nil;
 		let withLabels = false;
 		[v, v].tuplesDo { :each |
 			let [i, j] = each;
@@ -911,7 +910,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 				e.add([i, j])
 			}
 		};
-		g := Graph(v, e);
+		let g = Graph(v, e);
 		withLabels.ifTrue {
 			g.vertexLabels(
 				s.collect { :each |

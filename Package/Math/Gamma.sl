@@ -73,12 +73,11 @@
 			0 - eulerMascheroni - (1 / z) + (1.6449340668482264365 * z)
 		} {
 			let answer = 0;
-			let r = nil;
 			{ z < 8.5 }.whileTrue {
 				answer := answer - (1 / z);
 				z := z + 1
 			};
-			r := 1 / z;
+			let r = 1 / z;
 			answer := answer + z.log - (0.5 * r);
 			r := r * r;
 			answer - (r * (1 / 12 - (r * (1 / 120 - (r * (1 / 252 - (r * (1 / 240 - (r * (1 / 132))))))))))
@@ -223,12 +222,11 @@
 			(1.pi / (sin(1.pi * z) * gamma(1 - z))).chop(epsilon)
 		} {
 			let x = p[1];
-			let t = nil;
 			z := z - 1;
 			2.toDo(p.size) { :i |
 				x := x + (p[i] / (z + i - 1))
 			};
-			t := z + g + 0.5;
+			let t = z + g + 0.5;
 			(2.pi.sqrt * (t ^ (z + 0.5)) * exp(0 - t) * x).chop(epsilon)
 		}
 	}

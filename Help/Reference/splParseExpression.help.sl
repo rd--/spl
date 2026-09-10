@@ -117,3 +117,5 @@ The `hypotenuse` function:
 * * *
 
 See also: splParseTree, SymbolicExpression
+
+Guides: Reflection Function

@@ -2,25 +2,24 @@
 
 	quickSortFromToBy { :self :from :to :sortBlock:/2 |
 		valueWithReturn { :return:/1 |
-			var i, j, k, l, ij, di, dj, dij, n, tmp;
-			i := from;
-			j := to;
+			let i = from;
+			let j = to;
 			{
-				di := self[i];
-				dj := self[j];
+				let di = self[i];
+				let dj = self[j];
 				sortBlock(di, dj).ifFalse {
 					self[i] := dj;
 					self[j] := di;
-					tmp := dj;
+					let tmp = dj;
 					dj := di;
 					di := tmp
 				};
-				n := j + 1 - i;
+				let n = j + 1 - i;
 				(n <= 2).ifTrue {
 					self.return
 				};
-				ij := i + j // 2;
-				dij := self[ij];
+				let ij = i + j // 2;
+				let dij = self[ij];
 				sortBlock(di, dij).if {
 					sortBlock(dij, dj).ifFalse {
 						self[j] := dij;
@@ -37,8 +36,8 @@
 				(n = 3).ifTrue {
 					self.return
 				};
-				k := i;
-				l := j;
+				let k = i;
+				let l = j;
 				{
 					{
 						l := l - 1;
@@ -54,7 +53,7 @@
 					}.whileTrue;
 					k <= l
 				}.whileTrue {
-					tmp := self[k];
+					let tmp = self[k];
 					self[k] := self[l];
 					self[l] := tmp
 				};

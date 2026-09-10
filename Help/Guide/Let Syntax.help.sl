@@ -22,15 +22,25 @@ The sequence of initiliasers is retained, subsequent initialisations may refer t
 7
 ```
 
+Let bindings may be interspersed with other statements:
+
+```
+>>> let i = 3;
+>>> i := i * i;
+>>> let j = i + 1;
+>>> (i, j)
+(9, 10)
+```
+
 Initialising a value to a `Block` literal rewrites the bound name to its arity qualified form,
 unless it is already arity qualified:
 
 ```
->> 'let f = { :x | x };'.splSimplify
-let f:/1 = { :x | x };
+>> 'let f = { :x | x }; f:/1'.splSimplify
+let f:/1 = { :x | x }; f:/1
 
->> 'let f:/1 = { :x | x };'.splSimplify
-let f:/1 = { :x | x };
+>> 'let f:/1 = { :x | x }; f:/1'.splSimplify
+let f:/1 = { :x | x }; f:/1
 
 >>> let f = { :x | x * 2 + 1 };
 >>> (
@@ -128,8 +138,8 @@ s + (0.2 * y)
 Let syntax is not rewritten by the simplifier:
 
 ```
->> 'let x = 1;'.splSimplify
-let x = 1;
+>> 'let x = 1; x'.splSimplify
+let x = 1; x
 ```
 
 * * *

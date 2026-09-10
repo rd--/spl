@@ -2405,8 +2405,8 @@ let f = { }; f:/0 == f:/0 /* identity */
 { :x | x }.printString = 'a Block'
 { }.typeOf = 'Block'
 { }.value = nil /* empty block evaluates to nil */
-{ var x; }.value = nil /* empty block with unused temporary evaluates to nil */
-{ let x = 1; }.value = nil /* empty block with unused initialised temporary evaluates to nil */
+{ var x; nil }.value = nil /* a block cannot end with a var declaration */
+{ let x = 1; nil }.value = nil /* a block cannot end with a let binding */
 { var c, a; c := [1]; a := { var a; a := 4; a }.value; { var a; a := 2; c.add(a); { var a; a := 3; c.add(a) }.value }.value; c.add(a); c }.value = [1, 2, 3, 4]
 1.toDo(10) { :index | nil } = 1 /* answers start index */
 valueWithReturn { :return:/1 | 1.toDo(10) { :index | (index = 5).ifTrue { 5.return } } } = 5 /* non-local return */

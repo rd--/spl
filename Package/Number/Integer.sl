@@ -116,7 +116,6 @@
 			'zero'
 		} {
 			let minus = '';
-			let three = nil;
 			let num = self;
 			let answer = '';
 			let milCount = 1;
@@ -127,7 +126,7 @@
 			{
 				num > 0
 			}.whileTrue {
-				three := (num % 1000).threeDigitName;
+				let three = (num % 1000).threeDigitName;
 				num := num // 1000;
 				three.isEmpty.ifFalse {
 					answer.isEmpty.ifFalse {
@@ -603,13 +602,12 @@
 				a[1] = (n - k + 1)
 			}.whileFalse {
 				let last = k;
-				let z = nil;
 				{
 					a[last] = 1
 				}.whileTrue {
 					last := last - 1
 				};
-				z := a[last];
+				let z = a[last];
 				a[last - 1] := a[last - 1] + 1;
 				a[last] := 1;
 				a[k] := z - 1;
@@ -634,13 +632,12 @@
 			a[1] = n
 		}.whileFalse {
 			let last = k;
-			let z = nil;
 			{
 				a[last] = 0
 			}.whileTrue {
 				last := last - 1
 			};
-			z := a[last];
+			let z = a[last];
 			a[last - 1] := a[last - 1] + 1;
 			a[last] := 0;
 			a[k] := z - 1;
@@ -1644,24 +1641,20 @@
 			} {
 				let z = 2;
 				let m = s;
-				let c = nil;
-				let r = nil;
-				let t = nil;
 				{ z < p & { legendreSymbol(z, p) != -1 } }.whileTrue {
 					z := z + 1
 				};
-				c := powerMod(z, q, p);
-				r := powerMod(n, (q + 1) / 2, p);
-				t := powerMod(n, q, p);
+				let c = powerMod(z, q, p);
+				let r = powerMod(n, (q + 1) / 2, p);
+				let t = powerMod(n, q, p);
 				{ (t - 1) % p != 0 }.whileTrue {
 					let t2 = (t ^ 2) % p;
 					let i = 1;
-					let b = nil;
 					{ i < m & { (t2 - 1) % p != 0 } }.whileTrue {
 						t2 := (t2 ^ 2) % p;
 						i := i + 1
 					};
-					b := powerMod(c, 2 ^ (m - i - 1), p);
+					let b = powerMod(c, 2 ^ (m - i - 1), p);
 					r := (r * b) % p;
 					c := (b ^ 2) % p;
 					t := (t * c) % p;

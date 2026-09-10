@@ -301,12 +301,11 @@
 			if(tAdj = 1) {
 				b + c
 			} {
-				let s = nil;
-				if(a < abs(c)) {
+				let s = if(a < abs(c)) {
 					a := c;
-					s := p / 4
+					p / 4
 				} {
-					s := p / 2.pi * arcSin(c / a)
+					p / 2.pi * arcSin(c / a)
 				};
 				tAdj := tAdj - 1;
 				0 - (a * (2 ^ (10 * tAdj)) * sin((tAdj * d - s) * 2.pi / p)) + b
@@ -327,12 +326,11 @@
 			if(t = 1) {
 				c
 			} {
-				let s = nil;
-				if(a < c) {
+				let s = if(a < c) {
 					a := c;
-					s := p / 4
+					p / 4
 				} {
-					s := p / 2.pi * arcSin(c / a)
+					p / 2.pi * arcSin(c / a)
 				};
 				a * (2 ^ (-10 * t)) * sin((t - s) * 2.pi / p) + c
 			}
@@ -351,15 +349,14 @@
 				0
 			} {
 				t := t * 2;
-				if(t =2) {
+				if(t = 2) {
 					1
 				} {
-					let s = nil;
-					if(a < 1) {
+					let s = if(a < 1) {
 						a := 1;
-						s := p / 4
+						p / 4
 					} {
-						s := p / 2.pi * arcSin(1 / a)
+						p / 2.pi * arcSin(1 / a)
 					};
 					if(t < 1) {
 						-0.5 * (a * (2 ^ (10 * (t - 1))) * sin((t - 1 - s) * 2.pi / p))

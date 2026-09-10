@@ -33,21 +33,21 @@ Sl {
 		| LibraryItemExpression
 	LibraryItemLiteral = "LibraryItem" NonEmptyRecordSyntax
 	LibraryItemExpression = "LibraryItem" ApplySyntax
-	Program = Temporaries? ListOf<Expression, ";">
+	Program = VarDeclaration? ListOf<(LetBinding | Expression), ";">
 	Temporaries
-		= VarTemporaries // S
-		| LetTemporary+
+		= VarDeclaration // S
+		| ListOf<LetBinding, ";">
 	Initializer =
-		BlockLiteralInitializer | // S* (The simplifier adds the arity qualifier)
-		ExpressionInitializer |
-		RecordInitializer | // S
-		ListInitializer // S
+		| BlockLiteralInitializer // S* (Simplifier adds arity qualifier)
+		| ExpressionInitializer
+		| RecordInitializer // S
+		| ListInitializer // S
 	BlockLiteralInitializer = varName "=" Block ~("." | operator)
 	ExpressionInitializer = varNameOrUnused "=" Expression
 	RecordInitializer = "(" NonemptyListOf<RecordInitializerItem, ","> ")" "=" Expression
 	ListInitializer = "[" NonemptyListOf<varNameOrUnused, ","> "]" "=" Expression
-	LetTemporary = "let" Initializer ";"
-	VarTemporaries = "var" NonemptyListOf<varName, ","> ";"
+	LetBinding = "let" Initializer
+	VarDeclaration = "var" NonemptyListOf<varName, ","> ";"
 
 	Expression
 		= Assignment
@@ -112,12 +112,12 @@ Sl {
 	DotExpressionWithAssignmentSyntax = Primary "." selectorName ":=" Expression
 	DotExpression = Primary ("." (selectorName | operatorBound) ~("{" | ":=") NonEmptyParameterList? ~("{" | "("))+
 
-	Block = "{" Arguments? Temporaries? Primitive? Statements? "}"
+	Block = "{" Arguments? VarDeclaration? Primitive? Statements? "}"
 	Arguments = argumentName+ "|"
 	Primitive = "<primitive:" primitiveCharacter* ">"
-	Statements = NonFinalExpression | FinalExpression
-	NonFinalExpression = Expression ";" Statements
-	FinalExpression = Expression
+	Statements = NonFinalStatement* FinalStatement
+	NonFinalStatement = (LetBinding | Expression) ";"
+	FinalStatement = Expression
 
 	ApplyWithTrailingClosuresSyntax = selectorName NonEmptyParameterList? Block+
 	ApplySyntax = (selectorName | operatorBound) ParameterList

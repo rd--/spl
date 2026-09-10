@@ -97,8 +97,7 @@
 	readIntoStartingAtCount { :self :aCollection :startIndex :n |
 		valueWithReturn { :return:/1 |
 			0.toDo(n - 1) { :i |
-				let obj = nil;
-				obj := self.next.ifNil {
+				let obj = self.next.ifNil {
 					i.return
 				};
 				aCollection[startIndex + i] := obj

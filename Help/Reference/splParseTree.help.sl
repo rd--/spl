@@ -32,23 +32,23 @@ Reserved identifiers:
 
 ```
 >>> 'nil'.splParseTree[2]
-['ReservedIdentifier', 'nil']
+['ReservedIdentifier' 'nil']
 
 >>> 'true'.splParseTree[2]
-['ReservedIdentifier', 'true']
+['ReservedIdentifier' 'true']
 
 >>> 'false'.splParseTree[2]
-['ReservedIdentifier', 'false']
+['ReservedIdentifier' 'false']
 ```
 
 Free operators:
 
 ```
 >>> '+'.splParseTree[2]
-['Identitfied', 'plusSign:/2']
+['Identifier' 'plusSign:/2']
 
 >>> '<=>'.splParseTree[2]
-['Identitfied', 'lessThanSignEqualsSignGreaterThanSign:/2']
+['Identifier' 'lessThanSignEqualsSignGreaterThanSign:/2']
 ```
 
 Lower-case and upper-case initial identifiers:
@@ -272,3 +272,5 @@ Control strucures are ordinary applications with block arguments:
 * * *
 
 See also: splParseExpression, splSimplify
+
+Guides: Reflection Function
