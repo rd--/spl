@@ -1,7 +1,7 @@
 /* https://fredrikolofsson.com/f0blog/sapf-sctweets/ 0183 */
-0:7.collect { :i |
+[0 .. 7].collect { :i |
 	Splay(
-		0:7.collect { :j |
+		[0 .. 7].collect { :j |
 			let a = i * 2 + j / 12;
 			CombC(
 				SinOsc(j + 1 * 99, 0),

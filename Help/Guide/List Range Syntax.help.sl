@@ -17,14 +17,20 @@ asList(nonemptyThenTo(i, j, k))
 asList(nonemptyRange(i, j, k))
 ```
 
-Answer ascending `List` values:
+Answer consecutive ascending `List` values:
 
 ```
 >>> [1 .. 9]
 [1 2 3 4 5 6 7 8 9]
 
+>>> [1, 2 .. 9]
+[1 2 3 4 5 6 7 8 9]
+
 >>> [1 .. 9; 1]
 [1 2 3 4 5 6 7 8 9]
+```
+
+Ascending by two:
 
 >>> [1, 3 .. 9]
 [1 3 5 7 9]
@@ -33,7 +39,7 @@ Answer ascending `List` values:
 [1 3 5 7 9]
 ```
 
-Answer descending `List` values:
+Answer consecutive descending `List` values:
 
 ```
 >>> [9, 8 .. 1]
@@ -41,7 +47,11 @@ Answer descending `List` values:
 
 >>> [9 .. 1; -1]
 [9 8 7 6 5 4 3 2 1]
+```
 
+Descend by two:
+
+```
 >>> [9, 7 .. 1]
 [9 7 5 3 1]
 

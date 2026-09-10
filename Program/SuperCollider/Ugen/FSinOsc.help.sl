@@ -18,7 +18,7 @@ let pDur = [1 0.9 0.65 0.55 0.325 0.35 0.25 0.2 0.15 0.1 0.075];
 	let amp = TRand(0.1, 0.2, tr);
 	let dur = 13;
 	let pan = TRand(-1, 1, tr);
-	let osc = (1 .. pFreq.size).collect { :index |
+	let osc = [1 .. pFreq.size].collect { :index |
 		FSinOsc(
 			pFreq[index] * freq + pDetune[index],
 			0

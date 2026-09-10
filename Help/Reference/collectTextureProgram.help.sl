@@ -1,9 +1,10 @@
 # collectTextureProgram
 
-- _collectTextureProgram(aCollection, aBlock:/1, aDelay)_
+- _collectTextureProgram(c, f:/1, d)_
 
 Answer a `TextureProgram` that will
-evaluate _aBlock_ at each element of _aCollection_ with _aDelay.value_ seconds between each occurence, and _play_ each answer.
+evaluate the block _f_ at each element of the collection _c_ with delay _d_ seconds between each occurence,
+and _play_ each answer.
 
 Play ascending diatonic scale:
 

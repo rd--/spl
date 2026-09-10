@@ -1,5 +1,5 @@
 /* https://fredrikolofsson.com/f0blog/sapf-sctweets/ 0198 */
-let b = (1 .. 5) / 8;
+let b = [1 .. 5] / 8;
 Splay(
 	Ringz(
 		CombN(

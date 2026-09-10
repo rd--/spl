@@ -1,5 +1,5 @@
 /* https://fredrikolofsson.com/f0blog/sapf-sctweets/ ; 0071 */
-let b = (2 .. 5);
+let b = [2 .. 5];
 Splay(
 	LfTri(
 		(

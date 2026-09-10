@@ -104,7 +104,7 @@ let t = { :z |
 	LfSaw(z, 1) + 1 / 2
 };
 let r = 2 ^ (GbmanN(t(-1 / 60) * 4 + 4, 1.2, 2.1).Sin * (t(1 / 4) * 2 + 2)).Floor.Abs;
-let c = 0:5.collect { :n |
+let c = [0 .. 5].collect { :n |
 	n * 12 + [2 15 7 12]
 }.flatten;
 let o = VarSaw(
@@ -127,7 +127,7 @@ let t = { :z |
 	LfSaw(z, 1) + 1 / 2
 };
 let r = 2 ^ (GbmanN(t(-1 / 60) * 4 + 4, 1.2, 2.1).Sin * (t(1 / 4) * 2 + 2)).Floor.Abs;
-let c = 0:5.collect { :n |
+let c = [0 .. 5].collect { :n |
 	n * 12 + [2 15 7 12]
 }.flatten;
 let o = VarSaw(
@@ -167,7 +167,7 @@ let b = t.BitAnd(r(64, 256)).BitOr(t.ShiftRight(r(4, 18)));
 
 /* https://sonomu.club/@lukiss/111534969935581348 ; Dec 7, 2023 */
 let p = {
-	let a = 0:3.collect { :n |
+	let a = [0 .. 3].collect { :n |
 		n * 12 + [0 3 7 10]
 	}.flatten - 24;
 	SinOsc(5, 0) * 0.01 + a.shuffled.MidiRatio
@@ -276,7 +276,7 @@ Splay(
 
 /* https://sonomu.club/@lukiss/111422385501420073 ; Nov 17, 2023 */
 let x = CuspL(CuspL(3, 1, 1.9, 0).Exp * 12 + 1, 1, 1.9, 0).Fold2(1);
-let t = (0 .. 7).collect { :n | PulseDivider(x, 8, 7 - n) };
+let t = [0 .. 7].collect { :n | PulseDivider(x, 8, 7 - n) };
 let d = x.LinLin(-1, 1, 1 / 2, 2);
 let e = { :c |
 	Perc(t, 0.001, d, c)
@@ -285,7 +285,7 @@ let c = [0, 3, 7, -2];
 let f = Demand(
 	t,
 	0,
-	Dseq(Infinity, c) + Dxrand(Infinity, 48 + (0 .. 2).collect { :o | o * 12 + c }.flatten)
+	Dseq(Infinity, c) + Dxrand(Infinity, 48 + [0 .. 2].collect { :o | o * 12 + c }.flatten)
 ).MidiCps;
 Splay(
 	SinOsc(
@@ -424,7 +424,7 @@ let d = DelayC(i, 1, 1 / 3);
 let o = (d * (m() + 1 / 2) + u).Tanh;
 o * -6.DbAmp <! LocalOut(o)
 
-/* https://sonomu.club/@lukiss/113012278480517510 ; Aug 24, 2024, 02:28 */
+/* https://sonomu.club/@lukiss/113012278480517510 ; Aug 24, 2024 */
 let p = [1, 3 .. 64];
 let r = 2 ^ (Logistic(3.9, 3, 0.5) + 1 * 2.1).Floor;
 let e = Linen(TDuty(1 / r, 0, 1).kr, 0, 1, 0.9 / r, 0);
@@ -436,7 +436,7 @@ Splay(
 	Blip(r, 0.1)
 )
 
-/* https://sonomu.club/@lukiss/113019188464159465 ; Aug 25, 2024, 07:45 */
+/* https://sonomu.club/@lukiss/113019188464159465 ; Aug 25, 2024 */
 let k = 2 ^ StandardN([1.1, 0.9], 1, 0.5, 0) * 8;
 Splay(
 	LeakDc(
@@ -446,7 +446,7 @@ Splay(
 	StandardN(k.sum, 1, 0.5, 0)
 )
 
-/* https://sonomu.club/@lukiss/113199362402063463 ; Sep 26, 2024, 03:26 */
+/* https://sonomu.club/@lukiss/113199362402063463 ; Sep 26, 2024 */
 let t = {
 	CuspL(LfdNoise1([1, 1]).Max(0) ^ 2 * 32, 1, 1.9, 0)
 };
@@ -478,9 +478,9 @@ Sanitize(
 	0
 )
 
-/* https://sonomu.club/@lukiss/113424886949750691 ; Nov 05, 2024, 12:20 AM */
+/* https://sonomu.club/@lukiss/113424886949750691 ; Nov 05, 2024 */
 let o = SinOsc(440, 0);
-(0 .. 4).do { :n |
+[0 .. 4].do { :n |
 	o := SinOsc(
 		SinOsc(o ^ n, o).LinExp(-1, 1, 0.01, 1) ^ n,
 		SinOsc(o + 1 ^ (n + 1).prime, 0).pi
@@ -488,10 +488,10 @@ let o = SinOsc(440, 0);
 };
 2 # [o] / 3
 
-/* https://sonomu.club/@lukiss/113469893460208702 ; Nov 12, 2024, 11:06 PM ; ? see .scd */
+/* https://sonomu.club/@lukiss/113469893460208702 ; Nov 12, 2024 ; ? see .scd */
 let z = { :x | LfSaw(x, 0) };
-let i = 1:4.fibonacci; /* 1 1 2 3 */
-let f = 2 ^ (0 .. 3) + i * 2;
+let i = [1 .. 4].fibonacci; /* 1 1 2 3 */
+let f = 2 ^ [0 .. 3] + i * 2;
 let b = [0 2 5 7 9].asLocalBuf; /* 0 2 5 7 9 */
 let l = DegreeToKey(
 	b,
@@ -509,8 +509,8 @@ Splay(
 	z(1)
 )
 
-/* https://sonomu.club/@lukiss/113817432455425855 ; Jan 13, 2025, 08:09 AM */
-let p = (1 .. 14).prime;
+/* https://sonomu.club/@lukiss/113817432455425855 ; Jan 13, 2025 */
+let p = [1 .. 14].prime;
 let o = SinOsc(p, 0);
 let e = 1 / 8;
 let z = 0.1 * e;
@@ -537,7 +537,7 @@ Splay(
 	x.Sum.Sin
 ) / 2
 
-/* https://sonomu.club/@lukiss/113821046696857368 ; Jan 13, 2025, 11:29 PM */
+/* https://sonomu.club/@lukiss/113821046696857368 ; Jan 13, 2025 */
 let t = LfSaw(-8, 1);
 Splay(
 	MoogFf(
@@ -546,9 +546,9 @@ Splay(
 				12 + Latch(
 					(
 						LfSaw(
-							(1 .. 4).prime * (
+							[1 .. 4].prime * (
 								LfSaw(
-									(1 .. 3).degreesToRadians,
+									[1 .. 3].degreesToRadians,
 									0
 								)
 							),
@@ -565,7 +565,7 @@ Splay(
 		(
 			1 + t - (
 				LfSaw(
-					1 / 32 * (1 .. 3),
+					1 / 32 * [1 .. 3],
 					0
 				) * 1.9
 			).Abs

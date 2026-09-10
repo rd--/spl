@@ -4,7 +4,7 @@
 
 'Program/SuperCollider/Graph Collection'.splFilePath.terseProgramSummary(isOutputSignal:/1)
 
-=> 352
+=> 367
 
 'Program/SuperCollider/Ugen'.splFilePath.terseProgramSummary(isOutputSignal:/1)
 
@@ -17,3 +17,7 @@
 'Program/SuperCollider/Texture Collection'.splFilePath.terseProgramSummary(isTextureProgram:/1)
 
 => 17
+
+Notes:
+
+Ranges are written using `List Range Syntax`.

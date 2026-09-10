@@ -10,7 +10,7 @@ let rewrite = { :c :n |
 	r
 };
 let n = 7;
-(0 .. n - 1).collect { :i |
+[0 .. n - 1].collect { :i |
 	let str = rewrite([0], i + 6);
 	let dt = 2 ^ (n - i).Negate * 20;
 	let trig = TDuty(dt, 0, Dseq(1, str));

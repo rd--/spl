@@ -228,7 +228,7 @@ let n = 6; /* number of keys playing */
 	let hammerEnv = Decay2(strike, 0.008, 0.04); /* excitation envelope */
 	EqPan2(
 		/* list of 3 strings per note */
-		1:3.collect { :i |
+		[1 .. 3].collect { :i |
 			/* detune strings, calculate delay time */
 			let detune = [-0.05, 0, 0.04].at(i);
 			let delayTime = 1 / (pitch + detune).MidiCps;
@@ -247,7 +247,7 @@ let n = 6; /* number of keys playing */
 
 /********** Strummable silk ; Jmcc **********/
 let mousex = MouseX(0, 1, 0, 0.2);
-let out = 1:8.collect { :ix |
+let out = [1 .. 8].collect { :ix |
 	let n = 15;
 	/* place trigger points from 0.25 to 0.75 */
 	let trigger = Hpz1(mousex > (0.25 + (ix - 1 * 0.07))).Abs;

@@ -1,4 +1,4 @@
-/* http://scsynth.org/t/6353 ; io ; http://ingoogni.nl/ */
+/* http://scsynth.org/t/6353 ; io ; http://ingoogni.nl/ ; packet size */
 let shuheiKawachi = { :x :y :a :b |
 	[
 		(x.Cos * y.Cos),
@@ -15,7 +15,7 @@ let circlefreq = 0.0001;
 let xMinor = xMajor + (rMajor * SinOsc(circlefreq, 0));
 let yMinor = yMajor + (rMajor * SinOsc(circlefreq, 1/2.pi));
 let freqList = { 50.ExpRand(1500) }.!(segmentCount);
-let oscList = (1 .. segmentCount).collect { :index |
+let oscList = [1 .. segmentCount].collect { :index |
 	let x = xMinor + (rMinor * (index * 2.pi / segmentCount).Sin);
 	let y = yMinor + (rMinor * (index * 2.pi / segmentCount).Cos);
 	let grey = shuheiKawachi(x, y, 2.pi, 0.5);

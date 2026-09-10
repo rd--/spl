@@ -8,7 +8,7 @@
 	let durList = [1 0.9 0.65 0.55 0.325 0.35 0.25 0.2 0.15 0.1 0.075];
 	let freqList = [0.56 0.56 0.92 0.92 1.19 1.7 2 2.74 3 3.76 4.07];
 	let detuneList = [0 1 0 1.7 0 0 0 0 0 0 0];
-	let src = 1:11.collect { :i |
+	let src = [1 .. 11].collect { :i |
 		let env = Perc(tr, 0.005, dur * durList[i], -4.5) * ampList[i];
 		SinOsc(freq * freqList[i] + detuneList[i], 0) * amp * env
 	};

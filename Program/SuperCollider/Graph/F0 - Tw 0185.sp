@@ -1,5 +1,5 @@
 /* https://fredrikolofsson.com/f0blog/sapf-sctweets/ 0185 */
-let c = (1 .. 32);
+let c = [1 .. 32];
 Splay2(
 	SinOsc(
 		0,

@@ -28,7 +28,7 @@ let f = 82 * ugenIf(
 	[3 3 3 3 4] + a
 ).MidiRatio;
 Splay(
-	0:4.collect { :n |
+	[0 .. 4].collect { :n |
 		let q = f[n + 1] * p;
 		(
 			SinOsc(
@@ -71,7 +71,7 @@ CombC(
 /* SCSCC-24 "Loading…" 221 bytes ; https://github.com/lukiss/SCSCC/ */
 let r = (12 * [0 .. 4] +.x [0 10 15 19]).MidiRatio;
 Splay(
-	0:9.collect { :n |
+	[0 .. 9].collect { :n |
 		let a = LfSaw(1 / (2 ^ n % 111), 0);
 		let b = LfSaw(-1 << [0 .. 2] / (1 + n), 0);
 		let c = PmOsc(
@@ -103,7 +103,7 @@ let w = CuspL(h, 1, 1.9, 0) + 1 / 2 ^ h * 4;
 let t = LfSaw(2 ^ w / 8, [0 .. 7] / 4 - 1).kr;
 GVerb(
 	Hpf(
-		0:7.collect { :n |
+		[0 .. 7].collect { :n |
 			let a = TChoose(
 				{ t[n + 1] } ! 4,
 				110 * r
@@ -123,7 +123,7 @@ GVerb(
 )
 
 /* SCSCC-26 */
-let c = MidiRatio(12 * (0 .. 2) +.x (5 * (0 .. 3) ++ [19]));
+let c = MidiRatio(12 * [0 .. 2] +.x (5 * [0 .. 3] ++ [19]));
 let m = { LfdNoise3(5 # [0.1]) + 1 / 2 };
 let k = 6;
 Splay(
@@ -322,4 +322,3 @@ let o = Lpz2(
 	)
 );
 (o / 5) <! LocalOut(o)
-

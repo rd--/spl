@@ -79,6 +79,7 @@ Guide/Experimental Set Syntax.help.sl
 Guide/Experimental Simple Method Arity.help.sl
 Guide/Experimental Slot Access Syntax.help.sl
 Guide/Experimental Slot Assignment Syntax.help.sl
+Guide/Experimental Symbol Literals.help.sl
 Guide/Experimental Trailing Record Syntax.help.sl
 Guide/Experimental Tree Syntax.help.sl
 Guide/Feature Detection Functions.help.sl
@@ -1682,6 +1683,7 @@ Reference/gen16.help.sl
 Reference/gen19.help.sl
 Reference/gen20.help.sl
 Reference/Gendy1.help.sl
+Reference/Gendy3.help.sl
 Reference/generalisedCatalanNumber.help.sl
 Reference/GeneralisedCircle.help.sl
 Reference/generalisedPentagonalNumbers.help.sl
@@ -3793,6 +3795,7 @@ Reference/signedArea.help.sl
 Reference/signedGcd.help.sl
 Reference/signedLcm.help.sl
 Reference/signedPointPlaneDistance.help.sl
+Reference/signedSqrt.help.sl
 Reference/signedVectorAngle.help.sl
 Reference/signExponentMantissa.help.sl
 Reference/sign.help.sl

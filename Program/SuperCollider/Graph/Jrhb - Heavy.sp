@@ -1,8 +1,8 @@
-/* Musikinformatik/clothesline/examples ; requires prime */
+/* Musikinformatik/clothesline/examples ; requires prime ; packet size */
 let n = 180;
 {
-	let primes = (2 .. n).collect { :index |
-		(1 .. index).collect { :each |
+	let primes = [2 .. n].collect { :index |
+		[1 .. index].collect { :each |
 			each.prime
 		}.scramble.keepAtMost(8)
 	}.++.asIdentitySet.asList;

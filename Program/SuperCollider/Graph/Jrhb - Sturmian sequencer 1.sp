@@ -1,4 +1,4 @@
-/* Sturmian sequencer i (jrhb) */
+/* Sturmian sequencer i (jrhb) ; ? */
 let rules = [[0, 1], [0]];
 let rewrite = { :n |
 	let r = [0];
@@ -9,7 +9,7 @@ let rewrite = { :n |
 	};
 	r
 };
-0:6.collect { :i |
+[0 .. 6].collect { :i |
 	let str = rewrite(i + 6);
 	let dt = 2 ^ i.Negate * 10;
 	let trig = Sequencer(str, Impulse(1 / dt, 0));

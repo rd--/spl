@@ -200,14 +200,14 @@ txt.CombN(0.3, 0.3, 4) + txt.reverse
 
 /* Harmonic swimming (Jmcc) #1 */
 let l = Line(0, -0.02, 60);
-1:20.collect { :h |
+[1 .. 20].collect { :h |
 	let n = LfNoise1({ Rand(-4, 4) } ! 2 + 6) * 0.02 + l;
 	SinOsc(50 * (h + 1), 0) * n.Max(0)
 }.Sum
 
 /* Harmonic tumbling (Jmcc) #1 */
 let t = XLine([10, 11], 0.1, 60);
-0:10.collect { :h |
+[0 .. 10].collect { :h |
 	let e = Decay2(Dust(t) * 0.02, 0.005, Rand(0, 0.5));
 	SinOsc(80 * (h + 1), 0) * e
 }.Mix
@@ -647,7 +647,7 @@ z
 
 /* Strummable metals ; use mouse to strum strings ; Jmcc */
 let mouseX = MouseX(0, 1, 0, 0.2);
-let strings = 1:8.collect { :i |
+let strings = [1 .. 8].collect { :i |
 	let trigger = Hpz1(mouseX > (0.25 + (i * 0.07))).Abs;
 	let pluck = PinkNoise() * Decay(trigger, 0.05).kr * 0.04;
 	let n = 15;
