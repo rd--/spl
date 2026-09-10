@@ -9,10 +9,10 @@ let blipProc = {
 	if(system.coin(0.8)) {
 		let z = EqPan(
 			blipProc() * blipProc(),
-			Line(1.Rand2, 1.Rand2, 4)
+			Line(Rand(-1, 1), Rand(-1, 1), 4)
 		).Distort * 0.3;
 		6.timesRepeat {
-			z := AllpassN(z, 0.05, { 0.05.Rand0 } ! 2, 4)
+			z := AllpassN(z, 0.05, { Rand(0, 0.05) } ! 2, 4)
 		};
 		z
 	} {

@@ -6,7 +6,7 @@ Pan2(o, 0, 1) + d
 
 /* Random sine waves */
 {
-	Pan2(SinOsc(SinOsc(1 / 10, 6.Rand0) * 200 + 600, 0), 1.Rand0, 0.05)
+	Pan2(SinOsc(SinOsc(1 / 10, Rand(0, 6)) * 200 + 600, 0), Rand(0, 1), 0.05)
 } !+ 15
 
 /* Nice use of Blip */
@@ -31,7 +31,7 @@ p + CombL(p, 2.0, 4 / 6, 6)
 	let freq = MouseX(Rand(0.1, 5), Rand(3, 20), 0, 0.2);
 	let amp = LfNoise0(MouseX(Rand(1, 6), Rand(1, 6), 0, 0.2)).Max(0);
 	let osc = SinOsc(SinOsc(freq, 0) * MouseY(10, 50, 0, 0.2) + Rand(200, 5000), 0) * amp;
-	Pan2(osc, 1.Rand2, 0.03)
+	Pan2(osc, Rand(-1, 1), 0.03)
 }.Mix
 
 /* Random impulses */
@@ -112,7 +112,7 @@ SinOsc([60 64 67 71 74 78].MidiCps, 0).Sum * env * 0.1
 /* Interesting drone */
 let freq = [40 42 43 45 47 48 41 42].MidiCps;
 let amp = LfNoise1({ Rand(0.1, 0.5) } ! 8) * 0.5 + 0.5;
-Pan2(SinOsc(freq, 0), { 1.Rand2 } ! 8, amp).Mix * 0.1
+Pan2(SinOsc(freq, 0), { Rand(-1, 1) } ! 8, amp).Mix * 0.1
 
 /* Great inharmonic spectrum */
 let freq = [72 135 173 239 267 306 355 473 512 572 626];
@@ -130,7 +130,7 @@ let tr = Dust(3 / 7);
 let harmonics = 16;
 {
 	let amp = SinOsc(1 / Rand(3, 6), 0) * Rand(0.1, 0.9);
-	Pan2(SinOsc(ExpRand(100, 2000), 0), 1.Rand2, amp)
+	Pan2(SinOsc(ExpRand(100, 2000), 0), Rand(-1, 1), amp)
 } !+ harmonics / (2 * harmonics)
 
 /* Worth experimenting with */
@@ -139,7 +139,7 @@ let f0 = Rand(100, 400);
 1:16.collect { :partial |
 	let env = Asr(tr, 0, 5, [0]) / partial;
 	let amp = LfNoise1(Rand(5, 12)).Max(0);
-	Pan2(SinOsc(f0 * partial, 0), 1.Rand2, env * amp)
+	Pan2(SinOsc(f0 * partial, 0), Rand(-1, 1), env * amp)
 }.Mix * 0.5
 
 /* Multiple sines */
@@ -147,13 +147,13 @@ let speeds = 1:11 / 20;
 let f0 = (MouseX(0, 36, 0, 0.2).Round(7) + 24).MidiCps;
 let harmonics = 16;
 1:harmonics.collect { :partial |
-	Pan2(SinOsc(f0 * partial, 0), 1.Rand2, SinOsc(speeds.atRandom, 0).Max(0))
+	Pan2(SinOsc(f0 * partial, 0), Rand(-1, 1), SinOsc(speeds.atRandom, 0).Max(0))
 }.Mix / harmonics * 0.5
 
 /* More bells */
 let env = Decay2(Dust(1 / 3), 0.01, 2) * 0.1;
 let osc = SinOsc({ Rand(300, 1200) } ! 12, 0);
-Pan2(osc, { 1.Rand2 } ! 12, env).Mix
+Pan2(osc, { Rand(-1, 1) } ! 12, env).Mix
 
 /* Pink noise, frequencies emerge */
 Rlpf(PinkNoise() * 0.3, { LfNoise0(12) } ! 2 * 500 + 500, 0.2)

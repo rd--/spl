@@ -4,10 +4,10 @@ let transitionTime = 4;
 let dur = transitionTime * 2 + sustainTime;
 {
 	let p = 15; /* number of partials per channel per 'cymbal' */
-	let f1 = 500 + 2000.Rand0;
-	let f2 = 8000.Rand0;
-	let frequencies = { f1 + f2.Rand0 } ! p;
-	let ringTimes = { 2 + 4.Rand0 } ! p;
-	let osc = LfSaw(XLine(600.Rand0, 600.Rand0, dur), 0) * 0.0005;
+	let f1 = 500 + Rand(0, 2000);
+	let f2 = Rand(0, 8000);
+	let frequencies = { f1 + Rand(0, f2) } ! p;
+	let ringTimes = { 2 + Rand(0, 4) } ! p;
+	let osc = LfSaw(XLine(Rand(0, 600), Rand(0, 600), dur), 0) * 0.0005;
 	RingzBank(osc, frequencies, nil, ringTimes)
 }.overlapTextureProgram(sustainTime, transitionTime, 6)

@@ -1,15 +1,15 @@
 # Formant
 
-- _Formant(fundFreq, formFreq, widthFreq)_
+- _Formant(fundFreq=440, formFreq=1760, bwFreq=880)_
 
 Formant oscillator.
 Generates a set of harmonics around a formant frequency at a given fundamental frequency.
 
 - fundFreq: fundamental frequency in Hertz
 - formFreq: formant frequency in Hertz
-- widthFreq: pulse width frequency in Hertz
+- bwFreq: pulse width frequency in Hertz
 
-_widthFreq_ controls the bandwidth of the formant,
+_bwFreq_ controls the bandwidth of the formant,
 and must be greater than or equal to _fundFreq_.
 
 Modulate fundamental frequency, formant freq stays constant:

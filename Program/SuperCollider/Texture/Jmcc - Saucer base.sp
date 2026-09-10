@@ -1,8 +1,8 @@
 /* Saucer base (Jmcc) #6 */
 {
-	let b = 1000.Rand0;
-	let c = 5000.Rand0;
-	let o1 = SinOsc(20.Rand0, 0) * b + (1.1 * b);
+	let b = Rand(0, 1000);
+	let c = Rand(0, 5000);
+	let o1 = SinOsc(Rand(0, 20), 0) * b + (1.1 * b);
 	let o2 = SinOsc(o1, 0) * c + (1.1 * c);
-	EqPan(SinOsc(o2, 0), 1.Rand2) * 0.1
+	EqPan(SinOsc(o2, 0), Rand(-1, 1)) * 0.1
 }.overlapTextureProgram(6, 2, 4)

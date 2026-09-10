@@ -1,15 +1,15 @@
 /* Deep Trip (Jmcc) #9 */
 {
-	let f = (LfNoise1(0.3.Rand0) * 60 + 70).MidiCps;
+	let f = (LfNoise1(Rand(0, 0.3)) * 60 + 70).MidiCps;
 	let a = Times(
-		LfNoise2(f * 0.5.Rand0),
+		LfNoise2(f * Rand(0, 0.5)),
 		[
-			LfNoise1(8.Rand0),
-			SinOsc(40.Rand0, 0),
+			LfNoise1(Rand(0, 8)),
+			SinOsc(Rand(0, 40), 0),
 			0.1
 		].product.Max(0)
 	);
-	let s = EqPan(SinOsc(f, 0) * a, LfNoise1(5.Rand0));
+	let s = EqPan(SinOsc(f, 0) * a, LfNoise1(Rand(0, 5)));
 	let c = {
 		CombN(s, 0.5, { Rand(0.2, 0.5) } ! 2, 20)
 	} ! 2;

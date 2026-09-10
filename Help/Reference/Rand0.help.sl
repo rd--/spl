@@ -1,8 +1,9 @@
 # Rand0
 
-- _Rand0(α)_ ⟹ _Rand(0, α)_
+- _Rand0(n=1)_
 
 Random number generator.
+Equivaluent to _Rand(0, n)_.
 
 * * *
 

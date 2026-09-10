@@ -16,8 +16,8 @@ octaves.collect { :m0 |
 	let o = 1:4.collect { :index |
 		EqPan2(
 			SinOsc(Line(m1[index], m2[index], du).MidiCps, 0),
-			Line(1.Rand2, 1.Rand2, du)
-		) * Line(0.1.Rand0, 0.1.Rand0, du)
+			Line(Rand(-1, 1), Rand(-1, 1), du)
+		) * Line(Rand(0, 0.1), Rand(0, 0.1), du)
 	};
 	o.Sum
 }.Mix * 0.2

@@ -297,11 +297,11 @@ let z = Rlpf(
 );
 let y = z * 0.6;
 z + [
-	CombL(y, 0.06, MulAdd(LfNoise1(0.3.Rand0), 0.025, 0.035), 1) +
-	CombL(y, 0.06, MulAdd(LfNoise1(0.3.Rand0), 0.025, 0.035), 1)
+	CombL(y, 0.06, MulAdd(LfNoise1(Rand(0, 0.3)), 0.025, 0.035), 1) +
+	CombL(y, 0.06, MulAdd(LfNoise1(Rand(0, 0.3)), 0.025, 0.035), 1)
 	,
-	CombL(y, 0.06, MulAdd(LfNoise1(0.3.Rand0), 0.025, 0.035), 1) +
-	CombL(y, 0.06, MulAdd(LfNoise1(0.3.Rand0), 0.025, 0.035), 1)
+	CombL(y, 0.06, MulAdd(LfNoise1(Rand(0, 0.3)), 0.025, 0.035), 1) +
+	CombL(y, 0.06, MulAdd(LfNoise1(Rand(0, 0.3)), 0.025, 0.035), 1)
 ]
 
 /* What was i thinking? (Jmcc) #2 */
@@ -312,7 +312,7 @@ let z = Rlpf(p, LfNoise1(0.2) * 2000 + 2400, 0.2) * 0.25;
 let y = z * 0.6;
 {
 	[y, y].collect { :i |
-		CombL(i, 0.06, LfNoise1(0.3.Rand0) * 0.025 + 0.035, 1)
+		CombL(i, 0.06, LfNoise1(Rand(0, 0.3)) * 0.025 + 0.035, 1)
 	}.Sum
 } ! 2 + z
 
@@ -373,7 +373,7 @@ let b = { :f :m :a :g |
 ].Sum
 
 /* Coolant (Jmcc) ; requires=filterMethods */
-{ BrownNoise().Times(0.002).OnePole(0.95).RingzBank({ 40 + 2000.Rand0 } ! 10, [0.1], [1]) } ! 2
+{ BrownNoise().Times(0.002).OnePole(0.95).RingzBank({ 40 + Rand(0, 2000) } ! 10, [0.1], [1]) } ! 2
 
 /* Modal space (Jmcc) #8 ; left-to-right */
 let b = [0 2 3.2 5 7 9 10].asLocalBuf;
@@ -485,8 +485,8 @@ let q = [];
 n.timesRepeat {
 	let freq = Rand(24, 84).MidiCps;
 	p.add(freq);
-	{ p.add(freq + d.Rand2) } ! 2;
-	{ q.add(freq + d.Rand2) } ! 3
+	{ p.add(freq + Rand(-d, d)) } ! 2;
+	{ q.add(freq + Rand(-d, d)) } ! 3
 };
 [p, q].collect { :freq |
 	SinOscBank(freq, [1], { Rand(0, 2.pi) } ! (3 * n))
@@ -498,13 +498,13 @@ let node = {
 	Pan2(
 		in: SinOsc(
 			freq: SinOsc(
-				freq: 0.1.Rand0 + 0.02,
-				phase: 2.pi.Rand0
-			) * 600.Rand0 + 1000 + 300.Rand2,
+				freq: Rand(0, 0.1) + 0.02,
+				phase: Rand(0, 2.pi)
+			) * Rand(0, 600) + 1000 + Rand(-300, 300),
 			phase: 0
 		),
-		pos: 1.Rand2,
-		level: LfNoise2(freq: 100 + 20.Rand2) * 0.1
+		pos: Rand(-1, 1),
+		level: LfNoise2(freq: 100 + Rand(-20, 20)) * 0.1
 	)
 };
 let e = LfNoise2(
@@ -622,11 +622,11 @@ let z = { :tr |
 			nil,
 			{ LinRand(0.2, 12, 0) } ! 4
 		),
-		LfNoise1(1.Rand0)
+		LfNoise1(Rand(0, 1))
 	) * LfNoise1(LfNoise1(1).MulAdd(3, 4)).MulAdd(0.4, 0.6)
 }.OverlapTexture(8, 3, 4).Sum;
 6.timesRepeat {
-	z := AllpassN(z, 0.040, [0.04.Rand0, 0.04.Rand0], 16)
+	z := AllpassN(z, 0.040, [Rand(0, 0.04), Rand(0, 0.04)], 16)
 };
 z
 

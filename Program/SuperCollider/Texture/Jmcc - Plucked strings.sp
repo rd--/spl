@@ -12,6 +12,6 @@
 	{
 		let dt = 1 / Rand(60, 90).Floor.MidiCps;
 		let t = Decay(i(), 0.1) * PinkNoise() * 0.1;
-		EqPan(CombL(t, dt, dt, 4), 1.Rand2)
+		EqPan(CombL(t, dt, dt, 4), Rand(-1, 1))
 	} !+ 5
 }.overlapTextureProgram(7, 5, 3)

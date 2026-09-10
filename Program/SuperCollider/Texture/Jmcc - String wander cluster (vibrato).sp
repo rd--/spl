@@ -1,7 +1,7 @@
 /* String wander-cluster (Jmcc) #6 ; with vibrato */
 {
 	let note1 = IRand(50, 100);
-	let note2 = Fold(note1 + 15.IRand0 - 7, 50, 120);
+	let note2 = Fold(note1 + IRand(0, 15) - 7, 50, 120);
 	let freq = note2.MidiCps;
 	let decayTime = 1 / freq * 1000;
 	let freq2 = SinOsc(Rand(4, 8), 0) * (0.01 * freq) + freq;

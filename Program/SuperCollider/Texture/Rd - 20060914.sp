@@ -6,7 +6,7 @@
 		let d = du * ds;
 		let freq = XLine(m, m + Rand(0.05, 0.5), d).MidiCps;
 		let env = Sine(1, du.max * ds) * Rand(0.005, 0.01);
-		let pos = XLine(1.Rand2, 1.Rand2, d);
+		let pos = XLine(Rand(-1, 1), Rand(-1, 1), d);
 		let osc = SinOsc(freq, 0);
 		EqPan(osc, pos).Sum * env
 	};

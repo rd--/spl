@@ -1,9 +1,9 @@
 /* Uplink (Jmcc) #2 */
 {
 	let osc = {
-		let e = LfPulse(4.Rand0, 0, 1.Rand0) * 8000.Rand0 + 2000.Rand0;
-		LfPulse(20.Rand0, 0, 1.Rand0) * e
+		let e = LfPulse(Rand(0, 4), 0, Rand(0, 1)) * Rand(0, 8000) + Rand(0, 2000);
+		LfPulse(Rand(0, 20), 0, Rand(0, 1)) * e
 	};
 	let freq = osc() + osc();
-	EqPan(LfPulse(freq, 0, 0.5), 0.8.Rand2) * 0.04
+	EqPan(LfPulse(freq, 0, 0.5), Rand(-0.8, 0.8)) * 0.04
 }.overlapTextureProgram(4, 1, 5)

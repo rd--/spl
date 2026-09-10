@@ -1,10 +1,10 @@
 # Rand
 
-- _Rand(lo, hi)_
+- _Rand(lo=0, hi=1)_
 
 Random number generator.
 Generates a single random float value in uniform distribution from lo to hi.
-It generates this when the SynthDef first starts playing, and remains fixed.
+It generates this when the `SynthDef` first starts playing, and remains fixed.
 
 ```
 {

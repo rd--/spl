@@ -1,6 +1,6 @@
 # Resonz
 
-- _Resonz(in, freq, rq)_
+- _Resonz(in, freq=440, rq=1)_
 
 Resonant filter.
 A two pole resonant filter with zeroes at z = +/- 1.

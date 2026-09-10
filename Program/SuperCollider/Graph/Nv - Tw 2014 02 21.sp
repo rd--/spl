@@ -3,7 +3,7 @@ let x = Impulse(0.05, 0);
 {
 	20.timesRepeat {
 		let a = AllpassL(LeakDc(x, 0.995), 4, 8 ^ LfNoise2(0.1) / 2, 8) * 1.2;
-		x := Lpf(a, 8 ^ LfNoise2({ 0.1.Rand0 } ! 2) * 2500).Tanh
+		x := Lpf(a, 8 ^ LfNoise2({ Rand(0, 0.1) } ! 2) * 2500).Tanh
 	};
 	x * 0.5
 } !+ 4

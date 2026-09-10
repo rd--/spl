@@ -7,9 +7,9 @@
 	let z = {
 		let g = Rand(1, n + 1);
 		let m = 0.Max(
-			SinOsc(r * Rand(0.9, 1.1), 2.pi.Rand0) * 0.08 - 0.04
+			SinOsc(r * Rand(0.9, 1.1), Rand(0, 2.pi)) * 0.08 - 0.04
 		);
-		EqPan(FSinOsc(f * g, 0) * m * (2 / g), 1.Rand2)
+		EqPan(FSinOsc(f * g, 0) * m * (2 / g), Rand(-1, 1))
 	} !+ n * a;
 	{
 		CombN(z, 0.3, { Rand(0.1, 0.3) } ! 2, 8)

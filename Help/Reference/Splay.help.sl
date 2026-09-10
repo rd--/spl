@@ -1,7 +1,6 @@
 # Splay
 
-- _Splay(inList, spread=1)_
-- _Splay(inList)_ ⇒ _Splay(inList, 1)_
+- _Splay([s₁ s₂ …], spread=1)_
 
 Pan a list of signals at equally spaced locations across the main output channels,
 as configured in `Preferences`.

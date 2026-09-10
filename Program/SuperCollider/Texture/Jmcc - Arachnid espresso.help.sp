@@ -19,10 +19,10 @@
 	let n = Lpz2(LfNoise2(Min(f * 24, 12000)) * 0.2 * e);
 	let z = EqPan2(
 		CombC(n, 0.1, 1 / f, Min(0.5, ExpRand(90, 240) / f) * p) * 0.2,
-		1.Rand2
+		Rand(-1, 1)
 	);
 	6.timesRepeat {
-		z := AllpassL(z, 0.03, [0.03.Rand0, 0.03.Rand0], 3)
+		z := AllpassL(z, 0.03, [Rand(0, 0.03), Rand(0, 0.03)], 3)
 	};
 	z
 }.overlapTextureProgram(19, 0.5, 5)

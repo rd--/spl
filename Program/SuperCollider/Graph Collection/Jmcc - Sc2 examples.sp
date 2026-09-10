@@ -4,9 +4,13 @@ CombN(SinOsc(f, 0) * 0.04, 0.2, 0.2, 4) /* echoing sine wave */
 
 /********** Lfo modulation of Pulse waves and resonant filters ; Jmcc **********/
 CombL(
-	Rlpf(LfPulse(SinOsc(0.05, 0).MulAdd(80, 160),0, 0.4) * 0.05,
-		SinOsc([0.6, 0.7], 0).MulAdd(3600, 4000), 0.2),
-	0.3, [0.2, 0.25], 2)
+	Rlpf(
+		LfPulse(SinOsc(0.05, 0).MulAdd(80, 160),0, 0.4) * 0.05,
+		SinOsc([0.6, 0.7], 0).MulAdd(3600, 4000),
+		0.2
+	),
+	0.3, [0.2, 0.25], 2
+)
 
 /********** Moto rev ; Jmcc **********/
 Rlpf(LfPulse(SinOsc(0.2, 0).MulAdd(10, 21), 0, 0.1), 100, 0.1).Clip2(0.4)
@@ -27,16 +31,19 @@ let z = 0; /* start of oscil daisy chain */
 let offset = Line(0, -0.02, 60); /* causes sound to separate and fade */
 1:p.do { :i |
 	z := SinOsc(
-		f * i, 0).MulAdd( /* freq of partial */
-			Max(0, /* clip negative amplitudes to zero */
-				LfNoise1(
-					6 + [4.Rand2, 4.Rand2]).MulAdd( /* amplitude rate */
-						0.02, /* amplitude scale */
-						offset /* amplitude offset */
-					)
-			),
-			z
-		)
+		f * i,
+		0
+	).MulAdd( /* freq of partial */
+		Max(
+			0, /* clip negative amplitudes to zero */
+			LfNoise1(
+				6 + [Rand(-4, 4), Rand(-4, 4)]).MulAdd( /* amplitude rate */
+					0.02, /* amplitude scale */
+					offset /* amplitude offset */
+				)
+		),
+		z
+	)
 };
 z
 
@@ -47,15 +54,17 @@ let z = 0; /* start of oscil daisy chain */
 let trig = XLine([10, 10], 0.1, 60); /* trigger probability decreases over time */
 1:p.do { :i |
 	z := SinOsc(
-		f * i, 0).MulAdd( /* freq of partial */
-			Decay2(
-				Dust(trig) /* trigger rate */
-				* 0.02, /* trigger amplitude */
-				0.005, /* grain attack time */
-				0.5.Rand0 /* grain decay time */
-			),
+		f * i,
+		0
+	).MulAdd( /* freq of partial */
+		Decay2(
+			Dust(trig) /* trigger rate */
+			* 0.02, /* trigger amplitude */
+			0.005, /* grain attack time */
+			Rand(0, 0.5) /* grain decay time */
+		),
 			z
-		)
+	)
 };
 z
 
@@ -80,30 +89,33 @@ let n = 6; /* number of 'bottles' */
 {
         EqPan2(
 		Resonz(
-			WhiteNoise() * LfPulse(4 + 10.Rand0, 0, 0.7.Rand0) * 0.8 / n,
-			400 + 7000.LinRand0,
+			WhiteNoise() * LfPulse(4 + Rand(0, 10), 0, Rand(0, 0.7)) * 0.8 / n,
+			400 + LinRand(0, 7000, 0),
 			0.01
 		),
-		SinOsc(0.1 + 0.4.Rand0, 2.pi.Rand0)
+		SinOsc(0.1 + Rand(0, 0.4), Rand(0, 2.pi))
         )
 } !> n
 
 /********** What was I thinking? ; Jmcc **********/
 let z = Rlpf(
 	Pulse(
-		Max(SinOsc(4, 0) + 80,
+		Max(
+			SinOsc(4, 0) + 80,
 			Decay(LfPulse(0.1, 0, 0.05) * Impulse(8, 500), 2)
 		),
 		LfNoise1(0.157).MulAdd(0.4, 0.5)) * 0.04,
 	LfNoise1(0.2).MulAdd(2000, 2400),
-	0.2);
+	0.2
+);
 let y = z * 0.6;
 z +  [
-	CombL(y, 0.06, LfNoise1(0.3.Rand0).MulAdd(0.025, 0.035), 1)
-	+ CombL(y, 0.06, LfNoise1(0.3.Rand0).MulAdd(0.025, 0.035), 1)
-	,
-	CombL(y, 0.06, LfNoise1(0.3.Rand0).MulAdd(0.025, 0.035), 1)
-	+ CombL(y, 0.06, LfNoise1(0.3.Rand0).MulAdd(0.025, 0.035), 1)
+	CombL(y, 0.06, LfNoise1(Rand(0, 0.3)).MulAdd(0.025, 0.035), 1)
+	+
+	CombL(y, 0.06, LfNoise1(Rand(0, 0.3)).MulAdd(0.025, 0.035), 1),
+	CombL(y, 0.06, LfNoise1(Rand(0, 0.3)).MulAdd(0.025, 0.035), 1)
+	+
+	CombL(y, 0.06, LfNoise1(Rand(0, 0.3)).MulAdd(0.025, 0.035), 1)
 ]
 
 /********** Police state ; Jmcc **********/
@@ -112,13 +124,15 @@ CombL(
 	{
 		EqPan2(
 			SinOsc(
-				SinOsc(0.1.Rand0 + 0.02, 2.pi.Rand0).MulAdd(600.Rand0, 1000 + 300.Rand2),
-				0) * LfNoise2(100 + 20.Rand2) * 0.1,
-			1.Rand2
+				SinOsc(Rand(0, 0.1) + 0.02, Rand(0, 2.pi)).MulAdd(Rand(0, 600), 1000 + Rand(-300, 300)),
+				0
+			) * LfNoise2(100 + Rand(-20, 20)) * 0.1,
+			Rand(-1, 1)
 		)
 	} !> n
 	+ LfNoise2(LfNoise2([0.4, 0.4]).MulAdd(90, 620)).Times(LfNoise2([0.3, 0.3]).MulAdd(0.15, 0.18)),
-	0.3, 0.3, 3)
+	0.3, 0.3, 3
+)
 
 /********** analogue daze (commented) ; Jmcc **********/
 /* define a function so that I can make a couple of copies of this instrument */
@@ -142,23 +156,29 @@ let anaSynFunc = { :octave :clockRate :pwmrate :fltrate |
 			), 0,
 			SinOsc( /* pulse width modulator LfO */
 				pwmrate, /* LfO rate */
-				2.pi.Rand0).MulAdd( /* random initial phase */
-					0.4, 0.5)) /* scale and offset give pulse widths from 0.1 to 0.9 */
-		* 0.1, /* pulse oscillator amplitude */
+				Rand(0, 2.pi)
+			).MulAdd( /* random initial phase */
+				0.4, 0.5
+			) /* scale and offset give pulse widths from 0.1 to 0.9 */
+		) * 0.1, /* pulse oscillator amplitude */
 		SinOsc( /* filter cutoff freq LfO */
 			fltrate, /* LfO rate */
-			2.pi.Rand0).MulAdd( /* random initial phase */
-				1400, 2000), /* scale and offset give cutoff freq from 600 to 3400 Hz */
+			Rand(0, 2.pi)
+		).MulAdd( /* random initial phase */
+			1400, 2000
+		), /* scale and offset give cutoff freq from 600 to 3400 Hz */
 		1 / 15 /* 1/Q */
 	)
 }; /* end of function definition f */
 /* analogue snare drum */
 let snare = Decay( /* an exponential decay envelope */
 	Impulse(2, 0), /* impulses trigger envelope at 2 beats per second */
-	0.15).Times( /* 0.15 seconds to decay by 60 dB */
-		LfNoise0( /* step noise used as snare sound */
-			LfNoise1(0.3).MulAdd(6000, 8000)) * /* sweep the noise frequency between 2000 and 14000 Hz */
-		[0.07, 0.07]); /* amplitude (in stereo, causes whole snare subpatch to be stereo, see MultiChannel.help) */
+	0.15
+).Times( /* 0.15 seconds to decay by 60 dB */
+	LfNoise0( /* step noise used as snare sound */
+		LfNoise1(0.3).MulAdd(6000, 8000)) * /* sweep the noise frequency between 2000 and 14000 Hz */
+	[0.07, 0.07] /* amplitude (in stereo, causes whole snare subpatch to be stereo, see MultiChannel.help) */
+);
 /* create two copies of sequencer patch in separate channels */
 let g = [ /* call function f to create each instrument */
 	anaSynFunc(1, 8, 0.31, 0.2), /* +1 octave,  8 clocks per second, PWM rate, Rlpf rate */
@@ -178,17 +198,21 @@ z * EnvGen(1, 1, 0, 1, 2, e.asList) /* wrap a one minute envelope around entire 
 /********** Analogue daze (un-commented) ; Jmcc **********/
 let pattern = [55 63 60 63 57 65 62 65];
 let f = { :octave :clockRate :pwmrate :fltrate |
-	Rlpf(LfPulse(Lag(
-		Sequencer(
-			((pattern + (12 * octave)).MidiCps), /* sequencer pattern */
-			Impulse(clockRate, 0) /* sequencer trigger */
-		),
-		0.05 /* Lag time coefficient */
-	), 0,
-		SinOsc(pwmrate, 2.pi.Rand0).MulAdd(0.4, 0.5)) * /* pulse width modulator */
-		0.1, /* pulse amplitude */
-		SinOsc(fltrate, 2.pi.Rand0).MulAdd(1400, 2000), /* cutoff freq LfO */
-		1 / 15)
+	Rlpf(
+		LfPulse(
+			Lag(
+				Sequencer(
+					((pattern + (12 * octave)).MidiCps), /* sequencer pattern */
+					Impulse(clockRate, 0) /* sequencer trigger */
+				),
+				0.05 /* Lag time coefficient */
+			),
+			0,
+			SinOsc(pwmrate, Rand(0, 2.pi)).MulAdd(0.4, 0.5) /* pulse width modulator */
+		) * 0.1, /* pulse amplitude */
+		SinOsc(fltrate, Rand(0, 2.pi)).MulAdd(1400, 2000), /* cutoff freq LfO */
+		1 / 15
+	)
 };
 let x = Decay(Impulse(2, 0), 0.15) * LfNoise0(LfNoise1(0.3).MulAdd(6000, 8000)) * [0.07, 0.07];
 let g = [f(1, 8, 0.31, 0.2), f(0, 2, 0.13, 0.11)] + x;
@@ -199,8 +223,8 @@ z * EnvGen(1, 1, 0, 1, 2, e.asList) /* wrap a one minute envelope around entire 
 /********** synthetic piano ; Jmcc **********/
 let n = 6; /* number of keys playing */
 { /* mix an list of notes */
-	let pitch = (36 + 54.Rand0); /* calculate delay based on a random note */
-	let strike = Impulse(0.1 + 0.4.Rand0, 0) * 0.1; /* random period for each key */
+	let pitch = (36 + Rand(0, 54)); /* calculate delay based on a random note */
+	let strike = Impulse(0.1 + Rand(0, 0.4), 0) * 0.1; /* random period for each key */
 	let hammerEnv = Decay2(strike, 0.008, 0.04); /* excitation envelope */
 	EqPan2(
 		/* list of 3 strings per note */
@@ -210,10 +234,12 @@ let n = 6; /* number of keys playing */
 			let delayTime = 1 / (pitch + detune).MidiCps;
 			/* each string gets own exciter */
 			let hammer = LfNoise2(3000) * hammerEnv; /* 3000 Hz was chosen by ear */
-			CombL(hammer, /* used as a string resonator */
+			CombL(
+				hammer, /* used as a string resonator */
 				delayTime, /* max delay time */
 				delayTime, /* actual delay time */
-				6) /* decay time of string */
+				6 /* decay time of string */
+			)
 		},
 		(pitch - 36) / 27 - 1 /* pan position: lo notes left, hi notes right */
 	).sum
@@ -227,14 +253,16 @@ let out = 1:8.collect { :ix |
 	let trigger = Hpz1(mousex > (0.25 + (ix - 1 * 0.07))).Abs;
 	let pluck = PinkNoise() * Decay(Impulse(14, 0).Times(Lag(Trig(trigger, 1), 0.2) * 0.01), 0.04);
 	let freq = ([-2 0 3 5 7 10 12 15].at(ix) + 60).MidiCps;
-	let metal = RingzBank(pluck,
+	let metal = RingzBank(
+		pluck,
 		1:n * freq, /* frequencies */
 		nil, /* amplitudes default to 1.0 */
-		{ Rand(0.3, 1.0) } ! n); /* ring times */
+		{ Rand(0.3, 1.0) } ! n /* ring times */
+	);
 	EqPan2(metal, ix * 0.2 - 0.5)
 }.Sum.Lpf(12000).LeakDc(0.995);
 6.timesRepeat {
-	out := AllpassN(out, 0.1, [0.05.Rand0, 0.05.Rand0], 4)
+	out := AllpassN(out, 0.1, [Rand(0, 0.05), Rand(0, 0.05)], 4)
 };
 out
 
@@ -242,20 +270,20 @@ out
 let d = 10; /* number of percolators */
 let c = 7; /* number of comb delays */
 let a = 4; /* number of allpass delays */
-let s = Sum({ Resonz(Dust(2 / d) * 50, 200 + 3000.Rand0, 0.003) } ! d); /* sine percolation sound */
+let s = Sum({ Resonz(Dust(2 / d) * 50, 200 + Rand(0, 3000), 0.003) } ! d); /* sine percolation sound */
 let z = DelayN(s, 0.048, 0.048); /* reverb predelay time */
-let y = Sum(CombL(z, 0.1, LfNoise1({ 0.1.Rand0 } ! c).MulAdd(0.04, 0.05), 15)); /* 7 length modulated comb delays in parallel */
+let y = Sum(CombL(z, 0.1, LfNoise1({ Rand(0, 0.1) } ! c).MulAdd(0.04, 0.05), 15)); /* 7 length modulated comb delays in parallel */
 a.timesRepeat { /* chain of 4 allpass delays on each of two channels (8 total) */
-	y := AllpassN(y, 0.050, [0.050.Rand0, 0.050.Rand0], 1)
+	y := AllpassN(y, 0.050, [Rand(0, 0.050), Rand(0, 0.050)], 1)
 };
 s + (0.2 * y) /* add original sound to reverb and play it */
 
 /********** Reverberated noise bursts ; Jmcc **********/
 let s = Decay(Dust(0.6) * 0.2, 0.15) * PinkNoise(); /* pink noise percussion sound */
 let z = DelayN(s, 0.048, 0.048); /* reverb predelay time */
-let y = Sum(CombL(z, 0.1, LfNoise1({ 0.1.Rand0 } ! 6).MulAdd(0.04, 0.05), 15)); /* 6 modulated comb delays in parallel */
+let y = Sum(CombL(z, 0.1, LfNoise1({ Rand(0, 0.1) } ! 6).MulAdd(0.04, 0.05), 15)); /* 6 modulated comb delays in parallel */
 4.timesRepeat { /* chain of 4 allpass delays on each of two channels (8 total) */
-	y := AllpassN(y, 0.050, [0.05.Rand0, 0.05.Rand0], 1)
+	y := AllpassN(y, 0.050, [Rand(0, 0.05), Rand(0, 0.05)], 1)
 };
 s + y /* add original sound to reverb and play it */
 
@@ -264,13 +292,16 @@ SinOsc(MouseX(200, 2000, 1, 0.2), 0) * 0.1
 
 /********** Analog bubbles ; with mouse control ; Jmcc **********/
 let freq = LfSaw(
-	MouseY(0.1, 10, 1, 0.2), 0).MulAdd( /* lfo 1 rate */
-		24, /* lfo 1 depth in semitones */
-		/* lfo 2 in lfo 1's add input */
-		LfSaw(
-			MouseX(2, 40, 1, 0.2), 0).MulAdd( /* lfo 2 rate */
-				-3, 80) /* lfo 2 depth & offset in semitones */
-	).MidiCps; /* convert to frequency */
+	MouseY(0.1, 10, 1, 0.2), 0
+).MulAdd( /* lfo 1 rate */
+	24, /* lfo 1 depth in semitones */
+	/* lfo 2 in lfo 1's add input */
+	LfSaw(
+		MouseX(2, 40, 1, 0.2), 0
+	).MulAdd( /* lfo 2 rate */
+		-3, 80 /* lfo 2 depth & offset in semitones */
+	)
+).MidiCps; /* convert to frequency */
 CombN(SinOsc(freq, 0) * 0.04, 0.2, 0.2, 2) /* echoing sine wave */
 
 /********** Input thru ; Jmcc **********/
@@ -339,8 +370,8 @@ CombL(
 	in,
 	0.5, /* max delay time */
 	MouseX(0, 0.5, 0, 0.2), /* mouse x controls delay time */
-	4) /* echo 60 dB decay time in seconds */
-+ in /* mix with input */
+	4 /* echo 60 dB decay time in seconds */
+) + in /* mix with input */
 
 /********** Ring modulate & echo input ; Jmcc **********/
 let in = AudioIn([1, 2]) * 0.4 * SinOsc(MouseX(10, 2000, 1, 0.2), [0, 0.5.pi]);
@@ -360,7 +391,8 @@ let modulator = SinOsc(
 Rlpf(
 	input * modulator, /* do ring modulation */
 	MouseY(100, 12000, 1, 0.2), /* mouse y controls cutoff freq */
-	0.1) /* bandwidth ratio = 1/Q */
+	0.1 /* bandwidth ratio = 1/Q */
+)
 
 /********** Distort, ring modulate & echo input, a real noise fest ; Jmcc **********/
 let in = (AudioIn([1, 2]) * 20).Distort.Ring1(
@@ -376,9 +408,9 @@ CombL(
 /********** Sweep verb ; Jmcc **********/
 let s = AudioIn([1, 2]) * 0.01;
 let z = DelayN(s.Sum, 0.048, 0.048); /* reverb predelay time */
-let y = CombL(z, 0.1, LfNoise1({ 0.1.Rand0 } ! 6).MulAdd(0.04, 0.05), 15).Sum; /* 6 modulated comb delays in parallel */
+let y = CombL(z, 0.1, LfNoise1({ Rand(0, 0.1) } ! 6).MulAdd(0.04, 0.05), 15).Sum; /* 6 modulated comb delays in parallel */
 4.timesRepeat { /* chain of 4 allpass delays on each of two channels (8 total) */
-	y := AllpassN(y, 0.050, [0.050.Rand0, 0.050.Rand0], 1)
+	y := AllpassN(y, 0.050, [Rand(0, 0.050), Rand(0, 0.050)], 1)
 };
 LeakDc(y, 0.995) /* eliminate DC */
 
@@ -387,14 +419,14 @@ let decayTime = MouseX(0, 16, 0, 0.2);
 let delayScale = MouseY(0.01, 1, 0, 0.2);
 let s = AudioIn([1, 2]) * 0.005;
 let z = DelayN(Sum(s), 0.048, 0.048); /* reverb predelay time */
-let y = Sum(CombL(z, 0.1, { 0.04.Rand2 + 0.05 } ! 8 * delayScale, decayTime)); /* 8 comb delays in parallel */
+let y = Sum(CombL(z, 0.1, { Rand(-0.04, 0.04) + 0.05 } ! 8 * delayScale, decayTime)); /* 8 comb delays in parallel */
 5.timesRepeat { /* chain of 5 allpass delays on each of two channels (10 total) */
-	y := AllpassN(y, 0.050, [0.050.Rand0, 0.050.Rand0], 1)
+	y := AllpassN(y, 0.050, [Rand(0, 0.050), Rand(0, 0.050)], 1)
 };
 LeakDc(y, 0.995) /* eliminate DC */
 
 /********** Berlin 1977 ; mouse x controls clock rate ; Jmcc **********/
-let clockRate = MouseX(5, 20, 0, 0.2);
+let clockRate = MouseX(5, 20, 1, 0.2);
 let clockTime = 1 / clockRate;
 let clock = Impulse(clockRate, 0); /* sequencer trigger */
 let patternList = [55 60 63 62 60 67 63 58];
@@ -404,8 +436,9 @@ let octNote = Sequencer( /* every 16 beats transpose somewhat randomly */
 	PulseDivider(clock, 16, 0) /* divide clock by 16 */
 ) + note; /* add transpose to note */
 let freq = octNote.MidiCps; /* convert midi note to cycles per second */
-let amp = Decay2(clock, 0.05 * clockTime, 2 * clockTime).MulAdd(0.1, 0.02); /* amplitude envelope */
-let filt = Decay2(clock, 0.05 * clockTime, 2 * clockTime).MulAdd(SinOsc(0.17, 0) * 800, 1400); /* filter envelope scaled by Lfo */
+let env = Decay2(clock, 0.05 * clockTime, 2 * clockTime);
+let amp = env.MulAdd(0.1, 0.02); /* amplitude envelope */
+let filt = env.MulAdd(SinOsc(0.17, 0) * 800, 1400); /* filter envelope scaled by Lfo */
 CombN(
 	Rlpf(
 		Pulse( /* for better quality replace 'LfPulse' with 'Pulse' */
@@ -433,28 +466,31 @@ let signal = Sum( /* mix a list of 4 instruments */
 			LfNoise0( /* use low freq step noise as a pitch control */
 				[1, 0.5, 0.25].atRandom /* choose a frequency of pitch change */
 			).MulAdd(7, /* +/- 7 semitones */
-				66 + 30.Rand2 /* random center note */
+				66 + Rand(-30, 30) /* random center note */
 			).Round(1), /* round to nearest semitone */
 			0.2 /* gliss time */
 		).MidiCps; /* convert to hertz */
 		EqPan2( /* pan each intrument */
 			CombL(excitation, 0.02, 1 / freq, 3), /* comb delay simulates string */
-			1.Rand2/* random pan position */
+			Rand(-1, 1)/* random pan position */
 		)
 	} ! 4
 );
-5.timesRepeat { signal := AllpassN(signal, 0.05, [0.05.Rand0, 0.05.Rand0], 1) }; /* add some reverb via allpass delays */
+5.timesRepeat { signal := AllpassN(signal, 0.05, [Rand(0, 0.05), Rand(0, 0.05)], 1) }; /* add some reverb via allpass delays */
 LeakDc(signal, 0.995) /* delays build up a lot of DC, so leak it out here. */
 
 /********** Modal space ; mouse x controls discrete pitch in dorian mode ; Jmcc **********/
 let mix = SinOsc( /* lead tone */
-	(DegreeToKey(
-		[0 2 3 5 7 9 10].asLocalBuf,
-		MouseX(0, 15, 0, 0.2), /* mouse indexes into scale */
-		12) /* 12 notes per octave */
-		+ 72
-		+ LfNoise1([3 3]).Times(0.04)).MidiCps,
-	0) * 0.1
-+ Rlpf(LfPulse([48 55].MidiCps, 0, 0.15), /* drone 5ths */
-	SinOsc(0.1, 0).MulAdd(10, 72).MidiCps, 0.1).Times(0.1);
+	(
+		DegreeToKey(
+			[0 2 3 5 7 9 10].asLocalBuf,
+			MouseX(0, 15, 0, 0.2), /* mouse indexes into scale */
+			12 /* 12 notes per octave */
+		) + 72 + LfNoise1([3 3]).Times(0.04)
+	).MidiCps,
+	0
+) * 0.1 + Rlpf(
+	LfPulse([48 55].MidiCps, 0, 0.15), /* drone 5ths */
+	SinOsc(0.1, 0).MulAdd(10, 72).MidiCps, 0.1
+).Times(0.1);
 CombN(mix, 0.31, 0.31, 2) + mix

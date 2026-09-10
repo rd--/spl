@@ -4,7 +4,7 @@
 	let f1 = Rand(100, 1100);
 	let f2 = 4.0 * f1;
 	{
-		let y = { f1 + f2.Rand0 } ! n;
+		let y = { f1 + Rand(0, f2) } ! n;
 		let a = f1 / y;
 		SinOscBank(y, a, nil) / n
 	} ! 2

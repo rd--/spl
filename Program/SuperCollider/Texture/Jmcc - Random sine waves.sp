@@ -1,7 +1,7 @@
 /* Random sine waves (Jmcc) #1 */
 {
 	EqPan(
-		Release(FSinOsc(2000.Rand0, 0) * 0.02, 2, 5, 2),
-		1.Rand2
+		Release(FSinOsc(Rand(0, 2000), 0) * 0.02, 2, 5, 2),
+		Rand(-1, 1)
 	)
 }.spawnTextureProgram(9 / 12)
