@@ -422,6 +422,10 @@
 	ExpRandRange { :self :anObject | <primitive: return sc.ExpRandRange(_self, _anObject);> }
 }
 
++[List, SmallFloat, Ugen] {
+	Round { :self | Round(self, 1) }
+}
+
 +Ugen {
 
 	/*

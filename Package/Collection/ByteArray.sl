@@ -91,8 +91,8 @@ ByteArray! : [Object, Storeable, Equatable, Comparable, Iterable, Indexable, Col
 	}
 
 	fnv1aHash { :self |
-		let fnvPrime = 16777619L;
-		let fnvOffsetBasis = 2166136261L;
+		let fnvPrime = 16777619L; /* 16r01000193 */
+		let fnvOffsetBasis = 2166136261L; /* 16r811C9DC5 */
 		let hash = fnvOffsetBasis;
 		self.do { :each |
 			hash := hash.bitXor(each) * fnvPrime;

@@ -14,6 +14,11 @@ Answer the 32-Bit Fowler-Noll-Vo hash function of the byte array _b_.
 >>> .asciiByteArray
 >>> .fnv1aHash
 354390154
+
+>>> 'The quick brown fox jumps over the lazy dog'
+>>> .asciiByteArray
+>>> .fnv1aHash
+76545936L
 ```
 
 * * *
