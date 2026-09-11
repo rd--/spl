@@ -139,8 +139,8 @@ OEIS [A000960](https://oeis.org/A000960):
 
 ~~~spl svg=B oeis=A000960
 1:65.collect { :n |
-	let m = n - 1;
-	m:1:-1.injectInto(n) { :a :b |
+	Range(n - 1, 1, -1)
+	.injectInto(n) { :a :b |
 		b * (a / b + 1).ceiling
 	}
 }.discretePlot
@@ -153,11 +153,12 @@ OEIS [A278169](https://oeis.org/A278169):
 
 ~~~spl svg=C oeis=A278169
 1:37.collect { :n |
-	let m = n - 1;
-	m:1:-1.injectInto(n) { :a :b |
+	Range(n - 1, 1, -1)
+	.injectInto(n) { :a :b |
 		b * (a / b + 1).ceiling
 	}
-}.characteristicFunction.discretePlot
+}.characteristicFunction
+.discretePlot
 ~~~
 
 ![](Help/Image/injectInto-C.svg)
@@ -170,8 +171,8 @@ OEIS [A007952](https://oeis.org/A007952):
 
 ~~~spl svg=D oeis=A007952
 1:65.collect { :n |
-	let m = n - 1;
-	m:1:-1.injectInto(n) { :a :b |
+	Range(n - 1, 1, -1)
+	.injectInto(n) { :a :b |
 		b * (a / b + 1).floor
 	}
 }.discretePlot

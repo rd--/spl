@@ -570,8 +570,12 @@
 	}
 
 	prime { :self |
-		let primesList = system.cachedPrimesListExtendedToIndex(self);
-		primesList[self]
+		self.isPositive.if {
+			let primesList = system.cachedPrimesListExtendedToIndex(self);
+			primesList[self]
+		} {
+			self.error('prime?')
+		}
 	}
 
 	primeBalance { :n |

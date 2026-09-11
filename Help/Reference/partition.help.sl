@@ -134,7 +134,7 @@ OEIS [A135472](https://oeis.org/A135472):
 
 ```
 >>> let a = 0:9.collect { :n |
->>> 	interleave([n:9, [n]])
+>>> 	interleave([[n .. 9], [n]])
 >>> 	.allButLast
 >>> };
 >>> let b = a.catenate;

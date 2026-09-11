@@ -9,7 +9,7 @@ Minimal number of factorials that add to _n_,
 OEIS [A034968](https://oeis.org/A034968):
 
 ```
->>> [0 .. 105].collect { :n |
+>>> 0:105.collect { :n |
 >>> 	n.factorialExpansion.sum
 >>> }
 [

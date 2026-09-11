@@ -175,16 +175,32 @@ Range : [Object, Storeable, Equatable, Comparable, Iterable, Collection, Indexab
 		}
 	}
 
-	nonemptyRange { :start :stop :step |
-		let r = Range(start, stop, step);
-		r.isEmpty.ifTrue {
-			r.error('nonemptyRange: invalid (empty) range')
-		};
-		r
+	listRange { :start :stop :step |
+		stop.isSequenceable.if {
+			listRange([start], stop, step)
+		} {
+			nonEmptyRange(start, stop, step).asList
+		}
 	}
 
-	nonemptyThenTo { :start :then :stop |
-		nonemptyRange(start, stop, then - start)
+	listRange { :start :stop |
+		listRange(start, stop, 1)
+	}
+
+	nonEmptyRange { :start :stop :step |
+		stop.isSequenceable.if {
+			nonEmptyRange([start], stop, step)
+		} {
+			let r = Range(start, stop, step);
+			r.isEmpty.ifTrue {
+				r.error('nonEmptyRange: invalid (empty) range')
+			};
+			r
+		}
+	}
+
+	nonEmptyThenTo { :start :then :stop |
+		nonEmptyRange(start, stop, then - start)
 	}
 
 	Range { :start :stop :step :size |
@@ -198,20 +214,20 @@ Range : [Object, Storeable, Equatable, Comparable, Iterable, Collection, Indexab
 	}
 
 	[Range, to, toBy] { :start :stop :step |
-		let size = inferredRangeSize(start, stop, step);
-		Range(start, stop, step, size)
+		stop.isSequenceable.if {
+			Range([self], stop, step)
+		} {
+			let size = inferredRangeSize(start, stop, step);
+			Range(start, stop, step, size)
+		}
+	}
+
+	[Range, to] { :self :stop |
+		Range(self, stop, 1)
 	}
 
 	thenTo { :self :second :last |
 		Range(self, last, second - self)
-	}
-
-	to { :self :stop |
-		stop.isSequenceable.if {
-			[self].to(stop)
-		} {
-			Range(self, stop, 1)
-		}
 	}
 
 	upOrDownTo { :self :stop |
@@ -228,29 +244,36 @@ Range : [Object, Storeable, Equatable, Comparable, Iterable, Collection, Indexab
 
 }
 
-+List {
-
-	Range { :self |
-		self.size.caseOf(
-			[
-				3 -> { Range(self[1], self[2], self[3]) },
-				4 -> { Range(self[1], self[2], self[3], self[4]) }
-			]
-		)
-	}
-
-}
-
 +[List, Range] {
 
-	nonemptyRange { :start :stop :step |
+	listRange { :start :stop :step |
 		stop.adaptToCollectionAndApply(start) { :i :j |
-			nonemptyRange(i, j, step)
+			listRange(i, j, step)
 		}
 	}
 
-	to { :start :stop |
-		stop.adaptToCollectionAndApply(start, to:/2)
+	listRange { :start :stop |
+		listRange(start, stop, 1)
+	}
+
+	nonEmptyRange { :start :stop :step |
+		stop.adaptToCollectionAndApply(start) { :i :j |
+			nonEmptyRange(i, j, step)
+		}
+	}
+
+	nonEmptyRange { :start :stop |
+		nonEmptyRange(start, stop, 1)
+	}
+
+	[Range, to] { :start :stop :step |
+		stop.adaptToCollectionAndApply(start) { :i :j |
+			Range(i, j, step)
+		}
+	}
+
+	[Range, to] { :start :stop |
+		Range(start, stop, 1)
 	}
 
 	upOrDownTo { :start :stop |

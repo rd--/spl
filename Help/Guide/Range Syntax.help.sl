@@ -8,13 +8,13 @@
 
 ```
 >> '(i .. j)'.splSimplify
-nonemptyRange(i, j, 1)
+nonEmptyRange(i, j, 1)
 
 >> '(i, j .. k)'.splSimplify
-nonemptyThenTo(i, j, k)
+nonEmptyThenTo(i, j, k)
 
 >> '(i .. j; k)'.splSimplify
-nonemptyRange(i, j, k)
+nonEmptyRange(i, j, k)
 ```
 
 Answer ascending `Range` values:
@@ -50,13 +50,20 @@ Range(1, 1, 1)
 Range(1, 1, -1)
 ```
 
+Nested ranges:
+
+```
+>>> (1 .. (1 .. 5))
+[1:1 1:2 1:3 1:4 1:5]
+```
+
 Where supported the notation `..` i displayed as ….
 
 _Note_:
 In Smalltalk _α to: β_ is an empty `Range` if α <= β,
 as is _α:β_ in Matlab and Octave and Julia.
 The Sᴘʟ re-write rules call `Range` for the `Range Literal Syntax` form _α:β_,
-and `nonemptyRange` for the `Range Syntax` _(α .. β)_ and related forms.
+and `nonEmptyRange` for the `Range Syntax` _(α .. β)_ and related forms.
 To write descending intervals the step must be specified.
 This definition avoids subtle differences if _(α .. β)_ is used where _α:β_ or _α.to(β)_ is required.
 The notation `α:β` is from Matlab/Octave and S/R and Fortress and Julia.

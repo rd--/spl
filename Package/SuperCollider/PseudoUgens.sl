@@ -2,6 +2,11 @@
 
 +[List, SmallFloat, Ugen] {
 
+	Blend { :y1 :y2 :mu |
+		let signedMu = mu.LinLin(0, 1, -1, 1);
+		XFade2(y1, y2, signedMu, 1)
+	}
+
 	BrownNoise { :mul :add |
 		{ BrownNoise() } ! mul.shape * mul + add
 	}

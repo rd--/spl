@@ -450,7 +450,8 @@ OEIS [A000422](https://oeis.org/A000422):
 
 ```
 >>> 1:10.collect { :n |
->>> 	n:1:-1.collect(integerDigits:/1)
+>>> 	Range(n, 1, -1)
+>>> 	.collect(integerDigits:/1)
 >>> 	.catenate
 >>> 	.fromDigits
 >>> }

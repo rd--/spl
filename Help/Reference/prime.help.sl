@@ -47,6 +47,13 @@ The tenth, hundredth and thousandth prime:
 [29 541 7919]
 ```
 
+It is an error if _n_ is non-positive:
+
+```
+>>> { 0.prime }.hasError
+true
+```
+
 One and first few prime numbers,
 OEIS [A008578](https://oeis.org/A008578):
 

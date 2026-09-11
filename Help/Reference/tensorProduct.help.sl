@@ -132,8 +132,8 @@ Count distinct products,
 OEIS [A322967](https://oeis.org/A322967):
 
 ```
->>> 1:8.collect { :n |
->>> 	n:1:-1.collect { :k |
+>>> [1 .. 8].collect { :n |
+>>> 	[n, n - 1 .. 1].collect { :k |
 >>> 		let m = n - k + 1;
 >>> 		let t = [k].constantArray(
 >>> 			[1 .. m]

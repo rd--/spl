@@ -89,7 +89,7 @@ OEIS [A083221](https://oeis.org/A083221):
 >>> let k = 8;
 >>> 1:k.collect { :n |
 >>> 	let p = n.prime;
->>> 	p:Infinity.detect(k) { :x |
+>>> 	(p .. Infinity).detect(k) { :x |
 >>> 		x.leastPrimeFactor = p
 >>> 	}
 >>> }

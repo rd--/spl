@@ -8,13 +8,13 @@ List range expression rewrite rules:
 
 ```
 >> '[i .. j]'.splSimplify
-asList(nonemptyRange(i, j, 1))
+listRange(i, j, 1))
 
 >> '[i, j .. k]'.splSimplify
-asList(nonemptyThenTo(i, j, k))
+listRange(i, k, subtract(j, i))
 
 >> '[i .. j; k]'.splSimplify
-asList(nonemptyRange(i, j, k))
+listRange(i, j, k)
 ```
 
 Answer consecutive ascending `List` values:
@@ -57,6 +57,30 @@ Descend by two:
 
 >>> [9 .. 1; -2]
 [9 7 5 3 1]
+```
+
+A geomtric sequence:
+
+```
+>>> 3 ^ [1 .. 5]
+[3 9 27 81 243]
+
+>>> (3 ^ [1 .. 5])
+>>> .isGeometricProgression
+true
+```
+
+Nested ranges:
+
+```
+>>> [1 .. [1 .. 5]]
+[1; 1 2; 1 2 3; 1 2 3 4; 1 2 3 4 5]
+
+>>> [1 .. [1 .. 9; 2]; 2]
+[1; 1 3; 1 3 5; 1 3 5 7; 1 3 5 7 9]
+
+>>> [1 .. [1 .. [1 .. 3]]]
+[1:; 1; 1 2:; 1; 1 2; 1 2 3]
 ```
 
 * * *

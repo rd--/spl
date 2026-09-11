@@ -1,15 +1,16 @@
 # Fraction Syntax
 
-Rewrite rule:
+- _n/d_
 
-- _n/d_ ⟹ _Fraction(nL, dL)_
+A `Fraction` is a number consisting of two integers,
+a numerator and a denominator.
+
+Rewrite rule:
 
 ```
 >> '3/4'.splSimplify
 Fraction(3L, 4L)
 ```
-
-A `Fraction` is a number consisting of two integers, a numerator and a denominator.
 
 Fractions may be written using the syntax _numerator/denominator_,
 i.e. `3/4` or `2/3`.
@@ -58,6 +59,14 @@ however it is currently parsed as _x/y / z_.
 
 >>> 3 / 4/5
 15/4
+```
+
+Fraction syntax requires that _n_ and _d_ be integer literals.
+The Spl parser allows binary operators to be written without delimiting whitespace:
+
+```
+>> 'n/d'.splSimplify
+solidus(n, d)
 ```
 
 If the `Fraction` package is not installed,

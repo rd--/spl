@@ -1,6 +1,6 @@
 # scanRight
 
-- _scanRight([x₁ x₂ …], f:2)_
+- _scanRight([x₁ x₂ …], f:/2)_
 
 `scanRight` is the right-to-left dual of `scanLeft`.
 Note that the order of parameters on the accumulating function are reversed compared to `scanLeft`.

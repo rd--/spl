@@ -1,19 +1,22 @@
 # Range Literal Syntax
 
-- _α:β_
-- _α:β:γ_
+- _α:β:γ=1_
+
+Syntax for writing `Range` literals.
 
 Rewrite rules:
 
 ```
->> '1:n'.splSimplify
-rangeOrRelativeRange(1, n, 1)
+>> 'i:j'.splSimplify
+rangeOrRelativeRange(i, j, 1)
 
->> 'n:1:-1'.splSimplify
-rangeOrRelativeRange(n, 1, -1)
+>> 'i:j:k'.splSimplify
+rangeOrRelativeRange(i, j, k)
 ```
 
-α and β must be either integer literals or identifiers.
+α and β must be either integer literals or identifiers,
+and γ must be an integer literal.
+
 In the literal form,
 as with literal `Fraction` values,
 white space is significant,
@@ -21,22 +24,27 @@ and `α : β` is not recognised as a range literal.
 
 ```
 >>> 1:9
-Range(1, 9, 1)
+Range(1, 9)
 
+>>> let m = 1;
 >>> let n = 9;
->>> 1:n
-Range(1, 9, 1)
+>>> m:n
+Range(1, 9)
 ```
 
-Answer ascending `Range` values:
+Answer consecutive ascending `Range` values:
 
 ```
 >>> 1:9
-Range(1, 9, 1)
+Range(1, 9)
 
 >>> 1:9.asList
 [1 2 3 4 5 6 7 8 9]
+```
 
+Ascending by two:
+
+```
 >>> 1:9:2
 Range(1, 9, 2)
 
@@ -44,7 +52,7 @@ Range(1, 9, 2)
 [1 3 5 7 9]
 ```
 
-Answer descending `Range` values:
+Answer consecutive descending `Range` values:
 
 ```
 >>> 9:1:-1
@@ -52,7 +60,11 @@ Range(9, 1, -1)
 
 >>> 9:1:-1.asList
 [9 8 7 6 5 4 3 2 1]
+```
 
+Descending by two:
+
+```
 >>> 9:1:-2
 Range(9, 1, -2)
 
@@ -64,13 +76,23 @@ Answer empty `Range` values:
 
 ```
 >>> 9:1
-Range(9, 1, 1)
+Range(9, 1)
 
 >>> 9:1.isEmpty
 true
 
 >>> 9:1.asList
 []
+```
+
+Answer unit `Range`:
+
+```
+>>> 1:1
+Range(1, 1)
+
+>>> 1:1.size
+1
 ```
 
 Answer `RelativeRange` values,
@@ -88,7 +110,7 @@ RelativeRange(-1, 1, -1)
 [1 2 3 4 5 6 7 8 9]
 ```
 
-Note that white space is particularly important in distinguishing a ternary range literal from a record literal:
+Note that white space is particularly important in distinguishing a range literal from a record literal:
 
 ```
 >>> let n = 3;
@@ -99,6 +121,12 @@ Range(3, 1, -1)
 >>> (n: 1:-1)
 (n: RelativeRange(1, -1, 1))
 ```
+
+Rationale:
+Identifiers are allowed as initial values,
+even though it can be confused with `Record Syntax`,
+because the tranlation of _i:j_ is distinct from the translation for _(i .. j)_,
+which does not allow empty ranges to be specified.
 
 * * *
 

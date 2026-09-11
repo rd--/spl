@@ -43,7 +43,7 @@ Range(7, 3, -1)
 Range(7, 3, -1)
 ```
 
-THe binary form threads over lists:
+The binary form threads over lists:
 
 ```
 >>> [0 2].to(4)

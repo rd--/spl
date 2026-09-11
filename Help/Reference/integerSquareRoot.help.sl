@@ -145,7 +145,7 @@ OEIS [A000161](https://oeis.org/A000161):
 	let m = ((n - 1) // 2);
 	let a = m.integerSquareRoot + 1;
 	let b = n.integerSquareRoot;
-	a:b.sum { :k |
+	a.to(b).sum { :k |
 		(n - (k ^ 2))
 		.isPerfectSquare
 		.boole

@@ -1,13 +1,13 @@
-# nonemptyThenTo
+# nonEmptyThenTo
 
-- _nonemptyThenTo(i, j, k)_
+- _nonEmptyThenTo(i, j, k)_
 
 A variant of `thenTo` that disallows empty range values.
 
-A nonempty range:
+A non-empty range:
 
 ```
->>> 4.nonemptyThenTo(2, -6)
+>>> 4.nonEmptyThenTo(2, -6)
 >>> .asList
 [4 2 0 -2 -4 -6]
 ```
@@ -16,7 +16,7 @@ Disallowed empty range:
 
 ```
 >>> {
->>> 	6.nonemptyThenTo(8, 2)
+>>> 	6.nonEmptyThenTo(8, 2)
 >>> }.hasError
 true
 
@@ -26,6 +26,6 @@ true
 
 * * *
 
-See also: nonemptyRange, thenTo
+See also: nonEmptyRange, thenTo
 
 Guides: Range Syntax, Range Literal Syntax

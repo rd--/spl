@@ -487,13 +487,13 @@ const asSl: ohm.ActionDict<string> = {
 		return `${rhsName} = assertIsOfSize(${rhs.asSl}, ${namesArray.length}); ${slots}`;
 	},
 	ListRangeFromToSyntax(_left, start, _dots, end, _right) {
-		return `asList(nonemptyRange(${start.asSl}, ${end.asSl}, 1))`;
+		return `listRange(${start.asSl}, ${end.asSl}, 1)`;
 	},
 	ListRangeFromThenToSyntax(_left, start, _comma, then, _dots, end, _right) {
-		return `asList(nonemptyThenTo(${start.asSl}, ${then.asSl}, ${end.asSl}))`;
+		return `listRange(${start.asSl}, ${end.asSl}, subtract(${then.asSl}, ${start.asSl}))`;
 	},
 	ListRangeFromToBySyntax(_left, start, _comma, to, _semicolon, by, _right) {
-		return `asList(nonemptyRange(${start.asSl}, ${to.asSl}, ${by.asSl}))`;
+		return `listRange(${start.asSl}, ${to.asSl}, ${by.asSl})`;
 	},
 	MatrixSyntax(_l, items, _r) {
 		return `[${commaListSl(items.asIteration().children)}]`;
@@ -544,13 +544,13 @@ const asSl: ohm.ActionDict<string> = {
 		return `uncheckedSlotWrite(${c.asSl}, '${k.sourceString}', ${v.asSl})`;
 	},
 	RangeFromToSyntax(_left, start, _dots, end, _right) {
-		return `nonemptyRange(${start.asSl}, ${end.asSl}, 1)`;
+		return `nonEmptyRange(${start.asSl}, ${end.asSl}, 1)`;
 	},
 	RangeFromThenToSyntax(_left, start, _comma, then, _dots, end, _right) {
-		return `nonemptyThenTo(${start.asSl}, ${then.asSl}, ${end.asSl})`;
+		return `nonEmptyThenTo(${start.asSl}, ${then.asSl}, ${end.asSl})`;
 	},
 	RangeFromToBySyntax(_left, start, _dots, end, _semicolon, by, _right) {
-		return `nonemptyRange(${start.asSl}, ${end.asSl}, ${by.asSl})`;
+		return `nonEmptyRange(${start.asSl}, ${end.asSl}, ${by.asSl})`;
 	},
 	RecordAssignment(_l, lhs, _r, _e, rhs) {
 		const rhsDictionaryName = genVarSym();

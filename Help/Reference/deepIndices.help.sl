@@ -38,7 +38,7 @@ At `Record`:
 ```
 >>> (
 >>> 	x: 1,
->>> 	y: (x: 2, y:3),
+>>> 	y: (x: 2, y: 3),
 >>> 	z: (x: 4, y: 5, z: 6)
 >>> )
 >>> .deepIndices
@@ -53,7 +53,7 @@ At `Record`:
 
 >>> (
 >>> 	x: 1,
->>> 	y: (x: 2, y:3),
+>>> 	y: (x: 2, y: 3),
 >>> 	z: (x: 4, y: 5, z: 6)
 >>> ).deepIndices(isEven:/1)
 ['y' 'x'; 'z' 'x'; 'z' 'z']
@@ -69,7 +69,7 @@ At `Record`:
 
 >>> let r = (
 >>> 	x: 1,
->>> 	y: (x: 2, y:3),
+>>> 	y: (x: 2, y: 3),
 >>> 	z: (x: 4, y: 5, z: 6)
 >>> );
 >>> let i = r.deepIndices;

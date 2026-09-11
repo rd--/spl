@@ -384,8 +384,7 @@ OEIS [A225144](https://oeis.org/A225144):
 
 ~~~spl svg=F oeis=A225144
 1:65.collect { :n |
-	let m = n * 2;
-	n:m.sum { :i |
+	(n .. n * 2).sum { :i |
 		(i ^ 2) * (-1 ^ i)
 	}
 }.discretePlot

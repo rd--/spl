@@ -39,10 +39,9 @@ Natural numbers _n_ such that there are _s_ and _w_ satisfying _0<s<w_ and _2s+5
 OEIS [A162918](https://oeis.org/A162918):
 
 ```
->>> 1:92.select { :n |
->>> 	1:n.anySatisfy { :s |
->>> 		let t = s + 1;
->>> 		t:n.anySatisfy { :w |
+>>> (2 .. 92).select { :n |
+>>> 	(1 .. n - 1).anySatisfy { :s |
+>>> 		(s + 1 .. n).anySatisfy { :w |
 >>> 			(2 * s) + (5 * w) = n
 >>> 		}
 >>> 	}

@@ -35,7 +35,7 @@ At `Record` consider values:
 true
 ```
 
-Equivalent to testing for nonempty intersection of the lists:
+Equivalent to testing for non-empty intersection of the lists:
 
 ```
 >>> let a = [5 8 8 3];

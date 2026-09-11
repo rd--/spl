@@ -11,7 +11,7 @@ Progression Functions:
 - `arithmeticProgression`
 - `geometricProgression`
 - `iota`
-- `nonemptyRange`
+- `nonEmptyRange`
 - `thenTo`
 - `to`
 - `toBy`

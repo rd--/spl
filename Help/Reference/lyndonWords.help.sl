@@ -3,7 +3,7 @@
 - _lyndonWords(alphabet, n)_
 
 Answer a `List` of the Lyndon words up to size _n_ on _alphabet_.
-A Lyndon word is a nonempty sequence that is strictly smaller in lexicographic order than all of its rotations.
+A Lyndon word is a non-empty sequence that is strictly smaller in lexicographic order than all of its rotations.
 
 ```
 >>> [0 1].lyndonWords(5)

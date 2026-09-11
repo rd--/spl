@@ -12,7 +12,7 @@ T(Record([['k', v]]))
 Uppercase unary functions may elide application parentheses when applied to records.
 
 ```
->>> Map(x: 1, y:2, z: 3)
+>>> Map(x: 1, y: 2, z: 3)
 Map['x' 1; 'y' 2; 'z' 3]
 ```
 

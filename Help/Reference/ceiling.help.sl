@@ -100,7 +100,7 @@ also OEIS [A108696](https://oeis.org/A108696) plus two:
 ```
 >>> 0:22.collect { :n |
 >>> 	let x = 1;
->>> 	x:n.do { :p |
+>>> 	1:n.do { :p |
 >>> 		let a = n + 2 - p;
 >>> 		let b = n + 1 - p;
 >>> 		x := (a * x / b).ceiling

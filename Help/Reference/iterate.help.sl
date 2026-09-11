@@ -250,7 +250,7 @@ OEIS [A283681](https://oeis.org/A283681):
 	let k = x.size + 1;
 	1:k.collect { :n |
 		let m = n - 1;
-		1:m:1.collect { :i |
+		1:m.collect { :i |
 			x[n - i] * i
 		}
 	}.flatten

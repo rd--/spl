@@ -68,6 +68,29 @@ CombC(
 	l.atAll([7 .. 8]) * 4
 ) * (1 / 8) + o
 
+/* SCSCC-22 "Siv" 238 */
+let h = 1 / 2;
+let e = 1 / 4 > LfSaw(h, 0);
+Brf(
+	Splay(
+		LfSaw(
+			(
+				e / 2 + 1 * [82 146 195 246]
+				*
+				(LfSaw(0.1 + [0 .. 3] * 3, 0).Abs / 24 + 1)
+			),
+			0
+		),
+		LfSaw(h, 0)
+	),
+	LfSaw(h / (9 / 7 + LfSaw(h / 34, 0) ^ 2 * 4), 0).Abs * 4000 + 82,
+	4
+) * (
+	LfSaw(-8, 1) + 1 / 2 ^ (LfSaw(h / 27, 0).Abs * 8 + h) / 2
+	+
+	(Slew(e, 1000, 1) ^ (LfSaw(h / 46, 0).Abs * 3 + h))
+) / 5 * Line(0, 1, 9)
+
 /* SCSCC-24 "Loading…" 221 bytes ; https://github.com/lukiss/SCSCC/ */
 let r = (12 * [0 .. 4] +.x [0 10 15 19]).MidiRatio;
 Splay(
@@ -146,6 +169,68 @@ Splay(
 		) / 12
 	}
 )
+
+/* SCSCC-28 256b Dub */
+let f = 53;
+let h = 1 / 3;
+let r = MidiRatio(12 * [0 .. 3] +.x (5 * [0 .. 4] ++ [19]));
+let l = nil;
+let a = nil;
+let o = Splay(
+	0:12.collect { :n |
+		l := LfSaw(1 / (2 ^ n % f), 0).Abs;
+		a := 4 + l;
+		let p = (n + 1).prime;
+		let x = 1 / 2 < l * 1 / 2 + 1 * 66 * r;
+		let y = x.atAllWrap([n + 1, p + 1]);
+		let z = Lag(
+			LfSaw(
+				-2 << [0 .. 2] / (2 ^ (p % 15) % f) * h,
+				0
+			) + 1 / 2 ^ (5 * a) * (3 - a ^ n % a * 2),
+			0.002
+		);
+		PmOsc(y[1], y[2], z[1], z[2]) * z[3] / 7
+	},
+	h
+);
+CombC(
+	o,
+	h,
+	PmOsc(h, [7, 9], l, 0) * 0.007 + 1 / 4,
+	a
+) / 9 + o
+
+/* SCSCC #29 Dystopian B-Movie Sauce 199b */
+let m = { LfNoise2(0.003) + 1 / 2 };
+let b = { :x |
+	VarSaw(
+		x,
+		0,
+		VarSaw(
+			m:/0 ! 2 / 33,
+			0,
+			0.5
+		) + 1 / 2
+	)
+};
+let f = m() / 2 + 69;
+let o = b(f);
+9.timesRepeat {
+	o := LeakDc(
+		b(
+			f := LfNoise2([33, 33]) / 222 + 1 * f * 1.189
+		).Fold(
+			b(2 / 3 * f),
+			b(3 / 2 * f)
+		).Blend(
+			o,
+			b(m() ^ 1.pi / 9).Abs
+		),
+		0.995
+	)
+};
+o / 5 * Line(0, 1, 14)
 
 /* SCSCC #32 Baum 219 */
 let f = Index(
@@ -285,6 +370,27 @@ Splay(
 		).MidiRatio.kr * 49,
 		0
 	) / 5
+)
+
+/* SCSCC-50 WIP Ba Be Bi Ba */
+let a = ('R[jln-/457Kcjlm+-144Bckno!/144'.ascii - 6).clump(10);
+let t = CuspN(CuspN(4, 1, 1.9, 0) + 1.1 * 3, 1, 1.9, 0);
+let u = Hpz2(t).Abs > 0;
+let b = MidiCps(
+	CuspN(2 + t * 99, 1, 1.9, 0) / 99 + 1 * TChoose(
+		u,
+		a + Dc(0)
+	).clump(5)
+) * Lag3Ud(Trig1(u, t + 1.1 / 7), 1 / 77, 1 / 23);
+EqPan2(
+	Sum(
+		Formant(
+			MidiCps(t + 1 * 6 + 42),
+			b[1],
+			b[2]
+		) * (1 / [1 4 12 17 23])
+	) / 8,
+	0
 )
 
 /* SCSCC-51 #UntzUntz */

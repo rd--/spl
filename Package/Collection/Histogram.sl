@@ -46,14 +46,14 @@
 
 	binLists { :self :b |
 		self.binListsFor(
-			Range(b).asList
+			Range(b[1], b[2], b[3]).asList
 		)
 	}
 
 	binLists { :self :b1 :b2 |
 		self.binListsFor(
-			Range(b1).asList,
-			Range(b2).asList
+			Range(b1[1], b1[2], b1[3]).asList,
+			Range(b2[1], b2[2], b2[3]).asList
 		)
 	}
 

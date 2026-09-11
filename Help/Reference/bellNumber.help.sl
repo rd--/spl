@@ -2,7 +2,7 @@
 
 - _bellNumber(n)_
 
-Answer the number of ways a set of _n_ elements can be partitioned into nonempty subsets.
+Answer the number of ways a set of _n_ elements can be partitioned into non-empty subsets.
 
 There are five ways three numbers can be partitioned:
 

@@ -53,10 +53,10 @@ Number of partitions of _n_ with crank _k_ for _k_ in _-n:n_,
 OEIS [A064391](https://oeis.org/A064391):
 
 ~~~spl svg=A oeis=A064391
-1:9.collect { :n |
+(1 .. 9).collect { :n |
 	let p = n.integerPartitions;
 	let c = p.collect(dysonCrank:/1);
-	-n:n.collect { :k |
+	(-n .. n).collect { :k |
 		c.occurrencesOf(k)
 	}
 }.catenate.scatterPlot

@@ -8,7 +8,7 @@ Answer the removed element.
 At `Record`
 
 ```
->>> let d = (x: 1, y: 2, z:3);
+>>> let d = (x: 1, y: 2, z: 3);
 >>> (d.removeKey('y'), d)
 (2, (x: 1, z: 3))
 ```
