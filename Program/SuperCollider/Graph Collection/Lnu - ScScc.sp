@@ -332,6 +332,30 @@ Splay(
 	) ^ e / 5
 )
 
+/* SCSCC-41 "fifs" */
+let t = LfSaw(
+	-8 / (LfSaw(1 / 2, 1) < 0.5 + 2),
+	-1
+) + 1 / 2;
+let o = Splay(
+		t ^ 2 * LfSaw(
+			131 * MidiRatio(
+				Floor(
+					LfSaw(1 / 32, 0) * 8
+				) * 5 + Round(
+					3.1 * LfSaw(1 / 8, 1 / 16).Max(0), 2
+				) + [9 4 7 0] % 12 +.x [19 0]
+			),
+			0
+		) ^ (2.1 - t)
+) / 3;
+CombC(
+	o,
+	1 / 4,
+	1 / 4,
+	1
+) / 4 + o
+
 /* SCSCC-42 The Universe is 99.9999999999999999999958% Empty */
 let n = LfNoise2([0 .. 4]);
 let m = Select(

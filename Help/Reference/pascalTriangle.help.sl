@@ -25,6 +25,28 @@ OEIS [A007318](https://oeis.org/A007318):
 ]
 ```
 
+One construction is that each row is the element-wise sum of the previous row,
+shifted both left and right:
+
+```
+>>> { :x |
+>>> 	([0] ++ x) + (x ++ [0])
+>>> }.nestList([1], 10)
+[
+	1;
+	1 1;
+	1 2 1;
+	1 3 3 1;
+	1 4 6 4 1;
+	1 5 10 10 5 1;
+	1 6 15 20 15 6 1;
+	1 7 21 35 35 21 7 1;
+	1 8 28 56 70 56 28 8 1;
+	1 9 36 84 126 126 84 36 9 1;
+	1 10 45 120 210 252 210 120 45 10 1
+]
+```
+
 The number of odd entries in the first _n_ rows of Pascal’s triangle is given by Gould’s sequence,
 OEIS [A001316](https://oeis.org/A001316):
 

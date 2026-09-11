@@ -67,7 +67,8 @@ Find the multiplicative order of 2 modulo 19:
 ]
 ```
 
-Evaluate the Collatz, or hailstone, sequence:
+Evaluate the Collatz, or hailstone, sequence beginning at nine,
+OEIS [A033479](https://oeis.org/A033479):
 
 ```
 >>> { :n |

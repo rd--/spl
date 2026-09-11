@@ -314,6 +314,16 @@ Make nested ranges:
 [1:1 1:2 1:3 1:4 1:5]
 ```
 
+There is a closed form for calculating the sum:
+
+```
+>>> (1 .. 10000).sum
+50005000
+
+>>> 10000 * ((10000 - 1) + (1 * 2)) / 2
+50005000
+```
+
 Count backwards from one hundred to zero,
 OEIS [A096582](https://oeis.org/A096582):
 

@@ -10,8 +10,8 @@ Rewrite rules:
 >> 'i:j'.splSimplify
 rangeOrRelativeRange(i, j, 1)
 
->> 'i:j:k'.splSimplify
-rangeOrRelativeRange(i, j, k)
+>> 'i:j:-1'.splSimplify
+rangeOrRelativeRange(i, j, -1)
 ```
 
 α and β must be either integer literals or identifiers,

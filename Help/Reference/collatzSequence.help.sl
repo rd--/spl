@@ -102,7 +102,8 @@ which arrives at `one` after sixteen steps:
 ```
 
 The Collatz sequence starting at nine,
-which arrives at `one` after nineteen steps:
+which arrives at `one` after nineteen steps,
+OEIS [A033479](https://oeis.org/A033479):
 
 ```
 >>> 9.collatzSequence

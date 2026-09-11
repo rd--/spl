@@ -12,7 +12,8 @@ true
 [7 49 97 130 10 1]
 ```
 
-The first few happy numbers:
+The first few happy numbers,
+OEIS [A007770](https://oeis.org/A007770):
 
 ```
 >>> 1:100.select(isHappyNumber:/1)
@@ -35,7 +36,8 @@ The number of iterations required to reach `one`:
 [0 5 1 2 4 3 3 2 3 4 4 2 5 3 3 2 4 4 3 1]
 ```
 
-The first few happy primes:
+The first few happy primes,
+OEIS [A035497](https://oeis.org/A035497):
 
 ```
 >>> 1:150.select { :x |

@@ -215,7 +215,7 @@ Range : [Object, Storeable, Equatable, Comparable, Iterable, Collection, Indexab
 
 	[Range, to, toBy] { :start :stop :step |
 		stop.isSequenceable.if {
-			Range([self], stop, step)
+			Range([start], stop, step)
 		} {
 			let size = inferredRangeSize(start, stop, step);
 			Range(start, stop, step, size)
@@ -301,15 +301,6 @@ Range : [Object, Storeable, Equatable, Comparable, Iterable, Collection, Indexab
 		} {
 			start.error('FiniteRange')
 		}
-	}
-
-}
-
-+List {
-
-	FiniteRange { :self |
-		let [start, stop, step, size] = self;
-		FiniteRange(start, stop, step, size)
 	}
 
 }
