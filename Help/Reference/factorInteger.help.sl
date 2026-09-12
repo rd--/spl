@@ -262,7 +262,7 @@ Primorial inflation of the prime shadow of _n_,
 OEIS [A124859](https://oeis.org/A124859):
 
 ~~~spl svg=B oeis=A124859
-{ :n |
+1:50.collect { :n |
 	(n = 1).if {
 		1
 	} {
@@ -271,7 +271,7 @@ OEIS [A124859](https://oeis.org/A124859):
 			i.prime ^ x[2]
 		}
 	}
-}.map(1:50).scatterPlot
+}.scatterPlot
 ~~~
 
 ![](Help/Image/factorInteger-B.svg)

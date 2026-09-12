@@ -60,10 +60,10 @@ Thirteen limit, multiplied out to integers:
 Ratios between neighbouring pitches are superparticular:
 
 ```
->>> { :i |
+>>> [5 7].collect { :i |
 >>> 	let d = i.tonalityDiamond;
 >>> 	d.catenate.nub.sort.ratios
->>> }.map([5 7])
+>>> }
 [
 	[
 		6/5 25/24 16/15
@@ -81,13 +81,13 @@ Ratios between neighbouring pitches are superparticular:
 The scale is symmetrical within the octave:
 
 ```
->>> { :i |
+>>> [5 7].collect { :i |
 >>> 	let d = i.tonalityDiamond;
 >>> 	let r = d.catenate.unique ++ [2];
 >>> 	r.collect(ratioToCents:/1)
 >>> 	.differences
 >>> 	.round
->>> }.map([5 7])
+>>> }
 [
 	316 71 112
 	204

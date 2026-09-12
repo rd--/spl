@@ -25,6 +25,8 @@ Rotate lists based on position:
 
 See also: collect, map, withIndexCollect
 
+Guides: List Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/MapIndexed.html)

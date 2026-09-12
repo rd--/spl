@@ -26,7 +26,7 @@ ColourGradient : [Object, Storeable] { | colourList positionListOrNil |
 					c.asColour.rgbString
 				]
 			)
-		}.map(self.colourList, self.positionList);
+		}.zipWith(self.colourList, self.positionList);
 		let post = [
 			'	</linearGradient>',
 			'</defs>',

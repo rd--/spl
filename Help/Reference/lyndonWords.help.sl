@@ -40,11 +40,11 @@ OEIS [A001037](https://oeis.org/A001037):
 There is a closed form to calculate the number of words:
 
 ```
->>> { :n |
+>>> 1:12.collect { :n |
 >>> 	n.divisors.sum { :d |
 >>> 		d.moebiusMu * (2 ^ (n // d))
 >>> 	} / n
->>> }.map(1:12)
+>>> }
 [2 1 2 3 6 9 18 30 56 99 186 335]
 ```
 

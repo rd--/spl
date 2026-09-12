@@ -30,7 +30,7 @@ true
 To compare element-wise use `map` or `withCollect` or `each`:
 
 ```
->>> =.map([3 2 1], [1 2 3])
+>>> [3 2 1] =.map [1 2 3]
 [false true false]
 
 >>> [3 2 1].withCollect([1 2 3], =)

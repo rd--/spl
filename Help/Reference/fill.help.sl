@@ -123,13 +123,13 @@ If the shape is empty answer a scalar of _f_ applied to `zero`:
 0
 ```
 
-The vector case can also be written using `collect` or `map`:
+The vector case can also be written using `collect` or `table`:
 
 ```
 >>> 1:9.collect(square:/1)
 [1 4 9 16 25 36 49 64 81]
 
->>> square:/1.map(1:9)
+>>> square:/1.table(1:9)
 [1 4 9 16 25 36 49 64 81]
 ```
 

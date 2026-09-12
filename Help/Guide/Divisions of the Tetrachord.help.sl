@@ -225,7 +225,7 @@ The numerical technique employed by Eratosthenes, Didymos, and Ptolemy to define
 >>> 		let m = Fraction(q + 1, q);
 >>> 		[n / m, m]
 >>> 	}
->>> }.map(2:6, [true, false])
+>>> }.zipWith(2:6, [true, false])
 [
 	32/31 31/30;
 	24/23 46/45;

@@ -108,7 +108,7 @@ A Reuleaux triangle:
 let t = sssTriangle(1, 1, 1);
 { :c :a |
 	Arc(c, [1, 1], [a, a + 1/3.pi])
-}.map(
+}.zipWith(
 	t.vertexCoordinates,
 	[0, 2/3, 4/3].pi
 ).LineDrawing

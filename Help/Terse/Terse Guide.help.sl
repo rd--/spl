@@ -2373,9 +2373,9 @@ let f = { :x | x * x }; let d = (p: f:/1); d['p'].value(5) = 25
 { :x | x }.cull(23, 3.141) = 23 /* recognise one argument, ignore one argument */
 { :x :y | x * y }.cull(23, 3.141) = 72.243 /* recognise two arguments */
 let f = { :x | x * x }; f(3) = 9
-{ let f = { :x | x * x }; [3, 5, 7].collect(f) = [9, 25, 49] }.hasError /* f not bound */
-let f = { :x | x * x }; [3, 5, 7].collect(f:/1) = [9, 25, 49]
-{ :x | x * x }.map([3, 5, 7]) = [9, 25, 49] /* map is swap of collect */
+{ let f = { :x | x * x }; [3, 5, 7].collect(f) = [9 25 49] }.hasError /* f not bound */
+let f = { :x | x * x }; [3, 5, 7].collect(f:/1) = [9 25 49]
+{ :x | x * x }.table([3, 5, 7]) = [9 25 49] /* binary table is swap of collect */
 collect:/2.swap . ({ :x | x * x }, [3 5 7]) = [9 25 49] /* swap of collect is map */
 { :x :y | x * y + y }.apply([3.141, 23]) = 95.243
 { { :x | x }.apply(0) }.hasError

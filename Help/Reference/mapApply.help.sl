@@ -27,7 +27,7 @@ Apply `^` to each factor of _20!_:
 
 * * *
 
-See also: apply, collect, map
+See also: apply, collect, map, mapThread
 
 Guides: Collection Functions
 

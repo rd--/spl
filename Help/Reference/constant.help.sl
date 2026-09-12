@@ -33,10 +33,10 @@ Construct a two-argument block that answers a constant value:
 
 ```
 >>> 42.constant(2)
->>> .map([1 2 3 4], [5 6 7 8])
+>>> .zipWith([1 2 3 4], [5 6 7 8])
 [42 42 42 42]
 
->>> *.map([1 2 3 4], [5 6 7 8])
+>>> *.zipWith([1 2 3 4], [5 6 7 8])
 [5 12 21 32]
 ```
 

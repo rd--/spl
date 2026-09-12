@@ -26,8 +26,8 @@
 	collect { :self :aBlock:/1 |
 		<primitive:
 		if(_aBlock_1 instanceof Function) {
-			return _self.map(function(each) {
-				return _aBlock_1(each);
+			return _self.map(function(element, _unusedIndex, _unusedArray) {
+				return _aBlock_1(element);
 			});
 		}
 		>

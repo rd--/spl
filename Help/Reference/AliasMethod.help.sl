@@ -1,6 +1,6 @@
 # AliasMethod
 
-- _AliasMethod(aList)_
+- _AliasMethod([x₁ x₂ …])_
 
 A `Type` that implements the alias method of sampling from a discrete probability distribution.
 Implements the `RandomProcess` trait.
@@ -12,7 +12,7 @@ The distribution is given as a sequence of probability values that `sum` to `one
 >>> let r = Sfc32(1372);
 >>> let d = { m.nextRandom(r) } ! 1000;
 >>> let a = d.asIdentityMultiset.sortedElements;
->>> (->.map(1:5, w * 1000), a)
+>>> (->.zipWith(1:5, w * 1000), a)
 (
 	[
 		1 -> 250,

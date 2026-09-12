@@ -87,16 +87,12 @@ true
 Map over matrix:
 
 ```
->>> includes:/2.map(
->>> 	1:9.reshape([3 3]),
->>> 	[3 6 9]
->>> )
+>>> let m = 1:9.reshape([3 3]);
+>>> m.withCollect([3 6 9], includes:/2)
 [true true true]
 
->>> includes:/2.table(
->>> 	1:9.reshape([3 3]),
->>> 	[3 6 9]
->>> )
+>>> let m = 1:9.reshape([3 3]);
+>>> includes:/2.table(m, [3 6 9])
 [
 	true false false;
 	false true false;

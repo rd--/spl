@@ -50,7 +50,7 @@ First few terms of fifth column,
 OEIS [A000096](https://oeis.org/A000096):
 
 ```
->>> { :n | n * (n + 3 ) / 2 }.map(1:14)
+>>> 1:14.collect { :n | n * (n + 3 ) / 2 }
 [2 5 9 14 20 27 35 44 54 65 77 90 104 119]
 ```
 
@@ -58,9 +58,9 @@ First few terms of fourth column,
 OEIS [A005586](https://oeis.org/A005586):
 
 ```
->>> { :n |
+>>> 1:10.collect { :n |
 >>> 	n * (n + 4) * (n + 5) / 6
->>> }.map(1:10)
+>>> }
 [5 14 28 48 75 110 154 208 273 350]
 ```
 
@@ -68,10 +68,10 @@ First few terms of fifth column,
 OEIS [A005587](https://oeis.org/A005587):
 
 ```
->>> { :n |
+>>> 1:10.collect { :n |
 >>> 	n * (n + 5) * (n + 6) * (n + 7)
 >>> 	/ 24
->>> }.map(1:10)
+>>> }
 [14 42 90 165 275 429 637 910 1260 1700]
 ```
 

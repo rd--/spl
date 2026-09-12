@@ -114,7 +114,7 @@ The cross product of two _n×3_ matrices:
 >>> 	17 19 19;
 >>> 	10 17 5
 >>> ];
->>> cross:/2.map(a, b)
+>>> a.withCollect(b, cross:/2)
 [
 	 300 -291  87;
 	 122 -198 136;

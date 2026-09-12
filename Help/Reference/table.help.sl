@@ -11,7 +11,8 @@ the ternary form a _matrix_,
 the quaternary form a _volume_.
 The list associated with i is outermost.
 
-A table of the first 10 squares:
+A table of the first 10 squares,
+OEIS [A000290](https://oeis.org/A000290):
 
 ```
 >>> { :i |
@@ -26,17 +27,18 @@ A table of the first 10 squares:
 A table with values of _x_ running from 0 to 1 in steps of 0.25:
 
 ```
->>> sqrt:/1.table(Range(0, 1, 0.25))
+>>> sqrt:/1.table([0 .. 1; 0.25])
 [0 0.5 0.707107 0.866025 1]
 
 >>> (0, 0.25 .. 1).sqrt
 [0 0.5 0.707107 0.866025 1]
 ```
 
-A table with _i_ running from 0 to 20 in steps of 2:
+A table with _i_ running from 0 to 20 in steps of 2,
+OEIS [A016742](https://oeis.org/A016742):
 
 ```
->>> square:/1.table(Range(0, 20, 2))
+>>> square:/1.table([0, 2 .. 20])
 [0 4 16 36 64 100 144 196 256 324 400]
 
 >>> 0:20:2.square

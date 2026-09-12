@@ -338,7 +338,7 @@ Block! : [Object, Equatable] {
 		aCollection.collect(self:/1)
 	}
 
-	map { :self:/2 :aList :anotherList |
+	[map, zipWith] { :self:/2 :aList :anotherList |
 		aList.withCollect(anotherList, self:/2)
 	}
 
@@ -354,6 +354,12 @@ Block! : [Object, Equatable] {
 
 	mapIndexed { :self:/2 :operand |
 		operand.withIndexCollect(self:/2)
+	}
+
+	mapThread { :self :aMatrix |
+		aMatrix.transpose.collect { :aList |
+			apply(self, aList)
+		}
 	}
 
 	memoizeBinary { :self:/2 :requireImmediate |
