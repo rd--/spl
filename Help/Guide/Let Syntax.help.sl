@@ -50,7 +50,10 @@ let f:/1 = { :x | x }; f:/1
 (23, true)
 ```
 
-It is allowed to `let` bind a binary operator:
+It is allowed to `let` bind a binary operator,
+if the binding is to an expression,
+or an _n_-ary operator,
+if the binding is to a block literal:
 
 ```
 >>> let ** = power:/2;
@@ -60,6 +63,10 @@ It is allowed to `let` bind a binary operator:
 >>> let ** = { :x :y | x ^ y };
 >>> 3 ** 7
 2187
+
+>>> let ** = { :x | x ^ x };
+>>> 7.**
+823543
 ```
 
 The syntax token `_` may be used to indicate a binding to an unused name.
