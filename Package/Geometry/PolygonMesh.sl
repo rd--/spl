@@ -124,7 +124,7 @@ PolygonMesh : [Object, Storeable, Equatable, Geometry, PolygonMesh] { | vertexCo
 				vertexList.addAllIfNotPresent(v);
 				faceList.add(v.collect(vertexIndex:/1))
 			}
-		}.table(1:m, 1:n);
+		}.table(1.to(m), 1.to(n));
 		AnnotatedGeometry(
 			PolygonMesh(vertexList, faceList),
 			(

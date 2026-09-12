@@ -14,8 +14,8 @@
 	}
 
 	kimberlingFractalSequence { :r :k |
-		1:k.collect { :n |
-			let x = (1:n * r).fractionalPart;
+		1.toCollect(k) { :n |
+			let x = ((1 .. n) * r).fractionalPart;
 			x.sorted.collect { :y |
 				x.indexOf(y)
 			}
@@ -29,9 +29,9 @@
 	}
 
 	mahonianNumbers { :r |
-		1:r.collect { :n |
+		1.toCollect(r) { :n |
 			let m = (n - 1).triangularNumber;
-			0:m.collect { :k |
+			0.toCollect(m) { :k |
 				mahonianNumber(n, k)
 			}
 		}
@@ -54,7 +54,7 @@
 	tchoukaillonNumbers { :self |
 		0.toCollect(self - 1) { :n |
 			let x = 1;
-			x:n.do { :p |
+			x.toDo(n) { :p |
 				let a = n + 2 - p;
 				let b = n + 1 - p;
 				x := (a * x / b).ceiling
@@ -104,7 +104,7 @@
 		let evenRules = oddRules.collect(reverse:/1);
 		{ :w |
 			let k = w.size;
-			1:k.collect { :n |
+			1.toCollect(k) { :n |
 				let e = w[n];
 				n.isOdd.if {
 					oddRules.at(e)
@@ -174,7 +174,7 @@
 				} / (n - 1)
 			}
 		};
-		a.atAll(1:self)
+		a[1 .. self]
 	}
 
 	calkinWilfSequence { :self |
@@ -309,7 +309,7 @@
 				a[a[n - 1]] + a[n - a[n - 1]]
 			}
 		};
-		a[1:self]
+		a[1 .. self]
 	}
 
 	doudnaSequenceFunction { :n |
@@ -712,7 +712,7 @@
 	isPureCollatzNumber { :n |
 		(n != 2) & {
 			let m = n - 1;
-			0:m.noneSatisfy { :i |
+			0.to(m).noneSatisfy { :i |
 				i.collatzSequence.includes(n)
 			}
 		}
@@ -962,7 +962,7 @@
 				a[a[n - 1]] + a[n - a[n - 2] - 1]
 			}
 		};
-		a[1:self]
+		a[1 .. self]
 	}
 
 	politeness { :n |
@@ -1376,7 +1376,7 @@
 		a[3] := z[3];
 		(n0 + 1).toDo(d) { :n |
 			a[n] := (
-				10 * n * 1:n.sum { :k |
+				10 * n * 1.to(n).sum { :k |
 					a[k] / (10 ^ k)
 				}
 			).floor % 10
@@ -1529,7 +1529,7 @@
 	signatureSequence { :theta :n :p :q |
 		{ :i :j |
 			[i + (j * theta), i]
-		}.table(1:p, 1:q)
+		}.table(1.to(p), 1.to(q))
 		.catenate
 		.sortOn(first:/1)
 		.collect(second:/1)
@@ -1543,7 +1543,7 @@
 		{
 			s := { :i :j |
 				[i, i + (j * theta)]
-			}.table(1:m, 1:m)
+			}.table(1.to(m), 1.to(m))
 			.catenate
 			.sortOn(second:/1)
 			.collect(first:/1)
@@ -1655,10 +1655,10 @@
 
 +Block {
 
-	binomialTransform { :b:/1 |
+	binomialTransform { :f:/1 |
 		{ :n |
-			0:n.sum { :k |
-				binomial(n, k) * b(k)
+			0.to(n).sum { :k |
+				binomial(n, k) * f(k)
 			}
 		}
 	}
@@ -1701,7 +1701,7 @@
 
 	inverseBinomialTransform { :b:/1 |
 		{ :n |
-			0:n.sum { :k |
+			0.to(n).sum { :k |
 				(-1 ^ (n - k)) * binomial(n, k) * b(k)
 			}
 		}
@@ -1732,7 +1732,9 @@
 +List {
 
 	binomialTransform { :self |
-		self.zeroIndexedListTransform(binomialTransform:/1)
+		self.zeroIndexedListTransform(
+			binomialTransform:/1
+		)
 	}
 
 	dispersionArray { :a :shape |
@@ -1747,7 +1749,7 @@
 
 	inverseMoebiusTransform { :a |
 		let k = a.size;
-		1:k.collect { :n |
+		1.toCollect(k) { :n |
 			n.divisorSum { :d |
 				a[d]
 			}
@@ -1757,7 +1759,7 @@
 	lodumoTransform { :a :m |
 		let z = IdentitySet();
 		a.collect { :i |
-			let e = 0:Infinity.detect { :j |
+			let e = 0.to(Infinity).detect { :j |
 				z.includes(j).not & {
 					(i % m) = (j % m)
 				}
@@ -1769,7 +1771,7 @@
 
 	moebiusTransform { :a |
 		let k = a.size;
-		1:k.collect { :n |
+		1.toCollect(k) { :n |
 			n.divisorSum { :d |
 				(n / d).moebiusMu * a[d]
 			}
@@ -1779,7 +1781,7 @@
 	ordinalTransform { :a |
 		let c = Dictionary();
 		let k = a.size;
-		1:k.collect { :n |
+		1.toCollect(k) { :n |
 			let e = a[n];
 			let i = c.lookup(e, 0);
 			c[e] := i + 1;
@@ -1807,7 +1809,7 @@
 
 	shadowTransform { :x |
 		(1 .. x.size - 1).collect { :n |
-			1:n.sum { :j |
+			1.to(n).sum { :j |
 				(x[j] % n = 0).boole
 			}
 		}
@@ -1815,10 +1817,13 @@
 
 	zeroIndexedListTransform { :self :aBlock:/1 |
 		let n = self.size - 1;
-		0:n.collect(
-			{ :i |
-				self[i + 1]
-			}.aBlock
+		0.toCollect(
+			n,
+			aBlock(
+				{ :i |
+					(self[i + 1])
+				}
+			)
 		)
 	}
 
@@ -1830,7 +1835,7 @@
 		let r = x.size;
 		let [m, n] = x.minMax;
 		let c = n - m + 1;
-		1:r.collect { :i |
+		1.toCollect(r) { :i |
 			let j = reverse.if {
 				c - x[i] + 1
 			} {
@@ -1844,7 +1849,7 @@
 		let c = y.size;
 		let [m, n] = y.minMax;
 		let r = n - m + 1;
-		1:c.collect { :i |
+		1.toCollect(c) { :i |
 			let j = reverse.if {
 				r - y[i] + 1
 			} {
@@ -1903,7 +1908,7 @@
 
 	leastExcludedSequence { :i :k :f:/3 |
 		let j = i.size;
-		let u = 1:Infinity;
+		let u = 1.to(Infinity);
 		let a = Map { :n |
 			(n <= j).if {
 				i[n]
@@ -1915,7 +1920,7 @@
 				}
 			}
 		};
-		a.atAll(1:k)
+		a[1 .. k]
 	}
 
 }
@@ -1930,7 +1935,7 @@
 
 	characteristicFunction { :a |
 		let k = a.max;
-		a.characteristicFunction(1:k)
+		a.characteristicFunction(1.to(k))
 	}
 
 }
@@ -2090,7 +2095,7 @@
 	}
 
 	sturmianWord { :c :k |
-		1:k.collect { :n |
+		1.toCollect(k) { :n |
 			floor((n + 1) * c) - floor(n * c)
 		}
 	}

@@ -546,7 +546,7 @@ let a = Map { :n |
 		}
 	}
 };
-a[1:250].scatterPlot.log
+a[1 .. 250].scatterPlot.log
 ~~~
 
 ![](Help/Image/integerExponent-V.svg)

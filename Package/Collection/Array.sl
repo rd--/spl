@@ -479,8 +479,8 @@
 +@Integer {
 
 	antidiagonalArray { :n :f:/2 |
-		1:n.collect { :i |
-			1:i.collect { :j |
+		1.toCollect(n) { :i |
+			1.toCollect(i) { :j |
 				f(j, i - j + 1)
 			}
 		}
@@ -612,7 +612,7 @@
 	antidiagonalArray { :self :f:/2 |
 		let a = self[1];
 		self.collect { :i |
-			a:i.collect { :j |
+			a.toCollect(i) { :j |
 				f(j, i - j + a)
 			}
 		}
@@ -654,7 +654,7 @@
 
 	triangularArray { :self :aBlock:/2 |
 		let k = self.size;
-		1:k.triangularArray { :i :j |
+		1.to(k).triangularArray { :i :j |
 			aBlock(self[i], self[j])
 		}
 	}

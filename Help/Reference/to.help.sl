@@ -3,6 +3,7 @@
 - _to(i, j, k=1)_
 
 Construct a `Range` by counting from the start value _i_ up to the stop value _j_ by `one`.
+The ternary form allow setting the _by_ value, and is an alias for `toBy`.
 
 ```
 >>> 1.to(5)

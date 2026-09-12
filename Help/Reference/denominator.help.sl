@@ -50,9 +50,9 @@ Wavelengths in hydrogen spectrum are given by Rydberg’s formula,
 OEIS [A061036](https://oeis.org/A061036):
 
 ~~~spl svg=A oeis=A061036
-1L:16.collect { :n |
+(1L .. 16).collect { :n |
 	let a = 1 / (n ^ 2);
-	n:1:-1.collect { :m |
+	(n .. 1; -1).collect { :m |
 		let b = 1 / (m ^ 2);
 		(b - a).denominator
 	}

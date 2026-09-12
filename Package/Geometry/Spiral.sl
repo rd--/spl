@@ -125,7 +125,7 @@
 				},
 				'Counterclockwise' -> {
 					let m = n - 2;
-					let d = 0:m.collect { :i |
+					let d = 0.toCollect(m) { :i |
 						let r = ((4 * i + 1).sqrt.floor.mod(4).pi / 2);
 						[r.sin, r.cos.negate].round
 					};

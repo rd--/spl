@@ -5,13 +5,13 @@
 Syntax for the `atAll` protocol.
 
 Rewrite rule,
-where _i_ is an instance of `Range Literal Syntax` or `List Syntax`:
+where _i_ is an instance of `List Range Syntax` or `List Syntax`:
 
 ```
->>> 'c[i:j]'.splSimplify
-'atAll(c, rangeOrRelativeRange(i, j, 1))'
+>>> 'c[i .. j]'.splSimplify
+'atAll(c, listRange(i, j))'
 
->>> 'c[[i, j, k]]'.splSimplify
+>>> 'c[i, j, k]'.splSimplify
 'atAll(c, [i, j, k])'
 ```
 
@@ -19,7 +19,7 @@ At `Range`:
 
 ```
 >>> let c = [9, 8 .. 1];
->>> (c[3:7], c[[7, 3]])
+>>> (c[3 .. 7], c[7, 3])
 ([7 6 5 4 3], [3 7])
 ```
 
@@ -27,7 +27,7 @@ At `List`:
 
 ```
 >>> let c = [9 8 7 6 5 4 3 2 1];
->>> (c[3:7], c[[7, 3]])
+>>> (c[3 .. 7], c[7, 3])
 ([7 6 5 4 3], [3 7])
 ```
 
@@ -43,7 +43,7 @@ At `Map`:
 
 ```
 >>> let m = Map[0 3; 1 2; 2 1];
->>> m[0:2]
+>>> m[0 .. 2]
 [3 2 1]
 ```
 

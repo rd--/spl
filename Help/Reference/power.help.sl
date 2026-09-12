@@ -1076,7 +1076,7 @@ let a = Map { :n |
 		p ++ [q] ++ p
 	}
 };
-a[0:5].catenate.discretePlot.log
+a[0 .. 5].catenate.discretePlot.log
 ~~~
 
 ![](Help/Image/power-H.svg)

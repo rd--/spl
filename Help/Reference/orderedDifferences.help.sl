@@ -44,8 +44,8 @@ The interleaved differences at odd and even indices are the next diagonal:
 
 ```
 >>> let p = 1:10.prime;
->>> let a = p[1:9:2].differences;
->>> let b = p[2:10:2].differences;
+>>> let a = p[1 .. 9; 2].differences;
+>>> let b = p[2 .. 10; 2].differences;
 >>> [a b].interleave
 [3 4 6 6 6 6 6 10]
 ```
@@ -54,9 +54,9 @@ And so on:
 
 ```
 >>> let p = 1:10.prime;
->>> let a = p[1:10:3].differences;
->>> let b = p[2:8:3].differences;
->>> let c = p[3:9:3].differences;
+>>> let a = p[1 .. 10; 3].differences;
+>>> let b = p[2 .. 8; 3].differences;
+>>> let c = p[3 .. 9; 3].differences;
 >>> [a b c].interleave.take(7)
 [5 8 8 10 8 10 12]
 ```

@@ -52,6 +52,26 @@ SparseArray : [Object, Storeable, Equatable, Comparable, Iterable, Indexable, Co
 		)
 	}
 
+	[collect, withCollect] { :self :other :aBlock:/2 |
+		(
+			self.rank != other.rank | {
+				self.unspecifiedValue != other.unspecifiedValue
+			}
+		).if {
+			self.error('collect: unequal rank or unspecified value')
+		} {
+			let shape = self.shape.max(other.shape);
+			let linearIndices = (self.linearIndices ++ other.linearIndices).nub.sort;
+			SparseArray(
+				linearIndices.collect { :i |
+					i -> aBlock(self.atLinear(i), other.atLinear(i))
+				},
+				shape,
+				self.unspecifiedValue
+			)
+		}
+	}
+
 	deepIndices { :self |
 		self.shape.shapeIndices
 	}
@@ -128,26 +148,6 @@ SparseArray : [Object, Storeable, Equatable, Comparable, Iterable, Indexable, Co
 			self.shape,
 			self.unspecifiedValue
 		])
-	}
-
-	withCollect { :self :other :aBlock:/2 |
-		(
-			self.rank != other.rank | {
-				self.unspecifiedValue != other.unspecifiedValue
-			}
-		).if {
-			self.error('withCollect: unequal rank or unspecified value')
-		} {
-			let shape = self.shape.max(other.shape);
-			let linearIndices = (self.linearIndices ++ other.linearIndices).nub.sort;
-			SparseArray(
-				linearIndices.collect { :i |
-					i -> aBlock(self.atLinear(i), other.atLinear(i))
-				},
-				shape,
-				self.unspecifiedValue
-			)
-		}
 	}
 
 	withDeepIndexDo { :self :elementAndIndexBlock:/2 |

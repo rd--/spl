@@ -101,7 +101,7 @@ Sl {
 
 	AtPutSyntax = Primary "[" Expression "]" ":=" Expression
 	AtSyntax = Primary "[" Expression "]"
-	AtAllSyntax = Primary "[" (rangeLiteral | NonEmptyListSyntax) "]"
+	AtAllSyntax = Primary (ListRangeSyntax | NonScalarListSyntax)
 	UncheckedSlotReadSyntax = Primary "::" recordKey
 	UncheckedSlotWriteSyntax = Primary "::" recordKey ":=" Expression
 	ValueApply = Primary "." ParameterList
@@ -133,6 +133,7 @@ Sl {
 	RecordInitializerItem = recordKeyToken varName
 	TupleSyntax = "(" NonemptyListOf<Expression, ","> ")"
 	NonEmptyListSyntax = "[" ListOf<Expression, ","> "]"
+	NonScalarListSyntax = "[" Expression "," ListOf<Expression, ","> "]"
 	RangeSyntax = RangeFromToSyntax | RangeFromThenToSyntax | RangeFromToBySyntax
     RangeFromToSyntax = "(" Expression ".." Expression ")"
 	RangeFromThenToSyntax = "(" Expression "," Expression ".." Expression ")"
@@ -219,11 +220,8 @@ Sl {
 	rangeLiteral
 		= rangeFromToByLiteral
 		| rangeFromToLiteral
-    rangeLiteralItem
-		= integerLiteral
-		| identifier
-	rangeFromToByLiteral = rangeLiteralItem ":" rangeLiteralItem ":" integerLiteral
-	rangeFromToLiteral = rangeLiteralItem ":" rangeLiteralItem
+	rangeFromToByLiteral = integerLiteral ":" (integerLiteral | identifier) ":" integerLiteral
+	rangeFromToLiteral = integerLiteral ":" (integerLiteral | identifier)
 	floatLiteral = plusOrMinus? decimalDigits "." digit+
 	decimalLiteral
 		= floatDecimalLiteral

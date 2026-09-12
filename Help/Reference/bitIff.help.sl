@@ -90,7 +90,7 @@ let a = Map { :n |
 		a[n - 1] + a[bitIff(m, m) + 3 - n]
 	}
 };
-a[1:85].scatterPlot.log
+a[1 .. 85].scatterPlot.log
 ~~~
 
 ![](Help/Image/bitIff-B.svg)

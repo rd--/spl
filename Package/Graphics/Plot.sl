@@ -1522,7 +1522,7 @@ Plot : [Object] { | pageList format options |
 		let yRange = yMax - yMin;
 		let yScalar = (h - 1) / yRange;
 		/*[xMin,xMax,xRange,xScalar,yMin,yMax,yRange,yScalar].postLine;*/
-		1:k.do { :i |
+		1.toDo(k) { :i |
 			let r = ((y[i] - yMin) * yScalar).round.normal;
 			let c = ((x[i] - xMin) * xScalar).round.normal;
 			/*[i, y[i], r, x[i], c].postLine;*/
@@ -1565,7 +1565,10 @@ Plot : [Object] { | pageList format options |
 			let y1 = yCoordinates[i];
 			let y2 = y1 + rowHeights[i];
 			Rectangle([x1, y1], [x2, y2])
-		}.table(1:rowCount, 1:columnCount).GeometryCollection
+		}.table(
+			[1 .. rowCount],
+			[1 .. columnCount]
+		).GeometryCollection
 	}
 
 	parallelAxisPlot { :rowData |

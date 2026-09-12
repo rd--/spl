@@ -34,7 +34,7 @@
 	}
 
 	compositePi { :n |
-		1:n.collect { :i |
+		1.toCollect(n) { :i |
 			{ :x |
 				i + x.primePi + 1
 			}.fixedPoint(i + i.primePi + 1)
@@ -383,7 +383,7 @@
 	}
 
 	liouvilleFunction { :self |
-		1:self.sum { :i |
+		1.to(self).sum { :i |
 			-1 ^ i.primeOmega
 		}
 	}

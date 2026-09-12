@@ -25,18 +25,18 @@
 			let v = w // 2;
 			let diamond = [-1 -1; -1 1; 1 1; 1 -1];
 			let square = [-1 0; 0 -1; 1 0; 0 1];
-			Range([v, n - 1, w]).do { :i |
-				Range([v, n - 1, w]).do { :j |
+			Range(v, n - 1, w).do { :i |
+				Range(v, n - 1, w).do { :j |
 					d[i + 1][j + 1] := average(d, i, j, v, diamond) + self.nextRandomFloat(0 - s, s)
 				}
 			};
-			Range([v, n - 1, w]).do { :i |
-				Range([0, n - 1, w]).do { :j |
+			Range(v, n - 1, w).do { :i |
+				Range(0, n - 1, w).do { :j |
 					d[i + 1][j + 1] := average(d, i, j, v, square) + self.nextRandomFloat(0 - s, s)
 				}
 			};
-			Range([0, n - 1, w]).do { :i |
-				Range([v, n - 1, w]).do { :j |
+			Range(0, n - 1, w).do { :i |
+				Range(v, n - 1, w).do { :j |
 					d[i + 1][j + 1] := average(d, i, j, v, square) + self.nextRandomFloat(0 - s, s)
 				}
 			}

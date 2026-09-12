@@ -344,7 +344,7 @@ Point : [Object, Storeable, Equatable, Geometry, CartesianCoordinates] { | coord
 
 	hexagonalSpiralPoints { :n |
 		let m = n // 6 + 1;
-		let l = 0:m.collect { :i |
+		let l = 0.toCollect(m) { :i |
 			i + [1 1 1 1 2 1]
 		}.catenate.first(n);
 		let a = l.collect { :i |
@@ -394,7 +394,7 @@ Point : [Object, Storeable, Equatable, Geometry, CartesianCoordinates] { | coord
 
 	squareSpiralPoints { :n |
 		let m = n // 2 + 1;
-		let l = 1:m.collect { :i |
+		let l = 1.toCollect(m) { :i |
 			[i, i]
 		}.catenate.first(n);
 		let a = l.collect { :i |
@@ -405,8 +405,7 @@ Point : [Object, Storeable, Equatable, Geometry, CartesianCoordinates] { | coord
 	}
 
 	triangularSpiralPoints { :n |
-		let l = 1:n;
-		let a = l.collect { :i |
+		let a = 1.toCollect(n) { :i |
 			[120.degree] ++ List(i - 1, 0)
 		}.catenate;
 		let d = List(a.size, 1);

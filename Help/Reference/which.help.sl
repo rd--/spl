@@ -104,7 +104,7 @@ let a = Map { :n |
 		}
 	].which
 };
-a[1:115].scatterPlot
+a[1 .. 115].scatterPlot
 ~~~
 
 ![](Help/Image/which-B.svg)

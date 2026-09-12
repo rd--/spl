@@ -343,9 +343,9 @@ IntegerPartitions : [Object, Equatable, Storeable] { | contents:<List> |
 	hookLengths { :p |
 		let c = p.conjugatePartition;
 		let m = p.size;
-		1:m.collect { :i |
+		1.toCollect(m) { :i |
 			let n = p[i];
-			1:n.collect { :j |
+			1.toCollect(n) { :j |
 				p[i] - i + c[j] - j + 1
 			}
 		}

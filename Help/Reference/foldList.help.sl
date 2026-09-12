@@ -320,11 +320,13 @@ A triangle of quotients,
 OEIS [A140061](https://oeis.org/A140061)
 
 ~~~spl svg=A oeis=A140061
-1:11.collect { :i |
+(1 .. 11).collect { :i |
 	let j = i - 1;
 	{ :a :b |
 		b * floor(a / b + 1)
-	}.foldList(i, j:1:-1).reverse
+	}.foldList(
+		i, (j .. 1; -1)
+	).reverse
 }.catenate.scatterPlot
 ~~~
 

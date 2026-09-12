@@ -7,11 +7,11 @@ Syntax for writing `Range` literals.
 Rewrite rules:
 
 ```
->> 'i:j'.splSimplify
-rangeOrRelativeRange(i, j, 1)
+>> '1:n'.splSimplify
+rangeOrRelativeRange(1, n, 1)
 
->> 'i:j:-1'.splSimplify
-rangeOrRelativeRange(i, j, -1)
+>> '1:n:-1'.splSimplify
+rangeOrRelativeRange(1, n, -1)
 ```
 
 α and β must be either integer literals or identifiers,
@@ -26,9 +26,8 @@ and `α : β` is not recognised as a range literal.
 >>> 1:9
 Range(1, 9)
 
->>> let m = 1;
 >>> let n = 9;
->>> m:n
+>>> 1:n
 Range(1, 9)
 ```
 
@@ -110,23 +109,10 @@ RelativeRange(-1, 1, -1)
 [1 2 3 4 5 6 7 8 9]
 ```
 
-Note that white space is particularly important in distinguishing a range literal from a record literal:
-
-```
->>> let n = 3;
->>> (n:1:-1)
-Range(3, 1, -1)
-
->>> let n = 3;
->>> (n: 1:-1)
-(n: RelativeRange(1, -1, 1))
-```
-
 Rationale:
-Identifiers are allowed as initial values,
-even though it can be confused with `Record Syntax`,
-because the tranlation of _i:j_ is distinct from the translation for _(i .. j)_,
-which does not allow empty ranges to be specified.
+Identifiers are not allowed as initial values,
+because it can too easily be confused with `Record Syntax`.
+Instead of _i:j_ write _(i .. j)_.
 
 * * *
 

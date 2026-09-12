@@ -431,7 +431,7 @@ let a = Map { :n |
 		}
 	}
 };
-a[0:65].discretePlot
+a[0 .. 65].discretePlot
 ~~~
 
 ![](Help/Image/gcd-R.svg)

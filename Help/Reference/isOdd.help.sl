@@ -189,7 +189,7 @@ let a = Map { :n |
 		}
 	}
 };
-a[0:200].scatterPlot
+a[0 .. 200].scatterPlot
 ~~~
 
 ![](Help/Image/isOdd-D.svg)

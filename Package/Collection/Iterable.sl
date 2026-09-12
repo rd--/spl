@@ -472,11 +472,11 @@
 	}
 
 	minimumExcludedValue { :x |
-		x.minimumExcludedValue(0:Infinity)
+		x.minimumExcludedValue(0.to(Infinity))
 	}
 
 	minimumExcludedPositiveInteger { :x |
-		x.minimumExcludedValue(1:Infinity)
+		x.minimumExcludedValue(1.to(Infinity))
 	}
 
 	neumaierSum { :self |

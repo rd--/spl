@@ -162,23 +162,23 @@ rangeOrRelativeRange(1, 9, 2)
 
 ```
 >> '(1 .. 9)'.splSimplify
-nonEmptyRange(1, 9, 1)
+Range(1, 9)
 
 >> '(1, 3 .. 9)'.splSimplify
-nonEmptyThenTo(1, 3, 9)
+thenTo(1, 3, 9)
 
 >> '(1 .. 9; 2)'.splSimplify
-nonEmptyRange(1, 9, 2)
+Range(1, 9, 2)
 ```
 
 List range expressions:
 
 ```
 >> '[1 .. 9]'.splSimplify
-listRange(1, 9, 1)
+listRange(1, 9)
 
 >> '[1, 3 .. 9]'.splSimplify
-listRange(1, 9, subtract(3, 1))
+listThenTo(1, 3, 9)
 
 >> '[1 .. 9; 2]'.splSimplify
 listRange(1, 9, 2)

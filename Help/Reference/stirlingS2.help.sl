@@ -272,8 +272,8 @@ Reflected triangle of Stirling numbers of the second kind,
 OEIS [A008278](https://oeis.org/A008278):
 
 ~~~spl svg=E oeis=A008278
-1:23.collect { :n |
-	n:1:-1.collect { :k |
+(1 .. 23).collect { :n |
+	(n .. 1; -1).collect { :k |
 		n.stirlingS2(k)
 	}
 }.catenate.scatterPlot.log

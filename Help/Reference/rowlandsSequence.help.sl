@@ -153,7 +153,7 @@ OEIS [A361461](https://oeis.org/A361461):
 >>> let a = 1L.rowlandsSequence(
 >>> 	k + 1, lcm:/2
 >>> );
->>> 1:k.select { :n |
+>>> (1 .. k).select { :n |
 >>> 	a[n] * 2 = a[n + 1]
 >>> }
 [
@@ -171,7 +171,7 @@ OEIS [A361460](https://oeis.org/A361460):
 >>> let a = 1L.rowlandsSequence(
 >>> 	k + 1, lcm:/2
 >>> );
->>> 1:k.collect { :n |
+>>> (1 .. k).collect { :n |
 >>> 	a[n] * 2 = a[n + 1]
 >>> }.boole
 [

@@ -117,8 +117,8 @@ Coprime integer table,
 OEIS [A038566](https://oeis.org/A038566):
 
 ```
->>> 1:12.collect { :n |
->>> 	1:n.select { :i |
+>>> (1 .. 12).collect { :n |
+>>> 	(1 .. n).select { :i |
 >>> 		i.isCoprime(n)
 >>> 	}
 >>> }

@@ -525,7 +525,7 @@ let a = Map { :n |
 		a.atAll(d.allButLast).sum
 	}
 };
-a[1:200].scatterPlot.log
+a[1 .. 200].scatterPlot.log
 ~~~
 
 ![](Help/Image/divisors-N.svg)
@@ -545,10 +545,10 @@ Sum of divisors scaled by reverse index,
 OEIS [A064945](https://oeis.org/A064945):
 
 ~~~spl svg=P oeis=A064945
-1:85.collect { :n |
+(1 .. 85).collect { :n |
 	let d = n.divisors;
 	let k = d.size;
-	(k:1:-1 * d).sum
+	((k .. 1; -1) * d).sum
 }.discretePlot
 ~~~
 

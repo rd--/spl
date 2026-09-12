@@ -74,7 +74,7 @@
 
 	fibonacciWordFractal { :n :theta |
 		let t = 90.degree;
-		1:n.collect { :k |
+		1.toCollect(n) { :k |
 			let w = k.fibonacciWord;
 			(w = 0).if {
 				k.isEven.if { -t } { t }
@@ -163,7 +163,7 @@
 					0.toDo(self - 1) { :n |
 						let q = n.integerDigits(4);
 						let r = q.size;
-						let d = 1:r.sum { :k |
+						let d = 1.to(r).sum { :k |
 							(q[k] = 1).if {
 								1
 							} {
@@ -378,7 +378,7 @@
 			z.imaginary + z.real.i
 		};
 		let r = [0 1 0 3 2 3 0 1 0];
-		1:self.collect { :n |
+		1.toCollect(self) { :n |
 			let d = (n > 1).if {
 				(n - 1).integerDigits(9).reverse
 			} {

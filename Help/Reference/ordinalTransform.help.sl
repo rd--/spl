@@ -266,10 +266,10 @@ let a = Map { :n |
 		[1]
 	} {
 		let m = n - 1;
-		a[1:m].catenate.ordinalTransform
+		a[1 .. m].catenate.ordinalTransform
 	}
 };
-a[1:9].catenate.scatterPlot
+a[1 .. 9].catenate.scatterPlot
 ~~~
 
 ![](Help/Image/ordinalTransform-P.svg)

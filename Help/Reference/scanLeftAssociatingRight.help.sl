@@ -1,11 +1,11 @@
 # scanLeftAssociatingRight
 
-- _scanLeftAssociatingRight(aSequence, aBlock:2)_
+- _scanLeftAssociatingRight([x₁ x₂ …], f:/2)_
 
-A variant of _scanLeft_ that associates arguments to the right.
+A variant of `scanLeft` that associates arguments to the right.
 That is,
-where _scanLeft_ will reduce a triple as _f(f(i,j),k)_,
-_scanLeftAssociatingRight_ will reduce the same triple as _f(i,f(j,k))_.
+where `scanLeft` will reduce a triple as _f(f(i,j),k)_,
+`scanLeftAssociatingRight` will reduce the same triple as _f(i,f(j,k))_.
 This is the Apl _scan_.
 
 ```

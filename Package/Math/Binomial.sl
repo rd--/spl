@@ -323,7 +323,7 @@
 	}
 
 	orderedBellNumber { :n |
-		0:n.sum { :k |
+		0.to(n).sum { :k |
 			k.! * stirlingS2(n, k)
 		}
 	}

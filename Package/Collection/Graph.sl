@@ -447,7 +447,7 @@
 
 	linearGraphPlot { :self |
 		let k = self.vertexCount;
-		let p = 1.to(k).collect { :i | [i 0] };
+		let p = 1.toCollect(k) { :i | [i 0] };
 		let e = self.edgeList.collect { :each |
 			let [i, j] = each;
 			let y = (j - i) / 2;
@@ -747,7 +747,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 +@Integer {
 
 	balancedCayleyTree { :n :k |
-		let gapList = [1] ++ 0.to(k - 1).collect { :i |
+		let gapList = [1] ++ 0.toCollect(k - 1) { :i |
 			n * ((n - 1) ^ i)
 		};
 		let startList = ([0] ++ gapList).prefixSum + 1;
@@ -779,7 +779,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 
 	cayleyTree { :n :k |
 		let v = [1 .. n + 1];
-		let e = 2.to(n + 1).collect { :i |
+		let e = 2.toCollect(n + 1) { :i |
 			1 --- i
 		};
 		{ k > 1 }.whileTrue {
@@ -856,7 +856,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 	cubeGraph { :self |
 		let k = 2 ^ self;
 		let m = (k - 1).integerLength(2);
-		let n = 0.to(k - 1).collect { :each |
+		let n = 0.toCollect(k - 1) { :each |
 			each.integerDigits(2).padLeft([m], 0)
 		};
 		let e = [];
@@ -872,7 +872,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 	}
 
 	cycleGraph { :self |
-		1.to(self).collect { :each |
+		1.toCollect(self) { :each |
 			[each, each % self + 1]
 		}.asGraph
 	}
@@ -881,8 +881,8 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 		p.isPrime.if {
 			let v = [1 .. p];
 			let e = [];
-			1.to(p - 1).collect { :i |
-				(i + 1).to(p).collect { :j |
+			1.toCollect(p - 1) { :i |
+				(i + 1).toCollect(p) { :j |
 					isCubicResidue(j - i, p).ifTrue {
 						e.add(i --- j)
 					}
@@ -897,7 +897,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 	deBruijnGraph { :m :n |
 		let o = n - 1;
 		let k = m ^ n;
-		let s = 0.to(k - 1).collect { :i |
+		let s = 0.toCollect(k - 1) { :i |
 			i.integerDigits(m, n)
 		};
 		let v = [1 .. k];
@@ -1011,8 +1011,8 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 	paleyGraph { :p |
 		let v = [1 .. p];
 		let e = [];
-		1.to(p - 1).collect { :i |
-			(i + 1).to(p).collect { :j |
+		1.toCollect(p - 1) { :i |
+			(i + 1).toCollect(p) { :j |
 				isQuadraticResidue(j - i, p).ifTrue {
 					e.add(i --- j)
 				}
@@ -1022,7 +1022,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 	}
 
 	pathGraph { :self |
-		1.to(self - 1).collect { :each |
+		1.toCollect(self - 1) { :each |
 			[each, each + 1]
 		}.asGraph
 	}
@@ -1031,7 +1031,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 		(k < (n / 2)).if {
 			let u = [1 .. n];
 			let v = [n + 1 .. n + n];
-			let e = 1.to(n).collect { :i |
+			let e = 1.toCollect(n) { :i |
 				let a = (i + 1).mod(n, 1);
 				let b = (i + k).mod(n, 1);
 				[
@@ -1055,7 +1055,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 			let m = k / 2;
 			let v = [1 .. n];
 			let e = v.collect { :i |
-				1:m.collect { :j |
+				1.toCollect(m) { :j |
 					[i, (i + j).mod(n, 1)]
 				}
 			}.catenate;
@@ -1084,7 +1084,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 	}
 
 	starGraph { :self |
-		2.to(self).collect { :each |
+		2.toCollect(self) { :each |
 			[1, each]
 		}.asGraph
 	}
@@ -1093,10 +1093,10 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 		(self < 4).if {
 			self.error('Integer>>wheelGraph: n < 4')
 		} {
-			let cycle = 2.to(self).collect { :each |
+			let cycle = 2.toCollect(self) { :each |
 				[each, (each = self).if { 2 } { each + 1 }]
 			};
-			let star = 2.to(self).collect { :each |
+			let star = 2.toCollect(self) { :each |
 				[1, each]
 			};
 			(cycle ++ star).asGraph
@@ -1124,7 +1124,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 	gridGraph { :shape |
 		let k = shape.product;
 		let v = k.iota;
-		let c = 1.to(k).collect { :i |
+		let c = 1.toCollect(k) { :i |
 			shape.cartesianIndex(i)
 		};
 		let e = [];
@@ -1325,7 +1325,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 		let v = [1 .. n];
 		let e = [];
 		v.do { :i |
-			1:m.do { :j |
+			1.toDo(m) { :j |
 				let x = r.randomBoolean(beta, []).if {
 					let z = nil;
 					{

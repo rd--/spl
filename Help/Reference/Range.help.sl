@@ -135,18 +135,33 @@ true
 false
 ```
 
-While the _.._ range notation cannot make empty `Range` values,
-the _:_ notation may:
+While `List Range Syntax` cannot make empty `Range` values,
+both `Range Syntax` and `Range Literal Syntax` may:
 
 ```
->>> { (7 .. 5) }.hasError
+>>> { [7 .. 5] }.hasError
 true
 
->>> { (7, 8 .. 5) }.hasError
+>>> { [7, 8 .. 5] }.hasError
 true
 
->>> 7:5
-Range(7, 5)
+>>> { [7 .. 5; 1] }.hasError
+true
+
+>>> (7 .. 5).isEmpty
+true
+
+>>> (7, 8 .. 5).isEmpty
+true
+
+>>> (7 .. 5; 1).isEmpty
+true
+
+>>> 7:5.isEmpty
+true
+
+>>> 7:5:1.isEmpty
+true
 ```
 
 Use a step of two:

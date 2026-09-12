@@ -205,7 +205,7 @@ let a = Map { :n |
 		n + a[n - n.integerSquareRoot]
 	}
 };
-a[1:65].discretePlot
+a[1 .. 65].discretePlot
 ~~~
 
 ![](Help/Image/integerSquareRoot-E.svg)

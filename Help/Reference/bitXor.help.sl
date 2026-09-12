@@ -285,7 +285,7 @@ let a = Map { :n |
 		}
 	].which
 };
-a[0:127].scatterPlot
+a[0 .. 127].scatterPlot
 ~~~
 
 ![](Help/Image/bitXor-H.svg)

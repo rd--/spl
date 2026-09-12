@@ -257,7 +257,7 @@ let a = Map { :n |
 		}
 	}
 };
-a[0:75].discretePlot
+a[0 .. 75].discretePlot
 ~~~
 
 ![](Help/Image/bitAnd-K.svg)

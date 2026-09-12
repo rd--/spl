@@ -71,7 +71,7 @@ let a = Map { :n |
 		a[a[n - 1]] + a[n - a[n - 1]]
 	}
 };
-a[1:75].scatterPlot
+a[1 .. 75].scatterPlot
 ~~~
 
 ![](Help/Image/Map-A.svg)
@@ -93,7 +93,7 @@ let a = Map { :n |
 		}
 	}
 };
-a[0:200].scatterPlot
+a[0 .. 200].scatterPlot
 ~~~
 
 ![](Help/Image/Map-B.svg)
@@ -110,7 +110,7 @@ let a = Map { :n |
 		a[a[n - 1]] + a[n - a[n - 2] - 1]
 	}
 };
-a[1:250].scatterPlot
+a[1 .. 250].scatterPlot
 ~~~
 
 ![](Help/Image/Map-C.svg)
@@ -127,7 +127,7 @@ let a = Map { :n |
 		3 * a[i] + ((0 - a[i] - n) % 3)
 	}
 };
-a[0:65].discretePlot
+a[0 .. 65].discretePlot
 ~~~
 
 ![](Help/Image/Map-D.svg)
@@ -146,7 +146,7 @@ let a = Map { :n |
 		3 * a[i] + ((0 - i - n) % 3)
 	}
 };
-a[0:65].scatterPlot
+a[0 .. 65].scatterPlot
 ~~~
 
 ![](Help/Image/Map-E.svg)
@@ -164,7 +164,7 @@ let a = Map { :n |
 		3 * a[i] + ((0 - a[i] - n) % 3)
 	}
 };
-(a[0:65] % 3).stepPlot
+(a[0 .. 65] % 3).stepPlot
 ~~~
 
 ![](Help/Image/Map-F.svg)
@@ -186,7 +186,7 @@ let a = Map { :n |
 		}
 	}
 };
-a[0:750].log.denseScatterPlot
+a[0 .. 750].log.denseScatterPlot
 ~~~
 
 ![](Help/Image/Map-G.png)

@@ -242,7 +242,7 @@ let a = Map { :n |
 		}
 	}
 };
-a[1:150].scatterPlot
+a[1 .. 150].scatterPlot
 ~~~
 
 ![](Help/Image/fibonacciSequence-C.svg)

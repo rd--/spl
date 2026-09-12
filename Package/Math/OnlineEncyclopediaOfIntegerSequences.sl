@@ -89,7 +89,7 @@
 	oeisA038567 { :n |
 		let k = 0;
 		{
-			1:k.eulerPhi.sum <= n
+			1.to(k).eulerPhi.sum <= n
 		}.whileTrue {
 			k := k + 1
 		};
@@ -212,7 +212,7 @@
 			List(f[2], f[1].primePi)
 		}.catenate;
 		let m = p.max;
-		1:m.product { :i |
+		1.to(m).product { :i |
 			p.sum { :j |
 				(j >= i).boole
 			}.prime
@@ -301,14 +301,14 @@
 				a[a[n - 1]] + a[n - a[n - 1]]
 			}
 		};
-		a.atAll(1:k)
+		a[1 .. k]
 	}
 
 	oeisA306246Terms { :m |
 		let o = List(m, 0);
 		let p = nil;
 		let q = nil;
-		1:m.collect { :n |
+		1.toCollect(m) { :n |
 			let v = (n <= 2).if {
 				n
 			} {
@@ -665,7 +665,7 @@ OeisSequenceFile : [Object, Equatable, OeisSequence] { | identifier contents |
 		let c = self.characters;
 		c.size = 7 & {
 			c[1] = 'A' & {
-				2:7.allSatisfy { :i |
+				2.to(7).allSatisfy { :i |
 					c[i].isDigit
 				}
 			}

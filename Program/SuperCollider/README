@@ -4,7 +4,7 @@
 
 'Program/SuperCollider/Graph Collection'.splFilePath.terseProgramSummary(isOutputSignal:/1)
 
-=> 367
+=> 372
 
 'Program/SuperCollider/Ugen'.splFilePath.terseProgramSummary(isOutputSignal:/1)
 

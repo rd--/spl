@@ -93,7 +93,7 @@
 
 +String {
 
-	withCollect { :self :aString :aBlock:/2 |
+	[collect, withCollect] { :self :aString :aBlock:/2 |
 		self.characters.withCollect(aString.characters, aBlock:/2)
 	}
 

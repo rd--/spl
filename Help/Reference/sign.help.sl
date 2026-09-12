@@ -190,7 +190,7 @@ let b = Map { :n |
 		(a[m] + b[m]) / 2 + 1
 	}
 };
-a[1:115].discretePlot
+a[1 .. 115].discretePlot
 ~~~
 
 ![](Help/Image/sign-D.svg)

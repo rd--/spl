@@ -18,14 +18,14 @@
 
 	antiDivisors { :n |
 		let m = n - 1;
-		2:m.select { :x |
+		2.to(m).select { :x |
 			((n % x) - (x / 2)).abs < 1
 		}
 	}
 
 	antiDivisorsClassSum { :n |
 		let m = n - 1;
-		2:m.sum { :d |
+		2.to(m).sum { :d |
 			let a = n % d;
 			let b = (d - 1) / 2;
 			let c = (d + 1) / 2;
@@ -182,7 +182,7 @@
 
 	bitIff { :p :q |
 		let k = p.bitLength.max(q.bitLength);
-		k:1:-1.collect { :i |
+		(k .. 1; -1).collect { :i |
 			p.bitAt(i) = q.bitAt(i)
 		}.boole.binaryContraction
 	}
@@ -538,7 +538,7 @@
 	}
 
 	gcdSum { :n |
-		1:n.sum { :k |
+		1.to(n).sum { :k |
 			gcd(n, k)
 		}
 	}
@@ -1291,7 +1291,7 @@
 			}
 		).if {
 			let m = n - 1;
-			1L:Infinity.detect { :e |
+			1L.to(Infinity).detect { :e |
 				let r = (a ^ e) % n;
 				r = 1 | { r = m }
 			}
@@ -1666,7 +1666,7 @@
 	}
 
 	totientSummatoryFunction { :n |
-		1:n.sum(eulerPhi:/1)
+		1.to(n).sum(eulerPhi:/1)
 	}
 
 	truncate { :self |

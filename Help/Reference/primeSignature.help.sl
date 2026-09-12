@@ -375,7 +375,7 @@ let a = Map { :n |
 		a.atAll(n.primeSignature).sum
 	}
 };
-a[1:105].stepPlot
+a[1 .. 105].stepPlot
 ~~~
 
 ![](Help/Image/primeSignature-G.svg)

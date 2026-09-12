@@ -2,7 +2,8 @@
 
 - _withCollect(c₁, c₂, f:/2)_
 
-Collect and answer the result of evaluating the block _f_ with corresponding elements from each sequence _c_:
+Collect and answer the result of evaluating the block _f_ with corresponding elements from each sequence _c_.
+`withCollect` is an alias for the ternary form of `collect`.
 
 ```
 >>> 9:1:-1.withCollect(1:9) { :p :q |

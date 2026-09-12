@@ -8,13 +8,13 @@
 
 ```
 >> '(i .. j)'.splSimplify
-nonEmptyRange(i, j, 1)
+Range(i, j)
 
 >> '(i, j .. k)'.splSimplify
-nonEmptyThenTo(i, j, k)
+thenTo(i, j, k)
 
 >> '(i .. j; k)'.splSimplify
-nonEmptyRange(i, j, k)
+Range(i, j, k)
 ```
 
 Answer ascending `Range` values:
@@ -57,13 +57,29 @@ Nested ranges:
 [1:1 1:2 1:3 1:4 1:5]
 ```
 
-Where supported the notation `..` i displayed as ….
+Empty ranges:
+
+```
+>>> (1 .. 0).isEmpty
+true
+
+>>> (1, 0 .. 9).isEmpty
+true
+
+>>> (1 .. 9; -1).isEmpty
+true
+```
+
+Where supported the notation `..` is displayed as ….
 
 _Note_:
 In Smalltalk _α to: β_ is an empty `Range` if α <= β,
 as is _α:β_ in Matlab and Octave and Julia.
-The Sᴘʟ re-write rules call `Range` for the `Range Literal Syntax` form _α:β_,
-and `nonEmptyRange` for the `Range Syntax` _(α .. β)_ and related forms.
+In SuperCollider such a range sets the step size to negative one.
+The Sᴘʟ re-write rules call `Range` for both the `Range Syntax` and `Range Literal Syntax`,
+_α:β_,
+and `nonEmptyRange` for the `List Range Syntax`,
+ _[α .. β]_ and related forms,
 To write descending intervals the step must be specified.
 This definition avoids subtle differences if _(α .. β)_ is used where _α:β_ or _α.to(β)_ is required.
 The notation `α:β` is from Matlab/Octave and S/R and Fortress and Julia.
@@ -72,7 +88,7 @@ i.e. _[p..q]_ would be a list of one range, and not equal to _[p .. q]_.
 
 * * *
 
-See also: List, Range, thenTo, upOrDownTo
+See also: List, Range, thenTo, to, upOrDownTo
 
 Guides: List Range Syntax, Range Literal Syntax
 

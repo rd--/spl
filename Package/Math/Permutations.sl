@@ -68,7 +68,7 @@ Permutation : [Object, Storeable, Equatable] { | cycles degree |
 	}
 
 	dictionary { :self |
-		1.to(self.degree).collect { :i |
+		1.toCollect(self.degree) { :i |
 			i -> self.image(i)
 		}.asMap
 	}
@@ -646,9 +646,9 @@ Permutation : [Object, Storeable, Equatable] { | cycles degree |
 	partialInversePermutation { :self |
 		let m = self.min;
 		(m = 1).if {
-			let u = 1:Infinity;
+			let u = 1.to(Infinity);
 			let x = self.minimumExcludedValue(u) - 1;
-			1:x.collect { :i |
+			1.toCollect(x) { :i |
 				self.indexOfIfAbsent(i) { nil }
 			}
 		} {
@@ -977,7 +977,7 @@ Permutation : [Object, Storeable, Equatable] { | cycles degree |
 
 	bitReversalPermutation { :k |
 		let n = 2 ^ k - 1;
-		0:n.collect { :i |
+		0.toCollect(n) { :i |
 			i.bitReverse(k)
 		} + 1
 	}

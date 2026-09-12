@@ -66,19 +66,19 @@ Euclid-Mullin sequence,
 OEIS [A000945](https://oeis.org/A000945):
 
 ```
->>> let f = Map { :n |
+>>> let a = Map { :n |
 >>> 	(n = 1).if {
 >>> 		2
 >>> 	} {
 >>> 		let m = n - 1;
 >>> 		(
 >>> 			1:m.product { :i |
->>> 				f[i]
+>>> 				a[i]
 >>> 			} + 1
 >>> 		).leastPrimeFactor
 >>> 	}
 >>> };
->>> f[1:8]
+>>> a[1 .. 8]
 [2 3 7 43 13 53 5 6221671]
 ```
 
@@ -148,7 +148,7 @@ let a = Map { :n |
 		(p % 4) * a[n / p]
 	}
 };
-a[1:65].discretePlot
+a[1 .. 65].discretePlot
 ~~~
 
 ![](Help/Image/leastPrimeFactor-B.svg)

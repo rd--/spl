@@ -266,13 +266,13 @@
 	}
 
 	gaussFactorial { :m :n |
-		1L:m.select { :i |
+		1L.to(m).select { :i |
 			gcd(i, n) = 1
 		}.product
 	}
 
 	gaussFactorial { :n |
-		1L:n.select { :i |
+		1L.to(n).select { :i |
 			n.isCoprime(i)
 		}.product
 	}

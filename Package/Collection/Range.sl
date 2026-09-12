@@ -175,16 +175,21 @@ Range : [Object, Storeable, Equatable, Comparable, Iterable, Collection, Indexab
 		}
 	}
 
-	listRange { :start :stop :step |
-		stop.isSequenceable.if {
-			listRange([start], stop, step)
+	listRange { :from :to :by |
+		to.isSequenceable.if {
+			listRange([from], to, by)
 		} {
-			nonEmptyRange(start, stop, step).asList
+			nonEmptyRange(from, to, by).asList
 		}
 	}
 
-	listRange { :start :stop |
-		listRange(start, stop, 1)
+	listRange { :from :to |
+		let by = 1;
+		listRange(from, to, by)
+	}
+
+	listThenTo { :from :then :to |
+		listRange(from, to, then - from)
 	}
 
 	nonEmptyRange { :start :stop :step |
@@ -222,12 +227,12 @@ Range : [Object, Storeable, Equatable, Comparable, Iterable, Collection, Indexab
 		}
 	}
 
-	[Range, to] { :self :stop |
-		Range(self, stop, 1)
+	[Range, to] { :from :to |
+		Range(from, to, 1)
 	}
 
-	thenTo { :self :second :last |
-		Range(self, last, second - self)
+	thenTo { :from :then :to |
+		Range(from, to, then - from)
 	}
 
 	upOrDownTo { :self :stop |
@@ -246,14 +251,19 @@ Range : [Object, Storeable, Equatable, Comparable, Iterable, Collection, Indexab
 
 +[List, Range] {
 
-	listRange { :start :stop :step |
-		stop.adaptToCollectionAndApply(start) { :i :j |
-			listRange(i, j, step)
+	listRange { :from :to :by |
+		to.adaptToCollectionAndApply(from) { :i :j |
+			listRange(i, j, by)
 		}
 	}
 
-	listRange { :start :stop |
-		listRange(start, stop, 1)
+	listRange { :from :to |
+		let by = 1;
+		listRange(from, to, 1)
+	}
+
+	listThenTo { :from :then :to |
+		listRange(from, to, then - from)
 	}
 
 	nonEmptyRange { :start :stop :step |

@@ -44,7 +44,7 @@
 				let z = y - y[1];
 				z % 12
 			};
-			1:k.collect { :n |
+			1.toCollect(k) { :n |
 				p.rotateAndZero(n)
 			}.minBy(f:/2)
 		}

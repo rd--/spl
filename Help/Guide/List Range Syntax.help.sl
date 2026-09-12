@@ -4,14 +4,17 @@
 - _[i, j .. k]_
 - _[i .. j; k]_
 
-List range expression rewrite rules:
+List range expressions mirrors `Range Syntax` with brackets replacing parentheses.
+The answer is a `List` value, not a `Range` value.
+
+Rewrite rules:
 
 ```
 >> '[i .. j]'.splSimplify
-listRange(i, j, 1))
+listRange(i, j))
 
 >> '[i, j .. k]'.splSimplify
-listRange(i, k, subtract(j, i))
+listThenTo(i, j, k)
 
 >> '[i .. j; k]'.splSimplify
 listRange(i, j, k)
@@ -81,6 +84,19 @@ Nested ranges:
 
 >>> [1 .. [1 .. [1 .. 3]]]
 [1:; 1; 1 2:; 1; 1 2; 1 2 3]
+```
+
+It is not allowed to write an empty range:
+
+```
+>>> { [1 .. 0] }.hasError
+true
+
+>>> { [1 .. 9; -1] }.hasError
+true
+
+>>> { [2, 1 .. 9] }.hasError
+true
 ```
 
 * * *

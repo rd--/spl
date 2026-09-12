@@ -722,7 +722,9 @@ Fraction : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | num
 
 	lambdomaMatrix { :self |
 		let [m, n] = self;
-		Fraction:/2.swap.table(1:m, 1:n)
+		Fraction:/2
+		.swap
+		.table([1 .. m], [1 .. n])
 	}
 
 }

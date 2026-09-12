@@ -381,8 +381,8 @@ const asSl: ohm.ActionDict<string> = {
 	Arguments(a, _p) {
 		return a.children.map((x) => x.asSl).join(' ');
 	},
-	AtAllSyntax(c, _l, k, _r) {
-		return `atAll(${c.asSl}, ${k.asSl})`;
+	AtAllSyntax(c, i) {
+		return `atAll(${c.asSl}, ${i.asSl})`;
 	},
 	AtPutSyntax(c, _l, k, _r, _e, v) {
 		return `atPut(${c.asSl}, ${k.asSl}, ${v.asSl})`;
@@ -486,14 +486,14 @@ const asSl: ohm.ActionDict<string> = {
 		).join('; ');
 		return `${rhsName} = assertIsOfSize(${rhs.asSl}, ${namesArray.length}); ${slots}`;
 	},
-	ListRangeFromToSyntax(_left, start, _dots, end, _right) {
-		return `listRange(${start.asSl}, ${end.asSl}, 1)`;
+	ListRangeFromToSyntax(_leftBracket, i, _dots, j, _rightBracket) {
+		return `listRange(${i.asSl}, ${j.asSl})`;
 	},
-	ListRangeFromThenToSyntax(_left, start, _comma, then, _dots, end, _right) {
-		return `listRange(${start.asSl}, ${end.asSl}, subtract(${then.asSl}, ${start.asSl}))`;
+	ListRangeFromThenToSyntax(_leftBracket, i, _comma, j, _dots, k, _rightBracket) {
+		return `listThenTo(${i.asSl}, ${j.asSl}, ${k.asSl})`;
 	},
-	ListRangeFromToBySyntax(_left, start, _comma, to, _semicolon, by, _right) {
-		return `listRange(${start.asSl}, ${to.asSl}, ${by.asSl})`;
+	ListRangeFromToBySyntax(_leftBracket, i, _comma, j, _semicolon, k, _rightBracket) {
+		return `listRange(${i.asSl}, ${j.asSl}, ${k.asSl})`;
 	},
 	MatrixSyntax(_l, items, _r) {
 		return `[${commaListSl(items.asIteration().children)}]`;
@@ -522,6 +522,9 @@ const asSl: ohm.ActionDict<string> = {
 	NonFinalStatement(e, _semicolon) {
 		return `${e.asSl};`;
 	},
+	NonScalarListSyntax(_l, initial, _c, items, _r) {
+		return `[${initial.asSl}, ${commaListSl(items.asIteration().children)}]`;
+	},
 	ParameterList(_l, sq, _r) {
 		return commaListSl(sq.asIteration().children);
 	},
@@ -543,14 +546,14 @@ const asSl: ohm.ActionDict<string> = {
 	UncheckedSlotWriteSyntax(c, _colons, k, _equals, v) {
 		return `uncheckedSlotWrite(${c.asSl}, '${k.sourceString}', ${v.asSl})`;
 	},
-	RangeFromToSyntax(_left, start, _dots, end, _right) {
-		return `nonEmptyRange(${start.asSl}, ${end.asSl}, 1)`;
+	RangeFromToSyntax(_leftParenthesis, i, _dots, j, _rightParenthesis) {
+		return `Range(${i.asSl}, ${j.asSl})`;
 	},
-	RangeFromThenToSyntax(_left, start, _comma, then, _dots, end, _right) {
-		return `nonEmptyThenTo(${start.asSl}, ${then.asSl}, ${end.asSl})`;
+	RangeFromThenToSyntax(_leftParenthesis, i, _comma, j, _dots, k, _rightParenthesis) {
+		return `thenTo(${i.asSl}, ${j.asSl}, ${k.asSl})`;
 	},
-	RangeFromToBySyntax(_left, start, _dots, end, _semicolon, by, _right) {
-		return `nonEmptyRange(${start.asSl}, ${end.asSl}, ${by.asSl})`;
+	RangeFromToBySyntax(_leftParenthesis, i, _dots, j, _semicolon, k, _rightParenthesis) {
+		return `Range(${i.asSl}, ${j.asSl}, ${k.asSl})`;
 	},
 	RecordAssignment(_l, lhs, _r, _e, rhs) {
 		const rhsDictionaryName = genVarSym();

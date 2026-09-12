@@ -19,7 +19,7 @@
 					v[i] := m[i] << (32L - i)
 				}
 			} {
-				1:s.collect { :i |
+				1.toCollect(s) { :i |
 					v[i] := m[i] << (32L - i)
 				};
 				(s + 1).toDo(l) { :i |
@@ -44,7 +44,7 @@
 
 	sobolSequence { :shape |
 		let [m, n] = shape;
-		1:n.collect { :d |
+		1.toCollect(n) { :d |
 			sobolSequence(m, d)
 		}.transpose
 	}

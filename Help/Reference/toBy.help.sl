@@ -19,6 +19,13 @@ Range(1, 9, 2)
 [9 7 5 3 1]
 ```
 
+This is ordinarily written using `Range Syntax`:
+
+```
+>>> (1 .. 9; 2)
+toBy(1, 9, 2)
+```
+
 It is an `error` if the step _k_ is zero:
 
 ```

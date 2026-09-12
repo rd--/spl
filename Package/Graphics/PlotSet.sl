@@ -30,7 +30,7 @@ PlotSet : [Object] { | plotMatrix:<List> |
 				} {
 					''
 				}
-			}.table(1:m, 1:n),
+			}.table([1 .. m], [1 .. n]),
 			'</svg>'
 		].joinSvg
 	}

@@ -624,7 +624,7 @@ SmallFloat! : [Object, Storeable, Equatable, Comparable, Json, Magnitude, Number
 	}
 
 	ramanujansSum { :q :n |
-		1:q.sum { :a |
+		1.to(q).sum { :a |
 			(a.gcd(q) = 1).if {
 				(2.pi.i * (a / q) * n).exp
 			} {

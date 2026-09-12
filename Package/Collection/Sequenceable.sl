@@ -534,12 +534,15 @@
 		answer
 	}
 
-	collect { :self :aSequence :aBlock:/2 |
-		self.withCollect(aSequence, aBlock:/2)
+	[collect, withCollect] { :self :aSequence :aBlock:/2 |
+		self.withCollectWrapping(aSequence, aBlock:/2)
 	}
 
-	collect { :self :aSequence :anotherSequence :aBlock:/3 |
-		self.withWithCollect(aSequence, anotherSequence, aBlock:/3)
+	[collect, withWithCollect] { :self :aSequence :anotherSequence :aBlock:/3 |
+		let maximumSize = [self, aSequence, anotherSequence].collect(size:/1).max;
+		1.toAsCollect(maximumSize, self.species) { :index |
+			aBlock(self.atWrap(index), aSequence.atWrap(index), anotherSequence.atWrap(index))
+		}
 	}
 
 	constantArray { :self :anObject |
@@ -2533,7 +2536,7 @@
 	splitPlaces { :self :counts |
 		let k = counts.size;
 		let startIndices = ([1] ++ counts).prefixSum;
-		1:k.collect { :i |
+		1.toCollect(k) { :i |
 			let j = startIndices[i];
 			let k = counts[i];
 			self.copyFromTo(j, j + k - 1)
@@ -2807,10 +2810,6 @@
 		}
 	}
 
-	withCollect { :self :aList :aBlock:/2 |
-		self.withCollectWrapping(aList, aBlock:/2)
-	}
-
 	withCollectCrossed { :self :aList :aBlock:/2 |
 		let answer = self.species.new(self.size * aList.size);
 		let nextIndex = 1;
@@ -2937,13 +2936,6 @@
 	withIndexReplace { :self :aBlock:/2 |
 		self.indicesDo { :index |
 			self[index] := aBlock(self[index], index)
-		}
-	}
-
-	withWithCollect { :self :aList :anotherList :aBlock:/3 |
-		let maximumSize = [self, aList, anotherList].collect(size:/1).max;
-		1.toAsCollect(maximumSize, self.species) { :index |
-			aBlock(self.atWrap(index), aList.atWrap(index), anotherList.atWrap(index))
 		}
 	}
 

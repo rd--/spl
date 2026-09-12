@@ -96,7 +96,7 @@ OEIS [A000123](https://oeis.org/A000123):
 >>> 		a[(n / 2).floor] + a[n - 1]
 >>> 	}
 >>> };
->>> a[0:13]
+>>> a[0 .. 13]
 [1 2 4 6 10 14 20 26 36 46 60 74 94 114]
 ```
 
@@ -227,7 +227,7 @@ let a = Map { :n |
 		m + a[m + (n / 2).floor]
 	}
 };
-a[0:115].scatterPlot
+a[0 .. 115].scatterPlot
 ~~~
 
 ![](Help/Image/floor-H.svg)

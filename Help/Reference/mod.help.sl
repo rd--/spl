@@ -1191,7 +1191,7 @@ let a = Map { :n |
 		}
 	}
 };
-a[0:127].discretePlot
+a[0 .. 127].discretePlot
 ~~~
 
 ![](Help/Image/mod-L.svg)
@@ -1251,8 +1251,8 @@ The table of _n%k_ read by downward antidiagonals,
 OEIS [A051126](https://oeis.org/A051126):
 
 ~~~spl svg=P oeis=A051126
-1:11.collect { :n |
-	n:1:-1.collect { :k |
+(1 .. 11).collect { :n |
+	(n .. 1; -1).collect { :k |
 		(n - k + 1) % k
 	}
 }.catenate.stepPlot
@@ -1289,9 +1289,8 @@ Triangle of descending moduli,
 OEIS [A051778](https://oeis.org/A051778):
 
 ~~~spl svg=R oeis=A051778
-3:23.collect { :n |
-	let m = n - 1;
-	m:2:-1.collect { :i |
+(3 .. 23).collect { :n |
+	(n - 1 .. 2; -1).collect { :i |
 		n % i
 	}
 }.catenate.scatterPlot

@@ -155,7 +155,7 @@ let a = Map { :n |
 		}
 	}
 };
-a[1:125].scatterPlot.log
+a[1 .. 125].scatterPlot.log
 ~~~
 
 ![](Help/Image/isEven-A.svg)
@@ -175,7 +175,7 @@ let a = Map { :n |
 		}
 	}
 };
-a[0:150].scatterPlot
+a[0 .. 150].scatterPlot
 ~~~
 
 ![](Help/Image/isEven-B.svg)
@@ -268,7 +268,7 @@ let a = Map { :n |
 		}
 	}
 };
-a[0:250].scatterPlot.log
+a[0 .. 250].scatterPlot.log
 ~~~
 
 ![](Help/Image/isEven-G.svg)
@@ -289,7 +289,7 @@ let a = Map { :n |
 		}
 	}
 };
-a[0:150].scatterPlot
+a[0 .. 150].scatterPlot
 ~~~
 
 ![](Help/Image/isEven-H.svg)
@@ -325,7 +325,7 @@ let a = Map { :n |
 		}
 	}
 };
-a[0:150].scatterPlot.log
+a[0 .. 150].scatterPlot.log
 ~~~
 
 ![](Help/Image/isEven-I.svg)

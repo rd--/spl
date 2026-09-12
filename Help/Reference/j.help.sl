@@ -26,8 +26,9 @@ Number of Gaussian integers _x+yi_ having absolute value _n_,
 OEIS [A046109](https://oeis.org/A046109):
 
 ~~~spl svg=A oeis=A046109
-0:47.collect { :n |
-	j:/2.table(-n:n, -n:n)
+(0 .. 47).collect { :n |
+	let r = (-n .. n);
+	j:/2.table(r, r)
 	.catenate
 	.select { :x |
 		x.abs = n

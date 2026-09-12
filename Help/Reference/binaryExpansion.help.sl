@@ -280,7 +280,7 @@ OEIS [A309983](https://oeis.org/A309983):
 	let b = n.binaryExpansion;
 	let p = 2 * b.allButLast - 1;
 	let k = p.size;
-	(p * k:1:-1).sum
+	(p * (k .. 1; -1)).sum
 }.discretePlot
 ~~~
 

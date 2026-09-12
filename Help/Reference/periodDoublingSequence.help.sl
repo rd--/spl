@@ -71,7 +71,7 @@ let a = Map { :n |
 		{ true } -> { a[(n - 1) / 4] }
 	].which
 };
-a[1:105].discretePlot
+a[1 .. 105].discretePlot
 ~~~
 
 ![](Help/Image/periodDoublingSequence-B.svg)
@@ -87,7 +87,7 @@ let a = Map { :n |
 		{ true } -> { a[(n - 2) / 4 + 1] }
 	].which
 };
-a[0:101].discretePlot
+a[0 .. 101].discretePlot
 ~~~
 
 ![](Help/Image/periodDoublingSequence-C.svg)

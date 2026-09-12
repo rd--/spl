@@ -264,7 +264,7 @@ let a = Map { :n |
 		}
 	}
 };
-a[0:250].scatterPlot.logScale
+a[0 .. 250].scatterPlot.logScale
 ~~~
 
 ![](Help/Image/nextPrime-H.svg)

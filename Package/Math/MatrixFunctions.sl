@@ -747,8 +747,8 @@
 
 	minors { :self :anInteger :aBlock:/1 |
 		let [m, n] = self.shape;
-		let p = 1:m.subsets { :x | x.size = anInteger };
-		let q = 1:n.subsets { :x | x.size = anInteger };
+		let p = 1.to(m).subsets { :x | x.size = anInteger };
+		let q = 1.to(n).subsets { :x | x.size = anInteger };
 		p.collect { :i |
 			q.collect { :j |
 				aBlock(self.submatrix(i, j))

@@ -56,8 +56,10 @@
 		let maxIndex = 0;
 		let relativeIndex = 0;
 		let tapeToList = { :t |
-			minIndex:maxIndex.collect { :i |
-				t.atIfAbsent(i) { i.defaultCell }
+			minIndex.toCollect(maxIndex) { :i |
+				t.atIfAbsent(i) {
+					i.defaultCell
+				}
 			}
 		};
 		ruleList.isAssociationList.ifFalse {

@@ -132,7 +132,7 @@ let a = Map { :n |
 		a[n - (m / 2)] + a[m - n + 1]
 	}
 };
-a[0:260].scatterPlot
+a[0 .. 260].scatterPlot
 ~~~
 
 ![](Help/Image/bitLength-G.svg)

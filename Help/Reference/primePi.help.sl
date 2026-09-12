@@ -398,7 +398,7 @@ let a = Map { :n |
 		}
 	}
 };
-a[1:175].scatterPlot
+a[1 .. 175].scatterPlot
 ~~~
 
 ![](Help/Image/primePi-L.svg)
@@ -492,7 +492,7 @@ let a = Map { :n |
 		}
 	}
 };
-a[1:85].discretePlot
+a[1 .. 85].discretePlot
 ~~~
 
 ![](Help/Image/primePi-S.svg)
@@ -508,7 +508,7 @@ let a = Map { :n |
 		0
 	}
 };
-a[1:150].discretePlot
+a[1 .. 150].discretePlot
 ~~~
 
 ![](Help/Image/primePi-T.svg)
