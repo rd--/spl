@@ -42,8 +42,8 @@ Sl {
 		| ExpressionInitializer
 		| RecordInitializer // S
 		| ListInitializer // S
-	BlockLiteralInitializer = varName "=" Block ~("." | operator)
-	ExpressionInitializer = varNameOrUnused "=" Expression
+	BlockLiteralInitializer = (varNameOrUnused | operatorBound) "=" Block ~("." | operator)
+	ExpressionInitializer = (varNameOrUnused | operatorFree) "=" Expression
 	RecordInitializer = "(" NonemptyListOf<RecordInitializerItem, ","> ")" "=" Expression
 	ListInitializer = "[" NonemptyListOf<varNameOrUnused, ","> "]" "=" Expression
 	LetBinding = "let" Initializer

@@ -418,7 +418,7 @@ const asSl: ohm.ActionDict<string> = {
 		return `{ ${argSl}${vBar}${tmp.asSl}${prm.asSl}${stm.asSl} }`;
 	},
 	BlockLiteralInitializer(name, _e, blk) {
-		let nameStr = name.sourceString;
+		let nameStr = name.asSl;
 		if(isArityQualifiedName(nameStr)) {
 			return `${nameStr} = ${blk.asSl}`;
 		} {
@@ -456,7 +456,7 @@ const asSl: ohm.ActionDict<string> = {
 		return 'Record()';
 	},
 	ExpressionInitializer(name, _e, exp) {
-		return `${name.sourceString} = ${exp.asSl}`;
+		return `${name.asSl} = ${exp.asSl}`;
 	},
 	FinalStatement(e) {
 		return e.asSl;

@@ -1,3 +1,63 @@
+/* SCSCC-5 "Printer Gone Mad" 138 bytes ; https://github.com/lukiss/SCSCC/ */
+let r = 9000;
+let t = Sweep(0, r) % r;
+let d = { TRand(0, 256, t < 1) };
+let o = d();
+{
+	o := BitOr(
+		o,
+		(
+			BitOr(
+				BitOr(
+					BitAnd(
+						(t / d() / 4),
+						d()
+					),
+					BitAnd(
+						(t / d()) % o,
+						d()
+					)
+				),
+				BitAnd(
+					o > d() * BitOr(
+						BitAnd(t * 2, d()),
+						d()
+					),
+					BitAnd(t * d(), t / d())
+				)
+			)
+		)
+	)
+} ! 5;
+Pan2(
+	LeakDc(o, 0.995).Fold(-1, 1),
+	0,
+	1 / 9
+)
+
+/* SCSCC-5 "Printer Gone Mad" 138 bytes ; local operator definitions */
+let r = 9000;
+let t = Sweep(0, r) % r;
+let d = { TRand(0, 256, t < 1) };
+let o = d();
+let | = BitOr:/2;
+let & = BitAnd:/2;
+{
+	o := (
+		o
+		| ((t / d() / 4)
+			& d()
+			| ((t / d()) % o & d())
+			| (( o > d() * (t * 2 & d() | d()))
+				& (t * d() & (t / d()))))
+	)
+} ! 5;
+Pan2(
+	LeakDc(o, 0.995).Fold(-1, 1),
+	0,
+	1 / 9
+)
+
 /* SCSCC-12 "Emergency Sauce" 223 bytes ; https://github.com/lukiss/SCSCC/ */
 let z = { :x | LfSaw(x, 0) };
 let m = { 1 << (LfNoise2(2) + 1 * 2.2) };

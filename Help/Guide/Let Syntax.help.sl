@@ -50,6 +50,18 @@ let f:/1 = { :x | x }; f:/1
 (23, true)
 ```
 
+It is allowed to `let` bind a binary operator:
+
+```
+>>> let ** = power:/2;
+>>> 3 ** 7
+2187
+
+>>> let ** = { :x :y | x ^ y };
+>>> 3 ** 7
+2187
+```
+
 The syntax token `_` may be used to indicate a binding to an unused name.
 
 The syntax requires that all temporaries have initialisers, there is no implicit `nil` initialiser.
