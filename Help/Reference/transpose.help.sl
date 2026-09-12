@@ -365,6 +365,36 @@ The four arrangements of the first twelve integers into matrices of three and fo
 ]
 ```
 
+Permutation transpositions of a _1×1×1×4_ array:
+
+```
+>>> let m = [[[[0, 0, 0, 0]]]];
+>>> [1 2 3 4].permutations
+>>> .collect { :p |
+>>> 	m.transpose(p)
+>>> }.nub
+[
+	[[[[0, 0, 0, 0]]]],
+	[[[[0], [0], [0], [0]]]],
+	[[[[0]], [[0]], [[0]], [[0]]]],
+	[[[[0]]], [[[0]]], [[[0]]], [[[0]]]]
+]
+```
+
+Visualize the transposition operation:
+
+~~~spl svg=A
+let m = [3 4 1; 2 3 1; 5 4 2];
+PlotSet(
+	[
+		m.matrixPlot;
+		m.transpose.matrixPlot
+	]
+)
+~~~
+
+![](Help/Image/transpose-A.svg)
+
 Where supported `transpose` is displayed as ᵀ.
 
 * * *
