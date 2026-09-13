@@ -93,10 +93,6 @@
 
 +String {
 
-	[collect, withCollect] { :self :aString :aBlock:/2 |
-		self.characters.withCollect(aString.characters, aBlock:/2)
-	}
-
 	expand { :self :counts |
 		self.characters.expand(counts).stringCatenate
 	}
@@ -129,6 +125,10 @@
 
 	shape { :self |
 		[self.size]
+	}
+
+	withCollect { :self :aString :aBlock:/2 |
+		self.characters.withCollect(aString.characters, aBlock:/2)
 	}
 
 }

@@ -8,14 +8,16 @@ answer a `List` that is like the list _x_ but without any trailing values that s
 Remove all trailing zeroes:
 
 ```
->>> [1 1 0 0 0].withoutTrailing(isZero:/1)
+>>> [1 1 0 0 0]
+>>> .withoutTrailing(isZero:/1)
 [1 1]
 ```
 
 A leading zero is not a trailing zero:
 
 ```
->>> [0 0 0].withoutTrailing(isZero:/1)
+>>> [0 0 0]
+>>> .withoutTrailing(isZero:/1)
 [0]
 ```
 

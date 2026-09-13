@@ -77,7 +77,7 @@ OEIS [A121759](https://oeis.org/A121759):
 
 * * *
 
-See also: collect, keysAndValuesCollect, withCollect, withIndexDo, withIndexReplace
+See also: collect, keysAndValuesCollect, mapIndexed, withCollect, withIndexDo, withIndexReplace
 
 References:
 _Julia_

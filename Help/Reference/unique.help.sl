@@ -95,4 +95,7 @@ References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Unique.html),
 _Mathworks_
-[1](https://mathworks.com/help/matlab/ref/double.unique.html)
+[1](https://mathworks.com/help/matlab/ref/double.unique.html),
+_Python_
+[1](https://numpy.org/doc/stable/reference/generated/numpy.unique.html)
+

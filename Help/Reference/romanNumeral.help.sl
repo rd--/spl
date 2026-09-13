@@ -22,6 +22,15 @@ Threads over lists:
 	'CLXXIV' 'CDIII' 'CLXXXVIII'
 	'XLII'
 ]
+
+>>> [1987 2026 3999 44]
+>>> .romanNumeral
+[
+	'MCMLXXXVII'
+	'MMXXVI'
+	'MMMCMXCIX'
+	'XLIV'
+]
 ```
 
 Roman numerals are constructed using the letters I, V, X, L, C, D, and M:

@@ -16,6 +16,13 @@ At `List`:
 [1 2 3 1 2 3 1]
 ```
 
+Repeat a single value:
+
+```
+>>> [3].repeat(4)
+[3 3 3 3]
+```
+
 At `String`,
 answer a string consisting of the string _s_ repeated _n_ times.
 
@@ -370,6 +377,16 @@ OEIS [A010885](https://oeis.org/A010885):
 [1 2 3 4 5 6 1 2 3 4 5 6 1 2 3 4 5 6]
 ```
 
+Compare to `replicate`:
+
+```
+>>> [1 2 3].repeat(3)
+[1 2 3 1 2 3 1 2 3]
+
+>>> 3.replicate([1 2 3])
+[1 1 1 2 2 2 3 3 3]
+```
+
 A Chebyshev transform of the Fibonacci numbers,
 OEIS [A100047](https://oeis.org/A100047):
 
@@ -422,7 +439,7 @@ OEIS [A059620](https://oeis.org/A059620):
 
 * * *
 
-See also: constantArray, findRepeat, replicate, stringCatenate, stringJoin, stringRepeat
+See also: #, constantArray, findRepeat, replicate, stringCatenate, stringJoin, stringRepeat
 
 Guides: List Functions, String Functions
 

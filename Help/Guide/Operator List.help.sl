@@ -23,7 +23,7 @@ Binary Math Operators:
 
 Ternary Math Operators:
 
-- `*+`, `multiplyAdd`
+- `*+`, `timesPlus`
 
 Comparison Operators:
 

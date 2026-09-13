@@ -1,9 +1,9 @@
 # LsRand
 
-- _LsRand(aCollection, randomNumberGenerator)_
-- _LsRand(α, β, gamma)_ ⟹ LsRand(α, gamma).take(β)
+- _LsRand(c, r)_
+- _LsRand(c, k, r)_
 
-Select elements from _aCollection_ at random.
+Select elements from the collection _c_ at random accoring to the random number generator _r_.
 
 ```
 >>> LsRand([1 3 5 7 9], 99, Sfc32(891423))
@@ -12,7 +12,7 @@ Select elements from _aCollection_ at random.
 [1 3 5 7 9].asIdentitySet
 ```
 
-The ternary form is equivalent to `take` of the binary form:
+The ternary form is equivalent to `take` _k_ of the binary form:
 
 ```
 >>> LsRand([1 3 5 7 9], Sfc32(891423))

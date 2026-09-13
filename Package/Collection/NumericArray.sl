@@ -40,17 +40,6 @@ NumericArray : [Object, Storeable, Equatable, Comparable, Iterable, Indexable, C
 		)
 	}
 
-	[collect, withCollect] { :self :other :aBlock:/2 |
-		self.isCommensurate(other).if {
-			NumericArray(
-				self.contents.collect(other.contents, aBlock:/2),
-				self.shape
-			)
-		} {
-			self.error('NumericArray>>collect: unequal shape or storage type')
-		}
-	}
-
 	deepIndices { :self |
 		self.shape.shapeIndices
 	}
@@ -192,6 +181,17 @@ NumericArray : [Object, Storeable, Equatable, Comparable, Iterable, Indexable, C
 			NumericArray(a, [n, m])
 		} {
 			self.error('NumericArray>>transpose: not matrix')
+		}
+	}
+
+	withCollect { :self :other :aBlock:/2 |
+		self.isCommensurate(other).if {
+			NumericArray(
+				self.contents.collect(other.contents, aBlock:/2),
+				self.shape
+			)
+		} {
+			self.error('NumericArray>>collect: unequal shape or storage type')
 		}
 	}
 

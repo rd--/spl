@@ -153,23 +153,6 @@ BlockStream : [Object, Iterator, Stream] { | onNext onReset nextItem |
 		}
 	}
 
-	[collect, withCollect] { :self :aStream :aBlock:/2 |
-		BlockStream {
-			let selfNext = self.next;
-			let aStreamNext = aStream.next;
-			(selfNext.isNil | {
-				aStreamNext.isNil
-			}).if {
-				nil
-			} {
-				aBlock(selfNext, aStreamNext)
-			}
-		} {
-			self.reset;
-			aStream.reset
-		}
-	}
-
 	drop { :input :count |
 		input.next(count);
 		BlockStream {
@@ -323,7 +306,24 @@ BlockStream : [Object, Iterator, Stream] { | onNext onReset nextItem |
 		}
 	}
 
-	withAndCollect { :self :aStream :anotherStream :aBlock:/3 |
+	withCollect { :self :aStream :aBlock:/2 |
+		BlockStream {
+			let selfNext = self.next;
+			let aStreamNext = aStream.next;
+			(selfNext.isNil | {
+				aStreamNext.isNil
+			}).if {
+				nil
+			} {
+				aBlock(selfNext, aStreamNext)
+			}
+		} {
+			self.reset;
+			aStream.reset
+		}
+	}
+
+	withWithCollect { :self :aStream :anotherStream :aBlock:/3 |
 		BlockStream {
 			let selfNext = self.next;
 			let aStreamNext = aStream.next;

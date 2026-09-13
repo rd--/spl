@@ -2706,6 +2706,7 @@ Reference/mapApply.help.sl
 Reference/map.help.sl
 Reference/Map.help.sl
 Reference/mapIndexed.help.sl
+Reference/mapThread.help.sl
 Reference/Markdown.help.sl
 Reference/markdownToHtml.help.sl
 Reference/markovNumberTree.help.sl
@@ -2862,7 +2863,6 @@ Reference/multiplicativeDigitalRoot.help.sl
 Reference/multiplicativeOrder.help.sl
 Reference/multiplicativePersistence.help.sl
 Reference/multiplicativeSuborder.help.sl
-Reference/multiplyAdd.help.sl
 Reference/Multiset.help.sl
 Reference/multisetIntersection.help.sl
 Reference/multisetPermutations.help.sl
@@ -4138,6 +4138,7 @@ Reference/Timer.help.sl
 Reference/TimeSeries.help.sl
 Reference/times.help.sl
 Reference/Times.help.sl
+Reference/timesPlus.help.sl
 Reference/timesRepeat.help.sl
 Reference/TimeStamp.help.sl
 Reference/timeString.help.sl

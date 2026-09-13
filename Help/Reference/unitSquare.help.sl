@@ -31,11 +31,15 @@ Threads over lists:
 Three rotated unit squares:
 
 ~~~spl svg=C
-0:3.withCollect(
+{ :n :t |
+	[n n]
+	.unitSquare
+	.asPolygon
+	.rotate(t)
+}.map(
+	[0 .. 3],
 	1.pi / [2 13 11 7]
-) { :n :t |
-	[n, n].unitSquare.asPolygon.rotate(t)
-}.LineDrawing
+).LineDrawing
 ~~~
 
 ![](Help/Image/unitSquare-C.svg)

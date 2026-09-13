@@ -2,13 +2,13 @@
 
 - _n.*+(m, a)_
 
-The operator form of `multiplyAdd`.
+The operator form of `timesPlus`.
 
 The name of this operator is `asteriskPlusSign`.
 
 * * *
 
-See also: +, *, multiplyAdd, plus, times
+See also: +, *, timesPlus, plus, times
 
 Guides: Operator List, Operator Syntax
 

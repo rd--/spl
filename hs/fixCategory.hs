@@ -1,11 +1,11 @@
-import Data.List.Split {- split -}
+import qualified Data.List.Split {- split -}
 
 import qualified Music.Theory.String {- hmt-base -}
 
 fixCategory :: String -> String
 fixCategory s =
   let l = lines s
-      [t, c] = splitOn " -- " (head l)
+      [t, c] = Data.List.Split.splitOn " -- " (head l)
       e = ["", "Categories: " ++ Music.Theory.String.capitalise c]
   in unlines (concat [[t] ++ drop 1 l ++ e])
 

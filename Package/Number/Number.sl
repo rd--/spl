@@ -32,10 +32,6 @@
 		self - (aNumber * self.quotient(aNumber))
 	}
 
-	[multiplyAdd, *+] { :i :j :k |
-		(i * j) + k
-	}
-
 	[negate, -] { :self |
 		self * -1
 	}
@@ -1039,6 +1035,10 @@
 		} {
 			self ^ aNumber
 		}
+	}
+
+	[timesPlus, *+] { :i :j :k |
+		(i * j) + k
 	}
 
 	toByDo { :self :stop :step :aBlock:/1 |

@@ -48,6 +48,19 @@ A 2×2×2 array of random integers:
 [8 5; 9 9:; 4 7; 5 8]
 ```
 
+Constrained random points on a circle:
+
+~~~spl svg=A
+Sfc32(79143)
+.randomInteger([-15 15], [100 2])
+.select { :p |
+	let h = p.square.sum.sqrt;
+	h >= 10 & { h <= 15 }
+}.PointCloud
+~~~
+
+![](Help/Image/randomInteger-A.svg)
+
 * * *
 
 See also: atRandom, randomByteArray, randomLargeInteger, RandomNumberGenerator, randomReal, randomSample

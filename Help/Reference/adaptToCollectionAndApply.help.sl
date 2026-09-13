@@ -35,19 +35,19 @@ At `Range`, adapting to `List`:
 [-3 -2 -1]
 ```
 
-In the sequence case the adaptation is courtesy `withCollect`:
+In the sequence case the adaptation is courtesy `map`:
 
 ```
->>> [1 2 3].withCollect(4:4, -)
+>>> -.map([1 2 3], 4:4)
 [-3 -2 -1]
 
->>> 1:3.withCollect([4], -)
+>>> -.map(1:3, [4])
 [-3 -2 -1]
 ```
 
 * * *
 
-See also: adaptToNumberAndApply, Elementwise, withCollect
+See also: adaptToNumberAndApply, Elementwise, map, withCollect
 
 Guides: AdaptTo Protocol
 

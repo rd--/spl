@@ -10,6 +10,9 @@ Answer the `arithmeticMean` (the mean estimate) of the collection _c_.
 
 >>> [1.21 3.4 2.15 4 1.55].mean
 2.462
+
+>>> [3 1 4 1.5 9 2.6].mean
+3.5167
 ```
 
 The `mean` is the `sum` divided by the `size`:

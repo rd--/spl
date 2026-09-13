@@ -1,12 +1,12 @@
-# multiplyAdd
+# timesPlus
 
-- _multiplyAdd(i, j, k)_
+- _timesPlus(i, j, k)_
 
 Answer _i*j+k_.
 In some cases this may be optimised as a fused multiply-add operator.
 
 ```
->>> 3.multiplyAdd(4, 5)
+>>> 3.timesPlus(4, 5)
 3 * 4 + 5
 ```
 
@@ -23,7 +23,7 @@ The operator form is `*+`:
 Threads over lists:
 
 ```
->>> [1 2 3].multiplyAdd([4 5 6], [7 8 9])
+>>> [1 2 3].timesPlus([4 5 6], [7 8 9])
 [
 	1 * 4 + 7,
 	2 * 5 + 8,

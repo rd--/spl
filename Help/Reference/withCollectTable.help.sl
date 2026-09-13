@@ -2,7 +2,7 @@
 
 - _withCollectTable(u, v)_
 
-Given vectors _u_ & _v_ generates the table _[u1v, u2v ...]_.
+Given vectors _u_ & _v_ generates the table _[u₁v u₂v …]_.
 
 ```
 >>> [10 20 30 40 50].withCollectTable(
@@ -16,7 +16,11 @@ Given vectors _u_ & _v_ generates the table _[u1v, u2v ...]_.
 	41 42 43;
 	51 52 53
 ]
+```
 
+There is an _adverbial_ form presently called `t`:
+
+```
 >>> [10 20 30 40 50] +.t [1 2 3]
 [
 	11 12 13;

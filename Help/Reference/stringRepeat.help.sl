@@ -27,7 +27,7 @@ Truncate after a fixed length:
 
 * * *
 
-See also: duplicate, stringJoin
+See also: duplicate, repeat, replicate, stringJoin
 
 Guides: String Functions
 

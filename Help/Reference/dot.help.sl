@@ -220,8 +220,8 @@ Multiply 3×3 integer matrices:
 >>> let d = b.transpose;
 >>> (
 >>> 	a.dot(b),
->>> 	a.withCollect(b, dot:/2),
->>> 	c.withCollect(d, dot:/2)
+>>> 	dot:/2.map(a, b),
+>>> 	dot:/2.map(c, d)
 >>> )
 (
 	[

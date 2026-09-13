@@ -1,8 +1,6 @@
 # collect
 
 - _collect(c, f:/1)_
-- _collect(c₁, c₂, f:/2)_
-- _collect(c₁, c₂, c₃, f:/3)_
 
 Evaluate the block _f_ with each element of the collection _c_ as the argument.
 Collect the resulting values into a collection like _c_.
@@ -87,26 +85,29 @@ Make a triangular array:
 ]
 ```
 
-Collect with another sequential collection:
+To collect with another sequential collection use `map` or `withCollect`:
 
 ```
->>> [1 2 3].collect([4 5 6], +)
+>>> +.map([1 2 3], [4 5 6])
+[5 7 9]
+
+>>> [1 2 3].withCollect([4 5 6], +)
 [5 7 9]
 ```
 
-Collect with another two sequential collections:
+To collect with another two sequential collections use `map` or `withWithCollect`:
 
 ```
->>> [1 2 3].collect(
+>>> let [a, b, c] = [1 2 3; 4 5 6; 7 8 9];
+>>> timesPlus:/3.map(a, b, c)
+[11 18 27]
+
+>>> [1 2 3].withWithCollect(
 >>> 	[4 5 6],
 >>> 	[7 8 9]
 >>> ) { :i :j :k |
 >>> 	i * j + k
 >>> }
-[11 18 27]
-
->>> let [a, b, c] = [1 2 3; 4 5 6; 7 8 9];
->>> collect(a, b, c, multiplyAdd:/3)
 [11 18 27]
 ```
 
@@ -152,7 +153,7 @@ and in terms of `ofSize`, `size`, `at` and `atPut` for sequences.
 
 * * *
 
-See also: collectCatenate, deepCollect, do, map, reject, replace, select, table, withIndexCollect
+See also: collectCatenate, deepCollect, do, map, reject, replace, select, table, withCollect, withIndexCollect, withWithCollect
 
 Guides: Collection Functions, Dictionary Functions, List Functions
 

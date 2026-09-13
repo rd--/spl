@@ -27,13 +27,13 @@ false
 true
 ```
 
-To compare element-wise use `map` or `withCollect` or `each`:
+To compare element-wise use `map` or `each`:
 
 ```
 >>> [3 2 1] =.map [1 2 3]
 [false true false]
 
->>> [3 2 1].withCollect([1 2 3], =)
+>>> =.map([3 2 1], [1 2 3])
 [false true false]
 
 >>> [3 2 1] =.each [1 2 3]

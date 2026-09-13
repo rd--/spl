@@ -4,10 +4,16 @@
 
 Calculate the flattened _outer product_ (⊗) of two vectors.
 
+Two two-vectors:
+
 ```
 >>> [3 5].crossedMultiply([7 9])
 [21 27 35 45]
+```
 
+A five- and a three-vector:
+
+```
 >>> [10 20 30 40 50]
 >>> .crossedMultiply([1 2 3])
 [
@@ -17,7 +23,11 @@ Calculate the flattened _outer product_ (⊗) of two vectors.
 	40  80 120
 	50 100 150
 ]
+```
 
+There is an _adverbial_ form presently called `x`:
+
+```
 >>> [10 20 30 40 50] *.x [1 2 3]
 [
 	10  20  30

@@ -534,17 +534,6 @@
 		answer
 	}
 
-	[collect, withCollect] { :self :aSequence :aBlock:/2 |
-		self.withCollectWrapping(aSequence, aBlock:/2)
-	}
-
-	[collect, withWithCollect] { :self :aSequence :anotherSequence :aBlock:/3 |
-		let maximumSize = [self, aSequence, anotherSequence].collect(size:/1).max;
-		1.toAsCollect(maximumSize, self.species) { :index |
-			aBlock(self.atWrap(index), aSequence.atWrap(index), anotherSequence.atWrap(index))
-		}
-	}
-
 	constantArray { :self :anObject |
 		List(self.product, anObject).reshapeList(self)
 	}
@@ -2810,6 +2799,11 @@
 		}
 	}
 
+
+	withCollect { :self :aSequence :aBlock:/2 |
+		self.withCollectWrapping(aSequence, aBlock:/2)
+	}
+
 	withCollectCrossed { :self :aList :aBlock:/2 |
 		let answer = self.species.new(self.size * aList.size);
 		let nextIndex = 1;
@@ -2899,6 +2893,12 @@
 		}
 	}
 
+	withIndexReplace { :self :aBlock:/2 |
+		self.indicesDo { :index |
+			self[index] := aBlock(self[index], index)
+		}
+	}
+
 	withoutLeadingZeroes { :self |
 		let n = self.size;
 		(n = 0).if {
@@ -2933,9 +2933,10 @@
 		}
 	}
 
-	withIndexReplace { :self :aBlock:/2 |
-		self.indicesDo { :index |
-			self[index] := aBlock(self[index], index)
+	withWithCollect { :self :aSequence :anotherSequence :aBlock:/3 |
+		let maximumSize = [self, aSequence, anotherSequence].collect(size:/1).max;
+		1.toAsCollect(maximumSize, self.species) { :index |
+			aBlock(self.atWrap(index), aSequence.atWrap(index), anotherSequence.atWrap(index))
 		}
 	}
 

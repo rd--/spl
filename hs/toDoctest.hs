@@ -1,24 +1,29 @@
-import Data.Char {- base -}
-import Data.List {- base -}
-import Data.List.Split {- base -}
+import qualified Data.Char {- base -}
+import qualified Data.List {- base -}
 
-import Music.Theory.Markdown {- hmt-base -}
+import qualified Data.List.Split {- base -}
+
+import qualified Music.Theory.Markdown as Markdown {- hmt-base -}
 
 rewriteTest :: String -> String
 rewriteTest string =
-  let trim = reverse . dropWhile isSpace . reverse . dropWhile isSpace
-  in case splitOneOf "=~" string of
+  let trim =
+        reverse
+        . dropWhile Data.Char.isSpace
+        . reverse
+        . dropWhile Data.Char.isSpace
+  in case Data.List.Split.splitOneOf "=~" string of
       [lhs, ' ' : rhs] -> unlines [">>> " ++ trim lhs, rhs]
       _ -> unlines [">>> " ++ string, "true"]
 
-toDoctestAccum :: BlockState -> String -> (BlockState, String)
+toDoctestAccum :: Markdown.BlockState -> String -> (Markdown.BlockState, String)
 toDoctestAccum state current =
   let (_, inBlock) = state
-      (state', indent) = indentedCodeBlockBoundariesAccum state current
+      (state', indent) = Markdown.indentedCodeBlockBoundariesAccum state current
   in case indent of
-      Minus -> (state', "```\n")
-      Zero -> (state', if inBlock then rewriteTest (tail current) else current)
-      Plus -> (state', "```\n" ++ rewriteTest (tail current))
+      Markdown.Minus -> (state', "```\n")
+      Markdown.Zero -> (state', if inBlock then rewriteTest (tail current) else current)
+      Markdown.Plus -> (state', "```\n" ++ rewriteTest (tail current))
 
 tidyPost :: [String] -> [String]
 tidyPost l =
@@ -33,7 +38,12 @@ tidyPost l =
 > putStr $ unlines $ toDoctest (lines s)
 -}
 toDoctest :: [String] -> [String]
-toDoctest = tidyPost . lines . unlines . snd . mapAccumL toDoctestAccum ("", False)
+toDoctest =
+  tidyPost
+  . lines
+  . unlines
+  . snd
+  . Data.List.mapAccumL toDoctestAccum ("", False)
 
 main :: IO ()
 main = interact (unlines . toDoctest . lines)

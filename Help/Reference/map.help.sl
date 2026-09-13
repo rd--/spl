@@ -29,6 +29,9 @@ The binary form is a variant of `collect`:
 >>> square:/1.map([3 5 7])
 [9 25 49]
 
+>>> [3 5 7].collect(square:/1)
+[9 25 49]
+
 >>> { :x |
 >>> 	x * x
 >>> }.map([3 5 7])

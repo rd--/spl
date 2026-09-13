@@ -1,11 +1,12 @@
 # withCollectEqual
 
-- _withCollectEqual(aSequence, anotherSequence, aBlock:/2)_
+- _withCollectEqual([x₁ x₂ …], [y₁ y₂ …], f:/2)_
 
-Answer a Block that will apply _aBlock_ element wise to two sequences of equal length.
+Answer a `Block` that will apply the block _f_ element wise to two sequences _x_ and _y_ of equal length.
 
 ```
->>> ['1' '2' '3'].withCollectEqual(
+>>> ['1' '2' '3']
+>>> .withCollectEqual(
 >>> 	['4' '5' '6'],
 >>> 	++
 >>> )

@@ -88,7 +88,7 @@ Map over matrix:
 
 ```
 >>> let m = 1:9.reshape([3 3]);
->>> m.withCollect([3 6 9], includes:/2)
+>>> includes:/2.map(m, [3 6 9])
 [true true true]
 
 >>> let m = 1:9.reshape([3 3]);
