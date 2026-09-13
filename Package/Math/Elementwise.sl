@@ -879,10 +879,6 @@
 		anObject.adaptToCollectionAndApply(self, >=)
 	}
 
-	*+ { :self :mul :add |
-		self * mul + add
-	}
-
 	[bitShiftLeft, <<] { :self :anObject |
 		anObject.adaptToCollectionAndApply(self, bitShiftLeft:/2)
 	}
@@ -1034,8 +1030,8 @@
 		anObject.adaptToCollectionAndApply(self, round:/2)
 	}
 
-	[timesPlus, *+] { :i :j :k |
-		withWithCollect(i, j, k, timesPlus:/3)
+	[timesPlus, *+] { :self :mul :add |
+		self * mul + add
 	}
 
 	trinomial { :self :anObject |

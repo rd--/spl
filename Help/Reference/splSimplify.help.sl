@@ -152,10 +152,10 @@ All of the forms of `Range Syntax` are rewritten as `Apply Syntax`.
 
 ```
 >> '1:9'.splSimplify
-rangeOrRelativeRange(1, 9, 1)
+Range(1, 9)
 
 >> '1:9:2'.splSimplify
-rangeOrRelativeRange(1, 9, 2)
+Range(1, 9, 2)
 ```
 
 `Range` expressions:
@@ -251,10 +251,10 @@ atPut(c, i, x)
 `AtAll Syntax` is rewritten as `Apply Syntax`:
 
 ```
->> 'c[1:9]'.splSimplify
-atAll(c, rangeOrRelativeRange(1, 9, 1))
+>> 'c[1 .. 9]'.splSimplify
+atAll(c, listRange(1, 9))
 
->> 'c[[i, j]]'.splSimplify
+>> 'c[i, j]'.splSimplify
 atAll(c, [i, j])
 ```
 

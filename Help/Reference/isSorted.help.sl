@@ -36,10 +36,12 @@ false
 At `RelativeRange`:
 
 ```
->>> 1:-1.isSorted
+>>> RelativeRange(1, -1, 1)
+>>> .isSorted
 true
 
->>> -1:1:-1.isSorted
+>>> RelativeRange(-1, 1, -1)
+>>> .isSorted
 false
 ```
 

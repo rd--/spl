@@ -79,9 +79,10 @@ RelativeRange : [Object, Storeable, Equatable, Comparable, Iterable, Collection,
 
 +List {
 
-	RelativeRange { :self |
-		let [start, stop, step] = self;
-		RelativeRange(start, stop, step)
+	RelativeRange { :start :stop :step |
+		stop.adaptToCollectionAndApply(start) { :i :j |
+			RelativeRange(i, j, step)
+		}
 	}
 
 }

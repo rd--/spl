@@ -42,23 +42,26 @@ Pick the last seven elements:
 Parts one through third-to-last:
 
 ```
->>> [1 3 5 7 9 11].part([1:-3])
+>>> let r = RelativeRange(1, -3, 1);
+>>> [1 3 5 7 9 11].part([r])
 [1 3 5 7]
 ```
 
 Parts three through third-to-last extracted in steps of two:
 
 ```
+>>> let r = RelativeRange(3, -3, 2);
 >>> [1 3 5 7 9 11 13 15 17 19 21]
->>> .part([3:-3:2])
+>>> .part([r])
 [5 9 13 17]
 ```
 
 Parts extracted in steps of two starting at the beginning:
 
 ```
+>>> let r = RelativeRange(1, -1, 2);
 >>> [1 3 5 7 9 11 13 15 17 19 21]
->>> .part([1:-1:2])
+>>> .part([r])
 [1 5 9 13 17 21]
 ```
 
@@ -93,14 +96,14 @@ To take an entire row, use one index to specify the row:
 To take an entire column, select all rows and specify the column:
 
 ```
->>> [4 4].iota.part([1:-1, 2])
+>>> [4 4].iota.part([1:4, 2])
 [2 6 10 14]
 ```
 
 Select a column as a column matrix:
 
 ```
->>> [4 4].iota.part([1:-1, 2:2])
+>>> [4 4].iota.part([1:4, 2:2])
 [2; 6; 10; 14]
 ```
 
@@ -118,7 +121,7 @@ Select a 3×4 submatrix corresponding to rows _(1, 3)_ and columns _(1, 4)_ of a
 Extract all elements except the outermost rows and columns:
 
 ```
->>> [5 5].iota.part([2:-2, 2:-2])
+>>> [5 5].iota.part([2:4, 2:4])
 [
 	 7  8  9;
 	12 13 14;
@@ -143,14 +146,14 @@ Extract the first element of the second through fourth rows:
 Extract the first two elements from each list:
 
 ```
->>> [1 2; 3 4 5; 6 7].part([1:-1 1:2])
+>>> [1 2; 3 4 5; 6 7].part([1:3 1:2])
 [1 2; 3 4; 6 7]
 ```
 
 Extract the first element from each list:
 
 ```
->>> [1 2; 3 4 5; 6; 7 8 9 10].part([1:-1 1])
+>>> [1 2; 3 4 5; 6; 7 8 9 10].part([1:4 1])
 [1 3 6 7]
 ```
 

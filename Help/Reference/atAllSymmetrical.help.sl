@@ -19,6 +19,26 @@ The last three items have indices _(-3, -2, -1)_:
 [5 7 9]
 ```
 
+A range to request the last _n_ items in order is written _-n:-1_:
+
+```
+>>> -7:-1
+Range(-7, -1, 1)
+
+>>> [1, 3 .. 23].atAllSymmetrical(-7:-1)
+[11 13 15 17 19 21 23]
+```
+
+A range to request the last _n_ items in reverse order is written _-1:-n:-1_:
+
+```
+>>> -1:-7:-1
+Range(-1, -7, -1)
+
+>>> [1, 3 .. 23].atAllSymmetrical(-1:-7:-1)
+[23 21 19 17 15 13 11]
+```
+
 * * *
 
 See also: atAll, atSymmetrical, part

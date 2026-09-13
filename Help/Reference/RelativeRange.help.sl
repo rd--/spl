@@ -1,6 +1,6 @@
 # RelativeRange
 
-- _RelativeRange([i j k])_
+- _RelativeRange(i, j, k)_
 
 A `RelativeRange` is a `Type` that represents a finite arithmetic progression of positive integers,
 that is specified relative to an implicit extent at either `start` or `stop`.
@@ -16,10 +16,10 @@ Relative `start` values:
 ```
 >>> let s = RelativeRange(-3, 3, -1);
 >>> (s, s.asRange(9))
-(RelativeRange(-3, 3, -1), Range(7, 3, -1))
-
->>> -3:3:-1
-RelativeRange(-3, 3, -1)
+(
+	RelativeRange(-3, 3, -1),
+	Range(7, 3, -1)
+)
 ```
 
 Relative `stop` values:
@@ -27,10 +27,10 @@ Relative `stop` values:
 ```
 >>> let s = RelativeRange(3, -3, 2);
 >>> (s, s.asRange(9))
-(RelativeRange(3, -3, 2), Range(3, 7, 2))
-
->>> 3:-3:2
-RelativeRange(3, -3, 2)
+(
+	RelativeRange(3, -3, 2),
+	Range(3, 7, 2)
+)
 ```
 
 `step` may be negative,
@@ -39,10 +39,10 @@ and not equal to `one`:
 ```
 >>> let s = RelativeRange(-3, 3, -2);
 >>> (s, s.asRange(9))
-(RelativeRange(-3, 3, -2), Range(7, 3, -2))
-
->>> -3:3:-2
-RelativeRange(-3, 3, -2)
+(
+	RelativeRange(-3, 3, -2),
+	Range(7, 3, -2)
+)
 ```
 
 A span with a negative `start`, a positive `stop`, and a negative `step` is a relative span,
@@ -52,14 +52,11 @@ an equivalent `Range` value would be empty:
 >>> RelativeRange(-1, 1, -1)
 RelativeRange(-1, 1, -1)
 
->>> -1:1:-1
-RelativeRange(-1, 1, -1)
-
 >>> Range(-1, 1, -1).size
 0
 
->>> { -1:1:-1.size }.hasError
-true
+>>> -1:1:-1.size
+0
 ```
 
 A span with a positive `start`, a negative `stop`, and a positive `step` is a relative span,
@@ -69,25 +66,11 @@ an equivalent `Range` value would be empty:
 >>> RelativeRange(1, -1, 1)
 RelativeRange(1, -1, 1)
 
->>> 1:-1
-RelativeRange(1, -1, 1)
-
 >>> Range(1, -1, 1).size
 0
 
->>> { 1:-1.size }.hasError
-true
-```
-
-Note that a range to request the last _n_ items is written _-n:-1_,
-and is an ordinary range:
-
-```
->>> -7:-1
-Range(-7, -1, 1)
-
->>> [1, 3 .. 23].atAllSymmetrical(-7:-1)
-[11 13 15 17 19 21 23]
+>>> 1:-1.size
+0
 ```
 
 Zero is not a valid index at `atSymmetrical`:
