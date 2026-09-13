@@ -1,6 +1,6 @@
 # LfNoise2
 
-- _LfNoise2(freq)_
+- _LfNoise2(freq=500)_
 
 Quadratic noise.
 Generates quadratically interpolated random values at a rate given by the nearest integer division of the sample rate by the freq argument.

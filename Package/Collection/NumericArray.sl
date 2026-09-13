@@ -187,11 +187,11 @@ NumericArray : [Object, Storeable, Equatable, Comparable, Iterable, Indexable, C
 	withCollect { :self :other :aBlock:/2 |
 		self.isCommensurate(other).if {
 			NumericArray(
-				self.contents.collect(other.contents, aBlock:/2),
+				self.contents.withCollect(other.contents, aBlock:/2),
 				self.shape
 			)
 		} {
-			self.error('NumericArray>>collect: unequal shape or storage type')
+			self.error('NumericArray>>withCollect: unequal shape or storage type')
 		}
 	}
 

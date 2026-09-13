@@ -1,6 +1,6 @@
 # Schmidt
 
-- _Schmidt(in, lo, hi)_
+- _Schmidt(in, lo=0, hi=1)_
 
 Schmidt trigger.
 When _in_ crosses to greater than _hi_, output 1, then when signal crosses lower than _lo_ output 0.

@@ -58,6 +58,20 @@ Pan2(
 	1 / 9
 )
 
+/* SCSCC-9 "1991" 234 bytes */
+let x = LfNoise2(1).kr + 1.002;
+let t = LfPulse(x * 4, 0, 0.9).kr;
+let e = Env([-8 8 0], [0.1 0.9], 3, nil, nil, 0).asList;
+let g = { EnvGen(t, 1, 0, 1.1 - x, 0, e).MidiRatio };
+let d = { LfTri({ Rand(1, 1.pi) } ! 4, 0) * [0 .. 3] / 66 + 1 };
+Splay(
+	[
+		LfPulse(147 * g() * d(), 0, d() / 4) / 1.3,
+		LfSaw(588 * g() * d(), 0) / 4,
+		LfTri(73 * g() * d(), 0)
+	].Sum * LagUd(t, 0.001, x / 2)
+) / 8
+
 /* SCSCC-12 "Emergency Sauce" 223 bytes ; https://github.com/lukiss/SCSCC/ */
 let z = { :x | LfSaw(x, 0) };
 let m = { 1 << (LfNoise2(2) + 1 * 2.2) };
@@ -127,6 +141,21 @@ CombC(
 	Lag(l, 0.1).atAll([4 8]) / 9 + [3 2] / 8,
 	l.atAll([7 .. 8]) * 4
 ) * (1 / 8) + o
+
+/* SCSCC-19 "Nervous Arpeggios" 138 bytes */
+let c = [7 / 3, 1.78, 3 / 2,1] *.x [1, 2];
+let t = Sweep(0, 1) * 8000;
+let a = CuspL(c, 1, 1.9, 0).reverse;
+let b = CuspL(c, 1, 1.9, 0) + 1 * 64;
+let d = BitOr(
+	BitAnd(t * c, b),
+	t >> ( 2 * [0 .. 2] + 4)
+) % 256;
+Pan2(
+	Sum(1 / 8 < a * Fold(LeakDc(d, 0.995) / 8, -1, 1)),
+	0,
+	1 / 8
+)
 
 /* SCSCC-22 "Siv" 238 */
 let h = 1 / 2;
@@ -229,6 +258,36 @@ Splay(
 		) / 12
 	}
 )
+
+/* SCSCC-27 The Schmidt Trigger Ugen (223 bytes) */
+let t = 0.1;
+let r = MidiRatio(12 * [0 .. 2] +.x (5 * [0 .. 4] ++ [19])) * 98;
+let f = {
+	(
+		TChoose(Dust(t), r).Lag(0.1)
+		*
+		(LfNoise2([t t]) * 0.003 + 1)
+	).kr
+};
+Splay(
+	[0 .. 4].collect { :n |
+		let a = {
+			SinOsc(
+				f(),
+				SinOsc(
+					1 << n * f() / 2,
+					0
+				) * Max(LfNoise2(t), 0)
+			) * SinOsc(f() % 1.pi * t, 0)
+		} ! 3;
+		LeakDc(
+			Lpz2(
+				Schmidt(a[1], a[2], a[3])
+			),
+			0.995
+		)
+	}
+).Mix * t * Line(0, 1, 9)
 
 /* SCSCC-28 256b Dub */
 let f = 53;
