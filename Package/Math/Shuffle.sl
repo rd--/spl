@@ -24,7 +24,7 @@
 
 }
 
-+@Sequenceable {
++@Sequence {
 
 	fisherYatesShuffle { :self :rng |
 		rng.fisherYatesShuffle(self)

@@ -272,7 +272,7 @@ BitSet : [Object, Storeable, Copyable, Equatable, Iterable, Collection, Extensib
 
 }
 
-+@Sequenceable {
++@Sequence {
 
 	asBitSet { :self |
 		BitSet(self)

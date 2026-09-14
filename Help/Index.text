@@ -2292,7 +2292,7 @@ Reference/isSchemaType.help.sl
 Reference/isScientificNotationString.help.sl
 Reference/isSemiprime.help.sl
 Reference/isSeparator.help.sl
-Reference/isSequenceable.help.sl
+Reference/isSequence.help.sl
 Reference/isSignatureMatrix.help.sl
 Reference/isSingleton.help.sl
 Reference/isSinglyEven.help.sl
@@ -3743,9 +3743,9 @@ Reference/semicubicalParabola.help.sl
 Reference/semiperimeter.help.sl
 Reference/sentences.help.sl
 Reference/septimalComma.help.sl
-Reference/Sequenceable.help.sl
 Reference/sequenceAlignment.help.sl
 Reference/sequenceCount.help.sl
+Reference/Sequence.help.sl
 Reference/sequencePosition.help.sl
 Reference/sequenceReplace.help.sl
 Reference/Sequencer.help.sl

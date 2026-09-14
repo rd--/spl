@@ -1,4 +1,4 @@
-+@Sequenceable {
++@Sequence {
 
 	quickSortFromToBy { :self :from :to :sortBlock:/2 |
 		valueWithReturn { :return:/1 |

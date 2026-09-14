@@ -94,7 +94,7 @@
 
 }
 
-+@Sequenceable {
++@Sequence {
 
 	canonicalSort { :self |
 		self.sortComparing(canonicalCompare:/2)

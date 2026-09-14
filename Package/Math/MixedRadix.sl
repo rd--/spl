@@ -58,7 +58,7 @@
 
 }
 
-+@Sequenceable {
++@Sequence {
 
 	mixedRadixDecode { :self :factors |
 		let answer = 0;

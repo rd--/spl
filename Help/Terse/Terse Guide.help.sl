@@ -259,7 +259,7 @@ system.includesPackage('List') /* list package */
 [].isList = true /* the empty List is a List */
 [].isCollection = true /* arrays are collections */
 [].isIndexable = true /* arrays are indexable */
-[].isSequenceable = true /* arrays are sequenceable */
+[].isSequence = true /* arrays are sequence */
 [].isEmpty = true /* the empty array is empty */
 [].copy = [] /* copy empty array */
 List() = [] /* Void constructor makes the empty List */
@@ -270,7 +270,7 @@ List(5, 0) = [0, 0, 0, 0, 0] /* array can have slots initialised to a value */
 [].asList = [] /* List constructor, empty array */
 let a = [1 .. 9]; a.copy !== a /* copy does not answer argument */
 let a = [1 .. 9]; a.asList == a /* asList answers the receiver if it is an array */
-let a = [1 .. 9].asIdentitySet; a.asList !== a /* List constructor copies any collection, sequenceable or otherwise */
+let a = [1 .. 9].asIdentitySet; a.asList !== a /* List constructor copies any collection, sequence or otherwise */
 1.asCollection = [1] /* enclose a non-collection in an array */
 [1 .. 3].asCollection = [1 .. 3] /* an array is a collection */
 1:3.asCollection = 1:3 /* an interval is a collection */
@@ -586,7 +586,7 @@ IdentityMultiset().isIdentityMultiset = true
 IdentityMultiset().typeOf = 'IdentityMultiset'
 IdentityMultiset().isCollection
 IdentityMultiset().isIndexable = false
-IdentityMultiset().isSequenceable = false
+IdentityMultiset().isSequence = false
 let b = IdentityMultiset(); b.add('x'); b.add('x'); b.size = 2 /* number of objects in bag */
 let b = IdentityMultiset(); b.add('x'); b.add('y'); b.add('x'); b.size = 3 /* add element to bag */
 let b = IdentityMultiset(); b.addAll(['x', 'y', 'y', 'z', 'z', 'z']); b.size = 6 /* add all elements of argument to bag */
@@ -822,7 +822,7 @@ ByteArray(0).species = ByteArray:/1 /* byte array species */
 ByteArray(0).isList = false /* byte arrays are arrays */
 ByteArray(0).isByteArray /* byte array predicate */
 ByteArray(0).isIndexable /* byte arrays are indexable */
-ByteArray(0).isSequenceable /* byte arrays are sequenceable */
+ByteArray(0).isSequence /* byte arrays are sequence */
 ByteArray(0).size = 0 /* size of byte array (number of elements) */
 ByteArray(8).size = 8
 ByteArray(8).at(1) = 0 /* lookup element at index */
@@ -2821,9 +2821,9 @@ RunArray([1, 3, 5], ['a', 'b', 'c']).asList.stringIntercalate('') = 'abbbccccc' 
 'abbbccccc'.characters.asRunArray.runs = [1 3 5]
 ```
 
-## Sequenceable -- collection trait
+## Sequence -- collection trait
 ```
-system.includesPackage('Sequenceable') /* package */
+system.includesPackage('Sequence') /* package */
 [1, 3, 2] ++ [4, 5] = [1, 3, 2, 4, 5] /* append sequences */
 [1, 3, 2, 4, 5].reverse = [5, 4, 2, 3, 1] /* reverse sequence (answer new array) */
 [1, 3, 2, 4, 5].sorted = [1, 2, 3, 4, 5] /* sort using default comparison (answer new array) */
@@ -3807,7 +3807,7 @@ system.traitDictionary.isDictionary = true
 system.traitDictionary.includesIndex('Collection') = true
 system.traitTypes('@Collection').includes('List') = true
 system.typeTraits('List').includes('PrimitiveArray') = true
-system.methodTraits('atRandom:/1').includesAll(['Collection', 'Sequenceable']) = true
+system.methodTraits('atRandom:/1').includesAll(['Collection', 'Sequence']) = true
 system.methodTraits('sum:/1') = ['ArithmeticProgression', 'Collection', 'Iterable', 'Multiset']
 system.traitTypes('@Object').includes('SmallFloat') = true
 system.traitLookup('Object').methodDictionary.includesIndex('respondsTo:/2') = true
@@ -3942,7 +3942,7 @@ system.includesPackage('Tuple') /* package */
 (1, 2, 3).size = 3 /* size of */
 (1, 2, 3).isCollection = false /* collection trait */
 (1, 2, 3).isIndexable = false /* indexable trait */
-(1, 2, 3).isSequenceable = false /* sequenceable trait */
+(1, 2, 3).isSequence = false /* sequence trait */
 [1 .. 5].asTuple.at(1) = 1 /* from list */
 [1 .. 5].asTuple.asList = [1 .. 5] /* as list */
 let t = (1, 2, 3); t[3] = 3 /* at protocol */

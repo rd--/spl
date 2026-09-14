@@ -294,7 +294,7 @@
 
 }
 
-+@Sequenceable {
++@Sequence {
 
 	arcTan { :self :operand |
 		operand.adaptToCollectionAndApply(self, arcTan:/2)

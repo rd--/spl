@@ -82,7 +82,7 @@ Methods for set logic:
 
 * * *
 
-See also: Dictionary, do, Sequenceable, size
+See also: Dictionary, do, Sequence, size
 
 Guides: Dictionary Functions, List Functions
 

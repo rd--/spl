@@ -1,74 +1,74 @@
-# isSequenceable
+# isSequence
 
-- _isSequenceable(x)_
+- _isSequence(x)_
 
-Answers `true` if the object _x_ implements the `Sequenceable` trait.
+Answers `true` if the object _x_ implements the `Sequence` trait.
 
 At `List` answers `true`:
 
 ```
->>> List().isSequenceable
+>>> List().isSequence
 true
 ```
 
 At `Range` answers `true`:
 
 ```
->>> Range(0, 9, 1).isSequenceable
+>>> Range(0, 9, 1).isSequence
 true
 ```
 
 At `Tuple`, which is not a proper sequence:
 
 ```
->>> (1, 2, 3).isSequenceable
+>>> (1, 2, 3).isSequence
 false
 ```
 
 At `IdentityMultiset` answers false:
 
 ```
->>> IdentityMultiset().isSequenceable
+>>> IdentityMultiset().isSequence
 false
 ```
 
 At `Map` answers false:
 
 ```
->>> Map().isSequenceable
+>>> Map().isSequence
 false
 ```
 
 At `Record` answers false:
 
 ```
->>> Record().isSequenceable
+>>> Record().isSequence
 false
 ```
 
 At `IdentitySet` answers false:
 
 ```
->>> IdentitySet().isSequenceable
+>>> IdentitySet().isSequence
 false
 ```
 
 At `String` answers false:
 
 ```
->>> 'x'.isSequenceable
+>>> 'x'.isSequence
 false
 ```
 
 `Object` answers false:
 
 ```
->>> nil.isSequenceable
+>>> nil.isSequence
 false
 ```
 
 * * *
 
-See also: isCollection, isDictionary, isIndexable, Sequenceable
+See also: isCollection, isDictionary, isIndexable, Sequence
 
 Categories: Testing

@@ -1,4 +1,4 @@
-+@Sequenceable {
++@Sequence {
 
 	mergeFirstMiddleLastIntoBy { :self :first :middle :last :destination :sortBlock:/2 |
 		let i1 = first;

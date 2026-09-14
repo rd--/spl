@@ -1,4 +1,4 @@
-+@Sequenceable {
++@Sequence {
 
 	binaryDistance { :u :v |
 		(u != v).boole

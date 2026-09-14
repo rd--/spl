@@ -1248,7 +1248,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'isDictionary'
 		'isEmpty'
 		'isEmptyOrNil'
-		'isSequenceable'
+		'isSequence'
 		'noneSatisfy'
 		'isNotEmpty'
 		'oneSatisfies'

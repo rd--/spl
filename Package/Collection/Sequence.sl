@@ -1,6 +1,6 @@
 /* Require: SmallFloat */
 
-@Sequenceable {
+@Sequence {
 
 	+++ { :self :aList |
 		self ++.each aList
@@ -35,10 +35,10 @@
 	}
 
 	adaptToCollectionAndApply { :self :anObject :aBlock:/2 |
-		anObject.isSequenceable.if {
+		anObject.isSequence.if {
 			anObject.withCollect(self, aBlock:/2)
 		} {
-			self.error('@Sequenceable: only sequenceable collections may be processed elementwise')
+			self.error('@Sequence: only sequenceable collections may be processed elementwise')
 		}
 	}
 
@@ -182,7 +182,7 @@
 				self.isArithmeticProgression.if {
 					Range(self.first, self.last, self.second - self.first)
 				} {
-					self.error('@Sequenceable>>asRange: not an arithmetic series')
+					self.error('@Sequence>>asRange: not an arithmetic series')
 				}
 			}
 		}
@@ -370,7 +370,7 @@
 	}
 
 	beginsWith { :self :aList |
-		aList.isSequenceable.if {
+		aList.isSequence.if {
 			valueWithReturn { :return:/1 |
 				(self.size < aList.size).ifTrue {
 					false.return
@@ -383,7 +383,7 @@
 				true
 			}
 		} {
-			self.error('@Sequenceable>>beginsWith: not a sequence')
+			self.error('@Sequence>>beginsWith: not a sequence')
 		}
 	}
 
@@ -471,7 +471,7 @@
 
 	catenateStrict { :self |
 		(self.elementType = self.typeOf).ifFalse {
-			self.error('@Sequenceable>>catenateStrict: invalid element type')
+			self.error('@Sequence>>catenateStrict: invalid element type')
 		};
 		self.catenate
 	}
@@ -665,7 +665,7 @@
 	deepReplace { :self :aBlock:/1 |
 		self.indicesDo { :index |
 			let entry = self[index];
-			entry.isSequenceable.if {
+			entry.isSequence.if {
 				entry.deepReplace(aBlock:/1)
 			} {
 				self[index] := aBlock(entry)
@@ -759,7 +759,7 @@
 		self.detectStartingAtIfFoundIfNone(predicate:/1, startIndex) { :item |
 			item
 		} {
-			self.error('@Sequenceable>>detectStartingAt: no such item')
+			self.error('@Sequence>>detectStartingAt: no such item')
 		}
 	}
 
@@ -891,7 +891,7 @@
 	}
 
 	endsWith { :self :aList |
-		aList.isSequenceable.if {
+		aList.isSequence.if {
 			let sequenceSize = aList.size;
 			let offset = self.size - sequenceSize;
 			valueWithReturn { :return:/1 |
@@ -906,7 +906,7 @@
 				true
 			}
 		} {
-			self.error('@Sequenceable>>endsWith: not a sequence')
+			self.error('@Sequence>>endsWith: not a sequence')
 		}
 	}
 
@@ -994,7 +994,7 @@
 		self.findBinaryDoIfNone(aBlock:/1) { :found |
 			found
 		} {
-			self.error('@Sequenceable>>findBinary: not found')
+			self.error('@Sequence>>findBinary: not found')
 		}
 	}
 
@@ -1017,7 +1017,7 @@
 		self.findBinaryIndexDoIfNone(aBlock:/1) { :found |
 			found
 		} {
-			self.error('@Sequenceable>>findBinaryIndex: not found')
+			self.error('@Sequence>>findBinaryIndex: not found')
 		}
 	}
 
@@ -1294,7 +1294,7 @@
 	}
 
 	hasEqualElements { :self :otherCollection :aBlock:/2 |
-		(otherCollection.isSequenceable & {
+		(otherCollection.isSequence & {
 			self.size = otherCollection.size
 		}).if {
 			valueWithReturn { :return:/1 |
@@ -1550,7 +1550,7 @@
 		p.findRotation(q).isNotNil
 	}
 
-	isSequenceable { :unused |
+	isSequence { :unused |
 		true
 	}
 
@@ -2171,7 +2171,7 @@
 		(replacement.size = (stop - start + 1)).if {
 			self.replaceFromToWithStartingAt(start, stop, replacement, 1)
 		} {
-			self.error('@Sequenceable>> replaceFromToWith: size of replacement does not match')
+			self.error('@Sequence>> replaceFromToWith: size of replacement does not match')
 		}
 	}
 
@@ -2189,7 +2189,7 @@
 
 	replicate { :counts :items :aBlock:/1 |
 		(counts.size != items.size).if {
-			counts.error('@Sequenceable>>replicate: counts not of correct size')
+			counts.error('@Sequence>>replicate: counts not of correct size')
 		} {
 			let answerSize = counts.sum;
 			let answer = items.species.ofSize(answerSize);
@@ -2233,7 +2233,7 @@
 
 	reverseWithDo { :self :aList :aBlock:/2 |
 		(self.size != aList.size).if {
-			self.error('@Sequenceable>> reverseWithDo: unequal size')
+			self.error('@Sequence>> reverseWithDo: unequal size')
 		} {
 			self.size.toByDo(1, -1) { :index |
 				aBlock(self[index], aList[index])
@@ -2246,7 +2246,7 @@
 		(m < 2).if {
 			self
 		} {
-			anObject.isSequenceable.if {
+			anObject.isSequence.if {
 				let n = anObject.size;
 				(n > m).if {
 					self.error('riffle: too many items to insert')
@@ -2694,7 +2694,7 @@
 				self @> fromIndex
 			}
 		} {
-			self.error('@Sequenceable>>transpose: not permutation')
+			self.error('@Sequence>>transpose: not permutation')
 		}
 	}
 
@@ -2832,7 +2832,7 @@
 
 	withCollectOrAdaptTo { :self :anObject :aBlock:/2 |
 		(anObject.isCollection & {
-			anObject.isSequenceable
+			anObject.isSequence
 		}).if {
 			self.withCollect(anObject, aBlock:/2)
 		} {
@@ -2950,7 +2950,7 @@
 
 }
 
-+@Sequenceable {
++@Sequence {
 
 	applyBinaryMathOperatorInPlace { :self :anObject :aBlock:/2 |
 		anObject.isNumber.if {
@@ -3049,7 +3049,7 @@
 
 +@Object {
 
-	isSequenceable { :self |
+	isSequence { :self |
 		false
 	}
 

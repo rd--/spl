@@ -1,4 +1,4 @@
-+@Sequenceable {
++@Sequence {
 
 	contiguousSubsequences { :self |
 		let n = self.size;
@@ -169,7 +169,7 @@
 					n := n - 1
 				} {
 					(a[m - 1] = b[n - 1]).ifFalse {
-						'@Sequenceable>>longestCommonSubsequence: error?'.error
+						'@Sequence>>longestCommonSubsequence: error?'.error
 					};
 					answer.addFirst(a[m - 1]);
 					m := m - 1;

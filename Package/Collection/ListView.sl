@@ -1,4 +1,4 @@
-ListView : [Object, Equatable, Comparable, Iterable, Indexable, Collection, Sequenceable] { | contents startIndex endIndex referenceIndex |
+ListView : [Object, Equatable, Comparable, Iterable, Indexable, Collection, Sequence] { | contents startIndex endIndex referenceIndex |
 
 	asList { :self |
 		self.contents.copyFromTo(self.startIndex, self.endIndex).asList

@@ -1,4 +1,4 @@
-+@Sequenceable {
++@Sequence {
 
 	mergeInPlace { :self :select:/1 :insert:/2 |
 		let answer = [];

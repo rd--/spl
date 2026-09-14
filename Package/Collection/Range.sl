@@ -1,4 +1,4 @@
-Range : [Object, Storeable, Equatable, Comparable, Iterable, Collection, Indexable, Sequenceable, ArithmeticProgression] { | start stop step size |
+Range : [Object, Storeable, Equatable, Comparable, Iterable, Collection, Indexable, Sequence, ArithmeticProgression] { | start stop step size |
 
 	[negate, -] { :self |
 		Range(
@@ -176,7 +176,7 @@ Range : [Object, Storeable, Equatable, Comparable, Iterable, Collection, Indexab
 	}
 
 	listRange { :from :to :by |
-		to.isSequenceable.if {
+		to.isSequence.if {
 			listRange([from], to, by)
 		} {
 			nonEmptyRange(from, to, by).asList
@@ -193,7 +193,7 @@ Range : [Object, Storeable, Equatable, Comparable, Iterable, Collection, Indexab
 	}
 
 	nonEmptyRange { :start :stop :step |
-		stop.isSequenceable.if {
+		stop.isSequence.if {
 			nonEmptyRange([start], stop, step)
 		} {
 			let r = Range(start, stop, step);
@@ -219,7 +219,7 @@ Range : [Object, Storeable, Equatable, Comparable, Iterable, Collection, Indexab
 	}
 
 	[Range, to, toBy] { :start :stop :step |
-		stop.isSequenceable.if {
+		stop.isSequence.if {
 			Range([start], stop, step)
 		} {
 			let size = inferredRangeSize(start, stop, step);

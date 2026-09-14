@@ -1,4 +1,4 @@
-/* Requires: Collection, Sequenceable */
+/* Requires: Collection, Sequence */
 
 +@Collection {
 
@@ -857,7 +857,7 @@
 
 }
 
-+@Sequenceable {
++@Sequence {
 
 	\ { :self :aNumber |
 		self.Fraction(aNumber)

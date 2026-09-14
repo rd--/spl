@@ -23,7 +23,7 @@ Traits implemented by `List`:
 	'Ordered'
 	'PrimitiveArray'
 	'Removable'
-	'Sequenceable'
+	'Sequence'
 	'Storeable'
 ]
 ```

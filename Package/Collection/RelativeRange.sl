@@ -1,4 +1,4 @@
-RelativeRange : [Object, Storeable, Equatable, Comparable, Iterable, Collection, Indexable, Sequenceable, ArithmeticProgression] { | start stop step |
+RelativeRange : [Object, Storeable, Equatable, Comparable, Iterable, Collection, Indexable, Sequence, ArithmeticProgression] { | start stop step |
 
 	asRange { :self :extent |
 		let start = self.start;

@@ -1709,7 +1709,7 @@
 
 }
 
-+@Sequenceable {
++@Sequence {
 
 	runLengthTransform { :x :f:/1 |
 		x.collect { :n |

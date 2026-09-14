@@ -38,10 +38,10 @@ Tuple does not implement `Collection`:
 false
 ```
 
-Tuple does not implement `Sequenceable`:
+Tuple does not implement `Sequence`:
 
 ```
->>> (1, 2, 3).isSequenceable
+>>> (1, 2, 3).isSequence
 false
 ```
 

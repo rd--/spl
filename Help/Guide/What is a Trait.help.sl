@@ -17,7 +17,7 @@ We can ask the system which traits a given type implements:
 
 ```
 >>> system.typeTraits('List')
->>> .includes('Sequenceable')
+>>> .includes('Sequence')
 true
 ```
 

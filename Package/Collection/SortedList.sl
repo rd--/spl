@@ -1,4 +1,4 @@
-SortedList : [Object, Storeable, Copyable, Equatable, Comparable, Iterable, Indexable, Collection, Extensible, Removable, Sequenceable] { | contents sortBlock |
+SortedList : [Object, Storeable, Copyable, Equatable, Comparable, Iterable, Indexable, Collection, Extensible, Removable, Sequence] { | contents sortBlock |
 
 	[concatenation, ++] { :self :aCollection |
 		let answer = self.copy;

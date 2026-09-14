@@ -1,4 +1,4 @@
-List! : [Object, Storeable, Equatable, Comparable, Json, Iterable, Indexable, Collection, Extensible, Removable, Sequenceable, PrimitiveArray, Ordered] {
+List! : [Object, Storeable, Equatable, Comparable, Json, Iterable, Indexable, Collection, Extensible, Removable, Sequence, PrimitiveArray, Ordered] {
 
 	addListFirst { :self :aList |
 		<primitive:
@@ -382,7 +382,7 @@ List! : [Object, Storeable, Equatable, Comparable, Json, Iterable, Indexable, Co
 
 }
 
-+@Sequenceable {
++@Sequence {
 
 	[sequenceableToList, asList] { :self |
 		let answer = List(self.size);

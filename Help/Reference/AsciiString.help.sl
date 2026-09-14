@@ -20,7 +20,7 @@ At `String`:
 [83 116 114 105 110 103]
 ```
 
-`AsciiString` implements `Iterable`, `Collection`, `Indexable` and `Sequenceable`.
+`AsciiString` implements `Iterable`, `Collection`, `Indexable` and `Sequence`.
 
 ```
 >>> let s = AsciiString'text';

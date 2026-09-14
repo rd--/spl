@@ -734,7 +734,7 @@
 
 }
 
-+@Sequenceable {
++@Sequence {
 
 	combinationsAtATimeDo { :self :kk :aBlock:/1 |
 		let aCollection = List(kk);

@@ -21,7 +21,7 @@ Traits implemented by `ListView`:
 	'Iterable'
 	'Indexable'
 	'Collection'
-	'Sequenceable'
+	'Sequence'
 ]
 ```
 

@@ -212,7 +212,7 @@
 
 }
 
-+@Sequenceable {
++@Sequence {
 
 	absoluteCorrelation { :u :v |
 		let n = u.size;
@@ -275,7 +275,7 @@
 			(n = m).if {
 				(1 / (n - 1)) * (v - v.mean).dot((w - w.mean).conjugate)
 			} {
-				[v, w].error('@Sequenceable>>covariance: vectors must be equal')
+				[v, w].error('@Sequence>>covariance: vectors must be equal')
 			}
 		}
 	}
@@ -324,7 +324,7 @@
 	standardize { :self :meanBlock:/1 :deviationBlock:/1 |
 		let deviation = deviationBlock(self);
 		(deviation = 0).if {
-			self.error('@Sequenceable>>standardize: deviation = 0?')
+			self.error('@Sequence>>standardize: deviation = 0?')
 		} {
 			(self - meanBlock(self)) / deviation
 		}

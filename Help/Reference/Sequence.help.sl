@@ -1,19 +1,19 @@
-# Sequenceable
+# Sequence
 
-`Sequenceable` is collection `Trait` for collections that have a well-defined order associated with their elements.
+`Sequence` is collection `Trait` for collections that have a well-defined order associated with their elements.
 
 ```
 >>> system
->>> .traitDictionary['Sequenceable']
+>>> .traitDictionary['Sequence']
 >>> .isTrait
 true
 ```
 
-Types implementing `Sequenceable`:
+Types implementing `Sequence`:
 
 ```
 >>> system
->>> .traitTypes('@Sequenceable')
+>>> .traitTypes('@Sequence')
 >>> .sort
 [
 	'AsciiString'
@@ -34,7 +34,7 @@ Types implementing `Sequenceable`:
 Implementing this trait does not necessarily mean that the type is, in any ordinary sense, a sequence.
 For instance trees, matrices and arrays are all sequenceable, without being sequences.
 
-The `Sequenceable` trait is particularly important for binary elementwise operations over collections,
+The `Sequence` trait is particularly important for binary elementwise operations over collections,
 the key methods for which are `map` and `adaptToCollectionAndApply`.
 
 Methods for accessing:

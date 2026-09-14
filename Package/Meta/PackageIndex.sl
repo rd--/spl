@@ -70,7 +70,7 @@
 	'Collection-ResidueSet'
 	'Collection-RunArray'
 	'Collection-SequenceAlignment'
-	'Collection-Sequenceable'
+	'Collection-Sequence'
 	'Collection-Set'
 	'Collection-Sort'
 	'Collection-SortedList'

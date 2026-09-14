@@ -70,7 +70,7 @@
 		} {
 			let answer = [];
 			answer.add(self.size);
-			(self.isNotEmpty & { self.allSatisfy(isSequenceable:/1) }).ifTrue {
+			(self.isNotEmpty & { self.allSatisfy(isSequence:/1) }).ifTrue {
 				let k = self.anyOne.size;
 				self.allSatisfy { :each |
 					each.size = k

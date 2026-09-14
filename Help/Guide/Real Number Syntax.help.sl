@@ -1,6 +1,8 @@
 # Real Number Syntax
 
 Real numbers are ordinarily written in decimal notation and evaluate to floating point numbers.
+If a decimal point is given digits are required on both sides,
+implicit zeroes are not allowed.
 
 ```
 >>> 3.141.typeOf
@@ -49,7 +51,7 @@ Leading zeroes are allowed:
 -12.345
 ```
 
-Underscores are allowed as separators:
+Underscores are allowed as separators in the integer part:
 
 ```
 >>> 123_456.789
