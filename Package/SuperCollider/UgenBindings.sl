@@ -23,6 +23,8 @@
 	AllpassL { :in :maxdelaytime :delaytime :decaytime | <primitive: return sc.AllpassL(_in, _maxdelaytime, _delaytime, _decaytime);> }
 	AllpassN { :in :maxdelaytime :delaytime :decaytime | <primitive: return sc.AllpassN(_in, _maxdelaytime, _delaytime, _decaytime);> }
 	Amplitude { :in :attackTime :releaseTime | <primitive: return sc.Amplitude(_in, _attackTime, _releaseTime);> }
+	Apf { :in :freq :radius | <primitive: return sc.Apf(_in, _freq, _radius);> }
+	BAllPass { :in :freq :rq | <primitive: return sc.BAllPass(_in, _freq, _rq);> }
 	BBandPass { :in :freq :bw | <primitive: return sc.BBandPass(_in, _freq, _bw);> }
 	BBandStop { :in :freq :bw | <primitive: return sc.BBandStop(_in, _freq, _bw);> }
 	BfDecode1 { :w :x :y :z :azimuth :elevation :wComp | <primitive: return sc.BfDecode1(_w, _x, _y, _z, _azimuth, _elevation, _wComp);> }

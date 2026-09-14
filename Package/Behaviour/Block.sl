@@ -126,22 +126,52 @@ Block! : [Object, Equatable] {
 	}
 
 	cull { :self :firstArg |
-		(self.numArgs >= 1).if {
-			self.value(firstArg)
-		} {
-			self.value
+		self.numArgs.caseOf(
+			[
+				0 -> { self.value },
+				1 -> { self.value(firstArg) }
+			]
+		) {
+			self.error('cull: k > 1')
 		}
 	}
 
 	cull { :self :firstArg :secondArg |
-		(self.numArgs >= 2).if {
-			self.value(firstArg, secondArg)
-		} {
-			(self.numArgs = 1).if {
-				self.value(firstArg)
-			} {
-				self.value
-			}
+		self.numArgs.caseOf(
+			[
+				0 -> { self.value },
+				1 -> { self.value(firstArg) },
+				2 -> { self.value(firstArg, secondArg) }
+			]
+		) {
+			self.error('cull: k > 2')
+		}
+	}
+
+	cull { :self :firstArg :secondArg :thirdArg |
+		self.numArgs.caseOf(
+			[
+				0 -> { self.value },
+				1 -> { self.value(firstArg) },
+				2 -> { self.value(firstArg, secondArg) },
+				3 -> { self.value(firstArg, secondArg, thirdArg) }
+			]
+		) {
+			self.error('cull: k > 3')
+		}
+	}
+
+	cull { :self :firstArg :secondArg :thirdArg :fourthArg |
+		self.numArgs.caseOf(
+			[
+				0 -> { self.value },
+				1 -> { self.value(firstArg) },
+				2 -> { self.value(firstArg, secondArg) },
+				3 -> { self.value(firstArg, secondArg, thirdArg) },
+				4 -> { self.value(firstArg, secondArg, thirdArg, fourthArg) }
+			]
+		) {
+			self.error('cull: k > 4')
 		}
 	}
 

@@ -190,6 +190,22 @@ Pan2(
 	1
 )
 
+/* SCSCC-18 "Bone Spurs" 165 bytes */
+let b = [BLowShelf:/4 BPeakEq:/4 BHiShelf:/4 BLowPass:/3 BHiPass:/3 BBandPass:/3 BBandStop:/3 BAllPass:/3];
+let q = { :x | QuadN(x, 1, -1, -0.75, 0).Sin };
+let o = LocalIn(1, 0) + 0.1;
+[0 .. 7].collect { :n |
+	let f = 1.1 ^ n;
+	let c = b[n + 1].cull(
+		o,
+		q(f ^ 2 * f) + 1.1 / 2 ^ 4 * 4444 + 33,
+		q(0.1 * f) + 1.005,
+		0
+	);
+	o := (3 * c).Tanh
+};
+Pan2(o, 0, 1 / 11) <! LocalOut(CombC(o, 0.2, 0.2, 1))
+
 /* SCSCC-19 "Nervous Arpeggios" 138 bytes */
 let c = [7 / 3, 1.78, 3 / 2,1] *.x [1, 2];
 let t = Sweep(0, 1) * 8000;
@@ -203,6 +219,19 @@ Pan2(
 	Sum(1 / 8 < a * Fold(LeakDc(d, 0.995) / 8, -1, 1)),
 	0,
 	1 / 8
+)
+
+/* SCSCC-21 "Byte Beat Business" 104b */
+let e = 256;
+let t = Sweep(0, 8000);
+let | = BitOr:/2;
+let & = BitAnd:/2;
+let a = ((t >> 8 % e) | (t / 5 & (t / 2816 % e)));
+let b = (t >> 9 % e | (t * 2 & (t / 1792 % 16)));
+Pan2(
+	LeakDc(a | b, 0.995).Clip(-1, 1),
+	0,
+	1 / 22
 )
 
 /* SCSCC-22 "Siv" 238 */
@@ -227,6 +256,28 @@ Brf(
 	+
 	(Slew(e, 1000, 1) ^ (LfSaw(h / 46, 0).Abs * 3 + h))
 ) / 5 * Line(0, 1, 9)
+
+/* SCSCC-23 "Back to 1991" 228bytes (updated 20250327) */
+let t = TDuty(Dseq(Infinity, 4 # [3] ++ (2 # [2]) / 8), 0, 1);
+let e = Perc(t, 0.01, 1, -4) ^ 1.9;
+let r = Demand(t, 0, Dseq(Infinity, 'HHHJKHHHJJKK'.ascii - 66 / 6));
+let f = PmOsc([0 .. 3] + 5, 0, 0, 0) / 87 + 1 * 247 * r * [1 / 8, 1, 6 / 5, 3 / 4];
+let o = e * PmOsc(
+	f,
+	f * [2 3 3 3],
+	1.1 + PmOsc(0.1, 0.9, 1, 0) * e + 1,
+	3 + e
+).Sum / 9;
+Pan2(
+	CombC(
+		o,
+		0.2,
+		0.2,
+		1
+	) / 9 + o,
+	0,
+	1
+)
 
 /* SCSCC-24 "Loading…" 221 bytes ; https://github.com/lukiss/SCSCC/ */
 let r = (12 * [0 .. 4] +.x [0 10 15 19]).MidiRatio;
@@ -451,6 +502,29 @@ Splay(
 	b(m())
 ).transpose.Sum / 2
 
+/* SCSCC #35 "Fitba" */
+Splay(
+	Lag(
+		StandardL(
+			5555,
+			[0 .. 19].degreesToRadians / 60 + 1.1,
+			0.5,
+			0
+		) / 7,
+		0.002
+	)
+) * Line(0, 1, 0.05)
+
+/* SCSCC #36 "LFSausy Hats" */
+let z = { :a | LfSaw(-1 * a, 1) };
+let f = 7777;
+let n = z(42 * [0 .. 6] + (0.1 * f)).Sum;
+let m = z(8) + 1 / 2 ^ (z(2) > 0 ^ 6 * 6 + 0.9) / 3;
+let a = m * Hpf(Apf(n, f / 2, z(1 / 18).Abs ^ 0.1), f).Clip(-1, 1) / 8;
+let b = Sin(1.pi * z(z(2) + 1 / 2 ^ 32 * 110 + 55)) * Lag(z(2) + 1 / 2, 0.001) / 3;
+let c = (z(n / 4 + 1 * [540 800]).Sum / 88 * (z(8 / [7 13 11]).Max(0) ^ 8)).Sum;
+Pan2(a + b + c, 0, 1)
+
 /* ScScc-38 "Index" ; https://github.com/lukiss/SCSCC/ */
 let t = LfSaw(-7, 0);
 let c = Index(
@@ -537,6 +611,27 @@ Splay(
 	) * (n / 2 + 0.5 / 3),
 	1 / 2
 )
+
+/* SCSCC-43 The Universe is 0.0000000000000000000042% Full */
+let n = LfNoise2([0 .. 9]);
+let m = Select(
+	Sweep(0, 1) % 4,
+	[7 12 19 24]
+);
+let r = (
+	Wrap(m + [0 16 7 11 -3], -12, 12)
+	+.x
+	[0 7]
+).MidiRatio;
+Splay(
+	Blip(
+		n / 99 + 1 * 147 * r,
+		Blip(
+			[4, 1 / 3, 2],
+			n + 1 * 8
+		) * n + 1 * 4
+	) * Blip(2, n + 1 * 5)
+) * Line(0, 1, 0.1)
 
 /* SCSCC-45 "Lullaby" ; Sub 256 version 194 bytes */
 let r = 1 << [0 .. 2] * 1.1;
