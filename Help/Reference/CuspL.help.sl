@@ -54,6 +54,19 @@ SinOsc(
 ) * 0.2
 ~~~
 
+Filtered noise:
+
+~~~
+let t = Dust(7).kr;
+Bpf(
+	Perc(t, 0.03, TRand(0.07, 0.35, t), -4)
+	*
+	CuspL(22050, 1, 1.9, 0),
+	TRand(130, 450, t) * [4 7],
+	1
+)
+~~~
+
 * * *
 
 See also: LatoocarfianC

@@ -1,3 +1,39 @@
+/*  SCSCC-2 "Crispy Rubber" 138 bytes ; https://github.com/lukiss/SCSCC/ */
+let m = SinOsc(QuadC(1, 1, -1, -0.75, 0) ^ 2 * 8, 0);
+let f = QuadC(m ^ m ^ m, 1, -1, -0.75, 0).LinExp(-1, 1, 0.01, 1) * 99 + 12;
+Pan2(
+	Bpf(
+		SinOsc(
+			f,
+			SinOsc(m ^ f * 2, 0) * m * 2.pi).Sign,
+		(m * m).LinExp(-1, 1, 0.01, 1) * 5000 + (m * 99),
+		1
+	),
+	0,
+	1 / 3
+)
+
+/* SCSCC-4 "HandClap Special" 121 bytes */
+let l = 9 # [0] + [0, 1];
+let e = Env(
+	l,
+	l[1 .. 7] ++ [66] / 99,
+	7 # [-4] ++ [-17],
+	nil,
+	nil,
+	0
+).asList;
+let t = TDuty(
+	Dseq(Infinity, 168044.integerDigits(3) / 5),
+	0,
+	1
+);
+Bpf(
+	EnvGen(t, 1, 0, 1, 0, e) * CuspL(22050, 1, 1.9, 0),
+	444 * [4 7],
+	1
+)
+
 /* SCSCC-5 "Printer Gone Mad" 138 bytes ; https://github.com/lukiss/SCSCC/ */
 let r = 9000;
 let t = Sweep(0, r) % r;
@@ -141,6 +177,18 @@ CombC(
 	Lag(l, 0.1).atAll([4 8]) / 9 + [3 2] / 8,
 	l.atAll([7 .. 8]) * 4
 ) * (1 / 8) + o
+
+/* SCSCC-15 "Bitwise Bird Calls" 93 bytes */
+let r = TRand(1, 255, Dust(2));
+let t = Sweep(0, 1) * r.Sin * 999 % r;
+let b = t.BitAnd(r);
+Pan2(
+	Saw(
+		13 * b.BitOr(t >> r)
+	) * (b > 66) / 3,
+	0,
+	1
+)
 
 /* SCSCC-19 "Nervous Arpeggios" 138 bytes */
 let c = [7 / 3, 1.78, 3 / 2,1] *.x [1, 2];
