@@ -62,7 +62,7 @@ however it is currently parsed as _x/y / z_.
 ```
 
 Fraction syntax requires that _n_ and _d_ be integer literals.
-The Spl parser allows binary operators to be written without delimiting whitespace:
+The Sᴘʟ parser allows binary operators to be written without delimiting whitespace:
 
 ```
 >> 'n/d'.splSimplify
