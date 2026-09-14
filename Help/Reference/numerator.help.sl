@@ -4,13 +4,31 @@
 
 Answer the numerator _n_ of a `Fraction` _n/d_,
 or the identity for an `Integer`.
+Also called the _dividend_.
+
+At `Fraction`:
 
 ```
 >>> 2/3.numerator
 2
+```
 
+At `LargeInteger`:
+
+```
+>>> 2L.numerator
+2L
+```
+
+At `SmallFloat`,
+it is an error if the value is not an integer:
+
+```
 >>> 2.numerator
 2
+
+>>> { 3.141.numerator }.hasError
+true
 ```
 
 At negative fractions the `numerator` is negative:

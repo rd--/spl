@@ -469,7 +469,11 @@ OEIS [A348291](https://oeis.org/A348291):
 
 ~~~spl svg=Y oeis=A348291
 let k = 85;
-let t = nimMultiplication:/2.table(1:k, 1:k);
+let t = table(
+	nimMultiplication:/2,
+	1:k,
+	1:k
+);
 2:k.collect { :n |
 	let m = n - 1;
 	1:m.sum { :i |

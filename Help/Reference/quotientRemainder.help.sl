@@ -4,6 +4,13 @@
 
 Answer a `List` of the `quotient` and `remainder` from division of _m_ by _n_.
 
+Seventeen is divided into three groups of five, with two leftover:
+
+```
+>>> 17.quotientRemainder(3)
+[5 2]
+```
+
 `quotientRemainder` table:
 
 ```
@@ -186,6 +193,7 @@ _OEIS_
 _W_
 [1](https://en.wikipedia.org/wiki/Quotient)
 [2](https://en.wikipedia.org/wiki/Remainder)
-[3](https://en.wikipedia.org/wiki/Polynomial_long_division)
+[3](https://en.wikipedia.org/wiki/Euclidean_division)
+[4](https://en.wikipedia.org/wiki/Polynomial_long_division)
 
 Categories: Math, Arithmetic

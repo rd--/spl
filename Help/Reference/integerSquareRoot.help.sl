@@ -214,10 +214,11 @@ Numerators of a rational guess _r(n)_ for the input for Newton’s algorithm to 
 OEIS [A256097](https://oeis.org/A256097):
 
 ~~~spl svg=F oeis=A256097
-let n = 1:70;
+let n = 1L:70;
 let a = n.integerSquareRoot;
-let b = a + Fraction(n, a);
-(b / 2).numerator.discretePlot
+let b = a + (n / a);
+(b / 2).numerator
+.discretePlot
 ~~~
 
 ![](Help/Image/integerSquareRoot-F.svg)

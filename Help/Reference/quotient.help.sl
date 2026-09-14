@@ -2,15 +2,15 @@
 
 - _quotient(m, n)_
 
-Answer the integer quotient of _m_ and _n_,
+Answer the integer quotient of the Euclidean division of_m_ and _n_,
 defined by division with truncation toward zero.
 
 ```
->>> -9.quotient(4)
--2
+>>> (-9.quotient(4), -9 / 4)
+(-2, -2.25)
 
->>> -0.9.quotient(0.4)
--2
+>>> (-0.9.quotient(0.4), -0.9 / 0.4)
+(-2, -2.25)
 ```
 
 The operator form is `//`:
@@ -86,14 +86,21 @@ Quotient threads elementwise over lists:
 [-1 -1 -1 0 0 0 0 0 1 1 1]
 ```
 
-Quotient is equivalent to `floor` of division for integers:
+Quotient is equivalent to `truncate` of division for integers,
+and `truncate` is equivalent to `floor` for positive integers:
 
 ```
 >>> 83 // 16
 5
 
->>> (83 / 16).floor
+>>> (83 / 16).truncate
 5
+
+>>> -83 // 16
+-5
+
+>>> (-83 / 16).truncate
+-5
 ```
 
 For positive integers _quotient(m, n) + fractionalPart(m / n)_ is always equal to _m / n_:
@@ -287,7 +294,10 @@ _Mathematica_
 _OEIS_
 [1](https://oeis.org/A000601),
 _Smalltalk_
-5.6.2.26
+5.6.2.26,
+_W_
+[1](https://en.wikipedia.org/wiki/Quotient)
+[2](https://en.wikipedia.org/wiki/Euclidean_division)
 
 Unicode: U+02AFD ⫽ Double Solidus Operator
 

@@ -436,11 +436,11 @@ least number _k<n_ and coprime to _n_ such that the largest term of the continue
 OEIS [A141821](https://oeis.org/A141821):
 
 ~~~spl svg=A oeis=A141821
-2:108.collect { :n |
+2L:108.collect { :n |
 	let k = (1 .. n - 1).select { :x |
 		x.isCoprime(n)
 	};
-	let c = (k \ n).continuedFraction;
+	let c = (k / n).continuedFraction;
 	let m = c.collect(max:/1);
 	let i = m.indexOf(m.min);
 	k[i]
@@ -454,11 +454,11 @@ the least number _k<n_ and coprime to _n_ such that the largest term of the cont
 OEIS [A141822](https://oeis.org/A141822):
 
 ~~~spl svg=B oeis=A141822
-2:67.collect { :n |
+2L:67.collect { :n |
 	let k = (1 .. n - 1).select { :x |
 		x.isCoprime(n)
 	};
-	(k \ n)
+	(k / n)
 	.continuedFraction
 	.collect(max:/1)
 	.min

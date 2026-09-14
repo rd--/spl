@@ -14,7 +14,7 @@ Range(1, n, 1)
 Range(1, n, -1)
 ```
 
-α and β must be either integer literals or identifiers,
+α and β must be either small or large integer literals or identifiers,
 and γ must be an integer literal.
 
 In the literal form,
@@ -29,6 +29,27 @@ Range(1, 9)
 >>> let n = 9;
 >>> 1:n
 Range(1, 9)
+```
+
+A `Range` of `LargeInteger` values:
+
+```
+>>> 1L:9L
+Range(1L, 9L)
+
+>>> 1L:9.elementType
+'LargeInteger'
+```
+
+As with `Fraction` literals,
+`Range` literals are parsed as a single token:
+
+```
+>>> 1:3.square
+[1 4 9]
+
+>>> [1 .. 3.square]
+[1 2 3 4 5 6 7 8 9]
 ```
 
 Answer consecutive ascending `Range` values:

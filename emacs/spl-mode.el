@@ -70,12 +70,26 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
 (defvar spl-help-url-prefix "http://localhost/rd/index.cgi"
   "The Spl help browser Url prefix.")
 
+(defun region-or-thing-at-point (thing)
+  "Get region if selected, else thing at point."
+  (let ((bounds
+	 (if (use-region-p)
+             (cons (region-beginning) (region-end))
+           (bounds-of-thing-at-point thing))))
+    (when bounds
+      (buffer-substring-no-properties (car bounds) (cdr bounds)))))
+
 (defun spl-browse-help ()
   "Lookup up the name at point in the Spl help files."
   (interactive)
-  (let ((topic (thing-at-point 'symbol)))
+  (let* ((topic (region-or-thing-at-point 'symbol))
+	 (kind (if (string-match-p " " topic) "Guide" "Reference")))
     (browse-url
-     (format "%s?t=spl&e=Help/Reference/%s.help.sl" spl-help-url-prefix topic))))
+     (format
+      "%s?t=spl&e=Help/%s/%s.help.sl"
+      spl-help-url-prefix
+      kind
+      topic))))
 
 (defun spl-insert-oeis-reference (oeisId)
   (interactive "MOeis Identifier: ")
@@ -254,7 +268,7 @@ If the string begins with a doctest, also delete all non doctest lines."
    ;; (list nil "^\\(-- .*\\)$" 1) ; Line Comment
    (list nil "^\\(#+ .*\\)$" 1) ; Heading
    (list nil "^\\(\+?@?\[?@?[A-Z][, A-Za-z0-9@]+[A-Za-z0-9]\]?\\).* {\\( |\\|$\\)" 1)
-   (list nil "^\\(\t\[?[, *&@|~+/%><=?!#^a-zA-Z0-9-]+\]?\\) {" 1))
+   (list nil "^\\(\t\[?[, *&@|~+/\\%><=?!#^a-zA-Z0-9-]+\]?\\) {" 1))
   "Value for `imenu-generic-expression' in Spl mode.")
 
 (defconst spl-font-lock-keywords

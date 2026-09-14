@@ -56,6 +56,16 @@ Threads elementwise over lists:
 [2 2 3]
 ```
 
+The integer part of a division is equal to the `quotient`:
+
+```
+>>> (17 / 3).integerPart
+5
+
+>>> 17 // 3
+5
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A
@@ -106,7 +116,7 @@ OEIS [A000006](https://oeis.org/A000006):
 
 * * *
 
-See also: ceiling, floor, fractionalPart, truncate
+See also: ceiling, floor, fractionalPart, quotient, truncate
 
 Guides: Rounding Functions
 

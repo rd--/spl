@@ -189,14 +189,14 @@ const asJs: ohm.ActionDict<string> = {
 			`}, ${JSON.stringify(arg.parametersOf)})`,
 		].join('');
 	},
-	BlockLiteralInitializer(name, _eq, blk) {
+	BlockLiteralInitializer(name, _equals, blk) {
 		 /* Equivalent to ExpressionInitializer after simplifier, required as grammar is reused */
 		return `${name.asJs} = ${blk.asJs}`;
 	},
 	EmptyListSyntax(_l, _r) {
 		return '[]';
 	},
-	ExpressionInitializer(name, _e, exp) {
+	ExpressionInitializer(name, _equals, exp) {
 		return `${name.asJs} = ${exp.asJs}`;
 	},
 	FinalStatement(e) {
@@ -333,7 +333,7 @@ const asJs: ohm.ActionDict<string> = {
 				throw new Error('rewrite: reservedIdentifier?');
 		}
 	},
-	scientificLiteral(base, _e, exponent) {
+	scientificLiteral(base, _letterE, exponent) {
 		return `${base.sourceString}E${exponent.sourceString}`;
 	},
 	singleQuotedStringLiteral(_l, s, _r) {
@@ -384,10 +384,10 @@ const asSl: ohm.ActionDict<string> = {
 	AtAllSyntax(c, i) {
 		return `atAll(${c.asSl}, ${i.asSl})`;
 	},
-	AtPutSyntax(c, _l, k, _r, _e, v) {
+	AtPutSyntax(c, _leftBracket, k, _rightBracket, _colonEquals, v) {
 		return `atPut(${c.asSl}, ${k.asSl}, ${v.asSl})`;
 	},
-	AtSyntax(c, _l, k, _r) {
+	AtSyntax(c, _leftBracket, k, _rightBracket) {
 		return `at(${c.asSl}, ${k.asSl})`;
 	},
 	BinaryOperatorExpression(lhs, ops, rhs) {
@@ -417,7 +417,7 @@ const asSl: ohm.ActionDict<string> = {
 		const vBar = (argSl === '') ? '' : ' | ';
 		return `{ ${argSl}${vBar}${tmp.asSl}${prm.asSl}${stm.asSl} }`;
 	},
-	BlockLiteralInitializer(name, _e, blk) {
+	BlockLiteralInitializer(name, _equals, blk) {
 		let nameStr = name.asSl;
 		if(isArityQualifiedName(nameStr)) {
 			return `${nameStr} = ${blk.asSl}`;
@@ -426,22 +426,22 @@ const asSl: ohm.ActionDict<string> = {
 			return `${nameStr}:/${blkArity} = ${blk.asSl}`;
 		}
 	},
-	DotExpression(lhs, _dot, names, args) {
-		let rcv = lhs.asSl;
-		const namesArray = names.children.map((c) => c.asSl);
-		const argsArray = args.children.map((c) => c.asSl);
+	DotExpression(lhs, _dot, namesList, argsList) {
+		let answer = lhs.asSl;
+		const namesArray = namesList.children.map((c) => c.asSl);
+		const argsArray = argsList.children.map((c) => c.asSl);
 		while (namesArray.length > 0) {
 			const name = namesArray.shift();
 			const arg = argsArray.shift();
 			if (arg.length === 0) {
-				rcv = `${name}(${rcv})`;
+				answer = `${name}(${answer})`;
 			} else {
-				rcv = `${name}(${[rcv].concat([arg])})`;
+				answer = `${name}(${[answer].concat([arg])})`;
 			}
 		}
-		return rcv;
+		return answer;
 	},
-	DotExpressionWithAssignmentSyntax(lhs, _d, name, _e, rhs) {
+	DotExpressionWithAssignmentSyntax(lhs, _dot, name, _colonEquals, rhs) {
 		return `${name.asSl}(${lhs.asSl}, ${rhs.asSl})`;
 	},
 	DotExpressionWithTrailingClosuresSyntax(lhs, _dot, name, args, trailing) {
@@ -449,25 +449,25 @@ const asSl: ohm.ActionDict<string> = {
 			commaListSl([lhs].concat(args.children, trailing.children))
 		})`;
 	},
-	EmptyListSyntax(_l, _r) {
+	EmptyListSyntax(_leftBracket, _rightBracket) {
 		return '[]';
 	},
-	EmptyRecordSyntax(_l, _c, _r) {
+	EmptyRecordSyntax(_leftParen, _colon, _rightParen) {
 		return 'Record()';
 	},
-	ExpressionInitializer(name, _e, exp) {
+	ExpressionInitializer(name, _equals, exp) {
 		return `${name.asSl} = ${exp.asSl}`;
 	},
 	FinalStatement(e) {
 		return e.asSl;
 	},
-	LetBinding(_l, tmp) {
+	LetBinding(_let, tmp) {
 		return `let ${tmp.asSl}`;
 	},
 	LibraryItemLiteral(_l, aRecord) {
 		return `LibraryItem ${aRecord.asSl}`;
 	},
-	ListAssignment(_l, lhs, _r, _e, rhs) {
+	ListAssignment(_leftBracket, lhs, _rightBracket, _colonEquals, rhs) {
 		const namesArray = lhs.asIteration().children.map((c) => c.asSl);
 		const rhsListName = genVarSym();
 		const slots = namesArray.map(
@@ -478,7 +478,7 @@ const asSl: ohm.ActionDict<string> = {
 	ListConstructorSyntax(typ, lst) {
 		return `${typ.asSl}(${lst.asSl})`;
 	},
-	ListInitializer(_l, lhs, _r, _e, rhs) {
+	ListInitializer(_leftBracket, lhs, _rightBracket, _equals, rhs) {
 		const namesArray = lhs.asIteration().children.map((c) => c.asSl);
 		const rhsName = genVarSym();
 		const slots = namesArray.map(
@@ -543,7 +543,7 @@ const asSl: ohm.ActionDict<string> = {
 	UncheckedSlotReadSyntax(c, _colons, k) {
 		return `uncheckedSlotRead(${c.asSl}, '${k.sourceString}')`;
 	},
-	UncheckedSlotWriteSyntax(c, _colons, k, _equals, v) {
+	UncheckedSlotWriteSyntax(c, _doubleColon, k, _colonEquals, v) {
 		return `uncheckedSlotWrite(${c.asSl}, '${k.sourceString}', ${v.asSl})`;
 	},
 	RangeFromToSyntax(_leftParenthesis, i, _dots, j, _rightParenthesis) {
@@ -555,7 +555,7 @@ const asSl: ohm.ActionDict<string> = {
 	RangeFromToBySyntax(_leftParenthesis, i, _dots, j, _semicolon, k, _rightParenthesis) {
 		return `Range(${i.asSl}, ${j.asSl}, ${k.asSl})`;
 	},
-	RecordAssignment(_l, lhs, _r, _e, rhs) {
+	RecordAssignment(_leftParen, lhs, _rightParen, _colonEquals, rhs) {
 		const rhsDictionaryName = genVarSym();
 		const keyVarNamesArray = lhs.asIteration().children.map(
 			(c) => c.parametersOf,
@@ -570,7 +570,7 @@ const asSl: ohm.ActionDict<string> = {
 	RecordConstructorSyntax(typ, rcd) {
 		return `${typ.asSl}(${rcd.asSl})`;
 	},
-	RecordInitializer(_l, lhs, _r, _e, rhs) {
+	RecordInitializer(_leftParen, lhs, _rightParen, _equals, rhs) {
 		const rhsDictionaryName = genVarSym();
 		const keyVarNamesArray = lhs.asIteration().children.map(
 			(c) => c.parametersOf,
@@ -585,10 +585,10 @@ const asSl: ohm.ActionDict<string> = {
 	RecordKeyAssociation(lhs, rhs) {
 		return `['${lhs.asSl}', ${rhs.asSl}]`;
 	},
-	ScalarAssignment(lhs, _e, rhs) {
+	ScalarAssignment(lhs, _colonEquals, rhs) {
 		return `${lhs.asSl} := ${rhs.asSl}`;
 	},
-	StringAssociation(lhs, _c, rhs) {
+	StringAssociation(lhs, _colon, rhs) {
 		return `[${lhs.sourceString}, ${rhs.asSl}]`;
 	},
 	StringConstructorSyntax(typ, str) {
@@ -761,7 +761,7 @@ const asSl: ohm.ActionDict<string> = {
 	residueLiteral(i, _z, m) {
 		return `Residue(${i.sourceString}, ${m.sourceString})`;
 	},
-	scientificLiteral(b, _e, e) {
+	scientificLiteral(b, _letterE, e) {
 		return b.sourceString + 'E' + e.sourceString;
 	},
 	singleQuotedStringLiteral(_l, s, _r) {
@@ -822,7 +822,7 @@ const asAst: ohm.ActionDict<SlAst> = {
 	EmptyListSyntax(_l, _r) {
 		return ['List'];
 	},
-	ExpressionInitializer(name, _e, exp) {
+	ExpressionInitializer(name, _equals, exp) {
 		return [name.asAst, exp.asAst];
 	},
 	FinalStatement(e) {
@@ -849,7 +849,7 @@ const asAst: ohm.ActionDict<SlAst> = {
 	Program(tmp, stm) {
 		return ['Program', tmp.asAst.flat(1), stm.asAst].flat(1);
 	},
-	ScalarAssignment(lhs, _e, rhs) {
+	ScalarAssignment(lhs, _colonEquals, rhs) {
 		return ['Assignment', [lhs.asAst], [rhs.asAst]].flat(1);
 	},
 	Statements(nonFinal, final) {
@@ -892,7 +892,7 @@ const asAst: ohm.ActionDict<SlAst> = {
 	reservedIdentifier(x) {
 		return ['ReservedIdentifier', x.sourceString];
 	},
-	scientificLiteral(b, _e, e) {
+	scientificLiteral(b, _letterE, e) {
 		return ['SmallFloat', b.sourceString + 'E' + e.sourceString];
 	},
 	singleQuotedStringLiteral(_l, s, _r) {

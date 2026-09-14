@@ -27,12 +27,12 @@ Answer a `String` naming the tuning specified by the list of ratios _r_ accordin
 >>> .tuningName
 'redfield'
 
->>> [
+>>> let n = [
 >>> 	360 384 400 432 450
 >>> 	480 540 576 600 648
 >>> 	675
->>> ]
->>> .Fraction(360)
+>>> ];
+>>> (n / 360L)
 >>> .tuningName
 'kornerup_11'
 

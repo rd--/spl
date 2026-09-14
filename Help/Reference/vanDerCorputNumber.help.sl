@@ -256,9 +256,9 @@ Generate a two-dimensional Hammersley sequence:
 
 ~~~spl svg=I
 let n = 256;
-1:n.collect { :k |
+1L:n.collect { :k |
 	[
-		k \ n,
+		k / n,
 		vanDerCorputNumber(k, 2)
 	]
 }.scatterPlot

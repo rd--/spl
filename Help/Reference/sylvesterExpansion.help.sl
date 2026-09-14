@@ -53,9 +53,9 @@ Size of expansions for fractal sequence of fractions,
 OEIS [A050205](http://oeis.org/A050205):
 
 ```
->>> (2 .. 11).collect { :i |
+>>> (2L .. 11).collect { :i |
 >>> 	(1 .. i - 1).collect { :j |
->>> 		(j \ i).sylvesterExpansion.size
+>>> 		(j / i).sylvesterExpansion.size
 >>> 	}
 >>> }
 [

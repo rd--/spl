@@ -12,11 +12,22 @@ however it may change the type of the value:
 >>> let y = x.asInteger;
 >>> (y, x = y, x == y)
 (23, true, false)
+```
 
+At `Fraction`:
+
+```
 >>> let x = 23/1;
 >>> let y = x.asInteger;
 >>> (y, x = y, x == y)
 (23, true, false)
+```
+
+At `Decimal`:
+
+```
+>>> 3D.asInteger
+3
 ```
 
 At `LargeInteger`,
@@ -42,6 +53,13 @@ true
 true
 
 >>> { 3.142D.asInteger }.hasError
+true
+```
+
+At `Decimal` there must be no decimal places:
+
+```
+>>> { 3.0D.asInteger }.hasError
 true
 ```
 

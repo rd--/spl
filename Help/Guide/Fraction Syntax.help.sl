@@ -69,6 +69,23 @@ The Spl parser allows binary operators to be written without delimiting whitespa
 solidus(n, d)
 ```
 
+The infix dot of `Method Syntax` has precedence over infix binary operators.
+By convention infix dots are written without delimiting white space,
+except in the case of a preceding line break,
+while binary operators are written with delimiting white space.
+`Fraction` literals are parsed as a single token:
+
+```
+>>> 2/3.square
+4/9
+
+>>> 2 / 3.square
+2/9
+
+>>> (2 / 3).square
+4/9
+```
+
 If the `Fraction` package is not installed,
 the `SmallFloat` package can implement `Fraction` as `/`.
 

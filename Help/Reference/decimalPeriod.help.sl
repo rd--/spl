@@ -6,38 +6,45 @@ Answer the period of the decimal expansion of the `Fraction` _n/d_,
 or `zero` if the expansion terminates.
 
 ```
->>> 1/3.decimalPeriod
-1
+>>> (1/3.decimalPeriod, 1 / 3)
+(1, 0.333333)
 
->>> 1/11.decimalPeriod
-2
+>>> (1/11.decimalPeriod, 1 / 11)
+(2, 0.090909)
 
->>> 1/37.decimalPeriod
-3
+>>> (1/37.decimalPeriod, 1 / 37)
+(3, 0.027027)
 
->>> 1/101.decimalPeriod
-4
+>>> (1/101.decimalPeriod, 1 / 101)
+(4, 0.00990099)
 
->>> 1/41.decimalPeriod
-5
+>>> (1/41.decimalPeriod, 1 / 41)
+(5, 0.0243902439)
 
->>> 1/7.decimalPeriod
-6
+>>> (1/7.decimalPeriod, 1 / 7)
+(6, 0.142857142857)
 
->>> 1/73.decimalPeriod
-8
+>>> (1/73.decimalPeriod, 1 / 73)
+(8, 0.0136986301369863)
 ```
 
 Fractions with terminating decimal expansions:
 
 ```
->>> 1/1.decimalPeriod
-0
+>>> (1/1.decimalPeriod, 1 / 1)
+(0, 1.0)
 
->>> 1/2.decimalPeriod
-0
+>>> (1/2.decimalPeriod, 1 / 2)
+(0, 0.5)
 
->>> 1/5.decimalPeriod
+>>> (1/5.decimalPeriod, 1 / 5)
+(0, 0.2)
+```
+
+Defined at `LargeInteger` since `divide` does not always answer a `Fraction`:
+
+```
+>>> (12L / 4L).decimalPeriod
 0
 ```
 
@@ -45,7 +52,7 @@ First few terms,
 OEIS [A051626](https://oeis.org/A051626):
 
 ```
->>> Fraction(1, 1:90)
+>>> (1L /  1:90)
 >>> .collect(decimalPeriod:/1)
 [
 	 0  0  1  0  0  1  6  0  1 0
@@ -66,7 +73,7 @@ OEIS [A001913](https://oeis.org/A001913):
 ```
 >>> [7 17 19 23 29 47 51 59 61 97]
 >>> .collect { :d |
->>> 	Fraction(1, d).decimalPeriod
+>>> 	(1L / d).decimalPeriod
 >>> }
 [6 16 18 22 28 46 16 58 60 96]
 ```
@@ -122,7 +129,7 @@ log scale plot
 OEIS [A051626](https://oeis.org/A051626):
 
 ~~~spl svg=A oeis=A051626
-Fraction(1, 1:200)
+(1L / 1:200)
 .collect(decimalPeriod:/1)
 .scatterPlot.logScale
 ~~~
@@ -134,7 +141,7 @@ OEIS [A002371](https://oeis.org/A002371):
 
 ```
 >>> 1:67.prime.collect { :p |
->>> 	(1 \ p).decimalPeriod
+>>> 	(1L / p).decimalPeriod
 >>> }
 [
 	  0   1   0   6   2
@@ -159,7 +166,7 @@ OEIS [A002371](https://oeis.org/A002371):
 
 ~~~spl svg=B oeis=A002371
 1:175.prime.collect { :p |
-	(1 \ p).decimalPeriod
+	(1L / p).decimalPeriod
 }.scatterPlot
 ~~~
 
@@ -172,7 +179,7 @@ OEIS [A002329](https://oeis.org/A002329):
 2:600.select { :n |
 	n.isCoprime(10)
 }.collect { :n |
-	(1 \ n).decimalPeriod
+	(1L / n).decimalPeriod
 }.scatterPlot
 ~~~
 

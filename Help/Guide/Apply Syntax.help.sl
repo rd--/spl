@@ -3,7 +3,7 @@
 Rewrite rule:
 
 - _f()_ ⟹ _f:/0 . ()_
-- _f(x, ...)_ ⟹ _f:/n . (x, ...)_
+- _f(x, ...)_ ⟹ _fₙ . (x, ...)_
 
 Ordinarily block and method application is written _f(x, ...)_,
 where _f_ is the _unqualified name_ of the block or method,

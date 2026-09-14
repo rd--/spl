@@ -30,8 +30,8 @@ Generate a sequence of dyadic rationals over _(0,x)_ with precision _2ⁿ_.
 >>> let x = 1;
 >>> let n = 3;
 >>> let m = 2 ^ n;
->>> [0 .. x * m].collect { :k |
->>> 	k \ m
+>>> [0L .. x * m].collect { :k |
+>>> 	k / m
 >>> }
 [0 1/8 1/4 3/8 1/2 5/8 3/4 7/8 1/1]
 ```

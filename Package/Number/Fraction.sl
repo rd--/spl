@@ -10,7 +10,7 @@ Fraction : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | num
 
 	[divide, /] { :self :aNumber |
 		aNumber.isScalarInteger.if {
-			self * ReducedFraction(1, aNumber.asLargeInteger)
+			self * uncheckedFraction(1, aNumber.asLargeInteger)
 		} {
 			aNumber.isFraction.if {
 				self * aNumber.reciprocal
@@ -26,7 +26,7 @@ Fraction : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | num
 
 	[plus, +] { :self :aNumber |
 		aNumber.isScalarInteger.if {
-			ReducedFraction(
+			uncheckedFraction(
 				self.numerator + (self.denominator * aNumber.asLargeInteger),
 				self.denominator
 			)
@@ -42,9 +42,9 @@ Fraction : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | num
 				d := d1 * (d // d2);
 				(d = 1).if {
 					/* preference: answer proper integer */
-					ReducedFraction(n, n.one)
+					uncheckedFraction(n, n.one)
 				} {
-					ReducedFraction(n, d)
+					uncheckedFraction(n, d)
 				}
 			} {
 				aNumber.adaptToFractionAndApply(self, +)
@@ -70,7 +70,7 @@ Fraction : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | num
 
 	[subtract, -] { :self :aNumber |
 		aNumber.isScalarInteger.if {
-			ReducedFraction(
+			uncheckedFraction(
 				self.numerator - (self.denominator * aNumber.asLargeInteger),
 				self.denominator
 			)
@@ -92,7 +92,7 @@ Fraction : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | num
 				d1 = aNumber.denominator
 			}).if {
 				/* preference: answer proper integer */
-				ReducedFraction(numerator, numerator.one)
+				uncheckedFraction(numerator, numerator.one)
 			} {
 				Fraction(
 					numerator,
@@ -106,7 +106,7 @@ Fraction : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | num
 
 	adaptToIntegerAndApply { :self :anInteger :aBlock:/2 |
 		aBlock(
-			ReducedFraction(anInteger, 1L),
+			uncheckedFraction(anInteger, 1L),
 			self
 		)
 	}
@@ -247,7 +247,7 @@ Fraction : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | num
 	gcd { :self :aFraction |
 		aFraction.isFraction.if {
 			let d = self.denominator.gcd(aFraction.denominator);
-			ReducedFraction(
+			uncheckedFraction(
 				(self.numerator * (aFraction.denominator // d)).gcd(
 					aFraction.numerator * (self.denominator // d)
 				),
@@ -400,8 +400,8 @@ Fraction : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | num
 					}
 				};
 				let k = (maxDenominator - q0) // q1;
-				let bound1 = ReducedFraction(p0 + (k * p1), q0 + (k * q1));
-				let bound2 = ReducedFraction(p1, q1);
+				let bound1 = uncheckedFraction(p0 + (k * p1), q0 + (k * q1));
+				let bound2 = uncheckedFraction(p1, q1);
 				((bound2 - self).abs <= (bound1 - self).abs).if {
 					bound2
 				} {
@@ -444,7 +444,7 @@ Fraction : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | num
 	}
 
 	[negate, -] { :self |
-		ReducedFraction(self.numerator.negate, self.denominator)
+		uncheckedFraction(self.numerator.negate, self.denominator)
 	}
 
 	normal { :self |
@@ -469,7 +469,7 @@ Fraction : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | num
 	}
 
 	one { :self |
-		ReducedFraction(1L, 1L)
+		uncheckedFraction(1L, 1L)
 	}
 
 	phiWeightedMediant { :self :aFraction |
@@ -498,7 +498,7 @@ Fraction : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | num
 			(anInteger < 0).if {
 				self.reciprocal.raisedToInteger(anInteger.negate)
 			} {
-				ReducedFraction(
+				uncheckedFraction(
 					self.numerator.raisedToInteger(anInteger),
 					self.denominator.raisedToInteger(anInteger)
 				)
@@ -513,7 +513,7 @@ Fraction : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | num
 	[reciprocal, /] { :self |
 		(self.numerator.abs = 1).if {
 			/* preference: answer proper integer */
-			ReducedFraction(self.denominator * self.numerator, self.denominator.one)
+			uncheckedFraction(self.denominator * self.numerator, self.denominator.one)
 		} {
 			Fraction(self.denominator, self.numerator)
 		}
@@ -628,7 +628,7 @@ Fraction : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | num
 	}
 
 	zero { :self |
-		ReducedFraction(0L, 1L)
+		uncheckedFraction(0L, 1L)
 	}
 
 }
@@ -668,10 +668,10 @@ Fraction : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | num
 		aBlock(aFraction, Fraction(self, self.one))
 	}
 
-	ReducedFraction { :numerator :denominator |
+	uncheckedFraction { :numerator :denominator |
 		denominator.isScalarInteger.if {
 			(denominator = 0).if {
-				'@Integer>>ReducedFraction: zeroDenominatorError'.error
+				'@Integer>>uncheckedFraction: zeroDenominatorError'.error
 			} {
 				newFraction().initializeSlots(
 					numerator.asLargeInteger,
@@ -685,7 +685,7 @@ Fraction : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | num
 
 	Fraction { :numerator :denominator |
 		denominator.isScalarInteger.if {
-			ReducedFraction(
+			uncheckedFraction(
 				numerator.asLargeInteger,
 				denominator.asLargeInteger
 			).simplify
@@ -745,7 +745,7 @@ Fraction : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | num
 
 	asFraction { :self :epsilon |
 		self.isInteger.if {
-			ReducedFraction(self, 1L)
+			uncheckedFraction(self, 1L)
 		} {
 			self.rationalize(epsilon)
 		}
@@ -798,7 +798,7 @@ Fraction : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | num
 			}
 		} {
 			self.isDecimalIntegerString.if {
-				ReducedFraction(
+				uncheckedFraction(
 					self.parseLargeInteger,
 					1L
 				)
@@ -828,7 +828,7 @@ Fraction : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | num
 
 	asFractionOver { :self :denominator |
 		self.isInteger.if {
-			ReducedFraction(self.asLargeInteger, 1L)
+			uncheckedFraction(self.asLargeInteger, 1L)
 		} {
 			Fraction(
 				(self * denominator).round,

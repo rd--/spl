@@ -44,9 +44,19 @@ Divide is applied sequentially:
 (3 / (5 * 7 * 9))
 ```
 
-At `LargeInteger` answers a `Fraction`:
+At `LargeInteger` answers either a `LargeInteger` or a `Fraction`:
 
 ```
+>>> let r = 12L / 3L;
+>>> (r, r.isLargeInteger)
+(4L, true)
+
+>>> 12L / 3
+4L
+
+>>> 12 / 3L
+4L
+
 >>> let r = 2L / 3L;
 >>> (r, r.isFraction)
 (2/3, true)
@@ -86,11 +96,25 @@ At `Complex` answers a `Complex`:
 1.5J0.5
 ```
 
+At `Fraction` answers a `Fraction`,
+even if the answer is a whole number:
+
+```
+>>> 7/4 / 6/5
+35/24
+
+>>> 1/2 / 1/8
+4/1
+```
+
 Division by `zero` may be `Infinity`, `NaN` or an `error`:
 
 ```
 >>> 5 / 0
 Infinity
+
+>>> (0 / 0).isNaN
+true
 
 >>> (5J3 / 0).isNaN
 true
@@ -206,5 +230,6 @@ _Smalltalk_
 5.6.2.29,
 _W_
 [1](https://en.wikipedia.org/wiki/Division_(mathematics))
+[2](https://en.wikipedia.org/wiki/Division_by_zero)
 
 Categories: Math, Operator

@@ -129,6 +129,13 @@ At `LargeInteger`:
 8966473191018617158916954970192684L
 ```
 
+Note that the answer is given in `normal` form:
+
+```
+>>> 6L.binomial(4L).isSmallInteger
+true
+```
+
 If _k_ is greater than _n_ the answer is zero:
 
 ```

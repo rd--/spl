@@ -24,7 +24,7 @@ the reciprocal of the arithmetic progression.
 >>> 17L.harmonicNumber
 42142223/12252240
 
->>> Fraction(1, 1:17).sum
+>>> (1L / 1:17).sum
 42142223/12252240
 ```
 

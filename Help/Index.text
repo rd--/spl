@@ -75,6 +75,7 @@ Guide/Experimental Map Syntax.help.sl
 Guide/Experimental MessageSend Syntax.help.sl
 Guide/Experimental Quoted AtIfAbsentPut Syntax.help.sl
 Guide/Experimental Quoted AtIfAbsent Syntax.help.sl
+Guide/Experimental Relative Range Syntax.help.sl
 Guide/Experimental Set Syntax.help.sl
 Guide/Experimental Simple Method Arity.help.sl
 Guide/Experimental Slot Access Syntax.help.sl
@@ -160,6 +161,7 @@ Guide/Numerical Methods.help.sl
 Guide/Numerical Precision.help.sl
 Guide/Numeric Types.help.sl
 Guide/One Indexing.help.sl
+Guide/Open Questions.help.sl
 Guide/Open Sound Control.help.sl
 Guide/Operator Adverbs.help.sl
 Guide/Operator List.help.sl
@@ -3498,7 +3500,6 @@ Reference/recurrenceMatrix.help.sl
 Reference/recurrenceTable.help.sl
 Reference/recycle.help.sl
 Reference/red.help.sl
-Reference/ReducedFraction.help.sl
 Reference/reducedPermutation.help.sl
 Reference/reducedPlanckConstant.help.sl
 Reference/reducedResidueSystem.help.sl
@@ -3793,6 +3794,7 @@ Reference/signatureSequence.help.sl
 Reference/signBit.help.sl
 Reference/signedArea.help.sl
 Reference/signedGcd.help.sl
+Reference/signedInteger.help.sl
 Reference/signedLcm.help.sl
 Reference/signedPointPlaneDistance.help.sl
 Reference/signedSqrt.help.sl
@@ -4261,6 +4263,7 @@ Reference/umbilicTorus.help.sl
 Reference/unaryExpansion.help.sl
 Reference/uncheckedAt.help.sl
 Reference/uncheckedAtPut.help.sl
+Reference/uncheckedFraction.help.sl
 Reference/uncheckedSlotRead.help.sl
 Reference/uncheckedSlotWrite.help.sl
 Reference/uncheckedStringIntercalate.help.sl

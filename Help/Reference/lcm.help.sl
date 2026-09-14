@@ -263,9 +263,9 @@ let m = f[30];
 Form the least common multiples of `one` with rational numbers:
 
 ~~~spl svg=D
-(1 .. 20).collect { :j |
-	(1 .. 2 * j).collect { :i |
-		Fraction(i, j)
+(1L .. 20).collect { :j |
+	(1L .. 2 * j).collect { :i |
+		i / j
 	}
 }.catenate.nub.sort.collect { :n |
 	lcm(1, n)

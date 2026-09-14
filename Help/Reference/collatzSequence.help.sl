@@ -353,7 +353,7 @@ The first few sequences:
 
 ```
 >>> let n = 3:13:2;
->>> Fraction(1, n)
+>>> (1L / n)
 >>> .collect(collatzSequence:/1) * n
 [
 	1 6 3 12 6;
@@ -369,7 +369,7 @@ Plot first few rational Collatz sequences:
 
 ~~~spl svg=E
 1:15.collect { :n |
-	let x = Fraction(1, (2 * n + 1));
+	let x = 1L / (2 * n + 1);
 	x.collatzSequence
 }.catenate.scatterPlot.log
 ~~~
@@ -381,7 +381,7 @@ OEIS [A210468](https://oeis.org/A210468):
 
 ~~~spl svg=F oeis=A210468
 1:66.collect { :n |
-	let x = Fraction(1, (2 * n + 1));
+	let x = 1L / (2 * n + 1);
 	let y = x.collatzSequence;
 	let k = y.size;
 	let e = y.last;

@@ -221,12 +221,12 @@ Robbins triangle,
 OEIS [A048601](https://oeis.org/A048601):
 
 ```
->>> 1L:8.triangularArray { :n :k |
+>>> (1 .. 8).triangularArray { :n :k |
 >>> 	binomial(n + k - 2, k - 1)
 >>> 	*
 >>> 	((2 * n - k - 1).! \ (n - k ).!)
 >>> 	*
->>> 	0.to(n - 2).product { :j |
+>>> 	(0L .. n - 2).product { :j |
 >>> 		(3 * j + 1).! \ (n + j).!
 >>> 	}
 >>> }

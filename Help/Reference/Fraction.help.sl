@@ -20,11 +20,11 @@ Fraction(1, 3)
 Arithmetic is exact:
 
 ```
->>> (31/10 - 1) / (11/10 - 1) + 1 = 22
+>>> (31/10 - 1) / (11/10 - 1) = 21
 true
 
->>> (31 / 10 - 1) / (11 / 10 - 1) + 1 = 22
-false
+>>> (31 / 10 - 1) / (11 / 10 - 1) < 21
+true
 ```
 
 Fractions can be converted to floating point numbers:
@@ -61,6 +61,15 @@ The `Fraction` method reduces fractions on construction:
 1/2
 ```
 
+The `uncheckedFraction` method does not,
+it assumes the fraction being specified is in reduced form:
+
+```
+>>> uncheckedFraction(2, 4)
+>>> .numeratorDenominator
+[2 4]
+```
+
 The unary `Fraction` requires a two-element sequence:
 
 ```
@@ -71,15 +80,6 @@ The unary `Fraction` requires a two-element sequence:
 1/3
 ```
 
-The `ReducedFraction` method does not,
-it assumes the fraction being specified is in reduced form:
-
-```
->>> ReducedFraction(2, 4)
->>> .numeratorDenominator
-[2 4]
-```
-
 Literal fractions are `normal` and have the following invariants:
 
 - the denominator shall always be positive
@@ -87,7 +87,7 @@ Literal fractions are `normal` and have the following invariants:
 
 Properly simplified fractions have the additional invariant:
 
-- the denominator shall allways be greater than 1
+- the denominator shall always be positive
 
 For instance:
 
@@ -95,11 +95,17 @@ For instance:
 >>> Fraction(3, -2)
 Fraction(-3, 2)
 
->>> Fraction(2, 1).simplified
-2
-
 >>> 8/6
 Fraction(4, 3)
+```
+
+Fractions do not simplify to integers:
+
+```
+>>> Fraction(2, 1)
+>>> .simplify
+>>> .isFraction
+true
 ```
 
 A Fraction that does not conform to the above invariants could be the cause of undefined behavior and unexpected results.
@@ -122,7 +128,7 @@ Note that `Fraction` and `Integer` represent together the set of Rational number
 
 ```
 >>> 2/3 + 4/3
-2
+2/1
 
 >>> 2/3 * 3/4
 1/2
@@ -296,6 +302,16 @@ The numerator and denominator of a rational are relatively prime:
 [1/3 3/5 5/7]
 ```
 
+The operator form of `Fraction` is `\`:
+
+```
+>>> 1 \ 3
+1/3
+
+>>> [1 3 5] \ [3 5 7]
+[1/3 3/5 5/7]
+```
+
 A `Fraction` multiplied by a `SmallFloat`,
 and vice-versa,
 answers a `SmallFloat`:
@@ -335,7 +351,7 @@ Print `String`:
 
 * * *
 
-See also: /, denominator, normalized, numerator, ReducedFraction, reduced
+See also: /, denominator, normalized, numerator, reduced, uncheckedFraction
 
 Guides: Fraction Syntax, Numeric Types
 

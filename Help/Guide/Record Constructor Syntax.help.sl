@@ -25,7 +25,7 @@ SinOsc(freq: 440, phase: 0) * 0.1
 
 * * *
 
-See also: Dictionary, Record
+See also: Dictionary, Map, Record
 
 Guides: Apply Syntax, List Constructor Syntax, Record Syntax, String Constructor Syntax
 

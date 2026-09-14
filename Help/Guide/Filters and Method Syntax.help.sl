@@ -16,8 +16,10 @@ Dust([1, 3])
 .Times(1 / 4)
 .Decay((1 / 3).lfo(1 / 5, 5 / 7))
 .Times(PinkNoise())
-.Bpf((1 / 3).lfo(700, 2300), (1 / 3).lfo(1 / 9, 3))
-.AllpassN(1 / 5, 1 / 5, lfo(1 / 3, 1 / 3, 3))
+.Bpf(
+	(1 / 3).lfo(700, 2300),
+	(1 / 3).lfo(1 / 9, 3)
+).AllpassN(1 / 5, 1 / 5, lfo(1 / 3, 1 / 3, 3))
 ```
 
 The same program written in applicative form with infix operators:

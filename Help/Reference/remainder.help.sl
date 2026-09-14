@@ -92,5 +92,6 @@ _Smalltalk_
 5.6.2.30,
 _W_
 [1](https://en.wikipedia.org/wiki/Remainder)
+[2](https://en.wikipedia.org/wiki/Euclidean_division)
 
 Categories: Arithmetic

@@ -4,13 +4,29 @@
 
 Answer the denominator of the `Fraction` _n/d_,
 or `one` for an `Integer`.
+Also called the _divisor_.
+
+At `Fraction`:
 
 ```
 >>> 2/3.denominator
 3
+```
+
+At `LargeInteger`:
+
+>>> 2L.denominator
+1
+```
+
+At `SmallFloat`,
+it is an error if the value is not an integer:
 
 >>> 2.denominator
 1
+
+>>> { 3.141.denominator }.hasError
+true
 ```
 
 At negative fractions the `denominator` is positive:

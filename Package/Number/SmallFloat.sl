@@ -309,6 +309,14 @@ SmallFloat! : [Object, Storeable, Equatable, Comparable, Json, Magnitude, Number
 		<primitive: return Math.cbrt(_self);>
 	}
 
+	denominator { :self |
+		self.isInteger.if {
+			1
+		} {
+			self.error('denominator')
+		}
+	}
+
 	encodeFloat32 { :self :littleEndian |
 		<primitive: return sc.encodeFloat32(_self, _littleEndian);>
 	}
@@ -591,6 +599,10 @@ SmallFloat! : [Object, Storeable, Equatable, Comparable, Json, Magnitude, Number
 			l[k] := l[k] + f
 		};
 		l * self.sign
+	}
+
+	numerator { :self |
+		self.assertIsSmallInteger
 	}
 
 	one { :self |

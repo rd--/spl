@@ -262,8 +262,8 @@ let y = x.sin;
 OEIS [A051712](https://oeis.org/A051712):
 
 ~~~spl svg=C oeis=A051712
-1:125.collect { :n |
-	n \ ((n + 1) * (n + 2))
+1L:125.collect { :n |
+	n / ((n + 1) * (n + 2))
 }.differences
 .negate
 .numerator

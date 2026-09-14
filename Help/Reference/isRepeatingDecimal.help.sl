@@ -8,7 +8,7 @@ Every rational number is either a terminating or repeating decimal.
 First few unit fractions that are repeating:
 
 ```
->>> Fraction(1, 1:20)
+>>> (1L / 1:20)
 >>> .select(isRepeatingDecimal:/1)
 [
 	1/3  1/6  1/7  1/9  1/11
@@ -20,7 +20,7 @@ First few unit fractions that are repeating:
 First few unit fractions that are terminating:
 
 ```
->>> Fraction(1, 1:20)
+>>> (1L / 1:20)
 >>> .select(isTerminatingDecimal:/1)
 [
 	1/1  1/2  1/4  1/5  1/8
@@ -32,8 +32,8 @@ Denominators of unit fractions having non-terminating decimal expansions,
 OEIS [A085837](https://oeis.org/A085837):
 
 ```
->>> 1:84.select { :d |
->>> 	(1 \ d).isRepeatingDecimal
+>>> 1L:84.select { :d |
+>>> 	(1 / d).isRepeatingDecimal
 >>> }
 [
 	 3  6  7  9 11 12 13 14 15 17

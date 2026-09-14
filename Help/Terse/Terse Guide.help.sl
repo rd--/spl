@@ -1435,7 +1435,7 @@ system.includesPackage('Fraction') /* fraction package */
 Fraction(2, 3).isFraction /* fractional type */
 2/3 = Fraction(2, 3) /* literal syntax */
 Fraction(4, 6) = 2/3 /* Fraction normalises */
-ReducedFraction(4, 6) != 2/3 /* ReducedFraction assumes fraction is normal, and will construct a non-reduced fraction */
+uncheckedFraction(4, 6) != 2/3 /* uncheckedFraction assumes fraction is normal, and will construct a non-reduced fraction */
 2/3 = 4/6 /* literals are reduced by construction */
 2 / 3/4 = 8/3 /* division */
 2/3 + 2/3 = 4/3 /* addition */
@@ -1532,8 +1532,8 @@ Fraction(3, 1) = 3/1
 4/6.numerator = 2 /* literal fractions are reduced */
 4/6.denominator = 3 /* literal fractions are reduced */
 4/2 = 2
-ReducedFraction(4, 6).numerator = 4 /* ReducedFraction is not initially reduced */
-ReducedFraction(4, 6).denominator = 6 /* ReducedFraction is not initially reduced */
+uncheckedFraction(4, 6).numerator = 4 /* uncheckedFraction is not initially reduced */
+uncheckedFraction(4, 6).denominator = 6 /* uncheckedFraction is not initially reduced */
 Fraction(4, 6).numerator = 2
 Fraction(4, 6).denominator = 3
 3/2.truncate = 1

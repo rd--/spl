@@ -15,7 +15,7 @@ At `Fraction`:
 
 ```
 >>> 1/3.one
-Fraction(1, 1)
+1/1
 ```
 
 At `SmallFloat`:

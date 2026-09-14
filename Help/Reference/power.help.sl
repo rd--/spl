@@ -267,7 +267,7 @@ At `Fraction` answers a fraction if the exponent is an integer:
 >>> 23/17 ^ 2
 529/289
 
->>> Fraction(23 ^ 2, 17 ^ 2)
+>>> (23L ^ 2) / (17L ^ 2)
 529/289
 
 >>> -5/2 ^ 15

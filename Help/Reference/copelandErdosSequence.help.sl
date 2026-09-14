@@ -32,7 +32,7 @@ OEIS [A030168](https://oeis.org/A030168):
 >>> let k = 500;
 >>> let a = k.copelandErdosSequence;
 >>> let n = a.fromDigits;
->>> let m = Fraction(n, 10L ^ k);
+>>> let m = n / (10L ^ k);
 >>> let c = m.continuedFraction;
 >>> c.take(100)
 [

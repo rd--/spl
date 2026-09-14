@@ -318,10 +318,6 @@
 		(k * 2).jordanTotient(n) / k.jordanTotient(n)
 	}
 
-	denominator { :self |
-		1
-	}
-
 	digitalRootSet { :x :b :f:/1 |
 		let seen = IdentitySet();
 		{
@@ -1368,10 +1364,6 @@
 				}
 			}
 		}
-	}
-
-	numerator { :self |
-		self
 	}
 
 	oddPart { :n |

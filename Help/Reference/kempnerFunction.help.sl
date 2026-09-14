@@ -30,9 +30,9 @@ and
 OEIS [A094372](https://oeis.org/A094372):
 
 ```
->>> let n = 1:200;
+>>> let n = 1L:200;
 >>> let a = n.kempnerFunction;
->>> let b = Fraction(a, n);
+>>> let b = a / n;
 >>> b.reciprocal.recordValues.reciprocal
 [
 	1/1 1/2 1/3 1/4 1/6

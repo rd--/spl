@@ -15,7 +15,7 @@ At `Fraction`:
 
 ```
 >>> let u = 1:10.square.differences;
->>> let v = Fraction(1, 1:20);
+>>> let v = 1L / 1:20;
 >>> u.listCorrelate(v)
 [
 	52489/2520 40499/2520

@@ -27,7 +27,7 @@ At `NumericArray` answers a normal dense list:
 At `Fraction` answer the normalized form:
 
 ```
->>> let n = ReducedFraction(2, 4);
+>>> let n = uncheckedFraction(2, 4);
 >>> (
 >>> 	n.components,
 >>> 	n.normal.components

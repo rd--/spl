@@ -11,7 +11,7 @@ Without fractional part:
 >>> '23D'.parseDecimal
 23D
 
->>> Decimal(Fraction(23, 1E0), 0)
+>>> Decimal(23/1, 0)
 23D
 ```
 

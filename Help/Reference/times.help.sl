@@ -36,11 +36,15 @@ Threads element-wise over lists:
 ]
 ```
 
-At `Fraction`:
+At `Fraction` answers a `Fraction`,
+even if the answer is a whole number:
 
 ```
 >>> 18/17 * 17/16
 9/8
+
+>>> 1/2 * 8/1
+4/1
 ```
 
 Vector times matrix:

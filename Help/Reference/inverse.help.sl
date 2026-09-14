@@ -159,7 +159,7 @@ Inverse of a matrix of rational numbers:
 
 ```
 >>> { :i :j |
->>> 	Fraction(1, i + j)
+>>> 	1L / (i + j)
 >>> }.table(1:4, 1:4).inverse
 [
 	  200  -1200   2100  -1120;

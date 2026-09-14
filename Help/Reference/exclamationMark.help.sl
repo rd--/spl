@@ -10,6 +10,12 @@ The unary case is the operator form of `factorialOrGamma`:
 factorialOrGamma(9)
 ```
 
+Note that the answer is given in `normal` form:
+
+>>> 9L.!.isSmallInteger
+true
+```
+
 The binary case is the operator form of `duplicate`:
 
 ```

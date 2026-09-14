@@ -256,8 +256,8 @@ values are real numbers in _(2,3)_:
 ~~~spl svg=F oeis=A106108 variant
 let n = 200;
 let a = 7.rowlandsSequence(n);
-(a / 1:n).
-allButFirst(2)
+(a / 1:n)
+.allButFirst(2)
 .scatterPlot
 ~~~
 

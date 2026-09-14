@@ -210,6 +210,14 @@ LargeInteger! : [Object, Storeable, Equatable, Comparable, Binary, Magnitude, Nu
 		self
 	}
 
+	decimalPeriod { :unused |
+		0
+	}
+
+	denominator { :self |
+		1
+	}
+
 	floorLog { :self :radix |
 		(self <= 0).if {
 			self.error('LargeInteger>>floorLog: is only defined for x > 0')
@@ -284,6 +292,10 @@ LargeInteger! : [Object, Storeable, Equatable, Comparable, Binary, Magnitude, Nu
 		true
 	}
 
+	isRepeatingDecimal { :unused |
+		false
+	}
+
 	isSmallInteger { :self |
 		self.abs <= (2L ^ 53 - 1)
 	}
@@ -293,12 +305,20 @@ LargeInteger! : [Object, Storeable, Equatable, Comparable, Binary, Magnitude, Nu
 		(m * m) = n
 	}
 
+	isTerminatingDecimal { :unused |
+		true
+	}
+
 	isVeryCloseTo { :self :aNumber |
 		self = aNumber
 	}
 
 	normal { :self |
 		self.asInteger
+	}
+
+	numerator { :self |
+		self
 	}
 
 	isZero { :self |
@@ -351,6 +371,10 @@ LargeInteger! : [Object, Storeable, Equatable, Comparable, Binary, Magnitude, Nu
 		self.error('remainder: not integer')
 	}
 
+	signedInteger { :self :bitCount |
+		<primitive: return BigInt.asIntN(_bitCount, _self);>
+	}
+
 	[squareRoot, sqrt] { :self |
 		<primitive:
 		/* https://github.com/Aisse-258/bigint-isqrt */
@@ -387,10 +411,6 @@ LargeInteger! : [Object, Storeable, Equatable, Comparable, Binary, Magnitude, Nu
 		self.storeStringLiteral
 	}
 
-	toNumber { :self :precision |
-		<primitive: BigInt.asIntN(_precision, _self);>
-	}
-
 	uncheckedGcd { :self :anInteger |
 		<primitive:
 		let a = _self;
@@ -410,6 +430,10 @@ LargeInteger! : [Object, Storeable, Equatable, Comparable, Binary, Magnitude, Nu
 
 	uncheckedRemainder { :self :anInteger |
 		<primitive: return _self % BigInt(_anInteger);>
+	}
+
+	unsignedInteger { :self :bitCount |
+		<primitive: return BigInt.asUintN(_bitCount, _self);>
 	}
 
 	zero { :unused |
