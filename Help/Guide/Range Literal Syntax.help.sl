@@ -8,7 +8,7 @@ Rewrite rules:
 
 ```
 >> '1:n'.splSimplify
-Range(1, n, 1)
+Range(1, n)
 
 >> '1:n:-1'.splSimplify
 Range(1, n, -1)

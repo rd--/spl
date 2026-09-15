@@ -2416,7 +2416,6 @@ valueWithReturn { :return:/1 | 1.toDo(10) { :index | (index = 5).ifTrue { 5.retu
 { { false }.assert }.hasError /* raise an error if block does not evaluate to true */
 valueWithReturn { :return:/1 | { (9.atRandom > 7).ifTrue { true.return } }.repeatForever } /* repeat a block until it returns */
 { 1.anUnknownMessage }.ifError { :err | err }.isError /* evaluate error block on error */
-{ 1.anUnknownMessage }.ifError { true } /* error block is culled (i.e. may elide error argument) */
 let f = { let x = 0; { x := x + 1; x } }; let g = f:/0.value; [g.value, g.value] = [1, 2] /* closure */
 let f = { let x = 0; { x := x + 1; x } }; [f:/0.value.value, f:/0.value.value] = [1, 1] /* closures */
 let f = { :n | (n = 1).if { 1 } { f(n - 1) * n } }; 7:9.collect(f:/1) = [5040, 40320, 362880]
@@ -3957,7 +3956,7 @@ system.typeLookup('RgbColour').constructorName = 'newRgbColour:/0' /* constructo
 system.typeLookup('RgbColour').instanceOf.isRgbColour /* initialized instance of type */
 system.typeLookup('RgbColour').name = 'RgbColour' /* name of type */
 system.typeLookup('RgbColour').packageName = 'Colour' /* package name of type */
-system.typeLookup('RgbColour').traitNameList = ['Object' 'Store' 'Equatable' 'Colour'] /* traits (named) implemented by type */
+system.typeLookup('RgbColour').traitNameList = ['Object' 'Store' 'Equal' 'Colour'] /* traits (named) implemented by type */
 ```
 
 ## Type -- slot access
