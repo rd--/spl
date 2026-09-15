@@ -62,7 +62,7 @@ true
 
 * * *
 
-See also: =, ~~, ~, !=, !==, nonidentical
+See also: =, ~~, ~, !=, !==, isImmediate, nonidentical
 
 Guides: Comparison Functions
 

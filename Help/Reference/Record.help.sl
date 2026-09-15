@@ -14,14 +14,14 @@ List of traits implemented by `Record`:
 [
 	'Collection'
 	'Dictionary'
-	'Equatable'
+	'Equal'
 	'Extensible'
 	'Indexable'
 	'Iterable'
 	'Json'
 	'Object'
 	'Removable'
-	'Storeable'
+	'Store'
 ]
 ```
 

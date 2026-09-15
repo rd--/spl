@@ -1,4 +1,4 @@
-Nil! : [Object, Storeable, Equatable, Json] {
+Nil! : [Object, Store, Equal, Json] {
 
 	[equal, =] { :self :anObject |
 		anObject.isNil

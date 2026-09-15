@@ -1,4 +1,4 @@
-GeometryCollection : [Object, Equatable, Geometry] { | contents |
+GeometryCollection : [Object, Equal, Geometry] { | contents |
 
 	arcLength { :self |
 		self.contents.collect(arcLength:/1).sum

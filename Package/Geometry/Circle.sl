@@ -1,4 +1,4 @@
-Circle : [Object, Storeable, Equatable, Geometry] { | center radius |
+Circle : [Object, Store, Equal, Geometry] { | center radius |
 
 	asGeneralisedCircle { :self |
 		let c = 1;

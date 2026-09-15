@@ -40,7 +40,7 @@
 
 }
 
-BinaryLargeObject! : [Object, Equatable, BinaryLargeObject] {
+BinaryLargeObject! : [Object, Equal, BinaryLargeObject] {
 
 }
 

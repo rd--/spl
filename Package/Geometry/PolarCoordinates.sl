@@ -1,4 +1,4 @@
-PolarCoordinates : [Object, Storeable, Equatable] { | coordinates |
+PolarCoordinates : [Object, Store, Equal] { | coordinates |
 
 	asPolarCoordinates { :self |
 		self

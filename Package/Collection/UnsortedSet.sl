@@ -1,4 +1,4 @@
-UnsortedSet : [Object, Storeable, Equatable, Iterable, Collection, Extensible, Removable, Unordered, Set] { | contents comparator |
+UnsortedSet : [Object, Store, Equal, Iterable, Collection, Extensible, Removable, Unordered, Set] { | contents comparator |
 
 	do { :self :aBlock:/1 |
 		self.contents.do(aBlock:/1);

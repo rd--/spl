@@ -21,7 +21,7 @@ Converting:
 
 Printing:
 
-- `postLine`
+- `printLine`, `postLine`
 
 * * *
 

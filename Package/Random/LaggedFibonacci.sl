@@ -1,4 +1,4 @@
-LaggedFibonacci : [Object, Equatable, Iterator, RandomNumberGenerator, Stream] { | parameters seed state |
+LaggedFibonacci : [Object, Equal, Iterator, RandomNumberGenerator, Stream] { | parameters seed state |
 
 	initialize { :self :parameters :seed |
 		self.parameters := parameters;

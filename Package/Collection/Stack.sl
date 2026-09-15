@@ -1,6 +1,6 @@
 /* Requires: LinkedList */
 
-Stack : [Object, Copyable, Equatable] { | linkedList |
+Stack : [Object, Copyable, Equal] { | linkedList |
 
 	equalBy { :self :aStack :aBlock:/2 |
 		aStack.isStack & {

@@ -29,10 +29,10 @@ true
 
 Methods for comparing objects:
 
-- `!==`
-- `!=`
-- `==`
-- `=`
+- `equal`, `=`
+- `identical`, `==`
+- `nonidentical`, `!==`
+- `unequal`, `!=`
 
 Methods for copying objects:
 

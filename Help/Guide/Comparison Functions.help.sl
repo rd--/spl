@@ -2,8 +2,8 @@
 
 Traits:
 
-- `Comparable`
-- `Equatable`
+- `Compare`
+- `Equal`
 - `Magnitude`
 
 Equation:
@@ -25,10 +25,10 @@ Inequalities:
 
 Ordering:
 
-- `<|`, `precedes`
-- `<=|`, `precedesOrEqualTo`
-- `|>`, `succeeds`
-- `|>=`, `succeedsOrEqualTo`
+- `precedes`, `<|`
+- `precedesOrEqualTo`, `<=|`
+- `succeeds`, `|>`
+- `succeedsOrEqualTo`, `|>=`
 
 Similarities:
 

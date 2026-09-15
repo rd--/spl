@@ -1,4 +1,4 @@
-Line : [Object, Storeable, Equatable, Geometry] { | vertexCoordinates |
+Line : [Object, Store, Equal, Geometry] { | vertexCoordinates |
 
 	arcLength { :self |
 		let answer = 0;

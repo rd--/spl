@@ -1,4 +1,4 @@
-Cone : [Object, Storeable, Equatable, Geometry] { | coordinates radius |
+Cone : [Object, Store, Equal, Geometry] { | coordinates radius |
 
 	baseArea { :self |
 		let r = self.radius;

@@ -1,4 +1,4 @@
-DirectedEdge : [Object, Storeable, Equatable, Comparable, Indexable] { | vertexList |
+DirectedEdge : [Object, Store, Equal, Compare, Indexable] { | vertexList |
 
 	asAssociation { :self |
 		let [from, to] = self.vertexList;

@@ -1,4 +1,4 @@
-GeodeticCoordinates : [Object, Equatable] { | coordinates |
+GeodeticCoordinates : [Object, Equal] { | coordinates |
 
 	elevation { :self |
 		self.coordinates[3]

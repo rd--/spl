@@ -64,7 +64,7 @@
 
 }
 
-URL! : [Object, Storeable, Equatable, Url] {
+URL! : [Object, Store, Equal, Url] {
 
 	asUrl { :self |
 		self

@@ -110,7 +110,7 @@
 
 }
 
-CartesianCoordinates : [Object, Storeable, Copyable, Equatable, Comparable, Indexable, CartesianCoordinates] { | coordinates |
+CartesianCoordinates : [Object, Store, Copyable, Equal, Compare, Indexable, CartesianCoordinates] { | coordinates |
 
 	asCartesianCoordinates { :self |
 		self

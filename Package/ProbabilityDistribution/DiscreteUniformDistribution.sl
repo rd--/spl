@@ -11,7 +11,7 @@
 
 }
 
-DiscreteUniformDistribution : [Object, Equatable, ProbabilityDistribution] { | a b |
+DiscreteUniformDistribution : [Object, Equal, ProbabilityDistribution] { | a b |
 
 	randomVariate { :self :r :shape |
 		{

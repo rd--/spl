@@ -1,6 +1,6 @@
 /* Requires: Cache Fraction ScalaTuning Tuning */
 
-RatioTuning : [Object, Storeable, Equatable, Cache, Tuning] { | name description ratios octave cache |
+RatioTuning : [Object, Store, Equal, Cache, Tuning] { | name description ratios octave cache |
 
 	asCents { :self |
 		self.ratios.collect { :each |

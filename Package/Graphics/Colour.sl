@@ -183,7 +183,7 @@
 
 }
 
-RgbColour : [Object, Storeable, Equatable, Colour] { | rgb alpha |
+RgbColour : [Object, Store, Equal, Colour] { | rgb alpha |
 
 	[negate, -] { :self |
 		RgbColour(

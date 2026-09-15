@@ -17,10 +17,10 @@ List of traits implemented by `Boolean`:
 >>> .traitNameList
 >>> .sort
 [
-	'Equatable'
+	'Equal'
 	'Json'
 	'Object'
-	'Storeable'
+	'Store'
 ]
 ```
 

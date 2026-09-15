@@ -24,7 +24,7 @@
 
 }
 
-BetaDistribution : [Object, Storeable, Equatable, ProbabilityDistribution] { | alpha beta |
+BetaDistribution : [Object, Store, Equal, ProbabilityDistribution] { | alpha beta |
 
 	cdf { :self |
 		let alpha = self.alpha;

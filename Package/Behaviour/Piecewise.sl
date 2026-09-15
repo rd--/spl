@@ -1,4 +1,4 @@
-Piecewise : [Object, Equatable] { | pieces defaultValue |
+Piecewise : [Object, Equal] { | pieces defaultValue |
 
 	value { :self :x |
 		valueWithReturn { :return:/1 |

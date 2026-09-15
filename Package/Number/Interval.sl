@@ -1,4 +1,4 @@
-Interval : [Object, Storeable, Equatable, Number] { | min max |
+Interval : [Object, Store, Equal, Number] { | min max |
 
 	[less, <] { :self :operand |
 		operand.isInterval.if {

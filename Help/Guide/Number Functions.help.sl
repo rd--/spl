@@ -2,7 +2,7 @@
 
 Traits:
 
-- `Comparable`
+- `Compare`
 - `Integer`
 - `Magnitude`
 - `Number`

@@ -1,6 +1,6 @@
-/* Requires: Comparable List Number Object */
+/* Requires: Compare List Number Object */
 
-Complex : [Object, Storeable, Equatable, Comparable, Number] { | real imaginary |
+Complex : [Object, Store, Equal, Compare, Number] { | real imaginary |
 
 	[conjugate, +] { :self |
 		Complex(self.real, self.imaginary.negate)

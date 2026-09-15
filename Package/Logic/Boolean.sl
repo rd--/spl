@@ -1,4 +1,4 @@
-Boolean! : [Object, Storeable, Equatable, Json] {
+Boolean! : [Object, Store, Equal, Compare, Json] {
 
 	==> { :self :aBlock:/0 |
 		self.if {
@@ -46,6 +46,12 @@ Boolean! : [Object, Storeable, Equatable, Json] {
 
 	boole { :self |
 		self.asBit
+	}
+
+	compare { :self :operand |
+		self.boole.compare(
+			operand.boole
+		)
 	}
 
 	copy { :self |

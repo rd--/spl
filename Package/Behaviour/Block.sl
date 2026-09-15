@@ -1,6 +1,6 @@
 /* Requires: Object */
 
-Block! : [Object, Equatable] {
+Block! : [Object, Equal] {
 
 	$ { :self:/1 :anObject |
 		self(anObject)

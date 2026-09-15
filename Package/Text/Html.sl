@@ -1,4 +1,4 @@
-Html : [Object, Storeable, Equatable] { | contents |
+Html : [Object, Store, Equal] { | contents |
 
 	asHtmlElement { :self :document |
 		document.parseHtml(self.contents)

@@ -1,6 +1,6 @@
 /* Requires: Character List */
 
-String! : [Object, Storeable, Equatable, Comparable, Json, Iterable, Indexable, Character] {
+String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] {
 
 	[less, <] { :self :operand |
 		self.codePoint < operand.codePoint

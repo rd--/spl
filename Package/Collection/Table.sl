@@ -1,4 +1,4 @@
-Table : [Object, Storeable, Equatable] { | contents columnLabels columnTypes |
+Table : [Object, Store, Equal] { | contents columnLabels columnTypes |
 
 	asHtml { :self |
 		let h = '<tr><th></th>%</tr>'.format([

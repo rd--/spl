@@ -1,4 +1,4 @@
-TemporalData : [Object, Equatable] { | valueList timeList |
+TemporalData : [Object, Equal] { | valueList timeList |
 
 	asTimeSeries { :self |
 		let v = self.valueList;

@@ -10,14 +10,14 @@ List traits implemented by `SmallFloat`:
 >>> .sort
 [
 	'Binary'
-	'Comparable'
-	'Equatable'
+	'Compare'
+	'Equal'
 	'Integer'
 	'Json'
 	'Magnitude'
 	'Number'
 	'Object'
-	'Storeable'
+	'Store'
 ]
 ```
 

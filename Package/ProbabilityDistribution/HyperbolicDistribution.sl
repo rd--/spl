@@ -1,4 +1,4 @@
-HyperbolicDistribution : [Object, Equatable, ProbabilityDistribution] { | alpha beta delta mu |
+HyperbolicDistribution : [Object, Equal, ProbabilityDistribution] { | alpha beta delta mu |
 
 	pdf { :self |
 		let alpha = self.alpha;

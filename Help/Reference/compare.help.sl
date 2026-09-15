@@ -1,12 +1,44 @@
 # compare
 
-- _compare([p₁ p₂ …], [q₁ q₂ …])_
+- _compare(x, y)_
+- _compare([x₁ x₂ …], [y₁ y₂ …])_
 
-Answer -1 if _p_ precedes _q_,
-answer 0 if _p_ equals _q_,
-answer 1 if _p_ succeeds _q_.
+Answer -1 if _x_ precedes _y_,
+answer 0 if _x_ equals _y_,
+answer 1 if _x_ succeeds _y_.
 
-The comparison uses lexicographic ordering.
+At `SmallFloat`:
+
+```
+>>> (compare(1, 2), 1 < 2)
+(-1, true)
+
+>>> (compare(1.e, 1.pi), 1.e < 1.pi)
+(-1, true)
+```
+
+At `Fraction`:
+
+```
+>>> (compare(1/3, 1/2), 1/3 < 1/2)
+(-1, true)
+```
+
+At `Complex`:
+
+```
+>>> (compare(1J2, 2J3), 1J2.abs < 2J3.abs)
+(-1, true)
+```
+
+At `Boolean`:
+
+```
+>>> (compare(false, true), false.boole < true.boole)
+(-1, true)
+```
+
+At sequences the comparison uses lexicographic ordering.
 
 If all items of two sequences compare equal, the sequences are considered equal:
 
@@ -76,7 +108,7 @@ The inverse is called `lexicographicOrder`.
 
 * * *
 
-See also: =, <, >, <=>, Comparable, precedes
+See also: =, <, >, <=>, Compare, precedes
 
 Guides: List Functions, Sort Functions, String Functions
 

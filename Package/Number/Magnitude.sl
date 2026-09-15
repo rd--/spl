@@ -1,27 +1,5 @@
 @Magnitude {
 
-	[less, <] { :self :aMagnitude |
-		self.typeResponsibility('@Magnitude>><')
-	}
-
-	[lessEqual, <=] { :self :aMagnitude |
-		self < aMagnitude | {
-			self = aMagnitude
-		}
-	}
-
-	[greater, >] { :self :aMagnitude |
-		aMagnitude < self
-	}
-
-	[greaterEqual, >=] { :self :aMagnitude |
-		aMagnitude <= self
-	}
-
-	<=> { :self :operand |
-		self.compare(operand)
-	}
-
 	between { :self :interval |
 		interval.min <= self & {
 			self <= interval.max
@@ -68,7 +46,7 @@
 		self.clip([-1 1], [-1 1])
 	}
 
-	compare { :self :operand |
+	[compare, <=>] { :self :operand |
 		(self = operand).if {
 			0
 		} {
@@ -80,11 +58,29 @@
 		}
 	}
 
+	[greater, >] { :self :aMagnitude |
+		aMagnitude < self
+	}
+
+	[greaterEqual, >=] { :self :aMagnitude |
+		aMagnitude <= self
+	}
+
 	inRangeOfAnd { :self :first :second |
 		(first < second).if {
 			self.betweenAnd(first, second)
 		} {
 			self.betweenAnd(second, first)
+		}
+	}
+
+	[less, <] { :self :aMagnitude |
+		self.typeResponsibility('@Magnitude>><')
+	}
+
+	[lessEqual, <=] { :self :aMagnitude |
+		self < aMagnitude | {
+			self = aMagnitude
 		}
 	}
 

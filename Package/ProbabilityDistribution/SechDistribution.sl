@@ -1,4 +1,4 @@
-SechDistribution : [Object, Equatable, ProbabilityDistribution] { | mu sigma |
+SechDistribution : [Object, Equal, ProbabilityDistribution] { | mu sigma |
 
 	cdf { :self |
 		let mu = self.mu;

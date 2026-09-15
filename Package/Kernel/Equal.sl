@@ -1,19 +1,11 @@
-@Equatable {
+@Equal {
 
 	[equal, =] { :self :anObject |
 		self.equalBy(anObject, equal:/2)
 	}
 
-	[similar, ~] { :self :anObject |
-		self.equalBy(anObject, ~)
-	}
-
-	[unequal, !=] { :self :anObject |
-		equal(self, anObject).not
-	}
-
 	equalBy { :self :anObject :aBlock:/2 |
-		/* self.typeResponsibility('@Equatable>>equalBy') */
+		/* self.typeResponsibility('@Equal>>equalBy') */
 		self.hasEqualSlots(anObject, aBlock:/2)
 	}
 
@@ -46,6 +38,14 @@
 
 	primitiveEquals { :self :anObject |
 		<primitive: return _self === _anObject;>
+	}
+
+	[similar, ~] { :self :anObject |
+		self.equalBy(anObject, ~)
+	}
+
+	[unequal, !=] { :self :anObject |
+		equal(self, anObject).not
 	}
 
 }

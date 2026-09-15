@@ -11,7 +11,7 @@
 
 }
 
-TriangularDistribution : [Object, Equatable, ProbabilityDistribution] { | i c |
+TriangularDistribution : [Object, Equal, ProbabilityDistribution] { | i c |
 
 	cdf { :self |
 		let a = self.i.min;

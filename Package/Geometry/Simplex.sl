@@ -1,4 +1,4 @@
-Simplex : [Object, Equatable] { | coordinates |
+Simplex : [Object, Equal] { | coordinates |
 
 	content { :self |
 		self.coordinates.cayleyMengerDeterminant

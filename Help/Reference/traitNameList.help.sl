@@ -13,14 +13,14 @@ Answer a `List` of the `Trait` names implemented by the `Type` _t_.
 >>> .sort
 [
 	'Binary'
-	'Comparable'
-	'Equatable'
+	'Compare'
+	'Equal'
 	'Integer'
 	'Json'
 	'Magnitude'
 	'Number'
 	'Object'
-	'Storeable'
+	'Store'
 ]
 ```
 

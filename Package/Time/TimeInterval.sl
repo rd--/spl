@@ -1,6 +1,6 @@
 /* Requires: TimeStamp */
 
-TimeInterval : [Object, Storeable, Equatable] { | min max |
+TimeInterval : [Object, Store, Equal] { | min max |
 
 	absoluteTime { :self |
 		Interval(

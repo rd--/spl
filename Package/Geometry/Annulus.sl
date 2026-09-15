@@ -1,4 +1,4 @@
-Annulus : [Object, Storeable, Equatable, Geometry] { | center radii |
+Annulus : [Object, Store, Equal, Geometry] { | center radii |
 
 	area { :self |
 		let [r, bigR] = self.radii;
@@ -54,7 +54,7 @@ Annulus : [Object, Storeable, Equatable, Geometry] { | center radii |
 
 }
 
-AnnulusSector : [Object, Storeable, Equatable, Geometry] { | center radii angles |
+AnnulusSector : [Object, Store, Equal, Geometry] { | center radii angles |
 
 	area { :self |
 		let [r, bigR] = self.radii;

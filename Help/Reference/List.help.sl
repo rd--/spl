@@ -13,8 +13,8 @@ Traits implemented by `List`:
 >>> .sort
 [
 	'Collection'
-	'Comparable'
-	'Equatable'
+	'Compare'
+	'Equal'
 	'Extensible'
 	'Indexable'
 	'Iterable'
@@ -24,7 +24,7 @@ Traits implemented by `List`:
 	'PrimitiveArray'
 	'Removable'
 	'Sequence'
-	'Storeable'
+	'Store'
 ]
 ```
 

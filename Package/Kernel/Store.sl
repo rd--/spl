@@ -1,4 +1,4 @@
-@Storeable {
+@Store {
 
 	printString { :self |
 		self.storeString
@@ -47,7 +47,7 @@
 +@Object {
 
 	storeString { :self |
-		self.error('Not Storeable')
+		self.error('Doe not implement @Store')
 	}
 
 }

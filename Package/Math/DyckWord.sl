@@ -1,4 +1,4 @@
-DyckWord : [Object, Storeable] { | word tokens |
+DyckWord : [Object, Store] { | word tokens |
 
 	binaryExpansion { :self |
 		let [a, b] = self.tokens;

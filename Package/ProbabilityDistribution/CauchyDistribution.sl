@@ -7,7 +7,7 @@
 
 }
 
-CauchyDistribution : [Object, Equatable, ProbabilityDistribution] { | x0 gamma |
+CauchyDistribution : [Object, Equal, ProbabilityDistribution] { | x0 gamma |
 
 	cdf { :self |
 		let x0 = self.x0;

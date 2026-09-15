@@ -1,4 +1,4 @@
-Tree : [Object, Storeable, Equatable, Iterable, Indexable] { | value subTrees |
+Tree : [Object, Store, Equal, Iterable, Indexable] { | value subTrees |
 
 	addChild { :self :child |
 		child.isTree.if {

@@ -1,6 +1,6 @@
 /* Requires: SmallFloat String */
 
-LargeInteger! : [Object, Storeable, Equatable, Comparable, Binary, Magnitude, Number, Integer] {
+LargeInteger! : [Object, Store, Equal, Compare, Binary, Magnitude, Number, Integer] {
 
 	[less, <] { :self :anObject |
 		<primitive:

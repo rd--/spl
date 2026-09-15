@@ -1,4 +1,4 @@
-LineSegment : [Object, Equatable] { | u v |
+LineSegment : [Object, Equal] { | u v |
 
 	arcLength { :self |
 		self.u.euclideanDistance(self.v)

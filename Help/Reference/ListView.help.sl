@@ -16,8 +16,8 @@ Traits implemented by `ListView`:
 >>> .traitNameList
 [
 	'Object'
-	'Equatable'
-	'Comparable'
+	'Equal'
+	'Compare'
 	'Iterable'
 	'Indexable'
 	'Collection'

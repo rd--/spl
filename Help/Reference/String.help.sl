@@ -10,13 +10,13 @@ List of traits implemented by `String`:
 >>> .sort
 [
 	'Character'
-	'Comparable'
-	'Equatable'
+	'Compare'
+	'Equal'
 	'Indexable'
 	'Iterable'
 	'Json'
 	'Object'
-	'Storeable'
+	'Store'
 ]
 ```
 

@@ -1,5 +1,5 @@
 /*
-IntegerPartitions : [Object, Equatable, Storeable] { | contents:<List> |
+IntegerPartitions : [Object, Equal, Store] { | contents:<List> |
 
 }
 

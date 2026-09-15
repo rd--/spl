@@ -469,7 +469,7 @@
 
 }
 
-OeisEntry : [Object, Storeable, Equatable, OeisSequence] { | identifier:<String> contents bFileCache |
+OeisEntry : [Object, Store, Equal, OeisSequence] { | identifier:<String> contents bFileCache |
 
 	bFileData { :self |
 		self.bFileCache.ifNil {
@@ -583,7 +583,7 @@ OeisEntry : [Object, Storeable, Equatable, OeisSequence] { | identifier:<String>
 
 }
 
-OeisSequenceFile : [Object, Equatable, OeisSequence] { | identifier contents |
+OeisSequenceFile : [Object, Equal, OeisSequence] { | identifier contents |
 
 	author { :self |
 		self.uniqueField('%A')

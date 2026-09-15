@@ -6,7 +6,7 @@
 
 }
 
-BernoulliDistribution : [Object, Equatable, ProbabilityDistribution] { | p |
+BernoulliDistribution : [Object, Equal, ProbabilityDistribution] { | p |
 
 	cdf { :self |
 		{ :x |

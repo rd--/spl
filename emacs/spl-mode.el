@@ -63,9 +63,8 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
 (defun spl-help ()
   "Lookup up the name at point in the Spl help files."
   (interactive)
-  (let ((rgx (concat "^" (thing-at-point 'symbol) "\\.help\\.sl$")))
+  (let ((rgx (concat "^" (region-or-thing-at-point 'symbol) "\\.help\\.sl$")))
     (spl-find-files (concat spl-directory "Help/") rgx)))
-
 
 (defvar spl-help-url-prefix "http://localhost/rd/index.cgi"
   "The Spl help browser Url prefix.")

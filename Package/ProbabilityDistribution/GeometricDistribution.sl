@@ -1,4 +1,4 @@
-GeometricDistribution : [Object, Equatable, ProbabilityDistribution] { | p |
+GeometricDistribution : [Object, Equal, ProbabilityDistribution] { | p |
 
 	cdf { :self |
 		let p = self.p;

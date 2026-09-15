@@ -1,4 +1,4 @@
-Range : [Object, Storeable, Equatable, Comparable, Iterable, Collection, Indexable, Sequence, ArithmeticProgression] { | start stop step size |
+Range : [Object, Store, Equal, Compare, Iterable, Collection, Indexable, Sequence, ArithmeticProgression] { | start stop step size |
 
 	[negate, -] { :self |
 		Range(

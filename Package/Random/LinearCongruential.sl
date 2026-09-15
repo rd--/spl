@@ -1,6 +1,6 @@
 /* Requires: RandomNumberGenerator Iterator Stream */
 
-LinearCongruential : [Object, Equatable, Iterator, RandomNumberGenerator, Stream] { | parameters seed state |
+LinearCongruential : [Object, Equal, Iterator, RandomNumberGenerator, Stream] { | parameters seed state |
 
 	initialize { :self :parameters :seed |
 		self.parameters := parameters;

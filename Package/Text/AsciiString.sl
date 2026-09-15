@@ -1,4 +1,4 @@
-AsciiString : [Object, Storeable, Equatable, Iterable, Indexable, Collection, Sequence] { | contents |
+AsciiString : [Object, Store, Equal, Iterable, Indexable, Collection, Sequence] { | contents |
 
 	asAsciiString { :self |
 		self

@@ -95,7 +95,7 @@ The `=` method is not implemented at `Object`.
 
 * * *
 
-See also: =, <, <=, >, >=, !=, ==, ~, :=, hasEqualElements, hasEqualSlots, unequal
+See also: =, <, <=, >, >=, !=, ==, ~, :=, Equal, hasEqualElements, hasEqualSlots, unequal
 
 Guides: Comparison Functions
 

@@ -88,7 +88,7 @@
 
 }
 
-LinkedList : [Object, Equatable, Storeable, Copyable, Comparable, Iterable, Indexable, Collection, Extensible, Removable, Sequence] { | firstLink lastLink |
+LinkedList : [Object, Equal, Store, Copyable, Compare, Iterable, Indexable, Collection, Extensible, Removable, Sequence] { | firstLink lastLink |
 
 	add { :self :aLinkOrObject |
 		self.addLast(aLinkOrObject)
@@ -365,7 +365,7 @@ LinkedList : [Object, Equatable, Storeable, Copyable, Comparable, Iterable, Inde
 
 }
 
-ValueLink : [Object, Storeable, Equatable, Link] { | nextLink value |
+ValueLink : [Object, Store, Equal, Link] { | nextLink value |
 
 	equalBy { :self :anObject :aBlock:/2 |
 		anObject.isValueLink & {

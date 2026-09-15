@@ -1,6 +1,6 @@
 /* Requires: Complex */
 
-Quaternion : [Object, Storeable, Equatable, Number] { | contents |
+Quaternion : [Object, Store, Equal, Number] { | contents |
 
 	[conjugate, +] { :self |
 		let [a, b, c, d] = self.contents;

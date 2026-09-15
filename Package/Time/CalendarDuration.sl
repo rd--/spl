@@ -1,4 +1,4 @@
-CalendarDuration : [Object, Storeable, Equatable, Comparable] { | components |
+CalendarDuration : [Object, Store, Equal, Compare] { | components |
 
 	asCalendarDuration { :self |
 		self

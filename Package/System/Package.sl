@@ -1,6 +1,6 @@
 /* Requires: List String System */
 
-Package! : [Object, Equatable, Comparable] {
+Package! : [Object, Equal, Compare] {
 
 	addDependenciesTo { :self :aSequence |
 		self.requires.ifNotEmpty { :packageNames |

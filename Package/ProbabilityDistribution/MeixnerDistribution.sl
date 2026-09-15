@@ -1,4 +1,4 @@
-MeixnerDistribution : [Object, Equatable, ProbabilityDistribution] { | a b m d |
+MeixnerDistribution : [Object, Equal, ProbabilityDistribution] { | a b m d |
 
 	pdf { :self |
 		let a = self.a;

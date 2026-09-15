@@ -1,4 +1,4 @@
-Type! : [Object, Equatable] {
+Type! : [Object, Equal] {
 
 	category { :self |
 		system.categoryDictionary.categoryOf('type', self.name)

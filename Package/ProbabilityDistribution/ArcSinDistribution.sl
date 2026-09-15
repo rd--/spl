@@ -1,4 +1,4 @@
-ArcSinDistribution : [Object, Equatable, ProbabilityDistribution] { | minMax |
+ArcSinDistribution : [Object, Equal, ProbabilityDistribution] { | minMax |
 
 	cdf { :self |
 		let [xMin, xMax] = self.minMax;

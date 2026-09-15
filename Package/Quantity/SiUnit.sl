@@ -1,4 +1,4 @@
-SiUnit : [Object, Storeable, Equatable] { | name symbol quantity dimension |
+SiUnit : [Object, Store, Equal] { | name symbol quantity dimension |
 
 	assertIsValid { :self |
 		(

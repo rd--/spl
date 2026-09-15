@@ -1,4 +1,4 @@
-Decimal : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | fraction scale |
+Decimal : [Object, Store, Equal, Compare, Magnitude, Number] { | fraction scale |
 
 	[less, <] { :self :operand |
 		operand.isDecimal.if {

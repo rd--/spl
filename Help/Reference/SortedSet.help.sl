@@ -14,13 +14,13 @@ Traits implemented by `SortedSet`:
 [
 	'Collection'
 	'Copyable'
-	'Equatable'
+	'Equal'
 	'Extensible'
 	'Iterable'
 	'Object'
 	'Removable'
 	'Set'
-	'Storeable'
+	'Store'
 ]
 ```
 

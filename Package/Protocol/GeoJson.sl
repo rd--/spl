@@ -1,4 +1,4 @@
-GeoJson : [Object, Storeable] { | contents |
+GeoJson : [Object, Store] { | contents |
 
 	asRecord { :self |
 		self.contents

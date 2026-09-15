@@ -1,4 +1,4 @@
-DocumentationTest : [Object, Storeable, Equatable] { | prefix program expectedAnswer |
+DocumentationTest : [Object, Store, Equal] { | prefix program expectedAnswer |
 
 	evaluate { :self |
 		let result = {

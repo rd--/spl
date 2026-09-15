@@ -1,4 +1,4 @@
-BivariatePolynomial : [Object, Storeable, Copyable, Equatable] { | coefficientMatrix |
+BivariatePolynomial : [Object, Store, Copyable, Equal] { | coefficientMatrix |
 
 	asBlock { :self |
 		let m = self.coefficientMatrix;

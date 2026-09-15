@@ -1,6 +1,6 @@
 /* Requires: Polygon */
 
-Triangle : [Object, Storeable, Equatable, Geometry] { | vertexCoordinates |
+Triangle : [Object, Store, Equal, Geometry] { | vertexCoordinates |
 
 	altitudes { :self |
 		let [a, b, c] = self.sideLengths;

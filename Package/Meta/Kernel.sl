@@ -2,14 +2,14 @@
 	/* Kernel Traits */
 	'Object'
 	'Cache'
-	'Comparable'
+	'Compare'
 	'Copyable'
-	'Equatable'
+	'Equal'
 	'Json'
 	'Magnitude'
 	'Number'
 	'RandomNumberGenerator'
-	'Storeable'
+	'Store'
 	'Binary' /* > Cache */
 	'Integer' /* > Cache */
 

@@ -12,11 +12,11 @@ Traits implemented by `Complex`:
 >>> .traitNameList
 >>> .sort
 [
-	'Comparable'
-	'Equatable'
+	'Compare'
+	'Equal'
 	'Number'
 	'Object'
-	'Storeable'
+	'Store'
 ]
 ```
 
@@ -235,7 +235,7 @@ true
 true
 ```
 
-`Complex` implements `Comparable` but not `Magnitude`:
+`Complex` implements `Compare` but not `Magnitude`:
 
 ```
 >>> 1J1 <| 2J2

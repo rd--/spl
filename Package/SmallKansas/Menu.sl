@@ -1,4 +1,4 @@
-MenuItem : [Object, Comparable] { | name accessKey onSelect |
+MenuItem : [Object, Compare] { | name accessKey onSelect |
 
 	accessKeyDislayText { :self |
 		self.accessKey.ifNil {

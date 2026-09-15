@@ -1,6 +1,6 @@
 /* Requires: List */
 
-Tuple : [Object, Storeable, Copyable, Equatable] { | contents |
+Tuple : [Object, Store, Copyable, Equal] { | contents |
 
 	[at, @] { :self :index |
 		self.contents.at(index)

@@ -1,4 +1,4 @@
-DateAndTime : [Object, Storeable, Equatable, Comparable, Magnitude] { | primitive |
+DateAndTime : [Object, Store, Equal, Compare, Magnitude] { | primitive |
 
 	[less, <] { :self :aDate |
 		self.absoluteTime < aDate.absoluteTime

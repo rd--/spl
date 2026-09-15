@@ -1,4 +1,4 @@
-MethodInformation! : [Object, Equatable] {
+MethodInformation! : [Object, Equal] {
 
 	arity { :self |
 		<primitive: return _self.arity;>

@@ -1,6 +1,6 @@
 /* Requires: BitSet Set */
 
-ResidueSet : [Object, Storeable, Equatable, Iterable, Collection, Extensible] { | contents modulus |
+ResidueSet : [Object, Store, Equal, Iterable, Collection, Extensible] { | contents modulus |
 
 	[plus, +] { :self :anInteger |
 		ResidueSet(

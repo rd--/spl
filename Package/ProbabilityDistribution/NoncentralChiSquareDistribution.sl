@@ -21,7 +21,7 @@
 
 }
 
-NoncentralChiSquareDistribution : [Object, Equatable, ProbabilityDistribution] { | nu lambda |
+NoncentralChiSquareDistribution : [Object, Equal, ProbabilityDistribution] { | nu lambda |
 
 	randomVariate { :self :rng :shape |
 		let nu = self.nu;

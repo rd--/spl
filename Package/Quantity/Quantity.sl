@@ -1,4 +1,4 @@
-Quantity : [Object, Storeable, Equatable, Comparable, Magnitude, Frequency, Length, Mass, PlaneAngle, Time] { | magnitude unit |
+Quantity : [Object, Store, Equal, Compare, Magnitude, Frequency, Length, Mass, PlaneAngle, Time] { | magnitude unit |
 
 	[less, <] { :self :anObject |
 		self.isCommensurate(anObject).if {

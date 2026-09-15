@@ -1,6 +1,6 @@
 /* Requires: List, Object */
 
-Association : [Object, Storeable, Equatable, Comparable] { | key value |
+Association : [Object, Store, Equal, Compare] { | key value |
 
 	asAssociation { :self |
 		self

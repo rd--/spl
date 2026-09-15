@@ -10,7 +10,7 @@
 
 }
 
-StudentTDistribution : [Object, Equatable, ProbabilityDistribution] { | mu sigma nu |
+StudentTDistribution : [Object, Equal, ProbabilityDistribution] { | mu sigma nu |
 
 	cdf { :self |
 		let mu = self.mu;

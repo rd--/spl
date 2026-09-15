@@ -1,4 +1,4 @@
-@Comparable {
+@Compare {
 
 	<| { :self :anObject |
 		self.compare(anObject) = -1
@@ -33,7 +33,7 @@
 	}
 
 	compare { :self :anObject |
-		self.typeResponsibility('@Comparable>>compare')
+		self.typeResponsibility('@Compare>>compare')
 	}
 
 }

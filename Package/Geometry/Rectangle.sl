@@ -1,4 +1,4 @@
-Rectangle : [Object, Storeable, Equatable, Geometry] { | lowerLeft upperRight |
+Rectangle : [Object, Store, Equal, Geometry] { | lowerLeft upperRight |
 
 	arcLength { :self |
 		self.perimeter

@@ -30,13 +30,13 @@ Types implementing `Magnitude`:
 ]
 ```
 
-Types that implement magnitude should also implement `Equatable`,
-and should declare themselves `Comparable`.
+Types that implement magnitude should also implement `Equal`,
+and should declare themselves `Compare`.
 
 The required methods are:
 
 - `<`
-- `=`: Equatable
+- `=`: Equal
 
 The implemented operators include:
 
@@ -53,11 +53,13 @@ The implemented methods include:
 
 * * *
 
-See also: <=, >, >=, <=>, betweenAnd, boole, clamp, Comparable, min, max
+See also: <=, >, >=, <=>, betweenAnd, boole, clamp, Compare, min, max
 
 Guides: Comparison Functions
 
 References:
+_Haskell_
+[1](https://hackage-content.haskell.org/package/base/docs/Data-Ord.html)
 _Smalltalk_
 5.6.1,
 _Swift_

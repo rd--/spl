@@ -18,7 +18,9 @@ true
 Use an operator form:
 
 ```
->>> 0:6.collect((1 -- 5).between)
+>>> 0:6.collect(
+>>> 	(1 -- 5).between
+>>> )
 [false true true true true true false]
 ```
 

@@ -1,4 +1,4 @@
-FilePath : [Object, Storeable, Equatable] { | contents |
+FilePath : [Object, Store, Equal] { | contents |
 
 	absolutePathString { :self |
 		self.contents
