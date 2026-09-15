@@ -49,7 +49,7 @@ true
 
 * * *
 
-See also: add, Removable, removeAll, removeAllSuchThat, removeAt, removeKey, removeKeyIfAbsent, without
+See also: add, removeAll, removeAllSuchThat, removeAt, removeKey, removeKeyIfAbsent, without
 
 Guides: Dictionary Functions, List Functions
 

@@ -88,7 +88,7 @@
 
 }
 
-LinkedList : [Object, Equal, Store, Copyable, Compare, Iterable, Indexable, Collection, Extensible, Removable, Sequence] { | firstLink lastLink |
+LinkedList : [Object, Equal, Store, Copyable, Compare, Iterable, Indexable, Collection, Extensible, Sequence] { | firstLink lastLink |
 
 	add { :self :aLinkOrObject |
 		self.addLast(aLinkOrObject)

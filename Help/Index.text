@@ -907,6 +907,7 @@ Reference/circumradius.help.sl
 Reference/circumsphere.help.sl
 Reference/circumtangentialTriangle.help.sl
 Reference/cissoidOfDiocles.help.sl
+Reference/clamp.help.sl
 Reference/clawsonPoint.help.sl
 Reference/cleliaCurve.help.sl
 Reference/Clip2.help.sl
@@ -1896,6 +1897,7 @@ Reference/identity.help.sl
 Reference/identityMatrix.help.sl
 Reference/IdentityMultiset.help.sl
 Reference/IdentitySet.help.sl
+Reference/ieeeRemainder.help.sl
 Reference/ifAbsentAdd.help.sl
 Reference/ifEmpty.help.sl
 Reference/ifError.help.sl
@@ -3519,7 +3521,6 @@ Reference/Release.help.sl
 Reference/reliefPlot.help.sl
 Reference/remainderBy.help.sl
 Reference/remainder.help.sl
-Reference/Removable.help.sl
 Reference/removeAllEqualTo.help.sl
 Reference/removeAllFoundIn.help.sl
 Reference/removeAll.help.sl
@@ -4132,6 +4133,7 @@ Reference/threadingMatrix.help.sl
 Reference/threshold.help.sl
 Reference/thueMorse.help.sl
 Reference/thueMorseSequence.help.sl
+Reference/Thunk.help.sl
 Reference/tieupMatrix.help.sl
 Reference/tilde.help.sl
 Reference/Time.help.sl

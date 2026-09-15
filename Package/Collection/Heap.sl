@@ -1,4 +1,4 @@
-Heap : [Object, Copyable, Equal, Compare, Iterable, Collection, Extensible, Removable] { | array sortBlock indexUpdateBlock |
+Heap : [Object, Copyable, Equal, Compare, Iterable, Collection, Extensible] { | array sortBlock indexUpdateBlock |
 
 	add { :self :anObject |
 		self.array.add(anObject);

@@ -2,8 +2,6 @@
 
 `Extensible` is a `Collection` `Trait` holding behaviours common to extensible collections.
 
-To implement `Extensible` a type must define `add`.
-
 ```
 >>> system
 >>> .traitDictionary['Extensible']
@@ -11,7 +9,39 @@ To implement `Extensible` a type must define `add`.
 true
 ```
 
-Types implementing `Collection`:
+Extensible has two parts,
+the first concerned with adding items to the collection,
+the second with removing items from the collection.
+
+For adding, the required method is:
+
+- `add`
+
+Provided methods are:
+
+- `addAll`
+- `addAllIfNotPresent`
+- `addIfNotPresent`
+- `addWithOccurrences`
+- `fillFromWith`
+- `ifAbsentAdd`
+- `include`
+- `includeAll`
+
+For removing, the required method is:
+
+- `removeIfAbsent`
+
+Provided methods are:
+
+- `remove`
+- `removeAll`
+- `removeAllFoundIn`
+- `removeAllSuchThat`
+- `without`
+- `withoutAll`
+
+Types implementing `Extensible`:
 
 ```
 >>> system
@@ -36,10 +66,12 @@ Types implementing `Collection`:
 ]
 ```
 
-Methods for adding: `add`, `addAll`
-
 * * *
 
-See also: add, Collection, Removable
+See also: add, Collection, Extensible, remove, removeAll, removeIfAbsent, without, withoutAll
+
+References:
+_Smalltalk_
+5.7.16
 
 Categories: Collection, Trait

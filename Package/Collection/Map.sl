@@ -1,6 +1,6 @@
 /* Require: List, PrimitiveMap, Record, Void */
 
-Map! : [Object, Store, Equal, Iterable, Indexable, Collection, Extensible, Removable, Dictionary, PrimitiveMap] {
+Map! : [Object, Store, Equal, Iterable, Indexable, Collection, Extensible, Dictionary, PrimitiveMap] {
 
 	encodeJson { :self |
 		self.encodeJson(nil, '')

@@ -1,4 +1,4 @@
-SortedSet : [Object, Store, Copyable, Equal, Iterable, Collection, Extensible, Removable, Set] { | contents |
+SortedSet : [Object, Store, Copyable, Equal, Iterable, Collection, Extensible, Set] { | contents |
 
 	add { :self :anObject |
 		let contents = self.contents;

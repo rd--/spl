@@ -1022,7 +1022,7 @@ let a = []; [1, 2].cartesianProductDo([3, 4]) { :x :y | a.add(x -> y) }; a = [1 
 [1 2; 3 4; 5 6].elementType = 'List'
 ```
 
-## Extensible -- collection trait
+## Extensible (add) -- collection trait
 ```
 system.includesPackage('Extensible') /* package */
 let r = List(); r.add('x'); r.add('x'); r.size = 2
@@ -1033,9 +1033,8 @@ let r = IdentitySet(); r.add('x'); r.add('y'); r.size = 2
 let r = ''; { r.add('x') }.hasError
 ```
 
-## Removable -- collection trait
+## Extensible (remove) -- collection trait
 ```
-system.includesPackage('Removable') /* package */
 let r = List(); r.add('x'); r.remove('x'); r.size = 0
 let r = IdentityMultiset(); r.add('x'); r.remove('x'); r.size = 0
 let r = Map(); r.add('x' -> 1); r.remove('x' -> 1); r.size = 0

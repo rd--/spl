@@ -192,7 +192,7 @@
 
 }
 
-Multiset : [Object, Store, Copyable, Equal, Iterable, Collection, Extensible, Removable, Unordered, Multiset] { | contents |
+Multiset : [Object, Store, Copyable, Equal, Iterable, Collection, Extensible, Unordered, Multiset] { | contents |
 
 	postCopy { :self |
 		self.contents := self.contents.copy

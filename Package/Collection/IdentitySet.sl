@@ -1,6 +1,6 @@
 /* Requires: Set */
 
-IdentitySet! : [Object, Store, Equal, Iterable, Collection, Extensible, Removable, Unordered, Set] {
+IdentitySet! : [Object, Store, Equal, Iterable, Collection, Extensible, Unordered, Set] {
 
 	copy { :self |
 		<primitive: return new Set(_self);>

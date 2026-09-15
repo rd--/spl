@@ -30,7 +30,7 @@ see also `associationsRemove`:
 
 * * *
 
-See also: associationsRemove, keysAndValuesRemove, reject, Removable, remove, removeAll
+See also: associationsRemove, keysAndValuesRemove, reject, remove, removeAll
 
 Guides: Dictionary Functions, List Functions
 

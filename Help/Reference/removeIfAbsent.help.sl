@@ -20,7 +20,7 @@ If no such item exists answer _f()_.
 
 * * *
 
-See also: Removable, remove, removeAll
+See also: remove, removeAll
 
 References:
 _Smalltalk_

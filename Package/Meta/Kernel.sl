@@ -24,7 +24,6 @@
 	'Indexable'
 	'Iterable'
 	'Ordered'
-	'Removable'
 	'Sequence'
 	'Unordered'
 	'Dictionary' /* Collection */

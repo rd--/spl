@@ -4484,7 +4484,7 @@ Cf: ByteArray
 collection of objects, whose elements can be accessed using external
 integer keys.
 
-Cf: Removable
+Cf: Extensible
 
 ### 5.7.16.1
 

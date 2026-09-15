@@ -20,7 +20,6 @@ List of traits implemented by `Record`:
 	'Iterable'
 	'Json'
 	'Object'
-	'Removable'
 	'Store'
 ]
 ```

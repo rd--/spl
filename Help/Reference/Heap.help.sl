@@ -13,7 +13,7 @@ Insertion and removal times are more efficient than above upper bound, provided 
 a) Elements are only removed at the beginning
 b) Elements are added with arbitrary sort order
 
-Heap implements the Iterable, Collection, Extensible and Removable traits.
+Heap implements the `Iterable`, `Collection` and `Extensible` traits.
 
 Add all items in collection, which is out of order, and retrieve first (least) element:
 

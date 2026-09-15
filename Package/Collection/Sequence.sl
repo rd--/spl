@@ -1404,7 +1404,6 @@
 		};
 		answer
 	}
-	*/
 
 	intersperse { :self :anObject |
 		let answer = [];
@@ -1415,6 +1414,7 @@
 		};
 		answer
 	}
+	*/
 
 	isAlternating { :self :z |
 		let k = self.size;

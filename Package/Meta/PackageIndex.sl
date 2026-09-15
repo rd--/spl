@@ -66,7 +66,6 @@
 	'Collection-Range'
 	'Collection-Record'
 	'Collection-RelativeRange'
-	'Collection-Removable'
 	'Collection-ResidueSet'
 	'Collection-RunArray'
 	'Collection-SequenceAlignment'

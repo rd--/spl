@@ -92,7 +92,7 @@
 
 - `Collection`, `Dictionary`, `Sequence`
 - `Indexable`
-- `Extensible`, `Removable`
+- `Extensible`
 - `Unordered`
 - `List`, `IdentityMap`, `Record`, `IdentitySet`
 - `IdentityMultiset`, `Tree`, `Tuple`

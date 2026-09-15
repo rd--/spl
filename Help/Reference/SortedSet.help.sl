@@ -18,7 +18,6 @@ Traits implemented by `SortedSet`:
 	'Extensible'
 	'Iterable'
 	'Object'
-	'Removable'
 	'Set'
 	'Store'
 ]
