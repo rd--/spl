@@ -647,6 +647,31 @@ Splay(
 	) * (a ^ 3 + (a ^ 0.3) + 0.1)
 ) / 8
 
+/* SCSCC-47 "Toggle bits and wrap them" 213 bytes ; Interactive!!! */
+let i = ToggleFf(
+	CoinGate(
+		8 # [MouseY(0, 1, 0, 0.2)] / 3,
+		LfSaw(
+			LocalIn(1, 0) + 1 * MouseX(0, 23.pi, 0, 0.2),
+			0
+		)
+	)
+) * (128 >> (0 .. 7));
+let f = i.Sum.Tan;
+let o = Lpz2(
+	LeakDc(
+		Select(
+			LfSaw(
+				Sum(i) + f,
+				0
+			) + 1 * 4.3 - 1,
+			i
+		) / 2,
+		LfSaw(-1 * f, 0) * 0.005 + 0.995
+	).Wrap(-1, 1)
+);
+Pan2(o, 0, 1 / 8) <! LocalOut(o)
+
 /* ScScc-49 Lydia ; https://github.com/lukiss/SCSCC/ */
 Splay(
 	LfSaw(
