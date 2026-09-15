@@ -228,6 +228,16 @@ true
 1650
 ```
 
+Always returns a non-negative result:
+
+```
+>>> -4.lcm(-6)
+12
+
+>>> -4.signedLcm(-6)
+-12
+```
+
 Plot the least common multiple for a number with twelve,
 OEIS [A109053](https://oeis.org/A109053):
 

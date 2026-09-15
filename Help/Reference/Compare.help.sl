@@ -35,6 +35,7 @@ Types implementing `Compare`:
 >>> .sort
 [
 	'Association'
+	'Boolean'
 	'ByteArray'
 	'CalendarDuration'
 	'CartesianCoordinates'

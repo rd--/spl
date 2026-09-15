@@ -101,7 +101,7 @@ OeisEntry('A334556').then { :e |
 
 ![](Help/Image/xorTriangle-D.svg)
 
-Numbers whose binary expansion generate rotationally symmetrical _xor_-triangles that have central triangles of zeros,
+Numbers whose binary expansion generate rotationally symmetrical _xor_-triangles that have central triangles of zeroes,
 OEIS [A334769](https://oeis.org/A334769):
 
 ~~~spl svg=E oeis=A334769

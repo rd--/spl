@@ -216,7 +216,7 @@ SmallFloat! : [Object, Store, Equal, Compare, Json, Magnitude, Number, Integer, 
 			return ~_self;
 		}
 		>
-		anObject.adaptToNumberAndApply(self, bitNot:/1)
+		self.error('SmallFloat>>bitNot')
 	}
 
 	bitOr { :self :anObject |
@@ -301,6 +301,34 @@ SmallFloat! : [Object, Store, Equal, Compare, Json, Magnitude, Number, Integer, 
 		}
 	}
 
+	countLeadingOnes { :self |
+		self.bitNot.countLeadingZeroes
+	}
+
+	countLeadingZeroes { :self |
+		<primitive:
+		if(sl.isBitwise(_self)) {
+			return Math.clz32(_self);
+		}
+		>
+		self.error('SmallFloat>>countLeadingZeroes')
+	}
+
+	countTrailingOnes { :self |
+		self.bitNot.countTrailingZeroes
+	}
+
+	countTrailingZeroes { :self |
+		<primitive:
+		let n = _self;
+		n >>>= 0;
+		if (n === 0) {
+			return 32;
+		}
+		n &= -n;
+		return 31 - Math.clz32(n);
+		>
+	}
 	copy { :self |
 		self
 	}
@@ -352,6 +380,34 @@ SmallFloat! : [Object, Store, Equal, Compare, Json, Magnitude, Number, Integer, 
 		}
 		>
 		anObject.adaptToNumberAndApply(self, hypotenuse:/2)
+	}
+
+	ieeeRemainder { :self :operand |
+		<primitive:
+		const dividend = _self;
+		const divisor = _operand;
+		if (Object.is(divisor, 0)
+			|| !Number.isFinite(dividend)
+			|| Number.isNaN(dividend)
+			|| Number.isNaN(divisor))
+		{
+			return NaN;
+		}
+		if (!Number.isFinite(divisor)
+			|| Object.is(dividend, 0))
+		{
+			return dividend;
+		}
+		const exactQuotient = dividend / divisor;
+		let roundedQuotient = Math.round(exactQuotient);
+		if (Math.abs(exactQuotient - roundedQuotient) === 0.5) {
+			if (roundedQuotient % 2 !== 0) {
+				roundedQuotient = roundedQuotient + (exactQuotient > roundedQuotient ? 1 : -1);
+			}
+		}
+		const remainder = dividend - (divisor * roundedQuotient);
+		return remainder;
+		>
 	}
 
 	integerChop { :self :epsilon |

@@ -73,6 +73,22 @@ true
 false
 ```
 
+Empty substrings:
+
+```
+>>> 'xyz'.includesSubstring('')
+true
+
+>>> ''.includesSubstring('')
+true
+
+>>> [1 2 3].includesSubstring([])
+true
+
+>>> [].includesSubstring([])
+true
+```
+
 * * *
 
 See also: includes, includesSubsequence, substrings

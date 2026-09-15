@@ -44,7 +44,7 @@ Append a column to a matrix:
 
 * * *
 
-See also: add, addFirst
+See also: add, addFirst, removeLast
 
 Guides: List Functions
 

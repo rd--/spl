@@ -69,7 +69,7 @@ OEIS [A037271](https://oeis.org/A037271):
 ]
 ```
 
-Numbers with no trailing zeros in decimal representation,
+Numbers with no trailing zeroes in decimal representation,
 OEIS [A067251](https://oeis.org/A067251):
 
 ```

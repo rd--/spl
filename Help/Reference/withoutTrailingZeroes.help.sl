@@ -4,7 +4,7 @@
 
 Answer _n_ with any trailing zeroes, in base _b_, deleted.
 
-Omit trailing zeros from _n_,
+Omit trailing zeroes from _n_,
 threads over lists,
 OEIS [A004151](https://oeis.org/A004151):
 
@@ -16,7 +16,7 @@ OEIS [A004151](https://oeis.org/A004151):
 ]
 ```
 
-Omit trailing zeros from _n!_,
+Omit trailing zeroes from _n!_,
 OEIS [A004154](https://oeis.org/A004154):
 
 ```

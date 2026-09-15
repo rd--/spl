@@ -3,7 +3,8 @@
 - _bitCount(n)_
 - _bitCount([b₁ b₂ …])_
 
-Answer the number of bits set to one in the integer _n_.
+Answer the number of bits set to one in the integer _n_,
+sometimes called the population count.
 
 ```
 >>> 32.bitCount
@@ -11,6 +12,9 @@ Answer the number of bits set to one in the integer _n_.
 
 >>> 31.bitCount
 5
+
+>>> 16rFF.bitCount
+8
 ```
 
 At `BitSet`:
@@ -28,6 +32,14 @@ At `ByteArray`, sum `bitCount` of each byte:
 
 >>> -5.encodeInt32(true).bitCount
 31
+```
+
+Threads over lists,
+powers of two have one bit set:
+
+```
+>>> (2 ^ 3:9).bitCount
+[1 1 1 1 1 1 1]
 ```
 
 Plot sequence:

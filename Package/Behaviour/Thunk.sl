@@ -1,6 +1,10 @@
 Thunk : [Object] { | block:<Block> result |
 
 	[blockValue, value] { :self |
+		self.force
+	}
+
+	force { :self |
 		self.result.ifNil {
 			let answer = self.result := self.block.blockValue;
 			self.block := nil;

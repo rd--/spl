@@ -335,6 +335,9 @@ Negating the exponent gives the `reciprocal` of the answer:
 
 >>> 10 ^ -2
 0.01
+
+>>> 3/4 ^ [2 -2]
+[9/16 16/9]
 ```
 
 If the exponent is the `reciprocal` of some number _n_, the result is the _n_-th root of the base,

@@ -210,7 +210,7 @@ OEIS [A037227](https://oeis.org/A037227):
 [1 3 1 5 1 3 1 7 1 3 1 5 1 3 1 9 1]
 ```
 
-Numbers whose binary representation ends in an even number of zeros,
+Numbers whose binary representation ends in an even number of zeroes,
 OEIS [A003159](https://oeis.org/A003159):
 
 ```
@@ -492,7 +492,7 @@ OEIS [A025480](https://oeis.org/A025480):
 
 ![](Help/Image/integerExponent-R.svg)
 
-Numbers whose binary representation ends in an even number of zeros,
+Numbers whose binary representation ends in an even number of zeroes,
 OEIS [A003159](https://oeis.org/A003159):
 
 ~~~spl svg=S oeis=A003159

@@ -918,7 +918,7 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 		self.codePoints.sort.fromCodePoints
 	}
 
-	splitBy { :self :aString |
+	[splitBy, stringSplit] { :self :aString |
 		<primitive: return _self.split(_aString);>
 	}
 

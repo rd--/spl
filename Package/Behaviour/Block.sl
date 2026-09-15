@@ -282,7 +282,7 @@ Block! : [Object, Equal] {
 
 	hasError { :self:/0 |
 		let answer = false;
-		self:/0.ifError {
+		self:/0.ifError { :unusedError |
 			answer := true
 		};
 		answer
@@ -294,7 +294,7 @@ Block! : [Object, Equal] {
 			return _self_0();
 		} catch (caughtValue) {
 			if(caughtValue instanceof Error) {
-				return _cull_2(_errorHandlerBlock_1, caughtValue)
+				return _errorHandlerBlock_1(caughtValue)
 			} {
 				throw caughtValue;
 			}
@@ -303,7 +303,9 @@ Block! : [Object, Equal] {
 	}
 
 	ignoreError { :self:/0 |
-		self:/0.ifError { }
+		self:/0.ifError { :unusedError |
+			nil
+		}
 	}
 
 	isLiteral { :unused |

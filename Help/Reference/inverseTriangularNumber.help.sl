@@ -12,7 +12,7 @@ Answer the inverse triangular number of _n_.
 276
 ```
 
-Irregular triangle read by rows in which column _k_ lists the odd numbers interleaved with _k-1_ zeros,
+Irregular triangle read by rows in which column _k_ lists the odd numbers interleaved with _k-1_ zeroes,
 and the first element of column _k_ is in row _k(k+1)/2_,
 OEIS [A196020](https://oeis.org/A196020):
 

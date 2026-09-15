@@ -91,6 +91,29 @@ There are also `encodeInt8`, `encodeInt16` and `encodeInt32` methods:
 ]
 ```
 
+Count leading zeroes:
+
+```
+>>> 0.countLeadingZeroes
+32
+
+>>> 2r00000000000000001000000000001000
+32776
+
+>>> 32776.countLeadingZeroes
+16
+
+>>> 32776.countTrailingZeroes
+3
+
+>>> 2r101111111
+383
+
+>>> 383.countTrailingOnes
+7
+```
+
+
 * * *
 
 See also: asSmallFloat, Complex, Fraction, Integer, LargeInteger

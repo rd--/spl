@@ -978,8 +978,8 @@ Reference/commonest.help.sl
 Reference/commonResidue.help.sl
 Reference/commonSubexpressions.help.sl
 Reference/Compander.help.sl
-Reference/Compare.help.sl
 Reference/compare.help.sl
+Reference/Compare.help.sl
 Reference/complement.help.sl
 Reference/completeBipartiteGraph.help.sl
 Reference/completeGraphDrawing.help.sl
@@ -1410,12 +1410,12 @@ Reference/EqPan.help.sl
 Reference/equalByAtNamedSlots.help.sl
 Reference/equalDetourPoint.help.sl
 Reference/equal.help.sl
+Reference/Equal.help.sl
 Reference/equalIgnoringExtraWhitespace.help.sl
 Reference/equalsSignEqualsSign.help.sl
 Reference/equalsSign.help.sl
 Reference/equalTemperamentTuning.help.sl
 Reference/equalTo.help.sl
-Reference/Equal.help.sl
 Reference/equilateralTriangle.help.sl
 Reference/equispacedTriples.help.sl
 Reference/erdosSelfridgeFunction.help.sl
@@ -3743,9 +3743,9 @@ Reference/semicubicalParabola.help.sl
 Reference/semiperimeter.help.sl
 Reference/sentences.help.sl
 Reference/septimalComma.help.sl
-Reference/Sequence.help.sl
 Reference/sequenceAlignment.help.sl
 Reference/sequenceCount.help.sl
+Reference/Sequence.help.sl
 Reference/sequencePosition.help.sl
 Reference/sequenceReplace.help.sl
 Reference/Sequencer.help.sl
@@ -3991,6 +3991,7 @@ Reference/stolarskyIndex.help.sl
 Reference/stolarskyMean.help.sl
 Reference/stope.help.sl
 Reference/Storage.help.sl
+Reference/Store.help.sl
 Reference/storeStringAsInitializeSlots.help.sl
 Reference/storeString.help.sl
 Reference/Stream.help.sl

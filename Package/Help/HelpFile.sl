@@ -339,7 +339,7 @@ HelpFile : [Object, Equal, Cache] { | origin source cache |
 				};
 				{
 					each.evaluate
-				}.ifError {
+				}.ifError { :unusedError |
 					('	ERROR: ' ++ each.format).postLine;
 					errorCount := errorCount + 1;
 					false

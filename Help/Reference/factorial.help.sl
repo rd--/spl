@@ -39,7 +39,7 @@ OEIS [A052849](https://oeis.org/A052849):
 [2 4 12 48 240 1440 10080 80640 725760]
 ```
 
-The factorial numbers with trailing zeros omitted,
+The factorial numbers with trailing zeroes omitted,
 OEIS [A004154](https://oeis.org/A004154):
 
 ```
@@ -413,7 +413,7 @@ let n = 0:85.!;
 
 ![](Help/Image/factorial-B.svg)
 
-The factorial numbers with trailing zeros omitted,
+The factorial numbers with trailing zeroes omitted,
 OEIS [A004154](https://oeis.org/A004154):
 
 ~~~spl svg=C oeis=A004154

@@ -3,6 +3,7 @@
 - _bitLength(n)_
 
 Answer the number of binary bits necessary to represent the integer _n_.
+Sometimes called the bit width.
 
 ```
 >>> 32.bitLength

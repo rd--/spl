@@ -17,6 +17,7 @@ List of traits implemented by `Boolean`:
 >>> .traitNameList
 >>> .sort
 [
+	'Compare'
 	'Equal'
 	'Json'
 	'Object'

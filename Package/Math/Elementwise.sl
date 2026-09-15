@@ -116,6 +116,10 @@
 		self.reduce(bitAnd:/2)
 	}
 
+	bitCount { :self |
+		self.collect(bitCount:/1)
+	}
+
 	bitLength { :self |
 		self.collect(bitLength:/1)
 	}
@@ -977,6 +981,10 @@
 
 	gcd { :self :anObject |
 		anObject.adaptToCollectionAndApply(self, gcd:/2)
+	}
+
+	ieeeRemainder { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, ieeeRemainder:/2)
 	}
 
 	integerDigits { :self :anObject |

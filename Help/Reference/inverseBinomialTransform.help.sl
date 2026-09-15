@@ -79,7 +79,7 @@ OEIS [A061084](https://oeis.org/A061084):
 [2 -1 3 -4 7 -11 18 -29 47 -76 123]
 ```
 
-Powers of two alternating with zeros,
+Powers of two alternating with zeroes,
 the inverse binomial transform of the Pell-Lucas numbers,
 OEIS [A077957](https://oeis.org/A077957):
 

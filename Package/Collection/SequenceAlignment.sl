@@ -37,11 +37,15 @@
 	includesSubstring { :self :aList |
 		let n = self.size;
 		let k = aList.size;
-		let c = aList.first;
-		self.indicesOf(c).anySatisfy { :i |
-			(i + k - 1) <= n & {
-				1.to(k).allSatisfy { :j |
-					self[i + j - 1] = aList[j]
+		(k = 0).if {
+			true
+		} {
+			let c = aList.first;
+			self.indicesOf(c).anySatisfy { :i |
+				(i + k - 1) <= n & {
+					1.to(k).allSatisfy { :j |
+						self[i + j - 1] = aList[j]
+					}
 				}
 			}
 		}

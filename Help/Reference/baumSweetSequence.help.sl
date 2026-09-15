@@ -3,7 +3,7 @@
 - _baumSweetSequence(n)_
 
 Answer the first _n_ terms of the Baum–Sweet sequence,
-one if the binary expansion of _n_ contains no block of consecutive zeros of odd length,
+one if the binary expansion of _n_ contains no block of consecutive zeroes of odd length,
 else zero.
 
 The Baum–Sweet sequence,

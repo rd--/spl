@@ -18,6 +18,9 @@ Shuffle a `Range` once, answering a `List`:
 
 >>> 1:8.outShuffle
 [1 5 2 6 3 7 4 8]
+
+>>> 1:5.outShuffle
+[1 4 2 5 3]
 ```
 
 Shuffle a list three times:

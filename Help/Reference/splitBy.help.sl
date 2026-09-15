@@ -34,6 +34,9 @@ which is also a `String`:
 
 >>> '0.3D9'.splitBy('D')
 ['0.3' '9']
+
+>>> 'text'.splitBy('')
+['t' 'e' 'x' 't']
 ```
 
 The inverse is `stringJoin`:

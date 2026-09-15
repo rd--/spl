@@ -517,7 +517,7 @@ OEIS [A010879](https://oeis.org/A010879):
 ]
 ```
 
-Numbers _k_ such that _2^k_ contains no zeros in base three,
+Numbers _k_ such that _2^k_ contains no zeroes in base three,
 OEIS [A102483](https://oeis.org/A102483):
 
 ```

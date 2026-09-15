@@ -184,6 +184,16 @@ OEIS [A008364](https://oeis.org/A008364):
 ]
 ```
 
+Always returns a non-negative result:
+
+```
+>>> -12.gcd(-8)
+4
+
+>>> -12.signedGcd(-8)
+-4
+```
+
 Plot the `gcd` for a number with twelve,
 OEIS [A109015](https://oeis.org/A109015):
 

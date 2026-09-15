@@ -2,7 +2,8 @@
 
 - _cubeRoot(n)_
 
-Answer the real-valued cube root of the number _n_.
+Answer the real-valued cube root of the number _n_,
+sometimes abbreviated _cbrt_.
 
 `cubeRoot` gives a real root:
 

@@ -7,6 +7,12 @@ Remove whitespace from both ends of the string _s_.
 ```
 >>> '   aaa bbb ccc   '.trim
 'aaa bbb ccc'
+
+>>> '   leading'.trim
+'leading'
+
+>>> 'trailing   '.trim
+'trailing'
 ```
 
 * * *

@@ -7,6 +7,9 @@ Shuffle the list _x_ using Monge’s shuffle _n_ times.
 Shuffle a `Range` once, answering a `List`:
 
 ```
+>>> 1:5.mongesShuffle
+[4 2 1 3 5]
+
 >>> 1:10.mongesShuffle
 [10 8 6 4 2 1 3 5 7 9]
 

@@ -120,7 +120,7 @@ OEIS [A059857](https://oeis.org/A059857):
 ]
 ```
 
-Powers of two alternating with zeros,
+Powers of two alternating with zeroes,
 OEIS [A077957](https://oeis.org/A077957):
 
 ```

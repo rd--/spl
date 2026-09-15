@@ -11,8 +11,6 @@ and passes only the required number of arguments.
 A no-argument block with one and two arguments:
 
 ```
->>> { }.cull
-
 >>> { }.cull(23)
 nil
 

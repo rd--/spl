@@ -70,6 +70,42 @@ Detect perfect multiples in a given list of numbers:
 [false false true false false true false]
 ```
 
+Special values:
+
+```
+
+>>> remainder(-0, 1)
+-0
+
+>>> remainder(5.1, Infinity)
+5.1
+
+>>> remainder(5.1, 0).isNaN
+true
+```
+
+Compare to `ieeeRemainder`:
+
+```
+>>> remainder(5.5, 2)
+1.5
+
+>>> ieeeRemainder(5.5, 2)
+-0.5
+
+>>> remainder(5.1, 3)
+2.1
+
+>>> ieeeRemainder(5.1, 3)
+-0.9
+
+>>> remainder(-5.1, 3)
+-2.1
+
+>>> ieeeRemainder(-5.1, 3)
+0.9
+```
+
 * * *
 
 See also: //, \\, quotient, quotientRemainder, remainderBy

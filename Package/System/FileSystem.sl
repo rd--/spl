@@ -3,7 +3,7 @@
 	directoryExists { :self :aString |
 		{
 			self.fileInformation(aString).at('isDirectory')
-		}.ifError {
+		}.ifError { :unusedError |
 			false
 		}
 	}
@@ -11,7 +11,7 @@
 	fileExists { :self :aString |
 		{
 			self.fileInformation(aString).at('isFile')
-		}.ifError {
+		}.ifError { :unusedError |
 			false
 		}
 	}

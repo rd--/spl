@@ -21,7 +21,7 @@ In this case the exception can be _caught_ using `ifError`:
 ```
 >>> {
 >>> 	(x: 1, y: 2).at('z')
->>> }.ifError {
+>>> }.ifError { :unusedError |
 >>> 	'z is not a valid key'
 >>> }
 'z is not a valid key'

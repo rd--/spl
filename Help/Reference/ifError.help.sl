@@ -3,11 +3,10 @@
 - _ifError(f:/0, g:/1)_
 
 Evaluate the no-argument block _f_ and if there is no error then that is the answer.
-If an error occurs evaluate the unary block _g_ and that is the answer.
-_g_ is evaluated using `cull`,
-the parameter is the `Error` signalled by _f_.
+If an error occurs evaluate the unary block _g_ with the `Error` signalled by _f_,
+and that is the answer.
 
-With one argument block:
+Evaluate a block that raises an error:
 
 ```
 >>> {
@@ -18,15 +17,15 @@ With one argument block:
 true
 ```
 
-With no argument block at _g_:
+Evaluate a block that does not raise an error:
 
 ```
 >>> {
->>> 	1.anUnknownMessage
->>> }.ifError {
->>> 	true
+>>> 	9.sqrt
+>>> }.ifError { :err |
+>>> 	-9
 >>> }
-true
+3
 ```
 
 * * *

@@ -942,8 +942,8 @@ let t = { :n :k |
 
 ![](Help/Image/binomial-E.svg)
 
-The number of length-_n_ binary sequences with exactly _k_ zeros,
-and without three consecutive zeros,
+The number of length-_n_ binary sequences with exactly _k_ zeroes,
+and without three consecutive zeroes,
 OEIS [A182309](https://oeis.org/A182309):
 
 ~~~spl svg=F oeis=A182309

@@ -44,6 +44,10 @@ See also: +++, catenate, concatenation
 
 Guides: Dictionary Functions, List Functions, Operator Lists
 
+References:
+_Haskell_
+[1](https://hackage-content.haskell.org/package/base/docs/Data-List.html#v:-43--43-)
+
 Unicode: U+29FA ⧺ Double plus
 
 Categories: Copying
