@@ -1039,7 +1039,7 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 
 	multisetPermutationsDoLink { :self :visit:/1 |
 		let n = self.size;
-		let l = LinkedList(self.sorted(|>));
+		let l = LinkedList(self.sorted(succeeds:/2));
 		let h = l.firstLink;
 		let i = l.linkAt(n - 1);
 		let j = l.lastLink;

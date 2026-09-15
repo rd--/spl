@@ -51,7 +51,8 @@ true
 true
 ```
 
-When the arguments to `<` are `boole`, it is the converse non-implication `Boolean` function:
+When the arguments to `<` are `boole`,
+it is the converse non-implication `Boolean` function:
 
 ```
 >>> ([0 1] <.table [0 1]).boole

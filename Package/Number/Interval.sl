@@ -197,7 +197,12 @@ Interval : [Object, Store, Equal, Number] { | min max |
 	}
 
 	printString { :self |
-		'(' ++ self.min ++ ' -- ' ++ self.max ++ ')'
+		'(% -- %)'.format(
+			[
+				self.min,
+				self.max
+			]
+		)
 	}
 
 	radius { :self |

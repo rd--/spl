@@ -32,7 +32,7 @@
 		let totalPassCount = 0;
 		let totalErrorCount = 0;
 		let fileNameList = system.readDirectoryFileNames(directoryName.absolutePathString);
-		let helpFileNameList = fileNameList.sortBy(<|).select { :each |
+		let helpFileNameList = fileNameList.sortBy(precedes:/2).select { :each |
 			each.endsWith('.help.sl') & {
 				each.pathBasename.matchesRegularExpression(options['pattern'])
 			}

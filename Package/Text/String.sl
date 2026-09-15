@@ -2,28 +2,6 @@
 
 String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] {
 
-	[less, <] { :self :operand |
-		self.codePoint < operand.codePoint
-	}
-
-	[concatenation, ++] { :self :anObject |
-		self.uncheckedConcatenation(anObject.asString)
-	}
-
-	[equal, =] { :self :anObject |
-		identical(self, anObject)
-	}
-
-	[similar, ~] { :self :anObject |
-		self.isCharacter.if {
-			anObject.isCharacter & {
-				self.codePoint == anObject.codePoint
-			}
-		} {
-			self == anObject
-		}
-	}
-
 	abbreviateTo { :self :anInteger |
 		self.truncateTo(anInteger - 8) ++ '... &etc'
 	}
@@ -190,7 +168,7 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 		.characters
 		.asIdentityMultiset
 		.associations
-		.sort(|>=, value:/1)
+		.sort(succeedsOrEqualTo:/2, value:/1)
 	}
 
 	characterCounts { :self :n |
@@ -200,7 +178,7 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 		.collect(stringCatenate:/1)
 		.asIdentityMultiset
 		.associations
-		.sort(|>=, value:/1)
+		.sort(succeedsOrEqualTo:/2, value:/1)
 	}
 
 	characterRange { :self :aString |
@@ -250,6 +228,15 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 
 	compare { :self :operand |
 		self.lexicographicCompare(operand)
+	}
+
+
+	[concatenation, ++] { :self :anObject |
+		anObject.isString.if {
+			self.uncheckedConcatenation(anObject)
+		} {
+			self.error('concatenation: operand not string')
+		}
 	}
 
 	concisePrintString { :self |
@@ -341,6 +328,10 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 
 	empty { :unused |
 		''
+	}
+
+	[equal, =] { :self :anObject |
+		identical(self, anObject)
 	}
 
 	endsWith { :self :aString |
@@ -619,7 +610,7 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 		.select(isLetter:/1)
 		.asIdentityMultiset
 		.associations
-		.sort(|>=, value:/1)
+		.sort(succeedsOrEqualTo:/2, value:/1)
 	}
 
 	letterCounts { :self :n |
@@ -630,7 +621,7 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 		.collect(stringCatenate:/1)
 		.asIdentityMultiset
 		.associations
-		.sort(|>=, value:/1)
+		.sort(succeedsOrEqualTo:/2, value:/1)
 	}
 
 	letterNumber { :self :aString |
@@ -743,6 +734,10 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 
 	onCharactersList { :self :aBlock:/1 |
 		self.characters.aBlock.collect(stringCatenate:/1)
+	}
+
+	onCodePoints { :self :aBlock:/1 |
+		self.codePoints.aBlock.fromCodePoints
 	}
 
 	padLeft { :self :aList :aString |
@@ -902,6 +897,16 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 		<primitive: return sl.stringToSentences(_self);>
 	}
 
+	[similar, ~] { :self :anObject |
+		self.isCharacter.if {
+			anObject.isCharacter & {
+				self.codePoint == anObject.codePoint
+			}
+		} {
+			self == anObject
+		}
+	}
+
 	size { :self |
 		self.countUtf16CodeUnits
 	}
@@ -1026,7 +1031,7 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 	}
 
 	unique { :self |
-		self ++ system.uniqueIdentifier
+		self ++ system.uniqueIdentifier.printString
 	}
 
 	utf8ByteArray { :self |
@@ -1219,7 +1224,11 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 	}
 
 	stringIntercalate { :self :aString |
-		(self.allSatisfy(isString:/1) && aString.isString).if {
+		(
+			self.allSatisfy(isString:/1) & {
+				aString.isString
+			}
+		).if {
 			self.uncheckedStringIntercalate(aString)
 		} {
 			self.error('List>>stringIntercalate: non-string arguments')

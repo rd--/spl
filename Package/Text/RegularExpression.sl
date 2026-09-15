@@ -280,9 +280,17 @@ RegExp! : [Object, Store, Equal] {
 			let before = (index = 1).if {
 				''
 			} {
-				self.copyFromTo(1, index - 1).matchRegularExpression('[a-zA-Z0-9-_]+$') ? { '' }
+				self
+				.copyFromTo(1, index - 1)
+				.matchRegularExpression('[a-zA-Z0-9-_]+$')
+				.ifNil { '' }
 			};
-			let after = self.copyFromTo(index, self.size).matchRegularExpression('^[a-zA-Z0-9-_]+') ? { '' };
+			let after = (
+				self
+				.copyFromTo(index, self.size)
+				.matchRegularExpression('^[a-zA-Z0-9-_]+')
+				.ifNil { '' }
+			);
 			before ++ after
 		} {
 			self.error('wordAtIndex: invalid index')

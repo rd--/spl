@@ -85,7 +85,7 @@ Where supported `catenate` is displayed as ⧻.
 
 * * *
 
-See also: ++, +++, collectCatenate, dictionaryJoin, flatten
+See also: ++, +++, collectCatenate, dictionaryJoin, flatten, stringJoin
 
 Guides: List Functions
 

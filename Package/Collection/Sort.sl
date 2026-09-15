@@ -175,7 +175,7 @@
 	}
 
 	ordering { :self |
-		self.ordering(<|)
+		self.ordering(precedes:/2)
 	}
 
 	rankingFractional { :self |
@@ -217,19 +217,19 @@
 	}
 
 	reverseSort { :self |
-		self.sortBy(|>)
+		self.sortBy(succeeds:/2)
 	}
 
 	sort { :self :sortBlock:/2 :keyBlock:/1 |
 		keyBlock:/1.ifNil {
-			self.sortBy(sortBlock:/2 ? { <| })
+			self.sortBy(sortBlock:/2.ifNil { precedes:/2 })
 		} {
-			self.sortByOn(sortBlock:/2 ? { <| }, keyBlock:/1)
+			self.sortByOn(sortBlock:/2.ifNil { precedes:/2 }, keyBlock:/1)
 		}
 	}
 
 	sort { :self :sortBlock:/2 |
-		self.sortBy(sortBlock:/2 ? { <| })
+		self.sortBy(sortBlock:/2.ifNil { precedes:/2 })
 	}
 
 	sort { :self |
@@ -252,7 +252,7 @@
 	}
 
 	sortOn { :self :keyBlock:/1 |
-		self.sortByOn(<|, keyBlock:/1)
+		self.sortByOn(precedes:/2, keyBlock:/1)
 	}
 
 	sorted { :self :sortBlock:/2 |
@@ -276,7 +276,7 @@
 	}
 
 	sortedWithIndices { :self |
-		self.sortedWithIndices(less:/2)
+		self.sortedWithIndices(precedes:/2)
 	}
 
 	takeSmallest { :self :anInteger |

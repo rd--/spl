@@ -59,13 +59,13 @@
 
 	rahnNormalForm { :self |
 		self.normalForm { :a :b |
-			a.reverse <| b.reverse
+			a.reverse.precedes(b.reverse)
 		}
 	}
 
 	rahnPrimeForm { :self |
 		self.primeForm { :a :b |
-			a.reverse <| b.reverse
+			a.reverse.precedes(b.reverse)
 		}
 	}
 

@@ -1050,7 +1050,7 @@
 			(n = 1).if {
 				b
 			} {
-				(a ++ b).sortBy(<|)
+				(a ++ b).sortBy(precedes:/2)
 			}
 		}
 	}

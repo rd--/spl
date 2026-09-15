@@ -23,7 +23,7 @@ The appended identifier is given by `uniqueIdentifier`.
 
 ```
 >>> 'x'.unique
-'x' ++ (system.uniqueIdentifier - 1).asString
+'x' ++ (system.uniqueIdentifier - 1).printString
 ```
 
 Unique digits used in _n_ in numerical order,

@@ -96,6 +96,20 @@ At `Map`:
 Map['x' -> 1, 'y' -> 2, 'z' -> 3]
 ```
 
+At `String`, requires operand to also be a string:
+
+```
+>>> { '123' ++ 456 }.hasError
+true
+```
+
+At `Sequence`, requires operand to also be a sequence:
+
+```
+>>> { [1 2 3] ++ 4 }.hasError
+true
+```
+
 * * *
 
 See also: ++, +++, catenate, flatten, join, stringJoin

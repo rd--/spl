@@ -18,6 +18,15 @@ The `product` of the integers from `one` up to _n_.
 25852016738884976640000L
 ```
 
+A large factorial:
+
+```
+>> 52L.!
+80658175170943878571660
+63685640376697528950544
+0883277824000000000000L
+```
+
 The factorial numbers,
 threads over lists,
 OEIS [A000142](https://oeis.org/A000142):

@@ -15,7 +15,7 @@
 						i := i + 1;
 						j := j + 1
 					} {
-						(a <| b).if {
+						a.precedes(b).if {
 							i := 1;
 							j := j + 1
 						} {

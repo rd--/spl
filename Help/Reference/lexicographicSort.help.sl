@@ -139,7 +139,7 @@ minus one:
 
 * * *
 
-See also: colexicographicSort, canonicalSort, precedes, sort
+See also: colexicographicSort, canonicalSort, precedes, reverseLexicographicSort, sort
 
 Guides: Comparison Functions, Sort Functions
 

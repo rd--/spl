@@ -147,7 +147,7 @@ System! : [Object, Cache, RandomNumberGenerator] {
 				item := item.atIfAbsent(path[index]) { nil };
 				index := index + 1
 			};
-			item ? {
+			item.ifNil {
 				defaultValue
 			}
 		}

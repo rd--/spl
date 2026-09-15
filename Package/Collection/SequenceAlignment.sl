@@ -133,7 +133,7 @@
 	}
 
 	increasingSubsequenceList { :self |
-		self.increasingSubsequenceList(<|)
+		self.increasingSubsequenceList(precedes:/2)
 	}
 
 	longestCommonPrefixSize { :u :v |
@@ -302,7 +302,7 @@
 	}
 
 	orderedSubstrings { :self |
-		self.orderedSubstrings(<|)
+		self.orderedSubstrings(precedes:/2)
 	}
 
 	sequenceCount { :self :subsequence |
@@ -419,7 +419,7 @@
 	}
 
 	longestIncreasingSubsequence { :self |
-		self.onCharacters(
+		self.onCodePoints(
 			longestIncreasingSubsequence:/1
 		)
 	}

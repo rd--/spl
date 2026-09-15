@@ -96,11 +96,19 @@ Method! : [Object] {
 	}
 
 	qualifiedName { :self |
-		self.name ++ ':/' ++ self.arity
+		[
+			self.name,
+			':/',
+			self.arity
+		].stringJoin
 	}
 
 	signature { :self |
-		self.origin.qualifiedName ++ '>>' ++ self.qualifiedName
+		[
+			self.origin.qualifiedName,
+			'>>',
+			self.qualifiedName
+		].stringCatenate
 	}
 
 	sourceCode { :self |

@@ -1698,7 +1698,7 @@
 					b(j) != b(k + i + 1)
 				}
 			}.whileTrue {
-				(b(j) <| b(k + i + 1)).ifTrue {
+				b(j).precedes(b(k + i + 1)).ifTrue {
 					k := j - i - 1
 				};
 				i := f[i + 1]
@@ -1708,7 +1708,7 @@
 					b(j) != b(k + i + 1)
 				}
 			).if {
-				(b(j) <| b(k + i + 1)).ifTrue {
+				b(j).precedes(b(k + i + 1)).ifTrue {
 					k := j
 				};
 				f[j - k + 1] := -1

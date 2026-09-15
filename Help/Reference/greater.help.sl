@@ -13,6 +13,19 @@ true
 true
 ```
 
+At `SmallFloat`, `LargeInteger` and `Fraction`:
+
+```
+>>> 1.pi > 1.e
+true
+
+>>> 32L > 23L
+true
+
+>>> 2/3 > 1/2
+true
+```
+
 Element-wise at `List`:
 
 ```

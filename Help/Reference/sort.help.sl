@@ -3,7 +3,7 @@
 - _sort([x₁ x₂ …], f:/2, g:/1)_
 
 Sort the sequence _x_ in place using the comparator _f:/2_.
-If the sort block is omitted or is `nil`, sort by `<|`.
+If the sort block is omitted or is `nil`, sort by `precedes`.
 Answers the sorted sequence.
 
 At `List` of numbers:

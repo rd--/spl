@@ -1,13 +1,13 @@
 # ordering
 
-- _ordering([x₁ x₂ …], f:/2=<)_
+- _ordering([x₁ x₂ …], f:/2=≺)_
 
 Answer the positions in the sequence _x_ at which each successive element of _sort(x)_ appears.
 
 Find the ordering that sorts a list:
 
 ```
->>> ['c' 'a' 'b'].ordering(<)
+>>> ['c' 'a' 'b'].ordering
 [2 3 1]
 
 >>> [3 -4 1 4 22 17 -2 2 13 -11]
@@ -98,7 +98,7 @@ Find the inverse of a permutation:
 At `List` of `Character`:
 
 ```
->>> ', ZAMBIA.'.characters.ordering(<)
+>>> ', ZAMBIA.'.characters.ordering
 [2 1 9 4 8 6 7 5 3]
 ```
 

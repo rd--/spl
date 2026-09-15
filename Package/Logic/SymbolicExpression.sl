@@ -139,7 +139,7 @@
 	adaptToNumberAndApply { :self :receiver :aBlock:/2 |
 		let name = aBlock:/2.unqualifiedName;
 		SymbolicExpression(
-			name.splOperatorNameToken ? { name },
+			name.splOperatorNameToken.ifNil { name },
 			[receiver, self]
 		).simplifyConstantMath
 	}

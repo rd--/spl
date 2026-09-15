@@ -33,7 +33,10 @@ SvgViewer : [Object, View] { | svgPane title svg |
 +SmallKansas {
 
 	SvgViewer { :self :title :svg :where |
-		self.addFrame(SvgViewer(title, svg), where ? self.where)
+		self.addFrame(
+			SvgViewer(title, svg),
+			where.ifNil(self.where)
+		)
 	}
 
 }

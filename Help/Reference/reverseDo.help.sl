@@ -11,7 +11,7 @@ At `List`:
 ```
 >>> let s = '';
 >>> [1 9 2 8 3 7 4 6].reverseDo { :i |
->>> 	s := s ++ i
+>>> 	s := s ++ i.printString
 >>> };
 >>> s
 '64738291'
