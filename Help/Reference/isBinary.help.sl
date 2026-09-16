@@ -18,6 +18,18 @@ false
 At `SmallFloat` only 31-bit integer values answer `true`:
 
 ```
+>>> 2 ^ 31 - 1
+2_147_483_647
+
+>>> (2 ^ 31 - 1).isBinary
+true
+
+>>> -2 ^ 31
+-2_147_483_648
+
+>>> (-2 ^ 31).isBinary
+true
+
 >>> 2166136261.isBinary
 false
 

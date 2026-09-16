@@ -51,12 +51,12 @@ A self-generating sequence,
 OEIS [A005041](https://oeis.org/A005041):
 
 ```
-0:7.collect { :n |
-	List(
-		((n + 1) / 3).ceiling + 1,
-		n + 1
-	)
-}
+>>> 0:7.collect { :n |
+>>> 	List(
+>>> 		((n + 1) / 3).ceiling + 1,
+>>> 		n + 1
+>>> 	)
+>>> }
 [
 	1 1;
 	2 2;

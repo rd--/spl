@@ -26,6 +26,8 @@ Structural:
 - `bitShiftLeft`, `<<`
 - `bitShiftRight`, `>>`
 - `bitShiftRightUnsigned`, `>>>`
+- `bitRotateLeft`
+- `bitRotateRight`
 - `highBit`
 
 Operators Forms:

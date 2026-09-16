@@ -25,7 +25,7 @@ Find whether two equal length lists are ordered lexicographically:
 At unequal length lists:
 
 ```
-> [1 2].lexicographicCompare([1 2 3])
+>>> [1 2].lexicographicCompare([1 2 3])
 -1
 
 >>> [1 2 3].lexicographicCompare([1 2])

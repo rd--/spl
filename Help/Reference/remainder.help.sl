@@ -73,7 +73,6 @@ Detect perfect multiples in a given list of numbers:
 Special values:
 
 ```
-
 >>> remainder(-0, 1)
 -0
 

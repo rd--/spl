@@ -161,6 +161,7 @@ The sum of `mangoldtLambda` of the first n integers is equal to the natural log 
 >>> 1:10.lcm.log
 2520.log
 ```
+
 Maximal order of group elements from the symmetric group of order n (Landau’s function):
 
 ```

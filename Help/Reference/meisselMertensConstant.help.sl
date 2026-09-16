@@ -12,6 +12,7 @@ Answer _n_ times the Meissel-Mertens constant.
 The binary form answers a `Decimal` value to the indicated precision,
 OEIS [A077761](https://oeis.org/A077761):
 
+```
 >>> 1.meisselMertensConstant(32)
 0.26149721284764278375542683860869D
 ```

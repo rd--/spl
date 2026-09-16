@@ -108,10 +108,11 @@ branches are manually delayed:
 The `hypotenuse` function:
 
 ```
->>> '{ :x :y | ((x * x) + (y * y)).sqrt }'
->>> .splParseExpression
->>> .asString
-'(𝒫 (𝜆 (𝓐 x y) (sqrt (plusSign (asterisk x x) (asterisk y y)))))'
+>> '{ :x :y | ((x * x) + (y * y)).sqrt }'
+>> .splParseExpression
+>> .asString
+(𝒫 (𝜆 (𝓐 x y)
+ (sqrt (plusSign (asterisk x x) (asterisk y y)))))
 ```
 
 * * *

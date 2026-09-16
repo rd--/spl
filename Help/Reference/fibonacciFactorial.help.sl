@@ -38,7 +38,6 @@ OEIS [A382910](https://oeis.org/A382910):
 ]
 ```
 
-
 * * *
 
 See also: factorial, fibonacciFactorialConstant, fibonacciSequence

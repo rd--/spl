@@ -18,6 +18,7 @@ true
 
 An empty range signals an `error` for `last`:
 
+```
 >>> let r = Range(9, 1, 1);
 >>> (r.isEmpty, r.isProper, { r.last }.hasError)
 (true, false, true)

@@ -112,7 +112,6 @@ Count leading zeroes:
 7
 ```
 
-
 * * *
 
 See also: asSmallFloat, Complex, Fraction, Integer, LargeInteger

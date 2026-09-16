@@ -38,4 +38,3 @@ See also: contractTo
 Guides: String Functions
 
 Categories: String
-

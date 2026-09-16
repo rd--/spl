@@ -65,7 +65,7 @@ nil
 Print condensed Oeis help programs,
 one per line:
 
-~~~
+~~~spl console
 system.helpProgramsDo { :p |
 	p.annotations.includesKey(
 		'oeis'

@@ -20,6 +20,7 @@ Answer the Forte number of the pitch-class set _p_.
 
 Complementary sets:
 
+```
 >>> let a = [1 3 6 8 10];
 >>> let b = [0 .. 11].complement(a);
 >>> (a.forteNumber, b.forteNumber)

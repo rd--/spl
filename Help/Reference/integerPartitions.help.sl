@@ -359,7 +359,6 @@ OEIS [A032020](https://oeis.org/A032020):
 [1 1 3 3 5 11 13 19 27 57 65 101 133 193]
 ```
 
-
 All the parts of all reversed partitions,
 sorted first by length and then lexicographically.
 OEIS [A036036](https://oeis.org/A036036):

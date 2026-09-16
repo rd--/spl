@@ -188,25 +188,6 @@ true
 1L
 ```
 
-Bit rotate left and right:
-
-```
->>> 2r11000110
-198
-
->>> 198L.bitRotateLeft(1, 8)
-2r10001101
-
->>> 198L.bitRotateLeft(3, 8)
-2r00110110
-
->>> 198L.bitRotateRight(1, 8)
-2r01100011
-
->>> 198L.bitRotateRight(3, 8)
-2r11011000
-```
-
 * * *
 
 See also: asLargeInteger, Binary, Integer, Magnitude, Number, parseLargeInteger, SmallFloat

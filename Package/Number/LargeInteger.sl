@@ -11,20 +11,6 @@ LargeInteger! : [Object, Store, Equal, Compare, Binary, Number, Integer] {
 		anObject.adaptToIntegerAndApply(self, <)
 	}
 
-	bitRotateLeft { :self :shift :k |
-		let mask = (1L << k) - 1L;
-		((self << shift).bitOr(
-			self >> (k - shift))
-		).bitAnd(mask)
-	}
-
-	bitRotateRight { :self :shift :k |
-		let mask = (1L << k) - 1L;
-		((self >> shift).bitOr(
-			self << (k - shift))
-		).bitAnd(mask)
-	}
-
 	[bitShiftLeft, <<] { :self :anObject |
 		<primitive:
 		if(sl.isLargeInteger(_anObject)) {

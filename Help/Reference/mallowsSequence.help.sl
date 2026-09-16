@@ -39,4 +39,3 @@ _OEIS_
 [1](http://oeis.org/A005229)
 
 Further Reading: Mallows 1991
-

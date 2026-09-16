@@ -37,4 +37,3 @@ _OEIS_
 _W_
 [1](https://en.wikipedia.org/wiki/Rencontres_numbers)
 [2](https://en.wikipedia.org/wiki/Cycles_and_fixed_points)
-

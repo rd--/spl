@@ -73,11 +73,11 @@ true
 An order twenty-seven Costas array:
 
 ```
-[
-	11 10  4 24  7 23  3 18 21  9
-	26 16  5  1 15 27  2 25 17 22
-	19  6  8 12 20 13 14
-].isCostasArray
+>>> [
+>>> 	11 10  4 24  7 23  3 18 21  9
+>>> 	26 16  5  1 15 27  2 25 17 22
+>>> 	19  6  8 12 20 13 14
+>>> ].isCostasArray
 true
 ```
 

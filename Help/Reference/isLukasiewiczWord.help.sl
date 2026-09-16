@@ -49,7 +49,6 @@ true
 The Łukasiewicz paths with content _0022_:
 
 ```
-
 >>> motzkinWords(2, 1)
 >>> .allSatisfy(isLukasiewiczWord:/1)
 true

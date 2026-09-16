@@ -12,6 +12,7 @@ factorialOrGamma(9)
 
 Note that the answer is given in `normal` form:
 
+```
 >>> 9L.!.isSmallInteger
 true
 ```

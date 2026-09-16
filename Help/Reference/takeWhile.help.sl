@@ -60,7 +60,6 @@ Find the digits of π before the first occurrence of a seven:
 [3 1 4 1 5 9 2 6 5 3 5 8 9]
 ```
 
-
 * * *
 
 See also: doWhileTrue, dropWhile, select, take, while

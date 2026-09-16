@@ -74,6 +74,22 @@
 		.fromDigits(2)
 	}
 
+	bitRotateLeft { :self :shift :k |
+		let one = self.one;
+		let mask = (one << k) - one;
+		((self << shift).bitOr(
+			self >> (k - shift))
+		).bitAnd(mask)
+	}
+
+	bitRotateRight { :self :shift :k |
+		let one = self.one;
+		let mask = (one << k) - one;
+		((self >> shift).bitOr(
+			self << (k - shift))
+		).bitAnd(mask)
+	}
+
 	bitSet { :self :anInteger |
 		self.bitOr(
 			1.bitShift(anInteger)

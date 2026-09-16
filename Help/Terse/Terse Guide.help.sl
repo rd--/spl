@@ -1060,15 +1060,14 @@ system.includesPackage('Colour') /* colour package */
 1 < 2 /* 1 is less than 2 */
 1 >= 1 /* 1 is greater than or equal to 1 */
 2 <= 1 = false /* 2 is not less than or equal to 1 */
-'x' < 'y' /* 'x' is less than 'y' */
 { false < true }.hasError /* booleans are not magnitudes */
 ```
 
 ## Comparing -- arrays
 ```
-[1, 'z'] < [2, 'a'] = [true, false ] /* pointwise - 1 is less than 2 and 'z' is greater than 'a' */
-[3, 'a'] < [3, 'b'] = [false, true] /* pointwise? - 3 is equal to 3 and 'a' is less than 'b' */
-[4, 'dog'] = [4, 'dog'] /* 4 is equal to 4 and 'dog' is equal to 'dog' */
+[1, 9] < [2, 3] = [true, false ] /* pointwise - 1 is less than 2 and 9 is greater than 3 */
+[3, 4] < [3, 5] = [false, true] /* pointwise? - 3 is equal to 3 and 4 is less than 5 */
+[4, 1.pi] = [4, 1.pi] /* 4 is equal to 4 and pi is equal to pi */
 ```
 
 ## Complex -- numeric type
@@ -1924,7 +1923,7 @@ Range(1, 6, 2).reverse.asList = [5, 3, 1] /* start becomes last, not stop */
 3.to(5) = 3:5
 0.toBy(1, -1).size = 0 /* toBy may be empty */
 3.upOrDownTo(5) = 5.upOrDownTo(3).reverse
-let s = ''; (1, 3 .. 9).reverseDo { :x | s := s ++ x }; s = '97531' /* do from end */
+let s = ''; (1, 3 .. 9).reverseDo { :x | s := s ++ x.printString }; s = '97531' /* do from end */
 1:9 + 3 = 4:12 /* plus with a number answers a Range */
 1:9 - 2 = -1:7 /* minus with a number answers a Range */
 3 + 1:9 = [4 .. 12]
@@ -1970,12 +1969,12 @@ let n = 0; 4.timesRepeat { n := n + 1 }; n = 4 /* times repeat loop (int) */
 let n = 0; -4.timesRepeat { n := nil }; n = 0 /* times repeat loop (zero or negative values are allowed) */
 let n = 0; 1.toDo(4) { :x | n := n + x }; n = 10 /* for loop (int) */
 let n = 0; 1.toDo(4) { :x | n := n + x }; n = 10 /* for loop (int) */
-let s = ''; 1.toDo(4) { :x | s := s ++ x }; s = '1234' /* for loop (int) */
-let s = ''; 1:5.do { :x | s := s ++ x }; s = '12345' /* for loop (interval) */
-let s = ''; 1.toDo(5) { :x | s := s ++ x }; s = '12345' /* for loop (start & end indices) */
+let s = ''; 1.toDo(4) { :x | s := s ++ x.printString }; s = '1234' /* for loop (int) */
+let s = ''; 1:5.do { :x | s := s ++ x.printString }; s = '12345' /* for loop (interval) */
+let s = ''; 1.toDo(5) { :x | s := s ++ x.printString }; s = '12345' /* for loop (start & end indices) */
 let s = ''; 1.toDo(0) { :x | 'error'.error }; s = '' /* for loop (end less than start) */
-let s = ''; 1:3.reverseDo { :x | s := s ++ x }; s = '321' /* for loop (interval, reverse) */
-let s = ''; [1, 3, 5].do { :x | s := s ++ x }; s = '135' /* for loop (collection) */
+let s = ''; 1:3.reverseDo { :x | s := s ++ x.printString }; s = '321' /* for loop (interval, reverse) */
+let s = ''; [1, 3, 5].do { :x | s := s ++ x.printString }; s = '135' /* for loop (collection) */
 let n = 9; { n > 3 }.whileTrue { n := n - 1 }; n = 3 /* while true loop */
 let n = 9; { n < 7 }.whileFalse { n := n - 1 }; n = 6 /* while false loop */
 10.timesRepeat { nil } = 10 /* timesRepeat answers the receiver) */
@@ -2073,9 +2072,9 @@ let l = 1:9.asLinkedList; l.copy = l & { l.copy !== l } /* copy is equal but not
 let l = 1:9.asLinkedList; let c = l.copy; c[1] := 9; c[1] = 9 & { l[1] = 1 } /* copies are distinct */
 ```
 
-## Magnitude -- numeric trait
+## Compare -- ordering trait
 ```
-system.includesPackage('Magnitude') /* magnitude package */
+system.includesPackage('Compare') /* compare package */
 1 < 3 = true /* less than */
 2 < 2 = false
 3 < 1 = false
@@ -2102,7 +2101,7 @@ system.includesPackage('Magnitude') /* magnitude package */
 3 < 5 /* integer */
 3.3 < 5.5 /* float */
 3/4 < 4/5 /* fraction */
-'3' < '5' /* string */
+'3' <| '5' /* string, precedes */
 { 3J3 < 5J5 }.hasError /* complex */
 { '3' < 5 }.hasError /* string & number are not comparable */
 { 3 < '5' }.hasError /* number & string are not comparable */
@@ -2859,7 +2858,7 @@ let a = [1, 1, 3, 4]; a @* [2, 4, 3, 1] = [1, 4, 3, 1] /* atAll as permutation *
 let a = [1 1 3 4]; a @* [2 4 3 1] = [1 4 3 1] /* atAll as permutation */
 [1, 9, 2, 8, 3, 7, 4, 6].pairsCollect { :i :j | i + j } = [10, 10, 10, 10]
 let s = ''; [1, 9, 2, 8, 3, 7, 4, 6].pairsDo { :i :j | s := s ++ (i + j).printString }; s = '10101010'
-let s = ''; [1 9 2 8 3 7 4 6].reverseDo { :i | s := s ++ i }; s = '64738291' /* do from end */
+let s = ''; [1 9 2 8 3 7 4 6].reverseDo { :i | s := s ++ i.printString }; s = '64738291' /* do from end */
 [1, 2, 2, 3, 3, 3, 4, 4, 4, 4].copyWithoutIdenticalElements = [1, 2, 3, 4] /* copy without duplicates, retain order */
 ([1, 3 .. 9] ++ [1, 3 .. 9] ++ [2, 4 .. 10] ++ [2, 4 .. 10]).copyWithoutIdenticalElements = [1, 3, 5, 7, 9, 2, 4, 6, 8, 10]
 1:9.hasEqualElements(1:9) /* an array is not equal to an interval, but can have equal elements */
@@ -3269,7 +3268,7 @@ system.includesPackage('String') /* package */
 ''.isAscii = true /* the empty string is an ascii string */
 128.asCharacter.characterString.isAscii = false /* not all byte arrays are ascii */
 'x' ++ 'y' = 'xy' /* append (catenation) */
-'x' ++ 1 = 'x1' /* append, right hand side need not be a string */
+{ 'x' ++ 1 }.hasError /* append, right hand side must be a string */
 'string'.asciiByteArray = [115, 116, 114, 105, 110, 103].asByteArray /* String to ByteArray of Ascii encoding */
 { 'Mačiūnas'.asciiByteArray }.hasError /* non-ascii characters */
 '3.4'.parseNumber = 3.4 /* parse float */
@@ -3298,7 +3297,7 @@ system.includesPackage('String') /* package */
 'mississippi'.splitBy('i').stringIntercalate('i') = 'mississippi' /* join is an inverse of splitBy */
 '/usr/local/bin'.splitBy('/') = ['', 'usr', 'local', 'bin']
 'Terse Guide.help.sl'.splitBy('.') = ['Terse Guide', 'help', 'sl']
-'a' < 'b' = true /* string comparison */
+'a' <| 'b' = true /* string comparison */
 'text'.copyFromTo(2, 3) = 'ex' /* substring, one indexed, inclusive */
 'text'.copyFromTo(3, 3) = 'x' /* substring (single character) */
 { 'string'.add('!') }.hasError /* strings are immutable */

@@ -118,6 +118,15 @@ SmallFloat! : [Object, Store, Json, Equal, Compare, Number, Integer, Binary] {
 		self.error('SmallFloat>>bitRotateLeftI32', [anInteger])
 	}
 
+	bitRotateRightI32 { :self :anInteger |
+		<primitive:
+		if(sl.isBitwise(_self) && sl.isBitwise(_anInteger)) {
+			return (_self >> _anInteger) | (_self << (32 - _anInteger));
+		}
+		>
+		self.error('SmallFloat>>bitRotateRightI32', [anInteger])
+	}
+
 	[bitShiftLeft, <<] { :self :anObject |
 		<primitive:
 		if(sl.isBitwise(_self) && sl.isBitwise(_anObject)) {

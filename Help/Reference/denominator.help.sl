@@ -15,6 +15,7 @@ At `Fraction`:
 
 At `LargeInteger`:
 
+```
 >>> 2L.denominator
 1
 ```
@@ -22,6 +23,7 @@ At `LargeInteger`:
 At `SmallFloat`,
 it is an error if the value is not an integer:
 
+```
 >>> 2.denominator
 1
 

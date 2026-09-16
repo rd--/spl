@@ -5,10 +5,11 @@
 Answer `true` if _w_ is a Motzkin word.
 
 ```
-[
-	2 2 1 0 0 1 1 2 0 2
-	1 2 0 0 1 1 2 0
-].isMotzkinWord
+>>> [
+>>> 	2 2 1 0 0 1 1 2 0 2
+>>> 	1 2 0 0 1 1 2 0
+>>> ].isMotzkinWord
+true
 ```
 
 `motzkinWords` answers Motzkin words:
