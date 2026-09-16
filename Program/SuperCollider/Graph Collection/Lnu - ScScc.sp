@@ -13,6 +13,24 @@ Pan2(
 	1 / 3
 )
 
+/* SCSCC-3 "House Classic" 182 bytes. */
+let t = LfTri([2 1 2], [0 0 2]);
+let e = { :x | Perc(x, 0.01, 1, -4) };
+let c = CuspL(22050, 1, 1.9, 0);
+let l = 9 # [0] + [0 1];
+[
+	LfTri(e(t[1]) ^ 11 * 111 + 60, 0) * e(t[1]) ^ 2,
+	c * Env(
+		l,
+		l[1 .. 7] ++ [66] / 99,
+		7 # [-4] ++ [-17],
+		nil,
+		nil,
+		0
+	).asEnvGen(t[2]),
+	c * (e(t[3]) ^ 9) / 2
+].Sum.Pan2(0, 1 / 4)
+
 /* SCSCC-4 "HandClap Special" 121 bytes */
 let l = 9 # [0] + [0, 1];
 let e = Env(
@@ -107,6 +125,22 @@ Splay(
 		LfTri(73 * g() * d(), 0)
 	].Sum * LagUd(t, 0.001, x / 2)
 ) / 8
+
+/* SCSCC-11 "Encore" 214 bytes ; Error? */
+let z = { :x | LfSaw(x, 0) };
+let i = [1 .. 4].fibonacci; /* 1 1 2 3 */
+let f = 1 << [0 .. 3] + i * 2; /* 4 6 12 22 */
+let l = DegreeToKey(
+	[0 2 5 7 9].asLocalBuf,
+	StandardN(f, 1, 0.5, 0) * z(1 / f) * 12,
+	12
+);
+let o = z(l.MidiRatio * 110 * i);
+let g = l / (4 ^ i);
+let a = z(g) + 1 / 2 ^ 4 * o;
+let b = z(o + g) + 1 / 2 ^ (z(g / i) + 1 * 8 + 0.1) * 8000 + 40;
+let c = MoogFf(a, b, 2, 0);
+Splay(c, z(1))
 
 /* SCSCC-12 "Emergency Sauce" 223 bytes ; https://github.com/lukiss/SCSCC/ */
 let z = { :x | LfSaw(x, 0) };
