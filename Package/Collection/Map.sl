@@ -12,7 +12,7 @@ Map! : [Object, Store, Equal, Iterable, Indexable, Collection, Extensible, Dicti
 
 	atPut { :self :key :value |
 		key.isImmediate.ifFalse {
-			self.error('Map>>atPut: non-immediate key: ' ++ key)
+			self.error('Map>>atPut: non-immediate key', [key])
 		};
 		self.uncheckedAtPut(key, value)
 	}

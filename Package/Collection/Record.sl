@@ -20,7 +20,7 @@ Record! : [Object, Store, Equal, Json, Iterable, Indexable, Collection, Extensib
 			return _anObject;
 		}
 		>
-		self.error('atPut key not a string: ' ++ aString.typeOf)
+		self.error('atPut key not a string', [aString.typeOf])
 	}
 
 	comparator { :self |

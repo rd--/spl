@@ -36,7 +36,7 @@ DocumentationTest : [Object, Store, Equal] { | prefix program expectedAnswer |
 					]
 				)
 			} {
-				self.error('format: unknown prefix: ' ++ self.prefix)
+				self.error('format: unknown prefix', [self.prefix])
 			}
 		}
 	}

@@ -192,7 +192,7 @@ URL! : [Object, Store, Equal, Url] {
 
 	fetchThen { :self :onSuccess:/1 |
 		self.fetchThenElse(onSuccess:/1) { :errorCode |
-			self.error('Url>>fetchThen: ' ++ errorCode)
+			self.error('Url>>fetchThen', [errorCode])
 		}
 	}
 
@@ -221,7 +221,7 @@ URL! : [Object, Store, Equal, Url] {
 						cache.uncheckedMatch(self)
 					}
 				} { :reason |
-					self.error('cachedFetch: ' ++ reason)
+					self.error('cachedFetch', [reason])
 				}
 			}
 		}
@@ -231,7 +231,7 @@ URL! : [Object, Store, Equal, Url] {
 		self.cachedFetch(cacheName).thenElse { :response |
 			response.asMimeType(mimeType)
 		} { :reason |
-			self.error('Url>>cachedFetchMimeType: ' ++ reason)
+			self.error('Url>>cachedFetchMimeType', [reason])
 		}
 	}
 

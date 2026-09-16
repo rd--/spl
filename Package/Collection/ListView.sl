@@ -16,7 +16,7 @@ ListView : [Object, Equal, Compare, Iterable, Indexable, Collection, Sequence] {
 		self.includesIndex(index).if {
 			self.contents[index + self.startIndex - self.referenceIndex] := value
 		} {
-			self.error('atPut: invalid index: ' ++ index)
+			self.error('atPut: invalid index', [index])
 		}
 	}
 

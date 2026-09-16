@@ -11,7 +11,7 @@ LibraryItem : [Object] { | name category url mimeType parser unparsedContents pa
 			self
 		} { :reason |
 			[self, reason].postLine;
-			self.error('LibraryItem>>cachedFetch: ' ++ reason)
+			self.error('LibraryItem>>cachedFetch', [reason])
 		}
 	}
 
@@ -96,7 +96,7 @@ LibraryItem : [Object] { | name category url mimeType parser unparsedContents pa
 	addLibraryItem { :self :libraryItem |
 		let key = libraryItem.name;
 		self.library.includesKey(key).ifTrue {
-			self.error('addLibraryItem: item exists: ' ++ key)
+			self.error('addLibraryItem: item exists', [key])
 		};
 		self.library[key] := libraryItem;
 		libraryItem.cachedFetch;
@@ -107,7 +107,7 @@ LibraryItem : [Object] { | name category url mimeType parser unparsedContents pa
 		self.requestLibraryItem(name).thenElse { :unused |
 			aBlock()
 		} { :reason |
-			self.error('awaitLibraryItem: failure: ' ++ reason)
+			self.error('awaitLibraryItem: failure', [reason])
 		}
 	}
 
@@ -117,7 +117,7 @@ LibraryItem : [Object] { | name category url mimeType parser unparsedContents pa
 		}.allFulfilled.thenElse { :unused |
 			aBlock()
 		} { :reason |
-			self.error('awaitLibraryItems: failure: ' ++ reason)
+			self.error('awaitLibraryItems: failure', [reason])
 		}
 	}
 
@@ -139,7 +139,7 @@ LibraryItem : [Object] { | name category url mimeType parser unparsedContents pa
 		self.library.atIfPresentIfAbsent(name) { :item |
 			item.request
 		} {
-			self.error('requestLibraryItem: does not exist: ' ++ name)
+			self.error('requestLibraryItem: does not exist', [name])
 		}
 	}
 
@@ -153,7 +153,7 @@ LibraryItem : [Object] { | name category url mimeType parser unparsedContents pa
 		self.library.atIfPresentIfAbsent(name) { :item |
 			item.require
 		} {
-			self.error('requireLibraryItem: does not exist: ' ++ name)
+			self.error('requireLibraryItem: does not exist', [name])
 		}
 	}
 

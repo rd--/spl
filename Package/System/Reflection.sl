@@ -89,7 +89,7 @@
 			};
 			answer.asList
 		} {
-			self.error('System>>methodImplementations: not a methodName: ' ++ methodName)
+			self.error('System>>methodImplementations: not a methodName', [methodName])
 		}
 	}
 
@@ -215,7 +215,7 @@
 		self.isTraitName(traitName).if {
 			self.traitDictionary[traitName]
 		} {
-			self.error('System>>traitLookup: no such trait: ' ++ traitName)
+			self.error('System>>traitLookup: no such trait', [traitName])
 		}
 	}
 
@@ -230,7 +230,7 @@
 			self.isTraitName(traitOrTypeName).if {
 				self.traitDictionary[traitOrTypeName]
 			} {
-				self.error('System>>traitOrType: not such trait or type: ' ++ traitOrTypeName)
+				self.error('System>>traitOrType: not such trait or type', [traitOrTypeName])
 			}
 		}
 	}
@@ -240,7 +240,7 @@
 		self.isTraitName(unqualifiedTraitName).if {
 			self.typesImplementingTrait(unqualifiedTraitName)
 		} {
-			self.error('System>>traitTypes: no such trait: ' ++ traitName)
+			self.error('System>>traitTypes: no such trait', [traitName])
 		}
 	}
 
@@ -264,12 +264,14 @@
 		self.isTypeName(typeName).if {
 			self.typeDictionary[typeName]
 		} {
-			self.error('System>>typeLookup: not a type: ' ++ typeName)
+			self.error('System>>typeLookup: not a type', [typeName])
 		}
 	}
 
 	typeMethodDictionary { :self :typeName |
-		self.typeInheritedMethodDictionary(typeName) ++ self.typeDirectMethodDictionary(typeName)
+		self.typeInheritedMethodDictionary(typeName)
+		++
+		self.typeDirectMethodDictionary(typeName)
 	}
 
 	typeTraits { :self :typeName |

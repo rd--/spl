@@ -47,10 +47,10 @@
 
 	systemCommand { :self :commandName :arguments |
 		commandName.isString.ifFalse {
-			self.error('systemCommand: invalid command name' ++ commandName)
+			self.error('systemCommand: invalid command name', [commandName])
 		};
 		arguments.isList.ifFalse {
-			self.error('systemCommand: invalid arguments' ++ arguements)
+			self.error('systemCommand: invalid arguments', [arguments])
 		};
 		self.primitiveSystemCommand(commandName, arguments)
 	}

@@ -12,7 +12,7 @@
 		aBlock().if {
 			self
 		} {
-			self.error('Assertion failed: ' ++ aString)
+			self.error('Assertion failed', [aString])
 		}
 	}
 

@@ -476,7 +476,7 @@ System! : [Object, Cache, RandomNumberGenerator] {
 					}
 				]
 			) {
-				self.error('String>>splParseExpression: ' ++ o)
+				self.error('String>>splParseExpression', [o])
 			}
 		};
 		f(tree)

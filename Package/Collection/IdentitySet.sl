@@ -25,7 +25,7 @@ IdentitySet! : [Object, Store, Equal, Iterable, Collection, Extensible, Unordere
 
 	include { :self :anObject |
 		anObject.isImmediate.ifFalse {
-			self.error('IdentitySet>>include: non-immediate entry: ' ++ anObject)
+			self.error('IdentitySet>>include: non-immediate entry', [anObject])
 		};
 		self.uncheckedInclude(anObject)
 	}

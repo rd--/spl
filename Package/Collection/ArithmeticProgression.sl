@@ -66,7 +66,7 @@
 	}
 
 	emptyError { :self :methodName |
-		self.error('@ArithmeticProgression>>' ++ methodName ++ ': empty')
+		self.error('@ArithmeticProgression>>emptyError', [methodName])
 	}
 
 	end { :self |

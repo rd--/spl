@@ -49,7 +49,7 @@ CategoryDictionary : [Object] { | domainDictionary |
 				all[1]
 			}
 		]) {
-			self.error('categoryOf: multiple categories: ' ++ [domain, entry])
+			self.error('categoryOf: multiple categories', [domain, entry])
 		}
 	}
 
@@ -59,7 +59,7 @@ CategoryDictionary : [Object] { | domainDictionary |
 			0 -> { '*Uncategorized*' },
 			1 -> { answer.first }
 		]) {
-			self.error('categoryOf: multiple categories: ' ++ entry)
+			self.error('categoryOf: multiple categories', [entry])
 		}
 	}
 

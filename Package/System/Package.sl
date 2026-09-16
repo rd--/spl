@@ -129,7 +129,7 @@ Package! : [Object, Equal, Compare] {
 					[key -> value.withBlanksTrimmed.words]
 				}
 			]) {
-				self.error('parsePackageHeader: unknown field: ' ++ key)
+				self.error('parsePackageHeader: unknown field', [key])
 			}
 		}.asRecord
 	}
@@ -146,7 +146,7 @@ Package! : [Object, Equal, Compare] {
 	loadPackages { :self |
 		self.do { :each |
 			each.isLoaded.ifTrue {
-				self.error('loadPackages: package loaded: ' ++ each.name)
+				self.error('loadPackages: package loaded', [each.name])
 			}
 		};
 		self.collect(name:/1).primitiveLoadPackageSequence
@@ -187,20 +187,20 @@ Package! : [Object, Equal, Compare] {
 			}).if {
 				package
 			} {
-				self.error('package: category name mismatch or package not registered: ' ++ name)
+				self.error('package: category name mismatch or package not registered', [name])
 			}
 		} {
 			self.includesPackage(name).if {
 				self.packageDictionary[name]
 			} {
-				self.error('package: package not registered: ' ++ name)
+				self.error('package: package not registered', [name])
 			}
 		}
 	}
 
 	registerPackage { :self :package |
 		self.packageDictionary.includesIndex(package.name).if {
-			self.error('registerPackage: package exists: ' ++ package.name)
+			self.error('registerPackage: package exists', [package.name])
 		} {
 			self.packageDictionary[package.name] := package
 		}

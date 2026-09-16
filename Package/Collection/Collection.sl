@@ -364,7 +364,7 @@
 	}
 
 	errorNotFound { :self :anObject |
-		self.error('errorNotFound: ' ++ anObject)
+		self.error('errorNotFound', [anObject])
 	}
 
 	errorNotIndexed { :self |
