@@ -48,7 +48,7 @@ When the arguments to `>` are `boole`, it is the material non-implication `Boole
 
 * * *
 
-See also: >, >=, |>, <, <=, greaterEqual, less, Magnitude
+See also: >, >=, |>, <, <=, Compare, greaterEqual, less
 
 Guides: Comparison Functions, Sort Functions
 

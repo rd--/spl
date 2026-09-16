@@ -9,46 +9,25 @@
 true
 ```
 
-Types implementing `Number`:
-
-```
->>> system
->>> .traitTypes('@Number')
->>> .sort
-[
-	'Complex'
-	'Decimal'
-	'Fraction'
-	'Interval'
-	'LargeInteger'
-	'Quaternion'
-	'Residue'
-	'SmallFloat'
-	'Symbol'
-	'SymbolicExpression'
-	'Ugen'
-]
-```
-
 Methods for arithmetic:
 
-- `+`
-- `-`
-- `*`
-- `/`
-- `%`
-- `quotient`
-- `remainder`
 - `abs`
-- `negate`
-- `reciprocal`
+- `divide`, `/`
+- `mod`, `%`
+- `negate`, `negate`
+- `plus`, `+`
+- `quotient`, `//`
+- `reciprocal`, `/`
+- `remainder`, `\\`
+- `subtract`, `-`
+- `times`, `*`
 
 Methods implementing mathematical functions:
 
+- `power`, `^`
 - `exp`
-- `log`
 - `floorLog`
-- `^`
+- `log`
 - `raisedToInteger`
 - `sqrt`
 - `square`
@@ -83,6 +62,27 @@ Methods for trigonometry:
 - `arcTan`
 - `degreesToRadians`
 - `radiansToDegrees`
+
+Types implementing `Number`:
+
+```
+>>> system
+>>> .traitTypes('@Number')
+>>> .sort
+[
+	'Complex'
+	'Decimal'
+	'Fraction'
+	'Interval'
+	'LargeInteger'
+	'Quaternion'
+	'Residue'
+	'SmallFloat'
+	'Symbol'
+	'SymbolicExpression'
+	'Ugen'
+]
+```
 
 * * *
 

@@ -10,10 +10,10 @@
 
 	description { :self |
 		self.hasCause.if {
-			self.name ++ ': ' ++ self.messageText ++ ': ' ++ self.causeText
+			[self.name, self.messageText, self.causeText]
 		} {
-			self.name ++ ': ' ++ self.messageText
-		}
+			[self.name, self.messageText]
+		}.stringIntercalate(': ')
 	}
 
 	isError { :self |

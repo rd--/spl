@@ -30,13 +30,13 @@
 		self.includesIndex(index).if {
 			index
 		} {
-			self.error('@Indexable>>assertIsValidIndex: no such index: ' ++ index)
+			self.error('@Indexable>>assertIsValidIndex: no such index', [index])
 		}
 	}
 
 	at { :self :index |
 		self.atIfAbsent(index) {
-			self.error('@Indexable>>at: invalid index: ' ++ index)
+			self.error('@Indexable>>at: invalid index', [index])
 		}
 	}
 

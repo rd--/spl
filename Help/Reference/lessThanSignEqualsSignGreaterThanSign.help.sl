@@ -6,7 +6,7 @@ Answers a collation order of -1, 0, or 1,
 indicating whether the left operand _p_ should be collated
 before, equal to, or after the right operand _q_.
 
-Implemented by `Magnitude`:
+Implemented by `Compare`:
 
 Ascending:
 

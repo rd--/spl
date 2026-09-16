@@ -30,7 +30,7 @@ PlanarCoordinates : [Object, Store, Copyable, Equal, Compare, Indexable, Cartesi
 		self.applyBinaryOperator(anObject, *)
 	}
 
-	abs { :self |
+	[absoluteValue, abs] { :self |
 		PlanarCoordinates(self.coordinates.abs)
 	}
 

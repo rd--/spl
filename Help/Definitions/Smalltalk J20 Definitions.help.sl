@@ -1378,7 +1378,7 @@ This section includes protocols that define the behavior of the standard numeric
 *Description*: Provides protocol for comparing objects which are linearly ordered with respect to some
 comparison operation.
 
-Cf: Magnitude
+Cf: Compare
 
 ### 5.6.1.1
 

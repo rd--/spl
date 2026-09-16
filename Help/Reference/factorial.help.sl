@@ -13,6 +13,20 @@ The `product` of the integers from `one` up to _n_.
 
 >>> 18.factorial
 6402373705728000
+```
+
+At `SmallFloat` will a `LargeInteger` if the answer would overflow:
+
+```
+>>> 23.factorial
+25852016738884976640000L
+```
+
+At `LargeInteger` answers a large integer:
+
+```
+>>> 5L.factorial
+120L
 
 >>> 23L.factorial
 25852016738884976640000L

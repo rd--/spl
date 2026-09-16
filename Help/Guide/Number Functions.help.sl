@@ -4,7 +4,6 @@ Traits:
 
 - `Compare`
 - `Integer`
-- `Magnitude`
 - `Number`
 
 Types:

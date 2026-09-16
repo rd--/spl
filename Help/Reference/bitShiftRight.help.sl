@@ -42,8 +42,19 @@ At negative integer:
 -2
 ```
 
-`bitShiftRight` works with numbers of any size,
-including `LargeInteger` values:
+At `SmallFloat` _n_ must answer `true` to `isBinary`:
+
+```
+>>> 13.!.isBinary
+false
+
+>>> {
+>>> 	13.!.bitShiftRight(7)
+>>> }.hasError
+true
+```
+
+At `LargeInteger` works with numbers of any size:
 
 ```
 >>> (2L ^ 111 - 1).bitShiftRight(7)

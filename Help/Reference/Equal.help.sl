@@ -25,7 +25,7 @@ The implemented methods are:
 
 * * *
 
-See also: Compare, Magnitude
+See also: Compare, equal
 
 Guides: Comparing Collections
 

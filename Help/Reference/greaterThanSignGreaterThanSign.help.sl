@@ -5,6 +5,9 @@
 The operator form or `bitShiftRight`.
 
 ```
+>>> (9 >> 2, -9 >> 2)
+(2, -3)
+
 >>> 48 >> 4
 3
 
@@ -37,6 +40,26 @@ Shift right by `one` is equivalent to `//` by two:
 (3, 3)
 ```
 
+Shift right by two is equivalent to `//` by four,
+and so on:
+
+```
+>>> (32 >> 2, 32 // (2 ^ 2))
+(8, 8)
+
+>>> (32 >> 3, 32 // (2 ^ 3))
+(4, 4)
+
+>>> (32 >> 4, 32 // (2 ^ 4))
+(2, 2)
+
+>>> (32 >> 5, 32 // (2 ^ 5))
+(1, 1)
+
+>>> (32 >> 6, 32 // (2 ^ 6))
+(0, 0)
+```
+
 Signed and unsigned shifts:
 
 ```
@@ -45,6 +68,15 @@ Signed and unsigned shifts:
 
 >>> -5 >> 2
 -2
+```
+
+At `LargeInteger`:
+
+```
+>> 52.! >> 2
+20164543792735969642915
+15921410094174382237636
+0220819456000000000000L
 ```
 
 Compare with `>>>` (unsigned right shift):

@@ -1,45 +1,7 @@
-Quantity : [Object, Store, Equal, Compare, Magnitude, Frequency, Length, Mass, PlaneAngle, Time] { | magnitude unit |
-
-	[less, <] { :self :anObject |
-		self.isCommensurate(anObject).if {
-			self.magnitude < anObject.magnitude
-		} {
-			self.error('<: invalid operand')
-		}
-	}
+Quantity : [Object, Store, Equal, Compare, Frequency, Length, Mass, PlaneAngle, Time] { | magnitude unit |
 
 	[divide, /] { :self :anObject |
 		self * anObject.reciprocal
-	}
-
-	[negate, -] { :self |
-		Quantity(self.magnitude.negate, self.unit)
-	}
-
-	[plus, +] { :self :anObject |
-		self.isCommensurate(anObject).if {
-			Quantity(
-				self.magnitude + anObject.magnitude,
-				self.unit
-			)
-		} {
-			self.error('+: invalid operand')
-		}
-	}
-
-	[subtract, -] { :self :anObject |
-		self + anObject.negate
-	}
-
-	[times, *] { :self :anObject |
-		anObject.isNumber.if {
-			Quantity(
-				self.magnitude * anObject,
-				self.unit
-			)
-		} {
-			self.error('*: invalid operand')
-		}
 	}
 
 	equalBy { :self :anObject :aBlock:/2 |
@@ -100,11 +62,35 @@ Quantity : [Object, Store, Equal, Compare, Magnitude, Frequency, Length, Mass, P
 		}
 	}
 
+
+	[less, <] { :self :anObject |
+		self.isCommensurate(anObject).if {
+			self.magnitude < anObject.magnitude
+		} {
+			self.error('<: invalid operand')
+		}
+	}
+
 	metres { :self |
 		(self.unit = 'metres').if {
 			self.magnitude
 		} {
 			self.error('metres: not length')
+		}
+	}
+
+	[negate, -] { :self |
+		Quantity(self.magnitude.negate, self.unit)
+	}
+
+	[plus, +] { :self :anObject |
+		self.isCommensurate(anObject).if {
+			Quantity(
+				self.magnitude + anObject.magnitude,
+				self.unit
+			)
+		} {
+			self.error('+: invalid operand')
 		}
 	}
 
@@ -121,6 +107,21 @@ Quantity : [Object, Store, Equal, Compare, Magnitude, Frequency, Length, Mass, P
 			self.magnitude
 		} {
 			self.error('seconds: not time')
+		}
+	}
+
+	[subtract, -] { :self :anObject |
+		self + anObject.negate
+	}
+
+	[times, *] { :self :anObject |
+		anObject.isNumber.if {
+			Quantity(
+				self.magnitude * anObject,
+				self.unit
+			)
+		} {
+			self.error('*: invalid operand')
 		}
 	}
 

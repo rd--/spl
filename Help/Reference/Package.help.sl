@@ -9,8 +9,8 @@ The following `Trait` packages are considered to be part of the _Kernel_ and do 
 
 - `Binary`
 - `Cache`
+- `Compare`
 - `Integer`
-- `Magnitude`
 - `Number`
 - `Object`
 - `Random`

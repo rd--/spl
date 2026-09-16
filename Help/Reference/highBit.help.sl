@@ -38,6 +38,13 @@ High bit is not defined for negative integers:
 true
 ```
 
+At `LargeInteger`:
+
+```
+>>> 52L.factorial.highBit
+226
+```
+
 Plot it:
 
 ~~~spl svg=A
@@ -48,7 +55,7 @@ Plot it:
 
 * * *
 
-See also: bitLength, bitShiftRight, Binary, byteCount, highBitOfMagnitude, integerLength, lowBit
+See also: bitLength, bitShiftRight, Binary, byteCount, highBitOfInteger, integerLength, lowBit
 
 Guides: Bitwise Functions
 

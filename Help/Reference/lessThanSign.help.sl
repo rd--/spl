@@ -31,7 +31,7 @@ in Apl it is _⌊_.
 
 * * *
 
-See also: =, !=, <=, >, >=, <=>, less, lessEqual, Magnitude
+See also: =, !=, <=, >, >=, <=>, Compare, less, lessEqual
 
 Guides: Binary Operators, Comparison Functions, Sort Functions
 

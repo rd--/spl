@@ -25,7 +25,7 @@ in Apl it is _⌈_.
 
 * * *
 
-See also: >=, |>, <, <=, ceiling, greater, Magnitude
+See also: >=, |>, <, <=, ceiling, Compare, greater
 
 Guides: Comparison Functions, Sort Functions
 

@@ -18,7 +18,7 @@ Answer the 32-Bit Fowler-Noll-Vo hash function of the byte array _b_.
 >>> 'The quick brown fox jumps over the lazy dog'
 >>> .asciiByteArray
 >>> .fnv1aHash
-76545936L
+76545936
 ```
 
 * * *

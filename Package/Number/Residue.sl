@@ -1,4 +1,4 @@
-Residue : [Object, Store, Equal, Compare, Magnitude, Number] { | commonResidue modulus |
+Residue : [Object, Store, Equal, Compare, Number] { | commonResidue modulus |
 
 	< { :self :aNumber |
 		self.commonResidue < self.assertIsCompatibleOperand(aNumber).commonResidue

@@ -4,7 +4,6 @@ Traits:
 
 - `Compare`
 - `Equal`
-- `Magnitude`
 
 Equation:
 
@@ -51,7 +50,7 @@ A comparison function is one whose result is a `Boolean` determined by the numer
 
 The comparison functions can be subdivided into two equalities `=` and `!=`,
 which depend only on whether the arguments are equal and not on the ordering of the arguments,
-and may be applied to values that do not implement `Magnitude`,
+and may be applied to values that do not implement `Compare`,
 and four inequalities `<` `<=` `>=` `>`, which depend on ordering.
 
 Comparisons are subject to comparison tolerance,
@@ -147,7 +146,7 @@ false
 
 * * *
 
-See also: <, <=, =, >=, >, !=, <~, ~, >~, !~, boole, Boolean, Magnitude, Number, String
+See also: <, <=, =, >=, >, !=, <~, ~, >~, !~, boole, Boolean, Compare, Equal, Number, String
 
 References:
 _Apl_

@@ -253,14 +253,6 @@
 		}
 	}
 
-	factorial { :self |
-		self.isNonNegativeInteger.if {
-			self.asLargeInteger.integerFactorial.normal
-		} {
-			self.error('factorial: see factorialOrGamma')
-		}
-	}
-
 	fibonacciFactorial { :self |
 		self.fibonacciSequence.allButFirst.product
 	}
@@ -649,6 +641,30 @@
 		let b = 2 ^ (0.25 * (-3 + (2 * n) - a));
 		let c = 1.pi ^ (0.25 * (-1 + a));
 		b * c * (n * 0.5).gamma
+	}
+
+}
+
++SmallFloat {
+
+	factorial { :self |
+		self.isNonNegativeInteger.if {
+			self.asLargeInteger.integerFactorial.normal
+		} {
+			self.error('factorial: see factorialOrGamma')
+		}
+	}
+
+}
+
++LargeInteger {
+
+	factorial { :self |
+		self.isNonNegativeInteger.if {
+			self.integerFactorial
+		} {
+			self.error('factorial: see factorialOrGamma')
+		}
 	}
 
 }

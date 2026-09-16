@@ -1,133 +1,6 @@
 /* Requires: RegularExpression String */
 
-SmallFloat! : [Object, Store, Equal, Compare, Json, Magnitude, Number, Integer, Binary] {
-
-	[less, <] { :self :anObject |
-		<primitive:
-		if(sl.isSmallFloat(_anObject)) {
-			return _self < _anObject;
-		}
-		>
-		anObject.adaptToNumberAndApply(self, <)
-	}
-
-	[lessEqual, <=] { :self :anObject |
-		<primitive:
-		if(sl.isSmallFloat(_anObject)) {
-			return _self <= _anObject;
-		}
-		>
-		anObject.adaptToNumberAndApply(self, <=)
-	}
-
-	[bitShiftLeft, <<] { :self :anObject |
-		<primitive:
-		if(sl.isBitwise(_anObject)) {
-			return _self << _anObject;
-		}
-		>
-		anObject.adaptToNumberAndApply(self, bitShiftLeft:/2)
-	}
-
-	[bitShiftRight, >>] { :self :anObject |
-		<primitive:
-		if(sl.isBitwise(_anObject)) {
-			return _self >> _anObject;
-		}
-		>
-		anObject.adaptToNumberAndApply(self, bitShiftRight:/2)
-	}
-
-
-	[bitShiftRightUnsigned, >>>] { :self :anObject |
-		<primitive:
-		if(sl.isBitwise(_anObject)) {
-			return _self >>> _anObject;
-		}
-		>
-		anObject.adaptToNumberAndApply(self, bitShiftRightUnsigned:/2)
-	}
-
-	[divide, /] { :self :anObject |
-		<primitive:
-		if(sl.isSmallFloat(_anObject)) {
-			return _self / _anObject;
-		}
-		>
-		anObject.adaptToNumberAndApply(self, /)
-	}
-
-	[equal, =] { :self :anObject |
-		anObject.isNumber.if {
-			anObject.isSmallFloat.if {
-				identical(self, anObject)
-			} {
-				anObject.adaptToNumberAndApply(self, equal:/2)
-			}
-		} {
-			false
-		}
-	}
-
-	[exp, ^] { :self |
-		<primitive: return Math.exp(_self)>
-	}
-
-	[mod, %] { :self :anObject |
-		<primitive:
-		if(sl.isSmallFloat(_anObject)) {
-			return ((_self % _anObject) + _anObject) % _anObject;
-		}
-		>
-		anObject.adaptToNumberAndApply(self, %)
-	}
-
-	[plus, +] { :self :anObject |
-		<primitive:
-		if(sl.isSmallFloat(_anObject)) {
-			return _self + _anObject;
-		}
-		>
-		anObject.adaptToNumberAndApply(self, +)
-	}
-
-	[power, ^] { :self :anObject |
-		anObject.isSmallFloat.if {
-			anObject.isInteger.if {
-				self.raisedToInteger(anObject)
-			} {
-				self.isNegative.if {
-					Complex(self, 0) ^ anObject
-				} {
-					self.raisedToSmallFloat(anObject)
-				}
-			}
-		} {
-			anObject.adaptToNumberAndApply(self, ^)
-		}
-	}
-
-	[sign, *] { :self |
-		<primitive: return Math.sign(_self);>
-	}
-
-	[subtract, -] { :self :anObject |
-		<primitive:
-		if(sl.isSmallFloat(_anObject)) {
-			return _self - _anObject;
-		}
-		>
-		anObject.adaptToNumberAndApply(self, -)
-	}
-
-	[times, *] { :self :anObject |
-		<primitive:
-		if(sl.isSmallFloat(_anObject)) {
-			return _self * _anObject;
-		}
-		>
-		anObject.adaptToNumberAndApply(self, *)
-	}
+SmallFloat! : [Object, Store, Json, Equal, Compare, Number, Integer, Binary] {
 
 	[absoluteValue, abs] { :self |
 		<primitive: return Math.abs(_self)>
@@ -207,7 +80,11 @@ SmallFloat! : [Object, Store, Equal, Compare, Json, Magnitude, Number, Integer, 
 			return _self & _anObject;
 		}
 		>
-		anObject.adaptToNumberAndApply(self, bitAnd:/2)
+		self.isBinary.if {
+			anObject.adaptToNumberAndApply(self, bitAnd:/2)
+		} {
+			self.error('SmallFloat>>bitAnd', [anObject])
+		}
 	}
 
 	bitNot { :self |
@@ -216,7 +93,7 @@ SmallFloat! : [Object, Store, Equal, Compare, Json, Magnitude, Number, Integer, 
 			return ~_self;
 		}
 		>
-		self.error('SmallFloat>>bitNot')
+		self.error('SmallFloat>>bitNot: not I32')
 	}
 
 	bitOr { :self :anObject |
@@ -225,11 +102,59 @@ SmallFloat! : [Object, Store, Equal, Compare, Json, Magnitude, Number, Integer, 
 			return _self | _anObject;
 		}
 		>
-		anObject.adaptToNumberAndApply(self, bitOr:/2)
+		self.isBinary.if {
+			anObject.adaptToNumberAndApply(self, bitOr:/2)
+		} {
+			self.error('SmallFloat>>bitOr', [anObject])
+		}
 	}
 
 	bitRotateLeftI32 { :self :anInteger |
-		<primitive: return (_self << _anInteger) | (_self >>> (32 - _anInteger));>
+		<primitive:
+		if(sl.isBitwise(_self) && sl.isBitwise(_anInteger)) {
+			return (_self << _anInteger) | (_self >>> (32 - _anInteger));
+		}
+		>
+		self.error('SmallFloat>>bitRotateLeftI32', [anInteger])
+	}
+
+	[bitShiftLeft, <<] { :self :anObject |
+		<primitive:
+		if(sl.isBitwise(_self) && sl.isBitwise(_anObject)) {
+			return _self << _anObject;
+		}
+		>
+		self.isBinary.if {
+			anObject.adaptToNumberAndApply(self, bitShiftLeft:/2)
+		} {
+			self.error('SmallFloat>>bitShiftLeft')
+		}
+	}
+
+	[bitShiftRight, >>] { :self :anObject |
+		<primitive:
+		if(sl.isBitwise(_self) && sl.isBitwise(_anObject)) {
+			return _self >> _anObject;
+		}
+		>
+		self.isBinary.if {
+			anObject.adaptToNumberAndApply(self, bitShiftRight:/2)
+		} {
+			self.error('SmallFloat>>bitShiftRight')
+		}
+	}
+
+	[bitShiftRightUnsigned, >>>] { :self :anObject |
+		<primitive:
+		if(sl.isBitwise(_self) && sl.isBitwise(_anObject)) {
+			return _self >>> _anObject;
+		}
+		>
+		self.isBinary.if {
+			anObject.adaptToNumberAndApply(self, bitShiftRightUnsigned:/2)
+		} {
+			self.error('SmallFloat>>bitShiftRightUnsigned')
+		}
 	}
 
 	bitTest { :self :anInteger |
@@ -242,7 +167,11 @@ SmallFloat! : [Object, Store, Equal, Compare, Json, Magnitude, Number, Integer, 
 			return _self ^ _anObject;
 		}
 		>
-		anObject.adaptToNumberAndApply(self, bitXor:/2)
+		self.isBinary.if {
+			anObject.adaptToNumberAndApply(self, bitXor:/2)
+		}{
+			self.error('SmallFloat>>bitXor')
+		}
 	}
 
 	byteHexString { :self |
@@ -345,6 +274,15 @@ SmallFloat! : [Object, Store, Equal, Compare, Json, Magnitude, Number, Integer, 
 		}
 	}
 
+	[divide, /] { :self :anObject |
+		<primitive:
+		if(sl.isSmallFloat(_anObject)) {
+			return _self / _anObject;
+		}
+		>
+		anObject.adaptToNumberAndApply(self, /)
+	}
+
 	encodeFloat32 { :self :littleEndian |
 		<primitive: return sc.encodeFloat32(_self, _littleEndian);>
 	}
@@ -363,6 +301,22 @@ SmallFloat! : [Object, Store, Equal, Compare, Json, Magnitude, Number, Integer, 
 
 	encodeInt32 { :self :littleEndian |
 		<primitive: return sc.encodeInt32(_self, _littleEndian);>
+	}
+
+	[equal, =] { :self :anObject |
+		anObject.isNumber.if {
+			anObject.isSmallFloat.if {
+				identical(self, anObject)
+			} {
+				anObject.adaptToNumberAndApply(self, equal:/2)
+			}
+		} {
+			false
+		}
+	}
+
+	[exp, ^] { :self |
+		<primitive: return Math.exp(_self)>
 	}
 
 	[floor, <] { :self |
@@ -499,6 +453,24 @@ SmallFloat! : [Object, Store, Equal, Compare, Json, Magnitude, Number, Integer, 
 		<primitive: return Number.isSafeInteger(_self);>
 	}
 
+	[less, <] { :self :anObject |
+		<primitive:
+		if(sl.isSmallFloat(_anObject)) {
+			return _self < _anObject;
+		}
+		>
+		anObject.adaptToNumberAndApply(self, <)
+	}
+
+	[lessEqual, <=] { :self :anObject |
+		<primitive:
+		if(sl.isSmallFloat(_anObject)) {
+			return _self <= _anObject;
+		}
+		>
+		anObject.adaptToNumberAndApply(self, <=)
+	}
+
 	log { :self |
 		<primitive:
 		if(_self >= 0) {
@@ -589,6 +561,15 @@ SmallFloat! : [Object, Store, Equal, Compare, Json, Magnitude, Number, Integer, 
 		y + (lo[1] / lo[2])
 	}
 
+	[mod, %] { :self :anObject |
+		<primitive:
+		if(sl.isSmallFloat(_anObject)) {
+			return ((_self % _anObject) + _anObject) % _anObject;
+		}
+		>
+		anObject.adaptToNumberAndApply(self, %)
+	}
+
 	muLawDecode { :y |
 		let mu = 255;
 		let a = ((1 + mu) ^ y.abs) - 1;
@@ -665,6 +646,32 @@ SmallFloat! : [Object, Store, Equal, Compare, Json, Magnitude, Number, Integer, 
 		1
 	}
 
+
+	[plus, +] { :self :anObject |
+		<primitive:
+		if(sl.isSmallFloat(_anObject)) {
+			return _self + _anObject;
+		}
+		>
+		anObject.adaptToNumberAndApply(self, +)
+	}
+
+	[power, ^] { :self :anObject |
+		anObject.isSmallFloat.if {
+			anObject.isInteger.if {
+				self.raisedToInteger(anObject)
+			} {
+				self.isNegative.if {
+					Complex(self, 0) ^ anObject
+				} {
+					self.raisedToSmallFloat(anObject)
+				}
+			}
+		} {
+			anObject.adaptToNumberAndApply(self, ^)
+		}
+	}
+
 	printStringToAtMostPlaces { :self :anInteger |
 		self.isInteger.if {
 			self.printString
@@ -689,6 +696,14 @@ SmallFloat! : [Object, Store, Equal, Compare, Json, Magnitude, Number, Integer, 
 		}
 		>
 		'SmallFloat>>printStringToPrecision: not integer precision'.error
+	}
+
+	promoteBinary { :self |
+		self.isBinary.if {
+			self
+		} {
+			LargeInteger(self)
+		}
 	}
 
 	ramanujansSum { :q :n |
@@ -767,6 +782,10 @@ SmallFloat! : [Object, Store, Equal, Compare, Json, Magnitude, Number, Integer, 
 		}
 	}
 
+	[sign, *] { :self |
+		<primitive: return Math.sign(_self);>
+	}
+
 	signExponentMantissa { :self |
 		<primitive:
 		const float = new Float64Array(1);
@@ -788,6 +807,15 @@ SmallFloat! : [Object, Store, Equal, Compare, Json, Magnitude, Number, Integer, 
 		}
 	}
 
+	[subtract, -] { :self :anObject |
+		<primitive:
+		if(sl.isSmallFloat(_anObject)) {
+			return _self - _anObject;
+		}
+		>
+		anObject.adaptToNumberAndApply(self, -)
+	}
+
 	surd { :x :n |
 		(x < 0).if {
 			0 - surd(0 - x, n)
@@ -800,8 +828,45 @@ SmallFloat! : [Object, Store, Equal, Compare, Json, Magnitude, Number, Integer, 
 		self.printString(10)
 	}
 
+	[times, *] { :self :anObject |
+		<primitive:
+		if(sl.isSmallFloat(_anObject)) {
+			return _self * _anObject;
+		}
+		>
+		anObject.adaptToNumberAndApply(self, *)
+	}
+
 	truncate { :self |
 		<primitive: return Math.trunc(_self)>
+	}
+
+	uncheckedBitAnd { :self :anObject |
+		<primitive: return _self & _anObject;>
+	}
+
+	uncheckedBitNot { :self |
+		<primitive: return ~_self;>
+	}
+
+	uncheckedBitShiftLeft { :self :anObject |
+		<primitive: return _self << _anObject;>
+	}
+
+	uncheckedBitShiftRight { :self :anObject |
+		<primitive: return _self >> _anObject;>
+	}
+
+	uncheckedBitShiftRightUnsigned { :self :anObject |
+		<primitive: return _self >>> _anObject;>
+	}
+
+	uncheckedBitXor { :self :anObject |
+		<primitive: return _self ^ _anObject;>
+	}
+
+	uncheckedCountLeadingZeroes { :self |
+		<primitive: return Math.clz32(_self);>
 	}
 
 	uncheckedSquareRoot { :self |

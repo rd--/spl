@@ -47,7 +47,7 @@
 +@Object {
 
 	storeString { :self |
-		self.error('Doe not implement @Store')
+		self.error('Does not implement @Store')
 	}
 
 }

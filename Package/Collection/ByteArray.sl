@@ -96,9 +96,9 @@ ByteArray! : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, Se
 		let hash = fnvOffsetBasis;
 		self.do { :each |
 			hash := hash.bitXor(each) * fnvPrime;
-			hash := 16rFFFFFFFF.bitAnd(hash)
+			hash := 4294967295L.bitAnd(hash) /* 16rFFFFFFFF */
 		};
-		hash
+		hash.normal
 	}
 
 	species { :self |

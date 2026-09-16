@@ -40,7 +40,7 @@ Prune a `Record` to its minimal values:
 
 See also: <, maximalBy, max, min, reduce
 
-Guides: Sort Functions
+Guides: Comparison Functions, Sort Functions
 
 References:
 _Mathematica_

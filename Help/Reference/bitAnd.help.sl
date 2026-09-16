@@ -16,6 +16,29 @@ Answers the bitwise and of the integers _i_ and _j_.
 16r42062806
 ```
 
+It is an `error` if _i_ answers `false` to `isBinary`:
+
+```
+>>> 13.factorial.isBinary
+false
+
+>>> 13.factorial.bitLength
+33
+
+>>> {
+>>> 	13.factorial.bitAnd(127)
+>>> }.hasError
+true
+```
+
+At `LargeInteger`:
+
+```
+>>> let n = 13L.factorial;
+>>> n.bitAnd(n - 1)
+6227019776L
+```
+
 Threads over lists,
 `bitAnd` of `one` is `one` when odd and `zero` when even:
 

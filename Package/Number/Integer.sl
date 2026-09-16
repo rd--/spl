@@ -1707,7 +1707,7 @@
 			self
 		} {
 			self.isNonNegative.if {
-				1.bitShiftLeft(self.highBitOfPositiveReceiver)
+				1.bitShiftLeft(self.highBitOfPositiveInteger)
 			} {
 				self.error('@Integer>>asLargerPowerOfTwo: non-positive')
 			}
@@ -1723,7 +1723,9 @@
 			self
 		} {
 			self.isNonNegative.if {
-				1.bitShiftLeft(self.highBitOfPositiveReceiver - 1)
+				self.one.bitShiftLeft(
+					self.highBitOfPositiveInteger - 1
+				)
 			} {
 				self.error('@Integer>>asSmallerPowerOfTwo: non-positive')
 			}
@@ -1732,7 +1734,7 @@
 
 	isPowerOfTwo { :self |
 		self != 0 & {
-			self.bitAnd(self - 1) = 0
+			self.promoteBinary.bitAnd(self - 1) = 0
 		}
 	}
 

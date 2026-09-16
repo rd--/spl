@@ -118,17 +118,7 @@
 
 }
 
-Character : [Object, Store, Equal, Compare, Magnitude, Character] { | characterString codePoint |
-
-	[equal, =] { :self :anObject |
-		identical(self, anObject)
-	}
-
-	[similar, ~] { :self :anObject |
-		anObject.isCharacter & {
-			self.characterString = anObject.characterString
-		}
-	}
+Character : [Object, Store, Equal, Compare, Character] { | characterString codePoint |
 
 	asCharacter { :self |
 		self
@@ -155,11 +145,17 @@ Character : [Object, Store, Equal, Compare, Magnitude, Character] { | characterS
 	}
 
 	compare { :self :anObject |
-		self.codePoint.compare(anObject.codePoint)
+		self.codePoint.compare(
+			anObject.codePoint
+		)
 	}
 
 	copy { :self |
 		self
+	}
+
+	[equal, =] { :self :anObject |
+		identical(self, anObject)
 	}
 
 	isSameAs { :self :aCharacter |
@@ -167,6 +163,12 @@ Character : [Object, Store, Equal, Compare, Magnitude, Character] { | characterS
 			true
 		} {
 			self.asLowerCase == aCharacter.asLowerCase
+		}
+	}
+
+	[similar, ~] { :self :anObject |
+		anObject.isCharacter & {
+			self.characterString = anObject.characterString
 		}
 	}
 

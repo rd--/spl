@@ -1,77 +1,5 @@
 @Number {
 
-	\ { :self :aNumber |
-		self.Fraction(aNumber)
-	}
-
-	<~ { :self :aNumber |
-		self < aNumber | {
-			self.isCloseTo(aNumber)
-		}
-	}
-
-	>~ { :self :aNumber |
-		self > aNumber | {
-			self.isCloseTo(aNumber)
-		}
-	}
-
-	[dissimilar, !~] { :self :aNumber |
-		self.isCloseTo(aNumber).not
-	}
-
-	[factorialOrGamma, !] { :self |
-		self.isNonNegativeInteger.if {
-			self.factorial
-		} {
-			(1 + self).gamma
-		}
-	}
-
-	[mod, %] { :self :aNumber |
-		self - (aNumber * self.quotient(aNumber))
-	}
-
-	[negate, -] { :self |
-		self * -1
-	}
-
-	[quotient, //] { :self :aNumber |
-		self.quotientBy(aNumber, truncate:/1)
-	}
-
-	[reciprocal, /] { :self |
-		self.one / self
-	}
-
-	[remainder, \\] { :self :aNumber |
-		self.remainderBy(aNumber, truncate:/1)
-	}
-
-	[sign, *] { :self |
-		(self > 0).if {
-			self.one
-		} {
-			(self < 0).if {
-				self.one.negate
-			} {
-				self.zero
-			}
-		}
-	}
-
-	[similar, ~] { :self :aNumber |
-		self.isCloseTo(aNumber)
-	}
-
-	[absoluteValue, abs] { :self |
-		self.isNegative.if {
-			self.negate
-		} {
-			self
-		}
-	}
-
 	absArg { :self |
 		self.j(0).absArg
 	}
@@ -83,6 +11,14 @@
 	[absoluteSquare, absSquare] { :self |
 		let abs = self.abs;
 		abs * abs
+	}
+
+	[absoluteValue, abs] { :self |
+		self.isNegative.if {
+			self.negate
+		} {
+			self
+		}
 	}
 
 	adaptToCollectionAndApply { :self :aCollection :aBlock:/2 |
@@ -177,6 +113,17 @@
 		[r, k]
 	}
 
+	between { :self :interval |
+		interval.min <= self & {
+			self <= interval.max
+		}
+	}
+
+	betweenAnd { :self :min :max |
+		min <= self & {
+			self <= max
+		}
+	}
 
 	[ceiling, >] { :self |
 		let truncation = self.truncate;
@@ -192,7 +139,37 @@
 	}
 
 	clamp { :self :low :high |
-		low.max(self.min(high))
+		self.min(high).max(low)
+	}
+
+	clampLow { :self :low |
+		self.max(low)
+	}
+
+	clampHigh { :self :high |
+		self.min(high)
+	}
+
+	clip { :self :u :v |
+		let [min, max] = u;
+		let [vMin, vMax] = v;
+		(self < min).if {
+			vMin
+		} {
+			(self > max).if {
+				vMax
+			} {
+				self
+			}
+		}
+	}
+
+	clip { :self :minMax |
+		self.clip(minMax, minMax)
+	}
+
+	clip { :self |
+		self.clip([-1 1], [-1 1])
 	}
 
 	concisePrintString { :self |
@@ -270,6 +247,10 @@
 		self.diracDelta(Infinity)
 	}
 
+	[dissimilar, !~] { :self :aNumber |
+		self.isCloseTo(aNumber).not
+	}
+
 	divisible { :self :aNumber |
 		aNumber.isNumber.if {
 			self.abs >= aNumber.abs & {
@@ -320,6 +301,15 @@
 
 	epanechnikovKernel { :u |
 		0.75 * (1 - (u * u))
+	}
+
+
+	[factorialOrGamma, !] { :self |
+		self.isNonNegativeInteger.if {
+			self.factorial
+		} {
+			(1 + self).gamma
+		}
 	}
 
 	floor { :self :epsilon |
@@ -376,6 +366,12 @@
 		}
 	}
 
+	[greaterOrCloseTo, >~] { :self :aNumber |
+		self > aNumber | {
+			self.isCloseTo(aNumber)
+		}
+	}
+
 	halve { :self |
 		self / 2
 	}
@@ -418,6 +414,14 @@
 
 	infinity { :self |
 		self * Infinity
+	}
+
+	inRangeOfAnd { :self :first :second |
+		(first < second).if {
+			self.betweenAnd(first, second)
+		} {
+			self.betweenAnd(second, first)
+		}
 	}
 
 	integerPart { :self |
@@ -542,6 +546,13 @@
 		}
 	}
 
+
+	[lessOrCloseTo, <~] { :self :aNumber |
+		self < aNumber | {
+			self.isCloseTo(aNumber)
+		}
+	}
+
 	log2 { :self |
 		self.asSmallFloat.log2
 	}
@@ -603,8 +614,16 @@
 		[i, self - i]
 	}
 
+	[mod, %] { :self :aNumber |
+		self - (aNumber * self.quotient(aNumber))
+	}
+
 	mod { :m :n :d |
 		m - (n * ((m - d) / n).floor)
+	}
+
+	[negate, -] { :self |
+		self * -1
 	}
 
 	/*
@@ -785,6 +804,10 @@
 		}
 	}
 
+	[quotient, //] { :self :aNumber |
+		self.quotientBy(aNumber, truncate:/1)
+	}
+
 	quotientBy { :self :aNumber :aBlock:/1 |
 		(aNumber = 0).if {
 			'@Number>>quotient: divideByZero'.error
@@ -857,6 +880,15 @@
 
 	realImaginary { :self |
 		[self, self.zero]
+	}
+
+
+	[reciprocal, /] { :self |
+		self.one / self
+	}
+
+	[remainder, \\] { :self :aNumber |
+		self.remainderBy(aNumber, truncate:/1)
 	}
 
 	relativeChange { :x :y :f:/2 |
@@ -988,10 +1020,26 @@
 		aNumber.copySignTo(self)
 	}
 
+	[sign, *] { :self |
+		(self > 0).if {
+			self.one
+		} {
+			(self < 0).if {
+				self.one.negate
+			} {
+				self.zero
+			}
+		}
+	}
+
 	signBit { :self |
 		self.isNegativeZero | {
 			self < 0
 		}
+	}
+
+	[similar, ~] { :self :aNumber |
+		self.isCloseTo(aNumber)
 	}
 
 	smallFloatEpsilon { :self |

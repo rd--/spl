@@ -6,7 +6,6 @@
 	'Copyable'
 	'Equal'
 	'Json'
-	'Magnitude'
 	'Number'
 	'RandomNumberGenerator'
 	'Store'

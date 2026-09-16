@@ -34,7 +34,7 @@ export function isByte(anObject: unknown): boolean {
 	return isSmallFloatInteger(anObject) && anObject >= 0 && anObject < 256;
 }
 
-// Unsigned 32-bit? 2^31=2147483648 2^32=4294967296
+// Signed 32-bit integer? 2^31=2147483648 2^32=4294967296
 export function isBitwise(anObject: unknown): boolean {
 	return isSmallFloatInteger(anObject) && (anObject >= -2147483648) &&
 		(anObject <= 2147483647);

@@ -8,6 +8,9 @@ Sometimes called the bit width.
 ```
 >>> 32.bitLength
 6
+
+>>> 13.factorial.bitLength
+33
 ```
 
 For negative _n_, equivalent to _n.bitNot.bitLength_,

@@ -47,22 +47,6 @@
 
 }
 
-+@Magnitude {
-
-	exclusivelyBetweenAnd { :self :lo :hi |
-		lo < self & {
-			self < hi
-		}
-	}
-
-	inclusivelyBetweenAnd { :self :lo :hi |
-		lo <= self & {
-			self <= hi
-		}
-	}
-
-}
-
 +@Number {
 
 	ampComp { :freq :root :exp |
@@ -120,6 +104,12 @@
 
 	Distort { :self |
 		self / (1 + self.abs)
+	}
+
+	exclusivelyBetweenAnd { :self :lo :hi |
+		lo < self & {
+			self < hi
+		}
 	}
 
 	expExp { :self :inMin :inMax :outMin :outMax |
@@ -185,6 +175,12 @@
 
 	HypotenuseApproximate { :self :aNumber |
 		self.abs + aNumber.abs - ((2.sqrt - 1) * self.abs.min(aNumber.abs))
+	}
+
+	inclusivelyBetweenAnd { :self :lo :hi |
+		lo <= self & {
+			self <= hi
+		}
 	}
 
 	linCurve { :self :inMin :inMax :outMin :outMax :curve |

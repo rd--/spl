@@ -14,7 +14,6 @@ List traits implemented by `SmallFloat`:
 	'Equal'
 	'Integer'
 	'Json'
-	'Magnitude'
 	'Number'
 	'Object'
 	'Store'

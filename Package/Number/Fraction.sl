@@ -1,4 +1,4 @@
-Fraction : [Object, Store, Equal, Compare, Magnitude, Number] { | numerator denominator |
+Fraction : [Object, Store, Equal, Compare, Number] { | numerator denominator |
 
 	[less, <] { :self :aNumber |
 		aNumber.isFraction.if {
@@ -694,7 +694,7 @@ Fraction : [Object, Store, Equal, Compare, Magnitude, Number] { | numerator deno
 		}
 	}
 
-	r { :numerator :denominator |
+	[r, \] { :numerator :denominator |
 		Fraction(numerator, denominator)
 	}
 

@@ -26,6 +26,23 @@ At `Fraction`:
 [false true]
 ```
 
+At `LargeInteger`:
+
+```
+>>> 13L.factorial.isPowerOfTwo
+false
+```
+
+Answers correctly for `SmallFloat` values that answer `false` for `isBinary`:
+
+```
+>>> 13.factorial.isBinary
+false
+
+>>> 13.factorial.isPowerOfTwo
+false
+```
+
 * * *
 
 See also: asPowerOfTwo, isDyadicRational, isPoliteNumber, nextPowerOfTwo

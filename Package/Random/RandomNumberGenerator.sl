@@ -81,7 +81,7 @@
 
 	randomLargeInteger { :self :max |
 		let k = max.digitLength;
-		let h = max.highBitOfMagnitude;
+		let h = max.highBitOfInteger;
 		let m = (2L ^ h) - 1;
 		let answer = nil;
 		{

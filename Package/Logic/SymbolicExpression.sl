@@ -46,30 +46,30 @@
 
 }
 
-@SymbolicMagnitude {
+@SymbolicCompare {
 
-	[less, <] { :self :aMagnitude |
-		'<'.symbolicPrimitive([self, aMagnitude])
+	[less, <] { :self :operand |
+		'<'.symbolicPrimitive([self, operand])
 	}
 
-	[lessEqual, <=] { :self :aMagnitude |
-		'<='.symbolicPrimitive([self, aMagnitude])
+	[lessEqual, <=] { :self :operand |
+		'<='.symbolicPrimitive([self, operand])
 	}
 
-	[greater, >] { :self :aMagnitude |
-		'>'.symbolicPrimitive([self, aMagnitude])
+	[greater, >] { :self :operand |
+		'>'.symbolicPrimitive([self, operand])
 	}
 
-	[greaterEqual, >=] { :self :aMagnitude |
-		'>='.symbolicPrimitive([self, aMagnitude])
+	[greaterEqual, >=] { :self :operand |
+		'>='.symbolicPrimitive([self, operand])
 	}
 
-	max { :self :aMagnitude |
-		'max'.symbolicPrimitive([self, aMagnitude])
+	max { :self :operand |
+		'max'.symbolicPrimitive([self, operand])
 	}
 
-	min { :self :aMagnitude |
-		'min'.symbolicPrimitive([self, aMagnitude])
+	min { :self :operand |
+		'min'.symbolicPrimitive([self, operand])
 	}
 
 }
@@ -210,7 +210,7 @@
 
 }
 
-Symbol : [Object, Store, Number, Integer, SymbolicObject, SymbolicBoolean, SymbolicMagnitude, SymbolicNumber] { | name |
+Symbol : [Object, Store, Number, Integer, SymbolicObject, SymbolicBoolean, SymbolicCompare, SymbolicNumber] { | name |
 
 	isEqualSymbolicExpression { :self :anObject |
 		self == anObject
@@ -242,7 +242,7 @@ Symbol : [Object, Store, Number, Integer, SymbolicObject, SymbolicBoolean, Symbo
 
 }
 
-SymbolicExpression : [Object, Store, Number, SymbolicObject, SymbolicBoolean, SymbolicMagnitude, SymbolicNumber, Iterable] { | operator operands |
+SymbolicExpression : [Object, Store, Number, SymbolicObject, SymbolicBoolean, SymbolicCompare, SymbolicNumber, Iterable] { | operator operands |
 
 	asTree { :self |
 		Tree(

@@ -11,7 +11,7 @@ Take the two smallest numbers in a list:
 [1 3]
 ```
 
-Get the two smallest quantities in a list of Quantity objects:
+Get the two smallest quantities in a list of `Quantity` objects:
 
 ```
 >>> [1.grams 2.kilograms 2.milligrams]

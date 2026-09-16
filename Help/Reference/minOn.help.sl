@@ -1,8 +1,8 @@
 # minOn
 
-- _minOn(p, q, aBlock:/1)_
+- _minOn(p, q, f:/1)_
 
-Answers which of _p_ or _q_ answers as `min` according to _aBlock_,
+Answers which of _p_ or _q_ answers as `min` according to the block _f_,
 that is the `min` accoring to the transformed _p_ and _q_,
 answering either _p_ or _q_.
 
@@ -27,3 +27,5 @@ Note this is not the `min` of the transformed values:
 * * *
 
 See also: <, maxOn, max, min, minimalBy, reduce
+
+Guides: Comparison Functions

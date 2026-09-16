@@ -96,27 +96,27 @@
 		(self < 0).if {
 			self.error('@Binary>>highBit is not defined for negative integers')
 		} {
-			self.highBitOfPositiveReceiver
+			self.promoteBinary.highBitOfPositiveInteger
 		}
 	}
 
 	highBitOfByte { :self |
-		system.highBitPerByteTable[self + 1]
+		system.highBitPerByteTable[self.normal + 1]
 	}
 
-	highBitOfMagnitude { :self |
+	highBitOfInteger { :self |
 		(self < 0).if {
 			self.negate.highBit
 		} {
-			self.highBitOfPositiveReceiver
+			self.highBitOfPositiveInteger
 		}
 	}
 
-	highBitOfPositiveReceiver { :self |
+	highBitOfPositiveInteger { :self |
 		let shifted = self;
 		let bitNo = 0;
 		{
-			shifted < 65536
+			shifted < 65536 /* 2 ^ 16 */
 		}.whileFalse {
 			shifted := shifted.bitShiftRight(16);
 			bitNo := bitNo + 16

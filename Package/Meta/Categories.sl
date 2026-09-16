@@ -547,8 +547,8 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'bitXor'
 		'highBit'
 		'highBitOfByte'
-		'highBitOfMagnitude'
-		'highBitOfPositiveReceiver'
+		'highBitOfInteger'
+		'highBitOfPositiveInteger'
 		'lowBit'
 	],
 	'classifying': [

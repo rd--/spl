@@ -247,7 +247,6 @@
 	'Number-Integer'
 	'Number-Interval'
 	'Number-LargeInteger'
-	'Number-Magnitude'
 	'Number-Number'
 	'Number-Quaternion'
 	'Number-Residue'

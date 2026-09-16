@@ -1,6 +1,6 @@
 /* Requires: SmallFloat String */
 
-LargeInteger! : [Object, Store, Equal, Compare, Binary, Magnitude, Number, Integer] {
+LargeInteger! : [Object, Store, Equal, Compare, Binary, Number, Integer] {
 
 	[less, <] { :self :anObject |
 		<primitive:
@@ -234,7 +234,7 @@ LargeInteger! : [Object, Store, Equal, Compare, Binary, Magnitude, Number, Integ
 
 	floorLog { :self :radix |
 		(self <= 0).if {
-			self.error('LargeInteger>>floorLog: is only defined for x > 0')
+			self.error('LargeInteger>>floorLog: is only defined for x > 0', [radix])
 		} {
 			self.numberOfDigitsInBase(radix) - 1
 		}
@@ -250,7 +250,7 @@ LargeInteger! : [Object, Store, Equal, Compare, Binary, Magnitude, Number, Integ
 	}
 	*/
 
-	highBitOfMagnitude { :self |
+	highBitOfInteger { :self |
 		valueWithReturn { :return:/1 |
 			let realLength = self.digitLength;
 			let lastDigit = self.digitAt(realLength);
@@ -365,6 +365,10 @@ LargeInteger! : [Object, Store, Equal, Compare, Binary, Magnitude, Number, Integ
 
 	printStringToFixed { :self :anInteger |
 		self.asSmallInteger.printStringToFixed(anInteger)
+	}
+
+	promoteBinary { :self |
+		self
 	}
 
 	raisedToInteger { :self :anInteger |

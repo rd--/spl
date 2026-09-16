@@ -1836,7 +1836,7 @@ Reference/hexTriplet.help.sl
 Reference/HiddenMarkovProcess.help.sl
 Reference/highBit.help.sl
 Reference/highBitOfByte.help.sl
-Reference/highBitOfMagnitude.help.sl
+Reference/highBitOfInteger.help.sl
 Reference/hilbertCurve.help.sl
 Reference/Hilbert.help.sl
 Reference/hilbertMatrix.help.sl
@@ -2696,7 +2696,6 @@ Reference/magicSquare.help.sl
 Reference/magicSquareSummary.help.sl
 Reference/magneticConstant.help.sl
 Reference/magnitude.help.sl
-Reference/Magnitude.help.sl
 Reference/mahonianNumber.help.sl
 Reference/mahonianNumbers.help.sl
 Reference/majorIndex.help.sl

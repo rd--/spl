@@ -40,7 +40,7 @@ Prune a `Record` to its maximal values:
 
 See also: <, max, maxOn, min, minimalBy, selectIndices
 
-Guides: Sort Functions
+Guides: Comparison Functions, Sort Functions
 
 References:
 _Mathematica_

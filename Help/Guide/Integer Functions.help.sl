@@ -9,7 +9,6 @@ Types:
 Traits:
 
 - `Integer`
-- `Magnitude`
 
 Combinatorial Functions:
 
