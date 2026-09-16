@@ -39,7 +39,8 @@ Symbolic evaluation:
 >> .pdf(`x`)
 (/
  (sech (/ (* (- x mu) π) (* 2 sigma)))
- (* 2 sigma))
+ (* 2 sigma)
+)
 ```
 
 * * *

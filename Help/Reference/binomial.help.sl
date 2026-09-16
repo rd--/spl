@@ -723,7 +723,7 @@ OEIS [A000172](https://oeis.org/A000172):
 ```
 >>> 0:8.collect { :n |
 >>> 	0:n.sum { :k |
->>> 		 binomial(n, k).cube
+>>> 		binomial(n, k).cube
 >>> 	}
 >>> }
 [1 2 10 56 346 2252 15184 104960 739162]

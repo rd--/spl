@@ -733,7 +733,7 @@ OEIS [A192719](https://oeis.org/A192719):
 let a = [];
 13.timesRepeat {
 	let i = a.minimumExcludedValue(
-			1:Infinity
+		1:Infinity
 	);
 	a.addAll(i.collatzSequence)
 };

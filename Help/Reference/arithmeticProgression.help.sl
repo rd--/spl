@@ -120,7 +120,7 @@ OEIS [A133277](https://oeis.org/A133277):
 >>> 	5749146449311 26004868890
 >>> ].withIndexCollect { :p :k |
 >>> 	(k + 2).arithmeticProgression(
->>>		p[1], p[2]
+>>> 		p[1], p[2]
 >>> 	)
 >>> }
 [

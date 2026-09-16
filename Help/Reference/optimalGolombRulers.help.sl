@@ -116,7 +116,7 @@ OEIS [A106683](https://oeis.org/A106683):
 
 ```
 >>> 2:8.collect { :m |
->>>  	m.optimalGolombRulers.first
+>>> 	m.optimalGolombRulers.first
 >>> }
 [
 	0 1;

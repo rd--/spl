@@ -112,7 +112,8 @@ The `hypotenuse` function:
 >> .splParseExpression
 >> .asString
 (𝒫 (𝜆 (𝓐 x y)
- (sqrt (plusSign (asterisk x x) (asterisk y y)))))
+ (sqrt (plusSign (asterisk x x) (asterisk y y))))
+)
 ```
 
 * * *

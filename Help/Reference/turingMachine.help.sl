@@ -1,6 +1,6 @@
 # turingMachine
 
-- _turingMachine(r, [s₀, [a₁ a₂ …; b₁ b₂ …], t)_
+- _turingMachine(r, [s₀, [a₁ a₂ …; b₁ b₂ …]], t)_
 
 Answer a list representing the evolution of the Turing machine,
 with the specified rule _r_,

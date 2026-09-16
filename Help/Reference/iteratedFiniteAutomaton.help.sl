@@ -16,7 +16,7 @@ A rule that, given _s=1_ and _i=0,0,0,0_ returns to _i_ after eight steps:
 >>> 	[2 0] -> [1 0]
 >>> ].iteratedFiniteAutomaton(
 >>> 	1,
->>>  	[0 0 0 0],
+>>> 	[0 0 0 0],
 >>> 	8
 >>> )
 [
@@ -42,7 +42,7 @@ The same rule, iterated for one hundred steps:
 	[2 0] -> [1 0]
 ].iteratedFiniteAutomaton(
 	1,
- 	List(100, 0),
+	List(100, 0),
 	100
 ).Bitmap
 ~~~

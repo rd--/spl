@@ -1,6 +1,6 @@
 # Quaternion
 
-- _Quaternion([a b c d]_
+- _Quaternion([a b c d])_
 
 A `Type` representing a number in the quaternion number system.
 

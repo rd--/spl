@@ -9,7 +9,7 @@ There are twenty-four _5-cycle_ permutations of _1:5_:
 
 ```
 >>> [1 .. 5].permutations.count { :p |
->>> 	 p.isCyclicPermutation(5)
+>>> 	p.isCyclicPermutation(5)
 >>> }
 24
 ```

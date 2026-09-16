@@ -28,7 +28,7 @@ The ragisma:
 'ragisma'
 
 >>> 1.ragisma
- 4375/4374
+4375/4374
 ```
 
 Schisma and diaschisma:
