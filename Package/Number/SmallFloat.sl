@@ -352,13 +352,13 @@ SmallFloat! : [Object, Store, Json, Equal, Compare, Number, Integer, Binary] {
 		if (Object.is(divisor, 0)
 			|| !Number.isFinite(dividend)
 			|| Number.isNaN(dividend)
-			|| Number.isNaN(divisor))
-		{
+			|| Number.isNaN(divisor)
+		) {
 			return NaN;
 		}
 		if (!Number.isFinite(divisor)
-			|| Object.is(dividend, 0))
-		{
+			|| Object.is(dividend, 0)
+		) {
 			return dividend;
 		}
 		const exactQuotient = dividend / divisor;

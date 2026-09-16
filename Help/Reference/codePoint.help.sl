@@ -8,16 +8,19 @@ At `String`:
 
 ```
 >>> ' '.codePoint
-32
+16r20
 
 >>> 'π'.codePoint
 16r03C0
 
 >>> 'a'.codePoint
-97
+16r61
 
 >>> '€'.codePoint
-8364
+16r20AC
+
+>>> '’'.codePoint
+16r2019
 ```
 
 It is an error if the string has more than one place:

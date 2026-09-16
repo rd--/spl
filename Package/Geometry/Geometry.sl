@@ -86,7 +86,7 @@ AnnotatedGeometry : [Object, Geometry] { | geometry annotation |
 		};
 		let fragmentText = self.geometry.svgFragmentText(options);
 		fragmentText.includes('\n').ifTrue {
-                       fragmentText := '\n' ++ fragmentText ++ '\n'
+			fragmentText := '\n' ++ fragmentText ++ '\n'
 		};
 		'<g %%%>%</g>'.format(
 			[

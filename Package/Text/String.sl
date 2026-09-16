@@ -846,7 +846,7 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 	}
 
 	replaceApostropheWithRightSingleQuotationMark { :self |
-		<primitive: return _self.replace("'", "’");>
+		<primitive: return _self.replace("\u{27}", "\u{2019}");>
 	}
 
 	replaceString { :self :stringToFind :stringToReplaceWith |
