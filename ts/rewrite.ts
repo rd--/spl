@@ -190,7 +190,7 @@ const asJs: ohm.ActionDict<string> = {
 		].join('');
 	},
 	BlockLiteralInitializer(name, _equals, blk) {
-		 /* Equivalent to ExpressionInitializer after simplifier, required as grammar is reused */
+		/* Equivalent to ExpressionInitializer after simplifier, required as grammar is reused */
 		return `${name.asJs} = ${blk.asJs}`;
 	},
 	EmptyListSyntax(_l, _r) {
@@ -419,9 +419,10 @@ const asSl: ohm.ActionDict<string> = {
 	},
 	BlockLiteralInitializer(name, _equals, blk) {
 		let nameStr = name.asSl;
-		if(isArityQualifiedName(nameStr)) {
+		if (isArityQualifiedName(nameStr)) {
 			return `${nameStr} = ${blk.asSl}`;
-		} {
+		}
+		{
 			let blkArity = blk.parametersOf.length;
 			return `${nameStr}:/${blkArity} = ${blk.asSl}`;
 		}
@@ -489,10 +490,26 @@ const asSl: ohm.ActionDict<string> = {
 	ListRangeFromToSyntax(_leftBracket, i, _dots, j, _rightBracket) {
 		return `listRange(${i.asSl}, ${j.asSl})`;
 	},
-	ListRangeFromThenToSyntax(_leftBracket, i, _comma, j, _dots, k, _rightBracket) {
+	ListRangeFromThenToSyntax(
+		_leftBracket,
+		i,
+		_comma,
+		j,
+		_dots,
+		k,
+		_rightBracket,
+	) {
 		return `listThenTo(${i.asSl}, ${j.asSl}, ${k.asSl})`;
 	},
-	ListRangeFromToBySyntax(_leftBracket, i, _comma, j, _semicolon, k, _rightBracket) {
+	ListRangeFromToBySyntax(
+		_leftBracket,
+		i,
+		_comma,
+		j,
+		_semicolon,
+		k,
+		_rightBracket,
+	) {
 		return `listRange(${i.asSl}, ${j.asSl}, ${k.asSl})`;
 	},
 	MatrixSyntax(_l, items, _r) {
@@ -502,7 +519,7 @@ const asSl: ohm.ActionDict<string> = {
 		return `[${commaListSl(items.children)}]`;
 	},
 	MethodNameList(_l, items, _r) {
-		return `[${commaListSl(items.asIteration().children)}]`
+		return `[${commaListSl(items.asIteration().children)}]`;
 	},
 	MethodDefinitions(_p, _l, n, _r, _lc, mn, mb, _rc) {
 		const begin = `+[${n.sourceString}] {`;
@@ -549,10 +566,26 @@ const asSl: ohm.ActionDict<string> = {
 	RangeFromToSyntax(_leftParenthesis, i, _dots, j, _rightParenthesis) {
 		return `Range(${i.asSl}, ${j.asSl})`;
 	},
-	RangeFromThenToSyntax(_leftParenthesis, i, _comma, j, _dots, k, _rightParenthesis) {
+	RangeFromThenToSyntax(
+		_leftParenthesis,
+		i,
+		_comma,
+		j,
+		_dots,
+		k,
+		_rightParenthesis,
+	) {
 		return `thenTo(${i.asSl}, ${j.asSl}, ${k.asSl})`;
 	},
-	RangeFromToBySyntax(_leftParenthesis, i, _dots, j, _semicolon, k, _rightParenthesis) {
+	RangeFromToBySyntax(
+		_leftParenthesis,
+		i,
+		_dots,
+		j,
+		_semicolon,
+		k,
+		_rightParenthesis,
+	) {
 		return `Range(${i.asSl}, ${j.asSl}, ${k.asSl})`;
 	},
 	RecordAssignment(_leftParen, lhs, _rightParen, _colonEquals, rhs) {
@@ -859,8 +892,8 @@ const asAst: ohm.ActionDict<SlAst> = {
 		return [
 			'Apply',
 			[p.asAst].concat(
-				a.asAst
-			)
+				a.asAst,
+			),
 		];
 	},
 
@@ -868,7 +901,10 @@ const asAst: ohm.ActionDict<SlAst> = {
 		return ['Identifier', x.sourceString];
 	},
 	arityQualifiedIdentifier(c1, cN, _s, a) {
-		return ['Identifier', c1.sourceString + cN.sourceString + ':/' + a.sourceString];
+		return [
+			'Identifier',
+			c1.sourceString + cN.sourceString + ':/' + a.sourceString,
+		];
 	},
 	floatLiteral(s, i, _, f) {
 		const x = s.sourceString + i.sourceString + '.' + f.sourceString;
@@ -973,7 +1009,11 @@ const parametersOf: ohm.ActionDict<string[]> = {
 
 slSemantics.addAttribute('parametersOf', parametersOf);
 
-function procList(nodeArray: ohm.Node[], fn: (x: ohm.Node) => string, sep: string): string {
+function procList(
+	nodeArray: ohm.Node[],
+	fn: (x: ohm.Node) => string,
+	sep: string,
+): string {
 	return nodeArray.map(fn).join(sep);
 }
 
