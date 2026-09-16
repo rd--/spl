@@ -50,6 +50,9 @@ Guides: Permutation Functions
 
 References:
 _Sage_
-[1](https://doc.sagemath.org/html/en/reference/combinat/sage/combinat/permutation.html#sage.combinat.permutation.Permutation.to_lehmer_cocode)
+[1](https://doc.sagemath.org/html/en/reference/combinat/sage/combinat/permutation.html#sage.combinat.permutation.Permutation.to_lehmer_cocode),
+_W_
+[1](https://en.wikipedia.org/wiki/Lehmer_code)
+[2](https://en.wikipedia.org/wiki/Inversion_(discrete_mathematics))
 
 Categories: Permutations

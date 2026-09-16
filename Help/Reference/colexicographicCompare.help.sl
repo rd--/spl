@@ -2,7 +2,8 @@
 
 - _colexicographicCompare([x₁ x₂ …], [y₁ y₂ …])_
 
-Compare the sequences _x_ and _y_ colexicographically.
+Compare the sequences _x_ and _y_ colexicographically,
+that is by reading from the right to the left.
 
 Find whether two equal length lists are ordered colexicographically:
 
@@ -83,3 +84,7 @@ At `String`:
 See also: colexicographicSort, lexicographicSort
 
 Guides: Sort Functions
+
+References:
+_W_
+[1](https://en.wikipedia.org/wiki/Lexicographic_order)

@@ -59,6 +59,12 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 		self
 	}
 
+	completeCycles { :self |
+		self
+		.permutationList
+		.permutationListToPermutationCycles(false)
+	}
+
 	decreasingRuns { :self |
 		self.runs(greater:/2)
 	}
@@ -73,7 +79,7 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 		}.asMap
 	}
 
-	fixedPoints { :self |
+	[fixedPoints, permutationFixedPoints] { :self |
 		let support = self.support.asIdentitySet;
 		let answer = [];
 		1.toDo(self.degree) { :each |
@@ -153,11 +159,10 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 		answer
 	}
 
-	[isCyclic, isCyclicPermutation] { :p |
-		let i = p.permutationMax;
-		let j = p.permutationLength;
-		(i = j) & {
-			p.list.isRotation([1 .. i])
+	[isCyclic, isCyclicPermutation] { :self :anInteger |
+		let c = self.cycles;
+		(c.size = 1) & {
+			c[1].size = anInteger
 		}
 	}
 
@@ -172,6 +177,14 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 	isInvolution { :self |
 		self.cycles.allSatisfy { :each |
 			each.size <= 2
+		}
+	}
+
+	[isRotation, isRotationPermutation] { :p |
+		let i = p.permutationMax;
+		let j = p.permutationLength;
+		(i = j) & {
+			p.list.isRotation([1 .. i])
 		}
 	}
 
@@ -374,7 +387,7 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 		'Permutation(%)'.format([self.cycles.storeString])
 	}
 
-	support { :self |
+	[support, permutationSupport] { :self |
 		self.cycles.catenate.sort
 	}
 
@@ -423,7 +436,7 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 
 +List {
 
-	asPermutation { :self |
+	[asPermutation, toPermutation] { :self |
 		Permutation(self)
 	}
 
@@ -446,7 +459,7 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 	}
 
 	findPermutation { :self |
-		self.ordering.asPermutation
+		Permutation(self.ordering)
 	}
 
 	findPermutation { :self :aSequence |
@@ -461,11 +474,19 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 	}
 
 	inversePermutation { :self |
-		self.asPermutation.inversePermutation
+		Permutation(self).inversePermutation
 	}
 
 	inversionVector { :self |
-		self.asPermutation.inversionVector
+		Permutation(self).inversionVector
+	}
+
+	isCyclicPermutation { :self :anInteger |
+		Permutation(self).isCyclicPermutation(anInteger)
+	}
+
+	isDerangement { :self |
+		Permutation(self).isDerangement
 	}
 
 	isGracefulPermutation { :p |
@@ -477,7 +498,7 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 	}
 
 	isInvolution { :self |
-		self.asPermutation.isInvolution
+		Permutation(self).isInvolution
 	}
 
 	isPermutationCycles { :self |
@@ -521,7 +542,7 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 	}
 
 	leftInversionCount { :self |
-		self.asPermutation.leftInversionCount
+		Permutation(self).leftInversionCount
 	}
 
 	lexicographicPermutations { :self |
@@ -692,7 +713,7 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 	}
 
 	permutationCycles { :self |
-		self.asPermutation.cycles
+		Permutation(self).cycles
 	}
 
 	permutationCycles { :self :deleteUnaryCycles |
@@ -742,19 +763,23 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 	}
 
 	permutationHasPattern { :self :pattern |
-		self.asPermutation.hasPattern(pattern)
+		Permutation(self).hasPattern(pattern)
 	}
 
 	permutationFixedPoints { :self |
-		self.asPermutation.fixedPoints
+		Permutation(self).fixedPoints
 	}
 
 	permutationGraph { :self |
-		self.asPermutation.graph
+		Permutation(self).graph
 	}
 
 	permutationInversions { :self |
-		self.asPermutation.inversions
+		Permutation(self).inversions
+	}
+
+	permutationLength { :self |
+		Permutation(self).length
 	}
 
 	permutationListToPermutationCycle { :self :anInteger |
@@ -797,42 +822,42 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 	}
 
 	permutationList { :self :anInteger |
-		self.asPermutation.list(anInteger)
+		Permutation(self).list(anInteger)
 	}
 
 	permutationMatrix { :self |
-		self.asPermutation.matrix(self.permutationDegree)
+		Permutation(self).matrix(self.permutationDegree)
 	}
 
 	permutationMax { :self |
-		self.asPermutation.max
+		Permutation(self).max
 	}
 
 	permutationMin { :self |
-		self.asPermutation.min
+		Permutation(self).min
 	}
 
 	permutationOrder { :self |
-		self.asPermutation.order
+		Permutation(self).order
 	}
 
 	permutationOrderList { :self |
-		self.asPermutation.orderList
+		Permutation(self).orderList
 	}
 
 	permutationPatternPositions { :self :pattern |
-		self.asPermutation.patternPositions(pattern)
+		Permutation(self).patternPositions(pattern)
 	}
 
 	permutationPeaks { :self |
-		self.asPermutation.peaks
+		Permutation(self).peaks
 	}
 
 	permutationPower { :self :anInteger |
 		(anInteger = 0).if {
-			self.permutationDegree.iota.asPermutation
+			Permutation(self.permutationDegree.iota)
 		} {
-			self.asPermutation ^ anInteger
+			Permutation(self) ^ anInteger
 		}
 	}
 
@@ -850,7 +875,7 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 	}
 
 	permutationRank { :self |
-		self.asPermutation.rank
+		Permutation(self).rank
 	}
 
 	permutationReplace { :self :aPermutation |
@@ -858,11 +883,11 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 	}
 
 	permutationRuns { :self |
-		self.asPermutation.runs
+		Permutation(self).runs
 	}
 
 	permutationSupport { :self |
-		self.asPermutation.support
+		Permutation(self).support
 	}
 
 	permutations { :self |
@@ -919,7 +944,7 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 	}
 
 	rightInversionCount { :self |
-		self.asPermutation.rightInversionCount
+		Permutation(self).rightInversionCount
 	}
 
 	rightInversionCountToPermutationList { :self |
@@ -930,12 +955,14 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 	}
 
 	rightInversionCountToPermutation { :self |
-		self.rightInversionCountToPermutationList.asPermutation
+		self
+		.rightInversionCountToPermutationList
+		.asPermutation
 	}
 
 	signature { :self |
 		self.isPermutationList.if {
-			self.asPermutation.signature
+			Permutation(self).signature
 		} {
 			0
 		}

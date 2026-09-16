@@ -5,7 +5,7 @@ Type! : [Object, Equal] {
 	}
 
 	constructorName { :self |
-		'new' ++ self.name ++ ':/0'
+		['new', self.name, ':/0'].stringCatenate
 	}
 
 	instanceOf { :self |

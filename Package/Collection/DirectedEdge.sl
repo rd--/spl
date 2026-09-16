@@ -23,7 +23,9 @@ DirectedEdge : [Object, Store, Equal, Compare, Indexable] { | vertexList |
 	}
 
 	compare { :self :anEdge |
-		self.vertexList.compare(anEdge.vertexList)
+		self.vertexList.compare(
+			anEdge.vertexList
+		)
 	}
 
 	forDot { :self :isMixed |

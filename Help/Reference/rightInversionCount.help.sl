@@ -10,6 +10,9 @@ Answer the right inversion count, also called the Lehmer code, of the permutatio
 
 >>> [3 1 2].rightInversionCount
 [2 0 0]
+
+>>> [2 6 1 7 4 5 3].rightInversionCount
+[1 4 0 3 1 1 0]
 ```
 
 The inverse is `rightInversionCountToPermutationList`:
@@ -93,6 +96,9 @@ Guides: Permutation Functions
 
 References:
 _Sage_
-[1](https://doc.sagemath.org/html/en/reference/combinat/sage/combinat/permutation.html#sage.combinat.permutation.Permutation.to_lehmer_code)
+[1](https://doc.sagemath.org/html/en/reference/combinat/sage/combinat/permutation.html#sage.combinat.permutation.Permutation.to_lehmer_code),
+_W_
+[1](https://en.wikipedia.org/wiki/Lehmer_code)
+[2](https://en.wikipedia.org/wiki/Inversion_(discrete_mathematics))
 
 Categories: Permutations

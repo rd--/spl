@@ -55,6 +55,39 @@ Sort binary combinations:
 ]
 ```
 
+The permutations of _1:4_ in reverse colexographic order:
+
+```
+>>> [1 .. 4].permutations
+>>> .reverseColexicographicSort
+[
+	1 2 3 4;
+	2 1 3 4;
+	1 3 2 4;
+	3 1 2 4;
+	2 3 1 4;
+	3 2 1 4;
+	1 2 4 3;
+	2 1 4 3;
+	1 4 2 3;
+	4 1 2 3;
+	2 4 1 3;
+	4 2 1 3;
+	1 3 4 2;
+	3 1 4 2;
+	1 4 3 2;
+	4 1 3 2;
+	3 4 1 2;
+	4 3 1 2;
+	2 3 4 1;
+	3 2 4 1;
+	2 4 3 1;
+	4 2 3 1;
+	3 4 2 1;
+	4 3 2 1
+]
+```
+
 The ordering of the permutations given by the Steinhaus-Johnson-Trotter algorithm,
 in relation to their reverse colexicographic sequence,
 OEIS [A280319](https://oeis.org/A280319):

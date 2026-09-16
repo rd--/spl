@@ -149,7 +149,7 @@
 		aNumber.isNumber.if {
 			self + aNumber
 		} {
-			('Number>>basicPlus: operand not a number' ++ aNumber).error
+			self.error('Number>>basicPlus: operand not a number', [aNumber])
 		}
 	}
 
@@ -157,7 +157,7 @@
 		aNumber.isNumber.if {
 			self * aNumber
 		} {
-			('Number>>basicTimes: operand not a number: ' ++ aNumber).error
+			self.error('Number>>basicTimes: operand not a number', [aNumber])
 		}
 	}
 

@@ -87,6 +87,21 @@ let m = (2 ^ 4).walshMatrix;
 
 ![](Help/Image/colexicographicSort-A.svg)
 
+```
+[1 .. 5].permutations.select { :p |
+	p.isCyclicPermutation(5)
+}.colexicographicSort.collect(
+	inversionVector:/1
+)
+
+
+[1 .. 5].permutations.select { :p |
+	let c = p.permutationCycles;
+	c.collect(size:/1) = [5]
+}.colexicographicSort
+
+.reverse.transpose.matrixPlot
+
 * * *
 
 See also: canonicalSort, lexicographicSort, sort

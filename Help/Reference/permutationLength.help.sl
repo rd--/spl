@@ -17,8 +17,7 @@ Number of points moved in a permutation list:
 
 ```
 >>> [2 4 3 8 1 6 5 7 9 10 11]
->>> .asPermutation
->>> .length
+>>> .permutationLength
 6
 ```
 

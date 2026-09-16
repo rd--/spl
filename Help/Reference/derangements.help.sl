@@ -26,7 +26,7 @@ The number of derangements of _n_ distinct items is the `subfactorial` of _n_.
 
 * * *
 
-See also: permutations, subfactorial
+See also: permutations, rencontresNumber, subfactorial
 
 Guides: Permutation Functions
 

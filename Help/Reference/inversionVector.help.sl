@@ -7,6 +7,12 @@ Answer the inversion vector of the permutation _p_.
 The inversion vector of a permutation indicates for each place the number of elements larger than it that appear to its left.
 
 ```
+>>> [3 5 4 2 1].inversionVector
+[4 3 0 1 0]
+
+>>> [4 3 5 2 1].inversionVector
+[4 3 1 0 0]
+
 >>> [5 9 1 8 2 6 4 7 3].inversionVector
 [2 3 6 4 0 2 2 1 0]
 

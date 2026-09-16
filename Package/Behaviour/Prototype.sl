@@ -16,7 +16,7 @@
 
 	atDelegateTo { :self :key :delegateKey |
 		self.atDelegateToIfAbsent(key, delegateKey) {
-			self.error('Record>>atDelegate: unknown key: ' ++ key)
+			self.error('Record>>atDelegate: unknown key', [key])
 		}
 	}
 

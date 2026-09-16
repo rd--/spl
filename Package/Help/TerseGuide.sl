@@ -14,7 +14,7 @@
 		let totalTestCount = 0;
 		let totalPassCount = 0;
 		let areas = self.paragraphs;
-		('Terse Guide Summary: Areas = ' ++ areas.size).postLine;
+		'Terse Guide Summary: Areas = %'.format([areas.size]).postLine;
 		areas.do { :area |
 			let entries = area.lines.reject { :line |
 				line.isEmpty | {
@@ -43,13 +43,13 @@
 				'	=> ',
 				passCount, ' / ', testCount,
 				(failCount > 0).if {
-					' (' ++ failCount ++ ' Failures)'
+					' (% Failures)'.format([failCount])
 				} {
 					''
 				}
 			].stringJoin.postLine
 		};
-		('Total => ' ++ totalPassCount ++ ' / ' ++ totalTestCount).postLine
+		'Total => % / %'.format([totalPassCount, totalTestCount]).postLine
 	}
 
 }

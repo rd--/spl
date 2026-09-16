@@ -177,6 +177,21 @@ OEIS [A000914](https://oeis.org/A000914):
 [0 2 11 35 85 175 322 546 870 1320 1925]
 ```
 
+Unsigned Stirling numbers of the first kind count the number of permutations of _k_ elements with exactly _j_ disjoint cycles:
+
+```
+>>> stirlingS1([4 5 6], 1)
+[-6 24 -120]
+
+>>> [4 5 6].collect { :n |
+>>> 	[1 .. n].permutations.select { :p |
+>>> 		let c = p.permutationCycles;
+>>> 		c.collect(size:/1) = [n]
+>>> 	}.size
+>>> }
+[6 24 120]
+```
+
 Surface plot of Stirling numbers on a logarithmic scale:
 
 ~~~spl svg=A

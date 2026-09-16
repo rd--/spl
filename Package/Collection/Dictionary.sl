@@ -4,7 +4,7 @@
 
 	[at, @] { :self :key |
 		self.atIfAbsent(key) {
-			self.error('@Dictionary>>at: unknown key: ' ++ key)
+			self.error('@Dictionary>>at: unknown key: %'.format([key]))
 		}
 	}
 
@@ -16,7 +16,7 @@
 
 	add { :self :anAssociation |
 		self.includesKey(anAssociation.key).if {
-			self.error('@Dictionary>>add: key exists: ' ++ anAssociation.key)
+			self.error('@Dictionary>>add: key exists: %'.format([anAssociation.key]))
 		} {
 			self[anAssociation.key] := anAssociation.value;
 			anAssociation

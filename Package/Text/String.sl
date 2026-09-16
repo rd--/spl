@@ -493,7 +493,7 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 			};
 			answer
 		} {
-			self.error('String>>indicesOf: not a string: ' ++ aString)
+			self.error('String>>indicesOf: not a string', [aString])
 		}
 	}
 
@@ -724,7 +724,7 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 			};
 			tally
 		} {
-			self.error('String>>occurrencesOf: not a string: ' ++ aString)
+			self.error('String>>occurrencesOf: not a string', [aString])
 		}
 	}
 

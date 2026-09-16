@@ -1,4 +1,4 @@
-Heap : [Object, Copyable, Equal, Compare, Iterable, Collection, Extensible] { | array sortBlock indexUpdateBlock |
+Heap : [Object, Copyable, Equal, Iterable, Collection, Extensible] { | array sortBlock indexUpdateBlock |
 
 	add { :self :anObject |
 		self.array.add(anObject);
@@ -34,13 +34,11 @@ Heap : [Object, Copyable, Equal, Compare, Iterable, Collection, Extensible] { | 
 		self
 	}
 
-	compare { :self :anItem :anotherItem |
-		let sortBlock:/2 = self.sortBlock;
-		sortBlock:/2.ifNil {
-			anItem <=| anotherItem
-		} {
-			sortBlock(anItem, anotherItem)
-		}
+	compareItems { :self :anItem :anotherItem |
+		let sortBlock:/2 = self.sortBlock.ifNil {
+			precedesOrEqualTo:/2
+		};
+		sortBlock(anItem, anotherItem)
 	}
 
 	do { :self :aBlock:/1 |
@@ -57,11 +55,11 @@ Heap : [Object, Copyable, Equal, Compare, Iterable, Collection, Extensible] { | 
 		{
 			(childIndex := (2 * index)) >= size | {
 				childValue := array[childIndex];
-				self.compare(array[childIndex + 1], childValue).ifTrue {
+				self.compareItems(array[childIndex + 1], childValue).ifTrue {
 					childIndex := childIndex + 1;
 					childValue := array[childIndex]
 				};
-				self.compare(value, childValue)
+				self.compareItems(value, childValue)
 			}
 		}.whileFalse {
 			array[index] := childValue;
@@ -70,7 +68,7 @@ Heap : [Object, Copyable, Equal, Compare, Iterable, Collection, Extensible] { | 
 		};
 		(childIndex = size).ifTrue {
 			childValue := array[childIndex];
-			self.compare(value, childValue).ifFalse {
+			self.compareItems(value, childValue).ifFalse {
 				array[index] := childValue;
 				self.indexUpdate(childValue, index);
 				index := childIndex
@@ -112,12 +110,12 @@ Heap : [Object, Copyable, Equal, Compare, Iterable, Collection, Extensible] { | 
 		valueWithReturn { :return:/1 |
 			1.toDo(size // 2) { :index |
 				let childIndex = 2 * index;
-				self.compare(array[index], array[childIndex]).ifFalse {
+				self.compareItems(array[index], array[childIndex]).ifFalse {
 					false.return
 				};
 				(childIndex < size).ifTrue {
 					childIndex := childIndex + 1;
-					self.compare(array[index], array[childIndex]).ifFalse {
+					self.compareItems(array[index], array[childIndex]).ifFalse {
 						false.return
 					}
 				}
@@ -233,7 +231,7 @@ Heap : [Object, Copyable, Equal, Compare, Iterable, Collection, Extensible] { | 
 				index > 1 & {
 					parentIndex := index.bitShiftRight(1);
 					parentValue := self.array[parentIndex];
-					self.compare(value, parentValue)
+					self.compareItems(value, parentValue)
 				}
 			}.whileTrue {
 				self.array[index] := parentValue;

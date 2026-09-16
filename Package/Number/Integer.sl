@@ -69,7 +69,7 @@
 		self.isInteger.if {
 			self
 		} {
-			self.error('Not an integer: ' ++ origin)
+			self.error('Not an integer', [origin])
 		}
 	}
 
@@ -77,7 +77,7 @@
 		self.isNonNegativeInteger.if {
 			self
 		} {
-			self.error('Negative integer: ' ++ origin)
+			self.error('Negative integer', [origin])
 		}
 	}
 
@@ -85,7 +85,7 @@
 		self.isPositiveInteger.if {
 			self
 		} {
-			self.error('Not a positive integer: ' ++ origin)
+			self.error('Not a positive integer', [origin])
 		}
 	}
 
@@ -93,7 +93,7 @@
 		self.isPositiveOddInteger.if {
 			self
 		} {
-			self.error('Not a positive odd integer: ' ++ origin)
+			self.error('Not a positive odd integer', [origin])
 		}
 	}
 

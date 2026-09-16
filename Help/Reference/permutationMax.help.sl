@@ -32,7 +32,7 @@ Maximum of the support of the identity:
 
 * * *
 
-See also: cycles, permutationLength, permutationMin, permutationSupport
+See also: cycles, permutationDegree, permutationLength, permutationMin, permutationSupport
 
 Guides: Permutation Functions
 

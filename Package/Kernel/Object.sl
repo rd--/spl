@@ -83,19 +83,24 @@
 		self.typeResponsibility('deepCopy')
 	}
 
-	errorMessage { :self :message |
-		'%: %: (%)'.format(
+	errorMessage { :self :message :parameters |
+		'%: %: %: (%)'.format(
 			[
 				self.typeOf,
 				message,
+				parameters.asString,
 				self.printStringLimitedTo(16)
 			]
 		)
 	}
 
-	error { :self :message |
-		let description = self.errorMessage(message);
+	error { :self :message :parameters |
+		let description = self.errorMessage(message, parameters);
 		Error(description).signal
+	}
+
+	error { :self :message |
+		self.error(message, [])
 	}
 
 	identity { :self |

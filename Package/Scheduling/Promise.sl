@@ -74,7 +74,7 @@ Promise! : [Object] {
 		self.thenElse { :result |
 			result.show
 		} { :err |
-			self.error('show: ' ++ err)
+			self.error('show', [err])
 		}
 	}
 
@@ -82,7 +82,7 @@ Promise! : [Object] {
 		self.thenElse { :result |
 			result.writePng(fileName)
 		} { :err |
-			self.error('writePng: ' ++ err)
+			self.error('writePng', [err])
 		}
 	}
 
@@ -90,7 +90,7 @@ Promise! : [Object] {
 		self.thenElse { :result |
 			result.writeSvg(fileName)
 		} { :err |
-			self.error('writeSvg: ' ++ err)
+			self.error('writeSvg', [err])
 		}
 	}
 

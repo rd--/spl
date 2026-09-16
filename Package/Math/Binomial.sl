@@ -424,6 +424,10 @@
 		n.qFactorial.at(q)
 	}
 
+	rencontresNumber { :n :k |
+		(n - k).subfactorial * n.binomial(k)
+	}
+
 	simplicialPolytopicNumber { :r :n |
 		binomial(n + (r - 1), r)
 	}

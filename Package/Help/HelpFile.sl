@@ -223,7 +223,7 @@ HelpFile : [Object, Equal, Cache] { | origin source cache |
 			entry.beginsWith('# ').if {
 				entry.drop(2)
 			} {
-				self.error('HelpFile>>name: ' ++ entry)
+				self.error('HelpFile>>name', [entry])
 			}
 		}
 	}

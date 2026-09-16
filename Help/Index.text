@@ -2284,6 +2284,7 @@ Reference/isRepeatingDecimal.help.sl
 Reference/isRestrictedGrowthString.help.sl
 Reference/isRight.help.sl
 Reference/isRotation.help.sl
+Reference/isRotationPermutation.help.sl
 Reference/isRoughNumber.help.sl
 Reference/isRowVector.help.sl
 Reference/isSameAs.help.sl
@@ -2514,7 +2515,7 @@ Reference/LevyDistribution.help.sl
 Reference/levysConstant.help.sl
 Reference/lexicographicallyLeastRotation.help.sl
 Reference/lexicographicallyLeastSquareFreeWord.help.sl
-Reference/lexicographicOrder.help.sl
+Reference/lexicographicCompare.help.sl
 Reference/lexicographicPermutationsDo.help.sl
 Reference/lexicographicPermutations.help.sl
 Reference/lexicographicSort.help.sl
@@ -3539,6 +3540,7 @@ Reference/removeKeyIfAbsent.help.sl
 Reference/removeLast.help.sl
 Reference/removeOscListener.help.sl
 Reference/removePunctuation.help.sl
+Reference/rencontresNumber.help.sl
 Reference/repeatedTiming.help.sl
 Reference/repeatEvery.help.sl
 Reference/repeatForever.help.sl
