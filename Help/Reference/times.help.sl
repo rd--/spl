@@ -24,7 +24,11 @@ Threads element-wise over lists:
 
 >>> [1 2 3] * [4 5 6]
 [4 10 18]
+```
 
+A cyclic number, rotations of the digits are successive integer multiples:
+
+```
 >>> 1:6 * 142857
 [
 	142857

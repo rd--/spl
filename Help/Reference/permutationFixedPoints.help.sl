@@ -9,7 +9,7 @@ A permutation with one cycle and two fixed points:
 ```
 >>> let p = Permutation[1 3 2 4];
 >>> (p.cycles, p.fixedPoints)
-([[2. 3]], [1, 4])
+([[2, 3]], [1, 4])
 ```
 
 A permutation with two cycles and one fixed point:

@@ -76,6 +76,40 @@ Colexicographic sort of the integer partitions of six:
 ]
 ```
 
+Colexicographic sort of the 5-cycle permutations of _1:5_:
+
+```
+>>> [1 .. 5].permutations.select { :p |
+>>> 	p.isCyclicPermutation(5)
+>>> }.colexicographicSort
+[
+	3 5 4 2 1;
+	4 3 5 2 1;
+	4 5 2 3 1;
+	2 4 5 3 1;
+	3 4 2 5 1;
+	2 3 4 5 1;
+	5 3 4 1 2;
+	3 4 5 1 2;
+	5 4 1 3 2;
+	4 1 5 3 2;
+	4 3 1 5 2;
+	3 1 4 5 2;
+	5 4 2 1 3;
+	2 5 4 1 3;
+	4 5 1 2 3;
+	5 1 4 2 3;
+	2 4 1 5 3;
+	4 1 2 5 3;
+	3 5 2 1 4;
+	2 3 5 1 4;
+	5 3 1 2 4;
+	3 1 5 2 4;
+	2 5 1 3 4;
+	5 1 2 3 4
+]
+```
+
 Walsh functions in colexicographic order:
 
 ~~~spl svg=A
@@ -86,21 +120,6 @@ let m = (2 ^ 4).walshMatrix;
 ~~~
 
 ![](Help/Image/colexicographicSort-A.svg)
-
-```
-[1 .. 5].permutations.select { :p |
-	p.isCyclicPermutation(5)
-}.colexicographicSort.collect(
-	inversionVector:/1
-)
-
-
-[1 .. 5].permutations.select { :p |
-	let c = p.permutationCycles;
-	c.collect(size:/1) = [5]
-}.colexicographicSort
-
-.reverse.transpose.matrixPlot
 
 * * *
 
