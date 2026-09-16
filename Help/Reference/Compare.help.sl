@@ -49,7 +49,6 @@ Types implementing `Compare`:
 	'Float32Array'
 	'Float64Array'
 	'Fraction'
-	'Heap'
 	'LargeInteger'
 	'LinkedList'
 	'List'
