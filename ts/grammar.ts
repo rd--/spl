@@ -152,9 +152,9 @@ Sl {
 	VolumeSyntaxItems = NonemptyListOf<MatrixSyntaxItems, ";">
 
 	argumentName = ":" varNameOrUnused
-	unqualifiedIdentifier = letter letterOrDigit*
+	unqualifiedIdentifier = letter letterOrDigit* "!"?
 	negatedIdentifier = "-" lowercaseIdentifier
-	arityQualifiedIdentifier = letter letterOrDigit* (":/" digit+)
+	arityQualifiedIdentifier = letter letterOrDigit* "!"? ((":/" | "/") digit+)
 	identifier
 		= arityQualifiedIdentifier
 		| unqualifiedIdentifier
@@ -172,7 +172,7 @@ Sl {
     typeOrTraitName
 		= typeName
 		| qualifiedTraitName
-    lowercaseIdentifier = lower letterOrDigit*
+    lowercaseIdentifier = lower letterOrDigit* "!"?
 	varName
 		= arityQualifiedIdentifier // arity branch should be lowercase
 		| lowercaseIdentifier

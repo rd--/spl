@@ -24,6 +24,17 @@ function isArityQualifiedName(s: string): boolean {
 	return s.includes(':/');
 }
 
+function rewriteInPlaceName(c1, cN, ip): string {
+	const ipStr = ip.sourceString;
+	const preInPlace = c1.sourceString + cN.sourceString;
+	// console.debug('rewriteInPlaceName: ', preInPlace, ipStr);
+	if (ipStr === '!') {
+		return preInPlace + 'InPlace';
+	} else {
+		return preInPlace;
+	}
+}
+
 function initContext(name: string): void {
 	// console.debug('initContext');
 	context.packageName = name;
@@ -295,8 +306,8 @@ const asJs: ohm.ActionDict<string> = {
 	argumentName(_c, name) {
 		return name.asJs;
 	},
-	arityQualifiedIdentifier(c1, cN, _s, a) {
-		return `_${c1.sourceString}${cN.sourceString}_${a.sourceString}`;
+    arityQualifiedIdentifier(c1, cN, ip, _solidus, a) {
+        return `_${rewriteInPlaceName(c1, cN, ip)}_${a.sourceString}`;
 	},
 	floatLiteral(s, i, _, f) {
 		return `${s.sourceString}${i.sourceString}.${f.sourceString}`;
@@ -318,8 +329,8 @@ const asJs: ohm.ActionDict<string> = {
 		let iT = deleteLeadingZeroes(i.sourceString);
 		return `${sT}${iT}n`;
 	},
-	lowercaseIdentifier(c1, cN) {
-		return `_${c1.sourceString}${cN.sourceString}`;
+	lowercaseIdentifier(c1, cN, ip) {
+		return `_${rewriteInPlaceName(c1, cN, ip)}`;
 	},
 	reservedIdentifier(id) {
 		switch (id.sourceString) {
@@ -342,8 +353,9 @@ const asJs: ohm.ActionDict<string> = {
 	systemVariableIdentifier(p, k) {
 		return p.sourceString + k.sourceString;
 	},
-	unqualifiedIdentifier(c1, cN) {
-		return `_${c1.sourceString}${cN.sourceString}`;
+	unqualifiedIdentifier(c1, cN, ip) {
+		// console.debug('asJs: unqualifiedIdentifier: ', ip.sourceString);
+		return `_${rewriteInPlaceName(c1, cN, ip)}`;
 	},
 	unusedVariableIdentifier(_underscore) {
 		return genPackageSym('__SplUnused');
@@ -678,8 +690,8 @@ const asSl: ohm.ActionDict<string> = {
 	argumentName(_c, name) {
 		return ':' + name.sourceString;
 	},
-	arityQualifiedIdentifier(c1, cN, _s, a) {
-		return c1.sourceString + cN.sourceString + ':/' + a.sourceString;
+    arityQualifiedIdentifier(c1, cN, ip, _solidus, a) {
+        return `${rewriteInPlaceName(c1, cN, ip)}:/${a.sourceString}`;
 	},
 	backtickQuotedStringLiteral(_l, s, _r) {
 		return `Symbol('${s.sourceString}')`;
@@ -738,8 +750,8 @@ const asSl: ohm.ActionDict<string> = {
 	largeIntegerLiteral(s, i, _l) {
 		return s.sourceString + deleteUnderscores(i.sourceString) + 'L';
 	},
-	lowercaseIdentifier(c1, cN) {
-		return c1.sourceString + cN.sourceString;
+	lowercaseIdentifier(c1, cN, ip) {
+		return rewriteInPlaceName(c1, cN, ip);
 	},
 	nanLiteral(x) {
 		return x.sourceString;
@@ -800,8 +812,9 @@ const asSl: ohm.ActionDict<string> = {
 	singleQuotedStringLiteral(_l, s, _r) {
 		return "'" + s.sourceString + "'";
 	},
-	unqualifiedIdentifier(c1, cN) {
-		return c1.sourceString + cN.sourceString;
+	unqualifiedIdentifier(c1, cN, ip) {
+		// console.debug('asSl: unqualifiedIdentifier: ', ip.sourceString);
+        return rewriteInPlaceName(c1, cN, ip);
 	},
 	uppercaseIdentifier(c1, cN) {
 		return c1.sourceString + cN.sourceString;
@@ -900,10 +913,10 @@ const asAst: ohm.ActionDict<SlAst> = {
 	argumentName(_, x) {
 		return ['Identifier', x.sourceString];
 	},
-	arityQualifiedIdentifier(c1, cN, _s, a) {
+    arityQualifiedIdentifier(c1, cN, ip, _solidus, a) {
 		return [
 			'Identifier',
-			c1.sourceString + cN.sourceString + ':/' + a.sourceString,
+			`${rewriteInPlaceName(c1, cN, ip)}:/${a.sourceString}`
 		];
 	},
 	floatLiteral(s, i, _, f) {
@@ -919,8 +932,8 @@ const asAst: ohm.ActionDict<SlAst> = {
 	largeIntegerLiteral(s, i, _l) {
 		return ['LargeInteger', s.sourceString + i.sourceString + 'L'];
 	},
-	lowercaseIdentifier(c1, cN) {
-		return ['Identifier', c1.sourceString + cN.sourceString];
+	lowercaseIdentifier(c1, cN, ip) {
+		return ['Identifier', rewriteInPlaceName(c1, cN, ip)];
 	},
 	nanLiteral(_n) {
 		return ['SmallFloat', 'NaN'];
@@ -934,8 +947,9 @@ const asAst: ohm.ActionDict<SlAst> = {
 	singleQuotedStringLiteral(_l, s, _r) {
 		return ['String', s.sourceString];
 	},
-	unqualifiedIdentifier(c1, cN) {
-		return ['Identifier', c1.sourceString + cN.sourceString];
+	unqualifiedIdentifier(c1, cN, ip) {
+		// console.debug('asAst: unqualifiedIdentifier: ', ip.sourceString);
+		return ['Identifier', rewriteInPlaceName(c1, cN, ip)];
 	},
 	uppercaseIdentifier(c1, cN) {
 		return ['Identifier', c1.sourceString + cN.sourceString];
