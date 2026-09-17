@@ -1032,6 +1032,24 @@ The table of powers modulo seven:
 ]
 ```
 
+_(n-1)^n_,
+OEIS [A065440](https://oeis.org/A065440):
+
+```
+>>> let n = 0:8;
+>>> (n - 1) ^ n
+[1 0 1 8 81 1024 15625 279936 5764801]
+```
+
+_n^(n+1)_,
+OEIS [A007778](https://oeis.org/A007778):
+
+```
+>>> let n = 0:7;
+>>> n ^ (n + 1)
+[0 1 8 81 1024 15625 279936 5764801]
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A

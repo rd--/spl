@@ -10,12 +10,18 @@ At `List`:
 ```
 >>> [1 2 3].adaptToNumberAndApply(0, -)
 [-1 -2 -3]
+
+>>> 0 - [1 2 3]
+[-1 -2 -3]
 ```
 
 At `Complex`:
 
 ```
 >>> 1J1.adaptToNumberAndApply(2, ^)
+1.5385J1.2780
+
+>>> 2 ^ 1J1
 1.5385J1.2780
 ```
 

@@ -13,6 +13,9 @@ At `SmallFloat`, adapting to `List`:
 >>> 	-
 >>> )
 [-3 -2 -1]
+
+>>> [1 2 3] - 4
+[-3 -2 -1]
 ```
 
 At `List`, adapting to `Range`:
@@ -23,6 +26,9 @@ At `List`, adapting to `Range`:
 >>> 	-
 >>> )
 [-3 -2 -1]
+
+>>> 1:3 - [4]
+[-3 -2 -1]
 ```
 
 At `Range`, adapting to `List`:
@@ -32,6 +38,9 @@ At `Range`, adapting to `List`:
 >>> 	[1 2 3],
 >>> 	-
 >>> )
+[-3 -2 -1]
+
+>>> [1 2 3] - 4:4
 [-3 -2 -1]
 ```
 
@@ -47,8 +56,8 @@ In the sequence case the adaptation is courtesy `map`:
 
 * * *
 
-See also: adaptToNumberAndApply, Elementwise, map, withCollect
+See also: adaptToNumberAndApply, map, withCollect
 
-Guides: AdaptTo Protocol
+Guides: AdaptTo Protocol, Elementwise Functions
 
 Categories: Converting

@@ -1,6 +1,6 @@
 # Out
 
-- _Out(bus, channelsList)_
+- _Out(bus=0, [c₁ c₂ …])_
 
 Summing output.
 Sum a sequence of signals to a bus.
@@ -15,7 +15,7 @@ let o = SinOsc(440, 0) * 0.1;
 Out(0, [o o])
 ```
 
-Two _Out_ summing distinct frequencies to one bus each:
+Two `Out` summing distinct frequencies to one bus each:
 
 ```
 Out(
@@ -27,7 +27,7 @@ Out(
 )
 ```
 
-One _Out_ summing to two buses:
+One `Out` summing to two buses:
 
 ```
 Out(0, SinOsc([440, 443], 0) * 0.1)

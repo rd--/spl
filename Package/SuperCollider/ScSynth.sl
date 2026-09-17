@@ -107,7 +107,7 @@ ScSynth! : [Object] {
 		>
 	}
 
-	draw { :self |
+	drawUgenGraph { :self |
 		let scSynDefFileName = '/tmp/splDraw.scsyndef';
 		self.writeScSynDefFile(
 			'Anonymous',

@@ -94,7 +94,7 @@ Ugen! : [Object, Number] {
 +[Ugen, List] {
 
 	printUgenGraph { :self |
-		<primitive: return sc.printSyndefOfAt(self, self.busOffset);>
+		<primitive: return sc.printSyndefOfAt(_self, _self.busOffset);>
 	}
 
 }

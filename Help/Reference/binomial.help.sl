@@ -869,6 +869,46 @@ OEIS [A059260](https://oeis.org/A059260):
 ]
 ```
 
+Number of labeled endofunctions on _n_ points with _k_ fixed points,
+OEIS [A055134](https://oeis.org/A055134):
+
+```
+>>> 2:6.collect { :n |
+>>> 	0:n.collect { :k |
+>>> 		let m = (n - 1) ^ (n - k);
+>>> 		binomial(n, k) * m
+>>> 	}
+>>> }
+[
+	1      2       1;
+	8      12      6     1;
+	81     108     54    12    1;
+	1024   1280    640   160   20   1;
+	15625  18750   9375  2500  375  30  1
+]
+```
+
+Number of pairs of endofunctions on _n_ such that the composite function has no fixed point,
+OEIS [A284458](https://oeis.org/A284458):
+
+```
+>>> 1:8.collect { :n |
+>>> 	0:n.sum { :k |
+>>> 		[
+>>> 			-1L ^ k,
+>>> 			binomial(n, k) ^ 2,
+>>> 			k.!,
+>>> 			n ^ (2 * (n - k))
+>>> 		].product
+>>> 	}
+>>> }
+>>>
+[
+	1 0 2 156 16920 2764880 650696400
+	210105425628 89425255439744
+]
+```
+
 Plot over a subset of the reals as a function of its first parameter:
 
 ~~~spl svg=A
