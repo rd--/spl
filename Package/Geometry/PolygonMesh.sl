@@ -72,7 +72,7 @@ PolygonMesh : [Object, Store, Equal, Geometry, PolygonMesh] { | vertexCoordinate
 
 	canonicalForm { :self |
 		let v = self.vertexCoordinates;
-		let w = v.nub.sortBy(lessEqual:/2);
+		let w = v.nub.sortBy(precedes:/2);
 		PolygonMesh(
 			w,
 			self.faceIndices.collect { :each |

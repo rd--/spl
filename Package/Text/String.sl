@@ -216,6 +216,14 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 		<primitive: return _self.codePointAt(_index - 1);>
 	}
 
+	codePointCompare { :self :operand |
+		operand.isString.if {
+			uncheckedCodePointCompare(self, operand)
+		} {
+			self.error('String>>codePointCompare: non string operand')
+		}
+	}
+
 	codePoints { :self |
 		self.collectInto(codePoint:/1, [])
 	}
@@ -225,11 +233,6 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 			aBlock(each.asCharacter)
 		}, [])
 	}
-
-	compare { :self :operand |
-		self.lexicographicCompare(operand)
-	}
-
 
 	[concatenation, ++] { :self :anObject |
 		anObject.isString.if {
@@ -604,6 +607,10 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 		self.copyFromTo(self.size - count + 1, self.size)
 	}
 
+	[less, <] { :self :operand |
+		localeCompare(self, operand) = -1
+	}
+
 	letterCounts { :self |
 		self
 		.characters
@@ -631,7 +638,7 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 	}
 
 	lexicographicCompare { :self :operand |
-		self.localeCompare(operand)
+		self.localeCompare(operand, 'en')
 	}
 
 	lexicographicallyLeastRotation { :self |
@@ -662,11 +669,29 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 		}
 	}
 
+	localeCompare { :locale |
+		{ :self :operand |
+			localeCompare(self, operand, locale)
+		}
+	}
+
 	localeCompare { :self :operand |
 		operand.isString.if {
 			self.uncheckedLocaleCompare(operand)
 		} {
 			self.error('localeCompare: non string operand')
+		}
+	}
+
+	localeCompare { :self :operand :locale |
+		(
+			operand.isString & {
+				locale.isString
+			}
+		).if {
+			self.uncheckedLocaleCompare(operand, locale)
+		} {
+			self.error('localeCompare: non string operand or invalid locale')
 		}
 	}
 
@@ -690,6 +715,14 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 			]
 		) {
 			self.error('String>>namedAlphabet: unknown alphabet')
+		}
+	}
+
+	naturalCompare { :self :operand |
+		operand.isString.if {
+			uncheckedNaturalCompare(self, operand)
+		} {
+			self.error('String>>naturalCompare: non string operand')
 		}
 	}
 
@@ -997,6 +1030,16 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 		<primitive: return _self.trim();>
 	}
 
+	uncheckedAt { :self :index |
+		self.codePointAt(index).fromCodePoint
+	}
+
+	uncheckedCodePointCompare { :self :operand |
+		<primitive:
+		return (_self === _operand) ? 0 : (_self < _operand) ? -1 : 1;
+		>
+	}
+
 	uncheckedConcatenation { :self :aString |
 		<primitive: return _self + _aString;>
 	}
@@ -1005,20 +1048,24 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 		<primitive: return _self.substring(_start - 1, _end);>
 	}
 
-	uncheckedAt { :self :index |
-		self.codePointAt(index).fromCodePoint
-	}
-
 	uncheckedLocaleCompare { :self :operand |
 		<primitive:
 		const n = _self.localeCompare(_operand);
-		if(n < 0) {
-			return -1;
-		} else if(n === 0) {
-			return 0;
-		} else {
-			return 1;
-		};
+		return (n < 0) ? -1 : (n === 0) ? 0 : 1;
+		>
+	}
+
+	uncheckedLocaleCompare { :self :operand :locale |
+		<primitive:
+		const n = _self.localeCompare(_operand, _locale);
+		return (n < 0) ? -1 : (n === 0) ? 0 : 1;
+		>
+	}
+
+	uncheckedNaturalCompare { :self :operand |
+		<primitive:
+		const n = _self.localeCompare(_operand, undefined, { numeric: true });
+		return (n < 0) ? -1 : (n === 0) ? 0 : 1;
 		>
 	}
 

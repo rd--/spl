@@ -8,7 +8,8 @@ The `size` of the answer is the size of the sequence minus _n_ plus `one`.
 Moving median of a vector:
 
 ```
->>> [1 2 5 6 1 4 3].movingMedian(3)
+>>> [1 2 5 6 1 4 3]
+>>> .movingMedian(3)
 [2 5 5 4 3]
 
 >>> [4 8 6 -1 -2 -3 -1 3 4 5]

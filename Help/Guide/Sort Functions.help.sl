@@ -42,6 +42,8 @@ Kinds of Sorts:
 - `colexicographicSort`
 - `farthestFirstTraversal`
 - `lexicographicSort`
+- `localeSort`
+- `naturalSort`
 - `reverseColexicographicSort`
 - `reverseLexicographicSort`
 - `reverseSort`

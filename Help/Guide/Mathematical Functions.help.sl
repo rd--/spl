@@ -155,7 +155,7 @@
 - `log`: logarithm
 - `nthRoot`: surd
 - `sqrt`: square root
-- `symmetricPower`
+- `signedPower`
 
 ## Factoring
 

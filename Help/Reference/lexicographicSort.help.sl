@@ -45,6 +45,10 @@ Sort list of strings:
 >>> ['a' 'c' 'bx' 'xa']
 >>> .lexicographicSort
 ['a' 'bx' 'c' 'xa']
+
+>>> ['A' 'a' 'b' 'B']
+>>> .lexicographicSort
+['a' 'A' 'b' 'B']
 ```
 
 Sort matrix of strings:

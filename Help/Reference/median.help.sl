@@ -67,6 +67,16 @@ Median of an `Interval`:
 -1
 ```
 
+At matrix:
+
+```
+>>> [1 2; 5 3].median
+[3 2.5]
+
+>>> [1 2 5; 4 5 3].median
+[2.5 3.5 4]
+```
+
 Median prime factor of _1:n_,
 OEIS [A212300](https://oeis.org/A212300):
 

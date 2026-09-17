@@ -32,6 +32,16 @@ which must be writte postfix:
 (25, -25)
 ```
 
+There is a special syntax for in place, or mutating, methods:
+
+```
+>>> 'sort!'.splSimplify
+'sortInPlace'
+
+>>> 'sort!:/1'.splSimplify
+'sortInPlace:/1'
+```
+
 * * *
 
 Guides: Operator Syntax, Syntax Guides

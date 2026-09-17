@@ -214,7 +214,7 @@ Threads elementwise over lists and matrices:
 [2.82843 5.27803 7.46426 0.21764]
 ```
 
-_2^n+1,
+_2^n+1_,
 OEIS [A000051](https://oeis.org/A000051):
 
 ```
@@ -821,6 +821,53 @@ OEIS [A006003](https://oeis.org/A006003):
 [0 1 5 15 34 65 111 175 260 369 505 671]
 ```
 
+Row sums of an _n×n×n_ magic cube,
+OEIS [A027441](https://oeis.org/A027441):
+
+```
+>>> let n = 0:11;
+>>> (n ^ 4 + n) / 2
+[
+	   0    1    9   42  130
+	 315  651 1204 2052 3285
+	5005 7326
+]
+```
+
+Magic constant for _n×n×n×n_ magic hypercube,
+OEIS [A021003](https://oeis.org/A021003):
+
+```
+>>> let n = 0:11;
+>>> (n / 2) * (n ^ 4 + 1)
+[
+	    0     1    17   123   514
+	 1565  3891  8407 16388 29529
+	50005 80531
+]
+```
+
+Nonnegative numbers of form _n*(n^2±1)/2_,
+OEIS [A057587](https://oeis.org/A057587):
+
+```
+>>> let n = 0:23;
+>>> [
+>>> 	2 * (n ^ 3),
+>>> 	9 * (n ^ 2),
+>>> 	15 * n,
+>>> 	5,
+>>> 	(3 * (n ^ 2) + n - 5) * (-1  ^ n)
+>>> ].sum / 32
+[
+	  0   1   3   5  12
+	 15  30  34  60  65
+	105 111 168 175 252
+	260 360 369 495 505
+	660 671 858 870
+]
+```
+
 _4^(n+1)+3*2^n+1_,
 OEIS [A036562](https://oeis.org/A036562):
 
@@ -1184,7 +1231,7 @@ OEIS [A008952](https://oeis.org/A008952):
 
 * * *
 
-See also: +, -, *, /, exp, factorialPower, matrixPower, log, powerMod, powerRange, sqrt, symmetricPower
+See also: +, -, *, /, exp, factorialPower, matrixPower, log, powerMod, powerRange, signedPower, sqrt
 
 Guides: Arithmetic Functions, Binary Operators
 

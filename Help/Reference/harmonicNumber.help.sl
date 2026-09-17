@@ -112,6 +112,18 @@ OEIS [A082687](https://oeis.org/A082687):
 [1 7 37 533 1627 18107 237371 95549 1632341]
 ```
 
+_n_ where the numerator of the _n_-th harmonic number is prime,
+OEIS [A056903](https://oeis.org/A056903):
+
+```
+>>> 1L:27.select { :n |
+>>> 	n.harmonicNumber
+>>> 	.numerator
+>>> 	.isPrime
+>>> }
+[2 3 5 8 9 21 26]
+```
+
 Plot over a subset of the integers:
 
 ~~~spl svg=A

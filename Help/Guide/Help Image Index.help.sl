@@ -5913,8 +5913,8 @@
   1. ![](Help/Image/symmedialTriangle-A.svg)
 - `symmedianPoint`
   1. ![](Help/Image/symmedianPoint-A.svg)
-- `symmetricPower`
-  1. ![](Help/Image/symmetricPower-A.svg)
+- `signedPower`
+  1. ![](Help/Image/signedPower-A.svg)
 - `syntractrix`
   1. ![](Help/Image/syntractrix-A.svg)
   2. ![](Help/Image/syntractrix-B.svg)

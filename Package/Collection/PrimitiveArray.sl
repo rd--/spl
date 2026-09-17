@@ -98,7 +98,12 @@
 	sortBy { :self :sortBlock:/2 |
 		<primitive:
 		return _self.sort(function(p, q) {
-			return _sortBlock_2(p, q) ? -1 : 1
+			const b = _sortBlock_2(p, q);
+			if (typeof b === 'boolean') {
+				return b ? -1 : 1;
+			} {
+				throw new Error('sortBy: non-boolean sort block');
+			}
 		});
 		>
 	}

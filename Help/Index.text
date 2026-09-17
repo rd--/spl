@@ -710,6 +710,7 @@ Reference/bitonicSortMatrix.help.sl
 Reference/bitOr.help.sl
 Reference/bitReversalPermutation.help.sl
 Reference/bitReverse.help.sl
+Reference/bitRotateLeft.help.sl
 Reference/bitSet.help.sl
 Reference/BitSet.help.sl
 Reference/bitShift.help.sl
@@ -2581,6 +2582,7 @@ Reference/lobbNumber.help.sl
 Reference/LocalBuf.help.sl
 Reference/LocalControl.help.sl
 Reference/localControls.help.sl
+Reference/localeCompare.help.sl
 Reference/localeTimeString.help.sl
 Reference/LocalIn.help.sl
 Reference/locallyCatenativeSequence.help.sl
@@ -2893,6 +2895,7 @@ Reference/name.help.sl
 Reference/NaN.help.sl
 Reference/narayanaNumber.help.sl
 Reference/narayanaSequence.help.sl
+Reference/naturalCompare.help.sl
 Reference/Navigator.help.sl
 Reference/ncsColourCatalogue.help.sl
 Reference/NcsColour.help.sl
@@ -3799,6 +3802,7 @@ Reference/signedGcd.help.sl
 Reference/signedInteger.help.sl
 Reference/signedLcm.help.sl
 Reference/signedPointPlaneDistance.help.sl
+Reference/signedPower.help.sl
 Reference/signedSqrt.help.sl
 Reference/signedVectorAngle.help.sl
 Reference/signExponentMantissa.help.sl
@@ -4069,7 +4073,6 @@ Reference/SymbolicExpression.help.sl
 Reference/symmedialTriangle.help.sl
 Reference/symmedianPoint.help.sl
 Reference/symmetricDifference.help.sl
-Reference/symmetricPower.help.sl
 Reference/SyncSaw.help.sl
 Reference/synodicMonths.help.sl
 Reference/syntonicComma.help.sl

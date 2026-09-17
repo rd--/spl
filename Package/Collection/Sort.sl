@@ -393,6 +393,14 @@
 		self.sortComparing(lexicographicCompare:/2)
 	}
 
+	localeSort { :self |
+		self.sortComparing(localeCompare:/2)
+	}
+
+	naturalSort { :self |
+		self.sortComparing(naturalCompare:/2)
+	}
+
 	reflectedColexicographicSort { :self |
 		self.colexicographicSort.collect(reverse:/1)
 	}

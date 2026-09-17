@@ -2,7 +2,7 @@
 
 - _sortBy([x₁ x₂ …], f:/2)_
 
-Sort the sequence _x_ in place using the comparator block _f_.
+Sort the sequence _x_ in place using the boolean comparator block _f_.
 Answers _x_.
 Unlike `sort`, the comparison block must be valid, not `nil`.
 
@@ -32,7 +32,7 @@ At an `Association` list, sort by descending key:
 At a matrix:
 
 ```
->>> [1 2 3; 4 5 6].sortBy(>)
+>>> [1 2 3; 4 5 6].sortBy(|>)
 [4 5 6; 1 2 3]
 
 >>> ['1' '2' '3'; '4' '5' '6']
@@ -40,9 +40,19 @@ At a matrix:
 ['4' '5' '6'; '1' '2' '3']
 ```
 
+It is an error to provide a sort block that does not answer a `Boolean` value,
+in particular `compare` and related methods:
+
+```
+>>> {
+>>> 	[1 3 2 4 5].sortBy(compare:/2)
+>>> }.hasError
+true
+```
+
 * * *
 
-See also: sort, sortByOn, sorted, sortOn
+See also: sort, sortComparing, sortByOn, sorted, sortOn
 
 Guides: Sort Functions
 

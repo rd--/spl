@@ -301,7 +301,7 @@
 	}
 
 	median { :self |
-		self.asSortedList(lessEqual:/2).median
+		self.asSortedList(precedes:/2).median
 	}
 
 	spearmanRho { :u :v |

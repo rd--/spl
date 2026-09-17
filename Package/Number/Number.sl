@@ -1038,6 +1038,14 @@
 		}
 	}
 
+	signedPower { :self :aNumber |
+		self.isNegative.if {
+			(self.negate ^ aNumber).negate
+		} {
+			self ^ aNumber
+		}
+	}
+
 	[similar, ~] { :self :aNumber |
 		self.isCloseTo(aNumber)
 	}
@@ -1074,14 +1082,6 @@
 	swishFunction { :beta |
 		{ :x |
 			x / (1 + (beta.negate * x).exp)
-		}
-	}
-
-	symmetricPower { :self :aNumber |
-		self.isNegative.if {
-			(self.negate ^ aNumber).negate
-		} {
-			self ^ aNumber
 		}
 	}
 

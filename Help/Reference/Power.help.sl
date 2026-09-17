@@ -3,7 +3,7 @@
 - _Power(x, y)_
 
 Answer _x_ raised to the power _y_,
-with the same meaning as `symmetricPower`,
+with the same meaning as `signedPower`,
 which is the meaning of the `Power` operator unit generator of the SuperCollider synthesiser.
 
 ```
@@ -22,7 +22,7 @@ which is the meaning of the `Power` operator unit generator of the SuperCollider
 
 * * *
 
-See also: ^, Exp, Log, Sqrt, symmetricPower
+See also: ^, Exp, Log, signedPower, Sqrt
 
 Guides: Unit Generators
 

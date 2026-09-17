@@ -68,6 +68,14 @@ OEIS [A007524](https://oeis.org/A007524):
 0.301029995663981
 ```
 
+Decimal expansion of common logarithm of _e_,
+OEIS [A002285](https://oeis.org/A002285):
+
+```
+>>> 1.e.log10
+0.4342944819032518
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A

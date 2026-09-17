@@ -59,7 +59,9 @@ Relation to Euler numbers and π:
 1.pi
 ```
 
-The _2n_-th Bernoulli numbers divided by _2n_:
+The _2n_-th Bernoulli numbers divided by _2n_,
+OEIS [A001067](https://oeis.org/A001067) &
+OEIS [A006953](https://oeis.org/A006953):
 
 ```
 >>> 1:8.collect { :n |

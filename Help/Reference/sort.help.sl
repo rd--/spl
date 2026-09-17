@@ -10,7 +10,7 @@ At `List` of numbers:
 
 ```
 >>> let x = [3 2 1];
->>> (x.sort == x, x)
+>>> (x.sort(<) == x, x)
 (true, [1 2 3])
 
 >>> let x = [1 2 3];
@@ -21,11 +21,11 @@ At `List` of numbers:
 At `List` of `String`:
 
 ```
->>> ['d' 'b' 'c' 'a'].sort
+>>> ['d' 'b' 'c' 'a'].sort(<)
 ['a' 'b' 'c' 'd']
 
->>> ['cat' 'fish' 'catfish' 'Cat'].sort
-['cat' 'Cat' 'catfish' 'fish']
+>>> ['cat' 'fish' 'catfish' 'Cat'].sort(<)
+['Cat' 'cat' 'catfish' 'fish']
 ```
 
 At `Range`:
@@ -65,7 +65,7 @@ Sort subsets lexicographically:
 Sort integers by magnitude:
 
 ```
->>> [-11 10 2 1 -4].sort
+>>> [-11 10 2 1 -4].sort(<)
 [-11 -4 1 2 10]
 ```
 
@@ -79,7 +79,7 @@ Sort by absolute value:
 Sort strings by dictionary order:
 
 ```
->>> ['aa' 'abb' 'ba' 'b' 'aaa'].sort
+>>> ['aa' 'abb' 'ba' 'b' 'aaa'].sort(<)
 ['aa', 'aaa', 'abb', 'b', 'ba']
 ```
 
@@ -96,7 +96,7 @@ Sort the characters of a string:
 ```
 >>> 'eCaBdAbc'
 >>> .characters
->>> .sort
+>>> .sort(<)
 >>> .stringJoin
 'aAbBcCde'
 

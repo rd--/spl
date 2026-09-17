@@ -144,12 +144,6 @@ Character : [Object, Store, Equal, Compare, Character] { | characterString codeP
 		self.characterString
 	}
 
-	compare { :self :anObject |
-		self.codePoint.compare(
-			anObject.codePoint
-		)
-	}
-
 	copy { :self |
 		self
 	}
@@ -164,6 +158,10 @@ Character : [Object, Store, Equal, Compare, Character] { | characterString codeP
 		} {
 			self.asLowerCase == aCharacter.asLowerCase
 		}
+	}
+
+	[less, <] { :self :anObject |
+		self.codePoint < anObject.codePoint
 	}
 
 	[similar, ~] { :self :anObject |

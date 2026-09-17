@@ -59,11 +59,14 @@ At `String`:
 
 >>> 'alice'.canonicalCompare('bob')
 1
+
+>>> 'Thomas'.lexicographicCompare('Thompson')
+-1
 ```
 
 * * *
 
-See also: canonicalCompare, compare
+See also: canonicalCompare, compare, lexicographicSort
 
 Guides: Sort Functions
 

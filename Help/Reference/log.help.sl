@@ -234,6 +234,14 @@ Almost integers:
 4910.00000
 ```
 
+Decimal expansion of Levy’s constant,
+OEIS [A089729](https://oeis.org/A089729):
+
+```
+>>> 12 * 2.log / (1.pi ^ 2)
+0.8427659132721945
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A

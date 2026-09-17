@@ -1,11 +1,11 @@
-# symmetricPower
+# signedPower
 
-- _symmetricPower(x, y)_
+- _signedPower(x, y)_
 
 Answer _x_ raised to the power _y_.
 
 ```
->>> 2.symmetricPower(3)
+>>> 2.signedPower(3)
 8
 ```
 
@@ -17,16 +17,16 @@ and for negative _x_ answers:
 This behavior allows exponentiation of negative signal values by non-integer exponents.
 
 ```
->>> -0.25.symmetricPower(0.75)
+>>> -0.25.signedPower(0.75)
 -0.353553
 
->>> 0.25.symmetricPower(0.75)
+>>> 0.25.signedPower(0.75)
 0.353553
 
->>> -0.25.symmetricPower(0)
+>>> -0.25.signedPower(0)
 -1
 
->>> 0.25.symmetricPower(0)
+>>> 0.25.signedPower(0)
 1
 ```
 
@@ -43,12 +43,12 @@ Compare with `^`:
 Symmetric power with _x=-0.25_ and _y_ in _0,1_:
 
 ~~~spl svg=A
--0.25.symmetricPower(
+-0.25.signedPower(
 	[0, 0.01 .. 1]
 ).linePlot
 ~~~
 
-![](Help/Image/symmetricPower-A.svg)
+![](Help/Image/signedPower-A.svg)
 
 * * *
 
