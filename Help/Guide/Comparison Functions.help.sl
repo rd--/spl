@@ -135,13 +135,16 @@ true
 >>> 1J1 <| 2J2
 true
 
+>>> 'bcd' < 'abc'
+false
+
 >>> {
->>> 	'bcd' < 'abc'
+>>> 	'b' <= ['a' 'b' 'c']
 >>> }.hasError
 true
 
->>> 'bcd' <| 'abc'
-false
+>>> ['b'] <= ['a' 'b' 'c']
+[false, true, true]
 ```
 
 * * *

@@ -71,6 +71,13 @@ the shorter sequence is the lesser one:
 -1
 ```
 
+At matrix:
+
+```
+>>> [1 2 3; 4 5 6].compare([4 5 6; 1 2 3])
+-1
+```
+
 At `Association` compares on `key`:
 
 ```

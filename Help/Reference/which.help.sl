@@ -88,7 +88,7 @@ let a = Map { :n |
 	let m = n % 12;
 	[
 		{ [0 6].includes(m) } -> {
-			6 * a[n/6]
+			6 * a[n / 6]
 		},
 		{ [1 3 8 10].includes(m) } -> {
 			n + 1

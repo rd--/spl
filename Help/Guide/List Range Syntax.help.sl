@@ -35,6 +35,7 @@ Answer consecutive ascending `List` values:
 
 Ascending by two:
 
+```
 >>> [1, 3 .. 9]
 [1 3 5 7 9]
 
