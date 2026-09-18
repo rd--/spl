@@ -24,6 +24,38 @@ Quantity : [Object, Store, Equal, Compare, Frequency, Length, Mass, PlaneAngle, 
 		}
 	}
 
+	inKilograms { :self |
+		(self.unit = 'kilograms').if {
+			self.magnitude
+		} {
+			self.error('inKilograms: not mass')
+		}
+	}
+
+	inMetres { :self |
+		(self.unit = 'metres').if {
+			self.magnitude
+		} {
+			self.error('inMetres: not length')
+		}
+	}
+
+	inRadians { :self |
+		(self.unit = 'radians').if {
+			self.magnitude
+		} {
+			self.error('inRadians: not plane angle')
+		}
+	}
+
+	inSeconds { :self |
+		(self.unit = 'seconds').if {
+			self.magnitude
+		} {
+			self.error('inSeconds: not time')
+		}
+	}
+
 	isCommensurate { :self :anObject |
 		anObject.isQuantity & {
 			self.unit = anObject.unit
@@ -54,28 +86,12 @@ Quantity : [Object, Store, Equal, Compare, Frequency, Length, Mass, PlaneAngle, 
 		self.unit = 'seconds'
 	}
 
-	kilograms { :self |
-		(self.unit = 'kilograms').if {
-			self.magnitude
-		} {
-			self.error('kilograms: not mass')
-		}
-	}
-
 
 	[less, <] { :self :anObject |
 		self.isCommensurate(anObject).if {
 			self.magnitude < anObject.magnitude
 		} {
 			self.error('<: invalid operand')
-		}
-	}
-
-	inMetres { :self |
-		(self.unit = 'metres').if {
-			self.magnitude
-		} {
-			self.error('inMetres: not length')
 		}
 	}
 
@@ -91,22 +107,6 @@ Quantity : [Object, Store, Equal, Compare, Frequency, Length, Mass, PlaneAngle, 
 			)
 		} {
 			self.error('+: invalid operand')
-		}
-	}
-
-	inRadians { :self |
-		(self.unit = 'radians').if {
-			self.magnitude
-		} {
-			self.error('inRadians: not plane angle')
-		}
-	}
-
-	inSeconds { :self |
-		(self.unit = 'seconds').if {
-			self.magnitude
-		} {
-			self.error('inSeconds: not time')
 		}
 	}
 

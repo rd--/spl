@@ -12,7 +12,7 @@ Answer a frequency in hertz, either directly from a number, or from a `Quantity`
 5
 
 >>> { 5.inHertz }.hasError
-5
+true
 ```
 
 There are equivalent methods for:

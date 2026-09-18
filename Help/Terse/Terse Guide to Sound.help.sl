@@ -43,15 +43,15 @@ RatioTuning[1, 3].asRatios = [1, 3]
 4.75.linearOctave = 440.hertz /* frequency from linear octave */
 4.09.octavePitchClass ~ 440.hertz /* frequency from octave pitch class */
 Frequency(440).linearOctave = 4.75 /* hertz (cycles per second) to linear octave */
-4.75.linearOctave.asHertz = 440 /* linear octave to hertz */
+4.75.linearOctave.inHertz = 440 /* linear octave to hertz */
 Frequency(440).midiNoteNumber = 69 /* cycles per second (hertz) to midi note number */
-69.midiNoteNumber.asHertz = 440 /* midi note number to cycles per second (hertz) */
-0.midiNoteNumber.asHertz ~ 8.175
+69.midiNoteNumber.inHertz = 440 /* midi note number to cycles per second (hertz) */
+0.midiNoteNumber.inHertz ~ 8.175
 69.midiNoteNumber.octavePitchClass = 4.09 /* midi note number to octave pitch class */
 Frequency(440).octavePitchClass = 4.09 /* cycles per second (hertz) to octave pitch class */
-4.09.octavePitchClass.asHertz ~ 440 /* octave pitch class to cycles per second */
+4.09.octavePitchClass.inHertz ~ 440 /* octave pitch class to cycles per second */
 4.09.octavePitchClass.midiNoteNumber ~ 69 /* octave pitch class to midi note number */
-0.00.octavePitchClass.asHertz ~ 16.35
+0.00.octavePitchClass.inHertz ~ 16.35
 Frequency(440).linearOctave = 4.75 /* frequency as linear octave */
 Frequency(440).midiNoteNumber = 69 /* frequency as midi note number */
 Frequency(440).octavePitchClass = 4.09 /* octave pitch class number */

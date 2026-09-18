@@ -71,7 +71,7 @@ At `Symbol`:
 
 ```
 >> `m` \\ `n`
-(remainder m n)
+(\\ m n)
 ```
 
 The name of this operator is `reverseSolidusReverseSolidus`.

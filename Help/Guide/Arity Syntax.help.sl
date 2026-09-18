@@ -12,6 +12,7 @@ true
 
 >>> let f = { :x | x };
 >>> f/1.isBlock
+true
 ```
 
 The application syntax _f(x, y)_ rewrites _f_ to the arity-specific name, here _f/2.

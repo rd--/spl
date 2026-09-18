@@ -4,16 +4,20 @@
 		self.inRadians.cos
 	}
 
-	inDegrees { :self |
-		self.inRadians / 1.pi * 180
-	}
-
 	dmsList { :self |
 		self.inDegrees.dmsList
 	}
 
+	inDegrees { :self |
+		self.inRadians / 1.pi * 180
+	}
+
 	inGradians { :self |
 		self.inRadians / 400
+	}
+
+	inRadians { :self |
+		self.typeResponsibility('inRadians')
 	}
 
 	isAcute { :self |
@@ -42,10 +46,6 @@
 
 	isStraight { :self |
 		self.inRadians.isVeryCloseTo(1.pi)
-	}
-
-	inRadians { :self |
-		self.typeResponsibility('inRadians')
 	}
 
 	sin { :self |

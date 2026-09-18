@@ -254,7 +254,7 @@ System! : [Object, Cache, RandomNumberGenerator] {
 				plus: '+',
 				power: '^',
 				quotient: '//',
-				remainder: '\\',
+				remainder: '\\\\',
 				similar: '~',
 				subtract: '-',
 				times: '*',

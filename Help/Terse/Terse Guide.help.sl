@@ -5,11 +5,11 @@
 system.includesPackage('PlaneAngle') /* plane angle package */
 PlaneAngle(1.pi).typeOf = 'Quantity' /* type of angle */
 PlaneAngle(1.pi).isPlaneAngle /* angle predicate */
-PlaneAngle(1).degrees ~ 57.296 /* radians to degrees */
-PlaneAngle(1.pi).degrees = 180 /* pi radians is 180 degrees */
-PlaneAngle(180.degree).radians = 1.pi /* 180 degrees is pi radians */
+PlaneAngle(1).inDegrees ~ 57.296 /* radians to degrees */
+PlaneAngle(1.pi).inDegrees = 180 /* pi radians is 180 degrees */
+PlaneAngle(180.degree).inRadians = 1.pi /* 180 degrees is pi radians */
 PlaneAngle(1.pi) < PlaneAngle(360.degree) /* angles are magnitudes */
-PlaneAngle(1.pi).asRadians = 1.pi.asRadians /* radians of angle, or identity of number */
+PlaneAngle(1.pi).inRadians = 1.pi /* radians of angle, or identity of number */
 ```
 
 ## Arithmetic -- addition
@@ -1359,16 +1359,16 @@ let d = (x: 1, parent: (y: 2, parent: (z: 3))); d.atPutDelegateTo('z', -3, 'pare
 system.includesPackage('Duration') /* duration package */
 2.seconds.asDuration.typeOf = 'Duration' /* make duration from number of seconds */
 5.hours.asDuration.isDuration = true /* make duration from number of hours */
-let f = { :t0 | let t1 = system.randomReal([0 2], []).seconds.asDuration; f/1.valueAfterWith(t1, t1) }; f(2.seconds).cancel = nil
-60.seconds.asDuration.seconds = 60 /* convert duration to seconds */
-'P1W1DT1H1M1S'.parseDuration.seconds = 694861 /* parse ISO-8601 duration string */
-'P2DT2H2M2S'.parseDuration.seconds = 180122 /* parse ISO-8601 duration string */
+let f = { :t0 | let t1 = system.randomReal([0 2], []); f/1.valueAfterWith(t1, t1) }; f(2).cancel = nil
+60.seconds.asDuration.inSeconds = 60 /* convert duration to seconds */
+'P1W1DT1H1M1S'.parseDuration.inSeconds = 694861 /* parse ISO-8601 duration string */
+'P2DT2H2M2S'.parseDuration.inSeconds = 180122 /* parse ISO-8601 duration string */
 'P3DT4H'.parseDuration = (3.days + 4.hours).asDuration
 (29.days + 12.hours + 44.minutes + 2.9.seconds - 1.synodicMonths).asDuration.abs ~ 76.milliseconds.asDuration
 -3.seconds.asDuration.abs = 3.seconds.asDuration /* absolute value */
 (3.minutes - 2.hours).asDuration.abs = (1.hours + 57.minutes).asDuration /* absolute value */
 (7 / 8).milliseconds.asDuration.seconds = 7/8000 /* fractional duration */
-2.minutes.asDuration.asSeconds = 120.asSeconds /* seconds of duration, or identity of number */
+2.minutes.asDuration.inSeconds = 120 /* seconds of duration, or identity of number */
 ```
 
 ## Quantity
@@ -1629,7 +1629,7 @@ system.includesPackage('Frequency') /* frequency package */
 1.hertz.isFrequency /* frequency predicate */
 10.hertz.asDuration = (1 / 10).seconds.asDuration /* duration is the reciprocal of frequency */
 1.kilohertz.asDuration = 1.milliseconds.asDuration /* the period of 1kHz is 1ms */
-1.kilohertz.asHertz = 1000.asHertz /* hertz of frequency, or identity of number */
+1.kilohertz.inHertz = 1000 /* hertz of frequency, or identity of number */
 ```
 
 ## Graph -- collection type
@@ -2030,7 +2030,7 @@ let a = [9, 8 .. 1]; { a[5L] }.hasError /* large integers are not valid indices 
 system.includesPackage('Length') /* Length package */
 1.metres.typeOf = 'Quantity' /* metre constructor, type of */
 1.metres.isLength /* length predicate */
-10.centimetres.asMetres = 0.1.asMetres /* metres of length, or identity of number */
+10.centimetres.inMetres = 0.1 /* metres of length, or identity of number */
 ```
 
 ## LinkedList -- collection type
@@ -3786,7 +3786,7 @@ system.packageDictionary.isDictionary = true
 system.packageDictionary.isEmpty = false
 let t = system.packageTypes('Complex'); t.size = 1 & { t[1].name = 'Complex' }
 let t = system.packageTraits('Iterable'); t.size = 1 & { t[1].name = 'Iterable' }
-system.packageMethods('Frequency').detect { :each | each.name = 'asHertz' }.arity = 1
+system.packageMethods('Frequency').detect { :each | each.name = 'inHertz' }.arity = 1
 ```
 
 ## System -- time
@@ -3913,9 +3913,9 @@ system.now.isTimeStamp = true /* get current time at system */
 system.now.dateAndTimeString.size = 24
 1676784053.576.asTimeStamp.round(24.hours).dateAndTimeString = '2023-02-19T00:00:00.000Z' /* round to duration */
 let t = system.now; t - Duration(0) = t /* offset TimeStamp by Duration */
-{ system.now.postLine }.valueAfter(Duration(0.5)).cancel = nil
-{ system.now.postLine }.valueAt(system.now + Duration(0.5)).cancel = nil
-{ system.now.postLine }.valueEvery(Duration(3)).cancel = nil
+{ system.now.postLine }.valueAfter(0.5).cancel = nil
+{ system.now.postLine }.valueAt(system.absoluteTime + 0.5).cancel = nil
+{ system.now.postLine }.valueEvery(3).cancel = nil
 let t = 1676784053576.asTimeStamp; let c = t.copy; c !== t & { c = t }
 ```
 
@@ -4006,7 +4006,7 @@ true.not = false
 ```
 23.grams.typeOf = 'Quantity' /* gram constructor, type of */
 23.grams.isMass /* mass predicate */
-1.kilograms.asKilograms = 1.asKilograms /* grams of mass, or identity of number */
+23.grams.inKilograms = 0.023 /* grams of mass, or identity of number */
 ```
 
 ## Unit/SiUnit -- units type
