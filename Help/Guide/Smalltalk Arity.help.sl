@@ -3,7 +3,7 @@
 In Smalltalk, message names indicate the arity of the method they select.
 Operators are always binary and are written infix, i.e. _3 + 4_.
 Unary messages are written postfix, i.e. _9 sqrt_.
-N-ary messages are written using keywords, i.e. _aCollection at: anIndex put: anObject_.
+N-ary messages are written using keywords, i.e. _c at: i put: x_.
 
 The arity of a method is two if it is an operator, or else it is one more than the number of colons in the name.
 The arity of _sqrt_ is one, the arity of _at:_ is two, the arity of _at:put:_ is three.
@@ -17,8 +17,11 @@ The expression _c sorted: f_ answers a copy of the collection _c_ sorted accordi
 and _c sorted_ sorts according to _<=_.
 
 In Smalltalk blocks and methods have distinct application syntaxes.
-The block _square := [ :aNumber | aNumber * aNumber ]_ is applied as _square value: 3_
+The block _square := [ :x | x * x ]_ is applied as _square value: 3_
 The method _square_ is applied as _3 square_.
 
-Methods that require behaviours as arguments generally require blocks, i.e. _#(9 16 25) collect: [ :each | each sqrt ]_.
-By implementing _value:_ at _Symbol_ (as _anObject perform: self_) this can be written _#(9 16 25) collect: #sqrt_.
+Methods that require behaviours as arguments generally require blocks,
+.e. _#(9 16 25) collect: [ :x | x sqrt ]_.
+By implementing _value: x_ at _Symbol_,
+as _x perform: self_,
+this can be written _#(9 16 25) collect: #sqrt_.

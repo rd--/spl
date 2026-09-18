@@ -14,22 +14,22 @@ Quantity(3, 'seconds')
 ```
 
 At `Quantity`,
-answer the number of seconds:
+use `inSeconds` to answer the number of seconds:
 
 ```
->>> 3.hours.seconds
+>>> 3.hours.inSeconds
 10800
 
->>> 3.minutes.seconds
+>>> 3.minutes.inSeconds
 180
 
->>> 365.25.days.seconds
+>>> 365.25.days.inSeconds
 31557600
 ```
 
 * * *
 
-See also: asSeconds, hours, milliseconds, minutes, Quantity
+See also: hours, inSeconds, milliseconds, minutes, Quantity
 
 Guides: Quantity Functions
 

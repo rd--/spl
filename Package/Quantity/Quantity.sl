@@ -12,14 +12,14 @@ Quantity : [Object, Store, Equal, Compare, Frequency, Length, Mass, PlaneAngle, 
 		}
 	}
 
-	hertz { :self |
+	inHertz { :self |
 		(self.unit = 'hertz').if {
 			self.magnitude
 		} {
 			(self.unit = 'seconds').if {
 				1 / self.magnitude
 			} {
-				self.error('hertz: not frequency')
+				self.error('hertz: not time or frequency')
 			}
 		}
 	}
@@ -71,11 +71,11 @@ Quantity : [Object, Store, Equal, Compare, Frequency, Length, Mass, PlaneAngle, 
 		}
 	}
 
-	metres { :self |
+	inMetres { :self |
 		(self.unit = 'metres').if {
 			self.magnitude
 		} {
-			self.error('metres: not length')
+			self.error('inMetres: not length')
 		}
 	}
 
@@ -94,19 +94,19 @@ Quantity : [Object, Store, Equal, Compare, Frequency, Length, Mass, PlaneAngle, 
 		}
 	}
 
-	radians { :self |
+	inRadians { :self |
 		(self.unit = 'radians').if {
 			self.magnitude
 		} {
-			self.error('radians: not plane angle')
+			self.error('inRadians: not plane angle')
 		}
 	}
 
-	seconds { :self |
+	inSeconds { :self |
 		(self.unit = 'seconds').if {
 			self.magnitude
 		} {
-			self.error('seconds: not time')
+			self.error('inSeconds: not time')
 		}
 	}
 

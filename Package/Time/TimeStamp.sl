@@ -5,11 +5,11 @@ TimeStamp : [Object, Store, Equal, Compare] { | absoluteTime |
 	}
 
 	[plus, +] { :self :operand |
-		TimeStamp(self.absoluteTime + operand.asSeconds)
+		TimeStamp(self.absoluteTime + operand.inSeconds)
 	}
 
 	[subtract, -] { :self :operand |
-		TimeStamp(self.absoluteTime - operand.asSeconds)
+		TimeStamp(self.absoluteTime - operand.inSeconds)
 	}
 
 	asDate { :self |
@@ -35,7 +35,7 @@ TimeStamp : [Object, Store, Equal, Compare] { | absoluteTime |
 	}
 
 	round { :self :operand |
-		self.absoluteTime := self.absoluteTime.round(operand.asSeconds);
+		self.absoluteTime := self.absoluteTime.round(operand.inSeconds);
 		self
 	}
 

@@ -57,15 +57,20 @@ OEIS [A061037](https://oeis.org/A061037):
 
 ![](Help/Image/solidus-A.svg)
 
-This glyph also forms part of the `Comment Syntax`,
-as the digraphs `solidusAsterisk` and `asteriskSolidus`.
+This glyph also forms part of the `Arity Syntax`,
+where it separates the function name and the arity qualifier,
+and `Comment Syntax`,
+as part of the digraphs `solidusAsterisk` and `asteriskSolidus`.
 
 * * *
 
 See also: //, +, -, *, divide, reciprocal
 
-Guides: Arithmetic Functions, Binary Operators, Fraction Syntax, Mathematical Functions
+Guides: Arithmetic Functions, Arity Syntax, Comment Syntax, Binary Operators, Fraction Syntax, Mathematical Functions
 
-Unicode: U+0002F / Solidus, U+00F7 ÷ Division Sign
+Unicode:
+U+0002F / Solidus,
+U+00B0 ⧸ Big Solidus,
+U+00F7 ÷ Division Sign
 
 Categories: Math, Operator

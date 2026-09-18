@@ -105,6 +105,9 @@ The binary form applies the block _f_ to each element before summing:
 ```
 >>> 1:10.sum(square/1)
 385
+
+>>> 1:10.square.sum
+385
 ```
 
 An instance of a family of cutoff, or weighting, functions that answer _-1/12_ for a partial sum of the integers:

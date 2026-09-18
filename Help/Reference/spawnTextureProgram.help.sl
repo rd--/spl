@@ -1,10 +1,10 @@
 # spawnTextureProgram
 
-- _spawnTextureProgram(aBlock, nextTime)_
+- _spawnTextureProgram(f/0, i)_
 
 Answer a `TextureProgram` with an `identity` envelope block.
 When played,
-the process runs at the interval _nextTime_,
+the process runs at the interval _i_ seconds,
 which is sent the `value` message at each recurrence.
 
 Texture of overlapping sine tone dyads:

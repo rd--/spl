@@ -653,7 +653,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'asRecord'
 		'asRegularExpression'
 		'asResidueSet'
-		'asSeconds'
+		'inSeconds'
 		'asIdentitySet'
 		'asSfc32State'
 		'asSortedList'

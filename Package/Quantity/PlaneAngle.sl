@@ -1,67 +1,63 @@
 @PlaneAngle {
 
-	asRadians { :self |
-		self.radians
-	}
-
 	cos { :self |
-		self.radians.cos
+		self.inRadians.cos
 	}
 
-	degrees { :self |
-		self.radians / 1.pi * 180
+	inDegrees { :self |
+		self.inRadians / 1.pi * 180
 	}
 
 	dmsList { :self |
-		self.degrees.dmsList
+		self.inDegrees.dmsList
 	}
 
-	gradians { :self |
-		self.radians / 400
+	inGradians { :self |
+		self.inRadians / 400
 	}
 
 	isAcute { :self |
-		self.radians < 1/2.pi
+		self.inRadians < 1/2.pi
 	}
 
 	isFull { :self |
-		self.radians.isVeryCloseTo(2.pi)
+		self.inRadians.isVeryCloseTo(2.pi)
 	}
 
 	isObtuse { :self |
-		self.radians > 1/2.pi & {
-			self.radians < 1.pi
+		self.inRadians > 1/2.pi & {
+			self.inRadians < 1.pi
 		}
 	}
 
 	isReflex { :self |
-		self.radians > 1.pi & {
-			self.radians < 2.pi
+		self.inRadians > 1.pi & {
+			self.inRadians < 2.pi
 		}
 	}
 
 	isRight { :self |
-		self.radians.isVeryCloseTo(1/2.pi)
+		self.inRadians.isVeryCloseTo(1/2.pi)
 	}
 
 	isStraight { :self |
-		self.radians.isVeryCloseTo(1.pi)
+		self.inRadians.isVeryCloseTo(1.pi)
 	}
 
-	radians { :self |
-		self.typeResponsibility('radians')
+	inRadians { :self |
+		self.typeResponsibility('inRadians')
 	}
 
 	sin { :self |
-		self.radians.sin
+		self.inRadians.sin
 	}
 
 	tan { :self |
-		self.radians.tan
+		self.inRadians.tan
 	}
 
 	vector { :self |
-		self.radians.angleVector
+		self.inRadians.angleVector
 	}
 
 }
@@ -75,10 +71,6 @@
 }
 
 +@Number {
-
-	asRadians { :self |
-		self
-	}
 
 	degrees { :self |
 		(self.pi / 180).radians

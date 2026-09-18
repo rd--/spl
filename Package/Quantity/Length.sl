@@ -1,79 +1,75 @@
 @Length {
 
-	angstroms { :self |
-		self.metres * 1E10
+	inAngstroms { :self |
+		self.inMetres * 1E10
 	}
 
-	asMetres { :self |
-		self.metres
+	inAstronomicalUnits { :self |
+		self.inMetres / (1.495978707 * (10 ^ 11))
 	}
 
-	astronomicalUnits { :self |
-		self.metres / (1.495978707 * (10 ^ 11))
+	inCentimetres { :self |
+		self.inMetres * 1E2
 	}
 
-	centimetres { :self |
-		self.metres * 1E2
+	inFeet { :self |
+		self.inMetres / 0.3048
 	}
 
-	feet { :self |
-		self.metres / 0.3048
+	inInches { :self |
+		self.inMillimetres / 25.4
 	}
 
-	inches { :self |
-		self.millimetres / 25.4
+	inKilometres { :self |
+		self.inMetres / 1E3
 	}
 
-	kilometres { :self |
-		self.metres / 1E3
+	inLightYears { :self |
+		self.inMetres / (9.4607 * (10 ^ 15))
 	}
 
-	lightYears { :self |
-		self.metres / (9.4607 * (10 ^ 15))
+	inMetres { :self |
+		self.typeResponsibility('inMetres')
 	}
 
-	metres { :self |
-		self.typeResponsibility('metres')
+	inMicrometres { :self |
+		self.inMetres * 1E-6
 	}
 
-	micrometres { :self |
-		self.metres * 1E-6
+	inMiles { :self |
+		self.inMetres / 1609.344
 	}
 
-	miles { :self |
-		self.metres / 1609.344
+	inMillimetres { :self |
+		self.inMetres * 1E3
 	}
 
-	millimetres { :self |
-		self.metres * 1E3
+	inNanometres { :self |
+		self.inMetres * 1E9
 	}
 
-	nanometres { :self |
-		self.metres * 1E9
+	inNauticalMiles { :self |
+		self.inMetres / 1852
 	}
 
-	nauticalMiles { :self |
-		self.metres / 1852
+	inParsecs { :self |
+		self.inMetres / (3.0857 * (10 ^ 16))
 	}
 
-	parsecs { :self |
-		self.metres / (3.0857 * (10 ^ 16))
+	inPicas { :self |
+		self.inMillimetres / 4.2333
 	}
 
-	picas { :self |
-		self.millimetres / 4.2333
+	inPicometres { :self |
+		self.inMetres * 1E12
 	}
 
-	picometres { :self |
-		self.metres * 1E12
+	inPoint { :self |
+		self.inMillimetres / 0.3528
 	}
 
-	point { :self |
-		self.millimetres / 0.3528
-	}
-
-	yards { :self |
-		self.metres / 0.9144
+	inYards { :self |
+		self.inMetres / 0.9144
 	}
 
 }
@@ -90,10 +86,6 @@
 
 	angstroms { :self |
 		(self * 1E-10).metres
-	}
-
-	asMetres { :self |
-		self
 	}
 
 	astronomicalUnits { :self |

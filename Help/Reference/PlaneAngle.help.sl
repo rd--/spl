@@ -13,13 +13,13 @@ Make a plane angle:
 (true, 'radians', 2.pi)
 ```
 
-There are `degrees` and `radians` accessors:
+There are `inDegrees` and `inRadians` accessors:
 
 ```
->>> PlaneAngle(2.pi).degrees
+>>> PlaneAngle(2.pi).inDegrees
 360
 
->>> PlaneAngle(360.degree).radians
+>>> PlaneAngle(360.degree).inRadians
 2.pi
 ```
 

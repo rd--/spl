@@ -13,7 +13,7 @@ Start printing a message once per second using the system clock:
 ~~~spl scheduler
 let k = 1;
 { :t |
-	[t, k].postLine;
+	[t k].postLine;
 	k := k + 1;
 	1
 }.schedule

@@ -14,14 +14,14 @@ Quantity(540, 'seconds')
 ```
 
 At `Quantity`,
-answer the number of complete minutes:
+use `inMinutes` to answer the number of minutes:
 
 ```
->>> 3.hours.minutes
+>>> 3.hours.inMinutes
 180
 
->>> 2.days.minutes
-(2 * 24 * 60)
+>>> 2.days.inMinutes
+2 * 24 * 60
 ```
 
 * * *

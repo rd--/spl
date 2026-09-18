@@ -32,6 +32,13 @@ which must be writte postfix:
 (25, -25)
 ```
 
+There is a special syntax for naming the arity of a function:
+
+```
+>>> 1:9.scanLeft(plus/2)
+[1 3 6 10 15 21 28 36 45]
+```
+
 There is a special syntax for in place, or mutating, methods:
 
 ```

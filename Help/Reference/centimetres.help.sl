@@ -12,10 +12,10 @@ Quantity(0.3, 'metres')
 ```
 
 At `Quantity`,
-answer value in centimetres:
+use `inCentimetres` to answer the value in centimetres:
 
 ```
->>> 0.3.metres.centimetres
+>>> 0.3.metres.inCentimetres
 30
 ```
 

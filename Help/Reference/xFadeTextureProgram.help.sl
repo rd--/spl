@@ -1,6 +1,6 @@
 # xFadeTextureProgram
 
-- _xFadeTextureProgram(aBlock, sustainTime, transitionTime)_
+- _xFadeTextureProgram(f/0, sustainTime, transitionTime)_
 
 Answer a `TextureProgram`.
 Like `overlapTextureProgram` but with only two cross fading sounds.

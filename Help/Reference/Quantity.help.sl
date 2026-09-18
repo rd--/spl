@@ -127,16 +127,16 @@ A month as defined with respect to the line joining the sun and earth:
 Query temporal `Quantity` values:
 
 ```
->>> 3.hours.minutes
+>>> 3.hours.inMinutes
 180
 
->>> 3.days.hours
+>>> 3.days.inHours
 72
 
->>> 3.weeks.days
+>>> 3.weeks.inDays
 21
 
->>> 1.siderealDays.hours
+>>> 1.siderealDays.inHours
 23.9345
 ```
 

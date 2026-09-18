@@ -16,6 +16,7 @@
 ## Standard Syntax
 
 - `Apply Syntax`
+- `Arity Syntax`
 - `Binary Operator Syntax`
 - `Comment Syntax`
 - `Let Syntax`

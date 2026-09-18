@@ -18,13 +18,15 @@ Threads over lists:
 ```
 
 At `Quantity` and `PlaneAngle`,
-answer the value in degrees:
+use `inDegrees` to answer the value in degrees:
 
 ```
->>> 1.5.pi.radians.degrees
+>>> 1.5.pi.radians
+>>> .inDegrees
 270
 
->>> PlaneAngle(0.5.pi).degrees
+>>> PlaneAngle(0.5.pi)
+>>> .inDegrees
 90
 ```
 

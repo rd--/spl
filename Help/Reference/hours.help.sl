@@ -13,16 +13,19 @@ Quantity(3 * 60 * 60, 'seconds')
 ```
 
 At `Quantity`,
-answer the number of complete hours:
+use `inHours` to answer the number of hours:
 
 ```
->>> (3 * 60 * 60).seconds.hours
+>>> (3 * 60 * 60).seconds.inHours
 3
 
->>> 180.minutes.hours
+>>> 180.minutes.inHours
 3
 
->>> 3.days.hours
+>>> 45.minutes.inHours
+0.75
+
+>>> 3.days.inHours
 72
 ```
 

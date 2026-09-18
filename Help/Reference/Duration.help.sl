@@ -94,7 +94,7 @@ it is not possible to specify months or years or decades or centuries and so for
 
 * * *
 
-See also: asSeconds, CalendarDuration, Date, Frequency, parseDuration, TimeStamp
+See also: CalendarDuration, Date, Frequency, inSeconds, parseDuration, TimeStamp
 
 Guides: Date and Time Functions
 

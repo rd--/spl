@@ -18,9 +18,8 @@ Quantity(1209600, 'seconds')
 49.days
 ```
 
-Answer the number of complete weeks in _aDuration_,
 * * *
 
-See also: asSeconds, Duration, hours, seconds, minutes, weeks
+See also: Duration, hours, inSeconds, seconds, minutes, weeks
 
 Categories: Time, Type

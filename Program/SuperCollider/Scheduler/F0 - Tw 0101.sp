@@ -7,6 +7,11 @@
 		harmonicNumber * 99 + [0, 2],
 		delayedOutput.reverse
 	);
-	Release(oscillator / 9, 0, nextDelay, 16).playAt(currentTime);
+	Release(
+		oscillator / 9,
+		0,
+		nextDelay,
+		16
+	).playAt(currentTime);
 	[nextDelay, nextHarmonicNumber]
 }.scheduleInjecting(2)

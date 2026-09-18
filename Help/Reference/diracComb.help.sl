@@ -40,4 +40,6 @@ _Mathematica_
 _W_
 [1](https://en.wikipedia.org/wiki/Dirac_comb)
 
-Unicode: U+0428 Ш Cyrillic Capital Letter Sha, U+0448 ш Cyrillic Small Letter Sha
+Unicode:
+U+0428 Ш Cyrillic Capital Letter Sha,
+U+0448 ш Cyrillic Small Letter Sha

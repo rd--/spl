@@ -384,9 +384,9 @@ If the string begins with a doctest, also delete all non doctest lines."
      ("---" . ?⸺) ; U+02E3A ⸺ Two-Em Dash
      ("-->" . ?⟶) ; U+027F6 ⟶ Long Rightwards Arrow
      (".." . ?…) ; U+2026 … Horizontal Ellipsis; U+2025 ‥ Two Dot Leader
-     ("/" . ?÷) ; U+00F7 ÷ Division Sign
+     ("/" . ?⧸) ; U+00B0 ⧸ Big Solidus ; U+00F7 ÷ Division Sign
      ;(":." . ?‣) ; U+2023 ‣ Triangular Bullet
-     (":/" . ?⧸) ; U+00B0 ⧸ Big Solidus
+     ;(":/" . ?⧸) ; U+00B0 ⧸ Big Solidus
      (":/0" . ?₀) ; U+2080 ₀ Subscript Zero
      (":/1" . ?₁) ; U+2081 ₁ Subscript One
      (":/2" . ?₂) ; U+2082 ₂ Subscript Two

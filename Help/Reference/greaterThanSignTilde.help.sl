@@ -31,6 +31,8 @@ See also: =, <=, >=, ~, <~
 
 Guides: Comparison Functions
 
-Unicode: U+2A86 ⪆ Greater-Than or Approximate, U+2A9E ⪞ Similar or Greater-Than
+Unicode:
+U+2A86 ⪆ Greater-Than or Approximate,
+U+2A9E ⪞ Similar or Greater-Than
 
 Categories: Comparing

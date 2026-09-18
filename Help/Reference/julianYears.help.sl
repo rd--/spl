@@ -12,11 +12,11 @@ Quantity(31557600, 'seconds')
 ```
 
 At `Quantity`,
-answer the magnitude of the time in Julian years:
+use `inJulianYears` to answer the magnitude of the time in Julian years:
 
 ```
 >>> 365.25.days
->>> .julianYears
+>>> .inJulianYears
 1
 ```
 

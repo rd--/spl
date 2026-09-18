@@ -13,25 +13,25 @@ Quantity(1609.344, 'metres')
 One mile is defined as 1760 yards:
 
 ```
->>> 1760.yards.miles
+>>> 1760.yards.inMiles
 1
 
->>> 1.miles.yards
+>>> 1.miles.inYards
 1760
 ```
 
 One yard is defined as 0.9144 metres:
 
 ```
->>> 1.yards.metres
+>>> 1.yards.inMetres
 0.9144
 ```
 
 At `Quantity`,
-answer the distance _x_ in yards.
+use `inYards` to answer the distance in yards:
 
 ```
->>> 1000.metres.yards
+>>> 1000.metres.inYards
 1093.613
 ```
 

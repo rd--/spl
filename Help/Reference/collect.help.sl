@@ -6,19 +6,20 @@ Evaluate the block _f_ with each element of the collection _c_ as the argument.
 Collect the resulting values into a collection like _c_.
 Answer the new collection.
 
-At `Range`:
+At `List`:
 
 ```
->>> 2:14:4.collect { :x |
+>>> [2 6 10 14].collect { :x |
 >>> 	x * x
 >>> }
 [4 36 100 196]
 ```
 
-At `List`:
+At `Range`,
+answers a `List`:
 
 ```
->>> [2 6 10 14].collect { :x |
+>>> 2:14:4.collect { :x |
 >>> 	x * x
 >>> }
 [4 36 100 196]
@@ -36,19 +37,17 @@ At `Record`:
 At `IdentityMultiset`:
 
 ```
->>> [2, 6 .. 14]
->>> .asIdentityMultiset
+>>> IdentityMultiset[2, 6 .. 14]
 >>> .collect(square/1)
-[4 36 100 196].asIdentityMultiset
+IdentityMultiset[4 36 100 196]
 ```
 
 At `IdentitySet`:
 
 ```
->>> [2, 6 .. 14]
->>> .asIdentitySet
+>>> IdentitySet[2, 6 .. 14]
 >>> .collect(square/1)
-[4 36 100 196].asIdentitySet
+IdentitySet[4 36 100 196]
 ```
 
 At `Tree`:
@@ -62,7 +61,7 @@ Tree(2, [Tree(3, [Tree(4, [])])])
 At `Stream`:
 
 ```
->>> [1 .. 9].asStream
+>>> Stream[1 .. 9]
 >>> .collect(square/1)
 >>> .upToEnd
 [1 4 9 16 25 36 49 64 81]

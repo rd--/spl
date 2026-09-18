@@ -4,7 +4,7 @@ TextureProgram : [Object] { | iterationCounter soundBlock envelopeBlock delayTim
 
 	play { :self |
 		{ :currentTime |
-			self.envelopeBlock.value(
+			self.envelopeBlock.blockValue(
 				self.soundBlock.cull(
 					self.iterationCounter
 				)

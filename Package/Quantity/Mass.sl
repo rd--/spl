@@ -1,23 +1,19 @@
 @Mass {
 
-	asKilograms { :self |
-		self.kilograms
+	inGrams { :self |
+		self.inKilograms * 1E3
 	}
 
-	grams { :self |
-		self.kilograms * 1E3
+	inKilograms { :self |
+		self.typeResponsibility('inKilograms')
 	}
 
-	kilograms { :self |
-		self.typeResponsibility('kilograms')
+	inOunces { :self |
+		self.inGrams * 28.349523125
 	}
 
-	ounces { :self |
-		self.grams * 28.349523125
-	}
-
-	pounds { :self |
-		self.kilograms * 0.45359237
+	inPounds { :self |
+		self.inKilograms * 0.45359237
 	}
 
 }
@@ -31,10 +27,6 @@
 }
 
 +@Number {
-
-	asKilograms { :self |
-		self
-	}
 
 	grams { :self |
 		(self * 1E-3).kilograms

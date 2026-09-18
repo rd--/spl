@@ -3,11 +3,11 @@
 +@Frequency {
 
 	linearOctave { :self |
-		(self.hertz * (1 / 440)).log2 + 4.75
+		(self.inHertz * (1 / 440)).log2 + 4.75
 	}
 
 	midiNoteNumber { :self |
-		(self.hertz * (1 / 440)).log2 * 12 + 69
+		(self.inHertz * (1 / 440)).log2 * 12 + 69
 	}
 
 	octavePitchClass { :self |
@@ -65,7 +65,7 @@
 +@Frequency {
 
 	cps { :self |
-		self.hertz
+		self.inHertz
 	}
 
 	midi { :self |

@@ -101,4 +101,8 @@ _Swift_
 _W_
 [1](https://en.wikipedia.org/wiki/Magnitude_(mathematics))
 
-Unicode: U+227a ≺ Precedes, U+227c ≼ Precedes Or Equal To, U+227B ≻ Succeeds, U+227D ≽ Succeeds or Equal To
+Unicode:
+U+227a ≺ Precedes,
+U+227c ≼ Precedes Or Equal To,
+U+227B ≻ Succeeds,
+U+227D ≽ Succeeds or Equal To

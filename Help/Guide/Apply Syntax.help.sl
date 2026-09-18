@@ -3,28 +3,33 @@
 Rewrite rule:
 
 - _f()_ ⟹ _f/0 . ()_
-- _f(x, ...)_ ⟹ _fₙ . (x, ...)_
+- _f(x, …)_ ⟹ _fₙ . (x, ...)_
 
-Ordinarily block and method application is written _f(x, ...)_,
+Ordinarily block and method application is written _f(x, …)_,
 where _f_ is the _unqualified name_ of the block or method,
-and _x..._ are the arguments.
+and _x…_ are the arguments.
 
 ```
 >>> min(3, 4)
 3
 
->>> min/2 . (3, 4)
+>>> [3 4].reduce(min/2)
 3
 ```
 
-Operators are just especially named methods whose arity when written _free_ is known to be two:
+Operators are especially named methods whose arity,
+when written _free_,
+is known to be two:
 
 ```
 >>> 3 + 4
 7
 
->>> + . (3, 4)
-7
+>>> 1:9.reduce(+)
+45
+
+>>> +
+plusSign/2
 ```
 
 Operators can also be written in prefix form and `Method Syntax` forms:
@@ -44,18 +49,23 @@ No argument method application is written _f()_.
 >>> f()
 7
 
->>> let f = { 7 };
->>> f/0 . ()
+>>> let x = 1;
+>>> let f = { x := x + 1 };
+>>> 6.timesRepeat(f/0);
+>>> x
 7
 ```
 
-Bindings to blocks with the same name in the same scope with different arities introduce distinct bindings:
+Bindings to blocks with the same name,
+in the same scope,
+with different arities,
+introduce distinct bindings:
 
 ```
 >>> let f = { 1 };
 >>> let f = { :x | x + 1 };
->>> [f(), f(1)]
-[1, 2]
+>>> (f(), f(1))
+(1, 2)
 ```
 
 * * *

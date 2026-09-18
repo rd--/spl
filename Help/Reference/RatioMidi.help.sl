@@ -38,7 +38,7 @@ Evaluate symbolically:
 
 ```
 >> ratioMidi(`x`)
-(* 12 (log2 x))
+(* 12 (log x 2))
 ```
 
 * * *

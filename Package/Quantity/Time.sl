@@ -1,39 +1,39 @@
 @Time {
 
-	asSeconds { :self |
-		self.seconds
+	inCentiseconds { :self |
+		self.inSeconds * 10
 	}
 
-	centiseconds { :self |
-		self.seconds * 10
+	inDays { :self |
+		self.inHours / 24
 	}
 
-	days { :self |
-		self.hours / 24
+	inHours { :self |
+		self.inMinutes / 60
 	}
 
-	hours { :self |
-		self.minutes / 60
+	inJulianYears { :self |
+		self.inDays / 365.25
 	}
 
-	julianYears { :self |
-		self.days / 365.25
+	inMilliseconds { :self |
+		self.inSeconds * 1000
 	}
 
-	milliseconds { :self |
-		self.seconds * 1000
+	inMinutes { :self |
+		self.inSeconds / 60
 	}
 
-	minutes { :self |
-		self.seconds / 60
+	inSeconds { :self |
+		self.typeResponsibility('inSeconds')
 	}
 
-	seconds { :self |
-		self.typeResponsibility('seconds')
+	inWeeks { :self |
+		self.inDays / 7
 	}
 
 	timeString { :self |
-		let seconds = self.seconds;
+		let seconds = self.inSeconds;
 		(seconds >= 0 & { seconds < (24 * 60 * 60) }).if {
 			let [h, m, s] = seconds.mixedRadixEncode([60 60]);
 			'%:%:%.%'.format([
@@ -45,10 +45,6 @@
 		} {
 			self.error('timeString: invalid time')
 		}
-	}
-
-	weeks { :self |
-		self.days / 7
 	}
 
 }

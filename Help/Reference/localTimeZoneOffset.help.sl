@@ -7,7 +7,7 @@ Answer a `Quantity` telling the local time offset from _Greenwich Mean Time_.
 ```
 >>> system
 >>> .localTimeZoneOffset
->>> .hours
+>>> .inHours
 >>> .betweenAnd(-24, 24)
 true
 ```

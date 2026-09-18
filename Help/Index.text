@@ -5,6 +5,7 @@ Guide/Apl Perspective.help.sl
 Guide/Apply Syntax.help.sl
 Guide/Arithmetic Functions.help.sl
 Guide/Arity Notation.help.sl
+Guide/Arity Syntax.help.sl
 Guide/Array Functions.help.sl
 Guide/Array Syntax.help.sl
 Guide/Assignment and Equality.help.sl
@@ -488,7 +489,6 @@ Reference/asGraph.help.sl
 Reference/asGreymap.help.sl
 Reference/asGreyscaleDrawing.help.sl
 Reference/asHeaders.help.sl
-Reference/asHertz.help.sl
 Reference/asHexDigit.help.sl
 Reference/asHexString.help.sl
 Reference/asIdentityMultiset.help.sl
@@ -526,7 +526,6 @@ Reference/asResidueSet.help.sl
 Reference/Asr.help.sl
 Reference/asRunArray.help.sl
 Reference/asScale.help.sl
-Reference/asSeconds.help.sl
 Reference/assert.help.sl
 Reference/assertIsCollection.help.sl
 Reference/assertIsOfSize.help.sl
@@ -1973,6 +1972,7 @@ Reference/infinity.help.sl
 Reference/Infinity.help.sl
 Reference/in.help.sl
 Reference/In.help.sl
+Reference/inHertz.help.sl
 Reference/initializeSlots.help.sl
 Reference/injectInto.help.sl
 Reference/inner.help.sl
@@ -1980,6 +1980,7 @@ Reference/innerPolygons.help.sl
 Reference/innerSoddyCircle.help.sl
 Reference/inradius.help.sl
 Reference/InRange.help.sl
+Reference/inSeconds.help.sl
 Reference/insertAt.help.sl
 Reference/insertionPermutations.help.sl
 Reference/insertionSort.help.sl

@@ -1,35 +1,31 @@
 @Frequency {
 
 	asDuration { :self |
-		Duration(1 / self.hertz)
-	}
-
-	asHertz { :self |
-		self.hertz
+		Duration(1 / self.inHertz)
 	}
 
 	cyclesPerMinute { :self |
-		self.hertz * 60
+		self.inHertz * 60
 	}
 
 	cyclesPerSecond { :self |
-		self.hertz
+		self.inHertz
 	}
 
-	gigahertz { :self |
-		self.hertz / 1E9
+	inGigahertz { :self |
+		self.inHertz / 1E9
 	}
 
-	hertz { :self |
+	inHertz { :self |
 		self.typeResponsibility('hertz')
 	}
 
-	kilohertz { :self |
-		self.hertz / 1E3
+	inKilohertz { :self |
+		self.inHertz / 1E3
 	}
 
-	megaherz { :self |
-		self.hertz / 1E6
+	inMegaherz { :self |
+		self.inHertz / 1E6
 	}
 
 }
@@ -43,10 +39,6 @@
 }
 
 +@Number {
-
-	asHertz { :self |
-		self
-	}
 
 	gigahertz { :self |
 		(self * 1E9).hertz

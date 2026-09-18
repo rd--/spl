@@ -31,6 +31,8 @@ See also: =, ~, <, >, >~
 
 Guides: Comparison Functions
 
-Unicode: U+2A85 ⪅ Less-Than or Approximate, U+2A9D ⪝ Similar or Less-Than
+Unicode:
+U+2A85 ⪅ Less-Than or Approximate,
+U+2A9D ⪝ Similar or Less-Than
 
 Categories: Comparing

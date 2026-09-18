@@ -14,19 +14,19 @@ Quantity(0.005, 'seconds')
 ```
 
 At `Quantity`,
-answer the number of complete milliseconds in _t_:
+use `inMilliseconds` to answer the number of milliseconds:
 
 ```
->>> 5.minutes.milliseconds
+>>> 5.minutes.inMilliseconds
 300000
 
->>> 3.hours.milliseconds
+>>> 3.hours.inMilliseconds
 3 * 60 * 60 * 1000
 ```
 
 * * *
 
-See also: asSeconds, hours, minutes, Quantity, seconds
+See also: hours, inSeconds, minutes, Quantity, seconds
 
 Guides: Quantity Functions
 

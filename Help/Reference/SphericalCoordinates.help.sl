@@ -55,6 +55,10 @@ _Mathematica_
 _W_
 [1](https://en.wikipedia.org/wiki/ISO/IEC_80000)
 
-Unicode: U+1D45F 𝑟 Mathematical Italic Small R, U+03C1 ρ Greek Small Letter Rho, U+03B8 θ Greek Small Letter Theta, U+03C6 φ Greek Small Letter Phi
+Unicode:
+U+1D45F 𝑟 Mathematical Italic Small R,
+U+03C1 ρ Greek Small Letter Rho,
+U+03B8 θ Greek Small Letter Theta,
+U+03C6 φ Greek Small Letter Phi
 
 Categories: Geometry

@@ -15,38 +15,38 @@ Quantity(3218.688, 'metres')
 One mile is defined as 1760 yards:
 
 ```
->>> 1.miles.yards
+>>> 1.miles.inYards
 1760
 
->>> 1760.yards.miles
+>>> 1760.yards.inMiles
 1
 ```
 
 One mile is defined as 5280 feet:
 
 ```
->>> 1.miles.feet
+>>> 1.miles.inFeet
 5280
 
->>> 5280.feet.miles
+>>> 5280.feet.inMiles
 1
 ```
 
 One mile is defined as 1609.344 metres:
 
 ```
->>> 1.miles.metres
+>>> 1.miles.inMetres
 1609.344
 
->>> 1609.344.metres.miles
+>>> 1609.344.metres.inMiles
 1
 ```
 
 At `Quantity`,
-answer the distance _x_ in miles.
+use `inMiles` to answer the distance in miles:
 
 ```
->>> 1000.metres.miles
+>>> 1000.metres.inMiles
 0.62137
 ```
 

@@ -13,19 +13,19 @@ Quantity(0.01, 'seconds')
 ```
 
 At `Quantity`,
-answer the number of complete centiseconds:
+use `inCentiseconds` to answer the number of centiseconds:
 
 ```
->>> 5.minutes.centiseconds
+>>> 5.minutes.inCentiseconds
 3000
 
->>> 3.hours.centiseconds
+>>> 3.hours.inCentiseconds
 3 * 60 * 60 * 10
 ```
 
 * * *
 
-See also: asSeconds, hours, milliseconds, Quantity, seconds, minutes
+See also: hours, inSeconds, milliseconds, Quantity, seconds, minutes
 
 Guides: Quantity Functions
 

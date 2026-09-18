@@ -19,15 +19,18 @@ Quantity(172800, 'seconds')
 ```
 
 At `Quantity`,
-answer the number of complete days:
+use `inDays` to answer the number of days:
 
 ```
->>> 3.weeks.days
+>>> 3.weeks.inDays
 21
+
+>>> 12.hours.inDays
+0.5
 ```
 
 * * *
 
-See also: asSeconds, hours, minutes, Quantity, seconds, Time, weeks
+See also: hours, inSeconds, minutes, Quantity, seconds, Time, weeks
 
 Categories: Time, Type

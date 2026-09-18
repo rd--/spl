@@ -32,10 +32,6 @@ Duration : [Object, Store, Equal, Compare] { | seconds |
 		Frequency(self.seconds.reciprocal)
 	}
 
-	asSeconds { :self |
-		self.seconds
-	}
-
 	components { :self |
 		let b = [24 60 60];
 		self.seconds.mixedRadixEncode(b).padLeft([4], 0)
@@ -44,6 +40,10 @@ Duration : [Object, Store, Equal, Compare] { | seconds |
 	durationString { :self |
 		let [d, h, m, s] = self.components;
 		'P%DT%H%M%S'.format([d, h, m, s])
+	}
+
+	inSeconds { :self |
+		self.seconds
 	}
 
 	isZero { :self |
@@ -76,24 +76,20 @@ Duration : [Object, Store, Equal, Compare] { | seconds |
 		self.error('Duration: no units specified')
 	}
 
-	asSeconds { :self |
-		self
-	}
-
 }
 
 +Block {
 
 	valueAfter { :self/0 :delay |
-		self/0.basicValueAfter(delay.asSeconds)
+		self/0.basicValueAfter(delay)
 	}
 
 	valueAfterWith { :self/1 :delay :anObject |
-		self/1.basicValueAfterWith(delay.asSeconds, anObject)
+		self/1.basicValueAfterWith(delay, anObject)
 	}
 
 	valueEvery { :self/0 :delay |
-		self/0.basicValueEvery(delay.asSeconds)
+		self/0.basicValueEvery(delay)
 	}
 
 }

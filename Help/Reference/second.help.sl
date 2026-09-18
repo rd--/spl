@@ -24,6 +24,8 @@ answer the second field:
 
 See also: Date, dayOfMonth, first, hour, minute, month, parseDateAndTime, secondLast, Sequence, year
 
+Guides: Date and Time Functions, List Functions
+
 References:
 _Smalltalk_
 5.8.1.25

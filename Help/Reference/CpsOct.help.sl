@@ -17,7 +17,7 @@ Evaluate symbolically:
 
 ```
 >> cpsOct(`x`)
-(+ (log2 (/ x 440)) 4.75)
+(+ (log (/ x 440) 2) 4.75)
 ```
 
 * * *

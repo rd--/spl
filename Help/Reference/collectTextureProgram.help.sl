@@ -3,7 +3,8 @@
 - _collectTextureProgram(c, f/1, d)_
 
 Answer a `TextureProgram` that will
-evaluate the block _f_ at each element of the collection _c_ with delay _d_ seconds between each occurence,
+evaluate the block _f_ at each element of the collection _c_,
+with delay _d_ seconds between each occurence,
 and _play_ each answer.
 
 Play ascending diatonic scale:

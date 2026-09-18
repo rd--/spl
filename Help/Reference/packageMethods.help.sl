@@ -5,18 +5,17 @@
 At `System`,
 answer the `List` of `Method`s defined in the named `Package` _p_.
 
-Find the definitions of `asHert` in the _Frequency_ package:
+Find the definitions of `inHertz` in the _Frequency_ package:
 
 ```
 >>> system.packageMethods(
 >>> 	'Frequency'
 >>> ).select { :each |
->>> 	each.name = 'asHertz'
+>>> 	each.name = 'inHertz'
 >>> }.collect { :each |
 >>> 	(each.origin.name, each.arity)
 >>> }
 [
-	('Number', 1),
 	('Frequency', 1)
 ]
 ```

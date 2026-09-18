@@ -20,9 +20,11 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 		let scheduledTime = currentTime + deltaTime;
 		let wakeupTime = self.nextEntryTime;
 		self.priorityQueue.pushWithPriority(aBlock/1, scheduledTime);
-		(wakeupTime = nil | {
-			scheduledTime < wakeupTime
-		}).ifTrue {
+		(
+			wakeupTime = nil | {
+				scheduledTime < wakeupTime
+			}
+		).ifTrue {
 			self.nextEntryTime := scheduledTime;
 			self.existingDelay.ifNotNil {
 				self.existingDelay.cancel

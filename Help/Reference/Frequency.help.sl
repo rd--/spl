@@ -20,17 +20,17 @@ Frequencies can be queried using prefixed unit names:
 
 ```
 >>> Frequency(3000)
->>> .kilohertz
+>>> .inKilohertz
 3
 ```
 
-The `asHertz` method is `hertz` at `Frequency` and `identity` at `Number`:
+The `inHertz` method applied to `Frequency` and `Time` quantities:
 
 ```
->>> Frequency(440).asHertz
+>>> Frequency(440).inHertz
 440
 
->>> 440.asHertz
+>>> Time(1 / 440).inHertz
 440
 ```
 
@@ -48,7 +48,7 @@ Duration(1 / 440)
 
 * * *
 
-See also: asHertz, Duration, hertz, Quantity
+See also: Duration, hertz, inHertz, Quantity
 
 Guides: Quantity Functions
 

@@ -10,6 +10,17 @@ Answer a `Quantity` representing the number _n_ in hertz.
 (true, 440, 'hertz')
 ```
 
+Use `inHertz` to retreive the magnitude,
+also answer the inverse of a time value:
+
+```
+>>> 44.1.kilohertz.inHertz
+44100
+
+>>> (1 / 44100).seconds.inHertz
+44100
+```
+
 * * *
 
 See also: asHertz, Frequency, Quantity
