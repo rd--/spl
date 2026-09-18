@@ -16,7 +16,7 @@ The reconstruction is _(-1 ^ sign) * (2 ^ exponent) * mantissa_.
 >>> 	-1.5 1E100 -1E100 1E-100 -1E-100
 >>> 	Infinity
 >>> ];
->>> n.collect(f:/1)
+>>> n.collect(f/1)
 [
 	([0 0 1], 1),
 	([1 0 1], -1),

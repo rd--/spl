@@ -10,7 +10,7 @@ OEIS [A051714](https://oeis.org/A051714):
 
 ```
 >>> 0:10.antidiagonalArray(
->>> 	akiyamaTanigawaNumber:/2
+>>> 	akiyamaTanigawaNumber/2
 >>> ).numerator
 [
 	1;
@@ -33,7 +33,7 @@ OEIS [A051715](https://oeis.org/A051715):
 
 ```
 >>> 0:9.antidiagonalArray(
->>> 	akiyamaTanigawaNumber:/2
+>>> 	akiyamaTanigawaNumber/2
 >>> ).denominator
 [
 	1;
@@ -55,7 +55,7 @@ OEIS [A051714](https://oeis.org/A051714):
 
 ~~~spl svg=A oeis=A051714
 0:21.antidiagonalArray(
-	akiyamaTanigawaNumber:/2
+	akiyamaTanigawaNumber/2
 ).numerator
 .catenate.scatterPlot.logScale
 ~~~
@@ -68,7 +68,7 @@ OEIS [A051715](https://oeis.org/A051715):
 
 ~~~spl svg=B oeis=A051715
 0:21.antidiagonalArray(
-	akiyamaTanigawaNumber:/2
+	akiyamaTanigawaNumber/2
 ).denominator
 .catenate.scatterPlot.logScale
 ~~~
@@ -80,7 +80,7 @@ read by antidiagonals:
 
 ~~~spl svg=C
 5:21.antidiagonalArray(
-	akiyamaTanigawaNumber:/2
+	akiyamaTanigawaNumber/2
 ).catenate.scatterPlot.logScale
 ~~~
 

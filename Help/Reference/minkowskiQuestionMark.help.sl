@@ -116,7 +116,7 @@ Plot over the unit interval:
 
 ~~~spl svg=A
 (0 -- 1).functionPlot(
-	minkowskiQuestionMark:/1
+	minkowskiQuestionMark/1
 )
 ~~~
 
@@ -136,7 +136,7 @@ Plot from -2 to 2, _?(x)_ is surjective:
 
 ~~~spl svg=C
 (-2 -- 2).functionPlot(
-	minkowskiQuestionMark:/1
+	minkowskiQuestionMark/1
 )
 ~~~
 

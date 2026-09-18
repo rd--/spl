@@ -23,7 +23,7 @@ Plot over a subset of the reals:
 
 ~~~spl svg=A
 (-5, -4.5 .. 5)
-.collect(diracComb:/1)
+.collect(diracComb/1)
 .clip([0 1])
 .discretePlot
 ~~~

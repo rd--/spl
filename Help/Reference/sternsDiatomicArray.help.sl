@@ -23,7 +23,7 @@ OEIS [A000051](http://oeis.org/A000051):
 
 ```
 >>> 9.sternsDiatomicArray
->>> .collect(size:/1)
+>>> .collect(size/1)
 [2 3 5 9 17 33 65 129 257]
 
 >>> 2 ^ 0:8 + 1
@@ -35,7 +35,7 @@ OEIS [A034472](http://oeis.org/A034472):
 
 ```
 >>> 9.sternsDiatomicArray
->>> .collect(sum:/1)
+>>> .collect(sum/1)
 [2 4 10 28 82 244 730 2188 6562]
 
 >>> 3 ^ 0:8 + 1

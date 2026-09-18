@@ -1171,7 +1171,7 @@ let a = { :n |
 		}
 	}
 };
-0:200.collect(a:/1).scatterPlot
+0:200.collect(a/1).scatterPlot
 ~~~
 
 ![](Help/Image/mod-K.svg)
@@ -1280,7 +1280,7 @@ let a = { :n |
 		}
 	].which
 };
-0:200.collect(a:/1).scatterPlot
+0:200.collect(a/1).scatterPlot
 ~~~
 
 ![](Help/Image/mod-Q.svg)
@@ -1401,7 +1401,7 @@ let k = { :n |
 		5
 	}
 };
-1:150.collect(f:/1).scatterPlot
+1:150.collect(f/1).scatterPlot
 ~~~
 
 ![](Help/Image/mod-W.svg)

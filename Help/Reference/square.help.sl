@@ -216,7 +216,7 @@ OEIS [A000290](https://oeis.org/A000290):
 _x²_ plotted on a Cartesian plane:
 
 ~~~spl svg=E
-(-2 -- 2).functionPlot(square:/1)
+(-2 -- 2).functionPlot(square/1)
 ~~~
 
 ![](Help/Image/square-E.svg)

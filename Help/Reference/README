@@ -1,17 +1,17 @@
 'Help/Reference'.splFilePath.terseReferenceSummary((verbose: false, pattern: '.*'))
 
-Total => 18,566
+Total => 18,584
 
 Note: Requires LibraryItems be at the interpreter cache, i.e.
 
 ~~~
-system.library.collect(request:/1)
+system.library.collect(request/1)
 ~~~
 
 Write image files:
 
 ~~~
-system.helpFilesDo('Reference', '.*', true, writeImageFiles:/1); nil
+system.helpFilesDo('Reference', '.*', true, writeImageFiles/1); nil
 ~~~
 
 ls ~/sw/spl/Help/Image/* | wc -l

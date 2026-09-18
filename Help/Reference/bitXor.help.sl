@@ -16,7 +16,7 @@ Also Nim-sum, written _i⊕j_.
 Truth table:
 
 ```
->>> bitXor:/2.table([1 0], [1 0])
+>>> bitXor/2.table([1 0], [1 0])
 [
 	0 1;
 	1 0
@@ -52,7 +52,7 @@ The `bitXor` of sixty-one and fifteen is fifty:
 The Cayley table of _Z2^3_:
 
 ```
->>> bitXor:/2.table(0:7, 0:7)
+>>> bitXor/2.table(0:7, 0:7)
 [
 	0 1 2 3 4 5 6 7;
 	1 0 3 2 5 4 7 6;
@@ -69,7 +69,7 @@ Left half of the Cayley table of _Z2^4_,
 also the binary 4-tuples combined by `bitXor`:
 
 ```
->>> bitXor:/2.table(0:15, 0:15)
+>>> bitXor/2.table(0:15, 0:15)
 >>> .collect { :each | each.first(8) }
 [
 	 0  1  2  3  4  5  6  7;
@@ -162,7 +162,7 @@ Matrix plot of `bitXor`:
 
 ~~~spl png=B
 let n = 127;
-(bitXor:/2.array([n n]) / n).Greymap
+(bitXor/2.array([n n]) / n).Greymap
 ~~~
 
 ![](Help/Image/bitXor-B.png)
@@ -311,7 +311,7 @@ The bitwise _Xor_ of the squares of first _n_ natural numbers,
 OEIS [A145768](https://oeis.org/A145768):
 
 ~~~spl svg=J oeis=A145768
-bitXor:/2
+bitXor/2
 .foldList(0, 0:125 ^ 2)
 .allButFirst
 .discretePlot
@@ -326,7 +326,7 @@ OEIS [A193232](https://oeis.org/A193232):
 0:150.collect { :n |
 	0:n
 	.prefixSum
-	.reduce(bitXor:/2)
+	.reduce(bitXor/2)
 }.discretePlot
 ~~~
 
@@ -384,7 +384,7 @@ read by rows,
 OEIS [A051933](https://oeis.org/A051933):
 
 ~~~spl svg=P oeis=A051933
-0:19.triangularArray(bitXor:/2)
+0:19.triangularArray(bitXor/2)
 .catenate.scatterPlot
 ~~~
 

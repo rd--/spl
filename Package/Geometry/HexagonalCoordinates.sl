@@ -172,7 +172,7 @@ HexagonalCoordinates : [Object, Store, Equal] { | coordinates |
 			};
 			[qR rR sR]
 		} {
-			self.collect(roundedHexagonalCoordinates:/1)
+			self.collect(roundedHexagonalCoordinates/1)
 		}
 	}
 

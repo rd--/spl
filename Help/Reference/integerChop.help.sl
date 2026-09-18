@@ -42,10 +42,10 @@ Drop small imaginary parts:
 >>> let c = b.integerChop;
 >>> let d = b.chop;
 >>> (
->>> 	b.allSatisfy(isComplex:/1),
+>>> 	b.allSatisfy(isComplex/1),
 >>> 	c = a,
->>> 	d.noneSatisfy(isComplex:/1),
->>> 	d.noneSatisfy(isInteger:/1),
+>>> 	d.noneSatisfy(isComplex/1),
+>>> 	d.noneSatisfy(isInteger/1),
 >>> 	c
 >>> )
 (true, true, true, true, [1 .. 20])

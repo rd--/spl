@@ -30,7 +30,7 @@ answer the identity:
 A state that forms a loop at the fifth step:
 
 ```
->>> bulgarianSolitaire:/1
+>>> bulgarianSolitaire/1
 >>> .nestList([2 1 1 1], 5)
 [
 	2 1 1 1;
@@ -45,7 +45,7 @@ A state that forms a loop at the fifth step:
 A state that forms a loop at the fourth step:
 
 ```
->>> bulgarianSolitaire:/1
+>>> bulgarianSolitaire/1
 >>> .nestListDistinct([4])
 [
 	[
@@ -61,7 +61,7 @@ A state that forms a loop at the fourth step:
 A state that arrives at the _n:1_ partition:
 
 ```
->>> bulgarianSolitaire:/1
+>>> bulgarianSolitaire/1
 >>> .nestListDistinct([3 3])
 [
 	[
@@ -78,7 +78,7 @@ A state that arrives at the _n:1_ partition:
 A state that returns to the initial state after four steps:
 
 ```
->>> bulgarianSolitaire:/1
+>>> bulgarianSolitaire/1
 >>> .nestListDistinct([4 2 1])
 [
 	[
@@ -94,7 +94,7 @@ A state that returns to the initial state after four steps:
 A state that forms a two-cycle:
 
 ```
->>> bulgarianSolitaire:/1
+>>> bulgarianSolitaire/1
 >>> .nestListDistinct([4 2 2])
 [
 	[
@@ -108,7 +108,7 @@ A state that forms a two-cycle:
 The longest path through the G₆ state space:
 
 ```
->>> bulgarianSolitaire:/1
+>>> bulgarianSolitaire/1
 >>> .nestListDistinct([2 2 1 1])
 [
 	[
@@ -127,7 +127,7 @@ The longest path through the G₆ state space:
 The longest path through the G₈ state space:
 
 ```
->>> bulgarianSolitaire:/1
+>>> bulgarianSolitaire/1
 >>> .nestListDistinct(
 >>> 	[1 1 1 1 1 1 1 1]
 >>> )

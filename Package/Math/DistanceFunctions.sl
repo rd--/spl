@@ -118,10 +118,10 @@
 	}
 
 	levenshteinDistance { :self :other |
-		self.levenshteinDistance(other, equal:/2)
+		self.levenshteinDistance(other, equal/2)
 	}
 
-	levenshteinDistance { :self :other :equalityBlock:/2 |
+	levenshteinDistance { :self :other :equalityBlock/2 |
 		(
 			self.isEmpty | {
 				other.isEmpty
@@ -149,7 +149,7 @@
 
 	matchingDissimilarity { :u :v |
 		(u.size = v.size).if {
-			u.withCollect(v, equal:/2).occurrencesOf(false) / u.size
+			u.withCollect(v, equal/2).occurrencesOf(false) / u.size
 		} {
 			[u, v].error('matchingDissimilarity: invalid input')
 		}
@@ -298,7 +298,7 @@
 
 +@Collection {
 
-	nearestBy { :self :anObject :aBlock:/2 |
+	nearestBy { :self :anObject :aBlock/2 |
 		let distanceList = self.collect { :each |
 			aBlock(each, anObject)
 		};
@@ -309,7 +309,7 @@
 	}
 
 	nearest { :self :anObject |
-		self.nearestBy(anObject, euclideanDistance:/2)
+		self.nearestBy(anObject, euclideanDistance/2)
 	}
 
 	nearest { :self :anObject :anInteger |
@@ -324,7 +324,7 @@
 
 +List {
 
-	directedHausdorffMetric { :u :v :f:/2 |
+	directedHausdorffMetric { :u :v :f/2 |
 		let cMax  = 0;
 		let a = nil;
 		let b = nil;
@@ -348,25 +348,25 @@
 	}
 
 	directedHausdorffMetric { :u :v |
-		directedHausdorffMetric(u, v, euclideanDistance:/2)
+		directedHausdorffMetric(u, v, euclideanDistance/2)
 	}
 
-	hausdorffDistance { :u :v :f:/2 |
-		hausdorffMetric(u, v, f:/2).at(1)
+	hausdorffDistance { :u :v :f/2 |
+		hausdorffMetric(u, v, f/2).at(1)
 	}
 
 	hausdorffDistance { :u :v |
 		hausdorffMetric(u, v).at(1)
 	}
 
-	hausdorffMetric { :u :v :f:/2 |
-		let a = directedHausdorffMetric(u, v, f:/2);
-		let b = directedHausdorffMetric(v, u, f:/2);
+	hausdorffMetric { :u :v :f/2 |
+		let a = directedHausdorffMetric(u, v, f/2);
+		let b = directedHausdorffMetric(v, u, f/2);
 		(a[1] > b[1]).if { a } { b }
 	}
 
 	hausdorffMetric { :u :v |
-		hausdorffMetric(u, v, euclideanDistance:/2)
+		hausdorffMetric(u, v, euclideanDistance/2)
 	}
 
 	nearestNeighbourAlgorithm { :self :initialIndex |
@@ -412,7 +412,7 @@
 		Graph(vertexList, edgeList)
 	}
 
-	pairwiseDistances { :u :f:/2 |
+	pairwiseDistances { :u :f/2 |
 		let k = u.size;
 		let answer = [];
 		1.toDo(k) { :i |
@@ -424,7 +424,7 @@
 	}
 
 	pairwiseDistances { :u |
-		pairwiseDistances(u, euclideanDistance:/2)
+		pairwiseDistances(u, euclideanDistance/2)
 	}
 
 }
@@ -451,7 +451,7 @@
 		].LineDrawing
 	}
 
-	warpingCorrespondence { :x :y :w :f:/2 |
+	warpingCorrespondence { :x :y :w :f/2 |
 		let derivePath = { :tracebackMatrix |
 			let [n, m] = tracebackMatrix.shape;
 			let i = n;
@@ -474,34 +474,34 @@
 			};
 			path
 		};
-		let [tracebackMatrix, _] = warpingMatrices(x, y, w, f:/2);
-		tracebackMatrix.derivePath.transpose.collect(reverse:/1)
+		let [tracebackMatrix, _] = warpingMatrices(x, y, w, f/2);
+		tracebackMatrix.derivePath.transpose.collect(reverse/1)
 	}
 
 	warpingCorrespondence { :x :y :w |
-		warpingCorrespondence(x, y, w, euclideanDistance:/2)
+		warpingCorrespondence(x, y, w, euclideanDistance/2)
 	}
 
 	warpingCorrespondence { :x :y |
-		warpingCorrespondence(x, y, Infinity, euclideanDistance:/2)
+		warpingCorrespondence(x, y, Infinity, euclideanDistance/2)
 	}
 
-	warpingDistance { :x :y :w :f:/2 |
+	warpingDistance { :x :y :w :f/2 |
 		let i = x.size;
 		let j = y.size;
-		let [_, costMatrix] = warpingMatrices(x, y, w, f:/2);
+		let [_, costMatrix] = warpingMatrices(x, y, w, f/2);
 		costMatrix[i][j]
 	}
 
 	warpingDistance { :x :y :w |
-		warpingDistance(x, y, w, euclideanDistance:/2)
+		warpingDistance(x, y, w, euclideanDistance/2)
 	}
 
 	warpingDistance { :x :y |
-		warpingDistance(x, y, Infinity, euclideanDistance:/2)
+		warpingDistance(x, y, Infinity, euclideanDistance/2)
 	}
 
-	warpingMatrices { :x :y :w :f:/2 |
+	warpingMatrices { :x :y :w :f/2 |
 		let n = x.size;
 		let m = y.size;
 		let tracebackMatrix = [0].reshape([n, m]);
@@ -531,7 +531,7 @@
 	}
 
 	warpingMatrices { :x :y |
-		warpingMatrices(x, y, Infinity, euclideanDistance:/2)
+		warpingMatrices(x, y, Infinity, euclideanDistance/2)
 	}
 
 	warpingPlot { :x :y :c |
@@ -683,7 +683,7 @@
 	needlemanWunschAlgorithm { :a :b :c :o |
 		let p = a.characters;
 		let q = b.characters;
-		needlemanWunschAlgorithm(p, q, c, o).collect(stringJoin:/1)
+		needlemanWunschAlgorithm(p, q, c, o).collect(stringJoin/1)
 	}
 
 	needlemanWunschAlgorithm { :a :b :c |
@@ -697,8 +697,8 @@
 	sequenceAlignment { :a :b |
 		let [c, d] = needlemanWunschAlgorithm(a, b, nil, [1, -1, -1]);
 		let e = c =.each d;
-		let p = split(e, equal:/2);
-		let q = p.collect(size:/1);
+		let p = split(e, equal/2);
+		let q = p.collect(size/1);
 		let r = [1] ++ (q.prefixSum + 1);
 		(1 .. p.size).collect { :i |
 			let x = p[i];
@@ -725,7 +725,7 @@
 			each.isVector.if {
 				each.stringJoin
 			} {
-				each.collect(stringJoin:/1)
+				each.collect(stringJoin/1)
 			}
 		}
 	}

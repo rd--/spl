@@ -12,7 +12,7 @@
 
 	binomial { :n :k |
 		k.isCollection.if {
-			k.adaptToNumberAndApply(n, binomial:/2)
+			k.adaptToNumberAndApply(n, binomial/2)
 		} {
 			(
 				n.isNonNegativeInteger & {
@@ -111,7 +111,7 @@
 			y := y - (-1 ^ a);
 			a := a // 2
 		};
-		0.to(m).collect(catalanNumber:/1).sum - t
+		0.to(m).collect(catalanNumber/1).sum - t
 	}
 
 	catalanRestrictedGrowthString { :z |
@@ -201,7 +201,7 @@
 		self.isOdd.if {
 			0
 		} {
-			let f:/1 = { :m |
+			let f/1 = { :m |
 				let n = m / 2;
 				(n = 0).if {
 					1
@@ -227,7 +227,7 @@
 	}
 
 	generalisedCatalanNumber { :n |
-		let a:/1 = { :n |
+		let a/1 = { :n |
 			(n = 0L).if {
 				1L
 			} {
@@ -329,7 +329,7 @@
 	}
 
 	pascalTriangle { :self |
-		0.to(self - 1).triangularArray(binomial:/2)
+		0.to(self - 1).triangularArray(binomial/2)
 	}
 
 	pascalTriangle { :n :m |
@@ -353,9 +353,9 @@
 	}
 
 	pyramidalNumber { :r :n |
-		let f:/1 = r.pyramidalNumber;
+		let f/1 = r.pyramidalNumber;
 		n.isCollection.if {
-			n.collect(f:/1)
+			n.collect(f/1)
 		} {
 			f(n)
 		}
@@ -446,7 +446,7 @@
 				((3 * (2 * n - 3) * f(n - 1)) - ((n - 3) * f(n - 2))) / n
 			}
 		};
-		f:/1.memoize(true).value(self)
+		f/1.memoize(true).value(self)
 	}
 
 	tetrahedralNumber { :n |
@@ -484,7 +484,7 @@
 	catalanUnrankTable { :self |
 		self.cached('catalanUnrankTable') {
 			(
-				table: 0.to(999).select(isDyckWord:/1),
+				table: 0.to(999).select(isDyckWord/1),
 				limit: 999
 			)
 		}

@@ -1,6 +1,6 @@
 # pairsCollect
 
-- _pairsCollect([x₁ x₂ …], f:/2)_
+- _pairsCollect([x₁ x₂ …], f/2)_
 
 Apply the binary block _f_ to the items of the sequence _x_ taken two at a time,
 moving forward two places each time.

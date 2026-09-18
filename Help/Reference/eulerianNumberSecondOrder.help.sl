@@ -9,7 +9,7 @@ OEIS [A008517](http://oeis.org/A008517):
 
 ```
 >>> 1:7.triangularArray(
->>> 	eulerianNumberSecondOrder:/2
+>>> 	eulerianNumberSecondOrder/2
 >>> )
 [
 	1;

@@ -47,7 +47,7 @@
 		self
 	}
 
-	removeIfAbsent { :self :oldObject :anExceptionBlock:/0 |
+	removeIfAbsent { :self :oldObject :anExceptionBlock/0 |
 		let index = self.indexOf(oldObject);
 		(index = 0).if {
 			anExceptionBlock()

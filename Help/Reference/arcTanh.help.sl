@@ -43,7 +43,7 @@ Plot over a subset of the reals:
 Plot of complex `arcTanh` function:
 
 ~~~spl png=B
-[-2J-2 2J2].complexPlot(arcTanh:/1)
+[-2J-2 2J2].complexPlot(arcTanh/1)
 ~~~
 
 ![](Help/Image/arcTanh-B.png)

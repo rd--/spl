@@ -63,7 +63,7 @@ Column-reverse matrix:
 ]
 
 >>> [1 2 3].diagonalMatrix
->>> .collect(reverse:/1)
+>>> .collect(reverse/1)
 [0 0 1; 0 2 0; 3 0 0]
 ```
 

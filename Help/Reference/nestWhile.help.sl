@@ -1,6 +1,6 @@
 # nestWhile
 
-- _nestWhile(f:/1, i, g:/1)_
+- _nestWhile(f/1, i, g/1)_
 
 Answer the result of applying the block _f_ repeatedly,
 starting with the value _i_,
@@ -11,14 +11,14 @@ Keep dividing by 2 until the result is no longer an even number:
 ```
 >>> { :x |
 >>> 	x / 2
->>> }.nestWhile(123456, isEven:/1)
+>>> }.nestWhile(123456, isEven/1)
 1929
 ```
 
 Iterate taking logarithms until the result is no longer positive:
 
 ```
->>> log:/1.nestWhile(100, isPositive:/1)
+>>> log/1.nestWhile(100, isPositive/1)
 100.log.log.log.log
 ```
 
@@ -40,7 +40,7 @@ OEIS [A003602](https://oeis.org/A003602):
 1:200.collect { :n |
 	let a = { :x |
 		(x / 2).floor
-	}.nestWhile(n, isEven:/1);
+	}.nestWhile(n, isEven/1);
 	(a / 2).ceiling
 }.scatterPlot
 ~~~

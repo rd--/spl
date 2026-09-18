@@ -1,7 +1,7 @@
 # revolutionPlot
 
-- _revolutionPlot(r, f:/2)_
-- _revolutionPlot(z, f:/1)_
+- _revolutionPlot(r, f/2)_
+- _revolutionPlot(z, f/1)_
 
 If _f_ is binary,
 answer a plot of the surface of revolution with height _f(t,θ)_ at radius _r_.

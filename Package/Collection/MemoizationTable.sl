@@ -19,8 +19,8 @@ MemoizationTable : [Object, Iterable, Collection] { | block:<Block> table |
 		self.atAll(keys)
 	}
 
-	do { :self :aBlock:/1 |
-		self.table.do(aBlock:/1)
+	do { :self :aBlock/1 |
+		self.table.do(aBlock/1)
 	}
 
 	size { :self |

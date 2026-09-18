@@ -64,7 +64,7 @@ Polar decomposition of a complex number:
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(-3 -- 3).functionPlot(arg:/1)
+(-3 -- 3).functionPlot(arg/1)
 ~~~
 
 ![](Help/Image/arg-A.svg)

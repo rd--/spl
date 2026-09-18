@@ -1,7 +1,7 @@
 # triangularArray
 
-- _triangularArray(m:n, f:/2, k=0)_
-- _triangularArray([x₁ x₂ …], f:/2)_
+- _triangularArray(m:n, f/2, k=0)_
+- _triangularArray([x₁ x₂ …], f/2)_
 
 Answer a triangular array of _m:n_ rows,
 where the _i_-th row has _i+k_ columns,
@@ -25,7 +25,7 @@ Pascal’s triangle,
 OEIS [A007318](https://oeis.org/A007318):
 
 ```
->>> 0:7.triangularArray(binomial:/2)
+>>> 0:7.triangularArray(binomial/2)
 [
 	1;
 	1 1;
@@ -72,7 +72,7 @@ OEIS [A075364](https://oeis.org/A075364):
 
 ```
 >>> 1:9.triangularArray(^)
->>> .collect(geometricMean:/1)
+>>> .collect(geometricMean/1)
 >>> .floor(1E-9)
 [1 2 9 32 125 529 2401 11585 59049]
 
@@ -400,7 +400,7 @@ let f = { :n :k |
 		}
 	}
 };
-0:10.triangularArray(f:/2)
+0:10.triangularArray(f/2)
 .catenate
 .scatterPlot.logScale
 ~~~
@@ -444,7 +444,7 @@ let t = { :n :k |
 		}
 	}
 };
-1:30.triangularArray(t:/2)
+1:30.triangularArray(t/2)
 .catenate.scatterPlot.log
 ~~~
 

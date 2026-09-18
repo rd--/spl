@@ -86,7 +86,7 @@ OEIS [A058398](https://oeis.org/A058398):
 
 ```
 >>> 1:9.triangularArray(
->>> 	partitionFunctionP:/2
+>>> 	partitionFunctionP/2
 >>> )
 [
 	1;
@@ -152,7 +152,7 @@ OEIS [A008284](https://oeis.org/A008284):
 
 ~~~spl svg=B oeis=A008284
 1:15.triangularArray(
-	partitionFunctionP:/2
+	partitionFunctionP/2
 ).catenate.scatterPlot
 ~~~
 

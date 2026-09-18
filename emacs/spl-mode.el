@@ -255,7 +255,7 @@ If the string begins with a doctest, also delete all non doctest lines."
 
 (defun spl-insert-non-local-return ()
   (interactive)
-  (insert "valueWithReturn { :return:/1 |"))
+  (insert "valueWithReturn { :return/1 |"))
 
 (defvar spl-mode-hook
   nil
@@ -385,7 +385,7 @@ If the string begins with a doctest, also delete all non doctest lines."
      ("-->" . ?⟶) ; U+027F6 ⟶ Long Rightwards Arrow
      (".." . ?…) ; U+2026 … Horizontal Ellipsis; U+2025 ‥ Two Dot Leader
      ("/" . ?÷) ; U+00F7 ÷ Division Sign
-     (":." . ?‣) ; U+2023 ‣ Triangular Bullet
+     ;(":." . ?‣) ; U+2023 ‣ Triangular Bullet
      (":/" . ?⧸) ; U+00B0 ⧸ Big Solidus
      (":/0" . ?₀) ; U+2080 ₀ Subscript Zero
      (":/1" . ?₁) ; U+2081 ₁ Subscript One
@@ -480,7 +480,7 @@ If the string begins with a doctest, also delete all non doctest lines."
      ("quarterToneSharp" . ?𝄲) ; U+1D132 𝄲 Musical Symbol Quarter Tone Sharp
      ("r" . ?𝑟) ; U+1D45F 𝑟 Mathematical Italic Small R
      ("return" . ?↑) ; U+2191 ↑ Upwards Arrow
-     ("return:/1" . ?↑) ; U+2191 ↑ Upwards Arrow
+     ("return/1" . ?↑) ; U+2191 ↑ Upwards Arrow
      ("reverse" . ?ᴙ) ; U+1D19 ᴙ Latin Letter Small Capital Reversed R ; U+233D ⌽ APL Functional Symbol Circle Stile
      ("rotateLeft" . ?⌽) ; U+233D ⌽ APL Functional Symbol Circle Stile
      ("rho" . ?ρ) ; U+03C1 ρ Greek Small Letter Rho

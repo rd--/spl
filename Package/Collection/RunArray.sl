@@ -42,7 +42,7 @@ RunArray : [Object, Equal, Store, Indexable] { | runs values cachedIndex cachedR
 		self.runs.size * 2 + 3
 	}
 
-	atSetRunOffsetAndValue { :self :index :aBlock:/3 |
+	atSetRunOffsetAndValue { :self :index :aBlock/3 |
 		let limit = self.runs.size;
 		let run = nil;
 		let offset = nil;
@@ -73,7 +73,7 @@ RunArray : [Object, Equal, Store, Indexable] { | runs values cachedIndex cachedR
 		aBlock(run, offset, self.values[run])
 	}
 
-	do { :self :aBlock:/1 |
+	do { :self :aBlock/1 |
 		1.toDo(self.runs.size) { :index |
 			let run = self.runs[index];
 			let value = self.values[index];
@@ -86,13 +86,13 @@ RunArray : [Object, Equal, Store, Indexable] { | runs values cachedIndex cachedR
 		}
 	}
 
-	equalBy { :self :anObject :aBlock:/2 |
+	equalBy { :self :anObject :aBlock/2 |
 		(self == anObject).if {
 			true
 		} {
 			anObject.isRunArray & {
-				self.runs.hasEqualElements(anObject.runs, aBlock:/2) & {
-					self.values.hasEqualElements(anObject.values, aBlock:/2)
+				self.runs.hasEqualElements(anObject.runs, aBlock/2) & {
+					self.values.hasEqualElements(anObject.values, aBlock/2)
 				}
 			}
 		}
@@ -110,8 +110,8 @@ RunArray : [Object, Equal, Store, Indexable] { | runs values cachedIndex cachedR
 		self.values.isSorted
 	}
 
-	isSortedBy { :self :aBlock:/2 |
-		self.values.isSortedBy(aBlock:/2)
+	isSortedBy { :self :aBlock/2 |
+		self.values.isSortedBy(aBlock/2)
 	}
 
 	last { :self |
@@ -139,12 +139,12 @@ RunArray : [Object, Equal, Store, Indexable] { | runs values cachedIndex cachedR
 		}
 	}
 
-	runsAndValuesCollect { :self :aBlock:/2 |
-		self.runs.withCollect(self.values, aBlock:/2)
+	runsAndValuesCollect { :self :aBlock/2 |
+		self.runs.withCollect(self.values, aBlock/2)
 	}
 
-	runsAndValuesDo { :self :aBlock:/2 |
-		self.runs.withDo(self.values, aBlock:/2)
+	runsAndValuesDo { :self :aBlock/2 |
+		self.runs.withDo(self.values, aBlock/2)
 	}
 
 	runLengthsOf { :self :anObject |
@@ -170,7 +170,7 @@ RunArray : [Object, Equal, Store, Indexable] { | runs values cachedIndex cachedR
 		)
 	}
 
-	withIndexDo { :self :aBlock:/2 |
+	withIndexDo { :self :aBlock/2 |
 		let index = 0;
 		1.toDo(self.runs.size) { :runIndex |
 			let run = self.runs[runIndex];
@@ -184,7 +184,7 @@ RunArray : [Object, Equal, Store, Indexable] { | runs values cachedIndex cachedR
 		}
 	}
 
-	withStartStopAndValueDo { :self :aBlock:/3 |
+	withStartStopAndValueDo { :self :aBlock/3 |
 		let start = 1;
 		self.runs.withDo(self.values) { :length :value |
 			let stop = start + length - 1;
@@ -198,10 +198,10 @@ RunArray : [Object, Equal, Store, Indexable] { | runs values cachedIndex cachedR
 +List {
 
 	asRunArray { :self |
-		self.asRunArrayWith(identity:/1)
+		self.asRunArrayWith(identity/1)
 	}
 
-	asRunArrayWith { :self :aBlock:/1 |
+	asRunArrayWith { :self :aBlock/1 |
 		let runs = [];
 		let values = [];
 		let lastLength = 0;
@@ -229,8 +229,8 @@ RunArray : [Object, Equal, Store, Indexable] { | runs values cachedIndex cachedR
 
 	associationListToRunArray { :self |
 		RunArray(
-			self.collect(key:/1),
-			self.collect(value:/1)
+			self.collect(key/1),
+			self.collect(value/1)
 		)
 	}
 

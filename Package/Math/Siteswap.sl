@@ -1,7 +1,7 @@
 +List {
 
 	isSiteswap { :t |
-		t.allSatisfy(isNonNegativeInteger:/1) & {
+		t.allSatisfy(isNonNegativeInteger/1) & {
 			let n = t.size;
 			1.to(n).collect { :i |
 				(i + t[i]) % n
@@ -16,7 +16,7 @@
 				let k = (j + t[j] - i);
 				(k > 0) & { k.divisible(n) }
 			}.boole
-		}.withoutTrailing(isZero:/1)
+		}.withoutTrailing(isZero/1)
 	}
 
 	siteswapStateAllowedTransitions { :sigma |

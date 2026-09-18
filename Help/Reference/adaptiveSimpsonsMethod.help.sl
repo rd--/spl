@@ -1,15 +1,15 @@
 # adaptiveSimpsonsMethod
 
-- _adaptiveSimpsonsMethod(f:/1, [a b], ε)_
+- _adaptiveSimpsonsMethod(f/1, [a b], ε)_
 
 Implememt the adaptive Simpson’s method for calculating the integral of the unary block _f_ over the interval _(a,b)_ to tolerance ε.
 
 ```
->>> sin:/1
+>>> sin/1
 >>> .adaptiveSimpsonsMethod([0 1])
 0.459698
 
->>> identity:/1
+>>> identity/1
 >>> .adaptiveSimpsonsMethod([0 9])
 40.5
 

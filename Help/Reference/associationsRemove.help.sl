@@ -1,6 +1,6 @@
 # associationsRemove
 
-- _associationsRemove(aDictionary, aBlock:/1)_
+- _associationsRemove(aDictionary, aBlock/1)_
 
 Remove entries from _aDictionary_ where _aBlock_ answers `true` for the `Association`.
 

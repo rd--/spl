@@ -1,6 +1,6 @@
 # arrayReduce
 
-- _arrayReduce(f:/1, a, n)_
+- _arrayReduce(f/1, a, n)_
 
 Reduces dimension _n_ of the array _a_ by applying the block _f_.
 
@@ -8,7 +8,7 @@ Compute the mean of every row of a matrix:
 
 ```
 >>> let m = [1 .. 15].reshape([3 5]);
->>> mean:/1.arrayReduce(m, 1)
+>>> mean/1.arrayReduce(m, 1)
 [3 8 13]
 ```
 
@@ -16,7 +16,7 @@ Compute the mean of every column of a matrix:
 
 ```
 >>> let m = [1 .. 15].reshape([3 5]);
->>> mean:/1.arrayReduce(m, 2)
+>>> mean/1.arrayReduce(m, 2)
 [6 7 8 9 10]
 ```
 

@@ -45,7 +45,7 @@ and three composite sequences:
 >>> 	5 3 1;
 >>> 	4 5 3 0
 >>> 	5 2 2
->>> ].allSatisfy(isSiteswap:/1)
+>>> ].allSatisfy(isSiteswap/1)
 true
 
 >>> [
@@ -58,7 +58,7 @@ true
 >>> 	3 5 3 1 4 2 4 2 3 3
 >>> 	3 4 5 3 0 4 5 3 0 5
 >>> 	3 1 3 5 3 1
->>> ].allSatisfy(isSiteswap:/1)
+>>> ].allSatisfy(isSiteswap/1)
 true
 ```
 

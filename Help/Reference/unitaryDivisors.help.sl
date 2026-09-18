@@ -16,7 +16,7 @@ The first few terms,
 OEIS [A077610](https://oeis.org/A077610):
 
 ```
->>> 1:15.collect(unitaryDivisors:/1)
+>>> 1:15.collect(unitaryDivisors/1)
 [
 	1;
 	1 2;
@@ -80,7 +80,7 @@ The unitary divisors of _n_,
 OEIS [A077610](https://oeis.org/A077610):
 
 ~~~spl svg=A oeis=A077610
-1:65.collect(unitaryDivisors:/1)
+1:65.collect(unitaryDivisors/1)
 .catenate.scatterPlot
 ~~~
 
@@ -123,7 +123,7 @@ OEIS [A068068](https://oeis.org/A068068):
 
 ~~~spl svg=E oeis=A068068
 1:55.collect { :n |
-	n.unitaryDivisors.count(isOdd:/1)
+	n.unitaryDivisors.count(isOdd/1)
 }.discretePlot
 ~~~
 

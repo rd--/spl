@@ -9,7 +9,7 @@ First few unit fractions that are repeating:
 
 ```
 >>> (1L / 1:20)
->>> .select(isRepeatingDecimal:/1)
+>>> .select(isRepeatingDecimal/1)
 [
 	1/3  1/6  1/7  1/9  1/11
 	1/12 1/13 1/14 1/15 1/17
@@ -21,7 +21,7 @@ First few unit fractions that are terminating:
 
 ```
 >>> (1L / 1:20)
->>> .select(isTerminatingDecimal:/1)
+>>> .select(isTerminatingDecimal/1)
 [
 	1/1  1/2  1/4  1/5  1/8
 	1/10 1/16 1/20

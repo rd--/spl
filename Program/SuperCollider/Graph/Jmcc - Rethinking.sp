@@ -9,7 +9,7 @@ let exciterFunction = {
 		0.003
 	)
 };
-let in = exciterFunction:/0 !+ numberOfExciters;
+let in = exciterFunction/0 !+ numberOfExciters;
 let predelayed = DelayN(in, 0.048, 0.048);
 let out = {
 	CombL(

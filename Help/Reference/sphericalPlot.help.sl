@@ -1,6 +1,6 @@
 # sphericalPlot
 
-- _sphericalPlot([θ𐞪 ϕ𐞪], f:/2)_
+- _sphericalPlot([θ𐞪 ϕ𐞪], f/2)_
 
 Answer a plot with a spherical radius _r_ as a function of spherical coordinates _θ_ and _ϕ_,
 ranging over the specified intervals _θ𐞪_ and _ϕ𐞪_.

@@ -27,7 +27,7 @@ The Nuttall window function:
 
 ~~~spl svg=A
 (-0.5 -- 0.5).functionPlot(
-	nuttallWindow:/1
+	nuttallWindow/1
 )
 ~~~
 
@@ -38,7 +38,7 @@ Discrete Nuttall window of length 15:
 ~~~spl svg=B
 (-0.5 -- 0.5).discretize(
 	15,
-	nuttallWindow:/1
+	nuttallWindow/1
 ).discretePlot
 ~~~
 
@@ -48,7 +48,7 @@ Frequency response of the Nuttall window:
 
 ~~~spl svg=C
 51.windowTable(
-	nuttallWindow:/1
+	nuttallWindow/1
 ).fftPlot(512, 'Centered', 'Logarithmic')
 ~~~
 

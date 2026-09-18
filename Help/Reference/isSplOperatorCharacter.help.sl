@@ -12,7 +12,7 @@ true
 
 >>> '<=>'.characters
 >>> .allSatisfy(
->>> 	isSplOperatorCharacter:/1
+>>> 	isSplOperatorCharacter/1
 >>> )
 true
 ```

@@ -1,6 +1,6 @@
 # BlockStream
 
-- _BlockStream(nextBlock:/0, resetBlock:/0)_
+- _BlockStream(nextBlock/0, resetBlock/0)_
 
 `BlockStream` is a `Type` that implements the `Iterator` and `Stream` traits.
 

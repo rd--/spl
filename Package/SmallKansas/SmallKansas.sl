@@ -10,8 +10,8 @@
 
 SmallKansas : [Object, Cache] { | container frameSet cache history where |
 
-	addFrameWithAnimator { :self :subject :event :delay :aBlock:/0 |
-		let timerId = aBlock:/0.valueEvery(delay.asSeconds);
+	addFrameWithAnimator { :self :subject :event :delay :aBlock/0 |
+		let timerId = aBlock/0.valueEvery(delay.asSeconds);
 		let frame = self.addFrame(subject, event);
 		frame.addEventListener('close') { :unusedEvent |
 			timerId.cancel
@@ -112,8 +112,8 @@ SmallKansas : [Object, Cache] { | container frameSet cache history where |
 	}
 
 	implementorsOf { :self :subject :event |
-		let bracketedSubject = '>>' ++ subject ++ ':/';
-		let methodSignatures = system.allMethods.collect(signature:/1).select { :each |
+		let bracketedSubject = '>>' ++ subject ++ '/';
+		let methodSignatures = system.allMethods.collect(signature/1).select { :each |
 			each.includesSubstring(bracketedSubject)
 		}.copyWithoutIdenticalElements.sort;
 		self.addFrame(self.MethodSignatureBrowser(methodSignatures, false), event)
@@ -136,7 +136,7 @@ SmallKansas : [Object, Cache] { | container frameSet cache history where |
 	referencesTo { :self :subject :event |
 		self.addFrame(
 			self.MethodSignatureBrowser(
-				system.methodSourceCodeSearch(subject).collect(signature:/1),
+				system.methodSourceCodeSearch(subject).collect(signature/1),
 				false
 			),
 			event
@@ -154,7 +154,7 @@ SmallKansas : [Object, Cache] { | container frameSet cache history where |
 		}
 	}
 
-	withMidiAccess { :self :aBlock:/1 |
+	withMidiAccess { :self :aBlock/1 |
 		self.midiAccess.thenElse { :midiAccess |
 			aBlock(midiAccess)
 		} { :message |
@@ -166,7 +166,7 @@ SmallKansas : [Object, Cache] { | container frameSet cache history where |
 		self.frameSet.isEmpty.if {
 			[0]
 		} {
-			self.frameSet.collect(zIndex:/1)
+			self.frameSet.collect(zIndex/1)
 		}
 	}
 

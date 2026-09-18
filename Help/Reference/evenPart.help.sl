@@ -9,7 +9,7 @@ The highest power of two dividing _n_,
 OEIS [A006519](https://oeis.org/A006519):
 
 ```
->>> 1:20.collect(evenPart:/1)
+>>> 1:20.collect(evenPart/1)
 [
 	1 2 1 4 1  2 1 8 1 2
 	1 4 1 2 1 16 1 2 1 4
@@ -20,7 +20,7 @@ The highest power of two dividing _n_,
 OEIS [A006519](https://oeis.org/A006519):
 
 ~~~spl svg=A oeis=A006519
-1:127.collect(evenPart:/1)
+1:127.collect(evenPart/1)
 .discretePlot
 ~~~
 

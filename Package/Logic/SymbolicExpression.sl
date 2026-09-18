@@ -17,26 +17,26 @@
 @SymbolicObject {
 
 	[equal, =] { :self :anObject |
-		'='.symbolicPrimitive([self, anObject])
+		'equal'.symbolicPrimitive([self, anObject])
 	}
 
 	[similar, ~] { :self :anObject |
-		'~'.symbolicPrimitive([self, anObject])
+		'similar'.symbolicPrimitive([self, anObject])
 	}
 
 }
 
 @SymbolicBoolean {
 
-	& { :self :aBlock:/0 |
+	& { :self :aBlock/0 |
 		'and'.symbolicPrimitive([self, aBlock()])
 	}
 
-	| { :self :aBlock:/0 |
+	| { :self :aBlock/0 |
 		'or'.symbolicPrimitive([self, aBlock()])
 	}
 
-	if { :self :whenTrue:/0 :whenFalse:/0 |
+	if { :self :whenTrue/0 :whenFalse/0 |
 		'if'.symbolicPrimitive([self, whenTrue(), whenFalse()])
 	}
 
@@ -49,19 +49,19 @@
 @SymbolicCompare {
 
 	[less, <] { :self :operand |
-		'<'.symbolicPrimitive([self, operand])
+		'less'.symbolicPrimitive([self, operand])
 	}
 
 	[lessEqual, <=] { :self :operand |
-		'<='.symbolicPrimitive([self, operand])
+		'lessEqual'.symbolicPrimitive([self, operand])
 	}
 
 	[greater, >] { :self :operand |
-		'>'.symbolicPrimitive([self, operand])
+		'greater'.symbolicPrimitive([self, operand])
 	}
 
 	[greaterEqual, >=] { :self :operand |
-		'>='.symbolicPrimitive([self, operand])
+		'greaterEqual'.symbolicPrimitive([self, operand])
 	}
 
 	max { :self :operand |
@@ -84,7 +84,7 @@
 		operand.isNumericConstant(1).if {
 			self
 		} {
-			'/'.symbolicPrimitive([self, operand])
+			'divide'.symbolicPrimitive([self, operand])
 		}
 	}
 
@@ -93,19 +93,19 @@
 	}
 
 	[mod, %] { :self :operand |
-		'%'.symbolicPrimitive([self, operand])
+		'mod'.symbolicPrimitive([self, operand])
 	}
 
 	[plus, +] { :self :operand |
 		operand.isNumericConstant(0).if {
 			self
 		} {
-			'+'.symbolicPrimitive([self, operand])
+			'plus'.symbolicPrimitive([self, operand])
 		}
 	}
 
 	[power, ^] { :self :operand |
-		'^'.symbolicPrimitive([self, operand])
+		'power'.symbolicPrimitive([self, operand])
 	}
 
 	[quotient, //] { :self :operand |
@@ -120,7 +120,7 @@
 		operand.isNumericConstant(0).if {
 			self
 		} {
-			'-'.symbolicPrimitive([self, operand])
+			'subtract'.symbolicPrimitive([self, operand])
 		}
 	}
 
@@ -128,7 +128,7 @@
 		operand.isNumericConstant(1).if {
 			self
 		} {
-			'*'.symbolicPrimitive([self, operand])
+			'times'.symbolicPrimitive([self, operand])
 		}
 	}
 
@@ -136,10 +136,9 @@
 		'abs'.symbolicPrimitive([self])
 	}
 
-	adaptToNumberAndApply { :self :receiver :aBlock:/2 |
-		let name = aBlock:/2.unqualifiedName;
+	adaptToNumberAndApply { :self :receiver :aBlock/2 |
 		SymbolicExpression(
-			name.splOperatorNameToken.ifNil { name },
+			aBlock/2.unqualifiedName,
 			[receiver, self]
 		).simplifyConstantMath
 	}
@@ -173,11 +172,11 @@
 	}
 
 	log2 { :self |
-		'log2'.symbolicPrimitive([self])
+		'log'.symbolicPrimitive([self, 2])
 	}
 
 	log10 { :self |
-		'log10'.symbolicPrimitive([self])
+		'log'.symbolicPrimitive([self, 10])
 	}
 
 	one { :unused |
@@ -196,7 +195,7 @@
 		'sin'.symbolicPrimitive([self])
 	}
 
-	[squareRoot, sqrt] { :self |
+	[sqrt, squareRoot] { :self |
 		'sqrt'.symbolicPrimitive([self])
 	}
 
@@ -216,8 +215,15 @@ Symbol : [Object, Store, Number, Integer, SymbolicObject, SymbolicBoolean, Symbo
 		self == anObject
 	}
 
+	operatorName { :self |
+		let name = self.name;
+		name.splOperatorSymbolToken.ifNil {
+			name
+		}
+	}
+
 	printString { :self |
-		self.name
+		self.operatorName
 	}
 
 }
@@ -257,11 +263,11 @@ SymbolicExpression : [Object, Store, Number, SymbolicObject, SymbolicBoolean, Sy
 		)
 	}
 
-	commonSubexpressions { :self :aBlock:/2 |
+	commonSubexpressions { :self :aBlock/2 |
 		let all = UnsortedSet();
 		let common = UnsortedSet();
-		all.comparator := aBlock:/2;
-		common.comparator := aBlock:/2;
+		all.comparator := aBlock/2;
+		common.comparator := aBlock/2;
 		self.do { :each |
 			each.isSymbolicExpression.ifTrue {
 				all.includes(each).if {
@@ -274,16 +280,16 @@ SymbolicExpression : [Object, Store, Number, SymbolicObject, SymbolicBoolean, Sy
 		common.asList
 	}
 
-	do { :self :aBlock:/1 |
+	do { :self :aBlock/1 |
 		aBlock(self);
 		self.operator.isSymbolicExpression.if {
-			self.operator.do(aBlock:/1)
+			self.operator.do(aBlock/1)
 		} {
 			aBlock(self.operator)
 		};
 		self.operands.do { :each |
 			each.isSymbolicExpression.if {
-				each.do(aBlock:/1)
+				each.do(aBlock/1)
 			} {
 				aBlock(each)
 			}
@@ -307,12 +313,18 @@ SymbolicExpression : [Object, Store, Number, SymbolicObject, SymbolicBoolean, Sy
 	}
 
 	printString { :self |
+		let operator = self.operator;
+		let lhs = operator.isSymbol.if {
+			operator.operatorName
+		} {
+			operator.printString
+		};
 		self.operands.isEmpty.if {
-			'(%)'.format([self.operator.printString])
+			'(%)'.format([lhs])
 		} {
 			'(% %)'.format(
 				[
-					self.operator.printString,
+					lhs,
 					self.operands.collect { :each |
 						each.isSmallFloat.if {
 							each.recogniseSymbolicExpression
@@ -341,8 +353,8 @@ SymbolicExpression : [Object, Store, Number, SymbolicObject, SymbolicBoolean, Sy
 			};
 			self.operator.name.caseOf(
 				[
-					'+' -> { simplify(0) },
-					'*' -> { simplify(1) }
+					'plus' -> { simplify(0) },
+					'times' -> { simplify(1) }
 				]
 			) {
 				self
@@ -375,7 +387,7 @@ SymbolicExpression : [Object, Store, Number, SymbolicObject, SymbolicBoolean, Sy
 	}
 
 	symbolicPrimitive { :self :operands |
-		operands.anySatisfy(isList:/1).if {
+		operands.anySatisfy(isList/1).if {
 			operands.multiChannelExpand.collect { :each |
 				SymbolicExpression(self, each)
 			}
@@ -396,7 +408,7 @@ SymbolicExpression : [Object, Store, Number, SymbolicObject, SymbolicBoolean, Sy
 
 	asSymbolicExpression { :self :parameterNames |
 		(self.numArgs = parameterNames.size).if {
-			self.apply(parameterNames.collect(Symbol:/1))
+			self.apply(parameterNames.collect(Symbol/1))
 		} {
 			self.error('asSymbolicExpression: arity error')
 		}
@@ -421,10 +433,12 @@ SymbolicExpression : [Object, Store, Number, SymbolicObject, SymbolicBoolean, Sy
 +SmallFloat {
 
 	recogniseSymbolicExpression { :self |
-		self.caseOf([
-			1.pi -> { Symbol('π') },
-			2.pi -> { 2 * Symbol('π') }
-		]) {
+		self.caseOf(
+			[
+				1.pi -> { Symbol('π') },
+				2.pi -> { 2 * Symbol('π') }
+			]
+		) {
 			self
 		}
 	}

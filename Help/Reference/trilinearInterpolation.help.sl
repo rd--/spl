@@ -19,7 +19,7 @@ using function data on the lattice points.
 >>> 	0.25 0.5 0.5;
 >>> 	0.5 0.25 0.5;
 >>> 	0.5 0.5 0.25
->>> ].collect(f:/1)
+>>> ].collect(f/1)
 [
 	0.25 0.5 0.5;
 	0.5 0.25 0.5;

@@ -179,7 +179,7 @@ OEIS [A002815](https://oeis.org/A002815):
 
 ```
 >>> 0:23.collect { :n |
->>> 	n + 1:n.sum(primePi:/1)
+>>> 	n + 1:n.sum(primePi/1)
 >>> }
 [
 	0 1 3 6 9 13 17 22 27 32 37 43 49 56
@@ -245,7 +245,7 @@ let a = { :n |
 		}
 	}
 };
-1:200.collect(a:/1).scatterPlot.log
+1:200.collect(a/1).scatterPlot.log
 ~~~
 
 ![](Help/Image/primePi-D.svg)
@@ -268,7 +268,7 @@ let a = { :n |
 		}
 	}
 };
-1:150.collect(a:/1)
+1:150.collect(a/1)
 .scatterPlot
 ~~~
 
@@ -533,7 +533,7 @@ OEIS [A195017](https://oeis.org/A195017):
 ```
 >>> 2:20.collect { :n |
 >>> 	let i = n.primeFactors.primePi;
->>> 	let j = i.count(isOdd:/1);
+>>> 	let j = i.count(isOdd/1);
 >>> 	let k = i.size;
 >>> 	j - (k - j)
 >>> }
@@ -587,7 +587,7 @@ OEIS [A022447](https://oeis.org/A022447):
 
 ~~~spl svg=Y oeis=A022447
 1:65.collect { :n |
-	let x = primePi:/1.nestWhile(n, isPrime:/1);
+	let x = primePi/1.nestWhile(n, isPrime/1);
 	x - x.primePi
 }.discretePlot
 ~~~

@@ -444,7 +444,7 @@
 	offset { :self |
 		self.offsetText
 		.splitBy(',')
-		.collect(parseDecimalInteger:/1)
+		.collect(parseDecimalInteger/1)
 	}
 
 	readSequenceFile { :self :directoryName |
@@ -495,7 +495,7 @@ OeisEntry : [Object, Store, Equal, OeisSequence] { | identifier:<String> content
 		self.lookupField('data')
 	}
 
-	equalBy { :self :operand :aBlock:/2 |
+	equalBy { :self :operand :aBlock/2 |
 		aBlock(self.identifier, operand.identifier)
 	}
 
@@ -561,11 +561,11 @@ OeisEntry : [Object, Store, Equal, OeisSequence] { | identifier:<String> content
 		'OeisEntry(%)'.format([self.identifier.storeString])
 	}
 
-	then { :self :aBlock:/1 |
-		self.fetch.then(aBlock:/1)
+	then { :self :aBlock/1 |
+		self.fetch.then(aBlock/1)
 	}
 
-	withData { :self :aBlock:/1 |
+	withData { :self :aBlock/1 |
 		self.fetchContents.then { :e |
 			aBlock(e.data)
 		}
@@ -772,7 +772,7 @@ LibraryItem(
 	category: 'Math/IntegerSequences',
 	url: 'https://rohandrape.net/sw/hsc3-data/data/oeis/OeisBFileData.json',
 	mimeType: 'application/json',
-	parser: identity:/1
+	parser: identity/1
 )
 
 +List {
@@ -785,7 +785,7 @@ LibraryItem(
 	}
 
 	oeisFunction { :self |
-		self.collect(oeisFunction:/1)
+		self.collect(oeisFunction/1)
 	}
 
 }

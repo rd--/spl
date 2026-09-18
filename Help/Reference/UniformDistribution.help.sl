@@ -120,7 +120,7 @@ let r = Sfc32(379312);
 UniformDistribution[
 	0 1; -0.25.pi 0.25.pi
 ].randomVariate(r, [2 ^ 7])
-.collect(fromPolarCoordinates:/1)
+.collect(fromPolarCoordinates/1)
 .scatterPlot
 ~~~
 

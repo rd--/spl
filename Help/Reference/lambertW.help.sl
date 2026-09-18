@@ -31,7 +31,7 @@ At `e` and `zero`:
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(-1 / 1.e -- 10).functionPlot(lambertW:/1)
+(-1 / 1.e -- 10).functionPlot(lambertW/1)
 ~~~
 
 ![](Help/Image/lambertW-A.svg)
@@ -39,7 +39,7 @@ Plot over a subset of the reals:
 Polar plot:
 
 ~~~spl svg=B
-(0 -- 6.pi).polarPlot(lambertW:/1)
+(0 -- 6.pi).polarPlot(lambertW/1)
 ~~~
 
 ![](Help/Image/lambertW-B.svg)

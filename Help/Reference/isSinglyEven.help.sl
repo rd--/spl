@@ -8,7 +8,7 @@ Positive integers congruent to two modulo four,
 OEIS [A016825](http://oeis.org/A016825):
 
 ```
->>> 1:100.select(isSinglyEven:/1)
+>>> 1:100.select(isSinglyEven/1)
 [
 	 2  6 10 14 18 22 26 30 34 38
 	42 46 50 54 58 62 66 70 74 78

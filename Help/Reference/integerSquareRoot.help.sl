@@ -114,7 +114,7 @@ Show that the expression _f_ below answers non-square numbers:
 >>> 	r.square = n
 >>> };
 >>> (
->>> 	1:22.collect(f:/1),
+>>> 	1:22.collect(f/1),
 >>> 	1:1000.anySatisfy { :n |
 >>> 		f(n).isSquare
 >>> 	}

@@ -52,7 +52,7 @@ At one half:
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(0.25 -- 3).functionPlot(digamma:/1)
+(0.25 -- 3).functionPlot(digamma/1)
 ~~~
 
 ![](Help/Image/digamma-A.svg)

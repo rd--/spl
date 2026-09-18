@@ -8,7 +8,7 @@ Plot over _(-1, 1)_:
 
 ~~~spl svg=A
 (-1 -- 1).functionPlot(
-	epanechnikovKernel:/1
+	epanechnikovKernel/1
 )
 ~~~
 

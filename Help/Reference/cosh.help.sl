@@ -76,7 +76,7 @@ OEIS [A010050](https://oeis.org/A010050):
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(-4 -- 4).functionPlot(cosh:/1)
+(-4 -- 4).functionPlot(cosh/1)
 ~~~
 
 ![](Help/Image/cosh-A.svg)
@@ -85,8 +85,8 @@ Plot `cosh` alongside a Padé approximation:
 
 ~~~spl svg=B
 (-1.pi -- 1.pi).functionPlot([
-	cosh:/1,
-	coshApproximation:/1
+	cosh/1,
+	coshApproximation/1
 ])
 ~~~
 
@@ -97,8 +97,8 @@ Plot `cosh` alongside a Padé approximation:
 ~~~spl svg=C
 (-1.pi -- 1.pi).functionPlot(
 	[
-		cosh:/1,
-		exp:/1,
+		cosh/1,
+		exp/1,
 		{ :x | -x.exp }
 	]
 )
@@ -110,7 +110,7 @@ Plot over a subset of the complexes:
 
 ~~~spl png=D
 [-0.25.pi.j(-2.5), 0.25.pi.j(2.5)]
-.complexPlot(cosh:/1)
+.complexPlot(cosh/1)
 ~~~
 
 ![](Help/Image/cosh-D.png)
@@ -134,7 +134,7 @@ log scale plot:
 `cosh` and `sinh`:
 
 ~~~spl svg=F
-(-3 -- 3).functionPlot([cosh:/1, sinh:/1])
+(-3 -- 3).functionPlot([cosh/1, sinh/1])
 ~~~
 
 ![](Help/Image/cosh-F.svg)

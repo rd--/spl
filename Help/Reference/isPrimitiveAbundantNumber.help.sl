@@ -5,7 +5,7 @@
 Predicate to decide if _n_ is a primitive abundant number.
 
 ```
->>> 1:572.select(isPrimitiveAbundantNumber:/1)
+>>> 1:572.select(isPrimitiveAbundantNumber/1)
 [20 70 88 104 272 304 368 464 550 572]
 ```
 

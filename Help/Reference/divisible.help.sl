@@ -158,7 +158,7 @@ OEIS [A001651](https://oeis.org/A001651):
 Matrix plot of divisor table:
 
 ~~~spl svg=A
-divisible:/2.swap
+divisible/2.swap
 .table(1:12, 1:60)
 .boole
 .matrixPlot
@@ -210,7 +210,7 @@ OEIS [A237851](https://oeis.org/A237851):
 ~~~spl svg=E oeis=A237851
 [1].leastExcludedSequence(200) { :a :n :m |
 	a[n - 1].integerDigits
-	.select(isPositive:/1)
+	.select(isPositive/1)
 	.unique
 	.allSatisfy { :x |
 		m.divisible(x)
@@ -226,7 +226,7 @@ OEIS [A002796](https://oeis.org/A002796):
 ~~~spl svg=F oeis=A002796
 1:500.select { :n |
 	n.integerDigits
-	.select(isPositive:/1)
+	.select(isPositive/1)
 	.unique
 	.allSatisfy { :x |
 		n.divisible(x)

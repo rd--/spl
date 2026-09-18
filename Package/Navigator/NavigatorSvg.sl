@@ -148,9 +148,9 @@ SVGTransformList! : [Object] {
 
 +Graph {
 
-	asSvgElement { :self :scale :projection:/1 |
+	asSvgElement { :self :scale :projection/1 |
 		let lineWidth = 0.25;
-		let points = (self.vertexCoordinates * scale).collect(projection:/1);
+		let points = (self.vertexCoordinates * scale).collect(projection/1);
 		let bbox = points.computeBoundingBoxRectangle;
 		let dots = points.collect { :each |
 			let [x, y] = each;

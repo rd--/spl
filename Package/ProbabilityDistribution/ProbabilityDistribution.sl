@@ -41,7 +41,7 @@
 	}
 
 	survivalFunction { :self |
-		let f:/1 = self.cdf;
+		let f/1 = self.cdf;
 		{ :x |
 			1 - f(x)
 		}

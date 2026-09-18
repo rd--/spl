@@ -18,7 +18,7 @@ Plot the stirrup curve at _z=0_::
 
 ~~~spl svg=A
 let i = (-5 -- 5).subdivide(50);
-stirrupCurve:/2
+stirrupCurve/2
 .contourPlot(i, i, [0])
 ~~~
 

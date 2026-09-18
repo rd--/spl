@@ -2,8 +2,8 @@ HiddenMarkovProcess : [Object] { | p0 m e |
 
 	asStream { :self :r |
 		let p0 = AliasMethod(self.p0);
-		let m = self.m.collect(AliasMethod:/1);
-		let e = self.e.collect(AliasMethod:/1);
+		let m = self.m.collect(AliasMethod/1);
+		let e = self.e.collect(AliasMethod/1);
 		let x = p0.nextRandom(r);
 		BlockStream {
 			let answer = e[x].nextRandom(r);

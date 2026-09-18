@@ -1,13 +1,13 @@
 # mapThread
 
-- _mapThread(f:/n, m)_
+- _mapThread(f/n, m)_
 
 Apply _f_ to the columns of _m_.
 
 A unary function at a matrix of one row:
 
 ```
->>> sqrt:/1.mapThread([[1 4 9 16 25]])
+>>> sqrt/1.mapThread([[1 4 9 16 25]])
 [1 2 3 4 5]
 
 >>> [1 4 9 16 25].sqrt

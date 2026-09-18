@@ -89,7 +89,7 @@ OEIS [A124754](https://oeis.org/A124754):
 1:7.collect { :n |
 	n.integerCompositions
 	.reverseLexicographicSort
-	.collect(alternatingSum:/1)
+	.collect(alternatingSum/1)
 }.catenate.discretePlot
 ~~~
 
@@ -117,7 +117,7 @@ OEIS [A358133](https://oeis.org/A358133):
 1:6.collect { :n |
 	n.integerCompositions
 	.reverseLexicographicSort
-}.catenate.collect(differences:/1)
+}.catenate.collect(differences/1)
 .catenate.discretePlot
 ~~~
 
@@ -131,7 +131,7 @@ OEIS [A353932](https://oeis.org/A353932):
 	n.integerCompositions
 	.reverseLexicographicSort
 	.collect { :c |
-		c.split(=).collect(sum:/1)
+		c.split(=).collect(sum/1)
 	}
 }.catenate.catenate.discretePlot
 ~~~

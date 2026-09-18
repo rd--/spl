@@ -8,7 +8,7 @@ Select entries from the Svg colour catalogue that are cyan:
 
 ```
 >>> system.svgColourCatalogue
->>> .select(isCyan:/1)
+>>> .select(isCyan/1)
 >>> .keys
 [
 	'aqua'
@@ -24,7 +24,7 @@ not that the colours called 'Aqua' and 'Cyan' are the same:
 
 ~~~spl svg=A
 system.svgColourCatalogue
-.select(isCyan:/1)
+.select(isCyan/1)
 .values
 .enclose.arrayPlot
 ~~~

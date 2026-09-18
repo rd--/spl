@@ -18,7 +18,7 @@ TemporalData : [Object, Equal] { | valueList timeList |
 	}
 
 	dataPointCount { :self |
-		self.valueList.collect(size:/1).sum
+		self.valueList.collect(size/1).sum
 	}
 
 	discretePlot { :self |
@@ -26,7 +26,7 @@ TemporalData : [Object, Equal] { | valueList timeList |
 	}
 
 	isRegularlySampled { :self |
-		self.timeList.allSatisfy(isRegularlySpaced:/1)
+		self.timeList.allSatisfy(isRegularlySpaced/1)
 	}
 
 	linePlot { :self |
@@ -34,7 +34,7 @@ TemporalData : [Object, Equal] { | valueList timeList |
 	}
 
 	minimumTimeIncrement { :self |
-		self.timeList.collect(minimumDifference:/1)
+		self.timeList.collect(minimumDifference/1)
 	}
 
 	pathCount { :self |
@@ -104,7 +104,7 @@ TemporalData : [Object, Equal] { | valueList timeList |
 
 +Block {
 
-	regularTemporalData { :aBlock:/1 :timeSpecificationList |
+	regularTemporalData { :aBlock/1 :timeSpecificationList |
 		TemporalData(
 			timeSpecificationList.collect { :timeSpecification |
 				let [tMin, tMax, tStep] = timeSpecification;

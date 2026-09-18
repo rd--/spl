@@ -1,6 +1,6 @@
 # quickSortBy
 
-- _quickSortBy([x₁ x₂ …], f:/2)_
+- _quickSortBy([x₁ x₂ …], f/2)_
 
 Sort the sequence _x_ in place using the comparator block _f_.
 Answers _x_.

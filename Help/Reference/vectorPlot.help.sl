@@ -1,7 +1,7 @@
 # vectorPlot
 
-- _vectorPlot(f:/2, x, y)_
-- _vectorPlot(f:/2, c)_
+- _vectorPlot(f/2, x, y)_
+- _vectorPlot(f/2, c)_
 
 Answer a vector plot of the vector field specified by the function _f_ of _x_ and _y_,
 specified as `Interval`s.

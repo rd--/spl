@@ -2,7 +2,7 @@
 
 - _isArray(x)_
 - _isArray(x, r)_
-- _isArray(x, r, f:/1)_
+- _isArray(x, r, f/1)_
 
 Answer `true` if the object _x_ is an array.
 A `List` is an array if it is has a `shape`.
@@ -18,7 +18,7 @@ true
 >>> [1 2 3 4 5 6].isArray(1)
 true
 
->>> [1 2 3 4 5 6].isArray(1, isInteger:/1)
+>>> [1 2 3 4 5 6].isArray(1, isInteger/1)
 true
 ```
 
@@ -31,7 +31,7 @@ true
 >>> [1 2 3; 4 5 6].isArray(2)
 true
 
->>> [1 2 3; 4 5 6].isArray(2, isInteger:/1)
+>>> [1 2 3; 4 5 6].isArray(2, isInteger/1)
 true
 ```
 
@@ -45,7 +45,7 @@ true
 true
 
 >>> [1 2; 3 4:; 5 6; 7 8]
->>> .isArray(3, isInteger:/1)
+>>> .isArray(3, isInteger/1)
 true
 ```
 

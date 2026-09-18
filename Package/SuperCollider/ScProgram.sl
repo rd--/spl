@@ -29,7 +29,7 @@ SuperColliderProgramIndex : [Object] { | contents |
 		self.contents.select { :each |
 			each[1] = category
 		}
-		.collect(second:/1)
+		.collect(second/1)
 		.copyWithoutIdenticalElements
 		.sort
 	}
@@ -37,7 +37,7 @@ SuperColliderProgramIndex : [Object] { | contents |
 	categories { :self |
 		self
 		.contents
-		.collect(first:/1)
+		.collect(first/1)
 		.copyWithoutIdenticalElements
 		.sort
 	}
@@ -47,7 +47,7 @@ SuperColliderProgramIndex : [Object] { | contents |
 			each[1] = category & {
 				each[2] = author
 			}
-		}.collect(third:/1).sort
+		}.collect(third/1).sort
 	}
 
 	size { :self |
@@ -68,7 +68,7 @@ SuperColliderProgramIndex : [Object] { | contents |
 
 	parseSuperColliderProgramIndex { :self |
 		SuperColliderProgramIndex(
-			self.lines.select(isNotEmpty:/1).collect { :each |
+			self.lines.select(isNotEmpty/1).collect { :each |
 				each.replaceString('.sp', '')
 				.splitByRegularExpression(
 					RegularExpression(' - |/')
@@ -96,7 +96,7 @@ LibraryItem(
 	category: 'Music/Synthesis',
 	url: 'https://rohandrape.net/sw/jssc3/text/SmallHoursPrograms.text',
 	mimeType: 'text/plain',
-	parser: parseSuperColliderProgramIndex:/1
+	parser: parseSuperColliderProgramIndex/1
 )
 
 LibraryItem(
@@ -104,5 +104,5 @@ LibraryItem(
 	category: 'Music/Synthesis',
 	url: 'https://rohandrape.net/sw/jssc3/text/SmallHoursOracle.text',
 	mimeType: 'text/plain',
-	parser: parseSuperColliderProgramIndex:/1
+	parser: parseSuperColliderProgramIndex/1
 )

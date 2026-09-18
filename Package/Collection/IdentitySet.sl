@@ -45,7 +45,7 @@ IdentitySet! : [Object, Store, Equal, Iterable, Collection, Extensible, Unordere
 		>
 	}
 
-	removeIfAbsent { :self :anObject :aBlock:/0 |
+	removeIfAbsent { :self :anObject :aBlock/0 |
 		<primitive:
 		if(_self.has(_anObject)) {
 			_self.delete(_anObject);
@@ -61,7 +61,7 @@ IdentitySet! : [Object, Store, Equal, Iterable, Collection, Extensible, Unordere
 	}
 
 	species { :self |
-		IdentitySet:/0
+		IdentitySet/0
 	}
 
 	storeString { :self |
@@ -126,7 +126,7 @@ IdentitySet! : [Object, Store, Equal, Iterable, Collection, Extensible, Unordere
 	}
 
 	IdentitySet { :self |
-		self.allSatisfy(isImmediate:/1).ifFalse {
+		self.allSatisfy(isImmediate/1).ifFalse {
 			'List>>IdentitySet: non-immediate entry'.error
 		};
 		self.uncheckedIdentitySet

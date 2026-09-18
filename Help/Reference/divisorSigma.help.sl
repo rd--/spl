@@ -241,7 +241,7 @@ and the nonaliquot numbers
 OEIS [A005114](https://oeis.org/A005114):
 
 ```
->>> let sigma:/1 = { :n |
+>>> let sigma/1 = { :n |
 >>> 	1.divisorSigma(n)
 >>> }.memoize(true);
 >>> 0:11.groupBy { :n |
@@ -342,7 +342,7 @@ OEIS [A001600](https://oeis.org/A001600):
 >>> 	let tau = 0.divisorSigma(n);
 >>> 	let sigma = 1.divisorSigma(n);
 >>> 	n * tau / sigma
->>> }.select(isInteger:/1)
+>>> }.select(isInteger/1)
 [1 2 3 5 6 5]
 ```
 

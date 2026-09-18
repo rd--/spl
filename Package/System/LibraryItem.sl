@@ -45,7 +45,7 @@ LibraryItem : [Object] { | name category url mimeType parser unparsedContents pa
 	}
 
 	request { :self |
-		Promise { :resolve:/1 :reject:/1 |
+		Promise { :resolve/1 :reject/1 |
 			self.unparsedContents.ifNotNil { :unused |
 				resolve(self.contents)
 			} {
@@ -103,7 +103,7 @@ LibraryItem : [Object] { | name category url mimeType parser unparsedContents pa
 		libraryItem
 	}
 
-	awaitLibraryItem { :self :name :aBlock:/0 |
+	awaitLibraryItem { :self :name :aBlock/0 |
 		self.requestLibraryItem(name).thenElse { :unused |
 			aBlock()
 		} { :reason |
@@ -111,7 +111,7 @@ LibraryItem : [Object] { | name category url mimeType parser unparsedContents pa
 		}
 	}
 
-	awaitLibraryItems { :self :names :aBlock:/0 |
+	awaitLibraryItems { :self :names :aBlock/0 |
 		names.collect { :each |
 			self.requestLibraryItem(each)
 		}.allFulfilled.thenElse { :unused |

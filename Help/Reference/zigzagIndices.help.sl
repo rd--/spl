@@ -17,7 +17,7 @@ Indices for a _3×3_ square matrix:
 ]
 
 >>> [3 3].zigzagIndices
->>> .collect(sum:/1)
+>>> .collect(sum/1)
 [2 3 3 4 4 4 5 5 6]
 ```
 

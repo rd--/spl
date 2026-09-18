@@ -1,6 +1,6 @@
 # allButFirstDo
 
-- _allButFirstDo(c, f:/1)_
+- _allButFirstDo(c, f/1)_
 
 Apply the block _f_ at all but the first element of the sequence _c_.
 

@@ -9,7 +9,7 @@ and every integer sequence defined by the Fibonacci recurrence can be derived by
 The first nine rows and columns of the Wythoff array:
 
 ```
->>> wythoffArray:/2
+>>> wythoffArray/2
 >>> .table(1:9, 1:9)
 [
 	 1   2   3   5   8  13  21  34   55;
@@ -37,7 +37,7 @@ Wythoff array read by falling antidiagonals,
 OEIS [A035513](https://oeis.org/A035513):
 
 ```
->>> 9.antidiagonalArray(wythoffArray:/2)
+>>> 9.antidiagonalArray(wythoffArray/2)
 [
 	1;
 	2 4;
@@ -56,7 +56,7 @@ OEIS [A083412](https://oeis.org/A083412):
 
 ```
 >>> 9.antidiagonalArray(
->>> 	wythoffArray:/2.swap
+>>> 	wythoffArray/2.swap
 >>> )
 [
 	1;
@@ -76,7 +76,7 @@ OEIS [A035513](https://oeis.org/A035513):
 
 ~~~spl svg=A oeis=A035513
 10.antidiagonalArray(
-	wythoffArray:/2
+	wythoffArray/2
 ).catenate.scatterPlot
 ~~~
 
@@ -87,7 +87,7 @@ OEIS [A083412](https://oeis.org/A083412):
 
 ~~~spl svg=B oeis=A083412
 10.antidiagonalArray(
-	wythoffArray:/2.swap
+	wythoffArray/2.swap
 ).catenate.scatterPlot
 ~~~
 
@@ -96,7 +96,7 @@ OEIS [A083412](https://oeis.org/A083412):
 Matrix plot of Wythoff array:
 
 ~~~spl svg=C
-wythoffArray:/2.table(1:13, 1:13)
+wythoffArray/2.table(1:13, 1:13)
 .matrixPlot.log
 ~~~
 

@@ -79,7 +79,7 @@ OEIS [A002285](https://oeis.org/A002285):
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(0.01 -- 5).functionPlot(log10:/1)
+(0.01 -- 5).functionPlot(log10/1)
 ~~~
 
 ![](Help/Image/log10-A.svg)

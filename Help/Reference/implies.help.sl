@@ -1,6 +1,6 @@
 # implies
 
-- _implies(p, q:/0)_
+- _implies(p, q/0)_
 
 The logical implication _p→q_,
 equivalent to _¬p∨q_.

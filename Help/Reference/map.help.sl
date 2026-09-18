@@ -1,9 +1,9 @@
 # map
 
-- _map(f:/2)_
-- _map(f:/1, c)_
-- _map(f:/2, c₁, c₂)_
-- _map(f:/3, c₁, c₂, c₃)_
+- _map(f/2)_
+- _map(f/1, c)_
+- _map(f/2, c₁, c₂)_
+- _map(f/3, c₁, c₂, c₃)_
 
 The unary form answers a `Block` that will apply the block _f_ element wise to two sequences.
 If the sequences are not of equal size the shorter will be recycled.
@@ -26,10 +26,10 @@ This form is equivalent to `each`.
 The binary form is a variant of `collect`:
 
 ```
->>> square:/1.map([3 5 7])
+>>> square/1.map([3 5 7])
 [9 25 49]
 
->>> [3 5 7].collect(square:/1)
+>>> [3 5 7].collect(square/1)
 [9 25 49]
 
 >>> { :x |
@@ -85,7 +85,7 @@ The quaternary form is a variant of `withWithCollect`:
 Reverse all sublists:
 
 ```
->>> reverse:/1.map([1 2; 3 4; 5 6])
+>>> reverse/1.map([1 2; 3 4; 5 6])
 [2 1; 4 3; 6 5]
 ```
 

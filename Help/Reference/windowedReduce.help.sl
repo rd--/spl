@@ -1,6 +1,6 @@
 # windowedReduce
 
-- _windowedReduce([x₁ x₂ …], n, f:/2)_
+- _windowedReduce([x₁ x₂ …], n, f/2)_
 
 Insert the binary block _f_ between overlapping windows of size _n_ drawn from th sequence _x_,
 and evaluate into a `List` in left-to-right order.
@@ -66,7 +66,7 @@ Adjacent triples collected into a `List`:
 ```
 >>> [1 .. 5].windowedReduce(
 >>> 	3,
->>> 	++.over(nest:/1)
+>>> 	++.over(nest/1)
 >>> )
 [1 2 3; 2 3 4; 3 4 5]
 

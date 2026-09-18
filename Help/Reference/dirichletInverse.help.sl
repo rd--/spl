@@ -1,6 +1,6 @@
 # dirichletInverse
 
-- _dirichletInverse(f:/1)_
+- _dirichletInverse(f/1)_
 
 Answer the Dirichlet inverse of the unary function _f_.
 
@@ -9,7 +9,7 @@ OEIS [A101035](https://oeis.org/A101035):
 
 ~~~spl svg=A oeis=A101035
 1:115.collect(
-	gcdSum:/1.dirichletInverse
+	gcdSum/1.dirichletInverse
 ).discretePlot
 ~~~
 
@@ -21,7 +21,7 @@ OEIS [A023900](https://oeis.org/A023900):
 
 ~~~spl svg=B oeis=A023900
 1:115.collect(
-	eulerPhi:/1.dirichletInverse
+	eulerPhi/1.dirichletInverse
 ).discretePlot
 ~~~
 
@@ -86,7 +86,7 @@ OEIS [A317843](https://oeis.org/A317843):
 
 ~~~spl svg=G oeis=A317843
 1:115.collect(
-	sternBrocotNumber:/1
+	sternBrocotNumber/1
 	.dirichletInverse
 ).discretePlot
 ~~~

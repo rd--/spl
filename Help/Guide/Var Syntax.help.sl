@@ -26,7 +26,7 @@ Defining functions using `let` bindings to a literal block binds the arity quali
 >>> let f = { :x |
 >>> 	x * 2 + 1
 >>> };
->>> f:/1 . (11)
+>>> f/1 . (11)
 23
 ```
 

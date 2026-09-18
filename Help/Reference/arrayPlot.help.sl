@@ -1,6 +1,6 @@
 # arrayPlot
 
-- _arrayPlot(a, f:/1)_
+- _arrayPlot(a, f/1)_
 
 Answer a plot that gives a visual representation of the elements in the array _a_.
 If the colour function _f_ is elided `asColour` is specified.
@@ -51,7 +51,7 @@ let c = [
 ];
 let g = (1 -- c.size).discretize(36).collect(
 	c.listInterpolation(
-		linearInterpolation:/3
+		linearInterpolation/3
 	)
 );
 (0.4 -- 1).discretize(12).collect { :each |

@@ -1,6 +1,6 @@
 # parseFractionSeparatedBy
 
-- _parseFractionSeparatedBy(s, d, f:/0)_
+- _parseFractionSeparatedBy(s, d, f/0)_
 
 Answer the `Fraction` represented by the string _s_,
 using separator _d_ to delimit the numerator and denominator.

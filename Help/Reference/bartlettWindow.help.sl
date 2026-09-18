@@ -21,7 +21,7 @@ The Bartlett window function:
 
 ~~~spl svg=A
 (-0.5 -- 0.5).functionPlot(
-	bartlettWindow:/1
+	bartlettWindow/1
 )
 ~~~
 
@@ -32,7 +32,7 @@ Discrete Bartlett window of length 15:
 ~~~spl svg=B
 (-0.5 -- 0.5).discretize(
 	15,
-	bartlettWindow:/1
+	bartlettWindow/1
 ).discretePlot
 ~~~
 
@@ -42,7 +42,7 @@ Frequency response of the Bartlett window:
 
 ~~~spl svg=C
 51.windowTable(
-	bartlettWindow:/1
+	bartlettWindow/1
 ).fftPlot(512, 'Centered', 'Logarithmic')
 ~~~
 

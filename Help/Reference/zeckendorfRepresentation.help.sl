@@ -71,7 +71,7 @@ OEIS [A189920](https://oeis.org/A189920):
 
 ```
 >>> 1:20.collect(
->>> 	zeckendorfRepresentation:/1
+>>> 	zeckendorfRepresentation/1
 >>> )
 [
 	          1;
@@ -395,7 +395,7 @@ OEIS [A189920](https://oeis.org/A189920):
 
 ~~~spl svg=I oeis=A189920
 1:21.collect(
-	zeckendorfRepresentation:/1
+	zeckendorfRepresentation/1
 ).catenate.discretePlot
 ~~~
 

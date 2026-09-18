@@ -17,7 +17,7 @@ has only nine places:
 
 ```
 >>> 1:999
->>> .select(isLesserTwinPrime:/1)
+>>> .select(isLesserTwinPrime/1)
 >>> .collect { :n |
 >>> 	(1 / n) + (1 / (n + 2))
 >>> }.sum
@@ -28,7 +28,7 @@ Plot convergence:
 
 ~~~spl svg=A
 1:999
-.select(isLesserTwinPrime:/1)
+.select(isLesserTwinPrime/1)
 .prefixes
 .collect { :q |
 	q.collect { :n |

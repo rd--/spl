@@ -1,6 +1,6 @@
 # collectCatenate
 
-- _collectCatenate(c, f:/1)_
+- _collectCatenate(c, f/1)_
 
 Apply the block _f_,
 which should answer a collection,

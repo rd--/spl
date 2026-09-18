@@ -102,7 +102,7 @@ Draw pythagorean triples with equal area:
 
 ~~~spl svg=D
 [21 29 20; 35 37 12]
-.collect(sssTriangle:/1)
+.collect(sssTriangle/1)
 .LineDrawing
 ~~~
 
@@ -115,7 +115,7 @@ Draw pythagorean triples with equal area:
 	5852 7373 4485;
 	8580 9109 3059;
 	19019 19069 1380
-].collect(sssTriangle:/1)
+].collect(sssTriangle/1)
 .LineDrawing
 ~~~
 

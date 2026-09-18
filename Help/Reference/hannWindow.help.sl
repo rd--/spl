@@ -23,7 +23,7 @@ Hann window function:
 
 ~~~spl svg=A
 (-0.5 -- 0.5).functionPlot(
-	hannWindow:/1
+	hannWindow/1
 )
 ~~~
 
@@ -34,7 +34,7 @@ Discrete Hann window of length 15:
 ~~~spl svg=B
 (-0.5 -- 0.5).discretize(
 	15,
-	hannWindow:/1
+	hannWindow/1
 ).discretePlot
 ~~~
 

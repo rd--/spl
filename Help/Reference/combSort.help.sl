@@ -1,6 +1,6 @@
 # combSort
 
-- _combSort([x₁ x₂ …], f:/2)_
+- _combSort([x₁ x₂ …], f/2)_
 
 Sort the sequence _x_ in place using the comb sort algorithm,
 according to the comparison predicate block _f_.

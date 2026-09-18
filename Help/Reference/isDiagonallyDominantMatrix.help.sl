@@ -27,7 +27,7 @@ true
 Compare weak and strict forms at three 3×3 matrices:
 
 ```
->>> let f:/2 = isDiagonallyDominantMatrix:/2;
+>>> let f/2 = isDiagonallyDominantMatrix/2;
 >>> [
 >>> 	3 -2 1; 1 3 2; -1 2 4:;
 >>> 	-2 2 1; 1 3 2; 1 -2 4:;

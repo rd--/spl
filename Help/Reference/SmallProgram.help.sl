@@ -42,7 +42,7 @@ with the `String` 'Answer',
 after ten seconds:
 
 ~~~spl async
-{ :resolve:/1 :unused |
+{ :resolve/1 :unused |
 	{
 		resolve('Answer')
 	}.valueAfter(10)
@@ -55,7 +55,7 @@ Answer a `Promise` with a `BinaryLargeObject` when the `fetch` request completes
 system
 .splUrl('svg/ScProgramBrowser.3.svg')
 .fetchBinaryLargeObject
-.thenElse(identity:/1, identity:/1)
+.thenElse(identity/1, identity/1)
 ~~~
 
 * * *

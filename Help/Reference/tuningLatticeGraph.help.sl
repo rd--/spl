@@ -132,7 +132,7 @@ let v = 5.circlePoints([0 0], 1, 1/4.pi) * m;
 let n = [1 3 5 7 11 13];
 RatioTuning(
 	[n, n].tuples
-	.collect(Fraction:/1)
+	.collect(Fraction/1)
 	.unique
 ).tuningLatticeGraph(
 	[3 5 7 11 13],

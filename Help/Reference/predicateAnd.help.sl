@@ -8,8 +8,8 @@ else `false`.
 
 ```
 >>> -23:23.select(
->>> 	isPositive:/1.predicateAnd(
->>> 		isOdd:/1
+>>> 	isPositive/1.predicateAnd(
+>>> 		isOdd/1
 >>> 	)
 >>> )
 [1 3 5 7 9 11 13 15 17 19 21 23]
@@ -21,8 +21,8 @@ else `false`.
 ```
 >>> -23:23.select(
 >>> 	[
->>> 		isNegative:/1,
->>> 		isOdd:/1,
+>>> 		isNegative/1,
+>>> 		isOdd/1,
 >>> 		congruencePredicate(0, 3)
 >>> 	].predicateAnd
 >>> )

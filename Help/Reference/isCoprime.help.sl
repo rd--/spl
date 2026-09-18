@@ -62,7 +62,7 @@ Find the fraction of pairs of the first 100 numbers that are relatively prime:
 ```
 >>> 1:100
 >>> .tuples(2)
->>> .collect(isCoprime:/1)
+>>> .collect(isCoprime/1)
 >>> .boole
 >>> .sum / (10 ^ 4)
 0.6087
@@ -75,7 +75,7 @@ Prime numbers are relatively prime to each other:
 true
 
 >>> [10 15 20 25]
->>> .collect(prime:/1)
+>>> .collect(prime/1)
 >>> .isCoprime
 true
 

@@ -441,7 +441,7 @@ OEIS [A141821](https://oeis.org/A141821):
 		x.isCoprime(n)
 	};
 	let c = (k / n).continuedFraction;
-	let m = c.collect(max:/1);
+	let m = c.collect(max/1);
 	let i = m.indexOf(m.min);
 	k[i]
 }.scatterPlot
@@ -460,7 +460,7 @@ OEIS [A141822](https://oeis.org/A141822):
 	};
 	(k / n)
 	.continuedFraction
-	.collect(max:/1)
+	.collect(max/1)
 	.min
 }.stepPlot
 ~~~

@@ -153,7 +153,7 @@
 	}
 
 	degreeSequence { :self |
-		self.vertexDegree.sortBy(greater:/2)
+		self.vertexDegree.sortBy(greater/2)
 	}
 
 	dijkstrasAlgorithm { :g :s :t |
@@ -269,10 +269,10 @@
 			}
 		};
 		let v = cartesianProduct(g1.vertexList, g2.vertexList);
-		let predicate:/4 = kind.caseOf(
+		let predicate/4 = kind.caseOf(
 			[
-				'Cartesian' -> { cartesianPredicate:/4 },
-				'Normal' -> { normalPredicate:/4 }
+				'Cartesian' -> { cartesianPredicate/4 },
+				'Normal' -> { normalPredicate/4 }
 			]
 		) {
 			kind.error('Graph>>graphProduct')
@@ -387,7 +387,7 @@
 	}
 
 	isDirected { :self |
-		self.edgeList.allSatisfy(isDirectedEdge:/1)
+		self.edgeList.allSatisfy(isDirectedEdge/1)
 	}
 
 	isEmpty { :self |
@@ -401,8 +401,8 @@
 	}
 
 	isMixed { :self |
-		self.edgeList.anySatisfy(isDirectedEdge:/1) & {
-			self.edgeList.anySatisfy(isUndirectedEdge:/1)
+		self.edgeList.anySatisfy(isDirectedEdge/1) & {
+			self.edgeList.anySatisfy(isUndirectedEdge/1)
 		}
 	}
 
@@ -417,7 +417,7 @@
 	}
 
 	isUndirected { :self |
-		self.edgeList.allSatisfy(isUndirectedEdge:/1)
+		self.edgeList.allSatisfy(isUndirectedEdge/1)
 	}
 
 	isValid { :self |
@@ -536,7 +536,7 @@
 	simpleGraph { :self |
 		let v = self.vertexList;
 		let e = UnsortedSet();
-		e.comparator := matchesEdge:/2;
+		e.comparator := matchesEdge/2;
 		self.edgeList.do { :each |
 			(each[1] != each[2]).ifTrue {
 				e.include(each)
@@ -558,7 +558,7 @@
 	undirectedGraph { :self |
 		Graph(
 			self.vertexList,
-			self.edgeList.collect(asUndirectedEdge:/1).nubBy(matchesEdge:/2)
+			self.edgeList.collect(asUndirectedEdge/1).nubBy(matchesEdge/2)
 		)
 	}
 
@@ -607,7 +607,7 @@
 		answer
 	}
 
-	vertexInNeighboursDo { :self :vertex :aBlock:/1 |
+	vertexInNeighboursDo { :self :vertex :aBlock/1 |
 		self.edgeList.do { :each |
 			(vertex = each[2]).ifTrue {
 				aBlock(each[1])
@@ -634,7 +634,7 @@
 		answer
 	}
 
-	vertexOutDo { :self :vertex :aBlock:/1 |
+	vertexOutDo { :self :vertex :aBlock/1 |
 		self.edgeList.do { :each |
 			(vertex = each[1]).ifTrue {
 				aBlock(each[2])
@@ -737,7 +737,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 	Graph { :vertexList :edgeList |
 		newGraph().initializeSlots(
 			vertexList,
-			edgeList.collect(asEdge:/1),
+			edgeList.collect(asEdge/1),
 			Record()
 		)
 	}
@@ -914,7 +914,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 		withLabels.ifTrue {
 			g.vertexLabels(
 				s.collect { :each |
-					each.collect(asString:/1).stringCatenate
+					each.collect(asString/1).stringCatenate
 				}
 			)
 		};
@@ -1108,11 +1108,11 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 +List {
 
 	asEdgeList { :self |
-		self.collect(asEdge:/1)
+		self.collect(asEdge/1)
 	}
 
 	canonicalEdgeList { :self |
-		let vertexList = self.collectCatenate(vertexList:/1).nub.sort;
+		let vertexList = self.collectCatenate(vertexList/1).nub.sort;
 		let renameTable = vertexList.collect { :vertex |
 			vertex -> vertexList.indexOf(vertex)
 		}.asMap;
@@ -1139,14 +1139,14 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 	}
 
 	torusGraph { :self |
-		self.collect(cycleGraph:/1).reduce(graphProduct:/2)
+		self.collect(cycleGraph/1).reduce(graphProduct/2)
 	}
 
 }
 
 +Block {
 
-	edgeCountGraph { :self:/2 :isDirected :vertexList |
+	edgeCountGraph { :self/2 :isDirected :vertexList |
 		let edgeList = [];
 		let v = vertexList;
 		let k = vertexList.size;
@@ -1170,7 +1170,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 		Graph(vertexList, edgeList)
 	}
 
-	relationGraph { :self:/2 :isDirected :vertexList |
+	relationGraph { :self/2 :isDirected :vertexList |
 		let edgeList = [];
 		let v = vertexList;
 		let k = vertexList.size;
@@ -1210,7 +1210,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 	}
 
 	[Graph, asGraph] { :self |
-		let edgeList = self.collect(asEdge:/1).asList;
+		let edgeList = self.collect(asEdge/1).asList;
 		let vertexList = [];
 		edgeList.do { :each |
 			vertexList.add(each[1]);
@@ -1221,7 +1221,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 
 	incidenceGraph { :self |
 		self.transpose.collect { :each |
-			let i = each.detectIndices(isNonZero:/1);
+			let i = each.detectIndices(isNonZero/1);
 			each.atAll(i).caseOf(
 				[
 					[2] -> { i[1] --- i[1] },

@@ -8,7 +8,7 @@ Cube free numbers,
 OEIS [A004709](https://oeis.org/A004709):
 
 ```
->>> 1:85.select(isCubeFree:/1)
+>>> 1:85.select(isCubeFree/1)
 [
 	 1  2  3  4  5  6  7  9 10 11
 	12 13 14 15 17 18 19 20 21 22
@@ -25,7 +25,7 @@ The complement,
 OEIS [A046099](https://oeis.org/A046099):
 
 ```
->>> 1:85.reject(isCubeFree:/1)
+>>> 1:85.reject(isCubeFree/1)
 [8 16 24 27 32 40 48 54 56 64 72 80 81]
 ```
 
@@ -33,7 +33,7 @@ Cube free numbers,
 OEIS [A004709](https://oeis.org/A004709):
 
 ~~~spl svg=A oeis=A004790
-1:100.select(isCubeFree:/1)
+1:100.select(isCubeFree/1)
 .discretePlot
 ~~~
 
@@ -43,7 +43,7 @@ Cubeful numbers,
 OEIS [A046099](https://oeis.org/A046099):
 
 ~~~spl svg=B oeis=A046099
-1:500.reject(isCubeFree:/1)
+1:500.reject(isCubeFree/1)
 .discretePlot
 ~~~
 
@@ -53,7 +53,7 @@ Characteristic function of cube-free numbers,
 OEIS [A212793](https://oeis.org/A212793):
 
 ~~~spl svg=C oeis=A212793
-1:85.collect(isCubeFree:/1).boole
+1:85.collect(isCubeFree/1).boole
 .discretePlot
 ~~~
 

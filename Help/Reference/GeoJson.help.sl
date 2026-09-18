@@ -73,7 +73,7 @@ Draw the Gall-Peters projection of the geographic regions labeled 'Africa' and '
 		.collect { :p |
 			p.downsample(16)
 		}
-		.select(isPolygon:/1)
+		.select(isPolygon/1)
 	}
 	.LineDrawing
 }
@@ -142,7 +142,7 @@ Draw the Plate Carrée projection of the island groups labeled 'Micronesia' and 
 			each.property('NAME')
 		)
 	}
-	.collect(geometryValues:/1)
+	.collect(geometryValues/1)
 	.LineDrawing
 }
 ~~~

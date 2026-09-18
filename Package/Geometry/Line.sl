@@ -16,9 +16,9 @@ Line : [Object, Store, Equal, Geometry] { | vertexCoordinates |
 		self.vertexCoordinates.coordinateBoundingBox
 	}
 
-	collect { :self :aBlock:/1 |
+	collect { :self :aBlock/1 |
 		Line(
-			self.vertexCoordinates.collect(aBlock:/1)
+			self.vertexCoordinates.collect(aBlock/1)
 		)
 	}
 
@@ -119,7 +119,7 @@ Line : [Object, Store, Equal, Geometry] { | vertexCoordinates |
 
 	Line { :self |
 		(self.rank > 2).if {
-			self.collect(Line:/1)
+			self.collect(Line/1)
 		} {
 			newLine().initializeSlots(self)
 		}
@@ -385,7 +385,7 @@ LibraryItem(
 	category: 'Geometry/Knot',
 	url: 'https://rohandrape.net/sw/hsc3-data/data/geometry/scharein/SchareinKnotCatalogue.json',
 	mimeType: 'application/json',
-	parser: identity:/1
+	parser: identity/1
 )
 
 LibraryItem(
@@ -393,7 +393,7 @@ LibraryItem(
 	category: 'Geometry/Knot',
 	url: 'https://rohandrape.net/sw/hsc3-data/data/geometry/scharein/SchareinLinkCatalogue.json',
 	mimeType: 'application/json',
-	parser:  identity:/1
+	parser:  identity/1
 )
 
 LibraryItem(
@@ -401,7 +401,7 @@ LibraryItem(
 	category: 'Geometry/Knot',
 	url: 'https://rohandrape.net/sw/hsc3-data/data/geometry/scharein/SchareinMinimalKnotCatalogue.json',
 	mimeType: 'application/json',
-	parser: identity:/1
+	parser: identity/1
 )
 
 LibraryItem(
@@ -409,5 +409,5 @@ LibraryItem(
 	category: 'Geometry/Knot',
 	url: 'https://rohandrape.net/sw/hsc3-data/data/geometry/scharein/SchareinMinimalLinkCatalogue.json',
 	mimeType: 'application/json',
-	parser:  identity:/1
+	parser:  identity/1
 )

@@ -1,6 +1,6 @@
 # deepReduce
 
-- _deepReduce(c, f:/2)_
+- _deepReduce(c, f/2)_
 
 Apply the block _f_ cumulatively to the deep elements of the iterable collection _c_.
 This is `reduceBy` of `deepDo`, see `reduce` for details.
@@ -46,10 +46,10 @@ false
 Finding the maximum value of a matrix:
 
 ```
->>> [3 3].iota.deepReduce(max:/2)
+>>> [3 3].iota.deepReduce(max/2)
 9
 
->>> [3 3].iota.reduce(max:/2)
+>>> [3 3].iota.reduce(max/2)
 [7 8 9]
 ```
 

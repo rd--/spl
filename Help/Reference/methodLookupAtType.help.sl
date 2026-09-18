@@ -14,7 +14,7 @@ Lookup the `collect` method at `List`:
 >>> );
 >>> (
 >>> 	m.isMethod,
->>> 	m.block . ([4 9 16], sqrt:/1)
+>>> 	m.block . ([4 9 16], sqrt/1)
 >>> )
 (true, [2 3 4])
 ```

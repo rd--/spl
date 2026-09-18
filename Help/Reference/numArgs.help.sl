@@ -1,6 +1,6 @@
 # numArgs
 
-- _numArgs(f:/n)_
+- _numArgs(f/n)_
 
 Answer _n_,
 the number of arguments that must be used to evaluate the _n_-ary block _f_.
@@ -12,7 +12,7 @@ the number of arguments that must be used to evaluate the _n_-ary block _f_.
 >>> { :x | x }.numArgs
 1
 
->>> collect:/2.numArgs
+>>> collect/2.numArgs
 2
 ```
 

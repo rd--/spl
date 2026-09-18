@@ -21,7 +21,7 @@ Matrix33 : [Object, Equal] { | elements |
 		(a * e * i) + (b * f * g) + (c * d * h) - (c * e * g) - (b * d * i) - (a * f * h)
 	}
 
-	equalBy { :self :aMatrix :aBlock:/2 |
+	equalBy { :self :aMatrix :aBlock/2 |
 		aMatrix.isMatrix33 & {
 			aBlock(self.elements, aMatrix.elements)
 		}

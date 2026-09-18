@@ -8,9 +8,9 @@ NumericArray : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, 
 		self.normal
 	}
 
-	atIfAbsent { :self :i :ifAbsent:/0 |
+	atIfAbsent { :self :i :ifAbsent/0 |
 		(self.rank = 1).if {
-			self.contents.atIfAbsent(i, ifAbsent:/0)
+			self.contents.atIfAbsent(i, ifAbsent/0)
 		} {
 			self.error('NumericArray>>atIfAbsent')
 		}
@@ -33,9 +33,9 @@ NumericArray : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, 
 		)
 	}
 
-	collect { :self :aBlock:/1 |
+	collect { :self :aBlock/1 |
 		NumericArray(
-			self.contents.collect(aBlock:/1),
+			self.contents.collect(aBlock/1),
 			self.shape
 		)
 	}
@@ -56,15 +56,15 @@ NumericArray : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, 
 		self.shape.take(anInteger)
 	}
 
-	do { :self :aBlock:/1 |
-		self.contents.do(aBlock:/1)
+	do { :self :aBlock/1 |
+		self.contents.do(aBlock/1)
 	}
 
 	elementType { :unused |
 		'SmallFloat'
 	}
 
-	equalBy { :self :anObject :aBlock:/2 |
+	equalBy { :self :anObject :aBlock/2 |
 		anObject.isNumericArray & {
 			(self.shape = anObject.shape) & {
 				(self.storageType = anObject.storageType) & {
@@ -184,10 +184,10 @@ NumericArray : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, 
 		}
 	}
 
-	withCollect { :self :other :aBlock:/2 |
+	withCollect { :self :other :aBlock/2 |
 		self.isCommensurate(other).if {
 			NumericArray(
-				self.contents.withCollect(other.contents, aBlock:/2),
+				self.contents.withCollect(other.contents, aBlock/2),
 				self.shape
 			)
 		} {

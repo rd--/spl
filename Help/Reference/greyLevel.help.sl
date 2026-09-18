@@ -34,7 +34,7 @@ Plot a 10×10 matrix of varying shades of grey and alpha:
 
 ~~~spl svg=A
 let i = (0 -- 1).subdivide(9);
-greyLevel:/2
+greyLevel/2
 .table(i, i)
 .rgba
 .arrayPlot

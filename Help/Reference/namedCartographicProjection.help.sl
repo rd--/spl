@@ -6,7 +6,7 @@ Answer a projection function for the named projection.
 
 ```
 >>> 'Mercator'.namedCartographicProjection
-mercatorProjection:/1
+mercatorProjection/1
 ```
 
 * * *

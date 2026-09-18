@@ -10,7 +10,7 @@ calculates the coefficients of the interpolation polynomial of these points in t
 >>> let m = 0:4.collect { :i |
 >>> 	[i / 10, (i / 10).exp]
 >>> };
->>> m.dividedDifferences.collect(first:/1)
+>>> m.dividedDifferences.collect(first/1)
 [1 1.05171 0.55305 0.19388 0.05098]
 ```
 

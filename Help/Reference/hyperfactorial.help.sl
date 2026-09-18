@@ -14,7 +14,7 @@ Answer the hyperfactorial of the integer _n_.
 >>> 10L.hyperfactorial
 215779412229418562091680268288L * 1E15
 
->>> (0 .. 7).collect(hyperfactorial:/1)
+>>> (0 .. 7).collect(hyperfactorial/1)
 [
 	1
 	1

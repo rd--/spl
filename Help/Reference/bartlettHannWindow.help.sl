@@ -20,7 +20,7 @@ The Bartlett-Hann window:
 
 ~~~spl svg=A
 (-1 -- 1).functionPlot(
-	bartlettHannWindow:/1
+	bartlettHannWindow/1
 )
 ~~~
 
@@ -30,7 +30,7 @@ Discrete Bartlett-Hann window of length 15:
 
 ~~~spl svg=B
 15.windowTable(
-	bartlettHannWindow:/1
+	bartlettHannWindow/1
 ).discretePlot
 ~~~
 
@@ -40,7 +40,7 @@ Frequency response of the Bartlett-Hann window:
 
 ~~~spl svg=C
 51.windowTable(
-	bartlettHannWindow:/1
+	bartlettHannWindow/1
 ).fftPlot(512, 'Centered', 'Logarithmic')
 ~~~
 

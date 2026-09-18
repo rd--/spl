@@ -13,11 +13,11 @@ As argument block:
 
 ```
 >>> [1 2 3 4 3 2 1]
->>> .detectMax(identity:/1)
+>>> .detectMax(identity/1)
 4
 
 >>> [1 3 5 3 5 5]
->>> .histogramOf(identity:/1)
+>>> .histogramOf(identity/1)
 >>> .sortedCounts
 [3 -> 5, 2 -> 3, 1 -> 1]
 ```

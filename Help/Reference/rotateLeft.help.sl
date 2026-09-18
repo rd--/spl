@@ -35,7 +35,7 @@ Rotate one position to the left:
 Successively rotate a list left:
 
 ```
->>> rotateLeft:/1.nestList([1 2 3 4 5], 4)
+>>> rotateLeft/1.nestList([1 2 3 4 5], 4)
 [
 	1 2 3 4 5;
 	2 3 4 5 1;
@@ -50,7 +50,7 @@ Rotate successive rows of a matrix by their row number:
 ```
 >>> let u = [1 2 3 4];
 >>> let m = List(5, u);
->>> m.withIndexCollect(rotateLeft:/2)
+>>> m.withIndexCollect(rotateLeft/2)
 [
 	2 3 4 1;
 	3 4 1 2;

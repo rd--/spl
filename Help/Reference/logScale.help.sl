@@ -27,14 +27,14 @@ At `zero` answers `zero`:
 Threads over lists:
 
 ```
->>> [-10 -1 0 1 10].collect(logScale:/1)
+>>> [-10 -1 0 1 10].collect(logScale/1)
 [-1.38068 -0.51885 0 0.51885 1.38068]
 ```
 
 Plot positive half over _(0,100)_:
 
 ~~~spl svg=A
-(0 -- 100).functionPlot(logScale:/1)
+(0 -- 100).functionPlot(logScale/1)
 ~~~
 
 ![](Help/Image/logScale-A.svg)
@@ -42,7 +42,7 @@ Plot positive half over _(0,100)_:
 Plot negative half over _(-1,0)_:
 
 ~~~spl svg=B
-(-1 -- 0).functionPlot(logScale:/1)
+(-1 -- 0).functionPlot(logScale/1)
 ~~~
 
 ![](Help/Image/logScale-B.svg)

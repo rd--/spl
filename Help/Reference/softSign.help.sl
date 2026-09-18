@@ -8,7 +8,7 @@ a sigmoid function similar to `tanh`.
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(-3 -- 3).functionPlot(softSign:/1)
+(-3 -- 3).functionPlot(softSign/1)
 ~~~
 
 ![](Help/Image/softSign-A.svg)

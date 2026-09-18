@@ -39,7 +39,7 @@ let s = 2L ^ a[1];
 1.toDo((m / 2).ceiling) { :n |
 	let k = 1;
 	let p = a[n];
-	{ :break:/0 |
+	{ :break/0 |
 		let q = p + k;
 		let r = p + (3 * k);
 		(

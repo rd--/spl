@@ -8,7 +8,7 @@ Plot in one dimension:
 
 ~~~spl svg=A
 (-2 -- 2).functionPlot(
-	heavisideTheta:/1
+	heavisideTheta/1
 )
 ~~~
 

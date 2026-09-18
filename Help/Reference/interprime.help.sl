@@ -9,7 +9,7 @@ The interprime numbers,
 OEIS [A024675](https://oeis.org/A024675):
 
 ```
->>> 1:24.collect(interprime:/1)
+>>> 1:24.collect(interprime/1)
 [
 	 4  6  9 12 15 18 21 26 30 34
 	39 42 45 50 56 60 64 69 72 76
@@ -17,8 +17,8 @@ OEIS [A024675](https://oeis.org/A024675):
 ]
 
 >>> 2:26.prime.partition(2, 1)
->>> .collect(mean:/1)
-1:24.collect(interprime:/1)
+>>> .collect(mean/1)
+1:24.collect(interprime/1)
 ```
 
 The interprime numbers,
@@ -28,14 +28,14 @@ OEIS [A024675](https://oeis.org/A024675):
 ```
 >>> ([1 1] / 2).convolve(2:26.prime)
 >>> .allButFirstAndLast
-1:24.collect(interprime:/1)
+1:24.collect(interprime/1)
 ```
 
 The interprime numbers,
 OEIS [A024675](https://oeis.org/A024675):
 
 ~~~spl svg=A oeis=A024675
-1:99.collect(interprime:/1)
+1:99.collect(interprime/1)
 .stepPlot
 ~~~
 

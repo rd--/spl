@@ -65,7 +65,7 @@ true
 Find tuples that are in order:
 
 ```
->>> [1 2 3].tuples(4).select(isSorted:/1)
+>>> [1 2 3].tuples(4).select(isSorted/1)
 [
 	1 1 1 1; 1 1 1 2; 1 1 1 3; 1 1 2 2;
 	1 1 2 3; 1 1 3 3; 1 2 2 2; 1 2 2 3;
@@ -79,7 +79,7 @@ Indices of sorted tuples:
 ~~~spl svg=A
 [0 1 -1]
 .tuples(6)
-.collect(isSorted:/1)
+.collect(isSorted/1)
 .indicesOf(true)
 .scatterPlot
 ~~~
@@ -95,7 +95,7 @@ OEIS [A037016](https://oeis.org/A037016):
 0:250.select { :n |
 	n.integerDigits(2)
 	.split(=)
-	.collect(size:/1)
+	.collect(size/1)
 	.reverse
 	.isSorted
 }.scatterPlot

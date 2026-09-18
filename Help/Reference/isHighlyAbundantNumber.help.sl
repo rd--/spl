@@ -6,7 +6,7 @@ Predicate to decide if _n_ is a highly abundant number.
 
 ```
 >>> 1:60.select(
->>> 	isHighlyAbundantNumber:/1
+>>> 	isHighlyAbundantNumber/1
 >>> )
 [
 	 1  2  3  4  6  8 10 12 16 18
@@ -18,7 +18,7 @@ The only odd highly abundant numbers are one and three:
 
 ```
 >>> [1, 3 .. 99].select(
->>> 	isHighlyAbundantNumber:/1
+>>> 	isHighlyAbundantNumber/1
 >>> )
 [1 3]
 ```

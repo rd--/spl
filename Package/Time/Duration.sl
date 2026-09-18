@@ -84,23 +84,23 @@ Duration : [Object, Store, Equal, Compare] { | seconds |
 
 +Block {
 
-	valueAfter { :self:/0 :delay |
-		self:/0.basicValueAfter(delay.asSeconds)
+	valueAfter { :self/0 :delay |
+		self/0.basicValueAfter(delay.asSeconds)
 	}
 
-	valueAfterWith { :self:/1 :delay :anObject |
-		self:/1.basicValueAfterWith(delay.asSeconds, anObject)
+	valueAfterWith { :self/1 :delay :anObject |
+		self/1.basicValueAfterWith(delay.asSeconds, anObject)
 	}
 
-	valueEvery { :self:/0 :delay |
-		self:/0.basicValueEvery(delay.asSeconds)
+	valueEvery { :self/0 :delay |
+		self/0.basicValueEvery(delay.asSeconds)
 	}
 
 }
 
 +String {
 
-	parseDuration { :self :elseClause:/0 |
+	parseDuration { :self :elseClause/0 |
 		self.isIso8601DurationString.if {
 			let [
 				years,

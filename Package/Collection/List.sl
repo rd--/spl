@@ -65,7 +65,7 @@ List! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Collection, E
 		self.partition(n, n).transpose
 	}
 
-	fill { :shape :aBlock:/1 |
+	fill { :shape :aBlock/1 |
 		shape.isEmpty.if {
 			aBlock(0)
 		} {
@@ -77,7 +77,7 @@ List! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Collection, E
 		}
 	}
 
-	gatherBy { :self :aBlock:/1 |
+	gatherBy { :self :aBlock/1 |
 		let a = [];
 		self.do { :x |
 			let k = aBlock(x);
@@ -90,10 +90,10 @@ List! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Collection, E
 				a[i].value.add(x)
 			}
 		};
-		a.collect(value:/1)
+		a.collect(value/1)
 	}
 
-	gather { :self :aBlock:/2 |
+	gather { :self :aBlock/2 |
 		let answer = [];
 		self.do { :x |
 			let i = answer.detectIndex { :y |
@@ -113,7 +113,7 @@ List! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Collection, E
 	}
 
 	isJson { :self |
-		self.allSatisfy(isJson:/1)
+		self.allSatisfy(isJson/1)
 	}
 
 	isListOf { :self :elementType |
@@ -121,7 +121,7 @@ List! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Collection, E
 	}
 
 	isLiteral { :self |
-		self.allSatisfy(isLiteral:/1)
+		self.allSatisfy(isLiteral/1)
 	}
 
 	join { :self :level |
@@ -137,28 +137,28 @@ List! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Collection, E
 	}
 
 	keySort { :self |
-		self.sortOn(key:/1)
+		self.sortOn(key/1)
 	}
 
-	printString { :self :toString:/1 |
+	printString { :self :toString/1 |
 		'[%]'.format([
-			self.collect(toString:/1).commaSeparated
+			self.collect(toString/1).commaSeparated
 		])
 	}
 
 	printString { :self |
-		self.printString(printString:/1)
+		self.printString(printString/1)
 	}
 
-	recordPositions { :self :aBlock:/2 |
-		self.recordValuesAndPositions(aBlock:/2).second
+	recordPositions { :self :aBlock/2 |
+		self.recordValuesAndPositions(aBlock/2).second
 	}
 
 	recordPositions { :self |
-		self.recordPositions(greater:/2)
+		self.recordPositions(greater/2)
 	}
 
-	recordValuesAndPositions { :self :aBlock:/2 |
+	recordValuesAndPositions { :self :aBlock/2 |
 		let k = self.size;
 		let m = self.first;
 		let r = [m];
@@ -174,12 +174,12 @@ List! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Collection, E
 		[r, p]
 	}
 
-	recordValues { :self :aBlock:/2 |
-		self.recordValuesAndPositions(aBlock:/2).first
+	recordValues { :self :aBlock/2 |
+		self.recordValuesAndPositions(aBlock/2).first
 	}
 
 	recordValues { :self |
-		self.recordValues(greater:/2)
+		self.recordValues(greater/2)
 	}
 
 	reflectionMatrix { :self |
@@ -259,11 +259,11 @@ List! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Collection, E
 	}
 
 	species { :self |
-		List:/1
+		List/1
 	}
 
 	storeString { :self |
-		self.printString(storeString:/1)
+		self.printString(storeString/1)
 	}
 
 	unenclose { :self |
@@ -275,15 +275,15 @@ List! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Collection, E
 	}
 
 	valueSort { :self |
-		self.sortOn(value:/1)
+		self.sortOn(value/1)
 	}
 
-	windowedReduce { :self :windowSize :aBlock:/2 |
+	windowedReduce { :self :windowSize :aBlock/2 |
 		self.partition(windowSize.abs, 1).collect { :each |
 			windowSize.isNegative.ifTrue {
 				each.reverseInPlace
 			};
-			each.foldRight(aBlock:/2)
+			each.foldRight(aBlock/2)
 		}
 	}
 
@@ -309,7 +309,7 @@ List! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Collection, E
 		}
 	}
 
-	fill { :self :aBlock:/1 |
+	fill { :self :aBlock/1 |
 		let answer = List(self);
 		answer.indicesDo { :index |
 			answer[index] := aBlock(index)

@@ -72,7 +72,7 @@
 
 +@Object {
 
-	maxOn { :self :operand :aBlock:/1 |
+	maxOn { :self :operand :aBlock/1 |
 		(self.aBlock > operand.aBlock).if {
 			self
 		} {
@@ -80,7 +80,7 @@
 		}
 	}
 
-	minOn { :self :operand :aBlock:/1 |
+	minOn { :self :operand :aBlock/1 |
 		(self.aBlock < operand.aBlock).if {
 			self
 		} {

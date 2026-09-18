@@ -4,7 +4,7 @@ Quantity : [Object, Store, Equal, Compare, Frequency, Length, Mass, PlaneAngle, 
 		self * anObject.reciprocal
 	}
 
-	equalBy { :self :anObject :aBlock:/2 |
+	equalBy { :self :anObject :aBlock/2 |
 		anObject.isQuantity & {
 			self.unit = anObject.unit & {
 				aBlock(self.magnitude, anObject.magnitude)
@@ -162,11 +162,11 @@ Quantity : [Object, Store, Equal, Compare, Frequency, Length, Mass, PlaneAngle, 
 +@Collection {
 
 	magnitude { :self |
-		self.collect(magnitude:/1)
+		self.collect(magnitude/1)
 	}
 
 	unit { :self |
-		self.collect(unit:/1)
+		self.collect(unit/1)
 	}
 
 }

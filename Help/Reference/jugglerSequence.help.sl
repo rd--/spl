@@ -9,7 +9,7 @@ The first few juggler sequences,
 OEIS [A389383](https://oeis.org/A389383):
 
 ```
->>> 1:10.collect(jugglerSequence:/1)
+>>> 1:10.collect(jugglerSequence/1)
 [
 	1;
 	2 1;
@@ -68,7 +68,7 @@ The juggler sequence function,
 OEIS [A094683](https://oeis.org/A094683):
 
 ```
->>> 0:75.collect(jugglerMap:/1)
+>>> 0:75.collect(jugglerMap/1)
 [
 	0 1 1 5 2
 	11 2 18 2 27
@@ -117,7 +117,7 @@ log plot,
 OEIS [A389383](https://oeis.org/A389383):
 
 ~~~spl svg=C oeis=A389383
-1:23.collect(jugglerSequence:/1)
+1:23.collect(jugglerSequence/1)
 .catenate.scatterPlot.log
 ~~~
 

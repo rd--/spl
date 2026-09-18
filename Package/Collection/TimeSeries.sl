@@ -8,7 +8,7 @@ TimeSeries : [Object, Store, Equal, Iterable, Indexable, Collection] { | values 
 		answer
 	}
 
-	associationsDo { :self :aBlock:/1 |
+	associationsDo { :self :aBlock/1 |
 		self.keysAndValuesDo { :t :v |
 			aBlock(t -> v)
 		}
@@ -20,9 +20,9 @@ TimeSeries : [Object, Store, Equal, Iterable, Indexable, Collection] { | values 
 		)
 	}
 
-	atIfAbsent { :self :time :ifAbsent:/0 |
+	atIfAbsent { :self :time :ifAbsent/0 |
 		self.values.at(
-			self.times.indexOfIfAbsent(time, ifAbsent:/0)
+			self.times.indexOfIfAbsent(time, ifAbsent/0)
 		)
 	}
 
@@ -39,9 +39,9 @@ TimeSeries : [Object, Store, Equal, Iterable, Indexable, Collection] { | values 
 		item
 	}
 
-	collect { :self :aBlock:/1 |
+	collect { :self :aBlock/1 |
 		TimeSeries(
-			self.values.collect(aBlock:/1),
+			self.values.collect(aBlock/1),
 			self.times
 		)
 	}
@@ -56,8 +56,8 @@ TimeSeries : [Object, Store, Equal, Iterable, Indexable, Collection] { | values 
 		self.path.discretePlot
 	}
 
-	do { :self :aBlock:/1 |
-		self.values.do(aBlock:/1)
+	do { :self :aBlock/1 |
+		self.values.do(aBlock/1)
 	}
 
 	firstTime { :self |
@@ -73,7 +73,7 @@ TimeSeries : [Object, Store, Equal, Iterable, Indexable, Collection] { | values 
 	}
 
 	interpolation { :self :method |
-		let f:/2 = method.namedInterpolatorFunction;
+		let f/2 = method.namedInterpolatorFunction;
 		let x = self.times;
 		let y = self.values;
 		f(x, y)
@@ -91,12 +91,12 @@ TimeSeries : [Object, Store, Equal, Iterable, Indexable, Collection] { | values 
 		self.times
 	}
 
-	keysDo { :self :aBlock:/1 |
-		self.times.do(aBlock:/1)
+	keysDo { :self :aBlock/1 |
+		self.times.do(aBlock/1)
 	}
 
-	keysAndValuesDo { :self :aBlock:/2 |
-		self.times.withDo(self.values, aBlock:/2)
+	keysAndValuesDo { :self :aBlock/2 |
+		self.times.withDo(self.values, aBlock/2)
 	}
 
 	lastTime { :self |
@@ -117,7 +117,7 @@ TimeSeries : [Object, Store, Equal, Iterable, Indexable, Collection] { | values 
 		self.path.linePlot
 	}
 
-	merge { :self :aTimeSeries :resolveConflict:/2 |
+	merge { :self :aTimeSeries :resolveConflict/2 |
 		let lhs = self.path;
 		let rhs = aTimeSeries.path;
 		let i2 = 1;
@@ -243,8 +243,8 @@ TimeSeries : [Object, Store, Equal, Iterable, Indexable, Collection] { | values 
 		}
 	}
 
-	valuesDo { :self :aBlock:/1 |
-		self.values.do(aBlock:/1)
+	valuesDo { :self :aBlock/1 |
+		self.values.do(aBlock/1)
 	}
 
 	window { :self :startTime :endTime |
@@ -310,7 +310,7 @@ TimeSeries : [Object, Store, Equal, Iterable, Indexable, Collection] { | values 
 			self.isMatrix.if {
 				let [m, n] = self.shape;
 				(n = 2).if {
-					self.minimumDifferenceBy(first:/1)
+					self.minimumDifferenceBy(first/1)
 				} {
 					self.error('minimumTimeIncrement: not two-column matrix')
 				}

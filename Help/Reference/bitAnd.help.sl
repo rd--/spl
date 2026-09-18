@@ -46,7 +46,7 @@ Threads over lists,
 >>> 1:9.bitAnd(1)
 [1 0 1 0 1 0 1 0 1]
 
->>> 1:9.collect(isOdd:/1).boole
+>>> 1:9.collect(isOdd/1).boole
 [1 0 1 0 1 0 1 0 1]
 ```
 
@@ -107,7 +107,7 @@ Test for powers of two:
 Truth table for and:
 
 ```
->>> bitAnd:/2.outer([1 0], [1 0])
+>>> bitAnd/2.outer([1 0], [1 0])
 [1 0; 0 0]
 
 >>> [0 1; 0 1].bitAnd([0 0; 1 1])
@@ -171,7 +171,7 @@ a.scatterPlot
 Bitwise and of positive and negative integers:
 
 ~~~spl png=E
-bitAnd:/2
+bitAnd/2
 .table(-31:31, -31:31)
 .rescale
 .Greymap
@@ -312,7 +312,7 @@ triangular array,
 OEIS [A080099](https://oeis.org/A080099):
 
 ~~~spl svg=N oeis=A080099
-0:19.triangularArray(bitAnd:/2)
+0:19.triangularArray(bitAnd/2)
 .catenate.scatterPlot
 ~~~
 

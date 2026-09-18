@@ -155,7 +155,7 @@ OEIS [A102370](https://oeis.org/A102370):
 	let m = n + 1 - n.integerLength(2);
 	[m .. n].withIndexCollect { :j :i |
 		(2 ^ (i - 1)).bitAnd(j)
-	}.reduce(bitOr:/2)
+	}.reduce(bitOr/2)
 }.stepPlot
 ~~~
 

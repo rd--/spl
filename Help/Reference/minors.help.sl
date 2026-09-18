@@ -1,6 +1,6 @@
 # minors
 
-- _minors(m, k, f:/1)_
+- _minors(m, k, f/1)_
 
 Answer the minors of the matrix _m_,
 if _k_ is elided is is on less than the least dimension,
@@ -53,7 +53,7 @@ The matrices used to compute the _k=2_ minors of a 3×4 matrix:
 
 ```
 >>> 1:12.reshape([3 4]).minors(
->>> 	2, identity:/1
+>>> 	2, identity/1
 >>> )
 [
 	[

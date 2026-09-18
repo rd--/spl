@@ -47,8 +47,8 @@ OEIS [A000129](https://oeis.org/A000129):
 
 ```
 >>> 0:8.antidiagonalArray(
->>> 	delannoyNumber:/2
->>> ).collect(sum:/1)
+>>> 	delannoyNumber/2
+>>> ).collect(sum/1)
 [1 2 5 12 29 70 169 408 985]
 ```
 
@@ -67,7 +67,7 @@ OEIS [A008288](https://oeis.org/A008288):
 
 ~~~spl svg=B oeis=A008288
 0:17.antidiagonalArray(
-	delannoyNumber:/2
+	delannoyNumber/2
 ).catenate.scatterPlot.log
 ~~~
 

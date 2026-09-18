@@ -1,6 +1,6 @@
 # deleteAdjacentDuplicates
 
-- _deleteAdjacentDuplicates([x₁ x₂ …], f:/2)_
+- _deleteAdjacentDuplicates([x₁ x₂ …], f/2)_
 
 Answer a sequence that deletes all duplicates in runs of identical elements in the sequence _x_,
 according to _f_.

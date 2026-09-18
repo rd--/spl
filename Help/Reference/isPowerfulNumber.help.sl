@@ -9,7 +9,7 @@ There are an infinite number of powerful numbers,
 OEIS [A001694](http://oeis.org/A001694):
 
 ```
->>> 1:100.select(isPowerfulNumber:/1)
+>>> 1:100.select(isPowerfulNumber/1)
 [1 4 8 9 16 25 27 32 36 49 64 72 81 100]
 ```
 
@@ -19,7 +19,7 @@ OEIS [A118896](http://oeis.org/A118896):
 ```
 >>> 1:4.collect { :n |
 >>> 	(1 .. 10 ^ n).select(
->>> 		isPowerfulNumber:/1
+>>> 		isPowerfulNumber/1
 >>> 	).size
 >>> }
 [4 14 54 185]
@@ -41,7 +41,7 @@ Characteristic function of powerful numbers,
 OEIS [A112526](https://oeis.org/A112526):
 
 ~~~spl svg=A oeis=A112526
-1:200.collect(isPowerfulNumber:/1)
+1:200.collect(isPowerfulNumber/1)
 .boole.discretePlot
 ~~~
 

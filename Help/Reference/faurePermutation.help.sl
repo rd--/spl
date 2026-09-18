@@ -7,7 +7,7 @@ Implement an algorithm by Faure for generating a permuation of the integers _0:n
 The first few permutations:
 
 ```
->>> 1:16.collect(faurePermutation:/1)
+>>> 1:16.collect(faurePermutation/1)
 [
 	0;
 	0 1;

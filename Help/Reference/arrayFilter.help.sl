@@ -1,13 +1,13 @@
 # arrayFilter
 
-- _arrayFilter(aBlock:/1, aList, anInteger)_
+- _arrayFilter(aBlock/1, aList, anInteger)_
 
 Apply _aBlock_ to all _anInteger * 2 + 1_ sublists of _aList_.
 The answer has the same shape as the input.
 At the boundaries, the edge elements are repeated.
 
 ```
->>> identity:/1
+>>> identity/1
 >>> .arrayFilter([1 .. 5], 1)
 [
 	1 1 2;
@@ -37,7 +37,7 @@ Compute successive differences of elements:
 Compute a moving average with runs of three elements using a range-one neighbourhood:
 
 ```
->>> mean:/1.arrayFilter([1 .. 5], 1)
+>>> mean/1.arrayFilter([1 .. 5], 1)
 [
 	(1 + 1 + 2) / 3,
 	(1 + 2 + 3) / 3,

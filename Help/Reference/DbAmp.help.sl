@@ -26,7 +26,7 @@ Threads over lists:
 Plot curve:
 
 ~~~spl svg=A
-(-120 -- 0).functionPlot(DbAmp:/1)
+(-120 -- 0).functionPlot(DbAmp/1)
 ~~~
 
 ![](Help/Image/DbAmp-A.svg)

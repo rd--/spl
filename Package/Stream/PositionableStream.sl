@@ -23,7 +23,7 @@
 	}
 
 	nextMatchAll { :self :aCollection |
-		valueWithReturn { :return:/1 |
+		valueWithReturn { :return/1 |
 			let savedPosition = self.position;
 			aCollection.do { :each |
 				(self.next = each).ifFalse {
@@ -59,7 +59,7 @@
 	}
 
 	peekFor { :self :anObject |
-		valueWithReturn { :return:/1 |
+		valueWithReturn { :return/1 |
 			self.atEnd.ifTrue {
 				false.return
 			};
@@ -96,7 +96,7 @@
 	}
 
 	skipTo { :self :anObject |
-		valueWithReturn { :return:/1 |
+		valueWithReturn { :return/1 |
 			{
 				self.atEnd
 			}.whileFalse {
@@ -136,7 +136,7 @@
 		self.next(anInteger - self.position)
 	}
 
-	withWriteStream { :self :aBlock:/1 |
+	withWriteStream { :self :aBlock/1 |
 		let aStream = self.collection.species.new(100).asWriteStream;
 		aBlock(aStream);
 		aStream.contents

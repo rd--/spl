@@ -104,7 +104,7 @@ true
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(-5 -- 5).functionPlot(arcTan:/1)
+(-5 -- 5).functionPlot(arcTan/1)
 ~~~
 
 ![](Help/Image/arcTan-A.svg)

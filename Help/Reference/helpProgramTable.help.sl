@@ -1,6 +1,6 @@
 # helpProgramTable
 
-- _helpProgramTable(system, f:/1=⊤)_
+- _helpProgramTable(system, f/1=⊤)_
 
 Answer a two column table where the keys are help file topics,
 and the values are `HelpProgram` objects.
@@ -17,7 +17,7 @@ count programs that answer images:
 
 ```
 >>> system.helpProgramTable(
->>> 	isImageProgram:/1
+>>> 	isImageProgram/1
 >>> ).size
 4963
 ```

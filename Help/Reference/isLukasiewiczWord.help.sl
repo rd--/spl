@@ -42,7 +42,7 @@ The Łukasiewicz paths with content _0013_:
 >>> 	3 0 1 0;
 >>> 	3 0 0 1;
 >>> 	1 3 0 0
->>> ].allSatisfy(isLukasiewiczWord:/1)
+>>> ].allSatisfy(isLukasiewiczWord/1)
 true
 ```
 
@@ -50,7 +50,7 @@ The Łukasiewicz paths with content _0022_:
 
 ```
 >>> motzkinWords(2, 1)
->>> .allSatisfy(isLukasiewiczWord:/1)
+>>> .allSatisfy(isLukasiewiczWord/1)
 true
 
 >>> motzkinWords(2, 1)
@@ -105,7 +105,7 @@ The Łukasiewicz paths with content _000123_:
 >>> 	1 2 0 3 0 0;
 >>> 	2 1 0 3 0 0;
 >>> 	3 2 1 0 0 0
->>> ].allSatisfy(isLukasiewiczWord:/1)
+>>> ].allSatisfy(isLukasiewiczWord/1)
 true
 ```
 
@@ -113,7 +113,7 @@ The five Dyck words of order _n=3_:
 
 ```
 >>> 3.dyckWords([2 0])
->>> .allSatisfy(isLukasiewiczWord:/1)
+>>> .allSatisfy(isLukasiewiczWord/1)
 true
 
 >>> 3.dyckWords([2 0])
@@ -156,7 +156,7 @@ OEIS [A071153](https://oeis.org/A071153):
 >>> 	1 1 1 1;
 >>> 	5 0 0 0 0;
 >>> 	4 0 0 0 1
->>> ].allSatisfy(isLukasiewiczWord:/1)
+>>> ].allSatisfy(isLukasiewiczWord/1)
 true
 ```
 

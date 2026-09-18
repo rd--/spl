@@ -24,7 +24,7 @@ Threads over lists:
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(-3 -- 3).functionPlot(squareWave:/1)
+(-3 -- 3).functionPlot(squareWave/1)
 ~~~
 
 ![](Help/Image/squareWave-A.svg)

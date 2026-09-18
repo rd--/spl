@@ -9,8 +9,8 @@ allowing for negative _n_ to preserve Pascal’s identity.
 ```
 >>> let n = -8;
 >>> let k = 3;
->>> [binomialPascal:/2, binomialGamma:/2]
->>> .collect { :f:/2 |
+>>> [binomialPascal/2, binomialGamma/2]
+>>> .collect { :f/2 |
 >>> 	[f(n, k), f(n - 1, k) + f(n - 1, k - 1)]
 >>> }
 [-120 -120; -171.43 -768.96]

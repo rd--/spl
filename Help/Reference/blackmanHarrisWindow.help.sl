@@ -20,7 +20,7 @@ The Blackman-Harris window function:
 
 ~~~spl svg=A
 (-1 -- 1).functionPlot(
-	blackmanHarrisWindow:/1
+	blackmanHarrisWindow/1
 )
 ~~~
 
@@ -31,7 +31,7 @@ Discrete Blackman-Harris window of length 15:
 ~~~spl svg=B
 (-0.5 -- 0.5).discretize(
 	15,
-	blackmanHarrisWindow:/1
+	blackmanHarrisWindow/1
 )
 .discretePlot
 ~~~
@@ -42,7 +42,7 @@ Frequency response of the Blackman-Harris window:
 
 ~~~spl svg=C
 51.windowTable(
-	blackmanHarrisWindow:/1
+	blackmanHarrisWindow/1
 ).fftPlot(512, 'Centered', 'Logarithmic')
 ~~~
 

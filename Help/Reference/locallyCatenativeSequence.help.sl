@@ -8,7 +8,7 @@ the _n_-th word being the catenation the words at _n-1_ and _n-2_:
 ```
 >>> ['a'; 'a' 'b']
 >>> .locallyCatenativeSequence([1 2], 5)
->>> .collect(stringJoin:/1)
+>>> .collect(stringJoin/1)
 [
 	'a'
 	'ab'

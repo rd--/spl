@@ -1,6 +1,6 @@
 # dispersionArray
 
-- _dispersionArray(f:/1, [m n])_
+- _dispersionArray(f/1, [m n])_
 
 Answer the _m×n_ dispersion array of the sequence specified by _f(x)_.
 
@@ -42,7 +42,7 @@ Dispersion array of the primes,
 OEIS [A114537](https://oeis.org/A114537):
 
 ```
->>> prime:/1.dispersionArray([6 6])
+>>> prime/1.dispersionArray([6 6])
 [
 	 1   2   3    5    11     31;
 	 4   7  17   59   277   1787;
@@ -113,7 +113,7 @@ the dispersion array of the composite numbers:
 OEIS [A114577](https://oeis.org/A114577):
 
 ```
->>> 1:100.select(isComposite:/1)
+>>> 1:100.select(isComposite/1)
 >>> .dispersionArray([5 5])
 [
 	1  4  9 16 26;

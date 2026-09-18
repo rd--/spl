@@ -1,16 +1,16 @@
 # minOn
 
-- _minOn(p, q, f:/1)_
+- _minOn(p, q, f/1)_
 
 Answers which of _p_ or _q_ answers as `min` according to the block _f_,
 that is the `min` accoring to the transformed _p_ and _q_,
 answering either _p_ or _q_.
 
 ```
->>> -2J2.minOn(4J1, abs:/1)
+>>> -2J2.minOn(4J1, abs/1)
 -2J2
 
->>> [1 2 3].minOn([4 5], size:/1)
+>>> [1 2 3].minOn([4 5], size/1)
 [4 5]
 ```
 

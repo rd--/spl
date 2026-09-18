@@ -1,6 +1,6 @@
 # ifError
 
-- _ifError(f:/0, g:/1)_
+- _ifError(f/0, g/1)_
 
 Evaluate the no-argument block _f_ and if there is no error then that is the answer.
 If an error occurs evaluate the unary block _g_ with the `Error` signalled by _f_,

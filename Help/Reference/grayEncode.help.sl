@@ -212,7 +212,7 @@ OEIS [A195467](https://oeis.org/A195467):
 0:2.collect { :i |
 	let n = 2 ^ i;
 	let m = 2 ^ n;
-	grayEncode:/1.nestList(
+	grayEncode/1.nestList(
 		[0 .. m - 1],
 		n - 1
 	).catenate
@@ -229,7 +229,7 @@ OEIS [A197819](https://oeis.org/A197819):
 0:3.collect { :i |
 	let n = 2 ^ i;
 	let m = 2 ^ n;
-	let a = grayEncode:/1.nestList(
+	let a = grayEncode/1.nestList(
 		[0 .. m - 1],
 		n - 1
 	);

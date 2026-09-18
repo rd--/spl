@@ -1,6 +1,6 @@
 # relationGraph
 
-- _relationGraph(f:/2, t, [v₁ v₂ …])_
+- _relationGraph(f/2, t, [v₁ v₂ …])_
 
 Answer a graph on the vertex list _v_,
 with edges from _u_ to _v_ whenever _f(u,v)_ is equal to _t_.
@@ -66,7 +66,7 @@ Construct a bipartite graph:
 Construct a divisibility graph:
 
 ```
->>> divisible:/2.relationGraph(
+>>> divisible/2.relationGraph(
 >>> 	true,
 >>> 	[2 3 4 6 8 12]
 >>> ).adjacencyMatrix
@@ -83,7 +83,7 @@ Construct a divisibility graph:
 Construct a coprime graph:
 
 ```
->>> isCoprime:/2.relationGraph(
+>>> isCoprime/2.relationGraph(
 >>> 	false,
 >>> 	[1 .. 7]
 >>> ).adjacencyMatrix
@@ -101,7 +101,7 @@ Construct a coprime graph:
 Draw coprime graph:
 
 ~~~spl svg=A
-isCoprime:/2.relationGraph(
+isCoprime/2.relationGraph(
 	false,
 	[1 .. 7]
 ).graphPlot

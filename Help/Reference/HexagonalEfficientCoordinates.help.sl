@@ -11,7 +11,7 @@ beginning with cell one column to the right:
 ```
 >>> HexagonalEfficientCoordinates[0 0 0]
 >>> .nearestNeighbours
->>> .collect(coordinates:/1)
+>>> .collect(coordinates/1)
 [
 	0  0  1;
 	1 -1  0;

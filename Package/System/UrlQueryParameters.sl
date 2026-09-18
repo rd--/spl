@@ -50,7 +50,7 @@ URLSearchParams! : [Object, Iterable, UrlQueryParameters] {
 		<primitive: return _self.append(_name, _value);>
 	}
 
-	do { :self :aBlock:/1 |
+	do { :self :aBlock/1 |
 		self.keysAndValuesDo { :unusedKey :value |
 			aBlock(value)
 		}
@@ -74,7 +74,7 @@ URLSearchParams! : [Object, Iterable, UrlQueryParameters] {
 		>
 	}
 
-	keysAndValuesDo { :self :aBlock:/2 |
+	keysAndValuesDo { :self :aBlock/2 |
 		<primitive:
 		_self.forEach(function(value, key, _myself) {
 			_aBlock_2(key, value);

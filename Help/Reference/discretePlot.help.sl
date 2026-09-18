@@ -9,7 +9,7 @@ Also called _pin_ and _stem_ plots.
 Plot a sequence of fifty places:
 
 ~~~spl svg=A
-1:50.collect(primePi:/1).discretePlot
+1:50.collect(primePi/1).discretePlot
 ~~~
 
 ![](Help/Image/discretePlot-A.svg)

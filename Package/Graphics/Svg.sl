@@ -51,7 +51,7 @@ Svg : [Object] { | contents |
 		}.if {
 			self.error('invalid input')
 		} {
-			let nonEmptyStringList = stringList.reject(isEmpty:/1);
+			let nonEmptyStringList = stringList.reject(isEmpty/1);
 			nonEmptyStringList.unlines.Svg
 		}
 	}
@@ -77,7 +77,7 @@ Svg : [Object] { | contents |
 
 +Block {
 
-	scaledSvgFragments { :self:/1 :height :boundingCoordinates |
+	scaledSvgFragments { :self/1 :height :boundingCoordinates |
 		let actualBoundingBox = boundingCoordinates.asRectangle;
 		let boundingBox = actualBoundingBox.height.isZero.if {
 			Rectangle(

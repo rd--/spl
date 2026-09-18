@@ -1,7 +1,7 @@
 # inner
 
-- _inner(f:/2, g:/2)_
-- _inner(f:/2, α, β, g:/2)_
+- _inner(f/2, g/2)_
+- _inner(f/2, α, β, g/2)_
 
 `inner` is a generalisation of `dot` in which _f_ plays the role of multiplication and _g_ of addition.
 
@@ -80,7 +80,7 @@ Evaluate symbolically:
 >>> 	[`a` `b`; `c` `d`],
 >>> 	[`u` `v`; `w` `x`],
 >>> 	+
->>> ).deepCollect(printString:/1)
+>>> ).deepCollect(printString/1)
 [
 	[
 		'(+ (* a u) (* b w))',

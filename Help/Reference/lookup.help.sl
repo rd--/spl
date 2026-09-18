@@ -80,7 +80,7 @@ Unlike `atAll`, the answer gives only the values, in sequence.
 
 * * *
 
-See also: at, atAll, atIfAbsent, Dictionary, includesKey, Map, Record
+See also: at, atAll, atIfAbsent, Dictionary, includesKey, keyAtValue, Map, Record
 
 Guides: Dictionary Functions
 

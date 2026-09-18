@@ -18,7 +18,7 @@ The method dictionary of `List`:
 >>> (
 >>> 	t.isType,
 >>> 	d.isDictionary,
->>> 	d['isList:/1'].isMethod
+>>> 	d['isList/1'].isMethod
 >>> )
 (true, true, true)
 ```
@@ -31,7 +31,7 @@ The method dictionary of `String`:
 >>> (
 >>> 	t.isType,
 >>> 	d.isDictionary,
->>> 	d['isString:/1'].isMethod
+>>> 	d['isString/1'].isMethod
 >>> )
 (true, true, true)
 ```

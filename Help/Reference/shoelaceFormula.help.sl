@@ -32,7 +32,7 @@ Manipulations of a polygon:
 >>> 	p1 q p2;
 >>> 	p1 p2 p4 p5;
 >>> 	p1 q p2 p3 p4 p5
->>> ].collect(shoelaceFormula:/1)
+>>> ].collect(shoelaceFormula/1)
 [20.5 -7 -3.5 27.5 17]
 ```
 

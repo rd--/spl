@@ -1,7 +1,7 @@
 # surfacePlot
 
-- _surfacePlot(i, n, f:/2)_
-- _surfacePlot([u v], [uₙ vₙ], f:/2)_
+- _surfacePlot(i, n, f/2)_
+- _surfacePlot([u v], [uₙ vₙ], f/2)_
 - _surfacePlot(m)_
 
 Make a drawing of a three-dimensional surface.
@@ -107,7 +107,7 @@ Dini’s surface:
 A pseudosphere:
 
 ~~~spl svg=H
-[-2 2; 0 2.pi].surfacePlot(pseudosphere:/2)
+[-2 2; 0 2.pi].surfacePlot(pseudosphere/2)
 ~~~
 
 ![](Help/Image/surfacePlot-H.svg)
@@ -160,7 +160,7 @@ Plot a double cone:
 Plot a torus:
 
 ~~~spl svg=M
-let f:/2 = torus(2.5);
+let f/2 = torus(2.5);
 (0 -- 2.pi).surfacePlot { :u :v |
 	let [x, y, z] = f(u, v);
 	[x, z, y]

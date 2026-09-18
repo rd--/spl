@@ -20,8 +20,8 @@ TypedDictionary : [Object, Store, Equal, Iterable, Indexable, Collection, Extens
 		self.contents.keys
 	}
 
-	keysAndValuesDo { :self :aBlock:/2 |
-		self.contents.keysAndValuesDo(aBlock:/2)
+	keysAndValuesDo { :self :aBlock/2 |
+		self.contents.keysAndValuesDo(aBlock/2)
 	}
 
 	typeCheckKey { :self :key |
@@ -32,8 +32,8 @@ TypedDictionary : [Object, Store, Equal, Iterable, Indexable, Collection, Extens
 		}
 	}
 
-	do { :self :aBlock:/1 |
-		self.contents.do(aBlock:/1)
+	do { :self :aBlock/1 |
+		self.contents.do(aBlock/1)
 	}
 
 	size { :self |

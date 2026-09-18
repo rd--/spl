@@ -24,7 +24,7 @@ At `BlockStream`:
 
 ```
 >>> let a = Stream[1 .. 11];
->>> let b = a.reject(isEven:/1);
+>>> let b = a.reject(isEven/1);
 >>> (b.upTo(7), b.upToEnd)
 ([1 3 5], [9 11])
 ```

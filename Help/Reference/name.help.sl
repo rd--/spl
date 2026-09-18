@@ -8,22 +8,22 @@ At `Block`:
 
 ```
 >>> +.name
-'plusSign:/2'
+'plusSign/2'
 
->>> sqrt:/1.name
-'sqrt:/1'
+>>> sqrt/1.name
+'sqrt/1'
 ```
 
 Note that aliased blocks are not equal, because they have different names:
 
 ```
 >>> =.name
-'equalsSign:/2'
+'equalsSign/2'
 
->>> equal:/2.name
-'equal:/2'
+>>> equal/2.name
+'equal/2'
 
->>> = = equal:/2
+>>> = = equal/2
 false
 ```
 

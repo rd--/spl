@@ -1,7 +1,7 @@
 # foldList
 
-- _foldList(f:/2, y, [x₁ x₂ …])_
-- _foldList([x₁ x₂ …], y, f:/2)_
+- _foldList(f/2, y, [x₁ x₂ …])_
+- _foldList([x₁ x₂ …], y, f/2)_
 
 Apply a the binary block _f_ to each element of the sequence _x_,
 passing an accumulating parameter,
@@ -45,14 +45,14 @@ Cumulative powers:
 Perform a chain of cross products:
 
 ```
->>> cross:/2.foldList(
+>>> cross/2.foldList(
 >>> 	[1 -1 1],
 >>> 	[0 1 1; 1 1 -1]
 >>> )
 [1 -1 1; -2 -1 1; 0 -1 -1]
 
 >>> [0 1 1; 1 1 -1]
->>> .foldList([1 -1 1], cross:/2)
+>>> .foldList([1 -1 1], cross/2)
 [1 -1 1; -2 -1 1; 0 -1 -1]
 ```
 
@@ -102,7 +102,7 @@ Find the running maximum of a list:
 ```
 >>> [
 >>> 	1 3 1 2 4 1 5 3 6 2 8 11
->>> ].foldList(0, max:/2)
+>>> ].foldList(0, max/2)
 [0 1 3 3 3 4 4 5 5 6 6 8 11]
 ```
 
@@ -135,7 +135,7 @@ Build up a left-branching binary tree:
 `foldList` makes a list of length _n + 1_:
 
 ```
->>> 1:9.foldList(0, rightIdentity:/2)
+>>> 1:9.foldList(0, rightIdentity/2)
 [0 1 2 3 4 5 6 7 8 9]
 ```
 
@@ -188,7 +188,7 @@ Calculate the accumulated distance at each point along a straight line path:
 >>> let h = 2.sqrt;
 >>> [0 0; 1 1; 1 0; 2 1; 2 0]
 >>> .adjacentPairsCollect(
->>> 	euclideanDistance:/2
+>>> 	euclideanDistance/2
 >>> ).foldList(0, +)
 [0, h, h + 1, 2 * h + 1, 2 * h + 2]
 ```
@@ -278,7 +278,7 @@ The minimal exponent of the symmetric group _Sn_,
 OEIS [A003418](https://oeis.org/A003418):
 
 ```
->>> lcm:/2.foldList(1, 1:11)
+>>> lcm/2.foldList(1, 1:11)
 [1 1 2 6 12 60 60 420 840 2520 2520 27720]
 ```
 

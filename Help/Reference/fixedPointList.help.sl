@@ -1,6 +1,6 @@
 # fixedPointList
 
-- _fixedPointList(f:/1, x, =)_
+- _fixedPointList(f/1, x, =)_
 
 Generates a `List` giving the results of applying the unary block _f_ repeatedly,
 starting with the object _x_,
@@ -45,10 +45,10 @@ Convergence may fail due to oscillations in the final digits.
 Use a test function with a specific tolerance to resolve this:
 
 ```
->>> cos:/1.fixedPointList(0.5, ~).size
+>>> cos/1.fixedPointList(0.5, ~).size
 24
 
->>> cos:/1.fixedPointList(0.5) { :alpha :beta |
+>>> cos/1.fixedPointList(0.5) { :alpha :beta |
 >>> 	(alpha - beta).abs < 0.1
 >>> }
 [0.5 0.8775 0.6390 0.8027 0.6948 0.7682]

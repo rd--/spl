@@ -1,6 +1,6 @@
 # also
 
-- _also(x, f:/1)_
+- _also(x, f/1)_
 
 Evaluate the block _f_ with the object _x_ as argument and answer _x_.
 

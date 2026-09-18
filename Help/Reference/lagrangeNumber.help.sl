@@ -18,7 +18,7 @@ Answer the _n_-th Lagrange number.
 First five terms:
 
 ```
->>> 1:5.collect(lagrangeNumber:/1)
+>>> 1:5.collect(lagrangeNumber/1)
 [2.2361 2.8284 2.9732 2.9961 2.9992]
 ```
 

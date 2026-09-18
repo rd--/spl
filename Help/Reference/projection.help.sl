@@ -152,13 +152,13 @@ and use that basis to find a QR factorization:
 >>> ];
 >>> let [m, n] = a.shape;
 >>> let x = a.transpose;
->>> let v:/1 = { :k |
+>>> let v/1 = { :k |
 >>> 	let r = 1.to(k - 1).collect { :j |
 >>> 		x[k].projection(v(j))
 >>> 	}.sum;
 >>> 	(x[k] - r).normalize
 >>> }.memoize(true);
->>> let q = 1:n.collect(v:/1).transpose;
+>>> let q = 1:n.collect(v/1).transpose;
 >>> let r = q.transpose.dot(a);
 >>> (q, r)
 (

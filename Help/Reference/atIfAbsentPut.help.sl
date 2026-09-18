@@ -1,6 +1,6 @@
 # atIfAbsentPut
 
-- _atIfAbsentPut(d, k, f:/0)_
+- _atIfAbsentPut(d, k, f/0)_
 
 Answer the element in the dictionary _d_ at key _k_.
 If the key is absent,

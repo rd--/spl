@@ -13,7 +13,7 @@ RgbColour([1 1 1], 0.65)
 Plot whites with increasing α:
 
 ~~~spl svg=A
-[0, 0.1 .. 1].collect(white:/1)
+[0, 0.1 .. 1].collect(white/1)
 .enclose
 .arrayPlot
 ~~~

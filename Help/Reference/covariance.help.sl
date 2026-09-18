@@ -87,7 +87,7 @@ Covariance of a 3×4 matrix:
 Compute the covariance for a `gcd` array:
 
 ~~~spl png=A
-let m = gcd:/2.table(1:100, 1:100);
+let m = gcd/2.table(1:100, 1:100);
 (1 - m.covariance(m).rescale).Greymap
 ~~~
 

@@ -52,7 +52,7 @@ OscMessage : [Object, Store] { | address parameterList |
 	asRecord { :self |
 		(
 			address: self.address,
-			args: self.parameterList.collect(asRecord:/1)
+			args: self.parameterList.collect(asRecord/1)
 		)
 	}
 
@@ -67,7 +67,7 @@ OscMessage : [Object, Store] { | address parameterList |
 	OscMessage { :self :parameterList |
 		newOscMessage().initializeSlots(
 			self,
-			parameterList.collect(asOscParameter:/1)
+			parameterList.collect(asOscParameter/1)
 		)
 	}
 
@@ -78,7 +78,7 @@ OscBundle : [Object, Store] { | time messageList |
 	asRecord { :self |
 		(
 			timeTag: (native: self.time * 1000),
-			packets: self.messageList.collect(asRecord:/1)
+			packets: self.messageList.collect(asRecord/1)
 		)
 	}
 

@@ -11,7 +11,7 @@ without the intial zero term,
 OEIS [A105278](https://oeis.org/A105278):
 
 ```
->>> 0:7.triangularArray(lahNumber:/2)
+>>> 0:7.triangularArray(lahNumber/2)
 [
 	1;
 	0 1;
@@ -28,8 +28,8 @@ Row sums,
 OEIS [A000262](https://oeis.org/A000262):
 
 ```
->>> 0:8.triangularArray(lahNumber:/2)
->>> .collect(sum:/1)
+>>> 0:8.triangularArray(lahNumber/2)
+>>> .collect(sum/1)
 [1 1 3 13 73 501 4051 37633 394353]
 ```
 

@@ -63,7 +63,7 @@ CalendarDuration : [Object, Store, Equal, Compare] { | components |
 		self.matchesRegularExpression('^P([0-9]+Y)?([0-9]+M)?([0-9]+W)?([0-9]+D)?(T([0-9]+H)?([0-9]+M)?([0-9]+(.[0-9]+)S)?)?$')
 	}
 
-	parseCalendarDuration { :self :elseClause:/0 |
+	parseCalendarDuration { :self :elseClause/0 |
 		self.isIso8601DurationString.if {
 			let [
 				years, months, weeks, days,

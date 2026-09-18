@@ -15,7 +15,7 @@ The first few terms,
 OEIS [A003266](https://oeis.org/A003266):
 
 ```
->>> 1:14.collect(fibonacciFactorial:/1)
+>>> 1:14.collect(fibonacciFactorial/1)
 [
 	1 1 1
 	2 6 30
@@ -29,7 +29,7 @@ Product of first _n_ Fibonacci numbers squared,
 OEIS [A382910](https://oeis.org/A382910):
 
 ```
->>> 1:11.collect(fibonacciFactorial:/1).square
+>>> 1:11.collect(fibonacciFactorial/1).square
 [
 	1 1 1
 	4 36 900

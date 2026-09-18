@@ -458,7 +458,7 @@
 +List {
 
 	takagiFunction { :self |
-		self.collect(takagiFunction:/1)
+		self.collect(takagiFunction/1)
 	}
 
 }

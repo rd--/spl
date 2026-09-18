@@ -72,7 +72,7 @@ A restricted growth string can be used to describe a set partition:
 [1; 2; 3 4]
 
 >>> 4.restrictedGrowthStrings
->>> .collect(setPartition:/1)
+>>> .collect(setPartition/1)
 [
 	1 2 3 4:;
 	1 2 3; 4:;

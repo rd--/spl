@@ -34,7 +34,7 @@ the binary form answers the exclusive scan,
 It is also equivalent to `sum` of each of the `prefixes`:
 
 ```
->>> 0:10.prefixes.collect(sum:/1)
+>>> 0:10.prefixes.collect(sum/1)
 [0 1 3 6 10 15 21 28 36 45 55]
 ```
 
@@ -205,7 +205,7 @@ OEIS [A389609](https://oeis.org/A389609):
 
 ```
 >>> [1 2 4 5 7 11 12 17 18]
->>> .collect(divisors:/1)
+>>> .collect(divisors/1)
 >>> .catenate
 >>> .prefixSum
 [

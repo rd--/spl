@@ -5,7 +5,7 @@
 Answer the parametric equation for the torus.
 
 ~~~spl svg=A
-let f:/2 = torus(2.5);
+let f/2 = torus(2.5);
 (0 -- 2.pi).surfacePlot { :u :v |
 	let [x, y, z] = f(u, v);
 	[x, z, y]

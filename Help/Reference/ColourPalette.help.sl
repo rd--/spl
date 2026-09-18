@@ -13,7 +13,7 @@ A colour palette specifed in _Hex-Triplet_ notation:
 	'#5D8CA8'
 	'#65A479'
 ]
-.collect(parseHexTriplet:/1)
+.collect(parseHexTriplet/1)
 .ColourPalette
 ~~~
 

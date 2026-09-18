@@ -1,6 +1,6 @@
 # split
 
-- _split([x₁ x₂ …], f:/2)_
+- _split([x₁ x₂ …], f/2)_
 
 Split the sequence _x_ into parts at points where _f_,
 when applied to adjacent elements,
@@ -197,7 +197,7 @@ OEIS [A306211](https://oeis.org/A306211):
 
 ~~~spl svg=A oeis=A306211
 let y = { :x |
-	x ++ x.split(=).collect(size:/1)
+	x ++ x.split(=).collect(size/1)
 }.iterate([1], 10);
 (y - 1).discretePlot
 ~~~
@@ -209,8 +209,8 @@ OEIS [A306215](https://oeis.org/A306215):
 
 ```
 >>> { :x |
->>> 	x ++ x.split(=).collect(size:/1)
->>> }.nestList([1], 12).collect(size:/1)
+>>> 	x ++ x.split(=).collect(size/1)
+>>> }.nestList([1], 12).collect(size/1)
 [1 2 3 5 8 13 22 37 61 100 162 260 416]
 ```
 
@@ -221,7 +221,7 @@ OEIS [A037014](https://oeis.org/A037014):
 0:500.select { :n |
 	n.integerDigits(2)
 	.split(=)
-	.collect(size:/1)
+	.collect(size/1)
 	.differences
 	.allSatisfy { :x |
 		x >= 0

@@ -70,7 +70,7 @@
 		} {
 			let answer = [];
 			answer.add(self.size);
-			(self.isNotEmpty & { self.allSatisfy(isSequence:/1) }).ifTrue {
+			(self.isNotEmpty & { self.allSatisfy(isSequence/1) }).ifTrue {
 				let k = self.anyOne.size;
 				self.allSatisfy { :each |
 					each.size = k
@@ -91,9 +91,9 @@
 			self.reverse
 		} {
 			self.isMatrix.if {
-				self.collect(reverse:/1)
+				self.collect(reverse/1)
 			} {
-				self.collect(flipLeftRight:/1)
+				self.collect(flipLeftRight/1)
 			}
 		}
 	}
@@ -114,11 +114,11 @@
 		}
 	}
 
-	isArray { :self :depth :aBlock:/1 |
+	isArray { :self :depth :aBlock/1 |
 		let rho = self.shapeOrNil;
 		rho.isNotNil & {
 			rho.size = depth & {
-				self.deepAllSatisfy(aBlock:/1)
+				self.deepAllSatisfy(aBlock/1)
 			}
 		}
 	}
@@ -144,12 +144,12 @@
 		self.isPermutationList & {
 			self
 			.triangularDifferenceTable
-			.allSatisfy(isDuplicateFree:/1)
+			.allSatisfy(isDuplicateFree/1)
 		}
 	}
 
-	isMatrix { :self :aBlock:/1 |
-		self.isArray(2, aBlock:/1)
+	isMatrix { :self :aBlock/1 |
+		self.isArray(2, aBlock/1)
 	}
 
 	isMatrix { :self |
@@ -158,15 +158,15 @@
 
 	isSmallFloatMatrix { :self |
 		self.arrayDepth = 2 & {
-			self.deepAllSatisfy(isSmallFloat:/1)
+			self.deepAllSatisfy(isSmallFloat/1)
 		}
 	}
 
 	isSmallFloatVector { :self |
-		self.allSatisfy(isSmallFloat:/1)
+		self.allSatisfy(isSmallFloat/1)
 	}
 
-	isVector { :self :aBlock:/1 |
+	isVector { :self :aBlock/1 |
 		self.allSatisfy { :each |
 			each.isList.not & {
 				aBlock(each)
@@ -175,7 +175,7 @@
 	}
 
 	isVector { :self |
-		self.noneSatisfy(isList:/1)
+		self.noneSatisfy(isList/1)
 	}
 
 	ones { :self |
@@ -250,7 +250,7 @@
 
 	replaceSubarray { :self :indices :subarray |
 		let shape = subarray.shape;
-		(shape = indices.collect(size:/1)).if {
+		(shape = indices.collect(size/1)).if {
 			let i = indices.tuples;
 			let j = shape.collect { :n |
 				[1 .. n]
@@ -280,7 +280,7 @@
 			elementTypes.allSatisfy { :each |
 				each = type
 			}.if {
-				let elementShapes = self.collect(shape:/1);
+				let elementShapes = self.collect(shape/1);
 				(elementShapes.nub.size = 1).if {
 					[self.size] ++ elementShapes.first
 				} {
@@ -341,7 +341,7 @@
 		self.isEmpty.if {
 			1
 		} {
-			self.foldRight(outerProduct:/2)
+			self.foldRight(outerProduct/2)
 		}
 	}
 
@@ -418,7 +418,7 @@
 	}
 
 	boustrophedonTransform { :self |
-		self.boustrophedonTriangle.collect(last:/1)
+		self.boustrophedonTriangle.collect(last/1)
 	}
 
 	boustrophedonTriangle { :a |
@@ -478,7 +478,7 @@
 
 +@Integer {
 
-	antidiagonalArray { :n :f:/2 |
+	antidiagonalArray { :n :f/2 |
 		1.toCollect(n) { :i |
 			1.toCollect(i) { :j |
 				f(j, i - j + 1)
@@ -541,12 +541,12 @@
 
 +Block {
 
-	arrayReduce { :self:/1 :anArray :anInteger |
+	arrayReduce { :self/1 :anArray :anInteger |
 		(anInteger = 1).if {
-			anArray.collect(self:/1)
+			anArray.collect(self/1)
 		} {
 			(anInteger = 2).if {
-				anArray.columnsCollect(self:/1)
+				anArray.columnsCollect(self/1)
 			} {
 				self.error('Block>>arrayReduce: not implemented')
 			}
@@ -609,7 +609,7 @@
 
 +Range {
 
-	antidiagonalArray { :self :f:/2 |
+	antidiagonalArray { :self :f/2 |
 		let a = self[1];
 		self.collect { :i |
 			a.toCollect(i) { :j |
@@ -618,7 +618,7 @@
 		}
 	}
 
-	triangularArrayDo { :self :aBlock:/2 :k |
+	triangularArrayDo { :self :aBlock/2 :k |
 		let a = self[1];
 		self.do { :n |
 			a.toDo(max(a, n + k)) { :m |
@@ -627,7 +627,7 @@
 		}
 	}
 
-	triangularArray { :self :aBlock:/2 :k |
+	triangularArray { :self :aBlock/2 :k |
 		let a = self[1];
 		self.collect { :n |
 			a.to(max(a, n + k)).collect { :m |
@@ -636,8 +636,8 @@
 		}
 	}
 
-	triangularArray { :self :aBlock:/2 |
-		triangularArray(self, aBlock:/2, 0)
+	triangularArray { :self :aBlock/2 |
+		triangularArray(self, aBlock/2, 0)
 	}
 
 }
@@ -646,13 +646,13 @@
 
 	isTriangularArray { :self |
 		let k = self.size;
-		let l = self.collect(size:/1);
+		let l = self.collect(size/1);
 		l.hasEqualElements(Range(1, k, 1)) | {
 			l.hasEqualElements(Range(k, 1, -1))
 		}
 	}
 
-	triangularArray { :self :aBlock:/2 |
+	triangularArray { :self :aBlock/2 |
 		let k = self.size;
 		1.to(k).triangularArray { :i :j |
 			aBlock(self[i], self[j])

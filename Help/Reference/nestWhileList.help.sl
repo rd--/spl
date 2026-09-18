@@ -1,6 +1,6 @@
 # nestWhileList
 
-- _nestWhileList(f:/1, i, g:/1)_
+- _nestWhileList(f/1, i, g/1)_
 
 Answer a `List` of the results of applying the block _f_ repeatedly,
 starting with the value _i_,
@@ -13,7 +13,7 @@ Keep dividing by 2 until the result is no longer an even number:
 >>> 	x / 2
 >>> }.nestWhileList(
 >>> 	123456,
->>> 	isEven:/1
+>>> 	isEven/1
 >>> )
 [
 	123456 61728 30864 15432 7716
@@ -24,9 +24,9 @@ Keep dividing by 2 until the result is no longer an even number:
 Iterate taking logarithms until the result is no longer positive:
 
 ```
->>> log:/1.nestWhileList(
+>>> log/1.nestWhileList(
 >>> 	100,
->>> 	isPositive:/1
+>>> 	isPositive/1
 >>> )
 [100 4.60517 1.52718 0.42342 -0.85938]
 ```

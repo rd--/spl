@@ -10,7 +10,7 @@ Prime gaps,
 OEIS [A001223](https://oeis.org/A001223):
 
 ```
->>> 1:20.collect(primeGap:/1)
+>>> 1:20.collect(primeGap/1)
 [
 	1 2 2 4 2 4 2 4 6 2
 	6 4 2 4 6 6 2 6 4 2
@@ -27,7 +27,7 @@ Most frequent gaps in initial primes sequence:
 
 ```
 >>> 2:999
->>> .collect(primeGap:/1)
+>>> .collect(primeGap/1)
 >>> .asIdentityMultiset
 >>> .sortedCounts
 >>> .take(4)
@@ -43,7 +43,7 @@ Differences between record prime gaps,
 OEIS [A053695](https://oeis.org/A053695):
 
 ```
->>> 1:2000.collect(primeGap:/1)
+>>> 1:2000.collect(primeGap/1)
 >>> .recordValues
 >>> .differences
 [1 2 2 2 6 4 2 2 12 2 8]
@@ -64,7 +64,7 @@ differences between consecutive primes,
 OEIS [A001223](https://oeis.org/A001223):
 
 ~~~spl svg=A oeis=A001223
-1:99.functionPlot(primeGap:/1)
+1:99.functionPlot(primeGap/1)
 ~~~
 
 ![](Help/Image/primeGap-A.svg)
@@ -75,7 +75,7 @@ scatter plot,
 OEIS [A001223](https://oeis.org/A001223):
 
 ~~~spl svg=B oeis=A001223
-1:200.collect(primeGap:/1)
+1:200.collect(primeGap/1)
 .scatterPlot
 ~~~
 

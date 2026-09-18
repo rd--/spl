@@ -1,6 +1,6 @@
 # elementTypeIfAbsent
 
-- _elementTypeIfAbsent(c, f:/0)_
+- _elementTypeIfAbsent(c, f/0)_
 
 Answer the uniform `typeOf` each element of the collection _c_,
 else answer the value of the block _f_.

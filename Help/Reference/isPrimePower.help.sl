@@ -37,7 +37,7 @@ or with one prefixed,
 OEIS [A000961](https://oeis.org/A000961):
 
 ```
->>> 2:49.select(isPrimePower:/1)
+>>> 2:49.select(isPrimePower/1)
 [
 	 2  3  4  5  7  8  9 11 13 16
 	17 19 23 25 27 29 31 32 37 41
@@ -67,7 +67,7 @@ integers that have the form _2^n - 1_:
 >>> 	}
 >>> };
 >>> [524285, 2147483647].collect(
->>> 	isMersenneNumber:/1
+>>> 	isMersenneNumber/1
 >>> )
 [false true]
 ```
@@ -78,7 +78,7 @@ The number of prime powers in intervals of size 1000:
 >>> 0:4.collect { :each |
 >>> 	let i = 10 ^ each;
 >>> 	(i  .. i + 999).select(
->>> 		isPrimePower:/1
+>>> 		isPrimePower/1
 >>> 	).size
 >>> }
 [193 187 175 140 108]
@@ -100,7 +100,7 @@ Prime powers are divisible by exactly one prime number:
 >>> 625.isPrimePower
 true
 
->>> 625.divisors.select(isPrime:/1)
+>>> 625.divisors.select(isPrime/1)
 [5]
 ```
 
@@ -143,8 +143,8 @@ Least prime factor of _n_-th prime power,
 OEIS [A025473](https://oeis.org/A025473):
 
 ~~~spl svg=A oeis=A025473
-1:240.select(isPrimePower:/1)
-.collect(leastPrimeFactor:/1)
+1:240.select(isPrimePower/1)
+.collect(leastPrimeFactor/1)
 .stepPlot
 ~~~
 

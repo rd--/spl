@@ -13,7 +13,7 @@ At an infinite stream:
 
 ```
 >>> (1 .. Infinity).asStream
->>> .reject(isEven:/1)
+>>> .reject(isEven/1)
 >>> .next(5)
 [1 3 5 7 9]
 ```

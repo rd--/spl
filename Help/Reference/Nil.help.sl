@@ -10,7 +10,7 @@
 There are `ifNil` and `ifNotNil` control structures:
 
 ```
->>> nil.respondsTo(ifNil:/2)
+>>> nil.respondsTo(ifNil/2)
 true
 ```
 
@@ -19,7 +19,7 @@ There are two and three argument forms:
 ```
 >>> let t = system.typeDictionary['Nil'];
 >>> let m = t.methodDictionary;
->>> m.keys.includes('ifNil:/3')
+>>> m.keys.includes('ifNil/3')
 true
 ```
 

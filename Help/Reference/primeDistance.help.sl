@@ -8,7 +8,7 @@ First few terms,
 OEIS [A051699](http://oeis.org/A051699):
 
 ```
->>> 0:104.collect(primeDistance:/1)
+>>> 0:104.collect(primeDistance/1)
 [
 	2 1 0 0 1 0 1 0 1 2
 	1 0 1 0 1 2 1 0 1 0
@@ -28,7 +28,7 @@ Distance from _n_ to closest prime,
 OEIS [A051699](http://oeis.org/A051699):
 
 ~~~spl svg=A oeis=A051699
-0:150.collect(primeDistance:/1)
+0:150.collect(primeDistance/1)
 .scatterPlot
 ~~~
 

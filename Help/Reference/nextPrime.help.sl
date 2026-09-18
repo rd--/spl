@@ -36,7 +36,7 @@ true
 At `LargeInteger`:
 
 ```
->>> [2L 3L 4L 5L].collect(nextPrime:/1)
+>>> [2L 3L 4L 5L].collect(nextPrime/1)
 [3 5 5 7]
 ```
 
@@ -152,7 +152,7 @@ The next prime function,
 OEIS [A151800](https://oeis.org/A151800):
 
 ~~~spl svg=A oeis=A151800
-0:50.functionPlot(nextPrime:/1)
+0:50.functionPlot(nextPrime/1)
 ~~~
 
 ![](Help/Image/nextPrime-A.svg)

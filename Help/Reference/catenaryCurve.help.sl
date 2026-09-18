@@ -20,7 +20,7 @@ A collection of catenary curves:
 ~~~spl svg=B
 (-1/2.pi -- 1/2.pi).functionPlot(
 	[0.95 1 1.15 1.25].collect(
-		catenaryCurve:/1
+		catenaryCurve/1
 	)
 )
 ~~~

@@ -35,8 +35,8 @@ false
 There are twenty six letters and each has two cases:
 
 ```
->>> let ascii = 0:255.collect(asCharacter:/1);
->>> ascii.select(isLetter:/1).size
+>>> let ascii = 0:255.collect(asCharacter/1);
+>>> ascii.select(isLetter/1).size
 2 * 26
 ```
 

@@ -58,15 +58,15 @@ The sum of the Durfee squares of the partitions of n equals the sum of the posit
 ```
 >>> 1:16.collect { :n |
 >>> 	n.integerPartitions.sum(
->>> 		durfeeSquare:/1
+>>> 		durfeeSquare/1
 >>> 	)
 >>> }
 [1 2 3 6 9 16 23 36 52 76 106 152 207 286 386 522]
 
 >>> 1:16.collect { :n |
 >>> 	n.integerPartitions.collect(
->>> 		dysonCrank:/1
->>> 	).select(isPositive:/1).sum
+>>> 		dysonCrank/1
+>>> 	).select(isPositive/1).sum
 >>> }
 [0 2 3 6 9 16 23 36 52 76 106 152 207 286 386 522]
 ```

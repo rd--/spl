@@ -1,6 +1,6 @@
 # addEventListener
 
-- _addEventListener(x, e, :/1)_
+- _addEventListener(x, e, /1)_
 
 Request that the unary block _f_ be evaluated whenever the event specified by the string _e_ is delivered to the event target _x_.
 

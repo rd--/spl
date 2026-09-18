@@ -8,7 +8,7 @@ The first few weird numbers:
 
 ```
 >>> [70 836 4030].select(
->>> 	isWeirdNumber:/1
+>>> 	isWeirdNumber/1
 >>> )
 [70 836 4030]
 ```

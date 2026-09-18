@@ -21,7 +21,7 @@ Similar strings answer disimilar hashes:
 Hashes of the first six letters of the alphabet:
 
 ```
->>> 'abcdef'.contents.collect(hash:/1)
+>>> 'abcdef'.contents.collect(hash/1)
 [
 	3007810216
 	 448595256

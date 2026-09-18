@@ -127,11 +127,11 @@ Solve cubic equations having one real and two complex answers:
 ]
 
 >>> cardanosAlgorithm(1, 1, 1, -3)
->>> .select(isReal:/1)
+>>> .select(isReal/1)
 [1]
 
 >>> cardanosAlgorithm(1, -6, -6, -7)
->>> .select(isReal:/1)
+>>> .select(isReal/1)
 [7]
 ```
 

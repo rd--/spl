@@ -1,6 +1,6 @@
 # bindLeft
 
-- _bindLeft(f:/2, x)_
+- _bindLeft(f/2, x)_
 
 Answer a unary `Block` that evaluates the binary block _f_ with the object _x_ bound to the first, or left, argument.
 

@@ -1,6 +1,6 @@
 # keysDo
 
-- _keysDo(d, f:/1)_
+- _keysDo(d, f/1)_
 
 Evaluate the block _f_ with each key of the dictionary _d_ as the argument.
 

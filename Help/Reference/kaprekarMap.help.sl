@@ -9,7 +9,7 @@ _b=10_,
 OEIS [A151949](https://oeis.org/A151949):
 
 ```
->>> 0:50.collect(kaprekarMap:/1)
+>>> 0:50.collect(kaprekarMap/1)
 [
 	 0  0  0  0  0  0  0  0  0  0
 	 9  0  9 18 27 36 45 54 63 72
@@ -41,7 +41,7 @@ discrete plot,
 OEIS [A151949](https://oeis.org/A151949):
 
 ~~~spl svg=A oeis=A151949
-0:99.collect(kaprekarMap:/1).discretePlot
+0:99.collect(kaprekarMap/1).discretePlot
 ~~~
 
 ![](Help/Image/kaprekarMap-A.svg)
@@ -52,7 +52,7 @@ scatter plot,
 OEIS [A151949](https://oeis.org/A151949):
 
 ~~~spl svg=B oeis=A151949
-0:250.collect(kaprekarMap:/1).scatterPlot
+0:250.collect(kaprekarMap/1).scatterPlot
 ~~~
 
 ![](Help/Image/kaprekarMap-B.svg)
@@ -181,7 +181,7 @@ divided by nine,
 OEIS [A151950](https://oeis.org/A151950):
 
 ~~~spl svg=L oeis=A151950
-(1600:1900.collect(kaprekarMap:/1) / 9)
+(1600:1900.collect(kaprekarMap/1) / 9)
 .scatterPlot
 ~~~
 

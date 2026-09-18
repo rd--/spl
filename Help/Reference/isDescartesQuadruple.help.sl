@@ -55,7 +55,7 @@ Answer `true` if _a,b,c,d_ is a Descartes quadruple.
 >>> 	-15 24 41 44;
 >>> 	-15 28 33 40;
 >>> 	-15 32 32 33
->>> ].allSatisfy(isDescartesQuadruple:/1)
+>>> ].allSatisfy(isDescartesQuadruple/1)
 true
 ```
 

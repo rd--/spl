@@ -13,7 +13,7 @@ true
 >>> system
 >>> .traitDictionary['Iterable']
 >>> .methodDictionary
->>> .includesKey('sum:/1')
+>>> .includesKey('sum/1')
 true
 ```
 

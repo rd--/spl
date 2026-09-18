@@ -1,6 +1,6 @@
 # designMatrix
 
-- _designMatrix(m, f:/1)_
+- _designMatrix(m, f/1)_
 
 Answer a design matrix for the matrix _m_ applying the unary block _f_ to the list of predictors.
 

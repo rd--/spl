@@ -23,11 +23,11 @@
 +@Collection {
 
 	finiteAbelianGroupCount { :self |
-		self.collect(finiteAbelianGroupCount:/1)
+		self.collect(finiteAbelianGroupCount/1)
 	}
 
 	finiteGroupCount { :self |
-		self.collect(finiteGroupCount:/1)
+		self.collect(finiteGroupCount/1)
 	}
 
 }

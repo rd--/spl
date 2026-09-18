@@ -72,7 +72,7 @@ All interior angles of a triangle:
 >>> ];
 >>> (
 >>> 	[b a c; c b a; a c b].collect(
->>> 		planarAngle:/1
+>>> 		planarAngle/1
 >>> 	),
 >>> 	Triangle(a, b, c).interiorAngles
 >>> )

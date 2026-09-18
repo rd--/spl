@@ -1,6 +1,6 @@
 # takeWhile
 
-- _takeWhile([x₁ x₂ …], f:/1)_
+- _takeWhile([x₁ x₂ …], f/1)_
 
 Answer the prefix of the sequence or stream _x_ for which the unary block _f_ answers `true`.
 
@@ -15,7 +15,7 @@ Answer the prefix of the sequence or stream _x_ for which the unary block _f_ an
 >>> [1 2 3].takeWhile(true.constant)
 [1 2 3]
 
->>> [1 2 3].takeWhile(isNegative:/1)
+>>> [1 2 3].takeWhile(isNegative/1)
 []
 
 >>> [1 2 3; 4 5; 6].takeWhile { :each |
@@ -36,7 +36,7 @@ At `Stream`:
 Take elements while they are all even:
 
 ```
->>> [2 4 6 1 2 3].takeWhile(isEven:/1)
+>>> [2 4 6 1 2 3].takeWhile(isEven/1)
 [2 4 6]
 ```
 

@@ -1,12 +1,12 @@
 +@Collection {
 
 	binCounts { :self :b |
-		self.binLists(b).collect(size:/1)
+		self.binLists(b).collect(size/1)
 	}
 
 	binCounts { :self :b1 :b2 |
 		self.binLists(b1, b2).collect { :each |
-			each.collect(size:/1)
+			each.collect(size/1)
 		}
 	}
 
@@ -69,7 +69,7 @@
 	}
 
 	histogramListFor { :self :b |
-		[b, self.binListsFor(b).collect(size:/1)]
+		[b, self.binListsFor(b).collect(size/1)]
 	}
 
 	histogramList { :self :b |

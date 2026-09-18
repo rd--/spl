@@ -5,7 +5,7 @@
 Predicate to decide if _n_ is an abundant number.
 
 ```
->>> 1:120.select(isAbundantNumber:/1)
+>>> 1:120.select(isAbundantNumber/1)
 [
 	12  18  20  24  30  36  40  42  48  54
 	56  60  66  70  72  78  80  84  88  90

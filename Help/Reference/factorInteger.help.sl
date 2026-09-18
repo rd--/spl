@@ -127,7 +127,7 @@ true
 Use `factorInteger` to find all prime divisors of a number:
 
 ```
->>> 2434500.factorInteger.collect(first:/1)
+>>> 2434500.factorInteger.collect(first/1)
 [2 3 5 541]
 ```
 
@@ -153,7 +153,7 @@ Compute the original number from a factorization:
 `divisors` gives the list of divisors including prime divisors:
 
 ```
->>> 20.divisors.select(isPrime:/1)
+>>> 20.divisors.select(isPrime/1)
 [2 5]
 
 >>> 20.factorInteger
@@ -330,7 +330,7 @@ let a = { :n |
 		}
 	}
 };
-1:100.collect(a:/1)
+1:100.collect(a/1)
 .scatterPlot
 ~~~
 
@@ -441,7 +441,7 @@ OEIS [A008473](https://oeis.org/A008473):
 ~~~spl svg=L oeis=A008473
 2:200.collect { :n |
 	n.factorInteger
-	.collect(sum:/1)
+	.collect(sum/1)
 	.product
 }.scatterPlot
 ~~~
@@ -539,7 +539,7 @@ OEIS [A050252](https://oeis.org/A050252):
 	n.factorInteger
 	.catenate.select { :x |
 		x > 1
-	}.sum(integerLength:/1)
+	}.sum(integerLength/1)
 }.scatterPlot
 ~~~
 

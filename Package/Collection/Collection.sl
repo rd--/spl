@@ -34,19 +34,19 @@
 		self.collect(*.bindRight(anObject))
 	}
 
-	adaptToIntegerAndApply { :self :anInteger :aBlock:/2 |
+	adaptToIntegerAndApply { :self :anInteger :aBlock/2 |
 		self.collect { :each |
 			aBlock(anInteger, each)
 		}
 	}
 
-	adaptToNumberAndApply { :self :aNumber :aBlock:/2 |
+	adaptToNumberAndApply { :self :aNumber :aBlock/2 |
 		self.collect { :each |
 			aBlock(aNumber, each)
 		}
 	}
 
-	allEqualBy { :self :aBlock:/2 |
+	allEqualBy { :self :aBlock/2 |
 		self.isEmpty.if {
 			true
 		} {
@@ -58,7 +58,7 @@
 	}
 
 	[allEqual, =] { :self |
-		self.allEqualBy(equal:/2)
+		self.allEqualBy(equal/2)
 	}
 
 	allEqualTo { :self :anObject |
@@ -71,10 +71,10 @@
 		self.anyAs(numberOfElements, self.species)
 	}
 
-	anyAs { :self :numberOfElements :aBlock:/1 |
+	anyAs { :self :numberOfElements :aBlock/1 |
 		let index = 0;
 		let result = numberOfElements.aBlock;
-		valueWithReturn { :return:/1 |
+		valueWithReturn { :return/1 |
 			result.fillFromWith(self) { :each |
 				index := index + 1;
 				(index > numberOfElements).if {
@@ -98,8 +98,8 @@
 		self
 	}
 
-	atLevelCollect { :self :level :aBlock:/1 |
-		let levelPredicate:/1 = level.isCollection.if {
+	atLevelCollect { :self :level :aBlock/1 |
+		let levelPredicate/1 = level.isCollection.if {
 			{ :each | level.includes(each) }
 		} {
 			{ :each | each = level }
@@ -121,7 +121,7 @@
 		self.size
 	}
 
-	cartesianProductDo { :self :aCollection :aBlock:/2 |
+	cartesianProductDo { :self :aCollection :aBlock/2 |
 		self.do { :x |
 			aCollection.do { :y |
 				aBlock(x, y)
@@ -137,7 +137,7 @@
 		answer
 	}
 
-	collect { :self :aBlock:/1 |
+	collect { :self :aBlock/1 |
 		let answer = self.species.new;
 		self.do { :each |
 			answer.add(aBlock(each))
@@ -145,7 +145,7 @@
 		answer
 	}
 
-	collectCatenate { :self :aBlock:/1 |
+	collectCatenate { :self :aBlock/1 |
 		let answer = self.species.new;
 		self.do { :each |
 			answer.addAll(aBlock(each))
@@ -157,11 +157,11 @@
 		aCollection.fillFromWith(self, aBlock)
 	}
 
-	collectThenDo { :self :collectBlock:/1 :doBlock:/1 |
-		self.collect(collectBlock:/1).do(doBlock:/1)
+	collectThenDo { :self :collectBlock/1 :doBlock/1 |
+		self.collect(collectBlock/1).do(doBlock/1)
 	}
 
-	collectThenSelect { :self :collectBlock:/1 :selectBlock:/1 |
+	collectThenSelect { :self :collectBlock/1 :selectBlock/1 |
 		let answer = self.species.new;
 		self.do { :each |
 			let item = collectBlock(each);
@@ -235,19 +235,19 @@
 		self.clip([-1 1])
 	}
 
-	countsBy { :self :aBlock:/1 |
-		self.groupBy(aBlock:/1).collect(size:/1)
+	countsBy { :self :aBlock/1 |
+		self.groupBy(aBlock/1).collect(size/1)
 	}
 
 	cubeRoot { :self |
-		self.collect(cubeRoot:/1)
+		self.collect(cubeRoot/1)
 	}
 
-	deepCollect { :self :aBlock:/1 |
+	deepCollect { :self :aBlock/1 |
 		let type = self.typeOf;
 		self.collect { :each |
 			(each.typeOf = type).if {
-				each.deepCollect(aBlock:/1)
+				each.deepCollect(aBlock/1)
 			} {
 				aBlock(each)
 			}
@@ -267,16 +267,16 @@
 	}
 
 	[deleteDuplicates, nub] { :self |
-		self.deleteDuplicates(equal:/2)
+		self.deleteDuplicates(equal/2)
 	}
 
-	[deleteDuplicates, nubBy] { :self :aBlock:/2 |
-		(aBlock:/2 = equalsSignEqualsSign:/2).if {
+	[deleteDuplicates, nubBy] { :self :aBlock/2 |
+		(aBlock/2 = equalsSignEqualsSign/2).if {
 			self.deleteDuplicatesIdentical
 		} {
 			let seen = [];
 			self.select { :each |
-				seen.includesBy(each, aBlock:/2).if {
+				seen.includesBy(each, aBlock/2).if {
 					false
 				} {
 					seen.add(each);
@@ -290,7 +290,7 @@
 		self.isEmpty.if {
 			2
 		} {
-			1 + self.collect(depth:/1).max
+			1 + self.collect(depth/1).max
 		}
 	}
 
@@ -300,20 +300,20 @@
 		}
 	}
 
-	differenceAll { :self :aCollection :aBlock:/2 |
+	differenceAll { :self :aCollection :aBlock/2 |
 		self.reject { :each |
 			aCollection.anySatisfy { :subCollection |
-				subCollection.includesBy(each, aBlock:/2)
+				subCollection.includesBy(each, aBlock/2)
 			}
 		}
 	}
 
 	differenceAll { :self :aCollection |
-		self.differenceAll(aCollection, equal:/2)
+		self.differenceAll(aCollection, equal/2)
 	}
 
 	discreteDelta { :self |
-		self.allSatisfy(isZero:/1).if {
+		self.allSatisfy(isZero/1).if {
 			1
 		} {
 			0
@@ -330,7 +330,7 @@
 		}
 	}
 
-	elementTypeIfAbsent { :self :aBlock:/0 |
+	elementTypeIfAbsent { :self :aBlock/0 |
 		self.isEmpty.if {
 			aBlock()
 		} {
@@ -386,18 +386,18 @@
 	}
 
 	fillFrom { :self :aCollection |
-		self.fillFromWith(aCollection, identity:/1)
+		self.fillFromWith(aCollection, identity/1)
 	}
 
 	gcd { :self |
 		self.isEmpty.if {
 			0
 		} {
-			self.reduce(gcd:/2)
+			self.reduce(gcd/2)
 		}
 	}
 
-	groupBy { :self :keyBlock:/1 |
+	groupBy { :self :keyBlock/1 |
 		let result = Map();
 		self.do { :each |
 			let key = keyBlock(each);
@@ -432,7 +432,7 @@
 		answer
 	}
 
-	ifEmpty { :self :aBlock:/0 |
+	ifEmpty { :self :aBlock/0 |
 		self.isEmpty.if {
 			aBlock()
 		} {
@@ -440,7 +440,7 @@
 		}
 	}
 
-	ifEmpty { :self :emptyBlock:/0 :notEmptyBlock |
+	ifEmpty { :self :emptyBlock/0 :notEmptyBlock |
 		self.isEmpty.if {
 			emptyBlock()
 		} {
@@ -448,7 +448,7 @@
 		}
 	}
 
-	ifEmptyIfNotEmptyDo { :self :emptyBlock:/0 :notEmptyBlock:/1 |
+	ifEmptyIfNotEmptyDo { :self :emptyBlock/0 :notEmptyBlock/1 |
 		self.isEmpty.if {
 			emptyBlock()
 		} {
@@ -462,7 +462,7 @@
 		}
 	}
 
-	ifNotEmpty { :self :notEmptyBlock :emptyBlock:/0 |
+	ifNotEmpty { :self :notEmptyBlock :emptyBlock/0 |
 		self.isEmpty.if {
 			emptyBlock()
 		} {
@@ -470,7 +470,7 @@
 		}
 	}
 
-	ifNotEmptyDo { :self :aBlock:/1 |
+	ifNotEmptyDo { :self :aBlock/1 |
 		self.isEmpty.ifFalse {
 			aBlock(self)
 		}
@@ -534,7 +534,7 @@
 		m + (self - m).exp.sum.log
 	}
 
-	maxIfEmpty { :self :aBlock:/0 |
+	maxIfEmpty { :self :aBlock/0 |
 		self.ifEmpty {
 			aBlock()
 		} {
@@ -542,7 +542,7 @@
 		}
 	}
 
-	minIfEmpty { :self :aBlock:/0 |
+	minIfEmpty { :self :aBlock/0 |
 		self.ifEmpty {
 			aBlock()
 		} {
@@ -583,7 +583,7 @@
 	}
 
 	not { :self |
-		self.collect(not:/1)
+		self.collect(not/1)
 	}
 
 	ofSize { :self :aNumber |
@@ -599,7 +599,7 @@
 		}
 	}
 
-	powerSetDo { :self :aBlock:/1 |
+	powerSetDo { :self :aBlock/1 |
 		let size = 2 ^ self.size;
 		let powersOfTwo = 2 ^ 0.to(self.size - 1);
 		let list = self.asList;
@@ -631,7 +631,7 @@
 		{
 			let randomIndex = r.nextRandomInteger(1, self.size);
 			let index = 1;
-			valueWithReturn { :return:/1 |
+			valueWithReturn { :return/1 |
 				self.do { :each |
 					(index = randomIndex).ifTrue {
 						each.return
@@ -659,7 +659,7 @@
 		}
 	}
 
-	reject { :self :aBlock:/1 |
+	reject { :self :aBlock/1 |
 		self.select { :element |
 			aBlock(element).not
 		}
@@ -677,7 +677,7 @@
 		self.rescale([self.deepMin, self.deepMax], [0, 1])
 	}
 
-	select { :self :aBlock:/1 |
+	select { :self :aBlock/1 |
 		let answer = self.species.new;
 		self.do { :each |
 			aBlock(each).ifTrue {
@@ -694,15 +694,15 @@
 		}
 	}
 
-	selectThenCollect { :self :selectBlock:/1 :collectBlock:/1 |
+	selectThenCollect { :self :selectBlock/1 :collectBlock/1 |
 		let answer = self.species.new;
-		self.selectThenDo(selectBlock:/1) { :each |
+		self.selectThenDo(selectBlock/1) { :each |
 			answer.add(collectBlock(each))
 		};
 		answer
 	}
 
-	subsets { :self :aBlock:/1 |
+	subsets { :self :aBlock/1 |
 		let answer = [];
 		self.powerSetDo { :each |
 			aBlock(each).ifTrue {
@@ -716,7 +716,7 @@
 		self.isEmpty.if {
 			0
 		} {
-			self.reduce(plus:/2)
+			self.reduce(plus/2)
 		}
 	}
 
@@ -730,7 +730,7 @@
 		self.any(maxNumberOfElements.min(self.size))
 	}
 
-	tally { :self :aBlock:/2 |
+	tally { :self :aBlock/2 |
 		let answer = [];
 		self.do { :each |
 			answer.detectIndexIfFoundIfNone { :entry |
@@ -746,7 +746,7 @@
 	}
 
 	tally { :self |
-		self.tally(equal:/2)
+		self.tally(equal/2)
 	}
 
 	threshold { :self :epsilon |
@@ -775,19 +775,19 @@
 		self.deleteDuplicates
 	}
 
-	withLevelCollect { :self :aBlock:/2 :level |
+	withLevelCollect { :self :aBlock/2 :level |
 		let type = self.typeOf;
 		self.collect { :each |
 			(each.typeOf = type).if {
-				aBlock(each.withLevelCollect(aBlock:/2, level + 1), level)
+				aBlock(each.withLevelCollect(aBlock/2, level + 1), level)
 			} {
 				aBlock(each, level)
 			}
 		}
 	}
 
-	withLevelCollect { :self :aBlock:/2 |
-		aBlock(self.withLevelCollect(aBlock:/2, 1), 0)
+	withLevelCollect { :self :aBlock/2 |
+		aBlock(self.withLevelCollect(aBlock/2, 1), 0)
 	}
 
 	zero { :self |

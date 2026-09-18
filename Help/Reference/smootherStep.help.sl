@@ -7,7 +7,7 @@
 The function passes through `zero`, one half and `one`:
 
 ```
->>> [0 0.5 1].collect(smootherStep:/1)
+>>> [0 0.5 1].collect(smootherStep/1)
 [0 0.5 1]
 ```
 
@@ -29,7 +29,7 @@ SmootherStep function:
 
 ~~~spl svg=A
 (0 -- 1).functionPlot(
-	smootherStep:/1
+	smootherStep/1
 )
 ~~~
 
@@ -39,8 +39,8 @@ Plot `smoothStep` and `smootherStep` functions:
 
 ~~~spl svg=B
 (0 -- 1).functionPlot([
-	smoothStep:/1,
-	smootherStep:/1
+	smoothStep/1,
+	smootherStep/1
 ])
 ~~~
 
@@ -50,7 +50,7 @@ Plot `smoothStep` and `smootherStep` functions:
 
 ~~~spl svg=C
 (0 -- 1).functionPlot([
-	smootherStep:/1,
+	smootherStep/1,
 	smoothStepFunction(2)
 ])
 ~~~

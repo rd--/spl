@@ -1,13 +1,13 @@
 # divisorSum
 
-- _divisorSum(n, f:/1)_
+- _divisorSum(n, f/1)_
 
 The sum of _f_ at all _i_ that divide the integer _n_.
 
 Find the sum of the divisors of thirty, c.f. `divisorSigma`:
 
 ```
->>> 30.divisorSum(identity:/1)
+>>> 30.divisorSum(identity/1)
 72
 
 >>> 1.divisorSigma(30)
@@ -19,7 +19,7 @@ OEIS [A000203](https://oeis.org/A000203):
 
 ~~~spl svg=A oeis=A000203
 1:50.functionPlot { :n |
-	n.divisorSum(identity:/1)
+	n.divisorSum(identity/1)
 }
 ~~~
 

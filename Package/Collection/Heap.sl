@@ -7,7 +7,7 @@ Heap : [Object, Copyable, Equal, Iterable, Collection, Extensible] { | array sor
 		anObject
 	}
 
-	atIfAbsent { :self :index :ifAbsent:/0 |
+	atIfAbsent { :self :index :ifAbsent/0 |
 		(index > self.size).if {
 			ifAbsent()
 		} {
@@ -29,20 +29,20 @@ Heap : [Object, Copyable, Equal, Iterable, Collection, Extensible] { | array sor
 		self.size
 	}
 
-	collect { :self :aBlock:/1 |
-		self.array.replace(aBlock:/1);
+	collect { :self :aBlock/1 |
+		self.array.replace(aBlock/1);
 		self
 	}
 
 	compareItems { :self :anItem :anotherItem |
-		let sortBlock:/2 = self.sortBlock.ifNil {
-			precedesOrEqualTo:/2
+		let sortBlock/2 = self.sortBlock.ifNil {
+			precedesOrEqualTo/2
 		};
 		sortBlock(anItem, anotherItem)
 	}
 
-	do { :self :aBlock:/1 |
-		self.array.do(aBlock:/1)
+	do { :self :aBlock/1 |
+		self.array.do(aBlock/1)
 	}
 
 	downHeap { :self :anIndex |
@@ -78,12 +78,12 @@ Heap : [Object, Copyable, Equal, Iterable, Collection, Extensible] { | array sor
 		self.indexUpdate(value, index)
 	}
 
-	equalBy { :self :anObject :aBlock:/2 |
+	equalBy { :self :anObject :aBlock/2 |
 		self == anObject | {
 			anObject.isHeap & {
 				anObject.size = self.size & {
 					anObject.sortBlock = self.sortBlock & {
-						self.array.sort(self.sortBlock).equalBy(anObject.array.sort(self.sortBlock), aBlock:/2)
+						self.array.sort(self.sortBlock).equalBy(anObject.array.sort(self.sortBlock), aBlock/2)
 					}
 				}
 			}
@@ -107,7 +107,7 @@ Heap : [Object, Copyable, Equal, Iterable, Collection, Extensible] { | array sor
 	isValid { :self |
 		let array = self.array;
 		let size = array.size;
-		valueWithReturn { :return:/1 |
+		valueWithReturn { :return/1 |
 			1.toDo(size // 2) { :index |
 				let childIndex = 2 * index;
 				self.compareItems(array[index], array[childIndex]).ifFalse {
@@ -144,8 +144,8 @@ Heap : [Object, Copyable, Equal, Iterable, Collection, Extensible] { | array sor
 		removed
 	}
 
-	removeIfAbsent { :self :oldObject :aBlock:/0 |
-		valueWithReturn { :return:/1 |
+	removeIfAbsent { :self :oldObject :aBlock/0 |
+		valueWithReturn { :return/1 |
 			1.toDo(self.size) { :i |
 				(self.array[i] = oldObject).ifTrue {
 					self.privateRemoveAt(i).return
@@ -171,7 +171,7 @@ Heap : [Object, Copyable, Equal, Iterable, Collection, Extensible] { | array sor
 		self.removeAt(1)
 	}
 
-	select { :self :aBlock:/1 |
+	select { :self :aBlock/1 |
 		let newCollection = Heap();
 		1.toDo(self.size) { :index |
 			let element = self.array[index];
@@ -255,8 +255,8 @@ Heap : [Object, Copyable, Equal, Iterable, Collection, Extensible] { | array sor
 
 +Block {
 
-	Heap { :self:/2 |
-		newHeap().initializeSlots([], self:/2, nil)
+	Heap { :self/2 |
+		newHeap().initializeSlots([], self/2, nil)
 	}
 
 }

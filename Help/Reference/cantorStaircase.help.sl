@@ -61,7 +61,7 @@ c.f. OEIS [A095844](https://oeis.org/A095844) and [A095845](https://oeis.org/A09
 >>> 		a * c
 >>> 	}
 >>> };
->>> 0:7.collect(f:/1)
+>>> 0:7.collect(f/1)
 [
 	1 1/2 3/10 1/5 33/230 5/46
 	75/874 611/8740
@@ -71,7 +71,7 @@ c.f. OEIS [A095844](https://oeis.org/A095844) and [A095845](https://oeis.org/A09
 Plot over the unit interval:
 
 ~~~spl svg=A
-(0 -- 1).functionPlot(cantorStaircase:/1)
+(0 -- 1).functionPlot(cantorStaircase/1)
 ~~~
 
 ![](Help/Image/cantorStaircase-A.svg)

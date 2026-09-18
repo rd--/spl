@@ -37,7 +37,7 @@ Check that they are all primes:
 
 ```
 >>> 1:10.mersennePrimeExponent
->>> .allSatisfy(isPrime:/1)
+>>> .allSatisfy(isPrime/1)
 true
 ```
 

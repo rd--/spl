@@ -409,7 +409,7 @@ Sub-trees at level three:
 
 ```
 >>> Tree(4, [Tree(9, [Tree(16, [])])])
->>> .collect(sqrt:/1)
+>>> .collect(sqrt/1)
 Tree(2, [Tree(3, [Tree(4, [])])])
 ```
 
@@ -426,7 +426,7 @@ A `Tree` is a binary tree if it, and every subtree, is of `size` two:
 >>> );
 >>> (
 >>> 	t.isBinary,
->>> 	t.contents.collect(value:/1)
+>>> 	t.contents.collect(value/1)
 >>> )
 (true, [6 2 1 3 nil 4 nil 5 8 7 9])
 ```

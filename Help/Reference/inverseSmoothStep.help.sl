@@ -7,7 +7,7 @@ Inverse of `smoothStep`.
 The function passes through `zero`, one half and `one`:
 
 ```
->>> [0 0.5 1].collect(inverseSmoothStep:/1)
+>>> [0 0.5 1].collect(inverseSmoothStep/1)
 [0 0.5 1]
 ```
 
@@ -29,7 +29,7 @@ Inverse smooth step function:
 
 ~~~spl svg=A
 (0 -- 1).functionPlot(
-	inverseSmoothStep:/1
+	inverseSmoothStep/1
 )
 ~~~
 

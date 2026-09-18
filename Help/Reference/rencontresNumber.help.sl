@@ -10,7 +10,7 @@ OEIS [A008290](https://oeis.org/A008290):
 
 ```
 >>> 0:8.triangularArray(
->>> 	rencontresNumber:/2
+>>> 	rencontresNumber/2
 >>> )
 [
 	1;

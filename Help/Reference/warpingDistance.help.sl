@@ -81,7 +81,7 @@ Compare two sequences using different distance functions:
 >>> (
 >>> 	x.warpingDistance(y),
 >>> 	x.warpingDistance(
->>> 		y, Infinity, binaryDistance:/2
+>>> 		y, Infinity, binaryDistance/2
 >>> 	)
 >>> )
 (21, 9)

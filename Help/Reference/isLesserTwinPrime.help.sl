@@ -17,7 +17,7 @@ Lesser of twin primes,
 OEIS [A001359](https://oeis.org/A001359):
 
 ```
->>> 1:99.select(isLesserTwinPrime:/1)
+>>> 1:99.select(isLesserTwinPrime/1)
 [3 5 11 17 29 41 59 71]
 ```
 
@@ -33,7 +33,7 @@ Greater of twin primes,
 OEIS [A006512](https://oeis.org/A006512):
 
 ```
->>> 1:99.select(isLesserTwinPrime:/1) + 2
+>>> 1:99.select(isLesserTwinPrime/1) + 2
 [5 7 13 19 31 43 61 73]
 ```
 
@@ -42,7 +42,7 @@ Average of twin primes,
 
 ```
 >>> 3:1607.select(
->>> 	isLesserTwinPrime:/1
+>>> 	isLesserTwinPrime/1
 >>> ) + 1
 [
 	4 6 12 18 30 42 60 72
@@ -67,7 +67,7 @@ OEIS [A077800](https://oeis.org/A077800):
 
 ```
 >>> let a = 1:66.select(
->>> 	isLesserTwinPrime:/1
+>>> 	isLesserTwinPrime/1
 >>> );
 >>> [a, a + 2].interleave
 [3 5 5 7 11 13 17 19 29 31 41 43 59 61]
@@ -78,7 +78,7 @@ OEIS [A001097](https://oeis.org/A001097):
 
 ```
 >>> let a = 1:66.select(
->>> 	isLesserTwinPrime:/1
+>>> 	isLesserTwinPrime/1
 >>> );
 >>> [a, a + 2].interleave.deleteDuplicates
 [3 5 7 11 13 17 19 29 31 41 43 59 61]
@@ -89,7 +89,7 @@ OEIS [A054735](https://oeis.org/A054735):
 
 ```
 >>> 1:123.select(
->>> 	isLesserTwinPrime:/1
+>>> 	isLesserTwinPrime/1
 >>> ).collect { :n |
 >>> 	n * 2 + 2
 >>> }
@@ -101,7 +101,7 @@ OEIS [A095958](https://oeis.org/A095958):
 
 ```
 >>> 1:123.select(
->>> 	isLesserTwinPrime:/1
+>>> 	isLesserTwinPrime/1
 >>> ).collect { :n |
 >>> 	n.integerConcatenation(n + 2, 10)
 >>> }
@@ -191,7 +191,7 @@ OEIS [A001359](https://oeis.org/A001359):
 
 ~~~spl svg=A oeis=A001359
 3:1607
-.select(isLesserTwinPrime:/1)
+.select(isLesserTwinPrime/1)
 .linePlot
 ~~~
 
@@ -202,7 +202,7 @@ OEIS [A001097](https://oeis.org/A001097):
 
 ~~~spl svg=B oeis=A001097
 let a = 3:1607.select(
-	isLesserTwinPrime:/1
+	isLesserTwinPrime/1
 );
 [a, a + 2]
 .interleave
@@ -217,7 +217,7 @@ OEIS [A122567](https://oeis.org/A122567):
 
 ~~~spl svg=C oeis=A122567
 let a = 3:1019.select(
-	isLesserTwinPrime:/1
+	isLesserTwinPrime/1
 );
 let b = [a, a + 2].interleave;
 let c = b.deleteDuplicates;

@@ -49,7 +49,7 @@ answer of all possible tuples whose _i_-th element is from _i_-th _l_.
 >>> 	'x' 'y' 'z';
 >>> 	'u' 'v'
 >>> ].tuples;
->>> (m.shape, m.collect(stringJoin:/1))
+>>> (m.shape, m.collect(stringJoin/1))
 (
 	[12 3],
 	[
@@ -105,7 +105,7 @@ Word combinations:
 >>> 	'' 're' 'un';
 >>> 	'wind';
 >>> 	'' 'ing' 's'
->>> ].tuples.collect(stringJoin:/1)
+>>> ].tuples.collect(stringJoin/1)
 [
 	'wind' 'winding' 'winds'
 	'rewind' 'rewinding' 'rewinds'
@@ -118,7 +118,7 @@ Word combinations:
 >>> 	'J';
 >>> 	'' '-';
 >>> 	'1'
->>> ].tuples.collect(stringJoin:/1)
+>>> ].tuples.collect(stringJoin/1)
 ['1J1' '1J-1' '-1J1' '-1J-1']
 ```
 
@@ -193,7 +193,7 @@ All possible trigrams of A and B:
 
 ```
 >>> ['A' 'B'].tuples(3)
->>> .collect(stringJoin:/1)
+>>> .collect(stringJoin/1)
 [
 	'AAA' 'AAB' 'ABA' 'ABB'
 	'BAA' 'BAB' 'BBA' 'BBB'

@@ -33,7 +33,7 @@ LineDrawing : [Object] { | contents metadata |
 	}
 
 	boundingBox { :self |
-		self.contents.collect(boundingBox:/1).boundingBoxMerging
+		self.contents.collect(boundingBox/1).boundingBoxMerging
 	}
 
 	drawing { :self |
@@ -95,7 +95,7 @@ LineDrawing : [Object] { | contents metadata |
 		let places = [
 			[innerCircle],
 			self
-		].catenate.collect(prefixSum:/1);
+		].catenate.collect(prefixSum/1);
 		let angles = places.collect { :p |
 			p.collect { :q |
 				((q / period).negate * 2.pi + 0.5.pi) % 2.pi
@@ -122,7 +122,7 @@ LineDrawing : [Object] { | contents metadata |
 		let columnWidth = rowHeight * rowCount * 2.goldenRatio;
 		let height = rowCount * rowHeight;
 		let period = self.anyOne.sum;
-		let places = self.collect(prefixSum:/1);
+		let places = self.collect(prefixSum/1);
 		let marks = places.collect { :p |
 			p.collect { :q |
 				q * (columnWidth / period)

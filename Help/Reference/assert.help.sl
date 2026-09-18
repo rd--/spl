@@ -1,6 +1,6 @@
 # assert
 
-- _assert(x, s='', f:/0)_
+- _assert(x, s='', f/0)_
 
 Signal an assertion `error` with message string _s_ if the block _f_ does not evaluate to `true`.
 Answers _x_.

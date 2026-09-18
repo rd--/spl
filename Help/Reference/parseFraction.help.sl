@@ -1,6 +1,6 @@
 # parseFraction
 
-- _parseFraction(s, f:/0)_
+- _parseFraction(s, f/0)_
 
 Answer the `Fraction` represented by the string _s_,
 using a solidus to delimit the numerator and denominator,

@@ -59,7 +59,7 @@ Find the angle between two vectors:
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(-0.95 -- 0.95).functionPlot(arcCos:/1)
+(-0.95 -- 0.95).functionPlot(arcCos/1)
 ~~~
 
 ![](Help/Image/arcCos-A.svg)
@@ -67,7 +67,7 @@ Plot over a subset of the reals:
 Plot over a subset of the complexes:
 
 ~~~spl png=B
-[-4J-2 2J2].complexPlot(arcCos:/1)
+[-4J-2 2J2].complexPlot(arcCos/1)
 ~~~
 
 ![](Help/Image/arcCos-B.png)

@@ -156,19 +156,19 @@ URL! : [Object, Store, Equal, Url] {
 
 	fetchBinaryLargeObject { :self |
 		self.fetchThen(
-			binaryLargeObject:/1
+			binaryLargeObject/1
 		)
 	}
 
 	fetchByteArray { :self |
 		self.fetchThen(
-			byteArray:/1
+			byteArray/1
 		)
 	}
 
 	fetchJson { :self |
 		self.fetchThen(
-			json:/1
+			json/1
 		)
 	}
 
@@ -180,23 +180,23 @@ URL! : [Object, Store, Equal, Url] {
 
 	fetchText { :self |
 		self.fetchThen(
-			text:/1
+			text/1
 		)
 	}
 
 	fetchTextWithDefault { :self :defaultText |
-		self.fetchThenElse(text:/1) { :unused |
+		self.fetchThenElse(text/1) { :unused |
 			defaultText
 		}
 	}
 
-	fetchThen { :self :onSuccess:/1 |
-		self.fetchThenElse(onSuccess:/1) { :errorCode |
+	fetchThen { :self :onSuccess/1 |
+		self.fetchThenElse(onSuccess/1) { :errorCode |
 			self.error('Url>>fetchThen', [errorCode])
 		}
 	}
 
-	fetchThenElse { :self :onSuccess:/1 :onError |
+	fetchThenElse { :self :onSuccess/1 :onError |
 		self.fetch.thenElse { :response |
 			response.ok.if {
 				onSuccess(response)

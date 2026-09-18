@@ -1,6 +1,6 @@
 # sortBy
 
-- _sortBy([x₁ x₂ …], f:/2)_
+- _sortBy([x₁ x₂ …], f/2)_
 
 Sort the sequence _x_ in place using the boolean comparator block _f_.
 Answers _x_.
@@ -45,7 +45,7 @@ in particular `compare` and related methods:
 
 ```
 >>> {
->>> 	[1 3 2 4 5].sortBy(compare:/2)
+>>> 	[1 3 2 4 5].sortBy(compare/2)
 >>> }.hasError
 true
 ```

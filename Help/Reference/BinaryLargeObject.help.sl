@@ -11,7 +11,7 @@ The constructor takes a list of `ByteArray` values _b_ and a `Record` of options
 ```
 >>> let x = BinaryLargeObject(
 >>> 	[1:5, 6:9].collect(
->>> 		asByteArray:/1
+>>> 		asByteArray/1
 >>> 	),
 >>> 	(
 >>> 		type:

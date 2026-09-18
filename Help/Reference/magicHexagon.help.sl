@@ -52,7 +52,7 @@ Row sums:
 Column sums:
 
 ```
->>> 3.magicHexagon.collect(sum:/1)
+>>> 3.magicHexagon.collect(sum/1)
 5 # [38]
 ```
 
@@ -92,7 +92,7 @@ All lines and sums:
 >>> 	3  7  5  8 15;
 >>> 	17  1  6 14;
 >>> 	18 11  9
->>> ].collect(sum:/1)
+>>> ].collect(sum/1)
 15 # [38]
 ```
 
@@ -104,7 +104,7 @@ Sums of concentric circles:
 >>> 	06  1  7  2  4 8;
 >>> 	09 11 18 17  3 19
 >>> 	16 12 10 13 15 14
->>> ].collect(sum:/1)
+>>> ].collect(sum/1)
 [5 28 157]
 ```
 

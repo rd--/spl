@@ -29,7 +29,7 @@ The row sums are the three-`qFactorial` numbers,
 OEIS [A069778](https://oeis.org/A069778):
 
 ```
->>> 10.connellSequence.collect(sum:/1)
+>>> 10.connellSequence.collect(sum/1)
 [1 6 21 52 105 186 301 456 657 910]
 
 >>> 3.qFactorial(0:9)

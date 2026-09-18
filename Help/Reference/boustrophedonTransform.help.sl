@@ -72,7 +72,7 @@ Of composite numbers,
 OEIS [A230954](https://oeis.org/A230954):
 
 ```
->>> 2:17.reject(isPrime:/1)
+>>> 2:17.reject(isPrime/1)
 >>> .boustrophedonTransform
 [4 10 24 59 162 526 2016 8978 45696]
 ```
@@ -81,7 +81,7 @@ Of non-prime numbers,
 OEIS [A230955](https://oeis.org/A230955):
 
 ```
->>> 1:17.reject(isPrime:/1)
+>>> 1:17.reject(isPrime/1)
 >>> .boustrophedonTransform
 [1 5 15 40 114 371 1422 6334 32238 184655]
 ```

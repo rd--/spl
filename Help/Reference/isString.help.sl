@@ -12,7 +12,7 @@ true
 Pick out all `String`s in a `List`:
 
 ```
->>> [1 2 'ab' 'cd' 3 4].select(isString:/1)
+>>> [1 2 'ab' 'cd' 3 4].select(isString/1)
 ['ab' 'cd']
 ```
 

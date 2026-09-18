@@ -32,7 +32,7 @@ true
 >>> system
 >>> .typeDictionary['List']
 >>> .methodDictionary
->>> .includesKey('isList:/1')
+>>> .includesKey('isList/1')
 true
 ```
 

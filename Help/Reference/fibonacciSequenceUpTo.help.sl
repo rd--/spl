@@ -19,7 +19,7 @@ The sum of the even Fibonacci numbers less than four million:
 ```
 >>> 4E6
 >>> .fibonacciSequenceUpTo
->>> .select(isEven:/1)
+>>> .select(isEven/1)
 >>> .sum
 4613732
 ```

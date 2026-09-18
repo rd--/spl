@@ -11,7 +11,7 @@ Draw the unit circle and an equilateral triangle:
 	Circle([0 0], 1),
 	([0, 2 .. 6] / 3).pi
 	.partition(2, 1)
-	.collect(poincareDiskArc:/1)
+	.collect(poincareDiskArc/1)
 ].LineDrawing
 ~~~
 
@@ -24,7 +24,7 @@ Draw the unit circle and a square:
 	Circle([0 0], 1),
 	([0 .. 4] / 2).pi
 	.partition(2, 1)
-	.collect(poincareDiskArc:/1)
+	.collect(poincareDiskArc/1)
 ].LineDrawing
 ~~~
 
@@ -36,7 +36,7 @@ Diameters are lines:
 [
 	Circle([0 0], 1),
 	[0 1/2; 1/2 3/2; 1 3/2].pi
-	.collect(poincareDiskArc:/1)
+	.collect(poincareDiskArc/1)
 ].LineDrawing
 ~~~
 

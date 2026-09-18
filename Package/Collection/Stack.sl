@@ -2,7 +2,7 @@
 
 Stack : [Object, Copyable, Equal] { | linkedList |
 
-	equalBy { :self :aStack :aBlock:/2 |
+	equalBy { :self :aStack :aBlock/2 |
 		aStack.isStack & {
 			aBlock(self.linkedList, aStack.linkedList)
 		}

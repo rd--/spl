@@ -74,7 +74,7 @@
 			} {
 				self.primeFactorization
 				.sortedElements
-				.collect(keyAndValue:/1)
+				.collect(keyAndValue/1)
 			}
 		}
 	}
@@ -315,7 +315,7 @@
 			{ divisible(n, 3) } -> { 3 },
 			{ divisible(n, 5) } -> { 5 },
 			{ true } -> {
-				valueWithReturn { :return:/1 |
+				valueWithReturn { :return/1 |
 					let inc = [4 2 4 2 4 6 2 6];
 					let k = 7;
 					let i = 1;
@@ -445,7 +445,7 @@
 	}
 
 	millerRabinPrimalityTest { :self :k |
-		valueWithReturn { :return:/1 |
+		valueWithReturn { :return/1 |
 			(self = 1).ifTrue {
 				false.return
 			};
@@ -714,7 +714,7 @@
 		self.isOne.if {
 			[]
 		} {
-			self.factorInteger.column(2).sort(greater:/2)
+			self.factorInteger.column(2).sort(greater/2)
 		}
 	}
 
@@ -734,7 +734,7 @@
 		system.cachedPrimesListExtendedToIndex(self).take(self)
 	}
 
-	wheelSieveDo { :limit :aBlock:/1 |
+	wheelSieveDo { :limit :aBlock/1 |
 		(limit >= 2).ifTrue {
 			let c = List(limit + 1, false);
 			let k = 9;
@@ -800,7 +800,7 @@
 		c.copyFromTo(1,	b)
 	}
 
-	primesUpToDo { :self :aBlock:/1 |
+	primesUpToDo { :self :aBlock/1 |
 		let k = self.nextPrime.indexOfPrime - 1;
 		let primesList = system.cachedPrimesListExtendedToIndex(k);
 		1.toDo(k) { :index |
@@ -823,14 +823,14 @@
 	}
 
 	primorial { :n |
-		1.to(n).product(prime:/1)
+		1.to(n).product(prime/1)
 	}
 
 	radical { :self |
 		self.primeDivisors.product
 	}
 
-	sieveOfAtkinDo { :limit :aBlock:/1 |
+	sieveOfAtkinDo { :limit :aBlock/1 |
 		let a = List(limit + 1, false);
 		let k = limit.integerSquareRoot;
 		(limit > 2).ifTrue {
@@ -878,7 +878,7 @@
 		p
 	}
 
-	sieveOfEratosthenesDo { :self :aBlock:/1 |
+	sieveOfEratosthenesDo { :self :aBlock/1 |
 		let size = self;
 		let flags = List(size, true);
 		2.toDo(size) { :i |
@@ -980,7 +980,7 @@
 	}
 
 	uncheckedPrimeFactors { :self |
-		valueWithReturn { :return:/1 |
+		valueWithReturn { :return/1 |
 			let index = 1;
 			let prime = 2;
 			let k = self;
@@ -1050,7 +1050,7 @@
 			(n = 1).if {
 				b
 			} {
-				(a ++ b).sortBy(precedes:/2)
+				(a ++ b).sortBy(precedes/2)
 			}
 		}
 	}
@@ -1111,7 +1111,7 @@
 +@Collection {
 
 	isCoprime { :self |
-		valueWithReturn { :return:/1 |
+		valueWithReturn { :return/1 |
 			1.toDo(self.size - 1) { :i |
 				(i + 1).toDo(self.size) { :j |
 					self[i].isCoprime(self[j]).ifFalse {
@@ -1124,15 +1124,15 @@
 	}
 
 	nonPrime { :self |
-		self.collect(nonPrime:/1)
+		self.collect(nonPrime/1)
 	}
 
 	prime { :self |
-		self.collect(prime:/1)
+		self.collect(prime/1)
 	}
 
 	primeOmega { :self |
-		self.collect(primeOmega:/1)
+		self.collect(primeOmega/1)
 	}
 
 }
@@ -1264,7 +1264,7 @@
 			s := s + 1;
 			d := d.bitShiftRightUnsigned(1)
 		};
-		valueWithReturn { :return:/1 |
+		valueWithReturn { :return/1 |
 			let x = powerMod(b, d, n);
 			(x = 1 | { x = (n - 1) }).ifTrue {
 				true.return
@@ -1353,7 +1353,7 @@
 
 	welchCostasSparseArrayList { :n |
 		n.welchCostasArrayList.collect(
-			columnBinaryMatrix:/1
+			columnBinaryMatrix/1
 		)
 	}
 
@@ -1580,7 +1580,7 @@
 	}
 
 	selfridgeMethodA { :n |
-		valueWithReturn { :return:/1 |
+		valueWithReturn { :return/1 |
 			let d = 5;
 			n.isPerfectSquare.ifTrue {
 				0.return

@@ -44,7 +44,7 @@ LineSegment : [Object, Equal] { | u v |
 	}
 
 	project { :self :projection |
-		let f:/1 = projection.asUnaryBlock;
+		let f/1 = projection.asUnaryBlock;
 		LineSegment(
 			f(self.u),
 			f(self.v)
@@ -63,7 +63,7 @@ LineSegment : [Object, Equal] { | u v |
 
 +List {
 
-	connectLineSegments { :self :eq:/2 |
+	connectLineSegments { :self :eq/2 |
 		let answer = [];
 		{
 			self.isEmpty.not

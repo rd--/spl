@@ -143,7 +143,7 @@ Plot over a subset of the reals:
 
 ~~~spl svg=A
 (-3 -- 3).functionPlot([
-	identity:/1,
+	identity/1,
 	{ :each | each.round },
 	{ :each | each.rescale([-2 2]) }
 ])

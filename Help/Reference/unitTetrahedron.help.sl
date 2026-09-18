@@ -14,7 +14,7 @@ and that each edge as a unit:
 >>> 	p.vertexCount,
 >>> 	p.faceCount,
 >>> 	p.edgeCount,
->>> 	p.faceIndices.collect(size:/1),
+>>> 	p.faceIndices.collect(size/1),
 >>> 	p.edgeCoordinates.collect { :each |
 >>> 		each.Line.arcLength
 >>> 	}

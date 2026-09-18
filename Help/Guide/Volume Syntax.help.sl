@@ -80,7 +80,7 @@ Sum a _3×3×3_ array to a _3×3_ matrix:
 >>> 	1 0 1;
 >>> 	0 1 0;
 >>> 	1 0 1
->>> ].collect(sum:/1)
+>>> ].collect(sum/1)
 [
 	1 1 1;
 	1 2 1;

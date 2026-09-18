@@ -1,6 +1,6 @@
 # radixSort
 
-- _radixSort([x₁ x₂ …], f:/1)_
+- _radixSort([x₁ x₂ …], f/1)_
 
 Sort the sequence _x_ in place using the radix sort algorithm.
 The sort process can be monitored by the unary block _f_.

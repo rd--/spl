@@ -1,6 +1,6 @@
 # detectIndex
 
-- _detectIndex(c, f:/1)_
+- _detectIndex(c, f/1)_
 
 Answer the index of the first item in the sequential collection _c_ that answers `true` to the block _f_.
 Answer `nil` if there is no such item.
@@ -8,14 +8,14 @@ Answer `nil` if there is no such item.
 Find index of first even number:
 
 ```
->>> 9:1:-1.detectIndex(isEven:/1)
+>>> 9:1:-1.detectIndex(isEven/1)
 2
 ```
 
 Find index of first `zero`:
 
 ```
->>> 1:9.detectIndex(isZero:/1)
+>>> 1:9.detectIndex(isZero/1)
 nil
 ```
 

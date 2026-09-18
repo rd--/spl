@@ -50,7 +50,7 @@ each twelve steps is an octave:
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(0 -- 100).functionPlot(MidiCps:/1)
+(0 -- 100).functionPlot(MidiCps/1)
 ~~~
 
 ![](Help/Image/MidiCps-A.svg)

@@ -90,7 +90,7 @@ Deduce the degree of a sequence by seeing when successive differences become con
 >>> let l = 1:8.collect { :n |
 >>> 	n ^ 5 + (2 * n) - 1
 >>> };
->>> differences:/1.nestList(l, 2)
+>>> differences/1.nestList(l, 2)
 [
 	2 35 248 1031 3134 7787 16820 32783;
 	33 213 783 2103 4653 9033 15963;
@@ -177,7 +177,7 @@ A pattern resembling Pascal’s triangle:
 
 ```
 >>> let x = [1].arrayPad([9 9], 0);
->>> differences:/1.nestList(x, 10)
+>>> differences/1.nestList(x, 10)
 [
 	  0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0;
 	  0 0 0 0 0 0 0 0 1 -1 0 0 0 0 0 0 0 0;
@@ -236,7 +236,7 @@ Successive differences modulo two of a sequence based on the primes:
 
 ~~~spl svg=A
 let k = 20;
-let m = differences:/1.nestList(
+let m = differences/1.nestList(
 	k.primesList - 1 / 2,
 	k
 ).collect { :each |

@@ -1,6 +1,6 @@
 # withReplace
 
-- _withReplace(c₁, c₂, f:/2)_
+- _withReplace(c₁, c₂, f/2)_
 
 In place `withCollect`.
 

@@ -5,7 +5,7 @@
 	boxNotation { :self :zeroOne |
 		self.isVector.if {
 			self.isBitVector.if {
-				let zeroOneCode = zeroOne.collect(codePoint:/1);
+				let zeroOneCode = zeroOne.collect(codePoint/1);
 				self.collect { :each |
 					zeroOneCode[each + 1]
 				}.utf16String
@@ -35,7 +35,7 @@
 		self.isCharacter.if {
 			system.unicodeItalicTable.at(self)
 		} {
-			self.characters.collect(unicodeItalic:/1).stringJoin
+			self.characters.collect(unicodeItalic/1).stringJoin
 		}
 	}
 
@@ -43,7 +43,7 @@
 		self.isCharacter.if {
 			system.unicodeSubscriptTable.at(self)
 		} {
-			self.characters.collect(unicodeSubscript:/1).stringJoin
+			self.characters.collect(unicodeSubscript/1).stringJoin
 		}
 	}
 
@@ -51,7 +51,7 @@
 		self.isCharacter.if {
 			system.unicodeSuperscriptTable.at(self)
 		} {
-			self.characters.collect(unicodeSuperscript:/1).stringJoin
+			self.characters.collect(unicodeSuperscript/1).stringJoin
 		}
 	}
 
@@ -99,7 +99,7 @@ LibraryItem(
 	category: 'Text/Encoding',
 	url: 'https://rohandrape.net/sw/hsc3-data/data/text/unicode/unicode-character-table.json',
 	mimeType: 'application/json',
-	parser: identity:/1
+	parser: identity/1
 )
 
 +System {
@@ -115,5 +115,5 @@ LibraryItem(
 	category: 'Text/Analysis',
 	url: 'https://rohandrape.net/sw/hsc3-data/data/text/stopwords-mathematica.text',
 	mimeType: 'application/json',
-	parser: identity:/1
+	parser: identity/1
 )

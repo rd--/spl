@@ -1,6 +1,6 @@
 # powerSetDo
 
-- _powerSetDo(c, f:/1)_
+- _powerSetDo(c, f/1)_
 
 Apply the block _f_ to each element of the power set of the collection _c_.
 The power set includes the empty subset.
@@ -33,7 +33,7 @@ At `IdentitySet`:
 	1 3;
 	2 3;
 	1 2 3
-].collect(asIdentitySet:/1)
+].collect(asIdentitySet/1)
 ```
 
 * * *

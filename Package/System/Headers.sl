@@ -8,7 +8,7 @@ Headers! : [Object] {
 		<primitive: return _self.set(_name, _value);>
 	}
 
-	atIfAbsent { :self :name :aBlock:/0 |
+	atIfAbsent { :self :name :aBlock/0 |
 		self.includesKey(name).if {
 			self[name]
 		} {

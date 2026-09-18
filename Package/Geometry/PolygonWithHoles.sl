@@ -2,7 +2,7 @@ PolygonWithHoles : [Object, Equal, Geometry] { | outerVertexCoordinates innerVer
 
 	area { :self |
 		let o = self.outerVertexCoordinates.shoelaceFormula;
-		let i = self.innerVertexCoordinatesList.collect(shoelaceFormula:/1);
+		let i = self.innerVertexCoordinatesList.collect(shoelaceFormula/1);
 		o + i.sum
 	}
 
@@ -16,12 +16,12 @@ PolygonWithHoles : [Object, Equal, Geometry] { | outerVertexCoordinates innerVer
 
 	svgFragment { :self :options |
 		GeometryCollection(
-			self.vertexCoordinatesList.collect(Polygon:/1)
+			self.vertexCoordinatesList.collect(Polygon/1)
 		).svgFragment(options)
 	}
 
 	innerPolygons { :self |
-		self.innerVertexCoordinatesList.collect(Polygon:/1)
+		self.innerVertexCoordinatesList.collect(Polygon/1)
 	}
 
 	outerPolygon { :self |
@@ -29,11 +29,11 @@ PolygonWithHoles : [Object, Equal, Geometry] { | outerVertexCoordinates innerVer
 	}
 
 	project { :self :projection |
-		let f:/1 = projection.asUnaryBlock;
+		let f/1 = projection.asUnaryBlock;
 		PolygonWithHoles(
-			self.outerVertexCoordinates.collect(f:/1),
+			self.outerVertexCoordinates.collect(f/1),
 			self.innerVertexCoordinatesList.collect { :each |
-				each.collect(f:/1)
+				each.collect(f/1)
 			}
 		)
 	}

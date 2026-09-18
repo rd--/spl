@@ -26,7 +26,7 @@ Comma separates parameter items in `Apply Syntax`:
 Comma separates parameter items in `Value Apply Syntax`:
 
 ```
->>> min:/2 . (3, 7)
+>>> min/2 . (3, 7)
 3
 ```
 

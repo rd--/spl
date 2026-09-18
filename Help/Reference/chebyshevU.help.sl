@@ -83,7 +83,7 @@ let p = 10.chebyshevU;
 Plot the first five polynomial over a subset of the reals:
 
 ~~~spl svg=C
-let p = 0:4.collect(chebyshevU:/1);
+let p = 0:4.collect(chebyshevU/1);
 (-1 -- 1).functionPlot(
 	p.collect { :each |
 		{ :x |

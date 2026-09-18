@@ -157,7 +157,7 @@
 
 	Mix { :self |
 		let ruleTable = system.preference('ScSynth/Outputs/Mixer/RuleTable', [['1×2', [1, 2]]]);
-		let runList = self.collect(size:/1).asRunArray;
+		let runList = self.collect(size/1).asRunArray;
 		let derivedPrefix = runList.runsAndValuesCollect { :run :value |
 			[run.asString, value.asString].stringIntercalate('×')
 		}.stringIntercalate('+') ++ '→';
@@ -167,7 +167,7 @@
 
 	mixByAvailableNamedRule { :self :prefix :ruleTable |
 		let sparseMatrixTable = system.mixRuleSparseMatrixTable;
-		valueWithReturn { :return:/1 |
+		valueWithReturn { :return/1 |
 			ruleTable.do { :each |
 				let [name, busesByIndex] = each;
 				/* ['mixByAvailableNamedRule', each, prefix].postLine; */
@@ -180,7 +180,7 @@
 							entry.third
 						]
 					};
-					let channelCount = reindexedEntries.collect(second:/1).max;
+					let channelCount = reindexedEntries.collect(second/1).max;
 					/* ['mixByAvailableNamedRule', channelCount, self.shape, reindexedEntries].postLine; */
 					SparseMatrixMixer(
 						channelCount,

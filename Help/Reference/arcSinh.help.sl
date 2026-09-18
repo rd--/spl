@@ -55,7 +55,7 @@ n
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(-10 -- 10).functionPlot(arcSinh:/1)
+(-10 -- 10).functionPlot(arcSinh/1)
 ~~~
 
 ![](Help/Image/arcSinh-A.svg)
@@ -63,7 +63,7 @@ Plot over a subset of the reals:
 Plot of complex `arcSinh` function:
 
 ~~~spl png=B
-[-2J-2 2J2].complexPlot(arcSinh:/1)
+[-2J-2 2J2].complexPlot(arcSinh/1)
 ~~~
 
 ![](Help/Image/arcSinh-B.png)
@@ -73,8 +73,8 @@ Plot `arcSinh` and real part of `arcCosh`:
 ~~~spl svg=C
 (-4 -- 4).functionPlot(
 	[
-		arcSinh:/1,
-		arcCosh:/1
+		arcSinh/1,
+		arcCosh/1
 	]
 )
 ~~~

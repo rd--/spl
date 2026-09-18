@@ -1,6 +1,6 @@
 # substrings
 
-- _substrings([x₁ x₂ …], f:/1)_
+- _substrings([x₁ x₂ …], f/1)_
 
 Answer a `List` of all possible contiguous subsequences (substrings) of the sequence _x_,
 for which _f_ answers `true`.
@@ -50,9 +50,9 @@ The 181st substring:
 Obtain all substrings common to two lists:
 
 ```
->>> let f = { :p :q :w:/1 |
->>> 	p.substrings(w:/1).intersection(
->>> 		q.substrings(w:/1)
+>>> let f = { :p :q :w/1 |
+>>> 	p.substrings(w/1).intersection(
+>>> 		q.substrings(w/1)
 >>> 	)
 >>> };
 >>> [1 2 3 5 4].f([2 3 5 1 4], { :each |

@@ -53,7 +53,7 @@
 		}
 	}
 
-	do { :self :aBlock:/1 |
+	do { :self :aBlock/1 |
 		self.contents.associationsDo { :each |
 			each.value.timesRepeat {
 				aBlock(each.key)
@@ -93,11 +93,11 @@
 	}
 
 	max { :self |
-		self.contents.indices.reduce(max:/2)
+		self.contents.indices.reduce(max/2)
 	}
 
 	min { :self |
-		self.contents.indices.reduce(min:/2)
+		self.contents.indices.reduce(min/2)
 	}
 
 	[multitsetToList, asList] { :self |
@@ -128,7 +128,7 @@
 		r.randomWeightedChoice(e, w, shape)
 	}
 
-	removeIfAbsent { :self :oldObject :whenAbsent:/0 |
+	removeIfAbsent { :self :oldObject :whenAbsent/0 |
 		self.includes(oldObject).if {
 			let count = self.contents[oldObject];
 			(count = 1).if {
@@ -158,16 +158,16 @@
 		tally
 	}
 
-	sortedCounts { :self :aBlock:/2|
-		self.contents.associationsSwapped.sortBy(aBlock:/2)
+	sortedCounts { :self :aBlock/2|
+		self.contents.associationsSwapped.sortBy(aBlock/2)
 	}
 
 	sortedCounts { :self |
-		self.sortedCounts(succeedsOrEqualTo:/2)
+		self.sortedCounts(succeedsOrEqualTo/2)
 	}
 
 	sortedElements { :self |
-		self.contents.associations.sortByOn(precedesOrEqualTo:/2, key:/1)
+		self.contents.associations.sortByOn(precedesOrEqualTo/2, key/1)
 	}
 
 	sum { :self |
@@ -187,7 +187,7 @@
 	}
 
 	valueSort { :self |
-		self.associations.sortByOn(precedesOrEqualTo:/2, value:/1)
+		self.associations.sortByOn(precedesOrEqualTo/2, value/1)
 	}
 
 }
@@ -199,7 +199,7 @@ Multiset : [Object, Store, Copyable, Equal, Iterable, Collection, Extensible, Un
 	}
 
 	species { :self |
-		Multiset:/0
+		Multiset/0
 	}
 
 }
@@ -254,9 +254,9 @@ Multiset : [Object, Store, Copyable, Equal, Iterable, Collection, Extensible, Un
 		answer
 	}
 
-	histogramOf { :self :aBlock:/1 |
+	histogramOf { :self :aBlock/1 |
 		let answer = Multiset();
-		self.collectInto(aBlock:/1, answer);
+		self.collectInto(aBlock/1, answer);
 		answer
 	}
 
@@ -269,7 +269,7 @@ Multiset : [Object, Store, Copyable, Equal, Iterable, Collection, Extensible, Un
 		let count = byCount.first.key;
 		byCount.select { :each |
 			each.key = count
-		}.collect(value:/1)
+		}.collect(value/1)
 	}
 
 	counts { :self |
@@ -277,7 +277,7 @@ Multiset : [Object, Store, Copyable, Equal, Iterable, Collection, Extensible, Un
 	}
 
 	multisetIntersection { :self |
-		self.collect(asMultiset:/1).reduce(intersection:/2)
+		self.collect(asMultiset/1).reduce(intersection/2)
 	}
 
 }

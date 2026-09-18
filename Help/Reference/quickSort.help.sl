@@ -1,6 +1,6 @@
 # quickSort
 
-- _quickSort([x₁ x₂ …], f:/2=≤)_
+- _quickSort([x₁ x₂ …], f/2=≤)_
 
 Sort elements of the sequence _x_ to be non-descending according to the sort block _f_,
 using an in-place quicksort with simple median-of-three partitioning,
@@ -73,11 +73,11 @@ comparing quick and merge sorts:
 
 ~~~spl svg=B
 let n = 2000;
-let f = [quickSort:/2, mergeSort:/2];
+let f = [quickSort/2, mergeSort/2];
 let r = Sfc32(369781);
 let x = r.randomReal([0 1], [n]);
 [100, 200 .. n].collect { :k |
-	f.collect { :sort:/2 |
+	f.collect { :sort/2 |
 		let m = 0;
 		sort(x.take(k)) { :a :b |
 			m := m + 1;

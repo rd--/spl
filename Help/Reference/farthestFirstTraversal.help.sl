@@ -1,6 +1,6 @@
 # farthestFirstTraversal
 
-- _farthestFirstTraversal([v₁ v₂ …], k, f:/2, g:/1)_
+- _farthestFirstTraversal([v₁ v₂ …], k, f/2, g/1)_
 
 Answer the farthest-first traversal of the sequence of points _v_,
 where the first point is selected arbitrarily by _k_,
@@ -42,8 +42,8 @@ Starting at specified index:
 ```
 >>> [1 .. 9].farthestFirstTraversal(
 >>> 	5,
->>> 	euclideanDistance:/2,
->>> 	min:/1
+>>> 	euclideanDistance/2,
+>>> 	min/1
 >>> )
 [5 1 9 3 7 2 4 6 8]
 
@@ -57,8 +57,8 @@ Use `sum` as the reduction function, instead of `min`:
 ```
 >>> [1 .. 9].farthestFirstTraversal(
 >>> 	5,
->>> 	euclideanDistance:/2,
->>> 	sum:/1
+>>> 	euclideanDistance/2,
+>>> 	sum/1
 >>> )
 [5 1 9 2 8 3 7 4 6]
 ```
@@ -117,8 +117,8 @@ and `sum` as the reduction function:
 >>> [0 1 2].tuples(3)
 >>> .farthestFirstTraversal(
 >>> 	1,
->>> 	f:/2,
->>> 	sum:/1
+>>> 	f/2,
+>>> 	sum/1
 >>> )
 [
 	0 0 0;

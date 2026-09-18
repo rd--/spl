@@ -12,7 +12,7 @@ Run the help fragment pre-processor on the string _s_.
 	'Plot over a subset of the reals:'
 	''
 	'```'
-	'(-3 -- 3).functionPlot(abs:/1)'
+	'(-3 -- 3).functionPlot(abs/1)'
 	'```'
 	''
 	'![](Help/Image/abs-A.svg)'

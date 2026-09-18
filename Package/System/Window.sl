@@ -40,7 +40,7 @@ Window! : [Object] {
 		['localStorage', 'location', 'name', 'navigator', 'sessionStorage']
 	}
 
-	requestAnimationFrame { :self :aBlock:/1 |
+	requestAnimationFrame { :self :aBlock/1 |
 		<primitive: return _self.requestAnimationFrame(_aBlock_1);>
 	}
 

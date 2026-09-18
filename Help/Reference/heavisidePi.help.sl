@@ -12,7 +12,7 @@ Answer the box distribution, _Π(x)_, equal to 1 for _|x|<0.5_.
 The box distribution:
 
 ~~~spl svg=A
-(-1 -- 1).functionPlot(heavisidePi:/1)
+(-1 -- 1).functionPlot(heavisidePi/1)
 ~~~
 
 ![](Help/Image/heavisidePi-A.svg)

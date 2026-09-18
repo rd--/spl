@@ -11,7 +11,7 @@ Linear interpolation:
 (1 -- 8).functionPlot(
 	[3.5 1.5 1.75 1.25 3.75 0 2.5 0.75]
 	.listInterpolation(
-		linearInterpolation:/3
+		linearInterpolation/3
 	)
 )
 ~~~
@@ -24,7 +24,7 @@ Cosine interpolation:
 (1 -- 8).functionPlot(
 	[3.5 1.5 1.75 1.25 3.75 0 2.5 0.75]
 	.listInterpolation(
-		cosineInterpolation:/3
+		cosineInterpolation/3
 	)
 )
 ~~~
@@ -40,7 +40,7 @@ Cubic interpolation:
 (1 -- 8).functionPlot(
 	[3.5 1.5 1.75 1.25 3.75 0 2.5 0.75]
 	.listInterpolation(
-		cubicInterpolation:/5
+		cubicInterpolation/5
 	)
 )
 ~~~
@@ -53,7 +53,7 @@ Catmull-Rom interpolation:
 (1 -- 8).functionPlot(
 	[3.5 1.5 1.75 1.25 3.75 0 2.5 0.75]
 	.listInterpolation(
-		catmullRomInterpolation:/5
+		catmullRomInterpolation/5
 	)
 )
 ~~~
@@ -106,8 +106,8 @@ let l = [-1 -1 -1 0 1 1 1];
 let n = l.size;
 (1 -- n).functionPlot(
 	[
-		linearInterpolation:/3,
-		catmullRomInterpolation:/5
+		linearInterpolation/3,
+		catmullRomInterpolation/5
 	].collect { :each |
 		l.listInterpolation(each)
 	}

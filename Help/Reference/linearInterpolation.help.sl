@@ -58,7 +58,7 @@ Linear impulse response:
 (1 -- 5).functionPlot(
 	[0 0 1 0 0]
 	.listInterpolation(
-		linearInterpolation:/3
+		linearInterpolation/3
 	)
 )
 ~~~

@@ -54,7 +54,7 @@ let ts = (-5 -- 15).discretize(600);
 let tsM = List(t.size, ts).transpose;
 let tM = List(ts.size, t);
 let y = (tsM - tM).sincNormalized.dot(x);
-[ts, y.collect(first:/1)].transpose.linePlot
+[ts, y.collect(first/1)].transpose.linePlot
 ~~~
 
 ![](Help/Image/sincNormalized-B.svg)

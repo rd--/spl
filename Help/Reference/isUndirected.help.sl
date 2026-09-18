@@ -11,7 +11,7 @@ A graph is undirected if all of its edges are undirected.
 >>> let e = g.edgeList;
 >>> (
 >>> 	g.isUndirected,
->>> 	e.collect(isUndirectedEdge:/1)
+>>> 	e.collect(isUndirectedEdge/1)
 >>> )
 (true, [true true true])
 ```
@@ -41,7 +41,7 @@ Edges answer `isUndirected`:
 >>> [
 >>> 	1 --- 2,
 >>> 	2 --> 3
->>> ].collect(isUndirected:/1)
+>>> ].collect(isUndirected/1)
 [true false]
 ```
 

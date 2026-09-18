@@ -79,7 +79,7 @@ Find the number of rows in a matrix:
 Find the length of each sublist:
 
 ```
->>> [1 2; 4 5 6; 7].collect(size:/1)
+>>> [1 2; 4 5 6; 7].collect(size/1)
 [2 3 1]
 ```
 

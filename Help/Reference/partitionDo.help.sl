@@ -1,6 +1,6 @@
 # partitionDo
 
-- _partitionDo(c, w, n, f:/1)_
+- _partitionDo(c, w, n, f/1)_
 
 Apply the block _f_ to each partition,
 having window size _w_ places,

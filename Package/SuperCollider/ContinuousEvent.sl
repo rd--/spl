@@ -70,7 +70,7 @@ ContinuousEvent : [Object] { | contents |
 		].asContinuousEvent
 	}
 
-	Voicer { :self :aBlock:/1 |
+	Voicer { :self :aBlock/1 |
 		self.multiChannelExpand.collect { :each |
 			aBlock(each.asContinuousEvent)
 		}
@@ -87,7 +87,7 @@ ContinuousEvent : [Object] { | contents |
 		addrZero + (part - 1 * maxVoices * maxEventParam) + (voice - 1 * maxEventParam)
 	}
 
-	Voicer { :part :voice :voiceBlock:/1 |
+	Voicer { :part :voice :voiceBlock/1 |
 		1.toCollect(voice) { :each |
 			let bus = part.voicerVoiceAddress(each);
 			ControlIn(8, bus).asContinuousEvent.voiceBlock
@@ -98,7 +98,7 @@ ContinuousEvent : [Object] { | contents |
 
 +@Integer {
 
-	VoiceWriter { :part :numVoices :voiceBlock:/0 |
+	VoiceWriter { :part :numVoices :voiceBlock/0 |
 		1.toCollect(numVoices) { :voice |
 			ControlOut(
 				part.voicerVoiceAddress(voice),

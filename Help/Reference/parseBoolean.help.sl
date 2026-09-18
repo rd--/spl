@@ -1,7 +1,7 @@
 # parseBoolean
 
 - _parseBoolean(aString)_
-- _parseBoolean(aString, elseClause:/0)_
+- _parseBoolean(aString, elseClause/0)_
 
 Answer the `Boolean` indicated by _aString_,
 else evaluate _elseClause_,

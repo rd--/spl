@@ -92,7 +92,7 @@ Menu : [Object, View] { | frame menuPane listPane menuList title isTransient |
 				}
 			};
 			self.menuList.appendChild(listItem);
-			listItem.addEventListener('pointerdown', pointerBegin:/1)
+			listItem.addEventListener('pointerdown', pointerBegin/1)
 		}
 	}
 

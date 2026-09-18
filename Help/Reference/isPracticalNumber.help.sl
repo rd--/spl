@@ -7,7 +7,7 @@ Answer `true` if _n_ is a practical number.
 First few terms:
 
 ```
->>> 1:252.select(isPracticalNumber:/1)
+>>> 1:252.select(isPracticalNumber/1)
 [
 	  1   2   4   6   8
 	 12  16  18  20  24

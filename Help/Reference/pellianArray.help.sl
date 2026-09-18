@@ -7,7 +7,7 @@ Answer the _n,k_ entry in the Pellian array.
 Pellian array:
 
 ```
->>> pellianArray:/2.table(0:7, 0:7)
+>>> pellianArray/2.table(0:7, 0:7)
 [
 	0 1 0 2 0 4 0 8;
 	1 1 2 2 4 4 8 8;
@@ -26,7 +26,7 @@ OEIS [A228405](https://oeis.org/A228405):
 
 ```
 >>> 0:8.antidiagonalArray(
->>> 	pellianArray:/2
+>>> 	pellianArray/2
 >>> )
 [
 	0;
@@ -47,7 +47,7 @@ OEIS [A228405](https://oeis.org/A228405):
 
 ~~~spl svg=A oeis=A228405
 0:9.antidiagonalArray(
-	pellianArray:/2
+	pellianArray/2
 ).catenate.discretePlot
 ~~~
 
@@ -60,7 +60,7 @@ OEIS [A228405](https://oeis.org/A228405):
 
 ~~~spl svg=B oeis=A228405
 0:17.antidiagonalArray(
-	pellianArray:/2
+	pellianArray/2
 ).catenate.scatterPlot.log
 ~~~
 

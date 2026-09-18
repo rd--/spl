@@ -155,15 +155,15 @@
 +@Collection {
 
 	benedettiHeight { :self |
-		self.collect(benedettiHeight:/1)
+		self.collect(benedettiHeight/1)
 	}
 
 	eulerGradusSuavitatis { :self |
-		self.collect(eulerGradusSuavitatis:/1)
+		self.collect(eulerGradusSuavitatis/1)
 	}
 
 	keesSemiHeight { :self |
-		self.collect(keesSemiHeight:/1)
+		self.collect(keesSemiHeight/1)
 	}
 
 	kurenniemiMajorMinorIndex { :self |
@@ -175,7 +175,7 @@
 	}
 
 	octaveReduce { :self |
-		self.collect(octaveReduce:/1)
+		self.collect(octaveReduce/1)
 	}
 
 	tenneyHeight { :self :base |
@@ -185,15 +185,15 @@
 	}
 
 	tenneyHeight { :self |
-		self.collect(tenneyHeight:/1)
+		self.collect(tenneyHeight/1)
 	}
 
 	weilHeight { :self |
-		self.collect(weilHeight:/1)
+		self.collect(weilHeight/1)
 	}
 
 	wilsonHeight { :self |
-		self.collect(wilsonHeight:/1)
+		self.collect(wilsonHeight/1)
 	}
 
 }
@@ -264,7 +264,7 @@
 +@Collection {
 
 	octaveReduce { :self |
-		self.collect(octaveReduce:/1)
+		self.collect(octaveReduce/1)
 	}
 
 }
@@ -282,7 +282,7 @@
 				->
 				(n * d).sqrt./
 			}
-		}.catenate.sortOn(value:/1).reverse.first(operand)
+		}.catenate.sortOn(value/1).reverse.first(operand)
 	}
 
 	yunikSwiftScaleMerit { :k |

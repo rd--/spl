@@ -20,7 +20,7 @@ Answer the prime divisors of the integer _n_.
 >>> 2434500.primeFactors
 [2 2 3 3 5 5 5 541]
 
->>> 2:10.collect(primeDivisors:/1)
+>>> 2:10.collect(primeDivisors/1)
 [2; 3; 2; 5; 2 3; 7; 2; 3; 2 5]
 ```
 

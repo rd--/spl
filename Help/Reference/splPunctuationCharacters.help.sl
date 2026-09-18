@@ -28,7 +28,7 @@ The characters are listed sorted by their code point:
 
 ```
 >>> let c = system.splPunctuationCharacters;
->>> c = c.sortOn(codePoint:/1)
+>>> c = c.sortOn(codePoint/1)
 true
 ```
 

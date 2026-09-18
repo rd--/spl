@@ -30,7 +30,7 @@ The sequence of binomial coefficients for fixed _n_ and _0<=k<=n_ is logarithmic
 ```
 >>> 11.pascalTriangle
 >>> .allSatisfy(
->>> 	isLogarithmicallyConcave:/1
+>>> 	isLogarithmicallyConcave/1
 >>> )
 true
 ```

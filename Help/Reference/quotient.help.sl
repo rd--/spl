@@ -6,16 +6,22 @@ Answer the integer quotient of the Euclidean division of_m_ and _n_,
 defined by division with truncation toward zero.
 
 ```
->>> (-9.quotient(4), -9 / 4)
-(-2, -2.25)
+>>> quotient(-9, 4)
+-2
 
->>> (-0.9.quotient(0.4), -0.9 / 0.4)
-(-2, -2.25)
+>>> quotient(-0.9, 0.4)
+-2
 ```
 
 The operator form is `//`:
 
 ```
+>>> (-9 // 4, -9 / 4)
+(-2, -2.25)
+
+>>> (-0.9 // 0.4, -0.9 / 0.4)
+(-2, -2.25)
+
 >>> 9 // 4
 2
 
@@ -221,7 +227,7 @@ let f = { :n |
 		f(n // 3 + c) ++ [t]
 	}
 };
-1:30.collect(f:/1)
+1:30.collect(f/1)
 .catenate
 .discretePlot
 ~~~
@@ -270,7 +276,7 @@ At `Symbol`:
 
 ```
 >> `m` // `n`
-(quotient m n)
+(// m n)
 ```
 
 `remainder` answers the remainder from this division.

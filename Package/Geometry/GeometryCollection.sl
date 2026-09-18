@@ -1,15 +1,15 @@
 GeometryCollection : [Object, Equal, Geometry] { | contents |
 
 	arcLength { :self |
-		self.contents.collect(arcLength:/1).sum
+		self.contents.collect(arcLength/1).sum
 	}
 
 	area { :self |
-		self.contents.collect(area:/1).sum
+		self.contents.collect(area/1).sum
 	}
 
 	boundingBox { :self |
-		self.contents.collect(boundingBox:/1).boundingBoxMerging
+		self.contents.collect(boundingBox/1).boundingBoxMerging
 	}
 
 	circleInversion { :self :circle |
@@ -18,9 +18,9 @@ GeometryCollection : [Object, Equal, Geometry] { | contents |
 		}.GeometryCollection
 	}
 
-	collect { :self :aBlock:/1 |
+	collect { :self :aBlock/1 |
 		GeometryCollection(
-			self.contents.collect(aBlock:/1)
+			self.contents.collect(aBlock/1)
 		)
 	}
 
@@ -31,7 +31,7 @@ GeometryCollection : [Object, Equal, Geometry] { | contents |
 	}
 
 	embeddingDimension { :self |
-		let [n] = self.contents.collect(embeddingDimension:/1).nub;
+		let [n] = self.contents.collect(embeddingDimension/1).nub;
 		n
 	}
 
@@ -61,11 +61,11 @@ GeometryCollection : [Object, Equal, Geometry] { | contents |
 	}
 
 	lineCollection { :self |
-		self.collect(Line:/1).GeometryCollection
+		self.collect(Line/1).GeometryCollection
 	}
 
 	polygonCollection { :self |
-		self.collect(Polygon:/1).GeometryCollection
+		self.collect(Polygon/1).GeometryCollection
 	}
 
 }

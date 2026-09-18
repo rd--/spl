@@ -90,7 +90,7 @@ At `Symbol`:
 [(+ (* b x) (* a y)), (+ (* c x) (* b y))]
 
 >>> [`x` `y`].convolve([`a` `b` `c`])
->>> .collect(printString:/1)
+>>> .collect(printString/1)
 [
 	'(* a x)',
 	'(+ (* b x) (* a y))',
@@ -104,7 +104,7 @@ Smooth box function (to a triangle function):
 
 ~~~spl svg=A
 let x = (-1 -- 1).discretize(100);
-let u = x.collect(unitBox:/1);
+let u = x.collect(unitBox/1);
 u.convolve(u).linePlot
 ~~~
 
@@ -114,7 +114,7 @@ Smooth triangle function:
 
 ~~~spl svg=B
 let x = (-1 -- 1).discretize(100);
-let u = x.collect(unitBox:/1);
+let u = x.collect(unitBox/1);
 let v = u.convolve(u);
 v.convolve(v).linePlot
 ~~~

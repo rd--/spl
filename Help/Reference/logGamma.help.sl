@@ -11,7 +11,7 @@ Answer the logarithm of the gamma function.
 >>> (22 / 10).logGamma
 0.096947
 
->>> 3:6.collect(logGamma:/1)
+>>> 3:6.collect(logGamma/1)
 [2 6 24 120].log
 ```
 
@@ -35,7 +35,7 @@ At half integer:
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(0.02 -- 5).functionPlot(logGamma:/1)
+(0.02 -- 5).functionPlot(logGamma/1)
 ~~~
 
 ![](Help/Image/logGamma-A.svg)

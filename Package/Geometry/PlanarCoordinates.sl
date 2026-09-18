@@ -11,7 +11,7 @@ PlanarCoordinates : [Object, Store, Copyable, Equal, Compare, Indexable, Cartesi
 	}
 
 	[negate, -] { :self |
-		self.applyUnaryOperator(negate:/1)
+		self.applyUnaryOperator(negate/1)
 	}
 
 	[plus, +] { :self :anObject |
@@ -38,24 +38,24 @@ PlanarCoordinates : [Object, Store, Copyable, Equal, Compare, Indexable, Cartesi
 		self.coordinates.at(1)
 	}
 
-	adaptToNumberAndApply { :self :aNumber :aBlock:/2 |
+	adaptToNumberAndApply { :self :aNumber :aBlock/2 |
 		aBlock(PlanarCoordinates([aNumber, aNumber]), self)
 	}
 
-	applyUnaryOperator { :self :aBlock:/1 |
-		PlanarCoordinates(self.coordinates.collect(aBlock:/1))
+	applyUnaryOperator { :self :aBlock/1 |
+		PlanarCoordinates(self.coordinates.collect(aBlock/1))
 	}
 
-	applyBinaryOperator { :self :anObject :aBlock:/2 |
+	applyBinaryOperator { :self :anObject :aBlock/2 |
 		anObject.isPlanarCoordinates.if {
 			PlanarCoordinates(
 				self.coordinates.withCollect(
 					anObject.coordinates,
-					aBlock:/2
+					aBlock/2
 				)
 			)
 		} {
-			anObject.adaptToPlanarCoordinatesAndApply(self, aBlock:/2)
+			anObject.adaptToPlanarCoordinatesAndApply(self, aBlock/2)
 		}
 	}
 
@@ -86,11 +86,11 @@ PlanarCoordinates : [Object, Store, Copyable, Equal, Compare, Indexable, Cartesi
 	}
 
 	max { :self :anObject |
-		self.applyBinaryOperator(anObject, max:/2)
+		self.applyBinaryOperator(anObject, max/2)
 	}
 
 	min { :self :anObject |
-		self.applyBinaryOperator(anObject, min:/2)
+		self.applyBinaryOperator(anObject, min/2)
 	}
 
 	normalize { :self |
@@ -110,7 +110,7 @@ PlanarCoordinates : [Object, Store, Copyable, Equal, Compare, Indexable, Cartesi
 	}
 
 	quotient { :self :anObject |
-		self.applyBinaryOperator(anObject, quotient:/2)
+		self.applyBinaryOperator(anObject, quotient/2)
 	}
 
 	radius { :self |
@@ -145,7 +145,7 @@ PlanarCoordinates : [Object, Store, Copyable, Equal, Compare, Indexable, Cartesi
 
 +@Number {
 
-	adaptToPlanarCoordinatesAndApply { :self :operand :aBlock:/2 |
+	adaptToPlanarCoordinatesAndApply { :self :operand :aBlock/2 |
 		aBlock(operand, PlanarCoordinates([self, self]))
 	}
 
@@ -155,7 +155,7 @@ PlanarCoordinates : [Object, Store, Copyable, Equal, Compare, Indexable, Cartesi
 
 	[PlanarCoordinates, asPlanarCoordinates] { :self |
 		self.isMatrix.if {
-			self.collect(PlanarCoordinates:/1)
+			self.collect(PlanarCoordinates/1)
 		} {
 			let [x, y] = self;
 			newPlanarCoordinates().initializeSlots([x, y])

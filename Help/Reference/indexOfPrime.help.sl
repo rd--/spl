@@ -48,7 +48,7 @@ OEIS [A049084](https://oeis.org/A049084):
 
 ~~~spl svg=A oeis=A049084
 1:99.collect(
-	indexOfPrime:/1
+	indexOfPrime/1
 ).discretePlot
 ~~~
 

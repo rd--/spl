@@ -5,7 +5,7 @@
 The univarirate cusp function.
 
 ~~~spl svg=A
-(-3 -- 3).functionPlot(cuspMap:/1)
+(-3 -- 3).functionPlot(cuspMap/1)
 ~~~
 
 ![](Help/Image/cuspMap-A.svg)

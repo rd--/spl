@@ -1,6 +1,6 @@
 # trace
 
-- _trace(m, f:/1=Σ)_
+- _trace(m, f/1=Σ)_
 
 Answer the trace of the matrix or tensor list.
 Properly, a trace is only defined for square matrices.
@@ -33,7 +33,7 @@ Apply a function to the diagonal elements of a matrix:
 
 ```
 >>> [1 2 3; 4 5 6; 7 8 9]
->>> .trace(Tuple:/1)
+>>> .trace(Tuple/1)
 (1, 5, 9)
 ```
 
@@ -41,7 +41,7 @@ Find the determinant of a triangular matrix:
 
 ```
 >>> [1 2 3; 0 4 5; 0 0 6]
->>> .trace(product:/1)
+>>> .trace(product/1)
 (1 * 4 * 6)
 ```
 
@@ -49,7 +49,7 @@ Find the determinant of a triangular matrix:
 
 ```
 >>> let m = [1 2 3; 4 5 6];
->>> (m.trace(identity:/1), m.diagonal)
+>>> (m.trace(identity/1), m.diagonal)
 ([1 5], [1 5])
 ```
 

@@ -17,7 +17,7 @@ QueensBenchmark : [Object] { | freeMaxs freeRows freeMins queenRows |
 	}
 
 	placeQueen { :self :c |
-		valueWithReturn { :return:/1 |
+		valueWithReturn { :return/1 |
 			1.toDo(8) { :r |
 				self.rowColumn(r, c).ifTrue {
 					self.queenRows[r] := c;

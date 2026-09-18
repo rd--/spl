@@ -8,7 +8,7 @@ Select entries from the Svg colour catalogue that are yellow:
 
 ```
 >>> system.svgColourCatalogue
->>> .select(isYellow:/1)
+>>> .select(isYellow/1)
 >>> .keys
 [
 	'darkgoldenrod'
@@ -22,7 +22,7 @@ Plot colours:
 
 ~~~spl svg=A
 system.svgColourCatalogue
-.select(isYellow:/1)
+.select(isYellow/1)
 .values
 .enclose
 .arrayPlot

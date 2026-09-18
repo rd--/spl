@@ -14,7 +14,7 @@ Evaluate numerically:
 Plot Parzen window:
 
 ~~~spl svg=A
-(-1 -- 1).functionPlot(parzenWindow:/1)
+(-1 -- 1).functionPlot(parzenWindow/1)
 ~~~
 
 ![](Help/Image/parzenWindow-A.svg)
@@ -34,7 +34,7 @@ Discrete Parzen window of length 15:
 ~~~spl svg=C
 (-0.5 -- 0.5).discretize(
 	15,
-	parzenWindow:/1
+	parzenWindow/1
 ).discretePlot
 ~~~
 
@@ -45,7 +45,7 @@ Compare to Gaussian window:
 ~~~spl svg=D
 (-0.5 -- 0.5).functionPlot([
 	{ :x | x.gaussianWindow(0.2) },
-	parzenWindow:/1
+	parzenWindow/1
 ])
 ~~~
 

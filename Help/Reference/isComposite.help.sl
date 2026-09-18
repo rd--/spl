@@ -76,7 +76,7 @@ Select first few terms,
 OEIS [A002808](https://oeis.org/A002808):
 
 ```
->>> 1:14.select(isComposite:/1)
+>>> 1:14.select(isComposite/1)
 [4 6 8 9 10 12 14]
 ```
 

@@ -37,7 +37,7 @@ Calculate cents values of the minima of the dissonance function:
 >>> let i = x.centsToRatio.collect { :r |
 >>> 	let h2 = h(f0 * r);
 >>> 	-1 * setharesDissonance(h1, h2)
->>> }.findPeaks.collect(first:/1);
+>>> }.findPeaks.collect(first/1);
 >>> x @* i
 [
 	  0  204  232  266  316

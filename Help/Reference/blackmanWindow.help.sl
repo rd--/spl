@@ -20,7 +20,7 @@ The Blackman window function:
 
 ~~~spl svg=A
 (-0.5 -- 0.5).functionPlot(
-	blackmanWindow:/1
+	blackmanWindow/1
 )
 ~~~
 
@@ -31,7 +31,7 @@ Discrete Blackman window of length 15:
 ~~~spl svg=B
 (-0.5 -- 0.5).discretize(
 	15,
-	blackmanWindow:/1
+	blackmanWindow/1
 ).discretePlot
 ~~~
 
@@ -41,7 +41,7 @@ Frequency response of the Blackman window:
 
 ~~~spl svg=C
 51.windowTable(
-	blackmanWindow:/1
+	blackmanWindow/1
 ).fftPlot(512, 'Centered', 'Logarithmic')
 ~~~
 

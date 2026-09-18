@@ -61,7 +61,7 @@ Construct an identity matrix:
 Generate a banded matrix with two superdiagonals:
 
 ```
->>> let k:/2 = kroneckerDelta:/2;
+>>> let k/2 = kroneckerDelta/2;
 >>> { :i :j |
 >>> 	let p = k(i - j + 1, 0);
 >>> 	let q = k(i - j + 2, 0);

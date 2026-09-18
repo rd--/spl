@@ -1,6 +1,6 @@
 # warpingMatrices
 
-- _warpingMatrices(x, y, w, f:/2)_
+- _warpingMatrices(x, y, w, f/2)_
 
 Answer the traceback and cost matrices between sequences _x_ and _y_.
 In the traceback matrix a one indicates a match, two an insertion and three a deletion.

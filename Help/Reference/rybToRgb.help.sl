@@ -7,7 +7,7 @@ Uses an algorithm by Gossett and Chen.
 
 ```
 >>> [0 0 0; 1 1 1; 1 0 0; 0 1 0; 0 0 1]
->>> .collect(rybToRgb:/1)
+>>> .collect(rybToRgb/1)
 [
 	1 1 1;
 	0.2 0.094 0;

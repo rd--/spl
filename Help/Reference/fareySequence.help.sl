@@ -9,7 +9,7 @@ The Farey sequence of order _n_ is the sorted sequence of reduced fractions betw
 The first four Farey sequence:
 
 ```
->>> 1:4.collect(fareySequence:/1)
+>>> 1:4.collect(fareySequence/1)
 [
 	0/1 1/1;
 	0/1 1/2 1/1;
@@ -72,7 +72,7 @@ Denominators of Farey sequence of order 12:
 
 ```
 >>> 12.fareySequence
->>> .collect(denominator:/1)
+>>> .collect(denominator/1)
 [
 	 1 12 11 10  9  8  7  6 11  5
 	 9  4 11  7 10  3 11  8  5 12
@@ -89,8 +89,8 @@ The length of a Farey sequence for a few small orders,
 OEIS [A005728](https://oeis.org/A005728):
 
 ```
->>> 1:12.collect(fareySequence:/1)
->>> .collect(size:/1)
+>>> 1:12.collect(fareySequence/1)
+>>> .collect(size/1)
 [2 3 5 7 11 13 19 23 29 33 43 47]
 ```
 
@@ -202,8 +202,8 @@ Draw the Farey sunburst:
 
 ~~~spl svg=E
 let a = 9.fareySequence;
-let b = a.collect(components:/1);
-let c = b.collect(reverse:/1);
+let b = a.collect(components/1);
+let c = b.collect(reverse/1);
 [1 1; 1 -1; -1 1; -1 -1].collect { :m |
 	[
 		([m] * b).Line,

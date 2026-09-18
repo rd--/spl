@@ -9,7 +9,7 @@ Draw curve:
 ~~~spl svg=A
 (0 -- 1.pi).discretize(
 	100,
-	cayleysSextic:/1
+	cayleysSextic/1
 ).Line
 ~~~
 

@@ -1,6 +1,6 @@
 # sortedWithIndices
 
-- _sortedWithIndices(l, f:/2=≺)_
+- _sortedWithIndices(l, f/2=≺)_
 
 Sort items in the sequence _l_ according to _f_ and answer each associated with its initial index.
 

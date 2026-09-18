@@ -83,15 +83,15 @@
 +@Collection {
 
 	centsToRatio { :self |
-		self.collect(centsToRatio:/1)
+		self.collect(centsToRatio/1)
 	}
 
 	ratioToCents { :self |
-		self.collect(ratioToCents:/1)
+		self.collect(ratioToCents/1)
 	}
 
 	ratioToSavarts { :self |
-		self.collect(ratioToSavarts:/1)
+		self.collect(ratioToSavarts/1)
 	}
 
 }
@@ -139,9 +139,9 @@
 		}
 	}
 
-	eulerFokkerGenus { :self :aBlock:/1 |
-		let combinations = self.subsets(aBlock:/1);
-		let products = combinations.collect(product:/1);
+	eulerFokkerGenus { :self :aBlock/1 |
+		let combinations = self.subsets(aBlock/1);
+		let products = combinations.collect(product/1);
 		let normalized = Fraction(products, products.min);
 		let reduced = normalized.octaveReduce;
 		reduced.nub.sort

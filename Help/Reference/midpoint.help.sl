@@ -85,7 +85,7 @@ let n = 7;
 	k.circlePoints([0 0], 1, 0),
 	n - 1
 ).collect(
-	Polygon:/1
+	Polygon/1
 ).LineDrawing
 ~~~
 

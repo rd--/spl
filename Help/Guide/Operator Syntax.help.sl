@@ -30,7 +30,7 @@ When operators are written outside of `Apply Syntax` & `Method Syntax` they have
 >>> 1:9.reduce(+)
 45
 
->>> 1:9.reduce(plusSign:/2)
+>>> 1:9.reduce(plusSign/2)
 45
 ```
 

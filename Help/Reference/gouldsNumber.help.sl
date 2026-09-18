@@ -17,7 +17,7 @@ OEIS [A001316](https://oeis.org/A001316):
 
 ~~~spl svg=A oeis=A001316
 0:64.functionPlot(
-	gouldsNumber:/1
+	gouldsNumber/1
 )
 ~~~
 

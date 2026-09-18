@@ -1,6 +1,6 @@
 # commonSubexpressions
 
-- _commonSubexpressions(e, f:/2)_
+- _commonSubexpressions(e, f/2)_
 
 Answer a list of the subexpressions of the symbolic expression _e_ that occur more than once,
 according to the comparator _f_.
@@ -22,7 +22,7 @@ according to `==` and `isEqualSymbolicExpression`:
 >> let e = ((`x` * `x`) * (`x` * `x`));
 >> let a = e.commonSubexpressions(==);
 >> let b = e.commonSubexpressions(
->> 	isEqualSymbolicExpression:/2
+>> 	isEqualSymbolicExpression/2
 >> );
 >> (a, b)
 ([], [(* x x)])

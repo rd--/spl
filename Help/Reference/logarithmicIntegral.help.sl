@@ -66,8 +66,8 @@ Plot with the prime counting function, `primePi`:
 ~~~spl svg=B
 2:150.functionPlot(
 	[
-		logarithmicIntegral:/1,
-		primePi:/1
+		logarithmicIntegral/1,
+		primePi/1
 	]
 )
 ~~~

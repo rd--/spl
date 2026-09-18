@@ -407,7 +407,7 @@ let n = 0;
 let dir = 1;
 let w = 1;
 let a = [];
-{ :break:/0 |
+{ :break/0 |
 	1.toDo(2) { :t |
 		1.toDo(w) { :i |
 			let [p, q] = z.realImaginary;

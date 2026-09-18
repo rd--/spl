@@ -26,7 +26,7 @@ The `operator` is retained as the `unqualifiedName` of the `Block`:
 true
 
 >>> (`x` = `y`).operator.name
-'='
+'equal'
 
 >>> min(`x`, `y`).operator.name
 'min'
@@ -126,7 +126,7 @@ Evaluate `inner` using symbolic primitives:
 >>> 	f.inner([1 2; 3 4], [8 9], g),
 >>> 	f.inner([9 8], [1 2; 3 4], g),
 >>> 	f.inner([1 2; 3 4], [6 7; 8 9], g)
->>> ].deepCollect(printString:/1)
+>>> ].deepCollect(printString/1)
 [
 	'(+ (* 1 3) (* 2 4))',
 	 [

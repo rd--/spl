@@ -2,7 +2,7 @@
 
 +FilePath {
 
-	terseProgramSummary { :directoryName :answerPredicate:/1 |
+	terseProgramSummary { :directoryName :answerPredicate/1 |
 		let testCount = 0;
 		let passCount = 0;
 		let errorCount = 0;
@@ -16,6 +16,7 @@
 			[fileName, programTexts.size].postLine;
 			programTexts.do { :each |
 				let result = system.evaluate(each);
+				result.concisePrintString;
 				testCount := testCount + 1;
 				result.answerPredicate.if {
 					passCount := passCount + 1
@@ -27,12 +28,12 @@
 		[testCount, passCount, errorCount].postLine
 	}
 
-	terseReferenceSummaryDo { :directoryName :options :testName :aBlock:/2 |
+	terseReferenceSummaryDo { :directoryName :options :testName :aBlock/2 |
 		let totalTestCount = 0;
 		let totalPassCount = 0;
 		let totalErrorCount = 0;
 		let fileNameList = system.readDirectoryFileNames(directoryName.absolutePathString);
-		let helpFileNameList = fileNameList.sortBy(precedes:/2).select { :each |
+		let helpFileNameList = fileNameList.sortBy(precedes/2).select { :each |
 			each.endsWith('.help.sl') & {
 				each.pathBasename.matchesRegularExpression(options['pattern'])
 			}
@@ -68,12 +69,15 @@
 		directoryName.terseReferenceSummaryDo(
 			options,
 			'Documentation Tests',
-			terseReferenceEntry:/2
+			terseReferenceEntry/2
 		)
 	}
 
 	terseSuperColliderGraphSummary { :directoryName :options |
-		directoryName.terseReferenceSummaryDo(options, 'SuperCollider Graph Tests') { :helpFile :options |
+		directoryName.terseReferenceSummaryDo(
+			options,
+			'SuperCollider Graph Tests'
+		) { :helpFile :options |
 			let testCount = 0;
 			let passCount = 0;
 			let scGraphCodeBlocks = helpFile.unspecifiedCodeBlocks;
@@ -89,7 +93,12 @@
 					result.isOutputSignal.if {
 						passCount := passCount + 1
 					} {
-						'	FAIL: %s: %s'.format([helpFile.name, programText]).postLine
+						'	FAIL: %s: %s'.format(
+							[
+								helpFile.name,
+								programText
+							]
+						).postLine
 					}
 				}
 			};

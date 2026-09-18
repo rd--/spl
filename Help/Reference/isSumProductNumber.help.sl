@@ -7,7 +7,7 @@ Answer `true` if _n_ is a sum-product number in base _b_.
 In base ten:
 
 ```
->>> 1:200.select(isSumProductNumber:/1)
+>>> 1:200.select(isSumProductNumber/1)
 [1 135 144]
 ```
 

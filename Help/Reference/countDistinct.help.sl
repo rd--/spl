@@ -1,6 +1,6 @@
 # countDistinct
 
-- _countDistinct([x₁ x₂ …], f:/2)_
+- _countDistinct([x₁ x₂ …], f/2)_
 
 Answer the number of distinct elements that appear in _x_,
 according to the equality block _f_.

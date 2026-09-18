@@ -69,11 +69,11 @@ Binary operators may be written as names in non-operator contexts, i.e. _α.β(+
 
 Binary operators are rewritten as the arity qualified names of their symbols.
 The names are those given to the glyphs in _The Unicode Standard_.
-`+` is _plusSign:/2_,
-`*` is _asterisk:/2_, &etc.
+`+` is _plusSign/2_,
+`*` is _asterisk/2_, &etc.
 
 ```
->>> + == plusSign:/2
+>>> + == plusSign/2
 true
 ```
 
@@ -93,7 +93,7 @@ Binary operators with multiple characters are named by joining together the char
 i.e. `++` is `plusSignPlusSign` not `append`, and `<=` is `lessThanSignEqualsSign`.
 
 ```
->>> ++ == plusSignPlusSign:/2
+>>> ++ == plusSignPlusSign/2
 true
 ```
 

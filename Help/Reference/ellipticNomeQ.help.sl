@@ -48,7 +48,7 @@ The value of _m_ for which _q_ is 1/10:
 Plot over subset of reals:
 
 ~~~spl svg=A
-(0 -- 0.995).functionPlot(ellipticNomeQ:/1)
+(0 -- 0.995).functionPlot(ellipticNomeQ/1)
 ~~~
 
 ![](Help/Image/ellipticNomeQ-A.svg)

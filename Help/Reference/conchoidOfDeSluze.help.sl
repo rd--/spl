@@ -13,7 +13,7 @@ Plot for various _a_:
 ~~~spl svg=A
 (-1.35 -- 1.35).functionPlot(
 	[-4 -3 -2 -1 -0.5 0 1 2 3].collect(
-		conchoidOfDeSluze:/1
+		conchoidOfDeSluze/1
 	)
 )
 ~~~

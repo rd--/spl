@@ -8,7 +8,7 @@
 		<primitive: return _self !== _anObject;>
 	}
 
-	assert { :self :aString :aBlock:/0 |
+	assert { :self :aString :aBlock/0 |
 		aBlock().if {
 			self
 		} {
@@ -16,8 +16,8 @@
 		}
 	}
 
-	assert { :self :aBlock:/0 |
-		self.assert('*unknown context*', aBlock:/0)
+	assert { :self :aBlock/0 |
+		self.assert('*unknown context*', aBlock/0)
 	}
 
 	asString { :self |
@@ -28,14 +28,14 @@
 		self.error('@Object>>caseError: case not found and no otherwise clause')
 	}
 
-	caseOf { :self :aCollection :otherwise:/1 |
-		valueWithReturn { :return:/1 |
+	caseOf { :self :aCollection :otherwise/1 |
+		valueWithReturn { :return/1 |
 			aCollection.associationsDo { :each |
 				(each.key = self).ifTrue {
 					each.value.blockValue.return
 				}
 			};
-			otherwise:/1.cull(self)
+			otherwise/1.cull(self)
 		}
 	}
 
@@ -107,7 +107,7 @@
 		self
 	}
 
-	in { :self :aBlock:/1 |
+	in { :self :aBlock/1 |
 		aBlock(self)
 	}
 
@@ -232,7 +232,7 @@
 		}
 	}
 
-	then { :self :aBlock:/1 |
+	then { :self :aBlock/1 |
 		self.aBlock
 	}
 

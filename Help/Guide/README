@@ -5,7 +5,7 @@ Total => 695
 Write image files:
 
 ~~~
-system.helpFilesDo('Guide', '.*', true, writeImageFiles:/1); nil
+system.helpFilesDo('Guide', '.*', true, writeImageFiles/1); nil
 ~~~
 
 $ (cd ~/sw/spl/Help/Guide; make lint)

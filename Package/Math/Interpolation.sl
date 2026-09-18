@@ -22,10 +22,10 @@
 		}
 	}
 
-	blend { :y1 :y2 :mu :aBlock:/3 |
+	blend { :y1 :y2 :mu :aBlock/3 |
 		mu.isList.if {
 			mu.collect { :each |
-				y1.blend(y2, each, aBlock:/3)
+				y1.blend(y2, each, aBlock/3)
 			}
 		} {
 			aBlock(y1, y2, mu)
@@ -185,7 +185,7 @@
 			d[i] := (c[i + 1] - c[i]) / (3 * dx)
 		};
 		1.toCollect(n) { :i |
-			[y[i], b[i], c[i], d[i]].withoutTrailing(isOrigin:/1)
+			[y[i], b[i], c[i], d[i]].withoutTrailing(isOrigin/1)
 		}
 	}
 
@@ -199,7 +199,7 @@
 
 	dividedDifferences { :m |
 		let k = m.size;
-		let p = [m.collect(second:/1)];
+		let p = [m.collect(second/1)];
 		let i = 1;
 		{
 			(k - i) > 0
@@ -244,12 +244,12 @@
 				firstDerivative[i],
 				(3 * (yvP - yv) / w - (2 * fd) - fdP) / w,
 				(2 * (yv - yvP) / w + fd + fdP) / w2
-			].withoutTrailing(isOrigin:/1)
+			].withoutTrailing(isOrigin/1)
 		}
 	}
 
 	interpolation { :self :method |
-		let f:/2 = method.namedInterpolatorFunction;
+		let f/2 = method.namedInterpolatorFunction;
 		self.isVector.if {
 			let y = self;
 			let x = [1 .. y.size];
@@ -271,7 +271,7 @@
 			let dx = x[i + 1] - x[i];
 			let dy = y[i + 1] - y[i];
 			let m = dy / dx;
-			[y[i], m].withoutTrailing(isOrigin:/1)
+			[y[i], m].withoutTrailing(isOrigin/1)
 		}
 	}
 
@@ -321,7 +321,7 @@
 		}
 	}
 
-	matrixInterpolation { :self :aBlock:/6 |
+	matrixInterpolation { :self :aBlock/6 |
 		let [m, n] = [self.numberOfRows, self.numberOfColumns];
 		{ :x :y |
 			let i1 = x.integerPart;
@@ -376,7 +376,7 @@
 		}
 	}
 
-	volumeInterpolation { :self :aBlock:/11 |
+	volumeInterpolation { :self :aBlock/11 |
 		let [m, n, o] = self.shape;
 		{ :x :y :z |
 			let i1 = x.integerPart;
@@ -429,7 +429,7 @@
 		let i = (1 -- m).discretize(p);
 		let j = (1 -- n).discretize(q);
 		self.matrixInterpolation(
-			bilinearInterpolation:/6
+			bilinearInterpolation/6
 		).table(i, j)
 	}
 
@@ -455,7 +455,7 @@
 		let j = (1 -- n).discretize(q);
 		let k = (1 -- o).discretize(r);
 		self.volumeInterpolation(
-			trilinearInterpolation:/11
+			trilinearInterpolation/11
 		).table(i, j, k)
 	}
 
@@ -469,7 +469,7 @@
 
 	nevillesAlgorithm { :x :m |
 		let k = m.size;
-		let p = [m.collect(second:/1)];
+		let p = [m.collect(second/1)];
 		let i = 1;
 		{
 			(k - i) > 0
@@ -598,10 +598,10 @@
 
 	namedInterpolatorFunction { :self |
 		self.caseOf([
-			'Akima' -> { akimaInterpolator:/2 },
-			'CubicSpline' -> { cubicSplineInterpolator:/2 },
-			'Linear' -> { linearInterpolator:/2 },
-			'NearestNeighbour' -> { nearestNeighbourInterpolator:/2 }
+			'Akima' -> { akimaInterpolator/2 },
+			'CubicSpline' -> { cubicSplineInterpolator/2 },
+			'Linear' -> { linearInterpolator/2 },
+			'NearestNeighbour' -> { nearestNeighbourInterpolator/2 }
 		]) {
 			self.error('interpolatorFunction: unknown method')
 		}

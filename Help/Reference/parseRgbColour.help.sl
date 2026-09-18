@@ -37,7 +37,7 @@ A rainbow:
 	'rgb(0,155,254)'
 	'rgb(0,0,131)'
 	'rgb(48,0,155)'
-].collect(parseRgbColour:/1)
+].collect(parseRgbColour/1)
 .enclose.arrayPlot
 ~~~
 

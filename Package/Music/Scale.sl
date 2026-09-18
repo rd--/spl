@@ -39,7 +39,7 @@ Scale : [Object, Store] { | intervals description startIndex |
 	integerDegreeToKey { :self :scaleDegree :accidental |
 		let stepsPerOctave = self.tuningSize;
 		let tuningIndices = self.tuningIndices;
-		let baseKey = (stepsPerOctave * ((scaleDegree - 1).quotientBy(self.size, floor:/1))) + tuningIndices.atWrap(scaleDegree);
+		let baseKey = (stepsPerOctave * ((scaleDegree - 1).quotientBy(self.size, floor/1))) + tuningIndices.atWrap(scaleDegree);
 		(accidental = 0).if {
 			baseKey
 		} {

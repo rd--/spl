@@ -31,7 +31,7 @@ OEIS [A104326](https://oeis.org/A104326):
 
 ```
 >>> 0:33.collect(
->>> 	dualZeckendorfRepresentation:/1
+>>> 	dualZeckendorfRepresentation/1
 >>> )
 [
 	0;

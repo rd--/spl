@@ -21,7 +21,7 @@ Threads over lists, zero at each end-point:
 The area under the Bohman window:
 
 ```
->>> bohmanWindow:/1
+>>> bohmanWindow/1
 >>> .adaptiveSimpsonsMethod([-0.5 0.5])
 4 / 1.pi.square
 ```
@@ -30,7 +30,7 @@ The Bohman window:
 
 ~~~spl svg=A
 (-1 -- 1).functionPlot(
-	bohmanWindow:/1
+	bohmanWindow/1
 )
 ~~~
 
@@ -40,7 +40,7 @@ Discrete Bohman window of length 15:
 
 ~~~spl svg=B
 (-0.5 -- 0.5)
-.discretize(15, bohmanWindow:/1)
+.discretize(15, bohmanWindow/1)
 .discretePlot
 ~~~
 

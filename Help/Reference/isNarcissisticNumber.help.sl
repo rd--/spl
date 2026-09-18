@@ -9,7 +9,7 @@ In base ten:
 
 ```
 >>> 1:2000.select(
->>> 	isNarcissisticNumber:/1
+>>> 	isNarcissisticNumber/1
 >>> )
 [1 2 3 4 5 6 7 8 9 153 370 371 407 1634]
 ```

@@ -37,7 +37,7 @@ Plot over a subset of the reals:
 
 ~~~spl svg=A
 (0 -- 2.pi).functionPlot(
-	sec:/1.clip([-4 4])
+	sec/1.clip([-4 4])
 )
 ~~~
 

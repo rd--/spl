@@ -7,7 +7,7 @@ where it represents an empty parameter list:
 >>> List()
 []
 
->>> List:/0 . ()
+>>> List/0 . ()
 []
 ```
 

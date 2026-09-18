@@ -11,7 +11,7 @@ which count the number of complete strings of balanced parentheses of a given le
 
 ```
 >>> 0:6.triangularArray(
->>> 	lobbNumber:/2.swap
+>>> 	lobbNumber/2.swap
 >>> )
 [
 	1;
@@ -29,7 +29,7 @@ OEIS [A039599](https://oeis.org/A039599):
 
 ~~~spl svg=A oeis=A039599
 0:19.triangularArray(
-	lobbNumber:/2.swap
+	lobbNumber/2.swap
 ).catenate.scatterPlot.log
 ~~~
 

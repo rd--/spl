@@ -99,7 +99,7 @@ Cubes are sums of successive odd integers:
 
 ```
 >>> [1, 3 .. 41].splitPlaces([1 .. 6])
->>> .collect(sum:/1)
+>>> .collect(sum/1)
 [1 8 27 64 125 216]
 
 >>> [1 2 3 4 5 6].cube
@@ -142,7 +142,7 @@ OEIS [A000578](https://oeis.org/A000578):
 _x³_ plotted on a Cartesian plane:
 
 ~~~spl svg=C
-(-2 -- 2).functionPlot(cube:/1)
+(-2 -- 2).functionPlot(cube/1)
 ~~~
 
 ![](Help/Image/cube-C.svg)

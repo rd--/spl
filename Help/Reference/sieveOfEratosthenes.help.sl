@@ -82,7 +82,7 @@ OEIS [A083221](https://oeis.org/A083221):
 >>> 	let p = n.prime;
 >>> 	p * 1:kSquared.select { :i |
 >>> 		(i * p).gcd(
->>> 			1:m.product(prime:/1)
+>>> 			1:m.product(prime/1)
 >>> 		) = 1
 >>> 	}.take(k)
 >>> }

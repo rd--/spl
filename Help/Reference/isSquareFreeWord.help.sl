@@ -13,7 +13,7 @@ The list of all square free words over a binary alphabet:
 
 ```
 >>> [0; 1; 0 1; 1 0; 0 1 0; 1 0 1]
->>> .allSatisfy(isSquareFreeWord:/1)
+>>> .allSatisfy(isSquareFreeWord/1)
 true
 ```
 
@@ -24,7 +24,7 @@ The list of non-square free words over a binary alphabet:
 >>> 	0 0; 1 1;
 >>> 	0 0 0; 0 0 1; 0 1 1;
 >>> 	1 0 0; 1 1 0; 1 1 1
->>> ].noneSatisfy(isSquareFreeWord:/1)
+>>> ].noneSatisfy(isSquareFreeWord/1)
 true
 ```
 

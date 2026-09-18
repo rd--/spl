@@ -20,11 +20,11 @@ At a 3×3 matrix:
 >>> [8 1 6; 3 5 7; 4 9 2].deepMin
 1
 
->>> [8 1 6; 3 5 7; 4 9 2].deepReduce(min:/2)
+>>> [8 1 6; 3 5 7; 4 9 2].deepReduce(min/2)
 1
 
 >>> [8 1 6; 3 5 7; 4 9 2]
->>> .deepInjectInto(Infinity, min:/2)
+>>> .deepInjectInto(Infinity, min/2)
 1
 ```
 

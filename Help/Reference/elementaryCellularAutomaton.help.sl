@@ -172,7 +172,7 @@ let k = 100;
 30.elementaryCellularAutomaton(
 	[1].centerArray(k * 2, 0),
 	k - 1
-).collect(sum:/1).stepPlot
+).collect(sum/1).stepPlot
 ~~~
 
 ![](Help/Image/elementaryCellularAutomaton-I.svg)

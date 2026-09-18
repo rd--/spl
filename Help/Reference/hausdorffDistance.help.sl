@@ -1,6 +1,6 @@
 # hausdorffDistance
 
-- _hausdorffDistance(u, v, f:/2)_
+- _hausdorffDistance(u, v, f/2)_
 
 The Hausdorff distance,
 also called Pompeiu–Hausdorff distance,

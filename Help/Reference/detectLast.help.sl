@@ -1,6 +1,6 @@
 # detectLast
 
-- _detectLast([x₁ x₂ …], f:/1)_
+- _detectLast([x₁ x₂ …], f/1)_
 
 Starting at the end,
 evaluate the block _f_ with each of the elements of the sequence _x_ as the argument,
@@ -20,7 +20,7 @@ Find the last element matching a predicate:
 >>> }
 2
 
->>> [1 2 4 7 6 3].detectLast(isEven:/1)
+>>> [1 2 4 7 6 3].detectLast(isEven/1)
 6
 ```
 
@@ -38,7 +38,7 @@ true
 Detect the last prime number in a `Range`:
 
 ```
->>> 99:111.detectLast(isPrime:/1)
+>>> 99:111.detectLast(isPrime/1)
 109
 ```
 

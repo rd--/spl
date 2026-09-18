@@ -1,6 +1,6 @@
 # withIndexDo
 
-- _withIndexDo(c, f:/2)_
+- _withIndexDo(c, f/2)_
 
 Like `withDo` except that the iteration index for the collection _c_ supplies the second argument to the block _f_.
 

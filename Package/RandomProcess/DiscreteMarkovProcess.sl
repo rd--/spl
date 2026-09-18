@@ -2,7 +2,7 @@ DiscreteMarkovProcess : [Object] { | p0 m |
 
 	asStream { :self :r |
 		let p0 = AliasMethod(self.p0);
-		let m = self.m.collect(AliasMethod:/1);
+		let m = self.m.collect(AliasMethod/1);
 		let x = p0.nextRandom(r);
 		BlockStream {
 			let h = x;
@@ -39,7 +39,7 @@ DiscreteMarkovProcess : [Object] { | p0 m |
 					m[i][j] := m[i][j] + 1
 				}
 			};
-			m / m.collect(sum:/1)
+			m / m.collect(sum/1)
 		} {
 			self.error('stochasticMatrix: invalid observations')
 		}
@@ -53,7 +53,7 @@ DiscreteMarkovProcess : [Object] { | p0 m |
 		let v = self.valueList;
 		let m = v.stochasticMatrix;
 		let k = m.size;
-		let i = v.collect(first:/1);
+		let i = v.collect(first/1);
 		let p0 = i.stochasticVector(k);
 		DiscreteMarkovProcess(p0, m)
 	}

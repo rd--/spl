@@ -7,7 +7,7 @@ including the case of IEEE-754 negative-zero and negative infinity,
 else `false`.
 
 ```
->>> [-Infinity -1 -0 0 1 Infinity].collect(signBit:/1)
+>>> [-Infinity -1 -0 0 1 Infinity].collect(signBit/1)
 [true true true false false false]
 ```
 

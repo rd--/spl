@@ -26,7 +26,7 @@ IdentityMultiset : [Object, Store, Copyable, Equal, Iterable, Collection, Extens
 	}
 
 	species { :self |
-		IdentityMultiset:/0
+		IdentityMultiset/0
 	}
 
 }

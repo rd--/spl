@@ -27,7 +27,7 @@ dominant seventh _(1 5/4 3/2 16/9 or 36 45 54 64)_:
 >>> 	1 5/4 3/2 15/8; 8 10 12 15;
 >>> 	1 6/5 3/2 15/8; 40 48 60 75;
 >>> 	1 5/4 3/2 16/9; 36 45 54 64
->>> ].collect(kurenniemiMajorMinorIndex:/1)
+>>> ].collect(kurenniemiMajorMinorIndex/1)
 [
 	-0.22047
 	-0.23681

@@ -8,7 +8,7 @@ Specific values:
 
 ```
 >>> [0, 0.25 .. 1].collect(
->>> 	muLawEncode:/1
+>>> 	muLawEncode/1
 >>> )
 [0 0.7521 0.8757 0.9484 1]
 ```
@@ -27,7 +27,7 @@ encoding followed by decoding:
 The continuous μ-law encoder:
 
 ~~~spl svg=A
-(-1 -- 1).functionPlot(muLawEncode:/1)
+(-1 -- 1).functionPlot(muLawEncode/1)
 ~~~
 
 ![](Help/Image/muLawEncode-A.svg)

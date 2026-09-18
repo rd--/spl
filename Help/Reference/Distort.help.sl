@@ -16,7 +16,7 @@ Implements _x/(1+|x|)_.
 Plot over _(-1,1)_:
 
 ~~~spl svg=A
-(-1 -- 1).functionPlot(Distort:/1)
+(-1 -- 1).functionPlot(Distort/1)
 ~~~
 
 ![](Help/Image/Distort-A.svg)

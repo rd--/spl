@@ -61,7 +61,7 @@ OEIS [A014781](https://oeis.org/A014781):
 
 ```
 >>> 22.seidelTriangle
->>> .collect(last:/1)
+>>> .collect(last/1)
 >>> .atAll(2:22:2)
 [
 	1 1 3 17 155 2073 38227 929569

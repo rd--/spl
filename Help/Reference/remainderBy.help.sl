@@ -1,14 +1,14 @@
 # remainderBy
 
-- _remainderBy(m, n, f:/1)_
+- _remainderBy(m, n, f/1)_
 
 Integer remainder defined by division with rounding defered to the unary block _f_.
 
 ```
->>> -8.remainderBy(7, truncate:/1)
+>>> -8.remainderBy(7, truncate/1)
 -1
 
->>> -8.remainderBy(7, floor:/1)
+>>> -8.remainderBy(7, floor/1)
 6
 ```
 

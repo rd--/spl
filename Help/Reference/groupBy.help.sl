@@ -1,27 +1,27 @@
 # groupBy
 
-- _groupBy(c, f:/1)_
+- _groupBy(c, f/1)_
 
 Like in Sql answer the contents of the collection _c_ split into groups for which the key block _f_ returns the same results.
 The answer is a `Map` keyed by the answers of _f_.
 
 ```
->>> [1 .. 5].groupBy(isEven:/1)
+>>> [1 .. 5].groupBy(isEven/1)
 Map[
 	false -> [1 3 5],
 	true -> [2 4]
 ]
 
->>> [1 .. 5].groupBy(isEven:/1).keys
+>>> [1 .. 5].groupBy(isEven/1).keys
 [false true]
 
->>> [1 .. 5].groupBy(isEven:/1)[true]
+>>> [1 .. 5].groupBy(isEven/1)[true]
 [2 4]
 
 >>> [
 >>> 	'it' 'was' 'the' 'best' 'of' 'times'
 >>> 	'it' 'was' 'the' 'worst' 'of' 'times'
->>> ].groupBy(size:/1)
+>>> ].groupBy(size/1)
 Map[
 	2 -> ['it' 'of' 'it' 'of'],
 	3 -> ['was' 'the' 'was' 'the'],

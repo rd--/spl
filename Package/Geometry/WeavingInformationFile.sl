@@ -143,8 +143,8 @@ WeavingInformationFile : [Object] { | contents |
 	parseWeavingInformationFileIntegerList { :self |
 		self
 		.splitBy(',')
-		.reject(isEmpty:/1)
-		.collect(parseDecimalInteger:/1)
+		.reject(isEmpty/1)
+		.collect(parseDecimalInteger/1)
 	}
 
 }
@@ -164,8 +164,8 @@ WeavingInformationFile : [Object] { | contents |
 +Record {
 
 	weavingInformationFileRecordToMatrix { :self :rowCount :columnCount |
-		let p = self.keys.collect(parseDecimalInteger:/1);
-		let q = self.values.collect(parseWeavingInformationFileIntegerList:/1);
+		let p = self.keys.collect(parseDecimalInteger/1);
+		let q = self.values.collect(parseWeavingInformationFileIntegerList/1);
 		let matrix = [rowCount, columnCount].zeroMatrix;
 		1.toDo(p.size) { :i |
 			let r = p[i];

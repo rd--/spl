@@ -8,7 +8,7 @@ First few terms,
 OEIS [A073761](https://oeis.org/A073761):
 
 ```
->>> 1:600.select(isProperPrime:/1)
+>>> 1:600.select(isProperPrime/1)
 [61 131 181 461 491 541 571]
 ```
 

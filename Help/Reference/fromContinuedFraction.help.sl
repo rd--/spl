@@ -16,7 +16,7 @@ Reconstructs a number from the list of its continued fraction terms.
 
 >>> [2 1 3 4]
 >>> .prefixes
->>> .collect(fromContinuedFraction:/1)
+>>> .collect(fromContinuedFraction/1)
 [2 3 11/4 47/17]
 ```
 
@@ -208,7 +208,7 @@ OEIS [A071585](https://oeis.org/A071585):
 
 ~~~spl svg=B oeis=A071585
 OeisEntry('A071585').withData(
-	scatterPlot:/1
+	scatterPlot/1
 )
 ~~~
 
@@ -219,7 +219,7 @@ OEIS [A071766](https://oeis.org/A071766):
 
 ~~~spl svg=C oeis=A071766
 OeisEntry('A071766').withData(
-	scatterPlot:/1
+	scatterPlot/1
 )
 ~~~
 

@@ -67,7 +67,7 @@
 		self.matchesRegularExpression('[0-9][0-9]:[0-9][0-9]:[0-9][0-9](.[0-9]+)?Z?$')
 	}
 
-	parseTime { :self :elseClause:/0 |
+	parseTime { :self :elseClause/0 |
 		self.isTimeString.if {
 			let [h, m, s] = self.splitBy(':');
 			h := h.parseDecimalInteger;

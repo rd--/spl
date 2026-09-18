@@ -27,7 +27,7 @@ Edges incident to vertices one through five of an undirected graph:
 	[1 3; 3 5; 3 8],
 	[1 4; 2 4; 4 9],
 	[2 5; 3 5; 5 10]
-].collect(asEdgeList:/1)
+].collect(asEdgeList/1)
 ```
 
 Edges incident to vertex one of an undirected graph:

@@ -14,7 +14,7 @@ The first few Schröder numbers,
 OEIS [A006318](https://oeis.org/A006318):
 
 ```
->>> 2:8.collect(schroderNumber:/1)
+>>> 2:8.collect(schroderNumber/1)
 [2 6 22 90 394 1806 8558]
 ```
 
@@ -35,7 +35,7 @@ OEIS [A033877](https://oeis.org/A033877):
 >>> 		}
 >>> 	].which
 >>> };
->>> 1:7.triangularArray(t:/2)
+>>> 1:7.triangularArray(t/2)
 [
 	1;
 	1 2;

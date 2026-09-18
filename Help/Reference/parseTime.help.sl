@@ -1,7 +1,7 @@
 # parseTime
 
 - _parseTime(aString)_
-- _parseTime(aString, elseClause:/0)_
+- _parseTime(aString, elseClause/0)_
 
 Parse _aString_ as a `Time` value.
 A string parser that recognizes a subset of the ISO-8601 specification,

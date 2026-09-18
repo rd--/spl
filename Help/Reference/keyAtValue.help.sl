@@ -3,12 +3,14 @@
 - _keyAtValue(d, x)_
 
 Answer the key that is the external name for the value _x_ in the dictionary _d_.
+This is the reverse lookup method.
 
 At `Record`:
 
 ```
->>> (x: 1, y: 2, z: 3).keyAtValue(3)
-'z'
+>>> let d = (x: 1, y: 2, z: 3);
+>>> (d.keyAtValue(3), d.at('z'))
+('z', 3)
 ```
 
 At `Map`:

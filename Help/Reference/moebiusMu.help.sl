@@ -21,10 +21,10 @@ Compute the Möbius function at ten and eleven:
 Depends only of the prime signature of _n_:
 
 ```
->>> [24 375].collect(moebiusMu:/1)
+>>> [24 375].collect(moebiusMu/1)
 [0 0]
 
->>> [24 375].collect(primeSignature:/1)
+>>> [24 375].collect(primeSignature/1)
 [3 1; 3 1]
 ```
 
@@ -202,7 +202,7 @@ A sequence by I.Gutkovskiy,
 OEIS [A318583](https://oeis.org/A318583):
 
 ~~~spl svg=D oeis=A318583
-let a:/1 = { :n |
+let a/1 = { :n |
 	(n <= 2).if {
 		1
 	} {
@@ -213,7 +213,7 @@ let a:/1 = { :n |
 		}
 	}
 }.memoize(true);
-1:175.collect(a:/1).scatterPlot
+1:175.collect(a/1).scatterPlot
 ~~~
 
 ![](Help/Image/moebiusMu-D.svg)
@@ -240,7 +240,7 @@ OEIS [A046692](http://oeis.org/A046692):
 A unform length walk where turn angles are given by the Möbius function:
 
 ~~~spl svg=F
-let m = 1:500.collect(moebiusMu:/1);
+let m = 1:500.collect(moebiusMu/1);
 (m * 1/3.pi).anglePath.linePlot
 ~~~
 
@@ -251,7 +251,7 @@ OEIS [A225817](https://oeis.org/A225817):
 
 ~~~spl svg=G oeis=A225817
 1:23.collect { :n |
-	n.divisors.collect(moebiusMu:/1)
+	n.divisors.collect(moebiusMu/1)
 }.catenate.discretePlot
 ~~~
 

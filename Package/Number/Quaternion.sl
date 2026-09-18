@@ -11,7 +11,7 @@ Quaternion : [Object, Store, Equal, Number] { | contents |
 		anObject.isQuaternion.if {
 			self * anObject.reciprocal
 		} {
-			anObject.adaptToQuaternionAndApply(self, /)
+			anObject.adaptToQuaternionAndApply(self, divide/2)
 		}
 	}
 
@@ -19,7 +19,7 @@ Quaternion : [Object, Store, Equal, Number] { | contents |
 		anObject.isQuaternion.if {
 			Quaternion(self.contents + anObject.contents)
 		} {
-			anObject.adaptToQuaternionAndApply(self, +)
+			anObject.adaptToQuaternionAndApply(self, plus/2)
 		}
 	}
 
@@ -39,7 +39,7 @@ Quaternion : [Object, Store, Equal, Number] { | contents |
 		anObject.isQuaternion.if {
 			Quaternion(self.contents + anObject.contents)
 		} {
-			anObject.adaptToQuaternionAndApply(self, -)
+			anObject.adaptToQuaternionAndApply(self, subtract/2)
 		}
 	}
 
@@ -56,7 +56,7 @@ Quaternion : [Object, Store, Equal, Number] { | contents |
 				]
 			)
 		} {
-			anObject.adaptToQuaternionAndApply(self, *)
+			anObject.adaptToQuaternionAndApply(self, times/2)
 		}
 	}
 
@@ -68,11 +68,11 @@ Quaternion : [Object, Store, Equal, Number] { | contents |
 		self.contents.square.sum
 	}
 
-	adaptToFractionAndApply { :self :aFraction :aBlock:/2 |
+	adaptToFractionAndApply { :self :aFraction :aBlock/2 |
 		aFraction.asQuaternion.aBlock(self)
 	}
 
-	adaptToNumberAndApply { :self :aNumber :aBlock:/2 |
+	adaptToNumberAndApply { :self :aNumber :aBlock/2 |
 		aNumber.asQuaternion.aBlock(self)
 	}
 
@@ -92,12 +92,12 @@ Quaternion : [Object, Store, Equal, Number] { | contents |
 		]
 	}
 
-	equalBy { :self :anObject :aBlock:/2 |
+	equalBy { :self :anObject :aBlock/2 |
 		anObject.isNumber.if {
 			anObject.isQuaternion.if {
 				aBlock(self.contents, anObject.contents)
 			} {
-				anObject.adaptToQuaternionAndApply(self, aBlock:/2)
+				anObject.adaptToQuaternionAndApply(self, aBlock/2)
 			}
 		} {
 			false
@@ -115,7 +115,7 @@ Quaternion : [Object, Store, Equal, Number] { | contents |
 	}
 
 	isHamiltonianInteger { :self |
-		self.contents.allSatisfy(isInteger:/1)
+		self.contents.allSatisfy(isInteger/1)
 	}
 
 	isReal { :self |
@@ -182,7 +182,7 @@ Quaternion : [Object, Store, Equal, Number] { | contents |
 
 +@Number {
 
-	adaptToQuaternionAndApply { :self :aQuaternion :aBlock:/2 |
+	adaptToQuaternionAndApply { :self :aQuaternion :aBlock/2 |
 		aQuaternion.aBlock(self.asQuaternion)
 	}
 
@@ -199,7 +199,7 @@ Quaternion : [Object, Store, Equal, Number] { | contents |
 
 +@Collection {
 
-	adaptToQuaternionAndApply { :self :aQuaternion :aBlock:/2 |
+	adaptToQuaternionAndApply { :self :aQuaternion :aBlock/2 |
 		self.collect { :each |
 			aQuaternion.aBlock(each)
 		}

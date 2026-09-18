@@ -1,7 +1,7 @@
 # indices
 
 - _indices(c)_
-- _indices(c, f:/1)_
+- _indices(c, f/1)_
 
 Answer the valid indices for the collection _c_.
 The binary form only answers indices where the associated item satisfies the predicate block _f_.
@@ -17,7 +17,7 @@ At `List`:
 >>> [1 3 5 7 9].indices
 1:5
 
->>> [1 3 4 2 5].indices(isOdd:/1)
+>>> [1 3 4 2 5].indices(isOdd/1)
 [1 2 5]
 ```
 
@@ -27,7 +27,7 @@ At `Record`:
 >>> (x: 1, y: 2, z: 3).indices
 ['x' 'y' 'z']
 
->>> (x: 1, y: 2, z: 3).indices(isEven:/1)
+>>> (x: 1, y: 2, z: 3).indices(isEven/1)
 ['y']
 ```
 

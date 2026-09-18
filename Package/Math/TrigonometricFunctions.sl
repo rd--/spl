@@ -38,7 +38,7 @@
 			return Math.atan2(_self, _anObject);
 		}
 		>
-		anObject.adaptToNumberAndApply(self, atan2:/2)
+		anObject.adaptToNumberAndApply(self, atan2/2)
 	}
 
 	cos { :self |
@@ -225,71 +225,71 @@
 +@Collection {
 
 	arcCos { :self |
-		self.collect(arcCos:/1)
+		self.collect(arcCos/1)
 	}
 
 	arcCot { :self |
-		self.collect(arcCot:/1)
+		self.collect(arcCot/1)
 	}
 
 	arcCsc { :self |
-		self.collect(arcCsc:/1)
+		self.collect(arcCsc/1)
 	}
 
 	arcSec { :self |
-		self.collect(arcSec:/1)
+		self.collect(arcSec/1)
 	}
 
 	arcSin { :self |
-		self.collect(arcSin:/1)
+		self.collect(arcSin/1)
 	}
 
 	arcTan { :self |
-		self.collect(arcTan:/1)
+		self.collect(arcTan/1)
 	}
 
 	cos { :self |
-		self.collect(cos:/1)
+		self.collect(cos/1)
 	}
 
 	cosDegrees { :self |
-		self.collect(cosDegrees:/1)
+		self.collect(cosDegrees/1)
 	}
 
 	cot { :self |
-		self.collect(cot:/1)
+		self.collect(cot/1)
 	}
 
 	[csc, cosecant] { :self |
-		self.collect(csc:/1)
+		self.collect(csc/1)
 	}
 
 	haversine { :self |
-		self.collect(haversine:/1)
+		self.collect(haversine/1)
 	}
 
 	inverseHaversine { :self |
-		self.collect(inverseHaversine:/1)
+		self.collect(inverseHaversine/1)
 	}
 
 	[sec, secant] { :self |
-		self.collect(sec:/1)
+		self.collect(sec/1)
 	}
 
 	sin { :self |
-		self.collect(sin:/1)
+		self.collect(sin/1)
 	}
 
 	sinDegrees { :self |
-		self.collect(sinDegrees:/1)
+		self.collect(sinDegrees/1)
 	}
 
 	sincHistorical { :self |
-		self.collect(sincHistorical:/1)
+		self.collect(sincHistorical/1)
 	}
 
 	sincNormalized { :self |
-		self.collect(sincNormalized:/1)
+		self.collect(sincNormalized/1)
 	}
 
 }
@@ -297,7 +297,7 @@
 +@Sequence {
 
 	arcTan { :self :operand |
-		operand.adaptToCollectionAndApply(self, arcTan:/2)
+		operand.adaptToCollectionAndApply(self, arcTan/2)
 	}
 
 }
@@ -331,10 +331,10 @@
 	cosDerivative { :self |
 		(self % 4).caseOf(
 			[
-				0 -> { cos:/1 },
+				0 -> { cos/1 },
 				1 -> { { :x | 0 - x.sin } },
 				2 -> { { :x | 0 - x.cos } },
-				3 -> { sin:/1 }
+				3 -> { sin/1 }
 			]
 		)
 	}
@@ -342,8 +342,8 @@
 	sinDerivative { :self |
 		(self % 4).caseOf(
 			[
-				0 -> { sin:/1 },
-				1 -> { cos:/1 },
+				0 -> { sin/1 },
+				1 -> { cos/1 },
 				2 -> { { :x | 0 - x.sin } },
 				3 -> { { :x | 0 - x.cos } }
 			]

@@ -9,12 +9,12 @@
 					['input', 'output']
 				},
 				1 -> {
-					midiAccess.ports(path[1]).collect(manufacturer:/1).copyWithoutIdenticalElements
+					midiAccess.ports(path[1]).collect(manufacturer/1).copyWithoutIdenticalElements
 				},
 				2 -> {
 					midiAccess.ports(path[1]).select { :port |
 						port.manufacturer = path[2]
-					}.collect(name:/1)
+					}.collect(name/1)
 				},
 				3 -> {
 					midiAccess.portByName(path[1], path[2], path[3]).asString

@@ -44,9 +44,9 @@ SparseArray : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, S
 		)
 	}
 
-	collect { :self :aBlock:/1 |
+	collect { :self :aBlock/1 |
 		SparseArray(
-			self.contents.collect(aBlock:/1),
+			self.contents.collect(aBlock/1),
 			self.shape,
 			self.unspecifiedValue
 		)
@@ -64,8 +64,8 @@ SparseArray : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, S
 		self.shape
 	}
 
-	do { :self :aBlock:/1 |
-		self.contents.do(aBlock:/1)
+	do { :self :aBlock/1 |
+		self.contents.do(aBlock/1)
 	}
 
 	isMatrix { :self |
@@ -130,7 +130,7 @@ SparseArray : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, S
 		])
 	}
 
-	withCollect { :self :other :aBlock:/2 |
+	withCollect { :self :other :aBlock/2 |
 		(
 			self.rank != other.rank | {
 				self.unspecifiedValue != other.unspecifiedValue
@@ -150,7 +150,7 @@ SparseArray : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, S
 		}
 	}
 
-	withDeepIndexDo { :self :elementAndIndexBlock:/2 |
+	withDeepIndexDo { :self :elementAndIndexBlock/2 |
 		self.contents.keysAndValuesDo { :key :value |
 			elementAndIndexBlock(
 				self.shape.cartesianIndex(key),
@@ -193,7 +193,7 @@ SparseArray : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, S
 	}
 
 	SparseArray { :self |
-		let shape = self.collect(key:/1).max;
+		let shape = self.collect(key/1).max;
 		SparseArray(self, shape, 0)
 	}
 

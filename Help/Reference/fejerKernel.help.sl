@@ -9,7 +9,7 @@ Plot kernels for _n_ of two, four and six:
 ~~~spl svg=A
 (-1.pi -- 1.pi).functionPlot(
 	[2 4 6].collect(
-		fejerKernel:/1
+		fejerKernel/1
 	)
 )
 ~~~

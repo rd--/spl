@@ -90,7 +90,7 @@ UnivariatePolynomial : [Object, Store, Copyable, Equal] { | coefficientList |
 		self.coefficientList.discriminant
 	}
 
-	equalBy { :self :operand :aBlock:/2 |
+	equalBy { :self :operand :aBlock/2 |
 		operand.isUnivariatePolynomial & {
 			aBlock(self.coefficientList, operand.coefficientList)
 		}
@@ -127,7 +127,7 @@ UnivariatePolynomial : [Object, Store, Copyable, Equal] { | coefficientList |
 	}
 
 	isSymbolic { :self |
-		self.coefficientList.allSatisfy(isSymbol:/1)
+		self.coefficientList.allSatisfy(isSymbol/1)
 	}
 
 	isUnimodal { :self |
@@ -309,7 +309,7 @@ UnivariatePolynomial : [Object, Store, Copyable, Equal] { | coefficientList |
 				let m = c[i];
 				let j = n - i;
 				let t = (j = 0).if { 1 } { (j = 1).if { x } { x ^ (n - i) } };
-				let f:/2 = (m < 0).if { - } { + };
+				let f/2 = (m < 0).if { - } { + };
 				(m != 0).ifTrue {
 					answer := f(answer, (m == 1).if { t } { (t == 1).if { m.abs } { m.abs * t } })
 				}
@@ -518,7 +518,7 @@ UnivariatePolynomial : [Object, Store, Copyable, Equal] { | coefficientList |
 	polynomialQuotientRemainder { :self :operand |
 		UnivariatePolynomial(self).quotientRemainder(
 			UnivariatePolynomial(operand)
-		).collect(coefficientList:/1)
+		).collect(coefficientList/1)
 	}
 
 	polynomialRemainder { :self :operand |

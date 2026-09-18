@@ -140,7 +140,7 @@ OEIS [A135472](https://oeis.org/A135472):
 >>> let b = a.catenate;
 >>> let c = b ++ [b[1]];
 >>> let d = c.partition(2, 1);
->>> let e = d.collect(fromDigits:/1);
+>>> let e = d.collect(fromDigits/1);
 >>> e.sort
 [0 .. 99]
 ```
@@ -152,7 +152,7 @@ OEIS [A049456](https://oeis.org/A049456):
 >>> { :x |
 >>> 	x.riffle(
 >>> 		x.partition(2, 1)
->>> 		.collect(sum:/1)
+>>> 		.collect(sum/1)
 >>> 	)
 >>> }.nestList([1 1], 4)
 [
@@ -207,8 +207,8 @@ OEIS [A034962](https://oeis.org/A034962):
 ~~~spl svg=C oeis=A034962
 2:122.prime
 .partition(3, 1)
-.collect(sum:/1)
-.select(isPrime:/1)
+.collect(sum/1)
+.select(isPrime/1)
 .discretePlot
 ~~~
 

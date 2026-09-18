@@ -119,7 +119,7 @@ OEIS [A174344](https://oeis.org/A174344):
 >>> 		f(n - 1) + sin(b.pi / 2)
 >>> 	}
 >>> };
->>> 0:74.collect(f:/1)
+>>> 0:74.collect(f/1)
 [
 	 0  1  1  0 -1 -1 -1  0  1  2
 	 2  2  2  1  0 -1 -2 -2 -2 -2
@@ -145,7 +145,7 @@ Almost integer:
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(0 -- 2.pi).functionPlot(sin:/1)
+(0 -- 2.pi).functionPlot(sin/1)
 ~~~
 
 ![](Help/Image/sin-A.svg)
@@ -174,8 +174,8 @@ Plot `sin` alongside a Padé approximation:
 
 ~~~spl svg=D
 (-1.pi -- 1.pi).functionPlot([
-	sin:/1,
-	sinApproximation:/1
+	sin/1,
+	sinApproximation/1
 ])
 ~~~
 
@@ -185,7 +185,7 @@ Lissajous figure:
 
 ~~~spl svg=E
 (0 -- 2.pi).parametricPlot(
-	sin:/1,
+	sin/1,
 	{ :x | (x * 2).sin }
 )
 ~~~
@@ -219,7 +219,7 @@ Intensity of the Fraunhofer diffraction pattern of a circular aperture versus di
 Plot over a subset of the complexes:
 
 ~~~spl png=H
-[-4J-2 4J2].complexPlot(sin:/1)
+[-4J-2 4J2].complexPlot(sin/1)
 ~~~
 
 ![](Help/Image/sin-H.png)

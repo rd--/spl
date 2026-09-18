@@ -50,7 +50,7 @@ The right inversion counts of _S3_:
 ```
 >>> [1 2 3]
 >>> .lexicographicPermutations
->>> .collect(rightInversionCount:/1)
+>>> .collect(rightInversionCount/1)
 [0 0 0; 0 1 0; 1 0 0; 1 1 0; 2 0 0; 2 1 0]
 ```
 
@@ -59,7 +59,7 @@ The right inversion counts of _S4_:
 ```
 >>> [1 2 3 4]
 >>> .lexicographicPermutations
->>> .collect(rightInversionCount:/1)
+>>> .collect(rightInversionCount/1)
 [
 	0 0 0 0; 0 0 1 0; 0 1 0 0;
 	0 1 1 0; 0 2 0 0; 0 2 1 0;

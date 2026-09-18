@@ -66,7 +66,7 @@ riemannXi(1 - z)
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(-2 -- 5).functionPlot(riemannXi:/1)
+(-2 -- 5).functionPlot(riemannXi/1)
 ~~~
 
 ![](Help/Image/riemannXi-A.svg)

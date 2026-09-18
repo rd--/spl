@@ -73,6 +73,6 @@ LibraryItem(
 	url: 'https://rohandrape.net/sw/hsc3-data/data/chemistry/json/cls.json',
 	mimeType: 'application/json',
 	parser: { :libraryItem |
-		libraryItem.collect(asCrystalStructure:/1)
+		libraryItem.collect(asCrystalStructure/1)
 	}
 )

@@ -1,6 +1,6 @@
 # deepIndices
 
-- _deepIndices(c, f:/1=⍨⊤)_
+- _deepIndices(c, f/1=⍨⊤)_
 
 Answer a `List` of indices, each a `List`, of the paths to each leaf element in the collection _c_
 that satisfies the predicate the block _f_.
@@ -29,7 +29,7 @@ At `List`:
 >>> [1, [2, [3]]].deepIndices
 [1; 2 1; 2 2 1]
 
->>> [1, [2, [3]]].deepIndices(isEven:/1)
+>>> [1, [2, [3]]].deepIndices(isEven/1)
 [[2, 1]]
 ```
 
@@ -55,7 +55,7 @@ At `Record`:
 >>> 	x: 1,
 >>> 	y: (x: 2, y: 3),
 >>> 	z: (x: 4, y: 5, z: 6)
->>> ).deepIndices(isEven:/1)
+>>> ).deepIndices(isEven/1)
 ['y' 'x'; 'z' 'x'; 'z' 'z']
 ```
 
@@ -81,7 +81,7 @@ Find the positions at which zero occurs:
 
 ```
 >>> [1 1 0; 0 1 1; 1 0 1]
->>> .deepIndices(isZero:/1)
+>>> .deepIndices(isZero/1)
 [1 3; 2 1; 3 2]
 ```
 
@@ -89,7 +89,7 @@ Find positions with prime values:
 
 ```
 >>> (x: 3, y: (x: 4, y: (x: 5)))
->>> .deepIndices(isPrime:/1)
+>>> .deepIndices(isPrime/1)
 ['x'; 'y' 'y' 'x']
 ```
 

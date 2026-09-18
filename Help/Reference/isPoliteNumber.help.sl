@@ -7,7 +7,7 @@ Answer `true` if the integer _n_ is a polite number.
 The first few polite numbers:
 
 ```
->>> 0:77.select(isPoliteNumber:/1)
+>>> 0:77.select(isPoliteNumber/1)
 [
 	 3  5  6  7  9 10 11 12 13 14
 	15 17 18 19 20 21 22 23 24 25

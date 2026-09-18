@@ -10,7 +10,7 @@ The indigestibility of the first seven prime numbers:
 
 ```
 >>> [1 2 3 5 7 11 13].collect(
->>> 	barlowIndigestibility:/1
+>>> 	barlowIndigestibility/1
 >>> )
 [0 1 8/3 32/5 72/7 200/11 288/13]
 ```
@@ -18,7 +18,7 @@ The indigestibility of the first seven prime numbers:
 The indigestibility of the first sixteen integers:
 
 ```
->>> 1:16.collect(barlowIndigestibility:/1)
+>>> 1:16.collect(barlowIndigestibility/1)
 [
 	 0       1       2.6666 2
 	 6.4     3.6666 10.2857 3
@@ -30,7 +30,7 @@ The indigestibility of the first sixteen integers:
 Plot the indigestibility of the first one hundred integers:
 
 ~~~spl svg=A
-1:100.functionPlot(barlowIndigestibility:/1)
+1:100.functionPlot(barlowIndigestibility/1)
 ~~~
 
 ![](Help/Image/barlowIndigestibility-A.svg)

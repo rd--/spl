@@ -8,7 +8,7 @@ First few terms,
 OEIS [A005349](https://oeis.org/A005349):
 
 ```
->>> 1:205.select(isHarshadNumber:/1)
+>>> 1:205.select(isHarshadNumber/1)
 [
 	  1   2   3   4   5
 	  6   7   8   9  10

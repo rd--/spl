@@ -87,7 +87,7 @@ _z+1/z_ is a conformal map:
 The Cayley transform, _(z-i)/(z+i)_:
 
 ~~~spl svg=G
-cayleyTransform:/1
+cayleyTransform/1
 .conformalPlot(
 	[-0.75J-0.75 1J1],
 	[7 7],
@@ -100,7 +100,7 @@ cayleyTransform:/1
 The identity transform:
 
 ~~~spl svg=H
-identity:/1
+identity/1
 .conformalPlot(
 	[-0J-1 1J1],
 	[7 7],

@@ -3,7 +3,7 @@
 @Integer {
 
 	additivePersistence { :x :b |
-		x.digitalRootSet(b, sum:/1).second.size - 1
+		x.digitalRootSet(b, sum/1).second.size - 1
 	}
 
 	aliquotSum { :n |
@@ -210,7 +210,7 @@
 		(1 - d).fromDigits(2)
 	}
 
-	bjorklundsAlgorithmDo { :k :n :aBlock:/1 |
+	bjorklundsAlgorithmDo { :k :n :aBlock/1 |
 		let s = 1.toCollect(n) { :i |
 			(i <= k).if {
 				[1]
@@ -286,7 +286,7 @@
 	}
 
 	characterRange { :self :anInteger |
-		self.toCollect(anInteger, asCharacter:/1)
+		self.toCollect(anInteger, asCharacter/1)
 	}
 
 	combinations { :n :m |
@@ -318,7 +318,7 @@
 		(k * 2).jordanTotient(n) / k.jordanTotient(n)
 	}
 
-	digitalRootSet { :x :b :f:/1 |
+	digitalRootSet { :x :b :f/1 |
 		let seen = IdentitySet();
 		{
 			seen.includes(x)
@@ -330,7 +330,7 @@
 	}
 
 	digitalRoot { :x :b |
-		x.digitalRootSet(b, sum:/1).first
+		x.digitalRootSet(b, sum/1).first
 	}
 
 	digitCount { :n :b :d |
@@ -374,7 +374,7 @@
 
 	divideOutAll { :n :d |
 		let a = [n];
-		{ :break:/0 |
+		{ :break/0 |
 			let m = d.detectIfNone { :x |
 				n.divisible(x)
 			} {
@@ -386,8 +386,8 @@
 		a
 	}
 
-	divisorSum { :self :aBlock:/1 |
-		self.divisors.collect(aBlock:/1).sum
+	divisorSum { :self :aBlock/1 |
+		self.divisors.collect(aBlock/1).sum
 	}
 
 	divisorSummatoryFunction { :x |
@@ -466,7 +466,7 @@
 			m.isOdd.if {
 				[]
 			} {
-				let p = select(divisors(m) + 1, isPrime:/1);
+				let p = select(divisors(m) + 1, isPrime/1);
 				let nmax = m * (p / (p - 1)).product;
 				let n = m;
 				let nn = [];
@@ -529,7 +529,7 @@
 			};
 			a
 		} {
-			anInteger.adaptToNumberAndApply(self, gcd:/2)
+			anInteger.adaptToNumberAndApply(self, gcd/2)
 		}
 	}
 
@@ -563,14 +563,14 @@
 		self.digitCount(2, 1)
 	}
 
-	integerCompositionsDo { :n :kList :aBlock:/1 |
+	integerCompositionsDo { :n :kList :aBlock/1 |
 		kList.do { :k |
-			n.integerCompositionsExactlyDo(k, aBlock:/1)
+			n.integerCompositionsExactlyDo(k, aBlock/1)
 		}
 	}
 
-	integerCompositionsDo { :n :aBlock:/1 |
-		integerCompositionsDo(n, 1.to(n), aBlock:/1)
+	integerCompositionsDo { :n :aBlock/1 |
+		integerCompositionsDo(n, 1.to(n), aBlock/1)
 	}
 
 	integerCompositions { :n |
@@ -589,7 +589,7 @@
 		answer
 	}
 
-	integerCompositionsExactlyDo { :n :k :aBlock:/1 |
+	integerCompositionsExactlyDo { :n :k :aBlock/1 |
 		(n < k).ifFalse {
 			let a = List(k, 1);
 			a[k] := n - k + 1;
@@ -620,7 +620,7 @@
 		answer
 	}
 
-	integerCompositionsWeakExactlyDo { :n :k :aBlock:/1 |
+	integerCompositionsWeakExactlyDo { :n :k :aBlock/1 |
 		let a = List(k, 0);
 		a[k] := n;
 		aBlock(a);
@@ -671,7 +671,7 @@
 		integerConcatenation(m, n, 10)
 	}
 
-	integerDigitsReverseDo { :self :base :numDigits :aBlock:/1 |
+	integerDigitsReverseDo { :self :base :numDigits :aBlock/1 |
 		let num = self.abs;
 		numDigits.timesRepeat {
 			aBlock(num % base);
@@ -706,7 +706,7 @@
 					numDigits
 				)
 			} {
-				base.adaptToNumberAndApply(self, integerDigits:/2)
+				base.adaptToNumberAndApply(self, integerDigits/2)
 			}
 		}
 	}
@@ -984,14 +984,14 @@
 
 	isPrimitiveAbundantNumber { :n |
 		n.isAbundantNumber & {
-			n.divisors.allButLast.allSatisfy(isDeficientNumber:/1)
+			n.divisors.allButLast.allSatisfy(isDeficientNumber/1)
 		}
 	}
 
 	isPrimitivePythagoreanTriple { :a :b :c |
-		[a, b, c].allSatisfy(isInteger:/1) & {
+		[a, b, c].allSatisfy(isInteger/1) & {
 			a.isCoprime(b) & {
-				[a, b].collect(isOdd:/1).boole.sum = 1 & {
+				[a, b].collect(isOdd/1).boole.sum = 1 & {
 					(a.square + b.square) = c.square
 				}
 			}
@@ -1018,7 +1018,7 @@
 	}
 
 	isPythagoreanTriple { :a :b :c |
-		[a, b, c].allSatisfy(isInteger:/1) & {
+		[a, b, c].allSatisfy(isInteger/1) & {
 			(a.square + b.square) = c.square
 		}
 	}
@@ -1070,7 +1070,7 @@
 		self.isZero.if {
 			false
 		} {
-			self.abs.divisors.allButFirst.noneSatisfy(isPerfectSquare:/1)
+			self.abs.divisors.allButFirst.noneSatisfy(isPerfectSquare/1)
 		}
 	}
 
@@ -1199,7 +1199,7 @@
 				(ab / a).abs
 			}
 		} {
-			anInteger.adaptToNumberAndApply(self, lcm:/2)
+			anInteger.adaptToNumberAndApply(self, lcm/2)
 		}
 	}
 
@@ -1245,7 +1245,7 @@
 	}
 
 	multiplicativeDigitalRoot { :x :b |
-		x.digitalRootSet(b, product:/1).first
+		x.digitalRootSet(b, product/1).first
 	}
 
 	multiplicativeDigitalRoot { :x |
@@ -1277,7 +1277,7 @@
 	}
 
 	multiplicativePersistence { :x :b |
-		x.digitalRootSet(b, product:/1).second.size - 1
+		x.digitalRootSet(b, product/1).second.size - 1
 	}
 
 	multiplicativeSuborder { :a :n |
@@ -1584,7 +1584,7 @@
 			'twenty', 'thirty', 'forty', 'fifty',
 			'sixty', 'seventy', 'eighty', 'ninety'
 		];
-		valueWithReturn { :return:/1 |
+		valueWithReturn { :return/1 |
 			let answer = nil;
 			(self = 0).ifTrue {
 				''.return
@@ -1607,7 +1607,7 @@
 		}
 	}
 
-	timesRepeat { :self :aBlock:/0 |
+	timesRepeat { :self :aBlock/0 |
 		let remaining = self;
 		{
 			remaining > 0
@@ -1658,7 +1658,7 @@
 	}
 
 	totientSummatoryFunction { :n |
-		1.to(n).sum(eulerPhi:/1)
+		1.to(n).sum(eulerPhi/1)
 	}
 
 	truncate { :self |
@@ -1876,14 +1876,14 @@
 
 	akiyamaTanigawaFunction { :self |
 		self.cached('akiyamaTanigawaFunction') {
-			let a:/2 = { :n :m |
+			let a/2 = { :n :m |
 				(n = 0).if {
 					Fraction(1, m + 1)
 				} {
 					(m + 1) * (a(n - 1, m) - a(n - 1, m + 1))
 				}
 			}.memoize(true);
-			a:/2
+			a/2
 		}
 	}
 

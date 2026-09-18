@@ -1,7 +1,7 @@
 # merge
 
-- _merge(x₁, x₂, f:/2)_
-- _merge([d₁ d₂ …], f:/1=⊣)_
+- _merge(x₁, x₂, f/2)_
+- _merge([d₁ d₂ …], f/1=⊣)_
 
 At `TimeSeries`,
 merge two time series,
@@ -25,7 +25,7 @@ Merge two records, using `sum` to combine elements with the same key:
 
 ```
 >>> [(a: 1, b: 2), (a: 5, b: 10)]
->>> .merge(sum:/1)
+>>> .merge(sum/1)
 (a: 6, b: 12)
 ```
 
@@ -33,7 +33,7 @@ Combine values corresponding to identical keys into lists:
 
 ```
 >>> [(a: 1, b: 2), (b: 4, c: 5)]
->>> .merge(identity:/1)
+>>> .merge(identity/1)
 (a: [1], b: [2 4], c: [5])
 ```
 
@@ -59,7 +59,7 @@ Merge retaining answer from leftmost entry:
 
 ```
 >>> [(a: 1, b: 2), (b: 3, c: 4)]
->>> .merge(first:/1)
+>>> .merge(first/1)
 (a: 1, b: 2, c: 4)
 ```
 
@@ -67,7 +67,7 @@ Merge retaining answer from rightmost entry:
 
 ```
 >>> [(a: 1, b: 2), (b: 3, c: 4)]
->>> .merge(last:/1)
+>>> .merge(last/1)
 (a: 1, b: 3, c: 4)
 ```
 

@@ -63,7 +63,7 @@ OEIS [A046738](https://oeis.org/A046738):
 
 ```
 >>> 2:13.collect(
->>> 	tribonacciPisanoPeriod:/1
+>>> 	tribonacciPisanoPeriod/1
 >>> )
 [4 13 8 31 52 48 16 39 124 110 104 168]
 ```
@@ -73,7 +73,7 @@ OEIS [A046738](https://oeis.org/A046738):
 
 ~~~spl svg=A oeis=A046738
 2:52.collect(
-	tribonacciPisanoPeriod:/1
+	tribonacciPisanoPeriod/1
 ).discretePlot
 ~~~
 

@@ -1,6 +1,6 @@
 # recordValues
 
-- _recordValues([x₁ x₂ …], f:/2)_
+- _recordValues([x₁ x₂ …], f/2)_
 
 Answer the record values of the sequence _x_.
 A value is a record if it is greater than and preceding value according to _f_,

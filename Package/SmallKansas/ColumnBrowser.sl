@@ -2,7 +2,7 @@
 
 ColumnBrowser : [Object, View] { | smallKansas browserPane columnsPane previewPane textEditor numberOfColumns columnLists statusPane statusText title |
 
-	addKeyBindings { :self :aBlock:/1 |
+	addKeyBindings { :self :aBlock/1 |
 		self.textEditor.addKeyBindings(self.textEditor.aBlock)
 	}
 
@@ -40,7 +40,7 @@ ColumnBrowser : [Object, View] { | smallKansas browserPane columnsPane previewPa
 				)
 			)
 		};
-		self.columnsPane.appendChildren(self.columnLists.collect(listChooserPane:/1));
+		self.columnsPane.appendChildren(self.columnLists.collect(listChooserPane/1));
 		self.previewPane.appendChild(self.textEditor.outerElement);
 		self.browserPane.appendChildren(
 			[
@@ -64,17 +64,17 @@ ColumnBrowser : [Object, View] { | smallKansas browserPane columnsPane previewPa
 		}
 	}
 
-	initialize { :self :smallKansas :title :mimeType :withFilter :withStatus :columnProportions :clientKeyBindings :onAccept:/1 :onChange:/2 |
+	initialize { :self :smallKansas :title :mimeType :withFilter :withStatus :columnProportions :clientKeyBindings :onAccept/1 :onChange/2 |
 		self.smallKansas := smallKansas;
 		self.title := title;
 		self.numberOfColumns := columnProportions.size;
 		self.createElements(mimeType, withFilter, withStatus, columnProportions, 6);
 		self.setColumnEntries(1, self.onChange([]));
-		self.setEventHandlers(onChange:/2);
+		self.setEventHandlers(onChange/2);
 		clientKeyBindings.isBlock.ifTrue {
 			self.addKeyBindings(clientKeyBindings)
 		};
-		onAccept:/1.isBlock.ifTrue {
+		onAccept/1.isBlock.ifTrue {
 			self.textEditor.addEventListener('accept') { :event |
 				event.detail.onAccept
 			}
@@ -92,7 +92,7 @@ ColumnBrowser : [Object, View] { | smallKansas browserPane columnsPane previewPa
 		}
 	}
 
-	columnEdited { :self :index :onChange:/2 |
+	columnEdited { :self :index :onChange/2 |
 		let next = self.onChange(self.pathUpTo(index));
 		(index = self.numberOfColumns).if {
 			next.then { :view |
@@ -117,10 +117,10 @@ ColumnBrowser : [Object, View] { | smallKansas browserPane columnsPane previewPa
 		select.dispatchEvent(Event('change'))
 	}
 
-	setEventHandlers { :self :onChange:/2 |
+	setEventHandlers { :self :onChange/2 |
 		1.toDo(self.numberOfColumns) { :index |
 			self.columnLists[index].select.addEventListener('change') { :event |
-				self.columnEdited(index, onChange:/2)
+				self.columnEdited(index, onChange/2)
 			}
 		}
 	}
@@ -142,7 +142,7 @@ ColumnBrowser : [Object, View] { | smallKansas browserPane columnsPane previewPa
 
 +SmallKansas {
 
-	ColumnBrowser { :self :title :mimeType :withFilter :withStatus :columnProportions :clientKeyBindings :onAccept:/1 :onChange:/2 |
+	ColumnBrowser { :self :title :mimeType :withFilter :withStatus :columnProportions :clientKeyBindings :onAccept/1 :onChange/2 |
 		newColumnBrowser().initialize(
 			self,
 			title,
@@ -151,8 +151,8 @@ ColumnBrowser : [Object, View] { | smallKansas browserPane columnsPane previewPa
 			withStatus,
 			columnProportions,
 			clientKeyBindings,
-			onAccept:/1,
-			onChange:/2
+			onAccept/1,
+			onChange/2
 		)
 	}
 

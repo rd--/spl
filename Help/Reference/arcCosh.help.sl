@@ -53,7 +53,7 @@ Zero of `arcCosh`:
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(1 -- 10).functionPlot(arcCosh:/1)
+(1 -- 10).functionPlot(arcCosh/1)
 ~~~
 
 ![](Help/Image/arcCosh-A.svg)
@@ -61,7 +61,7 @@ Plot over a subset of the reals:
 Plot of complex `arcCosh` function:
 
 ~~~spl png=B
-[-2J-2 2J2].complexPlot(arcCosh:/1)
+[-2J-2 2J2].complexPlot(arcCosh/1)
 ~~~
 
 ![](Help/Image/arcCosh-B.png)
@@ -69,7 +69,7 @@ Plot of complex `arcCosh` function:
 Polar plot:
 
 ~~~spl svg=C
-(1 -- 8.pi).polarPlot(arcCosh:/1)
+(1 -- 8.pi).polarPlot(arcCosh/1)
 ~~~
 
 ![](Help/Image/arcCosh-C.svg)

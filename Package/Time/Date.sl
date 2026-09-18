@@ -57,7 +57,7 @@ Date! : [Object, Store, Equal, Compare] {
 		(t1 - t2) / (24 * 60 * 60) + 1
 	}
 
-	equalBy { :self :anObject :aBlock:/2 |
+	equalBy { :self :anObject :aBlock/2 |
 		anObject.isDate & {
 			aBlock(self.absoluteTime, anObject.absoluteTime)
 		}
@@ -123,7 +123,7 @@ Date! : [Object, Store, Equal, Compare] {
 		self.matchesRegularExpression('^[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]$')
 	}
 
-	parseDate { :self :elseClause:/0 |
+	parseDate { :self :elseClause/0 |
 		(self.size = 10 & { self.isDateString }).if {
 			self.uncheckedParseDate
 		} {

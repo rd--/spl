@@ -9,7 +9,7 @@ Plot the butterfly curve, _θ=(0,12π)_:
 ~~~spl svg=A
 (0 -- 12.pi).functionPlot(
 	500,
-	butterflyCurve:/1
+	butterflyCurve/1
 )
 ~~~
 

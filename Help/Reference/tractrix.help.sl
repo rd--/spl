@@ -7,7 +7,7 @@ Answer the tractrix curve.
 The tractrix curve:
 
 ~~~spl svg=A
-(-4 -- 4).functionPlot(tractrix:/1)
+(-4 -- 4).functionPlot(tractrix/1)
 ~~~
 
 ![](Help/Image/tractrix-A.svg)

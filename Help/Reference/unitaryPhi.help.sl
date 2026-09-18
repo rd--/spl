@@ -8,7 +8,7 @@ The unitary totient function,
 OEIS [A047994](https://oeis.org/A047994):
 
 ```
->>> 1:71.collect(unitaryPhi:/1)
+>>> 1:71.collect(unitaryPhi/1)
 [
 	 1  1  2  3  4  2  6  7  8  4
 	10  6 12  6  8 15 16  8 18 12
@@ -25,7 +25,7 @@ The unitary totient function,
 OEIS [A047994](https://oeis.org/A047994):
 
 ~~~spl svg=A oeis=A047994
-1:99.collect(unitaryPhi:/1)
+1:99.collect(unitaryPhi/1)
 .scatterPlot
 ~~~
 

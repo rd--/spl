@@ -67,7 +67,7 @@ OEIS [A066272](https://oeis.org/A066272):
 
 ~~~spl svg=B oeis=A066272
 3:50.antiDivisors
-.collect(size:/1)
+.collect(size/1)
 .scatterPlot
 ~~~
 
@@ -78,7 +78,7 @@ OEIS [A058838](https://oeis.org/A058838):
 
 ~~~spl svg=C oeis=A058838
 let a = 1:50.antiDivisors;
-(a.collect(sum:/1) + 1).stepPlot
+(a.collect(sum/1) + 1).stepPlot
 ~~~
 
 ![](Help/Image/antiDivisors-C.svg)
@@ -88,7 +88,7 @@ OEIS [A066518](https://oeis.org/A066518):
 
 ~~~spl svg=D oeis=A066518
 1:100
-.collect(antiDivisorsClassSum:/1)
+.collect(antiDivisorsClassSum/1)
 .discretePlot
 ~~~
 
@@ -99,7 +99,7 @@ OEIS [A066519](https://oeis.org/A066519):
 
 ~~~spl svg=E oeis=A066519
 1:175
-.collect(antiDivisorsClassSum:/1)
+.collect(antiDivisorsClassSum/1)
 .indicesOf(0)
 .differences
 .stepPlot

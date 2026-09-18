@@ -1,6 +1,6 @@
 # subsets
 
-- _subsets(c, f:/1)_
+- _subsets(c, f/1)_
 
 Answer the elements of the power set of the collection _c_ that satisfy the predicate block _f_.
 
@@ -70,7 +70,7 @@ Find integers that have exactly 3 nonzero binary digits:
 ```
 >>> [1 2 4 8 16].subsets { :each |
 >>> 	each.size = 3
->>> }.collect(sum:/1)
+>>> }.collect(sum/1)
 [7 11 13 14 19 21 22 25 26 28]
 ```
 

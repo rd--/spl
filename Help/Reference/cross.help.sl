@@ -114,7 +114,7 @@ The cross product of two _n×3_ matrices:
 >>> 	17 19 19;
 >>> 	10 17 5
 >>> ];
->>> cross:/2.map(a, b)
+>>> cross/2.map(a, b)
 [
 	 300 -291  87;
 	 122 -198 136;
@@ -123,7 +123,7 @@ The cross product of two _n×3_ matrices:
 	-181  55  175
 ]
 
->>> cross:/2.map(
+>>> cross/2.map(
 >>> 	[1 2 3; 4 5 6],
 >>> 	[4 5 6; 1 2 3]
 >>> )

@@ -1,6 +1,6 @@
 # helpProgramsDo
 
-- _helpPrograms(system, f:/1)_
+- _helpPrograms(system, f/1)_
 
 Iterate over all of the `HelpProgram` values in the system.
 

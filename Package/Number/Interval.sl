@@ -4,7 +4,7 @@ Interval : [Object, Store, Equal, Number] { | min max |
 		operand.isInterval.if {
 			self.max < operand.min
 		} {
-			operand.adaptToIntervalAndApply(self, <)
+			operand.adaptToIntervalAndApply(self, less/2)
 		}
 	}
 
@@ -63,7 +63,7 @@ Interval : [Object, Store, Equal, Number] { | min max |
 		}
 	}
 
-	adaptToNumberAndApply { :self :aNumber :aBlock:/2 |
+	adaptToNumberAndApply { :self :aNumber :aBlock/2 |
 		aBlock(aNumber.asInterval, self)
 	}
 
@@ -91,8 +91,8 @@ Interval : [Object, Store, Equal, Number] { | min max |
 		(self.min + self.max) / 2
 	}
 
-	discretize { :self :size :aBlock:/1 |
-		self.discretize(size).collect(aBlock:/1)
+	discretize { :self :size :aBlock/1 |
+		self.discretize(size).collect(aBlock/1)
 	}
 
 	discretize { :self :size |
@@ -106,7 +106,7 @@ Interval : [Object, Store, Equal, Number] { | min max |
 		self.minMax
 	}
 
-	equalBy { :self :operand :aBlock:/2 |
+	equalBy { :self :operand :aBlock/2 |
 		operand.isInterval & {
 			aBlock(self.min, operand.min) & {
 				aBlock(self.max, operand.max)
@@ -154,7 +154,7 @@ Interval : [Object, Store, Equal, Number] { | min max |
 				)
 			}
 		} {
-			operand.adaptToIntervalAndApply(self, intersection:/2)
+			operand.adaptToIntervalAndApply(self, intersection/2)
 		}
 	}
 
@@ -236,7 +236,7 @@ Interval : [Object, Store, Equal, Number] { | min max |
 				)
 			}
 		} {
-			operand.adaptToIntervalAndApply(self, union:/2)
+			operand.adaptToIntervalAndApply(self, union/2)
 		}
 	}
 
@@ -260,7 +260,7 @@ Interval : [Object, Store, Equal, Number] { | min max |
 		Interval(min, max)
 	}
 
-	adaptToIntervalAndApply { :self :anInterval :aBlock:/2 |
+	adaptToIntervalAndApply { :self :anInterval :aBlock/2 |
 		aBlock(anInterval, self.asInterval)
 	}
 
@@ -285,7 +285,7 @@ Interval : [Object, Store, Equal, Number] { | min max |
 +List {
 
 	Interval { :self :operand |
-		self.withCollect(operand, Interval:/2)
+		self.withCollect(operand, Interval/2)
 	}
 
 }

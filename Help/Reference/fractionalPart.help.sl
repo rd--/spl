@@ -100,7 +100,7 @@ Plot over a subset of the reals,
 fraction part is a sawtooth function:
 
 ~~~spl svg=A
-(-2 -- 2).functionPlot(fractionalPart:/1)
+(-2 -- 2).functionPlot(fractionalPart/1)
 ~~~
 
 ![](Help/Image/fractionalPart-A.svg)

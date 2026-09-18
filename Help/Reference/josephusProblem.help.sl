@@ -130,7 +130,7 @@ OEIS [A321298](https://oeis.org/A321298)
 >>> 		}
 >>> 	}
 >>> };
->>> 1:13.triangularArray(f:/2)
+>>> 1:13.triangularArray(f/2)
 [
 	1;
 	2 1;

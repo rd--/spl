@@ -9,7 +9,7 @@ OEIS [A004149](https://oeis.org/A004149):
 
 ```
 >>> 0:37.collect(
->>> 	generalisedCatalanNumber:/1
+>>> 	generalisedCatalanNumber/1
 >>> )
 [
 	1

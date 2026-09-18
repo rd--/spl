@@ -40,7 +40,7 @@ Disk : [Object, Equal, Geometry] { | center radius |
 
 	Disk { :center :radius |
 		(center.rank > 1).if {
-			center.withCollect(radius.nest, Disk:/2)
+			center.withCollect(radius.nest, Disk/2)
 		} {
 			newDisk().initializeSlots(center, radius)
 		}

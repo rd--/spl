@@ -70,7 +70,7 @@ where _b=10_,
 OEIS [A007953](http://oeis.org/A007953):
 
 ~~~spl svg=A oeis=A007953
-1:100.collect(digitSum:/1).discretePlot
+1:100.collect(digitSum/1).discretePlot
 ~~~
 
 ![](Help/Image/digitSum-A.svg)

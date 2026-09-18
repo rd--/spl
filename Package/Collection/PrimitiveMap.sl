@@ -5,14 +5,14 @@
 	}
 
 	asRecord { :self |
-		self.keys.allSatisfy(isString:/1).if {
+		self.keys.allSatisfy(isString/1).if {
 			self.uncheckedAsRecord
 		} {
 			self.error('@PrimitiveMap>>asRecord: not all keys are strings')
 		}
 	}
 
-	atIfAbsent { :self :key :ifAbsent:/0 |
+	atIfAbsent { :self :key :ifAbsent/0 |
 		<primitive:
 		if(_self.has(_key)) {
 			return _self.get(_key);
@@ -25,7 +25,7 @@
 		<primitive: return _self.has(_key);>
 	}
 
-	removeKeyIfAbsent { :self :key :aBlock:/0 |
+	removeKeyIfAbsent { :self :key :aBlock/0 |
 		<primitive:
 		if(_self.has(_key)) {
 			const removed = _self.get(_key);

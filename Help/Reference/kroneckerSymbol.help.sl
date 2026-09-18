@@ -9,7 +9,7 @@ also known as the Jacobi symbol or Legendre symbol.
 >>> kroneckerSymbol(17, 6)
 -1
 
->>> kroneckerSymbol:/2.table(1:5, 1:5)
+>>> kroneckerSymbol/2.table(1:5, 1:5)
 [
 	1  1  1  1  1;
 	1  0 -1  0 -1;
@@ -18,7 +18,7 @@ also known as the Jacobi symbol or Legendre symbol.
 	1 -1 -1  1  0
 ]
 
->>> kroneckerSymbol:/2
+>>> kroneckerSymbol/2
 >>> .table(1:10, 1:4)
 >>> .transpose
 [
@@ -36,7 +36,7 @@ also known as the Jacobi symbol or Legendre symbol.
 >>> }
 [0 0 1 1 1]
 
->>> kroneckerSymbol:/2.table(1:10, 1:10)
+>>> kroneckerSymbol/2.table(1:10, 1:10)
 [
 	1  1  1  1  1  1  1  1  1  1;
 	1  0 -1  0 -1  0  1  0  1  0;
@@ -177,7 +177,7 @@ OEIS [A188510](https://oeis.org/A188510):
 Kronecker symbol table:
 
 ~~~spl svg=A
-kroneckerSymbol:/2
+kroneckerSymbol/2
 .table(-7:7, -7:7)
 .arrayPlot
 ~~~

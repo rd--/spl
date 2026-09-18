@@ -23,7 +23,7 @@ system.typeDictionary.size - 1
 >>> .traitDictionary['Object']
 >>> .methodDictionary
 >>> .keys
->>> .includes('respondsTo:/2')
+>>> .includes('respondsTo/2')
 true
 ```
 

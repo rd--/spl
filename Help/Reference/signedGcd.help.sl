@@ -35,7 +35,7 @@ Threads over lists:
 Inner square:
 
 ```
->>> signedGcd:/2
+>>> signedGcd/2
 >>> .table(-3:3, -3:3)
 [
 	-3 -1 -1 3 1 1 3;
@@ -53,7 +53,7 @@ indicates magnitude only,
 equal to plot of `gcd`:
 
 ~~~spl svg=A
-signedGcd:/2
+signedGcd/2
 .table(-6:6, -6:6)
 .matrixPlot
 ~~~

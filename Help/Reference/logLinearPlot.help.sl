@@ -10,7 +10,7 @@ the _y_-axis has a linear scale.
 Plot the hyperbolic tangent function:
 
 ~~~spl svg=A
-(1 -- 100).logLinearPlot(tanh:/1)
+(1 -- 100).logLinearPlot(tanh/1)
 ~~~
 
 ![](Help/Image/logLinearPlot-A.svg)
@@ -18,7 +18,7 @@ Plot the hyperbolic tangent function:
 Plot the cosine function:
 
 ~~~spl svg=B
-(0.1 -- 10).logLinearPlot(cos:/1)
+(0.1 -- 10).logLinearPlot(cos/1)
 ~~~
 
 ![](Help/Image/logLinearPlot-B.svg)
@@ -26,7 +26,7 @@ Plot the cosine function:
 Plot the error function:
 
 ~~~spl svg=C
-(0.01 -- 10).logLinearPlot(erf:/1)
+(0.01 -- 10).logLinearPlot(erf/1)
 ~~~
 
 ![](Help/Image/logLinearPlot-C.svg)
@@ -35,7 +35,7 @@ Plot the logarithmic function,
 which is a straight line in a log-linear plot:
 
 ~~~spl svg=D
-(0.1 -- 10).logLinearPlot(log:/1)
+(0.1 -- 10).logLinearPlot(log/1)
 ~~~
 
 ![](Help/Image/logLinearPlot-D.svg)
@@ -57,7 +57,7 @@ Plot the A-weighting curve:
 
 ~~~spl svg=F
 (10 -- 1E5).logLinearPlot(
-	aWeightingCurve:/1
+	aWeightingCurve/1
 )
 ~~~
 

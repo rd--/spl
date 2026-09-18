@@ -25,7 +25,7 @@ Count derangements:
 
 ```
 >>> [1 .. 5].permutations
->>> .count(isDerangement:/1)
+>>> .count(isDerangement/1)
 44
 
 >>> 5.subfactorial

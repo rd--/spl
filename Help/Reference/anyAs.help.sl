@@ -1,6 +1,6 @@
 # anyAs
 
-- _any(aCollection, anInteger, aBlock:/1)_
+- _any(aCollection, anInteger, aBlock/1)_
 
 Answer _anInteger_ elements from _aCollection_ as a new collection constructed using _aBlock_.
 It is an error if there are not enough elements.
@@ -20,7 +20,7 @@ IdentitySet[1 .. 3]
 At `Record`:
 
 ```
->>> (x: 1, y: 2, z: 3).anyAs(2, List:/1)
+>>> (x: 1, y: 2, z: 3).anyAs(2, List/1)
 [1 2]
 ```
 

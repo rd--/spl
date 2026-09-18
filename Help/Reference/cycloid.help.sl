@@ -19,7 +19,7 @@ plot varying _r_:
 
 ~~~spl svg=B
 (0 -- 2.pi).functionPlot(
-	(1 / [1 .. 5]).collect(cycloid:/1)
+	(1 / [1 .. 5]).collect(cycloid/1)
 )
 ~~~
 

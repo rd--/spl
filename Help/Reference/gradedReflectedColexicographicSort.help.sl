@@ -32,7 +32,7 @@ OEIS [A036038](https://oeis.org/A036038):
 >>> 1:6.collect { :n |
 >>> 	n.integerPartitions
 >>> 	.gradedReflectedColexicographicSort
->>> 	.collect(multinomial:/1)
+>>> 	.collect(multinomial/1)
 >>> }
 [
 	1;
@@ -51,7 +51,7 @@ OEIS [A036038](https://oeis.org/A036038):
 1:9.collect { :n |
 	n.integerPartitions
 	.gradedReflectedColexicographicSort
-	.collect(multinomial:/1)
+	.collect(multinomial/1)
 }.catenate.scatterPlot.log
 ~~~
 

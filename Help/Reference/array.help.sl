@@ -1,6 +1,6 @@
 # array
 
-- _array(f:/n, ⍴)_
+- _array(f/n, ⍴)_
 
 Answer an array with the specified shape _⍴_ where each place is defined by the block _f_,
 which must take as many arguments as the `rank` of the array constructed,
@@ -151,7 +151,7 @@ A 2×3×4 array:
 Array of `gcd`:
 
 ~~~spl svg=A
-gcd:/2.array([20 20]).matrixPlot
+gcd/2.array([20 20]).matrixPlot
 ~~~
 
 ![](Help/Image/array-A.svg)

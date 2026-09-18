@@ -1,6 +1,6 @@
 # notAnd
 
-- _notAnd(b, f:/0)_
+- _notAnd(b, f/0)_
 
 Not and,
 often abbreviated _nand_,

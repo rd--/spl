@@ -1,6 +1,6 @@
 # cartesianProductDo
 
-- _cartesianProductDo(c₁, c₂, f:/2)_
+- _cartesianProductDo(c₁, c₂, f/2)_
 
 Apply the block _f_ to each two-tuple in the cartesian product of the collections c₁ and c₂.
 

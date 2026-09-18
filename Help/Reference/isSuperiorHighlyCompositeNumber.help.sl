@@ -7,7 +7,7 @@ Determine if the integer _n_ is a superior highly composite number.
 First few terms:
 
 ```
->>> 1:5040.select(isSuperiorHighlyCompositeNumber:/1)
+>>> 1:5040.select(isSuperiorHighlyCompositeNumber/1)
 [2 6 12 60 120 360 2520 5040]
 ```
 

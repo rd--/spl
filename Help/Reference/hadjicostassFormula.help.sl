@@ -15,7 +15,7 @@ Plot over a subset of the reals:
 
 ~~~spl svg=A
 (-0.99990 -- 1).functionPlot(
-	hadjicostassFormula:/1
+	hadjicostassFormula/1
 )
 ~~~
 

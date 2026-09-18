@@ -98,7 +98,7 @@ OEIS [A207324](https://oeis.org/A207324):
 
 ~~~spl svg=B oeis=A207324
 1:4.collect(
-	steinhausJohnsonTrotter:/1
+	steinhausJohnsonTrotter/1
 ).catenate.catenate.stepPlot
 ~~~
 

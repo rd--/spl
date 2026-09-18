@@ -98,7 +98,7 @@ Method! : [Object] {
 	qualifiedName { :self |
 		[
 			self.name,
-			':/',
+			'/',
 			self.arity
 		].stringJoin
 	}
@@ -128,7 +128,7 @@ Method! : [Object] {
 	}
 
 	parseQualifiedMethodName { :self |
-		let parts = self.splitBy(':/');
+		let parts = self.splitBy('/');
 		(parts.size = 2).if {
 			[parts[1], parts[2].parseSmallInteger(10)]
 		} {

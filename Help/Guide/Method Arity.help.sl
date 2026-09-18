@@ -22,22 +22,22 @@ While simple this model requires the interpreter perform two indirections at eac
 and introduces into the system a kind of value
 (a variable arity block)
 that is not permitted in the language.
-The simple arity model allows eliding the arity qualifier (:/1) in the expression below:
+The simple arity model allows eliding the arity qualifier (/1) in the expression below:
 
 ```
->>> [9 16 25].collect(sqrt:/1)
+>>> [9 16 25].collect(sqrt/1)
 [3 4 5]
 ```
 
-In the complicated model the name _sqrt:/1_ refers to a single argument block.
+In the complicated model the name _sqrt/1_ refers to a single argument block.
 It dispatches on the type of the first argument.
-In this model the notation _sqrt(9)_ is syntax for _sqrt:/1 . (9)_.
+In this model the notation _sqrt(9)_ is syntax for _sqrt/1 . (9)_.
 Where this model introduces a more complicated rule for method names,
 it requires only one indirection at each block application,
 and does not require variable arity blocks.
 
 ```
->>> [9 16 25].collect(sqrt:/1)
+>>> [9 16 25].collect(sqrt/1)
 [3 4 5]
 ```
 
@@ -47,7 +47,7 @@ In both models asking for the arity of a method is an error, though of different
 
 In the simple model _sqrt.numArgs_ is an error because `sqrt` is a variable arity block.
 In the complicated model _sqrt.numArgs_ is an error because `sqrt` is not the name of a block.
-In the complicated model _sqrt:/1.numArgs = 1_, however it is also a tautology.
+In the complicated model _sqrt/1.numArgs = 1_, however it is also a tautology.
 
 In both models there is no general mechanism to invoke a block at an array of arguments.
 (At present `apply` is implemented, but it should not be.)

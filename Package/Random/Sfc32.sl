@@ -64,7 +64,7 @@ Sfc32 : [Object, Equal, Iterator, RandomNumberGenerator, Stream] { | seed block 
 +String {
 
 	asSfc32State { :self :seed |
-		let generator:/0 = self.murmurHashGenerator(seed);
+		let generator/0 = self.murmurHashGenerator(seed);
 		[
 			generator(),
 			generator(),

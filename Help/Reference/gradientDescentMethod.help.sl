@@ -16,7 +16,7 @@ an algorithm for finding the nearest local minimum of a function.
 >>> 	(a * b) + (c * d)
 >>> };
 >>> let [x, y] = gradientDescentMethod(
->>> 	f:/1, [0.1 -1], 0.1, 6E-7
+>>> 	f/1, [0.1 -1], 0.1, 6E-7
 >>> );
 >>> ([x y], f([x y]))
 ([0.107627 -1.223260], -0.75)

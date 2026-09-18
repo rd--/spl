@@ -25,7 +25,7 @@
 
 +Block {
 
-	LsUnfold { :aBlock:/1 :start |
+	LsUnfold { :aBlock/1 :start |
 		let next = start;
 		BlockStream {
 			let answer = next;
@@ -36,8 +36,8 @@
 		}
 	}
 
-	LsUnfold { :aBlock:/1 :start :length |
-		LsUnfold(aBlock:/1, start).take(length)
+	LsUnfold { :aBlock/1 :start :length |
+		LsUnfold(aBlock/1, start).take(length)
 	}
 
 }
@@ -84,7 +84,7 @@
 
 	LsCat { :list |
 		let index = 1;
-		list.replace(LsOnce:/1);
+		list.replace(LsOnce/1);
 		BlockStream {
 			(index > list.size).if {
 				nil
@@ -101,7 +101,7 @@
 				next
 			}
 		} {
-			list.do(reset:/1);
+			list.do(reset/1);
 			index := 1
 		}
 	}
@@ -112,7 +112,7 @@
 
 	LsLace { :list |
 		let index = 1;
-		list.replace(LsForever:/1);
+		list.replace(LsForever/1);
 		BlockStream {
 			let next = list[index].next;
 			(index >= list.size).if {
@@ -122,7 +122,7 @@
 			};
 			next
 		} {
-			list.do(reset:/1);
+			list.do(reset/1);
 			index := 1
 		}
 	}
@@ -163,7 +163,7 @@
 	}
 
 	LsSwitch { :list :which |
-		list.replace(LsOnce:/1);
+		list.replace(LsOnce/1);
 		which := LsForever(which);
 		let index = which.next;
 		BlockStream {
@@ -175,39 +175,39 @@
 			};
 			next
 		} {
-			list.do(reset:/1);
+			list.do(reset/1);
 			which.reset
 		}
 	}
 
 	LsSwitch1 { :list :which |
-		list.replace(LsForever:/1);
+		list.replace(LsForever/1);
 		which := LsForever(which);
 		BlockStream {
 			list[which.next].next
 		} {
-			list.do(reset:/1);
+			list.do(reset/1);
 			which.reset
 		}
 	}
 
 	LsTuple { :list :repeats |
 		let count = repeats;
-		list.replace(LsOnce:/1);
+		list.replace(LsOnce/1);
 		BlockStream {
 			(count <= 0).if {
 				nil
 			} {
-				let next = list.collect(next:/1);
-				next.anySatisfy(isNil:/1).ifTrue {
+				let next = list.collect(next/1);
+				next.anySatisfy(isNil/1).ifTrue {
 					count := count - 1;
-					list.do(reset:/1);
-					next := list.collect(next:/1)
+					list.do(reset/1);
+					next := list.collect(next/1)
 				};
 				next
 			}
 		} {
-			list.do(reset:/1);
+			list.do(reset/1);
 			count := repeats
 		}
 	}
@@ -232,7 +232,7 @@
 		LsScan(input, +)
 	}
 
-	LsAdjacent { :input :aBlock:/2 |
+	LsAdjacent { :input :aBlock/2 |
 		let previous = input.next;
 		BlockStream {
 			let next = input.next;
@@ -277,8 +277,8 @@
 		}
 	}
 
-	LsCollect { :self :aBlock:/1 |
-		self.collect(aBlock:/1)
+	LsCollect { :self :aBlock/1 |
+		self.collect(aBlock/1)
 	}
 
 	LsConstant { :self |
@@ -297,8 +297,8 @@
 		input.duplicateEach(LsForever(repeats))
 	}
 
-	LsFold { :input :aBlock:/2 |
-		LsLast(LsScan(input, aBlock:/2))
+	LsFold { :input :aBlock/2 |
+		LsLast(LsScan(input, aBlock/2))
 	}
 
 	LsForever { :input |
@@ -329,8 +329,8 @@
 		self.removeSuccesiveDuplicates
 	}
 
-	LsScan { :input :aBlock:/2 |
-		input.scan(aBlock:/2)
+	LsScan { :input :aBlock/2 |
+		input.scan(aBlock/2)
 	}
 
 	LsSlidingWindows { :input :windowSize :stepSize |
@@ -428,13 +428,13 @@
 
 	LsBind { :self |
 		let atEnd = false;
-		self.replace(LsConstant:/1);
+		self.replace(LsConstant/1);
 		BlockStream {
 			atEnd.if {
 				nil
 			} {
-				let next = self.collect(next:/1);
-				next.anySatisfy(isNil:/1).if {
+				let next = self.collect(next/1);
+				next.anySatisfy(isNil/1).if {
 					atEnd := true;
 					nil
 				} {
@@ -442,7 +442,7 @@
 				}
 			}
 		} {
-			self.do(reset:/1);
+			self.do(reset/1);
 			atEnd := false
 		}
 	}
@@ -468,7 +468,7 @@
 		}.take(length)
 	}
 
-	LsBrownUsing { :low :high :step :randomNumberGenerator :aBlock:/3 |
+	LsBrownUsing { :low :high :step :randomNumberGenerator :aBlock/3 |
 		low := LsConstant(low);
 		high := LsConstant(high);
 		step := LsConstant(step);
@@ -486,7 +486,7 @@
 			high,
 			step,
 			randomNumberGenerator,
-			randomReal:/3
+			randomReal/3
 		).take(length)
 	}
 
@@ -507,7 +507,7 @@
 			high,
 			step,
 			randomNumberGenerator,
-			randomIntegerExcludingZero:/3
+			randomIntegerExcludingZero/3
 		).take(length)
 	}
 

@@ -21,7 +21,7 @@ the sequence is recycled to fill the matrix:
 ~~~spl svg=A
 system.svgColourDictionary
 .values
-.sortOn(relativeLuminance:/1)
+.sortOn(relativeLuminance/1)
 .reshape([10 15])
 .arrayPlot
 ~~~

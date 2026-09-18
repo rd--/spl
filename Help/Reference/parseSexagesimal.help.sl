@@ -79,8 +79,8 @@ any fraction in which the denominator is a regular number may be expressed exact
 >>> 	'0;1,12'
 >>> 	'0;1,6,40'
 >>> 	'0;1'
->>> ].collect(parseSexagesimal:/1)
-1 / 2:60.select(isRegularNumber:/1)
+>>> ].collect(parseSexagesimal/1)
+1 / 2:60.select(isRegularNumber/1)
 ```
 
 * * *

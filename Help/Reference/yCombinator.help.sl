@@ -1,13 +1,13 @@
 # yCombinator
 
-- _yCombinator(f:/1)_
+- _yCombinator(f/1)_
 
 Implements Haskell Curry’s _Y_ combinator.
 
 An implementation of the recursive `fibonacci` function:
 
 ```
->>> let fib:/1 = { :f:/1 |
+>>> let fib/1 = { :f/1 |
 >>> 	{ :i |
 >>> 		(i <= 1).if {
 >>> 			i
@@ -26,7 +26,7 @@ An implementation of the recursive `fibonacci` function:
 An implementation of the recursive `factorial` function:
 
 ```
->>> let fac:/1 = { :f:/1 |
+>>> let fac/1 = { :f/1 |
 >>> 	{ :i |
 >>> 		(i = 0).if {
 >>> 			1

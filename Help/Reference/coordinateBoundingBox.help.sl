@@ -30,7 +30,7 @@ The transposed `minMax` of the transposed matrix:
 >>> 	3 2;
 >>> 	4 0
 >>> ].transpose.collect(
->>> 	minMax:/1
+>>> 	minMax/1
 >>> ).transpose
 [
 	0 0;

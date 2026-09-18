@@ -96,7 +96,7 @@ In place reject:
 
 ```
 >>> let l = LinkedList[1 .. 5];
->>> l.removeAllSuchThat(isOdd:/1);
+>>> l.removeAllSuchThat(isOdd/1);
 >>> l.contents
 [2, 4]
 ```
@@ -115,7 +115,7 @@ Select:
 
 ```
 >>> LinkedList(1:99)
->>> .select(isEven:/1)
+>>> .select(isEven/1)
 >>> .contents
 [2, 4 .. 98]
 ```
@@ -125,8 +125,8 @@ Avoid intermediate collection:
 ```
 >>> LinkedList(1:9)
 >>> .selectThenCollect(
->>> 	isEven:/1,
->>> 	square:/1
+>>> 	isEven/1,
+>>> 	square/1
 >>> ).contents
 [4 16 36 64]
 ```
@@ -135,7 +135,7 @@ Avoid intermediate collection:
 
 ```
 >>> LinkedList(1:9)
->>> .collectThenSelect(square:/1) { :each |
+>>> .collectThenSelect(square/1) { :each |
 >>> 	each > 36
 >>> }.contents
 [49 64 81]

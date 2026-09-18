@@ -2,15 +2,15 @@
 
 Block! : [Object, Equal] {
 
-	$ { :self:/1 :anObject |
+	$ { :self/1 :anObject |
 		self(anObject)
 	}
 
-	@* { :self:/1 :aBlock:/1 |
-		self:/1.composeLeft(aBlock:/1)
+	@* { :self/1 :aBlock/1 |
+		self/1.composeLeft(aBlock/1)
 	}
 
-	[duplicate, !] { :self:/0 :shape |
+	[duplicate, !] { :self/0 :shape |
 		shape.fill { :unused |
 			self()
 		}
@@ -49,7 +49,7 @@ Block! : [Object, Equal] {
 		}
 	}
 
-	arrayFilter { :aBlock:/1 :aList :anInteger |
+	arrayFilter { :aBlock/1 :aList :anInteger |
 		1.to(aList.size).collect { :i |
 			aBlock(aList.copyFromToPin(i - anInteger, i + anInteger))
 		}
@@ -88,7 +88,7 @@ Block! : [Object, Equal] {
 		nil
 	}
 
-	blockMap { :aBlock:/1 :aList :n :d |
+	blockMap { :aBlock/1 :aList :n :d |
 		let answer = [];
 		let index = 1;
 		1.toBy(aList.size - n + 1, d).collect { :i |
@@ -97,29 +97,29 @@ Block! : [Object, Equal] {
 		answer
 	}
 
-	[blockValue, value] { :self:/0 |
+	[blockValue, value] { :self/0 |
 		self()
 	}
 
-	clip { :aBlock:/1 :minMax :replaceWith |
+	clip { :aBlock/1 :minMax :replaceWith |
 		{ :x |
 			aBlock(x).clip(minMax, replaceWith)
 		}
 	}
 
-	clip { :aBlock:/1 :minMax |
+	clip { :aBlock/1 :minMax |
 		{ :x |
 			aBlock(x).clip(minMax)
 		}
 	}
 
-	[composeLeft, compose] { :self:/1 :aBlock:/1 |
+	[composeLeft, compose] { :self/1 :aBlock/1 |
 		{ :anObject |
 			self(aBlock(anObject))
 		}
 	}
 
-	composeRight { :self:/1 :aBlock:/1 |
+	composeRight { :self/1 :aBlock/1 |
 		{ :anObject |
 			aBlock(self(anObject))
 		}
@@ -175,7 +175,7 @@ Block! : [Object, Equal] {
 		}
 	}
 
-	dirichletConvolve { :f:/1 :g:/1 |
+	dirichletConvolve { :f/1 :g/1 |
 		{ :n |
 			n.divisorSum { :d |
 				f(d) * g(n / d)
@@ -183,8 +183,8 @@ Block! : [Object, Equal] {
 		}
 	}
 
-	dirichletInverse { :f:/1 |
-		let i:/1 = { :n |
+	dirichletInverse { :f/1 |
+		let i/1 = { :n |
 			(n = 1).if {
 				1 / f(1)
 			} {
@@ -193,10 +193,10 @@ Block! : [Object, Equal] {
 				}
 			}
 		}.memoize;
-		i:/1
+		i/1
 	}
 
-	doWhileFalse { :self:/0 :conditionBlock:/0 |
+	doWhileFalse { :self/0 :conditionBlock/0 |
 		let answer = nil;
 		{
 			answer := self();
@@ -205,7 +205,7 @@ Block! : [Object, Equal] {
 		answer
 	}
 
-	doWhileTrue { :self:/0 :conditionBlock:/0 |
+	doWhileTrue { :self/0 :conditionBlock/0 |
 		let answer = nil;
 		{
 			answer := self();
@@ -214,35 +214,35 @@ Block! : [Object, Equal] {
 		answer
 	}
 
-	elementwise { :self:/1 :x |
+	elementwise { :self/1 :x |
 		x.isAtom {
 			self(x)
 		} {
-			x.collect(self:/1)
+			x.collect(self/1)
 		}
 	}
 
-	elementwise { :self:/2 :x :y |
+	elementwise { :self/2 :x :y |
 		(x.isAtom & { y.isAtom }).if {
 			self(x, y)
 		} {
 			x.nest.withCollect(y.nest) { :i :j |
-				self:/2.elementwise(i, j)
+				self/2.elementwise(i, j)
 			}
 		}
 	}
 
-	elementwise { :self:/3 :x :y :z |
+	elementwise { :self/3 :x :y :z |
 		(x.isAtom & { y.isAtom & { z.isAtom }}).if {
 			self(x, y, z)
 		} {
 			x.nest.withWithCollect(y.nest, z.nest) { :i :j :k |
-				self:/3.elementwise(i, j, k)
+				self/3.elementwise(i, j, k)
 			}
 		}
 	}
 
-	ensure { :self :aBlock:/0 |
+	ensure { :self :aBlock/0 |
 		<primitive:
 		let returnValue;
 		try {
@@ -254,15 +254,15 @@ Block! : [Object, Equal] {
 		>
 	}
 
-	foldList { :f:/2 :y :x |
-		x.foldList(y, f:/2)
+	foldList { :f/2 :y :x |
+		x.foldList(y, f/2)
 	}
 
-	foldList { :f:/2 :x |
-		x.allButFirst.foldList(x[1], f:/2)
+	foldList { :f/2 :x |
+		x.allButFirst.foldList(x[1], f/2)
 	}
 
-	foldPairList { :f:/2 :y :xList :g:/1 |
+	foldPairList { :f/2 :y :xList :g/1 |
 		let a = [];
 		xList.do { :x |
 			let r = f(y, x);
@@ -272,23 +272,23 @@ Block! : [Object, Equal] {
 		a
 	}
 
-	foldPairList { :f:/2 :y :xList |
-		f:/2.foldPairList(y, xList, first:/1)
+	foldPairList { :f/2 :y :xList |
+		f/2.foldPairList(y, xList, first/1)
 	}
 
-	foldPairList { :f:/2 :xList |
-		f:/2.foldPairList(xList[1], xList.allButFirst)
+	foldPairList { :f/2 :xList |
+		f/2.foldPairList(xList[1], xList.allButFirst)
 	}
 
-	hasError { :self:/0 |
+	hasError { :self/0 |
 		let answer = false;
-		self:/0.ifError { :unusedError |
+		self/0.ifError { :unusedError |
 			answer := true
 		};
 		answer
 	}
 
-	ifError { :self:/0 :errorHandlerBlock:/1 |
+	ifError { :self/0 :errorHandlerBlock/1 |
 		<primitive:
 		try {
 			return _self_0();
@@ -302,8 +302,8 @@ Block! : [Object, Equal] {
 		>
 	}
 
-	ignoreError { :self:/0 |
-		self:/0.ifError { :unusedError |
+	ignoreError { :self/0 |
+		self/0.ifError { :unusedError |
 			nil
 		}
 	}
@@ -312,15 +312,15 @@ Block! : [Object, Equal] {
 		true
 	}
 
-	inner { :f:/2 :p :q :g:/2 |
-		let h:/2 = f:/2.e;
+	inner { :f/2 :p :q :g/2 |
+		let h/2 = f/2.e;
 		p.isVector.if {
 			q.isVector.if {
-				h(p, q).reduce(g:/2)
+				h(p, q).reduce(g/2)
 			} {
 				q.isMatrix.if {
 					q.transpose.collect { :each |
-						h(p, each).reduce(g:/2)
+						h(p, each).reduce(g/2)
 					}
 				} {
 					'Block>>inner: q not vector or matrix'.error
@@ -330,12 +330,12 @@ Block! : [Object, Equal] {
 			p.isMatrix.if {
 				q.isVector.if {
 					p.collect { :each |
-						h(each, q).reduce(g:/2)
+						h(each, q).reduce(g/2)
 					}
 				} {
 					q.isMatrix.if {
 						p.collect { :each |
-							inner(f:/2, each, q, g:/2)
+							inner(f/2, each, q, g/2)
 						}
 					} {
 						'Block>>inner: argument not vector or matrix'.error
@@ -351,14 +351,14 @@ Block! : [Object, Equal] {
 		true
 	}
 
-	iterate { :self:/1 :anObject :anInteger |
+	iterate { :self/1 :anObject :anInteger |
 		anInteger.timesRepeat {
 			anObject := self(anObject)
 		};
 		anObject
 	}
 
-	keyMap { :self:/1 :operand |
+	keyMap { :self/1 :operand |
 		let answer = operand.species.new;
 		operand.keysAndValuesDo { :key :value |
 			answer.include(self(key) -> value)
@@ -366,16 +366,16 @@ Block! : [Object, Equal] {
 		answer
 	}
 
-	map { :self:/1 :aCollection |
-		aCollection.collect(self:/1)
+	map { :self/1 :aCollection |
+		aCollection.collect(self/1)
 	}
 
-	[map, zipWith] { :self:/2 :aList :anotherList |
-		aList.withCollect(anotherList, self:/2)
+	[map, zipWith] { :self/2 :aList :anotherList |
+		aList.withCollect(anotherList, self/2)
 	}
 
-	map { :self:/3 :aList :anotherList :aThirdList |
-		aList.withWithCollect(anotherList, aThirdList, self:/3)
+	map { :self/3 :aList :anotherList :aThirdList |
+		aList.withWithCollect(anotherList, aThirdList, self/3)
 	}
 
 	mapApply { :self :aCollection |
@@ -384,8 +384,8 @@ Block! : [Object, Equal] {
 		}
 	}
 
-	mapIndexed { :self:/2 :operand |
-		operand.withIndexCollect(self:/2)
+	mapIndexed { :self/2 :operand |
+		operand.withIndexCollect(self/2)
 	}
 
 	mapThread { :self :aMatrix |
@@ -394,8 +394,8 @@ Block! : [Object, Equal] {
 		}
 	}
 
-	memoizeBinary { :self:/2 :requireImmediate |
-		let f:/1 = { :x |
+	memoizeBinary { :self/2 :requireImmediate |
+		let f/1 = { :x |
 			{ :y |
 				self(x, y)
 			}.memoizeUnary(requireImmediate)
@@ -405,7 +405,7 @@ Block! : [Object, Equal] {
 		}
 	}
 
-	memoizeNilary { :self:/0 |
+	memoizeNilary { :self/0 |
 		let cachedValue = nil;
 		{
 			cachedValue.ifNil {
@@ -414,7 +414,7 @@ Block! : [Object, Equal] {
 		}
 	}
 
-	memoizeUnary { :self:/1 :requireImmediate |
+	memoizeUnary { :self/1 :requireImmediate |
 		let table = requireImmediate.if {
 			Map()
 		} {
@@ -449,7 +449,7 @@ Block! : [Object, Equal] {
 		self.memoize(false)
 	}
 
-	movingMap { :self:/1 :sequence :windowSize |
+	movingMap { :self/1 :sequence :windowSize |
 		let answer = [];
 		1.toDo(sequence.size - windowSize + 1) { :i |
 			answer.add(
@@ -463,7 +463,7 @@ Block! : [Object, Equal] {
 		<primitive: return _self.name;>
 	}
 
-	neighbourhoodMap { :aBlock:/2 :x :r |
+	neighbourhoodMap { :aBlock/2 :x :r |
 		let n = x.size;
 		1.to(n).collect { :i |
 			let j = (i - r).max(1);
@@ -472,7 +472,7 @@ Block! : [Object, Equal] {
 		}
 	}
 
-	nestWhile { :self:/1 :anObject :aBlock:/1 |
+	nestWhile { :self/1 :anObject :aBlock/1 |
 		{
 			aBlock(anObject)
 		}.whileTrue {
@@ -489,13 +489,13 @@ Block! : [Object, Equal] {
 		self.cull(aNumber)
 	}
 
-	newFrom { :self:/1 :aCollection |
+	newFrom { :self/1 :aCollection |
 		let answer = self(aCollection.size);
 		answer.fillFrom(aCollection);
 		answer
 	}
 
-	numArgsIfAbsent { :self :ifAbsent:/0 |
+	numArgsIfAbsent { :self :ifAbsent/0 |
 		/*
 		Js does not have a proper numArgs mechanism.
 		In the simple arity model Spl adds hasRestParameters to the arity dispatch method functions, else it is undefined.
@@ -526,24 +526,24 @@ Block! : [Object, Equal] {
 		<primitive: return _self.parameterNames;>
 	}
 
-	pointwise { :f:/2 :p:/1 :q:/1 |
+	pointwise { :f/2 :p/1 :q/1 |
 		{ :x |
 			f(p(x), q(x))
 		}
 	}
 
-	repeatForever { :self:/0 |
+	repeatForever { :self/0 |
 		{
 			self();
 			true
 		}.whileTrue
 	}
 
-	repeatForeverWithBreak { :self:/1 |
-		valueWithReturn { :return:/1 |
+	repeatForeverWithBreak { :self/1 |
+		valueWithReturn { :return/1 |
 			let break = { return(nil) };
 			{
-				self(break:/0)
+				self(break/0)
 			}.repeatForever
 		}
 	}
@@ -552,17 +552,17 @@ Block! : [Object, Equal] {
 		<primitive: return _self.sourceCode;>
 	}
 
-	table { :self:/2 |
+	table { :self/2 |
 		{ :aList :anotherList |
-			self:/2.table(aList, anotherList)
+			self/2.table(aList, anotherList)
 		}
 	}
 
-	table { :self:/1 :aList |
-		aList.collect(self:/1)
+	table { :self/1 :aList |
+		aList.collect(self/1)
 	}
 
-	table { :self:/2 :aList :anotherList |
+	table { :self/2 :aList :anotherList |
 		aList.collect { :i |
 			anotherList.collect { :j |
 				self(i, j)
@@ -570,7 +570,7 @@ Block! : [Object, Equal] {
 		}
 	}
 
-	table { :self:/3 :aList :aSecondList :aThirdList |
+	table { :self/3 :aList :aSecondList :aThirdList |
 		aList.collect { :i |
 			aSecondList.collect { :j |
 				aThirdList.collect { :k |
@@ -581,26 +581,26 @@ Block! : [Object, Equal] {
 	}
 
 	unqualifiedName { :self |
-		<primitive: return _self.name.split(':')[0];>
+		<primitive: return _self.name.split('/')[0];>
 	}
 
-	value { :self:/1 :p1 |
+	value { :self/1 :p1 |
 		self(p1)
 	}
 
-	value { :self:/2 :p1 :p2 |
+	value { :self/2 :p1 :p2 |
 		self(p1, p2)
 	}
 
-	value { :self:/3 :p1 :p2 :p3 |
+	value { :self/3 :p1 :p2 :p3 |
 		self(p1, p2, p3)
 	}
 
-	value { :self:/4 :p1 :p2 :p3 :p4 |
+	value { :self/4 :p1 :p2 :p3 :p4 |
 		self(p1, p2, p3, p4)
 	}
 
-	value { :self:/5 :p1 :p2 :p3 :p4 :p5 |
+	value { :self/5 :p1 :p2 :p3 :p4 :p5 |
 		self(p1, p2, p3, p4, p5)
 	}
 
@@ -608,7 +608,7 @@ Block! : [Object, Equal] {
 		<primitive: return _self.apply(null, _argumentsList);>
 	}
 
-	valueWithReturn { :self:/1 |
+	valueWithReturn { :self/1 |
 		<primitive:
 		const returnBlock = function(returnValue) {
 			throw returnValue;
@@ -625,14 +625,14 @@ Block! : [Object, Equal] {
 		>
 	}
 
-	whileFalse { :self:/0 |
+	whileFalse { :self/0 |
 		{
 			self()
 		}.whileFalse {
 		}
 	}
 
-	whileFalse { :self:/0 :aBlock:/0 |
+	whileFalse { :self/0 :aBlock/0 |
 		<primitive:
 		while(!_self_0()) {
 			_aBlock_0();
@@ -641,7 +641,7 @@ Block! : [Object, Equal] {
 		>
 	}
 
-	whileNil { :self:/0 :aBlock:/0 |
+	whileNil { :self/0 :aBlock/0 |
 		let answer = nil;
 		{
 			(answer := self()).isNil
@@ -651,7 +651,7 @@ Block! : [Object, Equal] {
 		answer
 	}
 
-	whileTrue { :self:/0 |
+	whileTrue { :self/0 |
 		{
 			self()
 		}.whileTrue {
@@ -659,7 +659,7 @@ Block! : [Object, Equal] {
 		}
 	}
 
-	whileTrue { :self:/0 :aBlock:/0 |
+	whileTrue { :self/0 :aBlock/0 |
 		<primitive:
 		while(_self_0()) {
 			_aBlock_0();
@@ -668,17 +668,17 @@ Block! : [Object, Equal] {
 		>
 	}
 
-	yCombinator { :self:/1 |
-		let u = { :f:/1 |
-			{ :x:/1 |
-				f(x(x:/1))
+	yCombinator { :self/1 |
+		let u = { :f/1 |
+			{ :x/1 |
+				f(x(x/1))
 			}
 		};
-		let delta:/1 = identity:/1.u;
-		{ :i:/1 |
+		let delta/1 = identity/1.u;
+		{ :i/1 |
 			self(
 				{ :x |
-					let h:/1 = i(i:/1);
+					let h/1 = i(i/1);
 					h(x)
 				}
 			)
@@ -689,12 +689,12 @@ Block! : [Object, Equal] {
 
 +@Object {
 
-	also { :self :aBlock:/1 |
+	also { :self :aBlock/1 |
 		aBlock(self);
 		self
 	}
 
-	with { :self :aBlock:/1 |
+	with { :self :aBlock/1 |
 		aBlock(self)
 	}
 
@@ -704,31 +704,31 @@ Block! : [Object, Equal] {
 
 	comap { :self |
 		{ :operand |
-			self.collect { :aBlock:/1 |
+			self.collect { :aBlock/1 |
 				aBlock(operand)
 			}
 		}
 	}
 
 	comap { :self :operand |
-		self.collect { :aBlock:/1 |
+		self.collect { :aBlock/1 |
 			aBlock(operand)
 		}
 	}
 
 	composeLeft { :self |
-		self.reduce(composeLeft:/2)
+		self.reduce(composeLeft/2)
 	}
 
 	composeRight { :self |
-		self.reduce(composeRight:/2)
+		self.reduce(composeRight/2)
 	}
 
 }
 
 +Block {
 
-	predicateAnd { :self:/1 :operand:/1 |
+	predicateAnd { :self/1 :operand/1 |
 		{ :anObject |
 			self(anObject) & {
 				operand(anObject)
@@ -736,13 +736,13 @@ Block! : [Object, Equal] {
 		}
 	}
 
-	predicateNot { :self:/1 |
+	predicateNot { :self/1 |
 		{ :anObject |
 			self(anObject).not
 		}
 	}
 
-	predicateOr { :self:/1 :operand:/1 |
+	predicateOr { :self/1 :operand/1 |
 		{ :anObject |
 			self(anObject) | {
 				operand(anObject)
@@ -756,7 +756,7 @@ Block! : [Object, Equal] {
 
 	predicateAnd { :self |
 		{ :anObject |
-			self.allSatisfy { :aBlock:/1 |
+			self.allSatisfy { :aBlock/1 |
 				aBlock(anObject)
 			}
 		}
@@ -764,7 +764,7 @@ Block! : [Object, Equal] {
 
 	predicateOr { :self |
 		{ :anObject |
-			self.anySatisfy { :aBlock:/1 |
+			self.anySatisfy { :aBlock/1 |
 				aBlock(anObject)
 			}
 		}
@@ -780,9 +780,9 @@ Block! : [Object, Equal] {
 		} {
 			self.name.caseOf(
 				[
-					'cos:/1' -> { anInteger.cosDerivative },
-					'exp:/1' -> { exp:/1 },
-					'sin:/1' -> { anInteger.sinDerivative }
+					'cos/1' -> { anInteger.cosDerivative },
+					'exp/1' -> { exp/1 },
+					'sin/1' -> { anInteger.sinDerivative }
 				]
 			)
 		}

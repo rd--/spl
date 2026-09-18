@@ -16,7 +16,7 @@ Ludic prime numbers,
 OEIS [A192503](https://oeis.org/A192503):
 
 ```
->>> 43.ludicNumbers.select(isPrime:/1)
+>>> 43.ludicNumbers.select(isPrime/1)
 [2 3 5 7 11 13 17 23 29 37 41 43]
 ```
 
@@ -24,7 +24,7 @@ Ludic non-prime numbers,
 OEIS [A192504](https://oeis.org/A192504):
 
 ```
->>> 200.ludicNumbers.reject(isPrime:/1)
+>>> 200.ludicNumbers.reject(isPrime/1)
 [1 25 77 91 115 119 121 143 161 175]
 ```
 
@@ -41,7 +41,7 @@ Ludic prime numbers,
 OEIS [A192503](https://oeis.org/A192503):
 
 ~~~spl svg=B oeis=A192503
-650.ludicNumbers.select(isPrime:/1).discretePlot
+650.ludicNumbers.select(isPrime/1).discretePlot
 ~~~
 
 ![](Help/Image/ludicNumbers-B.svg)
@@ -50,7 +50,7 @@ Ludic non-prime numbers,
 OEIS [A192504](https://oeis.org/A192504):
 
 ~~~spl svg=C oeis=A192504
-1050.ludicNumbers.reject(isPrime:/1).discretePlot
+1050.ludicNumbers.reject(isPrime/1).discretePlot
 ~~~
 
 ![](Help/Image/ludicNumbers-C.svg)

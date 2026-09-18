@@ -16,7 +16,7 @@ Cubic impulse response:
 (1 -- 5).functionPlot(
 	[0 0 1 0 0]
 	.listInterpolation(
-		cubicInterpolation:/5
+		cubicInterpolation/5
 	)
 )
 ~~~

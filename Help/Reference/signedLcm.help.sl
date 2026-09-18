@@ -40,7 +40,7 @@ Threads over lists:
 Inner square:
 
 ```
->>> signedLcm:/2
+>>> signedLcm/2
 >>> .table(-3:3, -3:3)
 [
 	-3 -6 -3 -0 -3 -6 -3;
@@ -58,7 +58,7 @@ indicates magnitude only,
 equal to plot of `lcm`:
 
 ~~~spl svg=A
-signedLcm:/2
+signedLcm/2
 .table(-6:6, -6:6)
 .matrixPlot
 ~~~

@@ -73,12 +73,12 @@ let b = [];
 	let c = (a ++ b);
 	let d = c.unique;
 	let e = Multiset(c).sortedElements;
-	let f = e.collect(value:/1);
+	let f = e.collect(value/1);
 	b.addAll(d);
 	a.addAll(f)
 };
 PlotSet(
-	[a b].collect(scatterPlot:/1),
+	[a b].collect(scatterPlot/1),
 	[2 1]
 )
 ~~~

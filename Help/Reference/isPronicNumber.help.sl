@@ -8,7 +8,7 @@ The first few pronic numbers,
 OEIS [A002378](https://oeis.org/A002378):
 
 ```
->>> 0:420.select(isPronicNumber:/1)
+>>> 0:420.select(isPronicNumber/1)
 [
 	  0   2   6  12  20
 	 30  42  56  72  90

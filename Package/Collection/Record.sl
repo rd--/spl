@@ -4,7 +4,7 @@ Record! : [Object, Store, Equal, Json, Iterable, Indexable, Collection, Extensib
 		self
 	}
 
-	atIfAbsent { :self :aString :ifAbsent:/0 |
+	atIfAbsent { :self :aString :ifAbsent/0 |
 		<primitive:
 		if(Object.hasOwn(_self, _aString)) {
 			return _self[_aString];
@@ -48,11 +48,11 @@ Record! : [Object, Store, Equal, Json, Iterable, Indexable, Collection, Extensib
 	}
 
 	isJson { :self |
-		self.allSatisfy(isJson:/1)
+		self.allSatisfy(isJson/1)
 	}
 
 	isLiteral { :self |
-		self.allSatisfy(isLiteral:/1)
+		self.allSatisfy(isLiteral/1)
 	}
 
 	keyType { :unused |
@@ -63,7 +63,7 @@ Record! : [Object, Store, Equal, Json, Iterable, Indexable, Collection, Extensib
 		<primitive: return Object.keys(_self);>
 	}
 
-	keysAndValuesDo { :self :aBlock:/2 |
+	keysAndValuesDo { :self :aBlock/2 |
 		<primitive:
 		Object.entries(_self).forEach(function(entry) {
 			_aBlock_2(entry[0], entry[1]);
@@ -103,7 +103,7 @@ Record! : [Object, Store, Equal, Json, Iterable, Indexable, Collection, Extensib
 	}
 
 	species { :self |
-		Record:/0
+		Record/0
 	}
 
 	storeString { :self |
@@ -117,7 +117,7 @@ Record! : [Object, Store, Equal, Json, Iterable, Indexable, Collection, Extensib
 		self.storeStringLiteral(
 			'(:)',
 			'(', ')',
-			formatKey:/1, ': ', storeString:/1
+			formatKey/1, ': ', storeString/1
 		)
 		/*self.isEmpty.if {
 			'(:)'
@@ -176,7 +176,7 @@ Record! : [Object, Store, Equal, Json, Iterable, Indexable, Collection, Extensib
 
 	Record { :self |
 		self.isAssociationList.if {
-			self.collect(keyAndValue:/1).listToRecord
+			self.collect(keyAndValue/1).listToRecord
 		} {
 			self.listToRecord
 		}

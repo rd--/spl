@@ -1,7 +1,7 @@
 +@Sequence {
 
-	quickSortFromToBy { :self :from :to :sortBlock:/2 |
-		valueWithReturn { :return:/1 |
+	quickSortFromToBy { :self :from :to :sortBlock/2 |
+		valueWithReturn { :return/1 |
 			let i = from;
 			let j = to;
 			{
@@ -60,10 +60,10 @@
 				(i < l).if {
 					(k < j).if {
 						(l - i < (j - k)).if {
-							self.quickSortFromToBy(i, l, sortBlock:/2);
+							self.quickSortFromToBy(i, l, sortBlock/2);
 							i := k
 						} {
-							self.quickSortFromToBy(k, j, sortBlock:/2);
+							self.quickSortFromToBy(k, j, sortBlock/2);
 							j := l
 						}
 					} {
@@ -80,23 +80,23 @@
 		}
 	}
 
-	quickSortBy { :self :sortBlock:/2 |
-		self.quickSortFromToBy(1, self.size, sortBlock:/2)
+	quickSortBy { :self :sortBlock/2 |
+		self.quickSortFromToBy(1, self.size, sortBlock/2)
 	}
 
-	quickSort { :self :sortBlock:/2 |
-		self.quickSortBy(sortBlock:/2)
+	quickSort { :self :sortBlock/2 |
+		self.quickSortBy(sortBlock/2)
 	}
 
 	quickSort { :self |
-		self.quickSortBy(lessEqual:/2)
+		self.quickSortBy(lessEqual/2)
 	}
 
 }
 
 +List {
 
-	quickSortHoareWithMonitor { :self :l :r :monitorBlock:/1 |
+	quickSortHoareWithMonitor { :self :l :r :monitorBlock/1 |
 		let partition = { :s :l :r |
 			let pivot = s[l];
 			let i = l - 1;
@@ -124,14 +124,14 @@
 		};
 		(l < r & { l >= 1 & { r >= 1 } }).ifTrue {
 			let p = partition(self, l, r);
-			quickSortHoareWithMonitor(self, l, p, monitorBlock:/1);
-			quickSortHoareWithMonitor(self, p + 1, r, monitorBlock:/1)
+			quickSortHoareWithMonitor(self, l, p, monitorBlock/1);
+			quickSortHoareWithMonitor(self, p + 1, r, monitorBlock/1)
 		};
 		self
 	}
 
-	quickSortHoareWithMonitor { :self :monitorBlock:/1 |
-		self.quickSortHoareWithMonitor(1, self.size, monitorBlock:/1)
+	quickSortHoareWithMonitor { :self :monitorBlock/1 |
+		self.quickSortHoareWithMonitor(1, self.size, monitorBlock/1)
 	}
 
 	quickSortHoare { :self |
@@ -140,7 +140,7 @@
 
 	quickSortMatrix { :self |
 		self.sortTracingState(
-			quickSortHoareWithMonitor:/2
+			quickSortHoareWithMonitor/2
 		)
 	}
 

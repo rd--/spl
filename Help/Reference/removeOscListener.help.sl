@@ -1,6 +1,6 @@
 # removeOscListener
 
-- _removeOscListener(aMessageSource, anOscAddress, aBlock:/1)_
+- _removeOscListener(aMessageSource, anOscAddress, aBlock/1)_
 
 Remove a listener for Osc messages from an Osc source, for instance _ScSynth_.
 

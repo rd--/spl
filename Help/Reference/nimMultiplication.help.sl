@@ -10,7 +10,7 @@ Nim multiplication table,
 from `zero`:
 
 ```
->>> nimMultiplication:/2.table(0:9, 0:9)
+>>> nimMultiplication/2.table(0:9, 0:9)
 [
 	0  0  0  0  0  0  0  0  0  0;
 	0  1  2  3  4  5  6  7  8  9;
@@ -29,7 +29,7 @@ Nim multiplication table of _2^n_:
 
 ```
 >>> let i = 2 ^ 0:7;
->>> nimMultiplication:/2.table(i, i)
+>>> nimMultiplication/2.table(i, i)
 [
 	  1   2   4   8  16  32  64 128;
 	  2   3   8  12  32  48 128 192;
@@ -64,7 +64,7 @@ OEIS [A051911](https://oeis.org/A051911):
 
 ```
 >>> 1:13.triangularArray(
->>> 	nimMultiplication:/2
+>>> 	nimMultiplication/2
 >>> )
 [
 	1;
@@ -192,7 +192,7 @@ OEIS [A051775](https://oeis.org/A051775):
 
 ~~~spl svg=A oeis=A051775
 0:17.antidiagonalArray(
-	nimMultiplication:/2
+	nimMultiplication/2
 ).catenate.scatterPlot
 ~~~
 
@@ -205,7 +205,7 @@ OEIS [A051776](https://oeis.org/A051776):
 
 ~~~spl svg=B oeis=A051776
 1:16.antidiagonalArray(
-	nimMultiplication:/2
+	nimMultiplication/2
 ).catenate.scatterPlot
 ~~~
 
@@ -219,7 +219,7 @@ OEIS [A051910](https://oeis.org/A051910):
 
 ~~~spl svg=C oeis=A051910
 0:15.triangularArray(
-	nimMultiplication:/2
+	nimMultiplication/2
 ).catenate.scatterPlot
 ~~~
 
@@ -233,7 +233,7 @@ OEIS [A051911](https://oeis.org/A051911):
 
 ~~~spl svg=D oeis=A051911
 1:15.triangularArray(
-	nimMultiplication:/2
+	nimMultiplication/2
 ).catenate.scatterPlot
 ~~~
 
@@ -244,7 +244,7 @@ _n⊗n_,
 OEIS [A006042](https://oeis.org/A006042):
 
 ~~~spl svg=E oeis=A006042
-0:255.collect(nimSquare:/1).scatterPlot
+0:255.collect(nimSquare/1).scatterPlot
 ~~~
 
 ![](Help/Image/nimMultiplication-E.svg)
@@ -370,7 +370,7 @@ Matrix plot of 16×16 Nim multiplication table:
 
 ~~~spl svg=Q
 let n = 1:15;
-nimMultiplication:/2.table(n, n)
+nimMultiplication/2.table(n, n)
 .matrixPlot
 ~~~
 
@@ -380,7 +380,7 @@ Matrix plot of 64×64 Nim multiplication table:
 
 ~~~spl png=R
 let n = 0:63;
-nimMultiplication:/2.table(n, n)
+nimMultiplication/2.table(n, n)
 .rescale.Greymap
 ~~~
 
@@ -418,7 +418,7 @@ OEIS [A223543](https://oeis.org/A223543):
 ~~~spl svg=U oeis=A223543
 let k = 2 ^ 5 - 1;
 let i = 2 ^ 0:k;
-nimMultiplication:/2.table(i, i)
+nimMultiplication/2.table(i, i)
 .catenate.unique.linePlot.log
 ~~~
 
@@ -447,8 +447,8 @@ array read by upward antidiagonals,
 OEIS [A335162](https://oeis.org/A335162):
 
 ~~~spl svg=W oeis=A335162
-0:17.antidiagonalArray(nimPower:/2)
-.collect(reverse:/1).catenate.scatterPlot
+0:17.antidiagonalArray(nimPower/2)
+.collect(reverse/1).catenate.scatterPlot
 ~~~
 
 ![](Help/Image/nimMultiplication-W.svg)
@@ -470,7 +470,7 @@ OEIS [A348291](https://oeis.org/A348291):
 ~~~spl svg=Y oeis=A348291
 let k = 85;
 let t = table(
-	nimMultiplication:/2,
+	nimMultiplication/2,
 	1:k,
 	1:k
 );

@@ -1,7 +1,7 @@
 # unionBy
 
-- _unionBy(c₁, c₂, f:/2)_
-- _unionBy([c₁ c₂ …], f:/2)_
+- _unionBy(c₁, c₂, f/2)_
+- _unionBy([c₁ c₂ …], f/2)_
 
 Answer the set theoretic union of the collections _c₁_ and _c₂_.
 Equality is decided by the block _f_.

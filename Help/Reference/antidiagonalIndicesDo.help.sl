@@ -1,6 +1,6 @@
 # antidiagonalIndicesDo
 
-- _antidiagonalIndicesDo(k, f:/2)_
+- _antidiagonalIndicesDo(k, f/2)_
 
 Visit the first _k_ indices of an infinite matrix in (falling) antidiagonal sequence.
 

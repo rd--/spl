@@ -45,7 +45,7 @@ A list of the fourteen _(6,2)_ necklaces:
 >>> 	0 1 1 0 1 1;
 >>> 	0 1 1 1 1 1;
 >>> 	1 1 1 1 1 1
->>> ].allSatisfy(isNecklace:/1)
+>>> ].allSatisfy(isNecklace/1)
 true
 
 >>> necklaceCount(6, 2)

@@ -1,6 +1,6 @@
 # includesBy
 
-- _includesBy(c, x, f:/1)_
+- _includesBy(c, x, f/1)_
 
 Answer whether the collection _c_ contains the object _x_ as a member using the equality predicate block _f_.
 
@@ -41,7 +41,7 @@ true
 `isSameAs` is a case insensitive equality predicate:
 
 ```
->>> 'String'.includesBy('I', isSameAs:/2)
+>>> 'String'.includesBy('I', isSameAs/2)
 true
 ```
 

@@ -20,7 +20,7 @@ The terms can be calculated using a closed form:
 
 ```
 >>> 0:22.collect(
->>> 	noergaardInfinityNumber:/1
+>>> 	noergaardInfinityNumber/1
 >>> )
 [
 	 0  1 -1  2  1  0 -2  3 -1  2
@@ -152,7 +152,7 @@ Note that only odd intervals occur:
 ```
 >>> 73.noergaardInfinitySequence('C')
 >>> .differences
->>> .allSatisfy(isOdd:/1)
+>>> .allSatisfy(isOdd/1)
 true
 ```
 
@@ -181,7 +181,7 @@ OEIS [A361016](https://oeis.org/A361016):
 
 ~~~spl svg=F oeis=A361016
 200.noergaardInfinitySequence
-.collect(isZero:/1).boole.discretePlot
+.collect(isZero/1).boole.discretePlot
 ~~~
 
 ![](Help/Image/noergaardInfinitySequence-F.svg)

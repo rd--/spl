@@ -1,6 +1,6 @@
 # foldLeft
 
-- _foldLeft([x₁ x₂ …], f:/2)_
+- _foldLeft([x₁ x₂ …], f/2)_
 
 Reduce from left to right.
 

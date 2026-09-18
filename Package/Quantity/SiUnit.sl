@@ -49,7 +49,7 @@ SiUnit : [Object, Store, Equal] { | name symbol quantity dimension |
 		.assertIsValid
 	}
 
-	siBaseUnitIfAbsent { :self :exceptionBlock:/0 |
+	siBaseUnitIfAbsent { :self :exceptionBlock/0 |
 		system.siBaseUnitList.detectIfNone { :each |
 			each.namedBy(self)
 		} {

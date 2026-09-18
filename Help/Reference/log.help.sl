@@ -245,7 +245,7 @@ OEIS [A089729](https://oeis.org/A089729):
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(0.01 -- 5).functionPlot(log:/1)
+(0.01 -- 5).functionPlot(log/1)
 ~~~
 
 ![](Help/Image/log-A.svg)
@@ -253,7 +253,7 @@ Plot over a subset of the reals:
 Polar plot:
 
 ~~~spl svg=B
-(0.01 -- 6.pi).polarPlot(log:/1)
+(0.01 -- 6.pi).polarPlot(log/1)
 ~~~
 
 ![](Help/Image/log-B.svg)
@@ -315,8 +315,8 @@ Plot _x/log(x)_ alongside `logarithmicIntegral` and the prime counting function 
 ~~~spl svg=G
 2:150.functionPlot(
 	[
-		logarithmicIntegral:/1,
-		primePi:/1,
+		logarithmicIntegral/1,
+		primePi/1,
 		{ :x | x / x.log }
 	]
 )
@@ -329,7 +329,7 @@ Plot nested logarithms over a subset of the reals:
 ~~~spl svg=H
 (2.75 -- 50).functionPlot(
 	[
-		log:/1,
+		log/1,
 		{ :x | x.log.log },
 		{ :x | x.log.log.log }
 	]

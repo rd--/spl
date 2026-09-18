@@ -32,7 +32,7 @@ The limit ratio between consecutive terms is the golden ratio:
 C.f. `fibonacci` and `fibonacciNumber`:
 
 ```
->>> 0:20.collect(fibonacci:/1)
+>>> 0:20.collect(fibonacci/1)
 [
 	   0    1    1    2    3
 	   5    8   13   21   34
@@ -62,7 +62,7 @@ OEIS [A005478](https://oeis.org/A005478):
 
 ```
 >>> 30.fibonacciSequence
->>> .select(isPrime:/1)
+>>> .select(isPrime/1)
 [2 3 5 13 89 233 1597 28657 514229]
 ```
 

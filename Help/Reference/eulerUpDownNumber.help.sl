@@ -10,7 +10,7 @@ OEIS [A000111](https://oeis.org/A000111):
 
 ```
 >>> 0:26.collect(
->>> 	eulerUpDownNumber:/1
+>>> 	eulerUpDownNumber/1
 >>> )
 [
 	1
@@ -47,9 +47,9 @@ For even _n_ answers the absolute value of the _n_-th Euler number:
 
 ```
 >>> 0:2:26.collect(
->>> 	eulerUpDownNumber:/1
+>>> 	eulerUpDownNumber/1
 >>> )
-0:2:26.collect(eulerNumber:/1).abs
+0:2:26.collect(eulerNumber/1).abs
 ```
 
 Inverse boustrophedon transform,

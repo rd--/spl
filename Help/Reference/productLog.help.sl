@@ -66,7 +66,7 @@ OEIS [A088928](https://oeis.org/A088928):
 Plot over subset of reals:
 
 ~~~spl svg=A
-(0 -- 4).functionPlot(productLog:/1)
+(0 -- 4).functionPlot(productLog/1)
 ~~~
 
 ![](Help/Image/productLog-A.svg)
@@ -74,7 +74,7 @@ Plot over subset of reals:
 Polar plot:
 
 ~~~spl svg=B
-(0 -- 12.pi).polarPlot(250, productLog:/1)
+(0 -- 12.pi).polarPlot(250, productLog/1)
 ~~~
 
 ![](Help/Image/productLog-B.svg)

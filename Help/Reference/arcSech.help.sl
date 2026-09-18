@@ -31,7 +31,7 @@ Threads elementwise over lists:
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(0.01 -- 1).functionPlot(arcSech:/1)
+(0.01 -- 1).functionPlot(arcSech/1)
 ~~~
 
 ![](Help/Image/arcSech-A.svg)

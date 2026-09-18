@@ -191,7 +191,7 @@ HavlakLoopFinder : [Object] { | cfg lsg nonBackPreds backPreds number maxSize he
 		self.cfg.startBasicBlock.isNil.if {
 			self
 		} {
-			valueWithReturn { :return:/1 |
+			valueWithReturn { :return/1 |
 				let size = self.cfg.numNodes;
 				self.nonBackPreds.removeAll;
 				self.backPreds.removeAll;

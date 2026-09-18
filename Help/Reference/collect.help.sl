@@ -1,6 +1,6 @@
 # collect
 
-- _collect(c, f:/1)_
+- _collect(c, f/1)_
 
 Evaluate the block _f_ with each element of the collection _c_ as the argument.
 Collect the resulting values into a collection like _c_.
@@ -38,7 +38,7 @@ At `IdentityMultiset`:
 ```
 >>> [2, 6 .. 14]
 >>> .asIdentityMultiset
->>> .collect(square:/1)
+>>> .collect(square/1)
 [4 36 100 196].asIdentityMultiset
 ```
 
@@ -47,7 +47,7 @@ At `IdentitySet`:
 ```
 >>> [2, 6 .. 14]
 >>> .asIdentitySet
->>> .collect(square:/1)
+>>> .collect(square/1)
 [4 36 100 196].asIdentitySet
 ```
 
@@ -55,7 +55,7 @@ At `Tree`:
 
 ```
 >>> Tree(4, [Tree(9, [Tree(16, [])])])
->>> .collect(sqrt:/1)
+>>> .collect(sqrt/1)
 Tree(2, [Tree(3, [Tree(4, [])])])
 ```
 
@@ -63,7 +63,7 @@ At `Stream`:
 
 ```
 >>> [1 .. 9].asStream
->>> .collect(square:/1)
+>>> .collect(square/1)
 >>> .upToEnd
 [1 4 9 16 25 36 49 64 81]
 ```
@@ -99,7 +99,7 @@ To collect with another two sequential collections use `map` or `withWithCollect
 
 ```
 >>> let [a, b, c] = [1 2 3; 4 5 6; 7 8 9];
->>> timesPlus:/3.map(a, b, c)
+>>> timesPlus/3.map(a, b, c)
 [11 18 27]
 
 >>> [1 2 3].withWithCollect(

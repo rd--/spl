@@ -48,7 +48,7 @@ OEIS [A002260](https://oeis.org/A002260)
 and [A004736](https://oeis.org/A004736):
 
 ```
->>> 1:7.collect(iota:/1)
+>>> 1:7.collect(iota/1)
 [
 	1;
 	1 2;
@@ -77,7 +77,7 @@ Start counting again and again,
 OEIS [A002260](https://oeis.org/A002260):
 
 ~~~spl svg=A oeis=A002260
-1:17.collect(iota:/1).catenate.scatterPlot
+1:17.collect(iota/1).catenate.scatterPlot
 ~~~
 
 ![](Help/Image/iota-A.svg)

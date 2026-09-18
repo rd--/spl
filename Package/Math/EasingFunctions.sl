@@ -230,8 +230,8 @@
 	}
 
 	easeInOutBounce { :a |
-		let in:/1 = a.easeInBounce;
-		let out:/1 = a.easeOutBounce;
+		let in/1 = a.easeInBounce;
+		let out/1 = a.easeOutBounce;
 		{ :t |
 			if(t < 0.5) {
 				in(2 * t) / 2
@@ -282,8 +282,8 @@
 	}
 
 	easeOutInBack { :a |
-		let in:/1 = a.easeInBack;
-		let out:/1 = a.easeOutBack;
+		let in/1 = a.easeInBack;
+		let out/1 = a.easeOutBack;
 		{ :t |
 			if(t < 0.5) {
 				out(2 * t) / 2
@@ -402,34 +402,34 @@
 
 	easingFunction { :self |
 		self.caseOf([
-			'InQuadratic' -> { easeInQuadratic:/1 },
-			'OutQuadratic' -> { easeOutQuadratic:/1 },
-			'InOutQuadratic' -> { easeInOutQuadratic:/1 },
-			'OutInQuadratic' -> { easeOutInQuadratic:/1 },
-			'InCubic' -> { easeInCubic:/1 },
-			'OutCubic' -> { easeOutCubic:/1 },
-			'InOutCubic' -> { easeInOutCubic:/1 },
-			'OutInCubic' -> { easeOutInCubic:/1 },
-			'InQuartic' -> { easeInQuartic:/1 },
-			'OutQuartic' -> { easeOutQuartic:/1 },
-			'InOutQuartic' -> { easeInOutQuartic:/1 },
-			'OutInQuartic' -> { easeOutInQuartic:/1 },
-			'InQuintic' -> { easeInQuintic:/1 },
-			'OutQuintic' -> { easeOutQuintic:/1 },
-			'InOutQuintic' -> { easeInOutQuintic:/1 },
-			'OutInQuintic' -> { easeOutInQuintic:/1 },
-			'InSine' -> { easeInSine:/1 },
-			'OutSine' -> { easeOutSine:/1 },
-			'InOutSine' -> { easeInOutSine:/1 },
-			'OutInSine' -> { easeOutInSine:/1 },
-			'InExponential' -> { easeInExponential:/1 },
-			'OutExponential' -> { easeOutExponential:/1 },
-			'InOutExponential' -> { easeInOutExponential:/1 },
-			'OutInExponential' -> { easeOutInExponential:/1 },
-			'InCircular' -> { easeInCircular:/1 },
-			'OutCircular' -> { easeOutCircular:/1 },
-			'InOutCircular' -> { easeInOutCircular:/1 },
-			'OutInCircular' -> { easeOutInCircular:/1 },
+			'InQuadratic' -> { easeInQuadratic/1 },
+			'OutQuadratic' -> { easeOutQuadratic/1 },
+			'InOutQuadratic' -> { easeInOutQuadratic/1 },
+			'OutInQuadratic' -> { easeOutInQuadratic/1 },
+			'InCubic' -> { easeInCubic/1 },
+			'OutCubic' -> { easeOutCubic/1 },
+			'InOutCubic' -> { easeInOutCubic/1 },
+			'OutInCubic' -> { easeOutInCubic/1 },
+			'InQuartic' -> { easeInQuartic/1 },
+			'OutQuartic' -> { easeOutQuartic/1 },
+			'InOutQuartic' -> { easeInOutQuartic/1 },
+			'OutInQuartic' -> { easeOutInQuartic/1 },
+			'InQuintic' -> { easeInQuintic/1 },
+			'OutQuintic' -> { easeOutQuintic/1 },
+			'InOutQuintic' -> { easeInOutQuintic/1 },
+			'OutInQuintic' -> { easeOutInQuintic/1 },
+			'InSine' -> { easeInSine/1 },
+			'OutSine' -> { easeOutSine/1 },
+			'InOutSine' -> { easeInOutSine/1 },
+			'OutInSine' -> { easeOutInSine/1 },
+			'InExponential' -> { easeInExponential/1 },
+			'OutExponential' -> { easeOutExponential/1 },
+			'InOutExponential' -> { easeInOutExponential/1 },
+			'OutInExponential' -> { easeOutInExponential/1 },
+			'InCircular' -> { easeInCircular/1 },
+			'OutCircular' -> { easeOutCircular/1 },
+			'InOutCircular' -> { easeInOutCircular/1 },
+			'OutInCircular' -> { easeOutInCircular/1 },
 			'InBounce' -> { easeInBounce(1.70158) },
 			'OutBounce' -> { easeOutBounce(1.70158) },
 			'InOutBounce' -> { easeInOutBounce(1.70158) },

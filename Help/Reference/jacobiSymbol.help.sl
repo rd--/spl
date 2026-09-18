@@ -157,7 +157,7 @@ Successive differences modulo two:
 
 ~~~spl png=B
 let k = 100;
-let j = differences:/1.nestList(
+let j = differences/1.nestList(
 	jacobiSymbol((1L .. k), 77),
 	k
 );

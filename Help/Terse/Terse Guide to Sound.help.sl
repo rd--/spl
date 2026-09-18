@@ -2,8 +2,8 @@
 
 ## Music-Tuning
 ```
-[1 9/8 5/4 4/3 3/2 2].collect(ratioToCents:/1).round = [0 204 386 498 702 1200]
-[0 203.9 386.3 498 701.9 1200].collect(centsToRatio:/1) ~ [1 9/8 5/4 4/3 3/2 2]
+[1 9/8 5/4 4/3 3/2 2].collect(ratioToCents/1).round = [0 204 386 498 702 1200]
+[0 203.9 386.3 498 701.9 1200].collect(centsToRatio/1) ~ [1 9/8 5/4 4/3 3/2 2]
 12.equalTemperamentTuning.name = 'ET-12'
 12.equalTemperamentTuning.description = 'Twelve tone equal-temperament'
 12.equalTemperamentTuning.asCents = [0 100 200 300 400 500 600 700 800 900 1000 1100]
@@ -30,7 +30,7 @@ RatioTuning('', '', [1/1 8/7 4/3 14/9 16/9], 2) = RatioTuning('', '', [63 72 84 
 let t = RatioTuning[63, 72, 84, 98, 112]; [t.primeLimit, t.size, t.octave] = [7, 5, 2]
 let t = RatioTuning[63, 72, 84, 98, 112]; t.asRatios = [1, 8/7, 4/3, 14/9, 16/9]
 let t = RatioTuning[63, 72, 84, 98, 112]; t.asCents.round = [0, 231, 498, 765, 996]
-let r = [1/1, 8/7, 4/3, 14/9, 16/9]; [r.reduce(gcd:/2), r.reduce(lcm:/2)] = [1/63, 112]
+let r = [1/1, 8/7, 4/3, 14/9, 16/9]; [r.reduce(gcd/2), r.reduce(lcm/2)] = [1/63, 112]
 [1, 8/7, 4/3, 14/9, 16/9] / 1/63 = [63, 72, 84, 98, 112]
 RatioTuning[1/1, 8/7, 4/3, 14/9, 16/9].asIntegers = [63, 72, 84, 98, 112]
 RatioTuning[63, 72, 84, 98, 112].asRatios = [1, 8/7, 4/3, 14/9, 16/9]
@@ -137,7 +137,7 @@ let l = []; [1 .. 9].adjacentPairsDo { :a :b | l.add(a -> b) }; l.size = 8
 5.expExp(0.1, 10, 4.3, 100).round = 62 /* exponential to exponential mapping */
 5.linCurve(0, 10, -4.3, 100, -3).round = 81 /* linear to parametric curve mapping */
 5.curveLin(0, 10, -4.3, 100, -3).round = 18 /* parametric curve to liner mapping */
-{ :break:/1 | 1:10.do { :index | (index = 5).ifTrue { 5.break } } }.block = 5 /* non-local return */
+{ :break/1 | 1:10.do { :index | (index = 5).ifTrue { 5.break } } }.block = 5 /* non-local return */
 [1, 2, 4, 8, 16, 32, 64, 128, 256].collect { :each | (each + 1).nextPowerOfTwo } = [2, 4, 8, 16, 32, 64, 128, 256, 512]
 [4, 8, 16, 32, 64, 128, 256, 512].collect { :each | (each - 1).previousPowerOf(2) } = [2, 4, 8, 16, 32, 64, 128, 256]
 [10, 20, 30].obtain(3, nil) = 30 /* at or default value for out of range index */
@@ -178,7 +178,7 @@ nil ? { 'x' } = 'x' /* right hand side if nil */
 
 ## SuperCollider-J
 ```
-[[], [1], [[2]], [[[3]]]].collect(rank:/1) = [1, 1, 2, 3] /* rank */
+[[], [1], [[2]], [[[3]]]].collect(rank/1) = [1, 1, 2, 3] /* rank */
 [[1, 2, 3], [4, 5, 6]].shape = [2, 3] /* size of shape is rank */
 [[1, 2], [3, 4], [5, 6]].shape = [3, 2] /* size of each element is size at depth */
 [[[1], [2]], [[3], [4]], [[5], [6]]].shape = [3, 2, 1] /* rank and shape both assume regularity */
@@ -215,7 +215,7 @@ let z = [3, 2].iota; z.bubble(0, 2) = [[z]]
 let z = [3, 2].iota; z.bubble(0, 2).unbubble(0, 2) = z
 [[1, 2, 3], [[41, 52], 5, 6], 1, 2, 3].depth = 4
 1:4.collect { :k | [[1, 2, 3], [[41, 52], 5, 6], 1, 2, 3].maxSizeAtDepth(k) } = [5, 3, 2, 1]
-[2, 3, 2].iota.collect(reverse:/1) = [[[5, 6], [3, 4], [1, 2]], [[11, 12], [9, 10], [7, 8]]]
+[2, 3, 2].iota.collect(reverse/1) = [[[5, 6], [3, 4], [1, 2]], [[11, 12], [9, 10], [7, 8]]]
 6:1:-1.reshapeLike([1, [2, 3], [4, 5, 6]]) = [6, [5, 4], [3, 2, 1]]
 [[6, 5, 4], [3, 2], 1].reshapeLike([1, [2, 3], [4, 5, 6]]) = [6, [5, 4], [3, 2, 1]]
 let a = [[10, 20],[30, 40, 50], 60, 70, [80, 90]]; let b = [[1, 2, [3, 4], [[5], 6], 7], 8, [[9]]]; a.reshapeLike(b) = [[10, 20, [30, 40], [[50], 60], 70], 80, [[90]]] & { b.reshapeLike(a) = [[1, 2], [3, 4, 5], 6, 7, [8, 9]] }

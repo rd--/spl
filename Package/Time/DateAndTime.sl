@@ -53,7 +53,7 @@ DateAndTime : [Object, Store, Equal, Compare] { | primitive |
 		<primitive: return _self.primitive.getUTCDate();>
 	}
 
-	equalBy { :self :anObject :aBlock:/2 |
+	equalBy { :self :anObject :aBlock/2 |
 		anObject.isDateAndTime & {
 			aBlock(self.absoluteTime, anObject.absoluteTime)
 		}
@@ -164,7 +164,7 @@ DateAndTime : [Object, Store, Equal, Compare] { | primitive |
 		}
 	}
 
-	parseDateAndTime { :self :elseClause:/0 |
+	parseDateAndTime { :self :elseClause/0 |
 		self.isDateAndTimeString.if {
 			newDateAndTime().initializeSlots(
 				self.uncheckedParsePrimitiveDateAndTime

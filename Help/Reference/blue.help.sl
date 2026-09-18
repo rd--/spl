@@ -24,7 +24,7 @@ Plot blues with increasing α:
 
 ~~~spl svg=A
 [0, 0.1 .. 1]
-.collect(blue:/1)
+.collect(blue/1)
 .enclose
 .arrayPlot
 ~~~

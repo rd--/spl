@@ -23,7 +23,7 @@ Float32Array! : [Object, Store, Equal, Compare, Iterable, Indexable, Collection,
 	}
 
 	species { :self |
-		Float32Array:/1
+		Float32Array/1
 	}
 
 	storageType { :self |

@@ -49,15 +49,15 @@
 	}
 
 	gradeDown { :self |
-		self.sortedWithIndices.collect(value:/1).reverse
+		self.sortedWithIndices.collect(value/1).reverse
 	}
 
 	gradeUp { :self |
-		self.sortedWithIndices.collect(value:/1)
+		self.sortedWithIndices.collect(value/1)
 	}
 
 	j { :real :imaginary |
-		real.withCollect(imaginary, j:/2)
+		real.withCollect(imaginary, j/2)
 	}
 
 	laminate { :alpha :beta |
@@ -127,15 +127,15 @@
 		[self.size]
 	}
 
-	withCollect { :self :aString :aBlock:/2 |
-		self.characters.withCollect(aString.characters, aBlock:/2)
+	withCollect { :self :aString :aBlock/2 |
+		self.characters.withCollect(aString.characters, aBlock/2)
 	}
 
 }
 
 +Block {
 
-	fork { :g:/2 :f:/1 :h:/1 |
+	fork { :g/2 :f/1 :h/1 |
 		{ :x |
 			g(f(x), h(x))
 		}

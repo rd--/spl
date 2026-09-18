@@ -9,11 +9,11 @@ CentsTuning : [Object, Store, Equal, Tuning] { | name description asCents octave
 	}
 
 	asFractions { :self |
-		self.asRatios.collect(asFraction:/1)
+		self.asRatios.collect(asFraction/1)
 	}
 
 	asRatios { :self |
-		self.asCents.collect(centsToRatio:/1)
+		self.asCents.collect(centsToRatio/1)
 	}
 
 	isRational { :self |

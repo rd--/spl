@@ -30,7 +30,7 @@ Plot the length vectors of the five chord diagrams of order three:
 
 ~~~spl svg=C
 3.chordDiagrams
-.collect(lengthVector:/1)
+.collect(lengthVector/1)
 .circularMatrixPlot
 ~~~
 

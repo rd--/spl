@@ -69,7 +69,7 @@ phi mediant sequence:
 ```
 >>> [1/8 1/7 1/6 1/5 1/4 1/3]
 >>> .adjacentPairsCollect(
->>> 	phiWeightedMediant:/2.swap
+>>> 	phiWeightedMediant/2.swap
 >>> )
 [0.13127 0.15110 0.17800 0.21654 0.27639]
 ```

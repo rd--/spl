@@ -8,7 +8,7 @@ At specific values:
 
 ```
 >>> [0 1 2 3].collect(
->>> 	plancksRadiationFunction:/1
+>>> 	plancksRadiationFunction/1
 >>> )
 [0 0.08962 0.007418 0.0016018]
 ```
@@ -34,7 +34,7 @@ Plot over a subset of the reals:
 
 ~~~spl svg=A
 (0 -- 2).functionPlot(
-	plancksRadiationFunction:/1
+	plancksRadiationFunction/1
 )
 ~~~
 

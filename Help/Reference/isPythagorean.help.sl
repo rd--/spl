@@ -20,13 +20,13 @@ a ratio is Pythagorean if the greatest prime factor is less than or equal to thr
 >>> [
 >>> 	1/1 256/243 32/27 4/3
 >>> 	3/2 128/81 16/9 2/1
->>> ].allSatisfy(isPythagorean:/1)
+>>> ].allSatisfy(isPythagorean/1)
 true
 
 >>> [
 >>> 	1/1 256/243 32/27 4/3
 >>> 	3/2 128/81 16/9 2/1
->>> ].collect(primeLimit:/1)
+>>> ].collect(primeLimit/1)
 [0 3 3 3 3 3 3 2]
 ```
 

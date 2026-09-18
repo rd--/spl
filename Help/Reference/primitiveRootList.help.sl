@@ -21,7 +21,7 @@ Table of first few primitive roots
 OEIS [A046147](https://oeis.org/A046147):
 
 ```
->>> 2:31.collect(primitiveRootList:/1)
+>>> 2:31.collect(primitiveRootList/1)
 [
 	1;
 	2;
@@ -59,8 +59,8 @@ OEIS [A046147](https://oeis.org/A046147):
 If n has a primitive root, then it has exactly _phi(phi(n))_ of them:
 
 ```
->>> 2:31.collect(primitiveRootList:/1)
->>> .collect(size:/1)
+>>> 2:31.collect(primitiveRootList/1)
+>>> .collect(size/1)
 [
 	1  1  1  2  1  2  0  2  2  4
 	0  4  2  0  0  8  2  6  0  0
@@ -158,7 +158,7 @@ Primitive roots of _n_
 OEIS [A046147](https://oeis.org/A046147):
 
 ~~~spl svg=A oeis=A046147
-2:43.collect(primitiveRootList:/1)
+2:43.collect(primitiveRootList/1)
 .catenate.scatterPlot
 ~~~
 
@@ -251,7 +251,7 @@ OEIS [A002233](https://oeis.org/A002233):
 ~~~spl svg=I oeis=A002233
 2:85.collect { :n |
 	n.prime.primitiveRootList
-	.detect(isPrime:/1)
+	.detect(isPrime/1)
 }.discretePlot
 ~~~
 

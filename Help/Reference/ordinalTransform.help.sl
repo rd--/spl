@@ -324,7 +324,7 @@ OEIS [A289152](https://oeis.org/A289152):
 
 ~~~spl svg=U oeis=A289152
 1:105.collect { :n |
-	eulerPhi:/1
+	eulerPhi/1
 	.nestWhileList(n) { :x |
 		x != 1
 	}.size - 1

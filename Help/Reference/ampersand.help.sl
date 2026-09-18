@@ -1,6 +1,6 @@
 # & (ampersand)
 
-- _b & f:/0_
+- _b & f/0_
 - _c.&_
 
 The operator form of `and`.

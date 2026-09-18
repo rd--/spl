@@ -90,7 +90,7 @@ The size of each sucessive word is the Fibonacci sequence:
 ```
 >>> [0 -> [0 1], 1 -> [0]]
 >>> .substitutionSystem([0], 7)
->>> .collect(size:/1)
+>>> .collect(size/1)
 [1 2 3 5 8 13 21 34]
 ```
 
@@ -109,7 +109,7 @@ It can also be specified as a locally catenative sequence:
 
 >>> [0; 0 1]
 >>> .locallyCatenativeSequence([1 2], 6)
->>> .collect(size:/1)
+>>> .collect(size/1)
 [1 2 3 5 8 13 21 34]
 ```
 

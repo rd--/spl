@@ -50,14 +50,14 @@ Transform to upper case using `collect` and `asUpperCase`:
 
 ```
 >>> AsciiString'text'
->>> .collect(asUpperCase:/1)
+>>> .collect(asUpperCase/1)
 AsciiString'TEXT'
 ```
 
 Filter out vowels using `reject` and `isVowel`:
 
 ```
->>> AsciiString'text'.reject(isVowel:/1)
+>>> AsciiString'text'.reject(isVowel/1)
 AsciiString'txt'
 ```
 

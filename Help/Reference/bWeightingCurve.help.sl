@@ -8,7 +8,7 @@ Linear plot:
 
 ~~~spl svg=A
 (1 -- 1E5).functionPlot(
-	bWeightingCurve:/1
+	bWeightingCurve/1
 )
 ~~~
 
@@ -18,7 +18,7 @@ Logarithmic plot:
 
 ~~~spl svg=B
 (1 -- 1E5).logLinearPlot(
-	bWeightingCurve:/1
+	bWeightingCurve/1
 )
 ~~~
 

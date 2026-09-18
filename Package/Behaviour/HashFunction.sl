@@ -5,7 +5,7 @@
 	}
 
 	digest { :self :algorithm |
-		self.basicDigest(algorithm).then(asByteArray:/1)
+		self.basicDigest(algorithm).then(asByteArray/1)
 	}
 
 	hash { :self :seed |
@@ -63,7 +63,7 @@
 +String {
 
 	digest { :self :algorithm |
-		self.utf8ByteArray.digest(algorithm).then(base16Encode:/1)
+		self.utf8ByteArray.digest(algorithm).then(base16Encode/1)
 	}
 
 	hash { :self :seed |

@@ -182,7 +182,7 @@ _a(n+1)=P(a(n))_,
 OEIS [A007097](https://oeis.org/A007097):
 
 ```
->>> prime:/1.nestList(1, 9)
+>>> prime/1.nestList(1, 9)
 [1 2 3 5 11 31 127 709 5381 52711]
 ```
 
@@ -278,7 +278,7 @@ Prime numbers,
 OEIS [A000040](https://oeis.org/A000040):
 
 ~~~spl svg=A oeis=A000040
-1:50.functionPlot(prime:/1)
+1:50.functionPlot(prime/1)
 ~~~
 
 ![](Help/Image/prime-A.svg)
@@ -478,7 +478,7 @@ OEIS [A007445](https://oeis.org/A007445):
 
 ~~~spl svg=O oeis=A007445
 1:150.collect { :n |
-	n.divisorSum(prime:/1)
+	n.divisorSum(prime/1)
 }.scatterPlot
 ~~~
 
@@ -494,7 +494,7 @@ OEIS [A057602](https://oeis.org/A057602) without leading two:
 let p = 1:25.prime;
 let q = p.partition(2, 1);
 let e = p ^ 2;
-let o = q.collect(product:/1);
+let o = q.collect(product/1);
 e.riffle(o).scatterPlot
 ~~~
 

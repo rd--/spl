@@ -1,6 +1,6 @@
 # hasEqualSlots
 
-- _hasEqualSlots(x₁, x₂, f:/2)_
+- _hasEqualSlots(x₁, x₂, f/2)_
 
 Answer `true` if the objects _x₁_ and _x₂_ have the same `Type`,
 and if each of the slots of _x₁_ equal the corresponding slot of _x₂_,

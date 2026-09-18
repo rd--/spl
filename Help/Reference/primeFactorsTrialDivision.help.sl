@@ -8,7 +8,7 @@ Prime factors of the integers to seventeen:
 
 ```
 >>> 2:17.collect(
->>> 	primeFactorsTrialDivision:/1
+>>> 	primeFactorsTrialDivision/1
 >>> )
 [
 	2;
@@ -34,7 +34,7 @@ Prime factors of specific values:
 
 ```
 >>> (2 ^ [43 47 53] - 1).collect(
->>> 	primeFactorsTrialDivision:/1
+>>> 	primeFactorsTrialDivision/1
 >>> )
 [
 	431 9719 2099863;

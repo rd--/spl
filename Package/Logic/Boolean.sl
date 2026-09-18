@@ -1,6 +1,6 @@
 Boolean! : [Object, Store, Equal, Compare, Json] {
 
-	==> { :self :aBlock:/0 |
+	==> { :self :aBlock/0 |
 		self.if {
 			aBlock()
 		} {
@@ -8,7 +8,7 @@ Boolean! : [Object, Store, Equal, Compare, Json] {
 		}
 	}
 
-	[and, &] { :self :aBlock:/0 |
+	[and, &] { :self :aBlock/0 |
 		<primitive: return _self && _aBlock_0();>
 	}
 
@@ -24,11 +24,11 @@ Boolean! : [Object, Store, Equal, Compare, Json] {
 		}
 	}
 
-	[or, |] { :self :aBlock:/0 |
+	[or, |] { :self :aBlock/0 |
 		<primitive: return _self || _aBlock_0();>
 	}
 
-	always { :self :aBlock:/0 |
+	always { :self :aBlock/0 |
 		aBlock()
 	}
 
@@ -62,15 +62,15 @@ Boolean! : [Object, Store, Equal, Compare, Json] {
 		self.printString
 	}
 
-	equalBy { :self :anObject :aBlock:/2 |
+	equalBy { :self :anObject :aBlock/2 |
 		self == anObject
 	}
 
-	if { :self :whenTrue:/0 :whenFalse:/0 |
+	if { :self :whenTrue/0 :whenFalse/0 |
 		<primitive: return _self ? _whenTrue_0() : _whenFalse_0();>
 	}
 
-	ifFalse { :self :whenFalse:/0 |
+	ifFalse { :self :whenFalse/0 |
 		self.if {
 			nil
 		} {
@@ -78,11 +78,11 @@ Boolean! : [Object, Store, Equal, Compare, Json] {
 		}
 	}
 
-	ifFalseIfTrue { :self :whenFalse:/0 :whenTrue:/0 |
-		self.if(whenTrue:/0, whenFalse:/0)
+	ifFalseIfTrue { :self :whenFalse/0 :whenTrue/0 |
+		self.if(whenTrue/0, whenFalse/0)
 	}
 
-	ifTrue { :self :whenTrue:/0 |
+	ifTrue { :self :whenTrue/0 |
 		self.if {
 			whenTrue()
 		} {
@@ -90,7 +90,7 @@ Boolean! : [Object, Store, Equal, Compare, Json] {
 		}
 	}
 
-	implies { :p :q:/0 |
+	implies { :p :q/0 |
 		p.not | { q() }
 	}
 
@@ -106,14 +106,14 @@ Boolean! : [Object, Store, Equal, Compare, Json] {
 		<primitive: return _self ? false : true;>
 	}
 
-	[notAnd, nand] { :self :aBlock:/0 |
+	[notAnd, nand] { :self :aBlock/0 |
 		/* (self & { aBlock() } ).not */
 		self.not | {
 			aBlock().not
 		}
 	}
 
-	[notOr, nor] { :self :aBlock:/0 |
+	[notOr, nor] { :self :aBlock/0 |
 		self.not & {
 			aBlock().not
 		}
@@ -181,7 +181,7 @@ Boolean! : [Object, Store, Equal, Compare, Json] {
 		}
 	}
 
-	parseBoolean { :self :elseClause:/0 |
+	parseBoolean { :self :elseClause/0 |
 		(self = 'true').if {
 			true
 		} {
@@ -204,7 +204,7 @@ Boolean! : [Object, Store, Equal, Compare, Json] {
 +List {
 
 	isBooleanVector { :self |
-		self.allSatisfy(isBoolean:/1)
+		self.allSatisfy(isBoolean/1)
 	}
 
 }

@@ -24,7 +24,7 @@ Plot the first few terms of the Stern-Brocot sequence:
 
 ~~~spl svg=C
 1:256.collect(
-	sternBrocotNumber:/1
+	sternBrocotNumber/1
 ).scatterPlot
 ~~~
 

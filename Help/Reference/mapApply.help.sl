@@ -1,13 +1,13 @@
 # mapApply
 
-- _mapApply(f:/n, c)_
+- _mapApply(f/n, c)_
 
 Apply _f_ to each element of the collection _c_.
 
 Compute the angles with respect to the positive _x_ axis for a list of ordered pairs:
 
 ```
->>> arcTan:/2.mapApply(
+>>> arcTan/2.mapApply(
 >>> 	[1 1; -1 1; -1 -1; 1 -1]
 >>> )
 [1/4 3/4 -3/4 -1/4].pi

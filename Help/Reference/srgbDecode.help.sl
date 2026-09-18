@@ -41,7 +41,7 @@ Plot curve:
 
 ~~~spl svg=A
 (0 -- 1).functionPlot(
-	srgbDecode:/1
+	srgbDecode/1
 )
 ~~~
 

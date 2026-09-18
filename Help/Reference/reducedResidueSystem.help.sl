@@ -26,7 +26,7 @@ Every number in a reduced residue system modulo _n_ is a generator for the addit
 >>> 		(each + n) % m
 >>> 	}.iterate(0).next(m)
 >>> };
->>> r.collect(f:/1)
+>>> r.collect(f/1)
 [
 	0  1  2  3  4  5  6  7  8  9 10 11;
 	0  5 10  3  8  1  6 11  4  9  2  7;
@@ -40,7 +40,7 @@ A reduced residue system modulo _n_ is a group under multiplication modulo _n_.
 ```
 >>> let m = 12;
 >>> let r = m.reducedResidueSystem;
->>> r.tuples(2).collect(product:/1) % m
+>>> r.tuples(2).collect(product/1) % m
 [1 5 7 11 5 1 11 7 7 11 1 5 11 7 5 1]
 ```
 

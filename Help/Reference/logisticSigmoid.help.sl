@@ -17,7 +17,7 @@ Plot over a subset of the reals:
 
 ~~~spl svg=A
 (-4 -- 4).functionPlot(
-	logisticSigmoid:/1
+	logisticSigmoid/1
 )
 ~~~
 
@@ -48,7 +48,7 @@ At specific values:
 Polar plot with phi:
 
 ~~~spl svg=B
-(-2.pi -- 3.pi).polarPlot(logisticSigmoid:/1)
+(-2.pi -- 3.pi).polarPlot(logisticSigmoid/1)
 ~~~
 
 ![](Help/Image/logisticSigmoid-B.svg)
@@ -69,7 +69,7 @@ Plot over a subset of the complexes:
 
 ~~~spl png=D
 [-2J-2 2J2].complexPlot(
-	logisticSigmoid:/1
+	logisticSigmoid/1
 )
 ~~~
 

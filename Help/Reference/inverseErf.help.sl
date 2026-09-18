@@ -65,7 +65,7 @@ At `one` and `zero` and negative `one`:
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(-0.99 -- 0.99).functionPlot(inverseErf:/1)
+(-0.99 -- 0.99).functionPlot(inverseErf/1)
 ~~~
 
 ![](Help/Image/inverseErf-A.svg)

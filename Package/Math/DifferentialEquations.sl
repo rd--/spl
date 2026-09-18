@@ -186,7 +186,7 @@
 
 +Block {
 
-	eulerMethod { :self:/2 :y0 :x0 :x1 :h |
+	eulerMethod { :self/2 :y0 :x0 :x1 :h |
 		let x = x0;
 		let y = y0;
 		let vx = [x0];
@@ -202,8 +202,8 @@
 		[vx, vy]
 	}
 
-	rungeKuttaMethod { :self:/2 :y0 :x0 :x1 :h |
-		let f:/2 = self:/2;
+	rungeKuttaMethod { :self/2 :y0 :x0 :x1 :h |
+		let f/2 = self/2;
 		let x = x0;
 		let y = y0;
 		let vx = [x0];

@@ -36,7 +36,7 @@ Run a tag system to completion:
 >>> 	],
 >>> 	'aaa'.characters,
 >>> 	Infinity
->>> ).collect(stringJoin:/1)
+>>> ).collect(stringJoin/1)
 [
 	'aaa'
 	'abc'
@@ -73,7 +73,7 @@ Plot the size of each sucessive term:
 	[0 -> [0 0], 1 -> [1 1 0 1]],
 	[1 0 0 1 0 0 1 0 0 0 0 0],
 	419
-).collect(size:/1).linePlot
+).collect(size/1).linePlot
 ~~~
 
 ![](Help/Image/tagSystem-A.svg)

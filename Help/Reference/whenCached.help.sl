@@ -1,6 +1,6 @@
 # whenCached
 
-- _whenCached(x, k, f:/0)_
+- _whenCached(x, k, f/0)_
 
 Read the value associated with the key _k_ at the `cache` associated with the value _x_,
 initializing the cache if required using the asynchronous initializer block _f_.

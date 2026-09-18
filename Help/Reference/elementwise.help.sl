@@ -1,18 +1,18 @@
 # elementwise
 
-- _elementwise(f:/1, x)_
-- _elementwise(f:/2, x, y)_
-- _elementwise(f:/3, x, y, z)_
+- _elementwise(f/1, x)_
+- _elementwise(f/2, x, y)_
+- _elementwise(f/3, x, y, z)_
 
 Apply the block _f_ elementwise recursively over the parameters.
 
 Replace negative numbers with 0:
 
 ```
->>> max:/2.elementwise([1 -1 3 -4 5], 0)
+>>> max/2.elementwise([1 -1 3 -4 5], 0)
 [1 0 3 0 5]
 
->>> max:/2.elementwise(0, [1 -1 3 -4 5])
+>>> max/2.elementwise(0, [1 -1 3 -4 5])
 [1 0 3 0 5]
 ```
 

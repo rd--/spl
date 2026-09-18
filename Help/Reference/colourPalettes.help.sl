@@ -42,7 +42,7 @@ Count palettes:
 
 ```
 >>> let r = system.colourPalettes;
->>> let c = r.collect(size:/1);
+>>> let c = r.collect(size/1);
 >>> (c, c.sum)
 (
 	(
@@ -69,7 +69,7 @@ Count the number of colours per palette for the _WallStreetJournal_ collection:
 ```
 >>> system.colourPalettes
 >>> .at('WallStreetJournal')
->>> .collect(size:/1)
+>>> .collect(size/1)
 (
 	BlackGreen: 4,
 	Colors6: 6,

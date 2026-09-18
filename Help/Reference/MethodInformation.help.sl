@@ -23,7 +23,7 @@ Lookup method in the `System` method dictionary and collate information:
 	true,
 	'PrimitiveArray',
 	'PrimitiveArray',
-	['self', 'aBlock:/1']
+	['self', 'aBlock/1']
 )
 ```
 

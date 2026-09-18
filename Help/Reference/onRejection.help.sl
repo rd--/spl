@@ -1,13 +1,13 @@
 # onRejection
 
-- _onRejection(p, f:/1)_
+- _onRejection(p, f/1)_
 
 Schedule the block _f_ be called if the promise _p_ is rejected,
 with the reason as argument.
 Answer an equivalent `Promise` object to _p_.
 
 `onRejection` is an idiom over `thenElse`,
-equivalent to _p.thenElse(nil.constant, f:/1)_.
+equivalent to _p.thenElse(nil.constant, f/1)_.
 
 * * *
 

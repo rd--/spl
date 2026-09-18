@@ -1,6 +1,6 @@
 # compose
 
-- _compose(f:/1, g:/1)_
+- _compose(f/1, g/1)_
 
 An alias for `composeLeft`.
 

@@ -1,7 +1,7 @@
 Piecewise : [Object, Equal] { | pieces defaultValue |
 
 	value { :self :x |
-		valueWithReturn { :return:/1 |
+		valueWithReturn { :return/1 |
 			self.pieces.do { :each |
 				each.key.value(x).ifTrue {
 					each.value.value(x).return
@@ -15,8 +15,8 @@ Piecewise : [Object, Equal] { | pieces defaultValue |
 
 +List {
 
-	Piecewise { :pieces :defaultValue:/1 |
-		newPiecewise().initializeSlots(pieces, defaultValue:/1)
+	Piecewise { :pieces :defaultValue/1 |
+		newPiecewise().initializeSlots(pieces, defaultValue/1)
 	}
 
 	Piecewise { :pieces |

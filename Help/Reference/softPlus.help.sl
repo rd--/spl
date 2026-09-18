@@ -8,7 +8,7 @@ a smooth approximation to the ramp function.
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(-3 -- 3).functionPlot(softPlus:/1)
+(-3 -- 3).functionPlot(softPlus/1)
 ~~~
 
 ![](Help/Image/softPlus-A.svg)
@@ -16,7 +16,7 @@ Plot over a subset of the reals:
 The derivative is `logisticSigmoid`:
 
 ~~~spl svg=B
-(-3 -- 3).discretize(100, softPlus:/1)
+(-3 -- 3).discretize(100, softPlus/1)
 .differences
 .linePlot
 ~~~

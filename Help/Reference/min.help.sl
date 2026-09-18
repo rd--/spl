@@ -38,7 +38,7 @@ To find row minima see `transpose` or `collect`:
 [-1 0 -3]
 
 >>> [-1 0 1 2; 0 2 4 6; -3 -2 -1 0]
->>> .collect(min:/1)
+>>> .collect(min/1)
 [-1 0 -3]
 ```
 
@@ -51,7 +51,7 @@ Column minima at a 3×3 matrix and relation to `reduce`:
 >>> [8 1 6].min([3 5 7]).min([4 9 2])
 [3 1 2]
 
->>> [8 1 6; 3 5 7; 4 9 2].reduce(min:/2)
+>>> [8 1 6; 3 5 7; 4 9 2].reduce(min/2)
 [3 1 2]
 ```
 
@@ -69,13 +69,13 @@ To find the minimum of all elements of a matrix see `deepMin`:
 The binary form answer either x₁ or x₂, whichever has the least magnitude:
 
 ```
->>> [4 3 2 3 1 5 7].reduce(min:/2)
+>>> [4 3 2 3 1 5 7].reduce(min/2)
 1
 
->>> [3 3].iota.reduce(min:/2)
+>>> [3 3].iota.reduce(min/2)
 [1 2 3]
 
->>> [3 3].iota.deepReduce(min:/2)
+>>> [3 3].iota.deepReduce(min/2)
 1
 
 >>> 2.4.min(1.9)
@@ -112,7 +112,7 @@ Smallest element in each matrix row:
 >>> [
 >>> 	1.7 1.2 1.5;
 >>> 	1.3 1.6 1.99
->>> ].collect(min:/1)
+>>> ].collect(min/1)
 [1.2 1.3]
 ```
 
@@ -158,7 +158,7 @@ The cumulative minima is the `scan` of `min`:
 
 ```
 >>> [10 18 16 22 12 30 6 24 24 2]
->>> .scan(min:/2)
+>>> .scan(min/2)
 [10 10 10 10 10 10 6 6 6 2]
 ```
 
@@ -199,7 +199,7 @@ Array of `min` read by antidiagonals,
 OEIS [A003983](https://oeis.org/A003983):
 
 ~~~spl svg=C oeis=A003983
-0:11.antidiagonalArray(min:/2)
+0:11.antidiagonalArray(min/2)
 .catenate.discretePlot
 ~~~
 

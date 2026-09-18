@@ -7,7 +7,7 @@ Answer the _n_-th fortunate number.
 First few terms:
 
 ```
->>> 1:10.collect(fortunateNumber:/1)
+>>> 1:10.collect(fortunateNumber/1)
 [3 5 7 13 23 17 19 23 37 61]
 ```
 

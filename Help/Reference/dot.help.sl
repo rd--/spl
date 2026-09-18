@@ -220,8 +220,8 @@ Multiply 3×3 integer matrices:
 >>> let d = b.transpose;
 >>> (
 >>> 	a.dot(b),
->>> 	dot:/2.map(a, b),
->>> 	dot:/2.map(c, d)
+>>> 	dot/2.map(a, b),
+>>> 	dot/2.map(c, d)
 >>> )
 (
 	[
@@ -446,7 +446,7 @@ Evaluate symbolically:
 ```
 >> [`a` `b`; `c` `d`]
 >> .dot([`w` `x`; `y` `z`])
->> .collect(printString:/1)
+>> .collect(printString/1)
 >> .unlines
 [(+ (* a w) (* b y)), (+ (* a x) (* b z))]
 [(+ (* c w) (* d y)), (+ (* c x) (* d z))]

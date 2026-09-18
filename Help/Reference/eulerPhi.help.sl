@@ -317,7 +317,7 @@ The Euler totient function,
 OEIS [A000010](https://oeis.org/A000010):
 
 ~~~spl svg=A oeis=A000010
-1:50.functionPlot(eulerPhi:/1)
+1:50.functionPlot(eulerPhi/1)
 ~~~
 
 ![](Help/Image/eulerPhi-A.svg)
@@ -418,7 +418,7 @@ OEIS [A003434](https://oeis.org/A003434):
 
 ~~~spl svg=G oeis=A003434
 1:105.collect { :n |
-	eulerPhi:/1
+	eulerPhi/1
 	.nestWhileList(n) { :x |
 		x != 1
 	}.size - 1
@@ -448,7 +448,7 @@ OEIS [A049108](https://oeis.org/A049108):
 
 ~~~spl svg=I oeis=A049108
 1:105.collect { :n |
-	eulerPhi:/1
+	eulerPhi/1
 	.nestWhileList(n) { :x |
 		x != 1
 	}.size

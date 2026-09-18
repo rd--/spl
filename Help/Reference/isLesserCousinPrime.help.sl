@@ -10,7 +10,7 @@ Cousin primes are pairs of primes of the form _(p, p + 4)_.
 (true, true)
 
 >>> 1:1483.select(
->>> 	isLesserCousinPrime:/1
+>>> 	isLesserCousinPrime/1
 >>> )
 [
 	   3    7   13   19   37

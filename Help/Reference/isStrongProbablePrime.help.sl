@@ -36,7 +36,7 @@ let k = 100_000;
 	'Strong Probable',
 	{
 		3:k:2.select(
-			isStrongProbablePrime:/1
+			isStrongProbablePrime/1
 		).size
 	}.timing
 )
@@ -50,7 +50,7 @@ let k = 100_000;
 	'Trial division',
 	{
 		3:k:2.select(
-			isPrimeTrialDivision:/1
+			isPrimeTrialDivision/1
 		).size
 	}.timing
 )
@@ -64,7 +64,7 @@ let k = 100_000;
 	'Lucas probable',
 	{
 		3:k:2.select(
-			isLucasProbablePrime:/1
+			isLucasProbablePrime/1
 		).size
 	}.timing
 )
@@ -78,7 +78,7 @@ let k = 100_000;
 	'isPrime',
 	{
 		3:k:2.select(
-			isPrime:/1
+			isPrime/1
 		).size
 	}.timing
 )

@@ -30,7 +30,7 @@ and order six:
 ~~~spl svg=A
 [1 6 2; 3 5; 4]
 .permutationOrderList.collect(
-	permutationList:/1
+	permutationList/1
 ).matrixPlot
 ~~~
 
@@ -43,7 +43,7 @@ and order eight:
 ~~~spl svg=B
 [1 10; 2; 3 6 4 5 12 8 11 9; 7 13]
 .permutationOrderList.collect(
-	permutationList:/1
+	permutationList/1
 ).matrixPlot
 ~~~
 
@@ -56,7 +56,7 @@ and therefore of order seventeen:
 ~~~spl svg=C
 [7 17 15 8 11 10 14 1 3 9 2 4 12 5 13 6 16]
 .permutationOrderList.collect(
-	permutationList:/1
+	permutationList/1
 ).matrixPlot
 ~~~
 

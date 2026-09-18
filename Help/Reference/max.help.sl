@@ -66,6 +66,13 @@ Largest element of an integer vector:
 52
 ```
 
+At `Complex`, compares on `abs`:
+
+```
+>>> max(-2J2, 4J1)
+4J1
+```
+
 Largest `Complex` element of vector:
 
 ```
@@ -86,7 +93,7 @@ Largest element in each matrix column:
 Largest element in each matrix row:
 
 ```
->>> [1.7 1.2 1.5; 1.3 1.6 1.99].collect(max:/1)
+>>> [1.7 1.2 1.5; 1.3 1.6 1.99].collect(max/1)
 [1.7 1.99]
 ```
 
@@ -101,7 +108,7 @@ The cumulative maxima is the `scan` of `max`:
 
 ```
 >>> [4 2 8 3 9 12 11 18 10]
->>> .scan(max:/2)
+>>> .scan(max/2)
 [4 4 8 8 9 12 12 18 18]
 ```
 

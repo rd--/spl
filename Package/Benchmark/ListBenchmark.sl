@@ -3,7 +3,7 @@ ListElement : [Object] { | value next |
 	isShorterThan { :self :other |
 		let x = self;
 		let y = other;
-		valueWithReturn { :return:/1 |
+		valueWithReturn { :return/1 |
 			{
 				y.isNil
 			}.whileFalse {

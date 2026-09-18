@@ -9,7 +9,7 @@ Answer the `String` representing given hexadecimal digit.
 'F'
 
 >>> [0 .. 15]
->>> .collect(asHexDigit:/1)
+>>> .collect(asHexDigit/1)
 >>> .stringJoin
 '0123456789ABCDEF'
 ```

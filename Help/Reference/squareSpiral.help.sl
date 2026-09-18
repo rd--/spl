@@ -106,7 +106,7 @@ OEIS [A180714](https://oeis.org/A180714):
 
 ```
 >>> 30.squareSpiral('Counterclockwise')
->>> .collect(sum:/1)
+>>> .collect(sum/1)
 [
 	 0  1  2  1  0 -1 -2 -1  0  1
 	 2  3  4  3  2  1  0 -1 -2 -3
@@ -117,7 +117,7 @@ OEIS [A180714](https://oeis.org/A180714):
 Sum of the _x_ and _y_-coordinates of the clockwise square spiral:
 
 ```
->>> 30.squareSpiral.collect(sum:/1)
+>>> 30.squareSpiral.collect(sum/1)
 [
 	0 1 0 -1 -2 -1  0  1  2  3
 	2 1 0 -1 -2 -3 -4 -3 -2 -1
@@ -197,7 +197,7 @@ OEIS [A180714](https://oeis.org/A180714):
 
 ~~~spl svg=G oeis=A180714
 65.squareSpiral('Counterclockwise')
-.collect(sum:/1).discretePlot
+.collect(sum/1).discretePlot
 ~~~
 
 ![](Help/Image/squareSpiral-G.svg)

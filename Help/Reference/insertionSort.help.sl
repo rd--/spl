@@ -1,6 +1,6 @@
 # insertionSort
 
-- _insertionSort([x₁ x₂ …], f:/2)_
+- _insertionSort([x₁ x₂ …], f/2)_
 
 Sort the sequence _x_ in place using the insertion sort algorithm,
 according to the comparison block _f_.

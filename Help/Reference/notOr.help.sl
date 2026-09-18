@@ -1,6 +1,6 @@
 # notOr
 
-- _notOr(b, f:/0)_
+- _notOr(b, f/0)_
 
 Not or,
 often abbreviated _nor_,

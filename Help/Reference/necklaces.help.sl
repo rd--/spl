@@ -70,7 +70,7 @@ Plot the set of eight _5,2_ necklaces:
 
 ~~~spl svg=A
 necklaces(5, 2)
-.collect(necklacePlot:/1)
+.collect(necklacePlot/1)
 .reshape([2 4])
 .PlotSet
 ~~~

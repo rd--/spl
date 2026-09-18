@@ -40,7 +40,7 @@ OEIS [A036035](https://oeis.org/A036035):
 >>> 	12   30   16   24  36
 >>> 	60  210   32   48  72
 >>> 	120  180  420 2310
->>> ].collect(primeSignature:/1)
+>>> ].collect(primeSignature/1)
 [
 	;
 	1;
@@ -81,7 +81,7 @@ OEIS [A025487](https://oeis.org/A025487):
 >>> 	1080 1152 1260 1296 1440
 >>> 	1536 1680 1728 1800 1920
 >>> 	2048 2160 2304 2310
->>> ].collect(primeSignature:/1)
+>>> ].collect(primeSignature/1)
 [
 	;
 	1;
@@ -174,7 +174,7 @@ without initial term,
 OEIS [A212171](https://oeis.org/A212171):
 
 ```
->>> 1:20.collect(primeSignature:/1)
+>>> 1:20.collect(primeSignature/1)
 [
 	;
 	1;
@@ -259,7 +259,7 @@ Prime signature of _n_,
 OEIS [A212171](https://oeis.org/A212171):
 
 ~~~spl svg=A oeis=A212171
-1:75.collect(primeSignature:/1)
+1:75.collect(primeSignature/1)
 .catenate.scatterPlot
 ~~~
 
@@ -323,7 +323,7 @@ OEIS [A064839](https://oeis.org/A064839):
 ~~~spl svg=D oeis=A064839
 2:99.collect { :n |
 	let p = n.primeSignature;
-	let q = 2:n.collect(primeSignature:/1);
+	let q = 2:n.collect(primeSignature/1);
 	q.occurrencesOf(p)
 }.scatterPlot
 ~~~
@@ -513,7 +513,7 @@ OEIS [A162642](https://oeis.org/A162642):
 
 ~~~spl svg=Q oeis=A162642
 1:85.collect { :n |
-	n.primeSignature.count(isOdd:/1)
+	n.primeSignature.count(isOdd/1)
 }.stepPlot
 ~~~
 

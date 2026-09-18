@@ -20,8 +20,8 @@ AsciiString : [Object, Store, Equal, Iterable, Indexable, Collection, Sequence] 
 		self.contents.base16Encode.asAsciiString
 	}
 
-	atIfAbsent { :self :anInteger :ifAbsent:/0 |
-		self.contents.atIfAbsent(anInteger, ifAbsent:/0).asCharacter
+	atIfAbsent { :self :anInteger :ifAbsent/0 |
+		self.contents.atIfAbsent(anInteger, ifAbsent/0).asCharacter
 	}
 
 	atPut { :self :anInteger :aCharacter |
@@ -32,7 +32,7 @@ AsciiString : [Object, Store, Equal, Iterable, Indexable, Collection, Sequence] 
 		self.contents.asList
 	}
 
-	do { :self :aBlock:/1 |
+	do { :self :aBlock/1 |
 		self.contents.do { :each |
 			aBlock(each.asCharacter)
 		}
@@ -47,7 +47,7 @@ AsciiString : [Object, Store, Equal, Iterable, Indexable, Collection, Sequence] 
 	}
 
 	species { :self |
-		AsciiString:/1
+		AsciiString/1
 	}
 
 	storeString { :self |

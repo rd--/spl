@@ -17,7 +17,7 @@ Verify safe positions with three heaps of maximum size seven:
 >>> 	2 5 7;
 >>> 	3 4 7;
 >>> 	3 5 6
->>> ].collect(nimValue:/1)
+>>> ].collect(nimValue/1)
 [0 0 0 0 0 0 0]
 ```
 
@@ -32,7 +32,7 @@ Verify safe positions with four heaps of maximum size seven:
 >>> 	2 3 4 5;
 >>> 	2 3 6 7;
 >>> 	4 5 6 7
->>> ].collect(nimValue:/1)
+>>> ].collect(nimValue/1)
 [0 0 0 0 0 0 0]
 ```
 
@@ -40,7 +40,7 @@ All positions _x,x,x,x_ and _x,x,y,y_ are also safe:
 
 ```
 >>> [1 1 1 1; 2 2 2 2; 1 1 2 2; 2 2 3 3]
->>> .collect(nimValue:/1)
+>>> .collect(nimValue/1)
 [0 0 0 0]
 ```
 

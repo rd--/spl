@@ -12,7 +12,7 @@ true
 false
 
 >>> [11J3 1J8 3J1 2I 3I]
->>> .select(isGaussianPrime:/1)
+>>> .select(isGaussianPrime/1)
 [3I]
 ```
 
@@ -84,7 +84,7 @@ Plot Gaussian primes in the complex plane:
 	}
 }.table(-11:11, -11:11)
 .flatten(1)
-.select(isNotNil:/1)
+.select(isNotNil/1)
 .scatterPlot
 ~~~
 

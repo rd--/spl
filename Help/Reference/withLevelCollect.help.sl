@@ -1,6 +1,6 @@
 # withLevelCollect
 
-- _withLevelCollect(c, f:/2)_
+- _withLevelCollect(c, f/2)_
 
 A descending traversal over the collection _c_,
 where the block _f_ is applied to each sub-tree with the corresponding level as the second argument.

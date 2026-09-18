@@ -2,7 +2,7 @@
 
 	grahamScan { :self |
 		let h = [];
-		let p0 = self.minBy(precedes:/2);
+		let p0 = self.minBy(precedes/2);
 		let p = self.withIndexCollect { :each :i |
 			let [d, a] = (p0 - each).toPolarCoordinates;
 			(a < 0).ifTrue {
@@ -40,7 +40,7 @@
 				h.addLast(x)
 			}
 		};
-		h.collect(fourth:/1)
+		h.collect(fourth/1)
 	}
 
 }

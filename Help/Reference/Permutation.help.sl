@@ -232,7 +232,7 @@ The runs of two random permutations:
 ```
 >>> let r = Sfc32(12345);
 >>> let p = r.randomPermutation(13, [2]);
->>> (p, p.collect(runs:/1))
+>>> (p, p.collect(runs/1))
 (
 	[
 		Permutation[

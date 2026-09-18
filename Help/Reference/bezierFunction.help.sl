@@ -16,7 +16,7 @@ Construct a Bézier curve using a list of control points and apply the function 
 
 ```
 >>> let p = [0 0; 1 1; 2 0; 3 2];
->>> let f:/1 = p.bezierFunction;
+>>> let f/1 = p.bezierFunction;
 >>> f(0.5)
 [1.5, 0.625]
 ```
@@ -67,7 +67,7 @@ A cubic Bézier curve in one dimension:
 Plot the same one dimensional cubic Bézier curve in one dimension:
 
 ~~~spl svg=E
-let f:/1 = [0 0.25 1.75 2].bezierFunction;
+let f/1 = [0 0.25 1.75 2].bezierFunction;
 (0 -- 1).discretize(64).collect { :mu |
 	let x = f(mu);
 	[x 0; x 1]

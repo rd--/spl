@@ -1,6 +1,6 @@
 # warpingCorrespondence
 
-- _warpingCorrespondence(x, y, w=∞, f:/2)_
+- _warpingCorrespondence(x, y, w=∞, f/2)_
 
 Answer the time warping similarity path between sequences _x_ and _y_,
 using window _w_ and distance function _f_.

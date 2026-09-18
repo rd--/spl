@@ -1,6 +1,6 @@
 # caseOf
 
-- _caseOf(x, [y₁ → f₁, y₂ → f₂, …], o:/0)_
+- _caseOf(x, [y₁ → f₁, y₂ → f₂, …], o/0)_
 
 Compare _x_ to each _y_ in turn,
 evaluating the corresponding `Block` _f_ associated with the first item that matches.
@@ -42,7 +42,7 @@ If no match is found, answer the result of evaluating the _otherwise_ clause:
 >>> 	'b' -> { 2 },
 >>> 	'c' -> { 3 }
 >>> ];
->>> 'd'.caseOf(c, identity:/1)
+>>> 'd'.caseOf(c, identity/1)
 'd'
 ```
 

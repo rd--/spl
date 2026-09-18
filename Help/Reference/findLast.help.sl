@@ -1,6 +1,6 @@
 # findLast
 
-- _findLast([x₁ x₂ …], f:/1)_
+- _findLast([x₁ x₂ …], f/1)_
 
 Answer the index of the last element in the sequence _x_ that answers `true` to the predicate block _f_.
 

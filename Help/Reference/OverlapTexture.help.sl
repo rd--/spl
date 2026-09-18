@@ -1,6 +1,6 @@
 # OverlapTexture
 
-- _OverlapTexture(newEventBlock:/1, sustainTime, transitionTime, overlap)_
+- _OverlapTexture(newEventBlock/1, sustainTime, transitionTime, overlap)_
 
 Overlap events.
 Creates a series of overlapped sounds from a user function.

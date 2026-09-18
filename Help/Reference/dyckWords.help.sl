@@ -69,7 +69,7 @@ The number of Dyck words of length _2n_ is the _n_-th Catalan number.
 >>> }
 [1 2 5 14 42 132 429]
 
->>> 1:7.collect(catalanNumber:/1)
+>>> 1:7.collect(catalanNumber/1)
 [1 2 5 14 42 132 429]
 ```
 

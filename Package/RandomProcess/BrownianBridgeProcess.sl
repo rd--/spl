@@ -12,7 +12,7 @@ BrownianBridgeProcess : [Object] { | sigma start end |
 		} {
 			TemporalData(
 				{
-					let [p, q] = r.eulerMaruyamaMethod(a:/2, b:/2, t, x1);
+					let [p, q] = r.eulerMaruyamaMethod(a/2, b/2, t, x1);
 					let k = q.size;
 					q[k] := x2;
 					[p, q].transpose

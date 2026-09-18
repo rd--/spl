@@ -17,7 +17,7 @@ Plot over the unit interval:
 
 ~~~spl svg=A
 (0 -- 1).functionPlot(
-	minkowskiQuestionMarkInverse:/1
+	minkowskiQuestionMarkInverse/1
 )
 ~~~
 
@@ -38,7 +38,7 @@ Plot from -2 to 2:
 
 ~~~spl svg=C
 (-2 -- 2).functionPlot(
-	minkowskiQuestionMarkInverse:/1
+	minkowskiQuestionMarkInverse/1
 )
 ~~~
 

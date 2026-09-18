@@ -1,7 +1,7 @@
 # binaryDetectIndex
 
-- _binaryDetectIndex(n, f:/1)_
-- _binaryDetectIndex([x₁ x₂ …], f:/1)_
+- _binaryDetectIndex(n, f/1)_
+- _binaryDetectIndex([x₁ x₂ …], f/1)_
 
 At `Integer`,
 answer the smallest index _i_ in _1:n__ for which _f(i)_ answers `true`,

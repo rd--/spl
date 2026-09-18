@@ -1,6 +1,6 @@
 # atIfPresentIfAbsent
 
-- _atIfPresentIfAbsent(c, k, α:/1, β:/0)_
+- _atIfPresentIfAbsent(c, k, α/1, β/0)_
 
 Lookup the value associated with the key _k_ in the collection _c_.
 If the key is present,

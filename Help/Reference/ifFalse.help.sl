@@ -1,6 +1,6 @@
 # ifFalse
 
-- _ifFalse(b, f:/0)_
+- _ifFalse(b, f/0)_
 
 Conditional evaluation.
 If the boolean _b_ is `false` answer the result of evaluating _f_,

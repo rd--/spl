@@ -55,7 +55,7 @@ Threads over lists:
 To decide if a list has only zeroes use `allSatisfy` or `isOrigin`:
 
 ```
->>> [0 0 0].allSatisfy(isZero:/1)
+>>> [0 0 0].allSatisfy(isZero/1)
 true
 ```
 

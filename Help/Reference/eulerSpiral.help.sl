@@ -8,7 +8,7 @@ Also called a clothoid or Cornu spiral.
 The Euler spiral:
 
 ~~~spl svg=A
-(-4 -- 4).discretize(100, eulerSpiral:/1)
+(-4 -- 4).discretize(100, eulerSpiral/1)
 .Line
 ~~~
 

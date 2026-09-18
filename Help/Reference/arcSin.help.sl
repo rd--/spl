@@ -62,7 +62,7 @@ n
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(-0.95 -- 0.95).functionPlot(arcSin:/1)
+(-0.95 -- 0.95).functionPlot(arcSin/1)
 ~~~
 
 ![](Help/Image/arcSin-A.svg)
@@ -70,7 +70,7 @@ Plot over a subset of the reals:
 Plot over a subset of the complexes:
 
 ~~~spl png=B
-[-4J-2 2J2].complexPlot(arcSin:/1)
+[-4J-2 2J2].complexPlot(arcSin/1)
 ~~~
 
 ![](Help/Image/arcSin-B.png)

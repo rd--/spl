@@ -37,7 +37,7 @@ The names of the primitive collection types:
 The primitive behaviour type:
 
 ```
->>> typeOf:/1.typeOf
+>>> typeOf/1.typeOf
 'Block'
 ```
 
@@ -57,7 +57,7 @@ true
 >>> system
 >>> .typeLookup('String')
 >>> .methodDictionary
->>> .includesKey('includesSubstring:/2')
+>>> .includesKey('includesSubstring/2')
 true
 ```
 

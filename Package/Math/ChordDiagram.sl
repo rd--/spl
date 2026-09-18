@@ -93,7 +93,7 @@ ChordDiagram : [Object, Store] { | lengthVector |
 		}
 	}
 
-	chordDiagramsDo { :n :f:/1 |
+	chordDiagramsDo { :n :f/1 |
 		let m = 2 * n;
 		let l = List(m + 1, 0);
 		let a = ListView(l, 1, m + 1, 0);

@@ -9,7 +9,7 @@ No argument blocks are notated as methods of `Void`.
 >>> system
 >>> .typeLookup('Void')
 >>> .methodDictionary
->>> .includesKey('IdentitySet:/0')
+>>> .includesKey('IdentitySet/0')
 true
 
 >>> system

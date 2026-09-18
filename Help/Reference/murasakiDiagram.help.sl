@@ -53,7 +53,7 @@ Plot the set partitions of four:
 
 ~~~spl svg=F
 4.setPartitions.collect(
-	murasakiDiagram:/1
+	murasakiDiagram/1
 ).PlotSet([3 5])
 ~~~
 

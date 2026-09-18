@@ -37,7 +37,7 @@ Map! : [Object, Store, Equal, Iterable, Indexable, Collection, Extensible, Dicti
 		<primitive: return Array.from(_self.keys());>
 	}
 
-	keysAndValuesDo { :self :aBlock:/2 |
+	keysAndValuesDo { :self :aBlock/2 |
 		<primitive:
 		_self.forEach(function(value, key, _) {
 			_aBlock_2(key, value);
@@ -64,7 +64,7 @@ Map! : [Object, Store, Equal, Iterable, Indexable, Collection, Extensible, Dicti
 	}
 
 	species { :self |
-		Map:/0
+		Map/0
 	}
 
 	storeString { :self |
@@ -72,7 +72,7 @@ Map! : [Object, Store, Equal, Iterable, Indexable, Collection, Extensible, Dicti
 	}
 
 	storeStringLiteral { :self |
-		self.storeStringLiteral('[:]', '[', ']', storeString:/1, ': ', storeString:/1)
+		self.storeStringLiteral('[:]', '[', ']', storeString/1, ': ', storeString/1)
 	}
 
 	listSubstitutionSystem { :self :aList :anInteger |
@@ -146,7 +146,7 @@ Map! : [Object, Store, Equal, Iterable, Indexable, Collection, Extensible, Dicti
 
 	associationListToMap { :self |
 		self.isAssociationList.if {
-			self.collect(keyAndValue:/1).uncheckedMatrixToMap
+			self.collect(keyAndValue/1).uncheckedMatrixToMap
 		} {
 			self.error('List>>associationListToMap')
 		}

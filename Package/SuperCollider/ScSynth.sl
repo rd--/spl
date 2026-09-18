@@ -260,7 +260,7 @@ ScSynth! : [Object] {
 		(self.depth != 3).if {
 			'asLocalBufferList: not a matrix'.error
 		} {
-			self.collect(asLocalBuf:/1)
+			self.collect(asLocalBuf/1)
 		}
 	}
 

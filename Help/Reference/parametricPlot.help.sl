@@ -1,6 +1,6 @@
 # parametricPlot
 
-- _parametricPlot(u, x:/1, y:/1)_
+- _parametricPlot(u, x/1, y/1)_
 
 Answer a parametric plot of a curve with _x_ and _y_ coordinates as function of the domain _u_.
 
@@ -18,7 +18,7 @@ Plot a parametric curve:
 Circle:
 
 ~~~spl svg=B
-(0 -- 2.pi).parametricPlot(cos:/1, sin:/1)
+(0 -- 2.pi).parametricPlot(cos/1, sin/1)
 ~~~
 
 ![](Help/Image/parametricPlot-B.svg)

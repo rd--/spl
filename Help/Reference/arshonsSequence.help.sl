@@ -9,7 +9,7 @@ The first few iterations of Arshon’s sequence,
 OEIS [A099054](https://oeis.org/A099054):
 
 ```
->>> 1:3.collect(arshonsSequence:/1)
+>>> 1:3.collect(arshonsSequence/1)
 [
 	1;
 	1 2 3;

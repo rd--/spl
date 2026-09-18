@@ -8,7 +8,7 @@ Sorting numbers,
 OEIS [A001855](https://oeis.org/A001855):
 
 ```
->>> 1:58.collect(sortingNumber:/1)
+>>> 1:58.collect(sortingNumber/1)
 [
 	  0   1   3   5   8
 	 11  14  17  21  25

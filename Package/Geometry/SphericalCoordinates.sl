@@ -99,7 +99,7 @@ SphericalCoordinates : [Object, Store, Equal] { | coordinates |
 				r * phi.cos
 			]
 		} {
-			self.collect(fromSphericalCoordinates:/1)
+			self.collect(fromSphericalCoordinates/1)
 		}
 	}
 
@@ -112,7 +112,7 @@ SphericalCoordinates : [Object, Store, Equal] { | coordinates |
 				(x.square + y.square).sqrt.atan2(z)
 			]
 		} {
-			self.collect(toSphericalCoordinates:/1)
+			self.collect(toSphericalCoordinates/1)
 		}
 	}
 

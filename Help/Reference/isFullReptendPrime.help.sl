@@ -8,7 +8,7 @@ First few terms,
 OEIS [A001913](https://oeis.org/A001913):
 
 ```
->>> 1:150.select(isFullReptendPrime:/1)
+>>> 1:150.select(isFullReptendPrime/1)
 [
 	  7  17  19  23  29
 	 47  59  61  97 109

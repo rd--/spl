@@ -8,7 +8,7 @@ Square numbers,
 OEIS [A000290](https://oeis.org/A000290):
 
 ```
->>> 0L:99.select(isSquare:/1)
+>>> 0L:99.select(isSquare/1)
 [0 1 4 9 16 25 36 49 64 81]
 
 >>> 0L:9 ^ 2

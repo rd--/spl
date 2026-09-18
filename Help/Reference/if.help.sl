@@ -1,6 +1,6 @@
 # if
 
-- _if(condition, whenTrue:/0, whenFalse:/0)_
+- _if(condition, whenTrue/0, whenFalse/0)_
 
 Conditional evaluation.
 If _aBoolean_ is `true` answer the result of  _whenTrue()_, else answer _whenFalse()_.

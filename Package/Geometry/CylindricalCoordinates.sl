@@ -65,7 +65,7 @@ CylindricalCoordinates : [Object, Equal] { | coordinates |
 			let y = rho * phi.sin;
 			[x y z]
 		} {
-			self.collect(fromCylindricalCoordinates:/1)
+			self.collect(fromCylindricalCoordinates/1)
 		}
 	}
 
@@ -76,7 +76,7 @@ CylindricalCoordinates : [Object, Equal] { | coordinates |
 			let phi = y.atan2(x);
 			[rho phi z]
 		} {
-			self.collect(toCylindricalCoordinates:/1)
+			self.collect(toCylindricalCoordinates/1)
 		}
 	}
 

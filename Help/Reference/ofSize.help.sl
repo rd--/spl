@@ -1,6 +1,6 @@
 # ofSize
 
-- _ofSize(f:/1, n)_
+- _ofSize(f/1, n)_
 - _ofSize(c, n)_
 
 At `Block`,

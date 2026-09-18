@@ -8,10 +8,10 @@ Rewrite rules:
 
 ```
 >> 'x +.f y'.splSimplify
-(f(plusSign:/2) . (x, y))
+(f(plusSign/2) . (x, y))
 
 >> 'x *.f(+) y'.splSimplify
-(f(asterisk:/2, plusSign:/2) . (x, y))
+(f(asterisk/2, plusSign/2) . (x, y))
 ```
 
 Adverbs modify how operators iterate over sequences.

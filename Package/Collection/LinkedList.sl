@@ -4,7 +4,7 @@
 		self
 	}
 
-	do { :self :aBlock:/1 |
+	do { :self :aBlock/1 |
 		self.linksDo { :each |
 			aBlock(each.value)
 		}
@@ -16,9 +16,9 @@
 		}
 	}
 
-	linkAtIfAbsent { :self :index :errorBlock:/0 |
+	linkAtIfAbsent { :self :index :errorBlock/0 |
 		let counter = 0;
-		valueWithReturn { :return:/1 |
+		valueWithReturn { :return/1 |
 			self.linksDo { :link |
 				counter := counter + 1;
 				(counter = index).ifTrue {
@@ -35,8 +35,8 @@
 		}
 	}
 
-	linkOfIfAbsent { :self :anObject :errorBlock:/0 |
-		valueWithReturn { :return:/1 |
+	linkOfIfAbsent { :self :anObject :errorBlock/0 |
+		valueWithReturn { :return/1 |
 			self.linksDo { :link |
 				(link.value = anObject.value).ifTrue {
 					link.return
@@ -46,7 +46,7 @@
 		}
 	}
 
-	linksDo { :self :aBlock:/1 |
+	linksDo { :self :aBlock/1 |
 		let next = self;
 		{ next.isNil }.whileFalse {
 			aBlock(next);
@@ -115,8 +115,8 @@ LinkedList : [Object, Equal, Store, Copyable, Compare, Iterable, Indexable, Coll
 		aLink
 	}
 
-	atIfAbsent { :self :index :ifAbsent:/0 |
-		self.linkAtIfAbsent(index, ifAbsent:/0).value
+	atIfAbsent { :self :index :ifAbsent/0 |
+		self.linkAtIfAbsent(index, ifAbsent/0).value
 	}
 
 	atPut { :self :index :anObject |
@@ -153,7 +153,7 @@ LinkedList : [Object, Equal, Store, Copyable, Compare, Iterable, Indexable, Coll
 		aLink
 	}
 
-	collect { :self :aBlock:/1 |
+	collect { :self :aBlock/1 |
 		let aLink = self.firstLink;
 		let answer = LinkedList();
 		{
@@ -165,9 +165,9 @@ LinkedList : [Object, Equal, Store, Copyable, Compare, Iterable, Indexable, Coll
 		answer
 	}
 
-	do { :self :aBlock:/1 |
+	do { :self :aBlock/1 |
 		self.ifNotEmpty {
-			self.firstLink.do(aBlock:/1)
+			self.firstLink.do(aBlock/1)
 		}
 	}
 
@@ -187,11 +187,11 @@ LinkedList : [Object, Equal, Store, Copyable, Compare, Iterable, Indexable, Coll
 		}
 	}
 
-	linkAtIfAbsent { :self :index :errorBlock:/0 |
+	linkAtIfAbsent { :self :index :errorBlock/0 |
 		self.ifEmpty {
 			errorBlock()
 		} {
-			self.firstLink.linkAtIfAbsent(index, errorBlock:/0)
+			self.firstLink.linkAtIfAbsent(index, errorBlock/0)
 		}
 	}
 
@@ -213,17 +213,17 @@ LinkedList : [Object, Equal, Store, Copyable, Compare, Iterable, Indexable, Coll
 		}
 	}
 
-	linkOfIfAbsent { :self :anObject :errorBlock:/0 |
+	linkOfIfAbsent { :self :anObject :errorBlock/0 |
 		self.ifEmpty {
 			errorBlock()
 		} {
-			self.firstLink.linkOfIfAbsent(anObject, errorBlock:/0)
+			self.firstLink.linkOfIfAbsent(anObject, errorBlock/0)
 		}
 	}
 
-	linksDo { :self :aBlock:/1 |
+	linksDo { :self :aBlock/1 |
 		self.ifNotEmpty {
-			self.firstLink.linksDo(aBlock:/1)
+			self.firstLink.linksDo(aBlock/1)
 		}
 	}
 
@@ -251,7 +251,7 @@ LinkedList : [Object, Equal, Store, Copyable, Compare, Iterable, Indexable, Coll
 		self.lastLink := nil
 	}
 
-	removeAllSuchThat { :self :aBlock:/1 |
+	removeAllSuchThat { :self :aBlock/1 |
 		self.do { :each |
 			aBlock(each).ifTrue {
 				self.remove(each)
@@ -271,8 +271,8 @@ LinkedList : [Object, Equal, Store, Copyable, Compare, Iterable, Indexable, Coll
 		oldLink.value
 	}
 
-	removeIfAbsent { :self :aLinkOrObject :aBlock:/0 |
-		let link = self.linkOfIfAbsent(aLinkOrObject, aBlock:/0);
+	removeIfAbsent { :self :aLinkOrObject :aBlock/0 |
+		let link = self.linkOfIfAbsent(aLinkOrObject, aBlock/0);
 		self.removeLinkIfAbsent(link) {
 			aBlock()
 		};
@@ -299,8 +299,8 @@ LinkedList : [Object, Equal, Store, Copyable, Compare, Iterable, Indexable, Coll
 		oldLink.value
 	}
 
-	removeLinkIfAbsent { :self :aLink :aBlock:/0 |
-		valueWithReturn { :return:/1 |
+	removeLinkIfAbsent { :self :aLink :aBlock/0 |
+		valueWithReturn { :return/1 |
 			(aLink == self.firstLink).if {
 				self.firstLink := aLink.nextLink;
 				(aLink == self.lastLink).ifTrue {
@@ -325,7 +325,7 @@ LinkedList : [Object, Equal, Store, Copyable, Compare, Iterable, Indexable, Coll
 		}
 	}
 
-	select { :self :aBlock:/1 |
+	select { :self :aBlock/1 |
 		let answer = LinkedList();
 		self.do { :each |
 			each.aBlock.ifTrue {
@@ -336,7 +336,7 @@ LinkedList : [Object, Equal, Store, Copyable, Compare, Iterable, Indexable, Coll
 	}
 
 	species { :self |
-		List:/1
+		List/1
 	}
 
 	storeString { :self |
@@ -367,7 +367,7 @@ LinkedList : [Object, Equal, Store, Copyable, Compare, Iterable, Indexable, Coll
 
 ValueLink : [Object, Store, Equal, Link] { | nextLink value |
 
-	equalBy { :self :anObject :aBlock:/2 |
+	equalBy { :self :anObject :aBlock/2 |
 		anObject.isValueLink & {
 			aBlock(self.value, anObject.value) & {
 				self.nextLink == anObject.nextLink

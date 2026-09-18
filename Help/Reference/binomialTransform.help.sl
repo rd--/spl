@@ -1,6 +1,6 @@
 # binomialTransform
 
-- _binomialTransform(f:/1)_
+- _binomialTransform(f/1)_
 - _binomialTransform([x₁ x₂ …])_
 
 Answer the binomial transform of the unary function _f_ or the integer sequence _x_.
@@ -14,7 +14,7 @@ OEIS [A001906](https://oeis.org/A001906):
 [0 1 3 8 21 55 144 377 987 2584]
 
 >>> 0:9.collect(
->>> 	fibonacci:/1
+>>> 	fibonacci/1
 >>> 	.binomialTransform
 >>> )
 [0 1 3 8 21 55 144 377 987 2584]
@@ -150,7 +150,7 @@ Binomial transform of Catalan numbers,
 OEIS [A007317](https://oeis.org/A007317):
 
 ```
->>> 0:13.collect(catalanNumber:/1)
+>>> 0:13.collect(catalanNumber/1)
 >>> .binomialTransform
 [
 	1 2 5 15 51 188 731 2950 12235 51822
@@ -246,7 +246,7 @@ Lah numbers,
 OEIS [A001286](https://oeis.org/A001286):
 
 ```
->>> binomialTransform:/1
+>>> binomialTransform/1
 >>> .iterate([1 1 1 25 25 745 3145], 5)
 [1 6 36 240 1800 15120 141120]
 ```

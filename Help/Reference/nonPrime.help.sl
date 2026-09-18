@@ -35,7 +35,7 @@ OEIS [A114537](https://oeis.org/A114537)
 
 ```
 >>> { :n :k |
->>> 	prime:/1.iterate(n.nonPrime, k)
+>>> 	prime/1.iterate(n.nonPrime, k)
 >>> }.table(0:5, 0:5)
 [
 	 1   2    3    5    11    31;
@@ -63,7 +63,7 @@ OEIS [A114537](https://oeis.org/A114537):
 
 ~~~spl svg=B oeis=A114537
 10.antidiagonalArray { :n :k |
-	prime:/1.iterate(
+	prime/1.iterate(
 		(n - 1).nonPrime,
 		k - 1
 	)

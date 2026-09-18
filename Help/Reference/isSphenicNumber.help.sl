@@ -7,7 +7,7 @@ Predicate to decide if _n_ is a sphenic number.
 The first few sphenic numbers:
 
 ```
->>> 1:165.select(isSphenicNumber:/1)
+>>> 1:165.select(isSphenicNumber/1)
 [30 42 66 70 78 102 105 110 114 130 138 154 165]
 ```
 
@@ -20,7 +20,7 @@ Consecutive sphenic numbers:
 >>> 	2013 2014 2015;
 >>> 	2665 2666 2667
 >>> ].collect { :each |
->>> 	each.allSatisfy(isSphenicNumber:/1)
+>>> 	each.allSatisfy(isSphenicNumber/1)
 >>> }
 [true true true true]
 ```

@@ -1,6 +1,6 @@
 # withDo
 
-- _withDo(c₁, c₂, f:/2)_
+- _withDo(c₁, c₂, f/2)_
 
 Evaluate the block _f_ with corresponding elements from the sequences _c₁_ and _c₂_,
 which must have the same `size`.

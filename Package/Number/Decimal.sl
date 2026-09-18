@@ -4,7 +4,7 @@ Decimal : [Object, Store, Equal, Compare, Number] { | fraction scale |
 		operand.isDecimal.if {
 			self.fraction < operand.fraction
 		} {
-			operand.adaptToDecimalAndApply(self, <)
+			operand.adaptToDecimalAndApply(self, less/2)
 		}
 	}
 
@@ -18,7 +18,7 @@ Decimal : [Object, Store, Equal, Compare, Number] { | fraction scale |
 					self.scale.max(operand.scale)
 				)
 			} {
-				operand.adaptToDecimalAndApply(self, /)
+				operand.adaptToDecimalAndApply(self, divide/2)
 			}
 		}
 	}
@@ -51,7 +51,7 @@ Decimal : [Object, Store, Equal, Compare, Number] { | fraction scale |
 				self.scale.max(operand.scale)
 			)
 		} {
-			operand.adaptToDecimalAndApply(self, +)
+			operand.adaptToDecimalAndApply(self, plus/2)
 		}
 	}
 
@@ -81,7 +81,7 @@ Decimal : [Object, Store, Equal, Compare, Number] { | fraction scale |
 				self.scale.max(operand.scale)
 			)
 		} {
-			operand.adaptToDecimalAndApply(self, -)
+			operand.adaptToDecimalAndApply(self, subtract/2)
 		}
 	}
 
@@ -92,7 +92,7 @@ Decimal : [Object, Store, Equal, Compare, Number] { | fraction scale |
 				self.scale + operand.scale /* self.scale.max(operand.scale) */
 			)
 		} {
-			operand.adaptToDecimalAndApply(self, *)
+			operand.adaptToDecimalAndApply(self, times/2)
 		}
 	}
 
@@ -100,15 +100,15 @@ Decimal : [Object, Store, Equal, Compare, Number] { | fraction scale |
 		UnsimplifiedDecimal(self.fraction.abs, self.scale)
 	}
 
-	adaptToFractionAndApply { :self :receiver :aBlock:/2 |
+	adaptToFractionAndApply { :self :receiver :aBlock/2 |
 		aBlock(receiver.asDecimal(self.scale), self)
 	}
 
-	adaptToIntegerAndApply { :self :receiver :aBlock:/2 |
+	adaptToIntegerAndApply { :self :receiver :aBlock/2 |
 		aBlock(receiver.asDecimal(0), self)
 	}
 
-	adaptToNumberAndApply { :self :receiver :aBlock:/2 |
+	adaptToNumberAndApply { :self :receiver :aBlock/2 |
 		receiver.isInteger.if {
 			aBlock(receiver.asDecimal(0), self)
 		} {
@@ -266,7 +266,7 @@ Decimal : [Object, Store, Equal, Compare, Number] { | fraction scale |
 		self.fraction.truncate
 	}
 
-	truncateScale { :self :k :mode:/1 |
+	truncateScale { :self :k :mode/1 |
 		let s = self.scale;
 		(k < s).if {
 			let f = self.fraction;
@@ -291,7 +291,7 @@ Decimal : [Object, Store, Equal, Compare, Number] { | fraction scale |
 	}
 
 	truncateScale { :self :k |
-		self.truncateScale(k, truncate:/1)
+		self.truncateScale(k, truncate/1)
 	}
 
 	unscaledInteger { :self |
@@ -306,7 +306,7 @@ Decimal : [Object, Store, Equal, Compare, Number] { | fraction scale |
 
 +Fraction {
 
-	adaptToDecimalAndApply { :self :receiver :aBlock:/2 |
+	adaptToDecimalAndApply { :self :receiver :aBlock/2 |
 		aBlock(receiver, self.asDecimal(receiver.scale))
 	}
 
@@ -332,7 +332,7 @@ Decimal : [Object, Store, Equal, Compare, Number] { | fraction scale |
 
 +SmallFloat {
 
-	adaptToDecimalAndApply { :self :receiver :aBlock:/2 |
+	adaptToDecimalAndApply { :self :receiver :aBlock/2 |
 		self.isInteger.if {
 			aBlock(receiver, self.asDecimal(0))
 
@@ -357,7 +357,7 @@ Decimal : [Object, Store, Equal, Compare, Number] { | fraction scale |
 
 +LargeInteger {
 
-	adaptToDecimalAndApply { :self :aNumber :aBlock:/2 |
+	adaptToDecimalAndApply { :self :aNumber :aBlock/2 |
 		aBlock(aNumber, self.asDecimal)
 	}
 
@@ -373,7 +373,7 @@ Decimal : [Object, Store, Equal, Compare, Number] { | fraction scale |
 
 +String {
 
-	parseDecimal { :self :elseClause:/0 |
+	parseDecimal { :self :elseClause/0 |
 		let parts = self.splitBy('D');
 		(parts.size = 2).if {
 			parseDecimalWithScale(
@@ -385,7 +385,7 @@ Decimal : [Object, Store, Equal, Compare, Number] { | fraction scale |
 						self.error('parseDecimal: invalid scale')
 					}
 				},
-				elseClause:/0
+				elseClause/0
 			)
 		} {
 			elseClause()
@@ -398,20 +398,20 @@ Decimal : [Object, Store, Equal, Compare, Number] { | fraction scale |
 		}
 	}
 
-	parseDecimalWithScale { :self :scaleOrNil :elseClause:/0 |
+	parseDecimalWithScale { :self :scaleOrNil :elseClause/0 |
 		let parts = self.splitBy('.');
 		parts.size.caseOf(
 			[
 				1 -> {
 					UnsimplifiedDecimal(
-						parts[1].parseLargeInteger(elseClause:/0).asFraction,
+						parts[1].parseLargeInteger(elseClause/0).asFraction,
 						scaleOrNil.ifNil { 0 }
 					)
 				},
 				2 -> {
 					let sign = self.beginsWith('-').if { -1 } { 1 };
-					let i = parts[1].parseLargeInteger(elseClause:/0);
-					let f = sign.copySignTo(parts[2].parseLargeInteger(elseClause:/0));
+					let i = parts[1].parseLargeInteger(elseClause/0);
+					let f = sign.copySignTo(parts[2].parseLargeInteger(elseClause/0));
 					let k = parts[2].size;
 					scaleOrNil.ifNotNil { :x |
 						(x >= k).if {

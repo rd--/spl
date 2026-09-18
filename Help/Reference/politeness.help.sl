@@ -5,7 +5,7 @@
 The `politeness` of a number is non-zero for polite numbers.
 
 ```
->>> 0:100.collect(politeness:/1)
+>>> 0:100.collect(politeness/1)
 [
 	0 0 0 1 0 1 1 1 0 2
 	1 1 1 1 1 3 0 1 2 1
@@ -33,14 +33,14 @@ The `politeness` of a number is non-zero for polite numbers.
 >>> 15.politeness
 3
 
->>> [4:6, 1:5, 7:8].collect(sum:/1)
+>>> [4:6, 1:5, 7:8].collect(sum/1)
 [15 15 15]
 ```
 
 The politeness is one less than the number of odd divisors:
 
 ```
->>> 99.divisors.count(isOdd:/1) - 1
+>>> 99.divisors.count(isOdd/1) - 1
 5
 
 >>> 99.politeness
@@ -50,7 +50,7 @@ The politeness is one less than the number of odd divisors:
 Plot politeness of first few numbers:
 
 ~~~spl svg=A
-0:200.collect(politeness:/1)
+0:200.collect(politeness/1)
 .scatterPlot
 ~~~
 

@@ -9,8 +9,8 @@ The value of the function at each of the input _x_ values equals the correspondi
 ```
 >>> let x = [0 0.1 0.5 1 2];
 >>> let y = [0 0.3 0.6 -0.2 3];
->>> let f:/1 = x.linearInterpolator(y);
->>> x.collect(f:/1)
+>>> let f/1 = x.linearInterpolator(y);
+>>> x.collect(f/1)
 y
 ```
 
@@ -19,8 +19,8 @@ Interpolate a two-column matrix:
 ```
 >>> let x = [0 0.5 1];
 >>> let y = [0 1; 0.25 0.25; 1 1];
->>> let f:/1 = x.linearInterpolator(y);
->>> (0, 0.25 .. 1).collect(f:/1)
+>>> let f/1 = x.linearInterpolator(y);
+>>> (0, 0.25 .. 1).collect(f/1)
 [
 	0.000 1.000;
 	0.125 0.625;

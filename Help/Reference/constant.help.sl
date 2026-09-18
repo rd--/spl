@@ -7,7 +7,7 @@ ignoring the _n_ argument values.
 Implemented for _n=0,1,2_.
 
 ```
->>> let f:/1 = 42.constant;
+>>> let f/1 = 42.constant;
 >>> f(23)
 42
 

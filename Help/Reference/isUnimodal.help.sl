@@ -1,6 +1,6 @@
 # isUnimodal
 
-- _isUnimodal([x₁ x₂ …], f:/2)_
+- _isUnimodal([x₁ x₂ …], f/2)_
 
 Answer `true` if the sequence _x_ is unimodal,
 according to the predicate _f_,

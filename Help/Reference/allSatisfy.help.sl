@@ -1,6 +1,6 @@
 # allSatisfy
 
-- _allSatisfy(c, f:/1)_
+- _allSatisfy(c, f/1)_
 
 Evaluate the block _f_ with the elements of the collection _c_.
 If _f_ answers `false` for any element,
@@ -9,10 +9,10 @@ otherwise answers `true`.
 Only tests elements until one answers `false`.
 
 ```
->>> [1 3 5 7 9].allSatisfy(isOdd:/1)
+>>> [1 3 5 7 9].allSatisfy(isOdd/1)
 true
 
->>> 1:5.allSatisfy(isOdd:/1)
+>>> 1:5.allSatisfy(isOdd/1)
 false
 
 >>> 1:5.allSatisfy { :each | each > 3 }
@@ -22,7 +22,7 @@ false
 The empty list always answers `true`:
 
 ```
->>> [].allSatisfy(isOdd:/1)
+>>> [].allSatisfy(isOdd/1)
 true
 ```
 
@@ -31,8 +31,8 @@ Does not traverse tree structures, see `deepAllSatisfy`:
 ```
 >>> let m = [3 3].iota;
 >>> (
->>> 	m.allSatisfy(isList:/1),
->>> 	m.deepAllSatisfy(isInteger:/1)
+>>> 	m.allSatisfy(isList/1),
+>>> 	m.deepAllSatisfy(isInteger/1)
 >>> )
 (true, true)
 ```
@@ -41,7 +41,7 @@ Does not mutate receiver:
 
 ```
 >>> let a = [1 3 5 7 9];
->>> let b = a.allSatisfy(isOdd:/1);
+>>> let b = a.allSatisfy(isOdd/1);
 >>> (a, b)
 ([1 3 5 7 9], true)
 ```

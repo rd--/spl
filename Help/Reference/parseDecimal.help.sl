@@ -1,6 +1,6 @@
 # parseDecimal
 
-- _parseDecimal(s, f:/0)_
+- _parseDecimal(s, f/0)_
 
 Parse the string _s_ as a `Decimal` value,
 if the parse fails evaluate the else clause _f_ or signal an `error`.

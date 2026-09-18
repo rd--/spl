@@ -32,7 +32,7 @@ offset by negative one:
 
 ```
 >>> 0:16.collect(
->>> 	doudnaSequenceFunction:/1
+>>> 	doudnaSequenceFunction/1
 >>> )
 [1 2 3 4 5 6 9 8 7 10 15 12 25 18 27 16 11]
 ```

@@ -1,6 +1,6 @@
 # evaluateNotifying
 
-- _evaluateNotifying(system, s, f:/1)_
+- _evaluateNotifying(system, s, f/1)_
 
 Compile and execute the string _s_ in the context of `system`.
 If there is an error evaluate the block _f_ with the error value.

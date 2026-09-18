@@ -11,7 +11,7 @@ OEIS [A007703](https://oeis.org/A007703):
 >>> 2:12.prime
 [3 5 7 11 13 17 19 23 29 31 37]
 
->>> 2:12.prime.select(isRegularPrime:/1)
+>>> 2:12.prime.select(isRegularPrime/1)
 [3 5 7 11 13 17 19 23 29 31]
 ```
 
@@ -19,7 +19,7 @@ Irregular primes,
 OEIS [A000928](https://oeis.org/A000928):
 
 ```
->>> 2:17.prime.reject(isRegularPrime:/1)
+>>> 2:17.prime.reject(isRegularPrime/1)
 [37 59]
 ```
 

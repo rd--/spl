@@ -1,6 +1,6 @@
 # indicesAndValuesDo
 
-- _indicesAndValuesDo(c, f:/2)_
+- _indicesAndValuesDo(c, f/2)_
 
 Apply the block _f_ to each index and item of the sequential colletion _c_.
 

@@ -68,7 +68,7 @@ Plot an 8×3 matrix:
 Plot the prime counting sequence:
 
 ~~~spl svg=E
-1:50.collect(primePi:/1).linePlot
+1:50.collect(primePi/1).linePlot
 ~~~
 
 ![](Help/Image/linePlot-E.svg)
@@ -76,7 +76,7 @@ Plot the prime counting sequence:
 C.f. `functionPlot`:
 
 ~~~spl svg=F
-1:50.functionPlot(primePi:/1)
+1:50.functionPlot(primePi/1)
 ~~~
 
 ![](Help/Image/linePlot-F.svg)
@@ -191,7 +191,7 @@ Compare the n^(th) prime to an estimate:
 
 ~~~spl svg=P
 [
-	1:80.collect(prime:/1),
+	1:80.collect(prime/1),
 	1:80.collect { :n | n * n.log }
 ].linePlot
 ~~~

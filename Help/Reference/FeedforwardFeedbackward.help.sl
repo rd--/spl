@@ -1,6 +1,6 @@
 # FeedforwardFeedbackward
 
-- _FeedforwardFeedbackward(in, forward:/2, backward:/1)_
+- _FeedforwardFeedbackward(in, forward/2, backward/1)_
 
 Generate a feed-forward, feed-backward network by introducing a delay of one `BlockSize`.
 The network allocates a buffer to hold the block delay, and specifies a maximum allowed block size of 512 places.

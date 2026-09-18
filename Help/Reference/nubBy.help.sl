@@ -1,6 +1,6 @@
 # nubBy
 
-- _nubBy(c, f:/2)_
+- _nubBy(c, f/2)_
 
 Answer a copy of the collection _c_ that removes any duplicates, according to _f_.
 If _c_ is a sequence the copy will preserve the order of elements.

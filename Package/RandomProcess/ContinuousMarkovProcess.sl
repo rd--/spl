@@ -2,7 +2,7 @@ ContinuousMarkovProcess : [Object] { | p0 q |
 
 	asStream { :self :r :t0 |
 		let p0 = AliasMethod(self.p0);
-		let m = self.transitionMatrix.collect(AliasMethod:/1);
+		let m = self.transitionMatrix.collect(AliasMethod/1);
 		let h = self.transitionRateVector;
 		let t = t0;
 		let x = p0.nextRandom(r);

@@ -52,7 +52,7 @@ OEIS [A123684](https://oeis.org/A123684):
 
 >>> let n = 1:9;
 >>> [3 * (n - 1) + 1, n].interleave
->>> .prefixes.collect(average:/1)
+>>> .prefixes.collect(average/1)
 [1 1 2 2 3 3 4 4 5 5 6 6 7 7 8 8 9 9]
 ```
 

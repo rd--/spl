@@ -80,7 +80,7 @@ see also `namedScale`:
 >>> 	each.nameList.anySatisfy { :name |
 >>> 		name = 'Antilydian'
 >>> 	}
->>> }.collect(intervals:/1)
+>>> }.collect(intervals/1)
 [
 	2 2 2 3 2 2 3;
 	3 3 3 4 3 3 4;
@@ -89,7 +89,7 @@ see also `namedScale`:
 ]
 
 >>> 'Antilydian'.namedScaleList
->>> .collect(intervals:/1)
+>>> .collect(intervals/1)
 [
 	2 2 2 3 2 2 3;
 	3 3 3 4 3 3 4;
@@ -131,7 +131,7 @@ then select only the lexicographically least rotations of each answer:
 >>> 	.intervals
 >>> 	.lexicographicallyLeastRotation
 >>> }.nub
->>> .sortBy(precedes:/2)
+>>> .sortBy(precedes/2)
 [
 	1 1 2 1 2;
 	1 2 1 2 2;
@@ -162,7 +162,7 @@ Find scales with 'Messiaen' in the name:
 >>> 	x
 >>> 	->
 >>> 	x.namedScaleList
->>> 	.collect(intervals:/1)
+>>> 	.collect(intervals/1)
 >>> }
 [
 	'Messiaen truncated mode 6' -> [

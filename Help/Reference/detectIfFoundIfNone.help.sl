@@ -1,6 +1,6 @@
 # detectIfFoundIfNone
 
-- _detectIfFoundIfNone(c, predicate:/1, ifFound:/1, ifNone:/0)_
+- _detectIfFoundIfNone(c, predicate/1, ifFound/1, ifNone/0)_
 
 Evaluate _predicate_ with each of the elements of the collection _c_ as the argument.
 Answer the value of _ifFound_ at the first element for which _predicate_ evaluates to `true`.

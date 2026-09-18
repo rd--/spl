@@ -18,7 +18,7 @@ usually denoted _C(n)_,
 OEIS [A006370](https://oeis.org/A006370):
 
 ```
->>> 0:23.collect(collatzMap:/1)
+>>> 0:23.collect(collatzMap/1)
 [
 	 0  4  1 10  2 16  3 22  4 28
 	 5 34  6 40  7 46  8 52  9 58
@@ -40,7 +40,7 @@ usually denoted _T(n)_,
 OEIS [A014682](https://oeis.org/A014682):
 
 ```
->>> 0:23.collect(collatzFunction:/1)
+>>> 0:23.collect(collatzFunction/1)
 [
 	 0  2  1  5  2  8  3 11  4 14
 	 5 17  6 20  7 23  8 26  9 29
@@ -59,10 +59,10 @@ OEIS [A033478](https://oeis.org/A033478):
 >>> 3.collatzSequence(3, 'Indirect')
 [[3 10 5 16 8 4 2 1], 4]
 
->>> collatzMap:/1.nestList(3, 7)
+>>> collatzMap/1.nestList(3, 7)
 [3 10 5 16 8 4 2 1]
 
->>> collatzFunction:/1.nestList(3, 5)
+>>> collatzFunction/1.nestList(3, 5)
 [3 5 8 4 2 1]
 
 >>> 3.collatzSequence(3, 'Direct')
@@ -88,13 +88,13 @@ which arrives at `one` after sixteen steps:
 	4
 ]
 
->>> collatzMap:/1.nestList(7, 16)
+>>> collatzMap/1.nestList(7, 16)
 [
 	 7 22 11 34 17 52 26 13 40 20
 	10  5 16  8  4  2  1
 ]
 
->>> collatzFunction:/1.nestList(7, 11)
+>>> collatzFunction/1.nestList(7, 11)
 [7 11 17 26 13 20 10 5 8 4 2 1]
 
 >>> 7.collatzSequence(3, 'Direct')
@@ -121,13 +121,13 @@ OEIS [A033479](https://oeis.org/A033479):
 	4
 ]
 
->>> collatzMap:/1.nestList(9, 19)
+>>> collatzMap/1.nestList(9, 19)
 [
 	 9 28 14 7 22 11 34 17 52 26
 	13 40 20 10 5 16  8  4  2  1
 ]
 
->>> collatzFunction:/1.nestList(9, 13)
+>>> collatzFunction/1.nestList(9, 13)
 [9 14 7 11 17 26 13 20 10 5 8 4 2 1]
 
 >>> 9.collatzSequence(3, 'Direct')
@@ -138,7 +138,7 @@ The table of Collatz sequences,
 OEIS [A070165](http://oeis.org/A070165):
 
 ```
->>> 1:6.collect(collatzSequence:/1)
+>>> 1:6.collect(collatzSequence/1)
 [
 	1;
 	2 1;
@@ -173,7 +173,7 @@ OEIS [A070168](https://oeis.org/A070168):
 
 ```
 >>> 1:7.collect { :n |
->>> 	collatzFunction:/1
+>>> 	collatzFunction/1
 >>> 	.nestWhileList(n) { :x |
 >>> 		x > 1
 >>> 	}
@@ -221,7 +221,7 @@ OEIS [A078719](https://oeis.org/A078719):
 ```
 >>> 1:22.collect { :n |
 >>> 	n.collatzSequence
->>> 	.count(isOdd:/1)
+>>> 	.count(isOdd/1)
 >>> }
 [1 1 3 1 2 3 6 1 7 2 5 3 3 6 6 1 4 7 7 2 2 5]
 ```
@@ -236,7 +236,7 @@ OEIS [A187108](https://oeis.org/A187108):
 ```
 >>> let a = [];
 >>> 0:50.collect(
->>> 	collatzSequence:/1
+>>> 	collatzSequence/1
 >>> ).prefixes.do { :c |
 >>> 	a.addIfNotPresent(
 >>> 		c
@@ -354,7 +354,7 @@ The first few sequences:
 ```
 >>> let n = 3:13:2;
 >>> (1L / n)
->>> .collect(collatzSequence:/1) * n
+>>> .collect(collatzSequence/1) * n
 [
 	1 6 3 12 6;
 	1 8 4 2 1;
@@ -683,7 +683,7 @@ when one is added:
 1:250.collect { :n |
 	n.collatzSequence
 	.differences
-	.count(isPositive:/1)
+	.count(isPositive/1)
 }.scatterPlot
 ~~~
 
@@ -707,7 +707,7 @@ OEIS [A006666](https://oeis.org/A006666):
 
 ~~~spl svg=M oeis=A006666
 1:250.collect { :n |
-	n.collatzSequence.count(isEven:/1)
+	n.collatzSequence.count(isEven/1)
 }.scatterPlot
 ~~~
 
@@ -720,7 +720,7 @@ OEIS [A139391](https://oeis.org/A139391):
 2:250.collect { :n |
 	n.collatzSequence
 	.allButFirst
-	.detect(isOdd:/1)
+	.detect(isOdd/1)
 }.scatterPlot
 ~~~
 

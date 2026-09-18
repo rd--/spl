@@ -1,6 +1,6 @@
 # newFrom
 
-- _newFrom(f:/n, c)_
+- _newFrom(f/n, c)_
 
 Implements the Smalltalk idiom to make a new collection from the species of an existing collection.
 
@@ -13,9 +13,9 @@ construct a new list given a `Range`:
 [1 2 3 4 5 6 7 8 9]
 
 >>> [].species
-List:/1
+List/1
 
->>> List:/1.newFrom(1:9)
+>>> List/1.newFrom(1:9)
 [1 2 3 4 5 6 7 8 9]
 ```
 
@@ -28,9 +28,9 @@ construct a new set given a `Range`:
 Set[1 2 3 4 5 6 7 8 9]
 
 >>> Set[].species
-SortedSet:/0
+SortedSet/0
 
->>> SortedSet:/0.newFrom(1:9)
+>>> SortedSet/0.newFrom(1:9)
 Set[1 2 3 4 5 6 7 8 9]
 ```
 

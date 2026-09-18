@@ -9,7 +9,7 @@ the largest positive integer that divides each of the integers _n_.
 Table for small _n_:
 
 ```
->>> gcd:/2.table(2:4, 1:10)
+>>> gcd/2.table(2:4, 1:10)
 [
 	1 2 1 2 1 2 1 2 1 2;
 	1 1 3 1 1 3 1 1 3 1;
@@ -45,7 +45,7 @@ The unary form:
 >>> [2 6 10].gcd
 2
 
->>> [2 6 10].reduce(gcd:/2)
+>>> [2 6 10].reduce(gcd/2)
 2
 
 >>> [-12 9 57].gcd
@@ -102,7 +102,7 @@ In a divisibility network, two numbers are connected if they share a common divi
 For `zero` and `one`, `gcd` is analogous to logical or:
 
 ```
->>> gcd:/2.table([0 1], [0 1])
+>>> gcd/2.table([0 1], [0 1])
 [0 1; 1 1]
 
 >>> ||.table([false true], [false true])
@@ -122,7 +122,7 @@ reading by antidiagonals gives the sequence
 OEIS [A003989](https://oeis.org/A003989):
 
 ```
->>> gcd:/2.table(1:10, 1:10)
+>>> gcd/2.table(1:10, 1:10)
 [
 	1  1  1  1  1  1  1  1  1  1;
 	1  2  1  2  1  2  1  2  1  2;
@@ -142,7 +142,7 @@ Use `eulerPhi` to compute `gcd`:
 ```
 >>> 24.divisors
 >>> .intersection(12.divisors)
->>> .collect(eulerPhi:/1)
+>>> .collect(eulerPhi/1)
 >>> .sum
 12
 
@@ -154,13 +154,13 @@ The determinant of the matrix of pairwise greatest common divisors is related to
 
 ```
 >>> 1:6.collect { :n |
->>> 	outer(gcd:/2, 1:n, 1:n)
+>>> 	outer(gcd/2, 1:n, 1:n)
 >>> 	.determinant
 >>> }
 [1 1 2 4 16 32]
 
 >>> 1:6.collect { :n |
->>> 	1:n.product(eulerPhi:/1)
+>>> 	1:n.product(eulerPhi/1)
 >>> }
 [1 1 2 4 16 32]
 ```
@@ -206,7 +206,7 @@ OEIS [A109015](https://oeis.org/A109015):
 Matrix plot of table:
 
 ~~~spl png=B
-(1 - gcd:/2.table(1:100, 1:100).rescale)
+(1 - gcd/2.table(1:100, 1:100).rescale)
 .Greymap
 ~~~
 
@@ -238,7 +238,7 @@ Form the greatest common divisors of one with rational numbers:
 Matrix plot of first one-hundred and twenty-one places:
 
 ~~~spl svg=E
-gcd:/2.table(1:11, 1:11).matrixPlot
+gcd/2.table(1:11, 1:11).matrixPlot
 ~~~
 
 ![](Help/Image/gcd-E.svg)

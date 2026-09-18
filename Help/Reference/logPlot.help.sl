@@ -1,6 +1,6 @@
 # logPlot
 
-- _logPlot(x, f:/1)_
+- _logPlot(x, f/1)_
 
 Plot the unary function _f_ over the domain _x_,
 which may be discrete or continous,

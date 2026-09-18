@@ -1,6 +1,6 @@
 # toByDo
 
-- _toByDo(i, j, k, f:/1)_
+- _toByDo(i, j, k, f/1)_
 
 Iterate over the range from the start index _i_ to the stop index _j_ counting by step _k_.
 

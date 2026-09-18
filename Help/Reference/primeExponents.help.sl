@@ -38,7 +38,7 @@ OEIS [A124832](https://oeis.org/A124832):
 OeisEntry('A025487').then { :e |
 	e.bFileSequence
 	.first(150)
-	.collect(primeExponents:/1)
+	.collect(primeExponents/1)
 	.catenate
 	.scatterPlot
 }

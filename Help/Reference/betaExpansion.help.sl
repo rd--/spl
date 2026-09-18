@@ -370,7 +370,7 @@ OEIS [A341722](https://oeis.org/A341722):
 >>> 2:36.collect { :n |
 >>> 	let e = n.betaExpansion(phi, 32);
 >>> 	let d = e[1].drop(e[2]);
->>> 	d.reverse.dropWhile(isZero:/1)
+>>> 	d.reverse.dropWhile(isZero/1)
 >>> }
 [
 	1 0;

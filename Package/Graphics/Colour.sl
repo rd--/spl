@@ -487,7 +487,7 @@ RgbColour : [Object, Store, Equal, Colour] { | rgb alpha |
 		self.isVector.if {
 			self.uncheckedHsvToRgb
 		} {
-			self.collect(hsvToRgb:/1)
+			self.collect(hsvToRgb/1)
 		}
 	}
 
@@ -615,7 +615,7 @@ RgbColour : [Object, Store, Equal, Colour] { | rgb alpha |
 		self.isVector.if {
 			self.uncheckedRgbToHsv
 		} {
-			self.collect(rgbToHsv:/1)
+			self.collect(rgbToHsv/1)
 		}
 	}
 
@@ -656,7 +656,7 @@ RgbColour : [Object, Store, Equal, Colour] { | rgb alpha |
 		self.isVector.if {
 			self.uncheckedSrgbDecode
 		} {
-			self.collect(srgbDecode:/1)
+			self.collect(srgbDecode/1)
 		}
 	}
 
@@ -664,7 +664,7 @@ RgbColour : [Object, Store, Equal, Colour] { | rgb alpha |
 		self.isVector.if {
 			self.uncheckedSrgbEncode
 		} {
-			self.collect(srgbEncode:/1)
+			self.collect(srgbEncode/1)
 		}
 	}
 
@@ -715,11 +715,11 @@ RgbColour : [Object, Store, Equal, Colour] { | rgb alpha |
 	}
 
 	uncheckedSrgbDecode { :self |
-		self.collect(srgbDecode:/1)
+		self.collect(srgbDecode/1)
 	}
 
 	uncheckedSrgbEncode { :self |
-		self.collect(srgbEncode:/1)
+		self.collect(srgbEncode/1)
 	}
 
 	xyzToAdobeRgb { :self |
@@ -968,11 +968,11 @@ RgbColour : [Object, Store, Equal, Colour] { | rgb alpha |
 +List {
 
 	adobeRgbDecode { :self |
-		self.collect(adobeRgbDecode:/1)
+		self.collect(adobeRgbDecode/1)
 	}
 
 	adobeRgbEncode { :self |
-		self.collect(adobeRgbEncode:/1)
+		self.collect(adobeRgbEncode/1)
 	}
 
 	chroma { :self :method |
@@ -982,27 +982,27 @@ RgbColour : [Object, Store, Equal, Colour] { | rgb alpha |
 	}
 
 	hsl { :self |
-		self.collect(hsl:/1)
+		self.collect(hsl/1)
 	}
 
 	hsv { :self |
-		self.collect(hsv:/1)
+		self.collect(hsv/1)
 	}
 
 	hue { :self |
-		self.collect(hue:/1)
+		self.collect(hue/1)
 	}
 
 	namedColour { :self |
-		self.collect(namedColour:/1)
+		self.collect(namedColour/1)
 	}
 
 	rgba { :self |
-		self.collect(rgba:/1)
+		self.collect(rgba/1)
 	}
 
 	rgb { :self |
-		self.collect(rgb:/1)
+		self.collect(rgb/1)
 	}
 
 }
@@ -1043,7 +1043,7 @@ RgbColour : [Object, Store, Equal, Colour] { | rgb alpha |
 	}
 
 	svgColourDictionary { :self |
-		self.svgColourCatalogue.collect(asColour:/1)
+		self.svgColourCatalogue.collect(asColour/1)
 	}
 
 }

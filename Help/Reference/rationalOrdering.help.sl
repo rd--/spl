@@ -138,7 +138,7 @@ The size of each row is given by the Fibonacci numbers:
 
 ```
 >>> 14.rationalOrderingFibonacci
->>> .collect(size:/1)
+>>> .collect(size/1)
 [1 1 2 3 5 8 13 21 34 55 89 144 233 377]
 
 >>> 1:14.fibonacci

@@ -15,7 +15,7 @@ Cosine impulse response:
 (1 -- 5).functionPlot(
 	[0 0 1 0 0]
 	.listInterpolation(
-		cosineInterpolation:/3
+		cosineInterpolation/3
 	)
 )
 ~~~

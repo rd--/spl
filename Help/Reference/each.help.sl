@@ -1,21 +1,21 @@
 # each
 
-- _each(aBlock:/1 | aBlock:/2)_
+- _each(aBlock/1 | aBlock/2)_
 
 Answer a `Block` that will either apply the unary _aBlock_ to one argument using _collect_,
 or will apply a binary `aBlock` to two arguments using _withCollect_.
 
 ```
->>> size:/1 $ [1 2 3; 4 5]
+>>> size/1 $ [1 2 3; 4 5]
 2
 
->>> size:/1.each $ [1 2 3; 4 5]
+>>> size/1.each $ [1 2 3; 4 5]
 [3 2]
 
->>> reverse:/1 $ [1 2 3; 4 5]
+>>> reverse/1 $ [1 2 3; 4 5]
 [4 5; 1 2 3]
 
->>> reverse:/1.each $ [1 2 3; 4 5]
+>>> reverse/1.each $ [1 2 3; 4 5]
 [3 2 1; 5 4]
 
 >>> [1 2] + [3 4]

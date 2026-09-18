@@ -39,7 +39,7 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 		}
 	}
 
-	ascents { :self :aBlock:/2 |
+	ascents { :self :aBlock/2 |
 		let p = self.list;
 		let k = p.size;
 		let answer = [];
@@ -52,7 +52,7 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 	}
 
 	ascents { :self |
-		self.ascents(less:/2)
+		self.ascents(less/2)
 	}
 
 	asPermutation { :self |
@@ -66,11 +66,11 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 	}
 
 	decreasingRuns { :self |
-		self.runs(greater:/2)
+		self.runs(greater/2)
 	}
 
 	descents { :self |
-		self.ascents(greater:/2)
+		self.ascents(greater/2)
 	}
 
 	dictionary { :self |
@@ -99,7 +99,7 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 	}
 
 	hasPattern { :self :pattern |
-		valueWithReturn { :return:/1 |
+		valueWithReturn { :return/1 |
 			let list = self.list;
 			list.subsequencesDo { :each |
 				(each.reducedPermutation = pattern).ifTrue {
@@ -111,7 +111,7 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 	}
 
 	image { :self :anInteger |
-		valueWithReturn { :return:/1 |
+		valueWithReturn { :return/1 |
 			self.cycles.do { :each |
 				let i = each.indexOf(anInteger);
 				(i > 0).ifTrue {
@@ -259,7 +259,7 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 		self.isIdentity.if {
 			1
 		} {
-			self.cycles.collect(size:/1).lcm
+			self.cycles.collect(size/1).lcm
 		}
 	}
 
@@ -311,7 +311,7 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 		c.mixedRadixDecode(r)
 	}
 
-	reducedWordsDo { :self :aBlock:/1 |
+	reducedWordsDo { :self :aBlock/1 |
 		let f = { :p |
 			let isIdentity = true;
 			1.toDo(p.size - 1) { :d |
@@ -367,12 +367,12 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 		answer
 	}
 
-	runs { :self :aBlock:/2 |
-		self.list.orderedSubstrings(aBlock:/2)
+	runs { :self :aBlock/2 |
+		self.list.orderedSubstrings(aBlock/2)
 	}
 
 	runs { :self |
-		self.runs(less:/2)
+		self.runs(less/2)
 	}
 
 	signature { :self |
@@ -451,7 +451,7 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 	derangements { :self |
 		let answer = [];
 		self.permutationsDo { :each |
-			self.withCollect(each, !=).allSatisfy(identity:/1).ifTrue {
+			self.withCollect(each, !=).allSatisfy(identity/1).ifTrue {
 				answer.add(each.copy)
 			}
 		};
@@ -554,7 +554,7 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 		answer
 	}
 
-	lexicographicPermutationsDo { :self :aBlock:/1 |
+	lexicographicPermutationsDo { :self :aBlock/1 |
 		let list = self.copy.sort;
 		let continue = true;
 		{
@@ -580,7 +580,7 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 		answer
 	}
 
-	minimumChangePermutationsDo { :self :aBlock:/1 |
+	minimumChangePermutationsDo { :self :aBlock/1 |
 		let a = self.copy;
 		let n = a.size;
 		let c = List(n, 1);
@@ -685,7 +685,7 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 		answer
 	}
 
-	[plainChangesDo, steinhausJohnsonTrotterDo] { :self :aBlock:/1 |
+	[plainChangesDo, steinhausJohnsonTrotterDo] { :self :aBlock/1 |
 		let p = self.copy;
 		let q = self.copy;
 		let n = p.size;
@@ -862,14 +862,14 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 	}
 
 	permutationProduct { :self |
-		let entries = self.collect(asPermutation:/1);
+		let entries = self.collect(asPermutation/1);
 		entries.isEmpty.if {
 			[].cycles
 		} {
 			(entries.size = 1).if {
 				entries.first
 			} {
-				entries.reduce(times:/2)
+				entries.reduce(times/2)
 			}
 		}
 	}
@@ -901,14 +901,14 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 	permutations { :self :size |
 		self.subsets { :each |
 			each.size = size
-		}.collectCatenate(permutations:/1)
+		}.collectCatenate(permutations/1)
 	}
 
-	permutationsDo { :self :aBlock:/1 |
-		self.copy.permutationsStartingAtDo(1, aBlock:/1)
+	permutationsDo { :self :aBlock/1 |
+		self.copy.permutationsStartingAtDo(1, aBlock/1)
 	}
 
-	permutationsStartingAtDo { :self :anInteger :aBlock:/1 |
+	permutationsStartingAtDo { :self :anInteger :aBlock/1 |
 		(anInteger > self.size).if {
 			self
 		} {
@@ -917,7 +917,7 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 			} {
 				anInteger.toDo(self.size) { :index |
 					self.swapWith(anInteger, index);
-					self.permutationsStartingAtDo(anInteger + 1, aBlock:/1);
+					self.permutationsStartingAtDo(anInteger + 1, aBlock/1);
 					self.swapWith(anInteger, index)
 				}
 			}
@@ -994,8 +994,8 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 
 +@ArithmeticProgression {
 
-	permutationsDo { :self :aBlock:/1 |
-		self.asList.permutationsDo(aBlock:/1)
+	permutationsDo { :self :aBlock/1 |
+		self.asList.permutationsDo(aBlock/1)
 	}
 
 }
@@ -1014,13 +1014,13 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 	}
 
 	insertionPermutations { :self :method |
-		let reorder:/1 = method.caseOf(
+		let reorder/1 = method.caseOf(
 			[
-				'FrontToBack' -> { identity:/1 },
-				'BackToFront' -> { reverse:/1 }
+				'FrontToBack' -> { identity/1 },
+				'BackToFront' -> { reverse/1 }
 			]
 		);
-		let f:/1 = { :n |
+		let f/1 = { :n |
 			(n = 1).if {
 				[[1]]
 			} {
@@ -1033,7 +1033,7 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 				}.catenate
 			}
 		}.memoize;
-		1.toCollect(self, f:/1)
+		1.toCollect(self, f/1)
 	}
 
 	[minimumChangePermutations, heapsAlgorithm] { :self |
@@ -1064,9 +1064,9 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 
 +List {
 
-	multisetPermutationsDoLink { :self :visit:/1 |
+	multisetPermutationsDoLink { :self :visit/1 |
 		let n = self.size;
-		let l = LinkedList(self.sorted(succeeds:/2));
+		let l = LinkedList(self.sorted(succeeds/2));
 		let h = l.firstLink;
 		let i = l.linkAt(n - 1);
 		let j = l.lastLink;
@@ -1097,7 +1097,7 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 		}
 	}
 
-	multisetPermutationsDo { :self :visit:/1 |
+	multisetPermutationsDo { :self :visit/1 |
 		self.multisetPermutationsDoLink { :each |
 			visit(each.asList)
 		}

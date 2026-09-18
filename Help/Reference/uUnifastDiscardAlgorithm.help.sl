@@ -8,7 +8,7 @@ where each is an _n_-vector of random real number that sum to _u_.
 ```
 >>> let r = Sfc32(781934);
 >>> let x = r.uUnifastDiscardAlgorithm(3, 1, 4);
->>> (x, x.collect(sum:/1))
+>>> (x, x.collect(sum/1))
 (
 	[
 		0.25752 0.14379 0.59868;

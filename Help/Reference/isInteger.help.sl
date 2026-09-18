@@ -102,7 +102,7 @@ Test whether an array consists of all integers:
 >>> 	1 2 3;
 >>> 	4 5 6;
 >>> 	7 8 9
->>> ].deepAllSatisfy(isInteger:/1)
+>>> ].deepAllSatisfy(isInteger/1)
 true
 ```
 
@@ -138,7 +138,7 @@ OEIS [A133388](https://oeis.org/A133388):
 1:100.collect { :n |
 	let m = 0;
 	let x = 0;
-	{ :break:/0 |
+	{ :break/0 |
 		let d = n - m.square;
 		(d < 0).if {
 			break()

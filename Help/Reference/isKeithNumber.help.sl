@@ -41,7 +41,7 @@ Select Keith numbers,
 OEIS [A007629](https://oeis.org/A007629):
 
 ```
->>> 10:2000.select(isKeithNumber:/1)
+>>> 10:2000.select(isKeithNumber/1)
 [14 19 28 47 61 75 197 742 1104 1537]
 ```
 

@@ -84,12 +84,12 @@ HelpFile : [Object, Equal, Cache] { | origin source cache |
 		}
 	}
 
-	equalBy { :self :anObject :aBlock:/2 |
+	equalBy { :self :anObject :aBlock/2 |
 		anObject.isHelp & {
 			self.equalByAtNamedSlots(
 				anObject,
 				['origin' 'source'],
-				aBlock:/2
+				aBlock/2
 			)
 		}
 	}
@@ -175,11 +175,11 @@ HelpFile : [Object, Equal, Cache] { | origin source cache |
 	}
 
 	imageCodeBlocks { :self |
-		self.codeBlocks.select(codeBlockIsImage:/1)
+		self.codeBlocks.select(codeBlockIsImage/1)
 	}
 
 	imageHelpPrograms { :self |
-		self.helpPrograms.select(isImageProgram:/1)
+		self.helpPrograms.select(isImageProgram/1)
 	}
 
 	isGuideFile { :self |
@@ -196,7 +196,7 @@ HelpFile : [Object, Equal, Cache] { | origin source cache |
 		}
 	}
 
-	linesFromWhile { :self :index :aBlock:/2 |
+	linesFromWhile { :self :index :aBlock/2 |
 		let lines = self.lines;
 		let limit = lines.size;
 		let answer = [];
@@ -229,7 +229,7 @@ HelpFile : [Object, Equal, Cache] { | origin source cache |
 	}
 
 	oeisHelpPrograms { :self |
-		self.helpPrograms.select(isOeisProgram:/1)
+		self.helpPrograms.select(isOeisProgram/1)
 	}
 
 	oeisReferences { :self |
@@ -438,7 +438,7 @@ HelpFile : [Object, Equal, Cache] { | origin source cache |
 		}
 	}
 
-	helpFilesDo { :self :kind :pattern :verbose :aBlock:/1 |
+	helpFilesDo { :self :kind :pattern :verbose :aBlock/1 |
 		let directoryName = self.splFileName('Help/' ++ kind);
 		self
 		.readDirectoryFileNames(directoryName)
@@ -465,7 +465,7 @@ HelpFile : [Object, Equal, Cache] { | origin source cache |
 			'# Help Image Index',
 			''
 		] ++ self.helpProgramDictionary(
-			isImageProgram:/1
+			isImageProgram/1
 		).keysAndValuesCollect { :n :e |
 			[
 				'- `%`'.format([n])
@@ -498,7 +498,7 @@ HelpFile : [Object, Equal, Cache] { | origin source cache |
 
 	helpImageProgramsText { :self :options |
 		system.helpProgramsSelect(
-			isImageProgram:/1
+			isImageProgram/1
 		).collect { :p |
 			p.markdownText(options)
 		}
@@ -517,10 +517,10 @@ HelpFile : [Object, Equal, Cache] { | origin source cache |
 		}
 	}
 
-	helpProgramDictionary { :self :aBlock:/1 |
+	helpProgramDictionary { :self :aBlock/1 |
 		self.helpProgramDictionary.collect { :each |
-			each.select(aBlock:/1)
-		}.select(isNotEmpty:/1)
+			each.select(aBlock/1)
+		}.select(isNotEmpty/1)
 	}
 
 	helpProgramTable { :self |
@@ -529,19 +529,19 @@ HelpFile : [Object, Equal, Cache] { | origin source cache |
 		}
 	}
 
-	helpProgramTable { :self :aBlock:/1 |
+	helpProgramTable { :self :aBlock/1 |
 		self.helpProgramTable.select { :each |
 			aBlock(each[2])
 		}
 	}
 
-	helpProgramsDo { :self :aBlock:/1 |
+	helpProgramsDo { :self :aBlock/1 |
 		self.helpFiles('Reference').do { :helpFile |
-			helpFile.helpPrograms.do(aBlock:/1)
+			helpFile.helpPrograms.do(aBlock/1)
 		}
 	}
 
-	helpProgramsSelect { :self :aBlock:/1 |
+	helpProgramsSelect { :self :aBlock/1 |
 		let answer = [];
 		self.helpProgramsDo { :each |
 			aBlock(each).ifTrue {
@@ -553,10 +553,10 @@ HelpFile : [Object, Equal, Cache] { | origin source cache |
 
 	oeisImageIndex { :self |
 		let oeisPrograms = self.helpProgramsSelect(
-			isOeisProgram:/1
+			isOeisProgram/1
 		);
 		let oeisIdentifiers = oeisPrograms.collect(
-			oeisIdentifier:/1
+			oeisIdentifier/1
 		).unique;
 		[
 			'# Integer Sequence Image Index',
@@ -575,11 +575,11 @@ HelpFile : [Object, Equal, Cache] { | origin source cache |
 
 	oeisImageProgramsText { :self :options |
 		system.helpProgramsSelect(
-			isImageProgram:/1.predicateAnd(
-				isOeisProgram:/1
+			isImageProgram/1.predicateAnd(
+				isOeisProgram/1
 			)
 		).sortOn(
-			oeisIdentifier:/1
+			oeisIdentifier/1
 		).collect { :p |
 			p.markdownText(options)
 		}
@@ -595,8 +595,8 @@ HelpFile : [Object, Equal, Cache] { | origin source cache |
 		)
 	}
 
-	referenceHelpFilesDo { :self :pattern :aBlock:/1 |
-		self.helpFilesDo('Reference', pattern, aBlock:/1)
+	referenceHelpFilesDo { :self :pattern :aBlock/1 |
+		self.helpFilesDo('Reference', pattern, aBlock/1)
 	}
 
 }

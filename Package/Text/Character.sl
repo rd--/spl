@@ -271,7 +271,7 @@ Character : [Object, Store, Equal, Compare, Character] { | characterString codeP
 
 +List {
 
-	equalIgnoringExtraWhitespace { :a :b :f:/1 |
+	equalIgnoringExtraWhitespace { :a :b :f/1 |
 		let p = a.size;
 		let q = b.size;
 		let i = 1;

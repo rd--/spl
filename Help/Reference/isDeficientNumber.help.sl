@@ -15,7 +15,7 @@ true
 The first few deficient numbers:
 
 ```
->>> 1:50.select(isDeficientNumber:/1)
+>>> 1:50.select(isDeficientNumber/1)
 [
 	 1  2  3  4  5  7  8  9 10 11
 	13 14 15 16 17 19 21 22 23 25

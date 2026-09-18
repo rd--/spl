@@ -20,7 +20,7 @@ let b = GVerb(
 	[0.95, m(), m(), 0.9, 1 - m()],
 	0.5, 15, 1, 0.7, 0.5, 300
 );
-let o = Splay(m:/0 ! 4 * b);
+let o = Splay(m/0 ! 4 * b);
 let p = CompanderD(o, 1 / 2, 1 / 3, 1 / 2, 0.01, 0.1) / 3;
 (o / 3 + p).SoftClip.transpose.Sum
 
@@ -222,7 +222,7 @@ let b = [
 	-1 * [24 5 0 10 8 15].MidiRatio * t,
 	(r + c).Wrap(1, 3333),
 	t.ShiftRight(105)
-].reduce(BitAnd:/2);
+].reduce(BitAnd/2);
 let e = b.LinCurve(0, 127, -1, 1, -8).Fold2(1) / 2;
 Splay(
 	FreeVerb(
@@ -412,7 +412,7 @@ let m = {
 let i = Bpf(LocalIn(2, 0), 440, 1);
 let u = Splay(
 	VarSaw(
-		m:/0 ! 12 / 4 + 111 * [0 .. 2].collect { :n |
+		m/0 ! 12 / 4 + 111 * [0 .. 2].collect { :n |
 			n * 12 + [0, 2, 5, 9]
 		}.flatten.MidiRatio,
 		0,

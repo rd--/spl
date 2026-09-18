@@ -1,6 +1,6 @@
 # nextSatisfy
 
-- _nextSatisfy(s, f:/1)_
+- _nextSatisfy(s, f/1)_
 
 Answer the next element of the stream _s_ that satisfies the predicate block _f_.
 

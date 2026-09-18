@@ -1,6 +1,6 @@
 # removeKeyIfAbsent
 
-- _removeKeyIfAbsent(aDictionary, key, aBlock:/0)_
+- _removeKeyIfAbsent(aDictionary, key, aBlock/0)_
 
 Remove the element which is stored at _key_ in _aDictionary_.
 Answer the removed element.

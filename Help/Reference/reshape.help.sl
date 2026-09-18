@@ -319,7 +319,7 @@ Construct a 2×2×2×2 array,
 ]
 
 >>> 1:16.reshape([2 2 2 2])
->>> .collect(transpose:/1)
+>>> .collect(transpose/1)
 [
 	[
 		 1  2;  5  6:;

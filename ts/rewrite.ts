@@ -21,7 +21,7 @@ function deleteLeadingZeroes(s: string): string {
 }
 
 function isArityQualifiedName(s: string): boolean {
-	return s.includes(':/');
+	return s.includes('/');
 }
 
 function rewriteInPlaceName(c1, cN, ip): string {
@@ -436,7 +436,7 @@ const asSl: ohm.ActionDict<string> = {
 		}
 		{
 			let blkArity = blk.parametersOf.length;
-			return `${nameStr}:/${blkArity} = ${blk.asSl}`;
+			return `${nameStr}/${blkArity} = ${blk.asSl}`;
 		}
 	},
 	DotExpression(lhs, _dot, namesList, argsList) {
@@ -691,7 +691,7 @@ const asSl: ohm.ActionDict<string> = {
 		return ':' + name.sourceString;
 	},
     arityQualifiedIdentifier(c1, cN, ip, _solidus, a) {
-        return `${rewriteInPlaceName(c1, cN, ip)}:/${a.sourceString}`;
+        return `${rewriteInPlaceName(c1, cN, ip)}/${a.sourceString}`;
 	},
 	backtickQuotedStringLiteral(_l, s, _r) {
 		return `Symbol('${s.sourceString}')`;
@@ -771,19 +771,19 @@ const asSl: ohm.ActionDict<string> = {
 	},
 	operatorFree(op) {
 		const opName = resolveMethodName(op.sourceString);
-		const qualifiedOpName = `${opName}:/2`;
+		const qualifiedOpName = `${opName}/2`;
 		// console.debug(`operatorFree: ${qualifiedOpName}`);
 		return qualifiedOpName;
 	},
 	operatorWithUnaryAdverb(op, _d, adverb) {
 		const opName = resolveMethodName(op.sourceString);
-		const qualifiedOpName = `${opName}:/2`;
+		const qualifiedOpName = `${opName}/2`;
 		// console.debug(`operatorWithUnaryAdverb: ${qualifiedOpName}`);
 		return `${adverb.sourceString}(${qualifiedOpName})`;
 	},
 	operatorWithBinaryAdverb(op, _d, adverb, _l, parameter, _r) {
 		const opName = resolveMethodName(op.sourceString);
-		const qualifiedOpName = `${opName}:/2`;
+		const qualifiedOpName = `${opName}/2`;
 		// console.debug(`operatorWithBinaryAdverb: ${qualifiedOpName}`);
 		return `${adverb.sourceString}(${qualifiedOpName}, ${parameter.asSl})`;
 	},
@@ -916,7 +916,7 @@ const asAst: ohm.ActionDict<SlAst> = {
     arityQualifiedIdentifier(c1, cN, ip, _solidus, a) {
 		return [
 			'Identifier',
-			`${rewriteInPlaceName(c1, cN, ip)}:/${a.sourceString}`
+			`${rewriteInPlaceName(c1, cN, ip)}/${a.sourceString}`
 		];
 	},
 	floatLiteral(s, i, _, f) {

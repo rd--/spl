@@ -76,7 +76,7 @@ Calculate the same sequence as the permutations of the two element subsets:
 ```
 >>> [1 2 3].subsets { :each |
 >>> 	each.size = 2
->>> }.collect(permutations:/1).++
+>>> }.collect(permutations/1).++
 [
 	1 2;
 	2 1;
@@ -102,7 +102,7 @@ A permutation that leaves no element invariant is called a derangement:
 ```
 >>> [1 2 3 4 5].permutations.select { :each |
 >>> 	(each =.map each.sorted)
->>> 	.noneSatisfy(identity:/1)
+>>> 	.noneSatisfy(identity/1)
 >>> }.size
 44
 ```
@@ -223,7 +223,7 @@ OEIS [A333755](https://oeis.org/A333755):
 ```
 >>> 1:6.triangularArray { :n :k |
 >>> 	n.integerPartitions
->>> 	.collect(permutations:/1)
+>>> 	.collect(permutations/1)
 >>> 	.catenate
 >>> 	.unique
 >>> 	.select { :x |

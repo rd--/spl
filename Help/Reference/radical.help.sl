@@ -155,7 +155,7 @@ OEIS [A062760](https://oeis.org/A062760):
 ~~~spl svg=K oeis=A062760
 2:200.collect { :n |
 	let p = n.divisors;
-	let q = p.select(isSquareFree:/1).last;
+	let q = p.select(isSquareFree/1).last;
 	n / (q ^n.integerExponent(q))
 }.discretePlot.log
 ~~~

@@ -1,6 +1,6 @@
 # heapSort
 
-- _heapSort([x₁ x₂ …], f:/2=≤)_
+- _heapSort([x₁ x₂ …], f/2=≤)_
 
 Answer a `List` having the elements of the collection _c_ in sorted sequence,
 implemented using the heap sort algorithm.

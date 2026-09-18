@@ -4,7 +4,7 @@ ListView : [Object, Equal, Compare, Iterable, Indexable, Collection, Sequence] {
 		self.contents.copyFromTo(self.startIndex, self.endIndex).asList
 	}
 
-	atIfAbsent { :self :index :ifAbsent:/0 |
+	atIfAbsent { :self :index :ifAbsent/0 |
 		self.includesIndex(index).if {
 			self.contents[index + self.startIndex - self.referenceIndex]
 		} {
@@ -24,7 +24,7 @@ ListView : [Object, Equal, Compare, Iterable, Indexable, Collection, Sequence] {
 		ListView(self, from, to, self.referenceIndex)
 	}
 
-	do { :self :aBlock:/1 |
+	do { :self :aBlock/1 |
 		let items = self.contents;
 		self.startIndex.toDo(self.endIndex) { :index |
 			aBlock(items[index])
@@ -38,7 +38,7 @@ ListView : [Object, Equal, Compare, Iterable, Indexable, Collection, Sequence] {
 		}
 	}
 
-	indexOfIfAbsent { :self :anObject :aBlock:/0 |
+	indexOfIfAbsent { :self :anObject :aBlock/0 |
 		self.indices.detectIfNone { :i |
 			self.at(i) = anObject
 		} {

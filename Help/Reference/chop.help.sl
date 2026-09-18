@@ -12,9 +12,9 @@ here delete all imaginary components:
 >>> let b = a.fourier.inverseFourier;
 >>> let c = b.chop;
 >>> (
->>> 	b.allSatisfy(isComplex:/1),
->>> 	c.noneSatisfy(isComplex:/1),
->>> 	c.noneSatisfy(isInteger:/1),
+>>> 	b.allSatisfy(isComplex/1),
+>>> 	c.noneSatisfy(isComplex/1),
+>>> 	c.noneSatisfy(isInteger/1),
 >>> 	c
 >>> )
 (true, true, true, [1 .. 20])

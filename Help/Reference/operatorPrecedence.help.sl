@@ -6,7 +6,7 @@ Answer the operator precedence of _s_.
 
 ```
 >>> ['+' '-' '/' '*' '^']
->>> .collect(operatorPrecedence:/1)
+>>> .collect(operatorPrecedence/1)
 [1 1 2 2 3]
 ```
 

@@ -29,7 +29,7 @@ or the weighted mediant with weight one:
 >>> 	9/8 10/9;
 >>> 	9/8 19/17;
 >>> 	19/17 10/9
->>> ].collect(mediant:/1)
+>>> ].collect(mediant/1)
 [4/3 7/5 11/9 19/17 28/25 29/26]
 ```
 

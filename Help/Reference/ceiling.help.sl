@@ -157,7 +157,7 @@ OEIS [A011975](https://oeis.org/A011975):
 Ceiling is a staircase function:
 
 ~~~spl svg=A
-(0 -- 7).functionPlot(ceiling:/1)
+(0 -- 7).functionPlot(ceiling/1)
 ~~~
 
 ![](Help/Image/ceiling-A.svg)
@@ -243,7 +243,7 @@ the Archimedes-one primes,
 OEIS [A163778](https://oeis.org/A163778):
 
 ~~~spl svg=H oeis=A163778
-let follow = { :s :f:/1 |
+let follow = { :s :f/1 |
 	let t = f(s);
 	let k = 1;
 	{ t > s }.whileTrue {

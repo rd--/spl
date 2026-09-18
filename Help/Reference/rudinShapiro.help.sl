@@ -24,7 +24,7 @@ The first few elements of the Rudin–Shapiro sequence,
 OEIS [A020985](http://oeis.org/A020985):
 
 ```
->>> 0:31.collect(rudinShapiro:/1)
+>>> 0:31.collect(rudinShapiro/1)
 [
 	 1  1  1 -1  1  1 -1  1  1  1
 	 1 -1 -1 -1  1 -1  1  1  1 -1
@@ -68,7 +68,7 @@ The Rudin–Shapiro sequence,
 OEIS [A020985](http://oeis.org/A020985):
 
 ~~~spl svg=C oeis=A020985
-0:85.collect(rudinShapiro:/1)
+0:85.collect(rudinShapiro/1)
 .discretePlot
 ~~~
 

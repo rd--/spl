@@ -1,6 +1,6 @@
 # antidiagonalArray
 
-- _antidiagonalArray(n:m, f:/2)_
+- _antidiagonalArray(n:m, f/2)_
 
 Answer rows _n:m_ of the triangular array given by the falling diagonals of the matrix function _f_.
 
@@ -8,7 +8,7 @@ Wythoff array in (falling) antidiagonals:
 
 ```
 >>> 1:8.antidiagonalArray(
->>> 	wythoffArray:/2
+>>> 	wythoffArray/2
 >>> )
 [
 	1;
@@ -104,7 +104,7 @@ let t = { :n :k |
 		}
 	}
 };
-0:10.antidiagonalArray(t:/2)
+0:10.antidiagonalArray(t/2)
 .catenate.discretePlot.logScale
 ~~~
 
@@ -115,7 +115,7 @@ _T(n,k-1)-(n+k-1)_ if positive and not already in row _n_ else sum,
 OEIS [A066201](https://oeis.org/A066201):
 
 ~~~spl svg=E
-let t:/2 = { :n :k |
+let t/2 = { :n :k |
 	(k = 0).if {
 		1
 	} {
@@ -136,8 +136,8 @@ let t:/2 = { :n :k |
 		}
 	}
 }.memoize(true);
-0:13.antidiagonalArray(t:/2)
-.collect(reverse:/1)
+0:13.antidiagonalArray(t/2)
+.collect(reverse/1)
 .catenate
 .scatterPlot
 ~~~

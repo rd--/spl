@@ -24,7 +24,7 @@ Leading zeroes are allowed:
 There is an `Integer` trait:
 
 ```
->>> [23, 23L].collect(isInteger:/1)
+>>> [23, 23L].collect(isInteger/1)
 [true true]
 ```
 

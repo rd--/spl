@@ -29,7 +29,7 @@ which tells the number of combinations of _n_ elements taken _k_ at a time.
 Pascal matrix:
 
 ```
->>> choose:/2.table(0:4, 0:4)
+>>> choose/2.table(0:4, 0:4)
 [
 	1 0 0 0 0;
 	1 1 0 0 0;
@@ -42,7 +42,7 @@ Pascal matrix:
 Transposed table:
 
 ```
->>> choose:/2.swap.table(0:4, 0:4)
+>>> choose/2.swap.table(0:4, 0:4)
 [
 	1 1 1 1 1;
 	0 1 2 3 4;

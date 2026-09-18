@@ -801,7 +801,7 @@ HTMLSelectElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 		aString.isEmpty.if {
 			-1
 		} {
-			valueWithReturn { :return:/1 |
+			valueWithReturn { :return/1 |
 				0.toDo(self.length - 1) { :index |
 					(self.options.item(index).value = aString).ifTrue {
 						index.return
@@ -851,16 +851,16 @@ HTMLTableElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 
 +Association {
 
-	asHtmlRow { :self :toString:/1 |
-		self.asList.asHtmlRow(toString:/1)
+	asHtmlRow { :self :toString/1 |
+		self.asList.asHtmlRow(toString/1)
 	}
 
 }
 
 +Record {
 
-	asHtmlTable { :self :toString:/1 |
-		self.associations.asHtmlTable(toString:/1)
+	asHtmlTable { :self :toString/1 |
+		self.associations.asHtmlTable(toString/1)
 	}
 
 }

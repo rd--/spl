@@ -215,7 +215,7 @@ Plot the function over a subset of the reals
 round is a staircase function:
 
 ~~~spl svg=A
-(0 -- 7).functionPlot(round:/1)
+(0 -- 7).functionPlot(round/1)
 ~~~
 
 ![](Help/Image/round-A.svg)

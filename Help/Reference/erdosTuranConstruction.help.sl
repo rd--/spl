@@ -24,7 +24,7 @@ row lengths are odd primes:
 
 ```
 >>> [3 5 7 11].collect(
->>> 	erdosTuranConstruction:/1
+>>> 	erdosTuranConstruction/1
 >>> )
 [
 	0 7 13;
@@ -62,7 +62,7 @@ OEIS [A217793](https://oeis.org/A217793):
 
 ~~~spl svg=A oeis=A217793
 [3 5 7 11 13 17 19].collect(
-	erdosTuranConstruction:/1
+	erdosTuranConstruction/1
 ).catenate.discretePlot
 ~~~
 

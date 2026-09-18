@@ -9,7 +9,7 @@ SuperColliderSynthesiserStatusMonitor : [Object, SmallKansan] {
 		let frame = smallKansas.addFrameWithAnimator(textEditor, event, 1) {
 			textEditor.setEditorText(
 				system.scSynth.isConnected.if {
-					Table(system.scSynth.status.associations.collect(asList:/1)).asHtml
+					Table(system.scSynth.status.associations.collect(asList/1)).asHtml
 				} {
 					'---'
 				}

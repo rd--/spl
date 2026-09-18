@@ -28,7 +28,7 @@ There is a closed form for calculating the _n_-th Pell number,
 zero-indexed:
 
 ```
->>> [0 .. 15].collect(pellNumber:/1)
+>>> [0 .. 15].collect(pellNumber/1)
 [
 	     0    1     2     5    12
 	    29   70   169   408   985
@@ -50,7 +50,7 @@ OEIS [A086383](https://oeis.org/A086383):
 
 ```
 >>> 30.pellSequence
->>> .select(isPrime:/1)
+>>> .select(isPrime/1)
 [2 5 29 5741 33461 44560482149]
 ```
 

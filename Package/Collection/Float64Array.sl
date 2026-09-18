@@ -19,7 +19,7 @@ Float64Array! : [Object, Store, Equal, Compare, Iterable, Indexable, Collection,
 	}
 
 	species { :self |
-		Float64Array:/1
+		Float64Array/1
 	}
 
 	storageType { :self |

@@ -13,4 +13,4 @@ true
 
 * * *
 
-See also: :/, Block, Method
+See also: /, Block, Method

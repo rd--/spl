@@ -106,12 +106,12 @@ GrayCode : [Object, Equal] { | sequence alphabet |
 
 	isBeckettGrayCode { :self |
 		self.isBinaryCyclicGrayCode & {
-			self.first.allSatisfy(isZero:/1) & {
+			self.first.allSatisfy(isZero/1) & {
 				let [m, n] = self.shape;
 				let k = (m - 1) // 2;
 				let d = 2.to(m).collect { :i |
 					self[i] - self[i - 1]
-				}.sortOn(min:/1).allButLast;
+				}.sortOn(min/1).allButLast;
 				d.first(k).abs = d.last(k)
 			}
 		}
@@ -120,7 +120,7 @@ GrayCode : [Object, Equal] { | sequence alphabet |
 	isBinaryGrayCode { :self |
 		let [m, n] = self.shape;
 		(m = (2 ^ n)) & {
-			self.allSatisfy(isBitVector:/1) & {
+			self.allSatisfy(isBitVector/1) & {
 				2.to(m).allSatisfy { :i |
 					(self[i] - self[i - 1]).sum.abs = 1
 				}
@@ -157,7 +157,7 @@ GrayCode : [Object, Equal] { | sequence alphabet |
 	isGrayCode { :self |
 		self.isMatrix & {
 			self.differences.allSatisfy { :each |
-				each.count(isNonZero:/1) = 1
+				each.count(isNonZero/1) = 1
 			}
 		}
 	}
@@ -243,7 +243,7 @@ GrayCode : [Object, Equal] { | sequence alphabet |
 
 +List {
 
-	mixedRadixGrayCodeDo { :bases :receive:/2 |
+	mixedRadixGrayCodeDo { :bases :receive/2 |
 		/* https://www.socs.uoguelph.ca/~sawada/papers/RSG.pdf */
 		let n = bases.size;
 		let word = List(n, 0);

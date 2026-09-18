@@ -53,7 +53,7 @@ OEIS [A051626](https://oeis.org/A051626):
 
 ```
 >>> (1L /  1:90)
->>> .collect(decimalPeriod:/1)
+>>> .collect(decimalPeriod/1)
 [
 	 0  0  1  0  0  1  6  0  1 0
 	 2  1  6  6  1  0 16  1 18 0
@@ -130,7 +130,7 @@ OEIS [A051626](https://oeis.org/A051626):
 
 ~~~spl svg=A oeis=A051626
 (1L / 1:200)
-.collect(decimalPeriod:/1)
+.collect(decimalPeriod/1)
 .scatterPlot.logScale
 ~~~
 

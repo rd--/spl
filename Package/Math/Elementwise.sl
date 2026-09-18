@@ -3,99 +3,99 @@
 +@Collection {
 
 	[conjugate, +] { :self |
-		self.collect(conjugate:/1)
+		self.collect(conjugate/1)
 	}
 
 	[doubleFactorial, !!] { :self |
-		self.collect(doubleFactorial:/1)
+		self.collect(doubleFactorial/1)
 	}
 
 	[exp, ^] { :self |
-		self.collect(exp:/1)
+		self.collect(exp/1)
 	}
 
 	[factorialOrGamma, !] { :self |
-		self.collect(factorialOrGamma:/1)
+		self.collect(factorialOrGamma/1)
 	}
 
 	[negate, -] { :self |
-		self.collect(negate:/1)
+		self.collect(negate/1)
 	}
 
 	[reciprocal, /] { :self |
-		self.collect(reciprocal:/1)
+		self.collect(reciprocal/1)
 	}
 
 	[sign, *] { :self |
-		self.collect(sign:/1)
+		self.collect(sign/1)
 	}
 
 	[absoluteValue, abs] { :self |
-		self.collect(abs:/1)
+		self.collect(abs/1)
 	}
 
 	absSquare { :self |
-		self.collect(absSquare:/1)
+		self.collect(absSquare/1)
 	}
 
 	aliquotSequence { :self |
-		self.collect(aliquotSequence:/1)
+		self.collect(aliquotSequence/1)
 	}
 
 	aliquotSum { :self |
-		self.collect(aliquotSum:/1)
+		self.collect(aliquotSum/1)
 	}
 
 	amusicalPermutation { :self |
-		self.collect(amusicalPermutation:/1)
+		self.collect(amusicalPermutation/1)
 	}
 
 	antiDivisors { :self |
-		self.collect(antiDivisors:/1)
+		self.collect(antiDivisors/1)
 	}
 
 	arithmeticDerivative { :self |
-		self.collect(arithmeticDerivative:/1)
+		self.collect(arithmeticDerivative/1)
 	}
 
 	asBit { :self |
-		self.collect(asBit:/1)
+		self.collect(asBit/1)
 	}
 
 	asBoolean { :self |
-		self.collect(asBoolean:/1)
+		self.collect(asBoolean/1)
 	}
 
 	asComplex { :self |
-		self.collect(asComplex:/1)
+		self.collect(asComplex/1)
 	}
 
 	asFloat { :self |
-		self.collect(asFloat:/1)
+		self.collect(asFloat/1)
 	}
 
 	asFraction { :self |
-		self.collect(asFraction:/1)
+		self.collect(asFraction/1)
 	}
 
 	asInteger { :self |
-		self.collect(asInteger:/1)
+		self.collect(asInteger/1)
 	}
 
 	asNumber { :self |
-		self.collect(asNumber:/1)
+		self.collect(asNumber/1)
 	}
 
 	balancedTernaryDigits { :self |
-		self.collect(balancedTernaryDigits:/1)
+		self.collect(balancedTernaryDigits/1)
 	}
 
 	bellNumber { :self |
-		self.collect(bellNumber:/1)
+		self.collect(bellNumber/1)
 	}
 
 	bernoulliNumber { :self |
-		self.collect(bernoulliNumber:/1)
+		self.collect(bernoulliNumber/1)
 	}
 
 	between { :self :interval |
@@ -109,27 +109,27 @@
 	}
 
 	binaryExpansion { :self |
-		self.collect(binaryExpansion:/1)
+		self.collect(binaryExpansion/1)
 	}
 
 	bitAnd { :self |
-		self.reduce(bitAnd:/2)
+		self.reduce(bitAnd/2)
 	}
 
 	bitCount { :self |
-		self.collect(bitCount:/1)
+		self.collect(bitCount/1)
 	}
 
 	bitLength { :self |
-		self.collect(bitLength:/1)
+		self.collect(bitLength/1)
 	}
 
 	bitNot { :self |
-		self.collect(bitNot:/1)
+		self.collect(bitNot/1)
 	}
 
 	bitOr { :self |
-		self.reduce(bitOr:/2)
+		self.reduce(bitOr/2)
 	}
 
 	bitReverse { :n :k |
@@ -139,47 +139,47 @@
 	}
 
 	boole { :self |
-		self.collect(boole:/1)
+		self.collect(boole/1)
 	}
 
 	catalanNumber { :self |
-		self.collect(catalanNumber:/1)
+		self.collect(catalanNumber/1)
 	}
 
 	cantorStaircase { :self |
-		self.collect(cantorStaircase:/1)
+		self.collect(cantorStaircase/1)
 	}
 
 	carmichaelLambda { :self |
-		self.collect(carmichaelLambda:/1)
+		self.collect(carmichaelLambda/1)
 	}
 
 	[ceiling, >] { :self |
-		self.collect(ceiling:/1)
+		self.collect(ceiling/1)
 	}
 
 	chop { :self |
-		self.collect(chop:/1)
+		self.collect(chop/1)
 	}
 
 	continuedFraction { :self |
-		self.collect(continuedFraction:/1)
+		self.collect(continuedFraction/1)
 	}
 
 	cube { :self |
-		self.collect(cube:/1)
+		self.collect(cube/1)
 	}
 
 	degree { :self |
-		self.collect(degree:/1)
+		self.collect(degree/1)
 	}
 
 	decimalExpansion { :self |
-		self.collect(decimalExpansion:/1)
+		self.collect(decimalExpansion/1)
 	}
 
 	decrement { :self |
-		self.collect(decrement:/1)
+		self.collect(decrement/1)
 	}
 
 	dedekindPsi { :self :k |
@@ -189,11 +189,11 @@
 	}
 
 	dedekindPsi { :self |
-		self.collect(dedekindPsi:/1)
+		self.collect(dedekindPsi/1)
 	}
 
 	degreesToRadians { :self |
-		self.collect(degreesToRadians:/1)
+		self.collect(degreesToRadians/1)
 	}
 
 	denominator { :self |
@@ -203,7 +203,7 @@
 	}
 
 	diagonalIndexToCartesianIndex { :self |
-		self.collect(diagonalIndexToCartesianIndex:/1)
+		self.collect(diagonalIndexToCartesianIndex/1)
 	}
 
 	digitCount { :self :b :d |
@@ -213,15 +213,15 @@
 	}
 
 	divisors { :self |
-		self.collect(divisors:/1)
+		self.collect(divisors/1)
 	}
 
 	double { :self |
-		self.collect(double:/1)
+		self.collect(double/1)
 	}
 
 	e { :self |
-		self.collect(e:/1)
+		self.collect(e/1)
 	}
 
 	E { :self :aNumber |
@@ -229,59 +229,59 @@
 	}
 
 	ellipticE { :self |
-		self.collect(ellipticE:/1)
+		self.collect(ellipticE/1)
 	}
 
 	ellipticK { :self |
-		self.collect(ellipticK:/1)
+		self.collect(ellipticK/1)
 	}
 
 	ellipticNomeQ { :self |
-		self.collect(ellipticNomeQ:/1)
+		self.collect(ellipticNomeQ/1)
 	}
 
 	ellipticPi { :self |
-		self.collect(ellipticPi:/1)
+		self.collect(ellipticPi/1)
 	}
 
 	erf { :self |
-		self.collect(erf:/1)
+		self.collect(erf/1)
 	}
 
 	erfc { :self |
-		self.collect(erfc:/1)
+		self.collect(erfc/1)
 	}
 
 	eulerNumber { :self |
-		self.collect(eulerNumber:/1)
+		self.collect(eulerNumber/1)
 	}
 
 	eulerPhi { :self |
-		self.collect(eulerPhi:/1)
+		self.collect(eulerPhi/1)
 	}
 
 	eulerPhiInverse { :self |
-		self.collect(eulerPhiInverse:/1)
+		self.collect(eulerPhiInverse/1)
 	}
 
 	factorial { :self |
-		self.collect(factorial:/1)
+		self.collect(factorial/1)
 	}
 
 	factorInteger { :self |
-		self.collect(factorInteger:/1)
+		self.collect(factorInteger/1)
 	}
 
 	fibonacci { :self |
-		self.collect(fibonacci:/1)
+		self.collect(fibonacci/1)
 	}
 
 	fibonacciNumber { :self |
-		self.collect(fibonacciNumber:/1)
+		self.collect(fibonacciNumber/1)
 	}
 
 	fibonacciWord { :self |
-		self.collect(fibonacciWord:/1)
+		self.collect(fibonacciWord/1)
 	}
 
 	figurateNumber { :self :k |
@@ -295,7 +295,7 @@
 	}
 
 	[floor, <] { :self |
-		self.collect(floor:/1)
+		self.collect(floor/1)
 	}
 
 	fold { :self :low :high |
@@ -305,27 +305,27 @@
 	}
 
 	fractionalPart { :self |
-		self.collect(fractionalPart:/1)
+		self.collect(fractionalPart/1)
 	}
 
 	fromRomanNumeral { :self |
-		self.collect(fromRomanNumeral:/1)
+		self.collect(fromRomanNumeral/1)
 	}
 
 	gamma { :self |
-		self.collect(gamma:/1)
+		self.collect(gamma/1)
 	}
 
 	genocchiNumber { :self |
-		self.collect(genocchiNumber:/1)
+		self.collect(genocchiNumber/1)
 	}
 
 	grayDecode { :self |
-		self.collect(grayDecode:/1)
+		self.collect(grayDecode/1)
 	}
 
 	grayEncode { :self |
-		self.collect(grayEncode:/1)
+		self.collect(grayEncode/1)
 	}
 
 	grayEncode { :self :operand |
@@ -335,11 +335,11 @@
 	}
 
 	greatestPrimeFactor { :self |
-		self.collect(greatestPrimeFactor:/1)
+		self.collect(greatestPrimeFactor/1)
 	}
 
 	hammingWeight { :self |
-		self.collect(hammingWeight:/1)
+		self.collect(hammingWeight/1)
 	}
 
 	harmonicNumber { :n :r |
@@ -349,31 +349,31 @@
 	}
 
 	harmonicNumber { :self |
-		self.collect(harmonicNumber:/1)
+		self.collect(harmonicNumber/1)
 	}
 
 	halve { :self |
-		self.collect(halve:/1)
+		self.collect(halve/1)
 	}
 
 	hexagonalNumber { :self |
-		self.collect(hexagonalNumber:/1)
+		self.collect(hexagonalNumber/1)
 	}
 
 	i { :self |
-		self.collect(i:/1)
+		self.collect(i/1)
 	}
 
 	imaginary { :self |
-		self.collect(imaginary:/1)
+		self.collect(imaginary/1)
 	}
 
 	increment { :self |
-		self.collect(increment:/1)
+		self.collect(increment/1)
 	}
 
 	integerChop { :self |
-		self.collect(integerChop:/1)
+		self.collect(integerChop/1)
 	}
 
 	integerDigits { :self :base :count |
@@ -383,7 +383,7 @@
 	}
 
 	integerDigits { :self |
-		self.collect(integerDigits:/1)
+		self.collect(integerDigits/1)
 	}
 
 	integerExponent { :self :anObject |
@@ -399,7 +399,7 @@
 	}
 
 	integerPart { :self |
-		self.collect(integerPart:/1)
+		self.collect(integerPart/1)
 	}
 
 	integerReverse { :self :base :length |
@@ -415,75 +415,75 @@
 	}
 
 	integerReverse { :self |
-		self.collect(integerReverse:/1)
+		self.collect(integerReverse/1)
 	}
 
 	[integerSquareRoot, isqrt] { :self |
-		self.collect(integerSquareRoot:/1)
+		self.collect(integerSquareRoot/1)
 	}
 
 	inverseErf { :self |
-		self.collect(inverseErf:/1)
+		self.collect(inverseErf/1)
 	}
 
 	inverseErfc { :self |
-		self.collect(inverseErfc:/1)
+		self.collect(inverseErfc/1)
 	}
 
 	inverseGudermannian { :self |
-		self.collect(inverseGudermannian:/1)
+		self.collect(inverseGudermannian/1)
 	}
 
 	inverseTriangularNumber { :self |
-		self.collect(inverseTriangularNumber:/1)
+		self.collect(inverseTriangularNumber/1)
 	}
 
 	isBit { :self |
-		self.collect(isBit:/1)
+		self.collect(isBit/1)
 	}
 
 	isComposite { :self |
-		self.collect(isComposite:/1)
+		self.collect(isComposite/1)
 	}
 
 	isGaussianPrime { :self |
-		self.collect(isGaussianPrime:/1)
+		self.collect(isGaussianPrime/1)
 	}
 
 	isInteger { :self |
-		self.collect(isInteger:/1)
+		self.collect(isInteger/1)
 	}
 
 	isNegative { :self |
-		self.collect(isNegative:/1)
+		self.collect(isNegative/1)
 	}
 
 	isNegativeZero { :self |
-		self.collect(isNegativeZero:/1)
+		self.collect(isNegativeZero/1)
 	}
 
 	isNonNegative { :self |
-		self.collect(isNonNegative:/1)
+		self.collect(isNonNegative/1)
 	}
 
 	isPositive { :self |
-		self.collect(isPositive:/1)
+		self.collect(isPositive/1)
 	}
 
 	isPrime { :self |
-		self.collect(isPrime:/1)
+		self.collect(isPrime/1)
 	}
 
 	isPrimePower { :self |
-		self.collect(isPrimePower:/1)
+		self.collect(isPrimePower/1)
 	}
 
 	isSmallInteger { :self |
-		self.collect(isSmallInteger:/1)
+		self.collect(isSmallInteger/1)
 	}
 
 	isZero { :self |
-		self.collect(isZero:/1)
+		self.collect(isZero/1)
 	}
 
 	jacobiSymbol { :a :n |
@@ -499,23 +499,23 @@
 	}
 
 	kempnerFunction { :self |
-		self.collect(kempnerFunction:/1)
+		self.collect(kempnerFunction/1)
 	}
 
 	lcm { :self |
-		self.reduce(lcm:/2)
+		self.reduce(lcm/2)
 	}
 
 	leastPrimeFactor { :self |
-		self.collect(leastPrimeFactor:/1)
+		self.collect(leastPrimeFactor/1)
 	}
 
 	liouvilleLambda { :self |
-		self.collect(liouvilleLambda:/1)
+		self.collect(liouvilleLambda/1)
 	}
 
 	log { :self |
-		self.collect(log:/1)
+		self.collect(log/1)
 	}
 
 	log { :self :base |
@@ -524,23 +524,23 @@
 	}
 
 	log10 { :self |
-		self.collect(log10:/1)
+		self.collect(log10/1)
 	}
 
 	log2 { :self |
-		self.collect(log2:/1)
+		self.collect(log2/1)
 	}
 
 	logarithmicIntegral { :self |
-		self.collect(logarithmicIntegral:/1)
+		self.collect(logarithmicIntegral/1)
 	}
 
 	logisticSigmoid { :self |
-		self.collect(logisticSigmoid:/1)
+		self.collect(logisticSigmoid/1)
 	}
 
 	logit { :self |
-		self.collect(logit:/1)
+		self.collect(logit/1)
 	}
 
 	logScale { :self :c |
@@ -554,67 +554,67 @@
 	}
 
 	lucasL { :self |
-		self.collect(lucasL:/1)
+		self.collect(lucasL/1)
 	}
 
 	lucasNumber { :self |
-		self.collect(lucasNumber:/1)
+		self.collect(lucasNumber/1)
 	}
 
 	mersenneNumber { :self |
-		self.collect(mersenneNumber:/1)
+		self.collect(mersenneNumber/1)
 	}
 
 	mersennePrimeExponent { :self |
-		self.collect(mersennePrimeExponent:/1)
+		self.collect(mersennePrimeExponent/1)
 	}
 
 	minkowskiQuestionMark { :self |
-		self.collect(minkowskiQuestionMark:/1)
+		self.collect(minkowskiQuestionMark/1)
 	}
 
 	minkowskiQuestionMarkInverse { :self |
-		self.collect(minkowskiQuestionMarkInverse:/1)
+		self.collect(minkowskiQuestionMarkInverse/1)
 	}
 
 	mixedFractionParts { :self |
-		self.collect(mixedFractionParts:/1)
+		self.collect(mixedFractionParts/1)
 	}
 
 	moebiusMu { :self |
-		self.collect(moebiusMu:/1)
+		self.collect(moebiusMu/1)
 	}
 
 	motzkinNumber { :self |
-		self.collect(motzkinNumber:/1)
+		self.collect(motzkinNumber/1)
 	}
 
 	muLawEncode { :self |
-		self.collect(muLawEncode:/1)
+		self.collect(muLawEncode/1)
 	}
 
 	muLawDecode { :self |
-		self.collect(muLawDecode:/1)
+		self.collect(muLawDecode/1)
 	}
 
 	negabinaryExpansion { :self |
-		self.collect(negabinaryExpansion:/1)
+		self.collect(negabinaryExpansion/1)
 	}
 
 	negateInPlace { :self |
-		self.deepReplace(negate:/1)
+		self.deepReplace(negate/1)
 	}
 
 	nextPrime { :self |
-		self.collect(nextPrime:/1)
+		self.collect(nextPrime/1)
 	}
 
 	nimSquare { :self |
-		self.collect(nimSquare:/1)
+		self.collect(nimSquare/1)
 	}
 
 	nimSquareRoot { :self |
-		self.collect(nimSquareRoot:/1)
+		self.collect(nimSquareRoot/1)
 	}
 
 	numerator { :self |
@@ -624,31 +624,31 @@
 	}
 
 	numeratorDenominator { :self |
-		self.collect(numeratorDenominator:/1)
+		self.collect(numeratorDenominator/1)
 	}
 
 	[partitionFunctionP, partitionsP] { :self |
-		self.collect(partitionsP:/1)
+		self.collect(partitionsP/1)
 	}
 
 	[partitionFunctionQ, partitionsQ] { :self |
-		self.collect(partitionsQ:/1)
+		self.collect(partitionsQ/1)
 	}
 
 	pellNumber { :self |
-		self.collect(pellNumber:/1)
+		self.collect(pellNumber/1)
 	}
 
 	percent { :self |
-		self.collect(percent:/1)
+		self.collect(percent/1)
 	}
 
 	pi { :self |
-		self.collect(pi:/1)
+		self.collect(pi/1)
 	}
 
 	pentagonalNumber { :self |
-		self.collect(pentagonalNumber:/1)
+		self.collect(pentagonalNumber/1)
 	}
 
 	powerMod { :self :exponent :modulo |
@@ -658,7 +658,7 @@
 	}
 
 	previousPrime { :self |
-		self.collect(previousPrime:/1)
+		self.collect(previousPrime/1)
 	}
 
 	primeFactors { :self :convention |
@@ -674,23 +674,23 @@
 	}
 
 	primeLimit { :self |
-		self.collect(primeLimit:/1)
+		self.collect(primeLimit/1)
 	}
 
 	primePi { :self |
-		self.collect(primePi:/1)
+		self.collect(primePi/1)
 	}
 
 	radical { :self |
-		self.collect(radical:/1)
+		self.collect(radical/1)
 	}
 
 	radiansToDegrees { :self |
-		self.collect(radiansToDegrees:/1)
+		self.collect(radiansToDegrees/1)
 	}
 
 	ramp { :self |
-		self.collect(ramp:/1)
+		self.collect(ramp/1)
 	}
 
 	rationalUnrank { :self :m |
@@ -700,11 +700,11 @@
 	}
 
 	real { :self |
-		self.collect(real:/1)
+		self.collect(real/1)
 	}
 
 	realImaginary { :self |
-		self.collect(realImaginary:/1)
+		self.collect(realImaginary/1)
 	}
 
 	replaceNaN { :x :y |
@@ -726,43 +726,43 @@
 	}
 
 	riemannXi { :self |
-		self.collect(riemannXi:/1)
+		self.collect(riemannXi/1)
 	}
 
 	romanNumeral { :self |
-		self.collect(romanNumeral:/1)
+		self.collect(romanNumeral/1)
 	}
 
 	round { :self |
-		self.collect(round:/1)
+		self.collect(round/1)
 	}
 
 	roundTiesEven { :self |
-		self.collect(roundTiesEven:/1)
+		self.collect(roundTiesEven/1)
 	}
 
 	rudinShapiro { :self |
-		self.collect(rudinShapiro:/1)
+		self.collect(rudinShapiro/1)
 	}
 
 	schroderNumber { :self |
-		self.collect(schroderNumber:/1)
+		self.collect(schroderNumber/1)
 	}
 
 	[squareRoot, sqrt] { :self |
-		self.collect(squareRoot:/1)
+		self.collect(squareRoot/1)
 	}
 
 	square { :self |
-		self.collect(square:/1)
+		self.collect(square/1)
 	}
 
 	squarePyramidalNumber { :self |
-		self.collect(squarePyramidalNumber:/1)
+		self.collect(squarePyramidalNumber/1)
 	}
 
 	squareFreePart { :self |
-		self.collect(squareFreePart:/1)
+		self.collect(squareFreePart/1)
 	}
 
 	stirlingS1 { :self :k |
@@ -772,47 +772,47 @@
 	}
 
 	superCatalanNumber { :self |
-		self.collect(superCatalanNumber:/1)
+		self.collect(superCatalanNumber/1)
 	}
 
 	tan { :self |
-		self.collect(tan:/1)
+		self.collect(tan/1)
 	}
 
 	thueMorse { :self |
-		self.collect(thueMorse:/1)
+		self.collect(thueMorse/1)
 	}
 
 	ternaryExpansion { :self |
-		self.collect(ternaryExpansion:/1)
+		self.collect(ternaryExpansion/1)
 	}
 
 	tetrahedralNumber { :self |
-		self.collect(tetrahedralNumber:/1)
+		self.collect(tetrahedralNumber/1)
 	}
 
 	triangularNumber { :self |
-		self.collect(triangularNumber:/1)
+		self.collect(triangularNumber/1)
 	}
 
 	tribonacciNumber { :self |
-		self.collect(tribonacciNumber:/1)
+		self.collect(tribonacciNumber/1)
 	}
 
 	truncate { :self |
-		self.collect(truncate:/1)
+		self.collect(truncate/1)
 	}
 
 	unitize { :self |
-		self.collect(unitize:/1)
+		self.collect(unitize/1)
 	}
 
 	unitDegree { :self |
-		self.collect(unitDegree:/1)
+		self.collect(unitDegree/1)
 	}
 
 	unitStep { :self |
-		self.collect(unitStep:/1)
+		self.collect(unitStep/1)
 	}
 
 	vanDerCorputNumber { :self :base |
@@ -822,7 +822,7 @@
 	}
 
 	withoutTrailingZeroes { :self |
-		self.collect(withoutTrailingZeroes:/1)
+		self.collect(withoutTrailingZeroes/1)
 	}
 
 	wrap { :self :lo :hi |
@@ -844,19 +844,19 @@
 	}
 
 	wythoffLower { :self |
-		self.collect(wythoffLower:/1)
+		self.collect(wythoffLower/1)
 	}
 
 	wythoffUpper { :self |
-		self.collect(wythoffUpper:/1)
+		self.collect(wythoffUpper/1)
 	}
 
 	zeckendorfRepresentation { :self |
-		self.collect(zeckendorfRepresentation:/1)
+		self.collect(zeckendorfRepresentation/1)
 	}
 
 	zeta { :self |
-		self.collect(zeta:/1)
+		self.collect(zeta/1)
 	}
 
 }
@@ -868,7 +868,7 @@
 	}
 
 	[less, <] { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, less:/2)
+		anObject.adaptToCollectionAndApply(self, less/2)
 	}
 
 	[lessEqual, <=] { :self :anObject |
@@ -876,7 +876,7 @@
 	}
 
 	[greater, >] { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, greater:/2)
+		anObject.adaptToCollectionAndApply(self, greater/2)
 	}
 
 	[greaterEqual, >=] { :self :anObject |
@@ -884,111 +884,111 @@
 	}
 
 	[bitShiftLeft, <<] { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, bitShiftLeft:/2)
+		anObject.adaptToCollectionAndApply(self, bitShiftLeft/2)
 	}
 
 	[bitShiftRight, >>] { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, bitShiftRight:/2)
+		anObject.adaptToCollectionAndApply(self, bitShiftRight/2)
 	}
 
 	[divide, /] { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, divide:/2)
+		anObject.adaptToCollectionAndApply(self, divide/2)
 	}
 
 	[mod, %] { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, mod:/2)
+		anObject.adaptToCollectionAndApply(self, mod/2)
 	}
 
 	[plus, +] { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, plus:/2)
+		anObject.adaptToCollectionAndApply(self, plus/2)
 	}
 
 	[power, ^] { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, power:/2)
+		anObject.adaptToCollectionAndApply(self, power/2)
 	}
 
 	[quotient, //] { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, quotient:/2)
+		anObject.adaptToCollectionAndApply(self, quotient/2)
 	}
 
 	[remainder, \\] { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, remainder:/2)
+		anObject.adaptToCollectionAndApply(self, remainder/2)
 	}
 
 	[subtract, -] { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, subtract:/2)
+		anObject.adaptToCollectionAndApply(self, subtract/2)
 	}
 
 	[times, *] { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, times:/2)
+		anObject.adaptToCollectionAndApply(self, times/2)
 	}
 
 	absArg { :self |
-		self.collect(absArg:/1)
+		self.collect(absArg/1)
 	}
 
 	arg { :self |
-		self.collect(arg:/1)
+		self.collect(arg/1)
 	}
 
 	arithmeticGeometricMean { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, arithmeticGeometricMean:/2)
+		anObject.adaptToCollectionAndApply(self, arithmeticGeometricMean/2)
 	}
 
 	beta { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, beta:/2)
+		anObject.adaptToCollectionAndApply(self, beta/2)
 	}
 
 	binomial { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, binomial:/2)
+		anObject.adaptToCollectionAndApply(self, binomial/2)
 	}
 
 	bitAnd { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, bitAnd:/2)
+		anObject.adaptToCollectionAndApply(self, bitAnd/2)
 	}
 
 	bitNot { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, bitNot:/2)
+		anObject.adaptToCollectionAndApply(self, bitNot/2)
 	}
 
 	bitOr { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, bitOr:/2)
+		anObject.adaptToCollectionAndApply(self, bitOr/2)
 	}
 
 	bitShiftRightUnsigned { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, bitShiftRightUnsigned:/2)
+		anObject.adaptToCollectionAndApply(self, bitShiftRightUnsigned/2)
 	}
 
 	bitXor { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, bitXor:/2)
+		anObject.adaptToCollectionAndApply(self, bitXor/2)
 	}
 
 	Complex { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, Complex:/2)
+		anObject.adaptToCollectionAndApply(self, Complex/2)
 	}
 
 	digitalRoot { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, digitalRoot:/2)
+		anObject.adaptToCollectionAndApply(self, digitalRoot/2)
 	}
 
 	divisible { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, divisible:/2)
+		anObject.adaptToCollectionAndApply(self, divisible/2)
 	}
 
 	Fraction { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, Fraction:/2)
+		anObject.adaptToCollectionAndApply(self, Fraction/2)
 	}
 
 	gcd { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, gcd:/2)
+		anObject.adaptToCollectionAndApply(self, gcd/2)
 	}
 
 	ieeeRemainder { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, ieeeRemainder:/2)
+		anObject.adaptToCollectionAndApply(self, ieeeRemainder/2)
 	}
 
 	integerDigits { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, integerDigits:/2)
+		anObject.adaptToCollectionAndApply(self, integerDigits/2)
 	}
 
 	isCloseToBy { :self :anObject :epsilon |
@@ -998,26 +998,26 @@
 	}
 
 	lcm { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, lcm:/2)
+		anObject.adaptToCollectionAndApply(self, lcm/2)
 	}
 
 	lucasL { :n :x |
-		x.adaptToCollectionAndApply(n, lucasL:/2)
+		x.adaptToCollectionAndApply(n, lucasL/2)
 	}
 
 	mediant { :self |
 		Fraction(
-			self.collect(numerator:/1).sum,
-			self.collect(denominator:/1).sum
+			self.collect(numerator/1).sum,
+			self.collect(denominator/1).sum
 		)
 	}
 
 	max { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, max:/2)
+		anObject.adaptToCollectionAndApply(self, max/2)
 	}
 
 	min { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, min:/2)
+		anObject.adaptToCollectionAndApply(self, min/2)
 	}
 
 	mod { :m :n :d |
@@ -1027,15 +1027,15 @@
 	}
 
 	nimMultiplication { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, nimMultiplication:/2)
+		anObject.adaptToCollectionAndApply(self, nimMultiplication/2)
 	}
 
 	nthRoot { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, nthRoot:/2)
+		anObject.adaptToCollectionAndApply(self, nthRoot/2)
 	}
 
 	round { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, round:/2)
+		anObject.adaptToCollectionAndApply(self, round/2)
 	}
 
 	[timesPlus, *+] { :self :mul :add |
@@ -1043,18 +1043,18 @@
 	}
 
 	trinomial { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, trinomial:/2)
+		anObject.adaptToCollectionAndApply(self, trinomial/2)
 	}
 
 	truncate { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, truncate:/2)
+		anObject.adaptToCollectionAndApply(self, truncate/2)
 	}
 
 }
 
 +List {
 
-	atMatrixOrElementwise { :self :aBlock:/1 |
+	atMatrixOrElementwise { :self :aBlock/1 |
 		self.isEmpty.if {
 			[]
 		} {
@@ -1064,20 +1064,20 @@
 				self.isMatrix.if {
 					aBlock(self)
 				} {
-					self.collect(aBlock:/1)
+					self.collect(aBlock/1)
 				}
 			}
 		}
 	}
 
-	atVectorOrElementwise { :self :aBlock:/1 |
+	atVectorOrElementwise { :self :aBlock/1 |
 		self.isEmpty.if {
 			[]
 		} {
 			self.isVector.if {
 				aBlock(self)
 			} {
-				self.collect(aBlock:/1)
+				self.collect(aBlock/1)
 			}
 		}
 	}
@@ -1086,15 +1086,15 @@
 
 +@Collection {
 
-	atIntegerOrElementwise { :self :aBlock:/1 |
-		self.collect(aBlock:/1)
+	atIntegerOrElementwise { :self :aBlock/1 |
+		self.collect(aBlock/1)
 	}
 
 }
 
 +@Integer {
 
-	atIntegerOrElementwise { :self :aBlock:/1 |
+	atIntegerOrElementwise { :self :aBlock/1 |
 		aBlock(self)
 	}
 

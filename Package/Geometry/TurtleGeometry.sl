@@ -33,7 +33,7 @@ TurtleGeometry : [Object, Equal, Store, Geometry] { | instructionList |
 		2
 	}
 
-	forEach { :self :aCollection :aBlock:/2 |
+	forEach { :self :aCollection :aBlock/2 |
 		aCollection.do { :each |
 			aBlock(self, each)
 		};
@@ -114,7 +114,7 @@ TurtleGeometry : [Object, Equal, Store, Geometry] { | instructionList |
 		self.add('Pen', false)
 	}
 
-	repeat { :self :count :aBlock:/1 |
+	repeat { :self :count :aBlock/1 |
 		count.timesRepeat {
 			aBlock(self)
 		};

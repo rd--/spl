@@ -1,6 +1,6 @@
 # quickSortFromToBy
 
-- _quickSortFromToBy([x₁ x₂ …], i, j, f:/2)_
+- _quickSortFromToBy([x₁ x₂ …], i, j, f/2)_
 
 Sort elements
 from start index _i_

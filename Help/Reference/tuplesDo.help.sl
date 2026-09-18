@@ -1,6 +1,6 @@
 # tuplesDo
 
-- _tuplesDo(c, f:/1)_
+- _tuplesDo(c, f/1)_
 
 Apply the block _f_ to all of the possible n-tuples of each of the elements of the sequence _c_,
 which is an n-element sequence of any sized sequences.

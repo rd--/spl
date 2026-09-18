@@ -47,7 +47,7 @@ First few terms,
 OEIS [A001221](https://oeis.org/A001221):
 
 ```
->>> 1:100.collect(primeNu:/1)
+>>> 1:100.collect(primeNu/1)
 [
 	0 1 1 1 1 2 1 1 1 2 1 2 1 2 2 1 1 2 1 2
 	2 2 1 2 1 2 1 2 1 3 1 1 2 2 2 2 1 2 2 2
@@ -89,7 +89,7 @@ The `primeNu` sequence for the first 100 numbers,
 OEIS [A001221](https://oeis.org/A001221):
 
 ~~~spl svg=A oeis=A001221
-1:100.functionPlot(primeNu:/1)
+1:100.functionPlot(primeNu/1)
 ~~~
 
 ![](Help/Image/primeNu-A.svg)

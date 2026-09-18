@@ -16,7 +16,7 @@ Evaluate numerically:
 >>> 0.ellipticK
 1/2.pi
 
->>> [0.5 0.8 0].collect(ellipticKFukushima:/1)
+>>> [0.5 0.8 0].collect(ellipticKFukushima/1)
 [1.85407 2.25721 1/2.pi]
 ```
 

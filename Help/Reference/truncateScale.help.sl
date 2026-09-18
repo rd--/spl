@@ -1,6 +1,6 @@
 # truncateScale
 
-- _truncateScale(d, s, f:/1)_
+- _truncateScale(d, s, f/1)_
 
 At `Decimal` _d_,
 truncate the scale of the value to _s_,
@@ -23,7 +23,7 @@ Truncate from five decimal places to four:
 The mode of the truncation may be specified:
 
 ```
->>> 3.14159D.truncateScale(4, round:/1)
+>>> 3.14159D.truncateScale(4, round/1)
 3.1416D
 ```
 

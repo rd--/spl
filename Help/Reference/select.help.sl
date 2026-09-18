@@ -1,6 +1,6 @@
 # select
 
-- _select(c, f:/1)_
+- _select(c, f/1)_
 
 Evaluate the block _f_ with each of the elements of the collection _c_ as the argument.
 Collect into a new collection like _c_ only those elements for which _f_ evaluates to `true`.
@@ -9,14 +9,14 @@ Answer the new collection.
 Select elements that are even:
 
 ```
->>> [1 2 4 7 6 2].select(isEven:/1)
+>>> [1 2 4 7 6 2].select(isEven/1)
 [2 4 6 2]
 ```
 
 Select prime numbers:
 
 ```
->>> 99:111.select(isPrime:/1)
+>>> 99:111.select(isPrime/1)
 [101 103 107 109]
 ```
 
@@ -69,7 +69,7 @@ Select numbers up to 100 that equal 1 modulo both 3 and 5:
 Select characters from a `String`:
 
 ```
->>> 'aAbBcC'.select(isLowerCase:/1)
+>>> 'aAbBcC'.select(isLowerCase/1)
 'abc'
 ```
 
@@ -77,7 +77,7 @@ Retain items that are integers:
 
 ```
 >>> [1 'x' 2 3 'y' 9 'y'].select(
->>> 	isNumber:/1
+>>> 	isNumber/1
 >>> )
 [1 2 3 9]
 ```
@@ -86,7 +86,7 @@ At a finite `Stream`:
 
 ```
 >>> [1 .. 9].asStream
->>> .select(isEven:/1)
+>>> .select(isEven/1)
 >>> .upToEnd
 [2 4 6 8]
 ```
@@ -95,7 +95,7 @@ At an infinte `Stream`:
 
 ```
 >>> (1 .. Infinity).asStream
->>> .select(isEven:/1)
+>>> .select(isEven/1)
 >>> .next(4)
 [2 4 6 8]
 ```
@@ -105,7 +105,7 @@ At `Sfc32`, which implements `Stream`:
 ```
 >>> Sfc32(188311).collect { :x |
 >>> 	(x * 23).round
->>> }.select(isOdd:/1).next(5)
+>>> }.select(isOdd/1).next(5)
 [15 21 5 13 1]
 ```
 
@@ -159,7 +159,7 @@ Primes of the form _4n+3_,
 OEIS [A002145](https://oeis.org/A002145):
 
 ~~~spl svg=E oeis=A002145
-(1:150 * 4 - 1).select(isPrime:/1)
+(1:150 * 4 - 1).select(isPrime/1)
 .discretePlot
 ~~~
 
@@ -169,7 +169,7 @@ Primes of the form _6n+1_,
 OEIS [A002476](https://oeis.org/A002476):
 
 ~~~spl svg=F oeis=A002476
-(1:150 * 6 + 1).select(isPrime:/1)
+(1:150 * 6 + 1).select(isPrime/1)
 .discretePlot
 ~~~
 
@@ -179,7 +179,7 @@ Primes of the form _8n+1_,
 OEIS [A007519](https://oeis.org/A007519):
 
 ~~~spl svg=G oeis=A007519
-(1:170 * 8 + 1).select(isPrime:/1)
+(1:170 * 8 + 1).select(isPrime/1)
 .discretePlot
 ~~~
 

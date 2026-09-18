@@ -1,6 +1,6 @@
 # gnomeSort
 
-- _gnomeSort([x₁ x₂ …], f:/2)_
+- _gnomeSort([x₁ x₂ …], f/2)_
 
 Sort the sequence _x_ in place using the gnome sort algorithm,
 according to the comparison predicate _f_.

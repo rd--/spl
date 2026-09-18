@@ -68,7 +68,7 @@ log-scale plot,
 OEIS [A006530](https://oeis.org/A006530):
 
 ~~~spl svg=A oeis=A006530
-2:200.collect(greatestPrimeFactor:/1)
+2:200.collect(greatestPrimeFactor/1)
 .scatterPlot.logScale
 ~~~
 
@@ -109,7 +109,7 @@ OEIS [A052248](https://oeis.org/A052248):
 	let a = n.prime + 1;
 	let b = (n + 1).prime - 1;
 	(a .. b).collect(
-		greatestPrimeFactor:/1
+		greatestPrimeFactor/1
 	).max
 }.scatterPlot
 ~~~

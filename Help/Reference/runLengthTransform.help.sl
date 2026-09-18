@@ -1,6 +1,6 @@
 # runLengthTransform
 
-- _runLengthTransform(n, f:/1)_
+- _runLengthTransform(n, f/1)_
 
 Answer the run-length transform of the integer sequence given by the unary block _f_.
 
@@ -34,7 +34,7 @@ Run length transform of `primorial`,
 OEIS [A278159](https://oeis.org/A278159):
 
 ```
->>> 15.runLengthTransform(primorial:/1)
+>>> 15.runLengthTransform(primorial/1)
 [
 	1  2  2  6  2  4  6 30  2  4
 	4 12  6 12 30
@@ -46,7 +46,7 @@ log scale scatter plot,
 OEIS [A278159](https://oeis.org/A278159):
 
 ~~~spl svg=B oeis=A278159
-100.runLengthTransform(primorial:/1)
+100.runLengthTransform(primorial/1)
 .scatterPlot.log
 ~~~
 

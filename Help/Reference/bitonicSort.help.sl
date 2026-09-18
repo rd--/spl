@@ -1,6 +1,6 @@
 # bitonicSort
 
-- _bitonicSort([x₁ x₂ …], f:/2)_
+- _bitonicSort([x₁ x₂ …], f/2)_
 
 Sort the sequence _x_ in place using the bitonic sort algorithm,
 according to the comparison predicate _f_.

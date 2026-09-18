@@ -8,7 +8,7 @@ First few terms,
 OEIS [A007769](https://oeis.org/A007769):
 
 ```
->>> 0:9.collect(chordDiagramCount:/1)
+>>> 0:9.collect(chordDiagramCount/1)
 [1 1 2 5 18 105 902 9749 127072 1915951]
 ```
 

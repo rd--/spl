@@ -4,7 +4,7 @@
 		List(self.size).fillFrom(self)
 	}
 
-	atIfAbsent { :self :index :ifAbsent:/0 |
+	atIfAbsent { :self :index :ifAbsent/0 |
 		<primitive:
 		if(sl.arrayCheckIndex(_self, _index)) {
 			return _self[_index - 1];
@@ -23,7 +23,7 @@
 		self.errorInvalidIndex('atPut', index)
 	}
 
-	collect { :self :aBlock:/1 |
+	collect { :self :aBlock/1 |
 		<primitive:
 		if(_aBlock_1 instanceof Function) {
 			return _self.map(function(element, _unusedIndex, _unusedArray) {
@@ -38,7 +38,7 @@
 		self.primitiveDeepCopy
 	}
 
-	detectIfFoundIfNone { :self :aBlock:/1 :whenFound:/1 :whenNone:/0 |
+	detectIfFoundIfNone { :self :aBlock/1 :whenFound/1 :whenNone/0 |
 		<primitive:
 		const item = _self.find(function(element) {
 			return _aBlock_1(element);
@@ -47,7 +47,7 @@
 		>
 	}
 
-	do { :self :aBlock:/1 |
+	do { :self :aBlock/1 |
 		<primitive:
 		_self.forEach(function(item) {
 			return _aBlock_1(item)
@@ -56,7 +56,7 @@
 		self
 	}
 
-	findFirstElement { :self :aBlock:/1 |
+	findFirstElement { :self :aBlock/1 |
 		<primitive:
 		const item = _self.find(function(element) {
 			return _aBlock_1(element);
@@ -65,7 +65,7 @@
 		>
 	}
 
-	findFirst { :self :aBlock:/1 |
+	findFirst { :self :aBlock/1 |
 		<primitive:
 		const index = _self.findIndex(function(element) {
 			return _aBlock_1(element);
@@ -95,7 +95,7 @@
 		<primitive: return _self.length;>
 	}
 
-	sortBy { :self :sortBlock:/2 |
+	sortBy { :self :sortBlock/2 |
 		<primitive:
 		return _self.sort(function(p, q) {
 			const b = _sortBlock_2(p, q);
@@ -108,7 +108,7 @@
 		>
 	}
 
-	sortByOn { :self :sortBlock:/2 :keyBlock:/1 |
+	sortByOn { :self :sortBlock/2 :keyBlock/1 |
 		<primitive:
 		return _self.sort(function(p, q) {
 			return _sortBlock_2(_keyBlock_1(p), _keyBlock_1(q)) ? -1 : 1
@@ -116,13 +116,13 @@
 		>
 	}
 
-	sortComparing { :self :compareBlock:/2 |
+	sortComparing { :self :compareBlock/2 |
 		<primitive:
 		return _self.sort(_compareBlock_2);
 		>
 	}
 
-	sortedBy { :self :sortBlock:/2 |
+	sortedBy { :self :sortBlock/2 |
 		<primitive:
 		return _self.toSorted(function(p, q) {
 			return _sortBlock_2(p, q) ? -1 : 1
@@ -130,7 +130,7 @@
 		>
 	}
 
-	sortedComparing { :self :compareBlock:/2 |
+	sortedComparing { :self :compareBlock/2 |
 		<primitive:
 		return _self.toSorted(_compareBlock_2);
 		>

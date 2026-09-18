@@ -24,7 +24,7 @@ At `SmallFloat`:
 true
 
 >>> [-3 -2.5 0 1.pi 4.5]
->>> .select(isHalfInteger:/1)
+>>> .select(isHalfInteger/1)
 [-2.5 4.5]
 ```
 

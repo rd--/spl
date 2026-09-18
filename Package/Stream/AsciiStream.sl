@@ -10,7 +10,7 @@
 
 +Block {
 
-	asciiStringStreamContents { :self:/1 |
+	asciiStringStreamContents { :self/1 |
 		let stream = AsciiStream();
 		self(stream);
 		stream.contents.asciiString

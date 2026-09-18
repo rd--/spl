@@ -30,7 +30,7 @@ OEIS [A215991](https://oeis.org/A215991):
 ~~~spl svg=A oeis=A215991
 let k = List(25, 1);
 k.listConvolve(1:350.prime)
-.select(isPrime:/1)
+.select(isPrime/1)
 .discretePlot
 ~~~
 

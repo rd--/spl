@@ -44,10 +44,10 @@ true
 The binary form requires in addition that the predicate _f_ holds for each item:
 
 ```
->>> [1 3 5 7 9].isVector(isOdd:/1)
+>>> [1 3 5 7 9].isVector(isOdd/1)
 true
 
->>> [1 2 3 4 5].isVector(isOdd:/1)
+>>> [1 2 3 4 5].isVector(isOdd/1)
 false
 ```
 

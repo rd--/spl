@@ -37,7 +37,7 @@ the least rotation of equivalent queries are equal:
 
 ```
 >>> [0 0; 7 12].bresenhamLineAlgorithm
->>> .collect(first:/1)
+>>> .collect(first/1)
 >>> .differences
 >>> .lexicographicallyLeastRotation
 [0 1 0 1 0 1 1 0 1 0 1 1]

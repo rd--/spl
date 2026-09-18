@@ -11,7 +11,7 @@ The graph sum of the pentatope graph _K(5)_ and the cycle graph _C(5)_.
 >>> let a = 5.completeGraph;
 >>> let b = 5.cycleGraph;
 >>> let c = a + b;
->>> [a b c].collect(adjacencyMatrix:/1)
+>>> [a b c].collect(adjacencyMatrix/1)
 [
 	[
 		0 1 1 1 1;

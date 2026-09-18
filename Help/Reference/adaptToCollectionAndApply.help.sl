@@ -1,6 +1,6 @@
 # adaptToCollectionAndApply
 
-- _adaptToCollectionAndApply(x, c, f:/2)_
+- _adaptToCollectionAndApply(x, c, f/2)_
 
 Request that the object _x_ adapt itself to operating with the collection _c_ elementwise,
 and then apply the block _f_ with itself as the second parameter.

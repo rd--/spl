@@ -1,6 +1,6 @@
 # subsequences
 
-- _subsequences([x₁ x₂ …], f:/1)_
+- _subsequences([x₁ x₂ …], f/1)_
 
 Answer a `List` of all of the subsequences (both contiguous and disjoint) of _x_
 for which _f_ answers `true`.

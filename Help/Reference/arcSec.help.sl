@@ -74,7 +74,7 @@ Relation to `arcCos`:
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(-5 -- 5).functionPlot(arcSec:/1)
+(-5 -- 5).functionPlot(arcSec/1)
 ~~~
 
 ![](Help/Image/arcSec-A.svg)

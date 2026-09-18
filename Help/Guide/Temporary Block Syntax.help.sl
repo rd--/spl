@@ -9,7 +9,7 @@ This allows the defined block to be applied using `Apply Syntax`:
 >>> let f = { :x |
 >>> 	x * x * x
 >>> };
->>> (f(3), f:/1.isBlock)
+>>> (f(3), f/1.isBlock)
 (27, true)
 ```
 
@@ -19,10 +19,10 @@ To refer to the block by name the qualifier must be written:
 >>> let f = { :x |
 >>> 	x * x * x
 >>> };
->>> [3 5 7].collect(f:/1)
+>>> [3 5 7].collect(f/1)
 [27 125 343]
 
->>> [3 5 7].collect(cube:/1)
+>>> [3 5 7].collect(cube/1)
 [27 125 343]
 ```
 

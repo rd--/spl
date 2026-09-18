@@ -13,7 +13,7 @@ true
 >>> 8.isOdd
 false
 
->>> 1:5.collect(isOdd:/1)
+>>> 1:5.collect(isOdd/1)
 [true false true false true]
 ```
 
@@ -58,7 +58,7 @@ true
 The sums of the first odd integers, beginning with one, are perfect squares:
 
 ```
->>> 1:19.select(isOdd:/1).prefixSum
+>>> 1:19.select(isOdd/1).prefixSum
 [1 4 9 16 25 36 49 64 81 100]
 ```
 
@@ -91,7 +91,7 @@ OEIS [A039941](https://oeis.org/A039941):
 >>> 		}
 >>> 	}
 >>> };
->>> 0:12.collect(a:/1)
+>>> 0:12.collect(a/1)
 [0 1 1 1 2 2 4 8 12 96 108 10368 10476]
 ```
 
@@ -126,7 +126,7 @@ let a = { :n |
 		}
 	}
 };
-0:150.collect(a:/1).scatterPlot
+0:150.collect(a/1).scatterPlot
 ~~~
 
 ![](Help/Image/isOdd-A.svg)
@@ -138,8 +138,8 @@ OEIS [A059717](https://oeis.org/A059717):
 0:250.collect { :i |
 	{ :n |
 		let d = n.integerDigits;
-		let e = d.select(isEven:/1);
-		let o = d.select(isOdd:/1);
+		let e = d.select(isEven/1);
+		let o = d.select(isOdd/1);
 		(o.size.min(e.size) > 0).if {
 			o.fromDigits + e.fromDigits
 		} {
@@ -155,7 +155,7 @@ Ordered set with zero and where if _x_ is in then both _2x+1_ and _4x_ are also 
 OEIS [A060142](https://oeis.org/A060142):
 
 ~~~spl svg=C oeis=A060142
-let a:/1 = { :n |
+let a/1 = { :n |
 	(n < 3).if {
 		(n < 2)
 	} {
@@ -168,7 +168,7 @@ let a:/1 = { :n |
 		}
 	}
 }.memoize(true);
-0:300.select(a:/1).scatterPlot
+0:300.select(a/1).scatterPlot
 ~~~
 
 ![](Help/Image/isOdd-C.svg)

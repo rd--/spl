@@ -83,7 +83,7 @@ OEIS [A010249](https://oeis.org/A010249):
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(-2 -- 2).functionPlot(cubeRoot:/1)
+(-2 -- 2).functionPlot(cubeRoot/1)
 ~~~
 
 ![](Help/Image/cubeRoot-A.svg)

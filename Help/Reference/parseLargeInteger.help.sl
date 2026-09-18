@@ -1,6 +1,6 @@
 # parseLargeInteger
 
-- _parseLargeInteger(s, f:/0)_
+- _parseLargeInteger(s, f/0)_
 
 Answer the `LargeInteger` value of the decimal integer held in the string _s_.
 The parser allows, but does not require, a trailing upper case letter "L".

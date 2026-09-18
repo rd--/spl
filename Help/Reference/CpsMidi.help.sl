@@ -61,7 +61,7 @@ each twelve steps is an octave:
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(20 -- 1280).functionPlot(CpsMidi:/1)
+(20 -- 1280).functionPlot(CpsMidi/1)
 ~~~
 
 ![](Help/Image/CpsMidi-A.svg)
@@ -70,7 +70,7 @@ Evaluate symbolically:
 
 ```
 >> cpsMidi(`x`)
-(+ (* (log2 (/ x 440)) 12) 69)
+(+ (* (log (/ x 440) 2) 12) 69)
 ```
 
 * * *

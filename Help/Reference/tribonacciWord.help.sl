@@ -19,7 +19,7 @@ OEIS [A080843](https://oeis.org/A080843):
 First few tribonacci words:
 
 ```
->>> 0:4.collect(tribonacciWord:/1)
+>>> 0:4.collect(tribonacciWord/1)
 [
 	1;
 	1 2;

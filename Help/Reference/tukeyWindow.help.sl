@@ -24,7 +24,7 @@ Plot, the unary forms sets α=2/3:
 
 ~~~spl svg=A
 (-1 -- 1).functionPlot(
-	tukeyWindow:/1
+	tukeyWindow/1
 )
 ~~~
 
@@ -48,7 +48,7 @@ Discrete Tukey window of length 15:
 
 ~~~spl svg=C
 (-0.5 -- 0.5)
-.discretize(15, tukeyWindow:/1)
+.discretize(15, tukeyWindow/1)
 .discretePlot
 ~~~
 

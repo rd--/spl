@@ -1,6 +1,6 @@
 # parseNumber
 
-- _parseNumber(s, f:/0)_
+- _parseNumber(s, f/0)_
 
 Answer the `SmallFloat` represented by the string _s_,
 else evaluate _f_ is specified else signal an `error`.

@@ -69,7 +69,7 @@ The integer part of a division is equal to the `quotient`:
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(-2 -- 2).functionPlot(integerPart:/1)
+(-2 -- 2).functionPlot(integerPart/1)
 ~~~
 
 ![](Help/Image/integerPart-A.svg)

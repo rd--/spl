@@ -72,8 +72,8 @@ Arc : [Object, Store, Equal, Geometry] { | center radii angles |
 	parametricEquation { :self |
 		let [a, b] = self.angles;
 		let c = (a < b).if { b } { b + 2.pi };
-		let f:/1 = rescaleBlock([0, 1], [a, c]);
-		let g:/1 = ellipseCurve(self.center, self.radii, 0);
+		let f/1 = rescaleBlock([0, 1], [a, c]);
+		let g/1 = ellipseCurve(self.center, self.radii, 0);
 		{ :theta |
 			g(f(theta))
 		}
@@ -177,7 +177,7 @@ Arc : [Object, Store, Equal, Geometry] { | center radii angles |
 		let [theta1, theta2] = self;
 		let dTheta = (theta1 - theta2).abs / 2;
 		dTheta.isVeryCloseTo(1/2.pi).if {
-			Line([[1, theta1], [1, theta2]].collect(fromPolarCoordinates:/1))
+			Line([[1, theta1], [1, theta2]].collect(fromPolarCoordinates/1))
 		} {
 			let theta = (theta1 + theta2) / 2;
 			let r = dTheta.tan;

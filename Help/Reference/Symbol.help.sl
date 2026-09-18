@@ -62,11 +62,11 @@ Symbol('x')
 The `printString` of a `Symbol` is its name:
 
 ```
->>> Symbol('x').printString
-'x'
+>> Symbol('x').printString
+x
 
->>> Symbol('x').asString
-'x'
+>> Symbol('x').asString
+x
 
 >> `x`.printString
 x

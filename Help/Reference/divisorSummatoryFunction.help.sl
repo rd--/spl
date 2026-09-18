@@ -9,7 +9,7 @@ OEIS [A006218](https://oeis.org/A006218):
 
 ```
 >>> 0:39.collect(
->>> 	divisorSummatoryFunction:/1
+>>> 	divisorSummatoryFunction/1
 >>> )
 [
 	                  0
@@ -29,7 +29,7 @@ OEIS [A078567](https://oeis.org/A078567):
 
 ```
 >>> 0:12.collect(
->>> 	divisorSummatoryFunction:/1
+>>> 	divisorSummatoryFunction/1
 >>> ).prefixSum
 [0 1 4 9 17 27 41 57 77 100 127 156 191]
 ```

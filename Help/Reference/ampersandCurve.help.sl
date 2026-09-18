@@ -9,7 +9,7 @@ deleting missing values:
 
 ~~~spl svg=A
 (0 -- 2.pi)
-.discretize(200, ampersandCurve:/1)
+.discretize(200, ampersandCurve/1)
 .deleteMissing
 .PointCloud
 ~~~

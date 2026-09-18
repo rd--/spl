@@ -5,7 +5,7 @@
 Implement the parametric equation for the pseudosphere.
 
 ~~~spl svg=A
-[-2 2; 0 2.pi].surfacePlot(pseudosphere:/2)
+[-2 2; 0 2.pi].surfacePlot(pseudosphere/2)
 ~~~
 
 ![](Help/Image/pseudosphere-A.svg)

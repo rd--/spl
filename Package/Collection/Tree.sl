@@ -8,29 +8,29 @@ Tree : [Object, Store, Equal, Iterable, Indexable] { | value subTrees |
 		}
 	}
 
-	atIfAbsent { :self :index :ifAbsent:/0 |
-		self.subTrees.atIfAbsent(index, ifAbsent:/0)
+	atIfAbsent { :self :index :ifAbsent/0 |
+		self.subTrees.atIfAbsent(index, ifAbsent/0)
 	}
 
-	collect { :self :aBlock:/1 |
+	collect { :self :aBlock/1 |
 		Tree(
 			aBlock(self.value),
 			self.subTrees.collect { :each |
-				each.collect(aBlock:/1)
+				each.collect(aBlock/1)
 			}
 		)
 	}
 
-	deepWithIndicesDoStartingAt { :self :i :aBlock:/2 |
+	deepWithIndicesDoStartingAt { :self :i :aBlock/2 |
 		self.subTrees.withIndexDo { :each :j |
 			let index = i ++ [j];
 			aBlock(each, index);
-			each.deepWithIndicesDoStartingAt(index, aBlock:/2)
+			each.deepWithIndicesDoStartingAt(index, aBlock/2)
 		}
 	}
 
-	deepWithIndicesDo { :self :aBlock:/2 |
-		self.deepWithIndicesDoStartingAt([], aBlock:/2)
+	deepWithIndicesDo { :self :aBlock/2 |
+		self.deepWithIndicesDoStartingAt([], aBlock/2)
 	}
 
 	deepIndices { :self |
@@ -55,17 +55,17 @@ Tree : [Object, Store, Equal, Iterable, Indexable] { | value subTrees |
 		self.depthStartingAt(1)
 	}
 
-	do { :self :aBlock:/1 |
+	do { :self :aBlock/1 |
 		aBlock(self);
 		self.subTrees.do { :each |
-			each.do(aBlock:/1)
+			each.do(aBlock/1)
 		}
 	}
 
-	equalBy { :self :anObject :aBlock:/2 |
+	equalBy { :self :anObject :aBlock/2 |
 		anObject.isTree & {
 			aBlock(self.value, anObject.value) & {
-				equalBy(self.subTrees, anObject.subTrees, aBlock:/2)
+				equalBy(self.subTrees, anObject.subTrees, aBlock/2)
 			}
 		}
 	}
@@ -91,7 +91,7 @@ Tree : [Object, Store, Equal, Iterable, Indexable] { | value subTrees |
 	isBinary { :self |
 		self.subTrees.isEmpty | {
 			self.subTrees.size = 2 & {
-				self.subTrees.allSatisfy(isBinary:/1)
+				self.subTrees.allSatisfy(isBinary/1)
 			}
 		}
 	}
@@ -118,7 +118,7 @@ Tree : [Object, Store, Equal, Iterable, Indexable] { | value subTrees |
 		answer
 	}
 
-	leavesDo { :self :aBlock:/1 |
+	leavesDo { :self :aBlock/1 |
 		self.do { :each |
 			each.isLeaf.ifTrue {
 				aBlock(each.value)
@@ -134,12 +134,12 @@ Tree : [Object, Store, Equal, Iterable, Indexable] { | value subTrees |
 		answer
 	}
 
-	levelOrderDo { :self :aBlock:/1 |
+	levelOrderDo { :self :aBlock/1 |
 		self.subTrees.do { :each |
 			aBlock(each)
 		};
 		self.subTrees.do { :each |
-			each.levelOrderDo(aBlock:/1)
+			each.levelOrderDo(aBlock/1)
 		}
 	}
 
@@ -155,7 +155,7 @@ Tree : [Object, Store, Equal, Iterable, Indexable] { | value subTrees |
 	levelOrderValues { :self |
 		let answer = [];
 		0.to(self.depth - 1).collect { :each |
-			answer.addAll(self.level([each]).collect(value:/1))
+			answer.addAll(self.level([each]).collect(value/1))
 		};
 		answer
 	}
@@ -170,9 +170,9 @@ Tree : [Object, Store, Equal, Iterable, Indexable] { | value subTrees |
 		}
 	}
 
-	postOrderDo { :self :aBlock:/1 |
+	postOrderDo { :self :aBlock/1 |
 		self.subTrees.do { :each |
-			each.postOrderDo(aBlock:/1)
+			each.postOrderDo(aBlock/1)
 		};
 		aBlock(self)
 	}
@@ -185,9 +185,9 @@ Tree : [Object, Store, Equal, Iterable, Indexable] { | value subTrees |
 		answer
 	}
 
-	reverseDo { :self :aBlock:/1 |
+	reverseDo { :self :aBlock/1 |
 		self.subTrees.reverseDo { :each |
-			each.reverseDo(aBlock:/1)
+			each.reverseDo(aBlock/1)
 		};
 		aBlock(self)
 	}
@@ -248,15 +248,15 @@ Tree : [Object, Store, Equal, Iterable, Indexable] { | value subTrees |
 		answer
 	}
 
-	withLevelDo { :self :aBlock:/2 :level |
+	withLevelDo { :self :aBlock/2 :level |
 		self.subTrees.do { :each |
-			each.withLevelDo(aBlock:/2, level + 1);
+			each.withLevelDo(aBlock/2, level + 1);
 			aBlock(each, level)
 		}
 	}
 
-	withLevelDo { :self :aBlock:/2 |
-		self.withLevelDo(aBlock:/2, 1);
+	withLevelDo { :self :aBlock/2 |
+		self.withLevelDo(aBlock/2, 1);
 		aBlock(self, 0)
 	}
 
@@ -381,7 +381,7 @@ Tree : [Object, Store, Equal, Iterable, Indexable] { | value subTrees |
 
 	matulaGoebelTree { :n |
 		let p = n.primeFactors.primePi;
-		Tree(n, p.collect(matulaGoebelTree:/1))
+		Tree(n, p.collect(matulaGoebelTree/1))
 	}
 
 	sternBrocotTree { :n :r |
@@ -401,7 +401,7 @@ Tree : [Object, Store, Equal, Iterable, Indexable] { | value subTrees |
 		.first
 	}
 
-	unfoldTree { :anInteger :anObject :aBlock:/1 |
+	unfoldTree { :anInteger :anObject :aBlock/1 |
 		(anInteger <= 1).if {
 			Tree(anObject, [])
 		} {
@@ -409,7 +409,7 @@ Tree : [Object, Store, Equal, Iterable, Indexable] { | value subTrees |
 			Tree(
 				anObject,
 				children.collect { :each |
-					(anInteger - 1).unfoldTree(each, aBlock:/1)
+					(anInteger - 1).unfoldTree(each, aBlock/1)
 				}
 			)
 		}
@@ -434,7 +434,7 @@ Tree : [Object, Store, Equal, Iterable, Indexable] { | value subTrees |
 
 +Block {
 
-	nestTree { :aBlock:/1 :aTree :depth |
+	nestTree { :aBlock/1 :aTree :depth |
 		(depth = 0).if {
 			aTree
 		} {
@@ -447,11 +447,11 @@ Tree : [Object, Store, Equal, Iterable, Indexable] { | value subTrees |
 				)
 			} {
 				nestTree(
-					aBlock:/1,
+					aBlock/1,
 					Tree(
 						aTree.value,
 						aTree.subTrees.collect { :each |
-							nestTree(aBlock:/1, each, 1)
+							nestTree(aBlock/1, each, 1)
 						}
 					),
 					depth - 1
@@ -488,11 +488,11 @@ Tree : [Object, Store, Equal, Iterable, Indexable] { | value subTrees |
 +@Collection {
 
 	matulaGoebelTree { :self |
-		self.collect(matulaGoebelTree:/1)
+		self.collect(matulaGoebelTree/1)
 	}
 
 	matulaGoebelNumber { :self |
-		self.collect(matulaGoebelNumber:/1)
+		self.collect(matulaGoebelNumber/1)
 	}
 
 }

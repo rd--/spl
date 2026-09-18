@@ -9,7 +9,7 @@ Answer the list of operator characters.
 18
 
 >>> system.splOperatorCharacters.reject(
->>> 	isReverseSolidus:/1
+>>> 	isReverseSolidus/1
 >>> )
 [
 	'&' '*' '^' '@' '$' '=' '!' '>' '-' '<'
@@ -22,12 +22,12 @@ The characters are listed sorted by name, not code point:
 ```
 >>> let c = system.splOperatorCharacters;
 >>> c.copy.sortOn(
->>> 	splOperatorTokenName:/1
+>>> 	splOperatorTokenName/1
 >>> ) = c
 true
 
 >>> let c = system.splOperatorCharacters;
->>> c.copy.sortOn(codePoint:/1) = c
+>>> c.copy.sortOn(codePoint/1) = c
 false
 ```
 

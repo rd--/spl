@@ -21,7 +21,7 @@ Threads over lists, zero at each end-point:
 Cosine window function:
 
 ~~~spl svg=A
-(-1 -- 1).functionPlot(cosineWindow:/1)
+(-1 -- 1).functionPlot(cosineWindow/1)
 ~~~
 
 ![](Help/Image/cosineWindow-A.svg)
@@ -41,7 +41,7 @@ Discrete cosine window of length 15:
 ~~~spl svg=C
 (-0.5 -- 0.5).discretize(
 	15,
-	cosineWindow:/1
+	cosineWindow/1
 ).discretePlot
 ~~~
 
@@ -51,7 +51,7 @@ Frequency response of the cosine window:
 
 ~~~spl svg=D
 51.windowTable(
-	cosineWindow:/1
+	cosineWindow/1
 ).fftPlot(512, 'Centered', 'Logarithmic')
 ~~~
 

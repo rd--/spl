@@ -16,7 +16,7 @@ The prime number nearest _n_,
 OEIS [A051697](http://oeis.org/A051697):
 
 ```
->>> 0:71.collect(nearestPrime:/1)
+>>> 0:71.collect(nearestPrime/1)
 [
 	 2  2  2  3  3  5  5  7  7  7
 	11 11 11 13 13 13 17 17 17 19
@@ -33,7 +33,7 @@ The prime number nearest _n_,
 OEIS [A051697](http://oeis.org/A051697):
 
 ~~~spl svg=A oeis=A051697
-0:50.collect(nearestPrime:/1)
+0:50.collect(nearestPrime/1)
 .scatterPlot
 ~~~
 

@@ -1,6 +1,6 @@
 # removeIfAbsent
 
-- _removeIfAbsent(c, x, f:/0)_
+- _removeIfAbsent(c, x, f/0)_
 
 Remove the element _x_ from the collection _c_.
 Answer the removed element.

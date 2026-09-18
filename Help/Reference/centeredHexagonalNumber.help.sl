@@ -6,7 +6,7 @@ Answer the _n_-th centered hexagonal number,
 a centered figurate number that represents a hexagononal lattice with a dot in the center.
 
 ```
->>> 1:53.collect(centeredHexagonalNumber:/1)
+>>> 1:53.collect(centeredHexagonalNumber/1)
 [
 	1 7 19 37 61 91
 	127 169 217 271 331
@@ -25,7 +25,7 @@ a centered figurate number that represents a hexagononal lattice with a dot in t
 Differences are multiples of six:
 
 ```
->>> 1:23.collect(centeredHexagonalNumber:/1)
+>>> 1:23.collect(centeredHexagonalNumber/1)
 >>> .differences
 [
 	  6  12  18  24  30  36  42  48  54  60

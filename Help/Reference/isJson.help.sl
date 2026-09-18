@@ -8,7 +8,7 @@ else `false`.
 The reserverd words `nil` (of type `Nil`) and `true` and `false` (of type `Boolean`) can all be Json encoded:
 
 ```
->>> [nil true false].collect(isJson:/1)
+>>> [nil true false].collect(isJson/1)
 [true true true]
 ```
 

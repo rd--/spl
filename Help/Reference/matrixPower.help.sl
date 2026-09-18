@@ -141,7 +141,7 @@ let t = { :n :k |
 	a := a.matrixPower(k + 1);
 	a[tk + 1][j(n - k, tk)]
 };
-0:9.triangularArray(t:/2)
+0:9.triangularArray(t/2)
 .catenate.scatterPlot.log
 ~~~
 

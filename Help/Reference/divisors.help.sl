@@ -315,7 +315,7 @@ Product of divisors of _n_,
 OEIS [A007955](https://oeis.org/A007955):
 
 ```
->>> 1:21.divisors.collect(product:/1)
+>>> 1:21.divisors.collect(product/1)
 [
 	1 2 3 8 5 36 7 64 27 100 11 1728 13
 	196 225 1024 17 5832 19 8000 441
@@ -375,7 +375,7 @@ OEIS [A023890](https://oeis.org/A023890):
 
 ~~~spl svg=E oeis=A023890
 1:275.collect { :n |
-	n.divisors.reject(isPrime:/1).sum
+	n.divisors.reject(isPrime/1).sum
 }.scatterPlot
 ~~~
 
@@ -430,7 +430,7 @@ OEIS [A030057](https://oeis.org/A030057):
 1:100.collect { :n |
 	let m = 1.divisorSigma(n) + 1;
 	let d = n.divisors;
-	let b = d.powerSet.collect(sum:/1);
+	let b = d.powerSet.collect(sum/1);
 	1:m.detect { :n |
 		b.includes(n).not
 	}
@@ -469,7 +469,7 @@ OEIS [A068310](https://oeis.org/A068310):
 2:65.collect { :n |
 	let m = n.square - 1;
 	let d = m.divisors;
-	m / d.select(isPerfectSquare:/1).max
+	m / d.select(isPerfectSquare/1).max
 }.stepPlot
 ~~~
 

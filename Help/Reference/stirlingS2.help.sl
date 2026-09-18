@@ -16,7 +16,7 @@ from one,
 OEIS [A008277](https://oeis.org/A008277):
 
 ```
->>> 1:9.triangularArray(stirlingS2:/2)
+>>> 1:9.triangularArray(stirlingS2/2)
 [
 	1;
 	1 1;
@@ -50,7 +50,7 @@ from zero,
 OEIS [A048993](https://oeis.org/A048993):
 
 ```
->>> 0:8.triangularArray(stirlingS2:/2)
+>>> 0:8.triangularArray(stirlingS2/2)
 [
 	1;
 	0 1;
@@ -138,8 +138,8 @@ Rao Uppuluri-Carpenter numbers,
 OEIS [A000587](https://oeis.org/A000587):
 
 ```
->>> 0:22.triangularArray(stirlingS2:/2)
->>> .collect(alternatingSum:/1)
+>>> 0:22.triangularArray(stirlingS2/2)
+>>> .collect(alternatingSum/1)
 [
 	1 -1 0 1 1 -2 -9 -9 50 267 413 -2180
 	-17731 -50533 110176 1966797
@@ -247,7 +247,7 @@ The triangle of Stirling numbers of the second kind,
 OEIS [A008277](https://oeis.org/A008277):
 
 ~~~spl svg=C oeis=A008277
-1:17.triangularArray(stirlingS2:/2)
+1:17.triangularArray(stirlingS2/2)
 .catenate.scatterPlot.log
 ~~~
 

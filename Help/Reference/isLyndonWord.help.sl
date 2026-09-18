@@ -38,7 +38,7 @@ The words answered by `lyndonWords` are Lyndon words:
 
 ```
 >>> [0 1].lyndonWords(5)
->>> .allSatisfy(isLyndonWord:/1)
+>>> .allSatisfy(isLyndonWord/1)
 true
 ```
 

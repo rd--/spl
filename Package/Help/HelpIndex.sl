@@ -28,7 +28,7 @@ HelpIndex : [Object] { | contents |
 	names { :self :kind |
 		self.contents.select { :each |
 			each.first = kind
-		}.collect(second:/1).sorted
+		}.collect(second/1).sorted
 	}
 
 	urlFor { :unused :kind :name |
@@ -71,7 +71,7 @@ LibraryItem(
 	parser: { :text |
 		text
 		.lines
-		.select(isNotEmpty:/1)
+		.select(isNotEmpty/1)
 		.collect { :each |
 			let [kind, name] = each.replaceString('.help.sl', '').splitBy('/');
 			[kind, name]

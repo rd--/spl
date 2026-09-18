@@ -9,7 +9,7 @@
 	}
 
 	edgeCount { :self |
-		self.faceIndices.collect(size:/1).sum / 2
+		self.faceIndices.collect(size/1).sum / 2
 	}
 
 	edgeLengths { :self |
@@ -26,7 +26,7 @@
 					[
 						each.at(i),
 						each.atWrap(i + 1)
-					].sortBy(lessEqual:/2)
+					].sortBy(lessEqual/2)
 				)
 			}
 		};
@@ -49,7 +49,7 @@
 	}
 
 	faceDegreeCounts { :self |
-		self.faceIndices.collect(size:/1).counts
+		self.faceIndices.collect(size/1).counts
 	}
 
 	graph { :self |
@@ -72,7 +72,7 @@ PolygonMesh : [Object, Store, Equal, Geometry, PolygonMesh] { | vertexCoordinate
 
 	canonicalForm { :self |
 		let v = self.vertexCoordinates;
-		let w = v.nub.sortBy(precedes:/2);
+		let w = v.nub.sortBy(precedes/2);
 		PolygonMesh(
 			w,
 			self.faceIndices.collect { :each |
@@ -81,7 +81,7 @@ PolygonMesh : [Object, Store, Equal, Geometry, PolygonMesh] { | vertexCoordinate
 				}.lexicographicallyLeastRotation.deleteAdjacentDuplicates
 			}.reject { :each |
 				each.size <= 2
-			}.nub.sortBy(lessEqual:/2)
+			}.nub.sortBy(lessEqual/2)
 		)
 	}
 
@@ -122,7 +122,7 @@ PolygonMesh : [Object, Store, Equal, Geometry, PolygonMesh] { | vertexCoordinate
 			self[i][j].isNonZero.ifTrue {
 				let v = zeroIndexedCellVertices(j - 1, m - i);
 				vertexList.addAllIfNotPresent(v);
-				faceList.add(v.collect(vertexIndex:/1))
+				faceList.add(v.collect(vertexIndex/1))
 			}
 		}.table(1.to(m), 1.to(n));
 		AnnotatedGeometry(

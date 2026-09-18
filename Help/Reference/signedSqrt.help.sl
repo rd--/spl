@@ -29,7 +29,7 @@ Ploto over subset of reals:
 
 ~~~spl svg=A
 (-7 -- 7).functionPlot(
-	signedSqrt:/1
+	signedSqrt/1
 )
 ~~~
 

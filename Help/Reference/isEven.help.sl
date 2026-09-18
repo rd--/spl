@@ -13,10 +13,10 @@ true
 >>> 5.isEven
 false
 
->>> 1:5.collect(isEven:/1)
+>>> 1:5.collect(isEven/1)
 [false true false true false]
 
->>> 1:5.allSatisfy(isEven:/1)
+>>> 1:5.allSatisfy(isEven/1)
 false
 ```
 
@@ -68,10 +68,10 @@ false
 Test whether an array consists of even integers:
 
 ```
->>> [2 4; 6 10].isArray(2, isEven:/1)
+>>> [2 4; 6 10].isArray(2, isEven/1)
 true
 
->>> [1 4; 6 10].isArray(2, isEven:/1)
+>>> [1 4; 6 10].isArray(2, isEven/1)
 false
 ```
 
@@ -80,7 +80,7 @@ Messiaen’s first mode of limited transposition,
 OEIS [A005843](https://oeis.org/A005843):
 
 ```
->>> 0:25.select(isEven:/1)
+>>> 0:25.select(isEven/1)
 [0 2 4 6 8 10 12 14 16 18 20 22 24]
 
 >>> [0, 2 .. 24]
@@ -187,8 +187,8 @@ OEIS [A059707](https://oeis.org/A059707):
 0:250.collect { :i |
 	{ :n |
 		let d = n.integerDigits;
-		let e = d.select(isEven:/1);
-		let o = d.select(isOdd:/1);
+		let e = d.select(isEven/1);
+		let o = d.select(isOdd/1);
 		(o.size.min(e.size) > 0).if {
 			o.fromDigits * e.fromDigits
 		} {
@@ -256,7 +256,7 @@ A permutation of the positive integers,
 OEIS [A163511](https://oeis.org/A163511):
 
 ~~~spl svg=G oeis=A163511 permutation
-let f:/1 = 'A003961'.oeisFunction;
+let f/1 = 'A003961'.oeisFunction;
 let a = Map { :n |
 	(n <= 1).if {
 		n + 1

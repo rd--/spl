@@ -13,7 +13,7 @@ OEIS [A002088](https://oeis.org/A002088):
 
 ```
 >>> 0:24.collect(
->>> 	totientSummatoryFunction:/1
+>>> 	totientSummatoryFunction/1
 >>> )
 [
 	  0   1   2   4   6
@@ -29,7 +29,7 @@ OEIS [A002088](https://oeis.org/A002088):
 
 ~~~spl svg=A oeis=A002088
 0:50.collect(
-	totientSummatoryFunction:/1
+	totientSummatoryFunction/1
 ).stepPlot
 ~~~
 

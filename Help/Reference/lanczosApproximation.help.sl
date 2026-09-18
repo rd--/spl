@@ -39,8 +39,8 @@ Compare `gamma` and `lanczosApproximation` for small _z_:
 ~~~spl svg=A
 (0.125 -- 4.125).functionPlot(
 	[
-		gamma:/1,
-		lanczosApproximation:/1
+		gamma/1,
+		lanczosApproximation/1
 	]
 )
 ~~~

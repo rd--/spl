@@ -37,8 +37,8 @@ Collect names of `LocalControl` and `ScUgen` values:
 >>> (
 >>> 	g.name,
 >>> 	c,
->>> 	k.collect(name:/1),
->>> 	u.collect(displayName:/1)
+>>> 	k.collect(name/1),
+>>> 	u.collect(displayName/1)
 >>> )
 (
 	'sin',

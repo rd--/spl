@@ -9,7 +9,7 @@ At _r=4_ equal to `tetrahedralNumber`.
 Table of first few terms of first few simplicial polytopic numbers,
 
 ```
->>> simplicialPolytopicNumber:/2
+>>> simplicialPolytopicNumber/2
 >>> .table(1:9, 1:9)
 [
 	1 2 3 4 5 6 7 8 9;

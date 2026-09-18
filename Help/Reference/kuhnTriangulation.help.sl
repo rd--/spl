@@ -10,7 +10,7 @@ In two dimensions divides a square into two triangles:
 
 ~~~spl svg=A
 2.kuhnTriangulation
-.collect(Triangle:/1)
+.collect(Triangle/1)
 .LineDrawing
 ~~~
 

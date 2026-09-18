@@ -26,7 +26,7 @@ Six smoothStep functions:
 ~~~spl svg=A
 (0 -- 1).functionPlot(
 	[0 1 3 7 11 17].collect(
-		smoothStepFunction:/1
+		smoothStepFunction/1
 	)
 )
 ~~~

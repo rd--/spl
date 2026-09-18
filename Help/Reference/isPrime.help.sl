@@ -19,7 +19,7 @@ Primes up to one hundred,
 OEIS [A000040](https://oeis.org/A000040):
 
 ```
->>> 1:99.select(isPrime:/1)
+>>> 1:99.select(isPrime/1)
 [
 	 2  3  5  7 11 13 17 19 23 29
 	31 37 41 43 47 53 59 61 67 71
@@ -31,7 +31,7 @@ Non-primes up to thirty,
 OEIS [A018252](https://oeis.org/A018252):
 
 ```
->>> 1:30.reject(isPrime:/1)
+>>> 1:30.reject(isPrime/1)
 [
 	 1  4  6  8  9 10 12 14 15 16
 	18 20 21 22 24 25 26 27 28 30
@@ -41,7 +41,7 @@ OEIS [A018252](https://oeis.org/A018252):
 Number of primes up to one-thousand:
 
 ```
->>> 1:999.select(isPrime:/1).size
+>>> 1:999.select(isPrime/1).size
 168
 ```
 
@@ -49,7 +49,7 @@ Select primes between _1-131_ and between _827-999_,
 OEIS [A000040](https://oeis.org/A000040):
 
 ```
->>> (1 .. 131).select(isPrime:/1)
+>>> (1 .. 131).select(isPrime/1)
 [
 	  2   3   5   7  11
 	 13  17  19  23  29
@@ -60,7 +60,7 @@ OEIS [A000040](https://oeis.org/A000040):
 	127 131
 ]
 
->>> (827 .. 999).select(isPrime:/1)
+>>> (827 .. 999).select(isPrime/1)
 [
 	827 829 839 853 857
 	859 863 877 881 883
@@ -73,7 +73,7 @@ OEIS [A000040](https://oeis.org/A000040):
 Number of primes up to ten-thousand:
 
 ```
->>> 1:9999.count(isPrime:/1)
+>>> 1:9999.count(isPrime/1)
 1229
 ```
 
@@ -141,7 +141,7 @@ Recognize Wieferich primes, prime numbers _p_ such that _p^2_ divides _2^(p-1)-1
 >>> 		a % b = 0
 >>> 	}
 >>> };
->>> (1L .. 9999L).select(f:/1)
+>>> (1L .. 9999L).select(f/1)
 [1093L, 3511L]
 ```
 
@@ -176,7 +176,7 @@ OEIS [A005846](https://oeis.org/A005846):
 >>> let e = 0:23.collect { :n |
 >>> 	(n ^ 2) + n + 41
 >>> };
->>> (e.allSatisfy(isPrime:/1), e)
+>>> (e.allSatisfy(isPrime/1), e)
 (
 	true,
 	[
@@ -287,7 +287,7 @@ Primes of the form _3n-1_,
 OEIS [A003627](https://oeis.org/A003627):
 
 ```
->>> -1:89:3.select(isPrime:/1)
+>>> -1:89:3.select(isPrime/1)
 [2 5 11 17 23 29 41 47 53 59 71 83 89]
 ```
 
@@ -297,7 +297,7 @@ OEIS [A002267](https://oeis.org/A002267):
 
 ```
 >>> [2 3 5 7 11 13 17 19 23 29 31 41 47 59 71]
->>> .allSatisfy(isPrime:/1)
+>>> .allSatisfy(isPrime/1)
 true
 
 >>> [2L 3 5 7 11 13 17 19 23 29 31 41 47 59 71]
@@ -309,7 +309,7 @@ Primes up to one-thousand,
 OEIS [A000040](https://oeis.org/A000040):
 
 ~~~spl svg=A oeis=A000040
-1:999.select(isPrime:/1).linePlot
+1:999.select(isPrime/1).linePlot
 ~~~
 
 ![](Help/Image/isPrime-A.svg)
@@ -318,7 +318,7 @@ _a(n+1)_ tells the number of earlier terms _a(k)_ where _a(k)+n_ is a prime,
 OEIS [A114897](https://oeis.org/A114897):
 
 ~~~spl svg=B oeis=A114897
-let a:/1 = { :n |
+let a/1 = { :n |
 	(n = 1).if {
 		1
 	} {
@@ -334,7 +334,7 @@ let a:/1 = { :n |
 		c
 	}
 }.memoize(true);
-1:150.collect(a:/1).scatterPlot
+1:150.collect(a/1).scatterPlot
 ~~~
 
 ![](Help/Image/isPrime-B.svg)
@@ -490,7 +490,7 @@ OEIS [A187757](https://oeis.org/A187757):
 			6 * k + 1,
 			6 * (n - k) + 1,
 			6 * (n - k) + 5
-		].allSatisfy(isPrime:/1).boole
+		].allSatisfy(isPrime/1).boole
 	}
 }.scatterPlot
 ~~~

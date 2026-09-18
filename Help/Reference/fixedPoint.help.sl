@@ -1,6 +1,6 @@
 # fixedPoint
 
-- _fixedPoint(f:/1, x, =)_
+- _fixedPoint(f/1, x, =)_
 
 Starting with the value _x_,
 apply the block _f_ repeatedly until the answer no longer changes,
@@ -30,7 +30,7 @@ Fixed point of an integer-valued function:
 Fixed point of a complex iteration:
 
 ```
->>> log:/1.fixedPoint(1J1, =)
+>>> log/1.fixedPoint(1J1, =)
 0.318132J1.33724
 ```
 
@@ -38,10 +38,10 @@ Convergence may fail due to oscillations in the final digits.
 Use a test function with a specific tolerance to resolve this:
 
 ```
->>> cos:/1.fixedPointList(0.5, ~).size
+>>> cos/1.fixedPointList(0.5, ~).size
 24
 
->>> cos:/1
+>>> cos/1
 >>> .fixedPointList(0.5) { :alpha :beta |
 >>> 	(alpha - beta).abs < 0.1
 >>> }

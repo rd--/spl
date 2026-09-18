@@ -209,7 +209,7 @@ Polygon : [Object, Store, Equal, Geometry] { | vertexCoordinates |
 
 	Polygon { :self |
 		(self.depth > 3).if {
-			self.collect(Polygon:/1)
+			self.collect(Polygon/1)
 		} {
 			newPolygon().initializeSlots(self)
 		}

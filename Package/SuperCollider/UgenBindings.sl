@@ -530,15 +530,15 @@
 +List {
 
 	signedGcd { :self :operand |
-		operand.adaptToCollectionAndApply(self, signedGcd:/2)
+		operand.adaptToCollectionAndApply(self, signedGcd/2)
 	}
 
 	signedLcm { :self :operand |
-		operand.adaptToCollectionAndApply(self, signedLcm:/2)
+		operand.adaptToCollectionAndApply(self, signedLcm/2)
 	}
 
 	signedSqrt { :self |
-		self.collect(signedSqrt:/1)
+		self.collect(signedSqrt/1)
 	}
 
 }

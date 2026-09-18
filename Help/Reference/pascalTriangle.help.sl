@@ -53,7 +53,7 @@ OEIS [A001316](https://oeis.org/A001316):
 ```
 >>> 11.pascalTriangle
 >>> .collect { :each |
->>> 	each.count(isOdd:/1)
+>>> 	each.count(isOdd/1)
 >>> }
 [1 2 2 4 2 4 4 8 2 4 4]
 
@@ -67,7 +67,7 @@ OEIS [A006046](https://oeis.org/A006046):
 ```
 >>> 1:11.collect { :n |
 >>> 	n.pascalTriangle.collect { :each |
->>> 		each.count(isOdd:/1)
+>>> 		each.count(isOdd/1)
 >>> 	}.sum
 >>> }
 [1 3 5 9 11 15 19 27 29 33 37]
@@ -279,7 +279,7 @@ OEIS [A051638](https://oeis.org/A051638):
 
 ~~~spl svg=H oeis=A051638
 (85.pascalTriangle % 3)
-.collect(sum:/1)
+.collect(sum/1)
 .scatterPlot
 ~~~
 

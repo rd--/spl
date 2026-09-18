@@ -1,6 +1,6 @@
 # gather
 
-- _gather(l, f:/2)_
+- _gather(l, f/2)_
 
 Gather the elements of the list _l_ into sublists of identical elements,
 according to _f_.

@@ -1,6 +1,6 @@
 # inverseBinomialTransform
 
-- _inverseBinomialTransform(f:/1)_
+- _inverseBinomialTransform(f/1)_
 - _inverseBinomialTransform([x₁ x₂ …])_
 
 Answer the inverse binomial transform of the unary function _f_ or the integer sequence _x_.

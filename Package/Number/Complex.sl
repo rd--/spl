@@ -17,7 +17,7 @@ Complex : [Object, Store, Equal, Compare, Number] { | real imaginary |
 				((b * c) - (a * d)) / ((c * c) + (d * d))
 			)
 		} {
-			anObject.adaptToComplexAndApply(self, /)
+			anObject.adaptToComplexAndApply(self, divide/2)
 		}
 	}
 
@@ -37,7 +37,7 @@ Complex : [Object, Store, Equal, Compare, Number] { | real imaginary |
 			let d = anObject.imaginary;
 			Complex(a + c, b + d)
 		} {
-			anObject.adaptToComplexAndApply(self, +)
+			anObject.adaptToComplexAndApply(self, plus/2)
 		}
 	}
 
@@ -91,7 +91,7 @@ Complex : [Object, Store, Equal, Compare, Number] { | real imaginary |
 			let d = anObject.imaginary;
 			Complex(a - c, b - d)
 		} {
-			anObject.adaptToComplexAndApply(self, -)
+			anObject.adaptToComplexAndApply(self, subtract/2)
 		}
 	}
 
@@ -103,7 +103,7 @@ Complex : [Object, Store, Equal, Compare, Number] { | real imaginary |
 			let d = anObject.imaginary;
 			Complex((a * c) - (b * d), (a * d) + (b * c))
 		} {
-			anObject.adaptToComplexAndApply(self, *)
+			anObject.adaptToComplexAndApply(self, times/2)
 		}
 	}
 
@@ -119,11 +119,11 @@ Complex : [Object, Store, Equal, Compare, Number] { | real imaginary |
 		(self.real * self.real) + (self.imaginary * self.imaginary)
 	}
 
-	adaptToFractionAndApply { :self :aFraction :aBlock:/2 |
+	adaptToFractionAndApply { :self :aFraction :aBlock/2 |
 		aFraction.asComplex.aBlock(self)
 	}
 
-	adaptToNumberAndApply { :self :aNumber :aBlock:/2 |
+	adaptToNumberAndApply { :self :aNumber :aBlock/2 |
 		aNumber.asComplex.aBlock(self)
 	}
 
@@ -202,14 +202,14 @@ Complex : [Object, Store, Equal, Compare, Number] { | real imaginary |
 		Complex(self.real, self.imaginary.negate)
 	}
 
-	equalBy { :self :anObject :aBlock:/2 |
+	equalBy { :self :anObject :aBlock/2 |
 		anObject.isNumber.if {
 			anObject.isComplex.if {
 				aBlock(self.real, anObject.real) & {
 					aBlock(self.imaginary, anObject.imaginary)
 				}
 			} {
-				anObject.adaptToComplexAndApply(self, aBlock:/2)
+				anObject.adaptToComplexAndApply(self, aBlock/2)
 			}
 		} {
 			false
@@ -342,17 +342,17 @@ Complex : [Object, Store, Equal, Compare, Number] { | real imaginary |
 
 	max { :self :anObject |
 		anObject.isComplex.if {
-			self.maxOn(anObject, abs:/1)
+			self.maxOn(anObject, abs/1)
 		} {
-			anObject.adaptToComplexAndApply(self, max:/1)
+			anObject.adaptToComplexAndApply(self, max/2)
 		}
 	}
 
 	min { :self :anObject |
 		anObject.isComplex.if {
-			self.minOn(anObject, abs:/1)
+			self.minOn(anObject, abs/1)
 		} {
-			anObject.adaptToComplexAndApply(self, min:/1)
+			anObject.adaptToComplexAndApply(self, min/2)
 		}
 	}
 
@@ -442,7 +442,7 @@ Complex : [Object, Store, Equal, Compare, Number] { | real imaginary |
 		self
 	}
 
-	adaptToComplexAndApply { :self :aComplexNumber :aBlock:/2 |
+	adaptToComplexAndApply { :self :aComplexNumber :aBlock/2 |
 		aComplexNumber.aBlock(self.asComplex)
 	}
 
@@ -478,7 +478,7 @@ Complex : [Object, Store, Equal, Compare, Number] { | real imaginary |
 
 +@Collection {
 
-	adaptToComplexAndApply { :self :aComplexNumber :aBlock:/2 |
+	adaptToComplexAndApply { :self :aComplexNumber :aBlock/2 |
 		self.collect { :each |
 			aComplexNumber.aBlock(each)
 		}
@@ -493,7 +493,7 @@ Complex : [Object, Store, Equal, Compare, Number] { | real imaginary |
 			let [r, i] = self;
 			Complex(r, i)
 		} {
-			self.collect(Complex:/1)
+			self.collect(Complex/1)
 		}
 	}
 
@@ -509,18 +509,18 @@ Complex : [Object, Store, Equal, Compare, Number] { | real imaginary |
 	isComplexString { :self |
 		let parts = self.splitBy('J');
 		parts.size = 2 & {
-			parts.allSatisfy(isFloatString:/1) & {
+			parts.allSatisfy(isFloatString/1) & {
 				parts[2].beginsWith('-').not
 			}
 		}
 	}
 
-	parseComplex { :self :elseClause:/0 |
+	parseComplex { :self :elseClause/0 |
 		self.isComplexString.if {
 			let [real, imaginary] = self.splitBy('J');
 			Complex(
-				real.parseNumber(elseClause:/0),
-				imaginary.parseNumber(elseClause:/0)
+				real.parseNumber(elseClause/0),
+				imaginary.parseNumber(elseClause/0)
 			)
 		} {
 			elseClause()

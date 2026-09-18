@@ -67,7 +67,7 @@ Calculate the first few terms of OEIS [A118006](https://oeis.org/A118006):
 >>> 	}.whileTrue;
 >>> 	(d = (2 * b)).boole
 >>> };
->>> 1:105.collect(a:/1)
+>>> 1:105.collect(a/1)
 [
 	0 1 0 1 1 0 0 1 0 1 1 0 0 1 1 0 1 0 0 1
 	0 1 1 0 0 1 0 1 1 0 0 1 1 0 1 0 0 1 0 1
@@ -143,7 +143,7 @@ let a = { :n :k |
 		)
 	}
 };
-23.antidiagonalArray(a:/2)
+23.antidiagonalArray(a/2)
 .catenate.scatterPlot
 ~~~
 

@@ -7,7 +7,7 @@
 			let n = self.size;
 			let i = 1;
 			let j = 2;
-			valueWithReturn { :return:/1 |
+			valueWithReturn { :return/1 |
 				{ j <= n }.whileTrue {
 					let a = alphabet[self[i]];
 					let b = alphabet[self[j]];

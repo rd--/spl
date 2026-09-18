@@ -1,6 +1,6 @@
 # do
 
-- _do(c, f:/1)_
+- _do(c, f/1)_
 
 Evaluate the block _f_ with each element of the collection _c_ as the argument.
 Answers _c_.

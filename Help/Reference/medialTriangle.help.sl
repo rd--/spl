@@ -83,7 +83,7 @@ Barymetric subdivision:
 			p c u;
 			c q u;
 			q a u
-		].collect(Triangle:/1)
+		].collect(Triangle/1)
 	}.catenate
 }.iterate(
 	[sssTriangle(1, 1, 1)],

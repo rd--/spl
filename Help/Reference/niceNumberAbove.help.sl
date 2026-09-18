@@ -8,7 +8,7 @@ Find three nice numbers:
 
 ```
 >>> [0.0415 0.0681 0.0896].collect(
->>> 	niceNumberAbove:/1
+>>> 	niceNumberAbove/1
 >>> )
 [0.05 0.075 0.1]
 ```
@@ -38,7 +38,7 @@ Nice numbers starting from integers:
 
 ```
 >>> [7 11 23 31 64 78].collect(
->>> 	niceNumberAbove:/1
+>>> 	niceNumberAbove/1
 >>> )
 [7.5 15 25 50 75 100]
 ```

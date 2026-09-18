@@ -1,6 +1,6 @@
 # triangleCentre
 
-- _triangleCentre(t, p:/1, f:/3)_
+- _triangleCentre(t, p/1, f/3)_
 
 Answer the triangle center of the triangle _t_,
 specified by the triangle center function _f_,
@@ -10,7 +10,7 @@ The Spieker center:
 
 ```
 >>> [3 4 5].sssTriangle
->>> .triangleCentre(sideLengths:/1) { :a :b :c |
+>>> .triangleCentre(sideLengths/1) { :a :b :c |
 >>> 	(b + c) / a
 >>> }
 [2.6 0.7]

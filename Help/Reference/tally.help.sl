@@ -1,6 +1,6 @@
 # tally
 
-- _tally([x₁ x₂ …], f:/2)_
+- _tally([x₁ x₂ …], f/2)_
 
 Answer all distinct elements of the collection _x_ together with their multiplicities,
 according to the equality predicate _f_.

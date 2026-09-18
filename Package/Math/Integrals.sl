@@ -1,6 +1,6 @@
 +Block {
 
-	adaptiveSimpsonsMethod { :f:/1 :i :epsilon |
+	adaptiveSimpsonsMethod { :f/1 :i :epsilon |
 		let mem = { :a :fa :b :fb |
 			let m = (a + b) / 2;
 			let fm = f(m);
@@ -27,11 +27,11 @@
 		rec(a, fa, b, fb, epsilon, whole, m, fm)
 	}
 
-	adaptiveSimpsonsMethod { :f:/1 :i |
-		adaptiveSimpsonsMethod(f:/1, i, 1E-9)
+	adaptiveSimpsonsMethod { :f/1 :i |
+		adaptiveSimpsonsMethod(f/1, i, 1E-9)
 	}
 
-	trapezoidalRule { :f:/1 :interval :n |
+	trapezoidalRule { :f/1 :interval :n |
 		let [a, b] = interval.minMax;
 		let stepSize = (b - a) / n;
 		let integral = (f(a) + f(b)) / 2;

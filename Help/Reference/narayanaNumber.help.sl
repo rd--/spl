@@ -11,7 +11,7 @@ OEIS [A001263](https://oeis.org/A001263):
 
 ```
 >>> 1:8.triangularArray(
->>> 	narayanaNumber:/2
+>>> 	narayanaNumber/2
 >>> )
 [
 	1;
@@ -30,7 +30,7 @@ OEIS [A001263](https://oeis.org/A001263):
 
 ~~~spl svg=A oeis=A001263
 1:11.triangularArray(
-	narayanaNumber:/2
+	narayanaNumber/2
 ).catenate.discretePlot.log
 ~~~
 

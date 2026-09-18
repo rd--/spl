@@ -1,6 +1,6 @@
 # levelBy
 
-- _levelBy(c, f:/1)_
+- _levelBy(c, f/1)_
 
 Answer a `List` of all sub-trees of the collection _c_ at levels specified by the predicate block _f_.
 

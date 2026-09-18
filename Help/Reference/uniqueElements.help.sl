@@ -1,6 +1,6 @@
 # uniqueElements
 
-- _uniqueElements([x₁ x₂ …], f:/2)_
+- _uniqueElements([x₁ x₂ …], f/2)_
 
 Answer the elements for each list _x_ that are not in any other list,
 according to the comparison block _f_.

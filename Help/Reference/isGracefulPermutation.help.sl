@@ -20,7 +20,7 @@ There are four graceful permutations on _1,2,3,4_:
 
 ```
 >>> [1 4 2 3; 2 3 1 4; 3 2 4 1; 4 1 3 2]
->>> .allSatisfy(isGracefulPermutation:/1)
+>>> .allSatisfy(isGracefulPermutation/1)
 true
 ```
 

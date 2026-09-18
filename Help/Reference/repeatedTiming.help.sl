@@ -1,6 +1,6 @@
 # repeatedTiming
 
-- _repeatedTiming(f:/0, t)_
+- _repeatedTiming(f/0, t)_
 
 Evaluate _f_ repeatedly for at least _t_ seconds,
 answering a list of the average time in seconds used, together with the result obtained.

@@ -75,7 +75,7 @@ let a = { :n |
 		}
 	].which
 };
-0:92.collect(a:/1).discretePlot
+0:92.collect(a/1).discretePlot
 ~~~
 
 ![](Help/Image/which-A.svg)

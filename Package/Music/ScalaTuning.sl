@@ -14,7 +14,7 @@ ScalaTuning : [Object, Tuning] { | contents |
 
 	asRatios { :self |
 		let answer = self.pitches;
-		answer.allSatisfy(isFraction:/1).ifFalse {
+		answer.allSatisfy(isFraction/1).ifFalse {
 			self.error('asRatios: non-ratio pitch')
 		};
 		answer.addFirst(1/1);
@@ -160,7 +160,7 @@ ScalaTuning : [Object, Tuning] { | contents |
 +List {
 
 	intervalName { :self |
-		self.collect(intervalName:/1)
+		self.collect(intervalName/1)
 	}
 
 	tuningName { :self |
@@ -173,7 +173,7 @@ ScalaTuning : [Object, Tuning] { | contents |
 				'*unnamed tuning*'
 			}
 		} {
-			self.collect(tuningName:/1)
+			self.collect(tuningName/1)
 		}
 	}
 
@@ -219,7 +219,7 @@ LibraryItem(
 	url: 'https://rohandrape.net/sw/hmt/data/json/scala-db.json',
 	mimeType: 'application/json',
 	parser: { :libraryItem |
-		libraryItem.collect(ScalaTuning:/1)
+		libraryItem.collect(ScalaTuning/1)
 	}
 )
 
@@ -228,5 +228,5 @@ LibraryItem(
 	category: 'Music/Tuning',
 	url: 'https://rohandrape.net/sw/hmt/data/json/scala-meta-au.json',
 	mimeType: 'application/json',
-	parser: identity:/1
+	parser: identity/1
 )

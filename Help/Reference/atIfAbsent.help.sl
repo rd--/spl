@@ -1,6 +1,6 @@
 # atIfAbsent
 
-- _atIfAbsent(c, k, f:/0)_
+- _atIfAbsent(c, k, f/0)_
 
 Answer the element in the collection _c_ at the key _k_.
 If the key is absent, answer the result of evaluating the no argument block _f_.

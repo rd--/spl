@@ -1,6 +1,6 @@
 # indexOfSubstringStartingAtIfAbsent
 
-- _indexOfSubstringStartingAtIfAbsent(u, v, n, f:/0)_
+- _indexOfSubstringStartingAtIfAbsent(u, v, n, f/0)_
 
 Answer the index of the first element of the sequence _u_,
 such that this element equals the first element of the substring _v_,

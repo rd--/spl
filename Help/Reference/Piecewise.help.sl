@@ -1,6 +1,6 @@
 # Piecewise
 
-- _Piecewise(pieces, defaultValue:/1)_
+- _Piecewise(pieces, defaultValue/1)_
 - _Piecewise(alpha)_ ⟹ _Piecewise(alpha, 0.constant)_
 
 A `Type` that represents a piecewise function with values given by a sequence of _(predicate -> function)_ associations.
@@ -39,7 +39,7 @@ let defaultValue = { :x |
 };
 let pieceWise = Piecewise(
 	pieces,
-	defaultValue:/1
+	defaultValue/1
 );
 (-10 -- 10).functionPlot { :x |
 	pieceWise.value(x)
@@ -67,7 +67,7 @@ let piece = { :x | x.sqrt } <- { :x | x > 0 };
 let defaultValue = { :x | 1 };
 let pieceWise = Piecewise(
 	[piece],
-	defaultValue:/1
+	defaultValue/1
 );
 (-2 -- 2).functionPlot { :x |
 	pieceWise.value(x)

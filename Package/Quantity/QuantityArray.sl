@@ -17,7 +17,7 @@ QuantityArray : [Object, Store, Equal] { | magnitudeArray unitOrUnitList |
 		let u = self.unitList;
 		let d = m.arrayDepth;
 		m.atLevelCollect(d - 1) { :each |
-			each.withCollect(u, Quantity:/2)
+			each.withCollect(u, Quantity/2)
 		}
 	}
 

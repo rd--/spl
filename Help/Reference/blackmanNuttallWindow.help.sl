@@ -19,7 +19,7 @@ Threads over lists, zero at each end-point:
 The area under the Blackman–Nuttall window:
 
 ```
->>> blackmanNuttallWindow:/1
+>>> blackmanNuttallWindow/1
 >>> .adaptiveSimpsonsMethod([-0.5 0.5])
 0.3635819
 ```
@@ -28,7 +28,7 @@ The Blackman-Nuttall window function:
 
 ~~~spl svg=A
 (-0.5 -- 0.5).functionPlot(
-	blackmanNuttallWindow:/1
+	blackmanNuttallWindow/1
 )
 ~~~
 
@@ -39,7 +39,7 @@ Discrete Blackman-Nuttall window of length 15:
 ~~~spl svg=B
 (-0.5 -- 0.5).discretize(
 	15,
-	blackmanNuttallWindow:/1
+	blackmanNuttallWindow/1
 ).discretePlot
 ~~~
 
@@ -49,7 +49,7 @@ Frequency response of the Blackman-Nuttall window:
 
 ~~~spl svg=C
 51.windowTable(
-	blackmanNuttallWindow:/1
+	blackmanNuttallWindow/1
 ).fftPlot(512, 'Centered', 'Logarithmic')
 ~~~
 

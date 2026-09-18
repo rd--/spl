@@ -31,11 +31,11 @@ The dimenions of the eleven integer partitions of six and seven:
 
 ```
 >>> 6.integerPartitions
->>> .collect(hookLengthFormula:/1)
+>>> .collect(hookLengthFormula/1)
 [1 5 9 10 5 16 10 5 9 5 1]
 
 >>> 7.integerPartitions
->>> .collect(hookLengthFormula:/1)
+>>> .collect(hookLengthFormula/1)
 [1 6 14 15 14 35 20 21 21 35 15 14 14 6 1]
 ```
 
@@ -45,7 +45,7 @@ OEIS [A117506](https://oeis.org/A117506):
 ```
 >>> 1:6.collect { :n |
 >>> 	n.integerPartitions
->>> 	.collect(hookLengthFormula:/1)
+>>> 	.collect(hookLengthFormula/1)
 >>> }
 [
 	1;
@@ -63,7 +63,7 @@ OEIS [A117506](https://oeis.org/A117506):
 ~~~spl svg=A oeis=A117506
 1:8.collect { :n |
 	n.integerPartitions
-	.collect(hookLengthFormula:/1)
+	.collect(hookLengthFormula/1)
 }.catenate.stepPlot
 ~~~
 
@@ -75,7 +75,7 @@ OEIS [A060240](https://oeis.org/A060240):
 ```
 >>> 1:6.collect { :n |
 >>> 	n.integerPartitions
->>> 	.collect(hookLengthFormula:/1)
+>>> 	.collect(hookLengthFormula/1)
 >>> 	.sort
 >>> }
 [
@@ -94,7 +94,7 @@ OEIS [A060240](https://oeis.org/A060240):
 ~~~spl svg=B oeis=A060240
 1:8.collect { :n |
 	n.integerPartitions
-	.collect(hookLengthFormula:/1)
+	.collect(hookLengthFormula/1)
 	.sort
 }.catenate.stepPlot
 ~~~

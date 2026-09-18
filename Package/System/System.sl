@@ -60,7 +60,7 @@ System! : [Object, Cache, RandomNumberGenerator] {
 		<primitive: return sl.evaluateForSignalling('*Interactive*', _aString);>
 	}
 
-	evaluateNotifying { :self :aString :aBlock:/1 |
+	evaluateNotifying { :self :aString :aBlock/1 |
 		{
 			self.evaluateOrSignalError(aString)
 		}.ifError { :err |
@@ -232,9 +232,34 @@ System! : [Object, Cache, RandomNumberGenerator] {
 				'& * ^ @ $ = ! > - < # % + ? \\ / ~ |'
 				'&& @* @> == !^ !> !+ !~ >= >> >~ -> - <= <! <- << <~ ++ \\\\ // != !== ||'
 				'>>> <=> +++'
-			].collect(words:/1).++.collect { :each |
+			].collect(words/1).++.collect { :each |
 				each -> each.splOperatorTokenName(table)
 			}.asRecord
+		}
+	}
+
+	splOperatorSymbolTable { :self |
+		self.cached('splOperatorSymbolTable') {
+			(
+				divide: '/',
+				equal: '=',
+				greater: '>',
+				greaterEqual: '>=',
+				identical: '==',
+				less: '<',
+				lessEqual: '<=',
+				mod: '%',
+				negate: '-',
+				nonidentical: '!=',
+				plus: '+',
+				power: '^',
+				quotient: '//',
+				remainder: '\\',
+				similar: '~',
+				subtract: '-',
+				times: '*',
+				unequal: '!='
+			)
 		}
 	}
 
@@ -250,7 +275,7 @@ System! : [Object, Cache, RandomNumberGenerator] {
 		Url('https://rohandrape.net/sw/spl/' ++ aString)
 	}
 
-	timing { :self :aBlock:/0 |
+	timing { :self :aBlock/0 |
 		let beginTime = self.sessionTime;
 		let answer = aBlock();
 		let endTime = self.sessionTime;
@@ -320,7 +345,7 @@ System! : [Object, Cache, RandomNumberGenerator] {
 
 +Block {
 
-	repeatedTiming { :self:/0 :interval |
+	repeatedTiming { :self/0 :interval |
 		let timeList = [];
 		let currentTime = system.sessionTime;
 		let endTime = currentTime + interval;
@@ -339,8 +364,8 @@ System! : [Object, Cache, RandomNumberGenerator] {
 		]
 	}
 
-	timing { :self:/0 |
-		system.timing(self:/0)
+	timing { :self/0 |
+		system.timing(self/0)
 	}
 
 }
@@ -395,12 +420,17 @@ System! : [Object, Cache, RandomNumberGenerator] {
 	}
 
 	splOperatorNameToken { :self |
-		valueWithReturn { :return:/1 |
-			system.splOperatorNameTable.associationsDo { :each |
-				(each.value = self).ifTrue {
-					each.key.return
-				}
-			};
+		system
+		.splOperatorNameTable
+		.keyAtValueIfAbsent(self) {
+			nil
+		}
+	}
+
+	splOperatorSymbolToken { :self |
+		system
+		.splOperatorSymbolTable
+		.atIfAbsent(self) {
 			nil
 		}
 	}
@@ -427,16 +457,16 @@ System! : [Object, Cache, RandomNumberGenerator] {
 			o.caseOf(
 				[
 					'Apply' -> {
-						SymbolicExpression(f(p[1]), p.allButFirst.collect(f:/1))
+						SymbolicExpression(f(p[1]), p.allButFirst.collect(f/1))
 					},
 					'Arguments' -> {
-						SymbolicExpression('𝓐', p.collect(f:/1))
+						SymbolicExpression('𝓐', p.collect(f/1))
 					},
 					'Assignment' -> {
-						SymbolicExpression('←', p.collect(f:/1))
+						SymbolicExpression('←', p.collect(f/1))
 					},
 					'Block' -> {
-						SymbolicExpression('𝜆', p.collect(f:/1))
+						SymbolicExpression('𝜆', p.collect(f/1))
 					},
 					'Identifier' -> {
 						Symbol(p[1])
@@ -445,16 +475,16 @@ System! : [Object, Cache, RandomNumberGenerator] {
 						p[1].allButLast.parseLargeInteger
 					},
 					'Let' -> {
-						SymbolicExpression('≔', p.collect(f:/1))
+						SymbolicExpression('≔', p.collect(f/1))
 					},
 					'List' -> {
-						SymbolicExpression('𝓛', p.collect(f:/1))
+						SymbolicExpression('𝓛', p.collect(f/1))
 					},
 					'Operator' -> {
 						Symbol(p[1])
 					},
 					'Program' -> {
-						SymbolicExpression('𝒫', p.collect(f:/1))
+						SymbolicExpression('𝒫', p.collect(f/1))
 					},
 					'ReservedIdentifier' -> {
 						p[1].caseOf(
@@ -472,7 +502,7 @@ System! : [Object, Cache, RandomNumberGenerator] {
 						p[1].parseSmallInteger(10)
 					},
 					'Statements' -> {
-						p.collect(f:/1)
+						p.collect(f/1)
 					}
 				]
 			) {

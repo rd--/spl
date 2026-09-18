@@ -1,13 +1,13 @@
 # foldPairList
 
-- _foldPairList(f:/2, y, [x₁ x₂ …], g:/1)_
+- _foldPairList(f/2, y, [x₁ x₂ …], g/1)_
 
 Answer the list of successive _x_ obtained by applying _f_ to pairs of the form _(y,x)_, where at each step _f_ returns _(x,y)_.
 
 Break an amount of money into bills of given values:
 
 ```
->>> quotientRemainder:/2.foldPairList(
+>>> quotientRemainder/2.foldPairList(
 >>> 	498,
 >>> 	[100 50 20 5 1]
 >>> )
@@ -17,10 +17,10 @@ Break an amount of money into bills of given values:
 Return both the quotients and the remainders at each step:
 
 ```
->>> quotientRemainder:/2.foldPairList(
+>>> quotientRemainder/2.foldPairList(
 >>> 	498,
 >>> 	[100 50 20 5 1],
->>> 	identity:/1
+>>> 	identity/1
 >>> )
 [4 98; 1 48; 2 8; 1 3; 3 0]
 ```

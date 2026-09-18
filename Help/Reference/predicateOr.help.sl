@@ -8,8 +8,8 @@ else `false`.
 
 ```
 >>> -7:7.select(
->>> 	isPositive:/1.predicateOr(
->>> 		isOdd:/1
+>>> 	isPositive/1.predicateOr(
+>>> 		isOdd/1
 >>> 	)
 >>> )
 [-7 -5 -3 -1 1 2 3 4 5 6 7]
@@ -21,8 +21,8 @@ else `false`.
 ```
 >>> -6:6.select(
 >>> 	[
->>> 		isNegative:/1,
->>> 		isOdd:/1,
+>>> 		isNegative/1,
+>>> 		isOdd/1,
 >>> 		congruencePredicate(0, 3)
 >>> 	].predicateOr
 >>> )

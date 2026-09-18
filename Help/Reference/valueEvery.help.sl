@@ -1,6 +1,6 @@
 # valueEvery
 
-- _valueEvery(f:/0, n)_
+- _valueEvery(f/0, n)_
 
 Schedule the block _f_ to be evaluated repeatedly at interval _n_,
 which may be a `Duration`, or a `Quantity`, or a `Number` of seconds.

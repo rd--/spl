@@ -1,6 +1,6 @@
 # withCollect
 
-- _withCollect(c₁, c₂, f:/2)_
+- _withCollect(c₁, c₂, f/2)_
 
 Collect and answer the result of evaluating the block _f_ with corresponding elements from each sequence _c_.
 

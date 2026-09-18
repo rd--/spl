@@ -22,7 +22,7 @@ type TraitName = string;
 type TypeOrTraitName = string;
 type MethodName = string;
 type ParameterNames = string[];
-type QualifiedMethodName = string; // i.e. MethodName:/Arity
+type QualifiedMethodName = string; // i.e. MethodName/Arity
 type MethodSourceCode = string;
 type MethodOrigin = Trait | Type;
 
@@ -147,7 +147,7 @@ export class MethodInformation {
 	}
 	qualifiedName() {
 		// console.debug(`MethodInformation>>qualifiedName: ${this.name}, ${this.arity}`);
-		return `${this.name}:/${this.arity}`;
+		return `${this.name}/${this.arity}`;
 	}
 }
 
@@ -451,7 +451,7 @@ export function lookupGeneric(
 
 // Only for Ugen>>adaptToNumberAndApply.
 export function nameWithoutArity(methodName: MethodName) {
-	return methodName.split(':')[0];
+	return methodName.split('/')[0];
 }
 
 // Only for Ugen>>adaptToNumberAndApply.
@@ -497,7 +497,7 @@ export function dispatchByType(
 	const typeMethod = typeTable.get(receiverType);
 	if (!typeMethod) {
 		const arity = parameterArray.length;
-		const qualifiedName = `${methodName}:/${arity}`;
+		const qualifiedName = `${methodName}/${arity}`;
 		throw new Error(
 			`dispatchByType: no method "${qualifiedName}" for "${receiverType}"`,
 		);

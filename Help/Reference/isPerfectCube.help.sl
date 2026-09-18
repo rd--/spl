@@ -9,7 +9,7 @@ Select perfect cubes,
 OEIS [A000578](https://oeis.org/A000578):
 
 ```
->>> 0:99.select(isPerfectCube:/1)
+>>> 0:99.select(isPerfectCube/1)
 [0 1 8 27 64]
 
 >>> [0 1 8 27 64].cubeRoot

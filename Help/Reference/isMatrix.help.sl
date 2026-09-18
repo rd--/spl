@@ -1,7 +1,7 @@
 # isMatrix
 
 - _isMatrix(m)_
-- _isMatrix(m, f:/1)_
+- _isMatrix(m, f/1)_
 
 Answer `true` if _m_ is a matrix, else `false`.
 A `List` _m_ is a matrix if each of the elements is a vector of equal size.
@@ -27,10 +27,10 @@ At `List`:
 Require that the matrix be of integers:
 
 ```
->>> [3 3].iota.isMatrix(isInteger:/1)
+>>> [3 3].iota.isMatrix(isInteger/1)
 true
 
->>> [1 2; 3 4.5].isMatrix(isInteger:/1)
+>>> [1 2; 3 4.5].isMatrix(isInteger/1)
 false
 ```
 

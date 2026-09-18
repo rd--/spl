@@ -55,7 +55,7 @@ Inverse function:
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(0 -- 5.pi).functionPlot(haversine:/1)
+(0 -- 5.pi).functionPlot(haversine/1)
 ~~~
 
 ![](Help/Image/haversine-A.svg)

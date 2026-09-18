@@ -1,6 +1,6 @@
 # valuesDo
 
-- _valuesDo(d, f:/1)_
+- _valuesDo(d, f/1)_
 
 Evaluate the block _f_ with each value of the dictionary _d_ as the argument.
 

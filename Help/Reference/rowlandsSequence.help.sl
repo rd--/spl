@@ -46,7 +46,7 @@ OEIS [A230504](https://oeis.org/A230504):
 >>> let n = 7;
 >>> 1:24.collect { :m |
 >>> 	m.rowlandsSequence(n)
->>> 	.detect(isPrime:/1)
+>>> 	.detect(isPrime/1)
 >>> }
 [
 	 2  2  3 19  5 19  7 11 11 17
@@ -122,7 +122,7 @@ in which the ordinarily used `gcd` function is replaced by `lcm`,
 OEIS [A135504](https://oeis.org/A135504):
 
 ```
->>> 1.rowlandsSequence(10, lcm:/2)
+>>> 1.rowlandsSequence(10, lcm/2)
 [1 3 6 18 108 216 1728 3456 6912 41472]
 ```
 
@@ -130,7 +130,7 @@ Delayed divison of the Cloitre sequence,
 OEIS [A135506](https://oeis.org/A135506):
 
 ```
->>> 1L.rowlandsSequence(89, lcm:/2)
+>>> 1L.rowlandsSequence(89, lcm/2)
 >>> .adjacentPairsCollect(/.swap) - 1
 [
 	 2  1  2  5  1  7  1  1 5 11
@@ -151,7 +151,7 @@ OEIS [A361461](https://oeis.org/A361461):
 ```
 >>> let k = 47;
 >>> let a = 1L.rowlandsSequence(
->>> 	k + 1, lcm:/2
+>>> 	k + 1, lcm/2
 >>> );
 >>> (1 .. k).select { :n |
 >>> 	a[n] * 2 = a[n + 1]
@@ -169,7 +169,7 @@ OEIS [A361460](https://oeis.org/A361460):
 ```
 >>> let k = 47;
 >>> let a = 1L.rowlandsSequence(
->>> 	k + 1, lcm:/2
+>>> 	k + 1, lcm/2
 >>> );
 >>> (1 .. k).collect { :n |
 >>> 	a[n] * 2 = a[n + 1]
@@ -229,7 +229,7 @@ OEIS [A230504](https://oeis.org/A230504):
 ~~~spl svg=D oeis=A230504
 1:75.collect { :m |
 	m.rowlandsSequence(13)
-	.detect(isPrime:/1)
+	.detect(isPrime/1)
 }.stepPlot
 ~~~
 
@@ -242,7 +242,7 @@ OEIS [A230504](https://oeis.org/A230504):
 ~~~spl svg=E oeis=A230504
 1:100.collect { :m |
 	m.rowlandsSequence(13)
-	.detect(isPrime:/1)
+	.detect(isPrime/1)
 }.scatterPlot
 ~~~
 
@@ -267,7 +267,7 @@ Delayed divison of the Cloitre sequence,
 OEIS [A135506](https://oeis.org/A135506):
 
 ~~~spl svg=G oeis=A135506
-1L.rowlandsSequence(150, lcm:/2)
+1L.rowlandsSequence(150, lcm/2)
 .adjacentPairsCollect(/.swap)
 .scatterPlot
 ~~~
@@ -279,7 +279,7 @@ OEIS [A361470](https://oeis.org/A361470):
 
 ~~~spl svg=H oeis=A361470
 let k = 100;
-1L.rowlandsSequence(k - 1, lcm:/2)
+1L.rowlandsSequence(k - 1, lcm/2)
 .gcd(2:k)
 .scatterPlot.log
 ~~~
@@ -291,7 +291,7 @@ where _a_ is the delayed divison of the Cloitre sequence,
 OEIS [A361463](https://oeis.org/A361463):
 
 ~~~spl svg=I oeis=A361463
-let c = 1L.rowlandsSequence(200, lcm:/2);
+let c = 1L.rowlandsSequence(200, lcm/2);
 let a = c.adjacentPairsCollect(/.swap) - 1;
 ((a % 4) =.each 3).boole.discretePlot
 ~~~

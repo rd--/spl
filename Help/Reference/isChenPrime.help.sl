@@ -10,7 +10,7 @@ Chen primes,
 OEIS [A109611](https://oeis.org/A109611):
 
 ```
->>> 1:101.select(isChenPrime:/1)
+>>> 1:101.select(isChenPrime/1)
 [
 	 2  3  5  7 11 13 17 19 23 29
 	31 37 41 47 53 59 67 71 83 89
@@ -32,7 +32,7 @@ Chen primes,
 OEIS [A109611](https://oeis.org/A109611):
 
 ~~~spl svg=A oeis=A109611
-1:600.select(isChenPrime:/1)
+1:600.select(isChenPrime/1)
 .discretePlot
 ~~~
 

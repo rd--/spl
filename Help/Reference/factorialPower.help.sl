@@ -11,7 +11,7 @@ Answer the factorial power _x^(n)_.
 >>> 4.factorialPower(2)
 12
 
->>> 1:5.collect(factorialPower:/2.bind(4))
+>>> 1:5.collect(factorialPower/2.bind(4))
 [4 12 24 24 0]
 
 >>> 5.factorialPower(5)
@@ -22,7 +22,7 @@ Triangle of falling factorials,
 OEIS [A068424](https://oeis.org/A068424):
 
 ```
->>> 1:7.triangularArray(factorialPower:/2)
+>>> 1:7.triangularArray(factorialPower/2)
 [
 	1;
 	2 2;

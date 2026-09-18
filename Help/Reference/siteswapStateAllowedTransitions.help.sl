@@ -19,7 +19,7 @@ The allowed transitions for the state space of D₃:
 >>> 	1 1 0 1 0;
 >>> 	1 1 1 0 0
 >>> ].collect(
->>> 	siteswapStateAllowedTransitions:/1
+>>> 	siteswapStateAllowedTransitions/1
 >>> )
 [
 	0;

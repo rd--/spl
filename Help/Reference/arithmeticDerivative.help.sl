@@ -61,7 +61,7 @@ For all _i,j_ _D(ij)=iD(j)+jD(i)_:
 Higher order arithmetic derivatives are defined successively by iteration:
 
 ```
->>> arithmeticDerivative:/1
+>>> arithmeticDerivative/1
 >>> .nestList(100, 5)
 [100 140 188 192 640 2368]
 ```
@@ -110,7 +110,7 @@ OEIS [A185232](https://oeis.org/A185232):
 
 ```
 >>> 0:23.collect { :n |
->>> 	arithmeticDerivative:/1
+>>> 	arithmeticDerivative/1
 >>> 	.iterate(n, n)
 >>> }
 [
@@ -182,7 +182,7 @@ OEIS [A258651](https://oeis.org/A258651):
 
 ~~~spl svg=D oeis=A258651
 0:27.antidiagonalArray { :n :k |
-	arithmeticDerivative:/1.iterate(n, k)
+	arithmeticDerivative/1.iterate(n, k)
 }.catenate.scatterPlot.log
 ~~~
 
@@ -206,7 +206,7 @@ OEIS [A099302](https://oeis.org/A099302):
 ~~~spl svg=F oeis=A099302
 let m = 250;
 let k = m.square // 4;
-3:k.collect(arithmeticDerivative:/1)
+3:k.collect(arithmeticDerivative/1)
 .countIntegers([2 m])
 .scatterPlot
 ~~~

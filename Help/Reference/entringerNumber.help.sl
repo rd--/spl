@@ -14,7 +14,7 @@ OEIS [A008282](https://oeis.org/A008282):
 
 ```
 >>> 0:7.triangularArray(
->>> 	entringerNumber:/2
+>>> 	entringerNumber/2
 >>> )
 [
 	1;
@@ -36,7 +36,7 @@ OEIS [A010094](https://oeis.org/A010094):
 
 ```
 >>> 1:8.triangularArray(
->>> 	entringerNumber:/2
+>>> 	entringerNumber/2
 >>> )
 [
 	1;
@@ -56,7 +56,7 @@ OEIS [A008282](https://oeis.org/A008282):
 
 ~~~spl svg=A oeis=A008282
 1:11.triangularArray(
-	entringerNumber:/2
+	entringerNumber/2
 ).catenate.scatterPlot.logScale
 ~~~
 

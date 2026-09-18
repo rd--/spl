@@ -9,7 +9,7 @@ or the sequence _x_.
 At integer:
 
 ```
->>> 3:7.collect(equispacedTriples:/1)
+>>> 3:7.collect(equispacedTriples/1)
 [
 	1 2 3
 	:;

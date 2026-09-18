@@ -61,7 +61,7 @@
 		self.randomReal([min, max + 1], shape).floor
 	}
 
-	randomIntegerExcluding { :self :range :aBlock:/1 :shape |
+	randomIntegerExcluding { :self :range :aBlock/1 :shape |
 		let min = range.min;
 		let max = range.max;
 		{
@@ -76,7 +76,7 @@
 	}
 
 	randomIntegerExcludingZero { :self :range :shape |
-		self.randomIntegerExcluding(range, isZero:/1, shape)
+		self.randomIntegerExcluding(range, isZero/1, shape)
 	}
 
 	randomLargeInteger { :self :max |
@@ -107,7 +107,7 @@
 	}
 
 	randomPermutationList { :self :anInteger :shape |
-		self.randomPermutation(anInteger, shape).collect(permutationList:/1)
+		self.randomPermutation(anInteger, shape).collect(permutationList/1)
 	}
 
 	randomPermutationList { :self :anInteger |
@@ -183,7 +183,7 @@
 		let r = self.nextRandomFloat;
 		let sum = 0;
 		let answer = 1;
-		valueWithReturn { :return:/1 |
+		valueWithReturn { :return/1 |
 			aSequence.do { :each |
 				sum := sum + each;
 				(sum > r).ifTrue {

@@ -8,7 +8,7 @@ Select entries from the Svg colour catalogue that are blue:
 
 ```
 >>> system.svgColourCatalogue
->>> .select(isBlue:/1)
+>>> .select(isBlue/1)
 >>> .keys
 [
 	'blue'
@@ -28,7 +28,7 @@ Plot colours:
 
 ~~~spl svg=A
 system.svgColourCatalogue
-.select(isBlue:/1)
+.select(isBlue/1)
 .values
 .reshape([2 5 3]).arrayPlot
 ~~~

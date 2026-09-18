@@ -54,8 +54,8 @@ ResidueSet : [Object, Store, Equal, Iterable, Collection, Extensible] { | conten
 		self.asBitSet.complement.asResidueSet
 	}
 
-	do { :self :aBlock:/1 |
-		self.contents.do(aBlock:/1)
+	do { :self :aBlock/1 |
+		self.contents.do(aBlock/1)
 	}
 
 	include { :self :anInteger |

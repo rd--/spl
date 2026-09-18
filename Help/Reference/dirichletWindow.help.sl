@@ -20,7 +20,7 @@ Threads over lists, zero outside of _(-½,½)_:
 The Dirichlet window function:
 
 ~~~spl svg=A
-(-1 -- 1).functionPlot(dirichletWindow:/1)
+(-1 -- 1).functionPlot(dirichletWindow/1)
 ~~~
 
 ![](Help/Image/dirichletWindow-A.svg)
@@ -30,7 +30,7 @@ Discrete Dirichlet window of length 15:
 ```
 >>> (-0.5 -- 0.5).discretize(
 >>> 	15,
->>> 	dirichletWindow:/1
+>>> 	dirichletWindow/1
 >>> )
 [1 1 1 1 1 1 1 1 1 1 1 1 1 1 1]
 ```
@@ -39,7 +39,7 @@ Frequency response of the Dirichlet window:
 
 ~~~spl svg=B
 51.windowTable(
-	dirichletWindow:/1
+	dirichletWindow/1
 ).fftPlot(512, 'Centered', 'Logarithmic')
 ~~~
 

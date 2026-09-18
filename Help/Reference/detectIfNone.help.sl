@@ -1,6 +1,6 @@
 # detectIfNone
 
-- _detectIfNone(c, f:/1, g:/0)_
+- _detectIfNone(c, f/1, g/0)_
 
 Evaluate the block _f_ with each of the elements of the collection _c_ as the argument.
 Answer the first element for which _f_ evaluates to `true`.

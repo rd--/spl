@@ -9,7 +9,7 @@ of an integer _n_ is the number with the continued fraction _[n;n,n,n,n...]_.
 The first five metallic means:
 
 ```
->>> 1:5.collect(metallicMean:/1)
+>>> 1:5.collect(metallicMean/1)
 [
 	1.61803
 	2.41421

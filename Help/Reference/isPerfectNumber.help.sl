@@ -28,7 +28,7 @@ false
 Select the first three perfect numbers (A000396 in OEIS):
 
 ```
->>> 2:500.select(isPerfectNumber:/1)
+>>> 2:500.select(isPerfectNumber/1)
 [6 28 496]
 ```
 

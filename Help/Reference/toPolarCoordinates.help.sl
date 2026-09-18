@@ -23,7 +23,7 @@ Collects over lists:
 
 >>> 6.circlePoints([0 0], 1, 0)
 >>> .toPolarCoordinates
->>> .collect(second:/1)
+>>> .collect(second/1)
 [0 1/3 2/3 1 -2/3 -1/3].pi
 ```
 
@@ -36,7 +36,7 @@ Unsigned angle:
 
 >>> 6.circlePoints([0 0], 1, 0)
 >>> .toPolarCoordinates('Unsigned')
->>> .collect(second:/1)
+>>> .collect(second/1)
 [0 1/3 2/3 1 4/3 5/3].pi
 ```
 

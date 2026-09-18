@@ -1,6 +1,6 @@
 # deepDo
 
-- _deepDo(c, f:/1)_
+- _deepDo(c, f/1)_
 
 Run `do` over the iterable collection _c_,
 descending into elements that are of the same type as _c_,

@@ -19,7 +19,7 @@ let b = { :y | sigma * y};
 let c = { :y | sigma.square / 2 * y };
 let t = [0 10 0.1];
 let y0 = 2;
-milsteinMethod(r, a:/1, b:/1, c:/1, t, y0)
+milsteinMethod(r, a/1, b/1, c/1, t, y0)
 .transpose
 .linePlot
 ~~~

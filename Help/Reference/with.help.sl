@@ -1,6 +1,6 @@
 # with
 
-- _with(x, f:/1)_
+- _with(x, f/1)_
 
 Evaluate the unary block _f_ with the object _x_ as argument and answer the answer of _f_.
 `with` is an alias for `in`.

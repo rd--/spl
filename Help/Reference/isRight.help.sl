@@ -11,7 +11,7 @@ At `Quantity`:
 true
 
 >>> [60 180 270].degrees
->>> .collect(isRight:/1)
+>>> .collect(isRight/1)
 [false false false]
 ```
 

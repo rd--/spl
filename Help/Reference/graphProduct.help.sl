@@ -29,8 +29,8 @@ The _2,3,3,2_ grid graph:
 
 ~~~spl svg=B
 [2 3 2 3]
-.collect(pathGraph:/1)
-.reduce(graphProduct:/2)
+.collect(pathGraph/1)
+.reduce(graphProduct/2)
 .graphPlot
 ~~~
 
@@ -119,7 +119,7 @@ which is the hypercube graph:
 
 ~~~spl svg=J
 List(4, 2.completeGraph)
-.reduce(graphProduct:/2)
+.reduce(graphProduct/2)
 .graphPlot
 ~~~
 

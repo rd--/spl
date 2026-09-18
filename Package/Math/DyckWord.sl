@@ -23,7 +23,7 @@ DyckWord : [Object, Store] { | word tokens |
 		let h = self.heightList;
 		1.toDo(n) { :i |
 			(w[i] = a).ifTrue {
-				let j = h.indexOfStartingAtBy(h[i], i + 1, equal:/2) - 1;
+				let j = h.indexOfStartingAtBy(h[i], i + 1, equal/2) - 1;
 				e.add([i, j])
 			}
 		};
@@ -201,7 +201,7 @@ DyckWord : [Object, Store] { | word tokens |
 
 +@Integer {
 
-	dyckWordsDo { :t :letters :visit:/1 |
+	dyckWordsDo { :t :letters :visit/1 |
 		let [one, zero] = letters;
 		let n = 2 * t;
 		let b = List(t, one) ++ List(t, zero);
@@ -269,7 +269,7 @@ DyckWord : [Object, Store] { | word tokens |
 	}
 
 	isDyckWord { :n |
-		valueWithReturn { :return:/1 |
+		valueWithReturn { :return/1 |
 			let l = 0;
 			{ n > 0 }.whileTrue {
 				l := l + (-1 ^ n);

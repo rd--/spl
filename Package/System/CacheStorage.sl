@@ -1,6 +1,6 @@
 CacheStorage! : [Object] {
 
-	atIfAbsent { :self :key :ifAbsent:/0 |
+	atIfAbsent { :self :key :ifAbsent/0 |
 		self.includesKey(key).then { :answer |
 			answer.if {
 				self.uncheckedOpen(key)
@@ -10,7 +10,7 @@ CacheStorage! : [Object] {
 		}
 	}
 
-	atIfPresent { :self :key :ifPresent:/1 |
+	atIfPresent { :self :key :ifPresent/1 |
 		let validKey = self.validateKey(key);
 		self.uncheckedOpen(key).then { :cache |
 			ifPresent(cache)
@@ -22,7 +22,7 @@ CacheStorage! : [Object] {
 		self.uncheckedHas(validKey)
 	}
 
-	removeKeyIfAbsent { :self :key :ifAbsent:/0 |
+	removeKeyIfAbsent { :self :key :ifAbsent/0 |
 		self.includesKey(key).then { :answer |
 			answer.if {
 				self.uncheckedDelete(key)

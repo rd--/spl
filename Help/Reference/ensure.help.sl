@@ -1,6 +1,6 @@
 # ensure
 
-- _ensure(f:/0, g:/0)_
+- _ensure(f/0, g/0)_
 
 Evaluate the no-argument block _g_ after evaluating the no-argument block _f_,
 regardless of whether the initial evaluation completes.

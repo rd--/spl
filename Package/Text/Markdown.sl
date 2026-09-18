@@ -63,7 +63,7 @@ Markdown : [Object, Equal, Cache, Iterable] { | source cache |
 		answer
 	}
 
-	do { :self :aBlock:/1 |
+	do { :self :aBlock/1 |
 		<primitive:
 		const walker = _parseTree_1(_self).walker();
 		let event = null;
@@ -123,7 +123,7 @@ Markdown : [Object, Equal, Cache, Iterable] { | source cache |
 		}
 	}
 
-	equalBy { :self :anObject :aBlock:/2 |
+	equalBy { :self :anObject :aBlock/2 |
 		anObject.isMarkdown & {
 			aBlock(self.source, anObject.source)
 		}

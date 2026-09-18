@@ -5,7 +5,7 @@
 Lassalle’s sequence connected with Catalan numbers and Narayana polynomials.
 
 ```
->>> 1:13.collect(lassalleNumber:/1)
+>>> 1:13.collect(lassalleNumber/1)
 [
 	1
 	1

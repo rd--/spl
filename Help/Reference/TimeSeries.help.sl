@@ -140,8 +140,8 @@ else conflicts are treated as errors:
 ```
 >>> let p = TimeSeries[1 -1; 2 -2; 3 -3];
 >>> let q = TimeSeries[2 '?'; 4 -4; 5 -5];
->>> let a = p.merge(q, leftIdentity:/2);
->>> let b = q.merge(p, rightIdentity:/2);
+>>> let a = p.merge(q, leftIdentity/2);
+>>> let b = q.merge(p, rightIdentity/2);
 >>> (a, a = b)
 (
 	TimeSeries(
@@ -191,7 +191,7 @@ Find the sums of the components of a vector-valued time series:
 
 ```
 >>> TimeSeries([1 2; 3 4; 5 6], [1 2 3])
->>> .collect(sum:/1)
+>>> .collect(sum/1)
 >>> .path
 [1 3; 2 7; 3 11]
 ```

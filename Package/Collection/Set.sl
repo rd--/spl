@@ -7,7 +7,7 @@
 		self.include(anObject)
 	}
 
-	collect { :self :aBlock:/1 |
+	collect { :self :aBlock/1 |
 		let answer = self.species.new;
 		self.do { :each |
 			answer.include(aBlock(each))
@@ -15,11 +15,11 @@
 		answer
 	}
 
-	equalBy { :self :anObject :aBlock:/2 |
+	equalBy { :self :anObject :aBlock/2 |
 		anObject.isSet & {
 			self.size = anObject.size & {
 				self.allSatisfy { :each |
-					anObject.includesBy(each, aBlock:/2)
+					anObject.includesBy(each, aBlock/2)
 				}
 			}
 		}
@@ -89,7 +89,7 @@
 +List {
 
 	setIntersection { :self |
-		self.collect(asSet:/1).reduce(intersection:/2)
+		self.collect(asSet/1).reduce(intersection/2)
 	}
 
 }

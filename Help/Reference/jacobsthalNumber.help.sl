@@ -8,7 +8,7 @@ First few terms,
 OEIS [A001045](https://oeis.org/A001045):
 
 ```
->>> 0:35.collect(jacobsthalNumber:/1)
+>>> 0:35.collect(jacobsthalNumber/1)
 [
 	0
 	1

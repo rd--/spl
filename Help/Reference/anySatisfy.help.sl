@@ -1,37 +1,37 @@
 # anySatisfy
 
-- _anySatisfy(c, f:/1)_
+- _anySatisfy(c, f/1)_
 
 Evaluate the block _f_ with the elements of the collection _c_.
 If _f_ answers `true` for any element return `true`, otherwise return `false`.
 Only tests elements until one elements answers `true`.
 
 ```
->>> [1 3 5 7 9].anySatisfy(isEven:/1)
+>>> [1 3 5 7 9].anySatisfy(isEven/1)
 false
 
->>> [1 2 3 4 5].anySatisfy(isEven:/1)
+>>> [1 2 3 4 5].anySatisfy(isEven/1)
 true
 ```
 
 An empty collection always answers `false`:
 
 ```
->>> [].anySatisfy(isEven:/1)
+>>> [].anySatisfy(isEven/1)
 false
 ```
 
 At `Record`:
 
 ```
->>> (a: 2, b: 3, c: 6).anySatisfy(isOdd:/1)
+>>> (a: 2, b: 3, c: 6).anySatisfy(isOdd/1)
 true
 ```
 
 At `String`:
 
 ```
->>> 'Text'.anySatisfy(isUpperCase:/1)
+>>> 'Text'.anySatisfy(isUpperCase/1)
 true
 ```
 

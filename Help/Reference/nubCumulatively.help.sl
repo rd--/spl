@@ -1,6 +1,6 @@
 # nubCumulatively
 
-- _nubCumulatively(c, f:/2)_
+- _nubCumulatively(c, f/2)_
 - _nubCumulatively(c)_
 
 Remove from each sublist at the list _c_ any items that appear in any earlier sublist,

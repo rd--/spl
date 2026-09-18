@@ -41,7 +41,7 @@ OEIS [A109129](https://oeis.org/A109129):
 
 ```
 >>> 2:23.matulaGoebelTree
->>> .collect(leafCount:/1)
+>>> .collect(leafCount/1)
 [1 1 2 1 2 2 3 2 2 1 3 2 3 2 4 2 3 3 3 3 2 2]
 ```
 
@@ -50,7 +50,7 @@ OEIS [A109129](https://oeis.org/A109129):
 
 ~~~spl svg=B oeis=A109129
 2:75.matulaGoebelTree
-.collect(leafCount:/1)
+.collect(leafCount/1)
 .scatterPlot
 ~~~
 
@@ -61,7 +61,7 @@ OEIS [A358552](https://oeis.org/A358552):
 
 ```
 >>> 1:21.matulaGoebelTree
->>> .collect(depth:/1)
+>>> .collect(depth/1)
 [1 2 3 2 4 3 3 2 3 4 5 3 4 3 4 2 4 3 3 4 3]
 ```
 
@@ -70,7 +70,7 @@ OEIS [A358552](https://oeis.org/A358552):
 
 ~~~spl svg=C oeis=A358552
 2:75.matulaGoebelTree
-.collect(depth:/1)
+.collect(depth/1)
 .scatterPlot
 ~~~
 

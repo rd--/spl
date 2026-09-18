@@ -8,7 +8,7 @@ Table of first few terms,
 OEIS [A054535](https://oeis.org/A054535):
 
 ```
->>> ramanujansSum:/2.table(1:9, 1:9)
+>>> ramanujansSum/2.table(1:9, 1:9)
 [
 	 1  1  1  1  1  1  1  1  1;
 	-1  1 -1  1 -1  1 -1  1 -1;
@@ -27,7 +27,7 @@ OEIS [A054532](https://oeis.org/A054532):
 
 ~~~spl svg=A oeis=A054532
 1:15.triangularArray(
-	ramanujansSum:/2
+	ramanujansSum/2
 ).catenate.discretePlot
 ~~~
 
@@ -38,7 +38,7 @@ OEIS [A054533](https://oeis.org/A054533):
 
 ~~~spl svg=B oeis=A054533
 1:15.triangularArray(
-	ramanujansSum:/2.swap
+	ramanujansSum/2.swap
 ).catenate.discretePlot
 ~~~
 
@@ -49,7 +49,7 @@ OEIS [A054534](https://oeis.org/A054534):
 
 ~~~spl svg=C oeis=A054534
 15.antidiagonalArray(
-	ramanujansSum:/2
+	ramanujansSum/2
 ).catenate.discretePlot
 ~~~
 
@@ -60,8 +60,8 @@ OEIS [A054535](https://oeis.org/A054535):
 
 ~~~spl svg=D oeis=A054535
 15.antidiagonalArray(
-	ramanujansSum:/2
-).collect(reverse:/1).catenate.discretePlot
+	ramanujansSum/2
+).collect(reverse/1).catenate.discretePlot
 ~~~
 
 ![](Help/Image/ramanujansSum-D.svg)

@@ -6,7 +6,7 @@ An integer _n_ is called regular if it is 5-smooth,
 also called Hamming numbers.
 
 ```
->>> 30:60.select(isRegularNumber:/1)
+>>> 30:60.select(isRegularNumber/1)
 [30 32 36 40 45 48 50 54 60]
 
 >>> [30 32 36 40 45 48 50 54 60]
@@ -27,7 +27,7 @@ also called Hamming numbers.
 There are 34 regular numbers between one and one hundred:
 
 ```
->>> 1:100.count(isRegularNumber:/1)
+>>> 1:100.count(isRegularNumber/1)
 34
 ```
 
@@ -35,7 +35,7 @@ Plot sequence of regular numbers:
 
 ~~~spl svg=A
 1:999
-.select(isRegularNumber:/1)
+.select(isRegularNumber/1)
 .linePlot
 ~~~
 

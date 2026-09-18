@@ -30,7 +30,7 @@ Plot the Takagi function:
 ~~~spl svg=A
 (-0.5 -- 1.5).functionPlot(
 	200,
-	takagiFunction:/1
+	takagiFunction/1
 )
 ~~~
 

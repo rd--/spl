@@ -24,7 +24,7 @@ Threads elementwise over lists:
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(-3 -- 3).functionPlot(erfc:/1)
+(-3 -- 3).functionPlot(erfc/1)
 ~~~
 
 ![](Help/Image/erfc-A.svg)

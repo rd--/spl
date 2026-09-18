@@ -1,6 +1,6 @@
 # $ (dollarSign)
 
-- _f:/1 $ x_
+- _f/1 $ x_
 
 Apply the unary block _f_ to the object _x_.
 
@@ -10,7 +10,7 @@ Apply the unary block _f_ to the object _x_.
 >>> } $ 3
 27
 
->>> cube:/1 $ 3
+>>> cube/1 $ 3
 27
 ```
 
@@ -22,7 +22,7 @@ This is the operator form of `value`:
 >>> }.value(3)
 27
 
->>> cube:/1.value(3)
+>>> cube/1.value(3)
 27
 ```
 

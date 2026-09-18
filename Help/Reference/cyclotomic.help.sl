@@ -172,7 +172,7 @@ Plot number of non-zero coefficients of the first few cyclotomic polynomials:
 1:75.collect { :n |
 	n.cyclotomic
 	.coefficientList
-	.count(isNonZero:/1)
+	.count(isNonZero/1)
 }.scatterPlot
 ~~~
 

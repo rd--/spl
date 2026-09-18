@@ -1,6 +1,6 @@
 # bjorklundsAlgorithmDo
 
-- _bjorklundsAlgorithmDo(k, n, f:/1)_
+- _bjorklundsAlgorithmDo(k, n, f/1)_
 
 Apply the block _f_ at each step of Bjorklund’s algorithm.
 The algorithm mutates the same `List` at each step,

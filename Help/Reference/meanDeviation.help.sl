@@ -23,7 +23,7 @@ Specify the measure of central tendency:
 
 ```
 >>> [2 2 3 4 14]
->>> .meanDeviation(median:/1)
+>>> .meanDeviation(median/1)
 2.8
 
 >>> [2 2 3 4 14]

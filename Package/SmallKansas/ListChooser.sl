@@ -3,12 +3,12 @@
 ListChooser : [Object] { | listChooserPane filterText select entries ignoreCase |
 
 	applyFilter { :self |
-		let caseRule:/1 = self.ignoreCase.if {
-			asLowerCase:/1
+		let caseRule/1 = self.ignoreCase.if {
+			asLowerCase/1
 		} {
-			identity:/1
+			identity/1
 		};
-		let filter:/1 = self.filterText.ifNil {
+		let filter/1 = self.filterText.ifNil {
 			{ :unusedString |
 				true
 			}
@@ -19,7 +19,7 @@ ListChooser : [Object] { | listChooserPane filterText select entries ignoreCase 
 			}
 		};
 		self.select.removeAll;
-		self.select.appendChildren(self.entries.select(filter:/1).collect { :each |
+		self.select.appendChildren(self.entries.select(filter/1).collect { :each |
 			TextOption(each)
 		});
 		self.select.deselect

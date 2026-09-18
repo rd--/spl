@@ -1,8 +1,8 @@
 # isBlankLine
 
-- _isBlankLine(aString)_
+- _isBlankLine(s)_
 
-Answer `true` if _aString_ contains no characters (`isEmpty`),
+Answer `true` if the string _s_ contains no characters (`isEmpty`),
 or contains only spaces `isSpace` or tabs `isTab`.
 
 ```

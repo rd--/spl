@@ -46,7 +46,7 @@ First few terms,
 OEIS [A027748](https://oeis.org/A027748):
 
 ```
->>> 2:23.collect(distinctPrimeFactors:/1)
+>>> 2:23.collect(distinctPrimeFactors/1)
 [
 	2;
 	3;
@@ -89,7 +89,7 @@ Irregular triangle of distinct prime factors,
 OEIS [A027748](https://oeis.org/A027748):
 
 ~~~spl svg=B oeis=A027748
-2:115.collect(distinctPrimeFactors:/1)
+2:115.collect(distinctPrimeFactors/1)
 .catenate.scatterPlot.log
 ~~~
 

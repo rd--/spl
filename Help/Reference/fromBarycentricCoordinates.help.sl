@@ -39,7 +39,7 @@ Plot grid of points:
 
 ~~~spl svg=B
 let t = sssTriangle(1, 1, 1);
-let f:/1 = t.fromBarycentricCoordinates;
+let f/1 = t.fromBarycentricCoordinates;
 let c = [0, 0.1 .. 1].tuples(2).select { :each |
 	each.sum <= 1
 };
@@ -58,7 +58,7 @@ Plot grid of points on a triangle embedded in three-dimensional space:
 
 ~~~spl svg=C
 let t = Triangle([0 0 0], [1 0 1], [0 1 1]);
-let f:/1 = t.fromBarycentricCoordinates;
+let f/1 = t.fromBarycentricCoordinates;
 let c = [0, 0.1 .. 1].tuples(2).select { :each |
 	each.sum <= 1
 };

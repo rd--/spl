@@ -1,18 +1,18 @@
 Promise! : [Object] {
 
-	finally { :self :aBlock:/0 |
+	finally { :self :aBlock/0 |
 		<primitive: return _self.finally(_aBlock_0);>
 	}
 
-	onRejection { :self :aBlock:/1 |
+	onRejection { :self :aBlock/1 |
 		<primitive: return _self.catch(_aBlock_1);>
 	}
 
-	then { :self :aBlock:/1 |
+	then { :self :aBlock/1 |
 		<primitive: return _self.then(_aBlock_1);>
 	}
 
-	thenElse { :self :onResolve:/1 :onReject:/1 |
+	thenElse { :self :onResolve/1 :onReject/1 |
 		<primitive: return _self.then(_onResolve_1, _onReject_1);>
 	}
 
@@ -20,7 +20,7 @@ Promise! : [Object] {
 
 +Block {
 
-	Promise { :self:/2 |
+	Promise { :self/2 |
 		<primitive: return new Promise(_self_2);>
 	}
 

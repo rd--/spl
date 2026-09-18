@@ -1,6 +1,6 @@
 # findRepeat
 
-- _findRepeat([x₁ x₂ …], f:/2)_
+- _findRepeat([x₁ x₂ …], f/2)_
 
 Answer the minimal substring of _x_ that repeats to give the sequence _x_.
 

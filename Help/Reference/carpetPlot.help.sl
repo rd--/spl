@@ -1,6 +1,6 @@
 # carpetPlot
 
-- _carpetPlot(f:/2, [a b], [i j])_
+- _carpetPlot(f/2, [a b], [i j])_
 
 Answer a carpet plot of the binary function _f_,
 over the variables _a_ and _b_,

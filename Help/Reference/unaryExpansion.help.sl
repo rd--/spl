@@ -8,7 +8,7 @@ First few terms,
 OEIS [A000042](https://oeis.org/A000042):
 
 ```
->>> 1:9.collect(unaryExpansion:/1)
+>>> 1:9.collect(unaryExpansion/1)
 [
 	1;
 	1 1;
@@ -25,7 +25,7 @@ OEIS [A000042](https://oeis.org/A000042):
 Unary contraction:
 
 ```
->>> 1:9.collect(unaryExpansion:/1)
+>>> 1:9.collect(unaryExpansion/1)
 >>> .collect { :d | d.fromDigits(1) }
 [1 2 3 4 5 6 7 8 9]
 ```

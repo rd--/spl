@@ -1,6 +1,6 @@
 # orderedSubstrings
 
-- _orderedSubstrings(u, f:/2)_
+- _orderedSubstrings(u, f/2)_
 
 Answer a `List` of the substrings of the sequence _u_ that are ordered according to the binary block _f_.
 The `catenate` of the answer will compare equal, according to `hasEqualElements`, with _u_

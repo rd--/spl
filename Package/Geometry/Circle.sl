@@ -134,7 +134,7 @@ Circle : [Object, Store, Equal, Geometry] { | center radius |
 
 	Circle { :center :radius |
 		(center.rank > 1).if {
-			center.withCollect(radius.nest, Circle:/2)
+			center.withCollect(radius.nest, Circle/2)
 		} {
 			newCircle().initializeSlots(center, radius)
 		}
@@ -153,7 +153,7 @@ Circle : [Object, Store, Equal, Geometry] { | center radius |
 					Circle(c, r)
 				},
 				3 -> {
-					let [z1, z2, z3] = self.collect(listToComplex:/1);
+					let [z1, z2, z3] = self.collect(listToComplex/1);
 					let w = (z3 - z1) / (z2 - z1);
 					let c = (z2 - z1) * (w - (w.abs ^ 2)) / (0J2 * w.imaginary) + z1;
 					let r = (z1 - c).abs;
@@ -246,7 +246,7 @@ UnitCircle : [Object] {
 +List {
 
 	fordCircle { :self |
-		self.collect(fordCircle:/1)
+		self.collect(fordCircle/1)
 	}
 
 }
@@ -296,20 +296,20 @@ UnitCircle : [Object] {
 +List {
 
 	circleInversion { :self :circle |
-		let f:/1 = circle.circleInversion;
+		let f/1 = circle.circleInversion;
 		self.isVector.if {
 			f(self)
 		} {
-			self.collect(f:/1)
+			self.collect(f/1)
 		}
 	}
 
 	circlePower { :self :circle |
-		let f:/1 = circle.circlePower;
+		let f/1 = circle.circlePower;
 		self.isVector.if {
 			f(self)
 		} {
-			self.collect(f:/1)
+			self.collect(f/1)
 		}
 	}
 

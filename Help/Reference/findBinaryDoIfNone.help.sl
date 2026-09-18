@@ -1,6 +1,6 @@
 # findBinaryDoIfNone
 
-- _findBinaryDoIfNone(aSequence, aBlock:/1, actionBlock:/1, exceptionBlock:/2)_
+- _findBinaryDoIfNone(aSequence, aBlock/1, actionBlock/1, exceptionBlock/2)_
 
 Search for an element in the _aSequence_ using binary search.
 The argument _aBlock_ is a one-element block returning

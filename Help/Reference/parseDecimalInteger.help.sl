@@ -1,6 +1,6 @@
 # parseDecimalInteger
 
-- _parseDecimalInteger(s, f:/0)_
+- _parseDecimalInteger(s, f/0)_
 
 Answer the `SmallFloat` of the decimal integer indicated by the string _s_,
 which must be in decimal notation.

@@ -134,7 +134,7 @@
 +@Collection {
 
 	CpsCv { :self |
-		self.collect(CpsCv:/1)
+		self.collect(CpsCv/1)
 	}
 
 	CpsCv { :self :f0 |
@@ -144,7 +144,7 @@
 	}
 
 	CvCps { :self |
-		self.collect(CvCps:/1)
+		self.collect(CvCps/1)
 	}
 
 	CvCps { :self :f0 |

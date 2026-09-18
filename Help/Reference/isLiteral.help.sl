@@ -8,21 +8,21 @@ else `false`.
 The reserverd words `nil` (of type `Nil`) and `true` and `false` (of type `Boolean`) are all literals:
 
 ```
->>> [nil true false].collect(isLiteral:/1)
+>>> [nil true false].collect(isLiteral/1)
 [true true true]
 ```
 
 `SmallFloat` and `LargeInteger` values are literals:
 
 ```
->>> [3.141 23L].collect(isLiteral:/1)
+>>> [3.141 23L].collect(isLiteral/1)
 [true true]
 ```
 
 `Fraction` and `Complex` are both literals, but not `isJson` or `isImmediate`.
 
 ```
->>> [3/4 3J4].collect(isLiteral:/1)
+>>> [3/4 3J4].collect(isLiteral/1)
 [true true]
 ```
 

@@ -84,7 +84,7 @@ z.abs.square
 Plot over a subset of the complex numbers:
 
 ~~~spl png=A
-[-2J-2 2J2].complexPlot(conjugate:/1)
+[-2J-2 2J2].complexPlot(conjugate/1)
 ~~~
 
 ![](Help/Image/conjugate-A.png)

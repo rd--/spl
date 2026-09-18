@@ -46,7 +46,7 @@ A 4×4×4 magic cube:
 >>> 	4
 >>> ];
 >>> (
->>> 	c.collect(f:/1),
+>>> 	c.collect(f/1),
 >>> 	1:4.collect { :i |
 >>> 		c.collect { :m |
 >>> 			m[i]

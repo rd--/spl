@@ -28,7 +28,7 @@ IntegerPartitions : [Object, Equal, Store] { | contents:<List> |
 		}.++
 	}
 
-	integerPartitionsDescendingDo { :self :aBlock:/1 |
+	integerPartitionsDescendingDo { :self :aBlock/1 |
 		let n = self;
 		let d = List(n, 1);
 		let k = 1;
@@ -59,7 +59,7 @@ IntegerPartitions : [Object, Equal, Store] { | contents:<List> |
 		}
 	}
 
-	integerPartitionsAscendingDo { :self :aBlock:/1 |
+	integerPartitionsAscendingDo { :self :aBlock/1 |
 		let n = self;
 		let a = List(n, 0);
 		let k = 2;
@@ -147,7 +147,7 @@ IntegerPartitions : [Object, Equal, Store] { | contents:<List> |
 
 	integerPartitionsOdd { :self |
 		self.integerPartitions.select { :each |
-			each.allSatisfy(isOdd:/1)
+			each.allSatisfy(isOdd/1)
 		}
 	}
 
@@ -158,7 +158,7 @@ IntegerPartitions : [Object, Equal, Store] { | contents:<List> |
 	}
 
 	integerPartitionsStrict { :self |
-		self.integerPartitions.select(isDuplicateFree:/1)
+		self.integerPartitions.select(isDuplicateFree/1)
 	}
 
 	integerPartitionUnrankHeinzAscending { :n |

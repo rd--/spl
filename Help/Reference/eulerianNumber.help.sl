@@ -11,7 +11,7 @@ OEIS [A008292](https://oeis.org/A008292):
 
 ```
 >>> 0:8.triangularArray(
->>> 	eulerianNumber:/2, -1
+>>> 	eulerianNumber/2, -1
 >>> )
 [
 	1;
@@ -33,7 +33,7 @@ OEIS [A123125](https://oeis.org/A123125):
 
 ```
 >>> 0:8.triangularArray(
->>> 	eulerianNumber:/2
+>>> 	eulerianNumber/2
 >>> )
 [
 	1;
@@ -55,7 +55,7 @@ OEIS [A008292](https://oeis.org/A008292):
 
 ~~~spl svg=A oeis=A008292
 (0L .. 20L).triangularArray(
-	eulerianNumber:/2, -1
+	eulerianNumber/2, -1
 ).catenate.scatterPlot.log
 ~~~
 
@@ -67,7 +67,7 @@ OEIS [A173018](https://oeis.org/A173018):
 
 ~~~spl svg=B oeis=A173018
 (0L .. 20L).triangularArray(
-	eulerianNumber:/2
+	eulerianNumber/2
 ).catenate.scatterPlot.log
 ~~~
 

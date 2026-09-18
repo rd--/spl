@@ -127,7 +127,7 @@ OEIS [A056903](https://oeis.org/A056903):
 Plot over a subset of the integers:
 
 ~~~spl svg=A
-1:100.functionPlot(harmonicNumber:/1)
+1:100.functionPlot(harmonicNumber/1)
 ~~~
 
 ![](Help/Image/harmonicNumber-A.svg)

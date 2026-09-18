@@ -8,7 +8,7 @@ Relevant part of deck in at each step,
 OEIS [A035491](https://oeis.org/A035491):
 
 ```
->>> guyShuffle:/1.nestList([], 8)
+>>> guyShuffle/1.nestList([], 8)
 [
 	;
 	2 1;
@@ -26,8 +26,8 @@ Card on top of deck at _n_-th stage,
 OEIS [A035485](https://oeis.org/A035485)
 
 ```
->>> guyShuffle:/1.nestList([2 1], 16)
->>> .collect(first:/1)
+>>> guyShuffle/1.nestList([2 1], 16)
+>>> .collect(first/1)
 [2 3 1 6 5 9 1 4 2 16 10 12 14 23 16 18 20]
 ```
 
@@ -36,7 +36,7 @@ OEIS [A035490](https://oeis.org/A060750):
 
 ```
 >>> 2:16.collect { :i |
->>> 	guyShuffle:/1
+>>> 	guyShuffle/1
 >>> 	.fixedPoint([]) { :p :q |
 >>> 		q[1] = i
 >>> 	}.size // 2
@@ -48,7 +48,7 @@ Relevant part of deck in Guy’s shuffling problem,
 OEIS [A035491](https://oeis.org/A035491):
 
 ~~~spl svg=A oeis=A035491
-guyShuffle:/1.nestList([], 15)
+guyShuffle/1.nestList([], 15)
 .catenate.scatterPlot
 ~~~
 

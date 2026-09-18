@@ -75,8 +75,8 @@ let f = { :n |
 	[m, m * 2.pi].fromPolarCoordinates
 };
 [
-	(0 .. n).collect(f:/1).PointCloud,
-	(0, 0.02 .. n).collect(f:/1).Line
+	(0 .. n).collect(f/1).PointCloud,
+	(0, 0.02 .. n).collect(f/1).Line
 ].GeometryCollection
 ~~~
 

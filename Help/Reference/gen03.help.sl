@@ -16,7 +16,7 @@ First-order Chebyshev, _x_:
 C.f.:
 
 ~~~spl svg=B
-(-1 -- 1).functionPlot(identity:/1)
+(-1 -- 1).functionPlot(identity/1)
 ~~~
 
 ![](Help/Image/gen03-B.svg)

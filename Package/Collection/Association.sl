@@ -14,7 +14,7 @@ Association : [Object, Store, Equal, Compare] { | key value |
 		1 + self.value.depth
 	}
 
-	equalBy { :self :anObject :aBlock:/2 |
+	equalBy { :self :anObject :aBlock/2 |
 		anObject.isAssociation & {
 			self.key = anObject.key & {
 				aBlock(self.value, anObject.value)

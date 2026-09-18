@@ -138,7 +138,7 @@ counted with multiplicity,
 OEIS [A001222](https://oeis.org/A001222):
 
 ~~~spl svg=A oeis=A001222
-1:100.functionPlot(primeOmega:/1)
+1:100.functionPlot(primeOmega/1)
 ~~~
 
 ![](Help/Image/primeOmega-A.svg)
@@ -179,7 +179,7 @@ OEIS [A066829](https://oeis.org/A066829):
 
 ~~~spl svg=D oeis=A066829
 1:65.primeOmega
-.collect(isOdd:/1)
+.collect(isOdd/1)
 .boole
 .discretePlot
 ~~~

@@ -1,6 +1,6 @@
 # recurrenceTable
 
-- _recurrenceTable(f:/2, i, n)_
+- _recurrenceTable(f/2, i, n)_
 
 Answer a list of _n_ places given a recurrence function _f_ and an initial sequence _i_.
 
@@ -224,7 +224,7 @@ OEIS [A003044](https://oeis.org/A003044):
 ~~~spl svg=K oeis=A003044
 { :a :n |
 	let b = a[n - 1] + 1;
-	{ :break:/0 |
+	{ :break/0 |
 		let c = 0;
 		1.toDo(n - 1) { :i |
 			(i + 1).toDo(n - 1) { :j |

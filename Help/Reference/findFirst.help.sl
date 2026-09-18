@@ -1,6 +1,6 @@
 # findFirst
 
-- _findFirst([x₁ x₂ …], f:/1)_
+- _findFirst([x₁ x₂ …], f/1)_
 
 Answer the index of the first element in the sequence _x_ that answers `true` to the predicate block _f_.
 

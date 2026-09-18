@@ -16,7 +16,7 @@ true
 The first few harmonic divisor numbers:
 
 ```
->>> 1:300.select(isHarmonicDivisorNumber:/1)
+>>> 1:300.select(isHarmonicDivisorNumber/1)
 [1 6 28 140 270]
 ```
 

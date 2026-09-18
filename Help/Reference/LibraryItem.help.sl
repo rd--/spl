@@ -40,7 +40,7 @@ unless the contents are already stored:
 ~~~spl async
 system
 .library
-.collect(request:/1)
+.collect(request/1)
 .values
 .allFulfilled
 ~~~

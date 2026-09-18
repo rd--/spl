@@ -44,7 +44,7 @@ A rainbow:
 	'#009BFE'
 	'#000083'
 	'#30009B'
-].collect(parseHexTriplet:/1)
+].collect(parseHexTriplet/1)
 .enclose.arrayPlot
 ~~~
 

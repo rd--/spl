@@ -1,6 +1,6 @@
 # shellSort
 
-- _shellSort([x₁ x₂ …], t=[5 3 1], f:/2)_
+- _shellSort([x₁ x₂ …], t=[5 3 1], f/2)_
 
 Sort the sequence _x_ in place using the shell sort algorithm,
 according to the comparison predicate _f_.

@@ -11,7 +11,7 @@ OEIS [A002144](https://oeis.org/A002144):
 
 ```
 >>> 1:113.select(
->>> 	isPythagoreanPrime:/1
+>>> 	isPythagoreanPrime/1
 >>> )
 [
 	  5  13  17  29  37
@@ -19,7 +19,7 @@ OEIS [A002144](https://oeis.org/A002144):
 	 97 101 109 113
 ]
 
->>> (4 * 1:23 + 1).select(isPrime:/1)
+>>> (4 * 1:23 + 1).select(isPrime/1)
 [5 13 17 29 37 41 53 61 73 89]
 ```
 
@@ -28,7 +28,7 @@ OEIS [A002144](https://oeis.org/A002144):
 
 ~~~spl svg=A oeis=A002144
 1:1000.select(
-	isPythagoreanPrime:/1
+	isPythagoreanPrime/1
 ).scatterPlot
 ~~~
 

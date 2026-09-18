@@ -1,13 +1,13 @@
 # iterate
 
-- _iterate(f:/1, x)_
-- _iterate(f:/1, x, n)_
+- _iterate(f/1, x)_
+- _iterate(f/1, x, n)_
 
 In the binary case,
 answer an infinite `Stream` of repeated applications of the block _f_ to the object _x_.
 
 ```
->>> not:/1.iterate(true).next(10)
+>>> not/1.iterate(true).next(10)
 [
 	true false true false true
 	false true false true false
@@ -18,7 +18,7 @@ answer an infinite `Stream` of repeated applications of the block _f_ to the obj
 >>> }.iterate(42).next(10)
 [42 45 48 51 54 57 60 63 66 69]
 
->>> cos:/1.iterate(1).next(10)
+>>> cos/1.iterate(1).next(10)
 [
 	1.0000 0.5403 0.8576 0.6543 0.7935
 	0.7014 0.7640 0.7221 0.7504 0.7314
@@ -34,7 +34,7 @@ apply the block _f_ iteratively _n_ times, initially to _x_.
 >>> }.iterate(1, 3)
 676
 
->>> sqrt:/1.iterate(100, 4)
+>>> sqrt/1.iterate(100, 4)
 1.33352
 
 >>> { :x |
@@ -52,7 +52,7 @@ apply the block _f_ iteratively _n_ times, initially to _x_.
 >>> 2 ^ 2 ^ 2 ^ 2
 256
 
->>> cos:/1.iterate(1, 9)
+>>> cos/1.iterate(1, 9)
 0.731404
 ```
 
@@ -70,10 +70,10 @@ The iteration function can operate on a list:
 Use `valueWithReturn` to exit an iteration:
 
 ```
->>> square:/1.iterate(2L, 6)
+>>> square/1.iterate(2L, 6)
 18446744073709551616L
 
->>> { :return:/1 |
+>>> { :return/1 |
 >>> 	{ :x |
 >>> 		(x > 1E6).if {
 >>> 			x.return

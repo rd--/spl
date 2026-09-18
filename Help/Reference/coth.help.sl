@@ -55,8 +55,8 @@ Plot `coth` and `tanh`:
 ~~~spl svg=B
 (-3 -- 3).functionPlot(
 	[
-		coth:/1.clip([-5 5]),
-		tanh:/1
+		coth/1.clip([-5 5]),
+		tanh/1
 	]
 )
 ~~~

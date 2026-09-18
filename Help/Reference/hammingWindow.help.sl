@@ -20,7 +20,7 @@ The Hamming window function:
 
 ~~~spl svg=A
 (-0.5 -- 0.5).functionPlot(
-	hammingWindow:/1
+	hammingWindow/1
 )
 ~~~
 
@@ -31,7 +31,7 @@ Discrete Hamming window of length 15:
 ~~~spl svg=B
 (-0.5 -- 0.5).discretize(
 	15,
-	hammingWindow:/1
+	hammingWindow/1
 ).discretePlot
 ~~~
 

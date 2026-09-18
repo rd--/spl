@@ -495,7 +495,7 @@ OEIS [A382910](https://oeis.org/A382910):
 Plot Fibonacci over a subset of the reals:
 
 ~~~spl svg=A
-(-2 -- 2).functionPlot(fibonacci:/1)
+(-2 -- 2).functionPlot(fibonacci/1)
 ~~~
 
 ![](Help/Image/fibonacci-A.svg)
@@ -547,7 +547,7 @@ Plot over a larger subset of the reals:
 
 ~~~spl svg=F
 (-7.5 -- 7.5).functionPlot(
-	fibonacci:/1
+	fibonacci/1
 )
 ~~~
 
@@ -700,7 +700,7 @@ OEIS [A109754](https://oeis.org/A109754):
 	} {
 		i * fibonacci(j - 1) + fibonacci(j)
 	}
-}.collect(reverse:/1).catenate.discretePlot
+}.collect(reverse/1).catenate.discretePlot
 ~~~
 
 ![](Help/Image/fibonacci-Q.svg)

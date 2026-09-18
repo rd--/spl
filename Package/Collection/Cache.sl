@@ -4,11 +4,11 @@
 		self.typeResponsibility('@Cache>>cache')
 	}
 
-	cached { :self :key :constructor:/0 |
-		self.cache.atIfAbsentPut(key, constructor:/0)
+	cached { :self :key :constructor/0 |
+		self.cache.atIfAbsentPut(key, constructor/0)
 	}
 
-	whenCached { :self :key :asyncConstructor:/0 |
+	whenCached { :self :key :asyncConstructor/0 |
 		self.cache.includesIndex(key).if {
 			self.cache[key]
 		} {
@@ -27,11 +27,11 @@ Cache! : [Object] {
 		self.shouldNotImplement('at: see atIfPresentIfAbsent')
 	}
 
-	atIfAbsent { :self :key :ifAbsent:/0 |
-		self.atIfPresentIfAbsent(key, identity:/1, ifAbsent:/0)
+	atIfAbsent { :self :key :ifAbsent/0 |
+		self.atIfPresentIfAbsent(key, identity/1, ifAbsent/0)
 	}
 
-	atIfPresentIfAbsent { :self :key :ifPresent:/1 :ifAbsent:/0 |
+	atIfPresentIfAbsent { :self :key :ifPresent/1 :ifAbsent/0 |
 		let validKey = self.validateKey(key);
 		self.uncheckedMatch(validKey).then { :answer |
 			answer.isResponse.if {
@@ -42,8 +42,8 @@ Cache! : [Object] {
 		}
 	}
 
-	atIfPresent { :self :key :ifPresent:/1 |
-		self.atIfPresentIfAbsent(key, ifPresent:/1) {
+	atIfPresent { :self :key :ifPresent/1 |
+		self.atIfPresentIfAbsent(key, ifPresent/1) {
 			self.error('atIfPresent: key not present')
 		}
 	}
@@ -58,7 +58,7 @@ Cache! : [Object] {
 		self.shouldNotImplement('includesKey: see atPut and removeKeyIfAbsent')
 	}
 
-	removeKeyIfAbsent { :self :key :aBlock:/0 |
+	removeKeyIfAbsent { :self :key :aBlock/0 |
 		let validKey = self.validateKey(key);
 		self.uncheckedDelete(validKey).then { :answer |
 			answer.ifFalse {

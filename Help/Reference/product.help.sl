@@ -1,7 +1,7 @@
 # product
 
 - _product(c)_
-- _product(c, f:/1)_
+- _product(c, f/1)_
 
 Answer the product of all the elements in the collection _c_.
 
@@ -88,14 +88,14 @@ At a matrix answer the products of the columns:
 [28 80 162]
 
 >>> [1 4 7; 2 5 8; 3 6 9]
->>> .collect(product:/1)
+>>> .collect(product/1)
 [28 80 162]
 ```
 
 Collecting answers the products of the rows:
 
 ```
->>> [3 3].iota.collect(product:/1)
+>>> [3 3].iota.collect(product/1)
 [6 120 504]
 
 >>> [1 4 7; 2 5 8; 3 6 9].product
@@ -105,7 +105,7 @@ Collecting answers the products of the rows:
 The binary form applies the block _f_ to each element before multiplying:
 
 ```
->>> 1:6.product(square:/1)
+>>> 1:6.product(square/1)
 518400
 ```
 
@@ -168,7 +168,7 @@ let c = { :p |
 	p.sum.! * j.! * (-1 ^ j) / q
 };
 1:11.collect { :n |
-	n.integerPartitions.collect(c:/1)
+	n.integerPartitions.collect(c/1)
 }.catenate.scatterPlot.logScale
 ~~~
 

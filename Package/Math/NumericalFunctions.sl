@@ -35,19 +35,19 @@
 +[List, Range] {
 
 	cosineWave { :self |
-		self.collect(cosineWave:/1)
+		self.collect(cosineWave/1)
 	}
 
 	sawtoothWave { :self |
-		self.collect(sawtoothWave:/1)
+		self.collect(sawtoothWave/1)
 	}
 
 	squareWave { :self |
-		self.collect(squareWave:/1)
+		self.collect(squareWave/1)
 	}
 
 	triangleWave { :self |
-		self.collect(triangleWave:/1)
+		self.collect(triangleWave/1)
 	}
 
 }

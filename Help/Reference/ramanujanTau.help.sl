@@ -8,7 +8,7 @@ First few terms
 OEIS [A000594](https://oeis.org/A000594):
 
 ```
->>> 1:33.collect(ramanujanTau:/1)
+>>> 1:33.collect(ramanujanTau/1)
 [
 	1
 	-24
@@ -66,7 +66,7 @@ OEIS [A000594](https://oeis.org/A000594):
 
 ~~~spl svg=A oeis=A000594
 1:28
-.collect(ramanujanTau:/1)
+.collect(ramanujanTau/1)
 .stepPlot.logScale
 ~~~
 
@@ -78,7 +78,7 @@ OEIS [A000594](https://oeis.org/A000594):
 
 ~~~spl svg=B oeis=A000594
 1:85
-.collect(ramanujanTau:/1)
+.collect(ramanujanTau/1)
 .discretePlot.logScale
 ~~~
 

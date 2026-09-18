@@ -29,7 +29,7 @@ This group is Abelian:
 
 ```
 >>> [3 4:; 1 2:; 1 2; 3 4].collect(
->>> 	permutationOrder:/1
+>>> 	permutationOrder/1
 >>> )
 [2 2 2]
 ```
@@ -51,7 +51,7 @@ OEIS [A066646](https://oeis.org/A066646):
 ~~~spl svg=A oeis=A066646
 [1 .. 6].permutations
 .lexicographicSort
-.collect(permutationOrder:/1)
+.collect(permutationOrder/1)
 .detectIndices { :x | x < 3 }
 .scatterPlot
 ~~~

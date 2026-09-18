@@ -10,7 +10,7 @@ The first few perfect squares,
 OEIS [A000290](https://oeis.org/A000290):
 
 ```
->>> 0:200.select(isPerfectSquare:/1)
+>>> 0:200.select(isPerfectSquare/1)
 [
 	0 1 4 9 16 25 36 49 64 81
 	100 121 144 169 196
@@ -49,7 +49,7 @@ let f = { :n |
 		}
 	}
 };
-1:115.collect(f:/1).scatterPlot
+1:115.collect(f/1).scatterPlot
 ~~~
 
 ![](Help/Image/isPerfectSquare-A.svg)
@@ -58,7 +58,7 @@ The characteristic function of the square numbers,
 OEIS [A010052](https://oeis.org/A010052):
 
 ~~~spl svg=B oeis=A010052
-0:81.collect(isPerfectSquare:/1)
+0:81.collect(isPerfectSquare/1)
 .boole
 .discretePlot
 ~~~

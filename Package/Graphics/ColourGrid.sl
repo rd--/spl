@@ -26,7 +26,7 @@ ColourGrid : [Object] { | contents |
 			}.table(
 				1.to(width),
 				1.to(height)
-			).collect(deleteMissing:/1).GeometryCollection,
+			).collect(deleteMissing/1).GeometryCollection,
 			(
 				strokeColour: nil,
 				strokeWidth: nil
@@ -62,7 +62,7 @@ ColourGrid : [Object] { | contents |
 		}.table(
 			1.to(width),
 			1.to(height)
-		).collect(deleteMissing:/1);
+		).collect(deleteMissing/1);
 		[
 			'<svg xmlns="%" width="%" height="%" viewBox="%">'.format(
 				[

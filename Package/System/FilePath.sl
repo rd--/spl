@@ -45,7 +45,7 @@ FilePath : [Object, Store, Equal] { | contents |
 	}
 
 	readDirectoryFileNames { :self |
-		system.readDirectoryFileNames(self.contents).collect(FilePath:/1)
+		system.readDirectoryFileNames(self.contents).collect(FilePath/1)
 	}
 
 	readTextFile { :self |
@@ -85,7 +85,7 @@ FilePath : [Object, Store, Equal] { | contents |
 +List {
 
 	readTextFileList { :self |
-		system.readTextFileList(self.collect(absolutePathString:/1))
+		system.readTextFileList(self.collect(absolutePathString/1))
 	}
 
 }

@@ -17,7 +17,7 @@ The elements of the answer are characters:
 
 ```
 >>> 'text'.characterList
-['t' 'e' 'x' 't'].collect(Character:/1)
+['t' 'e' 'x' 't'].collect(Character/1)
 ```
 
 Code points of characters of a string:
@@ -25,7 +25,7 @@ Code points of characters of a string:
 ```
 >>> 'characters'
 >>> .characterList
->>> .collect(codePoint:/1)
+>>> .collect(codePoint/1)
 [99 104 97 114 97 99 116 101 114 115]
 ```
 
@@ -35,7 +35,7 @@ the above is equivalent to:
 ```
 >>> 'characters'
 >>> .characters
->>> .collect(codePoint:/1)
+>>> .collect(codePoint/1)
 [99 104 97 114 97 99 116 101 114 115]
 ```
 
@@ -77,7 +77,7 @@ Break a string into overlapping trigrams:
 
 ```
 >>> let c = 'trigrams'.characterList;
->>> c.partition(3, 1).collect(stringJoin:/1)
+>>> c.partition(3, 1).collect(stringJoin/1)
 ['tri' 'rig' 'igr' 'gra' 'ram' 'ams']
 ```
 

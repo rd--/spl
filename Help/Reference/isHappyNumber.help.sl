@@ -16,7 +16,7 @@ The first few happy numbers,
 OEIS [A007770](https://oeis.org/A007770):
 
 ```
->>> 1:100.select(isHappyNumber:/1)
+>>> 1:100.select(isHappyNumber/1)
 [
 	 1   7  10  13  19  23  28  31  32  44
 	49  68  70  79  82  86  91  94  97 100
@@ -27,7 +27,7 @@ The number of iterations required to reach `one`:
 
 ```
 >>> 1:100.select(
->>> 	isHappyNumber:/1
+>>> 	isHappyNumber/1
 >>> ).collect { :x |
 >>> 	x.perfectDigitalInvariantSequence(
 >>> 		10, 2

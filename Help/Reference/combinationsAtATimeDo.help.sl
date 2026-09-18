@@ -1,6 +1,6 @@
 # combinationsAtATimeDo
 
-- _combinationsAtATimeDo(c, k, f:/1)_
+- _combinationsAtATimeDo(c, k, f/1)_
 
 Take the items in the sequence _c_,
 _k_ at a time,

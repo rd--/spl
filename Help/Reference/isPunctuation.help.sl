@@ -30,9 +30,9 @@ There are twenty six punctuations and each has two cases:
 
 ```
 >>> 0:127
->>> .collect(asCharacter:/1)
->>> .select(isPunctuation:/1)
->>> .collect(codePoint:/1)
+>>> .collect(asCharacter/1)
+>>> .select(isPunctuation/1)
+>>> .collect(codePoint/1)
 [
 	33  34  35  37  38
 	39  40  41  42  44

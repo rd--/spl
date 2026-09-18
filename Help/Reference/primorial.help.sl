@@ -26,7 +26,7 @@ Primorial numbers,
 OEIS [A002110](https://oeis.org/A002110):
 
 ```
->>> 0:9.collect(primorial:/1)
+>>> 0:9.collect(primorial/1)
 [
 	1 2 6 30 210 2310 30030
 	510510 9699690 223092870
@@ -38,7 +38,7 @@ OEIS [A006939](https://oeis.org/A006939):
 
 ```
 >>> 0:6.collect { :n |
->>> 	0:n.collect(primorial:/1).product
+>>> 	0:n.collect(primorial/1).product
 >>> }
 [1 2 12 360 75600 174636000 5244319080000]
 ```
@@ -50,7 +50,7 @@ OEIS [A278159](https://oeis.org/A278159):
 0:250.collect { :n |
 	let b = n.binaryExpansion;
 	let r = b.runLengthsOf(1);
-	r.collect(primorial:/1).product
+	r.collect(primorial/1).product
 }.scatterPlot.log
 ~~~
 

@@ -19,14 +19,14 @@ At specific values:
 >>> 	65 104 105 112 130
 >>> 	140 144 156 168 180
 >>> 	210
->>> ].collect(eulerPhi:/1)
+>>> ].collect(eulerPhi/1)
 [48 48 48 48 48 48 48 48 48 48 48]
 
 >>> 100.eulerPhiInverse
 [101 125 202 250]
 
 >>> [101 125 202 250]
->>> .collect(eulerPhi:/1)
+>>> .collect(eulerPhi/1)
 [100 100 100 100]
 ```
 
@@ -54,7 +54,7 @@ Count items per term,
 OEIS [A014197](https://oeis.org/A014197):
 
 ```
->>> 1:25.eulerPhiInverse.collect(size:/1)
+>>> 1:25.eulerPhiInverse.collect(size/1)
 [
 	2 3 0  4 0 4 0 5 0 2
 	0 6 0  0 0 6 0 4 0 5

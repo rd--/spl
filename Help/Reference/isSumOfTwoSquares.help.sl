@@ -16,7 +16,7 @@ First few terms:
 OEIS [A001481](https://oeis.org/A001481):
 
 ```
->>> 0:32.select(isSumOfTwoSquares:/1)
+>>> 0:32.select(isSumOfTwoSquares/1)
 [
 	 0  1  2  4  5  8  9 10 13 16
 	17 18 20 25 26 29 32

@@ -59,7 +59,7 @@ PolarCoordinates : [Object, Store, Equal] { | coordinates |
 			let [r, theta] = self;
 			newPolarCoordinates().initializeSlots([r, theta])
 		} {
-			self.collect(PolarCoordinates:/1)
+			self.collect(PolarCoordinates/1)
 		}
 	}
 

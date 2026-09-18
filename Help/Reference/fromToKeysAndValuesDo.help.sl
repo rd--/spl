@@ -1,13 +1,13 @@
 # fromToIndicesAndValuesDo
 
-- _fromToIndicesAndValuesDo(c, i, j, f:/2)_
+- _fromToIndicesAndValuesDo(c, i, j, f/2)_
 
 Evaluate the block _f_ for all elements of the sequence _c_ between start index _i_ and stop index _j_ (inclusive).
 
 At `List`:
 
 ```
->>> let list = 1:9.collect(printString:/1);
+>>> let list = 1:9.collect(printString/1);
 >>> let answer = [];
 >>> list
 >>> .fromToIndicesAndValuesDo(

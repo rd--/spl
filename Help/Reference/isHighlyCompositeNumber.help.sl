@@ -9,7 +9,7 @@ OEIS [A002182](http://oeis.org/A002182):
 
 ```
 >>> 1:240.select(
->>> 	isHighlyCompositeNumber:/1
+>>> 	isHighlyCompositeNumber/1
 >>> )
 [
 	  1   2   4   6  12

@@ -102,7 +102,7 @@ ByteArray! : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, Se
 	}
 
 	species { :self |
-		ByteArray:/1
+		ByteArray/1
 	}
 
 	storageType { :self |
@@ -159,7 +159,7 @@ ByteArray! : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, Se
 		} {
 			(
 				self.isSmallFloatVector & {
-					self.allSatisfy(isByte:/1)
+					self.allSatisfy(isByte/1)
 				}
 			).if {
 				self.basicByteArray

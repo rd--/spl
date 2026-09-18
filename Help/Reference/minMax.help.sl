@@ -72,7 +72,7 @@ Relation to `coordinateBounds`:
 >>> let c = [4 3].iota;
 >>> (
 >>> 	c.coordinateBounds,
->>> 	c.transpose.collect(minMax:/1)
+>>> 	c.transpose.collect(minMax/1)
 >>> )
 (
 	[1 10; 2 11; 3 12],

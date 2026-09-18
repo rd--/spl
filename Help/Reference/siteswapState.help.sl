@@ -12,7 +12,7 @@ Three-ball siteswaps with ground state σ³:
 >>> 	4 2;
 >>> 	5 3 1;
 >>> 	5 5 5 0 0
->>> ].collect(siteswapState:/1)
+>>> ].collect(siteswapState/1)
 [
 	1 1 1;
 	1 1 1;
@@ -49,7 +49,7 @@ A period four three-ball prime siteswap:
 >>> 	2 4 1 5;
 >>> 	5 2 4 1;
 >>> 	1 5 2 4
->>> ].collect(siteswapState:/1)
+>>> ].collect(siteswapState/1)
 [
 	1 1 0 1;
 	1 1 0 0 1;
@@ -66,7 +66,7 @@ A primitive siteswap that is not prime:
 >>> 	3 5 2 2;
 >>> 	5 2 2 3;
 >>> 	2 2 3 5
->>> ].collect(siteswapState:/1)
+>>> ].collect(siteswapState/1)
 [
 	1 1 0 1;
 	1 1 1;

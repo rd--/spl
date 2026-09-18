@@ -1,6 +1,6 @@
 # count
 
-- _count(c, f:/1)_
+- _count(c, f/1)_
 
 Evaluate the unary block _f_ with each of the elements of the collection _c_ as the argument.
 Answer the number of elements that answered `true`.
@@ -8,21 +8,21 @@ Answer the number of elements that answered `true`.
 At `Range`:
 
 ```
->>> 1:9.count(isEven:/1)
+>>> 1:9.count(isEven/1)
 4
 ```
 
 At `List`:
 
 ```
->>> [1 .. 9].count(isEven:/1)
+>>> [1 .. 9].count(isEven/1)
 4
 ```
 
 At `Record`:
 
 ```
->>> (x: 1, y: 2, z: 3).count(isEven:/1)
+>>> (x: 1, y: 2, z: 3).count(isEven/1)
 1
 ```
 

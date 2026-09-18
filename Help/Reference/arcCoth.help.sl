@@ -62,7 +62,7 @@ Plot over a subset of the reals:
 Plot of complex `arcCoth` function:
 
 ~~~spl png=B
-[-5J-5 5J5].complexPlot(arcCoth:/1)
+[-5J-5 5J5].complexPlot(arcCoth/1)
 ~~~
 
 ![](Help/Image/arcCoth-B.png)

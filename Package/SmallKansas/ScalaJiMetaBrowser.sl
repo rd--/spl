@@ -13,7 +13,7 @@
 					meta.keys
 				},
 				1 -> {
-					meta[path[1]].collect(description:/1)
+					meta[path[1]].collect(description/1)
 				},
 				2 -> {
 					meta[path[1]].detect { :each |

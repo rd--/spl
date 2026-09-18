@@ -5,13 +5,13 @@ _Types_ in Sᴘʟ are _records_ having a sequence of named _slots_ (also called 
 Defining a type defines a number of associated methods.
 
 A no argument _constructor_ is defined to make instances of the type, in which all fields are initialized to _nil_.
-The constructor for type _T_ is named _newT:/0_.
+The constructor for type _T_ is named _newT/0_.
 
 An _initializeSlots:/k_ method is defined to set all fields of the type in the sequence they were defined.
 _k_ (the arity of the initializer) is the number of fields that must be initialized plus one (the instance to be initialized).
 
 A predicate methods is defined that answers if a value is of the type.
-The predicate for type _T_ is named _isT:/1_.
+The predicate for type _T_ is named _isT/1_.
 
 _Reader_ and _writer_ methods are defined for the fields associated with the type.
 These methods have the same names as the fields.

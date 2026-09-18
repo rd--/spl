@@ -81,7 +81,7 @@ Plot successive differences modulo two:
 
 ~~~spl svg=E
 let n = 25;
-let d = differences:/1
+let d = differences/1
 .nestList(
 	1:n.finiteAbelianGroupCount,
 	n

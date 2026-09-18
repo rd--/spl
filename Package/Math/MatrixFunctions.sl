@@ -32,7 +32,7 @@
 	}
 
 	bareissAlgorithm { :m |
-		valueWithReturn { :return:/1 |
+		valueWithReturn { :return/1 |
 			let n = m.size;
 			let sign = 1;
 			let prev = 1;
@@ -103,7 +103,7 @@
 	}
 
 	conjugateGradientMethod { :a :b :x :epsilon :n |
-		valueWithReturn { :return:/1 |
+		valueWithReturn { :return/1 |
 			let r = b - a.dot(x);
 			let p = r.copy;
 			1.toDo(n) { :i |
@@ -232,7 +232,7 @@
 	}
 
 	frobeniusNorm { :self |
-		self.ravel.collect(square:/1).sum.sqrt
+		self.ravel.collect(square/1).sum.sqrt
 	}
 
 	gaussJordanInverse { :self |
@@ -265,12 +265,12 @@
 			each.add(v[i])
 		};
 		a.reducedRowEchelonForm;
-		a.collect(last:/1)
+		a.collect(last/1)
 	}
 
 	gaussSeidelMethod { :a :b :x :epsilon :maximumIterations |
 		let n = a.size;
-		valueWithReturn { :return:/1 |
+		valueWithReturn { :return/1 |
 			maximumIterations.timesRepeat {
 				let y = x.copy;
 				let p = 0;
@@ -449,11 +449,11 @@
 
 	isBinaryMatrix { :self |
 		self.isMatrix & {
-			self.deepAllSatisfy(isBit:/1)
+			self.deepAllSatisfy(isBit/1)
 		}
 	}
 
-	isDiagonallyDominantMatrix { :self :aBlock:/2 |
+	isDiagonallyDominantMatrix { :self :aBlock/2 |
 		let [m, n] = self.shape;
 		1.to(m).allSatisfy { :i |
 			let x = self[i][i].abs;
@@ -465,7 +465,7 @@
 	}
 
 	isDiagonallyDominantMatrix { :self |
-		self.isDiagonallyDominantMatrix(greaterEqual:/2)
+		self.isDiagonallyDominantMatrix(greaterEqual/2)
 	}
 
 	isLowerTriangularMatrix { :self :k |
@@ -745,7 +745,7 @@
 		).determinant
 	}
 
-	minors { :self :anInteger :aBlock:/1 |
+	minors { :self :anInteger :aBlock/1 |
 		let [m, n] = self.shape;
 		let p = 1.to(m).subsets { :x | x.size = anInteger };
 		let q = 1.to(n).subsets { :x | x.size = anInteger };
@@ -760,7 +760,7 @@
 		(anInteger = 0).if {
 			[[1]]
 		} {
-			self.minors(anInteger, determinant:/1)
+			self.minors(anInteger, determinant/1)
 		}
 	}
 
@@ -885,9 +885,9 @@
 		let n = data.size - ((dimension - 1) * delay);
 		let m = [0].reshape([n n]);
 		let [f, g] = metric.caseOf([
-			'Manhattan' -> { [abs:/1, sum:/1] },
-			'Euclidean' -> { [square:/1, { :x | x.sum.sqrt }] },
-			'Supremum' -> { [abs:/1, max:/1] }
+			'Manhattan' -> { [abs/1, sum/1] },
+			'Euclidean' -> { [square/1, { :x | x.sum.sqrt }] },
+			'Supremum' -> { [abs/1, max/1] }
 		]);
 		1.toDo(n) { :i |
 			i.toDo(n) { :j |
@@ -906,7 +906,7 @@
 	}
 
 	reducedRowEchelonForm { :self |
-		valueWithReturn { :return:/1 |
+		valueWithReturn { :return/1 |
 			let lead = 1;
 			let [m, n] = self.shape;
 			1.toDo(m) { :r |
@@ -1416,7 +1416,7 @@
 		}.table(1.to(r.size), 1.to(c.size))
 	}
 
-	trace { :self :aBlock:/1 |
+	trace { :self :aBlock/1 |
 		self.isVector.if {
 			aBlock(self)
 		} {
@@ -1435,7 +1435,7 @@
 	}
 
 	trace { :self |
-		self.trace(sum:/1)
+		self.trace(sum/1)
 	}
 
 	upperTriangularize { :self :k |
@@ -1505,8 +1505,8 @@
 		let m = 0.to(n - 1);
 		l.caseOf(
 			[
-				'LowerTriangular' -> { binomial:/2 },
-				'UpperTriangular' -> { binomial:/2.swap },
+				'LowerTriangular' -> { binomial/2 },
+				'UpperTriangular' -> { binomial/2.swap },
 				'Symmetric' -> {
 					{ :i :j |
 						binomial(i + j, j)
@@ -1526,7 +1526,7 @@
 
 	walshMatrix { :n |
 		let h = n.hadamardMatrix;
-		let z = h.collect(zeroCrossingCount:/1);
+		let z = h.collect(zeroCrossingCount/1);
 		let p = z.ordering;
 		h.atAll(p)
 	}

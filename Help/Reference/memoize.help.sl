@@ -1,6 +1,6 @@
 # memoize
 
-- _memoize(f:/n, requireImmediate)_
+- _memoize(f/n, requireImmediate)_
 
 Answer an _n_ argument `Block` that memoizes the _n_-ary block _f_,
 using a `Map` if _requireImmediate_ is `true`,
@@ -24,7 +24,7 @@ Un-memoized Fibonacci may take several seconds to evaluate for _k>30_:
 Memoized Fibonacci will answer immediately for large _k_:
 
 ```
->>> let f:/1 = { :n |
+>>> let f/1 = { :n |
 >>> 	(n < 2).if {
 >>> 		n
 >>> 	} {
@@ -39,7 +39,7 @@ Narayana-Zidek-Capell numbers,
 OEIS [A002083](https://oeis.org/A002083):
 
 ```
->>> let a:/1 = { :n |
+>>> let a/1 = { :n |
 >>> 	(n < 3).if {
 >>> 		1
 >>> 	} {
@@ -48,7 +48,7 @@ OEIS [A002083](https://oeis.org/A002083):
 >>> 		((n % 2) * a(n // 2))
 >>> 	}
 >>> }.memoize;
->>> 1:14.collect(a:/1)
+>>> 1:14.collect(a/1)
 [1 1 1 2 3 6 11 22 42 84 165 330 654 1308]
 ```
 
@@ -56,7 +56,7 @@ Riordan numbers,
 OEIS [A005043](https://oeis.org/A005043):
 
 ```
->>> let a:/1 = { :n |
+>>> let a/1 = { :n |
 >>> 	(n < 2).if {
 >>> 		1 - n
 >>> 	} {
@@ -65,7 +65,7 @@ OEIS [A005043](https://oeis.org/A005043):
 >>> 		(n - 1) * (p + q) / (n + 1)
 >>> 	}
 >>> }.memoize(true);
->>> 0:17.collect(a:/1)
+>>> 0:17.collect(a/1)
 [
 	1 0 1 1 3 6 15 36 91 232
 	603 1585 4213 11298 30537

@@ -32,13 +32,13 @@ Package! : [Object, Equal, Compare] {
 		answer.copyWithoutIdenticalElements
 	}
 
-	equalBy { :self :anObject :aBlock:/2 |
+	equalBy { :self :anObject :aBlock/2 |
 		self == anObject
 	}
 
 	require { :self |
 		self.isLoaded.ifFalse {
-			let requirements = self.dependencies.reject(isLoaded:/1).collect(name:/1);
+			let requirements = self.dependencies.reject(isLoaded/1).collect(name/1);
 			(requirements ++ [self.name]).primitiveLoadPackageSequence
 		}
 	}
@@ -149,7 +149,7 @@ Package! : [Object, Equal, Compare] {
 				self.error('loadPackages: package loaded', [each.name])
 			}
 		};
-		self.collect(name:/1).primitiveLoadPackageSequence
+		self.collect(name/1).primitiveLoadPackageSequence
 	}
 
 }
@@ -169,7 +169,7 @@ Package! : [Object, Equal, Compare] {
 	}
 
 	loadedPackages { :self |
-		self.packageDictionary.values.select(isLoaded:/1)
+		self.packageDictionary.values.select(isLoaded/1)
 	}
 
 	loadPackage { :self :package |

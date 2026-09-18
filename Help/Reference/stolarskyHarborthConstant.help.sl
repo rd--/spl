@@ -36,7 +36,7 @@ let f = { :n |
 	}.sum
 };
 let n = 1:200;
-(n.collect(f:/1) / (n ^ 3.log(2))).linePlot
+(n.collect(f/1) / (n ^ 3.log(2))).linePlot
 ~~~
 
 ![](Help/Image/stolarskyHarborthConstant-A.svg)

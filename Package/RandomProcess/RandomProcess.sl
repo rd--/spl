@@ -31,7 +31,7 @@
 
 +@RandomNumberGenerator {
 
-	eulerMaruyamaMethod { :self :a:/2 :b:/2 :t :y0 |
+	eulerMaruyamaMethod { :self :a/2 :b/2 :t :y0 |
 		let [tMin, tMax, dt] = t;
 		let ts = [tMin, tMin + dt .. tMax];
 		let n = ts.size;
@@ -49,7 +49,7 @@
 		[ts, ys]
 	}
 
-	milsteinMethod { :self :a:/1 :b:/1 :c:/1 :t :y0 |
+	milsteinMethod { :self :a/1 :b/1 :c/1 :t :y0 |
 		let [tMin, tMax, dt] = t;
 		let ts = [tMin, tMin + dt .. tMax];
 		let n = ts.size;

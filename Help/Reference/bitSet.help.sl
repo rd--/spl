@@ -46,7 +46,7 @@ Automatically creates an integer of the necessary size:
 Generate a number in which specified bits are set:
 
 ```
->>> [1 3 7].injectInto(0, bitSet:/2)
+>>> [1 3 7].injectInto(0, bitSet/2)
 138
 ```
 

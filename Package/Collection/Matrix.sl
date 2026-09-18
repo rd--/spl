@@ -86,7 +86,7 @@
 	cayleyMengerMatrix { :self |
 		let m = self.distanceMatrix(
 			self,
-			squaredEuclideanDistance:/2
+			squaredEuclideanDistance/2
 		).arrayPad([1 0; 1 0], 1);
 		m[1][1] := 0;
 		m
@@ -118,7 +118,7 @@
 		}
 	}
 
-	columnsCollect { :self :aBlock:/1 |
+	columnsCollect { :self :aBlock/1 |
 		let [m, n] = self.shape;
 		1.to(n).collect { :i |
 			aBlock(self.column(i))
@@ -127,13 +127,13 @@
 
 	columnVector { :self |
 		self.isVector.if {
-			self.collect(enclose:/1)
+			self.collect(enclose/1)
 		} {
 			self.error('columnVector')
 		}
 	}
 
-	designMatrix { :self :aBlock:/1 |
+	designMatrix { :self :aBlock/1 |
 		let [m, n] = self.shape;
 		self.submatrix(
 			[1 .. m],
@@ -222,7 +222,7 @@
 
 	isIntegerMatrix { :self |
 		self.isMatrix & {
-			self.deepAllSatisfy(isInteger:/1)
+			self.deepAllSatisfy(isInteger/1)
 		}
 	}
 
@@ -312,16 +312,16 @@
 
 	matrixPrintString { :self :decimalPlaces |
 		let [m, n] = self.shape;
-		let print:/1 = self.isIntegerMatrix.if {
-			printString:/1
+		let print/1 = self.isIntegerMatrix.if {
+			printString/1
 		} {
 			{ :n |
 				n.printStringShowingDecimalPlaces(decimalPlaces)
 			}
 		};
 		let header = [m, '×', n].stringJoin;
-		let table = self.deepCollect(print:/1);
-		let columnWidth = table.flatten.collect(size:/1).max;
+		let table = self.deepCollect(print/1);
+		let columnWidth = table.flatten.collect(size/1).max;
 		let text = table.collect { :row |
 			'   ' ++ row.collect { :each |
 				each.padLeft([columnWidth], ' ')
@@ -334,8 +334,8 @@
 		k.caseOf(
 			[
 				1 -> { self.transpose.reverse },
-				2 -> { self.reverse.collect(reverse:/1) },
-				3 -> { self.transpose.collect(reverse:/1) }
+				2 -> { self.reverse.collect(reverse/1) },
+				3 -> { self.transpose.collect(reverse/1) }
 			]
 		) {
 			self.error('List>>matrixRotate: k not 1,2,3')
@@ -421,7 +421,7 @@
 
 	blockDiagonalMatrix { :d |
 		let n = d.size;
-		let s = d.collect(shape:/1);
+		let s = d.collect(shape/1);
 		let answer = [];
 		1.toDo(n) { :i |
 			1.toDo(d[i].size) { :j |
@@ -445,7 +445,7 @@
 		}
 	}
 
-	condensedDistanceMatrix { :self :aBlock:/2 |
+	condensedDistanceMatrix { :self :aBlock/2 |
 		let k = self.size;
 		let answer = [];
 		1.toDo(k - 1) { :i |
@@ -478,12 +478,12 @@
 		self.diagonalMatrix(0)
 	}
 
-	distanceMatrix { :u :v :aBlock:/2 |
-		aBlock:/2.table(u, v)
+	distanceMatrix { :u :v :aBlock/2 |
+		aBlock/2.table(u, v)
 	}
 
 	distanceMatrix { :u :v |
-		distanceMatrix(u, v, euclideanDistance:/2)
+		distanceMatrix(u, v, euclideanDistance/2)
 	}
 
 	distanceMatrix { :u |
@@ -512,7 +512,7 @@
 		self.helicalScanMatrixData([1 1])
 	}
 
-	helicalScanIndicesDo { :shape :step :aBlock:/3 |
+	helicalScanIndicesDo { :shape :step :aBlock/3 |
 		let [r, c] = shape;
 		let [p, q] = step;
 		let i = 1;
@@ -656,7 +656,7 @@
 		answer
 	}
 
-	antidiagonalIndicesDo { :k :aBlock:/2 |
+	antidiagonalIndicesDo { :k :aBlock/2 |
 		let m = 1;
 		let n = 1;
 		{
@@ -749,7 +749,7 @@
 	}
 
 	gilbertSquareDigrams { :k |
-		[1 .. k].tuples(2).select(isDuplicateFree:/1)
+		[1 .. k].tuples(2).select(isDuplicateFree/1)
 	}
 
 	magicHexagon { :n |

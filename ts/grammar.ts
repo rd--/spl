@@ -154,7 +154,7 @@ Sl {
 	argumentName = ":" varNameOrUnused
 	unqualifiedIdentifier = letter letterOrDigit* "!"?
 	negatedIdentifier = "-" lowercaseIdentifier
-	arityQualifiedIdentifier = letter letterOrDigit* "!"? ((":/" | "/") digit+)
+	arityQualifiedIdentifier = letter letterOrDigit* "!"? ("/" digit+)
 	identifier
 		= arityQualifiedIdentifier
 		| unqualifiedIdentifier

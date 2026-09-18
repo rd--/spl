@@ -23,7 +23,7 @@ Pell-Lucas numbers are always even:
 
 ```
 >>> 33.pellLucasSequence
->>> .allSatisfy(isEven:/1)
+>>> .allSatisfy(isEven/1)
 true
 ```
 

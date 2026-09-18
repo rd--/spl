@@ -111,7 +111,7 @@ Formatted plot of primes up to one-hundred:
 
 ```
 >>> let p = 1:100.select(
->>> 	isPrime:/1
+>>> 	isPrime/1
 >>> ).stemLeafPlot;
 >>> p.collect { :each |
 >>> 	[each.key, '|', each.value]

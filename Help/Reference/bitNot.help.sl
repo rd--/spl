@@ -114,7 +114,7 @@ OEIS [A350094](https://oeis.org/A350094):
 ~~~spl svg=C oeis=A350094
 0:63.triangularArray { :n :k |
 	n.bitNot.bitAnd(k)
-}.collect(sum:/1).scatterPlot
+}.collect(sum/1).scatterPlot
 ~~~
 
 ![](Help/Image/bitNot-C.svg)

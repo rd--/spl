@@ -1,6 +1,6 @@
 # cobwebPlot
 
-- _cobwebPlot(f:/1, a₀, n)_
+- _cobwebPlot(f/1, a₀, n)_
 
 Answer a plot of the first _n_ terms of the iterative equation _f_ starting at initial value _a₀_.
 

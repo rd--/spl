@@ -8,7 +8,7 @@ The first five bit-reversal permutations,
 OEIS [A049773](https://oeis.org/A049773):
 
 ```
->>> 0:4.collect(bitReversalPermutation:/1)
+>>> 0:4.collect(bitReversalPermutation/1)
 [
 	1;
 	1 2;
@@ -23,7 +23,7 @@ OEIS [A030109](https://oeis.org/A030109):
 
 ```
 >>> 0:4.collect(
->>> 	bitReversalPermutation:/1
+>>> 	bitReversalPermutation/1
 >>> ) - 1
 [
 	0;
@@ -60,7 +60,7 @@ Bit-reversal permutations,
 OEIS [A049773](https://oeis.org/A049773):
 
 ~~~spl svg=A oeis=A049773
-0:7.collect(bitReversalPermutation:/1)
+0:7.collect(bitReversalPermutation/1)
 .catenate
 .scatterPlot
 ~~~

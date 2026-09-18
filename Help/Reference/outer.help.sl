@@ -1,7 +1,7 @@
 # outer
 
-- _outer(f:/2)_
-- _outer(f:/2, x, y)_
+- _outer(f/2)_
+- _outer(f/2, x, y)_
 
 Answer the generalised outer product of two sequences _x_ and _y_,
 passing all combinations of the elements in each to the block _f_.

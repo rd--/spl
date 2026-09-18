@@ -1,6 +1,6 @@
 # complexPlot
 
-- _complexPlot([z⌊ z⌈], f:/1)_
+- _complexPlot([z⌊ z⌈], f/1)_
 
 Answer a plot of the argument, `arg`, of _f_ over the complex rectangle with corners _z⌊_ and _z⌈_.
 

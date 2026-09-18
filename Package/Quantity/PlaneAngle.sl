@@ -123,11 +123,11 @@
 +@Collection {
 
 	degrees { :self |
-		self.collect(degrees:/1)
+		self.collect(degrees/1)
 	}
 
 	radians { :self |
-		self.collect(radians:/1)
+		self.collect(radians/1)
 	}
 
 }

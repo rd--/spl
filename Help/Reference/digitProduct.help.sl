@@ -27,7 +27,7 @@ Use a base larger than ten:
 Plot the product of the digits in the first 100 positive integers:
 
 ~~~spl svg=A
-1:100.collect(digitProduct:/1).discretePlot
+1:100.collect(digitProduct/1).discretePlot
 ~~~
 
 ![](Help/Image/digitProduct-A.svg)

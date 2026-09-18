@@ -31,7 +31,7 @@
 
 +Ugen {
 
-	FeedforwardFeedbackward { :in :forward:/2 :backward:/1 |
+	FeedforwardFeedbackward { :in :forward/2 :backward/1 |
 		let maxBlockSize = 512;
 		let buffer = BufAlloc(1, maxBlockSize + 1).BufClear;
 		let delayTime = ControlDur();
@@ -39,7 +39,7 @@
 		let backwardAnswer = backward(reader);
 		let forwardAnswer = forward(in, backwardAnswer);
 		let writer = DelayWrite(buffer, forwardAnswer);
-		[backwardAnswer, forwardAnswer].anySatisfy(isList:/1).ifTrue {
+		[backwardAnswer, forwardAnswer].anySatisfy(isList/1).ifTrue {
 			'FeedforwardFeedbackward: processors not monophonic'.error
 		};
 		forwardAnswer <! writer
@@ -49,9 +49,9 @@
 
 +List {
 
-	FeedforwardFeedbackward { :in :forward:/2 :backward:/1 |
+	FeedforwardFeedbackward { :in :forward/2 :backward/1 |
 		in.collect { :x |
-			FeedforwardFeedbackward(x, forward:/2, backward:/1)
+			FeedforwardFeedbackward(x, forward/2, backward/1)
 		}
 	}
 
@@ -267,7 +267,7 @@
 			Note that deleting .sqrt can dramatically alter feedback paths. */
 			level := level * n.reciprocal.sqrt
 		};
-		PanAz(numChannels, inList, pos, level, width, orientation).flop.collect(sum:/1)
+		PanAz(numChannels, inList, pos, level, width, orientation).flop.collect(sum/1)
 	}
 
 	TableWindow { :trig :dur :bufNum |

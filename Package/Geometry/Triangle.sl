@@ -422,7 +422,7 @@ Triangle : [Object, Store, Equal, Geometry] { | vertexCoordinates |
 	}
 
 	isIsosceles { :self |
-		self.sideLengths.nubBy(isVeryCloseTo:/2).size <= 2
+		self.sideLengths.nubBy(isVeryCloseTo/2).size <= 2
 	}
 
 	isOblique { :self |
@@ -732,7 +732,7 @@ Triangle : [Object, Store, Equal, Geometry] { | vertexCoordinates |
 	toTrilinearCoordinates { :self |
 		let [a, b, c] = self.vertexCoordinates;
 		let v = self.sideLengths;
-		let f:/1 = toBarycentricCoordinates(a, b, c);
+		let f/1 = toBarycentricCoordinates(a, b, c);
 		{ :x |
 			f(x) / v
 		}
@@ -746,7 +746,7 @@ Triangle : [Object, Store, Equal, Geometry] { | vertexCoordinates |
 		self.asPolygon.translate(operand).vertexCoordinates.Triangle
 	}
 
-	triangleCentre { :self :p:/1 :f:/3 |
+	triangleCentre { :self :p/1 :f/3 |
 		let [a, b, c] = p(self);
 		let alpha = f(a, b, c);
 		let beta = f(b, c, a);
@@ -754,12 +754,12 @@ Triangle : [Object, Store, Equal, Geometry] { | vertexCoordinates |
 		self.fromTrilinearCoordinates([alpha, beta, gamma])
 	}
 
-	triangleCentreA { :self :f:/3 |
-		self.triangleCentre(interiorAngles:/1, f:/3)
+	triangleCentreA { :self :f/3 |
+		self.triangleCentre(interiorAngles/1, f/3)
 	}
 
-	triangleCentreL { :self :f:/3 |
-		self.triangleCentre(sideLengths:/1, f:/3)
+	triangleCentreL { :self :f/3 |
+		self.triangleCentre(sideLengths/1, f/3)
 	}
 
 	vertexCount { :self |

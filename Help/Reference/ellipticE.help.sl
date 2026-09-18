@@ -47,7 +47,7 @@ Threads over lists:
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(0 -- 1).functionPlot(ellipticE:/1)
+(0 -- 1).functionPlot(ellipticE/1)
 ~~~
 
 ![](Help/Image/ellipticE-A.svg)

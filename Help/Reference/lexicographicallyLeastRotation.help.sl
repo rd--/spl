@@ -8,7 +8,7 @@ Three rotations that are not least:
 
 ```
 >>> [1 3 2 1; 3 2 1 1; 2 1 1 3].collect(
->>> 	lexicographicallyLeastRotation:/1
+>>> 	lexicographicallyLeastRotation/1
 >>> )
 [1 1 3 2; 1 1 3 2; 1 1 3 2]
 ```

@@ -1,6 +1,6 @@
 # relativeChange
 
-- _relativeChange(x, y, f:/2)_
+- _relativeChange(x, y, f/2)_
 
 Answer the relative change from _x_ to _y_ given scale function _f_.
 If _f_ is elided answer the _classical_ relative change,
@@ -131,20 +131,20 @@ Moment mean change of order _k_:
 Maximum mean change:
 
 ```
->>> 90.relativeChange(100, max:/2)
+>>> 90.relativeChange(100, max/2)
 1/10
 
->>> 100.relativeChange(110, max:/2)
+>>> 100.relativeChange(110, max/2)
 1/11
 ```
 
 Minimum mean change:
 
 ```
->>> 90.relativeChange(100, min:/2)
+>>> 90.relativeChange(100, min/2)
 1/9
 
->>> 100.relativeChange(110, min:/2)
+>>> 100.relativeChange(110, min/2)
 1/10
 ```
 

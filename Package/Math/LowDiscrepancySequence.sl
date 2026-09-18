@@ -64,5 +64,5 @@ LibraryItem(
 	category: 'Sequence/LowDiscrepancy',
 	url: 'https://rohandrape.net/sw/hsc3-data/data/sobol/kuo.json',
 	mimeType: 'application/json',
-	parser: identity:/1
+	parser: identity/1
 )

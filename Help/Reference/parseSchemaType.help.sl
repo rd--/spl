@@ -1,6 +1,6 @@
 # parseSchemaType
 
-- _parseSchemaType([s₁ s₂ …], t, f:/0)_
+- _parseSchemaType([s₁ s₂ …], t, f/0)_
 
 Parse the list of `String` values at the list _s_ according to the specified schema type _t_.
 

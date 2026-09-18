@@ -84,7 +84,7 @@ The scale is symmetrical within the octave:
 >>> [5 7].collect { :i |
 >>> 	let d = i.tonalityDiamond;
 >>> 	let r = d.catenate.unique ++ [2];
->>> 	r.collect(ratioToCents:/1)
+>>> 	r.collect(ratioToCents/1)
 >>> 	.differences
 >>> 	.round
 >>> }

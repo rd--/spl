@@ -1,6 +1,6 @@
 # isSortedBy
 
-- _isSortedBy([x₁ x₂ …], f:/2)_
+- _isSortedBy([x₁ x₂ …], f/2)_
 
 Answer `true` if the sequence _x_ is sorted by the block _f_, else `false`.
 

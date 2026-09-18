@@ -6,7 +6,7 @@ SmallFloat! : [Object, Store, Json, Equal, Compare, Number, Integer, Binary] {
 		<primitive: return Math.abs(_self)>
 	}
 
-	adaptToIntegerAndApply { :self :anInteger :aBlock:/2 |
+	adaptToIntegerAndApply { :self :anInteger :aBlock/2 |
 		anInteger.isLargeInteger.if {
 			aBlock(anInteger.asSmallFloat, self)
 		} {
@@ -81,7 +81,7 @@ SmallFloat! : [Object, Store, Json, Equal, Compare, Number, Integer, Binary] {
 		}
 		>
 		self.isBinary.if {
-			anObject.adaptToNumberAndApply(self, bitAnd:/2)
+			anObject.adaptToNumberAndApply(self, bitAnd/2)
 		} {
 			self.error('SmallFloat>>bitAnd', [anObject])
 		}
@@ -103,7 +103,7 @@ SmallFloat! : [Object, Store, Json, Equal, Compare, Number, Integer, Binary] {
 		}
 		>
 		self.isBinary.if {
-			anObject.adaptToNumberAndApply(self, bitOr:/2)
+			anObject.adaptToNumberAndApply(self, bitOr/2)
 		} {
 			self.error('SmallFloat>>bitOr', [anObject])
 		}
@@ -134,7 +134,7 @@ SmallFloat! : [Object, Store, Json, Equal, Compare, Number, Integer, Binary] {
 		}
 		>
 		self.isBinary.if {
-			anObject.adaptToNumberAndApply(self, bitShiftLeft:/2)
+			anObject.adaptToNumberAndApply(self, bitShiftLeft/2)
 		} {
 			self.error('SmallFloat>>bitShiftLeft')
 		}
@@ -147,7 +147,7 @@ SmallFloat! : [Object, Store, Json, Equal, Compare, Number, Integer, Binary] {
 		}
 		>
 		self.isBinary.if {
-			anObject.adaptToNumberAndApply(self, bitShiftRight:/2)
+			anObject.adaptToNumberAndApply(self, bitShiftRight/2)
 		} {
 			self.error('SmallFloat>>bitShiftRight')
 		}
@@ -160,7 +160,7 @@ SmallFloat! : [Object, Store, Json, Equal, Compare, Number, Integer, Binary] {
 		}
 		>
 		self.isBinary.if {
-			anObject.adaptToNumberAndApply(self, bitShiftRightUnsigned:/2)
+			anObject.adaptToNumberAndApply(self, bitShiftRightUnsigned/2)
 		} {
 			self.error('SmallFloat>>bitShiftRightUnsigned')
 		}
@@ -177,7 +177,7 @@ SmallFloat! : [Object, Store, Json, Equal, Compare, Number, Integer, Binary] {
 		}
 		>
 		self.isBinary.if {
-			anObject.adaptToNumberAndApply(self, bitXor:/2)
+			anObject.adaptToNumberAndApply(self, bitXor/2)
 		}{
 			self.error('SmallFloat>>bitXor')
 		}
@@ -289,7 +289,7 @@ SmallFloat! : [Object, Store, Json, Equal, Compare, Number, Integer, Binary] {
 			return _self / _anObject;
 		}
 		>
-		anObject.adaptToNumberAndApply(self, /)
+		anObject.adaptToNumberAndApply(self, divide/2)
 	}
 
 	encodeFloat32 { :self :littleEndian |
@@ -317,7 +317,7 @@ SmallFloat! : [Object, Store, Json, Equal, Compare, Number, Integer, Binary] {
 			anObject.isSmallFloat.if {
 				identical(self, anObject)
 			} {
-				anObject.adaptToNumberAndApply(self, equal:/2)
+				anObject.adaptToNumberAndApply(self, equal/2)
 			}
 		} {
 			false
@@ -342,7 +342,7 @@ SmallFloat! : [Object, Store, Json, Equal, Compare, Number, Integer, Binary] {
 			return Math.hypot(_self, _anObject);
 		}
 		>
-		anObject.adaptToNumberAndApply(self, hypotenuse:/2)
+		anObject.adaptToNumberAndApply(self, hypotenuse/2)
 	}
 
 	ieeeRemainder { :self :operand |
@@ -468,7 +468,7 @@ SmallFloat! : [Object, Store, Json, Equal, Compare, Number, Integer, Binary] {
 			return _self < _anObject;
 		}
 		>
-		anObject.adaptToNumberAndApply(self, <)
+		anObject.adaptToNumberAndApply(self, less/2)
 	}
 
 	[lessEqual, <=] { :self :anObject |
@@ -477,7 +477,7 @@ SmallFloat! : [Object, Store, Json, Equal, Compare, Number, Integer, Binary] {
 			return _self <= _anObject;
 		}
 		>
-		anObject.adaptToNumberAndApply(self, <=)
+		anObject.adaptToNumberAndApply(self, lessEqual/2)
 	}
 
 	log { :self |
@@ -516,7 +516,7 @@ SmallFloat! : [Object, Store, Json, Equal, Compare, Number, Integer, Binary] {
 			return Math.max(_self, _anObject);
 		}
 		>
-		anObject.adaptToNumberAndApply(self, max:/2)
+		anObject.adaptToNumberAndApply(self, max/2)
 	}
 
 	min { :self :anObject |
@@ -525,7 +525,7 @@ SmallFloat! : [Object, Store, Json, Equal, Compare, Number, Integer, Binary] {
 			return Math.min(_self, _anObject);
 		}
 		>
-		anObject.adaptToNumberAndApply(self, min:/2)
+		anObject.adaptToNumberAndApply(self, min/2)
 	}
 
 	minkowskiQuestionMark { :x |
@@ -576,7 +576,7 @@ SmallFloat! : [Object, Store, Json, Equal, Compare, Number, Integer, Binary] {
 			return ((_self % _anObject) + _anObject) % _anObject;
 		}
 		>
-		anObject.adaptToNumberAndApply(self, %)
+		anObject.adaptToNumberAndApply(self, mod/2)
 	}
 
 	muLawDecode { :y |
@@ -596,8 +596,8 @@ SmallFloat! : [Object, Store, Json, Equal, Compare, Number, Integer, Binary] {
 		<primitive: return Math.imul(_m, _n);>
 	}
 
-	newtonRaphsonMethod { :epsilon :tolerance :iterationCount :x0 :f:/1 :fPrime:/1 |
-		valueWithReturn { :return:/1 |
+	newtonRaphsonMethod { :epsilon :tolerance :iterationCount :x0 :f/1 :fPrime/1 |
+		valueWithReturn { :return/1 |
 			iterationCount.timesRepeat {
 				let y = f(x0);
 				let yPrime = fPrime(x0);
@@ -662,7 +662,7 @@ SmallFloat! : [Object, Store, Json, Equal, Compare, Number, Integer, Binary] {
 			return _self + _anObject;
 		}
 		>
-		anObject.adaptToNumberAndApply(self, +)
+		anObject.adaptToNumberAndApply(self, plus/2)
 	}
 
 	[power, ^] { :self :anObject |
@@ -677,7 +677,7 @@ SmallFloat! : [Object, Store, Json, Equal, Compare, Number, Integer, Binary] {
 				}
 			}
 		} {
-			anObject.adaptToNumberAndApply(self, ^)
+			anObject.adaptToNumberAndApply(self, power/2)
 		}
 	}
 
@@ -822,7 +822,7 @@ SmallFloat! : [Object, Store, Json, Equal, Compare, Number, Integer, Binary] {
 			return _self - _anObject;
 		}
 		>
-		anObject.adaptToNumberAndApply(self, -)
+		anObject.adaptToNumberAndApply(self, subtract/2)
 	}
 
 	surd { :x :n |
@@ -843,7 +843,7 @@ SmallFloat! : [Object, Store, Json, Equal, Compare, Number, Integer, Binary] {
 			return _self * _anObject;
 		}
 		>
-		anObject.adaptToNumberAndApply(self, *)
+		anObject.adaptToNumberAndApply(self, times/2)
 	}
 
 	truncate { :self |
@@ -900,11 +900,11 @@ SmallFloat! : [Object, Store, Json, Equal, Compare, Number, Integer, Binary] {
 +@Collection {
 
 	isFinite { :self |
-		self.allSatisfy(isFinite:/1)
+		self.allSatisfy(isFinite/1)
 	}
 
 	isNaN { :self |
-		self.collect(isNaN:/1)
+		self.collect(isNaN/1)
 	}
 
 }
@@ -936,14 +936,14 @@ SmallFloat! : [Object, Store, Json, Equal, Compare, Number, Integer, Binary] {
 				(c[1] = '-' | { c[1] = '+' }).ifTrue {
 					c.removeAt(1)
 				};
-				c.collect(digitValue:/1).allSatisfy { :each |
+				c.collect(digitValue/1).allSatisfy { :each |
 					each >= 0 & { each < radix }
 				}
 			}
 		}
 	}
 
-	parseDecimalInteger { :self :elseClause:/0 |
+	parseDecimalInteger { :self :elseClause/0 |
 		self.isDecimalIntegerString.if {
 			let answer = self.uncheckedParseDecimalInteger;
 			answer.isNaN.if {
@@ -966,7 +966,7 @@ SmallFloat! : [Object, Store, Json, Equal, Compare, Number, Integer, Binary] {
 		}
 	}
 
-	parseDecimalNumeral { :self :elseClause:/0 |
+	parseDecimalNumeral { :self :elseClause/0 |
 		self.isDecimalNumeralString.if {
 			self.uncheckedParseNumber
 		} {
@@ -980,7 +980,7 @@ SmallFloat! : [Object, Store, Json, Equal, Compare, Number, Integer, Binary] {
 		}
 	}
 
-	parseNumber { :self :elseClause:/0 |
+	parseNumber { :self :elseClause/0 |
 		self.isFloatString.if {
 			self.uncheckedParseNumber
 		} {
@@ -994,7 +994,7 @@ SmallFloat! : [Object, Store, Json, Equal, Compare, Number, Integer, Binary] {
 		}
 	}
 
-	parseScientificNotation { :self :elseClause:/0 |
+	parseScientificNotation { :self :elseClause/0 |
 		self.isScientificNotationString.if {
 			self.uncheckedParseNumber
 		} {
@@ -1011,13 +1011,13 @@ SmallFloat! : [Object, Store, Json, Equal, Compare, Number, Integer, Binary] {
 	parseSexagesimal { :self |
 		let [a, b] = self.splitBy(';');
 		let [p, q] = [a, b].collect { :each |
-			each.splitBy(',').collect(parseDecimalInteger:/1)
+			each.splitBy(',').collect(parseDecimalInteger/1)
 		};
-		let [m, n] = [p, q].collect(size:/1);
+		let [m, n] = [p, q].collect(size/1);
 		(p * (60 ^ (m - 1).toBy(0, -1))).sum + (q / (60 ^ 1.to(n))).sum
 	}
 
-	parseSmallInteger { :self :radix :elseClause:/0 |
+	parseSmallInteger { :self :radix :elseClause/0 |
 		radix.isSmallInteger.if {
 			(
 				radix > 1 & {

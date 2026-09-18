@@ -1,15 +1,15 @@
 @Equal {
 
 	[equal, =] { :self :anObject |
-		self.equalBy(anObject, equal:/2)
+		self.equalBy(anObject, equal/2)
 	}
 
-	equalBy { :self :anObject :aBlock:/2 |
+	equalBy { :self :anObject :aBlock/2 |
 		/* self.typeResponsibility('@Equal>>equalBy') */
-		self.hasEqualSlots(anObject, aBlock:/2)
+		self.hasEqualSlots(anObject, aBlock/2)
 	}
 
-	equalByAtNamedSlots { :self :anObject :slotNameList :aBlock:/2 |
+	equalByAtNamedSlots { :self :anObject :slotNameList :aBlock/2 |
 		<primitive: return _slotNameList.every(function (key) {
 			return _aBlock_2(_self[key], _anObject[key]);
 		});
@@ -22,18 +22,18 @@
 		}
 	}
 
-	hasEqualSlots { :self :anObject :aBlock:/2 |
+	hasEqualSlots { :self :anObject :aBlock/2 |
 		self.typeOf = anObject.typeOf & {
 			self.equalByAtNamedSlots(
 				anObject,
 				self.slotNameList,
-				aBlock:/2
+				aBlock/2
 			)
 		}
 	}
 
 	hasEqualSlots { :self :anObject |
-		self.hasEqualSlots(anObject, equal:/2)
+		self.hasEqualSlots(anObject, equal/2)
 	}
 
 	primitiveEquals { :self :anObject |

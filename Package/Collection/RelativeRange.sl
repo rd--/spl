@@ -13,8 +13,8 @@ RelativeRange : [Object, Store, Equal, Compare, Iterable, Collection, Indexable,
 	}
 
 
-	equalBy { :self :anObject :aBlock:/2 |
-		self.hasEqualSlots(anObject, aBlock:/2)
+	equalBy { :self :anObject :aBlock/2 |
+		self.hasEqualSlots(anObject, aBlock/2)
 	}
 
 	isSorted { :self |
@@ -30,7 +30,7 @@ RelativeRange : [Object, Store, Equal, Compare, Iterable, Collection, Indexable,
 	}
 
 	species { :self |
-		List:/1
+		List/1
 	}
 
 }
@@ -38,7 +38,7 @@ RelativeRange : [Object, Store, Equal, Compare, Iterable, Collection, Indexable,
 +@Integer {
 
 	isIntegerRange { :start :stop :step |
-		[start stop step].allSatisfy(isInteger:/1)
+		[start stop step].allSatisfy(isInteger/1)
 	}
 
 	isRelativeRange { :start :stop :step |

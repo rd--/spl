@@ -18,7 +18,7 @@ GeoJson : [Object, Store] { | contents |
 				[self]
 			},
 			'FeatureCollection' -> {
-				self.field('features').collect(GeoJson:/1)
+				self.field('features').collect(GeoJson/1)
 			}
 		]) {
 			[]
@@ -34,9 +34,9 @@ GeoJson : [Object, Store] { | contents |
 			[self]
 		} {
 			self.isGeometryCollection.if {
-				self.field('geometries').collect(GeoJson:/1)
+				self.field('geometries').collect(GeoJson/1)
 			} {
-				self.features.collect(geometry:/1)
+				self.features.collect(geometry/1)
 			}
 		}
 	}
@@ -80,12 +80,12 @@ GeoJson : [Object, Store] { | contents |
 				},
 				'MultiLineString' -> {
 					GeometryCollection(
-						c.collect(Line:/1)
+						c.collect(Line/1)
 					)
 				},
 				'MultiPolygon' -> {
 					GeometryCollection(
-						c.collect(polygonValue:/1)
+						c.collect(polygonValue/1)
 					)
 				}
 			])
@@ -93,7 +93,7 @@ GeoJson : [Object, Store] { | contents |
 	}
 
 	geometryValues { :self :projectionName |
-		let projectionFunction:/1 = projectionName.namedCartographicProjection;
+		let projectionFunction/1 = projectionName.namedCartographicProjection;
 		let f = { :each |
 			let [phi, lambda] = each.degreesToRadians;
 			projectionFunction(
@@ -101,7 +101,7 @@ GeoJson : [Object, Store] { | contents |
 			)
 		};
 		self.geometryValues.collect { :each |
-			each.project(f:/1)
+			each.project(f/1)
 		}
 	}
 
@@ -142,7 +142,7 @@ GeoJson : [Object, Store] { | contents |
 	}
 
 	polygons { :self |
-		self.geometries.select(isPolygon:/1)
+		self.geometries.select(isPolygon/1)
 	}
 
 	polygonList { :self :projectionName |
@@ -152,7 +152,7 @@ GeoJson : [Object, Store] { | contents |
 				answer.add(each)
 			};
 			each.isGeometryCollection.ifTrue {
-				answer.addAll(each.contents.select(isPolygon:/1))
+				answer.addAll(each.contents.select(isPolygon/1))
 			}
 		};
 		answer
@@ -175,7 +175,7 @@ GeoJson : [Object, Store] { | contents |
 	}
 
 	simplyConnectedPolygons { :self |
-		self.geometries.select(isSimplyConnectedPolygon:/1)
+		self.geometries.select(isSimplyConnectedPolygon/1)
 	}
 
 	simplyConnectedPolygonCoordinates { :self |
@@ -185,7 +185,7 @@ GeoJson : [Object, Store] { | contents |
 		}
 	}
 
-	simplyConnectedPolygonCoordinates { :self :projectionFunction:/1 |
+	simplyConnectedPolygonCoordinates { :self :projectionFunction/1 |
 		self.simplyConnectedPolygons.collect { :each |
 			let [c] = each.coordinates;
 			c.collect { :each |

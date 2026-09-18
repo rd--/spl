@@ -42,8 +42,8 @@ OEIS [A003056](https://oeis.org/A003056):
 >>> };
 >>> let a = 0:27;
 >>> let b = a.triangularNumber;
->>> let c = a.collect(inverse:/1);
->>> let d = b.collect(inverse:/1);
+>>> let c = a.collect(inverse/1);
+>>> let d = b.collect(inverse/1);
 >>> (c, d)
 (
 	[

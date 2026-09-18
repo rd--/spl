@@ -42,7 +42,7 @@ There are five _2,2,1_ Yamanouchi words:
 >>> 	3 2 1 2 1;
 >>> 	2 3 1 2 1;
 >>> 	2 1 3 2 1
->>> ].allSatisfy(isYamanouchiWord:/1)
+>>> ].allSatisfy(isYamanouchiWord/1)
 true
 ```
 

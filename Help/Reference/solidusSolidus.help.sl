@@ -41,7 +41,7 @@ At `Symbol`:
 
 ```
 >> `m` // `n`
-(quotient m n)
+(// m n)
 ```
 
 Plot the spiral matrix of the quotient:

@@ -1,6 +1,6 @@
 # pairwiseDistances
 
-- _pairwiseDistances(u, f:/2)_
+- _pairwiseDistances(u, f/2)_
 - _pairwiseDistances(u)_
 
 Answer the specified distance function,

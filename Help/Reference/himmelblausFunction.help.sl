@@ -32,7 +32,7 @@ Matrix plot, log scaled and rounded:
 ~~~spl png=A
 let k = 100;
 let i = (-6 -- 6).subdivide(k);
-himmelblausFunction:/2
+himmelblausFunction/2
 .table(i, i)
 .log
 .rescale
@@ -47,7 +47,7 @@ Contour plot of sparse sampling:
 ~~~spl svg=B
 let k = 20;
 let i = (-6 -- 6).subdivide(k);
-himmelblausFunction:/2
+himmelblausFunction/2
 .contourPlot(i, i, 10 ^ [-2 .. 3])
 ~~~
 

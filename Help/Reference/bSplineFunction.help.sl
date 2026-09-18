@@ -8,7 +8,7 @@ Evaluate B-spline curve:
 
 ```
 >>> let p = [1 1; 2 3; 3 -1; 4 1; 5 0];
->>> let f:/1 = p.bSplineFunction(3);
+>>> let f/1 = p.bSplineFunction(3);
 >>> f(0.5)
 [3 0.5]
 ```

@@ -13,7 +13,7 @@ as for use as keys in `Map` (the identity dictionary).
 ```
 >>> [
 >>> 	nil, true, false, 3.141, 'txt', {}
->>> ].collect(isImmediate:/1)
+>>> ].collect(isImmediate/1)
 [true true true true true true]
 ```
 
@@ -28,7 +28,7 @@ as for use as keys in `Map` (the identity dictionary).
 >>> 	[2, 3],
 >>> 	(x: 2, y: 3),
 >>> 	(2, 3)
->>> ].collect(isImmediate:/1)
+>>> ].collect(isImmediate/1)
 [false false false false false false false]
 ```
 

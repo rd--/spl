@@ -15,6 +15,19 @@ Answer the operator token that corresponds to the specified operator name string
 '>='
 ```
 
+This is distinct from the operator symbol:
+
+```
+>>> 'plus'.splOperatorSymbolToken
+'+'
+
+>>> 'times'.splOperatorSymbolToken
+'*'
+
+>>> 'less'.splOperatorSymbolToken
+'<'
+```
+
 The inverse is `splOperatorTokenName`:
 
 ```

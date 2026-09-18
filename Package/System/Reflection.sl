@@ -64,7 +64,7 @@
 		self.allMethods
 	}
 
-	methodDo { :self :aBlock:/1 |
+	methodDo { :self :aBlock/1 |
 		self.traitDictionary.do { :aTrait |
 			aTrait.methodDictionary.do { :aMethod |
 				aMethod.aBlock
@@ -94,7 +94,7 @@
 	}
 
 	methodImplementors { :self :methodName |
-		system.methodImplementations(methodName).collect(origin:/1)
+		system.methodImplementations(methodName).collect(origin/1)
 	}
 
 	methodLookupAtSignature { :self :signature |
@@ -135,7 +135,7 @@
 
 	methodSignatures { :self :methodName |
 		/* Signatures of each implementation of methodName. */
-		self.methodImplementations(methodName).collect(signature:/1)
+		self.methodImplementations(methodName).collect(signature/1)
 	}
 
 	methodSourceCodeSearch { :self :aString |
@@ -289,7 +289,7 @@
 			each -> system.categoryDictionary.categoryOf('method', each)
 		}.select { :each |
 			each.value = '*Uncategorized*'
-		}.collect(key:/1)
+		}.collect(key/1)
 	}
 
 }

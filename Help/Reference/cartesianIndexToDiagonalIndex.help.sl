@@ -10,7 +10,7 @@ and can index infinite matrices.
 Calculate the first _n_ rows and _m_ columns of the infinite matrix counted by antidiagonals:
 
 ```
->>> cartesianIndexToDiagonalIndex:/2
+>>> cartesianIndexToDiagonalIndex/2
 >>> .table(1:7, 1:8)
 [
 	 1  2  4  7 11 16 22 29;

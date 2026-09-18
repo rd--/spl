@@ -8,7 +8,7 @@
 		self
 	}
 
-	do { :self :aBlock:/1 |
+	do { :self :aBlock/1 |
 		let each = self.next;
 		{
 			each.isNil
@@ -53,7 +53,7 @@
 
 	nextOrUpToEnd { :self :maxNumberOfElements |
 		let answer = [];
-		valueWithReturn { :return:/1 |
+		valueWithReturn { :return/1 |
 			maxNumberOfElements.timesRepeat {
 				let item = self.next;
 				item.ifNil {
@@ -65,8 +65,8 @@
 		}
 	}
 
-	nextSatisfy { :self :aBlock:/1 |
-		valueWithReturn { :return:/1 |
+	nextSatisfy { :self :aBlock/1 |
+		valueWithReturn { :return/1 |
 			self.do { :each |
 				aBlock(each).ifTrue {
 					each.return
@@ -76,13 +76,13 @@
 		}
 	}
 
-	nextUntil { :self :aBlock:/1 |
+	nextUntil { :self :aBlock/1 |
 		self.nextWhile { :each |
 			each.aBlock.not
 		}
 	}
 
-	nextWhile { :self :aBlock:/1 |
+	nextWhile { :self :aBlock/1 |
 		let answer = [];
 		let next = nil;
 		{
@@ -95,7 +95,7 @@
 	}
 
 	readIntoStartingAtCount { :self :aCollection :startIndex :n |
-		valueWithReturn { :return:/1 |
+		valueWithReturn { :return/1 |
 			0.toDo(n - 1) { :i |
 				let obj = self.next.ifNil {
 					i.return

@@ -111,7 +111,7 @@ Point : [Object, Store, Equal, Geometry, CartesianCoordinates] { | coordinates |
 	}
 
 	isOrigin { :self |
-		self.allSatisfy(isZero:/1)
+		self.allSatisfy(isZero/1)
 	}
 
 	lineEquation { :p1 :p2 |
@@ -121,7 +121,7 @@ Point : [Object, Store, Equal, Geometry, CartesianCoordinates] { | coordinates |
 		let b = x1 - x2;
 		let c = (y1 * (x2 - x1)) - (x1 * (y2 - y1));
 		let e = [a, b, c];
-		e.allSatisfy(isInteger:/1).if {
+		e.allSatisfy(isInteger/1).if {
 			e / e.gcd
 		} {
 			e
@@ -191,7 +191,7 @@ Point : [Object, Store, Equal, Geometry, CartesianCoordinates] { | coordinates |
 
 	Point { :self |
 		(self.rank > 1).if {
-			self.collect(Point:/1)
+			self.collect(Point/1)
 		} {
 			newPoint().initializeSlots(self)
 		}
@@ -239,7 +239,7 @@ Point : [Object, Store, Equal, Geometry, CartesianCoordinates] { | coordinates |
 	}
 
 	polylineArcLength { :p |
-		p.adjacentPairsCollect(euclideanDistance:/2).sum
+		p.adjacentPairsCollect(euclideanDistance/2).sum
 	}
 
 	shoelaceFormula { :p |

@@ -1,6 +1,6 @@
 # triangularDifferenceTable
 
-- _triangularDifferenceTable([x₁ x₂ …], f:/2=-)_
+- _triangularDifferenceTable([x₁ x₂ …], f/2=-)_
 
 Answer the triangular difference table of the sequence _x_,
 also called a triangle of differences.

@@ -1,6 +1,6 @@
 # leastExcludedSequence
 
-- _leastExcludedSequence(i, k, f:/3)_
+- _leastExcludedSequence(i, k, f/3)_
 
 Answer _k_ terms of the the integer sequence,
 initially _i_,

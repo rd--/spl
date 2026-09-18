@@ -8,7 +8,7 @@ Plot at `zero`:
 
 ~~~spl svg=A
 let i = (-1.5 -- 1.5).subdivide(100);
-ampersandImplicitCurve:/2.
+ampersandImplicitCurve/2.
 contourPlot(i, i, [0])
 ~~~
 

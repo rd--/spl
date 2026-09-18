@@ -18,7 +18,7 @@ Get the sum of elements not to the left of each element in a list:
 Nested reverse accumulate:
 
 ```
->>> reverseAccumulate:/1.iterate(
+>>> reverseAccumulate/1.iterate(
 >>> 	[1 3 5 7 2],
 >>> 	2
 >>> )
@@ -31,7 +31,7 @@ for a survival list and an annual discount value of 0.8:
 ```
 >>> let a = [100 97 92 86 50 20 9 2 0];
 >>> let b = a * (0.8 ^ 0:8);
->>> reverseAccumulate:/1.iterate(b, 2)
+>>> reverseAccumulate/1.iterate(b, 2)
 [
 	769.56 459.24  248.91   116.19 42.34
 	 12.53   3.198   0.4194   0

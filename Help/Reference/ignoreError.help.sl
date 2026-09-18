@@ -1,6 +1,6 @@
 # ignoreError
 
-- _ignoreError(f:/0)_
+- _ignoreError(f/0)_
 
 Evaluate the no-argument block _f_ and ignore any error it raises.
 

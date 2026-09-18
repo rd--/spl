@@ -46,7 +46,7 @@ At `List`:
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(-5 -- 5).functionPlot(sech:/1)
+(-5 -- 5).functionPlot(sech/1)
 ~~~
 
 ![](Help/Image/sech-A.svg)
@@ -54,7 +54,7 @@ Plot over a subset of the reals:
 Polar plot:
 
 ~~~spl svg=B
-(-2.pi -- 2.pi).polarPlot(sech:/1)
+(-2.pi -- 2.pi).polarPlot(sech/1)
 ~~~
 
 ![](Help/Image/sech-B.svg)

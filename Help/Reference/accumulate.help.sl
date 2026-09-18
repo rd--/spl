@@ -27,7 +27,7 @@ OEIS [A000217](https://oeis.org/A000217):
 Diagonals of Pascal’s triangle:
 
 ```
->>> accumulate:/1
+>>> accumulate/1
 >>> .nestList([1 .. 5], 5)
 >>> .transpose
 [

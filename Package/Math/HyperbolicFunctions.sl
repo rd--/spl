@@ -178,43 +178,43 @@
 +@Collection {
 
 	arcCosh { :self |
-		self.collect(arcCosh:/1)
+		self.collect(arcCosh/1)
 	}
 
 	arcCoth { :self |
-		self.collect(arcCoth:/1)
+		self.collect(arcCoth/1)
 	}
 
 	arcCsch { :self |
-		self.collect(arcCsch:/1)
+		self.collect(arcCsch/1)
 	}
 
 	arcSech { :self |
-		self.collect(arcSech:/1)
+		self.collect(arcSech/1)
 	}
 
 	arcSinh { :self |
-		self.collect(arcSinh:/1)
+		self.collect(arcSinh/1)
 	}
 
 	cosh { :self |
-		self.collect(cosh:/1)
+		self.collect(cosh/1)
 	}
 
 	coth { :self |
-		self.collect(coth:/1)
+		self.collect(coth/1)
 	}
 
 	sech { :self |
-		self.collect(sech:/1)
+		self.collect(sech/1)
 	}
 
 	sinh { :self |
-		self.collect(sinh:/1)
+		self.collect(sinh/1)
 	}
 
 	tanh { :self |
-		self.collect(tanh:/1)
+		self.collect(tanh/1)
 	}
 
 }

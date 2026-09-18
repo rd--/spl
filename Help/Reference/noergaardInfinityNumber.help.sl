@@ -13,7 +13,7 @@ OEIS [A004718](https://oeis.org/A004718):
 
 ```
 >>> 0:22.collect(
->>> 	noergaardInfinityNumber:/1
+>>> 	noergaardInfinityNumber/1
 >>> )
 [
 	 0  1 -1  2  1  0 -2  3 -1  2
@@ -27,7 +27,7 @@ OEIS [A004718](https://oeis.org/A004718):
 
 ~~~spl svg=A oeis=A004718
 0:250.collect(
-	noergaardInfinityNumber:/1
+	noergaardInfinityNumber/1
 ).scatterPlot
 ~~~
 

@@ -1,6 +1,6 @@
 # removeAllSuchThat
 
-- _removeAllSuchThat(c, f:/1)_
+- _removeAllSuchThat(c, f/1)_
 
 Evaluate the block _f_ for each element of the collection _c_ and remove all elements that evaluate to `true`.
 Use a copy to enumerate collections whose order changes when an element is removed (i.e. sets).

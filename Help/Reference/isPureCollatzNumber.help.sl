@@ -8,7 +8,7 @@ Pure Collatz numbers,
 OEIS [A061641](https://oeis.org/A061641):
 
 ```
->>> 0:27.select(isPureCollatzNumber:/1)
+>>> 0:27.select(isPureCollatzNumber/1)
 [0 1 3 6 7 9 12 15 18 19 21 24 25 27]
 ```
 

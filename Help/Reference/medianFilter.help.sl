@@ -26,7 +26,7 @@ Relation to `movingMap` and `median`:
 >>> .medianFilter(1)
 [1/2 0 0 1 2 2 1 0 0 1/2]
 
->>> median:/1.movingMap(
+>>> median/1.movingMap(
 >>> 	[1 0 -1 1 2 3 1 -1 0 1],
 >>> 	3
 >>> )
@@ -39,7 +39,7 @@ Relation to `arrayFilter` and `median`:
 >>> [2 3 80 6 2 3].medianFilter(1)
 [5/2 3 6 6 3 5/2]
 
->>> median:/1.arrayFilter(
+>>> median/1.arrayFilter(
 >>> 	[2 3 80 6 2 3],
 >>> 	1
 >>> )

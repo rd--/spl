@@ -8,11 +8,11 @@ Nil! : [Object, Store, Equal, Json] {
 		anObject
 	}
 
-	[ifNil, ?] { :self :whenNil:/0 |
+	[ifNil, ?] { :self :whenNil/0 |
 		whenNil()
 	}
 
-	[ifNotNil, !?] { :self :whenNotNil:/1 |
+	[ifNotNil, !?] { :self :whenNotNil/1 |
 		nil
 	}
 
@@ -28,11 +28,11 @@ Nil! : [Object, Store, Equal, Json] {
 		nil
 	}
 
-	ifNil { :self :whenNil:/0 :whenNotNil:/1 |
+	ifNil { :self :whenNil/0 :whenNotNil/1 |
 		whenNil()
 	}
 
-	ifNotNil { :self :whenNotNil:/1 :whenNil:/0 |
+	ifNotNil { :self :whenNotNil/1 :whenNil/0 |
 		whenNil()
 	}
 
@@ -68,20 +68,20 @@ Nil! : [Object, Store, Equal, Json] {
 		self
 	}
 
-	[ifNil, ?] { :self :whenNil:/0 |
+	[ifNil, ?] { :self :whenNil/0 |
 		self
 	}
 
-	[ifNotNil, !?] { :self :whenNotNil:/1 |
-		whenNotNil:/1.cull(self)
+	[ifNotNil, !?] { :self :whenNotNil/1 |
+		whenNotNil/1.cull(self)
 	}
 
-	ifNil { :self :whenNil:/0 :whenNotNil:/1 |
-		whenNotNil:/1.cull(self)
+	ifNil { :self :whenNil/0 :whenNotNil/1 |
+		whenNotNil/1.cull(self)
 	}
 
-	ifNotNil { :self :whenNotNil:/1 :whenNil:/0 |
-		whenNotNil:/1.cull(self)
+	ifNotNil { :self :whenNotNil/1 :whenNil/0 |
+		whenNotNil/1.cull(self)
 	}
 
 	isNil { :self |

@@ -1,6 +1,6 @@
 # keysAndValuesRemove
 
-- _keysAndValuesRemove(d, f:/2)_
+- _keysAndValuesRemove(d, f/2)_
 
 Removes all entries from the dictionary _d_ for which key and value block _f_ answers `true`.
 

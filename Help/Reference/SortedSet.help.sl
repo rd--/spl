@@ -82,7 +82,7 @@ Sorted sets are collections:
 
 ```
 >>> SortedSet[3 2 1]
->>> .collect(square:/1)
+>>> .collect(square/1)
 SortedSet[1 4 9]
 
 >>> SortedSet[3 2 1].square

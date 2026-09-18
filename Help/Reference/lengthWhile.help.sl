@@ -1,6 +1,6 @@
 # lengthWhile
 
-- _lengthWhile([x₁ x₂ …], f:/1)_
+- _lengthWhile([x₁ x₂ …], f/1)_
 
 Answer the number of contiguous elements starting at the beginning of the list _x_ for which the predicate _f_ is `true`.
 

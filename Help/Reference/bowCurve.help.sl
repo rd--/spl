@@ -15,7 +15,7 @@ Plot the bow curve at _z=0_:
 
 ~~~spl svg=A
 let i = (-0.5 -- 0.5).subdivide(50);
-bowCurve:/2.contourPlot(i, i, [0])
+bowCurve/2.contourPlot(i, i, [0])
 ~~~
 
 ![](Help/Image/bowCurve-A.svg)

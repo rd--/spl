@@ -16,8 +16,8 @@ Benchmark : [Object] { | name verification benchmark |
 
 +String {
 
-	Benchmark { :self :verification :benchmark:/1 |
-		newBenchmark().initializeSlots(self, verification, benchmark:/1)
+	Benchmark { :self :verification :benchmark/1 |
+		newBenchmark().initializeSlots(self, verification, benchmark/1)
 	}
 
 }

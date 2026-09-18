@@ -1,6 +1,6 @@
 # once
 
-- _once(aBlock:/0)_
+- _once(aBlock/0)_
 - _once(aBlock, where, key)_ ⟹ cached(where, key, aBlock)
 
 Evaluate _aBlock_,

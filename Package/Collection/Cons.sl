@@ -8,7 +8,7 @@ Cons : [Object, Iterable, Collection] { | car cdr |
 		}
 	}
 
-	collect { :self :aBlock:/1 |
+	collect { :self :aBlock/1 |
 		let answer = nil;
 		self.do { :each |
 			answer := Cons(aBlock(each), answer)
@@ -28,7 +28,7 @@ Cons : [Object, Iterable, Collection] { | car cdr |
 		answer
 	}
 
-	do { :self :aBlock:/1 |
+	do { :self :aBlock/1 |
 		let next = self.cdr;
 		aBlock(self.car);
 		{

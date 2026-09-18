@@ -1,6 +1,6 @@
 # timing
 
-- _timing(f:/0)_
+- _timing(f/0)_
 
 Answers the number of seconds required to evaluate the block _f_.
 

@@ -27,9 +27,9 @@
 
 	namedCartographicProjection { :self |
 		self.caseOf([
-			'Gall-Peters' -> { gallPetersProjection:/1 },
-			'Gall Stereographic' -> { gallStereographicProjection:/1 },
-			'Mercator' -> { mercatorProjection:/1 }
+			'Gall-Peters' -> { gallPetersProjection/1 },
+			'Gall Stereographic' -> { gallStereographicProjection/1 },
+			'Mercator' -> { mercatorProjection/1 }
 		])
 	}
 
@@ -52,7 +52,7 @@
 		].stringCatenate.asUrl
 	}
 
-	withNaturalEarthData { :self :aBlock:/1 |
+	withNaturalEarthData { :self :aBlock/1 |
 		self
 		.naturalEarthUrl
 		.fetchJson
@@ -80,5 +80,5 @@ LibraryItem(
 	category: 'Protocol/GeoJson',
 	url: 'https://rohandrape.net/sw/hsc3-data/data/cartography/ContinentOutlines-LowResolution.json',
 	mimeType: 'application/json',
-	parser: GeoJson:/1
+	parser: GeoJson/1
 )

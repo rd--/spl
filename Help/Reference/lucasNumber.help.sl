@@ -10,7 +10,7 @@ OEIS [A000032](https://oeis.org/A000032) _i=2,1_
 or [A000204](https://oeis.org/A000204) _i=1,3_:
 
 ```
->>> 0:20.collect(lucasNumber:/1)
+>>> 0:20.collect(lucasNumber/1)
 [
 	2 1 3 4 7
 	11 18 29 47 76
@@ -109,7 +109,7 @@ Compare with continued fractions:
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(-5 -- 5).functionPlot(lucasNumber:/1)
+(-5 -- 5).functionPlot(lucasNumber/1)
 ~~~
 
 ![](Help/Image/lucasNumber-A.svg)

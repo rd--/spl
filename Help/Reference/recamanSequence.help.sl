@@ -149,7 +149,7 @@ OEIS [A057165](https://oeis.org/A057165):
 ~~~spl svg=I oeis=A057165
 115.recamanSequence
 .differences
-.detectIndices(isPositive:/1)
+.detectIndices(isPositive/1)
 .discretePlot
 ~~~
 
@@ -161,7 +161,7 @@ OEIS [A057166](https://oeis.org/A057166):
 ~~~spl svg=J oeis=A057166
 115.recamanSequence
 .differences
-.detectIndices(isNegative:/1)
+.detectIndices(isNegative/1)
 .discretePlot
 ~~~
 

@@ -46,7 +46,7 @@ At `IdentitySet`:
 	3;
 	1 3; 2 3;
 	1 2 3
-].collect(asIdentitySet:/1)
+].collect(asIdentitySet/1)
 ```
 
 The power set of the integers _1 .. n_ give the indices for all subsequences, disjoint and continuous, of a sequence of size _n_:

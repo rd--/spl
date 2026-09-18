@@ -60,7 +60,7 @@ FilePath'/tmp/SplOeisData.json'
 			name: o.name,
 			offset: o.offset,
 			data: o.data.takeWhile(
-				isSmallInteger:/1
+				isSmallInteger/1
 			),
 			keywords: o.keywords,
 			author: o.author

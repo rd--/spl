@@ -12,7 +12,7 @@ The unit box function is equal to `one` for values in _(-1/2, 1/2)_ and `zero` o
 The unit box function:
 
 ~~~spl svg=A
-(-1 -- 1).functionPlot(unitBox:/1)
+(-1 -- 1).functionPlot(unitBox/1)
 ~~~
 
 ![](Help/Image/unitBox-A.svg)
@@ -30,7 +30,7 @@ The unit box function in two dimensions:
 The convolution of the rectangle function with itself is the triangle function:
 
 ~~~spl svg=C
-let u = (-1 -- 1).discretize(50, unitBox:/1);
+let u = (-1 -- 1).discretize(50, unitBox/1);
 convolve(u, u).linePlot
 ~~~
 

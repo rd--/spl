@@ -9,7 +9,7 @@ First few terms of Catalan un-ranking algorithm,
 OEIS [A014486](https://oeis.org/A014486):
 
 ```
->>> 0:53.collect(catalanUnrank:/1)
+>>> 0:53.collect(catalanUnrank/1)
 [
 	  0   2  10  12  42
 	 44  50  52  56 170
@@ -24,7 +24,7 @@ OEIS [A014486](https://oeis.org/A014486):
 	880 906 908 914
 ]
 
->>> 0:170.select(isDyckWord:/1)
+>>> 0:170.select(isDyckWord/1)
 [
 	  0   2  10  12  42
 	 44  50  52  56 170
@@ -35,8 +35,8 @@ The inverse function is `catalanRank`:
 
 ```
 >>> let n = 53;
->>> 0:n.collect(catalanUnrank:/1)
->>> .collect(catalanRank:/1)
+>>> 0:n.collect(catalanUnrank/1)
+>>> .collect(catalanRank/1)
 [0 .. n]
 ```
 
@@ -44,7 +44,7 @@ A related sequence giving the zero-indices, or zero,
 OEIS [A080300](https://oeis.org/A080300):
 
 ```
->>> let i = 0:6.collect(catalanUnrank:/1);
+>>> let i = 0:6.collect(catalanUnrank/1);
 >>> 0:50.collect { :n |
 >>> 	i.indexOf(n) - 1
 >>> }.max(0)
@@ -72,7 +72,7 @@ Catalan un-ranking algorithm,
 OEIS [A014486](https://oeis.org/A014486):
 
 ~~~spl svg=A oeis=A014486
-0:250.collect(catalanUnrank:/1)
+0:250.collect(catalanUnrank/1)
 .scatterPlot
 ~~~
 

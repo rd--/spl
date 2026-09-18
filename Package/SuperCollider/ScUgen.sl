@@ -32,7 +32,7 @@ ScUgen! : [Object] {
 		'%(%)'.format(
 			[
 				self.name,
-				self.inputList.collect(printString:/1).commaSeparated
+				self.inputList.collect(printString/1).commaSeparated
 			]
 		)
 	}

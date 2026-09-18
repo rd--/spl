@@ -20,7 +20,7 @@ Evaluate numerically:
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(-5 -- 5).functionPlot(200, fresnelS:/1)
+(-5 -- 5).functionPlot(200, fresnelS/1)
 ~~~
 
 ![](Help/Image/fresnelS-A.svg)

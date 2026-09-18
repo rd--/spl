@@ -6,7 +6,7 @@ Answer a stream that skips over items from α that do not answer true for the pr
 
 ```
 >>> LsSeries(1, 1, 9)
->>> .select(isEven:/1)
+>>> .select(isEven/1)
 >>> .upToEnd
 [2 4 6 8]
 ```

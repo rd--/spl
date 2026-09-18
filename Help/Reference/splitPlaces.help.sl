@@ -40,7 +40,7 @@ OEIS [A000578](https://oeis.org/A000578):
 
 ```
 >>> 1:131:2.splitPlaces(1:11)
->>> .collect(sum:/1)
+>>> .collect(sum/1)
 [1 8 27 64 125 216 343 512 729 1000 1331]
 
 >>> 1:11.cube
@@ -53,7 +53,7 @@ OEIS [A007531](https://oeis.org/A007531):
 
 ```
 >>> 0:108:2.splitPlaces(1:10)
->>> .collect(sum:/1)
+>>> .collect(sum/1)
 [0 6 24 60 120 210 336 504 720 990]
 
 >>> let n = 1:10;
@@ -75,7 +75,7 @@ OEIS [A034262](https://oeis.org/A034262):
 
 ```
 >>> [2, 4 .. 110].splitPlaces([1 .. 10])
->>> .collect(sum:/1)
+>>> .collect(sum/1)
 [2 10 30 68 130 222 350 520 738 1010]
 
 >>> let n = 1:10;

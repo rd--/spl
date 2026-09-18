@@ -108,9 +108,9 @@ The numerators of this tree are the terms of the Stern-Brocot sequence:
 ```
 >>> 4.sternBrocotTree
 >>> .contents
->>> .collect(value:/1)
+>>> .collect(value/1)
 >>> .sort
->>> .collect(numerator:/1)
+>>> .collect(numerator/1)
 [1 1 2 1 3 2 3 1 4 3 5 2 5 3 4]
 
 >>> 16.sternBrocotSequence

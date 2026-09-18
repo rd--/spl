@@ -1,6 +1,6 @@
 # mergeSortBy
 
-- _mergeSortBy([x₁ x₂ …], f:/2)_
+- _mergeSortBy([x₁ x₂ …], f/2)_
 
 Sort the sequence _x_ in place using the comparator block _f_ using the merge sort algorithm.
 Answers _x_.

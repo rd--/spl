@@ -14,7 +14,7 @@ LevyDistribution : [Object, Equal, ProbabilityDistribution] { | mu sigma |
 	randomVariate { :self :rng :shape |
 		let mu = self.mu;
 		let sigma = self.sigma;
-		let f:/1 = NormalDistribution(0, 1).inverseCdf;
+		let f/1 = NormalDistribution(0, 1).inverseCdf;
 		{
 			let u = rng.nextRandomFloat(0, 1);
 			(sigma / f(1 - (u / 2)).square) + mu

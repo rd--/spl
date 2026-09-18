@@ -1,6 +1,6 @@
 # ifTrue
 
-- _ifTrue(aBoolean, aBlock:/0)_
+- _ifTrue(aBoolean, aBlock/0)_
 
 Conditional evaluation.
 If _aBoolean_ is _true_ answer the result of  _aBlock()_, else answer _nil_.

@@ -15,10 +15,10 @@ Tuple : [Object, Store, Copyable, Equal] { | contents |
 	}
 
 	concisePrintString { :self |
-		self.storeStringLiteral(concisePrintString:/1)
+		self.storeStringLiteral(concisePrintString/1)
 	}
 
-	equalBy { :self :anObject :aBlock:/2 |
+	equalBy { :self :anObject :aBlock/2 |
 		anObject.isTuple & {
 			aBlock(self.contents, anObject.contents)
 		}
@@ -33,19 +33,19 @@ Tuple : [Object, Store, Copyable, Equal] { | contents |
 	}
 
 	printString { :self |
-		self.storeStringLiteral(printString:/1)
+		self.storeStringLiteral(printString/1)
 	}
 
 	size { :self |
 		self.contents.size
 	}
 
-	storeStringLiteral { :self :aBlock:/1 |
-		'(' ++ self.contents.collect(aBlock:/1).commaSeparated ++ ')'
+	storeStringLiteral { :self :aBlock/1 |
+		'(' ++ self.contents.collect(aBlock/1).commaSeparated ++ ')'
 	}
 
 	storeString { :self |
-		self.storeStringLiteral(storeString:/1)
+		self.storeStringLiteral(storeString/1)
 	}
 
 }
@@ -65,15 +65,15 @@ Tuple : [Object, Store, Copyable, Equal] { | contents |
 +Tuple {
 
 	unitBox { :self |
-		self.contents.collect(unitBox:/1).product
+		self.contents.collect(unitBox/1).product
 	}
 
 	unitStep { :self |
-		self.contents.noneSatisfy(isNegative:/1).boole
+		self.contents.noneSatisfy(isNegative/1).boole
 	}
 
 	unitTriangle { :self |
-		self.contents.collect(unitTriangle:/1).product
+		self.contents.collect(unitTriangle/1).product
 	}
 
 }

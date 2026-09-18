@@ -1,6 +1,6 @@
 +MIDIAccess {
 
-	midiPortListEntries { :self :onSelect:/2 |
+	midiPortListEntries { :self :onSelect/2 |
 		(self.inputs.ports ++ self.outputs.ports).collect { :each |
 			MenuItem(each.type ++ '/' ++ each.name, nil) { :event |
 				onSelect(each, event)
@@ -34,9 +34,9 @@
 		};
 		let frame = self.addFrame(textEditor, event);
 		textEditor.editable := false;
-		midiPort.addEventListener('midimessage', onMidiMessage:/1);
+		midiPort.addEventListener('midimessage', onMidiMessage/1);
 		frame.addEventListener('close') { :unusedEvent |
-			midiPort.removeEventListener('midimessage', onMidiMessage:/1)
+			midiPort.removeEventListener('midimessage', onMidiMessage/1)
 		};
 		frame
 	}
@@ -52,11 +52,11 @@ MidiMonitorMenu : [Object, SmallKansan] {
 			};
 			let menu = Menu(
 				'Midi Monitor Menu',
-				midiAccess.midiPortListEntries(onSelect:/2)
+				midiAccess.midiPortListEntries(onSelect/2)
 			);
 			menu.isTransient := true;
 			smallKansas.addFrameWithAnimator(menu, event, 1) {
-				menu.setEntries(midiAccess.midiPortListEntries(onSelect:/2))
+				menu.setEntries(midiAccess.midiPortListEntries(onSelect/2))
 			}
 		}
 	}

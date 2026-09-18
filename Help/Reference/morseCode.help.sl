@@ -9,7 +9,7 @@ Vowels:
 ```
 >>> 'eaiou'
 >>> .characters
->>> .collect(morseCode:/1)
+>>> .collect(morseCode/1)
 [
 	'.',
 	'.-', '..',
@@ -25,12 +25,12 @@ Consonants, grouped by code length:
 
 >>> 'mn'
 >>> .characters
->>> .collect(morseCode:/1)
+>>> .collect(morseCode/1)
 ['--' '-.']
 
 >>> 'dgkrsw'
 >>> .characters
->>> .collect(morseCode:/1)
+>>> .collect(morseCode/1)
 [
 	'-..', '--.', '-.-',
 	'.-.', '...', '.--'
@@ -38,7 +38,7 @@ Consonants, grouped by code length:
 
 >>> 'bcfhjlpqvxyz'
 >>> .characters
->>> .collect(morseCode:/1)
+>>> .collect(morseCode/1)
 [
 	'-...', '-.-.', '..-.', '....',
 	'.---', '.-..', '.--.', '--.-',
@@ -51,7 +51,7 @@ Numbers:
 ```
 >>> '1234567890'
 >>> .characters
->>> .collect(morseCode:/1)
+>>> .collect(morseCode/1)
 [
 	'.----', '..---', '...--', '....-', '.....',
 	'-....', '--...', '---..', '----.', '-----'

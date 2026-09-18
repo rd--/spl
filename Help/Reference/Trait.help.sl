@@ -2,7 +2,7 @@
 
 A `Trait` is a `Type` that holds a named `Method` dictionary.
 
-The dictionary keys are _qualified_ method names, i.e. _sum:/1_.
+The dictionary keys are _qualified_ method names, i.e. _sum/1_.
 
 The `System` holds a dictionary of traits indexed by name:
 
@@ -35,12 +35,12 @@ The `methodDictionary` of a `Trait` holds `Method` values:
 >>> system
 >>> .traitLookup('Iterable')
 >>> .methodDictionary
->>> .includesKey('sum:/1')
+>>> .includesKey('sum/1')
 true
 
 >>> system
 >>> .traitLookup('Iterable')
->>> .methodDictionary['sum:/1']
+>>> .methodDictionary['sum/1']
 >>> .isMethod
 true
 ```

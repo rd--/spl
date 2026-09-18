@@ -32,7 +32,7 @@ OEIS [A005479](https://oeis.org/A005479):
 
 ```
 >>> 21.lucasSequence
->>> .select(isPrime:/1)
+>>> .select(isPrime/1)
 [2 3 7 11 29 47 199 521 2207 3571 9349]
 ```
 

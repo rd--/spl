@@ -15,7 +15,7 @@ At _a=1_ zero is at _(1,1)_:
 Plot at _y=1_:
 
 ~~~spl svg=A
-let f:/1 = rosenbrockFunction(1, 100);
+let f/1 = rosenbrockFunction(1, 100);
 (-1.4 -- 1.4).functionPlot { :x |
 	f([x 1])
 }
@@ -26,7 +26,7 @@ let f:/1 = rosenbrockFunction(1, 100);
 Plot at _x=1_:
 
 ~~~spl svg=B
-let f:/1 = rosenbrockFunction(1, 100);
+let f/1 = rosenbrockFunction(1, 100);
 (0.5 -- 1.5).functionPlot { :y |
 	f([1 y])
 }
@@ -40,7 +40,7 @@ Matrix plot, log scaled and rounded:
 let k = 100;
 let x = (-2 -- 2).subdivide(k);
 let y = (-3 -- 3).subdivide(k);
-let f:/1 = rosenbrockFunction(1, 100);
+let f/1 = rosenbrockFunction(1, 100);
 { :x :y |
 	f([x y])
 }.table(x, y)
@@ -58,7 +58,7 @@ Contour plot of sparse sampling:
 let k = 20;
 let x = (-2 -- 2).subdivide(k);
 let y = (-3 -- 3).subdivide(k);
-let f:/1 = rosenbrockFunction(1, 100);
+let f/1 = rosenbrockFunction(1, 100);
 { :x :y |
 	f([x y])
 }.contourPlot(x, y, 10 ^ [0 .. 3])

@@ -37,7 +37,7 @@ Use `lcm` to compute Mangoldt lambda:
 Plot the Mangoldt lambda sequence for the first few numbers:
 
 ~~~spl svg=A
-1:100.collect(mangoldtLambda:/1)
+1:100.collect(mangoldtLambda/1)
 .stepPlot
 ~~~
 
@@ -46,7 +46,7 @@ Plot the Mangoldt lambda sequence for the first few numbers:
 Plot `exp` of the Mangoldt lambda sequence for the first few numbers:
 
 ~~~spl svg=B
-1:100.collect(mangoldtLambda:/1)
+1:100.collect(mangoldtLambda/1)
 .exp.stepPlot
 ~~~
 

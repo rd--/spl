@@ -1,6 +1,6 @@
 # dropWhile
 
-- _dropWhile([x₁ x₂ …], f:/1)_
+- _dropWhile([x₁ x₂ …], f/1)_
 
 Answer the suffix of the sequence _x_ beginning where the block _f_ first answers `false`.
 

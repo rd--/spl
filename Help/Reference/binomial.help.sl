@@ -892,7 +892,7 @@ Number of pairs of endofunctions on _n_ such that the composite function has no 
 OEIS [A284458](https://oeis.org/A284458):
 
 ```
->>> 1:8.collect { :n |
+>>> 0:8.collect { :n |
 >>> 	0:n.sum { :k |
 >>> 		[
 >>> 			-1L ^ k,
@@ -902,7 +902,6 @@ OEIS [A284458](https://oeis.org/A284458):
 >>> 		].product
 >>> 	}
 >>> }
->>>
 [
 	1 0 2 156 16920 2764880 650696400
 	210105425628 89425255439744
@@ -975,7 +974,7 @@ let t = { :n :k |
 		binomial(n + 2, k + 1)
 	}
 };
-0:13.triangularArray(t:/2)
+0:13.triangularArray(t/2)
 .catenate
 .scatterPlot.log
 ~~~

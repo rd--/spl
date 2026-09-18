@@ -1,6 +1,6 @@
 # associationsDo
 
-- _associationsDo(d, f:/1)_
+- _associationsDo(d, f/1)_
 
 Evaluate the block _f_ with each `Association` of the dictionary _d_ as the argument.
 

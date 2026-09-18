@@ -46,11 +46,11 @@ m.transpose.reverse
 
 >>> let m = [3 3].iota;
 >>> m.matrixRotate(2)
-m.reverse.collect(reverse:/1)
+m.reverse.collect(reverse/1)
 
 >>> let m = [3 3].iota;
 >>> m.matrixRotate(3)
-m.transpose.collect(reverse:/1)
+m.transpose.collect(reverse/1)
 ```
 
 Create a 17-by-17 diagonally dominant singular matrix A and view the pattern of nonzero elements.
@@ -100,9 +100,9 @@ The counter clockwise rotation and the two further rotations given in terms of `
 >>> 	7 8 9
 >>> ];
 >>> (
->>> 	m.collect(reverse:/1).transpose,
->>> 	m.collect(reverse:/1).reverse,
->>> 	m.transpose.collect(reverse:/1)
+>>> 	m.collect(reverse/1).transpose,
+>>> 	m.collect(reverse/1).reverse,
+>>> 	m.transpose.collect(reverse/1)
 >>> )
 (
 	[

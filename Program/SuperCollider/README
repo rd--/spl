@@ -1,20 +1,20 @@
-'Program/SuperCollider/Graph'.splFilePath.terseProgramSummary(isOutputSignal:/1)
+'Program/SuperCollider/Graph'.splFilePath.terseProgramSummary(isOutputSignal/1)
 
 => 403
 
-'Program/SuperCollider/Graph Collection'.splFilePath.terseProgramSummary(isOutputSignal:/1)
+'Program/SuperCollider/Graph Collection'.splFilePath.terseProgramSummary(isOutputSignal/1)
 
-=> 387
+=> 389
 
-'Program/SuperCollider/Ugen'.splFilePath.terseProgramSummary(isOutputSignal:/1)
+'Program/SuperCollider/Ugen'.splFilePath.terseProgramSummary(isOutputSignal/1)
 
 => 503
 
-'Program/SuperCollider/Texture'.splFilePath.terseProgramSummary(isTextureProgram:/1)
+'Program/SuperCollider/Texture'.splFilePath.terseProgramSummary(isTextureProgram/1)
 
 => 70
 
-'Program/SuperCollider/Texture Collection'.splFilePath.terseProgramSummary(isTextureProgram:/1)
+'Program/SuperCollider/Texture Collection'.splFilePath.terseProgramSummary(isTextureProgram/1)
 
 => 17
 

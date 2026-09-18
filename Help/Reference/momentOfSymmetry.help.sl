@@ -34,7 +34,7 @@ The size of the scale at each step:
 
 ```
 >>> 5.momentOfSymmetry(12)
->>> .collect(size:/1)
+>>> .collect(size/1)
 [2 3 5 7]
 ```
 
@@ -54,7 +54,7 @@ The interval pairs only of the _41/58_ sequence:
 
 ```
 >>> 41.momentOfSymmetry(58)
->>> .collect(nub:/1)
+>>> .collect(nub/1)
 [
 	41 17;
 	24 17;
@@ -105,7 +105,7 @@ The interval pairs only of the _22/49_ sequence:
 
 ```
 >>> 22.momentOfSymmetry(49)
->>> .collect(nub:/1)
+>>> .collect(nub/1)
 [
 	22 27;
 	22  5;
@@ -136,7 +136,7 @@ concluding with the period:
 
 ```
 >>> 5.momentOfSymmetry(12)
->>> .collect(prefixSum:/1)
+>>> .collect(prefixSum/1)
 [
 	5 12;
 	5 10 12;
@@ -149,7 +149,7 @@ concluding with the period:
 
 ```
 >>> 5.momentOfSymmetry(12)
->>> .collect(prefixSum:/1)
+>>> .collect(prefixSum/1)
 >>> .nubCumulatively
 [5 12; 10; 3 8; 1 6]
 ```

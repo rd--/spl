@@ -66,7 +66,7 @@
 
 +Block {
 
-	recurrenceTable { :self:/2 :i :n |
+	recurrenceTable { :self/2 :i :n |
 		let r = i.copy;
 		(i.size + 1).toDo(n) { :m |
 			let z = self(r, m);

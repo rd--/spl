@@ -152,7 +152,7 @@ At `Symbol`:
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(-1 -- 1).functionPlot(exp:/1)
+(-1 -- 1).functionPlot(exp/1)
 ~~~
 
 ![](Help/Image/exp-A.svg)
@@ -161,8 +161,8 @@ Plot `exp` alongside a Padé approximation:
 
 ~~~spl svg=B
 (-1 -- 1).functionPlot([
-	exp:/1,
-	expApproximation:/1
+	exp/1,
+	expApproximation/1
 ])
 ~~~
 

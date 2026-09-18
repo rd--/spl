@@ -8,14 +8,14 @@ Specific values:
 
 ```
 >>> [0 0.752101 0.875703 0.948355 1]
->>> .collect(muLawDecode:/1)
+>>> .collect(muLawDecode/1)
 [0 0.25 0.5 0.75 1]
 ```
 
 The continuous μ-law decoder:
 
 ~~~spl svg=A
-(-1 -- 1).functionPlot(muLawDecode:/1)
+(-1 -- 1).functionPlot(muLawDecode/1)
 ~~~
 
 ![](Help/Image/muLawDecode-A.svg)

@@ -200,7 +200,7 @@ The two forms have the same least rotation:
 >>> 	2 1 2 2 1 2 2;
 >>> 	2 2 2 1 2 2 1
 >>> ].collect(
->>> 	lexicographicallyLeastRotation:/1
+>>> 	lexicographicallyLeastRotation/1
 >>> )
 [
 	1 2 2 1 2 2 2;

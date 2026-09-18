@@ -120,7 +120,7 @@ OEIS [A161594](https://oeis.org/A161594):
 ~~~spl svg=C oeis=A161594
 1:250.collect { :n |
 	n.primeFactors
-	.product(integerReverse:/1)
+	.product(integerReverse/1)
 	.integerReverse
 }.scatterPlot.log
 ~~~
@@ -133,7 +133,7 @@ OEIS [A071786](https://oeis.org/A071786):
 ~~~spl svg=D oeis=A071786
 1:250.collect { :n |
 	n.primeFactors
-	.product(integerReverse:/1)
+	.product(integerReverse/1)
 }.scatterPlot.log
 ~~~
 

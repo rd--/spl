@@ -14,7 +14,7 @@ At `RatioTuning`, will answer a list of `Fraction` values:
 
 >>> [0 231.17 498.05 764.92 996.09]
 >>> .centsToRatio
->>> .collect(asFraction:/1)
+>>> .collect(asFraction/1)
 [1/1 8/7 4/3 14/9 16/9]
 ```
 

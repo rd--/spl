@@ -1,6 +1,6 @@
 # sorted
 
-- _sorted([x₁ x₂ …], f:/2)_
+- _sorted([x₁ x₂ …], f/2)_
 
 Answer a new `List` which contains the same elements as the collection _x_,
 where the elements are sorted by the binary block _f_.

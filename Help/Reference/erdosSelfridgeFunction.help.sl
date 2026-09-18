@@ -5,7 +5,7 @@
 Answer the Erdős-Selfridge function for _n_.
 
 ```
->>> 1:12.collect(erdosSelfridgeFunction:/1)
+>>> 1:12.collect(erdosSelfridgeFunction/1)
 [3 6 7 7 23 62 143 44 159 46 47 174]
 ```
 

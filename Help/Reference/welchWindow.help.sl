@@ -21,7 +21,7 @@ Threads over lists, zero at each end-point:
 The Welch window function:
 
 ~~~spl svg=A
-(-1 -- 1).functionPlot(welchWindow:/1)
+(-1 -- 1).functionPlot(welchWindow/1)
 ~~~
 
 ![](Help/Image/welchWindow-A.svg)
@@ -41,7 +41,7 @@ Discrete Welch window of length 15:
 ~~~spl svg=C
 (-0.5 -- 0.5).discretize(
 	15,
-	welchWindow:/1
+	welchWindow/1
 ).discretePlot
 ~~~
 

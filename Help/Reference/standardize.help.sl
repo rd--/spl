@@ -1,7 +1,7 @@
 # standardize
 
-- _standardize(aSequence, meanBlock:/1, deviationBlock:/1)_
-- _standardize(alpha)_ ⟹ _standardize(alpha, mean:/1, standardDeviation:/1)_
+- _standardize(aSequence, meanBlock/1, deviationBlock/1)_
+- _standardize(alpha)_ ⟹ _standardize(alpha, mean/1, standardDeviation/1)_
 
 Shifts and rescales the elements of _aSequence_ to have zero mean and unit sample variance.
 
@@ -28,7 +28,7 @@ Shift to have mean zero without scaling:
 
 ```
 >>> 1:10.standardize(
->>> 	mean:/1,
+>>> 	mean/1,
 >>> 	1.constant
 >>> )
 [
@@ -37,7 +37,7 @@ Shift to have mean zero without scaling:
 ]
 
 >>> let r = 1:10.standardize(
->>> 	mean:/1,
+>>> 	mean/1,
 >>> 	1.constant
 >>> );
 >>> (r.mean, r.variance, 1:10.variance)
@@ -48,8 +48,8 @@ Shift by the `median` and scale by the `interquartileRange`:
 
 ```
 >>> 1:10.standardize(
->>> 	median:/1,
->>> 	interquartileRange:/1
+>>> 	median/1,
+>>> 	interquartileRange/1
 >>> )
 [-0.9 -0.7 -0.5 -0.3 -0.1 0.1 0.3 0.5 0.7 0.9]
 ```

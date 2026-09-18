@@ -1,6 +1,6 @@
 # keysAndValuesDo
 
-- _keysAndValuesDo(d, f:/2)_
+- _keysAndValuesDo(d, f/2)_
 
 Apply the block _f_ to each `key` and `value` of the dictionary _d_.
 

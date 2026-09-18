@@ -1,6 +1,6 @@
 # repeatEvery
 
-- _repeatEvery(f:/2, n, c)_
+- _repeatEvery(f/2, n, c)_
 
 Schedule the block _f_ at intervals given by delay _n_ on the clock _c_.
 _f_ receives the current time and the delay interval before the block will execute next.

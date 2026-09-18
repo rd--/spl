@@ -517,7 +517,7 @@ let e = LfNoise2(
 	) * 0.15 + 0.18
 );
 CombL(
-	in: node:/0 !+ 4 + e,
+	in: node/0 !+ 4 + e,
 	maxDelayTime: 0.3,
 	delayTime: 0.3,
 	decayTime: 3

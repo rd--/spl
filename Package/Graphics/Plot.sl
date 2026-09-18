@@ -26,7 +26,7 @@ Plot : [Object] { | pageList format options |
 			each * [[xScalar, 1]]
 		};
 		let items = [];
-		let gen:/1 = self.format.caseOf(
+		let gen/1 = self.format.caseOf(
 			(
 				'discrete': {
 					{ :p |
@@ -69,7 +69,7 @@ Plot : [Object] { | pageList format options |
 
 	asLineDrawingXyz { :self |
 		(self.format = 'line').if {
-			let p:/1 = AxonometricProjection(
+			let p/1 = AxonometricProjection(
 				1/6.pi, 0, 0,
 				0.5, 1, 1
 			).asUnaryBlock;
@@ -219,9 +219,9 @@ Plot : [Object] { | pageList format options |
 	scaleFunction { :self |
 		self.caseOf(
 			[
-				'linear' -> { identity:/1 },
-				'log' -> { log:/1 },
-				'logScale' -> { logScale:/1 }
+				'linear' -> { identity/1 },
+				'log' -> { log/1 },
+				'logScale' -> { logScale/1 }
 			]
 		)
 	}
@@ -230,9 +230,9 @@ Plot : [Object] { | pageList format options |
 
 +List {
 
-	arrayPlot { :self :colourFunction:/1 |
+	arrayPlot { :self :colourFunction/1 |
 		self
-		.deepCollect(colourFunction:/1)
+		.deepCollect(colourFunction/1)
 		.arrayPlot
 	}
 
@@ -269,9 +269,9 @@ Plot : [Object] { | pageList format options |
 		self.flatten.realImaginary.scatterPlot
 	}
 
-	complexPlotBy { :self :k :aspect:/1 :aBlock:/1 |
+	complexPlotBy { :self :k :aspect/1 :aBlock/1 |
 		let [min, max] = self;
-		let colourFunction:/1 = system
+		let colourFunction/1 = system
 		.colourGradients['Kovesi']['Cyclic-Mygbm-30-95-C78S25']
 		.asColourGradient
 		.asBlock;
@@ -283,13 +283,13 @@ Plot : [Object] { | pageList format options |
 		}.table(i, r).reverse.Image
 	}
 
-	complexPlot { :self :k :aBlock:/1 |
-		complexPlotBy(self, k, arg:/1, aBlock:/1)
+	complexPlot { :self :k :aBlock/1 |
+		complexPlotBy(self, k, arg/1, aBlock/1)
 	}
 
-	complexPlot { :self :aBlock:/1 |
+	complexPlot { :self :aBlock/1 |
 		let k = 100;
-		complexPlot(self, k, aBlock:/1)
+		complexPlot(self, k, aBlock/1)
 	}
 
 	densityHistogramPlot { :d :b1 :b2 |
@@ -356,8 +356,8 @@ Plot : [Object] { | pageList format options |
 	}
 
 	intervalPlot { :self |
-		let a = self.collect(min:/1).min;
-		let b = self.collect(max:/1).max;
+		let a = self.collect(min/1).min;
+		let b = self.collect(max/1).max;
 		let c = (b - a).abs;
 		let k = self.size;
 		(self / c).withIndexCollect { :y :i |
@@ -443,11 +443,11 @@ Plot : [Object] { | pageList format options |
 	polarPlot { :self |
 		let k = self.rank;
 		(k = 2).if {
-			self.collect(fromPolarCoordinates:/1).linePlot
+			self.collect(fromPolarCoordinates/1).linePlot
 		} {
 			(k = 3).if {
 				self.collect { :each |
-					each.collect(fromPolarCoordinates:/1)
+					each.collect(fromPolarCoordinates/1)
 				}.linePlot
 			} {
 				self.error('polarPlot')
@@ -473,8 +473,8 @@ Plot : [Object] { | pageList format options |
 	quantilePlot { :self :aProbabilityDistribution |
 		let k = self.size;
 		let y = self.sorted;
-		let q:/1 = aProbabilityDistribution.quantile;
-		let x = (0 -- 1).discretize(k, q:/1);
+		let q/1 = aProbabilityDistribution.quantile;
+		let x = (0 -- 1).discretize(k, q/1);
 		let r = y.minMax;
 		let i = (r[1] -- r[2]).discretize(50).asList;
 		[
@@ -520,7 +520,7 @@ Plot : [Object] { | pageList format options |
 		self.typedSwitchingPlot('scatter')
 	}
 
-	segmentPlotData { :self :aBlock:/1 |
+	segmentPlotData { :self :aBlock/1 |
 		let answer = [];
 		let segment = [];
 		self.do { :pre |
@@ -595,10 +595,10 @@ Plot : [Object] { | pageList format options |
 					};
 					answer
 				} {
-					self.collect(stepPlotLineData:/1)
+					self.collect(stepPlotLineData/1)
 				}
 			} {
-				self.collect(stepPlotLineData:/1)
+				self.collect(stepPlotLineData/1)
 			}
 		}
 	}
@@ -607,16 +607,16 @@ Plot : [Object] { | pageList format options |
 		self.stepPlotLineData.linePlot
 	}
 
-	surfacePlot { :self :k :aBlock:/2 |
+	surfacePlot { :self :k :aBlock/2 |
 		let [u, v] = self;
 		let [m, n] = k;
 		let i = (u.min -- u.max).subdivide(m);
 		let j = (v.min -- v.max).subdivide(n);
-		table(aBlock:/2, i, j).surfacePlot
+		table(aBlock/2, i, j).surfacePlot
 	}
 
-	surfacePlot { :self :aBlock:/2 |
-		self.surfacePlot([15 15], aBlock:/2)
+	surfacePlot { :self :aBlock/2 |
+		self.surfacePlot([15 15], aBlock/2)
 	}
 
 	surfacePlot { :self |
@@ -663,7 +663,7 @@ Plot : [Object] { | pageList format options |
 		self.isArray.if {
 			self.typedPlot(format)
 		} {
-			self.allSatisfy(isVector:/1).if {
+			self.allSatisfy(isVector/1).if {
 				self.typedVectorPlot(format)
 			} {
 				self.typedPlot(format)
@@ -672,7 +672,7 @@ Plot : [Object] { | pageList format options |
 	}
 
 	typedVectorPlot { :self :format |
-		self.allSatisfy(isVector:/1).if {
+		self.allSatisfy(isVector/1).if {
 			self.collect { :each |
 				each.withIndexCollect { :y :x |
 					[x, y]
@@ -722,11 +722,11 @@ Plot : [Object] { | pageList format options |
 +@Collection {
 
 	discreteFunctionPlot { :domain :blockList |
-		domain.functionPlot(blockList, discretePlot:/1)
+		domain.functionPlot(blockList, discretePlot/1)
 	}
 
-	functionPlot { :domain :blockList :plotter:/1 |
-		blockList.nest.collect { :aBlock:/1 |
+	functionPlot { :domain :blockList :plotter/1 |
+		blockList.nest.collect { :aBlock/1 |
 			domain.collect { :x |
 				let y = aBlock(x);
 				y.isList.if {
@@ -743,10 +743,10 @@ Plot : [Object] { | pageList format options |
 	}
 
 	functionPlot { :domain :blockList |
-		domain.functionPlot(blockList, linePlot:/1)
+		domain.functionPlot(blockList, linePlot/1)
 	}
 
-	parametricPlot { :domain :xBlock:/1 :yBlock:/1 |
+	parametricPlot { :domain :xBlock/1 :yBlock/1 |
 		domain.collect { :u |
 			let x = xBlock(u);
 			let y = yBlock(u);
@@ -755,7 +755,7 @@ Plot : [Object] { | pageList format options |
 	}
 
 	polarPlot { :domain :anObject |
-		let blockList = anObject.nest.collect { :aBlock:/1 |
+		let blockList = anObject.nest.collect { :aBlock/1 |
 			{ :t |
 				let r = aBlock(t);
 				[r, t].fromPolarCoordinates
@@ -783,7 +783,7 @@ Plot : [Object] { | pageList format options |
 		let x = 0.toCollect(k - 1) { :i |
 			(a + (i * h)).exp
 		};
-		operand.nest.collect { :aBlock:/1 |
+		operand.nest.collect { :aBlock/1 |
 			x.collect { :each |
 				aBlock(each)
 			}
@@ -798,12 +798,12 @@ Plot : [Object] { | pageList format options |
 		self.logPlot(100, operand)
 	}
 
-	parametricPlot { :self :divisions :xBlock:/1 :yBlock:/1 |
-		self.subdivide(divisions).parametricPlot(xBlock:/1, yBlock:/1)
+	parametricPlot { :self :divisions :xBlock/1 :yBlock/1 |
+		self.subdivide(divisions).parametricPlot(xBlock/1, yBlock/1)
 	}
 
-	parametricPlot { :self :xBlock:/1 :yBlock:/1 |
-		self.parametricPlot(100, xBlock:/1, yBlock:/1)
+	parametricPlot { :self :xBlock/1 :yBlock/1 |
+		self.parametricPlot(100, xBlock/1, yBlock/1)
 	}
 
 	polarPlot { :domain :divisions :anObject |
@@ -814,14 +814,14 @@ Plot : [Object] { | pageList format options |
 		self.polarPlot(100, anObject)
 	}
 
-	surfacePlot { :self :k :aBlock:/2 |
+	surfacePlot { :self :k :aBlock/2 |
 		let i = self.min;
 		let j = self.max;
-		[i j; i j].surfacePlot([k k], aBlock:/2)
+		[i j; i j].surfacePlot([k k], aBlock/2)
 	}
 
-	surfacePlot { :self :aBlock:/2 |
-		self.surfacePlot(15, aBlock:/2)
+	surfacePlot { :self :aBlock/2 |
+		self.surfacePlot(15, aBlock/2)
 	}
 
 }
@@ -840,7 +840,7 @@ Plot : [Object] { | pageList format options |
 
 +Block {
 
-	carpetPlot { :f:/2 :v :n |
+	carpetPlot { :f/2 :v :n |
 		let [a, b] = v;
 		let [i, j] = n;
 		let aR = a.resample(i);
@@ -859,7 +859,7 @@ Plot : [Object] { | pageList format options |
 		].catenate.linePlot
 	}
 
-	cobwebPlot { :f:/1 :a0 :n |
+	cobwebPlot { :f/1 :a0 :n |
 		let a1 = f(a0);
 		let r = [];
 		n.timesRepeat {
@@ -871,7 +871,7 @@ Plot : [Object] { | pageList format options |
 		r.linePlot
 	}
 
-	conformalPlot { :f:/1 :v :m :n |
+	conformalPlot { :f/1 :v :m :n |
 		let [p, q] = v;
 		let [i, j] = m;
 		{ :a :b |
@@ -885,8 +885,8 @@ Plot : [Object] { | pageList format options |
 		)
 	}
 
-	contourPlot { :self:/2 :xList :yList :zList |
-		let d = self:/2.table(xList, yList);
+	contourPlot { :self/2 :xList :yList :zList |
+		let d = self/2.table(xList, yList);
 		let l = List(zList.size, []);
 		/* let f = { :p :q | p.euclideanDistance(q).abs < 0.01 }; */
 		bourkeContourAlgorithm(
@@ -897,13 +897,13 @@ Plot : [Object] { | pageList format options |
 			l[k].add([[x1, y1], [x2, y2]])
 		};
 		l.collect { :each |
-			each.connectLineSegments(~).collect(Line:/1)
+			each.connectLineSegments(~).collect(Line/1)
 		}.LineDrawing
 	}
 
-	densityPlot { :self:/2 :xInterval :yInterval |
+	densityPlot { :self/2 :xInterval :yInterval |
 		let k = 100;
-		self:/2.table(
+		self/2.table(
 			xInterval.discretize(k),
 			yInterval.discretize(k)
 		).reliefPlot(
@@ -939,7 +939,7 @@ Plot : [Object] { | pageList format options |
 
 +List {
 
-	vectorPlot { :self :aBlock:/2 :scalar |
+	vectorPlot { :self :aBlock/2 :scalar |
 		self.collect { :xy |
 			let [x, y] = xy;
 			let uv = aBlock(x, y).normalize * scalar;
@@ -978,7 +978,7 @@ Plot : [Object] { | pageList format options |
 		(m = 2).if {
 			let height = 100;
 			let boundingCoordinates = self.coordinateBoundingBox;
-			let distanceList = self.differencesBy(euclideanDistance:/2).prefixSum;
+			let distanceList = self.differencesBy(euclideanDistance/2).prefixSum;
 			let keyPoints = [0] ++ (distanceList / distanceList.last);
 			let duration = timesList.last;
 			let keyTimes = timesList / duration;
@@ -1025,15 +1025,15 @@ Plot : [Object] { | pageList format options |
 
 +List {
 
-	sphericalPlot { :self :divisions :aBlock:/2 |
+	sphericalPlot { :self :divisions :aBlock/2 |
 		self.surfacePlot(divisions) { :phi :theta |
 			let r = aBlock(theta, phi);
 			[r theta phi].fromSphericalCoordinates
 		}
 	}
 
-	sphericalPlot { :self :aBlock:/2 |
-		self.sphericalPlot([15 15], aBlock:/2)
+	sphericalPlot { :self :aBlock/2 |
+		self.sphericalPlot([15 15], aBlock/2)
 	}
 
 }
@@ -1063,20 +1063,20 @@ Plot : [Object] { | pageList format options |
 		)
 	}
 
-	revolutionPlot { :self :aBlock:/2 |
-		self.revolutionPlot([15 15], aBlock:/2)
+	revolutionPlot { :self :aBlock/2 |
+		self.revolutionPlot([15 15], aBlock/2)
 	}
 
 }
 
 +Interval {
 
-	revolutionPlot { :self :divisions :aBlock:/2 |
-		[self, 0 -- 2.pi].revolutionPlot(divisions, aBlock:/2)
+	revolutionPlot { :self :divisions :aBlock/2 |
+		[self, 0 -- 2.pi].revolutionPlot(divisions, aBlock/2)
 	}
 
-	revolutionPlot { :self :aBlock:/2 |
-		self.revolutionPlot([15, 15], aBlock:/2)
+	revolutionPlot { :self :aBlock/2 |
+		self.revolutionPlot([15, 15], aBlock/2)
 	}
 
 }
@@ -1146,7 +1146,7 @@ Plot : [Object] { | pageList format options |
 		let circleR = 16;
 		let dotR = 1;
 		let n = self.size;
-		let c = (1 - self.normalizeRange([0 1])).collect(greyLevelOrTransparent:/1);
+		let c = (1 - self.normalizeRange([0 1])).collect(greyLevelOrTransparent/1);
 		let p = n.circlePoints([0 0], circleR, 1/2.pi).reverse.rotateRight;
 		let e = 1.toCollect(n) { :each |
 			AnnotatedGeometry(
@@ -1202,10 +1202,10 @@ Plot : [Object] { | pageList format options |
 	signalPlot { :o |
 		let y = o['data'];
 		let [a, b] = o['domain'].minMax;
-		let plot:/1 = o['plotType'].caseOf(
+		let plot/1 = o['plotType'].caseOf(
 			(
-				'Line': { linePlot:/1 },
-				'Step': { stepPlot:/1 }
+				'Line': { linePlot/1 },
+				'Step': { stepPlot/1 }
 			)
 		);
 		let c = b - a;
@@ -1272,7 +1272,7 @@ Plot : [Object] { | pageList format options |
 +List {
 
 	partitionPlot { :self |
-		let n = self.sum(size:/1);
+		let n = self.sum(size/1);
 		let p = circlePoints(n, [0 0], 100, 0);
 		let c = Circle([0 0], 100);
 		let l = self.collect { :a |
@@ -1323,7 +1323,7 @@ Plot : [Object] { | pageList format options |
 		heights.tuples(p.size).do { :h |
 			let candidate = [h, p].transpose;
 			candidate.validateDiagram.ifTrue {
-				let cost = 0 - candidate.sum(first:/1);
+				let cost = 0 - candidate.sum(first/1);
 				candidate.do { :a |
 					candidate.do { :b |
 						(
@@ -1545,7 +1545,7 @@ Plot : [Object] { | pageList format options |
 		let scaledRowData = rowData.collect { :row |
 			row * (100 / row.sum)
 		};
-		let rowSums = rowData.collect(sum:/1);
+		let rowSums = rowData.collect(sum/1);
 		let rowSumMax = rowSums.max;
 		let rowHeight = 10;
 		let gapSize = 1.5;
@@ -1573,7 +1573,7 @@ Plot : [Object] { | pageList format options |
 
 	parallelAxisPlot { :rowData |
 		let columnData = rowData.transpose;
-		let columnMinMax = columnData.collect(minMax:/1);
+		let columnMinMax = columnData.collect(minMax/1);
 		let scaledColumnData = columnData.withCollect(columnMinMax) { :column :minMax |
 			column.rescale(minMax)
 		};
@@ -1738,8 +1738,8 @@ Plot : [Object] { | pageList format options |
 		let colourList = (k = 1).if { nil } { colourGradient.resample(k).colourList };
 		let zScalar = options.atIfAbsent('zScalar') {
 			let xyz = self.catenate;
-			let xyRange = xyz.collect(allButLast:/1).catenate.range;
-			let zMax = xyz.collect(last:/1).max;
+			let xyRange = xyz.collect(allButLast/1).catenate.range;
+			let zMax = xyz.collect(last/1).max;
 			(xyRange / zMax) / 12
 		};
 		self.withIndexCollect { :d :i |
@@ -1772,7 +1772,7 @@ Plot : [Object] { | pageList format options |
 		let x = xData.foldList(0, +) * (w / xData.sum);
 		let y = yData * (h / yData.max);
 		let colourList = (dataSetList.size > 1 | { options.at('colouredChart') }).if {
-			let colourListSize = dataSetList.collect(size:/1).max;
+			let colourListSize = dataSetList.collect(size/1).max;
 			let colourGradient = 'Mathematica'.namedColourGradient('Rainbow');
 			colourGradient.resample(colourListSize).colourList
 		} {
@@ -1811,8 +1811,8 @@ Plot : [Object] { | pageList format options |
 
 	colouredMatrixPlot { :self |
 		let colourGradient = 'Mathematica'.namedColourGradient('Rainbow');
-		let colourFunction:/1 = colourGradient.asBlock;
-		self.rescale.deepCollect(colourFunction:/1).ColourGrid
+		let colourFunction/1 = colourGradient.asBlock;
+		self.rescale.deepCollect(colourFunction/1).ColourGrid
 	}
 
 	colouredRectangleChart { :self |

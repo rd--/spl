@@ -31,7 +31,7 @@ The inversion vectors of _S4_:
 ```
 >>> [1 2 3 4]
 >>> .lexicographicPermutations
->>> .collect(inversionVector:/1)
+>>> .collect(inversionVector/1)
 [
 	0 0 0 0; 0 0 1 0; 0 1 0 0;
 	0 2 0 0; 0 1 1 0; 0 2 1 0;

@@ -17,7 +17,7 @@ Matrix22 : [Object, Equal] { | a b c d |
 		(self.a * self.d) - (self.b * self.c)
 	}
 
-	equalBy { :self :aMatrix :aBlock:/2 |
+	equalBy { :self :aMatrix :aBlock/2 |
 		aMatrix.isMatrix22 & {
 			aBlock(self.a, aMatrix.a) & {
 				aBlock(self.b, aMatrix.b) & {

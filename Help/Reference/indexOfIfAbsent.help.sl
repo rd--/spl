@@ -1,6 +1,6 @@
 # indexOfIfAbsent
 
-- _indexOf(c, x, f:/0)_
+- _indexOf(c, x, f/0)_
 
 Answer the index of the first occurence of the object _x_ within the sequential collection _c_.
 If the collection does not contain _x_, answer the result of evaluating the exception block _f_.

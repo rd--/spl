@@ -14,7 +14,7 @@ The subfactorial counts the number of derangements.
 >>> (6.factorial / 1.e).round
 265
 
->>> 1:9.collect(subfactorial:/1)
+>>> 1:9.collect(subfactorial/1)
 [0 1 2 9 44 265 1854 14833 133496]
 
 >>> 20.subfactorial
@@ -25,7 +25,7 @@ The number of derangements of an _n_-element set for small _n_,
 OEIS [A000166](https://oeis.org/A000166):
 
 ```
->>> 0:13.collect(subfactorial:/1)
+>>> 0:13.collect(subfactorial/1)
 [
 	        1          0        1
 	        2          9       44

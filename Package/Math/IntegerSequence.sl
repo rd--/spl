@@ -101,7 +101,7 @@
 			[2, [2, 3, 1]],
 			[3, [3, 1, 2]]
 		].Map;
-		let evenRules = oddRules.collect(reverse:/1);
+		let evenRules = oddRules.collect(reverse/1);
 		{ :w |
 			let k = w.size;
 			1.toCollect(k) { :n |
@@ -120,7 +120,7 @@
 	}
 
 	baumSweetSequence { :n |
-		let a:/1 = { :i |
+		let a/1 = { :i |
 			(i < 2).if {
 				1
 			} {
@@ -135,7 +135,7 @@
 				}
 			}
 		}.memoize(true);
-		0.toCollect(n - 1, a:/1)
+		0.toCollect(n - 1, a/1)
 	}
 
 	beattySequence { :n :theta |
@@ -230,7 +230,7 @@
 		let q = (p - 1).primesUpTo;
 		let a = [z];
 		let e = nil;
-		{ :break:/0 |
+		{ :break/0 |
 			let x = z * p + 1L;
 			let y = x.divideOutAll(q);
 			y.do { :i |
@@ -279,7 +279,7 @@
 	}
 
 	collatzTerrasSequence { :self |
-		collatzFunction:/1
+		collatzFunction/1
 		.nestWhileList(self) { :x |
 			x > 1
 		}
@@ -322,7 +322,7 @@
 	}
 
 	doudnaSequence { :n |
-		0.toCollect(n - 1, doudnaSequenceFunction:/1)
+		0.toCollect(n - 1, doudnaSequenceFunction/1)
 	}
 
 	ehrenfeuchtMycielskiSequence { :n |
@@ -360,14 +360,14 @@
 	}
 
 	entringerTriangle { :self |
-		let f:/2 = { :n :k |
+		let f/2 = { :n :k |
 			k.isZero.if {
 				n.isZero.boole
 			} {
 				f(n, k - 1) + f(n - 1, n - k)
 			}
 		}.memoize(true);
-		0.to(self - 1).triangularArray(f:/2)
+		0.to(self - 1).triangularArray(f/2)
 	}
 
 	entringerNumber { :n :k |
@@ -397,7 +397,7 @@
 		}
 	}
 
-	fareySequenceDo { :n :visit:/1 |
+	fareySequenceDo { :n :visit/1 |
 		let [a, b, c, d] = [0, 1, 1, n];
 		visit(Fraction(a, b));
 		{
@@ -495,7 +495,7 @@
 	gijswijtsSequence { :n |
 		let k = { :s |
 			let z = 1;
-			valueWithReturn { :return:/1 |
+			valueWithReturn { :return/1 |
 				1.toDo(s.size) { :m |
 					let i = 1;
 					let y = s.last(m);
@@ -550,7 +550,7 @@
 	}
 
 	gouldsSequence { :k |
-		0.to(k - 1).collect(gouldsNumber:/1)
+		0.to(k - 1).collect(gouldsNumber/1)
 	}
 
 	hammersleyPointSet { :d :n |
@@ -586,14 +586,14 @@
 	}
 
 	hofstadterQSequence { :self |
-		let f:/1 = { :n |
+		let f/1 = { :n |
 			(n <= 2).if {
 				1
 			} {
 				f(n - f(n - 1)) + f(n - f(n - 2))
 			}
 		}.memoize(true);
-		1.to(self).collect(f:/1)
+		1.to(self).collect(f/1)
 	}
 
 	josephusProblem { :n :k |
@@ -727,7 +727,7 @@
 		fixedLength.ifNotNil {
 			d := d.padLeft([fixedLength], 0)
 		};
-		d.sort(greater:/2).fromDigits(base) - d.sort(less:/2).fromDigits(base)
+		d.sort(greater/2).fromDigits(base) - d.sort(less/2).fromDigits(base)
 	}
 
 	kaprekarMap { :self :base |
@@ -784,7 +784,7 @@
 
 	lookAndSay { :n :b |
 		n.integerDigits(b)
-		.split(equal:/2)
+		.split(equal/2)
 		.collectCatenate { :x |
 			[x.size, x.first]
 		}
@@ -799,14 +799,14 @@
 			[
 				'A' -> {
 					{ :n |
-						n.split(equal:/2)
+						n.split(equal/2)
 						.collectCatenate { :x |
 							[x.size, x.first]
 						}
 					}.nestList([1], m - 1)
 				},
 				'LS' -> {
-					0.to(m - 1).collect(lookAndSay:/1)
+					0.to(m - 1).collect(lookAndSay/1)
 				}
 			]
 		)
@@ -863,17 +863,17 @@
 		variant.caseOf(
 			[
 				'A' -> {
-					let f:/1 = { :n |
+					let f/1 = { :n |
 						[
 							{ n = 0 } -> { 0 },
 							{ n % 2 = 0 } -> { 0 - f(n // 2) },
 							{ n % 2 = 1 } -> { f((n - 1) // 2) + 1 }
 						].which
 					}.memoize(true);
-					0.toCollect(self - 1, f:/1)
+					0.toCollect(self - 1, f/1)
 				},
 				'B' -> {
-					let f:/1 = { :n |
+					let f/1 = { :n |
 						[
 							{ n = 0 } ->  { 0 },
 							{ n % 3 = 0 } -> { 0 - f(n // 3) },
@@ -881,10 +881,10 @@
 							{ n % 3 = 2 } -> { f(n // 3) - 1 }
 						].which
 					}.memoize(true);
-					0.toCollect(self - 1, f:/1)
+					0.toCollect(self - 1, f/1)
 				},
 				'C' -> {
-					let f:/1 = { :n |
+					let f/1 = { :n |
 						[
 							{ n = 0 } ->  { 0 },
 							{ n % 3 = 0 } -> { 0 - f(n // 3) },
@@ -892,10 +892,10 @@
 							{ n % 3 = 2 } -> { -2 - f(n // 3) }
 						].which
 					}.memoize(true);
-					0.toCollect(self - 1, f:/1)
+					0.toCollect(self - 1, f/1)
 				},
 				'Z' -> {
-					let f:/1 = { :n |
+					let f/1 = { :n |
 						[
 							{ n = 0 } ->  { 0 },
 							{ n % 4 = 0 } -> { f(n // 4) },
@@ -904,7 +904,7 @@
 							{ n % 4 = 3 } -> { 2 + f(n // 4) }
 						].which
 					}.memoize(true);
-					0.toCollect(self - 1, f:/1)
+					0.toCollect(self - 1, f/1)
 				}
 			]
 		)
@@ -920,7 +920,7 @@
 			z.add(
 				(
 					i.integerDigits(2)
-					.split(equal:/2)
+					.split(equal/2)
 					.size + 4
 				).fibonacci
 			)
@@ -966,7 +966,7 @@
 	}
 
 	politeness { :n |
-		(n.divisors.count(isOdd:/1) - 1).max(0)
+		(n.divisors.count(isOdd/1) - 1).max(0)
 	}
 
 	rationalUnrank { :n :m |
@@ -1019,14 +1019,14 @@
 		(b ^ n - 1) / (b - 1)
 	}
 
-	rowlandsSequence { :k :m :f:/2 |
+	rowlandsSequence { :k :m :f/2 |
 		{ :a :n |
 			a[n - 1] + f(a[n - 1], n)
 		}.recurrenceTable([k], m)
 	}
 
 	rowlandsSequence { :k :m |
-		rowlandsSequence(k, m, gcd:/2)
+		rowlandsSequence(k, m, gcd/2)
 	}
 
 	schroderNumber { :k |
@@ -1053,7 +1053,7 @@
 	}
 
 	seidelTriangle { :m |
-		let t:/2 = { :n :k |
+		let t/2 = { :n :k |
 			(n = 1 & { k = 1 } ).if {
 				1
 			} {
@@ -1088,7 +1088,7 @@
 	}
 
 	selfCountingSequence { :k |
-		1.toCollect(k, selfCountingNumber:/1)
+		1.toCollect(k, selfCountingNumber/1)
 	}
 
 	somosSequence { :k :m |
@@ -1123,7 +1123,7 @@
 	}
 
 	sternBrocotNumber { :self |
-		let f:/1 = { :n |
+		let f/1 = { :n |
 			(n < 2).if {
 				n
 			} {
@@ -1173,7 +1173,7 @@
 			{ :x |
 				x.riffle(
 					x.partition(2, 1)
-					.collect(sum:/1)
+					.collect(sum/1)
 				)
 			}.nestList(i, n - 1)
 		}
@@ -1196,7 +1196,7 @@
 	}
 
 	toothpickSequence { :self |
-		let a:/1 = { :n |
+		let a/1 = { :n |
 			(n = 0).if {
 				0
 			} {
@@ -1209,7 +1209,7 @@
 				}
 			}
 		}.memoize;
-		0.toCollect(self - 1, a:/1)
+		0.toCollect(self - 1, a/1)
 	}
 
 	thueMorse { :index |
@@ -1439,7 +1439,7 @@
 	}
 
 	locallyCatenativeSequence { :w :i :n |
-		locallyCatenativeSequence(w, i, n, List(w.size, identity:/1))
+		locallyCatenativeSequence(w, i, n, List(w.size, identity/1))
 	}
 
 	stanleySequence { :s1 :m :mmm |
@@ -1452,9 +1452,9 @@
 			chvec[s2[i] + 1] := 1
 		};
 		(t1 + 1).toDo(t1 + m) { :n |
-			(s2[n - 1] + 1).toDoWithBreak(mmm) { :i :break:/0 |
+			(s2[n - 1] + 1).toDoWithBreak(mmm) { :i :break/0 |
 				swi := -1;
-				1.toDoWithBreak(n - 2) { :j :break:/0 |
+				1.toDoWithBreak(n - 2) { :j :break/0 |
 					let p = s2[n - j];
 					let k = 2 * p - i;
 					(k < 0).ifTrue {
@@ -1531,8 +1531,8 @@
 			[i + (j * theta), i]
 		}.table(1.to(p), 1.to(q))
 		.catenate
-		.sortOn(first:/1)
-		.collect(second:/1)
+		.sortOn(first/1)
+		.collect(second/1)
 		.take(n)
 	}
 
@@ -1545,8 +1545,8 @@
 				[i, i + (j * theta)]
 			}.table(1.to(m), 1.to(m))
 			.catenate
-			.sortOn(second:/1)
-			.collect(first:/1)
+			.sortOn(second/1)
+			.collect(first/1)
 			.take(n);
 			s != z
 		}.whileTrue {
@@ -1655,7 +1655,7 @@
 
 +Block {
 
-	binomialTransform { :f:/1 |
+	binomialTransform { :f/1 |
 		{ :n |
 			0.to(n).sum { :k |
 				binomial(n, k) * f(k)
@@ -1663,7 +1663,7 @@
 		}
 	}
 
-	dispersionArray { :f:/1 :shape |
+	dispersionArray { :f/1 :shape |
 		let [m, n] = shape - 1;
 		let g = { :x |
 			let y = x.nub.sort;
@@ -1676,15 +1676,15 @@
 				}
 			}
 		};
-		let r = [f:/1.nestList(1, n)];
+		let r = [f/1.nestList(1, n)];
 		m.timesRepeat {
-			r.add(f:/1.nestList(g(r.flatten), n))
+			r.add(f/1.nestList(g(r.flatten), n))
 		};
 		r
 	}
 
-	eulerTransform { :a:/1 |
-		let b:/1 = { :n |
+	eulerTransform { :a/1 |
+		let b/1 = { :n |
 			(n = 0).if {
 				1
 			} {
@@ -1696,10 +1696,10 @@
 				s // n
 			}
 		}.memoize(true);
-		b:/1
+		b/1
 	}
 
-	inverseBinomialTransform { :b:/1 |
+	inverseBinomialTransform { :b/1 |
 		{ :n |
 			0.to(n).sum { :k |
 				(-1 ^ (n - k)) * binomial(n, k) * b(k)
@@ -1711,11 +1711,11 @@
 
 +@Sequence {
 
-	runLengthTransform { :x :f:/1 |
+	runLengthTransform { :x :f/1 |
 		x.collect { :n |
 			n.binaryExpansion
 			.runLengthsOf(1)
-			.collect(f:/1).product
+			.collect(f/1).product
 		}
 	}
 
@@ -1723,8 +1723,8 @@
 
 +SmallFloat {
 
-	runLengthTransform { :n :f:/1 |
-		runLengthTransform(Range(0, n - 1, 1), f:/1)
+	runLengthTransform { :n :f/1 |
+		runLengthTransform(Range(0, n - 1, 1), f/1)
 	}
 
 }
@@ -1733,7 +1733,7 @@
 
 	binomialTransform { :self |
 		self.zeroIndexedListTransform(
-			binomialTransform:/1
+			binomialTransform/1
 		)
 	}
 
@@ -1744,7 +1744,7 @@
 	}
 
 	inverseBinomialTransform { :self |
-		self.zeroIndexedListTransform(inverseBinomialTransform:/1)
+		self.zeroIndexedListTransform(inverseBinomialTransform/1)
 	}
 
 	inverseMoebiusTransform { :a |
@@ -1815,7 +1815,7 @@
 		}
 	}
 
-	zeroIndexedListTransform { :self :aBlock:/1 |
+	zeroIndexedListTransform { :self :aBlock/1 |
 		let n = self.size - 1;
 		0.toCollect(
 			n,
@@ -1906,7 +1906,7 @@
 
 +List {
 
-	leastExcludedSequence { :i :k :f:/3 |
+	leastExcludedSequence { :i :k :f/3 |
 		let j = i.size;
 		let u = 1.to(Infinity);
 		let a = Map { :n |
@@ -1942,7 +1942,7 @@
 
 +Block {
 
-	characteristicFunction { :f:/1 :i |
+	characteristicFunction { :f/1 :i |
 		i.collect { :n |
 			f(n).boole
 		}
@@ -2067,11 +2067,11 @@
 +@Collection {
 
 	inverseCantorPairingFunction { :self |
-		self.collect(inverseCantorPairingFunction:/1)
+		self.collect(inverseCantorPairingFunction/1)
 	}
 
 	inverseRosenbergStrongPairingFunction { :self |
-		self.collect(inverseRosenbergStrongPairingFunction:/1)
+		self.collect(inverseRosenbergStrongPairingFunction/1)
 	}
 
 }

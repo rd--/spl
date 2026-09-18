@@ -15,7 +15,7 @@ Plot over a subset of the reals:
 
 ~~~spl svg=A
 (-10 -- 10).functionPlot(
-	gudermannian:/1
+	gudermannian/1
 )
 ~~~
 

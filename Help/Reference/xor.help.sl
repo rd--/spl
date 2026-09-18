@@ -8,7 +8,7 @@ Answer the Boolean exclusive or of the boolean values _a_ and _b_.
 Truth table:
 
 ```
->>> xor:/2.table([true false], [true false])
+>>> xor/2.table([true false], [true false])
 [
 	false true;
 	true false

@@ -1,6 +1,6 @@
 # nadarayaWatsonEstimator
 
-- _nadarayaWatsonEstimator(i, x, y, h, k:/1)_
+- _nadarayaWatsonEstimator(i, x, y, h, k/1)_
 
 The Nadaraya-Watson estimator.
 
@@ -13,7 +13,7 @@ let p = d.randomVariate(r, [n]) * 0.5;
 let q = d.randomVariate(r, [n]);
 let m = { :x | x.cos };
 let x = i + p;
-let y = x.collect(m:/1) + q;
+let y = x.collect(m/1) + q;
 let j = [0, 0.01 .. 4.pi];
 let e = j.nadarayaWatsonEstimator(
 	x,
@@ -23,7 +23,7 @@ let e = j.nadarayaWatsonEstimator(
 );
 [
 	[x, y].transpose.PointCloud,
-	[i, i.collect(m:/1)].transpose.Line,
+	[i, i.collect(m/1)].transpose.Line,
 	[j, e].transpose.Line
 ].LineDrawing
 ~~~

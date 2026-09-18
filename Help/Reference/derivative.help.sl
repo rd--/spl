@@ -1,32 +1,32 @@
 # derivative
 
-- _derivative(f:/1, n=1)_
+- _derivative(f/1, n=1)_
 
 At `exp`:
 
 ```
->>> exp:/1.derivative
-exp:/1
+>>> exp/1.derivative
+exp/1
 ```
 
 At `sin`:
 
 ```
->>> sin:/1.derivative(0)
-sin:/1
+>>> sin/1.derivative(0)
+sin/1
 
->>> sin:/1.derivative(1)
-cos:/1
+>>> sin/1.derivative(1)
+cos/1
 ```
 
 At `cos`:
 
 ```
->>> cos:/1.derivative(0)
-cos:/1
+>>> cos/1.derivative(0)
+cos/1
 
->>> cos:/1.derivative(3)
-sin:/1
+>>> cos/1.derivative(3)
+sin/1
 ```
 
 Plot derivatives of `sin`:
@@ -34,7 +34,7 @@ Plot derivatives of `sin`:
 ~~~spl svg=A
 (0 -- 3.pi).functionPlot(
 	0:3.collect { :n |
-		sin:/1.derivative(n)
+		sin/1.derivative(n)
 	}
 )
 ~~~

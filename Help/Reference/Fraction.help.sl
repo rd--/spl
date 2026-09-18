@@ -247,8 +247,8 @@ This is a close approximation to 2.sqrt:
 >>> 	(x ^ 2 + (2 * (y ^ 2))).r(2 * x * y)
 >>> };
 >>> (
->>> 	f:/1.iterate(3/2, 4),
->>> 	f:/1.iterate(3/2, 5)
+>>> 	f/1.iterate(3/2, 4),
+>>> 	f/1.iterate(3/2, 5)
 >>> )
 (
 	Fraction(

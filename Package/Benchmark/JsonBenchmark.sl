@@ -214,7 +214,7 @@ JsonParser : [Object] { | input index line column current captureBuffer captureS
 	}
 
 	readValue { :self |
-		valueWithReturn { :return:/1 |
+		valueWithReturn { :return/1 |
 			(self.current = 'n').ifTrue {
 				self.readNull.return
 			};
@@ -365,7 +365,7 @@ JsonParser : [Object] { | input index line column current captureBuffer captureS
 	}
 
 	readEscapeChar { :self |
-		valueWithReturn { :return:/1 |
+		valueWithReturn { :return/1 |
 			(self.current = '"').ifTrue { '"'.return };
 			(self.current = '/').ifTrue { '/'.return };
 			(self.current = '\\').ifTrue { '\\'.return };

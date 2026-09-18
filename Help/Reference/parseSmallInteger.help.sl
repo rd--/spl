@@ -1,7 +1,7 @@
 # parseSmallInteger
 
 - _parseSmallInteger(s, r=10)_
-- _parseSmallInteger(s, r, f:/0)_
+- _parseSmallInteger(s, r, f/0)_
 
 Answer the `SmallFloat` of the integer indicated by the string _s_ which must be in radix _r_ notation.
 If the string is not an integer, signal an error.

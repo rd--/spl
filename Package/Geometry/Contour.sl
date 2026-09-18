@@ -1,12 +1,12 @@
 +List {
 
-	bourkeContourAlgorithm { :d :x :y :z :drawContour:/6 |
+	bourkeContourAlgorithm { :d :x :y :z :drawContour/6 |
 		let [m, n] = d.shape;
 		{ x.size = m }.assert;
 		{ y.size = n }.assert;
 		{ z.size > 0 }.assert;
 		{ z.isMonotonicallyIncreasing }.assert;
-		{ drawContour:/6.numArgs = 6 }.assert;
+		{ drawContour/6.numArgs = 6 }.assert;
 		uncheckedBourkeContourAlgorithm(
 			d,
 			0, m - 1,
@@ -14,7 +14,7 @@
 			x.asList,
 			y.asList,
 			z.size, z.asList,
-			drawContour:/6
+			drawContour/6
 		)
 	}
 

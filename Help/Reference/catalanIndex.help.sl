@@ -9,7 +9,7 @@ OEIS [A081288](https://oeis.org/A081288):
 
 ```
 >>> 0:43.collect(
->>> 	catalanIndex:/1
+>>> 	catalanIndex/1
 >>> )
 [
 	0 2 3 3 3 4 4 4 4 4 4 4 4 4 5 5 5 5 5 5

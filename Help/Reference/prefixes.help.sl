@@ -7,7 +7,7 @@ Answer a List of all of the prefixes of the sequence _x_.
 Generate a sequence of factorials:
 
 ```
->>> 1:9.prefixes.collect(product:/1)
+>>> 1:9.prefixes.collect(product/1)
 [1 2 6 24 120 720 5040 40320 362880]
 
 >>> 1:9.!
@@ -18,7 +18,7 @@ Find the running maximum of a list:
 
 ```
 >>> [3 5 7 8 8 5 7 9 2 5].prefixes
->>> .collect(max:/1)
+>>> .collect(max/1)
 [3 5 7 8 8 8 8 9 9 9]
 ```
 
@@ -68,7 +68,7 @@ OEIS [A099375](https://oeis.org/A099375):
 
 ```
 >>> [1 3 5 7 9 11 13 15 17].prefixes
->>> .collect(reverse:/1)
+>>> .collect(reverse/1)
 [
 	1;
 	3 1;
@@ -86,7 +86,7 @@ Sums of prefixes of the non-negative integers,
 OEIS [A000217](https://oeis.org/A000217)
 
 ```
->>> 0:9.prefixes.collect(sum:/1)
+>>> 0:9.prefixes.collect(sum/1)
 [0 1 3 6 10 15 21 28 36 45]
 ```
 
@@ -95,7 +95,7 @@ OEIS [A099375](https://oeis.org/A099375):
 
 ~~~spl svg=A oeis=A099375
 1:23:2.prefixes
-.collect(reverse:/1)
+.collect(reverse/1)
 .catenate.scatterPlot
 ~~~
 

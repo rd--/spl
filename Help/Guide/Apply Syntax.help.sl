@@ -2,7 +2,7 @@
 
 Rewrite rule:
 
-- _f()_ ⟹ _f:/0 . ()_
+- _f()_ ⟹ _f/0 . ()_
 - _f(x, ...)_ ⟹ _fₙ . (x, ...)_
 
 Ordinarily block and method application is written _f(x, ...)_,
@@ -13,7 +13,7 @@ and _x..._ are the arguments.
 >>> min(3, 4)
 3
 
->>> min:/2 . (3, 4)
+>>> min/2 . (3, 4)
 3
 ```
 
@@ -45,7 +45,7 @@ No argument method application is written _f()_.
 7
 
 >>> let f = { 7 };
->>> f:/0 . ()
+>>> f/0 . ()
 7
 ```
 

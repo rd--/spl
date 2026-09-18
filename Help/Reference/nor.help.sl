@@ -1,6 +1,6 @@
 # nor
 
-- _nor(b, f:/0)_
+- _nor(b, f/0)_
 
 An alias for `notOr`.
 

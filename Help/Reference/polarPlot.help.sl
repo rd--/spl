@@ -1,7 +1,7 @@
 # polarPlot
 
 - _polarPlot([ρ₁ θ₁; ρ₂ θ₂; …])_
-- _polarPlot(x, f:/1)_
+- _polarPlot(x, f/1)_
 
 In the unary case,
 plot a sequence of polar coordinates _ρ,θ_.
@@ -12,7 +12,7 @@ generate a polar plot of a curve with radius r as a function _f_ of angle θ ove
 The polar plot of both sine and cosine over the domain _0,π_ is a circle:
 
 ~~~spl svg=A
-(0 -- 1.pi).polarPlot(cos:/1)
+(0 -- 1.pi).polarPlot(cos/1)
 ~~~
 
 ![](Help/Image/polarPlot-A.svg)
@@ -22,7 +22,7 @@ plot three concentric circles:
 
 ~~~spl svg=B
 (0 -- 2.pi).polarPlot(
-	[1 2 3].collect(constant:/1)
+	[1 2 3].collect(constant/1)
 )
 ~~~
 

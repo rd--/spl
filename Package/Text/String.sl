@@ -39,7 +39,7 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 
 	asciiByteArray { :self |
 		let answer = self.utf8ByteArray;
-		answer.allSatisfy(isAsciiCodePoint:/1).if {
+		answer.allSatisfy(isAsciiCodePoint/1).if {
 			answer
 		} {
 			self.error('String>>asciiByteArray: non-ascii character')
@@ -104,7 +104,7 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 		<primitive: return _self.toUpperCase(); >
 	}
 
-	atIfAbsent { :self :index :ifAbsent:/0 |
+	atIfAbsent { :self :index :ifAbsent/0 |
 		/* Note: index is in Utf-16 code units, not characters */
 		self.includesIndex(index).if {
 			let codePoint = self.codePointAt(index);
@@ -168,28 +168,28 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 		.characters
 		.asIdentityMultiset
 		.associations
-		.sort(succeedsOrEqualTo:/2, value:/1)
+		.sort(succeedsOrEqualTo/2, value/1)
 	}
 
 	characterCounts { :self :n |
 		self
 		.characters
 		.partition(n, 1)
-		.collect(stringCatenate:/1)
+		.collect(stringCatenate/1)
 		.asIdentityMultiset
 		.associations
-		.sort(succeedsOrEqualTo:/2, value:/1)
+		.sort(succeedsOrEqualTo/2, value/1)
 	}
 
 	characterRange { :self :aString |
 		self
 		.asCharacter
 		.characterRange(aString.asCharacter)
-		.collect(asString:/1)
+		.collect(asString/1)
 	}
 
 	characters { :self |
-		self.primitiveCollectInto(identity:/1, [])
+		self.primitiveCollectInto(identity/1, [])
 	}
 
 	characterString { :self |
@@ -201,7 +201,7 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 	}
 
 	characterList { :self |
-		self.collectInto(identity:/1, [])
+		self.collectInto(identity/1, [])
 	}
 
 	codePoint { :self |
@@ -225,10 +225,10 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 	}
 
 	codePoints { :self |
-		self.collectInto(codePoint:/1, [])
+		self.collectInto(codePoint/1, [])
 	}
 
-	collectInto { :self :aBlock:/1 :aCollection |
+	collectInto { :self :aBlock/1 :aCollection |
 		self.primitiveCollectInto({ :each |
 			aBlock(each.asCharacter)
 		}, [])
@@ -311,7 +311,7 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 		).stringCatenate
 	}
 
-	do { :self :aBlock:/1 |
+	do { :self :aBlock/1 |
 		self.primitiveDo { :each |
 			aBlock(each)
 		}
@@ -347,7 +347,7 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 	}
 
 	equalIgnoringExtraWhitespace { :self :operand |
-		self.characters.equalIgnoringExtraWhitespace(operand.characters, isSeparator:/1)
+		self.characters.equalIgnoringExtraWhitespace(operand.characters, isSeparator/1)
 	}
 
 	findLastOccurrenceOfStringStartingAt { :self :subString :start |
@@ -386,7 +386,7 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 		self.copyFromTo(1, 1 + anInteger - 1)
 	}
 
-	firstBracketedCommentIfAbsent { :self :open :close :aBlock:/0 |
+	firstBracketedCommentIfAbsent { :self :open :close :aBlock/0 |
 		let start = self.findString(open);
 		let end = self.findString(close);
 		(start = 0 | {
@@ -404,8 +404,8 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 		}
 	}
 
-	firstHsCommentIfAbsent { :self :aBlock:/0 |
-		self.firstBracketedCommentIfAbsent('{-', '-}', aBlock:/0)
+	firstHsCommentIfAbsent { :self :aBlock/0 |
+		self.firstBracketedCommentIfAbsent('{-', '-}', aBlock/0)
 	}
 
 	firstHsComment { :self |
@@ -414,8 +414,8 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 		}
 	}
 
-	firstMlCommentIfAbsent { :self :aBlock:/0 |
-		self.firstBracketedCommentIfAbsent('(*', '*)', aBlock:/0)
+	firstMlCommentIfAbsent { :self :aBlock/0 |
+		self.firstBracketedCommentIfAbsent('(*', '*)', aBlock/0)
 	}
 
 	firstMlComment { :self |
@@ -424,8 +424,8 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 		}
 	}
 
-	firstPliCommentIfAbsent { :self :aBlock:/0 |
-		self.firstBracketedCommentIfAbsent('/*', '*/', aBlock:/0)
+	firstPliCommentIfAbsent { :self :aBlock/0 |
+		self.firstBracketedCommentIfAbsent('/*', '*/', aBlock/0)
 	}
 
 	firstPliComment { :self |
@@ -437,7 +437,7 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 	format { :self :arguments |
 		let parts = self.splitBy('%');
 		(arguments.size + 1 = parts.size).if {
-			parts.riffle(arguments.collect(asString:/1)).stringCatenate
+			parts.riffle(arguments.collect(asString/1)).stringCatenate
 		} {
 			self.error('format: incorrect number of arguments')
 		}
@@ -464,8 +464,8 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 		}
 	}
 
-	includesBy { :self :letter :aBlock:/2 |
-		self.characters.includesBy(letter.characterString, aBlock:/2)
+	includesBy { :self :letter :aBlock/2 |
+		self.characters.includesBy(letter.characterString, aBlock/2)
 	}
 
 	indefiniteArticle { :self |
@@ -501,7 +501,7 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 	}
 
 	isAscii { :self |
-		self.utf8ByteArray.allSatisfy(isAsciiCodePoint:/1)
+		self.utf8ByteArray.allSatisfy(isAsciiCodePoint/1)
 	}
 
 	isAllWhiteSpace { :self |
@@ -509,7 +509,7 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 	}
 
 	isAscii { :self |
-		self.utf8ByteArray.allSatisfy(isAsciiCodePoint:/1)
+		self.utf8ByteArray.allSatisfy(isAsciiCodePoint/1)
 	}
 
 	isBitVector { :self |
@@ -614,21 +614,21 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 	letterCounts { :self |
 		self
 		.characters
-		.select(isLetter:/1)
+		.select(isLetter/1)
 		.asIdentityMultiset
 		.associations
-		.sort(succeedsOrEqualTo:/2, value:/1)
+		.sort(succeedsOrEqualTo/2, value/1)
 	}
 
 	letterCounts { :self :n |
 		self
 		.characters
-		.select(isLetter:/1)
+		.select(isLetter/1)
 		.partition(n, 1)
-		.collect(stringCatenate:/1)
+		.collect(stringCatenate/1)
 		.asIdentityMultiset
 		.associations
-		.sort(succeedsOrEqualTo:/2, value:/1)
+		.sort(succeedsOrEqualTo/2, value/1)
 	}
 
 	letterNumber { :self :aString |
@@ -658,7 +658,7 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 	}
 
 	lineFeedCount { :self |
-		self.count(isLineFeed:/1)
+		self.count(isLineFeed/1)
 	}
 
 	lines { :self |
@@ -761,15 +761,15 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 		}
 	}
 
-	onCharacters { :self :aBlock:/1 |
+	onCharacters { :self :aBlock/1 |
 		self.characters.aBlock.stringCatenate
 	}
 
-	onCharactersList { :self :aBlock:/1 |
-		self.characters.aBlock.collect(stringCatenate:/1)
+	onCharactersList { :self :aBlock/1 |
+		self.characters.aBlock.collect(stringCatenate/1)
 	}
 
-	onCodePoints { :self :aBlock:/1 |
+	onCodePoints { :self :aBlock/1 |
 		self.codePoints.aBlock.fromCodePoints
 	}
 
@@ -835,14 +835,14 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 		system.postLine(self)
 	}
 
-	primitiveCollectInto { :self :aBlock:/1 :aCollection |
+	primitiveCollectInto { :self :aBlock/1 :aCollection |
 		self.primitiveDo { :each |
 			aCollection.add(aBlock(each))
 		};
 		aCollection
 	}
 
-	primitiveDo { :self :aBlock:/1 |
+	primitiveDo { :self :aBlock/1 |
 		<primitive:
 		for(const each of _self) {
 			_aBlock_1(each);
@@ -895,7 +895,7 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 	}
 
 	reverse { :self |
-		self.onCharacters(reverse:/1)
+		self.onCharacters(reverse/1)
 	}
 
 	rotateLeft { :self :anInteger |
@@ -916,7 +916,7 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 		self.rotateLeft(anInteger.negate)
 	}
 
-	select { :self :aBlock:/1 |
+	select { :self :aBlock/1 |
 		let list = [];
 		self.do { :each |
 			aBlock(each).ifTrue {
@@ -1210,11 +1210,11 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 +List {
 
 	camelCase { :self |
-		[self.first] ++ self.allButFirst.collect(capitalize:/1)
+		[self.first] ++ self.allButFirst.collect(capitalize/1)
 	}
 
 	capitalize { :self |
-		self.collect(capitalize:/1)
+		self.collect(capitalize/1)
 	}
 
 	commaSeparated { :self |
@@ -1222,11 +1222,11 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 	}
 
 	commaSeparatedString { :self |
-		self.collect(asString:/1).stringIntercalate(', ')
+		self.collect(asString/1).stringIntercalate(', ')
 	}
 
 	decapitalize { :self |
-		self.collect(decapitalize:/1)
+		self.collect(decapitalize/1)
 	}
 
 	deleteStopWords { :self |
@@ -1237,7 +1237,7 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 	}
 
 	fromCharacterCode { :self :encoding |
-		self.allSatisfy(isSmallFloat:/1).if {
+		self.allSatisfy(isSmallFloat/1).if {
 			encoding.caseOf(
 				[
 					'Ascii' -> { self.asciiString },
@@ -1253,11 +1253,11 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 	}
 
 	fromCodePoints { :self |
-		self.collect(fromCodePoint:/1).stringJoin
+		self.collect(fromCodePoint/1).stringJoin
 	}
 
 	isPrintableAscii { :self |
-		self.collect(isPrintableAscii:/1)
+		self.collect(isPrintableAscii/1)
 	}
 
 	letterNumber { :self :aString |
@@ -1272,7 +1272,7 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 
 	stringIntercalate { :self :aString |
 		(
-			self.allSatisfy(isString:/1) & {
+			self.allSatisfy(isString/1) & {
 				aString.isString
 			}
 		).if {
@@ -1285,7 +1285,7 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 	stringJoin { :self :aString |
 		self
 		.flatten
-		.collect(asString:/1)
+		.collect(asString/1)
 		.uncheckedStringIntercalate(
 			aString.asString
 		)
@@ -1296,19 +1296,19 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 	}
 
 	stringLength { :self |
-		self.collect(stringLength:/1)
+		self.collect(stringLength/1)
 	}
 
 	stringReverse { :self |
-		self.collect(stringReverse:/1)
+		self.collect(stringReverse/1)
 	}
 
 	pascalCase { :self |
-		self.collect(capitalize:/1)
+		self.collect(capitalize/1)
 	}
 
 	removeDiacritics { :self |
-		self.collect(removeDiacritics:/1)
+		self.collect(removeDiacritics/1)
 	}
 
 	toCharacterCode { :self :encoding |
@@ -1346,7 +1346,7 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 	}
 
 	burrowsWheelerTransform { :self |
-		self.burrowsWheelerMatrix.collect(last:/1)
+		self.burrowsWheelerMatrix.collect(last/1)
 	}
 
 	inverseBurrowWheelerTransform { :self :eot |
@@ -1511,7 +1511,7 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 +List {
 
 	porterStemmer { :self |
-		self.collect(porterStemmer:/1)
+		self.collect(porterStemmer/1)
 	}
 
 }

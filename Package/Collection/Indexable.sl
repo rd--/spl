@@ -61,25 +61,25 @@
 		values
 	}
 
-	atIfAbsent { :self :index :ifAbsent:/0 |
+	atIfAbsent { :self :index :ifAbsent/0 |
 		self.typeResponsibility('@Indexable>>atIfPresentIfAbsent')
 	}
 
-	atIfAbsentPut { :self :index :ifAbsent:/0 |
+	atIfAbsentPut { :self :index :ifAbsent/0 |
 		self.atIfAbsent(index) {
 			self[index] := ifAbsent()
 		}
 	}
 
-	atIfPresent { :self :index :ifPresent:/1 |
+	atIfPresent { :self :index :ifPresent/1 |
 		self.atIfPresentIfAbsent(
 			index,
-			ifPresent:/1,
+			ifPresent/1,
 			{ nil }
 		)
 	}
 
-	atIfPresentIfAbsent { :self :index :ifPresent:/1 :ifAbsent:/0 |
+	atIfPresentIfAbsent { :self :index :ifPresent/1 :ifAbsent/0 |
 		let isPresent = true;
 		let answer = self.atIfAbsent(index) {
 			isPresent := false;
@@ -100,7 +100,7 @@
 		self.atPath(self.shape.cartesianIndex(index))
 	}
 
-	atModify { :self :index :defaultValue :aBlock:/1 |
+	atModify { :self :index :defaultValue :aBlock/1 |
 		self.atPut(index, aBlock(self.atIfAbsent(index, { defaultValue })))
 	}
 
@@ -161,7 +161,7 @@
 		self.deepIndices(true.constant)
 	}
 
-	deepIndices { :self :aBlock:/1 |
+	deepIndices { :self :aBlock/1 |
 		let answer = [];
 		self.deepIndicesStartingAtDo([]) { :each :index |
 			aBlock(each).ifTrue {
@@ -181,12 +181,12 @@
 		answer
 	}
 
-	deepIndicesStartingAtDo { :self :startIndex :aBlock:/2 |
+	deepIndicesStartingAtDo { :self :startIndex :aBlock/2 |
 		let type = self.typeOf;
 		self.withIndexDo { :each :index |
 			let here = startIndex ++ [index];
 			(each.typeOf = type).if {
-				each.deepIndicesStartingAtDo(here, aBlock:/2)
+				each.deepIndicesStartingAtDo(here, aBlock/2)
 			} {
 				aBlock(each, here)
 			}
@@ -219,8 +219,8 @@
 		}
 	}
 
-	indexOfIfAbsent { :self :anObject :aBlock:/0 |
-		valueWithReturn { :return:/1 |
+	indexOfIfAbsent { :self :anObject :aBlock/0 |
+		valueWithReturn { :return/1 |
 			self.indicesDo { :index |
 				(self[index] = anObject).ifTrue {
 					index.return
@@ -234,7 +234,7 @@
 		self.typeResponsibility('@Indexable>>indices')
 	}
 
-	indices { :self :aBlock:/1 |
+	indices { :self :aBlock/1 |
 		let answer = [];
 		self.withIndexDo { :each :index |
 			aBlock(each).ifTrue {
@@ -254,8 +254,8 @@
 		answer
 	}
 
-	indicesDo { :self :aBlock:/1 |
-		self.indices.do(aBlock:/1)
+	indicesDo { :self :aBlock/1 |
+		self.indices.do(aBlock/1)
 	}
 
 	isIndexable { :self |
@@ -286,13 +286,13 @@
 		}
 	}
 
-	withDeepIndexDo { :self :elementAndIndexBlock:/2 |
+	withDeepIndexDo { :self :elementAndIndexBlock/2 |
 		self.deepIndices.do { :index |
 			elementAndIndexBlock(self.atPath(index), index)
 		}
 	}
 
-	withIndexDo { :self :elementAndIndexBlock:/2 |
+	withIndexDo { :self :elementAndIndexBlock/2 |
 		self.indicesDo { :index |
 			elementAndIndexBlock(self[index], index)
 		}

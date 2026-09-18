@@ -97,7 +97,7 @@
 		}
 	}
 
-	squareSpiralDo { :self :f:/2 |
+	squareSpiralDo { :self :f/2 |
 		let [x, y, i, j, m, n, c] = [0, 0, 0, 0, 0, 0, 0];
 		0.toDo(self - 1) { :k |
 			f(x, y);
@@ -240,7 +240,7 @@
 +@Collection {
 
 	squareSpiralUnrank { :self |
-		self.collect(squareSpiralUnrank:/1)
+		self.collect(squareSpiralUnrank/1)
 	}
 
 }

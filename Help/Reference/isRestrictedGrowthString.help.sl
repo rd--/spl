@@ -38,7 +38,7 @@ The restricted growth strings of the fifteen possible partitions of the set with
 >>> 	1 2 3 3;
 >>> 	1 2 3 4
 >>> ].allSatisfy(
->>> 	isRestrictedGrowthString:/1
+>>> 	isRestrictedGrowthString/1
 >>> )
 true
 
@@ -85,7 +85,7 @@ Enumerate and then test all _n_ letter restricted growth strings:
 >>> (
 >>> 	s.size,
 >>> 	s.allSatisfy(
->>> 		isRestrictedGrowthString:/1
+>>> 		isRestrictedGrowthString/1
 >>> 	)
 >>> )
 (n.bellNumber, true)

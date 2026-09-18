@@ -9,7 +9,7 @@ The size of each vector is not fixed.
 ```
 >>> let r = Sfc32(561374);
 >>> let c = r.katoYamasakiAlgorithm([0 1 1], 3);
->>> (c, c.collect(sum:/1))
+>>> (c, c.collect(sum/1))
 (
 	[
 		0.34824 0.12969 0.32795 0.19413;
@@ -25,7 +25,7 @@ With non-unit minima and maxima:
 ```
 >>> let r = Sfc32(316842);
 >>> let c = r.katoYamasakiAlgorithm([0.2 0.7 1], 3);
->>> (c, c.collect(sum:/1))
+>>> (c, c.collect(sum/1))
 (
 	[
 		0.32542 0.29646 0.37812;

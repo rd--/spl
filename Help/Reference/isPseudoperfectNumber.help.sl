@@ -20,7 +20,7 @@ The first few pseudoperfect numbers:
 
 ```
 >>> 1:40.select(
->>> 	isPseudoperfectNumber:/1
+>>> 	isPseudoperfectNumber/1
 >>> )
 [6 12 18 20 24 28 30 36 40]
 ```

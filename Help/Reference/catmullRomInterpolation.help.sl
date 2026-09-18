@@ -16,7 +16,7 @@ Catmull-Rom impulse response:
 (1 -- 5).functionPlot(
 	[0 0 1 0 0]
 	.listInterpolation(
-		catmullRomInterpolation:/5
+		catmullRomInterpolation/5
 	)
 )
 ~~~

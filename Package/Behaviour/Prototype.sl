@@ -1,12 +1,12 @@
 +Record {
 
-	atDelegateToIfAbsent { :self :key :delegateKey :aBlock:/0 |
+	atDelegateToIfAbsent { :self :key :delegateKey :aBlock/0 |
 		self.atIfAbsent(key) {
 			self.includesIndex(delegateKey).if {
 				self[delegateKey].atDelegateToIfAbsent(
 					key,
 					delegateKey,
-					aBlock:/0
+					aBlock/0
 				)
 			} {
 				aBlock()
@@ -20,7 +20,7 @@
 		}
 	}
 
-	atPutDelegateToIfAbsent { :self :key :value :delegateKey :aBlock:/0 |
+	atPutDelegateToIfAbsent { :self :key :value :delegateKey :aBlock/0 |
 		self.includesIndex(key).if {
 			self.atPut(key, value)
 		} {
@@ -30,7 +30,7 @@
 						key,
 						value,
 						delegateKey,
-						aBlock:/0
+						aBlock/0
 					)
 				} {
 					aBlock()

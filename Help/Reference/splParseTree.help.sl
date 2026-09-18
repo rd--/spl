@@ -45,10 +45,10 @@ Free operators:
 
 ```
 >>> '+'.splParseTree[2]
-['Identifier' 'plusSign:/2']
+['Identifier' 'plusSign/2']
 
 >>> '<=>'.splParseTree[2]
-['Identifier' 'lessThanSignEqualsSignGreaterThanSign:/2']
+['Identifier' 'lessThanSignEqualsSignGreaterThanSign/2']
 ```
 
 Lower-case and upper-case initial identifiers:

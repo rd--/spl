@@ -22,7 +22,7 @@ OEIS [A117506](https://oeis.org/A117506):
 
 ```
 >>> 1:6.collect(
->>> 	integerPartitionsDimensions:/1
+>>> 	integerPartitionsDimensions/1
 >>> )
 [
 	1;
@@ -39,7 +39,7 @@ OEIS [A117506](https://oeis.org/A117506):
 
 ~~~spl svg=A oeis=A117506
 1:8.collect(
-	integerPartitionsDimensions:/1
+	integerPartitionsDimensions/1
 ).catenate.stepPlot
 ~~~
 

@@ -16,7 +16,7 @@ true
 
 ```
 >>> motzkinWords(2, 1)
->>> .allSatisfy(isMotzkinWord:/1)
+>>> .allSatisfy(isMotzkinWord/1)
 true
 ```
 

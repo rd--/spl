@@ -31,23 +31,23 @@ SortedList : [Object, Store, Copyable, Equal, Compare, Iterable, Indexable, Coll
 		self.contents.copy
 	}
 
-	atIfAbsent { :self :index :ifAbsent:/0 |
-		self.contents.atIfAbsent(index, ifAbsent:/0)
+	atIfAbsent { :self :index :ifAbsent/0 |
+		self.contents.atIfAbsent(index, ifAbsent/0)
 	}
 
-	collect { :self :aBlock:/1 |
-		self.contents.collect(aBlock:/1).asSortedList(self.sortBlock)
+	collect { :self :aBlock/1 |
+		self.contents.collect(aBlock/1).asSortedList(self.sortBlock)
 	}
 
-	do { :self :aBlock:/1 |
-		self.contents.do(aBlock:/1);
+	do { :self :aBlock/1 |
+		self.contents.do(aBlock/1);
 		self
 	}
 
 	indexForInserting { :self :newObject |
 		let low = 1;
 		let high = self.contents.size;
-		let sortBlock:/2 = self.sortBlock;
+		let sortBlock/2 = self.sortBlock;
 		let index = nil;
 		{
 			index := high + low // 2;
@@ -126,7 +126,7 @@ SortedList : [Object, Store, Copyable, Equal, Compare, Iterable, Indexable, Coll
 		}
 	}
 
-	removeIfAbsent { :self :oldObject :anExceptionBlock:/0 |
+	removeIfAbsent { :self :oldObject :anExceptionBlock/0 |
 		let i = self.indexOf(oldObject);
 		(i = 0).if {
 			anExceptionBlock()
@@ -140,11 +140,11 @@ SortedList : [Object, Store, Copyable, Equal, Compare, Iterable, Indexable, Coll
 	}
 
 	species { :self |
-		SortedList:/0
+		SortedList/0
 	}
 
 	storeString { :self |
-		(self.sortBlock = precedesOrEqualTo:/2).if {
+		(self.sortBlock = precedesOrEqualTo/2).if {
 			'SortedList(%)'.format([self.contents])
 		} {
 			'SortedList(%, %)'.format(
@@ -161,7 +161,7 @@ SortedList : [Object, Store, Copyable, Equal, Compare, Iterable, Indexable, Coll
 +Void {
 
 	SortedList {
-		newSortedList().initializeSlots([], precedesOrEqualTo:/2)
+		newSortedList().initializeSlots([], precedesOrEqualTo/2)
 	}
 
 }
@@ -172,8 +172,8 @@ SortedList : [Object, Store, Copyable, Equal, Compare, Iterable, Indexable, Coll
 		SortedList(self.asList)
 	}
 
-	asSortedList { :self :sortBlock:/2 |
-		SortedList(self.asList, sortBlock:/2)
+	asSortedList { :self :sortBlock/2 |
+		SortedList(self.asList, sortBlock/2)
 	}
 
 }
@@ -181,13 +181,13 @@ SortedList : [Object, Store, Copyable, Equal, Compare, Iterable, Indexable, Coll
 +List {
 
 	SortedList { :self |
-		SortedList(self, precedesOrEqualTo:/2)
+		SortedList(self, precedesOrEqualTo/2)
 	}
 
-	SortedList { :self :sortBlock:/2 |
+	SortedList { :self :sortBlock/2 |
 		newSortedList().initializeSlots(
-			self.copy.sortBy(sortBlock:/2),
-			sortBlock:/2
+			self.copy.sortBy(sortBlock/2),
+			sortBlock/2
 		)
 	}
 

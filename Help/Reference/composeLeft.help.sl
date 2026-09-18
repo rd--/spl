@@ -1,6 +1,6 @@
 # composeLeft
 
-- _composeLeft(f:/1, g:/1)_
+- _composeLeft(f/1, g/1)_
 
 Compose the two unary Blocks _f_ and _g_ into one unary Block.
 
@@ -25,34 +25,34 @@ Composition of inverses:
 
 ```
 >>> let n = system.nextRandomFloat;
->>> square:/1.composeLeft(sqrt:/1) . (n)
+>>> square/1.composeLeft(sqrt/1) . (n)
 n
 ```
 
 Operator form:
 
 ```
->>> (square:/1 @* sqrt:/1) . (23)
+>>> (square/1 @* sqrt/1) . (23)
 23
 ```
 
 Compare to `composeRight`:
 
 ```
->>> square:/1.composeLeft(negate:/1) . (7)
+>>> square/1.composeLeft(negate/1) . (7)
 49
 
->>> square:/1.composeRight(negate:/1) . (7)
+>>> square/1.composeRight(negate/1) . (7)
 -49
 ```
 
 At `List`:
 
 ```
->>> [square:/1 negate:/1].composeLeft . (7)
+>>> [square/1 negate/1].composeLeft . (7)
 49
 
->>> [square:/1 negate:/1].composeRight . (7)
+>>> [square/1 negate/1].composeRight . (7)
 -49
 ```
 

@@ -21,7 +21,7 @@
 		}
 	}
 
-	adaptToCollectionAndApply { :self :aCollection :aBlock:/2 |
+	adaptToCollectionAndApply { :self :aCollection :aBlock/2 |
 		aCollection.collect { :each |
 			aBlock(each, self)
 		}
@@ -257,7 +257,7 @@
 				(self % aNumber).isVeryCloseTo(0)
 			}
 		} {
-			aNumber.adaptToNumberAndApply(self, divisible:/2)
+			aNumber.adaptToNumberAndApply(self, divisible/2)
 		}
 	}
 
@@ -273,12 +273,12 @@
 				(n.divisors ^ k).sum
 			}
 		} {
-			n.adaptToNumberAndApply(k, divisorSigma:/2)
+			n.adaptToNumberAndApply(k, divisorSigma/2)
 		}
 	}
 
-	downToDo { :self :anInteger :aBlock:/1 |
-		self.toByDo(anInteger, -1, aBlock:/1)
+	downToDo { :self :anInteger :aBlock/1 |
+		self.toByDo(anInteger, -1, aBlock/1)
 	}
 
 	double { :self |
@@ -653,7 +653,7 @@
 		}
 	}
 
-	niceNumberBy { :self :aBlock:/2 |
+	niceNumberBy { :self :aBlock/2 |
 		let n = self;
 		let m = 10 ^ n.abs.log10.floor.negate;
 		let steps = [1 1.5 2 2.5 5 7.5 10];
@@ -805,10 +805,10 @@
 	}
 
 	[quotient, //] { :self :aNumber |
-		self.quotientBy(aNumber, truncate:/1)
+		self.quotientBy(aNumber, truncate/1)
 	}
 
-	quotientBy { :self :aNumber :aBlock:/1 |
+	quotientBy { :self :aNumber :aBlock/1 |
 		(aNumber = 0).if {
 			'@Number>>quotient: divideByZero'.error
 		} {
@@ -888,10 +888,10 @@
 	}
 
 	[remainder, \\] { :self :aNumber |
-		self.remainderBy(aNumber, truncate:/1)
+		self.remainderBy(aNumber, truncate/1)
 	}
 
-	relativeChange { :x :y :f:/2 |
+	relativeChange { :x :y :f/2 |
 		(y - x) / f(x, y)
 	}
 
@@ -899,8 +899,8 @@
 		relativeChange(x, y) { :x :y | x }
 	}
 
-	remainderBy { :self :aNumber :aBlock:/1 |
-		self - (self.quotientBy(aNumber, aBlock:/1) * aNumber)
+	remainderBy { :self :aNumber :aBlock/1 |
+		self - (self.quotientBy(aNumber, aBlock/1) * aNumber)
 	}
 
 	rescale { :self :a |
@@ -1071,7 +1071,7 @@
 	}
 
 	stope { :x :p :y |
-		(x + (p * ([1 .. y] - 1))).reduce(times:/2)
+		(x + (p * ([1 .. y] - 1))).reduce(times/2)
 	}
 
 	strictlyPositive { :self |
@@ -1089,7 +1089,7 @@
 		(i * j) + k
 	}
 
-	toByDo { :self :stop :step :aBlock:/1 |
+	toByDo { :self :stop :step :aBlock/1 |
 		(step = 0).if {
 			'@Number>>toByDo: step must be non-zero'.error
 		} {
@@ -1113,7 +1113,7 @@
 		self
 	}
 
-	toCollect { :start :end :aBlock:/1 |
+	toCollect { :start :end :aBlock/1 |
 		let size = end - start + 1;
 		(size < 1).if {
 			[]
@@ -1132,20 +1132,20 @@
 		}
 	}
 
-	toDoWithBreak { :self :end :aBlock:/2 |
+	toDoWithBreak { :self :end :aBlock/2 |
 		let index = self;
-		valueWithReturn { :return:/1 |
+		valueWithReturn { :return/1 |
 			{
 				index <= end
 			}.whileTrue {
-				aBlock(index, return:/1);
+				aBlock(index, return/1);
 				index := index + 1
 			}
 		};
 		self
 	}
 
-	toDo { :self :end :aBlock:/1 |
+	toDo { :self :end :aBlock/1 |
 		let index = self;
 		{
 			index <= end
@@ -1220,9 +1220,9 @@
 		answer
 	}
 
-	upOrDownToDo { :self :end :aBlock:/1 |
+	upOrDownToDo { :self :end :aBlock/1 |
 		let step = (end < self).if { -1 } { 1 };
-		self.toByDo(end, step, aBlock:/1)
+		self.toByDo(end, step, aBlock/1)
 	}
 
 	wrap { :self :low :high |

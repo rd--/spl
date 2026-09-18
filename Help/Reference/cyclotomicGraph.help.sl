@@ -9,7 +9,7 @@ OEIS [A137827](https://oeis.org/A137827):
 
 ```
 >>> (4, 7 .. 100).select(
->>> 	isPrimePower:/1
+>>> 	isPrimePower/1
 >>> )
 [
 	 4  7 13 16 19 25 31 37 43 49

@@ -7,7 +7,7 @@ Determine if the integer _n_ is a colossally abundant number.
 First few terms:
 
 ```
->>> 1:5040.select(isColossallyAbundantNumber:/1)
+>>> 1:5040.select(isColossallyAbundantNumber/1)
 [2 6 12 60 120 360 2520 5040]
 
 >>> 160626866400.isColossallyAbundantNumber

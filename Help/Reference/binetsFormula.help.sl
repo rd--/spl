@@ -7,7 +7,7 @@ Answer the _n_-th Fibonacci number calculated using Binet’s formula.
 The first twenty Fibonacci numbers:
 
 ```
->>> 1:20.collect(binetsFormula:/1)
+>>> 1:20.collect(binetsFormula/1)
 [
 	   1    1    2    3    5
 	   8   13   21   34   55

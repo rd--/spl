@@ -58,7 +58,7 @@ OEIS [A005651](https://oeis.org/A005651):
 ```
 >>> 1:12.collect { :n |
 >>> 	n.integerPartitions
->>> 	.sum(multinomial:/1)
+>>> 	.sum(multinomial/1)
 >>> }
 [
 	1 3 10 47 246 1602 11481 95503

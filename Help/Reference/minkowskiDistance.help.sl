@@ -23,7 +23,7 @@ Euclidean distance:
 The unary form answers a two argument block:
 
 ```
->>> let f:/2 = minkowskiDistance(3.5);
+>>> let f/2 = minkowskiDistance(3.5);
 >>> f([0 0], [1 1])
 1.2190
 ```

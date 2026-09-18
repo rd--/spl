@@ -1,6 +1,6 @@
 # timesRepeat
 
-- _timesRepeat(n, f:/0)_
+- _timesRepeat(n, f/0)_
 
 Evaluate the no-argument block _f_ the number of times represented by the integer _n_.
 
@@ -14,7 +14,7 @@ Iterate a program mutating a value:
 >>> n
 256
 
->>> square:/1.iterate(2, 3)
+>>> square/1.iterate(2, 3)
 256
 ```
 

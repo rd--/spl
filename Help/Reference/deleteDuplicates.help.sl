@@ -1,6 +1,6 @@
 # deleteDuplicates
 
-- _deleteDuplicates([x₁ x₂ …], f:/2)_
+- _deleteDuplicates([x₁ x₂ …], f/2)_
 
 Answer a copy of the collection _x_ that removes any duplicates, according to _f_.
 

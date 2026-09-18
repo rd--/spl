@@ -8,7 +8,7 @@ according to the Scala scale archive.
 ```
 >>> 'Whole-tone'
 >>> .namedScaleList
->>> .collect(intervals:/1)
+>>> .collect(intervals/1)
 [
 	1 1 1 1 1 1;
 	2 2 2 2 2 2

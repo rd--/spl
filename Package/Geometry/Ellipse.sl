@@ -108,7 +108,7 @@ Ellipse : [Object, Equal, Geometry] { | center radii |
 
 	Ellipse { :center :radii |
 		(center.rank > 1).if {
-			center.withCollect(radii, Ellipse:/2)
+			center.withCollect(radii, Ellipse/2)
 		} {
 			(radii.size = 2).if {
 				newEllipse().initializeSlots(center, radii)

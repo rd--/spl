@@ -17,7 +17,7 @@ Answer the arithmetic-geometric mean.
 >>> 52.arithmeticGeometricMean(5)
 21.87248362674175
 
->>> arithmeticGeometricMean:/2
+>>> arithmeticGeometricMean/2
 >>> .table([16 8], [4 10])
 [8.97211 12.824; 5.82716 8.97211]
 
@@ -59,7 +59,7 @@ Plot table of means:
 
 ~~~spl svg=B
 let i = [0, 0.25 .. 2];
-arithmeticGeometricMean:/2
+arithmeticGeometricMean/2
 .table(i, i).matrixPlot
 ~~~
 

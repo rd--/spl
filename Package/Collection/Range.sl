@@ -51,7 +51,7 @@ Range : [Object, Store, Equal, Compare, Iterable, Collection, Indexable, Sequenc
 		Range(1, 0, 1, 0)
 	}
 
-	equalBy { :self :operand :aBlock:/2 |
+	equalBy { :self :operand :aBlock/2 |
 		operand.isRange & {
 			aBlock(self.start, operand.start) & {
 				aBlock(self.stop, operand.stop) & {
@@ -150,7 +150,7 @@ Range : [Object, Store, Equal, Compare, Iterable, Collection, Indexable, Sequenc
 	}
 
 	species { :self |
-		List:/1
+		List/1
 	}
 
 }
@@ -287,7 +287,7 @@ Range : [Object, Store, Equal, Compare, Iterable, Collection, Indexable, Sequenc
 	}
 
 	upOrDownTo { :start :stop |
-		stop.adaptToCollectionAndApply(start, upOrDownTo:/2)
+		stop.adaptToCollectionAndApply(start, upOrDownTo/2)
 	}
 
 }

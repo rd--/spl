@@ -1,6 +1,6 @@
 # argumentNames
 
-- _argumentNames(f:/n)_
+- _argumentNames(f/n)_
 
 Answer an _n_ item list giving the argument names of the _n_-ary block _f_.
 
@@ -25,7 +25,7 @@ At the block implementing a method:
 >>> 	2,
 >>> 	'List'
 >>> ).block.argumentNames
-['self' 'aBlock:/1']
+['self' 'aBlock/1']
 ```
 
 * * *

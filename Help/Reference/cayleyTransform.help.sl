@@ -25,7 +25,7 @@ Plot transform of Gaussian integers:
 Plot over half unit square:
 
 ~~~spl png=B
-[-1J0 1J1].complexPlot(cayleyTransform:/1)
+[-1J0 1J1].complexPlot(cayleyTransform/1)
 ~~~
 
 ![](Help/Image/cayleyTransform-B.png)

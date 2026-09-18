@@ -104,7 +104,7 @@ answer the next multiple of _α_ toward `zero` that is nearest _n_.
 Truncate is a staircase function:
 
 ~~~spl svg=A
-(0 -- 8).functionPlot(truncate:/1)
+(0 -- 8).functionPlot(truncate/1)
 ~~~
 
 ![](Help/Image/truncate-A.svg)

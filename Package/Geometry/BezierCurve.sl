@@ -18,7 +18,7 @@ BezierCurve : [Object, Equal, Cache, Geometry] { | controlPoints splineDegree ca
 
 	componentArcLengthList { :self |
 		self.cached('componentArcLengthList') {
-			self.componentDistanceList.collect(last:/1)
+			self.componentDistanceList.collect(last/1)
 		}
 	}
 
@@ -58,7 +58,7 @@ BezierCurve : [Object, Equal, Cache, Geometry] { | controlPoints splineDegree ca
 		self.cached('componentDistanceList') {
 			self.componentApproximationList.collect { :each |
 				each
-				.adjacentPairsCollect(euclideanDistance:/2)
+				.adjacentPairsCollect(euclideanDistance/2)
 				.foldList(0, +)
 			}
 		}
@@ -195,7 +195,7 @@ BezierCurve : [Object, Equal, Cache, Geometry] { | controlPoints splineDegree ca
 			muList,
 			muList
 			.collect(self.bezierFunction)
-			.adjacentPairsCollect(euclideanDistance:/2)
+			.adjacentPairsCollect(euclideanDistance/2)
 			.foldList(0, +)
 		]
 	}

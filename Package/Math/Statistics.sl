@@ -4,7 +4,7 @@
 		self.sum / self.size
 	}
 
-	centralFeature { :self :aBlock:/2 |
+	centralFeature { :self :aBlock/2 |
 		let n = self.size;
 		let m = Infinity;
 		let k = 0;
@@ -57,7 +57,7 @@
 			self.centralMoment(4) / (self.centralMoment(2) ^ 2)
 		} {
 			self.isMatrix.if {
-				self.transpose.collect(kurtosis:/1)
+				self.transpose.collect(kurtosis/1)
 			} {
 				'@Collection>>kurtosis: not vector or matrix'.error
 			}
@@ -68,12 +68,12 @@
 		self.sum / self.size
 	}
 
-	meanDeviation { :self :aBlock:/1 |
+	meanDeviation { :self :aBlock/1 |
 		(self - aBlock(self)).abs.mean
 	}
 
 	meanDeviation { :self |
-		self.meanDeviation(mean:/1)
+		self.meanDeviation(mean/1)
 	}
 
 	meanShift { :x :d |
@@ -102,7 +102,7 @@
 			(self - median(self)).abs.median
 		} {
 			self.isMatrix.if {
-				self.transpose.collect(medianDeviation:/1)
+				self.transpose.collect(medianDeviation/1)
 			} {
 				self.error('medianDeviation')
 			}
@@ -123,11 +123,11 @@
 
 	quantile { :self :p :o |
 		self.isVector.if {
-			self.asSortedList(lessEqual:/2).quantile(p, o)
+			self.asSortedList(lessEqual/2).quantile(p, o)
 		} {
 			self.isMatrix.if {
 				self.transpose.collect { :each |
-					each.asSortedList(lessEqual:/2).quantile(p, o)
+					each.asSortedList(lessEqual/2).quantile(p, o)
 				}
 			} {
 				'Collection>>quantile: not vector or matrix'
@@ -164,7 +164,7 @@
 			self.centralMoment(3) / (self.centralMoment(2) ^ (3 / 2))
 		} {
 			self.isMatrix.if {
-				self.transpose.collect(skewness:/1)
+				self.transpose.collect(skewness/1)
 			} {
 				'@Collection>>skewness: not vector or matrix'.error
 			}
@@ -191,7 +191,7 @@
 		let [f1, f2] = f;
 		let n = self.size;
 		ListView(
-			self.sorted(lessEqual:/2),
+			self.sorted(lessEqual/2),
 			1 + (f1 * n).floor,
 			n - (f2 * n).floor,
 			1
@@ -301,7 +301,7 @@
 	}
 
 	median { :self |
-		self.asSortedList(precedes:/2).median
+		self.asSortedList(precedes/2).median
 	}
 
 	spearmanRho { :u :v |
@@ -321,7 +321,7 @@
 		}
 	}
 
-	standardize { :self :meanBlock:/1 :deviationBlock:/1 |
+	standardize { :self :meanBlock/1 :deviationBlock/1 |
 		let deviation = deviationBlock(self);
 		(deviation = 0).if {
 			self.error('@Sequence>>standardize: deviation = 0?')
@@ -330,17 +330,17 @@
 		}
 	}
 
-	standardize { :self :meanBlock:/1 |
-		self.standardize(meanBlock:/1, standardDeviation:/1)
+	standardize { :self :meanBlock/1 |
+		self.standardize(meanBlock/1, standardDeviation/1)
 	}
 
 	standardize { :self |
-		self.standardize(mean:/1, standardDeviation:/1)
+		self.standardize(mean/1, standardDeviation/1)
 	}
 
 	variance { :self |
 		self.isMatrix.if {
-			self.transpose.collect(variance:/1)
+			self.transpose.collect(variance/1)
 		} {
 			((self - self.mean) ^ 2).sum / (self.size - 1)
 		}
@@ -392,11 +392,11 @@
 		}.neighbourhoodMap(self, r)
 	}
 
-	nadarayaWatsonEstimator { :i :x :y :h :k:/1 |
+	nadarayaWatsonEstimator { :i :x :y :h :k/1 |
 		let kx = x.collect { :each |
-			((i - each) / h).collect(k:/1) / h
+			((i - each) / h).collect(k/1) / h
 		}.transpose;
-		let w = kx / kx.collect(sum:/1);
+		let w = kx / kx.collect(sum/1);
 		w.dot(y)
 	}
 
@@ -460,5 +460,5 @@ LibraryItem(
 	category: 'Math/Statistics',
 	url: 'https://rohandrape.net/sw/hsc3-data/data/statistics/nist.json',
 	mimeType: 'application/json',
-	parser: identity:/1
+	parser: identity/1
 )

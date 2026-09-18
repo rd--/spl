@@ -1,6 +1,6 @@
 # reduce
 
-- _reduce(c, f:/2)_
+- _reduce(c, f/2)_
 
 Apply the block _f_ cumulatively to the elements of the iterable collection _c_.
 

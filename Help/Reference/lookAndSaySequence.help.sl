@@ -29,7 +29,7 @@ OEIS [A005341](https://oeis.org/A005341):
 
 ```
 >>> 23.lookAndSaySequence('A')
->>> .collect(size:/1)
+>>> .collect(size/1)
 [
 	  1   2   2   4   6
 	  6   8  10  14  20
@@ -92,7 +92,7 @@ OEIS [A045918](https://oeis.org/A045918):
 
 ```
 >>> 16.lookAndSaySequence('LS')
->>> .collect(fromDigits:/1)
+>>> .collect(fromDigits/1)
 [
 	10 11 12 13 14 15 16 17 18 19
 	1110 21 1112 1113 1114 1115

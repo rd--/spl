@@ -8,7 +8,7 @@ Every positive integer occurs exactly once in the array.
 First few terms:
 
 ```
->>> 1:25.collect(wythoffIndex:/1)
+>>> 1:25.collect(wythoffIndex/1)
 [
 	1 1; 1 2; 1 3; 2 1; 1 4; 3 1; 2 2; 1 5;
 	4 1; 3 2; 2 3; 5 1; 1 6; 6 1; 4 2; 3 3;

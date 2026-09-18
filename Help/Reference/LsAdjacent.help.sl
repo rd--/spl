@@ -1,6 +1,6 @@
 # LsAdjacent
 
-- _LsAdjacent(input, aBlock:/2)_
+- _LsAdjacent(input, aBlock/2)_
 
 Apply _aBlock_ to adjacent items of the _input_ stream
 

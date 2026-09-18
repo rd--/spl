@@ -45,7 +45,7 @@ Plot boolean triangle:
 
 ~~~spl png=A
 1:100.triangularArray(
-	isQuadraticResidue:/2
+	isQuadraticResidue/2
 ).boole.padLeft.Bitmap
 ~~~
 

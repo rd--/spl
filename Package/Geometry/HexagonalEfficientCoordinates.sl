@@ -58,7 +58,7 @@ HexagonalEfficientCoordinates : [Object, Equal] { | coordinates |
 			[a, r, c - 1],
 			[1 - a, r + a, c - (1 - a)],
 			[1 - a, r + a, c + a]
-		].collect(HexagonalEfficientCoordinates:/1)
+		].collect(HexagonalEfficientCoordinates/1)
 	}
 
 }

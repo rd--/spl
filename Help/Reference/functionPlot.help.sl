@@ -1,6 +1,6 @@
 # functionPlot
 
-- _functionPlot(x, f:/1)_
+- _functionPlot(x, f/1)_
 
 Plot the unary function _f_ over the domain _x_,
 which may be discrete or continous.
@@ -13,7 +13,7 @@ plot each function atop the previous.
 Plot one cycle of the sine function:
 
 ~~~spl svg=A
-(0 -- 2.pi).functionPlot(sin:/1)
+(0 -- 2.pi).functionPlot(sin/1)
 ~~~
 
 ![](Help/Image/functionPlot-A.svg)
@@ -102,7 +102,7 @@ Zero crossings:
 At `Range`, a discrete domain:
 
 ~~~spl svg=J
-1:99.functionPlot(log:/1)
+1:99.functionPlot(log/1)
 ~~~
 
 ![](Help/Image/functionPlot-J.svg)
@@ -206,7 +206,7 @@ Plot multiple functions:
 Plot `sin` and `cos`:
 
 ~~~spl svg=S
-(0 -- 2.pi).functionPlot([sin:/1, cos:/1])
+(0 -- 2.pi).functionPlot([sin/1, cos/1])
 ~~~
 
 ![](Help/Image/functionPlot-S.svg)

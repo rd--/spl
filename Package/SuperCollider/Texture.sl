@@ -18,11 +18,11 @@ TextureProgram : [Object] { | iterationCounter soundBlock envelopeBlock delayTim
 
 +Block {
 
-	TextureProgram { :soundBlock:/0 :envelopeBlock:/1 :delayTime |
+	TextureProgram { :soundBlock/0 :envelopeBlock/1 :delayTime |
 		newTextureProgram().initializeSlots(
 			0,
-			soundBlock:/0,
-			envelopeBlock:/1,
+			soundBlock/0,
+			envelopeBlock/1,
 			delayTime
 		)
 	}
@@ -56,21 +56,21 @@ TextureProgram : [Object] { | iterationCounter soundBlock envelopeBlock delayTim
 				transitionTime
 			)
 		};
-		TextureProgram(self, envelopeBlock:/1, delayTime)
+		TextureProgram(self, envelopeBlock/1, delayTime)
 	}
 
-	playEvery { :self:/1 :delayTime :aClock |
+	playEvery { :self/1 :delayTime :aClock |
 		{ :currentTime :nextDelay |
 			self(nextDelay).playAt(currentTime)
 		}.repeatEvery(delayTime, aClock)
 	}
 
-	playEvery { :self:/1 :delay |
-		playEvery(self:/1, delay, system.clock)
+	playEvery { :self/1 :delay |
+		playEvery(self/1, delay, system.clock)
 	}
 
 	spawnTextureProgram { :self :nextTime |
-		TextureProgram(self, identity:/1, nextTime)
+		TextureProgram(self, identity/1, nextTime)
 	}
 
 	xFadeTextureProgram { :self :sustainTime :transitionTime |
@@ -81,7 +81,7 @@ TextureProgram : [Object] { | iterationCounter soundBlock envelopeBlock delayTim
 
 +@Collection {
 
-	collectTextureProgram { :self :soundBlock:/1 :delayTime |
+	collectTextureProgram { :self :soundBlock/1 :delayTime |
 		let index = 1;
 		let endIndex = self.size;
 		self.isEmpty.if {
@@ -93,7 +93,7 @@ TextureProgram : [Object] { | iterationCounter soundBlock envelopeBlock delayTim
 					index := index + 1;
 					answer
 				},
-				identity:/1,
+				identity/1,
 				{
 					(index > endIndex).if {
 						nil

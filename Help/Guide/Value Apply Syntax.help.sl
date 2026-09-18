@@ -31,7 +31,7 @@ Two argument `Block`:
 Methods are blocks:
 
 ```
->>> sqrt:/1 . (529)
+>>> sqrt/1 . (529)
 23
 ```
 

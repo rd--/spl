@@ -43,7 +43,7 @@ Evaluate symbolically:
 
 ```
 >> CpsCv(`f`, `f0`)
-(log2 (/ f f0))
+(log (/ f f0) 2)
 ```
 
 * * *

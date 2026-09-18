@@ -50,10 +50,10 @@ true
 Are all elements of a `List` non-zero:
 
 ```
->>> [-1 0 1].allSatisfy(isNonZero:/1)
+>>> [-1 0 1].allSatisfy(isNonZero/1)
 false
 
->>> [-1 0 1].collect(isNonZero:/1)
+>>> [-1 0 1].collect(isNonZero/1)
 [true false true]
 ```
 

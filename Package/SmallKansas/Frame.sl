@@ -81,8 +81,8 @@ Frame : [Object, UserEventTarget] {
 		self
 	}
 
-	onClose { :self :aBlock:/1 |
-		self.addEventListener('close', aBlock:/1);
+	onClose { :self :aBlock/1 |
+		self.addEventListener('close', aBlock/1);
 		self
 	}
 
@@ -145,11 +145,11 @@ Frame : [Object, UserEventTarget] {
 		self.titlePane.addEventListener('contextmenu') { :event |
 			/* ... */
 		};
-		self.titlePane.addEventListener('pointerdown', pointerBegin:/1);
-		self.titlePane.addEventListener('pointermove', pointerMove:/1, (capture: true, passive: true));
-		self.titlePane.addEventListener('pointercancel', pointerEnd:/1);
-		self.titlePane.addEventListener('pointerup', pointerEnd:/1);
-		self.titlePane.addEventListener('pointerout', pointerEnd:/1);
+		self.titlePane.addEventListener('pointerdown', pointerBegin/1);
+		self.titlePane.addEventListener('pointermove', pointerMove/1, (capture: true, passive: true));
+		self.titlePane.addEventListener('pointercancel', pointerEnd/1);
+		self.titlePane.addEventListener('pointerup', pointerEnd/1);
+		self.titlePane.addEventListener('pointerout', pointerEnd/1);
 		self.framePane.addEventListener('keydown') { :event |
 			event.ctrlKey.ifTrue {
 				(event.key = 'Escape').ifTrue {

@@ -9,7 +9,7 @@ OEIS [A003658](https://oeis.org/A003658):
 
 ```
 >>> 1:65.select(
->>> 	isFundamentalDiscriminant:/1
+>>> 	isFundamentalDiscriminant/1
 >>> )
 [
 	 5  8 12 13 17 21 24 28 29 33
@@ -23,7 +23,7 @@ OEIS [A003658](https://oeis.org/A003658):
 
 ```
 >>> 1:95.-.select(
->>> 	isFundamentalDiscriminant:/1
+>>> 	isFundamentalDiscriminant/1
 >>> ).-
 [
 	3 4 7 8 11 15 19 20 23 24
@@ -38,7 +38,7 @@ OEIS [A003658](https://oeis.org/A003658):
 
 ~~~spl svg=A oeis=A003658
 1:200.select(
-	isFundamentalDiscriminant:/1
+	isFundamentalDiscriminant/1
 ).discretePlot
 ~~~
 
@@ -50,7 +50,7 @@ OEIS [A003657](https://oeis.org/A003657):
 
 ~~~spl svg=B oeis=A003657
 1:200.-.select(
-	isFundamentalDiscriminant:/1
+	isFundamentalDiscriminant/1
 ).-.discretePlot
 ~~~
 

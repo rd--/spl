@@ -1,6 +1,6 @@
 # nestList
 
-- _nestList(f:/1, x, n)_
+- _nestList(f/1, x, n)_
 
 Answer an _n+1_ element `List` of repeated applications of the unary block _f_ to the object _x_.
 The first item in the answer is _x_.
@@ -9,14 +9,14 @@ The first item in the answer is _x_.
 >>> { :x | x * 3/2 }.nestList(1/1, 6)
 [1/1 3/2 9/4 27/8 81/16 243/32 729/64]
 
->>> cos:/1.nestList(1, 10)
+>>> cos/1.nestList(1, 10)
 [
 	1.0000 0.5403 0.8576 0.6543 0.7935
 	0.7014 0.7640 0.7221 0.7504 0.7314
 	0.7442
 ]
 
->>> sqrt:/1.nestList(100, 4)
+>>> sqrt/1.nestList(100, 4)
 [100 10 3.16228 1.77828 1.33352]
 ```
 
@@ -112,7 +112,7 @@ Successively append to a string:
 Successively rotate a list:
 
 ```
->>> rotateLeft:/1.nestList([1 2 3 4], 4)
+>>> rotateLeft/1.nestList([1 2 3 4], 4)
 [
 	1 2 3 4;
 	2 3 4 1;
@@ -297,7 +297,7 @@ OEIS [A012257](https://oeis.org/A012257):
 ~~~spl svg=D oeis=A012257
 { :x |
 	x.reverse
-	.withIndexCollect(List:/2)
+	.withIndexCollect(List/2)
 	.catenate
 }.nestList([1 1], 6)
 .catenate
@@ -326,7 +326,7 @@ OEIS [A028932](https://oeis.org/A028932):
 		x
 	}
 }.nestList([], 20)
-.collect(reverse:/1)
+.collect(reverse/1)
 .catenate
 .discretePlot
 ~~~

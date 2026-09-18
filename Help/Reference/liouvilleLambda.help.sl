@@ -57,7 +57,7 @@ implemented as `liouvilleFunction`:
 >>> 25.liouvilleLambda
 1
 
->>> 0:34.collect(liouvilleFunction:/1)
+>>> 0:34.collect(liouvilleFunction/1)
 [
 	 0  1  0 -1  0 -1  0 -1 -2 -1
 	 0 -1 -2 -3 -2 -1  0 -1 -2 -3
@@ -76,10 +76,10 @@ Liouville lambda is a completely multiplicative function:
 `divisorSum` of gives Liouville lambda is `one` for a perfect square and `zero` otherwise:
 
 ```
->>> 64.divisorSum(liouvilleLambda:/1)
+>>> 64.divisorSum(liouvilleLambda/1)
 1
 
->>> 7.divisorSum(liouvilleLambda:/1)
+>>> 7.divisorSum(liouvilleLambda/1)
 0
 ```
 
@@ -109,7 +109,7 @@ OEIS [A090410](https://oeis.org/A090410):
 ```
 >>> 0:4.collect { :n |
 >>> 	let m = 10 ^ n;
->>> 	1:m.sum(liouvilleLambda:/1)
+>>> 	1:m.sum(liouvilleLambda/1)
 >>> }
 [1 0 -2 -14 -94]
 ```

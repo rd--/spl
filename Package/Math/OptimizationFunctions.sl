@@ -1,6 +1,6 @@
 +Block {
 
-	gradientDescentMethod { :f:/1 :x :alpha :tolerance |
+	gradientDescentMethod { :f/1 :x :alpha :tolerance |
 		let gradientOf = { :p |
 			let [x, y] = p;
 			let a = 2 * (x - 1) * (-1 * y * y).exp;
@@ -40,7 +40,7 @@
 		x
 	}
 
-	nelderMeadMethod { :f:/1 :x0 :parameters |
+	nelderMeadMethod { :f/1 :x0 :parameters |
 		/* https://github.com/benfred/fmin */
 		<primitive:
 		const f = _f_1;
@@ -162,8 +162,8 @@
 		>
 	}
 
-	nelderMeadMethod { :f:/1 :x0 |
-		nelderMeadMethod(f:/1, x0, Record())
+	nelderMeadMethod { :f/1 :x0 |
+		nelderMeadMethod(f/1, x0, Record())
 	}
 
 }

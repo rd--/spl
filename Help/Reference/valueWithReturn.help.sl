@@ -1,6 +1,6 @@
 # valueWithReturn
 
-- _valueWithReturn(f:/1)_
+- _valueWithReturn(f/1)_
 
 Non-local control flow.
 Provides a return block to the block _f_,
@@ -23,12 +23,12 @@ but it is not and the answer is negative `one`:
 -1
 ```
 
-By convention the return block is called return:/1.
+By convention the return block is called return/1.
 `repeatForever` repeats a block until it exits non-locally:
 
 ```
 >>> let count = 1;
->>> let answer = { :return:/1 |
+>>> let answer = { :return/1 |
 >>> 	{
 >>> 		(count > 99).if {
 >>> 			count.return
@@ -42,7 +42,7 @@ By convention the return block is called return:/1.
 ```
 
 Where supported `valueWithReturn` is displayed as ↓,
-and both `return` and `return:/1` are displayed as ↑.
+and both `return` and `return/1` are displayed as ↑.
 
 Where supported an editor command inserts the conventional spelling of this construct,
 i.e. _spl-insert-non-local-return (C-c C-r)_ in Emacs.

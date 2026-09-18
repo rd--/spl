@@ -12,7 +12,7 @@ Answer the zero-based index of the permutation _p_ in the lexicographic ordering
 12
 
 >>> let s4 = [1 .. 4].lexicographicPermutations;
->>> s4.collect(permutationRank:/1)
+>>> s4.collect(permutationRank/1)
 [0 .. 23]
 ```
 

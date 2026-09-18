@@ -74,7 +74,7 @@ Rectangle : [Object, Store, Equal, Geometry] { | lowerLeft upperRight |
 		)
 	}
 
-	equalBy { :self :anObject :aBlock:/2|
+	equalBy { :self :anObject :aBlock/2|
 		anObject.isRectangle & {
 			aBlock(self.lowerLeft, anObject.lowerLeft) & {
 				aBlock(self.upperRight, anObject.upperRight)
@@ -146,7 +146,7 @@ Rectangle : [Object, Store, Equal, Geometry] { | lowerLeft upperRight |
 	}
 
 	intersectsAny { :self :rectangleList |
-		valueWithReturn { :return:/1 |
+		valueWithReturn { :return/1 |
 			rectangleList.do { :r |
 				self.intersects(r).ifTrue {
 					true.return
@@ -332,7 +332,7 @@ Rectangle : [Object, Store, Equal, Geometry] { | lowerLeft upperRight |
 
 	Rectangle { :lowerLeft :upperRight |
 		(lowerLeft.rank > 1).if {
-			lowerLeft.withCollect(upperRight.nest, Rectangle:/2)
+			lowerLeft.withCollect(upperRight.nest, Rectangle/2)
 		} {
 			newRectangle().initializeSlots(lowerLeft, upperRight)
 		}

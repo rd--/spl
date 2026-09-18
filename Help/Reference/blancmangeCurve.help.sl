@@ -7,7 +7,7 @@ is a pathological continuous function which is nowhere differentiable.
 The _n_-th iteration contains _2^n + 1_ points.
 
 ```
->>> 1:4.collect(blancmangeCurve:/1)
+>>> 1:4.collect(blancmangeCurve/1)
 [
 	0 2 0;
 	0 4 4 4 0;

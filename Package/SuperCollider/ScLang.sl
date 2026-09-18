@@ -1,7 +1,7 @@
 +@Collection {
 
 	ampDb { :self |
-		self.collect(ampDb:/1)
+		self.collect(ampDb/1)
 	}
 
 	atExtending { :self :index |
@@ -9,11 +9,11 @@
 	}
 
 	cpsMidi { :self |
-		self.collect(cpsMidi:/1)
+		self.collect(cpsMidi/1)
 	}
 
 	dbAmp { :self |
-		self.collect(dbAmp:/1)
+		self.collect(dbAmp/1)
 	}
 
 	extendTo { :self :size |
@@ -27,7 +27,7 @@
 	}
 
 	midiCps { :self |
-		self.collect(midiCps:/1)
+		self.collect(midiCps/1)
 	}
 
 	powersetBitwise { :self |
@@ -433,7 +433,7 @@
 	}
 
 	extendToBeOfEqualSize { :self |
-		let size = self.collect(sizeForExtending:/1).max;
+		let size = self.collect(sizeForExtending/1).max;
 		self.collect { :each |
 			each.extendTo(size)
 		}
@@ -506,7 +506,7 @@
 	}
 
 	multiChannelExpand { :self |
-		let k = self.collect(sizeForExtending:/1).max;
+		let k = self.collect(sizeForExtending/1).max;
 		1.toCollect(k) { :index |
 			self.collect { :each |
 				each.atExtending(index)
@@ -576,7 +576,7 @@
 		self.shuffled
 	}
 
-	separate { :self :aBlock:/2 |
+	separate { :self :aBlock/2 |
 		let answer = [];
 		let segment = [];
 		self.adjacentPairsDo { :a :b |
@@ -604,13 +604,13 @@
 	}
 
 	similarity { :self :other |
-		self.similarity(other, equal:/2)
+		self.similarity(other, equal/2)
 	}
 
-	similarity { :self :other :equalityBlock:/2 |
+	similarity { :self :other :equalityBlock/2 |
 		let maxDistance = self.size.max(other.size);
 		(maxDistance > 0).if {
-			1 - (self.levenshteinDistance(other, equalityBlock:/2) / maxDistance)
+			1 - (self.levenshteinDistance(other, equalityBlock/2) / maxDistance)
 		} {
 			1
 		}
@@ -637,7 +637,7 @@
 		)
 	}
 
-	waveFill { :self :aBlock:/3 :start :end |
+	waveFill { :self :aBlock/3 :start :end |
 		(self.size > 0).ifTrue {
 			let index = 1;
 			let next = start;
@@ -666,19 +666,19 @@
 +Record {
 
 	kr { :self |
-		self.collect(kr:/1)
+		self.collect(kr/1)
 	}
 
 	multiChannelExpand { :self |
 		let keys = self.keys;
 		let values = self.values;
-		let size = values.collect(sizeForExtending:/1).max;
+		let size = values.collect(sizeForExtending/1).max;
 		let places = values.multiChannelExpand.collect { :each |
 			each.withIndexCollect { :item :index |
 				keys[index] -> item
 			}
 		};
-		places.collect(asRecord:/1)
+		places.collect(asRecord/1)
 	}
 
 }
@@ -704,7 +704,7 @@
 	degreeToKey { :self :scale :stepsPerOctave |
 		let scaleDegree = self.round;
 		let accidental = (self - scaleDegree) * 10;
-		let baseKey = (stepsPerOctave * (scaleDegree.quotientBy(scale.size, floor:/1))) + scale.atWrap(scaleDegree + 1);
+		let baseKey = (stepsPerOctave * (scaleDegree.quotientBy(scale.size, floor/1))) + scale.atWrap(scaleDegree + 1);
 		(accidental = 0).if {
 			baseKey
 		} {
@@ -728,15 +728,15 @@
 
 +Block {
 
-	<> { :self:/1 :aBlock:/1 |
+	<> { :self/1 :aBlock/1 |
 		{ :x |
 			self(aBlock(x))
 		}
 	}
 
-	block { :self:/1 |
-		valueWithReturn { :return:/1 |
-			self(return:/1)
+	block { :self/1 |
+		valueWithReturn { :return/1 |
+			self(return/1)
 		}
 	}
 

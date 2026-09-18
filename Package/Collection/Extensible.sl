@@ -23,8 +23,8 @@
 		anObject
 	}
 
-	addIfNotPresentBy { :self :anObject :aBlock:/2 |
-		self.includesBy(anObject, aBlock:/2).ifFalse {
+	addIfNotPresentBy { :self :anObject :aBlock/2 |
+		self.includesBy(anObject, aBlock/2).ifFalse {
 			self.add(anObject)
 		};
 		anObject
@@ -37,7 +37,7 @@
 		newObject
 	}
 
-	fillFromWith { :self :aCollection :aBlock:/1 |
+	fillFromWith { :self :aCollection :aBlock/1 |
 		aCollection.do { :each |
 			self.add(aBlock(each))
 		}
@@ -110,7 +110,7 @@
 		aCollection
 	}
 
-	removeAllSuchThat { :self :aBlock:/1 |
+	removeAllSuchThat { :self :aBlock/1 |
 		self.copy.do { :each |
 			aBlock(each).ifTrue {
 				self.remove(each)

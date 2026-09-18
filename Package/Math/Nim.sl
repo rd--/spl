@@ -4,7 +4,7 @@
 		y.isInteger.if {
 			nimMultiplication(LargeInteger(x), y.asLargeInteger).normal
 		} {
-			y.adaptToIntegerAndApply(x, nimMultiplication:/2)
+			y.adaptToIntegerAndApply(x, nimMultiplication/2)
 		}
 	}
 
@@ -16,7 +16,7 @@
 		y.isInteger.if {
 			uncheckedNimMultiplication(x, y.asLargeInteger)
 		} {
-			y.adaptToIntegerAndApply(x, nimMultiplication:/2)
+			y.adaptToIntegerAndApply(x, nimMultiplication/2)
 		}
 	}
 
@@ -64,7 +64,7 @@
 		let v = 1;
 		let p = n;
 		let i = 0;
-		{ :break:/0 |
+		{ :break/0 |
 			(k.bitAt(i + 1) = 1).ifTrue {
 				k := k - (2 ^ i);
 				v := v.nimMultiplication(p)
@@ -99,7 +99,7 @@
 +List {
 
 	nimValue { :self |
-		let k = self.collect(bitLength:/1).max;
+		let k = self.collect(bitLength/1).max;
 		let b = self.collect { :each |
 			each.integerDigits(2, k)
 		};

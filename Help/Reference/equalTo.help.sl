@@ -7,7 +7,7 @@ Answer a `Block` that yields _x=y_ when applied to an expression _x_.
 Check numeric equality:
 
 ```
->>> let f:/1 = equalTo(2);
+>>> let f/1 = equalTo(2);
 >>> f(2)
 true
 ```

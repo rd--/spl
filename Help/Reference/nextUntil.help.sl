@@ -1,6 +1,6 @@
 # nextUntil
 
-- _nextUntil(, f:/1)_
+- _nextUntil(, f/1)_
 
 Answer a `List` of the next items in the stream _s_ for as long as the block _f_,
 applied to each item,
@@ -9,7 +9,7 @@ answers `false`.
 ```
 >>> (1 .. Infinity)
 >>> .asStream
->>> .reject(isEven:/1)
+>>> .reject(isEven/1)
 >>> .nextUntil { :x |
 >>> 	x > 9
 >>> }

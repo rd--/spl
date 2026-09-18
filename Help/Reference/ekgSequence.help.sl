@@ -81,7 +81,7 @@ OEIS [A073734](https://oeis.org/A073734):
 
 ~~~spl svg=C oeis=A073734
 85.ekgSequence
-.adjacentPairsCollect(gcd:/2)
+.adjacentPairsCollect(gcd/2)
 .discretePlot
 ~~~
 

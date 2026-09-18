@@ -1,9 +1,9 @@
 # table
 
-- _table(f:/2)_
-- _table(f:/1, i)_
-- _table(f:/2, i, j)_
-- _table(f:/3, i, j, k)_
+- _table(f/2)_
+- _table(f/1, i)_
+- _table(f/2, i, j)_
+- _table(f/3, i, j, k)_
 
 The unary form answers a `Block`,
 the binary form a `List`,
@@ -27,7 +27,7 @@ OEIS [A000290](https://oeis.org/A000290):
 A table with values of _x_ running from 0 to 1 in steps of 0.25:
 
 ```
->>> sqrt:/1.table([0 .. 1; 0.25])
+>>> sqrt/1.table([0 .. 1; 0.25])
 [0 0.5 0.707107 0.866025 1]
 
 >>> (0, 0.25 .. 1).sqrt
@@ -38,7 +38,7 @@ A table with _i_ running from 0 to 20 in steps of 2,
 OEIS [A016742](https://oeis.org/A016742):
 
 ```
->>> square:/1.table([0, 2 .. 20])
+>>> square/1.table([0, 2 .. 20])
 [0 4 16 36 64 100 144 196 256 324 400]
 
 >>> 0:20:2.square
@@ -98,7 +98,7 @@ Make a 4×3 matrix:
 The index in the table can run backward:
 
 ```
->>> identity:/1.table(Range(10, -4, -2))
+>>> identity/1.table(Range(10, -4, -2))
 [10 8 6 4 2 0 -2 -4]
 ```
 
@@ -141,7 +141,7 @@ Make a 3×2×4 array:
 Iterate over an existing list:
 
 ```
->>> sqrt:/1.table([1 4 9 16])
+>>> sqrt/1.table([1 4 9 16])
 [1 2 3 4]
 ```
 
@@ -410,7 +410,7 @@ Modular addition table:
 Plot a table:
 
 ~~~spl svg=A
-prime:/1.table(1:50).linePlot
+prime/1.table(1:50).linePlot
 ~~~
 
 ![](Help/Image/table-A.svg)

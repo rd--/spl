@@ -136,7 +136,7 @@ OEIS [A032528](https://oeis.org/A032528):
 Floor is a staircase function:
 
 ~~~spl svg=A
-(0 -- 8).functionPlot(floor:/1)
+(0 -- 8).functionPlot(floor/1)
 ~~~
 
 ![](Help/Image/floor-A.svg)

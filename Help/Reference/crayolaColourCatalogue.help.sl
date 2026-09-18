@@ -51,8 +51,8 @@ Sorted by `relativeLuminance`:
 system
 .crayolaColourCatalogue
 .values
-.collect(asColour:/1)
-.sortOn(relativeLuminance:/1)
+.collect(asColour/1)
+.sortOn(relativeLuminance/1)
 .arrayReshape([11 15], nil)
 .arrayPlot
 ~~~

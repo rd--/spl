@@ -19,7 +19,7 @@ true
 >>> [1 --> 2, 2 --> 3, 3 --> 1]
 >>> .asGraph
 >>> .edgeList
->>> .collect(isDirectedEdge:/1)
+>>> .collect(isDirectedEdge/1)
 [true true true]
 ```
 
@@ -36,7 +36,7 @@ Edges answer `isDirected`:
 >>> [
 >>> 	1 --- 2,
 >>> 	2 --> 3
->>> ].collect(isDirected:/1)
+>>> ].collect(isDirected/1)
 [false true]
 ```
 

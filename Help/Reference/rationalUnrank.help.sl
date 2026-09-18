@@ -75,7 +75,7 @@ and the denominator on the _y_-axis:
 
 ~~~spl svg=C
 1:200.rationalUnrank('Canonical')
-.collect(components:/1)
+.collect(components/1)
 .scatterPlot
 ~~~
 

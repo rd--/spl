@@ -1,7 +1,7 @@
 # cull
 
-- _cull(f:/n, x)_
-- _cull(f:/n, x₁, x₂…)_
+- _cull(f/n, x)_
+- _cull(f/n, x₁, x₂…)_
 
 Apply the block _f_ with up to _n_ arguments.
 

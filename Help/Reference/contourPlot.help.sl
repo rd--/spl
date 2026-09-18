@@ -99,7 +99,7 @@ Plot the bow curve:
 
 ~~~spl svg=I
 let i = (-0.5 -- 0.5).subdivide(50);
-bowCurve:/2.contourPlot(i, i, [0])
+bowCurve/2.contourPlot(i, i, [0])
 ~~~
 
 ![](Help/Image/contourPlot-I.svg)
@@ -108,7 +108,7 @@ Plot the stirrup curve:
 
 ~~~spl svg=J
 let i = (-5 -- 5).subdivide(50);
-stirrupCurve:/2.contourPlot(i, i, [0])
+stirrupCurve/2.contourPlot(i, i, [0])
 ~~~
 
 ![](Help/Image/contourPlot-J.svg)

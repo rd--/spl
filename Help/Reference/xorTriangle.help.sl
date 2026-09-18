@@ -36,7 +36,7 @@ OEIS [A334556](https://oeis.org/A334556):
 >>> 	let m = n.bitLength - 1;
 >>> 	let x = n;
 >>> 	let r = true;
->>> 	0.toDoWithBreak(m) { :k :e:/0 |
+>>> 	0.toDoWithBreak(m) { :k :e/0 |
 >>> 		notAllowed(n, m, x, k)
 >>> 		.ifTrue {
 >>> 			r := false;

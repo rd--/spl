@@ -43,7 +43,7 @@ The unary form reduces over a collection:
 Truth table for or:
 
 ```
->>> bitOr:/2.outer([1 0], [1 0])
+>>> bitOr/2.outer([1 0], [1 0])
 [1 1; 1 0]
 
 >>> [0 1; 0 1].bitOr([0 0; 1 1])
@@ -83,7 +83,7 @@ Bitwise or of _n_ and _2n_ and _3n_:
 Matrix plot of the bitwise and of the first few integers:
 
 ~~~spl png=D
-bitOr:/2
+bitOr/2
 .table(-31:31, -31:31)
 .rescale
 .Greymap
@@ -132,7 +132,7 @@ Bitwise logical or triangular array,
 OEIS [A080098](https://oeis.org/A080098):
 
 ~~~spl svg=H oeis=A080098
-0:19.triangularArray(bitOr:/2)
+0:19.triangularArray(bitOr/2)
 .catenate.scatterPlot
 ~~~
 

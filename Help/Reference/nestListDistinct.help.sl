@@ -1,6 +1,6 @@
 # nestListDistinct
 
-- _nestListDistinct(f:/1, i)_
+- _nestListDistinct(f/1, i)_
 
 Make a `List` of the results of applying the block _f_ repeatedly,
 starting with the value _i_,
@@ -10,7 +10,7 @@ Answer the list and also the state that would be next.
 Play a round of Bulgarian solitaire:
 
 ```
->>> bulgarianSolitaire:/1
+>>> bulgarianSolitaire/1
 >>> .nestListDistinct([2 1 1 1])
 [
 	[

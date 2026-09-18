@@ -175,7 +175,7 @@ The 22 partitions of 19 into 11 parts in lexicographic order:
 
 ```
 >>> integerPartitions(19, [11])
->>> .collect(reverse:/1)
+>>> .collect(reverse/1)
 >>> .lexicographicSort
 [
 	1 1 1 1 1 1 1 1 1 1 9;
@@ -326,7 +326,7 @@ OEIS [A000793](https://oeis.org/A000793):
 ```
 >>> 1:15.collect { :n |
 >>> 	n.integerPartitions
->>> 	.collect(lcm:/1)
+>>> 	.collect(lcm/1)
 >>> 	.max
 >>> }
 [1 2 3 4 6 6 12 15 20 30 30 60 60 84 105]
@@ -339,7 +339,7 @@ OEIS [A100824](https://oeis.org/A100824):
 >>> 1:15.collect { :n |
 >>> 	n.integerPartitions
 >>> 	.select { :p |
->>> 		p.count(isOdd:/1) <= 1
+>>> 		p.count(isOdd/1) <= 1
 >>> 	}.size
 >>> }
 [1 1 2 2 4 3 7 5 12 7 19 11 30 15 45]
@@ -351,7 +351,7 @@ OEIS [A032020](https://oeis.org/A032020):
 ```
 >>> 1:14.collect { :n |
 >>> 	n.integerPartitions
->>> 	.select(isDuplicateFree:/1)
+>>> 	.select(isDuplicateFree/1)
 >>> 	.collect { :p |
 >>> 		p.size.factorial
 >>> 	}.sum
@@ -601,7 +601,7 @@ OEIS [A002375](https://oeis.org/A002375):
 1:98.collect { :n |
 	(2 * n).integerPartitions([2])
 	.count { :p |
-		p.allSatisfy(isPrime:/1) & {
+		p.allSatisfy(isPrime/1) & {
 			p.includes(2).not
 		}
 	}

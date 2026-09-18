@@ -40,7 +40,7 @@ Plot table:
 
 ~~~spl svg=A
 let n = 1:13;
-legendreSymbol:/2
+legendreSymbol/2
 .swap
 .table((n + 1).prime, n)
 .rescale

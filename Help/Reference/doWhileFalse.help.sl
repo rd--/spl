@@ -1,6 +1,6 @@
 # doWhileFalse
 
-- _doWhileFalse(f:/0, condition:/0)_
+- _doWhileFalse(f/0, condition/0)_
 
 Conditional evaluation.
 Evaluate the block _f_ once, then again as long the value of the block _condition_ is `false`.

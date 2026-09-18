@@ -38,7 +38,7 @@ Threads over lists:
 To decide if a list has only zeroes use `allSatisfy` or `deepAllSatisfy`:
 
 ```
->>> [0 1 0].allSatisfy(isBit:/1)
+>>> [0 1 0].allSatisfy(isBit/1)
 true
 ```
 

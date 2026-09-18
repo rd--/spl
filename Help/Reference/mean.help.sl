@@ -65,7 +65,7 @@ Compute the mean of every column of a matrix:
 Compute the mean of every row of a matrix:
 
 ```
->>> [3 5].iota.collect(mean:/1)
+>>> [3 5].iota.collect(mean/1)
 [3 8 13]
 ```
 

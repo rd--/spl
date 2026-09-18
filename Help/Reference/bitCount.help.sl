@@ -45,7 +45,7 @@ powers of two have one bit set:
 Plot sequence:
 
 ~~~spl svg=A
-0:255.functionPlot(bitCount:/1)
+0:255.functionPlot(bitCount/1)
 ~~~
 
 ![](Help/Image/bitCount-A.svg)

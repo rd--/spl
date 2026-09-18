@@ -33,7 +33,7 @@ the root of the Stern-Brocot tree:
 Trace using `nestWhileList`:
 
 ```
->>> sternBrocotParent:/1
+>>> sternBrocotParent/1
 >>> .nestWhileList(23/16) { :x |
 >>> 	x != 1/1
 >>> }

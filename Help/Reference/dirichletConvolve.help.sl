@@ -1,6 +1,6 @@
 # dirichletConvolve
 
-- _dirichletConvolve(f:/1, g:/1)_
+- _dirichletConvolve(f/1, g/1)_
 
 Answer a function that is the Dirichlet convolution of the functions _f_ and _g_.
 
@@ -94,8 +94,8 @@ OEIS [A329484](https://oeis.org/A329484):
 ~~~spl svg=G oeis=A329484
 1:85.collect(
 	dirichletConvolve(
-		liouvilleLambda:/1,
-		liouvilleLambda:/1
+		liouvilleLambda/1,
+		liouvilleLambda/1
 	)
 ).discretePlot
 ~~~

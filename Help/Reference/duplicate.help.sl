@@ -1,6 +1,6 @@
 # duplicate
 
-- _f:/0 ! ⍴_
+- _f/0 ! ⍴_
 
 Evaluate the no-argument block _f_ to fill each place in a newly constructed array of the indicated shape _⍴_.
 

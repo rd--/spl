@@ -14,7 +14,7 @@ Evaluate numerically:
 Plot flat-top window:
 
 ~~~spl svg=A
-(-1 -- 1).functionPlot(flatTopWindow:/1)
+(-1 -- 1).functionPlot(flatTopWindow/1)
 ~~~
 
 ![](Help/Image/flatTopWindow-A.svg)
@@ -34,7 +34,7 @@ Discrete flat-top window of length 15:
 ~~~spl svg=C
 (-0.5 -- 0.5).discretize(
 	15,
-	flatTopWindow:/1
+	flatTopWindow/1
 ).discretePlot
 ~~~
 
@@ -44,7 +44,7 @@ Frequency response of the flat-top window:
 
 ~~~spl svg=D
 51.windowTable(
-	flatTopWindow:/1
+	flatTopWindow/1
 ).fftPlot(512, 'Centered', 'Logarithmic')
 ~~~
 

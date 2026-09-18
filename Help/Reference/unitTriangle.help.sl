@@ -12,7 +12,7 @@ Answer the unit triangle function on the interval _(-1,1)_.
 The unit triangle function:
 
 ~~~spl svg=A
-(-2 -- 2).functionPlot(unitTriangle:/1)
+(-2 -- 2).functionPlot(unitTriangle/1)
 ~~~
 
 ![](Help/Image/unitTriangle-A.svg)

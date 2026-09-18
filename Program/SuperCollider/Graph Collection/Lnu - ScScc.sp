@@ -94,8 +94,8 @@ let r = 9000;
 let t = Sweep(0, r) % r;
 let d = { TRand(0, 256, t < 1) };
 let o = d();
-let | = BitOr:/2;
-let & = BitAnd:/2;
+let | = BitOr/2;
+let & = BitAnd/2;
 {
 	o := (
 		o
@@ -225,7 +225,7 @@ Pan2(
 )
 
 /* SCSCC-18 "Bone Spurs" 165 bytes */
-let b = [BLowShelf:/4 BPeakEq:/4 BHiShelf:/4 BLowPass:/3 BHiPass:/3 BBandPass:/3 BBandStop:/3 BAllPass:/3];
+let b = [BLowShelf/4 BPeakEq/4 BHiShelf/4 BLowPass/3 BHiPass/3 BBandPass/3 BBandStop/3 BAllPass/3];
 let q = { :x | QuadN(x, 1, -1, -0.75, 0).Sin };
 let o = LocalIn(1, 0) + 0.1;
 [0 .. 7].collect { :n |
@@ -258,8 +258,8 @@ Pan2(
 /* SCSCC-21 "Byte Beat Business" 104b */
 let e = 256;
 let t = Sweep(0, 8000);
-let | = BitOr:/2;
-let & = BitAnd:/2;
+let | = BitOr/2;
+let & = BitAnd/2;
 let a = ((t >> 8 % e) | (t / 5 & (t / 2816 % e)));
 let b = (t >> 9 % e | (t * 2 & (t / 1792 % 16)));
 Pan2(
@@ -460,7 +460,7 @@ let b = { :x |
 		x,
 		0,
 		VarSaw(
-			m:/0 ! 2 / 33,
+			m/0 ! 2 / 33,
 			0,
 			0.5
 		) + 1 / 2
@@ -518,7 +518,7 @@ let r = MidiRatio(
 	(2 * [0 .. 1] +.x (5 * [0 .. 3] ++ [19])) +.x (24 * [0 .. 2])
 );
 let c = r.asStream.collect { :x |
-	x * (m:/0 ! 2 / 33 + 1 * 29)
+	x * (m/0 ! 2 / 33 + 1 * 29)
 };
 Splay(
 	{
@@ -602,7 +602,7 @@ let r = Select(
 let e = Abs(LfSaw({ 1 + a() } ! 4, 0) * 8 + 1).kr;
 Splay(
 	LfSaw(
-		a:/0 ! 4 / 4 + 65 * r,
+		a/0 ! 4 / 4 + 65 * r,
 		0
 	) ^ e / 5
 )

@@ -4,7 +4,7 @@ RegExp! : [Object, Store, Equal] {
 		self
 	}
 
-	equalBy { :self :anObject :aBlock:/2 |
+	equalBy { :self :anObject :aBlock/2 |
 		anObject.isRegularExpression & {
 			aBlock(self.source, anObject.source) & {
 				aBlock(self.flags, anObject.flags)
@@ -65,7 +65,7 @@ RegExp! : [Object, Store, Equal] {
 		self.uncheckedReplaceWith(aString, replacementString)
 	}
 
-	replaceModifying { :self :aString :aBlock:/1 |
+	replaceModifying { :self :aString :aBlock/1 |
 		aString.assertIsString;
 		self.uncheckedReplaceWith(aString) { :match :offset :string |
 			aBlock(match)
@@ -78,7 +78,7 @@ RegExp! : [Object, Store, Equal] {
 		self.uncheckedReplaceAllWith(aString, replacementString)
 	}
 
-	replaceAllModifying { :self :aString :aBlock:/1 |
+	replaceAllModifying { :self :aString :aBlock/1 |
 		aString.assertIsString;
 		self.uncheckedReplaceAllWith(aString) { :match :offset :string |
 			aBlock(match)
@@ -310,7 +310,7 @@ RegExp! : [Object, Store, Equal] {
 	wordsBy { :self :separators |
 		self.splitByRegularExpression(
 			separators.characters.stringIntercalate('|')
-		).reject(isEmpty:/1)
+		).reject(isEmpty/1)
 	}
 
 	words { :self |

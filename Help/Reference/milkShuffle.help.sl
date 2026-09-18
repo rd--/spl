@@ -41,7 +41,7 @@ Milk shuffle of twelve cards:
 Four milk shuffles of eight cards:
 
 ```
->>> milkShuffle:/1.nestList([1 .. 8], 4)
+>>> milkShuffle/1.nestList([1 .. 8], 4)
 [
 	1 2 3 4 5 6 7 8;
 	4 5 3 6 2 7 1 8;
@@ -70,7 +70,7 @@ Shuffles of cards counted from zero:
 Visualize the recurring pattern when shuffling an eleven place list:
 
 ~~~spl svg=A
-milkShuffle:/1.nestList(
+milkShuffle/1.nestList(
 	[1 .. 11], 6
 ).matrixPlot
 ~~~
@@ -80,7 +80,7 @@ milkShuffle:/1.nestList(
 Visualize the recurring pattern when shuffling a fourty-three place list:
 
 ~~~spl svg=B
-milkShuffle:/1.nestList(
+milkShuffle/1.nestList(
 	[1 .. 43], 8
 ).matrixPlot
 ~~~

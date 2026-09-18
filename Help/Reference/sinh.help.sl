@@ -81,7 +81,7 @@ OEIS [A173121](https://oeis.org/A173121):
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(-4 -- 4).functionPlot(sinh:/1)
+(-4 -- 4).functionPlot(sinh/1)
 ~~~
 
 ![](Help/Image/sinh-A.svg)
@@ -89,7 +89,7 @@ Plot over a subset of the reals:
 Draw a hyperbola:
 
 ~~~spl svg=B
-(-1 -- 1).parametricPlot(sinh:/1, cosh:/1)
+(-1 -- 1).parametricPlot(sinh/1, cosh/1)
 ~~~
 
 ![](Help/Image/sinh-B.svg)
@@ -98,8 +98,8 @@ Plot `sinh` alongside a Padé approximation:
 
 ~~~spl svg=C
 (-1.pi -- 1.pi).functionPlot([
-	sinh:/1,
-	sinhApproximation:/1
+	sinh/1,
+	sinhApproximation/1
 ])
 ~~~
 
@@ -109,7 +109,7 @@ Plot over a subset of the complexes:
 
 ~~~spl png=D
 [-0.25.pi.j(-2.5), 0.25.pi.j(2.5)]
-.complexPlot(sinh:/1)
+.complexPlot(sinh/1)
 ~~~
 
 ![](Help/Image/sinh-D.png)

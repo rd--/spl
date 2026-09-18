@@ -1,12 +1,12 @@
 # repeatForever
 
-- _repeatForever(f:/0)_
+- _repeatForever(f/0)_
 
 Evaluate the no-argument block _f_ repeatedly,
 ending only if the block explicitly returns (non-locally):
 
 ```
->>> { :return:/1 |
+>>> { :return/1 |
 >>> 	{
 >>> 		system
 >>> 		.randomBoolean(0.5, [])

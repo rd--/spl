@@ -1,6 +1,6 @@
 # apply
 
-- _apply(f:/n, [x₁ x₂ …])_
+- _apply(f/n, [x₁ x₂ …])_
 
 Apply the block _f_ to the arguments at the list _x_.
 It is an error if _x_ is not a `List` or has the wrong number of arguments.

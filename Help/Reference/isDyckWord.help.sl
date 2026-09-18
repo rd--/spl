@@ -28,7 +28,7 @@ The `dyckWords` method enumerates Dyck words:
 
 ```
 >>> 3.dyckWords
->>> .allSatisfy(isDyckWord:/1)
+>>> .allSatisfy(isDyckWord/1)
 true
 ```
 
@@ -38,7 +38,7 @@ First few words,
 OEIS [A080116](https://oeis.org/A080116):
 
 ```
->>> 0:56.collect(isDyckWord:/1).boole
+>>> 0:56.collect(isDyckWord/1).boole
 [
 	1 0 1 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0
 	0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -50,7 +50,7 @@ List of integers where the binary representation is a Dyck word,
 OEIS [A014486](https://oeis.org/A014486):
 
 ```
->>> 0:915.select(isDyckWord:/1)
+>>> 0:915.select(isDyckWord/1)
 [
 	 0   2   10  12  42
 	 44  50  52  56 170
@@ -70,9 +70,9 @@ Dyck language interpreted as binary numbers in ascending order,
 OEIS [A063171](https://oeis.org/A063171):
 
 ```
->>> 0:684.select(isDyckWord:/1)
+>>> 0:684.select(isDyckWord/1)
 >>> .integerDigits(2)
->>> .collect(fromDigits:/1)
+>>> .collect(fromDigits/1)
 [
 	0
 	10
@@ -105,7 +105,7 @@ OEIS [A063171](https://oeis.org/A063171):
 There are large gaps:
 
 ```
->>> (992 .. 2730).select(isDyckWord:/1)
+>>> (992 .. 2730).select(isDyckWord/1)
 [992 2730]
 ```
 
@@ -113,7 +113,7 @@ List of integers where the binary representation is a Dyck word,
 OEIS [A014486](https://oeis.org/A014486):
 
 ~~~spl svg=A oeis=A014486
-0:999.select(isDyckWord:/1)
+0:999.select(isDyckWord/1)
 .scatterPlot
 ~~~
 

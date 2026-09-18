@@ -125,7 +125,7 @@ OEIS [A352172](https://oeis.org/A352172):
 ~~~spl svg=D oeis=A352172
 0:215.collect { :n |
 	n.decimalExpansion
-	.select(isPositive:/1)
+	.select(isPositive/1)
 	.product ^ 3
 }.scatterPlot.log
 ~~~
@@ -138,7 +138,7 @@ OEIS [A051801](https://oeis.org/A051801):
 ~~~spl svg=E oeis=A051801
 0:215.collect { :n |
 	n.decimalExpansion
-	.select(isPositive:/1)
+	.select(isPositive/1)
 	.product
 }.scatterPlot
 ~~~

@@ -7,7 +7,7 @@ When a method is declared the name it is bound to indicates the arity of the met
 Likewise when a temporary variable is initialised to a literal block value,
 the variable defined indicates the arity of the block.
 
-The application syntax _f(x, y)_ rewrites _f_ to the arity-specific name, here _f:/2(x, y)_.
+The application syntax _f(x, y)_ rewrites _f_ to the arity-specific name, here _f/2(x, y)_.
 This is the ordinary notation for applying methods.
 Therefore, in the ordinary case the arity dispatch is made statically and not dynamically,
 and there is no possibility of arity errors.
@@ -21,7 +21,7 @@ In particular blocks passed as arguments cannot be applied using this syntax,
 and must be called using _apply_ or _value_.
 
 ```
->>> [sqrt(9), 9.sqrt, sqrt:/1.value(9), sqrt:/1 . (9)]
+>>> [sqrt(9), 9.sqrt, sqrt/1.value(9), sqrt/1 . (9)]
 [3 3 3 3]
 ```
 

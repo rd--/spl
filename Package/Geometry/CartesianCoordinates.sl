@@ -55,7 +55,7 @@
 	}
 
 	isOrigin { :self |
-		self.coordinates.allSatisfy(isZero:/1)
+		self.coordinates.allSatisfy(isZero/1)
 	}
 
 	isPlanar { :self |

@@ -102,7 +102,7 @@ At `Complex`:
 The fraction of pairs of the first 100 integers that are relatively prime:
 
 ```
->>> isCoprime:/2.table(1:100, 1:100)
+>>> isCoprime/2.table(1:100, 1:100)
 >>> .catenate.boole.mean
 0.6087
 

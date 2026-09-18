@@ -21,11 +21,11 @@ OEIS [A180853](https://oeis.org/A180853) _n=4_,
 OEIS [A217218](https://oeis.org/A217218) _n=44_:
 
 ```
->>> amusicalPermutation:/1
+>>> amusicalPermutation/1
 >>> .nestList(4, 5)
 [4 6 9 7 5 4]
 
->>> amusicalPermutation:/1
+>>> amusicalPermutation/1
 >>> .nestList(44, 12)
 [44 66 99 74 111 83 62 93 70 105 79 59 44]
 ```
@@ -35,7 +35,7 @@ OEIS [A368179](https://oeis.org/A368179):
 
 ```
 >>> 0:9.collect { :n |
->>> 	amusicalPermutation:/1
+>>> 	amusicalPermutation/1
 >>> 	.nestList(n, 9)
 >>> }
 [
@@ -66,7 +66,7 @@ OEIS [A028397](https://oeis.org/A028397):
 
 ~~~spl svg=B oeis=A028397
 0:150.collect { :n |
-	amusicalPermutation:/1
+	amusicalPermutation/1
 	.nestList(n, 100).min
 }.scatterPlot
 ~~~
@@ -77,7 +77,7 @@ Iterate the amusical permutation map starting at eight,
 OEIS [A028393](https://oeis.org/A028393):
 
 ~~~spl svg=C oeis=A028393
-amusicalPermutation:/1
+amusicalPermutation/1
 .nestList(8, 65)
 .discretePlot
 ~~~
@@ -89,7 +89,7 @@ log scale scatter plot,
 OEIS [A028393](https://oeis.org/A028393):
 
 ~~~spl svg=D oeis=A028393
-amusicalPermutation:/1
+amusicalPermutation/1
 .nestList(8, 250)
 .linePlot.log
 ~~~
@@ -100,7 +100,7 @@ Iterate the amusical permutation map starting at fourteen,
 OEIS [A028395](https://oeis.org/A028395):
 
 ~~~spl svg=E oeis=A028395
-amusicalPermutation:/1
+amusicalPermutation/1
 .nestList(14, 250)
 .linePlot.log
 ~~~
@@ -111,7 +111,7 @@ Iterate the amusical permutation map starting at fourty,
 OEIS [A182205](https://oeis.org/A182205):
 
 ~~~spl svg=F oeis=A182205
-amusicalPermutation:/1
+amusicalPermutation/1
 .nestList(40, 250)
 .linePlot.log
 ~~~
@@ -133,7 +133,7 @@ OEIS [A349351](https://oeis.org/A349351):
 
 ~~~spl svg=H oeis=A349351
 1:115.collect(
-	amusicalPermutation:/1
+	amusicalPermutation/1
 	.dirichletInverse
 ).discretePlot
 ~~~
@@ -144,8 +144,8 @@ Sum of the amusical permutation and it’s dirichlet inverse,
 OEIS [A349352](https://oeis.org/A349352):
 
 ~~~spl svg=I oeis=A349352
-let f:/1 = amusicalPermutation:/1;
-let g:/1 = f:/1.dirichletInverse;
+let f/1 = amusicalPermutation/1;
+let g/1 = f/1.dirichletInverse;
 1:115.collect { :n |
 	f(n) + g(n)
 }.discretePlot
@@ -160,7 +160,7 @@ OEIS [A368179](https://oeis.org/A368179):
 ~~~spl svg=J oeis=A368179
 let k = 16;
 let a = 0:k.collect { :n |
-	amusicalPermutation:/1
+	amusicalPermutation/1
 	.nestList(n, k)
 };
 let b = [];

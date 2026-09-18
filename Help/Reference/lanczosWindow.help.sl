@@ -21,7 +21,7 @@ Threads over lists, zero at each end-point:
 The Lanczos window function:
 
 ~~~spl svg=A
-(-1 -- 1).functionPlot(lanczosWindow:/1)
+(-1 -- 1).functionPlot(lanczosWindow/1)
 ~~~
 
 ![](Help/Image/lanczosWindow-A.svg)

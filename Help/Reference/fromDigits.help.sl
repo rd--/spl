@@ -31,7 +31,7 @@ OEIS [A019518](https://oeis.org/A019518):
 ```
 >>> 1:9.collect { :n |
 >>> 	n.primesList.collect(
->>> 		integerDigits:/1
+>>> 		integerDigits/1
 >>> 	).flatten.fromDigits(10)
 >>> }
 [
@@ -90,7 +90,7 @@ OEIS [A123895](https://oeis.org/A123895):
 >>> 		let j = b.indexOf(i);
 >>> 		a[j]
 >>> 	}.withoutLeadingZeroes
->>> }.collect(fromDigits:/1)
+>>> }.collect(fromDigits/1)
 [
 	 0  1  1  1  1  1  1  1  1  1
 	10 11 12 12 12 12 12 12 12 12

@@ -64,7 +64,7 @@ Tuple does not implement `atPut`,
 they are not directly mutable:
 
 ```
->>> (1, 2, 3).respondsTo(atPut:/3)
+>>> (1, 2, 3).respondsTo(atPut/3)
 false
 
 >>> let x = (1, 2, 3);

@@ -18,7 +18,7 @@ assuming it is in range.
 5.2
 
 >>> [2 3 5 6].listInterpolation(
->>> 	linearInterpolation:/3
+>>> 	linearInterpolation/3
 >>> ).value(3.2)
 5.2
 ```

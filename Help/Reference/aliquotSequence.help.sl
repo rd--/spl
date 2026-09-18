@@ -154,7 +154,7 @@ OEIS [A063769](https://oeis.org/A063769):
 >>> 	445 565 608 650 652
 >>> 	675 685 783 790 909
 >>> 	913
->>> ].collect(aliquotSequence:/1)
+>>> ].collect(aliquotSequence/1)
 [
 	25 6;
 	95 25 6;

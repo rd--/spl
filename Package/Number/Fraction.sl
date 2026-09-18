@@ -4,7 +4,7 @@ Fraction : [Object, Store, Equal, Compare, Number] { | numerator denominator |
 		aNumber.isFraction.if {
 			(self.numerator * aNumber.denominator) < (aNumber.numerator * self.denominator)
 		} {
-			aNumber.adaptToFractionAndApply(self, <)
+			aNumber.adaptToFractionAndApply(self, less/2)
 		}
 	}
 
@@ -15,7 +15,7 @@ Fraction : [Object, Store, Equal, Compare, Number] { | numerator denominator |
 			aNumber.isFraction.if {
 				self * aNumber.reciprocal
 			} {
-				aNumber.adaptToFractionAndApply(self, /)
+				aNumber.adaptToFractionAndApply(self, divide/2)
 			}
 		}
 	}
@@ -47,7 +47,7 @@ Fraction : [Object, Store, Equal, Compare, Number] { | numerator denominator |
 					uncheckedFraction(n, d)
 				}
 			} {
-				aNumber.adaptToFractionAndApply(self, +)
+				aNumber.adaptToFractionAndApply(self, plus/2)
 			}
 		}
 	}
@@ -63,7 +63,7 @@ Fraction : [Object, Store, Equal, Compare, Number] { | numerator denominator |
 					self.raisedToFraction(aNumber)
 				}
 			} {
-				aNumber.adaptToFractionAndApply(self, ^)
+				aNumber.adaptToFractionAndApply(self, power/2)
 			}
 		}
 	}
@@ -78,7 +78,7 @@ Fraction : [Object, Store, Equal, Compare, Number] { | numerator denominator |
 			aNumber.isFraction.if {
 				self + aNumber.negate
 			} {
-				aNumber.adaptToFractionAndApply(self, -)
+				aNumber.adaptToFractionAndApply(self, subtract/2)
 			}
 		}
 	}
@@ -100,18 +100,18 @@ Fraction : [Object, Store, Equal, Compare, Number] { | numerator denominator |
 				)
 			}
 		} {
-			aNumber.adaptToFractionAndApply(self, *)
+			aNumber.adaptToFractionAndApply(self, times/2)
 		}
 	}
 
-	adaptToIntegerAndApply { :self :anInteger :aBlock:/2 |
+	adaptToIntegerAndApply { :self :anInteger :aBlock/2 |
 		aBlock(
 			uncheckedFraction(anInteger, 1L),
 			self
 		)
 	}
 
-	adaptToNumberAndApply { :self :aNumber :aBlock:/2 |
+	adaptToNumberAndApply { :self :aNumber :aBlock/2 |
 		aNumber.isScalarInteger.if {
 			aBlock(aNumber.asFraction, self)
 		} {
@@ -230,14 +230,14 @@ Fraction : [Object, Store, Equal, Compare, Number] { | numerator denominator |
 		a
 	}
 
-	equalBy { :self :anObject :aBlock:/2 |
+	equalBy { :self :anObject :aBlock/2 |
 		anObject.isNumber.if {
 			anObject.isFraction.if {
 				self.numerator = anObject.numerator & {
 					self.denominator = anObject.denominator
 				}
 			} {
-				anObject.adaptToFractionAndApply(self, aBlock:/2)
+				anObject.adaptToFractionAndApply(self, aBlock/2)
 			}
 		} {
 			false
@@ -254,7 +254,7 @@ Fraction : [Object, Store, Equal, Compare, Number] { | numerator denominator |
 				(self.denominator // d * aFraction.denominator)
 			)
 		} {
-			aFraction.adaptToFractionAndApply(self, lcm:/2)
+			aFraction.adaptToFractionAndApply(self, gcd/2)
 		}
 	}
 
@@ -370,7 +370,7 @@ Fraction : [Object, Store, Equal, Compare, Number] { | numerator denominator |
 		aFraction.isFraction.if {
 			self // self.gcd(aFraction) * aFraction
 		} {
-			aFraction.adaptToFractionAndApply(self, lcm:/2)
+			aFraction.adaptToFractionAndApply(self, lcm/2)
 		}
 	}
 
@@ -573,7 +573,7 @@ Fraction : [Object, Store, Equal, Compare, Number] { | numerator denominator |
 	}
 
 	sternBrocotPath { :self |
-		sternBrocotParent:/1.nestWhileList(self) { :x |
+		sternBrocotParent/1.nestWhileList(self) { :x |
 			x != 1/1
 		}
 	}
@@ -603,7 +603,7 @@ Fraction : [Object, Store, Equal, Compare, Number] { | numerator denominator |
 				x := x * z - y;
 				y := y * z
 			};
-			a.collect(Fraction:/1)
+			a.collect(Fraction/1)
 		}
 	}
 
@@ -664,7 +664,7 @@ Fraction : [Object, Store, Equal, Compare, Number] { | numerator denominator |
 
 +@Integer {
 
-	adaptToFractionAndApply { :self :aFraction :aBlock:/2 |
+	adaptToFractionAndApply { :self :aFraction :aBlock/2 |
 		aBlock(aFraction, Fraction(self, self.one))
 	}
 
@@ -679,7 +679,7 @@ Fraction : [Object, Store, Equal, Compare, Number] { | numerator denominator |
 				)
 			}
 		} {
-			denominator.adaptToNumberAndApply(numerator, Fraction:/2)
+			denominator.adaptToNumberAndApply(numerator, Fraction/2)
 		}
 	}
 
@@ -690,7 +690,7 @@ Fraction : [Object, Store, Equal, Compare, Number] { | numerator denominator |
 				denominator.asLargeInteger
 			).simplify
 		} {
-			denominator.adaptToNumberAndApply(numerator, Fraction:/2)
+			denominator.adaptToNumberAndApply(numerator, Fraction/2)
 		}
 	}
 
@@ -702,7 +702,7 @@ Fraction : [Object, Store, Equal, Compare, Number] { | numerator denominator |
 
 +@Collection {
 
-	adaptToFractionAndApply { :self :aFraction :aBlock:/2 |
+	adaptToFractionAndApply { :self :aFraction :aBlock/2 |
 		self.collect { :each |
 			aBlock(aFraction, each)
 		}
@@ -722,7 +722,7 @@ Fraction : [Object, Store, Equal, Compare, Number] { | numerator denominator |
 
 	lambdomaMatrix { :self |
 		let [m, n] = self;
-		Fraction:/2
+		Fraction/2
 		.swap
 		.table([1 .. m], [1 .. n])
 	}
@@ -731,7 +731,7 @@ Fraction : [Object, Store, Equal, Compare, Number] { | numerator denominator |
 
 +SmallFloat {
 
-	adaptToFractionAndApply { :self :aFraction :aBlock:/2 |
+	adaptToFractionAndApply { :self :aFraction :aBlock/2 |
 		self.isInteger.if {
 			aBlock(aFraction, Fraction(self, self.one))
 		} {
@@ -758,7 +758,7 @@ Fraction : [Object, Store, Equal, Compare, Number] { | numerator denominator |
 	rationalize { :self :epsilon |
 		let c = self.abs.continuedFraction(16);
 		let l = c.semiconvergents(epsilon);
-		valueWithReturn { :return:/1 |
+		valueWithReturn { :return/1 |
 			l.do { :r |
 				((self - r).abs < epsilon).ifTrue {
 					self.copySignTo(r).return
@@ -785,13 +785,13 @@ Fraction : [Object, Store, Equal, Compare, Number] { | numerator denominator |
 		self.matchesRegularExpression('^[-]?[0-9]+/[0-9]+$')
 	}
 
-	parseFractionSeparatedBy { :self :separator :elseClause:/0 |
+	parseFractionSeparatedBy { :self :separator :elseClause/0 |
 		self.includesSubstring(separator).if {
 			let parts = self.splitBy(separator);
 			(parts.size = 2).if {
 				Fraction(
-					parts[1].parseLargeInteger(elseClause:/0),
-					parts[2].parseLargeInteger(elseClause:/0)
+					parts[1].parseLargeInteger(elseClause/0),
+					parts[2].parseLargeInteger(elseClause/0)
 				)
 			} {
 				elseClause()
@@ -808,8 +808,8 @@ Fraction : [Object, Store, Equal, Compare, Number] { | numerator denominator |
 		}
 	}
 
-	parseFraction { :self :elseClause:/0 |
-		self.parseFractionSeparatedBy('/', elseClause:/0)
+	parseFraction { :self :elseClause/0 |
+		self.parseFractionSeparatedBy('/', elseClause/0)
 	}
 
 	parseFraction { :self |

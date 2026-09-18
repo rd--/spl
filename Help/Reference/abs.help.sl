@@ -54,7 +54,7 @@ where it is also called the complex modulus or `norm`:
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(-3 -- 3).functionPlot(abs:/1)
+(-3 -- 3).functionPlot(abs/1)
 ~~~
 
 ![](Help/Image/abs-A.svg)
@@ -62,7 +62,7 @@ Plot over a subset of the reals:
 Plot _|1 + x|_:
 
 ~~~spl svg=B
-(-2 -- 4).functionPlot(abs:/1)
+(-2 -- 4).functionPlot(abs/1)
 ~~~
 
 ![](Help/Image/abs-B.svg)

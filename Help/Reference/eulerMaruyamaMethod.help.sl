@@ -19,7 +19,7 @@ let a = { :y :t | theta * (mu - y) };
 let b = { :y :t | sigma };
 let t = [0 10 0.1];
 let y0 = 1;
-eulerMaruyamaMethod(r, a:/2, b:/2, t, y0)
+eulerMaruyamaMethod(r, a/2, b/2, t, y0)
 .transpose
 .linePlot
 ~~~
@@ -36,7 +36,7 @@ let a = { :y :t | mu * y };
 let b = { :y :t | sigma * y };
 let t = [0 10 0.1];
 let y0 = 2;
-eulerMaruyamaMethod(r, a:/2, b:/2, t, y0)
+eulerMaruyamaMethod(r, a/2, b/2, t, y0)
 .transpose
 .linePlot
 ~~~

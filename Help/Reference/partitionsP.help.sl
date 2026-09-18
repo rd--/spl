@@ -9,7 +9,7 @@ An alias for the unary form of `partitionFunctionP`.
 >>> 50.partitionsP
 204226
 
->>> [2 4 6].collect(partitionsP:/1)
+>>> [2 4 6].collect(partitionsP/1)
 [2 5 11]
 ```
 

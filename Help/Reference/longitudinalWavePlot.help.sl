@@ -10,7 +10,7 @@ Two periods of a sine function:
 
 ~~~spl svg=A
 (0 -- 4.pi)
-.discretize(50, sin:/1)
+.discretize(50, sin/1)
 .longitudinalWavePlot
 ~~~
 
@@ -21,7 +21,7 @@ equivalent to multiplying _y_ by _d_:
 
 ~~~spl svg=B
 (0 -- 4.pi)
-.discretize(50, sin:/1)
+.discretize(50, sin/1)
 .longitudinalWavePlot(2.5)
 ~~~
 
@@ -31,7 +31,7 @@ Transverse plot of the same data set:
 
 ~~~spl svg=C
 (0 -- 4.pi)
-.discretize(100, sin:/1)
+.discretize(100, sin/1)
 .linePlot
 ~~~
 
@@ -49,7 +49,7 @@ A triangular wave form,
 _d=2_:
 
 ~~~spl svg=E
-(0 -- 2).discretize(50, triangleWave:/1)
+(0 -- 2).discretize(50, triangleWave/1)
 .longitudinalWavePlot(2)
 ~~~
 

@@ -1,20 +1,20 @@
 @ArithmeticProgression {
 
-	adaptToCollectionAndApply { :self :aCollection :aBlock:/2 |
+	adaptToCollectionAndApply { :self :aCollection :aBlock/2 |
 		aBlock(aCollection, self.asList)
 	}
 
-	adaptToNumberAndApply { :self :aNumber :aBlock:/2 |
+	adaptToNumberAndApply { :self :aNumber :aBlock/2 |
 		self.collect { :each |
 			aBlock(aNumber, each)
 		}
 	}
 
 	[arithmeticProgressionToList, asList] { :self |
-		self.collect(identity:/1)
+		self.collect(identity/1)
 	}
 
-	atIfAbsent { :self :index :ifAbsent:/0 |
+	atIfAbsent { :self :index :ifAbsent/0 |
 		self.includesIndex(index).if {
 			self.step * (index - 1) + self.start
 		} {
@@ -22,7 +22,7 @@
 		}
 	}
 
-	collect { :self :aBlock:/1 |
+	collect { :self :aBlock/1 |
 		let result = List(self.size);
 		let index = 1;
 		self.do { :nextValue |
@@ -48,7 +48,7 @@
 		}
 	}
 
-	do { :self :aBlock:/1 |
+	do { :self :aBlock/1 |
 		let nextValue = self.start;
 		let count = self.size;
 		let stepSize = self.step;
@@ -86,7 +86,7 @@
 		}
 	}
 
-	isArithmeticProgression { :self :aNumber :aBlock:/2 |
+	isArithmeticProgression { :self :aNumber :aBlock/2 |
 		aBlock(self.step, aNumber)
 	}
 
@@ -158,7 +158,7 @@
 		}
 	}
 
-	reverseDo { :self :aBlock:/1 |
+	reverseDo { :self :aBlock/1 |
 		let nextValue = self.end;
 		let count = self.size;
 		let stepSize = self.step.negate;
@@ -195,7 +195,7 @@
 		self.step * (index - 1) + self.start
 	}
 
-	withIndexDo { :self :aBlock:/2 |
+	withIndexDo { :self :aBlock/2 |
 		let nextValue = self.start;
 		let nextIndex = 1;
 		let endIndex = self.size;

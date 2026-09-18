@@ -1,7 +1,7 @@
 UnsortedSet : [Object, Store, Equal, Iterable, Collection, Extensible, Unordered, Set] { | contents comparator |
 
-	do { :self :aBlock:/1 |
-		self.contents.do(aBlock:/1);
+	do { :self :aBlock/1 |
+		self.contents.do(aBlock/1);
 		self
 	}
 
@@ -17,7 +17,7 @@ UnsortedSet : [Object, Store, Equal, Iterable, Collection, Extensible, Unordered
 		self.contents.removeAll
 	}
 
-	removeIfAbsent { :self :anObject :aBlock:/0 |
+	removeIfAbsent { :self :anObject :aBlock/0 |
 		self.contents.detectIndexIfFoundIfNone { :item |
 			self.comparator.value(item, anObject)
 		} { :index |
@@ -32,7 +32,7 @@ UnsortedSet : [Object, Store, Equal, Iterable, Collection, Extensible, Unordered
 	}
 
 	species { :self |
-		UnsortedSet:/0
+		UnsortedSet/0
 	}
 
 	storeString { :self |
@@ -58,7 +58,7 @@ UnsortedSet : [Object, Store, Equal, Iterable, Collection, Extensible, Unordered
 +Void {
 
 	UnsortedSet {
-		newUnsortedSet().initializeSlots([], equal:/2)
+		newUnsortedSet().initializeSlots([], equal/2)
 	}
 
 }
@@ -66,25 +66,25 @@ UnsortedSet : [Object, Store, Equal, Iterable, Collection, Extensible, Unordered
 
 +List {
 
-	unionBy { :self :aBlock:/2 |
+	unionBy { :self :aBlock/2 |
 		let set = UnsortedSet();
-		set.comparator := aBlock:/2;
+		set.comparator := aBlock/2;
 		self.do { :each |
 			set.includeAll(each)
 		};
 		set.asList
 	}
 
-	unionBy { :self :aCollection :aBlock:/2 |
-		[self, aCollection].unionBy(aBlock:/2)
+	unionBy { :self :aCollection :aBlock/2 |
+		[self, aCollection].unionBy(aBlock/2)
 	}
 
 	union { :self |
-		self.unionBy(equal:/2)
+		self.unionBy(equal/2)
 	}
 
 	union { :self :aCollection |
-		[self, aCollection].unionBy(equal:/2)
+		[self, aCollection].unionBy(equal/2)
 	}
 
 }

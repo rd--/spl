@@ -62,7 +62,7 @@ The `species` of a `ResidueSet` constructs a set with the same modulus:
 
 ```
 >>> 6.leastResidueSystem
->>> .select(isOdd:/1)
+>>> .select(isOdd/1)
 ResidueSet([1 3 5], 6)
 ```
 

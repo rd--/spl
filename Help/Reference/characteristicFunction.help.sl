@@ -1,7 +1,7 @@
 # characteristicFunction
 
 - _characteristicFunction([n₁ n₂ …], i=1:⌈n)_
-- _characteristicFunction(f:/2, n:m)_
+- _characteristicFunction(f/2, n:m)_
 
 At a `Collection` _n_,
 answer the sequence with indices _i_ where each place is `one` if _i_ is in _n_ else `zero`.
@@ -33,7 +33,7 @@ The characteristic function of even numbers,
 OEIS [A059841](https://oeis.org/A059841)
 
 ```
->>> isEven:/1.characteristicFunction(0:21)
+>>> isEven/1.characteristicFunction(0:21)
 [1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0]
 ```
 
@@ -41,7 +41,7 @@ The characteristic function of odd numbers,
 OEIS [A000035](http://oeis.org/A000035):
 
 ```
->>> isOdd:/1.characteristicFunction(0:21)
+>>> isOdd/1.characteristicFunction(0:21)
 [0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1]
 ```
 

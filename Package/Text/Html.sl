@@ -41,13 +41,13 @@ Html : [Object, Store, Equal] { | contents |
 				self.error('integerPartitionsTable: row does not sum to period')
 			};
 			'<tr>%</tr>'.format([
-				r.collect(cell:/1).stringCatenate
+				r.collect(cell/1).stringCatenate
 			])
 		};
 		Html(
 			'<table style="%">\n<tbody>\n%\n</tbody>\n</table>'.format([
 				'width: 100%; border: solid 1px black',
-				self.collect(row:/1).unlines
+				self.collect(row/1).unlines
 			])
 		)
 	}

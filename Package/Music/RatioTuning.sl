@@ -13,19 +13,19 @@ RatioTuning : [Object, Store, Equal, Cache, Tuning] { | name description ratios 
 	}
 
 	asIntegers { :self |
-		(self.ratios / self.ratios.reduce(gcd:/2)).collect(asInteger:/1)
+		(self.ratios / self.ratios.reduce(gcd/2)).collect(asInteger/1)
 	}
 
 	asRatios { :self |
 		self.ratios
 	}
 
-	equalBy { :self :anObject :aBlock:/2 |
+	equalBy { :self :anObject :aBlock/2 |
 		anObject.isRatioTuning & {
 			self.equalByAtNamedSlots(
 				anObject,
 				['name' 'description' 'ratios' 'octave'],
-				aBlock:/2
+				aBlock/2
 			)
 		}
 	}
@@ -42,7 +42,7 @@ RatioTuning : [Object, Store, Equal, Cache, Tuning] { | name description ratios 
 	isConstantStructure { :self |
 		let m = self.intervalMatrix;
 		let t = m.transpose;
-		let i = m.flatten.nub.reject(isOne:/1);
+		let i = m.flatten.nub.reject(isOne/1);
 		i.collect { :each |
 			t.collect { :c |
 				c.includes(each)
@@ -57,7 +57,7 @@ RatioTuning : [Object, Store, Equal, Cache, Tuning] { | name description ratios 
 	}
 
 	isRational { :self |
-		self.ratios.allSatisfy(isFraction:/1)
+		self.ratios.allSatisfy(isFraction/1)
 	}
 
 	primeLimit { :self |
@@ -93,7 +93,7 @@ RatioTuning : [Object, Store, Equal, Cache, Tuning] { | name description ratios 
 
 	RatioTuning { :self :description :ratiosOrIntegers :octave |
 		let ratios = ratiosOrIntegers;
-		ratios.anySatisfy(isFraction:/1).ifFalse {
+		ratios.anySatisfy(isFraction/1).ifFalse {
 			ratios := ratios.collect { :each |
 				Fraction(each, ratios.first)
 			}

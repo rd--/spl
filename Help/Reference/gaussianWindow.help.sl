@@ -23,7 +23,7 @@ Plot, the unary form sets σ to 0.3:
 
 ~~~spl svg=A
 (-1 -- 1).functionPlot(
-	gaussianWindow:/1
+	gaussianWindow/1
 )
 ~~~
 
@@ -43,7 +43,7 @@ Discrete Gaussian window of length 15:
 
 ~~~spl svg=C
 (-0.5 -- 0.5)
-.discretize(15, gaussianWindow:/1)
+.discretize(15, gaussianWindow/1)
 .discretePlot
 ~~~
 

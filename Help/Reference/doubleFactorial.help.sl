@@ -40,7 +40,7 @@ For odd numbers,
 OEIS [A001147](http://oeis.org/A001147):
 
 ```
->>> [1, 3 .. 13].collect(doubleFactorial:/1)
+>>> [1, 3 .. 13].collect(doubleFactorial/1)
 [1 3 15 105 945 10395 135135]
 
 >>> 13.doubleFactorial

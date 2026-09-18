@@ -75,9 +75,9 @@ The twenty-six 5×5 involutory permutation matrices:
 
 ~~~spl svg=A
 [1 .. 5].permutations
-.collect(permutationMatrix:/1)
-.select(isInvolutoryMatrix:/1)
-.collect(matrixPlot:/1)
+.collect(permutationMatrix/1)
+.select(isInvolutoryMatrix/1)
+.collect(matrixPlot/1)
 .PlotSet([5 6])
 ~~~
 

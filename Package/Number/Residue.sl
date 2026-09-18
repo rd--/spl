@@ -9,27 +9,27 @@ Residue : [Object, Store, Equal, Compare, Number] { | commonResidue modulus |
 	}
 
 	[plus, +] { :self :aNumber |
-		self.binaryOperator(aNumber, +)
+		self.binaryOperator(aNumber, plus/2)
 	}
 
 	[subtract, -] { :self :aNumber |
-		self.binaryOperator(aNumber, -)
+		self.binaryOperator(aNumber, subtract/2)
 	}
 
 	[times, *] { :self :aNumber |
-		self.binaryOperator(aNumber, *)
+		self.binaryOperator(aNumber, times/2)
 	}
 
-	adaptToIntegerAndApply { :self :anInteger :aBlock:/2 |
+	adaptToIntegerAndApply { :self :anInteger :aBlock/2 |
 		aBlock(
 			Residue(anInteger, self.modulus),
 			self
 		)
 	}
 
-	adaptToNumberAndApply { :self :aNumber :aBlock:/2 |
+	adaptToNumberAndApply { :self :aNumber :aBlock/2 |
 		aNumber.isSmallInteger.if {
-			self.adaptToIntegerAndApply(aNumber, aBlock:/2)
+			self.adaptToIntegerAndApply(aNumber, aBlock/2)
 		} {
 			self.error('Residue>>adaptToNumberAndApply: not an integer')
 		}
@@ -46,7 +46,7 @@ Residue : [Object, Store, Equal, Compare, Number] { | commonResidue modulus |
 		operand
 	}
 
-	binaryOperator { :self :aNumber :aBlock:/2 |
+	binaryOperator { :self :aNumber :aBlock/2 |
 		aNumber.isResidue.if {
 			Residue(
 				aBlock(
@@ -56,7 +56,7 @@ Residue : [Object, Store, Equal, Compare, Number] { | commonResidue modulus |
 				self.modulus
 			)
 		} {
-			aNumber.adaptToResidueAndApply(self, aBlock:/2)
+			aNumber.adaptToResidueAndApply(self, aBlock/2)
 		}
 	}
 
@@ -120,7 +120,7 @@ Residue : [Object, Store, Equal, Compare, Number] { | commonResidue modulus |
 
 +@Collection {
 
-	adaptToResidueAndApply { :self :aResidue :aBlock:/2 |
+	adaptToResidueAndApply { :self :aResidue :aBlock/2 |
 		self.collect { :each |
 			aBlock(aResidue, each)
 		}
@@ -130,7 +130,7 @@ Residue : [Object, Store, Equal, Compare, Number] { | commonResidue modulus |
 
 +@Number {
 
-	adaptToResidueAndApply { :self :aResidue :aBlock:/2 |
+	adaptToResidueAndApply { :self :aResidue :aBlock/2 |
 		self.isInteger.if {
 			aBlock(aResidue, Residue(self, aResidue.modulus))
 		} {

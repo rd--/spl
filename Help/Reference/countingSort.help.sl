@@ -1,6 +1,6 @@
 # countingSort
 
-- _countingSort([x₁ x₂ …], f:/1, k)_
+- _countingSort([x₁ x₂ …], f/1, k)_
 
 Implement the counting sort algorithm.
 Answer a sorted list of the values at _x_ given the key block _f_,
@@ -11,7 +11,7 @@ Sort by `key` specifying maximum key:
 
 ```
 >>> [3 -> 'z', 2 -> 'y', 1 -> 'z']
->>> .countingSort(key:/1, 3)
+>>> .countingSort(key/1, 3)
 [1 -> 'z', 2 -> 'y', 3 -> 'z']
 ```
 
@@ -19,7 +19,7 @@ Sort by `value` without specifying maximum key:
 
 ```
 >>> ['z' -> 3, 'y' -> 2, 'z' -> 1]
->>> .countingSort(value:/1)
+>>> .countingSort(value/1)
 ['z' -> 1, 'y' -> 2, 'z' -> 3]
 ```
 
@@ -35,7 +35,7 @@ Sort by `codePoint`:
 
 ```
 >>> 'ascii'.characters
->>> .countingSort(codePoint:/1)
+>>> .countingSort(codePoint/1)
 ['a' 'c' 'i' 'i' 's']
 ```
 

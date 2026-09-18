@@ -9,9 +9,9 @@
 	}
 
 	includesScatteredSubsequence { :self :aList |
-		valueWithReturn { :return:/1 |
+		valueWithReturn { :return/1 |
 			1.to(self.size).powerSetDo { :each |
-				each.isArithmeticProgression(1, equal:/2).ifFalse {
+				each.isArithmeticProgression(1, equal/2).ifFalse {
 					(self @* each = aList).ifTrue {
 						true.return
 					}
@@ -22,10 +22,10 @@
 	}
 
 	includesSubsequence { :self :aList |
-		valueWithReturn { :return:/1 |
+		valueWithReturn { :return/1 |
 			let i = 1;
 			aList.do { :each |
-				i := self.indexOfStartingAtBy(each, i, equal:/2);
+				i := self.indexOfStartingAtBy(each, i, equal/2);
 				(i = 0).ifTrue {
 					false.return
 				}
@@ -61,7 +61,7 @@
 			0
 		} {
 			let first = aList[1];
-			valueWithReturn { :return:/1 |
+			valueWithReturn { :return/1 |
 				start.max(1).toDo(self.size - k + 1) { :startIndex |
 					(self[startIndex] = first).ifTrue {
 						let index = 2;
@@ -108,7 +108,7 @@
 		self.indicesOfSubstringStartingAt(aList, 1)
 	}
 
-	increasingSubsequenceList { :self :aBlock:/2 |
+	increasingSubsequenceList { :self :aBlock/2 |
 		(self.size < 2).if {
 			[self]
 		} {
@@ -133,7 +133,7 @@
 	}
 
 	increasingSubsequenceList { :self |
-		self.increasingSubsequenceList(precedes:/2)
+		self.increasingSubsequenceList(precedes/2)
 	}
 
 	longestCommonPrefixSize { :u :v |
@@ -189,7 +189,7 @@
 			self.partition(k, 1).intersection(aList.partition(k, 1))
 		};
 		let n = self.size.min(aList.size);
-		valueWithReturn { :return:/1 |
+		valueWithReturn { :return/1 |
 			n.toByDo(1, -1) { :k |
 				let common = find(k);
 				common.isEmpty.ifFalse {
@@ -264,7 +264,7 @@
 		}
 	}
 
-	orderedSubstrings { :self :aBlock:/2 |
+	orderedSubstrings { :self :aBlock/2 |
 		self.isEmpty.if {
 			[]
 		} {
@@ -302,7 +302,7 @@
 	}
 
 	orderedSubstrings { :self |
-		self.orderedSubstrings(precedes:/2)
+		self.orderedSubstrings(precedes/2)
 	}
 
 	sequenceCount { :self :subsequence |
@@ -316,7 +316,7 @@
 		}
 	}
 
-	subsequencesDo { :self :aBlock:/1 |
+	subsequencesDo { :self :aBlock/1 |
 		self.isEmpty.if {
 			[]
 		} {
@@ -327,7 +327,7 @@
 		}
 	}
 
-	subsequences { :self :aPredicate:/1 |
+	subsequences { :self :aPredicate/1 |
 		let answer = [];
 		self.subsequencesDo { :each |
 			aPredicate(each).ifTrue {
@@ -341,13 +341,13 @@
 		self.subsequences(true.constant)
 	}
 
-	substringsDo { :self :aBlock:/1 |
+	substringsDo { :self :aBlock/1 |
 		0.toDo(self.size) { :each |
-			self.partitionDo(each, 1, aBlock:/1)
+			self.partitionDo(each, 1, aBlock/1)
 		}
 	}
 
-	substrings { :self :aPredicate:/1 |
+	substrings { :self :aPredicate/1 |
 		let answer = [];
 		self.substringsDo { :each |
 			aPredicate(each).ifTrue {
@@ -371,7 +371,7 @@
 
 	contiguousSubsequences { :self |
 		self.onCharactersList(
-			contiguousSubsequences:/1
+			contiguousSubsequences/1
 		)
 	}
 
@@ -407,7 +407,7 @@
 		self
 		.characters
 		.longestCommonSubstringList(aString.characters)
-		.collect(stringCatenate:/1)
+		.collect(stringCatenate/1)
 	}
 
 	longestCommonSubstring { :self :aString |
@@ -420,25 +420,25 @@
 
 	longestIncreasingSubsequence { :self |
 		self.onCodePoints(
-			longestIncreasingSubsequence:/1
+			longestIncreasingSubsequence/1
 		)
 	}
 
 	noncontiguousSubsequences { :self |
 		self.onCharactersList(
-			noncontiguousSubsequences:/1
+			noncontiguousSubsequences/1
 		)
 	}
 
 	subsequences { :self |
 		self.onCharactersList(
-			subsequences:/1
+			subsequences/1
 		)
 	}
 
 	substrings { :self |
 		self.onCharactersList(
-			substrings:/1
+			substrings/1
 		)
 	}
 

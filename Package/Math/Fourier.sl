@@ -187,9 +187,9 @@
 	}
 
 	fejerKernelDirichlet { :n |
-		let d = 0.to(n - 1).collect(dirichletKernel:/1);
+		let d = 0.to(n - 1).collect(dirichletKernel/1);
 		{ :x |
-			d.collect { :each:/1 |
+			d.collect { :each/1 |
 				each(x)
 			}.sum
 		}

@@ -22,7 +22,7 @@ Other EDO scales with relatively high merit scores:
 
 ```
 >>> [41 46 31 17 34 22 53]
->>> .collect(yunikSwiftScaleMerit:/1)
+>>> .collect(yunikSwiftScaleMerit/1)
 [
 	0.11590
 	0.11065
@@ -38,7 +38,7 @@ Plot merit scores for scales up to 60-EDO:
 
 ~~~spl svg=A
 2:60.collect(
-	yunikSwiftScaleMerit:/1
+	yunikSwiftScaleMerit/1
 ).linePlot
 ~~~
 

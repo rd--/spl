@@ -126,7 +126,7 @@ OEIS [A062756](https://oeis.org/A062756):
 ```
 >>> 0:23.collect { :i |
 >>> 	i.integerDigits(3)
->>> 	.count(isOne:/1)
+>>> 	.count(isOne/1)
 >>> }
 [
 	0 1 0 1 2 1 0 1 0 1
@@ -142,7 +142,7 @@ for the first few powers of three:
 ```
 >>> 0:29.collect { :i |
 >>> 	(3 ^ i).integerDigits(2)
->>> 	.count(isOne:/1)
+>>> 	.count(isOne/1)
 >>> }
 [
 	01 02 02 04 03 06 06 05 06 08
@@ -203,7 +203,7 @@ c.f. OEIS [A364024](https://oeis.org/A364024):
 Create a Champernowne word, c.f. OEIS [A007376](https://oeis.org/A007376):
 
 ```
->>> 0:29.collect(integerDigits:/1).++
+>>> 0:29.collect(integerDigits/1).++
 [
 	0 1 2 3 4 5 6 7 8 9
 	1 0 1 1 1 2 1 3 1 4
@@ -304,7 +304,7 @@ and [A227736](https://oeis.org/A227736) for reverse:
 >>> 1:34.collect { :n |
 >>> 	n.integerDigits(2)
 >>> 	.split(=)
->>> 	.collect(size:/1)
+>>> 	.collect(size/1)
 >>> }
 [
 	1;
@@ -451,7 +451,7 @@ OEIS [A000422](https://oeis.org/A000422):
 ```
 >>> 1:10.collect { :n |
 >>> 	Range(n, 1, -1)
->>> 	.collect(integerDigits:/1)
+>>> 	.collect(integerDigits/1)
 >>> 	.catenate
 >>> 	.fromDigits
 >>> }
@@ -633,7 +633,7 @@ OEIS [A063543](https://oeis.org/A063543):
 ~~~spl svg=E oeis=A063543
 1:250.collect { :n |
 	let d = n.integerDigits;
-	n - d.reject(isZero:/1).product
+	n - d.reject(isZero/1).product
 }.scatterPlot
 ~~~
 
@@ -656,7 +656,7 @@ OEIS [A005811](https://oeis.org/A005811):
 1:255.collect { :n |
 	n.integerDigits(2)
 	.split(=)
-	.collect(size:/1)
+	.collect(size/1)
 	.size
 }.scatterPlot
 ~~~
@@ -670,7 +670,7 @@ OEIS [A167489](https://oeis.org/A167489):
 0:250.collect { :n |
 	n.integerDigits(2)
 	.split(=)
-	.collect(size:/1)
+	.collect(size/1)
 	.product
 }.scatterPlot
 ~~~
@@ -732,8 +732,8 @@ OEIS [A033664](https://oeis.org/A033664):
 	n.integerDigits
 	.allButFirst
 	.suffixes
-	.collect(fromDigits:/1)
-	.allSatisfy(isPrime:/1)
+	.collect(fromDigits/1)
+	.allSatisfy(isPrime/1)
 }.scatterPlot
 ~~~
 
@@ -745,7 +745,7 @@ OEIS [A052004](https://oeis.org/A052004):
 ~~~spl svg=M oeis=A052004
 0:5000.select { :n |
 	(n ^ 3).integerDigits
-	.allSatisfy(isEven:/1)
+	.allSatisfy(isEven/1)
 }.stepPlot
 ~~~
 
@@ -818,7 +818,7 @@ OEIS [A033953](https://oeis.org/A033953):
 let k = 105;
 let m = (k ^ 2) + (10 * k);
 let a = 0:m.collect(
-	integerDigits:/1
+	integerDigits/1
 ).catenate;
 0:k.collect { :n |
 	(n = 0).if {

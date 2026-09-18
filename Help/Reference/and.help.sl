@@ -1,6 +1,6 @@
 # and
 
-- _b & f:/0_
+- _b & f/0_
 - _c.&_
 
 Nonevaluating logical conjunction.

@@ -17,7 +17,7 @@ since there are four partitions of 10 into three distinct parts:
 >>> let n = 10;
 >>> let k = 3;
 >>> let p = n.integerPartitions([k]);
->>> p.collect(nub:/1).select { :each |
+>>> p.collect(nub/1).select { :each |
 >>> 	each.size = k
 >>> }
 [
@@ -32,7 +32,7 @@ First few terms,
 OEIS [A000009](https://oeis.org/A000009):
 
 ```
->>> 0:39.collect(partitionFunctionQ:/1)
+>>> 0:39.collect(partitionFunctionQ/1)
 [
 	  1   1   1   2   2
 	  3   4   5   6   8
@@ -75,7 +75,7 @@ OEIS [A060016](https://oeis.org/A060016):
 
 ```
 >>> 1:9.triangularArray(
->>> 	partitionFunctionQ:/2
+>>> 	partitionFunctionQ/2
 >>> )
 [
 	1;
@@ -142,7 +142,7 @@ OEIS [A060016](https://oeis.org/A060016):
 
 ~~~spl svg=C oeis=A060016
 1:11.triangularArray(
-	partitionFunctionQ:/2
+	partitionFunctionQ/2
 ).++.discretePlot
 ~~~
 

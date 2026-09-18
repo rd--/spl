@@ -24,7 +24,7 @@ Equivalent to `addBeforeIndex`:
 (3, [1 2 3 4 5 6], 3)
 ```
 
-let f:/1 = { :n |
+let f/1 = { :n |
 	(n = 1).if {
 		[[1]]
 	} {
@@ -38,7 +38,7 @@ let f:/1 = { :n |
 		}.catenate
 	}
 }.memoize;
-1:4.collect(f:/1).catenate.catenate.scatterPlot
+1:4.collect(f/1).catenate.catenate.scatterPlot
 
 * * *
 

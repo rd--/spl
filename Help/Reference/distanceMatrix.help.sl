@@ -1,6 +1,6 @@
 # distanceMatrix
 
-- _distanceMatrix(u, v, f:/2)_
+- _distanceMatrix(u, v, f/2)_
 - _distanceMatrix(u, v)_
 - _distanceMatrix(u)_
 
@@ -56,7 +56,7 @@ Compute a distance matrix from strings:
 
 ```
 >>> let u = ['abcd' 'bcde' 'xyz'];
->>> u.distanceMatrix(u, editDistance:/2)
+>>> u.distanceMatrix(u, editDistance/2)
 [
 	0 2 4;
 	2 0 4;
@@ -73,7 +73,7 @@ Distance matrix of cartesian coordinates for lattice using `manhattanDistance` m
 >>> ];
 >>> x.distanceMatrix(
 >>> 	x,
->>> 	manhattanDistance:/2
+>>> 	manhattanDistance/2
 >>> )
 [
 	0 1 2 3 1 2 3 4;

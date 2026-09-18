@@ -5,10 +5,10 @@
 Answer whether the method dictionary at `Type` of the object _x_ contains an entry for the method _m_.
 
 ```
->>> 9.respondsTo(sqrt:/1)
+>>> 9.respondsTo(sqrt/1)
 true
 
-[1 2 3].respondsTo(select:/2)
+[1 2 3].respondsTo(select/2)
 true
 ```
 

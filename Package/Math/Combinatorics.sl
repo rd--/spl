@@ -21,7 +21,7 @@
 		}
 	}
 
-	bellStringsDo { :n :receive:/1 |
+	bellStringsDo { :n :receive/1 |
 		let word = List(n, 0);
 		let focus = (n + 1).iota;
 		let start = List(n, 0);
@@ -77,7 +77,7 @@
 		answer
 	}
 
-	binaryCombinationsDo { :s :t :visit:/1 |
+	binaryCombinationsDo { :s :t :visit/1 |
 		let n = s + t;
 		let b = List(t, 1) ++ List(s, 0);
 		let x = t;
@@ -122,7 +122,7 @@
 		}
 	}
 
-	braceletsDo { :n :k :receive:/1 |
+	braceletsDo { :n :k :receive/1 |
 		/* https://www.jasondavies.com/necklaces/necklaces.js */
 		<primitive:
 		let n = _n;
@@ -194,7 +194,7 @@
 		answer
 	}
 
-	catalanStringsDo { :n :k :receive:/1 |
+	catalanStringsDo { :n :k :receive/1 |
 		let word = List(n, 0);
 		let focus = (n + 1).iota;
 		let start = List(n, 0);
@@ -329,7 +329,7 @@
 		m
 	}
 
-	motzkinWordsDo { :t :s :visit:/1 |
+	motzkinWordsDo { :t :s :visit/1 |
 		let n = (2 * s) + t;
 		let b = List(s, 2) ++ List(t, 1) ++ List(s, 0);
 		let x = n - 1;
@@ -451,7 +451,7 @@
 		(1 / 2) * n * (n * (r - 2) - r + 4)
 	}
 
-	restrictedGrowthStringsDo { :n :f:/1 |
+	restrictedGrowthStringsDo { :n :f/1 |
 		/* https://github.com/gstamatelat/partitions-enumeration/blob/master/v.cpp */
 		let a = List(n, 1);
 		let b = List(n, 1);
@@ -484,7 +484,7 @@
 		answer
 	}
 
-	restrictedGrowthStringsDo { :n :k :f:/1 |
+	restrictedGrowthStringsDo { :n :k :f/1 |
 		/* https://github.com/gstamatelat/partitions-enumeration/blob/master/x.cpp */
 		let a = List(n, 1);
 		let b = List(n, 1);
@@ -531,28 +531,28 @@
 
 	secondOrderEulerianTriangle { :self |
 		1.to(self).triangularArray(
-			eulerianNumberSecondOrder:/2
+			eulerianNumberSecondOrder/2
 		)
 	}
 
-	setPartitionsDo { :n :k :f:/1 |
+	setPartitionsDo { :n :k :f/1 |
 		restrictedGrowthStringsDo(n, k) { :x |
 			f(x.setPartition)
 		}
 	}
 
-	setPartitionsDo { :n :f:/1 |
+	setPartitionsDo { :n :f/1 |
 		restrictedGrowthStringsDo(n) { :x |
 			f(x.setPartition)
 		}
 	}
 
 	setPartitions { :n :k |
-		restrictedGrowthStrings(n, k).collect(setPartition:/1)
+		restrictedGrowthStrings(n, k).collect(setPartition/1)
 	}
 
 	setPartitions { :n |
-		restrictedGrowthStrings(n).collect(setPartition:/1)
+		restrictedGrowthStrings(n).collect(setPartition/1)
 	}
 
 	stirlingS1 { :n :k |
@@ -576,23 +576,23 @@
 	}
 
 	wedderburnEtheringtonNumbers { :self |
-		let a:/1 = { :n |
+		let a/1 = { :n |
 			let f = { :k | a(k) * a(n - k) };
 			[
 				{ n < 2 } -> {
 					n
 				},
 				{ n.isOdd } -> {
-					1.to((n - 1) / 2).sum(f:/1)
+					1.to((n - 1) / 2).sum(f/1)
 				},
 				{ n.isEven } -> {
-					1.to((n / 2) - 1).sum(f:/1)
+					1.to((n / 2) - 1).sum(f/1)
 					+
 					((1 / 2) * a(n / 2) * (1 + a(n / 2)))
 				}
 			].which
 		}.memoize(true);
-		0.to(self - 1).collect(a:/1)
+		0.to(self - 1).collect(a/1)
 	}
 
 }
@@ -672,13 +672,13 @@
 +List {
 
 	canonicalSetPartition { :self |
-		self.collect(sort:/1).sortOn(first:/1)
+		self.collect(sort/1).sortOn(first/1)
 	}
 
 	isIntegerPartition { :self :n |
 		self.sum = n & {
-			self.allSatisfy(isPositiveInteger:/1) & {
-				self.isSortedBy(greaterEqual:/2)
+			self.allSatisfy(isPositiveInteger/1) & {
+				self.isSortedBy(greaterEqual/2)
 			}
 		}
 	}
@@ -722,10 +722,10 @@
 	}
 
 	isTableau { :self |
-		self.collect(size:/1).isSortedBy(greaterEqual:/2) & {
+		self.collect(size/1).isSortedBy(greaterEqual/2) & {
 			self.catenate.isPermutationList & {
-				self.allSatisfy(isSorted:/1) & {
-					self.transposeTableau.allSatisfy(isSorted:/1)
+				self.allSatisfy(isSorted/1) & {
+					self.transposeTableau.allSatisfy(isSorted/1)
 				}
 			}
 		}
@@ -736,11 +736,11 @@
 		self.withIndexDo { :each :index |
 			answer.at(each).add(index)
 		};
-		answer.reject(isEmpty:/1).canonicalSetPartition
+		answer.reject(isEmpty/1).canonicalSetPartition
 	}
 
 	transposeTableau { :self |
-		let n = self.collect(size:/1).max;
+		let n = self.collect(size/1).max;
 		1.toAsCollect(n, self.first.species) { :index |
 			self.collect { :row |
 				row.atOrNil(index)
@@ -752,18 +752,18 @@
 
 +@Sequence {
 
-	combinationsAtATimeDo { :self :kk :aBlock:/1 |
+	combinationsAtATimeDo { :self :kk :aBlock/1 |
 		let aCollection = List(kk);
-		self.combinationsAtInAfterDo(1, aCollection, 0, aBlock:/1)
+		self.combinationsAtInAfterDo(1, aCollection, 0, aBlock/1)
 	}
 
-	combinationsAtInAfterDo { :self :j :aCollection :n :aBlock:/1 |
+	combinationsAtInAfterDo { :self :j :aCollection :n :aBlock/1 |
 		(n + 1).toDo(self.size) { :index |
 			aCollection[j] := self[index];
 			(j = aCollection.size).if {
 				aBlock(aCollection)
 			} {
-				self.combinationsAtInAfterDo(j + 1, aCollection, index, aBlock:/1)
+				self.combinationsAtInAfterDo(j + 1, aCollection, index, aBlock/1)
 			}
 		}
 	}
@@ -874,7 +874,7 @@
 			}
 		};
 		f(b, a.size);
-		answer.sortBy(precedes:/2)
+		answer.sortBy(precedes/2)
 	}
 
 	isLatticeWord { :self :alphabet |
@@ -954,7 +954,7 @@
 +String {
 
 	duvalsAlgorithm { :self |
-		self.characters.duvalsAlgorithm.collect(stringJoin:/1)
+		self.characters.duvalsAlgorithm.collect(stringJoin/1)
 	}
 
 }

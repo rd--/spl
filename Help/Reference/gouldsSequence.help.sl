@@ -27,7 +27,7 @@ Gould’s sequence consists only of powers of two:
 
 ```
 >>> 88.gouldsSequence
->>> .allSatisfy(isPowerOfTwo:/1)
+>>> .allSatisfy(isPowerOfTwo/1)
 true
 ```
 

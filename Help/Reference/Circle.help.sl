@@ -197,8 +197,8 @@ let betaFamily = { :lambda |
 let t = (0.2 -- 0.8).discretize(10);
 let l = (0.25 -- 2.5).discretize(5);
 [
-	(t.- ++ t).collect(alphaFamily:/1),
-	(l.- ++ l).collect(betaFamily:/1)
+	(t.- ++ t).collect(alphaFamily/1),
+	(l.- ++ l).collect(betaFamily/1)
 ].LineDrawing
 ~~~
 

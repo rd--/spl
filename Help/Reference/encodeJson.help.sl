@@ -23,14 +23,14 @@ At `Nil`:
 At `Boolean`:
 
 ```
->>> [true false].collect(encodeJson:/1)
+>>> [true false].collect(encodeJson/1)
 ['true' 'false']
 ```
 
 At `SmallFloat`:
 
 ```
->>> [3.141 23].collect(encodeJson:/1)
+>>> [3.141 23].collect(encodeJson/1)
 ['3.141' '23']
 ```
 

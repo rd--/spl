@@ -34,7 +34,7 @@ At `LargeInteger`:
 Multiplication table for base two:
 
 ```
->>> carryLessMultiplication:/2
+>>> carryLessMultiplication/2
 >>> .table(0:9, 0:9)
 [
 	0 0  0  0  0  0  0  0  0  0;
@@ -56,7 +56,7 @@ OEIS [A048720](https://oeis.org/A048720):
 
 ~~~spl svg=A oeis=A048720
 0:21.antidiagonalArray(
-	carryLessMultiplication:/2
+	carryLessMultiplication/2
 ).catenate.scatterPlot
 ~~~
 
@@ -68,7 +68,7 @@ OEIS [A048723](https://oeis.org/A048723):
 
 ~~~spl svg=B oeis=A048723
 0L:21.antidiagonalArray(
-	carryLessPower:/2
+	carryLessPower/2
 ).catenate.scatterPlot.log
 ~~~
 

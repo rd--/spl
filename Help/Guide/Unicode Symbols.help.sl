@@ -3,7 +3,7 @@
 If unicode symbol replacement is enabled, the expression typed as:
 
 ```
-valueWithReturn { :return:/1 | 2.pi.return } == 2.pi
+valueWithReturn { :return/1 | 2.pi.return } == 2.pi
 ```
 
 will display as:

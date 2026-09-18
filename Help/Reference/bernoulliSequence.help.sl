@@ -15,7 +15,7 @@ First eleven Bernoulli numbers:
 First few non-zero Bernoulli numbers:
 
 ```
->>> 16.bernoulliSequence.reject(isZero:/1)
+>>> 16.bernoulliSequence.reject(isZero/1)
 [
 	1 -1/2 1/6 -1/30 1/42
 	-1/30 5/66 -691/2730 7/6

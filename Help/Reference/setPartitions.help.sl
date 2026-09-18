@@ -87,7 +87,7 @@ Plot the fifteen partitions of the set _1,2,3,4_:
 
 ~~~spl svg=A
 4.setPartitions
-.collect(partitionPlot:/1)
+.collect(partitionPlot/1)
 .reshape([3 5])
 .PlotSet
 ~~~

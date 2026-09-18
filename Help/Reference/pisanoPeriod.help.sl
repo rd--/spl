@@ -17,7 +17,7 @@ first few terms,
 OEIS [A001175](https://oeis.org/A001175):
 
 ```
->>> 1:67.collect(pisanoPeriod:/1)
+>>> 1:67.collect(pisanoPeriod/1)
 [
 	 1  3   8  6  20 24 16 12  24  60
 	10 24  28 48  40 24 36 24  18  60
@@ -254,7 +254,7 @@ Pisano periods,
 OEIS [A001175](https://oeis.org/A001175):
 
 ~~~spl svg=A oeis=A001175
-1:200.collect(pisanoPeriod:/1)
+1:200.collect(pisanoPeriod/1)
 .scatterPlot
 ~~~
 
@@ -276,7 +276,7 @@ OEIS [A066853](https://oeis.org/A066853):
 First differences of Pisano periods:
 
 ~~~spl svg=C
-1:43.collect(pisanoPeriod:/1)
+1:43.collect(pisanoPeriod/1)
 .differences
 .discretePlot
 ~~~
@@ -288,7 +288,7 @@ OEIS [A235249](https://oeis.org/A235249):
 
 ~~~spl svg=D oeis=A235249
 1:65.collect { :n |
-	pisanoPeriod:/1
+	pisanoPeriod/1
 	.fixedPoint(n, =)
 }.stepPlot.log
 ~~~

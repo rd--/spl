@@ -1,6 +1,6 @@
 # helpProgramDictionary
 
-- _helpProgramDictionary(system, f:/1=⊤)_
+- _helpProgramDictionary(system, f/1=⊤)_
 
 Answer a `Record` where the keys are help file topics,
 and the values are lists of `HelpProgram` values.

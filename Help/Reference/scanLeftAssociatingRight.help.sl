@@ -1,6 +1,6 @@
 # scanLeftAssociatingRight
 
-- _scanLeftAssociatingRight([x₁ x₂ …], f:/2)_
+- _scanLeftAssociatingRight([x₁ x₂ …], f/2)_
 
 A variant of `scanLeft` that associates arguments to the right.
 That is,

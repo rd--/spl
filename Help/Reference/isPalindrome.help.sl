@@ -67,7 +67,7 @@ First few palindromic numbers in base ten,
 OEIS [A002113](https://oeis.org/A002113):
 
 ```
->>> 0:222.select(isPalindrome:/1)
+>>> 0:222.select(isPalindrome/1)
 [
 	  0   1   2   3   4
 	  5   6   7   8   9
@@ -84,7 +84,7 @@ prime numbers whose decimal expansion is a palindrome,
 OEIS [A002385](https://oeis.org/A002385):
 
 ```
->>> 100.primesList.select(isPalindrome:/1)
+>>> 100.primesList.select(isPalindrome/1)
 [
 	  2   3   5   7  11
 	101 131 151 181 191
@@ -96,7 +96,7 @@ English palindromic words:
 
 ```
 >>> 'madam tenet redder racecar'
->>> .words.select(isPalindrome:/1)
+>>> .words.select(isPalindrome/1)
 ['madam' 'tenet' 'redder' 'racecar']
 ```
 
@@ -104,7 +104,7 @@ Palindromic decimal integers:
 
 ```
 >>> [12321 3883 100001]
->>> .collect(isPalindrome:/1)
+>>> .collect(isPalindrome/1)
 [true true true]
 ```
 
@@ -114,8 +114,8 @@ OEIS [006072](https://oeis.org/A006072):
 
 ```
 >>> [0 1 8].tuples(5)
->>> .collect(fromDigits:/1)
->>> .select(isPalindrome:/1)
+>>> .collect(fromDigits/1)
+>>> .select(isPalindrome/1)
 [
 	    0     1     8    11    88
 	  101   111   181   808   818
@@ -131,7 +131,7 @@ Find the palindromic Roman numerals up to 1000:
 
 ```
 >>> 1:1000.romanNumeral
->>> .select(isPalindrome:/1)
+>>> .select(isPalindrome/1)
 [
 	  'I'  'II' 'III'   'V'   'X'
 	'XIX'  'XX' 'XXX'   'L'   'C'
@@ -175,7 +175,7 @@ OEIS [A002385](https://oeis.org/A002385):
 
 ~~~spl svg=B oeis=A002385
 1:6000.prime
-.select(isPalindrome:/1)
+.select(isPalindrome/1)
 .scatterPlot
 ~~~
 

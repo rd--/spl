@@ -22,7 +22,7 @@ RgbColour([1 0 0], 0.65)
 Plot reds with increasing α:
 
 ~~~spl svg=A
-[0, 0.1 .. 1].collect(red:/1)
+[0, 0.1 .. 1].collect(red/1)
 .enclose
 .arrayPlot
 ~~~

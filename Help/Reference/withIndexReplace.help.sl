@@ -1,6 +1,6 @@
 # withIndexReplace
 
-- _withIndexReplace(aCollection, elementAndIndexBlock:/2)_
+- _withIndexReplace(aCollection, elementAndIndexBlock/2)_
 
 Like _replace_ except that the iteration index supplies the second argument to the block.
 

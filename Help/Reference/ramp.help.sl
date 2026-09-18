@@ -27,7 +27,7 @@ Ramp threads over lists:
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(-2 -- 2).functionPlot(ramp:/1)
+(-2 -- 2).functionPlot(ramp/1)
 ~~~
 
 ![](Help/Image/ramp-A.svg)

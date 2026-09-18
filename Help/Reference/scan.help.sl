@@ -1,6 +1,6 @@
 # scan
 
-- _scan([x₁ x₂ …], f:/2)_
+- _scan([x₁ x₂ …], f/2)_
 
 Similar to `reduce` but answer a sequence of successive reduced values.
 Just as `reduce` is an alias for `foldLeft`, `scan` is an alias for `scanLeft`.
@@ -62,16 +62,16 @@ Compute the cummulative product:
 Compute running minimum or maximum:
 
 ```
->>> [3 4 6 2 1 9 0 7 5 8].scan(min:/2)
+>>> [3 4 6 2 1 9 0 7 5 8].scan(min/2)
 [3 3 3 2 1 1 0 0 0 0]
 
->>> [3 4 6 2 1 9 0 7 5 8].scan(max:/2)
+>>> [3 4 6 2 1 9 0 7 5 8].scan(max/2)
 [3 4 6 6 6 9 9 9 9 9]
 
->>> [3 2 1 2 1 0 4 3 2].scan(min:/2)
+>>> [3 2 1 2 1 0 4 3 2].scan(min/2)
 [3 2 1 1 1 0 0 0 0]
 
->>> [3 2 1 2 1 0 4 3 2].scan(max:/2)
+>>> [3 2 1 2 1 0 4 3 2].scan(max/2)
 [3 3 3 3 3 3 4 4 4]
 ```
 

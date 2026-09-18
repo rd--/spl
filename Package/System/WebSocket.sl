@@ -2,7 +2,7 @@
 
 WebSocket! : [Object, EventTarget] {
 
-	basicOnOpen { :self :aBlock:/1 |
+	basicOnOpen { :self :aBlock/1 |
 		<primitive:
 		_self.onopen = _aBlock_1;
 		return _self;
@@ -36,14 +36,14 @@ WebSocket! : [Object, EventTarget] {
 		<primitive: return _self.extensions;>
 	}
 
-	onClose { :self :aBlock:/1 |
+	onClose { :self :aBlock/1 |
 		<primitive:
 		_self.onclose = _aBlock_1;
 		return _self;
 		>
 	}
 
-	onMessage { :self :aBlock:/1 |
+	onMessage { :self :aBlock/1 |
 		<primitive:
 		_self.onmessage = _aBlock_1;
 		return _self;

@@ -20,7 +20,7 @@ Count gradients:
 ```
 >>> system
 >>> .colourGradients
->>> .collect(size:/1)
+>>> .collect(size/1)
 >>> .sum
 146
 ```
@@ -97,7 +97,7 @@ Use a resampled form of the _Pastel_ gradient from the _Mathematica_ collection 
 
 ~~~spl png=F
 let i = (-2 -- 2).discretize(100);
-let f:/1 = system
+let f/1 = system
 .colourGradients['Mathematica']['Pastel']
 .asColourGradient
 .resample(16)

@@ -1,7 +1,7 @@
 # sum
 
 - _sum(c)_
-- _sum(c, f:/1)_
+- _sum(c, f/1)_
 
 Answer the sum of all the elements in the collection _c_.
 
@@ -50,7 +50,7 @@ Row-wise sums of a matrix:
 
 ```
 >>> [1 2 3; 4 5 6; 7 8 9]
->>> .collect(sum:/1)
+>>> .collect(sum/1)
 [6 15 24]
 
 >>> [1 2 3; 4 5 6; 7 8 9]
@@ -67,7 +67,7 @@ Column-wise sums of a matrix:
 
 >>> [1 2 3; 4 5 6; 7 8 9]
 >>> .transpose
->>> .collect(sum:/1)
+>>> .collect(sum/1)
 [12 15 18]
 ```
 
@@ -103,7 +103,7 @@ Difference between a sum squared, and the sum of squares:
 The binary form applies the block _f_ to each element before summing:
 
 ```
->>> 1:10.sum(square:/1)
+>>> 1:10.sum(square/1)
 385
 ```
 
@@ -121,7 +121,7 @@ Number of trees with _n_ unlabeled nodes,
 OEIS [A000055](https://oeis.org/A000055)
 
 ```
->>> let b:/1 = { :n |
+>>> let b/1 = { :n |
 >>> 	(n < 2).if {
 >>> 		n
 >>> 	} {
@@ -133,7 +133,7 @@ OEIS [A000055](https://oeis.org/A000055)
 >>> 		} / m
 >>> 	}
 >>> }.memoize(true);
->>> let a:/1 = { :n |
+>>> let a/1 = { :n |
 >>> 	(n = 1).if {
 >>> 		1
 >>> 	} {
@@ -147,7 +147,7 @@ OEIS [A000055](https://oeis.org/A000055)
 >>> 		b(n) - (c / 2)
 >>> 	}
 >>> }.memoize(true);
->>> 1:20.collect(a:/1)
+>>> 1:20.collect(a/1)
 [
 	1 1 1 2 3
 	6 11 23 47 106
@@ -244,7 +244,7 @@ columns sum to `one` (Xenakis 1992, p.89):
 >>> 	076 016 304 114 100 204 018 096;
 >>> 	076 057 084 114 100 054 068 096;
 >>> 	304 014 076 076 090 036 012 144
->>> ].transpose.collect(sum:/1) / 1000
+>>> ].transpose.collect(sum/1) / 1000
 [1 1 1 1 1 1 1 1]
 ```
 
@@ -304,7 +304,7 @@ Recursive two-parameter sequence allowing Ramanujan’s sum calculation,
 OEIS [A282634](https://oeis.org/A282634):
 
 ~~~spl svg=B oeis=A282634
-let b:/2 = { :n :m |
+let b/2 = { :n :m |
 	(n = 1).if {
 		(m = 0).boole
 	} {
@@ -466,7 +466,7 @@ let t = { :n :k |
 		}
 	].which
 };
-1:17.antidiagonalArray(t:/2)
+1:17.antidiagonalArray(t/2)
 .catenate.discretePlot
 ~~~
 

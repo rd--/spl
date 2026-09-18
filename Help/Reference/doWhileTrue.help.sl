@@ -1,6 +1,6 @@
 # doWhileTrue
 
-- _doWhileTrue(f:/0, condition:/0)_
+- _doWhileTrue(f/0, condition/0)_
 
 Conditional evaluation.
 Evaluate the block _f_ once,

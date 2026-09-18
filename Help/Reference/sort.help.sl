@@ -1,8 +1,8 @@
 # sort
 
-- _sort([x₁ x₂ …], f:/2, g:/1)_
+- _sort([x₁ x₂ …], f/2, g/1)_
 
-Sort the sequence _x_ in place using the comparator _f:/2_.
+Sort the sequence _x_ in place using the comparator _f/2_.
 If the sort block is omitted or is `nil`, sort by `precedes`.
 Answers the sorted sequence.
 
@@ -41,7 +41,7 @@ Sort subsets lexicographically:
 ```
 >>> ['a' 'b' 'c' 'd']
 >>> .subsets(true.constant)
->>> .sort(precedes:/2)
+>>> .sort(precedes/2)
 [
 	[],
 	['a'],
@@ -72,7 +72,7 @@ Sort integers by magnitude:
 Sort by absolute value:
 
 ```
->>> [-11 10 2 1 -4].sort(<=, abs:/1)
+>>> [-11 10 2 1 -4].sort(<=, abs/1)
 [1 2 -4 10 -11]
 ```
 
@@ -87,7 +87,7 @@ Sort strings by length:
 
 ```
 >>> ['aa' 'abb' 'ba' 'b' 'aaa']
->>> .sort(<=, size:/1)
+>>> .sort(<=, size/1)
 ['b' 'ba' 'aa' 'aaa' 'abb']
 ```
 
@@ -130,7 +130,7 @@ Sort vectors by the Euclidean norm:
 ```
 >>> Sfc32(367814)
 >>> .randomInteger([-5 5], [10 3])
->>> .sort(<=, norm:/1)
+>>> .sort(<=, norm/1)
 [
 	 3  1 -1;
 	 2 -4  0;
@@ -148,7 +148,7 @@ Sort vectors by the Euclidean norm:
 Sort complex numbers by real part:
 
 ```
->>> [2J-3 0J1 3J-1 1J1].sort(<=, real:/1)
+>>> [2J-3 0J1 3J-1 1J1].sort(<=, real/1)
 [0J1 1J1 2J-3 3J-1]
 ```
 

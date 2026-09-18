@@ -20,7 +20,7 @@ The sequence of all indispensability values for a prime number is a permutation 
 >>> 		)
 >>> 	}
 >>> };
->>> [2 3 5 7 11 13 17 19 23].collect(f:/1)
+>>> [2 3 5 7 11 13 17 19 23].collect(f/1)
 [
 	1 0
 	;

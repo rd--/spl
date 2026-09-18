@@ -35,7 +35,7 @@ powers to ten and powers of two:
 Plot curve:
 
 ~~~spl svg=A
-(0.001 -- 1).functionPlot(AmpDb:/1)
+(0.001 -- 1).functionPlot(AmpDb/1)
 ~~~
 
 ![](Help/Image/AmpDb-A.svg)
@@ -56,7 +56,7 @@ Evaluate symbolically:
 
 ```
 >> ampDb(`x`)
-(* (log10 x) 20)
+(* (log x 10) 20)
 ```
 
 * * *

@@ -34,7 +34,7 @@ Integer form of first few polynomials:
 >>> (0L .. 10).collect { :n |
 >>> 	let a = n.legendreP;
 >>> 	let b = a.coefficientList;
->>> 	let c = b.select(isNonZero:/1);
+>>> 	let c = b.select(isNonZero/1);
 >>> 	let d = c.abs.gcd;
 >>> 	(d, b / d)
 >>> }

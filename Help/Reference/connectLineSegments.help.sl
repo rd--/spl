@@ -1,6 +1,6 @@
 # connectLineSegments
 
-- _connectLineSegments(l, f:/2)_
+- _connectLineSegments(l, f/2)_
 
 Connect the line segments at _l_,
 end points are compared for equality using _f_.

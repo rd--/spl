@@ -23,7 +23,7 @@ OEIS [A001608](https://oeis.org/A001608):
 C.f. `perrinFunction`:
 
 ```
->>> 0:26.collect(perrinFunction:/1)
+>>> 0:26.collect(perrinFunction/1)
 [
 	   3    0    2    3    2
 	   5    5    7   10   12

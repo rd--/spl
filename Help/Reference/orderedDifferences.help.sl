@@ -133,7 +133,7 @@ OEIS [A090321](https://oeis.org/A090321):
 ~~~spl svg=C oeis=A090321
 1:11.prime
 .orderedDifferences
-.collect(reverse:/1)
+.collect(reverse/1)
 .catenate
 .scatterPlot
 ~~~

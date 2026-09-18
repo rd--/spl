@@ -1,6 +1,6 @@
 # thenElse
 
-- _thenElse(p, f:/1, g:/1)_
+- _thenElse(p, f/1, g/1)_
 
 Schedules the block _f_ to be called if the promise _p_ resolves, with the value resolved to,
 and the block _g_ to be called if _p_ rejects, with the reason for the rejection.

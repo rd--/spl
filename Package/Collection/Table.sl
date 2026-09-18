@@ -92,15 +92,15 @@ Table : [Object, Store, Equal] { | contents columnLabels columnTypes |
 	}
 
 	Table { :self :columnLabels |
-		Table(self, columnLabels, self[1].collect(typeOf:/1))
+		Table(self, columnLabels, self[1].collect(typeOf/1))
 	}
 
 	Table { :self |
 		self.isMatrix.if {
 			let n = self.anyOne.size;
-			Table(self, [1 .. n].collect(printString:/1))
+			Table(self, [1 .. n].collect(printString/1))
 		} {
-			self.allSatisfy(isDictionary:/1).if {
+			self.allSatisfy(isDictionary/1).if {
 				let c = self.anyOne.keys;
 				let r = self.collect { :each |
 					c.collect { :k | each.at(k) }

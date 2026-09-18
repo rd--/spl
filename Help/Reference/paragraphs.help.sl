@@ -9,7 +9,7 @@ Two paragraphs, the first having two lines:
 ```
 >>> 'a\nb\n\nc'
 >>> .paragraphs
->>> .collect(lines:/1)
+>>> .collect(lines/1)
 ['a' 'b'; 'c']
 ```
 
@@ -18,7 +18,7 @@ One paragraph of three lines:
 ```
 >>> 'a\nb\nc'
 >>> .paragraphs
->>> .collect(lines:/1)
+>>> .collect(lines/1)
 [['a' 'b' 'c']]
 ```
 

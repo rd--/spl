@@ -66,7 +66,7 @@ BitSet : [Object, Store, Copyable, Equal, Iterable, Collection, Extensible] { | 
 		}
 	}
 
-	bitsDo { :self :aBlock:/1 |
+	bitsDo { :self :aBlock/1 |
 		self.indices.do { :index |
 			aBlock(self.bitAt(index))
 		}
@@ -76,18 +76,18 @@ BitSet : [Object, Store, Copyable, Equal, Iterable, Collection, Extensible] { | 
 		self.positionVector
 	}
 
-	bitsWithIndexDo { :self :aBlock:/2 |
+	bitsWithIndexDo { :self :aBlock/2 |
 		self.indices.do { :index |
 			aBlock(self.bitAt(index), index)
 		}
 	}
 
 	bitVector { :self |
-		self.contents(bitsDo:/2)
+		self.contents(bitsDo/2)
 	}
 
 	boxNotation { :self :zeroOne |
-		let [zeroCode, oneCode] = zeroOne.collect(codePoint:/1);
+		let [zeroCode, oneCode] = zeroOne.collect(codePoint/1);
 		let unicode = List(self.capacity, zeroCode);
 		self.bitsWithIndexDo { :each :index |
 			(each = 1).ifTrue {
@@ -158,7 +158,7 @@ BitSet : [Object, Store, Copyable, Equal, Iterable, Collection, Extensible] { | 
 		}
 	}
 
-	positionsDo { :self :aBlock:/1 |
+	positionsDo { :self :aBlock/1 |
 		let remainingBits = self.tally;
 		let lowBits = system.lowBitPerByteTable;
 		1.toDo(self.bytes.size) { :index |
@@ -180,14 +180,14 @@ BitSet : [Object, Store, Copyable, Equal, Iterable, Collection, Extensible] { | 
 	}
 
 	positionVector { :self |
-		self.contents(positionsDo:/2)
+		self.contents(positionsDo/2)
 	}
 
 	postCopy { :self |
 		self.bytes := self.bytes.copy
 	}
 
-	removeIfAbsent { :self :anInteger :absentBlock:/0 |
+	removeIfAbsent { :self :anInteger :absentBlock/0 |
 		self.clearBitAt(anInteger).if {
 			anInteger
 		} {

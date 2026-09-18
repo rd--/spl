@@ -272,27 +272,27 @@
 +@Collection {
 
 	bartlettWindow { :self |
-		self.collect(bartlettWindow:/1)
+		self.collect(bartlettWindow/1)
 	}
 
 	bartlettHannWindow { :self |
-		self.collect(bartlettHannWindow:/1)
+		self.collect(bartlettHannWindow/1)
 	}
 
 	blackmanWindow { :self |
-		self.collect(blackmanWindow:/1)
+		self.collect(blackmanWindow/1)
 	}
 
 	blackmanHarrisWindow { :self |
-		self.collect(blackmanHarrisWindow:/1)
+		self.collect(blackmanHarrisWindow/1)
 	}
 
 	blackmanNuttallWindow { :self |
-		self.collect(blackmanNuttallWindow:/1)
+		self.collect(blackmanNuttallWindow/1)
 	}
 
 	bohmanWindow { :self |
-		self.collect(bohmanWindow:/1)
+		self.collect(bohmanWindow/1)
 	}
 
 	cosineWindow { :self :alpha |
@@ -302,7 +302,7 @@
 	}
 
 	dirichletWindow { :self |
-		self.collect(dirichletWindow:/1)
+		self.collect(dirichletWindow/1)
 	}
 
 	gaussianWindow { :self :sigma |
@@ -312,11 +312,11 @@
 	}
 
 	gaussianWindow { :self |
-		self.collect(gaussianWindow:/1)
+		self.collect(gaussianWindow/1)
 	}
 
 	hammingWindow { :self |
-		self.collect(hammingWindow:/1)
+		self.collect(hammingWindow/1)
 	}
 
 	hannWindow { :self :alpha |
@@ -336,15 +336,15 @@
 	}
 
 	lanczosWindow { :self |
-		self.collect(lanczosWindow:/1)
+		self.collect(lanczosWindow/1)
 	}
 
 	nuttallWindow { :self |
-		self.collect(nuttallWindow:/1)
+		self.collect(nuttallWindow/1)
 	}
 
 	parzenWindow { :self |
-		self.collect(parzenWindow:/1)
+		self.collect(parzenWindow/1)
 	}
 
 	planckTaperWindow { :self :epsilon |
@@ -366,7 +366,7 @@
 	}
 
 	tukeyWindow { :self |
-		self.collect(tukeyWindow:/1)
+		self.collect(tukeyWindow/1)
 	}
 
 	welchWindow { :self :alpha |
@@ -376,7 +376,7 @@
 	}
 
 	welchWindow { :self |
-		self.collect(welchWindow:/1)
+		self.collect(welchWindow/1)
 	}
 
 }
@@ -384,11 +384,11 @@
 +@Integer {
 
 	hammingWindowTable { :n |
-		n.windowTable(hammingWindow:/1)
+		n.windowTable(hammingWindow/1)
 	}
 
 	hannWindowTable { :n |
-		n.windowTable(hannWindow:/1)
+		n.windowTable(hannWindow/1)
 	}
 
 	kaiserWindowTable { :n :alpha |
@@ -403,8 +403,8 @@
 		}
 	}
 
-	windowTable { :n :f:/1 |
-		Interval(-0.5, 0.5).discretize(n, f:/1)
+	windowTable { :n :f/1 |
+		Interval(-0.5, 0.5).discretize(n, f/1)
 	}
 
 }

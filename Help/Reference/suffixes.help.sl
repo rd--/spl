@@ -9,11 +9,11 @@ Answer a `List` of all of the non-empty suffixes of the sequence _x_.
 [1 2 3; 2 3; 3]
 
 >>> [3 1 4 1 5 9].suffixes
->>> .collect(sum:/1)
+>>> .collect(sum/1)
 [23 20 19 15 14 9]
 
 >>> 1:9.suffixes
->>> .collect(sum:/1)
+>>> .collect(sum/1)
 [45 44 42 39 35 30 24 17 9]
 ```
 

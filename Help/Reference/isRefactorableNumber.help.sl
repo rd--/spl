@@ -8,7 +8,7 @@ Refactorable numbers,
 OEIS [A033950](http://oeis.org/A033950):
 
 ```
->>> 1:200.select(isRefactorableNumber:/1)
+>>> 1:200.select(isRefactorableNumber/1)
 [
 	  1   2   8   9  12
 	 18  24  36  40  56
@@ -22,7 +22,7 @@ Refactorable numbers,
 OEIS [A033950](http://oeis.org/A033950):
 
 ~~~spl svg=A oeis=A033950
-1:500.select(isRefactorableNumber:/1)
+1:500.select(isRefactorableNumber/1)
 .discretePlot
 ~~~
 

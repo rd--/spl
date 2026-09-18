@@ -75,7 +75,7 @@ The number of digits in _n!_,
 OEIS [A034886](https://oeis.org/A034886):
 
 ```
->>> 0:20.!.collect(integerLength:/1)
+>>> 0:20.!.collect(integerLength/1)
 [
 	1 1 1 1 2 3 3 4 5 6
 	7 8 9 10 11 13 14 15 16 18
@@ -311,7 +311,7 @@ OEIS [A049984](https://oeis.org/A049984):
 
 ```
 >>> 0:13.collect { :n | (n * n.!) + 1 }
->>> .select(isPrime:/1)
+>>> .select(isPrime/1)
 [2 5 19 97 601 35281 5748019201]
 ```
 
@@ -334,7 +334,7 @@ OEIS [A003319](https://oeis.org/A003319):
 >>> 		k.! * a(n - k)
 >>> 	}
 >>> };
->>> 1:12.collect(a:/1)
+>>> 1:12.collect(a/1)
 [
 	1 1 3 13 71 461 3447 29093 273343
 	2829325 31998903 392743957

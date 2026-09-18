@@ -8,7 +8,7 @@ Enumerate and count chord diagrams where _n=3_:
 
 ```
 >>> 3.chordDiagrams
->>> .collect(edgeList:/1)
+>>> .collect(edgeList/1)
 [
 	1 2; 3 4; 5 6:;
 	1 2; 3 5; 4 6:;
@@ -25,7 +25,7 @@ Enumerate and count chord diagrams where _n=4_:
 
 ```
 >>> 4.chordDiagrams
->>> .collect(edgeList:/1)
+>>> .collect(edgeList/1)
 [
 	1 2; 3 4; 5 6; 7 8:;
 	1 2; 3 4; 5 7; 6 8:;
@@ -65,7 +65,7 @@ Plot the five chord diagrams of length three:
 
 ~~~spl svg=A
 3.chordDiagrams
-.collect(chordDiagramPlot:/1)
+.collect(chordDiagramPlot/1)
 .reshape([1 5])
 .PlotSet
 ~~~

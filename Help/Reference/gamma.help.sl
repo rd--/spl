@@ -181,7 +181,7 @@ Plot γ with _γ + sin_, note intersection at positive integers:
 Plot over a subset of the complexes:
 
 ~~~spl png=C
-[-2J-2 2J2].complexPlot(gamma:/1)
+[-2J-2 2J2].complexPlot(gamma/1)
 ~~~
 
 ![](Help/Image/gamma-C.png)

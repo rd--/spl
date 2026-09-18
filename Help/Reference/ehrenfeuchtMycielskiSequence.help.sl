@@ -36,7 +36,7 @@ OEIS [A201881](https://oeis.org/A201881):
 ~~~spl svg=B oeis=A201881
 105.ehrenfeuchtMycielskiSequence
 .split(=)
-.collect(size:/1)
+.collect(size/1)
 .discretePlot
 ~~~
 

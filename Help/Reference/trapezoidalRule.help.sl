@@ -1,6 +1,6 @@
 # trapezoidalRule
 
-- _trapezoidalRule(f:/1, [a b], n)_
+- _trapezoidalRule(f/1, [a b], n)_
 
 Implement the trapezoidal rule,
 also called the trapezium rule,
@@ -10,11 +10,11 @@ The step size _h_ is given by _(b-a)/n_.
 Integrate the `square` function over _(1,5)_:
 
 ```
->>> square:/1
+>>> square/1
 >>> .trapezoidalRule([1 5], 100)
 41.3344
 
->>> square:/1
+>>> square/1
 >>> .adaptiveSimpsonsMethod([1 5])
 41 + 1/3
 ```
@@ -22,7 +22,7 @@ Integrate the `square` function over _(1,5)_:
 Integrate the `cube` function over _(0,1)_:
 
 ```
->>> cube:/1
+>>> cube/1
 >>> .trapezoidalRule([0 1], 100)
 0.25
 ```
@@ -30,7 +30,7 @@ Integrate the `cube` function over _(0,1)_:
 Integrate the `reciprocal` function over _(1,100)_:
 
 ```
->>> reciprocal:/1
+>>> reciprocal/1
 >>> .trapezoidalRule([1 100], 5000)
 4.6052
 ```
@@ -38,7 +38,7 @@ Integrate the `reciprocal` function over _(1,100)_:
 Integrate the `sin` function over _(0,π)_:
 
 ```
->>> sin:/1
+>>> sin/1
 >>> .trapezoidalRule([0 1.pi], 100)
 2
 ```

@@ -28,7 +28,7 @@ OEIS [A007908](https://oeis.org/A007908):
 ```
 >>> 2:10.foldList(
 >>> 	1,
->>> 	integerConcatenation:/2
+>>> 	integerConcatenation/2
 >>> )
 [
 	1

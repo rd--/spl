@@ -1,6 +1,6 @@
 # parseDecimalNumeral
 
-- _parseDecimalNumeral(s, f:/0)_
+- _parseDecimalNumeral(s, f/0)_
 
 Parse the decimal numeral at the string _s_.
 

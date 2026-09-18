@@ -23,7 +23,7 @@ The first few Kaprekar numbers,
 OEIS [A006886](https://oeis.org/A006886):
 
 ```
->>> 1:2500.select(isKaprekarNumber:/1)
+>>> 1:2500.select(isKaprekarNumber/1)
 [1 9 45 55 99 297 703 999 2223]
 ```
 

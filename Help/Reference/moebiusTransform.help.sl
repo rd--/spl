@@ -103,7 +103,7 @@ OEIS [A008683](https://oeis.org/A008683):
 >>> .moebiusTransform
 [1 -1 -1 0 -1 1 -1 0 0 1 -1 0 -1 1 1 0 -1]
 
->>> 1:17.collect(moebiusMu:/1)
+>>> 1:17.collect(moebiusMu/1)
 [1 -1 -1 0 -1 1 -1 0 0 1 -1 0 -1 1 1 0 -1]
 ```
 

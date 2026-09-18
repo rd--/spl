@@ -1,6 +1,6 @@
 # parseComplex
 
-- _parseComplex(s, f:/0)_
+- _parseComplex(s, f/0)_
 
 Answer the `Complex` number represented by the string _s_,
 else evaluate the else clause _f_ or signal an `error`.

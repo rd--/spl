@@ -13,14 +13,14 @@ SortedSet : [Object, Store, Copyable, Equal, Iterable, Collection, Extensible, S
 		self.contents.asList
 	}
 
-	collect { :self :aBlock:/1 |
+	collect { :self :aBlock/1 |
 		SortedSet(
-			self.contents.collect(aBlock:/1)
+			self.contents.collect(aBlock/1)
 		)
 	}
 
-	do { :self :aBlock:/1 |
-		self.contents.do(aBlock:/1);
+	do { :self :aBlock/1 |
+		self.contents.do(aBlock/1);
 		self
 	}
 
@@ -36,8 +36,8 @@ SortedSet : [Object, Store, Copyable, Equal, Iterable, Collection, Extensible, S
 		self.contents.removeAll
 	}
 
-	removeIfAbsent { :self :anObject :aBlock:/0 |
-		self.contents.removeIfAbsent(anObject, aBlock:/0)
+	removeIfAbsent { :self :anObject :aBlock/0 |
+		self.contents.removeIfAbsent(anObject, aBlock/0)
 	}
 
 	postCopy { :self |
@@ -49,13 +49,13 @@ SortedSet : [Object, Store, Copyable, Equal, Iterable, Collection, Extensible, S
 	}
 
 	species { :self |
-		SortedSet:/0
+		SortedSet/0
 	}
 
 	storeString { :self |
 		'SortedSet([%])'.format(
 			[
-				self.contents.contents.collect(storeString:/1).commaSeparated
+				self.contents.contents.collect(storeString/1).commaSeparated
 			]
 		)
 	}
@@ -66,7 +66,7 @@ SortedSet : [Object, Store, Copyable, Equal, Iterable, Collection, Extensible, S
 
 	SortedSet {
 		newSortedSet().initializeSlots(
-			SortedList([], precedesOrEqualTo:/2)
+			SortedList([], precedesOrEqualTo/2)
 		)
 	}
 

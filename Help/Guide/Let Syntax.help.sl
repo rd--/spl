@@ -36,15 +36,15 @@ Initialising a value to a `Block` literal rewrites the bound name to its arity q
 unless it is already arity qualified:
 
 ```
->> 'let f = { :x | x }; f:/1'.splSimplify
-let f:/1 = { :x | x }; f:/1
+>> 'let f = { :x | x }; f/1'.splSimplify
+let f/1 = { :x | x }; f/1
 
->> 'let f:/1 = { :x | x }; f:/1'.splSimplify
-let f:/1 = { :x | x }; f:/1
+>> 'let f/1 = { :x | x }; f/1'.splSimplify
+let f/1 = { :x | x }; f/1
 
 >>> let f = { :x | x * 2 + 1 };
 >>> (
->>> 	f:/1 . (11),
+>>> 	f/1 . (11),
 >>> 	{ f . (11) }.hasError
 >>> )
 (23, true)
@@ -56,7 +56,7 @@ or an _n_-ary operator,
 if the binding is to a block literal:
 
 ```
->>> let ** = power:/2;
+>>> let ** = power/2;
 >>> 3 ** 7
 2187
 

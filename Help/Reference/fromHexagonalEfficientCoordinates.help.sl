@@ -14,7 +14,7 @@ let p = [
 	0 2 1; 0 2 2; 0 2 3; 0 2 4;
 	1 2 1; 1 2 2; 1 2 3; 1 2 4
 ].collect(
-	fromHexagonalEfficientCoordinates:/1
+	fromHexagonalEfficientCoordinates/1
 );
 let h = p.collect { :c |
 	6.regularPolygon(c, 0.5, 0.5.pi)

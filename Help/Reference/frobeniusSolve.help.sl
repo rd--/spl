@@ -119,7 +119,7 @@ OEIS [A098238](https://oeis.org/A098238):
 >>> 0:23.collect { :n |
 >>> 	[1 1 1].frobeniusSolve(n)
 >>> 	.count { :x |
->>> 		x.allSatisfy(isPrime:/1)
+>>> 		x.allSatisfy(isPrime/1)
 >>> 	}
 >>> }
 [
@@ -166,7 +166,7 @@ OEIS [A046927](https://oeis.org/A046927):
 0:150.collect { :n |
 	[1 2].frobeniusSolve(2 * n + 1)
 	.count { :x |
-		x.allSatisfy(isPrime:/1)
+		x.allSatisfy(isPrime/1)
 	}
 }.scatterPlot
 ~~~
@@ -180,7 +180,7 @@ OEIS [A073610](https://oeis.org/A073610):
 1:115.collect { :n |
 	[1 1].frobeniusSolve(n)
 	.count { :x |
-		x.allSatisfy(isPrime:/1)
+		x.allSatisfy(isPrime/1)
 	}
 }.scatterPlot
 ~~~
@@ -194,7 +194,7 @@ OEIS [A000925](https://oeis.org/A000925):
 0:75.collect { :n |
 	[1 1].frobeniusSolve(n)
 	.count { :x |
-		x.allSatisfy(isPerfectSquare:/1)
+		x.allSatisfy(isPerfectSquare/1)
 	}
 }.discretePlot
 ~~~
@@ -207,7 +207,7 @@ OEIS [A053344](https://oeis.org/A053344):
 ~~~spl svg=E oeis=A053344
 1:150.collect { :n |
 	[1 5 10 25].frobeniusSolve(n)
-	.collect(sum:/1)
+	.collect(sum/1)
 	.min
 }.scatterPlot
 ~~~
@@ -233,7 +233,7 @@ OEIS [A335045](https://oeis.org/A335045):
 let d = Map { :n |
 	[1 1].frobeniusSolve(2 * n)
 	.select { :x |
-		x.allSatisfy(isPrime:/1)
+		x.allSatisfy(isPrime/1)
 	}.catenate
 };
 2:55.collect { :n |

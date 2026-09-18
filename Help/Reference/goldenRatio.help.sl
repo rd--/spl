@@ -532,7 +532,7 @@ the differences of the rounded multiples of φ,
 OEIS [A006340](https://oeis.org/A006340):
 
 ~~~spl svg=L oeis=A006340
-let x = 0:93.collect(goldenRatio:/1);
+let x = 0:93.collect(goldenRatio/1);
 (x.round.differences - 1).discretePlot
 ~~~
 
@@ -570,7 +570,7 @@ OEIS [A019587](https://oeis.org/A019587):
 
 ~~~spl svg=O oeis=A019587
 let r = 1.goldenRatio;
-let p:/1 = fractionalPart:/1;
+let p/1 = fractionalPart/1;
 1:100.collect { :n |
 	1:n.sum { :k |
 		(p(k * r) <= p(n * r)).boole
@@ -585,7 +585,7 @@ OEIS [A019588](https://oeis.org/A019588):
 
 ~~~spl svg=P oeis=A019588
 let r = -1.goldenRatio;
-let p:/1 = fractionalPart:/1;
+let p/1 = fractionalPart/1;
 1:100.collect { :n |
 	1:n.sum { :k |
 		(p(k * r) <= p(n * r)).boole
@@ -600,7 +600,7 @@ OEIS [A194733](https://oeis.org/A194733):
 
 ~~~spl svg=Q oeis=A194733
 let r = 1.goldenRatio;
-let p:/1 = fractionalPart:/1;
+let p/1 = fractionalPart/1;
 1:100.collect { :n |
 	1:n.sum { :k |
 		(p(k * r) > p(n * r)).boole

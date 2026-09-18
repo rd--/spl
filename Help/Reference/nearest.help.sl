@@ -63,14 +63,14 @@ Compare the answers given by specific distance functions:
 >>> [1.5 0.6; 2 0; 1.25 1.25]
 >>> .nearestBy(
 >>> 	[0 0],
->>> 	manhattanDistance:/2
+>>> 	manhattanDistance/2
 >>> )
 [[2 0]]
 
 >>> [1.5 0.6; 2 0; 1.25 1.25]
 >>> .nearestBy(
 >>> 	[0 0],
->>> 	chessboardDistance:/2
+>>> 	chessboardDistance/2
 >>> )
 [[1.25 1.25]]
 ```

@@ -16,7 +16,7 @@ one more than the `primorial` of _n_.
 The first few terms:
 
 ```
->>> 1:13.collect(euclidNumber:/1)
+>>> 1:13.collect(euclidNumber/1)
 [
 	3
 	7

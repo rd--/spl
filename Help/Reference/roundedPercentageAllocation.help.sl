@@ -31,7 +31,7 @@ Split 100 into proportions of 1/3 and 2/3 to the nearest 1/100:
 Round list of ten random real numbers to nearest integer and also nearest one-hundredth:
 
 ```
->>> let f:/3 = roundedPercentageAllocation:/3;
+>>> let f/3 = roundedPercentageAllocation/3;
 >>> let r = Sfc32(7382914);
 >>> let p = r.randomReal([0 1], 10);
 >>> let a = f(100, p, 1);

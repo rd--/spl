@@ -8,7 +8,7 @@ Strong prime numbers,
 OEIS [A051634](https://oeis.org/A051634):
 
 ```
->>> 1:500.select(isStrongPrime:/1)
+>>> 1:500.select(isStrongPrime/1)
 [
 	 11  17  29  37  41
 	 59  67  71  79  97

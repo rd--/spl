@@ -22,7 +22,7 @@ EmpiricalDistribution : [Object, Equal, ProbabilityDistribution] { | contents k 
 	inverseCdf { :self |
 		let max = self.max;
 		let min = self.min;
-		let f:/1 = self.cdf;
+		let f/1 = self.cdf;
 		{ :p |
 			(p = 0).if {
 				min
@@ -70,7 +70,7 @@ EmpiricalDistribution : [Object, Equal, ProbabilityDistribution] { | contents k 
 
 	/*
 	randomVariate { :self :rng :shape |
-		let f:/1 = self.inverseCdf;
+		let f/1 = self.inverseCdf;
 		{
 			f(rng.nextRandomFloat)
 		} ! shape

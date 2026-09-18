@@ -1,6 +1,6 @@
 # contents
 
-- _contents(x, f:/2)_
+- _contents(x, f/2)_
 
 Answer the contents of _x_.
 The `contents` of an `Iterable` object is a `List` of all of the items accessed by _f_, or by `do`.
@@ -25,7 +25,7 @@ At `Tree`:
 >>> [1, [2, [3], 4], 5]
 >>> .expressionTree(nil)
 >>> .contents
->>> .collect(value:/1)
+>>> .collect(value/1)
 [nil 1 nil 2 nil 3 4 5]
 ```
 

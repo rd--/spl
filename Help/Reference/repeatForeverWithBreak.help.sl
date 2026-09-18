@@ -1,12 +1,12 @@
 # repeatForeverWithBreak
 
-- _repeatForeverWithBreak(f:/1)_
+- _repeatForeverWithBreak(f/1)_
 
 Evaluate the one-argument block _f_ repeatedly,
 passing a no-argument break block to exit:
 
 ```
->>> { :break:/0 |
+>>> { :break/0 |
 >>> 	system
 >>> 	.randomBoolean(0.5, [])
 >>> 	.ifTrue {

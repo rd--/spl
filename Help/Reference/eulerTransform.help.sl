@@ -1,6 +1,6 @@
 # eulerTransform
 
-- _eulerTransform(f:/1)_
+- _eulerTransform(f/1)_
 
 Implement the third type of Euler transform,
 defining a relationship between certain types of integer sequences.
@@ -10,7 +10,7 @@ OEIS [A000219](https://oeis.org/A000219):
 
 ```
 >>> 0:23.collect(
->>> 	identity:/1.eulerTransform
+>>> 	identity/1.eulerTransform
 >>> )
 [
 	    1      1      3      6     13
@@ -26,7 +26,7 @@ OEIS [A023871](https://oeis.org/A023871):
 
 ```
 >>> 0:9.collect(
->>> 	square:/1.eulerTransform
+>>> 	square/1.eulerTransform
 >>> )
 [1 1 5 14 40 101 266 649 1593 3765]
 ```
@@ -46,7 +46,7 @@ OEIS [A166861](https://oeis.org/A166861):
 
 ```
 >>> 0:23.collect(
->>> 	fibonacci:/1.eulerTransform
+>>> 	fibonacci/1.eulerTransform
 >>> )
 [
 	     1      1      2       4     8
@@ -121,7 +121,7 @@ OEIS [A000335](https://oeis.org/A000335):
 
 ```
 >>> 1:14.collect(
->>> 	tetrahedralNumber:/1
+>>> 	tetrahedralNumber/1
 >>> 	.eulerTransform
 >>> )
 [
@@ -135,7 +135,7 @@ OEIS [A061255](https://oeis.org/A061255):
 
 ```
 >>> 0:19.collect(
->>> 	eulerPhi:/1
+>>> 	eulerPhi/1
 >>> 	.eulerTransform
 >>> )
 [

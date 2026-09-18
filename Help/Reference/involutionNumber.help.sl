@@ -9,7 +9,7 @@ Involution numbers,
 OEIS [A000085](https://oeis.org/A000085):
 
 ```
->>> 0:23.collect(involutionNumber:/1)
+>>> 0:23.collect(involutionNumber/1)
 [
 	1
 	1

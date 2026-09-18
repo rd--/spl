@@ -75,7 +75,7 @@ let f = { :n |
 		p ++ [n] ++ p
 	}
 };
-let t = 1:6.collect(f:/1);
+let t = 1:6.collect(f/1);
 (t - 1).catenate.discretePlot
 ~~~
 

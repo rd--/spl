@@ -52,7 +52,7 @@ the unique positive solution of _x^(n+1)=x+1_.
 Harmonious numbers:
 
 ~~~spl svg=A
-1:23.collect(harmoniousNumber:/1)
+1:23.collect(harmoniousNumber/1)
 .scatterPlot
 ~~~
 

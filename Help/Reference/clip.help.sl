@@ -44,7 +44,7 @@ Specify replacement values for clipping:
 Collect using unary form:
 
 ```
->>> -2:2.collect(clip:/1)
+>>> -2:2.collect(clip/1)
 [-1 -1 0 1 1]
 ```
 
@@ -75,7 +75,7 @@ Boundaries are includes:
 Plot the unit clip function over a subset of the reals:
 
 ~~~spl svg=A
-(-3 -- 3).functionPlot(clip:/1)
+(-3 -- 3).functionPlot(clip/1)
 ~~~
 
 ![](Help/Image/clip-A.svg)
@@ -84,7 +84,7 @@ Plot the composition of clip with a periodic function:
 
 ~~~spl svg=B
 (0 -- 2.pi).functionPlot(
-	sin:/1.clip([-0.5 1])
+	sin/1.clip([-0.5 1])
 )
 ~~~
 

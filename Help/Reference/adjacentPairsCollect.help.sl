@@ -1,6 +1,6 @@
 # adjacentPairsCollect
 
-- _adjacentPairsCollect([x₁ x₂ …], f:/2)_
+- _adjacentPairsCollect([x₁ x₂ …], f/2)_
 
 Collect over the items of the sequence _x_ taken two at a time,
 moving forward one place each time.

@@ -1,12 +1,12 @@
 # @* (commercialAtAsterisk)
 
 - _c₁ @* c₂_
-- _f:/1 @* g:/1_
+- _f/1 @* g/1_
 
 At `Block` the operator (infix) form of `compose`:
 
 ```
->>> (square:/1 @* sqrt:/1) . (23)
+>>> (square/1 @* sqrt/1) . (23)
 23
 ```
 

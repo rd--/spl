@@ -30,7 +30,7 @@ and that each edge as a unit:
 >>> 	p.vertexCount,
 >>> 	p.faceCount,
 >>> 	p.edgeCount,
->>> 	p.faceIndices.collect(size:/1),
+>>> 	p.faceIndices.collect(size/1),
 >>> 	p.edgeLengths
 >>> )
 (8, 6, 12, 6 # [4], 12 # [1])
@@ -48,7 +48,7 @@ Draw two unit cubes:
 
 ~~~spl svg=B
 [0 0 0; 0.5 0.5 0.5]
-.collect(unitCube:/1)
+.collect(unitCube/1)
 .PerspectiveDrawing
 ~~~
 

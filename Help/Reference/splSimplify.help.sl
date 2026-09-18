@@ -205,6 +205,12 @@ plusSign(3, 4)
 
 >> '3 + 4 * 0.1'.splSimplify
 asterisk(plusSign(3, 4), 0.1)
+
+>> '(2 * x) + (3 * y)'.splSimplify
+plusSign(
+  (asterisk(2, x)),
+  (asterisk(3, y))
+)
 ```
 
 `Trailing Block Syntax` is rewritten as `Apply Syntax`:

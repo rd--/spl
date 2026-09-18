@@ -10,7 +10,7 @@ true
 
 >>> (x: 1, y: 2)
 >>> .associations
->>> .allSatisfy(isAssociation:/1)
+>>> .allSatisfy(isAssociation/1)
 true
 ```
 

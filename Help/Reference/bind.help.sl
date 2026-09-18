@@ -1,6 +1,6 @@
 # bind
 
-- _bind(f:/2, x)_
+- _bind(f/2, x)_
 
 An alias for `bindLeft`.
 

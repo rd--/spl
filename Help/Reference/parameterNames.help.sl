@@ -1,17 +1,17 @@
 # parameterNames
 
-- _parameterNames(f:/n)_
+- _parameterNames(f/n)_
 
 Answer a `List` of `String` items giving the names of the parameters of the _n_-ary method _f_.
 
 ```
->>> size:/1.parameterNames
+>>> size/1.parameterNames
 ['self']
 
->>> randomChoice:/3.parameterNames
+>>> randomChoice/3.parameterNames
 ['self' 'r' 'shape']
 
->>> encodeJson:/3.parameterNames
+>>> encodeJson/3.parameterNames
 ['self' 'replacer' 'space']
 ```
 
@@ -23,7 +23,7 @@ At a `MethodInformation` value:
 >>> .atPath(['collect' 2 'List'])
 >>> .information
 >>> .parameterNames
-['self', 'aBlock:/1']
+['self', 'aBlock/1']
 ```
 
 Note that literal `Block` values do not store their parameter names:
@@ -33,7 +33,7 @@ Note that literal `Block` values do not store their parameter names:
 nil
 
 >>> let f = { :x | x };
->>> f:/1.parameterNames
+>>> f/1.parameterNames
 nil
 ```
 

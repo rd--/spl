@@ -1,6 +1,6 @@
 # MemoizationTable
 
-- _MemoizationTable(f:/1, d)_
+- _MemoizationTable(f/1, d)_
 
 `MemoizationTable` is a `Type` implementing a memoization table.
 Entries are specified by the block _f_,

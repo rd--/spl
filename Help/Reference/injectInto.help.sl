@@ -1,6 +1,6 @@
 # injectInto
 
-- _injectInto(c, x, f:/2)_
+- _injectInto(c, x, f/2)_
 
 Accumulate a running value associated with evaluating the block _f_ with the current value,
 initially _x_,
@@ -75,7 +75,7 @@ Successively partition a list:
 ```
 >>> let [a] = [2 4 3].injectInto(
 >>> 	[1 .. 30],
->>> 	partition:/2
+>>> 	partition/2
 >>> );
 >>> (a, a.shape)
 (

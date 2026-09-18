@@ -38,8 +38,8 @@ There is a special syntax for in place, or mutating, methods:
 >>> 'sort!'.splSimplify
 'sortInPlace'
 
->>> 'sort!:/1'.splSimplify
-'sortInPlace:/1'
+>>> 'sort!/1'.splSimplify
+'sortInPlace/1'
 ```
 
 * * *

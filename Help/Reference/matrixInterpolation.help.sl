@@ -1,6 +1,6 @@
 # matrixInterpolation
 
-- _matrixInterpolation(n, f:/6)_
+- _matrixInterpolation(n, f/6)_
 
 Answer a `Block` that will interpolate into the matrix _m_ using the interpolation function _f_.
 
@@ -10,7 +10,7 @@ Resample a 3×3 matrix to a 6×6 matrix:
 >>> let i = (1 -- 3).discretize(6);
 >>> [1 2 3; 2 3 4; 3 4 5]
 >>> .matrixInterpolation(
->>> 	bilinearInterpolation:/6
+>>> 	bilinearInterpolation/6
 >>> )
 >>> .table(i, i)
 [
@@ -30,7 +30,7 @@ Resample a 2×3 matrix to a 4×7 matrix:
 >>> let j = (1 -- 3).discretize(7);
 >>> [1 2 3; 4 5 6]
 >>> .matrixInterpolation(
->>> 	bilinearInterpolation:/6
+>>> 	bilinearInterpolation/6
 >>> )
 >>> .table(i, j)
 [3:9, 6:12, 9:15, 12:18] / 3
@@ -42,7 +42,7 @@ Resample a 2×2 matrix to a 24×24 matrix and plot:
 let i = (1 -- 2).subdivide(23);
 [1 0.5; 0 1]
 .matrixInterpolation(
-	bilinearInterpolation:/6
+	bilinearInterpolation/6
 )
 .table(i, i)
 .deepCollect { :each |

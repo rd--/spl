@@ -47,7 +47,7 @@ Interpolate the sequence of primes:
 
 ~~~spl svg=D
 let y = 30.primesList;
-let f:/1 = y.interpolation('Akima');
+let f/1 = y.interpolation('Akima');
 (2 -- 30).functionPlot { :n |
 	f(n) - f(n - 1)
 }

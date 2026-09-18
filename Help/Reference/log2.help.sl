@@ -10,6 +10,9 @@ also called the binary logarithm.
 >>> (2 ^ 10).log2
 10
 
+>>> (2 ^ 10).log(2)
+10
+
 >>> (2 ^ 1/2).log2
 1/2
 
@@ -123,7 +126,7 @@ Benson’s variants of Carlos’ α β and γ-scales:
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(0.01 -- 5).functionPlot(log2:/1)
+(0.01 -- 5).functionPlot(log2/1)
 ~~~
 
 ![](Help/Image/log2-A.svg)

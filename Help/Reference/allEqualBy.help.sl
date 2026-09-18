@@ -1,6 +1,6 @@
 # allEqualBy
 
-- _allEqualBy(c, f:/2)_
+- _allEqualBy(c, f/2)_
 
 Answer `true` is all items in the collection _c_ are equal according to the block _f_.
 

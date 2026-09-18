@@ -22,14 +22,14 @@ CategoryDictionary : [Object] { | domainDictionary |
 		self.category(domain, simpleCategory).uncheckedIncludeAll(entries)
 	}
 
-	categorizeDictionary { :self :domain :aBlock:/1 :aDictionary |
+	categorizeDictionary { :self :domain :aBlock/1 :aDictionary |
 		aDictionary.withIndexDo { :value :key |
-			self.categorizeAll(domain, key, value.collect(aBlock:/1))
+			self.categorizeAll(domain, key, value.collect(aBlock/1))
 		}
 	}
 
 	categorizeDictionary { :self :domain :aDictionary |
-		self.categorizeDictionary(domain, identity:/1, aDictionary)
+		self.categorizeDictionary(domain, identity/1, aDictionary)
 	}
 
 	category { :self :domain :category |

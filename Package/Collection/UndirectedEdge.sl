@@ -88,7 +88,7 @@ UndirectedEdge : [Object, Store, Equal, Compare, Indexable] { | vertexList |
 	}
 
 	asEdgeList { :self |
-		self.collect(asEdge:/1)
+		self.collect(asEdge/1)
 	}
 
 }

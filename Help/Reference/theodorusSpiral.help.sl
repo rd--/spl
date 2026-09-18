@@ -21,7 +21,7 @@ the angles exhibit the equidistribution property:
 
 ~~~spl svg=B
 150.theodorusSpiral
-.collect(normalize:/1)
+.collect(normalize/1)
 .PointCloud
 ~~~
 

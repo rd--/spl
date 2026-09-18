@@ -9,7 +9,7 @@ first few terms,
 OEIS [A072061](https://oeis.org/A072061):
 
 ```
->>> 1:9.collect(wythoffPair:/1)
+>>> 1:9.collect(wythoffPair/1)
 [
 	1 2;
 	3 5;
@@ -27,7 +27,7 @@ The sequence of the first element of each pair is a Beatty sequence called the l
 OEIS [A000201](https://oeis.org/A000201):
 
 ```
->>> 1:19.collect(wythoffLower:/1)
+>>> 1:19.collect(wythoffLower/1)
 [
 	1 3 4 6 8 9 11 12 14 16
 	17 19 21 22 24 25 27 29 30
@@ -38,7 +38,7 @@ The sequence of the second element of each pair is a Beatty sequence called the 
 OEIS [A001950](https://oeis.org/A001950):
 
 ```
->>> 1:19.collect(wythoffUpper:/1)
+>>> 1:19.collect(wythoffUpper/1)
 [
 	2 5 7 10 13 15 18 20 23 26
 	28 31 34 36 39 41 44 47 49
@@ -48,10 +48,10 @@ OEIS [A001950](https://oeis.org/A001950):
 Plot Wythoff’s game of Nim:
 
 ~~~spl svg=A
-let w = 1:23.collect(wythoffPair:/1);
+let w = 1:23.collect(wythoffPair/1);
 [
 	w,
-	w.collect(reverse:/1)
+	w.collect(reverse/1)
 ].scatterPlot
 ~~~
 
@@ -61,7 +61,7 @@ Wythoff pairs sequence,
 OEIS [A072061](https://oeis.org/A072061):
 
 ~~~spl svg=B oeis=A072061
-1:55.collect(wythoffPair:/1)
+1:55.collect(wythoffPair/1)
 .catenate.scatterPlot
 ~~~
 
@@ -71,7 +71,7 @@ Positive integers with swaps according to Wythoff pairs,
 OEIS [A002251](https://oeis.org/A002251):
 
 ~~~spl svg=C oeis=A002251
-let w = 1:65.collect(wythoffPair:/1);
+let w = 1:65.collect(wythoffPair/1);
 let i = w.catenate;
 let m = i.max;
 let k = 1:m.complement(i).min;

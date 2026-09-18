@@ -8,7 +8,7 @@ Select entries from the Svg colour catalogue that are magenta:
 
 ```
 >>> system.svgColourCatalogue
->>> .select(isMagenta:/1)
+>>> .select(isMagenta/1)
 >>> .keys
 [
 	'darkmagenta'
@@ -24,7 +24,7 @@ not that the colours called 'Fuchsia' and 'Magenta' are the same:
 
 ~~~spl svg=A
 system.svgColourCatalogue
-.select(isMagenta:/1)
+.select(isMagenta/1)
 .values
 .enclose.arrayPlot
 ~~~

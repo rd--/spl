@@ -1,6 +1,6 @@
 # ifEmpty
 
-- _ifEmpty(c, f:/0, g:/1)_
+- _ifEmpty(c, f/0, g/1)_
 
 Conditional evaluation.
 If the collection _c_ has no elements answer the result of  _f_,

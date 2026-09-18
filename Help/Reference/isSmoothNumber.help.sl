@@ -51,7 +51,7 @@ OEIS [A051037](https://oeis.org/A051037):
 	25 27 30 32 36 40 45 48 50 54 60
 ]
 
->>> 30:60.select(isRegularNumber:/1)
+>>> 30:60.select(isRegularNumber/1)
 [30 32 36 40 45 48 50 54 60]
 ```
 

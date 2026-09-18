@@ -92,7 +92,7 @@ Padovan L-system, the size of the sequence at each step gives the Padovan sequen
 ```
 >>> let r = [1 -> [2], 2 -> [3], 3 -> [1 2]];
 >>> let x = r.substitutionSystem([1], 8);
->>> (x.collect(size:/1), x)
+>>> (x.collect(size/1), x)
 (
 	[1 1 1 2 2 3 4 5 7],
 	[

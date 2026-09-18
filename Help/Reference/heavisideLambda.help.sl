@@ -13,7 +13,7 @@ Evaluate numerically:
 >>> 0.8.heavisideLambda
 0.2
 
->>> [-1 1/4].collect(heavisideLambda:/1)
+>>> [-1 1/4].collect(heavisideLambda/1)
 [0 3/4]
 ```
 
@@ -21,7 +21,7 @@ Plot in one dimension:
 
 ~~~spl svg=A
 (-2 -- 2).functionPlot(
-	heavisideLambda:/1
+	heavisideLambda/1
 )
 ~~~
 

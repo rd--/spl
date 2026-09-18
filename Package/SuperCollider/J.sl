@@ -53,10 +53,10 @@
 		}
 	}
 
-	shapeIndicesDo { :self :aBlock:/1 |
+	shapeIndicesDo { :self :aBlock/1 |
 		self.collect { :each |
 			1.to(each)
-		}.tuplesDo(aBlock:/1)
+		}.tuplesDo(aBlock/1)
 	}
 
 	shapeIndices { :self |

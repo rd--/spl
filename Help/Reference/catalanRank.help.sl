@@ -8,7 +8,7 @@ First few terms of Catalan unranking algorithm,
 OEIS [A215406](https://oeis.org/A215406):
 
 ```
->>> 0:86.collect(catalanRank:/1)
+>>> 0:86.collect(catalanRank/1)
 [
 	0 0 1 1 1 1 1 1 1 1 2 2 3 3 3 3 1 1 1 1
 	2 2 2 2 3 3 3 3 3 3 3 3 2 2 2 2 2 2 3 3
@@ -35,8 +35,8 @@ Relation to `isDyckWord`:
 684
 
 >>> 0:684
->>> .select(isDyckWord:/1)
->>> .collect(catalanRank:/1)
+>>> .select(isDyckWord/1)
+>>> .collect(catalanRank/1)
 [0 .. 24]
 ```
 
@@ -44,7 +44,7 @@ Catalan unranking algorithm,
 OEIS [A215406](https://oeis.org/A215406):
 
 ~~~spl svg=A oeis=A215406
-0:300.collect(catalanRank:/1)
+0:300.collect(catalanRank/1)
 .scatterPlot
 ~~~
 

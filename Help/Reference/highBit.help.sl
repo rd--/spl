@@ -48,7 +48,7 @@ At `LargeInteger`:
 Plot it:
 
 ~~~spl svg=A
-(0 .. 2 ^ 11 - 1).functionPlot(highBit:/1)
+(0 .. 2 ^ 11 - 1).functionPlot(highBit/1)
 ~~~
 
 ![](Help/Image/highBit-A.svg)

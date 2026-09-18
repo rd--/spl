@@ -13,15 +13,15 @@ Dyson cranks for integer paritions of four through six:
 
 ```
 >>> 4.integerPartitions
->>> .collect(dysonCrank:/1)
+>>> .collect(dysonCrank/1)
 [4 0 2 -2 -4]
 
 >>> 5.integerPartitions
->>> .collect(dysonCrank:/1)
+>>> .collect(dysonCrank/1)
 [5 0 3 -1 1 -3 -5]
 
 >>> 6.integerPartitions
->>> .collect(dysonCrank:/1)
+>>> .collect(dysonCrank/1)
 [6 0 4 -1 3 1 -3 2 -2 -4 -6]
 ```
 
@@ -29,7 +29,7 @@ Dyson cranks for integer paritions of nine:
 
 ```
 >>> 9.integerPartitions
->>> .collect(dysonCrank:/1)
+>>> .collect(dysonCrank/1)
 [
 	 9  0  7 -1  6  1 -2  5  1  5
 	-1 -3  1  4  0  2 -2 -5  3  2
@@ -41,7 +41,7 @@ Andrews and Garvan proved that the partitions of a number of the form _11m+6_ ca
 
 ```
 >>> let p = 17.integerPartitions;
->>> let c = p.collect(dysonCrank:/1);
+>>> let c = p.collect(dysonCrank/1);
 >>> (c % 11).sort.asRunArray
 RunArray(
 	[27 27 27 27 27 27 27 27 27 27 27],
@@ -55,7 +55,7 @@ OEIS [A064391](https://oeis.org/A064391):
 ~~~spl svg=A oeis=A064391
 (1 .. 9).collect { :n |
 	let p = n.integerPartitions;
-	let c = p.collect(dysonCrank:/1);
+	let c = p.collect(dysonCrank/1);
 	(-n .. n).collect { :k |
 		c.occurrencesOf(k)
 	}

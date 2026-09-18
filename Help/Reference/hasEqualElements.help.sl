@@ -1,6 +1,6 @@
 # hasEqualElements
 
-- _hasEqualElements(c₁, c₂, f:/2)_
+- _hasEqualElements(c₁, c₂, f/2)_
 
 Answer `true` if the collections _c₁_ and _c₂_,
 which must be either dictionaries or sequences,

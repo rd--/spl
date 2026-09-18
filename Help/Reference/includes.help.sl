@@ -88,11 +88,11 @@ Map over matrix:
 
 ```
 >>> let m = 1:9.reshape([3 3]);
->>> includes:/2.map(m, [3 6 9])
+>>> includes/2.map(m, [3 6 9])
 [true true true]
 
 >>> let m = 1:9.reshape([3 3]);
->>> includes:/2.table(m, [3 6 9])
+>>> includes/2.table(m, [3 6 9])
 [
 	true false false;
 	false true false;

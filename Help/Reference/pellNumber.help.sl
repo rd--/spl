@@ -9,7 +9,7 @@ First few terms,
 OEIS [A000129](https://oeis.org/A000129):
 
 ```
->>> 0:9.collect(pellNumber:/1)
+>>> 0:9.collect(pellNumber/1)
 [0 1 2 5 12 29 70 169 408 985]
 ```
 
@@ -28,7 +28,7 @@ Approximations of the square root of two:
 >>> 	let q = (n - 1).pellNumber;
 >>> 	(q + p) / p
 >>> };
->>> 1:7.collect(f:/1)
+>>> 1:7.collect(f/1)
 [1 1.5 1.4 1.4167 1.4138 1.4143 1.4142]
 
 >>> 2.sqrt
@@ -52,7 +52,7 @@ Pell numbers can be used to form Pythagorean triples:
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(-2 -- 2).functionPlot(pellNumber:/1)
+(-2 -- 2).functionPlot(pellNumber/1)
 ~~~
 
 ![](Help/Image/pellNumber-A.svg)

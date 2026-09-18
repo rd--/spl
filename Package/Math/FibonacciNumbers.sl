@@ -306,7 +306,7 @@
 	}
 
 	stolarskyIndex { :n |
-		n.wythoffIndex(stolarskyArray:/2)
+		n.wythoffIndex(stolarskyArray/2)
 	}
 
 	tribonacciNumber { :n |
@@ -355,8 +355,8 @@
 		}
 	}
 
-	wythoffIndex { :n :array:/2 |
-		valueWithReturn { :return:/1 |
+	wythoffIndex { :n :array/2 |
+		valueWithReturn { :return/1 |
 			let r = 1;
 			let m = 1;
 			{ m < n }.whileTrue {
@@ -377,7 +377,7 @@
 	}
 
 	wythoffIndex { :n |
-		n.wythoffIndex(wythoffArray:/2)
+		n.wythoffIndex(wythoffArray/2)
 	}
 
 	wythoffLower { :self |

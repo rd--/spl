@@ -1,6 +1,6 @@
 # cached
 
-- _cached(x, k, f:/0)_
+- _cached(x, k, f/0)_
 
 Read the value associated with the key _k_ at the `cache` associated with the value _x_,
 initializing the cache if required using the initializer block _f_.

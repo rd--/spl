@@ -99,7 +99,7 @@ OEIS
 [A051876](https://oeis.org/A051876):
 
 ```
->>> polygonalNumber:/2.table(2:25, 1:10)
+>>> polygonalNumber/2.table(2:25, 1:10)
 [
 	1 2 3 4 5 6 7 8 9 10;
 	1 3 6 10 15 21 28 36 45 55;
@@ -167,7 +167,7 @@ Triangular array of polygonal numbers:
 
 ~~~spl svg=B
 0:17.triangularArray(
-	polygonalNumber:/2
+	polygonalNumber/2
 ).catenate.scatterPlot
 ~~~
 

@@ -1,6 +1,6 @@
 # afterIfAbsent
 
-- _afterIfAbsent(aCollection, anObject, aBlock:/0)_
+- _afterIfAbsent(aCollection, anObject, aBlock/0)_
 
 Answer the element after _anObject_,
 or the result of _aBlock()_ if _anObject_ is not present or if there are no elements after it.

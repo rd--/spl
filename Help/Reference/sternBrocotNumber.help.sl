@@ -9,7 +9,7 @@ The first one hundred entries,
 OEIS [A002487](https://oeis.org/A002487):
 
 ```
->>> 0:99.collect(sternBrocotNumber:/1)
+>>> 0:99.collect(sternBrocotNumber/1)
 [
 	 0  1  1  2  1  3  2  3  1  4
 	 3  5  2  5  3  4  1  5  4  7
@@ -28,7 +28,7 @@ At specific values:
 
 ```
 >>> [1173 35499 699051 19573419]
->>> .collect(sternBrocotNumber:/1)
+>>> .collect(sternBrocotNumber/1)
 [108 1076 10946 103682]
 ```
 
@@ -37,7 +37,7 @@ OEIS [A002487](https://oeis.org/A002487):
 
 ~~~spl svg=A oeis=A002487
 1:256
-.collect(sternBrocotNumber:/1)
+.collect(sternBrocotNumber/1)
 .scatterPlot
 ~~~
 

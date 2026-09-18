@@ -8,7 +8,7 @@ LargeInteger! : [Object, Store, Equal, Compare, Binary, Number, Integer] {
 			return _self < BigInt(_anObject);
 		}
 		>
-		anObject.adaptToIntegerAndApply(self, <)
+		anObject.adaptToIntegerAndApply(self, less/2)
 	}
 
 	[bitShiftLeft, <<] { :self :anObject |
@@ -42,7 +42,7 @@ LargeInteger! : [Object, Store, Equal, Compare, Binary, Number, Integer] {
 				fraction
 			}
 		} {
-			anObject.adaptToIntegerAndApply(self, /)
+			anObject.adaptToIntegerAndApply(self, divide/2)
 		}
 	}
 
@@ -63,7 +63,7 @@ LargeInteger! : [Object, Store, Equal, Compare, Binary, Number, Integer] {
 			return ((_self % i) + i) % i;
 		}
 		>
-		anObject.adaptToIntegerAndApply(self, %)
+		anObject.adaptToIntegerAndApply(self, mod/2)
 	}
 
 	[plus, +] { :self :anObject |
@@ -72,25 +72,14 @@ LargeInteger! : [Object, Store, Equal, Compare, Binary, Number, Integer] {
 			return _self + BigInt(_anObject);
 		}
 		>
-		anObject.adaptToIntegerAndApply(self, +)
+		anObject.adaptToIntegerAndApply(self, plus/2)
 	}
-
-	/*
-	^ { :self :anObject |
-		<primitive:
-		if (sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
-			return _self ** BigInt(_anObject);
-		}
-		>
-		anObject.adaptToIntegerAndApply(self, ^)
-	}
-	*/
 
 	[power, ^] { :self :anObject |
 		anObject.isScalarInteger.if {
 			self.raisedToInteger(anObject)
 		} {
-			anObject.adaptToIntegerAndApply(self, ^)
+			anObject.adaptToIntegerAndApply(self, power/2)
 		}
 	}
 
@@ -100,7 +89,7 @@ LargeInteger! : [Object, Store, Equal, Compare, Binary, Number, Integer] {
 			return _self / BigInt(_anObject);
 		};
 		>
-		anObject.adaptToIntegerAndApply(self, quotient:/2)
+		anObject.adaptToIntegerAndApply(self, quotient/2)
 	}
 
 	[similar, ~] { :self :anObject |
@@ -113,7 +102,7 @@ LargeInteger! : [Object, Store, Equal, Compare, Binary, Number, Integer] {
 			return _self - BigInt(_anObject);
 		}
 		>
-		anObject.adaptToIntegerAndApply(self, -)
+		anObject.adaptToIntegerAndApply(self, subtract/2)
 	}
 
 	[times, *] { :self :anObject |
@@ -122,10 +111,10 @@ LargeInteger! : [Object, Store, Equal, Compare, Binary, Number, Integer] {
 			return _self * BigInt(_anObject);
 		}
 		>
-		anObject.adaptToIntegerAndApply(self, *)
+		anObject.adaptToIntegerAndApply(self, times/2)
 	}
 
-	adaptToNumberAndApply { :self :aNumber :aBlock:/2 |
+	adaptToNumberAndApply { :self :aNumber :aBlock/2 |
 		aNumber.isInteger.if {
 			aBlock(aNumber.asLargeInteger, self)
 		} {
@@ -231,13 +220,13 @@ LargeInteger! : [Object, Store, Equal, Compare, Binary, Number, Integer] {
 		anInteger.isLargeInteger.if {
 			self.uncheckedGcd(anInteger)
 		} {
-			anInteger.adaptToNumberAndApply(self, gcd:/2)
+			anInteger.adaptToNumberAndApply(self, gcd/2)
 		}
 	}
 	*/
 
 	highBitOfInteger { :self |
-		valueWithReturn { :return:/1 |
+		valueWithReturn { :return/1 |
 			let realLength = self.digitLength;
 			let lastDigit = self.digitAt(realLength);
 			{
@@ -464,7 +453,7 @@ LargeInteger! : [Object, Store, Equal, Compare, Binary, Number, Integer] {
 		<primitive: return BigInt(_self);>
 	}
 
-	parseLargeInteger { :self :elseClause:/0 |
+	parseLargeInteger { :self :elseClause/0 |
 		self.endsWith('L').ifTrue {
 			self := self.allButLast
 		};

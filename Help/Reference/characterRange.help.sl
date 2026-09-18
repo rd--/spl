@@ -78,7 +78,7 @@ At `Integer`:
 
 ```
 >>> 1000.characterRange(1020).collect(
->>> 	asString:/1
+>>> 	asString/1
 >>> )
 [
 	'Ϩ' 'ϩ' 'Ϫ' 'ϫ' 'Ϭ' 'ϭ' 'Ϯ' 'ϯ' 'ϰ' 'ϱ'

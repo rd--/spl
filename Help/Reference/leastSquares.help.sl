@@ -98,7 +98,7 @@ and predict _p_ for _w_ of 100:
 >>> 	44 92; 61 99; 81 104;
 >>> 	113 111; 131 113
 >>> ];
->>> let d = m.designMatrix(log:/1);
+>>> let d = m.designMatrix(log/1);
 >>> let [_, y] = m.transpose;
 >>> d.leastSquares(y)
 [18.924 19.385]

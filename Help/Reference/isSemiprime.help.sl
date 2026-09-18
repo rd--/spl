@@ -8,7 +8,7 @@ The first few semiprime numbers,
 OEIS [A001358](https://oeis.org/A001358):
 
 ```
->>> 1:100.select(isSemiprime:/1)
+>>> 1:100.select(isSemiprime/1)
 [
 	 4  6  9 10 14 15 21 22 25 26
 	33 34 35 38 39 46 49 51 55 57
@@ -37,7 +37,7 @@ Semiprime numbers,
 OEIS [A001358](https://oeis.org/A001358):
 
 ~~~spl svg=A oeis=A001358
-1:250.select(isSemiprime:/1).scatterPlot
+1:250.select(isSemiprime/1).scatterPlot
 ~~~
 
 ![](Help/Image/isSemiprime-A.svg)
@@ -46,7 +46,7 @@ The characteristic function of the semiprime numbers,
 OEIS [A064911](https://oeis.org/A064911):
 
 ~~~spl svg=B oeis=A064911
-1:115.collect(isSemiprime:/1)
+1:115.collect(isSemiprime/1)
 .boole
 .discretePlot
 ~~~

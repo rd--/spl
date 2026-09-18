@@ -66,7 +66,7 @@ partitioned into a square matrix:
 ~~~spl svg=A
 (4 # [4]).shapeIndices
 .collect(
-	signature:/1
+	signature/1
 ).partition(4 ^ 2)
 .rescale
 .matrixPlot
@@ -80,7 +80,7 @@ partitioned into a rectangular matrix:
 ~~~spl svg=B
 (5 # [5]).shapeIndices
 .collect(
-	signature:/1
+	signature/1
 ).partition(5 ^ 3)
 .abs
 .matrixPlot
@@ -94,7 +94,7 @@ partitioned into a rectangular matrix:
 ~~~spl png=C
 (6 # [6]).shapeIndices
 .collect(
-	signature:/1
+	signature/1
 ).partition(6 ^ 3)
 .abs
 .Bitmap

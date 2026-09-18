@@ -60,7 +60,7 @@ system
 .caches
 .atIfPresent(
 	'SplLibrary',
-	isCache:/1
+	isCache/1
 )
 ~~~
 

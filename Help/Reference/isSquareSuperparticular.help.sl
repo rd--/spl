@@ -8,7 +8,7 @@ An integer is squareful if it is not square free.
 ```
 >>> [4/3 9/8 16/15 25/24 36/35 49/48]
 >>> .allSatisfy(
->>> 	isSquareSuperparticular:/1
+>>> 	isSquareSuperparticular/1
 >>> )
 true
 ```

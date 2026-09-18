@@ -1,6 +1,6 @@
 # withWithCollect
 
-- _withWithCollect(c₁, c₂, c₃, f:/3)_
+- _withWithCollect(c₁, c₂, c₃, f/3)_
 
 Answer the result of evaluating the block _f_ with corresponding elements from each collection _c_.
 

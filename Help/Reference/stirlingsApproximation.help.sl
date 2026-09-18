@@ -33,8 +33,8 @@ Compare `factorial` and `stirlingsApproximation` for small _n_:
 ~~~spl svg=A
 (0 -- 3).functionPlot(
 	[
-		factorialOrGamma:/1,
-		stirlingsApproximation:/1
+		factorialOrGamma/1,
+		stirlingsApproximation/1
 	]
 )
 ~~~

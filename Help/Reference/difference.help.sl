@@ -40,7 +40,7 @@ Find which elements in the first list are not in any of the subsequent lists:
 
 ```
 >>> ['a' 'b' 'c' 'd' 'e'; 'a' 'c'; 'd']
->>> .reduce(difference:/2)
+>>> .reduce(difference/2)
 ['b' 'e']
 ```
 

@@ -1,6 +1,6 @@
 # hasError
 
-- _ifError(f:/0)_
+- _ifError(f/0)_
 
 Evaluate the no-argument block _f_ and answer `true` if there is an error else `false`.
 

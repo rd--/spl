@@ -30,7 +30,7 @@ OEIS [A046071](https://oeis.org/A046071):
 
 ```
 >>> 2:22.collect(
->>> 	quadraticResidues:/1
+>>> 	quadraticResidues/1
 >>> )
 [
 	1;
@@ -208,7 +208,7 @@ OEIS [A046071](https://oeis.org/A046071):
 
 ~~~spl svg=E oeis=A046071
 2:27.collect(
-	quadraticResidues:/1
+	quadraticResidues/1
 ).catenate.scatterPlot
 ~~~
 
@@ -220,7 +220,7 @@ OEIS [A046071](https://oeis.org/A046071):
 
 ~~~spl png=F oeis=A046071
 2:100.collect(
-	quadraticResidues:/1
+	quadraticResidues/1
 ).catenate.denseScatterPlot
 ~~~
 

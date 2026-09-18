@@ -10,15 +10,15 @@ The first few terms,
 OEIS [A002321](https://oeis.org/A002321):
 
 ```
->>> 1:25.collect(mertensFunction:/1)
-1:25.collect(moebiusMu:/1).prefixSum
+>>> 1:25.collect(mertensFunction/1)
+1:25.collect(moebiusMu/1).prefixSum
 ```
 
 Mertens’s function,
 OEIS [A002321](https://oeis.org/A002321):
 
 ~~~spl svg=A oeis=A002321
-1:100.collect(mertensFunction:/1)
+1:100.collect(mertensFunction/1)
 .stepPlot
 ~~~
 

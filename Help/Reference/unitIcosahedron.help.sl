@@ -14,7 +14,7 @@ and that each edge as a unit:
 >>> 	p.vertexCount,
 >>> 	p.faceCount,
 >>> 	p.edgeCount,
->>> 	p.faceIndices.collect(size:/1),
+>>> 	p.faceIndices.collect(size/1),
 >>> 	p.edgeLengths
 >>> )
 (12, 20, 30, 20 # [3], 30 # [1])

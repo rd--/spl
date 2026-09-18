@@ -44,7 +44,7 @@
 		}
 	}
 
-	associationAtIfAbsent { :self :key :aBlock:/0 |
+	associationAtIfAbsent { :self :key :aBlock/0 |
 		self.atIfPresentIfAbsent(key) { :value |
 			key -> value
 		} {
@@ -60,8 +60,8 @@
 		answer
 	}
 
-	associationsAllSatisfy { :self :aBlock:/1 |
-		valueWithReturn { :return:/1 |
+	associationsAllSatisfy { :self :aBlock/1 |
+		valueWithReturn { :return/1 |
 			self.associationsDo { :each |
 				aBlock(each).ifFalse {
 					false.return
@@ -71,13 +71,13 @@
 		}
 	}
 
-	associationsDo { :self :aBlock:/1 |
+	associationsDo { :self :aBlock/1 |
 		self.keysAndValuesDo { :key :value |
 			aBlock(key -> value)
 		}
 	}
 
-	associationsRemove { :self :aBlock:/1 |
+	associationsRemove { :self :aBlock/1 |
 		let removals = [];
 		self.associationsDo { :each |
 			aBlock(each).ifTrue {
@@ -89,7 +89,7 @@
 		}
 	}
 
-	associationsSelect { :self :aBlock:/1 |
+	associationsSelect { :self :aBlock/1 |
 		let answer = self.species.new;
 		self.associationsDo { :each |
 			each.aBlock.ifTrue {
@@ -107,7 +107,7 @@
 		answer
 	}
 
-	atIfAbsent { :self :key :ifAbsent:/0 |
+	atIfAbsent { :self :key :ifAbsent/0 |
 		self.typeResponsibility('@Dictionary>>atIfAbsent')
 	}
 
@@ -126,7 +126,7 @@
 		self.typeResponsibility('@Dictionary>>atPut')
 	}
 
-	collect { :self :aBlock:/1 |
+	collect { :self :aBlock/1 |
 		let answer = self.species.new;
 		self.keysAndValuesDo { :key :value |
 			answer.add(key -> aBlock(value))
@@ -158,13 +158,13 @@
 		answer
 	}
 
-	do { :self :aBlock:/1 |
-		self.valuesDo(aBlock:/1)
+	do { :self :aBlock/1 |
+		self.valuesDo(aBlock/1)
 	}
 
-	equalBy { :self :aDictionary :aBlock:/2 |
+	equalBy { :self :aDictionary :aBlock/2 |
 		self.typeOf = aDictionary.typeOf & {
-			self.hasEqualElements(aDictionary, aBlock:/2)
+			self.hasEqualElements(aDictionary, aBlock/2)
 		}
 	}
 
@@ -172,7 +172,7 @@
 		self.error('Value not found')
 	}
 
-	fillFromWith { :self :aCollection :aBlock:/1 |
+	fillFromWith { :self :aCollection :aBlock/1 |
 		aCollection.isDictionary.if {
 			aCollection.associationsDo { :association |
 				self[association.key] := aBlock(association.value)
@@ -184,7 +184,7 @@
 		}
 	}
 
-	hasEqualElements { :self :aDictionary :aBlock:/2 |
+	hasEqualElements { :self :aDictionary :aBlock/2 |
 		(self.size = aDictionary.size).if {
 			self.keys.allSatisfy { :key |
 				aDictionary.atIfPresentIfAbsent(key) { :value |
@@ -199,7 +199,7 @@
 	}
 
 	hasEqualElements { :self :aDictionary |
-		self.hasEqualElements(aDictionary, equal:/2)
+		self.hasEqualElements(aDictionary, equal/2)
 	}
 
 	include { :self :anAssociation |
@@ -223,7 +223,7 @@
 	}
 
 	includesIdentity { :self :anObject |
-		valueWithReturn { :return:/1 |
+		valueWithReturn { :return/1 |
 			self.do { :each |
 				(anObject == each).ifTrue {
 					true.return
@@ -251,8 +251,8 @@
 		true
 	}
 
-	keyAtValueIfAbsent { :self :value :exceptionBlock:/0 |
-		valueWithReturn { :return:/1 |
+	keyAtValueIfAbsent { :self :value :exceptionBlock/0 |
+		valueWithReturn { :return/1 |
 			self.associationsDo { :association |
 				(value = association.value).ifTrue {
 					association.key.return
@@ -268,7 +268,7 @@
 		}
 	}
 
-	keysAndEachValueDo { :self :aBlock:/2 |
+	keysAndEachValueDo { :self :aBlock/2 |
 		self.keysAndValuesDo { :key :value |
 			value.isCollection.if {
 				value.do { :each |
@@ -296,7 +296,7 @@
 		answer
 	}
 
-	keysAndValuesCollect { :self :aBlock:/2 |
+	keysAndValuesCollect { :self :aBlock/2 |
 		let answer = self.species.new;
 		self.keysAndValuesDo { :key :value |
 			answer.add(key -> aBlock(key, value))
@@ -304,23 +304,23 @@
 		answer
 	}
 
-	keysAndValuesDo { :self :aBlock:/2 |
+	keysAndValuesDo { :self :aBlock/2 |
 		self.typeResponsibility('@Dictionary>>keysAndValuesDo')
 	}
 
-	keysAndValuesRemove { :self :keyAndValueBlock:/2 |
+	keysAndValuesRemove { :self :keyAndValueBlock/2 |
 		self.associationsRemove { :each |
 			keyAndValueBlock(each.key, each.value)
 		}
 	}
 
-	keysDo { :self :aBlock:/1 |
+	keysDo { :self :aBlock/1 |
 		self.keysAndValuesDo { :key :value |
 			aBlock(key)
 		}
 	}
 
-	keySelect { :self :aBlock:/1 |
+	keySelect { :self :aBlock/1 |
 		let answer = self.species.new;
 		self.associationsDo { :each |
 			each.key.aBlock.ifTrue {
@@ -331,7 +331,7 @@
 	}
 
 	keySort { :self |
-		self.associations.sortOn(key:/1)
+		self.associations.sortOn(key/1)
 	}
 
 	keyType { :self |
@@ -366,13 +366,13 @@
 		}
 	}
 
-	removeAllSuchThat { :self :aBlock:/1 |
+	removeAllSuchThat { :self :aBlock/1 |
 		self.associationsRemove { :each |
 			aBlock(each.value)
 		}
 	}
 
-	removeAssociationIfAbsent { :self :oldObject :anExceptionBlock:/0 |
+	removeAssociationIfAbsent { :self :oldObject :anExceptionBlock/0 |
 		self.includesAssociation(oldObject).if {
 			self.removeKey(oldObject.key)
 		} {
@@ -400,7 +400,7 @@
 		}
 	}
 
-	removeKeyIfAbsent { :self :key :ifAbsent:/0 |
+	removeKeyIfAbsent { :self :key :ifAbsent/0 |
 		let index = self.keys.indexOfBy(key, self.comparator);
 		(index = 0).if {
 			ifAbsent()
@@ -410,17 +410,17 @@
 		}
 	}
 
-	removeIfAbsent { :self :oldObject :anExceptionBlock:/0 |
+	removeIfAbsent { :self :oldObject :anExceptionBlock/0 |
 		self.shouldNotImplement('removeIfAbsent')
 	}
 
-	replace { :self :aBlock:/1 |
+	replace { :self :aBlock/1 |
 		self.keysDo { :key |
 			self[key] := aBlock(self[key])
 		}
 	}
 
-	select { :self :aBlock:/1 |
+	select { :self :aBlock/1 |
 		let answer = self.species.new;
 		self.associationsDo { :each |
 			each.value.aBlock.ifTrue {
@@ -440,7 +440,7 @@
 		self.typeResponsibility('@Dictionary>>size')
 	}
 
-	storeStringLiteral { :self :empty :open :close :formatKey:/1 :join :formatValue:/1 |
+	storeStringLiteral { :self :empty :open :close :formatKey/1 :join :formatValue/1 |
 		self.isEmpty.if {
 			empty
 		} {
@@ -471,20 +471,20 @@
 		)
 	}
 
-	valuesDo { :self :aBlock:/1 |
+	valuesDo { :self :aBlock/1 |
 		self.keysAndValuesDo { :key :value |
 			aBlock(value)
 		}
 	}
 
-	withIndexCollect { :self :aBlock:/2 |
+	withIndexCollect { :self :aBlock/2 |
 		self.keysAndValuesCollect { :key :value |
 			aBlock(value, key)
 		}
 	}
 
 	valueSort { :self |
-		self.associations.sortOn(value:/1)
+		self.associations.sortOn(value/1)
 	}
 
 	valueType { :self |
@@ -496,7 +496,7 @@
 +List {
 
 	keyIntersection { :self |
-		let keys = self.collect(keys:/1).intersection;
+		let keys = self.collect(keys/1).intersection;
 		self.collect { :each |
 			let item = each.species.new;
 			keys.do { :key |
@@ -508,7 +508,7 @@
 
 	keyUnion { :self :blockOrDictionary |
 		let keys = Set();
-		let aBlock:/1 = blockOrDictionary.isBlock.if {
+		let aBlock/1 = blockOrDictionary.isBlock.if {
 			blockOrDictionary
 		} {
 			{ :key |
@@ -541,8 +541,8 @@
 		}
 	}
 
-	merge { :self :aBlock:/1 |
-		let keys = self.collect(keys:/1).union;
+	merge { :self :aBlock/1 |
+		let keys = self.collect(keys/1).union;
 		let values = keys.collect { :key |
 			let list = [];
 			self.do { :each |
@@ -560,7 +560,7 @@
 	}
 
 	merge { :self |
-		self.merge(identity:/1)
+		self.merge(identity/1)
 	}
 
 }
@@ -583,7 +583,7 @@
 
 Dictionary : [Object, Store, Copyable, Equal, Iterable, Indexable, Collection, Extensible, Dictionary] { | keys values comparator |
 
-	atIfAbsent { :self :key :ifAbsent:/0 |
+	atIfAbsent { :self :key :ifAbsent/0 |
 		let index = self.keys.indexOfBy(key, self.comparator);
 		(index = 0).if {
 			ifAbsent()
@@ -603,7 +603,7 @@ Dictionary : [Object, Store, Copyable, Equal, Iterable, Indexable, Collection, E
 		value
 	}
 
-	keysAndValuesDo { :self :aBlock:/2 |
+	keysAndValuesDo { :self :aBlock/2 |
 		let keys = self.keys;
 		let values = self.values;
 		let size = keys.size;
@@ -630,7 +630,7 @@ Dictionary : [Object, Store, Copyable, Equal, Iterable, Indexable, Collection, E
 		self.storeStringLiteral(
 			'[| |]',
 			'[|', '|]',
-			storeString:/1, ' -> ', storeString:/1
+			storeString/1, ' -> ', storeString/1
 		)
 	}
 
@@ -639,7 +639,7 @@ Dictionary : [Object, Store, Copyable, Equal, Iterable, Indexable, Collection, E
 +Void {
 
 	Dictionary {
-		newDictionary().initializeSlots([], [], equal:/2)
+		newDictionary().initializeSlots([], [], equal/2)
 	}
 
 }
@@ -656,7 +656,7 @@ Dictionary : [Object, Store, Copyable, Equal, Iterable, Indexable, Collection, E
 		} {
 			self.isAssociationList.if {
 				self.collect(
-					keyAndValue:/1
+					keyAndValue/1
 				).listToDictionary
 			} {
 				self.listToDictionary

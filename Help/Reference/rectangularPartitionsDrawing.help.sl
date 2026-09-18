@@ -26,7 +26,7 @@ draw a diagram of the first five octaves of the harmonic series:
 .takeList(
 	[1 2 4 8 16]
 ).collect(
-	normalizeSum:/1
+	normalizeSum/1
 ).rectangularPartitionsDrawing
 ~~~
 

@@ -7,7 +7,7 @@ If the stream ends, the answer will contain fewer items than requested.
 
 ```
 >>> 1:7.asStream
->>> .reject(isEven:/1)
+>>> .reject(isEven/1)
 >>> .nextOrUpToEnd(5)
 [1 3 5 7]
 ```

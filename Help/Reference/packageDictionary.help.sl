@@ -49,7 +49,7 @@ Package fields include `category`, `name`, `isLoaded` and `url`:
 >>> let d = system.packageDictionary;
 >>> d.at('PackageBrowser')
 >>> .dependencies
->>> .collect(name:/1)
+>>> .collect(name/1)
 >>> .includesAll(
 >>> 	[
 >>> 		'ColumnBrowser'

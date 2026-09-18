@@ -16,7 +16,7 @@ Handle failure:
 system
 .splUrl('DoesNotExist')
 .fetchText
-.thenElse(identity:/1, identity:/1)
+.thenElse(identity/1, identity/1)
 ~~~
 
 A file protocol `Url`:

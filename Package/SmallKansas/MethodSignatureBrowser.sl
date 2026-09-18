@@ -20,7 +20,7 @@
 
 	MethodSignatureBrowser { :self |
 		self.MethodSignatureBrowser(
-			system.allMethods.collect(signature:/1).copyWithoutIdenticalElements.sort,
+			system.allMethods.collect(signature/1).copyWithoutIdenticalElements.sort,
 			true
 		)
 	}

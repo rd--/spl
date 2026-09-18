@@ -1,6 +1,6 @@
 # parseJson
 
-- _parseJson(s, f:/0)_
+- _parseJson(s, f/0)_
 
 Answer the value represented by the `Json` encoded the string _s_.
 In the binary case an else clause is specified as the no argument block _f_.
@@ -16,14 +16,14 @@ nil
 Parse `Boolean`:
 
 ```
->>> ['true' 'false'].collect(parseJson:/1)
+>>> ['true' 'false'].collect(parseJson/1)
 [true false]
 ```
 
 Parse `SmallFloat`:
 
 ```
->>> ['3.141' '23'].collect(parseJson:/1)
+>>> ['3.141' '23'].collect(parseJson/1)
 [3.141 23]
 ```
 

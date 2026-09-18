@@ -65,7 +65,7 @@ the last column is elided since it is always zero:
 
 ~~~spl svg=A
 5.bellStrings
-.collect(allButLast:/1)
+.collect(allButLast/1)
 .circularMatrixPlot
 ~~~
 

@@ -41,7 +41,7 @@ Twelfth-order logarithmic Welch-Costas permutations:
 >>> 	12 5 8 10 9 1 7 3 4 2 11 6;
 >>> 	12 11 8 10 3 7 1 9 4 2 5 6;
 >>> 	12 7 4 2 3 11 5 9 8 10 1 6
->>> ].allSatisfy(isCostasArray:/1)
+>>> ].allSatisfy(isCostasArray/1)
 true
 ```
 
@@ -106,7 +106,7 @@ Costas arrays for small _n_:
 >>> 	4 2 1 3;
 >>> 	4 3 1 2
 >>> ].allSatisfy(
->>> 	isCostasArray:/1
+>>> 	isCostasArray/1
 >>> )
 true
 ```

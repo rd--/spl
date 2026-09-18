@@ -1,26 +1,26 @@
 +Block {
 
-	atop { :self:/2 :aBlock:/1 |
+	atop { :self/2 :aBlock/1 |
 		{ :anObject :anotherObject |
 			aBlock(self(anObject, anotherObject))
 		}
 	}
 
-	[bindLeft, bind] { :self:/2 :anObject |
+	[bindLeft, bind] { :self/2 :anObject |
 		{ :each |
 			self(anObject, each)
 		}
 	}
 
-	bindRight { :self:/2 :anObject |
+	bindRight { :self/2 :anObject |
 		{ :each |
 			self(each, anObject)
 		}
 	}
 
-	e { :self:/2 |
+	e { :self/2 |
 		{ :alpha :beta |
-			alpha.withCollectEqual(beta, self:/2)
+			alpha.withCollectEqual(beta, self/2)
 		}
 	}
 
@@ -36,25 +36,25 @@
 		}
 	}
 
-	f { :self:/2 |
+	f { :self/2 |
 		{ :alpha :beta |
-			alpha.withCollectFolding(beta, self:/2)
+			alpha.withCollectFolding(beta, self/2)
 		}
 	}
 
-	inner { :self:/2 :aBlock:/2 |
+	inner { :self/2 :aBlock/2 |
 		{ :p :q |
-			self:/2.inner(p, q, aBlock:/2)
+			self/2.inner(p, q, aBlock/2)
 		}
 	}
 
-	map { :self:/2 |
+	map { :self/2 |
 		{ :alpha :beta |
-			alpha.withCollect(beta, self:/2)
+			alpha.withCollect(beta, self/2)
 		}
 	}
 
-	outer { :self:/2 |
+	outer { :self/2 |
 		{ :u :v |
 			u.isMatrix.if {
 				let [m, n] = u.shape;
@@ -71,13 +71,13 @@
 		}
 	}
 
-	over { :f:/2 :g:/1 |
+	over { :f/2 :g/1 |
 		{ :p :q |
 			f(p.g, q.g)
 		}
 	}
 
-	power { :self:/1 :count |
+	power { :self/1 :count |
 		{ :each |
 			count.timesRepeat {
 				each := self(each)
@@ -86,20 +86,20 @@
 		}
 	}
 
-	s { :self:/2 |
+	s { :self/2 |
 		{ :alpha :beta |
-			alpha.withCollectTruncating(beta, self:/2)
+			alpha.withCollectTruncating(beta, self/2)
 		}
 	}
 
-	self { :self:/2 |
+	self { :self/2 |
 		{ :each |
 			self(each, each)
 		}
 	}
 
-	swap { :self:/2 |
-		(self:/2.numArgs != 2).ifTrue {
+	swap { :self/2 |
+		(self/2.numArgs != 2).ifTrue {
 			'Block>>swap: not two argument block'.error
 		};
 		{ :alpha :beta |
@@ -107,21 +107,21 @@
 		}
 	}
 
-	t { :self:/2 |
+	t { :self/2 |
 		{ :alpha :beta |
-			alpha.withCollectTable(beta, self:/2)
+			alpha.withCollectTable(beta, self/2)
 		}
 	}
 
-	w { :self:/2 |
+	w { :self/2 |
 		{ :alpha :beta |
-			alpha.withCollectWrapping(beta, self:/2)
+			alpha.withCollectWrapping(beta, self/2)
 		}
 	}
 
-	x { :self:/2 |
+	x { :self/2 |
 		{ :alpha :beta |
-			alpha.withCollectCrossed(beta, self:/2)
+			alpha.withCollectCrossed(beta, self/2)
 		}
 	}
 

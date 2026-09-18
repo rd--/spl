@@ -1,6 +1,6 @@
 # isDuplicateFree
 
-- _isDuplicateFree(c, f:/2)_
+- _isDuplicateFree(c, f/2)_
 
 Answer `true` if the collection _c_ has no duplicates according to the block _f_, and `false` otherwise.
 

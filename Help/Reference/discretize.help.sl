@@ -1,7 +1,7 @@
 # discretize
 
 - _discretize(i—j, n)_
-- _discretize(i—j, n, f:/1)_
+- _discretize(i—j, n, f/1)_
 
 Answer a sequence of _n_ places having a linear interpolation of the `Interval` _(i,j)_.
 
@@ -70,10 +70,10 @@ Range(0, 4, 4 / 99, 99)
 In the ternary form apply the unary block _f_ to each element during construction.
 
 ```
->>> (0 -- 1).discretize(3, exp:/1)
+>>> (0 -- 1).discretize(3, exp/1)
 [1 1.648721 2.718282]
 
->>> (0 -- 6).discretize(4, square:/1)
+>>> (0 -- 6).discretize(4, square/1)
 [0 4 16 36]
 ```
 
@@ -81,7 +81,7 @@ Plot `exp` function from `zero` to `five`:
 
 ~~~spl svg=A
 (0 -- 5)
-.discretize(99, exp:/1)
+.discretize(99, exp/1)
 .linePlot
 ~~~
 
@@ -91,7 +91,7 @@ Plot `hannFunction`:
 
 ~~~spl svg=B
 (-0.5 -- 0.5)
-.discretize(99, hannWindow:/1)
+.discretize(99, hannWindow/1)
 .linePlot
 ~~~
 
@@ -111,7 +111,7 @@ Sample a function uniformly on an interval:
 Plot the sine function:
 
 ~~~spl svg=D
-(0 -- 4.pi).discretize(100, sin:/1).linePlot
+(0 -- 4.pi).discretize(100, sin/1).linePlot
 ~~~
 
 ![](Help/Image/discretize-D.svg)

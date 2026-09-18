@@ -117,7 +117,7 @@ Plot over four octaves:
 
 ~~~spl svg=A
 (1 -- (2 ^ 4)).functionPlot(
-	ratioToSavarts:/1
+	ratioToSavarts/1
 )
 ~~~
 

@@ -47,7 +47,7 @@ let alpha = { :phi |
 };
 (0 -- 10).functionPlot(
 	[1 / 3, 1 / 2, 99 / 100].pi.collect(
-		alpha:/1
+		alpha/1
 	)
 )
 ~~~

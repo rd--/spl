@@ -67,7 +67,7 @@ Continued fraction expansion:
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(-4 -- 4).functionPlot(tanh:/1)
+(-4 -- 4).functionPlot(tanh/1)
 ~~~
 
 ![](Help/Image/tanh-A.svg)
@@ -77,8 +77,8 @@ Plot `tanh` alongside a Padé approximation:
 ~~~spl svg=B
 (-1.pi -- 1.pi).functionPlot(
 	[
-		tanh:/1,
-		tanhApproximation:/1
+		tanh/1,
+		tanhApproximation/1
 	]
 )
 ~~~
@@ -110,7 +110,7 @@ Plot `tanh` alongside a simple approximation suitable for use as a non-linear di
 ~~~spl svg=E
 (-1.pi -- 1.pi).functionPlot(
 	[
-		tanh:/1,
+		tanh/1,
 		{ :x |
 			let a = 27 + x.square;
 			let b = 27 + (9 * x.square);

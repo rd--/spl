@@ -12,7 +12,7 @@ For example, answer '9' for 9, '0' for 0, 'A' for 10, 'Z' for 35.
 >>> 1.digitCharacter
 '1'
 
->>> [9 0 10 35].collect(digitCharacter:/1)
+>>> [9 0 10 35].collect(digitCharacter/1)
 ['9' '0' 'A' 'Z']
 ```
 

@@ -9,7 +9,7 @@ The Riemann function, _a=2_:
 
 ~~~spl svg=A
 (0 -- 1.pi).functionPlot(
-	riemannFunction:/1
+	riemannFunction/1
 )
 ~~~
 

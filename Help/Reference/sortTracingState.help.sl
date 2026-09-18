@@ -1,6 +1,6 @@
 # sortTracingState
 
-- _sortTracingState([x₁ x₂ …], f:/1)_
+- _sortTracingState([x₁ x₂ …], f/1)_
 
 Sort the sequence _x_ using the two-argument sorting block _f_,
 which should take a sequence as the first argument and a monitor block as the second.
@@ -13,7 +13,7 @@ Matrix plot of Hoare’s quick sort algorithm:
 Sfc32(387914)
 .randomPermutationList(11)
 .sortTracingState(
-	quickSortHoareWithMonitor:/2
+	quickSortHoareWithMonitor/2
 ).transpose.matrixPlot
 ~~~
 
@@ -25,7 +25,7 @@ Matrix plot of a merge sort algorithm:
 Sfc32(387914)
 .randomPermutationList(11)
 .sortTracingState(
-	mergeSortWithMonitor:/2
+	mergeSortWithMonitor/2
 ).transpose.matrixPlot
 ~~~
 
@@ -37,7 +37,7 @@ Matrix plot of an insertion sort algorithm:
 Sfc32(387914)
 .randomPermutationList(11)
 .sortTracingState(
-	insertionSortWithMonitor:/2
+	insertionSortWithMonitor/2
 ).transpose.matrixPlot
 ~~~
 
@@ -49,7 +49,7 @@ Matrix plot of a selection sort algorithm:
 Sfc32(387914)
 .randomPermutationList(11)
 .sortTracingState(
-	selectionSortWithMonitor:/2
+	selectionSortWithMonitor/2
 ).transpose.matrixPlot
 ~~~
 
@@ -61,7 +61,7 @@ Matrix plot of a cycle sort algorithm:
 Sfc32(387914)
 .randomPermutationList(11)
 .sortTracingState(
-	cycleSortWithMonitor:/2
+	cycleSortWithMonitor/2
 ).replaceNil(0).transpose.matrixPlot
 ~~~
 
@@ -74,7 +74,7 @@ note that the intermediate state contains `nil`:
 Sfc32(387914)
 .randomPermutationList(11)
 .sortTracingState(
-	shellSortWithMonitor:/2
+	shellSortWithMonitor/2
 ).transpose.matrixPlot
 ~~~
 
@@ -86,7 +86,7 @@ Matrix plot of a shuffle sort algorithm:
 Sfc32(387914)
 .randomPermutationList(9)
 .sortTracingState(
-	shuffleSortWithMonitor:/2
+	shuffleSortWithMonitor/2
 ).transpose.matrixPlot
 ~~~
 
@@ -98,7 +98,7 @@ Matrix plot of a radix sort algorithm:
 Sfc32(387914)
 .randomPermutationList(7)
 .sortTracingState(
-	radixSortWithMonitor:/2
+	radixSortWithMonitor/2
 ).transpose.matrixPlot
 ~~~
 
@@ -110,7 +110,7 @@ Matrix plot of an odd-even sort algorithm:
 Sfc32(387914)
 .randomPermutationList(9)
 .sortTracingState(
-	oddEvenSortWithMonitor:/2
+	oddEvenSortWithMonitor/2
 ).transpose.matrixPlot
 ~~~
 
@@ -122,7 +122,7 @@ Matrix plot of a comb sort algorithm:
 Sfc32(387914)
 .randomPermutationList(11)
 .sortTracingState(
-	combSortWithMonitor:/2
+	combSortWithMonitor/2
 ).transpose.matrixPlot
 ~~~
 
@@ -134,7 +134,7 @@ Matrix plot of a bubble sort algorithm:
 Sfc32(387914)
 .randomPermutationList(9)
 .sortTracingState(
-	bubbleSortWithMonitor:/2
+	bubbleSortWithMonitor/2
 ).transpose.matrixPlot
 ~~~
 
@@ -146,7 +146,7 @@ Matrix plot of a bitonic sort algorithm:
 Sfc32(387914)
 .randomPermutationList(8)
 .sortTracingState(
-	bitonicSortWithMonitor:/2
+	bitonicSortWithMonitor/2
 ).transpose.matrixPlot
 ~~~
 
@@ -158,7 +158,7 @@ Matrix plot of a gnome sort algorithm:
 Sfc32(387914)
 .randomPermutationList(9)
 .sortTracingState(
-	gnomeSortWithMonitor:/2
+	gnomeSortWithMonitor/2
 ).transpose.matrixPlot
 ~~~
 

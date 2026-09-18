@@ -29,7 +29,7 @@ Lucky numbers that are also primes:
 
 ```
 >>> 1000.luckyNumbers
->>> .select(isPrime:/1)
+>>> .select(isPrime/1)
 [
 	  3   7  13  31  37
 	 43  67  73  79 127

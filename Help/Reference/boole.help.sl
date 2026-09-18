@@ -39,7 +39,7 @@ Convert a table of boolean values for plotting:
 The inverse of `boole` is `asBoolean`:
 
 ```
->>> [1 0 1 1 0].collect(asBoolean:/1)
+>>> [1 0 1 1 0].collect(asBoolean/1)
 [true false true true false]
 ```
 

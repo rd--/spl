@@ -19,7 +19,7 @@ Threads over lists:
 ```
 >>> [
 >>> 	1/1 2/1 3/2 5/4 7/4 6/5 9/7 13/11
->>> ].collect(keesSemiHeight:/1)
+>>> ].collect(keesSemiHeight/1)
 [1 1 3 5 7 5 9 13]
 
 >>> [
@@ -30,7 +30,7 @@ Threads over lists:
 >>> 	9/5 10/9
 >>> 	15/14 28/15
 >>> 	25/26 27/25 25/24
->>> ].collect(keesSemiHeight:/1)
+>>> ].collect(keesSemiHeight/1)
 [
 	7 7 7 7
 	5 5 5 5

@@ -72,7 +72,7 @@ OEIS [A059378](https://oeis.org/A059378):
 Tables for small _k_ and _n_:
 
 ```
->>> jordanTotient:/2.table(1:6, 1:7)
+>>> jordanTotient/2.table(1:6, 1:7)
 [
 	1 1 2 2 4 2 6;
 	1 3 8 12 24 24 48;
@@ -82,7 +82,7 @@ Tables for small _k_ and _n_:
 	1 63 728 4032 15624 45864 117648
 ]
 
->>> jordanTotient:/2.swap.table(1:7, 1:7)
+>>> jordanTotient/2.swap.table(1:7, 1:7)
 [
 	1 1 1 1 1 1 1;
 	1 3 7 15 31 63 127;
@@ -151,7 +151,7 @@ OEIS [A059379](https://oeis.org/A059379):
 
 ~~~spl svg=C oeis=A059379
 1:13.antidiagonalArray(
-	jordanTotient:/2
+	jordanTotient/2
 ).catenate.scatterPlot.log
 ~~~
 

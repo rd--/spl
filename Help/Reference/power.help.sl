@@ -983,7 +983,7 @@ OEIS [A081296](https://oeis.org/A081296):
 
 ```
 >>> let n = 1:13;
->>> ((2 ^ n) - n).select(isPrime:/1)
+>>> ((2 ^ n) - n).select(isPrime/1)
 [2 5 503 8179]
 ```
 
@@ -992,7 +992,7 @@ OEIS [A100362](https://oeis.org/A100362):
 
 ```
 >>> let n = 0:13;
->>> ((2 ^ n) - n + 1).select(isPrime:/1)
+>>> ((2 ^ n) - n + 1).select(isPrime/1)
 [2 2 3 13 59]
 ```
 
@@ -1112,7 +1112,7 @@ OEIS [A000089](https://oeis.org/A000089):
 1:135.collect { :n |
 	1:n.collect { :m |
 		(m ^ 2 + 1) / n
-	}.select(isInteger:/1).size
+	}.select(isInteger/1).size
 }.discretePlot
 ~~~
 
@@ -1124,7 +1124,7 @@ OEIS [A004248](https://oeis.org/A004248):
 
 ~~~spl svg=G oeis=A004248
 0:21.antidiagonalArray(
-	power:/2
+	power/2
 ).catenate.scatterPlot.log
 ~~~
 

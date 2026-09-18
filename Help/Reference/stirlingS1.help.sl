@@ -8,7 +8,7 @@ The triangle of signed Stirling numbers of the first kind,
 OEIS [A008275](http://oeis.org/A008275):
 
 ```
->>> 1:6.triangularArray(stirlingS1:/2)
+>>> 1:6.triangularArray(stirlingS1/2)
 [
 	1;
 	-1 1;
@@ -23,7 +23,7 @@ From zero,
 OEIS [A048994](https://oeis.org/A048994):
 
 ```
->>> 0:6.triangularArray(stirlingS1:/2)
+>>> 0:6.triangularArray(stirlingS1/2)
 [
 	1;
 	0 1;
@@ -39,7 +39,7 @@ Unsigned from zero,
 OEIS [A132393](https://oeis.org/A132393):
 
 ```
->>> 0:6.triangularArray(stirlingS1:/2).abs
+>>> 0:6.triangularArray(stirlingS1/2).abs
 [
 	1;
 	0 1;
@@ -159,7 +159,7 @@ OEIS [A006252](https://oeis.org/A006252):
 ```
 >>> 0:14.triangularArray { :n :k |
 >>> 	k.! * stirlingS1(n, k)
->>> }.collect(sum:/1)
+>>> }.collect(sum/1)
 [
 	1 1 1 2 4 14 38 216 600 6240 9552
 	319296 -519312 28108560 -176474352
@@ -186,7 +186,7 @@ Unsigned Stirling numbers of the first kind count the number of permutations of 
 >>> [4 5 6].collect { :n |
 >>> 	[1 .. n].permutations.select { :p |
 >>> 		let c = p.permutationCycles;
->>> 		c.collect(size:/1) = [n]
+>>> 		c.collect(size/1) = [n]
 >>> 	}.size
 >>> }
 [6 24 120]
@@ -195,7 +195,7 @@ Unsigned Stirling numbers of the first kind count the number of permutations of 
 Surface plot of Stirling numbers on a logarithmic scale:
 
 ~~~spl svg=A
-stirlingS1:/2
+stirlingS1/2
 .table(1:12, 1:12)
 .abs
 .logScale
@@ -254,7 +254,7 @@ The triangle of signed Stirling numbers of the first kind,
 OEIS [A008275](http://oeis.org/A008275):
 
 ~~~spl svg=E oeis=A008275
-1:17.triangularArray(stirlingS1:/2)
+1:17.triangularArray(stirlingS1/2)
 .catenate.scatterPlot.logScale
 ~~~
 

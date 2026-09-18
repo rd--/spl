@@ -25,7 +25,7 @@ The Stern-Brocot tree is `unfoldTree` of _1/1_ and `sternBrocotChildren`:
 ```
 >>> 4.unfoldTree(
 >>> 	1/1,
->>> 	sternBrocotChildren:/1
+>>> 	sternBrocotChildren/1
 >>> ).levelOrderValues
 [
 	1/1

@@ -8,7 +8,7 @@ The first few terms:
 
 ```
 >>> 0:45.collect(
->>> 	catalanRestrictedGrowthString:/1
+>>> 	catalanRestrictedGrowthString/1
 >>> )
 [
 	0;

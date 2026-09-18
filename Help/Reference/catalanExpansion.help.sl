@@ -11,7 +11,7 @@ OEIS [A014418](https://oeis.org/A014418):
 
 ```
 >>> 0:42.collect(
->>> 	catalanExpansion:/1
+>>> 	catalanExpansion/1
 >>> )
 [
 	;
@@ -66,7 +66,7 @@ OEIS [A014418](https://oeis.org/A014418):
 
 ~~~spl svg=A oeis=A014418 variant
 0:23.collect(
-	catalanExpansion:/1
+	catalanExpansion/1
 ).++.stepPlot
 ~~~
 

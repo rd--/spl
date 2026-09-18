@@ -6,7 +6,7 @@ Predicate to decide if _n_ is an abundant number.
 
 ```
 >>> 1:120.select(
->>> 	isSuperabundantNumber:/1
+>>> 	isSuperabundantNumber/1
 >>> )
 [1 2 4 6 12 24 36 48 60 120]
 ```

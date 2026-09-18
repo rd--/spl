@@ -7,7 +7,7 @@ Answer `true` if _n_ is a Stern prime, else `false`.
 The first few Stern primes:
 
 ```
->>> 1:1500.select(isSternPrime:/1)
+>>> 1:1500.select(isSternPrime/1)
 [2 3 17 137 227 977 1187 1493]
 ```
 

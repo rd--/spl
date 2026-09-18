@@ -13,7 +13,7 @@ OEIS [A002487](https://oeis.org/A002487):
 >>> 16.sternBrocotSequence
 [0 1 1 2 1 3 2 3 1 4 3 5 2 5 3 4]
 
->>> 0:15.collect(sternBrocotNumber:/1)
+>>> 0:15.collect(sternBrocotNumber/1)
 [0 1 1 2 1 3 2 3 1 4 3 5 2 5 3 4]
 ```
 

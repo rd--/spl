@@ -54,7 +54,7 @@ with the elements of the pairs exchanged:
 >>> [3 1 4 2]
 >>> .inversePermutation
 >>> .inversions
->>> .collect(reverse:/1)
+>>> .collect(reverse/1)
 [3 1; 3 2; 4 2]
 ```
 

@@ -13,7 +13,7 @@ This is used to parse literal numbers of radix 2 - 36.
 >>> '1'.digitValue
 1
 
->>> ['9' '0' 'A' 'Z'].collect(digitValue:/1)
+>>> ['9' '0' 'A' 'Z'].collect(digitValue/1)
 [9 0 10 35]
 ```
 

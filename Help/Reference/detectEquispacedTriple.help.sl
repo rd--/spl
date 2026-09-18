@@ -1,6 +1,6 @@
 # detectEquispacedTriple
 
-- _detectEquispacedTriple([x₁ x₂ …], f:/3)_
+- _detectEquispacedTriple([x₁ x₂ …], f/3)_
 
 Answer the indices of the first equally spaced subsequence of _x_ for which _f_ answers `true`,
 or `nil` if there is no such subsequence.

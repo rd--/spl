@@ -1,6 +1,6 @@
 # nelderMeadMethod
 
-- _nelderMeadMethod(f:/1, [x₁ x₂ …], o)_
+- _nelderMeadMethod(f/1, [x₁ x₂ …], o)_
 
 Implement the Nelder-Mead method,
 also known as the downhill simplex method or polytope method,
@@ -63,7 +63,7 @@ Minimize Himmelblau’s function:
 Minimize the Griewank function:
 
 ```
->>> griewankFunction:/1
+>>> griewankFunction/1
 >>> .nelderMeadMethod([2.5 -1.5])
 (fx: 0, x: [0 0])
 ```
@@ -71,7 +71,7 @@ Minimize the Griewank function:
 Minimize the Goldstein-Price function:
 
 ```
->>> goldsteinPriceFunction:/1
+>>> goldsteinPriceFunction/1
 >>> .nelderMeadMethod([0.2 -0.18])
 (fx: 3, x: [0 -1])
 ```

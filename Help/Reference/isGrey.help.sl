@@ -8,7 +8,7 @@ Select entries from the Svg colour catalogue that are grey:
 
 ```
 >>> system.svgColourCatalogue
->>> .select(isGrey:/1)
+>>> .select(isGrey/1)
 >>> .keys
 [
 	'darkgray'
@@ -30,7 +30,7 @@ deleting duplicates:
 
 ~~~spl svg=A
 system.svgColourCatalogue
-.select(isGrey:/1)
+.select(isGrey/1)
 .values
 .deleteDuplicates
 .enclose.arrayPlot

@@ -1,6 +1,6 @@
 # blend
 
-- _blend(y1, y2, mu, f:/3)_
+- _blend(y1, y2, mu, f/3)_
 - _blend(y1, y2, mu)_
 
 In the quaternary case,

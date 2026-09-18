@@ -6,7 +6,7 @@ Answers `true` if the number _x_ is negative or `zero`, else `false`.
 
 ```
 >>> [-1 0 1].collect(
->>> 	isNonPositive:/1
+>>> 	isNonPositive/1
 >>> )
 [true true false]
 ```

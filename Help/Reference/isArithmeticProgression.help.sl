@@ -1,6 +1,6 @@
 # isArithmeticProgression
 
-- _isArithmeticProgression([x₁ x₂ …], n, f:/2)_
+- _isArithmeticProgression([x₁ x₂ …], n, f/2)_
 
 Answer `true` if the sequence _x_ is an arithmetic series by step _n_,
 with distances considered equal according to the block _f_.

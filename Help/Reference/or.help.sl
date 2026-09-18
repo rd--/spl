@@ -1,6 +1,6 @@
 # or
 
-- _b | f:/0_
+- _b | f/0_
 - _c.|_
 
 Non-evaluating disjunction.

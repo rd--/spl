@@ -26,7 +26,7 @@ OEIS [A265705](https://oeis.org/A265705):
 
 ```
 >>> 0:8.triangularArray(
->>> 	bitImplies:/2.swap
+>>> 	bitImplies/2.swap
 >>> )
 [
 	0;
@@ -66,7 +66,7 @@ _k→n_,
 OEIS [A265705](https://oeis.org/A265705):
 
 ~~~spl svg=A oeis=A265705
-0:19.triangularArray(bitImplies:/2.swap)
+0:19.triangularArray(bitImplies/2.swap)
 .catenate.scatterPlot
 ~~~
 

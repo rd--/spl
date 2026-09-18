@@ -1,6 +1,6 @@
 # whileTrue
 
-- _whileTrue(condition:/0, f:/0)_
+- _whileTrue(condition/0, f/0)_
 
 Conditional evaluation.
 Evaluate the block _f_ as long as the value of the block _condition_ is `true`.

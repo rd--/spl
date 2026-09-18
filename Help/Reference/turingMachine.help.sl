@@ -43,7 +43,7 @@ With initial state of two:
 ~~~spl svg=A
 2506.turingMachineFromNumber(2, 2)
 .turingMachine([1, [; 0]], 30)
-.collect(last:/1)
+.collect(last/1)
 .matrixPlot
 ~~~
 
@@ -54,7 +54,7 @@ A three-state, two-color machine:
 ~~~spl svg=B
 2139050.turingMachineFromNumber(3, 2)
 .turingMachine([1, [; 0]], 30)
-.collect(last:/1)
+.collect(last/1)
 .matrixPlot
 ~~~
 
@@ -63,7 +63,7 @@ A three-state, two-color machine:
 ~~~spl svg=C
 596440.turingMachineFromNumber(2, 3)
 .turingMachine([1, [; 0]], 80)
-.collect(last:/1)
+.collect(last/1)
 .matrixPlot
 ~~~
 
@@ -75,7 +75,7 @@ A sequence of two-state, two-color machines:
 [2500, 2502 .. 2510].collect { :n |
 	n.turingMachineFromNumber(2, 2)
 	.turingMachine([1, [; 0]], 30)
-	.collect(last:/1)
+	.collect(last/1)
 	.matrixPlot
 }.PlotSet([2 3])
 ~~~
@@ -87,7 +87,7 @@ Start with the block _2,1,1_ on a background of zeroes:
 ~~~spl svg=E
 596440.turingMachineFromNumber(2, 3)
 .turingMachine([1, [2 1 1; 0]], 10)
-.collect(last:/1)
+.collect(last/1)
 .matrixPlot
 ~~~
 
@@ -98,7 +98,7 @@ Start with the block _2,1,1_ on a background of repeated _0,2_ blocks:
 ~~~spl svg=F
 596440.turingMachineFromNumber(2, 3)
 .turingMachine([1, [2 1 1; 0 2]], 10)
-.collect(last:/1)
+.collect(last/1)
 .matrixPlot
 ~~~
 
@@ -109,7 +109,7 @@ Start with a tape of _1_ on an infinite background of zeroes:
 ~~~spl svg=G
 956440.turingMachineFromNumber(3, 2)
 .turingMachine([1, [1; 0]], 20)
-.collect(last:/1)
+.collect(last/1)
 .matrixPlot
 ~~~
 

@@ -1,6 +1,6 @@
 # helpFilesDo
 
-- _helpFilesDo(system, k, r, verbose, f:/1)_
+- _helpFilesDo(system, k, r, verbose, f/1)_
 
 Evaluate the block _f_ at each `HelpFile`,
 of kind _k_,

@@ -8,7 +8,7 @@
 				(p - 1 = n).if {
 					(p / 4).integerPart
 				} {
-					let s = (p - 1).primeFactors.sort(greaterEqual:/2);
+					let s = (p - 1).primeFactors.sort(greaterEqual/2);
 					let m = n - (n / p).integerPart;
 					let q = barlowIndispensability(s, m);
 					(q + (2 * ((q + 1) / p).sqrt)).integerPart
@@ -30,7 +30,7 @@
 	}
 
 	barlowIndispensability { :p :n |
-		p.allSatisfy(isPrime:/1).if {
+		p.allSatisfy(isPrime/1).if {
 			let z = p.size;
 			let m = p.product;
 			let u = (n - 2) % m;
@@ -49,7 +49,7 @@
 				let b = 1 + (u / m2).integerPart;
 				let c = 1 + (b % a);
 				let d = barlowBasicIndispensability(a, c);
-				let e = 0.toCollect(z - r - 1, ix:/1).product;
+				let e = 0.toCollect(z - r - 1, ix/1).product;
 				e * d
 			}.sum
 		} {

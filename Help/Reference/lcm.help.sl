@@ -25,7 +25,7 @@ The least common multiple of two numbers is their `product` divided by the `gcd`
 At `Collection`:
 
 ```
->>> [2 3 5].reduce(lcm:/2)
+>>> [2 3 5].reduce(lcm/2)
 30
 
 >>> [2 3 5].lcm
@@ -69,7 +69,7 @@ Lcm threads elementwise over lists:
 Table for small _n_:
 
 ```
->>> lcm:/2.table(2:4, 1:10)
+>>> lcm/2.table(2:4, 1:10)
 [
 	2  2  6  4 10  6 14  8 18 10;
 	3  6  3 12 15  6 21 24  9 30;
@@ -81,7 +81,7 @@ Table for small _n_:
 OEIS [A109042](https://oeis.org/A109042) when read by antidiagonals:
 
 ```
->>> lcm:/2.table(0:10, 0:10)
+>>> lcm/2.table(0:10, 0:10)
 [
 	0  0  0  0  0  0  0  0  0  0  0;
 	0  1  2  3  4  5  6  7  8  9 10;
@@ -107,7 +107,7 @@ Lcm of first one hundred integers:
 Cumulative least common multiples:
 
 ```
->>> 1:9.scan(lcm:/2)
+>>> 1:9.scan(lcm/2)
 [1 2 6 12 60 60 420 840 2520]
 ```
 
@@ -121,7 +121,7 @@ Signs are discarded:
 For `zero` and `one`, `lcm` is analogous to logical and:
 
 ```
->>> lcm:/2.table([0 1], [0 1])
+>>> lcm/2.table([0 1], [0 1])
 [0 0; 0 1]
 
 >>> &&.table([false true], [false true])
@@ -155,7 +155,7 @@ OEIS [A051451](https://oeis.org/A051451) if duplicate terms are removed:
 The sum of `mangoldtLambda` of the first n integers is equal to the natural log of the `lcm` of the first n integers:
 
 ```
->>> 1:10.sum(mangoldtLambda:/1)
+>>> 1:10.sum(mangoldtLambda/1)
 2520.log
 
 >>> 1:10.lcm.log
@@ -167,7 +167,7 @@ Maximal order of group elements from the symmetric group of order n (Landau’s 
 ```
 >>> 1:20.collect { :n |
 >>> 	n.integerPartitions
->>> 	.collect(lcm:/1)
+>>> 	.collect(lcm/1)
 >>> 	.max
 >>> }
 [
@@ -251,7 +251,7 @@ OEIS [A109053](https://oeis.org/A109053):
 Visualize the least common multiples of two integers:
 
 ~~~spl png=B
-lcm:/2.table(1:100, 1:100)
+lcm/2.table(1:100, 1:100)
 .negate.rescale.Greymap
 ~~~
 
@@ -288,7 +288,7 @@ Form the least common multiples of `one` with rational numbers:
 Matrix plot of the least common multiples of two integers:
 
 ~~~spl svg=E
-lcm:/2.table(1:20, 1:20).matrixPlot
+lcm/2.table(1:20, 1:20).matrixPlot
 ~~~
 
 ![](Help/Image/lcm-E.svg)
@@ -296,7 +296,7 @@ lcm:/2.table(1:20, 1:20).matrixPlot
 Plot the logarithm of the cumulative least common multiples:
 
 ~~~spl svg=F
-2L:100L.scan(lcm:/2).log.scatterPlot
+2L:100L.scan(lcm/2).log.scatterPlot
 ~~~
 
 ![](Help/Image/lcm-F.svg)
@@ -318,7 +318,7 @@ read by rows,
 OEIS [A051173](https://oeis.org/A051173)
 
 ~~~spl svg=H oeis=A051173
-1:21.triangularArray(lcm:/2)
+1:21.triangularArray(lcm/2)
 .++.scatterPlot
 ~~~
 
@@ -329,7 +329,7 @@ from `zero`,
 OEIS [A109042](https://oeis.org/A109042):
 
 ~~~spl svg=I oeis=A109042
-0:17.antidiagonalArray(lcm:/2)
+0:17.antidiagonalArray(lcm/2)
 .++.scatterPlot
 ~~~
 
@@ -340,7 +340,7 @@ from `one`,
 OEIS [A003990](https://oeis.org/A003990):
 
 ~~~spl png=J oeis=A003990
-1:60.antidiagonalArray(lcm:/2)
+1:60.antidiagonalArray(lcm/2)
 .++.denseScatterPlot
 ~~~
 
