@@ -125,15 +125,11 @@ Decimal : [Object, Store, Equal, Compare, Number] { | fraction scale |
 	}
 
 	asInteger { :self |
-		self.isInteger.if {
-			self.fraction.asInteger
-		} {
-			self.error('asInteger')
-		}
+		self.asLargeInteger.normal
 	}
 
 	asSmallInteger { :self |
-		self.fraction.asSmallInteger
+		self.asLargeInteger.asSmallInteger
 	}
 
 	[asSmallFloat, asFloat] { :self |
@@ -141,7 +137,12 @@ Decimal : [Object, Store, Equal, Compare, Number] { | fraction scale |
 	}
 
 	asLargeInteger { :self |
-		self.fraction.asLargeInteger
+		/* 1.0D is not an integer... */
+		self.isInteger.if {
+			self.fraction.asLargeInteger
+		} {
+			self.error('Decimal>>asLargeInteger')
+		}
 	}
 
 	denominator { :self |

@@ -136,7 +136,7 @@ Fraction : [Object, Store, Equal, Compare, Number] { | numerator denominator |
 	}
 
 	asInteger { :self |
-		self.asLargeInteger.asInteger
+		self.asLargeInteger.normal
 	}
 
 	asLargeInteger { :self |

@@ -37,18 +37,33 @@ It is an error if the value is cannot be represented as a small integer:
 true
 ```
 
-At `Fraction`:
+At `Fraction`, must be an integer:
 
 ```
 >>> 23/1.asSmallInteger
 23
+
+>>> {
+>>> 	22/7.asSmallInteger
+>>> }.hasError
+true
 ```
 
-At `Decimal`:
+At `Decimal`, must be an integer:
 
 ```
->>> 23.0D.asSmallInteger
+>>> 23D.asSmallInteger
 23
+
+>>> {
+>>> 	23.0D.asSmallInteger
+>>> }.hasError
+true
+
+>>> {
+>>> 	3.141D.asSmallInteger
+>>> }.hasError
+true
 ```
 
 * * *

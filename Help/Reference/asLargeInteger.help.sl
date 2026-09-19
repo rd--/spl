@@ -36,13 +36,28 @@ At `Fraction`:
 ```
 >>> 23/1.asLargeInteger
 23L
+
+>>> {
+>>> 	22/7.asLargeInteger
+>>> }.hasError
+true
 ```
 
 At `Decimal`:
 
 ```
->>> 23.0D.asLargeInteger
+>>> 23D.asLargeInteger
 23L
+
+>>> {
+>>> 	23.0D.asLargeInteger
+>>> }.hasError
+true
+
+>>> {
+>>> 	3.141D.asLargeInteger
+>>> }.hasError
+true
 ```
 
 At `ByteArray`:
