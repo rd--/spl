@@ -70,10 +70,6 @@
 		self.collect(asComplex/1)
 	}
 
-	asFloat { :self |
-		self.collect(asFloat/1)
-	}
-
 	asFraction { :self |
 		self.collect(asFraction/1)
 	}
@@ -84,6 +80,10 @@
 
 	asNumber { :self |
 		self.collect(asNumber/1)
+	}
+
+	[asSmallFloat, asFloat] { :self |
+		self.collect(asSmallFloat/1)
 	}
 
 	balancedTernaryDigits { :self |

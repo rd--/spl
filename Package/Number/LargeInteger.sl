@@ -122,10 +122,6 @@ LargeInteger! : [Object, Store, Equal, Compare, Binary, Number, Integer] {
 		}
 	}
 
-	asFloat { :self |
-		self.asSmallFloat
-	}
-
 	asInteger { :self |
 		self.isSmallInteger.if {
 			self.asSmallFloat
@@ -146,7 +142,7 @@ LargeInteger! : [Object, Store, Equal, Compare, Binary, Number, Integer] {
 		self
 	}
 
-	asSmallFloat { :self |
+	[asSmallFloat, asFloat] { :self |
 		<primitive: return Number(_self);>
 	}
 

@@ -120,10 +120,6 @@ Decimal : [Object, Store, Equal, Compare, Number] { | fraction scale |
 		self.fraction.asDecimal(scale)
 	}
 
-	asFloat { :self |
-		self.fraction.asFloat
-	}
-
 	asFraction { :self |
 		self.fraction
 	}
@@ -140,7 +136,7 @@ Decimal : [Object, Store, Equal, Compare, Number] { | fraction scale |
 		self.fraction.asSmallInteger
 	}
 
-	asSmallFloat { :self |
+	[asSmallFloat, asFloat] { :self |
 		self.fraction.asSmallFloat
 	}
 

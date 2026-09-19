@@ -26,15 +26,11 @@ SmallFloat! : [Object, Store, Json, Equal, Compare, Number, Integer, Binary] {
 		}
 	}
 
-	asFloat { :self |
-		self
-	}
-
 	asInteger { :self |
 		self.asSmallInteger
 	}
 
-	asSmallFloat { :self |
+	[asSmallFloat, asFloat] { :self |
 		self
 	}
 

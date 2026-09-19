@@ -35,6 +35,10 @@ Threads over lists:
 [0.75 23]
 ```
 
+_Note:_
+At present there is only one floating point type,
+and `asFloat` is simply an alias for `asSmallFloat`.
+
 * * *
 
 See also: asInteger, asNumber

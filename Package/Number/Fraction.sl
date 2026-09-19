@@ -131,10 +131,6 @@ Fraction : [Object, Store, Equal, Compare, Number] { | numerator denominator |
 		}
 	}
 
-	asFloat { :self |
-		self.numerator.asFloat / self.denominator.asFloat
-	}
-
 	asFraction { :self |
 		self
 	}
@@ -151,8 +147,8 @@ Fraction : [Object, Store, Equal, Compare, Number] { | numerator denominator |
 		}
 	}
 
-	asSmallFloat { :self |
-		self.asFloat
+	[asSmallFloat, asFloat] { :self |
+		self.numerator.asSmallFloat / self.denominator.asSmallFloat
 	}
 
 	asSmallInteger { :self |
