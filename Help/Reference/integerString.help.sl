@@ -14,23 +14,17 @@ Convert to binary, giving the result as a string:
 Base sixteen:
 
 ```
->>> 50L.!.integerString(16)
-(
-	'49EEBC961ED279B02B1EF4F28D1'
-	++
-	'9A84F5973A1D2C7800000000000'
-)
+>> 50L.!.integerString(16)
+49EEBC961ED279B02B1EF4F28D1
+9A84F5973A1D2C7800000000000
 ```
 
 Maximum base is thirty-six:
 
 ```
->>> 50L.!.integerString(36)
-(
-	'4Q7EYP9ZIZMTQT0648TXT'
-	++
-	'4FM720CC1S00000000000'
-)
+>> 50L.!.integerString(36)
+4Q7EYP9ZIZMTQT0648TXT
+4FM720CC1S00000000000
 ```
 
 Show a single number in successive bases from 4 to 36:
@@ -79,6 +73,8 @@ Show a single number in successive bases from 4 to 36:
 * * *
 
 See also: digitSum, fromDigits, integerDigits, integerLength, romanNumeral
+
+Guides: Integer Functions
 
 References:
 _Mathematica_

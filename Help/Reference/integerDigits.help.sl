@@ -34,11 +34,25 @@ Find digits in base 2 & 3:
 [2 2 2 1 2 0 1 2 1 2]
 ```
 
+Binary digit sequence, padded with zeros:
+
+```
+>>> 56.integerDigits(2, 8)
+[0 0 1 1 1 0 0 0]
+
+>>> [0 0 1 1 1 0 0 0]
+>>> .fromDigits(2)
+56
+```
+
 Bases larger than 10 can be used:
 
 ```
 >>> 58127.integerDigits(16)
 [14 3 0 15]
+
+>>> 1234135634.integerDigits(16)
+[4 9 8 15 6 10 5 2]
 ```
 
 Threads over lists:

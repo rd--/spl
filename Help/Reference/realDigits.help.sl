@@ -10,6 +10,10 @@ Answer list of digits and exponent:
 ```
 >>> 123.55555.realDigits(10, 10)
 [[1 2 3 5 5 5 5 5 0 0], 3]
+
+>>> 123.4567890123456
+>>> .realDigits(10, 16)
+[[1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6], 3]
 ```
 
 A number that answers the same list of digits,
@@ -62,7 +66,7 @@ At `Decimal`:
 
 * * *
 
-See also: integerDigits
+See also: fromDigits, integerDigits
 
 Guides: Mathematical Functions
 

@@ -22,9 +22,12 @@ that is _e^x_.
 3.970929
 ```
 
-`exp` can take complex number inputs:
+`exp` can take `Complex` number inputs:
 
 ```
+>>> 2J9.exp
+-6.73239J3.04517
+
 >>> 2.5J1.exp
 6.58223J10.2512
 

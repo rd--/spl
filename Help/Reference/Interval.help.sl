@@ -92,6 +92,11 @@ true
 >>> 	i.includes(each)
 >>> }
 [true true true false]
+
+>>> 1:20:3.collect { :i |
+>>> 	(i -- (i + 1)).includes(7)
+>>> }
+[false false true false false false false]
 ```
 
 Use `union` to combine intervals:

@@ -81,6 +81,13 @@ At `Residue`:
 true
 ```
 
+At `Interval`:
+
+```
+>>> (-2 -- 5).isNumber
+true
+```
+
 A `String` is not a number:
 
 ```

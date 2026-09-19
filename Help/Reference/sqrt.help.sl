@@ -55,11 +55,11 @@ Particular values:
 Negative numbers have imaginary square roots:
 
 ```
+>>> -4.sqrt
+0J2
+
 >>> -9.sqrt
 0J3
-
->>> -25J0.sqrt
-0J5
 ```
 
 At `Complex`:
@@ -67,6 +67,9 @@ At `Complex`:
 ```
 >>> 5J1.sqrt
 2.24711J0.22250
+
+>>> -25J0.sqrt
+0J5
 ```
 
 At `LargeInteger`:

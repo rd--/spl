@@ -89,6 +89,9 @@ to answer a `Fraction` divide by a `LargeInteger` or a `Fraction`:
 At `Complex` answers a `Complex`:
 
 ```
+>>> 4J3 / 2J-1
+1J2
+
 >>> 9.4J6 / 1J1
 7.7J-1.7
 

@@ -84,6 +84,10 @@ let x = [4 4.5]; let y = [2 3 5 6]; [x * [x, y], y * [x, y]] = [[[16, 18], [9, 1
 SinOsc(440, 0).isUgen = true
 'g'.encodeUgen(SinOsc(440, 0) * 0.1).isByteArray = true
 SinOsc(440, 0).isOutputSignal = true
+SinOsc(440, 0).scUgen.rate = 2	/* Default to highest allowed rate, here audio rate */
+MouseX(0, 1, 0, 0.2).scUgen.rate = 1 /* Default to highest allowed rate, here control rate */
+Rand(0, 1).scUgen.rate = 0 /* Default to highest allowed rate, here initialization rate */
+SinOsc(440, 0).kr.scUgen.rate = 1 /* Set control rate, applies to all upstream Ugens */
 ```
 
 ## SoundFile
