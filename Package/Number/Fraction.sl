@@ -739,10 +739,6 @@ Fraction : [Object, Store, Equal, Compare, Number] { | numerator denominator |
 		}
 	}
 
-	asApproximateFraction { :self :epsilon |
-		self.rationalize(epsilon)
-	}
-
 	asFraction { :self :epsilon |
 		self.isInteger.if {
 			uncheckedFraction(self, 1L)
@@ -755,7 +751,7 @@ Fraction : [Object, Store, Equal, Compare, Number] { | numerator denominator |
 		self.asFraction(1E-5)
 	}
 
-	rationalize { :self :epsilon |
+	[rationalize, approximateFraction] { :self :epsilon |
 		let c = self.abs.continuedFraction(16);
 		let l = c.semiconvergents(epsilon);
 		valueWithReturn { :return/1 |

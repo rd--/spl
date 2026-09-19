@@ -66,7 +66,7 @@ At negative numbers:
 
 * * *
 
-See also: asApproximateFraction, asFloat, asInteger, asNumber, rationalize
+See also: approximateFraction, asFloat, asInteger, asNumber, rationalize
 
 Guides: Number Functions
 
