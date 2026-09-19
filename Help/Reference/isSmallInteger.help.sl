@@ -21,7 +21,22 @@ The largest small integer:
 
 >>> let x = 9007199254740991;
 >>> let y = x + 1;
->>> ([x, x + 1].isSmallInteger, y + 1 = y)
+>>> ([x, y].isSmallInteger, y + 1 = y)
+(
+	[true false],
+	true
+)
+```
+
+The least negative small integer:
+
+```
+>>> (-2L ^ 53L) + 1L
+-9007199254740991L
+
+>>> let x = -9007199254740991L;
+>>> let y = x - 1;
+>>> ([x, y].isSmallInteger, y - 1 = y)
 (
 	[true false],
 	true
