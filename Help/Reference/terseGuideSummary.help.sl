@@ -19,8 +19,8 @@ run all of the terse examples in _x_,
 and print a summary of each section and of the guide altogether.
 
 ~~~spl console
-system
-.splFileName('Help/Terse/Terse Guide to SuperCollider.help.sl')
+'Help/Terse/Terse Guide to SuperCollider.help.sl'
+.splFilePath
 .readTextFile
 .terseGuideSummary
 ~~~

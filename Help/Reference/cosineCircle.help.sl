@@ -4,6 +4,8 @@
 
 Answer the cosine circle of the triangle _t_.
 
+Draw cosine circle and symmedian point:
+
 ~~~spl svg=A
 let t = [5 3.5 5].sssTriangle;
 [

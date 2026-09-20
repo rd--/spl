@@ -4,6 +4,8 @@
 
 Answer the parametric equation for the elliptic paraboloid.
 
+Surface plot of elliptic paraboloid:
+
 ~~~spl svg=A
 [0 1; 0 2.pi].surfacePlot(
 	ellipticParaboloid(0.75, 0.5)

@@ -2,7 +2,7 @@
 
 Block! : [Object, Equal] {
 
-	$ { :self/1 :anObject |
+	<$ { :self/1 :anObject |
 		self(anObject)
 	}
 
@@ -694,7 +694,7 @@ Block! : [Object, Equal] {
 		self
 	}
 
-	with { :self :aBlock/1 |
+	[in, with, <$] { :self :aBlock/1 |
 		aBlock(self)
 	}
 

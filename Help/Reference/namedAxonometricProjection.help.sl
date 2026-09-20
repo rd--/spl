@@ -1,9 +1,8 @@
 # namedAxonometricProjection
 
-- _namedAxonometricProjection(aString)_
-- _namedAxonometricProjection(aString, alpha)_
+- _namedAxonometricProjection(s, ?α)_
 
-Answer the named `AxonometricProjection`.
+Answer the `AxonometricProjection` named _s_.
 
 Draw the standard _isometric_ projection of the unit dodecahedron:
 
@@ -33,6 +32,6 @@ with the _Z_-axis angle set to _pi/6_:
 
 * * *
 
-See also: AxonometricProjection, asAxonometricProjection, unitDodecahedron, unitIcosahedron
+See also: AxonometricProjection, unitDodecahedron, unitIcosahedron
 
 Guides: Perspective Drawings

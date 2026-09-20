@@ -10,7 +10,7 @@ Answer a triangulation of the polygon _p_.
 [2 1 4; 4 3 2]
 ```
 
-Draw a scaled triangulation of a simple four-polygon into two triangles
+Draw a scaled triangulation of a simple four-polygon into two triangles:
 
 ~~~spl svg=A
 let c = [10 0; 0 50; 60 60; 70 10];

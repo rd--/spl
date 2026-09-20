@@ -1,9 +1,12 @@
 # LsBrown
 
-- _LsBrown(low, high, step, length, randomNumberGenerator)_
+- _LsBrown(low, high, step, length, r)_
 
-Brownian motion between _low_ and _high_ with maximum step size _step_.
+Brownian motion between _low_ and _high_ with maximum step size _step_,
+drawn from the random number generator _r_.
 Steps have uniform distribution.
+
+Brownian motion:
 
 ~~~spl svg=A
 let r = Sfc32(318402);

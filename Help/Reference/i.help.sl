@@ -34,7 +34,7 @@ Function defined multiplicatively on the complex numbers,
 OEIS [A076340](https://oeis.org/A076340) and
 OEIS [A076341](https://oeis.org/A076341):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A076340
 2:115.collect { :n |
 	n.factorInteger.product { :f |
 		let [p, e] = f;

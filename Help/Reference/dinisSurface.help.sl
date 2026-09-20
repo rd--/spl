@@ -4,6 +4,8 @@
 
 Implement the parametric equation for Dini’s surface.
 
+Surface plot of Dini’s surface:
+
 ~~~spl svg=A
 [0 4.pi; 2E-2 2].surfacePlot(
 	dinisSurface(1, 0.2)

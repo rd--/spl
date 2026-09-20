@@ -4,6 +4,8 @@
 
 Answer the Schoute center of the triangle _t_.
 
+Draw circumcenter, Schoute center, symmedian point and circumcircle:
+
 ~~~spl svg=A
 let t = [4 3 5].sssTriangle;
 let a = t.circumcenter;

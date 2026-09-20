@@ -596,7 +596,7 @@ OEIS [A289435](https://oeis.org/A289435):
 ![](Help/Image/divisors-S.svg)
 
 Sum of the primes that are one more than the divisors of _n_,
-OEIS [A085020](https://oeis.org/A085020)
+OEIS [A085020](https://oeis.org/A085020):
 
 ~~~spl svg=T oeis=A085020
 1:65.collect { :n |

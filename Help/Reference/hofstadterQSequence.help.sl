@@ -55,7 +55,7 @@ h.partition(3, 1).collect { :i |
 
 ![](Help/Image/hofstadterQSequence-C.svg)
 
-Plot a longer segment of the sequence:
+A longer segment of the Hofstadter Q-sequence:
 
 ~~~spl png=D oeis=A005185
 2500.hofstadterQSequence.denseScatterPlot

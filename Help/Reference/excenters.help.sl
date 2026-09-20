@@ -4,6 +4,8 @@
 
 Answer the excenters of the triangle _t_.
 
+Draw triangle excenters:
+
 ~~~spl svg=A
 let t = [3 4 5].sssTriangle;
 let c = t.excenters;

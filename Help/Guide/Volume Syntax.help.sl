@@ -5,6 +5,7 @@
 Allows writing _volumes_,
 three-dimensional arrays,
 as _matrices_ separated by `:;` tokens.
+The name of the outer items is either _pages_ or _planes_.
 
 Rewrite rule:
 

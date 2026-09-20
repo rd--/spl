@@ -261,6 +261,7 @@ Random Functions:
 Spiral Functions:
 
 - `archimedeanSpiral`
+- `diamondSpiral`
 - `doyleSpiral`
 - `eulerSpiral`
 - `evoluteSpiralMatrix`

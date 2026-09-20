@@ -53,7 +53,7 @@ AxonometricProjection : [Object, Equal] { | xRadius xTheta yRadius yTheta zRadiu
 
 +List {
 
-	asAxonometricProjection { :self |
+	AxonometricProjection { :self |
 		let [x, y, z] = self;
 		newAxonometricProjection()
 		.initializeSlots(

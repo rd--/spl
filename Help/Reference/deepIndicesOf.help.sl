@@ -24,6 +24,14 @@ Answer a `List`, possibly empty, of all the deep indices of the object _x_ in th
 ]
 ```
 
+Indices of `one` in a matrix of `boole`:
+
+```
+>>> [0 0 1; 0 0 0; 1 0 0]
+>>> .deepIndicesOf(1)
+[1 3; 3 1]
+
+
 * * *
 
 See also: deepIndexDo, deepIndices, indicesOf, indexOf, occurrencesOf

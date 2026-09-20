@@ -21,6 +21,10 @@ true
 'x'
 ```
 
+_Rationale_:
+This form is required to allow methods to require that a parameter be a block,
+it subverts the `Value Protocol`.
+
 * * *
 
 See also: Block, cull, value

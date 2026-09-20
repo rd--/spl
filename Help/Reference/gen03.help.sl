@@ -13,7 +13,7 @@ First-order Chebyshev, _x_:
 
 ![](Help/Image/gen03-A.svg)
 
-C.f.:
+C.f. _x_:
 
 ~~~spl svg=B
 (-1 -- 1).functionPlot(identity/1)
@@ -21,7 +21,7 @@ C.f.:
 
 ![](Help/Image/gen03-B.svg)
 
-Second-order Chebyshev, _2x^2 - 1_:
+Second-order Chebyshev, _2x^2-1_:
 
 ~~~spl svg=C
 129.gen03(-1, 1, [-1 0 2]).linePlot
@@ -29,7 +29,7 @@ Second-order Chebyshev, _2x^2 - 1_:
 
 ![](Help/Image/gen03-C.svg)
 
-C.f.:
+C.f. _2x^2-1_::
 
 ~~~spl svg=D
 (-1 -- 1).functionPlot { :x |
@@ -47,7 +47,7 @@ Third-order Chebyshev, _4x^3 - 3x_:
 
 ![](Help/Image/gen03-E.svg)
 
-C.f.
+C.f. _4x^3-3x_:
 
 ~~~spl svg=F
 (-1 -- 1).functionPlot { :x |

@@ -5,6 +5,8 @@
 
 Replicate each element of the sequence _x_ the number of times indicated by _n_,
 which in the list case must have the same number of places as _x_.
+Where _n_ is required to be either `zero` or `one` replicate is also called compress.
+The operator form is `#`.
 
 ```
 >>> 2.replicate([1 3 5])
@@ -82,6 +84,26 @@ A zero count entry skips over the corresponding item
 
 >>> [0 1 1 0 2] # [1 2 3 4 5]
 [2 3 5 5]
+```
+
+A `boole` mask is a form of select:
+
+```
+>>> 1:9.select(isEven/1)
+[2 4 6 8]
+
+>>> let y = [1 .. 9];
+>>> let x = y.collect(isEven/1).boole;
+>>> (x, x # y)
+[0 1 0 1 0 1 0 1 0], [2 4 6 8])
+
+>>> 1:9.select { :x | x % 3 > 0 }
+[1 2 4 5 7 8]
+
+>>> let y = [1 .. 9];
+>>> let x = (y % 3 > 0).boole;
+>>> x # y
+[1 2 4 5 7 8]
 ```
 
 It is an `error` if the count is not integral:

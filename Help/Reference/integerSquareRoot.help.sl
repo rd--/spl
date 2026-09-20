@@ -168,7 +168,7 @@ OEIS [A000267](https://oeis.org/A000267):
 Up once, down twice, up three times, down four times,
 OEIS [A010751](https://oeis.org/A010751):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A010751
 0:80.collect { :n |
 	let m = (n + 1 << 3).integerSquareRoot + 1 >> 1;
 	(m.bitAnd(1) = 1).if {
@@ -183,7 +183,7 @@ OEIS [A010751](https://oeis.org/A010751):
 
 Pyramidal sequence,
 distance to nearest triangular number,
-OEIS [A053616](https://oeis.org/A053616)
+OEIS [A053616](https://oeis.org/A053616):
 
 ~~~spl svg=D oeis=A053616
 0:85.collect { :n |

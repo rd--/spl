@@ -35,6 +35,9 @@ The ternary case specifies the _start_ and _step_ values:
 >>> 5.iota(3, 4)
 [3 7 11 15 19]
 
+>>> [3, 7 .. 19]
+[3 7 11 15 19]
+
 >>> [3 3].iota(3, 4)
 [
 	 3  7 11;

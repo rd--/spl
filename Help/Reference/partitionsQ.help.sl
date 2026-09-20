@@ -92,10 +92,10 @@ OEIS [A015128](https://oeis.org/A015128):
 ]
 ```
 
-Plot the number of restricted partitions,
+The number of restricted partitions,
 OEIS [A000009](https://oeis.org/A000009):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A000009
 1:47.partitionsQ.discretePlot.log
 ~~~
 

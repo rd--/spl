@@ -250,7 +250,7 @@ OEIS [A071831](https://oeis.org/A071831)
 and
 OEIS [A071832](https://oeis.org/A071832):
 
-~~~spl svg=F
+~~~spl svg=F oeis=A071831
 let r = [1 9/8 5/4 4/3 3/2 5/3 15/8];
 0:66.collect { :n |
 	r[n % 7 + 1] * (2 ^ (n // 7))
@@ -263,7 +263,7 @@ Frequency ratios for notes of C-major scale starting at _c=24_,
 using Ptolemy’s intense diatonic scale,
 OEIS [A071833](https://oeis.org/A071833):
 
-~~~spl svg=G
+~~~spl svg=G oeis=A071833
 let r = [24 27 30 32 36 40 45];
 0:48.collect { :n |
 	r[n % 7 + 1] * (2 ^ (n // 7))

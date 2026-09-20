@@ -239,7 +239,7 @@ Always returns a non-negative result:
 -12
 ```
 
-Plot the least common multiple for a number with twelve,
+The least common multiple for a number with twelve,
 OEIS [A109053](https://oeis.org/A109053):
 
 ~~~spl svg=A oeis=A109053
@@ -315,7 +315,7 @@ OEIS [A351962](https://oeis.org/A351962):
 
 `lcm` triangle,
 read by rows,
-OEIS [A051173](https://oeis.org/A051173)
+OEIS [A051173](https://oeis.org/A051173):
 
 ~~~spl svg=H oeis=A051173
 1:21.triangularArray(lcm/2)

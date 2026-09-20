@@ -20,7 +20,7 @@ and iteration count of four:
 
 ![](Help/Image/spirangle-A.svg)
 
-Draw a four-angle spirangle, or square spiral, of six iterations
+Draw a four-angle spirangle, or square spiral, of six iterations:
 
 ~~~spl svg=B
 4.spirangle(6, [0 0], [1 4], 0)

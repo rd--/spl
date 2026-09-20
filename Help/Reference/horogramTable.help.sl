@@ -7,6 +7,8 @@ which should each sum to the same value,
 and should contain only integer steps.
 A final row of unit divisions of the period is automatically appended.
 
+Draw _4,3,2_ table:
+
 ~~~spl html=A
 [
 	4;

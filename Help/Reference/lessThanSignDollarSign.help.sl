@@ -1,16 +1,16 @@
-# $ (dollarSign)
+# <$ (lessThanSignDollarSign)
 
-- _f/1 $ x_
+- _f/1 <$ x_
 
 Apply the unary block _f_ to the object _x_.
 
 ```
 >>> { :x |
 >>> 	x * x * x
->>> } $ 3
+>>> } <$ 3
 27
 
->>> cube/1 $ 3
+>>> cube/1 <$ 3
 27
 ```
 
@@ -26,10 +26,10 @@ This is the operator form of `value`:
 27
 ```
 
-The name of this operator is `dollarSign`.
+The name of this operator is `lessThanSignDollarSign`.
 
 * * *
 
-See also: value
+See also: $>, value
 
 Guides: Apply Syntax, Binary Operators, Block Functions, Value Apply Syntax

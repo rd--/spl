@@ -29,7 +29,7 @@ OEIS [A332247](https://oeis.org/A332247):
 The Minkowski curve,
 OEIS [A332247](https://oeis.org/A332247):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A332247
 250.minkowskiCurve.Line
 ~~~
 

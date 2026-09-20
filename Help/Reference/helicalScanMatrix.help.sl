@@ -239,7 +239,7 @@ Helical scan of _0:79_ on a _5×16_ matrix:
 
 ![](Help/Image/helicalScanMatrix-D.svg)
 
-Helical scan of _0:89_ on a _9×10_ matrix,
+Helical scan of _0:89_ on a _9×10_ matrix:
 
 ~~~spl svg=E
 [0 .. 89].helicalScanMatrix([9 10])

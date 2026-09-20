@@ -6,6 +6,8 @@ The roulette traced by a point _P_ attached to a circle _C_ of radius _b_,
 rolling around the outside of a fixed circle of radius _a_.
 _h_ is the distance from _P_ to the center of the circle _C_.
 
+With three cusps and _P_ inside _C_:
+
 ~~~spl svg=A
 (0 -- 2.pi).functionPlot(
 	epitrochoid(3, 1, 1 / 2)
@@ -14,7 +16,7 @@ _h_ is the distance from _P_ to the center of the circle _C_.
 
 ![](Help/Image/epitrochoid-A.svg)
 
-With five cusps and _P_ outside of _C_:
+With five cusps and _P_ outside _C_:
 
 ~~~spl svg=B
 (0 -- 2.pi).functionPlot(

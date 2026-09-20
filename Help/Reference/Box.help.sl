@@ -1,6 +1,6 @@
 # Box
 
-- _Box(anObject)_
+- _Box(x)_
 
 A `Type` that holds an object, also called a reference type.
 
@@ -21,7 +21,7 @@ and then place a string in the box:
 >>> let l = b.contents;
 >>> b.contents := 'x';
 >>> (l, b)
-([3.141, 23], Box('x'))
+([3.141 23], Box('x'))
 ```
 
 * * *

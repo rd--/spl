@@ -4,6 +4,8 @@
 
 Implement the parametric equation for the ellipsoid.
 
+Surface plot of ellipsoid:
+
 ~~~spl svg=A
 [0 2.pi; 0 1.pi].surfacePlot(
 	ellipsoid(1, 3, 2)

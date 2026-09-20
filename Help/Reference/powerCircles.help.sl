@@ -4,6 +4,8 @@
 
 Answer the power circles of the triangle _t_.
 
+Medial triangle and power circles:
+
 ~~~spl svg=A
 let t = [6 4 7].sssTriangle;
 let m = t.medialTriangle;

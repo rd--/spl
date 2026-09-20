@@ -4,6 +4,8 @@
 
 Answer the graph with weighted adjacency matrix _m_.
 
+A graph of three nodes and three edges:
+
 ~~~spl svg=A
 [
 	Infinity 1 Infinity;

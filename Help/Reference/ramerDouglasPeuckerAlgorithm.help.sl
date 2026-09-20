@@ -6,7 +6,7 @@ Simplify the line segment at the matrix _m_ to a similar line with fewer points 
 
 Plot two approximate `sin` functions,
 the initial approximation has 100 places,
-the simplified form has 20 places.
+the simplified form has 20 places:
 
 ~~~spl svg=A
 let x = (0 -- 4.pi).discretize(100);

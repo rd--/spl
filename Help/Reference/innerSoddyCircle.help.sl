@@ -4,6 +4,8 @@
 
 Answer the inner Soddy circle of the reference triangle _t_.
 
+Tangent circles, equal detour point and inner Soddy circle:
+
 ~~~spl svg=A
 let t = [3.5 2.5 4].sssTriangle;
 [

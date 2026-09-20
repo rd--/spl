@@ -7,6 +7,8 @@ given in radians.
 The answer are Cartesian coordinates of the form _(x,y)_,
 where _x_ is in _±π/√2_ and _y_ is in _±1+√2/2_.
 
+Lattice points under Gall stereographic projection:
+
 ~~~spl svg=A
 { :phi :lambda |
 	[phi lambda]

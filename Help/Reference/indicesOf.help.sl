@@ -44,6 +44,28 @@ At `String` with non-character seach string:
 [1 8]
 ```
 
+Indices of a sequence of items, _x_, in a sequence _y_:
+
+```
+>>> let y = [4 3 1 3 3];
+>>> [1 2 3].collect { :x |
+>>> 	y.indicesOf(x)
+>>> }
+[2; ; 2 4 5]
+```
+
+Indices of `one` in a list of `boole`,
+or of `true` in a list of `Boolean`:
+
+```
+>>> [0 0 1 0 0 0 1 0].indicesOf(1)
+[3 7]
+
+>>> [false false true false false false true false]
+>>> .indicesOf(true)
+[3 7]
+```
+
 Squarefree numbers ordered lexicographically by prime factorization,
 OEIS [A019565](https://oeis.org/A019565):
 
@@ -86,6 +108,8 @@ See also: deepIndicesOf, indicesOfSubstring, indexOf, occurrencesOf
 Guides: Dictionary Functions, List Functions
 
 References:
+_Apl_
+[1](https://aplwiki.com/wiki/Indices),
 _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/icapdot),
 _Mathematica_

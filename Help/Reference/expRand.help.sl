@@ -4,6 +4,8 @@
 
 Answer a random number logarithmically distrbuted between _a_ and _b_.
 
+Historgram of random variate of ten-thousand places:
+
 ~~~spl svg=A
 let r = Sfc32(678123);
 (
@@ -18,6 +20,8 @@ let r = Sfc32(678123);
 * * *
 
 See also: exp, log, nextRandomFloat
+
+Guides: Random Functions
 
 References:
 _SuperCollider_

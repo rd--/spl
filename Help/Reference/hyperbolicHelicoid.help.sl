@@ -4,6 +4,8 @@
 
 Answer the parametric equation for the hyperbolic helicoid.
 
+Surface plot of hyperbolic helicoid:
+
 ~~~spl svg=A
 [-1.pi 1.pi; -1 1].surfacePlot(
 	hyperbolicHelicoid(2)

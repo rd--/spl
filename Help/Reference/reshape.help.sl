@@ -30,6 +30,13 @@ recycling elements as required:
 ]
 ```
 
+A constant 2×2 matrix:
+
+```
+>>> [1].reshape([2 2])
+[1 1; 1 1]
+```
+
 Create a 2×2 matrix from a nine-vector,
 discarding excess elements:
 
@@ -158,6 +165,19 @@ Reshape a 24-vector into a 2×3×4 array:
 	13 14 15 16;
 	17 18 19 20;
 	21 22 23 24
+]
+```
+
+Recyling a four-vector into a 2×3×4 array:
+
+```
+>>> [5 6 7 8].reshape([2 2 3])
+[
+	5 6 7;
+	8 5 6
+	:;
+	7 8 5;
+	6 7 8
 ]
 ```
 
@@ -356,6 +376,8 @@ Guides: Array Functions, List Functions, Matrix Functions
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/Reshape),
+_J_
+[1](https://www.jsoftware.com/help/dictionary/d210.htm),
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/ArrayReshape.html),
 _Mathworks_

@@ -82,7 +82,7 @@ OEIS [A283307](https://oeis.org/A283307)
 and
 OEIS [A283308](https://oeis.org/A283308):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A283307
 let i = -5:5;
 { :x :y |
 	[x.square + y.square, x, y]
@@ -100,7 +100,7 @@ OEIS [A305575](https://oeis.org/A305575)
 and
 OEIS [A305576](https://oeis.org/A305576):
 
-~~~spl svg=B
+~~~spl svg=B oeis=A305575
 let i = -5:5;
 [i, i].tuples
 .toPolarCoordinates('Unsigned')

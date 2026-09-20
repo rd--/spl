@@ -2,7 +2,9 @@
 
 - _brocardMidpoint(t)_
 
-Answer the brocard midpoint of the triangle _t_.
+Answer the Brocard midpoint of the triangle _t_.
+
+Draw Brocard points:
 
 ~~~spl svg=A
 let t = [6.5 5 6.5].sssTriangle;

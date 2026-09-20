@@ -2684,7 +2684,16 @@
 		self[self.size - 2]
 	}
 
-	transpose { :self :permutation |
+	transpose { :self |
+		let [m, n] = self.dimensions(2);
+		1.toAsCollect(n, self[1].species) { :index |
+			self.collect { :row |
+				row[index]
+			}
+		}
+	}
+
+	[transposeBy, transpose] { :self :permutation |
 		permutation.isPermutationList.if {
 			let fromShape = self.shape;
 			let toShape = fromShape @* permutation;
@@ -2694,16 +2703,7 @@
 				self @> fromIndex
 			}
 		} {
-			self.error('@Sequence>>transpose: not permutation')
-		}
-	}
-
-	transpose { :self |
-		let [m, n] = self.dimensions(2);
-		1.toAsCollect(n, self[1].species) { :index |
-			self.collect { :row |
-				row[index]
-			}
+			self.error('@Sequence>>transposeBy: not permutation')
 		}
 	}
 

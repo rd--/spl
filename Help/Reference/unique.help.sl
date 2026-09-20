@@ -66,7 +66,7 @@ OEIS [A030747](https://oeis.org/A030747)
 and
 OEIS [A030748](https://oeis.org/A030748):
 
-~~~spl svg=C
+~~~spl svg=C oeis=A030747
 let a = [4];
 let b = [];
 16.timesRepeat {

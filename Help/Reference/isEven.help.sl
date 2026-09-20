@@ -12,10 +12,18 @@ true
 
 >>> 5.isEven
 false
+```
 
+Does not thread over lists, use `collect`:
+
+```
 >>> 1:5.collect(isEven/1)
 [false true false true false]
+```
 
+Are all items even:
+
+```
 >>> 1:5.allSatisfy(isEven/1)
 false
 ```

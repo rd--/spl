@@ -4,6 +4,8 @@
 
 Answer the specified Plateau curve.
 
+Plateau curve with _m=1.25_:
+
 ~~~spl svg=A
 (-2.pi -- 2.pi).discretize(
 	200,

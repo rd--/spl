@@ -32,11 +32,11 @@ The same geometry with indicated projection:
 	Cuboid[2 1 1; 4 2 3]
 ].PerspectiveDrawing(
 	(
-		projection: [
+		projection: AxonometricProjection[
 			1 -1/6.pi;
 			1 1/4.pi;
 			1 1/2.pi
-		].asAxonometricProjection,
+		],
 		height: 100
 	)
 )

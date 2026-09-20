@@ -109,7 +109,7 @@ OEIS [A341836](https://oeis.org/A341836):
 Dirichlet inverse of _τ₁₀(n)_,
 OEIS [A341836](https://oeis.org/A341836):
 
-~~~spl svg=I oeis==A341836
+~~~spl svg=I oeis=A341836
 2:115.collect(
 	{ :n |
 		n.primeSignature.product { :e |

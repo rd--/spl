@@ -23,8 +23,7 @@
 	[8, 7.23]
 	.LfSaw(0)
 	.MulAdd(3, 80)
-)
-.MidiCps
+).MidiCps
 .SinOsc(0)
 .Times(0.04)
 .CombN(0.2, 0.2, 4)
@@ -41,8 +40,7 @@
 	0.4
 	.LfSaw(0)
 	.Times(24)
-)
-.MidiCps
+).MidiCps
 .SinOsc(0)
 .Times(0.05)
 .CombN(0.2, 0.2, 4)
@@ -82,6 +80,22 @@ Times(
 
 /* Analog bubbles (Jmcc) ; as above ; one line */
 Times(CombN(Times(SinOsc(MidiCps(MulAdd(LfSaw(0.4, 0), 24, MulAdd(LfSaw([8, 7.23], 0), 3, 80))), 0), 0.05), 0.2, 0.2, 4), 0.1)
+
+/* Analog bubbles (Jmcc) ; operators, multiple lines */
+(
+	(
+		0.4.LfSaw(0)
+		* 24
+		+ (
+			[8 7.23].LfSaw(0)
+			* 3
+		)
+		+ 81
+	).MidiCps
+	.SinOsc(0)
+	* 0.04
+).CombN(0.2, 0.2, 4)
+* 0.1
 
 /* Berlin 1977 (Jmcc) #4 ; Event control */
 Voicer(1, 16) { :e |

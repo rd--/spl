@@ -9,7 +9,7 @@ or `pop` at a `Stack` or `PriorityQueue`.
 If there is no item, answer nil.
 
 ```
->>> let s = [1 2 3 4 5].asStream;
+>>> let s = Stream[1 2 3 4 5];
 >>> (s.peek, s.next)
 (1, 1)
 ```

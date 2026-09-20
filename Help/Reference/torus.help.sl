@@ -4,6 +4,8 @@
 
 Answer the parametric equation for the torus.
 
+Surface plot of torus:
+
 ~~~spl svg=A
 let f/2 = torus(2.5);
 (0 -- 2.pi).surfacePlot { :u :v |

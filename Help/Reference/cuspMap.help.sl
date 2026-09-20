@@ -2,7 +2,9 @@
 
 - _cuspMap(x)_
 
-The univarirate cusp function.
+The uni-variate cusp function.
+
+The cusp map:
 
 ~~~spl svg=A
 (-3 -- 3).functionPlot(cuspMap/1)

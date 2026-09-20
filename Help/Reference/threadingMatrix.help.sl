@@ -5,7 +5,7 @@
 Answer the threading matrix of a weaving information file.
 
 The threading matrix is specified in column order.
-In the matrix below the first entry says that warp one goes through the heddle in shaft eight.
+In the matrix below the first entry says that warp one goes through the heddle in shaft eight:
 
 ~~~spl svg=A
 WeavingInformationFile (

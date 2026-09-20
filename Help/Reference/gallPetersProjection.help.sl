@@ -7,6 +7,8 @@ given in radians.
 The answer are Cartesian coordinates of the form  _(x,y)_,
 where _x_ is in _(-π,π)_ and _y_ is in _(-2,2)_.
 
+Lattice points under Gall-Peters projection:
+
 ~~~spl svg=A
 { :phi :lambda |
 	[phi lambda].gallPetersProjection

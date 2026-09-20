@@ -6,6 +6,8 @@ Answer an equilateral `Triangle`,
 a triangle with all three sides of equal length,
 and with all three angles equal.
 
+An equilateral triangle:
+
 ~~~spl svg=A
 [0 0].equilateralTriangle(1, 1/4.pi)
 ~~~

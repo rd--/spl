@@ -6,7 +6,9 @@
 - _value(f/1, x)_
 - _value(f/n, x₁, x₂, …)_
 
-The three unary forms answer the answer of the no-argument block _f_:
+The three unary forms answer,
+respectively,
+the answer of the no-argument block _f_:
 
 ```
 >>> { 23 }.value

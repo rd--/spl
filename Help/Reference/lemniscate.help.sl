@@ -5,6 +5,8 @@
 The lemniscate, also called the lemniscate of Bernoulli.
 Defined as the locus of points such that the product of distances from two fixed points _(-a,0)_ and _(a,0)_ is a constant _a^2_.
 
+Lemniscate of Bernoulli:
+
 ~~~spl svg=A
 (0 -- 2.pi).functionPlot(
 	lemniscate(1)

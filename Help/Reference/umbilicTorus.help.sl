@@ -4,6 +4,8 @@
 
 Answer the parametric equation for the umbilic torus.
 
+Surface plot of the umbilic torus:
+
 ~~~spl svg=A
 (-1.pi -- 1.pi).surfacePlot { :u :v |
 	let [x, y, z] = umbilicTorus(u, v);

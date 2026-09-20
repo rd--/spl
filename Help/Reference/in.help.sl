@@ -4,6 +4,7 @@
 
 Evaluate the block _f_ with the object _x_ as argument and answer the answer of _f_.
 `in` is an alias for `with`, following the Squeak naming of this method.
+The operator form is `$>`.
 
 `in` is `value` with argument order reversed, ie. _in(α,β)_ is equal to _value(β,α)_.
 
@@ -20,6 +21,9 @@ See `also` for a slight variation that answers _x_ instead.
 >>> };
 >>> d = (c: 2) & { r = 0 }
 true
+
+>>> 3 * 3 * 3 $> cubeRoot/1
+3
 ```
 
 * * *

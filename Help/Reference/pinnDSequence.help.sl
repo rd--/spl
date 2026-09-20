@@ -37,11 +37,11 @@ let n = 1:2500;
 
 ![](Help/Image/pinnDSequence-B.png)
 
-Plot _2a(n)-n_,
+_2a(n)-n_,
 where _a_ is the closely related Conway _a_-sequence,
 OEIS [A004001](https://oeis.org/A004001):
 
-~~~spl png=C
+~~~spl png=C oeis=A004001
 let a = 2500.conwayASequence;
 let n = 1:2500;
 (2 * a - n).denseScatterPlot

@@ -107,10 +107,6 @@
 		self
 	}
 
-	in { :self :aBlock/1 |
-		aBlock(self)
-	}
-
 	initialize { :self |
 		self
 	}

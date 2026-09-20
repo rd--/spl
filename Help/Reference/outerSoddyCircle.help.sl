@@ -4,6 +4,8 @@
 
 Answer the outer Soddy circle of the reference triangle _t_.
 
+Tangent circles and outer Soddy circle:
+
 ~~~spl svg=A
 let t = [3 2.5 3].sssTriangle;
 [

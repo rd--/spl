@@ -5,7 +5,9 @@
 Answer the positions of _n_ points of the Fibonacci lattice on the surface of a sphere.
 
 Line drawings of two hundred points on the surface of the unit sphere,
-in _x,y_ and _x,z_ views:
+in _x,y_ and _x,z_ views.
+
+_x,y_ view:
 
 ~~~spl svg=A
 200.spherePointsFibonacci.collect { :each |
@@ -15,6 +17,8 @@ in _x,y_ and _x,z_ views:
 ~~~
 
 ![](Help/Image/spherePointsFibonacci-A.svg)
+
+_x,z_ view:
 
 ~~~spl svg=B
 200.spherePointsFibonacci.collect { :each |

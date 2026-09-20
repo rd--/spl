@@ -4,6 +4,8 @@
 
 Answer the trident of Newton in parametric Cartesian form.
 
+Trident of Newton, all parameters `one`:
+
 ~~~spl svg=A
 (-3 -- 2.6).functionPlot(
 	[1 1 1 1].tridentOfNewton
@@ -12,6 +14,8 @@ Answer the trident of Newton in parametric Cartesian form.
 ~~~
 
 ![](Help/Image/tridentOfNewton-A.svg)
+
+Three tridents of Newton:
 
 ~~~spl svg=B
 (-3 -- 3).functionPlot(

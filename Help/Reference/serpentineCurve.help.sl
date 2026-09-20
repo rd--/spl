@@ -4,6 +4,8 @@
 
 An algebraic curve studied by L’Hôpital and Huygens, and named and classified by Newton in 1701.
 
+Serpentine curve:
+
 ~~~spl svg=A
 (0.05.pi -- 0.95.pi).functionPlot(
 	serpentineCurve(1, 1)

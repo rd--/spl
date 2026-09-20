@@ -40,6 +40,8 @@ With initial state of two:
 ]
 ```
 
+A two-state, two-color machine:
+
 ~~~spl svg=A
 2506.turingMachineFromNumber(2, 2)
 .turingMachine([1, [; 0]], 30)
@@ -59,6 +61,8 @@ A three-state, two-color machine:
 ~~~
 
 ![](Help/Image/turingMachine-B.svg)
+
+A two-state, three-color machine:
 
 ~~~spl svg=C
 596440.turingMachineFromNumber(2, 3)

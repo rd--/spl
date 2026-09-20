@@ -144,7 +144,7 @@ OEIS [A307011](https://oeis.org/A307011)
 and
 OEIS [A307012](https://oeis.org/A307012):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A307011
 let a = [
 	0   1  0 -1 -1  0  1  2  2  1
 	0  -1 -2 -2 -2 -1  0  1  2  3

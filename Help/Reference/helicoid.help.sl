@@ -4,6 +4,8 @@
 
 Answer the parametric equation for the helicoid.
 
+Surface plot of helicoid:
+
 ~~~spl svg=A
 [-1.pi 1.pi; -1 1].surfacePlot(
 	helicoid(1)

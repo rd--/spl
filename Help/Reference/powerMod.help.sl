@@ -385,7 +385,7 @@ let s = 0;
 Triangular array,
 read by rows,
 of _k^4%n+n^4%k_,
-OEIS [A049771](https://oeis.org/A049771)
+OEIS [A049771](https://oeis.org/A049771):
 
 ~~~spl svg=K oeis=A049771
 1:18.triangularArray { :n :k |

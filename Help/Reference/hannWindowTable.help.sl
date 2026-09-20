@@ -1,8 +1,10 @@
 # hannWindowTable
 
-- _hannWindowTable(anInteger)_
+- _hannWindowTable(n)_
 
-Answer a `List` describing a _Hann window_ of the indicated size.
+Answer a `List` describing a _Hann window_ of _n_ places.
+
+Hann window table:
 
 ~~~spl svg=A
 128.hannWindowTable.linePlot

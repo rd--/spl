@@ -4,15 +4,21 @@
 
 Skips the next _k_ objects in the stream _s_,
 where _k_ is a number of objects equal to the lesser of _n_ and the number of remaining items in _s_.
+If _n_ is negative, skip backwards, if the stream _s_ allows this.
+Answers the position after the skip.
 
 Relative re-positioning:
 
 ```
->>> let s = Stream[1 2 3 4 5];
->>> s.position(3);
->>> s.skip(-1);
->>> s.next
-3
+>>> let s = Stream[1 3 5 7 9];
+>>> (
+>>> 	s.position,
+>>> 	s.position(3),
+>>> 	s.peek,
+>>> 	s.skip(-1),
+>>> 	s.next
+>>> )
+(0, 3, 7, 2, 5)
 ```
 
 Skip to a position:

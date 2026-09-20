@@ -194,7 +194,7 @@ Always returns a non-negative result:
 -4
 ```
 
-Plot the `gcd` for a number with twelve,
+`gcd` of numbers with twelve,
 OEIS [A109015](https://oeis.org/A109015):
 
 ~~~spl svg=A oeis=A109015

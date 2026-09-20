@@ -1,11 +1,14 @@
 # LsCauchy
 
-- _LsCauchy(mean, spread, length)_
+- _LsCauchy(mean, spread, length, r)_
 
 Random values that follow a Cauchy distribution.
 
+Random variate folling Cauchy distribution:
+
 ~~~spl svg=A
-LsCauchy(0, 1 / 9, 99, Sfc32(280142))
+let r = Sfc32(280142);
+LsCauchy(0, 1 / 9, 99, r)
 .upToEnd
 .linePlot
 ~~~
@@ -14,7 +17,7 @@ LsCauchy(0, 1 / 9, 99, Sfc32(280142))
 
 * * *
 
-See also: LsBeta, LsBrown, LsWhite
+See also: CauchyDistribution, LsBeta, LsBrown, LsWhite
 
 Guides: Patterns and Streams
 

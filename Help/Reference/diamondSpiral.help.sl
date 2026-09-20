@@ -24,6 +24,8 @@ OEIS [A305258](https://oeis.org/A305258):
 
 ![](Help/Image/diamondSpiral-B.svg)
 
+Diamond spiral:
+
 ~~~spl svg=C
 65.diamondSpiral.pointLinePlot
 ~~~
@@ -33,3 +35,5 @@ OEIS [A305258](https://oeis.org/A305258):
 * * *
 
 See also: squareSpiral
+
+Guides: Geometry Functions

@@ -4,6 +4,8 @@
 
 A two-dimensional dissipative quadratic map by Michel Hénon.
 
+Plot Hénon map:
+
 ~~~spl svg=A
 henonMap(1.4, 0.3)
 .nestList([0 0], 99)

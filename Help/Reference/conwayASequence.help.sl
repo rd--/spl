@@ -18,10 +18,10 @@ OEIS [A004001](https://oeis.org/A004001):
 ]
 ```
 
-Plot the Conway _a_-sequence,
+The Conway _a_-sequence,
 OEIS [A004001](https://oeis.org/A004001):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A004001
 100.conwayASequence.scatterPlot
 ~~~
 

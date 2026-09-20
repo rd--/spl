@@ -1,11 +1,11 @@
 # randomWeightedIndex
 
-- _randomWeightedIndex(aSequence)_
+- _randomWeightedIndex([x₁ x₂ …])_
 
-Answer an index into _aSequence_, which is a sequence of numbers that sum to one.
-The probablity of an index being drawn is given by the weight of that index in _aSequence_.
+Answer an index into the sequence _x_, where _x_ are numbers that sum to one.
+The probablity of an index being drawn is given by the weight of that index in _x_.
 
-Plot one hundred draws, ~10% will be 1, ~60% will be 2, ~30% will be 3.
+Plot one hundred draws, ~10% will be 1, ~60% will be 2, ~30% will be 3:
 
 ~~~spl svg=A
 let r = Sfc32(37914);

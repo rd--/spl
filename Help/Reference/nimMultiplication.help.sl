@@ -329,7 +329,7 @@ OEIS [A004478](https://oeis.org/A004478) _n=13_,
 OEIS [A004479](https://oeis.org/A004479) _n=14_,
 OEIS [A004480](https://oeis.org/A004480) _n=15_:
 
-~~~spl svg=N
+~~~spl svg=N oeis=A004475
 16:143.functionPlot(
 	1:15.collect { :n |
 		{ :x |

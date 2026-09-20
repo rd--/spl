@@ -46,7 +46,8 @@ Downsample a sine function from 512 to 64 places:
 
 ![](Help/Image/resample-A.svg)
 
-At `ColourGradient`, resamples the gradient to have the specified number of equally spaced positions.
+At `ColourGradient`,
+resamples the gradient to have the specified number of equally spaced positions:
 
 ~~~spl svg=B
 system

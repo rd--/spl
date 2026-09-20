@@ -6,6 +6,8 @@ Answer a quantile plot,
 also called a quantile-quantile or q-q plot,
 a graphical technique for determining if two data sets come from populations with a common distribution.
 
+Quantile plot of uniform random variate and normal distribution:
+
 ~~~spl svg=A
 UniformDistribution([-2 2])
 .randomVariate(

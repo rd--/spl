@@ -7,6 +7,8 @@ as in `scatterPlot`,
 and lines,
 as in `linePlot`.
 
+Ascending integer sequence:
+
 ~~~spl svg=A
 [1 1 2 3 5 8].pointLinePlot
 ~~~

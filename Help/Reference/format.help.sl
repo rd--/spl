@@ -47,6 +47,8 @@ Format `String`:
 
 See also: riffle, stringCatenate, splitBy, String
 
+Guides: String Functions
+
 References:
 _Common Lisp_
 [1](http://www.ai.mit.edu/projects/iiip/doc/CommonLISP/HyperSpec/Body/fun_format.html),

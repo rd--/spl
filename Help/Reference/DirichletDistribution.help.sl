@@ -6,6 +6,8 @@ A `Type` representing a Dirichlet distribution with shape parameters α,
 and dimension _#α - 1_.
 It is a multivariate generalisation of the beta distribution.
 
+Two-dimensional random variate:
+
 ~~~spl svg=A
 let r = Sfc32(367823);
 let d = DirichletDistribution([2 3 2]);

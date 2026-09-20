@@ -88,6 +88,8 @@ _Apl_
 [1](https://aplwiki.com/wiki/Reduce),
 _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:foldr1),
+_J_
+[1](https://www.jsoftware.com/help/dictionary/d420.htm),
 _Maple_
 [1](https://www.maplesoft.com/support/help/Maple/view.aspx?path=reduce)
 

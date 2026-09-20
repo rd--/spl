@@ -4,6 +4,8 @@
 
 An algebraic curve studied by Descartes in 1638.
 
+Plot folium of Descartes:
+
 ~~~spl svg=A
 (-0.5 -- 2.1).functionPlot(
 	foliumOfDescartes(1)

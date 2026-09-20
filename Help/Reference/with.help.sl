@@ -3,14 +3,21 @@
 - _with(x, f/1)_
 
 Evaluate the unary block _f_ with the object _x_ as argument and answer the answer of _f_.
-`with` is an alias for `in`.
+`with` is an alias for `in`, the operator form is `$>`.
+
+```
+>>> 9.with(sqrt/1)
+3
+
+>>> 3 $> square/1
+```
 
 _Rationale:_
 The _with_ methods in Smalltalk are all class methods and do not translate to Spl.
 
 * * *
 
-See also: also, in, value
+See also: $>, also, in, value
 
 Guides: Block Functions
 

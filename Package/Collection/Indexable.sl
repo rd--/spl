@@ -245,7 +245,9 @@
 	}
 
 	indicesOf { :self :anObject |
-		self.indices { :each | each = anObject }
+		self.indices { :each |
+			each = anObject
+		}
 	}
 
 	indicesSorted { :self |

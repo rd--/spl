@@ -114,7 +114,7 @@ Array read by antidiagonals upwards,
 _T(n,k-1)-(n+k-1)_ if positive and not already in row _n_ else sum,
 OEIS [A066201](https://oeis.org/A066201):
 
-~~~spl svg=E
+~~~spl svg=E oeis=A066201
 let t/2 = { :n :k |
 	(k = 0).if {
 		1

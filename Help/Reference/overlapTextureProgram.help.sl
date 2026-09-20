@@ -23,7 +23,7 @@ Texture of overlapping sine tones:
 
 The program below plays a simple texture of overlapping seven note chords,
 predominantly consisting of sine tones.
-The two branches of the `if` clause are written as trailing blocks.
+The two branches of the `if` clause are written as trailing blocks:
 
 ~~~spl texture
 {

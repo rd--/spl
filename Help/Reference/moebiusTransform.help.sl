@@ -254,7 +254,7 @@ OEIS [A007434](https://oeis.org/A007434):
 ![](Help/Image/moebiusTransform-H.svg)
 
 Moebius transform of Sum of the prime factors of _n_,
-OEIS [A120007](https://oeis.org/A120007)
+OEIS [A120007](https://oeis.org/A120007):
 
 ~~~spl svg=I oeis=A120007
 1:65.collect { :n |

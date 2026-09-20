@@ -1,6 +1,7 @@
 # AxonometricProjection
 
 - _AxonometricProjection(gamma, beta, alpha, z, y, x)_
+- _AxonometricProjection([x₁ x₂; y₁ y₂; z₁ z₂])_
 
 Projections from three to two dimensions.
 
@@ -21,6 +22,9 @@ and rotation is clockwise.
 
 _z_, _y_ and _x_ are scaling factors for each axis.
 
+The unary form answer the axonometric projection corresponding to the matrix _m_,
+which specifies the polar coordinates of the _X_, _Y_ and _Z_ axes.
+
 The polar coordinates of the axes of the ordinary Farish isometric projection:
 
 ```
@@ -35,14 +39,14 @@ The polar coordinates of the axes of the ordinary Farish isometric projection:
 ]
 ```
 
-The `asAxonometricProjection` method derives an `AxonometricProjection` value from the polar coordinates of the axes:
+The unary form derives an `AxonometricProjection` value from the polar coordinates of the axes:
 
 ```
->>> [
+>>> AxonometricProjection[
 >>> 	1 5/6.pi;
 >>> 	1 3/6.pi;
 >>> 	1 1/6.pi
->>> ].asAxonometricProjection
+>>> ]
 'Isometric'.namedAxonometricProjection
 ```
 
@@ -170,9 +174,25 @@ The last oblique projection given by Carlbom and Paciorek in Figure 3-12:
 
 ![](Help/Image/AxonometricProjection-H.svg)
 
+Draw the standard _isometric_ projection of the unit cube:
+
+~~~spl svg=I
+[0 0 0]
+.unitCube
+.asPerspectiveDrawing(
+	AxonometricProjection[
+		1 5/6.pi;
+		1 3/6.pi;
+		1 1/6.pi
+	]
+)
+~~~
+
+![](Help/Image/AxonometricProjection-I.svg)
+
 * * *
 
-See also: asAxonometricProjection, linePlot, namedAxonometricProjection
+See also: linePlot, namedAxonometricProjection
 
 Guides: Perspective Drawings
 

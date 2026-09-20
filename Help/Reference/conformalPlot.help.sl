@@ -72,6 +72,8 @@ _z+1/z_ is a conformal map:
 
 ![](Help/Image/conformalPlot-E.svg)
 
+_z^3/2_:
+
 ~~~spl svg=F
 { :z |
 	z ^ (3 / 2)

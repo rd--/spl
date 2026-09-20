@@ -6,6 +6,8 @@ Answer a carpet plot of the binary function _f_,
 over the variables _a_ and _b_,
 linearly interpolated to _i_ and _j_ places.
 
+A carpet plot:
+
 ~~~spl svg=A
 { :a :b |
 	[

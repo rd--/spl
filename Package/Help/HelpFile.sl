@@ -568,9 +568,9 @@ HelpFile : [Object, Equal, Cache] { | origin source cache |
 					p.oeisIdentifier = i
 				}.withIndexCollect { :p :j |
 					'  %. %'.format([j, p.markdownImageReference])
-				}.unlines
-			].unlines
-		}
+				}
+			]
+		}.flatten
 	}
 
 	oeisImageProgramsText { :self :options |

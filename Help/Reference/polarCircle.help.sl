@@ -4,6 +4,8 @@
 
 Answer the polar circle of the triangle _t_.
 
+Ortho-center and polar circle:
+
 ~~~spl svg=A
 let t = [12 6.5 9.5].sssTriangle;
 [

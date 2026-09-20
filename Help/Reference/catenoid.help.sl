@@ -4,6 +4,8 @@
 
 Implement the parametric equation for the catenoid.
 
+Surface plot of catenoid with _c=2.5_:
+
 ~~~spl svg=A
 (-1.pi -- 1.pi).surfacePlot(
 	catenoid(2.5)

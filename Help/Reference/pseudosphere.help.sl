@@ -4,6 +4,8 @@
 
 Implement the parametric equation for the pseudosphere.
 
+Surface plot of the pseudosphere:
+
 ~~~spl svg=A
 [-2 2; 0 2.pi].surfacePlot(pseudosphere/2)
 ~~~

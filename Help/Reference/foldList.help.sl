@@ -317,7 +317,7 @@ OEIS [A007908](https://oeis.org/A007908):
 ```
 
 A triangle of quotients,
-OEIS [A140061](https://oeis.org/A140061)
+OEIS [A140061](https://oeis.org/A140061):
 
 ~~~spl svg=A oeis=A140061
 (1 .. 11).collect { :i |

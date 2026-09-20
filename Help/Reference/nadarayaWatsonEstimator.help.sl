@@ -4,6 +4,8 @@
 
 The Nadaraya-Watson estimator.
 
+Nadaraya-Watson estimator at noisy cosine signal:
+
 ~~~spl svg=A
 let r = Sfc32(738164);
 let i = [0, 0.25 .. 4.pi];

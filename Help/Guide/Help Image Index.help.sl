@@ -247,8 +247,6 @@
   1. ![](Help/Image/asaTriangle-A.svg)
   2. ![](Help/Image/asaTriangle-B.svg)
   3. ![](Help/Image/asaTriangle-C.svg)
-- `asAxonometricProjection`
-  1. ![](Help/Image/asAxonometricProjection-A.svg)
 - `asBlock`
   1. ![](Help/Image/asBlock-A.svg)
 - `asColour`
@@ -317,6 +315,7 @@
   6. ![](Help/Image/AxonometricProjection-F.svg)
   7. ![](Help/Image/AxonometricProjection-G.svg)
   8. ![](Help/Image/AxonometricProjection-H.svg)
+  9. ![](Help/Image/AxonometricProjection-I.svg)
 - `bakersMap`
   1. ![](Help/Image/bakersMap-A.svg)
   2. ![](Help/Image/bakersMap-B.svg)
@@ -4862,6 +4861,8 @@
   2. ![](Help/Image/randomConvexHullPolygon-B.svg)
 - `randomFunction`
   1. ![](Help/Image/randomFunction-A.svg)
+- `randomInteger`
+  1. ![](Help/Image/randomInteger-A.svg)
 - `randomPoint`
   1. ![](Help/Image/randomPoint-A.svg)
   2. ![](Help/Image/randomPoint-B.svg)
@@ -5404,6 +5405,14 @@
 - `signatureSequence`
   1. ![](Help/Image/signatureSequence-A.svg)
   2. ![](Help/Image/signatureSequence-B.svg)
+- `signedGcd`
+  1. ![](Help/Image/signedGcd-A.svg)
+- `signedLcm`
+  1. ![](Help/Image/signedLcm-A.svg)
+- `signedPower`
+  1. ![](Help/Image/signedPower-A.svg)
+- `signedSqrt`
+  1. ![](Help/Image/signedSqrt-A.svg)
 - `silverRatio`
   1. ![](Help/Image/silverRatio-A.svg)
   2. ![](Help/Image/silverRatio-B.svg)
@@ -5913,8 +5922,6 @@
   1. ![](Help/Image/symmedialTriangle-A.svg)
 - `symmedianPoint`
   1. ![](Help/Image/symmedianPoint-A.svg)
-- `signedPower`
-  1. ![](Help/Image/signedPower-A.svg)
 - `syntractrix`
   1. ![](Help/Image/syntractrix-A.svg)
   2. ![](Help/Image/syntractrix-B.svg)
@@ -6052,6 +6059,8 @@
   1. ![](Help/Image/translate-A.svg)
   2. ![](Help/Image/translate-B.svg)
   3. ![](Help/Image/translate-C.svg)
+- `transpose`
+  1. ![](Help/Image/transpose-A.svg)
 - `trapezoid`
   1. ![](Help/Image/trapezoid-A.svg)
   2. ![](Help/Image/trapezoid-B.svg)

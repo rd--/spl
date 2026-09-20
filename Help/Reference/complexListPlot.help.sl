@@ -4,6 +4,8 @@
 
 Plot complex numbers as points in the complex plane.
 
+Plot `sin`:
+
 ~~~spl svg=A
 (1:40 + 0J2).sin.complexListPlot
 ~~~

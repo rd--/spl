@@ -4,6 +4,8 @@
 
 Answer the three mutually tangent circles centered at the vertices of a reference triangle _t_.
 
+Draw contact triangle and tangent circles:
+
 ~~~spl svg=A
 let a = [3.5 2.5 4].sssTriangle;
 let b = a.contactTriangle;

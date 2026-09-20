@@ -10,6 +10,9 @@ Find the ordering that sorts a list:
 >>> ['c' 'a' 'b'].ordering
 [2 3 1]
 
+>>> [5 2 1 3 6 4].ordering
+[3 2 4 6 1 5]
+
 >>> [3 -4 1 4 22 17 -2 2 13 -11]
 >>> .ordering
 [10 2 7 3 8 1 4 9 6 5]
@@ -24,6 +27,9 @@ Apply the ordering:
 ```
 >>> ['c' 'a' 'b'].atAll([2 3 1])
 ['a' 'b' 'c']
+
+>>> [5 2 1 3 6 4].atAll([3 2 4 6 1 5])
+[1 2 3 4 5 6]
 
 >>> let u = [3 -4 1 4 22 17 -2 2 13 -11];
 >>> u.atAll(u.ordering)

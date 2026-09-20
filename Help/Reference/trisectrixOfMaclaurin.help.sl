@@ -4,6 +4,8 @@
 
 An algebraic curve investigated by Maclaurin in 1742.
 
+The trisectrix of Maclaurin:
+
 ~~~spl svg=A
 (-1.25 -- 1.25).functionPlot(
 	trisectrixOfMaclaurin(2)

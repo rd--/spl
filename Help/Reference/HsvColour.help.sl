@@ -6,6 +6,8 @@ Answer an `RgbColour` value given `hue`, `saturation` and `value`, all in _(0,1)
 `HsvColour` is a cylindrical-coordinate representations of points in an `RgbColour` colour model.
 The `value` field is also called `brightness`.
 
+A pale green colour swatch:
+
 ~~~spl svg=A
 HsvColour[1/3 1/4 1]
 ~~~

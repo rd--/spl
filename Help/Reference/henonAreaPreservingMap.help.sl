@@ -4,6 +4,8 @@
 
 An area-preserving quadratic map by Michel Hénon.
 
+Plot Hénon area-preserving map:
+
 ~~~spl png=A
 let f/1 = henonAreaPreservingMap(-10);
 Sfc32(789341)

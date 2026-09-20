@@ -4,6 +4,8 @@
 
 Answer the three Nobbs points for the triangle _t_.
 
+Nobbs points and contact triangle:
+
 ~~~spl svg=A
 let t = [2.5 2 2.75].sssTriangle;
 [

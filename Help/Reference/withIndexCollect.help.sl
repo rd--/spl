@@ -45,6 +45,16 @@ An equivalent expression using `withCollect`:
 [19, 18 .. 11]
 ```
 
+The Apl [case](https://aplwiki.com/wiki/Case) operator:
+
+```
+>>> let x = ['abcde' 'ABCDE' '01234'];
+>>> [3 2 1 2 3].withIndexCollect { :j :i |
+>>> 	x[j][i]
+>>> }
+['0' 'B' 'c' 'D' '4']
+```
+
 Take odd digits of _n_ with negative sign,
 OEIS [A121758](https://oeis.org/A121758):
 
