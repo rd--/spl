@@ -3,14 +3,15 @@
 There is no end of line comment syntax,
 `//` is the quotient operator.
 
-Block arguments are written as in Smalltalk,
-with a colon (`:`) prefix immediately following the opening brace,
-and terminated by a vertical bar (`|`),
-e.g. `{ :x | x }` in place of `{ |x| x }`.
+Block arguments are written as in Smalltalk.
+Arguments are written with a colon (`:`) prefix,
+immediately following the opening brace,
+and are terminated by a vertical bar (`|`),
+e.g. `{ :x | x }` in place of `{ | x | x }`.
 
 Initialized temporary variables are written using `let`,
-e.g. `let x = 23` in place of `var x = 23`,
-and only one name may be defined per `let` statement.
+e.g. `let x = 23` in place of `var x = 23`.
+Only one name may be defined per `let` statement.
 
 The variable assignment syntax is `:=`,
 e.g. `x := 23` in place of `x = 23`.

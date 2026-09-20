@@ -10,7 +10,7 @@ SmallFloat! : [Object, Store, Json, Equal, Compare, Number, Integer, Binary] {
 		anInteger.isLargeInteger.if {
 			aBlock(anInteger.asSmallFloat, self)
 		} {
-			self.error('adaptToIntegerAndApply: ?')
+			self.error('SmallFloat>>adaptToIntegerAndApply', anInteger)
 		}
 	}
 

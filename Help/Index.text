@@ -224,6 +224,7 @@ Guide/Simple Editor.help.sl
 Guide/Simple Programming Language.help.sl
 Guide/SI Units.help.sl
 Guide/Small Hours.help.sl
+Guide/Small Integers.help.sl
 Guide/Small Kansas.help.sl
 Guide/Smalltalk Arity.help.sl
 Guide/Smalltalk Perspective.help.sl
@@ -391,6 +392,7 @@ Reference/aperysConstant.help.sl
 Reference/apostrophe.help.sl
 Reference/apply.help.sl
 Reference/approximateCircularArc.help.sl
+Reference/approximateFraction.help.sl
 Reference/arcCos.help.sl
 Reference/ArcCos.help.sl
 Reference/arcCosh.help.sl
@@ -435,7 +437,6 @@ Reference/arrayReshape.help.sl
 Reference/arrayRules.help.sl
 Reference/arshonsSequence.help.sl
 Reference/artinsConstant.help.sl
-Reference/approximateFraction.help.sl
 Reference/asAsciiString.help.sl
 Reference/asAssociation.help.sl
 Reference/asAssociationList.help.sl

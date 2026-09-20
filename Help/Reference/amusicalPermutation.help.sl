@@ -122,7 +122,8 @@ The amusical permutation applied twice,
 OEIS [A168221](https://oeis.org/A168221):
 
 ~~~spl svg=G oeis=A168221
-0:65.amusicalPermutation.amusicalPermutation
+0:65.amusicalPermutation
+.amusicalPermutation
 .discretePlot
 ~~~
 
