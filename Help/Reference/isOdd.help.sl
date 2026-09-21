@@ -12,8 +12,12 @@ true
 
 >>> 8.isOdd
 false
+```
 
->>> 1:5.collect(isOdd/1)
+Threads over lists:
+
+```
+>>> 1:5.isOdd
 [true false true false true]
 ```
 
@@ -109,6 +113,16 @@ OEIS [A065091](https://oeis.org/A065091):
 	37 41 43 47 53 59 61 67 71 73
 	79 83 89 97
 ]
+```
+
+Construct even and odd numbers from indices:
+
+```
+>>> [0 .. 5] * 2
+[0 2 4 6 8 10]
+
+>>> [0 .. 5] * 2 + 1
+[1 3 5 7 9 11]
 ```
 
 _a(2n)=2a(n)_ and _a(2n+1)=-2a(n)+1),

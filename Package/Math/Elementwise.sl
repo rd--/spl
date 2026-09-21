@@ -446,6 +446,10 @@
 		self.collect(isComposite/1)
 	}
 
+	isEven { :self |
+		self.collect(isEven/1)
+	}
+
 	isGaussianPrime { :self |
 		self.collect(isGaussianPrime/1)
 	}
@@ -464,6 +468,10 @@
 
 	isNonNegative { :self |
 		self.collect(isNonNegative/1)
+	}
+
+	isOdd { :self |
+		self.collect(isOdd/1)
 	}
 
 	isPositive { :self |
@@ -777,6 +785,10 @@
 
 	tan { :self |
 		self.collect(tan/1)
+	}
+
+	tau { :self |
+		self.collect(tau/1)
 	}
 
 	thueMorse { :self |

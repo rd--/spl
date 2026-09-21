@@ -9,6 +9,16 @@ At `exp`:
 exp/1
 ```
 
+At `log`:
+
+```
+>>> log/1.derivative
+reciprocal/1
+
+>>> 0:5.collect(log/1.derivative)
+[Infinity 1 1/2 1/3 1/4 1/5]
+```
+
 At `sin`:
 
 ```

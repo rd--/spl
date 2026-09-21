@@ -7,22 +7,35 @@ the ratio of a circles circumference to its diameter,
 also called Archimedes’ constant,
 and approximately equal to _3.14159_.
 
+Decimal expansion of π,
+OEIS [A000796](https://oeis.org/A000796):
+
 ```
 >>> 1.pi
-3.14159
+3.141592653589793
+```
 
+Relation to `arcSin`:
+
+```
 >>> 2 * 1.arcSin
 1.pi
+```
 
+Decimal expansion of 2π,
+called `tau` (τ),
+OEIS [A019692](https://oeis.org/A019692):
+
+```
 >>> 2.pi
-6.28319
+6.283185307179586
 ```
 
 `pi` threads over collections:
 
 ```
->>> [0.5, 1.5].pi
-[1.5708, 4.71239]
+>>> [0.5 1.5 2].pi
+[1.5708 4.71239 6.283185]
 ```
 
 It is common to write fractional values of `pi` using `Fraction Syntax`,
@@ -300,6 +313,39 @@ Almost integer:
 2143.00000
 ```
 
+The Base-13 expansion of `pi`,
+OEIS [A068438](https://oeis.org/A068438):
+
+```
+>>> 1.pi(98).realDigits(13, 88).first
+[
+	 3  1 10 12  1  0  4  9  0  5
+	 2 10  2 12  7  7  3  6  9 12
+	 0 11 11  8  9 12 12  9  8  8
+	 3  2  7  8  2  9  8  3  5  8
+	11  3  7  0  1  6  0  3  0  6
+	 1  3  3 12 10  5 10 12 11 10
+	 5  7  6  1  4 11  6  5 11  4
+	 1  0  0  2  0 12  2  2 11  4
+	12  7  1  4  5  7 10  9
+]
+```
+
+The Base-60 (Babylonian or sexagesimal) expansion of `pi`
+OEIS [A060707](https://oeis.org/A060707):
+
+```
+>>> 1.pi(104).realDigits(60, 58).first
+[
+	 3  8 29 44  0 47 25 53  7 24
+	57 36 17 43  4 29  7 10  3 41
+	17 52 36 12 14 36 44 51 50 15
+	33  7 23 59  9 13 48 22 12 21
+	45 22 56 47 39 44 28 37 58 23
+	21 11 56 33 22 40 42 31
+]
+```
+
 Scatter plot of the digits of π,
 OEIS [A000796](https://oeis.org/A000796):
 
@@ -338,7 +384,7 @@ Where supported `pi` is displayed as π.
 
 * * *
 
-See also: e, Infinity, NaN
+See also: e, Infinity, NaN, tau
 
 Guides: Mathematical Constants
 
@@ -357,6 +403,6 @@ _W_
 [1](https://en.wikipedia.org/wiki/Pi)
 [2](https://en.wikipedia.org/wiki/Approximations_of_%CF%80)
 
-Unicode: U+03C0 π Greek Small Letter Pi
+Unicode: U+03C0 π Greek Small Letter Pi, U+03C4 τ Greek Small Letter Tau
 
 Categories: Math, Constant

@@ -14,10 +14,10 @@ true
 false
 ```
 
-Does not thread over lists, use `collect`:
+Thread over lists:
 
 ```
->>> 1:5.collect(isEven/1)
+>>> 1:5.isEven
 [false true false true false]
 ```
 

@@ -46,6 +46,21 @@ the `sum` is calculated directly using a closed form:
 1198
 ```
 
+Column-wise sums of a matrix:
+
+```
+>>> [1 2 3; 4 5 6; 7 8 9].sum
+[12 15 18]
+
+>>> [1 2 3; 4 5 6; 7 8 9]
+>>> .transpose
+>>> .collect(sum/1)
+[12 15 18]
+
+>>> [1 2; 3 4; 5 6].sum
+[9 12]
+```
+
 Row-wise sums of a matrix:
 
 ```
@@ -57,18 +72,9 @@ Row-wise sums of a matrix:
 >>> .transpose
 >>> .sum
 [6 15 24]
-```
 
-Column-wise sums of a matrix:
-
-```
->>> [1 2 3; 4 5 6; 7 8 9].sum
-[12 15 18]
-
->>> [1 2 3; 4 5 6; 7 8 9]
->>> .transpose
->>> .collect(sum/1)
-[12 15 18]
+>>> [1 2; 3 4; 5 6].collect(sum/1)
+[3 7 11]
 ```
 
 Total sum of a matrix:

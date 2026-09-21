@@ -85,7 +85,8 @@ References:
 _Apl_
 [1](https://aplwiki.com/wiki/Less_than),
 _J_
-[1](https://code.jsoftware.com/wiki/Vocabulary/lt#dyadic),
+[1](https://code.jsoftware.com/wiki/Vocabulary/lt#dyadic)
+[2](https://www.jsoftware.com/help/dictionary/d010.htm),
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Less.html),
 _Smalltalk_

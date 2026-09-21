@@ -282,6 +282,10 @@ Polygon : [Object, Store, Equal, Geometry] { | vertexCoordinates |
 		)
 	}
 
+	regularPolygon { :self |
+		self.regularPolygon([0 0], 1, 0)
+	}
+
 	starFigure { :p :q |
 		isCoprime(p, q).if {
 			[p, q].error('starFigure: coprime')

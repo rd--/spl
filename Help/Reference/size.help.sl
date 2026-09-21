@@ -130,7 +130,8 @@ _Apl_
 _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Data-List.html#v:length)
 _J_
-[1](https://code.jsoftware.com/wiki/Vocabulary/number),
+[1](https://code.jsoftware.com/wiki/Vocabulary/number)
+[2](https://www.jsoftware.com/help/dictionary/d400.htm),
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Length.html)
 [1](https://reference.wolfram.com/language/ref/StringLength.html),

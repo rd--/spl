@@ -1,8 +1,8 @@
 # atop
 
-- _atop(aBlock/2, anotherBlock/1)_
+- _atop(f/2, g/1)_
 
-Answer a Block that applies _anotherBlock_ to post-processes the result of _aBlock_.
+Answer a `Block` that applies the unary block _g_ to post-processes the result of the binary block _f_.
 
 The negation of the pointwise maximum of two lists:
 
@@ -32,4 +32,6 @@ See also: over
 
 References:
 _Apl_
-[1](https://aplwiki.com/wiki/Atop_(operator))
+[1](https://aplwiki.com/wiki/Atop_(operator)),
+_J_
+[1](https://www.jsoftware.com/help/dictionary/d620.htm)

@@ -1,6 +1,6 @@
 # regularPolygon
 
-- _regularPolygon(n, c, r, θ)_
+- _regularPolygon(n, c=[0 0], r=1, θ=0)_
 
 Answer a regular `Polygon` of _n_ sides inscribed on a circle
 (the _circumcircle_)

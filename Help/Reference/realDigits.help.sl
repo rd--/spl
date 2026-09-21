@@ -64,6 +64,20 @@ At `Decimal`:
 [[1 0 0], -2]
 ```
 
+The base-three expansion of `pi`
+OEIS [A004602](https://oeis.org/A004602):
+
+```
+>>> 1.pi(104).realDigits(3, 99).first
+[
+	1 0 0 1 0 2 1 1 0 1 2 2 2 2 0 1 0 2 1 1
+	0 0 2 1 1 1 1 1 0 2 2 1 2 2 2 2 2 0 1 1
+	1 2 0 1 2 1 2 1 2 1 2 0 0 1 2 1 1 0 0 1
+	0 0 1 0 1 2 2 2 0 2 2 2 1 2 0 1 2 0 1 2
+	1 1 1 2 1 0 1 2 1 0 1 1 2 0 0 2 2 0 1
+]
+```
+
 * * *
 
 See also: fromDigits, integerDigits

@@ -246,8 +246,20 @@ Decimal : [Object, Store, Equal, Compare, Number] { | fraction scale |
 		)
 	}
 
+	realDigits { :self :base :size |
+		let l = self.fraction.log(base).floor;
+		let a = self.floor;
+		let b = a.integerDigits(base);
+		let c = (self - a) * base;
+		let d = { :x |
+			let d = x.floor;
+			(x - d) * base
+		}.nestList(c, size - b.size - 1).floor;
+		[b ++ d, l + 1]
+	}
+
 	realDigits { :self |
-		let l = self.fraction.log10.floor;
+		let l = self.fraction.log(10).floor;
 		let u = self.unscaledInteger.integerDigits;
 		[u, l + 1]
 	}

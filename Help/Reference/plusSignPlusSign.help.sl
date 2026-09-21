@@ -1,4 +1,4 @@
-# ++
+# ++ (plusSignPlusSign)
 
 - _c₁ ++ c₂_
 - _c.++_
@@ -31,12 +31,24 @@ A sequence of intervals:
 ]
 ```
 
+Appending two 2×1 matrices answers a 4×1 matrix:
+
+```
+>>> [1; 2] ++ [3; 4]
+[1; 2; 3; 4]
+```
+
 Where supported `++` is displayed as ⧺.
 
-The name of this operator is `plusSignPlusSign`.
+The name of this operator is `plusSignPlusSign`:
+
+```
+>>> '++'.splSimplify
+'plusSignPlusSign/2'
+```
 
 _Note:_
-In Smalltalk the binary form is the comma operator.
+In Smalltalk and J the binary form is the comma operator.
 
 * * *
 
@@ -47,6 +59,11 @@ Guides: Dictionary Functions, List Functions, Operator Lists
 References:
 _Haskell_
 [1](https://hackage-content.haskell.org/package/base/docs/Data-List.html#v:-43--43-)
+[2](https://hackage-content.haskell.org/package/base/docs/Data-List.html#v:concat),
+_J_
+[1](https://www.jsoftware.com/help/dictionary/d320.htm),
+_Smalltalk_
+5.7.8.1
 
 Unicode: U+29FA ⧺ Double plus
 

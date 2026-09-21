@@ -118,6 +118,25 @@ Show that the natural logarithm of -1 is iπ:
 [-1 -2 -3 -4 -5]
 ```
 
+Certain properties of logarithms:
+
+```
+>>> let x = 4;
+>>> let y = 0:3;
+>>> (
+>>> 	x ^ y,
+>>> 	(x ^ y).log(x),
+>>> 	y.log(x),
+>>> 	x ^ y.log(x)
+>>> )
+(
+	[1 4 16 64],
+	[0 1 2 3],
+	[-Infinity 0 0.5 0.792481],
+	[0 1 2 3]
+)
+```
+
 Maclaurin series:
 
 ```
@@ -363,7 +382,8 @@ _Apl_
 _Dlmf_
 [1](https://dlmf.nist.gov/4.2#i),
 _J_
-[1](https://code.jsoftware.com/wiki/Vocabulary/hatdot),
+[1](https://code.jsoftware.com/wiki/Vocabulary/hatdot)
+[2](https://www.jsoftware.com/help/dictionary/d201.htm),
 _Mathematica_
 [1](https://mathworld.wolfram.com/Logarithm.html)
 [2](https://mathworld.wolfram.com/NaturalLogarithm.html)

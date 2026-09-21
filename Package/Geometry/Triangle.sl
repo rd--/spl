@@ -473,7 +473,7 @@ Triangle : [Object, Store, Equal, Geometry] { | vertexCoordinates |
 		)
 	}
 
-	medialTriangle { :self |
+	[medialTriangle, midpointPolygon] { :self |
 		self.vertexCoordinates.medialTriangle.Triangle
 	}
 

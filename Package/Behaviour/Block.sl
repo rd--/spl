@@ -774,15 +774,22 @@ Block! : [Object, Equal] {
 
 +Block {
 
-	derivative { :self :anInteger |
-		(anInteger = 0).if {
-			self
+	derivative { :f/1 :n |
+		(n = 0).if {
+			f/1
 		} {
-			self.name.caseOf(
+			f/1.name.caseOf(
 				[
-					'cos/1' -> { anInteger.cosDerivative },
+					'cos/1' -> { n.cosDerivative },
 					'exp/1' -> { exp/1 },
-					'sin/1' -> { anInteger.sinDerivative }
+					'log/1' -> {
+						(n = 1).if {
+							reciprocal/1
+						} {
+							'log'.error('not implemented')
+						}
+					},
+					'sin/1' -> { n.sinDerivative }
 				]
 			)
 		}
