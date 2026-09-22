@@ -62,20 +62,16 @@ Polygon : [Object, Store, Equal, Geometry] { | vertexCoordinates |
 		self.vertexCoordinates.anyOne.size
 	}
 
+	exteriorAngles { :self |
+		self.vertexCoordinates.polygonExteriorAngles
+	}
+
 	faceCount { :self |
 		1
 	}
 
 	faceIndices { :self |
 		[self.vertexList]
-	}
-
-	svgFragment { :self :options |
-		'<polygon points="%" />'.format(
-			[
-				self.vertexCoordinates.asSvgPointList(options)
-			]
-		)
 	}
 
 	innerPolygons { :self |
@@ -86,10 +82,18 @@ Polygon : [Object, Store, Equal, Geometry] { | vertexCoordinates |
 		self.vertexCoordinates.polygonInteriorAngles
 	}
 
+	isConcave { :self |
+		self.isConvex.not
+	}
+
 	isConvex { :self |
 		self.interiorAngles.allSatisfy { :each |
 			each < 1.pi
 		}
+	}
+
+	isSimple { :self |
+		self.exteriorAngles.isVeryCloseTo(2.pi)
 	}
 
 	midpointPolygon { :self |
@@ -139,6 +143,14 @@ Polygon : [Object, Store, Equal, Geometry] { | vertexCoordinates |
 		self.vertexCoordinates.sutherlandHodgmanAlgorithm(
 			operand.vertexCoordinates
 		).Polygon
+	}
+
+	svgFragment { :self :options |
+		'<polygon points="%" />'.format(
+			[
+				self.vertexCoordinates.asSvgPointList(options)
+			]
+		)
 	}
 
 	translate { :self :operand |
@@ -232,6 +244,10 @@ Polygon : [Object, Store, Equal, Geometry] { | vertexCoordinates |
 			y := y + ((p[i][2] + p[j][2]) * d)
 		};
 		[x y] * m
+	}
+
+	polygonExteriorAngles { :self |
+		1.pi - self.polygonInteriorAngles
 	}
 
 	polygonInteriorAngles { :self |

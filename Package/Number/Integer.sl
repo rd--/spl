@@ -286,7 +286,7 @@
 	}
 
 	characterRange { :self :anInteger |
-		self.toCollect(anInteger, asCharacter/1)
+		self.toCollect(anInteger, fromCodePoint/1)
 	}
 
 	combinations { :n :m |

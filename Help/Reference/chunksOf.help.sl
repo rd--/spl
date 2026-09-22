@@ -15,16 +15,34 @@ Split a `List` of nine places into three parts of three places:
 ]
 ```
 
+Relation to `reshape`:
+
+```
+>>> 1:9.reshape([3 3])
+[
+	1 2 3;
+	4 5 6;
+	7 8 9
+]
+```
+
 If there are too few places,
 the last part will be briefer:
 
 ```
 >>> 11.iota.chunksOf(4)
 [
-	1 2 3 4;
-	5 6 7 8;
+	1  2  3  4;
+	5  6  7  8;
 	9 10 11
 ]
+```
+
+Compare to `partition`:
+
+```
+>>> 1:11.partition(4)
+[1 2 3 4; 5 6 7 8]
 ```
 
 At the empty `List`:
@@ -75,7 +93,22 @@ At `Range`:
 
 ```
 >>> 1:9.chunksOf(3)
-[1:3, 4:6, 7:9]
+[1:3 4:6 7:9]
+```
+
+Reorder by transposing chunks:
+
+```
+>>> [1 .. 18].chunksOf(6)
+>>> .transpose.catenate
+[
+	1  7 13
+	2  8 14
+	3  9 15
+	4 10 16
+	5 11 17
+	6 12 18
+]
 ```
 
 * * *

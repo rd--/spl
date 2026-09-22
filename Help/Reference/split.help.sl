@@ -11,6 +11,9 @@ Split when adjacent elements are not equal:
 ```
 >>> [1 1 1 2 2 1 1 3].split(=)
 [1 1 1; 2 2; 1 1; 3]
+
+>>> [1 1 1 2 2 3 4 5 5].split(=)
+[1 1 1; 2 2; 3; 4; 5 5]
 ```
 
 Split in increasing runs of elements:
@@ -18,6 +21,9 @@ Split in increasing runs of elements:
 ```
 >>> [1 2 3 4 3 2 1 5 6 7 4 3].split(<)
 [1 2 3 4; 3; 2; 1 5 6 7; 4; 3]
+
+>>> [1 2 2 3 1 2 0 4 5 2].split(<=)
+[1 2 2 3; 1 2; 0 4 5; 2]
 ```
 
 Decreasing runs of elements:
@@ -69,6 +75,9 @@ Split so that in each sublist successive elements are not the same:
 ```
 >>> [1 1 1 2 1 2 2 1 1 1 3 1].split(!=)
 [1; 1; 1 2 1 2; 2 1; 1; 1 3 1]
+
+>>> [1 1 1 2 3 1 4 4 5].split(!=)
+[1; 1; 1 2 3 1 4; 4 5]
 ```
 
 Split after every occurrence of 1:
@@ -273,6 +282,10 @@ let f = { :n |
 
 ![](Help/Image/split-E.svg)
 
+_Note_:
+The Haskell `groupBy` function compares to the first item of the preceding group,
+`split` compares to the last.
+
 * * *
 
 See also: splitBy, splitPlaces
@@ -280,5 +293,8 @@ See also: splitBy, splitPlaces
 Guides: List Functions
 
 References:
+_Haskell_
+[1](https://hackage-content.haskell.org/package/base/docs/Data-List.html#v:group),
+[2](https://hackage-content.haskell.org/package/base/docs/Data-List.html#v:groupBy)
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Split.html)

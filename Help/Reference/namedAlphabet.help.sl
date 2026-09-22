@@ -36,6 +36,8 @@ The answer has only lower case letters:
 
 See also: characterRange, Character, String
 
+Guides: String Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Alphabet.html)

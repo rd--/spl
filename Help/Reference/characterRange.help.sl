@@ -77,9 +77,7 @@ Select those that are not letters or numbers or the apostrophe or reverse solidu
 At `Integer`:
 
 ```
->>> 1000.characterRange(1020).collect(
->>> 	asString/1
->>> )
+>>> 1000.characterRange(1020)
 [
 	'Ϩ' 'ϩ' 'Ϫ' 'ϫ' 'Ϭ' 'ϭ' 'Ϯ' 'ϯ' 'ϰ' 'ϱ'
 	'ϲ' 'ϳ' 'ϴ' 'ϵ' '϶' 'Ϸ' 'ϸ' 'Ϲ' 'Ϻ' 'ϻ'
@@ -90,9 +88,9 @@ At `Integer`:
 At `Character`:
 
 ```
->>> let c1 = 'a'.Character;
->>> let c2 = 'c'.Character;
->>> c1.characterRange(c2)
+>>> let a = Character'a';
+>>> let c = Character'c';
+>>> a.characterRange(c)
 [
 	Character('a', 97),
 	Character('b', 99),
@@ -102,7 +100,9 @@ At `Character`:
 
 * * *
 
-See also: asCharacter, Character, String
+See also: fromCodePoint, String
+
+Guides: String Functions
 
 References:
 _Mathematica_

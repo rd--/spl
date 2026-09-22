@@ -30,6 +30,9 @@ Map[
 ]
 ```
 
+_Note_:
+The Haskell `group` and `groupBy` functions are called `split` in Spl.
+
 * * *
 
 See also: countsBy, reject, select

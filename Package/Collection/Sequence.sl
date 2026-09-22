@@ -1270,11 +1270,13 @@
 
 	groupsDo { :self :aBlock |
 		let numArgs = aBlock.numArgs;
-		numArgs.caseOf([
-			0 -> { self.error('groupsDo: At least one block argument expected') },
-			1 -> { self.do(aBlock) },
-			2 -> { self.pairsDo(aBlock) }
-		]) {
+		numArgs.caseOf(
+			[
+				0 -> { self.error('groupsDo: At least one block argument expected') },
+				1 -> { self.do(aBlock) },
+				2 -> { self.pairsDo(aBlock) }
+			]
+		) {
 			let argumentList = List(numArgs);
 			let index = 1;
 			let endIndex = self.size - numArgs + 1;
@@ -1294,9 +1296,11 @@
 	}
 
 	hasEqualElements { :self :otherCollection :aBlock/2 |
-		(otherCollection.isSequence & {
-			self.size = otherCollection.size
-		}).if {
+		(
+			otherCollection.isSequence & {
+				self.size = otherCollection.size
+			}
+		).if {
 			valueWithReturn { :return/1 |
 				self.indicesDo { :index |
 					aBlock(self[index], otherCollection[index]).ifFalse {
