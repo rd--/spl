@@ -62,7 +62,7 @@ UndirectedEdge : [Object, Store, Equal, Compare, Indexable] { | vertexList |
 	}
 
 	matchesEdge { :self :edge |
-		self.vertexList = edge.vertexList.sorted
+		self.vertexList = edge.vertexList.sort
 	}
 
 	printString { :self |
@@ -100,7 +100,9 @@ UndirectedEdge : [Object, Store, Equal, Compare, Indexable] { | vertexList |
 	}
 
 	UndirectedEdge { :self :anInteger |
-		newUndirectedEdge().initializeSlots([self, anInteger].sorted)
+		newUndirectedEdge().initializeSlots(
+			[self, anInteger].sortInPlace
+		)
 	}
 
 }

@@ -371,7 +371,7 @@ let m = 4000;
 let a = [1];
 let l = [];
 2.toDo(m) { :n |
-	let e = n.factorInteger.column(2).sort;
+	let e = n.factorInteger.column(2).sortInPlace;
 	l.includes(e).ifFalse {
 		l.add(e);
 		a.add(n)

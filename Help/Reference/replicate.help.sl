@@ -103,7 +103,7 @@ A `boole` mask is a form of select:
 >>> let y = [1 .. 9];
 >>> let x = y.collect(isEven/1).boole;
 >>> (x, x # y)
-[0 1 0 1 0 1 0 1 0], [2 4 6 8])
+([0 1 0 1 0 1 0 1 0], [2 4 6 8])
 
 >>> 1:9.select { :x | x % 3 > 0 }
 [1 2 4 5 7 8]

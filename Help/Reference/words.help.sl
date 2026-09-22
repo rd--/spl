@@ -17,7 +17,7 @@ Trims any white spaces at the beginning and at the end before splitting.
 
 >>> 'The quick brown fox jumps over'
 >>> .words
->>> .sort
+>>> .sortInPlace
 [
 	'brown' 'fox' 'jumps'
 	'over' 'quick' 'The'

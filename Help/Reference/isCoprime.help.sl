@@ -188,7 +188,7 @@ OEIS [A282291](https://oeis.org/A282291):
 
 ~~~spl svg=D oeis=A282291
 [1].leastExcludedSequence(59) { :a :n :m |
-	let [p, q] = [a[n - 1], m].sort;
+	let [p, q] = [a[n - 1], m].sortInPlace;
 	q.divisible(p) & {
 		p.isCoprime(q / p)
 	}

@@ -51,7 +51,7 @@ Ellipse : [Object, Equal, Geometry] { | center radii |
 	}
 
 	majorMinorAxes { :self |
-		let [b, a] = self.radii.sorted;
+		let [b, a] = self.radii.sort;
 		[a, b]
 	}
 

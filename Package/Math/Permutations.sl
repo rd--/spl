@@ -520,7 +520,7 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 		self.isEmpty.if {
 			true
 		} {
-			let ascending = self.sorted;
+			let ascending = self.sort;
 			ascending.isArithmeticProgression & {
 				ascending.first = 1 & {
 					ascending.last = self.size
@@ -937,7 +937,7 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 	}
 
 	reducedPermutation { :self |
-		let sequence = self.sorted;
+		let sequence = self.sort;
 		self.collect { :each |
 			sequence.indexOf(each)
 		}
@@ -1066,7 +1066,7 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 
 	multisetPermutationsDoLink { :self :visit/1 |
 		let n = self.size;
-		let l = LinkedList(self.sorted(succeeds/2));
+		let l = LinkedList(self.sort(succeeds/2));
 		let h = l.firstLink;
 		let i = l.linkAt(n - 1);
 		let j = l.lastLink;

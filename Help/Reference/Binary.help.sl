@@ -14,7 +14,7 @@ Types implementing `Binary`:
 ```
 >>> system
 >>> .traitTypes('@Binary')
->>> .sort
+>>> .sortInPlace
 [
 	'LargeInteger'
 	'SmallFloat'

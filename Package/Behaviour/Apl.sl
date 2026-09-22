@@ -49,11 +49,11 @@
 	}
 
 	gradeDown { :self |
-		self.sortedWithIndices.collect(value/1).reverse
+		self.sortWithIndices.collect(value/1).reverse
 	}
 
 	gradeUp { :self |
-		self.sortedWithIndices.collect(value/1)
+		self.sortWithIndices.collect(value/1)
 	}
 
 	j { :real :imaginary |

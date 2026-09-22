@@ -389,7 +389,7 @@ One useful technique, originated by Ervin Wilson, is a variation of the katapykn
 >>> 					Fraction(p, i),
 >>> 					Fraction(i, j),
 >>> 					Fraction(j, q)
->>> 				].sort
+>>> 				].sortInPlace
 >>> 			]
 >>> 		}
 >>> 	}.catenate

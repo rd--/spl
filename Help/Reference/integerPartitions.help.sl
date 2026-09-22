@@ -62,7 +62,8 @@ OEIS [A334301](https://oeis.org/A334301):
 In ascending order:
 
 ```
->>> 5.integerPartitions.sort(<|)
+>>> 5.integerPartitions
+>>> .sortInPlace(<|)
 [
 	1 1 1 1 1;
 	2 1 1 1;

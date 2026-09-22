@@ -548,6 +548,19 @@ Block! : [Object, Equal] {
 		}
 	}
 
+	sortBlockToTypeCheckedCompareBlock { :sortBlock/2 |
+		<primitive:
+		return function(p, q) {
+			const c = _sortBlock_2(p, q);
+			if (typeof c === 'boolean') {
+				return c ? -1 : 1;
+			} {
+				throw new Error('Non-boolean sort block');
+			}
+		};
+		>
+	}
+
 	sourceCode { :self |
 		<primitive: return _self.sourceCode;>
 	}
@@ -694,7 +707,7 @@ Block! : [Object, Equal] {
 		self
 	}
 
-	[in, with, <$] { :self :aBlock/1 |
+	[in, with, $>] { :self :aBlock/1 |
 		aBlock(self)
 	}
 

@@ -69,6 +69,39 @@ SortedList([1, 2, 3, 4, 5, 6])
 [0J0 -1J-1 1J1 2J2]
 ```
 
+At `List`:
+
+```
+>>> let x = [1 9 3 7 5];
+>>> let y = SortedList(x);
+>>> (y.contents, x !== y.contents)
+([1 3 5 7 9], true)
+```
+
+Specifiy the sort block, here to maintain a list in reverse order:
+
+```
+>>> SortedList([1 9 3 7 5], >)
+>>> .contents
+[9 7 5 3 1]
+```
+
+At `IdentitySet`:
+
+```
+>>> let s = IdentitySet();
+>>> s.includeAll([1 9 3 7 5]);
+>>> SortedList(s).contents
+[1 3 5 7 9]
+```
+
+At `Range`:
+
+```
+>>> (10, 9 .. 1).SortedList.contents
+[1 2 3 4 5 6 7 8 9 10]
+```
+
 * * *
 
 See also: add, addAll, asSortedList, List, sort, sorted

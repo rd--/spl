@@ -69,6 +69,17 @@ At `Complex`:
 -5J10
 ```
 
+At `Decimal`,
+compare to `truncateScale`:
+
+```
+>>> 3.141D.truncate
+3
+
+>>> 3.141D.truncateScale(0)
+3D
+```
+
 Threads over lists,
 round matrix elements toward zero:
 

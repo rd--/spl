@@ -352,7 +352,7 @@ The permutation that maps a sequence to its sort is equal to `reducedPermutation
 
 ```
 >>> let l = [4 2 7];
->>> l.findPermutation(l.sorted)
+>>> l.findPermutation(l.sort)
 Permutation[1 2; 3]
 
 >>> [4 2 5].reducedPermutation

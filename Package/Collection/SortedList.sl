@@ -166,18 +166,6 @@ SortedList : [Object, Store, Copyable, Equal, Compare, Iterable, Indexable, Coll
 
 }
 
-+@Collection {
-
-	asSortedList { :self |
-		SortedList(self.asList)
-	}
-
-	asSortedList { :self :sortBlock/2 |
-		SortedList(self.asList, sortBlock/2)
-	}
-
-}
-
 +List {
 
 	SortedList { :self |
@@ -189,6 +177,18 @@ SortedList : [Object, Store, Copyable, Equal, Compare, Iterable, Indexable, Coll
 			self.copy.sortBy(sortBlock/2),
 			sortBlock/2
 		)
+	}
+
+}
+
++@Collection {
+
+	[SortedList, asSortedList] { :self |
+		SortedList(self.asList)
+	}
+
+	[SortedList, asSortedList] { :self :sortBlock/2 |
+		SortedList(self.asList, sortBlock/2)
 	}
 
 }

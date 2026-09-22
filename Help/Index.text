@@ -1297,7 +1297,7 @@ Reference/Document.help.sl
 Reference/DocumentRange.help.sl
 Reference/doesNotInclude.help.sl
 Reference/do.help.sl
-Reference/dollarSign.help.sl
+Reference/dollarSignGreaterThanSign.help.sl
 Reference/doSeparatedBy.help.sl
 Reference/dot.help.sl
 Reference/dotLayout.help.sl
@@ -1481,6 +1481,7 @@ Reference/extangentsTriangle.help.sl
 Reference/extendedEuclideanAlgorithm.help.sl
 Reference/extendedGcd.help.sl
 Reference/Extensible.help.sl
+Reference/exteriorAngles.help.sl
 Reference/extouchTriangle.help.sl
 Reference/extractDocumentationTests.help.sl
 Reference/extract.help.sl
@@ -2497,6 +2498,7 @@ Reference/lengthWhile.help.sl
 Reference/lessEqual.help.sl
 Reference/less.help.sl
 Reference/Less.help.sl
+Reference/lessThanSignDollarSign.help.sl
 Reference/lessThanSignEqualsSignGreaterThanSign.help.sl
 Reference/lessThanSignEqualsSign.help.sl
 Reference/lessThanSignExclamationMark.help.sl
@@ -3876,15 +3878,15 @@ Reference/sortBy.help.sl
 Reference/sortByOn.help.sl
 Reference/sortedCounts.help.sl
 Reference/sortedElements.help.sl
-Reference/sorted.help.sl
 Reference/SortedList.help.sl
 Reference/SortedSet.help.sl
-Reference/sortedWithIndices.help.sl
 Reference/sort.help.sl
 Reference/sortingNumber.help.sl
+Reference/sortInPlace.help.sl
 Reference/sortOn.help.sl
 Reference/sortTracingComparisons.help.sl
 Reference/sortTracingState.help.sl
+Reference/sortWithIndices.help.sl
 Reference/Sos.help.sl
 Reference/SoundFile.help.sl
 Reference/soundPlot.help.sl
@@ -4104,6 +4106,7 @@ Reference/tan.help.sl
 Reference/Tan.help.sl
 Reference/tanh.help.sl
 Reference/Tanh.help.sl
+Reference/tau.help.sl
 Reference/TChoose.help.sl
 Reference/tchoukaillonNumbers.help.sl
 Reference/TDelay.help.sl

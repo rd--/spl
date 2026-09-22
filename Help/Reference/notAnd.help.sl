@@ -29,7 +29,7 @@ let a = [1];
 	let k = 1;
 	let e = a.last;
 	{
-		let [p, q] = [k, e].sort;
+		let [p, q] = [k, e].sortInPlace;
 		a.includes(k) | {
 			q.divisible(p).notAnd {
 				p.isCoprime(q / p)

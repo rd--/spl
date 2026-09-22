@@ -61,7 +61,7 @@ Use `powerMod` to generate all coprime integers modulo nine:
 ```
 >>> 2:10.collect { :each |
 >>> 	2.powerMod(each, 9)
->>> }.asIdentitySet.sorted
+>>> }.IdentitySet.sort
 [1 2 4 5 7 8]
 ```
 
@@ -293,7 +293,7 @@ OEIS [A096008](https://oeis.org/A096008):
 1:30.collect { :n |
 	[0 .. n - 1].collect { :k |
 		powerMod(k, 2, n)
-	}.nub.sort
+	}.nub.sortInPlace
 }.catenate.scatterPlot
 ~~~
 

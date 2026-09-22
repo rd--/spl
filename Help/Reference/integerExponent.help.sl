@@ -560,7 +560,10 @@ let n = 10 ^ 10;
 	[0 .. (n / (4 ^ i)).log(7)].collect { :j |
 		(4 ^ i) * (7 ^ j)
 	}
-}.catenate.sort.integerExponent(7).scatterPlot
+}.catenate
+.sortInPlace
+.integerExponent(7)
+.scatterPlot
 ~~~
 
 ![](Help/Image/integerExponent-W.svg)

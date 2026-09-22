@@ -20,7 +20,7 @@ List collection keys in alphabetical order:
 ```
 >>> system.colourPalettes
 >>> .keys
->>> .sort
+>>> .sortInPlace
 [
 	'Carto'
 	'ColorBrewer'

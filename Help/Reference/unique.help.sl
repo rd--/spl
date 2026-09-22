@@ -33,7 +33,7 @@ OEIS [A180410](https://oeis.org/A180410):
 1:150.collect { :n |
 	n.integerDigits
 	.unique
-	.sort
+	.sortInPlace
 	.fromDigits
 }.scatterPlot
 ~~~

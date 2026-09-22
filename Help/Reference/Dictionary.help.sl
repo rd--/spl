@@ -23,7 +23,7 @@ Types implementing `Dictionary`:
 ```
 >>> system
 >>> .traitTypes('@Dictionary')
->>> .sort
+>>> .sortInPlace
 [
 	'Dictionary'
 	'Map'

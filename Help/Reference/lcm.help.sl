@@ -278,7 +278,7 @@ Form the least common multiples of `one` with rational numbers:
 	(1L .. 2 * j).collect { :i |
 		i / j
 	}
-}.catenate.nub.sort.collect { :n |
+}.catenate.nub.sortInPlace.collect { :n |
 	lcm(1, n)
 }.scatterPlot
 ~~~

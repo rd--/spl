@@ -16,7 +16,7 @@ The list of data sets:
 >>> system.nistData.size
 31
 
->>> system.nistData.keys.sort
+>>> system.nistData.keys.sortInPlace
 [
 	'BERGER1'
 	'BIRNSAUN'

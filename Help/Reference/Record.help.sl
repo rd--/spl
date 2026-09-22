@@ -10,7 +10,7 @@ List of traits implemented by `Record`:
 ```
 >>> system.typeLookup('Record')
 >>> .traitNameList
->>> .sort
+>>> .sortInPlace
 [
 	'Collection'
 	'Dictionary'

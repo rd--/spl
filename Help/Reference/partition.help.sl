@@ -141,7 +141,7 @@ OEIS [A135472](https://oeis.org/A135472):
 >>> let c = b ++ [b[1]];
 >>> let d = c.partition(2, 1);
 >>> let e = d.collect(fromDigits/1);
->>> e.sort
+>>> e.sortInPlace
 [0 .. 99]
 ```
 

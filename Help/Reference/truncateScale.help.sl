@@ -27,6 +27,16 @@ The mode of the truncation may be specified:
 3.1416D
 ```
 
+Truncate to integer:
+
+```
+>>> 3.141D.truncateScale(0)
+3D
+
+>>> 3D.isInteger
+true
+```
+
 * * *
 
 See also: Decimal, scale, truncate

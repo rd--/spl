@@ -213,7 +213,7 @@ Plot sorted binary sequence of length 2⁶:
 
 ~~~spl svg=E
 1:64.vanDerCorputNumber(2)
-.sort
+.sortInPlace
 .scatterPlot
 ~~~
 
@@ -223,7 +223,7 @@ Show decimal sequence at length halfway between 10ⁱ and 10²:
 
 ~~~spl svg=F
 1:55.vanDerCorputNumber(10)
-.sort
+.sortInPlace
 .scatterPlot
 ~~~
 

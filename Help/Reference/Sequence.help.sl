@@ -14,7 +14,7 @@ Types implementing `Sequence`:
 ```
 >>> system
 >>> .traitTypes('@Sequence')
->>> .sort
+>>> .sortInPlace
 [
 	'AsciiString'
 	'ByteArray'

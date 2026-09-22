@@ -96,16 +96,9 @@
 	}
 
 	sortBy { :self :sortBlock/2 |
-		<primitive:
-		return _self.sort(function(p, q) {
-			const b = _sortBlock_2(p, q);
-			if (typeof b === 'boolean') {
-				return b ? -1 : 1;
-			} {
-				throw new Error('sortBy: non-boolean sort block');
-			}
-		});
-		>
+		self.uncheckedSortComparingInPlace(
+			sortBlockToTypeCheckedCompareBlock(sortBlock/2)
+		)
 	}
 
 	sortByOn { :self :sortBlock/2 :keyBlock/1 |
@@ -117,17 +110,13 @@
 	}
 
 	sortComparing { :self :compareBlock/2 |
-		<primitive:
-		return _self.sort(_compareBlock_2);
-		>
+		self.uncheckedSortComparingInPlace(compareBlock/2)
 	}
 
 	sortedBy { :self :sortBlock/2 |
-		<primitive:
-		return _self.toSorted(function(p, q) {
-			return _sortBlock_2(p, q) ? -1 : 1
-		});
-		>
+		self.uncheckedSortComparing(
+			sortBlockToTypeCheckedCompareBlock(sortBlock/2)
+		)
 	}
 
 	sortedComparing { :self :compareBlock/2 |
@@ -158,6 +147,14 @@
 
 	uncheckedRemoveAt { :self :index |
 		<primitive: return _self.splice(_index - 1, 1)[0];>
+	}
+
+	uncheckedSortComparing { :self :compareBlock/2 |
+		<primitive: return _self.toSorted(_compareBlock_2);>
+	}
+
+	uncheckedSortComparingInPlace { :self :compareBlock/2 |
+		<primitive: return _self.sort(_compareBlock_2);>
 	}
 
 }

@@ -26,7 +26,7 @@ The complement of the primes:
 
 >>> let a = 1:11.prime;
 >>> let b = 0:23.nonPrime;
->>> (a ++ b).sort
+>>> (a ++ b).sortInPlace
 [1 .. 35]
 ```
 

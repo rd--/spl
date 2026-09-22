@@ -40,7 +40,7 @@ Relation with `ordering`:
 [2 3; 4 6 5].cycles
 
 >>> let l = 'adcghf'.characters;
->>> l.sorted.findPermutation(l)
+>>> l.sort.findPermutation(l)
 [2 3; 4 6 5].cycles
 ```
 

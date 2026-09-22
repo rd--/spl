@@ -21,7 +21,7 @@ One- and two-character operators:
 >>> let t = system.splOperatorNameTable;
 >>> let a = t.associations.collect { :each |
 >>> 	each.value -> each.key
->>> }.sort;
+>>> }.sortInPlace;
 >>> [1 2].collect { :k |
 >>> 	a.select { :each |
 >>> 		each.value.size = k

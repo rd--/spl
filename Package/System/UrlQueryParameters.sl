@@ -94,8 +94,11 @@ URLSearchParams! : [Object, Iterable, UrlQueryParameters] {
 		<primitive: return _self.size;>
 	}
 
-	sort { :self |
-		<primitive: _self.sort(); return null;>
+	sortInPlace { :self |
+		<primitive:
+		_self.sort();
+		return null;
+		>
 	}
 
 	values { :self |

@@ -112,8 +112,9 @@ OEIS [A194832](https://oeis.org/A194832):
 let r = -1.goldenRatio;
 1:20.collect { :n |
 	let x = (1:n * r).fractionalPart;
-	x.sorted.collect { :y |
-		x.indexOf(y)
+	let y = x.sort;
+	y.collect { :z |
+		x.indexOf(z)
 	}
 }.catenate.discretePlot
 ~~~

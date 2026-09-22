@@ -42,11 +42,17 @@ At `Complex`:
 1J-4
 ```
 
-At `Decimal`:
+At `Decimal`,
+the answer has the same `scale` as the initial decimal value,
+meaning that the answer will ordinarily not answer `true` to `isInteger`:
 
 ```
 >>> 3.14159D.integerPart
 3.00000D
+
+>>> 3.14159D.integerPart
+>>> .isInteger
+false
 ```
 
 Threads elementwise over lists:
@@ -88,7 +94,7 @@ let f = { :x :n |
 	0:j.collect { :i |
 		i / j
 	}
-}.catenate.nub.sort.collect { :x |
+}.catenate.nub.sortInPlace.collect { :x |
 	[x, f(x, 100)]
 }.linePlot
 ~~~

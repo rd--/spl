@@ -42,7 +42,7 @@ Andrews and Garvan proved that the partitions of a number of the form _11m+6_ ca
 ```
 >>> let p = 17.integerPartitions;
 >>> let c = p.collect(dysonCrank/1);
->>> (c % 11).sort.asRunArray
+>>> (c % 11).sortInPlace.asRunArray
 RunArray(
 	[27 27 27 27 27 27 27 27 27 27 27],
 	[0 1 2 3 4 5 6 7 8 9 10]

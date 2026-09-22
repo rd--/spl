@@ -17,7 +17,7 @@ Print only the names of sub-directories:
 >>> 	each['isDirectory']
 >>> }.collect { :each |
 >>> 	each['name']
->>> }.sort
+>>> }.sortInPlace
 [
 	'Definitions'
 	'Guide'

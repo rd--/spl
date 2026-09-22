@@ -138,15 +138,15 @@ Range : [Object, Store, Equal, Compare, Iterable, Collection, Indexable, Sequenc
 		self.copy.reverseInPlace
 	}
 
-	sort { :self |
+	sortInPlace { :self |
 		(self.step < 0).ifTrue {
 			self.reverseInPlace
 		};
 		self
 	}
 
-	sorted { :self |
-		self.copy.sort
+	sort { :self |
+		self.copy.sortInPlace
 	}
 
 	species { :self |

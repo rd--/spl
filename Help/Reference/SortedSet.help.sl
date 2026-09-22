@@ -10,7 +10,7 @@ Traits implemented by `SortedSet`:
 ```
 >>> system.typeLookup('SortedSet')
 >>> .traitNameList
->>> .sort
+>>> .sortInPlace
 [
 	'Collection'
 	'Copyable'

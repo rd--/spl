@@ -16,8 +16,9 @@
 	kimberlingFractalSequence { :r :k |
 		1.toCollect(k) { :n |
 			let x = ((1 .. n) * r).fractionalPart;
-			x.sorted.collect { :y |
-				x.indexOf(y)
+			let y = x.sort;
+			y.collect { :z |
+				x.indexOf(z)
 			}
 		}
 	}

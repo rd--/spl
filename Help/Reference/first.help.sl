@@ -34,7 +34,7 @@ Where _n=0_:
 The first element in a sorted list is the same as finding the minimum element:
 
 ```
->>> [6 7 1 2 4 5].sort.first
+>>> [6 7 1 2 4 5].sortInPlace.first
 1
 
 >>> [6 7 1 2 4 5].min

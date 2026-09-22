@@ -101,7 +101,7 @@ A permutation that leaves no element invariant is called a derangement:
 
 ```
 >>> [1 2 3 4 5].permutations.select { :each |
->>> 	(each =.map each.sorted)
+>>> 	(each =.map each.sort)
 >>> 	.noneSatisfy(identity/1)
 >>> }.size
 44

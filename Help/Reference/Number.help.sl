@@ -68,7 +68,7 @@ Types implementing `Number`:
 ```
 >>> system
 >>> .traitTypes('@Number')
->>> .sort
+>>> .sortInPlace
 [
 	'Complex'
 	'Decimal'

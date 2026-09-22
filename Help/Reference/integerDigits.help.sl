@@ -170,18 +170,18 @@ c.f. OEIS [A364024](https://oeis.org/A364024):
 
 ```
 >>> let n = 69 ^ [2 3];
->>> (n, n.integerDigits.++.sort)
+>>> (n, n.integerDigits.++.sortInPlace)
 ([4761 328509], [0 1 2 3 4 5 6 7 8 9])
 
 >>> let n = 6534 ^ [2 3];
->>> (n, n.integerDigits.++.sort)
+>>> (n, n.integerDigits.++.sortInPlace)
 (
 	[42693156 278957081304],
 	[0 0 1 1 2 2 3 3 4 4 5 5 6 6 7 7 8 8 9 9]
 )
 
 >>> let n = 497375 ^ [2 3];
->>> (n, n.integerDigits.++.sort)
+>>> (n, n.integerDigits.++.sortInPlace)
 (
 	[
 		247381890625

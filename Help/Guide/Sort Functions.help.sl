@@ -33,9 +33,9 @@ Sort:
 - `sortBy`
 - `sortByOn`
 - `sortOn`
+- `sortInPlace`
 - `sort`
-- `sorted`
-- `sortedWithIndices`
+- `sortWithIndices`
 
 Kinds of Sorts:
 

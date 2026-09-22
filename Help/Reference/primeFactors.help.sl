@@ -119,7 +119,7 @@ Sorted into descending order:
 >>> 	2 3 5 7 11
 >>> 	1 4 6 8 9 10 12 22
 >>> ].collect { :each |
->>> 	each.primeFactors.sort(>)
+>>> 	each.primeFactors.sortInPlace(>)
 >>> }
 [
 	2; 3; 5; 7; 11;

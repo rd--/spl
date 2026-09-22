@@ -45,7 +45,7 @@ Take the two smallest numbers in a list:
 ```
 >>> [1.e ^ 1.pi, 7.pi, 1.pi ^ 1.e, 23]
 >>> .nub
->>> .sort
+>>> .sortInPlace
 >>> .take(2)
 [7.pi, 1.pi ^ 1.e]
 ```

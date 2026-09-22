@@ -68,7 +68,7 @@ Find complementary ranges:
 >>> 	13:18 22:27 31:36
 >>> 	40:45 49:57 61:65
 >>> ];
->>> [r1 r2].flatten.sort.asRange
+>>> [r1 r2].flatten.sortInPlace.asRange
 1:75
 ```
 

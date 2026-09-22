@@ -14,7 +14,7 @@ Types implementing `Integer`:
 ```
 >>> system
 >>> .traitTypes('@Integer')
->>> .sort
+>>> .sortInPlace
 [
 	'LargeInteger'
 	'SmallFloat'

@@ -84,7 +84,7 @@ The sorted values of the tree for depths one through four:
 
 ```
 >>> 1:4.collect { :n |
->>> 	n.sternBrocotTree.values.sort
+>>> 	n.sternBrocotTree.values.sortInPlace
 >>> }
 [
 	1/1
@@ -109,7 +109,7 @@ The numerators of this tree are the terms of the Stern-Brocot sequence:
 >>> 4.sternBrocotTree
 >>> .contents
 >>> .collect(value/1)
->>> .sort
+>>> .sortInPlace
 >>> .collect(numerator/1)
 [1 1 2 1 3 2 3 1 4 3 5 2 5 3 4]
 

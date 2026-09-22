@@ -66,11 +66,11 @@
 		self.heapSort(<=|)
 	}
 
-	sorted { :self |
-		self.asList.sort
+	sort { :self |
+		self.asList.sortInPlace
 	}
 
-	sorted { :self :sortBlock/2 |
+	sort { :self :sortBlock/2 |
 		self.copyList.sortBy(sortBlock/2)
 	}
 
@@ -171,7 +171,7 @@
 	}
 
 	ordering { :self :aBlock/2|
-		self.sortedWithIndices(aBlock/2).collect(value/1)
+		self.sortWithIndices(aBlock/2).collect(value/1)
 	}
 
 	ordering { :self |
@@ -180,7 +180,7 @@
 
 	rankingFractional { :self |
 		let i = 1;
-		let u = self.sortedWithIndices;
+		let u = self.sortWithIndices;
 		let v = [];
 		u.split { :p :q |
 			p.key = q.key
@@ -220,7 +220,7 @@
 		self.sortBy(succeeds/2)
 	}
 
-	sort { :self :sortBlock/2 :keyBlock/1 |
+	sortInPlace { :self :sortBlock/2 :keyBlock/1 |
 		keyBlock/1.ifNil {
 			self.sortBy(sortBlock/2.ifNil { precedes/2 })
 		} {
@@ -228,11 +228,11 @@
 		}
 	}
 
-	sort { :self :sortBlock/2 |
+	sortInPlace { :self :sortBlock/2 |
 		self.sortBy(sortBlock/2.ifNil { precedes/2 })
 	}
 
-	sort { :self |
+	sortInPlace { :self |
 		self.sortComparing(compare/2)
 	}
 
@@ -255,32 +255,32 @@
 		self.sortByOn(precedes/2, keyBlock/1)
 	}
 
-	sorted { :self :sortBlock/2 |
+	sort { :self :sortBlock/2 |
 		self.copyList.sortBy(sortBlock/2)
 	}
 
-	sorted { :self |
-		self.copy.sort
+	sort { :self |
+		self.copy.sortInPlace
 	}
 
-	sortedWithIndices { :self :sortBlock/2 |
+	sortWithIndices { :self :sortBlock/2 |
 		self.ifEmpty {
 			[]
 		} {
 			self.withIndexCollect { :each :index |
 				each -> index
-			}.sorted { :p :q |
+			}.sortInPlace { :p :q |
 				sortBlock(p.key, q.key)
 			}
 		}
 	}
 
-	sortedWithIndices { :self |
-		self.sortedWithIndices(precedes/2)
+	sortWithIndices { :self |
+		self.sortWithIndices(precedes/2)
 	}
 
 	takeSmallest { :self :anInteger |
-		self.sorted.first(anInteger)
+		self.sort.first(anInteger)
 	}
 
 }
@@ -771,15 +771,15 @@
 
 	oddEvenSortWithMonitor { :self :sortBlock/2 :monitorBlock/1 |
 		let n = self.size;
-		let sorted = false;
-		{ sorted }.whileFalse {
-			sorted := true;
+		let isSorted = false;
+		{ isSorted }.whileFalse {
+			isSorted := true;
 			1.toDo(2) { :j |
 				j.toByDo(n - 1, 2) { :i |
 					sortBlock(self[i + 1], self[i]).ifTrue {
 						self.swapWith(i, i + 1);
 						monitorBlock(self);
-						sorted := false
+						isSorted := false
 					}
 				}
 			}

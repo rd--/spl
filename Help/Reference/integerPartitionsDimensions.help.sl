@@ -13,7 +13,8 @@ Sorted,
 OEIS [A003870](https://oeis.org/A003870):
 
 ```
->>> 6.integerPartitionsDimensions.sort
+>>> 6.integerPartitionsDimensions
+>>> .sortInPlace
 [1 1 5 5 5 5 9 9 10 10 16]
 ```
 
@@ -51,7 +52,7 @@ OEIS [A060240](https://oeis.org/A060240):
 ~~~spl svg=B oeis=A060240
 1:11.collect { :n |
 	n.integerPartitionsDimensions
-	.sort
+	.sortInPlace
 }.catenate.stepPlot.log
 ~~~
 

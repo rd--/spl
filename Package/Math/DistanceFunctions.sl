@@ -400,7 +400,7 @@
 		let edgeList = [];
 		1.toDo(vertexCount) { :i |
 			let distanceList = distanceMatrix[i];
-			let sortedDistances = distanceList.sorted;
+			let sortedDistances = distanceList.sort;
 			let leastDistance = sortedDistances[2];
 			1.toDo(vertexCount) { :j |
 				let distance = distanceList[j];

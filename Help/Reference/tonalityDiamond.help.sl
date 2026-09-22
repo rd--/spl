@@ -62,7 +62,7 @@ Ratios between neighbouring pitches are superparticular:
 ```
 >>> [5 7].collect { :i |
 >>> 	let d = i.tonalityDiamond;
->>> 	d.catenate.nub.sort.ratios
+>>> 	d.catenate.nub.sortInPlace.ratios
 >>> }
 [
 	[

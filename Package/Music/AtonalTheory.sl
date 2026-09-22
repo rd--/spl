@@ -36,7 +36,7 @@
 		self.isEmpty.if {
 			[]
 		} {
-			let p = self.sorted;
+			let p = self.sort;
 			let k = p.size;
 			let a = [];
 			let rotateAndZero = { :x :n |

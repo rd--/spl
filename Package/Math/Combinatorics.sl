@@ -839,7 +839,7 @@
 			(self.gcd != 1).if {
 				Infinity
 			} {
-				let r = self.sorted.bockerLiptakAlgorithm.last;
+				let r = self.sort.bockerLiptakAlgorithm.last;
 				r.max - self.min
 			}
 		}

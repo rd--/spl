@@ -10,6 +10,10 @@ Evaluate the unary block _f_ with the object _x_ as argument and answer the answ
 3
 
 >>> 3 $> square/1
+9
+
+>>> 3 * 3 * 3 $> cubeRoot/1
+3
 ```
 
 _Rationale:_

@@ -7,7 +7,7 @@ List traits implemented by `SmallFloat`:
 ```
 >>> system.typeLookup('SmallFloat')
 >>> .traitNameList
->>> .sort
+>>> .sortInPlace
 [
 	'Binary'
 	'Compare'

@@ -46,7 +46,7 @@ Types implementing `Extensible`:
 ```
 >>> system
 >>> .traitTypes('@Extensible')
->>> .sort
+>>> .sortInPlace
 [
 	'BitSet'
 	'Dictionary'

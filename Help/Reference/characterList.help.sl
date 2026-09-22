@@ -84,7 +84,7 @@ Break a string into overlapping trigrams:
 Sort the characters in a string:
 
 ```
->>> 'characters'.characterList.sort
+>>> 'characters'.characterList.sortInPlace
 ['a' 'a' 'c' 'c' 'e' 'h' 'r' 'r' 's' 't']
 ```
 

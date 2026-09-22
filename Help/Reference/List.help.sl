@@ -10,7 +10,7 @@ Traits implemented by `List`:
 ```
 >>> system.typeLookup('List')
 >>> .traitNameList
->>> .sort
+>>> .sortInPlace
 [
 	'Collection'
 	'Compare'

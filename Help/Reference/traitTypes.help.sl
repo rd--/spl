@@ -7,7 +7,7 @@ Answer the list of the names of the types implementing the trait _t_.
 ```
 >>> system
 >>> .traitTypes('@Set')
->>> .sort
+>>> .sortInPlace
 [
 	'IdentitySet'
 	'SortedSet'

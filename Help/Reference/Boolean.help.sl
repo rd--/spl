@@ -15,7 +15,7 @@ List of traits implemented by `Boolean`:
 ```
 >>> system.typeLookup('Boolean')
 >>> .traitNameList
->>> .sort
+>>> .sortInPlace
 [
 	'Compare'
 	'Equal'

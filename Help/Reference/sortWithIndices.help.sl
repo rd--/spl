@@ -1,13 +1,13 @@
-# sortedWithIndices
+# sortWithIndices
 
-- _sortedWithIndices(l, f/2=≺)_
+- _sortWithIndices(l, f/2=≺)_
 
 Sort items in the sequence _l_ according to _f_ and answer each associated with its initial index.
 
 Sort `contents` of a `String`:
 
 ```
->>> 'string'.contents.sortedWithIndices
+>>> 'string'.contents.sortWithIndices
 [
 	'g' -> 6,
 	'i' -> 4,
@@ -21,7 +21,7 @@ Sort `contents` of a `String`:
 Sort a `List`:
 
 ```
->>> [1 3 2 5 4].sortedWithIndices
+>>> [1 3 2 5 4].sortWithIndices
 [
 	1 -> 1,
 	2 -> 3,
@@ -34,7 +34,7 @@ Sort a `List`:
 A list with equal elements:
 
 ```
->>> [0 2 3 2].sortedWithIndices(<)
+>>> [0 2 3 2].sortWithIndices(<)
 [0 -> 1, 2 -> 2, 2 -> 4, 3 -> 3]
 ```
 

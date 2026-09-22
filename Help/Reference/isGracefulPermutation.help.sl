@@ -12,7 +12,7 @@ where _k_ is the size of _p_.
 true
 
 >>> [1 7 2 6 3 5 4]
->>> .differences.abs.sort
+>>> .differences.abs.sortInPlace
 [1 2 3 4 5 6]
 ```
 
@@ -32,7 +32,7 @@ A twelve-place graceful permutation:
 true
 
 >>> [1 12 2 11 3 10 4 9 5 8 6 7]
->>> .differences.abs.sort
+>>> .differences.abs.sortInPlace
 [1 2 3 4 5 6 7 8 9 10 11]
 ```
 

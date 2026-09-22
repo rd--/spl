@@ -7,7 +7,7 @@ List of traits implemented by `String`:
 ```
 >>> system.typeLookup('String')
 >>> .traitNameList
->>> .sort
+>>> .sortInPlace
 [
 	'Character'
 	'Compare'

@@ -28,7 +28,7 @@ HelpIndex : [Object] { | contents |
 	names { :self :kind |
 		self.contents.select { :each |
 			each.first = kind
-		}.collect(second/1).sorted
+		}.collect(second/1).sort!
 	}
 
 	urlFor { :unused :kind :name |

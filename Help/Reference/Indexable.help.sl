@@ -14,7 +14,7 @@ Types implementing `Indexable`:
 ```
 >>> system
 >>> .traitTypes('@Indexable')
->>> .sort
+>>> .sortInPlace
 [
 	'AsciiString'
 	'ByteArray'

@@ -85,7 +85,9 @@ Numbers of the form _(4^k-1)/3_ or _2^k_,
 OEIS [A160967](https://oeis.org/A160967):
 
 ```
->>> [2 ^ 0:10, (4 ^ 0:6 - 1) / 3].union.sort
+>>> [2 ^ 0:10, (4 ^ 0:6 - 1) / 3]
+>>> .union
+>>> .sortInPlace
 [
 	   0    1    2    4    5
 	   8   16   21   32   64
@@ -105,7 +107,7 @@ let s = [0];
 1.toDo(limit) { :n |
 	s := s.union(s + (n ^ 3))
 };
-s.sort.select { :n |
+s.sortInPlace.select { :n |
 	0 < n & {
 		n <= (limit ^ 3)
 	}

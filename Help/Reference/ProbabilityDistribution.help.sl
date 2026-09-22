@@ -14,7 +14,7 @@ Types implementing `ProbabilityDistribution`:
 ```
 >>> system.traitTypes(
 >>> 	'@ProbabilityDistribution'
->>> ).sort
+>>> ).sortInPlace
 [
 	'ArcSinDistribution'
 	'BernoulliDistribution'

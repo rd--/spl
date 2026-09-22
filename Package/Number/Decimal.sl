@@ -209,7 +209,7 @@ Decimal : [Object, Store, Equal, Compare, Number] { | fraction scale |
 	}
 
 	precision { :self |
-		self.integerPart.asLargeInteger.integerLength(10) + self.scale
+		self.truncate.integerLength(10) + self.scale
 	}
 
 	printString { :self |

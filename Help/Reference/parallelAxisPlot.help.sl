@@ -37,7 +37,7 @@ Visualize some common operations:
 ~~~spl svg=C
 let n = 25;
 let a = Sfc32(678321).randomReal([0 20], [n]);
-let b = a.sorted;
+let b = a.sort;
 [
 	a,
 	b,

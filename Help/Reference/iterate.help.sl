@@ -124,7 +124,7 @@ Derive the seven tone Pythagorean scale:
 ```
 >>> { :n |
 >>> 	(n * 3/2).octaveReduce
->>> }.iterate(1/1).next(7).sort
+>>> }.iterate(1/1).next(7).sortInPlace
 [1/1 9/8 81/64 729/512 3/2 27/16 243/128]
 ```
 

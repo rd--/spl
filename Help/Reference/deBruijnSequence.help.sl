@@ -186,7 +186,7 @@ The subsequences of length _n_ in a de Bruijn sequence form all possible _n_-tup
 >>> let d = [1 .. k].deBruijnSequence(n);
 >>> let p = (d ++ [d.first]).partition(n, 1);
 >>> let t = 1:k.tuples(n);
->>> (p, t, p.sorted(precedes/2) = t)
+>>> (p, t, p.sort(precedes/2) = t)
 (
 	[
 		1 1; 1 2; 2 1; 1 3; 3 2;

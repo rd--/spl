@@ -5,8 +5,8 @@
 	}
 
 	[similar, ~] { :self :aGraph |
-		self.vertexList.sorted = aGraph.vertexList.sorted & {
-			self.edgeList.sorted = aGraph.edgeList.sorted
+		self.vertexList.sort = aGraph.vertexList.sort & {
+			self.edgeList.sort = aGraph.edgeList.sort
 		}
 	}
 

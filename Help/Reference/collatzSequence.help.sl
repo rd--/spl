@@ -330,7 +330,7 @@ let t = 1:15.collect { :unused |
 			}
 		}
 	} - 1 / 3;
-	s := ((2 * s) ++ u).nub.sort;
+	s := ((2 * s) ++ u).nub.sortInPlace;
 	s
 };
 ([1] ++ t.catenate).scatterPlot.log

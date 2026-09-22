@@ -168,7 +168,7 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 		.characters
 		.asIdentityMultiset
 		.associations
-		.sort(succeedsOrEqualTo/2, value/1)
+		.sortInPlace(succeedsOrEqualTo/2, value/1)
 	}
 
 	characterCounts { :self :n |
@@ -178,7 +178,7 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 		.collect(stringCatenate/1)
 		.asIdentityMultiset
 		.associations
-		.sort(succeedsOrEqualTo/2, value/1)
+		.sortInPlace(succeedsOrEqualTo/2, value/1)
 	}
 
 	characterRange { :self :aString |
@@ -617,7 +617,7 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 		.select(isLetter/1)
 		.asIdentityMultiset
 		.associations
-		.sort(succeedsOrEqualTo/2, value/1)
+		.sortInPlace(succeedsOrEqualTo/2, value/1)
 	}
 
 	letterCounts { :self :n |
@@ -628,7 +628,7 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 		.collect(stringCatenate/1)
 		.asIdentityMultiset
 		.associations
-		.sort(succeedsOrEqualTo/2, value/1)
+		.sortInPlace(succeedsOrEqualTo/2, value/1)
 	}
 
 	letterNumber { :self :aString |
@@ -945,15 +945,15 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 	}
 
 	sortCharacterCode { :self :encoding |
-		self.toCharacterCode(encoding).sort.fromCharacterCode(encoding)
+		self.toCharacterCode(encoding).sortInPlace.fromCharacterCode(encoding)
 	}
 
 	sortCharacters { :self |
-		self.characters.sort.stringJoin
+		self.characters.sortInPlace.stringJoin
 	}
 
 	sortCodePoints { :self |
-		self.codePoints.sort.fromCodePoints
+		self.codePoints.sortInPlace.fromCodePoints
 	}
 
 	[splitBy, stringSplit] { :self :aString |

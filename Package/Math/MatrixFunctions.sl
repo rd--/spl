@@ -1044,7 +1044,7 @@
 			s[j] := u[j].norm;
 			u[j] := u[j] / s[j]
 		};
-		s := s.sorted(>).diagonalMatrix;
+		s := s.sort(>).diagonalMatrix;
 		u := u.conjugateTranspose;
 		v := v.conjugateTranspose;
 		[u, s, v]

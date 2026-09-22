@@ -100,7 +100,7 @@ Plot sorted random list:
 let r = Sfc32(789146);
 NormalDistribution(0, 1)
 .randomVariate(r, [500])
-.sort
+.sortInPlace
 .linePlot
 ~~~
 

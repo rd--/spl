@@ -143,7 +143,7 @@ Written out:
 >>> 	3, 3 * 2, 3 * 2 * 2,
 >>> 	5, 5 * 2, 5 * 2 * 2,
 >>> 	5 * 3, 5 * 3 * 2, 5 * 3 * 2 * 2
->>> ].sort
+>>> ].sortInPlace
 60.divisors
 ```
 
@@ -296,7 +296,7 @@ OEIS [A167408](https://oeis.org/A167408):
 >>> 	let m = (t + 4).max(d.last - 2);
 >>> 	{
 >>> 		k <= m & {
->>> 			(d % k).nub.sort != u
+>>> 			(d % k).nub.sortInPlace != u
 >>> 		}
 >>> 	}.whileTrue {
 >>> 		k := k + 1

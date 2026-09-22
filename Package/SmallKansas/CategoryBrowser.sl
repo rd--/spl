@@ -30,7 +30,7 @@ CategoryBrowser : [Object, SmallKansan] {
 					browser.setStatus('');
 					typeCategoryDictionary[path[1]].select { :each |
 						system.isTypeName(each)
-					}.sorted
+					}.sort!
 				},
 				2 -> {
 					browser.setStatus(system.typeTraits(path[2]).commaSeparated);
@@ -46,7 +46,7 @@ CategoryBrowser : [Object, SmallKansan] {
 					methodSet := completeMethodSet.select { :each |
 						system.categoryDictionary.categoryOf('method', each.name) = path[3]
 					};
-					methodSet.collect(qualifiedName/1).asList.sorted
+					methodSet.collect(qualifiedName/1).asList.sort!
 				},
 				4 -> {
 					selectedMethod := methodSet.detect { :each |

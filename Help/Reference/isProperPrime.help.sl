@@ -20,7 +20,7 @@ The decimal expansion of _1/n_ is equidistributed in base ten:
 
 >>> Decimal(1/61, 60)
 >>> .integerDigits
->>> .sort
+>>> .sortInPlace
 6 # [0 .. 9]
 
 >>> 1/131.decimalPeriod
@@ -28,7 +28,7 @@ The decimal expansion of _1/n_ is equidistributed in base ten:
 
 >>> Decimal(1/131, 130)
 >>> .integerDigits
->>> .sort
+>>> .sortInPlace
 13 # [0 .. 9]
 ```
 

@@ -53,7 +53,7 @@ Tom Johnson’s _Rational Melody No.16_ (1982):
 ```
 >>> { :a |
 >>> 	let b = a.adjacentPairsCollect { :i :j |
->>> 		let [p, q] = [i, j].sort;
+>>> 		let [p, q] = [i, j].sortInPlace;
 >>> 		let r = p + 1;
 >>> 		(r = q).if { q + 1 } { r }
 >>> 	};

@@ -187,7 +187,7 @@ Heap : [Object, Copyable, Equal, Iterable, Collection, Extensible] { | array sor
 	}
 
 	/*
-	sort { :self |
+	sortInPlace { :self |
 		let start = 1;
 		let array = self.array;
 		let end = array.size;
