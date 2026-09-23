@@ -21,7 +21,9 @@ sortInPlace(x)
 sortInPlace(x)
 ```
 
-This follows the Scheme language convention of writing in place, or mutating, procedures with a trailing exclamation mark.
+This follows the Scheme language convention of naming in place,
+or mutating,
+procedures with a trailing exclamation mark.
 
 In place sort:
 
@@ -46,6 +48,14 @@ In place reverse:
 ([2 4 5 3 1], true)
 ```
 
+In place reverse sort:
+
+```
+>>> let x = [1 3 5 2 4];
+>>> (x, x == x.reverseSort!)
+([5 4 3 2 1], true)
+```
+
 * * *
 
-See also: reverse, reverseInPlace, sort, sortInPlace, sortOnInPlace
+See also: reverseInPlace, reverseSortInPlace, sortInPlace, sortOnInPlace

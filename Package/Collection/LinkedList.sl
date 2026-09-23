@@ -90,10 +90,6 @@
 
 LinkedList : [Object, Equal, Store, Copyable, Compare, Iterable, Indexable, Collection, Extensible, Sequence] { | firstLink lastLink |
 
-	add { :self :aLinkOrObject |
-		self.addLast(aLinkOrObject)
-	}
-
 	addFirst { :self :aLinkOrObject |
 		let aLink = aLinkOrObject.asLink;
 		self.isEmpty.ifTrue {
@@ -104,7 +100,7 @@ LinkedList : [Object, Equal, Store, Copyable, Compare, Iterable, Indexable, Coll
 		aLink
 	}
 
-	addLast { :self :aLinkOrObject |
+	[addLast, add] { :self :aLinkOrObject |
 		let aLink = aLinkOrObject.asLink;
 		self.isEmpty.if {
 			self.firstLink := aLink

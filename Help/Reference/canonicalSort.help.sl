@@ -2,15 +2,16 @@
 
 - _canonicalSort([x₁ x₂ …])_
 
-Sorts a list _xₙ_ into canonical order in place.
+Sorts a list _xₙ_ into canonical order.
+There are copying and in place forms.
 Answer the sorted list.
-This is `sortComparingInPlace` of `canonicalCompare`.
+This is `sortComparing` of `canonicalCompare`.
 
 Sort subsets canonically:
 
 ```
 >>> let x = [1 2 3].powerSet;
->>> x.canonicalSort;
+>>> x.canonicalSort!;
 >>> x
 [; 1; 2; 3; 1 2; 1 3; 2 3; 1 2 3]
 ```
@@ -20,7 +21,7 @@ and then by the first element that differs:
 
 ```
 >>> [2 1 3; 2 1 2 3 4; 2 1 1 3]
->>> .canonicalSort
+>>> .canonicalSort!
 [2 1 3; 2 1 1 3; 2 1 2 3 4]
 ```
 
@@ -28,7 +29,7 @@ Empty lists are sorted before any other list:
 
 ```
 >>> [1 2 3; ; 2 1]
->>> .canonicalSort
+>>> .canonicalSort!
 [; 2 1; 1 2 3]
 ```
 
@@ -36,7 +37,7 @@ Sort list of strings:
 
 ```
 >>> ['a' 'c' 'bx' 'xa']
->>> .canonicalSort
+>>> .canonicalSort!
 ['a' 'c' 'bx' 'xa']
 ```
 
@@ -44,19 +45,19 @@ Sort matrix of strings:
 
 ```
 >>> ['c' 'a'; 'bx' 'xa']
->>> .canonicalSort
+>>> .canonicalSort!
 ['bx' 'xa'; 'c' 'a']
 ```
 
 Case rule:
 
 ```
->>> ['A' 'a' 'B' 'b'].canonicalSort
+>>> ['A' 'a' 'B' 'b'].canonicalSort!
 ['a' 'A' 'b' 'B']
 ```
 
 * * *
 
-See also: lexicographicSort, precedes, sort
+See also: lexicographicSort, naturalSort, precedes, sort
 
 Guides: Comparison Functions, Sort Functions

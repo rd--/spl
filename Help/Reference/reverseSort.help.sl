@@ -3,12 +3,12 @@
 - _reverseSort([x₁ x₂ …])_
 
 Answer the reverse sort of the sequence _x_.
-The sort and reverse are both in place.
+There are copying and in place forms.
 
 At a list of integers:
 
 ```
->>> [1 3 5 2 4].reverseSort
+>>> [1 3 5 2 4].reverseSortInPlace
 [5 4 3 2 1]
 
 >>> [1 3 5 2 4].sortInPlace.reverse
@@ -19,7 +19,7 @@ At a list of lists:
 
 ```
 >>> 1:9.integerDigits(2, 4)
->>> .reverseSort
+>>> .reverseSortInPlace
 [
 	1 0 0 1;
 	1 0 0 0;
@@ -33,13 +33,14 @@ At a list of lists:
 ]
 ```
 
-Operation is in place:
+When requested, operation is in place:
 
 ```
 >>> let x = [2 1 4 3];
->>> let y = x.reverseSort;
->>> (y, x == y)
-([4 3 2 1], true)
+>>> let y = x.reverseSortInPlace;
+>>> let z = x.reverseSort;
+>>> (y, x == y, z, x == z)
+([4 3 2 1], true, [4 3 2 1], false)
 ```
 
 * * *

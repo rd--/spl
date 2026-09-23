@@ -6,12 +6,12 @@ is a natural order structure of the Cartesian product of two or more ordered set
 
 ```
 >>> [2; 1 1]
->>> .lexicographicSort
+>>> .lexicographicSortInPlace
 [1 1; 2]
 
 >>> [1 .. 6].subsets { :x |
 >>> 	x.size = 3
->>> }.lexicographicSort
+>>> }.lexicographicSortInPlace
 [
 	1 2 3;
 	1 2 4;
@@ -332,7 +332,7 @@ Walsh functions in lexicographic order:
 ```
 >>> let m = (2 ^ 4).hadamardMatrix;
 >>> (1 - m.unitStep)
->>> .lexicographicSort
+>>> .lexicographicSortInPlace
 [
 	0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
 	0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1;

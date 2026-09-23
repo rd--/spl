@@ -2,7 +2,8 @@
 
 - _lexicographicSort([x₁ x₂ …])_
 
-Sorts a list _xₙ_ into lexicographic order in place.
+Sorts a list _xₙ_ into lexicographic order.
+There is are copying and in place forms.
 Answer the sorted list.
 This is `sort` of `precedes`.
 
@@ -10,7 +11,7 @@ Sort subsets lexicographically:
 
 ```
 >>> let x = [1 2 3].powerSet;
->>> x.lexicographicSort;
+>>> x.lexicographicSort!;
 >>> x
 [; 1; 1 2; 1 2 3; 1 3; 2; 2 3; 3]
 ```
@@ -19,7 +20,7 @@ Order is determined by the first element that differs, regardless of expression 
 
 ```
 >>> [2 1 3; 2 1 2 3 4; 2 1 1 3]
->>> .lexicographicSort
+>>> .lexicographicSort!
 [2 1 1 3; 2 1 2 3 4; 2 1 3]
 ```
 
@@ -27,7 +28,7 @@ When all elements coincide up to the shortest length, shorter lists are ordered 
 
 ```
 >>> [1 2 3 4; 1; 1 2 3; 1 2]
->>> .lexicographicSort
+>>> .lexicographicSort!
 [1; 1 2; 1 2 3; 1 2 3 4]
 ```
 
@@ -35,7 +36,7 @@ Empty lists are sorted before any other list:
 
 ```
 >>> [1 2 3; ; 2 1]
->>> .lexicographicSort
+>>> .lexicographicSort!
 [; 1 2 3; 2 1]
 ```
 
@@ -43,11 +44,11 @@ Sort list of strings:
 
 ```
 >>> ['a' 'c' 'bx' 'xa']
->>> .lexicographicSort
+>>> .lexicographicSort!
 ['a' 'bx' 'c' 'xa']
 
 >>> ['A' 'a' 'b' 'B']
->>> .lexicographicSort
+>>> .lexicographicSort!
 ['a' 'A' 'b' 'B']
 ```
 
@@ -55,7 +56,7 @@ Sort matrix of strings:
 
 ```
 >>> ['c' 'a'; 'bx' 'xa']
->>> .lexicographicSort
+>>> .lexicographicSort!
 ['bx' 'xa'; 'c' 'a']
 ```
 
@@ -63,7 +64,7 @@ Sort binary combinations:
 
 ```
 >>> binaryCombinations(2, 3)
->>> .lexicographicSort
+>>> .lexicographicSort!
 [
 	0 0 1 1 1;
 	0 1 0 1 1;
@@ -98,7 +99,7 @@ Lexicographic sort of the integer partitions of six:
 ```
 >>> 6.integerPartitions
 >>> .padRight
->>> .lexicographicSort
+>>> .lexicographicSort!
 [
 	1 1 1 1 1 1;
 	2 1 1 1 1 0;
@@ -119,7 +120,7 @@ Walsh functions in lexicographic order:
 ~~~spl svg=A
 let m = (2 ^ 4).hadamardMatrix;
 (1 - m.unitStep)
-.lexicographicSort
+.lexicographicSort!
 .matrixPlot
 ~~~
 
@@ -135,7 +136,7 @@ minus one:
 2:11.collect { :n |
 	n.integerPartitions([2]).collect { :p |
 		p.permutations.nub
-	}.catenate.lexicographicSort - 1
+	}.catenate.lexicographicSort! - 1
 }.catenate.catenate.discretePlot
 ~~~
 

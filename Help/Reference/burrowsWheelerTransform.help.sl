@@ -28,7 +28,7 @@ The inverse is give by `inverseBurrowWheelerTransform`:
 
 * * *
 
-See also: lexicographicSort, rotateLeft
+See also: lexicographicSortInPlace, rotateLeft
 
 References:
 _W_

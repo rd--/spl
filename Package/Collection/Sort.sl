@@ -99,6 +99,10 @@
 +@Sequence {
 
 	canonicalSort { :self |
+		self.copy.canonicalSortInPlace
+	}
+
+	canonicalSortInPlace { :self |
 		self.sortComparingInPlace(
 			canonicalCompare/2
 		)
@@ -221,6 +225,10 @@
 	}
 
 	reverseSort { :self |
+		self.copy.reverseSortInPlace
+	}
+
+	reverseSortInPlace { :self |
 		self.sortByInPlace(succeeds/2)
 	}
 
@@ -249,7 +257,7 @@
 		)
 	}
 
-	sortComparingEach { :self :blockList |
+	sortComparingEachInPlace { :self :blockList |
 		let n = blockList.size;
 		self.sortComparingInPlace { :a :b |
 			let answer = 0;
@@ -346,6 +354,10 @@
 +List {
 
 	colexicographicSort { :self |
+		self.copy.colexicographicSortInPlace
+	}
+
+	colexicographicSortInPlace { :self |
 		self.sortComparingInPlace(
 			colexicographicCompare/2
 		)
@@ -354,7 +366,7 @@
 	gradedColexicographicSort { :self |
 		self
 		.collect(reverseSort/1)
-		.sortComparingEach(
+		.sortComparingEachInPlace(
 			[
 				sum/1.compareOn,
 				size/1.compareOn,
@@ -366,7 +378,7 @@
 	gradedLexicographicSort { :self |
 		self
 		.collect(reverseSort/1)
-		.sortComparingEach(
+		.sortComparingEachInPlace(
 			[
 				sum/1.compareOn,
 				lexicographicCompare/2
@@ -377,7 +389,7 @@
 	gradedReflectedColexicographicSort { :self |
 		self
 		.collect(sort/1)
-		.sortComparingEach(
+		.sortComparingEachInPlace(
 			[
 				sum/1.compareOn,
 				size/1.compareOn,
@@ -389,7 +401,7 @@
 	gradedReflectedLexicographicSort { :self |
 		self
 		.collect(sort/1)
-		.sortComparingEach(
+		.sortComparingEachInPlace(
 			[
 				sum/1.compareOn,
 				colexicographicCompare/2
@@ -400,7 +412,7 @@
 	gradedReverseLexicographicSort { :self |
 		self
 		.collect(reverseSort/1)
-		.sortComparingEach(
+		.sortComparingEachInPlace(
 			[
 				sum/1.compareOn,
 				reverseLexicographicCompare/2
@@ -409,18 +421,30 @@
 	}
 
 	lexicographicSort { :self |
+		self.copy.lexicographicSortInPlace
+	}
+
+	lexicographicSortInPlace { :self |
 		self.sortComparingInPlace(
 			lexicographicCompare/2
 		)
 	}
 
 	localeSort { :self |
+		self.copy.localeSortInPlace
+	}
+
+	localeSortInPlace { :self |
 		self.sortComparingInPlace(
 			localeCompare/2
 		)
 	}
 
 	naturalSort { :self |
+		self.copy.naturalSortInPlace
+	}
+
+	naturalSortInPlace { :self |
 		self.sortComparingInPlace(
 			naturalCompare/2
 		)

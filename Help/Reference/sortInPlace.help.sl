@@ -5,26 +5,27 @@
 Sort the sequence _x_ in place using the comparator _f/2_.
 If the sort block is omitted or is `nil`, sort by `precedes`.
 Answers the sorted sequence.
+Ordinarily written using `InPlace Syntax`.
 
 At `List` of numbers:
 
 ```
 >>> let x = [3 2 1];
->>> (x.sortInPlace(<) == x, x)
+>>> (x.sort!(<) == x, x)
 (true, [1 2 3])
 
 >>> let x = [1 2 3];
->>> (x.sortInPlace(>) == x, x)
+>>> (x.sort!(>) == x, x)
 (true, [3 2 1])
 ```
 
 At `List` of `String`:
 
 ```
->>> ['d' 'b' 'c' 'a'].sortInPlace(<)
+>>> ['d' 'b' 'c' 'a'].sort!(<)
 ['a' 'b' 'c' 'd']
 
->>> ['cat' 'fish' 'catfish' 'Cat'].sortInPlace(<)
+>>> ['cat' 'fish' 'catfish' 'Cat'].sort!(<)
 ['cat' 'Cat' 'catfish' 'fish']
 ```
 
@@ -32,7 +33,7 @@ At `Range`:
 
 ```
 >>> let x = Range(9, 1, -2);
->>> (x == x.sortInPlace, x)
+>>> (x == x.sort!, x)
 (true, Range(1, 9, 2))
 ```
 
@@ -41,7 +42,7 @@ Sort subsets lexicographically:
 ```
 >>> ['a' 'b' 'c' 'd']
 >>> .subsets(true.constant)
->>> .sortInPlace(precedes/2)
+>>> .sort!(precedes/2)
 [
 	[],
 	['a'],
@@ -65,21 +66,21 @@ Sort subsets lexicographically:
 Sort integers by magnitude:
 
 ```
->>> [-11 10 2 1 -4].sortInPlace(<)
+>>> [-11 10 2 1 -4].sort!(<)
 [-11 -4 1 2 10]
 ```
 
 Sort by absolute value:
 
 ```
->>> [-11 10 2 1 -4].sortInPlace(<=, abs/1)
+>>> [-11 10 2 1 -4].sort!(<=, abs/1)
 [1 2 -4 10 -11]
 ```
 
 Sort strings by dictionary order:
 
 ```
->>> ['aa' 'abb' 'ba' 'b' 'aaa'].sortInPlace(<)
+>>> ['aa' 'abb' 'ba' 'b' 'aaa'].sort!(<)
 ['aa', 'aaa', 'abb', 'b', 'ba']
 ```
 
@@ -87,7 +88,7 @@ Sort strings by length:
 
 ```
 >>> ['aa' 'abb' 'ba' 'b' 'aaa']
->>> .sortInPlace(<=, size/1)
+>>> .sort!(<=, size/1)
 ['b' 'ba' 'aa' 'aaa' 'abb']
 ```
 
@@ -96,7 +97,7 @@ Sort the characters of a string:
 ```
 >>> 'eCaBdAbc'
 >>> .characters
->>> .sortInPlace(<)
+>>> .sort!(<)
 >>> .stringJoin
 'aAbBcCde'
 
@@ -130,7 +131,7 @@ Sort vectors by the Euclidean norm:
 ```
 >>> Sfc32(367814)
 >>> .randomInteger([-5 5], [10 3])
->>> .sortInPlace(<=, norm/1)
+>>> .sort!(<=, norm/1)
 [
 	 3  1 -1;
 	 2 -4  0;
@@ -148,7 +149,7 @@ Sort vectors by the Euclidean norm:
 Sort complex numbers by real part:
 
 ```
->>> [2J-3 0J1 3J-1 1J1].sortInPlace(<=, real/1)
+>>> [2J-3 0J1 3J-1 1J1].sort!(<=, real/1)
 [0J1 1J1 2J-3 3J-1]
 ```
 
@@ -166,7 +167,7 @@ Relation to `ordering`:
 With explicit `nil`:
 
 ```
->>> [3 1 5 3 7 5 9].sortInPlace(nil)
+>>> [3 1 5 3 7 5 9].sort!(nil)
 [1 3 3 5 5 7 9]
 ```
 
@@ -178,7 +179,7 @@ let m = 50;
 let r = [];
 0:n.collect { :x |
 	(x.sin * m).round
-}.sort { :a :b |
+}.sort! { :a :b |
 	r.add(a);
 	a > b
 };
@@ -189,9 +190,9 @@ r.downsample(4).scatterPlot
 
 * * *
 
-See also: isSorted, lexicographicSort, mergeSort, quickSort, ordering, sortByInPlace, sortByOnInPlace, sorted, sortOnInPlace
+See also: isSorted, lexicographicSort, mergeSort, quickSort, ordering, sortBy, sortByOn, sorted, sortOn
 
-Guides: Sort Functions, Statistics Functions
+Guides: InPlace Syntax, Sort Functions, Statistics Functions
 
 References:
 _Mathematica_
