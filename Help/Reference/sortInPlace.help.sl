@@ -185,7 +185,7 @@ let r = [];
 r.downsample(4).scatterPlot
 ~~~
 
-![](Help/Image/sort-A.svg)
+![](Help/Image/sortInPlace-A.svg)
 
 * * *
 

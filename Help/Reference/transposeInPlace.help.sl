@@ -7,7 +7,7 @@ Transpose the rows and columns of the matrix _m_ in place.
 At square `NumericArray`:
 
 ```
->>> let m = [3 3].iota.asNumericArray;
+>>> let m = [3 3].iota.NumericArray;
 >>> m.transposeInPlace;
 >>> m.normal
 [

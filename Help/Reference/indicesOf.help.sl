@@ -51,7 +51,7 @@ Indices of a sequence of items, _x_, in a sequence _y_:
 >>> [1 2 3].collect { :x |
 >>> 	y.indicesOf(x)
 >>> }
-[2; ; 2 4 5]
+[3; ; 2 4 5]
 ```
 
 Indices of `one` in a list of `boole`,

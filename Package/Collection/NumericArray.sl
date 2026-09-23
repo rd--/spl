@@ -199,10 +199,6 @@ NumericArray : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, 
 
 +[List, Range] {
 
-	asNumericArray { :self |
-		NumericArray(self, 'Float64')
-	}
-
 	NumericArray { :self :storageType |
 		let contents = storageType.caseOf(
 			[
@@ -214,7 +210,7 @@ NumericArray : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, 
 		NumericArray(contents, self.shape)
 	}
 
-	NumericArray { :self |
+	[NumericArray, asNumericArray] { :self |
 		NumericArray(self, 'Float64')
 	}
 

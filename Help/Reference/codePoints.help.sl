@@ -23,8 +23,12 @@ Find Ascii or Unicode character codes:
 ```
 >>> 'AaBbCcΑαΒβΓγ'.codePoints
 [
-	65 97 66 98 67 99
-	913 945 914 946 915 947
+	65 97
+	66 98
+	67 99
+	913 945
+	914 946
+	915 947
 ]
 ```
 

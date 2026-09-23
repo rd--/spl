@@ -71,7 +71,9 @@
 	}
 
 	sort { :self :sortBlock/2 |
-		self.copyList.sortBy(sortBlock/2)
+		self.copyList.sortBy(
+			sortBlock/2.ifNil { precedes/2 }
+		)
 	}
 
 	stemLeafPlot { :self |
@@ -222,14 +224,21 @@
 
 	sortInPlace { :self :sortBlock/2 :keyBlock/1 |
 		keyBlock/1.ifNil {
-			self.sortBy(sortBlock/2.ifNil { precedes/2 })
+			self.sortBy(
+				sortBlock/2.ifNil { precedes/2 }
+			)
 		} {
-			self.sortByOn(sortBlock/2.ifNil { precedes/2 }, keyBlock/1)
+			self.sortByOn(
+				sortBlock/2.ifNil { precedes/2 },
+				keyBlock/1
+			)
 		}
 	}
 
 	sortInPlace { :self :sortBlock/2 |
-		self.sortBy(sortBlock/2.ifNil { precedes/2 })
+		self.sortBy(
+			sortBlock/2.ifNil { precedes/2 }
+		)
 	}
 
 	sortInPlace { :self |
@@ -256,7 +265,7 @@
 	}
 
 	sort { :self :sortBlock/2 |
-		self.copyList.sortBy(sortBlock/2)
+		self.copyList.sortInPlace(sortBlock/2)
 	}
 
 	sort { :self |

@@ -39,7 +39,7 @@ The least negative small integer:
 >>> ([x, y].isSmallInteger, y - 1 = y)
 (
 	[true false],
-	true
+	false
 )
 ```
 

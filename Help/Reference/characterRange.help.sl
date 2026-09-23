@@ -91,11 +91,7 @@ At `Character`:
 >>> let a = Character'a';
 >>> let c = Character'c';
 >>> a.characterRange(c)
-[
-	Character('a', 97),
-	Character('b', 99),
-	Character('c', 99)
-]
+['a' 'b' 'c']
 ```
 
 * * *

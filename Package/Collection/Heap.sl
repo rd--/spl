@@ -83,7 +83,10 @@ Heap : [Object, Copyable, Equal, Iterable, Collection, Extensible] { | array sor
 			anObject.isHeap & {
 				anObject.size = self.size & {
 					anObject.sortBlock = self.sortBlock & {
-						self.array.sort(self.sortBlock).equalBy(anObject.array.sort(self.sortBlock), aBlock/2)
+						self.array.sort(self.sortBlock).equalBy(
+							anObject.array.sort(self.sortBlock),
+							aBlock/2
+						)
 					}
 				}
 			}
