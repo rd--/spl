@@ -4,7 +4,7 @@
 
 Sorts a list _xₙ_ into colexicographic order in place.
 Answer the sorted list.
-This is `sortComparing` of `colexicographicCompare`.
+This is `sortComparingInPlace` of `colexicographicCompare`.
 
 Sort subsets colexicographically:
 

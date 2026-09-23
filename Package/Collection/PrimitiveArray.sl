@@ -109,8 +109,10 @@
 		>
 	}
 
-	sortComparing { :self :compareBlock/2 |
-		self.uncheckedSortComparingInPlace(compareBlock/2)
+	sortComparingInPlace { :self :compareBlock/2 |
+		self.uncheckedSortComparingInPlace(
+			typeCheckedCompareBlock(compareBlock/2)
+		)
 	}
 
 	sortedBy { :self :sortBlock/2 |

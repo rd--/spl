@@ -99,7 +99,9 @@
 +@Sequence {
 
 	canonicalSort { :self |
-		self.sortComparing(canonicalCompare/2)
+		self.sortComparingInPlace(
+			canonicalCompare/2
+		)
 	}
 
 	indicesSorted { :self |
@@ -242,12 +244,14 @@
 	}
 
 	sortInPlace { :self |
-		self.sortComparing(compare/2)
+		self.sortComparingInPlace(
+			compare/2
+		)
 	}
 
 	sortComparingEach { :self :blockList |
 		let n = blockList.size;
-		self.sortComparing { :a :b |
+		self.sortComparingInPlace { :a :b |
 			let answer = 0;
 			let index = 1;
 			{ answer = 0 & { index <= n } }.whileTrue {
@@ -258,6 +262,10 @@
 			};
 			answer
 		}
+	}
+
+	sortOn { :self :keyBlock/1 |
+		self.copy.sortOnInPlace(keyBlock/1)
 	}
 
 	sortOnInPlace { :self :keyBlock/1 |
@@ -338,7 +346,9 @@
 +List {
 
 	colexicographicSort { :self |
-		self.sortComparing(colexicographicCompare/2)
+		self.sortComparingInPlace(
+			colexicographicCompare/2
+		)
 	}
 
 	gradedColexicographicSort { :self |
@@ -399,15 +409,21 @@
 	}
 
 	lexicographicSort { :self |
-		self.sortComparing(lexicographicCompare/2)
+		self.sortComparingInPlace(
+			lexicographicCompare/2
+		)
 	}
 
 	localeSort { :self |
-		self.sortComparing(localeCompare/2)
+		self.sortComparingInPlace(
+			localeCompare/2
+		)
 	}
 
 	naturalSort { :self |
-		self.sortComparing(naturalCompare/2)
+		self.sortComparingInPlace(
+			naturalCompare/2
+		)
 	}
 
 	reflectedColexicographicSort { :self |
@@ -419,11 +435,15 @@
 	}
 
 	reverseColexicographicSort { :self |
-		self.sortComparing(reverseColexicographicCompare/2)
+		self.sortComparingInPlace(
+			reverseColexicographicCompare/2
+		)
 	}
 
 	reverseLexicographicSort { :self |
-		self.sortComparing(reverseLexicographicCompare/2)
+		self.sortComparingInPlace(
+			reverseLexicographicCompare/2
+		)
 	}
 
 	reverseReflectedColexicographicSort { :self |

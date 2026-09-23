@@ -4,7 +4,7 @@
 
 Sorts a list _xₙ_ into reverse lexicographic order in place.
 Answer the sorted list.
-This is `sortComparing` of `reverseLexicographicCompare`.
+This is `sortComparingInPlace` of `reverseLexicographicCompare`.
 
 Sort subsets reverse lexicographically:
 

@@ -29,7 +29,7 @@ sort a `List`:
 >>> 	'communiqué'
 >>> 	'café'
 >>> 	'Adieu'
->>> ].sortComparing(
+>>> ].sortComparingInPlace(
 >>> 	'fr'.localeCompare
 >>> )
 [

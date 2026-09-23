@@ -38,9 +38,21 @@ A list with equal elements:
 [0 -> 1, 2 -> 2, 2 -> 4, 3 -> 3]
 ```
 
+The argument is not mutated:
+
+```
+>>> let x = [0 2 3 2];
+>>> let y = x.sortWithIndices;
+>>> (x, y)
+(
+	[0 2 3 2],
+	[0 -> 1, 2 -> 2, 2 -> 4, 3 -> 3]
+)
+```
+
 * * *
 
-See also: sorted
+See also: sort, sortInPlace
 
 Guides: Sort Functions
 

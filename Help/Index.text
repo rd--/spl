@@ -3877,6 +3877,7 @@ Reference/somosSequence.help.sl
 Reference/sortBlock.help.sl
 Reference/sortByInPlace.help.sl
 Reference/sortByOnInPlace.help.sl
+Reference/sortComparingInPlace.help.sl
 Reference/sortedCounts.help.sl
 Reference/sortedElements.help.sl
 Reference/SortedList.help.sl

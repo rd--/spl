@@ -31,6 +31,13 @@ In place sort:
 ([1 2 3 4 5], true)
 ```
 
+In place sort on:
+
+```
+>>> [1 2 3; 4 5; 6].sortOn!(size/1)
+[6; 4 5; 1 2 3]
+```
+
 In place reverse:
 
 ```
@@ -41,4 +48,4 @@ In place reverse:
 
 * * *
 
-See also: reverse, reverseInPlace, sort, sortInPlace
+See also: reverse, reverseInPlace, sort, sortInPlace, sortOnInPlace

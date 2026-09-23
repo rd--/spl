@@ -4,7 +4,7 @@
 
 Sorts a list _xₙ_ into canonical order in place.
 Answer the sorted list.
-This is `sortComparing` of `canonicalCompare`.
+This is `sortComparingInPlace` of `canonicalCompare`.
 
 Sort subsets canonically:
 
