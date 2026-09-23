@@ -2900,6 +2900,7 @@ Reference/NaN.help.sl
 Reference/narayanaNumber.help.sl
 Reference/narayanaSequence.help.sl
 Reference/naturalCompare.help.sl
+Reference/naturalSort.help.sl
 Reference/Navigator.help.sl
 Reference/ncsColourCatalogue.help.sl
 Reference/NcsColour.help.sl
@@ -3875,9 +3876,9 @@ Reference/solidus.help.sl
 Reference/solidusSolidus.help.sl
 Reference/somosSequence.help.sl
 Reference/sortBlock.help.sl
-Reference/sortByInPlace.help.sl
-Reference/sortByOnInPlace.help.sl
-Reference/sortComparingInPlace.help.sl
+Reference/sortBy.help.sl
+Reference/sortByOn.help.sl
+Reference/sortComparing.help.sl
 Reference/sortedCounts.help.sl
 Reference/sortedElements.help.sl
 Reference/SortedList.help.sl
@@ -3885,7 +3886,7 @@ Reference/SortedSet.help.sl
 Reference/sort.help.sl
 Reference/sortingNumber.help.sl
 Reference/sortInPlace.help.sl
-Reference/sortOnInPlace.help.sl
+Reference/sortOn.help.sl
 Reference/sortTracingComparisons.help.sl
 Reference/sortTracingState.help.sl
 Reference/sortWithIndices.help.sl

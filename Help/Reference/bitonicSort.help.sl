@@ -2,27 +2,28 @@
 
 - _bitonicSort([x₁ x₂ …], f/2)_
 
-Sort the sequence _x_ in place using the bitonic sort algorithm,
+Sort the sequence _x_ using the bitonic sort algorithm,
 according to the comparison predicate _f_.
+There are both copying and in-place versions.
 The sequence must be a permutation list.
 
 Sort list:
 
 ```
 >>> [1 3 5 2 4 7 8 6]
->>> .bitonicSort
+>>> .bitonicSort!
 [1 2 3 4 5 6 7 8]
 
 >>> [1 3 5 2 4 7 8 6]
->>> .bitonicSort(>)
+>>> .bitonicSort!(>)
 [8 7 6 5 4 3 2 1]
 ```
 
-Sort is in place:
+Sort is in place if requested:
 
 ```
 >>> let s = [1 3 5 2 4 7 8 6];
->>> let t = s.bitonicSort;
+>>> let t = s.bitonicSort!;
 >>> (t, t == s)
 ([1 2 3 4 5 6 7 8], true)
 ```
@@ -36,7 +37,7 @@ let k = 4;
 let r = [];
 (0 .. n - 1).collect { :x |
 	(x.sin * m).round
-}.bitonicSort { :a :b |
+}.bitonicSort! { :a :b |
 	r.add(a);
 	a > b
 };

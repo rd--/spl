@@ -763,11 +763,19 @@
 	}
 
 	bitonicSort { :self :sortBlock/2 |
-		self.bitonicSortWithMonitor(sortBlock/2, nil.constant)
+		self.copy.bitonicSortInPlace(sortBlock/2)
 	}
 
 	bitonicSort { :self |
-		self.bitonicSort(less/2)
+		self.copy.bitonicSortInPlace
+	}
+
+	bitonicSortInPlace { :self :sortBlock/2 |
+		self.bitonicSortWithMonitor(sortBlock/2, nil.constant)
+	}
+
+	bitonicSortInPlace { :self |
+		self.bitonicSortInPlace(less/2)
 	}
 
 	bitonicSortMatrix { :self |

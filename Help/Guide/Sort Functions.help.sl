@@ -9,7 +9,7 @@ Comparison Operators:
 
 Sort:
 
-- `bitonicSort`
+- `bitonicSort`, `bitonicSortInPlace`
 - `bubbleSort`
 - `combSort`
 - `countingSort`
@@ -23,27 +23,26 @@ Sort:
 - `mergeSort`
 - `oddEvenSort`
 - `patienceSort`
-- `quickSortFromToBy`
 - `quickSortBy`
+- `quickSortFromToBy`
 - `quickSort`
 - `radixSort`
 - `selectionSort`
 - `shellSort`
 - `shuffleSort`
-- `sortByInPlace`
-- `sortByOnInPlace`
-- `sortOn`
-- `sortInPlace`
-- `sort`
+- `sortByOn`, `sortByOnInPlace`
+- `sortBy`, `sortByInPlace`
+- `sortOn`, `sortOnInPlace`
 - `sortWithIndices`
+- `sort`, `sortInPlace`
 
 Kinds of Sorts:
 
 - `colexicographicSort`
 - `farthestFirstTraversal`
 - `lexicographicSort`, `lexicographicSortInPlace`
-- `localeSort`
-- `naturalSort`
+- `localeSort`, `localeSortInPlace`
+- `naturalSort`, `naturalSortInPlace`
 - `reverseColexicographicSort`
 - `reverseLexicographicSort`
 - `reverseSort`
