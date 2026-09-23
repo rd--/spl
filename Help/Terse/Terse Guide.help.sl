@@ -539,8 +539,8 @@ let a = [1 1 3 4]; a @* [2 4 3 1] = [1 4 3 1] /* atAll operator */
 ## PrimitiveArray -- collection trait
 ```
 system.includesPackage('PrimitiveArray') /* package */
-let a = [1, 7, 3, 9, 5]; let b = a.sortBy { :p :q | p >= q }; a = [9, 7 .. 1] & { a == b } /* sort using provided comparison, in place */
-[1, 7, 3, 9, 5].sortBy { :p :q | p >= q } = [9, 7 .. 1] /* sort using provided comparison, in place answering array */
+let a = [1, 7, 3, 9, 5]; let b = a.sortByInPlace { :p :q | p >= q }; a = [9, 7 .. 1] & { a == b } /* sort using provided comparison, in place */
+[1, 7, 3, 9, 5].sortByInPlace { :p :q | p >= q } = [9, 7 .. 1] /* sort using provided comparison, in place answering array */
 [1, 7, 3, 9, 5].sortInPlace = [1, 3 .. 9] /* sort using default comparison of <= */
 let a = [(x: 1, y: 9), (x: 9, y: 1)]; let b = a.sortOn { :each | each['y'] }; a = [(x: 9, y: 1), (x: 1, y: 9)] & { b == a } /* sort using provided key block */
 ```

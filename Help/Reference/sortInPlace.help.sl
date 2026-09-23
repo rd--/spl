@@ -189,7 +189,7 @@ r.downsample(4).scatterPlot
 
 * * *
 
-See also: isSorted, lexicographicSort, mergeSort, quickSort, ordering, sortBy, sortByOn, sorted, sortOn
+See also: isSorted, lexicographicSort, mergeSort, quickSort, ordering, sortByInPlace, sortByOn, sorted, sortOn
 
 Guides: Sort Functions, Statistics Functions
 

@@ -874,7 +874,7 @@
 			}
 		};
 		f(b, a.size);
-		answer.sortBy(precedes/2)
+		answer.sortByInPlace(precedes/2)
 	}
 
 	isLatticeWord { :self :alphabet |

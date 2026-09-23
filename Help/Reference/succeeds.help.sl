@@ -66,7 +66,7 @@ Sort power-set reverse lexicographically:
 ```
 >>> ['a' 'b' 'c' 'd']
 >>> .powerSet
->>> .sortBy(succeeds/2)
+>>> .sortByInPlace(succeeds/2)
 >>> .collect(stringJoin/1)
 [
 	'd'

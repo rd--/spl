@@ -1,6 +1,6 @@
 # isSorted
 
-- _isSorted([x₁ x₂ …])_
+- _isSorted([x₁ x₂ …], f/2)_
 
 Answers `true` if the sequence _x_ is sorted by `<=`, else `false`.
 
@@ -72,6 +72,13 @@ Find tuples that are in order:
 	1 2 3 3; 1 3 3 3; 2 2 2 2; 2 2 2 3;
 	2 2 3 3; 2 3 3 3; 3 3 3 3
 ]
+```
+
+Supply sort block:
+
+```
+>>> [9 7 5 3 1].isSorted(>)
+true
 ```
 
 Indices of sorted tuples:

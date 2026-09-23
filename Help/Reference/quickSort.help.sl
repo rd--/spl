@@ -79,9 +79,9 @@ let x = r.randomReal([0 1], [n]);
 	[
 		quickSort/2
 		mergeSort/2
-	].collect { :sort/2 |
+	].collect { :f/2 |
 		let m = 0;
-		sort(x.take(k)) { :a :b |
+		f(x.take(k)) { :a :b |
 			m := m + 1;
 			a < b
 		};

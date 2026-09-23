@@ -41,7 +41,7 @@ Sort by `codePoint`:
 
 * * *
 
-See also: sort, sortBy
+See also: sort, sortInPlace, sortByInPlace
 
 Guides: Sort Functions
 

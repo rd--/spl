@@ -23,7 +23,7 @@ At `List`, sort into ascending order:
 
 * * *
 
-See also: mergeSort, sort, sortBy, sortByOn, sorted, sortOn
+See also: mergeSort, sort, sortInPlace, sortByInPlace, sortByOn, sortOn
 
 Guides: List Functions, Sort Functions
 

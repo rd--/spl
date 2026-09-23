@@ -18,7 +18,7 @@ SortedList : [Object, Store, Copyable, Equal, Compare, Iterable, Indexable, Coll
 	addAll { :self :aCollection |
 		(aCollection.size > (self.contents.size // 3)).if {
 			self.contents.addAll(aCollection);
-			self.contents.sortBy(self.sortBlock)
+			self.contents.sortByInPlace(self.sortBlock)
 		} {
 			aCollection.do { :each |
 				self.add(each)
@@ -174,7 +174,7 @@ SortedList : [Object, Store, Copyable, Equal, Compare, Iterable, Indexable, Coll
 
 	SortedList { :self :sortBlock/2 |
 		newSortedList().initializeSlots(
-			self.copy.sortBy(sortBlock/2),
+			self.copy.sortByInPlace(sortBlock/2),
 			sortBlock/2
 		)
 	}

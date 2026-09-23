@@ -71,7 +71,7 @@
 	}
 
 	sort { :self :sortBlock/2 |
-		self.copyList.sortBy(
+		self.copyList.sortByInPlace(
 			sortBlock/2.ifNil { precedes/2 }
 		)
 	}
@@ -120,7 +120,7 @@
 		self.isSortedByBetweenAnd(<=|, startIndex, endIndex)
 	}
 
-	isSortedBy { :self :aBlock/2 |
+	[isSorted, isSortedBy] { :self :aBlock/2 |
 		self.isSortedByBetweenAnd(aBlock/2, 1, self.size)
 	}
 
@@ -219,12 +219,12 @@
 	}
 
 	reverseSort { :self |
-		self.sortBy(succeeds/2)
+		self.sortByInPlace(succeeds/2)
 	}
 
 	sortInPlace { :self :sortBlock/2 :keyBlock/1 |
 		keyBlock/1.ifNil {
-			self.sortBy(
+			self.sortByInPlace(
 				sortBlock/2.ifNil { precedes/2 }
 			)
 		} {
@@ -236,7 +236,7 @@
 	}
 
 	sortInPlace { :self :sortBlock/2 |
-		self.sortBy(
+		self.sortByInPlace(
 			sortBlock/2.ifNil { precedes/2 }
 		)
 	}

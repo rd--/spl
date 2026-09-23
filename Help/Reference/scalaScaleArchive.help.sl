@@ -131,7 +131,7 @@ then select only the lexicographically least rotations of each answer:
 >>> 	.intervals
 >>> 	.lexicographicallyLeastRotation
 >>> }.nub
->>> .sortBy(precedes/2)
+>>> .sortByInPlace(precedes/2)
 [
 	1 1 2 1 2;
 	1 2 1 2 2;

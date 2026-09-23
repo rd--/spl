@@ -110,7 +110,7 @@ RunArray : [Object, Equal, Store, Indexable] { | runs values cachedIndex cachedR
 		self.values.isSorted
 	}
 
-	isSortedBy { :self :aBlock/2 |
+	[isSorted, isSortedBy] { :self :aBlock/2 |
 		self.values.isSortedBy(aBlock/2)
 	}
 

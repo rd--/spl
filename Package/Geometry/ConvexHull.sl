@@ -9,7 +9,7 @@
 				a := a + 2.pi
 			};
 			[each, a, d, i]
-		}.sortBy { :u :v |
+		}.sortByInPlace { :u :v |
 			(u[2] = v[2]).if {
 				u[3] < v[3]
 			} {

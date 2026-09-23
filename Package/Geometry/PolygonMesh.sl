@@ -26,7 +26,7 @@
 					[
 						each.at(i),
 						each.atWrap(i + 1)
-					].sortBy(lessEqual/2)
+					].sortByInPlace(lessEqual/2)
 				)
 			}
 		};
@@ -72,7 +72,7 @@ PolygonMesh : [Object, Store, Equal, Geometry, PolygonMesh] { | vertexCoordinate
 
 	canonicalForm { :self |
 		let v = self.vertexCoordinates;
-		let w = v.nub.sortBy(precedes/2);
+		let w = v.nub.sortByInPlace(precedes/2);
 		PolygonMesh(
 			w,
 			self.faceIndices.collect { :each |
@@ -81,7 +81,7 @@ PolygonMesh : [Object, Store, Equal, Geometry, PolygonMesh] { | vertexCoordinate
 				}.lexicographicallyLeastRotation.deleteAdjacentDuplicates
 			}.reject { :each |
 				each.size <= 2
-			}.nub.sortBy(lessEqual/2)
+			}.nub.sortByInPlace(lessEqual/2)
 		)
 	}
 

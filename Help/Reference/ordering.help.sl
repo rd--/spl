@@ -110,7 +110,7 @@ At `List` of `Character`:
 
 * * *
 
-See also: max, min, sort, sortBy
+See also: max, min, sort, sortInPlace, sortByInPlace
 
 Guides: Permutation Functions, Sort Functions, Statistics Functions
 

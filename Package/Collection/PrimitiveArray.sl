@@ -95,7 +95,7 @@
 		<primitive: return _self.length;>
 	}
 
-	sortBy { :self :sortBlock/2 |
+	sortByInPlace { :self :sortBlock/2 |
 		self.uncheckedSortComparingInPlace(
 			sortBlockToTypeCheckedCompareBlock(sortBlock/2)
 		)

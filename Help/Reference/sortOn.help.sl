@@ -32,7 +32,7 @@ Sort according to `negate` value of each item:
 
 * * *
 
-See also: sort, sortBy, sortByOn
+See also: sort, sortByInPlace, sortByOn
 
 Guides: Sort Functions
 

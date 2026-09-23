@@ -1194,7 +1194,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'shuffledBy'
 	],
 	'sorting': [
-		'sortBy'
+		'sortByInPlace'
 		'sorted'
 		'sort'
 		'withKeysSorted'

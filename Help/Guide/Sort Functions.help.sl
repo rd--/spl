@@ -30,7 +30,7 @@ Sort:
 - `selectionSort`
 - `shellSort`
 - `shuffleSort`
-- `sortBy`
+- `sortByInPlace`
 - `sortByOn`
 - `sortOn`
 - `sortInPlace`

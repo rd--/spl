@@ -159,7 +159,7 @@
 	}
 
 	sortedCounts { :self :aBlock/2|
-		self.contents.associationsSwapped.sortBy(aBlock/2)
+		self.contents.associationsSwapped.sortByInPlace(aBlock/2)
 	}
 
 	sortedCounts { :self |

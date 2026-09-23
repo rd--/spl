@@ -47,7 +47,7 @@ Count odd and even numbers in a list:
 
 * * *
 
-See also: commonest, counts, mean, median, sort, sortBy, union
+See also: commonest, counts, mean, median, sort, sortInPlace, sortByInPlace, union
 
 Guides: List Functions
 

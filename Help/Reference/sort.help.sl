@@ -37,7 +37,7 @@ true
 
 * * *
 
-See also: ordering, sort, sortBy, sortByOn, sortOn
+See also: ordering, sortInPlace, sortByInPlace, sortByOn, sortOn
 
 Guides: Sort Functions
 
