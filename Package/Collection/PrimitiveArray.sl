@@ -101,7 +101,7 @@
 		)
 	}
 
-	sortByOn { :self :sortBlock/2 :keyBlock/1 |
+	sortByOnInPlace { :self :sortBlock/2 :keyBlock/1 |
 		<primitive:
 		return _self.sort(function(p, q) {
 			return _sortBlock_2(_keyBlock_1(p), _keyBlock_1(q)) ? -1 : 1

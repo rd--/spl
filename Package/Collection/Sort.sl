@@ -228,7 +228,7 @@
 				sortBlock/2.ifNil { precedes/2 }
 			)
 		} {
-			self.sortByOn(
+			self.sortByOnInPlace(
 				sortBlock/2.ifNil { precedes/2 },
 				keyBlock/1
 			)
@@ -261,7 +261,7 @@
 	}
 
 	sortOnInPlace { :self :keyBlock/1 |
-		self.sortByOn(precedes/2, keyBlock/1)
+		self.sortByOnInPlace(precedes/2, keyBlock/1)
 	}
 
 	sort { :self :sortBlock/2 |

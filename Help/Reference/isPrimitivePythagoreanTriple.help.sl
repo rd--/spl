@@ -20,7 +20,7 @@ sorted by _c_:
 >>> 		}
 >>> 	}
 >>> };
->>> t.sortByOn(<=, last/1)
+>>> t.sortByOnInPlace(<=, last/1)
 [
 	 3  4  5;
 	 5 12 13;

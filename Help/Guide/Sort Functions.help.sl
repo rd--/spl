@@ -31,7 +31,7 @@ Sort:
 - `shellSort`
 - `shuffleSort`
 - `sortByInPlace`
-- `sortByOn`
+- `sortByOnInPlace`
 - `sortOn`
 - `sortInPlace`
 - `sort`

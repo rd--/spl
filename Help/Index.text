@@ -110,6 +110,7 @@ Guide/Implicit Self.help.sl
 Guide/Indentation Rules.help.sl
 Guide/Indexable Syntax.help.sl
 Guide/Indexing Functions.help.sl
+Guide/InPlace Syntax.help.sl
 Guide/Integer Arithmetic.help.sl
 Guide/Integer Functions.help.sl
 Guide/Integer Sequence Functions.help.sl
@@ -3875,7 +3876,7 @@ Reference/solidusSolidus.help.sl
 Reference/somosSequence.help.sl
 Reference/sortBlock.help.sl
 Reference/sortByInPlace.help.sl
-Reference/sortByOn.help.sl
+Reference/sortByOnInPlace.help.sl
 Reference/sortedCounts.help.sl
 Reference/sortedElements.help.sl
 Reference/SortedList.help.sl
@@ -3883,7 +3884,7 @@ Reference/SortedSet.help.sl
 Reference/sort.help.sl
 Reference/sortingNumber.help.sl
 Reference/sortInPlace.help.sl
-Reference/sortOn.help.sl
+Reference/sortOnInPlace.help.sl
 Reference/sortTracingComparisons.help.sl
 Reference/sortTracingState.help.sl
 Reference/sortWithIndices.help.sl

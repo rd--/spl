@@ -667,7 +667,8 @@
 ## Sorting
 
 - `sort`, `sortInPlace`
-- `sortByInPlace`, `sortByOn`, `sortOn`
+- `sortByInPlace`, `sortByOnInPlace`, `sortOnInPlace`
+- `sortComparing`
 - `sortWithIndices`
 - `mergeSort`, `mergeSortBy`, `mergeSortByFromTo`
 - `quickSort`, `quickSortBy`, `quickSortByFromTo`

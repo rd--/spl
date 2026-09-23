@@ -167,7 +167,7 @@
 	}
 
 	sortedElements { :self |
-		self.contents.associations.sortByOn(precedesOrEqualTo/2, key/1)
+		self.contents.associations.sortByOnInPlace(precedesOrEqualTo/2, key/1)
 	}
 
 	sum { :self |
@@ -187,7 +187,7 @@
 	}
 
 	valueSort { :self |
-		self.associations.sortByOn(precedesOrEqualTo/2, value/1)
+		self.associations.sortByOnInPlace(precedesOrEqualTo/2, value/1)
 	}
 
 }
