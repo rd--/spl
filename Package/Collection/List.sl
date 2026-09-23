@@ -137,7 +137,7 @@ List! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Collection, E
 	}
 
 	keySort { :self |
-		self.sortOn(key/1)
+		self.sortOnInPlace(key/1)
 	}
 
 	printString { :self :toString/1 |
@@ -275,7 +275,7 @@ List! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Collection, E
 	}
 
 	valueSort { :self |
-		self.sortOn(value/1)
+		self.sortOnInPlace(value/1)
 	}
 
 	windowedReduce { :self :windowSize :aBlock/2 |

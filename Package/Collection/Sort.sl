@@ -260,7 +260,7 @@
 		}
 	}
 
-	sortOn { :self :keyBlock/1 |
+	sortOnInPlace { :self :keyBlock/1 |
 		self.sortByOn(precedes/2, keyBlock/1)
 	}
 

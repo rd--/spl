@@ -578,7 +578,7 @@ HelpFile : [Object, Equal, Cache] { | origin source cache |
 			isImageProgram/1.predicateAnd(
 				isOeisProgram/1
 			)
-		).sortOn(
+		).sortOnInPlace(
 			oeisIdentifier/1
 		).collect { :p |
 			p.markdownText(options)

@@ -21,13 +21,13 @@ The characters are listed sorted by name, not code point:
 
 ```
 >>> let c = system.splOperatorCharacters;
->>> c.copy.sortOn(
+>>> c.copy.sortOnInPlace(
 >>> 	splOperatorTokenName/1
 >>> ) = c
 true
 
 >>> let c = system.splOperatorCharacters;
->>> c.copy.sortOn(codePoint/1) = c
+>>> c.copy.sortOnInPlace(codePoint/1) = c
 false
 ```
 

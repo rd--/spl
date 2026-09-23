@@ -107,7 +107,7 @@ OEIS [A294648](https://oeis.org/A294648):
 ~~~spl svg=G oeis=A294648
 1:7.collect { :n |
 	let m = 2 ^ n - 1;
-	[0 .. m].sortOn(hammingWeight/1)
+	[0 .. m].sortOnInPlace(hammingWeight/1)
 }.catenate.scatterPlot
 ~~~
 
@@ -117,7 +117,7 @@ Plot only the sixth row of the table:
 
 ~~~spl svg=H
 [0 .. 2 ^ 6 - 1]
-.sortOn(hammingWeight/1)
+.sortOnInPlace(hammingWeight/1)
 .stepPlot
 ~~~
 
@@ -145,7 +145,7 @@ OEIS [A262881](https://oeis.org/A262881):
 
 ~~~spl svg=J oeis=A262881
 1:21.collect { :n |
-	[0 .. n].sortOn(hammingWeight/1)
+	[0 .. n].sortOnInPlace(hammingWeight/1)
 }.catenate.scatterPlot
 ~~~
 

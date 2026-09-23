@@ -111,7 +111,7 @@ GrayCode : [Object, Equal] { | sequence alphabet |
 				let k = (m - 1) // 2;
 				let d = 2.to(m).collect { :i |
 					self[i] - self[i - 1]
-				}.sortOn(min/1).allButLast;
+				}.sortOnInPlace(min/1).allButLast;
 				d.first(k).abs = d.last(k)
 			}
 		}

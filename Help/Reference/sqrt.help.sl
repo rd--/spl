@@ -256,7 +256,7 @@ when _n/d_ is the ratio of frequencies of the two tones (Yunik 1980):
 >>> 		->
 >>> 		(n * d).sqrt./
 >>> 	}
->>> }.catenate.sortOn(value/1).reverse
+>>> }.catenate.sortOnInPlace(value/1).reverse
 >>> .first(50)
 [
 	  2/1 -> 0.707107,

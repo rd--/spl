@@ -29,6 +29,6 @@ Compare to `min`, which answers the least value in each column:
 
 * * *
 
-See also: <, max, min, minOn, minimalBy, reduce, sortByInPlace, sortOn
+See also: <, max, min, minOn, minimalBy, reduce, sortByInPlace, sortOnInPlace
 
 Guides: Sort Functions

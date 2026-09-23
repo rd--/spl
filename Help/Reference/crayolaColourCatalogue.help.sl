@@ -52,7 +52,7 @@ system
 .crayolaColourCatalogue
 .values
 .collect(asColour/1)
-.sortOn(relativeLuminance/1)
+.sortOnInPlace(relativeLuminance/1)
 .arrayReshape([11 15], nil)
 .arrayPlot
 ~~~

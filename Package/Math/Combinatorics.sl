@@ -672,7 +672,7 @@
 +List {
 
 	canonicalSetPartition { :self |
-		self.collect(sort/1).sortOn(first/1)
+		self.collect(sort/1).sortOnInPlace(first/1)
 	}
 
 	isIntegerPartition { :self :n |

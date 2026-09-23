@@ -1532,7 +1532,7 @@
 			[i + (j * theta), i]
 		}.table(1.to(p), 1.to(q))
 		.catenate
-		.sortOn(first/1)
+		.sortOnInPlace(first/1)
 		.collect(second/1)
 		.take(n)
 	}
@@ -1546,7 +1546,7 @@
 				[i, i + (j * theta)]
 			}.table(1.to(m), 1.to(m))
 			.catenate
-			.sortOn(second/1)
+			.sortOnInPlace(second/1)
 			.collect(first/1)
 			.take(n);
 			s != z

@@ -331,7 +331,7 @@
 	}
 
 	keySort { :self |
-		self.associations.sortOn(key/1)
+		self.associations.sortOnInPlace(key/1)
 	}
 
 	keyType { :self |
@@ -484,7 +484,7 @@
 	}
 
 	valueSort { :self |
-		self.associations.sortOn(value/1)
+		self.associations.sortOnInPlace(value/1)
 	}
 
 	valueType { :self |

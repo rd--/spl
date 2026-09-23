@@ -282,7 +282,7 @@
 				->
 				(n * d).sqrt./
 			}
-		}.catenate.sortOn(value/1).reverse.first(operand)
+		}.catenate.sortOnInPlace(value/1).reverse.first(operand)
 	}
 
 	yunikSwiftScaleMerit { :k |
