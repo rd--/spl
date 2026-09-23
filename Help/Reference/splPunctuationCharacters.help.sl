@@ -24,11 +24,11 @@ Answer the list of Sᴘʟ punctuation characters.
 
 The `splOperatorCharacters` are a subset of the `splPunctuationCharacters`.
 
-The characters are listed sorted by their code point:
+The characters are not listed sorted by their code point:
 
 ```
 >>> let c = system.splPunctuationCharacters;
->>> c = c.copy.sortOnInPlace(codePoint/1)
+>>> c != c.sortOn(codePoint/1)
 true
 ```
 

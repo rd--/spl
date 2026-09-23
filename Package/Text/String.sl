@@ -1342,7 +1342,7 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 	burrowsWheelerMatrix { :self |
 		1.toCollect(self.size) { :each |
 			self.rotateLeft(each)
-		}.lexicographicSort
+		}.lexicographicSortInPlace
 	}
 
 	burrowsWheelerTransform { :self |
@@ -1356,7 +1356,7 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 			1.toDo(k) { :i |
 				table[i] := [self[i]] ++ table[i]
 			};
-			table.lexicographicSort
+			table.lexicographicSortInPlace
 		};
 		table.detect { :each |
 			each.last = eot
