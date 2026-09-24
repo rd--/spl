@@ -547,6 +547,13 @@
 		answer
 	}
 
+	krenekRotationalArray { :a :m |
+		(0 .. a.size - 1).collect { :i |
+			let b = a.rotateLeft(i);
+			b - b[1] + a[1] % m
+		}
+	}
+
 	singleEntryMatrix { :shape :index :x |
 		let m = shape.zeroMatrix;
 		m.atPathPut(index, x);

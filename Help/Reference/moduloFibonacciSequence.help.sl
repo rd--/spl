@@ -120,8 +120,97 @@ the first contains two disguised palindromes:
 )
 ```
 
+Transposition matrix of _fM(5)_:
+
+```
+>>> let a = 20.moduloFibonacciSequence(5);
+>>> let b = 5 - a % 5;
+>>> b +.t a % 5
+[
+	0 1 1 2 3 0 3 3 1 4 0 4 4 3 2 0 2 2 4 1;
+	4 0 0 1 2 4 2 2 0 3 4 3 3 2 1 4 1 1 3 0;
+	4 0 0 1 2 4 2 2 0 3 4 3 3 2 1 4 1 1 3 0;
+	3 4 4 0 1 3 1 1 4 2 3 2 2 1 0 3 0 0 2 4;
+	2 3 3 4 0 2 0 0 3 1 2 1 1 0 4 2 4 4 1 3;
+	0 1 1 2 3 0 3 3 1 4 0 4 4 3 2 0 2 2 4 1;
+	2 3 3 4 0 2 0 0 3 1 2 1 1 0 4 2 4 4 1 3;
+	2 3 3 4 0 2 0 0 3 1 2 1 1 0 4 2 4 4 1 3;
+	4 0 0 1 2 4 2 2 0 3 4 3 3 2 1 4 1 1 3 0;
+	1 2 2 3 4 1 4 4 2 0 1 0 0 4 3 1 3 3 0 2;
+	0 1 1 2 3 0 3 3 1 4 0 4 4 3 2 0 2 2 4 1;
+	1 2 2 3 4 1 4 4 2 0 1 0 0 4 3 1 3 3 0 2;
+	1 2 2 3 4 1 4 4 2 0 1 0 0 4 3 1 3 3 0 2;
+	2 3 3 4 0 2 0 0 3 1 2 1 1 0 4 2 4 4 1 3;
+	3 4 4 0 1 3 1 1 4 2 3 2 2 1 0 3 0 0 2 4;
+	0 1 1 2 3 0 3 3 1 4 0 4 4 3 2 0 2 2 4 1;
+	3 4 4 0 1 3 1 1 4 2 3 2 2 1 0 3 0 0 2 4;
+	3 4 4 0 1 3 1 1 4 2 3 2 2 1 0 3 0 0 2 4;
+	1 2 2 3 4 1 4 4 2 0 1 0 0 4 3 1 3 3 0 2;
+	4 0 0 1 2 4 2 2 0 3 4 3 3 2 1 4 1 1 3 0
+]
+```
+
+Rotational matrix of _fM(8)_:
+
+```
+>>> let a = 12.moduloFibonacciSequence(8);
+>>> 0:11.collect { :i |
+>>> 	let b = a.rotateLeft(i);
+>>> 	b - b[1] % 8
+>>> }
+[
+	0 1 1 2 3 5 0 5 5 2 7 1;
+	0 0 1 2 4 7 4 4 1 6 0 7;
+	0 1 2 4 7 4 4 1 6 0 7 0;
+	0 1 3 6 3 3 0 5 7 6 7 7;
+	0 2 5 2 2 7 4 6 5 6 6 7;
+	0 3 0 0 5 2 4 3 4 4 5 6;
+	0 5 5 2 7 1 0 1 1 2 3 5;
+	0 0 5 2 4 3 4 4 5 6 0 3;
+	0 5 2 4 3 4 4 5 6 0 3 0;
+	0 5 7 6 7 7 0 1 3 6 3 3;
+	0 2 1 2 2 3 4 6 1 6 6 3;
+	0 7 0 0 1 2 4 7 4 4 1 6
+]
+```
+
+Transposition matrix of _fM(5)_:
+
+~~~spl svg=A
+let a = 20.moduloFibonacciSequence(5);
+let b = 5 - a % 5;
+(b +.t a % 5 + a[1]).matrixPlot
+~~~
+
+![](Help/Image/moduloFibonacciSequence-A.svg)
+
+Krenek-type rotational matrix of _fM(8)_:
+
+~~~spl svg=B
+12.moduloFibonacciSequence(8)
+.krenekRotationalArray(8)
+.matrixPlot
+~~~
+
+![](Help/Image/moduloFibonacciSequence-B.svg)
+
+Transposition matrix of _fM(22,[1,4])_:
+
+~~~spl svg=C
+let a = 15.moduloFibonacciSequence(
+	22, [1 4]
+);
+let b = 22 - a % 22;
+(b +.t a % 22 + a[1])
+.matrixPlot
+~~~
+
+![](Help/Image/moduloFibonacciSequence-C.svg)
+
 * * *
 
 See also: fibonacciSequence, mod, pisanoPeriod
+
+Guides: Integer Sequence Functions
 
 Further Reading: Haek 2008

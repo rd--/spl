@@ -69,6 +69,7 @@ Named Sequences:
 - `ludicNumbers`
 - `mahonianNumbers`
 - `mallowsSequence`
+- `moduloFibonacciSequence`
 - `moserDeBruijnSequence`
 - `motzkinSequence`
 - `narayanaSequence`
