@@ -244,25 +244,6 @@
 		[2 1].linearRecurrence([0 1], self)
 	}
 
-	pisanoPeriod { :n |
-		(n <= 1).if {
-			1
-		} {
-			let a = [1 0];
-			let a0 = a;
-			let k = 0;
-			{
-				let s = a.sum % n;
-				a := a.rotateLeft;
-				a[2] := s;
-				k := k + 1
-			}.doWhileTrue {
-				a != a0
-			};
-			k
-		}
-	}
-
 	semiFibonacciSequence { :m |
 		let a = Map { :n |
 			(n = 1).if {
@@ -401,6 +382,44 @@
 
 	wythoffUpper { :self |
 		(self * 1.goldenRatio.square).floor
+	}
+
+}
+
++@Integer {
+
+	pisanoPeriodDirectForm { :n |
+		(n <= 1).if {
+			1
+		} {
+			let a = 0;
+			let b = 1;
+			let k = 0;
+			{
+				[a, b] := [b, (a + b) % n];
+				k := k + 1
+			}.doWhileFalse {
+				a = 0 & {
+					b = 1
+				}
+			};
+			k
+		}
+	}
+
+	pisanoPeriodPrimePower { :n :k |
+		(n ^ (k - 1)) * pisanoPeriodDirectForm(n)
+	}
+
+	pisanoPeriod { :n |
+		n.isPrime.if {
+			n.pisanoPeriodDirectForm
+		} {
+			n.factorInteger.collect { :each |
+				let [n, k] = each;
+				pisanoPeriodPrimePower(n, k)
+			}.lcm
+		}
 	}
 
 }

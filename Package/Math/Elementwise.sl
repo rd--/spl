@@ -655,6 +655,10 @@
 		self.collect(pi/1)
 	}
 
+	pisanoPeriod { :self |
+		self.collect(pisanoPeriod/1)
+	}
+
 	pentagonalNumber { :self |
 		self.collect(pentagonalNumber/1)
 	}

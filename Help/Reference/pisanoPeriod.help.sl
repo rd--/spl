@@ -16,11 +16,12 @@ Specific values:
 ```
 
 Pisano period,
+threads over lists,
 first few terms,
 OEIS [A001175](https://oeis.org/A001175):
 
 ```
->>> 1:67.collect(pisanoPeriod/1)
+>>> 1:67.pisanoPeriod
 [
 	 1  3   8  6  20 24 16 12  24  60
 	10 24  28 48  40 24 36 24  18  60
@@ -30,6 +31,76 @@ OEIS [A001175](https://oeis.org/A001175):
 	72 84 108 72  20 48 72 42  58 120
 	60 30  48 96 140 120 136
 ]
+```
+
+The first 144 Pisano periods:
+
+```
+>>> 1:144.pisanoPeriod
+[
+	1 3 8 6 20 24 16 12 24 60 10 24
+	28 48 40 24 36 24 18 60 16 30 48 24
+	100 84 72 48 14 120 30 48 40 36 80 24
+	76 18 56 60 40 48 88 30 120 48 32 24
+	112 300 72 84 108 72 20 48 72 42 58 120
+	60 30 48 96 140 120 136 36 48 240 70 24
+	148 228 200 18 80 168 78 120 216 120 168 48
+	180 264 56 60 44 120 112 48 120 96 180 48
+	196 336 120 300 50 72 208 84 80 108 72 72
+	108 60 152 48 76 72 240 42 168 174 144 120
+	110 60 40 30 500 48 256 192 88 420 130 120
+	144 408 360 36 276 48 46 240 32 210 140 24
+]
+```
+
+Pisano periods of Fibonacci numbers:
+
+```
+>>> 1:24.fibonacci.pisanoPeriod
+[
+	1 1 3 8 20 12 28 16 36 20
+	44 24 52 28 60 32 68 36 76 40
+	84 44 92 48
+]
+```
+
+Relation to `isCoprime` and `lcm`:
+
+```
+>>> 8.isCoprime(11)
+true
+
+>>> (8 * 11).pisanoPeriod
+60
+
+>>> [8 11].pisanoPeriod.lcm
+60
+```
+
+Prime powers rule (conjecture):
+
+```
+>>> 17.isPrime
+true
+
+>>> (17 ^ 4).pisanoPeriod
+176868
+
+>>> (17 ^ (4 - 1)) * 17.pisanoPeriod
+176868
+```
+
+Pisano period of large integers:
+
+```
+>>> (2 ^ 31 + 2).pisanoPeriod
+46200
+
+>>> 1_230_000.pisanoPeriod
+15_000
+
+>>> (2L ^ 63 - 1).pisanoPeriod
+168775327381163780L
 ```
 
 The Fibonacci sequence modulo three has period eight,
@@ -216,6 +287,79 @@ OEIS [A089911](https://oeis.org/A089911) for _n=12_:
 ]
 ```
 
+Sum of the terms of the Pisano period mod _n_,
+OEIS [A214300](https://oeis.org/A214300):
+
+```
+>>> 1:14.collect { :m |
+>>> 	let k = m.pisanoPeriod;
+>>> 	(k.fibonacciSequence % m).sum
+>>> }
+[
+	0 2 9 8 40
+	66 49 32 99 280
+	33 108 156 322
+]
+```
+
+Fibonacci winding number,
+the number of _mod n_ operations in one cycle of the Fibonacci sequence modulo _n_,
+OEIS [A088551](https://oeis.org/A088551):
+
+```
+>>> 2:27.collect { :n |
+>>> 	let p = n.pisanoPeriod;
+>>> 	1:p.sum { :k |
+>>> 		k.fibonacci % n
+>>> 	} / n
+>>> }
+[
+	 1  3  2  8 11  7  4 11 28  3
+	 9 12 23 19  9 16 11  7 28  5
+	12 23  9 48 40 35
+]
+```
+
+Pisano periods for primes: period of Fibonacci numbers _mod prime(n)_,
+OEIS [A060305](https://oeis.org/A060305):
+
+```
+>>> 1:59.prime.pisanoPeriod
+[
+	3 8 20 16 10
+	28 36 18 48 14
+	30 76 40 88 32
+	108 58 60 136 70
+	148 78 168 44 196
+	50 208 72 108 76
+	256 130 276 46 148
+	50 316 328 336 348
+	178 90 190 388 396
+	22 42 448 456 114
+	52 238 240 250 516
+	176 268 270 556
+]
+```
+
+Number of zeros in fundamental period of Fibonacci numbers _mod n_,
+OEIS [A001176](https://oeis.org/A001176):
+
+```
+>>> 1:105.collect { :m |
+>>> 	let k = m.pisanoPeriod;
+>>> 	let a = k.fibonacciSequence % m;
+>>> 	a.occurrencesOf(0)
+>>> }
+[
+	1 1 2 1 4 2 2 2 2 4 1 2 4 2 2 2 4 2 1 2
+	2 1 2 2 4 4 2 2 1 2 1 2 2 4 2 2 4 1 2 2
+	2 2 2 1 2 2 2 2 2 4 2 2 4 2 2 2 2 1 1 2
+	4 1 2 2 4 2 2 2 2 2 1 2 4 4 2 1 2 2 1 2
+	2 2 2 2 4 2 2 2 4 2 2 2 2 2 2 2 4 2 2 2
+	1 2 2 2 2
+]
+```
+
 Irregular triangle of the set of residues of the Fibonacci sequence modulo _n_,
 OEIS [A189768](https://oeis.org/A189768):
 
@@ -341,12 +485,62 @@ A palindrome at the Fibonacci sequence modulo 84:
 ]
 ```
 
+Leonardo logarithm of _n_,
+OEIS [A001179](https://oeis.org/A001179):
+
+```
+>>> let ll = { :x :k |
+>>> 	(x = 1).if {
+>>> 		k
+>>> 	} {
+>>> 		ll(x // 5, k + 1)
+>>> 	}
+>>> };
+>>> let a = Map { :n |
+>>> 	(n = 1).if {
+>>> 		0
+>>> 	} {
+>>> 		let p = n.pisanoPeriod;
+>>> 		(p = n).if {
+>>> 			ll(p // 24, 1)
+>>> 		} {
+>>> 			a[p]
+>>> 		}
+>>> 	}
+>>> };
+>>> a[1 .. 72]
+[
+	0 1 1 1 2 1 1 1 1 2 2 1 1 1 2 1 1 1 1 2
+	1 2 1 1 3 1 1 1 1 2 2 1 2 1 2 1 1 1 1 2
+	2 1 2 2 2 1 1 1 1 3 1 1 1 1 2 1 1 1 1 2
+	2 2 1 1 2 2 1 1 1 2 2 1
+]
+```
+
+Integers k such that the Pisano period of _k_ equals _2(k+1)_,
+OEIS [A071774](https://oeis.org/A071774):
+
+```
+>>> 1:400.select { :k |
+>>> 	let n = 2 * (k + 1);
+>>> 	k.pisanoPeriod = n
+>>> }
+[
+	3 7 13 17 23
+	37 43 53 67 73
+	83 97 103 127 137
+	157 163 167 173 193
+	197 223 227 257 277
+	283 293 313 317 337
+	367 373 383 397
+]
+```
+
 Pisano periods,
 OEIS [A001175](https://oeis.org/A001175):
 
 ~~~spl svg=A oeis=A001175
-1:200.collect(pisanoPeriod/1)
-.scatterPlot
+1:200.pisanoPeriod.scatterPlot
 ~~~
 
 ![](Help/Image/pisanoPeriod-A.svg)
@@ -367,8 +561,7 @@ OEIS [A066853](https://oeis.org/A066853):
 First differences of Pisano periods:
 
 ~~~spl svg=C
-1:43.collect(pisanoPeriod/1)
-.differences
+1:43.pisanoPeriod.differences
 .discretePlot
 ~~~
 
@@ -425,6 +618,33 @@ OEIS [A137750](https://oeis.org/A137750):
 ~~~
 
 ![](Help/Image/pisanoPeriod-G.svg)
+
+Fibonacci winding number,
+the number of _mod n_ operations in one cycle of the Fibonacci sequence modulo _n_,
+OEIS [A088551](https://oeis.org/A088551):
+
+~~~spl svg=H
+2:77.collect { :n |
+	let p = n.pisanoPeriod;
+	1:p.sum { :k |
+		k.fibonacci % n
+	} / n
+}.discretePlot
+~~~
+
+![](Help/Image/pisanoPeriod-H.svg)
+
+State space visualization of the Pisano period for _n=5_:
+
+~~~spl svg=I
+let n = 5;
+let k = n.pisanoPeriod;
+((k + 2).fibonacciSequence % n)
+.partition(2, 1)
+.pathPlot
+~~~
+
+![](Help/Image/pisanoPeriod-I.svg)
 
 * * *
 

@@ -82,6 +82,17 @@ At answer of `^`:
 [2 5 5 13 41 61 1321]
 ```
 
+At `LargeInteger`:
+
+```
+>>> (2L ^ 63 - 1).primeFactors
+[7 7 73 127 337 92737 649657]
+
+>>> [7L 7 73 127 337 92737 649657]
+>>> .product
+9_223_372_036_854_775_807L
+```
+
 The inverse of `primeFactors` is `product`:
 
 ```

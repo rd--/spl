@@ -1010,6 +1010,18 @@ OEIS [A050231](https://oeis.org/A050231):
 [0 0 1 3 8 20 47 107 238 520]
 ```
 
+Fixed points of Pisano periods,
+OEIS [A235702](https://oeis.org/A235702):
+
+```
+>>> [5].linearRecurrence([1 24], 11)
+[
+	1 24 120 600
+	3000 15000 75000 375000
+	1875000 9375000 46875000
+]
+```
+
 Draw spiral:
 
 ~~~spl svg=A
