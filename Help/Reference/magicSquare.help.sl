@@ -5,6 +5,7 @@
 Answer a magic square of size _n×n_.
 
 A 3×3 magic square,
+the Lo Shu or Saturn square,
 OEIS [A033812](https://oeis.org/A033812):
 
 ```
