@@ -469,6 +469,8 @@ _Mathematica_
 [3](https://reference.wolfram.com/language/ref/Dot.html),
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/mtimes.html),
+_Octave_
+[1](https://docs.octave.org/latest/Arithmetic-Ops.html#XREFmtimes),
 _Python_
 [1](https://numpy.org/doc/stable/reference/generated/numpy.dot.html),
 _W_

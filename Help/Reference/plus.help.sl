@@ -107,6 +107,8 @@ _Mathematica_
 [3](https://mathworld.wolfram.com/VectorAddition.html)
 [4](https://mathworld.wolfram.com/ComplexAddition.html)
 [5](https://reference.wolfram.com/language/ref/Plus.html),
+_Octave_
+[1](https://docs.octave.org/latest/Arithmetic-Ops.html#XREFplus),
 _Smalltalk_
 5.6.2.2,
 _W_

@@ -156,6 +156,8 @@ Guides: Matrix Functions
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/MatrixPower.html),
+_Octave_
+[1](https://docs.octave.org/latest/Arithmetic-Ops.html#XREFmpower),
 _OEIS_
 [1](https://oeis.org/A052534)
 

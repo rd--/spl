@@ -413,6 +413,8 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/Transpose.html),
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/permute.html),
+_Octave_
+[1](https://docs.octave.org/latest/Arithmetic-Ops.html#XREFtranspose),
 _W_
 [1](https://en.wikipedia.org/wiki/Transpose)
 

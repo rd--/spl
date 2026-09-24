@@ -36,7 +36,7 @@ Matrix22 : [Object, Equal] { | a b c d |
 		)
 	}
 
-	inverse { :self |
+	[inverseMatrix, inverse] { :self |
 		self.copy.invert
 	}
 

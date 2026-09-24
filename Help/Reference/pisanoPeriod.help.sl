@@ -10,6 +10,9 @@ Specific values:
 ```
 >>> 25.pisanoPeriod
 100
+
+>>> 110.pisanoPeriod
+60
 ```
 
 Pisano period,
@@ -29,6 +32,23 @@ OEIS [A001175](https://oeis.org/A001175):
 ]
 ```
 
+The Fibonacci sequence modulo three has period eight,
+OEIS [A082115](https://oeis.org/A082115):
+
+```
+>>> 3.pisanoPeriod
+8
+
+>>> (8 * 2).fibonacciSequence % 3
+[
+	0 1 1 2 0 2 2 1
+	0 1 1 2 0 2 2 1
+]
+
+>>> 8.moduloFibonacciSequence(3)
+[0 1 1 2 0 2 2 1]
+```
+
 The Fibonacci sequence modulo four has period six,
 OEIS [A079343](https://oeis.org/A079343):
 
@@ -37,7 +57,13 @@ OEIS [A079343](https://oeis.org/A079343):
 6
 
 >>> (6 * 2).fibonacciSequence % 4
-[0 1 1 2 3 1 0 1 1 2 3 1]
+[
+	0 1 1 2 3 1
+	0 1 1 2 3 1
+]
+
+>>> 6.moduloFibonacciSequence(4)
+[0 1 1 2 3 1]
 ```
 
 The Fibonacci sequence modulo five has period twenty,
@@ -47,7 +73,13 @@ OEIS [A082116](https://oeis.org/A082116):
 >>> 5.pisanoPeriod
 20
 
->>> 20.fibonacciSequence % 5
+>>> (20 * 2).fibonacciSequence % 5
+[
+	0 1 1 2 3 0 3 3 1 4 0 4 4 3 2 0 2 2 4 1
+	0 1 1 2 3 0 3 3 1 4 0 4 4 3 2 0 2 2 4 1
+]
+
+>>> 20.moduloFibonacciSequence(5)
 [0 1 1 2 3 0 3 3 1 4 0 4 4 3 2 0 2 2 4 1]
 ```
 
@@ -63,6 +95,12 @@ OEIS [A079344](https://oeis.org/A079344):
 	0 1 1 2 3 5 0 5 5 2 7 1
 	0 1 1 2 3 5 0 5 5 2 7 1
 ]
+
+>>> 12.moduloFibonacciSequence(8)
+[0 1 1 2 3 5 0 5 5 2 7 1]
+
+>>> (12.fibonacciSequence % 8).unique
+[0 1 2 3 5 7]
 ```
 
 The Fibonacci sequence modulo eleven has period ten,
@@ -73,7 +111,13 @@ OEIS [A105955](https://oeis.org/A105955):
 10
 
 >>> (10 * 2).fibonacciSequence % 11
-[0 1 1 2 3 5 8 2 10 1 0 1 1 2 3 5 8 2 10 1]
+[
+	0 1 1 2 3 5 8 2 10 1
+	0 1 1 2 3 5 8 2 10 1
+]
+
+>>> 10.moduloFibonacciSequence(11)
+[0 1 1 2 3 5 8 2 10 1]
 ```
 
 `findRepeat` agrees with `pisanoPeriod`:
@@ -247,6 +291,53 @@ OEIS [A137750](https://oeis.org/A137750):
 	 16  30 169 171  80
 	 21 149 103 157 193
 	 85
+]
+```
+
+The Fibonacci sequence modulo 110 has period 60,
+the sequence visits 24 of the 110 residues:
+
+```
+>>> 110.pisanoPeriod
+60
+
+>>> (60.fibonacciSequence % 110).unique
+[
+	0 1 2 3 5
+	8 13 21 34 47
+	52 54 55 56 57
+	58 60 63 68 76
+	89 102 107 109
+]
+```
+
+The Fibonacci sequence modulo 22 has period 30,
+the second column of the two-partition of the sequence is a palindrome,
+this is not unusual (Haek 2008):
+
+```
+>>> 22.pisanoPeriod
+30
+
+>>> let a = 30.fibonacciSequence % 22;
+>>> a.partition(2).transpose
+[
+	0 1 3 8 21 11 12 3 19 10 11 1 14 19 21;
+	1 2 5 13 12 1 13 16 13 1 12 13 5 2 1
+]
+```
+
+A palindrome at the Fibonacci sequence modulo 84:
+
+```
+>>> 84.pisanoPeriod
+48
+
+>>> let a = 48.fibonacciSequence % 84;
+>>> a.partition(2).column(2)
+[
+	1 2 5 13 34 5 65 22 1 65 26 13
+	13 26 65 1 22 65 5 34 13 5 2 1
 ]
 ```
 

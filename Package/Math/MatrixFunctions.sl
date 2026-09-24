@@ -426,7 +426,7 @@
 		(2 * [v].transpose.dot([v]) / (v.dot(v)))
 	}
 
-	inverse { :self |
+	[inverseMatrix, inverse] { :self |
 		self.isSquareMatrix.if {
 			let n = self.numberOfRows;
 			(n = 2).if {

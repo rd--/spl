@@ -29,7 +29,7 @@ The library defines the following adverbs, which are all mnemonics:
 - _x_: cross, each item from the left is applied pointwise with the right (the Hakell list monad)
 - _t_: table, answers a matrix the row order vector of which is equal to cross
 
-The _t_ adverb is the only form that changes the shape of the input sequence.
+The _t_ adverb is the only form that changes the `rank` of the input sequence:
 
 ```
 >>> [1 2 3] +.e [4 5 6]
@@ -50,8 +50,12 @@ The _t_ adverb is the only form that changes the shape of the input sequence.
 >>> [1 2 3] +.x [4 5 6]
 [5 6 7 6 7 8 7 8 9]
 
->>> [1 2 3] +.table [4 5 6]
-[5 6 7; 6 7 8; 7 8 9]
+>>> [1 2 3] +.t [4 5 6]
+[
+	5 6 7;
+	6 7 8;
+	7 8 9
+]
 ```
 
 ## J
@@ -70,24 +74,38 @@ The J adverb / results in a verb that applies to each pair of elements, compare 
 
 ```
 >>> [1 2 3] * 10 +.table [2 3 5]
-[12 13 15; 22 23 25; 32 33 35]
+[
+	12 13 15;
+	22 23 25;
+	32 33 35
+]
 ```
 
 Thus, +/ forms an addition table, and similarly, */ forms a multiplication table:
 
 ```
 >>> [1 2 3] * 10 *.table [2 3 5]
-[20 30 50; 40 60 100; 60 90 150]
+[
+	20 30 50;
+	40 60 100;
+	60 90 150
+]
 ```
 
 Make a flattened list of associations:
 
 ```
 >>> (1:3 ->.x 1:2)
-[1 -> 1, 1 -> 2, 2 -> 1, 2 -> 2, 3 -> 1, 3 -> 2]
+[
+	1 -> 1, 1 -> 2,
+	2 -> 1, 2 -> 2,
+	3 -> 1, 3 -> 2
+]
 ```
 
 * * *
+
+Guides: Operator Syntax
 
 References:
 _J_

@@ -44,6 +44,10 @@ Threads over lists:
 
 >>> [1 11 111 1111].square
 [1 121 12321 1234321]
+
+>>> let x = 1:10;
+>>> x.sin.square + x.cos.square
+[1 1 1 1 1 1 1 1 1 1]
 ```
 
 More generally, the difference of the squares of two numbers is the product of their sum and their difference:

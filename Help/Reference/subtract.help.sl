@@ -86,6 +86,8 @@ _Mathematica_
 [4](https://mathworld.wolfram.com/Difference.html)
 [5](https://reference.wolfram.com/language/ref/Subtract.html)
 [6](https://reference.wolfram.com/language/ref/Minus.html),
+_Octave_
+[1](https://docs.octave.org/latest/Arithmetic-Ops.html#XREFminus),
 _Smalltalk_
 5.6.2.3,
 _W_

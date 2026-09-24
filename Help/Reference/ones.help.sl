@@ -46,5 +46,7 @@ See also: one, reshape, zero, zeroes, zeroMatrix
 Guides: Matrix Functions
 
 References:
+_Julia_
+[1](https://docs.julialang.org/en/v1/base/arrays/#Base.ones),
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/ones.html)

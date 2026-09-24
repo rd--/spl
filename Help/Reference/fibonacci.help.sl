@@ -100,6 +100,13 @@ is within the tolerance of the `~` operator:
 true
 ```
 
+The one-hundredth Fibonacci number:
+
+```
+>>> 100.fibonacci
+354224848179261915075L
+```
+
 Threads over lists,
 first few terms,
 OEIS [A000045](https://oeis.org/A000045)

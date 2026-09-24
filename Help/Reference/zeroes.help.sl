@@ -70,6 +70,8 @@ See also: ones, reshape, zero, zeroMatrix
 Guides: Matrix Functions
 
 Rererences:
+_Julia_
+[1](https://docs.julialang.org/en/v1/base/arrays/#Base.zeros),
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/zeros.html),
 _Python_

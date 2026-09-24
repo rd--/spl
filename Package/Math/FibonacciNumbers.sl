@@ -204,6 +204,16 @@
 		)
 	}
 
+	moduloFibonacciSequence { :n :m :i |
+		{ :a :k |
+			(a[k - 1] + a[k - 2]) % m
+		}.recurrenceTable(i, n)
+	}
+
+	moduloFibonacciSequence { :n :m |
+		n.moduloFibonacciSequence(m, [0, 1])
+	}
+
 	pellianArray { :n :k |
 		(n = 0).if {
 			k.isEven.if {

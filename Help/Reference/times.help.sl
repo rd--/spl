@@ -373,6 +373,8 @@ _Mathematica_
 [2](https://mathworld.wolfram.com/Multiplication.html)
 [3](https://mathworld.wolfram.com/ComplexMultiplication.html)
 [4](https://reference.wolfram.com/language/ref/Times.html),
+_Octave_
+[1](https://docs.octave.org/latest/Arithmetic-Ops.html#XREFtimes),
 _Smalltalk_
 5.6.2.1,
 _W_
