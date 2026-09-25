@@ -49,7 +49,7 @@ The unsigned angle between a vector and another vector on the same line:
 0
 ```
 
-The answer is may be unsigned, signed or counter-clockwise:
+The rule may be unsigned, signed or counter-clockwise:
 
 ```
 >>> let a = [1 0];
@@ -65,10 +65,10 @@ The answer is may be unsigned, signed or counter-clockwise:
 >>> 	]
 >>> }
 [
-	1/2.pi 1/2.pi;
-	1/2.pi -1/2.pi;
-	1/2.pi 3/2.pi
-]
+	1 1
+	1 -1
+	1 3
+].pi / 2
 ```
 
 * * *

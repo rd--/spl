@@ -150,6 +150,8 @@ Constructors:
 - `equilateralTriangle`
 - `fordCircle`
 - `hexagonalSpiralPoints`
+- `midpointPolygon`
+- `midpointStretchingPolygon`
 - `parallelogram`
 - `polygonCollection`
 - `regularPolygon`

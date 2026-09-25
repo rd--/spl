@@ -1,6 +1,6 @@
 # midpointPolygon
 
-- _midpointPolygon([p₁ p₂ p₃ ...])_
+- _midpointPolygon([v₁ v₂ v₃ ...])_
 
 Answer the midpoint polygon of a polygon,
 which is a derived polygon whose vertices are the midpoints of the edges of a polygon.

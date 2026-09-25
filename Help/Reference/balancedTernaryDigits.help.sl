@@ -77,7 +77,5 @@ Compare to equivalent ternary plot:
 See also: fromDigits, integerDigits
 
 References:
-_Mathematica_
-[1](https://mathworld.wolfram.com/x.html)
 _W_
 [1](https://en.wikipedia.org/wiki/Balanced_ternary)

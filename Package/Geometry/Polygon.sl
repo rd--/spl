@@ -100,6 +100,10 @@ Polygon : [Object, Store, Equal, Geometry] { | vertexCoordinates |
 		self.vertexCoordinates.midpointPolygon.Polygon
 	}
 
+	midpointTriangles { :self |
+		self.vertexCoordinates.midpointTriangles.collect(Triangle/1)
+	}
+
 	outerPolygon { :self |
 		self
 	}
@@ -207,6 +211,29 @@ Polygon : [Object, Store, Equal, Geometry] { | vertexCoordinates |
 	midpointPolygon { :self |
 		1.to(self.size).collect { :i |
 			[self.at(i), self.atWrap(i + 1)].midpoint
+		}
+	}
+
+	midpointStretchingPolygon { :self :o :r :thetaZero |
+		let c = cyclicPolygon(self, o, r, thetaZero);
+		let m = c.midpointPolygon;
+		Polygon(
+			m.vertexCoordinates.collect { :p |
+				let theta = [1 0].vectorAngle(p, 'CounterClockwise');
+				o + [r, theta].fromPolarCoordinates
+			}
+		)
+	}
+
+	midpointTriangles { :v |
+		let k = v.size;
+		let m = v.midpointPolygon;
+		1:k.collect { :i |
+			[
+				m.atWrap(i - 1),
+				v[i],
+				m.atWrap(i)
+			]
 		}
 	}
 

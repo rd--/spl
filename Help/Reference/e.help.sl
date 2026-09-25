@@ -174,6 +174,8 @@ _OEIS_
 [1](https://oeis.org/A001113)
 [2](https://oeis.org/A003417),
 _Smalltalk_
-5.6.8.2
+5.6.8.2,
+_W_
+[1](https://en.wikipedia.org/wiki/E_(mathematical_constant))
 
 Categories: Math, Constant

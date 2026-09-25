@@ -45,6 +45,16 @@ The circulant matrix of the diatonic scale represented as a bit vector:
 ]
 ```
 
+The circulant matrix of the diatonic scale represented as a bit vector:
+
+~~~spl svg=A
+[1 1 0 1 0 1 0 1 1 0 1 0]
+.circulantMatrix
+.matrixPlot
+~~~
+
+![](Help/Image/circulantMatrix-A.svg)
+
 * * *
 
 See also: toeplitzMatrix
