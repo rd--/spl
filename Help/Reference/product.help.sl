@@ -129,6 +129,23 @@ OEIS [A005701](https://oeis.org/A005701):
 [3 14 40 90 175 308 504 780 1155 1650]
 ```
 
+A multiplication magic square, by Sayles in 1913:
+
+```
+>>> let m = [
+>>> 	18  1 12;
+>>> 	 4  6  9;
+>>> 	 3 36  2
+>>> ];
+>>> (
+>>> 	m.collect(product/1),
+>>> 	m.transpose.collect(product/1),
+>>> 	m.diagonal.product,
+>>> 	m.antidiagonal.product
+>>> )
+([216 216 216], [216 216 216], 216, 216)
+```
+
 Plot a function:
 
 ~~~spl svg=A

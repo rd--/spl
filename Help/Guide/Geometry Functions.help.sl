@@ -146,6 +146,7 @@ Constructors:
 
 - `circlePoints`
 - `closedLine`
+- `cyclicQuadrilateral`
 - `equilateralTriangle`
 - `fordCircle`
 - `hexagonalSpiralPoints`

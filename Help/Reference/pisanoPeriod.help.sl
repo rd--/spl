@@ -13,6 +13,9 @@ Specific values:
 
 >>> 110.pisanoPeriod
 60
+
+>>> 1999.pisanoPeriod
+666
 ```
 
 Pisano period,
@@ -646,6 +649,31 @@ let k = n.pisanoPeriod;
 
 ![](Help/Image/pisanoPeriod-I.svg)
 
+Pisano periods of
+OEIS [A222413](https://oeis.org/A222413),
+OEIS [A222414](https://oeis.org/A222414):
+
+~~~spl svg=J oeis=A222414
+[
+	  29   47   89  101  107
+	 113  139  151  181  199
+	 211  229  233  263  281
+	 307  331  347  349  353
+	 401  421  461  509  521
+	 541  557  563  619  661
+	 677  691  709  743  761
+	 769  797  809  811  829
+	 859  881  911  919  941
+	 953  967  977  991 1009
+	1021 1031 1049 1061 1069
+	1087 1097 1103 1109 1151
+	1217 1223 1229 1231 1249
+	1277
+].pisanoPeriod.discretePlot
+~~~
+
+![](Help/Image/pisanoPeriod-J.svg)
+
 * * *
 
 See also: fibonacci, fibonacciSequence
@@ -661,4 +689,4 @@ _OEIS_
 _W_
 [1](https://en.wikipedia.org/wiki/Pisano_period)
 
-Further Reading: Burr 1971
+Further Reading: Burr 1971, Wall 1960

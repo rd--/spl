@@ -250,6 +250,16 @@ OEIS [A008776](https://oeis.org/A008776):
 [2 6 18 54 162 486 1458 4374 13122 39366]
 ```
 
+Iterate _P((n+1)/2)_,
+OEIS [A104298](https://oeis.org/A104298):
+
+```
+>>> { :n |
+>>> 	prime((n + 1) / 2)
+>>> }.nestList(15, 9)
+[15 19 29 47 89 197 523 1667 6397 29437]
+```
+
 The first few terms of the `dyadicMap`:
 
 ~~~spl svg=A

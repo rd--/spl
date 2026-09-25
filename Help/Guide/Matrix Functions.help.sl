@@ -120,6 +120,7 @@ Predicates:
 
 - `isAntihermitianMatrix`
 - `isAntisymmetricMatrix`
+- `isBandMatrix`
 - `isBinaryMatrix`
 - `isBisymmetricMatrix`
 - `isCentrosymmetricMatrix`
@@ -138,6 +139,7 @@ Predicates:
 - `isSignatureMatrix`
 - `isSquareMatrix`
 - `isSymmetricMatrix`
+- `isTridiagonalMatrix`
 - `isUnitaryMatrix`
 - `isUpperTriangularMatrix`
 

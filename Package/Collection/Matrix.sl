@@ -176,6 +176,24 @@
 		}
 	}
 
+	isBandMatrix { :m :k1 :k2 |
+		let [r, c] = m.shape;
+		1:r.allSatisfy { :i |
+			1:c.allSatisfy { :j |
+				(
+					j < (i - k1) | {
+						j > (i + k2)
+					}
+				).if {
+					[i, j, m[i][j]].postLine;
+					m[i][j] = 0
+				} {
+					true
+				}
+			}
+		}
+	}
+
 	isBisymmetricMatrix { :self |
 		self.isSymmetricMatrix & {
 			self.isCentrosymmetricMatrix
@@ -235,10 +253,14 @@
 		}
 	}
 
-	isMagicSquare { :self |
+	isMagicSquare { :self :requireSumBeMagicConstant |
 		self.isSquareMatrix & {
 			let r = self.magicSquareSummary;
-			let k = r['sum'];
+			let k = requireSumBeMagicConstant.if {
+				r['sum']
+			} {
+				r['diagonalSum']
+			};
 			r['rowSums'].allEqualTo(k) & {
 				r['columnSums'].allEqualTo(k) & {
 					r['diagonalSum'] = k & {
@@ -247,6 +269,10 @@
 				}
 			}
 		}
+	}
+
+	isMagicSquare { :self |
+		self.isMagicSquare(true)
 	}
 
 	isMatrixOf { :self :elementType |
@@ -290,6 +316,10 @@
 		self.isSquareMatrix & {
 			self = self.transpose
 		}
+	}
+
+	isTridiagonalMatrix { :m |
+		m.isBandMatrix(1, 1)
 	}
 
 	magicSquareSummary { :self |

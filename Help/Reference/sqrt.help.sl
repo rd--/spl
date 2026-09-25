@@ -78,8 +78,8 @@ At `LargeInteger`:
 >>> 81L.sqrt
 9L
 
->>> 13L.sqrt
-3L
+>>> (13L.sqrt, 13.sqrt)
+(3L, 3.60555)
 ```
 
 Threads elementwise over lists and matrices:

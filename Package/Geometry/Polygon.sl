@@ -411,6 +411,27 @@ Polygon : [Object, Store, Equal, Geometry] { | vertexCoordinates |
 		>
 	}
 
+	cyclicPolygon { :self :o :r :thetaZero |
+		let k = self.size;
+		(k >= 3).if {
+			Polygon(
+				self.collect { :theta |
+					o + [r, thetaZero + theta].fromPolarCoordinates
+				}
+			)
+		} {
+			self.error('cyclicPolygon: k<3')
+		}
+	}
+
+	cyclicQuadrilateral { :self :o :r :thetaZero |
+		(self.size = 4).if {
+			cyclicPolygon(self, o, r, thetaZero)
+		} {
+			self.error('cyclicQuadrilateral: k!=4')
+		}
+	}
+
 	sutherlandHodgmanAlgorithm { :subjectPolygon :clipPolygon |
 		let outputList = subjectPolygon;
 		let cp1 = clipPolygon.last;

@@ -908,6 +908,16 @@ OEIS [A284458](https://oeis.org/A284458):
 ]
 ```
 
+Four-dimensional analog of centered polygonal numbers,
+OEIS [A006522](https://oeis.org/A006522):
+
+```
+>>> 1:11.collect { :n |
+>>> 	binomial(n, 4) + binomial(n - 1, 2)
+>>> }
+[0 0 1 4 11 25 50 91 154 246 375]
+```
+
 Plot over a subset of the reals as a function of its first parameter:
 
 ~~~spl svg=A

@@ -572,6 +572,17 @@ OEIS [A057104](https://oeis.org/A057104):
 [8 9 18 19 28 29 38 39 48 49 58 59 68 69]
 ```
 
+Primes _p_ such that the _p_ minus the sum of the digits of _p_ minus the product of the digits of _p_ is square,
+OEIS [A399489](https://oeis.org/A399489):
+
+```
+>>> 1:100.prime.select { :n |
+>>> 	let t = n.integerDigits;
+>>> 	(n - (t.sum - t.product)).isSquare
+>>> }
+[17 29 47 89 97 179 349 383 419 449]
+```
+
 _n_-th prime minus its binary reversal,
 OEIS [A265326](https://oeis.org/A265326):
 
@@ -884,6 +895,18 @@ OEIS [A003132](https://oeis.org/A003132):
 ~~~
 
 ![](Help/Image/integerDigits-U.svg)
+
+The Sum of the digits of _n_ minus the product of the digits of _n_,
+OEIS [A062329](https://oeis.org/A062329):
+
+~~~spl svg=V oeis=A062329
+0:115.collect { :n |
+	let t = n.integerDigits;
+	t.sum - t.product
+}.discretePlot
+~~~
+
+![](Help/Image/integerDigits-V.svg)
 
 * * *
 

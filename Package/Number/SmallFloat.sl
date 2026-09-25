@@ -458,6 +458,14 @@ SmallFloat! : [Object, Store, Json, Equal, Compare, Number, Integer, Binary] {
 		<primitive: return Number.isSafeInteger(_self);>
 	}
 
+	isSquare { :n |
+		n.isSmallInteger.if {
+			LargeInteger(n).isSquare
+		} {
+			false
+		}
+	}
+
 	[less, <] { :self :anObject |
 		<primitive:
 		if(sl.isSmallFloat(_anObject)) {

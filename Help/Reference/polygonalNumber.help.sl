@@ -152,6 +152,27 @@ OEIS [A060544](https://oeis.org/A060544):
 [1 10 28 55 91 136 190 253 325 406 496]
 ```
 
+Four-dimensional analog of centered polygonal numbers,
+OEIS [A006522](https://oeis.org/A006522):
+
+```
+>>> 1:40.collect { :n |
+>>> 	(0 .. n - 2).sum { :k |
+>>> 		polygonalNumber(n - k + 1, k)
+>>> 	}
+>>> }
+[
+	0 0 1 4 11
+	25 50 91 154 246
+	375 550 781 1079 1456
+	1925 2500 3196 4029 5016
+	6175 7525 9086 10879 12926
+	15250 17875 20826 24129 27811
+	31900 36425 41416 46904 52921
+	59500 66675 74481 82954 92131
+]
+```
+
 Triangular numbers,
 OEIS [A000217](https://oeis.org/A000217):
 

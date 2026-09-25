@@ -213,4 +213,4 @@ See also: fibonacciSequence, mod, pisanoPeriod
 
 Guides: Integer Sequence Functions
 
-Further Reading: Haek 2008
+Further Reading: Haek 2008, Wall 1960

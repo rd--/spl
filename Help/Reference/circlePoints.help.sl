@@ -1,9 +1,9 @@
 # circlePoints
 
-- _circlePoints(n, o=[0 0], r, theta=0)_
+- _circlePoints(n, o=[0 0], r, θ=0)_
 - _circlePoints(n, r)_
 
-Answer the positions of _n_ points equally spaced around a circle of radius _r_ given initial angle _theta_.
+Answer the positions of _n_ points equally spaced around a circle of radius _r_ given initial angle _θ_.
 
 Corners of an equilateral triangle:
 

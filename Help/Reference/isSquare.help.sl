@@ -15,6 +15,16 @@ OEIS [A000290](https://oeis.org/A000290):
 [0 1 4 9 16 25 36 49 64 81]
 ```
 
+At `SmallFloat`:
+
+```
+>>> 81.isSquare
+true
+
+>>> 0:99.select(isSquare/1)
+[0 1 4 9 16 25 36 49 64 81]
+```
+
 * * *
 
 See also: isInteger, isIntegerSquare, square, sqrt
