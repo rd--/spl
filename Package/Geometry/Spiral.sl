@@ -181,6 +181,10 @@
 		} + o
 	}
 
+	squareSpiralRank { :x :y |
+		squareSpiralRank(x, y, 1)
+	}
+
 	squareSpiralUnrank { :n |
 		let m = (n - 1).integerSquareRoot;
 		let k = (m / 2).ceiling;

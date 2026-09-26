@@ -26,6 +26,8 @@ If no such element is found answer zero:
 
 See also: detect, detectIndex, findLast, select
 
+Guides: List Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/FirstPosition.html),

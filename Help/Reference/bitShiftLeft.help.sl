@@ -104,6 +104,21 @@ OEIS [A001317](https://oeis.org/A001317):
 ]
 ```
 
+Calculate the eight knights moves in chess:
+
+```
+>>> 1:8.collect { :i |
+>>> 	[
+>>> 		-1 ^ (i // 2) << (i > 4).boole,
+>>> 		-1 ^ i << (i < 5).boole
+>>> 	]
+>>> }
+[
+	1 -2; -1 2; -1 -2; 1 2;
+	2 -1; -2 1; -2 -1; 2 1
+]
+```
+
 Compute the first dimension of the Sobol sequence,
 c.f. `sobolSequence`:
 
