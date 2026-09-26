@@ -4,15 +4,22 @@
 
 Answer the cartesian index of the linear index _i_ given an array shape _⍴_.
 The indices are counted such that the rightmost index increments first.
+The inverse is `linearIndex`.
 
 At vector:
 
 ```
 >>> let shape = [3];
->>> 1:3.collect { :each |
->>> 	shape.cartesianIndex(each)
+>>> 1:3.collect { :l |
+>>> 	shape.cartesianIndex(l)
 >>> }
 [1; 2; 3]
+
+>>> let shape = [3];
+>>> [1; 2; 3].collect { :c |
+>>> 	shape.linearIndex(c)
+>>> }
+[1 2 3]
 ```
 
 At matrix:
@@ -56,6 +63,17 @@ At box, or volume:
 	2 2 2
 ]
 ```
+
+Indices at 2×3×4 array:
+
+~~~spl svg=A
+let shape = [2 3 4];
+[1 .. 2 * 3 * 4].collect { :each |
+	shape.cartesianIndex(each)
+}.transpose.colourMatrixPlot
+~~~
+
+![](Help/Image/cartesianIndex-A.svg)
 
 * * *
 

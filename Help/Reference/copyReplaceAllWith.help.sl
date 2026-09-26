@@ -1,8 +1,8 @@
 # copyReplaceAllWith
 
-- _copyReplaceAllWith(aSequence, oldSequence, newSequence)_
+- _copyReplaceAllWith(x, p, q)_
 
-Answer a copy of _aSequence_ in which all occurrences of _oldSequence_ have been replaced by _newSequence_.
+Answer a copy of the sequence _x_ in which all occurrences of the subsequence _p_ have been replaced by the sequence _q_.
 
 If the old and new sequences are the same size,
 the answer is the same size as the initial sequence:

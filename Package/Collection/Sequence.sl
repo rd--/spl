@@ -132,20 +132,28 @@
 	}
 
 	allNearestSmallerValues { :self |
-		let n = self.size;
+		let m = self.size;
+		let n = m + 1;
+		let a = List(n, -Infinity);
 		let p = List(n);
 		let r = List(n);
 		2.toDo(n) { :i |
 			let j = i - 1;
+			a[i] := self[j];
 			{
-				self[j] >= self[i]
+				a[j] >= a[i]
 			}.whileTrue {
 				j := p[j]
 			};
 			p[i] := j;
-			r[i] := self[j]
+			r[i] := a[j]
 		};
-		[p, r]
+		p.removeFirst;
+		r.removeFirst;
+		[
+			p.collect { :x | (x = 1).if { nil } { x - 1 } },
+			r.collect { :x | (x = -Infinity).if { nil } { x } }
+		]
 	}
 
 	alternatingSum { :self |

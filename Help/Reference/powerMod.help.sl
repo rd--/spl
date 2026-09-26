@@ -397,6 +397,27 @@ OEIS [A049771](https://oeis.org/A049771):
 
 ![](Help/Image/powerMod-K.svg)
 
+Table read by falling antidiagonals,
+_A(n,k)_ is the least positive integer _m_ such that _n_ divides _m_ and _k_ divides _m+1_,
+else zero,
+OEIS [A396382](https://oeis.org/A396382):
+
+~~~spl svg=L oeis=A396382
+1:15.antidiagonalArray { :n :k |
+	(k = 1).if {
+		n
+	} {
+		(gcd(n, k) > 1).if {
+			0
+		} {
+			n * -n.powerMod(-1, k)
+		}
+	}
+}.catenate.discretePlot
+~~~
+
+![](Help/Image/powerMod-L.svg)
+
 * * *
 
 See also: ^, %

@@ -532,6 +532,26 @@ OEIS [A057000](https://oeis.org/A057000):
 
 ![](Help/Image/eulerPhi-O.svg)
 
+Triangle read by rows,
+_T(n,k)_ is _φ(n/k)_ if _k_ divides _n_ else zero,
+OEIS [A054523](https://oeis.org/A054523):
+
+~~~spl svg=P oeis=A054523
+1:15.triangularArray { :n :k |
+	(k = n).if {
+		1
+	} {
+		n.divisible(k).if {
+			(n / k).eulerPhi
+		} {
+			0
+		}
+	}
+}.catenate.discretePlot
+~~~
+
+![](Help/Image/eulerPhi-P.svg)
+
 * * *
 
 See also: divisors, factorInteger, gcd, lcm, powerMod, totientSummatoryFunction

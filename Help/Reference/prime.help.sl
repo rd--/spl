@@ -274,6 +274,38 @@ OEIS [A005597](https://oeis.org/A005597):
 0.66016181584686957392781D
 ```
 
+Table read by ascending antidiagonals,
+the _n_-th row gives the positive integers divisible by exactly _n_ distinct primes,
+OEIS [A125666](https://oeis.org/A125666):
+
+```
+>>> let f = { :n :m |
+>>> 	let c = m;
+>>> 	let k = (m = 1).if {
+>>> 		1:n.product(prime/1)
+>>> 	} {
+>>> 		f(n, m - 1) + 1
+>>> 	};
+>>> 	{ k.primeNu != n }.whileTrue {
+>>> 		k := k + 1
+>>> 	};
+>>> 	k
+>>> };
+>>> 1:6.collect { :d |
+>>> 	1:d.collect { :m |
+>>> 		f(d - m + 1, m)
+>>> 	}
+>>> }
+[
+	2;
+	6 3;
+	30 10 4;
+	210 42 12 5;
+	2310 330 60 14 7;
+	30030 2730 390 66 15 8
+]
+```
+
 Prime numbers,
 OEIS [A000040](https://oeis.org/A000040):
 
