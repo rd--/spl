@@ -1,6 +1,6 @@
-# colouredMatrixPlot
+# colourMatrixPlot
 
-- _colouredMatrixPlot(m)_
+- _colourMatrixPlot(m)_
 
 Answer a plot that gives a colourful visual representation of the elements in the matrix _m_.
 
@@ -16,10 +16,10 @@ Plot a solution to Scott’s 8×8 pentomino problem (Scott 1958):
 	9 7 8 11 11 11 12 13;
 	9 8 8 11 10 12 12 12;
 	9 9 9 10 10 10 10 12
-].colouredMatrixPlot
+].colourMatrixPlot
 ~~~
 
-![](Help/Image/colouredMatrixPlot-A.svg)
+![](Help/Image/colourMatrixPlot-A.svg)
 
 Plot one of 2,339 solutions to the 6×10 pentomino problem (Haselgrove 1960):
 
@@ -32,10 +32,10 @@ let [a, b, c] = [10, 11, 12];
 	1 9 a 5 7 7 7 8 b b;
 	1 9 a a c c 7 8 8 b;
 	9 9 9 a a c c c b b
-].colouredMatrixPlot
+].colourMatrixPlot
 ~~~
 
-![](Help/Image/colouredMatrixPlot-B.svg)
+![](Help/Image/colourMatrixPlot-B.svg)
 
 Plot one of two solutions to the 3×20 pentomino problem:
 
@@ -45,10 +45,10 @@ let [a, b] = [10, 11];
 	0 0 1 2 2 2 3 3 3 3 4 5 5 5 6 6 7 8 8 8;
 	0 1 1 1 2 2 3 9 9 4 4 4 5 6 6 a 7 7 7 8;
 	0 0 1 b b b b b 9 9 9 4 5 6 a a a a 7 8
-].colouredMatrixPlot
+].colourMatrixPlot
 ~~~
 
-![](Help/Image/colouredMatrixPlot-C.svg)
+![](Help/Image/colourMatrixPlot-C.svg)
 
 * * *
 

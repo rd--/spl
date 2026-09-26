@@ -453,7 +453,7 @@ let x = 1:k.select { :n |
 	n.isCoprime(k)
 };
 { :i :j | i * j % k }.table(x, x)
-.colouredMatrixPlot
+.colourMatrixPlot
 ~~~
 
 ![](Help/Image/table-C.svg)

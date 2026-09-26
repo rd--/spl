@@ -123,6 +123,7 @@ Guide/Integer Types.help.sl
 Guide/Interpolation Functions.help.sl
 Guide/Interval Functions.help.sl
 Guide/Iteration Functions.help.sl
+Guide/Julia Perspective.help.sl
 Guide/Leading Dot Notation.help.sl
 Guide/Let Syntax.help.sl
 Guide/Lexical Scoping.help.sl
@@ -162,6 +163,7 @@ Guide/Number Syntax.help.sl
 Guide/Numerical Methods.help.sl
 Guide/Numerical Precision.help.sl
 Guide/Numeric Types.help.sl
+Guide/Octave Perspective.help.sl
 Guide/One Indexing.help.sl
 Guide/Open Questions.help.sl
 Guide/Open Sound Control.help.sl
@@ -944,18 +946,18 @@ Reference/colonEqualsSign.help.sl
 Reference/colon.help.sl
 Reference/colonSemicolon.help.sl
 Reference/colonSolidus.help.sl
+Reference/colourBarChart.help.sl
 Reference/colourCalculatorPlot.help.sl
 Reference/colourCheckerChart.help.sl
 Reference/ColourChooser.help.sl
-Reference/colouredBarChart.help.sl
-Reference/colouredMatrixPlot.help.sl
-Reference/colouredRectangleChart.help.sl
 Reference/ColourGradient.help.sl
 Reference/colourGradients.help.sl
 Reference/ColourGrid.help.sl
 Reference/Colour.help.sl
+Reference/colourMatrixPlot.help.sl
 Reference/ColourPalette.help.sl
 Reference/colourPalettes.help.sl
+Reference/colourRectangleChart.help.sl
 Reference/columnBinaryMatrix.help.sl
 Reference/ColumnBrowser.help.sl
 Reference/column.help.sl
@@ -1124,6 +1126,8 @@ Reference/cycleGraph.help.sl
 Reference/cycles.help.sl
 Reference/cycleSort.help.sl
 Reference/cycleSortMatrix.help.sl
+Reference/cyclicDiagonals.help.sl
+Reference/cyclicQuadrilateral.help.sl
 Reference/cycloid.help.sl
 Reference/cyclotomicGraph.help.sl
 Reference/cyclotomic.help.sl
@@ -2076,6 +2080,7 @@ Reference/isAssociation.help.sl
 Reference/isAssociationList.help.sl
 Reference/isAtom.help.sl
 Reference/isBalancedPrime.help.sl
+Reference/isBandMatrix.help.sl
 Reference/isBase16String.help.sl
 Reference/isBase64String.help.sl
 Reference/isBeckettGrayCode.help.sl
@@ -2246,6 +2251,7 @@ Reference/isPerfectPower.help.sl
 Reference/isPerfectSquare.help.sl
 Reference/isPermutationCycles.help.sl
 Reference/isPermutationList.help.sl
+Reference/isPermutationMatrix.help.sl
 Reference/isPermutationOf.help.sl
 Reference/isPhiWeightedMediantNoble.help.sl
 Reference/isPoliteNumber.help.sl
@@ -2429,6 +2435,7 @@ Reference/KNearest.help.sl
 Reference/knightGraph.help.sl
 Reference/kochCurve.help.sl
 Reference/kolakoskiSequence.help.sl
+Reference/krenekRotationalArray.help.sl
 Reference/kr.help.sl
 Reference/kroneckerDelta.help.sl
 Reference/kroneckerProduct.help.sl
@@ -2798,6 +2805,8 @@ Reference/MidiPortBrowser.help.sl
 Reference/MidiRatio.help.sl
 Reference/midpoint.help.sl
 Reference/midpointPolygon.help.sl
+Reference/midpointStretchingPolygon.help.sl
+Reference/midpointTriangles.help.sl
 Reference/miles.help.sl
 Reference/milkShuffle.help.sl
 Reference/millerRabinPrimalityTest.help.sl
@@ -2838,6 +2847,7 @@ Reference/modificationTime.help.sl
 Reference/modularDistance.help.sl
 Reference/modularDistanceMultiset.help.sl
 Reference/modularInverse.help.sl
+Reference/moduloFibonacciSequence.help.sl
 Reference/moebiusMu.help.sl
 Reference/moebiusTransform.help.sl
 Reference/moment.help.sl
@@ -3216,6 +3226,7 @@ Reference/permutationsDo.help.sl
 Reference/permutations.help.sl
 Reference/permutationSupport.help.sl
 Reference/permutationSymbol.help.sl
+Reference/permutationUnrank.help.sl
 Reference/permute.help.sl
 Reference/perpendicularBisector.help.sl
 Reference/perrinFunction.help.sl
@@ -3744,6 +3755,7 @@ Reference/selectionSort.help.sl
 Reference/selectionSortMatrix.help.sl
 Reference/SelectXFocus.help.sl
 Reference/SelectX.help.sl
+Reference/selfClassify.help.sl
 Reference/selfCountingNumber.help.sl
 Reference/selfCountingSequence.help.sl
 Reference/semicolon.help.sl
@@ -3955,6 +3967,7 @@ Reference/squarePyramidalNumber.help.sl
 Reference/squareRoot.help.sl
 Reference/squareSpiral.help.sl
 Reference/squareSpiralPoints.help.sl
+Reference/squareSpiralRank.help.sl
 Reference/squareSpiralUnrank.help.sl
 Reference/squaresR.help.sl
 Reference/squareWave.help.sl
@@ -4315,7 +4328,6 @@ Reference/unitTriangle.help.sl
 Reference/unitVector.help.sl
 Reference/UnivariatePolynomial.help.sl
 Reference/unlines.help.sl
-Reference/unrankPermutation.help.sl
 Reference/unsigned32BitWordList.help.sl
 Reference/UnsortedSet.help.sl
 Reference/unwords.help.sl

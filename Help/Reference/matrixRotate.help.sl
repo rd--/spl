@@ -1,14 +1,25 @@
 # matrixRotate
 
-- _matrixRotate(m, k)_
+- _matrixRotate(m, k=1)_
 
-Rotate the matrix _m_ counter-clockwise by 90° _k_ times.
+Rotate the matrix _m_ counter-clockwise by 90°,
+or left,
+_k_ times.
 
 Rotate a matrix counterclockwise by ninety degrees:
 
 ```
->>> [1 2; 3 4].matrixRotate(1)
+>>> [1 2; 3 4].matrixRotate
 [2 4; 1 3]
+
+>>> [2 4; 1 3].matrixRotate
+[4 3; 2 1]
+
+>>> [4 3; 2 1].matrixRotate
+[3 1; 4 2]
+
+>>> [3 1; 4 2].matrixRotate
+[1 2; 3 4]
 ```
 
 The three rotations of a 3×3 matrix:
@@ -53,7 +64,7 @@ m.reverse.collect(reverse/1)
 m.transpose.collect(reverse/1)
 ```
 
-Create a 17-by-17 diagonally dominant singular matrix A and view the pattern of nonzero elements.
+Create a 17×17 diagonally dominant singular matrix A and view the pattern of nonzero elements.
 
 ```
 >>> let a = [
@@ -122,6 +133,18 @@ The counter clockwise rotation and the two further rotations given in terms of `
 	]
 )
 ```
+
+Draw the four rotations of the 3×3 `iota` matrix:
+
+~~~spl svg=A
+let m = [3 3].iota;
+0:3.collect { :k |
+	m.matrixRotate(k)
+	.colourMatrixPlot
+}.PlotSet([1 4])
+~~~
+
+![](Help/Image/matrixRotate-A.svg)
 
 * * *
 

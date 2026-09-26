@@ -16,18 +16,18 @@ Answer the zero-based index of the permutation _p_ in the lexicographic ordering
 [0 .. 23]
 ```
 
-The inverse is `unrankPermutation`:
+The inverse is `permutationUnrank`:
 
 ```
 >>> [0 .. 23].collect { :each |
->>> 	each.unrankPermutation(4).list
+>>> 	each.permutationUnrank(4).list
 >>> }
 [1 .. 4].lexicographicPermutations
 ```
 
 * * *
 
-See also: Permutation, unrankPermutation
+See also: Permutation, permutationUnrank
 
 Guides: Permutation Functions
 

@@ -1654,7 +1654,7 @@ Plot : [Object] { | pageList format options |
 	}
 
 	barChart { :self |
-		barChart(self, (colouredChart: false))
+		barChart(self, (colourChart: false))
 	}
 
 	bubbleChart { :self |
@@ -1690,7 +1690,7 @@ Plot : [Object] { | pageList format options |
 	rectangleChart { :self |
 		rectangleChart(
 			self,
-			(colouredChart: false)
+			(colourChart: false)
 		)
 	}
 
@@ -1725,7 +1725,7 @@ Plot : [Object] { | pageList format options |
 		2.toByDo(rowCount, 2) { :i |
 			rowData[i].reverseInPlace
 		};
-		rowData.reverse.colouredMatrixPlot
+		rowData.reverse.colourMatrixPlot
 	}
 
 	squareChart { :self |
@@ -1771,7 +1771,7 @@ Plot : [Object] { | pageList format options |
 		let [xData, yData] = dataSet.transpose;
 		let x = xData.foldList(0, +) * (w / xData.sum);
 		let y = yData * (h / yData.max);
-		let colourList = (dataSetList.size > 1 | { options.at('colouredChart') }).if {
+		let colourList = (dataSetList.size > 1 | { options.at('colourChart') }).if {
 			let colourListSize = dataSetList.collect(size/1).max;
 			let colourGradient = 'Mathematica'.namedColourGradient('Rainbow');
 			colourGradient.resample(colourListSize).colourList
@@ -1801,28 +1801,28 @@ Plot : [Object] { | pageList format options |
 
 +List {
 
-	colouredBarChart { :self |
+	colourBarChart { :self |
 		self.isVector.if {
-			barChart(self, (colouredChart: true))
+			barChart(self, (colourChart: true))
 		} {
-			self.error('colouredBarChart')
+			self.error('colourBarChart')
 		}
 	}
 
-	colouredMatrixPlot { :self |
+	colourMatrixPlot { :self |
 		let colourGradient = 'Mathematica'.namedColourGradient('Rainbow');
 		let colourFunction/1 = colourGradient.asBlock;
 		self.rescale.deepCollect(colourFunction/1).ColourGrid
 	}
 
-	colouredRectangleChart { :self |
+	colourRectangleChart { :self |
 		self.isMatrix.if {
 			rectangleChart(
 				self,
-				(colouredChart: true)
+				(colourChart: true)
 			)
 		} {
-			self.error('colouredRectangleChart')
+			self.error('colourRectangleChart')
 		}
 	}
 

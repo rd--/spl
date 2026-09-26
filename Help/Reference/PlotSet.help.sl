@@ -23,7 +23,7 @@ for _k=20,21,22_:
 	{ :i :j |
 		i * j % k
 	}.table(x, x)
-	.colouredMatrixPlot
+	.colourMatrixPlot
 }.PlotSet([3 1])
 ~~~
 

@@ -17,9 +17,9 @@ Plotting Functions:
 - `circularMatrixPlot`
 - `cobwebPlot`
 - `colourCalculatorPlot`
-- `colouredBarChart`
-- `colouredMatrixPlot`
-- `colouredRectangleChart`
+- `colourBarChart`
+- `colourMatrixPlot`
+- `colourRectangleChart`
 - `complexListPlot`
 - `complexPlot`
 - `conformalPlot`

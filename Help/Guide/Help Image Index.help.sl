@@ -990,27 +990,27 @@
 - `colourCheckerChart`
   1. ![](Help/Image/colourCheckerChart-A.svg)
   2. ![](Help/Image/colourCheckerChart-B.svg)
-- `colouredBarChart`
-  1. ![](Help/Image/colouredBarChart-A.svg)
-  2. ![](Help/Image/colouredBarChart-B.svg)
-  3. ![](Help/Image/colouredBarChart-C.svg)
-  4. ![](Help/Image/colouredBarChart-D.svg)
-  5. ![](Help/Image/colouredBarChart-E.svg)
-  6. ![](Help/Image/colouredBarChart-F.svg)
-  7. ![](Help/Image/colouredBarChart-G.svg)
-- `colouredMatrixPlot`
-  1. ![](Help/Image/colouredMatrixPlot-A.svg)
-  2. ![](Help/Image/colouredMatrixPlot-B.svg)
-  3. ![](Help/Image/colouredMatrixPlot-C.svg)
-- `colouredRectangleChart`
-  1. ![](Help/Image/colouredRectangleChart-A.svg)
-  2. ![](Help/Image/colouredRectangleChart-B.svg)
-  3. ![](Help/Image/colouredRectangleChart-C.svg)
-  4. ![](Help/Image/colouredRectangleChart-D.svg)
-  5. ![](Help/Image/colouredRectangleChart-E.svg)
-  6. ![](Help/Image/colouredRectangleChart-F.svg)
-  7. ![](Help/Image/colouredRectangleChart-G.svg)
-  8. ![](Help/Image/colouredRectangleChart-H.svg)
+- `colourBarChart`
+  1. ![](Help/Image/colourBarChart-A.svg)
+  2. ![](Help/Image/colourBarChart-B.svg)
+  3. ![](Help/Image/colourBarChart-C.svg)
+  4. ![](Help/Image/colourBarChart-D.svg)
+  5. ![](Help/Image/colourBarChart-E.svg)
+  6. ![](Help/Image/colourBarChart-F.svg)
+  7. ![](Help/Image/colourBarChart-G.svg)
+- `colourMatrixPlot`
+  1. ![](Help/Image/colourMatrixPlot-A.svg)
+  2. ![](Help/Image/colourMatrixPlot-B.svg)
+  3. ![](Help/Image/colourMatrixPlot-C.svg)
+- `colourRectangleChart`
+  1. ![](Help/Image/colourRectangleChart-A.svg)
+  2. ![](Help/Image/colourRectangleChart-B.svg)
+  3. ![](Help/Image/colourRectangleChart-C.svg)
+  4. ![](Help/Image/colourRectangleChart-D.svg)
+  5. ![](Help/Image/colourRectangleChart-E.svg)
+  6. ![](Help/Image/colourRectangleChart-F.svg)
+  7. ![](Help/Image/colourRectangleChart-G.svg)
+  8. ![](Help/Image/colourRectangleChart-H.svg)
 - `ColourGradient`
   1. ![](Help/Image/ColourGradient-A.svg)
   2. ![](Help/Image/ColourGradient-B.svg)

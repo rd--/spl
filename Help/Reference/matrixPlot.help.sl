@@ -161,7 +161,7 @@ Plot a binary matrix:
 
 * * *
 
-See also: arrayPlot, asGreyscaleSvg, Bitmap, colouredMatrixPlot, discretePlot, functionPlot, graphPlot, Greymap, linePlot, parametricPlot, scatterPlot, surfacePlot
+See also: arrayPlot, asGreyscaleSvg, Bitmap, colourMatrixPlot, discretePlot, functionPlot, graphPlot, Greymap, linePlot, parametricPlot, scatterPlot, surfacePlot
 
 Guides: Matrix Functions, Plotting Functions
 

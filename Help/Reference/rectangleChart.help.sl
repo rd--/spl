@@ -99,7 +99,7 @@ two three rectangle charts:
 
 * * *
 
-See also: barChart, colouredRectangleChart, sectorChart
+See also: barChart, colourRectangleChart, sectorChart
 
 Guides: Plotting Functions
 

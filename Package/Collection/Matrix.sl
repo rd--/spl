@@ -373,12 +373,13 @@
 	matrixRotate { :self :k |
 		k.caseOf(
 			[
+				0 -> { self.copy },
 				1 -> { self.transpose.reverse },
 				2 -> { self.reverse.collect(reverse/1) },
 				3 -> { self.transpose.collect(reverse/1) }
 			]
 		) {
-			self.error('List>>matrixRotate: k not 1,2,3')
+			self.error('List>>matrixRotate: k not 0,1,2,3')
 		}
 	}
 

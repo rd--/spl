@@ -108,12 +108,12 @@ next/1.nestList(1, 115)
 
 ![](Help/Image/squareSpiralRank-B.svg)
 
-Rotated coloured matrix plot of the first few terms:
+Rotated colour matrix plot of the first few terms:
 
 ~~~spl svg=C
 squareSpiralRank/2
 .table(-5:5, -5:5)
-.colouredMatrixPlot
+.colourMatrixPlot
 ~~~
 
 ![](Help/Image/squareSpiralRank-C.svg)

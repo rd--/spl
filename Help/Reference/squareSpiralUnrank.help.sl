@@ -57,7 +57,7 @@ point-line plot:
 
 * * *
 
-See also: squareSpiral
+See also: squareSpiral, squareSpiralRank
 
 Guides: Geometry Functions, Integer Functions
 

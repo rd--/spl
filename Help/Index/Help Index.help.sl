@@ -536,7 +536,7 @@
 - `randomPermutation`, `randomCycle`
 - `leftInversionCount`, `rightInversionCount`, `rightInversionCountToPermutation`
 - `permutationGraph`
-- `permutationRank`, `unrankPermutation`
+- `permutationRank`, `permutationUnrank`
 - `stackSort`
 - `lyndonWords`
 - `permutationHasPattern`, `permutationPatternPositions`, `reducedPermutation`

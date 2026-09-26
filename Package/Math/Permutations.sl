@@ -1040,6 +1040,12 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 		self.iota.minimumChangePermutations
 	}
 
+	permutationUnrank { :rank :degree |
+		rank.mixedRadixEncode(
+			degree.toBy(1, -1)
+		).rightInversionCountToPermutation
+	}
+
 	[plainChanges, steinhausJohnsonTrotter] { :self |
 		(self < 1).if {
 			self.error('@Integer>>plainChanges: n < 1')
@@ -1052,12 +1058,6 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 		[0 .. b ^ n - 1].collect { :i |
 			i.integerReverse(b, n) + 1
 		}
-	}
-
-	unrankPermutation { :rank :degree |
-		rank.mixedRadixEncode(
-			degree.toBy(1, -1)
-		).rightInversionCountToPermutation
 	}
 
 }

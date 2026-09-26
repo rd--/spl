@@ -125,7 +125,7 @@ Unranking:
 - `catalanUnrank`
 - `integerPartitionUnrank`
 - `rationalUnrank`
-- `unrankPermutation`
+- `permutationUnrank`
 
 Indexes
 

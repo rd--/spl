@@ -1,13 +1,13 @@
-# unrankPermutation
+# permutationUnrank
 
-- _unrankPermutation(r, n)_
+- _permutationUnrank(r, n)_
 
 Answer the _r_-th permutation in the lexicographic ordering of the symmetric group _n_.
 
 The rank of the identity permutation is zero:
 
 ```
->>> 0.unrankPermutation(4)
+>>> 0.permutationUnrank(4)
 Permutation[1 2 3 4]
 
 >>> [1 2 3 4].permutationRank
@@ -17,7 +17,7 @@ Permutation[1 2 3 4]
 The eighteenth entry of S4:
 
 ```
->>> 17.unrankPermutation(4)
+>>> 17.permutationUnrank(4)
 Permutation[3 4 2 1]
 
 >>> [3 4 2 1].permutationRank
@@ -27,7 +27,7 @@ Permutation[3 4 2 1]
 The eleventh entry of S5:
 
 ```
->>> 10.unrankPermutation(5)
+>>> 10.permutationUnrank(5)
 Permutation[1 3 5 2 4]
 
 >>> [1 3 5 2 4].permutationRank
@@ -37,7 +37,7 @@ Permutation[1 3 5 2 4]
 The twenty-seventh entry of S6:
 
 ```
->>> 26.unrankPermutation(6)
+>>> 26.permutationUnrank(6)
 Permutation[1 3 2 5 4 6]
 
 >>> [1 3 2 5 4 6].permutationRank
@@ -48,7 +48,7 @@ Enumerate S4:
 
 ```
 >>> [0 .. 4.! - 1].collect { :n |
->>> 	n.unrankPermutation(4).list
+>>> 	n.permutationUnrank(4).list
 >>> }
 [
 	1 2 3 4;
@@ -77,6 +77,16 @@ Enumerate S4:
 	4 3 2 1
 ]
 ```
+
+Enumerate S4:
+
+~~~spl svg=A
+[0 .. 4.! - 1].collect { :n |
+	n.permutationUnrank(4).list
+}.transpose.colourMatrixPlot
+~~~
+
+![](Help/Image/permutationUnrank-A.svg)
 
 * * *
 
