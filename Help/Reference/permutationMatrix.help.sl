@@ -140,12 +140,21 @@ Plot the permutation matrix of a random permutation of length thirty-two:
 ~~~spl svg=A
 Sfc32(326871)
 .randomPermutation(32)
-.list
 .permutationMatrix
 .matrixPlot
 ~~~
 
 ![](Help/Image/permutationMatrix-A.svg)
+
+The twenty-four 4×4 permutation matrices:
+
+~~~spl svg=B
+[1 .. 4].permutations.collect { :p |
+	p.permutationMatrix.matrixPlot
+}.PlotSet([4 6])
+~~~
+
+![](Help/Image/permutationMatrix-B.svg)
 
 * * *
 

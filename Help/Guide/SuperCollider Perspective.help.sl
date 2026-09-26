@@ -35,6 +35,9 @@ There is however a `Record Constructor Syntax`,
 and this allows writing _SinOsc(freq: 440, phase: 0)_,
 so long as there is a suitable definition of `SinOsc` at `Record`.
 
+Unit generators default to the highest allowed operating rate.
+The method `kr` traverses a unit generator graph lowering audio rate nodes to control rate.
+
 * * *
 
 Further Reading: McCartney (1996, 1998, 2002)

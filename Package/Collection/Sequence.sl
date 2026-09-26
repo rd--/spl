@@ -2362,6 +2362,14 @@
 		}
 	}
 
+	selfClassify { :self |
+		self.nub.collect { :a |
+			self.collect { :b |
+				a = b
+			}
+		}
+	}
+
 	semiconvergents { :self :epsilon |
 		let answer = [];
 		let final = self.fromContinuedFraction;

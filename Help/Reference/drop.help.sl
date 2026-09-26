@@ -85,6 +85,8 @@ References:
 _Apl_
 [1](http://aplwiki.com/wiki/Drop),
 _Haskell_
-[1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:drop)
+[1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:drop),
+_J_
+[1](https://code.jsoftware.com/wiki/Vocabulary/curlyrtco),
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Drop.html)

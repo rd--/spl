@@ -38,8 +38,7 @@ answer a list of the values:
 At `Multiset`:
 
 ```
->>> [1 2 2 3 3 3 4 4 4 4]
->>> .asMultiset
+>>> Multiset[1 2 2 3 3 3 4 4 4 4]
 >>> .asList
 [1 2 2 3 3 3 4 4 4 4]
 ```

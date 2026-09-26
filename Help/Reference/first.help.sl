@@ -65,6 +65,19 @@ Convert a list to a fixed size:
 [3 1 4 0 0 0]
 ```
 
+Chop out an interval from a list:
+
+```
+>>> [1 .. 9].last(5).first(3)
+[5 6 7]
+
+>>> [1 .. 9].subarray([5:7])
+[5 6 7]
+
+>>> [1 .. 9].copyFromTo(5, 7)
+[5 6 7]
+```
+
 At `String`:
 
 ```
@@ -94,7 +107,7 @@ References:
 _Haskell_
 [1](https://hackage.haskell.org/package/base-4.21.0.0/docs/Data-List.html#v:head),
 _J_
-[1](https://code.jsoftware.com/wiki/Vocabulary/curlylfdot#dyadic),
+[1](https://code.jsoftware.com/wiki/Vocabulary/curlylfdot),
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/First.html),
 _Smalltalk_

@@ -71,6 +71,19 @@ Inverses of 3×3 integer matrices:
 ]
 ```
 
+The inverse of a permutation matrix is also a permutation matrix:
+
+```
+>>> let a = [0 0 1; 1 0 0; 0 1 0];
+>>> let b = a.inverse;
+>>> (
+>>> 	a.isPermutationMatrix,
+>>> 	b.isPermutationMatrix,
+>>> 	b
+>>> )
+(true, true, [0 1 0; 0 0 1; 1 0 0])
+```
+
 Find the inverse of a 3×3 real valued matrix:
 
 ```

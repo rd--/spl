@@ -8,15 +8,28 @@ and all other elements are `zero`.
 
 ```
 >>> 2.exchangeMatrix
-[0 1; 1 0]
+[
+	0 1;
+	1 0
+]
 
 >>> 3.exchangeMatrix
-[0 0 1; 0 1 0; 1 0 0]
+[
+	0 0 1;
+	0 1 0;
+	1 0 0
+]
 
 >>> 4.exchangeMatrix
-[0 0 0 1; 0 0 1 0; 0 1 0 0; 1 0 0 0]
+[
+	0 0 0 1;
+	0 0 1 0;
+	0 1 0 0;
+	1 0 0 0
+]
 
->>> 4.exchangeMatrix.antidiagonal
+>>> 4.exchangeMatrix
+>>> .antidiagonal
 [1 1 1 1]
 ```
 

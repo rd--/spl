@@ -235,7 +235,7 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 		answer
 	}
 
-	matrix { :self |
+	[matrix, permutationMatrix] { :self |
 		self.matrix(self.degree)
 	}
 

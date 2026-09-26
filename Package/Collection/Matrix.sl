@@ -304,6 +304,16 @@
 		}
 	}
 
+	isPermutationMatrix { :m |
+		m.isSquareMatrix & {
+			let [_, c] = m.shape;
+			let e = [0 -> (c - 1), 1 -> 1];
+			m.allSatisfy { :r |
+				r.sortedElements = e
+			}
+		}
+	}
+
 	isSignatureMatrix { :self |
 		self.isDiagonalMatrix & {
 			self.diagonal.allSatisfy { :n |

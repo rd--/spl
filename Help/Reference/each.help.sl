@@ -1,6 +1,6 @@
 # each
 
-- _each(f/1 | f/2)_
+- _each(f/n)_
 
 Answer a `Block` that will either apply the unary block _f_ to one argument using `collect`,
 or will apply the binary block _f_ to two arguments using `withCollect`.
@@ -33,7 +33,9 @@ or will apply the binary block _f_ to two arguments using `withCollect`.
 
 * * *
 
-See also: $, collect, map, withCollect
+See also: collect, map, withCollect
+
+Guides: List Functions
 
 References:
 _Apl_

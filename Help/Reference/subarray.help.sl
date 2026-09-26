@@ -100,6 +100,13 @@ A 1×1 sub-array of a 3×3 array:
 ]
 ```
 
+A sublist of a list:
+
+```
+>>> [0 .. 9].subarray([4:7])
+[3 4 5 6]
+```
+
 It is an `error` for there to be no indices:
 
 ```
