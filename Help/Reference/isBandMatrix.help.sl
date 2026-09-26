@@ -9,6 +9,7 @@ Diagonal matrix:
 ```
 >>> [1 0 0; 0 1 0; 0 0 1]
 >>> .isBandMatrix(0, 0)
+true
 
 >>> [1 0 0; 0 1 0; 0 0 1]
 >>> .isDiagonalMatrix

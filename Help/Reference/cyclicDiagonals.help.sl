@@ -2,16 +2,9 @@
 
 - _cyclicDiagonals(m)_
 
-+List{
-	cyclicDiagonals { :m |
-		let [r, c] = m.shape;
-		1:c.collect { :i |
-			1:r.collect { :j |
-				m[j.mod(r, 1)][(i + j - 1).mod(c, 1)]
-			}
-		}
-	}
-}
+Answer the cyclic diagonals of the matrix _m_.
+
+At a square matrix answers a square matrix:
 
 ```
 >>> [4 4].iota
@@ -78,7 +71,7 @@ A sequence of 3×3 matrix permutations:
 >>> 3.pisanoPeriod
 8
 
->>> let m = [3 3].iota
+>>> let m = [3 3].iota;
 >>> cyclicDiagonals/1.nestList(m, 8)
 [
 	1 2 3;
@@ -125,7 +118,7 @@ A sequence of 4×4 matrix permutations:
 >>> 4.pisanoPeriod
 6
 
->>> let m = [4 4].iota
+>>> let m = [4 4].iota;
 >>> cyclicDiagonals/1.nestList(m, 6)
 [
 	1 2 3 4;
@@ -199,5 +192,7 @@ cyclicDiagonals/1
 ![](Help/Image/cyclicDiagonals-C.svg)
 
 * * *
+
+Guides: Matrix Functions
 
 Further Reading: Patson 2007

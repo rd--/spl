@@ -133,6 +133,15 @@
 		}
 	}
 
+	cyclicDiagonals { :m |
+		let [r, c] = m.shape;
+		1:c.collect { :i |
+			1:r.collect { :j |
+				m[j.mod(r, 1)][(i + j - 1).mod(c, 1)]
+			}
+		}
+	}
+
 	designMatrix { :self :aBlock/1 |
 		let [m, n] = self.shape;
 		self.submatrix(
