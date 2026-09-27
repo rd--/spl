@@ -4,6 +4,16 @@
 
 Answer rows _n:m_ of the triangular array given by the falling diagonals of the matrix function _f_.
 
+Constant _n_ and _k_:
+
+```
+>>> 1:4.antidiagonalArray { :n :k | n }
+[1; 1 2; 1 2 3; 1 2 3 4]
+
+>>> 1:4.antidiagonalArray { :n :k | k }
+[1; 2 1; 3 2 1; 4 3 2 1]
+```
+
 Wythoff array in (falling) antidiagonals:
 
 ```

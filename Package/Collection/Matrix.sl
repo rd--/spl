@@ -689,6 +689,18 @@
 		(x + y - 2) * (x + y - 1) / 2 + y
 	}
 
+	antidiagonalUnrankZeroIndexed { :k |
+		let s = (((8 * k + 1).sqrt - 1) // 2);
+		let t = (s * (s + 1)) // 2;
+		let r = k - t;
+		let c = s - r;
+		[r, c]
+	}
+
+	antidiagonalUnrank { :k |
+		(k - 1).antidiagonalUnrankZeroIndexed + 1
+	}
+
 	identityMatrix { :self |
 		[self, self].identityMatrix
 	}
@@ -702,6 +714,17 @@
 
 	zeroMatrix { :self |
 		[self self].zeroMatrix
+	}
+
+}
+
++List {
+
+	antidiagonalRank { :self |
+		self.atVectorOrElementwise { :x |
+			let [r, c] = x;
+			antidiagonalRank(r, c)
+		}
 	}
 
 }

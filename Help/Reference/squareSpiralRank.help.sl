@@ -1,11 +1,12 @@
 # squareSpiralRank
 
 - _squareSpiralRank(x, y, o=1)_
+- _squareSpiralRank([x y; …])_
 
 Given the integer cartesian coordinates _x,y_,
-answer the _o_ indexed rank of the counter-clockwise,
-and initially downward,
-square spiral.
+answer the _o_-indexed rank of the counter-clockwise,
+and initially rightward,
+square spiral centered at _0,0_.
 
 First few terms:
 

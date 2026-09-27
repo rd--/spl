@@ -213,6 +213,15 @@ OEIS [A000217](https://oeis.org/A000217):
 
 ![](Help/Image/triangularNumber-E.svg)
 
+Evaluate symbolically:
+
+```
+>> `x`.triangularNumber
+(/
+ (gamma (+ (+ x 1) 1))
+ (* 2 (gamma (+ (- (+ x 1) 2) 1))))
+```
+
 * * *
 
 See also: binomial, cube, inverseTriangularNumber, pascalTriangle, polygonalNumber, square, tetrahedralNumber
