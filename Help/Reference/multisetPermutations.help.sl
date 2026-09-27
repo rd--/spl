@@ -28,6 +28,16 @@ At `List`:
 12
 ```
 
+At unit list:
+
+```
+>>> [1].multisetPermutations
+[[1]]
+
+>>> [1].permutations
+[[1]]
+```
+
 Sorted into lexicographic order:
 
 ```

@@ -15,11 +15,15 @@ IntegerPartitions : [Object, Equal, Store] { | contents:<List> |
 +@Integer {
 
 	integerPartitions { :n |
-		let answer = [];
-		n.integerPartitionsDescendingDo { :each |
-			answer.add(each)
-		};
-		answer
+		(n = 0).if {
+			[[]]
+		} {
+			let answer = [];
+			n.integerPartitionsDescendingDo { :each |
+				answer.add(each)
+			};
+			answer
+		}
 	}
 
 	integerPartitions { :n :k |

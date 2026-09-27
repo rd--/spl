@@ -31,6 +31,20 @@ There are eight compositions of four:
 8 # [4]
 ```
 
+Equivalent to the multiset permutations of the integer partitions:
+
+```
+>>> 4.integerPartitions
+>>> .collect(multisetPermutations/1)
+>>> .catenate
+[
+	4;
+	3 1; 1 3; 2 2;
+	2 1 1; 1 2 1; 1 1 2;
+	1 1 1 1
+]
+```
+
 There are sixteen compositions of five:
 
 ```

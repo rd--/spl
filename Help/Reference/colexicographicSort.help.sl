@@ -10,9 +10,9 @@ Sort subsets colexicographically:
 
 ```
 >>> let x = [1 2 3].powerSet;
->>> x.colexicographicSort;
->>> x
-[; 1; 2; 1 2; 3; 1 3; 2 3; 1 2 3]
+>>> let y = x.colexicographicSort;
+>>> (x = y, y)
+(true, [; 1; 2; 1 2; 3; 1 3; 2 3; 1 2 3])
 ```
 
 Sort k-subsets of first n integers colexicographically:
@@ -21,7 +21,7 @@ Sort k-subsets of first n integers colexicographically:
 >>> let n = 5;
 >>> let k = 3;
 >>> 1:n.combinations(k)
->>> .colexicographicSort
+>>> .colexicographicSort!
 [
 	1 2 3;
 	1 2 4;
@@ -40,7 +40,7 @@ Sort binary combinations:
 
 ```
 >>> binaryCombinations(2, 3)
->>> .colexicographicSort
+>>> .colexicographicSort!
 [
 	1 1 1 0 0;
 	1 1 0 1 0;
@@ -60,7 +60,7 @@ Colexicographic sort of the integer partitions of six:
 ```
 >>> 6.integerPartitions
 >>> .padRight
->>> .colexicographicSort
+>>> .colexicographicSort!
 [
 	6 0 0 0 0 0;
 	5 1 0 0 0 0;
@@ -81,7 +81,7 @@ Colexicographic sort of the 5-cycle permutations of _1:5_:
 ```
 >>> [1 .. 5].permutations.select { :p |
 >>> 	p.isCyclicPermutation(5)
->>> }.colexicographicSort
+>>> }.colexicographicSort!
 [
 	3 5 4 2 1;
 	4 3 5 2 1;
@@ -115,11 +115,23 @@ Walsh functions in colexicographic order:
 ~~~spl svg=A
 let m = (2 ^ 4).walshMatrix;
 (1 - m.unitStep)
-.colexicographicSort
+.colexicographicSort!
 .matrixPlot
 ~~~
 
 ![](Help/Image/colexicographicSort-A.svg)
+
+Integer partitions in colexicographical ordering,
+OEIS [A211992](https://oeis.org/A211992):
+
+~~~spl svg=B oeis=A211992
+1:8.collect { :n |
+	n.integerPartitions
+	.colexicographicSort!
+}.catenate.catenate.scatterPlot
+~~~
+
+![](Help/Image/colexicographicSort-B.svg)
 
 * * *
 

@@ -464,10 +464,14 @@
 		)
 	}
 
-	reverseLexicographicSort { :self |
+	reverseLexicographicSortInPlace { :self |
 		self.sortComparingInPlace(
 			reverseLexicographicCompare/2
 		)
+	}
+
+	reverseLexicographicSort { :self |
+		self.copy.reverseLexicographicSortInPlace
 	}
 
 	reverseReflectedColexicographicSort { :self |

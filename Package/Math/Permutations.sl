@@ -1104,11 +1104,15 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 	}
 
 	multisetPermutations { :self |
-		let answer = [];
-		self.multisetPermutationsDoLink { :each |
-			answer.add(each.asList)
-		};
-		answer
+		(self.size = 1).if {
+			[self]
+		} {
+			let answer = [];
+			self.multisetPermutationsDoLink { :each |
+				answer.add(each.asList)
+			};
+			answer
+		}
 	}
 
 }

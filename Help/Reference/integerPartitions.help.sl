@@ -34,6 +34,13 @@ All seven partitions of five:
 7
 ```
 
+At `zero`:
+
+```
+>>> 0.integerPartitions
+[[]]
+```
+
 Canonical order,
 OEIS [A334301](https://oeis.org/A334301):
 

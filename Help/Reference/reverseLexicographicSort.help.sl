@@ -10,7 +10,7 @@ Sort subsets reverse lexicographically:
 
 ```
 >>> let x = [1 2 3].powerSet;
->>> x.reverseLexicographicSort;
+>>> x.reverseLexicographicSort!;
 >>> x
 [3; 2 3; 2; 1 3; 1 2 3; 1 2; 1; ]
 ```
@@ -21,7 +21,7 @@ Sort k-subsets of first n integers reverse lexicographically:
 >>> let n = 5;
 >>> let k = 3;
 >>> 1:n.combinations(k)
->>> .reverseLexicographicSort
+>>> .reverseLexicographicSort!
 [
 	3 4 5;
 	2 4 5;
@@ -40,7 +40,7 @@ Sort binary combinations:
 
 ```
 >>> binaryCombinations(2, 3)
->>> .reverseLexicographicSort
+>>> .reverseLexicographicSort!
 [
 	1 1 1 0 0;
 	1 1 0 1 0;
@@ -55,7 +55,7 @@ Sort binary combinations:
 ]
 
 >>> 1:5.combinations(3)
->>> .lexicographicSort
+>>> .lexicographicSort!
 [
 	1 2 3;
 	1 2 4;
@@ -76,7 +76,7 @@ OEIS [A066099](https://oeis.org/A066099):
 ~~~spl svg=A oeis=A066099
 1:5.collect { :n |
 	n.integerCompositions
-	.reverseLexicographicSort
+	.reverseLexicographicSort!
 }.catenate.catenate.scatterPlot
 ~~~
 
@@ -88,7 +88,7 @@ OEIS [A124754](https://oeis.org/A124754):
 ~~~spl svg=B oeis=A124754
 1:7.collect { :n |
 	n.integerCompositions
-	.reverseLexicographicSort
+	.reverseLexicographicSort!
 	.collect(alternatingSum/1)
 }.catenate.discretePlot
 ~~~
@@ -101,7 +101,7 @@ OEIS [A124756](https://oeis.org/A124756):
 ~~~spl svg=C oeis=A124756
 1:7.collect { :n |
 	n.integerCompositions
-	.reverseLexicographicSort
+	.reverseLexicographicSort!
 	.collect { :c |
 		c.inverseBinomialTransform.last
 	}
@@ -116,7 +116,7 @@ OEIS [A358133](https://oeis.org/A358133):
 ~~~spl svg=D oeis=A358133
 1:6.collect { :n |
 	n.integerCompositions
-	.reverseLexicographicSort
+	.reverseLexicographicSort!
 }.catenate.collect(differences/1)
 .catenate.discretePlot
 ~~~
@@ -129,7 +129,7 @@ OEIS [A353932](https://oeis.org/A353932):
 ~~~spl svg=E oeis=A353932
 1:5.collect { :n |
 	n.integerCompositions
-	.reverseLexicographicSort
+	.reverseLexicographicSort!
 	.collect { :c |
 		c.split(=).collect(sum/1)
 	}
@@ -137,6 +137,33 @@ OEIS [A353932](https://oeis.org/A353932):
 ~~~
 
 ![](Help/Image/reverseLexicographicSort-E.svg)
+
+Integer partitions in reverse lexicographical ordering,
+OEIS [A026792](https://oeis.org/A026792):
+
+~~~spl svg=F oeis=A026792
+1:8.collect { :n |
+	n.integerPartitions
+	.reverseLexicographicSort!
+}.catenate.catenate.scatterPlot
+~~~
+
+![](Help/Image/reverseLexicographicSort-F.svg)
+
+Integer partitions,
+sorted in ascending order,
+in reverse lexicographical ordering,
+OEIS [A228531](https://oeis.org/A228531):
+
+~~~spl svg=G oeis=A228531
+1:8.collect { :n |
+	n.integerPartitions
+	.collect(sort!/1)
+	.reverseLexicographicSort!
+}.catenate.catenate.scatterPlot
+~~~
+
+![](Help/Image/reverseLexicographicSort-G.svg)
 
 * * *
 
