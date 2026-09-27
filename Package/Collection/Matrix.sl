@@ -194,7 +194,6 @@
 						j > (i + k2)
 					}
 				).if {
-					[i, j, m[i][j]].postLine;
 					m[i][j] = 0
 				} {
 					true

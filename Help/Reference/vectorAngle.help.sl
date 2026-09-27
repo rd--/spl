@@ -65,8 +65,8 @@ The rule may be unsigned, signed or counter-clockwise:
 >>> 	]
 >>> }
 [
-	1 1
-	1 -1
+	1 1;
+	1 -1;
 	1 3
 ].pi / 2
 ```

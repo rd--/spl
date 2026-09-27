@@ -26,7 +26,7 @@ Of the reverse of the binary van der Corput sequence:
 >>> [15 7 11 3 13 5 9 1 14 6 10 2 12 4 8 0]
 >>> .allNearestSmallerValues
 [
-	nil nil 2 nil 4 4 6 nil 8 8 10 8 12 12 14 nil
+	nil nil 2 nil 4 4 6 nil 8 8 10 8 12 12 14 nil;
 	nil nil 7 nil 3 3 5 nil 1 1  6 1  2  2  4 nil
 ]
 ```
