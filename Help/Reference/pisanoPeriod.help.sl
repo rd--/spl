@@ -626,7 +626,7 @@ Fibonacci winding number,
 the number of _mod n_ operations in one cycle of the Fibonacci sequence modulo _n_,
 OEIS [A088551](https://oeis.org/A088551):
 
-~~~spl svg=H
+~~~spl svg=H oeis=A088551
 2:77.collect { :n |
 	let p = n.pisanoPeriod;
 	1:p.sum { :k |

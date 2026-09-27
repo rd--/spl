@@ -3,6 +3,14 @@
 - _allButFirstDo(c, f/1)_
 
 Apply the block _f_ at all but the first element of the sequence _c_.
+Answers `nil`.
+
+```
+>>> let r = [];
+>>> 1:9.allButFirstDo { :x | r.add(x) };
+>>> r
+[2 .. 9]
+```
 
 * * *
 

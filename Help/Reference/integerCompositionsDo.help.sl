@@ -5,6 +5,7 @@
 
 An integer composition is an ordered arrangement of _k_ non-negative integers which sum to _n_.
 It is therefore a partition in which order is significant.
+Answers `nil`.
 
 A positive integer _n_ has _2 ^ (n - 1)_ compositions:
 
@@ -20,3 +21,5 @@ A positive integer _n_ has _2 ^ (n - 1)_ compositions:
 * * *
 
 See also: integerCompositions
+
+Guides: Integer Functions

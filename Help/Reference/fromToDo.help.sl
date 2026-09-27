@@ -1,8 +1,9 @@
 # fromToDo
 
-- _fromToDo(aSequence, start, stop, aBlock/1)_
+- _fromToDo([x₁ x₂ …], i, j, f/1)_
 
-Evaluate _aBlock_ for all elements of _aSequence_ between indices start and stop (inclusive).
+Evaluate the block _f_ for all elements of the sequence _x_ between indices _i_ and _j_ (inclusive).
+Answers `nil`.
 
 ```
 >>> let list = [];

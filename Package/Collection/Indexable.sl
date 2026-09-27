@@ -257,7 +257,8 @@
 	}
 
 	indicesDo { :self :aBlock/1 |
-		self.indices.do(aBlock/1)
+		self.indices.do(aBlock/1);
+		nil
 	}
 
 	isIndexable { :self |

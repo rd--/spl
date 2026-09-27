@@ -1,25 +1,26 @@
 # whileTrue
 
-- _whileTrue(condition/0, f/0)_
+- _whileTrue(c/0, f/0)_
 
 Conditional evaluation.
-Evaluate the block _f_ as long as the value of the block _condition_ is `true`.
-In the unary case, simply evaluate _condition_ repeatedly as long as it answers `true`.
+Evaluate the action block _f_ as long as the value of the condition block _c_ is `true`.
+In the unary case, simply evaluate _c_ repeatedly as long as it answers `true`.
+Answers `nil`.
 
-Ordinarily _condition_ and _f_ are literal no-argument blocks written using `Trailing Block Syntax`.
+Ordinarily _c_ and _f_ are literal no-argument blocks written using `Trailing Block Syntax`.
 
 Calculate an initial subsequence of the Fibonacci series,
 the sum of two elements defines the next:
 
 ```
->>> let answer = [];
+>>> let r = [];
 >>> let a = 0;
 >>> let b = 1;
 >>> { b < 1000 }.whileTrue {
->>> 	answer.add(b);
+>>> 	r.add(b);
 >>> 	[a, b] := [b, a + b]
 >>> };
->>> answer
+>>> r
 [
 	1 1 2 3 5 8 13 21 34 55
 	89 144 233 377 610 987

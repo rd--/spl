@@ -1,12 +1,15 @@
 UnsortedSet : [Object, Store, Equal, Iterable, Collection, Extensible, Unordered, Set] { | contents comparator |
 
 	do { :self :aBlock/1 |
-		self.contents.do(aBlock/1);
-		self
+		self.contents.do(aBlock/1)
 	}
 
 	include { :self :anObject |
-		self.contents.addIfNotPresentBy(anObject, self.comparator)
+		self.contents
+		.addIfNotPresentBy(
+			anObject,
+			self.comparator
+		)
 	}
 
 	includes { :self :anObject |

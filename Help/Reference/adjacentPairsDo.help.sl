@@ -5,6 +5,7 @@
 Apply the block _f_ to the items of the sequence _c_ taken two at a time,
 moving forward one place each turn.
 The iterative form of `adjacentPairsCollect`.
+Answers `nil`.
 
 * * *
 

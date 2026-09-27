@@ -114,7 +114,7 @@ Markdown : [Object, Equal, Cache, Iterable] { | source cache |
 			}
 		}
 		>
-		self
+		nil
 	}
 
 	elements { :self |

@@ -1,7 +1,10 @@
 @MidiMap {
 
 	do { :self :aBlock |
-		<primitive: return _self.forEach(_aBlock);>
+		<primitive:
+		_self.forEach(_aBlock);
+		>
+		nil
 	}
 
 	ports { :self |

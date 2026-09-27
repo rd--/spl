@@ -62,7 +62,7 @@
 		(count > 0).ifTrue {
 			aBlock(self.end)
 		};
-		self
+		nil
 	}
 
 	emptyError { :self :methodName |
@@ -172,7 +172,7 @@
 		(count > 0).ifTrue {
 			aBlock(self.start)
 		};
-		self
+		nil
 	}
 
 	size { :self |
@@ -208,7 +208,7 @@
 			nextIndex := nextIndex + 1
 		};
 		aBlock(self.end, endIndex);
-		self
+		nil
 	}
 
 }

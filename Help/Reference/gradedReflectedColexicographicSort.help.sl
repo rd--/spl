@@ -9,7 +9,7 @@ Sort the integer partitions of six:
 
 ```
 >>> 6.integerPartitions
->>> .gradedReflectedColexicographicSort
+>>> .gradedReflectedColexicographicSort!
 [
 	6;
 	1 5;
@@ -31,8 +31,8 @@ OEIS [A036038](https://oeis.org/A036038):
 ```
 >>> 1:6.collect { :n |
 >>> 	n.integerPartitions
->>> 	.gradedReflectedColexicographicSort
->>> 	.collect(multinomial/1)
+>>> 	.gradedReflectedColexicographicSort!
+>>> 	.collect!(multinomial/1)
 >>> }
 [
 	1;

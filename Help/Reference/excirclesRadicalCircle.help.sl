@@ -4,6 +4,8 @@
 
 Answer the excircles radical circle of the triangle _t_.
 
+The excircles radical circle and the spieker center of a triangle:
+
 ~~~spl svg=A
 let t = [4.5 3 5].sssTriangle;
 [

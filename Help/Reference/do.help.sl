@@ -3,7 +3,7 @@
 - _do(c, f/1)_
 
 Evaluate the block _f_ with each element of the collection _c_ as the argument.
-Answers _c_.
+Answers `nil`.
 
 ```
 >>> let c = [];
@@ -11,7 +11,7 @@ Answers _c_.
 >>> 	c.add(each)
 >>> };
 >>> (x, c)
-(1:9, [1 .. 9])
+(nil, [1 .. 9])
 ```
 
 It is not safe to modify a mutable collection that is being iterated over,
@@ -19,13 +19,13 @@ instead a copy should be used:
 
 ```
 >>> let c = [1 .. 9];
->>> c.copy.do { :each |
+>>> let x = c.copy.do { :each |
 >>> 	each.isOdd.ifTrue {
 >>> 		c.add(each)
 >>> 	}
 >>> };
->>> c
-[1 2 3 4 5 6 7 8 9 1 3 5 7 9]
+>>> (x, c)
+(nil, [1 2 3 4 5 6 7 8 9 1 3 5 7 9])
 ```
 
 _Rationale:_

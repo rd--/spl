@@ -277,7 +277,7 @@ OEIS [A036036](https://oeis.org/A036036):
 >>> 1:6.collect { :n |
 >>> 	n.integerPartitions
 >>> }.catenate
->>> .gradedReflectedColexicographicSort
+>>> .gradedReflectedColexicographicSort!
 [
 	1;
 	2;
@@ -375,7 +375,7 @@ OEIS [A036036](https://oeis.org/A036036):
 1:8.collect { :n |
 	n.integerPartitions
 }.catenate
-.gradedReflectedColexicographicSort
+.gradedReflectedColexicographicSort!
 .catenate
 .scatterPlot
 ~~~
@@ -444,7 +444,7 @@ OEIS [A080576](https://oeis.org/A080576):
 >>> 1:6.collect { :n |
 >>> 	n.integerPartitions
 >>> }.catenate
->>> .gradedReflectedLexicographicSort
+>>> .gradedReflectedLexicographicSort!
 [
 	1;
 	1 1;
@@ -485,7 +485,7 @@ OEIS [A080576](https://oeis.org/A080576):
 1:8.collect { :n |
 	n.integerPartitions
 }.catenate
-.gradedReflectedLexicographicSort
+.gradedReflectedLexicographicSort!
 .catenate
 .scatterPlot
 ~~~

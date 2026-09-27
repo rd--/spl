@@ -803,7 +803,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'reduce'
 		'reject'
 		'rejectThenDo'
-		'replace'
+		'collectInPlace'
 		'reverseDo'
 		'reverseWithDo'
 		'select'

@@ -1109,8 +1109,7 @@
 					nextValue := nextValue + step
 				}
 			}
-		};
-		self
+		}
 	}
 
 	toCollect { :start :end :aBlock/1 |
@@ -1152,8 +1151,7 @@
 		}.whileTrue {
 			aBlock(index);
 			index := index + 1
-		};
-		self
+		}
 	}
 
 	truncate { :self :aNumber |

@@ -4,6 +4,7 @@
 
 Apply the binary block _f_ to the items of the sequence _x_ taken two at a time,
 moving forward two places each time.
+Answers `nil`.
 The iterative form of `pairsCollect`.
 
 ```

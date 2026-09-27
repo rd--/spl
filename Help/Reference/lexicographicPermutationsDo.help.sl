@@ -6,6 +6,7 @@ Apply the block _f_ to each permutation of the sequence _c_ in turn,
 which must answer either `true` to continue,
 or `false` to end,
 the iteration.
+Answers `nil`.
 Note: The value supplied to _f_ is _not_ a copy,
 the same sequence is mutated in place.
 

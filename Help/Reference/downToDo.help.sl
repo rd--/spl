@@ -3,6 +3,7 @@
 - _downToDo(i, j, f/1)_
 
 Iterate over the range from the start index _i_ to the stop index _j_ counting by negative one.
+Answers `nil`.
 
 ```
 >>> let l = [];

@@ -20,8 +20,7 @@ SortedSet : [Object, Store, Copyable, Equal, Iterable, Collection, Extensible, S
 	}
 
 	do { :self :aBlock/1 |
-		self.contents.do(aBlock/1);
-		self
+		self.contents.do(aBlock/1)
 	}
 
 	include { :self :anObject |

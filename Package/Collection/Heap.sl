@@ -30,7 +30,7 @@ Heap : [Object, Copyable, Equal, Iterable, Collection, Extensible] { | array sor
 	}
 
 	collect { :self :aBlock/1 |
-		self.array.replace(aBlock/1);
+		self.array.collectInPlace(aBlock/1);
 		self
 	}
 

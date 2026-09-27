@@ -1,9 +1,10 @@
 # reverseWithDo
 
-- _reverseWithDo(aSequence, anotherSequence, aBlock/2)_
+- _reverseWithDo(p, q, f/2)_
 
-Evaluate _aBlock_ with each element of _aSequence_, in reverse order,
-along with the corresponding element, also in reverse order, from _anotherSequence_.
+Evaluate the block _f_ with each element of the sequence _p_, in reverse order,
+along with the corresponding element, also in reverse order, from another sequence _q_.
+Answers `nil`.
 
 ```
 >>> let d = [];

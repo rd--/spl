@@ -5,6 +5,7 @@
 Evaluate the block _f_ with each element of the sequence _x_ as the argument,
 starting with the last element and taking each in sequence up to the first.
 This is the reverse of the enumeration for `do`.
+Answers `nil`.
 
 At `List`:
 

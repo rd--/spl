@@ -709,7 +709,8 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 				d[i] := 0 - d[i]
 			}
 		};
-		perm(1)
+		perm(1);
+		nil
 	}
 
 	permutationCycles { :self |
@@ -909,9 +910,7 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 	}
 
 	permutationsStartingAtDo { :self :anInteger :aBlock/1 |
-		(anInteger > self.size).if {
-			self
-		} {
+		(anInteger > self.size).ifFalse {
 			(anInteger = self.size).if {
 				aBlock(self)
 			} {
@@ -921,7 +920,8 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 					self.swapWith(anInteger, index)
 				}
 			}
-		}
+		};
+		nil
 	}
 
 	permutationSymbol { :self |

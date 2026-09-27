@@ -53,7 +53,7 @@
 			return _aBlock_1(item)
 		});
 		>
-		self
+		nil
 	}
 
 	findFirstElement { :self :aBlock/1 |
@@ -77,8 +77,8 @@
 	insertAt { :self :anObject :index |
 		<primitive:
 		_self.splice(_index - 1, 0, _anObject);
-		return _anObject;
 		>
+		anObject
 	}
 
 	includesIndex { :self :index |

@@ -9,15 +9,15 @@ The sort process can be monitored by the unary block _f_.
 Sort list:
 
 ```
->>> [1 3 5 2 4].cycleSort
+>>> [1 3 5 2 4].cycleSort!
 [1 2 3 4 5]
 ```
 
-Sort is in place:
+Sort is in place or copying:
 
 ```
 >>> let s = [1 3 5 2 4];
->>> let t = s.cycleSort;
+>>> let t = s.cycleSort!;
 >>> (t, t == s)
 ([1 2 3 4 5], true)
 ```

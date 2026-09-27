@@ -3,19 +3,19 @@
 - _fromToIndicesAndValuesDo(c, i, j, f/2)_
 
 Evaluate the block _f_ for all elements of the sequence _c_ between start index _i_ and stop index _j_ (inclusive).
+Answers `nil`.
 
 At `List`:
 
 ```
->>> let list = 1:9.collect(printString/1);
->>> let answer = [];
->>> list
->>> .fromToIndicesAndValuesDo(
+>>> let a = 1:9.collect(printString/1);
+>>> let b = [];
+>>> a.fromToIndicesAndValuesDo(
 >>> 	3, 7
->>> ) { :key :value |
->>> 	answer.add([-key value])
+>>> ) { :i :x |
+>>> 	b.add([-i x])
 >>> };
->>> answer
+>>> b
 [-3 '3'; -4 '4'; -5 '5'; -6 '6'; -7 '7']
 ```
 

@@ -542,6 +542,13 @@
 		answer
 	}
 
+	collectInPlace { :self :aBlock/1 |
+		self.indicesDo { :index |
+			self[index] := aBlock(self[index])
+		};
+		self
+	}
+
 	constantArray { :self :anObject |
 		List(self.product, anObject).reshapeList(self)
 	}
@@ -823,8 +830,7 @@
 	do { :self :aBlock/1 |
 		self.indicesDo { :index |
 			aBlock(self[index])
-		};
-		self
+		}
 	}
 
 	doSeparatedBy { :self :elementBlock/1 :separatorBlock/0 |
@@ -1385,7 +1391,8 @@
 	}
 
 	indicesDo { :self :aBlock/1 |
-		1.toDo(self.size, aBlock/1)
+		1.toDo(self.size, aBlock/1);
+		nil
 	}
 
 	injectInto { :self :anObject :aBlock/2 |
@@ -2056,7 +2063,8 @@
 					aBlock(answer)
 				}
 			}
-		}
+		};
+		nil
 	}
 
 	partition { :self :windowSize :stepSize |
@@ -2160,12 +2168,6 @@
 
 	repeat { :s :n |
 		(n # [s]).catenate
-	}
-
-	replace { :self :aBlock/1 |
-		self.indicesDo { :index |
-			self[index] := aBlock(self[index])
-		}
 	}
 
 	replaceAllWith { :self :oldObject :newObject |
@@ -2850,6 +2852,13 @@
 		}
 	}
 
+	withCollectInPlace { :self :otherCollection :aBlock/2 |
+		self.isOfSameSizeCheck(otherCollection);
+		self.indicesDo { :index |
+			self[index] := aBlock(self[index], otherCollection[index])
+		}
+	}
+
 	withCollectOrAdaptTo { :self :anObject :aBlock/2 |
 		(anObject.isCollection & {
 			anObject.isSequence
@@ -2892,13 +2901,6 @@
 		}
 	}
 
-	withReplace { :self :otherCollection :aBlock/2 |
-		self.isOfSameSizeCheck(otherCollection);
-		self.indicesDo { :index |
-			self[index] := aBlock(self[index], otherCollection[index])
-		}
-	}
-
 	withIndexCollect { :self :elementAndIndexBlock/2 |
 		let answer = self.species.ofSize(self.size);
 		self.indicesDo { :index |
@@ -2907,15 +2909,15 @@
 		answer
 	}
 
-	withIndexDo { :self :elementAndIndexBlock/2 |
+	withIndexCollectInPlace { :self :aBlock/2 |
 		self.indicesDo { :index |
-			elementAndIndexBlock(self[index], index)
+			self[index] := aBlock(self[index], index)
 		}
 	}
 
-	withIndexReplace { :self :aBlock/2 |
+	withIndexDo { :self :elementAndIndexBlock/2 |
 		self.indicesDo { :index |
-			self[index] := aBlock(self[index], index)
+			elementAndIndexBlock(self[index], index)
 		}
 	}
 

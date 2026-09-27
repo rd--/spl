@@ -2,7 +2,7 @@
 
 - _ludicArray([m n])_
 
-Anser the _m×n_ Ludic array,
+Answer the _m×n_ Ludic array,
 where row _n_ lists the numbers removed at stage _n_ in the sieve which produces Ludic numbers.
 
 Nine rows and six columns of the Ludic array:

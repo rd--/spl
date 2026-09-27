@@ -42,8 +42,8 @@ Map! : [Object, Store, Equal, Iterable, Indexable, Collection, Extensible, Dicti
 		_self.forEach(function(value, key, _) {
 			_aBlock_2(key, value);
 		});
-		return null;
 		>
+		nil
 	}
 
 	removeAll { :self |

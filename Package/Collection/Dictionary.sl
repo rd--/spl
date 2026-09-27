@@ -86,7 +86,8 @@
 		};
 		removals.do { :key |
 			self.removeKey(key)
-		}
+		};
+		removals
 	}
 
 	associationsSelect { :self :aBlock/1 |
@@ -132,6 +133,13 @@
 			answer.add(key -> aBlock(value))
 		};
 		answer
+	}
+
+	collectInPlace { :self :aBlock/1 |
+		self.keysDo { :key |
+			self[key] := aBlock(self[key])
+		};
+		self
 	}
 
 	declareFrom { :self :key :aDictionary |
@@ -414,12 +422,6 @@
 		self.shouldNotImplement('removeIfAbsent')
 	}
 
-	replace { :self :aBlock/1 |
-		self.keysDo { :key |
-			self[key] := aBlock(self[key])
-		}
-	}
-
 	select { :self :aBlock/1 |
 		let answer = self.species.new;
 		self.associationsDo { :each |
@@ -609,8 +611,7 @@ Dictionary : [Object, Store, Copyable, Equal, Iterable, Indexable, Collection, E
 		let size = keys.size;
 		1.toDo(size) { :index |
 			aBlock(keys[index], values[index])
-		};
-		nil
+		}
 	}
 
 	postCopy { :self |

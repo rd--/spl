@@ -1,15 +1,18 @@
 # ifTrue
 
-- _ifTrue(aBoolean, aBlock/0)_
+- _ifTrue(b, f/0)_
 
 Conditional evaluation.
-If _aBoolean_ is _true_ answer the result of  _aBlock()_, else answer _nil_.
+If the boolean _b_ is `true`,
+answer the result of _f()_,
+else answer `nil`.
 
 ```
 >>> let x = nil;
->>> true.ifTrue { x := 1 };
->>> x
-1
+>>> let y = true.ifTrue { x := 1 };
+>>> let z = false.ifTrue { x := -1 };
+>>> (x, y, z)
+(1, 1, nil)
 ```
 
 * * *

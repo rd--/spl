@@ -2,7 +2,7 @@
 
 - _isNil(x)_
 
-Anwer `true` if the object _x_ is `nil` else `false`.
+Answer `true` if the object _x_ is `nil` else `false`.
 
 ```
 >>> nil.isNil

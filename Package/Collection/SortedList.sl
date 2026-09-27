@@ -40,8 +40,7 @@ SortedList : [Object, Store, Copyable, Equal, Compare, Iterable, Indexable, Coll
 	}
 
 	do { :self :aBlock/1 |
-		self.contents.do(aBlock/1);
-		self
+		self.contents.do(aBlock/1)
 	}
 
 	indexForInserting { :self :newObject |

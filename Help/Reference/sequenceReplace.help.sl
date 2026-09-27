@@ -69,6 +69,8 @@ Rules are tried in the given order:
 
 See also: substitutionSystem
 
+Guides: List Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/SequenceReplace.html)

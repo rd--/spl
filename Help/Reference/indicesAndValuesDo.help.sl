@@ -3,6 +3,7 @@
 - _indicesAndValuesDo(c, f/2)_
 
 Apply the block _f_ to each index and item of the sequential colletion _c_.
+Answer `nil`.
 
 At `List`:
 

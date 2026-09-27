@@ -626,7 +626,8 @@
 
 	withLevelDo { :self :aBlock/2 |
 		self.withLevelDo(aBlock/2, 1);
-		aBlock(self, 0)
+		aBlock(self, 0);
+		nil
 	}
 
 }

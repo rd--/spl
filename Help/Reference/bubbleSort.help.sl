@@ -8,24 +8,24 @@ according to the comparison predicate _f_.
 Sort list:
 
 ```
->>> [1 3 5 2 4 3].bubbleSort
+>>> [1 3 5 2 4 3].bubbleSort!
 [1 2 3 3 4 5]
 
->>> [1 3 5 2 4 3].bubbleSort(>)
+>>> [1 3 5 2 4 3].bubbleSort!(>)
 [5 4 3 3 2 1]
 
->>> [].bubbleSort
+>>> [].bubbleSort!
 []
 
->>> [1].bubbleSort
+>>> [1].bubbleSort!
 [1]
 ```
 
-Sort is in place:
+Sort is in place or copying:
 
 ```
 >>> let s = [1 3 5 2 4 3];
->>> let t = s.bubbleSort;
+>>> let t = s.bubbleSort!;
 >>> (t, t == s)
 ([1 2 3 3 4 5], true)
 ```
@@ -35,7 +35,7 @@ All permutations of a list sort to the same list:
 ```
 >>> let n = 4;
 >>> [1 .. n].permutations.allSatisfy { :x |
->>> 	x.bubbleSort = [1 .. 4]
+>>> 	x.bubbleSort! = [1 .. 4]
 >>> }
 true
 ```
@@ -49,7 +49,7 @@ let k = 4;
 let r = [];
 0:n.collect { :x |
 	(x.sin * m).round
-}.bubbleSort { :a :b |
+}.bubbleSort! { :a :b |
 	r.add(a);
 	a > b
 };

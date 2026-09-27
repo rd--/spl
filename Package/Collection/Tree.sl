@@ -189,7 +189,8 @@ Tree : [Object, Store, Equal, Iterable, Indexable] { | value subTrees |
 		self.subTrees.reverseDo { :each |
 			each.reverseDo(aBlock/1)
 		};
-		aBlock(self)
+		aBlock(self);
+		nil
 	}
 
 	size { :self |
@@ -257,7 +258,8 @@ Tree : [Object, Store, Equal, Iterable, Indexable] { | value subTrees |
 
 	withLevelDo { :self :aBlock/2 |
 		self.withLevelDo(aBlock/2, 1);
-		aBlock(self, 0)
+		aBlock(self, 0);
+		nil
 	}
 
 }

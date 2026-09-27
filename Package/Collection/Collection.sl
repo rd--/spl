@@ -611,8 +611,7 @@
 				}
 			};
 			aBlock(subset)
-		};
-		self
+		}
 	}
 
 	powerSet { :self |

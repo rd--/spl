@@ -6,6 +6,7 @@ Apply the block _f_ to each partition,
 having window size _w_ places,
 and moving fowards _n_ steps per iteration,
 of the sequence _c_.
+Answer `nil`.
 Only one `List`, of _w_ places, is allocated.
 
 ```

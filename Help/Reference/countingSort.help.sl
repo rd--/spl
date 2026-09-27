@@ -6,6 +6,7 @@ Implement the counting sort algorithm.
 Answer a sorted list of the values at _x_ given the key block _f_,
 which must answer a positive integer for each _x_,
 and the key limit _k_.
+Sort is not in place.
 
 Sort by `key` specifying maximum key:
 

@@ -386,10 +386,9 @@
 		)
 	}
 
-	gradedReflectedColexicographicSort { :self |
-		self
-		.collect(sort/1)
-		.sortComparingEachInPlace(
+	gradedReflectedColexicographicSortInPlace { :self |
+		self.collectInPlace(sortInPlace/1);
+		self.sortComparingEachInPlace(
 			[
 				sum/1.compareOn,
 				size/1.compareOn,
@@ -398,10 +397,9 @@
 		)
 	}
 
-	gradedReflectedLexicographicSort { :self |
-		self
-		.collect(sort/1)
-		.sortComparingEachInPlace(
+	gradedReflectedLexicographicSortInPlace { :self |
+		self.collectInPlace(sortInPlace/1);
+		self.sortComparingEachInPlace(
 			[
 				sum/1.compareOn,
 				colexicographicCompare/2
@@ -410,9 +408,8 @@
 	}
 
 	gradedReverseLexicographicSort { :self |
-		self
-		.collect(reverseSort/1)
-		.sortComparingEachInPlace(
+		self.collectInPlace(reverseSort/1);
+		self.sortComparingEachInPlace(
 			[
 				sum/1.compareOn,
 				reverseLexicographicCompare/2
@@ -508,12 +505,16 @@
 		self.bubbleSortWithMonitor(<, monitorBlock/1)
 	}
 
-	bubbleSort { :self :sortBlock/2 |
+	bubbleSortInPlace { :self :sortBlock/2 |
 		self.bubbleSortWithMonitor(sortBlock/2, nil.constant)
 	}
 
+	bubbleSortInPlace { :self |
+		self.bubbleSortInPlace(less/2)
+	}
+
 	bubbleSort { :self |
-		self.bubbleSort(less/2)
+		self.copy.bubbleSortInPlace
 	}
 
 	bubbleSortMatrix { :self |
@@ -641,12 +642,16 @@
 		self.combSortWithMonitor(<, monitorBlock/1)
 	}
 
-	combSort { :self :sortBlock/2 |
+	combSortInPlace { :self :sortBlock/2 |
 		self.combSortWithMonitor(sortBlock/2, nil.constant)
 	}
 
+	combSortInPlace { :self |
+		self.combSortInPlace(less/2)
+	}
+
 	combSort { :self |
-		self.combSort(less/2)
+		self.copy.combSortInPlace
 	}
 
 	combSortMatrix { :self |
@@ -711,8 +716,12 @@
 		self
 	}
 
-	cycleSort { :self |
+	cycleSortInPlace { :self |
 		self.cycleSortWithMonitor(nil.constant)
+	}
+
+	cycleSort { :self |
+		self.copy.cycleSortInPlace
 	}
 
 	cycleSortMatrix { :self |
@@ -897,12 +906,16 @@
 		self.gnomeSortWithMonitor(<, monitorBlock/1)
 	}
 
-	gnomeSort { :self :sortBlock/2 |
+	gnomeSortInPlace { :self :sortBlock/2 |
 		self.gnomeSortWithMonitor(sortBlock/2, nil.constant)
 	}
 
+	gnomeSortInPlace { :self |
+		self.gnomeSortInPlace(less/2)
+	}
+
 	gnomeSort { :self |
-		self.gnomeSort(less/2)
+		self.copy.gnomeSortInPlace
 	}
 
 	gnomeSortMatrix { :self |

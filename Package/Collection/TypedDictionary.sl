@@ -21,7 +21,8 @@ TypedDictionary : [Object, Store, Equal, Iterable, Indexable, Collection, Extens
 	}
 
 	keysAndValuesDo { :self :aBlock/2 |
-		self.contents.keysAndValuesDo(aBlock/2)
+		self.contents.keysAndValuesDo(aBlock/2);
+		self
 	}
 
 	typeCheckKey { :self :key |

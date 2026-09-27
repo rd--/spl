@@ -68,8 +68,8 @@ Record! : [Object, Store, Equal, Json, Iterable, Indexable, Collection, Extensib
 		Object.entries(_self).forEach(function(entry) {
 			_aBlock_2(entry[0], entry[1]);
 		});
-		return null;
 		>
+		nil
 	}
 
 	propertyRead { :self :aString |

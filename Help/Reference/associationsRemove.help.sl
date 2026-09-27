@@ -1,8 +1,9 @@
 # associationsRemove
 
-- _associationsRemove(aDictionary, aBlock/1)_
+- _associationsRemove(d, f/1)_
 
-Remove entries from _aDictionary_ where _aBlock_ answers `true` for the `Association`.
+Remove entries from the dictionary _d_ where the block _f_ answers `true` for the `Association`.
+Answers a list of the keys removed.
 
 Consider only key:
 

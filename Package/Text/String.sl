@@ -847,8 +847,8 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 		for(const each of _self) {
 			_aBlock_1(each);
 		};
-		return _self;
 		>
+		nil
 	}
 
 	pseudoSlotNameList { :self |

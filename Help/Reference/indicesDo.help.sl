@@ -4,6 +4,7 @@
 
 Evaluate the block _f_ at the valid indices of the collection _c_.
 For sequenceable collections indices are enumerated in sequence.
+Answers `nil`.
 
 ```
 >>> let c = [1 3 5 7 9];

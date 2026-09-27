@@ -7,7 +7,8 @@
 	addAll { :self :aCollection |
 		aCollection.do { :each |
 			self.add(each)
-		}
+		};
+		aCollection
 	}
 
 	addAllIfNotPresent { :self :aCollection |

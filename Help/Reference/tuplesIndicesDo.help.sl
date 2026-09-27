@@ -4,6 +4,7 @@
 
 Iterates through each index sequence for a list of size _k_ places to generate all _n_-tuples,
 evaluating the block _f_ at each index array.
+Answers `nil`.
 
 ```
 >>> let r = [];

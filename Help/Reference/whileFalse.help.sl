@@ -1,11 +1,12 @@
 # whileFalse
 
-- _whileFalse(condition/0, f/0)_
+- _whileFalse(c/0, f/0)_
 
 Conditional evaluation.
-Evaluate the block _f_ as long as the value of the block _condition_ is `false`.
+Evaluate the action block _f_ as long as the value of the condition block _c_ is `false`.
+Answers `nil`.
 
-Ordinarily _condition_ and _f_ are literal no-argument blocks written using `Trailing Block Syntax`.
+Ordinarily _c_ and _f_ are literal no-argument blocks written using `Trailing Block Syntax`.
 
 A counter:
 

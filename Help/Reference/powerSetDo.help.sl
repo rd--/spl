@@ -4,6 +4,7 @@
 
 Apply the block _f_ to each element of the power set of the collection _c_.
 The power set includes the empty subset.
+Answers `nil`.
 
 Visit all subsets of _1,2,3_ written as a `Range`:
 
@@ -20,7 +21,8 @@ At `IdentitySet`:
 
 ```
 >>> let l = [];
->>> [1 2 3].asIdentitySet.powerSetDo { :each |
+>>> IdentitySet[1 2 3]
+>>> .powerSetDo { :each |
 >>> 	l.add(each)
 >>> };
 >>> l

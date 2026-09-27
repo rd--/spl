@@ -1,8 +1,9 @@
 # primesUpToDo
 
-- _primesUpTo(n, aBlock/1)_
+- _primesUpTo(n, f/1)_
 
 Iterate over the prime numbers that are less than or equal to the integer _n_.
+Answers `nil`.
 
 ```
 >>> let l = [];

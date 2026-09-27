@@ -8,6 +8,7 @@ and evaluate the block _f_ for each combination.
 Provide a list of elements of _c_ as the block argument.
 Each combination only occurs once, and the order of the elements does not matter.
 There are _binomial(n, k)_ combinations where _n_ is the `size` of _c_.
+Answers `nil`.
 
 ```
 >>> let l = [];

@@ -79,8 +79,8 @@ URLSearchParams! : [Object, Iterable, UrlQueryParameters] {
 		_self.forEach(function(value, key, _myself) {
 			_aBlock_2(key, value);
 		});
-		return _self;
 		>
+		self
 	}
 
 	removeKey { :self :name |

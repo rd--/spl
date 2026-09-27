@@ -21,8 +21,7 @@ system.helpProgramsDo { :p |
 			].postLine
 		}
 	}
-};
-nil
+}
 ~~~
 
 Print help programs where the annotations mentions the OEIS,
@@ -42,8 +41,7 @@ system.helpProgramsDo { :p |
 			].postLine
 		}
 	}
-};
-nil
+}
 ~~~
 
 Print help programs where the commentary does not end with a colon:
@@ -58,8 +56,7 @@ system.helpProgramsDo { :p |
 			p.annotations
 		].postLine
 	}
-};
-nil
+}
 ~~~
 
 Print condensed Oeis help programs,
@@ -72,8 +69,7 @@ system.helpProgramsDo { :p |
 	).ifTrue {
 		p.condensedProgramText.postLine
 	}
-};
-nil
+}
 ~~~
 
 * * *

@@ -58,8 +58,7 @@
 			each.value.timesRepeat {
 				aBlock(each.key)
 			}
-		};
-		self
+		}
 	}
 
 	elementsAndCounts { :self |

@@ -5,6 +5,7 @@
 Run `do` over the iterable collection _c_,
 descending into elements that are of the same type as _c_,
 else applying the block _f_.
+Answers `nil`.
 
 At `List`:
 

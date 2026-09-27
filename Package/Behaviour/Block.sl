@@ -663,18 +663,16 @@ Block! : [Object, Equal] {
 		while(!_self_0()) {
 			_aBlock_0();
 		};
-		return null;
 		>
+		nil
 	}
 
 	whileNil { :self/0 :aBlock/0 |
-		let answer = nil;
 		{
-			(answer := self()).isNil
+			self().isNil
 		}.whileTrue {
 			aBlock()
-		};
-		answer
+		}
 	}
 
 	whileTrue { :self/0 |
@@ -690,8 +688,8 @@ Block! : [Object, Equal] {
 		while(_self_0()) {
 			_aBlock_0();
 		};
-		return null;
 		>
+		nil
 	}
 
 	yCombinator { :self/1 |

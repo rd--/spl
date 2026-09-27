@@ -929,7 +929,7 @@
 				self.swapWith(i, r);
 				let d = self[r][lead];
 				(d.abs > 1E-10).ifTrue {
-					self[r].replace { :each |
+					self[r].collectInPlace { :each |
 						each / d
 					}
 				};

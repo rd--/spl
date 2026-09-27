@@ -220,7 +220,8 @@ LinkedList : [Object, Equal, Store, Copyable, Compare, Iterable, Indexable, Coll
 	linksDo { :self :aBlock/1 |
 		self.ifNotEmpty {
 			self.firstLink.linksDo(aBlock/1)
-		}
+		};
+		nil
 	}
 
 	ofSize { :self :aNumber |

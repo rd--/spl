@@ -16,7 +16,7 @@ IdentitySet! : [Object, Store, Equal, Iterable, Collection, Extensible, Unordere
 			_aBlock(item);
 		});
 		>
-		self
+		nil
 	}
 
 	[identitySetToList, asList] { :self |

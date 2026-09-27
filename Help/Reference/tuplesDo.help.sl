@@ -5,6 +5,7 @@
 Apply the block _f_ to all of the possible n-tuples of each of the elements of the sequence _c_,
 which is an n-element sequence of any sized sequences.
 The collection received by _f_ is the same at each iteration, only the contents are modified.
+Answers `nil`.
 
 ```
 >>> let r = [];
