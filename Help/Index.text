@@ -384,6 +384,7 @@ Reference/antidiagonalIndicesDo.help.sl
 Reference/antidiagonalIndices.help.sl
 Reference/antidiagonalMatrix.help.sl
 Reference/antidiagonalRank.help.sl
+Reference/antidiagonalUnrank.help.sl
 Reference/antiDivisors.help.sl
 Reference/antipedalTriangle.help.sl
 Reference/antitranspose.help.sl
@@ -937,6 +938,7 @@ Reference/collatzSequence.help.sl
 Reference/collatzTerrasTree.help.sl
 Reference/collectCatenate.help.sl
 Reference/collect.help.sl
+Reference/collectInPlace.help.sl
 Reference/collectInto.help.sl
 Reference/Collection.help.sl
 Reference/CollectionStream.help.sl
@@ -1651,7 +1653,7 @@ Reference/fromRomanNumeral.help.sl
 Reference/fromSignExponentMantissa.help.sl
 Reference/fromSphericalCoordinates.help.sl
 Reference/fromToDo.help.sl
-Reference/fromToKeysAndValuesDo.help.sl
+Reference/fromToIndicesAndValuesDo.help.sl
 Reference/fromTrilinearCoordinates.help.sl
 Reference/fromTrilinearVertexMatrix.help.sl
 Reference/FSinOsc.help.sl
@@ -3276,6 +3278,7 @@ Reference/Plus.help.sl
 Reference/plusSign.help.sl
 Reference/plusSignPlusSign.help.sl
 Reference/plusSignPlusSignPlusSign.help.sl
+Reference/plusTwosComplement.help.sl
 Reference/PmOsc.help.sl
 Reference/PngViewer.help.sl
 Reference/pochhammer.help.sl
@@ -3569,7 +3572,6 @@ Reference/repeatMatrix.help.sl
 Reference/replaceAllWith.help.sl
 Reference/replaceFromToWith.help.sl
 Reference/replaceFromToWithStartingAt.help.sl
-Reference/replace.help.sl
 Reference/replaceMultipleStrings.help.sl
 Reference/replaceNaN.help.sl
 Reference/replaceNil.help.sl
@@ -4441,14 +4443,15 @@ Reference/withBlanksTrimmed.help.sl
 Reference/withCollectCrossed.help.sl
 Reference/withCollectEqual.help.sl
 Reference/withCollect.help.sl
+Reference/withCollectInPlace.help.sl
 Reference/withCollectOuter.help.sl
 Reference/withCollectTable.help.sl
 Reference/withDo.help.sl
 Reference/with.help.sl
 Reference/withIndefiniteArticle.help.sl
 Reference/withIndexCollect.help.sl
+Reference/withIndexCollectInPlace.help.sl
 Reference/withIndexDo.help.sl
-Reference/withIndexReplace.help.sl
 Reference/withLevelCollect.help.sl
 Reference/withLevelDo.help.sl
 Reference/withoutAll.help.sl
@@ -4460,7 +4463,6 @@ Reference/withoutTrailingBlanks.help.sl
 Reference/withoutTrailing.help.sl
 Reference/withoutTrailingLineFeed.help.sl
 Reference/withoutTrailingZeroes.help.sl
-Reference/withReplace.help.sl
 Reference/withWithCollect.help.sl
 Reference/wordAtCaret.help.sl
 Reference/wordAtIndex.help.sl
