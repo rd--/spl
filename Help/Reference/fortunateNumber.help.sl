@@ -4,7 +4,8 @@
 
 Answer the _n_-th fortunate number.
 
-First few terms:
+First few terms,
+OEIS [A005235](https://oeis.org/A005235):
 
 ```
 >>> 1:10.collect(fortunateNumber/1)

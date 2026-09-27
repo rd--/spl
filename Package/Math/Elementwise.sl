@@ -1050,6 +1050,15 @@
 		anObject.adaptToCollectionAndApply(self, nthRoot/2)
 	}
 
+	plusTwosComplement { :a :b :wordSize |
+		b.adaptToCollectionAndApply(
+			a,
+			{ :i :j |
+				plusTwosComplement(i, j, wordSize)
+			}
+		)
+	}
+
 	round { :self :anObject |
 		anObject.adaptToCollectionAndApply(self, round/2)
 	}

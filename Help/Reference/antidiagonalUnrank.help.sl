@@ -28,6 +28,19 @@ Inverse is `antidiagonalRank`:
 [1 2 3 4 5 6 7 8 9 10 11 12 13 14 15]
 ```
 
+The first few unranked terms of
+OEIS [A316588](https://oeis.org/A316588):
+
+~~~spl svg=A oeis=A316588
+OeisEntry('A316588').then { :e |
+	e.data.collect(
+		antidiagonalUnrank/1
+	).pathPlot
+}
+~~~
+
+![](Help/Image/antidiagonalUnrank-A.svg)
+
 * * *
 
 See also: antidiagonalRank

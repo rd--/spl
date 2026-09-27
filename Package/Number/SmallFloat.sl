@@ -669,6 +669,10 @@ SmallFloat! : [Object, Store, Json, Equal, Compare, Number, Integer, Binary] {
 		anObject.adaptToNumberAndApply(self, plus/2)
 	}
 
+	plusTwosComplement { :a :b :wordSize |
+		plusTwosComplement(LargeInteger(a), b, wordSize)
+	}
+
 	[power, ^] { :self :anObject |
 		anObject.isSmallFloat.if {
 			anObject.isInteger.if {

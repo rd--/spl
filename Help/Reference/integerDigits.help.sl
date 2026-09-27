@@ -908,6 +908,29 @@ OEIS [A062329](https://oeis.org/A062329):
 
 ![](Help/Image/integerDigits-V.svg)
 
+Largest number that is _n_ times the sum of its decimal digits,
+OEIS [A052489](https://oeis.org/A052489):
+
+~~~spl svg=W oeis=A052489
+0:85.collect { :n |
+	let m = 1;
+	{
+		9 * m * n > (10 ^ m)
+	}.whileTrue {
+		m := m + 1
+	};
+	let k = 9 * m * n;
+	{
+		k.integerDigits.sum * n != k
+	}.whileTrue {
+		k := k - 1
+	};
+	k
+}.discretePlot
+~~~
+
+![](Help/Image/integerDigits-W.svg)
+
 * * *
 
 See also: digitCount, fromDigits, hammingWeight, integerLength

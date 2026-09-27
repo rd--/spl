@@ -3,6 +3,8 @@
 - _oeisTerms(s, k)_
 
 Answer the first _k_ terms of the OEIS sequence _s_.
+This function only knows a small number of sequences,
+see `OeisEntry` to fetch arbitrary sequence data over the network.
 
 The number of times _n_ appears in the Conway _a_-sequence
 OEIS [A004001](https://oeis.org/A004001),

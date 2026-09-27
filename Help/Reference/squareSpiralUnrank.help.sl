@@ -55,6 +55,19 @@ point-line plot:
 
 ![](Help/Image/squareSpiralUnrank-A.svg)
 
+The first few unranked terms of
+OEIS [A316667](https://oeis.org/A316667):
+
+~~~spl svg=B oeis=A316667
+OeisEntry('A316667').then { :e |
+	e.data.collect(
+		squareSpiralUnrank/1
+	).pathPlot
+}
+~~~
+
+![](Help/Image/squareSpiralUnrank-B.svg)
+
 * * *
 
 See also: squareSpiral, squareSpiralRank
