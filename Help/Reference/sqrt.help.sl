@@ -312,6 +312,24 @@ when _n/d_ is the ratio of frequencies of the two tones (Yunik 1980):
 ]
 ```
 
+Integers _0:k_ three times, then _0:k+1_ three times, and so on,
+OEIS [A073189](https://oeis.org/A073189):
+
+```
+>>> 0:104.collect { :n |
+>>> 	let m = floor(sqrt(6 * n + 6) - 3/2) // 3 + 1;
+>>> 	(n - (3 * binomial(m, 2))) % m
+>>> }
+[
+	0 0 0 0 1 0 1 0 1 0 1 2 0 1 2 0 1 2 0 1
+	2 3 0 1 2 3 0 1 2 3 0 1 2 3 4 0 1 2 3 4
+	0 1 2 3 4 0 1 2 3 4 5 0 1 2 3 4 5 0 1 2
+	3 4 5 0 1 2 3 4 5 6 0 1 2 3 4 5 6 0 1 2
+	3 4 5 6 0 1 2 3 4 5 6 7 0 1 2 3 4 5 6 7
+	0 1 2 3 4
+]
+```
+
 Plot square root over a subset of the reals:
 
 ~~~spl svg=A

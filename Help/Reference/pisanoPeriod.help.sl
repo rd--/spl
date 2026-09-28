@@ -228,6 +228,20 @@ OEIS [A066853](https://oeis.org/A066853):
 ]
 ```
 
+Numbers _n_ such that the _mF(k,n)_ form the complete residue set,
+OEIS [A079002](https://oeis.org/A079002):
+
+>>> 1:73.select { :n |
+>>> 	let k = n.pisanoPeriod;
+>>> 	let f = k.fibonacciSequence;
+>>> 	(f % n).nub.size = n
+>>> }
+[
+	 1  2  3  4  5  6  7  9 10 14
+	15 20 25 27 30 35 45 50 70
+]
+```
+
 Table of the fundamental Pisano period of the Fibonacci sequence modulo _n_,
 OEIS [A161553](https://oeis.org/A161553),
 individual entries are
@@ -537,6 +551,41 @@ OEIS [A071774](https://oeis.org/A071774):
 	283 293 313 317 337
 	367 373 383 397
 ]
+```
+
+Fibonacci frequency of _n_,
+OEIS [A001178](https://oeis.org/A001178):
+
+```
+>>> let f = { :j :x |
+>>> 	let y = x.pisanoPeriod;
+>>> 	(x = y).if {
+>>> 		j
+>>> 	} {
+>>> 		f(j + 1, y)
+>>> 	}
+>>> };
+>>> 1:69.collect { :n |
+>>> 	f(0, n)
+>>> }
+[
+	0 4 3 2 3 1 2 2 1 2 3 1 3 2 3 1 2 1 2 2
+	2 2 2 0 3 3 2 2 3 1 2 2 3 2 2 1 3 2 3 2
+	3 2 3 2 1 2 3 1 3 2 2 3 3 2 3 2 2 3 4 1
+	2 2 2 3 3 1 3 2 2
+]
+```
+
+Primes where _P(p)≠2(p+1)_,
+OEIS [A216067](https://oeis.org/A216067):
+
+```
+>>> 2:75.prime.select { :p |
+>>> 	[2 3].includes(p % 5) & {
+>>> 		p.pisanoPeriod != (2 * (p + 1))
+>>> 	}
+>>> }
+[47 107 113 233 263 307 347 353]
 ```
 
 Pisano periods,

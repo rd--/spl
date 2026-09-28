@@ -251,6 +251,21 @@ period is twelve:
 [1 2 4 8 16 32 29 23 11 22 9 18 1]
 ```
 
+Numbers of the form -3^i*5^j_,
+OEIS [A003593](https://oeis.org/A003593):
+
+```
+>>> 1:500.select { :n |
+>>> 	15.powerMod(n, n) = 0
+>>> }
+[
+	1 3 5 9 15
+	25 27 45 75 81
+	125 135 225 243 375
+	405
+]
+```
+
 The sequence with fixed powers:
 
 ~~~spl svg=A

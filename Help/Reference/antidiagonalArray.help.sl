@@ -58,6 +58,34 @@ Indices:
 ]
 ```
 
+Count restricted growth strings of a particular kind,
+OEIS [A306024](https://oeis.org/A306024):
+
+```
+>>> let b = { :n :k :m |
+>>> 	(n = 0).if {
+>>> 		1
+>>> 	} {
+>>> 		(1 .. m + k).sum { :j |
+>>> 			b(n - 1, k, max(m, j))
+>>> 		}
+>>> 	}
+>>> };
+>>> 0:7.antidiagonalArray { :n :k |
+>>> 	b(n, k, 0)
+>>> }
+[
+	1;
+	1 0;
+	1 1 0;
+	1 2 2 0;
+	1 3 7 5 0;
+	1 4 15 31 15 0;
+	1 5 26 95 164 52 0;
+	1 6 40 214 717 999 203 0
+]
+```
+
 Table _n-k_,
 read by upwards antidiagonals,
 OEIS [A114327](https://oeis.org/A114327):

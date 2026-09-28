@@ -80,13 +80,13 @@ The unary form rotates by one place:
 [2 3 4 5 6 7 1]
 ```
 
-There is also an in-place variant:
+There is an in-place variant for single place rotations:
 
 ```
->>> let x = [1 2 3 4 5];
->>> x.rotateLeftInPlace;
->>> x
-[2 3 4 5 1]
+>>> let a = [1 .. 9];
+>>> let b = a.rotateLeft!;
+>>> (b, a == b)
+([2 3 4 5 6 7 8 9 1], true)
 ```
 
 At `Range`:

@@ -174,6 +174,32 @@ OEIS [A188510](https://oeis.org/A188510):
 ]
 ```
 
+Pisano quotients,
+OEIS [A296240](https://oeis.org/A296240):
+
+```
+>>> 4:82.prime.collect { :p |
+>>> 	let a = [1 0];
+>>> 	let t = 0;
+>>> 	{
+>>> 		let s = a.sum % p;
+>>> 		a := a.rotateLeft!;
+>>> 		a[2] := s;
+>>> 		a != [1 0]
+>>> 	}.whileTrue {
+>>> 		t := t + 1
+>>> 	};
+>>> 	let l = kroneckerSymbol(p, 5);
+>>> 	((3 - l) / 2) * ((p - l) / t)
+>>> }.floor
+[
+	1 1 1 1 1 1 2 1 1 1 1 3 1 1 1 1 1 1 1 1
+	2 1 2 1 3 1 3 1 1 1 3 1 3 1 1 1 1 1 2 1
+	1 1 9 5 1 1 2 9 1 1 1 1 3 1 1 1 5 1 1 7
+	1 1 1 3 1 3 2 3 1 1 1 1 1 1 1 2 1 1 5
+]
+```
+
 Kronecker symbol table:
 
 ~~~spl svg=A

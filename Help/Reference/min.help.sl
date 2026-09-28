@@ -226,6 +226,26 @@ a.discretePlot
 
 ![](Help/Image/min-D.svg)
 
+Smallest index of a Fibonacci-like sequence containing _n_,
+OEIS [A249783](https://oeis.org/A249783):
+
+~~~spl svg=E oeis=A249783
+let f = { :x :y |
+	(x < y).if {
+		x + y
+	} {
+		f(y, x - y)
+	}
+};
+1:150.collect { :n |
+	(0 .. n - 1).collect { :y |
+		f(n, y)
+	}.min
+}.scatterPlot
+~~~
+
+![](Help/Image/min-E.svg)
+
 * * *
 
 See also: clip, deepMin, floor, max, minBy, minDetect, minimalBy, minMax, takeSmallest, rankedMin, ordering

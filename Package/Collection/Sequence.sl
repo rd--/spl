@@ -2286,10 +2286,6 @@
 		self.rotateRight(anInteger)
 	}
 
-	rotateLeft { :self |
-		self.rotateLeft(1)
-	}
-
 	rotateLeft { :self :anInteger |
 		let n = anInteger % self.size;
 		(n = 0).if {
@@ -2301,13 +2297,18 @@
 		}
 	}
 
+	rotateLeft { :self |
+		self.rotateLeft(1)
+	}
+
 	rotateLeftInPlace { :self |
 		let n = self.size;
 		let left = self.first;
-		2.toDo(n) { :i |
-			self[i - 1] := self[i]
+		1.toDo(n - 1) { :i |
+			self[i] := self[i + 1]
 		};
-		self[n] := left
+		self[n] := left;
+		self
 	}
 
 	rotateRight { :self |
