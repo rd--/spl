@@ -2781,7 +2781,6 @@ Reference/mercatorProjection.help.sl
 Reference/mercatorsComma.help.sl
 Reference/merge.help.sl
 Reference/mergeInPlace.help.sl
-Reference/mergeSortBy.help.sl
 Reference/mergeSortFromToBy.help.sl
 Reference/mergeSort.help.sl
 Reference/mergeSortMatrix.help.sl
@@ -3417,7 +3416,6 @@ Reference/query.help.sl
 Reference/queryParameters.help.sl
 Reference/questionMark.help.sl
 Reference/questionMarkQuestionMark.help.sl
-Reference/quickSortBy.help.sl
 Reference/quickSortFromToBy.help.sl
 Reference/quickSort.help.sl
 Reference/quickSortMatrix.help.sl

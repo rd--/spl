@@ -1,6 +1,6 @@
 # stackSort
 
-- _stackSort(aPermutation)_
+- _stackSort(p)_
 
 A stack-sortable permutation is a permutation whose elements may be sorted correctly using a single stack.
 They are exactly the permutations that do not contain the permutation pattern _231_.
@@ -54,6 +54,8 @@ Of the 120 permutations of _S5_, 42 are stack sortable:
 * * *
 
 See also: catalanNumber, dyckWords, Permutation
+
+Guides: Sort Functions
 
 References:
 _Sage_

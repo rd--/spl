@@ -78,16 +78,16 @@
 		}
 	}
 
-	mergeSortBy { :self :sortBlock/2 |
+	mergeSortInPlace { :self :sortBlock/2 |
 		self.mergeSortFromToBy(1, self.size, sortBlock/2)
 	}
 
-	mergeSort { :self :sortBlock/2 |
-		self.mergeSortBy(sortBlock/2)
+	mergeSortInPlace { :self |
+		self.mergeSortInPlace(less/2)
 	}
 
 	mergeSort { :self |
-		self.mergeSortBy(less/2)
+		self.copy.mergeSortInPlace
 	}
 
 	mergeSortWithIndices { :self :sortBlock/2 |
@@ -96,7 +96,7 @@
 		} {
 			self.withIndexCollect { :each :index |
 				each -> index
-			}.mergeSortBy { :p :q |
+			}.mergeSortInPlace { :p :q |
 				sortBlock(p.key, q.key)
 			}
 		}

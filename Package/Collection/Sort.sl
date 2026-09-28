@@ -458,10 +458,14 @@
 		self.lexicographicSort.collect(reverse/1)
 	}
 
-	reverseColexicographicSort { :self |
+	reverseColexicographicSortInPlace { :self |
 		self.sortComparingInPlace(
 			reverseColexicographicCompare/2
 		)
+	}
+
+	reverseColexicographicSort { :self |
+		self.copy.reverseColexicographicSortInPlace
 	}
 
 	reverseLexicographicSortInPlace { :self |
@@ -548,12 +552,16 @@
 		self.insertionSortWithMonitor(<, monitorBlock/1)
 	}
 
-	insertionSort { :self :sortBlock/2 |
+	insertionSortInPlace { :self :sortBlock/2 |
 		self.insertionSortWithMonitor(sortBlock/2, nil.constant)
 	}
 
+	insertionSortInPlace { :self |
+		self.insertionSortInPlace(less/2)
+	}
+
 	insertionSort { :self |
-		self.insertionSort(less/2)
+		self.copy.insertionSortInPlace
 	}
 
 	insertionSortMatrix { :self |
@@ -596,12 +604,16 @@
 		self.shellSortWithMonitor([5, 3, 1], <, monitorBlock/1)
 	}
 
-	shellSort { :self :t :sortBlock/2 |
+	shellSortInPlace { :self :t :sortBlock/2 |
 		self.shellSortWithMonitor(t, sortBlock/2, nil.constant)
 	}
 
+	shellSortInPlace { :self |
+		self.shellSortInPlace([5, 3, 1], <)
+	}
+
 	shellSort { :self |
-		self.shellSort([5, 3, 1], <)
+		self.copy.shellSortInPlace
 	}
 
 	shellSortMatrix { :self :t |
@@ -679,8 +691,12 @@
 		self
 	}
 
-	selectionSort { :self |
+	selectionSortInPlace { :self |
 		self.selectionSortWithMonitor(nil.constant)
+	}
+
+	selectionSort { :self |
+		self.copy.selectionSortInPlace
 	}
 
 	selectionSortMatrix { :self |
@@ -832,8 +848,12 @@
 		self
 	}
 
-	radixSort { :self |
+	radixSortInPlace { :self |
 		self.radixSortWithMonitor(nil.constant)
+	}
+
+	radixSort { :self |
+		self.copy.radixSortInPlace
 	}
 
 	radixSortMatrix { :self |
@@ -868,12 +888,16 @@
 		self.oddEvenSortWithMonitor(<, monitorBlock/1)
 	}
 
-	oddEvenSort { :self :sortBlock/2 |
+	oddEvenSortInPlace { :self :sortBlock/2 |
 		self.oddEvenSortWithMonitor(sortBlock/2, nil.constant)
 	}
 
+	oddEvenSortInPlace { :self |
+		self.oddEvenSortInPlace(less/2)
+	}
+
 	oddEvenSort { :self |
-		self.oddEvenSort(less/2)
+		self.copy.oddEvenSortInPlace
 	}
 
 	oddEvenSortMatrix { :self |
@@ -964,12 +988,16 @@
 		self.shuffleSortWithMonitor(<, monitorBlock/1)
 	}
 
-	shuffleSort { :self :sortBlock/2 |
+	shuffleSortInPlace { :self :sortBlock/2 |
 		self.shuffleSortWithMonitor(sortBlock/2, nil.constant)
 	}
 
+	shuffleSortInPlace { :self |
+		self.shuffleSortInPlace(less/2)
+	}
+
 	shuffleSort { :self |
-		self.shuffleSort(less/2)
+		self.copy.shuffleSortInPlace
 	}
 
 	shuffleSortMatrix { :self |

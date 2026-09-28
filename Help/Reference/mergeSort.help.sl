@@ -5,18 +5,34 @@
 Sort the sequence _x_ in place using the mergesort algorithm.
 Mergesort is a worst-case _O(N log N)_ sorting algorithm that usually does only half as many comparisons as heapsort or quicksort.
 
+At `List`, sort into descending order:
+
+```
+>>> let a = [1 7 3 9 5];
+>>> a.mergeSort!(>=);
+>>> a
+[9, 7 .. 1]
+```
+
+At `List`, sort into ascending order:
+
+```
+>>> [1 7 3 9 5].mergeSort!(<=)
+[1, 3 .. 9]
+```
+
 Sort two items in place:
 
 ```
 >>> let l = [2 1];
->>> (l.mergeSort == l, l)
+>>> (l.mergeSort! == l, l)
 (true, [1 2])
 ```
 
 Sort three items:
 
 ```
->>> [3 2 1].mergeSort
+>>> [3 2 1].mergeSort!
 [1 2 3]
 ```
 
@@ -30,7 +46,7 @@ Sort more than three items:
 Sort a sorted sequence:
 
 ```
->>> [1 .. 99].mergeSort
+>>> [1 .. 99].mergeSort!
 [1 .. 99]
 ```
 
@@ -44,9 +60,9 @@ Sort a descending sequence:
 Sort a random sequence of integers:
 
 ```
->>> Sfc32(24015).
->>> randomInteger([1 23], [17]).
->>> mergeSort
+>>> Sfc32(24015)
+>>> .randomInteger([1 23], [17])
+>>> .mergeSort!
 [
 	1 3 3 6 7 8 9 10 10 12
 	13 15 17 18 21 22 23
@@ -61,7 +77,7 @@ let m = 50;
 let r = [];
 0:n.collect { :x |
 	(x.sin * m).round
-}.mergeSort { :a :b |
+}.mergeSort! { :a :b |
 	r.add(a);
 	a > b
 };
@@ -72,7 +88,7 @@ r.downsample(4).scatterPlot
 
 * * *
 
-See also: isSorted, mergeSortBy, mergeSortFromToBy, quickSort, sort
+See also: isSorted, mergeSortFromToBy, quickSort, sort
 
 Guides: Sort Functions
 

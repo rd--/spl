@@ -8,10 +8,10 @@ according to the comparison block _f_.
 Sort list:
 
 ```
->>> [1 3 5 2 4].insertionSort
+>>> [1 3 5 2 4].insertionSort!
 [1 2 3 4 5]
 
->>> [1 3 5 2 4].insertionSort(>)
+>>> [1 3 5 2 4].insertionSort!(>)
 [5 4 3 2 1]
 ```
 
@@ -19,7 +19,7 @@ Sort is in place:
 
 ```
 >>> let s = [1 3 5 2 4];
->>> let t = s.insertionSort;
+>>> let t = s.insertionSort!;
 >>> (t, t == s)
 ([1 2 3 4 5], true)
 ```
@@ -33,7 +33,7 @@ let k = 4;
 let r = [];
 0:n.collect { :x |
 	(x.sin * m).round
-}.insertionSort { :a :b |
+}.insertionSort! { :a :b |
 	r.add(a);
 	a > b
 };

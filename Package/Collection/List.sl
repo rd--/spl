@@ -136,7 +136,7 @@ List! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Collection, E
 		}
 	}
 
-	keySort { :self |
+	keySortInPlace { :self |
 		self.sortOnInPlace(key/1)
 	}
 
@@ -274,7 +274,7 @@ List! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Collection, E
 		}
 	}
 
-	valueSort { :self |
+	valueSortInPlace { :self |
 		self.sortOnInPlace(value/1)
 	}
 

@@ -8,24 +8,28 @@ according to the comparison predicate _f_.
 Sort list:
 
 ```
->>> [1 3 5 2 4 3].shuffleSort
+>>> let a = [1 3 5 2 4 3];
+>>> a.shuffleSort!;
+>>> a
 [1 2 3 3 4 5]
 
->>> [1 3 5 2 4 3].shuffleSort(>)
+>>> let a = [1 3 5 2 4 3];
+>>> a.shuffleSort!(>);
+>>> a
 [5 4 3 3 2 1]
 
->>> [].shuffleSort
+>>> [].shuffleSort!
 []
 
->>> [1].shuffleSort
+>>> [1].shuffleSort!
 [1]
 ```
 
-Sort is in place:
+Sort is in place or copying:
 
 ```
 >>> let s = [1 3 5 2 4 3];
->>> let t = s.shuffleSort;
+>>> let t = s.shuffleSort!;
 >>> (t, t == s)
 ([1 2 3 3 4 5], true)
 ```
@@ -35,7 +39,7 @@ All permutations of a list sort to the same list:
 ```
 >>> let n = 4;
 >>> [1 .. n].permutations.allSatisfy { :x |
->>> 	x.shuffleSort = [1 .. 4]
+>>> 	x.shuffleSort! = [1 .. 4]
 >>> }
 true
 ```
@@ -49,7 +53,7 @@ let k = 4;
 let r = [];
 0:n.collect { :x |
 	(x.sin * m).round
-}.shuffleSort { :a :b |
+}.shuffleSort! { :a :b |
 	r.add(a);
 	a > b
 };

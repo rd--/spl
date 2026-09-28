@@ -7,15 +7,15 @@ Sort the sequence _x_ in place using the selection sort algorithm.
 Sort list:
 
 ```
->>> [1 3 5 2 4].selectionSort
+>>> [1 3 5 2 4].selectionSort!
 [1 2 3 4 5]
 ```
 
-Sort is in place:
+Sort is in place or copying:
 
 ```
 >>> let s = [1 3 5 2 4];
->>> let t = s.selectionSort;
+>>> let t = s.selectionSort!;
 >>> (t, t == s)
 ([1 2 3 4 5], true)
 ```

@@ -8,7 +8,7 @@ The sort process can be monitored by the unary block _f_.
 Sort list:
 
 ```
->>> [1 3 5 2 4].radixSort
+>>> [1 3 5 2 4].radixSort!
 [1 2 3 4 5]
 ```
 
@@ -16,7 +16,7 @@ Sort is in place:
 
 ```
 >>> let s = [1 3 5 2 4];
->>> let t = s.radixSort;
+>>> let t = s.radixSort!;
 >>> (t, t == s)
 ([1 2 3 4 5], true)
 ```

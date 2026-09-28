@@ -8,18 +8,18 @@ according to the comparison predicate _f_.
 Sort list:
 
 ```
->>> [1 3 5 2 4 3].oddEvenSort
+>>> [1 3 5 2 4 3].oddEvenSort!
 [1 2 3 3 4 5]
 
->>> [1 3 5 2 4 3].oddEvenSort(>)
+>>> [1 3 5 2 4 3].oddEvenSort!(>)
 [5 4 3 3 2 1]
 ```
 
-Sort is in place:
+Sort is in place or copying:
 
 ```
 >>> let s = [1 3 5 2 4 3];
->>> let t = s.oddEvenSort;
+>>> let t = s.oddEvenSort!;
 >>> (t, t == s)
 ([1 2 3 3 4 5], true)
 ```
@@ -33,7 +33,7 @@ let k = 4;
 let r = [];
 0:n.collect { :x |
 	(x.sin * m).round
-}.oddEvenSort { :a :b |
+}.oddEvenSort! { :a :b |
 	r.add(a);
 	a > b
 };

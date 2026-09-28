@@ -10,7 +10,7 @@ Sort subsets reverse colexicographically:
 
 ```
 >>> let x = [1 2 3].powerSet;
->>> x.reverseColexicographicSort;
+>>> x.reverseColexicographicSort!;
 >>> x
 [1 2 3; 2 3; 1 3; 3; 1 2; 2; 1; ]
 ```
@@ -21,7 +21,7 @@ Sort k-subsets of first n integers colexicographically:
 >>> let n = 5;
 >>> let k = 3;
 >>> 1:n.combinations(k)
->>> .reverseColexicographicSort
+>>> .reverseColexicographicSort!
 [
 	3 4 5;
 	2 4 5;
@@ -40,7 +40,7 @@ Sort binary combinations:
 
 ```
 >>> binaryCombinations(2, 3)
->>> .reverseColexicographicSort
+>>> .reverseColexicographicSort!
 [
 	0 0 1 1 1;
 	0 1 0 1 1;
@@ -59,7 +59,7 @@ The permutations of _1:4_ in reverse colexographic order:
 
 ```
 >>> [1 .. 4].permutations
->>> .reverseColexicographicSort
+>>> .reverseColexicographicSort!
 [
 	1 2 3 4;
 	2 1 3 4;
@@ -95,7 +95,7 @@ OEIS [A280319](https://oeis.org/A280319):
 ~~~spl png=A oeis=A280319
 1:6.collect { :n |
 	let p = n.steinhausJohnsonTrotter;
-	let q = p.copy.reverseColexicographicSort;
+	let q = p.copy.reverseColexicographicSort!;
 	p.collect { :x |
 		q.indexOf(x) - 1
 	}
