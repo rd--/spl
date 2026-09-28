@@ -337,6 +337,30 @@ OEIS [A054238](https://oeis.org/A054238):
 
 ![](Help/Image/binaryExpansion-P.svg)
 
+Permutation of nonnegative integers induced by a binary transducer,
+OEIS [A153141](https://oeis.org/A153141):
+
+~~~spl svg=Q oeis=A153141
+0:115.collect { :n |
+	let b = n.binaryExpansion;
+	let k = b.size;
+	let i = 2;
+	let c = true;
+	{
+		c & { i <= k }
+	}.whileTrue {
+		(b[i] = 1).ifTrue {
+			c := false
+		};
+		b[i] := 1 - b[i];
+		i := i + 1
+	};
+	b.binaryContraction
+}.scatterPlot
+~~~
+
+![](Help/Image/binaryExpansion-Q.svg)
+
 * * *
 
 See also: decimalExpansion, integerDigits

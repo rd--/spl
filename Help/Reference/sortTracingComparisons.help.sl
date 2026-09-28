@@ -48,7 +48,7 @@ Scatter plot of both left and right sequence when sorting a low-discrepancy van 
 ~~~spl svg=D
 1:20.vanDerCorputNumber(10)
 .sortTracingComparisons(
-	mergeSort/2
+	mergeSort!/2
 ).atAll([2, 3]).scatterPlot
 ~~~
 
@@ -59,7 +59,7 @@ Scatter plot of left sequence when sorting a low-discrepancy van der Corput sequ
 ~~~spl svg=E
 1:19.vanDerCorputNumber(10)
 .sortTracingComparisons(
-	quickSort/2
+	quickSort!/2
 ).at(2).scatterPlot
 ~~~
 
@@ -72,7 +72,7 @@ plot traces for sort of two shorter van der Corput sequences:
 [15 18].collect { :n |
 	1:n.vanDerCorputNumber(10)
 	.sortTracingComparisons(
-		quickSort/2
+		quickSort!/2
 	).at(2).scatterPlot
 }.PlotSet([2 1])
 ~~~

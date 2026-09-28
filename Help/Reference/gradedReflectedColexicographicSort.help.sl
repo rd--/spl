@@ -50,7 +50,7 @@ OEIS [A036038](https://oeis.org/A036038):
 ~~~spl svg=A oeis=A036038
 1:9.collect { :n |
 	n.integerPartitions
-	.gradedReflectedColexicographicSort
+	.gradedReflectedColexicographicSort!
 	.collect(multinomial/1)
 }.catenate.scatterPlot.log
 ~~~
