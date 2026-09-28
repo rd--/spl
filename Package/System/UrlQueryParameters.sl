@@ -14,14 +14,14 @@ URLSearchParams! : [Object, Iterable, UrlQueryParameters] {
 		}
 	}
 
-	add { :self :anAssociation |
+	addInPlace { :self :anAssociation |
 		self.basicAppend(anAssociation.key, anAssociation.value)
 	}
 
 	associations { :self |
 		let answer = [];
 		self.keysAndValuesDo { :key :value |
-			answer.add(key -> value)
+			answer.addInPlace(key -> value)
 		};
 		answer
 	}

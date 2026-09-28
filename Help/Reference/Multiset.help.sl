@@ -96,7 +96,7 @@ To add an element to a `Multiset` use `add` or `addWithOccurrences`:
 ```
 >>> let a = Multiset[1 1 1];
 >>> a.addWithOccurrences(3, 2);
->>> a.add(5);
+>>> a.add!(5);
 >>> a.sortedElements
 [1 -> 3, 3 -> 2, 5 -> 1]
 ```
@@ -105,9 +105,9 @@ To remove an element from a `Multiset` use `remove`:
 
 ```
 >>> let a = Multiset[1 1 1 3 3 5];
->>> a.remove(1);
->>> a.remove(3);
->>> a.remove(5);
+>>> a.remove!(1);
+>>> a.remove!(3);
+>>> a.remove!(5);
 >>> a.sortedElements
 [1 -> 2, 3 -> 1]
 ```

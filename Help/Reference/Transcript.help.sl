@@ -46,7 +46,7 @@ Entries can be retrieved using the methods:
 The transcript can be cleared using `removeAll`:
 
 ```
->>> system.transcript.removeAll;
+>>> system.transcript.removeAll!;
 >>> system.transcript.size
 0
 ```

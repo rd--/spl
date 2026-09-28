@@ -78,19 +78,19 @@ LineSegment : [Object, Equal] { | u v |
 				let [a, b] = self[i];
 				let matched = true;
 				eq(p, a).if {
-					l.addFirst(b);
+					l.addFirstInPlace(b);
 					p := b
 				} {
 					eq(p, b).if {
-						l.addFirst(a);
+						l.addFirstInPlace(a);
 						p := a
 					} {
 						eq(q, a).if {
-							l.addLast(b);
+							l.addLastInPlace(b);
 							q := b
 						} {
 							eq(q, b).if {
-								l.addLast(a);
+								l.addLastInPlace(a);
 								q := a
 							} {
 								matched := false
@@ -105,7 +105,7 @@ LineSegment : [Object, Equal] { | u v |
 					i := i + 1
 				}
 			};
-			answer.add(l)
+			answer.addInPlace(l)
 		};
 		answer
 	}

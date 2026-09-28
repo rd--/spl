@@ -91,7 +91,7 @@ let next = { :n |
 	let m = p.detect { :i |
 		v.includes(i).not
 	};
-	v.add(m);
+	v.add!(m);
 	m
 };
 next/1.nestList(1, 115)

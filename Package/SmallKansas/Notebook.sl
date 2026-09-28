@@ -25,7 +25,7 @@ Notebook : [Object, View, SmallKansan] { | smallKansas notebookPane cells |
 		};
 		cell.appendChild(summary);
 		cell.appendChild(program.outerElement);
-		self.cells.addLast(cell);
+		self.cells.addLastInPlace(cell);
 		self.notebookPane.appendChild(cell);
 		program.focus
 	}

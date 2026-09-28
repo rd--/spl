@@ -23,8 +23,7 @@ Schedule for the system clock to be cleared in nine seconds time:
 
 ~~~spl scheduler
 { :t |
-	system.clock.removeAll;
-	nil
+	system.clock.removeAll!
 }.schedule(9)
 ~~~
 

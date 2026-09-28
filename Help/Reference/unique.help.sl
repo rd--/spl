@@ -53,7 +53,7 @@ let n = nil;
 	n := m ^ (1 / k);
 	n > 2
 }.whileTrue {
-	t.addAll(2:n.primePi.prime ^ k);
+	t.addAll!(2:n.primePi.prime ^ k);
 	k := 2 * k
 };
 t.unique.scatterPlot
@@ -74,8 +74,8 @@ let b = [];
 	let d = c.unique;
 	let e = Multiset(c).sortedElements;
 	let f = e.collect(value/1);
-	b.addAll(d);
-	a.addAll(f)
+	b.addAll!(d);
+	a.addAll!(f)
 };
 PlotSet(
 	[a b].collect(scatterPlot/1),

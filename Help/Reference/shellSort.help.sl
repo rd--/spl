@@ -45,7 +45,7 @@ let r = [];
 0:n.collect { :x |
 	(x.sin * m).round
 }.shellSort!([57 23 10 4 1]) { :a :b |
-	r.add(a);
+	r.add!(a);
 	a > b
 };
 r.downsample(k).scatterPlot

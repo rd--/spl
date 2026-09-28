@@ -29,7 +29,7 @@
 	next { :self :anInteger |
 		let answer = [];
 		anInteger.timesRepeat {
-			answer.addLast(self.next)
+			answer.addLastInPlace(self.next)
 		};
 		answer
 	}
@@ -59,7 +59,7 @@
 				item.ifNil {
 					answer.return
 				};
-				answer.addLast(item)
+				answer.addLastInPlace(item)
 			};
 			answer
 		}
@@ -87,7 +87,7 @@
 		let next = nil;
 		{
 			next := self.next;
-			answer.addLast(next)
+			answer.addLastInPlace(next)
 		}.doWhileTrue {
 			next.aBlock
 		};
@@ -114,7 +114,7 @@
 				next = anObject
 			}
 		}.whileFalse {
-			answer.addLast(next);
+			answer.addLastInPlace(next);
 			next := self.next
 		};
 		answer
@@ -123,7 +123,7 @@
 	upToEnd { :self |
 		let answer = [];
 		self.do { :each |
-			answer.addLast(each)
+			answer.addLastInPlace(each)
 		};
 		answer
 	}

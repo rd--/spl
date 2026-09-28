@@ -28,8 +28,8 @@ taking inradius of each polygon:
 let r = 1;
 let g = [];
 3.toDo(6) { :n |
-	g.add(Circle([0 0], r));
-	g.add(regularPolygon(n, [0 0], r, 0));
+	g.add!(Circle([0 0], r));
+	g.add!(regularPolygon(n, [0 0], r, 0));
 	r := r / (1.pi / n).cos
 };
 g.LineDrawing
@@ -44,8 +44,8 @@ taking circumradius of each polygon:
 let r = 1;
 let g = [];
 3.toDo(6) { :n |
-	g.add(Circle([0 0], r));
-	g.add(regularPolygon(n, [0 0], r, 0));
+	g.add!(Circle([0 0], r));
+	g.add!(regularPolygon(n, [0 0], r, 0));
 	r := r * (1.pi / n).cos
 };
 g.LineDrawing

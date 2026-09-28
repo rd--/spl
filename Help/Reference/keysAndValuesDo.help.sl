@@ -13,7 +13,7 @@ Iterate over keys and values at `Map`:
 >>> Map('x': 1, 'y': 2, 'z': 3)
 >>> .keysAndValuesDo { :key :value |
 >>> 	n := n + value;
->>> 	c.add([key n])
+>>> 	c.add!([key n])
 >>> };
 >>> c
 ['x' 1; 'y' 3; 'z' 6]
@@ -25,7 +25,7 @@ At `Record`:
 >>> let answer = [];
 >>> (x: 1, y: 2, z: 3)
 >>> .keysAndValuesDo { :key :value |
->>> 	answer.addAll([key, value])
+>>> 	answer.addAll!([key, value])
 >>> };
 >>> answer
 ['x' 1 'y' 2 'z' 3]
@@ -37,7 +37,7 @@ At a `List` of `Association`s:
 >>> let a = [];
 >>> [1 -> 'x', 2 -> 'y', 3 -> 'z']
 >>> .keysAndValuesDo { :key :value |
->>> 	a.addAll([key value])
+>>> 	a.addAll!([key value])
 >>> };
 >>> a
 [1 'x' 2 'y' 3 'z']

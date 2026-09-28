@@ -170,18 +170,18 @@ c.f. OEIS [A364024](https://oeis.org/A364024):
 
 ```
 >>> let n = 69 ^ [2 3];
->>> (n, n.integerDigits.++.sortInPlace)
+>>> (n, n.integerDigits.++.sort!)
 ([4761 328509], [0 1 2 3 4 5 6 7 8 9])
 
 >>> let n = 6534 ^ [2 3];
->>> (n, n.integerDigits.++.sortInPlace)
+>>> (n, n.integerDigits.++.sort!)
 (
 	[42693156 278957081304],
 	[0 0 1 1 2 2 3 3 4 4 5 5 6 6 7 7 8 8 9 9]
 )
 
 >>> let n = 497375 ^ [2 3];
->>> (n, n.integerDigits.++.sortInPlace)
+>>> (n, n.integerDigits.++.sort!)
 (
 	[
 		247381890625
@@ -645,7 +645,7 @@ let k = 1;
 	}.whileTrue {
 		k := k + 1
 	};
-	a.add(k)
+	a.add!(k)
 };
 a.scatterPlot
 ~~~
@@ -713,8 +713,8 @@ let d = [1];
 	let q = (1 .. i - 1).sum { :j |
 		(d[j] = p).boole
 	};
-	a.add(q);
-	d.addAll(q.integerDigits)
+	a.add!(q);
+	d.addAll!(q.integerDigits)
 };
 a.scatterPlot
 ~~~
@@ -798,7 +798,7 @@ OEIS [A059943](https://oeis.org/A059943):
 	let c = [];
 	1.toDo(b.size) { :k |
 		let d = b.first(k) = b.last(k);
-		c.addFirst(d.boole)
+		c.addFirst!(d.boole)
 	};
 	2 * c.fromDigits(2)
 }.stepPlot

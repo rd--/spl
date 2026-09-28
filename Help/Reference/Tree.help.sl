@@ -252,7 +252,7 @@ The values of a tree in each traversal order:
 >>> ].expressionTree(nil);
 >>> let l = [];
 >>> t.reverseDo { :each |
->>> 	l.add(each.value)
+>>> 	l.add!(each.value)
 >>> };
 >>> l
 [9 8 nil 6 nil 3 5 7 nil 4 nil 2 nil 1 nil]
@@ -284,7 +284,7 @@ and the `flatten` of a `Tree` is the same as the `flatten` of an equivalent nest
 >>> let l = [1, [2, [4, [7], 5], 3, [6, [8, 9]]]];
 >>> let e = [];
 >>> l.deepDo { :each |
->>> 	e.add(each)
+>>> 	e.add!(each)
 >>> };
 >>> e
 [1 2 4 7 5 3 6 8 9]

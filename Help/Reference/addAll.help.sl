@@ -1,4 +1,4 @@
-# addAll
+# addAll (addAllInPlace)
 
 - _addAll(c₁, c₂)_
 
@@ -12,7 +12,7 @@ At `IdentityMultiset`:
 ```
 >>> let c = [1 2 2 3 3 3];
 >>> let b = IdentityMultiset();
->>> (b.addAll(c), b.size)
+>>> (b.addAll!(c), b.size)
 (c, 6)
 ```
 
@@ -21,7 +21,7 @@ At `IdentitySet`:
 ```
 >>> let c = [1 2 3];
 >>> let s = IdentitySet();
->>> (s.addAll(c), c.size)
+>>> (s.addAll!(c), c.size)
 (c, 3)
 ```
 
@@ -30,7 +30,7 @@ At `List`:
 ```
 >>> let c = 1:9;
 >>> let l = [];
->>> (l.addAll(c), l.size)
+>>> (l.addAll!(c), l.size)
 (c, 9)
 ```
 
@@ -39,7 +39,7 @@ At `Record`:
 ```
 >>> let c = (y: 2, z: 3);
 >>> let r = (x: 1);
->>> (r.addAll(c), r)
+>>> (r.addAll!(c), r)
 (c, (x: 1, y: 2, z: 3))
 ```
 
@@ -47,7 +47,7 @@ Adding no items to a `List`:
 
 ```
 >>> let l = [1 2 3];
->>> l.addAll([]);
+>>> l.addAll!([]);
 >>> l
 [1 2 3]
 ```
@@ -56,7 +56,7 @@ At `SortedList`:
 
 ```
 >>> let l = SortedList[7, 5 .. 1];
->>> l.addAll([8, 6 .. 2]);
+>>> l.addAll!([8, 6 .. 2]);
 >>> l.contents
 [1 .. 8]
 ```

@@ -20,7 +20,7 @@ IntegerPartitions : [Object, Equal, Store] { | contents:<List> |
 		} {
 			let answer = [];
 			n.integerPartitionsDescendingDo { :each |
-				answer.add(each)
+				answer.addInPlace(each)
 			};
 			answer
 		}
@@ -99,7 +99,7 @@ IntegerPartitions : [Object, Equal, Store] { | contents:<List> |
 	integerPartitionsAscending { :self |
 		let answer = [];
 		self.integerPartitionsAscendingDo { :each |
-			answer.add(each)
+			answer.addInPlace(each)
 		};
 		answer
 	}
@@ -179,7 +179,7 @@ IntegerPartitions : [Object, Equal, Store] { | contents:<List> |
 				i := i + 1
 			} {
 				b := n % 2;
-				p.add(i)
+				p.addInPlace(i)
 			}
 		};
 		p
@@ -270,7 +270,7 @@ IntegerPartitions : [Object, Equal, Store] { | contents:<List> |
 
 	bulgarianSolitaire { :self |
 		let a = [self.size];
-		let b = (self - 1).without(0);
+		let b = (self - 1).withoutInPlace(0);
 		(a ++ b).reverseSort
 	}
 
@@ -284,7 +284,7 @@ IntegerPartitions : [Object, Equal, Store] { | contents:<List> |
 			{
 				done
 			}.whileFalse {
-				answer.add(j);
+				answer.addInPlace(j);
 				{
 					done.not & {
 						answer.size >= self[j]

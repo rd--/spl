@@ -1,8 +1,8 @@
 # removeKey
 
-- _removeKey(aDictionary, key)_
+- _removeKey(d, k)_
 
-Remove the element which is stored at _key_ in _aDictionary_.
+Remove the element which is stored at key _k_ in the dictionary _d_.
 Answer the removed element.
 
 At `Record`

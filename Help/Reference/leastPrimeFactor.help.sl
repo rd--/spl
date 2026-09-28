@@ -191,7 +191,7 @@ let a = 1:k.collect { :n |
 };
 let b = [];
 1:k.sum.antidiagonalIndicesDo { :i :j |
-	b.add(a[i][j])
+	b.add!(a[i][j])
 };
 b.discretePlot
 ~~~

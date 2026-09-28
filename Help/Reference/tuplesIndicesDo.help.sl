@@ -9,7 +9,7 @@ Answers `nil`.
 ```
 >>> let r = [];
 >>> 3.tuplesIndicesDo(2) { :each |
->>> 	r.add(each.copy)
+>>> 	r.add!(each.copy)
 >>> };
 >>> r
 [1 1; 1 2; 1 3; 2 1; 2 2; 2 3; 3 1; 3 2; 3 3]

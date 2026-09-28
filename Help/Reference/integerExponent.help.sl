@@ -278,9 +278,9 @@ let c = [0];
 	(k = 1).if {
 		let i = a(x + 1);
 		let j = c[i + 1];
-		c.add(j)
+		c.add!(j)
 	} {
-		c.add(k - 1)
+		c.add!(k - 1)
 	}
 };
 c.scatterPlot
@@ -416,7 +416,7 @@ let a = [];
 			n := n + 1;
 			v[p] := v[p] + (2 ^ x);
 			h[q] := h[q] + (2 ^ x);
-			a.add(x);
+			a.add!(x);
 			(n = e).ifTrue {
 				break()
 			};

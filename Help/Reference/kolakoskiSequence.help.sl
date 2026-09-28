@@ -67,10 +67,10 @@ let i = 3;
 	let t = a[i];
 	let e = a.last;
 	(t = 0).if {
-		a.add(1 - e)
+		a.add!(1 - e)
 	} {
-		a.add(e);
-		a.add(1 - e)
+		a.add!(e);
+		a.add!(1 - e)
 	};
 	i := i + 1
 };

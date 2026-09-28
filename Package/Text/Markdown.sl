@@ -15,7 +15,7 @@ Markdown : [Object, Equal, Cache, Iterable] { | source cache |
 	asTree { :self |
 		let items = [];
 		self.do { :each |
-			items.add(Tree(each, []))
+			items.addInPlace(Tree(each, []))
 		};
 		items.withIndexDo { :each :index |
 			let value = each.value;
@@ -57,7 +57,7 @@ Markdown : [Object, Equal, Cache, Iterable] { | source cache |
 					''
 				};
 				codeBlock['information'] := annotation;
-				answer.add(codeBlock)
+				answer.addInPlace(codeBlock)
 			}
 		};
 		answer
@@ -151,12 +151,12 @@ Markdown : [Object, Equal, Cache, Iterable] { | source cache |
 					}
 				}
 			}).ifTrue {
-				answer.add(block.copy);
-				block.removeAll;
+				answer.addInPlace(block.copy);
+				block.removeAllInPlace;
 				inBlock := false
 			};
 			inBlock.ifTrue {
-				block.add(current)
+				block.addInPlace(current)
 			};
 			previous := current
 		};

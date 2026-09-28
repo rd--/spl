@@ -107,7 +107,7 @@
 			let m = beta ^ i;
 			let d = ((x / m) % beta).floor;
 			x := x - (d * m);
-			r.add(d);
+			r.addInPlace(d);
 			i := i - 1
 		};
 		[r, k]
@@ -185,13 +185,13 @@
 				f.isVeryCloseTo(0).not
 			}
 		}.whileTrue {
-			answer.add(i);
+			answer.addInPlace(i);
 			f := 1 / f;
 			i := f.floor;
 			f := f - i;
 			limit := limit - 1
 		};
-		answer.add(i);
+		answer.addInPlace(i);
 		answer
 	}
 
@@ -293,7 +293,7 @@
 		let a = [];
 		n.timesRepeat {
 			let s = (1 / x).ceiling;
-			a.add(s);
+			a.addInPlace(s);
 			x := x - (1 / s)
 		};
 		a
@@ -773,7 +773,7 @@
 				next.abs >= b.abs
 			}
 		}.whileTrue {
-			answer.add(next);
+			answer.addInPlace(next);
 			next := next * r
 		};
 		answer

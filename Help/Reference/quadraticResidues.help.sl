@@ -90,7 +90,7 @@ OEIS [A096008](https://oeis.org/A096008):
 ```
 >>> 1.to(20).collect { :n |
 >>> 	let r = n.quadraticResidues;
->>> 	r.addFirst(0);
+>>> 	r.addFirst!(0);
 >>> 	r
 >>> }
 [

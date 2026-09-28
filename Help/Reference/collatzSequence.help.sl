@@ -263,7 +263,7 @@ OEIS [A006884](https://oeis.org/A006884):
 >>> 1:1000.do { :n |
 >>> 	let r = n.collatzSequence.max;
 >>> 	(r > m).ifTrue {
->>> 		a.add(n);
+>>> 		a.add!(n);
 >>> 		m := r
 >>> 	}
 >>> };
@@ -735,7 +735,7 @@ let a = [];
 	let i = a.minimumExcludedValue(
 		1:Infinity
 	);
-	a.addAll(i.collatzSequence)
+	a.addAll!(i.collatzSequence)
 };
 a.discretePlot
 ~~~

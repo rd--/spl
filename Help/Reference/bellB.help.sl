@@ -13,7 +13,7 @@ OEIS [A106800](http://oeis.org/A106800):
 >>> 0:6.collect { :n |
 >>> 	let p = n.bellB;
 >>> 	let c = p.coefficientList;
->>> 	c.without(0)
+>>> 	c.without!(0)
 >>> }
 [
 	1;

@@ -8,7 +8,7 @@ Answers `nil`.
 ```
 >>> let l = [];
 >>> 15.primesUpToDo { :each |
->>> 	l.add(each)
+>>> 	l.add!(each)
 >>> };
 >>> l
 [2 3 5 7 11 13]

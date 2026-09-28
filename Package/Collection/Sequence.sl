@@ -208,10 +208,10 @@
 				let step = self.second - self.first;
 				(1 + 1).toDo(self.size) { :i |
 					(self[i] - self[i - 1] = step).ifFalse {
-						answer.add(Range(start, self[i - 1], step));
+						answer.addInPlace(Range(start, self[i - 1], step));
 						start := self[i];
 						(i = self.size).if {
-							answer.add(Range(self.last, self.last, 1));
+							answer.addInPlace(Range(self.last, self.last, 1));
 							start := nil
 						} {
 							step := self[i + 1] - self[i]
@@ -219,7 +219,7 @@
 					}
 				};
 				start.ifNotNil {
-					answer.add(Range(start, self.last, step))
+					answer.addInPlace(Range(start, self.last, step))
 				};
 				answer
 			}
@@ -598,11 +598,11 @@
 				let i = 1;
 				let k = old.size;
 				indexList.do { :j |
-					answer.add(self.copyFromTo(i, j - 1));
-					answer.add(new);
+					answer.addInPlace(self.copyFromTo(i, j - 1));
+					answer.addInPlace(new);
 					i := j + k
 				};
-				answer.add(self.copyFromTo(i, self.size));
+				answer.addInPlace(self.copyFromTo(i, self.size));
 				answer.catenate
 			}
 		}
@@ -661,7 +661,7 @@
 
 	copyWithFirst { :self :newElement |
 		let answer = self.copy;
-		answer.addFirst(newElement);
+		answer.addFirstInPlace(newElement);
 		answer
 	}
 
@@ -695,7 +695,7 @@
 			let answer = [self.first];
 			self.adjacentPairsDo { :i :j |
 				aBlock(i, j).ifFalse {
-					answer.add(j)
+					answer.addInPlace(j)
 				}
 			};
 			answer
@@ -750,7 +750,7 @@
 		let answer = [];
 		1.toDo(self.size) { :i |
 			predicate(self.at(i)).ifTrue {
-				answer.add(i)
+				answer.addInPlace(i)
 			}
 		};
 		answer
@@ -822,8 +822,8 @@
 		let n = a.size;
 		let lhs = a[1] + (a[1] - a[2]);
 		let rhs = a[n] + (a[n] - a[n - 1]);
-		a.addFirst(lhs);
-		a.addLast(rhs);
+		a.addFirstInPlace(lhs);
+		a.addLastInPlace(rhs);
 		a / (4 * h.square)
 	}
 
@@ -894,7 +894,7 @@
 			seen.includes(x).if {
 				false
 			} {
-				seen.include(x);
+				seen.includeInPlace(x);
 				true
 			}
 		}
@@ -941,7 +941,7 @@
 	equispacedTriples { :self |
 		let answer = [];
 		self.size.equispacedTriplesDo { :i :j :k |
-			answer.add(self.atAll([i, j, k]))
+			answer.addInPlace(self.atAll([i, j, k]))
 		};
 		answer
 	}
@@ -976,7 +976,7 @@
 		let h = 1;
 		let k = self.size;
 		k.isPowerOfTwo.ifFalse {
-			self.addAll(List(k.asLargerPowerOfTwo - k, 0));
+			self.addAllInPlace(List(k.asLargerPowerOfTwo - k, 0));
 			k := self.size
 		};
 		{
@@ -1118,9 +1118,9 @@
 			let answer = [];
 			self.do { :each |
 				each.isCollection.if {
-					answer.addAll(each.flattenTo(depth - 1))
+					answer.addAllInPlace(each.flattenTo(depth - 1))
 				} {
-					answer.add(each)
+					answer.addInPlace(each)
 				}
 			};
 			answer
@@ -1160,7 +1160,7 @@
 		let accumulator = anObject;
 		self.do { :each |
 			accumulator := aBlock(accumulator, each);
-			answer.add(accumulator)
+			answer.addInPlace(accumulator)
 		};
 		answer
 	}
@@ -1406,9 +1406,9 @@
 	intercalate { :self :aCollection |
 		let answer = [];
 		self.doSeparatedBy { :each |
-			answer.add(each)
+			answer.addInPlace(each)
 		} {
-			answer.addAll(aCollection)
+			answer.addAllInPlace(aCollection)
 		};
 		answer
 	}
@@ -1418,8 +1418,8 @@
 		let answer = [];
 		let k = self.size.max(aList.size);
 		1.toDo(k) { :i |
-			answer.add(self.atWrap(i));
-			answer.add(aList.atWrap(i))
+			answer.addInPlace(self.atWrap(i));
+			answer.addInPlace(aList.atWrap(i))
 		};
 		answer
 	}
@@ -1428,9 +1428,9 @@
 	intersperse { :self :anObject |
 		let answer = [];
 		self.doSeparatedBy { :each |
-			answer.add(each)
+			answer.addInPlace(each)
 		} {
-			answer.add(anObject)
+			answer.addInPlace(anObject)
 		};
 		answer
 	}
@@ -1793,7 +1793,7 @@
 			1.toDo(m) { :i |
 				z := z + j(kernel[i], answer[k + 1 - i])
 			};
-			answer.add(z)
+			answer.addInPlace(z)
 		};
 		answer
 	}
@@ -1900,7 +1900,7 @@
 			1.toDo(r) { :j |
 				n := n + (x[i + j - 1] * w[j])
 			};
-			answer.add(n / wSum)
+			answer.addInPlace(n / wSum)
 		};
 		answer
 	}
@@ -1937,7 +1937,7 @@
 				seen.includesBy(item, compareBlock/2).if {
 					false
 				} {
-					seen.add(item);
+					seen.addInPlace(item);
 					true
 				}
 			}
@@ -1954,7 +1954,7 @@
 			seen.includes(each).if {
 				false
 			} {
-				seen.add(each);
+				seen.addInPlace(each);
 				true
 			}
 		}
@@ -2047,7 +2047,7 @@
 	partitionCollect { :self :windowSize :stepSize :aBlock/1 |
 		let answer = [];
 		self.partitionDo(windowSize, stepSize) { :each |
-			answer.add(aBlock(each))
+			answer.addInPlace(aBlock(each))
 		};
 		answer
 	}
@@ -2095,7 +2095,7 @@
 			let answer = [];
 			self.withDo(aList) { :i :j |
 				(j = anObject).ifTrue {
-					answer.add(i)
+					answer.addInPlace(i)
 				}
 			};
 			answer
@@ -2123,7 +2123,7 @@
 	prefixes { :self |
 		let answer = [];
 		self.prefixesDo { :each |
-			answer.add(each)
+			answer.addInPlace(each)
 		};
 		answer
 	}
@@ -2267,12 +2267,12 @@
 				} {
 					let answer = [];
 					1.toDo(m - 1) { :i |
-						answer.add(self[i]);
-						answer.add(anObject.atWrap(i))
+						answer.addInPlace(self[i]);
+						answer.addInPlace(anObject.atWrap(i))
 					};
-					answer.add(self[m]);
+					answer.addInPlace(self[m]);
 					(n = m).ifTrue {
-						answer.add(anObject[n])
+						answer.addInPlace(anObject[n])
 					};
 					answer
 				}
@@ -2395,7 +2395,7 @@
 					let r = c.fromContinuedFraction;
 					let nextError = (final - r).abs;
 					(nextError < lastError).ifTrue {
-						answer.add(r);
+						answer.addInPlace(r);
 						lastError := nextError
 					};
 					((final - r).abs < epsilon).ifTrue {
@@ -2425,7 +2425,7 @@
 					let v = ListView(list, i, e, 1);
 					u.hasEqualElements(v).if {
 						let w = rules[r].value.nest;
-						answer.addAll(w);
+						answer.addAllInPlace(w);
 						m := true;
 						i := i + u.size;
 						j := j + 1
@@ -2435,12 +2435,12 @@
 				}
 			};
 			m.ifFalse {
-				answer.add(list[i]);
+				answer.addInPlace(list[i]);
 				i := i + 1
 			}
 		};
 		(i < k).ifTrue {
-			answer.addAll(ListView(list, i, k, 1))
+			answer.addAllInPlace(ListView(list, i, k, 1))
 		};
 		answer
 	}
@@ -2465,7 +2465,7 @@
 		let answer = [];
 		self.indicesDo { :index |
 			aBlock(self[index]).ifTrue {
-				answer.add(self[index])
+				answer.addInPlace(self[index])
 			}
 		};
 		self.species.newFrom(answer)
@@ -2479,12 +2479,12 @@
 				register[k + 1 - i]
 			}.reduce(plus/2) % 2;
 			register.removeLast;
-			register.addFirst(bit);
+			register.addFirstInPlace(bit);
 			bit
 		};
 		let answer = [register.first];
 		(count - 1).timesRepeat {
-			answer.add(step())
+			answer.addInPlace(step())
 		};
 		answer
 	}
@@ -2514,12 +2514,12 @@
 			2.toDo(self.size) { :index |
 				let next = self[index];
 				aBlock(previous, next).ifFalse {
-					answer.add(self.copyFromTo(startIndex, index - 1));
+					answer.addInPlace(self.copyFromTo(startIndex, index - 1));
 					startIndex := index
 				};
 				previous := next
 			};
-			answer.add(self.copyFromTo(startIndex, self.size));
+			answer.addInPlace(self.copyFromTo(startIndex, self.size));
 			answer
 		}
 	}
@@ -2527,7 +2527,7 @@
 	splitBy { :self :aCollection |
 		let answer = [];
 		self.splitByDo(aCollection) { :each |
-			answer.add(each)
+			answer.addInPlace(each)
 		};
 		answer
 	}
@@ -2592,7 +2592,7 @@
 	suffixes { :self |
 		let answer = [];
 		self.suffixesDo { :each |
-			answer.add(each)
+			answer.addInPlace(each)
 		};
 		answer
 	}
@@ -2679,7 +2679,7 @@
 		let startIndex = 1;
 		aList.do { :each |
 			let endIndex = startIndex + each - 1;
-			answer.add(self.copyFromTo(startIndex, endIndex));
+			answer.addInPlace(self.copyFromTo(startIndex, endIndex));
 			startIndex := endIndex + 1
 		};
 		answer
@@ -2755,7 +2755,7 @@
 	tuplesCollect { :self :aBlock/1 |
 		let answer = [];
 		self.tuplesDo { :each |
-			answer.add(each.aBlock)
+			answer.addInPlace(each.aBlock)
 		};
 		answer
 	}
@@ -2798,7 +2798,7 @@
 				(i != j).ifTrue {
 					q.do { :each |
 						seen.includesBy(each, aBlock/2).ifFalse {
-							seen.add(each)
+							seen.addInPlace(each)
 						}
 					}
 				}
@@ -3041,7 +3041,7 @@
 	equispacedTriples { :self |
 		let answer = [];
 		self.equispacedTriplesDo { :i :j :k |
-			answer.add([i, j, k])
+			answer.addInPlace([i, j, k])
 		};
 		answer
 	}

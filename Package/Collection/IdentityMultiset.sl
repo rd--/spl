@@ -65,7 +65,7 @@ IdentityMultiset : [Object, Store, Copyable, Equal, Iterable, Collection, Extens
 
 	[collectionToIdentityMultiset, asIdentityMultiset] { :self |
 		let answer = IdentityMultiset();
-		answer.addAll(self);
+		answer.addAllInPlace(self);
 		answer
 	}
 

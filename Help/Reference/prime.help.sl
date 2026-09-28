@@ -498,7 +498,7 @@ let y = [1];
 			b + p
 		}
 	};
-	y.add(x)
+	y.add!(x)
 };
 y.discretePlot
 ~~~

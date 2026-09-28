@@ -45,7 +45,7 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 		let answer = [];
 		1.toDo(k - 1) { :i |
 			aBlock(p[i], p[i + 1]).ifTrue {
-				answer.add(i)
+				answer.addInPlace(i)
 			}
 		};
 		answer
@@ -84,7 +84,7 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 		let answer = [];
 		1.toDo(self.degree) { :each |
 			support.includes(each).ifFalse {
-				answer.add(each)
+				answer.addInPlace(each)
 			}
 		};
 		answer
@@ -152,7 +152,7 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 			let e = list[j];
 			1.toDo(j - 1) { :i |
 				(list[i] > e).ifTrue {
-					answer.add([i j])
+					answer.addInPlace([i j])
 				}
 			}
 		};
@@ -230,7 +230,7 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 		list.do { :each |
 			let row = List(anInteger, 0);
 			row[each] := 1;
-			answer.add(row)
+			answer.addInPlace(row)
 		};
 		answer
 	}
@@ -268,7 +268,7 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 		let answer = [next];
 		{
 			next := next * self;
-			answer.add(next)
+			answer.addInPlace(next)
 		}.doWhileFalse {
 			next.isIdentity
 		};
@@ -282,7 +282,7 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 		1.to(k).powerSetDo { :each |
 			let subsequence = list @* each;
 			(subsequence.reducedPermutation = pattern).ifTrue {
-				answer.add(each)
+				answer.addInPlace(each)
 			}
 		};
 		answer
@@ -320,7 +320,7 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 					isIdentity := false;
 					p.swapWith(d, e);
 					p.asPermutation.reducedWordsDo { :x |
-						x.add(d);
+						x.addInPlace(d);
 						aBlock(x)
 					};
 					p.swapWith(d, e)
@@ -336,7 +336,7 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 	reducedWords { :self |
 		let answer = [];
 		self.reducedWordsDo { :each |
-			answer.add(each)
+			answer.addInPlace(each)
 		};
 		answer
 	}
@@ -452,7 +452,7 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 		let answer = [];
 		self.permutationsDo { :each |
 			self.withCollect(each, !=).allSatisfy(identity/1).ifTrue {
-				answer.add(each.copy)
+				answer.addInPlace(each.copy)
 			}
 		};
 		answer
@@ -548,7 +548,7 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 	lexicographicPermutations { :self |
 		let answer = [];
 		self.lexicographicPermutationsDo { :each |
-			answer.add(each.copy);
+			answer.addInPlace(each.copy);
 			true
 		};
 		answer
@@ -575,7 +575,7 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 	[minimumChangePermutations, heapsAlgorithm] { :self |
 		let answer = [];
 		self.minimumChangePermutationsDo { :each |
-			answer.add(each.copy)
+			answer.addInPlace(each.copy)
 		};
 		answer
 	}
@@ -680,7 +680,7 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 	[plainChanges, steinhausJohnsonTrotter] { :self |
 		let answer = [];
 		self.plainChangesDo { :each |
-			answer.add(each.copy)
+			answer.addInPlace(each.copy)
 		};
 		answer
 	}
@@ -789,7 +789,7 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 		{
 			nextItem = anInteger
 		}.whileFalse {
-			answer.add(nextItem);
+			answer.addInPlace(nextItem);
 			nextItem := self[nextItem]
 		};
 		answer
@@ -801,8 +801,8 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 		1.toDo(self.size) { :each |
 			visited.includes(each).ifFalse {
 				let cycle = self.permutationListToPermutationCycle(each);
-				visited.addAll(cycle);
-				answer.add(cycle)
+				visited.addAllInPlace(cycle);
+				answer.addInPlace(cycle)
 			}
 		};
 		deleteUnaryCycles.if {
@@ -894,7 +894,7 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 	permutations { :self |
 		let answer = [];
 		self.permutationsDo { :each |
-			answer.add(each.copy)
+			answer.addInPlace(each.copy)
 		};
 		answer
 	}
@@ -978,14 +978,14 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 					x > n
 				}
 			}.whileTrue {
-				answer.add(stack.pop)
+				answer.addInPlace(stack.pop)
 			};
 			stack.push(x)
 		};
 		{
 			stack.isEmpty
 		}.whileFalse {
-			answer.add(stack.pop)
+			answer.addInPlace(stack.pop)
 		};
 		answer
 	}
@@ -1109,7 +1109,7 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 		} {
 			let answer = [];
 			self.multisetPermutationsDoLink { :each |
-				answer.add(each.asList)
+				answer.addInPlace(each.asList)
 			};
 			answer
 		}

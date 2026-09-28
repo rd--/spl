@@ -60,7 +60,7 @@ after which zeroes and ones alternate:
 	(10, [1 1 1 1], true),
 	(11, [1 1 2], true),
 	(12, [2 2], true),
-	(13, [2 1, 1], true),
+	(13, [2 1 1], true),
 	(14, [3 1], true),
 	(15, [4], true),
 	(16, [1 4], true),

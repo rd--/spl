@@ -2,26 +2,26 @@ SortedList : [Object, Store, Copyable, Equal, Compare, Iterable, Indexable, Coll
 
 	[concatenation, ++] { :self :aCollection |
 		let answer = self.copy;
-		answer.addAll(aCollection);
+		answer.addAllInPlace(aCollection);
 		answer
 	}
 
-	add { :self :item |
+	addInPlace { :self :item |
 		self.contents.isEmpty.if {
-			self.contents.add(item)
+			self.contents.addInPlace(item)
 		} {
 			let nextIndex = self.indexForInserting(item);
 			self.contents.insertAt(item, nextIndex)
 		}
 	}
 
-	addAll { :self :aCollection |
+	addAllInPlace { :self :aCollection |
 		(aCollection.size > (self.contents.size // 3)).if {
-			self.contents.addAll(aCollection);
+			self.contents.addAllInPlace(aCollection);
 			self.contents.sortByInPlace(self.sortBlock)
 		} {
 			aCollection.do { :each |
-				self.add(each)
+				self.addInPlace(each)
 			}
 		};
 		aCollection

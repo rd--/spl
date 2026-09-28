@@ -77,7 +77,7 @@ let a = {
 	SinOsc(freq + fAdd * fMul, phase)
 } ! n;
 let b = OnePole({ PinkNoise() * 0.5 } ! 2, 0.4);
-a.add(
+a.add!(
 	SinOsc(
 		Times(
 			LfdNoise0(11),

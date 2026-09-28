@@ -7,9 +7,9 @@ which is specified by a sort block that is ordinarily `precedesOrEqualTo`.
 
 ```
 >>> let l = SortedList([]);
->>> l.add(3);
->>> l.add(2);
->>> l.add(1);
+>>> l.add!(3);
+>>> l.add!(2);
+>>> l.add!(1);
 >>> l
 SortedList([1 2 3])
 ```
@@ -18,8 +18,8 @@ SortedList([1 2 3])
 
 ```
 >>> let l = SortedList([5 1 6 4]);
->>> l.add(2);
->>> l.addAll([3 7]);
+>>> l.add!(2);
+>>> l.addAll!([3 7]);
 >>> l.contents
 [1 2 3 4 5 6 7]
 ```
@@ -28,7 +28,7 @@ Remove item:
 
 ```
 >>> let l = SortedList([1 2 3 4 5]);
->>> let o = l.remove(5);
+>>> let o = l.remove!(5);
 >>> (o, l)
 (5, SortedList([1 2 3 4]))
 ```
@@ -46,9 +46,9 @@ Add `String` items to a `SortedList` and ask for the `middle` and `median` eleme
 
 ```
 >>> let l = SortedList();
->>> l.add('truite');
->>> l.add('carpe');
->>> l.add('porcinet');
+>>> l.add!('truite');
+>>> l.add!('carpe');
+>>> l.add!('porcinet');
 >>> (l.middle, l.median)
 ('porcinet', 'porcinet')
 ```
@@ -90,7 +90,7 @@ At `IdentitySet`:
 
 ```
 >>> let s = IdentitySet();
->>> s.includeAll([1 9 3 7 5]);
+>>> s.includeAll!([1 9 3 7 5]);
 >>> SortedList(s).contents
 [1 3 5 7 9]
 ```

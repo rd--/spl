@@ -192,7 +192,7 @@
 	delannoySequence { :k |
 		let answer = [];
 		k.antidiagonalIndicesDo { :m :n |
-			answer.add(delannoyNumber(m - 1, n - 1))
+			answer.addInPlace(delannoyNumber(m - 1, n - 1))
 		};
 		answer
 	}
@@ -497,7 +497,7 @@
 			let m = u['limit'];
 			(m + 1).toDo(m * 2) { :i |
 				i.isDyckWord.ifTrue {
-					t.add(i)
+					t.addInPlace(i)
 				}
 			};
 			u['limit'] := m * 2

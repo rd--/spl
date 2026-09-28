@@ -52,7 +52,7 @@ OEIS [A071625](https://oeis.org/A071625):
 ~~~spl svg=B oeis=A071625
 1:85.collect { :n |
 	n.primeExponents
-	.without(0)
+	.without!(0)
 	.deleteDuplicates
 	.size
 }.stepPlot
@@ -88,7 +88,7 @@ OEIS [A059404](https://oeis.org/A059404):
 ~~~spl svg=E oeis=A059404
 1:200.select { :n |
 	let e = n.primeExponents;
-	let u = e.without(0).deleteDuplicates;
+	let u = e.without!(0).deleteDuplicates;
 	u.size > 1
 }.discretePlot
 ~~~
@@ -101,7 +101,7 @@ OEIS [A062770](https://oeis.org/A062770):
 ~~~spl svg=F oeis=A062770
 1:85.select { :n |
 	let e = n.primeExponents;
-	let u = e.without(0).deleteDuplicates;
+	let u = e.without!(0).deleteDuplicates;
 	u.size = 1
 }.discretePlot
 ~~~

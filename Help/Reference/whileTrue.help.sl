@@ -17,7 +17,7 @@ the sum of two elements defines the next:
 >>> let a = 0;
 >>> let b = 1;
 >>> { b < 1000 }.whileTrue {
->>> 	r.add(b);
+>>> 	r.add!(b);
 >>> 	[a, b] := [b, a + b]
 >>> };
 >>> r
@@ -47,14 +47,14 @@ let comparePowers = { :n :m |
 let a = [1];
 let b = [1];
 150.timesRepeat {
-	a.add(
+	a.add!(
 		b.collect { :n |
 			let m = a.size + 1;
 			n.comparePowers(m)
 		}.min
 	);
 	(a.last > b.last).ifTrue {
-		b.add(a.last)
+		b.add!(a.last)
 	}
 };
 a.scatterPlot

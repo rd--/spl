@@ -81,8 +81,8 @@ OEIS [A164887](https://oeis.org/A164887):
 >>> 	let p = n.kaprekarSequence(2);
 >>> 	let q = p.last;
 >>> 	b.includes(q).ifFalse {
->>> 		a.add(n);
->>> 		b.add(q)
+>>> 		a.add!(n);
+>>> 		b.add!(q)
 >>> 	}
 >>> };
 >>> a
@@ -112,7 +112,7 @@ OEIS [A160761](https://oeis.org/A160761):
 ~~~spl svg=B oeis=A160761
 0:100.collect { :n |
 	n.kaprekarSequence(2).last
-}.without(0).stepPlot
+}.without!(0).stepPlot
 ~~~
 
 ![](Help/Image/kaprekarSequence-B.svg)

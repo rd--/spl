@@ -82,7 +82,7 @@
 				}
 			}
 		}.whileTrue {
-			r.add(b);
+			r.addInPlace(b);
 			i := i + 1;
 			a := b;
 			(a > 0).ifTrue {
@@ -194,7 +194,7 @@
 		let n = 0;
 		{ answer.size < self }.whileTrue {
 			(n.digitCount(3, 1) = 0).ifTrue {
-				answer.add(n)
+				answer.addInPlace(n)
 			};
 			n := n + 1
 		};
@@ -205,7 +205,7 @@
 		let answer = [];
 		let i = 0;
 		{ answer.size < n }.whileTrue {
-			answer.addAll(i.integerDigits(b));
+			answer.addAllInPlace(i.integerDigits(b));
 			i := i + 1
 		};
 		answer.take(n)
@@ -239,7 +239,7 @@
 					e := i;
 					break()
 				} {
-					a.add(i)
+					a.addInPlace(i)
 				}
 			};
 			z := y.last
@@ -354,7 +354,7 @@
 			}.whileTrue {
 				k := k + 1
 			};
-			l.add(k);
+			l.addInPlace(k);
 			i := i + 1
 		};
 		l
@@ -413,7 +413,7 @@
 	fareySequence { :n |
 		let answer = [];
 		n.fareySequenceDo { :each |
-			answer.add(each)
+			answer.addInPlace(each)
 		};
 		answer
 	}
@@ -451,13 +451,13 @@
 						y <= z
 					}
 				).ifTrue {
-					b.include(z);
+					b.includeInPlace(z);
 					{ b.includes(j) }.whileTrue {
 						j := j + 1
 					}
 				}
 			};
-			answer.add(j)
+			answer.addInPlace(j)
 		};
 		answer
 	}
@@ -472,14 +472,14 @@
 				let x = answer[n - (2 * i) + 1];
 				let y = answer[n - i + 1];
 				let z = (y * 2) - x;
-				b.include(z);
+				b.includeInPlace(z);
 				i := i + 1;
 				{ b.includes(j) }.whileTrue {
-					b.remove(j);
+					b.removeInPlace(j);
 					j := j + 1
 				}
 			};
-			answer.add(j)
+			answer.addInPlace(j)
 		};
 		answer
 	}
@@ -519,7 +519,7 @@
 		};
 		let answer = [1];
 		2.toDo(n) { :i |
-			answer.add(k(answer))
+			answer.addInPlace(k(answer))
 		};
 		answer
 	}
@@ -618,7 +618,7 @@
 		let z = [];
 		{ :x |
 			let y = x.rotateLeft(k);
-			z.add(y.removeLast);
+			z.addInPlace(y.removeLast);
 			y
 		}.iterate([1 .. n], n);
 		z
@@ -636,7 +636,7 @@
 			let a = [n];
 			{ n != 1 }.whileTrue {
 				n := n.jugglerMap;
-				a.add(n)
+				a.addInPlace(n)
 			};
 			a
 		}
@@ -653,8 +653,8 @@
 			} {
 				number + 1
 			};
-			answer.add(count);
-			inventory.add(count)
+			answer.addInPlace(count);
+			inventory.addInPlace(count)
 		};
 		answer
 	}
@@ -742,7 +742,7 @@
 	kaprekarSequence { :self :base :fixedLength |
 		let answer = [];
 		{ answer.includes(self) }.whileFalse {
-			answer.add(self);
+			answer.addInPlace(self);
 			self := self.kaprekarMap(base, fixedLength)
 		};
 		answer
@@ -847,7 +847,7 @@
 			let a = ((2 * n) + 1) / (n + 2);
 			let b = ((3 * n) - 3) / (n + 2);
 			let c = (a * s[n]) + (b * s[n - 1]);
-			s.add(c)
+			s.addInPlace(c)
 		};
 		s
 	}
@@ -855,7 +855,7 @@
 	narayanaSequence { :self |
 		let answer = [1 1 1];
 		4.toDo(self) { :i |
-			answer.add(answer[i - 1] + answer[i - 3])
+			answer.addInPlace(answer[i - 1] + answer[i - 3])
 		};
 		answer
 	}
@@ -918,7 +918,7 @@
 	noergaardRhythmicInfinitySystem { :n |
 		let z = [3];
 		1.toDo(n - 1) { :i |
-			z.add(
+			z.addInPlace(
 				(
 					i.integerDigits(2)
 					.split(equal/2)
@@ -932,7 +932,7 @@
 	padovanSequence { :self :initial |
 		let answer = initial.copy;
 		4.toDo(self) { :i |
-			answer.add(answer[i - 2] + answer[i - 3])
+			answer.addInPlace(answer[i - 2] + answer[i - 3])
 		};
 		answer
 	}
@@ -1002,7 +1002,7 @@
 				next := answer[n] + n
 			};
 			answer[n + 1] := next;
-			seen.include(next)
+			seen.includeInPlace(next)
 		};
 		answer
 	}
@@ -1040,7 +1040,7 @@
 			let a = ((6 * n) - 3) / (n + 1);
 			let b = (n - 2) / (n + 1);
 			let c = (a * s[n]) - (b * s[n - 1]);
-			s.add(c)
+			s.addInPlace(c)
 		};
 		s
 	}
@@ -1116,7 +1116,7 @@
 		let n = 0;
 		{ answer.size < self }.whileTrue {
 			(n.digitCount(3, 2) = 0).ifTrue {
-				answer.add(n)
+				answer.addInPlace(n)
 			};
 			n := n + 1
 		};
@@ -1146,8 +1146,8 @@
 			answer.size < n
 		}.whileTrue {
 			let c = answer[index];
-			answer.add(c + answer[index - 1]);
-			answer.add(c);
+			answer.addInPlace(c + answer[index - 1]);
+			answer.addInPlace(c);
 			index := index + 1
 		};
 		(answer.size > n).ifTrue {
@@ -1275,8 +1275,8 @@
 		}.whileTrue {
 			n := n + 1;
 			isUlam(n, 0, u.copy, r.copy).ifTrue {
-				u.addLast(n);
-				r.addFirst(n)
+				u.addLastInPlace(n);
+				r.addFirstInPlace(n)
 			}
 		};
 		u
@@ -1304,7 +1304,7 @@
 					v[m] := v[m] + 1;
 					j := j + 1
 				};
-				u.add(i)
+				u.addInPlace(i)
 			}
 		};
 		u
@@ -1334,7 +1334,7 @@
 			let k = (1 .. i - 1).findLast { :m |
 				a[i] = a[m]
 			};
-			a.add(
+			a.addInPlace(
 				(k = 0).if { 0 } { i - k }
 			)
 		};
@@ -1359,7 +1359,7 @@
 			}.whileTrue {
 				k := k + 1
 			};
-			l.add(k);
+			l.addInPlace(k);
 			i := i + 1
 		};
 		l
@@ -1430,7 +1430,7 @@
 		let k = i.size;
 		n.timesRepeat {
 			let j = u.size;
-			u.add(
+			u.addInPlace(
 				1.toCollect(k) { :m |
 					f[m].value(u[j - i[m] + 1])
 				}.catenate
@@ -1566,7 +1566,7 @@
 			let initial = word.first;
 			let suffix = word.allButFirst(m);
 			word := suffix ++ rules.at(initial);
-			answer.add(word);
+			answer.addInPlace(word);
 			j := j + 1
 		};
 		answer
@@ -1679,7 +1679,7 @@
 		};
 		let r = [f/1.nestList(1, n)];
 		m.timesRepeat {
-			r.add(f/1.nestList(g(r.flatten), n))
+			r.addInPlace(f/1.nestList(g(r.flatten), n))
 		};
 		r
 	}
@@ -1765,7 +1765,7 @@
 					(i % m) = (j % m)
 				}
 			};
-			z.add(e);
+			z.addInPlace(e);
 			e
 		}
 	}
@@ -1892,14 +1892,14 @@
 		{
 			r.includes(x)
 		}.whileFalse {
-			r.add(x);
+			r.addInPlace(x);
 			x.numerator.isEven.if {
 				x := x / 2
 			} {
 				x := 3 * x + 1
 			}
 		};
-		r.add(x);
+		r.addInPlace(x);
 		r
 	}
 
@@ -1997,14 +1997,14 @@
 		(n - 1).timesRepeat {
 			let r = squareSpiralRank(x, y, 1);
 			cells.includes(r).if {
-				cells.remove(r);
+				cells.removeInPlace(r);
 				d := d + 1
 			} {
-				cells.add(r);
+				cells.addInPlace(r);
 				d := d - 1
 			};
 			[x, y] := [x, y] + steps[d.mod(4, 1)];
-			path.add([x, y])
+			path.addInPlace([x, y])
 		};
 		path
 	}
@@ -2085,10 +2085,10 @@
 		let a = [0];
 		1.toDo(k - 1) { :n |
 			((y + 1) <= (c * x)).if {
-				a.add(1);
+				a.addInPlace(1);
 				y := y + 1
 			} {
-				a.add(0);
+				a.addInPlace(0);
 				x := x + 1
 			}
 		};

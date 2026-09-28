@@ -9,7 +9,7 @@ Answers `nil`.
 ```
 >>> let a = [];
 >>> [1 2 3].permutationsDo { :each |
->>> 	a.add(each.copy)
+>>> 	a.add!(each.copy)
 >>> };
 >>> a
 [1 2 3; 1 3 2; 2 1 3; 2 3 1; 3 2 1; 3 1 2]

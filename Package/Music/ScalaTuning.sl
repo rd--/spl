@@ -4,7 +4,7 @@ ScalaTuning : [Object, Tuning] { | contents |
 
 	asCents { :self |
 		let answer = self.pitches;
-		answer.addFirst(0);
+		answer.addFirstInPlace(0);
 		answer
 	}
 
@@ -17,7 +17,7 @@ ScalaTuning : [Object, Tuning] { | contents |
 		answer.allSatisfy(isFraction/1).ifFalse {
 			self.error('asRatios: non-ratio pitch')
 		};
-		answer.addFirst(1/1);
+		answer.addFirstInPlace(1/1);
 		answer
 	}
 
@@ -205,7 +205,7 @@ LibraryItem(
 		let answer = Record();
 		libraryItem.keysAndValuesDo { :key :value |
 			let [n, d] = value;
-			answer.add(
+			answer.addInPlace(
 				key -> Fraction(n, d)
 			)
 		};

@@ -10,7 +10,7 @@
 		}
 	}
 
-	add { :self :anObject |
+	addInPlace { :self :anObject |
 		self.addWithOccurrences(anObject, 1)
 	}
 
@@ -39,7 +39,7 @@
 	countsAndElements { :self |
 		let answer = [];
 		self.contents.associationsDo { :each |
-			answer.add([each.key, each.value])
+			answer.addInPlace([each.key, each.value])
 		};
 		answer
 	}
@@ -64,7 +64,7 @@
 	elementsAndCounts { :self |
 		let answer = [];
 		self.contents.associationsDo { :each |
-			answer.add([each.key, each.value])
+			answer.addInPlace([each.key, each.value])
 		};
 		answer
 	}
@@ -102,7 +102,7 @@
 	[multitsetToList, asList] { :self |
 		let answer = [];
 		self.do { :each |
-			answer.add(each)
+			answer.addInPlace(each)
 		};
 		answer
 	}
@@ -141,8 +141,8 @@
 		oldObject
 	}
 
-	removeAll { :self |
-		self.contents.removeAll
+	removeAllInPlace { :self |
+		self.contents.removeAllInPlace
 	}
 
 	setContents { :self :aDictionary |
@@ -249,7 +249,7 @@ Multiset : [Object, Store, Copyable, Equal, Iterable, Collection, Extensible, Un
 
 	[collectionToMultiset, asMultiset] { :self |
 		let answer = Multiset();
-		answer.addAll(self);
+		answer.addAllInPlace(self);
 		answer
 	}
 

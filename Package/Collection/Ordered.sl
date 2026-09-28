@@ -1,7 +1,7 @@
 @Ordered {
 
-	add { :self :anObject |
-		self.addLast(anObject)
+	addInPlace { :self :anObject |
+		self.addLastInPlace(anObject)
 	}
 
 	addAfter { :self :newObject :oldObject |
@@ -42,7 +42,7 @@
 
 	ofSize { :self :aNumber |
 		(aNumber - self.size).timesRepeat {
-			self.add(nil)
+			self.addInPlace(nil)
 		};
 		self
 	}

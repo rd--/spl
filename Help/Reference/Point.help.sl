@@ -57,7 +57,7 @@ let p = [];
 			each.product >= 0
 		}
 	).ifTrue {
-		p.add(each.Point)
+		p.add!(each.Point)
 	}
 };
 p.PerspectiveDrawing

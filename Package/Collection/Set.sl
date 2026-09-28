@@ -1,16 +1,16 @@
 @Set {
 
-	add { :self :anObject |
+	addInPlace { :self :anObject |
 		self.includes(anObject).ifTrue {
-			self.error('@Set>>add: includes item')
+			self.error('@Set>>addInPlace: includes item')
 		};
-		self.include(anObject)
+		self.includeInPlace(anObject)
 	}
 
 	collect { :self :aBlock/1 |
 		let answer = self.species.new;
 		self.do { :each |
-			answer.include(aBlock(each))
+			answer.includeInPlace(aBlock(each))
 		};
 		answer
 	}
@@ -41,19 +41,19 @@
 		}
 	}
 
-	remove { :self :anObject |
+	removeInPlace { :self :anObject |
 		self.removeIfAbsent(anObject) {
-			self.error('@Set>>remove: item does not exist')
+			self.error('@Set>>removeInPlace: item does not exist')
 		}
 	}
 
-	without { :self :anObject |
+	withoutInPlace { :self :anObject |
 		self.removeIfAbsent(anObject) { };
 		self
 	}
 
 	uncheckedInclude { :self :anObject |
-		self.include(anObject)
+		self.includeInPlace(anObject)
 	}
 
 }

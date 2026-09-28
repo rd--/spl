@@ -14,7 +14,7 @@ BitSet : [Object, Store, Copyable, Equal, Iterable, Collection, Extensible] { | 
 		self.bitAt(anInteger)
 	}
 
-	add { :self :anInteger |
+	addInPlace { :self :anInteger |
 		self.assert {
 			anInteger.isInteger & {
 				self.includes(anInteger).not
@@ -121,7 +121,7 @@ BitSet : [Object, Store, Copyable, Equal, Iterable, Collection, Extensible] { | 
 		answer
 	}
 
-	include { :self :anInteger |
+	includeInPlace { :self :anInteger |
 		self.setBitAt(anInteger);
 		anInteger
 	}
@@ -195,12 +195,12 @@ BitSet : [Object, Store, Copyable, Equal, Iterable, Collection, Extensible] { | 
 		}
 	}
 
-	removeAll { :self |
+	removeAllInPlace { :self |
 		(tally > 0).if {
 			self.bytes.atAllPut(0);
 			self.tally := 0
 		};
-		self
+		nil
 	}
 
 	setBitAt { :self :anInteger |
@@ -255,7 +255,7 @@ BitSet : [Object, Store, Copyable, Equal, Iterable, Collection, Extensible] { | 
 			let answer = BitSet(self.size);
 			self.withIndexDo { :each :index |
 				each.isOne.ifTrue {
-					answer.add(index - 1)
+					answer.addInPlace(index - 1)
 				}
 			};
 			answer
@@ -266,7 +266,7 @@ BitSet : [Object, Store, Copyable, Equal, Iterable, Collection, Extensible] { | 
 
 	BitSet { :self :capacity |
 		let answer = BitSet(capacity);
-		answer.addAll(self);
+		answer.addAllInPlace(self);
 		answer
 	}
 

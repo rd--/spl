@@ -1,12 +1,12 @@
 @Extensible {
 
-	add { :self :anObject |
-		self.typeResponsibility('@Extensible>>add')
+	addInPlace { :self :anObject |
+		self.typeResponsibility('@Extensible>>addInPlace')
 	}
 
-	addAll { :self :aCollection |
+	addAllInPlace { :self :aCollection |
 		aCollection.do { :each |
-			self.add(each)
+			self.addInPlace(each)
 		};
 		aCollection
 	}
@@ -19,48 +19,48 @@
 
 	addIfNotPresent { :self :anObject |
 		self.includes(anObject).ifFalse {
-			self.add(anObject)
+			self.addInPlace(anObject)
 		};
 		anObject
 	}
 
 	addIfNotPresentBy { :self :anObject :aBlock/2 |
 		self.includesBy(anObject, aBlock/2).ifFalse {
-			self.add(anObject)
+			self.addInPlace(anObject)
 		};
 		anObject
 	}
 
 	addWithOccurrences { :self :newObject :anInteger |
 		anInteger.timesRepeat {
-			self.add(newObject)
+			self.addInPlace(newObject)
 		};
 		newObject
 	}
 
 	fillFromWith { :self :aCollection :aBlock/1 |
 		aCollection.do { :each |
-			self.add(aBlock(each))
+			self.addInPlace(aBlock(each))
 		}
 	}
 
-	ifAbsentAdd { :self :anObject |
+	ifAbsentAddInPlace { :self :anObject |
 		self.includes(anObject).if {
 			false
 		} {
-			self.add(anObject);
+			self.addInPlace(anObject);
 			true
 		}
 	}
 
-	include { :self :anObject |
+	includeInPlace { :self :anObject |
 		/* self.typeResponsibility('@Extensible>>include') */
-		self.add(anObject)
+		self.addInPlace(anObject)
 	}
 
-	includeAll { :self :aCollection |
+	includeAllInPlace { :self :aCollection |
 		aCollection.do { :each |
-			self.include(each)
+			self.includeInPlace(each)
 		};
 		aCollection
 	}
@@ -68,34 +68,33 @@
 	intersperse { :self :anObject |
 		let answer = self.species.new;
 		self.doSeparatedBy { :each |
-			answer.add(each)
+			answer.addInPlace(each)
 		} {
-			answer.add(anObject)
+			answer.addInPlace(anObject)
 		};
 		answer
 	}
 
-	remove { :self :oldObject |
+	removeInPlace { :self :oldObject |
 		self.removeIfAbsent(oldObject) {
 			self.errorNotFound(oldObject)
 		}
 	}
 
-	removeAll { :self |
+	removeAllInPlace { :self |
 		self.do { :each |
-			self.remove(each)
+			self.removeInPlace(each)
 		}
 	}
 
-	removeAll { :self :aCollection |
+	removeAllInPlace { :self :aCollection |
 		(aCollection == self).if {
-			self.removeAll
+			self.removeAllInPlace
 		} {
 			aCollection.do { :each |
-				self.remove(each)
+				self.removeInPlace(each)
 			}
-		};
-		aCollection
+		}
 	}
 
 	removeAllEqualTo { :self :oldObject |
@@ -115,7 +114,7 @@
 	removeAllSuchThat { :self :aBlock/1 |
 		self.copy.do { :each |
 			aBlock(each).ifTrue {
-				self.remove(each)
+				self.removeInPlace(each)
 			}
 		}
 	}
@@ -126,18 +125,18 @@
 
 	union { :self :aCollection |
 		let answer = self.copy;
-		answer.includeAll(aCollection);
+		answer.includeAllInPlace(aCollection);
 		answer
 	}
 
-	without { :self :oldObject |
+	withoutInPlace { :self :oldObject |
 		self.removeAllSuchThat { :each |
 			each = oldObject
 		};
 		self
 	}
 
-	withoutAll { :self :aCollection |
+	withoutAllInPlace { :self :aCollection |
 		self.removeAllSuchThat { :each |
 			aCollection.includes(each)
 		};

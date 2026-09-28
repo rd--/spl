@@ -13,17 +13,17 @@ TranscriptEntry : [Object] { | category message time |
 Transcript : [Object] { | entries |
 
 	addError { :self :message |
-		self.entries.add(TranscriptEntry('error', message));
+		self.entries.addInPlace(TranscriptEntry('error', message));
 		system.consoleError(message)
 	}
 
 	addNotification { :self :message |
-		self.entries.add(TranscriptEntry('notification', message));
+		self.entries.addInPlace(TranscriptEntry('notification', message));
 		system.consoleNotification(message)
 	}
 
 	addWarning { :self :message |
-		self.entries.add(TranscriptEntry('warning', message));
+		self.entries.addInPlace(TranscriptEntry('warning', message));
 		system.consoleWarning(message)
 	}
 
@@ -37,9 +37,9 @@ Transcript : [Object] { | entries |
 		}.unlines
 	}
 
-	removeAll { :self |
+	removeAllInPlace { :self |
 		system.consoleClear;
-		self.entries.removeAll
+		self.entries.removeAllInPlace
 	}
 
 	errorMessages { :self |

@@ -8,7 +8,7 @@ Answers `nil`.
 ```
 >>> let r = [];
 >>> 9.toByDo(1, -2) { :each |
->>> 	r.add(each)
+>>> 	r.add!(each)
 >>> };
 >>> r
 [9 7 5 3 1]
@@ -19,7 +19,7 @@ If the range is empty there are no values to iterate over:
 ```
 >>> let r = [];
 >>> 9.toByDo(1, 2) { :each |
->>> 	r.add(each)
+>>> 	r.add!(each)
 >>> };
 >>> r
 []

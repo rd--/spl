@@ -243,7 +243,7 @@ OEIS [A269347](https://oeis.org/A269347):
 let a = [1];
 2:55.do { :n |
 	let m = n - 1;
-	a.add(
+	a.add!(
 		1:m.select { :i |
 			n.divisible(a[i])
 		}.sum

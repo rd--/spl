@@ -35,7 +35,7 @@ Tetrahedron : [Object, Store, Equal] { | vertexCoordinates |
 		let f = { :m :i |
 			d.submatrix(
 				4.iota,
-				5.iota.without(i + 1)
+				5.iota.withoutInPlace(i + 1)
 			).determinant * m
 		};
 		let dx = f(1, 1);

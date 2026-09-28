@@ -149,7 +149,7 @@ Scale : [Object, Store] { | intervals description startIndex |
 		let tuningSize = self.tuningSize;
 		self.intervals.allButLastDo { :each |
 			sum := (sum + each).mod(tuningSize, 1);
-			answer.add(sum)
+			answer.addInPlace(sum)
 		};
 		answer
 	}
@@ -237,7 +237,7 @@ Scale : [Object, Store] { | intervals description startIndex |
 			( i ~ j | { i ~ 0 } | { j ~ 0 } | { depth > maxDepth } ).if {
 				false
 			} {
-				answer.add(nextLevel);
+				answer.addInPlace(nextLevel);
 				true
 			}
 		}.whileTrue;

@@ -159,7 +159,7 @@ let y = [];
 1.toDo(23) { :d |
 	1.toDo(d - 1) { :n |
 		n.isCoprime(d).ifTrue {
-			y.add(n)
+			y.add!(n)
 		}
 	}
 };

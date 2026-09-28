@@ -24,7 +24,7 @@ DyckWord : [Object, Store] { | word tokens |
 		1.toDo(n) { :i |
 			(w[i] = a).ifTrue {
 				let j = h.indexOfStartingAtBy(h[i], i + 1, equal/2) - 1;
-				e.add([i, j])
+				e.addInPlace([i, j])
 			}
 		};
 		e
@@ -44,7 +44,7 @@ DyckWord : [Object, Store] { | word tokens |
 		let answer = [h];
 		self.word.do { :each |
 			h := (each = a).if { h + 1 } { h - 1 };
-			answer.add(h)
+			answer.addInPlace(h)
 		};
 		answer
 	}
@@ -64,7 +64,7 @@ DyckWord : [Object, Store] { | word tokens |
 	lukasiewiczWord { :self |
 		let w = [];
 		self.tree.do { :t |
-			w.add(t.size)
+			w.addInPlace(t.size)
 		};
 		w.allButLast
 	}
@@ -84,14 +84,14 @@ DyckWord : [Object, Store] { | word tokens |
 		let r = [[]];
 		b.do { :x |
 			(x = 1).if {
-				u.add(i);
+				u.addInPlace(i);
 				i := i + 1;
 				j.ifFalse {
-					r.add([]);
+					r.addInPlace([]);
 					j := true
 				}
 			} {
-				r.last.add(u.removeLast);
+				r.last.addInPlace(u.removeLast);
 				j := false
 			}
 		};
@@ -119,7 +119,7 @@ DyckWord : [Object, Store] { | word tokens |
 		let s = [];
 		1.toDo(n - 1) { :i |
 			(b[i] = 1).ifTrue {
-				s.add(h[i] + 1)
+				s.addInPlace(h[i] + 1)
 			}
 		};
 		s
@@ -135,8 +135,8 @@ DyckWord : [Object, Store] { | word tokens |
 		w.do { :x |
 			(x = 1).if {
 				let t = Tree(nil, []);
-				s[1].subTrees.addLast(t);
-				s.addFirst(t)
+				s[1].subTrees.addLastInPlace(t);
+				s.addFirstInPlace(t)
 			} {
 				s.removeFirst
 			}
@@ -230,7 +230,7 @@ DyckWord : [Object, Store] { | word tokens |
 	dyckWords { :t :letters |
 		let r = [];
 		dyckWordsDo(t, letters) { :b |
-			r.add(b.copy)
+			r.addInPlace(b.copy)
 		};
 		r
 	}

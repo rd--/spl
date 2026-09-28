@@ -6,7 +6,7 @@
 
 	[concatenation, ++] { :self :aCollection |
 		let answer = self.copy;
-		answer.addAll(aCollection.assertIsCollection);
+		answer.addAllInPlace(aCollection.assertIsCollection);
 		answer
 	}
 
@@ -132,7 +132,7 @@
 	cartesianProduct { :self :aCollection |
 		let answer = [];
 		self.cartesianProductDo(aCollection) { :i :j |
-			answer.add([i, j])
+			answer.addInPlace([i, j])
 		};
 		answer
 	}
@@ -140,7 +140,7 @@
 	collect { :self :aBlock/1 |
 		let answer = self.species.new;
 		self.do { :each |
-			answer.add(aBlock(each))
+			answer.addInPlace(aBlock(each))
 		};
 		answer
 	}
@@ -148,7 +148,7 @@
 	collectCatenate { :self :aBlock/1 |
 		let answer = self.species.new;
 		self.do { :each |
-			answer.addAll(aBlock(each))
+			answer.addAllInPlace(aBlock(each))
 		};
 		answer
 	}
@@ -168,7 +168,7 @@
 		self.do { :each |
 			let item = collectBlock(each);
 			selectBlock(item).ifTrue {
-				answer.add(item)
+				answer.addInPlace(item)
 			}
 		};
 		answer
@@ -178,7 +178,7 @@
 		let answer = self.species.new;
 		self.do { :each |
 			aCollection.includes(each).ifFalse {
-				answer.add(each)
+				answer.addInPlace(each)
 			}
 		};
 		answer
@@ -199,7 +199,7 @@
 
 	copyWith { :self :newElement |
 		let answer = self.copy;
-		answer.add(newElement);
+		answer.addInPlace(newElement);
 		answer
 	}
 
@@ -262,7 +262,7 @@
 			seen.includes(each).if {
 				false
 			} {
-				seen.include(each);
+				seen.includeInPlace(each);
 				true
 			}
 		}
@@ -281,7 +281,7 @@
 				seen.includesBy(each, aBlock/2).if {
 					false
 				} {
-					seen.add(each);
+					seen.addInPlace(each);
 					true
 				}
 			}
@@ -350,7 +350,7 @@
 	elementTypes { :self |
 		let answer = IdentitySet();
 		self.do { :each |
-			answer.include(each.typeOf)
+			answer.includeInPlace(each.typeOf)
 		};
 		answer.contents
 	}
@@ -381,7 +381,7 @@
 			3.toDo(self.size) { :each |
 				let [nextG, nextC] = g.extendedGcd(self[each]);
 				g := nextG;
-				c.add(nextC.last)
+				c.addInPlace(nextC.last)
 			};
 			[g, c]
 		}
@@ -405,7 +405,7 @@
 			let key = keyBlock(each);
 			result.atIfAbsentPut(key) {
 				[]
-			}.add(each)
+			}.addInPlace(each)
 		};
 		result
 	}
@@ -427,7 +427,7 @@
 				self.allSatisfy { :c |
 					c.includes(x)
 				}.ifTrue {
-					answer.add(x)
+					answer.addInPlace(x)
 				}
 			}
 		};
@@ -609,7 +609,7 @@
 			let subset = self.species.new;
 			powersOfTwo.withIndexDo { :each :j |
 				(i // each % 2 != 0).ifTrue {
-					subset.include(list[j])
+					subset.includeInPlace(list[j])
 				}
 			};
 			aBlock(subset)
@@ -619,7 +619,7 @@
 	powerSet { :self |
 		let answer = [];
 		self.powerSetDo { :each |
-			answer.add(each)
+			answer.addInPlace(each)
 		};
 		answer
 	}
@@ -682,7 +682,7 @@
 		let answer = self.species.new;
 		self.do { :each |
 			aBlock(each).ifTrue {
-				answer.include(each)
+				answer.includeInPlace(each)
 			}
 		};
 		answer
@@ -698,7 +698,7 @@
 	selectThenCollect { :self :selectBlock/1 :collectBlock/1 |
 		let answer = self.species.new;
 		self.selectThenDo(selectBlock/1) { :each |
-			answer.add(collectBlock(each))
+			answer.addInPlace(collectBlock(each))
 		};
 		answer
 	}
@@ -707,7 +707,7 @@
 		let answer = [];
 		self.powerSetDo { :each |
 			aBlock(each).ifTrue {
-				answer.add(each)
+				answer.addInPlace(each)
 			}
 		};
 		answer
@@ -740,7 +740,7 @@
 				let entry = answer[index];
 				entry[2] := entry[2] + 1
 			} {
-				answer.add([each, 1])
+				answer.addInPlace([each, 1])
 			}
 		};
 		answer
@@ -767,7 +767,7 @@
 	union { :self |
 		let answer = self.anyOne.species.new;
 		self.do { :each |
-			answer.includeAll(each)
+			answer.includeAllInPlace(each)
 		};
 		answer
 	}

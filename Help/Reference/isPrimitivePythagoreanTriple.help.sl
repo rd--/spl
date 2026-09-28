@@ -16,7 +16,7 @@ sorted by _c_:
 >>> 		isPrimitivePythagoreanTriple(a, b)
 >>> 		.ifTrue {
 >>> 			let c = ((a ^ 2) + (b ^ 2)).sqrt;
->>> 			t.add([a, b, c])
+>>> 			t.add!([a, b, c])
 >>> 		}
 >>> 	}
 >>> };

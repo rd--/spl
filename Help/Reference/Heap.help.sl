@@ -19,7 +19,7 @@ Add all items in collection, which is out of order, and retrieve first (least) e
 
 ```
 >>> let h = Heap();
->>> h.addAll([5 7 1 3]);
+>>> h.addAll!([5 7 1 3]);
 >>> h.first
 1
 ```

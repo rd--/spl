@@ -1,4 +1,4 @@
-# addFirst
+# addFirst (addFirstInPlace)
 
 - _addFirst([x₁ x₂ …], y)_
 
@@ -7,8 +7,8 @@ Answer _y_.
 
 ```
 >>> let l = [3];
->>> l.addFirst(2);
->>> l.addFirst(1) = 1 & { l = [1 2 3] }
+>>> l.addFirst!(2);
+>>> l.addFirst!(1) = 1 & { l = [1 2 3] }
 true
 ```
 

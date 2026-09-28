@@ -10,7 +10,7 @@
 				state := nextState;
 				output
 			};
-			answer.add(finalCondition);
+			answer.addInPlace(finalCondition);
 			initialCondition := finalCondition
 		};
 		answer
@@ -80,7 +80,7 @@
 			(tapeIndex > maxIndex).ifTrue {
 				maxIndex := tapeIndex
 			};
-			answer.add([[currentState, tapeIndex], tape.copy])
+			answer.addInPlace([[currentState, tapeIndex], tape.copy])
 		};
 		answer.collect { :each |
 			let [s, dx] = each[1];

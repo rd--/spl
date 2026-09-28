@@ -48,8 +48,8 @@ Use `add` to insert non-existing items:
 
 ```
 >>> let c = SortedSet[1 3 5];
->>> c.add(2);
->>> c.add(4);
+>>> c.add!(2);
+>>> c.add!(4);
 >>> c
 SortedSet[1 2 3 4 5]
 ```
@@ -59,9 +59,9 @@ use `remove` to remove items:
 
 ```
 >>> let c = SortedSet[1 3 5];
->>> c.include(2);
->>> c.include(5);
->>> c.remove(5);
+>>> c.include!(2);
+>>> c.include!(5);
+>>> c.remove!(5);
 >>> c
 SortedSet[1 2 3]
 ```

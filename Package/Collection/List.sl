@@ -14,18 +14,14 @@ List! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Collection, E
 		>
 	}
 
-	addFirst { :self :anObject |
-		<primitive:
-		_self.unshift(_anObject);
-		return _anObject;
-		>
+	addFirstInPlace { :self :anObject |
+		<primitive: _self.unshift(_anObject);>
+		anObject
 	}
 
-	addLast { :self :anObject |
-		<primitive:
-		_self.push(_anObject);
-		return _anObject;
-		>
+	addLastInPlace { :self :anObject |
+		<primitive: _self.push(_anObject);>
+		anObject
 	}
 
 	asList { :self |
@@ -85,9 +81,9 @@ List! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Collection, E
 				k = y.key
 			};
 			i.ifNil {
-				a.add(k -> [x])
+				a.addInPlace(k -> [x])
 			} {
-				a[i].value.add(x)
+				a[i].value.addInPlace(x)
 			}
 		};
 		a.collect(value/1)
@@ -100,9 +96,9 @@ List! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Collection, E
 				aBlock(x, y.anyOne)
 			};
 			i.ifNil {
-				answer.add([x])
+				answer.addInPlace([x])
 			} {
-				answer[i].add(x)
+				answer[i].addInPlace(x)
 			}
 		};
 		answer
@@ -167,8 +163,8 @@ List! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Collection, E
 			let n = self[i];
 			aBlock(n, m).ifTrue {
 				m := n;
-				r.add(m);
-				p.add(i)
+				r.addInPlace(m);
+				p.addInPlace(i)
 			}
 		};
 		[r, p]
@@ -211,14 +207,15 @@ List! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Collection, E
 		let answer = [];
 		1.toDo(self.size) { :i |
 			indices.includes(i).ifFalse {
-				answer.add(self[i])
+				answer.addInPlace(self[i])
 			}
 		};
 		answer
 	}
 
-	removeAll { :self |
-		<primitive: return _self.splice(0);>
+	removeAllInPlace { :self |
+		<primitive: _self.splice(0);>
+		nil
 	}
 
 	removeAt { :self :index |
@@ -321,7 +318,7 @@ List! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Collection, E
 		let answer = [];
 		let next = start;
 		self.timesRepeat {
-			answer.add(next);
+			answer.addInPlace(next);
 			next := next * grow
 		};
 		answer

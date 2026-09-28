@@ -13,7 +13,7 @@ At `List`:
 >>> a.fromToIndicesAndValuesDo(
 >>> 	3, 7
 >>> ) { :i :x |
->>> 	b.add([-i x])
+>>> 	b.add!([-i x])
 >>> };
 >>> b
 [-3 '3'; -4 '4'; -5 '5'; -6 '6'; -7 '7']

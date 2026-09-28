@@ -51,7 +51,7 @@ OEIS [A000668](https://oeis.org/A000668):
 >>> 1:23.do { :n |
 >>> 	let m = 2 ^ n - 1;
 >>> 	m.isPrime.ifTrue {
->>> 		t.add([n, m])
+>>> 		t.add!([n, m])
 >>> 	}
 >>> };
 >>> t

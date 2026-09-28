@@ -374,7 +374,7 @@ m.timesRepeat {
 			a.includes(j).not
 		}
 	};
-	a.add(j)
+	a.add!(j)
 };
 a.scatterPlot
 ~~~

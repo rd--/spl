@@ -10,7 +10,7 @@ At `Record`:
 ```
 >>> let list = [];
 >>> (x: 1, y: 2, z: 3).associationsDo { :each |
->>> 	list.add(each)
+>>> 	list.add!(each)
 >>> };
 >>> list
 ['x' -> 1, 'y' -> 2, 'z' -> 3]

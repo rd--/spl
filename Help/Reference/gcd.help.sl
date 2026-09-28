@@ -274,7 +274,7 @@ let a = [];
 1.toDo(23) { :d |
 	1.toDo(d - 1) { :n |
 		(gcd(n, d) = 1).ifTrue {
-			a.add(n)
+			a.add!(n)
 		}
 	}
 };

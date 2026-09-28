@@ -159,6 +159,21 @@ The squares of 1, 11, 111 and so on are special palindromes:
 ]
 ```
 
+Numbers whose square is a palindrome,
+OEIS [A002778](https://oeis.org/A002778):
+
+```
+>>> 0:1001.select { :n |
+>>> 	n.square.isPalindrome
+>>> }
+[
+	0 1 2 3 11
+	22 26 101 111 121
+	202 212 264 307 836
+	1001
+]
+```
+
 Numbers whose binary expansion is palindromic,
 OEIS [A006995](https://oeis.org/A006995):
 

@@ -2,7 +2,7 @@
 
 	addEventListener { :self :aString :aBlock/1 |
 		self.eventListeners.atIfPresentIfAbsent(aString) { :aSet |
-			aSet.add(aBlock/1)
+			aSet.addInPlace(aBlock/1)
 		} {
 			self.eventListeners[aString] := [aBlock/1].asIdentitySet
 		}

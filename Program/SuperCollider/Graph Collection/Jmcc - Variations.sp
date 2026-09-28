@@ -498,9 +498,9 @@ let p = [];
 let q = [];
 n.timesRepeat {
 	let freq = Rand(24, 84).MidiCps;
-	p.add(freq);
-	{ p.add(freq + Rand(-d, d)) } ! 2;
-	{ q.add(freq + Rand(-d, d)) } ! 3
+	p.add!(freq);
+	{ p.add!(freq + Rand(-d, d)) } ! 2;
+	{ q.add!(freq + Rand(-d, d)) } ! 3
 };
 [p, q].collect { :freq |
 	SinOscBank(freq, [1], { Rand(0, 2.pi) } ! (3 * n))

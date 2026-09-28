@@ -3,7 +3,7 @@ TimeSeries : [Object, Store, Equal, Iterable, Indexable, Collection] { | values 
 	associations { :self |
 		let answer = [];
 		self.associationsDo { :each |
-			answer.add(each)
+			answer.addInPlace(each)
 		};
 		answer
 	}
@@ -139,17 +139,17 @@ TimeSeries : [Object, Store, Equal, Iterable, Indexable, Collection] { | values 
 					i2 <= k2
 				}
 			}.whileTrue {
-				answer.add([t2, nextRhs()])
+				answer.addInPlace([t2, nextRhs()])
 			};
 			(t1 = t2).if {
 				let r = resolveConflict(v1, nextRhs());
-				answer.add([t1, r])
+				answer.addInPlace([t1, r])
 			} {
-				answer.add([t1, v1])
+				answer.addInPlace([t1, v1])
 			}
 		};
 		i2.toDo(rhs.size) { :i |
-			answer.add(rhs[i])
+			answer.addInPlace(rhs[i])
 		};
 		TimeSeries(answer)
 	}

@@ -89,7 +89,7 @@ HexagonalCoordinates : [Object, Store, Equal] { | coordinates |
 
 	HexagonalCoordinates { :self |
 		(self.size = 2).ifTrue {
-			self.addLast(0 - self[1] - self[2])
+			self.addLastInPlace(0 - self[1] - self[2])
 		};
 		(self.size = 3).if {
 			newHexagonalCoordinates().initializeSlots(self)
@@ -137,7 +137,7 @@ HexagonalCoordinates : [Object, Store, Equal] { | coordinates |
 				h.vertexCoordinates.anySatisfy { :each |
 					p.containsPoint(each)
 				}.ifTrue {
-					answer.add(h)
+					answer.addInPlace(h)
 				}
 			}
 		};

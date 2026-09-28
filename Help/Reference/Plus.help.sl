@@ -45,7 +45,7 @@ not _TimesPlus_.
 ```
 >>> let p = [1 2 3];
 >>> let q = 4;
->>> (p + q, p.add(q), p)
+>>> (p + q, p.add!(q), p)
 ([5 6 7], 4, [1 2 3 4])
 ```
 

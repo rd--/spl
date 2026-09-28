@@ -55,9 +55,9 @@
 		let h = Heap(sortBlock/2);
 		let l = [];
 		let k = self.size;
-		h.addAll(self);
+		h.addAllInPlace(self);
 		k.timesRepeat {
-			l.add(h.removeFirst)
+			l.addInPlace(h.removeFirst)
 		};
 		l
 	}
@@ -86,7 +86,7 @@
 			let lhs = each.copySignTo(lhsList.fromDigits(10));
 			let map = each.isNegative.if { negative } { positive };
 			map.atIfPresentIfAbsent(lhs) { :entry |
-				entry.add(rhs)
+				entry.addInPlace(rhs)
 			} {
 				map.atPut(lhs, [rhs])
 			}
@@ -196,7 +196,7 @@
 			let j = p.size;
 			let q = i.to(i + j - 1).mean;
 			j.timesRepeat {
-				v.add(q)
+				v.addInPlace(q)
 			};
 			i := i + j
 		};
@@ -619,7 +619,7 @@
 	shellSortMatrix { :self :t |
 		let m = [self.copy];
 		self.shellSortWithMonitor(t, <) { :x |
-			m.add(x.copy)
+			m.addInPlace(x.copy)
 		};
 		m
 	}
@@ -830,9 +830,9 @@
 			{ continue & { o.size != 0 } }.whileTrue {
 				let item = o.removeFirst;
 				(item.bitAnd(shift) = 0).if {
-					zeroes.add(item)
+					zeroes.addInPlace(item)
 				} {
-					ones.add(item)
+					ones.addInPlace(item)
 				};
 				(zeroes ++ o ++ ones).withIndexDo { :each :index |
 					self[index] := each
@@ -1014,8 +1014,8 @@
 		let a = [];
 		let b = [];
 		let c = self.sort { :p :q |
-			a.add(p);
-			b.add(q);
+			a.addInPlace(p);
+			b.addInPlace(q);
 			p < q
 		};
 		[c, a, b]
@@ -1024,7 +1024,7 @@
 	sortTracingState { :self :sort/2 |
 		let m = [self.copy];
 		self.sort { :x |
-			m.add(x.copy)
+			m.addInPlace(x.copy)
 		};
 		m
 	}
@@ -1047,7 +1047,7 @@
 			};
 			let maxDistance = distances.max;
 			let index = distances.indexOf(maxDistance);
-			answer.add(remaining[index]);
+			answer.addInPlace(remaining[index]);
 			remaining.removeAt(index)
 		};
 		answer

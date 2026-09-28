@@ -14,9 +14,9 @@
 					z := targetUtil - totalUtil
 				};
 				totalUtil := totalUtil + z;
-				taskSet.add(z)
+				taskSet.addInPlace(z)
 			};
-			sets.add(taskSet)
+			sets.addInPlace(taskSet)
 		};
 		sets
 	}
@@ -96,14 +96,14 @@
 			1.toDo(n - 1) { :i |
 				let z = self.nextRandomFloat;
 				let nextSumU = sumU * (z ^ (1 / (n - i)));
-				utilizations.add(sumU - nextSumU);
+				utilizations.addInPlace(sumU - nextSumU);
 				sumU := nextSumU
 			};
-			utilizations.add(sumU);
+			utilizations.addInPlace(sumU);
 			utilizations.allSatisfy { :each |
 				each <= 1
 			}.ifTrue {
-				sets.add(utilizations)
+				sets.addInPlace(utilizations)
 			}
 		};
 		sets

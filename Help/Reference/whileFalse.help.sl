@@ -14,7 +14,7 @@ A counter:
 >>> let l = [];
 >>> let i = 1;
 >>> { i >= 9 }.whileFalse {
->>> 	l.add(i);
+>>> 	l.add!(i);
 >>> 	i := i + 1
 >>> };
 >>> (l, i)
@@ -27,7 +27,7 @@ In the unary case, simply evaluate _condition_ repeatedly as long as it answers 
 >>> let l = [];
 >>> let i = 1;
 >>> {
->>> 	l.add(i);
+>>> 	l.add!(i);
 >>> 	i := i + 1 ;
 >>> 	i >= 9
 >>> }.whileFalse;

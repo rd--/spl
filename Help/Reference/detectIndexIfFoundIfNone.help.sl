@@ -10,9 +10,9 @@ else evaluating _ifNotFound_.
 >>> let x = [];
 >>> [isZero/1, isOne/1].collect { :each |
 >>> 	1:9.detectIndexIfFoundIfNone(each) { :i |
->>> 		x.add(i)
+>>> 		x.add!(i)
 >>> 	} {
->>> 		x.add(nil)
+>>> 		x.add!(nil)
 >>> 	}
 >>> };
 >>> x

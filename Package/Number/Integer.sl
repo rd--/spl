@@ -174,7 +174,7 @@
 		let answer = [];
 		1.toDo(self.bitLength) { :index |
 			(self.bitAt(index) = 1).ifTrue {
-				answer.add(index - 1)
+				answer.addInPlace(index - 1)
 			}
 		};
 		answer
@@ -241,7 +241,7 @@
 			}
 		}.whileTrue {
 			1.toDo(k) { :i |
-				s[i].addAll(s[s.size - i + 1])
+				s[i].addAllInPlace(s[s.size - i + 1])
 			};
 			s.removeLast(k);
 			aBlock(s);
@@ -260,7 +260,7 @@
 	bjorklundsAlgorithmSequence { :k :n |
 		let a = [];
 		k.bjorklundsAlgorithmDo(n) { :each |
-			a.add(each.flatten)
+			a.addInPlace(each.flatten)
 		};
 		a
 	}
@@ -335,7 +335,7 @@
 		{
 			seen.includes(x)
 		}.whileFalse {
-			seen.add(x);
+			seen.addInPlace(x);
 			x := x.integerDigits(b).f
 		};
 		[x, seen]
@@ -393,7 +393,7 @@
 				break()
 			};
 			n := n / m;
-			a.add(n)
+			a.addInPlace(n)
 		}.repeatForeverWithBreak;
 		a
 	}
@@ -427,7 +427,7 @@
 				let k = previousState.atAllWrap(j).fromDigits(2);
 				ruleTable[8 - k]
 			};
-			answer.add(nextState);
+			answer.addInPlace(nextState);
 			previousState := nextState;
 			stepCount := stepCount + 1
 		};
@@ -484,7 +484,7 @@
 				let nn = [];
 				{ n <= nmax }.whileTrue {
 					(n.eulerPhi = m).ifTrue {
-						nn.add(n)
+						nn.addInPlace(n)
 					};
 					n := n + 1
 				};
@@ -588,7 +588,7 @@
 	integerCompositions { :n |
 		let answer = [];
 		n.integerCompositionsDo { :each |
-			answer.add(each.copy)
+			answer.addInPlace(each.copy)
 		};
 		answer
 	}
@@ -596,7 +596,7 @@
 	integerCompositions { :n :k |
 		let answer = [];
 		n.integerCompositionsDo(k) { :each |
-			answer.add(each.copy)
+			answer.addInPlace(each.copy)
 		};
 		answer
 	}
@@ -627,7 +627,7 @@
 	integerCompositionsExactly { :n :k |
 		let answer = [];
 		n.integerCompositionsExactlyDo(k) { :each |
-			answer.add(each.copy)
+			answer.addInPlace(each.copy)
 		};
 		answer
 	}
@@ -661,7 +661,7 @@
 		let answer = [];
 		kList.do { :k |
 			n.integerCompositionsWeakExactlyDo(k) { :each |
-				answer.add(each.copy)
+				answer.addInPlace(each.copy)
 			}
 		};
 		answer
@@ -670,7 +670,7 @@
 	integerCompositionsWeakExactly { :n :k |
 		let answer = [];
 		n.integerCompositionsWeakExactlyDo(k) { :each |
-			answer.add(each.copy)
+			answer.addInPlace(each.copy)
 		};
 		answer
 	}
@@ -694,7 +694,7 @@
 	integerDigits { :self :base :numDigits |
 		let answer = [];
 		self.integerDigitsReverseDo(base, numDigits) { :each |
-			answer.addFirst(each)
+			answer.addFirstInPlace(each)
 		};
 		answer
 	}
@@ -933,7 +933,7 @@
 			x < n
 		}.whileTrue {
 			x := d.last(t).sum;
-			d.add(x)
+			d.addInPlace(x)
 		};
 		(x = n)
 	}
@@ -1398,7 +1398,7 @@
 	perfectDigitalInvariantSequence { :self :base :power |
 		let answer = [];
 		{ answer.includes(self) }.whileFalse {
-			answer.add(self);
+			answer.addInPlace(self);
 			self := self.perfectDigitalInvariantFunction(base, power)
 		};
 		answer

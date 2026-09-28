@@ -1,8 +1,8 @@
-# add
+# add (addInPlace)
 
 - _add(c, x)_
 
-Include the object _x_ as one of the elements of the collection _c_.
+Include the object _x_ as one of the elements of the collection _c_ in place.
 After adding an entry, the `size` of the collection increases by one.
 Therefore, for collections with invariants such as `Dictionary` and `IdentitySet`, `add` may fail.
 In these cases see `include`, which is like `add` except that the size of the collection may stay the same.
@@ -12,8 +12,8 @@ At `IdentityMultiset`:
 
 ```
 >>> let b = IdentityMultiset();
->>> b.add('x');
->>> (b.add('y'), b.size, b.asList)
+>>> b.add!('x');
+>>> (b.add!('y'), b.size, b.asList)
 ('y', 2, ['x' 'y'])
 ```
 
@@ -21,8 +21,8 @@ At `List`, add to end of list, see also `addFirst` and `addLast`:
 
 ```
 >>> let l = List();
->>> l.add('x');
->>> (l.add('y'), l.size, l)
+>>> l.add!('x');
+>>> (l.add!('y'), l.size, l)
 ('y', 2, ['x' 'y'])
 ```
 
@@ -30,9 +30,9 @@ At `Map`:
 
 ```
 >>> let m = Map();
->>> m.add('x' -> 1);
+>>> m.add!('x' -> 1);
 >>> (
->>> 	m.add('y' -> 2),
+>>> 	m.add!('y' -> 2),
 >>> 	m.size,
 >>> 	m.asRecord
 >>> )
@@ -43,8 +43,8 @@ At `Record`:
 
 ```
 >>> let r = Record();
->>> r.add('x' -> 1);
->>> (r.add('y' -> 2), r.size, r)
+>>> r.add!('x' -> 1);
+>>> (r.add!('y' -> 2), r.size, r)
 ('y' -> 2, 2, (x: 1, y: 2))
 ```
 
@@ -52,7 +52,7 @@ It is an `error` if the key exists:
 
 ```
 >>> {
->>> 	(x: 1).add('x' -> 2)
+>>> 	(x: 1).add!('x' -> 2)
 >>> }.hasError
 true
 ```
@@ -62,12 +62,12 @@ At `IdentitySet`,
 
 ```
 >>> let s = IdentitySet();
->>> s.add('x');
->>> (s.add('y'), s.size, s.asList)
+>>> s.add!('x');
+>>> (s.add!('y'), s.size, s.asList)
 ('y', 2, ['x' 'y'])
 
 >>> {
->>> 	[1].asIdentitySet.add(1)
+>>> 	[1].asIdentitySet.add!(1)
 >>> }.hasError
 true
 ```
@@ -75,11 +75,11 @@ true
 At `Set`:
 
 ```
->>> Set[2 3].add(1)
+>>> Set[2 3].add!(1)
 1
 
 >>> {
->>> 	Set[1 2 3].add(1)
+>>> 	Set[1 2 3].add!(1)
 >>> }.hasError
 true
 ```
@@ -88,8 +88,8 @@ At `SortedList`:
 
 ```
 >>> let l = [5 1 6 4].asSortedList;
->>> l.add(2);
->>> l.addAll([3 7]);
+>>> l.add!(2);
+>>> l.addAll!([3 7]);
 >>> l.contents
 [1 2 3 4 5 6 7]
 ```
@@ -97,7 +97,7 @@ At `SortedList`:
 At `String`, which is not `Extensible`:
 
 ```
->>> { 'string'.add('!') }.hasError
+>>> { 'string'.add!('?') }.hasError
 true
 ```
 

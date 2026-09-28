@@ -16,7 +16,7 @@
 		self.do { :e |
 			(e >= b[1] & { e <= b[n] }).ifTrue {
 				let i = b.binarySearchLeftmost(e).min(n - 1);
-				c[i].add(e)
+				c[i].addInPlace(e)
 			}
 		};
 		c
@@ -38,7 +38,7 @@
 			).ifTrue {
 				let i = b1.binarySearchLeftmost(e1).min(m - 1);
 				let j = b2.binarySearchLeftmost(e2).min(n - 1);
-				c[i][j].add(e)
+				c[i][j].addInPlace(e)
 			}
 		};
 		c

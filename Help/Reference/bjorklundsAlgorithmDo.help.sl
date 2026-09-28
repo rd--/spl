@@ -10,7 +10,7 @@ Answers the final result sequence.
 ```
 >>> let l = [];
 >>> let r = 3.bjorklundsAlgorithmDo(8) { :each |
->>> 	l.add(each.flatten)
+>>> 	l.add!(each.flatten)
 >>> };
 >>> (l, r)
 (

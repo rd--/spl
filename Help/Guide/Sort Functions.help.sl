@@ -17,7 +17,7 @@ Sort:
 - `gnomeSort`
 - `heapSort`
 - `insertionSort`
-- `mergeInPlace`
+- `merge`
 - `mergeSortBy`
 - `mergeSortFromToBy`
 - `mergeSort`

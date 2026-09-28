@@ -63,7 +63,7 @@ let c = 0;
 let n = 0;
 let f = 1.toDo(k) { :i |
 	let n = a.occurrencesOf(c);
-	a.add(n);
+	a.add!(n);
 	(n = 0).if {
 		c := 0
 	} {
@@ -85,7 +85,7 @@ let t = [[1]];
 1:17.do { :n |
 	let u = t.flatten;
 	let v = u.max;
-	t.add(
+	t.add!(
 		1:v.collect { :m |
 			u.occurrencesOf(m)
 		}

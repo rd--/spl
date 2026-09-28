@@ -198,7 +198,7 @@ OEIS [A330612](https://oeis.org/A330612):
 >>> { :a |
 >>> 	let k = a.size;
 >>> 	let m = a.max;
->>> 	a.add(m + 1);
+>>> 	a.add!(m + 1);
 >>> 	a.insertAt(m + 2, k);
 >>> 	a
 >>> }.iterate([2 3 1], 39)

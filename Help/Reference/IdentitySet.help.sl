@@ -39,11 +39,11 @@ OEIS [A088177](https://oeis.org/A088177):
 ~~~spl svg=A oeis=A088177
 let t = [1 1];
 3.toDo(200) { :n |
-	t.add(1);
+	t.add!(1);
 	{
 		let s = IdentitySet();
 		1.toDo(n - 1) { :i |
-			s.include(t[i] * t[i + 1])
+			s.include!(t[i] * t[i + 1])
 		};
 		s.size < (n - 1)
 	}.whileTrue {
@@ -74,10 +74,10 @@ let x = 1;
 		i := i + 1;
 		y := y + x
 	};
-	p.add(y);
+	p.add!(y);
 	x := i;
-	a.add(x);
-	b.add(y)
+	a.add!(x);
+	b.add!(y)
 };
 b.scatterPlot
 ~~~

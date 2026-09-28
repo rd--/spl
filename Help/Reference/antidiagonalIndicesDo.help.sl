@@ -8,7 +8,7 @@ Answers `nil`.
 ```
 >>> let l = [];
 >>> 23.antidiagonalIndicesDo { :m :n |
->>> 	l.add([m, n])
+>>> 	l.add!([m, n])
 >>> };
 >>> l
 [

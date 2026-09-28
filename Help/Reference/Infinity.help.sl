@@ -149,7 +149,7 @@ let a = [];
 1:150.do { :n |
 	let p = n.prime;
 	(p % 4 = 1).ifTrue {
-		a.add(
+		a.add!(
 			1:Infinity.detect { :k |
 				(k.square + 1) % p = 0
 			}

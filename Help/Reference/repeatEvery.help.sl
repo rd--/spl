@@ -21,7 +21,7 @@ Print a message every few seconds indefinitely:
 Clear clock to end:
 
 ~~~spl scheduler
-system.clock.removeAll
+system.clock.removeAll!
 ~~~
 
 * * *

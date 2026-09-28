@@ -347,7 +347,7 @@
 				(skip > 0).ifTrue {
 					input.next(skip)
 				};
-				window.addAll(current);
+				window.addAllInPlace(current);
 				window.removeFirst(require);
 				answer
 			}

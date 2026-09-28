@@ -8,7 +8,7 @@ SparseArray : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, S
 		let shape = self.shape;
 		let answer = [];
 		self.contents.withIndexDo { :each :i |
-			answer.add(shape.cartesianIndex(i) -> each)
+			answer.addInPlace(shape.cartesianIndex(i) -> each)
 		};
 		answer
 	}
@@ -22,7 +22,7 @@ SparseArray : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, S
 			self.contents.keysAndValuesDo { :key :value |
 				let c = shape.cartesianIndex(key);
 				(c[1] = i).ifTrue {
-					answer.add(c.allButFirst -> value)
+					answer.addInPlace(c.allButFirst -> value)
 				}
 			};
 			SparseArray(answer, shape.allButFirst, self.unspecifiedValue)

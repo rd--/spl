@@ -27,7 +27,7 @@
 			self := self // factors[index]
 		};
 		(self > 0).ifTrue {
-			answer.addFirst(self)
+			answer.addFirstInPlace(self)
 		};
 		answer
 	}
@@ -45,11 +45,11 @@
 			let k = u.size;
 			u.withIndexDo { :each :index |
 				(index = k).if {
-					answer.add(x / each)
+					answer.addInPlace(x / each)
 				} {
 					let n = (x / each).floor;
 					x := x - (n * each);
-					answer.add(n)
+					answer.addInPlace(n)
 				}
 			};
 			answer

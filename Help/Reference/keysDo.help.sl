@@ -11,7 +11,7 @@ At `Record`:
 >>> let r = [];
 >>> (x: 1, y: 2, z: 3)
 >>> .keysDo { :each |
->>> 	r.add(each)
+>>> 	r.add!(each)
 >>> };
 >>> r
 ['x' 'y' 'z']
@@ -23,7 +23,7 @@ At `List` of `Association`s:
 >>> let r = [];
 >>> [1 -> 'x', 2 -> 'y', 3 -> 'z']
 >>> .keysDo { :each |
->>> 	r.add(each)
+>>> 	r.add!(each)
 >>> };
 >>> r
 [1 2 3]

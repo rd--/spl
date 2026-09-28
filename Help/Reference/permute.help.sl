@@ -190,7 +190,7 @@ let p = [
 let a = [1 2 3 4 5 6];
 let b = [];
 1:19.do { :i |
-	b.add(a.copy);
+	b.add!(a.copy);
 	a := a.permute(p.atWrap(i))
 };
 b.transpose.matrixPlot

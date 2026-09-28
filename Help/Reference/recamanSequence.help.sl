@@ -83,8 +83,8 @@ let d = IdentitySet(a);
 			d.includes(x)
 		}
 	}.whileTrue;
-	a.add(x);
-	d.add(x)
+	a.add!(x);
+	d.add!(x)
 };
 a.scatterPlot
 ~~~
@@ -108,7 +108,7 @@ OEIS [A064289](https://oeis.org/A064289):
 
 ~~~spl svg=F oeis=A064289
 let r = 150.recamanSequence;
-r.addFirst(0);
+r.addFirst!(0);
 r.differences.sign.prefixSum.scatterPlot
 ~~~
 
@@ -200,7 +200,7 @@ let b = [];
 let c = 1;
 2.toDo(n - 1) { :i |
 	(a[i] = a[i - 1]).if {
-		b.add(c);
+		b.add!(c);
 		c := 1
 	} {
 		c := c + 1

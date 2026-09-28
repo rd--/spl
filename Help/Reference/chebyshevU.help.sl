@@ -11,7 +11,7 @@ OEIS [A008312](https://oeis.org/A008312):
 >>> 0:12.collect { :n |
 >>> 	let p = n.chebyshevU;
 >>> 	let c = p.coefficientList;
->>> 	c.without(0)
+>>> 	c.without!(0)
 >>> }
 [
 	1;

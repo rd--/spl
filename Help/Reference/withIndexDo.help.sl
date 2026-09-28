@@ -10,7 +10,7 @@ At `Range`, iterate over indices and values:
 ```
 >>> let l = [];
 >>> [4, 3 .. 1].withIndexDo { :each :index |
->>> 	l.add(each -> index)
+>>> 	l.add!(each -> index)
 >>> };
 >>> l
 [4 -> 1, 3 -> 2, 2 -> 3, 1 -> 4]

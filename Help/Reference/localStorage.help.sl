@@ -50,7 +50,7 @@ Remove all entries,
 this can be useful to force re-fetching:
 
 ~~~spl cache
-system.localStorage.removeAll
+system.localStorage.removeAll!
 ~~~
 
 * * *

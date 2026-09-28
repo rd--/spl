@@ -111,8 +111,8 @@
 	interleaveComplexData { :self |
 		let answer = [];
 		self.collect { :each |
-			answer.add(each.real);
-			answer.add(each.imaginary)
+			answer.addInPlace(each.real);
+			answer.addInPlace(each.imaginary)
 		};
 		answer
 	}

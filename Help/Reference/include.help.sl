@@ -1,4 +1,4 @@
-# include
+# include (includeInPlace)
 
 - _include(c, x)_
 
@@ -8,8 +8,8 @@ Answers _x_.
 
 ```
 >>> let r = Map();
->>> r.include('x' -> 1);
->>> (r.include('x' -> 2), r.size)
+>>> r.include!('x' -> 1);
+>>> (r.include!('x' -> 2), r.size)
 ('x' -> 2, 1)
 ```
 
@@ -17,8 +17,8 @@ At `Record`:
 
 ```
 >>> let r = Record();
->>> r.include('x' -> 1);
->>> (r.include('x' -> 2), r.size)
+>>> r.include!('x' -> 1);
+>>> (r.include!('x' -> 2), r.size)
 ('x' -> 2, 1)
 ```
 
@@ -26,8 +26,8 @@ At `IdentitySet`:
 
 ```
 >>> let r = IdentitySet();
->>> r.include('x');
->>> (r.include('x'), r.size)
+>>> r.include!('x');
+>>> (r.include!('x'), r.size)
 ('x', 1)
 ```
 
@@ -36,8 +36,8 @@ At `UnsortedSet`:
 ```
 >>> let s = UnsortedSet();
 >>> s.comparator := ~;
->>> s.include(1);
->>> (s.include(1.00001), s.asList, s.size)
+>>> s.include!(1);
+>>> (s.include!(1.00001), s.asList, s.size)
 (1.00001, [1], 1)
 ```
 
@@ -45,7 +45,7 @@ Attempting to `include` a non-immediate object in an `IdentitySet` is an `error`
 
 ```
 >>> let s = IdentitySet();
->>> { s.include([1]) }.hasError
+>>> { s.include!([1]) }.hasError
 true
 ```
 

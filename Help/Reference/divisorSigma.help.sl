@@ -746,9 +746,9 @@ let m = 250;
 	let q = a.allButLast;
 	let r = nil;
 	q.includes(p).not.if {
-		a.add(0.divisorSigma(p))
+		a.add!(0.divisorSigma(p))
 	} {
-		a.add(p + s[1]);
+		a.add!(p + s[1]);
 		s := s.allButFirst
 	};
 	r := a.secondLast;

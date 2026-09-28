@@ -6,9 +6,9 @@
 	let q = [];
 	n.timesRepeat {
 		let freq = IRand(24, 84).MidiCps;
-		p.add(freq);
-		{ p.add(freq + Rand(-d, d)) } ! 2;
-		{ q.add(freq + Rand(-d, d)) } ! 3
+		p.add!(freq);
+		{ p.add!(freq + Rand(-d, d)) } ! 2;
+		{ q.add!(freq + Rand(-d, d)) } ! 3
 	};
 	[p, q].collect { :freq |
 		SinOscBank(

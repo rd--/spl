@@ -218,7 +218,7 @@ let a = [0];
 	x := x + s;
 	y := x + s + 1;
 	x.toDo(y - 1) { :k |
-		a.add(u * (k - x).min(y - k))
+		a.add!(u * (k - x).min(y - k))
 	}
 };
 a.discretePlot

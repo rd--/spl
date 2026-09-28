@@ -786,7 +786,7 @@ OEIS [A081464](https://oeis.org/A081464):
 >>> 1.toDo(10 ^ 3) { :n |
 >>> 	let j = (3/2 ^ n) % 1;
 >>> 	(j < i).ifTrue {
->>> 		a.add(n);
+>>> 		a.add!(n);
 >>> 		i := j
 >>> 	}
 >>> };
@@ -1240,7 +1240,7 @@ let l = [0];
 	{ l.includes(k) }.whileTrue {
 		k := k + n
 	};
-	l.add(k)
+	l.add!(k)
 };
 l.scatterPlot
 ~~~

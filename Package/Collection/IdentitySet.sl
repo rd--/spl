@@ -23,7 +23,7 @@ IdentitySet! : [Object, Store, Equal, Iterable, Collection, Extensible, Unordere
 		<primitive: return Array.from(_self);>
 	}
 
-	include { :self :anObject |
+	includeInPlace { :self :anObject |
 		anObject.isImmediate.ifFalse {
 			self.error('IdentitySet>>include: non-immediate entry', [anObject])
 		};
@@ -38,11 +38,9 @@ IdentitySet! : [Object, Store, Equal, Iterable, Collection, Extensible, Unordere
 		['size']
 	}
 
-	removeAll { :self |
-		<primitive:
-		_self.clear();
-		return null;
-		>
+	removeAllInPlace { :self |
+		<primitive: _self.clear();>
+		nil
 	}
 
 	removeIfAbsent { :self :anObject :aBlock/0 |
@@ -69,10 +67,8 @@ IdentitySet! : [Object, Store, Equal, Iterable, Collection, Extensible, Unordere
 	}
 
 	uncheckedInclude { :self :anObject |
-		<primitive:
-		_self.add(_anObject);
-		return _anObject;
-		>
+		<primitive: _self.add(_anObject);>
+		anObject
 	}
 
 	uncheckedIncludeAll { :self :aCollection |
@@ -80,8 +76,8 @@ IdentitySet! : [Object, Store, Equal, Iterable, Collection, Extensible, Unordere
 		for (const item of _aCollection) {
 			_self.add(item);
 		};
-		return _aCollection;
 		>
+		aCollection
 	}
 
 	uncheckedRemove { :self :anObject |
@@ -105,7 +101,7 @@ IdentitySet! : [Object, Store, Equal, Iterable, Collection, Extensible, Unordere
 
 	asIdentitySet { :self |
 		let answer = IdentitySet();
-		answer.includeAll(self);
+		answer.includeAllInPlace(self);
 		answer
 	}
 

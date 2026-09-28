@@ -147,12 +147,12 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 		let c = [];
 		self.asciiByteArray.do { :i |
 			i.between([97 122]).if {
-				c.add((i + n + 7) % 26 + 97)
+				c.addInPlace((i + n + 7) % 26 + 97)
 			} {
 				i.between([65 90]).if {
-					c.add((i + n + 13) % 26 + 65)
+					c.addInPlace((i + n + 13) % 26 + 65)
 				} {
-					c.add(i)
+					c.addInPlace(i)
 				}
 			}
 		};
@@ -490,7 +490,7 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 			}.whileTrue {
 				index := self.findStringStartingAt(aString, index);
 				(index != 0).ifTrue {
-					answer.add(index);
+					answer.addInPlace(index);
 					index := index + 1
 				}
 			};
@@ -733,7 +733,7 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 	nub { :self |
 		let seen = [];
 		self.select { :each |
-			seen.ifAbsentAdd(each)
+			seen.ifAbsentAddInPlace(each)
 		}
 	}
 
@@ -824,7 +824,7 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 		let i = 1;
 		let j = n;
 		{ j <= k }.whileTrue {
-			p.add(self.copyFromTo(i, j));
+			p.addInPlace(self.copyFromTo(i, j));
 			i := i + d;
 			j := j + d
 		};
@@ -837,7 +837,7 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 
 	primitiveCollectInto { :self :aBlock/1 :aCollection |
 		self.primitiveDo { :each |
-			aCollection.add(aBlock(each))
+			aCollection.addInPlace(aBlock(each))
 		};
 		aCollection
 	}
@@ -920,7 +920,7 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 		let list = [];
 		self.do { :each |
 			aBlock(each).ifTrue {
-				list.add(each)
+				list.addInPlace(each)
 			}
 		};
 		list.stringCatenate
@@ -1094,7 +1094,7 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 	utf16List { :self |
 		let answer = [];
 		1.toDo(self.countUtf16CodeUnits) { :index |
-			answer.add(self.utf16CodePointAt(index))
+			answer.addInPlace(self.utf16CodePointAt(index))
 		};
 		answer
 	}

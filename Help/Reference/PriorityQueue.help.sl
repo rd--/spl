@@ -52,7 +52,7 @@ The queue can be cleared using `removeAll`:
 >>> p.pushAllWithPriority(
 >>> 	['c' -> 3, 'b' -> 2, 'a' -> 1]
 >>> );
->>> p.removeAll;
+>>> p.removeAll!;
 >>> (p.isEmpty, p.size)
 (true, 0)
 ```

@@ -1,16 +1,16 @@
-# ifAbsentAdd
+# ifAbsentAdd (ifAbsentAddInPlace)
 
-- _ifAbsentAdd(aCollection, anObject)_
+- _ifAbsentAdd(c, x)_
 
-Ensure anObject is part of _aCollection_.
+Ensure that the object _x_ is part of the collection _c_.
 Answer whether it’s membership was newly acquired.
 
 At `IdentitySet`:
 
 ```
 >>> let s = IdentitySet();
->>> let i = s.ifAbsentAdd(1);
->>> let j = s.ifAbsentAdd(1);
+>>> let i = s.ifAbsentAdd!(1);
+>>> let j = s.ifAbsentAdd!(1);
 >>> (s.asList, i, j)
 ([1], true, false)
 ```
@@ -19,8 +19,8 @@ At `List`:
 
 ```
 >>> let l = [];
->>> let i = l.ifAbsentAdd(1);
->>> let j = l.ifAbsentAdd(1);
+>>> let i = l.ifAbsentAdd!(1);
+>>> let j = l.ifAbsentAdd!(1);
 >>> (l, i, j)
 ([1], true, false)
 ```

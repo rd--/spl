@@ -57,8 +57,8 @@ Elements can be added at the start, at the end, or in a place given by a relatio
 
 ```
 >>> let l = List(1, 2);
->>> l.addLast(3);
->>> l.addFirst(1);
+>>> l.addLast!(3);
+>>> l.addFirst!(1);
 >>> l
 [1, 2, 3]
 ```

@@ -47,7 +47,7 @@
 		let answer = [];
 		let i = 1;
 		{ answer.size < n }.whileTrue {
-			answer.addAll(
+			answer.addAllInPlace(
 				i.prime.integerDigits(10)
 			);
 			i := i + 1
@@ -69,7 +69,7 @@
 		} {
 			self.isNegative.if {
 				let answer = self.negate.factorInteger;
-				answer.addFirst([-1, 1]);
+				answer.addFirstInPlace([-1, 1]);
 				answer
 			} {
 				self.primeFactorization
@@ -341,7 +341,7 @@
 			let break = false;
 			(lp[i] = 0).ifTrue {
 				lp[i] := i;
-				pr.add(i)
+				pr.addInPlace(i)
 			};
 			{
 				break | {
@@ -420,7 +420,7 @@
 			t.size > 0
 		}.whileTrue {
 			let k = t[1];
-			r.add(k);
+			r.addInPlace(k);
 			t.removeAtAll(Range(1, t.size, k))
 		};
 		r
@@ -605,7 +605,7 @@
 		(rule = 'Extended').if {
 			(self < 0).if {
 				let factors = self.negate.primeFactors(true);
-				factors.addFirst(-1);
+				factors.addFirstInPlace(-1);
 				factors
 			} {
 				(self < 2).if {
@@ -635,21 +635,21 @@
 		{
 			n % 2 = 0
 		}.whileTrue {
-			answer.add(2);
+			answer.addInPlace(2);
 			n := n // 2
 		};
 		{
 			m * m <= n
 		}.whileTrue {
 			(n % m = 0).if {
-				answer.add(m);
+				answer.addInPlace(m);
 				n := n // m
 			} {
 				m := m + 2
 			}
 		};
 		(n != 1).ifTrue {
-			answer.add(n)
+			answer.addInPlace(n)
 		};
 		answer
 	}
@@ -660,20 +660,20 @@
 		let k = 7;
 		let i = 1;
 		{ divisible(n, 2) }.whileTrue {
-			factors.add(2);
+			factors.addInPlace(2);
 			n := n / 2
 		};
 		{ divisible(n, 3) }.whileTrue {
-			factors.add(3);
+			factors.addInPlace(3);
 			n := n / 3
 		};
 		{ divisible(n, 5) }.whileTrue {
-			factors.add(5);
+			factors.addInPlace(5);
 			n := n / 5
 		};
 		{ k * k <= n }.whileTrue {
 			divisible(n, k).if {
-				factors.add(k);
+				factors.addInPlace(k);
 				n := n / k
 			} {
 				k := k + inc[i];
@@ -681,7 +681,7 @@
 			}
 		};
 		(n > 1).ifTrue {
-			factors.add(n)
+			factors.addInPlace(n)
 		};
 		factors
 	}
@@ -788,7 +788,7 @@
 	wheelSieve { :limit |
 		let p = [];
 		limit.wheelSieveDo { :i |
-			p.add(i)
+			p.addInPlace(i)
 		};
 		p
 	}
@@ -873,7 +873,7 @@
 	sieveOfAtkin { :limit |
 		let p = [];
 		limit.sieveOfAtkinDo { :i |
-			p.add(i)
+			p.addInPlace(i)
 		};
 		p
 	}
@@ -898,7 +898,7 @@
 	sieveOfEratosthenes { :self |
 		let answer = [];
 		self.sieveOfEratosthenesDo { :each |
-			answer.add(each)
+			answer.addInPlace(each)
 		};
 		answer
 	}
@@ -916,7 +916,7 @@
 			let w = 1;
 			let x = m + 1;
 			{ x <= n }.whileTrue {
-				c.add(x);
+				c.addInPlace(x);
 				w := c.next(w);
 				x := m + w
 			}
@@ -928,7 +928,7 @@
 			};
 			{ w > 1 }.whileTrue {
 				w := a.previous(w);
-				a.remove(p * w)
+				a.removeInPlace(p * w)
 			}
 		};
 		(limit < 2).if {
@@ -946,15 +946,15 @@
 					length := n
 				};
 				deleteMultiples(wList, length, p);
-				pList.add(p);
+				pList.addInPlace(p);
 				k := k + 1;
 				p := wList.next(1)
 			};
 			(length < limit).ifTrue {
 				extend(wList, length, limit)
 			};
-			pList.addAll(wList);
-			pList.remove(1);
+			pList.addAllInPlace(wList);
+			pList.removeInPlace(1);
 			pList.contents
 		}
 	}
@@ -973,7 +973,7 @@
 		};
 		z.withIndexDo { :b :i |
 			b.ifTrue {
-				a.add(i - 1 * 2 + 3)
+				a.addInPlace(i - 1 * 2 + 3)
 			}
 		};
 		a
@@ -990,14 +990,14 @@
 				{
 					k % prime = 0
 				}.whileTrue {
-					answer.add(prime);
+					answer.addInPlace(prime);
 					k := k // prime;
 					(k = 1).ifTrue {
 						answer.return
 					}
 				};
 				(prime.square > k).ifTrue {
-					answer.add(k.normal);
+					answer.addInPlace(k.normal);
 					answer.return
 				};
 				index := index + 1
@@ -1151,7 +1151,7 @@
 			let r = Range(1, t.size, k);
 			let u = t.rejectIndices(r);
 			let v = t.complement(u);
-			a.add(v.first(n));
+			a.addInPlace(v.first(n));
 			t := u
 		};
 		a
@@ -1161,7 +1161,7 @@
 		let p = self.last;
 		(anInteger - self.size).timesRepeat {
 			p := p.nextPrime;
-			self.add(p)
+			self.addInPlace(p)
 		};
 		p
 	}
@@ -1368,15 +1368,15 @@
 			let a = p.at(x);
 			let l = legendreSymbol(a, q);
 			(l = 0).ifTrue {
-				c.add([x, 0])
+				c.addInPlace([x, 0])
 			};
 			(l = 1).ifTrue {
 				let r = tonelliShanksAlgorithm(a, q);
 				let s = q - r;
 				let i = r.min(s);
 				let j = r.max(s);
-				c.add([x, i]);
-				c.add([x, j])
+				c.addInPlace([x, i]);
+				c.addInPlace([x, j])
 			}
 		};
 		c
@@ -1542,7 +1542,7 @@
 		let t = (n + 1) // 2;
 		let h = 1;
 		{ t > 0 }.whileTrue {
-			bits.add(t % 2);
+			bits.addInPlace(t % 2);
 			t := t // 2
 		};
 		{ h <= bits.size }.whileTrue {

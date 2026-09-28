@@ -44,7 +44,7 @@
 				};
 				word[index] := m + 1;
 				(m + 1 != 1).ifTrue {
-					maxima.addFirst(index)
+					maxima.addFirstInPlace(index)
 				}
 			} {
 				(word[index] = 2 & { start[index] = 1 }).if {
@@ -72,7 +72,7 @@
 	bellStrings { :n |
 		let answer = [];
 		bellStringsDo(n) { :each |
-			answer.add(each.copy)
+			answer.addInPlace(each.copy)
 		};
 		answer
 	}
@@ -103,7 +103,7 @@
 	binaryCombinations { :s :t |
 		let r = [];
 		binaryCombinationsDo(s, t) { :b |
-			r.add(b.copy)
+			r.addInPlace(b.copy)
 		};
 		r
 	}
@@ -189,7 +189,7 @@
 	bracelets { :n :k |
 		let answer = [];
 		braceletsDo(n, k) { :each |
-			answer.add(each)
+			answer.addInPlace(each)
 		};
 		answer
 	}
@@ -228,7 +228,7 @@
 	catalanStrings { :n :k |
 		let answer = [];
 		catalanStringsDo(n, k) { :each |
-			answer.add(each.copy)
+			answer.addInPlace(each.copy)
 		};
 		answer
 	}
@@ -386,7 +386,7 @@
 		} {
 			let r = [];
 			motzkinWordsDo(t, s) { :b |
-				r.add(b.copy)
+				r.addInPlace(b.copy)
 			};
 			r
 		}
@@ -479,7 +479,7 @@
 	restrictedGrowthStrings { :n |
 		let answer = [];
 		n.restrictedGrowthStringsDo { :each |
-			answer.add(each.copy)
+			answer.addInPlace(each.copy)
 		};
 		answer
 	}
@@ -524,7 +524,7 @@
 	restrictedGrowthStrings { :n :k |
 		let answer = [];
 		restrictedGrowthStringsDo(n, k) { :each |
-			answer.add(each.copy)
+			answer.addInPlace(each.copy)
 		};
 		answer
 	}
@@ -617,10 +617,10 @@
 		let answer = [0];
 		1.toDo(m - 1) { :n |
 			((y + 1) <= (self * x)).if {
-				answer.add(1);
+				answer.addInPlace(1);
 				y := y + 1
 			} {
-				answer.add(0);
+				answer.addInPlace(0);
 				x := x + 1
 			}
 		};
@@ -734,7 +734,7 @@
 	setPartition { :self |
 		let answer = { [] } ! self.size;
 		self.withIndexDo { :each :index |
-			answer.at(each).add(index)
+			answer.at(each).addInPlace(index)
 		};
 		answer.reject(isEmpty/1).canonicalSetPartition
 	}
@@ -771,7 +771,7 @@
 	combinations { :self :m |
 		let answer = [];
 		self.combinationsAtATimeDo(m) { :each |
-			answer.add(each.copy)
+			answer.addInPlace(each.copy)
 		};
 		answer
 	}
@@ -812,7 +812,7 @@
 		let n = List(a[1], Infinity);
 		let t = [];
 		n[1] := 0;
-		t.add(n.copy);
+		t.addInPlace(n.copy);
 		2.toDo(k) { :i |
 			let d = gcd(a[1], a[i]);
 			1.toDo(d) { :r |
@@ -827,7 +827,7 @@
 					}
 				}
 			};
-			t.add(n.copy)
+			t.addInPlace(n.copy)
 		};
 		t
 	}
@@ -852,7 +852,7 @@
 		let f = { :m :i |
 			(i = 1).if {
 				c[1] := m // a[1];
-				answer.add(c.copy)
+				answer.addInPlace(c.copy)
 			} {
 				let lc = lcm(a[1], a[i]);
 				let l = lc // a[i];
@@ -940,7 +940,7 @@
 				j := j + 1
 			};
 			{ i <= k }.whileTrue {
-				factorisation.add(
+				factorisation.addInPlace(
 					self.copyFromTo(i, i + j - k - 1)
 				);
 				i := i + j - k

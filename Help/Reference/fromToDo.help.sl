@@ -7,7 +7,7 @@ Answers `nil`.
 
 ```
 >>> let list = [];
->>> 1:9.fromToDo(3, 7) { :each | list.add(each) };
+>>> 1:9.fromToDo(3, 7) { :each | list.add!(each) };
 >>> list
 [3 .. 7]
 ```

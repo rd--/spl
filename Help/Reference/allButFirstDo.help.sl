@@ -7,7 +7,7 @@ Answers `nil`.
 
 ```
 >>> let r = [];
->>> 1:9.allButFirstDo { :x | r.add(x) };
+>>> 1:9.allButFirstDo { :x | r.add!(x) };
 >>> r
 [2 .. 9]
 ```

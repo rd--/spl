@@ -367,11 +367,11 @@ let r = [0];
 	let x = a.last;
 	let y = nil;
 	(x + 1 > r.size).ifTrue {
-		r.add(0)
+		r.add!(0)
 	};
 	y := x.bitXor(r[x + 1]);
 	r[x + 1] := r[x + 1] + 1;
-	a.add(y)
+	a.add!(y)
 };
 a.scatterPlot
 ~~~

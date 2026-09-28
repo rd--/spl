@@ -13,7 +13,7 @@ Answers `nil`.
 ```
 >>> let l = [];
 >>> 0:4.combinationsAtATimeDo(3) { :each |
->>> 	l.add(each.copy)
+>>> 	l.add!(each.copy)
 >>> };
 >>> l
 [
@@ -30,7 +30,7 @@ All Pythagorean triples with elements between 1 and _n_:
 >>> 1:20.combinationsAtATimeDo(3) { :each |
 >>> 	let [a, b, c] = each;
 >>> 	((a * a) + (b * b) = (c * c)).ifTrue {
->>> 		answer.add(each.copy)
+>>> 		answer.add!(each.copy)
 >>> 	}
 >>> };
 >>> answer

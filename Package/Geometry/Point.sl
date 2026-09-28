@@ -66,7 +66,7 @@ Point : [Object, Store, Equal, Geometry, CartesianCoordinates] { | coordinates |
 			let r = distances.atWrap(index);
 			theta := (theta + each) % 2.pi;
 			p := p + (theta.angleVector * r);
-			answer.add(p)
+			answer.addInPlace(p)
 		};
 		answer
 	}
@@ -366,7 +366,7 @@ Point : [Object, Store, Equal, Geometry, CartesianCoordinates] { | coordinates |
 			let mPhi = (2.pi * theta.sin / dPhi).round;
 			0.toDo(mPhi - 1) { :n |
 				let phi = (2.pi * n) / mPhi;
-				answer.add(
+				answer.addInPlace(
 					[
 						theta.sin * phi.cos,
 						theta.sin * phi.sin,
@@ -387,7 +387,7 @@ Point : [Object, Store, Equal, Geometry, CartesianCoordinates] { | coordinates |
 			let theta = phi * i;
 			let x = theta.cos * radius;
 			let z = theta.sin * radius;
-			answer.add([x, y, z])
+			answer.addInPlace([x, y, z])
 		};
 		answer
 	}
@@ -429,7 +429,7 @@ Point : [Object, Store, Equal, Geometry, CartesianCoordinates] { | coordinates |
 		aList.do { :i |
 			let a = c.last;
 			let b = self[i];
-			c.add(a + b)
+			c.addInPlace(a + b)
 		};
 		c
 	}

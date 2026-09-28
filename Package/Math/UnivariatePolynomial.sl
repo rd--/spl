@@ -216,7 +216,7 @@ UnivariatePolynomial : [Object, Store, Copyable, Equal] { | coefficientList |
 		let answer = Map();
 		self.coefficientList.withIndexDo { :c :i |
 			(c != 0).ifTrue {
-				answer.add((i - 1) -> c)
+				answer.addInPlace((i - 1) -> c)
 			}
 		};
 		answer
@@ -563,7 +563,7 @@ UnivariatePolynomial : [Object, Store, Copyable, Equal] { | coefficientList |
 					p
 				}
 			};
-			c.add(self -> p);
+			c.addInPlace(self -> p);
 			p
 		}
 	}

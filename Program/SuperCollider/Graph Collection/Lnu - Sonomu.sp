@@ -248,7 +248,7 @@ let m = Impulse(8, 0).kr;
 let c = { :a |
 	let z = [];
 	a.collect { :each |
-		z.addAll(each.integerDigits(2, 8))
+		z.addAll!(each.integerDigits(2, 8))
 	};
 	Demand(m, 0, Dseq(Infinity, z))
 };

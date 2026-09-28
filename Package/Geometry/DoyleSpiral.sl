@@ -119,7 +119,7 @@
 		let answer = [];
 		let count = 0;
 		{ modQ < maxD }.whileTrue {
-			answer.add(Circle(q.realImaginary, modQ * r));
+			answer.addInPlace(Circle(q.realImaginary, modQ * r));
 			q := q * delta;
 			modQ := modQ * modDelta;
 			count := count + 1
@@ -127,7 +127,7 @@
 		q := z * recipDelta;
 		modQ := q.abs;
 		{ modQ > minD }.whileTrue {
-			answer.add(Circle(q.realImaginary, modQ * r));
+			answer.addInPlace(Circle(q.realImaginary, modQ * r));
 			q := q * recipDelta;
 			modQ := modQ * modRecipDelta;
 			count := count + 1
@@ -140,7 +140,7 @@
 		let z = a;
 		let answer = [];
 		1.toDo(q) { :i |
-			answer.addAll(doyleSpiralArm(r, z, a, l));
+			answer.addAllInPlace(doyleSpiralArm(r, z, a, l));
 			z := z * b
 		};
 		answer

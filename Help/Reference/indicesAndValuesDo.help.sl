@@ -11,7 +11,7 @@ At `List`:
 >>> let answer = [];
 >>> ['x' 'y' 'z']
 >>> .indicesAndValuesDo { :index :value |
->>> 	answer.addAll([index, value])
+>>> 	answer.addAll!([index, value])
 >>> };
 >>> answer
 [1 'x' 2 'y' 3 'z']

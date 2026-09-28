@@ -73,7 +73,7 @@ TypedDictionary : [Object, Store, Equal, Iterable, Indexable, Collection, Extens
 
 	asTypedDictionary { :self :typeName |
 		let answer = TypedDictionary(typeName);
-		answer.addAll(self);
+		answer.addAllInPlace(self);
 		answer
 	}
 

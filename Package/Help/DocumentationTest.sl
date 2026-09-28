@@ -68,12 +68,12 @@ DocumentationTest : [Object, Store, Equal] { | prefix program expectedAnswer |
 					inBlock
 				}
 			).ifTrue {
-				answer.add(block.parseDocumentationTest);
-				block.removeAll;
+				answer.addInPlace(block.parseDocumentationTest);
+				block.removeAllInPlace;
 				inBlock := false
 			};
 			inBlock.ifTrue {
-				block.add(currentLine)
+				block.addInPlace(currentLine)
 			}
 		};
 		answer

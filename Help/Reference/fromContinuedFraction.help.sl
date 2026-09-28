@@ -195,7 +195,7 @@ all of the rationals are uniquely represented by this sequence:
 ~~~spl svg=A
 1:100.collect { :n |
 	let a = (4 * n).numberExpand(2);
-	let b = a.without(0).log2;
+	let b = a.without!(0).log2;
 	let c = b.differences.abs ++ [b.last];
 	c.fromContinuedFraction
 }.scatterPlot

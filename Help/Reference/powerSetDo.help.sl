@@ -11,7 +11,7 @@ Visit all subsets of _1,2,3_ written as a `Range`:
 ```
 >>> let l = [];
 >>> 1:3.powerSetDo { :each |
->>> 	l.add(each)
+>>> 	l.add!(each)
 >>> };
 >>> l
 [; 1; 2; 1 2; 3; 1 3; 2 3; 1 2 3]
@@ -23,7 +23,7 @@ At `IdentitySet`:
 >>> let l = [];
 >>> IdentitySet[1 2 3]
 >>> .powerSetDo { :each |
->>> 	l.add(each)
+>>> 	l.add!(each)
 >>> };
 >>> l
 [

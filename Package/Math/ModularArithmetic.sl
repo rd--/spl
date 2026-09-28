@@ -30,7 +30,7 @@
 		a.do { :p |
 			a.do { :q |
 				(p < q).ifTrue {
-					d.add(p.modularDistance(q, m))
+					d.addInPlace(p.modularDistance(q, m))
 				}
 			}
 		};

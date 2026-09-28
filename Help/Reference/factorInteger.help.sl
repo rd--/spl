@@ -373,8 +373,8 @@ let l = [];
 2.toDo(m) { :n |
 	let e = n.factorInteger.column(2).sortInPlace;
 	l.includes(e).ifFalse {
-		l.add(e);
-		a.add(n)
+		l.add!(e);
+		a.add!(n)
 	}
 };
 (2 .. a.size).collect { :n |

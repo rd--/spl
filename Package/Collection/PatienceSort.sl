@@ -1,6 +1,6 @@
 +@Sequence {
 
-	mergeInPlace { :self :select/1 :insert/2 |
+	mergeSortedInPlace { :self :select/1 :insert/2 |
 		let answer = [];
 		{
 			self.isEmpty
@@ -23,16 +23,16 @@
 				each.last >= card
 			};
 			index.ifNil {
-				piles.addLast([card])
+				piles.addLastInPlace([card])
 			} {
-				piles[index].addLast(card)
+				piles[index].addLastInPlace(card)
 			}
 		};
 		piles
 	}
 
 	patienceSort { :self |
-		self.patienceSortPiles.mergeInPlace(max/1, addFirst/2)
+		self.patienceSortPiles.mergeSortedInPlace(max/1, addFirstInPlace/2)
 	}
 
 }

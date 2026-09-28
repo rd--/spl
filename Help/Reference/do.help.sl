@@ -8,7 +8,7 @@ Answers `nil`.
 ```
 >>> let c = [];
 >>> let x = 1:9.do { :each |
->>> 	c.add(each)
+>>> 	c.add!(each)
 >>> };
 >>> (x, c)
 (nil, [1 .. 9])
@@ -21,7 +21,7 @@ instead a copy should be used:
 >>> let c = [1 .. 9];
 >>> let x = c.copy.do { :each |
 >>> 	each.isOdd.ifTrue {
->>> 		c.add(each)
+>>> 		c.add!(each)
 >>> 	}
 >>> };
 >>> (x, c)

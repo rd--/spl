@@ -9,7 +9,7 @@ Answers `nil`.
 ```
 >>> let d = [];
 >>> 3:1:-1.reverseWithDo(1:3) { :p :q |
->>> 	d.add(p -> q)
+>>> 	d.add!(p -> q)
 >>> };
 >>> d
 [1 -> 3, 2 -> 2, 3 -> 1]

@@ -12,7 +12,7 @@ The Cartesian product of two sets A and B is the set of all (a, b) where a ∈ A
 >>> [1 2 3].cartesianProductDo(
 >>> 	[4 5 6]
 >>> ) { :i :j |
->>> 	r.add([i j])
+>>> 	r.add!([i j])
 >>> };
 >>> r
 [

@@ -682,6 +682,7 @@ Reference/Binary.help.sl
 Reference/BinaryLargeObject.help.sl
 Reference/binaryMatrix.help.sl
 Reference/binaryReflectedGrayCode.help.sl
+Reference/binaryRunLengthEncode.help.sl
 Reference/binarySearch.help.sl
 Reference/binarySearchLeftmost.help.sl
 Reference/binarySearchRightmost.help.sl
@@ -2780,7 +2781,7 @@ Reference/Menu.help.sl
 Reference/mercatorProjection.help.sl
 Reference/mercatorsComma.help.sl
 Reference/merge.help.sl
-Reference/mergeInPlace.help.sl
+Reference/mergeSorted.help.sl
 Reference/mergeSortFromToBy.help.sl
 Reference/mergeSort.help.sl
 Reference/mergeSortMatrix.help.sl
@@ -3669,6 +3670,7 @@ Reference/rulerFunction.help.sl
 Reference/rulesTree.help.sl
 Reference/RunArray.help.sl
 Reference/rungeKuttaMethod.help.sl
+Reference/runLengths.help.sl
 Reference/runLengthsOf.help.sl
 Reference/runLengthTransform.help.sl
 Reference/RunningSum.help.sl

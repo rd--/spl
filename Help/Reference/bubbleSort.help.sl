@@ -50,7 +50,7 @@ let r = [];
 0:n.collect { :x |
 	(x.sin * m).round
 }.bubbleSort! { :a :b |
-	r.add(a);
+	r.add!(a);
 	a > b
 };
 r.scatterPlot

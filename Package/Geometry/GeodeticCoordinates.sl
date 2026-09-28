@@ -31,7 +31,7 @@ GeodeticCoordinates : [Object, Equal] { | coordinates |
 	GeodeticCoordinates { :self |
 		let c = self.copy;
 		(c.size = 2).ifTrue {
-			c.addLast(0)
+			c.addLastInPlace(0)
 		};
 		newGeodeticCoordinates().initializeSlots(c)
 	}

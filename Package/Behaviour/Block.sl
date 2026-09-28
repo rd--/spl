@@ -92,7 +92,7 @@ Block! : [Object, Equal] {
 		let answer = [];
 		let index = 1;
 		1.toBy(aList.size - n + 1, d).collect { :i |
-			answer.add(aBlock(aList.copyFromTo(i, i + n - 1)))
+			answer.addInPlace(aBlock(aList.copyFromTo(i, i + n - 1)))
 		};
 		answer
 	}
@@ -266,7 +266,7 @@ Block! : [Object, Equal] {
 		let a = [];
 		xList.do { :x |
 			let r = f(y, x);
-			a.add(g(r));
+			a.addInPlace(g(r));
 			y := r[2]
 		};
 		a
@@ -361,7 +361,7 @@ Block! : [Object, Equal] {
 	keyMap { :self/1 :operand |
 		let answer = operand.species.new;
 		operand.keysAndValuesDo { :key :value |
-			answer.include(self(key) -> value)
+			answer.includeInPlace(self(key) -> value)
 		};
 		answer
 	}
@@ -452,7 +452,7 @@ Block! : [Object, Equal] {
 	movingMap { :self/1 :sequence :windowSize |
 		let answer = [];
 		1.toDo(sequence.size - windowSize + 1) { :i |
-			answer.add(
+			answer.addInPlace(
 				self(sequence.copyFromTo(i, i + windowSize - 1))
 			)
 		};

@@ -1,8 +1,8 @@
-# includeAll
+# includeAll (includeAllInPlace)
 
 - _includeAll(c₁, c₂)_
 
-Include all the elements of collection _c₂_ into collection _c₁_.
+Include all the elements of collection _c₂_ into collection _c₁_ in place.
 Answer _c₂_.
 
 In general, any object responding to _do_ can be used as the second argument.
@@ -12,7 +12,7 @@ At `IdentityMultiset`:
 ```
 >>> let c = [1 2 2 3 3 3];
 >>> let r = IdentityMultiset();
->>> (r.includeAll(c), r.size)
+>>> (r.includeAll!(c), r.size)
 (c, 6)
 ```
 
@@ -21,7 +21,7 @@ At `IdentitySet`:
 ```
 >>> let c = [1 2 2 3 3 3];
 >>> let r = IdentitySet();
->>> (r.includeAll(c), r.size)
+>>> (r.includeAll!(c), r.size)
 (c, 3)
 ```
 
@@ -31,7 +31,7 @@ At `UnsortedSet`:
 >>> let c = [1 2 2.00001 3 3.00001 3.00002];
 >>> let r = UnsortedSet();
 >>> r.comparator(~);
->>> (r.includeAll(c), r.size, r.asList)
+>>> (r.includeAll!(c), r.size, r.asList)
 (c, 3, [1 2 3])
 ```
 
@@ -40,7 +40,7 @@ At `List`, including `Range`:
 ```
 >>> let c = 1:9;
 >>> let r = [];
->>> (r.includeAll(c), r.size)
+>>> (r.includeAll!(c), r.size)
 (c, 9)
 ```
 
@@ -49,7 +49,7 @@ At `List`, including `String`:
 ```
 >>> let c = 'text';
 >>> let r = [];
->>> (r.includeAll(c), r.size)
+>>> (r.includeAll!(c), r.size)
 (c, 4)
 ```
 
@@ -58,7 +58,7 @@ At `Record`, including `Record`:
 ```
 >>> let c = (y: 2, z: 3);
 >>> let r = (x: 1);
->>> (r.includeAll(c), r)
+>>> (r.includeAll!(c), r)
 (c, (x: 1, y: 2, z: 3))
 ```
 

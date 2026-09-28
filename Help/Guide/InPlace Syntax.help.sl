@@ -56,6 +56,42 @@ In place reverse sort:
 ([5 4 3 2 1], true)
 ```
 
+In place `add`:
+
+```
+>>> let x = [1 2 3];
+>>> x.add!(4);
+>>> x
+[1 2 3 4]
+```
+
+In place `addAll`:
+
+```
+>>> let x = [1 2 3];
+>>> x.addAll!([4 5 6]);
+>>> x
+[1 2 3 4 5 6]
+```
+
+In place `remove`:
+
+```
+>>> let x = [1 2 3 4];
+>>> x.remove!(4);
+>>> x
+[1 2 3]
+```
+
+In place `removeAll`:
+
+```
+>>> let x = [1 2 3 4 5 6];
+>>> x.removeAll!([4 5 6]);
+>>> x
+[1 2 3]
+```
+
 * * *
 
 See also: reverseInPlace, reverseSortInPlace, sortInPlace, sortOnInPlace

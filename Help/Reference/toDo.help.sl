@@ -7,7 +7,7 @@ Answers `nil`.
 
 ```
 >>> let l = [];
->>> 1.toDo(9) { :each | l.add(each) };
+>>> 1.toDo(9) { :each | l.add!(each) };
 >>> l
 [1 2 3 4 5 6 7 8 9]
 ```
@@ -16,7 +16,7 @@ If _j_ is less than _i_ the range is empty and there are no values to iterate ov
 
 ```
 >>> let l = [];
->>> 9.toDo(1) { :each | l.add(each) };
+>>> 9.toDo(1) { :each | l.add!(each) };
 >>> l
 []
 ```
@@ -37,7 +37,7 @@ let d = 2;
 let e = 1;
 let f = 1;
 3.toDo(200) { :n |
-	a.add(
+	a.add!(
 		(n = b).if {
 			let r = b;
 			b := c + d - f + 1;

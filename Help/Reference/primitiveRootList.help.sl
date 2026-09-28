@@ -271,7 +271,7 @@ let a = [];
 			k.includes(2)
 		}
 	).ifTrue {
-		a.add(n)
+		a.add!(n)
 	}
 };
 a.discretePlot

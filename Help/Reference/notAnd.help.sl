@@ -38,7 +38,7 @@ let a = [1];
 	}.whileTrue {
 		k := k + 1
 	};
-	a.add(k)
+	a.add!(k)
 };
 a.discretePlot.log
 ~~~

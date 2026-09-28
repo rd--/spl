@@ -53,7 +53,7 @@ JsonList : [Object, Indexable, JsonValue] { | values |
 		value.ifNil {
 			'JsonList>>append: value is null'.error
 		};
-		self.values.add(value)
+		self.values.addInPlace(value)
 	}
 
 	asList { :self |
@@ -125,8 +125,8 @@ JsonObject : [Object, Indexable, JsonValue] { | names values table |
 			'aJsonValue is null'.error
 		};
 		self.table[name] := self.names.size + 1;
-		self.names.add(name);
-		self.values.add(aJsonValue)
+		self.names.addInPlace(name);
+		self.values.addInPlace(aJsonValue)
 	}
 
 	at { :self :name |

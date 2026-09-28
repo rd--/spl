@@ -59,7 +59,7 @@ SmallKansas : [Object, Cache] { | container frameSet cache history where |
 	}
 
 	evaluate { :self :aString :event |
-		self.history.add(aString);
+		self.history.addInPlace(aString);
 		system.evaluateNotifying(aString) { :err |
 			self.inspectorOn(err, event);
 			err
@@ -145,7 +145,7 @@ SmallKansas : [Object, Cache] { | container frameSet cache history where |
 
 	removeFrame { :self :frame |
 		frame.outerElement.remove;
-		self.frameSet.remove(frame)
+		self.frameSet.removeInPlace(frame)
 	}
 
 	midiAccess { :self |

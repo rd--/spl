@@ -296,7 +296,7 @@ OEIS [A281488](https://oeis.org/A281488):
 let a = [1];
 2:200.do { :n |
 	let m = n - 1;
-	a.add(
+	a.add!(
 		1:m.select { :d |
 			(n - 2) % d = 0
 		}.sum { :d |

@@ -120,7 +120,7 @@ Interval : [Object, Store, Equal, Number] { | min max |
 		let answer = [next];
 		{ next < self.max }.whileTrue {
 			next := next + step;
-			answer.add(next)
+			answer.addInPlace(next)
 		};
 		answer
 	}

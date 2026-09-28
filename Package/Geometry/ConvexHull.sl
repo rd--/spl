@@ -24,7 +24,7 @@
 		1.toDo(p.size) { :i |
 			let x = p[i];
 			(h.size < 3).if {
-				h.addLast(x)
+				h.addLastInPlace(x)
 			} {
 				{
 					(h.size > 1) & {
@@ -37,7 +37,7 @@
 				}.whileTrue {
 					h.removeLast
 				};
-				h.addLast(x)
+				h.addLastInPlace(x)
 			}
 		};
 		h.collect(fourth/1)

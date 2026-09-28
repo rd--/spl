@@ -73,7 +73,7 @@ The comparison method for `UnsortedSet` can be modified:
 ```
 >>> let x = UnsortedSet();
 >>> x.comparator := ~;
->>> x.includeAll([1, 1.0001, 2, 1, 2.00001, 3]);
+>>> x.includeAll!([1, 1.0001, 2, 1, 2.00001, 3]);
 >>> x
 UnsortedSet[1 2 3]
 ```

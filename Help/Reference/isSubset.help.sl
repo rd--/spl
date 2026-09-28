@@ -36,7 +36,7 @@ A lipogrammatic panagram (Ezra 7:21):
 
 ```
 >>> let e = 'english'.namedAlphabet;
->>> let l = e.without('j');
+>>> let l = e.without!('j');
 >>> let v = [
 >>> 	'And I, even I Artaxerxes'
 >>> 	'the king, do make a decree'
@@ -48,7 +48,7 @@ A lipogrammatic panagram (Ezra 7:21):
 >>> 	'shall require of you, it'
 >>> 	'be done speedily'
 >>> ].unwords.asLowerCase;
->>> let t = v.contents.withoutAll(
+>>> let t = v.contents.withoutAll!(
 >>> 	[' ' ',']
 >>> );
 >>> t.isSubset(l) & {

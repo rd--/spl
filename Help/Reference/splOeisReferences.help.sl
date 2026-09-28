@@ -16,7 +16,7 @@ Count unique OEIS identitfiers:
 ```
 >>> system.splOeisReferences
 >>> .values.catenate.unique.size
-3039
+3050
 ```
 
 Lookup OEIS references at `zeta`:

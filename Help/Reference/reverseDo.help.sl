@@ -23,7 +23,7 @@ At `Range`:
 ```
 >>> let l = [];
 >>> 1:9.reverseDo { :each |
->>> 	l.add(each)
+>>> 	l.add!(each)
 >>> };
 >>> l
 [9 8 7 6 5 4 3 2 1]

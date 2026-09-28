@@ -119,7 +119,7 @@ and assocations are added at the end:
 
 ```
 >>> let r = (y: 2);
->>> r.add('x' -> 1);
+>>> r.add!('x' -> 1);
 >>> r.associations
 ['y' -> 2, 'x' -> 1]
 ```

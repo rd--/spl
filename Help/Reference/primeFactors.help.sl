@@ -239,7 +239,7 @@ OEIS [A268868](https://oeis.org/A268868):
 ~~~spl svg=D oeis=A268868
 let x = [1 1];
 150.timesRepeat {
-	x.add(x.sum.primeFactors.sum)
+	x.add!(x.sum.primeFactors.sum)
 };
 x.scatterPlot.log
 ~~~

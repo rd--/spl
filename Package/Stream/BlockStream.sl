@@ -74,7 +74,7 @@ BlockStream : [Object, Iterator, Stream] { | onNext onReset nextItem |
 		let next = anObject;
 		let answer = [];
 		{
-			answer.add(next);
+			answer.addInPlace(next);
 			next := self(next)
 		}.doWhileTrue {
 			answer.includes(next).not

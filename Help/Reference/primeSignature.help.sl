@@ -150,8 +150,8 @@ OEIS [A025487](https://oeis.org/A025487):
 >>> 2:1000.do { :n |
 >>> 	let s = n.primeSignature;
 >>> 	ls.includes(s).ifFalse {
->>> 		ls.add(s);
->>> 		ln.add(n)
+>>> 		ls.add!(s);
+>>> 		ln.add!(n)
 >>> 	}
 >>> };
 >>> ln
@@ -341,10 +341,10 @@ let ln = [];
 	let s = n.primeSignature;
 	let i = ls.indexOf(s);
 	(i = 0).ifTrue {
-		ls.add(s);
+		ls.add!(s);
 		i := ls.size
 	};
-	ln.add(i)
+	ln.add!(i)
 };
 ln.scatterPlot
 ~~~

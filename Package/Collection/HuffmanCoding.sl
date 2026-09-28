@@ -10,7 +10,7 @@ HuffmanCoding : [Object, Store, Equal] { | symbolTable encoding |
 			let code = codeTable.detect { :each |
 				codes.beginsWith(each.value)
 			};
-			symbols.add(code.key);
+			symbols.addInPlace(code.key);
 			codes.removeFirst(code.value.size)
 		};
 		symbols
@@ -44,18 +44,18 @@ HuffmanCoding : [Object, Store, Equal] { | symbolTable encoding |
 		let huffmanSymbolTable = { :weights |
 			let heap = Heap();
 			weights.sortedCounts.do { :each |
-				heap.add(each.key -> [each.value -> []])
+				heap.addInPlace(each.key -> [each.value -> []])
 			};
 			{ heap.size > 1 }.whileTrue {
 				let low = heap.removeFirst;
 				let high = heap.removeFirst;
 				low.value.do { :each |
-					each.value.addFirst(0)
+					each.value.addFirstInPlace(0)
 				};
 				high.value.do { :each |
-					each.value.addFirst(1)
+					each.value.addFirstInPlace(1)
 				};
-				heap.add((low.key + high.key) -> (low.value ++ high.value))
+				heap.addInPlace((low.key + high.key) -> (low.value ++ high.value))
 			};
 			heap.array.first.value.asMap
 		};

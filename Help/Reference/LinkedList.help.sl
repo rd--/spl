@@ -38,8 +38,8 @@ Add to start:
 
 ```
 >>> let l = LinkedList();
->>> l.addFirst(1);
->>> l.addFirst(2);
+>>> l.addFirst!(1);
+>>> l.addFirst!(2);
 >>> l.contents
 [2 1]
 ```
@@ -48,8 +48,8 @@ Add to end:
 
 ```
 >>> let l = LinkedList();
->>> l.addLast(1);
->>> l.addLast(2);
+>>> l.addLast!(1);
+>>> l.addLast!(2);
 >>> l.contents
 [1 2]
 ```
@@ -59,7 +59,7 @@ Add to end
 ```
 >>> let l = LinkedList();
 >>> 1.toDo(5) { :each |
->>> 	l.add(each)
+>>> 	l.add!(each)
 >>> };
 >>> l.contents
 [1 2 3 4 5]
@@ -106,7 +106,7 @@ Remove all:
 ```
 >>> let l = LinkedList(1:99);
 >>> let n = l.size;
->>> l.removeAll;
+>>> l.removeAll!;
 >>> (n, l.isEmpty)
 (99, true)
 ```

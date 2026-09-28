@@ -76,7 +76,7 @@ let r = [];
 0:n.collect { :x |
 	(x.sin * m).round
 }.quickSort! { :a :b |
-	r.add(a);
+	r.add!(a);
 	a > b
 };
 r.downsample(4).scatterPlot

@@ -11,7 +11,7 @@
 					b > 0 & { a < 0 | { c < 0 } }
 				}
 			).ifTrue {
-				answer.add([i] -> 1)
+				answer.addInPlace([i] -> 1)
 			}
 		};
 		SparseArray(answer, [self.size], 0)
@@ -28,7 +28,7 @@
 			let q = self[i].sign;
 			q.isZero.ifFalse {
 				((p + q).abs > delta).ifFalse {
-					answer.add([i] -> 1)
+					answer.addInPlace([i] -> 1)
 				};
 				p := q
 			}
@@ -47,7 +47,7 @@
 		1.to(self.size).collect { :i |
 			let q = p[i];
 			(q = 1 & { z = 0 }).ifTrue {
-				answer.add([i, self[i]])
+				answer.addInPlace([i, self[i]])
 			};
 			z := q
 		};

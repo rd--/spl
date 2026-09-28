@@ -10,7 +10,7 @@ Answers `nil`.
 >>> let c = [1 3 5 7 9];
 >>> let r = [];
 >>> c.indicesDo { :each |
->>> 	r.add(each)
+>>> 	r.add!(each)
 >>> };
 >>> r
 [1 2 3 4 5]

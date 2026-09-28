@@ -22,7 +22,7 @@ The second form allows eliding double parentheses:
 
 ```
 >>> let r = (w: 1, x: 2);
->>> r.addAll((y: 3, z: 4));
+>>> r.addAll!((y: 3, z: 4));
 >>> r
 (w: 1, x: 2, y: 3, z: 4)
 ```

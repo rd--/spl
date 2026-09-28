@@ -98,7 +98,7 @@ OEIS [A003679](https://oeis.org/A003679):
 >>> 1:m.do { :i |
 >>> 	1:i.do { :j |
 >>> 		1:j.do { :k |
->>> 			q.include(
+>>> 			q.include!(
 >>> 				p[i] + p[j] + p[k]
 >>> 			)
 >>> 		}

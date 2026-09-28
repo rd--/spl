@@ -38,7 +38,7 @@ let r = [];
 (0 .. n - 1).collect { :x |
 	(x.sin * m).round
 }.bitonicSort! { :a :b |
-	r.add(a);
+	r.add!(a);
 	a > b
 };
 r.downsample(k).scatterPlot

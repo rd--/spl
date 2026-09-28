@@ -10,11 +10,11 @@
 
 	[concatenation, ++] { :self :aDictionary |
 		let answer = self.copy;
-		answer.includeAll(aDictionary);
+		answer.includeAllInPlace(aDictionary);
 		answer
 	}
 
-	add { :self :anAssociation |
+	addInPlace { :self :anAssociation |
 		self.includesKey(anAssociation.key).if {
 			self.error('@Dictionary>>add: key exists', [anAssociation.key])
 		} {
@@ -23,9 +23,9 @@
 		}
 	}
 
-	addAll { :self :aCollection |
+	addAllInPlace { :self :aCollection |
 		aCollection.associationsDo { :anAssociation |
-			self.add(anAssociation)
+			self.addInPlace(anAssociation)
 		};
 		aCollection
 	}
@@ -55,7 +55,7 @@
 	associations { :self |
 		let answer = [];
 		self.associationsDo { :each |
-			answer.add(each)
+			answer.addInPlace(each)
 		};
 		answer
 	}
@@ -81,7 +81,7 @@
 		let removals = [];
 		self.associationsDo { :each |
 			aBlock(each).ifTrue {
-				removals.add(each.key)
+				removals.addInPlace(each.key)
 			}
 		};
 		removals.do { :key |
@@ -94,7 +94,7 @@
 		let answer = self.species.new;
 		self.associationsDo { :each |
 			each.aBlock.ifTrue {
-				answer.add(each)
+				answer.addInPlace(each)
 			}
 		};
 		answer
@@ -103,7 +103,7 @@
 	associationsSwapped { :self |
 		let answer = [];
 		self.associationsDo { :anAssociation |
-			answer.add(anAssociation.value -> anAssociation.key)
+			answer.addInPlace(anAssociation.value -> anAssociation.key)
 		};
 		answer
 	}
@@ -130,7 +130,7 @@
 	collect { :self :aBlock/1 |
 		let answer = self.species.new;
 		self.keysAndValuesDo { :key :value |
-			answer.add(key -> aBlock(value))
+			answer.addInPlace(key -> aBlock(value))
 		};
 		answer
 	}
@@ -148,11 +148,11 @@
 		} {
 			aDictionary.includesKey(key).if {
 				let association = aDictionary.associationAt(key);
-				self.add(association);
+				self.addInPlace(association);
 				aDictionary.removeKey(key);
 				association
 			} {
-				self.add(key -> nil);
+				self.addInPlace(key -> nil);
 				nil
 			}
 		}
@@ -161,7 +161,7 @@
 	[dictionaryToList, asList] { :self |
 		let answer = [];
 		self.valuesDo { :each |
-			answer.add(each)
+			answer.addInPlace(each)
 		};
 		answer
 	}
@@ -187,7 +187,7 @@
 			}
 		} {
 			aCollection.do { :element |
-				self.add(aBlock(element))
+				self.addInPlace(aBlock(element))
 			}
 		}
 	}
@@ -210,14 +210,14 @@
 		self.hasEqualElements(aDictionary, equal/2)
 	}
 
-	include { :self :anAssociation |
+	includeInPlace { :self :anAssociation |
 		self[anAssociation.key] := anAssociation.value;
 		anAssociation
 	}
 
-	includeAll { :self :aCollection |
+	includeAllInPlace { :self :aCollection |
 		aCollection.associationsDo { :anAssociation |
-			self.include(anAssociation)
+			self.includeInPlace(anAssociation)
 		};
 		aCollection
 	}
@@ -291,7 +291,7 @@
 	keysAndEachValue { :self |
 		let answer = [];
 		self.keysAndEachValueDo { :key :value |
-			answer.add([key, value])
+			answer.addInPlace([key, value])
 		};
 		answer
 	}
@@ -299,7 +299,7 @@
 	keysAndValues { :self |
 		let answer = [];
 		self.keysAndValuesDo { :key :value |
-			answer.add([key, value])
+			answer.addInPlace([key, value])
 		};
 		answer
 	}
@@ -307,7 +307,7 @@
 	keysAndValuesCollect { :self :aBlock/2 |
 		let answer = self.species.new;
 		self.keysAndValuesDo { :key :value |
-			answer.add(key -> aBlock(key, value))
+			answer.addInPlace(key -> aBlock(key, value))
 		};
 		answer
 	}
@@ -332,7 +332,7 @@
 		let answer = self.species.new;
 		self.associationsDo { :each |
 			each.key.aBlock.ifTrue {
-				answer.add(each.copy)
+				answer.addInPlace(each.copy)
 			}
 		};
 		answer
@@ -358,14 +358,15 @@
 		}
 	}
 
-	remove { :self :anAssociation |
-		self.removeAssociation(anAssociation)
+	removeInPlace { :self :anAssociation |
+		self.removeAssociationInPlace(anAssociation)
 	}
 
-	removeAll { :self |
+	removeAllInPlace { :self |
 		self.associationsRemove { :unusedItem |
 			true
-		}
+		};
+		nil
 	}
 
 	removeAllKeys { :self :keys |
@@ -388,9 +389,9 @@
 		}
 	}
 
-	removeAssociation { :self :oldObject |
+	removeAssociationInPlace { :self :oldObject |
 		self.removeAssociationIfAbsent(oldObject) {
-			self.error('removeAssociation: not present')
+			self.error('removeAssociationInPlace: not present')
 		}
 	}
 
@@ -426,7 +427,7 @@
 		let answer = self.species.new;
 		self.associationsDo { :each |
 			each.value.aBlock.ifTrue {
-				answer.add(each.copy)
+				answer.addInPlace(each.copy)
 			}
 		};
 		answer
@@ -502,7 +503,7 @@
 		self.collect { :each |
 			let item = each.species.new;
 			keys.do { :key |
-				item.add(key -> each.at(key))
+				item.addInPlace(key -> each.at(key))
 			};
 			item
 		}
@@ -518,13 +519,13 @@
 			}
 		};
 		self.do { :each |
-			keys.includeAll(each.keys)
+			keys.includeAllInPlace(each.keys)
 		};
 		self.collect { :each |
 			let copy = each.copy;
 			keys.do { :key |
 				copy.includesKey(key).ifFalse {
-					copy.add(key -> aBlock(key))
+					copy.addInPlace(key -> aBlock(key))
 				}
 			};
 			copy
@@ -549,14 +550,14 @@
 			let list = [];
 			self.do { :each |
 				each.includesKey(key).ifTrue {
-					list.add(each.at(key))
+					list.addInPlace(each.at(key))
 				}
 			};
 			list
 		};
 		let answer = self.anyOne.species.new;
 		keys.withDo(values) { :key :value |
-			answer.add(key -> aBlock(value))
+			answer.addInPlace(key -> aBlock(value))
 		};
 		answer
 	}
@@ -575,7 +576,7 @@
 		} {
 			let answer = self.first.copy;
 			self.allButFirstDo { :each |
-				answer.includeAll(each)
+				answer.includeAllInPlace(each)
 			};
 			answer
 		}
@@ -597,8 +598,8 @@ Dictionary : [Object, Store, Copyable, Equal, Iterable, Indexable, Collection, E
 	atPut { :self :key :value |
 		let index = self.keys.indexOfBy(key, self.comparator);
 		(index = 0).if {
-			self.keys.add(key);
-			self.values.add(value)
+			self.keys.addInPlace(key);
+			self.values.addInPlace(value)
 		} {
 			self.values[index] := value
 		};

@@ -29,7 +29,7 @@ In Sᴘʟ this program might be written:
 >>> let answer = [];
 >>> [1 2 7 12].do { :x |
 >>> 	x.isEven.ifTrue {
->>> 		answer.add(x * x)
+>>> 		answer.add!(x * x)
 >>> 	}
 >>> };
 >>> answer
@@ -52,7 +52,7 @@ might be written in Sᴘʟ as:
 >>> [1 .. 5].do { :x |
 >>> 	[1 .. x].do { :y |
 >>> 		(x + y).isPrime.ifTrue {
->>> 			answer.add([x, y])
+>>> 			answer.add!([x, y])
 >>> 		}
 >>> 	}
 >>> };

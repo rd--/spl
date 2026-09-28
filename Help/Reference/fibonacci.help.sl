@@ -417,7 +417,7 @@ OEIS [A000301](https://oeis.org/A000301):
 ]
 
 >>> let c = 2L ^ 0:10.fibonacci;
->>> c.addFirst(0);
+>>> c.addFirst!(0);
 >>> c.fromContinuedFraction
 1.rabbitConstant
 ```

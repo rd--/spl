@@ -77,9 +77,9 @@ Add three integers to a `BitSet`:
 
 ```
 >>> let b = BitSet([], 64);
->>> b.add(1);
->>> b.add(3);
->>> b.add(9);
+>>> b.add!(1);
+>>> b.add!(3);
+>>> b.add!(9);
 >>> (b.size, b.positionVector)
 (3, [1 3 9])
 ```
@@ -89,9 +89,9 @@ however including it is:
 
 ```
 >>> let b = BitSet([], 64);
->>> b.add(5);
->>> b.include(5);
->>> b.include(5);
+>>> b.add!(5);
+>>> b.include!(5);
+>>> b.include!(5);
 >>> (b.size, b.positionVector)
 (1, [5])
 ```
@@ -152,9 +152,9 @@ Add elements using `addAll` and iterate over indices using `positionsDo`:
 >>> let b = BitSet([], 64);
 >>> let c = [1 3 9 27];
 >>> let l = [];
->>> b.addAll(c);
+>>> b.addAll!(c);
 >>> b.positionsDo { :each |
->>> 	l.add(each)
+>>> 	l.add!(each)
 >>> };
 >>> (b.size, l)
 (4, [1 3 9 27])
@@ -165,7 +165,7 @@ Copy `BitSet` and mutate copy:
 ```
 >>> let b = BitSet([1 7], 12);
 >>> let c = b.copy;
->>> c.add(3);
+>>> c.add!(3);
 >>> (b, c)
 (
 	BitSet([1 7], 12),

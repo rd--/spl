@@ -21,7 +21,7 @@ let r = 100;
 let a = 0;
 let l = [];
 7.timesRepeat {
-	l.add(
+	l.add!(
 		[0 0].equilateralTriangle(r, a)
 	);
 	r := r / 3.sqrt;
@@ -39,7 +39,7 @@ let r = 100;
 let a = 0;
 let l = [];
 40.timesRepeat {
-	l.add(
+	l.add!(
 		[0 0].equilateralTriangle(r, a)
 	);
 	r := r * 0.965;

@@ -615,7 +615,7 @@ OEIS [A056534](https://oeis.org/A056534):
 let a = [];
 1:21.do { :i |
 	i.divisors.do { :j |
-		a.add(binomial(i / j + j - 1, 2) + j)
+		a.add!(binomial(i / j + j - 1, 2) + j)
 	}
 };
 a.discretePlot

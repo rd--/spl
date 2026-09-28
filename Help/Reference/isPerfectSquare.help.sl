@@ -106,7 +106,7 @@ let s = IdentitySet([0]);
 	}.whileTrue {
 		a := (a < 0).boole - a
 	};
-	s.add(a);
+	s.add!(a);
 	a
 }.nestList(0, m).discretePlot
 ~~~
@@ -136,9 +136,9 @@ let a = [];
 		let k = i - x.square;
 		k.isPerfectSquare.ifTrue {
 			(k = 0).ifFalse {
-				a.add(x)
+				a.add!(x)
 			};
-			a.add(x)
+			a.add!(x)
 		}
 	}
 };
@@ -164,10 +164,10 @@ let a = [];
 		let k = i - x.square;
 		k.isPerfectSquare.ifTrue {
 			(k = 0).if {
-				a.add(g(0))
+				a.add!(g(0))
 			} {
-				a.add(g(-k));
-				a.add(g(k))
+				a.add!(g(-k));
+				a.add!(g(k))
 			}
 		}
 	}

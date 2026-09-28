@@ -98,7 +98,7 @@ let a = [1L 2L];
 	}.whileTrue {
 		k := k + m
 	};
-	a.add(k)
+	a.add!(k)
 };
 a.drop(100).scatterPlot
 ~~~

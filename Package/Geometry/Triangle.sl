@@ -945,7 +945,7 @@ Triangle : [Object, Store, Equal, Geometry] { | vertexCoordinates |
 			next := next.partitionCollect(2, 1) { :each |
 				(each[2] + each[1]) % 2
 			};
-			answer.add(next)
+			answer.addInPlace(next)
 		};
 		answer
 	}
