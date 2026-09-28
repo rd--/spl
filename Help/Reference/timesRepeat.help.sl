@@ -3,6 +3,7 @@
 - _timesRepeat(n, f/0)_
 
 Evaluate the no-argument block _f_ the number of times represented by the integer _n_.
+Answers `nil`.
 
 Iterate a program mutating a value:
 

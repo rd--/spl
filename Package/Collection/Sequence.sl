@@ -2976,11 +2976,11 @@
 
 	applyBinaryMathOperatorInPlace { :self :anObject :aBlock/2 |
 		anObject.isNumber.if {
-			self.replace { :each |
+			self.collectInPlace { :each |
 				aBlock(each, anObject)
 			}
 		} {
-			self.withReplace(anObject, aBlock/2)
+			self.withCollectInPlace(anObject, aBlock/2)
 		}
 	}
 

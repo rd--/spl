@@ -1614,8 +1614,7 @@
 		}.whileTrue {
 			aBlock();
 			remaining := remaining - 1
-		};
-		self
+		}
 	}
 
 	tonelliShanksAlgorithm { :n :p |

@@ -387,8 +387,9 @@
 	}
 
 	gradedReflectedColexicographicSortInPlace { :self |
-		self.collectInPlace(sortInPlace/1);
-		self.sortComparingEachInPlace(
+		self
+		.collectInPlace(sortInPlace/1)
+		.sortComparingEachInPlace(
 			[
 				sum/1.compareOn,
 				size/1.compareOn,
@@ -398,8 +399,9 @@
 	}
 
 	gradedReflectedLexicographicSortInPlace { :self |
-		self.collectInPlace(sortInPlace/1);
-		self.sortComparingEachInPlace(
+		self
+		.collectInPlace(sortInPlace/1)
+		.sortComparingEachInPlace(
 			[
 				sum/1.compareOn,
 				colexicographicCompare/2
@@ -408,8 +410,9 @@
 	}
 
 	gradedReverseLexicographicSort { :self |
-		self.collectInPlace(reverseSort/1);
-		self.sortComparingEachInPlace(
+		self
+		.collectInPlace(reverseSort/1)
+		.sortComparingEachInPlace(
 			[
 				sum/1.compareOn,
 				reverseLexicographicCompare/2

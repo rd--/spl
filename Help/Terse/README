@@ -8,4 +8,4 @@ Total => 194
 
 system.splFileName('Help/Terse/Terse Guide to SuperCollider.help.sl').asFileUrl.terseGuideSummary
 
-Total => 122
+Total => 126

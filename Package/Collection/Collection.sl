@@ -158,7 +158,9 @@
 	}
 
 	collectThenDo { :self :collectBlock/1 :doBlock/1 |
-		self.collect(collectBlock/1).do(doBlock/1)
+		let answer = self.collect(collectBlock/1);
+		answer.do(doBlock/1);
+		answer
 	}
 
 	collectThenSelect { :self :collectBlock/1 :selectBlock/1 |

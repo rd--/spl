@@ -61,7 +61,8 @@
 	includeAll { :self :aCollection |
 		aCollection.do { :each |
 			self.include(each)
-		}
+		};
+		aCollection
 	}
 
 	intersperse { :self :anObject |

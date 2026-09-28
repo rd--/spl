@@ -290,7 +290,7 @@ Graded reflected colexicographic ordering of integer partitions (Maple):
 
 ```
 >>> [2 2 5; 1 4 4; 1 3 5]
->>> .gradedReflectedColexicographicSort
+>>> .gradedReflectedColexicographicSort!
 [1 3 5; 1 4 4; 2 2 5]
 ```
 

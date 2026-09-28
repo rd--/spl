@@ -542,7 +542,7 @@ system.includesPackage('PrimitiveArray') /* package */
 let a = [1, 7, 3, 9, 5]; let b = a.sortByInPlace { :p :q | p >= q }; a = [9, 7 .. 1] & { a == b } /* sort using provided comparison, in place */
 [1, 7, 3, 9, 5].sortByInPlace { :p :q | p >= q } = [9, 7 .. 1] /* sort using provided comparison, in place answering array */
 [1, 7, 3, 9, 5].sortInPlace = [1, 3 .. 9] /* sort using default comparison of <= */
-let a = [(x: 1, y: 9), (x: 9, y: 1)]; let b = a.sortOn { :each | each['y'] }; a = [(x: 9, y: 1), (x: 1, y: 9)] & { b == a } /* sort using provided key block */
+let a = [(x: 1, y: 9), (x: 9, y: 1)]; let b = a.sortOn! { :each | each['y'] }; a = [(x: 9, y: 1), (x: 1, y: 9)] & { b == a } /* sort using provided key block */
 ```
 
 ## Assignment
@@ -734,7 +734,7 @@ true | { false } = true /* logical or (operator) */
 false | { true } = true /* logical or (operator) */
 true | { '|'.error } = true /* | is equal to or and is not strict (unlike in Smalltalk) */
 true.ifTrue { 'T' } = 'T' /* if then, c.f. conditional statements */
-true.ifTrue { 1.toDo(2) { :unused | nil } } = 1 /* conditional iteration */
+true.ifTrue { 1.toDo(2) { :unused | nil } } = nil /* conditional iteration */
 false.if { 'T' } { 'F' } = 'F' /* if then else (do) */
 true.if { 'T' } { 'F' } = 'T' /* if then else (value) */
 true.not = false /* not true is false, unicode = ¬ */
@@ -984,7 +984,7 @@ let a = [1, 2, 3, 2, 1]; a.removeAllFoundIn([2, 3]); a = [1, 2, 1] /* removes on
 1:100.injectInto(0) { :sum :each | sum + each } = 5050
 let a = [1 .. 5]; a.contents = a & { a.contents !== a } /* contents at list is equal but not identical */
 (1:9 / 3).round = [0, 1, 1, 1, 2, 2, 2, 3, 3] /* unary math operator at collection */
-[].collectThenDo { :each | 'error'.error } { :each | 'error'.error }.isEmpty /* neither block is run for empty collections */
+[].collectThenDo { :each | 'error'.error } { :each | 'error'.error } = [] /* neither block is run for empty collections */
 let n = 0; 3:7.collectThenDo(square/1) { :each | n := n + each } = [9, 16, 25, 36, 49] & { n = 135 } /* collect then do */
 [].ifEmptyIfNotEmptyDo { true } { :aCollection | false } = true /* branch on isEmpty */
 1:9.ifEmptyIfNotEmptyDo { false } { :aCollection | aCollection.size = 9 } = true /* branch on isEmpty */
@@ -1314,7 +1314,7 @@ let p = (x: 1); let q = (x: 2); p.declareFrom('x', q); [p, q] = [(x: 1), (x: 2)]
 let p = (:); let q = (x: 1); p.declareFrom('x', q); [p, q] = [(x: 1), (:)]
 let p = (:); let q = (x: 1); p.declareFrom('y', q); [p, q] = [(y: nil), (x: 1)]
 (x: 1, y: 2, z: 3).collect(square/1) = (x: 1, y: 4, z: 9)
-let d = (x: 1, y: 2, z: 3); d.replace(square/1); d = (x: 1, y: 4, z: 9) /* replace value at each key, in place collect */
+let d = (x: 1, y: 2, z: 3); d.collect!(square/1); d = (x: 1, y: 4, z: 9) /* replace value at each key, in place collect */
 { (x: 1).remove }.hasError /* should not implement, see removeKey */
 (x: 1, y: 2) ++ (x: 2, y: 1) = (x: 2, y: 1) /* appending two dictionaries is right-biased, unicode = ⧺ */
 (x: 1, y: 2) ++ ['z' -> 3] = (x: 1, y: 2, z: 3) /* append an array of associations to a dictionary */
@@ -1977,8 +1977,8 @@ let s = ''; 1:3.reverseDo { :x | s := s ++ x.printString }; s = '321' /* for loo
 let s = ''; [1, 3, 5].do { :x | s := s ++ x.printString }; s = '135' /* for loop (collection) */
 let n = 9; { n > 3 }.whileTrue { n := n - 1 }; n = 3 /* while true loop */
 let n = 9; { n < 7 }.whileFalse { n := n - 1 }; n = 6 /* while false loop */
-10.timesRepeat { nil } = 10 /* timesRepeat answers the receiver) */
-1.toDo(10) { :unused | nil } = 1 /* toDo answers the receiver */
+10.timesRepeat { 1 } = nil /* timesRepeat answers nil */
+1.toDo(10) { :x | x } = nil /* toDo answers nil */
 let a = []; 1:9.rejectThenDo(isEven/1) { :each | a.add(each * 3) }; a = [3, 9, 15, 21, 27] /* avoid intermediate collection */
 let a = []; 1:9.selectThenDo(isEven/1) { :each | a.add(each * 3) }; a = [6, 12, 18, 24] /* avoid intermediate collection */
 ```
@@ -2406,7 +2406,7 @@ let f = { }; f/0 == f/0 /* identity */
 { var x; nil }.value = nil /* a block cannot end with a var declaration */
 { let x = 1; nil }.value = nil /* a block cannot end with a let binding */
 { var c, a; c := [1]; a := { var a; a := 4; a }.value; { var a; a := 2; c.add(a); { var a; a := 3; c.add(a) }.value }.value; c.add(a); c }.value = [1, 2, 3, 4]
-1.toDo(10) { :index | nil } = 1 /* answers start index */
+1.toDo(10) { :x | x } = nil /* answers nil */
 valueWithReturn { :return/1 | 1.toDo(10) { :index | (index = 5).ifTrue { 5.return } } } = 5 /* non-local return */
 1.pi.assert { true } = 1.pi /* assert that block evaluates to true, answers self */
 { 1.pi.assert { false } }.hasError /* raise an error if block does not evaluate to true */
@@ -2912,7 +2912,7 @@ let a = [1 .. 9]; a.atAllPut([3 .. 7], 0); a = [1, 2, 0, 0, 0, 0, 0, 8, 9] /* se
 let a = [1 .. 9]; a.atAllPut(3:7, 0); a = [1, 2, 0, 0, 0, 0, 0, 8, 9] /* set all selected indices to a value */
 let l = [1 .. 9]; l.atAllPutAll([3 .. 7], [7, 6 .. 3]); l = [1 2 7 6 5 4 3 8 9] /* set all selected indices to corresponding values */
 let l = [1 .. 9]; l.atAllPutAll(3:7, 7:3:-1); l = [1 2 7 6 5 4 3 8 9] /* set all selected indices to corresponding values */
-let a = [1 .. 9]; a.replace { :each | each * each }; a = [1, 4, 9, 16, 25, 36, 49, 64, 81] /* in place collect */
+let a = [1 .. 9]; a.collect! { :each | each * each }; a = [1, 4, 9, 16, 25, 36, 49, 64, 81] /* in place collect */
 let c = [7, 2, 6, 1]; c.sort = [1, 2, 6, 7] & { c.sort != c } /* sorted copy */
 let c = [7, 2, 6, 1]; c.sortInPlace = [1, 2, 6, 7] & { c = [1, 2, 6, 7] } /* sort in place */
 [7, 2, 6, 1].asSortedList.contents = [1, 2, 6, 7]
@@ -2948,7 +2948,7 @@ let a = [1 .. 4]; a *= 2; a = [2, 4 .. 8] /* in place array/scalar multiplicatio
 let a = [1 .. 4]; a *= [4, 3 .. 1]; a = [4, 6, 6, 4] /* in place array/array multiplication */
 let a = [2, 4 .. 8]; a /= 2; a = [1, 2 .. 4] /* in place array/scalar division */
 let a = [2, 4 .. 8]; a /= [1 .. 4]; a = [2, 2, 2, 2] /* in place array/array division */
-let a = [9, 8 .. 1]; a.withReplace(1:9) { :p :q | p * 2 + q }; a = [19, 18 .. 11] /* in place withCollect */
+let a = [9, 8 .. 1]; a.withCollect!(1:9) { :p :q | p * 2 + q }; a = [19, 18 .. 11] /* in place withCollect */
 [7, 6 .. 4].indexValueAssociations = [1 -> 7, 2 -> 6, 3 -> 5, 4 -> 4] /* the (index -> value) associations of a sequence */
 let a = []; (x: 1, y: 2, z: 3).indicesDo { :each | a.add(each) }; a = ['x', 'y', 'z'] /* iterate indices */
 1:4.foldLeft(Association/2) = (((1 -> 2) -> 3) -> 4) /* fold, left associative */
