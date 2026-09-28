@@ -180,6 +180,18 @@
 		answer
 	}
 
+	binaryRunLengthEncode { :self |
+		(self < 0).if {
+			self.error('binaryRunLengthEncode: negative integer')
+		} {
+			(self = 0).if {
+				[]
+			} {
+				self.binaryExpansion.runLengths
+			}
+		}
+	}
+
 	bitIff { :p :q |
 		let k = p.bitLength.max(q.bitLength);
 		(k .. 1; -1).collect { :i |
@@ -1786,6 +1798,16 @@
 }
 
 +List {
+
+	binaryRunLengthDecode { :self |
+		self.isEmpty.if {
+			0
+		} {
+			let k = self.size;
+			let b = [1 0].reshape([k]);
+			self.replicate(b).binaryContraction
+		}
+	}
 
 	isAmicablePair { :self |
 		let [m, n] = self;

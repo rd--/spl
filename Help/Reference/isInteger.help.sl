@@ -223,6 +223,25 @@ OEIS [A076934](https://oeis.org/A076934):
 
 ![](Help/Image/isInteger-E.svg)
 
+Rotated binary decrementing,
+OEIS [A153151](https://oeis.org/A153151):
+
+~~~spl svg=F oeis=A153151
+0:70.collect { :n |
+	(n < 2).if {
+		n
+	} {
+		n.log(2).isInteger.if {
+			2 * n - 1
+		} {
+			n - 1
+		}
+	}
+}.discretePlot
+~~~
+
+![](Help/Image/isInteger-F.svg)
+
 _Rationale_:
 Note that this is not a `Type` predicate,
 and is only implemeted for numeric values.

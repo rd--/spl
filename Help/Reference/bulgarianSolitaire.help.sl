@@ -4,9 +4,20 @@
 
 Answer one step in the game of Bulgarian solitaire given an integer partition _p_.
 
+Specific values:
+
 ```
 >>> [2 1 1 1].bulgarianSolitaire
 [4 1]
+
+>>> [4 1].bulgarianSolitaire
+[3 2]
+
+>>> [1 1 1].bulgarianSolitaire
+[3]
+
+>>> [3].bulgarianSolitaire
+[2 1]
 ```
 
 Partitions that are of the form _n..1_,
@@ -14,6 +25,12 @@ so that the sum is a triangular number,
 answer the identity:
 
 ```
+>>> [2 1].bulgarianSolitaire
+[2 1]
+
+>>> 1:2.sum
+3
+
 >>> [4 3 2 1].bulgarianSolitaire
 [4 3 2 1]
 

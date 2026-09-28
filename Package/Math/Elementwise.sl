@@ -112,6 +112,10 @@
 		self.collect(binaryExpansion/1)
 	}
 
+	binaryRunLengthEncode { :self |
+		self.collect(binaryRunLengthEncode/1)
+	}
+
 	bitAnd { :self |
 		self.reduce(bitAnd/2)
 	}

@@ -2815,7 +2815,7 @@ let a = RunArray([23, 34, 45], ['a', 'b', 'a']); (a.allocatedSize / a.size * 100
 RunArray([1, 3, 5], ['a', 'b', 'c']).asList.stringIntercalate('') = 'abbbccccc' /* from runs and values, as array */
 [1 -> 'a', 3 -> 'b', 5 -> 'c'].associationListToRunArray.asList.stringIntercalate('') = 'abbbccccc' /* from associations, as array */
 [4 3 3 2 2 2 1 1 1 1].asRunArray = RunArray([1 2 3 4], [4 3 2 1]) /* from sequence */
-'abbbccccc'.characters.asRunArray.runs = [1 3 5]
+'abbbccccc'.characters.asRunArray.runLengths = [1 3 5]
 ```
 
 ## Sequence -- collection trait

@@ -1,11 +1,11 @@
-RunArray : [Object, Equal, Store, Indexable] { | runs values cachedIndex cachedRun cachedOffset |
+RunArray : [Object, Equal, Store, Indexable] { | runLengths values cachedIndex cachedRun cachedOffset |
 
 	[at, @] { :self :index |
 		self.atSetRunOffsetAndValue(index) { :run :offset :value |
 			(offset < 0).ifTrue {
 				self.errorInvalidIndex('at', index)
 			};
-			(offset >= self.runs[run]).ifTrue {
+			(offset >= self.runLengths[run]).ifTrue {
 				self.indexError(index)
 			};
 			value
@@ -21,14 +21,14 @@ RunArray : [Object, Equal, Store, Indexable] { | runs values cachedIndex cachedR
 	}
 
 	associations { :self |
-		self.runsAndValuesCollect { :key :value |
+		self.runLengthsAndValuesCollect { :key :value |
 			key -> value
 		}
 	}
 
 	asIdentityMultiset { :self |
 		let answer = IdentityMultiset();
-		self.runsAndValuesDo { :run :value |
+		self.runLengthsAndValuesDo { :run :value |
 			answer.addWithOccurrences(value, run)
 		};
 		answer
@@ -39,11 +39,11 @@ RunArray : [Object, Equal, Store, Indexable] { | runs values cachedIndex cachedR
 	}
 
 	allocatedSize { :self |
-		self.runs.size * 2 + 3
+		self.runLengths.size * 2 + 3
 	}
 
 	atSetRunOffsetAndValue { :self :index :aBlock/3 |
-		let limit = self.runs.size;
+		let limit = self.runLengths.size;
 		let run = nil;
 		let offset = nil;
 		(self.cachedIndex == nil | {
@@ -57,10 +57,10 @@ RunArray : [Object, Equal, Store, Indexable] { | runs values cachedIndex cachedR
 		};
 		{
 			run <= limit & {
-				offset >= self.runs[run]
+				offset >= self.runLengths[run]
 			}
 		}.whileTrue {
-			offset := offset - self.runs[run];
+			offset := offset - self.runLengths[run];
 			run := run + 1
 		};
 		self.cachedIndex := index;
@@ -68,14 +68,14 @@ RunArray : [Object, Equal, Store, Indexable] { | runs values cachedIndex cachedR
 		self.cachedOffset := offset;
 		(run > limit).ifTrue {
 			run := run - 1;
-			offset := offset + self.runs[run]
+			offset := offset + self.runLengths[run]
 		};
 		aBlock(run, offset, self.values[run])
 	}
 
 	do { :self :aBlock/1 |
-		1.toDo(self.runs.size) { :index |
-			let run = self.runs[index];
+		1.toDo(self.runLengths.size) { :index |
+			let run = self.runLengths[index];
 			let value = self.values[index];
 			{
 				run := run - 1;
@@ -91,7 +91,7 @@ RunArray : [Object, Equal, Store, Indexable] { | runs values cachedIndex cachedR
 			true
 		} {
 			anObject.isRunArray & {
-				self.runs.hasEqualElements(anObject.runs, aBlock/2) & {
+				self.runLengths.hasEqualElements(anObject.runLengths, aBlock/2) & {
 					self.values.hasEqualElements(anObject.values, aBlock/2)
 				}
 			}
@@ -119,37 +119,37 @@ RunArray : [Object, Equal, Store, Indexable] { | runs values cachedIndex cachedR
 	}
 
 	postCopy { :self |
-		self.runs := self.runs.copy;
+		self.runLengths := self.runLengths.copy;
 		self.values := self.values.copy
 	}
 
 	reverse { :self |
-		RunArray(self.runs.reverse, self.values.reverse)
+		RunArray(self.runLengths.reverse, self.values.reverse)
 	}
 
 	runLengthAt { :self :index |
 		self.atSetRunOffsetAndValue(index) { :run :offset :value |
-			self.runs[run] - offset
+			self.runLengths[run] - offset
 		}
 	}
 
-	runsAndValues { :self |
-		self.runsAndValuesCollect { :key :value |
+	runLengthsAndValues { :self |
+		self.runLengthsAndValuesCollect { :key :value |
 			[key, value]
 		}
 	}
 
-	runsAndValuesCollect { :self :aBlock/2 |
-		self.runs.withCollect(self.values, aBlock/2)
+	runLengthsAndValuesCollect { :self :aBlock/2 |
+		self.runLengths.withCollect(self.values, aBlock/2)
 	}
 
-	runsAndValuesDo { :self :aBlock/2 |
-		self.runs.withDo(self.values, aBlock/2)
+	runLengthsAndValuesDo { :self :aBlock/2 |
+		self.runLengths.withDo(self.values, aBlock/2)
 	}
 
 	runLengthsOf { :self :anObject |
 		let answer = [];
-		self.runsAndValuesDo { :run :value |
+		self.runLengthsAndValuesDo { :run :value |
 			(value = anObject).ifTrue {
 				answer.add(run)
 			}
@@ -158,13 +158,13 @@ RunArray : [Object, Equal, Store, Indexable] { | runs values cachedIndex cachedR
 	}
 
 	size { :self |
-		self.runs.sum
+		self.runLengths.sum
 	}
 
 	storeString { :self |
 		'RunArray(%, %)'.format(
 			[
-				self.runs.storeString,
+				self.runLengths.storeString,
 				self.values.storeString
 			]
 		)
@@ -172,8 +172,8 @@ RunArray : [Object, Equal, Store, Indexable] { | runs values cachedIndex cachedR
 
 	withIndexDo { :self :aBlock/2 |
 		let index = 0;
-		1.toDo(self.runs.size) { :runIndex |
-			let run = self.runs[runIndex];
+		1.toDo(self.runLengths.size) { :runIndex |
+			let run = self.runLengths[runIndex];
 			let value = self.values[runIndex];
 			{
 				(run := run - 1) >= 0
@@ -186,7 +186,7 @@ RunArray : [Object, Equal, Store, Indexable] { | runs values cachedIndex cachedR
 
 	withStartStopAndValueDo { :self :aBlock/3 |
 		let start = 1;
-		self.runs.withDo(self.values) { :length :value |
+		self.runLengths.withDo(self.values) { :length :value |
 			let stop = start + length - 1;
 			aBlock(start, stop, value);
 			start := stop + 1
@@ -202,7 +202,7 @@ RunArray : [Object, Equal, Store, Indexable] { | runs values cachedIndex cachedR
 	}
 
 	asRunArrayWith { :self :aBlock/1 |
-		let runs = [];
+		let runLengths = [];
 		let values = [];
 		let lastLength = 0;
 		let lastValue = nil;
@@ -213,7 +213,7 @@ RunArray : [Object, Equal, Store, Indexable] { | runs values cachedIndex cachedR
 				lastLength := lastLength + 1
 			} {
 				(lastLength > 0).ifTrue {
-					runs.add(lastLength);
+					runLengths.add(lastLength);
 					values.add(lastValue)
 				};
 				lastLength := 1;
@@ -221,10 +221,10 @@ RunArray : [Object, Equal, Store, Indexable] { | runs values cachedIndex cachedR
 			}
 		};
 		(lastLength > 0).ifTrue {
-			runs.add(lastLength);
+			runLengths.add(lastLength);
 			values.add(lastValue)
 		};
-		RunArray(runs, values)
+		RunArray(runLengths, values)
 	}
 
 	associationListToRunArray { :self |
@@ -243,7 +243,7 @@ RunArray : [Object, Equal, Store, Indexable] { | runs values cachedIndex cachedR
 +List {
 
 	runLengths { :self |
-		self.asRunArray.runs
+		self.asRunArray.runLengths
 	}
 
 	runLengthsOf { :self :anObject |

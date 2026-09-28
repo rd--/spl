@@ -33,7 +33,7 @@ OEIS [A101211](https://oeis.org/A101211):
 ~~~spl svg=A oeis=A101211
 1:21.collect { :n |
 	let d = n.binaryExpansion;
-	d.asRunArray.runs
+	d.asRunArray.runLengths
 }.catenate.discretePlot
 ~~~
 
@@ -49,7 +49,7 @@ OEIS [A227186](https://oeis.org/A227186):
 	} {
 		let d = n.binaryExpansion;
 		let a = d.reverse.asRunArray;
-		let r = a.runs;
+		let r = a.runLengths;
 		let c = r.size;
 		(k + 1 <= c).if {
 			r[k + 1]

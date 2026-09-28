@@ -170,7 +170,7 @@ OEIS [A005206](https://oeis.org/A005206):
 >>> let x = 0:76.collect { :n |
 >>> 	(n + 1).goldenRatio.floor - n - 1
 >>> };
->>> (x, x.asRunArray.runs)
+>>> (x, x.asRunArray.runLengths)
 (
 	[
 		 0  1  1  2  3  3  4  4  5  6

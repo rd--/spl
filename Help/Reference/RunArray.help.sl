@@ -15,12 +15,12 @@ Construct a `RunArray` from runs and values:
 'abbbccccc'
 ```
 
-The method `runs` answers an array of how many elements are in each run,
-and the method `values` answer an array of what the value is over those elements.
+The method `runLengths` answers a list of how many elements are in each run,
+and the method `values` answer a list of what the value is over those elements:
 
 ```
 >>> let a = RunArray([1 3 5], ['a' 'b' 'c']);
->>> (a.runs, a.values)
+>>> (a.runLengths, a.values)
 ([1 3 5], ['a' 'b' 'c'])
 ```
 
@@ -32,7 +32,7 @@ As a list of associations or a two column matrix:
 [1 -> 'a', 3 -> 'b', 5 -> 'c']
 
 >>> RunArray([1 3 5], ['a' 'b' 'c'])
->>> .runsAndValues
+>>> .runLengthsAndValues
 [1 'a'; 3 'b'; 5 'c']
 ```
 
