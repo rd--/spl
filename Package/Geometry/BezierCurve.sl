@@ -69,7 +69,7 @@ BezierCurve : [Object, Equal, Cache, Geometry] { | controlPoints splineDegree ca
 			let answer = [];
 			let sum = 0;
 			self.componentDistanceList.collect { :each |
-				answer.addAllLast(each + sum);
+				answer.addAllLast!(each + sum);
 				sum := answer.last
 			};
 			answer

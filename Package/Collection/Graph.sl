@@ -685,7 +685,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 		}
 	}
 
-	edgeWeights { :self :aList |
+	edgeWeights! { :self :aList |
 		self.properties['edgeWeights'] := aList;
 		self
 	}
@@ -716,7 +716,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 		self.properties['vertexCoordinates']
 	}
 
-	vertexCoordinates { :self :aList |
+	vertexCoordinates! { :self :aList |
 		self.properties['vertexCoordinates'] := aList;
 		self
 	}
@@ -725,7 +725,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 		self.properties['vertexLabels']
 	}
 
-	vertexLabels { :self :aList |
+	vertexLabels! { :self :aList |
 		self.properties['vertexLabels'] := aList;
 		self
 	}
@@ -912,7 +912,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 		};
 		let g = Graph(v, e);
 		withLabels.ifTrue {
-			g.vertexLabels(
+			g.vertexLabels!(
 				s.collect { :each |
 					each.collect(asString/1).stringCatenate
 				}
@@ -999,9 +999,9 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 				}
 			}
 		};
-		Graph([1 .. m * n], e).also { :g |
-			g.vertexCoordinates(c)
-		}
+		let g = Graph([1 .. m * n], e);
+		g.vertexCoordinates!(c);
+		g
 	}
 
 	knightGraph { :m |
@@ -1254,7 +1254,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 			let [i, j] = each;
 			self[i][j]
 		};
-		g.edgeWeights := w;
+		g.edgeWeights!(w);
 		g
 	}
 

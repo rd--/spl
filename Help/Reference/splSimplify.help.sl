@@ -230,14 +230,14 @@ f(x, { :i | i })
 F(Record([['k', v]]))
 ```
 
-`Slot Assignment Syntax` is rewritten as `Apply Syntax`:
+`Dot Assignment Syntax` is rewritten as `Apply Syntax`:
 
 ```
 >> 'p.x := 0'.splSimplify
-x(p, 0)
+xMutateInPlace(p, 0)
 
 >> 'p.q.x := a.b'.splSimplify
-x(q(p), b(a))
+xMutateInPlace(q(p), b(a))
 ```
 
 `At Syntax` is rewritten as `Apply Syntax`:

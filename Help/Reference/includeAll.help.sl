@@ -30,7 +30,7 @@ At `UnsortedSet`:
 ```
 >>> let c = [1 2 2.00001 3 3.00001 3.00002];
 >>> let r = UnsortedSet();
->>> r.comparator(~);
+>>> r.comparator := ~;
 >>> (r.includeAll!(c), r.size, r.asList)
 (c, 3, [1 2 3])
 ```

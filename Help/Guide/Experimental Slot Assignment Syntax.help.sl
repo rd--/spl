@@ -6,17 +6,19 @@ Rewrite rules:
 
 Syntax to allow setting an instance variable using assignment syntax.
 
-For type _t_ with an instance variable _v_ the system generates two methods,
-_v(t)_ reads the slot,
-_v(t, x)_ sets the slot.
+For type _t_ with an instance variable _v_,
+if the system generates the two methods:
 
-This syntax can be used for any arity two method,
+- _v(t)_: read the slot
+- _v!(t, x)_: set the slot
+
+Then `Dot Assignment Syntax` could be used for any arity two method with an _InPlace_ suffix,
 however it is a rather confusing notation if the method is not some form of set mechanism:
 
-```
->>> (7.hypotenuse := 3)
-hypotenuse(7, 3)
-```
+~~~spl experimental
+([1 2 3].add := 4)
+add!([1 2 3], 3)
+~~~
 
 _Rationale_:
 The current notation makes _p.q(r)_ and _p.q := r_ synonyms.

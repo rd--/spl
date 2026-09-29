@@ -291,8 +291,8 @@ let a = [1, 2, 3]; a == a = true /* array self identity */
 4 * [1, 2, 3] = [4, 8, 12] /* scalar List math */
 [1, 3, 5, 7].reverse = [7, 5, 3, 1] /* reverse answers new array */
 let a = [1, 3, 5, 7]; a.reverse != a /* reverse answers new array */
-let a = [1, 3, 5, 7]; a.reverse! = a /* reverse array in place */
-let a = [1, 3, 5, 7]; a.reverse!; a = [7, 5, 3, 1] /* array reverse (in place) */
+let a = [1, 3, 5, 7]; a.reverse! = a /* reverse array in-place */
+let a = [1, 3, 5, 7]; a.reverse!; a = [7, 5, 3, 1] /* array reverse in-place */
 [1, 2, 3, 5, 7, 9].sum = 27 /* sum of elements, unicode = Σ */
 [1, 2, 3, 5, 7, 9].reduce { :a :b | a + b } = 27 /* reduce by plus is sum */
 1:4.reduce { :sum :each | sum + each } = 10 /* sum is first argument, element is second */
@@ -348,11 +348,11 @@ let l = [1, 2, 3]; l.atModify(2, nil, square/1) = 4 & { l = [1, 4, 3] } /* modif
 [[1, 2, 3, 4], [5, 6, 7, 8]].transpose = [[1, 5], [2, 6], [3, 7], [4, 8]]
 [1 2 3; 4 5 6].transpose = [1 4; 2 5; 3 6] /* transposed, matrix syntax */
 1.toAsCollect(9, List/1) { :each | each * each } = [1, 4, 9, 16, 25, 36, 49, 64, 81]
-let a = [1 .. 9]; a.shuffle; a != [1 .. 9] /* shuffle in place, using system Random */
-let a = [1 .. 9]; let r = Sfc32(13579); a.shuffle(r); a = [9, 8, 2, 3, 5, 7, 1, 4, 6] /* shuffle in place, using given Random */
+let a = [1 .. 9]; a.shuffle!; a != [1 .. 9] /* shuffle in-place, using system Random */
+let a = [1 .. 9]; let r = Sfc32(13579); a.shuffle!(r); a = [9, 8, 2, 3, 5, 7, 1, 4, 6] /* shuffle in-place, using given Random */
 let a = [1 .. 9]; a.shuffle != a & { a = [1 .. 9] } /* copying shuffle */
-[1 .. 9].shuffle!.sort! = [1 .. 9] /* resort after shuffle */
-[].shuffle = []
+[1 .. 9].shuffle!.sort! = [1 .. 9] /* re-sort after shuffle */
+[].shuffle! = []
 14.fibonacciSequence = [0 1 1 2 3 5 8 13 21 34 55 89 144 233]
 3 # [3] = [3 3 3]
 [1, 2, 3, 4, 3, 2, 1].detectMax(identity/1) = 4
@@ -539,8 +539,8 @@ let a = [1 1 3 4]; a @* [2 4 3 1] = [1 4 3 1] /* atAll operator */
 ## PrimitiveArray -- collection trait
 ```
 system.includesPackage('PrimitiveArray') /* package */
-let a = [1, 7, 3, 9, 5]; let b = a.sortBy! { :p :q | p >= q }; a = [9, 7 .. 1] & { a == b } /* sort using provided comparison, in place */
-[1, 7, 3, 9, 5].sortBy! { :p :q | p >= q } = [9, 7 .. 1] /* sort using provided comparison, in place answering array */
+let a = [1, 7, 3, 9, 5]; let b = a.sortBy! { :p :q | p >= q }; a = [9, 7 .. 1] & { a == b } /* sort using provided comparison, in-place */
+[1, 7, 3, 9, 5].sortBy! { :p :q | p >= q } = [9, 7 .. 1] /* sort using provided comparison, in-place answering array */
 [1, 7, 3, 9, 5].sort! = [1, 3 .. 9] /* sort using default comparison of <= */
 let a = [(x: 1, y: 9), (x: 9, y: 1)]; let b = a.sortOn! { :each | each['y'] }; a = [(x: 9, y: 1), (x: 1, y: 9)] & { b == a } /* sort using provided key block */
 ```
@@ -595,7 +595,7 @@ let c = 'xyyzzz'.characters; let r = IdentityMultiset(); r.addAll!(c); r.size = 
 [2, 3, 3, 5, 5, 5, 7, 7, 7, 7].asIdentityMultiset.size = 10
 [2, 3, 5, 7, 3, 5, 7, 5, 7, 7].asIdentityMultiset.sortedCounts = [4 -> 7, 3 -> 5, 2 -> 3, 1 -> 2]
 [2, 3, 5, 7, 3, 5, 7, 5, 7, 7].asIdentityMultiset.sortedElements = [2 -> 1, 3 -> 2, 5 -> 3, 7 -> 4]
-let b = IdentityMultiset(); let o = ['1' -> 10, '2' -> 1, '3' -> 5]; o.collect { :a | b.addWithOccurrences(a.key, a.value) }; b.sortedElements = o
+let b = IdentityMultiset(); let o = ['1' -> 10, '2' -> 1, '3' -> 5]; o.collect { :a | b.addWithOccurrences!(a.key, a.value) }; b.sortedElements = o
 [1, 3, 5, 1, 3, 1].asIdentityMultiset.sort = [1, 1, 1, 3, 3, 5] /* array of elements, sorted */
 [1, 3, 5, 1, 5, 1].asIdentityMultiset.sort = [1, 1, 1, 3, 5, 5] /* array of elements, sorted */
 [1, 3, 5, 1, 3, 1].asIdentityMultiset.sortedCounts = [3 -> 1, 2 -> 3, 1 -> 5]
@@ -613,7 +613,7 @@ let c = IdentityMultiset(); { c.remove!('x') }.hasError
 [nil].asIdentityMultiset.occurrencesOf(nil) = 1 /* count occurrences of nil */
 let c = [2, 3, 3, 4, 4, 4].asIdentityMultiset; c.copy = c /* copy answers new equal Multiset */
 let c = [2, 3, 3, 4, 4, 4].asIdentityMultiset; c.copy !== c /* copy does not answer argument */
-let c = IdentityMultiset(); c.addWithOccurrences('x', 4); c.occurrencesOf('x') = 4
+let c = IdentityMultiset(); c.addWithOccurrences!('x', 4); c.occurrencesOf('x') = 4
 [2, 3, 3, 4, 4, 4].asIdentityMultiset.asIdentitySet.size = 3 /* number of unique elements */
 [2, 3, 3, 4, 4, 4].asIdentityMultiset.asIdentitySet.occurrencesOf(3) = 1
 let s = IdentityMultiset(); 250.timesRepeat { s.add!([1 .. 4].shuffle!.asString) }; s.asIdentitySet.size = 24
@@ -1314,7 +1314,7 @@ let p = (x: 1); let q = (x: 2); p.declareFrom('x', q); [p, q] = [(x: 1), (x: 2)]
 let p = (:); let q = (x: 1); p.declareFrom('x', q); [p, q] = [(x: 1), (:)]
 let p = (:); let q = (x: 1); p.declareFrom('y', q); [p, q] = [(y: nil), (x: 1)]
 (x: 1, y: 2, z: 3).collect(square/1) = (x: 1, y: 4, z: 9)
-let d = (x: 1, y: 2, z: 3); d.collect!(square/1); d = (x: 1, y: 4, z: 9) /* replace value at each key, in place collect */
+let d = (x: 1, y: 2, z: 3); d.collect!(square/1); d = (x: 1, y: 4, z: 9) /* replace value at each key, in-place collect */
 { (x: 1).remove!('x') }.hasError /* should not implement, see removeKey */
 (x: 1, y: 2) ++ (x: 2, y: 1) = (x: 2, y: 1) /* appending two dictionaries is right-biased, unicode = ⧺ */
 (x: 1, y: 2) ++ ['z' -> 3] = (x: 1, y: 2, z: 3) /* append an array of associations to a dictionary */
@@ -1405,8 +1405,8 @@ let a = Float64Array(8); a.atPut(1, 1.pi) = 1.pi & { a.at(1) = 1.pi }
 let a = Float64Array(8); (a[1] := 1.pi) = 1.pi & { a[1] = 1.pi }
 1:9.asFloat64Array.isFloat64Array = true /* interval as array */
 1:9.asFloat64Array.reverse = 9:1:-1.asFloat64Array /* reverse copy */
-let a = [1 .. 9].asFloat64Array; a.reverse!; a = 9:1:-1.asFloat64Array /* reverse in place */
-let a = 9:1:-1.asFloat64Array; a.sort!; a = 1:9.asFloat64Array /* sort in place */
+let a = [1 .. 9].asFloat64Array; a.reverse!; a = 9:1:-1.asFloat64Array /* reverse in-place */
+let a = 9:1:-1.asFloat64Array; a.sort!; a = 1:9.asFloat64Array /* sort in-place */
 { Float64Array(1).atPut(3, 'x') }.hasError /* out of bounds error */
 let a = Float64Array(1); a.uncheckedAtPut(1, 'x'); a.at(1).isNaN = true /* unsafe mutation inserts NaN */
 let a = Float64Array(1); a.uncheckedAtPut(3, 'x'); a.uncheckedAt(3) = nil /* unsafe mutation does not extend array */
@@ -2050,7 +2050,7 @@ let l = [1 .. 9].asLinkedList; l.removeFirst!; l.first = 2 /* remove first */
 let l = [1 .. 9].asLinkedList; l.removeLast!; l.last = 8 /* remove last */
 let l = [1].asLinkedList; l.removeFirst! = 1 & { l.isEmpty } /* remove first */
 let l = [1].asLinkedList; l.removeLast! = 1 & { l.isEmpty } /* remove last */
-let l = [1 .. 5].asLinkedList; l.removeAllSuchThat!(isOdd/1); l.asList = [2, 4] /* in place reject */
+let l = [1 .. 5].asLinkedList; l.removeAllSuchThat!(isOdd/1); l.asList = [2, 4] /* in-place reject */
 let l = 1:99.asLinkedList; l.removeAll!; l.isEmpty /* remove all */
 1:99.asLinkedList.select(isEven/1).asList = [2, 4 .. 98] /* select */
 1:9.asLinkedList.selectThenCollect(isEven/1, square/1).asList = [4, 16, 36, 64] /* avoid intermediate collection */
@@ -2826,8 +2826,8 @@ system.includesPackage('Sequence') /* package */
 [1, 3, 2, 4, 5].sort = [1, 2, 3, 4, 5] /* sort using default comparison (answer new array) */
 [1, 3, 2, 4, 5].sort { :i :j | i > j } = [5, 4 .. 1] /* sort using provided comparison (answer new array) */
 [3, 3, 3, 2, 2, 1].sort.size = 6 /* sort retains duplicates */
-let c = [3, 2, 1]; c.sort!; c = [1, 2, 3] /* sort is in place (mutating) */
-let a = [3, 2, 1]; a.sort! = a /* sort is in place (mutating) */
+let c = [3, 2, 1]; c.sort!; c = [1, 2, 3] /* sort is in-place (mutating) */
+let a = [3, 2, 1]; a.sort! = a /* sort is in-place (mutating) */
 let a = [3, 2, 1]; a.sort != a /* sort answers a new array */
 let c = [3, 2, 1]; let r = c.sort; c != r /* sort (answer a new array) */
 [1 .. 5].isSorted /* is sequence sorted */
@@ -2868,7 +2868,7 @@ let s = ''; [1 9 2 8 3 7 4 6].reverseDo { :i | s := s ++ i.printString }; s = '6
 [1 .. 9] != 1:9 /* an array is not equal to an interval */
 1:9 != [1 .. 9] /* an interval is not equal to an array */
 [1.5 .. 9.5].middle = 5.5 /* range start need not be an integer */
-let c = [1 .. 5]; c.swapWith!(1, 4); c = [4, 2, 3, 1, 5] /* swap elements at indices in place */
+let c = [1 .. 5]; c.swapWith!(1, 4); c = [4, 2, 3, 1, 5] /* swap elements at indices in-place */
 { [1 .. 5].swapWith!(1, 9) }.hasError /* it is an error if an index is invalid */
 [1, [2, [3, [4, [5], 6], 7], 8], 9].flatten = [1 .. 9] /* catenate removing all nesting */
 [1, [2, [3, ['45', 6], '78']], 9].flatten = [1, 2, 3, '45', 6, '78', 9] /* strings are not flatten to sequences of characters */
@@ -2876,7 +2876,7 @@ let c = [1 .. 5]; c.swapWith!(1, 4); c = [4, 2, 3, 1, 5] /* swap elements at ind
 1:9.rotateLeft(3) = ([4 .. 9] ++ [1 .. 3]) /* rotate left */
 1:7.rotateLeft(3) = [4 5 6 7 1 2 3] /* rotate left */
 1:7.rotateLeft(-4) = [4 5 6 7 1 2 3] /* negative argument rotates right */
-let a = [1 .. 9]; a.rotateLeft(3) !== a /* rotation is not in place */
+let a = [1 .. 9]; a.rotateLeft(3) !== a /* rotation is not in-place */
 1:9.rotateRight(3) = ([7 .. 9] ++ [1 .. 6]) /* rotate right */
 1:7.rotateRight(3) = [5 6 7 1 2 3 4] /* rotate right */
 1:7.rotateRight(-4) = [5 6 7 1 2 3 4] /* negative argument rotates left */
@@ -2912,9 +2912,9 @@ let a = [1 .. 9]; a.atAllPut([3 .. 7], 0); a = [1, 2, 0, 0, 0, 0, 0, 8, 9] /* se
 let a = [1 .. 9]; a.atAllPut(3:7, 0); a = [1, 2, 0, 0, 0, 0, 0, 8, 9] /* set all selected indices to a value */
 let l = [1 .. 9]; l.atAllPutAll([3 .. 7], [7, 6 .. 3]); l = [1 2 7 6 5 4 3 8 9] /* set all selected indices to corresponding values */
 let l = [1 .. 9]; l.atAllPutAll(3:7, 7:3:-1); l = [1 2 7 6 5 4 3 8 9] /* set all selected indices to corresponding values */
-let a = [1 .. 9]; a.collect! { :each | each * each }; a = [1, 4, 9, 16, 25, 36, 49, 64, 81] /* in place collect */
+let a = [1 .. 9]; a.collect! { :each | each * each }; a = [1, 4, 9, 16, 25, 36, 49, 64, 81] /* in-place collect */
 let c = [7, 2, 6, 1]; c.sort = [1, 2, 6, 7] & { c.sort != c } /* sorted copy */
-let c = [7, 2, 6, 1]; c.sort! = [1, 2, 6, 7] & { c = [1, 2, 6, 7] } /* sort in place */
+let c = [7, 2, 6, 1]; c.sort! = [1, 2, 6, 7] & { c = [1, 2, 6, 7] } /* sort in-place */
 [7, 2, 6, 1].asSortedList.contents = [1, 2, 6, 7]
 [7 2 6 1].sort!(>) = [7 6 2 1]
 let n = 0; [3 .. 7].allButFirstDo { :each | n := n + each }; n = [4 .. 7].sum /* iterate skipping first element */
@@ -2940,15 +2940,15 @@ let a = [1 .. 7]; a.replaceFromToWith(3, 5, [-3, -4, -5]); a = [1, 2, -3, -4, -5
 let a = [1 .. 7]; a.replaceFromToWithStartingAt(3, 5, [-3, -4, -5], 1); a = [1, 2, -3, -4, -5, 6, 7]
 [1 .. 7].forceToPaddingWith(9, 0) = [1, 2, 3, 4, 5, 6, 7, 0, 0] /* copy of sequence with required length and initializer */
 [1 .. 7].forceToPaddingWith(5, 0) = [1 .. 5] /* partial copy */
-let a = [1 .. 4]; a += 8; a = [9 .. 12] /* in place array/scalar addition */
-let a = [1 .. 4]; a += [4, 3 .. 1]; a = [5, 5, 5, 5] /* in place array/array addition */
-let a = [5 .. 8]; a -= 4; a = [1 .. 4] /* in place array/scalar subtraction */
-let a = [5 .. 8]; a -= [4, 3 .. 1]; a = [1, 3 .. 7] /* in place array/array subtraction */
-let a = [1 .. 4]; a *= 2; a = [2, 4 .. 8] /* in place array/scalar multiplication */
-let a = [1 .. 4]; a *= [4, 3 .. 1]; a = [4, 6, 6, 4] /* in place array/array multiplication */
-let a = [2, 4 .. 8]; a /= 2; a = [1, 2 .. 4] /* in place array/scalar division */
-let a = [2, 4 .. 8]; a /= [1 .. 4]; a = [2, 2, 2, 2] /* in place array/array division */
-let a = [9, 8 .. 1]; a.withCollect!(1:9) { :p :q | p * 2 + q }; a = [19, 18 .. 11] /* in place withCollect */
+let a = [1 .. 4]; a += 8; a = [9 .. 12] /* in-place array/scalar addition */
+let a = [1 .. 4]; a += [4, 3 .. 1]; a = [5, 5, 5, 5] /* in-place array/array addition */
+let a = [5 .. 8]; a -= 4; a = [1 .. 4] /* in-place array/scalar subtraction */
+let a = [5 .. 8]; a -= [4, 3 .. 1]; a = [1, 3 .. 7] /* in-place array/array subtraction */
+let a = [1 .. 4]; a *= 2; a = [2, 4 .. 8] /* in-place array/scalar multiplication */
+let a = [1 .. 4]; a *= [4, 3 .. 1]; a = [4, 6, 6, 4] /* in-place array/array multiplication */
+let a = [2, 4 .. 8]; a /= 2; a = [1, 2 .. 4] /* in-place array/scalar division */
+let a = [2, 4 .. 8]; a /= [1 .. 4]; a = [2, 2, 2, 2] /* in-place array/array division */
+let a = [9, 8 .. 1]; a.withCollect!(1:9) { :p :q | p * 2 + q }; a = [19, 18 .. 11] /* in-place withCollect */
 [7, 6 .. 4].indexValueAssociations = [1 -> 7, 2 -> 6, 3 -> 5, 4 -> 4] /* the (index -> value) associations of a sequence */
 let a = []; (x: 1, y: 2, z: 3).indicesDo { :each | a.add!(each) }; a = ['x', 'y', 'z'] /* iterate indices */
 1:4.foldLeft(Association/2) = (((1 -> 2) -> 3) -> 4) /* fold, left associative */
@@ -3829,7 +3829,7 @@ system.typeDictionary['Association'].slotNameList = ['key', 'value']
 system.typeDictionary['Association'].methodDictionary.indices.includes('equalBy/3')
 system.typeDictionary['Association'].methodDictionary.includesIndex('key/1') = true
 system.typeDictionary['Nil'].methodDictionary.includesIndex('ifNil/2') = true
-system.typeLookup('Association').methodDictionary.select { :each | each.name = 'key' }.size = 2
+system.typeLookup('Association').methodDictionary.select { :each | each.name = 'key' }.size = 1
 system.typeLookup('Association').methodDictionary.anySatisfy { :each | each.name = 'copy' } = false
 system.typeLookup('List').isType = true
 system.typeLookup('List').name = 'List'
@@ -4041,16 +4041,16 @@ PlanarCoordinates([-1, 1]).isPlanarCoordinates = true /* point constructor */
 [-1 1].asPlanarCoordinates.y = 1
 PlanarCoordinates([-1, 1]).x = -1
 PlanarCoordinates([-1, 1]).y = 1
-PlanarCoordinates([-1, 1]).x(-3) = -3
-PlanarCoordinates([-1, 1]).y(3) = 3
+PlanarCoordinates([-1, 1]).x!(-3) = -3
+PlanarCoordinates([-1, 1]).y!(3) = 3
 [-1, 1] * 9 = [-9, 9]
 [-1, 1] + 2 = [1, 3]
 2 * ([1, 1].-) * 2 = ([4, 4].-)
 PlanarCoordinates([-1, 1]).asString = 'PlanarCoordinates([-1, 1])'
 [1, 1].negate = [-1, -1] /* negation */
 0 - [1, 1] = [-1, -1] /* negation as subtraction from zero */
-let p = PlanarCoordinates([-1, 1]); p.x := -3; p.y := 3; p = PlanarCoordinates([-3, 3]) = true
-let p = PlanarCoordinates([-1, 3]); let a = [p]; a.first.x := -3; p = PlanarCoordinates([-3, 3]) = true
+let p = PlanarCoordinates([-1, 1]); p.x!(-3); p.y!(3); p = PlanarCoordinates([-3, 3]) = true
+let p = PlanarCoordinates([-1, 3]); let a = [p]; a.first.x!(-3); p = PlanarCoordinates([-3, 3]) = true
 let x = 3.141; let y = 23; let p = PlanarCoordinates([x, y]); p.x = x & { p.y = y }
 [1 0; 1 1; 0 1; -1 1; -1 0; 0 -1].asPlanarCoordinates.collect(theta/1) = (1.pi * [0, 1 / 4, 1 / 2, 3 / 4, 1, -1 / 2]) /* theta = angle from (1,0) */
 PlanarCoordinates([200, 100]).x = 200 /* x coordinate */
@@ -4072,9 +4072,9 @@ let v = PlanarCoordinates([3, 4]); v.first = 3 & { v.second = 4 } /* implements 
 let v = PlanarCoordinates([3, 4]); v[1] = 3 & { v[2] = 4 } /* implements at */
 let v = PlanarCoordinates([3, 4]); v[1] := 7; v.first = 7 /* implements atPut */
 PlanarCoordinates([3, 4]).size = 2 /* implements size */
-let v = PlanarCoordinates([3 4]); v.swap!; v[1] = 4 /* swap fields in place */
+let v = PlanarCoordinates([3 4]); v.swap!; v[1] = 4 /* swap fields in-place */
 PlanarCoordinates([3 4]).swap = PlanarCoordinates([4, 3]) /* swap x&y */
-let v = PlanarCoordinates([0, 0]); let c = v.copy; c.x := 1; c != v & { c = PlanarCoordinates([1, 0]) } /* copy two vector */
+let v = PlanarCoordinates([0, 0]); let c = v.copy; c.x!(1); c != v & { c = PlanarCoordinates([1, 0]) } /* copy two vector */
 PlanarCoordinates([1, 1]).asPolarCoordinates = PolarCoordinates([2.sqrt, 0.25.pi]) /* radius and angle, r and theta */
 [0 0].asPlanarCoordinates.isPlanarCoordinates /* array as point, point predicate */
 [0 0].asPlanarCoordinates.isOrigin /* are x and y both zero */

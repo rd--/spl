@@ -127,7 +127,7 @@ LinkedList : [Object, Equal, Store, Copyable, Compare, Iterable, Indexable, Coll
 			'LinkedList>>atPutLink: errorOutOfBounds'.error
 		};
 		(index = 1).if {
-			aLink.nextLink(self.firstLink.nextLink);
+			aLink.nextLink := self.firstLink.nextLink;
 			self.firstLink := aLink;
 			aLink.nextLink.ifNil {
 				self.lastLink := aLink
@@ -136,14 +136,14 @@ LinkedList : [Object, Equal, Store, Copyable, Compare, Iterable, Indexable, Coll
 			let previousLink = self.linkAt(index - 1);
 			let nextLink = previousLink.nextLink.nextLink;
 			nextLink.ifNil {
-				aLink.nextLink(self.lastLink)
+				aLink.nextLink := self.lastLink
 			} {
-				aLink.nextLink(nextLink)
+				aLink.nextLink := nextLink
 			};
-			previousLink.nextLink(aLink);
+			previousLink.nextLink := aLink;
 			nextLink.ifNil {
 				self.lastLink := aLink;
-				aLink.nextLink(nil)
+				aLink.nextLink := nil
 			}
 		};
 		aLink
@@ -237,7 +237,7 @@ LinkedList : [Object, Equal, Store, Copyable, Compare, Iterable, Indexable, Coll
 			{
 				aLink.nextLink.isNil
 			}.whileFalse {
-				aLink.nextLink(aLink := aLink.nextLink.copy)
+				aLink.nextLink := (aLink := aLink.nextLink.copy)
 			};
 			self.lastLink := aLink
 		}

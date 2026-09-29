@@ -52,7 +52,7 @@
 	}
 
 	randomCycle { :self :anInteger |
-		anInteger.iota.sattoloShuffle(self).asPermutation
+		anInteger.iota.sattoloShuffle!(self).asPermutation
 	}
 
 	randomInteger { :self :range :shape |

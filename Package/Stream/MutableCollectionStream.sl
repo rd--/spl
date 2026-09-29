@@ -26,7 +26,7 @@ MutableCollectionStream : [Object, Iterator, Stream, PositionableStream, WriteSt
 		(self.position >= self.writeLimit).if {
 			self.pastEndPut(anObject)
 		} {
-			self.position := self.position + 1;
+			self.position!(self.position + 1);
 			self.collection[self.position] := anObject
 		}
 	}
@@ -38,7 +38,7 @@ MutableCollectionStream : [Object, Iterator, Stream, PositionableStream, WriteSt
 				self.growTo(newEnd)
 			};
 			self.collection.replaceFromToWithStartingAt(self.position + 1, newEnd, aCollection, 1);
-			self.position := newEnd
+			self.position!(newEnd)
 		} {
 			1.toDo(aCollection.size) { :index |
 				self.nextPut(aCollection[index])
@@ -50,12 +50,12 @@ MutableCollectionStream : [Object, Iterator, Stream, PositionableStream, WriteSt
 	pastEndPut { :self :anObject |
 		self.collection := self.collection.grownBy(self.collection.size.max(20).min(1000000));
 		self.writeLimit := self.collection.size;
-		self.position := self.position + 1;
+		self.position!(self.position + 1);
 		self.collection[self.position] := anObject;
 		anObject
 	}
 
-	position { :self :anInteger |
+	position! { :self :anInteger |
 		anInteger.isNegative.if {
 			self.positionError
 		} {
@@ -64,7 +64,7 @@ MutableCollectionStream : [Object, Iterator, Stream, PositionableStream, WriteSt
 	}
 
 	reset { :self |
-		self.position := 0
+		self.position!(0)
 	}
 
 	size { :self |

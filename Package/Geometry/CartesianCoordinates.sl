@@ -78,7 +78,7 @@
 		self.coordinates[1]
 	}
 
-	x { :self :anObject |
+	x! { :self :anObject |
 		self.coordinates[1] := anObject
 	}
 
@@ -91,7 +91,7 @@
 		}
 	}
 
-	y { :self :anObject |
+	y! { :self :anObject |
 		self.coordinates[2] := anObject
 	}
 
@@ -104,7 +104,7 @@
 		}
 	}
 
-	z { :self :anObject |
+	z! { :self :anObject |
 		self.coordinates[3] := anObject
 	}
 

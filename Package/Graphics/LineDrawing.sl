@@ -46,7 +46,7 @@ LineDrawing : [Object] { | contents metadata |
 		}
 	}
 
-	height { :self :aNumber |
+	height! { :self :aNumber |
 		self.metadata.atPut('height', aNumber)
 	}
 

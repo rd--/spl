@@ -128,12 +128,12 @@
 		x
 	}
 
-	sattoloShuffle { :self :rng |
-		rng.sattoloShuffle(self)
+	sattoloShuffle! { :self :rng |
+		rng.sattoloShuffle!(self)
 	}
 
-	sattoloShuffle { :self |
-		system.sattoloShuffle(self)
+	sattoloShuffle! { :self |
+		system.sattoloShuffle!(self)
 	}
 
 	shuffle! { :self :rng |
@@ -145,10 +145,10 @@
 	}
 
 	shuffle { :self :rng |
-		self.copy.fisherYatesShuffle(rng)
+		self.copy.fisherYatesShuffle!(rng)
 	}
 
-	shuffl { :self |
+	shuffle { :self |
 		self.copy.fisherYatesShuffle!
 	}
 

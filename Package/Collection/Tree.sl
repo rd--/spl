@@ -221,9 +221,9 @@ Tree : [Object, Store, Equal, Iterable, Indexable] { | value subTrees |
 				)
 			}
 		};
-		edgeList.asGraph.also { :graph |
-			graph.vertexLabels := vertexLabels
-		}
+		let graph = edgeList.asGraph;
+		graph.vertexLabels!(vertexLabels);
+		graph
 	}
 
 	[treeToList, asList] { :self |

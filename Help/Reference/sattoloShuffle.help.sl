@@ -1,6 +1,6 @@
-# sattoloShuffle
+# sattoloShuffle!
 
-- _sattoloShuffle([x₁ x₂ …], r)_
+- _sattoloShuffle!([x₁ x₂ …], r)_
 
 Shuffle a sequence _x_ in-place using the Sattolo algorithm,
 which generates uniformly distributed cycles of maximal length,
@@ -12,7 +12,7 @@ Shuffle a list of nine places:
 ```
 >>> let r = Sfc32(21791);
 >>> let x = [1 .. 9];
->>> x.sattoloShuffle(r)
+>>> x.sattoloShuffle!(r)
 [5 1 6 9 3 4 2 7 8]
 ```
 
@@ -22,7 +22,7 @@ noting that the permutation contains only one cycle:
 ```
 >>> let r = Sfc32(38014);
 >>> let x = [1 .. 17];
->>> x.sattoloShuffle(r);
+>>> x.sattoloShuffle!(r);
 >>> x.asPermutation
 [
 	[

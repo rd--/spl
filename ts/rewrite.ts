@@ -455,7 +455,7 @@ const asSl: ohm.ActionDict<string> = {
 		return answer;
 	},
 	DotExpressionWithAssignmentSyntax(lhs, _dot, name, _colonEquals, rhs) {
-		return `${name.asSl}(${lhs.asSl}, ${rhs.asSl})`;
+		return `${name.asSl}MutateInPlace(${lhs.asSl}, ${rhs.asSl})`;
 	},
 	DotExpressionWithTrailingClosuresSyntax(lhs, _dot, name, args, trailing) {
 		return `${name.asSl}(${

@@ -1,9 +1,9 @@
-# vertexLabels
+# vertexLabels (vertexLabels!)
 
-- _vertexLabels(aGraph)_
-- _vertexLabels(aGraph)_ := aList
+- _vertexLabels(g)_
+- _vertexLabels!(g, l)_
 
-Answer, or assign, the vertex labels of _aGraph_.
+Answer, or assign, the vertex labels of the graph _g_.
 
 Labels are arbitrary values associated with each vertex.
 

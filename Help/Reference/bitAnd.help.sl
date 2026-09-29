@@ -161,7 +161,7 @@ let a = [];
 		j := j + 1
 	};
 	g[j + 1] := g[j + 1] + i;
-	a.add := j
+	a.add!(j)
 };
 a.scatterPlot
 ~~~

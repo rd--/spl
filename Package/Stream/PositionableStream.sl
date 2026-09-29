@@ -27,7 +27,7 @@
 			let savedPosition = self.position;
 			aCollection.do { :each |
 				(self.next = each).ifFalse {
-					self.position := savedPosition;
+					self.position!(savedPosition);
 					false.return
 				}
 			};
@@ -37,7 +37,7 @@
 
 	on { :self :aCollection |
 		self.collection := aCollection;
-		self.position := 0;
+		self.position!(0);
 		self.isReadStream.if {
 			self.readLimit := aCollection.size
 		};
@@ -53,7 +53,7 @@
 			nil
 		} {
 			let nextObject = self.next;
-			self.position := self.position - 1;
+			self.position!(self.position - 1);
 			nextObject
 		}
 	}
@@ -66,7 +66,7 @@
 			(self.next = anObject).ifTrue {
 				true.return
 			};
-			self.position := self.position - 1;
+			self.position!(self.position - 1);
 			false
 		}
 	}
@@ -75,7 +75,7 @@
 		self.positionIndex
 	}
 
-	position { :self :anInteger |
+	position! { :self :anInteger |
 		anInteger.isNegative.if {
 			self.positionError
 		} {
@@ -88,11 +88,11 @@
 	}
 
 	reset { :self |
-		self.position := 0
+		self.position!(0)
 	}
 
 	skip { :self :anInteger |
-		self.position := self.position + anInteger
+		self.position!(self.position + anInteger)
 	}
 
 	skipTo { :self :anObject |

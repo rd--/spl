@@ -13,7 +13,7 @@ Relative re-positioning:
 >>> let s = Stream[1 3 5 7 9];
 >>> (
 >>> 	s.position,
->>> 	s.position(3),
+>>> 	s.position!(3),
 >>> 	s.peek,
 >>> 	s.skip(-1),
 >>> 	s.next

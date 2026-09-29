@@ -27,11 +27,11 @@ Read the `add` help file:
 >>> 	h.categories.elementType
 >>> )
 (
-	'add (add!)',
+	'add!',
 	true,
 	true,
 	false,
-	['- _add(c, x)_'],
+	['- _add!(c, x)_'],
 	true,
 	'String',
 	true,

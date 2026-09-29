@@ -12,7 +12,7 @@ At finite `Range`:
 (1, 2, 3)
 ```
 
-At `infinite `Range`:
+At infinite `Range`:
 
 ```
 >>> let i = 1:Infinity:2.asStream;

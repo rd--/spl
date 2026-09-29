@@ -8,6 +8,18 @@ Required methods are:
 - `atEnd`
 - `position`
 
+List of types implementing `PositionableStream`:
+
+```
+>>> system
+>>> .traitTypes('@PositionableStream')
+>>> .sort!
+[
+	'CollectionStream'
+	'MutableCollectionStream'
+]
+```
+
 * * *
 
 See also: aEnd, peek, Stream, WriteStream

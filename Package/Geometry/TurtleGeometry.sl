@@ -1,6 +1,6 @@
 TurtleGeometry : [Object, Equal, Store, Geometry] { | instructionList |
 
-	add { :self :opcode :argument |
+	addInstruction! { :self :opcode :argument |
 		self.instructionList.add!([opcode, argument]);
 		self
 	}
@@ -8,7 +8,7 @@ TurtleGeometry : [Object, Equal, Store, Geometry] { | instructionList |
 	arc { :self :distance :degrees :angle |
 		{ degrees > 0 }.whileTrue {
 			let k = degrees.min(90);
-			self.add!('Arc', [distance, k, angle]);
+			self.addInstruction!('Arc', [distance, k, angle]);
 			degrees := degrees - k
 		}
 	}
@@ -22,7 +22,7 @@ TurtleGeometry : [Object, Equal, Store, Geometry] { | instructionList |
 	}
 
 	backward { :self :distance |
-		self.add!('Move', 0 - distance)
+		self.addInstruction!('Move', 0 - distance)
 	}
 
 	drawing { :self |
@@ -41,7 +41,7 @@ TurtleGeometry : [Object, Equal, Store, Geometry] { | instructionList |
 	}
 
 	forward { :self :distance |
-		self.add!('Move', distance)
+		self.addInstruction!('Move', distance)
 	}
 
 	geometryCollection { :self |
@@ -103,15 +103,15 @@ TurtleGeometry : [Object, Equal, Store, Geometry] { | instructionList |
 	}
 
 	left { :self :angle |
-		self.add!('Turn', 360 - angle)
+		self.addInstruction!('Turn', 360 - angle)
 	}
 
 	penDown { :self |
-		self.add!('Pen', true)
+		self.addInstruction!('Pen', true)
 	}
 
 	penUp { :self |
-		self.add!('Pen', false)
+		self.addInstruction!('Pen', false)
 	}
 
 	repeat { :self :count :aBlock/1 |
@@ -122,11 +122,11 @@ TurtleGeometry : [Object, Equal, Store, Geometry] { | instructionList |
 	}
 
 	right { :self :angle |
-		self.add!('Turn', angle)
+		self.addInstruction!('Turn', angle)
 	}
 
 	setHeading { :self :angle |
-		self.add!('SetHeading', angle)
+		self.addInstruction!('SetHeading', angle)
 	}
 
 	vector { :self :angle :length |

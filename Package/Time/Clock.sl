@@ -7,7 +7,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 	}
 
 	removeAll! { :self |
-		self.priorityQueue.removeAllAndShrink;
+		self.priorityQueue.removeAllAndShrink!;
 		self.existingDelay.ifNotNil {
 			self.existingDelay.cancel
 		};

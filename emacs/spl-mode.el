@@ -238,7 +238,7 @@ If the string begins with a doctest, also delete all non doctest lines."
 
 (defun spl-clear-clock ()
   (interactive)
-  (spl-eval-string "system.clock.removeAll"))
+  (spl-eval-string "system.clock.removeAll!"))
 
 (defun spl-reset-scsynth ()
   (interactive)

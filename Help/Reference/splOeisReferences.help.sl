@@ -8,7 +8,7 @@ Count entries:
 
 ```
 >>> system.splOeisReferences.size
-691
+692
 ```
 
 Count unique OEIS identitfiers:

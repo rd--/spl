@@ -18,7 +18,7 @@ CollectionStream : [Object, Equal, Iterator, Stream, PositionableStream] { | col
 		(self.position >= self.readLimit).if {
 			nil
 		} {
-			self.position := self.position + 1;
+			self.position!(self.position + 1);
 			self.collection[self.position]
 		}
 	}
@@ -29,12 +29,12 @@ CollectionStream : [Object, Equal, Iterator, Stream, PositionableStream] { | col
 			self.error('CollectionStream>>next: not enough items in stream')
 		} {
 			let answer = self.collection.copyFromTo(self.position + 1, endPosition);
-			self.position := endPosition;
+			self.position!(endPosition);
 			answer
 		}
 	}
 
-	position { :self :anInteger |
+	position! { :self :anInteger |
 		self.validReadPosition(anInteger).if {
 			self.positionIndex := anInteger
 		} {
@@ -43,12 +43,12 @@ CollectionStream : [Object, Equal, Iterator, Stream, PositionableStream] { | col
 	}
 
 	setFromTo { :self :newStart :newStop |
-		self.position := newStart - 1;
+		self.position!(newStart - 1);
 		self.readLimit := newStop
 	}
 
 	setToEnd { :self |
-		self.position := self.readLimit
+		self.position!(self.readLimit)
 	}
 
 	size { :self |
@@ -63,14 +63,14 @@ CollectionStream : [Object, Equal, Iterator, Stream, PositionableStream] { | col
 		}).if {
 			self.upToEnd
 		} {
-			self.position := end;
+			self.position!(end);
 			self.collection.copyFromTo(start, end - 1)
 		}
 	}
 
 	upToEnd { :self |
 		let start = 1 + self.position;
-		self.position := self.readLimit;
+		self.position!(self.readLimit);
 		self.collection.copyFromTo(start, self.position)
 	}
 

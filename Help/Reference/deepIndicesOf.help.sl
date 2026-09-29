@@ -30,7 +30,7 @@ Indices of `one` in a matrix of `boole`:
 >>> [0 0 1; 0 0 0; 1 0 0]
 >>> .deepIndicesOf(1)
 [1 3; 3 1]
-
+```
 
 * * *
 

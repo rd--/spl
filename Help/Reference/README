@@ -28,4 +28,4 @@ Total => 572
 
 $ (cd ~/sw/spl/Help/Reference; make lint)
 
-Linting: 4219 file(s)
+Linting: 4230 file(s)

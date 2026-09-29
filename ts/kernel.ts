@@ -679,7 +679,7 @@ export function addType(
 	).join('; ');
 	const defSlotMutate = slotNames.map(
 		(each) =>
-			`sl.addMethodToExistingType('${typeName}', '${packageName}', '${each}', ['self', 'anObject'], function(anInstance, anObject) { anInstance.${each} = anObject; return anObject; }, '<primitive: mutator>');`,
+			`sl.addMethodToExistingType('${typeName}', '${packageName}', '${each}MutateInPlace', ['self', 'anObject'], function(anInstance, anObject) { anInstance.${each} = anObject; return anObject; }, '<primitive: mutator>');`,
 	).join('; ');
 	// console.debug(`addType: ${typeName}, ${packageName}, ${slotNames}`);
 	const methodDictionary = typeExists(typeName)

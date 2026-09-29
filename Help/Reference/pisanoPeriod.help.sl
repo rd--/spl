@@ -231,6 +231,7 @@ OEIS [A066853](https://oeis.org/A066853):
 Numbers _n_ such that the _mF(k,n)_ form the complete residue set,
 OEIS [A079002](https://oeis.org/A079002):
 
+```
 >>> 1:73.select { :n |
 >>> 	let k = n.pisanoPeriod;
 >>> 	let f = k.fibonacciSequence;

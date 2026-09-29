@@ -8,6 +8,9 @@
 		"heading_line_length": 80,
 		"code_block_line_length": 50
 	},
+	"MD026": {
+		"punctuation": ".,;:"
+	},
 	"MD033": false,
 	"MD040": false,
 	"MD045": false,

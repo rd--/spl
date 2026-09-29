@@ -19,6 +19,7 @@
 - `Arity Syntax`
 - `Binary Operator Syntax`
 - `Comment Syntax`
+- `Dot Assignment Syntax`
 - `Let Syntax`
 - `List Assignment Syntax`
 - `List Constructor Syntax`

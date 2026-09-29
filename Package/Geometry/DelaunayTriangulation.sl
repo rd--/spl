@@ -92,7 +92,7 @@ DelaunayTriangulation : [Object] { | vertexCoordinates triangulation |
 
 	graph { :self |
 		let answer = Graph(self.vertexList, self.edgeList);
-		answer.vertexCoordinates := self.vertexCoordinates;
+		answer.vertexCoordinates!(self.vertexCoordinates);
 		answer
 	}
 

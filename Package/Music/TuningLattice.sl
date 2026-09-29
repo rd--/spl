@@ -106,10 +106,12 @@
 		let coordinateList = primesList.collect { :each |
 			(each * basisVector).sum
 		};
-		Graph(
+		let graph = Graph(
 			[1 .. primesList.size],
 			edgeList
-		).vertexCoordinates(coordinateList)
+		);
+		graph.vertexCoordinates!(coordinateList);
+		graph
 	}
 
 	tuningLatticeGraph { :self |

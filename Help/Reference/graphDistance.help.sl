@@ -33,7 +33,7 @@ Answer the distance between vertices of a weighted graph:
 >>> let e = [1 2; 1 3; 1 4; 2 3; 3 4];
 >>> let w = [1.1 0.62 1.4 1.9 2.1];
 >>> let g = e.asGraph;
->>> g.edgeWeights := w;
+>>> g.edgeWeights!(w);
 >>> g.graphDistance(2, 3)
 1.72
 ```
