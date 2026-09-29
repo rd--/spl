@@ -1,8 +1,8 @@
 +@RandomNumberGenerator {
 
-	fisherYatesShuffle { :self :aList |
+	fisherYatesShuffle! { :self :aList |
 		aList.size.toByDo(2, -1) { :each |
-			aList.swapWith(
+			aList.swapWith!(
 				each,
 				self.nextRandomInteger(1, each)
 			)
@@ -10,13 +10,13 @@
 		aList
 	}
 
-	sattoloShuffle { :self :aList |
+	sattoloShuffle! { :self :aList |
 		let i = aList.size;
 		{
 			i > 1
 		}.whileTrue {
 			let j = self.nextRandomInteger(1, i - 1);
-			aList.swapWith(i, j);
+			aList.swapWith!(i, j);
 			i := i - 1
 		};
 		aList
@@ -26,12 +26,12 @@
 
 +@Sequence {
 
-	fisherYatesShuffle { :self :rng |
-		rng.fisherYatesShuffle(self)
+	fisherYatesShuffle! { :self :rng |
+		rng.fisherYatesShuffle!(self)
 	}
 
-	fisherYatesShuffle { :self |
-		system.fisherYatesShuffle(self)
+	fisherYatesShuffle! { :self |
+		system.fisherYatesShuffle!(self)
 	}
 
 	guyShuffle { :c |
@@ -136,20 +136,20 @@
 		system.sattoloShuffle(self)
 	}
 
+	shuffle! { :self :rng |
+		self.fisherYatesShuffle!(rng)
+	}
+
+	shuffle! { :self |
+		self.fisherYatesShuffle!
+	}
+
 	shuffle { :self :rng |
-		self.fisherYatesShuffle(rng)
-	}
-
-	shuffle { :self |
-		self.fisherYatesShuffle
-	}
-
-	shuffled { :self :rng |
 		self.copy.fisherYatesShuffle(rng)
 	}
 
-	shuffled { :self |
-		self.copy.fisherYatesShuffle
+	shuffl { :self |
+		self.copy.fisherYatesShuffle!
 	}
 
 	spiralShuffle { :self |
@@ -157,7 +157,7 @@
 		let b = [];
 		let c = true;
 		{ a.isEmpty }.whileFalse {
-			let x = a.removeFirst;
+			let x = a.removeFirst!;
 			c.if {
 				b.addFirst!(x)
 			} {

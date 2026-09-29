@@ -5,7 +5,6 @@ Shuffling Functions:
 - `fisherYatesShuffle`
 - `sattoloShuffle`
 - `shuffle`
-- `shuffled`
 
 Random Number Functions:
 

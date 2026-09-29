@@ -218,13 +218,13 @@ List! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Collection, E
 		nil
 	}
 
-	removeAt { :self :index |
+	removeAt! { :self :index |
 		let removed = self[index];
 		self.uncheckedRemoveAt(index);
 		removed
 	}
 
-	removeAtAll { :self :indices |
+	removeAtAll! { :self :indices |
 		let uniqueIndices = indices.unique;
 		let indexCount = uniqueIndices.size;
 		let removed = self.atAll(uniqueIndices);
@@ -235,19 +235,19 @@ List! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Collection, E
 		removed
 	}
 
-	removeFirst { :self |
+	removeFirst! { :self |
 		<primitive: return _self.shift();>
 	}
 
-	removeFirst { :self :count |
+	removeFirst! { :self :count |
 		<primitive: return _self.splice(0, _count);>
 	}
 
-	removeLast { :self |
+	removeLast! { :self |
 		<primitive: return _self.pop();>
 	}
 
-	removeLast { :self :count |
+	removeLast! { :self :count |
 		<primitive: return _self.splice(_self.length - _count, _count);>
 	}
 

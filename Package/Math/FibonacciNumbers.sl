@@ -21,7 +21,7 @@
 			let f = self.fibonacciSequenceUpTo;
 			let k = f.size - 1;
 			let z = [];
-			f.removeFirst;
+			f.removeFirst!;
 			k.toByDo(2, -1) { :i |
 				let n = f[i];
 				z.add!((n <= self).if { 1 } { 0 });
@@ -60,7 +60,7 @@
 				i := i + 1
 			};
 			(z[1] = 0).ifTrue {
-				z.removeFirst
+				z.removeFirst!
 			};
 			z
 		}

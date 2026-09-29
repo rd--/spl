@@ -2,14 +2,14 @@
 
 Package! : [Object, Equal, Compare] {
 
-	addDependenciesTo { :self :aSequence |
+	addDependenciesTo! { :self :aSequence |
 		self.requires.ifNotEmpty { :packageNames |
 			let packages = packageNames.collect { :each |
 				system.package(each)
 			};
-			aSequence.addAllFirst(packages);
+			aSequence.addAllFirst!(packages);
 			packages.do { :each |
-				each.addDependenciesTo(aSequence)
+				each.addDependenciesTo!(aSequence)
 			}
 		}
 	}
@@ -28,7 +28,7 @@ Package! : [Object, Equal, Compare] {
 
 	dependencies { :self |
 		let answer = [];
-		self.addDependenciesTo(answer);
+		self.addDependenciesTo!(answer);
 		answer.copyWithoutIdenticalElements
 	}
 

@@ -2,7 +2,7 @@
 
 - _reverseLexicographicSort([x₁ x₂ …])_
 
-Sorts a list _xₙ_ into reverse lexicographic order in place.
+Sorts a list _xₙ_ into reverse lexicographic order in-place.
 Answer the sorted list.
 This is `sortComparing` of `reverseLexicographicCompare`.
 

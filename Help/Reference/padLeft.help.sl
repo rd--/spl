@@ -11,7 +11,7 @@ Pad a `List` to make a longer list:
 [0 0 0 0 0 0 1 2 3]
 ```
 
-Not in place:
+Not in-place:
 
 ```
 >>> let a = [1 2 3];

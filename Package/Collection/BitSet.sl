@@ -187,7 +187,7 @@ BitSet : [Object, Store, Copyable, Equal, Iterable, Collection, Extensible] { | 
 		self.bytes := self.bytes.copy
 	}
 
-	removeIfAbsent { :self :anInteger :absentBlock/0 |
+	removeIfAbsent! { :self :anInteger :absentBlock/0 |
 		self.clearBitAt(anInteger).if {
 			anInteger
 		} {

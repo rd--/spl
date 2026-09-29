@@ -33,7 +33,7 @@ edges indicate that one number can been derived from the other by the insertion 
 	let p = j.integerDigits(2);
 	(1 .. p.size + 1).collect { :i |
 		let q = p.copy;
-		q.insertAt(1, i);
+		q.insertAt!(1, i);
 		j -> q.fromDigits(2)
 	}
 }.flatten.nub.asGraph.graphPlot

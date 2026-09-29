@@ -2,7 +2,7 @@
 
 - _sattoloShuffle([x₁ x₂ …], r)_
 
-Shuffle a sequence _x_ in place using the Sattolo algorithm,
+Shuffle a sequence _x_ in-place using the Sattolo algorithm,
 which generates uniformly distributed cycles of maximal length,
 given a random number generator _r_.
 Answer _x_.
@@ -34,7 +34,7 @@ noting that the permutation contains only one cycle:
 
 * * *
 
-See also: fisherYatesShuffle, shuffled
+See also: fisherYatesShuffle, shuffle
 
 Guides: Permutation Functions, Random Functions
 

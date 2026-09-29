@@ -9,7 +9,7 @@ This method can avoid the cost of simplifying Fractions that are known to be in 
 However it can also be used to make `Fraction` values that do not conform to the required invariants,
 and which may result in undefined behaviour.
 
-To simplify a fraction in place see `simplify`.
+To simplify a fraction in-place see `simplify`.
 To answer a new simplified fraction use `simplified`.
 
 ```

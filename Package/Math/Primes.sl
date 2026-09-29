@@ -421,7 +421,7 @@
 		}.whileTrue {
 			let k = t[1];
 			r.add!(k);
-			t.removeAtAll(Range(1, t.size, k))
+			t.removeAtAll!(Range(1, t.size, k))
 		};
 		r
 	}

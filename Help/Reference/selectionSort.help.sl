@@ -2,7 +2,7 @@
 
 - _selectionSort([x₁ x₂ …])_
 
-Sort the sequence _x_ in place using the selection sort algorithm.
+Sort the sequence _x_ in-place using the selection sort algorithm.
 
 Sort list:
 
@@ -11,7 +11,7 @@ Sort list:
 [1 2 3 4 5]
 ```
 
-Sort is in place or copying:
+Sort is in-place or copying:
 
 ```
 >>> let s = [1 3 5 2 4];

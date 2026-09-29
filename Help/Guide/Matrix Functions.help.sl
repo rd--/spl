@@ -172,7 +172,7 @@ General:
 - `permanent`: permanent of a square matrix
 - `qrDecomposition`: the QR decomposition
 - `ravel`: ravel order list
-- `reducedRowEchelonForm`: in place row reduce
+- `reducedRowEchelonForm`: in-place row reduce
 - `rowReduce`: simplified matrix obtained by making linear combinations of rows
 - `shape`: list the dimensions of a matrix
 - `singularValueDecomposition`

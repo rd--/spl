@@ -19,7 +19,7 @@ A random permutation in the symmetric group _S10_:
 
 * * *
 
-See also: cycles, fisherYatesShuffle, randomCycle, randomPermutationList, randomSample, shuffle, shuffled
+See also: cycles, fisherYatesShuffle, randomCycle, randomPermutationList, randomSample, shuffle
 
 Guides: Permutation Functions, Random Functions
 

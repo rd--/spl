@@ -3,7 +3,7 @@
 - _naturalCompare([s₁ s₂ …])_
 
 Sort a list of strings using natural sort order.
-There are both copying and in place forms.
+There are both copying and in-place forms.
 Embedded numbers are sorted numericallly.
 
 Sort a list:

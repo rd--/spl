@@ -3,7 +3,7 @@
 - _reverseSort([x₁ x₂ …])_
 
 Answer the reverse sort of the sequence _x_.
-There are copying and in place forms.
+There are copying and in-place forms.
 
 At a list of integers:
 
@@ -33,7 +33,7 @@ At a list of lists:
 ]
 ```
 
-When requested, operation is in place:
+When requested, operation is in-place:
 
 ```
 >>> let x = [2 1 4 3];

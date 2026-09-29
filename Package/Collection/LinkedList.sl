@@ -248,7 +248,7 @@ LinkedList : [Object, Equal, Store, Copyable, Compare, Iterable, Indexable, Coll
 		self.lastLink := nil
 	}
 
-	removeAllSuchThat { :self :aBlock/1 |
+	removeAllSuchThat! { :self :aBlock/1 |
 		self.do { :each |
 			aBlock(each).ifTrue {
 				self.remove!(each)
@@ -256,7 +256,7 @@ LinkedList : [Object, Equal, Store, Copyable, Compare, Iterable, Indexable, Coll
 		}
 	}
 
-	removeFirst { :self |
+	removeFirst! { :self |
 		let oldLink = self.firstLink;
 		self.emptyCheck;
 		(self.firstLink == self.lastLink).if {
@@ -268,15 +268,15 @@ LinkedList : [Object, Equal, Store, Copyable, Compare, Iterable, Indexable, Coll
 		oldLink.value
 	}
 
-	removeIfAbsent { :self :aLinkOrObject :aBlock/0 |
+	removeIfAbsent! { :self :aLinkOrObject :aBlock/0 |
 		let link = self.linkOfIfAbsent(aLinkOrObject, aBlock/0);
-		self.removeLinkIfAbsent(link) {
+		self.removeLinkIfAbsent!(link) {
 			aBlock()
 		};
 		aLinkOrObject
 	}
 
-	removeLast { :self |
+	removeLast! { :self |
 		let oldLink = self.lastLink;
 		let aLink = nil;
 		self.emptyCheck;
@@ -296,7 +296,7 @@ LinkedList : [Object, Equal, Store, Copyable, Compare, Iterable, Indexable, Coll
 		oldLink.value
 	}
 
-	removeLinkIfAbsent { :self :aLink :aBlock/0 |
+	removeLinkIfAbsent! { :self :aLink :aBlock/0 |
 		valueWithReturn { :return/1 |
 			(aLink == self.firstLink).if {
 				self.firstLink := aLink.nextLink;

@@ -55,10 +55,10 @@ Cache! : [Object] {
 	}
 
 	includesKey { :self :key |
-		self.shouldNotImplement('includesKey: see atPut and removeKeyIfAbsent')
+		self.shouldNotImplement('includesKey: see atPut! and removeKeyIfAbsent!')
 	}
 
-	removeKeyIfAbsent { :self :key :aBlock/0 |
+	removeKeyIfAbsent! { :self :key :aBlock/0 |
 		let validKey = self.validateKey(key);
 		self.uncheckedDelete(validKey).then { :answer |
 			answer.ifFalse {

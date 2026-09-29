@@ -321,7 +321,7 @@ let a = [1, 3, 5, 7]; a.reverse!; a = [7, 5, 3, 1] /* array reverse (in place) *
 1:5.oneSatisfies { :each | each.isEven & { each > 2 } } /* exactly one element matches */
 1:5.count { :each | each.isEven & { each > 2 } } = 1 /* exactly one element matches */
 [1 .. 3] ++ [4 .. 6] = [1 .. 6] /* addAllLast, answering new like collection, unicode = ⧺ */
-let a = [1 .. 3]; a.addAllLast([4 .. 6]); a = [1 .. 6]
+let a = [1 .. 3]; a.addAllLast!([4 .. 6]); a = [1 .. 6]
 let a = [1 .. 3]; let b = a ++ [4 .. 6]; a !== b & { a = [1 .. 3] } & { b = [1 .. 6] }
 { [1 .. 3] ++ 4 }.hasError /* right hand side must be a collection */
 [[1 .. 3], [4 .. 6], [7 .. 9]].catenate = [1 .. 9] /* catenate, unicode = ⧻ */
@@ -350,9 +350,9 @@ let l = [1, 2, 3]; l.atModify(2, nil, square/1) = 4 & { l = [1, 4, 3] } /* modif
 1.toAsCollect(9, List/1) { :each | each * each } = [1, 4, 9, 16, 25, 36, 49, 64, 81]
 let a = [1 .. 9]; a.shuffle; a != [1 .. 9] /* shuffle in place, using system Random */
 let a = [1 .. 9]; let r = Sfc32(13579); a.shuffle(r); a = [9, 8, 2, 3, 5, 7, 1, 4, 6] /* shuffle in place, using given Random */
-let a = [1 .. 9]; a.shuffled != a & { a = [1 .. 9] } /* answer shuffled copy */
-[1 .. 9].shuffled.sort! = [1 .. 9] /* resort after shuffle */
-[].shuffled = []
+let a = [1 .. 9]; a.shuffle != a & { a = [1 .. 9] } /* copying shuffle */
+[1 .. 9].shuffle!.sort! = [1 .. 9] /* resort after shuffle */
+[].shuffle = []
 14.fibonacciSequence = [0 1 1 2 3 5 8 13 21 34 55 89 144 233]
 3 # [3] = [3 3 3]
 [1, 2, 3, 4, 3, 2, 1].detectMax(identity/1) = 4
@@ -456,9 +456,9 @@ let a = List(9); a.atAllPut('x') = 'x' & { a.atRandom = 'x' } /* answers object 
 let c = [1 .. 5]; { c[1.5] }.hasError /* index not an integer */
 let c = [1 .. 5]; { c['1'] }.hasError /* index not an integer */
 { [1 .. 5].not }.hasError /* cannot be negate */
-let a = [1, 2, 4]; a.insertAt(3, 3); a = [1 .. 4] /* insert value at index */
-let l = [1 2 4]; l.addAfter(3, 2) = 3 & { l = [1 2 3 4] } /* insert value after existing value */
-let l = [1 2 4]; l.addBefore(3, 4) = 3 & { l = [1 2 3 4] } /* insert value before existing value */
+let a = [1, 2, 4]; a.insertAt!(3, 3); a = [1 .. 4] /* insert value at index */
+let l = [1 2 4]; l.addAfter!(3, 2) = 3 & { l = [1 2 3 4] } /* insert value after existing value */
+let l = [1 2 4]; l.addBefore!(3, 4) = 3 & { l = [1 2 3 4] } /* insert value before existing value */
 [1 .. 5].atPin(-1) = 1 /* pin left */
 [1 .. 5].atPin(9) = 5 /* pin right */
 (-1 .. 5).collect { :index | 1:3.atPin(index) } = [1 1 1 2 3 3 3] /* index answering bound if out of bounds */
@@ -482,11 +482,11 @@ let a = []; [1 .. 3].doWithout({ :each | a.add!(each) }, 2); a = [1, 3]
 [1 .. 9].selectThenCollect(isEven/1) { :each | each * 3 } = [6, 12, 18, 24] /* avoid intermediate collection */
 [1 .. 9].collectThenSelect(square/1) { :each | each > 36 } = [49, 64, 81] /* avoid intermediate collection */
 [1, 3 .. 9].union([3 .. 7]) = [1, 3, 5, 7, 9, 4, 6] /* set theoretic union, unicode = ∪ */
-let a = [1 .. 9]; a.removeAllSuchThat(isEven/1); a = [1, 3 .. 9] /* remove elements selected by predicate */
-let a = [1 2 2]; a.removeAllSuchThat { :each | each = 2 }; a = [1] /* remove elements selected by predicate, answers copy of self */
-let a = [1 2 2]; a.removeAllSuchThat { :each | each = 3 }; a = [1 2 2] /* it is not an error if no elements match */
-let a = [1 2 2 3 3 3]; a.removeAllEqualTo(3); a = [1 2 2] /* remove all elements equal to argument */
-let a = [1 .. 9]; let b = [1, 3 .. 9]; let c = [2, 4 .. 8]; a.removeAllFoundIn(b) == b & { a = c } /* remove elements found in a collection */
+let a = [1 .. 9]; a.removeAllSuchThat!(isEven/1); a = [1, 3 .. 9] /* remove elements selected by predicate */
+let a = [1 2 2]; a.removeAllSuchThat! { :each | each = 2 }; a = [1] /* remove elements selected by predicate, answers copy of self */
+let a = [1 2 2]; a.removeAllSuchThat! { :each | each = 3 }; a = [1 2 2] /* it is not an error if no elements match */
+let a = [1 2 2 3 3 3]; a.removeAllEqualTo!(3); a = [1 2 2] /* remove all elements equal to argument */
+let a = [1 .. 9]; let b = [1, 3 .. 9]; let c = [2, 4 .. 8]; a.removeAllFoundIn!(b) == b & { a = c } /* remove elements found in a collection */
 let a = [1 2 2 3 3 3]; a.without!(3) = [1 2 2] /* remove all elements equal to argument and answer self */
 let a = [1 2 2 3 3 3]; a.withoutAll!([1, 3]) = [2 2] /* remove all elements equal to argument and answer self */
 5.arithmeticProgression(1, 2) = [1, 3 .. 9] /* arithmetic series (size from by) */
@@ -498,23 +498,23 @@ let l = [2]; l.addFirst!(1) = 1 & { l = [1 2] } /* answer is argument */
 let l = []; l.addLast!(1); l.addLast!(2); l = [1, 2] /* add item to end of array */
 let l = [1]; l.addLast!(2); l.addLast!(3) = 3 & { l = [1 2 3] } /* answer is argument */
 let l = []; 1:5.do { :each | l.add!(each) }; l = [1 .. 5] /* alias for addLast */
-let l = [1 .. 9]; l.removeFirst = 1 & { l.size = 8 } /* remove first object from array */
-let l = [1 .. 9]; l.removeFirst = 1 & { l = [2 .. 9] } /* remove first object from array */
-let l = [1 .. 9]; l.removeLast = 9 & { l.size = 8 } /* remove last object from array, answers removed element */
-let l = [4 5]; l.addAllFirst([1 2 3]) = [1 2 3] & { l = [1 2 3 4 5] } /* add all elements to start of array */
-[1].addAllFirst([2, 3]) = [2, 3] /* answer is argument */
-let l = [1 2 3]; l.addAllLast([4 5]) = [4 5] & { l = [1 2 3 4 5] } /* add all elements to end of array */
-[1].addAllLast([2 3]) = [2 3] /* answer is argument */
+let l = [1 .. 9]; l.removeFirst! = 1 & { l.size = 8 } /* remove first object from array */
+let l = [1 .. 9]; l.removeFirst! = 1 & { l = [2 .. 9] } /* remove first object from array */
+let l = [1 .. 9]; l.removeLast! = 9 & { l.size = 8 } /* remove last object from array, answers removed element */
+let l = [4 5]; l.addAllFirst!([1 2 3]) = [1 2 3] & { l = [1 2 3 4 5] } /* add all elements to start of array */
+[1].addAllFirst!([2, 3]) = [2, 3] /* answer is argument */
+let l = [1 2 3]; l.addAllLast!([4 5]) = [4 5] & { l = [1 2 3 4 5] } /* add all elements to end of array */
+[1].addAllLast!([2 3]) = [2 3] /* answer is argument */
 let l = [1]; l.addAll!([2, 3]); l.addAll!([]); l.addAll!([4 .. 6]); l = [1 .. 6] /* alias for addAllLast */
 let i = 1:9; let a = []; a.addAll!(i); a.size = 9 /* add elements from Range to end of List */
-let c = [1 .. 5]; [c.removeAt(1), c] = [1, [2, 3, 4, 5]] /* removeAt answers the removed element */
-let c = [1 .. 5]; [c.removeAt(3), c] = [3, [1, 2, 4, 5]]
-let c = [1 .. 5]; [c.removeFirst(3), c] = [[1, 2, 3], [4, 5]] /* remove first three objects from array */
-let c = [1 .. 5]; [c.removeLast(3), c] = [[3, 4, 5], [1, 2]] /* remove last three objects from array */
+let c = [1 .. 5]; [c.removeAt!(1), c] = [1, [2, 3, 4, 5]] /* removeAt answers the removed element */
+let c = [1 .. 5]; [c.removeAt!(3), c] = [3, [1, 2, 4, 5]]
+let c = [1 .. 5]; [c.removeFirst!(3), c] = [[1, 2, 3], [4, 5]] /* remove first three objects from array */
+let c = [1 .. 5]; [c.removeLast!(3), c] = [[3, 4, 5], [1, 2]] /* remove last three objects from array */
 let c = [1 .. 5]; c.removeAll!; c = [] /* remove all objects from array */
 let c = [1 .. 5]; [c.remove!(3), c] = [3, [1, 2, 4, 5]] /* remove object from array */
 let c = [1, 2, 3, 2, 1]; [c.remove!(2), c] = [2, [1, 3, 2, 1]] /* remove only one matching element */
-let c = [1 .. 5]; c.removeIfAbsent(9) { true } & { c = [1 .. 5] } /* remove object from array, handle absence */
+let c = [1 .. 5]; c.removeIfAbsent!(9) { true } & { c = [1 .. 5] } /* remove object from array, handle absence */
 [1, 2, 3].ofSize(4) = [1, 2, 3, nil] /* extend to be of size, new slots are nil */
 let a = [1, 2, 3]; a.ofSize(2) = a /* if requested size is smaller, do nothing */
 let a = [1, 2, 3]; a.ofSize(2) == a /* if requested size is smaller, answer the array itself */
@@ -616,7 +616,7 @@ let c = [2, 3, 3, 4, 4, 4].asIdentityMultiset; c.copy !== c /* copy does not ans
 let c = IdentityMultiset(); c.addWithOccurrences('x', 4); c.occurrencesOf('x') = 4
 [2, 3, 3, 4, 4, 4].asIdentityMultiset.asIdentitySet.size = 3 /* number of unique elements */
 [2, 3, 3, 4, 4, 4].asIdentityMultiset.asIdentitySet.occurrencesOf(3) = 1
-let s = IdentityMultiset(); 250.timesRepeat { s.add!([1 .. 4].shuffled.asString) }; s.asIdentitySet.size = 24
+let s = IdentityMultiset(); 250.timesRepeat { s.add!([1 .. 4].shuffle!.asString) }; s.asIdentitySet.size = 24
 [1, 2, 3, 1, 4].asIdentityMultiset.isIndexable = false /* bags are not indexable */
 [1, 2, 3, 1, 4].asIdentityMultiset.indices = nil /* sets are not indexable */
 let a = [1, 1, 2, 1, 2, 3, 1, 1, 2, 3, 4]; a.sum = a.asIdentityMultiset.sum /* sum may be optimised */
@@ -974,8 +974,8 @@ let s = [1 .. 4].asIdentitySet; let c = s.copyWith(5); s != c & { c = [1 .. 5].a
 let a = [1 .. 9]; a.removeAll!(3:7); a = [1, 2, 8, 9] /* remove all indicated elements */
 let a = [1, 2, 3, 2, 1]; let r = a.removeAll!([1, 2, 3]); [a, r] = [[2, 1], nil] /* answer nil, only remove first instance */
 { [1 .. 3].removeAll!(7:9) }.hasError /* it is an error if an element to be removed is not located */
-let a = [1 .. 3]; a.removeAllFoundIn(7:9); a = [1 .. 3] /* unlike removeAll it is not an error if items are not found */
-let a = [1, 2, 3, 2, 1]; a.removeAllFoundIn([2, 3]); a = [1, 2, 1] /* removes only first matching element */
+let a = [1 .. 3]; a.removeAllFoundIn!(7:9); a = [1 .. 3] /* unlike removeAll it is not an error if items are not found */
+let a = [1, 2, 3, 2, 1]; a.removeAllFoundIn!([2, 3]); a = [1, 2, 1] /* removes only first matching element */
 [1 .. 6].collect { :each | each * 2 } = [2, 4 .. 12] /* apply block at each element and answer like collection */
 1:6.collect { :each | each * 2 } = [2, 4 .. 12] /* interval species is array */
 1:6.collect { :each | each * 2 } = [2, 4 .. 12] /* literal integer interval syntax */
@@ -1315,7 +1315,7 @@ let p = (:); let q = (x: 1); p.declareFrom('x', q); [p, q] = [(x: 1), (:)]
 let p = (:); let q = (x: 1); p.declareFrom('y', q); [p, q] = [(y: nil), (x: 1)]
 (x: 1, y: 2, z: 3).collect(square/1) = (x: 1, y: 4, z: 9)
 let d = (x: 1, y: 2, z: 3); d.collect!(square/1); d = (x: 1, y: 4, z: 9) /* replace value at each key, in place collect */
-{ (x: 1).remove }.hasError /* should not implement, see removeKey */
+{ (x: 1).remove!('x') }.hasError /* should not implement, see removeKey */
 (x: 1, y: 2) ++ (x: 2, y: 1) = (x: 2, y: 1) /* appending two dictionaries is right-biased, unicode = ⧺ */
 (x: 1, y: 2) ++ ['z' -> 3] = (x: 1, y: 2, z: 3) /* append an array of associations to a dictionary */
 { (x: 1, y: 2) ++ [3] }.hasError /* right hand side must be associations */
@@ -1331,18 +1331,18 @@ let n = 0; (x: 1, y: 2, z: 3).withIndexDo { :value :key | n := n + value }; n = 
 let d = (a: 1, b: 2, c: 1); d.indexOf(2) = 'b' /* lookup key (index) given value */
 let d = (a: 1, b: 2, c: 1); let k = d.indexOf(1); k = 'a' | { k = 'c' } /* many keys with value */
 { (a: 1, b: 2, c: 1).indexOf(3) }.hasError /* error if no such value */
-let d = (x: 1, y: 2, z: 3); d.removeAllSuchThat { :each | each.value = 3 }; d = (x: 1, y: 2)
-let d = (x: 1, y: 2, z: 3); d.associationsRemove { :each | each.key = 'y' | { each.value = 3 } }; d = (x: 1)
-let d = (x: 1, y: 2, z: 3); d.keysAndValuesRemove { :key :value | key = 'y' | { value = 3 } }; d = (x: 1)
-let d = (x: 1, y: 2, z: 3); d.removeKey('y') = 2 & { d = (x: 1, z: 3) }
-{ (x: 1, y: 2, z: 3).removeKey('?') }.hasError
-let d = (x: 1, y: 2, z: 3); d.removeAt('y') = 2 & { d = (x: 1, z: 3) }
-{ (x: 1, y: 2, z: 3).removeAt('?') }.hasError
+let d = (x: 1, y: 2, z: 3); d.removeAllSuchThat! { :each | each.value = 3 }; d = (x: 1, y: 2)
+let d = (x: 1, y: 2, z: 3); d.associationsRemove! { :each | each.key = 'y' | { each.value = 3 } }; d = (x: 1)
+let d = (x: 1, y: 2, z: 3); d.keysAndValuesRemove! { :key :value | key = 'y' | { value = 3 } }; d = (x: 1)
+let d = (x: 1, y: 2, z: 3); d.removeKey!('y') = 2 & { d = (x: 1, z: 3) }
+{ (x: 1, y: 2, z: 3).removeKey!('?') }.hasError
+let d = (x: 1, y: 2, z: 3); d.removeAt!('y') = 2 & { d = (x: 1, z: 3) }
+{ (x: 1, y: 2, z: 3).removeAt!('?') }.hasError
 let d = (x: 1, y: 2); d.atAllPut(3) = 3 & { d = (x: 3, y: 3) } /* set all values to indicated object */
 (x: 1, y: 2, z: 3).associations = ['x' -> 1, 'y' -> 2, 'z' -> 3] /* array of associations */
 let a = List(9); a.indicesDo { :each | a[each] := 10 - each }; a = [9, 8 .. 1] /* iterate indices */
 let d = (x: 1, y: 2); d.removeAssociation!('x' -> 1); d = (y: 2) /* remove association */
-let d = (x: 1, y: 2); d.removeAssociationIfAbsent('z' -> 3) { }; d = (x: 1, y: 2) /* remove association, if absent clause */
+let d = (x: 1, y: 2); d.removeAssociationIfAbsent!('z' -> 3) { }; d = (x: 1, y: 2) /* remove association, if absent clause */
 { (x: 1, y: 2).removeAssociation!('z' -> 3) }.hasError /* remove association, error if absent */
 let d = (x: 1, y: 2); d.removeAll!; d.isEmpty /* remove all entries */
 (x: 1, y: 2).keyAtValue(2) = 'y' /* dictionary name for indexOf */
@@ -1659,17 +1659,17 @@ let h = Heap(); { h[1] }.hasError /* out of bounds */
 let h = Heap(); h.add!(3); { h[2] }.hasError /* out of bounds */
 let h = Heap(); h.add!(5); h.add!(12); h.add!(1); h.first = 1 /* add out of order */
 let h = Heap(); h.addAll!([5, 12, 1]); h.first = 1 /* add all out of order */
-let h = Heap(); h.add!(5); h.removeFirst; h.isEmpty /* add & remove */
-let h = Heap(); h.addAll!([5, 12, 1]); [h.removeFirst, h.first] = [1, 5] /* remove first */
-let h = Heap(); h.addAll!([5, 12, 1]); [h.removeFirst, h.removeFirst, h.first] = [1, 5, 12] /* remove first */
-let h = Heap(); { h.removeFirst }.hasError /* remove an element that does not exist */
-let h = Heap(); h.add!(5); [h.removeFirst, h.size] = [5, 0] /* add & remove */
-let h = Heap(); h.addAll!([1 .. 9].shuffled); h.first = 1 /* add shuffled, first is always 1 */
-let h = Heap(); h.addAll!([1 .. 9].shuffled); 8.timesRepeat { h.removeFirst }; h.first = 9
-let h = Heap(); h.addAll!([1 .. 9].shuffled); 8.timesRepeat { h.removeAt(2) }; h.first = 1
+let h = Heap(); h.add!(5); h.removeFirst!; h.isEmpty /* add & remove */
+let h = Heap(); h.addAll!([5, 12, 1]); [h.removeFirst!, h.first] = [1, 5] /* remove first */
+let h = Heap(); h.addAll!([5, 12, 1]); [h.removeFirst!, h.removeFirst!, h.first] = [1, 5, 12] /* remove first */
+let h = Heap(); { h.removeFirst! }.hasError /* remove an element that does not exist */
+let h = Heap(); h.add!(5); [h.removeFirst!, h.size] = [5, 0] /* add & remove */
+let h = Heap(); h.addAll!([1 .. 9].shuffle!); h.first = 1 /* add random permutation, first is always 1 */
+let h = Heap(); h.addAll!([1 .. 9].shuffle!); 8.timesRepeat { h.removeFirst! }; h.first = 9
+let h = Heap(); h.addAll!([1 .. 9].shuffle!); 8.timesRepeat { h.removeAt!(2) }; h.first = 1
 let h = [1, 3, 5].asHeap; let a = []; h.do { :each | a.add!(each) }; a = [1, 3, 5]
 let h = Heap(>); h.addAll!([1 3 5]); h.first = 5
-let h = Heap { :p :q | p > q }; h.addAll!([1, 3, 5]); [h.removeFirst, h.first] = [5, 3]
+let h = Heap { :p :q | p > q }; h.addAll!([1, 3, 5]); [h.removeFirst!, h.first] = [5, 3]
 let h = 1:4.asHeap; let c = h.copy; c.add!(5); h != c & { c = [1 .. 5].asHeap }
 ```
 
@@ -1941,10 +1941,10 @@ Range(1, 100, 0.5).size = 199
 (1 / 2).toBy(54 / 7, 1 / 3).last = (15 / 2)
 1/2.toBy(54/7, 1/3).last = 15/2
 1:3 ++ ['4', '5'] = [1, 2, 3, '4', '5'] /* append array to interval */
-let i = (1, 3 .. 9); i.removeFirst = 1 & { i = (3, 5 .. 9) } /* remove first element */
-let i = (9, 7 .. 1); i.removeFirst = 9 & { i = (7, 5 .. 1) } /* remove first element */
-let i = (1, 3 .. 9); i.removeLast = 9 & { i = (1, 3 .. 7) } /* remove first element */
-let i = (9, 7 .. 1); i.removeLast = 1 & { i = (9, 7 .. 3) } /* remove first element */
+let i = (1, 3 .. 9); i.removeFirst! = 1 & { i = (3, 5 .. 9) } /* remove first element */
+let i = (9, 7 .. 1); i.removeFirst! = 9 & { i = (7, 5 .. 1) } /* remove first element */
+let i = (1, 3 .. 9); i.removeLast! = 9 & { i = (1, 3 .. 7) } /* remove first element */
+let i = (9, 7 .. 1); i.removeLast! = 1 & { i = (9, 7 .. 3) } /* remove first element */
 1:9.sort! = 1:9 /* ascending intervals are sorted */
 9:1:-1.sort! = 1:9 /* reverse interval if descending */
 let n = 0; 1:5.permutationsDo { :each | n := n + 1 }; n = 120 /* interval permutations */
@@ -2046,18 +2046,18 @@ let l = LinkedList(); l.addFirst!(1); l.addFirst!(2); l.asList = [2, 1] /* add t
 let l = LinkedList(); l.addLast!(1); l.addLast!(2); l.asList = [1, 2] /* add to end */
 let l = LinkedList(); 1.toDo(5) { :each | l.add!(each) }; l.asList = [1 .. 5] /* add to end */
 1:9.asLinkedList.collect { :each | 10 - each } = [9, 8 .. 1].asLinkedList /* collect */
-let l = [1 .. 9].asLinkedList; l.removeFirst; l.first = 2 /* remove first */
-let l = [1 .. 9].asLinkedList; l.removeLast; l.last = 8 /* remove last */
-let l = [1].asLinkedList; l.removeFirst = 1 & { l.isEmpty } /* remove first */
-let l = [1].asLinkedList; l.removeLast = 1 & { l.isEmpty } /* remove last */
-let l = [1 .. 5].asLinkedList; l.removeAllSuchThat(isOdd/1); l.asList = [2, 4] /* in place reject */
+let l = [1 .. 9].asLinkedList; l.removeFirst!; l.first = 2 /* remove first */
+let l = [1 .. 9].asLinkedList; l.removeLast!; l.last = 8 /* remove last */
+let l = [1].asLinkedList; l.removeFirst! = 1 & { l.isEmpty } /* remove first */
+let l = [1].asLinkedList; l.removeLast! = 1 & { l.isEmpty } /* remove last */
+let l = [1 .. 5].asLinkedList; l.removeAllSuchThat!(isOdd/1); l.asList = [2, 4] /* in place reject */
 let l = 1:99.asLinkedList; l.removeAll!; l.isEmpty /* remove all */
 1:99.asLinkedList.select(isEven/1).asList = [2, 4 .. 98] /* select */
 1:9.asLinkedList.selectThenCollect(isEven/1, square/1).asList = [4, 16, 36, 64] /* avoid intermediate collection */
 1:9.asLinkedList.collectThenSelect(square/1) { :each | each > 36 }.asList = [49, 64, 81] /* avoid intermediate collection */
 1:9.asLinkedList.reverse = [9, 8 .. 1] /* reverse, species is List */
-{ LinkedList().removeFirst }.hasError /* remove first, error if empty */
-{ LinkedList().removeLast }.hasError /* remove last, error if empty */
+{ LinkedList().removeFirst! }.hasError /* remove first, error if empty */
+{ LinkedList().removeLast! }.hasError /* remove last, error if empty */
 let l = 1:5.asLinkedList; l[3] = 3 /* index into */
 let l = 1:5.asLinkedList; l[1] := -1; l.asList = [-1, 2, 3, 4, 5] /* mutate at index */
 let l = 1:5.asLinkedList; l[3] := -3; l.asList = [1, 2, -3, 4, 5] /* mutate at index */
@@ -2116,15 +2116,15 @@ let d = ['x' -> 1, 'y' -> 2].asMap; d.indices = ['x', 'y'] /* answer List of ind
 let d = ['x' -> 1, 'y' -> 2].asMap; d.values = [1, 2] /* answer List of values at Dictionary */
 let d = ['x' -> 1, 'y' -> 2].asMap; d.at('x') = 1 /* answer value at key in Dictionary */
 let d = ['x' -> 1, 'y' -> 2].asMap; d['x'] = 1 /* at (subscript) syntax */
-let d = Map(); d.add!('x' -> 1); d.removeKey('x'); d.isEmpty = true /* remove Association from Dictionary given key */
+let d = Map(); d.add!('x' -> 1); d.removeKey!('x'); d.isEmpty = true /* remove Association from Dictionary given key */
 let d = Map(); (d['x'] := 1) = 1 & { d['x'] = 1 } /* atPut (subscript mutation) syntax */
 let d = Map(); d[1] := 'x'; d[1] = 'x'
-let d = Map(); d['x'] := 1; d.removeKey('x'); d.isEmpty = true
+let d = Map(); d['x'] := 1; d.removeKey!('x'); d.isEmpty = true
 let d = (f: { :i | i * i }); d['f'].value(9) = 81
-{ Map().removeKey('unknownKey') }.hasError
+{ Map().removeKey!('unknownKey') }.hasError
 (x: 1, y: 1).copyWithoutIdenticalElements = (x: 1)
-let d = Map(); 1.toDo(100) { :i | d[i] := i; (i > 10).ifTrue { d.removeKey(i - 10) } }; d.size = 10
-let c = Map(); c[2] := 'two'; c[1] := 'one'; c.removeKey(2); c[1] := 'one'; c.removeKey(1); c.includesIndex(1) = false
+let d = Map(); 1.toDo(100) { :i | d[i] := i; (i > 10).ifTrue { d.removeKey!(i - 10) } }; d.size = 10
+let c = Map(); c[2] := 'two'; c[1] := 'one'; c.removeKey!(2); c[1] := 'one'; c.removeKey!(1); c.includesIndex(1) = false
 (x: 1, y: 2).asMap.includesIndex('x') /* Record to Map, map includes key predicate */
 (x: 1, y: 2).asMap ++ (x: 2, y: 1) = (x: 2, y: 1).asMap /* appending a record to a Map answers a Map, biases right */
 (x: 1, y: 2, z: 3).asMap ++ (x: 2, y: 1) = (x: 2, y: 1, z: 3).asMap /* append record to Map */
@@ -2291,16 +2291,16 @@ let n = 4/3; n.uncheckedSlotWrite('denominator', 5L); n = 4/5 /* slot write */
 ## Ordered -- collection trait
 ```
 system.includesPackage('Ordered') /* package */
-let a = [1, 2, 4]; a.addBefore(3, 4); a = [1 .. 4] /* insert value before existing value */
-let a = [1, 2, 4]; a.addAfter(3, 2); a = [1 .. 4] /* insert value after existing value */
-let l = ['w' 'x' 'z']; l.addAfterIndex('y', 2) = 'y' & { l = ['w' 'x' 'y' 'z'] } /* insert value after index */
+let a = [1, 2, 4]; a.addBefore!(3, 4); a = [1 .. 4] /* insert value before existing value */
+let a = [1, 2, 4]; a.addAfter!(3, 2); a = [1 .. 4] /* insert value after existing value */
+let l = ['w' 'x' 'z']; l.addAfterIndex!('y', 2) = 'y' & { l = ['w' 'x' 'y' 'z'] } /* insert value after index */
 let a = [2, 3]; a.addFirst!(1) = 1 & { a = [1, 2, 3] } /* insert value at start */
-let a = [4, 5]; a.addAllFirst([1 .. 3]); a = [1 .. 5] /* add sequence at start */
+let a = [4, 5]; a.addAllFirst!([1 .. 3]); a = [1 .. 5] /* add sequence at start */
 let a = [1, 2]; a.addLast!(3) = 3 & { a = [1, 2, 3] } /* insert value at end */
-let a = [1, 2]; a.addAllLast([3 .. 5]); a = [1 .. 5] /* add sequence at end */
-let a = [1 .. 5]; a.removeAt(3); a = [1, 2, 4, 5] /* remove element at index */
-let a = [1 .. 5]; a.removeFirst; a = [2 .. 5] /* remove first element */
-let a = [1 .. 5]; a.removeLast; a = [1 .. 4] /* remove last element */
+let a = [1, 2]; a.addAllLast!([3 .. 5]); a = [1 .. 5] /* add sequence at end */
+let a = [1 .. 5]; a.removeAt!(3); a = [1, 2, 4, 5] /* remove element at index */
+let a = [1 .. 5]; a.removeFirst!; a = [2 .. 5] /* remove first element */
+let a = [1 .. 5]; a.removeLast!; a = [1 .. 4] /* remove last element */
 ```
 
 ## Package
@@ -2868,8 +2868,8 @@ let s = ''; [1 9 2 8 3 7 4 6].reverseDo { :i | s := s ++ i.printString }; s = '6
 [1 .. 9] != 1:9 /* an array is not equal to an interval */
 1:9 != [1 .. 9] /* an interval is not equal to an array */
 [1.5 .. 9.5].middle = 5.5 /* range start need not be an integer */
-let c = [1 .. 5]; c.swapWith(1, 4); c = [4, 2, 3, 1, 5] /* swap elements at indices in place */
-{ [1 .. 5].swapWith(1, 9) }.hasError /* it is an error if an index is invalid */
+let c = [1 .. 5]; c.swapWith!(1, 4); c = [4, 2, 3, 1, 5] /* swap elements at indices in place */
+{ [1 .. 5].swapWith!(1, 9) }.hasError /* it is an error if an index is invalid */
 [1, [2, [3, [4, [5], 6], 7], 8], 9].flatten = [1 .. 9] /* catenate removing all nesting */
 [1, [2, [3, ['45', 6], '78']], 9].flatten = [1, 2, 3, '45', 6, '78', 9] /* strings are not flatten to sequences of characters */
 [3, 4, [2, 4, ['xy'], 'wz']].flatten = [3, 4, 2, 4, 'xy', 'wz']
@@ -3760,7 +3760,7 @@ system.allMethods.collect { :each | each.signature }.includes('@Iterable>>do/2')
 system.methodLookupAtType('collect', 2, 'List').isMethod = true
 let m = system.methodLookupAtType('plusSign', 2, 'SmallFloat'); m.operatorTokenOrQualifiedName = '+'
 system.methodImplementations('sum').collect { :each | each.origin.name }.includes('Multiset') = true
-system.methodSignatures('add!').includes('@Dictionary>>add!/2') = true
+system.methodSignatures('addInPlace').includes('@Dictionary>>addInPlace/2') = true
 '@Iterable>>sum/1'.parseMethodSignature = ['@Iterable', 'sum/1']
 '@Iterable'.isQualifiedTraitName = true
 system.methodLookupAtSignature('@Iterable>>sum/1').isMethod = true
@@ -3772,7 +3772,7 @@ system.splOperatorNameTable['^'] = 'circumflexAccent' = true
 system.doesTraitImplementMethod('Collection', 'select') = true
 system.doesTypeImplementMethod('List', 'species') = true
 [1, 2, 3].respondsTo(select/2) = true /* does a value (courtesy the type) implement a method */
-system.methodPrintString('add!').size >= 3
+system.methodPrintString('addInPlace').size >= 3
 system.methodLookupAtType('collect', 2, 'List').isMethod = true
 system.methodLookupAtType('collect', 2, 'List').origin.name = 'PrimitiveArray'
 system.methodLookupAtType('collect', 2, 'List').block.value([3, 4, 5], { :x | x * x }) = collect([3, 4, 5], { :x | x * x })
@@ -3851,7 +3851,7 @@ system.localStorage.keys.allSatisfy(isString/1) /* keys and values must each be 
 (system.localStorage['pi'] := 1.pi.asString) = 1.pi.asString /* store 1.pi as string at index 'pi', answer item stored */
 system.localStorage['pi'] = 1.pi.asString /* read pi */
 system.localStorage.keys.includes('pi') = true /* pi is an index */
-system.localStorage.removeKey('pi') = 1.pi.asString /* remove entry, answer removed item */
+system.localStorage.removeKey!('pi') = 1.pi.asString /* remove entry, answer removed item */
 system.localStorage.removeAll! = nil /* remove all entries, answer nil */
 ```
 
@@ -3892,7 +3892,7 @@ let p = 'z=a&y=b&x=c'.asUrlQueryParameters; p.sort! = nil & { p.associations = [
 let p = 'x=a&y=b'.asUrlQueryParameters; p.add!('z' -> 'c'); p.associations = ['x' -> 'a', 'y' -> 'b', 'z' -> 'c']
 let p = 'x=a&y=b'.asUrlQueryParameters; p['x'] := 'c'; p.associations = ['x' -> 'c', 'y' -> 'b']
 'x=a&y=b&x=c'.asUrlQueryParameters.atAllEntries('x') = ['a' 'c']
-let p = 'x=a&y=b&x=c'.asUrlQueryParameters; p.removeKey('x'); p.asString = 'y=b'
+let p = 'x=a&y=b&x=c'.asUrlQueryParameters; p.removeKey!('x'); p.asString = 'y=b'
 'x=a&x=b&x=c'.asUrlQueryParameters.size = 3 /* size */
 (x: 1, y: 2, z: 3).asUrlQueryParameters.asString = 'x=1&y=2&z=3' /* record constructor */
 ```

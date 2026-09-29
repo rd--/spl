@@ -116,7 +116,7 @@
 				(i >= j).if {
 					continue := false
 				} {
-					s.swapWith(i, j);
+					s.swapWith!(i, j);
 					monitorBlock(s)
 				}
 			};

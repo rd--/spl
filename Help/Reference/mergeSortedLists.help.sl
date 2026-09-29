@@ -3,7 +3,7 @@
 - _mergeSortedLists([x₁ x₂ …], select/1, insert/2)_
 
 Answer a `List` that merges a collection of sorted sequences into a sorted sequence.
-The algorithm rewrites the input collection and the input sequences in place,
+The algorithm rewrites the input collection and the input sequences in-place,
 though they do not in the end contain the answer.
 
 Sequences are sorted in ascending order, answer ascending list:

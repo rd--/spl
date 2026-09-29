@@ -525,7 +525,7 @@ Polygon : [Object, Store, Equal, Geometry] { | vertexCoordinates |
 			}
 		};
 		(i < k).ifTrue {
-			v.removeLast
+			v.removeLast!
 		};
 		Polygon(v)
 	}

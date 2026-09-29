@@ -26,7 +26,7 @@ At `Multiset`:
 ['a' -> 3, 'b' -> 2, 'c' -> 1]
 ```
 
-At `List`, in place:
+At `List`, in-place:
 
 ```
 >>> ['c' -> 1, 'b' -> 2, 'a' -> 3]

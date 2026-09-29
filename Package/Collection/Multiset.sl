@@ -11,11 +11,11 @@
 	}
 
 	add! { :self :anObject |
-		self.addWithOccurrences(anObject, 1)
+		self.addWithOccurrences!(anObject, 1)
 	}
 
-	addWithOccurrences { :self :anObject :anInteger |
-		self.basicAddWithOccurrences(anObject, anInteger)
+	addWithOccurrences! { :self :anObject :anInteger |
+		self.uncheckedAddWithOccurrences(anObject, anInteger)
 	}
 
 	asMultiset { :self |
@@ -24,16 +24,6 @@
 
 	associations { :self |
 		self.contents.associations
-	}
-
-	basicAddWithOccurrences { :self :anObject :anInteger |
-		let dictionary = self.contents;
-		dictionary.includesIndex(anObject).if {
-			dictionary[anObject] := dictionary[anObject] + anInteger
-		} {
-			dictionary[anObject] := anInteger
-		};
-		anObject
 	}
 
 	countsAndElements { :self |
@@ -81,7 +71,7 @@
 			let j = operand.occurrencesOf(x);
 			let k = i.min(j);
 			(k > 0).ifTrue {
-				answer.addWithOccurrences(x, k)
+				answer.addWithOccurrences!(x, k)
 			}
 		};
 		answer
@@ -127,11 +117,11 @@
 		r.randomWeightedChoice(e, w, shape)
 	}
 
-	removeIfAbsent { :self :oldObject :whenAbsent/0 |
+	removeIfAbsent! { :self :oldObject :whenAbsent/0 |
 		self.includes(oldObject).if {
 			let count = self.contents[oldObject];
 			(count = 1).if {
-				self.contents.removeKey(oldObject)
+				self.contents.removeKey!(oldObject)
 			} {
 				self.contents[oldObject] := count - 1
 			}
@@ -179,6 +169,16 @@
 			};
 			sum
 		}
+	}
+
+	uncheckedAddWithOccurrences { :self :anObject :anInteger |
+		let dictionary = self.contents;
+		dictionary.includesIndex(anObject).if {
+			dictionary[anObject] := dictionary[anObject] + anInteger
+		} {
+			dictionary[anObject] := anInteger
+		};
+		anObject
 	}
 
 	valuesAndCounts { :self |

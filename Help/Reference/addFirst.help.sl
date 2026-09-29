@@ -1,6 +1,6 @@
-# addFirst (addFirst!)
+# addFirst!
 
-- _addFirst([x₁ x₂ …], y)_
+- _addFirst!([x₁ x₂ …], y)_
 
 Add the object _y_ to the beginning of the sequence _x_.
 Answer _y_.

@@ -76,7 +76,7 @@ A random shuffle of the 27-colour three-level pallette:
 ~~~spl svg=G
 let r = Sfc32(938745);
 let a = [0 1 2].tuples(3);
-let b = a.fisherYatesShuffle(r);
+let b = a.fisherYatesShuffle!(r);
 RybColour(b / 2).reshape([3 9])
 .arrayPlot
 ~~~
@@ -88,7 +88,7 @@ A random shuffle of the 64-colour four-level pallette:
 ~~~spl svg=H
 let r = Sfc32(349527);
 let a = [0 1 2 3].tuples(3);
-let b = a.fisherYatesShuffle(r);
+let b = a.fisherYatesShuffle!(r);
 RybColour(b / 3).reshape([8 8])
 .arrayPlot
 ~~~

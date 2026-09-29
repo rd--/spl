@@ -29,7 +29,7 @@ RunArray : [Object, Equal, Store, Indexable] { | runLengths values cachedIndex c
 	asIdentityMultiset { :self |
 		let answer = IdentityMultiset();
 		self.runLengthsAndValuesDo { :run :value |
-			answer.addWithOccurrences(value, run)
+			answer.addWithOccurrences!(value, run)
 		};
 		answer
 	}

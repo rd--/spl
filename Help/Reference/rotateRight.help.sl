@@ -4,7 +4,7 @@
 
 Rotate the sequence _x_ by _n_ places to the right,
 i.e. _n_ elements from the end are moved to the start.
-The rotation is not in place, a new sequence is answered.
+The rotation is not in-place, a new sequence is answered.
 If _n_ is negative shift left instead.
 Also called a circular shift.
 

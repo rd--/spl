@@ -1,8 +1,8 @@
-# addAll (addAll!)
+# addAll!
 
-- _addAll(c₁, c₂)_
+- _addAll!(c₁, c₂)_
 
-Include all the elements of _c₂_ into _c₁_.
+Include all the elements of _c₂_ into _c₁_ in-place.
 Answer _c₂_.
 
 In general, any object responding to _do_ can be used as the second argument.

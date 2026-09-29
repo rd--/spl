@@ -64,7 +64,7 @@ Methods for copying:
 - `copyWithoutAll`
 - `forceToPaddingWith`
 - `reverse`
-- `shuffled`
+- `shuffle`
 - `sortBy`
 
 Methods for enumerating:

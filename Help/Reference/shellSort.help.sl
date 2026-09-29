@@ -2,7 +2,7 @@
 
 - _shellSort([x₁ x₂ …], t=[5 3 1], f/2)_
 
-Sort the sequence _x_ in place using the shell sort algorithm,
+Sort the sequence _x_ in-place using the shell sort algorithm,
 according to the comparison predicate _f_.
 
 Sort list:
@@ -16,7 +16,7 @@ Sort list:
 [5 4 3 3 2 1]
 ```
 
-Sort is in place:
+Sort is in-place:
 
 ```
 >>> let s = [1 3 5 2 4 3];

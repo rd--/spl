@@ -1189,9 +1189,6 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'fisherYatesShuffle'
 		'fisherYatesShuffleBy'
 		'shuffle'
-		'shuffleBy'
-		'shuffled'
-		'shuffledBy'
 	],
 	'sorting': [
 		'sortBy!'

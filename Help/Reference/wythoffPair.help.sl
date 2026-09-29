@@ -77,7 +77,7 @@ let m = i.max;
 let k = 1:m.complement(i).min;
 let a = [1 .. m];
 w.do { :p |
-	a.swapWith(p[1], p[2])
+	a.swapWith!(p[1], p[2])
 };
 a.first(k).scatterPlot
 ~~~

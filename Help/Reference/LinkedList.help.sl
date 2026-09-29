@@ -78,7 +78,7 @@ Remove first:
 
 ```
 >>> let l = LinkedList[1 .. 9];
->>> l.removeFirst;
+>>> l.removeFirst!;
 >>> l.first
 2
 ```
@@ -87,7 +87,7 @@ Remove last:
 
 ```
 >>> let l = LinkedList[1 .. 9];
->>> l.removeLast;
+>>> l.removeLast!;
 >>> l.last
 8
 ```
@@ -96,7 +96,7 @@ In place reject:
 
 ```
 >>> let l = LinkedList[1 .. 5];
->>> l.removeAllSuchThat(isOdd/1);
+>>> l.removeAllSuchThat!(isOdd/1);
 >>> l.contents
 [2, 4]
 ```

@@ -155,7 +155,7 @@ when one is inserted at index two:
 >>> let a = { :x |
 >>> 	x + 1 + x.digitCount(2, 0)
 >>> }.nestList(0, 14);
->>> a.insertAt(1, 2);
+>>> a.insertAt!(1, 2);
 >>> a
 [0 1 2 4 7 8 12 15 16 21 24 28 31 32 38 42]
 ```

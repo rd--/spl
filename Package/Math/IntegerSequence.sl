@@ -618,7 +618,7 @@
 		let z = [];
 		{ :x |
 			let y = x.rotateLeft(k);
-			z.add!(y.removeLast);
+			z.add!(y.removeLast!);
 			y
 		}.iterate([1 .. n], n);
 		z
@@ -1151,7 +1151,7 @@
 			index := index + 1
 		};
 		(answer.size > n).ifTrue {
-			answer.removeLast(answer.size - n)
+			answer.removeLast!(answer.size - n)
 		};
 		answer
 	}
@@ -1160,7 +1160,7 @@
 		(k = 'C').if {
 			let a = n.sternsDiatomicArray('B');
 			a.do { :r |
-				r.removeLast
+				r.removeLast!
 			};
 			a
 		} {
@@ -1253,14 +1253,14 @@
 					h = 1
 				} {
 					(hr + hu > n).if {
-						r.removeFirst
+						r.removeFirst!
 					} {
 						(hr + hu < n).if {
-							u.removeFirst
+							u.removeFirst!
 						} {
 							h := h + 1;
-							r.removeFirst;
-							u.removeFirst
+							r.removeFirst!;
+							u.removeFirst!
 						}
 					};
 					isUlam(n, h, u, r)
@@ -1625,7 +1625,7 @@
 					let y = m[j];
 					let a = (3 * x * y + sqrt((-4 * (x ^ 2)) - (4 * (y ^ 2)) + (9 * (x ^ 2) * (y ^ 2)))) / 2;
 					a.isInteger.ifTrue {
-						m.addIfNotPresent(a)
+						m.addIfNotPresent!(a)
 					}
 				}
 			}

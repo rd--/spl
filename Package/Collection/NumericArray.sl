@@ -152,7 +152,7 @@ NumericArray : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, 
 							} {
 								(a * m) % (k - 1)
 							};
-							c.swapWith(a + 1, cycle + 1);
+							c.swapWith!(a + 1, cycle + 1);
 							visited[a] := 1
 						}.doWhileTrue {
 							a != cycle

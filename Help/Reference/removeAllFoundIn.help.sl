@@ -1,14 +1,14 @@
 # removeAllFoundIn
 
-- _removeAllFoundIn(c₁, c₂)_
+- _removeAllFoundIn!(c₁, c₂)_
 
-Remove each element of the collection _c₂_ which is present in the collection _c₁_.
+Remove each element of the collection _c₂_ which is present in the collection _c₁_ in-place.
 Answer _c₂_.
 No error is raised if an element isn’t found.
 
 ```
 >>> let c = [1 2 2 3 3 3 4 4 4 4];
->>> let r = c.removeAllFoundIn([2 3]);
+>>> let r = c.removeAllFoundIn!([2 3]);
 >>> (r, c)
 ([2 3], [1 2 3 3 4 4 4 4])
 ```

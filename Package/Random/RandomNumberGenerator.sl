@@ -98,7 +98,7 @@
 
 	randomPermutation { :self :anInteger :shape |
 		{
-			self.fisherYatesShuffle(anInteger.iota).asPermutation
+			self.fisherYatesShuffle!(anInteger.iota).asPermutation
 		} ! shape
 	}
 

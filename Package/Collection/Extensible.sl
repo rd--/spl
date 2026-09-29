@@ -11,27 +11,27 @@
 		aCollection
 	}
 
-	addAllIfNotPresent { :self :aCollection |
+	addAllIfNotPresent! { :self :aCollection |
 		aCollection.do { :each |
-			self.addIfNotPresent(each)
+			self.addIfNotPresent!(each)
 		}
 	}
 
-	addIfNotPresent { :self :anObject |
+	addIfNotPresent! { :self :anObject |
 		self.includes(anObject).ifFalse {
 			self.add!(anObject)
 		};
 		anObject
 	}
 
-	addIfNotPresentBy { :self :anObject :aBlock/2 |
+	addIfNotPresentBy! { :self :anObject :aBlock/2 |
 		self.includesBy(anObject, aBlock/2).ifFalse {
 			self.add!(anObject)
 		};
 		anObject
 	}
 
-	addWithOccurrences { :self :newObject :anInteger |
+	addWithOccurrences! { :self :newObject :anInteger |
 		anInteger.timesRepeat {
 			self.add!(newObject)
 		};
@@ -76,7 +76,7 @@
 	}
 
 	remove! { :self :oldObject |
-		self.removeIfAbsent(oldObject) {
+		self.removeIfAbsent!(oldObject) {
 			self.errorNotFound(oldObject)
 		}
 	}
@@ -97,21 +97,21 @@
 		}
 	}
 
-	removeAllEqualTo { :self :oldObject |
-		self.removeAllSuchThat { :each |
+	removeAllEqualTo! { :self :oldObject |
+		self.removeAllSuchThat! { :each |
 			each = oldObject
 		}
 	}
 
-	removeAllFoundIn { :self :aCollection |
+	removeAllFoundIn! { :self :aCollection |
 		aCollection.do { :each |
-			self.removeIfAbsent(each) {
+			self.removeIfAbsent!(each) {
 			}
 		};
 		aCollection
 	}
 
-	removeAllSuchThat { :self :aBlock/1 |
+	removeAllSuchThat! { :self :aBlock/1 |
 		self.copy.do { :each |
 			aBlock(each).ifTrue {
 				self.remove!(each)
@@ -119,8 +119,8 @@
 		}
 	}
 
-	removeIfAbsent { :self :oldObject :anExceptionBlock |
-		self.typeResponsibility('@Extensible>>removeIfAbsent')
+	removeIfAbsent! { :self :oldObject :anExceptionBlock |
+		self.typeResponsibility('@Extensible>>removeIfAbsent!')
 	}
 
 	union { :self :aCollection |
@@ -130,14 +130,14 @@
 	}
 
 	without! { :self :oldObject |
-		self.removeAllSuchThat { :each |
+		self.removeAllSuchThat! { :each |
 			each = oldObject
 		};
 		self
 	}
 
 	withoutAll! { :self :aCollection |
-		self.removeAllSuchThat { :each |
+		self.removeAllSuchThat! { :each |
 			aCollection.includes(each)
 		};
 		self

@@ -86,7 +86,7 @@ Record! : [Object, Store, Equal, Json, Iterable, Indexable, Collection, Extensib
 	}
 	*/
 
-	removeKeyIfAbsent { :self :key :aBlock |
+	removeKeyIfAbsent! { :self :key :aBlock |
 		<primitive:
 		if(Object.hasOwn(_self, _key)) {
 			const removed = _self[_key];

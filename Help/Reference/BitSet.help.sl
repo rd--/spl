@@ -244,7 +244,7 @@ The `printString` of a `BitSet`:
 ```
 
 `bitNot` at `BitSet` flips the status of each bit,
-in place:
+in-place:
 
 ```
 >>> let l = [0 2 4 5 7 9 11];

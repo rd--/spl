@@ -25,7 +25,7 @@
 		<primitive: return _self.has(_key);>
 	}
 
-	removeKeyIfAbsent { :self :key :aBlock/0 |
+	removeKeyIfAbsent! { :self :key :aBlock/0 |
 		<primitive:
 		if(_self.has(_key)) {
 			const removed = _self.get(_key);

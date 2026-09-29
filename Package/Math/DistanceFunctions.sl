@@ -405,7 +405,7 @@
 			1.toDo(vertexCount) { :j |
 				let distance = distanceList[j];
 				(i != j & { distance <= leastDistance }).ifTrue {
-					edgeList.addIfNotPresent(i --> j)
+					edgeList.addIfNotPresent!(i --> j)
 				}
 			}
 		};
@@ -523,9 +523,9 @@
 				tracebackMatrix[i - 1][j - 1] := h.indexOf(l)
 			}
 		};
-		costMatrix.removeFirst;
+		costMatrix.removeFirst!;
 		costMatrix.do { :each |
-			each.removeFirst
+			each.removeFirst!
 		};
 		[tracebackMatrix, costMatrix]
 	}

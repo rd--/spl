@@ -243,7 +243,7 @@
 			1.toDo(k) { :i |
 				s[i].addAll!(s[s.size - i + 1])
 			};
-			s.removeLast(k);
+			s.removeLast!(k);
 			aBlock(s);
 			z := z - k;
 			d := n - k;

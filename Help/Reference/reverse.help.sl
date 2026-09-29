@@ -3,7 +3,7 @@
 - _reverse([x₁ x₂ …], n=1)_
 
 There are in-place and copying forms of reverse.
-The in-place form reverses _x_ in place and answers _x_.
+The in-place form reverses _x_ in-place and answers _x_.
 In the copying form,
 the answer is a new value of the same `species` as _x_ in the reverse order.
 

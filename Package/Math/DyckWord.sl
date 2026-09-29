@@ -91,7 +91,7 @@ DyckWord : [Object, Store] { | word tokens |
 					j := true
 				}
 			} {
-				r.last.add!(u.removeLast);
+				r.last.add!(u.removeLast!);
 				j := false
 			}
 		};
@@ -138,7 +138,7 @@ DyckWord : [Object, Store] { | word tokens |
 				s[1].subTrees.addLast!(t);
 				s.addFirst!(t)
 			} {
-				s.removeFirst
+				s.removeFirst!
 			}
 		};
 		s[1]

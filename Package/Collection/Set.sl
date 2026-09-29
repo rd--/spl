@@ -42,13 +42,13 @@
 	}
 
 	remove! { :self :anObject |
-		self.removeIfAbsent(anObject) {
+		self.removeIfAbsent!(anObject) {
 			self.error('@Set>>remove!: item does not exist')
 		}
 	}
 
 	without! { :self :anObject |
-		self.removeIfAbsent(anObject) { };
+		self.removeIfAbsent!(anObject) { };
 		self
 	}
 

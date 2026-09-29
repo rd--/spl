@@ -33,8 +33,8 @@ TimeSeries : [Object, Store, Equal, Iterable, Indexable, Collection] { | values 
 		(index <= times.size & { times[index] = time }).if {
 			values[index] := item
 		} {
-			values.addBeforeIndex(item, index);
-			times.addBeforeIndex(time, index)
+			values.addBeforeIndex!(item, index);
+			times.addBeforeIndex!(time, index)
 		};
 		item
 	}

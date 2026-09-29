@@ -16,7 +16,7 @@
 				u[2] < v[2]
 			}
 		};
-		p.removeAtAll(
+		p.removeAtAll!(
 			2.to(p.size - 1).select { :i |
 				p[i][2] = p[i + 1][2]
 			}
@@ -35,7 +35,7 @@
 						].shoelaceFormula < 0
 					}
 				}.whileTrue {
-					h.removeLast
+					h.removeLast!
 				};
 				h.addLast!(x)
 			}

@@ -3,7 +3,7 @@
 - _lexicographicSort([x₁ x₂ …])_
 
 Sorts a list _xₙ_ into lexicographic order.
-There are copying and in place forms.
+There are copying and in-place forms.
 Answer the sorted list.
 This is `sort` of `precedes`.
 

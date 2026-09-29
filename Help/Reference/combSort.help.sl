@@ -2,7 +2,7 @@
 
 - _combSort([x₁ x₂ …], f/2)_
 
-Sort the sequence _x_ in place using the comb sort algorithm,
+Sort the sequence _x_ in-place using the comb sort algorithm,
 according to the comparison predicate block _f_.
 
 Sort list:
@@ -15,7 +15,7 @@ Sort list:
 [5 4 3 3 2 1]
 ```
 
-Sort is in place or copying:
+Sort is in-place or copying:
 
 ```
 >>> let s = [1 3 5 2 4 3];

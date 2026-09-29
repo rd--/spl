@@ -21,7 +21,7 @@ sortInPlace(x)
 sortInPlace(x)
 ```
 
-This follows the Scheme language convention of naming in place,
+This follows the Scheme language convention of naming in-place,
 or mutating,
 procedures with a trailing exclamation mark.
 

@@ -193,7 +193,7 @@ Circle : [Object, Store, Equal, Geometry] { | center radius |
 	}
 
 	welzlAlgorithm { :self |
-		let p = self.shuffled(system);
+		let p = self.shuffle(system);
 		welzlAlgorithm(p, [])
 	}
 

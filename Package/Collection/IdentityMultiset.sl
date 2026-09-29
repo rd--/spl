@@ -2,11 +2,11 @@
 
 IdentityMultiset : [Object, Store, Copyable, Equal, Iterable, Collection, Extensible, Unordered, Multiset] { | contents |
 
-	addWithOccurrences { :self :anObject :anInteger |
+	addWithOccurrences! { :self :anObject :anInteger |
 		anObject.isImmediate.ifFalse {
-			'IdentityMultiset>>addWithOccurrences: non-immediate entry'.error
+			'IdentityMultiset>>addWithOccurrences!: non-immediate entry'.error
 		};
-		self.basicAddWithOccurrences(anObject, anInteger)
+		self.uncheckedAddWithOccurrences(anObject, anInteger)
 	}
 
 	asIdentityMultiset { :self |

@@ -32,7 +32,9 @@ Inspector : [Object, View] { | inspectorPane inspectorList |
 
 	removeInspectorsFrom { :self :index |
 		(index <= self.inspectorList.size).ifTrue {
-			self.inspectorList.removeLast(self.inspectorList.size - index + 1).do { :each |
+			self.inspectorList.removeLast!(
+				self.inspectorList.size - index + 1
+			).do { :each |
 				each.listChooserPane.remove
 			}
 		}

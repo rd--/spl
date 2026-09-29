@@ -50,12 +50,12 @@
 				(word[index] = 2 & { start[index] = 1 }).if {
 					word[index] := word[index] - 2;
 					(maxima[1] = index).ifTrue {
-						maxima.removeFirst
+						maxima.removeFirst!
 					}
 				} {
 					word[index] := word[index] - 1;
 					(maxima[1] = index).ifTrue {
-						maxima.removeFirst
+						maxima.removeFirst!
 					}
 				}
 			};

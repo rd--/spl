@@ -3,7 +3,7 @@
 - _reducedRowEchelonForm(m)_
 
 Place the matrix _m_ in row reduced form.
-An in place variant of `rowReduce`.
+An in-place variant of `rowReduce`.
 
 ```
 >>> let m = [1 2 3; 4 5 6; 7 8 9];

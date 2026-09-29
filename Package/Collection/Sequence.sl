@@ -148,8 +148,8 @@
 			p[i] := j;
 			r[i] := a[j]
 		};
-		p.removeFirst;
-		r.removeFirst;
+		p.removeFirst!;
+		r.removeFirst!;
 		[
 			p.collect { :x | (x = 1).if { nil } { x - 1 } },
 			r.collect { :x | (x = -Infinity).if { nil } { x } }
@@ -1807,7 +1807,7 @@
 					x.last = alphabet.last
 				}
 			}.whileTrue {
-				x.removeLast
+				x.removeLast!
 			};
 			x.isEmpty.ifFalse {
 				let i = alphabet.indexOf(x.last) + 1;
@@ -2478,7 +2478,7 @@
 			let bit = taps.collect { :i |
 				register[k + 1 - i]
 			}.reduce(plus/2) % 2;
-			register.removeLast;
+			register.removeLast!;
 			register.addFirst!(bit);
 			bit
 		};
@@ -2605,34 +2605,36 @@
 		self.scanRight(+)
 	}
 
-	swapAllWith { :self :indices |
-		indices.rank.caseOf([
-			2 -> {
-				indices.do { :each |
-					let [i, j] = each;
-					let x = self[i];
-					self[i] := self[j];
-					self[j] := x
+	swapAllWith! { :self :indices |
+		indices.rank.caseOf(
+			[
+				2 -> {
+					indices.do { :each |
+						let [i, j] = each;
+						let x = self[i];
+						self[i] := self[j];
+						self[j] := x
+					}
+				},
+				3 -> {
+					indices.do { :each |
+						let [i, j] = each;
+						let x = self.atPath(i);
+						self.atPathPut(i, self.atPath(j));
+						self.atPathPut(j, x)
+					}
 				}
-			},
-			3 -> {
-				indices.do { :each |
-					let [i, j] = each;
-					let x = self.atPath(i);
-					self.atPathPut(i, self.atPath(j));
-					self.atPathPut(j, x)
-				}
-			}
-		])
+			]
+		)
 	}
 
-	swapPathWith { :self :i :j |
+	swapPathWith! { :self :i :j |
 		let x = self.atPath(i);
 		self.atPathPut(i, self.atPath(j));
 		self.atPathPut(j, x)
 	}
 
-	swapWith { :self :i :j |
+	swapWith! { :self :i :j |
 		let x = self[i];
 		self[i] := self[j];
 		self[j] := x

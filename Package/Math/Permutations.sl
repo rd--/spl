@@ -318,12 +318,12 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 				let e = d + 1;
 				(p[d] > p[e]).ifTrue {
 					isIdentity := false;
-					p.swapWith(d, e);
+					p.swapWith!(d, e);
 					p.asPermutation.reducedWordsDo { :x |
 						x.add!(d);
 						aBlock(x)
 					};
-					p.swapWith(d, e)
+					p.swapWith!(d, e)
 				}
 			};
 			isIdentity.ifTrue {
@@ -562,7 +562,7 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 		}.whileTrue {
 			continue := aBlock(list);
 			continue.ifTrue {
-				let next = list.nextPermutationLexicographic;
+				let next = list.nextPermutationLexicographic!;
 				continue := next.isNotNil
 			}
 		}
@@ -610,7 +610,7 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 		}
 	}
 
-	nextPermutationLexicographic { :self |
+	nextPermutationLexicographic! { :self |
 		let swap = { :i :j |
 			let t = self[i];
 			self[i] := self[j];
@@ -915,9 +915,9 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 				aBlock(self)
 			} {
 				anInteger.toDo(self.size) { :index |
-					self.swapWith(anInteger, index);
+					self.swapWith!(anInteger, index);
 					self.permutationsStartingAtDo(anInteger + 1, aBlock/1);
-					self.swapWith(anInteger, index)
+					self.swapWith!(anInteger, index)
 				}
 			}
 		};
@@ -950,7 +950,7 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 	rightInversionCountToPermutationList { :self |
 		let list = self.size.iota;
 		self.collect { :each |
-			list.removeAt(each + 1)
+			list.removeAt!(each + 1)
 		}
 	}
 
@@ -1027,7 +1027,7 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 				f(n - 1).collect { :x |
 					[1 .. n].reorder.collect { :i |
 						let y = x.copy;
-						y.insertAt(n, i);
+						y.insertAt!(n, i);
 						y
 					}
 				}.catenate

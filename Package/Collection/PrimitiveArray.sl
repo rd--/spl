@@ -74,7 +74,7 @@
 		>
 	}
 
-	insertAt { :self :anObject :index |
+	insertAt! { :self :anObject :index |
 		<primitive:
 		_self.splice(_index - 1, 0, _anObject);
 		>

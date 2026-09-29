@@ -1,8 +1,8 @@
-# includeAll (includeAll!)
+# includeAll!
 
-- _includeAll(c₁, c₂)_
+- _includeAll!(c₁, c₂)_
 
-Include all the elements of collection _c₂_ into collection _c₁_ in place.
+Include all the elements of collection _c₂_ into collection _c₁_ in-place.
 Answer _c₂_.
 
 In general, any object responding to _do_ can be used as the second argument.

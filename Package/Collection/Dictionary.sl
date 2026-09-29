@@ -77,7 +77,7 @@
 		}
 	}
 
-	associationsRemove { :self :aBlock/1 |
+	associationsRemove! { :self :aBlock/1 |
 		let removals = [];
 		self.associationsDo { :each |
 			aBlock(each).ifTrue {
@@ -85,7 +85,7 @@
 			}
 		};
 		removals.do { :key |
-			self.removeKey(key)
+			self.removeKey!(key)
 		};
 		removals
 	}
@@ -149,7 +149,7 @@
 			aDictionary.includesKey(key).if {
 				let association = aDictionary.associationAt(key);
 				self.add!(association);
-				aDictionary.removeKey(key);
+				aDictionary.removeKey!(key);
 				association
 			} {
 				self.add!(key -> nil);
@@ -316,8 +316,8 @@
 		self.typeResponsibility('@Dictionary>>keysAndValuesDo')
 	}
 
-	keysAndValuesRemove { :self :keyAndValueBlock/2 |
-		self.associationsRemove { :each |
+	keysAndValuesRemove! { :self :keyAndValueBlock/2 |
+		self.associationsRemove! { :each |
 			keyAndValueBlock(each.key, each.value)
 		}
 	}
@@ -363,64 +363,56 @@
 	}
 
 	removeAll! { :self |
-		self.associationsRemove { :unusedItem |
+		self.associationsRemove! { :unusedItem |
 			true
 		};
 		nil
 	}
 
-	removeAllKeys { :self :keys |
-		self.associationsRemove { :each |
-			keys.includes(each.key)
-		}
-	}
-
-	removeAllSuchThat { :self :aBlock/1 |
-		self.associationsRemove { :each |
+	removeAllSuchThat! { :self :aBlock/1 |
+		self.associationsRemove! { :each |
 			aBlock(each.value)
 		}
 	}
 
-	removeAssociationIfAbsent { :self :oldObject :anExceptionBlock/0 |
+	removeAssociationIfAbsent! { :self :oldObject :anExceptionBlock/0 |
 		self.includesAssociation(oldObject).if {
-			self.removeKey(oldObject.key)
+			self.removeKey!(oldObject.key)
 		} {
 			anExceptionBlock()
 		}
 	}
 
 	removeAssociation! { :self :oldObject |
-		self.removeAssociationIfAbsent(oldObject) {
+		self.removeAssociationIfAbsent!(oldObject) {
 			self.error('removeAssociation!: not present')
 		}
 	}
 
-	removeAt { :self :key |
-		self.removeKey(key)
-	}
-
-	removeAtAll { :self :keys |
-		self.removeAllKeys(keys)
-	}
-
-	removeKey { :self :key |
-		self.removeKeyIfAbsent(key) {
-			self.error('@Dictionary>>removeKey')
+	[removeAt!, removeKey!] { :self :key |
+		self.removeKeyIfAbsent!(key) {
+			self.error('@Dictionary>>removeKey!')
 		}
 	}
 
-	removeKeyIfAbsent { :self :key :ifAbsent/0 |
+	[removeAtAll!, removeAllKeys!] { :self :keys |
+		self.associationsRemove! { :each |
+			keys.includes(each.key)
+		}
+	}
+
+	removeKeyIfAbsent! { :self :key :ifAbsent/0 |
 		let index = self.keys.indexOfBy(key, self.comparator);
 		(index = 0).if {
 			ifAbsent()
 		} {
-			self.keys.removeAt(index);
-			self.values.removeAt(index)
+			self.keys.removeAt!(index);
+			self.values.removeAt!(index)
 		}
 	}
 
-	removeIfAbsent { :self :oldObject :anExceptionBlock/0 |
-		self.shouldNotImplement('removeIfAbsent')
+	removeIfAbsent! { :self :oldObject :anExceptionBlock/0 |
+		self.shouldNotImplement('removeIfAbsent!')
 	}
 
 	select { :self :aBlock/1 |

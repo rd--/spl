@@ -8,7 +8,7 @@ or `false` to end,
 the iteration.
 Answers `nil`.
 Note: The value supplied to _f_ is _not_ a copy,
-the same sequence is mutated in place.
+the same sequence is mutated in-place.
 
 Count the lexicographic permutations of _1234_:
 

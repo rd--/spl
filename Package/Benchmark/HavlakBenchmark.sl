@@ -226,7 +226,7 @@ HavlakLoopFinder : [Object] { | cfg lsg nonBackPreds backPreds number maxSize he
 						{
 							workList.isEmpty
 						}.whileFalse {
-							let x = workList.removeFirst;
+							let x = workList.removeFirst!;
 							let nonBackSize = self.nonBackPreds[x.dfsNumber].size;
 							(nonBackSize > self.maxNonBackPreds).ifTrue {
 								self.return

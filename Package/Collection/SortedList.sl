@@ -11,7 +11,7 @@ SortedList : [Object, Store, Copyable, Equal, Compare, Iterable, Indexable, Coll
 			self.contents.add!(item)
 		} {
 			let nextIndex = self.indexForInserting(item);
-			self.contents.insertAt(item, nextIndex)
+			self.contents.insertAt!(item, nextIndex)
 		}
 	}
 
@@ -125,12 +125,12 @@ SortedList : [Object, Store, Copyable, Equal, Compare, Iterable, Indexable, Coll
 		}
 	}
 
-	removeIfAbsent { :self :oldObject :anExceptionBlock/0 |
+	removeIfAbsent! { :self :oldObject :anExceptionBlock/0 |
 		let i = self.indexOf(oldObject);
 		(i = 0).if {
 			anExceptionBlock()
 		} {
-			self.contents.removeAt(i)
+			self.contents.removeAt!(i)
 		}
 	}
 

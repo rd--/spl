@@ -3,7 +3,7 @@
 - _positiveResidue(n, m)_
 
 Answer the positive residue of the integer _n_ modulo _m_,
-in which _m_ is the representive in place of `zero`,
+in which _m_ is the representive in-place of `zero`,
 as in `commonResidue`.
 
 ```

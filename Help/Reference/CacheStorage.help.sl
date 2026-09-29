@@ -19,7 +19,7 @@ Delete cache:
 ~~~spl async
 system
 .caches
-.removeKeyIfAbsent('SplLibrary') {
+.removeKeyIfAbsent!('SplLibrary') {
 	'No such key'.postLine
 }
 ~~~

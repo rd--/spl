@@ -36,8 +36,8 @@ AliasMethod : [Object, Equal, Iterator] { | alias probability |
 		{
 			small.isEmpty || large.isEmpty
 		}.whileFalse {
-			let less = small.removeLast;
-			let more = large.removeLast;
+			let less = small.removeLast!;
+			let more = large.removeLast!;
 			probability[less] := probabilities[less] * count;
 			alias[less] := more;
 			probabilities[more] := probabilities[more] + probabilities[less] - average;
@@ -48,10 +48,10 @@ AliasMethod : [Object, Equal, Iterator] { | alias probability |
 			}
 		};
 		{ small.isEmpty }.whileFalse {
-			probability[small.removeLast] := 1
+			probability[small.removeLast!] := 1
 		};
 		{ large.isEmpty }.whileFalse {
-			probability[large.removeLast] := 1
+			probability[large.removeLast!] := 1
 		};
 		newAliasMethod().initializeSlots(alias, probability)
 	}

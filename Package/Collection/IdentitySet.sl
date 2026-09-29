@@ -43,7 +43,7 @@ IdentitySet! : [Object, Store, Equal, Iterable, Collection, Extensible, Unordere
 		nil
 	}
 
-	removeIfAbsent { :self :anObject :aBlock/0 |
+	removeIfAbsent! { :self :anObject :aBlock/0 |
 		<primitive:
 		if(_self.has(_anObject)) {
 			_self.delete(_anObject);

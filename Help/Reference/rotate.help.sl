@@ -14,7 +14,7 @@ answer _x_ rotated to the right by _n_ places.
 [3 2 4 5 1]
 ```
 
-The rotation is not in place:
+The rotation is not in-place:
 
 ```
 >>> let a = [1 2 3];

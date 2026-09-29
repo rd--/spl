@@ -467,13 +467,13 @@ Tree : [Object, Store, Equal, Iterable, Indexable] { | value subTrees |
 +@RandomNumberGenerator {
 
 	randomTree { :r :n |
-		let p = n.iota.fisherYatesShuffle(r);
-		let t = Tree(p.removeFirst, []);
+		let p = n.iota.fisherYatesShuffle!(r);
+		let t = Tree(p.removeFirst!, []);
 		let f = { :l :i |
 			t.level([l]).do { :each |
 				(i > 0).ifTrue {
 					let j = r.randomInteger([1, i], []);
-					each.subTrees := p.removeFirst(j).collect { :m | Tree(m, []) };
+					each.subTrees := p.removeFirst!(j).collect { :m | Tree(m, []) };
 					i := i - j
 				}
 			};

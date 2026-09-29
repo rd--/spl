@@ -25,7 +25,7 @@ Insertion can be performed using `addBeforeIndex`:
 
 ```
 >>> let a = [1 3 5 7 9 11 13 15];
->>> let b = a.addBeforeIndex(8, 5);
+>>> let b = a.addBeforeIndex!(8, 5);
 >>> (a, b)
 ([1 3 5 7 8 9 11 13 15], 8)
 ```

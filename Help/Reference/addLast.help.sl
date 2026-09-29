@@ -1,8 +1,8 @@
-# addLast (addLast!)
+# addLast!
 
-- _addLast([x₁ x₂ …], y)_
+- _addLast!([x₁ x₂ …], y)_
 
-Add the object _y_ to the end of the sequence _x_.
+Add the object _y_ to the end of the sequence _x_ in-place.
 Answer _y_.
 
 ```

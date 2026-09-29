@@ -2,7 +2,7 @@
 
 - _without(c, x)_
 
-Remove every element of the collection _c_ that compares equal to the object _x_ in place,
+Remove every element of the collection _c_ that compares equal to the object _x_ in-place,
 and answer _c_.
 
 ```

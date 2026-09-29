@@ -648,7 +648,7 @@
 				}
 			};
 			(i != row).ifTrue {
-				p.swapWith(i, row)
+				p.swapWith!(i, row)
 			}
 		};
 		p
@@ -926,7 +926,7 @@
 						}
 					}
 				};
-				self.swapWith(i, r);
+				self.swapWith!(i, r);
 				let d = self[r][lead];
 				(d.abs > 1E-10).ifTrue {
 					self[r].collect! { :each |
@@ -1366,7 +1366,7 @@
 
 	swapRows { :self :i :j |
 		let [m, n] = self.shape;
-		self.swapWith(i, j)
+		self.swapWith!(i, j)
 	}
 
 	sylvesterMatrix { :p :q |

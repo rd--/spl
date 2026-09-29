@@ -942,7 +942,7 @@ SmallFloat! : [Object, Store, Json, Equal, Compare, Number, Integer, Binary] {
 			]) {
 				let c = self.asList;
 				(c[1] = '-' | { c[1] = '+' }).ifTrue {
-					c.removeAt(1)
+					c.removeAt!(1)
 				};
 				c.collect(digitValue/1).allSatisfy { :each |
 					each >= 0 & { each < radix }

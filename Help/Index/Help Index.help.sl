@@ -581,7 +581,7 @@
 - `randomRealBipolar`, `randomIntegerBipolar`
 - `randomWeightedIndex`
 - `fisherYatesShuffle`, `sattoloShuffle`
-- `shuffle`, `shuffled`
+- `shuffle`
 - `randomPermutation`, `randomCycle`
 
 ## Random Number Distributions

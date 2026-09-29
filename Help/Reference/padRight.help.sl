@@ -25,7 +25,7 @@ Zero shape:
 []
 ```
 
-Not in place:
+Not in-place:
 
 ```
 >>> let a = [1 2 3];

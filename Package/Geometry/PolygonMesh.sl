@@ -121,7 +121,7 @@ PolygonMesh : [Object, Store, Equal, Geometry, PolygonMesh] { | vertexCoordinate
 		{ :i :j |
 			self[i][j].isNonZero.ifTrue {
 				let v = zeroIndexedCellVertices(j - 1, m - i);
-				vertexList.addAllIfNotPresent(v);
+				vertexList.addAllIfNotPresent!(v);
 				faceList.add!(v.collect(vertexIndex/1))
 			}
 		}.table(1.to(m), 1.to(n));

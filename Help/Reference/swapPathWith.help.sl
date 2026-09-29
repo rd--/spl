@@ -1,14 +1,14 @@
-# swapPathWith
+# swapPathWith!
 
-- _swapWith(c, i, j)_
+- _swapPathWith!(c, i, j)_
 
-Move the element at path index _i_ of the collection _c_ to path index _j_, and vice-versa.
+Move the element at path index _i_ of the collection _c_ to path index _j_ in-place, and vice-versa.
 
 At a matrix:
 
 ```
 >>> let l = [3 3].iota;
->>> l.swapPathWith([1 2], [3 2]);
+>>> l.swapPathWith!([1 2], [3 2]);
 >>> l
 [
 	1 8 3;

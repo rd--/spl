@@ -6,7 +6,7 @@ UnsortedSet : [Object, Store, Equal, Iterable, Collection, Extensible, Unordered
 
 	include! { :self :anObject |
 		self.contents
-		.addIfNotPresentBy(
+		.addIfNotPresentBy!(
 			anObject,
 			self.comparator
 		)
@@ -20,11 +20,11 @@ UnsortedSet : [Object, Store, Equal, Iterable, Collection, Extensible, Unordered
 		self.contents.removeAll!
 	}
 
-	removeIfAbsent { :self :anObject :aBlock/0 |
+	removeIfAbsent! { :self :anObject :aBlock/0 |
 		self.contents.detectIndexIfFoundIfNone { :item |
 			self.comparator.value(item, anObject)
 		} { :index |
-			self.contents.removeAt(index)
+			self.contents.removeAt!(index)
 		} {
 			aBlock()
 		}

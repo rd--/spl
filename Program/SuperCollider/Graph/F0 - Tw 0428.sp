@@ -6,7 +6,7 @@ Splay(
 		g / 99,
 		0
 	) / 9 * SinOsc(
-		999 * b.shuffled / Rlpf(
+		999 * b.shuffle / Rlpf(
 			Latch(
 				Round(
 					WhiteNoise(),

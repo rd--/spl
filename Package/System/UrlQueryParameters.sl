@@ -83,11 +83,9 @@ URLSearchParams! : [Object, Iterable, UrlQueryParameters] {
 		self
 	}
 
-	removeKey { :self :name |
-		<primitive:
-		_self.delete(_name);
-		return null;
-		>
+	removeKey! { :self :name |
+		<primitive: _self.delete(_name);>
+		nil
 	}
 
 	size { :self :name |

@@ -1,9 +1,9 @@
-# removeAll (removeAll!)
+# removeAll!
 
-- _removeAll(c)_
-- _removeAll(c₁, c₂)_
+- _removeAll!(c)_
+- _removeAll!(c₁, c₂)_
 
-In the unary case remove all items from the collection _c_ in place.
+In the unary case remove all items from the collection _c_ in-place.
 Answers `nil`.
 
 ```

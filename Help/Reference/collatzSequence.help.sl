@@ -238,7 +238,7 @@ OEIS [A187108](https://oeis.org/A187108):
 >>> 0:50.collect(
 >>> 	collatzSequence/1
 >>> ).prefixes.do { :c |
->>> 	a.addIfNotPresent(
+>>> 	a.addIfNotPresent!(
 >>> 		c
 >>> 		.catenate
 >>> 		.minimumExcludedValue(

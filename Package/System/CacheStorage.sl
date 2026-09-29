@@ -22,7 +22,7 @@ CacheStorage! : [Object] {
 		self.uncheckedHas(validKey)
 	}
 
-	removeKeyIfAbsent { :self :key :ifAbsent/0 |
+	removeKeyIfAbsent! { :self :key :ifAbsent/0 |
 		self.includesKey(key).then { :answer |
 			answer.if {
 				self.uncheckedDelete(key)

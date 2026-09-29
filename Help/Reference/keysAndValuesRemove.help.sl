@@ -1,6 +1,6 @@
-# keysAndValuesRemove
+# keysAndValuesRemove!
 
-- _keysAndValuesRemove(d, f/2)_
+- _keysAndValuesRemove!(d, f/2)_
 
 Removes all entries from the dictionary _d_ for which key and value block _f_ answers `true`.
 
@@ -10,7 +10,7 @@ This method takes care of tallying the removals in a first pass, and then perfor
 
 ```
 >>> let d = (x: 1, y: 2, z: 3);
->>> d.keysAndValuesRemove { :key :value |
+>>> d.keysAndValuesRemove! { :key :value |
 >>> 	key = 'y' | { value = 3 }
 >>> };
 >>> d

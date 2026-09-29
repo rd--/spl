@@ -82,7 +82,7 @@ system
 .atIfPresent('SplLibraryItems') { :cache |
 	keys.collect { :key |
 		cache
-		.removeKeyIfAbsent(
+		.removeKeyIfAbsent!(
 			system
 			.library[key]
 			.url

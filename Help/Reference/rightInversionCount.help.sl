@@ -83,7 +83,7 @@ on the symmetric group to which it belongs:
 10
 
 >>> { :each |
->>> 	each.nextPermutationLexicographic
+>>> 	each.nextPermutationLexicographic!
 >>> }.iterate([1 2 3 4 5 6], 10)
 [1 2 4 6 3 5]
 ```

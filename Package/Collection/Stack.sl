@@ -36,7 +36,7 @@ Stack : [Object, Copyable, Equal] { | linkedList |
 		list.isEmpty.if {
 			nil
 		} {
-			list.removeFirst.value
+			list.removeFirst!.value
 		}
 	}
 

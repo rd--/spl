@@ -33,7 +33,7 @@ A random shuffle of the 64-colour four-level pallette:
 ~~~spl svg=B
 let r = Sfc32(368213);
 let a = [0 1 2 3].tuples(3);
-let b = a.fisherYatesShuffle(r);
+let b = a.fisherYatesShuffle!(r);
 RgbColour(b / 3).reshape([8 8])
 .arrayPlot
 ~~~

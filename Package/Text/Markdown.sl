@@ -27,7 +27,7 @@ Markdown : [Object, Equal, Cache, Iterable] { | source cache |
 			}
 		};
 		items.first.do { :each |
-			each.value.removeAllKeys(['id' 'parent'])
+			each.value.removeAllKeys!(['id' 'parent'])
 		};
 		items.first
 	}

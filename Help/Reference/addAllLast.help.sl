@@ -1,14 +1,15 @@
-# addAllLast
+# addAllLast!
 
-- _addAllLast(aSequence, anotherSequence)_
+- _addAllLast!(p, q)_
 
-Add all the elements of _anotherSequence_ to the end of _aSequence_.
-Answer _anotherSequence_.
+Add all the elements of the sequence _q_ to the end of the sequence _p_.
+Answer _q_.
 
 ```
->>> let l = [1 2 3];
->>> (l.addAllLast([4 5]), l)
-([4 5], [1 2 3 4 5])
+>>> let x = [1 2 3];
+>>> let y = x.addAllLast!([4 5]);
+>>> (x, y)
+([1 2 3 4 5], [4 5])
 ```
 
 * * *

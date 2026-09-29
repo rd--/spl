@@ -11,7 +11,7 @@ HuffmanCoding : [Object, Store, Equal] { | symbolTable encoding |
 				codes.beginsWith(each.value)
 			};
 			symbols.add!(code.key);
-			codes.removeFirst(code.value.size)
+			codes.removeFirst!(code.value.size)
 		};
 		symbols
 	}
@@ -47,8 +47,8 @@ HuffmanCoding : [Object, Store, Equal] { | symbolTable encoding |
 				heap.add!(each.key -> [each.value -> []])
 			};
 			{ heap.size > 1 }.whileTrue {
-				let low = heap.removeFirst;
-				let high = heap.removeFirst;
+				let low = heap.removeFirst!;
+				let high = heap.removeFirst!;
 				low.value.do { :each |
 					each.value.addFirst!(0)
 				};

@@ -36,7 +36,7 @@ Headers! : [Object] {
 		<primitive: return _self.has(_name);>
 	}
 
-	removeKey { :self :name |
+	removeKey! { :self :name |
 		<primitive: return _self.delete(_name);>
 	}
 

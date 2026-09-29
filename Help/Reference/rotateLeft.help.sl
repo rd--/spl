@@ -4,7 +4,7 @@
 
 Rotate the sequence _x_ by _n_ places to the left,
 i.e. _n_ elements from the start are moved to the end.
-The rotation is not in place, a new sequence is answered.
+The rotation is not in-place, a new sequence is answered.
 Also called a circular shift.
 
 ```

@@ -57,7 +57,7 @@
 		let k = self.size;
 		h.addAll!(self);
 		k.timesRepeat {
-			l.add!(h.removeFirst)
+			l.add!(h.removeFirst!)
 		};
 		l
 	}
@@ -497,7 +497,7 @@
 			let t = 1;
 			1.toDo(n) { :j |
 				sortBlock(self[j + 1], self[j]).ifTrue {
-					self.swapWith(j, j + 1);
+					self.swapWith!(j, j + 1);
 					monitorBlock(self);
 					t := j
 				}
@@ -539,8 +539,8 @@
 		2.toDo(n) { :i |
 			1.toDo(i) { :j |
 				sortBlock(self[i], self[j]).ifTrue {
-					let x = self.removeAt(i);
-					self.insertAt(x, j);
+					let x = self.removeAt!(i);
+					self.insertAt!(x, j);
 					monitorBlock(self)
 				}
 			}
@@ -583,7 +583,7 @@
 				let continue = true;
 				{ continue & { i > 0 } }.whileTrue {
 					sortBlock(r, self[i]).if {
-						self.swapWith(i, i + h);
+						self.swapWith!(i, i + h);
 						i := i - h;
 						monitorBlock(self)
 					} {
@@ -641,7 +641,7 @@
 			gap := (gap / 1.25).floor;
 			1.toDo(n - gap) { :i |
 				sortBlock(self[i + gap], self[i]).ifTrue {
-					self.swapWith(i, i + gap);
+					self.swapWith!(i, i + gap);
 					monitorBlock(self);
 					swaps := true
 				}
@@ -684,7 +684,7 @@
 		n.toByDo(1, -1) { :j |
 			let m = self.indexOf(self.maxFromTo(1, j));
 			(m != j).ifTrue {
-				self.swapWith(j, m);
+				self.swapWith!(j, m);
 				monitorBlock(self)
 			}
 		};
@@ -762,7 +762,7 @@
 						direction = 0 & { sortBlock(a[i], a[i + k]) }
 					}
 				).ifTrue {
-					a.swapWith(i, i + k);
+					a.swapWith!(i, i + k);
 					monitorBlock(a)
 				}
 			};
@@ -828,7 +828,7 @@
 			let continue = true;
 			let o = self.copy;
 			{ continue & { o.size != 0 } }.whileTrue {
-				let item = o.removeFirst;
+				let item = o.removeFirst!;
 				(item.bitAnd(shift) = 0).if {
 					zeroes.add!(item)
 				} {
@@ -874,7 +874,7 @@
 			1.toDo(2) { :j |
 				j.toByDo(n - 1, 2) { :i |
 					sortBlock(self[i + 1], self[i]).ifTrue {
-						self.swapWith(i, i + 1);
+						self.swapWith!(i, i + 1);
 						monitorBlock(self);
 						isSorted := false
 					}
@@ -921,7 +921,7 @@
 			).if {
 				i := i + 1
 			} {
-				self.swapWith(i, i - 1);
+				self.swapWith!(i, i - 1);
 				monitorBlock(self);
 				i := i - 1
 			}
@@ -963,7 +963,7 @@
 			finished := true;
 			begin.toDo(end) { :i |
 				sortBlock(self[i + 1], self[i]).ifTrue {
-					self.swapWith(i, i + 1);
+					self.swapWith!(i, i + 1);
 					monitorBlock(self);
 					finished := false
 				}
@@ -973,7 +973,7 @@
 				end := end - 1;
 				end.downToDo(begin) { :i |
 					sortBlock(self[i + 1], self[i]).ifTrue {
-						self.swapWith(i, i + 1);
+						self.swapWith!(i, i + 1);
 						monitorBlock(self);
 						finished := false
 					}
@@ -1036,7 +1036,7 @@
 	farthestFirstTraversal { :self :k :distanceFunction/2 :reductionFunction/1 |
 		let answer = [self[k]];
 		let remaining = self.copy;
-		remaining.removeAt(k);
+		remaining.removeAt!(k);
 		{ remaining.isEmpty }.whileFalse {
 			let distances = remaining.collect { :p |
 				reductionFunction(
@@ -1048,7 +1048,7 @@
 			let maxDistance = distances.max;
 			let index = distances.indexOf(maxDistance);
 			answer.add!(remaining[index]);
-			remaining.removeAt(index)
+			remaining.removeAt!(index)
 		};
 		answer
 	}

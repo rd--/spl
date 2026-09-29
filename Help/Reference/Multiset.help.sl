@@ -95,7 +95,7 @@ To add an element to a `Multiset` use `add` or `addWithOccurrences`:
 
 ```
 >>> let a = Multiset[1 1 1];
->>> a.addWithOccurrences(3, 2);
+>>> a.addWithOccurrences!(3, 2);
 >>> a.add!(5);
 >>> a.sortedElements
 [1 -> 3, 3 -> 2, 5 -> 1]

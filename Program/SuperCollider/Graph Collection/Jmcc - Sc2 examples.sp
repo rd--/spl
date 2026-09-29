@@ -432,7 +432,7 @@ let clock = Impulse(clockRate, 0); /* sequencer trigger */
 let patternList = [55 60 63 62 60 67 63 58];
 let note = Sequencer(patternList, clock); /* midi note pattern sequencer */
 let octNote = Sequencer( /* every 16 beats transpose somewhat randomly */
-	[-12 -7 -5 0 2 5].shuffled, /* function called at each trigger */
+	[-12 -7 -5 0 2 5].shuffle, /* function called at each trigger */
 	PulseDivider(clock, 16, 0) /* divide clock by 16 */
 ) + note; /* add transpose to note */
 let freq = octNote.MidiCps; /* convert midi note to cycles per second */

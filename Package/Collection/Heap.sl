@@ -131,27 +131,11 @@ Heap : [Object, Copyable, Equal, Iterable, Collection, Extensible] { | array sor
 		self.array := self.array.copy
 	}
 
-	privateRemoveAt { :self :index |
-		let removed = self.array.at(index);
-		(index = self.array.size).if {
-			self.array.removeLast
-		} {
-			self.array[index] := self.array.last;
-			self.array.removeLast;
-			(2 * index <= self.size).if {
-				self.downHeap(index)
-			} {
-				self.upHeap(index)
-			}
-		};
-		removed
-	}
-
-	removeIfAbsent { :self :oldObject :aBlock/0 |
+	removeIfAbsent! { :self :oldObject :aBlock/0 |
 		valueWithReturn { :return/1 |
 			1.toDo(self.size) { :i |
 				(self.array[i] = oldObject).ifTrue {
-					self.privateRemoveAt(i).return
+					self.uncheckedRemoveAt(i).return
 				}
 			};
 			aBlock()
@@ -162,16 +146,16 @@ Heap : [Object, Copyable, Equal, Iterable, Collection, Extensible] { | array sor
 		self.array.removeAll!
 	}
 
-	removeAt { :self :index |
+	removeAt! { :self :index |
 		(index > self.size).if {
-			self.errorInvalidIndex('removeAt', index)
+			self.errorInvalidIndex('removeAt!', index)
 		} {
-			self.privateRemoveAt(index)
+			self.uncheckedRemoveAt(index)
 		}
 	}
 
-	removeFirst { :self |
-		self.removeAt(1)
+	removeFirst! { :self |
+		self.removeAt!(1)
 	}
 
 	select { :self :aBlock/1 |
@@ -219,6 +203,22 @@ Heap : [Object, Copyable, Equal, Iterable, Collection, Extensible] { | array sor
 		self
 	}
 	*/
+
+	uncheckedRemoveAt { :self :index |
+		let removed = self.array.at(index);
+		(index = self.array.size).if {
+			self.array.removeLast!
+		} {
+			self.array[index] := self.array.last;
+			self.array.removeLast!;
+			(2 * index <= self.size).if {
+				self.downHeap(index)
+			} {
+				self.upHeap(index)
+			}
+		};
+		removed
+	}
 
 	upHeap { :self :anIndex |
 		(anIndex = 1).if {

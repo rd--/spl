@@ -866,11 +866,11 @@
 					i.take(k),
 					i.reverse.take(k)
 				];
-				m.swapAllWith(j.transpose)
+				m.swapAllWith!(j.transpose)
 			};
 			let columnSwaps = { :m :i :j :c |
 				i.withDo(j) { :p :q |
-					m.swapPathWith([p c], [q c])
+					m.swapPathWith!([p c], [q c])
 				}
 			};
 			[

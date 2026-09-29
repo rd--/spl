@@ -1,8 +1,8 @@
-# fisherYatesShuffle
+# fisherYatesShuffle!
 
-- _fisherYatesShuffle([x₁ x₂ …], r)_
+- _fisherYatesShuffle!([x₁ x₂ …], r)_
 
-Shuffle the sequence _x_ in place using the Fisher–Yates algorithm,
+Shuffle the sequence _x_ in-place using the Fisher–Yates algorithm,
 given a random number generator _r_.
 Answer _x_.
 Sometimes also called the Knuth shuffle.
@@ -12,7 +12,7 @@ Shuffle a list of nine places:
 ```
 >>> let r = Sfc32(31797);
 >>> let x = [1 .. 9];
->>> x.fisherYatesShuffle(r)
+>>> x.fisherYatesShuffle!(r)
 [5 6 8 2 9 7 1 4 3]
 ```
 
@@ -22,7 +22,7 @@ noting that the permutation contains three cycles:
 ```
 >>> let r = Sfc32(31415);
 >>> let x = [1 .. 17];
->>> x.fisherYatesShuffle(r);
+>>> x.fisherYatesShuffle!(r);
 >>> x.asPermutation
 [
 	1 9 3 15 6 16 13;
@@ -33,7 +33,7 @@ noting that the permutation contains three cycles:
 
 * * *
 
-See also: randomPermutation, sattoloShuffle, shuffled
+See also: randomPermutation, sattoloShuffle, shuffle
 
 Guides: Permutation Functions, Random Functions
 

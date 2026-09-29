@@ -2,7 +2,7 @@
 
 - _radixSort([x₁ x₂ …], f/1)_
 
-Sort the sequence _x_ in place using the radix sort algorithm.
+Sort the sequence _x_ in-place using the radix sort algorithm.
 The sort process can be monitored by the unary block _f_.
 
 Sort list:
@@ -12,7 +12,7 @@ Sort list:
 [1 2 3 4 5]
 ```
 
-Sort is in place:
+Sort is in-place:
 
 ```
 >>> let s = [1 3 5 2 4];

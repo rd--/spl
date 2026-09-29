@@ -41,7 +41,7 @@ Delete an entry:
 
 ```
 >>> let s = system.localStorage;
->>> let x = s.removeKey('Pi');
+>>> let x = s.removeKey!('Pi');
 >>> (x, s.includesKey('Pi'))
 (1.pi.asString, false)
 ```

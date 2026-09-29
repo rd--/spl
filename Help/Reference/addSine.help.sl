@@ -1,8 +1,8 @@
-# addSine
+# addSine!
 
-- _addSine([x₁ x₂ …], h, a, ϕ, i)_
+- _addSine!([x₁ x₂ …], h, a, ϕ, i)_
 
-Add a sine component to the mutable sequence _x_.
+Add a sine component to the mutable sequence _x_ in-place.
 The parameters are harmonic number _h_,
 amplitude _a_,
 initial phase _ϕ_,
@@ -12,9 +12,9 @@ Plot approximation of square wave:
 
 ~~~spl svg=A
 let x = List(1024, 0);
-x.addSine(1, 3, 0, 0);
-x.addSine(3, 1, 0, 0);
-x.addSine(9, 1 / 3, 1.pi, 0);
+x.addSine!(1, 3, 0, 0);
+x.addSine!(3, 1, 0, 0);
+x.addSine!(9, 1 / 3, 1.pi, 0);
 x.linePlot
 ~~~
 

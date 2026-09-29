@@ -19,7 +19,7 @@ Sort list:
 [8 7 6 5 4 3 2 1]
 ```
 
-Sort is in place if requested:
+Sort is in-place if requested:
 
 ```
 >>> let s = [1 3 5 2 4 7 8 6];

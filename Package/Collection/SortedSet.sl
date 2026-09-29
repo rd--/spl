@@ -24,7 +24,7 @@ SortedSet : [Object, Store, Copyable, Equal, Iterable, Collection, Extensible, S
 	}
 
 	include! { :self :anObject |
-		self.contents.addIfNotPresent(anObject)
+		self.contents.addIfNotPresent!(anObject)
 	}
 
 	includes { :self :anObject |
@@ -35,8 +35,8 @@ SortedSet : [Object, Store, Copyable, Equal, Iterable, Collection, Extensible, S
 		self.contents.removeAll!
 	}
 
-	removeIfAbsent { :self :anObject :aBlock/0 |
-		self.contents.removeIfAbsent(anObject, aBlock/0)
+	removeIfAbsent! { :self :anObject :aBlock/0 |
+		self.contents.removeIfAbsent!(anObject, aBlock/0)
 	}
 
 	postCopy { :self |

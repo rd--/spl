@@ -71,7 +71,7 @@ LineSegment : [Object, Equal] { | u v |
 			let l = self[1];
 			let [p, q] = l;
 			let i = 1;
-			self.removeAt(1);
+			self.removeAt!(1);
 			{
 				i <= self.size
 			}.whileTrue {
@@ -99,7 +99,7 @@ LineSegment : [Object, Equal] { | u v |
 					}
 				};
 				matched.if {
-					self.removeAt(i);
+					self.removeAt!(i);
 					i := 1
 				} {
 					i := i + 1

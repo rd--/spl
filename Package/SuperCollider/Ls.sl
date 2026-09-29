@@ -136,7 +136,7 @@
 		let next = local;
 		BlockStream {
 			let answer = next.copy;
-			next := local.nextPermutationLexicographic;
+			next := local.nextPermutationLexicographic!;
 			answer
 		} {
 			local := list.copy
@@ -348,7 +348,7 @@
 					input.next(skip)
 				};
 				window.addAll!(current);
-				window.removeFirst(require);
+				window.removeFirst!(require);
 				answer
 			}
 		} {

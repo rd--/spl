@@ -28,7 +28,7 @@ system
 .caches
 .atIfPresent('SplLibraryItems') { :cache |
 	cache
-	.removeKeyIfAbsent(u) {
+	.removeKeyIfAbsent!(u) {
 		'Not present'
 	}
 }

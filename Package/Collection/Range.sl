@@ -104,9 +104,9 @@ Range : [Object, Store, Equal, Compare, Iterable, Collection, Indexable, Sequenc
 		}
 	}
 
-	removeFirst { :self |
+	removeFirst! { :self |
 		self.isEmpty.if {
-			self.emptyError('removeFirst')
+			self.emptyError('removeFirst!')
 		} {
 			let removed = self.start;
 			self.start := self.start + self.step;
@@ -115,7 +115,7 @@ Range : [Object, Store, Equal, Compare, Iterable, Collection, Indexable, Sequenc
 		}
 	}
 
-	removeLast { :self |
+	removeLast! { :self |
 		self.isEmpty.if {
 			self.emptyError('removeLast')
 		} {

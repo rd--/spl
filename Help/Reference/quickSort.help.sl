@@ -22,7 +22,7 @@ At `List`, sort into ascending order:
 [1, 3 .. 9]
 ```
 
-Sort two items in place:
+Sort two items in-xplace:
 
 ```
 >>> let l = [2 1];

@@ -170,7 +170,7 @@ let p = {
 	let a = [0 .. 3].collect { :n |
 		n * 12 + [0 3 7 10]
 	}.flatten - 24;
-	SinOsc(5, 0) * 0.01 + a.shuffled.MidiRatio
+	SinOsc(5, 0) * 0.01 + a.shuffle.MidiRatio
 };
 let e = LfSaw(-1 * p(), 1).Max(0) ^ SinOsc(p().FractionalPart / 8, 0).LinLin(-1, 1, 4, 32);
 CombC(
@@ -327,7 +327,7 @@ let o = SinOsc(f, h) * e;
 Splay(0.5 * o, SinOsc(1.pi, 0))
 
 /* https://sonomu.club/@lukiss/110538742878262809 ; Jun 14, 2023 */
-let c = [12 .. 38].shuffled.degreeToKey([0 2 4 7 9], 12);
+let c = [12 .. 38].shuffle.degreeToKey([0 2 4 7 9], 12);
 let w = LfSaw(8, 0) * 0.012 + 1;
 let t = [6, 3 / 2, 3, 3 / 4, 1 / 4];
 let d = Demand(
@@ -365,7 +365,7 @@ let q = SinOsc(
 	f * p * p.MidiRatio,
 	SinOsc(p.MidiRatio ^ 2, 0) * (l() * 2 - e * 2.pi)
 ) * ((e * p.MidiRatio).Log.Sin.Abs ^ r(4, 128));
-let a = Splay(q.shuffled, SinOsc(r(0.5,8), 0));
+let a = Splay(q.shuffle, SinOsc(r(0.5,8), 0));
 let h = SinOsc(
 	SinOsc([6, 7], 0) * (1 / 6) + 2 * f,
 	0
@@ -385,7 +385,7 @@ let l = {
 		TDuty(c(1.pi, 1 / t, 5) * d, 0, 1),
 		[
 			p * p.degree,
-			p.DifSqr(p.shuffled),
+			p.DifSqr(p.shuffle),
 			p * p.Log2,
 			p.MidiRatio
 		]

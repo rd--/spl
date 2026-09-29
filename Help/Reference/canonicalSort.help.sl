@@ -3,7 +3,7 @@
 - _canonicalSort([x₁ x₂ …])_
 
 Sorts a list _xₙ_ into canonical order.
-There are copying and in place forms.
+There are copying and in-place forms.
 Answer the sorted list.
 This is `sortComparing` of `canonicalCompare`.
 

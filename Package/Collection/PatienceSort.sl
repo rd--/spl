@@ -7,9 +7,9 @@
 		}.whileFalse {
 			let x = self.collect(first/1);
 			let i = x.indexOf(x.select);
-			answer.insert(self[i].removeFirst);
+			answer.insert(self[i].removeFirst!);
 			self[i].isEmpty.ifTrue {
-				self.removeAt(i)
+				self.removeAt!(i)
 			}
 		};
 		answer

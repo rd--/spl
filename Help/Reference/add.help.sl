@@ -1,8 +1,8 @@
-# add (add!)
+# add!
 
-- _add(c, x)_
+- _add!(c, x)_
 
-Include the object _x_ as one of the elements of the collection _c_ in place.
+Include the object _x_ as one of the elements of the collection _c_ in-place.
 After adding an entry, the `size` of the collection increases by one.
 Therefore, for collections with invariants such as `Dictionary` and `IdentitySet`, `add` may fail.
 In these cases see `include`, which is like `add` except that the size of the collection may stay the same.

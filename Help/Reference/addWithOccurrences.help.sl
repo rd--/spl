@@ -1,13 +1,13 @@
-# addWithOccurrences
+# addWithOccurrences!
 
-- _addWithOccurrences(aCollection, anObject, anInteger)_
+- _addWithOccurrences!(c, x, n)_
 
-Add _anObject_ to _aCollection_ multiple times.
-The operation is equivalent to adding _anObject_ to _aCollection_ _anInteger_ times using `add`.
+Add the object _x_ to the collection _c_ multiple times.
+The operation is equivalent to adding _x_ to _c_ _n_ times using `add`.
 
 ```
 >>> let l = [];
->>> l.addWithOccurrences(3, 5);
+>>> l.addWithOccurrences!(3, 5);
 >>> l
 [3 3 3 3 3]
 ```

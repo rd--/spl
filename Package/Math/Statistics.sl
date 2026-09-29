@@ -354,8 +354,8 @@
 		let sigma = r / 2;
 		let k = r.negate.to(r).collect(sigma.gaussianKernel);
 		let y = k.convolve(x);
-		y.removeFirst(r);
-		y.removeLast(r);
+		y.removeFirst!(r);
+		y.removeLast!(r);
 		y
 	}
 

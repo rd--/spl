@@ -29,7 +29,7 @@ At `Multiset`:
 ['c' -> 1, 'b' -> 2, 'a' -> 3]
 ```
 
-At an `Association` `List`, in place:
+At an `Association` `List`, in-place:
 
 ```
 >>> ['a' -> 3, 'b' -> 2, 'c' -> 1]

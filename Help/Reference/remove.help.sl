@@ -1,8 +1,8 @@
-# remove (remove!)
+# remove!
 
-- _remove(c, x)_
+- _remove!(c, x)_
 
-Remove the item _x_ from the elements of the collection _c_ in place.
+Remove the item _x_ from the elements of the collection _c_ in-place.
 Answer _x_ unless no element is equal to _x_,
 in which case raise an `error`.
 

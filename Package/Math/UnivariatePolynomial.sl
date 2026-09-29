@@ -160,7 +160,7 @@ UnivariatePolynomial : [Object, Store, Copyable, Equal] { | coefficientList |
 					c.last = 0
 				}
 			}.whileTrue {
-				c.removeLast
+				c.removeLast!
 			}
 		};
 		self

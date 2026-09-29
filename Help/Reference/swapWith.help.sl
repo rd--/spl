@@ -1,14 +1,14 @@
-# swapWith
+# swapWith!
 
-- _swapWith([x₁ x₂ …], i, j)_
+- _swapWith!([x₁ x₂ …], i, j)_
 
-Move the element at index _i_ of the sequence _x_ to index _j_, and vice-versa.
+Move the element at index _i_ of the sequence _x_ to index _j_ in-place, and vice-versa.
 
 At `List`, swap elements at indices one and four:
 
 ```
 >>> let l = [1 .. 5];
->>> l.swapWith(1, 4);
+>>> l.swapWith!(1, 4);
 >>> l
 [4 2 3 1 5]
 ```
@@ -17,7 +17,7 @@ At a matrix, swaps rows:
 
 ```
 >>> let l = [4 4].iota;
->>> l.swapWith(1, 4);
+>>> l.swapWith!(1, 4);
 >>> l
 [
 	13 14 15 16;

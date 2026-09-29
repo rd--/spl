@@ -35,7 +35,7 @@ PriorityQueue! : [Object] {
 		nil
 	}
 
-	removeAllAndShrink { :self |
+	removeAllAndShrink! { :self |
 		self.removeAll!;
 		self.shrink
 	}

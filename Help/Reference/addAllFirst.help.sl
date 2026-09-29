@@ -1,14 +1,15 @@
-# addAllFirst
+# addAllFirst!
 
-- _addAllFirst(aSequence, anotherSequence)_
+- _addAllFirst!(p, q)_
 
-Add all the elements of _anotherSequence_ to the start of _aSequence_.
-Answer _anotherSequence_.
+Add all the elements of the sequence _q_ to the start of the sequence _p_.
+Answer _q_.
 
 ```
->>> let l = [4 5];
->>> (l.addAllFirst([1 2 3]), l)
-([1 2 3], [1 2 3 4 5])
+>>> let x = [4 5];
+>>> let y = x.addAllFirst!([1 2 3]);
+>>> (x, y)
+([1 2 3 4 5], [1 2 3])
 ```
 
 * * *

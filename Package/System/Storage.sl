@@ -30,13 +30,13 @@ Storage! : [Object, Collection, Dictionary] {
 		>
 	}
 
-	removeKey { :self :key |
-		self.removeKeyIfAbsent(key) {
-			self.error('removeKey: invalid key')
+	removeKey! { :self :key |
+		self.removeKeyIfAbsent!(key) {
+			self.error('removeKey!: invalid key')
 		}
 	}
 
-	removeKeyIfAbsent { :self :key :aBlock/0 |
+	removeKeyIfAbsent! { :self :key :aBlock/0 |
 		self.includesKey(key).if {
 			self.uncheckedRemoveKey(key)
 		} {

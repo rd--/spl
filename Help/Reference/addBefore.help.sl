@@ -1,16 +1,16 @@
-# addBefore
+# addBefore!
 
-- _addBefore(aSequence, newObject, oldObject)_
+- _addBefore!([x₁ x₂ …], p, q)_
 
-Add _newObject_ as an element of _aSequence_.
-Put it in the sequence just preceding _oldObject_.
-Answer _newObject_.
+Add a new object _p_ as an element of the sequence _x_ in-place.
+Put it in the sequence just preceding the old object _q_.
+Answer _p_.
 
 ```
->>> let l = [1 2 4];
->>> let r = l.addBefore(3, 4);
->>> (r, l)
-(3, [1 2 3 4])
+>>> let x = [1 2 4];
+>>> let y = x.addBefore!(3, 4);
+>>> (x, y)
+([1 2 3 4], 3)
 ```
 
 * * *

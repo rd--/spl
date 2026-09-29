@@ -27,7 +27,7 @@ let m = 250;
 		s := s.allButFirst
 	};
 	r := a.secondLast;
-	s.insertAt(
+	s.insertAt!(
 		r,
 		s.lengthWhile { :x |
 			x < r

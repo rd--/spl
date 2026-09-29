@@ -432,7 +432,7 @@ Fraction : [Object, Store, Equal, Compare, Number] { | numerator denominator |
 
 	minkowskiQuestionMark { :self |
 		let a = self.continuedFraction;
-		let a0 = a.removeFirst;
+		let a0 = a.removeFirst!;
 		let m = a.size;
 		a0 + (2 * [1L .. m].sum { :n |
 			(-1 ^ (n + 1)) / (2 ^ a.take(n).sum)
@@ -515,7 +515,7 @@ Fraction : [Object, Store, Equal, Compare, Number] { | numerator denominator |
 		}
 	}
 
-	simplify { :self |
+	simplify! { :self |
 		(self.denominator = 0).if {
 			self.error('Fraction>>simplify: zeroDenominatorError')
 		} {
@@ -533,8 +533,8 @@ Fraction : [Object, Store, Equal, Compare, Number] { | numerator denominator |
 		}
 	}
 
-	simplified { :self |
-		self.copy.simplify
+	simplify { :self |
+		self.copy.simplify!
 	}
 
 	[squareRoot, sqrt] { :self |

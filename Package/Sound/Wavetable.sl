@@ -1,10 +1,10 @@
 +List {
 
-	addCosine { :self :harmonicNumber :amplitude :initialPhase :offset |
-		self.addSine(harmonicNumber, amplitude, initialPhase + 0.5.pi, offset)
+	addCosine! { :self :harmonicNumber :amplitude :initialPhase :offset |
+		self.addSine!(harmonicNumber, amplitude, initialPhase + 0.5.pi, offset)
 	}
 
-	addSine { :self :harmonicNumber :amplitude :initialPhase :offset |
+	addSine! { :self :harmonicNumber :amplitude :initialPhase :offset |
 		let size = self.size;
 		let increment = 2.pi * harmonicNumber / size;
 		let phase = initialPhase;
@@ -16,24 +16,24 @@
 
 	hammingWindowFill { :self |
 		self.atAllPut(0.53836);
-		self.addSine(1, 0.46164, -0.5.pi, 0)
+		self.addSine!(1, 0.46164, -0.5.pi, 0)
 	}
 
 	hannWindowFill { :self |
 		self.atAllPut(0.5);
-		self.addSine(1, 0.5, -0.5.pi, 0)
+		self.addSine!(1, 0.5, -0.5.pi, 0)
 	}
 
 	sineFill { :self :amplitudes :phases |
 		self.atAllPut(0);
 		amplitudes.withIndexDo { :each :index |
-			self.addSine(index, each, phases.atWrap(index), 0)
+			self.addSine!(index, each, phases.atWrap(index), 0)
 		}
 	}
 
 	welchWindowFill { :self |
 		self.atAllPut(0);
-		self.addSine(0.5, 1, 0, 0)
+		self.addSine!(0.5, 1, 0, 0)
 	}
 
 }
@@ -89,7 +89,7 @@
 	gen09 { :self :aMatrix |
 		let answer = List(self, 0);
 		aMatrix.do { :each |
-			answer.addSine(each[1], each[2], each[3].degreesToRadians, 0)
+			answer.addSine!(each[1], each[2], each[3].degreesToRadians, 0)
 		};
 		answer / answer.absMax
 	}
@@ -98,7 +98,7 @@
 		let answer = List(self, 0);
 		let partial = 1;
 		amplitudes.do { :each |
-			answer.addSine(partial, each, 0, 0);
+			answer.addSine!(partial, each, 0, 0);
 			partial := partial + 1
 		};
 		answer / answer.absMax
@@ -109,7 +109,7 @@
 		let partial = lowestHarmonic;
 		let amplitude = 1;
 		1.toDo(numberOfHarmonics) { :each |
-			answer.addCosine(partial, amplitude, 0, 0);
+			answer.addCosine!(partial, amplitude, 0, 0);
 			partial := partial + 1;
 			amplitude := multiplier ^ each
 		};
@@ -174,7 +174,7 @@
 	gen19 { :self :aMatrix |
 		let answer = List(self, 0);
 		aMatrix.do { :each |
-			answer.addSine(each[1], each[2], each[3].degreesToRadians, each[4])
+			answer.addSine!(each[1], each[2], each[3].degreesToRadians, each[4])
 		};
 		answer / answer.absMax
 	}

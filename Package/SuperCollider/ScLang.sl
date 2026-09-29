@@ -573,7 +573,7 @@
 	}
 
 	scramble { :self |
-		self.shuffled
+		self.shuffle
 	}
 
 	separate { :self :aBlock/2 |
