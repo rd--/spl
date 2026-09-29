@@ -87,7 +87,7 @@ OEIS [A160967](https://oeis.org/A160967):
 ```
 >>> [2 ^ 0:10, (4 ^ 0:6 - 1) / 3]
 >>> .union
->>> .sortInPlace
+>>> .sort!
 [
 	   0    1    2    4    5
 	   8   16   21   32   64
@@ -107,7 +107,7 @@ let s = [0];
 1.toDo(limit) { :n |
 	s := s.union(s + (n ^ 3))
 };
-s.sortInPlace.select { :n |
+s.sort!.select { :n |
 	0 < n & {
 		n <= (limit ^ 3)
 	}

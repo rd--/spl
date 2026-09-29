@@ -86,8 +86,8 @@ TemporalData : [Object, Equal] { | valueList timeList |
 		let v = [];
 		self.do { :each |
 			let [i, j] = each.transpose;
-			t.addInPlace(i);
-			v.addInPlace(j)
+			t.add!(i);
+			v.add!(j)
 		};
 		TemporalData(v, t)
 	}

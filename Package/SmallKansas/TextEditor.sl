@@ -5,7 +5,7 @@ TextEditor : [Object, UserEventTarget, View] {
 	| smallKansas editorPane editorText mimeType title clientMenuItems eventListeners |
 
 	addMenuItems { :self :aCollection |
-		self.clientMenuItems.addAllInPlace(aCollection)
+		self.clientMenuItems.addAll!(aCollection)
 	}
 
 	createElements { :self |
@@ -177,7 +177,7 @@ TextEditor : [Object, UserEventTarget, View] {
 				}
 			},
 			MenuItem('Reset Synthesiser', '.') { :event |
-				system.clock.removeAllInPlace;
+				system.clock.removeAll!;
 				system.scSynth.reset
 			}
 		]

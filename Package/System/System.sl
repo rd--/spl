@@ -353,7 +353,7 @@ System! : [Object, Cache, RandomNumberGenerator] {
 		{
 			let previousTime = currentTime;
 			currentTime := system.sessionTime;
-			timeList.addInPlace(currentTime - previousTime);
+			timeList.add!(currentTime - previousTime);
 			currentTime < endTime
 		}.whileTrue {
 			self()

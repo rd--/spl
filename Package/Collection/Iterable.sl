@@ -75,7 +75,7 @@
 	contents { :self :aBlock/2 |
 		let answer = [];
 		aBlock(self) { :each |
-			answer.addInPlace(each)
+			answer.add!(each)
 		};
 		answer
 	}
@@ -104,7 +104,7 @@
 		let set = UnsortedSet();
 		set.comparator := aBlock/2;
 		self.do { :each |
-			set.includeInPlace(each)
+			set.include!(each)
 		};
 		set.size
 	}
@@ -192,7 +192,7 @@
 		valueWithReturn { :return/1 |
 			self.do { :each |
 				aBlock(each).ifTrue {
-					answer.addInPlace(each);
+					answer.add!(each);
 					count := count - 1;
 					(count < 1).ifTrue {
 						answer.return
@@ -312,9 +312,9 @@
 		let b = Set();
 		c.do { :x |
 			a.includes(x).if {
-				b.includeInPlace(x)
+				b.include!(x)
 			} {
-				a.addInPlace(x)
+				a.add!(x)
 			}
 		};
 		b
@@ -385,7 +385,7 @@
 				items.includesBy(each, aBlock/2).ifTrue {
 					false.return
 				};
-				items.addInPlace(each)
+				items.add!(each)
 			};
 			true
 		}
@@ -413,7 +413,7 @@
 		let answer = [];
 		self.withLevelDo { :each :level |
 			aBlock(level).ifTrue {
-				answer.addInPlace(each)
+				answer.add!(each)
 			}
 		};
 		answer

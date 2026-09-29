@@ -22,11 +22,11 @@
 		let answer = [];
 		self.faceIndices.do { :each |
 			1.toDo(each.size) { :i |
-				answer.addInPlace(
+				answer.add!(
 					[
 						each.at(i),
 						each.atWrap(i + 1)
-					].sortByInPlace(lessEqual/2)
+					].sortBy!(lessEqual/2)
 				)
 			}
 		};
@@ -72,7 +72,7 @@ PolygonMesh : [Object, Store, Equal, Geometry, PolygonMesh] { | vertexCoordinate
 
 	canonicalForm { :self |
 		let v = self.vertexCoordinates;
-		let w = v.nub.sortByInPlace(precedes/2);
+		let w = v.nub.sortBy!(precedes/2);
 		PolygonMesh(
 			w,
 			self.faceIndices.collect { :each |
@@ -81,7 +81,7 @@ PolygonMesh : [Object, Store, Equal, Geometry, PolygonMesh] { | vertexCoordinate
 				}.lexicographicallyLeastRotation.deleteAdjacentDuplicates
 			}.reject { :each |
 				each.size <= 2
-			}.nub.sortByInPlace(lessEqual/2)
+			}.nub.sortBy!(lessEqual/2)
 		)
 	}
 
@@ -122,7 +122,7 @@ PolygonMesh : [Object, Store, Equal, Geometry, PolygonMesh] { | vertexCoordinate
 			self[i][j].isNonZero.ifTrue {
 				let v = zeroIndexedCellVertices(j - 1, m - i);
 				vertexList.addAllIfNotPresent(v);
-				faceList.addInPlace(v.collect(vertexIndex/1))
+				faceList.add!(v.collect(vertexIndex/1))
 			}
 		}.table(1.to(m), 1.to(n));
 		AnnotatedGeometry(

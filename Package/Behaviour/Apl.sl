@@ -77,14 +77,14 @@
 		aSequence.withIndexDo { :each :index |
 			(each > previous | { each = 0 & { previous != 0 }}).ifTrue {
 				(index > start & { previous != 0 }).ifTrue {
-					answer.addInPlace(self.copyFromTo(start, index - 1))
+					answer.add!(self.copyFromTo(start, index - 1))
 				};
 				start := index
 			};
 			previous := each
 		};
 		(aSequence.last != 0).ifTrue {
-			answer.addInPlace(self.copyFromTo(start, self.size))
+			answer.add!(self.copyFromTo(start, self.size))
 		};
 		answer
 	}

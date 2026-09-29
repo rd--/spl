@@ -2,7 +2,7 @@ Trait! : [Object, Equal] {
 
 	addMethodsTo { :self :aCollection |
 		trait.methodDictionary.values.do { :method |
-			aCollection.addInPlace(method)
+			aCollection.add!(method)
 		}
 	}
 

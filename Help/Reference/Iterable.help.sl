@@ -14,7 +14,7 @@ Types implementing `Iterable`:
 ```
 >>> system
 >>> .traitTypes('@Iterable')
->>> .sortInPlace
+>>> .sort!
 [
 	'AsciiString'
 	'BitSet'

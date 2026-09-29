@@ -16,7 +16,7 @@ Inspector : [Object, View] { | inspectorPane inspectorList |
 			}
 		};
 		self.inspectorPane.appendChild(listChooser.listChooserPane);
-		self.inspectorList.addInPlace(listChooser)
+		self.inspectorList.add!(listChooser)
 	}
 
 	initialize { :self :aValue |

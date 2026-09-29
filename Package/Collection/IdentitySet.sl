@@ -23,7 +23,7 @@ IdentitySet! : [Object, Store, Equal, Iterable, Collection, Extensible, Unordere
 		<primitive: return Array.from(_self);>
 	}
 
-	includeInPlace { :self :anObject |
+	include! { :self :anObject |
 		anObject.isImmediate.ifFalse {
 			self.error('IdentitySet>>include: non-immediate entry', [anObject])
 		};
@@ -38,7 +38,7 @@ IdentitySet! : [Object, Store, Equal, Iterable, Collection, Extensible, Unordere
 		['size']
 	}
 
-	removeAllInPlace { :self |
+	removeAll! { :self |
 		<primitive: _self.clear();>
 		nil
 	}
@@ -101,7 +101,7 @@ IdentitySet! : [Object, Store, Equal, Iterable, Collection, Extensible, Unordere
 
 	asIdentitySet { :self |
 		let answer = IdentitySet();
-		answer.includeAllInPlace(self);
+		answer.includeAll!(self);
 		answer
 	}
 

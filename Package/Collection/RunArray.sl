@@ -151,7 +151,7 @@ RunArray : [Object, Equal, Store, Indexable] { | runLengths values cachedIndex c
 		let answer = [];
 		self.runLengthsAndValuesDo { :run :value |
 			(value = anObject).ifTrue {
-				answer.addInPlace(run)
+				answer.add!(run)
 			}
 		};
 		answer
@@ -213,16 +213,16 @@ RunArray : [Object, Equal, Store, Indexable] { | runLengths values cachedIndex c
 				lastLength := lastLength + 1
 			} {
 				(lastLength > 0).ifTrue {
-					runLengths.addInPlace(lastLength);
-					values.addInPlace(lastValue)
+					runLengths.add!(lastLength);
+					values.add!(lastValue)
 				};
 				lastLength := 1;
 				lastValue := value
 			}
 		};
 		(lastLength > 0).ifTrue {
-			runLengths.addInPlace(lastLength);
-			values.addInPlace(lastValue)
+			runLengths.add!(lastLength);
+			values.add!(lastValue)
 		};
 		RunArray(runLengths, values)
 	}

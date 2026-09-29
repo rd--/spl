@@ -6,7 +6,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 		self.initializeSlots(PriorityQueue(), nil, nil)
 	}
 
-	removeAllInPlace { :self |
+	removeAll! { :self |
 		self.priorityQueue.removeAllAndShrink;
 		self.existingDelay.ifNotNil {
 			self.existingDelay.cancel

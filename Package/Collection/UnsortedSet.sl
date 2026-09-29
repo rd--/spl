@@ -4,7 +4,7 @@ UnsortedSet : [Object, Store, Equal, Iterable, Collection, Extensible, Unordered
 		self.contents.do(aBlock/1)
 	}
 
-	includeInPlace { :self :anObject |
+	include! { :self :anObject |
 		self.contents
 		.addIfNotPresentBy(
 			anObject,
@@ -16,8 +16,8 @@ UnsortedSet : [Object, Store, Equal, Iterable, Collection, Extensible, Unordered
 		self.contents.includesBy(anObject, self.comparator)
 	}
 
-	removeAllInPlace { :self |
-		self.contents.removeAllInPlace
+	removeAll! { :self |
+		self.contents.removeAll!
 	}
 
 	removeIfAbsent { :self :anObject :aBlock/0 |
@@ -52,7 +52,7 @@ UnsortedSet : [Object, Store, Equal, Iterable, Collection, Extensible, Unordered
 
 	UnsortedSet { :self |
 		let answer = UnsortedSet();
-		answer.includeAllInPlace(self);
+		answer.includeAll!(self);
 		answer
 	}
 
@@ -73,7 +73,7 @@ UnsortedSet : [Object, Store, Equal, Iterable, Collection, Extensible, Unordered
 		let set = UnsortedSet();
 		set.comparator := aBlock/2;
 		self.do { :each |
-			set.includeAllInPlace(each)
+			set.includeAll!(each)
 		};
 		set.asList
 	}

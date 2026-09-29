@@ -147,12 +147,12 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 		let c = [];
 		self.asciiByteArray.do { :i |
 			i.between([97 122]).if {
-				c.addInPlace((i + n + 7) % 26 + 97)
+				c.add!((i + n + 7) % 26 + 97)
 			} {
 				i.between([65 90]).if {
-					c.addInPlace((i + n + 13) % 26 + 65)
+					c.add!((i + n + 13) % 26 + 65)
 				} {
-					c.addInPlace(i)
+					c.add!(i)
 				}
 			}
 		};
@@ -168,7 +168,7 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 		.characters
 		.asIdentityMultiset
 		.associations
-		.sortInPlace(succeedsOrEqualTo/2, value/1)
+		.sort!(succeedsOrEqualTo/2, value/1)
 	}
 
 	characterCounts { :self :n |
@@ -178,7 +178,7 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 		.collect(stringCatenate/1)
 		.asIdentityMultiset
 		.associations
-		.sortInPlace(succeedsOrEqualTo/2, value/1)
+		.sort!(succeedsOrEqualTo/2, value/1)
 	}
 
 	characterRange { :self :aString |
@@ -490,7 +490,7 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 			}.whileTrue {
 				index := self.findStringStartingAt(aString, index);
 				(index != 0).ifTrue {
-					answer.addInPlace(index);
+					answer.add!(index);
 					index := index + 1
 				}
 			};
@@ -617,7 +617,7 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 		.select(isLetter/1)
 		.asIdentityMultiset
 		.associations
-		.sortInPlace(succeedsOrEqualTo/2, value/1)
+		.sort!(succeedsOrEqualTo/2, value/1)
 	}
 
 	letterCounts { :self :n |
@@ -628,7 +628,7 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 		.collect(stringCatenate/1)
 		.asIdentityMultiset
 		.associations
-		.sortInPlace(succeedsOrEqualTo/2, value/1)
+		.sort!(succeedsOrEqualTo/2, value/1)
 	}
 
 	letterNumber { :self :aString |
@@ -733,7 +733,7 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 	nub { :self |
 		let seen = [];
 		self.select { :each |
-			seen.ifAbsentAddInPlace(each)
+			seen.ifAbsentAdd!(each)
 		}
 	}
 
@@ -824,7 +824,7 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 		let i = 1;
 		let j = n;
 		{ j <= k }.whileTrue {
-			p.addInPlace(self.copyFromTo(i, j));
+			p.add!(self.copyFromTo(i, j));
 			i := i + d;
 			j := j + d
 		};
@@ -837,7 +837,7 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 
 	primitiveCollectInto { :self :aBlock/1 :aCollection |
 		self.primitiveDo { :each |
-			aCollection.addInPlace(aBlock(each))
+			aCollection.add!(aBlock(each))
 		};
 		aCollection
 	}
@@ -920,7 +920,7 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 		let list = [];
 		self.do { :each |
 			aBlock(each).ifTrue {
-				list.addInPlace(each)
+				list.add!(each)
 			}
 		};
 		list.stringCatenate
@@ -945,15 +945,15 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 	}
 
 	sortCharacterCode { :self :encoding |
-		self.toCharacterCode(encoding).sortInPlace.fromCharacterCode(encoding)
+		self.toCharacterCode(encoding).sort!.fromCharacterCode(encoding)
 	}
 
 	sortCharacters { :self |
-		self.characters.sortInPlace.stringJoin
+		self.characters.sort!.stringJoin
 	}
 
 	sortCodePoints { :self |
-		self.codePoints.sortInPlace.fromCodePoints
+		self.codePoints.sort!.fromCodePoints
 	}
 
 	[splitBy, stringSplit] { :self :aString |
@@ -1094,7 +1094,7 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 	utf16List { :self |
 		let answer = [];
 		1.toDo(self.countUtf16CodeUnits) { :index |
-			answer.addInPlace(self.utf16CodePointAt(index))
+			answer.add!(self.utf16CodePointAt(index))
 		};
 		answer
 	}
@@ -1342,7 +1342,7 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 	burrowsWheelerMatrix { :self |
 		1.toCollect(self.size) { :each |
 			self.rotateLeft(each)
-		}.lexicographicSortInPlace
+		}.lexicographicSort!
 	}
 
 	burrowsWheelerTransform { :self |
@@ -1356,7 +1356,7 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 			1.toDo(k) { :i |
 				table[i] := [self[i]] ++ table[i]
 			};
-			table.lexicographicSortInPlace
+			table.lexicographicSort!
 		};
 		table.detect { :each |
 			each.last = eot

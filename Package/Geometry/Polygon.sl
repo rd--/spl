@@ -52,9 +52,9 @@ Polygon : [Object, Store, Equal, Geometry] { | vertexCoordinates |
 		let k = self.vertexCount;
 		let answer = [];
 		1.toDo(k - 1) { :i |
-			answer.addInPlace([i, i + 1])
+			answer.add!([i, i + 1])
 		};
-		answer.addInPlace([1, k]);
+		answer.add!([1, k]);
 		answer
 	}
 
@@ -485,12 +485,12 @@ Polygon : [Object, Store, Equal, Geometry] { | vertexCoordinates |
 				e := subjectVertex;
 				e.inside.if {
 					s.inside.ifFalse {
-						outputList.addInPlace(computeIntersection())
+						outputList.add!(computeIntersection())
 					};
-					outputList.addInPlace(e)
+					outputList.add!(e)
 				} {
 					inside(s).ifTrue {
-						outputList.addInPlace(computeIntersection())
+						outputList.add!(computeIntersection())
 					}
 				};
 				s := e
@@ -514,7 +514,7 @@ Polygon : [Object, Store, Equal, Geometry] { | vertexCoordinates |
 			let q = p + [m, h].fromPolarCoordinates;
 			let o = (m + 1).mod(n, 1);
 			let z = a.includes(o).if { -1 } { 1 };
-			v.addInPlace(q);
+			v.add!(q);
 			p := q;
 			m := o;
 			h := (h + (1.pi + (z * theta))) % 2.pi;

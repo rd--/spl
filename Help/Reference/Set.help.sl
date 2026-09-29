@@ -18,7 +18,7 @@ Types implementing the `Set` trait:
 ```
 >>> system
 >>> .traitTypes('@Set')
->>> .sortInPlace
+>>> .sort!
 [
 	'IdentitySet'
 	'SortedSet'

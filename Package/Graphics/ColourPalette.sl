@@ -42,7 +42,7 @@ ColourPalette : [Object, Store] { | colourList |
 			system.colourPalettes.do { :each |
 				each.keysAndValuesDo { :key :value |
 					(key = self).ifTrue {
-						answer.addInPlace(value)
+						answer.add!(value)
 					}
 				}
 			};

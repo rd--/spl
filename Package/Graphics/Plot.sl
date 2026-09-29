@@ -55,14 +55,14 @@ Plot : [Object] { | pageList format options |
 		);
 		/*
 		r.includesY(0).ifTrue {
-			items.addInPlace(Point([r.left * xScalar, 0]))
+			items.add!(Point([r.left * xScalar, 0]))
 		};
 		r.includesX(0).ifTrue {
-			items.addInPlace(Point([0, r.upper]))
+			items.add!(Point([0, r.upper]))
 		};
 		*/
 		scaledSegments.do { :each |
-			items.addAllInPlace(each.gen)
+			items.addAll!(each.gen)
 		};
 		LineDrawing(items, (height: self.height))
 	}
@@ -527,16 +527,16 @@ Plot : [Object] { | pageList format options |
 			let [i, x] = pre;
 			let post = [i, aBlock(x)];
 			post.isFinite.if {
-				segment.addInPlace(post)
+				segment.add!(post)
 			} {
 				segment.isEmpty.ifFalse {
-					answer.addInPlace(segment);
+					answer.add!(segment);
 					segment := []
 				}
 			}
 		};
 		segment.isEmpty.ifFalse {
-			answer.addInPlace(segment)
+			answer.add!(segment)
 		};
 		answer
 	}
@@ -568,7 +568,7 @@ Plot : [Object] { | pageList format options |
 		let data = [level.copy];
 		2.toDo(self.size) { :i |
 			level := level + self[i];
-			data.addInPlace(level.copy)
+			data.add!(level.copy)
 		};
 		data.linePlot
 	}
@@ -577,8 +577,8 @@ Plot : [Object] { | pageList format options |
 		self.isVector.if {
 			let answer = [];
 			self.withIndexDo { :each :index |
-				answer.addInPlace([index, each]);
-				answer.addInPlace([index + 1, each])
+				answer.add!([index, each]);
+				answer.add!([index + 1, each])
 			};
 			answer
 		} {
@@ -589,8 +589,8 @@ Plot : [Object] { | pageList format options |
 					let answer = [];
 					self.do { :each |
 						let [x2, y] = each;
-						answer.addInPlace([x1, y]);
-						answer.addInPlace([x2, y]);
+						answer.add!([x1, y]);
+						answer.add!([x2, y]);
 						x1 := x2
 					};
 					answer
@@ -652,7 +652,7 @@ Plot : [Object] { | pageList format options |
 			let p = [[x0, k + 2]];
 			1.toDo(k) { :i |
 				self[i].do { :x |
-					p.addInPlace([x, i])
+					p.add!([x, i])
 				}
 			};
 			p.scatterPlot
@@ -864,7 +864,7 @@ Plot : [Object] { | pageList format options |
 		let r = [];
 		n.timesRepeat {
 			let a2 = f(a1);
-			r.addAllInPlace([a0 a1; a1 a1; a1 a2]);
+			r.addAll!([a0 a1; a1 a1; a1 a2]);
 			a0 := a1;
 			a1 := a2
 		};
@@ -894,7 +894,7 @@ Plot : [Object] { | pageList format options |
 			xList, yList,
 			zList
 		) { :x1 :y1 :x2 :y2 :z :k |
-			l[k].addInPlace([[x1, y1], [x2, y2]])
+			l[k].add!([[x1, y1], [x2, y2]])
 		};
 		l.collect { :each |
 			each.connectLineSegments(~).collect(Line/1)
@@ -1114,7 +1114,7 @@ Plot : [Object] { | pageList format options |
 			let a = i[k];
 			let b = j[k];
 			(a = b).ifFalse {
-				l.addInPlace(Line([p[a + 1], p[b + 1]]))
+				l.add!(Line([p[a + 1], p[b + 1]]))
 			}
 		};
 		[
@@ -1241,7 +1241,7 @@ Plot : [Object] { | pageList format options |
 			let x = x0 + ((i - 1) * 0.5);
 			1.toDo(k) { :j |
 				let e = a[i][j];
-				t.addInPlace(
+				t.add!(
 					(e = 0).if {
 						AnnotatedGeometry(
 							Circle([x y], 0.4),
@@ -1351,9 +1351,9 @@ Plot : [Object] { | pageList format options |
 			let [y, xList] = each;
 			y := y * 3.5;
 			xList.do { :x |
-				g.addInPlace(Line([x 0; x y]))
+				g.add!(Line([x 0; x y]))
 			};
-			g.addInPlace(Line([xList.first y; xList.last y]))
+			g.add!(Line([xList.first y; xList.last y]))
 		};
 		GeometryCollection(g)
 	}
@@ -1400,8 +1400,8 @@ Plot : [Object] { | pageList format options |
 					let p = f[j - 1];
 					let r = f[j + 1];
 					let s = 1 / q.denominator;
-					l.addInPlace(Line([q 0; q s]));
-					l.addInPlace(
+					l.add!(Line([q 0; q s]));
+					l.add!(
 						Line(
 							[
 								[p, 0],
@@ -1410,7 +1410,7 @@ Plot : [Object] { | pageList format options |
 							]
 						)
 					);
-					l.addInPlace(
+					l.add!(
 						Line(
 							[
 								[p, 1 / p.denominator],
@@ -1420,10 +1420,10 @@ Plot : [Object] { | pageList format options |
 						)
 					);
 					(p = 0).ifTrue {
-						l.addInPlace(Line([0 1; q s]))
+						l.add!(Line([0 1; q s]))
 					};
 					(r = 1).ifTrue {
-						l.addInPlace(Line([q s; 1 1]))
+						l.add!(Line([q s; 1 1]))
 					}
 				}
 			}
@@ -1723,7 +1723,7 @@ Plot : [Object] { | pageList format options |
 			List(k, i)
 		}.catenate.reshape(shape);
 		2.toByDo(rowCount, 2) { :i |
-			rowData[i].reverseInPlace
+			rowData[i].reverse!
 		};
 		rowData.reverse.colourMatrixPlot
 	}

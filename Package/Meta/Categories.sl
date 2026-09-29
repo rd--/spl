@@ -501,8 +501,8 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'addAllIfNotPresent'
 		'addIfNotPresent'
 		'addWithOccurrences'
-		'addFirstInPlace'
-		'addLastInPlace'
+		'addFirst!'
+		'addLast!'
 		'declareFrom'
 		'ifAbsentAdd'
 		'include'
@@ -742,7 +742,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'padRight'
 		'postCopy'
 		'reverse'
-		'reverseInPlace'
+		'reverse!'
 		'shallowCopy'
 		'veryDeepCopy'
 	],
@@ -803,7 +803,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'reduce'
 		'reject'
 		'rejectThenDo'
-		'collectInPlace'
+		'collect!'
 		'reverseDo'
 		'reverseWithDo'
 		'select'
@@ -1194,7 +1194,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'shuffledBy'
 	],
 	'sorting': [
-		'sortByInPlace'
+		'sortBy!'
 		'sorted'
 		'sort'
 		'withKeysSorted'
@@ -1890,7 +1890,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 	],
 	'ordering-sequence': [
 		'transpose'
-		'transposeInPlace'
+		'transpose!'
 		'rotate'
 		'rotateLeft'
 		'rotateRight'

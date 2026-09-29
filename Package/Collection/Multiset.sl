@@ -10,7 +10,7 @@
 		}
 	}
 
-	addInPlace { :self :anObject |
+	add! { :self :anObject |
 		self.addWithOccurrences(anObject, 1)
 	}
 
@@ -39,7 +39,7 @@
 	countsAndElements { :self |
 		let answer = [];
 		self.contents.associationsDo { :each |
-			answer.addInPlace([each.key, each.value])
+			answer.add!([each.key, each.value])
 		};
 		answer
 	}
@@ -64,7 +64,7 @@
 	elementsAndCounts { :self |
 		let answer = [];
 		self.contents.associationsDo { :each |
-			answer.addInPlace([each.key, each.value])
+			answer.add!([each.key, each.value])
 		};
 		answer
 	}
@@ -102,7 +102,7 @@
 	[multitsetToList, asList] { :self |
 		let answer = [];
 		self.do { :each |
-			answer.addInPlace(each)
+			answer.add!(each)
 		};
 		answer
 	}
@@ -141,8 +141,8 @@
 		oldObject
 	}
 
-	removeAllInPlace { :self |
-		self.contents.removeAllInPlace
+	removeAll! { :self |
+		self.contents.removeAll!
 	}
 
 	setContents { :self :aDictionary |
@@ -158,7 +158,7 @@
 	}
 
 	sortedCounts { :self :aBlock/2|
-		self.contents.associationsSwapped.sortByInPlace(aBlock/2)
+		self.contents.associationsSwapped.sortBy!(aBlock/2)
 	}
 
 	sortedCounts { :self |
@@ -166,7 +166,7 @@
 	}
 
 	sortedElements { :self |
-		self.contents.associations.sortByOnInPlace(precedesOrEqualTo/2, key/1)
+		self.contents.associations.sortByOn!(precedesOrEqualTo/2, key/1)
 	}
 
 	sum { :self |
@@ -186,7 +186,7 @@
 	}
 
 	valueSort { :self |
-		self.associations.sortByOnInPlace(precedesOrEqualTo/2, value/1)
+		self.associations.sortByOn!(precedesOrEqualTo/2, value/1)
 	}
 
 }
@@ -249,7 +249,7 @@ Multiset : [Object, Store, Copyable, Equal, Iterable, Collection, Extensible, Un
 
 	[collectionToMultiset, asMultiset] { :self |
 		let answer = Multiset();
-		answer.addAllInPlace(self);
+		answer.addAll!(self);
 		answer
 	}
 

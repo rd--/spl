@@ -121,16 +121,12 @@ PlanarCoordinates : [Object, Store, Copyable, Equal, Compare, Indexable, Cartesi
 		self.radius
 	}
 
-	swapInPlace { :self |
-		let c = self.coordinates;
-		let x = c[1];
-		let y = c[2];
-		c[1] := y;
-		c[2] := x
+	swap { :self |
+		PlanarCoordinates(self.coordinates.reverse)
 	}
 
-	swapped { :self |
-		PlanarCoordinates(self.coordinates.reverse)
+	swap! { :self |
+		self.coordinates.reverse!
 	}
 
 	theta { :self |

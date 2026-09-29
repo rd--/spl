@@ -1,4 +1,4 @@
-# remove (removeInPlace)
+# remove (remove!)
 
 - _remove(c, x)_
 

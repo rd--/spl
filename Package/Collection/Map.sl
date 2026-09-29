@@ -46,7 +46,7 @@ Map! : [Object, Store, Equal, Iterable, Indexable, Collection, Extensible, Dicti
 		nil
 	}
 
-	removeAllInPlace { :self |
+	removeAll! { :self |
 		<primitive: _self.clear();>
 		nil
 	}
@@ -54,7 +54,7 @@ Map! : [Object, Store, Equal, Iterable, Indexable, Collection, Extensible, Dicti
 	reverse { :self |
 		let answer = Map();
 		self.keysAndValuesDo { :key :value |
-			answer.addInPlace(value -> key)
+			answer.add!(value -> key)
 		};
 		answer
 	}
@@ -79,7 +79,7 @@ Map! : [Object, Store, Equal, Iterable, Indexable, Collection, Extensible, Dicti
 		let rules = self.associations;
 		let answer = [aList];
 		anInteger.timesRepeat {
-			answer.addInPlace(
+			answer.add!(
 				sequenceReplace(answer.last, rules)
 			)
 		};
@@ -92,7 +92,7 @@ Map! : [Object, Store, Equal, Iterable, Indexable, Collection, Extensible, Dicti
 			let next = answer.last.deepCollect { :each |
 				self[each]
 			}.arrayFlatten;
-			answer.addInPlace(next)
+			answer.add!(next)
 		};
 		answer
 	}
@@ -102,9 +102,9 @@ Map! : [Object, Store, Equal, Iterable, Indexable, Collection, Extensible, Dicti
 		anInteger.timesRepeat {
 			let next = [];
 			answer.last.do { :each |
-				next.addInPlace(self[each])
+				next.add!(self[each])
 			};
-			answer.addInPlace(next.stringCatenate)
+			answer.add!(next.stringCatenate)
 		};
 		answer
 	}

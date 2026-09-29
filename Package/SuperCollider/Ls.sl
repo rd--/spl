@@ -84,7 +84,7 @@
 
 	LsCat { :list |
 		let index = 1;
-		list.collectInPlace(LsOnce/1);
+		list.collect!(LsOnce/1);
 		BlockStream {
 			(index > list.size).if {
 				nil
@@ -112,7 +112,7 @@
 
 	LsLace { :list |
 		let index = 1;
-		list.collectInPlace(LsForever/1);
+		list.collect!(LsForever/1);
 		BlockStream {
 			let next = list[index].next;
 			(index >= list.size).if {
@@ -163,7 +163,7 @@
 	}
 
 	LsSwitch { :list :which |
-		list.collectInPlace(LsOnce/1);
+		list.collect!(LsOnce/1);
 		which := LsForever(which);
 		let index = which.next;
 		BlockStream {
@@ -181,7 +181,7 @@
 	}
 
 	LsSwitch1 { :list :which |
-		list.collectInPlace(LsForever/1);
+		list.collect!(LsForever/1);
 		which := LsForever(which);
 		BlockStream {
 			list[which.next].next
@@ -193,7 +193,7 @@
 
 	LsTuple { :list :repeats |
 		let count = repeats;
-		list.collectInPlace(LsOnce/1);
+		list.collect!(LsOnce/1);
 		BlockStream {
 			(count <= 0).if {
 				nil
@@ -347,7 +347,7 @@
 				(skip > 0).ifTrue {
 					input.next(skip)
 				};
-				window.addAllInPlace(current);
+				window.addAll!(current);
 				window.removeFirst(require);
 				answer
 			}
@@ -428,7 +428,7 @@
 
 	LsBind { :self |
 		let atEnd = false;
-		self.collectInPlace(LsConstant/1);
+		self.collect!(LsConstant/1);
 		BlockStream {
 			atEnd.if {
 				nil

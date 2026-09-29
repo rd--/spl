@@ -61,7 +61,7 @@
 			let y2 = aList[i + 1];
 			let z = (y2 / y1) ^ (1 / n);
 			n.timesRepeat {
-				answer.addInPlace(y1);
+				answer.add!(y1);
 				y1 := y1 * z
 			};
 			y1 := y2
@@ -78,7 +78,7 @@
 			let y2 = aList[i + 1];
 			let z = (y2 - y1) / n;
 			n.timesRepeat {
-				answer.addInPlace(y1);
+				answer.add!(y1);
 				y1 := y1 + z
 			};
 			y1 := y2
@@ -152,7 +152,7 @@
 			(alpha = 0).if {
 				let z = (y2 - y1) / n;
 				n.timesRepeat {
-					answer.addInPlace(y1);
+					answer.add!(y1);
 					y1 := y1 + z
 				}
 			} {
@@ -160,7 +160,7 @@
 				let beta = alpha / n;
 				let x = beta;
 				n.timesRepeat {
-					answer.addInPlace(
+					answer.add!(
 						y1 + (z * (1 - x.exp))
 					);
 					x := x + beta

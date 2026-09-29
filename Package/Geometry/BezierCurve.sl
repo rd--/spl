@@ -181,9 +181,9 @@ BezierCurve : [Object, Equal, Cache, Geometry] { | controlPoints splineDegree ca
 			let c = d - 1;
 			let q = [];
 			1.toDo(c) { :j |
-				q.addInPlace(c * (p[j + 1] - p[j]))
+				q.add!(c * (p[j + 1] - p[j]))
 			};
-			answer.addInPlace(q);
+			answer.add!(q);
 			p := q
 		};
 		answer
@@ -248,8 +248,8 @@ BezierCurve : [Object, Equal, Cache, Geometry] { | controlPoints splineDegree ca
 			let l = p.size - 1;
 			1.toDo(p.size - 1) { :j |
 				let z = linearInterpolation(p[j], p[j + 1], x);
-				q.addLastInPlace(z);
-				r.addLastInPlace(z)
+				q.addLast!(z);
+				r.addLast!(z)
 			};
 			p := r
 		};
@@ -261,16 +261,16 @@ BezierCurve : [Object, Equal, Cache, Geometry] { | controlPoints splineDegree ca
 		let right = [];
 		let deCasteljaus = { :p :t |
 			(p.size = 1).if {
-				left.addLastInPlace(p[1]);
-				right.addFirstInPlace(p[1])
+				left.addLast!(p[1]);
+				right.addFirst!(p[1])
 			} {
 				let k = p.size - 1;
 				1.to(k).collect { :i |
 					(i = 1).ifTrue {
-						left.addLastInPlace(p[i])
+						left.addLast!(p[i])
 					};
 					(i = k).ifTrue {
-						right.addFirstInPlace(p[i + 1])
+						right.addFirst!(p[i + 1])
 					};
 					((1 - t) * p[i]) + (t * p[i + 1])
 				}.deCasteljaus(t)

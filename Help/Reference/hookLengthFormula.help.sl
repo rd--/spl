@@ -76,7 +76,7 @@ OEIS [A060240](https://oeis.org/A060240):
 >>> 1:6.collect { :n |
 >>> 	n.integerPartitions
 >>> 	.collect(hookLengthFormula/1)
->>> 	.sortInPlace
+>>> 	.sort!
 >>> }
 [
 	1;
@@ -95,7 +95,7 @@ OEIS [A060240](https://oeis.org/A060240):
 1:8.collect { :n |
 	n.integerPartitions
 	.collect(hookLengthFormula/1)
-	.sortInPlace
+	.sort!
 }.catenate.stepPlot
 ~~~
 

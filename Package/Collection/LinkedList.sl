@@ -60,7 +60,7 @@
 		{
 			h.isNotNil
 		}.whileTrue {
-			answer.addInPlace(h.value);
+			answer.add!(h.value);
 			h := h.nextLink
 		};
 		answer
@@ -90,7 +90,7 @@
 
 LinkedList : [Object, Equal, Store, Copyable, Compare, Iterable, Indexable, Collection, Extensible, Sequence] { | firstLink lastLink |
 
-	addFirstInPlace { :self :aLinkOrObject |
+	addFirst! { :self :aLinkOrObject |
 		let aLink = aLinkOrObject.asLink;
 		self.isEmpty.ifTrue {
 			self.lastLink := aLink
@@ -100,7 +100,7 @@ LinkedList : [Object, Equal, Store, Copyable, Compare, Iterable, Indexable, Coll
 		aLink
 	}
 
-	[addLastInPlace, addInPlace] { :self :aLinkOrObject |
+	[addLast!, add!] { :self :aLinkOrObject |
 		let aLink = aLinkOrObject.asLink;
 		self.isEmpty.if {
 			self.firstLink := aLink
@@ -155,7 +155,7 @@ LinkedList : [Object, Equal, Store, Copyable, Compare, Iterable, Indexable, Coll
 		{
 			aLink = nil
 		}.whileFalse {
-			answer.addInPlace(aBlock(aLink.value));
+			answer.add!(aBlock(aLink.value));
 			aLink := aLink.nextLink
 		};
 		answer
@@ -226,7 +226,7 @@ LinkedList : [Object, Equal, Store, Copyable, Compare, Iterable, Indexable, Coll
 
 	ofSize { :self :aNumber |
 		(aNumber - self.size).timesRepeat {
-			self.addInPlace(nil)
+			self.add!(nil)
 		};
 		self
 	}
@@ -243,7 +243,7 @@ LinkedList : [Object, Equal, Store, Copyable, Compare, Iterable, Indexable, Coll
 		}
 	}
 
-	removeAllInPlace { :self |
+	removeAll! { :self |
 		self.firstLink := nil;
 		self.lastLink := nil
 	}
@@ -251,7 +251,7 @@ LinkedList : [Object, Equal, Store, Copyable, Compare, Iterable, Indexable, Coll
 	removeAllSuchThat { :self :aBlock/1 |
 		self.do { :each |
 			aBlock(each).ifTrue {
-				self.removeInPlace(each)
+				self.remove!(each)
 			}
 		}
 	}
@@ -260,7 +260,7 @@ LinkedList : [Object, Equal, Store, Copyable, Compare, Iterable, Indexable, Coll
 		let oldLink = self.firstLink;
 		self.emptyCheck;
 		(self.firstLink == self.lastLink).if {
-			self.removeAllInPlace
+			self.removeAll!
 		} {
 			self.firstLink := oldLink.nextLink
 		};
@@ -281,7 +281,7 @@ LinkedList : [Object, Equal, Store, Copyable, Compare, Iterable, Indexable, Coll
 		let aLink = nil;
 		self.emptyCheck;
 		(self.firstLink == self.lastLink).if {
-			self.removeAllInPlace
+			self.removeAll!
 		} {
 			aLink := self.firstLink;
 			{
@@ -326,7 +326,7 @@ LinkedList : [Object, Equal, Store, Copyable, Compare, Iterable, Indexable, Coll
 		let answer = LinkedList();
 		self.do { :each |
 			each.aBlock.ifTrue {
-				answer.addInPlace(each)
+				answer.add!(each)
 			}
 		};
 		answer
@@ -347,7 +347,7 @@ LinkedList : [Object, Equal, Store, Copyable, Compare, Iterable, Indexable, Coll
 	[LinkedList, asLinkedList] { :self |
 		let answer = LinkedList();
 		self.do { :each |
-			answer.addInPlace(each)
+			answer.add!(each)
 		};
 		answer
 	}

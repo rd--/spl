@@ -94,7 +94,7 @@ let f = { :x :n |
 	0:j.collect { :i |
 		i / j
 	}
-}.catenate.nub.sortInPlace.collect { :x |
+}.catenate.nub.sort!.collect { :x |
 	[x, f(x, 100)]
 }.linePlot
 ~~~

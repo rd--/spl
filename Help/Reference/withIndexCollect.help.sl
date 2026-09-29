@@ -1,11 +1,13 @@
-# withIndexCollect
+# withIndexCollect (withIndexCollect!)
 
 - _withIndexCollect(c, f/2)_
 
 Answer a collection like the collection _c_ where the values are given by _f_,
 which receives both the _value_ and _index_ for each element.
+Like `collect` except that the iteration index supplies the second argument to the block _f_.
+There are both in-place and copying forms.
 
-At `List`:
+Copying form at `List`:
 
 ```
 >>> [3 4 2 5 1]
@@ -13,6 +15,17 @@ At `List`:
 >>> 	i -> x
 >>> }
 [1 -> 3, 2 -> 4, 3 -> 2, 4 -> 5, 5 -> 1]
+```
+
+In-place form at `List`:
+
+```
+>>> let x = [9, 8 .. 1];
+>>> let y = x.withIndexCollect! { :each :index |
+>>> 	each * index
+>>> };
+>>> (x, x == y)
+([9 16 21 24 25 24 21 16 9], true)
 ```
 
 At `Record`, see also `keysAndValuesCollect`:

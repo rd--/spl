@@ -4,10 +4,10 @@
 
 	tuningLatticePrimes { :self :includeOctave |
 		let answer = Set();
-		answer.includeAllInPlace(self.numerator.primeFactors);
-		answer.includeAllInPlace(self.denominator.primeFactors);
+		answer.includeAll!(self.numerator.primeFactors);
+		answer.includeAll!(self.denominator.primeFactors);
 		includeOctave.ifFalse {
-			answer.withoutInPlace(2)
+			answer.without!(2)
 		};
 		answer.asList.sort
 	}
@@ -92,7 +92,7 @@
 		indices.combinationsAtATimeDo(2) { :each |
 			let [i, j] = each;
 			(vertexCoordinates[i].manhattanDistance(vertexCoordinates[j]) = 1).ifTrue {
-				answer.addInPlace(each.copy)
+				answer.add!(each.copy)
 			}
 		};
 		answer
@@ -124,7 +124,7 @@
 	tuningLatticePrimes { :self :includeOctave |
 		let answer = Set();
 		self.asRatios.do { :each |
-			answer.includeAllInPlace(each.tuningLatticePrimes(includeOctave))
+			answer.includeAll!(each.tuningLatticePrimes(includeOctave))
 		};
 		answer.asList.sort
 	}

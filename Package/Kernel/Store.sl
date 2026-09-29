@@ -30,7 +30,7 @@
 
 	storeStringAsInitializeSlotsOmitting { :self :slotNameList |
 		self.storeStringNamedSlots(
-			self.slotNameList.withoutAllInPlace(slotNameList)
+			self.slotNameList.withoutAll!(slotNameList)
 		)
 	}
 

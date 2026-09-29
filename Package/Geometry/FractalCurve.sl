@@ -14,7 +14,7 @@
 		}.contents
 		.do { :each |
 			stepLetters.includes(each).if {
-				answer.addInPlace(answer.last + angle.angleVector)
+				answer.add!(answer.last + angle.angleVector)
 			} {
 				let delta = (each = '+').if {
 					plusAngle
@@ -63,7 +63,7 @@
 		1.toDo(self) { :n |
 			let m = n.fibonacciWord;
 			p := p + theta.angleVector;
-			answer.addInPlace(p);
+			answer.add!(p);
 			(m = 0).ifTrue {
 				let delta = n.isEven.if { -1/2.pi } { 1/2.pi };
 				theta := theta + delta
@@ -175,7 +175,7 @@
 							}
 						};
 						z := z + h[d % 6 + 1];
-						a.addInPlace(z)
+						a.add!(z)
 					};
 					a.realImaginary
 				}
@@ -201,7 +201,7 @@
 					let a = [0];
 					0.toDo(self - 1) { :n |
 						z := z + (0J1 ^ n.hammingWeight);
-						a.addInPlace(z)
+						a.add!(z)
 					};
 					a.realImaginary
 				}
@@ -226,7 +226,7 @@
 		let m = [0 1 0 -1 -1 0 1 0];
 		0.toDo(self - 2) { :n |
 			z := z + (1.i ^ n.integerDigits(8).sum { :d | m[d + 1] });
-			a.addInPlace(z)
+			a.add!(z)
 		};
 		a.realImaginary
 	}
@@ -292,7 +292,7 @@
 					let a = [];
 					let move = {
 						z := z + dz[1 + (d % k)];
-						a.addInPlace(z)
+						a.add!(z)
 					};
 					let x = { :r |
 						r := r - 1;
@@ -318,7 +318,7 @@
 							x(r)
 						}
 					};
-					a.addInPlace(z);
+					a.add!(z);
 					x(self);
 					move();
 					a.realImaginary

@@ -87,7 +87,7 @@
 		>
 	}
 
-	reverseInPlace { :self |
+	reverse! { :self |
 		<primitive: return _self.reverse();>
 	}
 
@@ -95,13 +95,19 @@
 		<primitive: return _self.length;>
 	}
 
-	sortByInPlace { :self :sortBlock/2 |
-		self.uncheckedSortComparingInPlace(
+	sortBy! { :self :sortBlock/2 |
+		self.uncheckedSortComparing!(
 			sortBlockToTypeCheckedCompareBlock(sortBlock/2)
 		)
 	}
 
-	sortByOnInPlace { :self :sortBlock/2 :keyBlock/1 |
+	sortBy { :self :sortBlock/2 |
+		self.uncheckedSortComparing(
+			sortBlockToTypeCheckedCompareBlock(sortBlock/2)
+		)
+	}
+
+	sortByOn! { :self :sortBlock/2 :keyBlock/1 |
 		<primitive:
 		return _self.sort(function(p, q) {
 			return _sortBlock_2(_keyBlock_1(p), _keyBlock_1(q)) ? -1 : 1
@@ -109,22 +115,16 @@
 		>
 	}
 
-	sortComparingInPlace { :self :compareBlock/2 |
-		self.uncheckedSortComparingInPlace(
+	sortComparing! { :self :compareBlock/2 |
+		self.uncheckedSortComparing!(
 			typeCheckedCompareBlock(compareBlock/2)
 		)
 	}
 
-	sortedBy { :self :sortBlock/2 |
+	sortComparing { :self :compareBlock/2 |
 		self.uncheckedSortComparing(
-			sortBlockToTypeCheckedCompareBlock(sortBlock/2)
+			typeCheckedCompareBlock(compareBlock/2)
 		)
-	}
-
-	sortedComparing { :self :compareBlock/2 |
-		<primitive:
-		return _self.toSorted(_compareBlock_2);
-		>
 	}
 
 	storeString { :self |
@@ -155,7 +155,7 @@
 		<primitive: return _self.toSorted(_compareBlock_2);>
 	}
 
-	uncheckedSortComparingInPlace { :self :compareBlock/2 |
+	uncheckedSortComparing! { :self :compareBlock/2 |
 		<primitive: return _self.sort(_compareBlock_2);>
 	}
 

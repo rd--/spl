@@ -196,8 +196,8 @@
 		}.whileTrue {
 			x := x + h;
 			y := y + (h * self(x, y));
-			vx.addInPlace(x);
-			vy.addInPlace(y)
+			vx.add!(x);
+			vy.add!(y)
 		};
 		[vx, vy]
 	}
@@ -217,8 +217,8 @@
 			let k4 = h * f(x + h, y + k3);
 			x := x + h;
 			y := y + ((k1 + k2 + k2 + k3 + k3 + k4) / 6);
-			vx.addInPlace(x);
-			vy.addInPlace(y)
+			vx.add!(x);
+			vy.add!(y)
 		};
 		[vx, vy]
 	}

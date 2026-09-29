@@ -181,12 +181,12 @@ Fraction : [Object, Store, Equal, Compare, Number] { | numerator denominator |
 			{
 				f != 0
 			}.whileTrue {
-				answer.addInPlace(i);
+				answer.add!(i);
 				f := 1 / f;
 				i := f.integerPart;
 				f := f - i
 			};
-			answer.addInPlace(i);
+			answer.add!(i);
 			answer
 		}
 	}
@@ -220,7 +220,7 @@ Fraction : [Object, Store, Equal, Compare, Number] { | numerator denominator |
 			x != 0
 		}.whileTrue {
 			let y = (1 / x).ceiling;
-			a.addInPlace(y);
+			a.add!(y);
 			x := x * y - 1
 		};
 		a
@@ -546,7 +546,7 @@ Fraction : [Object, Store, Equal, Compare, Number] { | numerator denominator |
 		let b = a.copy;
 		a[a.size] := a[a.size] + 1;
 		b[a.size] := b[a.size] - 1;
-		b.addInPlace(2);
+		b.add!(2);
 		[
 			a.fromContinuedFraction,
 			b.fromContinuedFraction
@@ -595,7 +595,7 @@ Fraction : [Object, Store, Equal, Compare, Number] { | numerator denominator |
 				x != 0
 			}.whileTrue {
 				let z = (y / x).ceiling;
-				a.addInPlace([1 z]);
+				a.add!([1 z]);
 				x := x * z - y;
 				y := y * z
 			};
@@ -852,7 +852,7 @@ Fraction : [Object, Store, Equal, Compare, Number] { | numerator denominator |
 			let q = a.detectLast { :y |
 				y > x
 			};
-			a.addInPlace(p.mediant(q))
+			a.add!(p.mediant(q))
 		};
 		a
 	}
@@ -889,7 +889,7 @@ Fraction : [Object, Store, Equal, Compare, Number] { | numerator denominator |
 			};
 			(abs(fp - f) > abs(fp - a0)).ifTrue {
 				f := a0;
-				a.addInPlace(a0 + x.integerPart)
+				a.add!(a0 + x.integerPart)
 			}
 		};
 		a

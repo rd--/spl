@@ -27,7 +27,7 @@ Read the `add` help file:
 >>> 	h.categories.elementType
 >>> )
 (
-	'add (addInPlace)',
+	'add (add!)',
 	true,
 	true,
 	false,

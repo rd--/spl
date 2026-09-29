@@ -44,7 +44,7 @@
 				};
 				word[index] := m + 1;
 				(m + 1 != 1).ifTrue {
-					maxima.addFirstInPlace(index)
+					maxima.addFirst!(index)
 				}
 			} {
 				(word[index] = 2 & { start[index] = 1 }).if {
@@ -72,7 +72,7 @@
 	bellStrings { :n |
 		let answer = [];
 		bellStringsDo(n) { :each |
-			answer.addInPlace(each.copy)
+			answer.add!(each.copy)
 		};
 		answer
 	}
@@ -103,7 +103,7 @@
 	binaryCombinations { :s :t |
 		let r = [];
 		binaryCombinationsDo(s, t) { :b |
-			r.addInPlace(b.copy)
+			r.add!(b.copy)
 		};
 		r
 	}
@@ -189,7 +189,7 @@
 	bracelets { :n :k |
 		let answer = [];
 		braceletsDo(n, k) { :each |
-			answer.addInPlace(each)
+			answer.add!(each)
 		};
 		answer
 	}
@@ -228,7 +228,7 @@
 	catalanStrings { :n :k |
 		let answer = [];
 		catalanStringsDo(n, k) { :each |
-			answer.addInPlace(each.copy)
+			answer.add!(each.copy)
 		};
 		answer
 	}
@@ -386,7 +386,7 @@
 		} {
 			let r = [];
 			motzkinWordsDo(t, s) { :b |
-				r.addInPlace(b.copy)
+				r.add!(b.copy)
 			};
 			r
 		}
@@ -479,7 +479,7 @@
 	restrictedGrowthStrings { :n |
 		let answer = [];
 		n.restrictedGrowthStringsDo { :each |
-			answer.addInPlace(each.copy)
+			answer.add!(each.copy)
 		};
 		answer
 	}
@@ -524,7 +524,7 @@
 	restrictedGrowthStrings { :n :k |
 		let answer = [];
 		restrictedGrowthStringsDo(n, k) { :each |
-			answer.addInPlace(each.copy)
+			answer.add!(each.copy)
 		};
 		answer
 	}
@@ -617,10 +617,10 @@
 		let answer = [0];
 		1.toDo(m - 1) { :n |
 			((y + 1) <= (self * x)).if {
-				answer.addInPlace(1);
+				answer.add!(1);
 				y := y + 1
 			} {
-				answer.addInPlace(0);
+				answer.add!(0);
 				x := x + 1
 			}
 		};
@@ -672,7 +672,7 @@
 +List {
 
 	canonicalSetPartition { :self |
-		self.collect(sort/1).sortOnInPlace(first/1)
+		self.collect(sort/1).sortOn!(first/1)
 	}
 
 	isIntegerPartition { :self :n |
@@ -734,7 +734,7 @@
 	setPartition { :self |
 		let answer = { [] } ! self.size;
 		self.withIndexDo { :each :index |
-			answer.at(each).addInPlace(index)
+			answer.at(each).add!(index)
 		};
 		answer.reject(isEmpty/1).canonicalSetPartition
 	}
@@ -771,7 +771,7 @@
 	combinations { :self :m |
 		let answer = [];
 		self.combinationsAtATimeDo(m) { :each |
-			answer.addInPlace(each.copy)
+			answer.add!(each.copy)
 		};
 		answer
 	}
@@ -812,7 +812,7 @@
 		let n = List(a[1], Infinity);
 		let t = [];
 		n[1] := 0;
-		t.addInPlace(n.copy);
+		t.add!(n.copy);
 		2.toDo(k) { :i |
 			let d = gcd(a[1], a[i]);
 			1.toDo(d) { :r |
@@ -827,7 +827,7 @@
 					}
 				}
 			};
-			t.addInPlace(n.copy)
+			t.add!(n.copy)
 		};
 		t
 	}
@@ -852,7 +852,7 @@
 		let f = { :m :i |
 			(i = 1).if {
 				c[1] := m // a[1];
-				answer.addInPlace(c.copy)
+				answer.add!(c.copy)
 			} {
 				let lc = lcm(a[1], a[i]);
 				let l = lc // a[i];
@@ -874,7 +874,7 @@
 			}
 		};
 		f(b, a.size);
-		answer.sortByInPlace(precedes/2)
+		answer.sortBy!(precedes/2)
 	}
 
 	isLatticeWord { :self :alphabet |
@@ -940,7 +940,7 @@
 				j := j + 1
 			};
 			{ i <= k }.whileTrue {
-				factorisation.addInPlace(
+				factorisation.add!(
 					self.copyFromTo(i, i + j - k - 1)
 				);
 				i := i + j - k

@@ -7,7 +7,7 @@
 		{
 			n <= self
 		}.whileTrue {
-			answer.addInPlace(n);
+			answer.add!(n);
 			n := n + answer[k];
 			k := k + 1
 		};
@@ -24,7 +24,7 @@
 			f.removeFirst;
 			k.toByDo(2, -1) { :i |
 				let n = f[i];
-				z.addInPlace((n <= self).if { 1 } { 0 });
+				z.add!((n <= self).if { 1 } { 0 });
 				(n <= self).ifTrue {
 					self := self - n
 				}
@@ -187,7 +187,7 @@
 		let i = 1;
 		{ i < n }.whileTrue {
 			let c = b;
-			answer.addInPlace(b);
+			answer.add!(b);
 			b := (p * b) - (q * a);
 			a := c;
 			i := i + 1
@@ -324,7 +324,7 @@
 	tribonacciWords { :n |
 		let t = [1; 1 2; 1 2 1 3];
 		4.toDo(n) { :i |
-			t.addInPlace(t[i - 1] ++ t[i - 2] ++ t[i - 3])
+			t.add!(t[i - 1] ++ t[i - 2] ++ t[i - 3])
 		};
 		t
 	}

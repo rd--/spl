@@ -30,13 +30,13 @@ PriorityQueue! : [Object] {
 		}
 	}
 
-	removeAllInPlace { :self |
+	removeAll! { :self |
 		<primitive: _self.clear();>
 		nil
 	}
 
 	removeAllAndShrink { :self |
-		self.removeAllInPlace;
+		self.removeAll!;
 		self.shrink
 	}
 

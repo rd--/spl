@@ -287,7 +287,7 @@
 	asBinaryDigits { :self :numDigits |
 		let answer = [];
 		0.toDo(numDigits - 1) { :i |
-			answer.addFirstInPlace(self.bitShiftRight(i).bitAnd(1))
+			answer.addFirst!(self.bitShiftRight(i).bitAnd(1))
 		};
 		answer
 	}
@@ -396,14 +396,14 @@
 		let answer = [];
 		let segment = [];
 		self.do { :each |
-			segment.addInPlace(each);
+			segment.add!(each);
 			(segment.size >= groupSize).ifTrue {
-				answer.addInPlace(segment);
+				answer.add!(segment);
 				segment := []
 			}
 		};
 		(segment.size > 0).ifTrue {
-			answer.addInPlace(segment)
+			answer.add!(segment)
 		};
 		answer
 	}
@@ -472,7 +472,7 @@
 	instill { :self :index :item :default |
 		let answer = self.copy;
 		(index - self.size).timesRepeat {
-			answer.addInPlace(default)
+			answer.add!(default)
 		};
 		answer[index] := item;
 		answer
@@ -483,7 +483,7 @@
 		let sum = 0;
 		self.do { :each |
 			sum := sum + each;
-			answer.addInPlace(sum)
+			answer.add!(sum)
 		};
 		answer
 	}
@@ -527,46 +527,46 @@
 		let lastIndex = self.size;
 		(patternType = 1).ifTrue {
 			1.toDo(lastIndex) { :i |
-				answer.addAllInPlace(self.copyFromTo(1, i))
+				answer.addAll!(self.copyFromTo(1, i))
 			}
 		};
 		(patternType = 2).ifTrue {
 			lastIndex.downToDo(1) { :i |
-				answer.addAllInPlace(self.copyFromTo(i, lastIndex))
+				answer.addAll!(self.copyFromTo(i, lastIndex))
 			}
 		};
 		(patternType = 3).ifTrue {
 			lastIndex.downToDo(1) { :i |
-				answer.addAllInPlace(self.copyFromTo(1, i))
+				answer.addAll!(self.copyFromTo(1, i))
 			}
 		};
 		(patternType = 4).ifTrue {
 			1.toDo(lastIndex) { :i |
-				answer.addAllInPlace(self.copyFromTo(i, lastIndex))
+				answer.addAll!(self.copyFromTo(i, lastIndex))
 			}
 		};
 		(patternType = 5).ifTrue {
 			1.toDo(lastIndex) { :i |
-				answer.addAllInPlace(self.copyFromTo(1, i))
+				answer.addAll!(self.copyFromTo(1, i))
 			};
 			(lastIndex - 1).toByDo(1, -1) { :i |
-				answer.addAllInPlace(self.copyFromTo(1, i))
+				answer.addAll!(self.copyFromTo(1, i))
 			}
 		};
 		(patternType = 6).ifTrue {
 			lastIndex.toByDo(1, -1) { :i |
-				answer.addAllInPlace(self.copyFromTo(i, lastIndex))
+				answer.addAll!(self.copyFromTo(i, lastIndex))
 			};
 			2.toDo(lastIndex) { :i |
-				answer.addAllInPlace(self.copyFromTo(i, lastIndex))
+				answer.addAll!(self.copyFromTo(i, lastIndex))
 			}
 		};
 		(patternType = 7).ifTrue {
 			lastIndex.toByDo(1, -1) { :i |
-				answer.addAllInPlace(self.copyFromTo(1, i))
+				answer.addAll!(self.copyFromTo(1, i))
 			};
 			2.toDo(lastIndex) { :i |
-				answer.addAllInPlace(self.copyFromTo(1, i))
+				answer.addAll!(self.copyFromTo(1, i))
 			}
 		};
 		self.species.newFrom(answer)
@@ -580,16 +580,16 @@
 		let answer = [];
 		let segment = [];
 		self.adjacentPairsDo { :a :b |
-			segment.addInPlace(a);
+			segment.add!(a);
 			aBlock(a, b).ifTrue {
-				answer.addInPlace(segment);
+				answer.add!(segment);
 				segment := []
 			}
 		};
 		self.isNotEmpty.ifTrue {
-			segment.addInPlace(self.last)
+			segment.add!(self.last)
 		};
-		answer.addInPlace(segment);
+		answer.add!(segment);
 		answer
 	}
 
@@ -656,7 +656,7 @@
 	wrapExtend { :self :size |
 		let answer = [];
 		1.toDo(size) { :index |
-			answer.addInPlace(self.atWrap(index))
+			answer.add!(self.atWrap(index))
 		};
 		answer
 	}

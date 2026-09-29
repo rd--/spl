@@ -1,24 +1,35 @@
-# reverse
+# reverse (reverse!)
 
 - _reverse([x₁ x₂ …], n=1)_
 
-Answer a copy of the sequence _x_ in the reverse order.
-The answer is a new value of the same `species` as _x_.
+There are in-place and copying forms of reverse.
+The in-place form reverses _x_ in place and answers _x_.
+In the copying form,
+the answer is a new value of the same `species` as _x_ in the reverse order.
 
-At `List`:
+In-place form, at `List`:
+
+```
+>>> let x = [1 3 5 7];
+>>> let y = x.reverse!;
+>>> (x, x == y)
+([7 5 3 1], true)
+```
+
+Copying form, at `List`:
 
 ```
 >>> [1 3 5 7].reverse
 [7 5 3 1]
 ```
 
-Not in place, see `reverseInPlace` for in place variant:
+In-place form, at `Range`:
 
 ```
->>> let a = [1 3 5 7];
->>> let b = a.reverse;
->>> (a != b, b)
-(true, [7 5 3 1])
+>>> let x = Range(9, 1, -2);
+>>> let y = x.reverse!;
+>>> (x, x == y)
+(Range(1, 9, 2), true)
 ```
 
 At `String`:
@@ -118,7 +129,9 @@ Where supported `reverse` is displayed as ᴙ.
 
 * * *
 
-See also: reverse
+See also: reverseDo, reverseWithDo
+
+Guides: InPlace Syntax, List Functions
 
 References:
 _Apl_

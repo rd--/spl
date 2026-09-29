@@ -1,12 +1,15 @@
-# collect
+# collect (collect!)
 
 - _collect(c, f/1)_
 
 Evaluate the block _f_ with each element of the collection _c_ as the argument.
-Collect the resulting values into a collection like _c_.
-Answer the new collection.
+There are copying and in-place forms.
+The in-place form collect the resulting values into the collection _c_,
+and answers `c`.
+The copying form collects the resulting values into a collection like _c_.
+and answers the new collection.
 
-At `List`:
+Copying form at `List`:
 
 ```
 >>> [2 6 10 14].collect { :x |
@@ -15,7 +18,16 @@ At `List`:
 [4 36 100 196]
 ```
 
-At `Range`,
+In-place form at `List`:
+
+```
+>>> let x = [1 4 9];
+>>> let y = x.collect!(sqrt/1);
+>>> (x, x == y)
+([1 2 3], true)
+```
+
+Copying form at `Range`,
 answers a `List`:
 
 ```
@@ -25,13 +37,22 @@ answers a `List`:
 [4 36 100 196]
 ```
 
-At `Record`:
+Copying form at `Record`:
 
 ```
 >>> (x: 6, y: 10, z: 14).collect { :x |
 >>> 	x * x
 >>> }
 (x: 36, y: 100, z: 196)
+```
+
+In-place form at `Record`:
+
+```
+>>> let p = (x: 1, y: 2, z: 3);
+>>> let q = p.collect!(square/1);
+>>> (p, p == q)
+((x: 1, y: 4, z: 9), true)
 ```
 
 At `IdentityMultiset`:

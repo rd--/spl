@@ -8,7 +8,7 @@
 				{
 					let [t, x] = self.next;
 					t := t.min(tMax);
-					answer.addInPlace([t, x]);
+					answer.add!([t, x]);
 					t < tMax
 				}.whileTrue;
 				self.reset;

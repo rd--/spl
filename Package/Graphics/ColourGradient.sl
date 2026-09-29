@@ -98,10 +98,10 @@ ColourGradient : [Object, Store] { | colourList positionListOrNil |
 		let x = 0;
 		let z = 1 / self.size;
 		1.toDo(self.size) { :i |
-			c.addInPlace(self[i]);
-			p.addInPlace(x);
-			c.addInPlace(self[i]);
-			p.addInPlace((x + z).min(1));
+			c.add!(self[i]);
+			p.add!(x);
+			c.add!(self[i]);
+			p.add!((x + z).min(1));
 			x := x + z
 		};
 		ColourGradient(c, p)
@@ -140,7 +140,7 @@ ColourGradient : [Object, Store] { | colourList positionListOrNil |
 			system.colourGradients.do { :each |
 				each.keysAndValuesDo { :key :value |
 					(key = self).ifTrue {
-						answer.addInPlace(value)
+						answer.add!(value)
 					}
 				}
 			};

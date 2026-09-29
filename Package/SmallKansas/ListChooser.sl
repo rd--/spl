@@ -18,7 +18,7 @@ ListChooser : [Object] { | listChooserPane filterText select entries ignoreCase 
 				aString.caseRule.includesSubstring(matchString)
 			}
 		};
-		self.select.removeAllInPlace;
+		self.select.removeAll!;
 		self.select.appendChildren(self.entries.select(filter/1).collect { :each |
 			TextOption(each)
 		});

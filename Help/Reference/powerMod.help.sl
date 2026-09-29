@@ -308,7 +308,7 @@ OEIS [A096008](https://oeis.org/A096008):
 1:30.collect { :n |
 	[0 .. n - 1].collect { :k |
 		powerMod(k, 2, n)
-	}.nub.sortInPlace
+	}.nub.sort!
 }.catenate.scatterPlot
 ~~~
 

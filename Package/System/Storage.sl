@@ -44,7 +44,7 @@ Storage! : [Object, Collection, Dictionary] {
 		}
 	}
 
-	removeAllInPlace { :self |
+	removeAll! { :self |
 		<primitive: _self.clear();>
 		nil
 	}

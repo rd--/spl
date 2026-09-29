@@ -16,7 +16,7 @@ List of types implementing `Stream`:
 ```
 >>> system
 >>> .traitTypes('@Stream')
->>> .sortInPlace
+>>> .sort!
 [
 	'BlockStream'
 	'CollectionStream'

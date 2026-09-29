@@ -28,9 +28,9 @@ AliasMethod : [Object, Equal, Iterator] { | alias probability |
 		let large = [];
 		1.toDo(count) { :i |
 			(probabilities[i] >= average).if {
-				large.addLastInPlace(i)
+				large.addLast!(i)
 			} {
-				small.addLastInPlace(i)
+				small.addLast!(i)
 			}
 		};
 		{
@@ -42,9 +42,9 @@ AliasMethod : [Object, Equal, Iterator] { | alias probability |
 			alias[less] := more;
 			probabilities[more] := probabilities[more] + probabilities[less] - average;
 			(probabilities[more] >= (1 / count)).if {
-				large.addLastInPlace(more)
+				large.addLast!(more)
 			} {
-				small.addLastInPlace(more)
+				small.addLast!(more)
 			}
 		};
 		{ small.isEmpty }.whileFalse {

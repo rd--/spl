@@ -14,7 +14,7 @@ List of types implementing `Iterator`:
 ```
 >>> system
 >>> .traitTypes('@Iterator')
->>> .sortInPlace
+>>> .sort!
 [
 	'AliasMethod'
 	'BlockStream'

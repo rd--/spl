@@ -613,8 +613,12 @@
 		self.collect(negabinaryExpansion/1)
 	}
 
-	negateInPlace { :self |
-		self.deepReplace(negate/1)
+	negate! { :self |
+		self.isVector.if {
+			self.collect!(negate/1)
+		} {
+			self.collect!(negate!/1)
+		}
 	}
 
 	nextPrime { :self |

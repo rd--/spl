@@ -80,7 +80,7 @@ GrayCode : [Object, Equal] { | sequence alphabet |
 		let c = [v.copy];
 		self.allButLastDo { :i |
 			v[i] := 1 - v[i];
-			c.addInPlace(v.copy)
+			c.add!(v.copy)
 		};
 		c
 	}
@@ -111,7 +111,7 @@ GrayCode : [Object, Equal] { | sequence alphabet |
 				let k = (m - 1) // 2;
 				let d = 2.to(m).collect { :i |
 					self[i] - self[i - 1]
-				}.sortOnInPlace(min/1).allButLast;
+				}.sortOn!(min/1).allButLast;
 				d.first(k).abs = d.last(k)
 			}
 		}
@@ -191,20 +191,20 @@ GrayCode : [Object, Equal] { | sequence alphabet |
 					reverse.not.if {
 						p(n - 1, j - 1, false).do { :x |
 							let t = [1] ++ x.atAll(o);
-							r.addInPlace(t)
+							r.add!(t)
 						};
 						p(n - 1, j, false).do { :x |
 							let t = [0] ++ x;
-							r.addInPlace(t)
+							r.add!(t)
 						}
 					} {
 						p(n - 1, j, true).do { :x |
 							let t = [0] ++ x;
-							r.addInPlace(t)
+							r.add!(t)
 						};
 						p(n - 1, j - 1, true).do { :x |
 							let t = [1] ++ x.atAll(o);
-							r.addInPlace(t)
+							r.add!(t)
 						}
 					};
 					r
@@ -278,7 +278,7 @@ GrayCode : [Object, Equal] { | sequence alphabet |
 	mixedRadixGrayCode { :bases |
 		let answer = [];
 		bases.mixedRadixGrayCodeDo { :each :unused |
-			answer.addInPlace(each.copy)
+			answer.add!(each.copy)
 		};
 		answer
 	}

@@ -561,7 +561,7 @@ let n = 10 ^ 10;
 		(4 ^ i) * (7 ^ j)
 	}
 }.catenate
-.sortInPlace
+.sort!
 .integerExponent(7)
 .scatterPlot
 ~~~

@@ -9,7 +9,7 @@
 				a := a + 2.pi
 			};
 			[each, a, d, i]
-		}.sortByInPlace { :u :v |
+		}.sortBy! { :u :v |
 			(u[2] = v[2]).if {
 				u[3] < v[3]
 			} {
@@ -24,7 +24,7 @@
 		1.toDo(p.size) { :i |
 			let x = p[i];
 			(h.size < 3).if {
-				h.addLastInPlace(x)
+				h.addLast!(x)
 			} {
 				{
 					(h.size > 1) & {
@@ -37,7 +37,7 @@
 				}.whileTrue {
 					h.removeLast
 				};
-				h.addLastInPlace(x)
+				h.addLast!(x)
 			}
 		};
 		h.collect(fourth/1)

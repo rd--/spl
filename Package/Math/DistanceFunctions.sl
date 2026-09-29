@@ -387,7 +387,7 @@
 				i := i + 1
 			};
 			visited[o[i]] := true;
-			answer.addInPlace(o[i]);
+			answer.add!(o[i]);
 			currentIndex := o[i]
 		};
 		answer
@@ -417,7 +417,7 @@
 		let answer = [];
 		1.toDo(k) { :i |
 			(i + 1).toDo(k) { :j |
-				answer.addInPlace(f(u[i], u[j]))
+				answer.add!(f(u[i], u[j]))
 			}
 		};
 		answer
@@ -470,7 +470,7 @@
 						j := j - 1
 					}
 				]);
-				path.addLastInPlace([i, j])
+				path.addLast!([i, j])
 			};
 			path
 		};
@@ -706,11 +706,11 @@
 			let w = x[1];
 			let j = r[i];
 			let k = j + n - 1;
-			let y = c.copyFromTo(j, k).withoutInPlace(nil);
+			let y = c.copyFromTo(j, k).without!(nil);
 			w.if {
 				y
 			} {
-				let z = d.copyFromTo(j, k).withoutInPlace(nil);
+				let z = d.copyFromTo(j, k).without!(nil);
 				[y, z]
 			}
 		}

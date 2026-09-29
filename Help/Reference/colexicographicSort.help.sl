@@ -1,18 +1,19 @@
-# colexicographicSort
+# colexicographicSort (colexicographicSort!)
 
 - _colexicographicSort([x₁ x₂ …])_
 
-Sorts a list _xₙ_ into colexicographic order in place.
+Sorts a list _xₙ_ into colexicographic order.
+There are copying and in-place forms.
 Answer the sorted list.
-This is `sortComparingInPlace` of `colexicographicCompare`.
+This is `sortComparing` of `colexicographicCompare`.
 
 Sort subsets colexicographically:
 
 ```
 >>> let x = [1 2 3].powerSet;
->>> let y = x.colexicographicSort;
->>> (x = y, y)
-(true, [; 1; 2; 1 2; 3; 1 3; 2 3; 1 2 3])
+>>> let y = x.colexicographicSort!;
+>>> (x, x == y)
+([; 1; 2; 1 2; 3; 1 3; 2 3; 1 2 3], true)
 ```
 
 Sort k-subsets of first n integers colexicographically:

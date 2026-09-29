@@ -1,14 +1,40 @@
-# withCollect
+# withCollect (withCollect!)
 
 - _withCollect(c₁, c₂, f/2)_
 
 Collect and answer the result of evaluating the block _f_ with corresponding elements from each sequence _c_.
+There are copying and in-place forms.
+The in-place form answers `nil`.
+
+Copying form at `Range`:
 
 ```
 >>> 9:1:-1.withCollect(1:9) { :p :q |
 >>> 	p * 2 + q
 >>> }
 [19, 18 .. 11]
+```
+
+In-place form at `List`:
+
+```
+>>> let x = [9, 8 .. 1];
+>>> let y = x.withCollect!(1:9) { :p :q |
+>>> 	p * 2 + q
+>>> };
+>>> (x, y)
+([19, 18 .. 11], nil)
+```
+
+Copying form at `List`:
+
+```
+>>> let x = [9, 8 .. 1];
+>>> let y = x.withCollect(1:9) { :p :q |
+>>> 	p * 2 + q
+>>> };
+>>> (x, y)
+([9, 8 .. 1], [19, 18 .. 11])
 ```
 
 There are variant forms with distinct rules for how to behave when the sequences are of different lengths.

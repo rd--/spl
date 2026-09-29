@@ -14,12 +14,12 @@ List! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Collection, E
 		>
 	}
 
-	addFirstInPlace { :self :anObject |
+	addFirst! { :self :anObject |
 		<primitive: _self.unshift(_anObject);>
 		anObject
 	}
 
-	addLastInPlace { :self :anObject |
+	addLast! { :self :anObject |
 		<primitive: _self.push(_anObject);>
 		anObject
 	}
@@ -81,9 +81,9 @@ List! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Collection, E
 				k = y.key
 			};
 			i.ifNil {
-				a.addInPlace(k -> [x])
+				a.add!(k -> [x])
 			} {
-				a[i].value.addInPlace(x)
+				a[i].value.add!(x)
 			}
 		};
 		a.collect(value/1)
@@ -96,9 +96,9 @@ List! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Collection, E
 				aBlock(x, y.anyOne)
 			};
 			i.ifNil {
-				answer.addInPlace([x])
+				answer.add!([x])
 			} {
-				answer[i].addInPlace(x)
+				answer[i].add!(x)
 			}
 		};
 		answer
@@ -132,8 +132,8 @@ List! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Collection, E
 		}
 	}
 
-	keySortInPlace { :self |
-		self.sortOnInPlace(key/1)
+	keySort! { :self |
+		self.sortOn!(key/1)
 	}
 
 	printString { :self :toString/1 |
@@ -163,8 +163,8 @@ List! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Collection, E
 			let n = self[i];
 			aBlock(n, m).ifTrue {
 				m := n;
-				r.addInPlace(m);
-				p.addInPlace(i)
+				r.add!(m);
+				p.add!(i)
 			}
 		};
 		[r, p]
@@ -207,13 +207,13 @@ List! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Collection, E
 		let answer = [];
 		1.toDo(self.size) { :i |
 			indices.includes(i).ifFalse {
-				answer.addInPlace(self[i])
+				answer.add!(self[i])
 			}
 		};
 		answer
 	}
 
-	removeAllInPlace { :self |
+	removeAll! { :self |
 		<primitive: _self.splice(0);>
 		nil
 	}
@@ -271,14 +271,14 @@ List! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Collection, E
 		}
 	}
 
-	valueSortInPlace { :self |
-		self.sortOnInPlace(value/1)
+	valueSort! { :self |
+		self.sortOn!(value/1)
 	}
 
 	windowedReduce { :self :windowSize :aBlock/2 |
 		self.partition(windowSize.abs, 1).collect { :each |
 			windowSize.isNegative.ifTrue {
-				each.reverseInPlace
+				each.reverse!
 			};
 			each.foldRight(aBlock/2)
 		}
@@ -318,7 +318,7 @@ List! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Collection, E
 		let answer = [];
 		let next = start;
 		self.timesRepeat {
-			answer.addInPlace(next);
+			answer.add!(next);
 			next := next * grow
 		};
 		answer

@@ -126,7 +126,7 @@ Range : [Object, Store, Equal, Compare, Iterable, Collection, Indexable, Sequenc
 		}
 	}
 
-	reverseInPlace { :self |
+	reverse! { :self |
 		let start = self.start;
 		self.start := self.last;
 		self.stop := start;
@@ -135,18 +135,18 @@ Range : [Object, Store, Equal, Compare, Iterable, Collection, Indexable, Sequenc
 	}
 
 	reverse { :self |
-		self.copy.reverseInPlace
+		self.copy.reverse!
 	}
 
-	sortInPlace { :self |
+	sort! { :self |
 		(self.step < 0).ifTrue {
-			self.reverseInPlace
+			self.reverse!
 		};
 		self
 	}
 
 	sort { :self |
-		self.copy.sortInPlace
+		self.copy.sort!
 	}
 
 	species { :self |

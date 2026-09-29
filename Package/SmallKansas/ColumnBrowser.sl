@@ -101,7 +101,7 @@ ColumnBrowser : [Object, View] { | smallKansas browserPane columnsPane previewPa
 		} {
 			self.textEditor.setEditorText('');
 			1.toDo(self.numberOfColumns - index - 1) { :each |
-				self.columnLists[index + each + 1].select.removeAllInPlace
+				self.columnLists[index + each + 1].select.removeAll!
 			};
 			self.setColumnEntries(index + 1, next)
 		}

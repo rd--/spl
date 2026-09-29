@@ -69,13 +69,13 @@
 			[]
 		} {
 			let answer = [];
-			answer.addInPlace(self.size);
+			answer.add!(self.size);
 			(self.isNotEmpty & { self.allSatisfy(isSequence/1) }).ifTrue {
 				let k = self.anyOne.size;
 				self.allSatisfy { :each |
 					each.size = k
 				}.ifTrue {
-					answer.addAllInPlace(self.anyOne.dimensions(anInteger - 1))
+					answer.addAll!(self.anyOne.dimensions(anInteger - 1))
 				}
 			};
 			answer
@@ -104,7 +104,7 @@
 		} {
 			let answer = [self.size];
 			1.toDo(self.depth - 2) { :i |
-				answer.addInPlace(
+				answer.add!(
 					self.level([i]).collect { :each |
 						each.nest.size
 					}.max
@@ -502,7 +502,7 @@
 		0.toDo(length - 1) { :i |
 			let neighbor = List(dimensions);
 			let index = (i < (length / 2)).if { i } { i + 1 };
-			neighbors.addInPlace(neighbor);
+			neighbors.add!(neighbor);
 			1.toDo(dimensions) { :d |
 				let value = index % (size ^ d);
 				neighbor[d] := value / (size ^ (d - 1)) - range;
@@ -530,7 +530,7 @@
 					remaining :=  remaining - remainder
 				};
 				(distance <= range).ifTrue {
-					neighbors.addInPlace(neighbor)
+					neighbors.add!(neighbor)
 				}
 			}
 		};

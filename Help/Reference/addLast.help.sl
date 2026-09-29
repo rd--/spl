@@ -1,4 +1,4 @@
-# addLast (addLastInPlace)
+# addLast (addLast!)
 
 - _addLast([x₁ x₂ …], y)_
 

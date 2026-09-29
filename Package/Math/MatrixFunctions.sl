@@ -10,9 +10,9 @@
 		n.downToDo(1) { :i |
 			let row = [];
 			m.downToDo(1) { :j |
-				row.addInPlace(self[j][i])
+				row.add!(self[j][i])
 			};
-			answer.addInPlace(row)
+			answer.add!(row)
 		};
 		answer
 	}
@@ -22,11 +22,11 @@
 		let answer = [];
 		self.withDeepIndexDo { :each :index |
 			(each = zero).ifFalse {
-				answer.addInPlace(index -> each)
+				answer.add!(index -> each)
 			}
 		};
 		(self.atPath(shape) = zero).ifTrue {
-			answer.addInPlace(shape -> zero)
+			answer.add!(shape -> zero)
 		};
 		answer
 	}
@@ -262,7 +262,7 @@
 	gaussianElimination { :m :v |
 		let a = m.deepCopy;
 		a.withIndexDo { :each :i |
-			each.addInPlace(v[i])
+			each.add!(v[i])
 		};
 		a.reducedRowEchelonForm;
 		a.collect(last/1)
@@ -740,8 +740,8 @@
 	minor { :self :i :j |
 		let [m, n] = self.shape;
 		self.submatrix(
-			m.iota.withoutInPlace(i),
-			n.iota.withoutInPlace(j)
+			m.iota.without!(i),
+			n.iota.without!(j)
 		).determinant
 	}
 
@@ -770,8 +770,8 @@
 			let r = m - i + 1;
 			let c = n - j + 1;
 			self.submatrix(
-				m.iota.withoutInPlace(r),
-				n.iota.withoutInPlace(c)
+				m.iota.without!(r),
+				n.iota.without!(c)
 			).determinant
 		}.table(1.to(m), 1.to(n))
 	}
@@ -929,7 +929,7 @@
 				self.swapWith(i, r);
 				let d = self[r][lead];
 				(d.abs > 1E-10).ifTrue {
-					self[r].collectInPlace { :each |
+					self[r].collect! { :each |
 						each / d
 					}
 				};
@@ -954,9 +954,9 @@
 		1.toDo(k) { :i |
 			let row = [];
 			1.toDo(n) { :j |
-				row.addAllInPlace(self[j][i])
+				row.addAll!(self[j][i])
 			};
-			answer.addInPlace(row)
+			answer.add!(row)
 		};
 		answer
 	}

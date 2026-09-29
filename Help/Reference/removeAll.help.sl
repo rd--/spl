@@ -1,4 +1,4 @@
-# removeAll (removeAllInPlace)
+# removeAll (removeAll!)
 
 - _removeAll(c)_
 - _removeAll(c₁, c₂)_

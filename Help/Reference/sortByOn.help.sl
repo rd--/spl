@@ -34,7 +34,7 @@ Sort association list:
 
 * * *
 
-See also: <, <=, sort, sortBy, sorted, sortOnInPlace
+See also: <, <=, sort, sortBy, sortOn
 
 Guides: Sort Functions
 

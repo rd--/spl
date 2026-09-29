@@ -132,8 +132,8 @@
 			count > 0
 		}.whileTrue {
 			let next = pool.randomChoice(self, []);
-			answer.addInPlace(next);
-			pool.removeInPlace(next);
+			answer.add!(next);
+			pool.remove!(next);
 			count := count - 1
 		};
 		answer
@@ -149,7 +149,7 @@
 		}.whileTrue {
 			let next = aCollection.randomChoice(self, []);
 			answer.includes(next).ifFalse {
-				answer.addInPlace(next);
+				answer.add!(next);
 				count := count - 1
 			}
 		};
@@ -164,7 +164,7 @@
 		let answer = [];
 		aSequence.do { :each |
 			(self.nextRandomFloat < aNumber).ifTrue {
-				answer.addInPlace(each)
+				answer.add!(each)
 			}
 		};
 		answer

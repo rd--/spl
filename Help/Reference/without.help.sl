@@ -1,4 +1,4 @@
-# without (withoutInPlace)
+# without (without!)
 
 - _without(c, x)_
 

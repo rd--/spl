@@ -209,9 +209,9 @@
 			1.toDo(k - i) { :j |
 				let a = p[e][j + 1] - p[e][j];
 				let b = m[j + i][1] - m[j][1];
-				z.addInPlace(a / b)
+				z.add!(a / b)
 			};
-			p.addInPlace(z);
+			p.add!(z);
 			i := i + 1
 		};
 		p
@@ -480,9 +480,9 @@
 				let a = (x - m[j][1]) * p[e][j + 1];
 				let b = (x - m[j + i][1]) * p[e][j];
 				let c = m[j + i][1] - m[j][1];
-				z.addInPlace((a - b) / c)
+				z.add!((a - b) / c)
 			};
-			p.addInPlace(z);
+			p.add!(z);
 			i := i + 1
 		};
 		p
@@ -564,7 +564,7 @@
 					let x2 = x[j];
 					let y2 = y[j];
 					(x1 != x2).ifTrue {
-						slope.addInPlace(
+						slope.add!(
 							(y2 - y1) / (x2 - x1)
 						);
 						count := count + 1

@@ -123,7 +123,7 @@ NumericArray : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, 
 		self.storeStringAsInitializeSlotsOmitting(['storageType'])
 	}
 
-	transposeInPlace { :self |
+	transpose! { :self |
 		(self.rank = 2).if {
 			let [m, n] = self.shape;
 			(n = m).if {
@@ -159,10 +159,10 @@ NumericArray : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, 
 						}
 					}
 				};
-				self.shape.reverseInPlace
+				self.shape.reverse!
 			}
 		} {
-			self.error('NumericArray>>transposeInPlace: not matrix')
+			self.error('NumericArray>>transpose!: not matrix')
 		}
 	}
 

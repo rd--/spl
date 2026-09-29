@@ -225,18 +225,18 @@ Polyhedron : [Object, Store, Equal, Geometry, PolygonMesh] { | vertexCoordinates
 				1 / (1 + t.cos),
 				(1 + (2 * t.cos)).sqrt / (1 + t.cos)
 			];
-			v.addInPlace(a);
+			v.add!(a);
 			(i > 0).ifTrue {
-				v.addInPlace(a * [-1, 1, 1])
+				v.add!(a * [-1, 1, 1])
 			};
-			v.addInPlace(b);
+			v.add!(b);
 			(i != (n - 1)).ifTrue {
-				v.addInPlace(b * [1, 1, -1])
+				v.add!(b * [1, 1, -1])
 			}
 		};
 		0.toDo(n - 2) { :i |
 			let j = i + 1;
-			f.addInPlace(
+			f.add!(
 				[
 					index(j * 4 + 0),
 					index(j * 4 + 2),
@@ -244,7 +244,7 @@ Polyhedron : [Object, Store, Equal, Geometry, PolygonMesh] { | vertexCoordinates
 					index(i * 4 + 0)
 				]
 			);
-			f.addInPlace(
+			f.add!(
 				[
 					index(i * 4 + 0),
 					index(i * 4 + 3),
@@ -252,7 +252,7 @@ Polyhedron : [Object, Store, Equal, Geometry, PolygonMesh] { | vertexCoordinates
 					index(j * 4 + 0)
 				]
 			);
-			f.addInPlace(
+			f.add!(
 				[
 					index(i * 4 + 1),
 					index(i * 4 + 2),
@@ -260,7 +260,7 @@ Polyhedron : [Object, Store, Equal, Geometry, PolygonMesh] { | vertexCoordinates
 					index(j * 4 + 1)
 				]
 			);
-			f.addInPlace(
+			f.add!(
 				[
 					index(j * 4 + 1),
 					index(j * 4 + 3),

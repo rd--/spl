@@ -84,7 +84,7 @@ DelaunayTriangulation : [Object] { | vertexCoordinates triangulation |
 		let answer = [];
 		let index = 0;
 		(indicesVector.size / 3).timesRepeat {
-			answer.addInPlace(indicesVector.atAll(index + [1 2 3]) + 1);
+			answer.add!(indicesVector.atAll(index + [1 2 3]) + 1);
 			index := index + 3
 		};
 		answer

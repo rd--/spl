@@ -1,4 +1,4 @@
-# ifAbsentAdd (ifAbsentAddInPlace)
+# ifAbsentAdd (ifAbsentAdd!)
 
 - _ifAbsentAdd(c, x)_
 

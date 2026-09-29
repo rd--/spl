@@ -52,7 +52,7 @@ The argument is not mutated:
 
 * * *
 
-See also: sort, sortInPlace
+See also: sort
 
 Guides: Sort Functions
 

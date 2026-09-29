@@ -110,7 +110,7 @@ HelpFile : [Object, Equal, Cache] { | origin source cache |
 			(each['type'] = 'codeBlock').ifTrue {
 				let [start, end] = each['sourcePosition'];
 				self.lines[start[1]].isCodeFence.ifTrue {
-					answer.addInPlace(Range(start[1], end[1], 1))
+					answer.add!(Range(start[1], end[1], 1))
 				}
 			}
 		};
@@ -205,7 +205,7 @@ HelpFile : [Object, Equal, Cache] { | origin source cache |
 				aBlock(lines[index], index)
 			}
 		}.whileTrue {
-			answer.addInPlace(lines[index]);
+			answer.add!(lines[index]);
 			index := index + 1
 		};
 		answer
@@ -432,7 +432,7 @@ HelpFile : [Object, Equal, Cache] { | origin source cache |
 			self.helpFilesDo(
 				kind, '.*', false
 			) { :each |
-				answer.addInPlace(each)
+				answer.add!(each)
 			};
 			answer
 		}
@@ -510,7 +510,7 @@ HelpFile : [Object, Equal, Cache] { | origin source cache |
 			self.helpFiles('Reference').do { :each |
 				let p = each.helpPrograms;
 				p.ifNotEmpty {
-					answer.addInPlace(each.originName -> p)
+					answer.add!(each.originName -> p)
 				}
 			};
 			answer
@@ -545,7 +545,7 @@ HelpFile : [Object, Equal, Cache] { | origin source cache |
 		let answer = [];
 		self.helpProgramsDo { :each |
 			aBlock(each).ifTrue {
-				answer.addInPlace(each)
+				answer.add!(each)
 			}
 		};
 		answer
@@ -578,7 +578,7 @@ HelpFile : [Object, Equal, Cache] { | origin source cache |
 			isImageProgram/1.predicateAnd(
 				isOeisProgram/1
 			)
-		).sortOnInPlace(
+		).sortOn!(
 			oeisIdentifier/1
 		).collect { :p |
 			p.markdownText(options)

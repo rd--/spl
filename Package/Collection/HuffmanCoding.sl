@@ -1,7 +1,7 @@
 HuffmanCoding : [Object, Store, Equal] { | symbolTable encoding |
 
 	decode { :self |
-		let codeTable = self.symbolTable.associations.sortByOnInPlace(less/2) { :x |
+		let codeTable = self.symbolTable.associations.sortByOn!(less/2) { :x |
 			x.value.size
 		}.reverse;
 		let codes = self.encoding;
@@ -10,7 +10,7 @@ HuffmanCoding : [Object, Store, Equal] { | symbolTable encoding |
 			let code = codeTable.detect { :each |
 				codes.beginsWith(each.value)
 			};
-			symbols.addInPlace(code.key);
+			symbols.add!(code.key);
 			codes.removeFirst(code.value.size)
 		};
 		symbols
@@ -44,18 +44,18 @@ HuffmanCoding : [Object, Store, Equal] { | symbolTable encoding |
 		let huffmanSymbolTable = { :weights |
 			let heap = Heap();
 			weights.sortedCounts.do { :each |
-				heap.addInPlace(each.key -> [each.value -> []])
+				heap.add!(each.key -> [each.value -> []])
 			};
 			{ heap.size > 1 }.whileTrue {
 				let low = heap.removeFirst;
 				let high = heap.removeFirst;
 				low.value.do { :each |
-					each.value.addFirstInPlace(0)
+					each.value.addFirst!(0)
 				};
 				high.value.do { :each |
-					each.value.addFirstInPlace(1)
+					each.value.addFirst!(1)
 				};
-				heap.addInPlace((low.key + high.key) -> (low.value ++ high.value))
+				heap.add!((low.key + high.key) -> (low.value ++ high.value))
 			};
 			heap.array.first.value.asMap
 		};

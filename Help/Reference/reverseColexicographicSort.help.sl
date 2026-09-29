@@ -1,18 +1,19 @@
-# reverseColexicographicSort
+# reverseColexicographicSort (reverseColexicographicSort!)
 
 - _reverseColexicographicSort([x₁ x₂ …])_
 
-Sorts a list _xₙ_ into reverse colexicographic order in place.
+Sorts a list _xₙ_ into reverse colexicographic order.
+There are both copying and in-place forms.
 Answer the sorted list.
-This is `sortComparingInPlace` of `reverseColexicographicCompare`.
+This is `sortComparing` of `reverseColexicographicCompare`.
 
 Sort subsets reverse colexicographically:
 
 ```
 >>> let x = [1 2 3].powerSet;
->>> x.reverseColexicographicSort!;
->>> x
-[1 2 3; 2 3; 1 3; 3; 1 2; 2; 1; ]
+>>> let y = x.reverseColexicographicSort!;
+>>> (x, x == y)
+([1 2 3; 2 3; 1 3; 3; 1 2; 2; 1; ], true)
 ```
 
 Sort k-subsets of first n integers colexicographically:

@@ -41,7 +41,7 @@ Types implementing `Compare`:
 ```
 >>> system
 >>> .traitTypes('@Compare')
->>> .sortInPlace
+>>> .sort!
 [
 	'Association'
 	'Boolean'

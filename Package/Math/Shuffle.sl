@@ -62,13 +62,13 @@
 		let i = 1;
 		let j = self.size;
 		{ i < j }.whileTrue {
-			r.addFirstInPlace(self[j]);
-			r.addFirstInPlace(self[i]);
+			r.addFirst!(self[j]);
+			r.addFirst!(self[i]);
 			i := i + 1;
 			j := j - 1
 		};
 		(i = j).ifTrue {
-			r.addFirstInPlace(self[i])
+			r.addFirst!(self[i])
 		};
 		r
 	}
@@ -93,9 +93,9 @@
 		let top = false;
 		self.do { :each |
 			top.if {
-				answer.addFirstInPlace(each)
+				answer.addFirst!(each)
 			} {
-				answer.addLastInPlace(each)
+				answer.addLast!(each)
 			};
 			top := top.not
 		};
@@ -159,9 +159,9 @@
 		{ a.isEmpty }.whileFalse {
 			let x = a.removeFirst;
 			c.if {
-				b.addFirstInPlace(x)
+				b.addFirst!(x)
 			} {
-				a.addLastInPlace(x)
+				a.addLast!(x)
 			};
 			c := c.not
 		};

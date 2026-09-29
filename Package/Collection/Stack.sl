@@ -45,7 +45,7 @@ Stack : [Object, Copyable, Equal] { | linkedList |
 	}
 
 	push { :self :anObject |
-		self.linkedList.addFirstInPlace(anObject);
+		self.linkedList.addFirst!(anObject);
 		anObject
 	}
 

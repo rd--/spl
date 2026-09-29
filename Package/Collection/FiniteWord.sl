@@ -37,7 +37,7 @@
 	lyndonWords { :self :anInteger |
 		let answer = [];
 		self.lyndonWordsDo(anInteger) { :each |
-			answer.addInPlace(each)
+			answer.add!(each)
 		};
 		answer
 	}

@@ -20,10 +20,10 @@
 		let answer = [];
 		self.edgeList.do { :each |
 			(each[1] = vertex).ifTrue {
-				answer.addInPlace(each[2])
+				answer.add!(each[2])
 			};
 			(each[2] = vertex).ifTrue {
-				answer.addInPlace(each[1])
+				answer.add!(each[1])
 			}
 		};
 		answer
@@ -97,7 +97,7 @@
 		let contents = [PointCloud(vertexCoordinates)];
 		self.edgeList.do { :each |
 			let [i, j] = each;
-			contents.addInPlace(
+			contents.add!(
 				LineSegment(
 					vertexCoordinates[i],
 					vertexCoordinates[j]
@@ -153,7 +153,7 @@
 	}
 
 	degreeSequence { :self |
-		self.vertexDegree.sortByInPlace(greater/2)
+		self.vertexDegree.sortBy!(greater/2)
 	}
 
 	dijkstrasAlgorithm { :g :s :t |
@@ -169,7 +169,7 @@
 		{ q.isEmpty }.whileFalse {
 			let u = q.pop;
 			(u = t).if {
-				q.removeAllInPlace
+				q.removeAll!
 			} {
 				g.vertexOutNeighbours(u).do { :v |
 					let uv = u --> v;
@@ -212,7 +212,7 @@
 		let u = t;
 		( p[u] != nil | { u = s } ).ifTrue {
 			{ u != nil }.whileTrue {
-				answer.addFirstInPlace(u);
+				answer.addFirst!(u);
 				u := p[u]
 			}
 		};
@@ -238,7 +238,7 @@
 		let m = [];
 		1.toDo(n) { :i |
 			let [d, p] = g.dijkstrasAlgorithm(i);
-			m.addInPlace(d)
+			m.add!(d)
 		};
 		m
 	}
@@ -284,7 +284,7 @@
 			(i + 1).toDo(k) { :j |
 				let [v1, v2] = v[j];
 				predicate(u1, u2, v1, v2).ifTrue {
-					e.addInPlace(i --- j)
+					e.add!(i --- j)
 				}
 			}
 		};
@@ -472,7 +472,7 @@
 					self.edgeList[i].hasCommonVertex(
 						self.edgeList[j]
 					).ifTrue {
-						e.addInPlace([i, j])
+						e.add!([i, j])
 					}
 				}
 			}
@@ -485,7 +485,7 @@
 							self.edgeList[i][2] = self.edgeList[j][1]
 						}
 					).ifTrue {
-						e.addInPlace(i --> j)
+						e.add!(i --> j)
 					}
 				}
 			}
@@ -504,7 +504,7 @@
 	neighbourhoodGraph { :self :vertex |
 		let vertexList = [];
 		self.incidenceList(vertex).do { :each |
-			vertexList.addAllInPlace(each.vertexList)
+			vertexList.addAll!(each.vertexList)
 		};
 		self.subgraph(vertexList)
 	}
@@ -512,9 +512,9 @@
 	neighbours { :self :vertex |
 		let vertexList = [];
 		self.incidenceList(vertex).do { :each |
-			vertexList.addAllInPlace(each.vertexList)
+			vertexList.addAll!(each.vertexList)
 		};
-		vertexList.nub.sort.withoutInPlace(vertex)
+		vertexList.nub.sort.without!(vertex)
 	}
 
 	outEdgeListOf { :self :vertex |
@@ -539,7 +539,7 @@
 		e.comparator := matchesEdge/2;
 		self.edgeList.do { :each |
 			(each[1] != each[2]).ifTrue {
-				e.includeInPlace(each)
+				e.include!(each)
 			}
 		};
 		Graph(v, e.contents)
@@ -602,7 +602,7 @@
 	vertexInNeighbours { :self :vertex |
 		let answer = [];
 		self.vertexInNeighboursDo(vertex) { :each |
-			answer.addInPlace(each)
+			answer.add!(each)
 		};
 		answer
 	}
@@ -650,7 +650,7 @@
 	vertexOutNeighbours { :self :vertex |
 		let answer = [];
 		self.vertexOutDo(vertex) { :each |
-			answer.addInPlace(each)
+			answer.add!(each)
 		};
 		answer
 	}
@@ -660,7 +660,7 @@
 Graph : [Object, Graph] { | vertexList edgeList properties |
 
 	addEdge { :self :edge |
-		self.edgeList.addInPlace(edge)
+		self.edgeList.add!(edge)
 	}
 
 	dotDrawing { :self :options |
@@ -761,7 +761,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 			let end = start + gap;
 			gap.timesRepeat {
 				count.timesRepeat {
-					e.addInPlace(begin --- end);
+					e.add!(begin --- end);
 					end := end + 1
 				};
 				begin := begin + 1
@@ -785,8 +785,8 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 		{ k > 1 }.whileTrue {
 			let i = v.last;
 			1.toDo(n - 1) { :j |
-				v.addInPlace(i + j);
-				e.addInPlace(i --- (i + j))
+				v.add!(i + j);
+				e.add!(i --- (i + j))
 			};
 			k := k - 1
 		};
@@ -797,8 +797,8 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 		let e = [];
 		1.toDo(self) { :i |
 			aList.do { :j |
-				e.addInPlace([i, (i - j).mod(self, 1)]);
-				e.addInPlace([i, (i + j).mod(self, 1)])
+				e.add!([i, (i - j).mod(self, 1)]);
+				e.add!([i, (i + j).mod(self, 1)])
 			}
 		};
 		e.asGraph.simpleGraph
@@ -809,7 +809,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 		let v = (self + 1).to(self + anInteger);
 		let e = [];
 		u.do { :i |
-			e.addAllInPlace(
+			e.addAll!(
 				v.collect { :j |
 					[i, j]
 				}
@@ -821,7 +821,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 	completeGraph { :self |
 		let edgeList = [];
 		1.toDo(self) { :i |
-			edgeList.addAllInPlace(
+			edgeList.addAll!(
 				(i + 1).to(self).collect { :j |
 					[i, j]
 				}
@@ -846,7 +846,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 		1.toDo(n) { :i |
 			1.toDo(n) { :j |
 				(i != j).ifTrue {
-					e.addInPlace(a[i] --- b[j])
+					e.add!(a[i] --- b[j])
 				}
 			}
 		};
@@ -864,7 +864,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 			i.toDo(k) { :j |
 				let d = n[i].hammingDistance(n[j]);
 				(d = 1).ifTrue {
-					e.addInPlace([i, j])
+					e.add!([i, j])
 				}
 			}
 		};
@@ -884,7 +884,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 			1.toCollect(p - 1) { :i |
 				(i + 1).toCollect(p) { :j |
 					isCubicResidue(j - i, p).ifTrue {
-						e.addInPlace(i --- j)
+						e.add!(i --- j)
 					}
 				}
 			};
@@ -907,7 +907,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 			let [i, j] = each;
 			let [p, q] = s.atAll([i, j]);
 			(p.last(o) = q.first(o)).ifTrue {
-				e.addInPlace([i, j])
+				e.add!([i, j])
 			}
 		};
 		let g = Graph(v, e);
@@ -931,7 +931,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 				let p = s[i];
 				let q = s[j];
 				(p.hammingDistance(q) = 1).ifTrue {
-					e.addInPlace([i, j])
+					e.add!([i, j])
 				}
 			}
 		};
@@ -945,7 +945,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 			1.toDo(n) { :i |
 				1.toDo(m) { :j |
 					let z = (i + j).mod(n, 1);
-					e.addInPlace([i, z])
+					e.add!([i, z])
 				}
 			};
 			e
@@ -954,7 +954,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 				let e = hararyGraphEdgeList(k - 1, n);
 				let m = n / 2;
 				1.toDo(m) { :i |
-					e.addInPlace([i, i + m])
+					e.add!([i, i + m])
 				};
 				e
 			} {
@@ -962,7 +962,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 				let m = k // 2;
 				1.toDo((n - 1) / 2 + 1) { :i |
 					let z = (i + (n + 1 / 2)).mod(n, 1);
-					e.addInPlace([i, z])
+					e.add!([i, z])
 				};
 				e
 			}
@@ -995,7 +995,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 			(i + 1).toDo(m * n) { :j |
 				euclideanDistance(c[i], c[j])
 				.isVeryCloseTo(d).ifTrue {
-					e.addInPlace(i --- j)
+					e.add!(i --- j)
 				}
 			}
 		};
@@ -1014,7 +1014,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 		1.toCollect(p - 1) { :i |
 			(i + 1).toCollect(p) { :j |
 				isQuadraticResidue(j - i, p).ifTrue {
-					e.addInPlace(i --- j)
+					e.add!(i --- j)
 				}
 			}
 		};
@@ -1131,7 +1131,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 		1.toDo(k) { :i |
 			(i + 1).toDo(k) { :j |
 				((c[j] - c[i]).abs.sum = 1).ifTrue {
-					e.addInPlace([i, j])
+					e.add!([i, j])
 				}
 			}
 		};
@@ -1152,10 +1152,10 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 		let k = vertexList.size;
 		let addEdge = { :i :j |
 			isDirected.if {
-				edgeList.addInPlace(v[i] --> v[j])
+				edgeList.add!(v[i] --> v[j])
 			} {
 				(i <= j).ifTrue {
-					edgeList.addInPlace([v[i], v[j]])
+					edgeList.add!([v[i], v[j]])
 				}
 			}
 		};
@@ -1176,10 +1176,10 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 		let k = vertexList.size;
 		let addEdge = { :i :j |
 			isDirected.if {
-				edgeList.addInPlace(v[i] --> v[j])
+				edgeList.add!(v[i] --> v[j])
 			} {
 				(i <= j).ifTrue {
-					edgeList.addInPlace([v[i], v[j]])
+					edgeList.add!([v[i], v[j]])
 				}
 			}
 		};
@@ -1213,8 +1213,8 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 		let edgeList = self.collect(asEdge/1).asList;
 		let vertexList = [];
 		edgeList.do { :each |
-			vertexList.addInPlace(each[1]);
-			vertexList.addInPlace(each[2])
+			vertexList.add!(each[1]);
+			vertexList.add!(each[2])
 		};
 		Graph(vertexList.nub.sort, edgeList)
 	}
@@ -1299,7 +1299,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 		1.toDo(n - 1) { :i |
 			(i + 1).toDo(n) { :j |
 				(r.nextRandomFloat < p).ifTrue {
-					e.addInPlace([i, j])
+					e.add!([i, j])
 				}
 			}
 		};
@@ -1314,7 +1314,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 			let b = r.nextRandomInteger(1, n);
 			let c = [a, b].sort;
 			(a != b & { e.includes(c).not }).ifTrue {
-				e.addInPlace(c)
+				e.add!(c)
 			}
 		};
 		Graph(v, e)
@@ -1347,7 +1347,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 				} {
 					i --- (i + j).mod(n, 1)
 				};
-				e.addInPlace(x)
+				e.add!(x)
 			}
 		};
 		Graph(v, e)

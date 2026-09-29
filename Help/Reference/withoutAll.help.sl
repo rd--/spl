@@ -1,4 +1,4 @@
-# withoutAll (withoutAllInPlace)
+# withoutAll (withoutAll!)
 
 - _withoutAll(c₁, c₂)_
 

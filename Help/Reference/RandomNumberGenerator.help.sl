@@ -14,7 +14,7 @@ Types implementing `RandomNumberGenerator`:
 ```
 >>> system
 >>> .traitTypes('RandomNumberGenerator')
->>> .sortInPlace
+>>> .sort!
 [
 	'LaggedFibonacci'
 	'LinearCongruential'

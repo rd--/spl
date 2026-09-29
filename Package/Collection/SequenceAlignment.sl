@@ -86,7 +86,7 @@
 		let answer = [];
 		1.to(self.size).powerSetDo { :each |
 			(self @* each = aList).ifTrue {
-				answer.addInPlace(each)
+				answer.add!(each)
 			}
 		};
 		answer
@@ -99,7 +99,7 @@
 			index := self.indexOfSubstringStartingAt(aList, index + 1);
 			index = 0
 		}.whileFalse {
-			answer.addInPlace(index)
+			answer.add!(index)
 		};
 		answer
 	}
@@ -175,7 +175,7 @@
 					(a[m - 1] = b[n - 1]).ifFalse {
 						'@Sequence>>longestCommonSubsequence: error?'.error
 					};
-					answer.addFirstInPlace(a[m - 1]);
+					answer.addFirst!(a[m - 1]);
 					m := m - 1;
 					n := n - 1
 				}
@@ -257,7 +257,7 @@
 			};
 			let k = m[l + 1];
 			l.timesRepeat {
-				answer.addFirstInPlace(x[k + 1]);
+				answer.addFirst!(x[k + 1]);
 				k := p[k + 1]
 			};
 			answer
@@ -273,14 +273,14 @@
 			2.toDo(self.size) { :i |
 				let item = self[i];
 				aBlock(self[i - 1], item).if {
-					run.addInPlace(item)
+					run.add!(item)
 				} {
-					answer.addInPlace(run.copy);
-					run.removeAllInPlace;
-					run.addInPlace(item)
+					answer.add!(run.copy);
+					run.removeAll!;
+					run.add!(item)
 				}
 			};
-			answer.addInPlace(run);
+			answer.add!(run);
 			answer
 		}
 	}
@@ -295,7 +295,7 @@
 					}.not
 				}
 			).ifTrue {
-				answer.addInPlace(self.atAll(each))
+				answer.add!(self.atAll(each))
 			}
 		};
 		answer
@@ -331,7 +331,7 @@
 		let answer = [];
 		self.subsequencesDo { :each |
 			aPredicate(each).ifTrue {
-				answer.addInPlace(each.copy)
+				answer.add!(each.copy)
 			}
 		};
 		answer
@@ -351,7 +351,7 @@
 		let answer = [];
 		self.substringsDo { :each |
 			aPredicate(each).ifTrue {
-				answer.addInPlace(each.copy)
+				answer.add!(each.copy)
 			}
 		};
 		answer

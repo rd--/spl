@@ -14,7 +14,7 @@ Types implementing `Ordered`:
 ```
 >>> system
 >>> .traitTypes('@Ordered')
->>> .sortInPlace
+>>> .sort!
 [
 	'List'
 ]

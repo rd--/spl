@@ -1,14 +1,14 @@
 TurtleGeometry : [Object, Equal, Store, Geometry] { | instructionList |
 
 	add { :self :opcode :argument |
-		self.instructionList.addInPlace([opcode, argument]);
+		self.instructionList.add!([opcode, argument]);
 		self
 	}
 
 	arc { :self :distance :degrees :angle |
 		{ degrees > 0 }.whileTrue {
 			let k = degrees.min(90);
-			self.addInPlace('Arc', [distance, k, angle]);
+			self.add!('Arc', [distance, k, angle]);
 			degrees := degrees - k
 		}
 	}
@@ -22,7 +22,7 @@ TurtleGeometry : [Object, Equal, Store, Geometry] { | instructionList |
 	}
 
 	backward { :self :distance |
-		self.addInPlace('Move', 0 - distance)
+		self.add!('Move', 0 - distance)
 	}
 
 	drawing { :self |
@@ -41,7 +41,7 @@ TurtleGeometry : [Object, Equal, Store, Geometry] { | instructionList |
 	}
 
 	forward { :self :distance |
-		self.addInPlace('Move', distance)
+		self.add!('Move', distance)
 	}
 
 	geometryCollection { :self |
@@ -67,7 +67,7 @@ TurtleGeometry : [Object, Equal, Store, Geometry] { | instructionList |
 							heading := (heading + angle) % 360
 						};
 						penDown.ifTrue {
-							answer.addInPlace(
+							answer.add!(
 								[
 									initialPosition,
 									middlePosition,
@@ -80,7 +80,7 @@ TurtleGeometry : [Object, Equal, Store, Geometry] { | instructionList |
 						let distance = argument;
 						let nextPosition = position + [distance, heading.degree].fromPolarCoordinates;
 						penDown.ifTrue {
-							answer.addInPlace(
+							answer.add!(
 								Line([position, nextPosition])
 							)
 						};
@@ -103,15 +103,15 @@ TurtleGeometry : [Object, Equal, Store, Geometry] { | instructionList |
 	}
 
 	left { :self :angle |
-		self.addInPlace('Turn', 360 - angle)
+		self.add!('Turn', 360 - angle)
 	}
 
 	penDown { :self |
-		self.addInPlace('Pen', true)
+		self.add!('Pen', true)
 	}
 
 	penUp { :self |
-		self.addInPlace('Pen', false)
+		self.add!('Pen', false)
 	}
 
 	repeat { :self :count :aBlock/1 |
@@ -122,11 +122,11 @@ TurtleGeometry : [Object, Equal, Store, Geometry] { | instructionList |
 	}
 
 	right { :self :angle |
-		self.addInPlace('Turn', angle)
+		self.add!('Turn', angle)
 	}
 
 	setHeading { :self :angle |
-		self.addInPlace('SetHeading', angle)
+		self.add!('SetHeading', angle)
 	}
 
 	vector { :self :angle :length |

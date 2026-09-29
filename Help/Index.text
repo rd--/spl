@@ -939,7 +939,6 @@ Reference/collatzSequence.help.sl
 Reference/collatzTerrasTree.help.sl
 Reference/collectCatenate.help.sl
 Reference/collect.help.sl
-Reference/collectInPlace.help.sl
 Reference/collectInto.help.sl
 Reference/Collection.help.sl
 Reference/CollectionStream.help.sl
@@ -2781,7 +2780,7 @@ Reference/Menu.help.sl
 Reference/mercatorProjection.help.sl
 Reference/mercatorsComma.help.sl
 Reference/merge.help.sl
-Reference/mergeSorted.help.sl
+Reference/mergeSortedLists.help.sl
 Reference/mergeSortFromToBy.help.sl
 Reference/mergeSort.help.sl
 Reference/mergeSortMatrix.help.sl
@@ -3606,7 +3605,6 @@ Reference/reverseAccumulate.help.sl
 Reference/reverseColexicographicSort.help.sl
 Reference/reverseDo.help.sl
 Reference/reverse.help.sl
-Reference/reverseInPlace.help.sl
 Reference/reverseLexicographicSort.help.sl
 Reference/reverseSolidus.help.sl
 Reference/reverseSolidusReverseSolidus.help.sl
@@ -3900,7 +3898,6 @@ Reference/SortedList.help.sl
 Reference/SortedSet.help.sl
 Reference/sort.help.sl
 Reference/sortingNumber.help.sl
-Reference/sortInPlace.help.sl
 Reference/sortOn.help.sl
 Reference/sortTracingComparisons.help.sl
 Reference/sortTracingState.help.sl
@@ -4211,7 +4208,6 @@ Reference/Transcript.help.sl
 Reference/TranscriptViewer.help.sl
 Reference/translate.help.sl
 Reference/transpose.help.sl
-Reference/transposeInPlace.help.sl
 Reference/transposeIrregular.help.sl
 Reference/transposeTableau.help.sl
 Reference/transposeTriangle.help.sl
@@ -4443,14 +4439,12 @@ Reference/withBlanksTrimmed.help.sl
 Reference/withCollectCrossed.help.sl
 Reference/withCollectEqual.help.sl
 Reference/withCollect.help.sl
-Reference/withCollectInPlace.help.sl
 Reference/withCollectOuter.help.sl
 Reference/withCollectTable.help.sl
 Reference/withDo.help.sl
 Reference/with.help.sl
 Reference/withIndefiniteArticle.help.sl
 Reference/withIndexCollect.help.sl
-Reference/withIndexCollectInPlace.help.sl
 Reference/withIndexDo.help.sl
 Reference/withLevelCollect.help.sl
 Reference/withLevelDo.help.sl

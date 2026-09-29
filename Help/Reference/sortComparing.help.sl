@@ -1,4 +1,4 @@
-# sortComparing
+# sortComparing (sortComparing!)
 
 - _sortComparing([x₁ x₂ …], f/2)_
 

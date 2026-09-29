@@ -1,4 +1,4 @@
-# sortBy
+# sortBy (sortBy!)
 
 - _sortBy([x₁ x₂ …], f/2)_
 
@@ -53,7 +53,7 @@ true
 
 * * *
 
-See also: sort, sortInPlace, sortComparingInPlace, sortByOnInPlace, sortOnInPlace
+See also: sort, sortComparing, sortByOn, sortOn
 
 Guides: Sort Functions
 

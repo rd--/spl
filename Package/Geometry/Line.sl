@@ -139,7 +139,7 @@ Line : [Object, Store, Equal, Geometry] { | vertexCoordinates |
 		let e = dx + dy;
 		let answer = [];
 		{
-			answer.addInPlace([x1, y1]);
+			answer.add!([x1, y1]);
 			((x1 = x2) & { y1 = y2 }).if {
 				false
 			} {
@@ -173,11 +173,11 @@ Line : [Object, Store, Equal, Geometry] { | vertexCoordinates |
 		(dMax > epsilon).if {
 			let p = ramerDouglasPeuckerAlgorithm(ListView(self, 1, index, 1), epsilon);
 			let q = ramerDouglasPeuckerAlgorithm(ListView(self, index, end, 1), epsilon);
-			answer.addAllInPlace(ListView(p, 1, p.size - 1, 1));
-			answer.addAllInPlace(q)
+			answer.addAll!(ListView(p, 1, p.size - 1, 1));
+			answer.addAll!(q)
 		} {
-			answer.addInPlace(self[1]);
-			answer.addInPlace(self[end])
+			answer.add!(self[1]);
+			answer.add!(self[end])
 		};
 		answer
 	}
@@ -208,28 +208,28 @@ Line : [Object, Store, Equal, Geometry] { | vertexCoordinates |
 				let xPixel1 = xEnd1;
 				let yPixel1 = yEnd1.integerPart;
 				isSteep.if {
-					answer.addInPlace([yPixel0, xPixel0, (1 - yEnd0.fractionalPart) * xGap0]);
-					answer.addInPlace([yPixel0 + 1, xPixel0, fractionalPart(yEnd0) * xGap0])
+					answer.add!([yPixel0, xPixel0, (1 - yEnd0.fractionalPart) * xGap0]);
+					answer.add!([yPixel0 + 1, xPixel0, fractionalPart(yEnd0) * xGap0])
 				} {
-					answer.addInPlace([xPixel0, yPixel0, (1 - fractionalPart(yEnd0)) * xGap0]);
-					answer.addInPlace([xPixel0, yPixel0 + 1, fractionalPart(yEnd0) * xGap0])
+					answer.add!([xPixel0, yPixel0, (1 - fractionalPart(yEnd0)) * xGap0]);
+					answer.add!([xPixel0, yPixel0 + 1, fractionalPart(yEnd0) * xGap0])
 				};
 				(xPixel0 + 1).toDo(xPixel1 - 1) { :x |
 					isSteep.if {
-						answer.addInPlace([integerPart(interY), x, 1 - fractionalPart(interY)]);
-						answer.addInPlace([integerPart(interY) + 1, x, fractionalPart(interY)])
+						answer.add!([integerPart(interY), x, 1 - fractionalPart(interY)]);
+						answer.add!([integerPart(interY) + 1, x, fractionalPart(interY)])
 					} {
-						answer.addInPlace([x, integerPart(interY), 1 - fractionalPart(interY)]);
-						answer.addInPlace([x, integerPart(interY) + 1, fractionalPart(interY)])
+						answer.add!([x, integerPart(interY), 1 - fractionalPart(interY)]);
+						answer.add!([x, integerPart(interY) + 1, fractionalPart(interY)])
 					};
 					interY := interY + gradient
 				};
 				isSteep.if {
-					answer.addInPlace([yPixel1, xPixel1, (1 - fractionalPart(yEnd1)) * xGap1]);
-					answer.addInPlace([yPixel1 + 1, xPixel1, fractionalPart(yEnd1) * xGap1])
+					answer.add!([yPixel1, xPixel1, (1 - fractionalPart(yEnd1)) * xGap1]);
+					answer.add!([yPixel1 + 1, xPixel1, fractionalPart(yEnd1) * xGap1])
 				} {
-					answer.addInPlace([xPixel1, yPixel1, (1 - fractionalPart(yEnd1)) * xGap1]);
-					answer.addInPlace([xPixel1, yPixel1 + 1, fractionalPart(yEnd1) * xGap1])
+					answer.add!([xPixel1, yPixel1, (1 - fractionalPart(yEnd1)) * xGap1]);
+					answer.add!([xPixel1, yPixel1 + 1, fractionalPart(yEnd1) * xGap1])
 				}
 			}
 		};
@@ -251,7 +251,7 @@ Line : [Object, Store, Equal, Geometry] { | vertexCoordinates |
 			r := r + radiusIncrement;
 			theta := (theta + thetaIncrement) % 2.pi;
 			v := v + [r, theta].fromPolarCoordinates;
-			vertexCoordinates.addInPlace(v)
+			vertexCoordinates.add!(v)
 		};
 		Line(vertexCoordinates)
 	}

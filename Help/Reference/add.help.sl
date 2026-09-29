@@ -1,4 +1,4 @@
-# add (addInPlace)
+# add (add!)
 
 - _add(c, x)_
 

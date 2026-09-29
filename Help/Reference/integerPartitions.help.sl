@@ -70,7 +70,7 @@ In ascending order:
 
 ```
 >>> 5.integerPartitions
->>> .sortInPlace(<|)
+>>> .sort!(<|)
 [
 	1 1 1 1 1;
 	2 1 1 1;

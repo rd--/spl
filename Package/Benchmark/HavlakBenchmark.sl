@@ -35,11 +35,11 @@ BasicBlock : [Object] { | inEdges outEdges name |
 	}
 
 	addOutEdge { :self :to |
-		self.outEdges.addLastInPlace(to)
+		self.outEdges.addLast!(to)
 	}
 
 	addInEdge { :self :from |
-		self.inEdges.addLastInPlace(from)
+		self.inEdges.addLast!(from)
 	}
 
 }
@@ -76,7 +76,7 @@ ControlFlowGraph : [Object] { | basicBlockMap startNode edgeList |
 	}
 
 	addEdge { :self :edge |
-		self.edgeList.addLastInPlace(edge)
+		self.edgeList.addLast!(edge)
 	}
 
 	numNodes { :self |
@@ -178,9 +178,9 @@ HavlakLoopFinder : [Object] { | cfg lsg nonBackPreds backPreds number maxSize he
 				let v = self.number[nodeV];
 				(v != self.unvisited).ifTrue {
 					self.isAncestorV(w, v).if {
-						self.backPreds[w].addLastInPlace(v)
+						self.backPreds[w].addLast!(v)
 					} {
-						self.nonBackPreds[w].includeInPlace(v)
+						self.nonBackPreds[w].include!(v)
 					}
 				}
 			}
@@ -193,9 +193,9 @@ HavlakLoopFinder : [Object] { | cfg lsg nonBackPreds backPreds number maxSize he
 		} {
 			valueWithReturn { :return/1 |
 				let size = self.cfg.numNodes;
-				self.nonBackPreds.removeAllInPlace;
-				self.backPreds.removeAllInPlace;
-				self.number.removeAllInPlace;
+				self.nonBackPreds.removeAll!;
+				self.backPreds.removeAll!;
+				self.number.removeAll!;
 				(size > self.maxSize).ifTrue {
 					self.header := List(size);
 					self.type := List(size);
@@ -204,8 +204,8 @@ HavlakLoopFinder : [Object] { | cfg lsg nonBackPreds backPreds number maxSize he
 					self.maxSize := size
 				};
 				1.toDo(size) { :i |
-					self.nonBackPreds.addLastInPlace(IdentitySet());
-					self.backPreds.addLastInPlace(List());
+					self.nonBackPreds.addLast!(IdentitySet());
+					self.backPreds.addLast!(List());
 					self.nodes[i] := UnionFindNode()
 				};
 				self.initAllNodes;
@@ -218,7 +218,7 @@ HavlakLoopFinder : [Object] { | cfg lsg nonBackPreds backPreds number maxSize he
 						let workList = List();
 						self.stepDNodePool(w, nodePool);
 						nodePool.do { :niter |
-							workList.addLastInPlace(niter)
+							workList.addLast!(niter)
 						};
 						(nodePool.size != 0).ifTrue {
 							self.type[w] := 'BBReducible'
@@ -251,14 +251,14 @@ HavlakLoopFinder : [Object] { | cfg lsg nonBackPreds backPreds number maxSize he
 			let ydash = y.findSet;
 			self.isAncestorV(w, ydash. dfsNumber).not.if {
 				self.type[w] := 'BBIrreducible';
-				self.nonBackPreds[w].includeInPlace(ydash.dfsNumber)
+				self.nonBackPreds[w].include!(ydash.dfsNumber)
 			} {
 				(ydash.dfsNumber != w).ifTrue {
 					nodePool.anySatisfy { :each |
 						each == ydash
 					}.ifFalse {
-						workList.addLastInPlace(ydash);
-						nodePool.addLastInPlace(ydash)
+						workList.addLast!(ydash);
+						nodePool.addLast!(ydash)
 					}
 				}
 			}
@@ -281,7 +281,7 @@ HavlakLoopFinder : [Object] { | cfg lsg nonBackPreds backPreds number maxSize he
 	stepDNodePool { :self :w :nodePool |
 		self.backPreds[w].do { :v |
 			(v != w).if {
-				nodePool.addLastInPlace(self.nodes[v].findSet)
+				nodePool.addLast!(self.nodes[v].findSet)
 			} {
 				self.type[w] := 'BBSelf'
 			}
@@ -307,7 +307,7 @@ LoopStructureGraph : [Object] { | root loops loopCounter |
 		self.root.setNestingLevel(0);
 		self.root.counter(self.loopCounter);
 		self.loopCounter := self.loopCounter + 1;
-		self.loops.addLastInPlace(self.root);
+		self.loops.addLast!(self.root);
 		self
 	}
 
@@ -315,7 +315,7 @@ LoopStructureGraph : [Object] { | root loops loopCounter |
 		let loop = SimpleLoop(bb, isReducible);
 		loop.counter(self.loopCounter);
 		self.loopCounter := self.loopCounter + 1;
-		self.loops.addLastInPlace(loop);
+		self.loops.addLast!(loop);
 		loop
 	}
 
@@ -522,7 +522,7 @@ UnionFindNode : [Object] { | parent bb dfsNumber loop |
 			node !== node.parent
 		}.whileTrue {
 			(node.parent !== node.parent.parent).ifTrue {
-				nodeList.addLastInPlace(node)
+				nodeList.addLast!(node)
 			};
 			node := node.parent
 		};

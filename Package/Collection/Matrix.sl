@@ -305,7 +305,7 @@
 				};
 				let r = c.includes(x);
 				r.ifFalse {
-					c.addInPlace(x)
+					c.add!(x)
 				};
 				r
 			}
@@ -474,7 +474,7 @@
 		let answer = [];
 		1.toDo(n) { :i |
 			1.toDo(d[i].size) { :j |
-				answer.addInPlace(
+				answer.add!(
 					1.to(n).collectCatenate { :k |
 						(i = k).if {
 							d[i][j]
@@ -500,9 +500,9 @@
 		1.toDo(k - 1) { :i |
 			let row = [];
 			(i + 1).toDo(k) { :j |
-				row.addInPlace(aBlock(self[i], self[j]))
+				row.add!(aBlock(self[i], self[j]))
 			};
-			answer.addInPlace(row)
+			answer.add!(row)
 		};
 		answer
 	}
@@ -622,7 +622,7 @@
 		let v = 0;
 		let o = [];
 		let step = { :a :b |
-			o.addInPlace([v + 1, h + 1]);
+			o.add!([v + 1, h + 1]);
 			v := v + a;
 			h := h + b
 		};
@@ -676,7 +676,7 @@
 	zigzagScan { :m |
 		let answer = [];
 		m.shape.zigzagIndices.do { :i |
-			answer.addInPlace(m.atPath(i))
+			answer.add!(m.atPath(i))
 		};
 		answer
 	}
@@ -734,7 +734,7 @@
 	antidiagonalIndices { :k |
 		let answer = [];
 		k.antidiagonalIndicesDo { :i :j |
-			answer.addInPlace([i, j])
+			answer.add!([i, j])
 		};
 		answer
 	}

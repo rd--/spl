@@ -1,11 +1,11 @@
 SortedSet : [Object, Store, Copyable, Equal, Iterable, Collection, Extensible, Set] { | contents |
 
-	addInPlace { :self :anObject |
+	add! { :self :anObject |
 		let contents = self.contents;
 		contents.includes(anObject).if {
 			self.error('add: item already present')
 		} {
-			contents.includeInPlace(anObject)
+			contents.include!(anObject)
 		}
 	}
 
@@ -23,7 +23,7 @@ SortedSet : [Object, Store, Copyable, Equal, Iterable, Collection, Extensible, S
 		self.contents.do(aBlock/1)
 	}
 
-	includeInPlace { :self :anObject |
+	include! { :self :anObject |
 		self.contents.addIfNotPresent(anObject)
 	}
 
@@ -31,8 +31,8 @@ SortedSet : [Object, Store, Copyable, Equal, Iterable, Collection, Extensible, S
 		self.contents.includes(anObject)
 	}
 
-	removeAllInPlace { :self |
-		self.contents.removeAllInPlace
+	removeAll! { :self |
+		self.contents.removeAll!
 	}
 
 	removeIfAbsent { :self :anObject :aBlock/0 |
@@ -75,7 +75,7 @@ SortedSet : [Object, Store, Copyable, Equal, Iterable, Collection, Extensible, S
 
 	SortedSet { :self |
 		let answer = SortedSet();
-		answer.includeAllInPlace(self);
+		answer.includeAll!(self);
 		answer
 	}
 
@@ -85,7 +85,7 @@ SortedSet : [Object, Store, Copyable, Equal, Iterable, Collection, Extensible, S
 
 	unionInto { :self :aCollection |
 		self.do { :each |
-			aCollection.includeAllInPlace(each)
+			aCollection.includeAll!(each)
 		};
 		aCollection
 	}

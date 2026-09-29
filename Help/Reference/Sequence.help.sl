@@ -14,7 +14,7 @@ Types implementing `Sequence`:
 ```
 >>> system
 >>> .traitTypes('@Sequence')
->>> .sortInPlace
+>>> .sort!
 [
 	'AsciiString'
 	'ByteArray'
@@ -65,7 +65,7 @@ Methods for copying:
 - `forceToPaddingWith`
 - `reverse`
 - `shuffled`
-- `sortByInPlace`
+- `sortBy`
 
 Methods for enumerating:
 

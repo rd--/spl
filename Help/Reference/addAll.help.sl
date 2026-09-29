@@ -1,4 +1,4 @@
-# addAll (addAllInPlace)
+# addAll (addAll!)
 
 - _addAll(c₁, c₂)_
 

@@ -1,4 +1,4 @@
-# includeAll (includeAllInPlace)
+# includeAll (includeAll!)
 
 - _includeAll(c₁, c₂)_
 

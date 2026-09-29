@@ -135,7 +135,7 @@ ChordDiagram : [Object, Store] { | lengthVector |
 	chordDiagrams { :n |
 		let answer = [];
 		n.chordDiagramsDo { :each |
-			answer.addInPlace(each)
+			answer.add!(each)
 		};
 		answer
 	}

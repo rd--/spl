@@ -124,7 +124,7 @@
 		let n = 1.toBy(self, 2);
 		let l = [];
 		let r = [n, n].tuplesDo { :each |
-			l.addInPlace(Fraction(each[1], each[2]))
+			l.add!(Fraction(each[1], each[2]))
 		};
 		l.nub.octaveReduce.sort
 	}

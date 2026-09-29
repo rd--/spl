@@ -55,9 +55,9 @@
 		let h = Heap(sortBlock/2);
 		let l = [];
 		let k = self.size;
-		h.addAllInPlace(self);
+		h.addAll!(self);
 		k.timesRepeat {
-			l.addInPlace(h.removeFirst)
+			l.add!(h.removeFirst)
 		};
 		l
 	}
@@ -67,11 +67,11 @@
 	}
 
 	sort { :self |
-		self.asList.sortInPlace
+		self.asList.sort!
 	}
 
 	sort { :self :sortBlock/2 |
-		self.copyList.sortByInPlace(
+		self.copyList.sortBy!(
 			sortBlock/2.ifNil { precedes/2 }
 		)
 	}
@@ -86,7 +86,7 @@
 			let lhs = each.copySignTo(lhsList.fromDigits(10));
 			let map = each.isNegative.if { negative } { positive };
 			map.atIfPresentIfAbsent(lhs) { :entry |
-				entry.addInPlace(rhs)
+				entry.add!(rhs)
 			} {
 				map.atPut(lhs, [rhs])
 			}
@@ -99,11 +99,11 @@
 +@Sequence {
 
 	canonicalSort { :self |
-		self.copy.canonicalSortInPlace
+		self.copy.canonicalSort!
 	}
 
-	canonicalSortInPlace { :self |
-		self.sortComparingInPlace(
+	canonicalSort! { :self |
+		self.sortComparing!(
 			canonicalCompare/2
 		)
 	}
@@ -196,7 +196,7 @@
 			let j = p.size;
 			let q = i.to(i + j - 1).mean;
 			j.timesRepeat {
-				v.addInPlace(q)
+				v.add!(q)
 			};
 			i := i + j
 		};
@@ -225,41 +225,41 @@
 	}
 
 	reverseSort { :self |
-		self.copy.reverseSortInPlace
+		self.copy.reverseSort!
 	}
 
-	reverseSortInPlace { :self |
-		self.sortByInPlace(succeeds/2)
+	reverseSort! { :self |
+		self.sortBy!(succeeds/2)
 	}
 
-	sortInPlace { :self :sortBlock/2 :keyBlock/1 |
+	sort! { :self :sortBlock/2 :keyBlock/1 |
 		keyBlock/1.ifNil {
-			self.sortByInPlace(
+			self.sortBy!(
 				sortBlock/2.ifNil { precedes/2 }
 			)
 		} {
-			self.sortByOnInPlace(
+			self.sortByOn!(
 				sortBlock/2.ifNil { precedes/2 },
 				keyBlock/1
 			)
 		}
 	}
 
-	sortInPlace { :self :sortBlock/2 |
-		self.sortByInPlace(
+	sort! { :self :sortBlock/2 |
+		self.sortBy!(
 			sortBlock/2.ifNil { precedes/2 }
 		)
 	}
 
-	sortInPlace { :self |
-		self.sortComparingInPlace(
+	sort! { :self |
+		self.sortComparing!(
 			compare/2
 		)
 	}
 
-	sortComparingEachInPlace { :self :blockList |
+	sortComparingEach! { :self :blockList |
 		let n = blockList.size;
-		self.sortComparingInPlace { :a :b |
+		self.sortComparing! { :a :b |
 			let answer = 0;
 			let index = 1;
 			{ answer = 0 & { index <= n } }.whileTrue {
@@ -273,19 +273,19 @@
 	}
 
 	sortOn { :self :keyBlock/1 |
-		self.copy.sortOnInPlace(keyBlock/1)
+		self.copy.sortOn!(keyBlock/1)
 	}
 
-	sortOnInPlace { :self :keyBlock/1 |
-		self.sortByOnInPlace(precedes/2, keyBlock/1)
+	sortOn! { :self :keyBlock/1 |
+		self.sortByOn!(precedes/2, keyBlock/1)
 	}
 
 	sort { :self :sortBlock/2 |
-		self.copyList.sortInPlace(sortBlock/2)
+		self.copyList.sort!(sortBlock/2)
 	}
 
 	sort { :self |
-		self.copy.sortInPlace
+		self.copy.sort!
 	}
 
 	sortWithIndices { :self :sortBlock/2 |
@@ -294,7 +294,7 @@
 		} {
 			self.withIndexCollect { :each :index |
 				each -> index
-			}.sortInPlace { :p :q |
+			}.sort! { :p :q |
 				sortBlock(p.key, q.key)
 			}
 		}
@@ -354,11 +354,11 @@
 +List {
 
 	colexicographicSort { :self |
-		self.copy.colexicographicSortInPlace
+		self.copy.colexicographicSort!
 	}
 
-	colexicographicSortInPlace { :self |
-		self.sortComparingInPlace(
+	colexicographicSort! { :self |
+		self.sortComparing!(
 			colexicographicCompare/2
 		)
 	}
@@ -366,7 +366,7 @@
 	gradedColexicographicSort { :self |
 		self
 		.collect(reverseSort/1)
-		.sortComparingEachInPlace(
+		.sortComparingEach!(
 			[
 				sum/1.compareOn,
 				size/1.compareOn,
@@ -378,7 +378,7 @@
 	gradedLexicographicSort { :self |
 		self
 		.collect(reverseSort/1)
-		.sortComparingEachInPlace(
+		.sortComparingEach!(
 			[
 				sum/1.compareOn,
 				lexicographicCompare/2
@@ -386,10 +386,10 @@
 		)
 	}
 
-	gradedReflectedColexicographicSortInPlace { :self |
+	gradedReflectedColexicographicSort! { :self |
 		self
-		.collectInPlace(sortInPlace/1)
-		.sortComparingEachInPlace(
+		.collect!(sort!/1)
+		.sortComparingEach!(
 			[
 				sum/1.compareOn,
 				size/1.compareOn,
@@ -398,10 +398,10 @@
 		)
 	}
 
-	gradedReflectedLexicographicSortInPlace { :self |
+	gradedReflectedLexicographicSort! { :self |
 		self
-		.collectInPlace(sortInPlace/1)
-		.sortComparingEachInPlace(
+		.collect!(sort!/1)
+		.sortComparingEach!(
 			[
 				sum/1.compareOn,
 				colexicographicCompare/2
@@ -411,8 +411,8 @@
 
 	gradedReverseLexicographicSort { :self |
 		self
-		.collectInPlace(reverseSort/1)
-		.sortComparingEachInPlace(
+		.collect!(reverseSort/1)
+		.sortComparingEach!(
 			[
 				sum/1.compareOn,
 				reverseLexicographicCompare/2
@@ -421,31 +421,31 @@
 	}
 
 	lexicographicSort { :self |
-		self.copy.lexicographicSortInPlace
+		self.copy.lexicographicSort!
 	}
 
-	lexicographicSortInPlace { :self |
-		self.sortComparingInPlace(
+	lexicographicSort! { :self |
+		self.sortComparing!(
 			lexicographicCompare/2
 		)
 	}
 
 	localeSort { :self |
-		self.copy.localeSortInPlace
+		self.copy.localeSort!
 	}
 
-	localeSortInPlace { :self |
-		self.sortComparingInPlace(
+	localeSort! { :self |
+		self.sortComparing!(
 			localeCompare/2
 		)
 	}
 
 	naturalSort { :self |
-		self.copy.naturalSortInPlace
+		self.copy.naturalSort!
 	}
 
-	naturalSortInPlace { :self |
-		self.sortComparingInPlace(
+	naturalSort! { :self |
+		self.sortComparing!(
 			naturalCompare/2
 		)
 	}
@@ -458,24 +458,24 @@
 		self.lexicographicSort.collect(reverse/1)
 	}
 
-	reverseColexicographicSortInPlace { :self |
-		self.sortComparingInPlace(
+	reverseColexicographicSort! { :self |
+		self.sortComparing!(
 			reverseColexicographicCompare/2
 		)
 	}
 
 	reverseColexicographicSort { :self |
-		self.copy.reverseColexicographicSortInPlace
+		self.copy.reverseColexicographicSort!
 	}
 
-	reverseLexicographicSortInPlace { :self |
-		self.sortComparingInPlace(
+	reverseLexicographicSort! { :self |
+		self.sortComparing!(
 			reverseLexicographicCompare/2
 		)
 	}
 
 	reverseLexicographicSort { :self |
-		self.copy.reverseLexicographicSortInPlace
+		self.copy.reverseLexicographicSort!
 	}
 
 	reverseReflectedColexicographicSort { :self |
@@ -512,16 +512,16 @@
 		self.bubbleSortWithMonitor(<, monitorBlock/1)
 	}
 
-	bubbleSortInPlace { :self :sortBlock/2 |
+	bubbleSort! { :self :sortBlock/2 |
 		self.bubbleSortWithMonitor(sortBlock/2, nil.constant)
 	}
 
-	bubbleSortInPlace { :self |
-		self.bubbleSortInPlace(less/2)
+	bubbleSort! { :self |
+		self.bubbleSort!(less/2)
 	}
 
 	bubbleSort { :self |
-		self.copy.bubbleSortInPlace
+		self.copy.bubbleSort!
 	}
 
 	bubbleSortMatrix { :self |
@@ -552,16 +552,16 @@
 		self.insertionSortWithMonitor(<, monitorBlock/1)
 	}
 
-	insertionSortInPlace { :self :sortBlock/2 |
+	insertionSort! { :self :sortBlock/2 |
 		self.insertionSortWithMonitor(sortBlock/2, nil.constant)
 	}
 
-	insertionSortInPlace { :self |
-		self.insertionSortInPlace(less/2)
+	insertionSort! { :self |
+		self.insertionSort!(less/2)
 	}
 
 	insertionSort { :self |
-		self.copy.insertionSortInPlace
+		self.copy.insertionSort!
 	}
 
 	insertionSortMatrix { :self |
@@ -604,22 +604,22 @@
 		self.shellSortWithMonitor([5, 3, 1], <, monitorBlock/1)
 	}
 
-	shellSortInPlace { :self :t :sortBlock/2 |
+	shellSort! { :self :t :sortBlock/2 |
 		self.shellSortWithMonitor(t, sortBlock/2, nil.constant)
 	}
 
-	shellSortInPlace { :self |
-		self.shellSortInPlace([5, 3, 1], <)
+	shellSort! { :self |
+		self.shellSort!([5, 3, 1], <)
 	}
 
 	shellSort { :self |
-		self.copy.shellSortInPlace
+		self.copy.shellSort!
 	}
 
 	shellSortMatrix { :self :t |
 		let m = [self.copy];
 		self.shellSortWithMonitor(t, <) { :x |
-			m.addInPlace(x.copy)
+			m.add!(x.copy)
 		};
 		m
 	}
@@ -657,16 +657,16 @@
 		self.combSortWithMonitor(<, monitorBlock/1)
 	}
 
-	combSortInPlace { :self :sortBlock/2 |
+	combSort! { :self :sortBlock/2 |
 		self.combSortWithMonitor(sortBlock/2, nil.constant)
 	}
 
-	combSortInPlace { :self |
-		self.combSortInPlace(less/2)
+	combSort! { :self |
+		self.combSort!(less/2)
 	}
 
 	combSort { :self |
-		self.copy.combSortInPlace
+		self.copy.combSort!
 	}
 
 	combSortMatrix { :self |
@@ -691,12 +691,12 @@
 		self
 	}
 
-	selectionSortInPlace { :self |
+	selectionSort! { :self |
 		self.selectionSortWithMonitor(nil.constant)
 	}
 
 	selectionSort { :self |
-		self.copy.selectionSortInPlace
+		self.copy.selectionSort!
 	}
 
 	selectionSortMatrix { :self |
@@ -735,12 +735,12 @@
 		self
 	}
 
-	cycleSortInPlace { :self |
+	cycleSort! { :self |
 		self.cycleSortWithMonitor(nil.constant)
 	}
 
 	cycleSort { :self |
-		self.copy.cycleSortInPlace
+		self.copy.cycleSort!
 	}
 
 	cycleSortMatrix { :self |
@@ -795,19 +795,19 @@
 	}
 
 	bitonicSort { :self :sortBlock/2 |
-		self.copy.bitonicSortInPlace(sortBlock/2)
+		self.copy.bitonicSort!(sortBlock/2)
 	}
 
 	bitonicSort { :self |
-		self.copy.bitonicSortInPlace
+		self.copy.bitonicSort!
 	}
 
-	bitonicSortInPlace { :self :sortBlock/2 |
+	bitonicSort! { :self :sortBlock/2 |
 		self.bitonicSortWithMonitor(sortBlock/2, nil.constant)
 	}
 
-	bitonicSortInPlace { :self |
-		self.bitonicSortInPlace(less/2)
+	bitonicSort! { :self |
+		self.bitonicSort!(less/2)
 	}
 
 	bitonicSortMatrix { :self |
@@ -830,9 +830,9 @@
 			{ continue & { o.size != 0 } }.whileTrue {
 				let item = o.removeFirst;
 				(item.bitAnd(shift) = 0).if {
-					zeroes.addInPlace(item)
+					zeroes.add!(item)
 				} {
-					ones.addInPlace(item)
+					ones.add!(item)
 				};
 				(zeroes ++ o ++ ones).withIndexDo { :each :index |
 					self[index] := each
@@ -848,12 +848,12 @@
 		self
 	}
 
-	radixSortInPlace { :self |
+	radixSort! { :self |
 		self.radixSortWithMonitor(nil.constant)
 	}
 
 	radixSort { :self |
-		self.copy.radixSortInPlace
+		self.copy.radixSort!
 	}
 
 	radixSortMatrix { :self |
@@ -888,16 +888,16 @@
 		self.oddEvenSortWithMonitor(<, monitorBlock/1)
 	}
 
-	oddEvenSortInPlace { :self :sortBlock/2 |
+	oddEvenSort! { :self :sortBlock/2 |
 		self.oddEvenSortWithMonitor(sortBlock/2, nil.constant)
 	}
 
-	oddEvenSortInPlace { :self |
-		self.oddEvenSortInPlace(less/2)
+	oddEvenSort! { :self |
+		self.oddEvenSort!(less/2)
 	}
 
 	oddEvenSort { :self |
-		self.copy.oddEvenSortInPlace
+		self.copy.oddEvenSort!
 	}
 
 	oddEvenSortMatrix { :self |
@@ -933,16 +933,16 @@
 		self.gnomeSortWithMonitor(<, monitorBlock/1)
 	}
 
-	gnomeSortInPlace { :self :sortBlock/2 |
+	gnomeSort! { :self :sortBlock/2 |
 		self.gnomeSortWithMonitor(sortBlock/2, nil.constant)
 	}
 
-	gnomeSortInPlace { :self |
-		self.gnomeSortInPlace(less/2)
+	gnomeSort! { :self |
+		self.gnomeSort!(less/2)
 	}
 
 	gnomeSort { :self |
-		self.copy.gnomeSortInPlace
+		self.copy.gnomeSort!
 	}
 
 	gnomeSortMatrix { :self |
@@ -988,16 +988,16 @@
 		self.shuffleSortWithMonitor(<, monitorBlock/1)
 	}
 
-	shuffleSortInPlace { :self :sortBlock/2 |
+	shuffleSort! { :self :sortBlock/2 |
 		self.shuffleSortWithMonitor(sortBlock/2, nil.constant)
 	}
 
-	shuffleSortInPlace { :self |
-		self.shuffleSortInPlace(less/2)
+	shuffleSort! { :self |
+		self.shuffleSort!(less/2)
 	}
 
 	shuffleSort { :self |
-		self.copy.shuffleSortInPlace
+		self.copy.shuffleSort!
 	}
 
 	shuffleSortMatrix { :self |
@@ -1014,8 +1014,8 @@
 		let a = [];
 		let b = [];
 		let c = self.sort { :p :q |
-			a.addInPlace(p);
-			b.addInPlace(q);
+			a.add!(p);
+			b.add!(q);
 			p < q
 		};
 		[c, a, b]
@@ -1024,7 +1024,7 @@
 	sortTracingState { :self :sort/2 |
 		let m = [self.copy];
 		self.sort { :x |
-			m.addInPlace(x.copy)
+			m.add!(x.copy)
 		};
 		m
 	}
@@ -1047,7 +1047,7 @@
 			};
 			let maxDistance = distances.max;
 			let index = distances.indexOf(maxDistance);
-			answer.addInPlace(remaining[index]);
+			answer.add!(remaining[index]);
 			remaining.removeAt(index)
 		};
 		answer

@@ -160,7 +160,7 @@
 	squareSpiral { :self |
 		let answer = [];
 		self.squareSpiralDo { :x :y |
-			answer.addInPlace([x, y])
+			answer.add!([x, y])
 		};
 		answer
 	}

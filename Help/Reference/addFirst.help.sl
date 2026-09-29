@@ -1,4 +1,4 @@
-# addFirst (addFirstInPlace)
+# addFirst (addFirst!)
 
 - _addFirst([x₁ x₂ …], y)_
 

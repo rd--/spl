@@ -80,16 +80,16 @@
 		}
 	}
 
-	quickSortInPlace { :self :sortBlock/2 |
+	quickSort! { :self :sortBlock/2 |
 		self.quickSortFromToBy(1, self.size, sortBlock/2)
 	}
 
-	quickSortInPlace { :self |
-		self.quickSortInPlace(lessEqual/2)
+	quickSort! { :self |
+		self.quickSort!(lessEqual/2)
 	}
 
 	quickSort { :self |
-		self.copy.quickSortInPlace
+		self.copy.quickSort!
 	}
 
 }

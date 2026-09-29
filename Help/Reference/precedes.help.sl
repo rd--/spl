@@ -66,7 +66,7 @@ Sort power-set lexicographically:
 ```
 >>> ['a' 'b' 'c' 'd']
 >>> .powerSet
->>> .sortByInPlace(precedes/2)
+>>> .sortBy!(precedes/2)
 >>> .collect(stringJoin/1)
 [
 	''
@@ -88,7 +88,7 @@ let i = -5:5;
 	[x.square + y.square, x, y]
 }.table(i, i)
 .catenate
-.sortInPlace(precedes/2)
+.sort!(precedes/2)
 .columns([2 3])
 .pathPlot
 ~~~
@@ -104,7 +104,7 @@ OEIS [A305576](https://oeis.org/A305576):
 let i = -5:5;
 [i, i].tuples
 .toPolarCoordinates('Unsigned')
-.sortInPlace(precedes/2)
+.sort!(precedes/2)
 .fromPolarCoordinates
 .pathPlot
 ~~~

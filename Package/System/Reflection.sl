@@ -5,7 +5,7 @@
 	addAllTraitMethodsTo { :self :aCollection |
 		system.traitDictionary.values.do { :trait |
 			trait.methodDictionary.values.do { :method |
-				aCollection.addInPlace(method)
+				aCollection.add!(method)
 			}
 		}
 	}
@@ -13,7 +13,7 @@
 	addAllTypeMethodsTo { :self :aCollection |
 		system.typeDictionary.values.do { :trait |
 			trait.methodDictionary.values.do { :method |
-				aCollection.addInPlace(method)
+				aCollection.add!(method)
 			}
 		}
 	}
@@ -122,7 +122,7 @@
 		/* Print string of implementations of methodName. */
 		let answer = [];
 		self.methodImplementations(methodName).do { :method |
-			answer.addInPlace(
+			answer.add!(
 				'+ %{\n\t% %\n}'.format([
 					method.origin.qualifiedName,
 					method.name,
@@ -142,7 +142,7 @@
 		let answer = [];
 		self.methodDo { :aMethod |
 			aMethod.sourceCode.includesSubstring(aString).ifTrue {
-				answer.addInPlace(aMethod)
+				answer.add!(aMethod)
 			}
 		};
 		answer
@@ -187,7 +187,7 @@
 		let answer = [];
 		self.methodDo { :each |
 			(each.packageName = packageName).ifTrue {
-				answer.addInPlace(each)
+				answer.add!(each)
 			}
 		};
 		answer

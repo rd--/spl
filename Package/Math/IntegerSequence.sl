@@ -82,7 +82,7 @@
 				}
 			}
 		}.whileTrue {
-			r.addInPlace(b);
+			r.add!(b);
 			i := i + 1;
 			a := b;
 			(a > 0).ifTrue {
@@ -194,7 +194,7 @@
 		let n = 0;
 		{ answer.size < self }.whileTrue {
 			(n.digitCount(3, 1) = 0).ifTrue {
-				answer.addInPlace(n)
+				answer.add!(n)
 			};
 			n := n + 1
 		};
@@ -205,7 +205,7 @@
 		let answer = [];
 		let i = 0;
 		{ answer.size < n }.whileTrue {
-			answer.addAllInPlace(i.integerDigits(b));
+			answer.addAll!(i.integerDigits(b));
 			i := i + 1
 		};
 		answer.take(n)
@@ -239,7 +239,7 @@
 					e := i;
 					break()
 				} {
-					a.addInPlace(i)
+					a.add!(i)
 				}
 			};
 			z := y.last
@@ -354,7 +354,7 @@
 			}.whileTrue {
 				k := k + 1
 			};
-			l.addInPlace(k);
+			l.add!(k);
 			i := i + 1
 		};
 		l
@@ -413,7 +413,7 @@
 	fareySequence { :n |
 		let answer = [];
 		n.fareySequenceDo { :each |
-			answer.addInPlace(each)
+			answer.add!(each)
 		};
 		answer
 	}
@@ -451,13 +451,13 @@
 						y <= z
 					}
 				).ifTrue {
-					b.includeInPlace(z);
+					b.include!(z);
 					{ b.includes(j) }.whileTrue {
 						j := j + 1
 					}
 				}
 			};
-			answer.addInPlace(j)
+			answer.add!(j)
 		};
 		answer
 	}
@@ -472,14 +472,14 @@
 				let x = answer[n - (2 * i) + 1];
 				let y = answer[n - i + 1];
 				let z = (y * 2) - x;
-				b.includeInPlace(z);
+				b.include!(z);
 				i := i + 1;
 				{ b.includes(j) }.whileTrue {
-					b.removeInPlace(j);
+					b.remove!(j);
 					j := j + 1
 				}
 			};
-			answer.addInPlace(j)
+			answer.add!(j)
 		};
 		answer
 	}
@@ -519,7 +519,7 @@
 		};
 		let answer = [1];
 		2.toDo(n) { :i |
-			answer.addInPlace(k(answer))
+			answer.add!(k(answer))
 		};
 		answer
 	}
@@ -618,7 +618,7 @@
 		let z = [];
 		{ :x |
 			let y = x.rotateLeft(k);
-			z.addInPlace(y.removeLast);
+			z.add!(y.removeLast);
 			y
 		}.iterate([1 .. n], n);
 		z
@@ -636,7 +636,7 @@
 			let a = [n];
 			{ n != 1 }.whileTrue {
 				n := n.jugglerMap;
-				a.addInPlace(n)
+				a.add!(n)
 			};
 			a
 		}
@@ -653,8 +653,8 @@
 			} {
 				number + 1
 			};
-			answer.addInPlace(count);
-			inventory.addInPlace(count)
+			answer.add!(count);
+			inventory.add!(count)
 		};
 		answer
 	}
@@ -742,7 +742,7 @@
 	kaprekarSequence { :self :base :fixedLength |
 		let answer = [];
 		{ answer.includes(self) }.whileFalse {
-			answer.addInPlace(self);
+			answer.add!(self);
 			self := self.kaprekarMap(base, fixedLength)
 		};
 		answer
@@ -847,7 +847,7 @@
 			let a = ((2 * n) + 1) / (n + 2);
 			let b = ((3 * n) - 3) / (n + 2);
 			let c = (a * s[n]) + (b * s[n - 1]);
-			s.addInPlace(c)
+			s.add!(c)
 		};
 		s
 	}
@@ -855,7 +855,7 @@
 	narayanaSequence { :self |
 		let answer = [1 1 1];
 		4.toDo(self) { :i |
-			answer.addInPlace(answer[i - 1] + answer[i - 3])
+			answer.add!(answer[i - 1] + answer[i - 3])
 		};
 		answer
 	}
@@ -918,7 +918,7 @@
 	noergaardRhythmicInfinitySystem { :n |
 		let z = [3];
 		1.toDo(n - 1) { :i |
-			z.addInPlace(
+			z.add!(
 				(
 					i.integerDigits(2)
 					.split(equal/2)
@@ -932,7 +932,7 @@
 	padovanSequence { :self :initial |
 		let answer = initial.copy;
 		4.toDo(self) { :i |
-			answer.addInPlace(answer[i - 2] + answer[i - 3])
+			answer.add!(answer[i - 2] + answer[i - 3])
 		};
 		answer
 	}
@@ -1002,7 +1002,7 @@
 				next := answer[n] + n
 			};
 			answer[n + 1] := next;
-			seen.includeInPlace(next)
+			seen.include!(next)
 		};
 		answer
 	}
@@ -1040,7 +1040,7 @@
 			let a = ((6 * n) - 3) / (n + 1);
 			let b = (n - 2) / (n + 1);
 			let c = (a * s[n]) - (b * s[n - 1]);
-			s.addInPlace(c)
+			s.add!(c)
 		};
 		s
 	}
@@ -1048,7 +1048,7 @@
 	seidelEntringerArnoldTriangle { :self |
 		let answer = self.entringerTriangle;
 		2.toByDo(self, 2) { :i |
-			answer[i].reverseInPlace
+			answer[i].reverse!
 		};
 		answer
 	}
@@ -1116,7 +1116,7 @@
 		let n = 0;
 		{ answer.size < self }.whileTrue {
 			(n.digitCount(3, 2) = 0).ifTrue {
-				answer.addInPlace(n)
+				answer.add!(n)
 			};
 			n := n + 1
 		};
@@ -1146,8 +1146,8 @@
 			answer.size < n
 		}.whileTrue {
 			let c = answer[index];
-			answer.addInPlace(c + answer[index - 1]);
-			answer.addInPlace(c);
+			answer.add!(c + answer[index - 1]);
+			answer.add!(c);
 			index := index + 1
 		};
 		(answer.size > n).ifTrue {
@@ -1275,8 +1275,8 @@
 		}.whileTrue {
 			n := n + 1;
 			isUlam(n, 0, u.copy, r.copy).ifTrue {
-				u.addLastInPlace(n);
-				r.addFirstInPlace(n)
+				u.addLast!(n);
+				r.addFirst!(n)
 			}
 		};
 		u
@@ -1304,7 +1304,7 @@
 					v[m] := v[m] + 1;
 					j := j + 1
 				};
-				u.addInPlace(i)
+				u.add!(i)
 			}
 		};
 		u
@@ -1334,7 +1334,7 @@
 			let k = (1 .. i - 1).findLast { :m |
 				a[i] = a[m]
 			};
-			a.addInPlace(
+			a.add!(
 				(k = 0).if { 0 } { i - k }
 			)
 		};
@@ -1359,7 +1359,7 @@
 			}.whileTrue {
 				k := k + 1
 			};
-			l.addInPlace(k);
+			l.add!(k);
 			i := i + 1
 		};
 		l
@@ -1430,7 +1430,7 @@
 		let k = i.size;
 		n.timesRepeat {
 			let j = u.size;
-			u.addInPlace(
+			u.add!(
 				1.toCollect(k) { :m |
 					f[m].value(u[j - i[m] + 1])
 				}.catenate
@@ -1532,7 +1532,7 @@
 			[i + (j * theta), i]
 		}.table(1.to(p), 1.to(q))
 		.catenate
-		.sortOnInPlace(first/1)
+		.sortOn!(first/1)
 		.collect(second/1)
 		.take(n)
 	}
@@ -1546,7 +1546,7 @@
 				[i, i + (j * theta)]
 			}.table(1.to(m), 1.to(m))
 			.catenate
-			.sortOnInPlace(second/1)
+			.sortOn!(second/1)
 			.collect(first/1)
 			.take(n);
 			s != z
@@ -1566,7 +1566,7 @@
 			let initial = word.first;
 			let suffix = word.allButFirst(m);
 			word := suffix ++ rules.at(initial);
-			answer.addInPlace(word);
+			answer.add!(word);
 			j := j + 1
 		};
 		answer
@@ -1679,7 +1679,7 @@
 		};
 		let r = [f/1.nestList(1, n)];
 		m.timesRepeat {
-			r.addInPlace(f/1.nestList(g(r.flatten), n))
+			r.add!(f/1.nestList(g(r.flatten), n))
 		};
 		r
 	}
@@ -1765,7 +1765,7 @@
 					(i % m) = (j % m)
 				}
 			};
-			z.addInPlace(e);
+			z.add!(e);
 			e
 		}
 	}
@@ -1892,14 +1892,14 @@
 		{
 			r.includes(x)
 		}.whileFalse {
-			r.addInPlace(x);
+			r.add!(x);
 			x.numerator.isEven.if {
 				x := x / 2
 			} {
 				x := 3 * x + 1
 			}
 		};
-		r.addInPlace(x);
+		r.add!(x);
 		r
 	}
 
@@ -1997,14 +1997,14 @@
 		(n - 1).timesRepeat {
 			let r = squareSpiralRank(x, y, 1);
 			cells.includes(r).if {
-				cells.removeInPlace(r);
+				cells.remove!(r);
 				d := d + 1
 			} {
-				cells.addInPlace(r);
+				cells.add!(r);
 				d := d - 1
 			};
 			[x, y] := [x, y] + steps[d.mod(4, 1)];
-			path.addInPlace([x, y])
+			path.add!([x, y])
 		};
 		path
 	}
@@ -2085,10 +2085,10 @@
 		let a = [0];
 		1.toDo(k - 1) { :n |
 			((y + 1) <= (c * x)).if {
-				a.addInPlace(1);
+				a.add!(1);
 				y := y + 1
 			} {
-				a.addInPlace(0);
+				a.add!(0);
 				x := x + 1
 			}
 		};

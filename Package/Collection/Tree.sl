@@ -2,7 +2,7 @@ Tree : [Object, Store, Equal, Iterable, Indexable] { | value subTrees |
 
 	addChild { :self :child |
 		child.isTree.if {
-			self.subTrees.addInPlace(child)
+			self.subTrees.add!(child)
 		} {
 			self.error('Tree>>addChild: not tree')
 		}
@@ -36,7 +36,7 @@ Tree : [Object, Store, Equal, Iterable, Indexable] { | value subTrees |
 	deepIndices { :self |
 		let answer = [];
 		self.deepWithIndicesDo { :unused :index |
-			answer.addInPlace(index)
+			answer.add!(index)
 		};
 		answer
 	}
@@ -112,7 +112,7 @@ Tree : [Object, Store, Equal, Iterable, Indexable] { | value subTrees |
 		let answer = [];
 		self.deepWithIndicesDo { :each :index |
 			each.isLeaf.ifTrue {
-				answer.addInPlace(index)
+				answer.add!(index)
 			}
 		};
 		answer
@@ -129,7 +129,7 @@ Tree : [Object, Store, Equal, Iterable, Indexable] { | value subTrees |
 	leaves { :self |
 		let answer = [];
 		self.leavesDo { :each |
-			answer.addInPlace(each.value)
+			answer.add!(each.value)
 		};
 		answer
 	}
@@ -147,7 +147,7 @@ Tree : [Object, Store, Equal, Iterable, Indexable] { | value subTrees |
 		let k = self.depth;
 		let a = { [] } ! k;
 		self.withLevelDo { :x :i |
-			a[i + 1].addInPlace(x.value)
+			a[i + 1].add!(x.value)
 		};
 		a
 	}
@@ -155,7 +155,7 @@ Tree : [Object, Store, Equal, Iterable, Indexable] { | value subTrees |
 	levelOrderValues { :self |
 		let answer = [];
 		0.to(self.depth - 1).collect { :each |
-			answer.addAllInPlace(self.level([each]).collect(value/1))
+			answer.addAll!(self.level([each]).collect(value/1))
 		};
 		answer
 	}
@@ -180,7 +180,7 @@ Tree : [Object, Store, Equal, Iterable, Indexable] { | value subTrees |
 	postOrderValues { :self |
 		let answer = [];
 		self.postOrderDo { :each |
-			answer.addInPlace(each.value)
+			answer.add!(each.value)
 		};
 		answer
 	}
@@ -207,13 +207,13 @@ Tree : [Object, Store, Equal, Iterable, Indexable] { | value subTrees |
 		let labeledTree = self.collect { :each |
 			let answer = nodeId -> each;
 			nodeId := nodeId + 1;
-			vertexLabels.addInPlace(each);
+			vertexLabels.add!(each);
 			answer
 		};
 		let edgeList = [];
 		labeledTree.do { :i |
 			i.subTrees.collect { :j |
-				edgeList.addInPlace(
+				edgeList.add!(
 					DirectedEdge(
 						i.value.key,
 						j.value.key
@@ -244,7 +244,7 @@ Tree : [Object, Store, Equal, Iterable, Indexable] { | value subTrees |
 	values { :self |
 		let answer = [];
 		self.do { :each |
-			answer.addInPlace(each.value)
+			answer.add!(each.value)
 		};
 		answer
 	}

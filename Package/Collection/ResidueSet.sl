@@ -58,8 +58,8 @@ ResidueSet : [Object, Store, Equal, Iterable, Collection, Extensible] { | conten
 		self.contents.do(aBlock/1)
 	}
 
-	includeInPlace { :self :anInteger |
-		self.contents.includeInPlace(anInteger % self.modulus)
+	include! { :self :anInteger |
+		self.contents.include!(anInteger % self.modulus)
 	}
 
 	positionVector { :self |
@@ -106,7 +106,7 @@ ResidueSet : [Object, Store, Equal, Iterable, Collection, Extensible] { | conten
 
 	ResidueSet { :self :modulus |
 		let r = newResidueSet().initializeSlots(IdentitySet(), modulus);
-		r.includeAllInPlace(self % modulus);
+		r.includeAll!(self % modulus);
 		r
 	}
 

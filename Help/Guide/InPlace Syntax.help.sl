@@ -29,22 +29,26 @@ In place sort:
 
 ```
 >>> let x = [1 3 5 4 2];
->>> (x, x == x.sort!)
+>>> let y = x.sort!;
+>>> (x, x == y)
 ([1 2 3 4 5], true)
 ```
 
 In place sort on:
 
 ```
->>> [1 2 3; 4 5; 6].sortOn!(size/1)
-[6; 4 5; 1 2 3]
+>>> let x = [1 2 3; 4 5; 6];
+>>> let y = x.sortOn!(size/1);
+>>> (x, x == y)
+([6; 4 5; 1 2 3], true)
 ```
 
 In place reverse:
 
 ```
 >>> let x = [1 3 5 4 2];
->>> (x, x == x.reverse!)
+>>> let y = x.reverse!;
+>>> (x, x == y)
 ([2 4 5 3 1], true)
 ```
 
@@ -52,7 +56,8 @@ In place reverse sort:
 
 ```
 >>> let x = [1 3 5 2 4];
->>> (x, x == x.reverseSort!)
+>>> let y = x.reverseSort!;
+>>> (x, x == y)
 ([5 4 3 2 1], true)
 ```
 
@@ -60,38 +65,38 @@ In place `add`:
 
 ```
 >>> let x = [1 2 3];
->>> x.add!(4);
->>> x
-[1 2 3 4]
+>>> let y = x.add!(4);
+>>> (x, y)
+([1 2 3 4], 4)
 ```
 
 In place `addAll`:
 
 ```
 >>> let x = [1 2 3];
->>> x.addAll!([4 5 6]);
->>> x
-[1 2 3 4 5 6]
+>>> let y = x.addAll!([4 5 6]);
+>>> (x, y)
+([1 2 3 4 5 6], [4 5 6])
 ```
 
 In place `remove`:
 
 ```
 >>> let x = [1 2 3 4];
->>> x.remove!(4);
->>> x
-[1 2 3]
+>>> let y = x.remove!(4);
+>>> (x, y)
+([1 2 3], 4)
 ```
 
 In place `removeAll`:
 
 ```
 >>> let x = [1 2 3 4 5 6];
->>> x.removeAll!([4 5 6]);
->>> x
-[1 2 3]
+>>> let y = x.removeAll!([4 5 6]);
+>>> (x, y)
+([1 2 3], nil)
 ```
 
 * * *
 
-See also: reverseInPlace, reverseSortInPlace, sortInPlace, sortOnInPlace
+See also: reverse, reverseSort, sort, sortOn

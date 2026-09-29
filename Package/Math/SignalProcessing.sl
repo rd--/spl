@@ -70,7 +70,7 @@
 		let r = i.copy;
 		(i.size + 1).toDo(n) { :m |
 			let z = self(r, m);
-			r.addInPlace(z)
+			r.add!(z)
 		};
 		r
 	}

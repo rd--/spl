@@ -10,7 +10,7 @@ Traits implemented by `Complex`:
 ```
 >>> system.typeLookup('Complex')
 >>> .traitNameList
->>> .sortInPlace
+>>> .sort!
 [
 	'Compare'
 	'Equal'

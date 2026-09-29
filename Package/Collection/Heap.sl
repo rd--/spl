@@ -1,7 +1,7 @@
 Heap : [Object, Copyable, Equal, Iterable, Collection, Extensible] { | array sortBlock indexUpdateBlock |
 
-	addInPlace { :self :anObject |
-		self.array.addInPlace(anObject);
+	add! { :self :anObject |
+		self.array.add!(anObject);
 		self.indexUpdate(anObject, self.size);
 		self.upHeap(self.size);
 		anObject
@@ -30,7 +30,7 @@ Heap : [Object, Copyable, Equal, Iterable, Collection, Extensible] { | array sor
 	}
 
 	collect { :self :aBlock/1 |
-		self.array.collectInPlace(aBlock/1);
+		self.array.collect!(aBlock/1);
 		self
 	}
 
@@ -158,8 +158,8 @@ Heap : [Object, Copyable, Equal, Iterable, Collection, Extensible] { | array sor
 		}
 	}
 
-	removeAllInPlace { :self |
-		self.array.removeAllInPlace
+	removeAll! { :self |
+		self.array.removeAll!
 	}
 
 	removeAt { :self :index |
@@ -179,7 +179,7 @@ Heap : [Object, Copyable, Equal, Iterable, Collection, Extensible] { | array sor
 		1.toDo(self.size) { :index |
 			let element = self.array[index];
 			aBlock(element).ifTrue {
-				newCollection.addInPlace(element)
+				newCollection.add!(element)
 			}
 		};
 		newCollection
@@ -190,7 +190,7 @@ Heap : [Object, Copyable, Equal, Iterable, Collection, Extensible] { | array sor
 	}
 
 	/*
-	sortInPlace { :self |
+	sort! { :self |
 		let start = 1;
 		let array = self.array;
 		let end = array.size;

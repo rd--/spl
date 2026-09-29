@@ -165,7 +165,7 @@
 		let answer = [];
 		self.deepIndicesStartingAtDo([]) { :each :index |
 			aBlock(each).ifTrue {
-				answer.addInPlace(index)
+				answer.add!(index)
 			}
 		};
 		answer
@@ -175,7 +175,7 @@
 		let answer = [];
 		self.withDeepIndexDo { :each :index |
 			(each = anObject).ifTrue {
-				answer.addInPlace(index)
+				answer.add!(index)
 			}
 		};
 		answer
@@ -238,7 +238,7 @@
 		let answer = [];
 		self.withIndexDo { :each :index |
 			aBlock(each).ifTrue {
-				answer.addInPlace(index)
+				answer.add!(index)
 			}
 		};
 		answer
@@ -269,7 +269,7 @@
 		let answer = Map();
 		self.withIndexDo { :each :index |
 			answer.includesKey(each).if {
-				answer.at(each).addInPlace(index)
+				answer.at(each).add!(index)
 			} {
 				answer.atPut(each, [index])
 			}

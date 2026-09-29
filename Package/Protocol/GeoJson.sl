@@ -149,10 +149,10 @@ GeoJson : [Object, Store] { | contents |
 		let answer = [];
 		self.geometryValues(projectionName).collect { :each |
 			each.isPolygon.ifTrue {
-				answer.addInPlace(each)
+				answer.add!(each)
 			};
 			each.isGeometryCollection.ifTrue {
-				answer.addAllInPlace(each.contents.select(isPolygon/1))
+				answer.addAll!(each.contents.select(isPolygon/1))
 			}
 		};
 		answer

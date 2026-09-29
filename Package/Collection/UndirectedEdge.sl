@@ -101,7 +101,7 @@ UndirectedEdge : [Object, Store, Equal, Compare, Indexable] { | vertexList |
 
 	UndirectedEdge { :self :anInteger |
 		newUndirectedEdge().initializeSlots(
-			[self, anInteger].sortInPlace
+			[self, anInteger].sort!
 		)
 	}
 

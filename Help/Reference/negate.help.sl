@@ -1,4 +1,4 @@
-# negate
+# negate (negate!)
 
 - _negate(x)_
 
@@ -126,18 +126,23 @@ At a `Colour`, inverts the value of the colour channels:
 (true, true)
 ```
 
-Does not mutate reciever,
-see `negateInPlace`:
+At `List` there are both copying and in-place forms:
 
 ```
->>> let a = [1 2 3];
->>> (a, a.negate)
+>>> let x = [1 2 3];
+>>> let y = x.negate;
+>>> (x, y)
 ([1 2 3], [-1 -2 -3])
 
->>> let a = [1 2 3; 4 5 6];
->>> a.negateInPlace;
->>> a
-[-1 -2 -3; -4 -5 -6]
+>>> let x = [1 2 3];
+>>> let y = x.negate!;
+>>> (x, x == y)
+([-1 -2 -3], true)
+
+>>> let x = [1 2; 3 4];
+>>> let y = x.negate!;
+>>> (x, x == y)
+([-1 -2; -3 -4], true)
 ```
 
 The unary operator form is `-`.
