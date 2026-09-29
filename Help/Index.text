@@ -55,6 +55,7 @@ Guide/Dictionary Functions.help.sl
 Guide/Distance Functions.help.sl
 Guide/Divisions of the Tetrachord.help.sl
 Guide/Documentation Tests.help.sl
+Guide/Dot Assignment Syntax.help.sl
 Guide/Drawing Functions.help.sl
 Guide/Elementwise Functions.help.sl
 Guide/Emacs Editor.help.sl
@@ -3277,7 +3278,6 @@ Reference/Plus.help.sl
 Reference/plusSign.help.sl
 Reference/plusSignPlusSign.help.sl
 Reference/plusSignPlusSignPlusSign.help.sl
-Reference/plusTwosComplement.help.sl
 Reference/PmOsc.help.sl
 Reference/PngViewer.help.sl
 Reference/pochhammer.help.sl
@@ -4269,6 +4269,7 @@ Reference/TurtleGeometry.help.sl
 Reference/TwChoose.help.sl
 Reference/TwIndex.help.sl
 Reference/TwoPole.help.sl
+Reference/twosComplement.help.sl
 Reference/TwoZero.help.sl
 Reference/TxLine.help.sl
 Reference/TypeBrowser.help.sl

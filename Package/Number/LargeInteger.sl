@@ -330,23 +330,6 @@ LargeInteger! : [Object, Store, Equal, Compare, Binary, Number, Integer] {
 		1L
 	}
 
-	plusTwosComplement { :a :b :wordSize |
-		b.isCollection.if {
-			b.collect { :x |
-				plusTwosComplement(a, x, wordSize)
-			}
-		} {
-			let bitMask = (1L << wordSize) - 1L;
-			let signBit = 1L << (wordSize - 1L);
-			let c = (a + b).bitAnd(bitMask);
-			(c.bitAnd(signBit) != 0L).if {
-				c - (1L << wordSize)
-			} {
-				c
-			}
-		}
-	}
-
 	printString { :self |
 		self.storeString
 	}
@@ -415,6 +398,17 @@ LargeInteger! : [Object, Store, Equal, Compare, Binary, Number, Integer] {
 
 	storeString { :self |
 		self.storeStringLiteral
+	}
+
+	twosComplement { :self :wordSize |
+		let bitMask = (1L << wordSize) - 1L;
+		let signBit = 1L << (wordSize - 1L);
+		let n = self.bitAnd(bitMask);
+		(n.bitAnd(signBit) != 0L).if {
+			n - (1L << wordSize)
+		} {
+			n
+		}
 	}
 
 	uncheckedGcd { :self :anInteger |

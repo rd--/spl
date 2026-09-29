@@ -827,6 +827,12 @@
 		self.collect(truncate/1)
 	}
 
+	twosComplement { :self :wordSize |
+		self.collect { :each |
+			each.twosComplement(wordSize)
+		}
+	}
+
 	unitize { :self |
 		self.collect(unitize/1)
 	}
@@ -1056,15 +1062,6 @@
 
 	nthRoot { :self :anObject |
 		anObject.adaptToCollectionAndApply(self, nthRoot/2)
-	}
-
-	plusTwosComplement { :a :b :wordSize |
-		b.adaptToCollectionAndApply(
-			a,
-			{ :i :j |
-				plusTwosComplement(i, j, wordSize)
-			}
-		)
 	}
 
 	round { :self :anObject |
