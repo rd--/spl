@@ -14,6 +14,6 @@ let m = MandelbrotBenchmark(); [1, 500, 750].do { :each | m.run(each) } /* 0 599
 let n = NBodyBenchmark(); [1, 250000].do { :each | n.run(each) } /* 0 5386ms */
 
 /* Squeak benchmarks */
-let [t, r] = { 26.squeakBenchFib }.timing; r = 392835 & { t < 500 }
-let [t, r] = { 10.squeakTinyBenchmarks }.timing; r = 1028 & { t < 500 } /* c.f tinyBenchmarks */
+let [t, r] = { 26.squeakBenchFib }.timing; r = 392835 & { t < 0.25 }
+let [t, r] = { 10.squeakTinyBenchmarks }.timing; r = 1028 & { t < 0.25 } /* c.f tinyBenchmarks */
 let [t, r] = { 23.squeakBenchFib }.repeatedTiming(0.25); t < 0.05 & { r = 92735 }

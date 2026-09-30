@@ -21,7 +21,7 @@ In the binary case remove the last _n_ items:
 
 * * *
 
-See also: remove, removeFirst
+See also: allButLast, remove, removeFirst
 
 References:
 _Smalltalk_

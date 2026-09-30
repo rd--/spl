@@ -186,10 +186,6 @@ Complex : [Object, Store, Equal, Compare, Number] { | real imaginary |
 		}
 	}
 
-	components { :self |
-		[self.real, self.imaginary]
-	}
-
 	concisePrintString { :self |
 		[
 			{ self.isReal } -> { self.real.printString },
@@ -386,7 +382,7 @@ Complex : [Object, Store, Equal, Compare, Number] { | real imaginary |
 		].stringIntercalate('J')
 	}
 
-	realImaginary { :self |
+	[realImaginary, components] { :self |
 		[self.real, self.imaginary]
 	}
 

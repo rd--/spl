@@ -262,6 +262,7 @@ Guide/Trigonometric Functions.help.sl
 Guide/Tuning Functions.help.sl
 Guide/Tuple Syntax.help.sl
 Guide/Type Definition Syntax.help.sl
+Guide/Type Predicates.help.sl
 Guide/Types of Orderings.help.sl
 Guide/Unary Operator Syntax.help.sl
 Guide/Unchecked Functions.help.sl
@@ -675,6 +676,7 @@ Reference/bifolium.help.sl
 Reference/bilinearInterpolation.help.sl
 Reference/BiLinRand.help.sl
 Reference/binaryCombinations.help.sl
+Reference/binaryContraction.help.sl
 Reference/binaryDetectIndex.help.sl
 Reference/binaryDistance.help.sl
 Reference/binaryExpansion.help.sl
@@ -1714,6 +1716,7 @@ Reference/Geometry.help.sl
 Reference/gergonnePoint.help.sl
 Reference/GetTempo.help.sl
 Reference/gijswijtsSequence.help.sl
+Reference/gingerbreadmanMap.help.sl
 Reference/gitHubFileUrl.help.sl
 Reference/gitLabFileUrl.help.sl
 Reference/glaisher.help.sl
@@ -2647,6 +2650,7 @@ Reference/lowerChristoffelWord.help.sl
 Reference/lowerIncompleteGamma.help.sl
 Reference/lowerTriangularize.help.sl
 Reference/lowLine.help.sl
+Reference/loziMap.help.sl
 Reference/Lpf.help.sl
 Reference/Lpz1.help.sl
 Reference/Lpz2.help.sl
@@ -3666,6 +3670,7 @@ Reference/rucklidgeEquation.help.sl
 Reference/rudinShapiro.help.sl
 Reference/rulerFunction.help.sl
 Reference/rulesTree.help.sl
+Reference/rulkovMap.help.sl
 Reference/RunArray.help.sl
 Reference/rungeKuttaMethod.help.sl
 Reference/runLengths.help.sl

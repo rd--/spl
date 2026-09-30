@@ -34,6 +34,36 @@ Threads elementwise over lists:
 [0 0.8427 0.9953 0.9944]
 ```
 
+At `zero` and `Infinity`:
+
+```
+>>> 0.erf
+0
+
+>>> Infinity.erf
+1
+```
+
+At `Complex`:
+
+```
+>>> 1.5J-1.erf
+1.07840J0.027964
+```
+
+Maclaurin series for calculating the complex `erf`:
+
+```
+>>> let c = 1.5J-1;
+>>> (2 / 1.pi.sqrt) * 0:12.sum { :n |
+>>> 	let m = (2 * n + 1);
+>>> 	((-1 ^ n) * (c ^ m))
+>>> 	/
+>>> 	(n.factorial * m)
+>>> }
+1.07840J0.027964
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A
@@ -41,6 +71,16 @@ Plot over a subset of the reals:
 ~~~
 
 ![](Help/Image/erf-A.svg)
+
+Plot a clothoid:
+
+~~~spl svg=B
+[-2.25 .. 2.25; 0.025].collect { :t |
+	(t + t.i).erf.realImaginary
+}.scatterPlot
+~~~
+
+![](Help/Image/erf-B.svg)
 
 * * *
 

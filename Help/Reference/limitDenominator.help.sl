@@ -1,8 +1,8 @@
 # limitDenominator
 
-- _limitDenominator(aFraction, anInteger)_
+- _limitDenominator(n/d, i)_
 
-Find the nearest approximation to _aFraction_ that has a denominator less than or equal to _anInteger_.
+Find the nearest approximation to the fraction _n/d_ that has a denominator less than or equal to the integer _i_.
 
 ```
 >>> let r = 1.pi.asFractionOver(1E6);
@@ -17,17 +17,17 @@ Recover a rational number that is represented as a float:
 
 ```
 >>> let n = 1/3.pi.cos;
->>> let r = n.asFractionOver(1E23);
+>>> let r = n.asFractionOver(10L ^ 23);
 >>> (r, r.limitDenominator(1E6))
 (
-	1490116119384765/2980232238769531,
+	5960464477539063/11920928955078125,
 	1/2
 )
 
->>> let r = 1.1.asFractionOver(1E23);
+>>> let r = 1.1.asFractionOver(10L ^ 23);
 >>> (r, r.limitDenominator(1E6))
 (
-	6556510925292969/5960464477539062,
+	13113021850585938/11920928955078125,
 	11/10
 )
 ```

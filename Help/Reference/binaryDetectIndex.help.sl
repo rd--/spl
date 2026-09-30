@@ -52,20 +52,18 @@ No such index:
 6
 ```
 
-Detect first value that is not a small integer at `Range`:
+Detect index of first value that is not a small integer at `Range`:
 
 ```
->>> let x = 1E0;
->>> let y = 1E19;
->>> let i = (x .. y).binaryDetectIndex { :n |
+>>> let r = (0L, 500 .. 1E16);
+>>> let i = r.binaryDetectIndex { :n |
 >>> 	n.isSmallInteger.not
 >>> };
->>> (y - x, i, x + i, (2 ^ 53) - 1)
+>>> (i, r[i], (2 ^ 53) - 1)
 (
-	10000000000000000000L,
-	    9007199254740992L,
-	    9007199254740992L,
-	    9007199254740991L
+	  18014398509483,
+	9007199254741000L,
+	9007199254740991L
 )
 ```
 

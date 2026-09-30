@@ -19,6 +19,7 @@ Neither the left or right unicode double quotation marks are quotation marks:
 false
 
 >>> '”'.isQuotationMark
+false
 ```
 
 * * *

@@ -6,7 +6,7 @@ The Rulkov map is a two-dimensional iterated map used to model a biological neur
 
 Rulkov map with _α=4.035_ and _σ=-1_:
 
-~~~spl svg=A
+~~~spl png=A
 rulkovMap(4.035, 0.001, -1)
 .nestList([-1 -2.9], 2000)
 .column(1)

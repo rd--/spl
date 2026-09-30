@@ -62,7 +62,7 @@ true
 
 * * *
 
-See also: allButFirst, copyFromTo, first, last
+See also: allButFirst, copyFromTo, first, last, removeLast
 
 Guides: List Functions
 

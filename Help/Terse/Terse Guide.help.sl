@@ -3178,7 +3178,7 @@ Infinity.asString = 'Infinity' /* Infinity prints as Infinity */
 23.isInteger /* is a small float an integer */
 23.isSmallInteger /* is a small float a small integer */
 (2 ^ 53) = 9007199254740992L /* a small float that is an integer that is beyond the range of small integers */
-(2 ^ 53).isInteger /* is a small float an integer */
+(2 ^ 53).isIeeeInteger /* is a small float an Ieee integer */
 (2 ^ 53).isSmallInteger = false /* is a small float a small integer */
 23.assertIsSmallInteger = 23 /* require that a number be a small integer */
 { 3.141.assertIsSmallInteger }.hasError /* raise an error if value is not a small integer */

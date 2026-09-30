@@ -26,7 +26,7 @@ Remove three items:
 
 * * *
 
-See also: remove, removeLast
+See also: allButFirst, remove, removeLast
 
 Guides: List Functions
 

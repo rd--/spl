@@ -27,7 +27,7 @@ Count _Guide_ files:
 >>> system.helpIndex
 >>> .names('Guide')
 >>> .size
-284
+285
 ```
 
 * * *

@@ -118,6 +118,25 @@
 
 }
 
++Complex {
+
+	erfMaclaurinSeries { :z :i |
+		let zz = z * z;
+		(2 / 1.pi.sqrt) * 0:i.sum { :n |
+			let m = (2 * n + 1);
+			(z / m) * 1:n.product { :k |
+				-zz / k
+			}
+		}
+	}
+
+	erf { :z |
+		z.erfMaclaurinSeries(24)
+	}
+
+}
+
+
 +@Number {
 
 	riemannXi { :z |

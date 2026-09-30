@@ -61,14 +61,6 @@
 		}
 	}
 
-	gingerbreadmanMap { :v |
-		let [x, y] = v;
-		[
-			1 - y + x.abs,
-			x
-		]
-	}
-
 	henonAreaPreservingMap { :a |
 		let s = a.sin;
 		let c = a.cos;
@@ -196,6 +188,18 @@
 				mu * (1 - x)
 			}
 		}
+	}
+
+}
+
++List {
+
+	gingerbreadmanMap { :v |
+		let [x, y] = v;
+		[
+			1 - y + x.abs,
+			x
+		]
 	}
 
 }

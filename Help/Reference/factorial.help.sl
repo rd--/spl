@@ -406,6 +406,15 @@ OEIS [A000178](https://oeis.org/A000178):
 [1 1 2 12 288 34560 24883200]
 ```
 
+_(2n+1)n!_,
+OEIS [A007680](https://oeis.org/A007680):
+
+```
+>>> let n = 0:9;
+>>> (2 * n + 1) * n.factorial
+[1 3 10 42 216 1320 9360 75600 685440 6894720]
+```
+
 The [Kempner_function](https://en.wikipedia.org/wiki/Kempner_function),
 also sometimes called the Smarandache function or Kempner numbers,
 the smallest positive integer _m_ such that _n_ divides _m!_,

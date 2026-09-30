@@ -266,7 +266,7 @@ HavlakLoopFinder : [Object] { | cfg lsg nonBackPreds backPreds number maxSize he
 	}
 
 	setLoopAttributeNodePoolLoop { :self :w :nodePool :loop |
-		self.nodes[w].loop(loop);
+		self.nodes[w].loop := loop;
 		nodePool.do { :node |
 			self.header[node.dfsNumber] := w;
 			node.union(self.nodes[w]);
@@ -305,7 +305,7 @@ LoopStructureGraph : [Object] { | root loops loopCounter |
 		self.loops := List();
 		self.loopCounter := 0;
 		self.root.setNestingLevel(0);
-		self.root.counter(self.loopCounter);
+		self.root.counter := self.loopCounter;
 		self.loopCounter := self.loopCounter + 1;
 		self.loops.addLast!(self.root);
 		self
@@ -313,7 +313,7 @@ LoopStructureGraph : [Object] { | root loops loopCounter |
 
 	createNewLoopReducible { :self :bb :isReducible |
 		let loop = SimpleLoop(bb, isReducible);
-		loop.counter(self.loopCounter);
+		loop.counter := self.loopCounter;
 		self.loopCounter := self.loopCounter + 1;
 		self.loops.addLast!(loop);
 		loop
@@ -331,7 +331,7 @@ LoopStructureGraph : [Object] { | root loops loopCounter |
 	}
 
 	calculateNestingLevelRecDepth { :self :loop :depth |
-		loop.depthLevel(depth);
+		loop.depthLevel := depth;
 		loop.children.do { :liter |
 			self.calculateNestingLevelRecDepth(liter, depth + 1);
 			loop.setNestingLevel(loop.nestingLevel.max(1 + liter.nestingLevel))

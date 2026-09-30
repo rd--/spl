@@ -243,7 +243,7 @@ This is a close approximation to 2.sqrt:
 
 ```
 >>> let f = { :r |
->>> 	let [x, y] = r.components;
+>>> 	let [x, y] = r.numeratorDenominator;
 >>> 	(x ^ 2 + (2 * (y ^ 2))).r(2 * x * y)
 >>> };
 >>> (

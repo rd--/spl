@@ -45,15 +45,15 @@ The least negative small integer:
 
 A `SmallFloat` that is an integer,
 according to `isInteger`,
-need not be a small integer.
+must also be a small integer:
 
 _2^54_ and _20!_ are integers:
 
 ```
->>> (2 ^ 54).isInteger
+>>> (2 ^ 54).isIeeeInteger
 true
 
->>> 20.!.isInteger
+>>> 20.!.isLargeInteger
 true
 ```
 
