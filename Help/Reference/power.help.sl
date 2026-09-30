@@ -1050,6 +1050,25 @@ OEIS [A007778](https://oeis.org/A007778):
 [0 1 8 81 1024 15625 279936 5764801]
 ```
 
+_3(2^n)_,
+OEIS [A007283](https://oeis.org/A007283):
+
+```
+>>> 2 ^ 0:9 * 3
+[3 6 12 24 48 96 192 384 768 1536]
+
+>>> (2 ^ 0:9 * 3).differences
+[3 6 12 24 48 96 192 384 768]
+```
+
+Coordination sequence for infinite tree with valency eleven,
+OEIS [A003953](https://oeis.org/A003953):
+
+```
+>>> 11 * (10 ^ 0:5)
+[11 110 1100 11000 110000 1100000]
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A

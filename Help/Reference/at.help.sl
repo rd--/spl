@@ -134,6 +134,8 @@ See also: atAll, atFold, atIfAbsent, atIfPresent, atIfPresentIfAbsent, atMod, at
 Guides: AtPut Syntax, At Syntax, Indexing Functions, Property Read Syntax
 
 References:
+_J_
+[1](https://code.jsoftware.com/wiki/Vocabulary/curlylf#dyadic),
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Part.html)
 [2](https://reference.wolfram.com/language/ref/Lookup.html),

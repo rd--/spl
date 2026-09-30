@@ -96,6 +96,36 @@ false
 0
 ```
 
+Numbers that are divisible by the square of an odd prime.
+OEIS [A038838](https://oeis.org/A038838):
+
+```
+>>> 1:99.reject { :n |
+>>> 	(n / (2 ^ n.integerExponent(2)))
+>>> 	.isSquareFree
+>>> }
+[
+	 9 18 25 27 36 45 49 50 54 63
+	72 75 81 90 98 99
+]
+```
+
+Squarefree numbers multiplied by binary powers,
+OEIS [A122132](https://oeis.org/A122132):
+
+```
+>>> 1:35.select { :n |
+>>> 	(n / (2 ^ n.integerExponent(2)))
+>>> 	.isSquareFree
+>>> }
+[
+	 1  2  3  4  5  6  7  8 10 11
+	12 13 14 15 16 17 19 20 21 22
+	23 24 26 28 29 30 31 32 33 34
+	35
+]
+```
+
 Squarefree numbers,
 OEIS [A005117](https://oeis.org/A005117):
 

@@ -326,13 +326,7 @@
 		self.includes(anObject).not
 	}
 
-	elementType { :self |
-		self.elementTypeIfAbsent {
-			nil
-		}
-	}
-
-	elementTypeIfAbsent { :self :aBlock/0 |
+	[elementType, elementTypeIfAbsent] { :self :aBlock/0 |
 		self.isEmpty.if {
 			aBlock()
 		} {
@@ -344,6 +338,12 @@
 			} {
 				aBlock()
 			}
+		}
+	}
+
+	elementType { :self |
+		self.elementTypeIfAbsent {
+			nil
 		}
 	}
 

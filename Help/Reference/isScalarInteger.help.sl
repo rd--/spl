@@ -30,10 +30,14 @@ At `List`:
 ```
 >>> [1 3 5].isScalarInteger
 false
+
+>>> [1 3 5].isInteger
+[true true true]
 ```
 
 _Rationale_:
-The `isInteger` predicate is only defined for numbers.
+The `isInteger` predicate is only defined for numbers,
+and threads over lists.
 
 * * *
 

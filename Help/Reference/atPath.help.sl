@@ -41,11 +41,22 @@ A one element path at a matrix:
 ['y' 'z']
 ```
 
-A two element path at a matrix:
+A two element path at a 2×2 matrix:
 
 ```
 >>> ['w' 'x'; 'y' 'z'].atPath([1 2])
 'x'
+```
+
+A three element path at 10×10×10 array,
+omitted trailing dimensions are taken in full:
+
+```
+>>> [10 10 10].iota.atPath([3 2 4])
+214
+
+>>> [10 10 10].iota.atPath([3 2])
+[211 .. 220]
 ```
 
 The infix form is `@>`:
@@ -66,6 +77,8 @@ Guides: Indexing Functions
 
 References:
 _Apl_
-[1](https://aplwiki.com/wiki/Pick)
+[1](https://aplwiki.com/wiki/Pick),
+_J_
+[1](https://code.jsoftware.com/wiki/Vocabulary/curlylfcoco#dyadic)
 
 Categories: Accessing

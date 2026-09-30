@@ -64,6 +64,7 @@
 	}
 
 	factorInteger { :self |
+		self.assertIsInteger('factorInteger');
 		[-1 0 1].includes(self).if {
 			[[self, 1]]
 		} {
@@ -982,21 +983,20 @@
 	uncheckedPrimeFactors { :self |
 		valueWithReturn { :return/1 |
 			let index = 1;
-			let prime = 2;
 			let k = self;
 			let answer = [];
 			{
-				prime := index.prime;
+				let p = index.prime;
 				{
-					k % prime = 0
+					k % p = 0
 				}.whileTrue {
-					answer.add!(prime);
-					k := k // prime;
+					answer.add!(p);
+					k := k // p;
 					(k = 1).ifTrue {
 						answer.return
 					}
 				};
-				(prime.square > k).ifTrue {
+				(p.square > k).ifTrue {
 					answer.add!(k.normal);
 					answer.return
 				};
@@ -1129,6 +1129,10 @@
 
 	prime { :self |
 		self.collect(prime/1)
+	}
+
+	primeNu { :self |
+		self.collect(primeNu/1)
 	}
 
 	primeOmega { :self |

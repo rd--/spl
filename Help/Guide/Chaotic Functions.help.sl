@@ -23,6 +23,7 @@ Map Functions:
 - `duffingMap`
 - `dyadicMap`
 - `gaussIteratedMap`
+- `gingerbreadmanMap`
 - `henonAreaPreservingMap`
 - `henonMap`
 - `ikedaMap`

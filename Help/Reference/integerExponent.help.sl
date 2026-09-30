@@ -225,6 +225,38 @@ OEIS [A003159](https://oeis.org/A003159):
 [2 1 1 2 2 2 1 1 2 1 1 2 1 1 2 2 2 1 1 2 2 2]
 ```
 
+Sums of three squares,
+OEIS [A000378](https://oeis.org/A000378):
+
+```
+>>> 0:23.select { :n |
+>>> 	let k = n.integerExponent(2);
+>>> 	k.isOdd | {
+>>> 		n / (2 ^ k) % 8 != 7
+>>> 	}
+>>> }
+[
+	 0  1  2  3  4  5  6  8  9 10
+	11 12 13 14 16 17 18 19 20 21
+	22
+]
+```
+
+Numbers that are the sum of four but no fewer nonzero squares,
+OEIS [A004215](https://oeis.org/A004215):
+
+```
+>>> 1:120.select { :n |
+>>> 	n / (4 ^ n.integerExponent(4)) % 8 = 7
+>>> }
+[
+	  7  15  23  28  31
+	 39  47  55  60  63
+	 71  79  87  92  95
+	103 111 112 119
+]
+```
+
 Powers of two in successive integers,
 the binary carry sequence,
 also called the ruler sequence,

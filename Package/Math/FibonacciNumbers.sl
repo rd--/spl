@@ -415,9 +415,8 @@
 		n.isPrime.if {
 			n.pisanoPeriodDirectForm
 		} {
-			n.factorInteger.collect { :each |
-				let [n, k] = each;
-				pisanoPeriodPrimePower(n, k)
+			n.factorInteger.collect { :f |
+				pisanoPeriodPrimePower(f[1], f[2])
 			}.lcm
 		}
 	}

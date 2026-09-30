@@ -33,7 +33,7 @@ The answer is sorted by factor.
 >>> }
 7.!
 
->>> 20.!.factorInteger
+>>> 20L.!.factorInteger
 [
 	 2 18;
 	 3  8;
@@ -45,7 +45,8 @@ The answer is sorted by factor.
 	19  1
 ]
 
->>> (3 ^ 51).factorInteger
+>>> 2153693963075557735268352L
+>>> .factorInteger
 [
 	          2 28;
 	          3  2;
@@ -55,10 +56,22 @@ The answer is sorted by factor.
 ]
 ```
 
+At `SmallFloat` requires _n_ be an integer:
+
+```
+>>> {
+>>> 	(3 ^ 51).factorInteger
+>>> }.hasError
+true
+
+>>> (3L ^ 51).factorInteger
+[[3 51]]
+```
+
 Factor prime:
 
 ```
->>> factorInteger(65537)
+>>> 65537.factorInteger
 [[65537 1]]
 ```
 
@@ -67,6 +80,21 @@ A prime power has one prime factor:
 ```
 >>> 25.factorInteger
 [[5 2]]
+```
+
+At `LargeInteger`:
+
+```
+>>> (2L ^ 64 - 1).factorInteger
+[
+	3 1;
+	5 1;
+	17 1;
+	257 1;
+	641 1;
+	65537 1;
+	6700417 1
+]
 ```
 
 For negative numbers, the item _-1 -> 1_ is included in the list of factors:

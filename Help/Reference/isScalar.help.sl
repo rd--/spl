@@ -1,11 +1,11 @@
 # isScalar
 
-- _isScalar(aNumber)_
+- _isScalar(x)_
 
-Answer `true` if _aNumber_ is a scalar number, else `false`.
+Answer `true` if the number _x_ is a scalar number, else `false`.
 
 ```
->>> Gcd(17, 23).isScalar
+>>> gcd(17, 23).isScalar
 true
 
 >>> SinOsc(440, 0).isScalar

@@ -234,6 +234,20 @@ OEIS [A167320](https://oeis.org/A167320):
 
 ![](Help/Image/primeOmega-H.svg)
 
+_(2^Ω(n))(3^ω(n))_,
+OEIS [A124508](https://oeis.org/A124508):
+
+~~~spl svg=I oeis=A124508
+let n = 1:115;
+(
+	(2 ^ n.primeOmega)
+	*
+	(3 ^ n.primeNu)
+).scatterPlot
+~~~
+
+![](Help/Image/primeOmega-I.svg)
+
 * * *
 
 See also: factorInteger, isPrimePower, primeNu

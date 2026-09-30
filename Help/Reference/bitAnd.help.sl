@@ -114,6 +114,26 @@ Truth table for and:
 [0 0; 0 1]
 ```
 
+_(2^a)(3^b)(5^c)_,
+OEIS [A051916](https://oeis.org/A051916):
+
+```
+>>> let a = [15 1 5 3];
+>>> let b = [-2 2 0 1];
+>>> 1:19.collect { :n |
+>>> 	(n < 5).if {
+>>> 		n + 2
+>>> 	} {
+>>> 		let m = n.bitAnd(3) + 1;
+>>> 		a[m] << ((n >> 2) + b[m])
+>>> 	}
+>>> }
+[
+	  3  4  5  6  8 10 12 15 16 20
+	 24 30 32 40 48 60 64 80 96
+]
+```
+
 Bitwise and of _n-1_ and _n_,
 OEIS [A129760](https://oeis.org/A129760):
 

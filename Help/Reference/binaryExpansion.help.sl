@@ -363,7 +363,7 @@ OEIS [A153141](https://oeis.org/A153141):
 
 * * *
 
-See also: decimalExpansion, integerDigits
+See also: binaryContraction, decimalExpansion, integerDigits
 
 Guides: Integer Functions
 

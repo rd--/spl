@@ -37,7 +37,8 @@ false
 false
 ```
 
-At `nil`:
+At `nil`,
+signal an error:
 
 ```
 >>> {
@@ -52,8 +53,11 @@ At `List`:
 >>> [1.pi 23].isFinite
 true
 
->>> [23, Infinity, 1.pi / 0].isFinite
+>>> [23 Infinity NaN].isFinite
 false
+
+>>> [23 Infinity NaN].collect(isFinite/1)
+[true, false, false]
 ```
 
 * * *

@@ -28,6 +28,25 @@ OEIS [A004018](https://oeis.org/A004018):
 ]
 ```
 
+First few terms with _d=3_,
+OEIS [A005875](https://oeis.org/A005875):
+
+```
+>>> 0:73.collect { :n |
+>>> 	3.squaresR(n)
+>>> }
+[
+	 1  6 12  8  6 24 24  0 12 30
+	24 24  8 24 48  0  6 48 36 24
+	24 48 24  0 24 30 72 32  0 72
+	48  0 12 48 48 48 30 24 72  0
+	24 96 48 24 24 72 48  0  8 54
+	84 48 24 72 96  0 48 48 24 72
+	 0 72 96  0  6 96 96 24 48 96
+	48  0 36 48
+]
+```
+
 First few terms with _d=4_,
 OEIS [A000118](https://oeis.org/A000118):
 
@@ -140,6 +159,22 @@ OEIS [A023531](https://oeis.org/A023531):
 ]
 ```
 
+Numbers that are the sum of three but no fewer nonzero squares,
+OEIS [A000419](https://oeis.org/A000419):
+
+```
+>>> 1:70.select { :n |
+>>> 	3.squaresR(n) > 0 & {
+>>> 		2.squaresR(n) = 0
+>>> 	}
+>>> }
+[
+	 3  6 11 12 14 19 21 22 24 27
+	30 33 35 38 42 43 44 46 48 51
+	54 56 57 59 62 66 67 69 70
+]
+```
+
 Number of ways of writing _n_ as a sum of two squares,
 OEIS [A004018](https://oeis.org/A004018):
 
@@ -190,6 +225,21 @@ let f = { :n |
 ~~~
 
 ![](Help/Image/squaresR-D.svg)
+
+Least number of squares that add up to _n_,
+OEIS [A002828](https://oeis.org/A002828):
+
+~~~spl svg=E oeis=A002828
+1:85.collect { :n |
+	[1 2 3].detectIfNone { :i |
+		i.squaresR(n) > 0
+	} {
+		4
+	}
+}.stepPlot
+~~~
+
+![](Help/Image/squaresR-E.svg)
 
 * * *
 

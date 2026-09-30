@@ -232,6 +232,18 @@ The all-interval twelve-tone row due to Pohlman Mallalieu:
 true
 ```
 
+_3(2^n)_,
+the sequence of first differences is th sequence itself,
+OEIS [A007283](https://oeis.org/A007283):
+
+```
+>>> 2 ^ 0:9 * 3
+[3 6 12 24 48 96 192 384 768 1536]
+
+>>> (2 ^ 0:9 * 3).differences
+[3 6 12 24 48 96 192 384 768]
+```
+
 Successive differences modulo two of a sequence based on the primes:
 
 ~~~spl svg=A

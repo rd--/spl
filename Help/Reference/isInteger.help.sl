@@ -17,6 +17,18 @@ false
 false
 ```
 
+At `SmallFloat`,
+values that are integers but not small integers answer `false`,
+see also `isIeeeInteger`:
+
+```
+>>> 1E50.isInteger
+false
+
+>>> 1E50.isIeeeInteger
+true
+```
+
 The binary form allows as ε value to be specified:
 
 ```

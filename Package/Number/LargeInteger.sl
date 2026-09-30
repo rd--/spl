@@ -400,17 +400,6 @@ LargeInteger! : [Object, Store, Equal, Compare, Binary, Number, Integer] {
 		self.storeStringLiteral
 	}
 
-	twosComplement { :self :wordSize |
-		let bitMask = (1L << wordSize) - 1L;
-		let signBit = 1L << (wordSize - 1L);
-		let n = self.bitAnd(bitMask);
-		(n.bitAnd(signBit) != 0L).if {
-			n - (1L << wordSize)
-		} {
-			n
-		}
-	}
-
 	uncheckedGcd { :self :anInteger |
 		<primitive:
 		let a = _self;

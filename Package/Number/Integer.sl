@@ -1191,25 +1191,7 @@
 
 	lcm { :self :anInteger |
 		anInteger.isScalarInteger.if {
-			let a = self;
-			let b = anInteger;
-			(
-				a = 0 | {
-					b = 0
-				}
-			).if {
-				0
-			} {
-				let ab = a * b;
-				{
-					b = 0
-				}.whileFalse {
-					let tmp = b;
-					b := a % tmp;
-					a := tmp
-				};
-				(ab / a).abs
-			}
+			self.uncheckedLcm(anInteger)
 		} {
 			anInteger.adaptToNumberAndApply(self, lcm/2)
 		}
@@ -1386,6 +1368,15 @@
 		}
 	}
 
+	onesComplement { :self :wordSize |
+		let a = self.twosComplement(wordSize);
+		(a < 0).if {
+			a + 1
+		} {
+			a
+		}
+	}
+
 	perfectDigitalInvariantFunction { :self :base :power |
 		let sum = 0;
 		{ self > 0 }.whileTrue {
@@ -1554,12 +1545,24 @@
 					},
 					2 -> {
 						let f = { :c |
-							n.divisors.count { :x | (x % 4) = c }
+							n.divisors.count { :x |
+								(x % 4) = c
+							}
 						};
 						4 * (f(1) - f(3))
 					},
+					3 -> {
+						let m = n.integerSquareRoot + 1;
+						2.squaresR(n) + (
+							1:m.sum { :k |
+								2.squaresR(n - (k ^ 2))
+							} << 1
+						)
+					},
 					4 -> {
-						8 * n.divisors.select { :x | x.divisible(4).not }.sum
+						8 * n.divisors.select { :x |
+							x.divisible(4).not
+						}.sum
 					}
 				]
 			) {
@@ -1676,11 +1679,52 @@
 		self
 	}
 
+	twosComplementBitwise { :self :wordSize |
+		let bitMask = (1 << wordSize) - 1;
+		let signBit = 1 << (wordSize - 1);
+		let n = self.bitAnd(bitMask);
+		(n.bitAnd(signBit) != 0).if {
+			n - (1 << wordSize)
+		} {
+			n
+		}
+	}
+
+	twosComplement { :self :wordSize |
+		let m = 2 ^ wordSize;
+		let u = self % m;
+		(u >= (m / 2)).if {
+			u - m
+		} {
+			u
+		}
+	}
+
 	unaryExpansion { :self |
 		self.isPositiveInteger.if {
 			List(self, 1)
 		} {
 			self.error('unaryExpansion')
+		}
+	}
+
+	uncheckedLcm { :a :b |
+		(
+			a = 0 | {
+				b = 0
+			}
+		).if {
+			0
+		} {
+			let ab = a * b;
+			{
+				b = 0
+			}.whileFalse {
+				let c = b;
+				b := a % c;
+				a := c
+			};
+			(ab / a).abs
 		}
 	}
 

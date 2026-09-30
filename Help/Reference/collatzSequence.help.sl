@@ -284,6 +284,16 @@ Long sequences:
 351
 ```
 
+Numbers containing the number three in their Collatz trajectories,
+OEIS [A007283](https://oeis.org/A007283):
+
+```
+>>> 1:200.select { :n |
+>>> 	n.collatzSequence.includes(3)
+>>> }
+[3 6 12 24 48 96 192]
+```
+
 Number of halving and tripling steps to reach one in the _3x+1_ problem,
 OEIS [A006577](https://oeis.org/A006577):
 

@@ -61,6 +61,14 @@
 		}
 	}
 
+	gingerbreadmanMap { :v |
+		let [x, y] = v;
+		[
+			1 - y + x.abs,
+			x
+		]
+	}
+
 	henonAreaPreservingMap { :a |
 		let s = a.sin;
 		let c = a.cos;
@@ -109,6 +117,16 @@
 		}
 	}
 
+	loziMap { :a :b |
+		{ :v |
+			let [x, y] = v;
+			[
+				1 - (a * x.abs) + y,
+				b * x
+			]
+		}
+	}
+
 	martinMap { :a :b :c |
 		{ :v |
 			let [x, y] = v;
@@ -133,6 +151,43 @@
 		}
 	}
 
+	rulkovMap { :alpha :mu :sigma |
+		{ :v |
+			let [x, y] = v;
+			[
+				(alpha / (1 + x.square)) + y,
+				y - (mu * (x - sigma))
+			]
+		}
+	}
+
+	/*
+	rulkovMapB { :alpha :mu :sigma |
+		let f/2 = rulkovNonlinearFunction(alpha);
+		{ :v |
+			let [x, y] = v;
+			[
+				f(x, y),
+				y - (mu * (x - sigma))
+			]
+		}
+	}
+	*/
+
+	rulkovNonlinearFunction { :alpha |
+		{ :x :y |
+			(x <= 0).if {
+				alpha / (1 - x) + y
+			} {
+				(x < (alpha + y)).if {
+					alpha + y
+				} {
+					-1
+				}
+			}
+		}
+	}
+
 	tentMap { :mu |
 		{ :x |
 			(x < 0.5).if {
@@ -141,6 +196,19 @@
 				mu * (1 - x)
 			}
 		}
+	}
+
+}
+
++String {
+
+	rulkovMap { :k :a :b :c |
+		k.caseOf(
+			[
+				'A' -> { rulkovMapA(a, b, c) },
+				'B' -> { rulkovMapB(a, b, c) }
+			]
+		)
 	}
 
 }

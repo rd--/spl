@@ -643,6 +643,12 @@
 		self.collect(numeratorDenominator/1)
 	}
 
+	onesComplement { :self :wordSize |
+		self.collect { :each |
+			each.onesComplement(wordSize)
+		}
+	}
+
 	[partitionFunctionP, partitionsP] { :self |
 		self.collect(partitionsP/1)
 	}

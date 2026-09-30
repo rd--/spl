@@ -1,6 +1,6 @@
 # " (quotationMark)
 
-" is a syntax token, it is not an operator.
+`"` is a syntax token, it is not an operator.
 
 It is part of `String Syntax`.
 
