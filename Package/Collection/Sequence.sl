@@ -322,7 +322,7 @@
 	}
 
 	atPutPin { :self :index :value |
-		self.atPut(self.pinnedIndex(index), value)
+		self.atPut!(self.pinnedIndex(index), value)
 	}
 
 	atPutWrap { :self :index :anObject |

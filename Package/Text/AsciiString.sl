@@ -24,8 +24,8 @@ AsciiString : [Object, Store, Equal, Iterable, Indexable, Collection, Sequence] 
 		self.contents.atIfAbsent(anInteger, ifAbsent/0).asCharacter
 	}
 
-	atPut { :self :anInteger :aCharacter |
-		self.contents.atPut(anInteger, aCharacter.codePoint)
+	atPut! { :self :anInteger :aCharacter |
+		self.contents.atPut!(anInteger, aCharacter.codePoint)
 	}
 
 	codePoints { :self |

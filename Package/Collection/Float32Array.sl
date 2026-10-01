@@ -1,13 +1,13 @@
 Float32Array! : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, Sequence, PrimitiveArray] {
 
-	atPut { :self :index :aFloat |
+	atPut! { :self :index :aFloat |
 		<primitive:
 		if(sl.arrayCheckIndex(_self, _index) && sl.isSmallFloat(_aFloat)) {
 			_self[_index - 1] = _aFloat;
 			return _aFloat;
 		}
 		>
-		self.errorInvalidIndex('atPut', index)
+		self.errorInvalidIndex('atPut!', index)
 	}
 
 	buffer { :self |

@@ -4,7 +4,7 @@ ByteArray! : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, Se
 		<primitive: return new TextDecoder('ascii').decode(_self);>
 	}
 
-	atPut { :self :anInteger :aByte |
+	atPut! { :self :anInteger :aByte |
 		<primitive:
 		if(Number.isInteger(_anInteger) && sl.isByte(_aByte)) {
 			_self[_anInteger - 1] = _aByte;

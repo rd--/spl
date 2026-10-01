@@ -10,7 +10,7 @@ Map! : [Object, Store, Equal, Iterable, Indexable, Collection, Extensible, Dicti
 		self.asRecord.encodeJson(replacer, space)
 	}
 
-	atPut { :self :key :value |
+	atPut! { :self :key :value |
 		key.isImmediate.ifFalse {
 			self.error('Map>>atPut: non-immediate key', [key])
 		};

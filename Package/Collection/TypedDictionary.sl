@@ -4,8 +4,8 @@ TypedDictionary : [Object, Store, Equal, Iterable, Indexable, Collection, Extens
 		self.contents.at(self.typeCheckKey(key))
 	}
 
-	atPut { :self :key :value |
-		self.contents.atPut(self.typeCheckKey(key), value)
+	atPut! { :self :key :value |
+		self.contents.atPut!(self.typeCheckKey(key), value)
 	}
 
 	comparator { :self |

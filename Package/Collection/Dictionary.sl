@@ -123,8 +123,8 @@
 		self.atAll(keys)
 	}
 
-	atPut { :self :key :value |
-		self.typeResponsibility('@Dictionary>>atPut')
+	atPut! { :self :key :value |
+		self.typeResponsibility('@Dictionary>>atPut!')
 	}
 
 	collect { :self :aBlock/1 |
@@ -587,7 +587,7 @@ Dictionary : [Object, Store, Copyable, Equal, Iterable, Indexable, Collection, E
 		}
 	}
 
-	atPut { :self :key :value |
+	atPut! { :self :key :value |
 		let index = self.keys.indexOfBy(key, self.comparator);
 		(index = 0).if {
 			self.keys.add!(key);

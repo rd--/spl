@@ -180,7 +180,7 @@ Plot : [Object] { | pageList format options |
 	}
 
 	height { :self :aNumber |
-		self.options.atPut('height', aNumber)
+		self.options.atPut!('height', aNumber)
 	}
 
 	log { :self |

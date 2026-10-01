@@ -77,7 +77,7 @@ else a new entry is made:
 
 ```
 >>> let ts = TimeSeries[1 3; 2 2; 3 1];
->>> ts.atPut(1, 5);
+>>> ts.atPut!(1, 5);
 >>> ts[4] := -1;
 >>> ts[2] := 3;
 >>> ts.path

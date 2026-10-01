@@ -4,7 +4,7 @@ Headers! : [Object] {
 		<primitive: return _self.get(_name);>
 	}
 
-	atPut { :self :name :value |
+	atPut! { :self :name :value |
 		<primitive: return _self.set(_name, _value);>
 	}
 

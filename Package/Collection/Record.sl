@@ -13,7 +13,7 @@ Record! : [Object, Store, Equal, Json, Iterable, Indexable, Collection, Extensib
 		>
 	}
 
-	atPut { :self :aString :anObject |
+	atPut! { :self :aString :anObject |
 		<primitive:
 		if(typeof _aString === 'string') {
 			_self[_aString] = _anObject;

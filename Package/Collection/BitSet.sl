@@ -32,7 +32,7 @@ BitSet : [Object, Store, Copyable, Equal, Iterable, Collection, Extensible] { | 
 		ascii.asciiString
 	}
 
-	atPut { :self :anInteger :aBit |
+	atPut! { :self :anInteger :aBit |
 		self.bitAtPut(anInteger, aBit)
 	}
 

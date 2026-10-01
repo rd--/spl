@@ -251,7 +251,7 @@ at(c, plusSign(i, 1))
 
 ```
 >> 'c[i] := x'.splSimplify
-atPut(c, i, x)
+atPut!(c, i, x)
 ```
 
 `AtAll Syntax` is rewritten as `Apply Syntax`:

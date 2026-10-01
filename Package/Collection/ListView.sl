@@ -12,7 +12,7 @@ ListView : [Object, Equal, Compare, Iterable, Indexable, Collection, Sequence] {
 		}
 	}
 
-	atPut { :self :index :value |
+	atPut! { :self :index :value |
 		self.includesIndex(index).if {
 			self.contents[index + self.startIndex - self.referenceIndex] := value
 		} {

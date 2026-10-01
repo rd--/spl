@@ -448,7 +448,7 @@ Block! : [Object, Equal] {
 		{ :input |
 			table.atIfAbsent(input) {
 				let answer = self(input);
-				table.atPut(input, answer);
+				table.atPut!(input, answer);
 				answer
 			}
 		}

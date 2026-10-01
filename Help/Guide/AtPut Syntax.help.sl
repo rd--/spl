@@ -8,13 +8,13 @@ Rewrite rule:
 
 ```
 >> 'c[i] := x'.splSimplify
-atPut(c, i, x)
+atPut!(c, i, x)
 
 >> 'c[i][j] := x'.splSimplify
-atPut(at(c, i), j, x)
+atPut!(at(c, i), j, x)
 
 >> 'c[i][j][k] := x'.splSimplify
-atPut(at(at(c, i), j), k, x)
+atPut!(at(at(c, i), j), k, x)
 ```
 
 At `List`:

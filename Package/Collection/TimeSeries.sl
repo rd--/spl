@@ -26,7 +26,7 @@ TimeSeries : [Object, Store, Equal, Iterable, Indexable, Collection] { | values 
 		)
 	}
 
-	atPut { :self :time :item |
+	atPut! { :self :time :item |
 		let values = self.values;
 		let times = self.times;
 		let index = times.binarySearchRightmost(time);

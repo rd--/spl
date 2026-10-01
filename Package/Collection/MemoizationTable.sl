@@ -3,7 +3,7 @@ MemoizationTable : [Object, Iterable, Collection] { | block:<Block> table |
 	at { :self :key |
 		self.table.atIfAbsent(key) {
 			let value = self.block.value(key);
-			self.table.atPut(key, value);
+			self.table.atPut!(key, value);
 			value
 		}
 	}

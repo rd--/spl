@@ -20,8 +20,8 @@
 		self.coordinates.at(index)
 	}
 
-	atPut { :self :index :value |
-		self.coordinates.atPut(index, value)
+	atPut! { :self :index :value |
+		self.coordinates.atPut!(index, value)
 	}
 
 	compare { :self :anObject |

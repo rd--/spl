@@ -35,6 +35,8 @@ true
 See also: remove, removeAllKeys, removeAt, removeKeyIfAbsent
 
 References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/KeyDropFrom.html),
 _Smalltalk_
 5.7.2.16
 

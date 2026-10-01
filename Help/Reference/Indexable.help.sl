@@ -9,6 +9,20 @@
 true
 ```
 
+The required methods are:
+
+- `at`
+- `atPut`
+- `indices`
+- `size`
+
+The `At Syntax` and `AtPut Syntax` are implemented in terms of `Indexable` methods.
+
+The `Dictionary` types are `Indexable` so that one may use the indexing syntax for dictionaries.
+
+Note, however, that `atAll` is not implemented at `Indexable`.
+Instead is is implemented at `Sequence` since it requires `species` to decide the answer type.
+
 Types implementing `Indexable`:
 
 ```
@@ -43,19 +57,6 @@ Types implementing `Indexable`:
 	'WeakMap'
 ]
 ```
-
-The required methods are:
-
-- `at`
-- `atPut`
-- `indices`
-- `size`
-
-The `At Syntax` and `AtPut Syntax` are implemented in terms of `Indexable` methods.
-
-The `Dictionary` types are `Indexable` so that one may use the indexing syntax for dictionaries.
-
-Note, however, that `atAll` is not at `Indexable`, but instead at `Sequence` since it requires `species` to decide the answer type.
 
 * * *
 

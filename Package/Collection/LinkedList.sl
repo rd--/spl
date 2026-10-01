@@ -115,7 +115,7 @@ LinkedList : [Object, Equal, Store, Copyable, Compare, Iterable, Indexable, Coll
 		self.linkAtIfAbsent(index, ifAbsent/0).value
 	}
 
-	atPut { :self :index :anObject |
+	atPut! { :self :index :anObject |
 		self.atPutLink(index, self.linkOfIfAbsent(anObject) {
 			anObject.asLink
 		})

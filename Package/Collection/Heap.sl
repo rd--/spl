@@ -21,8 +21,8 @@ Heap : [Object, Copyable, Equal, Iterable, Collection, Extensible] { | array sor
 		}
 	}
 
-	atPut { :self :index :newObject |
-		self.shouldNotImplement('atPut')
+	atPut! { :self :index :newObject |
+		self.shouldNotImplement('atPut!')
 	}
 
 	capacity { :self |

@@ -13,14 +13,14 @@
 		>
 	}
 
-	atPut { :self :index :anObject |
+	atPut! { :self :index :anObject |
 		<primitive:
 		if(sl.arrayCheckIndex(_self, _index)) {
 			_self[_index - 1] = _anObject;
 			return _anObject;
 		}
 		>
-		self.errorInvalidIndex('atPut', index)
+		self.errorInvalidIndex('atPut!', index)
 	}
 
 	collect { :self :aBlock/1 |

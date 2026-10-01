@@ -20,7 +20,8 @@ Guides: List Functions
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/Prepend.html),
+[1](https://reference.wolfram.com/language/ref/PrependTo.html)
+[2](https://reference.wolfram.com/language/ref/Prepend.html),
 _Smalltalk_
 5.7.18.12
 

@@ -2,7 +2,7 @@
 
 WeakMap! : [Object, Indexable, PrimitiveMap] {
 
-	atPut { :self :key :value |
+	atPut! { :self :key :value |
 		<primitive:
 		_self.set(_key, _value);
 		return _value;

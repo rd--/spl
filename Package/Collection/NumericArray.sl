@@ -27,7 +27,7 @@ NumericArray : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, 
 	}
 
 	atPathPut { :self :cartesianIndex :x |
-		self.contents.atPut(
+		self.contents.atPut!(
 			self.shape.linearIndex(cartesianIndex),
 			x
 		)

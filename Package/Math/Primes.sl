@@ -1198,7 +1198,7 @@
 		(anInteger > primesList.size).ifTrue {
 			let limit = anInteger.primeBounds.max.ceiling;
 			primesList := limit.wheelSieve;
-			self.cache.atPut('primesList', primesList)
+			self.cache.atPut!('primesList', primesList)
 		};
 		primesList
 	}
@@ -1207,7 +1207,7 @@
 		let primesList = self.cachedPrimesList;
 		(primesList.last < anInteger).ifTrue {
 			primesList := anInteger.wheelSieve;
-			self.cache.atPut('primesList', primesList)
+			self.cache.atPut!('primesList', primesList)
 		};
 		primesList
 	}

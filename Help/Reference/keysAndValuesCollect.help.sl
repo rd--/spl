@@ -23,6 +23,8 @@ Guides: Dictionary Functions
 
 References:
 _Julia_
-[1](https://docs.julialang.org/en/v1/base/iterators/#Base.Iterators.enumerate)
+[1](https://docs.julialang.org/en/v1/base/iterators/#Base.Iterators.enumerate),
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/KeyValueMap.html)
 
 Categories: Enumerating

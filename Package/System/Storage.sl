@@ -10,7 +10,7 @@ Storage! : [Object, Collection, Dictionary] {
 		self.uncheckedAt(key)
 	}
 
-	atPut { :self :key :value |
+	atPut! { :self :key :value |
 		key.assertIsString;
 		value.assertIsString;
 		self.uncheckedAtPut(key, value)

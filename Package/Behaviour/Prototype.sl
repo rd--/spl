@@ -22,7 +22,7 @@
 
 	atPutDelegateToIfAbsent { :self :key :value :delegateKey :aBlock/0 |
 		self.includesIndex(key).if {
-			self.atPut(key, value)
+			self.atPut!(key, value)
 		} {
 			self.atIfAbsent(key) {
 				self.includesIndex(delegateKey).if {
@@ -41,7 +41,7 @@
 
 	atPutDelegateTo { :self :key :value :delegateKey |
 		self.atPutDelegateToIfAbsent(key, value, delegateKey) {
-			self.atPut(key, value)
+			self.atPut!(key, value)
 		}
 	}
 

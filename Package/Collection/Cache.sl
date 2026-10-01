@@ -48,7 +48,7 @@ Cache! : [Object] {
 		}
 	}
 
-	atPut { :self :key :value |
+	atPut! { :self :key :value |
 		let validKey = self.validateKey(key);
 		let validValue = self.validateValue(value);
 		self.uncheckedPut(validKey, validValue)

@@ -275,9 +275,9 @@ OEIS [A119812](https://oeis.org/A119812):
 ```
 >>> let c = 'Sqrt(2)'.namedConstant;
 >>> [c, c / 2].collect { :t |
->>> 	1:20.collect { :n |
+>>> 	1L:20.collect { :n |
 >>> 		let k = 10 * n;
->>> 		let x = 1:k.sum { :m |
+>>> 		let x = 1L:k.sum { :m |
 >>> 			(m * t).floor / (2 ^ m)
 >>> 		};
 >>> 		(10 ^ n * x).floor % 10

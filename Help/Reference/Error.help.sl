@@ -19,7 +19,7 @@ Without cause:
 'Error: Invalid key'
 
 >>> Error('Invalid key').printString
-'*ERROR* Error: Invalid key'
+'*Error* Error: Invalid key'
 
 >> Error('Invalid key').storeString
 Error('Invalid key')
@@ -38,7 +38,7 @@ With cause:
 'Error: Invalid key: -1'
 
 >>> Error('Invalid key', -1).printString
-'*ERROR* Error: Invalid key: -1'
+'*Error* Error: Invalid key: -1'
 
 >> Error('Invalid key', -1).storeString
 Error('Invalid key', -1)

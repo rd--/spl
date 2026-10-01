@@ -435,7 +435,7 @@
 		let answer = self.cachedFibonacciSequence;
 		(anInteger > answer.size).ifTrue {
 			answer := anInteger.fibonacciSequence;
-			self.cache.atPut('fibonacciSequence', answer)
+			self.cache.atPut!('fibonacciSequence', answer)
 		};
 		answer
 	}

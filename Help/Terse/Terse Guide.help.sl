@@ -336,7 +336,7 @@ let m = [1 2; 3 4; 5 6]; m[2][2] := 16; m[3][1] := 25; m = [1 2; 3 16; 25 6] /* 
 1:5.atIfAbsent(9) { true } /* exception clause if index is invalid */
 1:5.atIfPresentIfAbsent(9) { :x | false } { true } /* ifPresent and ifAbsent clauses */
 1:5.atIfPresentIfAbsent(3) { :x | x * x } { false } = 9 /* ifPresent and ifAbsent clauses */
-let l = [1 2 3]; l.atPut(2, 'two') = 'two' & { l = [1 'two' 3] } /* atPut answers value put */
+let l = [1 2 3]; l.atPut!(2, 'two') = 'two' & { l = [1 'two' 3] } /* atPut answers value put */
 let a = [1, 2, 3]; (a[2] := 'two') = 'two' & { a = [1, 'two', 3] }
 let l = [1, 2, 3]; l.atModify(2, nil, square/1) = 4 & { l = [1, 4, 3] } /* modify value at index */
 [5, 4, 3, 2, 1].detect { :each | each % 2 = 0 } = 4
@@ -401,7 +401,7 @@ let [x, y] = { let n = system.nextRandomFloat; [n, n] }.value; x = y
 { let a = List(1); a.at(3) }.hasError /* out of bound indexing is an error */
 { let a = [1]; a[3] }.hasError /* out of bound indexing is an error */
 let a = List(1); a[1].isNil = true /* array slots are initialised to nil */
-{ let a = List(1); a.atPut(3, 'x') }.hasError /* out of bound mutation is an error */
+{ let a = List(1); a.atPut!(3, 'x') }.hasError /* out of bound mutation is an error */
 { let a = [1]; a[3] := 'x' }.hasError /* out of bound mutation is an error */
 List/1.newFrom(Range(1, 5, 2)) = [1, 3, 5]
 [1 .. 9].count(isEven/1) = 4
@@ -826,8 +826,8 @@ ByteArray(0).isSequence /* byte arrays are sequence */
 ByteArray(0).size = 0 /* size of byte array (number of elements) */
 ByteArray(8).size = 8
 ByteArray(8).at(1) = 0 /* lookup element at index */
-ByteArray(8).atPut(1, 179) = 179 /* set element at index, answer element */
-let a = ByteArray(8); a.atPut(1, 179) = 179 & { a.at(1) = 179 }
+ByteArray(8).atPut!(1, 179) = 179 /* set element at index, answer element */
+let a = ByteArray(8); a.atPut!(1, 179) = 179 & { a.at(1) = 179 }
 1:9.asByteArray.isByteArray = true /* array of numbers in 0-255 to byte array */
 { [-1].asByteArray }.hasError /* out of range element error */
 { ['1'].asByteArray }.hasError /* not a number element error */
@@ -1400,14 +1400,14 @@ Float64Array(0).isFloat64Array /* type predicate */
 Float64Array(0).isEmpty /* is empty predicate */
 Float64Array(8).size = 8 /* size of */
 Float64Array(8).at(1) = 0 /* at protocol, initialized to zero */
-Float64Array(8).atPut(1, 1.pi) = 1.pi /* atPut protocol, answer value put */
-let a = Float64Array(8); a.atPut(1, 1.pi) = 1.pi & { a.at(1) = 1.pi }
+Float64Array(8).atPut!(1, 1.pi) = 1.pi /* atPut protocol, answer value put */
+let a = Float64Array(8); a.atPut!(1, 1.pi) = 1.pi & { a.at(1) = 1.pi }
 let a = Float64Array(8); (a[1] := 1.pi) = 1.pi & { a[1] = 1.pi }
 1:9.asFloat64Array.isFloat64Array = true /* interval as array */
 1:9.asFloat64Array.reverse = 9:1:-1.asFloat64Array /* reverse copy */
 let a = [1 .. 9].asFloat64Array; a.reverse!; a = 9:1:-1.asFloat64Array /* reverse in-place */
 let a = 9:1:-1.asFloat64Array; a.sort!; a = 1:9.asFloat64Array /* sort in-place */
-{ Float64Array(1).atPut(3, 'x') }.hasError /* out of bounds error */
+{ Float64Array(1).atPut!(3, 'x') }.hasError /* out of bounds error */
 let a = Float64Array(1); a.uncheckedAtPut(1, 'x'); a.at(1).isNaN = true /* unsafe mutation inserts NaN */
 let a = Float64Array(1); a.uncheckedAtPut(3, 'x'); a.uncheckedAt(3) = nil /* unsafe mutation does not extend array */
 1:3.asFloat64Array.printString = 'Float64Array([1, 2, 3])'
@@ -2620,13 +2620,13 @@ Record().includesIndex('x') = false /* includes key predicate */
 (w: 0, x: 1).includesIndex('x') = true /* includes key predicate */
 { Record().at('x') }.hasError /* lookup for non-existing key raises an error */
 { (:)['x'] }.hasError /* lookup for non-existing key is an error */
-let d = Record(); d.atPut('x', 1) = 1 & { d.at('x') = 1 }
+let d = Record(); d.atPut!('x', 1) = 1 & { d.at('x') = 1 }
 let d = Record(); (d['x'] := 1) = 1 & { d['x'] = 1 }
 let d = Record(); d['x'] := 1; d['y'] := 2; d.size = 2
 let d = Record(); d['x'] := 1; d['y'] := 2; d.size = 2
 ['x' -> 1, 'y' -> 2].asRecord = (x: 1, y: 2) /* association array to record */
 ['x' -> 1, 'y' -> 2].asRecord['y'] = 2 /* association array to record */
-{ Record().atPut(1, 1) }.hasError
+{ Record().atPut!(1, 1) }.hasError
 (x: 3.141, y: 23).encodeJson = '{"x":3.141,"y":23}' /* records have a json encoding where values do */
 '{"x":3.141,"y":23}'.parseJson = (x: 3.141, y: 23) /* parse json record */
 let d = (x: 1, y: 2); let i = 9; d.associationsDo { :each | i := i - each.value }; i = 6 /* iterate over associations */
