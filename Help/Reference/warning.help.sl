@@ -13,7 +13,7 @@ The warning gives the type of the object _x_, its value, and the message string 
 
 * * *
 
-See also: error, identity, notify, postLine
+See also: Error, error, identity, notify, postLine
 
 Guides: Error Functions
 

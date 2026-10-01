@@ -125,6 +125,31 @@ Block! : [Object, Equal] {
 		}
 	}
 
+	convergentSeries { :f/1 :i :j :k :epsilon :g/2 |
+		let r = f(i);
+		let u = Infinity;
+		let c = j.min(100_000);
+		{
+			c > 0 & {
+				u >= epsilon
+			}
+		}.whileTrue {
+			let t = r;
+			i := i + k;
+			c := c - 1;
+			r := g(r, f(i));
+			u := (r - t).abs
+		};
+		(c = 0).ifTrue {
+			u.warning('convergentSeries: did not converge', [i, j, k, r, u])
+		};
+		r
+	}
+
+	convergentSeries{ :f/1 :i |
+		convergentSeries(f/1, i, 1000, 1, 1E-16, +)
+	}
+
 	cull { :self :firstArg |
 		self.numArgs.caseOf(
 			[

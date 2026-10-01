@@ -120,24 +120,24 @@
 
 +Complex {
 
-	erfMaclaurinSeries { :z :i |
-		let zz = z * z;
-		(2 / 1.pi.sqrt) * 0:i.sum { :n |
-			let m = (2 * n + 1);
-			(z / m) * 1:n.product { :k |
-				-zz / k
-			}
-		}
-	}
-
 	erf { :z |
-		z.erfMaclaurinSeries(24)
+		z.erfMaclaurinSeries(128, 1E-12)
 	}
 
 }
 
-
 +@Number {
+
+	erfMaclaurinSeries { :z :i :epsilon |
+		let y = 0 - (z * z);
+		let c = (2 / 1.pi.sqrt);
+		c * { :n |
+			let m = (2 * n + 1);
+			(z / m) * 1:n.product { :k |
+				y / k
+			}
+		}.convergentSeries(0, i, 1, epsilon, +)
+	}
 
 	riemannXi { :z |
 		z.isZero.if {
@@ -156,11 +156,19 @@
 		/* http://numbers.computation.free.fr/Constants/Miscellaneous/zetaevaluations.pdf */
 		let p = 8;
 		let n = ((1.3 * p) + (0.9 * s.imaginary.abs)).round;
-		let e = { :k | k.to(n).sum { :j | binomial(n, j) } };
+		let e = { :k |
+			k.to(n).sum { :j |
+				binomial(n, j)
+			}
+		};
 		let a = 1 / (1 - (2 ^ (1 - s)));
-		let b = 1.to(n).sum { :k | (-1 ^ (k - 1)) / (k ^ s) };
+		let b = 1.to(n).sum { :k |
+			(-1 ^ (k - 1)) / (k ^ s)
+		};
 		let c = 1 / (2 ^ n);
-		let d = (n + 1).to(2 * n).sum { :k | ((-1 ^ (k - 1)) * e(k - n)) / (k ^ s) };
+		let d = (n + 1).to(2 * n).sum { :k |
+			((-1 ^ (k - 1)) * e(k - n)) / (k ^ s)
+		};
 		a * (b + (c * d))
 	}
 }

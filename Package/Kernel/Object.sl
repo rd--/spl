@@ -94,9 +94,13 @@
 		)
 	}
 
-	error { :self :message :parameters |
+	errorValue { :self :message :parameters |
 		let description = self.errorMessage(message, parameters);
-		Error(description).signal
+		Error(description)
+	}
+
+	error { :self :message :parameters |
+		self.errorValue(message, parameters).signal
 	}
 
 	error { :self :message |
@@ -262,19 +266,13 @@
 		self
 	}
 
-	warningMessage { :self :message |
-		'Warning: %: %: (%)'.format(
-			[
-				self.typeOf,
-				message,
-				self.printStringLimitedTo(16)
-			]
-		)
+	warning { :self :message :parameters |
+		self.errorValue(message, parameters).description.postLine;
+		self
 	}
 
 	warning { :self :message |
-		system.postLine(self.warningMessage(message));
-		self
+		self.warning(message, [])
 	}
 
 	yourself { :self |

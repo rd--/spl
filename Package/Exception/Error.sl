@@ -69,7 +69,7 @@
 Error! : [Object, Store, Equal, Exception, PrimitiveError] {
 
 	printString { :self |
-		'*ERROR* ' ++ self.description
+		'*Error* ' ++ self.description
 	}
 
 	storeString { :self |

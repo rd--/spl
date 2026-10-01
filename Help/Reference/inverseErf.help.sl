@@ -70,6 +70,17 @@ Plot over a subset of the reals:
 
 ![](Help/Image/inverseErf-A.svg)
 
+Generate Gaussian distributed random numbers using uniformly distributed random numbers:
+
+~~~spl svg=B
+let r = Sfc32(367814);
+let x = r.randomReal([-1 1],[5000]);
+let y = 2.sqrt * x.inverseErf;
+y.histogramPlot
+~~~
+
+![](Help/Image/inverseErf-B.svg)
+
 * * *
 
 See also: erf, erfc, inverseErfc
