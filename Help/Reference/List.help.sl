@@ -14,6 +14,7 @@ Traits implemented by `List`:
 [
 	'Collection'
 	'Compare'
+	'Copy'
 	'Equal'
 	'Extensible'
 	'Indexable'

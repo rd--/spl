@@ -13,6 +13,7 @@ Traits implemented by `Complex`:
 >>> .sort!
 [
 	'Compare'
+	'Copy'
 	'Equal'
 	'Number'
 	'Object'

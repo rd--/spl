@@ -14,6 +14,7 @@ Answer a `List` of the `Trait` names implemented by the `Type` _t_.
 [
 	'Binary'
 	'Compare'
+	'Copy'
 	'Equal'
 	'Integer'
 	'Json'

@@ -11,6 +11,7 @@ List of traits implemented by `String`:
 [
 	'Character'
 	'Compare'
+	'Copy'
 	'Equal'
 	'Indexable'
 	'Iterable'

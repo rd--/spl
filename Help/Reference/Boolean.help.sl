@@ -18,6 +18,7 @@ List of traits implemented by `Boolean`:
 >>> .sort!
 [
 	'Compare'
+	'Copy'
 	'Equal'
 	'Json'
 	'Object'

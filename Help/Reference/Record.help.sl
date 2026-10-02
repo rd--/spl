@@ -13,6 +13,7 @@ List of traits implemented by `Record`:
 >>> .sort!
 [
 	'Collection'
+	'Copy'
 	'Dictionary'
 	'Equal'
 	'Extensible'

@@ -1,6 +1,6 @@
 /* Requires: PositionableStream Stream */
 
-CollectionStream : [Object, Equal, Iterator, Stream, PositionableStream] { | collection positionIndex readLimit |
+CollectionStream : [Object, Copy, Equal, Iterator, Stream, PositionableStream] { | collection positionIndex readLimit |
 
 	atEnd { :self |
 		self.position >= self.readLimit

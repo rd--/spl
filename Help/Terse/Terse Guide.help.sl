@@ -3954,7 +3954,7 @@ system.typeLookup('RgbColour').constructorName = 'newRgbColour/0' /* constructor
 system.typeLookup('RgbColour').instanceOf.isRgbColour /* initialized instance of type */
 system.typeLookup('RgbColour').name = 'RgbColour' /* name of type */
 system.typeLookup('RgbColour').packageName = 'Colour' /* package name of type */
-system.typeLookup('RgbColour').traitNameList = ['Object' 'Store' 'Equal' 'Colour'] /* traits (named) implemented by type */
+system.typeLookup('RgbColour').traitNameList = ['Object' 'Copy' 'Store' 'Equal' 'Colour'] /* traits (named) implemented by type */
 ```
 
 ## Type -- slot access

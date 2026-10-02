@@ -1,4 +1,4 @@
-Quantity : [Object, Store, Equal, Compare, Frequency, Length, Mass, PlaneAngle, Time] { | magnitude unit |
+Quantity : [Object, Copy, Store, Equal, Compare, Frequency, Length, Mass, PlaneAngle, Time] { | magnitude unit |
 
 	[divide, /] { :self :anObject |
 		self * anObject.reciprocal

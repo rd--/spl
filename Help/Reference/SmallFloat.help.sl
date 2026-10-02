@@ -11,6 +11,7 @@ List traits implemented by `SmallFloat`:
 [
 	'Binary'
 	'Compare'
+	'Copy'
 	'Equal'
 	'Integer'
 	'Json'
