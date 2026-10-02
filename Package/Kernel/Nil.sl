@@ -1,4 +1,4 @@
-Nil! : [Object, Store, Equal, Json] {
+Nil! : [Object, Copy, Store, Equal, Json] {
 
 	[equal, =] { :self :anObject |
 		anObject.isNil
@@ -22,10 +22,6 @@ Nil! : [Object, Store, Equal, Json] {
 
 	concisePrintString { :self |
 		self.printString
-	}
-
-	copy { :self |
-		nil
 	}
 
 	ifNil { :self :whenNil/0 :whenNotNil/1 |
@@ -54,6 +50,10 @@ Nil! : [Object, Store, Equal, Json] {
 
 	replaceNil { :unused :anObject |
 		anObject
+	}
+
+	shallowCopy { :self |
+		nil
 	}
 
 	storeString { :self |

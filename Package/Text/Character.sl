@@ -118,7 +118,7 @@
 
 }
 
-Character : [Object, Store, Equal, Compare, Character] { | characterString codePoint |
+Character : [Object, Copy, Store, Equal, Compare, Character] { | characterString codePoint |
 
 	asCharacter { :self |
 		self
@@ -144,10 +144,6 @@ Character : [Object, Store, Equal, Compare, Character] { | characterString codeP
 		self.characterString
 	}
 
-	copy { :self |
-		self
-	}
-
 	[equal, =] { :self :anObject |
 		identical(self, anObject)
 	}
@@ -162,6 +158,10 @@ Character : [Object, Store, Equal, Compare, Character] { | characterString codeP
 
 	[less, <] { :self :anObject |
 		self.codePoint < anObject.codePoint
+	}
+
+	shallowCopy { :self |
+		self
 	}
 
 	[similar, ~] { :self :anObject |

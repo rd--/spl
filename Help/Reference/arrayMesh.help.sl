@@ -55,7 +55,7 @@ A mesh of an elementary cellular automaton:
 
 ~~~spl svg=E
 57.elementaryCellularAutomaton(
-	[1].centerArray(11, 0),
+	[1].centerArray([11], 0),
 	13
 ).arrayMesh
 ~~~

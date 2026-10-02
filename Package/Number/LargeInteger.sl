@@ -1,6 +1,6 @@
 /* Requires: SmallFloat String */
 
-LargeInteger! : [Object, Store, Equal, Compare, Binary, Number, Integer] {
+LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer] {
 
 	[less, <] { :self :anObject |
 		<primitive:
@@ -191,10 +191,6 @@ LargeInteger! : [Object, Store, Equal, Compare, Binary, Number, Integer] {
 		self.error('bitXor: operand not a LargeInteger or SmallFloat')
 	}
 
-	copy { :self |
-		self
-	}
-
 	decimalPeriod { :unused |
 		0
 	}
@@ -362,6 +358,10 @@ LargeInteger! : [Object, Store, Equal, Compare, Binary, Number, Integer] {
 
 	signedInteger { :self :bitCount |
 		<primitive: return BigInt.asIntN(_bitCount, _self);>
+	}
+
+	shallowCopy { :self |
+		self
 	}
 
 	[squareRoot, sqrt] { :self |

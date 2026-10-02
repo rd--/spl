@@ -61,7 +61,7 @@ Two steps of an automata given an initial centered pattern:
 >>> 	[3 0] -> [3 0]
 >>> ].iteratedFiniteAutomaton(
 >>> 	1,
->>> 	[1 0 0 1].centerArray(20, 0),
+>>> 	[1 0 0 1].centerArray([20], 0),
 >>> 	2
 >>> )
 [

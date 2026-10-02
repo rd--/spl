@@ -54,13 +54,23 @@ with and without fractional part and scale specifier:
 3.000D
 ```
 
-Multiplication with integer:
+Multiplication with small integer:
 
 ```
 >>> 3.1416D * 2
 6.2832D
 
 >>> 23 * 1.618D
+37.214D
+```
+
+Multiplication with `LargeInteger`:
+
+```
+>>> 3.1416D * 2L
+6.2832D
+
+>>> 23L * 1.618D
 37.214D
 ```
 
@@ -291,6 +301,25 @@ Approximate comparison:
 ```
 >>> 3.141592D ~ 1.pi
 true
+```
+
+Rounding:
+
+```
+>>> 3.141D.round
+3.000D
+
+>>> [-0.500D 0.500D].round
+[-1.000D 1.000D]
+
+>>> [-0.500D 0.500D].truncate
+[0D 0D]
+
+>>> 3.141D.floor
+3.000D
+
+>>> 3.141D.ceiling
+4.000D
 ```
 
 Store string:

@@ -77,13 +77,24 @@ m
 Draw trigonometric function, rescaling:
 
 ~~~spl png=D
-let x = (-4 -- 4).discretize(100);
+let x = (-4 -- 4).discretize(200);
 { :i :j |
 	i + ((i ^ 2) + (j ^ 2)).sin
 }.table(x, x).rescale.Greymap
 ~~~
 
 ![](Help/Image/Greymap-D.png)
+
+Aliasing patterns from sampling the `sin` function at large integer values (Kaplan 2005):
+
+~~~spl png=E
+let i = (0 -- 143).discretize(200);
+{ :x :y |
+	(x.square + y.square).sin
+}.table(i, i).rescale.Greymap
+~~~
+
+![](Help/Image/Greymap-E.png)
 
 * * *
 

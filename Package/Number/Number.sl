@@ -615,7 +615,7 @@
 	}
 
 	[mod, %] { :self :aNumber |
-		self - (aNumber * self.quotient(aNumber))
+		self - (aNumber * self.quotientBy(aNumber, floor/1))
 	}
 
 	mod { :m :n :d |
@@ -809,10 +809,16 @@
 	}
 
 	quotientBy { :self :aNumber :aBlock/1 |
-		(aNumber = 0).if {
-			'@Number>>quotient: divideByZero'.error
+		aNumber.isNumber.if {
+			(aNumber = 0).if {
+				'@Number>>quotient: divideByZero'.error
+			} {
+				aBlock(self / aNumber)
+			}
 		} {
-			aBlock(self / aNumber)
+			aNumber.adaptToNumberAndApply(self) { :a :b |
+				a.quotientBy(b, aBlock/1)
+			}
 		}
 	}
 

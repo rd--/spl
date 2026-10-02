@@ -119,8 +119,8 @@ Plot a complex function with zeroes at poles:
 
 ~~~spl png=J
 [-2J-2 2J2].complexPlot { :z |
-	let zSquared = z * z;
-	(zSquared + 1) / (zSquared - 1)
+	let a = z * z;
+	(a + 1) / (a - 1)
 }
 ~~~
 

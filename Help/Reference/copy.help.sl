@@ -49,7 +49,7 @@ true
 
 * * *
 
-See also: copyFromTo, copyReplaceFromToWith, copyWith, copyWithout, deepCopy
+See also: Copy, copyFromTo, copyReplaceFromToWith, copyWith, copyWithout, deepCopy
 
 Guides: Copying Functions
 

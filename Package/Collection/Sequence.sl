@@ -512,16 +512,6 @@
 		self.catenateValuesSeparatedBy([], self.species)
 	}
 
-	centerArray { :aList :anInteger :anObject |
-		(aList.size > anInteger).if {
-			aList.error('centerArray')
-		} {
-			let prefixSize = (anInteger - aList.size / 2).ceiling.max(0);
-			let suffixSize = (anInteger - aList.size - prefixSize).max(0);
-			List(prefixSize, anObject) ++ aList ++ List(suffixSize, anObject)
-		}
-	}
-
 	chineseRemainder { :r :m |
 		let p = m.product;
 		let q = m.withCollect(r) { :i :j |

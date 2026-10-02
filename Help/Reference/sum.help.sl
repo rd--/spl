@@ -275,13 +275,13 @@ OEIS [A119812](https://oeis.org/A119812):
 ```
 >>> let c = 'Sqrt(2)'.namedConstant;
 >>> [c, c / 2].collect { :t |
->>> 	1L:20.collect { :n |
+>>> 	1:20.collect { :n |
 >>> 		let k = 10 * n;
->>> 		let x = 1L:k.sum { :m |
->>> 			(m * t).floor / (2 ^ m)
+>>> 		let x = 1:k.sum { :m |
+>>> 			(m * t).floor / (2L ^ m)
 >>> 		};
->>> 		(10 ^ n * x).floor % 10
->>> 	}
+>>> 		(10L ^ n * x).floor % 10
+>>> 	}.truncate.asInteger
 >>> }
 [
 	3 2 2 5 8 8 5 2 2 5 8 8 0 6 7 7 3 0 1 2;

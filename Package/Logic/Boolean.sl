@@ -1,4 +1,4 @@
-Boolean! : [Object, Store, Equal, Compare, Json] {
+Boolean! : [Object, Copy, Store, Equal, Compare, Json] {
 
 	==> { :self :aBlock/0 |
 		self.if {
@@ -52,10 +52,6 @@ Boolean! : [Object, Store, Equal, Compare, Json] {
 		self.boole.compare(
 			operand.boole
 		)
-	}
-
-	copy { :self |
-		self
 	}
 
 	concisePrintString { :self |
@@ -117,6 +113,10 @@ Boolean! : [Object, Store, Equal, Compare, Json] {
 		self.not & {
 			aBlock().not
 		}
+	}
+
+	shallowCopy { :self |
+		self
 	}
 
 	storeString { :self |

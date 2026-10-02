@@ -1,4 +1,4 @@
-Record! : [Object, Store, Equal, Json, Iterable, Indexable, Collection, Extensible, Dictionary] {
+Record! : [Object, Copy, Store, Equal, Json, Iterable, Indexable, Collection, Extensible, Dictionary] {
 
 	asRecord { :self |
 		self
@@ -9,8 +9,8 @@ Record! : [Object, Store, Equal, Json, Iterable, Indexable, Collection, Extensib
 		if(Object.hasOwn(_self, _aString)) {
 			return _self[_aString];
 		}
-		return _ifAbsent_0();
 		>
+		ifAbsent()
 	}
 
 	atPut! { :self :aString :anObject |
@@ -25,10 +25,6 @@ Record! : [Object, Store, Equal, Json, Iterable, Indexable, Collection, Extensib
 
 	comparator { :self |
 		==
-	}
-
-	deepCopy { :self |
-		self.primitiveDeepCopy
 	}
 
 	Dictionary { :self |

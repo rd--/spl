@@ -2,7 +2,7 @@
 
 Types:
 
-`Complex`
+- `Complex`
 
 Accessing:
 
@@ -17,7 +17,6 @@ Constructing:
 
 Converting:
 
-- `asGaussianInteger`
 - `asList`
 - `asMatrix`
 

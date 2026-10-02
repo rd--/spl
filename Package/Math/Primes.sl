@@ -160,6 +160,10 @@
 		}
 	}
 
+	isGaussianPrime { :self |
+		Complex(self, 0).isGaussianPrime
+	}
+
 	isLesserCousinPrime { :self |
 		self.isPrime & {
 			(self + 4).isPrime
@@ -1078,6 +1082,35 @@
 }
 
 +Complex {
+
+	gaussianPrimeSpiral { :c :k :d |
+		let t = Dictionary[
+			1J0 -> 0J1,
+			0J1 -> -1J0,
+			-1J0 -> 0J-1,
+			0J-1 -> 1J0
+		];
+		let z = c + d;
+		let p = [c, z];
+		let i = 1;
+		{
+			i := i + 1;
+			z.isGaussianPrime.ifTrue {
+				p.add!(z);
+				d := t.at(d)
+			};
+			z := z + d
+		}.doWhileTrue {
+			i < k & {
+				z != c
+			}
+		};
+		[p, i]
+	}
+
+	gaussianPrimeSpiral { :c |
+		c.gaussianPrimeSpiral(1_000_000, 1J0)
+	}
 
 	isComposite { :self |
 		self.isGaussianPrime.not

@@ -1,9 +1,5 @@
 @Exception {
 
-	copy { :self |
-		self.shouldNotImplement('copy')
-	}
-
 	hasCause { :self |
 		self.cause.isNotNil
 	}
@@ -22,6 +18,10 @@
 
 	isException { :self |
 		true
+	}
+
+	shallowCopy { :self |
+		self.shouldNotImplement('shallowCopy')
 	}
 
 }

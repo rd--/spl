@@ -44,6 +44,19 @@ Variants for excluding end point:
 [2 2.2 2.4 2.6 2.8]
 ```
 
+A parametric equation due to P. Seraji:
+
+~~~spl svg=A
+linspace(0, 39.pi / 2, 1500).collect { :t |
+	let a = t * (t.cos ^ 3);
+	let b= 9 * t * t.cos.abs.sqrt;
+	let c = t * (0.2 * t).sin * (4 * t).cos;
+	[a, b + c]
+}.linePlot
+~~~
+
+![](Help/Image/linspace-A.svg)
+
 * * *
 
 See also: discretize, logspace, subdivide

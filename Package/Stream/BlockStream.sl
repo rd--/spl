@@ -2,10 +2,6 @@
 
 BlockStream : [Object, Iterator, Stream] { | onNext onReset nextItem |
 
-	copy { :self |
-		'BlockStream>>copy'.error
-	}
-
 	next { :self |
 		let answer = self.nextItem;
 		answer.ifNotNil {
@@ -22,6 +18,10 @@ BlockStream : [Object, Iterator, Stream] { | onNext onReset nextItem |
 		self.onReset.value;
 		self.nextItem := self.onNext.value;
 		0
+	}
+
+	shallowCopy { :self |
+		self.shouldNotImplement('shallowCopy')
 	}
 
 }

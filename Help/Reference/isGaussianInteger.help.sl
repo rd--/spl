@@ -9,6 +9,15 @@ A Gaussian integer is a `Complex` number _a+bi_ where _a_ and _b_ are integers.
 true
 ```
 
+The sum, difference, and product of two Gaussian integers are Gaussian integers:
+
+```
+>>> let a = 3J4;
+>>> let b = 7J9;
+>>> (a + b, a - b, a * b)
+(10J13 -4J-5 -15J55)
+```
+
 Integers are Gaussian integers with a zero imaginary part:
 
 ```

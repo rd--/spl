@@ -1,6 +1,6 @@
 /* Require: List, PrimitiveMap, Record, Void */
 
-Map! : [Object, Store, Equal, Iterable, Indexable, Collection, Extensible, Dictionary, PrimitiveMap] {
+Map! : [Object, Copy, Store, Equal, Iterable, Indexable, Collection, Extensible, Dictionary, PrimitiveMap] {
 
 	encodeJson { :self |
 		self.encodeJson(nil, '')
@@ -19,14 +19,6 @@ Map! : [Object, Store, Equal, Iterable, Indexable, Collection, Extensible, Dicti
 
 	comparator { :self |
 		==
-	}
-
-	copy { :self |
-		<primitive: return new Map(_self);>
-	}
-
-	deepCopy { :self |
-		self.primitiveDeepCopy
 	}
 
 	indices { :self |
@@ -57,6 +49,10 @@ Map! : [Object, Store, Equal, Iterable, Indexable, Collection, Extensible, Dicti
 			answer.add!(value -> key)
 		};
 		answer
+	}
+
+	shallowCopy { :self |
+		<primitive: return new Map(_self);>
 	}
 
 	size { :self |

@@ -16,7 +16,7 @@
 	'AssociationList'
 	'Box'
 	'CategoryDictionary'
-	'CopyableSequence'
+	'CopySequence'
 	'DirectedEdge'
 	'FiniteWord'
 	'Graph'

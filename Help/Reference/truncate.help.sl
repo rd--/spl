@@ -74,7 +74,7 @@ compare to `truncateScale`:
 
 ```
 >>> 3.141D.truncate
-3
+3.000D
 
 >>> 3.141D.truncateScale(0)
 3D

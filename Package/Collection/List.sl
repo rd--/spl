@@ -1,4 +1,4 @@
-List! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Collection, Extensible, Sequence, PrimitiveArray, Ordered] {
+List! : [Object, Copy, Store, Equal, Compare, Json, Iterable, Indexable, Collection, Extensible, Sequence, PrimitiveArray, Ordered] {
 
 	addListFirst { :self :aList |
 		<primitive:
@@ -35,8 +35,17 @@ List! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Collection, E
 		>
 	}
 
-	copy { :self |
-		<primitive: return Array.from(_self);>
+	centerList { :self :anInteger :anObject |
+		let n = self.size;
+		let m = anInteger;
+		let x = anObject;
+		(n > m).if {
+			self.error('centerList', [m, x])
+		} {
+			let suffixSize = (m - n / 2).ceiling.max(0);
+			let prefixSize = (m - n - suffixSize).max(0);
+			List(prefixSize, x) ++ self ++ List(suffixSize, x)
+		}
 	}
 
 	copyList { :self |
@@ -253,6 +262,10 @@ List! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Collection, E
 
 	scalingMatrix { :self |
 		self.diagonalMatrix
+	}
+
+	shallowCopy { :self |
+		<primitive: return Array.from(_self);>
 	}
 
 	species { :self |

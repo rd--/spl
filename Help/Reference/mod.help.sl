@@ -40,6 +40,26 @@ At integer _m_ and _n_:
 (3, 7)
 ```
 
+Negative _m_ and  _n_:
+
+```
+>>> (-9 % 5, -11 % 7)
+(1, 3)
+
+>>> (9 % -5, 11 % -7)
+(-1, -3)
+```
+
+Compare `mod` and `remainder`:
+
+```
+>>> -9:9 % 4
+[ 3  0  1  2  3  0  1  2  3 0 1 2 3 0 1 2 3 0 1]
+
+>>> -9:9 \\ 4
+[-1  0 -3 -2 -1  0 -3 -2 -1 0 1 2 3 0 1 2 3 0 1]
+```
+
 A number modulo itself is `zero`:
 
 ```
@@ -111,8 +131,17 @@ Find last two digits or a large integer:
 At `Fraction`:
 
 ```
->>> 5/2 % 2
-1/2
+>>> 5/2 % [2 3]
+[1/2 5/2]
+
+>>> 5/2 % [-2 -3]
+[-3/2 -1/2]
+
+>>> -5/2 % [2 3]
+[3/2 1/2]
+
+>>> -5/2 % [-2 -3]
+[-1/2 -5/2]
 ```
 
 Real numbers,
@@ -133,6 +162,51 @@ for positive _n_ answer the floating-point remainder of dividing _m_ by _n_:
 
 >>> -0.5 % 1
 0.5
+```
+
+For a positive real number _x_, _x%1_ answers the fractional part of _x_:
+
+```
+>>> 3.14 % 1
+0.14
+
+>>> 3.14.fractionalPart
+0.14
+```
+
+At `SmallFloat`:
+
+```
+>>> 2.5 % [2 3]
+[0.5 2.5]
+
+>>> 2.5 % [-2 -3]
+[-1.5 -0.5]
+
+>>> -2.5 % [2 3]
+[1.5 0.5]
+
+>>> -2.5 % [-2 -3]
+[-0.5 -2.5]
+```
+
+At `Decimal`:
+
+```
+>>> 3.141D % 2
+-2 + 3.141D
+
+>>> 2.5D % [2 3]
+[0.5D 2.5D]
+
+>>> 2.5D % [-2 -3]
+[-1.5D -0.5D]
+
+>>> -2.5D % [2 3]
+[1.5D 0.5D]
+
+>>> -2.5D % [-2 -3]
+[-0.5D -2.5D]
 ```
 
 `%` threads over lists:

@@ -1,6 +1,6 @@
 /* Requires: Character List */
 
-String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] {
+String! : [Object, Copy, Store, Equal, Compare, Json, Iterable, Indexable, Character] {
 
 	abbreviateTo { :self :anInteger |
 		self.truncateTo(anInteger - 8) ++ '... &etc'
@@ -261,10 +261,6 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 				)
 			}
 		}
-	}
-
-	copy { :self |
-		self
 	}
 
 	copyFromTo { :self :start :end |
@@ -928,6 +924,10 @@ String! : [Object, Store, Equal, Compare, Json, Iterable, Indexable, Character] 
 
 	sentences { :self |
 		<primitive: return sl.stringToSentences(_self);>
+	}
+
+	shallowCopy { :self |
+		self
 	}
 
 	[similar, ~] { :self :anObject |

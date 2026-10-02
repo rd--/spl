@@ -308,6 +308,10 @@
 		}
 	}
 
+	[fractionExponent, frexp] { :self |
+		self.collect(fractionExponent/1)
+	}
+
 	fractionalPart { :self |
 		self.collect(fractionalPart/1)
 	}
@@ -524,6 +528,12 @@
 
 	liouvilleLambda { :self |
 		self.collect(liouvilleLambda/1)
+	}
+
+	[loadExponent, ldexp] { :self |
+		self.atVectorOrElementwise { :x |
+			loadExponent(x[1], x[2])
+		}
 	}
 
 	log { :self |

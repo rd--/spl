@@ -37,6 +37,19 @@
 		}
 	}
 
+	centerArray { :self :operand :x |
+		operand.size.caseOf(
+			[
+				1 -> {
+					self.centerList(operand[1], x)
+				},
+				2 -> {
+					self.centerMatrix(operand, x)
+				}
+			]
+		)
+	}
+
 	coordinateBoundingBoxArray { :bounds :steps :offset |
 		let [m, n] = bounds.shape;
 		bounds.transpose.coordinateBoundsArray(steps, offset)

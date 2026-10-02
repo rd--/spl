@@ -1,4 +1,4 @@
-Float64Array! : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, Sequence, PrimitiveArray] {
+Float64Array! : [Object, Copy, Store, Equal, Compare, Iterable, Indexable, Collection, Sequence, PrimitiveArray] {
 
 	atPut! { :self :index :aFloat |
 		<primitive:
@@ -10,12 +10,12 @@ Float64Array! : [Object, Store, Equal, Compare, Iterable, Indexable, Collection,
 		self.errorInvalidIndex('atPut!', index)
 	}
 
-	copy { :self |
-		<primitive: return new Float64Array(_self);>
-	}
-
 	encode { :self :littleEndian |
 		<primitive: return sc.encodeFloat64Array(_self, _littleEndian);>
+	}
+
+	shallowCopy { :self |
+		<primitive: return new Float64Array(_self);>
 	}
 
 	species { :self |

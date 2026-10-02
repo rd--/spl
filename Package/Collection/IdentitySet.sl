@@ -1,14 +1,6 @@
 /* Requires: Set */
 
-IdentitySet! : [Object, Store, Equal, Iterable, Collection, Extensible, Unordered, Set] {
-
-	copy { :self |
-		<primitive: return new Set(_self);>
-	}
-
-	deepCopy { :self |
-		self.primitiveDeepCopy
-	}
+IdentitySet! : [Object, Copy, Store, Equal, Iterable, Collection, Extensible, Unordered, Set] {
 
 	do { :self :aBlock |
 		<primitive:
@@ -52,6 +44,10 @@ IdentitySet! : [Object, Store, Equal, Iterable, Collection, Extensible, Unordere
 			return _aBlock_0();
 		}
 		>
+	}
+
+	shallowCopy { :self |
+		<primitive: return new Set(_self);>
 	}
 
 	size { :self |

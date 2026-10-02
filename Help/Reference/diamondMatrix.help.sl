@@ -1,6 +1,6 @@
 # diamondMatrix
 
-- _diamondMatrix(radius)_
+- _diamondMatrix(r)_
 
 Answer a matrix whose elements are 1 in a diamond-shaped region that extends _r_ index positions to each side, and are 0 otherwise.
 
@@ -71,7 +71,7 @@ two chair trominoes next to three monominoes:
 
 * * *
 
-See also: boxMatrix, crossMatrix, diskMatrix, manhattanDistance
+See also: aztecDiamondMatrix, boxMatrix, crossMatrix, diskMatrix, manhattanDistance
 
 Guides: Matrix Functions
 

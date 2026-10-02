@@ -139,10 +139,6 @@ Complex : [Object, Store, Equal, Compare, Number] { | real imaginary |
 		self
 	}
 
-	asGaussianInteger { :self |
-		self.real.round.j(self.imaginary.round)
-	}
-
 	asMatrix { :self |
 		let a = self.real;
 		let b = self.imaginary;
@@ -394,6 +390,10 @@ Complex : [Object, Store, Equal, Compare, Number] { | real imaginary |
 		}
 	}
 
+	[round, gaussianInteger] { :self |
+		Complex(self.real.round, self.imaginary.round)
+	}
+
 	[squareRoot, sqrt] { :self |
 		(self.imaginary = 0 & {
 			self.real >= 0
@@ -450,7 +450,7 @@ Complex : [Object, Store, Equal, Compare, Number] { | real imaginary |
 		(z - 0J1) / (z + 0J1)
 	}
 
-	Complex { :real :imaginary |
+	[Complex, j] { :real :imaginary |
 		Complex(real.asFloat, imaginary.asFloat)
 	}
 
@@ -464,10 +464,6 @@ Complex : [Object, Store, Equal, Compare, Number] { | real imaginary |
 
 	isReal { :self |
 		true
-	}
-
-	j { :real :imaginary |
-		Complex(real.asFloat, imaginary.asFloat)
 	}
 
 }
@@ -495,7 +491,7 @@ Complex : [Object, Store, Equal, Compare, Number] { | real imaginary |
 
 	listToComplex { :self |
 		let [a, b] = self;
-		a.j(b)
+		Complex(a, b)
 	}
 
 }

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="100.0" viewBox="195.00 320.00 60.00 110.00">
+<g fill="none" stroke="black" stroke-width="0.0200%" transform="translate(0, 750.0000) scale(25.0000, -25.0000)">
+<circle cx="8.00" cy="13.00" r="0.02" />
+<circle cx="9.00" cy="13.00" r="0.02" />
+<circle cx="10.00" cy="13.00" r="0.02" />
+<circle cx="10.00" cy="17.00" r="0.02" />
+<circle cx="8.00" cy="17.00" r="0.02" />
+<polygon points="8.00,13.00 9.00,13.00 10.00,13.00 10.00,17.00 8.00,17.00" />
+</g>
+</svg>

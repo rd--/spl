@@ -1,6 +1,6 @@
 /* Requires: RegularExpression String */
 
-SmallFloat! : [Object, Store, Json, Equal, Compare, Number, Integer, Binary] {
+SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 
 	[absoluteValue, abs] { :self |
 		<primitive: return Math.abs(_self)>
@@ -263,9 +263,6 @@ SmallFloat! : [Object, Store, Json, Equal, Compare, Number, Integer, Binary] {
 		return 31 - Math.clz32(n);
 		>
 	}
-	copy { :self |
-		self
-	}
 
 	cubeRoot { :self |
 		<primitive: return Math.cbrt(_self);>
@@ -326,6 +323,26 @@ SmallFloat! : [Object, Store, Json, Equal, Compare, Number, Integer, Binary] {
 
 	[floor, <] { :self |
 		<primitive: return Math.floor(_self)>
+	}
+
+	[fractionExponent, frexp] { :self |
+		/* https://blog.codefrau.net/2014/08/deconstructing-floats-frexp-and-ldexp.html */
+		<primitive:
+		const value = _self;
+		if (value === 0) {
+			return [value, 0];
+		}
+		const data = new DataView(new ArrayBuffer(8));
+		data.setFloat64(0, value);
+		let bits = (data.getUint32(0) >>> 20) & 0x7FF;
+		if (bits === 0) {
+			data.setFloat64(0, value * Math.pow(2, 64));
+			bits = ((data.getUint32(0) >>> 20) & 0x7FF) - 64;
+		}
+		let exponent = bits - 1022;
+		let mantissa = _ldexp_2(value, -exponent);
+		return [mantissa, exponent];
+		>
 	}
 
 	fractionalPart { :self |
@@ -486,6 +503,20 @@ SmallFloat! : [Object, Store, Json, Equal, Compare, Number, Integer, Binary] {
 		}
 		>
 		anObject.adaptToNumberAndApply(self, lessEqual/2)
+	}
+
+	[loadExponent, ldexp] { :self :operand |
+		/* https://blog.codefrau.net/2014/08/deconstructing-floats-frexp-and-ldexp.html */
+		<primitive:
+		let mantissa = _self;
+		let exponent = _operand;
+		let steps = Math.min(3, Math.ceil(Math.abs(exponent) / 1023));
+		let result = mantissa;
+		for (let i = 0; i < steps; i++) {
+			result *= Math.pow(2, Math.floor((exponent + i) / steps));
+		}
+		return result;
+		>
 	}
 
 	log { :self |
@@ -797,6 +828,10 @@ SmallFloat! : [Object, Store, Json, Equal, Compare, Number, Integer, Binary] {
 		} {
 			n.round
 		}
+	}
+
+	shallowCopy { :self |
+		self
 	}
 
 	[sign, *] { :self |

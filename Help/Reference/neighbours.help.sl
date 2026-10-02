@@ -1,8 +1,8 @@
 # neighbours
 
-- _neighbours(aGraph, aVertex)_
+- _neighbours(g, v)_
 
-Answer a `List` of the vertices adjacent to _aVertex_ in _aGraph_.
+Answer a `List` of the vertices adjacent to the vertex _v_ in graph _g_.
 
 Each vertex in a cycle graph has two neighours:
 

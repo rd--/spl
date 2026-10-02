@@ -2,7 +2,8 @@
 
 - _isGaussianPrime(a+bi)_
 
-Gaussian primes are Gaussian integers satisying one of three properties (see References below).
+Gaussian primes are Gaussian integers satisying one of three properties,
+see references below for details.
 
 ```
 >>> 2J1.isGaussianPrime
@@ -20,9 +21,7 @@ The first few primes which are also Gaussian primes,
 OEIS [A002145](https://oeis.org/A002145),
 
 ```
->>> 0:99.select { :each |
->>> 	each.j(0).isGaussianPrime
->>> }
+>>> 0:99.select(isGaussianPrime/1)
 [
 	 3  7 11 19 23 31 43 47 59 67
 	71 79 83

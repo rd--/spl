@@ -3,7 +3,7 @@
 	'Object'
 	'Cache'
 	'Compare'
-	'Copyable'
+	'Copy'
 	'Equal'
 	'Json'
 	'Number'

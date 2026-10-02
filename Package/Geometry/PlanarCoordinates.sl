@@ -1,6 +1,6 @@
 /* CartesianCoordinates */
 
-PlanarCoordinates : [Object, Store, Copyable, Equal, Compare, Indexable, CartesianCoordinates] { | coordinates |
+PlanarCoordinates : [Object, Copy, Store, Equal, Compare, Indexable, CartesianCoordinates] { | coordinates |
 
 	[divide, /] { :self :anObject |
 		self.applyBinaryOperator(anObject, /)

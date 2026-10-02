@@ -49,7 +49,7 @@ OEIS [A070950](https://oeis.org/A070950):
 >>> let n = 9;
 >>> let m = n * 2 - 1;
 >>> 30.elementaryCellularAutomaton(
->>> 	[1].centerArray(m, 0),
+>>> 	[1].centerArray([m], 0),
 >>> 	n - 1
 >>> ).withIndexCollect { :x :i |
 >>> 	x.middle(i * 2 - 1)
@@ -71,7 +71,7 @@ Elementary cellular automaton rule 18:
 
 ~~~spl png=A
 18.elementaryCellularAutomaton(
-	[1].centerArray(101, 0),
+	[1].centerArray([101], 0),
 	101
 ).Bitmap
 ~~~
@@ -82,7 +82,7 @@ Elementary cellular automaton rule 30:
 
 ~~~spl png=B
 30.elementaryCellularAutomaton(
-	[1].centerArray(101, 0),
+	[1].centerArray([101], 0),
 	101
 ).Bitmap
 ~~~
@@ -93,7 +93,7 @@ Elementary cellular automaton rule 57:
 
 ~~~spl png=C
 57.elementaryCellularAutomaton(
-	[1].centerArray(101, 0),
+	[1].centerArray([101], 0),
 	101
 ).Bitmap
 ~~~
@@ -104,7 +104,7 @@ Elementary cellular automaton rule 73:
 
 ~~~spl png=D
 73.elementaryCellularAutomaton(
-	[1].centerArray(101, 0),
+	[1].centerArray([101], 0),
 	101
 ).Bitmap
 ~~~
@@ -115,7 +115,7 @@ Elementary cellular automaton rule 110:
 
 ~~~spl png=E
 110.elementaryCellularAutomaton(
-	[1].centerArray(101, 0),
+	[1].centerArray([101], 0),
 	101
 ).Bitmap
 ~~~
@@ -170,7 +170,7 @@ OEIS [A070952](https://oeis.org/A070952):
 ~~~spl svg=I oeis=A070952
 let k = 100;
 30.elementaryCellularAutomaton(
-	[1].centerArray(k * 2, 0),
+	[1].centerArray([k * 2], 0),
 	k - 1
 ).collect(sum/1).stepPlot
 ~~~
@@ -184,7 +184,7 @@ OEIS [A070951](https://oeis.org/A070951):
 let n = 115;
 let m = n * 2 - 1;
 30.elementaryCellularAutomaton(
-	[1].centerArray(m, 0),
+	[1].centerArray([m], 0),
 	n - 1
 ).withIndexCollect { :x :i |
 	x.middle(i * 2 - 1)

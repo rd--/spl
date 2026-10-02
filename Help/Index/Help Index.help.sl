@@ -156,7 +156,7 @@
 ## Converting
 
 - `asBit`, `asBoolean`
-- `asComplex`, `asFloat`, `asFraction`, `asGaussianInteger`, `asInteger`, `asLargeInteger`, `asNumber`, `asSmallFloat`
+- `asComplex`, `asFloat`, `asFraction`, `asInteger`, `asLargeInteger`, `asNumber`, `asSmallFloat`
 - `asCharacter`, `asCodePoint`, `asHexDigit`, `asLowerCase`, `asRegExp`, `asString`, `asUpperCase`, `asWords`
 - `asIdentityMultiset`, `asByteArray`, `asCollection`, `asList`, `asMap`, `asRecord`, `asIdentitySet`, `asSortedList`, `asTree`
 - `degreesToRadians`, `radiansToDegrees`

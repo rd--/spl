@@ -13,7 +13,7 @@ Traits implemented by `SortedSet`:
 >>> .sort!
 [
 	'Collection'
-	'Copyable'
+	'Copy'
 	'Equal'
 	'Extensible'
 	'Iterable'

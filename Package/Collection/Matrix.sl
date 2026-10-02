@@ -92,6 +92,14 @@
 		m
 	}
 
+	centerMatrix { :self :operand :x |
+		let [r, c] = operand;
+		self.collect { :each |
+			each.centerList(c, x)
+		}.centerList(r, List(c, x))
+		.collect(copy/1)
+	}
+
 	column { :self :anInteger |
 		let [m, n] = self.shape;
 		anInteger.betweenAnd(1, n).if {
@@ -352,6 +360,22 @@
 			anitdiagonalSum: self.antidiagonal.sum,
 			rank: self.matrixRank
 		)
+	}
+
+	matrixNeighbours { :shape :n :c |
+		n.collectThenSelect { :x |
+			c + x
+		} { :x |
+			x[1].between(1 -- shape[1]) & {
+				x[2].between(1 -- shape[2])
+			}
+		}
+	}
+
+	matrixNeighboursDo { :shape :n :c :f/2 |
+		matrixNeighbours(shape, n, c).do { :i |
+			f(i[1], i[2])
+		}
 	}
 
 	matrixPrintString { :self |
@@ -753,6 +777,15 @@
 			} {
 				m := m + 1;
 				n := n - 1
+			}
+		}
+	}
+
+	aztecDiamondMatrix { :n |
+		let m = 2 * n;
+		1:m.collect { :r |
+			1:m.collect { :c |
+				((r - n - 0.5).abs + (c - n - 0.5).abs <= n).boole
 			}
 		}
 	}

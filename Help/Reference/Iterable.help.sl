@@ -9,6 +9,11 @@
 true
 ```
 
+To implement `Iterable` a type must provide `do`.
+
+Iterable defines `size` in terms of `do`,
+but for many types a more efficient form is possible.
+
 Types implementing `Iterable`:
 
 ```
@@ -49,11 +54,6 @@ Types implementing `Iterable`:
 	'URLSearchParams'
 ]
 ```
-
-To implement `Iterable` a type must provide `do`.
-
-Iterable defines `size` in terms of `do`,
-but for many types a more efficient form is possible.
 
 * * *
 

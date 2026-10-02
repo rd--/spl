@@ -490,7 +490,6 @@ Reference/asFraction.help.sl
 Reference/asFractionOver.help.sl
 Reference/asFractions.help.sl
 Reference/asFrequency.help.sl
-Reference/asGaussianInteger.help.sl
 Reference/asGeometryCollection.help.sl
 Reference/asGraph.help.sl
 Reference/asGreymap.help.sl
@@ -606,6 +605,7 @@ Reference/avogadroConstant.help.sl
 Reference/aWeightingCurve.help.sl
 Reference/AxonometricProjection.help.sl
 Reference/azimuth.help.sl
+Reference/aztecDiamondMatrix.help.sl
 Reference/BacktickQuotedString.help.sl
 Reference/bakersMap.help.sl
 Reference/Balance2.help.sl
@@ -946,6 +946,7 @@ Reference/collectInto.help.sl
 Reference/Collection.help.sl
 Reference/CollectionStream.help.sl
 Reference/collectTextureProgram.help.sl
+Reference/collectThenSelect.help.sl
 Reference/colonColon.help.sl
 Reference/colonCommercialAt.help.sl
 Reference/colonEqualsSign.help.sl
@@ -1052,6 +1053,7 @@ Reference/copelandErdosSequence.help.sl
 Reference/coprimeTree.help.sl
 Reference/copyFromTo.help.sl
 Reference/copy.help.sl
+Reference/Copy.help.sl
 Reference/copyList.help.sl
 Reference/copyReplaceAllWith.help.sl
 Reference/copyReplaceFromToWith.help.sl
@@ -1625,6 +1627,7 @@ Reference/FractionalBrownianMotionProcess.help.sl
 Reference/FractionalGaussianNoiseProcess.help.sl
 Reference/fractionalPart.help.sl
 Reference/FractionalPart.help.sl
+Reference/fractionExponent.help.sl
 Reference/Fraction.help.sl
 Reference/fradinPolyhedraCatalogue.help.sl
 Reference/fragment.help.sl
@@ -1677,8 +1680,10 @@ Reference/gather.help.sl
 Reference/gaussFactorial.help.sl
 Reference/gaussianElimination.help.sl
 Reference/gaussianFilter.help.sl
+Reference/gaussianInteger.help.sl
 Reference/gaussianKernel.help.sl
 Reference/gaussianMatrix.help.sl
+Reference/gaussianPrimeSpiral.help.sl
 Reference/gaussianVector.help.sl
 Reference/gaussianWindow.help.sl
 Reference/gaussIteratedMap.help.sl
@@ -2749,6 +2754,8 @@ Reference/matchRegularExpression.help.sl
 Reference/matlabPeaksFunction.help.sl
 Reference/Matrix.help.sl
 Reference/matrixInterpolation.help.sl
+Reference/matrixNeighboursDo.help.sl
+Reference/matrixNeighbours.help.sl
 Reference/matrixPlot.help.sl
 Reference/matrixPower.help.sl
 Reference/matrixPrintString.help.sl

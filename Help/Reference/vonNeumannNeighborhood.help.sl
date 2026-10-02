@@ -84,6 +84,8 @@ In three dimensions:
 
 See also: mooreNeighborhood
 
+Guides: Geometry Functions, Matrix Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/vonNeumannNeighborhood.html)

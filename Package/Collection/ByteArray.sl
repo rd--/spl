@@ -1,4 +1,4 @@
-ByteArray! : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, Sequence, PrimitiveArray] {
+ByteArray! : [Object, Copy, Store, Equal, Compare, Iterable, Indexable, Collection, Sequence, PrimitiveArray] {
 
 	asciiString { :self |
 		<primitive: return new TextDecoder('ascii').decode(_self);>
@@ -40,10 +40,6 @@ ByteArray! : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, Se
 			answer := answer + each.bitCount
 		};
 		answer
-	}
-
-	copy { :self |
-		<primitive: return new Uint8Array(_self);>
 	}
 
 	crc16 { :self |
@@ -99,6 +95,10 @@ ByteArray! : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, Se
 			hash := 4294967295L.bitAnd(hash) /* 16rFFFFFFFF */
 		};
 		hash.normal
+	}
+
+	shallowCopy { :self |
+		<primitive: return new Uint8Array(_self);>
 	}
 
 	species { :self |

@@ -75,14 +75,6 @@
 		self.constant(1)
 	}
 
-	copy { :self |
-		self.primitiveCopy
-	}
-
-	deepCopy { :self |
-		self.typeResponsibility('deepCopy')
-	}
-
 	errorMessage { :self :message :parameters |
 		'%: %: %: (%)'.format(
 			[
@@ -177,16 +169,16 @@
 		system.methodLookupAtType(aString, 2, self.typeOf).block . (self, aValue)
 	}
 
-	primitiveCopy { :self |
-		<primitive: return Object.assign({}, _self);>
-	}
-
 	primitiveDeepCopy { :self |
 		<primitive: return structuredClone(_self);>
 	}
 
 	primitiveIdentity { :self :anObject |
 		<primitive: return _self === _anObject;>
+	}
+
+	primitiveShallowCopy { :self |
+		<primitive: return Object.assign({}, _self);>
 	}
 
 	printString { :self |

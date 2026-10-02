@@ -1,4 +1,4 @@
-@Copyable {
+@Copy {
 
 	copy { :self |
 		let answer = self.shallowCopy;
@@ -6,12 +6,16 @@
 		answer
 	}
 
+	deepCopy { :self |
+		self.primitiveDeepCopy
+	}
+
 	postCopy { :self |
 		nil
 	}
 
 	shallowCopy { :self |
-		self.primitiveCopy
+		self.primitiveShallowCopy
 	}
 
 }

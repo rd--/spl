@@ -1,6 +1,6 @@
 # catalansConstant
 
-- _catalansConstant(n)_
+- _catalansConstant(n, m)_
 
 Catalans’s constant,
 the alternating sum of the reciprocals of the odd square numbers.
@@ -27,6 +27,15 @@ The binary case answers a `Decimal` value with _m_ decimal places:
 ```
 >>> 1.catalansConstant(34)
 0.9159655941772190150546035149323841D
+```
+
+Decimal expansion of _6/(Cπ²)_,
+OEIS [A088454](https://oeis.org/A088454):
+
+```
+>>> let c = 1.catalansConstant;
+>>> 6 / (c * 1.pi.square)
+0.66370080461385346
 ```
 
 Catalans’s constant is also stored as a named constant with higher precision,

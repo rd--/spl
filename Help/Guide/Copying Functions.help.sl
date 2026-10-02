@@ -3,7 +3,7 @@
 Traits:
 
 - `Object`
-- `Copyable`
+- `Copy`
 
 Copying Protocol:
 

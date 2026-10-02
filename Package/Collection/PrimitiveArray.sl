@@ -34,10 +34,6 @@
 		self.error('@PrimitiveArray>>collect: not a block')
 	}
 
-	deepCopy { :self |
-		self.primitiveDeepCopy
-	}
-
 	detectIfFoundIfNone { :self :aBlock/1 :whenFound/1 :whenNone/0 |
 		<primitive:
 		const item = _self.find(function(element) {
