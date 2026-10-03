@@ -1,8 +1,8 @@
 # millisecond
 
-- _millisecond(aDate)_
+- _millisecond(d)_
 
-Answer the millisecond of _aDate_:
+Answer the millisecond component of the date and time value _d_.
 
 ```
 >>> '2024-03-04T21:41:07.030Z'

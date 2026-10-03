@@ -1,11 +1,11 @@
 # dayOfMonth
 
-- _dayOfMonth(aDate)_
+- _dayOfMonth(d)_
 
-Answer the day of month of _aDate_.
+Answer the ordinal (one-indexed) day of month of date _d_.
 
 ```
->>> 0.asDate.dayOfMonth
+>>> Date(1970, 1, 1).dayOfMonth
 1
 
 >>> '2024-03-04'.parseDate.dayOfMonth

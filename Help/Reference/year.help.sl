@@ -1,11 +1,11 @@
 # year
 
-- _year(aDate)_
+- _year(d)_
 
-Answer the year of _aDate_.
+Answer the year of the date _d_.
 
 ```
->>> 0.asDate.year
+>>> Date(1970, 1, 1).year
 1970
 
 >>> '2024-03-04'.parseDate.year

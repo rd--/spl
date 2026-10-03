@@ -37,7 +37,7 @@ DateAndTime : [Object, Store, Equal, Compare] { | primitive |
 			self.dayOfMonth,
 			self.hour,
 			self.minute,
-			self.second
+			self.fractinalSecond
 		]
 	}
 
@@ -57,6 +57,10 @@ DateAndTime : [Object, Store, Equal, Compare] { | primitive |
 		anObject.isDateAndTime & {
 			aBlock(self.absoluteTime, anObject.absoluteTime)
 		}
+	}
+
+	fractionalSecond { :self |
+		self.wholeSecond + (self.millisecond / 1000)
 	}
 
 	hour { :self |
@@ -79,12 +83,8 @@ DateAndTime : [Object, Store, Equal, Compare] { | primitive |
 		<primitive: return _self.primitive.getUTCMonth() + 1;>
 	}
 
-	offsetSeconds { :self |
+	offsetWholeSeconds { :self |
 		<primitive: return Math.round(_self.primitive.getTimezoneOffset() * 60);>
-	}
-
-	second { :self |
-		self.wholeSecond + (self.millisecond / 1000)
 	}
 
 	storeString { :self |

@@ -1,16 +1,40 @@
 # Date
 
-- _Date([y m d])_
+- _Date(y, m, d)_
 
 `Date` is `Type` representing a date in the Gregorian calendar.
 
-Construct a `Date` value from a `List`,
+Construct a `Date` value,
 the month and day of month fields are _one-indexed_:
 
 ```
->>> Date[2025 04 08]
+>>> Date(2025, 04, 08)
 >>> .dateString
 '2025-04-08'
+```
+
+The year is absolute, not relative:
+
+```
+>>> Date(0003, 04, 05).year
+0003
+```
+
+The year is given in astronomical year numbering,
+`zero` is year `one` BCE, and so on:
+
+```
+>>> let a = Date(0000, 01, 01);
+>>> let b = Date(0001, 01, 01);
+>>> let c = a.absoluteTime;
+>>> let d = b.absoluteTime;
+>>> let e = c + (366 * 24 * 60 * 60);
+>>> (c, d, d = e)
+(
+	-62_167_217_992,
+	-62_135_595_592,
+	true
+)
 ```
 
 A `Date` can be read from a `String` using `parseDate`,
@@ -68,5 +92,6 @@ _Smalltalk_
 5.8.1,
 _W_
 [1](https://en.wikipedia.org/wiki/Calendar_date)
+[2](https://en.wikipedia.org/wiki/Astronomical_year_numbering)
 
 Categories: Time, Type

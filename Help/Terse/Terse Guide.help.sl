@@ -1282,7 +1282,7 @@ system.now.asDate > 0.asDate /* dates are magnitudes */
 system.includesPackage('DateAndTime') /* date and time package */
 system.now.asDateAndTime.typeOf = 'DateAndTime' /* type of DateAndTime, system constructor gets current date and time */
 '1970-01-01T00:00:01.000Z'.parseDateAndTime.absoluteTime = 1 /* parse ISO-8601 string & convert to unix time */
-let d = 0.asDateAndTime; [d.hour, d.minute, d.second] = [0, 0, 0] /* hour is in UTC */
+let d = 0.asDateAndTime; [d.hour, d.minute, d.wholeSecond] = [0, 0, 0] /* hour is in UTC */
 ```
 
 ## Dictionary -- collection trait

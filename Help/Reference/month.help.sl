@@ -1,11 +1,11 @@
 # month
 
-- _month(aDate)_
+- _month(d)_
 
-Answer the month of _aDate_.
+Answer the ordinal (one-indexed) month of the date _d_.
 
 ```
->>> 0.asDate.month
+>>> Date(1970, 1, 1).month
 1
 
 >>> '2024-03-04'.parseDate.month

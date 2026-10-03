@@ -1,11 +1,11 @@
 # minute
 
-- _minute(aDate)_
+- _minute(d)_
 
-Answer the minute of _aDate_.
+Answer the integral minute field of the date and time value _d_.
 
 ```
->>> '2024-03-04T21:41:00.000Z'
+>>> '2024-03-04T21:41:30.000Z'
 >>> .parseDateAndTime
 >>> .minute
 41
@@ -13,7 +13,7 @@ Answer the minute of _aDate_.
 
 * * *
 
-See also: asDate, Date, hour, month, parseDate, second, year
+See also: DateAndTime, hour, month, parseDateAndTime, second, year
 
 Guides: Date and Time Functions
 

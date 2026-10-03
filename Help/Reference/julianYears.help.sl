@@ -24,6 +24,8 @@ use `inJulianYears` to answer the magnitude of the time in Julian years:
 
 See also: Quantity, siderealMonths, synodicMonths
 
+Guides: Date and Time Functions
+
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Julian_year_(astronomy))
