@@ -25,7 +25,7 @@ true
 true
 
 >>> 'kilogram'.isSiUnit
-false
+true
 ```
 
 Base SI unit symbols:

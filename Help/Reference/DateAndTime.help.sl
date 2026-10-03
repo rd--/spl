@@ -43,7 +43,7 @@ i.e. `year`, `month`, `dayOfMonth`, `hour`, `minute`, `second`:
 >>> 	d.dayOfMonth,
 >>> 	d.hour,
 >>> 	d.minute,
->>> 	d.second
+>>> 	d.fractionalSecond
 >>> ]
 [1970 01 01 00 00 00.000]
 ```

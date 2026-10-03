@@ -1627,6 +1627,7 @@ Reference/FractionalBrownianMotionProcess.help.sl
 Reference/FractionalGaussianNoiseProcess.help.sl
 Reference/fractionalPart.help.sl
 Reference/FractionalPart.help.sl
+Reference/fractionalSecond.help.sl
 Reference/fractionExponent.help.sl
 Reference/Fraction.help.sl
 Reference/fradinPolyhedraCatalogue.help.sl
@@ -2406,6 +2407,8 @@ Reference/josephusSequence.help.sl
 Reference/json.help.sl
 Reference/Json.help.sl
 Reference/jugglerSequence.help.sl
+Reference/JulianDate.help.sl
+Reference/julianDay.help.sl
 Reference/julianYears.help.sl
 Reference/K2A.help.sl
 Reference/kadanesAlgorithm.help.sl

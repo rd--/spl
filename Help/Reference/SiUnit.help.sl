@@ -20,7 +20,7 @@ SiUnit('metre', 'm', 'length', 'L')
 >>> )
 ('metre', 'm', 'length', 'L')
 
->>> 'm'.isBaseUnit
+>>> 'm'.isSiBaseUnit
 true
 ```
 
@@ -33,7 +33,7 @@ SiUnit('second', 's', 'time', 'T')
 >>> 'second'.siUnit
 SiUnit('second', 's', 'time', 'T')
 
->>> 's'.isBaseUnit
+>>> 's'.isSiBaseUnit
 true
 ```
 
@@ -46,7 +46,7 @@ SiUnit('kilogram', 'kg', 'mass', 'M')
 >>> 'kilogram'.siUnit
 SiUnit('kilogram', 'kg', 'mass', 'M')
 
->>> 'kg'.isBaseUnit
+>>> 'kg'.isSiBaseUnit
 true
 ```
 
@@ -90,10 +90,10 @@ SiUnit('hertz', 'Hz', 'frequency', 'f')
 >>> 'hertz'.siUnit
 SiUnit('hertz', 'Hz', 'frequency', 'f')
 
->>> 'Hz'.isBaseUnit
+>>> 'Hz'.isSiBaseUnit
 false
 
->>> 'Hz'.isDerivedUnit
+>>> 'Hz'.isSiDerivedUnit
 true
 ```
 
@@ -106,10 +106,10 @@ SiUnit('radian', 'rad', 'plane angle', nil)
 >>> 'radian'.siUnit
 SiUnit('radian', 'rad', 'plane angle', nil)
 
->>> 'rad'.isBaseUnit
+>>> 'rad'.isSiBaseUnit
 false
 
->>> 'rad'.isDerivedUnit
+>>> 'rad'.isSiDerivedUnit
 true
 ```
 

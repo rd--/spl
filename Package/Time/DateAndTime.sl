@@ -37,7 +37,7 @@ DateAndTime : [Object, Store, Equal, Compare] { | primitive |
 			self.dayOfMonth,
 			self.hour,
 			self.minute,
-			self.fractinalSecond
+			self.fractionalSecond
 		]
 	}
 

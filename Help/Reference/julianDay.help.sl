@@ -67,7 +67,7 @@ Gregorian calendar:
 2_299_161
 ```
 
-Modified Julian Date:
+Epoch of Modified Julian Date system:
 
 ```
 >>> Date(1858, 11, 16).julianDay
@@ -75,6 +75,28 @@ Modified Julian Date:
 
 >>> 2_400_000.fromJulianDay
 Date(1858, 11, 16)
+```
+
+Unix epoch:
+
+```
+>>> Date(1970, 01, 01)
+>>> .julianDay
+2_440_587
+```
+
+Excel 1900 date system:
+
+```
+>>> 2_415_021.fromJulianDay
+Date(1900, 01, 01)
+```
+
+Excel 1904 date system:
+
+```
+>>> 2_416_481.fromJulianDay
+Date(1904, 01, 01)
 ```
 
 Specific days:
