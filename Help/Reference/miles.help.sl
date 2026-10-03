@@ -9,7 +9,7 @@ since _m_ is metres and _ml_ is millilitre.
 
 ```
 >>> 2.miles
-Quantity(3218.688, 'metres')
+Quantity(3218.688, 'metre')
 ```
 
 One mile is defined as 1760 yards:

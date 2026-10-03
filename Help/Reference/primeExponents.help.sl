@@ -17,6 +17,19 @@ An exponent of `zero` means that the corresponding prime is not a factor of _n_.
 [1 1 1 0 0 0 1]
 ```
 
+Compare to `factorInteger` and `primeSignature`:
+
+```
+>>> 17150.primeExponents
+[1 0 2 3]
+
+>>> 17150.factorInteger
+[2 1; 5 2; 7 3]
+
+>>> 17150.primeSignature
+[3 2 1]
+```
+
 At `Fraction`:
 
 ```

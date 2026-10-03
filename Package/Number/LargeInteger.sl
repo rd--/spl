@@ -150,10 +150,6 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer] {
 		system.nextRandomInteger(1, self.asSmallFloat)
 	}
 
-	basicPrintString { :self :radix |
-		<primitive: return _self.toString(_radix).toUpperCase();>
-	}
-
 	bitAnd { :self :anObject |
 		<primitive:
 		if(sl.isLargeInteger(_anObject)) {
@@ -231,6 +227,10 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer] {
 			};
 			lastDigit.asSmallFloat.highBitOfByte + (8 * (realLength - 1))
 		}
+	}
+
+	integerLength { :self :radix |
+		self.uncheckedPrintString(radix).size
 	}
 
 	isCloseToBy { :self :aNumber :epsilon |
@@ -393,7 +393,7 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer] {
 	}
 
 	storeStringLiteral { :self |
-		self.basicPrintString(10) ++ 'L'
+		self.uncheckedPrintString(10) ++ 'L'
 	}
 
 	storeString { :self |
@@ -411,6 +411,10 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer] {
 		}
 		return a;
 		>
+	}
+
+	uncheckedPrintString { :self :radix |
+		<primitive: return _self.toString(_radix).toUpperCase();>
 	}
 
 	uncheckedRaisedToInteger { :self :anInteger |

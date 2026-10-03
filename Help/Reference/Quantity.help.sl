@@ -5,15 +5,16 @@
 A `Type` that represents a quantity with size _magnitude_ and the specified _unit_.
 Units are specified according to the _International System of Units_.
 
-A Quantity represents a value associated with a specific unit:
+A Quantity represents a value associated with a specific unit,
+the unit is the singular SI unit name:
 
 ```
 >>> 8.metres
-Quantity(8, 'metres')
+Quantity(8, 'metre')
 
 >>> let q = 30.kilograms;
 >>> (q.magnitude, q.unit)
-(30, 'kilograms')
+(30, 'kilogram')
 ```
 
 Quantities can be tested for equality:
@@ -35,10 +36,10 @@ the quantity is converted to be in the _base unit_ of the quantity:
 
 ```
 >>> 250.milliseconds
-Quantity(0.25, 'seconds')
+Quantity(0.25, 'second')
 
 >>> 250.seconds.milli
-Quantity(0.25, 'seconds')
+Quantity(0.25, 'second')
 ```
 
 Unit predicates:
@@ -163,14 +164,14 @@ Length quantity constructors:
 3.centimetres
 
 >>> 3.nanometres
-Quantity(3E-9, 'metres')
+Quantity(3E-9, 'metre')
 ```
 
 Non-SI length constructors:
 
 ```
 >>> 3.feet
-Quantity(0.9144, 'metres')
+Quantity(0.9144, 'metre')
 
 >>> 3.feet
 0.9144.metres
@@ -267,7 +268,7 @@ and that the prefix functions apply to the stored magnitude:
 
 ```
 >>> 23.grams.kilo
-Quantity(23, 'kilograms')
+Quantity(23, 'kilogram')
 
 >>> 23.grams.milli
 23.milligrams
@@ -394,4 +395,6 @@ References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Quantity.html),
 _NIST_
-[1](https://www.nist.gov/pml/special-publication-811)
+[1](https://www.nist.gov/pml/special-publication-811),
+_W_
+[1](https://en.wikipedia.org/wiki/International_System_of_Units)

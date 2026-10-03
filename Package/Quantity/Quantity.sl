@@ -16,7 +16,7 @@ Quantity : [Object, Copy, Store, Equal, Compare, Frequency, Length, Mass, PlaneA
 		(self.unit = 'hertz').if {
 			self.magnitude
 		} {
-			(self.unit = 'seconds').if {
+			(self.unit = 'second').if {
 				1 / self.magnitude
 			} {
 				self.error('hertz: not time or frequency')
@@ -25,7 +25,7 @@ Quantity : [Object, Copy, Store, Equal, Compare, Frequency, Length, Mass, PlaneA
 	}
 
 	inKilograms { :self |
-		(self.unit = 'kilograms').if {
+		(self.unit = 'kilogram').if {
 			self.magnitude
 		} {
 			self.error('inKilograms: not mass')
@@ -33,7 +33,7 @@ Quantity : [Object, Copy, Store, Equal, Compare, Frequency, Length, Mass, PlaneA
 	}
 
 	inMetres { :self |
-		(self.unit = 'metres').if {
+		(self.unit = 'metre').if {
 			self.magnitude
 		} {
 			self.error('inMetres: not length')
@@ -49,7 +49,7 @@ Quantity : [Object, Copy, Store, Equal, Compare, Frequency, Length, Mass, PlaneA
 	}
 
 	inSeconds { :self |
-		(self.unit = 'seconds').if {
+		(self.unit = 'second').if {
 			self.magnitude
 		} {
 			self.error('inSeconds: not time')
@@ -71,7 +71,7 @@ Quantity : [Object, Copy, Store, Equal, Compare, Frequency, Length, Mass, PlaneA
 	}
 
 	isLength { :self |
-		self.unit = 'metres'
+		self.unit = 'metre'
 	}
 
 	isPlaneAngle { :self |
@@ -79,11 +79,11 @@ Quantity : [Object, Copy, Store, Equal, Compare, Frequency, Length, Mass, PlaneA
 	}
 
 	isMass { :self |
-		self.unit = 'kilograms'
+		self.unit = 'kilogram'
 	}
 
 	isTime { :self |
-		self.unit = 'seconds'
+		self.unit = 'second'
 	}
 
 
@@ -142,11 +142,11 @@ Quantity : [Object, Copy, Store, Equal, Compare, Frequency, Length, Mass, PlaneA
 	}
 
 	kilograms { :self |
-		Quantity(self, 'kilograms') /* kg */
+		Quantity(self, 'kilogram') /* kg */
 	}
 
 	metres { :self |
-		Quantity(self, 'metres') /* m */
+		Quantity(self, 'metre') /* m */
 	}
 
 	radians { :self |
@@ -154,7 +154,7 @@ Quantity : [Object, Copy, Store, Equal, Compare, Frequency, Length, Mass, PlaneA
 	}
 
 	seconds { :self |
-		Quantity(self, 'seconds') /* s */
+		Quantity(self, 'second') /* s */
 	}
 
 }

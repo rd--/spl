@@ -7,7 +7,7 @@ answer the `Quantity` _x_ yards.
 
 ```
 >>> 1760.yards
-Quantity(1609.344, 'metres')
+Quantity(1609.344, 'metre')
 ```
 
 One mile is defined as 1760 yards:

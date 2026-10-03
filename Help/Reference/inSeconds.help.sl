@@ -11,7 +11,7 @@ or from a `Duration` or a `Quantity`.
 5
 
 >>> 5.minutes
-Quantity(300, 'seconds')
+Quantity(300, 'second')
 
 >>> 5.minutes.inSeconds
 300

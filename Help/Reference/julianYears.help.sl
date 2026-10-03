@@ -8,7 +8,7 @@ A Julian year is a unit of measurement of time defined as exactly 365.25 days of
 
 ```
 >>> 1.julianYears
-Quantity(31557600, 'seconds')
+Quantity(31557600, 'second')
 ```
 
 At `Quantity`,

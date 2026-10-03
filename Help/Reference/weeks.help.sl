@@ -6,7 +6,7 @@ At `SmallFloat`, answer a `Quantity` value:
 
 ```
 >>> 2.weeks
-Quantity(1209600, 'seconds')
+Quantity(1209600, 'second')
 
 >>> 5.weeks
 50400.minutes

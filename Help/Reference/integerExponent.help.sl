@@ -247,7 +247,8 @@ OEIS [A004215](https://oeis.org/A004215):
 
 ```
 >>> 1:120.select { :n |
->>> 	n / (4 ^ n.integerExponent(4)) % 8 = 7
+>>> 	let m = n.integerExponent(4);
+>>> 	n / (4 ^ m) % 8 = 7
 >>> }
 [
 	  7  15  23  28  31
@@ -255,6 +256,22 @@ OEIS [A004215](https://oeis.org/A004215):
 	 71  79  87  92  95
 	103 111 112 119
 ]
+```
+
+Five-adic valuation of _n_,
+OEIS [A112765](https://oeis.org/A112765):
+
+```
+>>> 1:22.integerExponent(5)
+[0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0]
+```
+
+Greatest _k_ such that _6^k_ divides _n_,
+OEIS [A122841](https://oeis.org/A122841):
+
+```
+>>> 1:22.integerExponent(6)
+[0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0]
 ```
 
 Powers of two in successive integers,
@@ -623,5 +640,6 @@ _OEIS_
 [10](https://oeis.org/A116883),
 _W_
 [1](https://en.wikipedia.org/wiki/P-adic_valuation)
+[2](https://en.wikipedia.org/wiki/P-adic_number)
 
 Further Reading: Levine 2006

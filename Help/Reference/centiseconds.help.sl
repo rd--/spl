@@ -6,7 +6,7 @@ At `SmallFloat` answer a `Quantity` value:
 
 ```
 >>> 1.centiseconds
-Quantity(0.01, 'seconds')
+Quantity(0.01, 'second')
 
 >>> 18000.centiseconds
 3.minutes

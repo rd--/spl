@@ -3,25 +3,23 @@
 BlockStream : [Object, Iterator, Stream] { | onNext onReset nextItem |
 
 	next { :self |
-		let answer = self.nextItem;
+		let answer = self.peek;
 		answer.ifNotNil {
-			self.nextItem := self.onNext.value
+			self.nextItem := nil
 		};
 		answer
 	}
 
 	peek { :self |
-		self.nextItem
+		self.nextItem.ifNil {
+			self.nextItem := self.onNext.value
+		}
 	}
 
 	reset { :self |
 		self.onReset.value;
-		self.nextItem := self.onNext.value;
+		self.nextItem := nil;
 		0
-	}
-
-	shallowCopy { :self |
-		self.shouldNotImplement('shallowCopy')
 	}
 
 }
@@ -29,7 +27,7 @@ BlockStream : [Object, Iterator, Stream] { | onNext onReset nextItem |
 +Block {
 
 	BlockStream { :onNext :onReset |
-		newBlockStream().initializeSlots(onNext, onReset, onNext.value)
+		newBlockStream().initializeSlots(onNext, onReset, nil)
 	}
 
 	fixedPoint { :self/1 :anObject |
@@ -56,13 +54,13 @@ BlockStream : [Object, Iterator, Stream] { | onNext onReset nextItem |
 	}
 
 	iterate { :self/1 :anObject |
-		let state = anObject;
+		let state = { anObject };
 		BlockStream {
-			let next = state;
-			state := self(state);
+			let next = state();
+			state/0 := { self(next) };
 			next
 		} {
-			state := anObject
+			state/0 := { anObject }
 		}
 	}
 

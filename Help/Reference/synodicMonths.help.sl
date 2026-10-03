@@ -17,7 +17,7 @@ At `SmallFloat` answer a `Quantity`:
 ].sum
 
 >>> 1.synodicMonths
-Quantity(2551442.976, 'seconds')
+Quantity(2551442.976, 'second')
 ```
 
 * * *

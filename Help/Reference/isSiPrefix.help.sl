@@ -1,8 +1,8 @@
 # isSiPrefix
 
-- _isSiPrefix(aString)_
+- _isSiPrefix(s)_
 
-Answer `true` if _aString_ is an SI prefix.
+Answer `true` if the string _s_ is an SI prefix.
 
 ```
 >>> 'milli'.isSiPrefix
@@ -18,3 +18,5 @@ false
 * * *
 
 See also: SiUnit
+
+Guides: SI Units

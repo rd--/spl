@@ -58,18 +58,6 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		system.nextRandomFloat(0, self)
 	}
 
-	basicPrintString { :self :radix |
-		<primitive:
-		if(Object.is(_self, -0)) {
-			return "-0"
-		};
-		if(Number.isFinite(_self)) {
-			return _self.toString(_radix).toUpperCase();
-		};
-		return _self.toString();
-		>
-	}
-
 	bitAnd { :self :anObject |
 		<primitive:
 		if(sl.isBitwise(_self) && sl.isBitwise(_anObject)) {
@@ -182,7 +170,7 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 	byteHexString { :self |
 		self.isByte.if {
 			self
-			.basicPrintString(16)
+			.uncheckedPrintString(16)
 			.padLeft([2], '0')
 		} {
 			self.error(
@@ -919,6 +907,19 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 
 	uncheckedCountLeadingZeroes { :self |
 		<primitive: return Math.clz32(_self);>
+	}
+
+
+	uncheckedPrintString { :self :radix |
+		<primitive:
+		if(Object.is(_self, -0)) {
+			return "-0"
+		};
+		if(Number.isFinite(_self)) {
+			return _self.toString(_radix).toUpperCase();
+		};
+		return _self.toString();
+		>
 	}
 
 	uncheckedSquareRoot { :self |

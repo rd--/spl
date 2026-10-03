@@ -576,8 +576,8 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number] { | numerator denominat
 
 	storeStringLiteral { :self |
 		[
-			self.numerator.basicPrintString(10),
-			self.denominator.basicPrintString(10)
+			self.numerator.uncheckedPrintString(10),
+			self.denominator.uncheckedPrintString(10)
 		].stringIntercalate('/')
 	}
 

@@ -203,6 +203,20 @@ OEIS [A010055](https://oeis.org/A010055):
 
 ![](Help/Image/primeNu-I.svg)
 
+The number of divisors _d_ of _n_ having the property that for every prime _p_ dividing _n_,
+the p-adic valuation of _d_ is either 0 or a unitary divisor of the p-adic valuation of _n_,
+OEIS [A383863](https://oeis.org/A383863):
+
+~~~spl svg=J oeis=A383863
+2:115.collect { :n |
+	n.primeSignature.product { :e |
+		2 ^ e.primeNu + 1
+	}
+}.scatterPlot
+~~~
+
+![](Help/Image/primeNu-J.svg)
+
 * * *
 
 See also: distinctPrimeFactors, factorInteger, gcd, isPrime, isPrimePower, isSquareFree, primeOmega

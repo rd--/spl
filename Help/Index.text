@@ -2324,6 +2324,7 @@ Reference/isSingleton.help.sl
 Reference/isSinglyEven.help.sl
 Reference/isSiPrefix.help.sl
 Reference/isSiteswap.help.sl
+Reference/isSiUnit.help.sl
 Reference/isSmallFloat.help.sl
 Reference/isSmallInteger.help.sl
 Reference/isSmoothNumber.help.sl

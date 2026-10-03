@@ -45,6 +45,69 @@ true
 true
 ```
 
+The list of system traits:
+
+```
+>>> system.traitDictionary
+>>> .keys.sort!
+[
+	'ArithmeticProgression'
+	'Binary'
+	'BinaryLargeObject'
+	'Cache'
+	'CartesianCoordinates'
+	'Character'
+	'Collection'
+	'Colour'
+	'Compare'
+	'Copy'
+	'Dictionary'
+	'Equal'
+	'Event'
+	'EventTarget'
+	'Exception'
+	'Extensible'
+	'Frequency'
+	'Geometry'
+	'Graph'
+	'Indexable'
+	'Integer'
+	'Iterable'
+	'Iterator'
+	'Json'
+	'Length'
+	'Link'
+	'Mass'
+	'Multiset'
+	'Number'
+	'Object'
+	'OeisSequence'
+	'Ordered'
+	'PlaneAngle'
+	'PolygonMesh'
+	'PositionableStream'
+	'PrimitiveArray'
+	'PrimitiveError'
+	'PrimitiveMap'
+	'ProbabilityDistribution'
+	'RandomNumberGenerator'
+	'Sequence'
+	'Set'
+	'Store'
+	'Stream'
+	'SymbolicBoolean'
+	'SymbolicCompare'
+	'SymbolicNumber'
+	'SymbolicObject'
+	'Time'
+	'Tuning'
+	'Unordered'
+	'Url'
+	'UrlQueryParameters'
+	'WriteStream'
+]
+```
+
 * * *
 
 See also: Method, System, Type

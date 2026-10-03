@@ -8,7 +8,7 @@ _Note:_ English spelling.
 
 ```
 >>> 30.centimetres
-Quantity(0.3, 'metres')
+Quantity(0.3, 'metre')
 ```
 
 At `Quantity`,

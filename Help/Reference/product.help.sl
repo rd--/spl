@@ -218,6 +218,25 @@ OEIS [A087692](https://oeis.org/A087692):
 
 ![](Help/Image/product-D.svg)
 
+The number of recursive divisors of _n_,
+OEIS [A282446](https://oeis.org/A282446):
+
+~~~spl svg=E oeis=A282446
+let a = Map { :n |
+	(n = 1).if {
+		1
+	} {
+		n.factorInteger.product { :f |
+			let [_, m] = f;
+			1 + a[m]
+		}
+	}
+};
+a[1 .. 115].scatterPlot
+~~~
+
+![](Help/Image/product-E.svg)
+
 Where supported `product` is displayed as Π.
 
 * * *

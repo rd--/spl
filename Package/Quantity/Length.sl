@@ -77,7 +77,7 @@
 +SmallFloat {
 
 	Length { :self |
-		Quantity(self, 'metres')
+		Quantity(self, 'metre')
 	}
 
 }

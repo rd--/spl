@@ -9,7 +9,7 @@ A `List` of lengths, all given in meters:
 ```
 >>> let q = QuantityArray(
 >>> 	[2.3 1.5 9.0],
->>> 	'metres'
+>>> 	'metre'
 >>> );
 >>> (
 >>> 	q.magnitudeArray,
@@ -18,11 +18,11 @@ A `List` of lengths, all given in meters:
 >>> )
 (
 	[2.3 1.5 9.0],
-	['metres' 'metres' 'metres'],
+	['metre' 'metre' 'metre'],
 	[
-		Quantity(2.3, 'metres'),
-		Quantity(1.5, 'metres'),
-		Quantity(9.0, 'metres')
+		Quantity(2.3, 'metre'),
+		Quantity(1.5, 'metre'),
+		Quantity(9.0, 'metre')
 	]
 )
 ```
@@ -32,7 +32,7 @@ A list of pairs _(time, length)_:
 ```
 >>> let q = QuantityArray(
 >>> 	[1.4 2.3; 2.8 2.7; 4.2 3.5],
->>> 	['seconds' 'meters']
+>>> 	['second' 'metre']
 >>> );
 >>> (
 >>> 	q.magnitudeArray,
@@ -41,19 +41,19 @@ A list of pairs _(time, length)_:
 >>> )
 (
 	[1.4 2.3; 2.8 2.7; 4.2 3.5],
-	['seconds' 'meters'],
+	['second' 'metre'],
 	[
 		[
-			Quantity(1.4, 'seconds'),
-			Quantity(2.3, 'meters')
+			Quantity(1.4, 'second'),
+			Quantity(2.3, 'metre')
 		],
 		[
-			Quantity(2.8, 'seconds'),
-			Quantity(2.7, 'meters')
+			Quantity(2.8, 'second'),
+			Quantity(2.7, 'metre')
 		],
 		[
-			Quantity(4.2, 'seconds'),
-			Quantity(3.5, 'meters')
+			Quantity(4.2, 'second'),
+			Quantity(3.5, 'metre')
 		]
 	]
 )

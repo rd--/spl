@@ -792,7 +792,7 @@
 	}
 
 	integerString { :self :radix |
-		self.basicPrintString(radix)
+		self.uncheckedPrintString(radix)
 	}
 
 	integerString { :self |
@@ -1421,11 +1421,11 @@
 
 	printString { :self :radix |
 		(radix = 10).if {
-			self.basicPrintString(10)
+			self.uncheckedPrintString(10)
 		} {
 			let unsignedAnswer = '%r%'.format([
-				radix.basicPrintString(10),
-				self.abs.basicPrintString(radix)
+				radix.uncheckedPrintString(10),
+				self.abs.uncheckedPrintString(radix)
 			]);
 			self.isNegative.if {
 				'-' ++ unsignedAnswer

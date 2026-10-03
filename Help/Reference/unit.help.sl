@@ -6,10 +6,10 @@ Answer the unit of the specified quantity _q_.
 
 ```
 >>> 2.seconds.unit
-'seconds'
+'second'
 
 >>> 3.kilograms.unit
-'kilograms'
+'kilogram'
 ```
 
 The specified unit is in all cases the base unit,
@@ -17,17 +17,17 @@ the conversion is made by the constructor function:
 
 ```
 >>> 3.millimetres
-Quantity(0.003, 'metres')
+Quantity(0.003, 'metre')
 
 >>> 3.millimetres.unit
-'metres'
+'metre'
 ```
 
 Threads over lists:
 
 ```
 >>> [5.hertz 0.2.seconds].unit
-['hertz' 'seconds']
+['hertz' 'second']
 ```
 
 * * *

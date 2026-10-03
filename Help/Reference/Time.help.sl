@@ -9,7 +9,7 @@ The base unit of time in the International System of Units (SI) is the second (_
 ```
 >>> let t = Time(1);
 >>> (t.isTime, t.unit, t.magnitude)
-(true, 'seconds', 1)
+(true, 'second', 1)
 ```
 
 * * *

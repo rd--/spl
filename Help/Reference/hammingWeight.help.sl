@@ -286,6 +286,25 @@ OEIS [A242179](https://oeis.org/A242179):
 
 ![](Help/Image/hammingWeight-T.svg)
 
+The number of divisors _d_ of _n_ having the property that for every prime _p_ dividing _n_,
+the p-adic valuation of _d_ is either 0 or an infinitary divisor of the p-adic valuation of _n_,
+OEIS [A383865](https://oeis.org/A383865):
+
+~~~spl svg=U oeis=A383865
+let d = { :n |
+	n.primeSignature.product { :e |
+		2 ^ e.hammingWeight
+	}
+};
+1:115.collect { :n |
+	n.primeSignature.product { :e |
+		1 + d(e)
+	}
+}.scatterPlot
+~~~
+
+![](Help/Image/hammingWeight-U.svg)
+
 * * *
 
 See also: digitCount, gouldsSequence, thueMorseSequence

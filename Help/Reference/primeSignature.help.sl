@@ -3,7 +3,7 @@
 - _primeSignature(n)_
 
 Answer the prime signature of _n_,
-the sorted exponents of the prime factorization.
+the exponents of the prime factorization sorted into descending order.
 
 ```
 >>> 16.primeSignature
@@ -17,6 +17,30 @@ the sorted exponents of the prime factorization.
 
 >>> [2 ^ 2, 3 ^ 1, 5 ^ 1].product
 60
+```
+
+Relation to the second column of `factorInteger`:
+
+```
+>>> 360.factorInteger
+[
+	2 3;
+	3 2;
+	5 1
+]
+
+>>> 360.primeSignature
+[3 2 1]
+
+>>> 2250.factorInteger
+[
+	2 1;
+	3 2;
+	5 3
+]
+
+>>> 2250.primeSignature
+[3 2 1]
 ```
 
 The prime signature of `one` is defined here as the empty set _{}_,
@@ -431,6 +455,10 @@ OEIS [A064547](https://oeis.org/A064547):
 ![](Help/Image/primeSignature-K.svg)
 
 Ordered prime signature,
+this is neither `primeSignature`,
+which is sorted,
+or `primeExponents`,
+which has zero enries,
 OEIS [A124010](https://oeis.org/A124010):
 
 ~~~spl svg=L oeis=A124010

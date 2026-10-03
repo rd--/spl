@@ -7,7 +7,7 @@ answer a `Quantity` value:
 
 ```
 >>> 9.minutes
-Quantity(540, 'seconds')
+Quantity(540, 'second')
 
 >>> 5.minutes
 (5 * 60).seconds

@@ -84,6 +84,26 @@ PlotSet(
 
 ![](Help/Image/unique-C.svg)
 
+Exponent of five (value of j) in _n_-th number of form _3^i*5^j_,
+OEIS [A022337](https://oeis.org/A022337):
+
+~~~spl svg=D oeis=A022337
+let s = [];
+let m = 11;
+0:m.do { :k |
+	let n = 5 ^ k;
+	{ n <= (5 ^ m) }.whileTrue {
+		s.add!(n);
+		n := n * 3
+	}
+};
+s.unique
+.integerExponent(5)
+.discretePlot
+~~~
+
+![](Help/Image/unique-D.svg)
+
 * * *
 
 See also: ++, nub, sort, String, uniqueElements, uniqueIdentifier

@@ -7,7 +7,7 @@ construct a `Quantity` value holding _t_ milliseconds:
 
 ```
 >>> 5.milliseconds
-Quantity(0.005, 'seconds')
+Quantity(0.005, 'second')
 
 >>> 180000.milliseconds
 3.minutes

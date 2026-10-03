@@ -20,7 +20,7 @@ SiUnit : [Object, Store, Equal] { | name symbol quantity dimension |
 		self.isBaseUnit.not
 	}
 
-	namedBy { :self :symbolOrName |
+	isNamedBy { :self :symbolOrName |
 		self.name = symbolOrName | {
 			self.symbol = symbolOrName
 		}
@@ -30,17 +30,25 @@ SiUnit : [Object, Store, Equal] { | name symbol quantity dimension |
 
 +String {
 
-	isBaseUnit { :self |
-		self.siUnit.isBaseUnit
+	isSiBaseUnit { :self |
+		self.siUnitIfPresentIfAbsent { :u |
+			u.isBaseUnit
+		} {
+			false
+		}
 	}
 
-	isDerivedUnit { :self |
-		self.siUnit.isDerivedUnit
+	isSiDerivedUnit { :self |
+		self.siUnitIfPresentIfAbsent { :u |
+			u.isDerivedUnit
+		} {
+			false
+		}
 	}
 
-	isKnownUnit { :self |
-		self.isBaseUnit | {
-			self.isDerivedUnit
+	isSiUnit { :self |
+		self.isSiBaseUnit | {
+			self.isSiDerivedUnit
 		}
 	}
 
@@ -49,21 +57,33 @@ SiUnit : [Object, Store, Equal] { | name symbol quantity dimension |
 		.assertIsValid
 	}
 
-	siBaseUnitIfAbsent { :self :exceptionBlock/0 |
-		system.siBaseUnitList.detectIfNone { :each |
-			each.namedBy(self)
+	siBaseUnitIfPresentIfAbsent { :self :whenPresent/1 :whenAbsent/0 |
+		system.siBaseUnitList.detectIfFoundIfNone { :each |
+			each.isNamedBy(self)
+		} { :u |
+			whenPresent(u)
 		} {
-			exceptionBlock()
+			whenAbsent()
+		}
+	}
+
+	siUnitIfPresentIfAbsent { :self :whenPresent/1 :whenAbsent/0 |
+		self.siBaseUnitIfPresentIfAbsent { :u |
+			whenPresent(u)
+		} {
+			system.siNamedDerivedUnitList.detectIfFoundIfNone { :each |
+				each.isNamedBy(self)
+			} { :u |
+				whenPresent(u)
+			} {
+				whenAbsent()
+			}
 		}
 	}
 
 	siUnit { :self |
-		self.siBaseUnitIfAbsent {
-			system.siNamedDerivedUnitList.detectIfNone { :each |
-				each.namedBy(self)
-			} {
-				self.error('siUnit: not SI unit name')
-			}
+		self.siUnitIfPresentIfAbsent(identity/1) {
+			self.error('siUnit: not SI unit name')
 		}
 	}
 

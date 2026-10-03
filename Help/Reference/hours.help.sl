@@ -6,7 +6,7 @@ At `SmallFloat` answer a `Quantity` value:
 
 ```
 >>> 3.hours
-Quantity(3 * 60 * 60, 'seconds')
+Quantity(3 * 60 * 60, 'second')
 
 >>> 3.hours
 180.minutes

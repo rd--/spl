@@ -30,6 +30,14 @@ At zero and one:
 [0 0]
 ```
 
+At `RatioTuning`:
+
+```
+>>> RatioTuning[1 8/7 4/3 14/9 16/9]
+>>> .primeLimit
+7
+```
+
 The greatest prime dividing _n_,
 OEIS [A006530](https://oeis.org/A006530):
 
@@ -39,13 +47,16 @@ OEIS [A006530](https://oeis.org/A006530):
 
 ![](Help/Image/primeLimit-A.svg)
 
-At `RatioTuning`:
+Five-adic valuation of integers with prime limit less-than or equal to five,
+OEIS [A112762](https://oeis.org/A112762):
 
-```
->>> RatioTuning[1 8/7 4/3 14/9 16/9]
->>> .primeLimit
-7
-```
+~~~spl svg=B oeis=A112762
+1:3000.select { :n |
+	n.primeLimit <= 5
+}.integerExponent(5).scatterPlot
+~~~
+
+![](Help/Image/primeLimit-B.svg)
 
 * * *
 

@@ -224,7 +224,7 @@ Decimal : [Object, Store, Equal, Compare, Number] { | fraction scale |
 		let scale = self.scale;
 		let fraction = self.fraction;
 		(scale = 0).if {
-			self.integerPart.asLargeInteger.basicPrintString(10) ++ 'D'
+			self.integerPart.asLargeInteger.uncheckedPrintString(10) ++ 'D'
 		} {
 			'%%.%D'.format(
 				[
@@ -236,10 +236,10 @@ Decimal : [Object, Store, Equal, Compare, Number] { | fraction scale |
 					fraction
 					.integerPart
 					.abs
-					.basicPrintString(10),
+					.uncheckedPrintString(10),
 					(fraction.fractionalPart.abs * (10L ^ scale))
 					.round
-					.basicPrintString(10)
+					.uncheckedPrintString(10)
 					.padLeft([scale], '0')
 				]
 			)

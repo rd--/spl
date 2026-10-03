@@ -446,6 +446,25 @@ a[0 .. 65].discretePlot
 
 ![](Help/Image/gcd-R.svg)
 
+The size of the group _Qp(n)*/(Qp(n)*)^k_,
+OEIS [A370067](https://oeis.org/A370067):
+
+~~~spl svg=S oeis=A370067
+1:23.antidiagonalArray { :n :k |
+	let p = n.prime;
+	let e = k.integerExponent(p);
+	[
+		k,
+		p ^ e,
+		(p - 1).gcd(k / (p ^ e)),
+		(p = 2 & { e >= 1 }).boole + 1
+	].product
+}.collect(reverse/1).catenate
+.scatterPlot.log
+~~~
+
+![](Help/Image/gcd-S.svg)
+
 * * *
 
 See also: ||, chineseRemainder, divisible, euclideanAlgorithm, extendedGcd, Fraction, isCoprime, isPrime, lcm, signedGcd

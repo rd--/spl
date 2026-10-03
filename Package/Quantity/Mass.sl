@@ -21,7 +21,7 @@
 +SmallFloat {
 
 	Mass { :self |
-		Quantity(self, 'kilograms')
+		Quantity(self, 'kilogram')
 	}
 
 }

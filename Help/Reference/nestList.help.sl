@@ -260,6 +260,27 @@ OEIS [A104298](https://oeis.org/A104298):
 [15 19 29 47 89 197 523 1667 6397 29437]
 ```
 
+_2^a(n)_,
+the next entry has 19,729 digits,
+OEIS [A014221](https://oeis.org/A014221):
+
+```
+>>> { :n | 2 ^ n }.nestList(0L, 5)
+[0 1 2 4 16 65536]
+
+>>> { :n | 2 ^ n }.nestList(0L, 6)
+>>> .integerLength(10)
+[1 1 1 1 2 5 19729]
+```
+
+_3^a(n)_,
+OEIS [A014222](https://oeis.org/A014222):
+
+```
+>>> { :n | 3 ^ n }.nestList(0L, 4)
+[0 1 3 27 7625597484987]
+```
+
 The first few terms of the `dyadicMap`:
 
 ~~~spl svg=A

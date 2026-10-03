@@ -2,10 +2,6 @@
 
 @Indexable {
 
-	@ { :self :index |
-		self.at(index)
-	}
-
 	@* { :self :indexList |
 		self.atAll(indexList)
 	}
@@ -34,7 +30,7 @@
 		}
 	}
 
-	at { :self :index |
+	[at, @] { :self :index |
 		self.atIfAbsent(index) {
 			self.error('@Indexable>>at: invalid index', [index])
 		}

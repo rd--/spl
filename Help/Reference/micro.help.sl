@@ -29,7 +29,7 @@ At `Quantity`:
 
 ```
 >>> 23.metres.micro
-Quantity(2.3E-05, 'metres')
+Quantity(2.3E-05, 'metre')
 ```
 
 Where supported `micro` is displayed as μ.

@@ -9,7 +9,7 @@ The kilogram (_kg_) is the SI unit of mass.
 ```
 >>> let m = Mass(1);
 >>> (m.isMass, m.unit, m.magnitude)
-(true, 'kilograms', 1)
+(true, 'kilogram', 1)
 ```
 
 * * *

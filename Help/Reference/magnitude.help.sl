@@ -6,7 +6,7 @@ Answer the amount of the specified `Quantity` _q_.
 
 ```
 >>> 3.millimetres
-Quantity(0.003, 'metres')
+Quantity(0.003, 'metre')
 ```
 
 The quantity is in relation to the specified unit,

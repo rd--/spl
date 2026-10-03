@@ -8,8 +8,16 @@ The metre (_m_) is the SI unit of length.
 
 ```
 >>> let l = Length(1);
->>> (l.isLength, l.unit, l.magnitude)
-(true, 'metres', 1)
+>>> (
+>>> 	l.isLength,
+>>> 	l.isQuantity,
+>>> 	l.unit,
+>>> 	l.magnitude
+>>> )
+(true, true, 'metre', 1)
+
+>>> Length(3) = 3.metres
+true
 ```
 
 * * *

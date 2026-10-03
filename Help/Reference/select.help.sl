@@ -29,7 +29,7 @@ Use a literal block to test each element:
 [4 7 6]
 ```
 
-Only the first expression selected (c.f. `detect`):
+Only the first expression selected, see also `detect`:
 
 ```
 >>> [1 2 4 7 6 2].select { :x |
@@ -38,7 +38,8 @@ Only the first expression selected (c.f. `detect`):
 4
 ```
 
-Select operates on values in a dictionary:
+Select operates on values in a dictionary,
+see also `selectIndices`:
 
 ```
 >>> (a: 1, b: 2, c: 3, d: 4).select { :x |

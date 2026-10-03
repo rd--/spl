@@ -13,6 +13,11 @@ Traits:
 - `PlaneAngle`
 - `Time`
 
+Predicates:
+
+- `isSiPrefix`
+- `isSiUnit`
+
 Prefixes:
 
 - `centi`

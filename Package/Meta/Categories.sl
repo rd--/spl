@@ -475,7 +475,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'nextEntryTime'
 		'offsetSeconds'
 		'priorityQueue'
-		'seconds'
+		'second'
 		'siderealMonths'
 		'siderealYears'
 		'solarMonths'

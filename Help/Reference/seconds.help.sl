@@ -7,7 +7,7 @@ answer a `Quantity` value holding _t_ seconds:
 
 ```
 >>> 3.seconds
-Quantity(3, 'seconds')
+Quantity(3, 'second')
 
 >>> 180.seconds
 3.minutes

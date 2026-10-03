@@ -52,7 +52,7 @@
 +SmallFloat {
 
 	Time { :self |
-		Quantity(self, 'seconds')
+		Quantity(self, 'second')
 	}
 
 }

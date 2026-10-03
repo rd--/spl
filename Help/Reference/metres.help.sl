@@ -8,7 +8,7 @@ _Note:_ English spelling.
 
 ```
 >>> 3.metres
-Quantity(3, 'metres')
+Quantity(3, 'metre')
 ```
 
 At `Quantity`,
