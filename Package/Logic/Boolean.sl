@@ -32,10 +32,6 @@ Boolean! : [Object, Copy, Store, Equal, Compare, Json] {
 		aBlock()
 	}
 
-	asBit { :self |
-		self.if { 1 } { 0 }
-	}
-
 	asBoolean { :self |
 		self
 	}
@@ -44,8 +40,8 @@ Boolean! : [Object, Copy, Store, Equal, Compare, Json] {
 		self
 	}
 
-	boole { :self |
-		self.asBit
+	[boole, asBit] { :self |
+		self.if { 1 } { 0 }
 	}
 
 	compare { :self :operand |

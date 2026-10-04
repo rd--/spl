@@ -1403,16 +1403,16 @@ Float64Array(8).at(1) = 0 /* at protocol, initialized to zero */
 Float64Array(8).put!(1, 1.pi) = 1.pi /* put protocol, answer value put */
 let a = Float64Array(8); a.put!(1, 1.pi) = 1.pi & { a.at(1) = 1.pi }
 let a = Float64Array(8); (a[1] := 1.pi) = 1.pi & { a[1] = 1.pi }
-1:9.asFloat64Array.isFloat64Array = true /* interval as array */
-1:9.asFloat64Array.reverse = 9:1:-1.asFloat64Array /* reverse copy */
-let a = [1 .. 9].asFloat64Array; a.reverse!; a = 9:1:-1.asFloat64Array /* reverse in-place */
-let a = 9:1:-1.asFloat64Array; a.sort!; a = 1:9.asFloat64Array /* sort in-place */
+1:9.Float64Array.isFloat64Array = true /* interval as array */
+1:9.Float64Array.reverse = 9:1:-1.Float64Array /* reverse copy */
+let a = [1 .. 9].Float64Array; a.reverse!; a = 9:1:-1.Float64Array /* reverse in-place */
+let a = 9:1:-1.Float64Array; a.sort!; a = 1:9.Float64Array /* sort in-place */
 { Float64Array(1).put!(3, 'x') }.hasError /* out of bounds error */
 let a = Float64Array(1); a.uncheckedPut!(1, 'x'); a.at(1).isNaN = true /* unsafe mutation inserts NaN */
 let a = Float64Array(1); a.uncheckedPut!(3, 'x'); a.uncheckedAt(3) = nil /* unsafe mutation does not extend array */
-1:3.asFloat64Array.printString = 'Float64Array([1, 2, 3])'
-1:3.asFloat64Array.storeString = 'Float64Array([1, 2, 3])'
-let a = 1:3.asFloat64Array; let c = a.copy; c[1] := 3; c != a & { c.asList = [3, 2, 3] } /* copy */
+1:3.Float64Array.printString = 'Float64Array([1, 2, 3])'
+1:3.Float64Array.storeString = 'Float64Array([1, 2, 3])'
+let a = 1:3.Float64Array; let c = a.copy; c[1] := 3; c != a & { c.asList = [3, 2, 3] } /* copy */
 ```
 
 ## Floating point

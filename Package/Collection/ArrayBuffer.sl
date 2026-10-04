@@ -1,14 +1,14 @@
 ArrayBuffer! : [Object] {
 
-	[arrayBufferToByteArray, ByteArray] { :self |
+	[ByteArray, arrayBufferToByteArray] { :self |
 		<primitive: return new Uint8Array(_self);>
 	}
 
-	[arrayBufferToFloat32Array, asFloat32Array] { :self |
+	[Float32Array, arrayBufferToFloat32Array] { :self |
 		<primitive: return new Float32Array(_self);>
 	}
 
-	[arrayBufferToFloat64Array, asFloat64Array] { :self |
+	[Float64Array, arrayBufferToFloat64Array] { :self |
 		<primitive: return new Float64Array(_self);>
 	}
 

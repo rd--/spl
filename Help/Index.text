@@ -444,8 +444,6 @@ Reference/arrayReshape.help.sl
 Reference/arrayRules.help.sl
 Reference/arshonsSequence.help.sl
 Reference/artinsConstant.help.sl
-Reference/asAssociation.help.sl
-Reference/asAssociationList.help.sl
 Reference/asaTriangle.help.sl
 Reference/asBit.help.sl
 Reference/asBitSet.help.sl
@@ -480,8 +478,6 @@ Reference/asDuration.help.sl
 Reference/asEdge.help.sl
 Reference/asEdgeList.help.sl
 Reference/asFileUrl.help.sl
-Reference/asFloat32Array.help.sl
-Reference/asFloat64Array.help.sl
 Reference/asFloat.help.sl
 Reference/asFraction.help.sl
 Reference/asFractionOver.help.sl

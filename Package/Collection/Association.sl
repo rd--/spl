@@ -2,7 +2,7 @@
 
 Association : [Object, Store, Copy, Equal, Compare] { | key value |
 
-	asAssociation { :self |
+	Association { :self |
 		self
 	}
 
@@ -67,11 +67,13 @@ Association : [Object, Store, Copy, Equal, Compare] { | key value |
 
 +List {
 
-	asAssociation { :self |
-		(self.size = 2).if {
-			self.first -> self.second
-		} {
-			self.error('List>>asAssociation: not two-element sequence')
+	Association { :self |
+		self.atVectorOrElementwise { :x |
+			(x.size = 2).if {
+				x.first -> x.second
+			} {
+				x.error('List>>Association: not two-element sequence')
+			}
 		}
 	}
 

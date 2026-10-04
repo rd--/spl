@@ -1,15 +1,39 @@
 # Float32Array
 
-- _Float32Array(n)_
+- _Float32Array(x)_
 
-Answer an array of _n_ places, each initialized to `zero`,
-
-A `Float32Array` is a `Type` representing an array whose elements are IEEE 32-bit floating point values.
+A `Float32Array` is a `Type`,
+representing an array whose elements are IEEE 32-bit floating point values.
 Unlike `List`, a `Float32Array` is of fixed size.
+
+At `Integer`,
+answer an array of _n_ places,
+each initialized to `zero`:
 
 ```
 >>> Float32Array(5)
 Float32Array[0 0 0 0 0]
+```
+
+At `List`,
+answer a `Float32Array` with the values of the list,
+which must have element type `SmallFloat`:
+
+```
+>>> let l = [1 2 3 4 5];
+>>> let a = Float32Array(l);
+>>> (
+>>> 	l.elementType,
+>>> 	a.isFloat32Array,
+>>> 	a.size,
+>>> 	a.List
+>>> )
+(
+	'SmallFloat',
+	true,
+	5,
+	[1 2 3 4 5]
+)
 ```
 
 The `encode` method answers a `ByteArray`,
@@ -29,7 +53,7 @@ ByteArray[
 
 * * *
 
-See also: asFloat32Array, ByteArray, List, Float64Array
+See also: ByteArray, encode, List, Float64Array
 
 Guides: Vector Functions
 

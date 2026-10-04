@@ -50,10 +50,6 @@ Float32Array! : [Object, Copy, Store, Equal, Compare, Iterable, Indexable, Colle
 
 +List {
 
-	asFloat32Array { :self |
-		Float32Array(self)
-	}
-
 	Float32Array { :self |
 		self.isSmallFloatVector.if {
 			self.uncheckedFloat32Array
@@ -70,8 +66,8 @@ Float32Array! : [Object, Copy, Store, Equal, Compare, Iterable, Indexable, Colle
 
 +Range {
 
-	asFloat32Array { :self |
-		Float32Array(self.asList)
+	Float32Array { :self |
+		Float32Array(self.List)
 	}
 
 }

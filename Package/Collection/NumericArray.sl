@@ -203,8 +203,8 @@ NumericArray : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, 
 		let contents = storageType.caseOf(
 			[
 				'Byte' -> { self.ravel.ByteArray },
-				'Float32' -> { self.ravel.asFloat32Array },
-				'Float64' -> { self.ravel.asFloat64Array }
+				'Float32' -> { self.ravel.Float32Array },
+				'Float64' -> { self.ravel.Float64Array }
 			]
 		);
 		NumericArray(contents, self.shape)

@@ -15,8 +15,8 @@ Create new zeroed array buffer of sixteen bytes and form a `Float32Array` upon i
 
 ```
 >>> ArrayBuffer(16)
->>> .asFloat32Array
->>> .asList
+>>> .Float32Array
+>>> .List
 [0 0 0 0]
 ```
 
@@ -24,7 +24,7 @@ The `ArrayBuffer` underlying a typed array can be retrieved using the `buffer` m
 
 ```
 >>> [1 2 3 4]
->>> .asFloat32Array
+>>> .Float32Array
 >>> .buffer
 >>> .isArrayBuffer
 true

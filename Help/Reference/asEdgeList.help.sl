@@ -1,6 +1,6 @@
 # asEdgeList
 
-- _asEdge(aList)_
+- _asEdgeList(c)_
 
 Answer a list of edges,
 which may contain any combination of `DirectedEdge` and `UndirectedEdge` values.
@@ -11,8 +11,7 @@ which may contain any combination of `DirectedEdge` and `UndirectedEdge` values.
 >>> 	[1, 3],
 >>> 	1 --> 3,
 >>> 	1 --- 3
->>> ]
->>> .asEdgeList
+>>> ].asEdgeList
 [1 --> 3, 1 --- 3, 1 --> 3, 1 --- 3]
 ```
 

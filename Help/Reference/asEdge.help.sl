@@ -1,17 +1,17 @@
 # asEdge
 
-- _asEdge(anAssociation | aList | anEdge)_
+- _asEdge(x)_
 
 Answer either a `DirectedEdge` or an `UndirectedEdge`.
 
-At `Association`:
+At `Association` answers a `DirectedEdge`:
 
 ```
 >>> (1 -> 3).asEdge
 1 --> 3
 ```
 
-At `List`:
+At `List` answers an `UndirectedEdge`:
 
 ```
 >>> [1 3].asEdge

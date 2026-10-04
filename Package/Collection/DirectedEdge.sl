@@ -1,6 +1,6 @@
 DirectedEdge : [Object, Store, Equal, Compare, Indexable] { | vertexList |
 
-	asAssociation { :self |
+	Association { :self |
 		let [from, to] = self.vertexList;
 		from -> to
 	}

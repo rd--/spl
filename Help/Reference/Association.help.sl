@@ -19,6 +19,22 @@ The operator form of `Association` is `->`:
 Association('x', 1)
 ```
 
+At `List`:
+
+```
+>>> ['x' 1].Association
+'x' -> 1
+
+>>> ['x' 1; 'y' 2].Association
+```
+
+At `Association`:
+
+```
+>>> ('x' -> 1).Association
+'x' -> 1
+```
+
 Instances are ordinarily entries in a `Dictionary` type, i.e. `Map` or `Record`:
 
 ```
