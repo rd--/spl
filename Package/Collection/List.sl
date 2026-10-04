@@ -76,7 +76,7 @@ List! : [Object, Copy, Store, Equal, Compare, Json, Iterable, Indexable, Collect
 		} {
 			let answer = shape.iota;
 			shape.shapeIndicesDo { :index |
-				answer.atPathPut(index, aBlock(index))
+				answer.atPathPut!(index, aBlock(index))
 			};
 			answer
 		}

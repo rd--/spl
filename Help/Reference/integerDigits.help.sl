@@ -65,6 +65,23 @@ Threads over lists:
 [1 1 0; 1 1 1; 1 0; 0; 1 1 0 1]
 ```
 
+At `LargeInteger`:
+
+```
+>>> let i = 5752090994058710841670361653731519L;
+>>> let d = i.integerDigits(10);
+>>> (d, i = d.fromDigits(10))
+(
+	[
+		5 7 5 2 0 9 0 9 9 4
+		0 5 8 7 1 0 8 4 1 6
+		7 0 3 6 1 6 5 3 7 3
+		1 5 1 9
+	],
+	true
+)
+```
+
 Find the digits of 7 in different bases:
 
 ```

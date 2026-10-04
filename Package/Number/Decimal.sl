@@ -217,7 +217,7 @@ Decimal : [Object, Store, Equal, Compare, Number] { | fraction scale |
 	}
 
 	precision { :self |
-		self.truncatedInteger.integerLength(10) + self.scale
+		self.truncate.integerLength(10) + self.scale
 	}
 
 	printString { :self |
@@ -256,13 +256,15 @@ Decimal : [Object, Store, Equal, Compare, Number] { | fraction scale |
 
 	realDigits { :self :base :size |
 		let l = self.fraction.log(base).floor;
-		let a = self.floor.truncatedInteger;
+		let a = self.floor.truncate;
 		let b = a.integerDigits(base);
 		let c = (self - a) * base;
 		let d = { :x |
 			let d = x.floor;
 			(x - d) * base
-		}.nestList(c, size - b.size - 1).floor;
+		}.nestList(
+			c, size - b.size - 1
+		).floor.truncate;
 		[b ++ d, l + 1]
 	}
 
@@ -284,10 +286,6 @@ Decimal : [Object, Store, Equal, Compare, Number] { | fraction scale |
 	}
 
 	truncate { :self |
-		Decimal(self.fraction.truncate, 0)
-	}
-
-	truncatedInteger { :self |
 		self.fraction.truncate
 	}
 
@@ -401,6 +399,12 @@ Decimal : [Object, Store, Equal, Compare, Number] { | fraction scale |
 	adaptToDecimalAndApply { :self :operand :aBlock/2 |
 		self.collect { :each |
 			aBlock(operand, each)
+		}
+	}
+
+	truncateScale { :self :k |
+		self.collect { :each |
+			each.truncateScale(k)
 		}
 	}
 

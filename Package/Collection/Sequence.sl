@@ -2610,8 +2610,8 @@
 					indices.do { :each |
 						let [i, j] = each;
 						let x = self.atPath(i);
-						self.atPathPut(i, self.atPath(j));
-						self.atPathPut(j, x)
+						self.atPathPut!(i, self.atPath(j));
+						self.atPathPut!(j, x)
 					}
 				}
 			]
@@ -2620,8 +2620,8 @@
 
 	swapPathWith! { :self :i :j |
 		let x = self.atPath(i);
-		self.atPathPut(i, self.atPath(j));
-		self.atPathPut(j, x)
+		self.atPathPut!(i, self.atPath(j));
+		self.atPathPut!(j, x)
 	}
 
 	swapWith! { :self :i :j |

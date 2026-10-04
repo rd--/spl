@@ -233,8 +233,8 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer] {
 		radix.betweenAnd(2, 36).if {
 			self.uncheckedPrintString(radix).characters.digitValue
 		} {
-			self.asSmallInteger.integerDigits(self, radix)
-		}
+			self.asSmallInteger.integerDigits(radix)
+		}.collect(asLargeInteger/1)
 	}
 
 	integerLength { :self :radix |

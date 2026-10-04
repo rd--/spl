@@ -12,7 +12,7 @@ NumericArray : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, 
 		(self.rank = 1).if {
 			self.contents.atIfAbsent(i, ifAbsent/0)
 		} {
-			self.error('NumericArray>>atIfAbsent')
+			self.error('NumericArray>>atIfAbsent: rank not one')
 		}
 	}
 
@@ -131,8 +131,8 @@ NumericArray : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, 
 					(i + 1).toDo(n) { :j |
 						let x = self.atPath([i, j]);
 						let y = self.atPath([j, i]);
-						self.atPathPut([i, j], y);
-						self.atPathPut([j, i], x)
+						self.atPathPut!([i, j], y);
+						self.atPathPut!([j, i], x)
 					}
 				}
 			}{

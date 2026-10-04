@@ -629,7 +629,7 @@
 
 	singleEntryMatrix { :shape :index :x |
 		let m = shape.zeroMatrix;
-		m.atPathPut(index, x);
+		m.atPathPut!(index, x);
 		m
 	}
 
@@ -691,7 +691,7 @@
 		let i = 1;
 		let answer = shape.zeroMatrix;
 		shape.zigzagIndices.do { :each |
-			answer.atPathPut(each, i);
+			answer.atPathPut!(each, i);
 			i := i + 1
 		};
 		answer

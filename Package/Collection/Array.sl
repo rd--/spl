@@ -269,7 +269,7 @@
 				[1 .. n]
 			}.tuples;
 			i.withDo(j) { :p :q |
-				self.atPathPut(p, subarray.atPath(q))
+				self.atPathPut!(p, subarray.atPath(q))
 			}
 		} {
 			self.error('List>>replaceSubarray: index mismatch')

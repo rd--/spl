@@ -35,6 +35,10 @@ true
 >>> 5752090994058710841670361653731519L
 >>> .isKeithNumber
 true
+
+>>> 880430656963418264331749765271577784L
+>>> .isKeithNumber
+true
 ```
 
 Select Keith numbers,

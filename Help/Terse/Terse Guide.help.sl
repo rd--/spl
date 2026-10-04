@@ -465,7 +465,7 @@ let l = [1 2 4]; l.addBefore!(3, 4) = 3 & { l = [1 2 3 4] } /* insert value befo
 [-1 .. 5].collect { :index | [1 .. 3].atPin(index) } = [1 1 1 2 3 3 3] /* index answering bound if out of bounds */
 [2, 7, 5, 0, 1, -2].collect { :index | [5, 6, 8].atWrap(index) } = [6, 5, 6, 8, 5, 5] /* at with index wrap-around */
 (-1 .. 5).collect { :index | 1:3.atWrap(index) } = [2 3 1 2 3 1 2] /* index wrapping if out of bounds */
-let l = [1 nil 3]; l.putWrap(5, 2); l = [1 2 3] /* put with index wrap around */
+let l = [1 nil 3]; l.putWrap!(5, 2); l = [1 2 3] /* put with index wrap around */
 1:3.atFold(4) = 2 /* at with index fold-around */
 (-1 .. 5).collect { :index | 1:3.atFold(index) } = [3 2 1 2 3 2 1] /* at with index fold-around */
 [1 .. 9].difference([3 .. 7]) = [1, 2, 8, 9] /* set theoretic difference of two collections */
@@ -998,7 +998,7 @@ let n = 0; 3:7.collectThenDo(square/1) { :each | n := n + each } = [9, 16, 25, 3
 (p: (q: (r: (s: 1)))) @> ['p' 'q' 'r' 's'] = 1
 (p: (q: (r: 1))) @/ 'p/q/r' = 1 /* @/ = atPath of splitBy('/') */
 (p: (q: (r: (s: 1)))) @/ 'p/q/r/s' = 1
-let d = (w: (x: (y: (z: 1)))); d.atPathPut(['w', 'x', 'y', 'z'], -1); d['w']['x']['y']['z'] = -1 /* atPathPut of dictionary, depth = 4 */
+let d = (w: (x: (y: (z: 1)))); d.atPathPut!(['w', 'x', 'y', 'z'], -1); d['w']['x']['y']['z'] = -1 /* atPathPut of dictionary, depth = 4 */
 (x: (y: 1))['x']['y'] = 1 /* index sequence */
 [['w', 'x'], ['y', 'z']].atPath([1, 2]) = 'x' /* atPath of arrays */
 [['w', 'x'], ['y', 'z']][1][2] = 'x' /* index sequence */

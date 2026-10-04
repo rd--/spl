@@ -312,14 +312,21 @@ Rounding:
 >>> [-0.500D 0.500D].round
 [-1.000D 1.000D]
 
->>> [-0.500D 0.500D].truncate
-[0D 0D]
-
 >>> 3.141D.floor
 3.000D
 
 >>> 3.141D.ceiling
 4.000D
+```
+
+Truncating:
+
+```
+>>> [-0.500D 0.500D].truncate
+[0 0]
+
+>>> [-0.500D 0.500D].truncateScale(0)
+[0D 0D]
 ```
 
 Store string:

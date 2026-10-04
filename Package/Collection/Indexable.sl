@@ -124,10 +124,10 @@
 		}
 	}
 
-	atPathPut { :self :indices :value |
+	atPathPut! { :self :indices :value |
 		let item = self;
 		indices.ifEmpty {
-			self.error('atPath: empty indices')
+			self.error('atPathPut!: empty indices')
 		} {
 			1.toDo(indices.size - 1) { :indicesIndex |
 				let index = indices[indicesIndex];
