@@ -43,6 +43,9 @@ At `LargeInteger`:
 
 >>> (23 ^ 23).integerLength(10)
 32
+
+>>> (4L ^ 1397482L).integerLength(10)
+841_369
 ```
 
 Threads over lists:

@@ -210,10 +210,18 @@
 		self.collect(diagonalIndexToCartesianIndex/1)
 	}
 
+	digitCharacter { :self |
+		self.collect(digitCharacter/1)
+	}
+
 	digitCount { :self :b :d |
 		self.collect { :n |
 			digitCount(n, b, d)
 		}
+	}
+
+	digitValue { :self |
+		self.collect(digitValue/1)
 	}
 
 	divisors { :self |

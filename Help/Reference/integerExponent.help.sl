@@ -14,6 +14,13 @@ The number of trailing zeroes:
 4
 ```
 
+At `LargeInteger`:
+
+```
+>>> (40L ^ 30).integerExponent(10)
+30
+```
+
 The highest power of two:
 
 ```

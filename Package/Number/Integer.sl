@@ -728,7 +728,7 @@
 	}
 
 	integerExponent { :n :b |
-		let answer = 0;
+		let answer = n.zero;
 		{
 			n.divisible(b ^ (answer + 1))
 		}.whileTrue {

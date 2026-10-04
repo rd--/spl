@@ -188,13 +188,13 @@ Character : [Object, Copy, Store, Equal, Compare, Character] { | characterString
 
 	digitCharacter { :self |
 		self.betweenAnd(0, 35).if {
-			Character(
+			(
 				self + (self < 10).if {
 					48
 				} {
 					55
 				}
-			)
+			).fromCodePoint
 		} {
 			self.error('digitCharacter')
 		}

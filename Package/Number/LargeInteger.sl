@@ -229,6 +229,10 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer] {
 		}
 	}
 
+	integerDigits { :self :radix |
+		self.uncheckedPrintString(radix).characters.digitValue
+	}
+
 	integerLength { :self :radix |
 		self.uncheckedPrintString(radix).size
 	}

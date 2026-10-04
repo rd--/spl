@@ -1260,7 +1260,7 @@ OEIS [A008952](https://oeis.org/A008952):
 
 ~~~spl svg=O oeis=A008952
 0:85.collect { :n |
-	(2 ^ n).integerDigits.first
+	(2L ^ n).integerDigits.first
 }.discretePlot
 ~~~
 

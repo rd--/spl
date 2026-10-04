@@ -1,8 +1,8 @@
 # digitAt
 
-- _digitAt(anInteger)_
+- _digitAt(n)_
 
-Answer the value of an apparent byte-indexable field in _anInteger_.
+Answer the value of an apparent byte-indexable field in the integer _n_.
 
 At `SmallFloat`:
 
@@ -41,3 +41,5 @@ At `LargeInteger`:
 * * *
 
 See also: digitLength
+
+Guides: Integer Functions
