@@ -21,6 +21,10 @@ answer a `ByteArray` with the specified bytes:
 ```
 >>> ByteArray[1 2 3 4 5]
 ByteArray[1 2 3 4 5]
+
+>>> ByteArray[1 1 1 3 3 5]
+>>> .base64Encode
+'AQEBAwMF'
 ```
 
 At `Range`:
@@ -45,12 +49,11 @@ ByteArray[1 9 25 49]
 ByteArray[5 7 9]
 ```
 
-The inverse of `asByteArray` is `asList`:
+The inverse of `ByteArray` at `List` is `List`:
 
 ```
->>> [1 3 5 7 9]
->>> .asByteArray
->>> .asList
+>>> ByteArray[1 3 5 7 9]
+>>> .List
 [1 3 5 7 9]
 ```
 
@@ -70,7 +73,7 @@ ByteArray[5 4 3 2 1]
 
 * * *
 
-See also: asByteArray, asList, List, Float64Array
+See also: List, Float64Array
 
 Guides: Array Functions, Collection Functions
 
@@ -78,6 +81,7 @@ References:
 _Mathematica_
 [1](https://reference.wolframcloud.com/language/ref/ByteArray.html),
 _Smalltalk_
+5.7.1.5
 5.7.15,
 _Tc39_
 [1](https://tc39.es/ecma262/multipage/indexed-collections.html#table-49)

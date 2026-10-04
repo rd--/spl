@@ -1,6 +1,11 @@
 PoissonProcess : [Object] { | mu |
 
-	asStream { :self :r :t0 |
+	randomFunction { :self :r :t :n |
+		let [tMin, tMax] = t;
+		self.Stream(r, tMin).timeSeriesRandomFunction(t, n)
+	}
+
+	Stream { :self :r :t0 |
 		let mu = self.mu;
 		let t = t0;
 		let k = 0;
@@ -13,11 +18,6 @@ PoissonProcess : [Object] { | mu |
 			t := t0;
 			k := 0
 		}
-	}
-
-	randomFunction { :self :r :t :n |
-		let [tMin, tMax] = t;
-		self.asStream(r, tMin).timeSeriesRandomFunction(t, n)
 	}
 
 }

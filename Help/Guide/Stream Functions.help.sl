@@ -24,9 +24,9 @@ Predicates:
 
 Converting:
 
-- `asIterator`
-- `asStream`
-- `asWriteStream`
+- `Iterator`
+- `Stream`
+- `WriteStream`
 - `contents`
 - `originalContents`
 

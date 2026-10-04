@@ -2,7 +2,28 @@
 
 - _Stream([x₁ x₂ …])_
 
-`Stream` is a `Trait` that represents the ability to maintain a position reference into a collection of objects.
+`Stream` is both a `Trait`,
+representing the ability to maintain a position reference into a collection of objects,
+and a constructor method for stream types.
+
+At `List` and `Range`, answer a `CollectionStream` on the collection _c_.
+At a finite `Range`:
+
+```
+>>> let i = 1:9.Stream;
+>>> (i.next, i.next, i.next)
+(1, 2, 3)
+```
+
+At an infinite `Range`:
+
+```
+>>> let i = 1:Infinity:2.Stream;
+>>> (i.next, i.skip(10_000), i.next)
+(1, 10_001, 20_003)
+```
+
+Stream is a trait:
 
 ```
 >>> system

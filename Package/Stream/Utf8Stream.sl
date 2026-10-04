@@ -21,7 +21,9 @@
 +SmallFloat {
 
 	Utf8Stream { :self |
-		ByteArray(self).asWriteStream
+		WriteStream(
+			ByteArray(self)
+		)
 	}
 
 }

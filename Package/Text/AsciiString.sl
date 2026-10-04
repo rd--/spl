@@ -1,11 +1,7 @@
 AsciiString : [Object, Store, Equal, Iterable, Indexable, Collection, Sequence] { | contents |
 
-	asAsciiString { :self |
+	AsciiString { :self |
 		self
-	}
-
-	[asciiStringToByteArray, asByteArray] { :self |
-		self.contents.copy
 	}
 
 	[asciiStringToList, asList] { :self |
@@ -17,11 +13,15 @@ AsciiString : [Object, Store, Equal, Iterable, Indexable, Collection, Sequence] 
 	}
 
 	asHexString { :self |
-		self.contents.base16Encode.asAsciiString
+		self.contents.base16Encode.AsciiString
 	}
 
 	atIfAbsent { :self :anInteger :ifAbsent/0 |
 		self.contents.atIfAbsent(anInteger, ifAbsent/0).asCharacter
+	}
+
+	[ByteArray, asciiStringToByteArray] { :self |
+		self.contents.copy
 	}
 
 	codePoints { :self |
@@ -56,10 +56,18 @@ AsciiString : [Object, Store, Equal, Iterable, Indexable, Collection, Sequence] 
 
 }
 
++ByteArray {
+
+	uncheckedAsciiString { :self |
+		newAsciiString().initializeSlots(self)
+	}
+
+}
+
 +@Integer {
 
 	AsciiString { :self |
-		newAsciiString().initializeSlots(ByteArray(self))
+		ByteArray(self).uncheckedAsciiString
 	}
 
 }
@@ -67,11 +75,7 @@ AsciiString : [Object, Store, Equal, Iterable, Indexable, Collection, Sequence] 
 +String {
 
 	AsciiString { :self |
-		newAsciiString().initializeSlots(self.asciiByteArray)
-	}
-
-	asAsciiString { :self |
-		AsciiString(self)
+		self.asciiByteArray.uncheckedAsciiString
 	}
 
 }

@@ -157,7 +157,7 @@
 - `asBit`, `asBoolean`
 - `asComplex`, `asFloat`, `asFraction`, `asInteger`, `asLargeInteger`, `asNumber`, `asSmallFloat`
 - `asCharacter`, `asCodePoint`, `asHexDigit`, `asLowerCase`, `asRegExp`, `asString`, `asUpperCase`, `asWords`
-- `asIdentityMultiset`, `asByteArray`, `asCollection`, `asList`, `asMap`, `asRecord`, `asIdentitySet`, `asSortedList`, `asTree`
+- `asIdentityMultiset`, `ByteArray`, `asCollection`, `asList`, `asMap`, `asRecord`, `asIdentitySet`, `asSortedList`, `asTree`
 - `degreesToRadians`, `radiansToDegrees`
 
 ## Copying
@@ -705,7 +705,7 @@
 - `nextUntil`, `nextWhile`
 - `contents`
 - `position`, `setToEnd`
-- `asIterator`, `asStream`
+- `Iterator`, `Stream`
 - `collect`, `reject`, `select`
 - `peek`, `peekFor`
 - `skip`, `skipTo`

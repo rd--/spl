@@ -5,7 +5,7 @@
 	}
 
 	digest { :self :algorithm |
-		self.basicDigest(algorithm).then(asByteArray/1)
+		self.basicDigest(algorithm).then(ByteArray/1)
 	}
 
 	hash { :self :seed |

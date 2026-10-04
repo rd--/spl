@@ -7,7 +7,7 @@ Write the object _x_, or the items of _x_ if it is a list, onto the stream _s_.
 In the `Object` case, equivalent to `swap` of `nextPut`.
 
 ```
->>> let w = [].asWriteStream;
+>>> let w = WriteStream[];
 >>> 1.putOn(w);
 >>> w.contents
 [1]
@@ -16,7 +16,7 @@ In the `Object` case, equivalent to `swap` of `nextPut`.
 In the `List` case, equivalent to `swap` of `nextPutAll`:
 
 ```
->>> let w = [].asWriteStream;
+>>> let w = WriteStream[];
 >>> 1.putOn(w);
 >>> [2 .. 8].putOn(w);
 >>> 9.putOn(w);

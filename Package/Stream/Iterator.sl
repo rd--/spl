@@ -4,10 +4,6 @@
 		self.next(numberOfElements)
 	}
 
-	asIterator { :self |
-		self
-	}
-
 	do { :self :aBlock/1 |
 		let each = self.next;
 		{
@@ -20,6 +16,10 @@
 
 	isIterator { :self |
 		true
+	}
+
+	Iterator { :self |
+		self
 	}
 
 	next { :self |

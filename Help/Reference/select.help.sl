@@ -86,7 +86,7 @@ Retain items that are integers:
 At a finite `Stream`:
 
 ```
->>> [1 .. 9].asStream
+>>> Stream[1 .. 9]
 >>> .select(isEven/1)
 >>> .upToEnd
 [2 4 6 8]
@@ -95,7 +95,8 @@ At a finite `Stream`:
 At an infinte `Stream`:
 
 ```
->>> (1 .. Infinity).asStream
+>>> (1 .. Infinity)
+>>> .Stream
 >>> .select(isEven/1)
 >>> .next(4)
 [2 4 6 8]

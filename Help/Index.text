@@ -444,16 +444,13 @@ Reference/arrayReshape.help.sl
 Reference/arrayRules.help.sl
 Reference/arshonsSequence.help.sl
 Reference/artinsConstant.help.sl
-Reference/asAsciiString.help.sl
 Reference/asAssociation.help.sl
 Reference/asAssociationList.help.sl
 Reference/asaTriangle.help.sl
-Reference/asBinaryLargeObject.help.sl
 Reference/asBit.help.sl
 Reference/asBitSet.help.sl
 Reference/asBlock.help.sl
 Reference/asBoolean.help.sl
-Reference/asByteArray.help.sl
 Reference/asCartesianCoordinates.help.sl
 Reference/asCents.help.sl
 Reference/asCentsTuning.help.sl
@@ -501,7 +498,6 @@ Reference/asIdentityMultiset.help.sl
 Reference/asIdentitySet.help.sl
 Reference/asInteger.help.sl
 Reference/asIntegers.help.sl
-Reference/asIterator.help.sl
 Reference/asLargeInteger.help.sl
 Reference/asLargerPowerOfTwo.help.sl
 Reference/asLineDrawing.help.sl
@@ -550,7 +546,6 @@ Reference/associations.help.sl
 Reference/associationsRemove.help.sl
 Reference/asSortedList.help.sl
 Reference/asSphericalCoordinates.help.sl
-Reference/asStream.help.sl
 Reference/asString.help.sl
 Reference/asStringWithCommas.help.sl
 Reference/asSymbolicExpression.help.sl
@@ -563,7 +558,6 @@ Reference/asUpperCase.help.sl
 Reference/asUrl.help.sl
 Reference/asUrlQueryParameters.help.sl
 Reference/asWords.help.sl
-Reference/asWriteStream.help.sl
 Reference/atAllBlend.help.sl
 Reference/atAll.help.sl
 Reference/atAllPath.help.sl

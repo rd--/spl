@@ -12,7 +12,7 @@ If the stream ends before _n_ items are read it is an `error`, see `nextOrUpToEn
 At an infinite stream:
 
 ```
->>> (1 .. Infinity).asStream
+>>> (1 .. Infinity).Stream
 >>> .reject(isEven/1)
 >>> .next(5)
 [1 3 5 7 9]

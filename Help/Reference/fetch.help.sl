@@ -57,13 +57,13 @@ system
 .fetch
 .thenElse { :response |
 	response
-	.blob
+	.binaryLargeObject
 	.then { :aBinaryLargeObject |
 		aBinaryLargeObject
 		.arrayBuffer
 		.then { :anArrayBuffer |
 			anArrayBuffer
-			.asByteArray
+			.ByteArray
 			.base64Encode
 		}
 	}

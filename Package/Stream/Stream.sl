@@ -1,9 +1,5 @@
 @Stream {
 
-	asStream { :self |
-		self
-	}
-
 	equalToOnReset { :self :places |
 		let initialAnswer = self.next(places);
 		self.reset;
@@ -26,6 +22,10 @@
 
 	reset { :self |
 		self.typeResponsibility('Stream>>reset')
+	}
+
+	Stream { :self |
+		self
 	}
 
 }

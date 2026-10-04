@@ -1,6 +1,21 @@
 # Iterator
 
-`Iterator` is a `Trait` that represents the ability to maintain a position reference into a collection of objects.
+- _Stream([x₁ x₂ …])_
+
+`Iterator` is both a `Trait`,
+representing the ability to maintain a position reference into a collection of objects,
+and a constructor method for iterator types.
+
+At `List` and `Range`,
+answer a `CollectionStream` on the collection _c_.
+
+```
+>>> let i = Iterator(1:9);
+>>> (i.next, i.next, i.next)
+(1, 2, 3)
+```
+
+`Iterator` is a `Trait`:
 
 ```
 >>> system
@@ -31,7 +46,7 @@ List of types implementing `Iterator`:
 To implement `Iterator` a type must implement `next`.
 
 ```
->>> let i = 1:9.asIterator;
+>>> let i = 1:9.Iterator;
 >>> (i.next, i.next, i.next)
 (1, 2, 3)
 ```
@@ -49,7 +64,7 @@ To implement `Iterator` a type must implement `next`.
 
 * * *
 
-See also: asIterator, do, Iterable, next, Stream
+See also: CollectionStream, do, Iterable, next, Stream
 
 Guides: Stream Functions
 

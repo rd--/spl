@@ -31,7 +31,7 @@
 	}
 
 	randomByteArray { :self :n |
-		self.randomInteger([0, 255], n).asByteArray
+		self.randomInteger([0, 255], n).ByteArray
 	}
 
 	randomColour { :self :shape |

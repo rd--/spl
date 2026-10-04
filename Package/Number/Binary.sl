@@ -182,7 +182,7 @@
 					n := n.bitAnd(n - 1)
 				};
 				bitCount
-			}.asByteArray
+			}.ByteArray
 		}
 	}
 
@@ -192,7 +192,7 @@
 				highBits ++ highBits.collect { :each |
 					rank
 				}
-			}.asByteArray
+			}.ByteArray
 		}
 	}
 
@@ -202,7 +202,7 @@
 				let prefix = lowBits.copy;
 				prefix[1] := lowBits[1] + 1;
 				prefix ++ lowBits
-			}.allButFirst.asByteArray
+			}.allButFirst.ByteArray
 		}
 	}
 

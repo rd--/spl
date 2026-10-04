@@ -1,9 +1,5 @@
 @PrimitiveArray {
 
-	asList { :self |
-		List(self.size).fillFrom(self)
-	}
-
 	atIfAbsent { :self :index :ifAbsent/0 |
 		<primitive:
 		if(sl.arrayCheckIndex(_self, _index)) {
@@ -71,6 +67,10 @@
 		<primitive:
 		return Number.isInteger(_index) && 0 < _index && _index <= _self.length;
 		>
+	}
+
+	[List, asList] { :self |
+		List(self.size).fillFrom(self)
 	}
 
 	put! { :self :index :anObject |

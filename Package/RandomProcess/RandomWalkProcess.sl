@@ -1,6 +1,10 @@
 RandomWalkProcess : [Object] { | p q |
 
-	asStream { :self :r |
+	randomFunction { :self :r :t :n |
+		self.Stream(r).valueSeriesRandomFunction(t, n)
+	}
+
+	Stream { :self :r |
 		let p = self.p;
 		let q = self.q;
 		let x = 0;
@@ -17,10 +21,6 @@ RandomWalkProcess : [Object] { | p q |
 		} {
 			x := 0
 		}
-	}
-
-	randomFunction { :self :r :t :n |
-		self.asStream(r).valueSeriesRandomFunction(t, n)
 	}
 
 }

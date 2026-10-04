@@ -54,11 +54,11 @@ BinaryLargeObject! : [Object, Equal, BinaryLargeObject] {
 
 +[ByteArray, Float64Array] {
 
-	asBinaryLargeObject { :self :options |
+	BinaryLargeObject { :self :options |
 		BinaryLargeObject([self], options)
 	}
 
-	asBinaryLargeObject { :self |
+	BinaryLargeObject { :self |
 		BinaryLargeObject([self], Record())
 	}
 

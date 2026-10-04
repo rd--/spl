@@ -13,7 +13,7 @@ system
 	.arrayBuffer
 	.then { :anArrayBuffer |
 		anArrayBuffer
-		.asByteArray
+		.ByteArray
 		.base64Encode
 	}
 }

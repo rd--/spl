@@ -622,7 +622,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'asBitSet'
 		'asBoolean'
 		'asBracketedComment'
-		'asByteArray'
+		'ByteArray'
 		'asCartesianCoordinates'
 		'asCharacter'
 		'asCollection'
@@ -685,7 +685,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'categoryNameParts'
 	],
 	'converting-string': [
-		'asAsciiString'
+		'AsciiString'
 		'asCodePoint'
 		'asHaskellComment'
 		'asLowerCase'

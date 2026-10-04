@@ -8,8 +8,7 @@ Implements _CRC-16/ARC_, see <https://reveng.sourceforge.io/crc-catalogue/16.htm
 At `ByteArray`:
 
 ```
->>> [115 116 114 105 110 103]
->>> .asByteArray
+>>> ByteArray[115 116 114 105 110 103]
 >>> .crc16
 58909
 ```

@@ -26,7 +26,7 @@ At `Stream`:
 
 ```
 >>> Sfc32(678143)
->>> .duplicateEach([2 3 2].asIterator)
+>>> .duplicateEach(Iterator[2 3 2])
 >>> .next(7)
 [
 	0.897523 0.897523

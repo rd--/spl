@@ -1,6 +1,10 @@
 HiddenMarkovProcess : [Object] { | p0 m e |
 
-	asStream { :self :r |
+	randomFunction { :self :r :t :n |
+		self.Stream(r).valueSeriesRandomFunction(t, n)
+	}
+
+	Stream { :self :r |
 		let p0 = AliasMethod(self.p0);
 		let m = self.m.collect(AliasMethod/1);
 		let e = self.e.collect(AliasMethod/1);
@@ -12,10 +16,6 @@ HiddenMarkovProcess : [Object] { | p0 m e |
 		} {
 			x := p0.nextRandom(r)
 		}
-	}
-
-	randomFunction { :self :r :t :n |
-		self.asStream(r).valueSeriesRandomFunction(t, n)
 	}
 
 	viterbiDecoding { :self :aList |

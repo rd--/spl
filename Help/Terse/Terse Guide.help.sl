@@ -828,30 +828,30 @@ ByteArray(8).size = 8
 ByteArray(8).at(1) = 0 /* lookup element at index */
 ByteArray(8).put!(1, 179) = 179 /* set element at index, answer element */
 let a = ByteArray(8); a.put!(1, 179) = 179 & { a.at(1) = 179 }
-1:9.asByteArray.isByteArray = true /* array of numbers in 0-255 to byte array */
-{ [-1].asByteArray }.hasError /* out of range element error */
-{ ['1'].asByteArray }.hasError /* not a number element error */
-1:9.asByteArray.reverse = 9:1:-1.asByteArray
-1:3.asByteArray.printString = 'ByteArray([1, 2, 3])'
-1:3.asByteArray.storeString = 'ByteArray([1, 2, 3])'
+1:9.ByteArray.isByteArray = true /* array of numbers in 0-255 to byte array */
+{ [-1].ByteArray }.hasError /* out of range element error */
+{ ['1'].ByteArray }.hasError /* not a number element error */
+1:9.ByteArray.reverse = 9:1:-1.ByteArray
+1:3.ByteArray.printString = 'ByteArray([1, 2, 3])'
+1:3.ByteArray.storeString = 'ByteArray([1, 2, 3])'
 ByteArray(4).base16Encode = '00000000'
 'text'.asciiByteArray[1] = 116 /* ByteArray subscript */
 let b = ByteArray(4); b[1] := 15; b[3] := 240; b.base16Encode = '0F00F000'
 let b = ByteArray(4); b[2] := 15; b[4] := 240; b.base16Encode = '000F00F0'
-1:4.asByteArray.base16Encode = '01020304'
+1:4.ByteArray.base16Encode = '01020304'
 let b = ByteArray(4); b.atAllPut(15); b.base16Encode = '0F0F0F0F'
 'string'.asciiByteArray.asList = [115, 116, 114, 105, 110, 103] /* array from ByteArray */
-{ [1, 2, 3].asByteArray.add!(4) }.hasError /* ByteArrays are not Extensible */
-1:9.asByteArray.select { :each | false } = [].asByteArray /* select nothing */
-1:9.asByteArray != [1 .. 9] /* ByteArray and List of equal elements are not equal */
-1:9.asByteArray.hasEqualElements(1:9) /* ByteArray and List of equal elements */
-[1, 13 .. 253].asByteArray.base64Encode = 'AQ0ZJTE9SVVhbXmFkZ2ptcHN2eXx/Q==' /* base 64 encoding */
-'AQ0ZJTE9SVVhbXmFkZ2ptcHN2eXx/Q=='.base64Decode = (1, 13 .. 253).asByteArray /* base 64 decoding */
+{ [1, 2, 3].ByteArray.add!(4) }.hasError /* ByteArrays are not Extensible */
+1:9.ByteArray.select { :each | false } = [].ByteArray /* select nothing */
+1:9.ByteArray != [1 .. 9] /* ByteArray and List of equal elements are not equal */
+1:9.ByteArray.hasEqualElements(1:9) /* ByteArray and List of equal elements */
+[1, 13 .. 253].ByteArray.base64Encode = 'AQ0ZJTE9SVVhbXmFkZ2ptcHN2eXx/Q==' /* base 64 encoding */
+'AQ0ZJTE9SVVhbXmFkZ2ptcHN2eXx/Q=='.base64Decode = (1, 13 .. 253).ByteArray /* base 64 decoding */
 'SGVsbG8gV29ybGQ='.base64Decode.asciiString = 'Hello World' /* answer is a ByteArray */
-[1, 3 .. 9].asByteArray.indices = 1:5 /* indices of byte array (an interval) */
-let b = [1, 3 .. 9].asByteArray; b.copy = b & { b.copy !== b } /* copies are equal & not identical */
-let b = [1 .. 9].asByteArray; let c = b.copy; c[1] := 9; c[1] = 9 & { b[1] = 1 } /* copies are distinct */
-[115, 116, 114, 105, 110, 103].asByteArray.crc16 = 58909 /* 16 bit cyclic redundancy check, crc-16/arc */
+[1, 3 .. 9].ByteArray.indices = 1:5 /* indices of byte array (an interval) */
+let b = [1, 3 .. 9].ByteArray; b.copy = b & { b.copy !== b } /* copies are equal & not identical */
+let b = [1 .. 9].ByteArray; let c = b.copy; c[1] := 9; c[1] = 9 & { b[1] = 1 } /* copies are distinct */
+[115, 116, 114, 105, 110, 103].ByteArray.crc16 = 58909 /* 16 bit cyclic redundancy check, crc-16/arc */
 let s = 'string'; let a = []; a.addAll!(s.asciiByteArray); a.size = 6 /* add elements from ByteArray to end of List */
 ```
 
@@ -1261,7 +1261,7 @@ let a = [1, [2]]; let c = a.copy; c[2][1] := -2; c = a & { a = [1, [-2]] } /* sh
 let a = [1, [2]]; let c = a.deepCopy; c[2][1] := -2; c != a & { a = [1, [2]] } /* deep copy of list */
 let b = [1, 2, 2].asIdentityMultiset; let c = b.copy; c.add!(3); c != b & { c = [1, 2, 2, 3].asIdentityMultiset } /* copy bag */
 let b = BitSet([1, 2], 3); let c = b.copy; c.add!(3); c != b & { c = BitSet([1, 2, 3], 4) } /* copy bitset */
-let b = [1, 2].asByteArray; let c = b.copy; c[1] := 3; c[1] = 3 & { b[1] = 1 } /* copy byte array */
+let b = [1, 2].ByteArray; let c = b.copy; c[1] := 3; c[1] = 3 & { b[1] = 1 } /* copy byte array */
 ```
 
 ## Date -- temporal type
@@ -1708,7 +1708,7 @@ let a = []; 5.toDo(1) { :each | a.add!(each) }; a = [] /* non-ascending sequence
 512:1023.collect { :each | each.digitAt(2) }.asIdentityMultiset.sortedElements = [2 -> 256, 3 -> 256]
 [1, 8, 16, 24, 32L, 40L, 48L, 56L, 64L].collect { :each | (2 ^ each).digitLength } = [1 .. 9]
 (2 ^ 128L - 1).digitLength = 16
-[64 226 1].asByteArray.fnv1aHash = 2230130162L
+[64 226 1].ByteArray.fnv1aHash = 2230130162L
 (1 << 30) == 1073741824 /* equal integers are identical */
 6.choose(3) = 20 /* n choose k */
 6.choose(3) = ((6 * 5 * 4) / (1 * 2 * 3))
@@ -2556,18 +2556,18 @@ let r = numericalRecipesLinearCongruential(42); let a = r.next(9); r.reset; r.ne
 ## Iterator -- collection trait
 ```
 system.includesPackage('Iterator') /* Iterator package */
-[].asIterator.typeOf = 'CollectionStream' /* type of iterator */
-1:5.asIterator.upTo(3) = 1:2 /* read up to, but not including, an element, answer is of species of collection */
-1:5.asIterator.upTo(9) = 1:5 /* read up to end if element is not located */
-let r = [1 .. 5].asIterator; [r.next, r.next(3), r.next, r.next] = [1, [2, 3, 4], 5, nil] /* next answers nil at end */
-let r = [1 .. 3].asIterator; [r.next, r.upToEnd] = [1, [2, 3]] /* read up to end */
-let r = 1:5.asIterator; r.upTo(3) = 1:2 & { r.next = 4} /* matching element is consumed */
-let r = 9:1:-1.asIterator; [r.upTo(3), r.upToEnd] = [9:4:-1, 2:1:-1] /* matching element is consumed */
-[].asIterator.next = nil /* next at an empty read iterator answers nil */
-let r = '.....ascii'.characters.asIterator; let l = List(5); r.next(5); r.nextInto(l); l.stringIntercalate('') = 'ascii'
-1:9.asIterator.nextOrUpToEnd(23) = [1 .. 9] /* take at most n items from iterator */
-let r = 1:9.asIterator; [r.nextMatchFor(1), r.next] = [true, 2] /* predicate at consumed item */
-let r = 1:9.asIterator; [r.nextMatchAll([1, 2, 3]), r.next] = [true, 4] /* predicate at consumed items */
+[].Iterator.typeOf = 'CollectionStream' /* type of iterator */
+1:5.Iterator.upTo(3) = 1:2 /* read up to, but not including, an element, answer is of species of collection */
+1:5.Iterator.upTo(9) = 1:5 /* read up to end if element is not located */
+let r = [1 .. 5].Iterator; [r.next, r.next(3), r.next, r.next] = [1, [2, 3, 4], 5, nil] /* next answers nil at end */
+let r = [1 .. 3].Iterator; [r.next, r.upToEnd] = [1, [2, 3]] /* read up to end */
+let r = 1:5.Iterator; r.upTo(3) = 1:2 & { r.next = 4} /* matching element is consumed */
+let r = 9:1:-1.Iterator; [r.upTo(3), r.upToEnd] = [9:4:-1, 2:1:-1] /* matching element is consumed */
+[].Iterator.next = nil /* next at an empty read iterator answers nil */
+let r = '.....ascii'.characters.Iterator; let l = List(5); r.next(5); r.nextInto(l); l.stringIntercalate('') = 'ascii'
+1:9.Iterator.nextOrUpToEnd(23) = [1 .. 9] /* take at most n items from iterator */
+let r = 1:9.Iterator; [r.nextMatchFor(1), r.next] = [true, 2] /* predicate at consumed item */
+let r = 1:9.Iterator; [r.nextMatchAll([1, 2, 3]), r.next] = [true, 4] /* predicate at consumed items */
 ```
 
 ## Sphere -- geometric type
@@ -2585,28 +2585,28 @@ Ball([0 0 0], 1).volume = (4.pi / 3) /* volume */
 ## Stream -- collection trait
 ```
 system.includesPackage('Stream') /* Stream package */
-[].asStream.typeOf = 'CollectionStream' /* type of stream */
-let s = 1:9.asStream; let a = s.next(9); s.reset; s.next(9) = a /* reset stream */
+[].Stream.typeOf = 'CollectionStream' /* type of stream */
+let s = 1:9.Stream; let a = s.next(9); s.reset; s.next(9) = a /* reset stream */
 ```
 
 ### PositionableStream -- collection trait
 ```
 system.includesPackage('PositionableStream') /* PositionableStream package */
-[].asStream.atEnd = true /* at end predicate */
-let r = 1:1000.asIterator; [r.next, r.next, r.atEnd] = [1, 2, false] /* at end predicate */
-[].asStream.position = 0 /* initially the position is zero */
-let r = 1:9.asStream; [r.next, r.back, r.next] = [1, 1, 1] /* go back one element and return it (by peeking) */
+[].Stream.atEnd = true /* at end predicate */
+let r = 1:1000.Iterator; [r.next, r.next, r.atEnd] = [1, 2, false] /* at end predicate */
+[].Stream.position = 0 /* initially the position is zero */
+let r = 1:9.Stream; [r.next, r.back, r.next] = [1, 1, 1] /* go back one element and return it (by peeking) */
 ```
 
 ### CollectionStream -- collection trait
 ```
-1:5.asStream.size = 5 /* stream from interval, stream size */
-1:5.asStream.contents = 1:5 /* contents of finite stream (a copy of the collection) */
-let a = [1 .. 5]; a.asStream.contents !== a /* contents of finite stream (a copy of the collection) */
-let i = 1:5; i.asStream.originalContents == i /* original contents of stream (the actual collection */
-let r = 1:5.asStream; r.upToEnd; r.contents = 1:5 /* contents of consumed stream */
-1:9.asStream.collection = Range(1, 9, 1) /* read stream over interval collection */
-let i = 1:9; let s = i.asStream; let c = s.copy; c.next; s.next = 1 & { c.next = 2 } /* copy */
+1:5.Stream.size = 5 /* stream from interval, stream size */
+1:5.Stream.contents = 1:5 /* contents of finite stream (a copy of the collection) */
+let a = [1 .. 5]; a.Stream.contents !== a /* contents of finite stream (a copy of the collection) */
+let i = 1:5; i.Stream.originalContents == i /* original contents of stream (the actual collection */
+let r = 1:5.Stream; r.upToEnd; r.contents = 1:5 /* contents of consumed stream */
+1:9.Stream.collection = Range(1, 9, 1) /* read stream over interval collection */
+let i = 1:9; let s = i.Stream; let c = s.copy; c.next; s.next = 1 & { c.next = 2 } /* copy */
 ```
 
 ## Record -- collection type
@@ -3269,7 +3269,7 @@ system.includesPackage('String') /* package */
 128.asCharacter.characterString.isAscii = false /* not all byte arrays are ascii */
 'x' ++ 'y' = 'xy' /* append (catenation) */
 { 'x' ++ 1 }.hasError /* append, right hand side must be a string */
-'string'.asciiByteArray = [115, 116, 114, 105, 110, 103].asByteArray /* String to ByteArray of Ascii encoding */
+'string'.asciiByteArray = [115, 116, 114, 105, 110, 103].ByteArray /* String to ByteArray of Ascii encoding */
 { 'Mačiūnas'.asciiByteArray }.hasError /* non-ascii characters */
 '3.4'.parseNumber = 3.4 /* parse float */
 '3'.parseDecimalInteger = 3 /* parse integer */
@@ -3303,8 +3303,8 @@ system.includesPackage('String') /* package */
 { 'string'.add!('!') }.hasError /* strings are immutable */
 'quoted string with \'escaped\' quote characters'.words[4].copyFromTo(2, 8) = 'escaped'
 'string'.utf8ByteArray = 'string'.asciiByteArray /* Utf-8 is a superset of ascii */
-'øéஃî'.utf8ByteArray = [195, 184, 195, 169, 224, 174, 131, 195, 174].asByteArray /* unicode */
-'Mačiūnas'.utf8ByteArray = [77, 97, 196, 141, 105, 197, 171, 110, 97, 115].asByteArray /* Utf-8 encoding */
+'øéஃî'.utf8ByteArray = [195, 184, 195, 169, 224, 174, 131, 195, 174].ByteArray /* unicode */
+'Mačiūnas'.utf8ByteArray = [77, 97, 196, 141, 105, 197, 171, 110, 97, 115].ByteArray /* Utf-8 encoding */
 'Mačiūnas'.size = 8
 'Mačiūnas'.utf8ByteArray.size = 10
 'Mačiūnas'.utf16List = [77, 97, 269, 105, 363, 110, 97, 115] /* Utf-16 encoding */
@@ -3318,9 +3318,9 @@ system.includesPackage('String') /* package */
 'x'.printString.size = 3 /* printString is a quoted string */
 1.asString = '1' /* integer as string */
 1.pi.asString = '3.141592653589793' /* float as string */
-'ascii'.asciiByteArray = [97, 115, 99, 105, 105].asByteArray
-'€'.utf8ByteArray = [226, 130, 172].asByteArray /* Utf-8 encoding of String as ByteArray */
-[226, 130, 172].asByteArray.utf8String = '€' /* String from Utf-8 encoded ByteArray */
+'ascii'.asciiByteArray = [97, 115, 99, 105, 105].ByteArray
+'€'.utf8ByteArray = [226, 130, 172].ByteArray /* Utf-8 encoding of String as ByteArray */
+[226, 130, 172].ByteArray.utf8String = '€' /* String from Utf-8 encoded ByteArray */
 '€'.utf8ByteArray.utf8String = '€' /* decode and encode Utf-8 */
 'ascii'.asciiByteArray = 'ascii'.utf8ByteArray
 'ascii'.asciiByteArray.asciiString = 'ascii' /* decode and encode Ascii */
@@ -4132,5 +4132,5 @@ system.cache['onceCache'].isWeakMap
 ## MutableCollectionStream -- collection type
 ```
 system.includesPackage('MutableCollectionStream') /* MutableCollectionStream package */
-let w = [].asByteArray.asWriteStream; w.nextPutAll(1:9); w.contents = [1 .. 9].asByteArray
+let w = [].ByteArray.WriteStream; w.nextPutAll(1:9); w.contents = [1 .. 9].ByteArray
 ```

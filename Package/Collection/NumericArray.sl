@@ -202,7 +202,7 @@ NumericArray : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, 
 	NumericArray { :self :storageType |
 		let contents = storageType.caseOf(
 			[
-				'Byte' -> { self.ravel.asByteArray },
+				'Byte' -> { self.ravel.ByteArray },
 				'Float32' -> { self.ravel.asFloat32Array },
 				'Float64' -> { self.ravel.asFloat64Array }
 			]

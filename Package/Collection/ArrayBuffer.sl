@@ -1,6 +1,6 @@
 ArrayBuffer! : [Object] {
 
-	[arrayBufferToByteArray, asByteArray] { :self |
+	[arrayBufferToByteArray, ByteArray] { :self |
 		<primitive: return new Uint8Array(_self);>
 	}
 

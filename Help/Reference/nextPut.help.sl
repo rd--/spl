@@ -5,7 +5,7 @@
 Write the object _x_ into the stream _s_.
 
 ```
->>> let s = [].asWriteStream;
+>>> let s = WriteStream[];
 >>> s.nextPut('a');
 >>> s.nextPut('b');
 >>> (s.upToEnd, s.contents)

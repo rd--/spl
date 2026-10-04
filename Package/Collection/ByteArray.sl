@@ -122,11 +122,11 @@ ByteArray! : [Object, Copy, Store, Equal, Compare, Iterable, Indexable, Collecti
 +List {
 
 	asciiString { :self |
-		self.asByteArray.asciiString
+		self.ByteArray.asciiString
 	}
 
 	utf8String { :self |
-		self.asByteArray.utf8String
+		self.ByteArray.utf8String
 	}
 
 	utf16String { :self |
@@ -145,15 +145,7 @@ ByteArray! : [Object, Copy, Store, Equal, Compare, Iterable, Indexable, Collecti
 
 +List {
 
-	[listToByteArray, asByteArray] { :self |
-		ByteArray(self)
-	}
-
-	basicByteArray { :self |
-		<primitive: return new Uint8Array(_self);>
-	}
-
-	ByteArray { :self |
+	[ByteArray, listToByteArray] { :self |
 		self.isEmpty.if {
 			ByteArray(0)
 		} {
@@ -162,22 +154,22 @@ ByteArray! : [Object, Copy, Store, Equal, Compare, Iterable, Indexable, Collecti
 					self.allSatisfy(isByte/1)
 				}
 			).if {
-				self.basicByteArray
+				self.uncheckedByteArray
 			} {
-				self.error('List>>asByteArray: invalid')
+				self.error('List>>ByteArray: invalid')
 			}
 		}
+	}
+
+	uncheckedByteArray { :self |
+		<primitive: return new Uint8Array(_self);>
 	}
 
 }
 
 +@ArithmeticProgression {
 
-	[arithmeticProgressionToByteArray, asByteArray] { :self |
-		ByteArray(self)
-	}
-
-	ByteArray { :self |
+	[ByteArray, arithmeticProgressionToByteArray] { :self |
 		ByteArray(self.asList)
 	}
 

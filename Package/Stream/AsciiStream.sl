@@ -21,7 +21,9 @@
 +SmallFloat {
 
 	AsciiStream { :self |
-		ByteArray(self).asWriteStream
+		WriteStream(
+			ByteArray(self)
+		)
 	}
 
 }

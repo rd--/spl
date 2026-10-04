@@ -54,12 +54,12 @@ Decode `ByteArray` and Ascii `String`:
 The inverse is `base64Encode`:
 
 ```
->>> let b = 1:9.asByteArray;
+>>> let b = 1:9.ByteArray;
 >>> let e = b.base64Encode;
 >>> (e, e.base64Decode)
 (
 	'AQIDBAUGBwgJ',
-	1:9.asByteArray
+	1:9.ByteArray
 )
 ```
 

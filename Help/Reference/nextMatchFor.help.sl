@@ -6,7 +6,7 @@ Read the next object from the stream _s_ and answer `true` if the object is equi
 and `false` if not.
 
 ```
->>> let s = 1:9.asIterator;
+>>> let s = 1:9.Iterator;
 >>> (s.nextMatchFor(1), s.next)
 (true, 2)
 ```

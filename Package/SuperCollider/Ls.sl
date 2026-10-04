@@ -18,7 +18,7 @@
 	}
 
 	LsOnce { :anObject |
-		[anObject].asStream
+		Stream[anObject]
 	}
 
 }

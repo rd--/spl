@@ -2870,7 +2870,7 @@ elements, the order of those elements will be preserved in the result.
 *Errors*: If any elements in the receiver are not integers with values
 between 0 and 255.
 
-Cf: asByteArray
+Cf: ByteArray
 
 ### 5.7.1.6
 
@@ -5622,7 +5622,7 @@ returned object is aCollection.
 
 *Return Value*: ⧼ReadStream⧽ new
 
-Cf: asStream
+Cf: Stream
 
 ### 5.9.10.1
 
@@ -5644,7 +5644,7 @@ elements of aCollection also apply to the stream’s sequence elements.
 
 *Return Value*: ⧼ReadWriteStream⧽ new
 
-Cf: asWriteStream
+Cf: WriteStream
 
 # 6. Glossary
 

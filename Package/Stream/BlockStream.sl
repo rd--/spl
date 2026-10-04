@@ -357,7 +357,7 @@ BlockStream : [Object, Iterator, Stream] { | onNext onReset nextItem |
 +List {
 
 	enumerate { :self |
-		self.asStream.enumerate
+		self.Stream.enumerate
 	}
 
 }

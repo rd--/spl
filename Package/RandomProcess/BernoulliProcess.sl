@@ -1,15 +1,15 @@
 BernoulliProcess : [Object] { | p |
 
-	asStream { :self :r |
+	randomFunction { :self :r :t :n |
+		self.Stream(r).valueSeriesRandomFunction(t, n)
+	}
+
+	Stream { :self :r |
 		let p = self.p;
 		BlockStream {
 			(r.nextRandomFloat < p).boole
 		} {
 		}
-	}
-
-	randomFunction { :self :r :t :n |
-		self.asStream(r).valueSeriesRandomFunction(t, n)
 	}
 
 }

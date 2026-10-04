@@ -1,6 +1,10 @@
 DiscreteMarkovProcess : [Object] { | p0 m |
 
-	asStream { :self :r |
+	randomFunction { :self :r :t :n |
+		self.Stream(r).valueSeriesRandomFunction(t, n)
+	}
+
+	Stream { :self :r |
 		let p0 = AliasMethod(self.p0);
 		let m = self.m.collect(AliasMethod/1);
 		let x = p0.nextRandom(r);
@@ -11,10 +15,6 @@ DiscreteMarkovProcess : [Object] { | p0 m |
 		} {
 			x := p0.nextRandom(r)
 		}
-	}
-
-	randomFunction { :self :r :t :n |
-		self.asStream(r).valueSeriesRandomFunction(t, n)
 	}
 
 }

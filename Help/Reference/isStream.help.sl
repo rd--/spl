@@ -14,7 +14,7 @@ true
 At `CollectionStream`:
 
 ```
->>> let i = [].asStream;
+>>> let i = Stream[];
 >>> (i.typeOf, i.isStream)
 ('CollectionStream', true)
 ```

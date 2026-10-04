@@ -24,8 +24,8 @@ Radix notation of list:
 At `AsciiString`:
 
 ```
->>> 'Ascii'.asAsciiString.asHexString
-'4173636969'.asAsciiString
+>>> AsciiString'Ascii'.asHexString
+AsciiString'4173636969'
 ```
 
 * * *

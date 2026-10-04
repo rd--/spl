@@ -29,11 +29,15 @@ true
 
 >>> (-2 ^ 31).isBinary
 true
+```
 
->>> 2166136261.isBinary
+At `LargeInteger`:
+
+```
+>>> 2_166_136_261.isBinary
 false
 
->>> 2166136261L.isBinary
+>>> 2_166_136_261L.isBinary
 true
 ```
 
@@ -50,12 +54,14 @@ true
 At `Stream` tells if the underlying collection is a `ByteArray`:
 
 ```
->>> List(100).asWriteStream
->>> .isBinary
+>>> WriteStream(
+>>> 	List(100)
+>>> ).isBinary
 false
 
->>> ByteArray(100).asWriteStream
->>> .isBinary
+>>> WriteStream(
+>>> 	ByteArray(100)
+>>> ).isBinary
 true
 ```
 

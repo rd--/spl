@@ -12,12 +12,26 @@ At `Integer` answers a null string of the inidicated size:
 [0 0 0 0 0]
 ```
 
-At `String`:
+At `List`,
+answer an `AsciiString` value holding a byte-string encoding of the string _s_:
 
 ```
 >>> AsciiString'String'
 >>> .codePoints
 [83 116 114 105 110 103]
+
+>>> 'text'
+>>> .AsciiString
+>>> .ByteArray
+ByteArray[116 101 120 116]
+```
+
+At `AsciiString` answers `identity`:
+
+```
+>>> let s = AsciiString'text';
+>>> s.AsciiString == s
+true
 ```
 
 `AsciiString` implements `Iterable`, `Collection`, `Indexable` and `Sequence`.

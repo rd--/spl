@@ -5,7 +5,7 @@
 Answer the remainder of the items accessible by te stream _s_.
 
 ```
->>> 1:9.asStream
+>>> 1:9.Stream
 >>> .reject(isEven/1)
 >>> .upToEnd
 [1 3 5 7 9]

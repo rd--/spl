@@ -6,7 +6,8 @@ Answer at most the next _n_ number of objects accessible by the stream _s_.
 If the stream ends, the answer will contain fewer items than requested.
 
 ```
->>> 1:7.asStream
+>>> 1:7
+>>> .Stream
 >>> .reject(isEven/1)
 >>> .nextOrUpToEnd(5)
 [1 3 5 7]

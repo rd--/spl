@@ -14,7 +14,7 @@ Traits and Types:
 
 Ascii:
 
-- `asAsciiString`
+- `AsciiString`
 - `asciiByteArray`
 - `asciiContents`
 - `asciiString`
@@ -26,8 +26,8 @@ Ascii:
 
 Converting:
 
-- `asAsciiString`
-- `asByteArray`
+- `AsciiString`
+- `ByteArray`
 - `asCharacter`
 - `asCodePoint`
 - `asHexDigit`

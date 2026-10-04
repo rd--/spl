@@ -23,7 +23,7 @@ At `Record`:
 At a finite `Stream`:
 
 ```
->>> [1 .. 9].asStream
+>>> Stream[1 .. 9]
 >>> .reject(isEven/1)
 >>> .upToEnd
 [1 3 5 7 9]
@@ -32,7 +32,7 @@ At a finite `Stream`:
 At a finite `Stream`:
 
 ```
->>> (1 .. Infinity).asStream
+>>> (1 .. Infinity).Stream
 >>> .reject(isEven/1)
 >>> .next(5)
 [1 3 5 7 9]

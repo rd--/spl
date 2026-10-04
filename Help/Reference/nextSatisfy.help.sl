@@ -7,7 +7,7 @@ Answer the next element of the stream _s_ that satisfies the predicate block _f_
 Read stream until element satisfies predicate:
 
 ```
->>> let s = [1 3 5 7 9].asIterator;
+>>> let s = Iterator[1 3 5 7 9];
 >>> let e = s.nextSatisfy { :each |
 >>> 	each >= 5
 >>> };

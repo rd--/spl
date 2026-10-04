@@ -5,14 +5,14 @@
 Answers `true` if there are no more elements in the stream _s_, else `false`.
 
 ```
->>> let i = [1 3 5 7 9].asIterator;
+>>> let i = Iterator[1 3 5 7 9];
 >>> [i.next, i.next, i.atEnd]
 [1 3 false]
 ```
 
 * * *
 
-See also: asIterator, Stream
+See also: Iterator, Stream
 
 Guides: Stream Functions
 

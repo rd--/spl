@@ -16,8 +16,7 @@ ByteArray[48 57 65 90 97 122]
 The inverse is `asciiString`:
 
 ```
->>> [97 115 99 105 105]
->>> .asByteArray
+>>> ByteArray[97 115 99 105 105]
 >>> .asciiString
 'ascii'
 ```

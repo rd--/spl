@@ -5,10 +5,10 @@
 Enumerates the collection _c_, adding each element to the stream _s_.
 
 ```
->>> let s = ByteArray(0).asWriteStream;
+>>> let s = ByteArray(0).WriteStream;
 >>> s.nextPutAll(0:255);
 >>> s.contents
-0:255.asByteArray
+0:255.ByteArray
 ```
 
 * * *

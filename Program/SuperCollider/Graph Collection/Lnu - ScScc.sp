@@ -517,7 +517,7 @@ let b = { :x | Blip(x, m() ^ 1.pi * 16) };
 let r = MidiRatio(
 	(2 * [0 .. 1] +.x (5 * [0 .. 3] ++ [19])) +.x (24 * [0 .. 2])
 );
-let c = r.asStream.collect { :x |
+let c = Stream(r).collect { :x |
 	x * (m/0 ! 2 / 33 + 1 * 29)
 };
 Splay(

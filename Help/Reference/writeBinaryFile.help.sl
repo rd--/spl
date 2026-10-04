@@ -9,7 +9,7 @@ Signals an error if the write fails.
 ```
 >>> FilePath'/tmp/spl.binary'
 >>> .writeBinaryFile(
->>> 	1:9.asByteArray
+>>> 	1:9.ByteArray
 >>> )
 nil
 

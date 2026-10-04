@@ -8,7 +8,7 @@ answers `true`.
 
 ```
 >>> (1 .. Infinity)
->>> .asStream
+>>> .Stream
 >>> .reject(isEven/1)
 >>> .nextWhile { :x |
 >>> 	x < 11

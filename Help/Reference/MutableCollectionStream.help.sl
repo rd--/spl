@@ -4,7 +4,7 @@
 
 * * *
 
-See also: asStream, asWriteStream, PositionableStream, Stream, WriteStream
+See also: PositionableStream, Stream, WriteStream
 
 Guides: Stream Functions
 
