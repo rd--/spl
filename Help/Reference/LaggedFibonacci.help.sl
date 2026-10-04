@@ -18,6 +18,47 @@ Implement an additive lagged Fibonacci pseudo-random number generator.
 ]
 ```
 
+The actual values generated are of type `Fraction`,
+they can be retrieved using `nextRandomFraction`:
+
+```
+>>> let r = LaggedFibonacci(273, 607, 42);
+>>> { r.nextRandomFraction } ! 7
+[
+	1556468715654293305L /
+	2305843009213693952L
+	,
+	4455208926750183177L /
+	9223372036854775808L
+	,
+	230691937309308017L /
+	4611686018427387904L
+	,
+	8872490254517549503L /
+	9223372036854775808L
+	,
+	37245240957773315L /
+	576460752303423488L
+	,
+	1522378375835602693L /
+	9223372036854775808L
+	,
+	1088252609603355431L /
+	4611686018427387904L
+]
+```
+
+Equal values on `reset`:
+
+```
+>>> let k = 23;
+>>> let r = LaggedFibonacci(273, 607, 42);
+>>> let x = r.next(k);
+>>> r.reset;
+>>> x = r.next(k)
+true
+```
+
 Scatter plot of two-hundred and fifty terms:
 
 ~~~spl svg=A

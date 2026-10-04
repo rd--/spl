@@ -36,6 +36,16 @@ With non-unit minima and maxima:
 )
 ```
 
+Draw as matrix, values are in _0-1_, Σ=5:
+
+~~~spl svg=A
+let r = Sfc32(561374);
+let c = r.katoYamasakiAlgorithm([0 1 5], 13);
+c.padRight.matrixPlot
+~~~
+
+![](Help/Image/katoYamasakiAlgorithm-A.svg)
+
 * * *
 
 See also: staffordsAlgorithm, uUnifastAlgorithm, uUnifastDiscardAlgorithm

@@ -49,7 +49,8 @@ LaggedFibonacci : [Object, Equal, Iterator, RandomNumberGenerator, Stream] { | p
 +SmallFloat {
 
 	LaggedFibonacci { :s :r :k :m |
-		newLaggedFibonacci().initialize([s, r, LargeInteger(m)], k)
+		let p = [s, r, LargeInteger(m)];
+		newLaggedFibonacci().initialize(p, k)
 	}
 
 	LaggedFibonacci { :s :r :k |

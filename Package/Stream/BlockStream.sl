@@ -12,12 +12,12 @@ BlockStream : [Object, Iterator, Stream] { | onNext onReset nextItem |
 
 	peek { :self |
 		self.nextItem.ifNil {
-			self.nextItem := self.onNext.value
+			self.nextItem := self.onNext.blockValue
 		}
 	}
 
 	reset { :self |
-		self.onReset.value;
+		self.onReset.blockValue;
 		self.nextItem := nil;
 		0
 	}

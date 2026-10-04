@@ -3,13 +3,13 @@
 Sfc32 : [Object, Equal, Iterator, RandomNumberGenerator, Stream] { | seed block |
 
 	initialize { :self :anObject |
-		self.seed := anObject.asSfc32State;
+		self.seed := anObject.sfc32State;
 		self.reset;
 		self
 	}
 
 	nextRandomFloat { :self |
-		self.block.value
+		self.block.blockValue
 	}
 
 	reset { :self |
@@ -20,15 +20,23 @@ Sfc32 : [Object, Equal, Iterator, RandomNumberGenerator, Stream] { | seed block 
 
 +List {
 
-	asSfc32State { :self |
+	sfc32State { :self |
 		(self.size = 4).if {
 			self
 		} {
-			'List>>asSfc32State: invalid list'.error
+			'List>>sfc32State: invalid list'.error
 		}
 	}
 
-	basicSfc32RandomNumberGenerator { :self |
+	sfc32RandomNumberGeneratorBlock { :self |
+		self.sfc32State.uncheckedSfc32RandomNumberGenerator
+	}
+
+	Sfc32 { :self |
+		newSfc32().initialize(self.sfc32State)
+	}
+
+	uncheckedSfc32RandomNumberGenerator { :self |
 		<primitive:
 		/* https://github.com/bryc/code/blob/master/jshash/PRNGs.md */
 		let a = _self[0];
@@ -51,19 +59,11 @@ Sfc32 : [Object, Equal, Iterator, RandomNumberGenerator, Stream] { | seed block 
 		>
 	}
 
-	sfc32RandomNumberGeneratorBlock { :self |
-		self.asSfc32State.basicSfc32RandomNumberGenerator
-	}
-
-	Sfc32 { :self |
-		newSfc32().initialize(self.asSfc32State)
-	}
-
 }
 
 +String {
 
-	asSfc32State { :self :seed |
+	sfc32State { :self :seed |
 		let generator/0 = self.murmurHashGenerator(seed);
 		[
 			generator(),
@@ -73,24 +73,24 @@ Sfc32 : [Object, Equal, Iterator, RandomNumberGenerator, Stream] { | seed block 
 		]
 	}
 
-	asSfc32State { :self |
-		self.asSfc32State(2166136261)
+	sfc32State { :self |
+		self.sfc32State(2166136261)
 	}
 
 	Sfc32 { :self |
-		Sfc32(self.asSfc32State(2166136261))
+		Sfc32(self.sfc32State(2166136261))
 	}
 
 }
 
 +@Integer {
 
-	asSfc32State { :self |
-		self.truncate.asWords.asSfc32State
+	sfc32State { :self |
+		self.truncate.asWords.sfc32State
 	}
 
 	Sfc32 { :self |
-		Sfc32(self.asSfc32State)
+		Sfc32(self.sfc32State)
 	}
 
 }
@@ -98,7 +98,7 @@ Sfc32 : [Object, Equal, Iterator, RandomNumberGenerator, Stream] { | seed block 
 +Void {
 
 	Sfc32 {
-		Sfc32(system.absoluteTime.asSfc32State)
+		Sfc32(system.absoluteTime.sfc32State)
 	}
 
 }

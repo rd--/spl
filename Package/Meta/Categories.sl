@@ -656,7 +656,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'asResidueSet'
 		'inSeconds'
 		'asIdentitySet'
-		'asSfc32State'
+		'sfc32State'
 		'asSortedList'
 		'asSphericalCoordinates'
 		'asTuple'

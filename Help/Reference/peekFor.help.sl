@@ -8,7 +8,7 @@ Answer `true` and increment the position for accessing elements,
 if the next element is equal to `x`.
 
 ```
->>> let s = [1 2 3 4 5].asStream;
+>>> let s = Stream[1 2 3 4 5];
 >>> (
 >>> 	s.peekFor(1),
 >>> 	s.next,

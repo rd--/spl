@@ -20,6 +20,16 @@ where each is an _n_-vector of random real number that sum to _u_.
 )
 ```
 
+A 13×7 matrix, rows sum to one half:
+
+~~~spl svg=A
+Sfc32(361782)
+.uUnifastDiscardAlgorithm(7, 0.5, 13)
+.matrixPlot
+~~~
+
+![](Help/Image/uUnifastDiscardAlgorithm-A.svg)
+
 * * *
 
 See also: katoYamasakiAlgorithm, staffordsAlgorithm, uUnifastAlgorithm

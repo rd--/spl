@@ -980,3 +980,32 @@
 	}
 
 }
+
++List {
+
+	bakTangWiesenfeldModel { :p :i :monitor/2 |
+		let shape = p.shape;
+		let n = 2.vonNeumannNeighborhood(1);
+		let f = { :x :y |
+			monitor(x, y);
+			(p[x][y] >= 4).ifTrue {
+				p[x][y] := p[x][y] - 4;
+				shape.matrixNeighboursDo(
+					n, [x y]
+				) { :i :j |
+					p[i][j] := p[i][j] + 1;
+					(p[i][j] >= 4).ifTrue {
+						f(i, j)
+					}
+				};
+				f(x, y)
+			}
+		};
+		f(i[1], i[2])
+	}
+
+	bakTangWiesenfeldModel { :p :i |
+		bakTangWiesenfeldModel(p, i) { :x :y | nil }
+	}
+
+}

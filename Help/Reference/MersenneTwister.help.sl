@@ -1,8 +1,8 @@
 # MersenneTwister
 
-- _MersenneTwister(anInteger)_
+- _MersenneTwister(n)_
 
-Answer a pseudo random number generator seeded with _anInteger_.
+Answer a pseudo random number generator seeded with th integer _n_.
 Implements the _Mt19937_ algorithm, part of the _PractRand_ test suite.
 
 `MersenneTwister` implements `RandomNumberGenerator` and `Stream`:
@@ -22,6 +22,17 @@ The first three random numbers given the seed _12345_:
 ```
 >>> MersenneTwister(12345).next(3)
 [0.92962 0.31638 0.18392]
+```
+
+Equal values on `reset`:
+
+```
+>>> let k = 23;
+>>> let r = MersenneTwister(168762);
+>>> let x = r.next(k);
+>>> r.reset;
+>>> x = r.next(k)
+true
 ```
 
 Plot 99 random floating point numbers between `zero` and `one`:

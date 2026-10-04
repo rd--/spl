@@ -2,7 +2,11 @@
 
 - _LinearCongruential([a c m], s)_
 
-Answer a pseudo random number generator with with multiplier _a_, increment _c_, modulus _m_ and seed _s_.
+Answer a pseudo random number generator with with
+multiplier _a_,
+increment _c_,
+modulus _m_ and
+seed _s_.
 
 `LinearCongruential` implements `RandomNumberGenerator` and `Stream`:
 
@@ -39,6 +43,18 @@ The first three random numbers given the seed _12345_:
 >>> numericalRecipesLinearCongruential(s)
 >>> .next(3)
 [0.15776 0.86476 0.89335]
+```
+
+Equal values on `reset`:
+
+```
+>>> let k = 23;
+>>> let s = 12345;
+>>> let r = s.numericalRecipesLinearCongruential;
+>>> let x = r.next(k);
+>>> r.reset;
+>>> x = r.next(k)
+true
 ```
 
 The first few internal state values,

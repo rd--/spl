@@ -4,6 +4,8 @@
 
 Implements Staffords algorithm for generating _m_ random vectors of size _n_ that each sum to _u_.
 
+A 4×3 matrix, rows sum to one:
+
 ```
 >>> Sfc32(361782)
 >>> .staffordsAlgorithm(3, 1, 4)
@@ -14,6 +16,16 @@ Implements Staffords algorithm for generating _m_ random vectors of size _n_ tha
 	0.14105 0.04395 0.81500
 ]
 ```
+
+A 13×7 matrix, rows sum to one half:
+
+~~~spl svg=A
+Sfc32(361782)
+.staffordsAlgorithm(7, 0.5, 13)
+.matrixPlot
+~~~
+
+![](Help/Image/staffordsAlgorithm-A.svg)
 
 * * *
 

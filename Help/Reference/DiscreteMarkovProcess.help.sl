@@ -68,14 +68,14 @@ Estimate a four-state discrete Markov process:
 >>> let d = DiscreteMarkovProcess(p0, m)
 >>> .randomFunction(r, [0 1E3], 100);
 >>> let e = d.estimatedDiscreteMarkovProcess;
->>> (e.p0, e.m)
+>>> (e.p0, e.m.round(0.001))
 (
 	[0 0 1 0],
 	[
-		0.50103 0.49897 0       0;
-		0.49875 0.50125 0       0;
-		0.22481 0.27132 0.22481 0.27907;
-		0       0       0       1
+		0.498 0.502 0.000 0.000;
+		0.500 0.500 0.000 0.000;
+		0.271 0.271 0.225 0.233;
+		0.000 0.000 0.000 1.000
 	]
 )
 ```

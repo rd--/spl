@@ -4,9 +4,9 @@ AliasMethod : [Object, Equal, Iterator] { | alias probability |
 		self.nextRandom(system)
 	}
 
-	nextRandom { :self :randomNumberGenerator |
-		let column = randomNumberGenerator.nextRandomInteger(1, self.probability.size);
-		let coinToss = randomNumberGenerator.nextRandomFloat < self.probability[column];
+	nextRandom { :self :r |
+		let column = r.nextRandomInteger(1, self.probability.size);
+		let coinToss = r.nextRandomFloat < self.probability[column];
 		coinToss.if {
 			column
 		} {

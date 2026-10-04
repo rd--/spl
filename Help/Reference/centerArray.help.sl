@@ -58,28 +58,14 @@ Centre a 3×3 matrix in a 5×5 matrix:
 
 ![](Help/Image/centerArray-A.svg)
 
-Abelian sandpile model:
+Abelian sandpile model,
+also called the Bak–Tang–Wiesenfeld model:
 
 ~~~spl svg=B
 let k = 13;
 let h = (k / 2).ceiling;
 let p = [[300]].centerArray([k k], 0);
-let n = 2.vonNeumannNeighborhood(1);
-let f = { :x :y |
-	(p[x][y] >= 4).ifTrue {
-		p[x][y] := p[x][y] - 4;
-		[k k].matrixNeighboursDo(
-			n, [x y]
-		) { :i :j |
-			p[i][j] := p[i][j] + 1;
-			(p[i][j] >= 4).ifTrue {
-				f(i, j)
-			}
-		};
-		f(x, y)
-	}
-};
-f(h, h);
+p.bakTangWiesenfeldModel([h h]);
 p.colourMatrixPlot
 ~~~
 

@@ -13,8 +13,13 @@
 >>> } {
 >>> 	n := 1
 >>> };
->>> (s.next(7), s.reset, s.next(2))
-([1 3 5 7 9 11 13], 0, [1 3])
+>>> let k = 7;
+>>> (s.next(k), s.reset, s.next(k))
+(
+	[1 3 5 7 9 11 13],
+	0,
+	[1 3 5 7 9 11 13]
+)
 ```
 
 `BlockStream` provides a simple model for many kinds of streams,

@@ -8,10 +8,6 @@ System! : [Object, Cache, RandomNumberGenerator] {
 		<primitive: return Date.now() / 1000;>
 	}
 
-	basicNextRandomFloat { :self |
-		<primitive: return Math.random();>
-	}
-
 	byteOrdering { :self |
 		self.isLittleEndian.if {
 			-1
@@ -78,6 +74,10 @@ System! : [Object, Cache, RandomNumberGenerator] {
 		self.environmentVariable('HOME').ifNil {
 			self.error('homeDirectory: not set')
 		}
+	}
+
+	hostNextRandomFloat { :self |
+		<primitive: return Math.random();>
 	}
 
 	isBigEndian { :unused |

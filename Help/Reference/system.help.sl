@@ -47,6 +47,8 @@ true
 true
 ```
 
+system.nextRandomFloat
+
 * * *
 
 See also: Method, Package, Trait, Type, System

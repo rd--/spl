@@ -47,3 +47,8 @@ Date(-3101, 1, 22)
 See also: Date, julianDay
 
 Guides: Date and Time Functions
+
+References:
+_W_
+[1](https://en.wikipedia.org/wiki/Julian_calendar)
+[2](https://en.wikipedia.org/wiki/Gregorian_calendar)

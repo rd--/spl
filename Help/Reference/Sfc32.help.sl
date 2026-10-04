@@ -30,10 +30,11 @@ _next(k)_ answers next _k_ items:
 Use `reset` to return to the initial state:
 
 ```
+>>> let k = 3;
 >>> let r = Sfc32(98765);
->>> let l = r.next(3);
+>>> let a = r.next(3);
 >>> r.reset;
->>> (l, r.next(3))
+>>> (a, r.next(k))
 (
 	[0.4956 0.40961 0.18187],
 	[0.4956 0.40961 0.18187]
