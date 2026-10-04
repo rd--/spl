@@ -178,7 +178,7 @@ Variants for _update_ and _mutate_?  Pt(0,0).x(1) == Pt(1, 0)?  p.x!(1) == 1?
 Arguments: _{ :p :q | ... }_
 Temporaries: _| p q |_ or _| p = q, r = s; |_.
 Trailing closures: _if(p) { q } { r }_ &etc.
-Keywords: _p.at(q, put: r)_ could mean _p.atPut(q, r)_.
+Keywords: _p.at(q, put!: r)_ could mean _p.atPut!(q, r)_.
 
 # Exceptions
 

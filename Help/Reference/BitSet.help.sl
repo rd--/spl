@@ -20,7 +20,7 @@ A `Set`-like protocol:
 A `Dictionary`-like protocol:
 
 - `at`
-- `atPut`
+- `put`
 
 A `Binary`-like protocol:
 
@@ -125,7 +125,7 @@ either as a list or as a string:
 (12, 7, [0 2 4 5 7 9 11])
 ```
 
-A three element `BitSet`, set entries using `atPut` which requires `zero` or `one` values:
+A three element `BitSet`, set entries using `put` which requires `zero` or `one` values:
 
 ```
 >>> let b = BitSet([], 64);
@@ -271,7 +271,7 @@ The `complement` of a `BitSet` is a `BitSet` with each bit having the `bitNot` o
 
 * * *
 
-See also: add, asBitSet, at, atPut, bitAt, clearBitAt, includes, remove, ResidueSet, setBitAt
+See also: add, asBitSet, at, bitAt, clearBitAt, includes, put, remove, ResidueSet, setBitAt
 
 Guides: Bitwise Functions
 

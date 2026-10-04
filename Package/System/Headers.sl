@@ -4,10 +4,6 @@ Headers! : [Object] {
 		<primitive: return _self.get(_name);>
 	}
 
-	atPut! { :self :name :value |
-		<primitive: return _self.set(_name, _value);>
-	}
-
 	atIfAbsent { :self :name :aBlock/0 |
 		self.includesKey(name).if {
 			self[name]
@@ -34,6 +30,10 @@ Headers! : [Object] {
 
 	includesKey { :self :name |
 		<primitive: return _self.has(_name);>
+	}
+
+	put! { :self :name :value |
+		<primitive: return _self.set(_name, _value);>
 	}
 
 	removeKey! { :self :name |

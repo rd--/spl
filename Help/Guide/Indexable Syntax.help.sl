@@ -3,9 +3,9 @@
 Rewrite rules:
 
 - _c[i]_ ⟹ _at(c, i)_
-- _c[i] := x_ ⟹ _atPut!(c, i, x)_
+- _c[i] := x_ ⟹ _put!(c, i, x)_
 
-Collection types implement the `at` and `atPut` protocols.
+Collection types implement the `at` and `put` protocols.
 
 The first rule, `At Syntax`, provides the usual indexing notation for reading from a collection.
 
@@ -14,11 +14,11 @@ The first rule, `At Syntax`, provides the usual indexing notation for reading fr
 at(c, i)
 ```
 
-The second rule, `AtPut Syntax`, provides the usual indexing notation for writing to a collection.
+The second rule, `Put Syntax`, provides the usual indexing notation for writing to a collection.
 
 ```
 >> 'c[i] := x'.splSimplify
-atPut!(c, i, x)
+put!(c, i, x)
 ```
 
 There are two further experimental syntaxes:
@@ -32,6 +32,6 @@ The fourth rule, `Experimental AtIfAbsentPut Syntax`, allows for specifying the 
 
 * * *
 
-See also: At Syntax, AtPut Syntax, Quoted Indexable Syntax
+See also: At Syntax, Put Syntax, Quoted Indexable Syntax
 
 Categories: Syntax

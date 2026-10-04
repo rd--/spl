@@ -169,7 +169,7 @@ let t = { :n :k |
 ![](Help/Image/collect-B.svg)
 
 Collect is implemented in terms of `new`, `do` and `add` for unordered collections,
-and in terms of `ofSize`, `size`, `at` and `atPut` for sequences.
+and in terms of `ofSize`, `size`, `at` and `put` for sequences.
 
 * * *
 

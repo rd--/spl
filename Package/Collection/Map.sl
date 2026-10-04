@@ -10,13 +10,6 @@ Map! : [Object, Copy, Store, Equal, Iterable, Indexable, Collection, Extensible,
 		self.asRecord.encodeJson(replacer, space)
 	}
 
-	atPut! { :self :key :value |
-		key.isImmediate.ifFalse {
-			self.error('Map>>atPut: non-immediate key', [key])
-		};
-		self.uncheckedAtPut(key, value)
-	}
-
 	comparator { :self |
 		==
 	}
@@ -36,6 +29,13 @@ Map! : [Object, Copy, Store, Equal, Iterable, Indexable, Collection, Extensible,
 		});
 		>
 		nil
+	}
+
+	put! { :self :key :value |
+		key.isImmediate.ifFalse {
+			self.error('Map>>put!: non-immediate key', [key])
+		};
+		self.uncheckedPut!(key, value)
 	}
 
 	removeAll! { :self |
@@ -125,11 +125,9 @@ Map! : [Object, Copy, Store, Equal, Iterable, Indexable, Collection, Extensible,
 		<primitive: return Object.fromEntries(_self);>
 	}
 
-	uncheckedAtPut { :self :key :value |
-		<primitive:
-		_self.set(_key, _value);
-		return _value;
-		>
+	uncheckedPut! { :self :key :value |
+		<primitive: _self.set(_key, _value);>
+		value
 	}
 
 	values { :self |

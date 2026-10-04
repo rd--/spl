@@ -48,14 +48,14 @@ Cache! : [Object] {
 		}
 	}
 
-	atPut! { :self :key :value |
-		let validKey = self.validateKey(key);
-		let validValue = self.validateValue(value);
-		self.uncheckedPut(validKey, validValue)
+	includesKey { :self :key |
+		self.shouldNotImplement('includesKey: see put! and removeKeyIfAbsent!')
 	}
 
-	includesKey { :self :key |
-		self.shouldNotImplement('includesKey: see atPut! and removeKeyIfAbsent!')
+	put! { :self :key :value |
+		let validKey = self.validateKey(key);
+		let validValue = self.validateValue(value);
+		self.uncheckedPut!(validKey, validValue)
 	}
 
 	removeKeyIfAbsent! { :self :key :aBlock/0 |
@@ -75,7 +75,7 @@ Cache! : [Object] {
 		<primitive: return _self.match(_key);>
 	}
 
-	uncheckedPut { :self :key :value |
+	uncheckedPut! { :self :key :value |
 		<primitive: return _self.put(_key, _value);>
 	}
 

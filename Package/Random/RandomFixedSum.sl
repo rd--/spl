@@ -63,11 +63,11 @@
 			let sx = rs.at((n - i) - 1 + 1) ^ (1 / i);
 			sm := sm + ((1 - sx) * pr * (s / (i + 1)));
 			pr := sx * pr;
-			x.atPut!((n - i) - 1 + 1, sm + (pr * e));
+			x.put!((n - i) - 1 + 1, sm + (pr * e));
 			s := s - e;
 			j := j - e
 		};
-		x.atPut!(n - 1 + 1, sm + (pr * s));
+		x.put!(n - 1 + 1, sm + (pr * s));
 		x.transpose.collect { :each |
 			each.shuffle(self)
 		}

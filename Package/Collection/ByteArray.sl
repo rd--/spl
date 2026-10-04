@@ -4,15 +4,6 @@ ByteArray! : [Object, Copy, Store, Equal, Compare, Iterable, Indexable, Collecti
 		<primitive: return new TextDecoder('ascii').decode(_self);>
 	}
 
-	atPut! { :self :anInteger :aByte |
-		<primitive:
-		if(Number.isInteger(_anInteger) && sl.isByte(_aByte)) {
-			_self[_anInteger - 1] = _aByte;
-			return _aByte;
-		}>
-		self.error('atPut: index not an integer or value not a byte')
-	}
-
 	base16Encode { :self |
 		let map = '0123456789ABCDEF'.asciiByteArray;
 		let array = ByteArray(self.size * 2);
@@ -95,6 +86,15 @@ ByteArray! : [Object, Copy, Store, Equal, Compare, Iterable, Indexable, Collecti
 			hash := 4294967295L.bitAnd(hash) /* 16rFFFFFFFF */
 		};
 		hash.normal
+	}
+
+	put! { :self :anInteger :aByte |
+		<primitive:
+		if(Number.isInteger(_anInteger) && sl.isByte(_aByte)) {
+			_self[_anInteger - 1] = _aByte;
+			return _aByte;
+		}>
+		self.error('put!: index not an integer or value not a byte')
 	}
 
 	shallowCopy { :self |

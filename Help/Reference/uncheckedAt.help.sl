@@ -56,7 +56,7 @@ nil
 
 * * *
 
-See also: at, uncheckedAtPut
+See also: at, uncheckedPut
 
 Guides: Slot Access Syntax
 

@@ -3,7 +3,7 @@
 A `Type` holding  Http request and response headers.
 
 Implements a subset of the `Dictionary` protocol:
-`asRecord`, `at`, `atIfAbsent`, `atPut`, `includesKey`, `removeKey`.
+`asRecord`, `at`, `atIfAbsent`, `includesKey`, `put`, `removeKey`.
 
 Key queries are case insensitive.
 

@@ -46,8 +46,8 @@ Dictionaries are indexed using the unique `key` to obtain the corresponding `val
 The required methods are:
 
 - `atIfAbsent`
-- `atPut`
 - `keysAndValuesDo`
+- `put`
 - `size`
 
 The `Dictionary` type is less efficient than both `Map`,

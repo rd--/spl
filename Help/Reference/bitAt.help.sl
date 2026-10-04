@@ -82,7 +82,7 @@ OEIS [A067138](https://oeis.org/A067138):
 
 * * *
 
-See also: Binary, bitAtPut, bitClear, BitSet, highBit, integerDigits
+See also: Binary, bitClear, bitPut, BitSet, highBit, integerDigits
 
 Guides: Bitwise Functions
 

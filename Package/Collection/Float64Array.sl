@@ -1,17 +1,17 @@
 Float64Array! : [Object, Copy, Store, Equal, Compare, Iterable, Indexable, Collection, Sequence, PrimitiveArray] {
 
-	atPut! { :self :index :aFloat |
+	encode { :self :littleEndian |
+		<primitive: return sc.encodeFloat64Array(_self, _littleEndian);>
+	}
+
+	put! { :self :index :aFloat |
 		<primitive:
 		if(sl.arrayCheckIndex(_self, _index) && sl.isSmallFloat(_aFloat)) {
 			_self[_index - 1] = _aFloat;
 			return _aFloat;
 		}
 		>
-		self.errorInvalidIndex('atPut!', index)
-	}
-
-	encode { :self :littleEndian |
-		<primitive: return sc.encodeFloat64Array(_self, _littleEndian);>
+		self.errorInvalidIndex('put!', index)
 	}
 
 	shallowCopy { :self |

@@ -13,6 +13,6 @@ Answer `true` if the value was not already 1, else false.
 
 * * *
 
-See also: bitAt, bitAtPut, BitSet
+See also: bitAt, bitPut, BitSet
 
 Guides: Bitwise Functions

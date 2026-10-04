@@ -40,7 +40,7 @@
 ## Accessing Syntax
 
 - `At Syntax`
-- `AtPut Syntax`
+- `Put Syntax`
 - `Property Read Syntax`
 - `Property Write Syntax`
 
@@ -65,13 +65,13 @@
 - `Experimental Assignment Operator Syntax`
 - `Experimental AtIfAbsent Syntax`
 - `Experimental AtIfAbsentPut Syntax`
-- `Experimental AtPutDelegateTo Syntax`
 - `Experimental Constant Syntax`
 - `Experimental Dictionary Syntax`
 - `Experimental Infix Method Syntax`
 - `Experimental Initialised Temporaries Syntax`
 - `Experimental Map Syntax`
 - `Experimental MessageSend Syntax`
+- `Experimental PutDelegateTo Syntax`
 - `Experimental Quoted AtIfAbsent Syntax`
 - `Experimental Quoted AtIfAbsentPut Syntax`
 - `Experimental Set Syntax`

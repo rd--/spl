@@ -22,23 +22,6 @@
 		self.bitShift(1 - anInteger).bitAnd(1)
 	}
 
-	bitAtPut { :self :anInteger :value |
-		let b = self.bitAt(anInteger);
-		(b = value).if {
-			self
-		} {
-			(0 = value).if {
-				self.bitAnd(1.bitShift(anInteger - 1).bitNot)
-			} {
-				(1 = value).if {
-					self.bitOr(1.bitShift(anInteger - 1))
-				} {
-					self.error('@Binary>>bitAtPut: bit value should be 0 or 1')
-				}
-			}
-		}
-	}
-
 	bitCount { :self |
 		(self < 0).if {
 			self.error('@Binary>>bitCount: cannot count bits of negative integers')
@@ -66,6 +49,23 @@
 
 	bitOr { :self :anInteger |
 		self.typeResponsibility('@Binary>>bitOr')
+	}
+
+	bitPut { :self :anInteger :value |
+		let b = self.bitAt(anInteger);
+		(b = value).if {
+			self
+		} {
+			(0 = value).if {
+				self.bitAnd(1.bitShift(anInteger - 1).bitNot)
+			} {
+				(1 = value).if {
+					self.bitOr(1.bitShift(anInteger - 1))
+				} {
+					self.error('@Binary>>bitPut: bit value should be 0 or 1')
+				}
+			}
+		}
 	}
 
 	bitReverse { :self :anInteger |

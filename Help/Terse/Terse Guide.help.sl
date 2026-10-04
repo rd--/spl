@@ -331,12 +331,12 @@ let a = [1 .. 3]; let b = a ++ [4 .. 6]; a !== b & { a = [1 .. 3] } & { b = [1 .
 let a = [1 .. 3]; a[2] = a.at(2) /* [At Syntax] */
 let i = 1:3; i[2] = i.at(2) /* [At Syntax] */
 let m = [1 2 3; 4 5 6; 7 8 9]; m[2][2] = 5 & { m[3][1] = 7 } /* [At Syntax] */
-let m = [1 2; 3 4; 5 6]; m[2][2] := 16; m[3][1] := 25; m = [1 2; 3 16; 25 6] /* [AtPut Syntax] */
+let m = [1 2; 3 4; 5 6]; m[2][2] := 16; m[3][1] := 25; m = [1 2; 3 16; 25 6] /* [Put Syntax] */
 1:5.includesIndex(3) /* is valid index */
 1:5.atIfAbsent(9) { true } /* exception clause if index is invalid */
 1:5.atIfPresentIfAbsent(9) { :x | false } { true } /* ifPresent and ifAbsent clauses */
 1:5.atIfPresentIfAbsent(3) { :x | x * x } { false } = 9 /* ifPresent and ifAbsent clauses */
-let l = [1 2 3]; l.atPut!(2, 'two') = 'two' & { l = [1 'two' 3] } /* atPut answers value put */
+let l = [1 2 3]; l.put!(2, 'two') = 'two' & { l = [1 'two' 3] } /* put answers value put */
 let a = [1, 2, 3]; (a[2] := 'two') = 'two' & { a = [1, 'two', 3] }
 let l = [1, 2, 3]; l.atModify(2, nil, square/1) = 4 & { l = [1, 4, 3] } /* modify value at index */
 [5, 4, 3, 2, 1].detect { :each | each % 2 = 0 } = 4
@@ -401,7 +401,7 @@ let [x, y] = { let n = system.nextRandomFloat; [n, n] }.value; x = y
 { let a = List(1); a.at(3) }.hasError /* out of bound indexing is an error */
 { let a = [1]; a[3] }.hasError /* out of bound indexing is an error */
 let a = List(1); a[1].isNil = true /* array slots are initialised to nil */
-{ let a = List(1); a.atPut!(3, 'x') }.hasError /* out of bound mutation is an error */
+{ let a = List(1); a.put!(3, 'x') }.hasError /* out of bound mutation is an error */
 { let a = [1]; a[3] := 'x' }.hasError /* out of bound mutation is an error */
 List/1.newFrom(Range(1, 5, 2)) = [1, 3, 5]
 [1 .. 9].count(isEven/1) = 4
@@ -465,7 +465,7 @@ let l = [1 2 4]; l.addBefore!(3, 4) = 3 & { l = [1 2 3 4] } /* insert value befo
 [-1 .. 5].collect { :index | [1 .. 3].atPin(index) } = [1 1 1 2 3 3 3] /* index answering bound if out of bounds */
 [2, 7, 5, 0, 1, -2].collect { :index | [5, 6, 8].atWrap(index) } = [6, 5, 6, 8, 5, 5] /* at with index wrap-around */
 (-1 .. 5).collect { :index | 1:3.atWrap(index) } = [2 3 1 2 3 1 2] /* index wrapping if out of bounds */
-let l = [1 nil 3]; l.atPutWrap(5, 2); l = [1 2 3] /* atPut with index wrap around */
+let l = [1 nil 3]; l.putWrap(5, 2); l = [1 2 3] /* put with index wrap around */
 1:3.atFold(4) = 2 /* at with index fold-around */
 (-1 .. 5).collect { :index | 1:3.atFold(index) } = [3 2 1 2 3 2 1] /* at with index fold-around */
 [1 .. 9].difference([3 .. 7]) = [1, 2, 8, 9] /* set theoretic difference of two collections */
@@ -679,7 +679,7 @@ let b = BitSet(64); b.add!(1); b.add!(3); b.add!(9); b.size = 3 /* add three int
 let b = BitSet(64); b.add!(5); b.include!(5); b.include!(5); b.size = 1 /* adding the same integer over again */
 let b = BitSet([1, 3, 9], 10); b.includes(3) /* does bitset include element */
 let b = BitSet([1, 3, 9], 10); [1, 3 .. 9].collect { :each | b.includes(each) } = [true, true, false, false, true]
-let b = BitSet(64); b[1] := 1; b[3] := 1; b[9] := 1; b.size = 3 /* a three element bitset, atPut */
+let b = BitSet(64); b[1] := 1; b[3] := 1; b[9] := 1; b.size = 3 /* a three element bitset, put */
 let b = BitSet([1, 3, 9], 10); [1, 3 .. 9].collect { :each | b[each] } = [1, 1, 0, 0, 1] /* at */
 let a = []; let b = BitSet(64); let c = [1, 3, 9, 27]; b.addAll!(c); b.positionsDo { :each | a.add!(each) }; a = c
 let b = BitSet([1, 7], 8); let c = b.copy; c.add!(3); b != c & { c = BitSet([1, 3, 7], 8) } /* copy bitset */
@@ -826,8 +826,8 @@ ByteArray(0).isSequence /* byte arrays are sequence */
 ByteArray(0).size = 0 /* size of byte array (number of elements) */
 ByteArray(8).size = 8
 ByteArray(8).at(1) = 0 /* lookup element at index */
-ByteArray(8).atPut!(1, 179) = 179 /* set element at index, answer element */
-let a = ByteArray(8); a.atPut!(1, 179) = 179 & { a.at(1) = 179 }
+ByteArray(8).put!(1, 179) = 179 /* set element at index, answer element */
+let a = ByteArray(8); a.put!(1, 179) = 179 & { a.at(1) = 179 }
 1:9.asByteArray.isByteArray = true /* array of numbers in 0-255 to byte array */
 { [-1].asByteArray }.hasError /* out of range element error */
 { ['1'].asByteArray }.hasError /* not a number element error */
@@ -859,7 +859,7 @@ let s = 'string'; let a = []; a.addAll!(s.asciiByteArray); a.size = 6 /* add ele
 ```
 system.categoryDictionary.typeOf = 'CategoryDictionary'
 system.categoryDictionary.isCategoryDictionary
-system.categoryDictionary.categoryOf('atPut') = 'accessing' /* category of in any domain */
+system.categoryDictionary.categoryOf('put') = 'accessing' /* category of in any domain */
 system.categoryDictionary.categoryOf('type', 'RgbColour') = 'Graphics' /* category of in given domain */
 system.categoryDictionary.categoryOf('type', 'Set') = 'Collection' /* category of in given domain */
 ```
@@ -1296,7 +1296,7 @@ system.includesPackage('Dictionary') /* package */
 (x: nil).at('x') = nil /* as does indexing a field that is set to nil */
 (x: nil).size = 1 /* nil fields exist */
 (x: nil).indices = ['x'] /* nil fields exist */
-(:).atIfAbsentPut('x') { 1 } = 1 /* at or atPut followed by at */
+(:).atIfAbsentPut('x') { 1 } = 1 /* at or put followed by at */
 let d = (:); d.atIfAbsentPut('x') { 1 } = 1 & { d['x'] = 1 }
 (x: 1, y: 2).includes(2) /* includes, testing values for equality */
 (x: 1, y: [2, 3]).includes([2, 3])
@@ -1351,7 +1351,7 @@ let d = (x: 1, y: 2); d.keyAtValue(2) = d.indexOf(2) /* dictionary name for inde
 (x: 1, y: 2, z: 3).values = [1 2 3] /* array of values at dictionary */
 let d = (c: 3, parent: (b: 2, parent: (a: 1))); ['a', 'b', 'c'].collect { :each | d.atDelegateTo(each, 'parent') } = [1, 2, 3]
 let d = (c: 3, parent: (b: 2, parent: (a: 1))); ['a', 'b', 'c'].collect { :each | d.messageSend(each, 'parent', []) } = [1, 2, 3]
-let d = (x: 1, parent: (y: 2, parent: (z: 3))); d.atPutDelegateTo('z', -3, 'parent'); d.atDelegateTo('z', 'parent') = -3
+let d = (x: 1, parent: (y: 2, parent: (z: 3))); d.putDelegateTo('z', -3, 'parent'); d.atDelegateTo('z', 'parent') = -3
 ```
 
 ## Duration -- temporal type
@@ -1400,16 +1400,16 @@ Float64Array(0).isFloat64Array /* type predicate */
 Float64Array(0).isEmpty /* is empty predicate */
 Float64Array(8).size = 8 /* size of */
 Float64Array(8).at(1) = 0 /* at protocol, initialized to zero */
-Float64Array(8).atPut!(1, 1.pi) = 1.pi /* atPut protocol, answer value put */
-let a = Float64Array(8); a.atPut!(1, 1.pi) = 1.pi & { a.at(1) = 1.pi }
+Float64Array(8).put!(1, 1.pi) = 1.pi /* put protocol, answer value put */
+let a = Float64Array(8); a.put!(1, 1.pi) = 1.pi & { a.at(1) = 1.pi }
 let a = Float64Array(8); (a[1] := 1.pi) = 1.pi & { a[1] = 1.pi }
 1:9.asFloat64Array.isFloat64Array = true /* interval as array */
 1:9.asFloat64Array.reverse = 9:1:-1.asFloat64Array /* reverse copy */
 let a = [1 .. 9].asFloat64Array; a.reverse!; a = 9:1:-1.asFloat64Array /* reverse in-place */
 let a = 9:1:-1.asFloat64Array; a.sort!; a = 1:9.asFloat64Array /* sort in-place */
-{ Float64Array(1).atPut!(3, 'x') }.hasError /* out of bounds error */
-let a = Float64Array(1); a.uncheckedAtPut(1, 'x'); a.at(1).isNaN = true /* unsafe mutation inserts NaN */
-let a = Float64Array(1); a.uncheckedAtPut(3, 'x'); a.uncheckedAt(3) = nil /* unsafe mutation does not extend array */
+{ Float64Array(1).put!(3, 'x') }.hasError /* out of bounds error */
+let a = Float64Array(1); a.uncheckedPut!(1, 'x'); a.at(1).isNaN = true /* unsafe mutation inserts NaN */
+let a = Float64Array(1); a.uncheckedPut!(3, 'x'); a.uncheckedAt(3) = nil /* unsafe mutation does not extend array */
 1:3.asFloat64Array.printString = 'Float64Array([1, 2, 3])'
 1:3.asFloat64Array.storeString = 'Float64Array([1, 2, 3])'
 let a = 1:3.asFloat64Array; let c = a.copy; c[1] := 3; c != a & { c.asList = [3, 2, 3] } /* copy */
@@ -2117,7 +2117,7 @@ let d = ['x' -> 1, 'y' -> 2].asMap; d.values = [1, 2] /* answer List of values a
 let d = ['x' -> 1, 'y' -> 2].asMap; d.at('x') = 1 /* answer value at key in Dictionary */
 let d = ['x' -> 1, 'y' -> 2].asMap; d['x'] = 1 /* at (subscript) syntax */
 let d = Map(); d.add!('x' -> 1); d.removeKey!('x'); d.isEmpty = true /* remove Association from Dictionary given key */
-let d = Map(); (d['x'] := 1) = 1 & { d['x'] = 1 } /* atPut (subscript mutation) syntax */
+let d = Map(); (d['x'] := 1) = 1 & { d['x'] = 1 } /* put (subscript mutation) syntax */
 let d = Map(); d[1] := 'x'; d[1] = 'x'
 let d = Map(); d['x'] := 1; d.removeKey!('x'); d.isEmpty = true
 let d = (f: { :i | i * i }); d['f'].value(9) = 81
@@ -2620,13 +2620,13 @@ Record().includesIndex('x') = false /* includes key predicate */
 (w: 0, x: 1).includesIndex('x') = true /* includes key predicate */
 { Record().at('x') }.hasError /* lookup for non-existing key raises an error */
 { (:)['x'] }.hasError /* lookup for non-existing key is an error */
-let d = Record(); d.atPut!('x', 1) = 1 & { d.at('x') = 1 }
+let d = Record(); d.put!('x', 1) = 1 & { d.at('x') = 1 }
 let d = Record(); (d['x'] := 1) = 1 & { d['x'] = 1 }
 let d = Record(); d['x'] := 1; d['y'] := 2; d.size = 2
 let d = Record(); d['x'] := 1; d['y'] := 2; d.size = 2
 ['x' -> 1, 'y' -> 2].asRecord = (x: 1, y: 2) /* association array to record */
 ['x' -> 1, 'y' -> 2].asRecord['y'] = 2 /* association array to record */
-{ Record().atPut!(1, 1) }.hasError
+{ Record().put!(1, 1) }.hasError
 (x: 3.141, y: 23).encodeJson = '{"x":3.141,"y":23}' /* records have a json encoding where values do */
 '{"x":3.141,"y":23}'.parseJson = (x: 3.141, y: 23) /* parse json record */
 let d = (x: 1, y: 2); let i = 9; d.associationsDo { :each | i := i - each.value }; i = 6 /* iterate over associations */
@@ -3545,21 +3545,21 @@ let a = [['w', 'x'], ['y', 'z']]; a[1][2] = 'x' /* [At Syntax] */
 (w: (x: (y: (z: 1))))['w']['x']['y']['z'] = 1 /* [At Syntax] */
 ```
 
-## AtPut Syntax
+## Put Syntax
 ```
-let m = [1 2 3; 4 5 6]; m[1][2] := -2; m[2][3] := -6; m = [1 -2 3; 4 5 -6] /* [AtPut Syntax] */
-let d = (w: (x: (y: (z: 1)))); d['w']['x']['y']['z'] := -1; d = (w: (x: (y: (z: -1)))) /* [AtPut Syntax] */
+let m = [1 2 3; 4 5 6]; m[1][2] := -2; m[2][3] := -6; m = [1 -2 3; 4 5 -6] /* [Put Syntax] */
+let d = (w: (x: (y: (z: 1)))); d['w']['x']['y']['z'] := -1; d = (w: (x: (y: (z: -1)))) /* [Put Syntax] */
 ```
 
 ## Syntax -- collection access and mutation
 ```
 'text'[3] = 'x' /* [At Syntax] */
-let x = [1 .. 5]; x[3] := '3'; x[3] = '3' /* [AtPut Syntax] */
+let x = [1 .. 5]; x[3] := '3'; x[3] = '3' /* [Put Syntax] */
 (x: 1.pi) :: x = 1.pi /* [Quoted At Syntax] */
 let d = (x: 1); d::x = 1 /* [Quoted At Syntax] */
 let d = (x: 1, y: 2); d::x < d::y /* [Quoted At Syntax] */
 let d = (w: (x: (y: (z: 1)))); d::w::x::y::z = 1 /* [Quoted At Syntax] */
-let d = (w: (x: (y: (z: 1)))); d::w::x::y::z := -1; d = (w: (x: (y: (z: -1)))) /* [Quoted AtPut Syntax] */
+let d = (w: (x: (y: (z: 1)))); d::w::x::y::z := -1; d = (w: (x: (y: (z: -1)))) /* [Quoted Put Syntax] */
 ```
 
 ## Syntax -- dictionary assignment syntax
@@ -4070,7 +4070,7 @@ PlanarCoordinates([1800, 100]) / PlanarCoordinates([3, 4]) = PlanarCoordinates([
 PlanarCoordinates([200 100]).coordinates = [200, 100] /* array of x and y */
 let v = PlanarCoordinates([3, 4]); v.first = 3 & { v.second = 4 } /* implements first and second */
 let v = PlanarCoordinates([3, 4]); v[1] = 3 & { v[2] = 4 } /* implements at */
-let v = PlanarCoordinates([3, 4]); v[1] := 7; v.first = 7 /* implements atPut */
+let v = PlanarCoordinates([3, 4]); v[1] := 7; v.first = 7 /* implements put */
 PlanarCoordinates([3, 4]).size = 2 /* implements size */
 let v = PlanarCoordinates([3 4]); v.swap!; v[1] = 4 /* swap fields in-place */
 PlanarCoordinates([3 4]).swap = PlanarCoordinates([4, 3]) /* swap x&y */
@@ -4094,7 +4094,7 @@ let a = [1, 2, 3]; let v = a.asCartesianCoordinates; v.coordinates = [1, 2, 3] /
 CartesianCoordinates([0, 0, 0]).isOrigin /* are x, y and z all zero */
 let v = CartesianCoordinates([1, 2, 3]); [v.x, v.y, v.z] = [1, 2, 3] /* fields are x, y, z */
 let v = CartesianCoordinates([3, 4, 5]); v[1] = 3 & { v[2] = 4 & { v[3] = 5 } } /* implements at */
-let v = CartesianCoordinates([3, 4, 5]); v[1] := 5; v[3] := 3; v.coordinates = [5, 4, 3] /* implements atPut */
+let v = CartesianCoordinates([3, 4, 5]); v[1] := 5; v[3] := 3; v.coordinates = [5, 4, 3] /* implements put! */
 let v = CartesianCoordinates([3, 4, 5]); [v.first, v.second, v.third] = [3, 4, 5] /* implements first &etc. */
 CartesianCoordinates([0, 0, 1]).asSphericalCoordinates = SphericalCoordinates([1, 0, 0])
 SphericalCoordinates([1, 0, 0]).asCartesianCoordinates = CartesianCoordinates([0, 0, 1])

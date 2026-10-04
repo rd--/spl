@@ -24,10 +24,6 @@ AsciiString : [Object, Store, Equal, Iterable, Indexable, Collection, Sequence] 
 		self.contents.atIfAbsent(anInteger, ifAbsent/0).asCharacter
 	}
 
-	atPut! { :self :anInteger :aCharacter |
-		self.contents.atPut!(anInteger, aCharacter.codePoint)
-	}
-
 	codePoints { :self |
 		self.contents.asList
 	}
@@ -40,6 +36,10 @@ AsciiString : [Object, Store, Equal, Iterable, Indexable, Collection, Sequence] 
 
 	indices { :self |
 		1.to(self.contents.size)
+	}
+
+	put! { :self :anInteger :aCharacter |
+		self.contents.put!(anInteger, aCharacter.codePoint)
 	}
 
 	size { :self |

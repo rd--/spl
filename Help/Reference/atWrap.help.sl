@@ -32,7 +32,7 @@ and the index _-1_ the second last:
 
 * * *
 
-See also: at, atAllWrap, atFold, atPin, atPutWrap
+See also: at, atAllWrap, atFold, atPin, putWrap
 
 Guides: List Functions, Sequence Functions
 

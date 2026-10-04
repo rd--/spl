@@ -20,13 +20,22 @@
 		}
 	}
 
-	atPutDelegateToIfAbsent { :self :key :value :delegateKey :aBlock/0 |
+	messageSend { :self :selector :delegateKey :argumentsList |
+		let answer = self.atDelegateTo(selector, delegateKey);
+		answer.isBlock.if {
+			answer.apply([self] ++ argumentsList)
+		} {
+			answer
+		}
+	}
+
+	putDelegateToIfAbsent { :self :key :value :delegateKey :aBlock/0 |
 		self.includesIndex(key).if {
-			self.atPut!(key, value)
+			self.put!(key, value)
 		} {
 			self.atIfAbsent(key) {
 				self.includesIndex(delegateKey).if {
-					self[delegateKey].atPutDelegateToIfAbsent(
+					self[delegateKey].putDelegateToIfAbsent(
 						key,
 						value,
 						delegateKey,
@@ -39,18 +48,9 @@
 		}
 	}
 
-	atPutDelegateTo { :self :key :value :delegateKey |
-		self.atPutDelegateToIfAbsent(key, value, delegateKey) {
-			self.atPut!(key, value)
-		}
-	}
-
-	messageSend { :self :selector :delegateKey :argumentsList |
-		let answer = self.atDelegateTo(selector, delegateKey);
-		answer.isBlock.if {
-			answer.apply([self] ++ argumentsList)
-		} {
-			answer
+	putDelegateTo { :self :key :value :delegateKey |
+		self.putDelegateToIfAbsent(key, value, delegateKey) {
+			self.put!(key, value)
 		}
 	}
 

@@ -83,7 +83,7 @@ however this is confusing and should be disallowed:
 
 See also: @, at, atAll, List, Range, Record
 
-Guides: AtAll Syntax, AtPut Syntax, Property Read Syntax
+Guides: AtAll Syntax, Property Read Syntax, Put Syntax
 
 References:
 _Apl_

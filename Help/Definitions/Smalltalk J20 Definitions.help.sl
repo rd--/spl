@@ -2288,7 +2288,7 @@ that or equal to zero.
 
 *Errors*: index less than or equal to zero
 
-Cf: bitAtPut
+Cf: bitPut
 
 ### 5.6.5.7
 
@@ -3293,7 +3293,7 @@ at the new key. In either case, subsequent successful lookups for key
 will answer newElement. Answer newElement.  The result is undefined if the key
 is nil.
 
-Cf: atPut
+Cf: put
 
 ### 5.7.2.7
 
@@ -4326,7 +4326,7 @@ index will answer newElement.
 *Errors*: If index < 0.  If index > the receiver’s size.  If newElement does not
 conform to any element type restrictions of the receiver.
 
-Cf: atPut
+Cf: put
 
 ### 5.7.12.2
 

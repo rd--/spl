@@ -152,7 +152,7 @@ OEIS [A058933](https://oeis.org/A058933):
 let m = Map();
 let f = { :x |
 	let y = m.atIfAbsent(x) { 0 };
-	m.atPut!(x, y + 1)
+	m.put!(x, y + 1)
 };
 1:200.collect { :n |
 	f(n.primeOmega)

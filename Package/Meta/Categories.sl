@@ -288,11 +288,11 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'atPath'
 		'atPathPut'
 		'atPin'
-		'atPut'
+		'put'
 		'atRandom'
 		'atRandomBy'
 		'atWrap'
-		'atPutWrap'
+		'putWrap'
 		'binary'
 		'blob'
 		'byteList'
@@ -750,8 +750,8 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 	'delegating': [
 		'atDelegateTo'
 		'atDelegateToIfAbsent'
-		'atPutDelegateTo'
-		'atPutDelegateToIfAbsent'
+		'putDelegateTo'
+		'putDelegateToIfAbsent'
 		'messageSend'
 	],
 	'encoding and decoding': [
@@ -1112,7 +1112,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'basicAppendString'
 		'uncheckedAsRecord'
 		'uncheckedAt'
-		'uncheckedAtPut'
+		'uncheckedPut'
 		'basicEncodeOscBundle'
 		'basicEncodeOscMessage'
 		'basicNext'

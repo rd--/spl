@@ -67,7 +67,7 @@ Sl {
 	BinaryAdverbExpression = Expression (operatorWithAdverb Primary)+
 
 	Primary
-		= AtPutSyntax // S
+		= PutSyntax // S
 		| UncheckedSlotWriteSyntax // S
 		| AtAllSyntax // S
 		| AtSyntax // S
@@ -99,7 +99,7 @@ Sl {
 		| RangeSyntax // S
 		| ListRangeSyntax // S
 
-	AtPutSyntax = Primary "[" Expression "]" ":=" Expression
+	PutSyntax = Primary "[" Expression "]" ":=" Expression
 	AtSyntax = Primary "[" Expression "]"
 	AtAllSyntax = Primary (ListRangeSyntax | NonScalarListSyntax)
 	UncheckedSlotReadSyntax = Primary "::" recordKey

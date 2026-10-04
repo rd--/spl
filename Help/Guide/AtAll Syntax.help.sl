@@ -51,7 +51,7 @@ At `Map`:
 
 See also: @*, at, atAll, atPath
 
-Guides: At Syntax, AtPut Syntax, Property Read Syntax
+Guides: At Syntax, Property Read Syntax, Put Syntax
 
 References:
 _Apl_

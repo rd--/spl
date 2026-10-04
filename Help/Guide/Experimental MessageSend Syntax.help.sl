@@ -11,6 +11,6 @@ This syntax makes using _delegation_ or _proto-type_ objects concise.
 
 * * *
 
-See also: AtPutDelegateTo Syntax, atPutDelegateTo
+See also: PutDelegateTo Syntax, putDelegateTo
 
 Categories: Syntax

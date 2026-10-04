@@ -23,9 +23,9 @@ let d = (length: { :self | (self::x.square + self::y.square).sqrt }); let p = (x
 let d = (x: 9, parent: (f: { :self :aNumber | self::x.sqrt * aNumber })); d:.f(7) = 21
 ```
 
-## Experimental AtPutDelegateTo Syntax
+## Experimental PutDelegateTo Syntax
 ```
-let d = (x: 1, parent: (y: 2, parent: (z: 3))); d:.x := -1; [d:.x, d:.y, d:.z] = [-1, 2, 3] /* [AtPutDelegateTo Syntax] */
+let d = (x: 1, parent: (y: 2, parent: (z: 3))); d:.x := -1; [d:.x, d:.y, d:.z] = [-1, 2, 3] /* [PutDelegateTo Syntax] */
 let d = (x: 1, parent: (y: 2, parent: (z: 3))); d:.y := -2; [d:.x, d:.y, d:.z] = [1, -2, 3]
 let d = (x: 1, parent: (y: 2, parent: (z: 3))); d:.z := -3; [d:.x, d:.y, d:.z] = [1, 2, -3]
 ```

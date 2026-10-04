@@ -12,11 +12,11 @@ true
 The required methods are:
 
 - `at`
-- `atPut`
+- `put`
 - `indices`
 - `size`
 
-The `At Syntax` and `AtPut Syntax` are implemented in terms of `Indexable` methods.
+The `At Syntax` and `Put Syntax` are implemented in terms of `Indexable` methods.
 
 The `Dictionary` types are `Indexable` so that one may use the indexing syntax for dictionaries.
 
@@ -60,7 +60,7 @@ Types implementing `Indexable`:
 
 * * *
 
-See also: at, atPut, Collection, includesIndex, indices, indicesDo, size, withIndexDo
+See also: at, Collection, includesIndex, indices, indicesDo, put, size, withIndexDo
 
 Guides: Dictionary Functions, Indexing Functions, List Functions
 

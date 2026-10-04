@@ -31,7 +31,7 @@
 		self.getPropertyValue(name)
 	}
 
-	atPut! { :self :name :value |
+	put! { :self :name :value |
 		self.setProperty(name, value, '')
 	}
 

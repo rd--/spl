@@ -123,8 +123,8 @@
 		self.atAll(keys)
 	}
 
-	atPut! { :self :key :value |
-		self.typeResponsibility('@Dictionary>>atPut!')
+	put! { :self :key :value |
+		self.typeResponsibility('@Dictionary>>put!')
 	}
 
 	collect { :self :aBlock/1 |
@@ -587,17 +587,6 @@ Dictionary : [Object, Copy, Store, Equal, Iterable, Indexable, Collection, Exten
 		}
 	}
 
-	atPut! { :self :key :value |
-		let index = self.keys.indexOfBy(key, self.comparator);
-		(index = 0).if {
-			self.keys.add!(key);
-			self.values.add!(value)
-		} {
-			self.values[index] := value
-		};
-		value
-	}
-
 	keysAndValuesDo { :self :aBlock/2 |
 		let keys = self.keys;
 		let values = self.values;
@@ -610,6 +599,17 @@ Dictionary : [Object, Copy, Store, Equal, Iterable, Indexable, Collection, Exten
 	postCopy { :self |
 		self.keys := self.keys.copy;
 		self.values := self.values.copy
+	}
+
+	put! { :self :key :value |
+		let index = self.keys.indexOfBy(key, self.comparator);
+		(index = 0).if {
+			self.keys.add!(key);
+			self.values.add!(value)
+		} {
+			self.values[index] := value
+		};
+		value
 	}
 
 	size { :self |

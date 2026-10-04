@@ -17,7 +17,7 @@ Logic:
 Single-Bit:
 
 - `bitAt`
-- `bitAtPut`
+- `bitPut`
 - `bitSet`
 
 Structural:

@@ -14,6 +14,6 @@ true
 
 * * *
 
-See also: at, atPut
+See also: at, put
 
 Categories: Accessing

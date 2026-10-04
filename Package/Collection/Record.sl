@@ -13,16 +13,6 @@ Record! : [Object, Copy, Store, Equal, Json, Iterable, Indexable, Collection, Ex
 		ifAbsent()
 	}
 
-	atPut! { :self :aString :anObject |
-		<primitive:
-		if(typeof _aString === 'string') {
-			_self[_aString] = _anObject;
-			return _anObject;
-		}
-		>
-		self.error('atPut key not a string', [aString.typeOf])
-	}
-
 	comparator { :self |
 		==
 	}
@@ -82,6 +72,16 @@ Record! : [Object, Copy, Store, Equal, Json, Iterable, Indexable, Collection, Ex
 	}
 	*/
 
+	put! { :self :aString :anObject |
+		<primitive:
+		if(typeof _aString === 'string') {
+			_self[_aString] = _anObject;
+			return _anObject;
+		}
+		>
+		self.error('put!: key not a string', [aString.typeOf])
+	}
+
 	removeKeyIfAbsent! { :self :key :aBlock |
 		<primitive:
 		if(Object.hasOwn(_self, _key)) {
@@ -137,11 +137,9 @@ Record! : [Object, Copy, Store, Equal, Json, Iterable, Indexable, Collection, Ex
 		<primitive: return _self[_key];>
 	}
 
-	uncheckedAtPut { :self :key :value |
-		<primitive:
-		_self[_key] = _value;
-		return _value;
-		>
+	uncheckedPut! { :self :key :value |
+		<primitive: _self[_key] = _value;>
+		value
 	}
 
 	values { :self |

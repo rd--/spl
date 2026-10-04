@@ -71,13 +71,13 @@ Time series implements `at` and the `Collection` trait:
 (3, 1, TimeSeries[1 4; 2 3; 3 2])
 ```
 
-Time series implements `atPut`,
+Time series implements `put`,
 if the key already exists the associated value is replaced,
 else a new entry is made:
 
 ```
 >>> let ts = TimeSeries[1 3; 2 2; 3 1];
->>> ts.atPut!(1, 5);
+>>> ts.put!(1, 5);
 >>> ts[4] := -1;
 >>> ts[2] := 3;
 >>> ts.path

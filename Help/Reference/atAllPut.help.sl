@@ -42,7 +42,7 @@ This method imlpements both _atAllPut:_ and _atAll:put:_.
 
 * * *
 
-See also: at, atAll, atAllPutAll, atPut
+See also: at, atAll, atAllPutAll, put
 
 Guides: List Functions
 

@@ -1,9 +1,9 @@
-# bitAtPut
+# bitPut
 
-- _bitAtPut(n, k, b)_
+- _bitPut(n, k, b)_
 
 Set the bit corresponding to the coefficient of _2^(k-1)_ in the integer _n_ to _b_.
-`bitAtPut` sets the bit _k-1_ places from the right.
+`bitPut` sets the bit _k-1_ places from the right.
 
 Display coefficients at powers of 2 in the integer 42:
 
@@ -15,7 +15,7 @@ Display coefficients at powers of 2 in the integer 42:
 Set the bit corresponding to the coefficient at 2 ^ 0:
 
 ```
->>> 42.bitAtPut(1, 1)
+>>> 42.bitPut(1, 1)
 43
 
 >>> 43.integerDigits(2)
@@ -25,7 +25,7 @@ Set the bit corresponding to the coefficient at 2 ^ 0:
 Automatically creates an integer of the necessary size:
 
 ```
->>> 42.bitAtPut(10, 1)
+>>> 42.bitPut(10, 1)
 554
 
 >>> 554.integerDigits(2)
@@ -36,7 +36,7 @@ Generate a number in which specified bits are set:
 
 ```
 >>> let n = 0;
->>> [2 4 8].do { :each | n := n.bitAtPut(each, 1) };
+>>> [2 4 8].do { :each | n := n.bitPut(each, 1) };
 >>> n
 138
 ```

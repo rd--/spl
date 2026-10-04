@@ -10,12 +10,6 @@ Storage! : [Object, Collection, Dictionary] {
 		self.uncheckedAt(key)
 	}
 
-	atPut! { :self :key :value |
-		key.assertIsString;
-		value.assertIsString;
-		self.uncheckedAtPut(key, value)
-	}
-
 	includesKey { :self :key |
 		self.keys.includes(key)
 	}
@@ -28,6 +22,12 @@ Storage! : [Object, Collection, Dictionary] {
 		};
 		return answer;
 		>
+	}
+
+	put! { :self :key :value |
+		key.assertIsString;
+		value.assertIsString;
+		self.uncheckedPut!(key, value)
 	}
 
 	removeKey! { :self :key |
@@ -57,11 +57,9 @@ Storage! : [Object, Collection, Dictionary] {
 		<primitive: return _self.getItem(_key);>
 	}
 
-	uncheckedAtPut { :self :key :value |
-		<primitive:
-		_self.setItem(_key, _value);
-		return _value;
-		>
+	uncheckedPut! { :self :key :value |
+		<primitive: _self.setItem(_key, _value);>
+		value
 	}
 
 	uncheckedRemoveKey { :self :key |

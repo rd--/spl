@@ -184,7 +184,7 @@ SparseArray : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, S
 		self.do { :each |
 			let index = each.key;
 			let linearIndex = index.isNumber.if { index } { shape.linearIndex(index) };
-			map.atPut!(
+			map.put!(
 				linearIndex,
 				each.value
 			)

@@ -19,7 +19,7 @@ At a matrix:
 
 * * *
 
-See also: at, atPut, swapAllWith, swapWith
+See also: at, put, swapAllWith, swapWith
 
 Guides: List Functions
 

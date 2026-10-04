@@ -4,12 +4,12 @@ TypedDictionary : [Object, Store, Equal, Iterable, Indexable, Collection, Extens
 		self.contents.at(self.typeCheckKey(key))
 	}
 
-	atPut! { :self :key :value |
-		self.contents.atPut!(self.typeCheckKey(key), value)
-	}
-
 	comparator { :self |
 		self.contents.comparator
+	}
+
+	do { :self :aBlock/1 |
+		self.contents.do(aBlock/1)
 	}
 
 	indices { :self |
@@ -25,16 +25,8 @@ TypedDictionary : [Object, Store, Equal, Iterable, Indexable, Collection, Extens
 		self
 	}
 
-	typeCheckKey { :self :key |
-		(key.typeOf = self.keyType).if {
-			key
-		} {
-			self.error('invalid key', key)
-		}
-	}
-
-	do { :self :aBlock/1 |
-		self.contents.do(aBlock/1)
+	put! { :self :key :value |
+		self.contents.put!(self.typeCheckKey(key), value)
 	}
 
 	size { :self |
@@ -48,6 +40,14 @@ TypedDictionary : [Object, Store, Equal, Iterable, Indexable, Collection, Extens
 				self.keyType.storeString
 			]
 		)
+	}
+
+	typeCheckKey { :self :key |
+		(key.typeOf = self.keyType).if {
+			key
+		} {
+			self.error('invalid key', key)
+		}
 	}
 
 	values { :self |

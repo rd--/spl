@@ -20,10 +20,6 @@
 		self.coordinates.at(index)
 	}
 
-	atPut! { :self :index :value |
-		self.coordinates.atPut!(index, value)
-	}
-
 	compare { :self :anObject |
 		self.coordinates.compare(
 			self.assertIsCompatibleOperand(anObject).coordinates
@@ -64,6 +60,10 @@
 
 	norm { :self |
 		self.coordinates.square.sum.sqrt
+	}
+
+	put! { :self :index :value |
+		self.coordinates.put!(index, value)
 	}
 
 	second { :self |

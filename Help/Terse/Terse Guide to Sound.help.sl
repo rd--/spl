@@ -144,7 +144,7 @@ let l = []; [1 .. 9].adjacentPairsDo { :a :b | l.add!(a -> b) }; l.size = 8
 [10, 20].obtain(3, 30) = 30
 7.obtain(2, 1) = 1 /* obtain is defined at Object */
 7.obtain(1, nil) = 7
-[10, 20, 30, 40].instill(3, -30, nil) = [10, 20, -30, 40] /* atPut or extends list if required */
+[10, 20, 30, 40].instill(3, -30, nil) = [10, 20, -30, 40] /* put! or extends list if required */
 [10, 20].instill(3, -30, nil) = [10, 20, -30]
 [10].instill(3, -30, 20) = [10, 20, -30]
 10.instill(3, -30, 20) = [10, 20, -30] /* instill is defined at Object */

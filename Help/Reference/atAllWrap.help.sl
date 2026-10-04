@@ -12,7 +12,7 @@ If any index is out of bounds, let it wrap around from the end to the beginning 
 
 * * *
 
-See also: at, atAll, atFold, atPin, atPutWrap
+See also: at, atAll, atFold, atPin, putWrap
 
 Guides: Indexing Functions
 

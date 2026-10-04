@@ -32,24 +32,10 @@ BitSet : [Object, Copy, Store, Equal, Iterable, Collection, Extensible] { | capa
 		ascii.asciiString
 	}
 
-	atPut! { :self :anInteger :aBit |
-		self.bitAtPut(anInteger, aBit)
-	}
-
 	bitAt { :self :anInteger |
 		let byteIndex = anInteger.bitShift(-3) + 1;
 		let bitIndex = 0 - anInteger.bitAnd(7);
 		self.bytes[byteIndex].bitShift(bitIndex).bitAnd(1)
-	}
-
-	bitAtPut { :self :anInteger :aBit |
-		aBit.caseOf(
-			[
-				0 -> { self.clearBitAt(anInteger) },
-				1 -> { self.setBitAt(anInteger) }
-			]
-		);
-		aBit
 	}
 
 	bitCount { :self |
@@ -64,6 +50,16 @@ BitSet : [Object, Copy, Store, Equal, Iterable, Collection, Extensible] { | capa
 		self.bitsWithIndexDo { :each :index |
 			self[index] := 1 - each
 		}
+	}
+
+	[bitPut!, put!] { :self :anInteger :aBit |
+		aBit.caseOf(
+			[
+				0 -> { self.clearBitAt(anInteger) },
+				1 -> { self.setBitAt(anInteger) }
+			]
+		);
+		aBit
 	}
 
 	bitsDo { :self :aBlock/1 |

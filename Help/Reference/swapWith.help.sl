@@ -29,7 +29,7 @@ At a matrix, swaps rows:
 
 * * *
 
-See also: at, atPut, swapAllWith, swapsColumns, swapsRows
+See also: at, put, swapAllWith, swapsColumns, swapsRows
 
 Guides: List Functions
 

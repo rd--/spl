@@ -13,7 +13,6 @@ Guide/Assignment Syntax.help.sl
 Guide/Asynchronous Functions.help.sl
 Guide/AtAll Syntax.help.sl
 Guide/Atonal Theory Functions.help.sl
-Guide/AtPut Syntax.help.sl
 Guide/At Syntax.help.sl
 Guide/Automata Functions.help.sl
 Guide/Benchmarking Functions.help.sl
@@ -67,7 +66,6 @@ Guide/Experimental AtAllPath Syntax.help.sl
 Guide/Experimental AtIfAbsentPut Syntax.help.sl
 Guide/Experimental AtIfAbsent Syntax.help.sl
 Guide/Experimental AtPath Syntax.help.sl
-Guide/Experimental AtPutDelegateTo Syntax.help.sl
 Guide/Experimental Constant Syntax.help.sl
 Guide/Experimental Dictionary Syntax.help.sl
 Guide/Experimental Implicit Dictionary.help.sl
@@ -75,6 +73,7 @@ Guide/Experimental Infix Method Syntax.help.sl
 Guide/Experimental Initialised Temporaries Syntax.help.sl
 Guide/Experimental Map Syntax.help.sl
 Guide/Experimental MessageSend Syntax.help.sl
+Guide/Experimental PutDelegateTo Syntax.help.sl
 Guide/Experimental Quoted AtIfAbsentPut Syntax.help.sl
 Guide/Experimental Quoted AtIfAbsent Syntax.help.sl
 Guide/Experimental Relative Range Syntax.help.sl
@@ -195,6 +194,7 @@ Guide/Property Read Syntax.help.sl
 Guide/Property Syntax.help.sl
 Guide/Property Write Syntax.help.sl
 Guide/Protocol Functions.help.sl
+Guide/Put Syntax.help.sl
 Guide/Quantity Functions.help.sl
 Guide/Quaternion Functions.help.sl
 Guide/Radix Syntax.help.sl
@@ -593,8 +593,6 @@ Reference/atOrNil.help.sl
 Reference/atPath.help.sl
 Reference/atPathPut.help.sl
 Reference/atPin.help.sl
-Reference/atPut.help.sl
-Reference/atPutWrap.help.sl
 Reference/atRandom.help.sl
 Reference/atSymmetrical.help.sl
 Reference/atWrap.help.sl
@@ -608,6 +606,7 @@ Reference/azimuth.help.sl
 Reference/aztecDiamondMatrix.help.sl
 Reference/BacktickQuotedString.help.sl
 Reference/bakersMap.help.sl
+Reference/bakTangWiesenfeldModel.help.sl
 Reference/Balance2.help.sl
 Reference/balancedCayleyTree.help.sl
 Reference/balancedTernaryDigits.help.sl
@@ -705,7 +704,6 @@ Reference/BinormalDistribution.help.sl
 Reference/bisect.help.sl
 Reference/bitAnd.help.sl
 Reference/bitAt.help.sl
-Reference/bitAtPut.help.sl
 Reference/bitCount.help.sl
 Reference/bitIff.help.sl
 Reference/bitImplies.help.sl
@@ -716,6 +714,7 @@ Reference/bitNot.help.sl
 Reference/bitonicSort.help.sl
 Reference/bitonicSortMatrix.help.sl
 Reference/bitOr.help.sl
+Reference/bitPut.help.sl
 Reference/bitReversalPermutation.help.sl
 Reference/bitReverse.help.sl
 Reference/bitRotateLeft.help.sl
@@ -3403,7 +3402,9 @@ Reference/PulseDpw.help.sl
 Reference/Pulse.help.sl
 Reference/pushAllWithPriority.help.sl
 Reference/pushWithPriority.help.sl
+Reference/put.help.sl
 Reference/putOn.help.sl
+Reference/putWrap.help.sl
 Reference/pyramidalNumber.help.sl
 Reference/pyramid.help.sl
 Reference/pythagorasConstant.help.sl
@@ -4304,8 +4305,8 @@ Reference/ulamSequence.help.sl
 Reference/umbilicTorus.help.sl
 Reference/unaryExpansion.help.sl
 Reference/uncheckedAt.help.sl
-Reference/uncheckedAtPut.help.sl
 Reference/uncheckedFraction.help.sl
+Reference/uncheckedPut.help.sl
 Reference/uncheckedSlotRead.help.sl
 Reference/uncheckedSlotWrite.help.sl
 Reference/uncheckedStringIntercalate.help.sl

@@ -15,7 +15,7 @@ Answer _aSequence_.
 
 * * *
 
-See also: atPut, fromToDo
+See also: fromToDo, put
 
 References:
 _Smalltalk_

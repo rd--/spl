@@ -129,9 +129,9 @@ true
 
 * * *
 
-See also: atAll, atFold, atIfAbsent, atIfPresent, atIfPresentIfAbsent, atMod, atPath, atPin, atPut, atSymmetrical, atWrap, Indexable, size
+See also: atAll, atFold, atIfAbsent, atIfPresent, atIfPresentIfAbsent, atMod, atPath, atPin, atSymmetrical, atWrap, Indexable, put, size
 
-Guides: AtPut Syntax, At Syntax, Indexing Functions, Property Read Syntax
+Guides: At Syntax, Indexing Functions, Property Read Syntax, Put Syntax
 
 References:
 _J_

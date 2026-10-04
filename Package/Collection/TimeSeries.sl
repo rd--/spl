@@ -26,19 +26,6 @@ TimeSeries : [Object, Store, Equal, Iterable, Indexable, Collection] { | values 
 		)
 	}
 
-	atPut! { :self :time :item |
-		let values = self.values;
-		let times = self.times;
-		let index = times.binarySearchRightmost(time);
-		(index <= times.size & { times[index] = time }).if {
-			values[index] := item
-		} {
-			values.addBeforeIndex!(item, index);
-			times.addBeforeIndex!(time, index)
-		};
-		item
-	}
-
 	collect { :self :aBlock/1 |
 		TimeSeries(
 			self.values.collect(aBlock/1),
@@ -189,6 +176,19 @@ TimeSeries : [Object, Store, Equal, Iterable, Indexable, Collection] { | values 
 
 	pathLength { :self |
 		self.size
+	}
+
+	put! { :self :time :item |
+		let values = self.values;
+		let times = self.times;
+		let index = times.binarySearchRightmost(time);
+		(index <= times.size & { times[index] = time }).if {
+			values[index] := item
+		} {
+			values.addBeforeIndex!(item, index);
+			times.addBeforeIndex!(time, index)
+		};
+		item
 	}
 
 	resample { :self :t |

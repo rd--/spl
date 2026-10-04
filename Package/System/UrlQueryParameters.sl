@@ -15,7 +15,10 @@ URLSearchParams! : [Object, Iterable, UrlQueryParameters] {
 	}
 
 	add! { :self :anAssociation |
-		self.basicAppend(anAssociation.key, anAssociation.value)
+		self.uncheckedAppend(
+			anAssociation.key,
+			anAssociation.value
+		)
 	}
 
 	associations { :self |
@@ -40,14 +43,6 @@ URLSearchParams! : [Object, Iterable, UrlQueryParameters] {
 
 	atAllEntries { :self :name |
 		<primitive: return _self.getAll(_name);>
-	}
-
-	atPut! { :self :name :value |
-		<primitive: return _self.set(_name, _value);>
-	}
-
-	basicAppend { :self :name :value |
-		<primitive: return _self.append(_name, _value);>
 	}
 
 	do { :self :aBlock/1 |
@@ -83,6 +78,10 @@ URLSearchParams! : [Object, Iterable, UrlQueryParameters] {
 		self
 	}
 
+	put! { :self :name :value |
+		<primitive: return _self.set(_name, _value);>
+	}
+
 	removeKey! { :self :name |
 		<primitive: _self.delete(_name);>
 		nil
@@ -97,6 +96,10 @@ URLSearchParams! : [Object, Iterable, UrlQueryParameters] {
 		_self.sort();
 		return null;
 		>
+	}
+
+	uncheckedAppend { :self :name :value |
+		<primitive: return _self.append(_name, _value);>
 	}
 
 	values { :self |

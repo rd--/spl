@@ -70,7 +70,7 @@ however it does implement:
 - `atIfAbsent`
 - `atIfPresentIfAbsent`
 - `atIfPresent`
-- `atPut`
+- `put`
 - `removeKeyIfAbsent`
 
 Remove items from the 'SplLibrary' cache:

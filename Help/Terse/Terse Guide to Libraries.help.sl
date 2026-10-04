@@ -11,7 +11,7 @@ let t = (1, 2, 3); t[3] := 4; t = (1, 2, 4) /* mutate third */
 (1, 2, 3).species = Tuple/1 /* species */
 Tuple(0).isEmpty = true /* the empty tuple */
 [1 .. 5].asTuple.reverse = (5,4,3,2,1) /* reverse */
-let t = (1, 2, 3); t[3] := '3'; t = (1, 2, '3') /* atPut protocol */
+let t = (1, 2, 3); t[3] := '3'; t = (1, 2, '3') /* put! protocol */
 let t = (1, 2, 3); let c = t.copy; t[3] := '3'; c[3] = 3 /* copy & mutate */
 (1, 4, 9).collect(sqrt/1) = (1, 2, 3) /* collect */
 (1, 4, 9).reduce(+) = 14 /* reduce */

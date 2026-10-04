@@ -15,6 +15,6 @@ Answer _x_.
 
 * * *
 
-See also: at, atAllPut, atPath, atPut
+See also: at, atAllPut, atPath, put
 
 Guides: Dictionary Functions, Indexing Functions, List Functions

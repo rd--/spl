@@ -396,9 +396,6 @@ const asSl: ohm.ActionDict<string> = {
 	AtAllSyntax(c, i) {
 		return `atAll(${c.asSl}, ${i.asSl})`;
 	},
-	AtPutSyntax(c, _leftBracket, k, _rightBracket, _colonEquals, v) {
-		return `atPut!(${c.asSl}, ${k.asSl}, ${v.asSl})`;
-	},
 	AtSyntax(c, _leftBracket, k, _rightBracket) {
 		return `at(${c.asSl}, ${k.asSl})`;
 	},
@@ -565,6 +562,9 @@ const asSl: ohm.ActionDict<string> = {
 	},
 	Program(tmp, stm) {
 		return tmp.asSl + stm.asSl;
+	},
+	PutSyntax(c, _leftBracket, k, _rightBracket, _colonEquals, v) {
+		return `put!(${c.asSl}, ${k.asSl}, ${v.asSl})`;
 	},
 	Statements(nonFinal, final) {
 		return nonFinal.asSl + final.asSl;

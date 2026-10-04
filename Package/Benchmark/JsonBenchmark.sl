@@ -5,7 +5,7 @@ HashIndexTable : [Object, Indexable] { | hashTable |
 		self.hashTable[slot].bitAnd(255) - 1
 	}
 
-	atPut! { :self :name :index |
+	put! { :self :name :index |
 		let slot = self.hashSlotFor(name);
 		(index < 255).if {
 			self.hashTable[slot] := index + 1

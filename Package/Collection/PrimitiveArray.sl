@@ -13,16 +13,6 @@
 		>
 	}
 
-	atPut! { :self :index :anObject |
-		<primitive:
-		if(sl.arrayCheckIndex(_self, _index)) {
-			_self[_index - 1] = _anObject;
-			return _anObject;
-		}
-		>
-		self.errorInvalidIndex('atPut!', index)
-	}
-
 	collect { :self :aBlock/1 |
 		<primitive:
 		if(_aBlock_1 instanceof Function) {
@@ -83,6 +73,16 @@
 		>
 	}
 
+	put! { :self :index :anObject |
+		<primitive:
+		if(sl.arrayCheckIndex(_self, _index)) {
+			_self[_index - 1] = _anObject;
+			return _anObject;
+		}
+		>
+		self.errorInvalidIndex('put!', index)
+	}
+
 	reverse! { :self |
 		<primitive: return _self.reverse();>
 	}
@@ -136,11 +136,9 @@
 		<primitive: return _self[_index - 1];>
 	}
 
-	uncheckedAtPut { :self :index :value |
-		<primitive:
-		_self[_index - 1] = _value;
-		return _value;
-		>
+	uncheckedPut! { :self :index :value |
+		<primitive: _self[_index - 1] = _value;>
+		value
 	}
 
 	uncheckedRemoveAt { :self :index |

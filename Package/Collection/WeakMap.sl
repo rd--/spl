@@ -2,19 +2,17 @@
 
 WeakMap! : [Object, Indexable, PrimitiveMap] {
 
-	atPut! { :self :key :value |
-		<primitive:
-		_self.set(_key, _value);
-		return _value;
-		>
-	}
-
 	includesIndex { :self :key |
 		<primitive: return _self.has(_key);>
 	}
 
+	put! { :self :key :value |
+		<primitive: _self.set(_key, _value);>
+		value
+	}
+
 	size { :self |
-		self.error('size: cannot be observed')
+		self.error('WeakMap>>size: cannot be observed')
 	}
 
 }

@@ -120,7 +120,7 @@ not the number of elements remaining:
 
 * * *
 
-See also: at, atPut, depth, dimensions, do, indices, isEmpty, leafCount
+See also: at, depth, dimensions, do, indices, isEmpty, leafCount, put
 
 Guides: Dictionary Functions, List Functions, Stream Functions
 

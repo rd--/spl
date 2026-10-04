@@ -6,13 +6,12 @@
 - `atIfAbsent`, `atIfPresent`
 - `atFold`, `atPath`, `atPin`, `atWrap`
 - `atAll`
-- `atPut`
-- `atPutWrap`
 - `atIfAbsentPut`
 - `atAllPut`, `atAllPutAll`
 - `associationAt`, `associationAtIfAbsent`
 - `any`, `anyAs`
 - `first`, `second`, `third`, `fourth`, `last`
+- `put`, `putWrap`
 
 ## Adding
 
@@ -47,7 +46,7 @@
 - `bitCount`, `highBit`, `lowBit`
 - `<<`, `>>`
 - `bitShift`, `bitShiftLeft`, `bitShiftRight`
-- `bitAt`, `bitAtPut`
+- `bitAt`, `bitPut`
 
 ## Blocks
 

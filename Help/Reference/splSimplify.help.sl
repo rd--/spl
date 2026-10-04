@@ -247,11 +247,11 @@ xMutateInPlace(q(p), b(a))
 at(c, plusSign(i, 1))
 ```
 
-`AtPut Syntax` is rewritten as `Apply Syntax`:
+`Put Syntax` is rewritten as `Apply Syntax`:
 
 ```
 >> 'c[i] := x'.splSimplify
-atPut!(c, i, x)
+put!(c, i, x)
 ```
 
 `AtAll Syntax` is rewritten as `Apply Syntax`:

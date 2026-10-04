@@ -55,6 +55,6 @@ system.localStorage.removeAll!
 
 * * *
 
-See also: :=, at, atPut, Dictionary, includesKey, sessionStorage, Storage, System
+See also: :=, at, Dictionary, includesKey, put, sessionStorage, Storage, System
 
 Guides: System Functions

@@ -50,19 +50,19 @@ Generate a number in which specified bits are set:
 138
 ```
 
-Compare to `bitAtPut`:
+Compare to `bitPut`:
 
 ```
 >>> 42.bitSet(7)
 170
 
->>> 42.bitAtPut(8, 1)
+>>> 42.bitPut(8, 1)
 170
 ```
 
 * * *
 
-See also: bitAt, bitAtPut, BitSet, highBit, integerDigits, setBitAt
+See also: bitAt, bitPut, BitSet, highBit, integerDigits, setBitAt
 
 Guides: Bitwise Functions
 

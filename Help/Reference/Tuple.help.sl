@@ -60,11 +60,11 @@ allowing tuple values to be indexed using `At Syntax`:
 1
 ```
 
-Tuple does not implement `atPut`,
+Tuple does not implement `put`,
 they are not directly mutable:
 
 ```
->>> (1, 2, 3).respondsTo(atPut!/3)
+>>> (1, 2, 3).respondsTo(put!/3)
 false
 
 >>> let x = (1, 2, 3);

@@ -36,6 +36,9 @@ C.f. `keys`:
 ```
 >>> (x: 1, y: 2, z: 3).keys
 ['x' 'y' 'z']
+
+>>> { [1 2 3].keys }.hasError
+true
 ```
 
 At `ListView`:

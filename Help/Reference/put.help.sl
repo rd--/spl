@@ -1,6 +1,6 @@
-# atPut!
+# put!
 
-- _atPut!(c, i, x)_
+- _put!(c, i, x)_
 
 Store the object _x_ at index of key _i_ of the indexable of keyed collection _c_.
 If the collection does not have indexed variables,
@@ -12,7 +12,7 @@ At `List`:
 
 ```
 >>> let c = [1 2 3];
->>> let x = c.atPut!(2, -2);
+>>> let x = c.put!(2, -2);
 >>> (x, c)
 (-2, [1 -2 3])
 ```
@@ -21,7 +21,7 @@ At `Record`:
 
 ```
 >>> let c = (x: 1, y: 2, z: 3);
->>> let x = c.atPut!('y', -2);
+>>> let x = c.put!('y', -2);
 >>> (x, c)
 (-2, (x: 1, y: -2, z: 3))
 ```
@@ -31,12 +31,12 @@ the index, or key, must be valid there does not have to be an existing entry:
 
 ```
 >>> let c = (x: 1, z: 3);
->>> let x = c.atPut!('y', -2);
+>>> let x = c.put!('y', -2);
 >>> (x, c)
 (-2, (x: 1, y: -2, z: 3))
 ```
 
-There is `AtPut Syntax` for mutating indexed values:
+There is `Put Syntax` for mutating indexed values:
 
 ```
 >>> let c = [1 2 3];
@@ -54,7 +54,7 @@ There is `AtPut Syntax` for mutating indexed values:
 
 See also: at, atPathPut, size
 
-Guides: AtPut Syntax, Dictionary Functions, List Functions, Property Write Syntax
+Guides: Dictionary Functions, List Functions, Property Write Syntax, Put Syntax
 
 References:
 _Mathematica_

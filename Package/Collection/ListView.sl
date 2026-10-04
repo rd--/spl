@@ -12,14 +12,6 @@ ListView : [Object, Equal, Compare, Iterable, Indexable, Collection, Sequence] {
 		}
 	}
 
-	atPut! { :self :index :value |
-		self.includesIndex(index).if {
-			self.contents[index + self.startIndex - self.referenceIndex] := value
-		} {
-			self.error('atPut: invalid index', [index])
-		}
-	}
-
 	copyFromTo { :self :from :to |
 		ListView(self, from, to, self.referenceIndex)
 	}
@@ -68,6 +60,14 @@ ListView : [Object, Equal, Compare, Iterable, Indexable, Collection, Sequence] {
 
 	printString { :self |
 		self.asList.printString
+	}
+
+	put! { :self :index :value |
+		self.includesIndex(index).if {
+			self.contents[index + self.startIndex - self.referenceIndex] := value
+		} {
+			self.error('put!: invalid index', [index])
+		}
 	}
 
 	size { :self |

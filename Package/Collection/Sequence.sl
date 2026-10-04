@@ -321,15 +321,6 @@
 		self[self.pinnedIndex(index)]
 	}
 
-	atPutPin { :self :index :value |
-		self.atPut!(self.pinnedIndex(index), value)
-	}
-
-	atPutWrap { :self :index :anObject |
-		let k = index.wrapExclusive(1, self.size + 1);
-		self[k] := anObject
-	}
-
 	atSymmetrical { :self :index |
 		index.isInteger.ifFalse {
 			self.error('atSymmetrical: invalid index')
@@ -2133,6 +2124,15 @@
 	projection { :u :v |
 		let w = v.conjugate;
 		u.dot(w) / v.dot(w) * v
+	}
+
+	putPin! { :self :index :value |
+		self.put!(self.pinnedIndex(index), value)
+	}
+
+	putWrap! { :self :index :anObject |
+		let k = index.wrapExclusive(1, self.size + 1);
+		self[k] := anObject
 	}
 
 	randomChoice { :self :r :shape |

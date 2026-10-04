@@ -52,7 +52,7 @@ Path swaps:
 
 * * *
 
-See also: at, atPut, permute, swapPathWith, swapWith
+See also: at, permute, put, swapPathWith, swapWith
 
 Guides: List Functions
 

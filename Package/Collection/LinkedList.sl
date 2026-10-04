@@ -115,40 +115,6 @@ LinkedList : [Object, Copy, Store, Equal, Compare, Iterable, Indexable, Collecti
 		self.linkAtIfAbsent(index, ifAbsent/0).value
 	}
 
-	atPut! { :self :index :anObject |
-		self.atPutLink(index, self.linkOfIfAbsent(anObject) {
-			anObject.asLink
-		})
-	}
-
-	atPutLink { :self :index :aLink |
-		/* Putting a link which is already in the list will create an infinite loop */
-		self.includesIndex(index).ifFalse {
-			'LinkedList>>atPutLink: errorOutOfBounds'.error
-		};
-		(index = 1).if {
-			aLink.nextLink := self.firstLink.nextLink;
-			self.firstLink := aLink;
-			aLink.nextLink.ifNil {
-				self.lastLink := aLink
-			}
-		} {
-			let previousLink = self.linkAt(index - 1);
-			let nextLink = previousLink.nextLink.nextLink;
-			nextLink.ifNil {
-				aLink.nextLink := self.lastLink
-			} {
-				aLink.nextLink := nextLink
-			};
-			previousLink.nextLink := aLink;
-			nextLink.ifNil {
-				self.lastLink := aLink;
-				aLink.nextLink := nil
-			}
-		};
-		aLink
-	}
-
 	collect { :self :aBlock/1 |
 		let aLink = self.firstLink;
 		let answer = LinkedList();
@@ -241,6 +207,40 @@ LinkedList : [Object, Copy, Store, Equal, Compare, Iterable, Indexable, Collecti
 			};
 			self.lastLink := aLink
 		}
+	}
+
+	put! { :self :index :anObject |
+		self.putLink!(index, self.linkOfIfAbsent(anObject) {
+			anObject.asLink
+		})
+	}
+
+	putLink! { :self :index :aLink |
+		/* Putting a link which is already in the list will create an infinite loop */
+		self.includesIndex(index).ifFalse {
+			'LinkedList>>putLink!: errorOutOfBounds'.error
+		};
+		(index = 1).if {
+			aLink.nextLink := self.firstLink.nextLink;
+			self.firstLink := aLink;
+			aLink.nextLink.ifNil {
+				self.lastLink := aLink
+			}
+		} {
+			let previousLink = self.linkAt(index - 1);
+			let nextLink = previousLink.nextLink.nextLink;
+			nextLink.ifNil {
+				aLink.nextLink := self.lastLink
+			} {
+				aLink.nextLink := nextLink
+			};
+			previousLink.nextLink := aLink;
+			nextLink.ifNil {
+				self.lastLink := aLink;
+				aLink.nextLink := nil
+			}
+		};
+		aLink
 	}
 
 	removeAll! { :self |

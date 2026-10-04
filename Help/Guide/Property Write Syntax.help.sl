@@ -24,7 +24,7 @@ Where supported `::` is displayed as ·.
 
 * * *
 
-See also: At Syntax, AtPut Syntax, Property Read Syntax, Property Syntax
+See also: At Syntax, Property Read Syntax, Property Syntax, Put Syntax
 
 Unicode: U+00B7 · Middle Dot
 

@@ -76,8 +76,8 @@ Matrices and Arrays:
 
 Write a value to a slot at a specified index:
 
-- `atPut`
 - `atIfAbsentPut`
+- `put`
 
 Write a value, or a collection of values, to a specified sequence of indices:
 
@@ -110,9 +110,9 @@ Indexing Syntax
 
 - `At Syntax`
 - `AtAll Syntax`
-- `AtPut Syntax`
 - `Property Read Syntax`
 - `Property Write Syntax`
+- `Put Syntax`
 
 * * *
 

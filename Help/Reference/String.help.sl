@@ -45,7 +45,7 @@ and fetching an indexed location in a string answers a character:
 
 Strings are not lists of characters.
 
-Strings are immutable, i.e. there is no `atPut` implementation.
+Strings are immutable, i.e. there is no `put` implementation.
 
 _Implementation Note_:
 Javascript has a curious implementation of Unicode.

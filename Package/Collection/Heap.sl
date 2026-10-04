@@ -21,10 +21,6 @@ Heap : [Object, Copy, Store, Equal, Iterable, Collection, Extensible] { | array 
 		}
 	}
 
-	atPut! { :self :index :newObject |
-		self.shouldNotImplement('atPut!')
-	}
-
 	capacity { :self |
 		self.size
 	}
@@ -129,6 +125,10 @@ Heap : [Object, Copy, Store, Equal, Iterable, Collection, Extensible] { | array 
 
 	postCopy { :self |
 		self.array := self.array.copy
+	}
+
+	put! { :self :index :newObject |
+		self.shouldNotImplement('put!')
 	}
 
 	removeIfAbsent! { :self :oldObject :aBlock/0 |

@@ -97,7 +97,7 @@
 	}
 
 	atModify { :self :index :defaultValue :aBlock/1 |
-		self.atPut!(index, aBlock(self.atIfAbsent(index, { defaultValue })))
+		self.put!(index, aBlock(self.atIfAbsent(index, { defaultValue })))
 	}
 
 	atOrMissing { :self :index |
@@ -137,20 +137,20 @@
 		}
 	}
 
-	atPut! { :self :index :anObject |
-		self.typeResponsibility('@Indexable>>atPut!')
+	put! { :self :index :anObject |
+		self.typeResponsibility('@Indexable>>put!')
 	}
 
-	atPut! { :self :primaryIndex :secondaryIndex :anObject |
-		self.at(primaryIndex).atPut!(secondaryIndex, anObject)
+	put! { :self :primaryIndex :secondaryIndex :anObject |
+		self.at(primaryIndex).put!(secondaryIndex, anObject)
 	}
 
-	atPut! { :self :primaryIndex :secondaryIndex :tertiaryIndex :anObject |
-		self.at(primaryIndex).at(secondaryIndex).atPut!(tertiaryIndex, anObject)
+	put! { :self :primaryIndex :secondaryIndex :tertiaryIndex :anObject |
+		self.at(primaryIndex).at(secondaryIndex).put!(tertiaryIndex, anObject)
 	}
 
-	atPut! { :self :primaryIndex :secondaryIndex :tertiaryIndex :quaternaryIndex :anObject |
-		self.at(primaryIndex).at(secondaryIndex).at(tertiaryIndex).atPut!(quaternaryIndex, anObject)
+	put! { :self :primaryIndex :secondaryIndex :tertiaryIndex :quaternaryIndex :anObject |
+		self.at(primaryIndex).at(secondaryIndex).at(tertiaryIndex).put!(quaternaryIndex, anObject)
 	}
 
 	deepIndices { :self |
@@ -267,7 +267,7 @@
 			answer.includesKey(each).if {
 				answer.at(each).add!(index)
 			} {
-				answer.atPut!(each, [index])
+				answer.put!(each, [index])
 			}
 		};
 		answer

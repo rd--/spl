@@ -1,20 +1,20 @@
-# AtPut Syntax
+# Put Syntax
 
 - _c[i] := x_
 
-Syntax for the `atPut` protocol.
+Syntax for the `put` protocol.
 
 Rewrite rule:
 
 ```
 >> 'c[i] := x'.splSimplify
-atPut!(c, i, x)
+put!(c, i, x)
 
 >> 'c[i][j] := x'.splSimplify
-atPut!(at(c, i), j, x)
+put!(at(c, i), j, x)
 
 >> 'c[i][j][k] := x'.splSimplify
-atPut!(at(at(c, i), j), k, x)
+put!(at(at(c, i), j), k, x)
 ```
 
 At `List`:
@@ -38,7 +38,7 @@ At a list of lists:
 
 * * *
 
-See also: atPut
+See also: put
 
 Guides: At Syntax, Property Write Syntax, Syntax Guides
 

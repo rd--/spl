@@ -4,7 +4,7 @@
 		self.errorNotIndexed
 	}
 
-	atPut! { :self :index :value |
+	put! { :self :index :value |
 		self.errorNotIndexed
 	}
 
