@@ -37,7 +37,7 @@ At `UnsortedSet`:
 >>> let s = UnsortedSet();
 >>> s.comparator := ~;
 >>> s.include!(1);
->>> (s.include!(1.00001), s.asList, s.size)
+>>> (s.include!(1.00001), s.List, s.size)
 (1.00001, [1], 1)
 ```
 

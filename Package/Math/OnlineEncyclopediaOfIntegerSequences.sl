@@ -713,7 +713,7 @@ OeisSequenceFile : [Object, Equal, OeisSequence] { | identifier contents |
 				} {
 					n -> r
 				}
-			}.deleteMissing.asRecord
+			}.deleteMissing.Record
 		}
 	}
 

@@ -30,8 +30,7 @@ Vertex list:
 A graph with directed edges:
 
 ~~~spl svg=A
-[1 --> 2, 2 --> 3, 3 --> 1]
-.asGraph
+Graph[1 --> 2, 2 --> 3, 3 --> 1]
 .graphPlot
 ~~~
 

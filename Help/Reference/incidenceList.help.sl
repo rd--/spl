@@ -33,8 +33,7 @@ Edges incident to vertices one through five of an undirected graph:
 Edges incident to vertex one of an undirected graph:
 
 ```
->>> [1 2; 1 3; 1 5; 1 6; 4 5; 4 6]
->>> .asGraph
+>>> Graph[1 2; 1 3; 1 5; 1 6; 4 5; 4 6]
 >>> .incidenceList(1)
 [1 2; 1 3; 1 5; 1 6].asEdgeList
 ```
@@ -42,7 +41,7 @@ Edges incident to vertex one of an undirected graph:
 Edges incident to vertex one of a directed graph:
 
 ```
->>> [
+>>> Graph[
 >>> 	1 -> 3, 1 -> 5,
 >>> 	2 -> 1,
 >>> 	3 -> 6,
@@ -50,7 +49,6 @@ Edges incident to vertex one of a directed graph:
 >>> 	5 -> 4,
 >>> 	6 -> 1
 >>> ]
->>> .asGraph
 >>> .incidenceList(1)
 [1 --> 3, 1 --> 5, 2 --> 1, 6 --> 1]
 ```

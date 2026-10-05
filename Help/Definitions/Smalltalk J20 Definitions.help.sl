@@ -2839,7 +2839,7 @@ elements, the order of those elements will be preserved in the result.
 
 *Return Value*: ⧼Array⧽
 
-Cf: asList
+Cf: List
 
 ### 5.7.1.4
 
@@ -2852,7 +2852,7 @@ The result is unspecified if the receiver contains nil.
 
 *Return Value*: ⧼Bag⧽
 
-Cf: asMultiset
+Cf: Multiset
 
 ### 5.7.1.5
 
@@ -2916,7 +2916,7 @@ receiver. The default sort block is used.
 *Errors*: If any element of the receiver is not appropriate as a
 parameter to the default sort block.
 
-Cf: asSortedList
+Cf: SortedList
 
 ### 5.7.1.9
 
@@ -2938,7 +2938,7 @@ meet the requirements of a sort block as specified by
 as specified by ⧼SortedCollection⧽.  If any element of the receiver
 is not appropriate as a parameter to the sortBlock.
 
-Cf: asSortedList
+Cf: SortedList
 
 ### 5.7.1.10
 

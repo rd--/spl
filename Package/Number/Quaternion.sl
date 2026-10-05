@@ -1,9 +1,9 @@
 /* Requires: Complex */
 
-Quaternion : [Object, Store, Equal, Number] { | contents |
+Quaternion : [Object, Store, Equal, Number] { | components |
 
 	[conjugate, +] { :self |
-		let [a, b, c, d] = self.contents;
+		let [a, b, c, d] = self.components;
 		Quaternion([a, b.-, c.-, d.-])
 	}
 
@@ -17,27 +17,27 @@ Quaternion : [Object, Store, Equal, Number] { | contents |
 
 	[plus, +] { :self :anObject |
 		anObject.isQuaternion.if {
-			Quaternion(self.contents + anObject.contents)
+			Quaternion(self.components + anObject.components)
 		} {
 			anObject.adaptToQuaternionAndApply(self, plus/2)
 		}
 	}
 
 	[negate, -] { :self |
-		Quaternion(self.contents.negate)
+		Quaternion(self.components.negate)
 	}
 
 	[sign, *] { :self |
-		self.contents.isOrigin.if {
+		self.components.isOrigin.if {
 			0
 		} {
-			Quaternion(self.contents / self.norm)
+			Quaternion(self.components / self.norm)
 		}
 	}
 
 	[subtract, -] { :self :anObject |
 		anObject.isQuaternion.if {
-			Quaternion(self.contents + anObject.contents)
+			Quaternion(self.components + anObject.components)
 		} {
 			anObject.adaptToQuaternionAndApply(self, subtract/2)
 		}
@@ -45,8 +45,8 @@ Quaternion : [Object, Store, Equal, Number] { | contents |
 
 	[times, *] { :self :anObject |
 		anObject.isQuaternion.if {
-			let [a, b, c, d] = self.contents;
-			let [p, q, r, s] = anObject.contents;
+			let [a, b, c, d] = self.components;
+			let [p, q, r, s] = anObject.components;
 			Quaternion(
 				[
 					((a * p) - (b * q) - (c * r) - (d * s)),
@@ -65,37 +65,27 @@ Quaternion : [Object, Store, Equal, Number] { | contents |
 	}
 
 	absSquare { :self |
-		self.contents.square.sum
+		self.components.square.sum
 	}
 
 	adaptToFractionAndApply { :self :aFraction :aBlock/2 |
-		aFraction.asQuaternion.aBlock(self)
+		aBlock(
+			Quaternion(aFraction),
+			self
+		)
 	}
 
 	adaptToNumberAndApply { :self :aNumber :aBlock/2 |
-		aNumber.asQuaternion.aBlock(self)
-	}
-
-	asQuaternion { :self |
-		self
-	}
-
-	asList { :self |
-		self.contents.copy
-	}
-
-	asMatrix { :self |
-		let [a, b, c, d] = self.contents;
-		[
-			[a.j(b), c.j(d)],
-			[c.-.j(d), a.j(b.-)]
-		]
+		aBlock(
+			Quaternion(aNumber),
+			self
+		)
 	}
 
 	equalBy { :self :anObject :aBlock/2 |
 		anObject.isNumber.if {
 			anObject.isQuaternion.if {
-				aBlock(self.contents, anObject.contents)
+				aBlock(self.components, anObject.components)
 			} {
 				anObject.adaptToQuaternionAndApply(self, aBlock/2)
 			}
@@ -105,17 +95,19 @@ Quaternion : [Object, Store, Equal, Number] { | contents |
 	}
 
 	imaginary { :self |
-		self.contents.copyFromTo(2, 4)
+		self.components.copyFromTo(2, 4)
 	}
 
 	isCloseToBy { :self :anObject :epsilon |
-		self.contents.equalBy(anObject.asQuaternion.contents) { :a :b |
+		self.components.equalBy(
+			Quaternion(anObject).components
+		) { :a :b |
 			a.isCloseToBy(b, epsilon)
 		}
 	}
 
 	isHamiltonianInteger { :self |
-		self.contents.allSatisfy(isInteger/1)
+		self.components.allSatisfy(isInteger/1)
 	}
 
 	isReal { :self |
@@ -123,7 +115,15 @@ Quaternion : [Object, Store, Equal, Number] { | contents |
 	}
 
 	isZero { :self |
-		self.contents.isOrigin
+		self.components.isOrigin
+	}
+
+	matrixForm { :self |
+		let [a, b, c, d] = self.components;
+		[
+			[a.j(b), c.j(d)],
+			[c.-.j(d), a.j(b.-)]
+		]
 	}
 
 	norm { :self |
@@ -139,7 +139,11 @@ Quaternion : [Object, Store, Equal, Number] { | contents |
 	}
 
 	one { :self |
-		1.asQuaternion
+		Quaternion(1)
+	}
+
+	Quaternion { :self |
+		self
 	}
 
 	reciprocal { :self |
@@ -151,7 +155,7 @@ Quaternion : [Object, Store, Equal, Number] { | contents |
 	}
 
 	real { :self |
-		self.contents.at(1)
+		self.components.at(1)
 	}
 
 	realImaginary { :self |
@@ -163,7 +167,7 @@ Quaternion : [Object, Store, Equal, Number] { | contents |
 	}
 
 	zero { :self |
-		0.asQuaternion
+		Quaternion(0)
 	}
 
 }
@@ -171,10 +175,12 @@ Quaternion : [Object, Store, Equal, Number] { | contents |
 +List {
 
 	Quaternion { :self |
-		(self.size = 4).if {
-			newQuaternion().initializeSlots(self)
-		} {
-			self.error('Quaternion')
+		self.atVectorOrElementwise { :x |
+			(x.size = 4).if {
+				newQuaternion().initializeSlots(x)
+			} {
+				self.error('Quaternion')
+			}
 		}
 	}
 
@@ -183,16 +189,23 @@ Quaternion : [Object, Store, Equal, Number] { | contents |
 +@Number {
 
 	adaptToQuaternionAndApply { :self :aQuaternion :aBlock/2 |
-		aQuaternion.aBlock(self.asQuaternion)
-	}
-
-	asQuaternion { :self |
-		let zero = self.zero;
-		Quaternion([self zero zero zero])
+		aBlock(
+			aQuaternion,
+			Quaternion(self)
+		)
 	}
 
 	isHamiltonianInteger { :self |
 		self.isInteger
+	}
+
+	Quaternion { :a :b :c :d |
+		Quaternion[a b c d]
+	}
+
+	Quaternion { :a |
+		let zero = a.zero;
+		Quaternion([a zero zero zero])
 	}
 
 }
@@ -209,7 +222,7 @@ Quaternion : [Object, Store, Equal, Number] { | contents |
 
 +Complex {
 
-	asQuaternion { :self |
+	Quaternion { :self |
 		Quaternion([self.real, self.imaginary, 0, 0])
 	}
 

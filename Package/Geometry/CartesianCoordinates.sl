@@ -112,18 +112,8 @@
 
 CartesianCoordinates : [Object, Copy, Store, Equal, Compare, Indexable, CartesianCoordinates] { | coordinates |
 
-	asCartesianCoordinates { :self |
+	CartesianCoordinates { :self |
 		self
-	}
-
-	asRecord { :self |
-		self.size.caseOf([
-			2 -> { (x: self.x, y: self.y) },
-			3 -> { (x: self.x, y: self.y, z: self.z) },
-			4 -> { (x: self.x, y: self.y, z: self.z, w: self.w) }
-		]) {
-			self.error('asRecord: not x,y or x,y,z or x,z,y,w')
-		}
 	}
 
 	cross { :u :v |
@@ -140,6 +130,18 @@ CartesianCoordinates : [Object, Copy, Store, Equal, Compare, Indexable, Cartesia
 
 	postCopy { :self |
 		self.coordinates := self.coordinates.copy
+	}
+
+	Record { :self |
+		self.size.caseOf(
+			[
+				2 -> { (x: self.x, y: self.y) },
+				3 -> { (x: self.x, y: self.y, z: self.z) },
+				4 -> { (x: self.x, y: self.y, z: self.z, w: self.w) }
+			]
+		) {
+			self.error('Record: not x,y or x,y,z or x,z,y,w')
+		}
 	}
 
 	second { :self |
@@ -166,19 +168,15 @@ CartesianCoordinates : [Object, Copy, Store, Equal, Compare, Indexable, Cartesia
 
 +List {
 
-	CartesianCoordinates { :self |
+	[CartesianCoordinates, listToCartesianCoordinates] { :self |
 		newCartesianCoordinates().initializeSlots(self)
-	}
-
-	[listToCartesianCoordinates, asCartesianCoordinates] { :self |
-		CartesianCoordinates(self)
 	}
 
 }
 
 +Record {
 
-	CartesianCoordinates { :self |
+	[CartesianCoordinates, recordToCartesianCoordinates] { :self |
 		self.size.caseOf(
 			[
 				2 -> {
@@ -197,10 +195,6 @@ CartesianCoordinates : [Object, Copy, Store, Equal, Compare, Indexable, Cartesia
 		) {
 			self.error('CartesianCoordinates: not x,y or x,y,z or x,y,z,w')
 		}
-	}
-
-	[recordToCartesianCoordinates, asCartesianCoordinates] { :self |
-		CartesianCoordinates(self)
 	}
 
 }

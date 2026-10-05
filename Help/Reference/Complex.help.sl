@@ -262,12 +262,12 @@ The matrix form of a complex number:
 
 ```
 >>> let a = 1J2;
->>> let b = a.asMatrix;
+>>> let b = a.matrixForm;
 >>> (
 >>> 	b,
 >>> 	a.absSquare,
 >>> 	b.determinant,
->>> 	a.conjugate.asMatrix,
+>>> 	a.conjugate.matrixForm,
 >>> 	b.transpose
 >>> )
 (

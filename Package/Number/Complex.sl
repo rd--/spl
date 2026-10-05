@@ -139,16 +139,6 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] { | real imaginary |
 		self
 	}
 
-	asMatrix { :self |
-		let a = self.real;
-		let b = self.imaginary;
-		[a b.negate; b a]
-	}
-
-	asRecord { :self |
-		(real: self.real, imaginary: self.imaginary)
-	}
-
 	atRandom { :self |
 		system.randomComplex([0J0, self], [])
 	}
@@ -332,6 +322,12 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] { | real imaginary |
 		self.log / aNumber.log
 	}
 
+	matrixForm { :self |
+		let a = self.real;
+		let b = self.imaginary;
+		[a b.negate; b a]
+	}
+
 	max { :self :anObject |
 		anObject.isComplex.if {
 			self.maxOn(anObject, abs/1)
@@ -388,6 +384,10 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] { | real imaginary |
 		} {
 			1 / self
 		}
+	}
+
+	[Record, complexToRecord] { :self |
+		(real: self.real, imaginary: self.imaginary)
 	}
 
 	[round, gaussianInteger] { :self |

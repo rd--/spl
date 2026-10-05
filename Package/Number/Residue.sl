@@ -108,11 +108,10 @@ Residue : [Object, Store, Equal, Compare, Number] { | commonResidue modulus |
 
 +List {
 
-	asResidue { :self |
-		(self.size = 2).if {
-			Residue(self[1], self[2])
-		} {
-			self.error('List>>asResidue: size not two')
+	Residue { :self |
+		self.atVectorOrElementwise { :each |
+			let [n, m] = each;
+			Residue(n, m)
 		}
 	}
 

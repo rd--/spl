@@ -48,8 +48,8 @@ Permuting:
 Converting:
 
 - `asBit`
-- `asBitSet`
-- `asLargeInteger`
+- `BitSet`
+- `LargeInteger`
 - `integerDigits`
 - `fromDigits`
 

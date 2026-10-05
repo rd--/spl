@@ -5,8 +5,7 @@
 Remove self-loops from an undirected graph:
 
 ~~~spl svg=A
-[1 1; 1 2; 2 3; 3 1]
-.asGraph
+Graph[1 1; 1 2; 2 3; 3 1]
 .simpleGraph
 .graphPlot
 ~~~
@@ -16,8 +15,7 @@ Remove self-loops from an undirected graph:
 Remove self-loops from a directed graph:
 
 ~~~spl svg=B
-[1 -> 1, 1 -> 2, 2 -> 3, 3 -> 1]
-.asGraph
+Graph[1 -> 1, 1 -> 2, 2 -> 3, 3 -> 1]
 .simpleGraph
 .graphPlot
 ~~~
@@ -27,8 +25,7 @@ Remove self-loops from a directed graph:
 Remove self-loops and multiple edges from an undirected graph:
 
 ~~~spl svg=C
-[1 1; 1 2; 1 3; 2 1; 2 2; 2 3; 3 3]
-.asGraph
+Graph[1 1; 1 2; 1 3; 2 1; 2 2; 2 3; 3 3]
 .simpleGraph
 .graphPlot
 ~~~
@@ -38,14 +35,11 @@ Remove self-loops and multiple edges from an undirected graph:
 Remove self-loops and multiple edges from a mixed graph:
 
 ~~~spl svg=D
-[
+Graph[
 	1 --- 1,
 	1 --> 2, 2 --> 3, 3 --> 4,
 	4 --- 2, 4 --- 5, 5 --- 6, 6 --- 2
-]
-.asGraph
-.simpleGraph
-.graphPlot
+].simpleGraph.graphPlot
 ~~~
 
 ![](Help/Image/simpleGraph-D.svg)

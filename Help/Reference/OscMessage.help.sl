@@ -8,7 +8,7 @@ which consists of an address string _a_ and a (possibly empty) parameter list _p
 An `OscMessage` with no parameters:
 
 ```
->>> OscMessage('/x', []).asRecord
+>>> OscMessage('/x', []).Record
 (
 	address: '/x',
 	args: []
@@ -18,7 +18,7 @@ An `OscMessage` with no parameters:
 An `OscMessage` with one parameter:
 
 ```
->>> OscMessage('/y', [3.141]).asRecord
+>>> OscMessage('/y', [3.141]).Record
 (
 	address: '/y',
 	args: [
@@ -46,7 +46,7 @@ ByteArray[
 
 * * *
 
-See also: asRecord, encode, OscBundle, OscParameter
+See also: encode, OscBundle, OscParameter, Record
 
 Guides: Protocol Functions
 

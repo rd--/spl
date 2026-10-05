@@ -104,7 +104,7 @@ A sorted set of strings:
 ```
 >>> ['list' 'kind' 'words' 'of' 'a' 'kind']
 >>> .SortedSet
->>> .asList
+>>> .List
 ['a' 'kind' 'list' 'of' 'words']
 ```
 

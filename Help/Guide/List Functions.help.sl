@@ -83,7 +83,7 @@ Partitioning:
 
 Converting:
 
-- `asList`
+- `List`
 
 Predicates:
 

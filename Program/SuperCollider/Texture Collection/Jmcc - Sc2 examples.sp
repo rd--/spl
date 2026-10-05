@@ -32,7 +32,7 @@ let n = 12; /* number of simultaneous events */
 let env = EnvLinen(2, 5, 2, 1, -4);
 {
 	EqPan2(
-		SinOsc(Rand(0, 2000), 0) * EnvGen(1, 0.02, 0, 1, 2, env.asList),
+		SinOsc(Rand(0, 2000), 0) * EnvGen(1, 0.02, 0, 1, 2, env),
 		Rand(-1, 1)
 	)
 }.spawnTextureProgram(9 / n)
@@ -42,7 +42,7 @@ let n = 8; /* number of simultaneous events */
 let env = EnvLinen(2, 5, 2, 0.02, -4);
 {
 	EqPan2(
-		(SinOsc(Rand(0, 2000), 0) * EnvGen(1, 1, 0, 1, 2, env.asList)).AmClip(SinOsc(8 + LinRand(0, 80, 0), 0)),
+		(SinOsc(Rand(0, 2000), 0) * EnvGen(1, 1, 0, 1, 2, env)).AmClip(SinOsc(8 + LinRand(0, 80, 0), 0)),
 		SinOsc(0.3 + Rand(0, 0.5), Rand(0, 2.pi)) * 0.7
 	)
 }.spawnTextureProgram(9 / n)

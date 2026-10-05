@@ -29,7 +29,7 @@ At `Set`:
 ```
 >>> let c = Set[1 2 3];
 >>> let x = c.remove!(1);
->>> (c.asList, x)
+>>> (c.List, x)
 ([2 3], 1)
 ```
 

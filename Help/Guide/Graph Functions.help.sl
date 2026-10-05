@@ -117,10 +117,10 @@ Predicate (Query) Functions:
 Converting Functions:
 
 - `asDot`
-- `asEdge`
-- `asEdgeList`
-- `asGraph`
-- `undirectedGraph`
+- `Edge`
+- `EdgeList`
+- `Graph`
+- `UndirectedGraph`
 
 Drawing Functions:
 

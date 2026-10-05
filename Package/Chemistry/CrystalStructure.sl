@@ -3,11 +3,11 @@
 CrystalStructure : [Object] { | name description vertexCount edges vertexLabels vertexCoordinates |
 
 	asPerspectiveDrawing { :self :projection |
-		self.asGraph.asPerspectiveDrawing(projection)
+		self.Graph.asPerspectiveDrawing(projection)
 	}
 
 	asPerspectiveDrawing { :self |
-		self.asGraph.asPerspectiveDrawing
+		self.Graph.asPerspectiveDrawing
 	}
 
 	atoms { :self |
@@ -22,7 +22,7 @@ CrystalStructure : [Object] { | name description vertexCount edges vertexLabels 
 		self.edges
 	}
 
-	[crystalStructureToGraph, asGraph] { :self |
+	[Graph, crystalStructureToGraph] { :self |
 		let answer = Graph(
 			self.vertexList,
 			self.edges

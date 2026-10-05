@@ -7,21 +7,21 @@ Construct a `Range` by counting up or down from the start index _i_ to the stop 
 Count up:
 
 ```
->>> 1.upOrDownTo(5).asList
+>>> 1.upOrDownTo(5).List
 [1 2 3 4 5]
 ```
 
 Count down:
 
 ```
->>> 5.upOrDownTo(1).asList
+>>> 5.upOrDownTo(1).List
 [5 4 3 2 1]
 ```
 
 The range cannot be empty, only singular:
 
 ```
->>> 1.upOrDownTo(1).asList
+>>> 1.upOrDownTo(1).List
 [1]
 ```
 

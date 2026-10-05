@@ -2,7 +2,7 @@
 
 - _ascii(s)_
 
-`ascii` is `asList` of `asciiByteArray`,
+`ascii` is `List` of `asciiByteArray`,
 and answers a `List` of the Ascii encoding of the string _s_,
 which must be an Ascii string.
 
@@ -15,7 +15,7 @@ The Ascii encoding of 'ascii':
 
 * * *
 
-See also: asciiByteArray, asciiString, asList, String
+See also: asciiByteArray, asciiString, List, String
 
 Guides: String Functions
 

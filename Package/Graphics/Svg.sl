@@ -78,7 +78,7 @@ Svg : [Object] { | contents |
 +Block {
 
 	scaledSvgFragments { :self/1 :height :boundingCoordinates |
-		let actualBoundingBox = boundingCoordinates.asRectangle;
+		let actualBoundingBox = boundingCoordinates.Rectangle;
 		let boundingBox = actualBoundingBox.height.isZero.if {
 			Rectangle(
 				actualBoundingBox.lowerLeft,

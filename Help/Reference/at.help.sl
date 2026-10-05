@@ -72,7 +72,7 @@ true
 
 ```
 >>> {
->>> 	[1 2 3].asIdentitySet.at(1)
+>>> 	IdentitySet[1 2 3].at(1)
 >>> }.hasError
 true
 ```

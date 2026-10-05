@@ -15,8 +15,7 @@ At an undirected graph:
 At a directed graph:
 
 ```
->>> [1 -> 2, 2 -> 3, 3 -> 1]
->>> .asGraph
+>>> Graph[1 -> 2, 2 -> 3, 3 -> 1]
 >>> .vertexCount
 3
 ```
@@ -24,8 +23,7 @@ At a directed graph:
 At a multigraph:
 
 ```
->>> [1 -> 2, 1 -> 2]
->>> .asGraph
+>>> Graph[1 -> 2, 1 -> 2]
 >>> .vertexCount
 2
 ```

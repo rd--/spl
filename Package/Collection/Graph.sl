@@ -315,7 +315,7 @@
 	}
 
 	incidenceGraph { :self :vertex |
-		self.incidenceList(vertex).asGraph
+		self.incidenceList(vertex).Graph
 	}
 
 	incidenceList { :self :vertex |
@@ -548,7 +548,7 @@
 	subgraph { :self :vertexList |
 		self.edgeList.select { :each |
 			vertexList.includesAll(each.vertexList)
-		}.asGraph
+		}.Graph
 	}
 
 	treePlot { :self |
@@ -709,7 +709,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 	}
 
 	printString { :self |
-		'%.asGraph'.format([self.edgeList])
+		'Graph(%)'.format([self.edgeList])
 	}
 
 	vertexCoordinates { :self |
@@ -801,7 +801,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 				e.add!([i, (i + j).mod(self, 1)])
 			}
 		};
-		e.asGraph.simpleGraph
+		e.Graph.simpleGraph
 	}
 
 	completeBipartiteGraph { :self :anInteger |
@@ -868,13 +868,13 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 				}
 			}
 		};
-		e.asGraph
+		e.Graph
 	}
 
 	cycleGraph { :self |
 		1.toCollect(self) { :each |
 			[each, each % self + 1]
-		}.asGraph
+		}.Graph
 	}
 
 	cyclotomicGraph { :p |
@@ -970,7 +970,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 	}
 
 	hararyGraph { :k :n |
-		hararyGraphEdgeList(k, n).asGraph
+		hararyGraphEdgeList(k, n).Graph
 	}
 
 	kingGraph { :m :n |
@@ -1024,7 +1024,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 	pathGraph { :self |
 		1.toCollect(self - 1) { :each |
 			[each, each + 1]
-		}.asGraph
+		}.Graph
 	}
 
 	petersenGraph { :n :k |
@@ -1086,7 +1086,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 	starGraph { :self |
 		2.toCollect(self) { :each |
 			[1, each]
-		}.asGraph
+		}.Graph
 	}
 
 	wheelGraph { :self |
@@ -1099,7 +1099,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 			let star = 2.toCollect(self) { :each |
 				[1, each]
 			};
-			(cycle ++ star).asGraph
+			(cycle ++ star).Graph
 		}
 	}
 
@@ -1115,7 +1115,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 		let vertexList = self.collectCatenate(vertexList/1).nub.sort;
 		let renameTable = vertexList.collect { :vertex |
 			vertex -> vertexList.indexOf(vertex)
-		}.asMap;
+		}.Map;
 		self.collect { :each |
 			each.rename(renameTable)
 		}
@@ -1209,8 +1209,8 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 		}
 	}
 
-	[Graph, asGraph] { :self |
-		let edgeList = self.collect(asEdge/1).asList;
+	Graph { :self |
+		let edgeList = self.collect(asEdge/1).List;
 		let vertexList = [];
 		edgeList.do { :each |
 			vertexList.add!(each[1]);
@@ -1231,7 +1231,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 					[1, -1] -> { i[2] --> i[1] }
 				]
 			)
-		}.asGraph
+		}.Graph
 	}
 
 	kirchhoffGraph { :self |

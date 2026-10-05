@@ -1,13 +1,21 @@
 @Link {
 
-	asLink { :self |
-		self
-	}
-
 	do { :self :aBlock/1 |
 		self.linksDo { :each |
 			aBlock(each.value)
 		}
+	}
+
+	lastLink { :self |
+		let next = self;
+		{ next.nextLink.isNil }.whileFalse {
+			next := next.nextLink
+		};
+		next
+	}
+
+	Link { :self |
+		self
 	}
 
 	linkAt { :self :index |
@@ -54,7 +62,7 @@
 		}
 	}
 
-	[linkToList, asList] { :self |
+	[List, linkToList] { :self |
 		let h = self;
 		let answer = [];
 		{
@@ -66,14 +74,6 @@
 		answer
 	}
 
-	lastLink { :self |
-		let next = self;
-		{ next.nextLink.isNil }.whileFalse {
-			next := next.nextLink
-		};
-		next
-	}
-
 	nextLink { :self |
 		self.typeResponsibility('nextLink')
 	}
@@ -82,7 +82,7 @@
 
 +@Object {
 
-	asLink { :self |
+	Link { :self |
 		ValueLink(self)
 	}
 
@@ -91,7 +91,7 @@
 LinkedList : [Object, Copy, Store, Equal, Compare, Iterable, Indexable, Collection, Extensible, Sequence] { | firstLink lastLink |
 
 	addFirst! { :self :aLinkOrObject |
-		let aLink = aLinkOrObject.asLink;
+		let aLink = aLinkOrObject.Link;
 		self.isEmpty.ifTrue {
 			self.lastLink := aLink
 		};
@@ -101,7 +101,7 @@ LinkedList : [Object, Copy, Store, Equal, Compare, Iterable, Indexable, Collecti
 	}
 
 	[addLast!, add!] { :self :aLinkOrObject |
-		let aLink = aLinkOrObject.asLink;
+		let aLink = aLinkOrObject.Link;
 		self.isEmpty.if {
 			self.firstLink := aLink
 		} {
@@ -157,16 +157,6 @@ LinkedList : [Object, Copy, Store, Equal, Compare, Iterable, Indexable, Collecti
 		}
 	}
 
-	[linkedListToList, asList] { :self |
-		let answer = List(self.size);
-		let index = 1;
-		self.do { :each |
-			answer[index] := each;
-			index := index + 1
-		};
-		answer
-	}
-
 	linkOf { :self :anObject |
 		self.ifEmpty {
 			self.error('linkOf: empty')
@@ -190,6 +180,16 @@ LinkedList : [Object, Copy, Store, Equal, Compare, Iterable, Indexable, Collecti
 		nil
 	}
 
+	[List, linkedListToList] { :self |
+		let answer = List(self.size);
+		let index = 1;
+		self.do { :each |
+			answer[index] := each;
+			index := index + 1
+		};
+		answer
+	}
+
 	ofSize { :self :aNumber |
 		(aNumber - self.size).timesRepeat {
 			self.add!(nil)
@@ -210,9 +210,12 @@ LinkedList : [Object, Copy, Store, Equal, Compare, Iterable, Indexable, Collecti
 	}
 
 	put! { :self :index :anObject |
-		self.putLink!(index, self.linkOfIfAbsent(anObject) {
-			anObject.asLink
-		})
+		self.putLink!(
+			index,
+			self.linkOfIfAbsent(anObject) {
+				anObject.Link
+			}
+		)
 	}
 
 	putLink! { :self :index :aLink |
@@ -337,14 +340,14 @@ LinkedList : [Object, Copy, Store, Equal, Compare, Iterable, Indexable, Collecti
 	}
 
 	storeString { :self |
-		'LinkedList(%)'.format([self.asList.storeString])
+		'LinkedList(%)'.format([self.List.storeString])
 	}
 
 }
 
 +@Collection {
 
-	[LinkedList, asLinkedList] { :self |
+	LinkedList { :self |
 		let answer = LinkedList();
 		self.do { :each |
 			answer.add!(each)

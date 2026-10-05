@@ -27,6 +27,41 @@ providing a default empty label if `vertexLabels` is `nil`.
 
 The coherence of a `Graph` can be queried using `isValid`.
 
+The unary constructor answers a `Graph` having the edges specified at _e_.
+The `vertexList` of the graph is inferred.
+
+At an `Association` `List` makes a directed graph:
+
+```
+>>> Graph[1 -> 2, 2 -> 3, 3 -> 1]
+>>> .adjacencyMatrix
+[
+	0 1 0;
+	0 0 1;
+	1 0 0
+]
+```
+
+At a two-column matrix makes an undirected graph:
+
+```
+>>> Graph[1 2; 2 3; 3 1]
+>>> .adjacencyMatrix
+[
+	0 1 1;
+	1 0 1;
+	1 1 0
+]
+```
+
+At a `List` of edges can make either kind of graph,
+or a mixed graph:
+
+```
+>>> Graph[1 --- 2, 2 --> 3].isMixed
+true
+```
+
 * * *
 
 See also: ---, -->, asDot, edgeCount, edgeList, isDirected, isMixed, isUndirected, vertexCount, vertexList

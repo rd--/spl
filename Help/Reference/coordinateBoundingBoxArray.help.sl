@@ -26,7 +26,7 @@ let b = [3 -1; 8 2];
 let c = b.coordinateBoundingBoxArray([1 1]);
 [
 	c.flatten(1).PointCloud,
-	b.asRectangle
+	b.Rectangle
 ].LineDrawing
 ~~~
 
@@ -46,7 +46,7 @@ let c = b.coordinateBoundingBoxArray(
 	c.collect { :each |
 		Circle(each, 0.5)
 	},
-	b.asRectangle
+	b.Rectangle
 ].LineDrawing
 ~~~
 

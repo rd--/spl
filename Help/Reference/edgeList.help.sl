@@ -26,8 +26,7 @@ At undirected graphs:
 At directed graphs:
 
 ```
->>> [1 -> 2, 2 -> 3, 3 -> 1]
->>> .asGraph
+>>> Graph[1 -> 2, 2 -> 3, 3 -> 1]
 >>> .edgeList
 [1 -> 2, 2 -> 3, 3 -> 1].asEdgeList
 ```

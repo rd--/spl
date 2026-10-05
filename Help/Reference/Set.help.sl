@@ -69,7 +69,7 @@ false
 false
 
 >>> Set[1 1L]
->>> .asList
+>>> .List
 [1]
 
 >>> {
@@ -84,7 +84,7 @@ false
 true
 
 >>> Set[1J1 1J1]
->>> .asList
+>>> .List
 [1J1]
 
 >>> {

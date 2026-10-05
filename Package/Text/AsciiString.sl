@@ -4,14 +4,6 @@ AsciiString : [Object, Store, Equal, Iterable, Indexable, Collection, Sequence] 
 		self
 	}
 
-	[asciiStringToList, asList] { :self |
-		let answer = List(self.size);
-		self.withIndexDo { :each :index |
-			answer[index] := each.asCharacter
-		};
-		answer
-	}
-
 	asHexString { :self |
 		self.contents.base16Encode.AsciiString
 	}
@@ -25,7 +17,7 @@ AsciiString : [Object, Store, Equal, Iterable, Indexable, Collection, Sequence] 
 	}
 
 	codePoints { :self |
-		self.contents.asList
+		self.contents.List
 	}
 
 	do { :self :aBlock/1 |
@@ -36,6 +28,14 @@ AsciiString : [Object, Store, Equal, Iterable, Indexable, Collection, Sequence] 
 
 	indices { :self |
 		1.to(self.contents.size)
+	}
+
+	[List, asciiStringToList] { :self |
+		let answer = List(self.size);
+		self.withIndexDo { :each :index |
+			answer[index] := each.asCharacter
+		};
+		answer
 	}
 
 	put! { :self :anInteger :aCharacter |

@@ -60,9 +60,24 @@ CartesianCoordinates[1 2 3]
 CartesianCoordinates[1 2 3 4]
 ```
 
+`Record` case:
+
+```
+>>> CartesianCoordinates(x: 1, y: 2, z: 3)
+CartesianCoordinates[1 2 3]
+```
+
+In the `CartesianCoordinates` cases answer `identity`:
+
+```
+>>> let c = CartesianCoordinates[1 2 3];
+>>> c.CartesianCoordinates == c
+true
+```
+
 * * *
 
-See also: asPoint, Point, PolarCoordinates, PlanarCoordinates, SphericalCoordinates, x, y, z
+See also: Complex, Point, PolarCoordinates, PlanarCoordinates, SphericalCoordinates, x, y, z
 
 Guides: Geometry Functions
 

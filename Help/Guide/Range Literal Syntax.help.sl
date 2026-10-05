@@ -58,7 +58,7 @@ Answer consecutive ascending `Range` values:
 >>> 1:9
 Range(1, 9)
 
->>> 1:9.asList
+>>> 1:9.List
 [1 2 3 4 5 6 7 8 9]
 ```
 
@@ -68,7 +68,7 @@ Ascending by two:
 >>> 1:9:2
 Range(1, 9, 2)
 
->>> 1:9:2.asList
+>>> 1:9:2.List
 [1 3 5 7 9]
 ```
 
@@ -78,7 +78,7 @@ Answer consecutive descending `Range` values:
 >>> 9:1:-1
 Range(9, 1, -1)
 
->>> 9:1:-1.asList
+>>> 9:1:-1.List
 [9 8 7 6 5 4 3 2 1]
 ```
 
@@ -88,7 +88,7 @@ Descending by two:
 >>> 9:1:-2
 Range(9, 1, -2)
 
->>> 9:1:-2.asList
+>>> 9:1:-2.List
 [9 7 5 3 1]
 ```
 
@@ -101,7 +101,7 @@ Range(9, 1)
 >>> 9:1.isEmpty
 true
 
->>> 9:1.asList
+>>> 9:1.List
 []
 ```
 

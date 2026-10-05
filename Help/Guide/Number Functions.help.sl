@@ -23,7 +23,7 @@ Converting:
 - `asFloat`
 - `asFloat`
 - `asInteger`
-- `asLargeInteger`
+- `LargeInteger`
 - `asNumber`
 - `asSmallFloat`
 - `asSmallInteger`

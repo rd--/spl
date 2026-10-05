@@ -11,9 +11,9 @@
 			d,
 			0, m - 1,
 			0, n - 1,
-			x.asList,
-			y.asList,
-			z.size, z.asList,
+			x.List,
+			y.List,
+			z.size, z.List,
 			drawContour/6
 		)
 	}

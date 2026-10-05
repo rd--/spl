@@ -1,36 +1,36 @@
-# asRangeList
+# deriveRangeList
 
-- _asRangeList([x₁ x₂ …])_
+- _deriveRangeList([x₁ x₂ …])_
 
 Answer a `List` of `Range` values that, when concatenated, is equivalent to the sequence _x_.
 
 At empty `List`:
 
 ```
->>> [].asRangeList
+>>> [].deriveRangeList
 []
 ```
 
 At one element `List`:
 
 ```
->>> [1].asRangeList
+>>> [1].deriveRangeList
 [Range(1, 1, 1)]
 ```
 
 Any two element numerical sequence is a `Range`:
 
 ```
->>> [1 2].asRangeList
+>>> [1 2].deriveRangeList
 [Range(1, 2, 1)]
 
->>> [1 0].asRangeList
+>>> [1 0].deriveRangeList
 [Range(1, 0, -1)]
 
->>> [1 3].asRangeList
+>>> [1 3].deriveRangeList
 [Range(1, 3, 2)]
 
->>> [0, 1.pi].asRangeList
+>>> [0, 1.pi].deriveRangeList
 [Range(0, 1.pi, 1.pi)]
 ```
 
@@ -41,7 +41,7 @@ Reconstruct a `List` of `Range` items:
 >>> 	13:18 22:27 31:36
 >>> 	40:45 49:57 61:65
 >>> ];
->>> r.catenate.asRangeList
+>>> r.catenate.deriveRangeList
 r
 ```
 
@@ -52,7 +52,7 @@ Find complementary ranges:
 >>> 	13:18 22:27 31:36
 >>> 	40:45 49:57 61:65
 >>> ];
->>> 1:75.differenceAll(r).asRangeList
+>>> 1:75.differenceAll(r).deriveRangeList
 [
 	1:12 19:21 28:30
 	37:39 46:48 58:60
@@ -68,13 +68,13 @@ Find complementary ranges:
 >>> 	13:18 22:27 31:36
 >>> 	40:45 49:57 61:65
 >>> ];
->>> [r1 r2].flatten.sort!.asRange
+>>> [r1 r2].flatten.sort!.deriveRange
 1:75
 ```
 
 * * *
 
-See also: asRange, Range
+See also: deriveRange, Range
 
 Guides: List Functions
 

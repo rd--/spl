@@ -38,15 +38,11 @@ HexagonalEfficientCoordinates : [Object, Equal] { | coordinates |
 
 	}
 
-	asCartesianCoordinates { :self |
+	CartesianCoordinates { :self |
 		self
 		.coordinates
 		.fromHexagonalEfficientCoordinates
 		.CartesianCoordinates
-	}
-
-	asList { :self |
-		self.coordinates
 	}
 
 	nearestNeighbours { :self |

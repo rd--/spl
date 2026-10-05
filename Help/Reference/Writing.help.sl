@@ -9,7 +9,7 @@ Writing can be part of a line drawing:
 ~~~spl svg=A
 let c = Circle([0 0], 100);
 let w = Writing('Writing', [0, 0]);
-let r = w.boundingBox.asRectangle;
+let r = w.boundingBox.Rectangle;
 [c, w, r].LineDrawing
 ~~~
 

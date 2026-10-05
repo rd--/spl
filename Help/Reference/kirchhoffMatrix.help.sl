@@ -8,8 +8,7 @@ also called the Laplacian matrix or admittance matrix.
 The Kirchhoff matrix of an undirected graph:
 
 ```
->>> [1 2; 2 3; 3 1]
->>> .asGraph
+>>> Graph[1 2; 2 3; 3 1]
 >>> .kirchhoffMatrix
 [
 	 2 -1 -1;
@@ -18,7 +17,7 @@ The Kirchhoff matrix of an undirected graph:
 ]
 
 >>> [1 2; 1 5; 2 3; 2 5; 3 4; 4 5; 4 6]
->>> .asGraph
+>>> .Graph
 >>> .kirchhoffMatrix
 [
 	 2 -1  0  0 -1  0;
@@ -33,8 +32,7 @@ The Kirchhoff matrix of an undirected graph:
 The Kirchhoff matrix of a directed graph:
 
 ```
->>> [1 -> 2, 2 -> 3, 3 -> 1]
->>> .asGraph
+>>> Graph[1 -> 2, 2 -> 3, 3 -> 1]
 >>> .kirchhoffMatrix
 [
 	 2 -1  0;
@@ -46,8 +44,7 @@ The Kirchhoff matrix of a directed graph:
 The Kirchhoff matrix of an undirected graph is symmetric:
 
 ```
->>> [1 2; 1 3; 2 3; 2 4; 3 4]
->>> .asGraph
+>>> Graph[1 2; 1 3; 2 3; 2 4; 3 4]
 >>> .kirchhoffMatrix
 [
 	 2 -1 -1  0;

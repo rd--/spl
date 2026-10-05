@@ -38,7 +38,7 @@ At `Record`:
 >>> .parseComplex
 2J3
 
->>> 2J3.asRecord
+>>> 2J3.Record
 (real: 2, imaginary: 3)
 ```
 

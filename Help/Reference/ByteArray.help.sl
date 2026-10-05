@@ -79,7 +79,7 @@ Guides: Array Functions, Collection Functions
 
 References:
 _Mathematica_
-[1](https://reference.wolframcloud.com/language/ref/ByteArray.html),
+[1](https://reference.wolfram.com/language/ref/ByteArray.html),
 _Smalltalk_
 5.7.1.5
 5.7.15,

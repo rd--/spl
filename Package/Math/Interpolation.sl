@@ -612,7 +612,7 @@
 +List {
 
 	savitzkyGolayFilter { :y :m :w |
-		uncheckedSavitzkyGolayFilter(y, m, w).asList
+		uncheckedSavitzkyGolayFilter(y, m, w).List
 	}
 
 	uncheckedSavitzkyGolayFilter { :y :m :w |

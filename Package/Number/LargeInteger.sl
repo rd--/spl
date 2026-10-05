@@ -35,7 +35,10 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer] {
 
 	[divide, /] { :self :anObject |
 		anObject.isScalarInteger.if {
-			let fraction = Fraction(self, anObject.asLargeInteger);
+			let fraction = Fraction(
+				self,
+				anObject.LargeInteger
+			);
 			fraction.isInteger.if {
 				fraction.numerator
 			} {
@@ -116,7 +119,7 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer] {
 
 	adaptToNumberAndApply { :self :aNumber :aBlock/2 |
 		aNumber.isInteger.if {
-			aBlock(aNumber.asLargeInteger, self)
+			aBlock(aNumber.LargeInteger, self)
 		} {
 			aBlock(aNumber, self.asSmallFloat)
 		}
@@ -136,10 +139,6 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer] {
 		} {
 			self.error('LargeInteger>>asSmallInteger: not small integer')
 		}
-	}
-
-	asLargeInteger { :self |
-		self
 	}
 
 	[asSmallFloat, asFloat] { :self |
@@ -234,7 +233,7 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer] {
 			self.uncheckedPrintString(radix).characters.digitValue
 		} {
 			self.asSmallInteger.integerDigits(radix)
-		}.collect(asLargeInteger/1)
+		}.collect(LargeInteger/1)
 	}
 
 	integerLength { :self :radix |
@@ -300,6 +299,10 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer] {
 
 	isVeryCloseTo { :self :aNumber |
 		self = aNumber
+	}
+
+	LargeInteger { :self |
+		self
 	}
 
 	normal { :self |
@@ -449,10 +452,6 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer] {
 		<primitive: return BigInt(_self);>
 	}
 
-	asLargeInteger { :self |
-		<primitive: return BigInt(_self);>
-	}
-
 }
 
 +String {
@@ -481,7 +480,7 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer] {
 
 +ByteArray {
 
-	asLargeInteger { :self |
+	LargeInteger { :self |
 		let answer = 0L;
 		self.withIndexDo { :each :i |
 			answer := answer + (each << (i - 1L * 8))

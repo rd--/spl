@@ -52,7 +52,7 @@ Draw point set and bounding rectangle:
 let p = [3 10; 6 3; 10 2; 2 8; 3 3];
 [
 	p.PointCloud,
-	p.coordinateBoundingBox.asRectangle
+	p.coordinateBoundingBox.Rectangle
 ].LineDrawing
 ~~~
 

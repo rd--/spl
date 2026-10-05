@@ -53,9 +53,9 @@ The binary form truncates to _k_ bits:
 At `BitSet`, mutates set:
 
 ```
->>> let b = '1001'.asBitSet;
+>>> let b = '1001'.BitSet;
 >>> b.bitNot;
->>> b.asString
+>>> b.String
 '0110'
 ```
 

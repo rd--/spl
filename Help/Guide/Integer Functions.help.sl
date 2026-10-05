@@ -18,7 +18,7 @@ Converting:
 
 - `asInteger`
 - `asSmallInteger`
-- `asLargeInteger`
+- `LargeInteger`
 
 Division-Related Functions:
 

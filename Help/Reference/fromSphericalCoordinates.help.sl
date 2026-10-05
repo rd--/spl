@@ -25,8 +25,8 @@ Equivalent to:
 >>> 	0.25.pi,
 >>> 	2.sqrt.arcTan
 >>> ];
->>> let p = v.asSphericalCoordinates;
->>> p.asCartesianCoordinates.coordinates
+>>> let p = v.SphericalCoordinates;
+>>> p.CartesianCoordinates.coordinates
 [1 1 1]
 ```
 

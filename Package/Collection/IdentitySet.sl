@@ -11,10 +11,6 @@ IdentitySet! : [Object, Copy, Store, Equal, Iterable, Collection, Extensible, Un
 		nil
 	}
 
-	[identitySetToList, asList] { :self |
-		<primitive: return Array.from(_self);>
-	}
-
 	include! { :self :anObject |
 		anObject.isImmediate.ifFalse {
 			self.error('IdentitySet>>include: non-immediate entry', [anObject])
@@ -24,6 +20,10 @@ IdentitySet! : [Object, Copy, Store, Equal, Iterable, Collection, Extensible, Un
 
 	includes { :self :anObject |
 		<primitive: return _self.has(_anObject);>
+	}
+
+	[List, identitySetToList] { :self |
+		<primitive: return Array.from(_self);>
 	}
 
 	pseudoSlotNameList { :self |
@@ -59,7 +59,7 @@ IdentitySet! : [Object, Copy, Store, Equal, Iterable, Collection, Extensible, Un
 	}
 
 	storeString { :self |
-		'IdentitySet(%)'.format([self.asList.storeString])
+		'IdentitySet(%)'.format([self.List.storeString])
 	}
 
 	uncheckedInclude { :self :anObject |
@@ -95,7 +95,7 @@ IdentitySet! : [Object, Copy, Store, Equal, Iterable, Collection, Extensible, Un
 
 +@Collection {
 
-	asIdentitySet { :self |
+	IdentitySet { :self |
 		let answer = IdentitySet();
 		answer.includeAll!(self);
 		answer
@@ -105,17 +105,13 @@ IdentitySet! : [Object, Copy, Store, Equal, Iterable, Collection, Extensible, Un
 
 +@Dictionary {
 
-	asIdentitySet { :self |
-		self.values.asIdentitySet
+	IdentitySet { :self |
+		self.values.IdentitySet
 	}
 
 }
 
 +List {
-
-	asIdentitySet { :self |
-		IdentitySet(self)
-	}
 
 	IdentitySet { :self |
 		self.allSatisfy(isImmediate/1).ifFalse {

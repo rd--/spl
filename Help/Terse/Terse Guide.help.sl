@@ -253,8 +253,8 @@ system.includesPackage('List') /* list package */
 [].species.new = [] /* new empty array */
 [].species.new(3) = [nil, nil, nil] /* new array of indicated size */
 [].species.ofSize(3) = [nil, nil, nil] /* new array of indicated size */
-[].species.newFrom(1:9.asIdentitySet) = [1 .. 9] /* new array from collection */
-[].species.newFrom([].asIdentitySet) = [] /* new array from empty collection */
+[].species.newFrom(1:9.IdentitySet) = [1 .. 9] /* new array from collection */
+[].species.newFrom([].IdentitySet) = [] /* new array from empty collection */
 [].species.newFrom([]) = [] /* new array from empty array */
 [].isList = true /* the empty List is a List */
 [].isCollection = true /* arrays are collections */
@@ -267,10 +267,10 @@ List(0) = [] /* SmallFloat constructor makes an initialised sized List */
 List(3).size = 3 /* new array of indicated size */
 List(5) = [nil, nil, nil, nil, nil] /* array slots are initialised to nil */
 List(5, 0) = [0, 0, 0, 0, 0] /* array can have slots initialised to a value */
-[].asList = [] /* List constructor, empty array */
+[].List = [] /* List constructor, empty array */
 let a = [1 .. 9]; a.copy !== a /* copy does not answer argument */
-let a = [1 .. 9]; a.asList == a /* asList answers the receiver if it is an array */
-let a = [1 .. 9].asIdentitySet; a.asList !== a /* List constructor copies any collection, sequence or otherwise */
+let a = [1 .. 9]; a.List == a /* List answers the receiver if it is an array */
+let a = [1 .. 9].IdentitySet; a.List !== a /* List constructor copies any collection, sequence or otherwise */
 1.asCollection = [1] /* enclose a non-collection in an array */
 [1 .. 3].asCollection = [1 .. 3] /* an array is a collection */
 1:3.asCollection = 1:3 /* an interval is a collection */
@@ -614,24 +614,24 @@ let c = IdentityMultiset(); { c.remove!('x') }.hasError
 let c = [2, 3, 3, 4, 4, 4].asIdentityMultiset; c.copy = c /* copy answers new equal Multiset */
 let c = [2, 3, 3, 4, 4, 4].asIdentityMultiset; c.copy !== c /* copy does not answer argument */
 let c = IdentityMultiset(); c.addWithOccurrences!('x', 4); c.occurrencesOf('x') = 4
-[2, 3, 3, 4, 4, 4].asIdentityMultiset.asIdentitySet.size = 3 /* number of unique elements */
-[2, 3, 3, 4, 4, 4].asIdentityMultiset.asIdentitySet.occurrencesOf(3) = 1
-let s = IdentityMultiset(); 250.timesRepeat { s.add!([1 .. 4].shuffle!.asString) }; s.asIdentitySet.size = 24
+[2, 3, 3, 4, 4, 4].asIdentityMultiset.IdentitySet.size = 3 /* number of unique elements */
+[2, 3, 3, 4, 4, 4].asIdentityMultiset.IdentitySet.occurrencesOf(3) = 1
+let s = IdentityMultiset(); 250.timesRepeat { s.add!([1 .. 4].shuffle!.asString) }; s.IdentitySet.size = 24
 [1, 2, 3, 1, 4].asIdentityMultiset.isIndexable = false /* bags are not indexable */
 [1, 2, 3, 1, 4].asIdentityMultiset.indices = nil /* sets are not indexable */
 let a = [1, 1, 2, 1, 2, 3, 1, 1, 2, 3, 4]; a.sum = a.asIdentityMultiset.sum /* sum may be optimised */
-[1, 2, 3, 1, 3, 4].asIdentityMultiset.valuesAndCounts = [1 -> 2, 2 -> 1, 3 -> 2, 4 -> 1].asMap /* contents */
+[1, 2, 3, 1, 3, 4].asIdentityMultiset.valuesAndCounts = [1 -> 2, 2 -> 1, 3 -> 2, 4 -> 1].Map /* contents */
 [1, 1, 1, 1, 1, 2, 2, 2, 2, 3].asIdentityMultiset.cumulativeCounts = [50 -> 1, 90 -> 2, 100 -> 3]
-[1, 2, 2, 3, 3, 3].histogramOf { :each | each }.asList = [1, 2, 2, 3, 3, 3]
-[1, 2, 2, 3, 3, 3].histogramOf { :each | each } = [1, 2, 2, 3, 3, 3].asMultiset
-let c = [1, 2, 3, 1]; c.asMultiset = c.histogramOf(identity/1)
-let c = [1, 2, 3, 1]; c.asMultiset = c.histogramOf { :each | each }
-[1, 2, 3, 1].asMultiset = ['x' -> 1, 'y' -> 2, 'y' -> 3, 'z' -> 1].histogramOf { :each | each.value }
-['x', 'y', 'y', 'z'].asMultiset = ['x' -> 1, 'y' -> 2, 'y' -> 3, 'z' -> 1].histogramOf { :each | each.key }
-(x: 1, y: 2, z: 1).histogramOf { :each | each } = [1, 2, 1].asMultiset
-(x: 1, y: 2, z: 1).values.histogramOf { :each | each } = [1, 2, 1].asMultiset
-(x: 1, y: 2, z: 1).indices.histogramOf { :each | each } = ['x', 'y', 'z'].asMultiset
-[1.1, 2.1, 3.1, 1.9, 2.9, 1.1].histogramOf { :each | each.round } = [1, 2, 3, 2, 3, 1].asMultiset
+[1, 2, 2, 3, 3, 3].histogramOf { :each | each }.List = [1, 2, 2, 3, 3, 3]
+[1, 2, 2, 3, 3, 3].histogramOf { :each | each } = [1, 2, 2, 3, 3, 3].Multiset
+let c = [1, 2, 3, 1]; c.Multiset = c.histogramOf(identity/1)
+let c = [1, 2, 3, 1]; c.Multiset = c.histogramOf { :each | each }
+[1, 2, 3, 1].Multiset = ['x' -> 1, 'y' -> 2, 'y' -> 3, 'z' -> 1].histogramOf { :each | each.value }
+['x', 'y', 'y', 'z'].Multiset = ['x' -> 1, 'y' -> 2, 'y' -> 3, 'z' -> 1].histogramOf { :each | each.key }
+(x: 1, y: 2, z: 1).histogramOf { :each | each } = [1, 2, 1].Multiset
+(x: 1, y: 2, z: 1).values.histogramOf { :each | each } = [1, 2, 1].Multiset
+(x: 1, y: 2, z: 1).indices.histogramOf { :each | each } = ['x', 'y', 'z'].Multiset
+[1.1, 2.1, 3.1, 1.9, 2.9, 1.1].histogramOf { :each | each.round } = [1, 2, 3, 2, 3, 1].Multiset
 [1, 3, 5].asIdentityMultiset.select { :x | x > 1 } = [3, 5].asIdentityMultiset
 let b = [1, 2, 3, 2, 1].asIdentityMultiset; b.removeAll!([1, 2, 3]); b = [2, 1].asIdentityMultiset /* only remove first instance */
 ```
@@ -685,7 +685,7 @@ let a = []; let b = BitSet(64); let c = [1, 3, 9, 27]; b.addAll!(c); b.positions
 let b = BitSet([1, 7], 8); let c = b.copy; c.add!(3); b != c & { c = BitSet([1, 3, 7], 8) } /* copy bitset */
 BitSet([1, 3, 9], 10).bitAt(3) = 1 /* bitAt is equal to at */
 BitSet(64).with { :b | b.setBitAt(3); b.bitAt(3) = 1 } /* setBitAt is equal to add */
-BitSet([1, 3, 9], 10).with { :b | b.clearBitAt(3); b.asList = [1, 9] } /* clearBitAt is equal to remove */
+BitSet([1, 3, 9], 10).with { :b | b.clearBitAt(3); b.List = [1, 9] } /* clearBitAt is equal to remove */
 ```
 
 ## Bitwise Manipulation
@@ -840,7 +840,7 @@ let b = ByteArray(4); b[1] := 15; b[3] := 240; b.base16Encode = '0F00F000'
 let b = ByteArray(4); b[2] := 15; b[4] := 240; b.base16Encode = '000F00F0'
 1:4.ByteArray.base16Encode = '01020304'
 let b = ByteArray(4); b.atAllPut(15); b.base16Encode = '0F0F0F0F'
-'string'.asciiByteArray.asList = [115, 116, 114, 105, 110, 103] /* array from ByteArray */
+'string'.asciiByteArray.List = [115, 116, 114, 105, 110, 103] /* array from ByteArray */
 { [1, 2, 3].ByteArray.add!(4) }.hasError /* ByteArrays are not Extensible */
 1:9.ByteArray.select { :each | false } = [].ByteArray /* select nothing */
 1:9.ByteArray != [1 .. 9] /* ByteArray and List of equal elements are not equal */
@@ -951,18 +951,18 @@ let c = 1:9; c.sum / c.size = 5 /* sum of collection divided by size */
 1:9.range = (9 - 1) /* maxima - minima */
 [-9, 0, 9].sign = [-1, 0, 1] /* signs of elements */
 [1, 3, 5].select { :x | x > 1 } = [3, 5]
-[1, 3, 5].asIdentitySet.select { :x | x > 1 } = [3, 5].asIdentitySet
+[1, 3, 5].IdentitySet.select { :x | x > 1 } = [3, 5].IdentitySet
 (x: 1, y: 3, z: 5).select { :x | x > 1 } = (y: 3, z: 5)
 [].select { :each | 'select'.error } = []
 [].species.newFrom(IdentitySet()) = []
-IdentitySet().asList = []
+IdentitySet().List = []
 1:9.includesAny([0, 6]) /* includes any element of a collection */
 [4 .. 6].copyWithout(5) = [4, 6] /* copy without element */
 4:6.copyWithout(5) = [4, 6] /* copy without element, interval becomes array */
 [2, 3, 4, 5, 5, 6].copyWithout(5) = [2, 3, 4, 6] /* copy without element, removes multiples */
 [2, 3, 4, 5, 5, 6].copyWithoutAll([3, 5]) = [2, 4, 6] /* copy without element, removes multiples */
 let a = [1 .. 4]; let c = a.copyWith(5); a != c & { c = [1 .. 5] } /* copy with new (last) element */
-let s = [1 .. 4].asIdentitySet; let c = s.copyWith(5); s != c & { c = [1 .. 5].asIdentitySet } /* copy with new element */
+let s = [1 .. 4].IdentitySet; let c = s.copyWith(5); s != c & { c = [1 .. 5].IdentitySet } /* copy with new element */
 { [1, 2].take(-1) }.hasError
 [].select { :each | each > 0 } = []
 [].ifEmpty { true } /* evaluate block if collection is empty */
@@ -1412,7 +1412,7 @@ let a = Float64Array(1); a.uncheckedPut!(1, 'x'); a.at(1).isNaN = true /* unsafe
 let a = Float64Array(1); a.uncheckedPut!(3, 'x'); a.uncheckedAt(3) = nil /* unsafe mutation does not extend array */
 1:3.Float64Array.printString = 'Float64Array([1, 2, 3])'
 1:3.Float64Array.storeString = 'Float64Array([1, 2, 3])'
-let a = 1:3.Float64Array; let c = a.copy; c[1] := 3; c != a & { c.asList = [3, 2, 3] } /* copy */
+let a = 1:3.Float64Array; let c = a.copy; c[1] := 3; c != a & { c.List = [3, 2, 3] } /* copy */
 ```
 
 ## Floating point
@@ -1637,7 +1637,7 @@ system.includesPackage('Frequency') /* frequency package */
 system.includesPackage('Graph') /* graph package */
 Graph([], []).typeOf = 'Graph' /* graph type */
 Graph([], []).isGraph /* graph predicate */
-let g = [1 2; 2 3; 3 1].asGraph; g.vertexCount = 3 & { g.edgeCount = 3 }
+let g = [1 2; 2 3; 3 1].Graph; g.vertexCount = 3 & { g.edgeCount = 3 }
 ```
 
 ## Hash -- murmur hash
@@ -1667,10 +1667,10 @@ let h = Heap(); h.add!(5); [h.removeFirst!, h.size] = [5, 0] /* add & remove */
 let h = Heap(); h.addAll!([1 .. 9].shuffle!); h.first = 1 /* add random permutation, first is always 1 */
 let h = Heap(); h.addAll!([1 .. 9].shuffle!); 8.timesRepeat { h.removeFirst! }; h.first = 9
 let h = Heap(); h.addAll!([1 .. 9].shuffle!); 8.timesRepeat { h.removeAt!(2) }; h.first = 1
-let h = [1, 3, 5].asHeap; let a = []; h.do { :each | a.add!(each) }; a = [1, 3, 5]
+let h = [1, 3, 5].Heap; let a = []; h.do { :each | a.add!(each) }; a = [1, 3, 5]
 let h = Heap(>); h.addAll!([1 3 5]); h.first = 5
 let h = Heap { :p :q | p > q }; h.addAll!([1, 3, 5]); [h.removeFirst!, h.first] = [5, 3]
-let h = 1:4.asHeap; let c = h.copy; c.add!(5); h != c & { c = [1 .. 5].asHeap }
+let h = 1:4.Heap; let c = h.copy; c.add!(5); h != c & { c = [1 .. 5].Heap }
 ```
 
 ## Identity -- literals
@@ -1748,7 +1748,7 @@ system.cache['primesList'][23] = 83 /* prime extends the primesList cache as req
 [2, 2, 3, 5].product = 60 /* product is the inverse of primeFactors */
 1.primeFactors = [] /* the prime factors of one is empty */
 60.primeFactors.product = 60 /* product of prime factors is identity */
-315.primeFactors.asIdentitySet = [3, 5, 7].asIdentitySet /* prime factors, set */
+315.primeFactors.IdentitySet = [3, 5, 7].IdentitySet /* prime factors, set */
 2588.primeFactors = [2, 2, 647] /* prime factors */
 2:15.select { :each | each.primeFactors.max <= 5 } = [2, 3, 4, 5, 6, 8, 9, 10, 12, 15]
 2:999.allSatisfy { :each | each = each.primeFactors.product } = true /* equality with product of factors */
@@ -1818,7 +1818,7 @@ system.cache['primesList'][23] = 83 /* prime extends the primesList cache as req
 
 ## Range -- collection type
 ```
-Range(0, 12, 3).asList = [0, 3, 6, 9, 12] /* elements of interval as array */
+Range(0, 12, 3).List = [0, 3, 6, 9, 12] /* elements of interval as array */
 Range(0, 12, 3).size = 5 /* number of elements in interval */
 Range(0, 9, -1).isEmpty /* intervals may be empty */
 2.toBy(14, 4).collect { :x | x * x } = [4, 36, 100, 196] /* toBy method at Integer */
@@ -1843,7 +1843,7 @@ let i = 1:9; i.copy !== i & { i.copy = i } /* copy is equal not identical */
 { (9, 7 .. 1).detect(isEven/1) }.hasError /* if no element is detected, raise error */
 { [].detect { :item | true } }.hasError /* detect at an empty collection raises an error */
 1:9.injectInto(0) { :sum :item | sum + item } = 45 /* sum elements */
-1:9.asList = [1 .. 9] /* convert to array */
+1:9.List = [1 .. 9] /* convert to array */
 1:9 = 1:9 /* equality */
 1:9 != 9:1:-1 /* inequality */
 1:9 != [1 .. 9] /* intervals are not equal to arrays */
@@ -1851,12 +1851,12 @@ let i = 1:9; i.copy !== i & { i.copy = i } /* copy is equal not identical */
 10.toBy(90, 10) = (10, 20 .. 90)
 (0, 1/10 .. 1).size = 11
 (0, 1/10 .. 1).last = 1
-9:1:-1.asList = [9, 8 .. 1]
-5:1:-1.asList = [5, 4 .. 1]
-(5, 3 .. 1).asList = [5, 3 .. 1]
-5.toBy(1, -1).asList = [5, 4, 3, 2, 1]
-5.toBy(1, -2).asList = [5, 3, 1]
-(1.5 .. 4.5).asList = [1.5, 2.5, 3.5, 4.5] /* non-integer start and end */
+9:1:-1.List = [9, 8 .. 1]
+5:1:-1.List = [5, 4 .. 1]
+(5, 3 .. 1).List = [5, 3 .. 1]
+5.toBy(1, -1).List = [5, 4, 3, 2, 1]
+5.toBy(1, -2).List = [5, 3, 1]
+(1.5 .. 4.5).List = [1.5, 2.5, 3.5, 4.5] /* non-integer start and end */
 1:9.min = 1 & { 9:1:-1.min = 1 } /* minima */
 1:9.max = 9 & { 9:1:-1.max = 9 } /* maxima */
 1:9.species = List/1 /* species of Range is List */
@@ -1867,7 +1867,7 @@ Range(-2, 2, 1).collect(isEven/1) = [true, false, true, false, true]
 -2:2.collect(isOdd/1) = [false, true, false, true, false]
 1 + 1.to(9).collect(square/1) = [2, 5, 10, 17, 26,37, 50, 65, 82]
 2 * 1:9.collect(square/1) = [2, 8, 18, 32, 50,72, 98, 128, 162]
-1.to(9).asList = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+1.to(9).List = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 1:9.copyFromTo(3, 7) = 3:7 /* copy from start to end indices, inclusive */
 1:16.copyFromTo(1, 8) = 1:8 /* copy from start to end indices, inclusive */
 let i = 1; 1.to(9).do { :each | i := i + each }; i = 46
@@ -1875,7 +1875,7 @@ Range(-1, 1, 1).printString = 'Range(-1, 1, 1, 3)'
 Range(-1, 1, 1).storeString = 'Range(-1, 1, 1, 3)'
 Range(1, 9, 1) = 1:9
 Range(1, 10, 3).size = 4
-Range(1, 10, 3).asList = [1, 4, 7, 10]
+Range(1, 10, 3).List = [1, 4, 7, 10]
 1.to(6).reverse = 6:1:-1
 1:6.first = 1 /* first element of interval */
 1.to(6).first = 1 /* first element of interval */
@@ -1885,31 +1885,31 @@ to(1, 6).last = 6 /* last element of interval */
 let i = 1:9; i.first = i[1] /* one-indexed */
 let i = 1:9; i.last = i[9] /* one-indexed */
 1:6.sum = 21
-Range(-1, 1, 1).asList = [-1, 0, 1]
+Range(-1, 1, 1).List = [-1, 0, 1]
 1.to(99).asString = 'Range(1, 99, 1, 99)'
 1:99.asString = 'Range(1, 99, 1, 99)'
 toBy(1, -1, -1).asString = 'Range(1, -1, -1, 3)'
 1.to(99).sum = 4950
-1.to(99).asList.sum = 4950
+1.to(99).List.sum = 4950
 1:9.size = 9
 1:9.sum = 45
 1:9999.sum = 49995000
-1:9999.asList.sum = 49995000
+1:9999.List.sum = 49995000
 to(1, 9) = Range(1, 9, 1)
 to(9, 1) = Range(9, 1, 1)
 toBy(9, 1, -1) = Range(9, 1, -1)
 1.thenTo(3, 9) = Range(1, 9, 2)
 1:9 = 1:9
-[1 .. 9] = 1:9.asList /* array interval syntax */
-[9, 8 .. 1] = 9:1:-1.asList /* array interval syntax */
-[3 - 2 .. 7 + 2] = (3 - 2 .. 7 + 2).asList /* array interval syntax */
+[1 .. 9] = 1:9.List /* array interval syntax */
+[9, 8 .. 1] = 9:1:-1.List /* array interval syntax */
+[3 - 2 .. 7 + 2] = (3 - 2 .. 7 + 2).List /* array interval syntax */
 let l = []; Range(9, 1, -1).do { :each | l.add!(each) }; l = [9, 8 .. 1]
 collect(1.to(9)) { :each | each * each } = [1, 4, 9, 16, 25, 36, 49, 64, 81]
 1.to(9).collect { :each | each * each } = [1, 4, 9, 16, 25, 36, 49, 64, 81]
-Range(1, 6, 2).asList = [1, 3, 5]
+Range(1, 6, 2).List = [1, 3, 5]
 Range(1, 6, 2).last = 5
-1:9.reverse.asList = [9, 8, 7, 6, 5, 4, 3, 2, 1]
-Range(1, 6, 2).reverse.asList = [5, 3, 1] /* start becomes last, not stop */
+1:9.reverse.List = [9, 8, 7, 6, 5, 4, 3, 2, 1]
+Range(1, 6, 2).reverse.List = [5, 3, 1] /* start becomes last, not stop */
 1.to(9).step = 1 /* get step size of interval */
 (1, 3 .. 9) = Range(1, 9, 2)
 (9, 7 .. 1) = Range(9, 1, -2)
@@ -1987,10 +1987,10 @@ let a = []; 1:9.selectThenDo(isEven/1) { :each | a.add!(each * 3) }; a = [6, 12,
 ```
 system.includesPackage('LargeInteger') /* LargeInteger package */
 23L.typeOf = 'LargeInteger' /* syntax for large integer literals */
-(2 ^ 54).asLargeInteger.square.printString = '324518553658426726783156020576256L'
-(2 ^ 37).asLargeInteger.square.storeString = '18889465931478580854784L'
+(2 ^ 54).LargeInteger.square.printString = '324518553658426726783156020576256L'
+(2 ^ 37).LargeInteger.square.storeString = '18889465931478580854784L'
 '324518553658426726783156020576256'.parseLargeInteger.isLargeInteger = true
-2971215073.asLargeInteger.isPrime = true
+2971215073.LargeInteger.isPrime = true
 23L.factorial = 25852016738884976640000L /* factorial of LargeInteger */
 100L.factorial = 93326215443944152681699238856266700490715968264381621468592963895217599993229915608941463976156518286253697920827223758251185210916864000000000000000000000000L /* factorial of LargeInteger */
 170L.factorial = 7257415615307998967396728211129263114716991681296451376543577798900561843401706157852350749242617459511490991237838520776666022565442753025328900773207510902400430280058295603966612599658257104398558294257568966313439612262571094946806711205568880457193340212661452800000000000000000000000000000000000000000L /* factorial of LargeInteger */
@@ -2041,35 +2041,35 @@ LinkedList().isLinkedList = true /* type predicate for linked list */
 LinkedList().size = 0 /* empty linked list */
 LinkedList().isEmpty /* empty linked list */
 LinkedList/0.ofSize(3).size = 3 /* linked list of three nil values */
-[1, 2, 3].asLinkedList.size = 3 /* linked list from array */
-let l = LinkedList(); l.addFirst!(1); l.addFirst!(2); l.asList = [2, 1] /* add to start */
-let l = LinkedList(); l.addLast!(1); l.addLast!(2); l.asList = [1, 2] /* add to end */
-let l = LinkedList(); 1.toDo(5) { :each | l.add!(each) }; l.asList = [1 .. 5] /* add to end */
-1:9.asLinkedList.collect { :each | 10 - each } = [9, 8 .. 1].asLinkedList /* collect */
-let l = [1 .. 9].asLinkedList; l.removeFirst!; l.first = 2 /* remove first */
-let l = [1 .. 9].asLinkedList; l.removeLast!; l.last = 8 /* remove last */
-let l = [1].asLinkedList; l.removeFirst! = 1 & { l.isEmpty } /* remove first */
-let l = [1].asLinkedList; l.removeLast! = 1 & { l.isEmpty } /* remove last */
-let l = [1 .. 5].asLinkedList; l.removeAllSuchThat!(isOdd/1); l.asList = [2, 4] /* in-place reject */
-let l = 1:99.asLinkedList; l.removeAll!; l.isEmpty /* remove all */
-1:99.asLinkedList.select(isEven/1).asList = [2, 4 .. 98] /* select */
-1:9.asLinkedList.selectThenCollect(isEven/1, square/1).asList = [4, 16, 36, 64] /* avoid intermediate collection */
-1:9.asLinkedList.collectThenSelect(square/1) { :each | each > 36 }.asList = [49, 64, 81] /* avoid intermediate collection */
-1:9.asLinkedList.reverse = [9, 8 .. 1] /* reverse, species is List */
+[1, 2, 3].LinkedList.size = 3 /* linked list from array */
+let l = LinkedList(); l.addFirst!(1); l.addFirst!(2); l.List = [2, 1] /* add to start */
+let l = LinkedList(); l.addLast!(1); l.addLast!(2); l.List = [1, 2] /* add to end */
+let l = LinkedList(); 1.toDo(5) { :each | l.add!(each) }; l.List = [1 .. 5] /* add to end */
+1:9.LinkedList.collect { :each | 10 - each } = [9, 8 .. 1].LinkedList /* collect */
+let l = [1 .. 9].LinkedList; l.removeFirst!; l.first = 2 /* remove first */
+let l = [1 .. 9].LinkedList; l.removeLast!; l.last = 8 /* remove last */
+let l = [1].LinkedList; l.removeFirst! = 1 & { l.isEmpty } /* remove first */
+let l = [1].LinkedList; l.removeLast! = 1 & { l.isEmpty } /* remove last */
+let l = [1 .. 5].LinkedList; l.removeAllSuchThat!(isOdd/1); l.List = [2, 4] /* in-place reject */
+let l = 1:99.LinkedList; l.removeAll!; l.isEmpty /* remove all */
+1:99.LinkedList.select(isEven/1).List = [2, 4 .. 98] /* select */
+1:9.LinkedList.selectThenCollect(isEven/1, square/1).List = [4, 16, 36, 64] /* avoid intermediate collection */
+1:9.LinkedList.collectThenSelect(square/1) { :each | each > 36 }.List = [49, 64, 81] /* avoid intermediate collection */
+1:9.LinkedList.reverse = [9, 8 .. 1] /* reverse, species is List */
 { LinkedList().removeFirst! }.hasError /* remove first, error if empty */
 { LinkedList().removeLast! }.hasError /* remove last, error if empty */
-let l = 1:5.asLinkedList; l[3] = 3 /* index into */
-let l = 1:5.asLinkedList; l[1] := -1; l.asList = [-1, 2, 3, 4, 5] /* mutate at index */
-let l = 1:5.asLinkedList; l[3] := -3; l.asList = [1, 2, -3, 4, 5] /* mutate at index */
-1:9.asLinkedList.firstLink.value = 1 /* first link */
-1:9.asLinkedList.firstLink.nextLink.value = 2 /* second link */
-1:9.asLinkedList.lastLink.value = 9 /* last link */
-let l = 1:3.asLinkedList; l.firstLink.value := -1; l.asList = [-1, 2, 3] /* mutate link value */
-1:9.asLinkedList.isSorted = true /* are elements in sequence */
-9:1:-1.asLinkedList.isSortedBy(>) = true /* are elements in sequence by predicate */
-[1, 3 .. 9].asLinkedList.indices = 1:5 /* indices of linked list (an interval) */
-let l = 1:9.asLinkedList; l.copy = l & { l.copy !== l } /* copy is equal but not identical */
-let l = 1:9.asLinkedList; let c = l.copy; c[1] := 9; c[1] = 9 & { l[1] = 1 } /* copies are distinct */
+let l = 1:5.LinkedList; l[3] = 3 /* index into */
+let l = 1:5.LinkedList; l[1] := -1; l.List = [-1, 2, 3, 4, 5] /* mutate at index */
+let l = 1:5.LinkedList; l[3] := -3; l.List = [1, 2, -3, 4, 5] /* mutate at index */
+1:9.LinkedList.firstLink.value = 1 /* first link */
+1:9.LinkedList.firstLink.nextLink.value = 2 /* second link */
+1:9.LinkedList.lastLink.value = 9 /* last link */
+let l = 1:3.LinkedList; l.firstLink.value := -1; l.List = [-1, 2, 3] /* mutate link value */
+1:9.LinkedList.isSorted = true /* are elements in sequence */
+9:1:-1.LinkedList.isSortedBy(>) = true /* are elements in sequence by predicate */
+[1, 3 .. 9].LinkedList.indices = 1:5 /* indices of linked list (an interval) */
+let l = 1:9.LinkedList; l.copy = l & { l.copy !== l } /* copy is equal but not identical */
+let l = 1:9.LinkedList; let c = l.copy; c[1] := 9; c[1] = 9 & { l[1] = 1 } /* copies are distinct */
 ```
 
 ## Compare -- ordering trait
@@ -2112,10 +2112,10 @@ system.includesPackage('Compare') /* compare package */
 system.includesPackage('Map') /* Map package */
 let r = Map(); r.add!('x' -> 1); r.size = 1 /* add Association to Dictionary */
 let d = Map(); d.add!('x' -> 1); d.add!('y' -> 2); d.size = 2 /* add two Associations to Dictionary */
-let d = ['x' -> 1, 'y' -> 2].asMap; d.indices = ['x', 'y'] /* answer List of indices (keys) at Dictionary */
-let d = ['x' -> 1, 'y' -> 2].asMap; d.values = [1, 2] /* answer List of values at Dictionary */
-let d = ['x' -> 1, 'y' -> 2].asMap; d.at('x') = 1 /* answer value at key in Dictionary */
-let d = ['x' -> 1, 'y' -> 2].asMap; d['x'] = 1 /* at (subscript) syntax */
+let d = ['x' -> 1, 'y' -> 2].Map; d.indices = ['x', 'y'] /* answer List of indices (keys) at Dictionary */
+let d = ['x' -> 1, 'y' -> 2].Map; d.values = [1, 2] /* answer List of values at Dictionary */
+let d = ['x' -> 1, 'y' -> 2].Map; d.at('x') = 1 /* answer value at key in Dictionary */
+let d = ['x' -> 1, 'y' -> 2].Map; d['x'] = 1 /* at (subscript) syntax */
 let d = Map(); d.add!('x' -> 1); d.removeKey!('x'); d.isEmpty = true /* remove Association from Dictionary given key */
 let d = Map(); (d['x'] := 1) = 1 & { d['x'] = 1 } /* put (subscript mutation) syntax */
 let d = Map(); d[1] := 'x'; d[1] = 'x'
@@ -2125,16 +2125,16 @@ let d = (f: { :i | i * i }); d['f'].value(9) = 81
 (x: 1, y: 1).copyWithoutIdenticalElements = (x: 1)
 let d = Map(); 1.toDo(100) { :i | d[i] := i; (i > 10).ifTrue { d.removeKey!(i - 10) } }; d.size = 10
 let c = Map(); c[2] := 'two'; c[1] := 'one'; c.removeKey!(2); c[1] := 'one'; c.removeKey!(1); c.includesIndex(1) = false
-(x: 1, y: 2).asMap.includesIndex('x') /* Record to Map, map includes key predicate */
-(x: 1, y: 2).asMap ++ (x: 2, y: 1) = (x: 2, y: 1).asMap /* appending a record to a Map answers a Map, biases right */
-(x: 1, y: 2, z: 3).asMap ++ (x: 2, y: 1) = (x: 2, y: 1, z: 3).asMap /* append record to Map */
-(x: 1, y: 2).asMap ++ (x: 2, y: 1, z: 3) = (x: 2, y: 1, z: 3).asMap /* append record to Map */
-(x: 1, y: 2).asMap.encodeJson = '{"x":1,"y":2}' /* maps with string keys are encoded as records */
-(x: 1, y: 2, z: 3).asMap.indices = ['x', 'y', 'z'] /* indices of map (an array) */
-let m = (x: 1, y: 2).asMap; m.removeAssociation!('x' -> 1); m = (y: 2).asMap /* remove association */
-let m = (x: 1, y: 2).asMap; m.removeAll!; m.isEmpty /* remove all entries */
-(x: 1, y: 2).asMap = (x: 1, y: 2).asMap /* key sequence and equality */
-(x: 1, y: 2).asMap = (y: 2, x: 1).asMap /* key sequence and equality */
+(x: 1, y: 2).Map.includesIndex('x') /* Record to Map, map includes key predicate */
+(x: 1, y: 2).Map ++ (x: 2, y: 1) = (x: 2, y: 1).Map /* appending a record to a Map answers a Map, biases right */
+(x: 1, y: 2, z: 3).Map ++ (x: 2, y: 1) = (x: 2, y: 1, z: 3).Map /* append record to Map */
+(x: 1, y: 2).Map ++ (x: 2, y: 1, z: 3) = (x: 2, y: 1, z: 3).Map /* append record to Map */
+(x: 1, y: 2).Map.encodeJson = '{"x":1,"y":2}' /* maps with string keys are encoded as records */
+(x: 1, y: 2, z: 3).Map.indices = ['x', 'y', 'z'] /* indices of map (an array) */
+let m = (x: 1, y: 2).Map; m.removeAssociation!('x' -> 1); m = (y: 2).Map /* remove association */
+let m = (x: 1, y: 2).Map; m.removeAll!; m.isEmpty /* remove all entries */
+(x: 1, y: 2).Map = (x: 1, y: 2).Map /* key sequence and equality */
+(x: 1, y: 2).Map = (y: 2, x: 1).Map /* key sequence and equality */
 ```
 
 ## Math
@@ -2250,7 +2250,7 @@ let i = 1; 1:3.do { :each | i := i + each.square }; i = 15 /* iterate over numbe
 system.includesPackage('Object') /* package */
 [1, 3, 5].typeOf = 'List' /* name of type of object */
 [1, 3, 5].species = List/1
-[1, 3, 5].asIdentitySet.species = IdentitySet/0
+[1, 3, 5].IdentitySet.species = IdentitySet/0
 [1, 3, 5].asIdentityMultiset.species = IdentityMultiset/0
 (x: 1, y: 3, z: 5).species = Record/0
 'b'.caseOf(['a' -> { 1 }, 'b' -> { 2 }, 'c' -> { 3 }]) = 2
@@ -2481,8 +2481,8 @@ system.includesPackage('RandomNumberGenerator') /* package */
 let r = Sfc32(); r.randomInteger([1 9], []).isInteger /* random integer between 1 and 9 inclusive */
 system.randomInteger([1 9], []).isInteger /* random integers (1 to self) */
 let s = IdentitySet(); 729.timesRepeat { s.include!(1:9.atRandom) }; s.minMax = [1, 9] /* check distribution */
-let s = IdentitySet(); 729.timesRepeat { s.include!(1:9.atRandom) }; s = 1:9.asIdentitySet /* check distribution */
-let s = IdentitySet(); 729.timesRepeat { s.include!(system.randomInteger([-3 3], [])) }; s = -3:3.asIdentitySet /* check distribution */
+let s = IdentitySet(); 729.timesRepeat { s.include!(1:9.atRandom) }; s = 1:9.IdentitySet /* check distribution */
+let s = IdentitySet(); 729.timesRepeat { s.include!(system.randomInteger([-3 3], [])) }; s = -3:3.IdentitySet /* check distribution */
 system.randomReal([0 9], []).isNumber /* random floating point number (0 to self) */
 let s = IdentitySet(); 729.timesRepeat { s.include!(system.randomReal([0 9], []).round) }; s.minMax = [0, 9] /* check distribution */
 system.randomInteger([3 9], []).isInteger /* random integer in range */
@@ -2491,7 +2491,7 @@ let b = IdentityMultiset(); 5000.timesRepeat { b.add!(1:5.atRandom) }; b.content
 { [].atRandom = nil }.hasError /* random element of empty collection (nil if unsafe indexing is allowed) */
 [1].atRandom = 1 /* random element of one-element collection */
 let c = [1 .. 5]; c.includes(c.atRandom) /* answer random element from a collection */
-let a = [1 .. 5].asIdentitySet; let b = IdentityMultiset(); 250.timesRepeat { b.add!(a.atRandom) }; a = b.asIdentitySet /* random element of collection */
+let a = [1 .. 5].IdentitySet; let b = IdentityMultiset(); 250.timesRepeat { b.add!(a.atRandom) }; a = b.IdentitySet /* random element of collection */
 ```
 
 ## Random -- Sfc32
@@ -2507,7 +2507,7 @@ let r = Sfc32(98765); r.randomInteger([1 1000], []) = 496 /* random integer in [
 let r = Sfc32(98765); r.randomInteger([1 10000], []) = 4956 /* random integer in [1, 10000] */
 let r = Sfc32(); let n = r.nextRandomFloat; n >= 0 & { n < 1 } /* seed from system clock */
 let r = Sfc32(); let s = IdentitySet(); 729.timesRepeat { s.include!(r.randomInteger([1 9], [])) }; s.minMax = [1, 9] /* check distribution */
-let r = Sfc32(); let s = IdentitySet(); 729.timesRepeat { s.include!(r.randomInteger([1 9], [])) }; s.asList.sort! = [1 .. 9] /* check distribution */
+let r = Sfc32(); let s = IdentitySet(); 729.timesRepeat { s.include!(r.randomInteger([1 9], [])) }; s.List.sort! = [1 .. 9] /* check distribution */
 ```
 
 ## Random -- MersenneTwister
@@ -2524,7 +2524,7 @@ let m = MersenneTwister(98765); m.randomInteger([1 10000], []) = 889 /* random i
 let m = MersenneTwister(); let r = m.nextRandomFloat; r >= 0 & { r < 1 } /* seed from system clock */
 MersenneTwister(123456).nextRandomFloat = 0.12696983303810094 /* test from standard tests */
 let m = MersenneTwister(); let s = IdentitySet(); 729.timesRepeat { s.include!(m.randomInteger([1 9], [])) }; s.minMax = [1, 9] /* check distribution */
-let m = MersenneTwister(); let s = IdentitySet(); 729.timesRepeat { s.include!(m.randomInteger([1 9], [])) }; s.asList.sort! = [1 .. 9] /* check distribution */
+let m = MersenneTwister(); let s = IdentitySet(); 729.timesRepeat { s.include!(m.randomInteger([1 9], [])) }; s.List.sort! = [1 .. 9] /* check distribution */
 let m = MersenneTwister(98765); m.isStream /* stream predicate */
 let m = MersenneTwister(98765); let a = m.next(9); m.reset; m.next(9) = a /* stream interface, next(k) answers next k items, reset resets */
 ```
@@ -2624,8 +2624,8 @@ let d = Record(); d.put!('x', 1) = 1 & { d.at('x') = 1 }
 let d = Record(); (d['x'] := 1) = 1 & { d['x'] = 1 }
 let d = Record(); d['x'] := 1; d['y'] := 2; d.size = 2
 let d = Record(); d['x'] := 1; d['y'] := 2; d.size = 2
-['x' -> 1, 'y' -> 2].asRecord = (x: 1, y: 2) /* association array to record */
-['x' -> 1, 'y' -> 2].asRecord['y'] = 2 /* association array to record */
+['x' -> 1, 'y' -> 2].Record = (x: 1, y: 2) /* association array to record */
+['x' -> 1, 'y' -> 2].Record['y'] = 2 /* association array to record */
 { Record().put!(1, 1) }.hasError
 (x: 3.141, y: 23).encodeJson = '{"x":3.141,"y":23}' /* records have a json encoding where values do */
 '{"x":3.141,"y":23}'.parseJson = (x: 3.141, y: 23) /* parse json record */
@@ -2641,7 +2641,7 @@ let d = (x: 1, y: 2); let c = d.copy; c['x'] := 3; c['x'] = 3 & { d['x'] = 1 } /
 (x: 1, y: 2) ++ (z: 3) = (x: 1, y: 2, z: 3) /* white space after colon is required */
 let x = 1; (x: x).associations = ['x' -> 1] /* record keys are not variable references */
 (x: 1, y: 2).associations = ['x' -> 1, 'y' -> 2] /* array of associations at record */
-(x: 1, y: 2).asList = [1, 2] /* values as List */
+(x: 1, y: 2).List = [1, 2] /* values as List */
 { let d = (x: 1, y: 2, z: 3); let (x: x, z: z) = d; [x, z] = [1, 3] }.hasError /* partial dictionary match not allowed */
 let (x: x, y: y) = { let n = system.nextRandomFloat; (x: n, y: n) }.value; x = y
 (x: 1, y: 2, z: 3).select(isEven/1) = (y: 2)
@@ -2652,7 +2652,7 @@ let c = (y: 2, z: 3); let r = (x: 1); r.addAll!(c); r = (x: 1, y: 2, z: 3) /* ad
 let c = (y: 2, z: 3); (x: 1).addAll!(c) = c /* answer is argument */
 (x: 1) = ('x': 1) /* records with quoted keys */
 ('font-size': '11pt', 'font-style': 'italic').indices = ['font-size', 'font-style'] /* records with quoted keys that are not identifiers */
-(x: 1).asMap.asRecord = (x: 1) /* record to map to record is identity */
+(x: 1).Map.Record = (x: 1) /* record to map to record is identity */
 (x: true)['x'] = true /* true value answers true */
 (x: false).includesIndex('x') = true /* includes index at false value answers true */
 (x: false)['x'] = false /* at at key with false value answers false */
@@ -2804,18 +2804,18 @@ RegularExpression('x|z', 'g').replaceAllModifying('x y z', asUpperCase/1) = 'X y
 ```
 system.includesPackage('RunArray') /* RunArray package */
 let a = RunArray([1, 3, 5], ['a', 'b', 'c']); a.isRunArray & { a.size = 9 } /* from runs and values, size is sum of runs */
-let a = RunArray([1, 3, 5], ['a', 'b', 'c']); a.size = 9 & { a.asList.stringIntercalate('') = 'abbbccccc' } /* as array */
-let a = [1 -> 'a', 3 -> 'b', 5 -> 'c'].associationListToRunArray; a.size = 9 & { a.asList.stringIntercalate('') = 'abbbccccc' } /* from associations */
-let a = RunArray([1 4 2 1], [9 7 5 3]); a.size = 8 & { a.asList = [9 7 7 7 7 5 5 3] }
+let a = RunArray([1, 3, 5], ['a', 'b', 'c']); a.size = 9 & { a.List.stringIntercalate('') = 'abbbccccc' } /* as array */
+let a = [1 -> 'a', 3 -> 'b', 5 -> 'c'].associationListToRunArray; a.size = 9 & { a.List.stringIntercalate('') = 'abbbccccc' } /* from associations */
+let a = RunArray([1 4 2 1], [9 7 5 3]); a.size = 8 & { a.List = [9 7 7 7 7 5 5 3] }
 { let a = RunArray([1 3], ['a' 'b']); a[5] }.hasError /* invalid index */
 let a = RunArray([1, 4, 2, 1], 'abca'.contents); a.first = 'a' & { a.last = 'a' } /* first and last are optimized */
 let a = RunArray([1, 4, 2], 'abc'.contents); a.includes('c') & { a.isSorted } /* includes and isSorted are optimized */
 RunArray([1, 4, 2], ['a', 'b', 'c']).reverse = [2 -> 'c', 4 -> 'b', 1 -> 'a'].associationListToRunArray /* reverse is optimized */
 let a = RunArray([23, 34, 45], ['a', 'b', 'a']); (a.allocatedSize / a.size * 100).round = 9 /* space saving, in % */
-RunArray([1, 3, 5], ['a', 'b', 'c']).asList.stringIntercalate('') = 'abbbccccc' /* from runs and values, as array */
-[1 -> 'a', 3 -> 'b', 5 -> 'c'].associationListToRunArray.asList.stringIntercalate('') = 'abbbccccc' /* from associations, as array */
-[4 3 3 2 2 2 1 1 1 1].asRunArray = RunArray([1 2 3 4], [4 3 2 1]) /* from sequence */
-'abbbccccc'.characters.asRunArray.runLengths = [1 3 5]
+RunArray([1, 3, 5], ['a', 'b', 'c']).List.stringIntercalate('') = 'abbbccccc' /* from runs and values, as array */
+[1 -> 'a', 3 -> 'b', 5 -> 'c'].associationListToRunArray.List.stringIntercalate('') = 'abbbccccc' /* from associations, as array */
+[4 3 3 2 2 2 1 1 1 1].RunArray = RunArray([1 2 3 4], [4 3 2 1]) /* from sequence */
+'abbbccccc'.characters.RunArray.runLengths = [1 3 5]
 ```
 
 ## Sequence -- collection trait
@@ -2915,7 +2915,7 @@ let l = [1 .. 9]; l.atAllPutAll(3:7, 7:3:-1); l = [1 2 7 6 5 4 3 8 9] /* set all
 let a = [1 .. 9]; a.collect! { :each | each * each }; a = [1, 4, 9, 16, 25, 36, 49, 64, 81] /* in-place collect */
 let c = [7, 2, 6, 1]; c.sort = [1, 2, 6, 7] & { c.sort != c } /* sorted copy */
 let c = [7, 2, 6, 1]; c.sort! = [1, 2, 6, 7] & { c = [1, 2, 6, 7] } /* sort in-place */
-[7, 2, 6, 1].asSortedList.contents = [1, 2, 6, 7]
+[7, 2, 6, 1].SortedList.contents = [1, 2, 6, 7]
 [7 2 6 1].sort!(>) = [7 6 2 1]
 let n = 0; [3 .. 7].allButFirstDo { :each | n := n + each }; n = [4 .. 7].sum /* iterate skipping first element */
 let n = 0; [3 .. 7].allButLastDo { :each | n := n + each }; n = [3 .. 6].sum /* iterate skipping last element */
@@ -3006,7 +3006,7 @@ let x = [0 1]; x.cartesianProduct(x) = [0 0; 0 1; 1 0; 1 1] /* self cartesian pr
 [1 .. 5] + [6 .. 9] = [7, 9, 11, 13, 11] /* sequences of unequal size */
 [1 .. 5].square = [1, 4, 9, 16, 25] /* unary math lifted to collection */
 [1, 4, 9, 16, 25].sqrt = [1 .. 5] /* unary math lifted to collection */
-1:3.asIdentitySet ++ 4:7.asIdentitySet = 1:7.asIdentitySet /* append */
+1:3.IdentitySet ++ 4:7.IdentitySet = 1:7.IdentitySet /* append */
 ```
 
 ## Set -- collection type
@@ -3015,57 +3015,57 @@ system.includesPackage('Set') /* set package */
 IdentitySet().isSet /* set type predicate */
 IdentitySet().size = 0 /* count items in set */
 IdentitySet().isEmpty /* is set empty? */
-[1, 1, 2, 1, 2, 3].asIdentitySet.size = 3 /* array to set */
-[1, 3, 5, 3, 1].asIdentitySet.isSet = true
-[1, 3, 5, 3, 1].asIdentitySet.size = 3
-[1, 3, 5, 3, 1].asIdentitySet.includes(3) = true /* does set include item */
-[1, 3, 5, 3, 1].asIdentitySet.includes(7) = false
-[1, 5, 3, 5, 1].asIdentitySet.asList = [1, 5, 3] /* set from array to array */
-[1, 5, 3, 5, 1].asIdentitySet.sort = [1, 3, 5] /* a sorted set is an array */
-let s = [1 .. 5].asIdentitySet; s !== s.asIdentitySet /* a Set formed from a Set is not identical to the initial set */
-let s = [1 .. 5].asIdentitySet; s = s.asIdentitySet /* a Set formed from a Set is equal to the initial set */
-let s = [1, 3, 5, 3, 1].asIdentitySet; s.remove!(3) = 3; s.asList = [1, 5] /* remove answers removed element */
-[1 .. 9].asIdentitySet.atRandom.betweenAnd(1, 9) /* inclusive */
+[1, 1, 2, 1, 2, 3].IdentitySet.size = 3 /* array to set */
+[1, 3, 5, 3, 1].IdentitySet.isSet = true
+[1, 3, 5, 3, 1].IdentitySet.size = 3
+[1, 3, 5, 3, 1].IdentitySet.includes(3) = true /* does set include item */
+[1, 3, 5, 3, 1].IdentitySet.includes(7) = false
+[1, 5, 3, 5, 1].IdentitySet.List = [1, 5, 3] /* set from array to array */
+[1, 5, 3, 5, 1].IdentitySet.sort = [1, 3, 5] /* a sorted set is an array */
+let s = [1 .. 5].IdentitySet; s !== s.IdentitySet /* a Set formed from a Set is not identical to the initial set */
+let s = [1 .. 5].IdentitySet; s = s.IdentitySet /* a Set formed from a Set is equal to the initial set */
+let s = [1, 3, 5, 3, 1].IdentitySet; s.remove!(3) = 3; s.List = [1, 5] /* remove answers removed element */
+[1 .. 9].IdentitySet.atRandom.betweenAnd(1, 9) /* inclusive */
 let s = IdentitySet(); s.add!(5); s.includes(5) = true /* add element to Set */
-{ [5].asIdentitySet.add!(5) }.hasError /* add can only include elements if they do not already exist */
-let s = ['x', 5].asIdentitySet; let t = s.copy; t.include!(5); s = t
-let s = [1 .. 4].asIdentitySet; s.includes(s.atRandom) = true
-let s = 1:10.asIdentitySet; let t = s.collect { :each | (each >= 1).if { each } { 'no' } }; s = t
-let s = 1:10.asIdentitySet.collect { :each | (each >= 5).if { each } { 'no' } }; s = [5, 6, 7, 8, 9, 10, 'no'].asIdentitySet
-let s = 1:10.asIdentitySet; s.size = s.copy.size
-let s = 1:10.asIdentitySet; let t = s.copy; s.select { :each | t.includes(each).not }.isEmpty
-let s = 1:10.asIdentitySet; let t = s.copy; t.select { :each | s.includes(each).not }.isEmpty
-let s = 1:10.asIdentitySet; let t = s.copyWithout(3); s.size - 1 = t.size
-let s = 1:10.asIdentitySet; s.copyWithout(3).includes(3) = false
-let s = 1:10.asIdentitySet; let t = s.copyWithout(3); s.select { :each | t.includes(each).not } = [3].asIdentitySet
-let s = 1:5.asIdentitySet; let n = 0; s.do { :each | n := n + each }; n = 15
-let s = [].asIdentitySet; s.addAll!(['x', 'y', 'z']); s.size = 3 /* add all elements of a List to a Set */
-let s = [].asIdentitySet; s.includeAll!(['x', 'y', 'y', 'z', 'z', 'z']); s.size = 3 /* include all elements of a List to a Set */
+{ [5].IdentitySet.add!(5) }.hasError /* add can only include elements if they do not already exist */
+let s = ['x', 5].IdentitySet; let t = s.copy; t.include!(5); s = t
+let s = [1 .. 4].IdentitySet; s.includes(s.atRandom) = true
+let s = 1:10.IdentitySet; let t = s.collect { :each | (each >= 1).if { each } { 'no' } }; s = t
+let s = 1:10.IdentitySet.collect { :each | (each >= 5).if { each } { 'no' } }; s = [5, 6, 7, 8, 9, 10, 'no'].IdentitySet
+let s = 1:10.IdentitySet; s.size = s.copy.size
+let s = 1:10.IdentitySet; let t = s.copy; s.select { :each | t.includes(each).not }.isEmpty
+let s = 1:10.IdentitySet; let t = s.copy; t.select { :each | s.includes(each).not }.isEmpty
+let s = 1:10.IdentitySet; let t = s.copyWithout(3); s.size - 1 = t.size
+let s = 1:10.IdentitySet; s.copyWithout(3).includes(3) = false
+let s = 1:10.IdentitySet; let t = s.copyWithout(3); s.select { :each | t.includes(each).not } = [3].IdentitySet
+let s = 1:5.IdentitySet; let n = 0; s.do { :each | n := n + each }; n = 15
+let s = [].IdentitySet; s.addAll!(['x', 'y', 'z']); s.size = 3 /* add all elements of a List to a Set */
+let s = [].IdentitySet; s.includeAll!(['x', 'y', 'y', 'z', 'z', 'z']); s.size = 3 /* include all elements of a List to a Set */
 let c = 'xyyzzz'.characters; let r = IdentitySet(); r.includeAll!(c); r.size = 3 /* include all single character strings of a String to a Set */
 let c = 'xyyzzz'.ascii; let r = IdentitySet(); r.includeAll!(c); r.size = 3 /* include all ascii code points of a String to a Set */
-let s = [].asIdentitySet; s.addAll!([1 .. 99]); s.size = 99 /* add all from array */
-let s = ['x', 5].asIdentitySet; ['x', 5, 3].collect { :each | s.includes(each) } = [true, true, false]
-let s = 1:5.asIdentitySet; let n = 0; s.do { :each | n := n + each }; n = 15
-let s = 1:9.asIdentitySet; s.intersection(s) = s /* set intersection, self intersection is identity */
-1:4.asIdentitySet.intersection(5:9.asIdentitySet) = [].asIdentitySet /* set intersection, empty intersection */
-1:5.asIdentitySet.intersection(4:9.asIdentitySet) = [4, 5].asIdentitySet /* set intersection */
-let s = 1:9.asIdentitySet; s.remove!(5); [s.includes(5), s.includes(9)] = [false, true]
-let s = 1:9.asIdentitySet; let t = s.copy; let n = t.size; s.removeAll!; [s.size = 0, t.size = n] = [true, true]
-1:4.asIdentitySet.union(5:9) = 1:9.asIdentitySet /* set union, right hand side not a set */
-let s = 1:4.asIdentitySet; let t = 5:9; let u = s.union(t); u.size = (s.size + t.size) /* set union is not mutating */
-1:5.asIdentitySet.ifAbsentAdd!(3) = false
-1:9.asIdentitySet.select { :each | false } = [].asIdentitySet /* select nothing */
+let s = [].IdentitySet; s.addAll!([1 .. 99]); s.size = 99 /* add all from array */
+let s = ['x', 5].IdentitySet; ['x', 5, 3].collect { :each | s.includes(each) } = [true, true, false]
+let s = 1:5.IdentitySet; let n = 0; s.do { :each | n := n + each }; n = 15
+let s = 1:9.IdentitySet; s.intersection(s) = s /* set intersection, self intersection is identity */
+1:4.IdentitySet.intersection(5:9.IdentitySet) = [].IdentitySet /* set intersection, empty intersection */
+1:5.IdentitySet.intersection(4:9.IdentitySet) = [4, 5].IdentitySet /* set intersection */
+let s = 1:9.IdentitySet; s.remove!(5); [s.includes(5), s.includes(9)] = [false, true]
+let s = 1:9.IdentitySet; let t = s.copy; let n = t.size; s.removeAll!; [s.size = 0, t.size = n] = [true, true]
+1:4.IdentitySet.union(5:9) = 1:9.IdentitySet /* set union, right hand side not a set */
+let s = 1:4.IdentitySet; let t = 5:9; let u = s.union(t); u.size = (s.size + t.size) /* set union is not mutating */
+1:5.IdentitySet.ifAbsentAdd!(3) = false
+1:9.IdentitySet.select { :each | false } = [].IdentitySet /* select nothing */
 let s = IdentitySet(); s.includeAll!([4 / 2, 4, 2]); s.size = 2 /* 4 / 2 = 2 */
-[1, 2, 3, 1, 4].asIdentitySet = [1, 2, 3, 4, 3, 2, 1].asIdentitySet = true
+[1, 2, 3, 1, 4].IdentitySet = [1, 2, 3, 4, 3, 2, 1].IdentitySet = true
 [1 .. 6].union([4 .. 10]) = [1 .. 10]
 'hello'.characters.intersection('there'.characters) = 'he'.contents /* set intersection */
 'Smalltalk'.characters.includes('k') = true
-[1, 2, 3, 1, 4].asIdentitySet.isIndexable = false /* sets are not indexable */
-[1, 2, 3, 1, 4].asIdentitySet.indices = nil /* sets are not indexable */
-[1, 2, 2, 3, 3, 3].asIdentitySet.occurrencesOf(3) = 1 /* number of occurrences of element in set (zero or one) */
-[1, 3, 3, 3].asIdentitySet.occurrencesOf(2) = 0 /* number of occurrences of element in set (zero or one) */
-[5 4 6 7 8 9 10 11 3].asIdentitySet = 3:11.asIdentitySet /* from array out of order array */
-let s = IdentitySet(); [5 4 6 7 8 9 10 11 3].do { :each | s.include!(each) }; s = 3:11.asIdentitySet /* out of order insertion */
+[1, 2, 3, 1, 4].IdentitySet.isIndexable = false /* sets are not indexable */
+[1, 2, 3, 1, 4].IdentitySet.indices = nil /* sets are not indexable */
+[1, 2, 2, 3, 3, 3].IdentitySet.occurrencesOf(3) = 1 /* number of occurrences of element in set (zero or one) */
+[1, 3, 3, 3].IdentitySet.occurrencesOf(2) = 0 /* number of occurrences of element in set (zero or one) */
+[5 4 6 7 8 9 10 11 3].IdentitySet = 3:11.IdentitySet /* from array out of order array */
+let s = IdentitySet(); [5 4 6 7 8 9 10 11 3].do { :each | s.include!(each) }; s = 3:11.IdentitySet /* out of order insertion */
 ```
 
 ## SmallFloat -- numeric type
@@ -3236,12 +3236,12 @@ SortedList().isSortedList /* sorted array */
 SortedList().species = SortedList/0 /* species is sorted array */
 SortedList().size = 0 /* query size */
 let a = SortedList(); a.add!(3); a.add!(1); a.add!(2); a.contents = [1 .. 3] /* add inserts items into sequence */
-let a = [3, 1].asSortedList; a.add!(2); a.contents = [1 .. 3] /* sorted array from array */
-let a = [9, 8 .. 1].asSortedList; a.collect { :x | 9 - x }; a.contents = [1 .. 9] /* collect into ordered collection */
-let a = [1 .. 9].asSortedList(>); a.contents = [9, 8 .. 1] /* sorted array with specified sort block */
-let a = [5 .. 9].asSortedList(>); a.addAll!([1 .. 4]); a.contents = [9, 8 .. 1]
-[5, 2, 50, -10].asSortedList.asList = [-10, 2, 5, 50]
-'hello'.characters.asSortedList.asList = 'ehllo'.characters
+let a = [3, 1].SortedList; a.add!(2); a.contents = [1 .. 3] /* sorted array from array */
+let a = [9, 8 .. 1].SortedList; a.collect { :x | 9 - x }; a.contents = [1 .. 9] /* collect into ordered collection */
+let a = [1 .. 9].SortedList(>); a.contents = [9, 8 .. 1] /* sorted array with specified sort block */
+let a = [5 .. 9].SortedList(>); a.addAll!([1 .. 4]); a.contents = [9, 8 .. 1]
+[5, 2, 50, -10].SortedList.List = [-10, 2, 5, 50]
+'hello'.characters.SortedList.List = 'ehllo'.characters
 ```
 
 ## Stack -- collection type
@@ -3505,11 +3505,11 @@ let x = 1; let y = 2; let z = 3; x := x * y + z; y := x + y * z; z := x + y + z;
 (1, 3 .. 9) = Range(1, 9, 2)
 (9, 7 .. 1) = Range(9, 1, -2)
 1:1 = Range(1, 1, 1)
-[1 .. 5] = 1:5:1.asList
-[5, 4 .. 1] = 5:1:-1.asList
-[1, 3 .. 9] = (1, 3 .. 9).asList
-[9, 7 .. 1] = (9, 7 .. 1).asList
-[1 .. 1] = 1:1.asList
+[1 .. 5] = 1:5:1.List
+[5, 4 .. 1] = 5:1:-1.List
+[1, 3 .. 9] = (1, 3 .. 9).List
+[9, 7 .. 1] = (9, 7 .. 1).List
+[1 .. 1] = 1:1.List
 let z = 9; 1:z = 1:9 /* upper bound may be identifier */
 ```
 
@@ -3575,9 +3575,9 @@ var x, y, z; (x: x, y: y, z: z) := (x: 1 * 2, y: 3 * 4, z: 5 * 6); [z, y, x] = [
 ## Syntax -- dictionary literals
 ```
 (:).isRecord /* (:) is the empty dictionary */
-(:) = [].asRecord /* (:) the empty dictionary */
-(:) = Map().asRecord /* (:) the empty dictionary */
-(x: 1, y: 2) = ['x' -> 1, 'y' -> 2].asRecord /* dictionary literal syntax */
+(:) = [].Record /* (:) the empty dictionary */
+(:) = Map().Record /* (:) the empty dictionary */
+(x: 1, y: 2) = ['x' -> 1, 'y' -> 2].Record /* dictionary literal syntax */
 (x: 1, y: 2).printString = '(x: 1, y: 2)' /* Record print string */
 (x: 1, y: 2).storeString = '(x: 1, y: 2)' /* Record print string */
 ```
@@ -3613,10 +3613,10 @@ var x, y, z; (x: x, y: y, z: z) := (x: 1 * 2, y: 3 * 4, z: 5 * 6); [z, y, x] = [
 9:1:-1 = Range(9, 1, -1) /* 9 to 1 by -1 */
 (1, 3 .. 9) = Range(1, 9, 2) /* 1 to 9 by 2 */
 (9, 7 .. 1) = Range(9, 1, -2) /* 9 to 1 by -2 */
-[1 .. 9] = 1:9.asList /* 1 to 9 by 1 */
-[9, 8 .. 1] = 9:1:-1.asList /* 9 to 1 by -1 */
-[1, 3 .. 9] = (1, 3 .. 9).asList /* 1 to 9 by 1 */
-[9, 7 .. 1] = (9, 7 .. 1).asList /* 9 to 1 by -2 */
+[1 .. 9] = 1:9.List /* 1 to 9 by 1 */
+[9, 8 .. 1] = 9:1:-1.List /* 9 to 1 by -1 */
+[1, 3 .. 9] = (1, 3 .. 9).List /* 1 to 9 by 1 */
+[9, 7 .. 1] = (9, 7 .. 1).List /* 9 to 1 by -2 */
 ```
 
 ## Syntax -- block application
@@ -3833,8 +3833,8 @@ system.typeLookup('Association').methodDictionary.select { :each | each.name = '
 system.typeLookup('Association').methodDictionary.anySatisfy { :each | each.name = 'copy' } = false
 system.typeLookup('List').isType = true
 system.typeLookup('List').name = 'List'
-system.typeLookup('List').methodDictionary.includesIndex('asList/1') = true
-system.typeLookup('List').methodDictionary['asList/1'].isMethod = true
+system.typeLookup('List').methodDictionary.includesIndex('List/1') = true
+system.typeLookup('List').methodDictionary['List/1'].isMethod = true
 system.typeMethodDictionary('List').anySatisfy { :each | each.name ='select' } = true
 system.typeLookup('String').isType = true
 system.typeLookup('String').methodDictionary.includesIndex('includesSubstring/2') = true
@@ -3933,15 +3933,15 @@ system.includesPackage('Tuple') /* package */
 (1, 2, 3).at(2) = 2 /* second element */
 (1, 2, 3).at(3) = 3 /* third element */
 (1, 2, 3).size = 3 /* size of */
-[1 2 3].asTuple = (1, 2, 3) /* from list */
+[1 2 3].Tuple = (1, 2, 3) /* from list */
 (1, 2, 3).typeOf = 'Tuple' /* type of */
 (1, 2, 3).isTuple = true /* type predicate */
 (1, 2, 3).size = 3 /* size of */
 (1, 2, 3).isCollection = false /* collection trait */
 (1, 2, 3).isIndexable = false /* indexable trait */
 (1, 2, 3).isSequence = false /* sequence trait */
-[1 .. 5].asTuple.at(1) = 1 /* from list */
-[1 .. 5].asTuple.asList = [1 .. 5] /* as list */
+[1 .. 5].Tuple.at(1) = 1 /* from list */
+[1 .. 5].Tuple.List = [1 .. 5] /* as list */
 let t = (1, 2, 3); t[3] = 3 /* at protocol */
 ```
 
@@ -4022,7 +4022,7 @@ true.not = false
 ## Unordered -- collection trait
 ```
 system.includesPackage('Unordered') /* package */
-{ [1, 2, 3].asIdentitySet.at(1) }.hasError /* unordered collections do not implement at */
+{ [1, 2, 3].IdentitySet.at(1) }.hasError /* unordered collections do not implement at */
 { [1, 2, 3].asIdentityMultiset.at(1) }.hasError
 ```
 
@@ -4031,14 +4031,14 @@ system.includesPackage('Unordered') /* package */
 system.includesPackage('PlanarCoordinates') /* package */
 PlanarCoordinates([0, 0]).typeOf = 'PlanarCoordinates' /* type of */
 PlanarCoordinates([-1, 1]).isPlanarCoordinates = true
-[1, 2].asPlanarCoordinates = PlanarCoordinates([1, 2]) /* from list */
-(x: 1, y: 2).asPlanarCoordinates = PlanarCoordinates([1, 2]) /* from record */
+[1, 2].PlanarCoordinates = PlanarCoordinates([1, 2]) /* from list */
+(x: 1, y: 2).PlanarCoordinates = PlanarCoordinates([1, 2]) /* from record */
 PlanarCoordinates([-1, 1]).isPlanarCoordinates = true /* point constructor */
-[1, 2].asPlanarCoordinates = PlanarCoordinates([1, 2]) /* list as point */
-(x: 1, y: 2).asPlanarCoordinates = PlanarCoordinates([1, 2]) /* record as point */
-[3 4].asPlanarCoordinates.isPlanarCoordinates & { true } = true
-[-1 1].asPlanarCoordinates.x = -1
-[-1 1].asPlanarCoordinates.y = 1
+[1, 2].PlanarCoordinates = PlanarCoordinates([1, 2]) /* list as point */
+(x: 1, y: 2).PlanarCoordinates = PlanarCoordinates([1, 2]) /* record as point */
+[3 4].PlanarCoordinates.isPlanarCoordinates & { true } = true
+[-1 1].PlanarCoordinates.x = -1
+[-1 1].PlanarCoordinates.y = 1
 PlanarCoordinates([-1, 1]).x = -1
 PlanarCoordinates([-1, 1]).y = 1
 PlanarCoordinates([-1, 1]).x!(-3) = -3
@@ -4052,7 +4052,7 @@ PlanarCoordinates([-1, 1]).asString = 'PlanarCoordinates([-1, 1])'
 let p = PlanarCoordinates([-1, 1]); p.x!(-3); p.y!(3); p = PlanarCoordinates([-3, 3]) = true
 let p = PlanarCoordinates([-1, 3]); let a = [p]; a.first.x!(-3); p = PlanarCoordinates([-3, 3]) = true
 let x = 3.141; let y = 23; let p = PlanarCoordinates([x, y]); p.x = x & { p.y = y }
-[1 0; 1 1; 0 1; -1 1; -1 0; 0 -1].asPlanarCoordinates.collect(theta/1) = (1.pi * [0, 1 / 4, 1 / 2, 3 / 4, 1, -1 / 2]) /* theta = angle from (1,0) */
+[1 0; 1 1; 0 1; -1 1; -1 0; 0 -1].PlanarCoordinates.collect(theta/1) = (1.pi * [0, 1 / 4, 1 / 2, 3 / 4, 1, -1 / 2]) /* theta = angle from (1,0) */
 PlanarCoordinates([200, 100]).x = 200 /* x coordinate */
 PlanarCoordinates([200 100]).y = 100 /* y coordinate */
 0 - PlanarCoordinates([200 100]) = PlanarCoordinates([-200, -100]) /* negates x and y */
@@ -4075,9 +4075,9 @@ PlanarCoordinates([3, 4]).size = 2 /* implements size */
 let v = PlanarCoordinates([3 4]); v.swap!; v[1] = 4 /* swap fields in-place */
 PlanarCoordinates([3 4]).swap = PlanarCoordinates([4, 3]) /* swap x&y */
 let v = PlanarCoordinates([0, 0]); let c = v.copy; c.x!(1); c != v & { c = PlanarCoordinates([1, 0]) } /* copy two vector */
-PlanarCoordinates([1, 1]).asPolarCoordinates = PolarCoordinates([2.sqrt, 0.25.pi]) /* radius and angle, r and theta */
-[0 0].asPlanarCoordinates.isPlanarCoordinates /* array as point, point predicate */
-[0 0].asPlanarCoordinates.isOrigin /* are x and y both zero */
+PlanarCoordinates([1, 1]).PolarCoordinates = PolarCoordinates([2.sqrt, 0.25.pi]) /* radius and angle, r and theta */
+[0 0].PlanarCoordinates.isPlanarCoordinates /* array as point, point predicate */
+[0 0].PlanarCoordinates.isOrigin /* are x and y both zero */
 [1, 1].norm = 2.sqrt /* magnitude, distance to origin */
 [1, 1].normalize = ([1, 1] / 2.sqrt) /* normalized to have unit magnitude */
 [1, 1].normalize.norm ~ 1
@@ -4088,34 +4088,34 @@ PlanarCoordinates([1, 1]).normalize.norm ~ 1
 
 ## CartesianCoordinates -- geometry type
 ```
-[1, 2, 3].asCartesianCoordinates = CartesianCoordinates([1, 2, 3]) /* from list */
-(x: 1, y: 2, z: 3).asCartesianCoordinates = CartesianCoordinates([1, 2, 3]) /* from record */
-let a = [1, 2, 3]; let v = a.asCartesianCoordinates; v.coordinates = [1, 2, 3] /* point as array */
+[1, 2, 3].CartesianCoordinates = CartesianCoordinates([1, 2, 3]) /* from list */
+(x: 1, y: 2, z: 3).CartesianCoordinates = CartesianCoordinates([1, 2, 3]) /* from record */
+let a = [1, 2, 3]; let v = a.CartesianCoordinates; v.coordinates = [1, 2, 3] /* point as array */
 CartesianCoordinates([0, 0, 0]).isOrigin /* are x, y and z all zero */
 let v = CartesianCoordinates([1, 2, 3]); [v.x, v.y, v.z] = [1, 2, 3] /* fields are x, y, z */
 let v = CartesianCoordinates([3, 4, 5]); v[1] = 3 & { v[2] = 4 & { v[3] = 5 } } /* implements at */
 let v = CartesianCoordinates([3, 4, 5]); v[1] := 5; v[3] := 3; v.coordinates = [5, 4, 3] /* implements put! */
 let v = CartesianCoordinates([3, 4, 5]); [v.first, v.second, v.third] = [3, 4, 5] /* implements first &etc. */
-CartesianCoordinates([0, 0, 1]).asSphericalCoordinates = SphericalCoordinates([1, 0, 0])
-SphericalCoordinates([1, 0, 0]).asCartesianCoordinates = CartesianCoordinates([0, 0, 1])
-CartesianCoordinates([1, 1, 0]).asSphericalCoordinates = SphericalCoordinates([2.sqrt, 1.pi / 4, 1.pi / 2])
-SphericalCoordinates([2.sqrt, 1.pi / 4, 1.pi / 2]).asCartesianCoordinates ~ CartesianCoordinates([1, 1, 0])
-IsoSphericalCoordinates([3.sqrt, 2.sqrt.arcTan, 0.25.pi]).asCartesianCoordinates ~ CartesianCoordinates([1, 1, 1])
-CartesianCoordinates([1, 1, 1]).asSphericalCoordinates ~ IsoSphericalCoordinates([3.sqrt, 2.sqrt.arcTan, 0.25.pi])
+CartesianCoordinates([0, 0, 1]).SphericalCoordinates = SphericalCoordinates([1, 0, 0])
+SphericalCoordinates([1, 0, 0]).CartesianCoordinates = CartesianCoordinates([0, 0, 1])
+CartesianCoordinates([1, 1, 0]).SphericalCoordinates = SphericalCoordinates([2.sqrt, 1.pi / 4, 1.pi / 2])
+SphericalCoordinates([2.sqrt, 1.pi / 4, 1.pi / 2]).CartesianCoordinates ~ CartesianCoordinates([1, 1, 0])
+IsoSphericalCoordinates([3.sqrt, 2.sqrt.arcTan, 0.25.pi]).CartesianCoordinates ~ CartesianCoordinates([1, 1, 1])
+CartesianCoordinates([1, 1, 1]).SphericalCoordinates ~ IsoSphericalCoordinates([3.sqrt, 2.sqrt.arcTan, 0.25.pi])
 CartesianCoordinates([0, 0, 0]).distance(CartesianCoordinates([1, 1, 1])) = 3.sqrt
 CartesianCoordinates([0, 0, 0]).distance(CartesianCoordinates([1, 1, 0])) = 2.sqrt
 CartesianCoordinates([1, 2, 3]).distance(CartesianCoordinates([6, 5, 4])) = 35.sqrt
 CartesianCoordinates([0, 0, 0]).isCartesianCoordinates = true /* is Cartesian coordinate */
 CartesianCoordinates([0, 0, 0]).isOrigin = true /* is zero */
-let v = CartesianCoordinates([0, 0, 0]); v.asCartesianCoordinates == v /* identity */
+let v = CartesianCoordinates([0, 0, 0]); v.CartesianCoordinates == v /* identity */
 CartesianCoordinates([1, 3, 5]).coordinates = [1 3 5] /* point as array */
-[1 3 5].asCartesianCoordinates = CartesianCoordinates([1, 3, 5]) /* array as point */
-(x: 1, y: 3, z: 5).asCartesianCoordinates = CartesianCoordinates([1, 3, 5]) /* record as point */
-SphericalCoordinates([1, 2, 3]).asRecord = (radius: 1, theta: 2, phi: 3)
-(r: 1, theta: 2, phi: 3).asSphericalCoordinates = SphericalCoordinates([1, 2, 3])
-CartesianCoordinates([1, 3, 5]).asRecord = (x: 1, y: 3, z: 5)
-CylindricalCoordinates([1, 1, 1]).asCartesianCoordinates.asRecord = (x: 1.cos, y: 1.sin, z: 1)
-CartesianCoordinates([1.cos, 1.sin, 1]).asCylindricalCoordinates.asRecord = (rho: 1, phi: 1, z: 1)
+[1 3 5].CartesianCoordinates = CartesianCoordinates([1, 3, 5]) /* array as point */
+(x: 1, y: 3, z: 5).CartesianCoordinates = CartesianCoordinates([1, 3, 5]) /* record as point */
+SphericalCoordinates([1, 2, 3]).Record = (radius: 1, theta: 2, phi: 3)
+(r: 1, theta: 2, phi: 3).SphericalCoordinates = SphericalCoordinates([1, 2, 3])
+CartesianCoordinates([1, 3, 5]).Record = (x: 1, y: 3, z: 5)
+CylindricalCoordinates([1, 1, 1]).CartesianCoordinates.Record = (x: 1.cos, y: 1.sin, z: 1)
+CartesianCoordinates([1.cos, 1.sin, 1]).CylindricalCoordinates.Record = (rho: 1, phi: 1, z: 1)
 ```
 
 ## WeakMap -- collection type

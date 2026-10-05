@@ -155,9 +155,9 @@
 ## Converting
 
 - `asBit`, `asBoolean`
-- `asComplex`, `asFloat`, `asFraction`, `asInteger`, `asLargeInteger`, `asNumber`, `asSmallFloat`
+- `asComplex`, `asFloat`, `asFraction`, `asInteger`, `LargeInteger`, `asNumber`, `asSmallFloat`
 - `asCharacter`, `asCodePoint`, `asHexDigit`, `asLowerCase`, `asRegExp`, `asString`, `asUpperCase`, `asWords`
-- `asIdentityMultiset`, `ByteArray`, `asCollection`, `asList`, `asMap`, `asRecord`, `asIdentitySet`, `asSortedList`, `asTree`
+- `IdentityMultiset`, `ByteArray`, `asCollection`, `List`, `Map`, `Record`, `IdentitySet`, `SortedList`, `Tree`
 - `degreesToRadians`, `radiansToDegrees`
 
 ## Copying
@@ -326,7 +326,6 @@
 ## Graph Functions
 
 - `Graph`
-- `asGraph`
 - `graphComplement`, `lineGraph`, `undirectedGraph`
 - `isDirectedEdge`, `isEdge`, `isUndirectedEdge`
 - `isDirected`, `isMixed`, `isUndirected`
@@ -453,7 +452,7 @@
 
 - `Residue`, `ResidueSet`
 - `%`, `commonResidue`, `minimalResidue`, `modularInverse`
-- `asResidueSet`, `leastResidueSystem`
+- `leastResidueSystem`
 - `complement`
 
 ## Network
@@ -521,7 +520,7 @@
 - `permutationCycles`, `permutationList`
 - `permutationMatrix`
 - `Permutation`
-- `asPermutation`, `cycles`, `isDerangement`, `isInvolution`
+- `cycles`, `isDerangement`, `isInvolution`
 - `findPermutation`, `permute`
 - `inversePermutation`, `permutationOrder`
 - `permutationPower`, `permutationProduct`

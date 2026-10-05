@@ -10,7 +10,7 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number] { | numerator denominat
 
 	[divide, /] { :self :aNumber |
 		aNumber.isScalarInteger.if {
-			self * uncheckedFraction(1, aNumber.asLargeInteger)
+			self * uncheckedFraction(1, aNumber.LargeInteger)
 		} {
 			aNumber.isFraction.if {
 				self * aNumber.reciprocal
@@ -27,7 +27,7 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number] { | numerator denominat
 	[plus, +] { :self :aNumber |
 		aNumber.isScalarInteger.if {
 			uncheckedFraction(
-				self.numerator + (self.denominator * aNumber.asLargeInteger),
+				self.numerator + (self.denominator * aNumber.LargeInteger),
 				self.denominator
 			)
 		} {
@@ -71,7 +71,7 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number] { | numerator denominat
 	[subtract, -] { :self :aNumber |
 		aNumber.isScalarInteger.if {
 			uncheckedFraction(
-				self.numerator - (self.denominator * aNumber.asLargeInteger),
+				self.numerator - (self.denominator * aNumber.LargeInteger),
 				self.denominator
 			)
 		} {
@@ -136,15 +136,7 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number] { | numerator denominat
 	}
 
 	asInteger { :self |
-		self.asLargeInteger.normal
-	}
-
-	asLargeInteger { :self |
-		self.isInteger.if {
-			self.numerator
-		} {
-			self.error('Fraction>>asLargeInteger: not integer')
-		}
+		self.LargeInteger.normal
 	}
 
 	[asSmallFloat, asFloat] { :self |
@@ -152,14 +144,7 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number] { | numerator denominat
 	}
 
 	asSmallInteger { :self |
-		self.asLargeInteger.asSmallInteger
-	}
-
-	asRecord { :self |
-		(
-			numerator: self.numerator.asInteger,
-			denominator: self.denominator.asInteger
-		)
+		self.LargeInteger.asSmallInteger
 	}
 
 	components { :self |
@@ -362,6 +347,14 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number] { | numerator denominat
 		self.numerator.isZero
 	}
 
+	LargeInteger { :self |
+		self.isInteger.if {
+			self.numerator
+		} {
+			self.error('Fraction>>LargeInteger: not integer')
+		}
+	}
+
 	lcm { :self :aFraction |
 		aFraction.isFraction.if {
 			self // self.gcd(aFraction) * aFraction
@@ -504,6 +497,13 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number] { | numerator denominat
 
 	realExponent { :x :b |
 		x.abs.asFloat.log(b)
+	}
+
+	[Record, fractionToRecord] { :self |
+		(
+			numerator: self.numerator.asInteger,
+			denominator: self.denominator.asInteger
+		)
 	}
 
 	[reciprocal, /] { :self |
@@ -670,8 +670,8 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number] { | numerator denominat
 				'@Integer>>uncheckedFraction: zeroDenominatorError'.error
 			} {
 				newFraction().initializeSlots(
-					numerator.asLargeInteger,
-					denominator.asLargeInteger
+					numerator.LargeInteger,
+					denominator.LargeInteger
 				)
 			}
 		} {
@@ -682,8 +682,8 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number] { | numerator denominat
 	Fraction { :numerator :denominator |
 		denominator.isScalarInteger.if {
 			uncheckedFraction(
-				numerator.asLargeInteger,
-				denominator.asLargeInteger
+				numerator.LargeInteger,
+				denominator.LargeInteger
 			).simplify
 		} {
 			denominator.adaptToNumberAndApply(numerator, Fraction/2)
@@ -820,7 +820,7 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number] { | numerator denominat
 
 	asFractionOver { :self :denominator |
 		self.isInteger.if {
-			uncheckedFraction(self.asLargeInteger, 1L)
+			uncheckedFraction(self.LargeInteger, 1L)
 		} {
 			Fraction(
 				(self * denominator).round,

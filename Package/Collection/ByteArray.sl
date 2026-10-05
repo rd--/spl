@@ -170,7 +170,7 @@ ByteArray! : [Object, Copy, Store, Equal, Compare, Iterable, Indexable, Collecti
 +@ArithmeticProgression {
 
 	[ByteArray, arithmeticProgressionToByteArray] { :self |
-		ByteArray(self.asList)
+		ByteArray(self.List)
 	}
 
 }

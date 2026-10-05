@@ -69,7 +69,7 @@
 		>
 	}
 
-	[List, asList] { :self |
+	[List, primitiveArrayToList] { :self |
 		List(self.size).fillFrom(self)
 	}
 
@@ -127,7 +127,7 @@
 		'%(%)'.format(
 			[
 				self.typeOf,
-				self.asList.storeString
+				self.List.storeString
 			]
 		)
 	}

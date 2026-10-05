@@ -25,6 +25,24 @@ A three-dimensional cartesian co-ordinate:
 (0, 3)
 ```
 
+At `Record`,
+Constructs a `Point` of two and three dimensions given an appropriate dictionary:
+
+```
+>>> Point(x: 1, y: 2)
+Point([1 2])
+
+>>> Point(x: 1, y: 2, z: 3)
+Point([1 2 3])
+```
+
+At `Tuple`:
+
+```
+>>> (0, 0, 0).Point
+Point([0 0 0])
+```
+
 A `Point` can be drawn using `LineDrawing`,
 draw a point and a unit circle at the origin:
 

@@ -55,8 +55,7 @@ At a multigraph:
 Self-loops are counted twice:
 
 ```
->>> [1 2; 2 3; 3 1; 3 3]
->>> .asGraph
+>>> Graph[1 2; 2 3; 3 1; 3 3]
 >>> .vertexOutDegree
 [2 2 4]
 ```
@@ -64,24 +63,21 @@ Self-loops are counted twice:
 Undirected graphs correspond to directed graphs with each edge both an in- and out-edge:
 
 ```
->>> [1 2; 2 3; 3 1]
->>> .asGraph
+>>> Graph[1 2; 2 3; 3 1]
 >>> .vertexOutDegree
 [2 2 2]
 
->>> [
+>>> Graph[
 >>> 	1 -> 2, 1 -> 3,
 >>> 	2 -> 1, 2 -> 3,
 >>> 	3 -> 1, 3 -> 2
->>> ]
->>> .asGraph
->>> .vertexOutDegree
+>>> ].vertexOutDegree
 [2 2 2]
 ```
 
 * * *
 
-See also: adjacencyMatrix, asGraph, vertexCount, vertexDegree, vertexInDegree, vertexList
+See also: adjacencyMatrix, Graph, vertexCount, vertexDegree, vertexInDegree, vertexList
 
 Guides: Graph Functions
 

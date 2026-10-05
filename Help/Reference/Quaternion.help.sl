@@ -59,7 +59,7 @@ Convert a real number to a quaternion:
 
 ```
 >>> let a = 3.141;
->>> let b = a.asQuaternion;
+>>> let b = Quaternion(a);
 >>> (b, b.real)
 (Quaternion[3.141 0 0 0], 3.141)
 ```
@@ -69,23 +69,35 @@ the `imaginary` part of a quaternion is a three-vector:
 
 ```
 >>> let a = 3J4;
->>> let b = a.asQuaternion;
+>>> let b = Quaternion(a);
 >>> (b, b.real, b.imaginary)
 (Quaternion[3 4 0 0], 3, [4 0 0])
+```
+
+At matrix:
+
+```
+>>> Quaternion[1 0 0 0; 0 1 0 0; 0 0 1 0; 0 0 0 1]
+[
+	Quaternion[1 0 0 0],
+	Quaternion[0 1 0 0],
+	Quaternion[0 0 1 0],
+	Quaternion[0 0 0 1]
+]
 ```
 
 The matrix form of a quaternion number:
 
 ```
 >>> let a = Quaternion[1 2 3 4];
->>> let b = a.asMatrix;
+>>> let b = a.matrixForm;
 >>> (
 >>> 	b,
 >>> 	a.absSquare,
 >>> 	b.determinant,
 >>> 	a.real,
 >>> 	b.trace / 2,
->>> 	a.conjugate.asMatrix,
+>>> 	a.conjugate.matrixForm,
 >>> 	b.transpose
 >>> )
 (

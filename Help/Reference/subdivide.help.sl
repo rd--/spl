@@ -12,7 +12,7 @@ Subdivide the unit interval into 10 equal parts:
 >>> 10.subdivide
 Range(0, 1, 1/10, 11)
 
->>> 10.subdivide.asList
+>>> 10.subdivide.List
 [
 	0/1 1/10 1/5 3/10 2/5
 	1/2 3/5 7/10 4/5 9/10
@@ -44,7 +44,7 @@ Range(-1, 1, 0.25, 9)
 Subdivide the interval from `e` to `pi`:
 
 ```
->>> (1.e -- 1.pi).subdivide(4).asList
+>>> (1.e -- 1.pi).subdivide(4).List
 [2.7183 2.8241 2.9299 3.0358 3.1416]
 ```
 
@@ -106,7 +106,7 @@ The last value is treated especially to avoid range errors:
 
 ```
 >>> let r = (1 -- 5).subdivide(100);
->>> let l = r.asList;
+>>> let l = r.List;
 >>> (r, l[100] > 4.96, l[101] > 5)
 (
 	Range(1, 5, 0.04, 101),

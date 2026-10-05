@@ -12,8 +12,7 @@ The adjacency matrix for a graph will have dimensions _n × n_, where _n_ is the
 The adjacency matrix of an undirected graph:
 
 ```
->>> [1 2; 2 3; 3 1]
->>> .asGraph
+>>> Graph[1 2; 2 3; 3 1]
 >>> .adjacencyMatrix
 [
 	0 1 1;
@@ -43,8 +42,7 @@ which is isomorphic to the `starGraph` _S(4)_:
 The adjacency matrix of a directed graph:
 
 ```
->>> [1 -> 2, 2 -> 3, 3 -> 1]
->>> .asGraph
+>>> Graph[1 -> 2, 2 -> 3, 3 -> 1]
 >>> .adjacencyMatrix
 [
 	0 1 0;
@@ -56,8 +54,7 @@ The adjacency matrix of a directed graph:
 The adjacency matrix of an undirected graph is symmetric:
 
 ```
->>> [1 2; 1 3; 2 3; 2 4; 3 4]
->>> .asGraph
+>>> Graph[1 2; 1 3; 2 3; 2 4; 3 4]
 >>> .adjacencyMatrix
 [
 	0 1 1 0;
@@ -78,13 +75,11 @@ The adjacency matrix of an undirected graph is symmetric:
 The adjacency matrix of a directed graph can be unsymmetric:
 
 ```
->>> [
+>>> Graph[
 >>> 	1 -> 2, 2 -> 1,
 >>> 	3 -> 1, 3 -> 2,
 >>> 	4 -> 1, 4 -> 2
->>> ]
->>> .asGraph
->>> .adjacencyMatrix
+>>> ].adjacencyMatrix
 [
 	0 1 0 0;
 	1 0 0 0;
@@ -96,8 +91,7 @@ The adjacency matrix of a directed graph can be unsymmetric:
 The adjacency matrix of a graph with self-loops has diagonal entries:
 
 ```
->>> [1 2; 2 3; 3 1; 2 2]
->>> .asGraph
+>>> Graph[1 2; 2 3; 3 1; 2 2]
 >>> .adjacencyMatrix
 [
 	0 1 1;
@@ -105,8 +99,7 @@ The adjacency matrix of a graph with self-loops has diagonal entries:
 	1 1 0
 ]
 
->>> [1 -> 1, 1 -> 2, 2 -> 3, 3 -> 1]
->>> .asGraph
+>>> Graph[1 -> 1, 1 -> 2, 2 -> 3, 3 -> 1]
 >>> .adjacencyMatrix
 [
 	1 1 0;
@@ -118,8 +111,7 @@ The adjacency matrix of a graph with self-loops has diagonal entries:
 The adjacency matrix of a multi-graph has non-boole entries:
 
 ```
->>> [1 2; 1 2; 2 3]
->>> .asGraph
+>>> Graph[1 2; 1 2; 2 3]
 >>> .adjacencyMatrix
 [0 2 0; 2 0 1; 0 1 0]
 ```

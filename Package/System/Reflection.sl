@@ -87,7 +87,7 @@
 					answer.uncheckedInclude(method)
 				}
 			};
-			answer.asList
+			answer.List
 		} {
 			self.error('System>>methodImplementations: not a methodName', [methodName])
 		}

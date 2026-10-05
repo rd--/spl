@@ -9,10 +9,6 @@ SortedSet : [Object, Copy, Store, Equal, Iterable, Collection, Extensible, Set] 
 		}
 	}
 
-	asList { :self |
-		self.contents.asList
-	}
-
 	collect { :self :aBlock/1 |
 		SortedSet(
 			self.contents.collect(aBlock/1)
@@ -29,6 +25,10 @@ SortedSet : [Object, Copy, Store, Equal, Iterable, Collection, Extensible, Set] 
 
 	includes { :self :anObject |
 		self.contents.includes(anObject)
+	}
+
+	List { :self |
+		self.contents.List
 	}
 
 	removeAll! { :self |
@@ -91,7 +91,9 @@ SortedSet : [Object, Copy, Store, Equal, Iterable, Collection, Extensible, Set] 
 	}
 
 	union { :self |
-		self.unionInto(SortedSet()).asList
+		self.unionInto(
+			SortedSet()
+		).List
 	}
 
 	union { :self :aCollection |

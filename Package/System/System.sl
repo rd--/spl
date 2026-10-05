@@ -234,7 +234,7 @@ System! : [Object, Cache, RandomNumberGenerator] {
 				'>>> <=> +++'
 			].collect(words/1).++.collect { :each |
 				each -> each.splOperatorTokenName(table)
-			}.asRecord
+			}.Record
 		}
 	}
 

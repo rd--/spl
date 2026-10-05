@@ -266,7 +266,7 @@ Heap : [Object, Copy, Store, Equal, Iterable, Collection, Extensible] { | array 
 
 +List {
 
-	asHeap { :self |
+	Heap { :self |
 		newHeap().initializeSlots(self, nil, nil)
 	}
 
@@ -274,8 +274,8 @@ Heap : [Object, Copy, Store, Equal, Iterable, Collection, Extensible] { | array 
 
 +Range {
 
-	asHeap { :self |
-		self.asList.asHeap
+	Heap { :self |
+		self.List.Heap
 	}
 
 }

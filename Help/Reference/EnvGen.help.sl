@@ -32,7 +32,7 @@ let env = EnvGen(
 		nil,
 		nil,
 		0
-	).asList
+	)
 );
 SinOsc(440, 0) * env
 ```
@@ -60,7 +60,7 @@ let env = EnvGen(
 		2,
 		nil,
 		0
-	).asList
+	)
 );
 SinOsc(440, 0) * env
 ```

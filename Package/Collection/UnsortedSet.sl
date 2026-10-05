@@ -16,6 +16,10 @@ UnsortedSet : [Object, Store, Equal, Iterable, Collection, Extensible, Unordered
 		self.contents.includesBy(anObject, self.comparator)
 	}
 
+	[List, unsortedSetToList] { :self |
+		self.contents.copy
+	}
+
 	removeAll! { :self |
 		self.contents.removeAll!
 	}
@@ -40,10 +44,6 @@ UnsortedSet : [Object, Store, Equal, Iterable, Collection, Extensible, Unordered
 
 	storeString { :self |
 		self.storeStringAsInitializeSlotsOmitting(['comparator'])
-	}
-
-	[unsortedSetToList, asList] { :self |
-		self.contents.copy
 	}
 
 }
@@ -75,7 +75,7 @@ UnsortedSet : [Object, Store, Equal, Iterable, Collection, Extensible, Unordered
 		self.do { :each |
 			set.includeAll!(each)
 		};
-		set.asList
+		set.List
 	}
 
 	unionBy { :self :aCollection :aBlock/2 |

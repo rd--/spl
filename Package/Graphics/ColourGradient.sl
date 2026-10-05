@@ -88,7 +88,7 @@ ColourGradient : [Object, Store] { | colourList positionListOrNil |
 	asContinuousColourGradient { :self |
 		ColourGradient(
 			self,
-			(0 -- 1).discretize(self.size).asList
+			(0 -- 1).discretize(self.size).List
 		)
 	}
 
@@ -189,14 +189,14 @@ LibraryItem(
 				j.isList.if {
 					[
 						j.collect { :k |
-							k.parseBase16.asList / 255
+							k.parseBase16.List / 255
 						},
 						nil
 					]
 				} {
 					[
 						j['c'].collect { :k |
-							k.parseBase16.asList / 255
+							k.parseBase16.List / 255
 						},
 						j['p']
 					]

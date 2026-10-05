@@ -37,19 +37,22 @@ At `DoubleQuotedString` answers the quoted string:
 ```
 
 At `SortedList` answers the stored list,
-use `asList` to get a copy:
+use `List` to get a copy:
 
 ```
 >>> SortedList[1 3 5 4 2 0].contents
 [0 1 2 3 4 5]
 
->>> SortedList[1 3 5 4 2 0].asList
-[0 1 2 3 4 5]
+>>> let a = SortedList[1 3 5 4 2 0];
+>>> let b = a.contents;
+>>> let c = a.List;
+>>> (b, b = c, b !== c)
+([0 1 2 3 4 5], true, true)
 ```
 
 * * *
 
-See also: asList, DoubleQuotedString, join, next, reset, splitBy, stringList
+See also: DoubleQuotedString, List, join, next, reset, splitBy, stringList
 
 Guides: Stream Functions
 

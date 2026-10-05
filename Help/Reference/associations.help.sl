@@ -30,7 +30,7 @@ At `Multiset`:
 ```
 >>> 'abracadabra'
 >>> .characters
->>> .asMultiset
+>>> .Multiset
 >>> .associations
 [
 	'a' -> 5, 'b' -> 2, 'r' -> 2,

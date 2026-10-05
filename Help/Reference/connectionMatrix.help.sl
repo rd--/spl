@@ -9,13 +9,11 @@ For simple graphs the `connectionMatrix` and the `adjacencyMatrix` are the same,
 however for multi-graphs the connection matrix has boole entries:
 
 ```
->>> [1 2; 1 2; 2 3]
->>> .asGraph
+>>> Graph[1 2; 1 2; 2 3]
 >>> .connectionMatrix
 [0 1 0; 1 0 1; 0 1 0]
 
->>> [1 2; 1 2; 2 3]
->>> .asGraph
+>>> Graph[1 2; 1 2; 2 3]
 >>> .adjacencyMatrix
 [0 2 0; 2 0 1; 0 1 0]
 ```

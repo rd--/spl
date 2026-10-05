@@ -678,7 +678,7 @@
 				keys[index] -> item
 			}
 		};
-		places.collect(asRecord/1)
+		places.collect(Record/1)
 	}
 
 }
@@ -757,7 +757,7 @@
 	}
 
 	ascii { :self |
-		self.asciiByteArray.asList
+		self.asciiByteArray.List
 	}
 
 }

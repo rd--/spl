@@ -13,6 +13,6 @@ A more efficient form of _c.collect(f/1).asIdentityMultiset_.
 
 * * *
 
-See also: asMultiset, Multiset
+See also: Multiset
 
 Categories: Converting

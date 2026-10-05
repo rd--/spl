@@ -38,7 +38,7 @@ Map over a character range:
 >>> .fromCharacterCode('Ascii')
 >>> .characters
 >>> .isPrintableAscii
->>> .asRunArray
+>>> .RunArray
 >>> .associations
 [32 -> false, 95 -> true, 1 -> false]
 ```

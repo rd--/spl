@@ -59,7 +59,7 @@ Guides: Vector Functions
 
 References:
 _Mathematica_
-[1](https://reference.wolframcloud.com/language/ref/NumericArray.html),
+[1](https://reference.wolfram.com/language/ref/NumericArray.html),
 _Tc39_
 [1](https://tc39.es/ecma262/multipage/indexed-collections.html#table-49)
 

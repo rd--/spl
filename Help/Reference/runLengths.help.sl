@@ -41,6 +41,40 @@ this is the `binaryRunLengthEncode` method:
 
 ![](Help/Image/runLengths-A.svg)
 
+Run lengths of binary representation of _n_,
+OEIS [A101211](https://oeis.org/A101211):
+
+~~~spl svg=B oeis=A101211
+1:21.collect { :n |
+	let d = n.binaryExpansion;
+	d.runLengths
+}.catenate.discretePlot
+~~~
+
+![](Help/Image/runLengths-B.svg)
+
+Array of run lengths of binary representation of _n_,
+OEIS [A227186](https://oeis.org/A227186):
+
+~~~spl svg=C oeis=A227186
+0:13.antidiagonalArray { :n :k |
+	(n = 0).if {
+		0
+	} {
+		let d = n.binaryExpansion;
+		let r = d.reverse.runLengths;
+		let c = r.size;
+		(k + 1 <= c).if {
+			r[k + 1]
+		} {
+			0
+		}
+	}
+}.catenate.discretePlot
+~~~
+
+![](Help/Image/runLengths-C.svg)
+
 * * *
 
 See also: runLengthTransform, runLengthsOf, RunArray

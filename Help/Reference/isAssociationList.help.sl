@@ -14,7 +14,7 @@ true
 true
 
 >>> ['x' -> 1, 'y' -> [2 3]]
->>> .asRecord
+>>> .Record
 (x: 1, y: [2 3])
 ```
 

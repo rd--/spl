@@ -10,7 +10,7 @@ Construct a `RunArray` from runs and values:
 
 ```
 >>> RunArray([1 3 5], ['a' 'b' 'c'])
->>> .asList
+>>> .List
 >>> .stringJoin
 'abbbccccc'
 ```
@@ -36,13 +36,39 @@ As a list of associations or a two column matrix:
 [1 'a'; 3 'b'; 5 'c']
 ```
 
+The unary form converts the sequence _x_ into a `RunArray`:
+
+```
+>>> 'abbbccccc'
+>>> .characters
+>>> .RunArray
+RunArray([1 3 5], ['a' 'b' 'c'])
+```
+
+There is a distinct method to convert a sequence of _run -> value_ associations into a `RunArray`:
+
+```
+>>> [1 -> 'a', 3 -> 'b', 5 -> 'c']
+>>> .associationListToRunArray
+>>> .List
+>>> .stringJoin
+'abbbccccc'
+```
+
+At empty list:
+
+```
+>>> RunArray[]
+RunArray([], [])
+```
+
 The `RunArray` implementation caches the last access so that streaming through `RunArray`s is not an _n_-squared process.
 
 Many complexities of access can be bypassed by using the method `withStartStopAndValueDo`.
 
 * * *
 
-See also: asRunArray, List
+See also: List
 
 Guides: List Functions
 

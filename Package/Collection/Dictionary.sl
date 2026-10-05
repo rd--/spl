@@ -158,14 +158,6 @@
 		}
 	}
 
-	[dictionaryToList, asList] { :self |
-		let answer = [];
-		self.valuesDo { :each |
-			answer.add!(each)
-		};
-		answer
-	}
-
 	do { :self :aBlock/1 |
 		self.valuesDo(aBlock/1)
 	}
@@ -344,6 +336,14 @@
 
 	keyType { :self |
 		self.keys.elementType
+	}
+
+	[List, dictionaryToList] { :self |
+		let answer = [];
+		self.valuesDo { :each |
+			answer.add!(each)
+		};
+		answer
 	}
 
 	lookup { :self :key :defaultAnswer |
@@ -639,10 +639,6 @@ Dictionary : [Object, Copy, Store, Equal, Iterable, Indexable, Collection, Exten
 }
 
 +List {
-
-	asDictionary { :self |
-		Dictionary(self)
-	}
 
 	Dictionary { :self |
 		self.isEmpty.if {

@@ -7,7 +7,7 @@ ranging from _i_ to _j_ by step _k_ and having _n_ places.
 
 ```
 >>> let r = FiniteRange(1, 10, 1, 10);
->>> (r.start, r.stop, r.step, r.size, r.asList)
+>>> (r.start, r.stop, r.step, r.size, r.List)
 (1, 10, 1, 10, [1 2 3 4 5 6 7 8 9 10])
 ```
 

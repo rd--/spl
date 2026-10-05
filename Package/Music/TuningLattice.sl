@@ -9,7 +9,7 @@
 		includeOctave.ifFalse {
 			answer.without!(2)
 		};
-		answer.asList.sort
+		answer.List.sort
 	}
 
 	tuningLatticeVector { :self :primes |
@@ -128,7 +128,7 @@
 		self.asRatios.do { :each |
 			answer.includeAll!(each.tuningLatticePrimes(includeOctave))
 		};
-		answer.asList.sort
+		answer.List.sort
 	}
 
 	tuningLatticeDerivedPrimesVector { :self :primes |

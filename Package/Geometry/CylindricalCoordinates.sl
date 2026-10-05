@@ -2,23 +2,23 @@
 
 CylindricalCoordinates : [Object, Equal] { | coordinates |
 
-	asCartesianCoordinates { :self |
+	CartesianCoordinates { :self |
 		CartesianCoordinates(
 			self.coordinates.fromCylindricalCoordinates
 		)
 	}
 
-	[cylindricalCoordinatesToList, asList] { :self |
+	[List, cylindricalCoordinatesToList] { :self |
 		self.coordinates.copy
-	}
-
-	[cylindricalCoordinatesToRecord, asRecord] { :self |
-		let [rho, phi, z] = self.coordinates;
-		(rho: rho, phi: phi, z: z)
 	}
 
 	radius { :self |
 		self.rho
+	}
+
+	[Record, cylindricalCoordinatesToRecord] { :self |
+		let [rho, phi, z] = self.coordinates;
+		(rho: rho, phi: phi, z: z)
 	}
 
 	rho { :self |
@@ -49,13 +49,11 @@ CylindricalCoordinates : [Object, Equal] { | coordinates |
 
 +List {
 
-	[listToCylindricalCoordinates, asCylindricalCoordinates] { :self |
-		CylindricalCoordinates(self)
-	}
-
-	CylindricalCoordinates { :self |
-		let [rho, phi, z] = self;
-		newCylindricalCoordinates().initializeSlots(self)
+	[CylindricalCoordinates, listToCylindricalCoordinates] { :self |
+		self.atVectorOrElementwise { :each |
+			let [rho, phi, z] = each;
+			newCylindricalCoordinates().initializeSlots(each)
+		}
 	}
 
 	fromCylindricalCoordinates { :self |
@@ -84,7 +82,7 @@ CylindricalCoordinates : [Object, Equal] { | coordinates |
 
 +Record {
 
-	asCylindricalCoordinates { :self |
+	CylindricalCoordinates { :self |
 		CylindricalCoordinates(
 			[
 				self['rho'],
@@ -98,7 +96,7 @@ CylindricalCoordinates : [Object, Equal] { | coordinates |
 
 +CartesianCoordinates {
 
-	asCylindricalCoordinates { :self |
+	CylindricalCoordinates { :self |
 		CylindricalCoordinates(
 			self.coordinates.toCylindricalCoordinates
 		)

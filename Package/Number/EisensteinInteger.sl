@@ -5,8 +5,8 @@ EisensteinInteger : [Object, Store, Equal] { | a b |
 	}
 
 	[times, *] { :self :operand |
-		let [a, b] = self.asList;
-		let [c, d] = operand.asList;
+		let [a, b] = self.components;
+		let [c, d] = operand.components;
 		EisensteinInteger(
 			(a * c) - (b * d),
 			(b * c) + (a * d) - (b * d)
@@ -14,15 +14,15 @@ EisensteinInteger : [Object, Store, Equal] { | a b |
 	}
 
 	[absoluteValue, abs] { :self |
-		self.asComplex.abs
+		Complex(self).abs
 	}
 
-	asComplex { :self |
+	Complex { :self |
 		let omega = (-1 + (0J1 * 3.sqrt)) / 2;
 		self.a + (self.b * omega)
 	}
 
-	asList { :self |
+	components { :self |
 		[self.a, self.b]
 	}
 

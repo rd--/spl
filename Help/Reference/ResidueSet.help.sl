@@ -130,6 +130,22 @@ Box notation:
 )
 ```
 
+The binary form answers a `ResidueSet` including a the collection _c_ and having modulus _m_.
+The unary form answers a `ResidueSet` given an object _x_ for which a modulus can be inferred.
+
+```
+>>> ResidueSet([0 5 10 15 20 25 30 35], 4)
+>>> .List
+[0 1 2 3]
+```
+
+The unary form infers the modulus, i.e. at `String`:
+
+```
+>>> ResidueSet'101011010101'
+ResidueSet([0 2 4 5 7 9 11], 12)
+```
+
 * * *
 
 See also: commonResidue, IdentitySet, leastResidueSystem, Residue, Set

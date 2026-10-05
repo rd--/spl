@@ -1,9 +1,73 @@
 # List
 
 - _List(n, x=nil)_
+- _List(c)_
 
 `List` is a sequential collection `Type`.
 Lists may have any length or depth.
+
+At `Integer`,
+answer a new list of the specified size,
+with the specified default value:
+
+```
+>>> List(5, 0)
+[0 0 0 0 0]
+
+>>> List(5)
+[nil nil nil nil nil]
+```
+
+At `Collection`,
+answer a `List` whose elements are the elements of _x_.
+
+If the collection is a `List`, answer it directly.
+
+```
+>>> let a = [1 2 3 4 5];
+>>> let b = List(a);
+>>> (b, b == a)
+([1 2 3 4 5], true)
+```
+
+At `Tuple`:
+
+```
+>>> (1, 2, 3).List
+[1 2 3]
+```
+
+At `Record`,
+answer an association list:
+
+```
+>>> (x: 1, y: 2, z: 3).List
+['x' -> 1, 'y' -> 2, 'z' -> 3]
+
+>>> (x: 1, y: 2, z: 3).associations
+['x' -> 1, 'y' -> 2, 'z' -> 3]
+
+>>> (x: 1, y: 2, z: 3).values
+[1 2 3]
+```
+
+At `Multiset`:
+
+```
+>>> Multiset[1 2 2 3 3 3 4 4 4 4]
+>>> .List
+[1 2 2 3 3 3 4 4 4 4]
+```
+
+At `NumericArray` answers the `normal` `List` array:
+
+```
+>>> NumericArray[1 2; 3 4; 5 6].List
+[1 2; 3 4; 5 6]
+
+>>> NumericArray[1 2; 3 4; 5 6].normal
+[1 2; 3 4; 5 6]
+```
 
 Traits implemented by `List`:
 
@@ -168,7 +232,7 @@ OEIS [A091978](https://oeis.org/A091978):
 
 * * *
 
-See also: #, !, asList, asCollection, ByteArray, enclose, Float64Array, nest, Type
+See also: #, !, asCollection, ByteArray, enclose, Float64Array, nest, Type
 
 Guides: List Syntax, Vector Syntax
 
@@ -178,6 +242,7 @@ _Haskell_
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/List.html),
 _Smalltalk_
+5.7.1.3
 5.7.14,
 _W_
 [1](https://en.wikipedia.org/wiki/List)

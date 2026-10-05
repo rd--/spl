@@ -9,7 +9,7 @@ A square hexagonal grid:
 ~~~spl svg=A
 let c = [-5 -5; 5 5];
 [
-	c.asRectangle,
+	c.Rectangle,
 	c.rectangularHexagonalGrid
 ].LineDrawing
 ~~~
@@ -21,7 +21,7 @@ A rectangular hexagonal grid:
 ~~~spl svg=B
 let c = [-3 -3; 2 9];
 [
-	c.asRectangle,
+	c.Rectangle,
 	c.rectangularHexagonalGrid
 ].LineDrawing
 ~~~

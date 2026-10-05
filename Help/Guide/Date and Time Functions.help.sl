@@ -25,7 +25,7 @@ Converting:
 Accessors:
 
 - `absoluteTime`
-- `asList`
+- `components`
 - `centiseconds`
 - `dayOfMonth`
 - `dayOfWeek`

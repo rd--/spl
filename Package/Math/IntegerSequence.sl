@@ -645,7 +645,7 @@
 	inventorySequence { :terms |
 		let number = 0;
 		let answer = [0];
-		let inventory = [0].asIdentityMultiset;
+		let inventory = [0].IdentityMultiset;
 		2.toDo(terms) { :n |
 			let count = inventory.occurrencesOf(number);
 			number := (count = 0).if {
@@ -1560,7 +1560,7 @@
 	tagSystem { :m :r :i :k |
 		let word = i;
 		let answer = [word];
-		let rules = r.asMap;
+		let rules = r.Map;
 		let j = 2;
 		{ word.size >= m & { j <= k } }.whileTrue {
 			let initial = word.first;

@@ -6,7 +6,7 @@
 		let keepLetters = stepLetters ++ '+-';
 		let [plusAngle, minusAngle] = plusMinus;
 		(rule ++ ['+' -> '+', '-' -> '-'])
-		.asMap
+		.Map
 		.substitutionSystem(initialCondition, count)
 		.last
 		.select { :each |

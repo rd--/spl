@@ -30,22 +30,37 @@ The depression angle is the negative of the elevation angle.
 >>> 	2.sqrt,
 >>> 	1.pi / 4,
 >>> 	1.pi / 2
->>> ].asCartesianCoordinates
+>>> ].CartesianCoordinates
 CartesianCoordinates[1 1 0]
 
 >>> SphericalCoordinates[
 >>> 	3.sqrt,
 >>> 	0.25.pi,
 >>> 	2.sqrt.arcTan
->>> ].asCartesianCoordinates
+>>> ].CartesianCoordinates
 CartesianCoordinates[1 1 1]
+```
+
+`Record` case:
+
+```
+>>> SphericalCoordinates(r: 1, theta: 2, phi: 3)
+SphericalCoordinates[1 2 3]
+```
+
+`SphericalCoordinates` case, answer `identity`:
+
+```
+>>> let c = SphericalCoordinates[1 2 3];
+>>> SphericalCoordinates(c) == c
+true
 ```
 
 Where supported `r` is displayed as 𝑟, `rho` as ρ, `theta` as θ, and `phi` as φ.
 
 * * *
 
-See also: asCartesianCoordinates, CartesianCoordinates, fromSphericalCoordinates, PolarCoordinates, IsoSphericalCoordinates, PlanarCoordinates
+See also: CartesianCoordinates, fromSphericalCoordinates, PolarCoordinates, IsoSphericalCoordinates, PlanarCoordinates
 
 Guides: Coordinate System Functions, Geometry Functions
 

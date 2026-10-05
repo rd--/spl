@@ -250,12 +250,12 @@ Symbol : [Object, Store, Number, Integer, SymbolicObject, SymbolicBoolean, Symbo
 
 SymbolicExpression : [Object, Store, Number, SymbolicObject, SymbolicBoolean, SymbolicCompare, SymbolicNumber, Iterable] { | operator operands |
 
-	asTree { :self |
+	Tree { :self |
 		Tree(
 			self.operator,
 			self.operands.collect { :each |
 				each.isSymbolicExpression.if {
-					each.asTree
+					each.Tree
 				} {
 					Tree(each, [])
 				}
@@ -277,7 +277,7 @@ SymbolicExpression : [Object, Store, Number, SymbolicObject, SymbolicBoolean, Sy
 				}
 			}
 		};
-		common.asList
+		common.List
 	}
 
 	do { :self :aBlock/1 |
@@ -406,16 +406,16 @@ SymbolicExpression : [Object, Store, Number, SymbolicObject, SymbolicBoolean, Sy
 
 +Block {
 
-	asSymbolicExpression { :self :parameterNames |
+	SymbolicExpression { :self :parameterNames |
 		(self.numArgs = parameterNames.size).if {
 			self.apply(parameterNames.collect(Symbol/1))
 		} {
-			self.error('asSymbolicExpression: arity error')
+			self.error('Block>>SymbolicExpression: arity error')
 		}
 	}
 
-	asSymbolicExpression { :self |
-		self.asSymbolicExpression(
+	SymbolicExpression { :self |
+		self.SymbolicExpression(
 			'greek'.namedAlphabet.take(self.numArgs)
 		)
 	}

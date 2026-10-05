@@ -83,7 +83,7 @@ Specific Matrices:
 
 Converting:
 
-- `asList`: convert matrix to list of lists
+- `List`: convert matrix to list of lists
 - `asMatrix`: convert list of lists to matrix
 - `fromTrilinearVertexMatrix`
 

@@ -976,7 +976,7 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 					self.matchesRegularExpression('^[0-9A-Fa-f+-]+$')
 				}
 			]) {
-				let c = self.asList;
+				let c = self.characters;
 				(c[1] = '-' | { c[1] = '+' }).ifTrue {
 					c.removeAt!(1)
 				};

@@ -17,7 +17,7 @@ At `String`:
 Radix notation of list:
 
 ```
->>> 'Ascii'.asciiByteArray.asList
+>>> 'Ascii'.asciiByteArray.List
 [16r41 16r73 16r63 16r69 16r69]
 ```
 

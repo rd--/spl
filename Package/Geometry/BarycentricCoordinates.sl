@@ -1,6 +1,6 @@
 BarycentricCoordinates : [Object, Equal] { | coordinates |
 
-	asCartesianCoordinates { :self :aSimplex |
+	CartesianCoordinates { :self :aSimplex |
 		CartesianCoordinates(
 			(self.coordinates * aSimplex.coordinates).sum
 		)

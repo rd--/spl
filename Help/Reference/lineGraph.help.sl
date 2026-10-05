@@ -23,8 +23,7 @@ The line graph of a directed graph:
 The line graph of the claw graph _K(1, 3)_ is a triangle:
 
 ```
->>> [1 2; 1 3; 1 4]
->>> .asGraph
+>>> Graph[1 2; 1 3; 1 4]
 >>> .lineGraph
 >>> .edgeList
 [1 2; 1 3; 2 3].asEdgeList
@@ -52,12 +51,10 @@ The line graph of the `pathGraph` of _n_ is isomorphic to the `pathGraph` of _n 
 The line graph of a bipartite graph is perfect:
 
 ```
->>> [
+>>> Graph[
 >>> 	1 3; 1 4; 1 5;
 >>> 	2 3; 2 4; 2 5
->>> ]
->>> .asGraph
->>> .lineGraph
+>>> ].lineGraph
 >>> .adjacencyMatrix
 [
 	0 1 1 1 0 0;

@@ -34,19 +34,19 @@ At `Map`:
 `IdentityMultiset` collates elements according `==` not `=`,
 i.e. `IdentityMultiset` is an identity bag, not an equality bag.
 
-To convert a `List` to an `IdentityMultiset` use `asIdentityMultiset`,
-to convert a `IdentityMultiset` to an `IdentitySet` use `asIdentitySet`,
-to convert a `IdentityMultiset` to a `List` use `asList`:
+To convert a `List` to an `IdentityMultiset` use `IdentityMultiset`,
+to convert a `IdentityMultiset` to an `IdentitySet` use `IdentitySet`,
+to convert a `IdentityMultiset` to a `List` use `List`:
 
 ```
 >>> let a = [1 1 1 3 3 5];
 >>> let b = IdentityMultiset(a);
->>> let c = b.asIdentitySet;
+>>> let c = IdentitySet(b);
 >>> (
 >>> 	a.size,
 >>> 	b.size,
 >>> 	c.size,
->>> 	b.asList
+>>> 	b.List
 >>> )
 (6, 6, 3, a)
 ```

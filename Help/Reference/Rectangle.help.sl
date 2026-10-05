@@ -130,9 +130,25 @@ let r = Rectangle[-2 -1; 2 1];
 
 ![](Help/Image/Rectangle-E.svg)
 
+The archetypal Pythagorean triangle,
+as the enclosure of three squares:
+
+~~~spl svg=F
+[
+	Rectangle[0 -3; 3 0],
+	Rectangle[3 0; 7 4],
+	Rectangle[0 0; 5 5].rotate(
+		1/2.pi - (4 / 5).arcCos,
+		[0 0]
+	)
+].LineDrawing
+~~~
+
+![](Help/Image/Rectangle-F.svg)
+
 * * *
 
-See also: asPolygon, asRectangle, centeredRectangle, Circle, Line, LineDrawing, Point, Polygon, Triangle, unitSquare, vertexCoordinates
+See also: centeredRectangle, Circle, Line, LineDrawing, Point, Polygon, Triangle, unitSquare, vertexCoordinates
 
 Guides: Geometry Functions
 

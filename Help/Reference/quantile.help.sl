@@ -105,7 +105,7 @@ At `SortedList`:
 
 ```
 >>> [5 10 4 25 2 1]
->>> .asSortedList
+>>> .SortedList
 >>> .quantile(1 / 5, [0.5 0; 0 1])
 1.7
 ```

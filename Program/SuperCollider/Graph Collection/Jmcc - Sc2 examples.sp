@@ -193,7 +193,7 @@ let z = 0.4 * ( /* scale delayed part down */
 	)
 	+ g.reverse); /* add dry stereo pair with the channels reverse */
 let e = EnvLinen(2, 56, 2, 1, -4); /* one minute trapezoid envelope */
-z * EnvGen(1, 1, 0, 1, 2, e.asList) /* wrap a one minute envelope around entire sound */
+z * EnvGen(1, 1, 0, 1, 2, e) /* wrap a one minute envelope around entire sound */
 
 /********** Analogue daze (un-commented) ; Jmcc **********/
 let pattern = [55 63 60 63 57 65 62 65];
@@ -218,7 +218,7 @@ let x = Decay(Impulse(2, 0), 0.15) * LfNoise0(LfNoise1(0.3).MulAdd(6000, 8000)) 
 let g = [f(1, 8, 0.31, 0.2), f(0, 2, 0.13, 0.11)] + x;
 let z = 0.4 * (CombN(g, 0.375, 0.375, 5) + g.reverse);
 let e = EnvLinen(2, 56, 2, 1, -4); /* one minute trapezoid envelope */
-z * EnvGen(1, 1, 0, 1, 2, e.asList) /* wrap a one minute envelope around entire sound */
+z * EnvGen(1, 1, 0, 1, 2, e) /* wrap a one minute envelope around entire sound */
 
 /********** synthetic piano ; Jmcc **********/
 let n = 6; /* number of keys playing */

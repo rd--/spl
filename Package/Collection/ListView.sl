@@ -1,9 +1,5 @@
 ListView : [Object, Equal, Compare, Iterable, Indexable, Collection, Sequence] { | contents startIndex endIndex referenceIndex |
 
-	asList { :self |
-		self.contents.copyFromTo(self.startIndex, self.endIndex).asList
-	}
-
 	atIfAbsent { :self :index :ifAbsent/0 |
 		self.includesIndex(index).if {
 			self.contents[index + self.startIndex - self.referenceIndex]
@@ -49,6 +45,13 @@ ListView : [Object, Equal, Compare, Iterable, Indexable, Collection, Sequence] {
 		i.to(i + self.size - 1)
 	}
 
+	List { :self |
+		self
+		.contents
+		.copyFromTo(self.startIndex, self.endIndex)
+		.List
+	}
+
 	ListView { :self :startIndex :endIndex :referenceIndex |
 		ListView(
 			self.contents,
@@ -59,7 +62,7 @@ ListView : [Object, Equal, Compare, Iterable, Indexable, Collection, Sequence] {
 	}
 
 	printString { :self |
-		self.asList.printString
+		self.List.printString
 	}
 
 	put! { :self :index :value |

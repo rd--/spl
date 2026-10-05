@@ -4,7 +4,7 @@
 		y.isInteger.if {
 			nimMultiplication(
 				LargeInteger(x),
-				asLargeInteger(y)
+				LargeInteger(y)
 			).normal
 		} {
 			y.adaptToIntegerAndApply(
@@ -20,7 +20,7 @@
 
 	nimMultiplication { :x :y |
 		y.isInteger.if {
-			uncheckedNimMultiplication(x, asLargeInteger(y))
+			uncheckedNimMultiplication(x, LargeInteger(y))
 		} {
 			y.adaptToIntegerAndApply(x, nimMultiplication/2)
 		}

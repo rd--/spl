@@ -44,22 +44,6 @@ Triangle : [Object, Store, Equal, Geometry] { | vertexCoordinates |
 		self.vertexCoordinates.shoelaceFormula.abs
 	}
 
-	asPolygon { :self |
-		(self.embeddingDimension = 2).if {
-			self.vertexCoordinates.Polygon
-		} {
-			self.error('asPolygon: embeddingDimension not two')
-		}
-	}
-
-	asPolyhedron { :self |
-		(self.embeddingDimension = 3).if {
-			self.vertexCoordinates.Polyhedron
-		} {
-			self.error('asPolyhedron: embeddingDimension not three')
-		}
-	}
-
 	bevanCircle { :self |
 		self.excentralTriangle.circumcircle
 	}
@@ -568,6 +552,22 @@ Triangle : [Object, Store, Equal, Geometry] { | vertexCoordinates |
 		}
 	}
 
+	[Polygon, triangleToPolygon] { :self |
+		(self.embeddingDimension = 2).if {
+			self.vertexCoordinates.Polygon
+		} {
+			self.error('Polygon: embeddingDimension not two')
+		}
+	}
+
+	[Polyhedron, triangleToPolyhedron] { :self |
+		(self.embeddingDimension = 3).if {
+			self.vertexCoordinates.Polyhedron
+		} {
+			self.error('Polyhedron: embeddingDimension not three')
+		}
+	}
+
 	powerCircles { :self |
 		let [a, b, c] = self.vertexCoordinates;
 		let [p, q, r] = [a, b, c].medialTriangle;
@@ -585,15 +585,15 @@ Triangle : [Object, Store, Equal, Geometry] { | vertexCoordinates |
 	}
 
 	rotate { :self :theta :center |
-		self.asPolygon.rotate(theta, center).vertexCoordinates.Triangle
+		self.Polygon.rotate(theta, center).vertexCoordinates.Triangle
 	}
 
 	rotate { :self :theta |
-		self.asPolygon.rotate(theta).vertexCoordinates.Triangle
+		self.Polygon.rotate(theta).vertexCoordinates.Triangle
 	}
 
 	scale { :self :m |
-		self.asPolygon.scale(m).vertexCoordinates.Triangle
+		self.Polygon.scale(m).vertexCoordinates.Triangle
 	}
 
 	schifflerPoint { :self |
@@ -679,7 +679,7 @@ Triangle : [Object, Store, Equal, Geometry] { | vertexCoordinates |
 	}
 
 	svgFragment { :self :options |
-		self.asPolygon.svgFragment(options)
+		self.Polygon.svgFragment(options)
 	}
 
 	symmedianPoint { :self |
@@ -743,7 +743,7 @@ Triangle : [Object, Store, Equal, Geometry] { | vertexCoordinates |
 	}
 
 	translate { :self :operand |
-		self.asPolygon.translate(operand).vertexCoordinates.Triangle
+		self.Polygon.translate(operand).vertexCoordinates.Triangle
 	}
 
 	triangleCentre { :self :p/1 :f/3 |

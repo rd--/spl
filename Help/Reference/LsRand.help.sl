@@ -8,8 +8,8 @@ Select elements from the collection _c_ at random accoring to the random number 
 ```
 >>> LsRand([1 3 5 7 9], 99, Sfc32(891423))
 >>> .upToEnd
->>> .asIdentitySet
-[1 3 5 7 9].asIdentitySet
+>>> .IdentitySet
+[1 3 5 7 9].IdentitySet
 ```
 
 The ternary form is equivalent to `take` _k_ of the binary form:
@@ -17,8 +17,8 @@ The ternary form is equivalent to `take` _k_ of the binary form:
 ```
 >>> LsRand([1 3 5 7 9], Sfc32(891423))
 >>> .take(99)
->>> .upToEnd.asIdentitySet
-[1 3 5 7 9].asIdentitySet
+>>> .upToEnd.IdentitySet
+IdentitySet[1 3 5 7 9]
 ```
 
 Can be implemented using `BlockStream` and `atRandom`:
@@ -29,8 +29,8 @@ Can be implemented using `BlockStream` and `atRandom`:
 >>> } {
 >>> }.take(99)
 >>> .upToEnd
->>> .asIdentitySet
-[1 3 5 7 9].asIdentitySet
+>>> .IdentitySet
+IdentitySet[1 3 5 7 9]
 ```
 
 Randomly select from a list of odd integers:

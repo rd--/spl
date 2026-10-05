@@ -102,7 +102,7 @@ let k = 14;
 RunArray(
 	14.tchoukaillonNumbers.differences,
 	[2 .. k + 1]
-).asList.discretePlot
+).List.discretePlot
 ~~~
 
 ![](Help/Image/tchoukaillonNumbers-F.svg)

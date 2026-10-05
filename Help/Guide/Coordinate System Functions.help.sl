@@ -15,12 +15,12 @@ Types:
 
 Converting:
 
-- `asBarycentricCoordinates`
-- `asCartesianCoordinates`
-- `asCylindricalCoordinates`
-- `asPlanarCoordinates`
-- `asPolarCoordinates`
-- `asSphericalCoordinates`
+- `BarycentricCoordinates`
+- `CartesianCoordinates`
+- `CylindricalCoordinates`
+- `PlanarCoordinates`
+- `PolarCoordinates`
+- `SphericalCoordinates`
 
 Translating:
 

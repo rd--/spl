@@ -1,27 +1,27 @@
 # z
 
-- _z(aPoint)_
+- _z(p)_
 
 Answer the _z_-coordinate of a three dimensional Cartesian coordinate.
 
 At `List`, list must have three places:
 
 ```
->>> [1 2 3].asPoint.z
+>>> Point[1 2 3].z
 3
 ```
 
 At `Tuple`, tuple must have three places:
 
 ```
->>> (1, 2, 3).asPoint.z
+>>> (1, 2, 3).Point.z
 3
 ```
 
 At `Record`:
 
 ```
->>> (x: 1, y: 2, z: 3).asPoint.z
+>>> Point(x: 1, y: 2, z: 3).z
 3
 ```
 
@@ -31,9 +31,9 @@ At `CartesianCoordinates`:
 >>> CartesianCoordinates([1 2 3]).z
 3
 
->>> (x: 1, y: 2, z: 3)
->>> .asCartesianCoordinates
->>> .z
+>>> CartesianCoordinates(
+>>> 	x: 1, y: 2, z: 3
+>>> ).z
 3
 ```
 

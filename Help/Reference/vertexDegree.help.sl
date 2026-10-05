@@ -55,8 +55,7 @@ At a multigraph:
 Self-loops are counted twice:
 
 ```
->>> [1 2; 2 3; 3 1; 3 3]
->>> .asGraph
+>>> Graph[1 2; 2 3; 3 1; 3 3]
 >>> .vertexDegree
 [2 2 4]
 ```
@@ -103,7 +102,7 @@ Each vertex of a _k_-regular graph has the same vertex degree _k-1_:
 
 * * *
 
-See also: adjacencyMatrix, asGraph, vertexCount, vertexInDegree, vertexList, vertexOutDegree, Graph
+See also: adjacencyMatrix, Graph, vertexCount, vertexInDegree, vertexList, vertexOutDegree
 
 Guides: Graph Functions
 

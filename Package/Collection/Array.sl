@@ -501,11 +501,11 @@
 
 	iota { :count :start :step |
 		let end = start + (count - 1 * step);
-		Range(start, end, step).asList
+		Range(start, end, step).List
 	}
 
 	iota { :count |
-		Range(1, count, 1).asList
+		Range(1, count, 1).List
 	}
 
 	mooreNeighborhood { :dimensions :range |

@@ -19,6 +19,6 @@ true
 
 * * *
 
-See also: asList, assertIsCollection, List, nest
+See also: assertIsCollection, List, nest
 
 Categories: Converting

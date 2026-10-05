@@ -7,7 +7,7 @@ Map! : [Object, Copy, Store, Equal, Iterable, Indexable, Collection, Extensible,
 	}
 
 	encodeJson { :self :replacer :space |
-		self.asRecord.encodeJson(replacer, space)
+		self.Record.encodeJson(replacer, space)
 	}
 
 	comparator { :self |
@@ -121,7 +121,7 @@ Map! : [Object, Copy, Store, Equal, Iterable, Indexable, Collection, Extensible,
 		}
 	}
 
-	uncheckedAsRecord { :self |
+	uncheckedMapToRecord { :self |
 		<primitive: return Object.fromEntries(_self);>
 	}
 
@@ -155,7 +155,7 @@ Map! : [Object, Copy, Store, Equal, Iterable, Indexable, Collection, Extensible,
 		}
 	}
 
-	Map { :self |
+	[Map, listToMap] { :self |
 		self.isEmpty.if {
 			Map()
 		} {
@@ -171,12 +171,8 @@ Map! : [Object, Copy, Store, Equal, Iterable, Indexable, Collection, Extensible,
 		}
 	}
 
-	[listToMap, asMap] { :self |
-		Map(self)
-	}
-
 	substitutionSystem { :self :initialCondition :anInteger |
-		self.asMap.substitutionSystem(initialCondition, anInteger)
+		self.Map.substitutionSystem(initialCondition, anInteger)
 	}
 
 	uncheckedMatrixToMap { :self |
@@ -195,12 +191,8 @@ Map! : [Object, Copy, Store, Equal, Iterable, Indexable, Collection, Extensible,
 
 +Record {
 
-	Map { :self |
+	[Map, recordToMap] { :self |
 		<primitive: return new Map(Object.entries(_self));>
-	}
-
-	[recordToMap, asMap] { :self |
-		Map(self)
 	}
 
 }

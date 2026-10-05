@@ -123,11 +123,11 @@
 
 	quantile { :self :p :o |
 		self.isVector.if {
-			self.asSortedList(lessEqual/2).quantile(p, o)
+			self.SortedList(lessEqual/2).quantile(p, o)
 		} {
 			self.isMatrix.if {
 				self.transpose.collect { :each |
-					each.asSortedList(lessEqual/2).quantile(p, o)
+					each.SortedList(lessEqual/2).quantile(p, o)
 				}
 			} {
 				'Collection>>quantile: not vector or matrix'
@@ -301,7 +301,7 @@
 	}
 
 	median { :self |
-		self.asSortedList(precedes/2).median
+		self.SortedList(precedes/2).median
 	}
 
 	spearmanRho { :u :v |

@@ -49,7 +49,7 @@ A range with negative numbers:
 
 ```
 >>> let r = Range(0, 25, 5);
->>> (r.asList, r.differences)
+>>> (r.List, r.differences)
 ([0 5 10 15 20 25], [5 5 5 5 5])
 ```
 

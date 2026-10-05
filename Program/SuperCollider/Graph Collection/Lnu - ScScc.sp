@@ -40,7 +40,7 @@ let e = Env(
 	nil,
 	nil,
 	0
-).asList;
+);
 let t = TDuty(
 	Dseq(Infinity, 168044.integerDigits(3) / 5),
 	0,
@@ -115,7 +115,7 @@ Pan2(
 /* SCSCC-9 "1991" 234 bytes */
 let x = LfNoise2(1).kr + 1.002;
 let t = LfPulse(x * 4, 0, 0.9).kr;
-let e = Env([-8 8 0], [0.1 0.9], 3, nil, nil, 0).asList;
+let e = Env([-8 8 0], [0.1 0.9], 3, nil, nil, 0);
 let g = { EnvGen(t, 1, 0, 1.1 - x, 0, e).MidiRatio };
 let d = { LfTri({ Rand(1, 1.pi) } ! 4, 0) * [0 .. 3] / 66 + 1 };
 Splay(

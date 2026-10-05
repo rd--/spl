@@ -37,7 +37,7 @@ Set[[1 1]]
 
 * * *
 
-See also: asIdentitySet, Collection, IdentitySet, nub, Set
+See also: Collection, IdentitySet, nub, Set
 
 References:
 _Smalltalk_

@@ -32,8 +32,7 @@ A list of vertices adjacent to vertices one through five of an undirected graph:
 Edges incident to vertex one of an undirected graph:
 
 ```
->>> [1 2; 1 3; 1 5; 1 6; 4 5; 4 6]
->>> .asGraph
+>>> Graph[1 2; 1 3; 1 5; 1 6; 4 5; 4 6]
 >>> .adjacencyList(1)
 [2 3 5 6]
 ```

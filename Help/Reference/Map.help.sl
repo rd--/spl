@@ -52,6 +52,56 @@ Construct a `Map` from an association list:
 ([0 -> -0], false, true)
 ```
 
+At a `List` of `Association` values:
+
+```
+>>> Map['x' -> 1, 'y' -> 2]
+Map['x' 1; 'y' 2]
+
+>>> Map[]
+Map()
+
+>>> ['x' -> 1, 'y' -> 2]
+>>> .associationListToMap
+Map['x' -> 1, 'y' -> 2]
+```
+
+At `Record`:
+
+```
+>>> Map(x: 1, y: 2)
+Map['x' 1; 'y' 2]
+```
+
+At `IdentityMultiset`:
+
+```
+>>> IdentityMultiset[1 2 2 3 3 3]
+>>> .Map
+Map[1 -> 1, 2 -> 2, 3 -> 3]
+```
+
+At a two column matrix,
+here a 3×2 matrix:
+
+```
+>>> [1 2; 3 4; 5 6].Map
+Map[1 -> 2, 3 -> 4, 5 -> 6]
+
+>>> [1 2; 3 4; 5 6]
+>>> .matrixToMap
+Map[1 -> 2, 3 -> 4, 5 -> 6]
+```
+
+It is an `error` if there are not two columns:
+
+```
+>>> {
+>>> 	[1 2 3; 4 5 6].Map
+>>> }.hasError
+true
+```
+
 The storage string format:
 
 ```
@@ -195,7 +245,7 @@ Note: `Map` is _IdentityDictionary_ in Smalltalk.
 
 * * *
 
-See also: asMap, Dictionary, isImmediate, Record
+See also: Dictionary, isImmediate, Record
 
 Guides: Dictionary Functions, Map Syntax
 

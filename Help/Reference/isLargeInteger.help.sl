@@ -18,7 +18,7 @@ false
 
 * * *
 
-See also: asLargeInteger, isInteger, isNumber, isSmallFloat, LargeInteger
+See also: isInteger, isNumber, isSmallFloat, LargeInteger
 
 Guides: Integer Functions, Type Predicates
 

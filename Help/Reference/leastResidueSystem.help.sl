@@ -11,6 +11,6 @@ ResidueSet([0 1 2 3], 4)
 
 * * *
 
-See also: asResidueSet, ResidueSet
+See also: ResidueSet
 
 Categories: Enumerating

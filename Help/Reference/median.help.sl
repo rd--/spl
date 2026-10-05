@@ -109,7 +109,7 @@ OEIS [A359893](https://oeis.org/A359893):
 
 * * *
 
-See also: asSortedList, isEven, isOdd, mean, middle
+See also: isEven, isOdd, mean, middle, SortedList
 
 Guides: Statistics Functions
 

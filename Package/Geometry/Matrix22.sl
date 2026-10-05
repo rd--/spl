@@ -9,7 +9,7 @@ Matrix22 : [Object, Equal] { | a b c d |
 		)
 	}
 
-	asList { :self |
+	components { :self |
 		[self.a, self.b, self.c, self.d]
 	}
 
@@ -86,7 +86,7 @@ Matrix22 : [Object, Equal] { | a b c d |
 
 +List {
 
-	asMatrix22 { :self |
+	Matrix22 { :self |
 		let [a, b, c, d] = self;
 		Matrix22(a, b, c, d)
 	}

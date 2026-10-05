@@ -13,12 +13,12 @@ IdentityMultiset : [Object, Copy, Store, Equal, Iterable, Collection, Extensible
 		self
 	}
 
-	asMap { :self |
-		self.contents
+	[IdentitySet, identityMultisetToIdentitySet] { :self |
+		IdentitySet(self.contents.keys)
 	}
 
-	[identityMultisetToIdentitySet, asIdentitySet] { :self |
-		IdentitySet(self.contents.keys)
+	[Map, identityMultisetToMap] { :self |
+		self.contents
 	}
 
 	postCopy { :self |

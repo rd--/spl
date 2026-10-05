@@ -16,7 +16,7 @@ With `String` keys:
 
 ```
 >>> Map['x' 1; 'y' 2; 'z' 3]
->>> .asRecord
+>>> .Record
 (x: 1, y: 2, z: 3)
 ```
 

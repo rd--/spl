@@ -102,7 +102,7 @@ Simple attribute parser:
 >>> 	} {
 >>> 		parts[2]
 >>> 	}
->>> }.asRecord
+>>> }.Record
 (x: 'A', y: '', z: 'C')
 ```
 

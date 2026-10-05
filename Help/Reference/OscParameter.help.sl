@@ -11,10 +11,10 @@ The type letters are:
 - _s_: string
 
 ```
->>> OscParameter('i', 23).asRecord
+>>> OscParameter('i', 23).Record
 (type: 'i', value: 23)
 
->>> OscParameter('f', 3.141).asRecord
+>>> OscParameter('f', 3.141).Record
 (type: 'f', value: 3.141)
 ```
 
@@ -24,11 +24,41 @@ There is also a set of standard non-standard type letters:
 - _d_: float (64-bit)
 - _m_: midi message (4-byte)
 
-To infer a type for a value see `asOscParameter`.
+The type letter _t_ can be inferred for numbers, strings and byte arrays.
+
+At `Integer`:
+
+```
+>>> OscParameter(23).Record
+(type: 'i', value: 23)
+```
+
+At `SmallFloat`:
+
+```
+>>> OscParameter(3.141).Record
+(type: 'f', value: 3.141)
+```
+
+At `String`:
+
+```
+>>> OscParameter'text'.Record
+(type: 's', value: 'text')
+```
+
+At `ByteArray`:
+
+```
+>>> ByteArray[1 3 5]
+>>> .OscParameter
+>>> .Record
+(type: 'b', value: ByteArray[1 3 5])
+```
 
 * * *
 
-See also: asOscParameter, asRecord, OscBundle, OscMessage
+See also: OscBundle, OscMessage, OscParameter, Record
 
 Guides: Protocol Functions
 

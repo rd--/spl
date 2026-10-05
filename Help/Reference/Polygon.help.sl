@@ -34,6 +34,22 @@ The `area`, `centroid` and `interiorAngles` of a pentagon:
 )
 ```
 
+At `Rectangle`:
+
+```
+>>> Rectangle([0 0], [1 1])
+>>> .Polygon
+Polygon([0 0; 1 0; 1 1; 0 1])
+```
+
+At `Triangle`:
+
+```
+>>> Triangle([0 0], [1 0], [0 1])
+>>> .Polygon
+Polygon([0 0; 1 0; 0 1])
+```
+
 Regular hexagonal tiling:
 
 ~~~spl svg=A

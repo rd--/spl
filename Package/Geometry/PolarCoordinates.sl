@@ -1,27 +1,23 @@
 PolarCoordinates : [Object, Store, Equal] { | coordinates |
 
-	asPolarCoordinates { :self |
-		self
-	}
-
-	asRecord { :self |
-		(r: self.r, theta: self.theta)
-	}
-
-	asPlanarCoordinates { :self |
-		PlanarCoordinates([self.x, self.y])
-	}
-
 	isOrigin { :self |
 		self.r.isZero
+	}
+
+	[List, polarCoordinatesToList] { :self |
+		self.coordinates.copy
 	}
 
 	phi { :self |
 		self.theta
 	}
 
-	[polarCoordinatesToList, asList] { :self |
-		self.coordinates.copy
+	PlanarCoordinates { :self |
+		PlanarCoordinates([self.x, self.y])
+	}
+
+	PolarCoordinates { :self |
+		self
 	}
 
 	r { :self |
@@ -30,6 +26,10 @@ PolarCoordinates : [Object, Store, Equal] { | coordinates |
 
 	radius { :self |
 		self.coordinates[1]
+	}
+
+	Record { :self |
+		(r: self.r, theta: self.theta)
 	}
 
 	rho { :self |
@@ -67,10 +67,6 @@ PolarCoordinates : [Object, Store, Equal] { | coordinates |
 
 +List {
 
-	asPolarCoordinates { :self |
-		PolarCoordinates(self)
-	}
-
 	fromPolarCoordinates { :self |
 		self.atVectorOrElementwise { :v |
 			let [r, theta] = v;
@@ -103,13 +99,11 @@ PolarCoordinates : [Object, Store, Equal] { | coordinates |
 
 +Record {
 
-	asPolarCoordinates { :self |
-		PolarCoordinates(
-			[
+	PolarCoordinates { :self |
+		PolarCoordinates[
 				self['r'],
 				self['theta']
-			]
-		)
+		]
 	}
 
 }

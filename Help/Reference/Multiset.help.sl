@@ -18,7 +18,7 @@ At a `List`:
 
 ```
 >>> Multiset[1 1 1 2 2 3]
->>> .asList
+>>> .List
 [1 1 1 2 2 3]
 ```
 
@@ -40,7 +40,7 @@ The type `Multiset` collates elements according `=`, see also `IdentityMultiset`
 >>> 	a.size,
 >>> 	b.size,
 >>> 	c.size,
->>> 	b.asList
+>>> 	b.List
 >>> )
 (6, 6, 3, a)
 ```
@@ -133,9 +133,36 @@ Multiset(
 )
 ```
 
-To convert a collection to a `Multiset` use `collectionToMultiset` (or `asMultiset`),
-to convert a `Multiset` to a `Set` use `multisetToSet` (or `asSet`),
-to convert a `Multiset` to a `List` use `multitsetToList` (or `asList`).
+Convert the list _x_ to a `Multiset`.
+At a `List` of integers:
+
+```
+>>> Multiset[1 1 1 3 3 5]
+>>> .sortedElements
+[1 -> 3, 3 -> 2, 5 -> 1]
+
+>>> Multiset[1 1 1 3 3 5]
+>>> .sortedCounts
+[3 -> 1, 2 -> 3, 1 -> 5]
+```
+
+Count occurrences of characters in a string:
+
+```
+>>> 'occurrences'
+>>> .characters
+>>> .Multiset
+>>> .sortedCounts
+[
+	3 -> 'c',
+	2 -> 'e', 2 -> 'r',
+	1 -> 's', 1 -> 'n', 1 -> 'u', 1 -> 'o'
+]
+```
+
+To convert a collection to a `Multiset` use `collectionToMultiset` (or `Multiset`),
+to convert a `Multiset` to a `Set` use `multisetToSet` (or `Set`),
+to convert a `Multiset` to a `List` use `multitsetToList` (or `List`).
 
 * * *
 
@@ -145,8 +172,10 @@ Guides: Set Functions
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/Multiset.html),
+[1](https://mathworld.wolfram.com/Multiset.html)
+[2](https://reference.wolfram.com/language/ref/Tally.html),
 _Smalltalk_
+5.7.1.4
 5.7.6,
 _W_
 [1](https://en.wikipedia.org/wiki/Multiset)

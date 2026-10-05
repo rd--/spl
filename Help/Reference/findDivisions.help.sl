@@ -9,14 +9,14 @@ In the ternary case, find divisions that are aligned to multiples of _m_.
 Find five divisions of the interval _(0, 1)_:
 
 ```
->>> (0 -- 1).findDivisions(5).asList
+>>> (0 -- 1).findDivisions(5).List
 [0 1/5 2/5 3/5 4/5 1]
 ```
 
 Find five divisions of the interval _(7, 95)_:
 
 ```
->>> (7 -- 95).findDivisions(5).asList
+>>> (7 -- 95).findDivisions(5).List
 [0 20 40 60 80 100]
 ```
 
@@ -24,7 +24,7 @@ Multiples of ten,
 OEIS [A008592](https://oeis.org/A008592):
 
 ```
->>> (7 -- 93).findDivisions(10).asList
+>>> (7 -- 93).findDivisions(10).List
 [0 10 20 30 40 50 60 70 80 90 100]
 
 >>> 0:10 * 10
@@ -34,7 +34,7 @@ OEIS [A008592](https://oeis.org/A008592):
 Division endpoints may be outside the initial range:
 
 ```
->>> (0.1 -- 0.9).findDivisions(5).asList
+>>> (0.1 -- 0.9).findDivisions(5).List
 [0 1/5 2/5 3/5 4/5 1]
 ```
 

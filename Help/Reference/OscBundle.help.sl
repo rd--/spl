@@ -7,7 +7,7 @@ An _Open Sound Control_ bundle consists of a time _t_ and a (possibly empty) mes
 ```
 >>> let t = 0;
 >>> let m = OscMessage('/x', []);
->>> OscBundle(t, [m]).asRecord
+>>> OscBundle(t, [m]).Record
 (
 	timeTag: (native: 0),
 	packets: [(address: '/x', args: [])]

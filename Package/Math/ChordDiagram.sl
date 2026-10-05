@@ -1,14 +1,14 @@
 ChordDiagram : [Object, Store] { | lengthVector |
 
 	chordDiagramPlot { :self |
-		self.asGraph.circularGraphPlot(
+		self.Graph.circularGraphPlot(
 			(
 				drawCircle: true
 			)
 		)
 	}
 
-	[chordDiagramToGraph, asGraph] { :self |
+	[Graph, chordDiagramToGraph] { :self |
 		Graph(
 			self.vertexList,
 			self.edgeList

@@ -8,7 +8,7 @@ A non-empty range:
 
 ```
 >>> 4.nonEmptyThenTo(2, -6)
->>> .asList
+>>> .List
 [4 2 0 -2 -4 -6]
 ```
 
@@ -20,7 +20,7 @@ Disallowed empty range:
 >>> }.hasError
 true
 
->>> 6.thenTo(8, 2).asList
+>>> 6.thenTo(8, 2).List
 []
 ```
 

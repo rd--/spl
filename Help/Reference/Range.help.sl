@@ -11,17 +11,17 @@ The range is closed, it includes both the lower and upper bound.
 >>> .concisePrintString
 '1:9'
 
->>> Range(1, 9).asList
+>>> Range(1, 9).List
 [1 2 3 4 5 6 7 8 9]
 
->>> Range(1, 9, 2).asList
+>>> Range(1, 9, 2).List
 [1 3 5 7 9]
 ```
 
 `step` may be negative:
 
 ```
->>> Range(9, 1, -2).asList
+>>> Range(9, 1, -2).List
 [9 7 5 3 1]
 ```
 
@@ -29,7 +29,7 @@ Count backwards by seven,
 OEIS [A115020](https://oeis.org/A115020):
 
 ```
->>> Range(100, 2, -7).asList
+>>> Range(100, 2, -7).List
 [
 	100  93  86  79  72  65
 	 58  51  44  37  30  23
@@ -44,11 +44,11 @@ in which case it is not a proper range:
 
 ```
 >>> let x = Range(1, 9, 3);
->>> (x.asList, x.isProper)
+>>> (x.List, x.isProper)
 ([1 4 7], false)
 
 >>> let x = Range(0, 10, 3);
->>> (x.asList, x.isProper)
+>>> (x.List, x.isProper)
 ([0 3 6 9], false)
 ```
 
@@ -56,7 +56,7 @@ Note in particular that with non-integer values _stop_ may not be in the list of
 
 ```
 >>> let x = Range(1.2, 2.2, 0.15);
->>> (x.size, x.asList, x.isProper)
+>>> (x.size, x.List, x.isProper)
 (
 	7,
 	[1.2 1.35 1.5 1.65 1.8 1.95 2.1],
@@ -82,7 +82,7 @@ which is handled specially:
 true
 
 >>> let a = Range(0, 1, 0.01);
->>> let b = a.asList;
+>>> let b = a.List;
 >>> (a.last > 1, b.last > 1, a.isProper)
 (false, false, true)
 ```
@@ -91,11 +91,11 @@ Fractional `Range` values can be exact:
 
 ```
 >>> Range(1/3, 7/3)
->>> .asList
+>>> .List
 [1/3 4/3 7/3]
 
 >>> Range(1/3, 3, 2/3)
->>> .asList
+>>> .List
 [1/3 1/1 5/3 7/3 3/1]
 ```
 
@@ -167,21 +167,21 @@ true
 Use a step of two:
 
 ```
->>> Range(1, 10, 2).asList
+>>> Range(1, 10, 2).List
 [1 3 5 7 9]
 ```
 
 Use a negative step:
 
 ```
->>> Range(10, 1, -1).asList
+>>> Range(10, 1, -1).List
 [10 9 8 7 6 5 4 3 2 1]
 ```
 
 Use a non-integer step:
 
 ```
->>> Range(0, 10, 1.pi).asList
+>>> Range(0, 10, 1.pi).List
 [0 3.14159 6.28319 9.42478]
 
 >>> Range(0, 2.pi, 0.5.pi).collect { :x |
@@ -203,7 +203,7 @@ Use a non-integer step:
 1237940039285380274899124224L
 
 >>> Range(2L ^ 90, 2L ^ 90 + 2, 2L)
->>> .asList
+>>> .List
 [
 	1237940039285380274899124224L
 	1237940039285380274899124226L
@@ -221,7 +221,7 @@ By convention a `Range` where the step is in the wrong direction is empty:
 
 ```
 >>> let r = Range(1, 0);
->>> (r.size, r.isEmpty, r.asList)
+>>> (r.size, r.isEmpty, r.List)
 (0, true, [])
 ```
 
@@ -237,7 +237,7 @@ true
 Floating point ranges are subject to floating point errors:
 
 ```
->>> (1.80, 1.85 .. 1.90).asList
+>>> (1.80, 1.85 .. 1.90).List
 [1.8 1.85]
 
 >>> (0 .. 2) * 0.05 + 1.8

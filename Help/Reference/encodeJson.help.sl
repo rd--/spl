@@ -59,7 +59,7 @@ Other dictionary types can be encoded by first translating them to records:
 
 ```
 >>> ['x' -> 3.141, 'y' -> 23]
->>> .asRecord
+>>> .Record
 >>> .encodeJson
 '{"x":3.141,"y":23}'
 ```

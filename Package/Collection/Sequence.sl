@@ -180,52 +180,6 @@
 		self.asDigitsAtInDo(1, aCollection, aBlock/1)
 	}
 
-	asRange { :self |
-		self.isEmpty.if {
-			Range(1, 0, 1)
-		} {
-			(self.size = 1).if {
-				Range(self.first, self.first, 1)
-			} {
-				self.isArithmeticProgression.if {
-					Range(self.first, self.last, self.second - self.first)
-				} {
-					self.error('@Sequence>>asRange: not an arithmetic series')
-				}
-			}
-		}
-	}
-
-	asRangeList { :self |
-		self.isEmpty.if {
-			[]
-		} {
-			(self.size = 1).if {
-				[Range(self.first, self.first, 1)]
-			} {
-				let answer = [];
-				let start = self.first;
-				let step = self.second - self.first;
-				(1 + 1).toDo(self.size) { :i |
-					(self[i] - self[i - 1] = step).ifFalse {
-						answer.add!(Range(start, self[i - 1], step));
-						start := self[i];
-						(i = self.size).if {
-							answer.add!(Range(self.last, self.last, 1));
-							start := nil
-						} {
-							step := self[i + 1] - self[i]
-						}
-					}
-				};
-				start.ifNotNil {
-					answer.add!(Range(start, self.last, step))
-				};
-				answer
-			}
-		}
-	}
-
 	assertShape { :self :shape |
 		self.assert {
 			self.shape = shape
@@ -685,6 +639,52 @@
 
 	deleteAdjacentDuplicates { :self |
 		self.deleteAdjacentDuplicates(equal/2)
+	}
+
+	deriveRange { :self |
+		self.isEmpty.if {
+			Range(1, 0, 1)
+		} {
+			(self.size = 1).if {
+				Range(self.first, self.first, 1)
+			} {
+				self.isArithmeticProgression.if {
+					Range(self.first, self.last, self.second - self.first)
+				} {
+					self.error('@Sequence>>deriveRange: not an arithmetic series')
+				}
+			}
+		}
+	}
+
+	deriveRangeList { :self |
+		self.isEmpty.if {
+			[]
+		} {
+			(self.size = 1).if {
+				[Range(self.first, self.first, 1)]
+			} {
+				let answer = [];
+				let start = self.first;
+				let step = self.second - self.first;
+				(1 + 1).toDo(self.size) { :i |
+					(self[i] - self[i - 1] = step).ifFalse {
+						answer.add!(Range(start, self[i - 1], step));
+						start := self[i];
+						(i = self.size).if {
+							answer.add!(Range(self.last, self.last, 1));
+							start := nil
+						} {
+							step := self[i + 1] - self[i]
+						}
+					}
+				};
+				start.ifNotNil {
+					answer.add!(Range(start, self.last, step))
+				};
+				answer
+			}
+		}
 	}
 
 	detectEquispacedTriple { :self :aBlock/3 |
@@ -1840,8 +1840,8 @@
 		let m = y.size;
 		let n = x.size;
 		[
-			List(m, x.asList),
-			List(n, y.asList).transpose
+			List(m, x.List),
+			List(n, y.List).transpose
 		]
 	}
 

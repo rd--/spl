@@ -35,10 +35,6 @@ Range : [Object, Copy, Store, Equal, Compare, Iterable, Collection, Indexable, S
 		}
 	}
 
-	asRange { :self |
-		self
-	}
-
 	concisePrintString { :self |
 		self.rangeLiteralSyntaxString
 	}
@@ -79,6 +75,10 @@ Range : [Object, Copy, Store, Equal, Compare, Iterable, Collection, Indexable, S
 		self.isEmpty.not & {
 			self.stop ~ self.last
 		}
+	}
+
+	Range { :self |
+		self
 	}
 
 	rangeLiteralSyntaxString { :self |
@@ -179,7 +179,7 @@ Range : [Object, Copy, Store, Equal, Compare, Iterable, Collection, Indexable, S
 		to.isSequence.if {
 			listRange([from], to, by)
 		} {
-			nonEmptyRange(from, to, by).asList
+			nonEmptyRange(from, to, by).List
 		}
 	}
 

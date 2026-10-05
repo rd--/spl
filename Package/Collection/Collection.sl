@@ -194,7 +194,7 @@
 	}
 
 	copyList { :self |
-		self.asList
+		self.List
 	}
 
 	copyWith { :self :newElement |
@@ -604,7 +604,7 @@
 	powerSetDo { :self :aBlock/1 |
 		let size = 2 ^ self.size;
 		let powersOfTwo = 2 ^ 0.to(self.size - 1);
-		let list = self.asList;
+		let list = self.List;
 		0.toDo(size - 1) { :i |
 			let subset = self.species.new;
 			powersOfTwo.withIndexDo { :each :j |

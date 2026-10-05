@@ -12,7 +12,7 @@ Accessing:
 
 Converting:
 
-- `asList`
+- `components`
 - `asMatrix`
 
 Predicates:

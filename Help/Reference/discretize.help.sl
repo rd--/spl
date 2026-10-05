@@ -8,13 +8,13 @@ Answer a sequence of _n_ places having a linear interpolation of the `Interval` 
 Odd _n_:
 
 ```
->>> (-0.5 -- 0.5).discretize(3).asList
+>>> (-0.5 -- 0.5).discretize(3).List
 [-0.5 0 0.5]
 
->>> (-0.5 -- 0.5).discretize(5).asList
+>>> (-0.5 -- 0.5).discretize(5).List
 [-0.5 -0.25 0 0.25 0.5]
 
->>> (-0.5 -- 0.5).discretize(9).asList
+>>> (-0.5 -- 0.5).discretize(9).List
 [
 	-0.5  -0.375 -0.25 -0.125
 	 0
@@ -32,13 +32,13 @@ true
 Even _n_:
 
 ```
->>> (0 -- 7).discretize(8).asList
+>>> (0 -- 7).discretize(8).List
 [0 1 2 3 4 5 6 7]
 
->>> (0 -- 14).discretize(8).asList
+>>> (0 -- 14).discretize(8).List
 [0 2 4 6 8 10 12 14]
 
->>> (0 -- 6).discretize(4).asList
+>>> (0 -- 6).discretize(4).List
 [0 2 4 6]
 ```
 

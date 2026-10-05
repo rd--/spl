@@ -84,7 +84,7 @@ LibraryItem(
 		libraryItem.collect { :i |
 			i.collect { :j |
 				j.collect { :k |
-					k.parseBase16.asList / 255
+					k.parseBase16.List / 255
 				}
 			}
 		}

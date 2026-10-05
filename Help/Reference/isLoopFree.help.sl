@@ -23,7 +23,7 @@ The adjacency matrix of a graph without self-loops has a zero diagonal:
 
 * * *
 
-See also: asGraph, Graph, isDirected, isUndirected
+See also: Graph, isDirected, isUndirected
 
 Guides: Graph Functions
 

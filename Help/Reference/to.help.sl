@@ -9,7 +9,7 @@ The ternary form allow setting the _by_ value, and is an alias for `toBy`.
 >>> 1.to(5)
 Range(1, 5, 1)
 
->>> to(6, 10).asList
+>>> to(6, 10).List
 [6 7 8 9 10]
 ```
 
@@ -17,10 +17,10 @@ If _j_ is less than _i_ the `Range` is empty:
 
 ```
 >>> let r = 5.to(1);
->>> (r.isEmpty, r.size, r.asList)
+>>> (r.isEmpty, r.size, r.List)
 (true, 0, [])
 
->>> 42.to(1).asList
+>>> 42.to(1).List
 []
 ```
 

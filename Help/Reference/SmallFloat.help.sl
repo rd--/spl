@@ -49,7 +49,7 @@ the boolean parameter indicates if the encoding is in little (`true`) or big (`f
 
 ```
 >>> [1 2 3 4 5].collect { :x |
->>> 	x.encodeFloat32(true).asList
+>>> 	x.encodeFloat32(true).List
 >>> }
 [
 	0 0 128  63;
@@ -64,7 +64,7 @@ There are also `encodeInt8`, `encodeInt16` and `encodeInt32` methods:
 
 ```
 >>> [-1 0 1].collect { :each |
->>> 	each.encodeInt8.asList
+>>> 	each.encodeInt8.List
 >>> }
 [
 	255;
@@ -73,7 +73,7 @@ There are also `encodeInt8`, `encodeInt16` and `encodeInt32` methods:
 ]
 
 >>> [-256 0 256].collect { :each |
->>> 	each.encodeInt16(true).asList
+>>> 	each.encodeInt16(true).List
 >>> }
 [
 	0 255;
@@ -82,7 +82,7 @@ There are also `encodeInt8`, `encodeInt16` and `encodeInt32` methods:
 ]
 
 >>> [-65536 0 65536].collect { :each |
->>> 	each.encodeInt32(true).asList
+>>> 	each.encodeInt32(true).List
 >>> }
 [
 	0 0 255 255;

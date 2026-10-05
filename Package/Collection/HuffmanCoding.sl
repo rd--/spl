@@ -57,9 +57,9 @@ HuffmanCoding : [Object, Store, Equal] { | symbolTable encoding |
 				};
 				heap.add!((low.key + high.key) -> (low.value ++ high.value))
 			};
-			heap.array.first.value.asMap
+			heap.array.first.value.Map
 		};
-		let symbolTable = self.asMultiset.huffmanSymbolTable;
+		let symbolTable = self.Multiset.huffmanSymbolTable;
 		HuffmanCoding(
 			symbolTable,
 			self.collect { :each |

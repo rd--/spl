@@ -59,18 +59,6 @@ PlanarCoordinates : [Object, Copy, Store, Equal, Compare, Indexable, CartesianCo
 		}
 	}
 
-	asPolarCoordinates { :self |
-		PolarCoordinates([self.radius, self.theta])
-	}
-
-	asRecord { :self |
-		(x: self.x, y: self.y)
-	}
-
-	asPlanarCoordinates { :self |
-		self
-	}
-
 	inverse { :self :inversionCenter :inversionRadius |
 		let x = self.x;
 		let y = self.y;
@@ -105,6 +93,17 @@ PlanarCoordinates : [Object, Copy, Store, Equal, Compare, Indexable, CartesianCo
 		atan2(self.y, self.x)
 	}
 
+	PlanarCoordinates { :self |
+		self
+	}
+
+	PolarCoordinates { :self |
+		PolarCoordinates[
+			self.radius,
+			self.theta
+		]
+	}
+
 	postCopy { :self |
 		self.coordinates := self.coordinates.copy
 	}
@@ -115,6 +114,10 @@ PlanarCoordinates : [Object, Copy, Store, Equal, Compare, Indexable, CartesianCo
 
 	radius { :self |
 		(self.x.square + self.y.square).sqrt
+	}
+
+	Record { :self |
+		(x: self.x, y: self.y)
 	}
 
 	rho { :self |
@@ -149,11 +152,9 @@ PlanarCoordinates : [Object, Copy, Store, Equal, Compare, Indexable, CartesianCo
 
 +List {
 
-	[PlanarCoordinates, asPlanarCoordinates] { :self |
-		self.isMatrix.if {
-			self.collect(PlanarCoordinates/1)
-		} {
-			let [x, y] = self;
+	PlanarCoordinates { :self |
+		self.atVectorOrElementwise { :each |
+			let [x, y] = each;
 			newPlanarCoordinates().initializeSlots([x, y])
 		}
 	}
@@ -162,8 +163,11 @@ PlanarCoordinates : [Object, Copy, Store, Equal, Compare, Indexable, CartesianCo
 
 +Record {
 
-	[PlanarCoordinates, asPlanarCoordinates] { :self |
-		PlanarCoordinates([self['x'], self['y']])
+	PlanarCoordinates { :self |
+		PlanarCoordinates[
+			self['x'],
+			self['y']
+		]
 	}
 
 }

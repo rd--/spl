@@ -125,24 +125,15 @@ Decimal : [Object, Store, Equal, Compare, Number] { | fraction scale |
 	}
 
 	asInteger { :self |
-		self.asLargeInteger.normal
+		self.LargeInteger.normal
 	}
 
 	asSmallInteger { :self |
-		self.asLargeInteger.asSmallInteger
+		self.LargeInteger.asSmallInteger
 	}
 
 	[asSmallFloat, asFloat] { :self |
 		self.fraction.asSmallFloat
-	}
-
-	asLargeInteger { :self |
-		/* 1.0D is not an integer... */
-		self.isInteger.if {
-			self.fraction.asLargeInteger
-		} {
-			self.error('Decimal>>asLargeInteger')
-		}
 	}
 
 	ceiling { :self |
@@ -208,6 +199,15 @@ Decimal : [Object, Store, Equal, Compare, Number] { | fraction scale |
 		self.fraction.numerator = 0
 	}
 
+	LargeInteger { :self |
+		/* 1.0D is not an integer... */
+		self.isInteger.if {
+			self.fraction.LargeInteger
+		} {
+			self.error('Decimal>>LargeInteger')
+		}
+	}
+
 	numerator { :self |
 		self.fraction.numerator
 	}
@@ -224,7 +224,7 @@ Decimal : [Object, Store, Equal, Compare, Number] { | fraction scale |
 		let scale = self.scale;
 		let fraction = self.fraction;
 		(scale = 0).if {
-			self.integerPart.asLargeInteger.uncheckedPrintString(10) ++ 'D'
+			self.integerPart.LargeInteger.uncheckedPrintString(10) ++ 'D'
 		} {
 			'%%.%D'.format(
 				[

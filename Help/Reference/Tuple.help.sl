@@ -5,9 +5,22 @@
 A `Type` holding an _n_-tuple.
 An _n_-tuple is an ordered heterogeneous set of _n_ elements.
 
+At `List`:
+
 ```
->>> Tuple([1 2 3])
+>>> Tuple[1 2 3]
 (1, 2, 3)
+```
+
+`Tuple` has a shallow `copy` of the list:
+
+```
+>>> let a = [1; 2; 3];
+>>> let b = Tuple(a);
+>>> a[2] := -2;
+>>> a[3][1] := -3;
+>>> (a, b)
+([1; -2; -3], ([1], [2], [-3]))
 ```
 
 There is a syntax for writing tuples, `Tuple Syntax`:

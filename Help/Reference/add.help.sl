@@ -13,7 +13,7 @@ At `IdentityMultiset`:
 ```
 >>> let b = IdentityMultiset();
 >>> b.add!('x');
->>> (b.add!('y'), b.size, b.asList)
+>>> (b.add!('y'), b.size, b.List)
 ('y', 2, ['x' 'y'])
 ```
 
@@ -34,7 +34,7 @@ At `Map`:
 >>> (
 >>> 	m.add!('y' -> 2),
 >>> 	m.size,
->>> 	m.asRecord
+>>> 	m.Record
 >>> )
 ('y' -> 2, 2, (x: 1, y: 2))
 ```
@@ -63,11 +63,11 @@ At `IdentitySet`,
 ```
 >>> let s = IdentitySet();
 >>> s.add!('x');
->>> (s.add!('y'), s.size, s.asList)
+>>> (s.add!('y'), s.size, s.List)
 ('y', 2, ['x' 'y'])
 
 >>> {
->>> 	[1].asIdentitySet.add!(1)
+>>> 	[1].IdentitySet.add!(1)
 >>> }.hasError
 true
 ```
@@ -87,7 +87,7 @@ true
 At `SortedList`:
 
 ```
->>> let l = [5 1 6 4].asSortedList;
+>>> let l = [5 1 6 4].SortedList;
 >>> l.add!(2);
 >>> l.addAll!([3 7]);
 >>> l.contents

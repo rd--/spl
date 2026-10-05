@@ -52,7 +52,7 @@
 	}
 
 	randomCycle { :self :anInteger |
-		anInteger.iota.sattoloShuffle!(self).asPermutation
+		anInteger.iota.sattoloShuffle!(self).Permutation
 	}
 
 	randomInteger { :self :range :shape |
@@ -86,7 +86,7 @@
 		let answer = nil;
 		{
 			let bytes = self.randomByteArray(k);
-			answer := bytes.asLargeInteger.bitAnd(m);
+			answer := bytes.LargeInteger.bitAnd(m);
 			answer <= 0 || (answer > max)
 		}.whileTrue;
 		answer
@@ -98,7 +98,7 @@
 
 	randomPermutation { :self :anInteger :shape |
 		{
-			self.fisherYatesShuffle!(anInteger.iota).asPermutation
+			self.fisherYatesShuffle!(anInteger.iota).Permutation
 		} ! shape
 	}
 
@@ -123,7 +123,7 @@
 	}
 
 	randomSampleSmallPool { :self :aCollection :count |
-		let pool = aCollection.asList;
+		let pool = aCollection.List;
 		let answer = [];
 		(count > aCollection.size).ifTrue {
 			count := aCollection.size

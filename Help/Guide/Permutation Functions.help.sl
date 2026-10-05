@@ -23,13 +23,13 @@ Accessing:
 
 Constructors:
 
-- `asPermutation`
+- `Permutation`
 - `cycles`
 - `faurePermutation`
 
 Converting:
 
-- `asPermutation`
+- `Permutation`
 
 Counting:
 

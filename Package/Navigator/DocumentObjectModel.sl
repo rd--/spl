@@ -211,7 +211,7 @@
 	tagName { :self | <primitive: return _self.tagName;> }
 
 	removeAllChildren { :self |
-		self.children.asList.do { :each |
+		self.children.htmlCollectionToList.do { :each |
 			each.remove
 		}
 	}
@@ -236,7 +236,7 @@
 	length { :self | <primitive: return _self.length;> }
 	namedItem { :self :aString | <primitive: return _self.namedItem(_aString);> }
 
-	asList { :self |
+	[List, htmlCollectionToList] { :self |
 		<primitive: return Array.from(_self);>
 	}
 
@@ -852,7 +852,7 @@ HTMLTableElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 +Association {
 
 	asHtmlRow { :self :toString/1 |
-		self.asList.asHtmlRow(toString/1)
+		self.keyAndValue.asHtmlRow(toString/1)
 	}
 
 }

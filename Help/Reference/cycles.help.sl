@@ -51,7 +51,7 @@ true
 
 * * *
 
-See also: asPermutation, Permutation, permutationReplace, permute
+See also: Permutation, permutationReplace, permute
 
 Guides: Permutation Functions
 

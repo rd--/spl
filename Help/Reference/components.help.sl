@@ -24,6 +24,14 @@ At `Complex`:
 [1 3]
 ```
 
+At `Quaternion`:
+
+```
+>>> Quaternion(1, 2, 3, 4)
+>>> .components
+[1 2 3 4]
+```
+
 At `Date`,
 answer _(year, month, day)_:
 
@@ -59,3 +67,9 @@ answer _(days, hours, minutes, seconds)_:
 See also: Complex, Date, DateAndTime, Duration, Fraction, List
 
 Guides: List Functions
+
+References:
+_J_
+[1](https://code.jsoftware.com/wiki/Vocabulary/xco#dyadic),
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/DateList.html),

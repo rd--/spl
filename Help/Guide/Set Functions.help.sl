@@ -12,10 +12,10 @@ Traits and Types:
 
 Converting:
 
-- `asSet`
-- `asMultiset`
-- `asIdentitySet`
-- `asIdentityMultiset`
+- `Set`
+- `Multiset`
+- `IdentitySet`
+- `IdentityMultiset`
 
 Counting:
 

@@ -12,16 +12,6 @@ Headers! : [Object] {
 		}
 	}
 
-	asRecord { :self |
-		<primitive:
-		const answer = {};
-		_self.forEach(function(value, key) {
-			answer[key] = value;
-		});
-		return answer;
-		>
-	}
-
 	contentType { :self |
 		self.atIfAbsent('Content-Type') {
 			''
@@ -36,6 +26,16 @@ Headers! : [Object] {
 		<primitive: return _self.set(_name, _value);>
 	}
 
+	Record { :self |
+		<primitive:
+		const answer = {};
+		_self.forEach(function(value, key) {
+			answer[key] = value;
+		});
+		return answer;
+		>
+	}
+
 	removeKey! { :self :name |
 		<primitive: return _self.delete(_name);>
 	}
@@ -44,7 +44,7 @@ Headers! : [Object] {
 
 +Record {
 
-	asHeaders { :self |
+	Headers { :self |
 		<primitive: return new Headers(_self);>
 	}
 

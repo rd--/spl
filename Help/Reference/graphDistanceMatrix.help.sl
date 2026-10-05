@@ -38,9 +38,8 @@ Answer the distance matrix of a directed graph:
 Answer the distance matrix of a weighted graph:
 
 ```
->>> let e = [1 2; 1 3; 1 4; 2 3; 3 4];
+>>> let g = Graph[1 2; 1 3; 1 4; 2 3; 3 4];
 >>> let w = [1.6 0.62 1.4 1.9 2.1];
->>> let g = e.asGraph;
 >>> g.edgeWeights!(w);
 >>> g.graphDistanceMatrix
 [

@@ -3,7 +3,7 @@
 +CrystalStructure {
 
 	asSvgElement { :self :scale :projection/1 |
-		self.asGraph.asSvgElement(scale, projection/1)
+		self.Graph.asSvgElement(scale, projection/1)
 	}
 
 	summary { :self |

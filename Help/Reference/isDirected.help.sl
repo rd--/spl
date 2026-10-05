@@ -8,7 +8,7 @@ A graph is directed if all of its edges are directed.
 
 ```
 >>> [1 --> 2, 2 --> 3, 3 --> 1]
->>> .asGraph
+>>> .Graph
 >>> .isDirected
 true
 ```
@@ -17,7 +17,7 @@ true
 
 ```
 >>> [1 --> 2, 2 --> 3, 3 --> 1]
->>> .asGraph
+>>> .Graph
 >>> .edgeList
 >>> .collect(isDirectedEdge/1)
 [true true true]

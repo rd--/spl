@@ -40,7 +40,7 @@ Decode `ByteArray` and Ascii `String`:
 ```
 >>> let e = 'ezEsIDIsIDMsIDQsIDV9';
 >>> let d = e.base64Decode;
->>> (d.asList, d.asciiString)
+>>> (d.List, d.asciiString)
 (
 	[
 		123  49  44  32  50

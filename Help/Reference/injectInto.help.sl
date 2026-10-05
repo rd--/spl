@@ -93,7 +93,7 @@ Find all possible sums of any of the elements of a list of numbers:
 ```
 >>> [1 2 2 8].injectInto([0]) { :i :j |
 >>> 	i.union(i + j)
->>> }.asList
+>>> }.List
 [0 1 2 3 4 5 8 9 10 11 12 13]
 ```
 

@@ -564,7 +564,7 @@
 			}
 		};
 		step(start);
-		answer.asSortedList.contents
+		answer.SortedList.contents
 	}
 
 	hammingNumbers { :end |
@@ -1247,7 +1247,7 @@
 	}
 
 	multiplicativeOrder { :k :n :r |
-		k := k.asLargeInteger;
+		k := k.LargeInteger;
 		r := r % n;
 		(n = 1).if {
 			1
@@ -1931,7 +1931,8 @@
 +@Integer {
 
 	figurateNumber { :self :k |
-		k.figurateNumber.blockValue(self)
+		let f/1 = k.figurateNumber;
+		f(self)
 	}
 
 }

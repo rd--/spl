@@ -61,7 +61,7 @@ Valid indices start from `zero` and run to one less than the capacity:
 ```
 >>> let l = [0 2 4 5 7 9 11];
 >>> let b = BitSet(l, 12);
->>> (b.capacity, b.size, b.asString)
+>>> (b.capacity, b.size, b.String)
 (12, 7, '101011010101')
 ```
 
@@ -207,15 +207,15 @@ Copy `BitSet` and mutate copy:
 [1 0 1 0 1 1 0 1 0 1 0 1]
 ```
 
-`asString` answers a `String` of `capacity` places with '0' for indices that are 0 and '1' for indices that are 1:
+Answer a `String` of `capacity` places with '0' for indices that are 0 and '1' for indices that are 1:
 
 ```
 >>> BitSet([0 2 4 5 7 9 11], 12)
->>> .asString
+>>> .String
 '101011010101'
 
 >>> BitSet([0 2 5], 8)
->>> .asString
+>>> .String
 '10100100'
 ```
 
@@ -269,9 +269,41 @@ The `complement` of a `BitSet` is a `BitSet` with each bit having the `bitNot` o
 )
 ```
 
+At `List` requires a bit vector:
+
+```
+>>> [1 0 1 0 1 1 0 1 0 1 0 1]
+>>> .BitSet
+BitSet([0 2 4 5 7 9 11], 12)
+```
+
+At `String`:
+
+```
+>>> '101011010101'.BitSet
+BitSet([0 2 4 5 7 9 11], 12)
+```
+
+In the particular case of `ByteArray`,
+create a `BitSet` that utilises the given array as its backing store,
+deriving the `capacity` and the `tally` from the size and contents of the array.
+Print the 32-bit twos-complement encodings of five and negative five:
+
+```
+>>> 5.encodeInt32(true)
+>>> .BitSet
+>>> .String
+'10100000000000000000000000000000'
+
+>>> -5.encodeInt32(true)
+>>> .BitSet
+>>> .String
+'11011111111111111111111111111111'
+```
+
 * * *
 
-See also: add, asBitSet, at, bitAt, clearBitAt, includes, put, remove, ResidueSet, setBitAt
+See also: add, at, bitAt, clearBitAt, includes, put, remove, ResidueSet, setBitAt
 
 Guides: Bitwise Functions
 

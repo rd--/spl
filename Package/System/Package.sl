@@ -131,7 +131,7 @@ Package! : [Object, Equal, Compare] {
 			]) {
 				self.error('parsePackageHeader: unknown field', [key])
 			}
-		}.asRecord
+		}.Record
 	}
 
 	parseQualifiedPackageName { :self |

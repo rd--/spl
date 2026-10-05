@@ -19,8 +19,7 @@ A graph is undirected if all of its edges are undirected.
 A directed graph is not undirected:
 
 ```
->>> [1 -> 2, 2 -> 3, 3 -> 1]
->>> .asGraph
+>>> Graph[1 -> 2, 2 -> 3, 3 -> 1]
 >>> .isUndirected
 false
 ```
@@ -30,7 +29,7 @@ Mixed graphs are neither directed not undirected:
 ```
 >>> let d = [1 -> 2, 2 -> 3, 3 -> 1];
 >>> let u = [1 4; 4 5; 5 1];
->>> let g = (d ++ u).asGraph;
+>>> let g = Graph(d ++ u);
 >>> (g.isDirected, g.isUndirected)
 (false, false)
 ```

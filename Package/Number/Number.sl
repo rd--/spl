@@ -862,7 +862,7 @@
 					self.raisedToInteger(operand.negate).reciprocal
 				} {
 					operand.isLargeInteger.if {
-						self.asLargeInteger ^ operand
+						self.LargeInteger ^ operand
 					} {
 						self.raisedToSmallInteger(operand)
 					}

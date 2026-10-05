@@ -28,7 +28,7 @@ SoundFile(url).then { :soundFile |
 		channelData.typeOf
 	).postLine;
 	channelData
-	.asList
+	.List
 	.drop(1024 * 8)
 	.take(1024 * 1)
 	.linePlot

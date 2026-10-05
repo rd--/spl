@@ -17,8 +17,8 @@ Constructing:
 
 Converting:
 
-- `asList`
-- `asMatrix`
+- `normal`
+- `matrixForm`
 
 Predicates:
 

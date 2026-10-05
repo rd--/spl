@@ -95,6 +95,10 @@ Point : [Object, Store, Equal, Geometry, CartesianCoordinates] { | coordinates |
 		self.coordinateBoundingBox.transpose
 	}
 
+	coordinates { :self |
+		self
+	}
+
 	counterClockwiseVectorAngle { :u :v |
 		let theta = signedVectorAngle(u, v);
 		(theta < 0).if {
@@ -190,10 +194,8 @@ Point : [Object, Store, Equal, Geometry, CartesianCoordinates] { | coordinates |
 	}
 
 	Point { :self |
-		(self.rank > 1).if {
-			self.collect(Point/1)
-		} {
-			newPoint().initializeSlots(self)
+		self.atVectorOrElementwise { :each |
+			newPoint().initializeSlots(each)
 		}
 	}
 
@@ -302,7 +304,7 @@ Point : [Object, Store, Equal, Geometry, CartesianCoordinates] { | coordinates |
 
 +CartesianCoordinates {
 
-	asPoint { :self |
+	Point { :self |
 		Point(self.coordinates)
 	}
 
@@ -310,20 +312,20 @@ Point : [Object, Store, Equal, Geometry, CartesianCoordinates] { | coordinates |
 
 +Record {
 
-	asPoint { :self |
-		self.asCartesianCoordinates.asPoint
+	Point { :self |
+		self.CartesianCoordinates.Point
 	}
 
 }
 
-+[List, Tuple] {
++Tuple {
 
-	asPoint { :self |
-		Point(self.asList)
+	Point { :self |
+		Point(self.List)
 	}
 
 	coordinates { :self |
-		self.asList
+		self.List
 	}
 
 }

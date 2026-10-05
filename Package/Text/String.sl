@@ -47,7 +47,7 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Iterable, Indexable, Chara
 	}
 
 	asciiList { :self |
-		self.asciiByteArray.asList
+		self.asciiByteArray.List
 	}
 
 	asciiValue { :self |
@@ -90,10 +90,6 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Iterable, Indexable, Chara
 
 	assertIsString { :self |
 		self
-	}
-
-	asIdentitySet { :self |
-		IdentitySet(self.characters)
 	}
 
 	asString { :self |
@@ -460,6 +456,10 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Iterable, Indexable, Chara
 		}
 	}
 
+	IdentitySet { :self |
+		IdentitySet(self.characters)
+	}
+
 	includesBy { :self :letter :aBlock/2 |
 		self.characters.includesBy(letter.characterString, aBlock/2)
 	}
@@ -772,7 +772,6 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Iterable, Indexable, Chara
 	padLeft { :self :aList :aString |
 		<primitive: return _self.padStart(_aList[0], _aString);>
 	}
-
 
 	padRight { :self :aList :aString |
 		<primitive: return _self.padEnd(_aList[0], _aString);>
@@ -1088,7 +1087,7 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Iterable, Indexable, Chara
 	}
 
 	utf8List { :self |
-		self.utf8ByteArray.asList
+		self.utf8ByteArray.List
 	}
 
 	utf16List { :self |

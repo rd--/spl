@@ -20,12 +20,13 @@ SinOsc(
 Observe calculated `Env` parameters:
 
 ```
->>> EnvBreakPoint([0, 1, 1, 3, 0], -4).asList
+>>> EnvBreakPoint([0, 1, 1, 3, 0], -4)
+>>> .coordinateList
 [0 2 -99 -99 1 1 5 -4 0 2 5 -4]
 ```
 
 * * *
 
-See also: asEnvGen
+See also: EnvGen
 
 Guides: Unit Generators

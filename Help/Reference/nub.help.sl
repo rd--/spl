@@ -52,7 +52,7 @@ Take the two smallest numbers in a list:
 
 * * *
 
-See also: =, ==, asIdentitySet, copyWithoutIdenticalElements, deleteDuplicates, nubBy, nubSieve, Set
+See also: =, ==, copyWithoutIdenticalElements, deleteDuplicates, IdentitySet, nubBy, nubSieve, Set
 
 References:
 _Apl_

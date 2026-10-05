@@ -12,7 +12,7 @@ Plot : [Object] { | pageList format options |
 		let segments = self.pageList.collect { :each |
 			each.segmentPlotData(self.scale.scaleFunction)
 		}.catenate;
-		let r = segments.catenate.coordinateBoundingBox.asRectangle;
+		let r = segments.catenate.coordinateBoundingBox.Rectangle;
 		let w = r.width;
 		let h = r.height;
 		let dataRatio = (w / h);
@@ -476,7 +476,7 @@ Plot : [Object] { | pageList format options |
 		let q/1 = aProbabilityDistribution.quantile;
 		let x = (0 -- 1).discretize(k, q/1);
 		let r = y.minMax;
-		let i = (r[1] -- r[2]).discretize(50).asList;
+		let i = (r[1] -- r[2]).discretize(50).List;
 		[
 			[x, y].transpose,
 			[i, i].transpose
@@ -878,8 +878,8 @@ Plot : [Object] { | pageList format options |
 			f(Complex(a, b)).realImaginary
 		}.carpetPlot(
 			[
-				(p.real -- q.real).discretize(i).asList,
-				(p.imaginary -- q.imaginary).discretize(j).asList
+				(p.real -- q.real).discretize(i).List,
+				(p.imaginary -- q.imaginary).discretize(j).List
 			],
 			n
 		)
@@ -1846,7 +1846,7 @@ Plot : [Object] { | pageList format options |
 +List {
 
 	dotPlot { :self |
-		self.asMultiset.dotPlot
+		self.Multiset.dotPlot
 	}
 
 }

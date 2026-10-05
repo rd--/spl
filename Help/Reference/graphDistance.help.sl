@@ -30,9 +30,8 @@ Answer the distance between vertices of a directed graph:
 Answer the distance between vertices of a weighted graph:
 
 ```
->>> let e = [1 2; 1 3; 1 4; 2 3; 3 4];
+>>> let g = Graph[1 2; 1 3; 1 4; 2 3; 3 4];
 >>> let w = [1.1 0.62 1.4 1.9 2.1];
->>> let g = e.asGraph;
 >>> g.edgeWeights!(w);
 >>> g.graphDistance(2, 3)
 1.72
@@ -49,8 +48,7 @@ Find the distance between opposite corners of a `gridGraph` of size _(6, 6)_:
 The distance between two vertices belonging to different connected components is Infinity:
 
 ```
->>> [1 2; 2 3; 3 1; 4 5]
->>> .asGraph
+>>> Graph[1 2; 2 3; 3 1; 4 5]
 >>> .graphDistance(3, 5)
 Infinity
 ```

@@ -1,9 +1,5 @@
 GeoJson : [Object, Store] { | contents |
 
-	asRecord { :self |
-		self.contents
-	}
-
 	coordinates { :self |
 		self.isGeometry.if {
 			self.field('coordinates')
@@ -172,6 +168,10 @@ GeoJson : [Object, Store] { | contents |
 		} { :aRecord |
 			aRecord.at(key)
 		}
+	}
+
+	Record { :self |
+		self.contents
 	}
 
 	simplyConnectedPolygons { :self |

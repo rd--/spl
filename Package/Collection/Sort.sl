@@ -67,7 +67,7 @@
 	}
 
 	sort { :self |
-		self.asList.sort!
+		self.List.sort!
 	}
 
 	sort { :self :sortBlock/2 |

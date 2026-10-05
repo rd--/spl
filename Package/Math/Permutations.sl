@@ -22,7 +22,7 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 		let length = self.degree.max(aPermutation.degree);
 		aPermutation.apply(
 			self.apply(length.iota)
-		).ordering.asPermutation
+		).ordering.Permutation
 	}
 
 	apply { :self :aSequence |
@@ -55,10 +55,6 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 		self.ascents(less/2)
 	}
 
-	asPermutation { :self |
-		self
-	}
-
 	completeCycles { :self |
 		self
 		.permutationList
@@ -76,11 +72,11 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 	dictionary { :self |
 		1.toCollect(self.degree) { :i |
 			i -> self.image(i)
-		}.asMap
+		}.Map
 	}
 
 	[fixedPoints, permutationFixedPoints] { :self |
-		let support = self.support.asIdentitySet;
+		let support = self.support.IdentitySet;
 		let answer = [];
 		1.toDo(self.degree) { :each |
 			support.includes(each).ifFalse {
@@ -297,6 +293,10 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 		}
 	}
 
+	Permutation { :self |
+		self
+	}
+
 	permutationCycles { :self |
 		self.cycles
 	}
@@ -319,7 +319,7 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 				(p[d] > p[e]).ifTrue {
 					isIdentity := false;
 					p.swapWith!(d, e);
-					p.asPermutation.reducedWordsDo { :x |
+					p.Permutation.reducedWordsDo { :x |
 						x.add!(d);
 						aBlock(x)
 					};
@@ -380,7 +380,7 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 	}
 
 	stackSort { :self |
-		self.list.stackSort.asPermutation
+		self.list.stackSort.Permutation
 	}
 
 	storeString { :self |
@@ -402,7 +402,7 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 
 +List {
 
-	Permutation { :self |
+	[Permutation, listToPermutation] { :self |
 		self.isPermutationCycles.if {
 			self.uncheckedCyclesToPermutation
 		} {
@@ -435,10 +435,6 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 }
 
 +List {
-
-	[asPermutation, toPermutation] { :self |
-		Permutation(self)
-	}
 
 	cycles { :self |
 		self.isPermutationCycles.if {
@@ -863,7 +859,7 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 	}
 
 	permutationProduct { :self |
-		let entries = self.collect(asPermutation/1);
+		let entries = self.collect(Permutation/1);
 		entries.isEmpty.if {
 			[].cycles
 		} {
@@ -880,7 +876,7 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 	}
 
 	permutationReplace { :self :aPermutation |
-		aPermutation.asPermutation.replace(self)
+		aPermutation.Permutation.replace(self)
 	}
 
 	permutationRuns { :self |
@@ -933,7 +929,7 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 	}
 
 	permute { :self :anObject |
-		anObject.asPermutation.apply(self)
+		anObject.Permutation.apply(self)
 	}
 
 	reducedPermutation { :self |
@@ -957,7 +953,7 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 	rightInversionCountToPermutation { :self |
 		self
 		.rightInversionCountToPermutationList
-		.asPermutation
+		.Permutation
 	}
 
 	signature { :self |
@@ -995,7 +991,7 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 +@ArithmeticProgression {
 
 	permutationsDo { :self :aBlock/1 |
-		self.asList.permutationsDo(aBlock/1)
+		self.List.permutationsDo(aBlock/1)
 	}
 
 }
@@ -1099,7 +1095,7 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 
 	multisetPermutationsDo { :self :visit/1 |
 		self.multisetPermutationsDoLink { :each |
-			visit(each.asList)
+			visit(each.List)
 		}
 	}
 
@@ -1109,7 +1105,7 @@ Permutation : [Object, Store, Equal] { | cycles degree |
 		} {
 			let answer = [];
 			self.multisetPermutationsDoLink { :each |
-				answer.add!(each.asList)
+				answer.add!(each.List)
 			};
 			answer
 		}

@@ -24,10 +24,6 @@ List! : [Object, Copy, Store, Equal, Compare, Json, Iterable, Indexable, Collect
 		anObject
 	}
 
-	asList { :self |
-		self
-	}
-
 	atAllPut { :self :anObject |
 		<primitive:
 		_self.fill(_anObject);
@@ -143,6 +139,10 @@ List! : [Object, Copy, Store, Equal, Compare, Json, Iterable, Indexable, Collect
 
 	keySort! { :self |
 		self.sortOn!(key/1)
+	}
+
+	List { :self |
+		self
 	}
 
 	printString { :self :toString/1 |
@@ -380,7 +380,7 @@ List! : [Object, Copy, Store, Equal, Compare, Json, Iterable, Indexable, Collect
 
 +@Collection {
 
-	[collectionToList, asList] { :self |
+	[List, collectionToList] { :self |
 		let answer = List(self.size);
 		let index = 1;
 		self.do { :each |
@@ -394,7 +394,7 @@ List! : [Object, Copy, Store, Equal, Compare, Json, Iterable, Indexable, Collect
 
 +@Sequence {
 
-	[sequenceableToList, asList] { :self |
+	[List, sequenceToList] { :self |
 		let answer = List(self.size);
 		self.indicesDo { :index |
 			answer[index] := self[index]

@@ -64,16 +64,16 @@ At a `List` of `Range` values:
 Copying form at `NumericArray`:
 
 ```
->>> [1 2; 3 4].asNumericArray.transpose
-[1 3; 2 4].asNumericArray
+>>> [1 2; 3 4].NumericArray.transpose
+[1 3; 2 4].NumericArray
 
->>> [3 4].iota.asNumericArray.transpose
-[
+>>> [3 4].iota.NumericArray.transpose
+NumericArray[
 	1  5  9;
 	2  6 10;
 	3  7 11;
 	4  8 12
-].asNumericArray
+]
 ```
 
 In-place form at square `NumericArray`:

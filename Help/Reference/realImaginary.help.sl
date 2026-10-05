@@ -54,7 +54,7 @@ The dragon curve:
 
 * * *
 
-See also: asList, Complex, i, j, real, imaginary
+See also: Complex, components, i, j, real, imaginary
 
 Guides: Complex Number Functions, Quaternion Functions
 

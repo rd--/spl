@@ -34,7 +34,7 @@ Draw a lattice of two-dimensional points:
 let b = [3 8; -1 2];
 let c = b.coordinateBoundsArray([1 1]);
 let p = c.flatten(1).PointCloud;
-let r = b.transpose.asRectangle;
+let r = b.transpose.Rectangle;
 [p, r].LineDrawing
 ~~~
 
@@ -67,7 +67,7 @@ let f = { :o |
 [
 	f([0 0]).PointCloud,
 	f([0.5 0.25]).PointCloud,
-	b.transpose.asRectangle
+	b.transpose.Rectangle
 ].LineDrawing
 ~~~
 

@@ -188,6 +188,51 @@ x
 x
 ```
 
+Apply the block _f_ to symbols with names specified in the list _x_.
+At one argument `Block`:
+
+```
+>> { :x |
+>> 	x / 3 ^ 2
+>> }.SymbolicExpression(['x'])
+(^ (/ x 3) 2)
+```
+
+At two argument `Block`,
+with unicode symbols:
+
+```
+>> { :x :y |
+>> 	(2 * x) + (3 * y)
+>> }.SymbolicExpression(['α' 'β'])
+(+ (* 2 α) (* 3 β))
+```
+
+If the symbol names are elided the letters of the greek alphabet are used:
+
+```
+>> Hypotenuse/2
+>> .SymbolicExpression
+(sqrt (+ (* α α) (* β β)))
+```
+
+A function that is `one` if either _x_ or _y_ are close to `zero`:
+
+```
+>> { :x :y |
+>> 	(
+>> 		(x ~ 0) | {
+>> 			y ~ 0
+>> 		}
+>> 	).if {
+>> 		1
+>> 	} {
+>> 		0
+>> 	}
+>> }.SymbolicExpression
+(if (or (~ α 0) (~ β 0)) 1 0)
+```
+
 Plot the `Graph` of the `Tree` of a `SymbolicExpression`:
 
 ~~~spl svg=A
@@ -198,6 +243,6 @@ Plot the `Graph` of the `Tree` of a `SymbolicExpression`:
 
 * * *
 
-See also: asSymbolicExpression, isEqualSymbolicExpression, commonSubexpressions, name, printString, recogniseSymbolicExpression, Symbol
+See also: Block, isEqualSymbolicExpression, commonSubexpressions, name, printString, recogniseSymbolicExpression, Symbol
 
 Categories: Logic, Type

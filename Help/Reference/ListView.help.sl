@@ -32,7 +32,7 @@ Constructs a `ListView` from a `List`:
 >>> let b = ListView(a, 7, 13, 1);
 >>> (
 >>> 	a.size, a.indices, a.sum,
->>> 	b.size, b.indices, b.asList,
+>>> 	b.size, b.indices, b.List,
 >>> 	b.first, b.last, b.sum
 >>> )
 (
@@ -98,7 +98,7 @@ inclusive of each index:
 ```
 >>> let l = [1 3 2 4 6 5];
 >>> let v = ListView(l, 3, 5, 1);
->>> (v.size, v.asList)
+>>> (v.size, v.List)
 (3, [2 4 6])
 ```
 

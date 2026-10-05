@@ -105,7 +105,7 @@ DyckWord : [Object, Store] { | word tokens |
 	}
 
 	parenthesizationList { :self |
-		self.tree.asList.deepCollect { :unused | [] }
+		self.tree.List.deepCollect { :unused | [] }
 	}
 
 	partitionPlot { :self |

@@ -23,7 +23,7 @@ noting that the permutation contains three cycles:
 >>> let r = Sfc32(31415);
 >>> let x = [1 .. 17];
 >>> x.fisherYatesShuffle!(r);
->>> x.asPermutation
+>>> x.Permutation
 [
 	1 9 3 15 6 16 13;
 	2 17 8 4 11 5;

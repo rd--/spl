@@ -71,6 +71,20 @@ Scalar math at `NumericArray`:
 ]
 ```
 
+A 2×2 matrix from a nested `List`:
+
+```
+>>> NumericArray[1 2; 3 4].shape
+[2 2]
+```
+
+A 3×2×3 array from a nested `List`:
+
+```
+>>> [3 2 3].iota.NumericArray.shape
+[3 2 3]
+```
+
 Elementwise math at `NumericArray`:
 
 ~~~spl svg=A
@@ -88,4 +102,4 @@ Guides: Array Functions, Matrix Functions, Vector Functions
 
 References:
 _Mathematica_
-[1](https://reference.wolframcloud.com/language/ref/NumericArray.html)
+[1](https://reference.wolfram.com/language/ref/NumericArray.html)

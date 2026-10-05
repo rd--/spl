@@ -53,7 +53,7 @@ ScSynth! : [Object] {
 	}
 
 	sendOsc { :self :oscPacket |
-		<primitive: return _self.sendOsc(_asRecord_1(_oscPacket));>
+		<primitive: return _self.sendOsc(_Record_1(_oscPacket));>
 	}
 
 	setControl { :self :index :value |
@@ -209,7 +209,7 @@ ScSynth! : [Object] {
 +Record {
 
 	localControls { :self |
-		<primitive: return _asRecord_1(sc.localControls(_self));>
+		<primitive: return _Record_1(sc.localControls(_self));>
 	}
 
 }

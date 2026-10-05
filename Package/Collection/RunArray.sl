@@ -12,30 +12,10 @@ RunArray : [Object, Equal, Store, Indexable] { | runLengths values cachedIndex c
 		}
 	}
 
-	asList { :self |
-		let answer = List(self.size);
-		self.withIndexDo { :each :index |
-			answer[index] := each
-		};
-		answer
-	}
-
 	associations { :self |
 		self.runLengthsAndValuesCollect { :key :value |
 			key -> value
 		}
-	}
-
-	asIdentityMultiset { :self |
-		let answer = IdentityMultiset();
-		self.runLengthsAndValuesDo { :run :value |
-			answer.addWithOccurrences!(value, run)
-		};
-		answer
-	}
-
-	asIdentitySet { :self |
-		self.values.asIdentitySet
 	}
 
 	allocatedSize { :self |
@@ -102,6 +82,18 @@ RunArray : [Object, Equal, Store, Indexable] { | runLengths values cachedIndex c
 		self.values[1]
 	}
 
+	IdentityMultiset { :self |
+		let answer = IdentityMultiset();
+		self.runLengthsAndValuesDo { :run :value |
+			answer.addWithOccurrences!(value, run)
+		};
+		answer
+	}
+
+	IdentitySet { :self |
+		self.values.IdentitySet
+	}
+
 	includes { :self :anObject |
 		self.values.includes(anObject)
 	}
@@ -116,6 +108,14 @@ RunArray : [Object, Equal, Store, Indexable] { | runLengths values cachedIndex c
 
 	last { :self |
 		self.values[self.values.size]
+	}
+
+	List { :self |
+		let answer = List(self.size);
+		self.withIndexDo { :each :index |
+			answer[index] := each
+		};
+		answer
 	}
 
 	postCopy { :self |
@@ -197,11 +197,14 @@ RunArray : [Object, Equal, Store, Indexable] { | runLengths values cachedIndex c
 
 +List {
 
-	asRunArray { :self |
-		self.asRunArrayWith(identity/1)
+	associationListToRunArray { :self |
+		RunArray(
+			self.collect(key/1),
+			self.collect(value/1)
+		)
 	}
 
-	asRunArrayWith { :self :aBlock/1 |
+	runArrayWith { :self :aBlock/1 |
 		let runLengths = [];
 		let values = [];
 		let lastLength = 0;
@@ -227,11 +230,8 @@ RunArray : [Object, Equal, Store, Indexable] { | runLengths values cachedIndex c
 		RunArray(runLengths, values)
 	}
 
-	associationListToRunArray { :self |
-		RunArray(
-			self.collect(key/1),
-			self.collect(value/1)
-		)
+	RunArray { :self |
+		self.runArrayWith(identity/1)
 	}
 
 	RunArray { :self :values |
@@ -243,11 +243,11 @@ RunArray : [Object, Equal, Store, Indexable] { | runLengths values cachedIndex c
 +List {
 
 	runLengths { :self |
-		self.asRunArray.runLengths
+		self.RunArray.runLengths
 	}
 
 	runLengthsOf { :self :anObject |
-		self.asRunArray.runLengthsOf(anObject)
+		self.RunArray.runLengthsOf(anObject)
 	}
 
 }

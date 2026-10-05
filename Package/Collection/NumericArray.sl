@@ -4,10 +4,6 @@ NumericArray : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, 
 		self.shape.size
 	}
 
-	asList { :self |
-		self.normal
-	}
-
 	atIfAbsent { :self :i :ifAbsent/0 |
 		(self.rank = 1).if {
 			self.contents.atIfAbsent(i, ifAbsent/0)
@@ -99,12 +95,12 @@ NumericArray : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, 
 		self.contents.keys
 	}
 
-	matrixPlot { :self |
-		self.normal.matrixPlot
+	[List, normal] { :self |
+		self.contents.List.reshape(self.shape)
 	}
 
-	normal { :self |
-		self.contents.asList.reshape(self.shape)
+	matrixPlot { :self |
+		self.normal.matrixPlot
 	}
 
 	rank { :self |
@@ -112,7 +108,7 @@ NumericArray : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, 
 	}
 
 	ravel { :self |
-		self.contents.asList
+		self.contents.List
 	}
 
 	size { :self |
@@ -210,7 +206,7 @@ NumericArray : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, 
 		NumericArray(contents, self.shape)
 	}
 
-	[NumericArray, asNumericArray] { :self |
+	NumericArray { :self |
 		NumericArray(self, 'Float64')
 	}
 

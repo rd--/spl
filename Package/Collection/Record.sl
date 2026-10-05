@@ -1,9 +1,5 @@
 Record! : [Object, Copy, Store, Equal, Json, Iterable, Indexable, Collection, Extensible, Dictionary] {
 
-	asRecord { :self |
-		self
-	}
-
 	atIfAbsent { :self :aString :ifAbsent/0 |
 		<primitive:
 		if(Object.hasOwn(_self, _aString)) {
@@ -82,6 +78,10 @@ Record! : [Object, Copy, Store, Equal, Json, Iterable, Indexable, Collection, Ex
 		self.error('put!: key not a string', [aString.typeOf])
 	}
 
+	Record { :self |
+		self
+	}
+
 	removeKeyIfAbsent! { :self :key :aBlock |
 		<primitive:
 		if(Object.hasOwn(_self, _key)) {
@@ -150,11 +150,7 @@ Record! : [Object, Copy, Store, Equal, Json, Iterable, Indexable, Collection, Ex
 
 +List {
 
-	asRecord { :self |
-		Record(self)
-	}
-
-	listToRecord { :self |
+	matrixToRecord { :self |
 		self.allSatisfy { :each |
 			each.isList & {
 				each.size = 2 & {
@@ -162,21 +158,21 @@ Record! : [Object, Copy, Store, Equal, Json, Iterable, Indexable, Collection, Ex
 				}
 			}
 		}.if {
-			self.uncheckedListToRecord
+			self.uncheckedMatrixToRecord
 		} {
-			self.error('List>>listToRecord')
+			self.error('List>>matrixToRecord')
 		}
 	}
 
 	Record { :self |
 		self.isAssociationList.if {
-			self.collect(keyAndValue/1).listToRecord
+			self.collect(keyAndValue/1).matrixToRecord
 		} {
-			self.listToRecord
+			self.matrixToRecord
 		}
 	}
 
-	uncheckedListToRecord { :self |
+	uncheckedMatrixToRecord { :self |
 		<primitive: return Object.fromEntries(_self);>
 	}
 
@@ -200,7 +196,7 @@ Record! : [Object, Copy, Store, Equal, Json, Iterable, Indexable, Collection, Ex
 			} {
 				parts[2]
 			}
-		}.asRecord
+		}.Record
 	}
 
 }

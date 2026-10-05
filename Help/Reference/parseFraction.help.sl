@@ -39,7 +39,7 @@ At `Record`:
 >>> .parseFraction
 2/3
 
->>> 2/3.asRecord
+>>> 2/3.Record
 (numerator: 2, denominator: 3)
 ```
 

@@ -20,15 +20,11 @@ HexagonalCoordinates : [Object, Store, Equal] { | coordinates |
 		HexagonalCoordinates(self.coordinates * aNumber)
 	}
 
-	asCartesianCoordinates { :self |
+	CartesianCoordinates { :self |
 		self
 		.coordinates
 		.fromHexagonalCoordinates
 		.CartesianCoordinates
-	}
-
-	asList { :self |
-		self.coordinates
 	}
 
 	euclideanDistance { :self :operand |
@@ -146,8 +142,8 @@ HexagonalCoordinates : [Object, Store, Equal] { | coordinates |
 
 	rectangularHexagonalGrid { :self |
 		self
-		.asRectangle
-		.asPolygon
+		.Rectangle
+		.Polygon
 		.vertexCoordinates
 		.polygonalHexagonalGrid
 	}

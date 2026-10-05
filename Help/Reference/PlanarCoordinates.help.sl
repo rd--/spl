@@ -15,7 +15,7 @@ and for converting to a `PolarCoordinates`:
 >>> 	p.x, p.y,
 >>> 	p.radius, p.theta,
 >>> 	p.rho, p.phi,
->>> 	p.asPolarCoordinates
+>>> 	PolarCoordinates(p)
 >>> )
 (
 	1, 1,
@@ -36,9 +36,24 @@ Threads over lists:
 ]
 ```
 
+`Record` case:
+
+```
+>>> PlanarCoordinates(x: 1, y: 2)
+PlanarCoordinates[1 2]
+```
+
+`PlanarCoordinates` case:
+
+```
+>>> let c = PlanarCoordinates[1 2];
+>>> c.PlanarCoordinates == c
+true
+```
+
 * * *
 
-See also: asPoint, asPolarCoordinates, asPlanarCoordinates, CartesianCoordinates, Point, PolarCoordinates, x, y
+See also: CartesianCoordinates, Complex, Point, PolarCoordinates
 
 Guides: Geometry Functions
 

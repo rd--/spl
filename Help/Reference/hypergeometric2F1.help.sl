@@ -151,7 +151,7 @@ Guides: Special Functions
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/HypergeometricFunction.html)
-[2](https://reference.wolframcloud.com/language/ref/Hypergeometric2F1.html),
+[2](https://reference.wolfram.com/language/ref/Hypergeometric2F1.html),
 _OEIS_
 [1](https://oeis.org/A010683),
 _W_

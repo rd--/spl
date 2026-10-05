@@ -9,13 +9,13 @@ This method is an alias for `Range` and also the ternary form of `to`.
 >>> 1.toBy(9, 2)
 Range(1, 9, 2)
 
->>> 1.toBy(9, 2).asList
+>>> 1.toBy(9, 2).List
 [1 3 5 7 9]
 
->>> Range(1, 9, 2).asList
+>>> Range(1, 9, 2).List
 [1 3 5 7 9]
 
->>> 9.toBy(1, -2).asList
+>>> 9.toBy(1, -2).List
 [9 7 5 3 1]
 ```
 

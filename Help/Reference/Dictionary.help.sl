@@ -2,6 +2,15 @@
 
 - _Dictionary([k₁ -> v₁, k₂ -> v₂, …])_
 
+At `List` of `Association` values:
+
+```
+>>> let l = [1 -> -1, 2 -> -2, 3 -> -3];
+>>> let d = Dictionary(l);
+>>> (l.size, d.size, d.keys, d.values)
+(3, 3, [1 2 3], [-1 -2 -3])
+```
+
 `Dictionary` is a `Trait` holding behaviours common to collections of associations,
 and also a `Type` representing a dictionary where keys are compared according to `=`,
 the equality operator.
@@ -146,7 +155,7 @@ Methods for enumerating:
 
 * * *
 
-See also: Association, Map, Record
+See also: Association, List, Map, Record
 
 Guides: Dictionary Functions, Dictionary Syntax
 

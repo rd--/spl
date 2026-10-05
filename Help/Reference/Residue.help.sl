@@ -19,11 +19,14 @@ Residue(3, 5)
 (3, 5)
 ```
 
-`asResidue` at a two-element sequence answers a `Residue`:
+`Residue` at a two-element sequence answers a `Residue`:
 
 ```
->>> [3 5].asResidue
+>>> [3 5].Residue
 3Z5
+
+>>> [3 5; 7 12].Residue
+[3Z5 7Z12]
 ```
 
 The literal syntax allows non-common residue values at the left:

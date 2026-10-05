@@ -18,10 +18,6 @@
 		self.uncheckedAddWithOccurrences(anObject, anInteger)
 	}
 
-	asMultiset { :self |
-		self
-	}
-
 	associations { :self |
 		self.contents.associations
 	}
@@ -81,6 +77,14 @@
 		self.sortedElements
 	}
 
+	[List, multitsetToList] { :self |
+		let answer = [];
+		self.do { :each |
+			answer.add!(each)
+		};
+		answer
+	}
+
 	max { :self |
 		self.contents.indices.reduce(max/2)
 	}
@@ -89,16 +93,8 @@
 		self.contents.indices.reduce(min/2)
 	}
 
-	[multitsetToList, asList] { :self |
-		let answer = [];
-		self.do { :each |
-			answer.add!(each)
-		};
-		answer
-	}
-
-	[multisetToSet, asSet] { :self |
-		self.contents.indices.asSet
+	Multiset { :self |
+		self
 	}
 
 	occurrencesOf { :self :anObject |
@@ -135,9 +131,15 @@
 		self.contents.removeAll!
 	}
 
-	setContents { :self :aDictionary |
+	[Set, multisetToSet] { :self |
+		self.contents.indices.Set
+	}
+
+	/*
+	setContents! { :self :aDictionary |
 		self.contents := aDictionary
 	}
+	*/
 
 	size { :self |
 		let tally = 0;
@@ -215,11 +217,7 @@ Multiset : [Object, Copy, Store, Equal, Iterable, Collection, Extensible, Unorde
 
 +Dictionary {
 
-	[dictionaryToMultiset, asMultiset] { :self |
-		Multiset(self)
-	}
-
-	Multiset { :self |
+	[Multiset, dictionaryToMultiset] { :self |
 		newMultiset().initializeSlots(self)
 	}
 
@@ -236,18 +234,18 @@ Multiset : [Object, Copy, Store, Equal, Iterable, Collection, Extensible, Unorde
 	}
 
 	sortedCounts { :self |
-		self.asMultiset.sortedCounts
+		self.Multiset.sortedCounts
 	}
 
 	sortedElements { :self |
-		self.asMultiset.sortedElements
+		self.Multiset.sortedElements
 	}
 
 }
 
 +@Collection {
 
-	[collectionToMultiset, asMultiset] { :self |
+	[Multiset, collectionToMultiset] { :self |
 		let answer = Multiset();
 		answer.addAll!(self);
 		answer
@@ -264,7 +262,7 @@ Multiset : [Object, Copy, Store, Equal, Iterable, Collection, Extensible, Unorde
 +List {
 
 	commonest { :self |
-		let byCount = self.asMultiset.sortedCounts;
+		let byCount = self.Multiset.sortedCounts;
 		let count = byCount.first.key;
 		byCount.select { :each |
 			each.key = count
@@ -272,11 +270,11 @@ Multiset : [Object, Copy, Store, Equal, Iterable, Collection, Extensible, Unorde
 	}
 
 	counts { :self |
-		self.asMultiset.sortedElements
+		self.Multiset.sortedElements
 	}
 
 	multisetIntersection { :self |
-		self.collect(asMultiset/1).reduce(intersection/2)
+		self.collect(Multiset/1).reduce(intersection/2)
 	}
 
 }

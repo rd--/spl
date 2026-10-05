@@ -7,7 +7,7 @@ Answer `true` if the value was not already 1, else false.
 
 ```
 >>> let b = BitSet([1 3 9], 10);
->>> (b.setBitAt(6), b.asList)
+>>> (b.setBitAt(6), b.List)
 (true, [1 3 6 9])
 ```
 

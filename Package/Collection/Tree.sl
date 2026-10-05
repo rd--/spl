@@ -74,8 +74,33 @@ Tree : [Object, Store, Equal, Iterable, Indexable] { | value subTrees |
 		self.leaves
 	}
 
+	[Graph, treeToGraph] { :self |
+		let nodeId = 1;
+		let vertexLabels = [];
+		let labeledTree = self.collect { :each |
+			let answer = nodeId -> each;
+			nodeId := nodeId + 1;
+			vertexLabels.add!(each);
+			answer
+		};
+		let edgeList = [];
+		labeledTree.do { :i |
+			i.subTrees.collect { :j |
+				edgeList.add!(
+					DirectedEdge(
+						i.value.key,
+						j.value.key
+					)
+				)
+			}
+		};
+		let graph = edgeList.Graph;
+		graph.vertexLabels!(vertexLabels);
+		graph
+	}
+
 	graphPlot { :self |
-		self.asGraph.graphPlot
+		self.Graph.graphPlot
 	}
 
 	includesValue { :self :anObject |
@@ -160,6 +185,21 @@ Tree : [Object, Store, Equal, Iterable, Indexable] { | value subTrees |
 		answer
 	}
 
+	[List, treeToList] { :self |
+		let subLists = self.subTrees.collect { :each |
+			each.isLeaf.if {
+				each.value
+			} {
+				each.List
+			}
+		};
+		self.value.ifNil {
+			subLists
+		} {
+			[self.value] ++ subLists
+		}
+	}
+
 	matulaGoebelNumber { :self |
 		self.isLeaf.if {
 			1
@@ -198,47 +238,7 @@ Tree : [Object, Store, Equal, Iterable, Indexable] { | value subTrees |
 	}
 
 	treePlot { :self |
-		self.asGraph.treePlot
-	}
-
-	[treeToGraph, asGraph] { :self |
-		let nodeId = 1;
-		let vertexLabels = [];
-		let labeledTree = self.collect { :each |
-			let answer = nodeId -> each;
-			nodeId := nodeId + 1;
-			vertexLabels.add!(each);
-			answer
-		};
-		let edgeList = [];
-		labeledTree.do { :i |
-			i.subTrees.collect { :j |
-				edgeList.add!(
-					DirectedEdge(
-						i.value.key,
-						j.value.key
-					)
-				)
-			}
-		};
-		let graph = edgeList.asGraph;
-		graph.vertexLabels!(vertexLabels);
-		graph
-	}
-
-	[treeToList, asList] { :self |
-		let subLists = self.subTrees.collect { :each |
-			each.isLeaf.if {
-				each.value
-			} {
-				each.asList
-			}
-		};
-		self.value.ifNil {
-			subLists
-		} {
-			[self.value] ++ subLists
-		}
+		self.Graph.treePlot
 	}
 
 	values { :self |

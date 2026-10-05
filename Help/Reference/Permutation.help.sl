@@ -415,9 +415,30 @@ The sum of the `descents` is called the `majorIndex`:
 6
 ```
 
+A permutation in cyclic notation:
+
+```
+>>> Permutation[1 3 2; 4 5].list
+[3 1 2 5 4]
+```
+
+A permutation in one-line (permutation list) notation:
+
+```
+>>> Permutation[3 1 2 5 4].cycles
+[1 3 2; 4 5]
+```
+
+The empty list answers the identity permutation:
+
+```
+>>> Permutation[].isIdentity
+true
+```
+
 * * *
 
-See also: inversePermutation, permutationCycle, permutationList, permutationProduct, permutationPower, permute
+See also: cycles, inversePermutation, isPermutationCycles, isPemutationList, permutationCycle, permutationList, permutationProduct, permutationPower, permute
 
 Guides: Permutation Functions
 

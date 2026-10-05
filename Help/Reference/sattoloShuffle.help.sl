@@ -23,7 +23,7 @@ noting that the permutation contains only one cycle:
 >>> let r = Sfc32(38014);
 >>> let x = [1 .. 17];
 >>> x.sattoloShuffle!(r);
->>> x.asPermutation
+>>> x.Permutation
 [
 	[
 		1 7 14 5 11 2 17 16 6 10

@@ -7,7 +7,7 @@ Answers `true` if the graph _g_ has both directed and undirected edges, else `fa
 ```
 >>> let d = [1 -> 2, 2 -> 3, 3 -> 1];
 >>> let u = [1 4; 4 5; 5 1];
->>> let g = (d ++ u).asGraph;
+>>> let g = Graph(d ++ u);
 >>> (
 >>> 	g.isDirected,
 >>> 	g.isUndirected,
@@ -28,8 +28,7 @@ Answers `true` if the graph _g_ has both directed and undirected edges, else `fa
 Draw a mixed graph:
 
 ~~~spl svg=A
-[1 --> 2, 2 --- 3, 3 --> 1]
-.asGraph
+Graph[1 --> 2, 2 --- 3, 3 --> 1]
 .graphPlot
 ~~~
 

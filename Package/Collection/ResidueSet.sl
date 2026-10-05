@@ -23,20 +23,15 @@ ResidueSet : [Object, Store, Equal, Iterable, Collection, Extensible] { | conten
 		)
 	}
 
-	asBitSet { :self |
-		self.contents.asBitSet(self.modulus)
-	}
-
-	asList { :self |
-		self.positionVector
-	}
-
-	asIdentitySet { :self |
-		self.contents.copy
+	BitSet { :self |
+		BitSet(
+			self.contents,
+			self.modulus
+		)
 	}
 
 	bitString { :self |
-		self.asBitSet.asString
+		self.BitSet.String
 	}
 
 	bitVector { :self |
@@ -47,23 +42,31 @@ ResidueSet : [Object, Store, Equal, Iterable, Collection, Extensible] { | conten
 	}
 
 	boxNotation { :self |
-		self.asBitSet.boxNotation
+		self.BitSet.boxNotation
 	}
 
 	complement { :self |
-		self.asBitSet.complement.asResidueSet
+		self.BitSet.complement.ResidueSet
 	}
 
 	do { :self :aBlock/1 |
 		self.contents.do(aBlock/1)
 	}
 
+	IdentitySet { :self |
+		self.contents.copy
+	}
+
 	include! { :self :anInteger |
 		self.contents.include!(anInteger % self.modulus)
 	}
 
+	List { :self |
+		self.positionVector
+	}
+
 	positionVector { :self |
-		self.contents.asList.sort
+		self.contents.List.sort
 	}
 
 	size { :self |
@@ -100,10 +103,6 @@ ResidueSet : [Object, Store, Equal, Iterable, Collection, Extensible] { | conten
 
 +@Collection {
 
-	asResidueSet { :self :modulus |
-		ResidueSet(self, modulus)
-	}
-
 	ResidueSet { :self :modulus |
 		let r = newResidueSet().initializeSlots(IdentitySet(), modulus);
 		r.includeAll!(self % modulus);
@@ -114,7 +113,7 @@ ResidueSet : [Object, Store, Equal, Iterable, Collection, Extensible] { | conten
 
 +BitSet {
 
-	asResidueSet { :self |
+	ResidueSet { :self |
 		ResidueSet(
 			self.positionVector,
 			self.capacity
@@ -125,8 +124,8 @@ ResidueSet : [Object, Store, Equal, Iterable, Collection, Extensible] { | conten
 
 +String {
 
-	asResidueSet { :self |
-		self.asBitSet.asResidueSet
+	ResidueSet { :self |
+		self.BitSet.ResidueSet
 	}
 
 }

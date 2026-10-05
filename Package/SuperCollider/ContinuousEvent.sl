@@ -1,9 +1,5 @@
 ContinuousEvent : [Object] { | contents |
 
-	asList { :self |
-		self.contents
-	}
-
 	i { :self |
 		self.contents[5]
 	}
@@ -14,6 +10,10 @@ ContinuousEvent : [Object] { | contents |
 
 	k { :self |
 		self.contents[7]
+	}
+
+	List { :self |
+		self.contents
 	}
 
 	p { :self |
@@ -40,7 +40,7 @@ ContinuousEvent : [Object] { | contents |
 
 +List {
 
-	asContinuousEvent { :self |
+	ContinuousEvent { :self |
 		self.assertIsOfSize(8);
 		newContinuousEvent().initializeSlots(self.kr) /* control rate? */
 	}
@@ -50,15 +50,15 @@ ContinuousEvent : [Object] { | contents |
 +Void {
 
 	ContinuousEvent {
-		[0 0 0 0 0 0 0 0].asContinuousEvent
+		ContinuousEvent[0 0 0 0 0 0 0 0]
 	}
 
 }
 
 +Record {
 
-	asContinuousEvent { :self |
-		[
+	ContinuousEvent { :self |
+		ContinuousEvent[
 			self.atIfAbsent('w') { 0 },
 			self.atIfAbsent('x') { 0 },
 			self.atIfAbsent('y') { 0 },
@@ -67,12 +67,12 @@ ContinuousEvent : [Object] { | contents |
 			self.atIfAbsent('j') { 0 },
 			self.atIfAbsent('k') { 0 },
 			self.atIfAbsent('p') { 0 }
-		].asContinuousEvent
+		]
 	}
 
 	Voicer { :self :aBlock/1 |
-		self.multiChannelExpand.collect { :each |
-			aBlock(each.asContinuousEvent)
+		self.multiChannelExpand.collect { :x |
+			aBlock(ContinuousEvent(x))
 		}
 	}
 
@@ -90,7 +90,9 @@ ContinuousEvent : [Object] { | contents |
 	Voicer { :part :voice :voiceBlock/1 |
 		1.toCollect(voice) { :each |
 			let bus = part.voicerVoiceAddress(each);
-			ControlIn(8, bus).asContinuousEvent.voiceBlock
+			ContinuousEvent(
+				ControlIn(8, bus)
+			).voiceBlock
 		}
 	}
 
@@ -102,7 +104,9 @@ ContinuousEvent : [Object] { | contents |
 		1.toCollect(numVoices) { :voice |
 			ControlOut(
 				part.voicerVoiceAddress(voice),
-				voiceBlock().asContinuousEvent.asList
+				ContinuousEvent(
+					voiceBlock()
+				).List
 			)
 		}
 	}

@@ -29,7 +29,7 @@ ByteArray[
 >>> let b = s.utf8ByteArray;
 >>> (
 >>> 	n,
->>> 	b.asList,
+>>> 	b.List,
 >>> 	b.utf8String
 >>> )
 (8750, [226 136 174], '∮')
@@ -40,7 +40,7 @@ Plot Utf-8 code points of a String:
 ~~~spl svg=A
 'utf8ByteArray'
 .utf8ByteArray
-.asList
+.List
 .discretePlot
 ~~~
 
@@ -55,6 +55,6 @@ Guides: String Functions
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/ToCharacterCode.html)
-[2](https://reference.wolframcloud.com/language/ref/StringToByteArray.html)
+[2](https://reference.wolfram.com/language/ref/StringToByteArray.html)
 
 Categories: String, Encoding

@@ -40,7 +40,7 @@ Float64Array! : [Object, Copy, Store, Equal, Compare, Iterable, Indexable, Colle
 
 	Float64Array { :self |
 		self.isSmallFloatVector.if {
-			self.asList.uncheckedFloat64Array
+			self.List.uncheckedFloat64Array
 		} {
 			self.error('Float64Array: invalid input')
 		}

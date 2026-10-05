@@ -31,7 +31,7 @@
 	type { :self | <primitive: return _self.type;> }
 	version { :self | <primitive: return _self.version;> }
 
-	asRecord { :self |
+	Record { :self |
 		(
 			type: self.type,
 			id: self.id,
@@ -44,7 +44,7 @@
 	}
 
 	printString { :self |
-		self.asRecord.encodeJson(nil, '	')
+		self.Record.encodeJson(nil, '	')
 	}
 
 	pseudoSlotNameList { :self |

@@ -32,7 +32,7 @@ Converting:
 - `asCodePoint`
 - `asHexDigit`
 - `asHexString`
-- `asList`
+- `List`
 - `asLowerCase`
 - `asString`
 - `asUpperCase`

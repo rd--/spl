@@ -259,7 +259,7 @@ RegExp! : [Object, Store, Equal] {
 
 	stringReplace { :s :r |
 		r.isList.if {
-			s.replaceMultipleStrings(r.asRecord)
+			s.replaceMultipleStrings(r.Record)
 		} {
 			let a = r.key;
 			let b = r.value;

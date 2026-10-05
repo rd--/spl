@@ -469,7 +469,7 @@
 		n.factorial
 		*
 		dyadicRationals(x, n).sum { :k |
-			(-1 ^ digitSum((k * (2 ^ n)).asLargeInteger, 2)) * ((x - k) ^ n)
+			(-1 ^ digitSum((k * (2 ^ n)).LargeInteger, 2)) * ((x - k) ^ n)
 		}
 	}
 

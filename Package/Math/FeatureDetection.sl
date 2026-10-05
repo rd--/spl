@@ -164,7 +164,10 @@
 						(repeat.size * n) <= (k - i + 1)
 					}
 				).ifTrue {
-					[self.copyFromTo(1, i - 1), repeat.asList].return
+					[
+						self.copyFromTo(1, i - 1),
+						repeat.List
+					].return
 				}
 			};
 			[self, []]

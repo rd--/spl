@@ -49,7 +49,7 @@ At a complete _k_-ary tree:
 
 ```
 >>> 6.completeKaryTree(2)
->>> .asGraph
+>>> .Graph
 >>> .undirectedGraph
 >>> .findShortestPath(23, 57)
 [23 19 18 2 1 33 49 57]

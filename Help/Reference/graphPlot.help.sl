@@ -36,7 +36,7 @@ edges indicate that one number can been derived from the other by the insertion 
 		q.insertAt!(1, i);
 		j -> q.fromDigits(2)
 	}
-}.flatten.nub.asGraph.graphPlot
+}.flatten.nub.Graph.graphPlot
 ~~~
 
 ![](Help/Image/graphPlot-C.svg)
@@ -76,7 +76,7 @@ OEIS [A228853](https://oeis.org/A228853):
 	}.++
 }.nestList([[1, 2]], 6)
 .catenate
-.asGraph
+.Graph
 .graphPlot
 ~~~
 

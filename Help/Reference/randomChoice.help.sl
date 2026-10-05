@@ -122,7 +122,7 @@ At `IdentitySet`:
 
 ```
 >>> let r = Sfc32(31052);
->>> let c = [1 .. 9].asIdentitySet;
+>>> let c = IdentitySet[1 .. 9];
 >>> c.randomChoice(r, [3 3])
 [
 	4 8 5;

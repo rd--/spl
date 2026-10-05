@@ -20,7 +20,7 @@
 						methodSet := system.typeMethodDictionary(path[1]).values.select { :each |
 							each.origin.name != 'Object'
 						};
-						methodSet.collect(qualifiedName/1).asList.sort!
+						methodSet.collect(qualifiedName/1).List.sort!
 					},
 					2 -> {
 						selectedMethod := methodSet.detect { :each |

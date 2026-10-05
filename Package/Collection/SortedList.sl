@@ -27,16 +27,15 @@ SortedList : [Object, Copy, Store, Equal, Compare, Iterable, Indexable, Collecti
 		aCollection
 	}
 
-	asList { :self |
-		self.contents.copy
-	}
-
 	atIfAbsent { :self :index :ifAbsent/0 |
 		self.contents.atIfAbsent(index, ifAbsent/0)
 	}
 
 	collect { :self :aBlock/1 |
-		self.contents.collect(aBlock/1).asSortedList(self.sortBlock)
+		self
+		.contents
+		.collect(aBlock/1)
+		.SortedList(self.sortBlock)
 	}
 
 	do { :self :aBlock/1 |
@@ -72,6 +71,10 @@ SortedList : [Object, Copy, Store, Equal, Compare, Iterable, Indexable, Collecti
 		} {
 			0
 		}
+	}
+
+	List { :self |
+		self.contents.copy
 	}
 
 	median { :self |
@@ -182,12 +185,12 @@ SortedList : [Object, Copy, Store, Equal, Compare, Iterable, Indexable, Collecti
 
 +@Collection {
 
-	[SortedList, asSortedList] { :self |
-		SortedList(self.asList)
+	SortedList { :self :sortBlock/2 |
+		SortedList(self.List, sortBlock/2)
 	}
 
-	[SortedList, asSortedList] { :self :sortBlock/2 |
-		SortedList(self.asList, sortBlock/2)
+	SortedList { :self |
+		SortedList(self.List)
 	}
 
 }

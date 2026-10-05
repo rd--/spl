@@ -32,8 +32,8 @@ Querying:
 
 Converting:
 
-- `asGraph`
-- `asList`
+- `Graph`
+- `List`
 - `expressionTree`
 - `rulesTree`
 

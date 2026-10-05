@@ -46,14 +46,14 @@
 
 	binLists { :self :b |
 		self.binListsFor(
-			Range(b[1], b[2], b[3]).asList
+			Range(b[1], b[2], b[3]).List
 		)
 	}
 
 	binLists { :self :b1 :b2 |
 		self.binListsFor(
-			Range(b1[1], b1[2], b1[3]).asList,
-			Range(b2[1], b2[2], b2[3]).asList
+			Range(b1[1], b1[2], b1[3]).List,
+			Range(b2[1], b2[2], b2[3]).List
 		)
 	}
 
@@ -75,7 +75,7 @@
 	histogramList { :self :b |
 		let [start, stop, step] = b;
 		self.histogramListFor(
-			Range(start, stop, step).asList
+			Range(start, stop, step).List
 		)
 	}
 
@@ -83,7 +83,7 @@
 		let k = self.size.sqrt.ceiling + 1;
 		let [min, max] = self.minMax;
 		let b = (min -- max).findDivisions(k);
-		self.histogramListFor(b.asList)
+		self.histogramListFor(b.List)
 	}
 
 	scottsRule { :self |

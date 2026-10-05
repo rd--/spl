@@ -65,7 +65,7 @@ SortedList([1, 2, 3, 4, 5, 6])
 ```
 >>> SortedList(
 >>> 	[2J2 1J1 0J0 -1J-1]
->>> ).asList
+>>> ).List
 [0J0 -1J-1 1J1 2J2]
 ```
 
@@ -104,12 +104,13 @@ At `Range`:
 
 * * *
 
-See also: add, addAll, asSortedList, List, sort, sorted
+See also: add, addAll, List, sort, sorted
 
 Guides: List Functions
 
 References:
 _Smalltalk_
+5.7.1.9
 5.7.17.10
 
 Categories: Collection, Type

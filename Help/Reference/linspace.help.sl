@@ -11,7 +11,7 @@ At `SmallFloat`, create a `List` of seven evenly spaced points in the interval -
 >>> -5.linspace(5, 7)
 [-5 -10/3 -5/3 0 5/3 10/3 5]
 
->>> (-5 -- 5).discretize(7).asList
+>>> (-5 -- 5).discretize(7).List
 [-15 -10 -5 0 5 10 15] / 3
 ```
 

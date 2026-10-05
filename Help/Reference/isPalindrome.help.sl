@@ -144,7 +144,7 @@ The squares of 1, 11, 111 and so on are special palindromes:
 ```
 >>> 1:9.collect { :n |
 >>> 	let m = (n # [1]).fromDigits;
->>> 	m.asLargeInteger.square
+>>> 	m.LargeInteger.square
 >>> }
 [
 	1

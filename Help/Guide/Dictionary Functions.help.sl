@@ -37,9 +37,9 @@ Constructors:
 
 Converting:
 
-- `asDictionary`
-- `asMap`
-- `asRecord`
+- `Dictionary`
+- `Map`
+- `Record`
 
 Indexing:
 

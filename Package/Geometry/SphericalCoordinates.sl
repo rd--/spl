@@ -2,23 +2,14 @@
 
 SphericalCoordinates : [Object, Store, Equal] { | coordinates |
 
-	asSphericalCoordinates { :self |
-		self
+	azimuth { :self |
+		self.theta
 	}
 
-	asCartesianCoordinates { :self |
+	CartesianCoordinates { :self |
 		CartesianCoordinates(
 			self.coordinates.fromSphericalCoordinates
 		)
-	}
-
-	asRecord { :self |
-		let [r, theta, phi] = self.coordinates;
-		(radius: r, theta: theta, phi: phi)
-	}
-
-	azimuth { :self |
-		self.theta
 	}
 
 	elevation { :self |
@@ -37,6 +28,11 @@ SphericalCoordinates : [Object, Store, Equal] { | coordinates |
 		self.coordinates[3]
 	}
 
+	Record { :self |
+		let [r, theta, phi] = self.coordinates;
+		(radius: r, theta: theta, phi: phi)
+	}
+
 	r { :self |
 		self.coordinates[1]
 	}
@@ -47,6 +43,10 @@ SphericalCoordinates : [Object, Store, Equal] { | coordinates |
 
 	rho { :self |
 		self.radius
+	}
+
+	SphericalCoordinates { :self |
+		self
 	}
 
 	theta { :self |
@@ -86,10 +86,6 @@ SphericalCoordinates : [Object, Store, Equal] { | coordinates |
 
 +List {
 
-	asSphericalCoordinates { :self |
-		SphericalCoordinates(self)
-	}
-
 	fromSphericalCoordinates { :self |
 		self.isVector.if {
 			let [r, theta, phi] = self;
@@ -120,19 +116,19 @@ SphericalCoordinates : [Object, Store, Equal] { | coordinates |
 
 +Record {
 
-	asSphericalCoordinates { :self |
-		SphericalCoordinates([
+	SphericalCoordinates { :self |
+		SphericalCoordinates[
 			self['r'],
 			self['theta'],
 			self['phi']
-		])
+		]
 	}
 
 }
 
 +CartesianCoordinates {
 
-	asSphericalCoordinates { :self |
+	SphericalCoordinates { :self |
 		SphericalCoordinates(
 			self.coordinates.toSphericalCoordinates
 		)

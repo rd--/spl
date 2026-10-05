@@ -16,13 +16,13 @@ true
 ```
 
 Such a Tree has `nil` as the value of each non-leaf sub-tree,
-and can be converted to a nested `List` using `asList`.
+and can be converted to a nested `List` using `List`.
 Trees that have non-nil values at non-leaf sub-trees cannot be so converted.
 
 ```
 >>> [1, [2, [4, [7], 5], 3, [6, [8, 9]]]]
 >>> .expressionTree(nil)
->>> .asList
+>>> .List
 [1, [2, [4, [7], 5], 3, [6, [8, 9]]]]
 ```
 

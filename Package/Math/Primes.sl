@@ -56,7 +56,7 @@
 	}
 
 	distinctPrimeFactors { :self |
-		self.primeFactorization.asSet.asList
+		self.primeFactorization.Set.List
 	}
 
 	euclidNumber { :n |

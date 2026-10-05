@@ -67,23 +67,23 @@ Tree(
 ```
 
 In both cases,
-`asList` is the inverse:
+`List` is the inverse:
 
 ```
 >>> [1, [2, [3], 4], 5]
 >>> .expressionTree(nil)
->>> .asList
+>>> .List
 [1, [2, [3], 4], 5]
 
 >>> ['a', 1, ['b', 2, ['c', 3], 4], 5]
 >>> .expressionTree
->>> .asList
+>>> .List
 ['a', 1, ['b', 2, ['c', 3], 4], 5]
 ```
 
 * * *
 
-See also: asList, rulesTree, Tree
+See also: List, rulesTree, Tree
 
 Guides: Tree Functions
 

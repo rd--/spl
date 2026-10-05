@@ -30,7 +30,7 @@
 
 	isLyndonWord { :self |
 		let letters = self.nub.sort;
-		let alphabet = letters.withIndexCollect(->).asMap;
+		let alphabet = letters.withIndexCollect(->).Map;
 		self.isLyndonWord(alphabet)
 	}
 

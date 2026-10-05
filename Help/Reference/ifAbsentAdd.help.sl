@@ -11,7 +11,7 @@ At `IdentitySet`:
 >>> let s = IdentitySet();
 >>> let i = s.ifAbsentAdd!(1);
 >>> let j = s.ifAbsentAdd!(1);
->>> (s.asList, i, j)
+>>> (s.List, i, j)
 ([1], true, false)
 ```
 

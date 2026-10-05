@@ -5,7 +5,7 @@ let n = 180;
 		[1 .. index].collect { :each |
 			each.prime
 		}.scramble.keepAtMost(8)
-	}.++.asIdentitySet.asList;
+	}.++.IdentitySet.List;
 	let freq = primes.LinLin(primes.min, primes.max, 200, 10000) * (0.5 -- 1.5).atRandom;
 	let amp = { 0.4.atRandom } ! freq.size;
 	let decay = { 2.4.atRandom } ! freq.size;

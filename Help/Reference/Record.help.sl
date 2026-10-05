@@ -37,6 +37,9 @@ Construct a `Record` from an association list:
 ```
 >>> Record['x' -> 1, 'y' -> 2, 'z' -> 3]
 (x: 1, y: 2, z: 3)
+
+>>> Record['A' -> ['B' 'C']]
+(A: ['B' 'C'])
 ```
 
 There is a literal syntax for records.
@@ -62,13 +65,27 @@ true
 true
 ```
 
-There is a conversion method,
-`asRecord`,
-that is equivalent to `Record`:
+It is an `error` if the matrix does not have `String` items in the first column,
+or does not have two columns:
 
 ```
->>> ['x' -> 3.141, 'y' -> 23].asRecord
-(x: 3.141, y: 23)
+>>> {
+>>> 	Record[1 2; 3 4; 5 6]
+>>> }.hasError
+true
+
+>>> {
+>>> 	Record['x' 1 2; 'y' 3 4; 'z' 5 6]
+>>> }.hasError
+true
+```
+
+At a `Map`:
+
+```
+>>> Map['x' -> 1, 'y' -> 2, 'z' -> 3]
+>>> .Record
+(x: 1, y: 2, z: 3)
 ```
 
 A `Record` is a dictionary:
@@ -82,7 +99,7 @@ It is an `error` if any key is not a string:
 
 ```
 >>> {
->>> 	Record[1.pi -> 'pi']
+>>> 	Record['pi' -> 1.pi, 1.pi -> 'pi']
 >>> }.hasError
 true
 ```
@@ -127,7 +144,7 @@ and assocations are added at the end:
 
 * * *
 
-See also: asRecord, encodeJson, Association, Dictionary, Map
+See also: encodeJson, Association, Dictionary, List, Map
 
 Guides: Dictionary Functions, Record Syntax
 

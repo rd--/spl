@@ -6,10 +6,6 @@ Tuple : [Object, Copy, Store, Equal] { | contents |
 		self.contents.at(index)
 	}
 
-	asList { :self |
-		self.contents.copy
-	}
-
 	assertIsOfSize { :self :anInteger |
 		self.contents.assertIsOfSize(anInteger)
 	}
@@ -26,6 +22,10 @@ Tuple : [Object, Copy, Store, Equal] { | contents |
 
 	indices { :self |
 		self.contents.indices
+	}
+
+	List { :self |
+		self.contents.copy
 	}
 
 	postCopy { :self |
@@ -53,11 +53,7 @@ Tuple : [Object, Copy, Store, Equal] { | contents |
 +List {
 
 	Tuple { :self |
-		newTuple().initializeSlots(self)
-	}
-
-	asTuple { :self |
-		Tuple(self.copy)
+		newTuple().initializeSlots(self.copy)
 	}
 
 }

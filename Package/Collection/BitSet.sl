@@ -24,14 +24,6 @@ BitSet : [Object, Copy, Store, Equal, Iterable, Collection, Extensible] { | capa
 		anInteger
 	}
 
-	asString { :self |
-		let ascii = ByteArray(self.capacity);
-		self.bitsWithIndexDo { :each :index |
-			ascii[index + 1] := 48 + each
-		};
-		ascii.asciiString
-	}
-
 	bitAt { :self :anInteger |
 		let byteIndex = anInteger.bitShift(-3) + 1;
 		let bitIndex = 0 - anInteger.bitAnd(7);
@@ -66,10 +58,6 @@ BitSet : [Object, Copy, Store, Equal, Iterable, Collection, Extensible] { | capa
 		self.indices.do { :index |
 			aBlock(self.bitAt(index))
 		}
-	}
-
-	[bitSetToList, asList] { :self |
-		self.positionVector
 	}
 
 	bitsWithIndexDo { :self :aBlock/2 |
@@ -144,6 +132,10 @@ BitSet : [Object, Copy, Store, Equal, Iterable, Collection, Extensible] { | capa
 
 	isEmpty { :self |
 		self.tally = 0
+	}
+
+	[List, bitSetToList] { :self |
+		self.positionVector
 	}
 
 	occurrencesOf { :self :anObject |
@@ -225,6 +217,14 @@ BitSet : [Object, Copy, Store, Equal, Iterable, Collection, Extensible] { | capa
 		)
 	}
 
+	String { :self |
+		let ascii = ByteArray(self.capacity);
+		self.bitsWithIndexDo { :each :index |
+			ascii[index + 1] := 48 + each
+		};
+		ascii.asciiString
+	}
+
 }
 
 +@Integer {
@@ -241,10 +241,6 @@ BitSet : [Object, Copy, Store, Equal, Iterable, Collection, Extensible] { | capa
 }
 
 +@Collection {
-
-	asBitSet { :self :capacity |
-		BitSet(self, capacity)
-	}
 
 	BitSet { :self |
 		self.isBitVector.if {
@@ -268,19 +264,7 @@ BitSet : [Object, Copy, Store, Equal, Iterable, Collection, Extensible] { | capa
 
 }
 
-+@Sequence {
-
-	asBitSet { :self |
-		BitSet(self)
-	}
-
-}
-
 +String {
-
-	asBitSet { :self |
-		self.parseBitSet
-	}
 
 	BitSet { :self |
 		self.parseBitSet
@@ -298,9 +282,9 @@ BitSet : [Object, Copy, Store, Equal, Iterable, Collection, Extensible] { | capa
 
 +ByteArray {
 
-	asBitSet { :self :capacity |
+	BitSet { :self :capacity |
 		(self.size * 8 != capacity).if {
-			self.error('ByteArray>>asBitSet: incorrect capacity')
+			self.error('ByteArray>>BitSet: incorrect capacity')
 		} {
 			newBitSet().initializeSlots(
 				capacity,
@@ -310,8 +294,8 @@ BitSet : [Object, Copy, Store, Equal, Iterable, Collection, Extensible] { | capa
 		}
 	}
 
-	asBitSet { :self |
-		self.asBitSet(self.size * 8)
+	BitSet { :self |
+		BitSet(self, self.size * 8)
 	}
 
 }

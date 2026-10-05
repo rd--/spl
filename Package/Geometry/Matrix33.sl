@@ -4,7 +4,7 @@ Matrix33 : [Object, Equal] { | elements |
 
 	applyTo { :self :vector |
 		let [a, b, c, d, e, f, g, h, i] = self.elements;
-		let [x, y, z] = vector.asList;
+		let [x, y, z] = vector.List;
 		CartesianCoordinates(
 			(a * x) + (b * y) + (c * z),
 			(d * x) + (e * y) + (f * z),
@@ -12,7 +12,7 @@ Matrix33 : [Object, Equal] { | elements |
 		)
 	}
 
-	asList { :self |
+	components { :self |
 		self.elements.copy
 	}
 
@@ -78,18 +78,20 @@ Matrix33 : [Object, Equal] { | elements |
 +@Number {
 
 	Matrix33 { :self :b :c :d :e :f :g :h :i |
-		[self, b, c, d, e, f, g, h, i].asMatrix33
+		Matrix33[self, b, c, d, e, f, g, h, i]
 	}
 
 }
 
 +List {
 
-	asMatrix33 { :self |
-		(self.size != 9).if {
-			self.error('asMatrix33: not 9-element array')
-		} {
-			newMatrix33().initializeSlots(self)
+	Matrix33 { :self |
+		self.atVectorOrElementwise { :x |
+			(x.size != 9).if {
+				x.error('Matrix33: not 9-element array')
+			} {
+				newMatrix33().initializeSlots(x)
+			}
 		}
 	}
 

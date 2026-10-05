@@ -147,14 +147,14 @@ true
 `Interval` values can be converted to `Range` values using `discretize`:
 
 ```
->>> (1 -- 10).discretize(10).asList
+>>> (1 -- 10).discretize(10).List
 [1 2 3 4 5 6 7 8 9 10]
 ```
 
 or `subdivide`:
 
 ```
->>> (1 -- 10).subdivide(9).asList
+>>> (1 -- 10).subdivide(9).List
 [1 2 3 4 5 6 7 8 9 10]
 ```
 

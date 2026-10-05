@@ -8,12 +8,8 @@ Parallelogram : [Object, Equal, Geometry] { | origin vectorList |
 		b * h
 	}
 
-	asPolygon { :self |
-		Polygon(self.vertexCoordinates)
-	}
-
 	boundingBox { :self |
-		self.asPolygon.boundingBox
+		self.Polygon.boundingBox
 	}
 
 	dimension { :self |
@@ -30,8 +26,12 @@ Parallelogram : [Object, Equal, Geometry] { | origin vectorList |
 		v[2] - o[2]
 	}
 
+	Polygon { :self |
+		Polygon(self.vertexCoordinates)
+	}
+
 	svgFragment { :self :options |
-		self.asPolygon.svgFragment(options)
+		self.Polygon.svgFragment(options)
 	}
 
 	vertexCoordinates { :self |

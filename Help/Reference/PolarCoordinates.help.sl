@@ -17,7 +17,7 @@ with _0 <= theta < 2.pi_.
 >>> 	p.r, p.theta,
 >>> 	p.rho, p.phi,
 >>> 	p.x, p.y,
->>> 	p.asPlanarCoordinates
+>>> 	PlanarCoordinates(p)
 >>> )
 (
 	2.sqrt, 0.25.pi,
@@ -36,6 +36,21 @@ Threads over lists:
 	PolarCoordinates[2 1/2.pi],
 	PolarCoordinates[3 1/3.pi]
 ]
+```
+
+`Record` case:
+
+```
+>>> PolarCoordinates(r: 1, theta: 2)
+PolarCoordinates[1 2]
+```
+
+`PolarCoordinates` case:
+
+```
+>>> let c = PolarCoordinates[1 2];
+>>> PolarCoordinates(c) == c
+true
 ```
 
 * * *

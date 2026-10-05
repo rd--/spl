@@ -170,11 +170,11 @@ Constructors:
 
 Converting Functions:
 
-- `asCartesianCoordinates`
-- `asCylindricalCoordinates`
-- `asPlanarCoordinates`
-- `asPolarCoordinates`
-- `asSphericalCoordinates`
+- `CartesianCoordinates`
+- `CylindricalCoordinates`
+- `PlanarCoordinates`
+- `PolarCoordinates`
+- `SphericalCoordinates`
 - `degreesToRadians`
 - `hessianNormalForm`
 - `radiansToDegrees`

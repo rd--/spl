@@ -15,8 +15,7 @@ At an undirected graph:
 At a directed graph:
 
 ```
->>> [1 -> 2, 2 -> 3, 3 -> 1]
->>> .asGraph
+>>> Graph[1 -> 2, 2 -> 3, 3 -> 1]
 >>> .vertexList
 [1 2 3]
 ```

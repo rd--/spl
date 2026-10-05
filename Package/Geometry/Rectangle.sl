@@ -18,10 +18,6 @@ Rectangle : [Object, Store, Equal, Geometry] { | lowerLeft upperRight |
 		}
 	}
 
-	asPolygon { :self |
-		self.vertexCoordinates.Polygon
-	}
-
 	boundingBox { :self |
 		[
 			self.lowerLeft,
@@ -210,6 +206,10 @@ Rectangle : [Object, Store, Equal, Geometry] { | lowerLeft upperRight |
 		self.lowerLeft + (self.extent * relativePoint)
 	}
 
+	[Polygon, rectangleToPolygon] { :self |
+		self.vertexCoordinates.Polygon
+	}
+
 	randomPoint { :self :rng :shape |
 		{
 			self.pointAtFraction(
@@ -322,12 +322,8 @@ Rectangle : [Object, Store, Equal, Geometry] { | lowerLeft upperRight |
 		answer
 	}
 
-	[listToRectangle, asRectangle] { :self |
-		Rectangle(self)
-	}
-
 	rectangleMerging { :self |
-		self.boundingBoxMerging.asRectangle
+		self.boundingBoxMerging.Rectangle
 	}
 
 	Rectangle { :lowerLeft :upperRight |
@@ -338,7 +334,7 @@ Rectangle : [Object, Store, Equal, Geometry] { | lowerLeft upperRight |
 		}
 	}
 
-	Rectangle { :self |
+	[Rectangle, listToRectangle] { :self |
 		self.atMatrixOrElementwise { :m |
 			let [lowerLeft, upperRight] = m;
 			Rectangle(lowerLeft, upperRight)

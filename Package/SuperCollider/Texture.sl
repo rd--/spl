@@ -4,7 +4,7 @@ TextureProgram : [Object] { | iterationCounter soundBlock envelopeBlock delayTim
 
 	play { :self |
 		{ :currentTime |
-			self.envelopeBlock.blockValue(
+			self.envelopeBlock.value(
 				self.soundBlock.cull(
 					self.iterationCounter
 				)
@@ -40,7 +40,7 @@ TextureProgram : [Object] { | iterationCounter soundBlock envelopeBlock delayTim
 			nil,
 			0
 		);
-		let amp = EnvGen(1, 1, 0, 1, 2, env.asList);
+		let amp = EnvGen(1, 1, 0, 1, 2, env.List);
 		Out(0, aUgen * amp)
 	}
 

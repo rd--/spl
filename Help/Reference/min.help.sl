@@ -137,7 +137,7 @@ At `Range`:
 At `Multiset`:
 
 ```
->>> [3 5 2 4 5 3 4 2].asMultiset.min
+>>> [3 5 2 4 5 3 4 2].Multiset.min
 2
 ```
 

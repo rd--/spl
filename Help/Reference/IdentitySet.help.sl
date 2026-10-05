@@ -1,6 +1,6 @@
 # IdentitySet
 
-- _IdentitySet()_
+- _IdentitySet(c)_
 
 `IdentitySet` is a `Type` representing a collection of objects without duplicates.
 The comparison operator is `==`, not `=`,
@@ -11,6 +11,40 @@ The empty set constructor:
 ```
 >>> IdentitySet().size
 0
+```
+
+Answer a `IdentitySet` of the elements of the collection _c_.
+At `List`:
+
+```
+>>> IdentitySet[1 1 2 1 2 3]
+>>> .List
+[1 2 3]
+```
+
+At `IdentityMultiset`:
+
+```
+>>> IdentityMultiset[1 1 2 1 2 3]
+>>> .IdentitySet
+IdentitySet[1 2 3]
+```
+
+At `String`:
+
+```
+>>> IdentitySet'abracadabra'.size
+5
+```
+
+Lists that compare `=` do not compare `==`,
+`IdentitySet` refuses to construct a set with non-immediate values:
+
+```
+>>> {
+>>> 	IdentitySet[1 1; 1 1]
+>>> }.hasError
+true
 ```
 
 Set predicate:
@@ -86,12 +120,13 @@ b.scatterPlot
 
 * * *
 
-See also: asIdentitySet, add, IdentityMultiset, include, isImmediate, isIdentitySet, List
+See also: add, Collection, IdentityMultiset, include, isImmediate, isIdentitySet, List, nub, unique
 
 Guides: Set Functions
 
 References:
 _Smalltalk_
+5.7.1.7
 5.7.7
 
 Categories: Collection, Type
