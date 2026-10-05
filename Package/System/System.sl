@@ -221,7 +221,7 @@ System! : [Object, Cache, RandomNumberGenerator] {
 
 	splOperatorCharacters { :self |
 		self.cached('splOperatorCharacters') {
-			'&*^@$=!>-<#%+?\\/~|'.contents
+			'&*^@$=!>-<#%+?\\/~|'.characters
 		}
 	}
 
@@ -517,7 +517,7 @@ System! : [Object, Cache, RandomNumberGenerator] {
 	}
 
 	splPunctuationTokenName { :self :table |
-		self.contents.collect { :letter |
+		self.characters.collect { :letter |
 			table[letter]
 		}.camelCase.stringCatenate
 	}

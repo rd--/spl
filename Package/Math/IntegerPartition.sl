@@ -1,17 +1,3 @@
-/*
-IntegerPartitions : [Object, Equal, Store] { | contents:<List> |
-
-}
-
-+List {
-
-	IntegerPartitions { :self |
-		newIntegerPartitions().initializeSlots(self)
-	}
-
-}
-*/
-
 +@Integer {
 
 	integerPartitions { :n |

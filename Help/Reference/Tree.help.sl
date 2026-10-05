@@ -116,7 +116,7 @@ The `depth` of a tree is the same as the `depth` of an equivalent nested `List`:
 
 Trees are `Iterable`.
 `do` visits the tree and then each subTree in turn (i.e. pre-order traversal),
-and hence `contents` answers all of the subTrees.
+and hence `items` answers all of the subTrees.
 `values` answers the value at each tree visited by `do`:
 
 ```
@@ -426,7 +426,7 @@ A `Tree` is a binary tree if it, and every subtree, is of `size` two:
 >>> );
 >>> (
 >>> 	t.isBinary,
->>> 	t.contents.collect(value/1)
+>>> 	t.items.collect(value/1)
 >>> )
 (true, [6 2 1 3 nil 4 nil 5 8 7 9])
 ```

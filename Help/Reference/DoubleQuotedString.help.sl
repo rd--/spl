@@ -1,6 +1,6 @@
 # DoubleQuotedString
 
-- _DoubleQuotedString(aString)_
+- _DoubleQuotedString(s)_
 
 The `Type` of literal strings written using double quotes.
 The `contents` method answers the quoted string.
@@ -24,6 +24,13 @@ Double quotes allow quoting backtick quote:
 ```
 >>> "`x`"
 DoubleQuotedString('`x`')
+```
+
+`unquotedString` answers the un-quoted string:
+
+```
+>>> "Double Quoted String".unquotedString
+'Double Quoted String'
 ```
 
 * * *

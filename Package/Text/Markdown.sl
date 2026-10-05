@@ -85,7 +85,7 @@ Markdown : [Object, Equal, Cache, Iterable] { | source cache |
 
 	elements { :self |
 		self.cached('elements') {
-			self.contents
+			self.items
 		}
 	}
 

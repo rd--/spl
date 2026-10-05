@@ -960,7 +960,7 @@
 			};
 			pList.addAll!(wList);
 			pList.remove!(1);
-			pList.contents
+			pList.uncopiedList
 		}
 	}
 

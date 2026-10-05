@@ -564,7 +564,7 @@
 			}
 		};
 		step(start);
-		answer.SortedList.contents
+		answer.SortedList.uncopiedList
 	}
 
 	hammingNumbers { :end |

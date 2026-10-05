@@ -1,17 +1,17 @@
-Image : [Object] { | contents |
+Image : [Object] { | imageArray |
 
 	drawing { :self |
 		self
 	}
 
 	encodePpm { :self :maxDepth |
-		let [rowCount, columnCount, pixelCount] = self.contents.shape;
+		let [rowCount, columnCount, pixelCount] = self.imageArray.shape;
 		let header = [
 			'P3',
 			'% %'.format([columnCount, rowCount]),
 			maxDepth.printString
 		];
-		let rows = self.contents.collect { :each |
+		let rows = self.imageArray.collect { :each |
 			each.collect { :pixel |
 				pixel.isValidRgb.if {
 					(pixel.first(3) * maxDepth).round.collect(printString/1).unwords
@@ -24,7 +24,7 @@ Image : [Object] { | contents |
 	}
 
 	height { :self |
-		self.contents.size
+		self.imageArray.size
 	}
 
 	show { :self |
@@ -34,7 +34,7 @@ Image : [Object] { | contents |
 	}
 
 	width { :self |
-		self.contents.anyOne.size
+		self.imageArray.anyOne.size
 	}
 
 	writePpm { :self :fileName |

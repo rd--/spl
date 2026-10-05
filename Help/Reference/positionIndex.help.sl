@@ -7,7 +7,7 @@ Answer a `Map` between unique (according to `==`) items in _x_ and the positions
 Find positions of items in a `List`:
 
 ```
->>> 'abcaca'.contents.positionIndex
+>>> 'abcaca'.characters.positionIndex
 Map[
 	'a' -> [1 4 6],
 	'b' -> [2],

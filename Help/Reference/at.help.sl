@@ -81,7 +81,7 @@ true
 
 ```
 >>> {
->>> 	[1 2 3].asIdentityMultiset.at(1)
+>>> 	IdentityMultiset[1 2 3].at(1)
 >>> }.hasError
 true
 ```

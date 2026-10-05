@@ -1,4 +1,4 @@
-NumericArray : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, Sequence] { | contents shape storageType |
+NumericArray : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, Sequence] { | array shape storageType |
 
 	arrayDepth { :self |
 		self.shape.size
@@ -6,24 +6,24 @@ NumericArray : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, 
 
 	atIfAbsent { :self :i :ifAbsent/0 |
 		(self.rank = 1).if {
-			self.contents.atIfAbsent(i, ifAbsent/0)
+			self.array.atIfAbsent(i, ifAbsent/0)
 		} {
 			self.error('NumericArray>>atIfAbsent: rank not one')
 		}
 	}
 
 	atLinear { :self :index |
-		self.contents.at(index)
+		self.array.at(index)
 	}
 
 	atPath { :self :cartesianIndex |
-		self.contents.at(
+		self.array.at(
 			self.shape.linearIndex(cartesianIndex)
 		)
 	}
 
 	atPathPut! { :self :cartesianIndex :x |
-		self.contents.put!(
+		self.array.put!(
 			self.shape.linearIndex(cartesianIndex),
 			x
 		)
@@ -31,7 +31,7 @@ NumericArray : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, 
 
 	collect { :self :aBlock/1 |
 		NumericArray(
-			self.contents.collect(aBlock/1),
+			self.array.collect(aBlock/1),
 			self.shape
 		)
 	}
@@ -53,7 +53,7 @@ NumericArray : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, 
 	}
 
 	do { :self :aBlock/1 |
-		self.contents.do(aBlock/1)
+		self.array.do(aBlock/1)
 	}
 
 	elementType { :unused |
@@ -64,7 +64,7 @@ NumericArray : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, 
 		anObject.isNumericArray & {
 			(self.shape = anObject.shape) & {
 				(self.storageType = anObject.storageType) & {
-					aBlock(self.contents, anObject.contents)
+					aBlock(self.array, anObject.array)
 				}
 			}
 		}
@@ -92,11 +92,11 @@ NumericArray : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, 
 	}
 
 	linearIndices { :self |
-		self.contents.keys
+		self.array.keys
 	}
 
 	[List, normal] { :self |
-		self.contents.List.reshape(self.shape)
+		self.array.List.reshape(self.shape)
 	}
 
 	matrixPlot { :self |
@@ -108,7 +108,7 @@ NumericArray : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, 
 	}
 
 	ravel { :self |
-		self.contents.List
+		self.array.List
 	}
 
 	size { :self |
@@ -132,7 +132,7 @@ NumericArray : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, 
 					}
 				}
 			}{
-				let c = self.contents;
+				let c = self.array;
 				let k = m * n;
 				let visited = BitSet(k);
 				let cycle = 0;
@@ -165,7 +165,7 @@ NumericArray : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, 
 	transpose { :self |
 		self.isMatrix.if {
 			let [m, n] = self.shape;
-			let c = self.contents;
+			let c = self.array;
 			let a = c.species.new(m * n);
 			let k = 1;
 			1.toDo(n) { :i |
@@ -183,7 +183,7 @@ NumericArray : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, 
 	withCollect { :self :other :aBlock/2 |
 		self.isCommensurate(other).if {
 			NumericArray(
-				self.contents.withCollect(other.contents, aBlock/2),
+				self.array.withCollect(other.array, aBlock/2),
 				self.shape
 			)
 		} {
@@ -196,14 +196,14 @@ NumericArray : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, 
 +[List, Range] {
 
 	NumericArray { :self :storageType |
-		let contents = storageType.caseOf(
+		let array = storageType.caseOf(
 			[
 				'Byte' -> { self.ravel.ByteArray },
 				'Float32' -> { self.ravel.Float32Array },
 				'Float64' -> { self.ravel.Float64Array }
 			]
 		);
-		NumericArray(contents, self.shape)
+		NumericArray(array, self.shape)
 	}
 
 	NumericArray { :self |

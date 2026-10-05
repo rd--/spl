@@ -1,11 +1,11 @@
-UnsortedSet : [Object, Store, Equal, Iterable, Collection, Extensible, Unordered, Set] { | contents comparator |
+UnsortedSet : [Object, Store, Equal, Iterable, Collection, Extensible, Unordered, Set] { | unsortedList comparator |
 
 	do { :self :aBlock/1 |
-		self.contents.do(aBlock/1)
+		self.unsortedList.do(aBlock/1)
 	}
 
 	include! { :self :anObject |
-		self.contents
+		self.unsortedList
 		.addIfNotPresentBy!(
 			anObject,
 			self.comparator
@@ -13,29 +13,29 @@ UnsortedSet : [Object, Store, Equal, Iterable, Collection, Extensible, Unordered
 	}
 
 	includes { :self :anObject |
-		self.contents.includesBy(anObject, self.comparator)
+		self.unsortedList.includesBy(anObject, self.comparator)
 	}
 
 	[List, unsortedSetToList] { :self |
-		self.contents.copy
+		self.unsortedList.copy
 	}
 
 	removeAll! { :self |
-		self.contents.removeAll!
+		self.unsortedList.removeAll!
 	}
 
 	removeIfAbsent! { :self :anObject :aBlock/0 |
-		self.contents.detectIndexIfFoundIfNone { :item |
+		self.unsortedList.detectIndexIfFoundIfNone { :item |
 			self.comparator.value(item, anObject)
 		} { :index |
-			self.contents.removeAt!(index)
+			self.unsortedList.removeAt!(index)
 		} {
 			aBlock()
 		}
 	}
 
 	size { :self |
-		self.contents.size
+		self.unsortedList.size
 	}
 
 	species { :self |

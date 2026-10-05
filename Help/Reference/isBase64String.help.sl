@@ -40,7 +40,7 @@ No other punctation characters are in the alphabet:
 
 ```
 >>> '~!#$%^&*()-=:;,<.>'
->>> .contents
+>>> .characters
 >>> .anySatisfy(isBase64String/1)
 false
 ```

@@ -48,7 +48,7 @@ A lipogrammatic panagram (Ezra 7:21):
 >>> 	'shall require of you, it'
 >>> 	'be done speedily'
 >>> ].unwords.asLowerCase;
->>> let t = v.contents.withoutAll!(
+>>> let t = v.characters.withoutAll!(
 >>> 	[' ' ',']
 >>> );
 >>> t.isSubset(l) & {

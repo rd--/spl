@@ -1630,7 +1630,7 @@
 				}
 			}
 		};
-		m.contents
+		m.uncopiedList
 	}
 
 	markovNumberSequence { :self |

@@ -69,10 +69,10 @@ At `String` the `characters` method answers single character strings that make u
 ]
 ```
 
-At `DoubleQuotedString` the `contents` method answers the quoted string:
+At `DoubleQuotedString` the `unquotedString` method answers the unquoted string:
 
 ```
->>> "Double Quoted String".contents
+>>> "Double Quoted String".unquotedString
 'Double Quoted String'
 ```
 

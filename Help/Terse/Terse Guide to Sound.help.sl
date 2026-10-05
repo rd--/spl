@@ -120,7 +120,7 @@ let l = []; [1 .. 9].adjacentPairsDo { :a :b | l.add!(a -> b) }; l.size = 8
 [1 .. 5].wrapExtend(3) = [1 .. 3] /* truncate is required */
 [1 .. 9].clump(3) = [[1 .. 3], [4 .. 6], [7 .. 9]] /* chunks of n places */
 [1 .. 7].clump(3) = [[1 .. 3], [4 .. 6], [7]] /* chunks of n places, last segment may have less places */
-'string'.contents.clump(2).collect { :each | each.stringCatenate } = ['st', 'ri', 'ng']
+'string'.characters.clump(2).collect { :each | each.stringCatenate } = ['st', 'ri', 'ng']
 5.geom(3, 2) = [3, 6, 12, 24, 48] /* geometric series (size from by) */
 [2, 3, 5, 6].indexOfInBetween(5.2) = 3.2 /* interpolated index for value (collection must be sorted) */
 [2, 3, 5, 6].atBlend(3.2) = 5.2 /* interpolated value between indices */
@@ -157,7 +157,7 @@ nil ? { 'x' } = 'x' /* right hand side if nil */
 1.5.RatioMidi ~ 7.02 /* ratio (interval) to midi */
 7.02.MidiRatio ~ 1.5 /* midi (interval) to ratio */
 [1, 3, 2, 5, 4].ordering = [1, 3, 2, 5, 4] /* indices that would sort reciever */
-'string'.contents.ordering = [6, 4, 5, 3, 1, 2] /* indices that would sort reciever */
+'string'.characters.ordering = [6, 4, 5, 3, 1, 2] /* indices that would sort reciever */
 4.75.OctCps = 440 /* linear octave to hertz */
 440.CpsOct = 4.75 /* hertz to linear octave */
 440.CpsMidi = 69 /* hertz to midi note number */

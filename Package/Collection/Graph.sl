@@ -542,7 +542,7 @@
 				e.include!(each)
 			}
 		};
-		Graph(v, e.contents)
+		Graph(v, e.List)
 	}
 
 	subgraph { :self :vertexList |

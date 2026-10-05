@@ -1,26 +1,26 @@
-GeometryCollection : [Object, Equal, Geometry] { | contents |
+GeometryCollection : [Object, Equal, Geometry] { | geometryList |
 
 	arcLength { :self |
-		self.contents.collect(arcLength/1).sum
+		self.geometryList.collect(arcLength/1).sum
 	}
 
 	area { :self |
-		self.contents.collect(area/1).sum
+		self.geometryList.collect(area/1).sum
 	}
 
 	boundingBox { :self |
-		self.contents.collect(boundingBox/1).boundingBoxMerging
+		self.geometryList.collect(boundingBox/1).boundingBoxMerging
 	}
 
 	circleInversion { :self :circle |
-		self.contents.collect { :each |
+		self.geometryList.collect { :each |
 			each.circleInversion(circle)
 		}.GeometryCollection
 	}
 
 	collect { :self :aBlock/1 |
 		GeometryCollection(
-			self.contents.collect(aBlock/1)
+			self.geometryList.collect(aBlock/1)
 		)
 	}
 
@@ -31,12 +31,12 @@ GeometryCollection : [Object, Equal, Geometry] { | contents |
 	}
 
 	embeddingDimension { :self |
-		let [n] = self.contents.collect(embeddingDimension/1).nub;
+		let [n] = self.geometryList.collect(embeddingDimension/1).nub;
 		n
 	}
 
 	svgFragment { :self :options |
-		self.contents.collect { :each |
+		self.geometryList.collect { :each |
 			each.svgFragment(options)
 		}
 	}
@@ -44,7 +44,7 @@ GeometryCollection : [Object, Equal, Geometry] { | contents |
 	project { :self :projection |
 		let projectionBlock = projection.asUnaryBlock;
 		GeometryCollection(
-			self.contents.collect { :each |
+			self.geometryList.collect { :each |
 				each.project(projectionBlock)
 			}
 		)

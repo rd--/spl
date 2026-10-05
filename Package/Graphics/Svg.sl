@@ -1,6 +1,6 @@
 /* Requires: Rectangle */
 
-Svg : [Object] { | contents |
+Svg : [Object] { | svgString |
 
 	drawing { :self |
 		self
@@ -15,7 +15,7 @@ Svg : [Object] { | contents |
 	writeSvg { :self :fileName |
 		system.writeTextFile(
 			fileName,
-			self.contents
+			self.svgString
 		)
 	}
 

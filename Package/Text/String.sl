@@ -162,7 +162,7 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Iterable, Indexable, Chara
 	characterCounts { :self |
 		self
 		.characters
-		.asIdentityMultiset
+		.IdentityMultiset
 		.associations
 		.sort!(succeedsOrEqualTo/2, value/1)
 	}
@@ -172,7 +172,7 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Iterable, Indexable, Chara
 		.characters
 		.partition(n, 1)
 		.collect(stringCatenate/1)
-		.asIdentityMultiset
+		.IdentityMultiset
 		.associations
 		.sort!(succeedsOrEqualTo/2, value/1)
 	}
@@ -611,7 +611,7 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Iterable, Indexable, Chara
 		self
 		.characters
 		.select(isLetter/1)
-		.asIdentityMultiset
+		.IdentityMultiset
 		.associations
 		.sort!(succeedsOrEqualTo/2, value/1)
 	}
@@ -622,7 +622,7 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Iterable, Indexable, Chara
 		.select(isLetter/1)
 		.partition(n, 1)
 		.collect(stringCatenate/1)
-		.asIdentityMultiset
+		.IdentityMultiset
 		.associations
 		.sort!(succeedsOrEqualTo/2, value/1)
 	}

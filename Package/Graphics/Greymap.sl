@@ -1,13 +1,13 @@
-Greymap : [Object] { | contents |
+Greymap : [Object] { | greyMatrix |
 
 	asPgm { :self :maxDepth |
-		let [rowCount, columnCount] = self.contents.shape;
+		let [rowCount, columnCount] = self.greyMatrix.shape;
 		let header = [
 			'P2',
 			'% %'.format([columnCount, rowCount]),
 			maxDepth.printString
 		];
-		let rows = self.contents.collect { :each |
+		let rows = self.greyMatrix.collect { :each |
 			each.collect { :level |
 				level.betweenAnd(0, 1).if {
 					(level * maxDepth).round.printString
@@ -24,7 +24,7 @@ Greymap : [Object] { | contents |
 	}
 
 	height { :self |
-		self.contents.numberOfRows
+		self.greyMatrix.numberOfRows
 	}
 
 	show { :self |
@@ -34,7 +34,7 @@ Greymap : [Object] { | contents |
 	}
 
 	width { :self |
-		self.contents.numberOfColumns
+		self.greyMatrix.numberOfColumns
 	}
 
 	writePgm { :self :fileName |

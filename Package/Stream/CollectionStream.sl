@@ -6,12 +6,12 @@ CollectionStream : [Object, Copy, Equal, Iterator, Stream, PositionableStream] {
 		self.position >= self.readLimit
 	}
 
-	contents { :self |
-		self.collection.copyFromTo(1, self.readLimit)
-	}
-
 	isBinary { :self |
 		self.collection.isByteArray
+	}
+
+	contents { :self |
+		self.collection.copyFromTo(1, self.readLimit)
 	}
 
 	next { :self |

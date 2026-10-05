@@ -469,7 +469,7 @@
 
 }
 
-OeisEntry : [Object, Store, Equal, OeisSequence] { | identifier:<String> contents bFileCache |
+OeisEntry : [Object, Store, Equal, OeisSequence] { | identifier:<String> entryRecord bFileCache |
 
 	bFileData { :self |
 		self.bFileCache.ifNil {
@@ -501,24 +501,24 @@ OeisEntry : [Object, Store, Equal, OeisSequence] { | identifier:<String> content
 
 	fetch { :self |
 		[
-			self.fetchContents,
+			self.fetchEntryRecord,
 			self.fetchBFile
 		].allFulfilled.then { :unused |
 			self
 		}
 	}
 
-	fetchContents { :self |
-		self.contents.ifNil {
+	fetchEntryRecord { :self |
+		self.entryRecord.ifNil {
 			self.jsonUrl.fetchMimeType(
 				'application/json'
 			).then { :data |
-				let [entry] = data;
-				self.contents := entry;
+				let [entryRecord] = data;
+				self.entryRecord := entryRecord;
 				self
 			}
-		} { :contents |
-			contents.resolvedPromise
+		} { :entryRecord |
+			entryRecord.resolvedPromise
 		}
 	}
 
@@ -537,11 +537,11 @@ OeisEntry : [Object, Store, Equal, OeisSequence] { | identifier:<String> content
 	}
 
 	lookupField { :self :key |
-		self.contents.ifNil {
-			self.fetchContents;
-			self.error('lookupField: contents not fetched')
-		} { :contents |
-			contents.at(key)
+		self.entryRecord.ifNil {
+			self.fetchEntryRecord;
+			self.error('lookupField: entry record not fetched')
+		} { :entryRecord |
+			entryRecord.at(key)
 		}
 	}
 
@@ -566,7 +566,7 @@ OeisEntry : [Object, Store, Equal, OeisSequence] { | identifier:<String> content
 	}
 
 	withData { :self :aBlock/1 |
-		self.fetchContents.then { :e |
+		self.fetchEntryRecord.then { :e |
 			aBlock(e.data)
 		}
 	}
@@ -583,7 +583,7 @@ OeisEntry : [Object, Store, Equal, OeisSequence] { | identifier:<String> content
 
 }
 
-OeisSequenceFile : [Object, Equal, OeisSequence] { | identifier contents |
+OeisSequenceFile : [Object, Equal, OeisSequence] { | identifier sequenceFileLines |
 
 	author { :self |
 		self.uniqueField('%A')
@@ -598,7 +598,7 @@ OeisSequenceFile : [Object, Equal, OeisSequence] { | identifier contents |
 
 	field { :self :code |
 		let prefix = '% % '.format([code, self.identifier]);
-		self.contents.select { :each |
+		self.sequenceFileLines.select { :each |
 			each.beginsWith(prefix)
 		}.collect { :each |
 			each.drop(11)

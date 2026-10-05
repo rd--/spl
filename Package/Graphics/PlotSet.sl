@@ -24,7 +24,7 @@ PlotSet : [Object] { | plotMatrix:<List> |
 								(i - 1) * (rowHeight * 1.25)
 							]
 						),
-						d.drawing.contents.withoutTrailingBlanks,
+						d.drawing.svgString.withoutTrailingBlanks,
 						'</g>'
 					]
 				} {

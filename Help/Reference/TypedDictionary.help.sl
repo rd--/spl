@@ -8,8 +8,8 @@ If the keys are all of type `String`, the underlying dictionary is a `Record`:
 
 ```
 >>> let l = ['x' -> 1, 'y' -> 2, 'z' -> 3];
->>> let d = l.asTypedDictionary;
->>> (d.keyType, d.contents.typeOf)
+>>> let d = TypedDictionary(l);
+>>> (d.keyType, d.untypedDictionary.typeOf)
 ('String', 'Record')
 ```
 
@@ -17,7 +17,7 @@ If the keys are all of an _immediate_ type, the underlying dictionary is a `Map`
 
 ```
 >>> let l = [1 -> 'x', 2 -> 'y', 3 -> 'z'];
->>> let d = l.asTypedDictionary;
+>>> let d = TypedDictionary(l);
 >>> (
 >>> 	d.typeOf,
 >>> 	d.keyType,
@@ -25,7 +25,7 @@ If the keys are all of an _immediate_ type, the underlying dictionary is a `Map`
 >>> 	d.values,
 >>> 	d.associations,
 >>> 	d.keyType.isImmediateType,
->>> 	d.contents.typeOf
+>>> 	d.untypedDictionary.typeOf
 >>> )
 (
 	'TypedDictionary',
@@ -40,6 +40,6 @@ If the keys are all of an _immediate_ type, the underlying dictionary is a `Map`
 
 * * *
 
-See also: asTypedDictionary, contents, Dictionary, Map, Record
+See also: contents, Dictionary, Map, Record
 
 Guides: Dictionary Functions

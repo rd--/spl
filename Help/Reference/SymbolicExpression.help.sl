@@ -154,7 +154,7 @@ Evaluate `inner` using symbolic primitives:
 `contents` answers the expression and each of its parts in a left-biased pre-order traversal:
 
 ```
->> (`x` * `y` + `z`).contents
+>> (`x` * `y` + `z`).items
 [(+ (* x y) z), +, (* x y), *, x, y, z]
 ```
 

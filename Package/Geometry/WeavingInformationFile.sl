@@ -1,4 +1,4 @@
-WeavingInformationFile : [Object] { | contents |
+WeavingInformationFile : [Object] { | weavingRecord |
 
 	drawdownMatrix { :self :m :n |
 		self.hasLiftplan.if {
@@ -37,7 +37,7 @@ WeavingInformationFile : [Object] { | contents |
 	}
 
 	hasSection { :self :sectionName |
-		self.contents.keys.includes(sectionName)
+		self.weavingRecord.keys.includes(sectionName)
 	}
 
 	liftplanMatrix { :self |
@@ -55,7 +55,7 @@ WeavingInformationFile : [Object] { | contents |
 	}
 
 	liftplanRecord { :self |
-		self.contents.at('LIFTPLAN')
+		self.weavingRecord.at('LIFTPLAN')
 	}
 
 	shafts { :self |
@@ -70,7 +70,7 @@ WeavingInformationFile : [Object] { | contents |
 	}
 
 	threadingRecord { :self |
-		self.contents.at('THREADING')
+		self.weavingRecord.at('THREADING')
 	}
 
 	tieupMatrix { :self |
@@ -82,7 +82,7 @@ WeavingInformationFile : [Object] { | contents |
 	}
 
 	tieupRecord { :self |
-		self.contents.at('TIEUP')
+		self.weavingRecord.at('TIEUP')
 	}
 
 	treadles { :self |
@@ -97,11 +97,11 @@ WeavingInformationFile : [Object] { | contents |
 	}
 
 	treadlingRecord { :self |
-		self.contents.at('TREADLING')
+		self.weavingRecord.at('TREADLING')
 	}
 
 	warp { :self |
-		self.contents.at('WARP')
+		self.weavingRecord.at('WARP')
 	}
 
 	warpThreads { :self |
@@ -109,11 +109,11 @@ WeavingInformationFile : [Object] { | contents |
 	}
 
 	weaving { :self |
-		self.contents.at('WEAVING')
+		self.weavingRecord.at('WEAVING')
 	}
 
 	weft { :self |
-		self.contents.at('WEFT')
+		self.weavingRecord.at('WEFT')
 	}
 
 	weftThreads { :self |

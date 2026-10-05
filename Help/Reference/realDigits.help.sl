@@ -23,7 +23,7 @@ Sign is ignored:
 [[3 1 4 1], 1]
 
 >>> -3.141D.realDigits(10, 4)
-[[3 1 4 1] 1]
+[[3 1 4 1], 1]
 ```
 
 A number that answers the same list of digits,

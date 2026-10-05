@@ -1,4 +1,4 @@
-Table : [Object, Store, Equal] { | contents columnLabels columnTypes |
+Table : [Object, Store, Equal] { | cellMatrix columnLabels columnTypes |
 
 	asHtml { :self |
 		let h = '<tr><th></th>%</tr>'.format([
@@ -6,7 +6,7 @@ Table : [Object, Store, Equal] { | contents columnLabels columnTypes |
 				'<th scope="col">%</th>'.format([each.asString])
 			}.stringCatenate
 		]);
-		let r = self.contents.withIndexCollect { :a :i |
+		let r = self.cellMatrix.withIndexCollect { :a :i |
 			'<tr><th scope="row">%</th>%<tr>'.format([
 				i.asString,
 				a.collect { :b |
@@ -19,7 +19,7 @@ Table : [Object, Store, Equal] { | contents columnLabels columnTypes |
 
 	atPath { :self :operand |
 		let [i, j] = operand;
-		let row = self.contents[i];
+		let row = self.cellMatrix[i];
 		row[self.columnIndex(j)]
 	}
 
@@ -49,7 +49,7 @@ Table : [Object, Store, Equal] { | contents columnLabels columnTypes |
 	columns { :self :j |
 		let i = self.columnIndices(j);
 		Table(
-			self.contents.columns(i),
+			self.cellMatrix.columns(i),
 			self.columnLabels.atAll(i),
 			self.columnTypes.atAll(i)
 		)
@@ -61,14 +61,14 @@ Table : [Object, Store, Equal] { | contents columnLabels columnTypes |
 
 	rows { :self :i |
 		Table(
-			self.contents.rows(i),
+			self.cellMatrix.rows(i),
 			self.columnLabels,
 			self.columnTypes
 		)
 	}
 
 	shape { :self |
-		self.contents.shape
+		self.cellMatrix.shape
 	}
 
 }
@@ -88,6 +88,7 @@ Table : [Object, Store, Equal] { | contents columnLabels columnTypes |
 +List {
 
 	Table { :self :columnLabels :columnTypes |
+		self.assertIsMatrix('Table');
 		newTable().initializeSlots(self, columnLabels, columnTypes)
 	}
 

@@ -108,8 +108,7 @@ At `IdentityMultiset` makes a weighted choice:
 
 ```
 >>> let r = Sfc32(13952);
->>> [1 3 3 3 5 5 5 5 5]
->>> .asIdentityMultiset
+>>> IdentityMultiset[1 3 3 3 5 5 5 5 5]
 >>> .randomChoice(r, [3 3])
 [
 	3 3 5;
@@ -139,7 +138,7 @@ At `WeightedData`:
 >>> 	[1 2 3 4],
 >>> 	[2 2 5 1]
 >>> ).randomChoice(r, [100])
->>> .asIdentityMultiset
+>>> .IdentityMultiset
 >>> .sortedElements
 [1 -> 18, 2 -> 17, 3 -> 50, 4 -> 15]
 ```
@@ -170,8 +169,7 @@ Plot at `IdentityMultiset`:
 
 ~~~spl svg=C
 let r = Sfc32(134717);
-[1 3 3 3 5 5 5 5 5]
-.asIdentityMultiset
+IdentityMultiset[1 3 3 3 5 5 5 5 5]
 .randomChoice(r, [43])
 .stepPlot
 ~~~

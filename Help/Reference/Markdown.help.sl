@@ -54,7 +54,7 @@ and `contents` collects these nodes into a list:
 >>> 		'P ![_e_](g)'
 >>> 	].unlines
 >>> );
->>> m.contents.collect { :each |
+>>> m.items.collect { :each |
 >>> 	let p = each.includesKey(
 >>> 		'sourcePosition'
 >>> 	);

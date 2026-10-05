@@ -3,7 +3,7 @@
 	[equal, =] { :self :aMultiset |
 		(self.typeOf = aMultiset.typeOf) & {
 			self.size = aMultiset.size & {
-				self.contents.associationsAllSatisfy { :each |
+				self.valuesAndCounts.associationsAllSatisfy { :each |
 					aMultiset.occurrencesOf(each.key) = each.value
 				}
 			}
@@ -19,12 +19,12 @@
 	}
 
 	associations { :self |
-		self.contents.associations
+		self.valuesAndCounts.associations
 	}
 
 	countsAndElements { :self |
 		let answer = [];
-		self.contents.associationsDo { :each |
+		self.valuesAndCounts.associationsDo { :each |
 			answer.add!([each.key, each.value])
 		};
 		answer
@@ -40,7 +40,7 @@
 	}
 
 	do { :self :aBlock/1 |
-		self.contents.associationsDo { :each |
+		self.valuesAndCounts.associationsDo { :each |
 			each.value.timesRepeat {
 				aBlock(each.key)
 			}
@@ -49,14 +49,14 @@
 
 	elementsAndCounts { :self |
 		let answer = [];
-		self.contents.associationsDo { :each |
+		self.valuesAndCounts.associationsDo { :each |
 			answer.add!([each.key, each.value])
 		};
 		answer
 	}
 
 	includes { :self :anObject |
-		self.contents.includesIndex(anObject)
+		self.valuesAndCounts.includesIndex(anObject)
 	}
 
 	intersection { :self :operand |
@@ -86,11 +86,11 @@
 	}
 
 	max { :self |
-		self.contents.indices.reduce(max/2)
+		self.valuesAndCounts.indices.reduce(max/2)
 	}
 
 	min { :self |
-		self.contents.indices.reduce(min/2)
+		self.valuesAndCounts.indices.reduce(min/2)
 	}
 
 	Multiset { :self |
@@ -98,28 +98,28 @@
 	}
 
 	occurrencesOf { :self :anObject |
-		self.contents.atIfAbsent(anObject) {
+		self.valuesAndCounts.atIfAbsent(anObject) {
 			0
 		}
 	}
 
 	postCopy { :self |
-		self.contents := self.contents.copy
+		self.valuesAndCounts := self.valuesAndCounts.copy
 	}
 
 	randomChoice { :self :r :shape |
-		let e = self.contents.keys;
-		let w = self.contents.values;
+		let e = self.valuesAndCounts.keys;
+		let w = self.valuesAndCounts.values;
 		r.randomWeightedChoice(e, w, shape)
 	}
 
 	removeIfAbsent! { :self :oldObject :whenAbsent/0 |
 		self.includes(oldObject).if {
-			let count = self.contents[oldObject];
+			let count = self.valuesAndCounts[oldObject];
 			(count = 1).if {
-				self.contents.removeKey!(oldObject)
+				self.valuesAndCounts.removeKey!(oldObject)
 			} {
-				self.contents[oldObject] := count - 1
+				self.valuesAndCounts[oldObject] := count - 1
 			}
 		} {
 			whenAbsent()
@@ -128,29 +128,29 @@
 	}
 
 	removeAll! { :self |
-		self.contents.removeAll!
+		self.valuesAndCounts.removeAll!
 	}
 
 	[Set, multisetToSet] { :self |
-		self.contents.indices.Set
+		self.valuesAndCounts.indices.Set
 	}
 
 	/*
-	setContents! { :self :aDictionary |
-		self.contents := aDictionary
+	setDictionary! { :self :aDictionary |
+		self.valuesAndCounts := aDictionary
 	}
 	*/
 
 	size { :self |
 		let tally = 0;
-		self.contents.do { :each |
+		self.valuesAndCounts.do { :each |
 			tally := tally + each
 		};
 		tally
 	}
 
 	sortedCounts { :self :aBlock/2|
-		self.contents.associationsSwapped.sortBy!(aBlock/2)
+		self.valuesAndCounts.associationsSwapped.sortBy!(aBlock/2)
 	}
 
 	sortedCounts { :self |
@@ -158,7 +158,7 @@
 	}
 
 	sortedElements { :self |
-		self.contents.associations.sortByOn!(precedesOrEqualTo/2, key/1)
+		self.valuesAndCounts.associations.sortByOn!(precedesOrEqualTo/2, key/1)
 	}
 
 	sum { :self |
@@ -166,7 +166,7 @@
 			self.error('sum: empty')
 		} {
 			let sum = 0;
-			self.contents.withIndexDo { :count :value |
+			self.valuesAndCounts.withIndexDo { :count :value |
 				sum := sum + (value * count)
 			};
 			sum
@@ -174,7 +174,7 @@
 	}
 
 	uncheckedAddWithOccurrences { :self :anObject :anInteger |
-		let dictionary = self.contents;
+		let dictionary = self.valuesAndCounts;
 		dictionary.includesIndex(anObject).if {
 			dictionary[anObject] := dictionary[anObject] + anInteger
 		} {
@@ -183,20 +183,16 @@
 		anObject
 	}
 
-	valuesAndCounts { :self |
-		self.contents
-	}
-
 	valueSort { :self |
 		self.associations.sortByOn!(precedesOrEqualTo/2, value/1)
 	}
 
 }
 
-Multiset : [Object, Copy, Store, Equal, Iterable, Collection, Extensible, Unordered, Multiset] { | contents |
+Multiset : [Object, Copy, Store, Equal, Iterable, Collection, Extensible, Unordered, Multiset] { | valuesAndCounts |
 
 	postCopy { :self |
-		self.contents := self.contents.copy
+		self.valuesAndCounts := self.valuesAndCounts.copy
 	}
 
 	species { :self |

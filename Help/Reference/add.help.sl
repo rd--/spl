@@ -90,8 +90,8 @@ At `SortedList`:
 >>> let l = [5 1 6 4].SortedList;
 >>> l.add!(2);
 >>> l.addAll!([3 7]);
->>> l.contents
-[1 2 3 4 5 6 7]
+>>> l
+SortedList[1 2 3 4 5 6 7]
 ```
 
 At `String`, which is not `Extensible`:

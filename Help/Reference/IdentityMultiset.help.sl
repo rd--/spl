@@ -20,6 +20,10 @@ At `List`:
 >>> IdentityMultiset[1 1 1 3 3 5]
 >>> .sortedElements
 [1 -> 3, 3 -> 2, 5 -> 1]
+
+>>> IdentityMultiset[1 1 1 3 3 5]
+>>> .sortedCounts
+[3 -> 1, 2 -> 3, 1 -> 5]
 ```
 
 At `Map`:
@@ -119,16 +123,32 @@ Compare instances:
 true
 ```
 
+Count occurrences of characters in a string:
+
+```
+>>> 'occurrences'
+>>> .characters
+>>> .IdentityMultiset
+>>> .sortedCounts
+[
+	3 -> 'c',
+	2 -> 'e', 2 -> 'r',
+	1 -> 's', 1 -> 'n', 1 -> 'u', 1 -> 'o'
+]
+```
+
 * * *
 
-See also: add, addWithOccurrences, asIdentityMultiset, Multiset, IdentitySet, isImmediate, remove, sortedCounts, sortedElements, Set, valuesAndCounts
+See also: add, addWithOccurrences, Multiset, IdentitySet, isImmediate, remove, sortedCounts, sortedElements, Set, valuesAndCounts
 
 Guides: Set Functions
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/Multiset.html),
+[1](https://mathworld.wolfram.com/Multiset.html)
+[2](https://reference.wolfram.com/language/ref/Tally.html),
 _Smalltalk_
+5.7.1.4
 5.7.6,
 _W_
 [1](https://en.wikipedia.org/wiki/Multiset)

@@ -254,7 +254,7 @@ numer=`numerator`, denom=`denominator`
 
 ## String Functions
 
-length=`size`, `min`, `max`, cmp=`compare`, `<`, `=`, `>`
+length=`size`, `min`, `max`, cmp=`compare`, `<`, `=`, `>`:
 
 ```
 >>> 'hello'.size
@@ -276,7 +276,7 @@ length=`size`, `min`, `max`, cmp=`compare`, `<`, `=`, `>`
 true
 ```
 
-`isEmpty`, substring=`copyFromTo`, contains=`includesSubstring`, startsWith, endsWith, split, trim, toUpper, toLower, replace, indexOf, lastIndexOf, parseInt, parseFloat, codePoints, indexing, toSymbol
+substring=`copyFromTo`:
 
 ```
 >>> copyFromTo('hello world', 1, 5)
@@ -287,7 +287,11 @@ true
 
 >>> copyFromTo('abcdef', 3, 5)
 'cde'
+```
 
+contains=`includesSubstring`:
+
+```
 >>> includesSubstring('hello world', 'world')
 true
 
@@ -297,3 +301,71 @@ false
 >>> includesSubstring('abc', '')
 true
 ```
+
+startsWith=`beginsWith`:
+
+```
+>>> beginsWith('hello world', 'hello')
+true
+
+>>> beginsWith('hello world', 'world')
+false
+```
+
+`endsWith`:
+
+```
+>>> endsWith('hello world', 'world')
+true
+
+>>> endsWith('hello world', 'hello')
+false
+```
+
+split=`splitBy`:
+
+```
+>>> splitBy('a,b,c', ',')
+['a', 'b', 'c']
+
+>>> splitBy('one--two--three', '--')
+['one', 'two', 'three']
+
+>>> splitBy('hello', '')
+['h', 'e', 'l', 'l', 'o']
+```
+
+`trim`:
+
+```
+>>> trim('  hello  ')
+'hello'
+
+>>> trim('  leading')
+'leading'
+
+>>> trim('trailing  ')
+'trailing'
+```
+
+toUpper=`asUpperCase`, toLower=`asLowerCase`
+
+```
+>>> asUpperCase('hello')
+'HELLO'
+
+>>> asLowerCase('HELLO')
+'hello'
+
+>>> asUpperCase('Hello World')
+'HELLO WORLD'
+
+>>> asLowerCase('Hello World')
+'hello world'
+```
+
+* * *
+
+References:
+_Tzpl_
+[1](https://lfnoise.github.io/tzpl/Builtin_Functions.html)

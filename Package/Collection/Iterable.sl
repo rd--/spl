@@ -72,18 +72,6 @@
 		}
 	}
 
-	contents { :self :aBlock/2 |
-		let answer = [];
-		aBlock(self) { :each |
-			answer.add!(each)
-		};
-		answer
-	}
-
-	contents { :self |
-		self.contents(do/2)
-	}
-
 	count { :self :aBlock/1 |
 		let answer = 0;
 		self.do { :each |
@@ -407,6 +395,18 @@
 
 	isSubset { :self :aCollection |
 		aCollection.includesAll(self)
+	}
+
+	items { :self :aBlock/2 |
+		let answer = [];
+		aBlock(self) { :each |
+			answer.add!(each)
+		};
+		answer
+	}
+
+	items { :self |
+		self.items(do/2)
 	}
 
 	levelBy { :self :aBlock/1 |

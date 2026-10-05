@@ -29,8 +29,8 @@ Sets are unordered collections,
 and have the expected mathematical behavior in relation to scalars:
 
 ```
->>> UnsortedSet[1 2 3] * 5
-UnsortedSet[5 10 15]
+>>> UnsortedSet[3 2 1] * 5
+UnsortedSet[15 10 5]
 ```
 
 Note that `UnsortedSet` may be significantly less efficient that `IdentitySet`,
@@ -44,7 +44,7 @@ false
 false
 
 >>> UnsortedSet[1 1L]
->>> .contents
+>>> .unsortedList
 [1]
 
 >>> {
@@ -59,7 +59,7 @@ false
 true
 
 >>> UnsortedSet[1J1 1J1]
->>> .contents
+>>> .unsortedList
 [1J1]
 
 >>> {
@@ -73,7 +73,7 @@ The comparison method for `UnsortedSet` can be modified:
 ```
 >>> let x = UnsortedSet();
 >>> x.comparator := ~;
->>> x.includeAll!([1, 1.0001, 2, 1, 2.00001, 3]);
+>>> x.includeAll!([1 1.0001 2 1 2.00001 3]);
 >>> x
 UnsortedSet[1 2 3]
 ```

@@ -14,14 +14,14 @@ true
 
 Methods are:
 
-- `asHtmlElement`: document node
-- `contents`: Html string
+- `HtmlElement`: document node
+- `string`: Html string
 - `isDocument`: is document
 - `isFragment`: is fragment
 
 * * *
 
-See also: asHtmlElement, contents, isDocument, isFragment, parseHtml
+See also: contents, HtmlElement, isDocument, isFragment, parseHtml
 
 Guides: Text Functions
 

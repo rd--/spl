@@ -1,6 +1,6 @@
 /* Requires: Tuning */
 
-ScalaTuning : [Object, Tuning] { | contents |
+ScalaTuning : [Object, Tuning] { | tuningRecord |
 
 	asCents { :self |
 		let answer = self.pitches;
@@ -22,23 +22,23 @@ ScalaTuning : [Object, Tuning] { | contents |
 	}
 
 	degree { :self |
-		self.contents['degree']
+		self.tuningRecord['degree']
 	}
 
 	description { :self |
-		self.contents['description']
+		self.tuningRecord['description']
 	}
 
 	isRational { :self |
-		self.contents.includesKey('limit')
+		self.tuningRecord.includesKey('limit')
 	}
 
 	name { :self |
-		self.contents['name']
+		self.tuningRecord['name']
 	}
 
 	octave { :self |
-		let octave = self.contents['octave'];
+		let octave = self.tuningRecord['octave'];
 		octave.isNumber.if {
 			octave.centsToRatio
 		} {
@@ -52,7 +52,7 @@ ScalaTuning : [Object, Tuning] { | contents |
 	}
 
 	pitches { :self |
-		self.contents['pitches'].collect { :each |
+		self.tuningRecord['pitches'].collect { :each |
 			each.isNumber.if {
 				each
 			} {
@@ -67,7 +67,7 @@ ScalaTuning : [Object, Tuning] { | contents |
 	}
 
 	primeLimit { :self |
-		self.contents['limit']
+		self.tuningRecord['limit']
 	}
 
 	tuningLatticeGraph { :self |

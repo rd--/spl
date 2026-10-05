@@ -1,6 +1,6 @@
 /* Requires: Multiset */
 
-IdentityMultiset : [Object, Copy, Store, Equal, Iterable, Collection, Extensible, Unordered, Multiset] { | contents |
+IdentityMultiset : [Object, Copy, Store, Equal, Iterable, Collection, Extensible, Unordered, Multiset] { | valuesAndCounts |
 
 	addWithOccurrences! { :self :anObject :anInteger |
 		anObject.isImmediate.ifFalse {
@@ -9,20 +9,20 @@ IdentityMultiset : [Object, Copy, Store, Equal, Iterable, Collection, Extensible
 		self.uncheckedAddWithOccurrences(anObject, anInteger)
 	}
 
-	asIdentityMultiset { :self |
+	IdentityMultiset { :self |
 		self
 	}
 
 	[IdentitySet, identityMultisetToIdentitySet] { :self |
-		IdentitySet(self.contents.keys)
+		IdentitySet(self.valuesAndCounts.keys)
 	}
 
 	[Map, identityMultisetToMap] { :self |
-		self.contents
+		self.valuesAndCounts
 	}
 
 	postCopy { :self |
-		self.contents := self.contents.copy
+		self.valuesAndCounts := self.valuesAndCounts.copy
 	}
 
 	species { :self |
@@ -51,7 +51,7 @@ IdentityMultiset : [Object, Copy, Store, Equal, Iterable, Collection, Extensible
 
 +List {
 
-	[IdentityMultiset, asIdentityMultiset] { :self |
+	[IdentityMultiset, listToIdentityMultiset] { :self |
 		self.isAssociationList.if {
 			IdentityMultiset(Map(self))
 		} {
@@ -63,7 +63,7 @@ IdentityMultiset : [Object, Copy, Store, Equal, Iterable, Collection, Extensible
 
 +@Collection {
 
-	[collectionToIdentityMultiset, asIdentityMultiset] { :self |
+	[IdentityMultiset, collectionToIdentityMultiset] { :self |
 		let answer = IdentityMultiset();
 		answer.addAll!(self);
 		answer

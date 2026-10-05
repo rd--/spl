@@ -1,8 +1,8 @@
-ListView : [Object, Equal, Compare, Iterable, Indexable, Collection, Sequence] { | contents startIndex endIndex referenceIndex |
+ListView : [Object, Equal, Compare, Iterable, Indexable, Collection, Sequence] { | viewedList startIndex endIndex referenceIndex |
 
 	atIfAbsent { :self :index :ifAbsent/0 |
 		self.includesIndex(index).if {
-			self.contents[index + self.startIndex - self.referenceIndex]
+			self.viewedList[index + self.startIndex - self.referenceIndex]
 		} {
 			ifAbsent()
 		}
@@ -13,7 +13,7 @@ ListView : [Object, Equal, Compare, Iterable, Indexable, Collection, Sequence] {
 	}
 
 	do { :self :aBlock/1 |
-		let items = self.contents;
+		let items = self.viewedList;
 		self.startIndex.toDo(self.endIndex) { :index |
 			aBlock(items[index])
 		}
@@ -47,14 +47,14 @@ ListView : [Object, Equal, Compare, Iterable, Indexable, Collection, Sequence] {
 
 	List { :self |
 		self
-		.contents
+		.viewedList
 		.copyFromTo(self.startIndex, self.endIndex)
 		.List
 	}
 
 	ListView { :self :startIndex :endIndex :referenceIndex |
 		ListView(
-			self.contents,
+			self.viewedList,
 			self.startIndex + startIndex - 1,
 			self.startIndex + endIndex - 1,
 			referenceIndex
@@ -67,7 +67,7 @@ ListView : [Object, Equal, Compare, Iterable, Indexable, Collection, Sequence] {
 
 	put! { :self :index :value |
 		self.includesIndex(index).if {
-			self.contents[index + self.startIndex - self.referenceIndex] := value
+			self.viewedList[index + self.startIndex - self.referenceIndex] := value
 		} {
 			self.error('put!: invalid index', [index])
 		}

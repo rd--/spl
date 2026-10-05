@@ -1,33 +1,33 @@
-AsciiString : [Object, Store, Equal, Iterable, Indexable, Collection, Sequence] { | contents |
+AsciiString : [Object, Store, Equal, Iterable, Indexable, Collection, Sequence] { | byteArray |
 
 	AsciiString { :self |
 		self
 	}
 
 	asHexString { :self |
-		self.contents.base16Encode.AsciiString
+		self.byteArray.base16Encode.AsciiString
 	}
 
 	atIfAbsent { :self :anInteger :ifAbsent/0 |
-		self.contents.atIfAbsent(anInteger, ifAbsent/0).asCharacter
+		self.byteArray.atIfAbsent(anInteger, ifAbsent/0).asCharacter
 	}
 
 	[ByteArray, asciiStringToByteArray] { :self |
-		self.contents.copy
+		self.byteArray.copy
 	}
 
 	codePoints { :self |
-		self.contents.List
+		self.byteArray.List
 	}
 
 	do { :self :aBlock/1 |
-		self.contents.do { :each |
+		self.byteArray.do { :each |
 			aBlock(each.asCharacter)
 		}
 	}
 
 	indices { :self |
-		1.to(self.contents.size)
+		1.to(self.byteArray.size)
 	}
 
 	[List, asciiStringToList] { :self |
@@ -39,11 +39,11 @@ AsciiString : [Object, Store, Equal, Iterable, Indexable, Collection, Sequence] 
 	}
 
 	put! { :self :anInteger :aCharacter |
-		self.contents.put!(anInteger, aCharacter.codePoint)
+		self.byteArray.put!(anInteger, aCharacter.codePoint)
 	}
 
 	size { :self |
-		self.contents.size
+		self.byteArray.size
 	}
 
 	species { :self |
@@ -51,14 +51,14 @@ AsciiString : [Object, Store, Equal, Iterable, Indexable, Collection, Sequence] 
 	}
 
 	storeString { :self |
-		'AsciiString(%)'.format([self.contents.asciiString.storeString])
+		'AsciiString(%)'.format([self.byteArray.asciiString.storeString])
 	}
 
 }
 
 +ByteArray {
 
-	uncheckedAsciiString { :self |
+	[uncheckedAsciiString, uncheckedByteArrayToAsciiString] { :self |
 		newAsciiString().initializeSlots(self)
 	}
 

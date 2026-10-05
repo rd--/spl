@@ -97,7 +97,7 @@ Split before every occurrence of 1:
 Group together identical elements:
 
 ```
->>> 'aaabbaaccc'.contents.split(=)
+>>> 'aaabbaaccc'.characters.split(=)
 ['a' 'a' 'a'; 'b' 'b'; 'a' 'a'; 'c' 'c' 'c']
 ```
 

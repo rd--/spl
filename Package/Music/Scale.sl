@@ -298,7 +298,7 @@ Scale : [Object, Store] { | intervals description startIndex |
 						lRule := [l, List(ceiling(m2 / m1), s)].stringJoin;
 						sRule := [l, List(floor(m2 / m1), s)].stringJoin
 					};
-					prescale.contents.do { :step |
+					prescale.characters.do { :step |
 						(step = l).if {
 							answer := answer ++ lRule
 						} {

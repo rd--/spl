@@ -352,7 +352,7 @@
 		self.do { :each |
 			answer.include!(each.typeOf)
 		};
-		answer.contents
+		answer.List
 	}
 
 	emptyCheck { :self |

@@ -1,9 +1,9 @@
-Writing : [Object, Geometry] { | contents lowerLeft |
+Writing : [Object, Geometry] { | string lowerLeft |
 
 	boundingBox { :self |
 		[
 			self.lowerLeft - [10 10],
-			self.lowerLeft + [self.contents.size * 10, 20]
+			self.lowerLeft + [self.string.size * 10, 20]
 		]
 	}
 
@@ -18,7 +18,7 @@ Writing : [Object, Geometry] { | contents lowerLeft |
 				y.printStringToFixed(precision)
 			]),
 			'<text fill="black" stroke="none">%</text>'.format([
-				self.contents
+				self.string
 			]),
 			'</g>'
 		]

@@ -6,7 +6,7 @@ Answer all distinct elements of the collection _x_ together with their multiplic
 according to the equality predicate _f_.
 
 ```
->>> 'aabacba'.contents.tally(=)
+>>> 'aabacba'.characters.tally(=)
 [
 	'a' 4;
 	'b' 2;

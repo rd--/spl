@@ -14,13 +14,13 @@ which is specified by a sort block that is ordinarily `precedesOrEqualTo`.
 SortedList([1 2 3])
 ```
 
-`addAll` adds each item in turn, `contents` answers the sorted `List` value:
+`addAll` adds each item in turn, `uncopiedList` answers the sorted `List` value:
 
 ```
 >>> let l = SortedList([5 1 6 4]);
 >>> l.add!(2);
 >>> l.addAll!([3 7]);
->>> l.contents
+>>> l.uncopiedList
 [1 2 3 4 5 6 7]
 ```
 
@@ -69,37 +69,58 @@ SortedList([1, 2, 3, 4, 5, 6])
 [0J0 -1J-1 1J1 2J2]
 ```
 
-At `List`:
+At `List`,
+`uncopiedList` fetched the uncopied sorted list:
 
 ```
 >>> let x = [1 9 3 7 5];
 >>> let y = SortedList(x);
->>> (y.contents, x !== y.contents)
+>>> let z = y.uncopiedList;
+>>> (z, x !== z)
 ([1 3 5 7 9], true)
 ```
 
 Specifiy the sort block, here to maintain a list in reverse order:
 
 ```
->>> SortedList([1 9 3 7 5], >)
->>> .contents
+>>> SortedList([1 9 3 7 5], >).List
 [9 7 5 3 1]
 ```
 
 At `IdentitySet`:
 
 ```
->>> let s = IdentitySet();
->>> s.includeAll!([1 9 3 7 5]);
->>> SortedList(s).contents
-[1 3 5 7 9]
+>>> IdentitySet[1 9 3 7 5]
+>>> .SortedList
+SortedList[1 3 5 7 9]
 ```
 
 At `Range`:
 
 ```
->>> (10, 9 .. 1).SortedList.contents
-[1 2 3 4 5 6 7 8 9 10]
+>>> (10, 9 .. 1).SortedList
+SortedList[1 2 3 4 5 6 7 8 9 10]
+```
+
+At `SortedList`,
+`uncopiedList` answers the stored list,
+use `items` or `List` to get a copy:
+
+```
+>>> SortedList[1 3 5 4 2 0].uncopiedList
+[0 1 2 3 4 5]
+
+>>> let a = SortedList[1 3 5 4 2 0];
+>>> let b = a.uncopiedList;
+>>> let c = a.List;
+>>> b[3] := -5;
+>>> (a, b, b = c, b !== c)
+(
+	SortedList[1 3 5 4 -5 0],
+	[0 1 -5 3 4 5],
+	true,
+	true
+)
 ```
 
 * * *

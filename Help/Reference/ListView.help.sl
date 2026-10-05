@@ -54,8 +54,8 @@ this process does not create a double indirection:
 >>> 	[p.first, p.last, p.size],
 >>> 	[q.first, q.last, q.size],
 >>> 	[r.first, r.last, r.size],
->>> 	q.contents == p,
->>> 	r.contents == q.contents
+>>> 	q.viewedList == p,
+>>> 	r.viewedList == q.viewedList
 >>> )
 (
 	[111 999 889],

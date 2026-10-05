@@ -1,39 +1,39 @@
-ContinuousEvent : [Object] { | contents |
+ContinuousEvent : [Object] { | signalList |
 
 	i { :self |
-		self.contents[5]
+		self.signalList[5]
 	}
 
 	j { :self |
-		self.contents[6]
+		self.signalList[6]
 	}
 
 	k { :self |
-		self.contents[7]
+		self.signalList[7]
 	}
 
 	List { :self |
-		self.contents
+		self.signalList.copy
 	}
 
 	p { :self |
-		self.contents[8]
+		self.signalList[8]
 	}
 
 	w { :self |
-		self.contents[1]
+		self.signalList[1]
 	}
 
 	x { :self |
-		self.contents[2]
+		self.signalList[2]
 	}
 
 	y { :self |
-		self.contents[3]
+		self.signalList[3]
 	}
 
 	z { :self |
-		self.contents[4]
+		self.signalList[4]
 	}
 
 }

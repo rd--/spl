@@ -57,8 +57,8 @@ At `SortedList`:
 ```
 >>> let l = SortedList[7, 5 .. 1];
 >>> l.addAll!([8, 6 .. 2]);
->>> l.contents
-[1 .. 8]
+>>> l
+SortedList[1 .. 8]
 ```
 
 * * *

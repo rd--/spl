@@ -31,7 +31,7 @@ Parse _(r,g,b)_ colour:
 
 ~~~spl svg=A
 let b = 'FECB00'.parseBase16;
-RgbColour(b.contents / 255, 1)
+RgbColour(b.List / 255, 1)
 ~~~
 
 ![](Help/Image/parseBase16-A.svg)

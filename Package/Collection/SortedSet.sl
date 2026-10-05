@@ -1,50 +1,50 @@
-SortedSet : [Object, Copy, Store, Equal, Iterable, Collection, Extensible, Set] { | contents |
+SortedSet : [Object, Copy, Store, Equal, Iterable, Collection, Extensible, Set] { | sortedList |
 
 	add! { :self :anObject |
-		let contents = self.contents;
-		contents.includes(anObject).if {
+		let sortedList = self.sortedList;
+		sortedList.includes(anObject).if {
 			self.error('add: item already present')
 		} {
-			contents.include!(anObject)
+			sortedList.include!(anObject)
 		}
 	}
 
 	collect { :self :aBlock/1 |
 		SortedSet(
-			self.contents.collect(aBlock/1)
+			self.sortedList.collect(aBlock/1)
 		)
 	}
 
 	do { :self :aBlock/1 |
-		self.contents.do(aBlock/1)
+		self.sortedList.do(aBlock/1)
 	}
 
 	include! { :self :anObject |
-		self.contents.addIfNotPresent!(anObject)
+		self.sortedList.addIfNotPresent!(anObject)
 	}
 
 	includes { :self :anObject |
-		self.contents.includes(anObject)
+		self.sortedList.includes(anObject)
 	}
 
 	List { :self |
-		self.contents.List
+		self.sortedList.List
 	}
 
 	removeAll! { :self |
-		self.contents.removeAll!
+		self.sortedList.removeAll!
 	}
 
 	removeIfAbsent! { :self :anObject :aBlock/0 |
-		self.contents.removeIfAbsent!(anObject, aBlock/0)
+		self.sortedList.removeIfAbsent!(anObject, aBlock/0)
 	}
 
 	postCopy { :self |
-		self.contents := self.contents.copy
+		self.sortedList := self.sortedList.copy
 	}
 
 	size { :self |
-		self.contents.size
+		self.sortedList.size
 	}
 
 	species { :self |
@@ -54,7 +54,11 @@ SortedSet : [Object, Copy, Store, Equal, Iterable, Collection, Extensible, Set] 
 	storeString { :self |
 		'SortedSet([%])'.format(
 			[
-				self.contents.contents.collect(storeString/1).commaSeparated
+				self
+				.sortedList
+				.uncopiedList
+				.collect(storeString/1)
+				.commaSeparated
 			]
 		)
 	}

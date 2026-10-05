@@ -69,6 +69,15 @@ At `NumericArray` answers the `normal` `List` array:
 [1 2; 3 4; 5 6]
 ```
 
+At `List` is `identity`:
+
+```
+>>> let a = [1 2 3];
+>>> let b = List(a);
+>>> (a = b, a == b)
+(true, true)
+```
+
 Traits implemented by `List`:
 
 ```

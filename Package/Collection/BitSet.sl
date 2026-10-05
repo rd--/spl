@@ -67,7 +67,7 @@ BitSet : [Object, Copy, Store, Equal, Iterable, Collection, Extensible] { | capa
 	}
 
 	bitVector { :self |
-		self.contents(bitsDo/2)
+		self.items(bitsDo/2)
 	}
 
 	boxNotation { :self :zeroOne |
@@ -168,7 +168,7 @@ BitSet : [Object, Copy, Store, Equal, Iterable, Collection, Extensible] { | capa
 	}
 
 	positionVector { :self |
-		self.contents(positionsDo/2)
+		self.items(positionsDo/2)
 	}
 
 	postCopy { :self |

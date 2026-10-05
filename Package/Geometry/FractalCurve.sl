@@ -11,8 +11,7 @@
 		.last
 		.select { :each |
 			keepLetters.includes(each)
-		}.contents
-		.do { :each |
+		}.characters.do { :each |
 			stepLetters.includes(each).if {
 				answer.add!(answer.last + angle.angleVector)
 			} {

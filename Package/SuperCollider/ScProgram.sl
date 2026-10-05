@@ -1,13 +1,13 @@
 /* Requires: LibraryItem */
 
-SuperColliderProgramIndex : [Object] { | contents |
+SuperColliderProgramIndex : [Object] { | programList |
 
 	atRandom { :self |
-		self.contents.randomChoice(system, [])
+		self.programList.randomChoice(system, [])
 	}
 
 	authors { :self :category |
-		self.contents.select { :each |
+		self.programList.select { :each |
 			each[1] = category
 		}
 		.collect(second/1)
@@ -17,14 +17,14 @@ SuperColliderProgramIndex : [Object] { | contents |
 
 	categories { :self |
 		self
-		.contents
+		.programList
 		.collect(first/1)
 		.copyWithoutIdenticalElements
 		.sort
 	}
 
 	names { :self :category :author |
-		self.contents.select { :each |
+		self.programList.select { :each |
 			each[1] = category & {
 				each[2] = author
 			}
@@ -32,7 +32,7 @@ SuperColliderProgramIndex : [Object] { | contents |
 	}
 
 	size { :self |
-		self.contents.size
+		self.programList.size
 	}
 
 	[Tree, superColliderProgramIndexToTree] { :self |

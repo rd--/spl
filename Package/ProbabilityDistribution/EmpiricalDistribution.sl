@@ -1,8 +1,8 @@
-EmpiricalDistribution : [Object, Equal, ProbabilityDistribution] { | contents k |
+EmpiricalDistribution : [Object, Equal, ProbabilityDistribution] { | empiricalData k |
 
 	cdf { :self |
 		let k = self.k;
-		let a = self.contents.sortedElements;
+		let a = self.empiricalData.sortedElements;
 		let n = a.size;
 		{ :x |
 			let i = 1;
@@ -61,11 +61,11 @@ EmpiricalDistribution : [Object, Equal, ProbabilityDistribution] { | contents k 
 	}
 
 	max { :self |
-		self.contents.max
+		self.empiricalData.max
 	}
 
 	min { :self |
-		self.contents.min
+		self.empiricalData.min
 	}
 
 	/*
@@ -78,7 +78,7 @@ EmpiricalDistribution : [Object, Equal, ProbabilityDistribution] { | contents k 
 	*/
 
 	randomVariate { :self :r :shape |
-		self.contents.randomChoice(r, shape)
+		self.empiricalData.randomChoice(r, shape)
 	}
 
 }
@@ -87,7 +87,7 @@ EmpiricalDistribution : [Object, Equal, ProbabilityDistribution] { | contents k 
 +List {
 
 	EmpiricalDistribution { :d |
-		newEmpiricalDistribution().initializeSlots(d.asIdentityMultiset, d.size)
+		newEmpiricalDistribution().initializeSlots(d.IdentityMultiset, d.size)
 	}
 
 }

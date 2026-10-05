@@ -1,4 +1,4 @@
-LineDrawing : [Object] { | contents metadata |
+LineDrawing : [Object] { | components metadata |
 
 	asImg { :self |
 		let svgText = self.asSvg;
@@ -23,7 +23,7 @@ LineDrawing : [Object] { | contents metadata |
 	asSvg { :self |
 		let boundingCoordinates = self.boundingBox;
 		{ :options |
-			self.contents.collect { :each |
+			self.components.collect { :each |
 				each.svgFragment(options)
 			}
 		}.scaledSvgFragments(
@@ -33,7 +33,7 @@ LineDrawing : [Object] { | contents metadata |
 	}
 
 	boundingBox { :self |
-		self.contents.collect(boundingBox/1).boundingBoxMerging
+		self.components.collect(boundingBox/1).boundingBoxMerging
 	}
 
 	drawing { :self |

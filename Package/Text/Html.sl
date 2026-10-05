@@ -1,11 +1,11 @@
-Html : [Object, Store, Equal] { | contents |
+Html : [Object, Store, Equal] { | string |
 
-	asHtmlElement { :self :document |
-		document.parseHtml(self.contents)
+	HtmlElement { :self :document |
+		document.parseHtml(self.string)
 	}
 
 	isDocument { :self |
-		self.contents.beginsWith('<!DOCTYPE html>')
+		self.string.beginsWith('<!DOCTYPE html>')
 	}
 
 	isFragment { :self |

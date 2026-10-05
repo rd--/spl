@@ -1,4 +1,4 @@
-GeoJson : [Object, Store] { | contents |
+GeoJson : [Object, Store] { | jsonRecord |
 
 	coordinates { :self |
 		self.isGeometry.if {
@@ -22,7 +22,7 @@ GeoJson : [Object, Store] { | contents |
 	}
 
 	field { :self :key |
-		self.contents.at(key)
+		self.jsonRecord.at(key)
 	}
 
 	geometries { :self |
@@ -102,12 +102,12 @@ GeoJson : [Object, Store] { | contents |
 	}
 
 	hasField { :self :key |
-		self.contents.includesKey(key)
+		self.jsonRecord.includesKey(key)
 	}
 
 	isFeature { :self |
 		self.type = 'Feature' & {
-			self.contents.includesKeys(['geometry', 'properties'])
+			self.jsonRecord.includesKeys(['geometry', 'properties'])
 		}
 	}
 
@@ -148,7 +148,7 @@ GeoJson : [Object, Store] { | contents |
 				answer.add!(each)
 			};
 			each.isGeometryCollection.ifTrue {
-				answer.addAll!(each.contents.select(isPolygon/1))
+				answer.addAll!(each.jsonRecord.select(isPolygon/1))
 			}
 		};
 		answer
@@ -171,7 +171,7 @@ GeoJson : [Object, Store] { | contents |
 	}
 
 	Record { :self |
-		self.contents
+		self.jsonRecord.copy
 	}
 
 	simplyConnectedPolygons { :self |

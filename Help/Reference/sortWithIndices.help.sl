@@ -4,10 +4,10 @@
 
 Sort items in the sequence _l_ according to _f_ and answer each associated with its initial index.
 
-Sort `contents` of a `String`:
+Sort `characters` of a `String`:
 
 ```
->>> 'string'.contents.sortWithIndices
+>>> 'string'.characters.sortWithIndices
 [
 	'g' -> 6,
 	'i' -> 4,

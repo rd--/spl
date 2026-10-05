@@ -48,7 +48,7 @@ true
 `ordering` always returns a permutation list, even if the elements of the expression are repeated:
 
 ```
->>> let p = 'aabcbacb'.contents.ordering;
+>>> let p = 'aabcbacb'.characters.ordering;
 >>> (p, p.isPermutationList)
 ([1 2 6 3 5 8 4 7], true)
 ```

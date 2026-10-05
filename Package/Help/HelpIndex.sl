@@ -1,4 +1,4 @@
-HelpIndex : [Object] { | contents |
+HelpIndex : [Object] { | helpFileList |
 
 	fetch { :self :path |
 		path.ifNotNil {
@@ -13,7 +13,7 @@ HelpIndex : [Object] { | contents |
 	}
 
 	find { :self :topic |
-		self.contents.detectIfNone { :each |
+		self.helpFileList.detectIfNone { :each |
 			each.second = topic
 		} {
 			self.warning('HelpIndex>>find: no help for: ' ++ topic);
@@ -26,7 +26,7 @@ HelpIndex : [Object] { | contents |
 	}
 
 	names { :self :kind |
-		self.contents.select { :each |
+		self.helpFileList.select { :each |
 			each.first = kind
 		}.collect(second/1).sort!
 	}
@@ -42,7 +42,7 @@ HelpIndex : [Object] { | contents |
 	}
 
 	size { :self |
-		self.contents.size
+		self.helpFileList.size
 	}
 
 }

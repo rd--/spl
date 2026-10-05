@@ -1,12 +1,13 @@
 # BacktickQuotedString
 
-- _BacktickQuotedString(aString)_
+- _BacktickQuotedString(s)_
 
 A `Type` representing a string written using backtick (or _grave accent_) quotes.
-The `contents` method answers the quoted string.
+The `unquotedString` method answers the unquoted string.
 
 ```
->>> BacktickQuotedString('x').contents
+>>> BacktickQuotedString('x')
+>>> .unquotedString
 'x'
 ```
 

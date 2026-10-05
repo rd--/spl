@@ -1,83 +1,88 @@
-FilePath : [Object, Store, Equal] { | contents |
+FilePath : [Object, Store, Equal] { | filePathString |
 
 	absolutePathString { :self |
-		self.contents
+		let path = self.filePathString;
+		path.pathIsAbsolute.if {
+			path
+		} {
+			self.error('absolutePathString')
+		}
 	}
 
 	asUrl { :self |
-		self.contents.asFileUrl
+		self.filePathString.asFileUrl
 	}
 
 	basename { :self |
-		self.contents.pathBasename
+		self.filePathString.pathBasename
 	}
 
 	directory { :self |
-		self.contents.pathDirectory
+		self.filePathString.pathDirectory
 	}
 
 	directoryExists { :self |
-		system.directoryExists(self.contents)
+		system.directoryExists(self.filePathString)
 	}
 
 	extension { :self |
-		self.contents.pathExtension
+		self.filePathString.pathExtension
 	}
 
 	fileExists { :self |
-		system.fileExists(self.contents)
+		system.fileExists(self.filePathString)
 	}
 
 	fileInformation { :self |
-		system.fileInformation(self.contents)
+		system.fileInformation(self.filePathString)
 	}
 
 	makeDirectory { :self :recursive :mode |
-		system.makeDirectory(self.contents, recursive, mode)
+		system.makeDirectory(self.filePathString, recursive, mode)
 	}
 
 	modificationTime { :self |
-		system.modificationTime(self.contents)
+		system.modificationTime(self.filePathString)
 	}
 
 	readBinaryFile { :self |
-		system.readBinaryFile(self.contents)
+		system.readBinaryFile(self.filePathString)
 	}
 
 	readDirectoryFileNames { :self |
-		system.readDirectoryFileNames(self.contents).collect(FilePath/1)
+		system.readDirectoryFileNames(self.filePathString).collect(FilePath/1)
 	}
 
 	readTextFile { :self |
-		system.readTextFile(self.contents)
+		system.readTextFile(self.filePathString)
 	}
 
 	removeDirectory { :self :recursive |
-		system.removeDirectory(self.contents, recursive)
+		system.removeDirectory(self.filePathString, recursive)
 	}
 
 	removeFile { :self |
-		system.removeFile(self.contents)
+		system.removeFile(self.filePathString)
 	}
 
 	replaceExtension { :self :existing :replacement |
 		FilePath(
-			self.contents.stringReplace(
+			self.filePathString.stringReplace(
 				existing -> replacement
 			)
 		)
 	}
 
 	stem { :self |
-		self.contents.pathStem
+		self.filePathString.pathStem
 	}
 
 	writeBinaryFile { :self :data |
-		system.writeBinaryFile(self.contents, data)
+		system.writeBinaryFile(self.filePathString, data)
 	}
 
 	writeTextFile { :self :data |
-		system.writeTextFile(self.contents, data)
+		system.writeTextFile(self.filePathString, data)
 	}
 
 }
@@ -85,7 +90,9 @@ FilePath : [Object, Store, Equal] { | contents |
 +List {
 
 	readTextFileList { :self |
-		system.readTextFileList(self.collect(absolutePathString/1))
+		system.readTextFileList(
+			self.collect(absolutePathString/1)
+		)
 	}
 
 }

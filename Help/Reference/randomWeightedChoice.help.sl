@@ -16,7 +16,7 @@ if the weights do not sum to `one` they are automatically normalized:
 >>> 	[2 2 5 1],
 >>> 	[100]
 >>> );
->>> c.asIdentityMultiset.sortedElements
+>>> c.IdentityMultiset.sortedElements
 [1 -> 18, 2 -> 17, 3 -> 50, 4 -> 15]
 ```
 
@@ -38,7 +38,7 @@ according to the specified probabilities.
 ```
 >>> let r = Sfc32(36814);
 >>> r.randomWeightedChoice(
->>> 	'ACGT'.contents,
+>>> 	'ACGT'.characters,
 >>> 	[0.15 0.35 0.35 0.15],
 >>> 	[24]
 >>> ).stringCatenate

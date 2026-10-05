@@ -35,7 +35,7 @@ of the form _[Category, Author, ProgramName]_:
 ```
 >>> system
 >>> .superColliderProgramIndex
->>> .contents
+>>> .programList
 >>> .includes(
 >>> 	['Texture', 'Jmcc', 'Sidereal time']
 >>> )

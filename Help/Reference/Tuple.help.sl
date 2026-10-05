@@ -85,6 +85,16 @@ false
 true
 ```
 
+The underlying list can be accessed:
+
+```
+>>> let a = (1, 2, 3);
+>>> let b = a.list;
+>>> b[2] := -2;
+>>> (a, b)
+((1, -2, 3), [1 2 3])
+```
+
 * * *
 
 See also: asTuple, List

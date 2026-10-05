@@ -1,42 +1,42 @@
-TypedDictionary : [Object, Store, Equal, Iterable, Indexable, Collection, Extensible, Dictionary] { | contents keyType |
+TypedDictionary : [Object, Store, Equal, Iterable, Indexable, Collection, Extensible, Dictionary] { | untypedDictionary keyType |
 
 	[at, @] { :self :key |
-		self.contents.at(self.typeCheckKey(key))
+		self.untypedDictionary.at(self.typeCheckKey(key))
 	}
 
 	comparator { :self |
-		self.contents.comparator
+		self.untypedDictionary.comparator
 	}
 
 	do { :self :aBlock/1 |
-		self.contents.do(aBlock/1)
+		self.untypedDictionary.do(aBlock/1)
 	}
 
 	indices { :self |
-		self.contents.indices
+		self.untypedDictionary.indices
 	}
 
 	keys { :self |
-		self.contents.keys
+		self.untypedDictionary.keys
 	}
 
 	keysAndValuesDo { :self :aBlock/2 |
-		self.contents.keysAndValuesDo(aBlock/2);
+		self.untypedDictionary.keysAndValuesDo(aBlock/2);
 		self
 	}
 
 	put! { :self :key :value |
-		self.contents.put!(self.typeCheckKey(key), value)
+		self.untypedDictionary.put!(self.typeCheckKey(key), value)
 	}
 
 	size { :self |
-		self.contents.size
+		self.untypedDictionary.size
 	}
 
 	storeString { :self |
-		'%.asTypedDictionary(%)'.format(
+		'TypedDictionary(%, %)'.format(
 			[
-				self.contents.associations,
+				self.untypedDictionary.associations,
 				self.keyType.storeString
 			]
 		)
@@ -51,7 +51,7 @@ TypedDictionary : [Object, Store, Equal, Iterable, Indexable, Collection, Extens
 	}
 
 	values { :self |
-		self.contents.values
+		self.untypedDictionary.values
 	}
 
 }
@@ -59,26 +59,26 @@ TypedDictionary : [Object, Store, Equal, Iterable, Indexable, Collection, Extens
 +String {
 
 	TypedDictionary { :self |
-		let contents = [
+		let dictionary = [
 			{ self = 'String' } -> { Record() },
 			{ self.isImmediateType } -> { Map() },
 			{ true } -> { Dictionary() }
 		].which;
-		newTypedDictionary().initializeSlots(contents, self)
+		newTypedDictionary().initializeSlots(dictionary, self)
 	}
 
 }
 
 +List {
 
-	asTypedDictionary { :self :typeName |
+	TypedDictionary { :self :typeName |
 		let answer = TypedDictionary(typeName);
 		answer.addAll!(self);
 		answer
 	}
 
-	asTypedDictionary { :self |
-		self.asTypedDictionary(self.keyType)
+	TypedDictionary { :self |
+		TypedDictionary(self, self.keyType)
 	}
 
 }

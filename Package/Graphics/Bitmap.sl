@@ -1,14 +1,14 @@
-Bitmap : [Object] { | contents scale |
+Bitmap : [Object] { | bitMatrix scale |
 
 	asPbm { :self |
-		let contents = self.contents;
+		let bitMatrix = self.bitMatrix;
 		let scale = self.scale;
-		let [rowCount, columnCount] = contents.shape;
+		let [rowCount, columnCount] = bitMatrix.shape;
 		let header = [
 			'P1',
 			'% %'.format([columnCount * scale, rowCount * scale])
 		];
-		let rows = contents.collect { :each |
+		let rows = bitMatrix.collect { :each |
 			each.collect { :item |
 				List(scale, item.asBit.printString).unwords
 			}.unwords
@@ -21,7 +21,7 @@ Bitmap : [Object] { | contents scale |
 	}
 
 	height { :self |
-		self.contents.size
+		self.bitMatrix.size
 	}
 
 	show { :self |
@@ -31,7 +31,7 @@ Bitmap : [Object] { | contents scale |
 	}
 
 	width { :self |
-		self.contents.first.size
+		self.bitMatrix.first.size
 	}
 
 	writePbm { :self :fileName |

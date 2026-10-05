@@ -33,7 +33,7 @@ HuffmanCoding : [Object, Store, Equal] { | symbolTable encoding |
 +String {
 
 	huffmanEncode { :self |
-		self.contents.huffmanEncode
+		self.characters.huffmanEncode
 	}
 
 }

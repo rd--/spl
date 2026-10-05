@@ -6,7 +6,7 @@ A type representing a rectangular table of values given by the matrix _m_,
 where columns are labeled by _l_,
 and have types _t_.
 
-The `contents` method answers the table data as a `List` matrix,
+The `cellMatrix` method answers the table data as a `List` matrix,
 the `columnLabels` and `columnTypes` answer the column labels and types:
 
 ```
@@ -16,7 +16,7 @@ the `columnLabels` and `columnTypes` answer the column labels and types:
 >>> 	['SmallFloat' 'SmallFloat']
 >>> );
 >>> (
->>> 	t.contents,
+>>> 	t.cellMatrix,
 >>> 	t.columnLabels,
 >>> 	t.columnTypes
 >>> )

@@ -183,11 +183,11 @@
 +String {
 
 	findRepeat { :self |
-		self.contents.findRepeat.stringJoin
+		self.characters.findRepeat.stringJoin
 	}
 
 	findTransientRepeat { :self :n |
-		self.contents.findTransientRepeat(n).collect(stringJoin/1)
+		self.characters.findTransientRepeat(n).collect(stringJoin/1)
 	}
 
 }

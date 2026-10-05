@@ -1,13 +1,13 @@
 /* Requires: String */
 
-BacktickQuotedString : [Object, Store, Equal] { | contents:<String> |
+BacktickQuotedString : [Object, Store, Equal] { | unquotedString:<String> |
 
 	asString { :self |
-		self.contents
+		self.unquotedString
 	}
 
 	printString { :self |
-		'`%`'.format([self.contents])
+		'`%`'.format([self.unquotedString])
 	}
 
 }
@@ -20,14 +20,14 @@ BacktickQuotedString : [Object, Store, Equal] { | contents:<String> |
 
 }
 
-DoubleQuotedString : [Object, Store, Equal] { | contents:<String> |
+DoubleQuotedString : [Object, Store, Equal] { | unquotedString:<String> |
 
 	asString { :self |
-		self.contents
+		self.unquotedString
 	}
 
 	printString { :self |
-		'"%"'.format([self.contents])
+		'"%"'.format([self.unquotedString])
 	}
 
 }

@@ -1,9 +1,9 @@
-PerspectiveDrawing : [Object] { | contents metadata |
+PerspectiveDrawing : [Object] { | components metadata |
 
 	asLineDrawing { :self |
 		let projection = self.metadata['projection'];
 		LineDrawing(
-			self.contents.collect { :each |
+			self.components.collect { :each |
 				each.project(projection)
 			},
 			self.metadata

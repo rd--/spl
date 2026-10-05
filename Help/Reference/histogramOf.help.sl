@@ -2,7 +2,7 @@
 
 - _histogramOf(c, f/1)_
 
-A more efficient form of _c.collect(f/1).asIdentityMultiset_.
+A more efficient form of _c.collect(f/1).IdentityMultiset_.
 
 ```
 >>> let l = [1.1 2.1 3.1 1.9 2.9 1.1];

@@ -1,4 +1,4 @@
-SparseArray : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, Sequence] { | contents shape unspecifiedValue |
+SparseArray : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, Sequence] { | linearIndexValueMap shape unspecifiedValue |
 
 	arrayDepth { :self |
 		self.rank
@@ -7,7 +7,7 @@ SparseArray : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, S
 	arrayRules { :self |
 		let shape = self.shape;
 		let answer = [];
-		self.contents.withIndexDo { :each :i |
+		self.linearIndexValueMap.withIndexDo { :each :i |
 			answer.add!(shape.cartesianIndex(i) -> each)
 		};
 		answer
@@ -19,7 +19,7 @@ SparseArray : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, S
 			self.atLinear(self.shape.linearIndex([i]))
 		} {
 			let answer = [];
-			self.contents.keysAndValuesDo { :key :value |
+			self.linearIndexValueMap.keysAndValuesDo { :key :value |
 				let c = shape.cartesianIndex(key);
 				(c[1] = i).ifTrue {
 					answer.add!(c.allButFirst -> value)
@@ -30,7 +30,7 @@ SparseArray : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, S
 	}
 
 	atLinear { :self :linearIndex |
-		let map = self.contents;
+		let map = self.linearIndexValueMap;
 		map.includesKey(linearIndex).if {
 			map.at(linearIndex)
 		} {
@@ -46,7 +46,7 @@ SparseArray : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, S
 
 	collect { :self :aBlock/1 |
 		SparseArray(
-			self.contents.collect(aBlock/1),
+			self.linearIndexValueMap.collect(aBlock/1),
 			self.shape,
 			self.unspecifiedValue
 		)
@@ -65,7 +65,7 @@ SparseArray : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, S
 	}
 
 	do { :self :aBlock/1 |
-		self.contents.do(aBlock/1)
+		self.linearIndexValueMap.do(aBlock/1)
 	}
 
 	isMatrix { :self |
@@ -73,7 +73,7 @@ SparseArray : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, S
 	}
 
 	linearIndices { :self |
-		self.contents.keys
+		self.linearIndexValueMap.keys
 	}
 
 	matrixPlot { :self |
@@ -82,17 +82,17 @@ SparseArray : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, S
 
 	nonZeroPositions { :self |
 		let rho = self.shape;
-		self.contents.keys.collect { :each |
+		self.linearIndexValueMap.keys.collect { :each |
 			rho.cartesianIndex(each)
 		}
 	}
 
 	nonZeroValues { :self |
-		self.contents.values
+		self.linearIndexValueMap.values
 	}
 
 	normal { :self |
-		let map = self.contents;
+		let map = self.linearIndexValueMap;
 		let zero = self.unspecifiedValue;
 		self.shape.iota.deepCollect { :each |
 			map.includesKey(each).if {
@@ -119,7 +119,7 @@ SparseArray : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, S
 	}
 
 	specifiedElementCount { :self |
-		self.contents.size
+		self.linearIndexValueMap.size
 	}
 
 	storeString { :self |
@@ -151,7 +151,7 @@ SparseArray : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, S
 	}
 
 	withDeepIndexDo { :self :elementAndIndexBlock/2 |
-		self.contents.keysAndValuesDo { :key :value |
+		self.linearIndexValueMap.keysAndValuesDo { :key :value |
 			elementAndIndexBlock(
 				self.shape.cartesianIndex(key),
 				value

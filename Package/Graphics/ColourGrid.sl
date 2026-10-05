@@ -1,7 +1,7 @@
-ColourGrid : [Object] { | contents |
+ColourGrid : [Object] { | colourMatrix |
 
 	asLineDrawing { :self |
-		let matrix = self.contents;
+		let matrix = self.colourMatrix;
 		let [height, width] = self.shape;
 		let cellSize = self.cellSize;
 		let yMax = height * cellSize;
@@ -41,7 +41,7 @@ ColourGrid : [Object] { | contents |
 
 	drawing { :self |
 		/* Simpler form for direct drawing of matrices &etc. */
-		let matrix = self.contents;
+		let matrix = self.colourMatrix;
 		let [height, width] = self.shape;
 		let cellSize = self.cellSize;
 		let items = { :x :y |
@@ -83,7 +83,7 @@ ColourGrid : [Object] { | contents |
 	}
 
 	shape { :self |
-		self.contents.dimensions(2)
+		self.colourMatrix.dimensions(2)
 	}
 
 	viewBox { :self |

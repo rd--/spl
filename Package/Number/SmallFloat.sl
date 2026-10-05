@@ -235,20 +235,16 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		}
 	}
 
-	countTrailingOnes { :self |
-		self.bitNot.countTrailingZeroes
+	countTrailingOnes { :self :base :wordSize |
+		self.bitNot.countTrailingZeroes(base, wordSize)
 	}
 
-	countTrailingZeroes { :self |
-		<primitive:
-		let n = _self;
-		n >>>= 0;
-		if (n === 0) {
-			return 32;
+	countTrailingZeroes { :self :base :wordSize |
+		(base = 2 & { wordSize = 32 }).if {
+			self.uncheckedCountTrailingZeroes
+		} {
+			self.error('countTrailingZeroes')
 		}
-		n &= -n;
-		return 31 - Math.clz32(n);
-		>
 	}
 
 	cubeRoot { :self |
@@ -912,6 +908,18 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		}
 		>
 		self.error('SmallFloat>>uncheckedCountLeadingZeroes')
+	}
+
+	uncheckedCountTrailingZeroes { :self |
+		<primitive:
+		let n = _self;
+		n >>>= 0;
+		if (n === 0) {
+			return 32;
+		}
+		n &= -n;
+		return 31 - Math.clz32(n);
+		>
 	}
 
 	uncheckedPrintString { :self :radix |
