@@ -28,7 +28,7 @@ true
 
 * * *
 
-See also: asCodePoint, asString, Character
+See also: asString, Character, codePoint
 
 Guides: String Functions
 

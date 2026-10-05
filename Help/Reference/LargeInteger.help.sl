@@ -13,11 +13,16 @@ At `SmallFloat`:
 (8388608, 8388608L, true, false, true)
 ```
 
-It is an error if the value is not an integer:
+It is an error if the value is not a small integer:
 
 ```
 >>> {
 >>> 	LargeInteger(1.pi)
+>>> }.hasError
+true
+
+>>> {
+>>> 	LargeInteger(2 ^ 56)
 >>> }.hasError
 true
 ```

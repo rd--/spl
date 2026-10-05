@@ -42,7 +42,7 @@ CentsTuning : [Object, Store, Equal, Tuning] {
 		let step = 1200 / self;
 		CentsTuning(
 			'ET-' ++ self.printString,
-			self.asWords.capitalize ++ ' tone equal-temperament',
+			self.inEnglishWords.capitalize ++ ' tone equal-temperament',
 			[0, step .. 1200 - step],
 			2
 		)

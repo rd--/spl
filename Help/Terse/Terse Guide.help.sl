@@ -238,11 +238,11 @@ let x = 8.625; let y = 0.75; let q = x.quotientBy(y, round/1); let r = x.remaind
 1:999.select(isPowerOfTwo/1) = [1, 2, 4, 8, 16, 32, 64, 128, 256, 512]
 (2 ^ 30).isPowerOfTwo = true /* this is only reliable for numbers that can be represented in 32-bits */
 (2 ^ 30 - 1).isPowerOfTwo = false
-127.asLargerPowerOfTwo = 128 /* next power of two that is not less than the receiver */
-[1, 2, 4, 8, 16, 32, 64, 128, 256].collect { :each | (each + 1).asLargerPowerOfTwo } = [2, 4, 8, 16, 32, 64, 128, 256, 512]
-129.asSmallerPowerOfTwo = 128 /* next power of two that is not greater than the receiver */
-[2, 4, 8, 16, 32, 64, 128, 256, 512].collect { :each | (each - 1).asSmallerPowerOfTwo } = [1, 2, 4, 8, 16, 32, 64, 128, 256]
-300.asPowerOfTwo = 256 /* next smaller power of two */
+127.nextPowerOfTwo = 128 /* next power of two that is not less than the receiver */
+[1, 2, 4, 8, 16, 32, 64, 128, 256].collect { :each | (each + 1).nextPowerOfTwo } = [2, 4, 8, 16, 32, 64, 128, 256, 512]
+129.previousPowerOfTwo = 128 /* next power of two that is not greater than the receiver */
+[2, 4, 8, 16, 32, 64, 128, 256, 512].collect { :each | (each - 1).previousPowerOfTwo } = [1, 2, 4, 8, 16, 32, 64, 128, 256]
+300.previousPowerOfTwo = 256 /* next smaller power of two */
 ```
 
 ## List -- collection type
@@ -1798,10 +1798,10 @@ system.cache['primesList'][23] = 83 /* prime extends the primesList cache as req
 [11 .. 20].collect(threeDigitName/1) = ['eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen', 'twenty']
 [21, 25, 29].collect(threeDigitName/1) = ['twenty-one', 'twenty-five', 'twenty-nine']
 [111, 333, 999].collect(threeDigitName/1) = ['one hundred eleven', 'three hundred thirty-three', 'nine hundred ninety-nine']
-(921 * (10 ^ 12)).asWords = 'nine hundred twenty-one trillion'
-504606846975.asWords = 'five hundred four billion, six hundred six million, eight hundred forty-six thousand, nine hundred seventy-five'
-123456789.asWords = 'one hundred twenty-three million, four hundred fifty-six thousand, seven hundred eighty-nine'
-13579.asWords = 'thirteen thousand, five hundred seventy-nine'
+(921 * (10 ^ 12)).inEnglishWords = 'nine hundred twenty-one trillion'
+504606846975.inEnglishWords = 'five hundred four billion, six hundred six million, eight hundred forty-six thousand, nine hundred seventy-five'
+123456789.inEnglishWords = 'one hundred twenty-three million, four hundred fifty-six thousand, seven hundred eighty-nine'
+13579.inEnglishWords = 'thirteen thousand, five hundred seventy-nine'
 ```
 
 ## Integer -- roman numerals

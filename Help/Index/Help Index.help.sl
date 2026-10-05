@@ -156,7 +156,8 @@
 
 - `asBit`, `asBoolean`
 - `asComplex`, `asFloat`, `asFraction`, `asInteger`, `LargeInteger`, `asNumber`, `asSmallFloat`
-- `asCharacter`, `asCodePoint`, `asHexDigit`, `asLowerCase`, `asRegExp`, `asString`, `asUpperCase`, `asWords`
+- `asCharacter`, `codePoint`, `asHexDigit`, `asLowerCase`, `asRegExp`, `asString`, `asUpperCase`
+- `inEnglishWords`
 - `IdentityMultiset`, `ByteArray`, `asCollection`, `List`, `Map`, `Record`, `IdentitySet`, `SortedList`, `Tree`
 - `degreesToRadians`, `radiansToDegrees`
 

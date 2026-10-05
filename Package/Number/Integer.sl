@@ -57,10 +57,6 @@
 		}
 	}
 
-	asCodePoint { :self |
-		self
-	}
-
 	asHexDigit { :self |
 		'0123456789ABCDEF'[self + 1]
 	}
@@ -97,7 +93,7 @@
 		}
 	}
 
-	asWords { :self |
+	inEnglishWords { :self |
 		let mils = [
 			'',
 			' thousand',
@@ -1751,46 +1747,6 @@
 
 	wrapIndex { :self :size |
 		self - 1 % size + 1
-	}
-
-}
-
-+@Integer {
-
-	asLargerPowerOfTwo { :self |
-		self.isPowerOfTwo.if {
-			self
-		} {
-			self.isNonNegative.if {
-				1.bitShiftLeft(self.highBitOfPositiveInteger)
-			} {
-				self.error('@Integer>>asLargerPowerOfTwo: non-positive')
-			}
-		}
-	}
-
-	asPowerOfTwo { :self |
-		self.asSmallerPowerOfTwo
-	}
-
-	asSmallerPowerOfTwo { :self |
-		self.isPowerOfTwo.if {
-			self
-		} {
-			self.isNonNegative.if {
-				self.one.bitShiftLeft(
-					self.highBitOfPositiveInteger - 1
-				)
-			} {
-				self.error('@Integer>>asSmallerPowerOfTwo: non-positive')
-			}
-		}
-	}
-
-	isPowerOfTwo { :self |
-		self != 0 & {
-			self.promoteBinary.bitAnd(self - 1) = 0
-		}
 	}
 
 }

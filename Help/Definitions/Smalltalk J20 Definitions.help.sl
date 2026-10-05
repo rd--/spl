@@ -2899,7 +2899,7 @@ nil.
 
 *Return Value*: ⧼Set⧽
 
-Cf: asSet
+Cf: Set
 
 ### 5.7.1.8
 

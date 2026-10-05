@@ -1,21 +1,21 @@
-# asSmallerPowerOfTwo
+# previousPowerOfTwo
 
-- _asSmallerPowerOfTwo(n)_
+- _previousPowerOfTwo(n)_
 
 Answers a power of two that is not greater than the integer _n_.
 
 ```
->>> 300.asSmallerPowerOfTwo
+>>> 300.previousPowerOfTwo
 256
 
->>> 512.asSmallerPowerOfTwo
+>>> 512.previousPowerOfTwo
 512
 ```
 
 At `LargeInteger`:
 
 ```
->>> 13L.factorial.asSmallerPowerOfTwo
+>>> 13L.factorial.previousPowerOfTwo
 4294967296L
 
 >>> 4294967296.nthRoot(32)
@@ -27,6 +27,6 @@ At `LargeInteger`:
 
 * * *
 
-See also: asPowerOfTwo, asLargerPowerOfTwo, bitShift, highBit, isPowerOfTwo
+See also: bitShift, highBit, isPowerOfTwo, nextPowerOfTwo
 
 Categories: Truncation, Rounding

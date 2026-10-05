@@ -230,3 +230,39 @@
 	}
 
 }
+
++@Binary {
+
+	isPowerOfTwo { :self |
+		self != 0 & {
+			self.promoteBinary.bitAnd(self - 1) = 0
+		}
+	}
+
+	nextPowerOfTwo { :self |
+		self.isPowerOfTwo.if {
+			self
+		} {
+			self.isNonNegative.if {
+				self.one.bitShiftLeft(self.highBitOfPositiveInteger)
+			} {
+				self.error('@Binary>>nextPowerOfTwo: non-positive')
+			}
+		}
+	}
+
+	previousPowerOfTwo { :self |
+		self.isPowerOfTwo.if {
+			self
+		} {
+			self.isNonNegative.if {
+				self.one.bitShiftLeft(
+					self.highBitOfPositiveInteger - 1
+				)
+			} {
+				self.error('@Binary>>previousPowerOfTwo: non-positive')
+			}
+		}
+	}
+
+}

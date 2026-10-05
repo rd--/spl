@@ -29,7 +29,7 @@ Converting:
 - `AsciiString`
 - `ByteArray`
 - `asCharacter`
-- `asCodePoint`
+- `codePoint`
 - `asHexDigit`
 - `asHexString`
 - `List`

@@ -453,6 +453,14 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer] {
 +SmallFloat {
 
 	LargeInteger { :self |
+		self.isSmallInteger.if {
+			self.uncheckedLargeInteger
+		} {
+			self.error('LargeInteger: not SmallInteger')
+		}
+	}
+
+	uncheckedLargeInteger { :self |
 		<primitive: return BigInt(_self);>
 	}
 

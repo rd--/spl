@@ -31,21 +31,37 @@ At `LargeInteger`:
 ```
 >>> 13L.factorial.isPowerOfTwo
 false
+
+>>> (2L ^ 268_314).isPowerOfTwo
+true
 ```
 
-Answers correctly for `SmallFloat` values that answer `false` for `isBinary`:
+Answers correctly for `SmallFloat` values that answer `false` for `isBinary`,
+but `true` for `isSmallInteger`:
 
 ```
->>> 13.factorial.isBinary
+>>> (2 ^ 35).isBinary
 false
 
->>> 13.factorial.isPowerOfTwo
+>>> (2 ^ 35).isPowerOfTwo
+true
+
+>>> (2 ^ 35 - 1).isPowerOfTwo
 false
+```
+
+It is an error if the `SmallFloat` is not a `SmallInteger`:
+
+```
+>>> {
+>>> 	(2 ^ 672).isPowerOfTwo
+>>> }.hasError
+true
 ```
 
 * * *
 
-See also: asPowerOfTwo, isDyadicRational, isPoliteNumber, nextPowerOfTwo
+See also: isDyadicRational, isPoliteNumber, nextPowerOfTwo, previousPowerOfTwo
 
 Guides: Integer Functions, Mathematical Functions
 

@@ -60,19 +60,15 @@
 
 +@Dictionary {
 
-	[dictionaryToSet, asSet] { :self |
-		self.values.asSet
+	[Set, dictionaryToSet] { :self |
+		self.values.Set
 	}
 
 }
 
 +@Collection {
 
-	[collectionToSet, asSet] { :self |
-		SortedSet(self)
-	}
-
-	Set { :self |
+	[Set, collectionToSet] { :self |
 		SortedSet(self)
 	}
 
@@ -89,7 +85,7 @@
 +List {
 
 	setIntersection { :self |
-		self.collect(asSet/1).reduce(intersection/2)
+		self.collect(Set/1).reduce(intersection/2)
 	}
 
 }

@@ -9,16 +9,12 @@
 		}
 	}
 
-	asCodePoint { :self |
-		self.codePoint
-	}
-
 	characterRange { :self :aCharacter |
 		self.codePoint.characterRange(aCharacter.codePoint)
 	}
 
 	digitValue { :self |
-		let integerValue = self.asCodePoint;
+		let integerValue = self.codePoint;
 		system.digitValueTable[integerValue + 1]
 	}
 

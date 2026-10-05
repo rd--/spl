@@ -1,15 +1,15 @@
-# asWords
+# inEnglishWords
 
-- _asWords(anInteger)_
+- _inEnglishWords(n)_
 
-Answer _anInteger_ spelled out in English words.
+Answer the integer _n_ spelled out in English words.
 
 ```
->>> 123456E3.asWords
+>>> 123456E3.inEnglishWords
 'one hundred twenty-three million, ' ++
 'four hundred fifty-six thousand'
 
->>> 13579.asWords
+>>> 13579.inEnglishWords
 'thirteen thousand, ' ++
 'five hundred seventy-nine'
 ```

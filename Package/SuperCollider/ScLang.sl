@@ -247,9 +247,9 @@
 		0 - self
 	}
 
-	nextPowerOfTwo { :self |
+	/*nextPowerOfTwo { :self |
 		self.nextPowerOf(2)
-	}
+	}*/
 
 	nextPowerOf { :self :base |
 		let exponent = self.log(base).ceiling;
@@ -264,9 +264,13 @@
 		base ^ (self.log(base).ceiling - 1)
 	}
 
-	previousPowerOfTwo { :self |
-		self.previousPowerOf(2)
-	}
+	/*previousPowerOfTwo { :self |
+		self.isPowerOfTwo.if {
+			self
+		} {
+			self.previousPowerOf(2)
+		}
+	}*/
 
 	[ratioCents, RatioCents] { :self |
 		self.ratioMidi * 100

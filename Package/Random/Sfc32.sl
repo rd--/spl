@@ -88,7 +88,7 @@ Sfc32 : [Object, Equal, Iterator, RandomNumberGenerator, Stream] {
 +@Integer {
 
 	sfc32State { :self |
-		self.truncate.asWords.sfc32State
+		self.truncate.inEnglishWords.sfc32State
 	}
 
 	Sfc32 { :self |

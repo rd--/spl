@@ -957,7 +957,7 @@
 		let h = 1;
 		let k = self.size;
 		k.isPowerOfTwo.ifFalse {
-			self.addAll!(List(k.asLargerPowerOfTwo - k, 0));
+			self.addAll!(List(k.nextPowerOfTwo - k, 0));
 			k := self.size
 		};
 		{

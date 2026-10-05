@@ -459,7 +459,6 @@ Reference/AsciiStream.help.sl
 Reference/asciiString.help.sl
 Reference/AsciiString.help.sl
 Reference/asciiValue.help.sl
-Reference/asCodePoint.help.sl
 Reference/asCollection.help.sl
 Reference/asColourDrawing.help.sl
 Reference/asColourGradient.help.sl
@@ -488,13 +487,11 @@ Reference/asHexDigit.help.sl
 Reference/asHexString.help.sl
 Reference/asInteger.help.sl
 Reference/asIntegers.help.sl
-Reference/asLargerPowerOfTwo.help.sl
 Reference/asLineDrawing.help.sl
 Reference/asLocalBuf.help.sl
 Reference/asLowerCase.help.sl
 Reference/asNumber.help.sl
 Reference/asPerspectiveDrawing.help.sl
-Reference/asPowerOfTwo.help.sl
 Reference/asRandomTable.help.sl
 Reference/asRatios.help.sl
 Reference/asRatioTuning.help.sl
@@ -507,8 +504,6 @@ Reference/assertIsOfSize.help.sl
 Reference/assertIsSmallInteger.help.sl
 Reference/assertIsString.help.sl
 Reference/assertIsValidIndex.help.sl
-Reference/asSet.help.sl
-Reference/asSmallerPowerOfTwo.help.sl
 Reference/asSmallFloat.help.sl
 Reference/asSmallInteger.help.sl
 Reference/associationAt.help.sl
@@ -526,7 +521,6 @@ Reference/asTimeStamp.help.sl
 Reference/asUpperCase.help.sl
 Reference/asUrl.help.sl
 Reference/asUrlQueryParameters.help.sl
-Reference/asWords.help.sl
 Reference/atAllBlend.help.sl
 Reference/atAll.help.sl
 Reference/atAllPath.help.sl
@@ -1950,6 +1944,7 @@ Reference/indicesOf.help.sl
 Reference/indicesOfSubsequence.help.sl
 Reference/indicesOfSubstring.help.sl
 Reference/indicesOfSubstringStartingAt.help.sl
+Reference/inEnglishWords.help.sl
 Reference/inferSchemaType.help.sl
 Reference/InfiniteLine.help.sl
 Reference/InfinitePlane.help.sl
@@ -3323,6 +3318,7 @@ Reference/Preferences.help.sl
 Reference/prefixes.help.sl
 Reference/prefixProduct.help.sl
 Reference/prefixSum.help.sl
+Reference/previousPowerOfTwo.help.sl
 Reference/previousPrime.help.sl
 Reference/primeBounds.help.sl
 Reference/primeDistance.help.sl

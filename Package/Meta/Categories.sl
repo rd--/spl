@@ -686,7 +686,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 	],
 	'converting-string': [
 		'AsciiString'
-		'asCodePoint'
+		'codePoint'
 		'asHaskellComment'
 		'asLowerCase'
 		'asMlComment'
@@ -1094,7 +1094,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 	'printing': [
 		'asString'
 		'asStringWithCommas'
-		'asWords'
+		'inEnglishWords'
 		'causeText'
 		'description'
 		'hex'
@@ -1331,9 +1331,8 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'repeatedTiming'
 	],
 	'truncating and rounding': [
-		'asLargerPowerOfTwo'
-		'asPowerOfTwo'
-		'asSmallerPowerOfTwo'
+		'nextPowerOfTwo'
+		'previousPowerOfTwo'
 		'ceiling'
 		'floor'
 		'fractionalPart'

@@ -8,19 +8,22 @@ At `String`:
 
 ```
 >>> ' '.codePoint
-16r20
+16r0020
+
+>>> 'a'.codePoint
+16r0061
+
+>>> 'c'.codePoint
+16r0063
 
 >>> 'π'.codePoint
 16r03C0
 
->>> 'a'.codePoint
-16r61
+>>> '’'.codePoint
+16r2019
 
 >>> '€'.codePoint
 16r20AC
-
->>> '’'.codePoint
-16r2019
 ```
 
 It is an error if the string has more than one place:
@@ -35,6 +38,9 @@ At `Character`:
 ```
 >>> Character(32).codePoint
 16r0020
+
+>>> Character'c'.codePoint
+16r0063
 ```
 
 The inverse is `fromCodePoint`:

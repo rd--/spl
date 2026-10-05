@@ -58,10 +58,6 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Iterable, Indexable, Chara
 		}
 	}
 
-	asCodePoint { :self |
-		self.codePoint
-	}
-
 	asHaskellComment { :self |
 		self.asBracketedComment('{-', '-}')
 	}
@@ -929,6 +925,10 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Iterable, Indexable, Chara
 		self
 	}
 
+	[Set, stringToSet] { :self |
+		Set(self.characters)
+	}
+
 	[similar, ~] { :self :anObject |
 		self.isCharacter.if {
 			anObject.isCharacter & {
@@ -991,10 +991,6 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Iterable, Indexable, Chara
 
 	stringReverse { :self |
 		self.reverse
-	}
-
-	[stringToSet, asSet] { :self |
-		Set(self.characters)
 	}
 
 	[take, truncateTo] { :self :anInteger |

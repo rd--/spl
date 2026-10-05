@@ -5,12 +5,44 @@
 `Set` is both a `Trait`,
 holding behaviours for collection types that do not contain duplicate items,
 and an alias for the `SortedSet` type.
+At a collection,
+answers a `Set` of the elements of the collection _c_.
 
 ```
 >>> system
 >>> .traitDictionary['Set']
 >>> .isTrait
 true
+```
+
+At `List`:
+
+```
+>>> Set[1 1 2 1 2 3]
+SortedSet[1 2 3]
+```
+
+At `Multiset`:
+
+```
+>>> Multiset[1 1 2 1 2 3]
+>>> .Set
+SortedSet[1 2 3]
+```
+
+At `String`:
+
+```
+>>> 'abracadabra'
+>>> .Set
+SortedSet['a' 'b' 'r' 'c' 'd']
+```
+
+At a list of lists:
+
+```
+>>> Set[1 1; 1 1; 1 2]
+SortedSet[1 1; 1 2]
 ```
 
 Types implementing the `Set` trait:
@@ -95,12 +127,14 @@ true
 
 * * *
 
-See also: IdentitySet, SortedSet, UnsortedSet
+See also: IdentitySet, SortedSet, UnsortedSet, nub, unique
 
 Guides: Set Functions, Set Syntax
 
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Set.html),
+_Smalltalk_
+5.7.1.7,
 _W_
 [1](https://en.wikipedia.org/wiki/Set_(mathematics))
