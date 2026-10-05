@@ -1,9 +1,9 @@
 # characterString
 
-- _characterString(aString | aCharacter)_
+- _characterString(c)_
 
 Answer a `String` of one place having the indicated `Character`.
-If _aString_ has multiple characters it is an `error`.
+If _c_ has multiple characters it is an `error`.
 
 At `String`:
 
@@ -15,7 +15,7 @@ At `String`:
 At `Character`:
 
 ```
->>> 'x'.asCharacter.characterString
+>>> Character'x'.characterString
 'x'
 ```
 

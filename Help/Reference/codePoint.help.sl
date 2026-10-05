@@ -52,7 +52,7 @@ The inverse is `fromCodePoint`:
 
 * * *
 
-See also: asCharacter, asciiValue, Character, String
+See also: asciiValue, Character, String
 
 Guides: String Functions
 

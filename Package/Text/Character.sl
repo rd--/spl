@@ -118,13 +118,9 @@ Character : [Object, Copy, Store, Equal, Compare, Character] {
 
 	| characterString codePoint |
 
-	asCharacter { :self |
-		self
-	}
-
 	asLowerCase { :self |
 		self.isUpperCase.if {
-			(self.codePoint + 32).asCharacter
+			(self.codePoint + 32).Character
 		} {
 			self
 		}
@@ -132,7 +128,7 @@ Character : [Object, Copy, Store, Equal, Compare, Character] {
 
 	asUpperCase { :self |
 		self.isLowerCase.if {
-			(self.codePoint - 32).asCharacter
+			(self.codePoint - 32).Character
 		} {
 			self
 		}
@@ -140,6 +136,10 @@ Character : [Object, Copy, Store, Equal, Compare, Character] {
 
 	asString { :self |
 		self.characterString
+	}
+
+	Character { :self |
+		self
 	}
 
 	[equal, =] { :self :anObject |
@@ -169,16 +169,12 @@ Character : [Object, Copy, Store, Equal, Compare, Character] {
 	}
 
 	zero { :self |
-		' '.asCharacter
+		Character' '
 	}
 
 }
 
 +SmallFloat {
-
-	asCharacter { :self |
-		Character(self)
-	}
 
 	Character { :self |
 		Character(self.fromCodePoint, self)
@@ -201,10 +197,6 @@ Character : [Object, Copy, Store, Equal, Compare, Character] {
 }
 
 +String {
-
-	asCharacter { :self |
-		Character(self)
-	}
 
 	Character { :self :codePoint |
 		self.isCharacter.if {

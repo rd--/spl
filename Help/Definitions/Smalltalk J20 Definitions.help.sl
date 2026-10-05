@@ -716,7 +716,7 @@ implementation defined character set.
 
 *Return Value*: ⧼character⧽
 
-Cf: asCharacter
+Cf: Character
 
 ## 5.3.6
 

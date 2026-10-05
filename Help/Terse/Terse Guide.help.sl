@@ -867,35 +867,35 @@ system.categoryDictionary.categoryOf('type', 'Set') = 'Collection' /* category o
 ## Character -- text type
 ```
 system.includesPackage('Character') /* character package */
-'𠮷'.asCharacter.isCharacter /* trait predicate */
-'𠮷'.asCharacter.characterString = '𠮷' /* character string */
-'𠮷'.asCharacter.codePoint = 134071 /* code point */
-134071.asCharacter.characterString = '𠮷' /* integer as character, from code point */
+'𠮷'.Character.isCharacter /* trait predicate */
+'𠮷'.Character.characterString = '𠮷' /* character string */
+'𠮷'.Character.codePoint = 134071 /* code point */
+134071.Character.characterString = '𠮷' /* integer as character, from code point */
 '䶰䶱䶲䶳䶴䶵'.characterList.collect(codePoint/1) = [19888 .. 19893]
-'x'.asCharacter = 120.asCharacter /* characters are comparable */
-'x'.asCharacter.codePoint = 120
-'x'.asCharacter == 120.asCharacter /* characters are identical */
-'𠮷'.asCharacter == '𠮷'.asCharacter /* characters are identical */
-'x'.asCharacter.asciiValue = 120 /* ascii code point of character */
-{ '𠮷'.asCharacter.asciiValue }.hasError /* it is an error is the character is not ascii */
-'xyz'.characterList = ['x'.asCharacter, 'y'.asCharacter, 'z'.asCharacter]
+'x'.Character = 120.Character /* characters are comparable */
+'x'.Character.codePoint = 120
+'x'.Character == 120.Character /* characters are identical */
+'𠮷'.Character == '𠮷'.Character /* characters are identical */
+'x'.Character.asciiValue = 120 /* ascii code point of character */
+{ '𠮷'.Character.asciiValue }.hasError /* it is an error is the character is not ascii */
+'xyz'.characterList = ['x'.Character, 'y'.Character, 'z'.Character]
 'xyz'.characterList.collect(codePoint/1) = [120, 121, 122]
-32.asCharacter.characterString = ' ' /* 32 is space */
-' '.asCharacter.codePoint = 32 /* space is 32 */
-97.asCharacter.characterString = 'a' /* 92 is a */
-'a'.asCharacter.asString = 'a' /* single element string of Character */
-{ 'xy'.asCharacter }.hasError /* it is an error is the string is not a single Character */
-let c = '𠮷'.asCharacter; c = c.copy & { c == c.copy } /* copy is not only equal to but identical */
-92.asCharacter.characterString = '\\' /* escaped character */
+32.Character.characterString = ' ' /* 32 is space */
+' '.Character.codePoint = 32 /* space is 32 */
+97.Character.characterString = 'a' /* 92 is a */
+'a'.Character.asString = 'a' /* single element string of Character */
+{ 'xy'.Character }.hasError /* it is an error is the string is not a single Character */
+let c = '𠮷'.Character; c = c.copy & { c == c.copy } /* copy is not only equal to but identical */
+92.Character.characterString = '\\' /* escaped character */
 '0123456789abcdef'.characterList.collect(digitValue/1) = [0 .. 15] /* digit value of character */
 0:15.collect(digitCharacter/1).stringJoin = '0123456789ABCDEF' /* character of given digit value */
 { 36.digitCharacter }.hasError /* error if integer is out of range */
-'x'.asCharacter.asUpperCase = 'X'.asCharacter /* to upper case */
-'X'.asCharacter.asLowerCase = 'x'.asCharacter /* to lower case */
+'x'.Character.asUpperCase = 'X'.Character /* to upper case */
+'X'.Character.asLowerCase = 'x'.Character /* to lower case */
 let s = 'string'; let a = []; a.addAll!(s); a.size = 6 /* add elements from String to end of List */
 'fgaguzst'.codePoints.minMax = [97, 122] /* character minMax */
 'alphabet'.characterList.collect(isVowel/1) = [true, false, false, false, true, false, true, false] /* is character a vowel */
-'x'.asCharacter.zero = ' '.asCharacter
+'x'.Character.zero = ' '.Character
 ```
 
 ## Circle -- geometric type
@@ -1205,7 +1205,7 @@ Infinity.isNumber /* Infinity constant */
 23.asSmallFloat = 23.0 /* integral to small float */
 true.boole = 1 /* boolean as integer, c.f. asBit */
 false.boole = 0 /* boolean as integer, asBit */
-'~'.asCharacter.codePoint = 126 /* character as integer, c.f. codePoint */
+'~'.Character.codePoint = 126 /* character as integer, c.f. codePoint */
 23.asInteger = 23 /* small integer as integer, c.f. identity */
 -23.asInteger = -23 /* identity */
 '23'.parseSmallInteger(10) = 23 /* string is parsed, c.f. parseDecimalInteger */
@@ -1227,18 +1227,18 @@ true.asBit = 1 /* asBit */
 1.asComplex = Complex(1, 0) /* number to complex */
 1.i = Complex(0, 1) /* number to complex */
 (2 + 3.i).asComplex = Complex(2, 3) /* identity */
-126.asCharacter = '~'.asCharacter /* integer to character */
-'~'.asCharacter.isCharacter /* string to character */
-let c = '~'.asCharacter; c.asCharacter == c /* identity */
-let c = 126.asCharacter; c.asString = '~' /* character to string */
+126.Character = '~'.Character /* integer to character */
+'~'.Character.isCharacter /* string to character */
+let c = '~'.Character; c.Character == c /* identity */
+let c = 126.Character; c.asString = '~' /* character to string */
 '~'.asString = '~' /* identity operation */
 '~'.asString == '~' /* identity operation */
 23.asString = '23' /* Object>>printString (integral to string) */
 15.asHexDigit = 'F' /* integral to hex character */
 { 16.asHexDigit }.hasError /* error if out of range */
-'x'.asCharacter = 120.asCharacter /* string to character */
-120.asCharacter = 'x'.asCharacter /* small integer to character */
-let c = 'x'.asCharacter; c.asCharacter == c /* character to character */
+'x'.Character = 120.Character /* string to character */
+120.Character = 'x'.Character /* small integer to character */
+let c = 'x'.Character; c.Character == c /* character to character */
 ```
 
 ## Converting -- unit conversion
@@ -3268,7 +3268,7 @@ system.includesPackage('String') /* package */
 'string'.isAscii = true /* does string contain only ascii characters */
 'Mačiūnas'.isAscii = false /* ascii does not include diacritics */
 ''.isAscii = true /* the empty string is an ascii string */
-128.asCharacter.characterString.isAscii = false /* not all byte arrays are ascii */
+128.Character.characterString.isAscii = false /* not all byte arrays are ascii */
 'x' ++ 'y' = 'xy' /* append (catenation) */
 { 'x' ++ 1 }.hasError /* append, right hand side must be a string */
 'string'.asciiByteArray = [115, 116, 114, 105, 110, 103].ByteArray /* String to ByteArray of Ascii encoding */
@@ -3415,7 +3415,7 @@ let a = 'string'.characterList; a.stringJoin = 'string'
 '𠮷'.countUtf16CodeUnits = 2
 '𠮷'.size = 2
 '𠮷'.isCharacter = true /* a string with one place is a character */
-'𠮷'.characterList = ['𠮷'.asCharacter]
+'𠮷'.characterList = ['𠮷'.Character]
 '𠮷'.codePointAt(1) = 134071 /* code point at index */
 '𠮷'.codePointAt(2) = 57271
 '𠮷'.codePointAt(3) = nil /* nil for out of range indices */
@@ -3433,7 +3433,7 @@ let a = 'string'.characterList; a.stringJoin = 'string'
 { 'xy'.asciiValue }.hasError /* it is an error is the string is not a single character */
 { '𠮷'.asciiValue }.hasError /* it is an error is the character is not ascii */
 'string'.characters = ['s' 't' 'r' 'i' 'n' 'g'] /* the characters of a string is a list of one element strings */
-'string'.characterList = [115, 116, 114, 105, 110, 103].collect(asCharacter/1)
+'string'.characterList = [115, 116, 114, 105, 110, 103].collect(Character/1)
 'Gnu/Linux'.findString('Linux') = 5
 'Gnu/Linux'.findStringStartingAt('Linux', 1) = 5
 'Hello'.isEmpty = false
@@ -3445,22 +3445,22 @@ let a = 'string'.characterList; a.stringJoin = 'string'
 'A clear but rather long-winded summary'.contractTo(19) = 'A clear ... summary' /* contract string to be of size */
 'antidisestablishmentarianism'.contractTo(10) = 'anti...ism' /* contract string to be of size */
 'string'.characters.sort!.stringJoin = 'ginrst'
-'x' != 'x'.asCharacter /* a single element string is not equal to a character */
+'x' != 'x'.Character /* a single element string is not equal to a character */
 'Mačiūnas'.removeDiacritics = 'Maciunas' /* transform to ascii by deleting diacritics */
 'string'.copy == 'string' /* copy is identity */
 'string'.asHexString = '737472696E67' /* hex string of ascii codes of string */
 let s = 'string'; (s.size * 2) = s.asHexString.size /* hex string is twice as long */
 { 'Mačiūnas'.asHexString }.hasError /* non-ascii strings raise an error */
-'"'.asCharacter.codePoint = 34 /* double quote */
-'\''.asCharacter.codePoint = 39 /* single quote (') */
-'\\'.asCharacter.codePoint = 92 /* backslash (escape) */
-'`'.asCharacter.codePoint = 96 /* backtick */
-'\b'.asCharacter.codePoint = 8 /* backspace */
-'\t'.asCharacter.codePoint = 9 /* horizontal tab */
-'\n'.asCharacter.codePoint = 10 /* line feed, new line */
-'\v'.asCharacter.codePoint = 11 /* vertical tab */
-'\f'.asCharacter.codePoint = 12 /* form feed, new page */
-'\r'.asCharacter.codePoint = 13 /* carriage return */
+'"'.Character.codePoint = 34 /* double quote */
+'\''.Character.codePoint = 39 /* single quote (') */
+'\\'.Character.codePoint = 92 /* backslash (escape) */
+'`'.Character.codePoint = 96 /* backtick */
+'\b'.Character.codePoint = 8 /* backspace */
+'\t'.Character.codePoint = 9 /* horizontal tab */
+'\n'.Character.codePoint = 10 /* line feed, new line */
+'\v'.Character.codePoint = 11 /* vertical tab */
+'\f'.Character.codePoint = 12 /* form feed, new page */
+'\r'.Character.codePoint = 13 /* carriage return */
 'The quick brown fox jumps over the lazy dog'.crc16 = 16rFCDF /* 16 bit cyclic redundancy check, crc-16/arc */
 '* + - / ^ ? ~ = < >'.words.allSatisfy(isSplOperatorToken/1)
 'a comment'.asBracketedComment('<!--', '-->') = '<!-- a comment -->' /* add Html comment brackets */

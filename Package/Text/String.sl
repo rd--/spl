@@ -174,9 +174,8 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Iterable, Indexable, Chara
 	}
 
 	characterRange { :self :aString |
-		self
-		.asCharacter
-		.characterRange(aString.asCharacter)
+		Character(self)
+		.characterRange(Character(aString))
 		.collect(asString/1)
 	}
 
@@ -222,7 +221,7 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Iterable, Indexable, Chara
 
 	collectInto { :self :aBlock/1 :aCollection |
 		self.primitiveCollectInto({ :each |
-			aBlock(each.asCharacter)
+			aBlock(each.Character)
 		}, [])
 	}
 
@@ -1177,9 +1176,7 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Iterable, Indexable, Chara
 	}
 
 	fromCodePoint { :self |
-		<primitive:
-		return String.fromCodePoint(_self);
-		>
+		<primitive: return String.fromCodePoint(_self);>
 	}
 
 	isAsciiCodePoint { :self |

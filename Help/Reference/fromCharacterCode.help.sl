@@ -48,7 +48,9 @@ The inverse is `toCharacterCode`:
 
 * * *
 
-See also: asCharacter, Character, toCharacterCode
+See also: Character, toCharacterCode
+
+Guides: String Functions
 
 References:
 _Mathematica_

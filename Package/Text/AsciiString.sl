@@ -11,7 +11,7 @@ AsciiString : [Object, Store, Equal, Iterable, Indexable, Collection, Sequence] 
 	}
 
 	atIfAbsent { :self :anInteger :ifAbsent/0 |
-		self.byteArray.atIfAbsent(anInteger, ifAbsent/0).asCharacter
+		self.byteArray.atIfAbsent(anInteger, ifAbsent/0).Character
 	}
 
 	[ByteArray, asciiStringToByteArray] { :self |
@@ -24,7 +24,7 @@ AsciiString : [Object, Store, Equal, Iterable, Indexable, Collection, Sequence] 
 
 	do { :self :aBlock/1 |
 		self.byteArray.do { :each |
-			aBlock(each.asCharacter)
+			aBlock(each.Character)
 		}
 	}
 
@@ -35,7 +35,7 @@ AsciiString : [Object, Store, Equal, Iterable, Indexable, Collection, Sequence] 
 	[List, asciiStringToList] { :self |
 		let answer = List(self.size);
 		self.withIndexDo { :each :index |
-			answer[index] := each.asCharacter
+			answer[index] := each.Character
 		};
 		answer
 	}

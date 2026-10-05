@@ -28,7 +28,7 @@ Converting:
 
 - `AsciiString`
 - `ByteArray`
-- `asCharacter`
+- `Character`
 - `codePoint`
 - `asHexDigit`
 - `asHexString`
