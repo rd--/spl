@@ -13,6 +13,9 @@ At `Complex`:
 ```
 >>> -2J1.norm
 5.sqrt
+
+>>> -2J1.squaredNorm
+5
 ```
 
 At `Quaternion`:
@@ -125,7 +128,7 @@ Sfc32(567131)
 
 See also: abs, absSquare, dot, euclideanDistance, hypotenuse, rootMeanSquare
 
-Guides: Matrix Functions, Vector Functions
+Guides: Complex Number Functions, Matrix Functions, Vector Functions
 
 References:
 _Mathematica_

@@ -115,7 +115,7 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] { | real imaginary |
 		[self.abs, self.arg]
 	}
 
-	absSquare { :self |
+	[absSquare, squaredNorm, absoluteSquare] { :self |
 		(self.real * self.real) + (self.imaginary * self.imaginary)
 	}
 
@@ -408,10 +408,6 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] { | real imaginary |
 
 	square { :self |
 		self * self
-	}
-
-	squaredNorm { :self |
-		(self.real * self.real) + (self.imaginary * self.imaginary)
 	}
 
 	truncate { :self |

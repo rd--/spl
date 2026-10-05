@@ -1049,6 +1049,7 @@ Reference/counterClockwiseVectorAngle.help.sl
 Reference/count.help.sl
 Reference/countingSort.help.sl
 Reference/countIntegers.help.sl
+Reference/countLeadingZeroes.help.sl
 Reference/countsBy.help.sl
 Reference/counts.help.sl
 Reference/covarianceFunction.help.sl
@@ -3942,6 +3943,7 @@ Reference/Sqrt.help.sl
 Reference/squareChart.help.sl
 Reference/squareChladniPlateEquation.help.sl
 Reference/squaredEuclideanDistance.help.sl
+Reference/squaredNorm.help.sl
 Reference/squareForm.help.sl
 Reference/squareFreePart.help.sl
 Reference/square.help.sl

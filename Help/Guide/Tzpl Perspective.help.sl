@@ -210,7 +210,7 @@ false
 1 + 0I
 ```
 
-`real`, imag=`imaginary`, `abs`, `norm`, conj=`conjugate`, `arg`, polar
+`real`, imag=`imaginary`, `abs`, norm=`squaredNorm`, conj=`conjugate`, `arg`, polar
 
 ```
 >>> let z = 3+4I;
@@ -218,7 +218,7 @@ false
 >>> 	z.real,
 >>> 	z.imaginary,
 >>> 	z.abs,
->>> 	z.norm,
+>>> 	z.squaredNorm,
 >>> 	z.conjugate,
 >>> 	z.arg
 >>> )
@@ -283,6 +283,7 @@ true
 'hello'
 
 >>> copyFromTo('hello world', 7, 11)
+'world'
 
 >>> copyFromTo('abcdef', 3, 5)
 'cde'

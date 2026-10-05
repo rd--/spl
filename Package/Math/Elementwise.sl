@@ -801,6 +801,10 @@
 		self.collect(square/1)
 	}
 
+	squaredNorm { :self |
+		self.collect(squaredNorm/1)
+	}
+
 	squarePyramidalNumber { :self |
 		self.collect(squarePyramidalNumber/1)
 	}

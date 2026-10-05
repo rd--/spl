@@ -18,17 +18,22 @@ At `Complex`,
 also known as the squared `norm`:
 
 ```
->>> 3J4.absSquare
-25
+>>> [3J4 -1.5J0.5].absSquare
+[25 2.5]
 
->>> 3J4.abs.square
-25
+>>> [3J4 -1.5J0.5].squaredNorm
+[25 2.5]
 
->>> [3 4].square.sum
-25
+>>> [3J4 -1.5J0.5].abs.square
+[25 2.5]
 
->>> 3J4 * 3J4.conjugate
-25
+>>> [3J4 -1.5J0.5].collect { :z |
+>>> 	z * z.conjugate
+>>> }
+[25 2.5]
+
+>>> [3 -1.5; 4 0.5].square.sum
+[25 2.5]
 ```
 
 At `Quaternion`:
