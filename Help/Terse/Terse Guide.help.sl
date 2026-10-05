@@ -2641,7 +2641,9 @@ let d = (x: 1, y: 2); let c = d.copy; c['x'] := 3; c['x'] = 3 & { d['x'] = 1 } /
 (x: 1, y: 2) ++ (z: 3) = (x: 1, y: 2, z: 3) /* white space after colon is required */
 let x = 1; (x: x).associations = ['x' -> 1] /* record keys are not variable references */
 (x: 1, y: 2).associations = ['x' -> 1, 'y' -> 2] /* array of associations at record */
-(x: 1, y: 2).List = [1, 2] /* values as List */
+(x: 1, y: 2).values = [1 2] /* values list */
+(x: 1, y: 2).keys = ['x' 'y'] /* keys list */
+(x: 1, y: 2).List = ['x' -> 1, 'y' -> 2] /* association list */
 { let d = (x: 1, y: 2, z: 3); let (x: x, z: z) = d; [x, z] = [1, 3] }.hasError /* partial dictionary match not allowed */
 let (x: x, y: y) = { let n = system.nextRandomFloat; (x: n, y: n) }.value; x = y
 (x: 1, y: 2, z: 3).select(isEven/1) = (y: 2)
@@ -3356,10 +3358,10 @@ system.includesPackage('String') /* package */
 "\'x\'" = DoubleQuotedString('\'x\'') /* double quotes do not quote single quote */
 "`x`" = DoubleQuotedString('`x`') /* double quotes quoting backtick quote */
 '"'.first.codePoint = 34 /* double quote code point */
-"\'".characters.first.codePoint = 39 /* single quote code point */
+"\'".unquotedString.first.codePoint = 39 /* single quote code point */
 '`'.first.codePoint = 96 /* back tick quote code point */
 '"quoted"'.withoutQuoting = 'quoted' /* remove double quotes */
-"\'quoted\'".characters.withoutQuoting = 'quoted' /* remove single quotes */
+"\'quoted\'".unquotedString.withoutQuoting = 'quoted' /* remove single quotes */
 '`quoted`'.withoutQuoting = 'quoted' /* remove backtick quotes */
 "x" = DoubleQuotedString('x') /* double quoted string */
 `x`.isSymbol /* backtick quoted string */

@@ -10,7 +10,7 @@ and decode the `contents` using `utf8String`:
 ```
 >>> let w = Utf8Stream();
 >>> 'bodlɛʁ'.encodeOn(w);
->>> w.characters.utf8String
+>>> w.contents.utf8String
 'bodlɛʁ'
 ```
 

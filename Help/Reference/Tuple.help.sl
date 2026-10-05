@@ -89,10 +89,11 @@ The underlying list can be accessed:
 
 ```
 >>> let a = (1, 2, 3);
->>> let b = a.list;
+>>> let b = a.uncopiedList;
+>>> let c = a.List;
 >>> b[2] := -2;
->>> (a, b)
-((1, -2, 3), [1 2 3])
+>>> (a, b, c)
+((1, -2, 3), [1 -2 3], [1 2 3])
 ```
 
 * * *

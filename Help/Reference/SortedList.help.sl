@@ -69,8 +69,17 @@ SortedList([1, 2, 3, 4, 5, 6])
 [0J0 -1J-1 1J1 2J2]
 ```
 
+Compare for equality:
+
+```
+>>> let a = SortedList[1 2 3];
+>>> let b = SortedList[3 2 1];
+>>> (a = b, a ~ b)
+(true, true)
+```
+
 At `List`,
-`uncopiedList` fetched the uncopied sorted list:
+`uncopiedList` fetches the uncopied sorted list:
 
 ```
 >>> let x = [1 9 3 7 5];
@@ -102,25 +111,15 @@ At `Range`:
 SortedList[1 2 3 4 5 6 7 8 9 10]
 ```
 
-At `SortedList`,
-`uncopiedList` answers the stored list,
-use `items` or `List` to get a copy:
+Mutating the `uncopiedList` breaks the sorted list:
 
 ```
->>> SortedList[1 3 5 4 2 0].uncopiedList
-[0 1 2 3 4 5]
-
->>> let a = SortedList[1 3 5 4 2 0];
+>>> let a = SortedList[1 3 5 4 0];
 >>> let b = a.uncopiedList;
->>> let c = a.List;
->>> b[3] := -5;
->>> (a, b, b = c, b !== c)
-(
-	SortedList[1 3 5 4 -5 0],
-	[0 1 -5 3 4 5],
-	true,
-	true
-)
+>>> b[2] := -5;
+>>> a.add!(2);
+>>> a.List.isSorted
+false
 ```
 
 * * *

@@ -255,24 +255,32 @@ Decimal : [Object, Store, Equal, Compare, Number] { | fraction scale |
 	}
 
 	realDigits { :self :base :size |
-		let x = self.abs;
-		let l = x.fraction.log(base).floor;
-		let a = x.floor.truncate;
-		let b = a.integerDigits(base);
-		let c = (x - a) * base;
-		let d = { :x |
-			let d = x.floor;
-			(x - d) * base
-		}.nestList(
-			c, size - b.size - 1
-		).floor.truncate;
-		[b ++ d, l + 1]
+		self.isZero.if {
+			[size # [0], 1]
+		} {
+			let x = self.abs;
+			let l = x.fraction.log(base).floor;
+			let a = x.floor.truncate;
+			let b = a.integerDigits(base);
+			let c = (x - a) * base;
+			let d = { :x |
+				let d = x.floor;
+				(x - d) * base
+			}.nestList(
+				c, size - b.size - 1
+			).floor.truncate;
+			[b ++ d, l + 1]
+		}
 	}
 
 	realDigits { :self |
-		let l = self.fraction.log(10).floor;
-		let u = self.unscaledInteger.integerDigits;
-		[u, l + 1]
+		self.isZero.if {
+			[self.precision # [0], 1]
+		} {
+			let l = self.fraction.log(10).floor;
+			let u = self.unscaledInteger.integerDigits;
+			[u, l + 1]
+		}
 	}
 
 	round { :self |

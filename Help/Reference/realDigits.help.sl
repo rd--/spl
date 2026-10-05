@@ -48,16 +48,6 @@ Digits of 19/7 in base ten:
 [[2 7 1 4 2 8 5 7 1 4 2 8 5 7 1], 1]
 ```
 
-At `zero` and `one`:
-
-```
->>> 0.realDigits(10, 1)
-[[0], 1]
-
->>> 1.realDigits(10, 1)
-[[1], 1]
-```
-
 At `Decimal`:
 
 ```
@@ -72,6 +62,28 @@ At `Decimal`:
 
 >>> 0.00100.realDigits(10, 3)
 [[1 0 0], -2]
+```
+
+At `zero` and `one`:
+
+```
+>>> 0.realDigits(10, 4)
+[[0 0 0 0], 1]
+
+>>> 1.realDigits(10, 4)
+[[1 0 0 0], 1]
+
+>>> 0.000D.realDigits(10, 4)
+[[0 0 0 0], 1]
+
+>>> 1.000D.realDigits(10, 4)
+[[1 0 0 0], 1]
+
+>>> 0.000D.realDigits
+[[0 0 0 0], 1]
+
+>>> 1.000D.realDigits
+[[1 0 0 0], 1]
 ```
 
 The base-three expansion of `pi`
