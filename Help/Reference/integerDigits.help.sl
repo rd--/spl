@@ -22,6 +22,12 @@ The sign is ignored:
 ```
 >>> -3141.integerDigits
 [3 1 4 1]
+
+>>> -3141L.integerDigits
+[3 1 4 1]
+
+>>> -3.141D.integerDigits
+[3 1 4 1]
 ```
 
 Find digits in base 2 & 3:

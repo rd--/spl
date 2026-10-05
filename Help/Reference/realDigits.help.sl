@@ -16,6 +16,16 @@ Answer list of digits and exponent:
 [[1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6], 3]
 ```
 
+Sign is ignored:
+
+```
+>>> -3.141.realDigits(10, 4)
+[[3 1 4 1], 1]
+
+>>> -3.141D.realDigits(10, 4)
+[[3 1 4 1] 1]
+```
+
 A number that answers the same list of digits,
 with a different exponent:
 

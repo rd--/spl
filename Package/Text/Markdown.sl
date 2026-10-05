@@ -4,46 +4,12 @@ Markdown : [Object, Equal, Cache, Iterable] { | source cache |
 
 	asHtml { :self |
 		self.cached('html') {
-			self.basicAsHtml
+			self.uncheckedAsHtml
 		}
 	}
 
 	asMarkdown { :self |
 		self.source
-	}
-
-	asTree { :self |
-		let items = [];
-		self.do { :each |
-			items.add!(Tree(each, []))
-		};
-		items.withIndexDo { :each :index |
-			let value = each.value;
-			{
-				value['id'] = index
-			}.assert;
-			value.includesKey('parent').ifTrue {
-				items[value['parent']].addChild(each)
-			}
-		};
-		items.first.do { :each |
-			each.value.removeAllKeys!(['id' 'parent'])
-		};
-		items.first
-	}
-
-	basicAsHtml { :self |
-		<primitive:
-		const writer = new commonmark.HtmlRenderer();
-		return writer.render(_parseTree_1(_self));
-		>
-	}
-
-	basicParseTree { :self |
-		<primitive:
-		const reader = new commonmark.Parser({smart: true});
-		return reader.parse(_self.source);
-		>
 	}
 
 	codeBlocks { :self |
@@ -165,7 +131,7 @@ Markdown : [Object, Equal, Cache, Iterable] { | source cache |
 
 	parseTree { :self |
 		self.cached('parseTree') {
-			self.basicParseTree
+			self.uncheckedParseTree
 		}
 	}
 
@@ -177,6 +143,40 @@ Markdown : [Object, Equal, Cache, Iterable] { | source cache |
 
 	printString { :self |
 		'<Markdown>'
+	}
+
+	[Tree, markdownToTree] { :self |
+		let items = [];
+		self.do { :each |
+			items.add!(Tree(each, []))
+		};
+		items.withIndexDo { :each :index |
+			let value = each.value;
+			{
+				value['id'] = index
+			}.assert;
+			value.includesKey('parent').ifTrue {
+				items[value['parent']].addChild(each)
+			}
+		};
+		items.first.do { :each |
+			each.value.removeAllKeys!(['id' 'parent'])
+		};
+		items.first
+	}
+
+	uncheckedAsHtml { :self |
+		<primitive:
+		const writer = new commonmark.HtmlRenderer();
+		return writer.render(_parseTree_1(_self));
+		>
+	}
+
+	uncheckedParseTree { :self |
+		<primitive:
+		const reader = new commonmark.Parser({smart: true});
+		return reader.parse(_self.source);
+		>
 	}
 
 }

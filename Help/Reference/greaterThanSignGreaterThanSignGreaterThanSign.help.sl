@@ -21,13 +21,13 @@ Compare with `>>`:
 >>> -5
 >>> .encodeInt32(true)
 >>> .BitSet
->>> .asString
+>>> .String
 '11011111111111111111111111111111'
 
 >>> 1073741822
 >>> .encodeInt32(true)
 >>> .BitSet
->>> .asString
+>>> .String
 '01111111111111111111111111111100'
 
 >>> 9 >>> 2

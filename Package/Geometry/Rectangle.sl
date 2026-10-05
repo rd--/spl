@@ -226,7 +226,7 @@ Rectangle : [Object, Store, Equal, Geometry] { | lowerLeft upperRight |
 	}
 
 	rotate { :self :theta :center |
-		self.asPolygon.rotate(theta, center)
+		self.Polygon.rotate(theta, center)
 	}
 
 	rotate { :self :theta |

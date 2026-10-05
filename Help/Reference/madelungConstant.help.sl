@@ -19,9 +19,10 @@ OEIS [A085469](https://oeis.org/A085469):
 (-1.74756, 101)
 ```
 
-Scatter plot of the digits of Apéry’s constant:
+Scatter plot of the digits of Apéry’s constant,
+OEIS [A085469](https://oeis.org/A085469):
 
-~~~spl svg=A
+~~~spl svg=A oeis=A085469
 'MadelungConstant'
 .namedConstant
 .integerDigits

@@ -9,7 +9,7 @@ Count help programs:
 
 ```
 >>> system.helpProgramTable.size
-5188
+5187
 ```
 
 A selection predicate may be specified,

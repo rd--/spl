@@ -282,11 +282,15 @@ Print `String`:
 20880467999847912034355032910567D
 ```
 
-Retrieve unscaled integer:
+Retrieve unscaled integer,
+sign is retained:
 
 ```
 >>> 3.141D.unscaledInteger
 3141
+
+>>> -3.141D.unscaledInteger
+-3141
 ```
 
 Retrieve digits of unscaled integer:

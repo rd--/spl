@@ -34,7 +34,7 @@ Three rotated unit squares:
 { :n :t |
 	[n n]
 	.unitSquare
-	.asPolygon
+	.Polygon
 	.rotate(t)
 }.map(
 	[0 .. 3],

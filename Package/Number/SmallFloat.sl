@@ -769,12 +769,13 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		(base != 10).if {
 			self.error('SmallFloat>>realDigits: not implemented unless base=10')
 		} {
-			(self = 0).if {
-				[size # [0], 1]
+			let x = self.abs;
+			(x = 0).if {
+				[x # [0], 1]
 			} {
-				let exponent = (self.log10 + 1).round;
+				let exponent = (x.log10 + 1).round;
 				[
-					(self * (10 ^ (size - exponent))).round.integerDigits(10, size),
+					(x * (10 ^ (size - exponent))).round.integerDigits(10, size),
 					exponent
 				]
 			}

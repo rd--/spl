@@ -109,7 +109,7 @@ The `asTree` method answers a `Tree` of the parse tree:
 >>> 		'P ![_e_](g)'
 >>> 	].unlines
 >>> );
->>> m.asTree.leafIndices
+>>> m.Tree.leafIndices
 [
 	1 1;
 	2 1; 2 2;

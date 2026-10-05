@@ -1,19 +1,7 @@
 Tetrahedron : [Object, Store, Equal] { | vertexCoordinates |
 
 	asPerspectiveDrawing { :self |
-		self.asPolyhedron.asPerspectiveDrawing
-	}
-
-	asPolyhedron { :self |
-		Polyhedron(
-			self.vertexCoordinates,
-			[
-				2 3 4;
-				3 2 1;
-				4 1 2;
-				1 4 3
-			]
-		)
+		self.Polyhedron.asPerspectiveDrawing
 	}
 
 	circumcenter { :self |
@@ -55,8 +43,20 @@ Tetrahedron : [Object, Store, Equal] { | vertexCoordinates |
 		}
 	}
 
+	Polyhedron { :self |
+		Polyhedron(
+			self.vertexCoordinates,
+			[
+				2 3 4;
+				3 2 1;
+				4 1 2;
+				1 4 3
+			]
+		)
+	}
+
 	project { :self :projection |
-		self.asPolyhedron.project(projection)
+		self.Polyhedron.project(projection)
 	}
 
 	translate { :self :v |

@@ -255,10 +255,11 @@ Decimal : [Object, Store, Equal, Compare, Number] { | fraction scale |
 	}
 
 	realDigits { :self :base :size |
-		let l = self.fraction.log(base).floor;
-		let a = self.floor.truncate;
+		let x = self.abs;
+		let l = x.fraction.log(base).floor;
+		let a = x.floor.truncate;
 		let b = a.integerDigits(base);
-		let c = (self - a) * base;
+		let c = (x - a) * base;
 		let d = { :x |
 			let d = x.floor;
 			(x - d) * base

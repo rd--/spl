@@ -40,7 +40,7 @@ Parallelepiped(
 		2 3 0;
 		0 3 1
 	]
-).asPolyhedron
+).Polyhedron
 ~~~
 
 ![](Help/Image/Parallelepiped-A.svg)
@@ -55,7 +55,7 @@ Parallelepiped(
 		0 1 0;
 		0 0 1
 	]
-).asPolyhedron
+).Polyhedron
 ~~~
 
 ![](Help/Image/Parallelepiped-B.svg)

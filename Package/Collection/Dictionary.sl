@@ -52,7 +52,7 @@
 		}
 	}
 
-	associations { :self |
+	[associations, List] { :self |
 		let answer = [];
 		self.associationsDo { :each |
 			answer.add!(each)
@@ -336,14 +336,6 @@
 
 	keyType { :self |
 		self.keys.elementType
-	}
-
-	[List, dictionaryToList] { :self |
-		let answer = [];
-		self.valuesDo { :each |
-			answer.add!(each)
-		};
-		answer
 	}
 
 	lookup { :self :key :defaultAnswer |

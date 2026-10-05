@@ -236,7 +236,7 @@ A function that is `one` if either _x_ or _y_ are close to `zero`:
 Plot the `Graph` of the `Tree` of a `SymbolicExpression`:
 
 ~~~spl svg=A
-`x`.Hypotenuse(`y`).asTree.treePlot
+`x`.Hypotenuse(`y`).Tree.treePlot
 ~~~
 
 ![](Help/Image/SymbolicExpression-A.svg)

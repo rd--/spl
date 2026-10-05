@@ -1,14 +1,7 @@
 Parallelepiped : [Object, Geometry] { | origin vectorList |
 
 	asPerspectiveDrawing { :self |
-		self.asPolyhedron.asPerspectiveDrawing
-	}
-
-	asPolyhedron { :self |
-		Polyhedron(
-			self.vertexCoordinates,
-			self.faceIndices
-		)
+		self.Polyhedron.asPerspectiveDrawing
 	}
 
 	dimension { :self |
@@ -30,8 +23,15 @@ Parallelepiped : [Object, Geometry] { | origin vectorList |
 		]
 	}
 
+	Polyhedron { :self |
+		Polyhedron(
+			self.vertexCoordinates,
+			self.faceIndices
+		)
+	}
+
 	project { :self :projection |
-		self.asPolyhedron.project(projection)
+		self.Polyhedron.project(projection)
 	}
 
 	vertexCoordinates { :self |

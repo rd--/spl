@@ -65,7 +65,7 @@ Two golden rectangles, one rotated:
 let r = Rectangle[0 0; 1.goldenRatio 1];
 [
 	r,
-	r.asPolygon.rotate(1/3.pi)
+	r.Polygon.rotate(1/3.pi)
 ].LineDrawing
 ~~~
 
@@ -82,7 +82,7 @@ let rng = Sfc32(314920);
 	Rectangle(
 		[x, y],
 		[x + 1, y + 1]
-	).asPolygon.rotate(rng.next.pi)
+	).Polygon.rotate(rng.next.pi)
 }.LineDrawing
 ~~~
 
