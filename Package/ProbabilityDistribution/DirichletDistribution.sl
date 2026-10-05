@@ -1,4 +1,6 @@
-DirichletDistribution : [Object] { | alpha |
+DirichletDistribution : [Object] {
+
+	| alpha |
 
 	betaDistributions { :self |
 		let alpha = self.alpha;

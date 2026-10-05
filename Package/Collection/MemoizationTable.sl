@@ -1,4 +1,6 @@
-MemoizationTable : [Object, Iterable, Collection] { | block:<Block> table |
+MemoizationTable : [Object, Iterable, Collection] {
+
+	| block table |
 
 	at { :self :key |
 		self.table.atIfAbsent(key) {

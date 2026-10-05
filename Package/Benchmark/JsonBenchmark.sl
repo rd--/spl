@@ -1,4 +1,6 @@
-HashIndexTable : [Object, Indexable] { | hashTable |
+HashIndexTable : [Object, Indexable] {
+
+	| hashTable |
 
 	at { :self :name |
 		let slot = self.hashSlotFor(name);
@@ -47,7 +49,9 @@ HashIndexTable : [Object, Indexable] { | hashTable |
 
 }
 
-JsonList : [Object, Indexable, JsonValue] { | values |
+JsonList : [Object, Indexable, JsonValue] {
+
+	| values |
 
 	append { :self :value |
 		value.ifNil {
@@ -82,7 +86,9 @@ JsonList : [Object, Indexable, JsonValue] { | values |
 
 }
 
-JsonLiteral : [Object, JsonValue] { | value isNull isTrue isFalse |
+JsonLiteral : [Object, JsonValue] {
+
+	| value isNull isTrue isFalse |
 
 	asString { :self | self.value }
 	isNull { :self | self.isNull }
@@ -100,7 +106,9 @@ JsonLiteral : [Object, JsonValue] { | value isNull isTrue isFalse |
 
 }
 
-JsonNumber : [Object, JsonValue] { | string |
+JsonNumber : [Object, JsonValue] {
+
+	| string |
 
 	asString { :self | self.string }
 	isNumber { :self | true }
@@ -115,7 +123,9 @@ JsonNumber : [Object, JsonValue] { | string |
 
 }
 
-JsonObject : [Object, Indexable, JsonValue] { | names values table |
+JsonObject : [Object, Indexable, JsonValue] {
+
+	| names values table |
 
 	addWith { :self :name :aJsonValue |
 		name.ifNil {
@@ -183,7 +193,9 @@ JsonObject : [Object, Indexable, JsonValue] { | names values table |
 
 }
 
-JsonString : [Object, JsonValue] { | string |
+JsonString : [Object, JsonValue] {
+
+	| string |
 
 	isString { :self |
 		true
@@ -199,7 +211,9 @@ JsonString : [Object, JsonValue] { | string |
 
 }
 
-JsonParser : [Object] { | input index line column current captureBuffer captureStart exceptionBlock |
+JsonParser : [Object] {
+
+	| input index line column current captureBuffer captureStart exceptionBlock |
 
 	parse { :self |
 		let result = nil;
@@ -536,7 +550,9 @@ JsonParser : [Object] { | input index line column current captureBuffer captureS
 
 }
 
-ParseException : [Object] { | message offset line column |
+ParseException : [Object] {
+
+	| message offset line column |
 
 	asString { :self |
 		self.message ++ ':' ++ self.line ++ ':' ++ column

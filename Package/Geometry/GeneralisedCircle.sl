@@ -1,4 +1,6 @@
-GeneralisedCircle : [Object, Store, Equal, Geometry] { | c alpha d |
+GeneralisedCircle : [Object, Store, Equal, Geometry] {
+
+	| c alpha d |
 
 	[generalisedCircleToCircle, asCircle] { :self |
 		let [c, alpha, _] = self.assertIsCircle.coefficientList;

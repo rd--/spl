@@ -1,6 +1,8 @@
 /* Requires: CacheStorage, Url */
 
-LibraryItem : [Object] { | name category url mimeType parser unparsedContents parsedContents |
+LibraryItem : [Object] {
+
+	| name category url mimeType parser unparsedContents parsedContents |
 
 	cachedFetch { :self |
 		self.url.asUrl.cachedFetchMimeType(

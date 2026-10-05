@@ -1,4 +1,6 @@
-WeightedData : [Object, Equal] { | inputData weights |
+WeightedData : [Object, Equal] {
+
+	| inputData weights |
 
 	mean { :self |
 		let x = self.inputData;

@@ -1,4 +1,6 @@
-TableViewer : [Object, View] { | title tablePane |
+TableViewer : [Object, View] {
+
+	| title tablePane |
 
 	createElements { :self :tableData |
 		self.tablePane := 'div'.createElement(

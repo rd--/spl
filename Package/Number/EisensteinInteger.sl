@@ -1,4 +1,6 @@
-EisensteinInteger : [Object, Store, Equal] { | a b |
+EisensteinInteger : [Object, Store, Equal] {
+
+	| a b |
 
 	[conjugate, +] { :self |
 		EisensteinInteger(0 - self.a - 1, 0 - self.b)

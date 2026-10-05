@@ -1,4 +1,6 @@
-GeoJson : [Object, Store] { | jsonRecord |
+GeoJson : [Object, Store] {
+
+	| jsonRecord |
 
 	coordinates { :self |
 		self.isGeometry.if {

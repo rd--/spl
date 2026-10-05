@@ -1,4 +1,6 @@
-FilePath : [Object, Store, Equal] { | filePathString |
+FilePath : [Object, Store, Equal] {
+
+	| filePathString |
 
 	absolutePathString { :self |
 		let path = self.filePathString;

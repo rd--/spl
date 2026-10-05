@@ -1,4 +1,6 @@
-GeometryCollection : [Object, Equal, Geometry] { | geometryList |
+GeometryCollection : [Object, Equal, Geometry] {
+
+	| geometryList |
 
 	arcLength { :self |
 		self.geometryList.collect(arcLength/1).sum

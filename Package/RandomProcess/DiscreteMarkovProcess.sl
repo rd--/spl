@@ -1,4 +1,6 @@
-DiscreteMarkovProcess : [Object] { | p0 m |
+DiscreteMarkovProcess : [Object] {
+
+	| p0 m |
 
 	randomFunction { :self :r :t :n |
 		self.Stream(r).valueSeriesRandomFunction(t, n)

@@ -1,4 +1,6 @@
-GrayCode : [Object, Equal] { | sequence alphabet |
+GrayCode : [Object, Equal] {
+
+	| sequence alphabet |
 
 	isBeckettGrayCode { :self |
 		self.sequence.isBeckettGrayCode

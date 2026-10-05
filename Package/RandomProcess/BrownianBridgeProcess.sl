@@ -1,4 +1,6 @@
-BrownianBridgeProcess : [Object] { | sigma start end |
+BrownianBridgeProcess : [Object] {
+
+	| sigma start end |
 
 	randomFunction { :self :r :t :n |
 		let sigma = self.sigma;

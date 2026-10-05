@@ -1,4 +1,6 @@
-ChordDiagram : [Object, Store] { | lengthVector |
+ChordDiagram : [Object, Store] {
+
+	| lengthVector |
 
 	chordDiagramPlot { :self |
 		self.Graph.circularGraphPlot(

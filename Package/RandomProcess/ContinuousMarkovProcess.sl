@@ -1,4 +1,6 @@
-ContinuousMarkovProcess : [Object] { | p0 q |
+ContinuousMarkovProcess : [Object] {
+
+	| p0 q |
 
 	initialProbabilities { :self |
 		self.p0

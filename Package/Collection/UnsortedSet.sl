@@ -1,4 +1,6 @@
-UnsortedSet : [Object, Store, Equal, Iterable, Collection, Extensible, Unordered, Set] { | unsortedList comparator |
+UnsortedSet : [Object, Store, Equal, Iterable, Collection, Extensible, Unordered, Set] {
+
+	| unsortedList comparator |
 
 	do { :self :aBlock/1 |
 		self.unsortedList.do(aBlock/1)

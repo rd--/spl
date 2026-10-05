@@ -1,6 +1,8 @@
 /* Requires: CartesianCoordinates */
 
-SphericalCoordinates : [Object, Store, Equal] { | coordinates |
+SphericalCoordinates : [Object, Store, Equal] {
+
+	| coordinates |
 
 	azimuth { :self |
 		self.theta

@@ -1,6 +1,8 @@
 /* Requires: TextElement */
 
-ListChooser : [Object] { | listChooserPane filterText select entries ignoreCase |
+ListChooser : [Object] {
+
+	| listChooserPane filterText select entries ignoreCase |
 
 	applyFilter { :self |
 		let caseRule/1 = self.ignoreCase.if {

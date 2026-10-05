@@ -1,4 +1,6 @@
-FRatioDistribution : [Object] { | n m |
+FRatioDistribution : [Object] {
+
+	| n m |
 
 	randomVariate { :self :r :shape |
 		let n = ChiSquareDistribution(self.n).randomVariate(r, shape);

@@ -1,6 +1,8 @@
 /* Requires: PriorityQueue */
 
-Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
+Clock : [Object] {
+
+	| priorityQueue nextEntryTime existingDelay |
 
 	initialize { :self |
 		self.initializeSlots(PriorityQueue(), nil, nil)

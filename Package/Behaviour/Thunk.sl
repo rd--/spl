@@ -1,4 +1,6 @@
-Thunk : [Object] { | block:<Block> result |
+Thunk : [Object] {
+
+	| block result |
 
 	[blockValue, value] { :self |
 		self.force

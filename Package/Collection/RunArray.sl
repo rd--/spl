@@ -1,4 +1,6 @@
-RunArray : [Object, Equal, Store, Indexable] { | runLengths values cachedIndex cachedRun cachedOffset |
+RunArray : [Object, Equal, Store, Indexable] {
+
+	| runLengths values cachedIndex cachedRun cachedOffset |
 
 	[at, @] { :self :index |
 		self.atSetRunOffsetAndValue(index) { :run :offset :value |

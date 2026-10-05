@@ -1,4 +1,6 @@
-HelpIndex : [Object] { | helpFileList |
+HelpIndex : [Object] {
+
+	| helpFileList |
 
 	fetch { :self :path |
 		path.ifNotNil {

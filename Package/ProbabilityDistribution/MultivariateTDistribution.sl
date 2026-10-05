@@ -1,4 +1,6 @@
-MultivariateTDistribution : [Object] { | mu sigma nu |
+MultivariateTDistribution : [Object] {
+
+	| mu sigma nu |
 
 	randomVariate { :self :r :shape |
 		let k = self.sigma.size;

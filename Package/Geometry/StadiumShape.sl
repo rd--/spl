@@ -1,4 +1,6 @@
-StadiumShape : [Object, Equal, Geometry] { | c r |
+StadiumShape : [Object, Equal, Geometry] {
+
+	| c r |
 
 	a { :self |
 		let [p, q] = self.c;

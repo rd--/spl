@@ -568,7 +568,9 @@
 
 }
 
-Dictionary : [Object, Copy, Store, Equal, Iterable, Indexable, Collection, Extensible, Dictionary] { | keys values comparator |
+Dictionary : [Object, Copy, Store, Equal, Iterable, Indexable, Collection, Extensible, Dictionary] {
+
+	| keys values comparator |
 
 	atIfAbsent { :self :key :ifAbsent/0 |
 		let index = self.keys.indexOfBy(key, self.comparator);

@@ -1,4 +1,6 @@
-WeavingInformationFile : [Object] { | weavingRecord |
+WeavingInformationFile : [Object] {
+
+	| weavingRecord |
 
 	drawdownMatrix { :self :m :n |
 		self.hasLiftplan.if {

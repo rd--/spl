@@ -1,4 +1,6 @@
-Superellipse : [Object, Equal, Geometry] { | center a b n |
+Superellipse : [Object, Equal, Geometry] {
+
+	| center a b n |
 
 	area { :self |
 		4 * self.a * self.b * (((1 + (1 / self.n)).gamma ^ 2) / (1 + (2 / self.n)).gamma)

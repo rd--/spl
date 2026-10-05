@@ -1,4 +1,6 @@
-TranscriptViewer : [Object, View, SmallKansan] { | textEditor entryCount |
+TranscriptViewer : [Object, View, SmallKansan] {
+
+	| textEditor entryCount |
 
 	initialize { :self |
 		self.textEditor = nil;

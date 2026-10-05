@@ -204,6 +204,18 @@ const asJs: ohm.ActionDict<string> = {
 		/* Equivalent to ExpressionInitializer after simplifier, required as grammar is reused */
 		return `${name.asJs} = ${blk.asJs}`;
 	},
+	ConciseSlotDefinitions(_l, slots, _r) {
+		// Space separated list of quoted names for internal use only, see makeTypeDefinition
+		return slots.children.map(
+			(e) => `"${e.sourceString}"`
+		).join(' ');
+	},
+	VerboseSlotDefinitions(_slot, slots, _semicolon) {
+		// Space separated list of quoted names for internal use only, see makeTypeDefinition
+		return slots.children.map(
+			(e) => `"${e.sourceString}"`
+		).join(' ');
+	},
 	EmptyListSyntax(_l, _r) {
 		return '[]';
 	},
@@ -252,15 +264,6 @@ const asJs: ohm.ActionDict<string> = {
 	},
 	ScalarAssignment(lhs, _ce, rhs) {
 		return `${lhs.asJs} = ${rhs.asJs}`;
-	},
-	SlotDefinitions(_l, slots, _r) {
-		// Space separated list of quoted names for internal use only, see makeTypeDefinition
-		return slots.children.map(
-			function (e) {
-				let [nm, ty] = e.sourceString.split(':'); // ignore type
-				return `'${nm}'`;
-			},
-		).join(' ');
 	},
 	Statements(nonFinal, final) {
 		return nonFinal.asJs + final.asJs;

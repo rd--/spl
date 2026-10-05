@@ -1,6 +1,8 @@
 /* Requires: Complex */
 
-Quaternion : [Object, Store, Equal, Number] { | components |
+Quaternion : [Object, Store, Equal, Number] {
+
+	| components |
 
 	[conjugate, +] { :self |
 		let [a, b, c, d] = self.components;

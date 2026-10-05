@@ -1,4 +1,6 @@
-EpanechnikovDistribution : [Object] { | c |
+EpanechnikovDistribution : [Object] {
+
+	| c |
 
 	cdf { :self |
 		let c = self.c;

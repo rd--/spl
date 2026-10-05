@@ -1,4 +1,6 @@
-MultinormalDistribution : [Object, Store] { | mu sigma |
+MultinormalDistribution : [Object, Store] {
+
+	| mu sigma |
 
 	randomVariate { :self :r :shape |
 		let mu = self.mu;

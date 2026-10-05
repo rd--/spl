@@ -1,4 +1,6 @@
-Writing : [Object, Geometry] { | string lowerLeft |
+Writing : [Object, Geometry] {
+
+	| string lowerLeft |
 
 	boundingBox { :self |
 		[

@@ -1,4 +1,6 @@
-HelpProgram : [Object] { | topic language commentary annotations programText |
+HelpProgram : [Object] {
+
+	| topic language commentary annotations programText |
 
 	annotation { :self :key |
 		self.annotations.at(key)

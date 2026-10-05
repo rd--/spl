@@ -1,4 +1,6 @@
-QuantityArray : [Object, Store, Equal] { | magnitudeArray unitOrUnitList |
+QuantityArray : [Object, Store, Equal] {
+
+	| magnitudeArray unitOrUnitList |
 
 	assertIsValid { :self |
 		(self.unitList.size = self.columnCount).if {

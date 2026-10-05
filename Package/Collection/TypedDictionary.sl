@@ -1,4 +1,6 @@
-TypedDictionary : [Object, Store, Equal, Iterable, Indexable, Collection, Extensible, Dictionary] { | untypedDictionary keyType |
+TypedDictionary : [Object, Store, Equal, Iterable, Indexable, Collection, Extensible, Dictionary] {
+
+	| untypedDictionary keyType |
 
 	[at, @] { :self :key |
 		self.untypedDictionary.at(self.typeCheckKey(key))

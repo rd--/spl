@@ -1,4 +1,6 @@
-ColourPalette : [Object, Store] { | colourList |
+ColourPalette : [Object, Store] {
+
+	| colourList |
 
 	[at, @] { :self :index |
 		self.colourList.at(index)

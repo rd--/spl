@@ -1,4 +1,6 @@
-Scale : [Object, Store] { | intervals description startIndex |
+Scale : [Object, Store] {
+
+	| intervals description startIndex |
 
 	asLineDrawing { :self |
 		let i = [0] ++ self.intervals.prefixSum * 3;

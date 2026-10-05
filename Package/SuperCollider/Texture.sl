@@ -1,6 +1,8 @@
 /* Requires: Clock Ugen */
 
-TextureProgram : [Object] { | iterationCounter soundBlock envelopeBlock delayTime |
+TextureProgram : [Object] {
+
+	| iterationCounter soundBlock envelopeBlock delayTime |
 
 	play { :self |
 		{ :currentTime |

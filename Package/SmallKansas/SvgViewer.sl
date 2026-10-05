@@ -1,4 +1,6 @@
-SvgViewer : [Object, View] { | svgPane title svg |
+SvgViewer : [Object, View] {
+
+	| svgPane title svg |
 
 	createElements { :self |
 		self.svgPane := 'div'.createElement(

@@ -1,4 +1,6 @@
-TelegraphProcess : [Object] { | mu |
+TelegraphProcess : [Object] {
+
+	| mu |
 
 	randomFunction { :self :r :t :n |
 		let mu = self.mu;

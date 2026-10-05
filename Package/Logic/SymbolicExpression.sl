@@ -209,7 +209,9 @@
 
 }
 
-Symbol : [Object, Store, Number, Integer, SymbolicObject, SymbolicBoolean, SymbolicCompare, SymbolicNumber] { | name |
+Symbol : [Object, Store, Number, Integer, SymbolicObject, SymbolicBoolean, SymbolicCompare, SymbolicNumber] {
+
+	| name |
 
 	isEqualSymbolicExpression { :self :anObject |
 		self == anObject
@@ -248,7 +250,9 @@ Symbol : [Object, Store, Number, Integer, SymbolicObject, SymbolicBoolean, Symbo
 
 }
 
-SymbolicExpression : [Object, Store, Number, SymbolicObject, SymbolicBoolean, SymbolicCompare, SymbolicNumber, Iterable] { | operator operands |
+SymbolicExpression : [Object, Store, Number, SymbolicObject, SymbolicBoolean, SymbolicCompare, SymbolicNumber, Iterable] {
+
+	| operator operands |
 
 	Tree { :self |
 		Tree(

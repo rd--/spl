@@ -1,4 +1,6 @@
-Image : [Object] { | imageArray |
+Image : [Object] {
+
+	| imageArray |
 
 	drawing { :self |
 		self

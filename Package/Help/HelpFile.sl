@@ -22,7 +22,9 @@
 
 }
 
-HelpFile : [Object, Equal, Cache] { | origin source cache |
+HelpFile : [Object, Equal, Cache] {
+
+	| origin source cache |
 
 	categories { :self |
 		self.readCommaSeparatedField('Categories: ')

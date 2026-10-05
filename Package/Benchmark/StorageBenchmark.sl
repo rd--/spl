@@ -1,4 +1,6 @@
-StorageBenchark : [Object] { | count |
+StorageBenchark : [Object] {
+
+	| count |
 
 	benchmark { :self |
 		let random = SomRandom();

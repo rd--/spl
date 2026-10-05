@@ -22,9 +22,9 @@ Sl {
 	TypeDefinition = typeName "!"? TraitList "{" SlotDefinitions? (MethodNameOrMethodNameList Block)* "}"
 	TypeExtension = "+" typeName "{" (MethodNameOrMethodNameList Block)* "}"
 	MethodDefinitions = "+" "[" NonemptyListOf<typeOrTraitName, ","> "]" "{" (MethodNameOrMethodNameList Block)* "}"
-	SlotDefinitions = "|" (TypedSlot | UntypedSlot)+ "|"
-	TypedSlot = slotName ":" "<" typeName ">"
-	UntypedSlot = slotName
+	SlotDefinitions = ConciseSlotDefinitions | VerboseSlotDefinitions
+	ConciseSlotDefinitions = "|" slotName+ "|"
+	VerboseSlotDefinitions = ("slot" slotName ";")+
 	TraitList = ":" "[" ListOf<unqualifiedTraitName, ","> "]"
 	TraitExtension = "+" qualifiedTraitName "{" (MethodNameOrMethodNameList Block)* "}"
 	TraitDefinition = qualifiedTraitName "{" (MethodNameOrMethodNameList Block)* "}"

@@ -1,6 +1,8 @@
 /* Requires: ByteArray */
 
-OscParameter : [Object, Store] { | typeLetter value |
+OscParameter : [Object, Store] {
+
+	| typeLetter value |
 
 	OscParameter { :self |
 		self
@@ -47,7 +49,9 @@ OscParameter : [Object, Store] { | typeLetter value |
 
 }
 
-OscMessage : [Object, Store] { | address parameterList |
+OscMessage : [Object, Store] {
+
+	| address parameterList |
 
 	encode { :self |
 		self.Record.basicEncodeOscMessage
@@ -73,7 +77,9 @@ OscMessage : [Object, Store] { | address parameterList |
 
 }
 
-OscBundle : [Object, Store] { | time messageList |
+OscBundle : [Object, Store] {
+
+	| time messageList |
 
 	Record { :self |
 		(

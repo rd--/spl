@@ -1,6 +1,8 @@
 /* Requires: Tuning */
 
-ScalaTuning : [Object, Tuning] { | tuningRecord |
+ScalaTuning : [Object, Tuning] {
+
+	| tuningRecord |
 
 	asCents { :self |
 		let answer = self.pitches;

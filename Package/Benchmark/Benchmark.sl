@@ -1,4 +1,6 @@
-Benchmark : [Object] { | name verification benchmark |
+Benchmark : [Object] {
+
+	| name verification benchmark |
 
 	run { :self :parameter |
 		let [elapsedTime, answer] = {

@@ -1,4 +1,6 @@
-Duration : [Object, Store, Equal, Compare] { | seconds |
+Duration : [Object, Store, Equal, Compare] {
+
+	| seconds |
 
 	[less, <] { :self :aDuration |
 		self.seconds < aDuration.asDuration.seconds

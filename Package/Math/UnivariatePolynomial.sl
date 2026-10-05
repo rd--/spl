@@ -1,4 +1,6 @@
-UnivariatePolynomial : [Object, Copy, Store, Equal] { | coefficientList |
+UnivariatePolynomial : [Object, Copy, Store, Equal] {
+
+	| coefficientList |
 
 	[at, @] { :self :x |
 		self.coefficientList.evaluateUnivariatePolynomial(x)

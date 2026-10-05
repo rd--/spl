@@ -1,6 +1,8 @@
 /* Requires: RgbColour SmallKansas */
 
-ColourChooser : [Object, View] { | colourChooserPane colourInput |
+ColourChooser : [Object, View] {
+
+	| colourChooserPane colourInput |
 
 	hexTriplet { :self |
 		self.colourInput.getAttribute('value')

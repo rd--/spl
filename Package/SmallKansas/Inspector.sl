@@ -1,4 +1,6 @@
-Inspector : [Object, View] { | inspectorPane inspectorList |
+Inspector : [Object, View] {
+
+	| inspectorPane inspectorList |
 
 	addInspector { :self :aValue :index |
 		let maxIndices = 2048;

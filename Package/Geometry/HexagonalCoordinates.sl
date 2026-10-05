@@ -1,4 +1,6 @@
-HexagonalCoordinates : [Object, Store, Equal] { | coordinates |
+HexagonalCoordinates : [Object, Store, Equal] {
+
+	| coordinates |
 
 	[plus, +] { :self :operand |
 		operand.isHexagonalCoordinates.if {

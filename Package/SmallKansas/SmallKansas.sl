@@ -8,7 +8,9 @@
 
 }
 
-SmallKansas : [Object, Cache] { | container frameSet cache history where |
+SmallKansas : [Object, Cache] {
+
+	| container frameSet cache history where |
 
 	addFrameWithAnimator { :self :subject :event :delay :aBlock/0 |
 		let timerId = aBlock/0.valueEvery(delay);

@@ -1,6 +1,8 @@
 /* Requires: Benchmark */
 
-Body : [Object] { | x y z vx vy vz mass |
+Body : [Object] {
+
+	| x y z vx vy vz mass |
 
 	offsetMomentumXyz { :self :px :py :pz |
 		let solarMass = 4.pi.pi;
@@ -81,7 +83,9 @@ Body : [Object] { | x y z vx vy vz mass |
 
 }
 
-NBodySystem : [Object] { | bodies |
+NBodySystem : [Object] {
+
+	| bodies |
 
 	advance { :self :dt |
 		1.toDo(self.bodies.size) { :i |

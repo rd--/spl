@@ -1,4 +1,6 @@
-GeometricBrownianMotionProcess : [Object] { | mu sigma x0 |
+GeometricBrownianMotionProcess : [Object] {
+
+	| mu sigma x0 |
 
 	randomFunction { :self :r :t :n |
 		let a = { :y | self.mu * y };

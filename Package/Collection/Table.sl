@@ -1,4 +1,6 @@
-Table : [Object, Store, Equal] { | cellMatrix columnLabels columnTypes |
+Table : [Object, Store, Equal] {
+
+	| cellMatrix columnLabels columnTypes |
 
 	asHtml { :self |
 		let h = '<tr><th></th>%</tr>'.format([

@@ -1,4 +1,6 @@
-Greymap : [Object] { | greyMatrix |
+Greymap : [Object] {
+
+	| greyMatrix |
 
 	asPgm { :self :maxDepth |
 		let [rowCount, columnCount] = self.greyMatrix.shape;

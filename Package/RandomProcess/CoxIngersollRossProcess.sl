@@ -1,4 +1,6 @@
-CoxIngersollRossProcess : [Object] { | mu sigma theta x0 |
+CoxIngersollRossProcess : [Object] {
+
+	| mu sigma theta x0 |
 
 	randomFunction { :self :r :t :n |
 		let mu = self.mu;

@@ -1,4 +1,6 @@
-ListElement : [Object] { | value next |
+ListElement : [Object] {
+
+	| value next |
 
 	isShorterThan { :self :other |
 		let x = self;

@@ -1,4 +1,6 @@
-ColourGrid : [Object] { | colourMatrix |
+ColourGrid : [Object] {
+
+	| colourMatrix |
 
 	asLineDrawing { :self |
 		let matrix = self.colourMatrix;

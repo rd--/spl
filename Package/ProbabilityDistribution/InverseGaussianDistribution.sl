@@ -14,7 +14,9 @@
 
 }
 
-InverseGaussianDistribution : [Object] { | mu lambda |
+InverseGaussianDistribution : [Object] {
+
+	| mu lambda |
 
 	randomVariate { :self :rng :shape |
 		let mu = self.mu;

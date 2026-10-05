@@ -1,6 +1,8 @@
 /* Requires: Decimal Interval */
 
-Plot : [Object] { | pageList format options |
+Plot : [Object] {
+
+	| pageList format options |
 
 	arrayColourGrid { :self |
 		let [contents] = self.pageList;

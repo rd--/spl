@@ -657,7 +657,9 @@
 
 }
 
-Graph : [Object, Graph] { | vertexList edgeList properties |
+Graph : [Object, Graph] {
+
+	| vertexList edgeList properties |
 
 	addEdge { :self :edge |
 		self.edgeList.add!(edge)

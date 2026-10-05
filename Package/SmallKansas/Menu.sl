@@ -1,4 +1,6 @@
-MenuItem : [Object, Compare] { | name accessKey onSelect |
+MenuItem : [Object, Compare] {
+
+	| name accessKey onSelect |
 
 	accessKeyDislayText { :self |
 		self.accessKey.ifNil {
@@ -33,7 +35,9 @@ MenuItem : [Object, Compare] { | name accessKey onSelect |
 
 }
 
-Menu : [Object, View] { | frame menuPane listPane menuList title isTransient |
+Menu : [Object, View] {
+
+	| frame menuPane listPane menuList title isTransient |
 
 	createElements { :self |
 		self.menuPane := 'div'.createElement(

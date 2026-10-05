@@ -1,4 +1,6 @@
-Sphere : [Object, Store, Equal, Geometry] { | center radius |
+Sphere : [Object, Store, Equal, Geometry] {
+
+	| center radius |
 
 	area { :self |
 		(self.radius.square * 4).pi

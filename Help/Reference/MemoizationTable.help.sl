@@ -94,3 +94,5 @@ OEIS [A089591](https://oeis.org/A089591):
 * * *
 
 See also: Dictionary, Map, memoize
+
+Guides: Collection Functions

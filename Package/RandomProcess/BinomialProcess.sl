@@ -1,4 +1,6 @@
-BinomialProcess : [Object] { | p |
+BinomialProcess : [Object] {
+
+	| p |
 
 	randomFunction { :self :r :t :n |
 		self.Stream(r).valueSeriesRandomFunction(t, n)

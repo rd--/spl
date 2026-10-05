@@ -1,4 +1,6 @@
-Polygon : [Object, Store, Equal, Geometry] { | vertexCoordinates |
+Polygon : [Object, Store, Equal, Geometry] {
+
+	| vertexCoordinates |
 
 	arcLength { :self |
 		self.vertexCoordinates.polygonArcLength

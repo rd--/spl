@@ -1,4 +1,6 @@
-Parallelepiped : [Object, Geometry] { | origin vectorList |
+Parallelepiped : [Object, Geometry] {
+
+	| origin vectorList |
 
 	asPerspectiveDrawing { :self |
 		self.Polyhedron.asPerspectiveDrawing

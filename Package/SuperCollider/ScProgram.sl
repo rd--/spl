@@ -1,6 +1,8 @@
 /* Requires: LibraryItem */
 
-SuperColliderProgramIndex : [Object] { | programList |
+SuperColliderProgramIndex : [Object] {
+
+	| programList |
 
 	atRandom { :self |
 		self.programList.randomChoice(system, [])

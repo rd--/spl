@@ -1,6 +1,8 @@
 /* Requires: String */
 
-BacktickQuotedString : [Object, Store, Equal] { | unquotedString:<String> |
+BacktickQuotedString : [Object, Store, Equal] {
+
+	| unquotedString |
 
 	asString { :self |
 		self.unquotedString
@@ -20,7 +22,9 @@ BacktickQuotedString : [Object, Store, Equal] { | unquotedString:<String> |
 
 }
 
-DoubleQuotedString : [Object, Store, Equal] { | unquotedString:<String> |
+DoubleQuotedString : [Object, Store, Equal] {
+
+	| unquotedString |
 
 	asString { :self |
 		self.unquotedString

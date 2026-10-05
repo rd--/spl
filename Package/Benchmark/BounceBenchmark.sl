@@ -1,6 +1,8 @@
 /* Requires: Benchmark SomRandom */
 
-BounceBall : [Object] { | x y xVel yVel |
+BounceBall : [Object] {
+
+	| x y xVel yVel |
 
 	bounce { :self |
 		let xLimit = 500;

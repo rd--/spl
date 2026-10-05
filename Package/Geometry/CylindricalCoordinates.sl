@@ -1,6 +1,8 @@
 /* Requires: CartesianCoordinates */
 
-CylindricalCoordinates : [Object, Equal] { | coordinates |
+CylindricalCoordinates : [Object, Equal] {
+
+	| coordinates |
 
 	CartesianCoordinates { :self |
 		CartesianCoordinates(

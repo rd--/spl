@@ -1,6 +1,8 @@
 /* Requires: PositionableStream Stream WriteStream */
 
-MutableCollectionStream : [Object, Iterator, Stream, PositionableStream, WriteStream] { | collection positionIndex writeLimit |
+MutableCollectionStream : [Object, Iterator, Stream, PositionableStream, WriteStream] {
+
+	| collection positionIndex writeLimit |
 
 	atEnd { :self |
 		true

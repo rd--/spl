@@ -189,7 +189,9 @@
 
 }
 
-Multiset : [Object, Copy, Store, Equal, Iterable, Collection, Extensible, Unordered, Multiset] { | valuesAndCounts |
+Multiset : [Object, Copy, Store, Equal, Iterable, Collection, Extensible, Unordered, Multiset] {
+
+	| valuesAndCounts |
 
 	postCopy { :self |
 		self.valuesAndCounts := self.valuesAndCounts.copy

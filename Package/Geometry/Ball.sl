@@ -1,4 +1,6 @@
-Ball : [Object, Equal, Geometry] { | center radius |
+Ball : [Object, Equal, Geometry] {
+
+	| center radius |
 
 	dimension { :self |
 		3

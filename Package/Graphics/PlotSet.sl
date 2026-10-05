@@ -1,4 +1,6 @@
-PlotSet : [Object] { | plotMatrix:<List> |
+PlotSet : [Object] {
+
+	| plotMatrix |
 
 	drawing { :self |
 		let plotMatrix = self.plotMatrix;

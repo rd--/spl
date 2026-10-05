@@ -1,4 +1,6 @@
-SparseArray : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, Sequence] { | linearIndexValueMap shape unspecifiedValue |
+SparseArray : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, Sequence] {
+
+	| linearIndexValueMap shape unspecifiedValue |
 
 	arrayDepth { :self |
 		self.rank

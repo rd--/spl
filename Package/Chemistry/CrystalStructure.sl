@@ -1,6 +1,8 @@
 /* Requires: Graph LibraryItem */
 
-CrystalStructure : [Object] { | name description vertexCount edges vertexLabels vertexCoordinates |
+CrystalStructure : [Object] {
+
+	| name description vertexCount edges vertexLabels vertexCoordinates |
 
 	asPerspectiveDrawing { :self :projection |
 		self.Graph.asPerspectiveDrawing(projection)

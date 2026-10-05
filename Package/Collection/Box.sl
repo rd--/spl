@@ -1,4 +1,6 @@
-Box : [Object, Store, Equal] { | contents |
+Box : [Object, Store, Equal] {
+
+	| contents |
 
 }
 

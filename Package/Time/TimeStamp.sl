@@ -1,4 +1,6 @@
-TimeStamp : [Object, Copy, Store, Equal, Compare] { | absoluteTime |
+TimeStamp : [Object, Copy, Store, Equal, Compare] {
+
+	| absoluteTime |
 
 	[less, <] { :self :aTimeStamp |
 		self.absoluteTime < aTimeStamp.absoluteTime

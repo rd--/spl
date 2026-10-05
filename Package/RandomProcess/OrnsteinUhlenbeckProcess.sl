@@ -1,4 +1,6 @@
-OrnsteinUhlenbeckProcess : [Object] { | mu sigma theta x0 |
+OrnsteinUhlenbeckProcess : [Object] {
+
+	| mu sigma theta x0 |
 
 	randomFunction { :self :r :t :n |
 		let a = { :y :t |

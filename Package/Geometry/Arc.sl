@@ -1,4 +1,6 @@
-Arc : [Object, Store, Equal, Geometry] { | center radii angles |
+Arc : [Object, Store, Equal, Geometry] {
+
+	| center radii angles |
 
 	apothem { :self |
 		let a = self.chordLength;
@@ -195,7 +197,9 @@ Arc : [Object, Store, Equal, Geometry] { | center radii angles |
 
 }
 
-CircularSector : [Object, Store, Geometry] { | arc |
+CircularSector : [Object, Store, Geometry] {
+
+	| arc |
 
 	boundingBox { :self |
 		self.geometry.boundingBox
@@ -231,7 +235,9 @@ CircularSector : [Object, Store, Geometry] { | arc |
 
 }
 
-CircularSegment : [Object, Store, Geometry] { | arc |
+CircularSegment : [Object, Store, Geometry] {
+
+	| arc |
 
 	boundingBox { :self |
 		self.geometry.boundingBox

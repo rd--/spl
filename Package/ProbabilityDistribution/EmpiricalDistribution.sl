@@ -1,4 +1,6 @@
-EmpiricalDistribution : [Object, Equal, ProbabilityDistribution] { | empiricalData k |
+EmpiricalDistribution : [Object, Equal, ProbabilityDistribution] {
+
+	| empiricalData k |
 
 	cdf { :self |
 		let k = self.k;

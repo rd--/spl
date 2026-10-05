@@ -1,4 +1,6 @@
-ListView : [Object, Equal, Compare, Iterable, Indexable, Collection, Sequence] { | viewedList startIndex endIndex referenceIndex |
+ListView : [Object, Equal, Compare, Iterable, Indexable, Collection, Sequence] {
+
+	| viewedList startIndex endIndex referenceIndex |
 
 	atIfAbsent { :self :index :ifAbsent/0 |
 		self.includesIndex(index).if {

@@ -1,6 +1,8 @@
 /* Requires: Iterator Stream */
 
-BlockStream : [Object, Iterator, Stream] { | onNext onReset nextItem |
+BlockStream : [Object, Iterator, Stream] {
+
+	| onNext onReset nextItem |
 
 	next { :self |
 		let answer = self.peek;

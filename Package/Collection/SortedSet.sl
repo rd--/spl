@@ -1,4 +1,6 @@
-SortedSet : [Object, Copy, Store, Equal, Iterable, Collection, Extensible, Set] { | sortedList |
+SortedSet : [Object, Copy, Store, Equal, Iterable, Collection, Extensible, Set] {
+
+	| sortedList |
 
 	add! { :self :anObject |
 		let sortedList = self.sortedList;

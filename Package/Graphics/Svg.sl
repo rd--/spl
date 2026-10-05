@@ -1,6 +1,8 @@
 /* Requires: Rectangle */
 
-Svg : [Object] { | svgString |
+Svg : [Object] {
+
+	| svgString |
 
 	drawing { :self |
 		self

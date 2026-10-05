@@ -1,4 +1,6 @@
-HexagonalEfficientCoordinates : [Object, Equal] { | coordinates |
+HexagonalEfficientCoordinates : [Object, Equal] {
+
+	| coordinates |
 
 	[negate, -] { :self |
 		let [a, r, c] = self.coordinates;

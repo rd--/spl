@@ -1,4 +1,6 @@
-QueensBenchmark : [Object] { | freeMaxs freeRows freeMins queenRows |
+QueensBenchmark : [Object] {
+
+	| freeMaxs freeRows freeMins queenRows |
 
 	benchmark { :self |
 		let result = true;

@@ -1,4 +1,6 @@
-PerspectiveDrawing : [Object] { | components metadata |
+PerspectiveDrawing : [Object] {
+
+	| components metadata |
 
 	asLineDrawing { :self |
 		let projection = self.metadata['projection'];

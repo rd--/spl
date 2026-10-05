@@ -1,4 +1,6 @@
-InfinitePlane : [Object, Store, Equal] { | a b c d |
+InfinitePlane : [Object, Store, Equal] {
+
+	| a b c d |
 
 	area { :self |
 		Infinity

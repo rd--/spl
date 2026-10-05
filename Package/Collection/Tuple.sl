@@ -1,6 +1,8 @@
 /* Requires: List */
 
-Tuple : [Object, Copy, Store, Equal] { | uncopiedList |
+Tuple : [Object, Copy, Store, Equal] {
+
+	| uncopiedList |
 
 	[at, @] { :self :index |
 		self.uncopiedList.at(index)

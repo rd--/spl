@@ -1,6 +1,8 @@
 /* Requires: CartesianCoordinates */
 
-Matrix33 : [Object, Equal] { | elements |
+Matrix33 : [Object, Equal] {
+
+	| elements |
 
 	applyTo { :self :vector |
 		let [a, b, c, d, e, f, g, h, i] = self.elements;

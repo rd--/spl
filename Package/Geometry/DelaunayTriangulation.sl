@@ -1,4 +1,6 @@
-DelaunayTriangulation : [Object] { | vertexCoordinates triangulation |
+DelaunayTriangulation : [Object] {
+
+	| vertexCoordinates triangulation |
 
 	asLineDrawing { :self |
 		let v = self.vertexCoordinates;

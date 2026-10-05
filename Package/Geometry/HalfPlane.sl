@@ -1,4 +1,6 @@
-HalfPlane : [Object, Equal] { | p v w |
+HalfPlane : [Object, Equal] {
+
+	| p v w |
 
 }
 

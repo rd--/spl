@@ -1,4 +1,6 @@
-ColourGradient : [Object, Store] { | colourList positionListOrNil |
+ColourGradient : [Object, Store] {
+
+	| colourList positionListOrNil |
 
 	asBlock { :self |
 		self.positionList.linearInterpolator(

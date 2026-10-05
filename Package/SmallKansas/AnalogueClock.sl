@@ -1,6 +1,8 @@
 /* Requires: Date PolarCoordinates SmallKansas */
 
-AnalogueClock : [Object, View, SmallKansan] { | clockPane hourHand minuteHand secondHand |
+AnalogueClock : [Object, View, SmallKansan] {
+
+	| clockPane hourHand minuteHand secondHand |
 
 	createElements { :self |
 		let svg = 'svg'.createSvgElement(

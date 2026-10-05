@@ -1,4 +1,6 @@
-HiddenMarkovProcess : [Object] { | p0 m e |
+HiddenMarkovProcess : [Object] {
+
+	| p0 m e |
 
 	randomFunction { :self :r :t :n |
 		self.Stream(r).valueSeriesRandomFunction(t, n)

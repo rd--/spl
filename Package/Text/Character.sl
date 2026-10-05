@@ -118,7 +118,9 @@
 
 }
 
-Character : [Object, Copy, Store, Equal, Compare, Character] { | characterString codePoint |
+Character : [Object, Copy, Store, Equal, Compare, Character] {
+
+	| characterString codePoint |
 
 	asCharacter { :self |
 		self

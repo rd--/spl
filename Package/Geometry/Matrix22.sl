@@ -1,6 +1,8 @@
 /* Requires: PlanarCoordinates */
 
-Matrix22 : [Object, Equal] { | a b c d |
+Matrix22 : [Object, Equal] {
+
+	| a b c d |
 
 	applyTo { :self :vector |
 		PlanarCoordinates(

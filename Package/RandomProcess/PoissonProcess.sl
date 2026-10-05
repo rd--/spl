@@ -1,4 +1,6 @@
-PoissonProcess : [Object] { | mu |
+PoissonProcess : [Object] {
+
+	| mu |
 
 	randomFunction { :self :r :t :n |
 		let [tMin, tMax] = t;

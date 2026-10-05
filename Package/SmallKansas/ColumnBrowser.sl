@@ -1,6 +1,8 @@
 /* Requires: ListChooser SmallKansas TextEditor */
 
-ColumnBrowser : [Object, View] { | smallKansas browserPane columnsPane previewPane textEditor numberOfColumns columnLists statusPane statusText title |
+ColumnBrowser : [Object, View] {
+
+	| smallKansas browserPane columnsPane previewPane textEditor numberOfColumns columnLists statusPane statusText title |
 
 	addKeyBindings { :self :aBlock/1 |
 		self.textEditor.addKeyBindings(self.textEditor.aBlock)

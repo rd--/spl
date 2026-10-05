@@ -1,4 +1,6 @@
-Html : [Object, Store, Equal] { | string |
+Html : [Object, Store, Equal] {
+
+	| string |
 
 	HtmlElement { :self :document |
 		document.parseHtml(self.string)

@@ -1,4 +1,6 @@
-Missing : [Object, Store, Equal] { | reasonMissing value |
+Missing : [Object, Store, Equal] {
+
+	| reasonMissing value |
 
 }
 

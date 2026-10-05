@@ -1,4 +1,6 @@
-LineDrawing : [Object] { | components metadata |
+LineDrawing : [Object] {
+
+	| components metadata |
 
 	asImg { :self |
 		let svgText = self.asSvg;

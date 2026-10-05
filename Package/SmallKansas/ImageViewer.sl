@@ -1,6 +1,8 @@
 /* Requires: SmallKansas */
 
-ImageViewer : [Object, View] { | title url outerElement |
+ImageViewer : [Object, View] {
+
+	| title url outerElement |
 
 	createElements { :self |
 		let img = 'img'.createElement;

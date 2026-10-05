@@ -1,6 +1,8 @@
 /* Requires: CartesianCoordinates */
 
-Point : [Object, Store, Equal, Geometry, CartesianCoordinates] { | coordinates |
+Point : [Object, Store, Equal, Geometry, CartesianCoordinates] {
+
+	| coordinates |
 
 	boundingBox { :self |
 		{ self.coordinates } ! 2

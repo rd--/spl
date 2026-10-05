@@ -1,4 +1,6 @@
-TranscriptEntry : [Object] { | category message time |
+TranscriptEntry : [Object] {
+
+	| category message time |
 
 }
 
@@ -10,7 +12,9 @@ TranscriptEntry : [Object] { | category message time |
 
 }
 
-Transcript : [Object] { | entries |
+Transcript : [Object] {
+
+	| entries |
 
 	addError { :self :message |
 		self.entries.add!(TranscriptEntry('error', message));

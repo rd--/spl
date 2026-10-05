@@ -8,7 +8,9 @@
 
 }
 
-ReciprocalDistribution : [Object] { | a b |
+ReciprocalDistribution : [Object] {
+
+	| a b |
 
 	cdf { :self |
 		let a = self.a;

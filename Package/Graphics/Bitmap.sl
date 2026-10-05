@@ -1,4 +1,6 @@
-Bitmap : [Object] { | bitMatrix scale |
+Bitmap : [Object] {
+
+	| bitMatrix scale |
 
 	asPbm { :self |
 		let bitMatrix = self.bitMatrix;

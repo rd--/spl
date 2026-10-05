@@ -1,4 +1,6 @@
-NumericArray : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, Sequence] { | array shape storageType |
+NumericArray : [Object, Store, Equal, Compare, Iterable, Indexable, Collection, Sequence] {
+
+	| array shape storageType |
 
 	arrayDepth { :self |
 		self.shape.size

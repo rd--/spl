@@ -1,4 +1,6 @@
-AsciiString : [Object, Store, Equal, Iterable, Indexable, Collection, Sequence] { | byteArray |
+AsciiString : [Object, Store, Equal, Iterable, Indexable, Collection, Sequence] {
+
+	| byteArray |
 
 	AsciiString { :self |
 		self

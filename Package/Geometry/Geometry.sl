@@ -50,7 +50,9 @@
 
 }
 
-AnnotatedGeometry : [Object, Geometry] { | geometry annotation |
+AnnotatedGeometry : [Object, Geometry] {
+
+	| geometry annotation |
 
 	boundingBox { :self |
 		self.geometry.boundingBox

@@ -1,4 +1,6 @@
-WienerProcess : [Object] { | mu sigma |
+WienerProcess : [Object] {
+
+	| mu sigma |
 
 	randomFunction { :self :r :t :n |
 		let mu = self.mu;

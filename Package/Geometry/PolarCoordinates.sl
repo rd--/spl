@@ -1,4 +1,6 @@
-PolarCoordinates : [Object, Store, Equal] { | coordinates |
+PolarCoordinates : [Object, Store, Equal] {
+
+	| coordinates |
 
 	isOrigin { :self |
 		self.r.isZero

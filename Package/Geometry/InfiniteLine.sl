@@ -1,4 +1,6 @@
-InfiniteLine : [Object, Store, Equal] { | point vector |
+InfiniteLine : [Object, Store, Equal] {
+
+	| point vector |
 
 	asGeneralisedCircle { :self |
 		let [a, b, c] = self.lineEquation;

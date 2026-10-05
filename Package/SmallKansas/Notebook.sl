@@ -1,6 +1,8 @@
 /* Requires: SmallKansas SmallProgram Window */
 
-Notebook : [Object, View, SmallKansan] { | smallKansas notebookPane cells |
+Notebook : [Object, View, SmallKansan] {
+
+	| smallKansas notebookPane cells |
 
 	addCell { :self |
 		let cell = 'details'.createElement(

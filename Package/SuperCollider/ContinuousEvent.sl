@@ -1,4 +1,6 @@
-ContinuousEvent : [Object] { | signalList |
+ContinuousEvent : [Object] {
+
+	| signalList |
 
 	i { :self |
 		self.signalList[5]

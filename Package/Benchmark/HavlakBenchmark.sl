@@ -1,6 +1,8 @@
 /* Requires: Benchmark */
 
-BasicBlockEdge : [Object] { | from to |
+BasicBlockEdge : [Object] {
+
+	| from to |
 
 	initialize { :self :cfg :fromName :toName |
 		self.from := cfg.createNode(fromName);
@@ -13,7 +15,9 @@ BasicBlockEdge : [Object] { | from to |
 
 }
 
-BasicBlock : [Object] { | inEdges outEdges name |
+BasicBlock : [Object] {
+
+	| inEdges outEdges name |
 
 	= { :self :other |
 		self.name = other.name
@@ -52,7 +56,9 @@ BasicBlock : [Object] { | inEdges outEdges name |
 
 }
 
-ControlFlowGraph : [Object] { | basicBlockMap startNode edgeList |
+ControlFlowGraph : [Object] {
+
+	| basicBlockMap startNode edgeList |
 
 	initialize { :self |
 		self.basicBlockMap := List();
@@ -109,7 +115,9 @@ ControlFlowGraph : [Object] { | basicBlockMap startNode edgeList |
 
 }
 
-HavlakLoopFinder : [Object] { | cfg lsg nonBackPreds backPreds number maxSize header type last nodes |
+HavlakLoopFinder : [Object] {
+
+	| cfg lsg nonBackPreds backPreds number maxSize header type last nodes |
 
 	initialize { :self :cfg :lsg |
 		self.cfg := cfg;
@@ -298,7 +306,9 @@ HavlakLoopFinder : [Object] { | cfg lsg nonBackPreds backPreds number maxSize he
 
 }
 
-LoopStructureGraph : [Object] { | root loops loopCounter |
+LoopStructureGraph : [Object] {
+
+	| root loops loopCounter |
 
 	initialize { :self |
 		self.root := SimpleLoop(nil, false);
@@ -352,7 +362,9 @@ LoopStructureGraph : [Object] { | root loops loopCounter |
 
 }
 
-LoopTesterApp : [Object] { | cfg lsg |
+LoopTesterApp : [Object] {
+
+	| cfg lsg |
 
 	initialize { :self |
 		self.cfg := ControlFlowGraph();
@@ -455,7 +467,9 @@ LoopTesterApp : [Object] { | cfg lsg |
 
 }
 
-SimpleLoop : [Object] { | counter depthLevel parent isRoot nestingLevel header isReducible basicBlocks children |
+SimpleLoop : [Object] {
+
+	| counter depthLevel parent isRoot nestingLevel header isReducible basicBlocks children |
 
 	initialize { :self :aBB :aBool |
 		self.counter := 0;
@@ -502,7 +516,9 @@ SimpleLoop : [Object] { | counter depthLevel parent isRoot nestingLevel header i
 
 }
 
-UnionFindNode : [Object] { | parent bb dfsNumber loop |
+UnionFindNode : [Object] {
+
+	| parent bb dfsNumber loop |
 
 	initialize { :self |
 		self.dfsNumber := 0;

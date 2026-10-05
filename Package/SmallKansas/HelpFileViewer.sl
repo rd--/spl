@@ -1,6 +1,8 @@
 /* Requires: DocumentationTest HelpFile SmallKansas SmallProgram TextEditor */
 
-HelpFileViewer : [Object, UserEventTarget, View] { | smallKansas outerElement eventListeners |
+HelpFileViewer : [Object, UserEventTarget, View] {
+
+	| smallKansas outerElement eventListeners |
 
 	initialize { :self :smallKansas |
 		self.smallKansas := smallKansas;

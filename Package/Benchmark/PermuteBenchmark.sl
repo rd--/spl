@@ -1,4 +1,6 @@
-PermuteBenchmark : [Object] { | count v |
+PermuteBenchmark : [Object] {
+
+	| count v |
 
 	benchmark { :self |
 		self.count := 0;

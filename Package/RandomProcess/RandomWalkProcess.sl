@@ -1,4 +1,6 @@
-RandomWalkProcess : [Object] { | p q |
+RandomWalkProcess : [Object] {
+
+	| p q |
 
 	randomFunction { :self :r :t :n |
 		self.Stream(r).valueSeriesRandomFunction(t, n)

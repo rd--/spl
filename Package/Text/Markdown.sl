@@ -1,6 +1,8 @@
 /* Requires: Cache Iterable Tree */
 
-Markdown : [Object, Equal, Cache, Iterable] { | source cache |
+Markdown : [Object, Equal, Cache, Iterable] {
+
+	| source cache |
 
 	asHtml { :self |
 		self.cached('html') {

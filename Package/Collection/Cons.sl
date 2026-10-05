@@ -1,4 +1,6 @@
-Cons : [Object, Iterable, Collection] { | car cdr |
+Cons : [Object, Iterable, Collection] {
+
+	| car cdr |
 
 	[equal, =] { :self :anObject |
 		anObject.isCons & {

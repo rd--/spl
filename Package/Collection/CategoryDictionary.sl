@@ -1,4 +1,6 @@
-CategoryDictionary : [Object] { | domainDictionary |
+CategoryDictionary : [Object] {
+
+	| domainDictionary |
 
 	categoriesOf { :self :domain :entry |
 		let dictionary = self.domain(domain);
