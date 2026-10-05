@@ -1,11 +1,11 @@
-# copySignTo
+# copySign
 
-- _copySignTo(x, y)_
+- _copySign(x, y)_
 
 Answer a number with same magnitude as the number _y_ and the same sign as the number _x_.
 
 ```
->>> -1.copySignTo(3)
+>>> -1.copySign(3)
 -3
 ```
 
@@ -19,7 +19,7 @@ Equivalent to multiplying by the `sign` of _x_:
 Copy sign to `zero`:
 
 ```
->>> -1.copySignTo(0)
+>>> -1.copySign(0)
 -0
 ```
 

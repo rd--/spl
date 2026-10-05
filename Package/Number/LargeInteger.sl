@@ -186,6 +186,10 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer] {
 		self.error('bitXor: operand not a LargeInteger or SmallFloat')
 	}
 
+	countLeadingZeroes { :self :base :wordSize |
+		self.integerDigits(base, wordSize).takeWhile(isZero/1).size
+	}
+
 	decimalPeriod { :unused |
 		0
 	}

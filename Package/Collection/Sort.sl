@@ -83,7 +83,7 @@
 			let d = each.integerDigits;
 			let rhs = d.last;
 			let lhsList = (d.size > 1).if { d.allButLast } { [0] };
-			let lhs = each.copySignTo(lhsList.fromDigits(10));
+			let lhs = each.copySign(lhsList.fromDigits(10));
 			let map = each.isNegative.if { negative } { positive };
 			map.atIfPresentIfAbsent(lhs) { :entry |
 				entry.add!(rhs)

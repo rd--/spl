@@ -264,6 +264,10 @@
 		base ^ (self.log(base).ceiling - 1)
 	}
 
+	previousPowerOfTwo { :self |
+		self.previousPowerOf(2)
+	}
+
 	[ratioCents, RatioCents] { :self |
 		self.ratioMidi * 100
 	}

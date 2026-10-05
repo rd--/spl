@@ -454,7 +454,7 @@ Decimal : [Object, Store, Equal, Compare, Number] { | fraction scale |
 				2 -> {
 					let sign = self.beginsWith('-').if { -1 } { 1 };
 					let i = parts[1].parseLargeInteger(elseClause/0);
-					let f = sign.copySignTo(parts[2].parseLargeInteger(elseClause/0));
+					let f = sign.copySign(parts[2].parseLargeInteger(elseClause/0));
 					let k = parts[2].size;
 					scaleOrNil.ifNotNil { :x |
 						(x >= k).if {

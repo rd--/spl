@@ -199,7 +199,7 @@
 		self.continuedFraction(24)
 	}
 
-	copySignTo { :self :aNumber |
+	copySign { :self :aNumber |
 		self.signBit.if {
 			aNumber.abs.negate
 		} {
@@ -1023,7 +1023,7 @@
 	}
 
 	sign { :self :aNumber |
-		aNumber.copySignTo(self)
+		aNumber.copySign(self)
 	}
 
 	[sign, *] { :self |

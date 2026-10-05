@@ -29,7 +29,7 @@ Copying Collections:
 
 Copying Properties:
 
-- `copySignTo`
+- `copySign`
 
 Array Functions:
 

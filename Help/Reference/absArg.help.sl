@@ -36,6 +36,8 @@ Collects over lists:
 
 See also: abs, angleVector, arg, Complex, toPolarCoordinates
 
+Guides: Complex Number Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/AbsArg.html)

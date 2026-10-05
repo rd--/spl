@@ -197,7 +197,7 @@ a[1 .. 115].discretePlot
 
 * * *
 
-See also: *, abs, copySignTo, negate, signBit
+See also: *, abs, copySign, negate, signBit
 
 Guides: Complex Number Functions, Mathematical Functions
 

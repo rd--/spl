@@ -753,10 +753,10 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number] { | numerator denominat
 		valueWithReturn { :return/1 |
 			l.do { :r |
 				((self - r).abs < epsilon).ifTrue {
-					self.copySignTo(r).return
+					self.copySign(r).return
 				}
 			};
-			self.copySignTo(l.last)
+			self.copySign(l.last)
 		}
 	}
 

@@ -223,17 +223,16 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		}
 	}
 
-	countLeadingOnes { :self |
-		self.bitNot.countLeadingZeroes
+	countLeadingOnes { :self :base :wordSize |
+		self.bitNot.countLeadingZeroes(base, wordSize)
 	}
 
-	countLeadingZeroes { :self |
-		<primitive:
-		if(sl.isBitwise(_self)) {
-			return Math.clz32(_self);
+	countLeadingZeroes { :self :base :wordSize |
+		(base = 2 & { wordSize = 32 }).if {
+			self.uncheckedCountLeadingZeroes
+		} {
+			self.LargeInteger.countLeadingZeroes(base, wordSize)
 		}
-		>
-		self.error('SmallFloat>>countLeadingZeroes')
 	}
 
 	countTrailingOnes { :self |
@@ -907,9 +906,13 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 	}
 
 	uncheckedCountLeadingZeroes { :self |
-		<primitive: return Math.clz32(_self);>
+		<primitive:
+		if(sl.isBitwise(_self)) {
+			return Math.clz32(_self);
+		}
+		>
+		self.error('SmallFloat>>uncheckedCountLeadingZeroes')
 	}
-
 
 	uncheckedPrintString { :self :radix |
 		<primitive:

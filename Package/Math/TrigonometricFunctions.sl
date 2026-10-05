@@ -89,7 +89,7 @@
 				} {
 					0
 				}.j(
-					self.real.copySignTo(self.real.abs.arcCosh)
+					self.real.copySign(self.real.abs.arcCosh)
 				)
 			} {
 				self.real.arcCos.j(0)
@@ -102,7 +102,7 @@
 			let ch2y = 1 + sh2y;
 			let chy = ch2y.sqrt;
 			(self.real / chy).arcCos.j(
-				self.imaginary.copySignTo(shy.arcSinh.negate)
+				self.imaginary.copySign(shy.arcSinh.negate)
 			)
 		}
 	}
@@ -119,7 +119,7 @@
 		(self.imaginary = 0).if {
 			(self.real.abs > 1).if {
 				(0.5.pi * self.real.sign).j(
-					self.real.copySignTo(self.real.abs.arcCosh).negate
+					self.real.copySign(self.real.abs.arcCosh).negate
 				)
 			} {
 				self.real.arcSin.j(0)
@@ -132,7 +132,7 @@
 			let ch2y = 1 + sh2y;
 			let chy = ch2y.sqrt;
 			(self.real / chy).arcSin.j(
-				self.imaginary.copySignTo(shy.arcSinh)
+				self.imaginary.copySign(shy.arcSinh)
 			)
 		}
 	}
@@ -150,7 +150,7 @@
 			aNumber.isZero.if {
 				Complex(0, 0)
 			} {
-				Complex(1.pi / aNumber.real.copySignTo(2), 0)
+				Complex(1.pi / aNumber.real.copySign(2), 0)
 			}
 		} {
 			let answer = (aNumber / self).arcTan;

@@ -1,8 +1,8 @@
 # nextPowerOfTwo
 
-- _nextPowerOfTwo(anInteger)_
+- _nextPowerOfTwo(n)_
 
-Answers the next power of two greater than or equal to _anInteger_.
+Answers the next power of two greater than or equal to the integer _n_.
 
 ```
 >>> 300.nextPowerOfTwo
@@ -14,6 +14,6 @@ Answers the next power of two greater than or equal to _anInteger_.
 
 * * *
 
-See also: isPowerOfTwo, nextPowerOf
+See also: isPowerOfTwo, nextPowerOf, previousPowerOfTwo
 
 Categories: Truncation, Rounding
