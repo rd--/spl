@@ -713,8 +713,8 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 	],
 	'converting-time': [
 		'asDate'
-		'asDuration'
-		'asFrequency'
+		'Duration'
+		'Frequency'
 		'asTimeStamp'
 		'localeTimeString'
 	],

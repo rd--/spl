@@ -64,7 +64,7 @@ Relation to `incidenceList`:
 >>> 	g.adjacencyList(2),
 >>> 	g.incidenceList(2)
 >>> )
-([1 3 6], [1 2; 2 3; 2 6].asEdgeList)
+([1 3 6], [1 2; 2 3; 2 6].edgeList)
 ```
 
 * * *

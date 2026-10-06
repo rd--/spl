@@ -26,7 +26,7 @@ The line graph of the claw graph _K(1, 3)_ is a triangle:
 >>> Graph[1 2; 1 3; 1 4]
 >>> .lineGraph
 >>> .edgeList
-[1 2; 1 3; 2 3].asEdgeList
+[1 2; 1 3; 2 3].edgeList
 ```
 
 The number of edges in a graph is equal to the number of vertices in its line graph:
@@ -42,10 +42,10 @@ The line graph of the `pathGraph` of _n_ is isomorphic to the `pathGraph` of _n 
 
 ```
 >>> 5.pathGraph.lineGraph.edgeList
-[1 2; 2 3; 3 4].asEdgeList
+[1 2; 2 3; 3 4].edgeList
 
 >>> 4.pathGraph.edgeList
-[1 2; 2 3; 3 4].asEdgeList
+[1 2; 2 3; 3 4].edgeList
 ```
 
 The line graph of a bipartite graph is perfect:

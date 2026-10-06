@@ -33,7 +33,7 @@ A symmetric adjacency matrix results in an undirected graph:
 >>> let m = [0 1 1; 1 0 1; 1 1 0];
 >>> let g = m.adjacencyGraph;
 >>> g.edgeList
-[1 2; 1 3; 2 3].asEdgeList
+[1 2; 1 3; 2 3].edgeList
 ```
 
 A drawing of the complete three graph, which is undirected:

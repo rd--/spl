@@ -18,8 +18,8 @@ Traits:
 Converting:
 
 - `asDate`
-- `asDuration`
-- `asFrequency`
+- `Duration`
+- `Frequency`
 - `asTimeStamp`
 
 Accessors:

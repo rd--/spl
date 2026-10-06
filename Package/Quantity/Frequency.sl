@@ -1,15 +1,15 @@
 @Frequency {
 
-	asDuration { :self |
-		Duration(1 / self.inHertz)
-	}
-
 	cyclesPerMinute { :self |
 		self.inHertz * 60
 	}
 
 	cyclesPerSecond { :self |
 		self.inHertz
+	}
+
+	Duration { :self |
+		Duration(1 / self.inHertz)
 	}
 
 	inGigahertz { :self |

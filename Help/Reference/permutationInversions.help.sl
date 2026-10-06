@@ -73,7 +73,7 @@ and whose edges represent pairs of elements that are reversed by the permutation
 		4 2;
 		3 2;
 		5 2
-	].asEdgeList,
+	].edgeList,
 	[
 		0 0 1 1 1;
 		0 0 1 1 1;

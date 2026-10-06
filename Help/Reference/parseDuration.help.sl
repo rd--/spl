@@ -9,7 +9,7 @@ Three days and four hours:
 
 ```
 >>> 'P3DT4H'.parseDuration
-(3.days + 4.hours).asDuration
+(3.days + 4.hours).Duration
 ```
 
 Four days, twelve hours, thirty minutes, and five seconds:
@@ -21,7 +21,7 @@ Four days, twelve hours, thirty minutes, and five seconds:
 	12.hours,
 	30.minutes,
 	5.seconds
-].sum.asDuration
+].sum.Duration
 
 >>> 'P4DT12H30M5S'
 >>> .parseDuration

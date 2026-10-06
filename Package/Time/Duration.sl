@@ -3,7 +3,7 @@ Duration : [Object, Store, Equal, Compare] {
 	| seconds |
 
 	[less, <] { :self :aDuration |
-		self.seconds < aDuration.asDuration.seconds
+		self.seconds < aDuration.Duration.seconds
 	}
 
 	[divide, /] { :self :aNumber |
@@ -11,11 +11,11 @@ Duration : [Object, Store, Equal, Compare] {
 	}
 
 	[plus, +] { :self :aDuration |
-		Duration(self.seconds + aDuration.asDuration.seconds)
+		Duration(self.seconds + aDuration.Duration.seconds)
 	}
 
 	[subtract, -] { :self :aDuration |
-		Duration(self.seconds - aDuration.asDuration.seconds)
+		Duration(self.seconds - aDuration.Duration.seconds)
 	}
 
 	[times, *] { :self :aNumber |
@@ -26,22 +26,22 @@ Duration : [Object, Store, Equal, Compare] {
 		Duration(self.seconds.abs)
 	}
 
-	asDuration { :self |
-		self
-	}
-
-	asFrequency { :self |
-		Frequency(self.seconds.reciprocal)
-	}
-
 	components { :self |
 		let b = [24 60 60];
 		self.seconds.mixedRadixEncode(b).padLeft([4], 0)
 	}
 
+	Duration { :self |
+		self
+	}
+
 	durationString { :self |
 		let [d, h, m, s] = self.components;
 		'P%DT%H%M%S'.format([d, h, m, s])
+	}
+
+	Frequency { :self |
+		Frequency(self.seconds.reciprocal)
 	}
 
 	inSeconds { :self |
@@ -60,22 +60,12 @@ Duration : [Object, Store, Equal, Compare] {
 		newDuration().initializeSlots(self)
 	}
 
-}
-
-+List {
-
-	Duration { :self |
-		let [d, h, m, s] = self;
-		let b = [24 60 60];
-		Duration(self.mixedRadixDecode(b))
-	}
-
-}
-
-+@Number {
-
-	asDuration { :self |
-		self.error('Duration: no units specified')
+	Duration { :d :h :m :s |
+		Duration(
+			[d, h, m, s].mixedRadixDecode(
+				[24 60 60]
+			)
+		)
 	}
 
 }

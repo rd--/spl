@@ -27,7 +27,7 @@ Edges incident to vertices one through five of an undirected graph:
 	[1 3; 3 5; 3 8],
 	[1 4; 2 4; 4 9],
 	[2 5; 3 5; 5 10]
-].collect(asEdgeList/1)
+].collect(edgeList/1)
 ```
 
 Edges incident to vertex one of an undirected graph:
@@ -35,7 +35,7 @@ Edges incident to vertex one of an undirected graph:
 ```
 >>> Graph[1 2; 1 3; 1 5; 1 6; 4 5; 4 6]
 >>> .incidenceList(1)
-[1 2; 1 3; 1 5; 1 6].asEdgeList
+[1 2; 1 3; 1 5; 1 6].edgeList
 ```
 
 Edges incident to vertex one of a directed graph:
@@ -67,7 +67,7 @@ Relation to `adjacencyList`:
 >>> )
 (
 	[1 3 6],
-	[1 2; 2 3; 2 6].asEdgeList
+	[1 2; 2 3; 2 6].edgeList
 )
 ```
 

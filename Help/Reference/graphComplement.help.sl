@@ -10,12 +10,12 @@ At `cycleGraph`:
 >>> 4.cycleGraph
 >>> .graphComplement
 >>> .edgeList
-[1 3; 2 4].asEdgeList
+[1 3; 2 4].edgeList
 
 >>> 5.cycleGraph
 >>> .graphComplement
 >>> .edgeList
-[1 3; 1 4; 2 4; 2 5; 3 5].asEdgeList
+[1 3; 1 4; 2 4; 2 5; 3 5].edgeList
 
 >>> 6.cycleGraph
 >>> .graphComplement
@@ -25,7 +25,7 @@ At `cycleGraph`:
 	2 4; 2 5; 2 6;
 	3 5; 3 6;
 	4 6
-].asEdgeList
+].edgeList
 ```
 
 At directed cycle graph:
@@ -61,7 +61,7 @@ For simple graphs, the graphComplement of the graphComplement is the original gr
 >>> .graphComplement
 >>> .graphComplement
 >>> .edgeList
-[1 2; 1 6; 2 3; 3 4; 4 5; 5 6].asEdgeList
+[1 2; 1 6; 2 3; 3 4; 4 5; 5 6].edgeList
 ```
 
 The graphComplement of the line graph of _K(5)_ is a Petersen graph:

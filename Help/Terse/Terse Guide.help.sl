@@ -1357,18 +1357,18 @@ let d = (x: 1, parent: (y: 2, parent: (z: 3))); d.putDelegateTo('z', -3, 'parent
 ## Duration -- temporal type
 ```
 system.includesPackage('Duration') /* duration package */
-2.seconds.asDuration.typeOf = 'Duration' /* make duration from number of seconds */
-5.hours.asDuration.isDuration = true /* make duration from number of hours */
+2.seconds.Duration.typeOf = 'Duration' /* make duration from number of seconds */
+5.hours.Duration.isDuration = true /* make duration from number of hours */
 let f = { :t0 | let t1 = system.randomReal([0 2], []); f/1.valueAfterWith(t1, t1) }; f(2).cancel = nil
-60.seconds.asDuration.inSeconds = 60 /* convert duration to seconds */
+60.seconds.Duration.inSeconds = 60 /* convert duration to seconds */
 'P1W1DT1H1M1S'.parseDuration.inSeconds = 694861 /* parse ISO-8601 duration string */
 'P2DT2H2M2S'.parseDuration.inSeconds = 180122 /* parse ISO-8601 duration string */
-'P3DT4H'.parseDuration = (3.days + 4.hours).asDuration
-(29.days + 12.hours + 44.minutes + 2.9.seconds - 1.synodicMonths).asDuration.abs ~ 76.milliseconds.asDuration
--3.seconds.asDuration.abs = 3.seconds.asDuration /* absolute value */
-(3.minutes - 2.hours).asDuration.abs = (1.hours + 57.minutes).asDuration /* absolute value */
-(7 / 8).milliseconds.asDuration.seconds = 7/8000 /* fractional duration */
-2.minutes.asDuration.inSeconds = 120 /* seconds of duration, or identity of number */
+'P3DT4H'.parseDuration = (3.days + 4.hours).Duration
+(29.days + 12.hours + 44.minutes + 2.9.seconds - 1.synodicMonths).Duration.abs ~ 76.milliseconds.Duration
+-3.seconds.Duration.abs = 3.seconds.Duration /* absolute value */
+(3.minutes - 2.hours).Duration.abs = (1.hours + 57.minutes).Duration /* absolute value */
+(7 / 8).milliseconds.Duration.seconds = 7/8000 /* fractional duration */
+2.minutes.Duration.inSeconds = 120 /* seconds of duration, or identity of number */
 ```
 
 ## Quantity
@@ -1627,8 +1627,8 @@ Fraction(-4, -12) = 1/3
 system.includesPackage('Frequency') /* frequency package */
 1.hertz.typeOf = 'Quantity' /* frequency from hertz (cyles per second) */
 1.hertz.isFrequency /* frequency predicate */
-10.hertz.asDuration = (1 / 10).seconds.asDuration /* duration is the reciprocal of frequency */
-1.kilohertz.asDuration = 1.milliseconds.asDuration /* the period of 1kHz is 1ms */
+10.hertz.Duration = (1 / 10).seconds.Duration /* duration is the reciprocal of frequency */
+1.kilohertz.Duration = 1.milliseconds.Duration /* the period of 1kHz is 1ms */
 1.kilohertz.inHertz = 1000 /* hertz of frequency, or identity of number */
 ```
 

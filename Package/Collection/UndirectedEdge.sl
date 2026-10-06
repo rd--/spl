@@ -2,25 +2,21 @@ UndirectedEdge : [Object, Store, Equal, Compare, Indexable] {
 
 	| vertexList |
 
-	asDirectedEdge { :self |
-		let [i, j] = self.vertexList;
-		DirectedEdge(i, j)
-	}
-
-	asEdge { :self |
-		self
-	}
-
-	asUndirectedEdge { :self |
-		self
-	}
-
 	at { :self :index |
 		self.vertexList.at(index)
 	}
 
 	compare { :self :anEdge |
 		self.vertexList.compare(anEdge.vertexList)
+	}
+
+	DirectedEdge { :self |
+		let [i, j] = self.vertexList;
+		DirectedEdge(i, j)
+	}
+
+	Edge { :self |
+		self
 	}
 
 	forDot { :self :isMixed |
@@ -80,17 +76,17 @@ UndirectedEdge : [Object, Store, Equal, Compare, Indexable] {
 		2
 	}
 
+	UndirectedEdge { :self |
+		self
+	}
+
 }
 
 +List {
 
-	asEdge { :self |
+	Edge { :self |
 		let [i, j] = self;
 		UndirectedEdge(i, j)
-	}
-
-	asEdgeList { :self |
-		self.collect(asEdge/1)
 	}
 
 }

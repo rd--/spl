@@ -11,10 +11,10 @@ Undirected edges are ordinarily written infix using `---`:
 true
 ```
 
-`asEdge` at `List` answers an undirected edge:
+`Edge` at `List` answers an undirected edge:
 
 ```
->>> [1 2].asEdge.isUndirectedEdge
+>>> [1 2].Edge.isUndirectedEdge
 true
 ```
 

@@ -17,7 +17,7 @@ Answer an undirected graph from the directed graph _g_.
 (
 	true,
 	true,
-	[1 2; 2 3; 3 1; 3 4].asEdgeList
+	[1 2; 2 3; 3 1; 3 4].edgeList
 )
 ```
 
@@ -34,7 +34,7 @@ The graph is unchanged if already undirected:
 (
 	true,
 	true,
-	[1 2; 2 3; 3 1; 3 4].asEdgeList
+	[1 2; 2 3; 3 1; 3 4].edgeList
 )
 ```
 
@@ -43,7 +43,7 @@ Directed edges with different directions convert to one undirected edge:
 ```
 >>> let g = Graph[1 -> 2, 2 -> 1];
 >>> g.undirectedGraph.edgeList
-[[1, 2]].asEdgeList
+[[1, 2]].edgeList
 ```
 
 * * *

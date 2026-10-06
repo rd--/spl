@@ -14,13 +14,13 @@ At undirected graphs:
 	2 3; 2 4; 2 5;
 	3 4; 3 5;
 	4 5
-].asEdgeList
+].edgeList
 
 >>> 5.cycleGraph.edgeList
-[1 2; 2 3; 3 4; 4 5; 5 1].asEdgeList
+[1 2; 2 3; 3 4; 4 5; 5 1].edgeList
 
 >>> 5.pathGraph.edgeList
-[1 2; 2 3; 3 4; 4 5].asEdgeList
+[1 2; 2 3; 3 4; 4 5].edgeList
 ```
 
 At directed graphs:
@@ -28,7 +28,7 @@ At directed graphs:
 ```
 >>> Graph[1 -> 2, 2 -> 3, 3 -> 1]
 >>> .edgeList
-[1 -> 2, 2 -> 3, 3 -> 1].asEdgeList
+[1 -> 2, 2 -> 3, 3 -> 1].edgeList
 ```
 
 At `Polygon`:
@@ -47,6 +47,20 @@ At `Polyhedron`:
 	5 6; 6 7; 7 8; 5 8;
 	4 8; 3 7; 2 6; 1 5
 ]
+```
+
+At `List`,
+answer a list of edges,
+which may contain any combination of `DirectedEdge` and `UndirectedEdge` values:
+
+```
+>>> [
+>>> 	1 -> 3,
+>>> 	[1 3],
+>>> 	1 --> 3,
+>>> 	1 --- 3
+>>> ].edgeList
+[1 --> 3, 1 --- 3, 1 --> 3, 1 --- 3]
 ```
 
 * * *

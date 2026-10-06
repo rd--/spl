@@ -11,10 +11,10 @@ Directed edges are ordinarily written infix using `-->`:
 true
 ```
 
-`asEdge` at `Association` answers a directed edge:
+`Edge` at `Association` answers a directed edge:
 
 ```
->>> (1 -> 2).asEdge.isDirectedEdge
+>>> (1 -> 2).Edge.isDirectedEdge
 true
 ```
 

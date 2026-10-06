@@ -29,10 +29,10 @@ The vertices are sorted by construction:
 1 --- 2
 ```
 
-`asEdge` at `List` answers a `UndirectedEdge`:
+`Edge` at `List` answers a `UndirectedEdge`:
 
 ```
->>> [1 2].asEdge
+>>> [1 2].Edge
 1 --- 2
 ```
 

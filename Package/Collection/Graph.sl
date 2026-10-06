@@ -558,7 +558,7 @@
 	undirectedGraph { :self |
 		Graph(
 			self.vertexList,
-			self.edgeList.collect(asUndirectedEdge/1).nubBy(matchesEdge/2)
+			self.edgeList.collect(UndirectedEdge/1).nubBy(matchesEdge/2)
 		)
 	}
 
@@ -739,7 +739,7 @@ Graph : [Object, Graph] {
 	Graph { :vertexList :edgeList |
 		newGraph().initializeSlots(
 			vertexList,
-			edgeList.collect(asEdge/1),
+			edgeList.edgeList,
 			Record()
 		)
 	}
@@ -1109,10 +1109,6 @@ Graph : [Object, Graph] {
 
 +List {
 
-	asEdgeList { :self |
-		self.collect(asEdge/1)
-	}
-
 	canonicalEdgeList { :self |
 		let vertexList = self.collectCatenate(vertexList/1).nub.sort;
 		let renameTable = vertexList.collect { :vertex |
@@ -1121,6 +1117,10 @@ Graph : [Object, Graph] {
 		self.collect { :each |
 			each.rename(renameTable)
 		}
+	}
+
+	edgeList { :self |
+		self.collect(Edge/1)
 	}
 
 	gridGraph { :shape |
@@ -1212,7 +1212,7 @@ Graph : [Object, Graph] {
 	}
 
 	Graph { :self |
-		let edgeList = self.collect(asEdge/1).List;
+		let edgeList = self.edgeList;
 		let vertexList = [];
 		edgeList.do { :each |
 			vertexList.add!(each[1]);

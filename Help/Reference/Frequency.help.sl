@@ -42,13 +42,23 @@ written _s⁻¹_.
 A `Frequency` can be converted into a `Duration`, which gives the length of time of one cycle:
 
 ```
->>> Frequency(440).asDuration
+>>> Frequency(440).Duration
 Duration(1 / 440)
+
+>>> Duration(0.01).Frequency
+Frequency(100)
+```
+
+The inverse is `Duration`:
+
+```
+>>> Frequency(100).Duration
+Duration(0.01)
 ```
 
 * * *
 
-See also: Duration, hertz, inHertz, Quantity
+See also: Duration, Quantity, hertz, inHertz
 
 Guides: Quantity Functions
 

@@ -20,10 +20,10 @@ Vertex list:
 [1 2]
 ```
 
-`asEdge` at `Association` answers a `DirectedEdge`:
+`Edge` at `Association` answers a `DirectedEdge`:
 
 ```
->>> (1 -> 2).asEdge
+>>> (1 -> 2).Edge
 1 --> 2
 ```
 
@@ -38,7 +38,7 @@ Graph[1 --> 2, 2 --> 3, 3 --> 1]
 
 * * *
 
-See also: ->, ---, asEdge, Graph, UndirectedEdge
+See also: ->, ---, Edge, Graph, UndirectedEdge
 
 Guides: Graph Functions
 

@@ -470,13 +470,9 @@ Reference/asDecimalFraction.help.sl
 Reference/asDecimal.help.sl
 Reference/asDiscreteColourGradient.help.sl
 Reference/asDot.help.sl
-Reference/asDuration.help.sl
-Reference/asEdge.help.sl
-Reference/asEdgeList.help.sl
 Reference/asFileUrl.help.sl
 Reference/asFractionOver.help.sl
 Reference/asFractions.help.sl
-Reference/asFrequency.help.sl
 Reference/asGeometryCollection.help.sl
 Reference/asGreymap.help.sl
 Reference/asGreyscaleDrawing.help.sl
@@ -1316,6 +1312,7 @@ Reference/each.help.sl
 Reference/easingFunction.help.sl
 Reference/eccentricity.help.sl
 Reference/edgeCount.help.sl
+Reference/Edge.help.sl
 Reference/edgeLabels.help.sl
 Reference/edgeList.help.sl
 Reference/editDistance.help.sl
