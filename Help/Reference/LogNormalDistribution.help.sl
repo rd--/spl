@@ -21,7 +21,8 @@ Two dimensional log-normal noise:
 let r = Sfc32(180513);
 LogNormalDistribution(0, 1 / 3)
 .randomVariate(r, [100 100])
-.asGreymap
+.rescale
+.Greymap
 ~~~
 
 ![](Help/Image/LogNormalDistribution-B.png)

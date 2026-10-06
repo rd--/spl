@@ -56,10 +56,6 @@ Greymap : [Object] {
 
 +List {
 
-	asGreymap { :self |
-		self.rescale.Greymap
-	}
-
 	Greymap { :self |
 		self.isMatrix.if {
 			newGreymap().initializeSlots(self)

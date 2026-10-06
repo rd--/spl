@@ -57,7 +57,8 @@ let r = Sfc32(189040);
 CauchyDistribution(0, 0.025)
 .randomVariate(r, [100 100])
 .clip
-.asGreymap
+.rescale
+.Greymap
 ~~~
 
 ![](Help/Image/CauchyDistribution-E.png)

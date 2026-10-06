@@ -63,7 +63,8 @@ Two dimensional Weibull noise:
 let r = Sfc32(180513);
 WeibullDistribution(2.5, 1, 0)
 .randomVariate(r, [100 100])
-.asGreymap
+.rescale
+.Greymap
 ~~~
 
 ![](Help/Image/WeibullDistribution-E.png)

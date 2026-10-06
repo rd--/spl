@@ -96,9 +96,19 @@ let i = (0 -- 143).discretize(200);
 
 ![](Help/Image/Greymap-E.png)
 
+`Greymap` of `rescale` of the matrix _m_,
+a gradient,
+rescaled from _(1,10000)_ to _(0,1)_:
+
+~~~spl png=F
+[100 100].iota.rescale.Greymap
+~~~
+
+![](Help/Image/Greymap-F.png)
+
 * * *
 
-See also: asGreymap, Bitmap, Image, matrixPlot, Svg
+See also: Bitmap, Image, Svg, matrixPlot
 
 Guides: Image Functions
 

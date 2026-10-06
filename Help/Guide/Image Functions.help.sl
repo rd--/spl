@@ -11,7 +11,6 @@ Image Types:
 
 Converting:
 
-- `asGreymap`
 - `LineDrawing`
 - `PerspectiveDrawing`
 
