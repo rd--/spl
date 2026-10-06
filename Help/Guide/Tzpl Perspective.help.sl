@@ -395,8 +395,7 @@ indexOf=`indexOfSubstring`, lastIndexOf=`lastIndexOfSubstring`
 'value'
 ```
 
-parseInt(s) / parseInt(s, radix) / parseFloat(s)
-Strict string-to-number parsing that can report failure (unlike the toInt/toFloat conversions, which only accept values that are already numbers). The whole string must be a valid number — no surrounding whitespace, no trailing characters. Returns Option.none on any malformed input, including integer overflow.
+parseInt=`parseSmallInteger`, parseFloat=`parseNumber`
 
 ```
 >>> parseSmallInteger('42', 10)
