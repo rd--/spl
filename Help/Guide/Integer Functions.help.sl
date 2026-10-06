@@ -16,7 +16,7 @@ Combinatorial Functions:
 
 Converting:
 
-- `asInteger`
+- `Integer`
 - `SmallInteger`
 - `LargeInteger`
 

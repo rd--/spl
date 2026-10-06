@@ -14,10 +14,10 @@ In the `Number` case answer `identity`.
 1.pi
 ```
 
-To convert a `Boolean` use `asBit` or `boole`:
+To convert a `Boolean` use `boole`:
 
 ```
->>> false.asBit
+>>> false.boole
 0
 
 >>> true.boole
@@ -43,7 +43,7 @@ Threads over lists:
 
 * * *
 
-See also: asBit, asInteger, boole, parseNumber
+See also: Integer, boole, parseNumber
 
 Guides: Number Functions
 

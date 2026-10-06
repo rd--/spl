@@ -5,7 +5,7 @@
 		.column(2)
 		.partitionsP
 		.product
-		.asInteger
+		.Integer
 	}
 
 	finiteGroupCount { :n |

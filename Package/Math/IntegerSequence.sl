@@ -432,7 +432,7 @@
 
 	genocchiNumber { :n |
 		let b = n.bernoulliNumber;
-		(2 * (1 - (2 ^ n)) * b).asInteger
+		(2 * (1 - (2 ^ n)) * b).Integer
 	}
 
 	grahlSequenceStanely { :self |

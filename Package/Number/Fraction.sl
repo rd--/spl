@@ -52,7 +52,7 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 
 	[power, ^] { :self :aNumber |
 		aNumber.isScalarInteger.if {
-			self.raisedToInteger(aNumber.asInteger)
+			self.raisedToInteger(aNumber.Integer)
 		} {
 			aNumber.isFraction.if {
 				self.isNegative.if {
@@ -129,14 +129,10 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 		}
 	}
 
-	asInteger { :self |
-		self.LargeInteger.normal
-	}
-
 	components { :self |
 		[
-			self.numerator.asInteger,
-			self.denominator.asInteger
+			self.numerator.Integer,
+			self.denominator.Integer
 		]
 	}
 
@@ -227,6 +223,10 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 		} {
 			aFraction.adaptToFractionAndApply(self, gcd/2)
 		}
+	}
+
+	Integer { :self |
+		self.LargeInteger.normal
 	}
 
 	isAdjacentFraction { :self :operand |
@@ -473,8 +473,8 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 
 	[Record, fractionToRecord] { :self |
 		(
-			numerator: self.numerator.asInteger,
-			denominator: self.denominator.asInteger
+			numerator: self.numerator.Integer,
+			denominator: self.denominator.Integer
 		)
 	}
 
@@ -878,11 +878,11 @@ Should only the below answer small integers?
 +List {
 
 	denominatorList { :self |
-		self.denominator.asInteger
+		self.denominator.Integer
 	}
 
 	numeratorList { :self |
-		self.numerator.asInteger
+		self.numerator.Integer
 	}
 
 }

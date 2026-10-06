@@ -1,8 +1,11 @@
 # boole
 
-- _boole(b)_
+- _boole(x)_
 
-Answer 1 if the boolean value _b_ is `true` and 0 if it is `false`.
+The numerical interpretation of the `Boolean` _x_ as a one-bit number.
+This extends nicely to _n_-bit numbers, as long as they treat 0 as `false`, and anything else as `true`.
+
+Answer `one` if the boolean value _b_ is `true` and 0 if it is `false`:
 
 ```
 >>> [false.boole true.boole]
@@ -14,6 +17,31 @@ Threads over lists, convert a list of truth values to integers:
 ```
 >>> [true false true true false].boole
 [1 0 1 1 0]
+```
+
+At integer,
+allows `zero` or `one`:
+
+```
+>>> 0.boole
+0
+
+>>> 1.boole
+1
+```
+
+At other integers it is an error:
+
+```
+>>> { 2.boole }.hasError
+true
+```
+
+Threads over lists:
+
+```
+>>> [0 false 1 true].boole
+[0 0 1 1]
 ```
 
 One and thereafter _4n_,
@@ -36,10 +64,10 @@ Convert a table of boolean values for plotting:
 
 ![](Help/Image/boole-A.svg)
 
-The inverse of `boole` is `asBoolean`:
+The inverse of `boole` is `Boolean`:
 
 ```
->>> [1 0 1 1 0].collect(asBoolean/1)
+>>> [1 0 1 1 0].collect(Boolean/1)
 [true false true true false]
 ```
 
@@ -49,7 +77,7 @@ It is an error if _b_ is not a `Boolean`:
 >>> { 'false'.boole }.hasError
 true
 
->>> { 0.boole }.hasError
+>>> { nil.boole }.hasError
 true
 ```
 
@@ -136,9 +164,9 @@ OEIS [A320541](https://oeis.org/A320541):
 
 * * *
 
-See also: asBit, asBoolean, asInteger
+See also: Boolean, Integer
 
-Guides: Boolean Functions, Number Functions
+Guides: Bitwise Functions, Boolean Functions, Number Functions
 
 References:
 _Mathematica_

@@ -58,10 +58,6 @@
 		a
 	}
 
-	asInteger { :self |
-		self.typeResponsibility('@Number>>asInteger')
-	}
-
 	asNumber { :self |
 		self
 	}
@@ -422,6 +418,10 @@
 		} {
 			self.betweenAnd(second, first)
 		}
+	}
+
+	Integer { :self |
+		self.typeResponsibility('@Number>>Integer')
 	}
 
 	integerPart { :self |

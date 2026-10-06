@@ -41,19 +41,7 @@
 		(n.abs < 2).if {
 			0
 		} {
-			Fraction(n, 1).arithmeticDerivative.asInteger
-		}
-	}
-
-	asBit { :self |
-		self.isZero.if {
-			0
-		} {
-			self.isOne.if {
-				1
-			} {
-				self.error('asBit')
-			}
+			Fraction(n, 1).arithmeticDerivative.Integer
 		}
 	}
 
@@ -259,6 +247,18 @@
 			a.add!(each.flatten)
 		};
 		a
+	}
+
+	boole { :self |
+		self.isZero.if {
+			0
+		} {
+			self.isOne.if {
+				1
+			} {
+				self.error('boole')
+			}
+		}
 	}
 
 	carryLessMultiplication { :m :n :b |

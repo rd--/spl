@@ -1087,7 +1087,7 @@ Plot : [Object] {
 
 	colourCalculatorPlot { :self :colourList |
 		self.deepCollect { :each |
-			colourList[each.asInteger + 1]
+			colourList[each.Integer + 1]
 		}.ColourGrid
 
 	}

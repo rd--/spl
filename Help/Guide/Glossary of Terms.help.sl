@@ -80,7 +80,7 @@ Cf: Assignment Syntax, Let Syntax
 
 - _Bit_:
 An _integer_ value that is either zero or one.
-Cf: asBit, boole
+Cf: boole
 
 - _Block_:
 The _behaviour_ type,

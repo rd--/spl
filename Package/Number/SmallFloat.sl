@@ -26,10 +26,6 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		}
 	}
 
-	asInteger { :self |
-		SmallInteger(self)
-	}
-
 	assertIsFinite { :self |
 		self.assert {
 			self.isFinite
@@ -355,6 +351,10 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		const remainder = dividend - (divisor * roundedQuotient);
 		return remainder;
 		>
+	}
+
+	Integer { :self |
+		SmallInteger(self)
 	}
 
 	integerChop { :self :epsilon |

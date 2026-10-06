@@ -756,9 +756,9 @@ nil.isNil = true /* test if object is nil */
 2.isOdd = false /* two is not odd */
 'A'.isUpperCase = true /* test if upper case character */
 'a'.isLowerCase = true /* test if lower case character */
-false.asBit = 0 /* boolean as bit, false is zero */
-true.asBit = 1 /* boolean as bit, true is one */
-true.boole > false.boole /* boolean as integer, c.f. asBit */
+false.boole = 0 /* boolean as bit, false is zero */
+true.boole = 1 /* boolean as bit, true is one */
+true.boole > false.boole /* boolean as integer, c.f. boole */
 true.printString = 'true' /* true print string */
 true.storeString = 'true' /* true store string */
 false.printString = 'false' /* false print string */
@@ -1194,7 +1194,7 @@ Infinity.isNumber /* Infinity constant */
 
 ## Converting -- type conversion
 ```
-[true, false].collect(asBit/1) = [1, 0] /* boolean to bit (integer) */
+[true, false].collect(boole/1) = [1, 0] /* boolean to bit (integer) */
 1.pi.Float = 1.pi /* small float as float is identity */
 3/4.Float = 0.75 /* fraction as float */
 23.Float = 23.0 /* integer as float */
@@ -1203,16 +1203,16 @@ Infinity.isNumber /* Infinity constant */
 1.pi.SmallFloat = 1.pi /* identity */
 3/4.SmallFloat = 0.75 /* fraction to small float */
 23.SmallFloat = 23.0 /* integral to small float */
-true.boole = 1 /* boolean as integer, c.f. asBit */
-false.boole = 0 /* boolean as integer, asBit */
+true.boole = 1 /* boolean as integer, c.f. boole */
+false.boole = 0 /* boolean as integer, boole */
 '~'.Character.codePoint = 126 /* character as integer, c.f. codePoint */
-23.asInteger = 23 /* small integer as integer, c.f. identity */
--23.asInteger = -23 /* identity */
+23.Integer = 23 /* small integer as integer, c.f. identity */
+-23.Integer = -23 /* identity */
 '23'.parseSmallInteger(10) = 23 /* string is parsed, c.f. parseDecimalInteger */
 { '3.141'.parseSmallInteger(10) }.hasError /* floating point strings are not decimal integers */
 { '3x'.parseDecimalInteger }.hasError /* large radix strings are not decimal integers */
-false.asBit = 0 /* asBit */
-true.asBit = 1 /* asBit */
+false.boole = 0 /* boole */
+true.boole = 1 /* boole */
 1.pi.asNumber = 1.pi /* identity */
 23.asNumber = 23 /* identity */
 '3.141'.parseNumber = 3.141 /* parse floating point */

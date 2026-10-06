@@ -43,7 +43,7 @@
 			(endIndex > haystackSize).if {
 				0
 			} {
-				(needle = haystack.copyFromTo(each, endIndex)).asInteger
+				(needle = haystack.copyFromTo(each, endIndex)).boole
 			}
 		}
 	}
@@ -66,7 +66,7 @@
 
 	membership { :self :aCollection |
 		self.collect { :each |
-			aCollection.includes(each).asInteger
+			aCollection.includes(each).boole
 		}
 	}
 

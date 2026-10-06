@@ -267,7 +267,7 @@
 	LsClutch { :input :latch :initialValue |
 		let previous = initialValue;
 		BlockStream {
-			latch.next.asBoolean.ifTrue {
+			latch.next.Boolean.ifTrue {
 				previous := input.next
 			};
 			previous

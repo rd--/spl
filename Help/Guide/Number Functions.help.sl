@@ -18,10 +18,10 @@ Types:
 
 Converting:
 
-- `asBit`
+- `boole`
 - `asComplex`
 - `Float`
-- `asInteger`
+- `Integer`
 - `LargeInteger`
 - `asNumber`
 - `SmallFloat`

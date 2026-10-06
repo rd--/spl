@@ -247,11 +247,11 @@ A `Decimal` is an integer only the `scale` is `zero`:
 >>> 3.000D.isInteger
 false
 
->>> 3D.asInteger
+>>> 3D.Integer
 3
 
 >>> {
->>> 	3.000D.asInteger
+>>> 	3.000D.Integer
 >>> }.hasError
 true
 ```

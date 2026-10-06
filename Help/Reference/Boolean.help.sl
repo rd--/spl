@@ -1,5 +1,55 @@
 # Boolean
 
+- _Boolean(x)_
+
+Convert the object _x_ into a boolean value.
+
+0 is `false`, 1 is `true`, `true` and `false` are themselves.
+
+```
+>>> 0.Boolean
+false
+
+>>> 1.Boolean
+true
+
+>>> false.Boolean
+false
+
+>>> true.Boolean
+true
+```
+
+Integers other than `zero` and `one` signal an error:
+
+```
+>>> { -1.Boolean }.hasError
+true
+```
+
+To convert any non-zero number to `true` and `zero` to `false` use `!=`,
+or `isNonZero`:
+
+```
+>>> [-1 -0.5 0 0.5 1]
+>>> .collect { :x |
+>>> 	x != 0
+>>> }
+[true true false true true]
+```
+
+Threads over lists:
+
+```
+>>> [0 false 1 true].Boolean
+[false false true true]
+```
+
+The inverse of `Boolean` is `boole`:
+
+```
+>>> [false true].boole
+
 `Boolean` is the `Type` of the two values `true` and `false`.
 
 ```
@@ -47,7 +97,7 @@ Methods are: &, &&, |, ||, not, xor
 
 * * *
 
-See also: &, &&, |, ||, false, not, true, xor
+See also: &, &&, |, ||, Boolean, Integer, boole, false, not, true, xor
 
 Guides: Boolean Functions
 
@@ -63,4 +113,4 @@ _SuperCollider_
 _W_
 [1](https://en.wikipedia.org/wiki/Boolean_data_type)
 
-Categories: Logic, Type
+Categories: Converting, Logic, Type

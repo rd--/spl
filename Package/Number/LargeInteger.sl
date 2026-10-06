@@ -120,14 +120,6 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer, I
 		}
 	}
 
-	asInteger { :self |
-		self.isSmallInteger.if {
-			self.SmallFloat
-		} {
-			self
-		}
-	}
-
 	atRandom { :self |
 		system.nextRandomInteger(1, self.SmallFloat)
 	}
@@ -212,6 +204,14 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer, I
 				}
 			};
 			lastDigit.SmallFloat.highBitOfByte + (8 * (realLength - 1))
+		}
+	}
+
+	[Integer, normal] { :self |
+		self.isSmallInteger.if {
+			self.SmallFloat
+		} {
+			self
 		}
 	}
 
@@ -314,10 +314,6 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer, I
 
 	LargeInteger { :self |
 		self
-	}
-
-	normal { :self |
-		self.asInteger
 	}
 
 	numerator { :self |

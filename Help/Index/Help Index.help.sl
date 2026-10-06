@@ -154,7 +154,7 @@
 
 ## Converting
 
-- `asBit`, `asBoolean`
+- `Boolean`, `boole`
 - `asComplex`, `Float`, `asFraction`, `asInteger`, `LargeInteger`, `asNumber`, `SmallFloat`
 - `Character`, `codePoint`, `asHexDigit`, `asLowerCase`, `asRegExp`, `asString`, `asUpperCase`
 - `inEnglishWords`

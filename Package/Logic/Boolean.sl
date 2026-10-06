@@ -32,16 +32,16 @@ Boolean! : [Object, Copy, Store, Equal, Compare, Json] {
 		aBlock()
 	}
 
-	asBoolean { :self |
-		self
-	}
-
 	assertIsBoolean { :self |
 		self
 	}
 
-	[boole, asBit] { :self |
+	boole { :self |
 		self.if { 1 } { 0 }
+	}
+
+	Boolean { :self |
+		self
 	}
 
 	compare { :self :operand |
@@ -147,14 +147,14 @@ Boolean! : [Object, Copy, Store, Equal, Compare, Json] {
 		self.assertIsBoole.bitOr(aBoole.assertIsBoole)
 	}
 
-	asBoolean { :self |
+	Boolean { :self |
 		(self = 0).if {
 			false
 		} {
 			(self = 1).if {
 				true
 			} {
-				self.error('asBoolean: not 0 or 1')
+				self.error('Boolean: not 0 or 1')
 			}
 		}
 	}

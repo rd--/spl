@@ -281,7 +281,7 @@ OEIS [A119812](https://oeis.org/A119812):
 >>> 			(m * t).floor / (2L ^ m)
 >>> 		};
 >>> 		(10L ^ n * x).floor % 10
->>> 	}.truncate.asInteger
+>>> 	}.truncate.Integer
 >>> }
 [
 	3 2 2 5 8 8 5 2 2 5 8 8 0 6 7 7 3 0 1 2;

@@ -41,7 +41,7 @@ and `Float` is simply an alias for `SmallFloat`.
 
 * * *
 
-See also: asInteger, asNumber
+See also: Integer, asNumber
 
 Guides: Number Functions
 

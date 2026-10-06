@@ -15,7 +15,7 @@ RatioTuning : [Object, Store, Equal, Cache, Tuning] {
 	}
 
 	asIntegers { :self |
-		(self.ratios / self.ratios.reduce(gcd/2)).collect(asInteger/1)
+		(self.ratios / self.ratios.reduce(gcd/2)).collect(Integer/1)
 	}
 
 	asRatios { :self |

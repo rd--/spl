@@ -39,7 +39,7 @@ Six weeks:
 Two weeks, three days, five hours, eleven minutes and seventeen seconds:
 
 ```
->>> Duration([17 5 11 17])
+>>> Duration(17, 5, 11, 17)
 >>> .durationString
 'P17DT5H11M17S'
 

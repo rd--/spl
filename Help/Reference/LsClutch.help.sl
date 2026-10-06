@@ -3,7 +3,7 @@
 - _LsClutch(input, latch, initialValue)_
 
 Step through _input_ according to _latch_.
-_latch_ should be a stream that answers a series of items that answer `asBoolean`.
+_latch_ should be a stream that answers a series of items that answer `Boolean`.
 If true the _input_ steps to the next item, if false the previous item is retained.
 If _latch_ is initially false then _initialValue_ is consulted.
 

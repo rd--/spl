@@ -78,6 +78,6 @@ At `LargeInteger`:
 
 * * *
 
-See also: Float, Decimal, asInteger
+See also: Float, Decimal, Integer
 
 Guides: Decimal Number Syntax, Mathematical Functions

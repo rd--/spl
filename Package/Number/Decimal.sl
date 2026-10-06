@@ -122,10 +122,6 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 		self.fraction.asDecimal(scale)
 	}
 
-	asInteger { :self |
-		self.LargeInteger.normal
-	}
-
 	ceiling { :self |
 		Decimal(self.fraction.ceiling, self.scale)
 	}
@@ -148,6 +144,10 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 			self.fraction.fractionalPart,
 			self.scale
 		)
+	}
+
+	Integer { :self |
+		self.LargeInteger.normal
 	}
 
 	[integerDigits, decimalExpansion] { :self |
@@ -330,7 +330,7 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 	}
 
 	unscaledInteger { :self |
-		(self.fraction * (10L ^ self.scale)).asInteger
+		(self.fraction * (10L ^ self.scale)).Integer
 	}
 
 	zero { :self |

@@ -58,20 +58,8 @@
 		self.collect(arithmeticDerivative/1)
 	}
 
-	asBit { :self |
-		self.collect(asBit/1)
-	}
-
-	asBoolean { :self |
-		self.collect(asBoolean/1)
-	}
-
 	asComplex { :self |
 		self.collect(asComplex/1)
-	}
-
-	asInteger { :self |
-		self.collect(asInteger/1)
 	}
 
 	asNumber { :self |
@@ -138,6 +126,10 @@
 		self.collect(boole/1)
 	}
 
+	Boolean { :self |
+		self.collect(Boolean/1)
+	}
+
 	catalanNumber { :self |
 		self.collect(catalanNumber/1)
 	}
@@ -194,7 +186,7 @@
 
 	denominator { :self |
 		self.collect { :each |
-			each.denominator.asInteger
+			each.denominator.Integer
 		}
 	}
 
@@ -382,6 +374,10 @@
 
 	increment { :self |
 		self.collect(increment/1)
+	}
+
+	Integer { :self |
+		self.collect(Integer/1)
 	}
 
 	integerChop { :self |
@@ -649,7 +645,7 @@
 
 	numerator { :self |
 		self.collect { :each |
-			each.numerator.asInteger
+			each.numerator.Integer
 		}
 	}
 

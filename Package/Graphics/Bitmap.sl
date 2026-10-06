@@ -12,7 +12,7 @@ Bitmap : [Object] {
 		];
 		let rows = bitMatrix.collect { :each |
 			each.collect { :item |
-				List(scale, item.asBit.printString).unwords
+				List(scale, item.boole.printString).unwords
 			}.unwords
 		};
 		(header ++ (scale # rows)).unlines

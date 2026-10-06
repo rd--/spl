@@ -1704,7 +1704,7 @@ Cf: asFraction
 
 *Return Value*: ⧼integer⧽
 
-Cf: asInteger
+Cf: Integer
 
 ### 5.6.2.18
 

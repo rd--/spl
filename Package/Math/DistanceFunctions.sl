@@ -99,7 +99,7 @@
 				(i != j).ifTrue {
 					a := a + 1
 				};
-				(i.asBoolean.not & { j.asBoolean.not }).ifTrue {
+				(i.Boolean.not & { j.Boolean.not }).ifTrue {
 					b := b + 1
 				}
 			};

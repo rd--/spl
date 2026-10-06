@@ -9,110 +9,124 @@ or a `Character`, in which case answer a single character string.
 At `SmallFloat`:
 
 ```
->>> 23.asString
-'23'
+>> 23.asString
+23
 
->>> -23.asString
-'-23'
+>> -23.asString
+-23
 
->>> 3.141.asString
-'3.141'
+>> 3.141.asString
+3.141
 
->>> -0.asString
-'-0'
+>> -0.asString
+-0
 ```
 
 At `Fraction`:
 
 ```
->>> 2/3.asString
-'2/3'
+>> 2/3.asString
+2/3
 ```
 
 At `Complex`:
 
 ```
->>> 2J3.asString
-'2J3'
+>> 2J3.asString
+2J3
 ```
 
 At `Decimal`:
 
 ```
->>> -2.3D.asString
-'-2.3D'
+>> -2.3D.asString
+-2.3D
 
->>> -2.0D.asString
-'-2.0D'
+>> -2.0D.asString
+-2.0D
 
->>> -2D.asString
-'-2D'
+>> -2D.asString
+-2D
 ```
 
 At `Residue`:
 
 ```
->>> 5Z12.asString
-'5Z12'
+>> 5Z12.asString
+5Z12
 ```
 
 At `Boolean`:
 
 ```
->>> true.asString
-'true'
+>> true.asString
+true
 
->>> false.asString
-'false'
+>> false.asString
+false
 ```
 
 At `Nil`:
 
 ```
->>> nil.asString
-'nil'
+>> nil.asString
+nil
 ```
 
 At `String`:
 
 ```
->>> 'x'.asString
+>> 'x'.asString
+x
+
+>> 'x'.printString
 'x'
 ```
 
 At `Character`:
 
 ```
->>> Character('x').asString
-'x'
+>> Character('x').asString
+x
+
+>> Character('x').printString
+Character('x', 120)
 ```
 
-At `List`:
+At `List`,
+strings in a list are shown quoted:
 
 ```
->>> [1 .. 3].asString
-'[1, 2, 3]'
+>> [1 .. 3].asString
+[1, 2, 3]
+
+>> ['1' '2' '3'].asString
+['1', '2', '3']
 ```
 
 At `Range`:
 
 ```
->>> 1:99.asString
-'Range(1, 99, 1, 99)'
+>> 1:99.asString
+Range(1, 99, 1, 99)
 ```
 
 At `Association`:
 
 ```
->>> (23 -> 3.141).asString
-'23 -> 3.141'
+>> (23 -> 3.141).asString
+23 -> 3.141
 ```
 
-At `Record`:
+At `Record`,
+lists in record fields are quoted:
 
 ```
->>> (x: 1, y: 2).asString
-'(x: 1, y: 2)'
+>> (x: 1, y: 2).asString
+(x: 1, y: 2)
+
+>> (x: 'a', y: 'b').asString
+(x: 'a', y: 'b')
 ```
 
 * * *
