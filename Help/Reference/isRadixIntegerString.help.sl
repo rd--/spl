@@ -59,7 +59,7 @@ false
 
 * * *
 
-See also: asNumber, isBooleanString, isFloatString
+See also: Number, isBooleanString, isFloatString
 
 References:
 _W_

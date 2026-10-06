@@ -217,7 +217,7 @@
 			1.5056327351493116E-7
 		];
 		let epsilon = 1E-07;
-		let z = self.asComplex;
+		let z = Complex(self, 0);
 		(z.real < 0.5).if {
 			(1.pi / (sin(1.pi * z) * gamma(1 - z))).chop(epsilon)
 		} {

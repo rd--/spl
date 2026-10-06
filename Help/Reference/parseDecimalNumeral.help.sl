@@ -45,7 +45,7 @@ nil
 
 * * *
 
-See also: asNumber, isBooleanString, isDecimalNumeralString, parseDecimalInteger
+See also: Number, isBooleanString, isDecimalNumeralString, parseDecimalInteger
 
 Guides: Parsing Functions
 

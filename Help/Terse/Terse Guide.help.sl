@@ -1139,12 +1139,12 @@ let z = 1 + 2.i; z.abs ~ 2.2361 & { z.arg ~ 1.1071 } /* absolute value (modulus,
 let n = (1 + 2.i); n.reciprocal * n = 1 /* multiplicative inverse */
 (1 + 0.i).isInteger = false /* a complex number is not an integer */
 (1 + 0.i).isFraction = false /* a complex number is not a fraction */
-3/2.asComplex = Complex(3/2, 0) /* fraction as complex */
+3/2.Complex = Complex(3/2, 0) /* fraction as complex */
 0/1.i = Complex(0, 0/1) /* complex with integral real part and fractional imaginary part */
-3/2 + 0/1.i = 3/2.asComplex
-3/2.asComplex + 0/1.i = 3/2.asComplex /* add 0i to a complex number is identity */
-1.asComplex = Complex(1, 0) /* asComplex is a monadic complex number constructor */
-1.i = Complex(0, 1) /* asComplex is a monadic complex number constructor */
+3/2 + 0/1.i = 3/2.Complex
+3/2.Complex + 0/1.i = 3/2.Complex /* add 0i to a complex number is identity */
+1.Complex = Complex(1, 0) /* Complex is a monadic complex number constructor */
+1.i = Complex(0, 1) /* Complex is a monadic complex number constructor */
 (1 + -2.i) + (3 + 4.i) = (4 + 2.i) /* i is a monadic complex number constructor */
 1.j(-2) + 3.j(4) = 4.j(2) /* j is the dyadic complex number constructor */
 1.j(-2) = 1.Complex(-2) /* j is an alias for Complex */
@@ -1213,8 +1213,8 @@ false.boole = 0 /* boolean as integer, boole */
 { '3x'.parseDecimalInteger }.hasError /* large radix strings are not decimal integers */
 false.boole = 0 /* boole */
 true.boole = 1 /* boole */
-1.pi.asNumber = 1.pi /* identity */
-23.asNumber = 23 /* identity */
+1.pi.Number = 1.pi /* identity */
+23.Number = 23 /* identity */
 '3.141'.parseNumber = 3.141 /* parse floating point */
 '-672.433244'.parseNumber = -672.433244 /* parse negative floating point */
 '0.03141E2'.parseNumber = 3.141 /* parse scientific */
@@ -1224,9 +1224,9 @@ true.boole = 1 /* boole */
 1.pi.rationalize(0.01) = 22/7 /* with epsilon */
 22/7.rationalize = 22/7 /* identity */
 23.rationalize = 23 /* identity */
-1.asComplex = Complex(1, 0) /* number to complex */
+1.Complex = Complex(1, 0) /* number to complex */
 1.i = Complex(0, 1) /* number to complex */
-(2 + 3.i).asComplex = Complex(2, 3) /* identity */
+(2 + 3.i).Complex = Complex(2, 3) /* identity */
 126.Character = '~'.Character /* integer to character */
 '~'.Character.isCharacter /* string to character */
 let c = '~'.Character; c.Character == c /* identity */
@@ -1559,7 +1559,7 @@ system.unicodeFractionsTable.associations.isList = true
 let n = system.unicodeFractionsTable.associations.collect(value/1); n = n.sort
 '4/3'.parseFraction = 4/3 /* parse fraction */
 '4/3'.parseFraction('/') = 4/3 /* parse fraction given delimiter */
-{ '4/3'.parseNumber = 4/3 }.hasError /* the fraction module does not modify asNumber to parse fractions */
+{ '4/3'.parseNumber = 4/3 }.hasError /* the fraction module does not modify parseNumber to parse fractions */
 let x = Fraction(2L ^ 55, 2); x != (x - 1) /* fractions of large small floats would behave strangely, enforce large integers  */
 let x = Fraction(2L ^ 55L, 2); x != (x - 1) /* fractions of large large integers behave ordinarily */
 2/3 != 3/4 /* unequal fractions */

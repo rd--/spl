@@ -1,7 +1,43 @@
 # Complex
 
-- _Complex([r i])_
 - _Complex(r, i)_
+- _Complex(x)_
+
+The unary form converts _x_ into a complex number.
+In the `Number`,
+case answer a `Complex` number with a real part of _x_ and an imaginary part of `zero`:
+
+```
+>>> Complex(1)
+1J0
+
+>>> 1J0.real
+1
+```
+
+In the `Complex` case answer `identity`.
+
+```
+>>> Complex(1J1)
+1J1
+```
+
+Threads over lists:
+
+```
+>>> Complex[1 2 3]
+[1J0 2J0 3J0]
+```
+
+Convert a two-element `List` _[a b]_ into the complex number _a+bi_:
+
+```
+>>> [2 3].listToComplex
+2J3
+
+>>> 2J3.realImaginary
+[2 3]
+```
 
 A `Type` representing a complex number with the specified `real` and `imaginary` parts.
 
@@ -281,7 +317,7 @@ The matrix form of a complex number:
 
 * * *
 
-See also: abs, absArg, arg, isGaussianInteger, asInteger, asNumber, conjugate, i, imaginary, j, real, SmallFloat
+See also: Float, Integer, Number, SmallFloat, abs, absArg, arg, isGaussianInteger, conjugate, i, imaginary, j, real
 
 Guides: Complex Number Functions
 

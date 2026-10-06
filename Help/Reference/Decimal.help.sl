@@ -340,6 +340,80 @@ Store string:
 'Decimal(157/50, 2)'
 ```
 
+Answer a `Decimal` value representing the number _n_ with decimal scale _k_.
+_k_ tells the number of places after the decimal point,
+the precision of the number the total number of digits.
+
+At `Decimal`:
+
+```
+>>> Decimal(3.141D, 2)
+3.14D
+
+>>> Decimal(3.14D, 3)
+3.140D
+
+>>> 3.14D3
+3.140D
+```
+
+At `Integer`:
+
+```
+>>> Decimal(23, 2)
+23.00D
+```
+
+At `Integer`, with precision elided:
+
+```
+>>> Decimal(23)
+23D
+```
+
+At `Fraction`:
+
+```
+>>> Decimal(1/3, 2)
+0.33D
+
+>>> Decimal(355/113, 4)
+3.1416D
+
+>>> Decimal(11/13, 2)
+0.85D
+```
+
+At negative `Fraction`:
+
+```
+>>> -11.00D / 13.00D
+-0.85D
+
+>>> Decimal(-13/11, 6)
+-1.181818D
+```
+
+At `SmallFloat`:
+
+```
+>>> Decimal(1.pi, 5)
+3.14159D
+```
+
+At `LargeInteger`:
+
+```
+>>> Decimal(2L ^ 54 - 1)
+18014398509481983D
+
+>>> Decimal(23L ^ 23)
+20880467999847912034355032910567D
+
+>>> Decimal(23L, 23)
+23.00000000000000000000000D
+```
+
 Repeating _123432_,
 OEIS [A028356](https://oeis.org/A028356):
 
@@ -450,9 +524,9 @@ which may not have arbitrary precision.
 
 * * *
 
-See also: asDecimal, asDecimalFraction, Complex, Fraction, LargeInteger, parseDecimal, SmallFloat
+See also: Complex, Fraction, LargeInteger, SmallFloat, decimalFraction, parseDecimal
 
-Guides: Number Functions
+Guides: Decimal Number Syntax, Mathematical Functions, Number Functions
 
 References:
 _Python_

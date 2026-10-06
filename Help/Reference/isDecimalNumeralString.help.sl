@@ -42,7 +42,7 @@ false
 
 * * *
 
-See also: asNumber, isBooleanString, isFloatString, parseDecimalNumeral
+See also: Number, isBooleanString, isFloatString, parseDecimalNumeral
 
 References:
 _W_

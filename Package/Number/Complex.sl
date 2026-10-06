@@ -122,11 +122,15 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 	}
 
 	adaptToFractionAndApply { :self :aFraction :aBlock/2 |
-		aFraction.asComplex.aBlock(self)
+		Complex(aFraction).aBlock(
+			self
+		)
 	}
 
 	adaptToNumberAndApply { :self :aNumber :aBlock/2 |
-		aNumber.asComplex.aBlock(self)
+		Complex(aNumber).aBlock(
+			self
+		)
 	}
 
 	arg { :self |
@@ -135,10 +139,6 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		} {
 			self.real.arcTan(self.imaginary)
 		}
-	}
-
-	asComplex { :self |
-		self
 	}
 
 	atRandom { :self |
@@ -172,6 +172,10 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		} {
 			self.error('compare: not Complex')
 		}
+	}
+
+	Complex { :self |
+		self
 	}
 
 	concisePrintString { :self |
@@ -359,7 +363,7 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 	}
 
 	one { :self |
-		1.asComplex
+		Complex(1, 0)
 	}
 
 	printString { :self |
@@ -397,10 +401,12 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 	}
 
 	[squareRoot, sqrt] { :self |
-		(self.imaginary = 0 & {
-			self.real >= 0
-		}).if {
-			self.real.sqrt.asComplex
+		(
+			self.imaginary = 0 & {
+				self.real >= 0
+			}
+		).if {
+			Complex(self.real.sqrt, 0)
 		} {
 			let v = (self.abs - self.real / 2).sqrt;
 			let u = self.imaginary / 2 / v;
@@ -417,7 +423,7 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 	}
 
 	zero { :self |
-		0.asComplex
+		Complex(0, 0)
 	}
 
 }
@@ -437,10 +443,12 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 	}
 
 	adaptToComplexAndApply { :self :aComplexNumber :aBlock/2 |
-		aComplexNumber.aBlock(self.asComplex)
+		aComplexNumber.aBlock(
+			Complex(self, 0)
+		)
 	}
 
-	asComplex { :self |
+	Complex { :self |
 		Complex(
 			SmallFloat(self),
 			0

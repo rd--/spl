@@ -1,6 +1,48 @@
 # Number
 
+- _Number(x)_
+
 `Number` is a `Trait` for numerical values:
+
+The `Number` function answers _x_ if it is a number, else error.
+In the `Number` case answer `identity`:
+
+```
+>>> Number(23)
+23
+
+>>> Number(1.pi)
+1.pi
+```
+
+To convert a `Boolean` use `boole`:
+
+```
+>>> false.boole
+0
+
+>>> true.boole
+1
+```
+
+To convert a `String` use `parseNumber`:
+
+```
+>>> '23'.parseNumber
+23
+
+>>> '3.141'.parseNumber
+3.141
+```
+
+Threads over lists:
+
+```
+>>> [1 2.3 4J5].Number
+[1 2.3 4J5]
+```
+
+`Number` is a `Trait`:
 
 ```
 >>> system

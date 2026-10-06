@@ -7,7 +7,7 @@ Find the nearest approximation to the fraction _n/d_ that has a denominator less
 Limit the denominator of a fraction that is not very close to a simple fraction:
 
 ```
->>> let r = 1.pi.asFractionOver(10L ^ 6);
+>>> let r = 1.pi.fractionOver(10L ^ 6);
 >>> (r, r.limitDenominator(10L ^ 4))
 (3141593/1000000, 355/113)
 
@@ -29,7 +29,7 @@ Limit the denominator of a fraction that is very close to a simple fraction:
 
 * * *
 
-See also: Fraction, asFractionOver, rationalize
+See also: Fraction, fractionOver, rationalize
 
 References:
 _Python_

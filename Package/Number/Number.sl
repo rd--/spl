@@ -58,10 +58,6 @@
 		a
 	}
 
-	asNumber { :self |
-		self
-	}
-
 	asStringWithCommas { :self |
 		<primitive: return _self.toLocaleString('en-US');>
 	}
@@ -665,6 +661,10 @@
 		self.niceNumberBy { :l :n |
 			l.nearest(n).first
 		}
+	}
+
+	Number { :self |
+		self
 	}
 
 	percent { :n |

@@ -155,7 +155,7 @@
 ## Converting
 
 - `Boolean`, `boole`
-- `asComplex`, `Float`, `asFraction`, `asInteger`, `LargeInteger`, `asNumber`, `SmallFloat`
+- `Complex`, `Decimal`, `Float`, `Fraction`, `Integer`, `LargeInteger`, `Number`, `SmallFloat`
 - `Character`, `codePoint`, `asHexDigit`, `asLowerCase`, `asRegExp`, `asString`, `asUpperCase`
 - `inEnglishWords`
 - `IdentityMultiset`, `ByteArray`, `asCollection`, `List`, `Map`, `Record`, `IdentitySet`, `SortedList`, `Tree`

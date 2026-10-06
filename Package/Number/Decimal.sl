@@ -103,27 +103,39 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 	}
 
 	adaptToFractionAndApply { :self :receiver :aBlock/2 |
-		aBlock(receiver.asDecimal(self.scale), self)
+		aBlock(
+			Decimal(receiver, self.scale),
+			self
+		)
 	}
 
 	adaptToIntegerAndApply { :self :receiver :aBlock/2 |
-		aBlock(receiver.asDecimal(0), self)
+		aBlock(
+			Decimal(receiver, 0),
+			self
+		)
 	}
 
 	adaptToNumberAndApply { :self :receiver :aBlock/2 |
 		receiver.isInteger.if {
-			aBlock(receiver.asDecimal(0), self)
+			aBlock(
+				Decimal(receiver, 0),
+				self
+			)
 		} {
 			self.error('Decimal>>adaptToNumberAndApply: not integer')
 		}
 	}
 
-	asDecimal { :self :scale |
-		self.fraction.asDecimal(scale)
-	}
-
 	ceiling { :self |
 		Decimal(self.fraction.ceiling, self.scale)
+	}
+
+	Decimal { :self :scale |
+		Decimal(
+			self.fraction,
+			scale
+		)
 	}
 
 	denominator { :self |
@@ -342,16 +354,15 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 +Fraction {
 
 	adaptToDecimalAndApply { :self :receiver :aBlock/2 |
-		aBlock(receiver, self.asDecimal(receiver.scale))
-	}
-
-	asDecimal { :self :scale |
-		Decimal(self, scale)
+		aBlock(
+			receiver,
+			Decimal(self, receiver.scale)
+		)
 	}
 
 	Decimal { :self :scale |
 		uncheckedDecimal(
-			self.asDecimalFraction(scale),
+			self.decimalFraction(scale),
 			scale
 		)
 	}
@@ -371,7 +382,7 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 		self.isInteger.if {
 			aBlock(
 				receiver,
-				self.asDecimal(0)
+				Decimal(self, 0)
 			)
 
 		} {
@@ -382,16 +393,19 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 		}
 	}
 
-	asDecimal { :self :scale |
+	Decimal { :self :scale |
 		self.isInteger.if {
 			uncheckedDecimal(Fraction(self, 1), scale)
 		} {
-			self.asDecimalFraction(scale).asDecimal(scale)
+			Decimal(
+				self.decimalFraction(scale),
+				scale
+			)
 		}
 	}
 
-	asDecimal { :self |
-		self.asDecimal(0)
+	Decimal { :self |
+		Decimal(self, 0)
 	}
 
 }
@@ -399,14 +413,14 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 +LargeInteger {
 
 	adaptToDecimalAndApply { :self :aNumber :aBlock/2 |
-		aBlock(aNumber, self.asDecimal)
+		aBlock(aNumber, Decimal(self, 0))
 	}
 
-	[Decimal, asDecimal] { :self :scale |
+	[Decimal, largeIntegerToDecimal] { :self :scale |
 		uncheckedDecimal(Fraction(self, 1L), scale)
 	}
 
-	[Decimal, asDecimal] { :self |
+	[Decimal, largeIntegerToDecimal] { :self |
 		Decimal(self, 0)
 	}
 

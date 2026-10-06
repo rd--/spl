@@ -1,13 +1,13 @@
-# asDecimalFraction
+# decimalFraction
 
-- _asDecimalFraction(x, n)_
+- _decimalFraction(x, n)_
 
 Derive a `Fraction` for the number _x_ where the integer _n_ is the number of decimal places.
 
 At `SmallFloat`:
 
 ```
->>> 1.pi.asDecimalFraction(2)
+>>> 1.pi.decimalFraction(2)
 157/50
 
 >>> Fraction(
@@ -16,14 +16,14 @@ At `SmallFloat`:
 >>> )
 157/50
 
->>> 6.75.asDecimalFraction(2)
+>>> 6.75.decimalFraction(2)
 27/4
 
->>> 23.asFractionOver(2)
+>>> 23.fractionOver(2)
 23/1
 
 >>> [1 2 3].collect { :n |
->>> 	(2.01 / 2).asDecimalFraction(n)
+>>> 	(2.01 / 2).decimalFraction(n)
 >>> }
 [1/1 1/1 201/200]
 ```
@@ -31,10 +31,10 @@ At `SmallFloat`:
 At `Fraction`:
 
 ```
->>> 1/7.asDecimalFraction(10)
+>>> 1/7.decimalFraction(10)
 1428571429/10000000000
 
->>> 23/1.asDecimalFraction(0)
+>>> 23/1.decimalFraction(0)
 23/1
 ```
 

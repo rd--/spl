@@ -58,14 +58,6 @@
 		self.collect(arithmeticDerivative/1)
 	}
 
-	asComplex { :self |
-		self.collect(asComplex/1)
-	}
-
-	asNumber { :self |
-		self.collect(asNumber/1)
-	}
-
 	balancedTernaryDigits { :self |
 		self.collect(balancedTernaryDigits/1)
 	}
@@ -148,6 +140,10 @@
 
 	chop { :self |
 		self.collect(chop/1)
+	}
+
+	Complex { :self |
+		self.collect(Complex/1)
 	}
 
 	continuedFraction { :self |
@@ -641,6 +637,10 @@
 
 	nimSquareRoot { :self |
 		self.collect(nimSquareRoot/1)
+	}
+
+	Number { :self |
+		self.collect(Number/1)
 	}
 
 	numerator { :self |

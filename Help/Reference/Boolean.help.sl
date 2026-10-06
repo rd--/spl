@@ -49,8 +49,10 @@ The inverse of `Boolean` is `boole`:
 
 ```
 >>> [false true].boole
+[0 1]
+```
 
-`Boolean` is the `Type` of the two values `true` and `false`.
+`Boolean` is the `Type` of the two values `true` and `false`:
 
 ```
 >>> true.typeOf

@@ -22,7 +22,7 @@ false
 
 * * *
 
-See also: asNumber, isBooleanString, isFloatString, isDecimalIntegerString
+See also: Number, isBooleanString, isFloatString, isDecimalIntegerString
 
 Guides: Parsing Functions
 

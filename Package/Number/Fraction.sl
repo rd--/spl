@@ -784,11 +784,7 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 
 +[Fraction, SmallFloat] {
 
-	asDecimalFraction { :self :scale |
-		self.asFractionOver(10L ^ scale)
-	}
-
-	asFractionOver { :self :denominator |
+	fractionOver { :self :denominator |
 		self.isInteger.if {
 			uncheckedFraction(self.LargeInteger, 1L)
 		} {
@@ -797,6 +793,10 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 				denominator
 			)
 		}
+	}
+
+	decimalFraction { :self :scale |
+		self.fractionOver(10L ^ scale)
 	}
 
 }

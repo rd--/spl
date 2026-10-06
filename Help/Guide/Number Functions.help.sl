@@ -19,11 +19,11 @@ Types:
 Converting:
 
 - `boole`
-- `asComplex`
+- `Complex`
 - `Float`
 - `Integer`
 - `LargeInteger`
-- `asNumber`
+- `Number`
 - `SmallFloat`
 - `SmallInteger`
 - `boole`
