@@ -46,6 +46,10 @@ EisensteinInteger : [Object, Store, Equal] {
 		self.a - self.b / 2
 	}
 
+	realImaginary { :self |
+		[self.real, self.imaginary]
+	}
+
 }
 
 +SmallFloat {

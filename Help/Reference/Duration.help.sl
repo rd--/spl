@@ -38,7 +38,8 @@ Duration(777600)
 Query the number of seconds a `Duration` represents:
 
 ```
->>> Duration(0, 0, 3, 0).seconds
+>>> Duration(0, 0, 3, 0)
+>>> .inSeconds
 180
 ```
 
@@ -75,7 +76,7 @@ The `components` method answers the list _(days, hours, minutes, seconds)_:
 [9 0 0 0]
 ```
 
-The `seconds` value may be fractional:
+The _seconds_ value may be fractional:
 
 ```
 >>> 'PT3.141S'.parseDuration
@@ -84,7 +85,7 @@ Duration(3.141)
 >>> Duration(0, 0, 0, 3.141)
 Duration(3.141)
 
->>> Duration(3.141).seconds
+>>> Duration(3.141).magnitude
 3.141
 ```
 
@@ -103,14 +104,27 @@ The inverse is `Frequency`:
 Frequency(100)
 ```
 
+Relation to `Quantity`:
+
+```
+>>> Duration(0.01).Quantity
+Quantity(0.01, 'second')
+
+>>> Time(0.01).Duration
+Duration(0.01)
+
+>>> Frequency(100).Duration
+Duration(0.01)
+```
+
 _Note_:
 This value is not a calendrical duration,
 it is not possible to specify months or years or decades or centuries and so forth.
 
 * * *
 
-See also: CalendarDuration, Date, Frequency, TimeStamp, inSeconds, parseDuration
+See also: CalendarDuration, Date, Frequency, Quantity, Time, TimeStamp, inSeconds, parseDuration
 
-Guides: Date and Time Functions
+Guides: Date and Time Functions, Quantity Functions
 
 Categories: Temporal, Type

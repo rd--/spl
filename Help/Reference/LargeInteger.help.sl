@@ -83,6 +83,13 @@ At `ByteArray`:
 1453657932340170668622419557621L
 ```
 
+Threads over list:
+
+```
+>>> LargeInteger[1 3 5 7 9]
+[1L 3L 5L 7L 9L]
+```
+
 Large integers have a distinct literal syntax indicated by an _L_ suffix.
 
 ```

@@ -15,6 +15,13 @@ true
 false
 ```
 
+At `EisensteinInteger` answers `isEisensteinPrime`:
+
+```
+>>> EisensteinInteger(3, 4).isPrime
+true
+```
+
 Primes up to one hundred,
 OEIS [A000040](https://oeis.org/A000040):
 
@@ -149,10 +156,8 @@ Find lesser of twin primes,
 OEIS [A001359](https://oeis.org/A001359):
 
 ```
->>> 1:333.select { :i |
->>> 	i.isPrime & {
->>> 		i.nextPrime = (i + 2)
->>> 	}
+>>> 1:65.prime.select { :n |
+>>> 	(n + 2).isPrime
 >>> }
 [
 	  3   5  11  17  29
@@ -160,6 +165,13 @@ OEIS [A001359](https://oeis.org/A001359):
 	137 149 179 191 197
 	227 239 269 281 311
 ]
+
+>>> 1:107.select { :i |
+>>> 	i.isPrime & {
+>>> 		i.nextPrime = (i + 2)
+>>> 	}
+>>> }
+[3 5 11 17 29 41 59 71 101 107]
 ```
 
 At `zero` and `one`:
@@ -296,13 +308,78 @@ primes dividing order of Monster simple group,
 OEIS [A002267](https://oeis.org/A002267):
 
 ```
->>> [2 3 5 7 11 13 17 19 23 29 31 41 47 59 71]
->>> .allSatisfy(isPrime/1)
-true
+>>> let p = LargeInteger[
+>>> 	 2  3  5  7 11 13 17 19 23 29
+>>> 	31 41 47 59 71
+>>> ];
+>>> (p.allSatisfy(isPrime/1), p.product)
+(true, 1618964990108856390L)
+```
 
->>> [2L 3 5 7 11 13 17 19 23 29 31 41 47 59 71]
->>> .product
-1618964990108856390L
+Primes of form _k^2+k+1_,
+OEIS [A002383](https://oeis.org/A002383):
+
+```
+>>> 1:23.collect { :n |
+>>> 	n ^ 2 + n + 1
+>>> }.select(isPrime/1)
+[3 7 13 31 43 73 157 211 241 307 421 463]
+```
+
+Primes of the form _x^2+3y^2_,
+OEIS [A007645](https://oeis.org/A007645):
+
+```
+>>> 1:27.prime.select { :n |
+>>> 	n % 3 = 1
+>>> }
+[7 13 19 31 37 43 61 67 73 79 97 103]
+```
+
+Primes of the form _6k-1_,
+OEIS [A007528](https://oeis.org/A007528):
+
+```
+>>> (6 * 1:17 - 1).select(isPrime/1)
+[5 11 17 23 29 41 47 53 59 71 83 89 101]
+```
+
+Numbers _k_ such that _3k+2_ is prime,
+OEIS [A024893](https://oeis.org/A024893):
+
+```
+>>> 0:40.select { :n |
+>>> 	(3 * n + 2).isPrime
+>>> }
+[0 1 3 5 7 9 13 15 17 19 23 27 29 33 35 37]
+```
+
+Numbers _n_ such that _3n-2_ is prime,
+OEIS [A087370](https://oeis.org/A087370):
+
+```
+>>> 0:37.select { :n |
+>>> 	(3 * n - 1).isPrime
+>>> }
+[1 2 4 6 8 10 14 16 18 20 24 28 30 34 36]
+```
+
+Numbers _n_ such that _3n+5_ is prime,
+OEIS [A088879](https://oeis.org/A088879):
+
+```
+>>> -1:37.select { :n |
+>>> 	(3 * n + 5).isPrime
+>>> }
+[-1 0 2 4 6 8 12 14 16 18 22 26 28 32 34 36]
+```
+
+Numbers _m_ such that the _m_-th prime is of the form _3k-1_,
+OEIS [A091177](https://oeis.org/A091177):
+
+```
+>>> (0:120:3 - 1).select(isPrime/1).primePi
+[1 3 5 7 9 10 13 15 16 17 20 23 24 26 28 30]
 ```
 
 Primes up to one-thousand,
@@ -537,7 +614,7 @@ OEIS [A122414](https://oeis.org/A122414):
 
 * * *
 
-See also: isComposite, isGaussianPrime, isPrimePower, isPrimeTrialDivision, isSemiprime, isSternPrime, millerRabinPrimalityTest, nextPrime, prime, primesList
+See also: isComposite, isEisensteinPrime, isGaussianPrime, isPrimePower, isPrimeTrialDivision, isSemiprime, isSternPrime, millerRabinPrimalityTest, nextPrime, prime, primesList
 
 Guides: Integer Functions, Mathematical Functions, Prime Number Functions
 

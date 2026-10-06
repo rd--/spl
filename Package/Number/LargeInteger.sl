@@ -468,3 +468,11 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer, I
 	}
 
 }
+
++List {
+
+	LargeInteger { :self |
+		self.collect(LargeInteger/1)
+	}
+
+}

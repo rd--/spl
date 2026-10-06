@@ -22,10 +22,6 @@ SphericalCoordinates : [Object, Store, Equal] {
 		self.phi
 	}
 
-	parts { :self |
-		self.coordinates.copy
-	}
-
 	phi { :self |
 		self.coordinates[3]
 	}

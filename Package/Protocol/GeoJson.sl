@@ -11,14 +11,16 @@ GeoJson : [Object, Store] {
 	}
 
 	features { :self |
-		self.type.caseOf([
-			'Feature' -> {
-				[self]
-			},
-			'FeatureCollection' -> {
-				self.field('features').collect(GeoJson/1)
-			}
-		]) {
+		self.type.caseOf(
+			[
+				'Feature' -> {
+					[self]
+				},
+				'FeatureCollection' -> {
+					self.field('features').collect(GeoJson/1)
+				}
+			]
+		) {
 			[]
 		}
 	}
@@ -63,30 +65,32 @@ GeoJson : [Object, Store] {
 		};
 		self.geometries.collect { :each |
 			let c = each.coordinates;
-			each.type.caseOf([
-				'Point' -> {
-					Point(c)
-				},
-				'LineString' -> {
-					Line(c)
-				},
-				'Polygon' -> {
-					polygonValue(c)
-				},
-				'MultiPoint' -> {
-					PointCloud(c)
-				},
-				'MultiLineString' -> {
-					GeometryCollection(
-						c.collect(Line/1)
-					)
-				},
-				'MultiPolygon' -> {
-					GeometryCollection(
-						c.collect(polygonValue/1)
-					)
-				}
-			])
+			each.type.caseOf(
+				[
+					'Point' -> {
+						Point(c)
+					},
+					'LineString' -> {
+						Line(c)
+					},
+					'Polygon' -> {
+						polygonValue(c)
+					},
+					'MultiPoint' -> {
+						PointCloud(c)
+					},
+					'MultiLineString' -> {
+						GeometryCollection(
+							c.collect(Line/1)
+						)
+					},
+					'MultiPolygon' -> {
+						GeometryCollection(
+							c.collect(polygonValue/1)
+						)
+					}
+				]
+			)
 		}
 	}
 

@@ -2,7 +2,7 @@ CalendarDuration : [Object, Store, Equal, Compare] {
 
 	| components |
 
-	asCalendarDuration { :self |
+	CalendarDuration { :self |
 		self
 	}
 
@@ -32,10 +32,6 @@ CalendarDuration : [Object, Store, Equal, Compare] {
 		self.components.at(5)
 	}
 
-	parts { :self |
-		self.components
-	}
-
 	seconds { :self |
 		self.components.at(6)
 	}
@@ -49,11 +45,13 @@ CalendarDuration : [Object, Store, Equal, Compare] {
 +List {
 
 	CalendarDuration { :self |
-		(self.size = 6).if {
-			newCalendarDuration()
-			.initializeSlots(self)
-		} {
-			self.error('CalendarDuration: invalid list')
+		self.atVectorOrElementwise { :each |
+			(each.size = 6).if {
+				newCalendarDuration()
+				.initializeSlots(self)
+			} {
+				self.error('CalendarDuration: invalid components')
+			}
 		}
 	}
 
@@ -70,7 +68,7 @@ CalendarDuration : [Object, Store, Equal, Compare] {
 			let [
 				years, months, weeks, days,
 				hours, minutes, seconds
-			] = self.uncheckedParseIso8601DurationAsList;
+			] = self.uncheckedParseIso8601DurationList;
 			days := days + (weeks * 7);
 			CalendarDuration(
 				[
@@ -89,7 +87,7 @@ CalendarDuration : [Object, Store, Equal, Compare] {
 		}
 	}
 
-	uncheckedParseIso8601DurationAsList { :self |
+	uncheckedParseIso8601DurationList { :self |
 		<primitive:
 		const regex = /P(?:(\d+)Y)?(?:(\d+)M)?(?:(\d+)W)?(?:(\d+)D)?(?:T(?:(\d+)H)?(?:(\d+)M)?(?:(\d+(\.\d+)?)S)?)?$/;
 		const [_unused, years, months, weeks, days, hours, minutes, seconds] = _self.match(regex);

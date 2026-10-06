@@ -12,8 +12,8 @@ Make a `Quantity` value with unit _hertz_:
 
 ```
 >>> let f = Frequency(1);
->>> (f.isFrequency, f.unit, f.magnitude)
-(true, 'hertz', 1)
+>>> (f.isQuantity, f.isFrequency, f.unit, f.magnitude)
+(true, true, 'hertz', 1)
 ```
 
 Frequencies can be queried using prefixed unit names:
@@ -39,21 +39,34 @@ and _hertz_ is a _derived unit_ in the _International System of Units_,
 it is the _inverse second_,
 written _s⁻¹_.
 
-A `Frequency` can be converted into a `Duration`, which gives the length of time of one cycle:
+A `Frequency` can be converted into a `Time` or a `Duration`,
+which gives the length of time of one cycle:
 
 ```
+>>> Frequency(440).Time
+Time(1 / 440)
+
 >>> Frequency(440).Duration
 Duration(1 / 440)
+```
 
+The inverse:
+
+```
 >>> Duration(0.01).Frequency
 Frequency(100)
-```
 
-The inverse is `Duration`:
-
-```
 >>> Frequency(100).Duration
 Duration(0.01)
+```
+
+At `Frequency` is identity:
+
+```
+>>> let a = Frequency(100);
+>>> let b = Frequency(a);
+>>> (a, a = b)
+(Quantity(100, 'hertz'), true)
 ```
 
 * * *

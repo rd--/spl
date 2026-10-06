@@ -32,6 +32,14 @@ At `Quaternion`:
 [1 2 3 4]
 ```
 
+At `EisensteinInteger`:
+
+```
+>>> EisensteinInteger(3, 7)
+>>> .components
+[3 7]
+```
+
 At `Date`,
 answer _(year, month, day)_:
 

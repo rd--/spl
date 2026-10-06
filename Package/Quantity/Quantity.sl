@@ -14,15 +14,18 @@ Quantity : [Object, Copy, Store, Equal, Compare, Frequency, Length, Mass, PlaneA
 		}
 	}
 
+	Frequency { :self |
+		Frequency(self.inHertz)
+	}
+
 	inHertz { :self |
-		(self.unit = 'hertz').if {
-			self.magnitude
-		} {
-			(self.unit = 'second').if {
-				1 / self.magnitude
-			} {
-				self.error('hertz: not time or frequency')
-			}
+		self.unit.caseOf(
+			[
+				'second' -> { 1 / self.magnitude },
+				'hertz' -> { self.magnitude }
+			]
+		) {
+			self.error('not time or frequency')
 		}
 	}
 
@@ -51,10 +54,13 @@ Quantity : [Object, Copy, Store, Equal, Compare, Frequency, Length, Mass, PlaneA
 	}
 
 	inSeconds { :self |
-		(self.unit = 'second').if {
-			self.magnitude
-		} {
-			self.error('inSeconds: not time')
+		self.unit.caseOf(
+			[
+				'second' -> { self.magnitude },
+				'hertz' -> { 1 / self.magnitude }
+			]
+		) {
+			self.error('not time or frequency')
 		}
 	}
 
@@ -88,7 +94,6 @@ Quantity : [Object, Copy, Store, Equal, Compare, Frequency, Length, Mass, PlaneA
 		self.unit = 'second'
 	}
 
-
 	[less, <] { :self :anObject |
 		self.isCommensurate(anObject).if {
 			self.magnitude < anObject.magnitude
@@ -116,7 +121,11 @@ Quantity : [Object, Copy, Store, Equal, Compare, Frequency, Length, Mass, PlaneA
 		self + anObject.negate
 	}
 
-	[times, *] { :self :anObject |
+	Time { :self |
+		Time(self.inSeconds)
+	}
+
+	[Times, *] { :self :anObject |
 		anObject.isNumber.if {
 			Quantity(
 				self.magnitude * anObject,

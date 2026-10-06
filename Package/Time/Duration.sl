@@ -1,34 +1,34 @@
 Duration : [Object, Store, Equal, Compare] {
 
-	| seconds |
+	| magnitude |
 
 	[less, <] { :self :aDuration |
-		self.seconds < aDuration.Duration.seconds
+		self.magnitude < aDuration.inSeconds
 	}
 
 	[divide, /] { :self :aNumber |
-		Duration(self.seconds / aNumber)
+		Duration(self.magnitude / aNumber)
 	}
 
 	[plus, +] { :self :aDuration |
-		Duration(self.seconds + aDuration.Duration.seconds)
+		Duration(self.magnitude + aDuration.inSeconds)
 	}
 
 	[subtract, -] { :self :aDuration |
-		Duration(self.seconds - aDuration.Duration.seconds)
+		Duration(self.magnitude - aDuration.inSeconds)
 	}
 
 	[times, *] { :self :aNumber |
-		Duration(self.seconds * aNumber)
+		Duration(self.magnitude * aNumber)
 	}
 
 	[absoluteValue, abs] { :self |
-		Duration(self.seconds.abs)
+		Duration(self.magnitude.abs)
 	}
 
 	components { :self |
 		let b = [24 60 60];
-		self.seconds.mixedRadixEncode(b).padLeft([4], 0)
+		self.magnitude.mixedRadixEncode(b).padLeft([4], 0)
 	}
 
 	Duration { :self |
@@ -41,15 +41,23 @@ Duration : [Object, Store, Equal, Compare] {
 	}
 
 	Frequency { :self |
-		Frequency(self.seconds.reciprocal)
+		Frequency(self.magnitude.reciprocal)
 	}
 
 	inSeconds { :self |
-		self.seconds
+		self.magnitude
 	}
 
 	isZero { :self |
-		self.seconds = 0
+		self.magnitude = 0
+	}
+
+	Quantity { :self |
+		Quantity(self.magnitude, 'second')
+	}
+
+	unit { :unused |
+		'second'
 	}
 
 }
