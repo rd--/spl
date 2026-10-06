@@ -40,7 +40,7 @@ Convert a two-element `List` _[a b]_ into the complex number _a+bi_:
 
 * * *
 
-See also: asFloat, asInteger, asNumber, i
+See also: Float, asInteger, asNumber, i
 
 Guides: Number Functions
 

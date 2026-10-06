@@ -30,8 +30,8 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 			equal(self.scale, operand.scale) & {
 				let m = 10L ^ self.scale;
 				equal(
-					(self.asFloat * m).round,
-					(operand.asFloat * m).round
+					(SmallFloat(self) * m).round,
+					(SmallFloat(operand) * m).round
 				)
 			}
 		} {
@@ -122,20 +122,8 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 		self.fraction.asDecimal(scale)
 	}
 
-	asFraction { :self |
-		self.fraction
-	}
-
 	asInteger { :self |
 		self.LargeInteger.normal
-	}
-
-	asSmallInteger { :self |
-		self.LargeInteger.asSmallInteger
-	}
-
-	[asSmallFloat, asFloat] { :self |
-		self.fraction.asSmallFloat
 	}
 
 	ceiling { :self |
@@ -148,6 +136,11 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 
 	floor { :self |
 		Decimal(self.fraction.floor, self.scale)
+	}
+
+
+	[Fraction, decimalToFraction] { :self |
+		self.fraction
 	}
 
 	fractionalPart { :self |
@@ -174,7 +167,7 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 	}
 
 	isCloseToBy { :self :aNumber :epsilon |
-		self.asFloat.isCloseToBy(aNumber.asFloat, epsilon)
+		SmallFloat(self).isCloseToBy(aNumber.SmallFloat, epsilon)
 	}
 
 	isExact { :unused |
@@ -289,6 +282,14 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 		Decimal(self.fraction.round, self.scale)
 	}
 
+	SmallInteger { :self |
+		self.LargeInteger.SmallInteger
+	}
+
+	[SmallFloat, Float] { :self |
+		self.fraction.SmallFloat
+	}
+
 	square { :self |
 		uncheckedDecimal(
 			self.fraction.square,
@@ -368,10 +369,16 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 
 	adaptToDecimalAndApply { :self :receiver :aBlock/2 |
 		self.isInteger.if {
-			aBlock(receiver, self.asDecimal(0))
+			aBlock(
+				receiver,
+				self.asDecimal(0)
+			)
 
 		} {
-			aBlock(receiver.asFloat, self)
+			aBlock(
+				SmallFloat(receiver),
+				self
+			)
 		}
 	}
 

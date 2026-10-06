@@ -13,14 +13,14 @@ There are 1200 cents in an octave.
 1.25
 
 >>> 386.3.centsToRatio
->>> .asFraction
+>>> .rationalize
 5/4
 
 >>> 400.centsToRatio
 2 ^ 1/3
 
 >>> 21.5.centsToRatio
->>> .asFraction
+>>> .rationalize
 81/80
 
 >>> 702.centsToRatio
@@ -60,7 +60,7 @@ The inverse is `ratioToCents`:
 ```
 >>> [0.000 203.910 498.045 701.955 996.090]
 >>> .centsToRatio
->>> .asFraction
+>>> .rationalize
 [1/1 9/8 4/3 3/2 16/9]
 
 >>> [1/1 9/8 4/3 3/2 16/9].ratioToCents
@@ -69,7 +69,7 @@ The inverse is `ratioToCents`:
 
 * * *
 
-See also: asFraction, ratioToCents, Tuning
+See also: Tuning, rationalize, ratioToCents
 
 Guides: Tuning Functions, Xenharmonic Functions
 

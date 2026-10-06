@@ -21,7 +21,7 @@ Alias for `rationalize`.
 
 * * *
 
-See also: asFraction, convergents, rationalize, semiconvergents
+See also: Fraction, convergents, rationalize, semiconvergents
 
 Guides: Mathematical Functions
 

@@ -39,7 +39,7 @@ The 20th and 40th Bernoulli numbers:
 
 ```
 >>> let n = 20.bernoulliNumber;
->>> (n, n.asFloat)
+>>> (n, Float(n))
 (-174611/330, -529.12424)
 
 >>> 40.bernoulliNumber

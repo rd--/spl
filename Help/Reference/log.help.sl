@@ -7,6 +7,8 @@ The unary form answers the natural logarithm of _z_,
 the logarithm to base _e_,
 sometimes written _ln_.
 
+At `SmallFloat`:
+
 ```
 >>> 1000.log
 6.90776
@@ -34,11 +36,22 @@ At `zero` and `one`:
 0
 ```
 
-At `Fraction`:
+At `Fraction`,
+implicitly converts to `SmallFloat`:
 
 ```
 >>> 3/2.log
 0.405465
+```
+
+At `LargeInteger`:
+
+```
+>>> 8L.log
+2.07944
+
+>>> 8L.log(2)
+3
 ```
 
 The binary form answers the base _b_ logarithm of the number _z_.

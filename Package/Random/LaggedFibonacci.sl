@@ -14,7 +14,7 @@ LaggedFibonacci : [Object, Equal, Iterator, RandomNumberGenerator, Stream] {
 	}
 
 	nextRandomFloat { :self |
-		self.nextRandomFraction.asFloat
+		self.nextRandomFraction.SmallFloat
 	}
 
 	nextRandomFraction { :self |
@@ -56,7 +56,7 @@ LaggedFibonacci : [Object, Equal, Iterator, RandomNumberGenerator, Stream] {
 	}
 
 	LaggedFibonacci { :s :r :k |
-		LaggedFibonacci(s, r, k, 2 ^ 64)
+		LaggedFibonacci(s, r, k, 2L ^ 64)
 	}
 
 }

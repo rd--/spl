@@ -59,6 +59,16 @@ At larger fraction:
 [1 1 1 1 4 1 1 63 1 13 8 2]
 ```
 
+At `zero` and `one`:
+
+```
+>>> 0.continuedFraction
+[0]
+
+>>> 1.continuedFraction
+[1]
+```
+
 Rational number as `SmallFloat`:
 
 ```

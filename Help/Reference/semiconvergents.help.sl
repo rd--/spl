@@ -19,6 +19,16 @@ Stop when the current semiconvergent is within _epsilon_ of the last convergent.
 ]
 ```
 
+At `zero` and `one`:
+
+```
+>>> [0].semiconvergents(1E-5)
+[0/1]
+
+>>> [1].semiconvergents(1E-5)
+[1/1]
+```
+
 Approximations of `pi`:
 OEIS [A063674](https://oeis.org/A063674)
 /

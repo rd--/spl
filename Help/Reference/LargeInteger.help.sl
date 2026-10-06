@@ -211,7 +211,7 @@ Can be implicitly converted to a `SmallFloat`:
 >>> 23L * 2.5
 57.5
 
->>> 23L.asSmallFloat * 2.5
+>>> SmallFloat(23L) * 2.5
 57.5
 ```
 

@@ -75,10 +75,13 @@ At `Complex`:
 At `LargeInteger`:
 
 ```
->>> 81L.sqrt
+>>> 81L.isqrt
 9L
 
->>> (13L.sqrt, 13.sqrt)
+>>> 81L.sqrt
+9.0
+
+>>> (13L.isqrt, 13L.sqrt)
 (3L, 3.60555)
 ```
 

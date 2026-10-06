@@ -1,6 +1,52 @@
 # SmallFloat
 
+- _SmallFloat(x)_
+
 A `Type` representing floating-point numbers like 23 or 3.141.
+
+In the `Fraction` case, answer the nearest `SmallFloat`:
+
+```
+>>> SmallFloat(1/4)
+0.25
+```
+
+At `Decimal`:
+
+```
+>>> SmallFloat(3.141D)
+3.141
+```
+
+In the `LargeInteger` case:
+
+```
+>>> SmallFloat(23L)
+23
+
+>>> SmallFloat(2L ^ 54)
+18014398509481984.0
+
+>>> SmallFloat(2L ^ 99)
+6.33825E29
+```
+
+In the `SmallFloat` case answer _identity_:
+
+```
+>>> SmallFloat(23)
+23
+
+>>> SmallFloat(1.pi)
+1.pi
+```
+
+At `Infinity`:
+
+```
+>>> SmallFloat(Infinity)
+Infinity
+```
 
 List traits implemented by `SmallFloat`:
 
@@ -115,7 +161,7 @@ Count leading zeroes:
 
 * * *
 
-See also: asSmallFloat, Complex, Fraction, Integer, LargeInteger
+See also: Complex, Float, Fraction, Integer, LargeInteger
 
 Guides: Numeric Types
 

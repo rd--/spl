@@ -19,12 +19,12 @@ Plot specific points:
 
 ~~~spl svg=A
 let t = sssTriangle(1, 1, 1);
-let c = [
+let c = SmallFloat[
 	1 0 0; 0 1 0; 0 0 1;
 	1/2 1/2 0; 0 1/2 1/2; 1/2 0 1/2;
 	1/2 1/4 1/4; 1/4 1/2 1/4; 1/4 1/4 1/2;
 	1/3 1/3 1/3
-].asFloat;
+];
 [
 	t,
 	c.collect(

@@ -107,7 +107,7 @@ Rational approximation to π:
 >>> [3 7 15].fromContinuedFraction
 333/106
 
->>> 333/106.asFloat
+>>> 333/106.SmallFloat
 3.1415
 ```
 
@@ -149,9 +149,16 @@ A continued fraction may begin with a zero, where the answer is less than 1/2:
 
 >>> 7 / 17
 0.41176
+```
 
+Continued fractions for `zero` and `one`:
+
+```
 >>> [0].fromContinuedFraction
 0
+
+>>> [1].fromContinuedFraction
+1/1
 ```
 
 Continued fractions of negative numbers have a negative leading term:

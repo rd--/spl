@@ -312,7 +312,7 @@ The intonation of the liturgical music of the Byzantine and Slavonic Orthodox ch
 >>> 	7 16; 5 19; 12 11; 6 12
 >>> ].collect { :each |
 >>> 	let parts = (each ++ [30 - each.sum]);
->>> 	let tones = (parts / 12).asFraction;
+>>> 	let tones = Fraction(parts, 12);
 >>> 	let cents = parts.collect { :n |
 >>> 		(n * (50 / 3)).round
 >>> 	};

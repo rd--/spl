@@ -76,7 +76,7 @@
 	}
 
 	octaveReduceLogRule { :self :octaveRatio |
-		let exponent = self.asFloat.log(octaveRatio.asFloat).floor.negate;
+		let exponent = self.log(octaveRatio).floor.negate;
 		self * (2/1 ^ exponent)
 	}
 
@@ -95,7 +95,7 @@
 	}
 
 	tenneyHeight { :self :base |
-		(self.numerator * self.denominator).asFloat.log(base)
+		(self.numerator * self.denominator).log(base)
 	}
 
 	tenneyHeight { :self |
@@ -113,7 +113,7 @@
 	withoutFactorsOfTwo { :self |
 		self.primeFactors.reject { :each |
 			[1/2 2].includes(each)
-		}.product.asFraction
+		}.product.Fraction
 	}
 
 }

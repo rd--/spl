@@ -140,8 +140,8 @@ Decimal values may be unequal even if their fraction and floating point values a
 >>> (
 >>> 	(x, y),
 >>> 	x = y,
->>> 	x.asFraction = y.asFraction,
->>> 	x.asFloat = y.asFloat
+>>> 	x.Fraction = y.Fraction,
+>>> 	x.SmallFloat = y.SmallFloat
 >>> )
 ((0.429D, 0.4290D), false, true, true)
 ```
@@ -189,7 +189,7 @@ Exact fraction:
 >>> -3.14D.fraction
 -157/50
 
->>> -3.14D.asFraction
+>>> -3.14D.Fraction
 -157/50
 ```
 

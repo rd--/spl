@@ -1,6 +1,6 @@
 /* Requires: SmallFloat String */
 
-LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer] {
+LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer, ImplicitFloat] {
 
 	[less, <] { :self :anObject |
 		<primitive:
@@ -13,24 +13,20 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer] {
 
 	[bitShiftLeft, <<] { :self :anObject |
 		<primitive:
-		if(sl.isLargeInteger(_anObject)) {
-			return _self << _anObject;
-		} else if(sl.isSmallFloat(_anObject)) {
+		if(sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
 			return _self << BigInt(_anObject);
 		}
 		>
-		self.error('bitShiftLeft: operand not a LargeInteger or SmallFloat')
+		self.error('bitShiftLeft: operand not a LargeInteger or SmallInteger')
 	}
 
 	[bitShiftRight, >>] { :self :anObject |
 		<primitive:
-		if(sl.isLargeInteger(_anObject)) {
-			return _self >> _anObject;
-		} else if(sl.isSmallFloat(_anObject)) {
+		if(sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
 			return _self >> BigInt(_anObject);
 		}
 		>
-		self.error('bitShiftRight: operand not a LargeInteger or SmallFloat')
+		self.error('bitShiftRight: operand not a LargeInteger or SmallInteger')
 	}
 
 	[divide, /] { :self :anObject |
@@ -53,10 +49,9 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer] {
 		<primitive:
 		if (sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
 			return _self === BigInt(_anObject);
-		} else {
-			return false;
-		}
+		};
 		>
+		false
 	}
 
 	[mod, %] { :self :anObject |
@@ -96,7 +91,7 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer] {
 	}
 
 	[similar, ~] { :self :anObject |
-		self.asSmallFloat ~ anObject
+		self.SmallFloat ~ anObject
 	}
 
 	[subtract, -] { :self :anObject |
@@ -121,32 +116,20 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer] {
 		aNumber.isInteger.if {
 			aBlock(aNumber.LargeInteger, self)
 		} {
-			aBlock(aNumber, self.asSmallFloat)
+			aBlock(aNumber, self.SmallFloat)
 		}
 	}
 
 	asInteger { :self |
 		self.isSmallInteger.if {
-			self.asSmallFloat
+			self.SmallFloat
 		} {
 			self
 		}
 	}
 
-	asSmallInteger { :self |
-		self.isSmallInteger.if {
-			self.asSmallFloat
-		} {
-			self.error('LargeInteger>>asSmallInteger: not small integer')
-		}
-	}
-
-	[asSmallFloat, asFloat] { :self |
-		<primitive: return Number(_self);>
-	}
-
 	atRandom { :self |
-		system.nextRandomInteger(1, self.asSmallFloat)
+		system.nextRandomInteger(1, self.SmallFloat)
 	}
 
 	bitAnd { :self :anObject |
@@ -228,7 +211,7 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer] {
 					0.return
 				}
 			};
-			lastDigit.asSmallFloat.highBitOfByte + (8 * (realLength - 1))
+			lastDigit.SmallFloat.highBitOfByte + (8 * (realLength - 1))
 		}
 	}
 
@@ -236,7 +219,7 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer] {
 		radix.betweenAnd(2, 36).if {
 			self.abs.uncheckedPrintString(radix).characters.digitValue
 		} {
-			self.asSmallInteger.integerDigits(radix)
+			self.SmallInteger.integerDigits(radix)
 		}.collect(LargeInteger/1)
 	}
 
@@ -244,8 +227,32 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer] {
 		self.uncheckedPrintString(radix).size
 	}
 
-	isCloseToBy { :self :aNumber :epsilon |
-		self.asFloat.isCloseToBy(aNumber.asFloat, epsilon)
+	[integerSquareRoot, isqrt] { :self |
+		<primitive:
+		/* https://github.com/Aisse-258/bigint-isqrt */
+		if (_self < 2n) {
+			return _self;
+		}
+		if (_self < 16n) {
+			return BigInt(Math.sqrt(Number(_self)) | 0);
+		}
+		let x0, x1;
+		if (_self < 4503599627370496n) {
+			x1 = BigInt(Math.sqrt(Number(_self)) | 0) - 3n;
+		} else {
+			const vlen = _self.toString().length;
+			if (!(vlen & 1)) {
+				x1 = 10n ** (BigInt(vlen / 2));
+			} else {
+				x1 = 4n * 10n ** (BigInt((vlen / 2) | 0));
+			}
+		}
+		do {
+			x0 = x1;
+			x1 = ((_self / x0) + x0) >> 1n;
+		} while ((x0 !== x1 && x0 !== (x1 - 1n)));
+		return x0;
+		>
 	}
 
 	isEven { :self |
@@ -293,7 +300,7 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer] {
 	}
 
 	isSquare { :n |
-		let m = n.sqrt;
+		let m = n.integerSquareRoot;
 		(m * m) = n
 	}
 
@@ -321,32 +328,12 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer] {
 		self = 0L
 	}
 
-	nthRoot { :self :aNumber |
-		self.asSmallFloat.nthRoot(aNumber.asSmallFloat)
-	}
-
-	log { :self |
-		self.asFloat.log
-	}
-
-	log2 { :self |
-		self.asFloat.log2
-	}
-
-	log10 { :self |
-		self.asFloat.log10
-	}
-
 	one { :unused |
 		1L
 	}
 
 	printString { :self |
 		self.storeString
-	}
-
-	printStringToFixed { :self :anInteger |
-		self.asSmallInteger.printStringToFixed(anInteger)
 	}
 
 	promoteBinary { :self |
@@ -379,32 +366,16 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer] {
 		self
 	}
 
-	[squareRoot, sqrt] { :self |
-		<primitive:
-		/* https://github.com/Aisse-258/bigint-isqrt */
-		if (_self < 2n) {
-			return _self;
+	SmallInteger { :self |
+		self.isSmallInteger.if {
+			self.SmallFloat
+		} {
+			self.error('LargeInteger>>SmallInteger: not small integer')
 		}
-		if (_self < 16n) {
-			return BigInt(Math.sqrt(Number(_self)) | 0);
-		}
-		let x0, x1;
-		if (_self < 4503599627370496n) {
-			x1 = BigInt(Math.sqrt(Number(_self)) | 0) - 3n;
-		} else {
-			const vlen = _self.toString().length;
-			if (!(vlen & 1)) {
-				x1 = 10n ** (BigInt(vlen / 2));
-			} else {
-				x1 = 4n * 10n ** (BigInt((vlen / 2) | 0));
-			}
-		}
-		do {
-			x0 = x1;
-			x1 = ((_self / x0) + x0) >> 1n;
-		} while ((x0 !== x1 && x0 !== (x1 - 1n)));
-		return x0;
-		>
+	}
+
+	[SmallFloat, Float] { :self |
+		<primitive: return Number(_self);>
 	}
 
 	storeStringLiteral { :self |

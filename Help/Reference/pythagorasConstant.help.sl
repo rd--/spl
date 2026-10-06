@@ -19,7 +19,8 @@ The fraction _99/70_ is a reasonable simple approximation:
 >>> 1.pythagorasConstant
 99/70
 
->>> 1.pythagorasConstant.asFraction
+>>> 1.pythagorasConstant
+>>> .rationalize
 577/408
 ```
 

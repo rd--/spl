@@ -23,7 +23,7 @@ OEIS [A006784](https://oeis.org/A006784),
 the expansion of an approximation diverges rapidly from the true sequence:
 
 ```
->>> 3.14159265358979D.asFraction
+>>> 3.14159265358979D.Fraction
 >>> .engelExpansion
 [
 	1 1 1 8 8
@@ -38,7 +38,7 @@ OEIS [A000027](https://oeis.org/A000027),
 the true sequence is one followed by the natural numbers:
 
 ```
->>> 2.71828182845904D.asFraction
+>>> 2.71828182845904D.Fraction
 >>> .engelExpansion
 [
 	1 1 2 3 4
@@ -54,7 +54,7 @@ Expansion for an approximation of _√2_,
 OEIS [A028254](https://oeis.org/A028254):
 
 ```
->>> 1.414213562373095D.asFraction
+>>> 1.414213562373095D.Fraction
 >>> .engelExpansion
 [
 	1 3 5 5 16

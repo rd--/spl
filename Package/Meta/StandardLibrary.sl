@@ -63,6 +63,7 @@
 	/* Number */
 	'Complex'
 	'EisensteinInteger'
+	'ImplicitFloat'
 	'Interval'
 	'LargeInteger' /* ByteArray */
 	'Quaternion'

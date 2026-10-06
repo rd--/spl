@@ -2374,26 +2374,30 @@
 	semiconvergents { :self :epsilon |
 		let answer = [];
 		let final = self.fromContinuedFraction;
-		let lastError = final;
-		valueWithReturn { :return/1 |
-			self.prefixesDo { :each |
-				let z = each.last;
-				let h = (z / 2).roundUp;
-				let p = each.allButLast;
-				h.toDo(z) { :k |
-					let c = p ++ [k];
-					let r = c.fromContinuedFraction;
-					let nextError = (final - r).abs;
-					(nextError < lastError).ifTrue {
-						answer.add!(r);
-						lastError := nextError
-					};
-					((final - r).abs < epsilon).ifTrue {
-						answer.return
+		final.isZero.if {
+			[0/1]
+		} {
+			let lastError = final;
+			valueWithReturn { :return/1 |
+				self.prefixesDo { :each |
+					let z = each.last;
+					let h = (z / 2).roundUp;
+					let p = each.allButLast;
+					h.toDo(z) { :k |
+						let c = p ++ [k];
+						let r = c.fromContinuedFraction;
+						let nextError = (final - r).abs;
+						(nextError < lastError).ifTrue {
+							answer.add!(r);
+							lastError := nextError
+						};
+						((final - r).abs < epsilon).ifTrue {
+							answer.return
+						}
 					}
-				}
-			};
-			answer
+				};
+				answer
+			}
 		}
 	}
 

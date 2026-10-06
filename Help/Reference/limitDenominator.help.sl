@@ -4,37 +4,32 @@
 
 Find the nearest approximation to the fraction _n/d_ that has a denominator less than or equal to the integer _i_.
 
+Limit the denominator of a fraction that is not very close to a simple fraction:
+
 ```
->>> let r = 1.pi.asFractionOver(1E6);
->>> (r, r.limitDenominator(1E4))
+>>> let r = 1.pi.asFractionOver(10L ^ 6);
+>>> (r, r.limitDenominator(10L ^ 4))
 (3141593/1000000, 355/113)
 
->>> 355/113.limitDenominator(1E1)
+>>> 355/113.limitDenominator(10L)
 22/7
 ```
 
-Recover a rational number that is represented as a float:
+Limit the denominator of a fraction that is very close to a simple fraction:
 
 ```
->>> let n = 1/3.pi.cos;
->>> let r = n.asFractionOver(10L ^ 23);
->>> (r, r.limitDenominator(1E6))
-(
-	5960464477539063/11920928955078125,
-	1/2
-)
+>>> 5960464477539063/11920928955078125
+>>> .limitDenominator(10L ^ 15)
+1/2
 
->>> let r = 1.1.asFractionOver(10L ^ 23);
->>> (r, r.limitDenominator(1E6))
-(
-	13113021850585938/11920928955078125,
-	11/10
-)
+>>> 13113021850585938/11920928955078125
+>>> .limitDenominator(10L ^ 15)
+11/10
 ```
 
 * * *
 
-See also: asFraction, asFractionOver, rationalize
+See also: Fraction, asFractionOver, rationalize
 
 References:
 _Python_

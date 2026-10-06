@@ -4,7 +4,8 @@
 
 Derive a `Fraction` where _n_ is the unreduced denominator.
 
-At `SmallFloat`:
+At `SmallFloat`,
+where _x_ is not close to a simple fraction:
 
 ```
 >>> 1.pi.asFractionOver(1E2)
@@ -15,7 +16,11 @@ At `SmallFloat`:
 
 >>> 1.pi.asFractionOver(1E11)
 314159265359/100000000000
+```
 
+Where _x_ is close to a simple fraction:
+
+```
 >>> 6.75.asFractionOver(1E11)
 27/4
 
@@ -26,21 +31,24 @@ At `SmallFloat`:
 At `Fraction`:
 
 ```
->>> 355/113.asFractionOver(1E2)
-157/50
-
->>> 1/3.asFractionOver(1E3)
-333/1000
-
 >>> 1/7.asFractionOver(1E12)
 142857142857/1000000000000
 
->>> 23/1.asFractionOver(1)
-23/1
+>>> 1/3.asFractionOver(1E7)
+3333333/10000000
+
+>>> 355/113.asFractionOver(50)
+157/50
+
+>>> 355/113.asFractionOver(10)
+31/10
+
+>>> 355/113.asFractionOver(5)
+16/5
 ```
 
 * * *
 
-See also: asDecimalFraction, asFraction, Decimal, limitDenominator, rationalize
+See also: Fraction, Decimal, asDecimalFraction, convergents, limitDenominator, rationalize, semiconvergents
 
 Categories: Converting, Math

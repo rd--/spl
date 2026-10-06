@@ -1195,14 +1195,14 @@ Infinity.isNumber /* Infinity constant */
 ## Converting -- type conversion
 ```
 [true, false].collect(asBit/1) = [1, 0] /* boolean to bit (integer) */
-1.pi.asFloat = 1.pi /* small float as float is identity */
-3/4.asFloat = 0.75 /* fraction as float */
-23.asFloat = 23.0 /* integer as float */
-23L.asFloat = 23.0 /* large integer as float */
-{ '23'.asFloat }.hasError /* asFloat is not a parser */
-1.pi.asSmallFloat = 1.pi /* identity */
-3/4.asSmallFloat = 0.75 /* fraction to small float */
-23.asSmallFloat = 23.0 /* integral to small float */
+1.pi.Float = 1.pi /* small float as float is identity */
+3/4.Float = 0.75 /* fraction as float */
+23.Float = 23.0 /* integer as float */
+23L.Float = 23.0 /* large integer as float */
+{ '23'.Float }.hasError /* Float is not a parser */
+1.pi.SmallFloat = 1.pi /* identity */
+3/4.SmallFloat = 0.75 /* fraction to small float */
+23.SmallFloat = 23.0 /* integral to small float */
 true.boole = 1 /* boolean as integer, c.f. asBit */
 false.boole = 0 /* boolean as integer, asBit */
 '~'.Character.codePoint = 126 /* character as integer, c.f. codePoint */
@@ -1546,7 +1546,7 @@ Fraction(4, 6).denominator = 3
 -3/2 * -4/3 = 2
 -3/2 * 4/3 = -2
 5/3 + 1/3 = 2
-3/2.asSmallFloat = 1.5 /* fraction as float */
+3/2.SmallFloat = 1.5 /* fraction as float */
 0.5 < 2/3 = true
 2/3 > 0.5 = true
 1 < 3/2 = true
@@ -1591,8 +1591,8 @@ Fraction(-4, -12) = 1/3
 5/12 - 1/4 = 1/6
 5/8 * 3/12 = 5/32
 6/5 / 10/7 = 21/25
-(3/4).asSmallFloat = 0.75
-(1/2).asSmallFloat = (1 / 2)
+(3/4).SmallFloat = 0.75
+(1/2).SmallFloat = (1 / 2)
 -1/3.typeOf = 'Fraction'
 3/5 + 1 = 8/5
 3/5 - 0.5 ~ 0.1
@@ -2014,7 +2014,7 @@ let x = (2L ^ 54L); x != (x - 1) /* large integers behave ordinarily */
 92233720368L * 100000000L + 54775807L = 9223372036854775807L /* reader for large integer literals */
 2L ^ 100L = 1267650600228229401496703205376L /* raised to */
 let n = 2L; n.copy == n /* copy is identity */
-23L.asSmallFloat = 23 /* large integer to small float */
+23L.SmallFloat = 23 /* large integer to small float */
 let a = [9, 8 .. 1]; { a[5L] }.hasError /* large integers are not valid indices */
 58909L.printStringHex = '16rE61D' /* hexadecimal representation */
 20L.factorial = 2432902008176640000L /* large integer factorial */
@@ -3074,7 +3074,7 @@ let s = IdentitySet(); [5 4 6 7 8 9 10 11 3].do { :each | s.include!(each) }; s 
 ```
 system.includesPackage('SmallFloat') /* package */
 3.141.typeOf = 'SmallFloat'
-3.141.asSmallFloat == 3.141 /* asSmallFloat is identity, c.f. Fraction>>SmallFloat */
+3.141.SmallFloat == 3.141 /* SmallFloat is identity, c.f. Fraction>>SmallFloat */
 0 = -0 = true
 1 = 1 = true
 1 >= 1 = true

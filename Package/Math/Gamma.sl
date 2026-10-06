@@ -403,7 +403,7 @@
 +Fraction {
 
 	gamma { :self |
-		self.asFloat.gamma
+		SmallFloat(self).gamma
 	}
 
 }

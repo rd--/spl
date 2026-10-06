@@ -407,7 +407,7 @@ Plot : [Object] {
 	}
 
 	matrixPlot { :self |
-		[self.asFloat].Plot('matrix')
+		[SmallFloat(self)].Plot('matrix')
 	}
 
 	periodogramPlot { :self |
@@ -686,7 +686,7 @@ Plot : [Object] {
 	}
 
 	typedPlot { :self :format |
-		self := self.asFloat;
+		self := SmallFloat(self);
 		self.isVector.if {
 			[self].typedVectorPlot(format)
 		} {
@@ -1389,8 +1389,8 @@ Plot : [Object] {
 		let l = [];
 		let pt = { :x |
 			[
-				x.asFloat * 100,
-				100 / x.denominator.asFloat
+				x.SmallFloat * 100,
+				100 / x.denominator.SmallFloat
 			]
 		};
 		2.toDo(n) { :i |

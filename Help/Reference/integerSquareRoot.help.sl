@@ -248,7 +248,7 @@ OEIS [A000196](https://oeis.org/A000196):
 
 * * *
 
-See also: Integer, isqrt, LargeInteger, sqrt, squareRoot
+See also: Integer, LargeInteger, isqrt, sqrt, squareRoot
 
 Guides: Integer Functions
 

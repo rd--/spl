@@ -25,7 +25,7 @@ The unary form requires only the list of _cents_ values:
 >>> let c = [0 .. 11] * 100;
 >>> let t = CentsTuning(c);
 >>> t.asRatios.collect { :each |
->>> 	each.asFraction(1E-2)
+>>> 	each.rationalize(1E-2)
 >>> }
 [
 	1/1 16/15 9/8 13/11 5/4 4/3

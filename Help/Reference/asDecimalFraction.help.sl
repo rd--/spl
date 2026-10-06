@@ -40,6 +40,6 @@ At `Fraction`:
 
 * * *
 
-See also: asFraction, Decimal, limitDenominator, rationalize
+See also: Decimal, Fraction, limitDenominator, rationalize
 
 Categories: Converting, Math

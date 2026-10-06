@@ -1628,6 +1628,25 @@
 		}
 	}
 
+	toCollect { :start :end :aBlock/1 |
+		let size = end - start + 1;
+		(size < 1).if {
+			[]
+		} {
+			let answer = List(size);
+			let i = 1;
+			let j = start;
+			{
+				i <= size
+			}.whileTrue {
+				answer[i] := aBlock(j);
+				i := i + 1;
+				j := j + 1
+			};
+			answer
+		}
+	}
+
 	tonelliShanksAlgorithm { :n :p |
 		(legendreSymbol(n, p) != 1).if {
 			[n, p].error('tonelliShanksAlgorithm: not square')

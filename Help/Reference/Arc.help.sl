@@ -123,7 +123,7 @@ Draw arcs between points on Farey sequences:
 	n.fareySequence
 	.partition(2, 1)
 	.collect { :each |
-		let [a, b] = each.asFloat;
+		let [a, b] = SmallFloat(each);
 		let c = (b - a) / 2;
 		Arc([a + c, 0], [c, c], [0, 1.pi])
 	}

@@ -1,7 +1,7 @@
 # Fraction
 
-- _Fraction([n d])_
 - _Fraction(n, d)_
+- _Fraction(x)_
 
 `Fraction` is a numerical `Type` that provides methods for working with fractions like 1/3 as a ratio of two integers.
 
@@ -30,10 +30,10 @@ true
 Fractions can be converted to floating point numbers:
 
 ```
->>> 3/4.asSmallFloat
+>>> 3/4.SmallFloat
 0.75
 
->>> 3/4.asFloat
+>>> 3/4.Float
 0.75
 ```
 
@@ -70,14 +70,80 @@ it assumes the fraction being specified is in reduced form:
 [2 4]
 ```
 
-The unary `Fraction` requires a two-element sequence:
+The unary form at `Fraction`,
+answers `identity`:
 
 ```
->>> [2 4].Fraction
-1/2
+>>> let a = 3/4;
+>>> let b = Fraction(a);
+>>> (a, a == b)
+(3/4, true)
+```
 
->>> [7 21].Fraction
+In the `Integer` case,
+answer a `Fraction` above `one`:
+
+```
+>>> Fraction(23)
+23/1
+
+>>> Fraction(-23L)
+-23/1
+```
+
+A `Fraction` can be derived from a `SmallFloat` using `rationalize`:
+
+```
+>>> 1.pi.rationalize
+355/113
+
+>>> 6.75.rationalize
+27/4
+
+>>> 0.202898.rationalize
+14/69
+
+>>> 0.333333333333
+>>> .rationalize
 1/3
+
+>>> 0.086957.rationalize
+2/23
+```
+
+A tolerance may be specified:
+
+```
+>>> 1.pi.rationalize(0.01)
+22/7
+
+>>> 2.sqrt.exp.rationalize(0.0001)
+218/53
+```
+
+Threads over lists:
+
+```
+>>> [0.25 0.5 0.75].rationalize
+[1/4 1/2 3/4]
+```
+
+At negative numbers:
+
+```
+>>> -0.22047.rationalize
+-28/127
+```
+
+The unary `listToFraction` requires a two-element sequence,
+or a two-column matrix, and so on:
+
+```
+>>> [9 23].listToFraction
+9/23
+
+>>> [2 4; 7 21].listToFraction
+[1/2 1/3]
 ```
 
 Literal fractions are `normal` and have the following invariants:
@@ -290,7 +356,7 @@ The numerator and denominator of a rational are relatively prime:
 
 ```
 >>> let x = system.nextRandomFloat;
->>> let r = x.asFraction;
+>>> let r = x.rationalize;
 >>> r.numerator.gcd(r.denominator)
 1
 ```
@@ -351,17 +417,20 @@ Print `String`:
 
 * * *
 
-See also: /, denominator, normalized, numerator, reduced, uncheckedFraction
+See also: Float, /, denominator, normalized, numerator, rationalize, reduced, uncheckedFraction
 
 Guides: Fraction Syntax, Numeric Types
 
 References:
 _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Prelude.html#t:Rational),
+_J_
+[1](https://code.jsoftware.com/wiki/Vocabulary/xco),
 _Mathematica_
 [1](https://mathworld.wolfram.com/Fraction.html)
 [2](https://reference.wolfram.com/language/ref/Rational.html),
 _Smalltalk_
+5.6.2.15
 5.6.9.1,
 _W_
 [1](https://en.wikipedia.org/wiki/Fraction)

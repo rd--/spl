@@ -6,12 +6,12 @@ CentsTuning : [Object, Store, Equal, Tuning] {
 
 	asFractions { :self :epsilon |
 		self.asRatios.collect { :each |
-			each.asFraction(epsilon)
+			each.rationalize(epsilon)
 		}
 	}
 
 	asFractions { :self |
-		self.asRatios.collect(asFraction/1)
+		self.asRatios.collect(rationalize/1)
 	}
 
 	asRatios { :self |

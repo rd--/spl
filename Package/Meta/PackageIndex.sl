@@ -244,6 +244,7 @@
 	'Number-Decimal'
 	'Number-EisensteinInteger'
 	'Number-Fraction'
+	'Number-ImplicitFloat'
 	'Number-Integer'
 	'Number-Interval'
 	'Number-LargeInteger'

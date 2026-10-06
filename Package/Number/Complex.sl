@@ -441,7 +441,10 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 	}
 
 	asComplex { :self |
-		Complex(self.asFloat, 0)
+		Complex(
+			SmallFloat(self),
+			0
+		)
 	}
 
 	cayleyTransform { :z |
@@ -449,11 +452,17 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 	}
 
 	[Complex, j] { :real :imaginary |
-		Complex(real.asFloat, imaginary.asFloat)
+		Complex(
+			SmallFloat(real),
+			SmallFloat(imaginary)
+		)
 	}
 
 	i { :self |
-		Complex(0, self.asFloat)
+		Complex(
+			0,
+			SmallFloat(self)
+		)
 	}
 
 	isGaussianInteger { :self |

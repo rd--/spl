@@ -70,20 +70,12 @@
 		self.collect(asComplex/1)
 	}
 
-	asFraction { :self |
-		self.collect(asFraction/1)
-	}
-
 	asInteger { :self |
 		self.collect(asInteger/1)
 	}
 
 	asNumber { :self |
 		self.collect(asNumber/1)
-	}
-
-	[asSmallFloat, asFloat] { :self |
-		self.collect(asSmallFloat/1)
 	}
 
 	balancedTernaryDigits { :self |
@@ -314,6 +306,10 @@
 		self.collect { :each |
 			each.fold(low, high)
 		}
+	}
+
+	Fraction { :self |
+		self.collect(Fraction/1)
 	}
 
 	[fractionExponent, frexp] { :self |
@@ -737,6 +733,16 @@
 		self.collect(ramp/1)
 	}
 
+	rationalize { :self :epsilon |
+		self.collect { :each |
+			each.rationalize(epsilon)
+		}
+	}
+
+	rationalize { :self |
+		self.collect(rationalize/1)
+	}
+
 	rationalUnrank { :self :m |
 		self.collect { :n |
 			n.rationalUnrank(m)
@@ -791,6 +797,10 @@
 
 	schroderNumber { :self |
 		self.collect(schroderNumber/1)
+	}
+
+	[SmallFloat, Float] { :self |
+		self.collect(SmallFloat/1)
 	}
 
 	[squareRoot, sqrt] { :self |

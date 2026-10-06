@@ -155,7 +155,7 @@
 ## Converting
 
 - `asBit`, `asBoolean`
-- `asComplex`, `asFloat`, `asFraction`, `asInteger`, `LargeInteger`, `asNumber`, `asSmallFloat`
+- `asComplex`, `Float`, `asFraction`, `asInteger`, `LargeInteger`, `asNumber`, `SmallFloat`
 - `Character`, `codePoint`, `asHexDigit`, `asLowerCase`, `asRegExp`, `asString`, `asUpperCase`
 - `inEnglishWords`
 - `IdentityMultiset`, `ByteArray`, `asCollection`, `List`, `Map`, `Record`, `IdentitySet`, `SortedList`, `Tree`
@@ -274,7 +274,7 @@
 
 ## Floating Point
 
-- `asFloat`, `SmallFloat`
+- `Float`, `SmallFloat`
 - `fromSignExponentMantissa`, `signExponentMantissa`
 
 ## Fractal Functions

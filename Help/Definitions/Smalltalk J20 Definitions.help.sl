@@ -1678,7 +1678,7 @@ receiver, as specified by the ISO/IEC 10967 _cvt_ operation.
 
 *Return Value*: ⧼Float⧽
 
-Cf: asFloat
+Cf: Float
 
 ### 5.6.2.15
 

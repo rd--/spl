@@ -302,26 +302,26 @@
 
 }
 
-+Fraction {
++@ImplicitFloat {
 
 	arcCos { :self |
-		self.asFloat.arcCos
+		SmallFloat(self).arcCos
 	}
 
 	arcSin { :self |
-		self.asFloat.arcSin
+		SmallFloat(self).arcSin
 	}
 
 	cos { :self |
-		self.asFloat.cos
+		SmallFloat(self).cos
 	}
 
 	sin { :self |
-		self.asFloat.sin
+		SmallFloat(self).sin
 	}
 
 	tan { :self |
-		self.asFloat.tan
+		SmallFloat(self).tan
 	}
 
 }

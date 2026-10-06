@@ -17,7 +17,7 @@ Combinatorial Functions:
 Converting:
 
 - `asInteger`
-- `asSmallInteger`
+- `SmallInteger`
 - `LargeInteger`
 
 Division-Related Functions:

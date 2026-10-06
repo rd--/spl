@@ -225,7 +225,7 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 +List {
 
 	asColour { :self |
-		let a = self.asFloat;
+		let a = SmallFloat(self);
 		a.size.caseOf(
 			[
 				3 -> { RgbColour(a, 1) },
@@ -238,7 +238,7 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 
 	HsvColour { :self :alpha |
 		RgbColour(
-			self.asFloat.hsvToRgb,
+			SmallFloat(self).hsvToRgb,
 			alpha
 		)
 	}
@@ -672,7 +672,7 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 
 
 	uncheckedHsvToRgb { :self |
-		let [hue, saturation, brightness] = self.asFloat;
+		let [hue, saturation, brightness] = SmallFloat(self);
 		let s = saturation.min(1).max(0);
 		let v = brightness.min(1).max(0);
 		let h = (hue * 360) % 360;
@@ -696,7 +696,7 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 	}
 
 	uncheckedRgbToHsv { :self |
-		let [r, g, b] = self.asFloat;
+		let [r, g, b] = SmallFloat(self);
 		let v = [r g b].max;
 		let c = v - [r g b].min;
 		let s = (v = 0).if { 0 } { c / v };

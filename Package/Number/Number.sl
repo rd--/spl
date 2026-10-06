@@ -554,7 +554,7 @@
 	}
 
 	log2 { :self |
-		self.asSmallFloat.log2
+		SmallFloat(self).log2
 	}
 
 	logarithmicChange { :x :y |
@@ -582,7 +582,7 @@
 	}
 
 	logScale { :self :c |
-		let x = self.asFloat;
+		let x = SmallFloat(self);
 		x.sign * (1 + (x / c).abs).log10
 	}
 
@@ -1115,25 +1115,6 @@
 					nextValue := nextValue + step
 				}
 			}
-		}
-	}
-
-	toCollect { :start :end :aBlock/1 |
-		let size = end - start + 1;
-		(size < 1).if {
-			[]
-		} {
-			let answer = List(size);
-			let i = 1;
-			let j = start;
-			{
-				i <= size
-			}.whileTrue {
-				answer[i] := aBlock(j);
-				i := i + 1;
-				j := j + 1
-			};
-			answer
 		}
 	}
 

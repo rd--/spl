@@ -16,7 +16,7 @@ Twelve tone equal temperament:
 >>> 	t.octave,
 >>> 	t.asCents,
 >>> 	t.asRatios.collect { :each |
->>> 		each.asFraction(1E-2)
+>>> 		each.rationalize(1E-2)
 >>> 	}
 >>> )
 (
@@ -41,7 +41,7 @@ Seven tone equal temperament:
 >>> (
 >>> 	t.asCents.round,
 >>> 	t.asRatios.collect { :each |
->>> 		each.asFraction(1E-2)
+>>> 		each.rationalize(1E-2)
 >>> 	}
 >>> )
 (

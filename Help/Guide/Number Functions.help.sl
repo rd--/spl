@@ -20,13 +20,12 @@ Converting:
 
 - `asBit`
 - `asComplex`
-- `asFloat`
-- `asFloat`
+- `Float`
 - `asInteger`
 - `LargeInteger`
 - `asNumber`
-- `asSmallFloat`
-- `asSmallInteger`
+- `SmallFloat`
+- `SmallInteger`
 - `boole`
 - `rationalize`
 

@@ -6,7 +6,7 @@ RatioTuning : [Object, Store, Equal, Cache, Tuning] {
 
 	asCents { :self |
 		self.ratios.collect { :each |
-			each.asFloat.log2 * 1200
+			each.log2 * 1200
 		}
 	}
 

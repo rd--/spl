@@ -5,6 +5,9 @@
 Answer a `Fraction` that approximates the floating point number _x_ given an error bound ε.
 
 ```
+>>> 8.rationalize(1E-5)
+8/1
+
 >>> 1.pi.rationalize(1E-5)
 355/113
 
@@ -13,6 +16,16 @@ Answer a `Fraction` that approximates the floating point number _x_ given an err
 
 >>> 0.202898.rationalize(1E-4)
 14/69
+```
+
+At `zero` and `one`:
+
+```
+>>> 0.rationalize
+0/1
+
+>>> 1.rationalize
+1/1
 ```
 
 Find rational approximations to within a given tolerance:
@@ -48,9 +61,22 @@ At negative number:
 -28/127
 ```
 
+At `Fraction`,
+answers `identity`,
+or rationalizes according to ε:
+
+```
+>>> 1/3.rationalize
+1/3
+
+>>> 4272943/1360120
+>>> .rationalize(1/100)
+22/7
+```
+
 * * *
 
-See also: asFraction, continuedFraction, convergents, limitDenominator, semiconvergents
+See also: Fraction, continuedFraction, convergents, limitDenominator, semiconvergents
 
 Guides: Number Functions
 

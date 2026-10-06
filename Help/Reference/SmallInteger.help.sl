@@ -1,6 +1,6 @@
-# asSmallInteger
+# SmallInteger
 
-- _asSmallInteger(x)_
+- _SmallInteger(x)_
 
 Answer the `SmallFloat` that is equal to the number _x_,
 which must be an integer value.
@@ -8,7 +8,7 @@ which must be an integer value.
 At `SmallFloat`:
 
 ```
->>> 23.asSmallInteger
+>>> SmallInteger(23)
 23
 ```
 
@@ -16,7 +16,7 @@ It is an error if the value is not an integer:
 
 ```
 >>> {
->>> 	1.pi.asSmallInteger
+>>> 	SmallInteger(1.pi)
 >>> }.hasError
 true
 ```
@@ -24,7 +24,7 @@ true
 At `LargeInteger`:
 
 ```
->>> 8388608L.asSmallInteger
+>>> SmallInteger(8388608L)
 8388608
 ```
 
@@ -32,7 +32,7 @@ It is an error if the value is cannot be represented as a small integer:
 
 ```
 >>> {
->>> 	(2L ^ 53L).asSmallInteger
+>>> 	SmallInteger(2L ^ 53L)
 >>> }.hasError
 true
 ```
@@ -40,11 +40,11 @@ true
 At `Fraction`, must be an integer:
 
 ```
->>> 23/1.asSmallInteger
+>>> SmallInteger(23/1)
 23
 
 >>> {
->>> 	22/7.asSmallInteger
+>>> 	SmallInteger(22/7)
 >>> }.hasError
 true
 ```
@@ -52,23 +52,23 @@ true
 At `Decimal`, must be an integer:
 
 ```
->>> 23D.asSmallInteger
+>>> SmallInteger(23D)
 23
 
 >>> {
->>> 	23.0D.asSmallInteger
+>>> 	SmallInteger(23.0D)
 >>> }.hasError
 true
 
 >>> {
->>> 	3.141D.asSmallInteger
+>>> 	SmallInteger(3.141D)
 >>> }.hasError
 true
 ```
 
 * * *
 
-See also: asInteger, isSmallInteger, Fraction, SmallFloat, LargeInteger
+See also: Fraction, SmallFloat, LargeInteger, asInteger, isSmallInteger
 
 Guides: Bitwise Functions, Integer Functions, Number Functions
 

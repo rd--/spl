@@ -460,8 +460,8 @@
 	fabiusFunction { :x :n |
 		let dyadicRationals = { :x :n |
 			let m = 2 ^ n;
-			0.to(x * m).collect { :k |
-				k \ m
+			0.toCollect((x * m).ceiling) { :k |
+				k / m
 			}
 		};
 		(2 ^ (n * (n + 1) / 2))
@@ -469,7 +469,9 @@
 		n.factorial
 		*
 		dyadicRationals(x, n).sum { :k |
-			(-1 ^ digitSum((k * (2 ^ n)).LargeInteger, 2)) * ((x - k) ^ n)
+			(-1 ^ digitSum((k * (2 ^ n)).LargeInteger, 2))
+			*
+			((x - k) ^ n)
 		}
 	}
 
@@ -478,7 +480,18 @@
 +SmallFloat {
 
 	fabiusFunction { :x :n |
-		x.asFraction.fabiusFunction(n)
+		let y = x.rationalize;
+		y.fabiusFunction(n)
+	}
+
+}
+
++List {
+
+	fabiusFunction { :self :n |
+		self.collect { :each |
+			each.fabiusFunction(n)
+		}
 	}
 
 }

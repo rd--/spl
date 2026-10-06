@@ -12,8 +12,8 @@ to a precision decided by _n_.
 >>> fabiusFunction(1, 8)
 1
 
->>> fabiusFunction(7, 8)
-1
+>>> fabiusFunction(3, 8)
+-1
 
 >>> fabiusFunction(3/16, 8)
 >>> .round(0.01)
@@ -34,6 +34,16 @@ to a precision decided by _n_.
 >>> fabiusFunction(0.775, 8)
 >>> .round(0.01)
 0.95
+```
+
+Threads over lists:
+
+```
+>>> [0 2 4].fabiusFunction(8)
+[0 0 0]
+
+>>> [1 3 5].fabiusFunction(8)
+[1 -1 -1]
 ```
 
 Plot over _(0,1)_:

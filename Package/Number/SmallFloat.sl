@@ -8,7 +8,7 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 
 	adaptToIntegerAndApply { :self :anInteger :aBlock/2 |
 		anInteger.isLargeInteger.if {
-			aBlock(anInteger.asSmallFloat, self)
+			aBlock(anInteger.SmallFloat, self)
 		} {
 			self.error('SmallFloat>>adaptToIntegerAndApply', anInteger)
 		}
@@ -27,19 +27,7 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 	}
 
 	asInteger { :self |
-		self.asSmallInteger
-	}
-
-	[asSmallFloat, asFloat] { :self |
-		self
-	}
-
-	asSmallInteger { :self |
-		self.isSmallInteger.if {
-			self
-		} {
-			self.error('SmallFloat>>asSmallInteger: not integer')
-		}
+		SmallInteger(self)
 	}
 
 	assertIsFinite { :self |
@@ -396,7 +384,7 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 				(aNumber = 0).if {
 					self.abs < epsilon
 				} {
-					let other = aNumber.asSmallFloat;
+					let other = aNumber.SmallFloat;
 					self = other | {
 						let z = self.abs;
 						(z < epsilon).if {
@@ -833,6 +821,18 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		bytes[6] |= 0xf0;
 		return [sign, exponent, float[0]];
 		>
+	}
+
+	[SmallFloat, Float] { :self |
+		self
+	}
+
+	SmallInteger { :self |
+		self.isSmallInteger.if {
+			self
+		} {
+			self.error('SmallFloat>>SmallInteger: not integer')
+		}
 	}
 
 	[squareRoot, sqrt] { :self |

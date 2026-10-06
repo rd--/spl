@@ -1,43 +1,43 @@
-# asFloat
+# Float
 
-- _asFloat(x)_
+- _Float(x)_
 
 Answer a `SmallFloat` that closely approximates the value of the number _x_.
 
 At `SmallFloat`:
 
 ```
->>> 23.asFloat
+>>> Float(23)
 23.0
 
->>> 1.pi.asFloat
+>>> Float(1.pi)
 1.pi
 ```
 
 At `Fraction`:
 
 ```
->>> 3/4.asFloat
+>>> Float(3/4)
 0.75
 ```
 
 At `LargeInteger`:
 
 ```
->>> 23L.asFloat
+>>> Float(23L)
 23
 ```
 
 Threads over lists:
 
 ```
->>> [3/4 23L].asFloat
+>>> Float[3/4 23L]
 [0.75 23]
 ```
 
 _Note:_
 At present there is only one floating point type,
-and `asFloat` is simply an alias for `asSmallFloat`.
+and `Float` is simply an alias for `SmallFloat`.
 
 * * *
 

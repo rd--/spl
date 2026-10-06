@@ -35,7 +35,7 @@ The measures approximate seven iterations of multiplication by the plastic ratio
 >>> { :n |
 >>> 	n * 1.plasticRatio
 >>> }.nestList(1, 7).collect { :n |
->>> 	n.asFraction(0.08)
+>>> 	n.rationalize(0.08)
 >>> }
 [1/1 4/3 7/4 7/3 3/1 4/1 16/3 36/5]
 ```

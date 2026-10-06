@@ -1,8 +1,8 @@
 # asFractions
 
-- _asFractions(aTuning)_
+- _asFractions(t)_
 
-Answer a `List` of the interval ratios of _aTuning_.
+Answer a `List` of the interval ratios of the tuning _t_.
 
 At `RatioTuning` is equal to `asRatios`.
 

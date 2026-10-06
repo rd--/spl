@@ -34,6 +34,16 @@ Use a base larger than ten:
 32
 ```
 
+At `zero` and `one`:
+
+```
+>>> 0L.digitSum(2)
+0
+
+>>> 1L.digitSum(2)
+1
+```
+
 First few terms for _b_ in _(2,10)_, respectively
 OEIS
 _b=2_ [A000120](https://oeis.org/A000120),
