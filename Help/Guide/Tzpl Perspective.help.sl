@@ -459,11 +459,89 @@ nil
 
 ## String Formatting
 
-fmt=`format`
+fmt=`format`:
 
 ```
 >>> '% + % = %'.format([1, 2, 3])
 '1 + 2 = 3'
+```
+
+## Range Functions
+
+length=`size`, toArray=`List`:
+
+```
+>>> (1 .. 5).size
+5
+
+>>> (1 .. 5).List
+[1 2 3 4 5]
+
+>>> (1 .. 5).Stream.next
+1
+```
+
+## Collection Functions
+
+length=`size`:
+
+```
+>>> [1 2 3 4 5].size
+5
+
+>>> Stream[1 2 3].size
+3
+```
+
+`isEmpty`:
+
+```
+>>> [].isEmpty
+true
+
+>>> [1 2 3].isEmpty
+false
+
+>>> (1 .. Infinity).isEmpty
+false
+```
+
+`take`:
+
+```
+>>> [1 2 3 4 5].take(3)
+[1 2 3]
+
+>>> Stream[1 2 3 4 5]
+>>> .take(3)
+>>> .next
+1
+```
+
+`drop`:
+
+```
+>>> [1 2 3 4 5].drop(2)
+[3 4 5]
+
+>>> Stream[1 2 3 4 5]
+>>> .drop(2)
+>>> .next
+3
+```
+
+`takeWhile`:
+
+```
+>>> [1 2 3 4 5].takeWhile { :x | x < 4 }
+[1 2 3]
+```
+
+`dropWhile`:
+
+```
+>>> [1 2 3 4 5].dropWhile { :x | x < 4 }
+[4 5]
 ```
 
 ## Type Conversions
