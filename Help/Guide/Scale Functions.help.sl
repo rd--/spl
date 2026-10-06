@@ -26,7 +26,7 @@ Converting:
 
 Drawing:
 
-- `asLineDrawing`: line drawing
+- `LineDrawing`: line drawing
 - `horogramDrawing`: circular horogram
 - `horogramTable`: text horogram
 - `rectangularHorogramDrawing`: drawing

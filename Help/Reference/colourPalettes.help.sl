@@ -129,7 +129,7 @@ system
 
 ![](Help/Image/colourPalettes-D.svg)
 
-`asDiscreteColourGradient` translates a _colour palette_ to a `ColourGradient`,
+`discreteColourGradient` translates a _colour palette_ to a `ColourGradient`,
 arranged to have discrete sections.
 Plot the discrete gradient of the four colour _Fernande_ palette from the _Ltc_ collection:
 
@@ -137,12 +137,12 @@ Plot the discrete gradient of the four colour _Fernande_ palette from the _Ltc_ 
 system
 .colourPalettes
 .atPath(['Ltc' 'Fernande'])
-.asDiscreteColourGradient
+.discreteColourGradient
 ~~~
 
 ![](Help/Image/colourPalettes-E.svg)
 
-`asContinuousColourGradient` translates a _colour palette_ to a `ColourGradient`,
+`continuousColourGradient` translates a _colour palette_ to a `ColourGradient`,
 arranged to be a continous gradient with equally spaced positions.
 Plot the continuous gradient of the four colour _Fernande_ palette from the _Ltc_ collection:
 
@@ -150,7 +150,7 @@ Plot the continuous gradient of the four colour _Fernande_ palette from the _Ltc
 system
 .colourPalettes
 .atPath(['Ltc' 'Fernande'])
-.asContinuousColourGradient
+.continuousColourGradient
 ~~~
 
 ![](Help/Image/colourPalettes-F.svg)
@@ -176,6 +176,6 @@ and this function requires the item be in the interpreter cache.
 
 * * *
 
-See also: asContinuousColourGradient, asDiscreteColourGradient, colourGradients, Colour, ColourGradient, ColourPalette, namedColourPalette, RgbColour
+See also: Colour, ColourGradient, ColourPalette, RgbColour, colourGradients, continuousColourGradient, discreteColourGradient, namedColourPalette
 
 Guides: Colour Functions, Library Catalogue

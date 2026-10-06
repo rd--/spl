@@ -92,33 +92,6 @@
 		)
 	}
 
-	asGeometryCollection { :self |
-		let vertexCoordinates = self.vertexCoordinates;
-		let contents = [PointCloud(vertexCoordinates)];
-		self.edgeList.do { :each |
-			let [i, j] = each;
-			contents.add!(
-				LineSegment(
-					vertexCoordinates[i],
-					vertexCoordinates[j]
-				)
-			)
-		};
-		GeometryCollection(contents)
-	}
-
-	asLineDrawing { :self |
-		self.asGeometryCollection.asLineDrawing
-	}
-
-	asPerspectiveDrawing { :self :projection |
-		self.asGeometryCollection.asPerspectiveDrawing(projection)
-	}
-
-	asPerspectiveDrawing { :self |
-		self.asGeometryCollection.asPerspectiveDrawing
-	}
-
 	circularGraphPlot { :self :options |
 		let k = self.vertexCount;
 		let ordering = options.atIfAbsent('ordering') { [1 .. k] };
@@ -221,6 +194,21 @@
 
 	findShortestTour { :g |
 		g.graphDistanceMatrix.heldKarpAlgorithm
+	}
+
+	GeometryCollection { :self |
+		let vertexCoordinates = self.vertexCoordinates;
+		let geometries = [PointCloud(vertexCoordinates)];
+		self.edgeList.do { :each |
+			let [i, j] = each;
+			geometries.add!(
+				LineSegment(
+					vertexCoordinates[i],
+					vertexCoordinates[j]
+				)
+			)
+		};
+		GeometryCollection(geometries)
 	}
 
 	graphComplement { :self |
@@ -460,6 +448,18 @@
 			Point([1, k / 2]),
 			e
 		].LineDrawing
+	}
+
+	LineDrawing { :self |
+		self.GeometryCollection.LineDrawing
+	}
+
+	PerspectiveDrawing { :self :projection |
+		self.GeometryCollection.PerspectiveDrawing(projection)
+	}
+
+	PerspectiveDrawing { :self |
+		self.GeometryCollection.PerspectiveDrawing
 	}
 
 	lineGraph { :self |

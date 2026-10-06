@@ -14,18 +14,16 @@ which must be an Ascii encoding.
 The inverses are `ascii` and `asciiByteArray`:
 
 ```
->>> 'ascii'.ascii.asciiString
-'ascii'
+>>> 'ascii'.ascii
+[97 115 99 105 105]
 
->>> 'ascii'
->>> .asciiByteArray
->>> .asciiString
-'ascii'
+>>> 'ascii'.asciiByteArray
+ByteArray[97 115 99 105 105]
 ```
 
 * * *
 
-See also: ascii, asciiByteArray, ByteArray, String
+See also: ByteArray, List, String, ascii, asciiByteArray
 
 Guides: String Functions
 

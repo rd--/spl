@@ -42,7 +42,7 @@ Lookup and draw entry:
 system
 .colourCheckerChart
 .at('Bluish green')
-.asColour
+.Colour
 ~~~
 
 ![](Help/Image/colourCheckerChart-A.svg)

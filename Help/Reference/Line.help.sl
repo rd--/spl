@@ -111,7 +111,7 @@ Line[
 	0 0 1;
 	0 1 1;
 	1 1 1
-].asPerspectiveDrawing
+].PerspectiveDrawing
 ~~~
 
 ![](Help/Image/Line-F.svg)

@@ -45,7 +45,7 @@ A perspective drawing of the 70th Johnson solid:
 system
 .fradinPolyhedraCatalogue
 .at('Johnson70')
-.asPerspectiveDrawing
+.PerspectiveDrawing
 ~~~
 
 ![](Help/Image/fradinPolyhedraCatalogue-A.svg)
@@ -56,6 +56,6 @@ and this function requires the item be in the interpreter cache.
 
 * * *
 
-See also: asPerspectiveDrawing, holmesPolyhedraCatalogue, levskayaPolyhedraCatalogue, Polyhedra
+See also: PerspectiveDrawing, holmesPolyhedraCatalogue, levskayaPolyhedraCatalogue, Polyhedra
 
 Guides: Library Catalogue

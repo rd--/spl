@@ -9,10 +9,6 @@ LineDrawing : [Object] {
 		'<img src="data:image/svg+xml;base64,\n%">'.format([svgEncodedPretty])
 	}
 
-	asLineDrawing { :self |
-		self
-	}
-
 	asObjectUrl { :self |
 		self
 		.asSvg
@@ -52,17 +48,21 @@ LineDrawing : [Object] {
 		self.metadata.put!('height', aNumber)
 	}
 
+	LineDrawing { :self |
+		self
+	}
+
 }
 
 +List {
 
-	asLineDrawing { :self |
+	LineDrawing { :self |
 		self.isMatrix.if {
 			let [m, n] = self.shape;
 			(n = 2).if {
-				self.Line.asLineDrawing
+				self.Line.LineDrawing
 			} {
-				self.error('asLineDrawing')
+				self.error('LineDrawing')
 			}
 		} {
 			LineDrawing(self)

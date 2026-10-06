@@ -39,7 +39,7 @@ then toward the front (_x_):
 
 ~~~spl svg=A
 perspectiveScene()
-.asPerspectiveDrawing(
+.PerspectiveDrawing(
 	AxonometricProjection[
 		-1/2 1/6.pi;
 		1 0;
@@ -61,7 +61,7 @@ and the line _l_ first moves toward the back (_z_), then up (_y_), then right (_
 
 ~~~spl svg=B
 perspectiveScene()
-.asPerspectiveDrawing(
+.PerspectiveDrawing(
 	AxonometricProjection[
 		1 0;
 		1 1/2.pi;
@@ -85,7 +85,7 @@ then rightward (_x_):
 
 ~~~spl svg=C
 perspectiveScene()
-.asPerspectiveDrawing(
+.PerspectiveDrawing(
 	AxonometricProjection[
 		1 0;
 		1/2 1/6.pi;

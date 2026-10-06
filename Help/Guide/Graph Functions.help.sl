@@ -124,9 +124,9 @@ Converting Functions:
 
 Drawing Functions:
 
-- `asGeometryCollection`
-- `asLineDrawing`
-- `asPerspectiveDrawing`
+- `GeometryCollection`
+- `LineDrawing`
+- `PerspectiveDrawing`
 - `circularGraphPlot`
 - `completeGraphDrawing`
 - `dotLayout`

@@ -52,7 +52,7 @@ resamples the gradient to have the specified number of equally spaced positions:
 ~~~spl svg=B
 system
 .colourGradients['Mathematica']['CMYKColors']
-.asColourGradient
+.ColourGradient
 .resample(48)
 ~~~
 

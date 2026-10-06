@@ -1,6 +1,6 @@
-# asDiscreteColourGradient
+# discreteColourGradient
 
-- _asDiscreteColourGradient([c₁ c₂ …])_
+- _discreteColourGradient([c₁ c₂ …])_
 
 Answer a `ColourGradient`,
 arranged to be a discrete gradient of the colour palette at _c_,
@@ -12,13 +12,13 @@ from the _ColorBrewer_ collection of `colourPalettes`:
 ~~~spl svg=A
 system
 .colourPalettes['ColorBrewer']['Set1']
-.asDiscreteColourGradient
+.discreteColourGradient
 ~~~
 
-![](Help/Image/asDiscreteColourGradient-A.svg)
+![](Help/Image/discreteColourGradient-A.svg)
 
 * * *
 
-See also: asContinuousColourGradient, Colour, ColourGradient
+See also: Colour, ColourGradient, continuousColourGradient
 
 Guides: Colour Functions

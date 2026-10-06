@@ -627,7 +627,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'Character'
 		'asCollection'
 		'Complex'
-		'asContinuousEvent'
+		'ContinuousEvent'
 		'CylindricalCoordinates'
 		'asFileUrl'
 		'Float'

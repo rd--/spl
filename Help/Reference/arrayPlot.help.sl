@@ -3,7 +3,7 @@
 - _arrayPlot(a, f/1)_
 
 Answer a plot that gives a visual representation of the elements in the array _a_.
-If the colour function _f_ is elided `asColour` is specified.
+If the colour function _f_ is elided `Colour` is specified.
 
 A 3×3×3 matrix:
 
@@ -61,15 +61,21 @@ let g = (1 -- c.size).discretize(36).collect(
 
 ![](Help/Image/arrayPlot-D.svg)
 
+Greyscale martrix plot:
+
+~~~spl svg=E
 [
 	1 0 0 0.3;
 	1 1 0 0.3;
 	1 0 1 0.7
-].arrayPlot
+].greyscaleMatrix.arrayPlot
+~~~
+
+![](Help/Image/arrayPlot-E.svg)
 
 * * *
 
-See also: asColourDrawing, Bitmap, discretePlot, functionPlot, graphPlot, Greymap, Image, linePlot, matrixPlot, parametricPlot, scatterPlot, surfacePlot
+See also: Bitmap, ColourGrid, Greymap, Image, colourMatrixPlot, discretePlot, functionPlot, graphPlot, linePlot, matrixPlot, parametricPlot, scatterPlot, surfacePlot
 
 Guides: Plotting Functions
 

@@ -27,7 +27,7 @@ lookup is case-sensitive and names are given in all lower case:
 >>> system
 >>> .crayolaColourCatalogue
 >>> .at('Burnt Umber')
->>> .asColour
+>>> .Colour
 >>> .rgbString
 'rgb(128,85,51)'
 ```
@@ -51,7 +51,7 @@ Sorted by `relativeLuminance`:
 system
 .crayolaColourCatalogue
 .values
-.collect(asColour/1)
+.collect(Colour/1)
 .sortOn!(relativeLuminance/1)
 .arrayReshape([11 15], nil)
 .arrayPlot

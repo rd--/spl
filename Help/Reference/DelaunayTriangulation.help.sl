@@ -34,7 +34,7 @@ Draw the `vertexCoordinates` and `edgeList` of the Delaunay triangulation of a h
 ~~~spl svg=B
 DelaunayTriangulation(
 	6.circlePoints(1)
-).asLineDrawing
+).LineDrawing
 ~~~
 
 ![](Help/Image/DelaunayTriangulation-B.svg)

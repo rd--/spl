@@ -277,9 +277,9 @@
   7. ![](Help/Image/asLineDrawing-G.svg)
   8. ![](Help/Image/asLineDrawing-H.svg)
   9. ![](Help/Image/asLineDrawing-I.svg)
-- `asPerspectiveDrawing`
-  1. ![](Help/Image/asPerspectiveDrawing-A.svg)
-  2. ![](Help/Image/asPerspectiveDrawing-B.svg)
+- `PerspectiveDrawing`
+  1. ![](Help/Image/PerspectiveDrawing-A.svg)
+  2. ![](Help/Image/PerspectiveDrawing-B.svg)
 - `asRandomTable`
   1. ![](Help/Image/asRandomTable-A.svg)
   2. ![](Help/Image/asRandomTable-B.svg)

@@ -17,7 +17,7 @@ PlotSet : [Object] {
 			{ :i :j |
 				let p = plotMatrix[i][j];
 				p.isNotNil.if {
-					let d = p.asLineDrawing;
+					let d = p.LineDrawing;
 					d.height!(rowHeight);
 					[
 						'<g transform="translate(%, %)">'.format(

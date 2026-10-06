@@ -1,6 +1,6 @@
-# asContinuousColourGradient
+# continuousColourGradient
 
-- _asContinuousColourGradient([c₁ c₂ …])_
+- _continuousColourGradient([c₁ c₂ …])_
 
 Answer a `ColourGradient`,
 arranged to be a continous gradient of the colour palette at _c_,
@@ -13,10 +13,10 @@ from the _WallStreetJournal_ collection of `colourPalettes`:
 system.colourPalettes
 .at('WallStreetJournal')
 .at('Rgby')
-.asContinuousColourGradient
+.continuousColourGradient
 ~~~
 
-![](Help/Image/asContinuousColourGradient-A.svg)
+![](Help/Image/continuousColourGradient-A.svg)
 
 The discrete gradient of the same palette,
 retrieved using `namedColourPalette`:
@@ -24,13 +24,13 @@ retrieved using `namedColourPalette`:
 ~~~spl svg=B
 'WallStreetJournal/Rgby'
 .namedColourPalette
-.asDiscreteColourGradient
+.discreteColourGradient
 ~~~
 
-![](Help/Image/asContinuousColourGradient-B.svg)
+![](Help/Image/continuousColourGradient-B.svg)
 
 * * *
 
-See also: asColourGradient, asDiscreteColourGradient, Colour, ColourGradient, colourPalettes, namedColourPalette
+See also: Colour, ColourGradient, colourPalettes, discreteColourGradient, namedColourPalette
 
 Guides: Colour Functions

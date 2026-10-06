@@ -11,8 +11,8 @@ Trait Functions:
 
 Converting:
 
-- `asLineDrawing`
-- `asPerspectiveDrawing`
+- `LineDrawing`
+- `PerspectiveDrawing`
 
 Svg Drawing:
 

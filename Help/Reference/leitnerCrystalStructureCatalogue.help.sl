@@ -45,7 +45,7 @@ Draw a picture of the entry for _NbP_ in an axonometric perspective:
 system
 .leitnerCrystalStructureCatalogue
 .at('NbP')
-.asPerspectiveDrawing(
+.PerspectiveDrawing(
 	AxonometricProjection(
 		1/6.pi, 0, 1/6.pi,
 		1, 1, 1

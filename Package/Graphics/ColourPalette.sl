@@ -6,16 +6,16 @@ ColourPalette : [Object, Store] {
 		self.colourList.at(index)
 	}
 
-	asContinuousColourGradient { :self |
-		self.colourList.asContinuousColourGradient
+	continuousColourGradient { :self |
+		self.colourList.continuousColourGradient
 	}
 
-	asDiscreteColourGradient { :self |
-		self.colourList.asDiscreteColourGradient
+	discreteColourGradient { :self |
+		self.colourList.discreteColourGradient
 	}
 
 	drawing { :self |
-		self.asDiscreteColourGradient.drawing
+		self.discreteColourGradient.drawing
 	}
 
 	size { :self |

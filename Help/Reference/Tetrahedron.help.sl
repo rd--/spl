@@ -12,7 +12,7 @@ Tetrahedron[
 	1 0 0;
 	0 1 0;
 	0 0 1
-].asPerspectiveDrawing
+].PerspectiveDrawing
 ~~~
 
 ![](Help/Image/Tetrahedron-A.svg)
@@ -25,7 +25,7 @@ Tetrahedron[
 	1 0 0;
 	1 1 0;
 	1 1 1
-].asPerspectiveDrawing
+].PerspectiveDrawing
 ~~~
 
 ![](Help/Image/Tetrahedron-B.svg)

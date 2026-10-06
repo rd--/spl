@@ -26,7 +26,7 @@ Draw the unit octahedron:
 
 ~~~spl svg=A
 [0 0 0].unitOctahedron
-.asPerspectiveDrawing
+.PerspectiveDrawing
 ~~~
 
 ![](Help/Image/unitOctahedron-A.svg)

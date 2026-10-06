@@ -28,7 +28,7 @@ The triplet can, in fact, have four places, indicating an _alpha_ channel:
 Draw parsed colour:
 
 ~~~spl svg=A
-'#E0A32E'.parseHexTriplet.asColour
+'#E0A32E'.parseHexTriplet.Colour
 ~~~
 
 ![](Help/Image/parseHexTriplet-A.svg)

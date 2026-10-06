@@ -11,14 +11,14 @@ A cube helix gradient:
 ~~~spl svg=A
 (0 -- 1).discretize(48).collect(
 cubeHelix(0.5, -1.5, 1.2, 1.0)
-).asContinuousColourGradient
+).continuousColourGradient
 ~~~
 
 ![](Help/Image/cubeHelix-A.svg)
 
 * * *
 
-See also: asContinuousColourGradient, Colour, ColourGradient, quilezGradient, RgbColour
+See also: Colour, ColourGradient, RgbColour, continuousColourGradient, quilezGradient
 
 Guides: Colour Functions
 

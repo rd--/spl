@@ -25,7 +25,7 @@ Draw the _(4,4)_ knight’s graph,
 the answered graph has vertex specified:
 
 ~~~spl svg=C
-4.knightGraph.asLineDrawing
+4.knightGraph.LineDrawing
 ~~~
 
 ![](Help/Image/knightGraph-C.svg)
@@ -33,7 +33,7 @@ the answered graph has vertex specified:
 Draw the _(5,5)_ knight’s graph:
 
 ~~~spl svg=D
-5.knightGraph.asLineDrawing
+5.knightGraph.LineDrawing
 ~~~
 
 ![](Help/Image/knightGraph-D.svg)
@@ -41,7 +41,7 @@ Draw the _(5,5)_ knight’s graph:
 Draw the _(7,9)_ knight’s graph:
 
 ~~~spl svg=E
-knightGraph(7, 9).asLineDrawing
+knightGraph(7, 9).LineDrawing
 ~~~
 
 ![](Help/Image/knightGraph-E.svg)
@@ -49,7 +49,7 @@ knightGraph(7, 9).asLineDrawing
 Draw the _(3,3)_ knight’s graph:
 
 ~~~spl svg=F
-knightGraph(3, 3).asLineDrawing
+knightGraph(3, 3).LineDrawing
 ~~~
 
 ![](Help/Image/knightGraph-F.svg)

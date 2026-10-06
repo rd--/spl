@@ -2,20 +2,6 @@ Scale : [Object, Store] {
 
 	| intervals description startIndex |
 
-	asLineDrawing { :self |
-		let i = [0] ++ self.intervals.prefixSum * 3;
-		[
-			i.collect { :x |
-				Line([x -1; x 1])
-			},
-			Line([[i.min, 0], [i.max, 0]])
-		].LineDrawing(
-			(
-				height: 50
-			)
-		)
-	}
-
 	degreeToKey { :self :scaleDegree |
 		scaleDegree.isCollection.if {
 			scaleDegree.collect { :each |
@@ -27,7 +13,7 @@ Scale : [Object, Store] {
 	}
 
 	drawing { :self |
-		self.asLineDrawing.drawing
+		self.LineDrawing.drawing
 	}
 
 	fractionalDegreeToKey { :self :scaleDegree |
@@ -117,6 +103,20 @@ Scale : [Object, Store] {
 
 	isTernary { :self |
 		self.stepArity = 3
+	}
+
+	LineDrawing { :self |
+		let i = [0] ++ self.intervals.prefixSum * 3;
+		[
+			i.collect { :x |
+				Line([x -1; x 1])
+			},
+			Line([[i.min, 0], [i.max, 0]])
+		].LineDrawing(
+			(
+				height: 50
+			)
+		)
 	}
 
 	nameList { :self |

@@ -27,7 +27,7 @@ lookup is case-sensitive and names are given in all lower case:
 ```
 >>> system
 >>> .svgColourCatalogue['powderblue']
->>> .asColour
+>>> .Colour
 >>> .rgbString
 'rgb(176,224,230)'
 ```
@@ -66,7 +66,7 @@ The `svgColourCatalogue` method is `requireLibraryItem` of 'SvgColourCatalogue'.
 
 * * *
 
-See also: asColour, Colour, LibraryItem, namedColour, RgbColour, svgColourDictionary
+See also: Colour, LibraryItem, namedColour, RgbColour, svgColourDictionary
 
 Guides: Colour Functions, Library Catalogue
 

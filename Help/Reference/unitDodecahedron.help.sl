@@ -25,7 +25,7 @@ Draw the _xy_ projection of the unit dodecahedron:
 ~~~spl svg=A
 [0 0 0]
 .unitDodecahedron
-.asPerspectiveDrawing { :each |
+.PerspectiveDrawing { :each |
 	let [x, y, z] = each;
 	[x, y]
 }
@@ -38,7 +38,7 @@ Draw an axonometric projection of the unit dodecahedron:
 ~~~spl svg=B
 [0 0 0]
 .unitDodecahedron
-.asPerspectiveDrawing
+.PerspectiveDrawing
 ~~~
 
 ![](Help/Image/unitDodecahedron-B.svg)

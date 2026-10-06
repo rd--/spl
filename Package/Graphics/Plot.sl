@@ -10,7 +10,55 @@ Plot : [Object] {
 		ColourGrid(contents)
 	}
 
-	asLineDrawingXy { :self |
+	assertScaleIsLinear { :self |
+		(self.scale = 'linear').ifFalse {
+			self.error('scale not linear')
+		}
+	}
+
+	columnCount { :self |
+		let counts = self.pageList.collect { :each |
+			let [rowCount, columnCount] = each.shape;
+			columnCount
+		}.nub;
+		(counts.size = 1).if {
+			counts.anyOne
+		} {
+			self.error('columnCount: pages have differing column counts')
+		}
+	}
+
+	drawing { :self |
+		/* The array and matrix cases are to retain the distinct direct form.  The Help/Image files are currently stored in the direct form. */
+		self.format.caseOf(
+			[
+				'array' -> {
+					self.arrayColourGrid.drawing
+				},
+				'graph' -> {
+					let [graph] = self.pageList;
+					graph.dotDrawing(self.options)
+				},
+				'matrix' -> {
+					self.matrixColourGrid.drawing
+				}
+			]
+		) {
+			self.LineDrawing.drawing
+		}
+	}
+
+	height { :self |
+		self.options.atIfAbsent('height') {
+			100
+		}
+	}
+
+	height { :self :aNumber |
+		self.options.put!('height', aNumber)
+	}
+
+	lineDrawingXy { :self |
 		let segments = self.pageList.collect { :each |
 			each.segmentPlotData(self.scale.scaleFunction)
 		}.catenate;
@@ -69,7 +117,7 @@ Plot : [Object] {
 		LineDrawing(items, (height: self.height))
 	}
 
-	asLineDrawingXyz { :self |
+	lineDrawingXyz { :self |
 		(self.format = 'line').if {
 			let p/1 = AxonometricProjection(
 				1/6.pi, 0, 0,
@@ -96,7 +144,7 @@ Plot : [Object] {
 		}
 	}
 
-	asLineDrawingY { :self |
+	lineDrawingY { :self |
 		Plot(
 			self.pageList.collect { :each |
 				each.withIndexCollect { :item :x |
@@ -105,84 +153,36 @@ Plot : [Object] {
 				}
 			},
 			self.format
-		).asLineDrawing
+		).LineDrawing
 	}
 
-	asLineDrawing { :self |
+	LineDrawing { :self |
 		self.format.caseOf(
 			[
 				'array' -> {
-					self.arrayColourGrid.asLineDrawing
+					self.arrayColourGrid.LineDrawing
 				},
 				'matrix' -> {
-					self.matrixColourGrid.asLineDrawing
+					self.matrixColourGrid.LineDrawing
 				}
 			]
 		) {
 			self.columnCount.caseOf(
 				[
 					1 -> {
-						self.asLineDrawingY
+						self.lineDrawingY
 					},
 					2 -> {
-						self.asLineDrawingXy
+						self.lineDrawingXy
 					},
 					3 -> {
-						self.asLineDrawingXyz
+						self.lineDrawingXyz
 					}
 				]
 			) {
-				self.unimplementedCase('asLineDrawing')
+				self.unimplementedCase('LineDrawing')
 			}
 		}
-	}
-
-	assertScaleIsLinear { :self |
-		(self.scale = 'linear').ifFalse {
-			self.error('scale not linear')
-		}
-	}
-
-	columnCount { :self |
-		let counts = self.pageList.collect { :each |
-			let [rowCount, columnCount] = each.shape;
-			columnCount
-		}.nub;
-		(counts.size = 1).if {
-			counts.anyOne
-		} {
-			self.error('columnCount: pages have differing column counts')
-		}
-	}
-
-	drawing { :self |
-		/* The array and matrix cases are to retain the distinct direct form.  The Help/Image files are currently stored in the direct form. */
-		self.format.caseOf(
-			[
-				'array' -> {
-					self.arrayColourGrid.drawing
-				},
-				'graph' -> {
-					let [graph] = self.pageList;
-					graph.dotDrawing(self.options)
-				},
-				'matrix' -> {
-					self.matrixColourGrid.drawing
-				}
-			]
-		) {
-			self.asLineDrawing.drawing
-		}
-	}
-
-	height { :self |
-		self.options.atIfAbsent('height') {
-			100
-		}
-	}
-
-	height { :self :aNumber |
-		self.options.put!('height', aNumber)
 	}
 
 	log { :self |
@@ -275,7 +275,7 @@ Plot : [Object] {
 		let [min, max] = self;
 		let colourFunction/1 = system
 		.colourGradients['Kovesi']['Cyclic-Mygbm-30-95-C78S25']
-		.asColourGradient
+		.ColourGradient
 		.asBlock;
 		let r = (min.real -- max.real).subdivide(k);
 		let i = (min.imaginary -- max.imaginary).subdivide(k);

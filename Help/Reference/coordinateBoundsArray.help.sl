@@ -47,7 +47,7 @@ Draw an array of three-dimensional points with given discretization steps:
 .coordinateBoundsArray([0.7 1.5 0.5.pi])
 .flatten(2)
 .PointCloud
-.asPerspectiveDrawing
+.PerspectiveDrawing
 ~~~
 
 ![](Help/Image/coordinateBoundsArray-B.svg)

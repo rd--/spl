@@ -2,10 +2,6 @@ Tetrahedron : [Object, Store, Equal] {
 
 	| vertexCoordinates |
 
-	asPerspectiveDrawing { :self |
-		self.Polyhedron.asPerspectiveDrawing
-	}
-
 	circumcenter { :self |
 		self.circumsphere.center
 	}
@@ -43,6 +39,10 @@ Tetrahedron : [Object, Store, Equal] {
 		{ :lambda |
 			(v * lambda).sum
 		}
+	}
+
+	PerspectiveDrawing { :self |
+		self.Polyhedron.PerspectiveDrawing
 	}
 
 	Polyhedron { :self |

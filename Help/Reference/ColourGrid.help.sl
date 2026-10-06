@@ -3,7 +3,7 @@
 - _ColourGrid(m)_
 
 A `Type` representing a colour grid specified by the matrix _m_.
-The elements of _m_ must implement `asColour`.
+The elements of _m_ must implement `Colour`.
 
 A 3×3×3 array,
 understood as a 3×3 or _(r,g,b)_ triples:
@@ -30,7 +30,7 @@ Sfc32(731894)
 
 * * *
 
-See also: arrayPlot, asColour, Colour, matrixPlot
+See also: Colour, LineDrawing, arrayPlot, colourMatrixPlot, matrixPlot
 
 Guides: Colour Functions, Image Functions
 

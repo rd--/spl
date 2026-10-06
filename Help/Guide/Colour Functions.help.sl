@@ -37,7 +37,7 @@ Catalogues:
 
 Converting:
 
-- `asColour`
+- `Colour`
 - `cmyToRgb`
 - `hslToHsv`
 - `hslToRgb`
@@ -65,8 +65,8 @@ Printing:
 Drawing:
 
 - `arrayPlot`
-- `asGreyscaleDrawing`
-- `asColourDrawing`
+- `matrixPlot`
+- `colourMatrixPlot`
 
 Encoding and Decoding:
 
@@ -77,9 +77,9 @@ Encoding and Decoding:
 
 Gradients and Palettes:
 
-- `asColourGradient`
-- `asContinuousColourGradient`
-- `asDiscreteColourGradient`
+- `ColourGradient`
+- `continuousColourGradient`
+- `discreteColourGradient`
 - `colourGradients`
 - `colourPalettes`
 - `cubeHelix`
@@ -141,8 +141,8 @@ Standards:
 
 Line Drawings:
 
-- `asColourDrawing`
-- `asGreyscaleDrawing`
+- `ColourGrid`
+- `LineDrawing`
 
 * * *
 

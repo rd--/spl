@@ -2,79 +2,23 @@ DelaunayTriangulation : [Object] {
 
 	| vertexCoordinates triangulation |
 
-	asLineDrawing { :self |
-		let v = self.vertexCoordinates;
-		[
-			v.PointCloud,
-			self.edgeList.collect { :each |
-				v.atAll(each).Line
-			}
-		].LineDrawing
-	}
-
-	basicCoordinates { :self |
-		<primitive: return _self.triangulation.coords;>
-	}
-
-	basicConvexHullIndices { :self |
-		<primitive: return Array.from(_self.triangulation.hull);>
-	}
-
-	basicEdgeList { :self |
-		<primitive:
-		const delauny = _self.triangulation;
-		const answer = [];
-		for (let e = 0; e < delauny.triangles.length; e++) {
-			if (e > delauny.halfedges[e]) {
-				const p = delauny.triangles[e];
-				const q = delauny.triangles[(e % 3 === 2) ? e - 2 : e + 1];
-				answer.push([p, q]);
-			};
-		};
-		return answer;
-		>
-	}
-
-	basicHalfEdges { :self |
-		<primitive: return Array.from(_self.triangulation.halfedges);>
-	}
-
-	basicFaceIndices { :self |
-		<primitive: return Array.from(_self.triangulation.triangles);>
-	}
-
-	basicVoronoiEdgeList { :self |
-		<primitive:
-		const delaunay = _self.triangulation;
-		const answer = [];
-		for (let e = 0; e < delaunay.triangles.length; e++) {
-			if (e < delaunay.halfedges[e]) {
-				const p = Math.floor(e / 3);;
-				const q = Math.floor(delaunay.halfedges[e] / 3);
-				answer.push([p, q]);
-			}
-		};
-		return answer;
-		>
-	}
-
 	convexHull { :self |
 		self.vertexCoordinates.atAll(self.convexHullIndices)
 	}
 
 	convexHullIndices { :self |
-		self.basicConvexHullIndices + 1
+		self.uncheckedConvexHullIndices + 1
 	}
 
 	edgeCount { :self |
-		let halfEdges = self.basicHalfEdges;
+		let halfEdges = self.uncheckedHalfEdges;
 		let boundaryEdgeCount = halfEdges.occurrencesOf(-1);
 		let interiorEdgeCount = (halfEdges.size - boundaryEdgeCount) / 2;
 		boundaryEdgeCount + interiorEdgeCount
 	}
 
 	edgeList { :self |
-		self.basicEdgeList + 1
+		self.uncheckedEdgeList + 1
 	}
 
 	faceCount { :self |
@@ -82,7 +26,7 @@ DelaunayTriangulation : [Object] {
 	}
 
 	faceIndices { :self |
-		let indicesVector = self.basicFaceIndices;
+		let indicesVector = self.uncheckedFaceIndices;
 		let answer = [];
 		let index = 0;
 		(indicesVector.size / 3).timesRepeat {
@@ -98,11 +42,68 @@ DelaunayTriangulation : [Object] {
 		answer
 	}
 
+	LineDrawing { :self |
+		let v = self.vertexCoordinates;
+		[
+			v.PointCloud,
+			self.edgeList.collect { :each |
+				v.atAll(each).Line
+			}
+		].LineDrawing
+	}
+
 	polygonMesh { :self |
 		PolygonMesh(
 			self.vertexCoordinates,
 			self.faceIndices
 		)
+	}
+
+
+	uncheckedCoordinates { :self |
+		<primitive: return _self.triangulation.coords;>
+	}
+
+	uncheckedConvexHullIndices { :self |
+		<primitive: return Array.from(_self.triangulation.hull);>
+	}
+
+	uncheckedEdgeList { :self |
+		<primitive:
+		const delauny = _self.triangulation;
+		const answer = [];
+		for (let e = 0; e < delauny.triangles.length; e++) {
+			if (e > delauny.halfedges[e]) {
+				const p = delauny.triangles[e];
+				const q = delauny.triangles[(e % 3 === 2) ? e - 2 : e + 1];
+				answer.push([p, q]);
+			};
+		};
+		return answer;
+		>
+	}
+
+	uncheckedHalfEdges { :self |
+		<primitive: return Array.from(_self.triangulation.halfedges);>
+	}
+
+	uncheckedFaceIndices { :self |
+		<primitive: return Array.from(_self.triangulation.triangles);>
+	}
+
+	uncheckedVoronoiEdgeList { :self |
+		<primitive:
+		const delaunay = _self.triangulation;
+		const answer = [];
+		for (let e = 0; e < delaunay.triangles.length; e++) {
+			if (e < delaunay.halfedges[e]) {
+				const p = Math.floor(e / 3);;
+				const q = Math.floor(delaunay.halfedges[e] / 3);
+				answer.push([p, q]);
+			}
+		};
+		return answer;
+		>
 	}
 
 	vertexCount { :self |
@@ -114,7 +115,7 @@ DelaunayTriangulation : [Object] {
 	}
 
 	voronoiEdgeList { :self |
-		self.basicVoronoiEdgeList + 1
+		self.uncheckedVoronoiEdgeList + 1
 	}
 
 
@@ -128,7 +129,7 @@ DelaunayTriangulation : [Object] {
 	voronoiExteriorCellRays { :self |
 		let answer = [self.vertexCount, 2].zeroes;
 		let hull = self.convexHullIndices;
-		let coord = self.basicCoordinates;
+		let coord = self.uncheckedCoordinates;
 		let h = hull.last;
 		let p1 = h;
 		let x1 = coord[2 * h + 1];
@@ -182,7 +183,7 @@ DelaunayTriangulation : [Object] {
 			newDelaunayTriangulation()
 			.initializeSlots(
 				self,
-				coordinateVector.basicDelaunayTriangulation
+				coordinateVector.uncheckedDelaunayTriangulation
 			)
 		} {
 			self.error('DelaunayTriangulation: not two column matrix')
@@ -193,7 +194,7 @@ DelaunayTriangulation : [Object] {
 
 +Float64Array {
 
-	basicDelaunayTriangulation { :self |
+	uncheckedDelaunayTriangulation { :self |
 		<primitive: return new sl.Delaunator(_self);>
 	}
 

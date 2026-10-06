@@ -2,7 +2,11 @@ PerspectiveDrawing : [Object] {
 
 	| components metadata |
 
-	asLineDrawing { :self |
+	drawing { :self |
+		self.LineDrawing.drawing
+	}
+
+	LineDrawing { :self |
 		let projection = self.metadata['projection'];
 		LineDrawing(
 			self.components.collect { :each |
@@ -10,10 +14,6 @@ PerspectiveDrawing : [Object] {
 			},
 			self.metadata
 		)
-	}
-
-	drawing { :self |
-		self.asLineDrawing.drawing
 	}
 
 }

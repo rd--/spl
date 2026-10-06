@@ -16,7 +16,7 @@ resampled to thirty-two places:
 ~~~spl svg=A
 system
 .colourGradients['Mathematica']['Pastel']
-.asColourGradient
+.ColourGradient
 .resample(32)
 ~~~
 
@@ -32,8 +32,26 @@ The method `namedColourGradient` answers a `ColourGradient` value:
 
 ![](Help/Image/ColourGradient-B.svg)
 
+The unary form requires a matrix.
+A yellow-magenta-blue gradient with the magenta positioned at two-thirds:
+
+~~~spl svg=C
+ColourGradient[
+	[
+		1 1 0;
+		1 0 1;
+		0 0 1
+	],
+	[
+		0 0.66 1
+	]
+]
+~~~
+
+![](Help/Image/ColourGradient-C.svg)
+
 * * *
 
-See also: asColourGradient, asContinuousColourGradient, asDiscreteColourGradient, colourGradients, Colour, ColourPalette, namedColourGradient, resample
+See also: Colour, ColourPalette, continuousColourGradient, discreteColourGradient, colourGradients, namedColourGradient, resample
 
 Guides: Colour Functions

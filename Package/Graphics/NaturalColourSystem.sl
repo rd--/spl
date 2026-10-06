@@ -85,7 +85,7 @@
 		self.beginsWith('NCS ').if {
 			system.ncsColourCatalogue.at(
 				self.drop(4)
-			).asColour
+			).Colour
 		} {
 			self.error('ncsLookup')
 		}

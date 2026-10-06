@@ -31,7 +31,7 @@ Draw a gradient that places the red, green and blue components at equal phase di
 		1.00 1.00 1.00;
 		0.00 0.33 0.67
 	].quilezGradient
-).asContinuousColourGradient
+).continuousColourGradient
 ~~~
 
 ![](Help/Image/quilezGradient-A.svg)
@@ -46,7 +46,7 @@ Draw a gradient that cycles red twice, green once and blue not at all:
 		2.00 1.00 0.00;
 		0.50 0.20 0.25
 	].quilezGradient
-).asContinuousColourGradient
+).continuousColourGradient
 ~~~
 
 ![](Help/Image/quilezGradient-B.svg)
@@ -62,7 +62,7 @@ and red is scaled low and biased high:
 		2.00 1.00 1.00;
 		0.00 0.25 0.25
 	].quilezGradient
-).asContinuousColourGradient
+).continuousColourGradient
 ~~~
 
 ![](Help/Image/quilezGradient-C.svg)
@@ -80,7 +80,7 @@ and are therefore clipped:
 	].quilezGradient
 )
 .clip([0 1])
-.asContinuousColourGradient
+.continuousColourGradient
 ~~~
 
 ![](Help/Image/quilezGradient-D.svg)
@@ -97,14 +97,14 @@ A yellow, magenta, cyan gradient:
 	].quilezGradient
 )
 .clip([0 1])
-.asContinuousColourGradient
+.continuousColourGradient
 ~~~
 
 ![](Help/Image/quilezGradient-E.svg)
 
 * * *
 
-See also: asContinuousColourGradient, Colour, ColourGradient, cubeHelix, RgbColour, turboGradient
+See also: Colour, ColourGradient, RgbColour, continuousColourGradient, cubeHelix, turboGradient
 
 Guides: Colour Functions
 

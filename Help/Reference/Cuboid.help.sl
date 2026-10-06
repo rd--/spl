@@ -8,7 +8,7 @@ A unit cuboid:
 
 ~~~spl svg=A
 Cuboid[0 0 0; 1 1 1]
-.asPerspectiveDrawing
+.PerspectiveDrawing
 ~~~
 
 ![](Help/Image/Cuboid-A.svg)

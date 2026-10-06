@@ -4,10 +4,6 @@
 		self.typeResponsibility('alpha')
 	}
 
-	asColour { :self |
-		self
-	}
-
 	blue { :self |
 		self.rgb.third
 	}
@@ -27,6 +23,10 @@
 				}
 			]
 		)
+	}
+
+	Colour { :self |
+		self
 	}
 
 	drawing { :self |
@@ -224,16 +224,18 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 
 +List {
 
-	asColour { :self |
-		let a = SmallFloat(self);
-		a.size.caseOf(
-			[
-				3 -> { RgbColour(a, 1) },
-				4 -> { RgbColour(a.first(3), a[4]) }
-			]
-		) {
-			self.error('asColour')
-		}
+	Colour { :self |
+		self.atVectorOrElementwise { :each |
+			let a = each.SmallFloat;
+			a.size.caseOf(
+				[
+					3 -> { RgbColour(a, 1) },
+					4 -> { RgbColour(a.first(3), a[4]) }
+				]
+			) {
+				self.error('Colour')
+			}
+}
 	}
 
 	HsvColour { :self :alpha |
@@ -248,31 +250,31 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 	}
 
 	isBlue { :self |
-		self.asColour.isBlue
+		self.Colour.isBlue
 	}
 
 	isCyan { :self |
-		self.asColour.isCyan
+		self.Colour.isCyan
 	}
 
 	isGreen { :self |
-		self.asColour.isGreen
+		self.Colour.isGreen
 	}
 
 	isGrey { :self |
-		self.asColour.isGrey
+		self.Colour.isGrey
 	}
 
 	isMagenta { :self |
-		self.asColour.isMagenta
+		self.Colour.isMagenta
 	}
 
 	isRed { :self |
-		self.asColour.isRed
+		self.Colour.isRed
 	}
 
 	isYellow { :self |
-		self.asColour.isYellow
+		self.Colour.isYellow
 	}
 
 	RgbColour { :self :alpha |
@@ -340,7 +342,7 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 		RgbColour([level, level, level], alpha)
 	}
 
-	[greyLevel, asColour] { :level |
+	greyLevel { :level |
 		level.greyLevel(1)
 	}
 
@@ -871,19 +873,19 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 						system
 						.crayolaColourCatalogue
 						.at(colourName)
-						.asColour
+						.Colour
 					},
 					'Ncs' -> {
 						system
 						.ncsColourCatalogue
 						.at(colourName)
-						.asColour
+						.Colour
 					},
 					'Svg' -> {
 						system
 						.svgColourCatalogue
 						.at(colourName.asLowerCase)
-						.asColour
+						.Colour
 					}
 				]
 			)
@@ -900,7 +902,7 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 	}
 
 	parseHexColour { :self |
-		self.parseHexTriplet.asColour
+		self.parseHexTriplet.Colour
 	}
 
 	parseHexTriplet { :self |
@@ -929,7 +931,7 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 	}
 
 	parseRgbColour { :self |
-		self.parseRgbTriplet.asColour
+		self.parseRgbTriplet.Colour
 	}
 
 	parseRgbTriplet { :self |
@@ -951,7 +953,7 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 
 +Nil {
 
-	asColour { :unused |
+	Colour { :unused |
 		RgbColour([0 0 0], 0)
 	}
 
@@ -1045,7 +1047,7 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 	}
 
 	svgColourDictionary { :self |
-		self.svgColourCatalogue.collect(asColour/1)
+		self.svgColourCatalogue.collect(Colour/1)
 	}
 
 }

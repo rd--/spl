@@ -25,7 +25,7 @@ ColourGradient : [Object, Store] {
 			'		<stop offset="%" stop-color="%" />'.format(
 				[
 					p.printStringToFixed(3),
-					c.asColour.rgbString
+					c.Colour.rgbString
 				]
 			)
 		}.zipWith(self.colourList, self.positionList);
@@ -82,19 +82,23 @@ ColourGradient : [Object, Store] {
 
 +List {
 
-	asColourGradient { :self |
+	ColourGradient { :self :aList |
+		newColourGradient().initializeSlots(self, aList)
+	}
+
+	ColourGradient { :self |
 		let [c, p] = self;
 		ColourGradient(c, p)
 	}
 
-	asContinuousColourGradient { :self |
+	continuousColourGradient { :self |
 		ColourGradient(
 			self,
 			(0 -- 1).discretize(self.size).List
 		)
 	}
 
-	asDiscreteColourGradient { :self |
+	discreteColourGradient { :self |
 		let c = [];
 		let p = [];
 		let x = 0;
@@ -107,10 +111,6 @@ ColourGradient : [Object, Store] {
 			x := x + z
 		};
 		ColourGradient(c, p)
-	}
-
-	ColourGradient { :self :aList |
-		newColourGradient().initializeSlots(self, aList)
 	}
 
 }
@@ -130,7 +130,7 @@ ColourGradient : [Object, Store] {
 		.colourGradients
 		.at(collectionName)
 		.at(paletteName)
-		.asColourGradient
+		.ColourGradient
 	}
 
 	namedColourGradient { :self |
@@ -148,7 +148,7 @@ ColourGradient : [Object, Store] {
 			};
 			answer.size.caseOf([
 				0 -> { self.error('namedColourGradient: unknown colour gradient') },
-				1 -> { answer[1].asColourGradient }
+				1 -> { answer[1].ColourGradient }
 			]) {
 				self.error('namedColourGradient: multiple matches')
 			}
@@ -163,7 +163,7 @@ ColourGradient : [Object, Store] {
 	parula { :self |
 		system
 		.colourGradients['Mathworks']['Parula']
-		.asColourGradient
+		.ColourGradient
 		.resample(self)
 		.colourList
 	}

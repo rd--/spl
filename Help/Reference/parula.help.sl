@@ -9,14 +9,14 @@ The intensities are in the range _(0,1)_.
 Plot the _parula_ colour gradient sampled at sixteen steps:
 
 ~~~spl svg=A
-16.parula.asContinuousColourGradient
+16.parula.continuousColourGradient
 ~~~
 
 ![](Help/Image/parula-A.svg)
 
 * * *
 
-See also: asContinuousColourGradient, ColourGradient, colourGradients
+See also: ColourGradient, colourGradients, continuousColourGradient
 
 Guides: Colour Functions
 

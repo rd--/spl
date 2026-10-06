@@ -42,7 +42,7 @@ RgbColour(b / 3).reshape([8 8])
 
 * * *
 
-See also: asColour, Colour, HsvColour, RybColour, srgbEncode
+See also: Colour, HsvColour, RybColour, srgbEncode
 
 Guides: Colour Functions
 

@@ -6,7 +6,7 @@ Answer a collection of colour gradients collated from a variety of sources.
 The collection is keyed firstly by the collection name,
 and secondly by the palette name.
 Items are colour list and position list pairs,
-which can be converted into a `ColourGradient` value using `asColourGradient`.
+which can be converted into a `ColourGradient`.
 
 Count collections:
 
@@ -42,7 +42,7 @@ Plot the two colour _Winter_ gradient from the _Mathworks_ collection:
 ~~~spl svg=A
 system
 .colourGradients['Mathworks']['Winter']
-.asColourGradient
+.ColourGradient
 ~~~
 
 ![](Help/Image/colourGradients-A.svg)
@@ -52,7 +52,7 @@ Plot the sixteen colour _Spring_ gradient from the _Mathworks_ collection:
 ~~~spl svg=B
 system
 .colourGradients['Mathworks']['Spring']
-.asColourGradient
+.ColourGradient
 ~~~
 
 ![](Help/Image/colourGradients-B.svg)
@@ -63,7 +63,7 @@ resampled to sixteen colours:
 ~~~spl svg=C
 system
 .colourGradients['Viridis']['Plasma']
-.asColourGradient
+.ColourGradient
 .resample(16)
 ~~~
 
@@ -75,7 +75,7 @@ resampled to twenty-four colours:
 ~~~spl svg=D
 system
 .colourGradients['Mathematica']['Rainbow']
-.asColourGradient
+.ColourGradient
 .resample(24)
 ~~~
 
@@ -86,7 +86,7 @@ Plot the one-hundred twenty-eight colour _Isol_ gradient from the _Niccoli_ coll
 ~~~spl svg=E
 system
 .colourGradients['Niccoli']['Isol']
-.asColourGradient
+.ColourGradient
 .resample(32)
 ~~~
 
@@ -99,7 +99,7 @@ Use a resampled form of the _Pastel_ gradient from the _Mathematica_ collection 
 let i = (-2 -- 2).discretize(100);
 let f/1 = system
 .colourGradients['Mathematica']['Pastel']
-.asColourGradient
+.ColourGradient
 .resample(16)
 .asBlock;
 { :x :y |
@@ -114,7 +114,7 @@ Resample and plot the _ocean.deep_ gradient from the _pals_ collection:
 ~~~spl svg=G
 system
 .colourGradients['Ocean']['Deep']
-.asColourGradient
+.ColourGradient
 .resample(32)
 ~~~
 
@@ -125,7 +125,7 @@ Resample and plot the _Isoluminant-Cgo-80-C38_ gradient from the _Kovesi_ collec
 ~~~spl svg=H
 system
 .colourGradients['Kovesi']['Isoluminant-Cgo-80-C38']
-.asColourGradient
+.ColourGradient
 .resample(32)
 ~~~
 
@@ -138,7 +138,7 @@ from the _Kovesi_ collection:
 ~~~spl svg=I
 system
 .colourGradients['Kovesi']['Cyclic-Mygbm-30-95-C78S25']
-.asColourGradient
+.ColourGradient
 .resample(32)
 ~~~
 
@@ -158,6 +158,6 @@ and this function requires the item be in the interpreter cache.
 
 * * *
 
-See also: asColourGradient, colourPalettes, Colour, ColourGradient, cubeHelix, namedColourGradient, parula, RgbColour
+See also: Colour, ColourGradient, RgbColour, colourPalettes, cubeHelix, namedColourGradient, parula
 
 Guides: Colour Functions, Library Catalogue

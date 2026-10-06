@@ -4,14 +4,6 @@ CrystalStructure : [Object] {
 
 	| name description vertexCount edges vertexLabels vertexCoordinates |
 
-	asPerspectiveDrawing { :self :projection |
-		self.Graph.asPerspectiveDrawing(projection)
-	}
-
-	asPerspectiveDrawing { :self |
-		self.Graph.asPerspectiveDrawing
-	}
-
 	atoms { :self |
 		self.vertexLabels.withCollect(
 			self.vertexCoordinates
@@ -32,6 +24,14 @@ CrystalStructure : [Object] {
 		answer.vertexLabels!(self.vertexLabels);
 		answer.vertexCoordinates!(self.vertexCoordinates);
 		answer
+	}
+
+	PerspectiveDrawing { :self :projection |
+		self.Graph.PerspectiveDrawing(projection)
+	}
+
+	PerspectiveDrawing { :self |
+		self.Graph.PerspectiveDrawing
 	}
 
 	vertexList { :self |

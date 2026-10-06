@@ -22,7 +22,7 @@ Polyhedron(
 		4 1 2;
 		1 4 3
 	]
-).asPerspectiveDrawing(
+).PerspectiveDrawing(
 	'Planometric'.namedAxonometricProjection
 )
 ~~~
@@ -31,7 +31,7 @@ Polyhedron(
 
 * * *
 
-See also: asPerspectiveDrawing, LineDrawing, Polygon, unitCube, unitDodecahedron, unitIcosahedron, unitSquare, unitTetrahedron
+See also: PerspectiveDrawing, LineDrawing, Polygon, unitCube, unitDodecahedron, unitIcosahedron, unitSquare, unitTetrahedron
 
 Guides: Geometry Functions
 

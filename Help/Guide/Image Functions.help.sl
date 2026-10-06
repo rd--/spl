@@ -3,6 +3,7 @@
 Image Types:
 
 - `Bitmap`
+- `ColourGrid`
 - `Greymap`
 - `Image`
 - `LineDrawing`
@@ -10,11 +11,9 @@ Image Types:
 
 Converting:
 
-- `asColourDrawing`
 - `asGreymap`
-- `asGreyscaleDrawing`
-- `asLineDrawing`
-- `asPerspectiveDrawing`
+- `LineDrawing`
+- `PerspectiveDrawing`
 
 Drawing:
 

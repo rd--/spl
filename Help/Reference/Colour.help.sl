@@ -1,5 +1,91 @@
 # Colour
 
+- _Colour([r g b α=1])_
+
+Answer an `RgbColour` value specified as either the greyscale level _g_,
+where `zero` is black and `one` is white,
+or as _(r,g,b)_ or _(r,g,b,α)_ parameters.
+
+Threads over lists:
+
+```
+>>> [0 0 0; 1 1 1].Colour
+[
+	RgbColour([0 0 0], 1),
+	RgbColour([1 1 1], 1)
+]
+```
+
+Opaque black:
+
+```
+>>> let c = Colour[0 0 0];
+>>> (c, c.isBlack)
+(RgbColour[0 0 0], true)
+
+>>> 0.greyLevel = Colour[0 0 0]
+true
+```
+
+Opaque grey:
+
+```
+>>> let c = Colour[0.5 0.5 0.5];
+>>> (c, c.isGrey)
+(RgbColour[0.5 0.5 0.5], true)
+
+>>> 0.5.greyLevel = Colour[0.5 0.5 0.5]
+true
+```
+
+Opaque white:
+
+```
+>>> let c = Colour[1 1 1];
+>>> (c, c.isWhite)
+(RgbColour[1 1 1], true)
+
+>>> 1.greyLevel = Colour[1 1 1]
+true
+```
+
+Opaque yellow:
+
+```
+>>> let c = Colour[1 1 0];
+>>> (c, c.isYellow)
+(RgbColour[1 1 0], true)
+```
+
+With `alpha` channel:
+
+```
+>>> Colour[0.1 0.2 0.3 0.4]
+RgbColour([0.1 0.2 0.3], 0.4)
+```
+
+At list of `Fraction` values:
+
+```
+>>> Colour[1/3 1/5 1/7]
+RgbColour([1/3 1/5 1/7], 1)
+```
+
+At `RgbColour` answer `identity`:
+
+```
+>>> 1.red.Colour
+RgbColour([1 0 0], 1)
+```
+
+At `Nil` answer black with α=0,
+a transparent colour:
+
+```
+>>> nil.Colour
+RgbColour([0, 0, 0], 0)
+```
+
 A `Trait` representing colours.
 The required methods are `rgb`,
 which should answer a _(red, green, blue)_ triple in _(0, 1)_,
@@ -123,9 +209,25 @@ Copy colour and mutate components:
 (true, true, RgbColour([1 1 0], 0.5))
 ```
 
+A blue colour patch:
+
+~~~spl svg=B
+Colour[0.2 0.5 0.7]
+~~~
+
+![](Help/Image/Colour-B.svg)
+
+A light grey colour patch:
+
+~~~spl svg=C
+Colour[0.75 0.75 0.75]
+~~~
+
+![](Help/Image/Colour-C.svg)
+
 * * *
 
-See also: asColour, alpha, blue, green, Hsv, red
+See also: HsvColour, RgbColour, alpha, blue, green, greyLevel, red
 
 Guides: Colour Functions
 

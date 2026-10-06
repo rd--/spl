@@ -196,7 +196,7 @@ let r = Sfc32(192133);
 .randomChoice(r, [99 3])
 .accumulate
 .Line
-.asPerspectiveDrawing
+.PerspectiveDrawing
 ~~~
 
 ![](Help/Image/randomChoice-E.svg)

@@ -39,7 +39,7 @@ and that each edge as a unit:
 Draw the unit cube:
 
 ~~~spl svg=A
-[0 0 0].unitCube.asPerspectiveDrawing
+[0 0 0].unitCube.PerspectiveDrawing
 ~~~
 
 ![](Help/Image/unitCube-A.svg)
@@ -56,7 +56,7 @@ Draw two unit cubes:
 
 * * *
 
-See also: asPerspectiveDrawing, Cuboid, LineDrawing, Polyhedron, unitDodecahedron, unitIcosahedron, unitSquare, unitTetrahedron
+See also: PerspectiveDrawing, Cuboid, LineDrawing, Polyhedron, unitDodecahedron, unitIcosahedron, unitSquare, unitTetrahedron
 
 Guides: Geometry Functions
 

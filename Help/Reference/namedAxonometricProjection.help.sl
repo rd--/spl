@@ -9,7 +9,7 @@ Draw the standard _isometric_ projection of the unit dodecahedron:
 ~~~spl svg=A
 [0 0 0]
 .unitDodecahedron
-.asPerspectiveDrawing(
+.PerspectiveDrawing(
 	'Isometric'.namedAxonometricProjection
 )
 ~~~
@@ -22,7 +22,7 @@ with the _Z_-axis angle set to _pi/6_:
 ~~~spl svg=B
 [0 0 0]
 .unitIcosahedron
-.asPerspectiveDrawing(
+.PerspectiveDrawing(
 	'CabinetOblique'
 	.namedAxonometricProjection(1/6.pi)
 )
