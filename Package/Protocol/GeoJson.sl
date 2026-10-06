@@ -150,7 +150,7 @@ GeoJson : [Object, Store] {
 				answer.add!(each)
 			};
 			each.isGeometryCollection.ifTrue {
-				answer.addAll!(each.jsonRecord.select(isPolygon/1))
+				answer.addAll!(each.geometryList.select(isPolygon/1))
 			}
 		};
 		answer

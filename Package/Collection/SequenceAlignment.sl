@@ -395,6 +395,10 @@
 		<primitive: return _self.indexOf(_aString) + 1;>
 	}
 
+	lastIndexOfSubstring { :self :subString |
+		<primitive: return _self.lastIndexOf(_subString) + 1;>
+	}
+
 	longestCommonSubsequence { :self :aString |
 		self.onCharacters { :c |
 			c.longestCommonSubsequence(

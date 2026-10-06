@@ -364,6 +364,156 @@ toUpper=`asUpperCase`, toLower=`asLowerCase`
 'hello world'
 ```
 
+replace=`stringReplace`:
+
+```
+>>> stringReplace('hello world', 'world' -> 'there')
+'hello there'
+
+>>> stringReplace('aabbcc', 'bb' -> 'XX')
+'aaXXcc'
+
+>>> stringReplace('abcabc', 'abc' -> 'x')
+'xx'
+```
+
+indexOf=`indexOfSubstring`, lastIndexOf=`lastIndexOfSubstring`
+
+```
+>>> indexOfSubstring('hello world', 'world')
+7
+
+>>> indexOfSubstring('hello', 'xyz')
+0
+
+>>> lastIndexOfSubstring('abcabc', 'bc')
+5
+
+>>> let s = 'key=value';
+>>> let i = s.indexOfSubstring('=');
+>>> s.copyFromTo(i + 1, s.size)
+'value'
+```
+
+parseInt(s) / parseInt(s, radix) / parseFloat(s)
+Strict string-to-number parsing that can report failure (unlike the toInt/toFloat conversions, which only accept values that are already numbers). The whole string must be a valid number — no surrounding whitespace, no trailing characters. Returns Option.none on any malformed input, including integer overflow.
+
+```
+>>> parseSmallInteger('42', 10)
+42
+
+>>> parseSmallInteger('-17', 10)
+-17
+
+>>> parseSmallInteger('12x', 10, { })
+nil
+
+>>> parseSmallInteger(' 12', 10, { })
+nil
+
+>>> parseSmallInteger('ff', 16)
+255
+
+>>> parseSmallInteger('101', 2)
+5
+
+>>> parseNumber('3.5')
+3.5
+
+>>> parseNumber('1e3')
+1000
+
+>>> parseNumber('nope', { 0 })
+0
+```
+
+`codePoints`:
+
+```
+>>> codePoints('ABC')
+[65 66 67]
+
+>>> codePoints('')
+[]
+
+>>> codePoints('Z')
+[90]
+
+>>> codePoints('\u00e9')
+[233]
+
+>>> codePoints('\u20ac')
+[8364]
+
+>>> codePoints('hello').take(3)
+[104 101 108]
+```
+
+`at`:
+
+```
+>>> let s = 'hello';
+>>> (s[1], s[2], s[4])
+('h', 'e', 'l')
+```
+
+## String Formatting
+
+fmt=`format`
+
+```
+>>> '% + % = %'.format([1, 2, 3])
+'1 + 2 = 3'
+```
+
+## Type Conversions
+
+toInt=`truncate`:
+
+```
+>>> truncate(3.7)
+3
+
+>>> truncate(-2.9)
+-2
+
+>>> truncate(7/2)
+3
+```
+
+toFloat=`Float`, `real`:
+
+```
+>>> Float(5)
+5
+
+>>> Float(7/2)
+3.5
+
+>>> real(3 + 4I)
+3
+```
+
+toFraction=`Fraction`:
+
+```
+>>> Fraction(5)
+5/1
+```
+
+toComplex=`Complex`:
+
+```
+>>> Complex(5)
+5J0
+
+>>> Complex(3.14)
+3.14J0
+
+>>> Complex(7/2)
+3.5J0
+```
+
 * * *
 
 References:

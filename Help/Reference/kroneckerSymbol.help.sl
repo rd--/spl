@@ -205,7 +205,13 @@ Kronecker symbol table:
 ~~~spl svg=A
 kroneckerSymbol/2
 .table(-7:7, -7:7)
-.arrayPlot
+.arrayPlot { :x |
+	(x < 0).if {
+		nil
+	} {
+		x.greyLevel
+	}
+}
 ~~~
 
 ![](Help/Image/kroneckerSymbol-A.svg)

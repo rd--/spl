@@ -166,7 +166,7 @@
 	}
 
 	drawing { :self |
-		self.asLineDrawing.drawing
+		self.LineDrawing.drawing
 	}
 
 	edgeCount { :self |

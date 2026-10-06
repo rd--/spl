@@ -1,8 +1,9 @@
 # findStringStartingAt
 
-- _findStringStartingAt(aString, anotherString, anInteger)_
+- _findStringStartingAt(s, x, n)_
 
-Find the next occurence of _anotherString_ in _aString_ starting at index _anInteger_.
+Find the index of next occurence of the string _x_ in the string _s_,
+starting at index _n_.
 If no such match is found, answer 0.
 
 ```

@@ -20,7 +20,7 @@ Letters randomly placed in a circle:
 ~~~spl svg=B
 let r = Sfc32(6793);
 let c = Circle([0 0], 100);
-let l = 'greek'.namedAlphabet.characters;
+let l = 'greek'.namedAlphabet;
 let w = l.collect { :each |
 	Writing(
 		each,
