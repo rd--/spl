@@ -324,14 +324,6 @@
 		List(size, self)
 	}
 
-	instill { :self :index :item :default |
-		(index = 1).if {
-			item
-		} {
-			self.asCollection.instill(index, item, default)
-		}
-	}
-
 	obtain { :self :index :default |
 		(index = 1).if {
 			self
@@ -477,13 +469,16 @@
 		}
 	}
 
-	instill { :self :index :item :default |
-		let answer = self.copy;
+	instill! { :self :index :item :default |
 		(index - self.size).timesRepeat {
-			answer.add!(default)
+			self.add!(default)
 		};
-		answer[index] := item;
-		answer
+		self[index] := item;
+		self
+	}
+
+	instill { :self :index :item :default |
+		self.copy.instill!(index, item, default)
 	}
 
 	integrate { :self |

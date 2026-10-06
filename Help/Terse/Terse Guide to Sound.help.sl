@@ -138,17 +138,10 @@ let l = []; [1 .. 9].adjacentPairsDo { :a :b | l.add!(a -> b) }; l.size = 8
 5.linCurve(0, 10, -4.3, 100, -3).round = 81 /* linear to parametric curve mapping */
 5.curveLin(0, 10, -4.3, 100, -3).round = 18 /* parametric curve to liner mapping */
 { :break/1 | 1:10.do { :index | (index = 5).ifTrue { 5.break } } }.block = 5 /* non-local return */
-[1, 2, 4, 8, 16, 32, 64, 128, 256].collect { :each | (each + 1).nextPowerOfTwo } = [2, 4, 8, 16, 32, 64, 128, 256, 512]
-[4, 8, 16, 32, 64, 128, 256, 512].collect { :each | (each - 1).previousPowerOf(2) } = [2, 4, 8, 16, 32, 64, 128, 256]
 [10, 20, 30].obtain(3, nil) = 30 /* at or default value for out of range index */
 [10, 20].obtain(3, 30) = 30
 7.obtain(2, 1) = 1 /* obtain is defined at Object */
 7.obtain(1, nil) = 7
-[10, 20, 30, 40].instill(3, -30, nil) = [10, 20, -30, 40] /* put! or extends list if required */
-[10, 20].instill(3, -30, nil) = [10, 20, -30]
-[10].instill(3, -30, 20) = [10, 20, -30]
-10.instill(3, -30, 20) = [10, 20, -30] /* instill is defined at Object */
-10.instill(1, -10, nil) = -10
 nil ? { 'x' } = 'x' /* right hand side if nil */
 'x' ? { 'y' } = 'x' /* left hand side unless nil */
 3/2.RatioCents.round = 702 /* ratio (interval) to cents */

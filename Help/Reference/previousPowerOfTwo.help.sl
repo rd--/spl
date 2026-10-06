@@ -10,6 +10,11 @@ Answers a power of two that is not greater than the integer _n_.
 
 >>> 512.previousPowerOfTwo
 512
+
+>>> (2 ^ 1:9).collect { :n |
+>>> 	(n - 1).previousPowerOfTwo
+>>> }
+2 ^ 0:8
 ```
 
 At `LargeInteger`:

@@ -90,10 +90,6 @@
 		}
 	}
 
-	asCollection { :self |
-		self
-	}
-
 	assertIsCollection { :self |
 		self
 	}
@@ -800,10 +796,6 @@
 }
 
 +@Object {
-
-	asCollection { :self |
-		[self]
-	}
 
 	depth { :self |
 		1

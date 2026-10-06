@@ -456,7 +456,6 @@ Reference/AsciiStream.help.sl
 Reference/asciiString.help.sl
 Reference/AsciiString.help.sl
 Reference/asciiValue.help.sl
-Reference/asCollection.help.sl
 Reference/asDateAndTime.help.sl
 Reference/asDate.help.sl
 Reference/asDot.help.sl
@@ -1948,6 +1947,7 @@ Reference/insertionSortMatrix.help.sl
 Reference/inShuffle.help.sl
 Reference/inspectAsList.help.sl
 Reference/instanceOf.help.sl
+Reference/instill.help.sl
 Reference/instructionSetArchitecture.help.sl
 Reference/integerAverage.help.sl
 Reference/integerBinomial.help.sl

@@ -625,7 +625,6 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'ByteArray'
 		'CartesianCoordinates'
 		'Character'
-		'asCollection'
 		'Complex'
 		'ContinuousEvent'
 		'CylindricalCoordinates'

@@ -241,7 +241,7 @@ OEIS [A091978](https://oeis.org/A091978):
 
 * * *
 
-See also: #, !, asCollection, ByteArray, enclose, Float64Array, nest, Type
+See also: #, !, ByteArray, Float64Array, Type, enclose, nest
 
 Guides: List Syntax, Vector Syntax
 

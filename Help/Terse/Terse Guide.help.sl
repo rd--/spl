@@ -271,12 +271,11 @@ List(5, 0) = [0, 0, 0, 0, 0] /* array can have slots initialised to a value */
 let a = [1 .. 9]; a.copy !== a /* copy does not answer argument */
 let a = [1 .. 9]; a.List == a /* List answers the receiver if it is an array */
 let a = [1 .. 9].IdentitySet; a.List !== a /* List constructor copies any collection, sequence or otherwise */
-1.asCollection = [1] /* enclose a non-collection in an array */
-[1 .. 3].asCollection = [1 .. 3] /* an array is a collection */
-1:3.asCollection = 1:3 /* an interval is a collection */
-let x = [1 .. 3]; x.asCollection == x /* in the case of a collection, it is not copied */
-let x = 1:3; x.asCollection == x /* in the case of a collection, it is not copied */
-let x = [[1, 2], [3, 4, 5]]; x.collect(asCollection/1) = x /* identity */
+1.nest = [1] /* enclose a non-collection in an array */
+[1 .. 3].nest = [1 .. 3] /* an array is a collection */
+1:3.nest = [1:3] /* a range is not a list */
+let x = [1 .. 3]; x.nest == x /* in the case of a list, it is not copied */
+let x = [[1, 2], [3, 4, 5]]; x.collect(nest/1) = x /* identity */
 [1, 2, 3] = [1, 2, 3] = true /* array equality */
 [1, 2, 3] != [1, 2, 4] /* array inequality, differ by value */
 [1, 2, 3] = [1, 2, 4] = false /* array inequality */

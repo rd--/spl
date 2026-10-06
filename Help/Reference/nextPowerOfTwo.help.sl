@@ -10,6 +10,11 @@ Answers the next power of two greater than or equal to the integer _n_.
 
 >>> 512.nextPowerOfTwo
 512
+
+>>> (2 ^ 0:8).collect { :n |
+>>> 	(n + 1).nextPowerOfTwo
+>>> }
+2 ^ 1:9
 ```
 
 At `LargeInteger`:

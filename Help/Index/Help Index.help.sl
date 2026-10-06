@@ -158,7 +158,7 @@
 - `Complex`, `Decimal`, `Float`, `Fraction`, `Integer`, `LargeInteger`, `Number`, `SmallFloat`
 - `Character`, `codePoint`, `asHexDigit`, `asLowerCase`, `asRegExp`, `asString`, `asUpperCase`
 - `inEnglishWords`
-- `IdentityMultiset`, `ByteArray`, `asCollection`, `List`, `Map`, `Record`, `IdentitySet`, `SortedList`, `Tree`
+- `IdentityMultiset`, `ByteArray`, `List`, `Map`, `Record`, `IdentitySet`, `SortedList`, `Tree`
 - `degreesToRadians`, `radiansToDegrees`
 
 ## Copying

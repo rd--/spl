@@ -78,7 +78,7 @@ A 3×3×3 array:
 ]
 ```
 
-Columns 1 & 3 of rows 2-3 of pages 1-2:
+Columns 1 & 3 of rows 2-3 of pages (or layers) 1-2:
 
 ```
 >>> [3 3 3].iota.slice([1 2; 2 3; 1 3])

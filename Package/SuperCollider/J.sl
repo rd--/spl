@@ -73,7 +73,7 @@
 			let answer = firstCut.ifNil {
 				self.copy
 			} {
-				self.atAll(firstCut.asCollection)
+				self.atAll(firstCut.nest)
 			};
 			(cuts.size = 1).if {
 				answer.unbubble(0, 1)
