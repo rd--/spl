@@ -1032,7 +1032,7 @@
 	}
 
 	isPythagoreanTriple { :a :b |
-		isPythagoreanTriple(a, b, (a.square + b.square).sqrt)
+		isPythagoreanTriple(a, b, (a.square + b.square).isqrt)
 	}
 
 	isQuadraticResidue { :q :p |

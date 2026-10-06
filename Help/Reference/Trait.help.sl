@@ -70,6 +70,7 @@ The list of system traits:
 	'Frequency'
 	'Geometry'
 	'Graph'
+	'ImplicitFloat'
 	'Indexable'
 	'Integer'
 	'Iterable'

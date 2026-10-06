@@ -574,11 +574,11 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 				x != 0
 			}.whileTrue {
 				let z = (y / x).ceiling;
-				a.add!([1 z]);
+				a.add!(Fraction(1, z));
 				x := x * z - y;
 				y := y * z
 			};
-			a.collect(Fraction/1)
+			a
 		}
 	}
 

@@ -1220,10 +1220,10 @@ true.asBit = 1 /* asBit */
 '0.03141E2'.parseNumber = 3.141 /* parse scientific */
 '23'.parseNumber = 23 /* parse integer */
 '-23'.parseNumber = -23 /* parse integer */
-1.pi.asFraction = 355/113 /* asFraction */
-1.pi.asFraction(0.01) = 22/7 /* with epsilon */
-22/7.asFraction = 22/7 /* identity */
-23.asFraction = 23 /* identity */
+1.pi.rationalize = 355/113 /* as fraction */
+1.pi.rationalize(0.01) = 22/7 /* with epsilon */
+22/7.rationalize = 22/7 /* identity */
+23.rationalize = 23 /* identity */
 1.asComplex = Complex(1, 0) /* number to complex */
 1.i = Complex(0, 1) /* number to complex */
 (2 + 3.i).asComplex = Complex(2, 3) /* identity */
@@ -1560,7 +1560,7 @@ let n = system.unicodeFractionsTable.associations.collect(value/1); n = n.sort
 '4/3'.parseFraction = 4/3 /* parse fraction */
 '4/3'.parseFraction('/') = 4/3 /* parse fraction given delimiter */
 { '4/3'.parseNumber = 4/3 }.hasError /* the fraction module does not modify asNumber to parse fractions */
-let x = Fraction(2 ^ 55, 2); x != (x - 1) /* fractions of large small floats would behave strangely, enforce large integers  */
+let x = Fraction(2L ^ 55, 2); x != (x - 1) /* fractions of large small floats would behave strangely, enforce large integers  */
 let x = Fraction(2L ^ 55L, 2); x != (x - 1) /* fractions of large large integers behave ordinarily */
 2/3 != 3/4 /* unequal fractions */
 (2/3 == 2/3).not /* non-identical fractions (equal fractions need not be the same object) */
@@ -1571,10 +1571,10 @@ let x = Fraction(2L ^ 55L, 2); x != (x - 1) /* fractions of large large integers
 22/7.limitDenominator(5) = 16/5
 355/113.limitDenominator(7) = 22/7
 [1/2, 5/10, 10/20, 50/100, 500/1000].collect { :n | n.limitDenominator(5) } = [1/2, 1/2, 1/2, 1/2, 1/2]
-[0.01, 0.0001].collect { :n | 0.367879.asFraction(n) } = [3/8, 32/87]
-1:5.collect { :n | 1.pi.asFraction(10 ^ n.-) } = [16/5, 22/7, 201/64, 333/106, 355/113]
-1.pi.asFraction = 355/113 /* with default epsilon */
-(1 / [2, 3, 5, 7, 11, 13, 17]).collect(asFraction/1) = [1/2, 1/3, 1/5, 1/7, 1/11, 1/13, 1/17]
+[0.01, 0.0001].collect { :n | 0.367879.rationalize(n) } = [3/8, 32/87]
+1:5.collect { :n | 1.pi.rationalize(10 ^ n.-) } = [16/5, 22/7, 201/64, 333/106, 355/113]
+1.pi.rationalize = 355/113 /* with default epsilon */
+(1 / [2, 3, 5, 7, 11, 13, 17]).collect(rationalize/1) = [1/2, 1/3, 1/5, 1/7, 1/11, 1/13, 1/17]
 6/8 * 4 = 3 /* answer integer */
 7/8 / 3 = 7/24 /* division by integer is fraction */
 6/9 = 2/3
@@ -1987,7 +1987,7 @@ let a = []; 1:9.selectThenDo(isEven/1) { :each | a.add!(each * 3) }; a = [6, 12,
 ```
 system.includesPackage('LargeInteger') /* LargeInteger package */
 23L.typeOf = 'LargeInteger' /* syntax for large integer literals */
-(2 ^ 54).LargeInteger.square.printString = '324518553658426726783156020576256L'
+(2 ^ 53 - 1).LargeInteger.square.printString = '81129638414606663681390495662081L'
 (2 ^ 37).LargeInteger.square.storeString = '18889465931478580854784L'
 '324518553658426726783156020576256'.parseLargeInteger.isLargeInteger = true
 2971215073.LargeInteger.isPrime = true

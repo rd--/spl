@@ -25,17 +25,6 @@ true
 true
 ```
 
-Plot _a_ and _b_ of the first few Pythagorean triples:
-
-~~~spl png=A
-let i = (-64 .. 64);
-{ :b :a |
-	isPythagoreanTriple(a, b).boole
-}.table(i, i).Bitmap
-~~~
-
-![](Help/Image/isPythagoreanTriple-A.png)
-
 _n_ such that _n-1,n_ is a Pythagorean triple,
 OEIS [A046090](https://oeis.org/A046090):
 
@@ -46,6 +35,17 @@ OEIS [A046090](https://oeis.org/A046090):
 >>> }
 true
 ```
+
+Plot _a_ and _b_ of the first few Pythagorean triples:
+
+~~~spl png=A
+let i = (-64 .. 64);
+{ :b :a |
+	isPythagoreanTriple(a, b).boole
+}.table(i, i).Bitmap
+~~~
+
+![](Help/Image/isPythagoreanTriple-A.png)
 
 Plot _a_ and _c_ of the first few Pythagorean triples:
 
