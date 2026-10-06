@@ -1,7 +1,32 @@
 # Complex
 
-- _Complex(r, i)_
+- _Complex(a, b)_
 - _Complex(x)_
+
+The binary form answers the complex number _a+bi_.
+Answer a `Complex` number:
+
+```
+>>> Complex(1, 5)
+1J5
+```
+
+Threads overs lists and arrays:
+
+```
+>>> Complex(1:5, 5:9)
+[1J5 2J6 3J7 4J8 5J9]
+```
+
+There is a literal syntax:
+
+```
+>>> 1J5
+Complex(1, 5)
+
+>>> 0J1 * 0J1
+-1J0
+```
 
 The unary form converts _x_ into a complex number.
 In the `Number`,
@@ -35,8 +60,18 @@ Convert a two-element `List` _[a b]_ into the complex number _a+bi_:
 >>> [2 3].listToComplex
 2J3
 
+>>> [2 3; 4 5].listToComplex
+[2J3 4J5]
+
 >>> 2J3.realImaginary
 [2 3]
+
+>>> [2J3 4J5].realImaginary
+[2 3; 4 5]
+
+>>> [1 5; 2 6; 3 7; 4 8; 5 9]
+>>> .listToComplex
+[1J5 2J6 3J7 4J8 5J9]
 ```
 
 A `Type` representing a complex number with the specified `real` and `imaginary` parts.
@@ -55,36 +90,6 @@ Traits implemented by `Complex`:
 	'Object'
 	'Store'
 ]
-```
-
-Answer a `Complex` number:
-
-```
->>> Complex(1, 5)
-1J5
-
->>> Complex[1 5]
-1J5
-```
-
-Threads overs lists and arrays:
-
-```
->>> Complex(1:5, 5:9)
-[1J5 2J6 3J7 4J8 5J9]
-
->>> Complex[1 5; 2 6; 3 7; 4 8; 5 9]
-[1J5 2J6 3J7 4J8 5J9]
-```
-
-There is a literal syntax:
-
-```
->>> 1J5
-Complex(1, 5)
-
->>> 0J1 * 0J1
--1J0
 ```
 
 `Complex` implements `*`, `/`, `+`, `-` and `^`:

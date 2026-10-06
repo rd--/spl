@@ -495,18 +495,11 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 
 +List {
 
-	Complex { :self |
-		self.isVector.if {
-			let [r, i] = self;
-			Complex(r, i)
-		} {
-			self.collect(Complex/1)
-		}
-	}
-
 	listToComplex { :self |
-		let [a, b] = self;
-		Complex(a, b)
+		self.atVectorOrElementwise { :each |
+			let [a, b] = each;
+			Complex(a, b)
+		}
 	}
 
 }

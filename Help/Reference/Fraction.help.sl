@@ -142,8 +142,14 @@ or a two-column matrix, and so on:
 >>> [9 23].listToFraction
 9/23
 
+>>> 9/23.numeratorDenominator
+[9 23]
+
 >>> [2 4; 7 21].listToFraction
 [1/2 1/3]
+
+>>> [2/4 7/21].numeratorDenominator
+[1 2; 1 3]
 ```
 
 Literal fractions are `normal` and have the following invariants:
