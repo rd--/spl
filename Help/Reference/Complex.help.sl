@@ -1,21 +1,31 @@
 # Complex
 
 - _Complex(a, b)_
-- _Complex(x)_
+- _Complex([a, b])_
 
-The binary form answers the complex number _a+bi_.
-Answer a `Complex` number:
+A `Type` representing a complex number with the specified `real` and `imaginary` parts, _a+bi_.
+
+At scalars:
 
 ```
->>> Complex(1, 5)
-1J5
+>>> Complex(1, 2)
+1J2
+
+>>> Complex(1.2, 3.4)
+1.2J3.4
 ```
 
-Threads overs lists and arrays:
+Threads overs lists:
 
 ```
 >>> Complex(1:5, 5:9)
 [1J5 2J6 3J7 4J8 5J9]
+
+>>> Complex(1:5, 6)
+[1J6 2J6 3J6 4J6 5J6]
+
+>>> Complex(1, 2:6)
+[1J2 1J3 1J4 1J5 1J6]
 ```
 
 There is a literal syntax:
@@ -24,57 +34,56 @@ There is a literal syntax:
 >>> 1J5
 Complex(1, 5)
 
+>>> 1I
+0J1
+
 >>> 0J1 * 0J1
 -1J0
 ```
 
-The unary form converts _x_ into a complex number.
-In the `Number`,
-case answer a `Complex` number with a real part of _x_ and an imaginary part of `zero`:
+The unary form maps over appropriately shaped arrays,
+the inverse is `realImaginary`:
 
 ```
->>> Complex(1)
+>>> Complex[1 2]
+1J2
+
+>>> 1J2.realImaginary
+[1 2]
+
+>>> Complex[1 2; 3 4]
+[1J2 3J4]
+
+>>> [1J2 3J4].realImaginary
+[1 2; 3 4]
+
+>>> Complex[1 2; 3 4:; 5 6; 7 8]
+[1J3 2J4; 5J7 6J8]
+
+>>> [1J3 2J4; 5J7 6J8].realImaginary
+[1 2; 3 4:; 5 6; 7 8]
+```
+
+`realToComplex` answer a `Complex` number with an imaginary part of `zero`,
+the inverse is `real`:
+
+```
+>>> 1.realToComplex
 1J0
 
 >>> 1J0.real
 1
 ```
 
-In the `Complex` case answer `identity`.
-
-```
->>> Complex(1J1)
-1J1
-```
-
 Threads over lists:
 
 ```
->>> Complex[1 2 3]
+>>> [1 2 3].realToComplex
 [1J0 2J0 3J0]
+
+>>> [1J0 2J0 3J0].real
+[1 2 3]
 ```
-
-Convert a two-element `List` _[a b]_ into the complex number _a+bi_:
-
-```
->>> [2 3].listToComplex
-2J3
-
->>> [2 3; 4 5].listToComplex
-[2J3 4J5]
-
->>> 2J3.realImaginary
-[2 3]
-
->>> [2J3 4J5].realImaginary
-[2 3; 4 5]
-
->>> [1 5; 2 6; 3 7; 4 8; 5 9]
->>> .listToComplex
-[1J5 2J6 3J7 4J8 5J9]
-```
-
-A `Type` representing a complex number with the specified `real` and `imaginary` parts.
 
 Traits implemented by `Complex`:
 
@@ -250,7 +259,10 @@ The `components` method answers a two `List` of the real and imaginary component
 Convert a list of two places to a complex number:
 
 ```
->>> [1 2].listToComplex
+>>> Complex[1 2]
+1J2
+
+>>> [1 2].arrayToComplex
 1J2
 ```
 

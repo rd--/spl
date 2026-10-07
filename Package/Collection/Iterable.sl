@@ -23,11 +23,22 @@
 		}
 	}
 
-	allFalse { :self |
-		self.noneSatisfy(identity/1)
+	[allFalse, noneSatisfy] { :self :aBlock/1 |
+		valueWithReturn { :return/1 |
+			self.do { :each |
+				each.aBlock.ifTrue {
+					false.return
+				}
+			};
+			true
+		}
 	}
 
-	allSatisfy { :self :aBlock/1 |
+	allFalse { :self |
+		self.allFalse(identity/1)
+	}
+
+	[allTrue, allSatisfy] { :self :aBlock/1 |
 		valueWithReturn { :return/1 |
 			self.do { :each |
 				each.aBlock.ifFalse {
@@ -39,7 +50,7 @@
 	}
 
 	allTrue { :self |
-		self.allSatisfy(identity/1)
+		self.allTrue(identity/1)
 	}
 
 	anyOne { :self |
@@ -51,7 +62,7 @@
 		}
 	}
 
-	anySatisfy { :self :aBlock/1 |
+	[anyTrue, anySatisfy] { :self :aBlock/1 |
 		valueWithReturn { :return/1 |
 			self.do { :each |
 				each.aBlock.ifTrue {
@@ -63,7 +74,7 @@
 	}
 
 	anyTrue { :self |
-		self.anySatisfy(identity/1)
+		self.anyTrue(identity/1)
 	}
 
 	containsOnly { :x :y |
@@ -492,17 +503,6 @@
 			sum := t
 		};
 		sum + c
-	}
-
-	noneSatisfy { :self :aBlock/1 |
-		valueWithReturn { :return/1 |
-			self.do { :each |
-				each.aBlock.ifTrue {
-					false.return
-				}
-			};
-			true
-		}
 	}
 
 	noneTrue { :self |

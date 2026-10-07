@@ -142,10 +142,6 @@
 		self.collect(chop/1)
 	}
 
-	Complex { :self |
-		self.collect(Complex/1)
-	}
-
 	continuedFraction { :self |
 		self.collect(continuedFraction/1)
 	}
@@ -458,10 +454,6 @@
 		self.collect(isGaussianPrime/1)
 	}
 
-	isInteger { :self |
-		self.collect(isInteger/1)
-	}
-
 	isNegative { :self |
 		self.collect(isNegative/1)
 	}
@@ -488,10 +480,6 @@
 
 	isPrimePower { :self |
 		self.collect(isPrimePower/1)
-	}
-
-	isSmallInteger { :self |
-		self.collect(isSmallInteger/1)
 	}
 
 	isZero { :self |
@@ -1025,10 +1013,6 @@
 
 	bitXor { :self :anObject |
 		anObject.adaptToCollectionAndApply(self, bitXor/2)
-	}
-
-	Complex { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, Complex/2)
 	}
 
 	digitalRoot { :self :anObject |

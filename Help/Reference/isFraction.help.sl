@@ -28,6 +28,16 @@ false
 false
 ```
 
+A `List` is not a fraction:
+
+```
+>>> [1/2 3/4].isFraction
+false
+
+>>> [1/2 3/3].allTrue(isFraction/1)
+true
+```
+
 _Rationale_:
 `isFraction` is a `Type` predicate,
 `SmallFloat` values that represent fractions or integers,
@@ -38,7 +48,7 @@ The predicate `isRational` will answer `true` for integer values.
 
 * * *
 
-See also: denominator, Fraction, isExact, isInteger, isNumber, isRational, numerator
+See also: Fraction, denominator, isExact, isInteger, isNumber, isRational, numerator
 
 Guides: Predicate Functions
 

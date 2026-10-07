@@ -1,19 +1,19 @@
 # allFalse
 
-- _allFalse(aCollection)_
+- _allFalse(c, f/1=⊣)_
 
-Answer `true` if all items in _aCollection_ are `false`, else `false`.
+Answer `true` if all items in the collection _c_ are `false`, else `false`.
 
 ```
 >>> ([1 3 5 7 9] > [3 5 7 9 11]).allFalse
 true
 ```
 
-This is equivalent to `noneSatisfy` of `identity`:
+The binary form is an alias of `noneSatisfy`:
 
 ```
 >>> ([1 3 5 7 9] > [3 5 7 9 11])
->>> .noneSatisfy(identity/1)
+>>> .allFalse(identity/1)
 true
 ```
 

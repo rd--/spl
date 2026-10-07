@@ -16,12 +16,7 @@ EisensteinInteger : [Object, Store, Equal] {
 	}
 
 	[absoluteValue, abs] { :self |
-		Complex(self).abs
-	}
-
-	Complex { :self |
-		let omega = (-1 + (0J1 * 3.sqrt)) / 2;
-		self.a + (self.b * omega)
+		self.toComplex.abs
 	}
 
 	components { :self |
@@ -48,6 +43,11 @@ EisensteinInteger : [Object, Store, Equal] {
 
 	realImaginary { :self |
 		[self.real, self.imaginary]
+	}
+
+	[toComplex, eisensteinIntegerToComplex] { :self |
+		let omega = (-1 + (0J1 * 3.sqrt)) / 2;
+		self.a + (self.b * omega)
 	}
 
 }

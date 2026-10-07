@@ -73,6 +73,13 @@ false
 false
 ```
 
+Only defined for numbers:
+
+```
+>>> { nil.isEven}.hasError
+true
+```
+
 Test whether an array consists of even integers:
 
 ```

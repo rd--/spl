@@ -261,6 +261,7 @@ Guide/Triangle Functions.help.sl
 Guide/Trigonometric Functions.help.sl
 Guide/Tuning Functions.help.sl
 Guide/Tuple Syntax.help.sl
+Guide/Type Conversion Functions.help.sl
 Guide/Type Definition Syntax.help.sl
 Guide/Type Predicates.help.sl
 Guide/Types of Orderings.help.sl
@@ -1600,6 +1601,7 @@ Reference/gaussFactorial.help.sl
 Reference/gaussianElimination.help.sl
 Reference/gaussianFilter.help.sl
 Reference/gaussianInteger.help.sl
+Reference/GaussianInteger.help.sl
 Reference/gaussianKernel.help.sl
 Reference/gaussianMatrix.help.sl
 Reference/gaussianPrimeSpiral.help.sl
@@ -2117,6 +2119,7 @@ Reference/isIdentity.help.sl
 Reference/isImmediate.help.sl
 Reference/isImproper.help.sl
 Reference/isIndexable.help.sl
+Reference/isIntegerArray.help.sl
 Reference/isInteger.help.sl
 Reference/isIntegerMatrix.help.sl
 Reference/isIntegerPartition.help.sl
@@ -2238,7 +2241,6 @@ Reference/isRoughNumber.help.sl
 Reference/isRowVector.help.sl
 Reference/isSameAs.help.sl
 Reference/isScalar.help.sl
-Reference/isScalarInteger.help.sl
 Reference/isScalene.help.sl
 Reference/isSchemaType.help.sl
 Reference/isScientificNotationString.help.sl

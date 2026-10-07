@@ -10,6 +10,9 @@ true
 
 >>> SinOsc(440, 0).isScalar
 false
+
+>>> { [1 2 3].isScalar }.hasError
+true
 ```
 
 _Rationale_:
@@ -19,3 +22,5 @@ _Rationale_:
 * * *
 
 See also: isInteger, isNumber, isSmallInteger, isVector
+
+Guides: Predicate Functions

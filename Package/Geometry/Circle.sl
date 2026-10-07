@@ -155,7 +155,7 @@ Circle : [Object, Store, Equal, Geometry] {
 					Circle(c, r)
 				},
 				3 -> {
-					let [z1, z2, z3] = self.collect(listToComplex/1);
+					let [z1, z2, z3] = Complex(self);
 					let w = (z3 - z1) / (z2 - z1);
 					let c = (z2 - z1) * (w - (w.abs ^ 2)) / (0J2 * w.imaginary) + z1;
 					let r = (z1 - c).abs;
@@ -347,7 +347,7 @@ UnitCircle : [Object] {
 +Complex {
 
 	circleInversion { :self :circle |
-		self.realImaginary.circleInversion(circle).listToComplex
+		self.realImaginary.circleInversion(circle).Complex
 	}
 
 }

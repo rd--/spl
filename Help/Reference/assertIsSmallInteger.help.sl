@@ -1,6 +1,6 @@
 # assertIsSmallInteger
 
-- _assertIsSmallInteger(x)_
+- _assertIsSmallInteger(x, m='')_
 
 Require that the object _x_ be a small integer:
 
@@ -21,5 +21,7 @@ true
 * * *
 
 See also: assert, error, isSmallInteger
+
+Guides: Type Assertion Functions
 
 Categories: Asserting

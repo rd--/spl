@@ -58,7 +58,8 @@ true
 ```
 
 Such structures do have a `depth`,
-an `arrayDepth` and a `dimensions`:
+an `arrayDepth`
+and a `dimensions`:
 
 ```
 >>> [1; 2 3].depth

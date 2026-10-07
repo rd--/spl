@@ -521,7 +521,7 @@
 	}
 
 	gcd { :self :anInteger |
-		anInteger.isScalarInteger.if {
+		anInteger.isInteger.if {
 			let a = self.abs;
 			let b = anInteger.abs;
 			{
@@ -703,7 +703,7 @@
 				1 -> { self.unaryExpansion }
 			]
 		) {
-			base.isScalarInteger.if {
+			base.isInteger.if {
 				let numDigits = self.isZero.if {
 					1
 				} {
@@ -1186,7 +1186,7 @@
 	}
 
 	lcm { :self :anInteger |
-		anInteger.isScalarInteger.if {
+		anInteger.isInteger.if {
 			self.uncheckedLcm(anInteger)
 		} {
 			anInteger.adaptToNumberAndApply(self, lcm/2)
@@ -1808,10 +1808,8 @@
 
 +@Object {
 
-	isScalarInteger { :self |
-		self.isNumber & {
-			self.isInteger
-		}
+	isInteger { :self |
+		false
 	}
 
 }
@@ -1831,6 +1829,10 @@
 	isAmicablePair { :self |
 		let [m, n] = self;
 		isAmicablePair(m, n)
+	}
+
+	isIntegerArray { :self |
+		self.isArray(self.arrayDepth, isInteger/1)
 	}
 
 }

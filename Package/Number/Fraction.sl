@@ -11,8 +11,8 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 	}
 
 	[divide, /, Fraction] { :self :aNumber |
-		aNumber.isScalarInteger.if {
-			self * uncheckedFraction(1, aNumber.LargeInteger)
+		aNumber.isInteger.if {
+			self * uncheckedFraction(1, LargeInteger(aNumber))
 		} {
 			aNumber.isFraction.if {
 				self * aNumber.reciprocal
@@ -23,9 +23,9 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 	}
 
 	[plus, +] { :self :aNumber |
-		aNumber.isScalarInteger.if {
+		aNumber.isInteger.if {
 			uncheckedFraction(
-				self.numerator + (self.denominator * aNumber.LargeInteger),
+				self.numerator + (self.denominator * LargeInteger(aNumber)),
 				self.denominator
 			)
 		} {
@@ -51,7 +51,7 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 	}
 
 	[power, ^] { :self :aNumber |
-		aNumber.isScalarInteger.if {
+		aNumber.isInteger.if {
 			self.raisedToInteger(aNumber.Integer)
 		} {
 			aNumber.isFraction.if {
@@ -67,9 +67,9 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 	}
 
 	[subtract, -] { :self :aNumber |
-		aNumber.isScalarInteger.if {
+		aNumber.isInteger.if {
 			uncheckedFraction(
-				self.numerator - (self.denominator * aNumber.LargeInteger),
+				self.numerator - (self.denominator * LargeInteger(aNumber)),
 				self.denominator
 			)
 		} {
@@ -110,7 +110,7 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 	}
 
 	adaptToNumberAndApply { :self :aNumber :aBlock/2 |
-		aNumber.isScalarInteger.if {
+		aNumber.isInteger.if {
 			aBlock(Fraction(aNumber), self)
 		} {
 			aBlock(aNumber, self.SmallFloat)
@@ -226,7 +226,7 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 	}
 
 	Integer { :self |
-		self.LargeInteger.normal
+		LargeInteger(self).normal
 	}
 
 	isAdjacentFraction { :self :operand |
@@ -517,7 +517,7 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 	}
 
 	SmallInteger { :self |
-		self.LargeInteger.SmallInteger
+		LargeInteger(self).SmallInteger
 	}
 
 	sternBrocotChildren { :self |
@@ -649,13 +649,13 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 	}
 
 	uncheckedFraction { :numerator :denominator |
-		denominator.isScalarInteger.if {
+		denominator.isInteger.if {
 			(denominator = 0).if {
 				'@Integer>>uncheckedFraction: zeroDenominatorError'.error
 			} {
 				newFraction().initializeSlots(
-					numerator.LargeInteger,
-					denominator.LargeInteger
+					LargeInteger(numerator),
+					LargeInteger(denominator)
 				)
 			}
 		} {
@@ -664,10 +664,10 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 	}
 
 	Fraction { :numerator :denominator |
-		denominator.isScalarInteger.if {
+		denominator.isInteger.if {
 			uncheckedFraction(
-				numerator.LargeInteger,
-				denominator.LargeInteger
+				LargeInteger(numerator),
+				LargeInteger(denominator)
 			).simplify
 		} {
 			denominator.adaptToNumberAndApply(numerator, Fraction/2)
@@ -675,7 +675,7 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 	}
 
 	[Fraction, integerToFraction] { :self |
-		Fraction(self.LargeInteger, 1L)
+		Fraction(LargeInteger(self), 1L)
 	}
 
 	[r, \] { :numerator :denominator |
@@ -786,7 +786,7 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 
 	fractionOver { :self :denominator |
 		self.isInteger.if {
-			uncheckedFraction(self.LargeInteger, 1L)
+			uncheckedFraction(LargeInteger(self), 1L)
 		} {
 			Fraction(
 				(self * denominator).round,

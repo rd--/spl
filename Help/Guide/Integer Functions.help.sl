@@ -144,10 +144,10 @@ Predicates:
 - `isGaussianInteger`
 - `isHarmonicDivisorNumber`
 - `isInteger`
+- `isIntegerArray`
 - `isLargeInteger`
 - `isNonNegativeInteger`
 - `isOne`
-- `isScalarInteger`
 - `isSmallInteger`
 - `isZero`
 

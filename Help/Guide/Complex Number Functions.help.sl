@@ -3,6 +3,7 @@
 Types:
 
 - `Complex`
+- `EisensteinInteger`
 
 Accessing:
 
@@ -12,6 +13,7 @@ Accessing:
 
 Constructing:
 
+- `GaussianInteger`
 - `i`: _0+ai_
 - `j`: _a+bi_
 

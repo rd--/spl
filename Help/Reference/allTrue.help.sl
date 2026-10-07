@@ -1,6 +1,6 @@
 # allTrue
 
-- _allTrue(c)_
+- _allTrue(c, f/1=⊣)_
 
 Answer `true` if all items in the collection _c_ are `true`, else `false`.
 This is equal to the unary form of `&&`.
@@ -10,6 +10,17 @@ This is equal to the unary form of `&&`.
 true
 
 >>> ([1 3 5 7 9] < [3 5 7 9 11]).&&
+true
+```
+
+The binary form is an alias of `allSatisfy`:
+
+```
+>>> ([1 3 5 7 9] < [3 5 7 9 11])
+>>> .allTrue(identity/1)
+true
+
+>>> [1 2 3 4 5].allTrue(isNumber/1)
 true
 ```
 

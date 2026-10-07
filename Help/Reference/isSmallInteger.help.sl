@@ -16,31 +16,25 @@ false
 The largest small integer:
 
 ```
->>> (2L ^ 53L) - 1L
+>>> (2L ^ 53) - 1
 9007199254740991L
 
 >>> let x = 9007199254740991;
 >>> let y = x + 1;
->>> ([x, y].isSmallInteger, y + 1 = y)
-(
-	[true false],
-	true
-)
+>>> (y, y.isSmallInteger, y + 1 = y)
+(9007199254740992.0, false, true)
 ```
 
 The least negative small integer:
 
 ```
->>> (-2L ^ 53L) + 1L
+>>> (-2L ^ 53) + 1
 -9007199254740991L
 
->>> let x = -9007199254740991L;
+>>> let x = -9007199254740991;
 >>> let y = x - 1;
->>> ([x, y].isSmallInteger, y - 1 = y)
-(
-	[true false],
-	false
-)
+>>> (y, y.isSmallInteger, y - 1 = y)
+(-9007199254740992.0, false, true)
 ```
 
 A `SmallFloat` that is an integer,
@@ -115,11 +109,14 @@ true
 (true, false)
 ```
 
-Threads over lists:
+A `List` is not a small integer:
 
 ```
->>> [1 1.pi 1L].isSmallInteger
-[true false true]
+>>> { [1 2 3].isSmallInteger }.hasError
+true
+
+>>> [1 2 3].allTrue(isSmallInteger/1)
+true
 ```
 
 * * *

@@ -16,6 +16,16 @@ false
 false
 ```
 
+A `List` is not a number:
+
+```
+>>> [1L 2L 3L].isLargeInteger
+false
+
+>>> [1L 2L 3L].allTrue(isLargeInteger/1)
+true
+```
+
 * * *
 
 See also: isInteger, isNumber, isSmallFloat, LargeInteger

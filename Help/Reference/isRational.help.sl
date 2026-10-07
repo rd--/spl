@@ -36,6 +36,16 @@ At `Complex`:
 false
 ```
 
+A `List` is not a rational number:
+
+```
+>>> { [1/2 3/4].isRational }.hasError
+true
+
+>>> [1/2 3/3].allTrue(isRational/1)
+true
+```
+
 At `Tuning`,
 answer `true` if the tuning,
 when considered as ratios,

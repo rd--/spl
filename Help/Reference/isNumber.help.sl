@@ -100,6 +100,9 @@ A `List` is not a number:
 ```
 >>> ([1 2 3].isNumber, [1 2 3].isList)
 (false, true)
+
+>>> [1 2 3].allTrue(isNumber/1)
+true
 ```
 
 A `Ugen` is a kind of number:

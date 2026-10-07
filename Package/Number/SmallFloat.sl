@@ -32,10 +32,14 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		}
 	}
 
-	assertIsSmallInteger { :self |
-		self.assert {
+	assertIsSmallInteger { :self :message |
+		self.assert(message) {
 			self.isSmallInteger
 		}
+	}
+
+	assertIsSmallInteger { :self |
+		self.assertIsSmallInteger('')
 	}
 
 	atRandom { :self |

@@ -47,6 +47,16 @@ true
 true
 ```
 
+A `List` is not an exact number:
+
+```
+>>> { [1/2 3/4].isExact }.hasError
+true
+
+>>> [1/2 3/3].allTrue(isExact/1)
+true
+```
+
 * * *
 
 See also: isComplex, isFraction, isInteger, isNumber, isSmallFloat, isSmallInteger

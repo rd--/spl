@@ -38,7 +38,7 @@ Number Predicates:
 - `isPseudoperfectNumber`
 - `isRational`
 - `isReal`
-- `isScalarInteger`
+- `isScalar`
 - `isSmallFloat`
 - `isSmallInteger`
 - `isSphenicNumber`

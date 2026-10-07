@@ -100,21 +100,24 @@ At `Complex` answers `false`, see `isGaussianInteger`:
 false
 ```
 
-Threads over lists:
+A `List` is not an integer:
 
 ```
->>> [1 2 3 1.pi].isInteger
-[true true true false]
+>>> [1 2 3].isInteger
+false
+
+>>> [1 2 3].allTrue(isInteger/1)
+true
 ```
 
-Test whether an array consists of all integers:
+Test whether a rank-two array consists of all integers:
 
 ```
 >>> [
 >>> 	1 2 3;
 >>> 	4 5 6;
 >>> 	7 8 9
->>> ].deepAllSatisfy(isInteger/1)
+>>> ].isIntegerArray
 true
 ```
 
@@ -124,7 +127,7 @@ essentially the same as the decimal expansion of _1/999_,
 OEIS [A022003](https://oeis.org/A022003):
 
 ```
->>> (0:21 / 3).isInteger.boole
+>>> (0:21 / 3).collect(isInteger/1).boole
 [1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1]
 
 >>> Decimal(1/999, 33)
@@ -138,7 +141,7 @@ Characteristic function of multiples of four,
 OEIS [A121262](https://oeis.org/A121262):
 
 ```
->>> (0:20 / 4).isInteger.boole
+>>> (0:20 / 4).collect(isInteger/1).boole
 [1 0 0 0 1 0 0 0 1 0 0 0 1 0 0 0 1 0 0 0 1]
 ```
 
@@ -256,14 +259,15 @@ OEIS [A153151](https://oeis.org/A153151):
 
 _Rationale_:
 Note that this is not a `Type` predicate,
-and is only implemeted for numeric values.
-In this sense it is like `isEven` and `isOdd`.
+it tests a property of a specific instance of a number.
 `Fraction`, `SmallFloat` and `Decimal` values may each possibly represent an integer.
+In this sense it is like `isEven` and `isOdd`,
+however it unlike in that it is defined to be false for non number values.
 The type predicates are `isFraction`, `isSmallFloat`, `isDecimal`, `isLargeInteger`.
 
 * * *
 
-See also: Integer, Number, isFraction, isNumber, isGaussianInteger, isLargeInteger, isScalarInteger, isSmallFloat, isSmallInteger, parseLargeInteger, parseSmallInteger
+See also: Integer, Number, isFraction, isNumber, isGaussianInteger, isLargeInteger, isSmallFloat, isSmallInteger, parseLargeInteger, parseSmallInteger
 
 Guides: Integer Functions, Predicate Functions
 

@@ -5,7 +5,10 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 	| real imaginary |
 
 	[conjugate, +] { :self |
-		Complex(self.real, self.imaginary.negate)
+		Complex(
+			self.real,
+			self.imaginary.negate
+		)
 	}
 
 	[divide, /] { :self :anObject |
@@ -28,7 +31,10 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 	}
 
 	[negate, -] { :self |
-		Complex(self.real.negate, self.imaginary.negate)
+		Complex(
+			self.real.negate,
+			self.imaginary.negate
+		)
 	}
 
 	[plus, +] { :self :anObject |
@@ -37,7 +43,10 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 			let b = self.imaginary;
 			let c = anObject.real;
 			let d = anObject.imaginary;
-			Complex(a + c, b + d)
+			Complex(
+				a + c,
+				b + d
+			)
 		} {
 			anObject.adaptToComplexAndApply(self, plus/2)
 		}
@@ -91,7 +100,10 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 			let b = self.imaginary;
 			let c = anObject.real;
 			let d = anObject.imaginary;
-			Complex(a - c, b - d)
+			Complex(
+				a - c,
+				b - d
+			)
 		} {
 			anObject.adaptToComplexAndApply(self, subtract/2)
 		}
@@ -103,7 +115,10 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 			let b = self.imaginary;
 			let c = anObject.real;
 			let d = anObject.imaginary;
-			Complex((a * c) - (b * d), (a * d) + (b * c))
+			Complex(
+				(a * c) - (b * d),
+				(a * d) + (b * c)
+			)
 		} {
 			anObject.adaptToComplexAndApply(self, times/2)
 		}
@@ -122,13 +137,13 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 	}
 
 	adaptToFractionAndApply { :self :aFraction :aBlock/2 |
-		Complex(aFraction).aBlock(
+		Complex(aFraction, 0).aBlock(
 			self
 		)
 	}
 
 	adaptToNumberAndApply { :self :aNumber :aBlock/2 |
-		Complex(aNumber).aBlock(
+		Complex(aNumber, 0).aBlock(
 			self
 		)
 	}
@@ -146,7 +161,10 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 	}
 
 	[ceiling, >] { :self |
-		Complex(self.real.ceiling, self.imaginary.ceiling)
+		Complex(
+			self.real.ceiling,
+			self.imaginary.ceiling
+		)
 	}
 
 	chop { :self :epsilon |
@@ -174,10 +192,6 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		}
 	}
 
-	Complex { :self |
-		self
-	}
-
 	concisePrintString { :self |
 		[
 			{ self.isReal } -> { self.real.printString },
@@ -187,7 +201,10 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 	}
 
 	conjugate { :self |
-		Complex(self.real, self.imaginary.negate)
+		Complex(
+			self.real,
+			self.imaginary.negate
+		)
 	}
 
 	equalBy { :self :anObject :aBlock/2 |
@@ -205,15 +222,24 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 	}
 
 	[floor, <] { :self |
-		Complex(self.real.floor, self.imaginary.floor)
+		Complex(
+			self.real.floor,
+			self.imaginary.floor
+		)
 	}
 
 	fractionalPart { :self |
-		Complex(self.real.fractionalPart, self.imaginary.fractionalPart)
+		Complex(
+			self.real.fractionalPart,
+			self.imaginary.fractionalPart
+		)
 	}
 
 	i { :self |
-		Complex(self.imaginary.negate, self.real)
+		Complex(
+			self.imaginary.negate,
+			self.real
+		)
 	}
 
 	integerChop { :self :epsilon |
@@ -231,7 +257,10 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 	}
 
 	integerPart { :self |
-		Complex(self.real.integerPart, self.imaginary.integerPart)
+		Complex(
+			self.real.integerPart,
+			self.imaginary.integerPart
+		)
 	}
 
 	isCloseToBy { :self :anObject :epsilon |
@@ -397,7 +426,10 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 	}
 
 	[round, gaussianInteger] { :self |
-		Complex(self.real.round, self.imaginary.round)
+		Complex(
+			self.real.round,
+			self.imaginary.round
+		)
 	}
 
 	[squareRoot, sqrt] { :self |
@@ -406,7 +438,10 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 				self.real >= 0
 			}
 		).if {
-			Complex(self.real.sqrt, 0)
+			Complex(
+				self.real.sqrt,
+				0
+			)
 		} {
 			let v = (self.abs - self.real / 2).sqrt;
 			let u = self.imaginary / 2 / v;
@@ -431,7 +466,26 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 +SmallFloat {
 
 	Complex { :real :imaginary |
+		imaginary.isSmallFloat.if {
+			uncheckedComplex(real, imaginary)
+		} {
+			imaginary.adaptToNumberAndApply(real, Complex/2)
+		}
+	}
+
+	uncheckedComplex { :real :imaginary |
 		newComplex().initializeSlots(real, imaginary)
+	}
+
+	GaussianInteger { :real :imaginary |
+		imaginary.isInteger.if {
+			uncheckedComplex(
+				real.assertIsSmallInteger('GaussianInteger'),
+				imaginary
+			)
+		} {
+			imaginary.adaptToNumberAndApply(real, GaussianInteger/2)
+		}
 	}
 
 }
@@ -445,13 +499,6 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 	adaptToComplexAndApply { :self :aComplexNumber :aBlock/2 |
 		aComplexNumber.aBlock(
 			Complex(self, 0)
-		)
-	}
-
-	Complex { :self |
-		Complex(
-			SmallFloat(self),
-			0
 		)
 	}
 
@@ -481,6 +528,10 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		true
 	}
 
+	realToComplex { :self |
+		Complex(SmallFloat(self), 0)
+	}
+
 }
 
 +@Collection {
@@ -491,14 +542,37 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		}
 	}
 
+	realToComplex { :self |
+		self.collect(realToComplex/1)
+	}
+
+}
+
++@Sequence {
+
+	[Complex, j] { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, Complex/2)
+	}
+
+	GaussianInteger { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, GaussianInteger/2)
+	}
+
 }
 
 +List {
 
-	listToComplex { :self |
+	[Complex, arrayToComplex] { :self |
 		self.atVectorOrElementwise { :each |
 			let [a, b] = each;
 			Complex(a, b)
+		}
+	}
+
+	[GaussianInteger, arrayToGaussianInteger] { :self |
+		self.atVectorOrElementwise { :each |
+			let [a, b] = each;
+			GaussianInteger(a, b)
 		}
 	}
 

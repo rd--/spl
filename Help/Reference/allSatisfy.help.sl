@@ -48,7 +48,7 @@ Does not mutate receiver:
 
 * * *
 
-See also: anySatisfy, deepAllSatisfy, noneSatisfy
+See also: allTrue, anySatisfy, deepAllSatisfy, noneSatisfy
 
 Guides: Boolean Functions
 

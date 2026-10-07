@@ -30,10 +30,10 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer, I
 	}
 
 	[divide, /] { :self :anObject |
-		anObject.isScalarInteger.if {
+		anObject.isInteger.if {
 			let fraction = Fraction(
 				self,
-				anObject.LargeInteger
+				LargeInteger(anObject)
 			);
 			fraction.isInteger.if {
 				fraction.numerator
@@ -74,7 +74,7 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer, I
 	}
 
 	[power, ^] { :self :anObject |
-		anObject.isScalarInteger.if {
+		anObject.isInteger.if {
 			self.raisedToInteger(anObject)
 		} {
 			anObject.adaptToIntegerAndApply(self, power/2)
@@ -91,7 +91,7 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer, I
 	}
 
 	[similar, ~] { :self :anObject |
-		self.SmallFloat ~ anObject
+		SmallFloat(self) ~ anObject
 	}
 
 	[subtract, -] { :self :anObject |
@@ -114,14 +114,14 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer, I
 
 	adaptToNumberAndApply { :self :aNumber :aBlock/2 |
 		aNumber.isInteger.if {
-			aBlock(aNumber.LargeInteger, self)
+			aBlock(LargeInteger(aNumber), self)
 		} {
-			aBlock(aNumber, self.SmallFloat)
+			aBlock(aNumber, SmallFloat(self))
 		}
 	}
 
 	atRandom { :self |
-		system.nextRandomInteger(1, self.SmallFloat)
+		system.nextRandomInteger(1, SmallFloat(self))
 	}
 
 	bitAnd { :self :anObject |
@@ -203,13 +203,13 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer, I
 					0.return
 				}
 			};
-			lastDigit.SmallFloat.highBitOfByte + (8 * (realLength - 1))
+			SmallFloat(lastDigit).highBitOfByte + (8 * (realLength - 1))
 		}
 	}
 
 	[Integer, normal] { :self |
 		self.isSmallInteger.if {
-			self.SmallFloat
+			SmallFloat(self)
 		} {
 			self
 		}
@@ -219,7 +219,7 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer, I
 		radix.betweenAnd(2, 36).if {
 			self.abs.uncheckedPrintString(radix).characters.digitValue
 		} {
-			self.SmallInteger.integerDigits(radix)
+			SmallInteger(self).integerDigits(radix)
 		}.collect(LargeInteger/1)
 	}
 
@@ -364,7 +364,7 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer, I
 
 	SmallInteger { :self |
 		self.isSmallInteger.if {
-			self.SmallFloat
+			SmallFloat(self)
 		} {
 			self.error('LargeInteger>>SmallInteger: not small integer')
 		}

@@ -40,7 +40,7 @@ The Guassian integers with components in _(-5, -1)_ that are prime:
 
 ```
 >>> (-5 .. -1).tuples(2).select { :each |
->>> 	each.listToComplex.isGaussianPrime
+>>> 	Complex(each).isGaussianPrime
 >>> }
 [
 	-5 -4; -5 -2; -4 -5; -4 -1; -3 -2; -2 -5;

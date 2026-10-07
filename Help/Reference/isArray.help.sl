@@ -78,7 +78,7 @@ true
 
 * * *
 
-See also: elementType, isMatrix, isVector, rank, shape
+See also: deepAllSatisfy, elementType, isMatrix, isVector, rank, shape
 
 Guides: Array Functions
 

@@ -105,7 +105,7 @@
 		let a = [root.z * cos(root.t), root.z * sin(root.t) ];
 		let coroot = {z: pow(root.z, p/q), t: (p*root.t+2*pi)/q};
 		let b = [coroot.z * cos(coroot.t), coroot.z * sin(coroot.t) ];
-		return [_listToComplex_1(a), _listToComplex_1(b), root.r];
+		return [_Complex_1(a), _Complex_1(b), root.r];
 		>
 	}
 

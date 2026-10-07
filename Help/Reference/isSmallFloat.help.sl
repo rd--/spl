@@ -39,6 +39,16 @@ Large integer literals:
 (false, true)
 ```
 
+A `List` is not a number:
+
+```
+>>> [1 2 3].isSmallFloat
+false
+
+>>> [1 2 3].allTrue(isSmallFloat/1)
+true
+```
+
 * * *
 
 See also: isComplex, isFraction, isLargeInteger, isNumber, SmallFloat

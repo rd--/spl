@@ -24,6 +24,9 @@ Integers are Gaussian integers with a zero imaginary part:
 >>> 23.isGaussianInteger
 true
 
+>>> 23.imaginary
+0
+
 >>> 23J0.isGaussianInteger
 true
 ```
