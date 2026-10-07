@@ -10,7 +10,7 @@ Count entries:
 >>> system
 >>> .superColliderProgramIndex
 >>> .size
-492
+668
 ```
 
 The programs are organised into `categories`:
@@ -26,6 +26,7 @@ The programs are organised into `categories`:
 	'Scheduler Collection'
 	'Texture'
 	'Texture Collection'
+	'Unit Generator'
 ]
 ```
 
@@ -41,6 +42,12 @@ of the form _[Category, Author, ProgramName]_:
 >>> )
 true
 ```
+
+To clear the help index from the cache:
+
+~~~spl cache
+system.libraryItem('SuperColliderProgramIndex').clearCache
+~~~
 
 _Note:_
 The catalogue is a `LibraryItem`,
