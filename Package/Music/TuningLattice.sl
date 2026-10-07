@@ -125,7 +125,7 @@
 
 	tuningLatticePrimes { :self :includeOctave |
 		let answer = Set();
-		self.asRatios.do { :each |
+		self.ratios.do { :each |
 			answer.includeAll!(each.tuningLatticePrimes(includeOctave))
 		};
 		answer.List.sort
@@ -146,7 +146,7 @@
 	}
 
 	tuningLatticeVertexCoordinates { :self :primes |
-		self.asRatios.collect { :each |
+		self.ratios.collect { :each |
 			each.tuningLatticeVector(primes)
 		}
 	}

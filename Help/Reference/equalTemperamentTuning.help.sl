@@ -14,10 +14,8 @@ Twelve tone equal temperament:
 >>> 	t.name,
 >>> 	t.description,
 >>> 	t.octave,
->>> 	t.asCents,
->>> 	t.asRatios.collect { :each |
->>> 		each.rationalize(1E-2)
->>> 	}
+>>> 	t.cents,
+>>> 	t.approximateRatios.rationalize(1E-2)
 >>> )
 (
 	true,
@@ -39,10 +37,8 @@ Seven tone equal temperament:
 ```
 >>> let t = 7.equalTemperamentTuning;
 >>> (
->>> 	t.asCents.round,
->>> 	t.asRatios.collect { :each |
->>> 		each.rationalize(1E-2)
->>> 	}
+>>> 	t.cents.round,
+>>> 	t.approximateRatios.rationalize(1E-2)
 >>> )
 (
 	[
@@ -58,6 +54,6 @@ Seven tone equal temperament:
 
 * * *
 
-See also: asCents, asRatios, CentsTuning, description, isCentsTuning, isTuning, name, Tuning
+See also: CentsTuning, Tuning, cents, description, isCentsTuning, isTuning, name, ratios
 
 Guides: Tuning Functions

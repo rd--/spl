@@ -168,6 +168,24 @@ An Erv Wilson scale (9 July 1967) specified as integers:
 )
 ```
 
+At `ScalaTuning`:
+
+```
+>>> ScalaTuning(
+>>> 	name: 'alves_pelog',
+>>> 	description: 'Pelog, 1/1 Vol.9 No.4',
+>>> 	octave: [2 1],
+>>> 	pitches: [8 7; 6 5; 21 16; 3 2; 8 5; 7 4],
+>>> 	limit: 7
+>>> ).RatioTuning
+RatioTuning(
+	'alves_pelog',
+	'Pelog, 1/1 Vol.9 No.4',
+	[1 8/7 6/5 21/16 3/2 8/5 7/4],
+	2/1
+)
+```
+
 _Rationale:_
 The type caches the value of `primeLimit` since it is used to construct a large dictionary of tunings.
 

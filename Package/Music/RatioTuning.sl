@@ -4,22 +4,10 @@ RatioTuning : [Object, Store, Equal, Cache, Tuning] {
 
 	| name description ratios octave cache |
 
-	asCents { :self |
+	cents { :self |
 		self.ratios.collect { :each |
 			each.log2 * 1200
 		}
-	}
-
-	asFractions { :self |
-		self.ratios
-	}
-
-	asIntegers { :self |
-		(self.ratios / self.ratios.reduce(gcd/2)).collect(Integer/1)
-	}
-
-	asRatios { :self |
-		self.ratios
 	}
 
 	equalBy { :self :anObject :aBlock/2 |
@@ -30,6 +18,10 @@ RatioTuning : [Object, Store, Equal, Cache, Tuning] {
 				aBlock/2
 			)
 		}
+	}
+
+	integers { :self |
+		(self.ratios / self.ratios.reduce(gcd/2)).collect(Integer/1)
 	}
 
 	intervalMatrix { :self |
@@ -111,7 +103,7 @@ RatioTuning : [Object, Store, Equal, Cache, Tuning] {
 
 +List {
 
-	[RatioTuning, asRatioTuning] { :self |
+	RatioTuning { :self |
 		RatioTuning(
 			'*Unnamed tuning*',
 			'*Undescribed tuning*',
@@ -124,11 +116,11 @@ RatioTuning : [Object, Store, Equal, Cache, Tuning] {
 
 +ScalaTuning {
 
-	asRatioTuning { :self |
+	RatioTuning { :self |
 		RatioTuning(
 			self.name,
 			self.description,
-			self.asRatios,
+			self.ratios,
 			self.octave,
 			self.primeLimit
 		)

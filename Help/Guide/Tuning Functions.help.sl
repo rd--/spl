@@ -10,13 +10,13 @@ Traits & Types:
 
 Accessing:
 
-- `asCents`: intervals in cents
-- `asFractions`: intervals as fractions
-- `asIntegers`: intervals as integers
-- `asRatios`: intervals as ratios
-- `intervalMatrix`:  interval matrix
-- `octave`: octave ratio
-- `primeLimit`: prime limit
+- `cents`
+- `integers`
+- `approximateRatios`
+- `ratios`
+- `intervalMatrix`
+- `octave`
+- `primeLimit`
 
 Alterations:
 

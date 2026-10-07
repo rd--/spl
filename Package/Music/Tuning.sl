@@ -1,19 +1,19 @@
 @Tuning {
 
-	asCents { :self |
-		self.typeResponsibility('@Tuning>>asCents')
+	cents { :self |
+		self.typeResponsibility('@Tuning>>cents')
 	}
 
-	asIntegers { :self |
-		self.typeResponsibility('@Tuning>>asIntegers')
-	}
-
-	asRatios { :self |
-		self.typeResponsibility('@Tuning>>asRatios')
+	integers { :self |
+		self.typeResponsibility('@Tuning>>integers')
 	}
 
 	isRational { :self |
 		self.typeResponsibility('@Tuning>>isRational')
+	}
+
+	ratios { :self |
+		self.typeResponsibility('@Tuning>>ratios')
 	}
 
 	isTuning { :self |
@@ -25,7 +25,7 @@
 	}
 
 	primeLimit { :self |
-		self.asIntegers.collect { :each |
+		self.integers.collect { :each |
 			(each = 1).if {
 				each
 			} {

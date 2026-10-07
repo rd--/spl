@@ -2,20 +2,10 @@
 
 CentsTuning : [Object, Store, Equal, Tuning] {
 
-	| name description asCents octave |
+	| name description cents octave |
 
-	asFractions { :self :epsilon |
-		self.asRatios.collect { :each |
-			each.rationalize(epsilon)
-		}
-	}
-
-	asFractions { :self |
-		self.asRatios.collect(rationalize/1)
-	}
-
-	asRatios { :self |
-		self.asCents.collect(centsToRatio/1)
+	approximateRatios { :self |
+		self.cents.collect(centsToRatio/1)
 	}
 
 	isRational { :self |
@@ -52,7 +42,7 @@ CentsTuning : [Object, Store, Equal, Tuning] {
 
 +List {
 
-	[CentsTuning, asCentsTuning] { :self |
+	CentsTuning { :self |
 		CentsTuning('Unnamed tuning', 'Undescribed tuning', self, 2)
 	}
 
@@ -60,11 +50,11 @@ CentsTuning : [Object, Store, Equal, Tuning] {
 
 +ScalaTuning {
 
-	asCentsTuning { :self |
+	CentsTuning { :self |
 		CentsTuning(
 			self.name,
 			self.description,
-			self.asCents,
+			self.cents,
 			self.octave
 		)
 	}

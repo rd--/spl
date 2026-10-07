@@ -32,6 +32,22 @@ Ratios are constant for a geometric sequence:
 [1 2 4 8 16 32 64 128 256 512 1024]
 ```
 
+
+At `RatioTuning`,
+answer a `List` of the interval ratios of the tuning _t_:
+
+```
+>>> let r = [1/1 8/7 4/3 14/9 16/9];
+>>> let t = RatioTuning(r);
+>>> (t.ratios, t.cents)
+(r, [0 231.17 498.05 764.92 996.09])
+
+>>> [0 231.17 498.05 764.92 996.09]
+>>> .centsToRatio
+>>> .rationalize
+[1/1 8/7 4/3 14/9 16/9]
+```
+
 * * *
 
 See also: /, differences, geometricProgression, isGeometricProgression, powerRange, scanLeft

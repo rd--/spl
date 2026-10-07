@@ -146,7 +146,7 @@ Scale([2 2 1 2 2 2 1], 'Maj.')
 
 * * *
 
-See also: LineDrawing, Tuning, asScale, degreeToKey, intervalClass, intervalClasses, intervals, intervalsBy, isImproper, isMomentOfSymmetry, isProper, isStrictlyProper, scalaScaleArchive, stepArity, textDrawing
+See also: LineDrawing, Tuning, asScale, degreeToKey, intervalClass, intervalClasses, intervals, intervalsBy, isImproper, isMomentOfSymmetry, isProper, isStrictlyProper, scalaScaleArchive, stepArity, textDrawing, tuningIndices
 
 Guides: Scale Functions, Tuning Functions
 

@@ -401,6 +401,7 @@ Reference/apostrophe.help.sl
 Reference/apply.help.sl
 Reference/approximateCircularArc.help.sl
 Reference/approximateFraction.help.sl
+Reference/approximateRatios.help.sl
 Reference/arcCos.help.sl
 Reference/ArcCos.help.sl
 Reference/arcCosh.help.sl
@@ -447,8 +448,6 @@ Reference/arshonsSequence.help.sl
 Reference/artinsConstant.help.sl
 Reference/asaTriangle.help.sl
 Reference/asBlock.help.sl
-Reference/asCents.help.sl
-Reference/asCentsTuning.help.sl
 Reference/asciiByteArray.help.sl
 Reference/asciiContents.help.sl
 Reference/ascii.help.sl
@@ -458,18 +457,13 @@ Reference/AsciiString.help.sl
 Reference/asciiValue.help.sl
 Reference/asDot.help.sl
 Reference/asFileUrl.help.sl
-Reference/asFractions.help.sl
 Reference/asHexDigit.help.sl
 Reference/asHexString.help.sl
-Reference/asIntegers.help.sl
 Reference/asLocalBuf.help.sl
 Reference/asLowerCase.help.sl
 Reference/asRandomTable.help.sl
-Reference/asRatios.help.sl
-Reference/asRatioTuning.help.sl
 Reference/asRegularExpression.help.sl
 Reference/Asr.help.sl
-Reference/asScale.help.sl
 Reference/assert.help.sl
 Reference/assertIsCollection.help.sl
 Reference/assertIsOfSize.help.sl
@@ -789,6 +783,7 @@ Reference/centiseconds.help.sl
 Reference/centralFeature.help.sl
 Reference/centralMoment.help.sl
 Reference/centroid.help.sl
+Reference/cents.help.sl
 Reference/centsToRatio.help.sl
 Reference/CentsTuning.help.sl
 Reference/cevianTriangle.help.sl
@@ -1970,6 +1965,7 @@ Reference/integerSequenceCompress.help.sl
 Reference/integerSequenceMatrix.help.sl
 Reference/integerSequenceNormalize.help.sl
 Reference/integerSequencePlot.help.sl
+Reference/integers.help.sl
 Reference/integerSquareRoot.help.sl
 Reference/integerString.help.sl
 Reference/Integrator.help.sl

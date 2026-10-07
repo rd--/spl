@@ -4,22 +4,9 @@ ScalaTuning : [Object, Tuning] {
 
 	| tuningRecord |
 
-	asCents { :self |
+	cents { :self |
 		let answer = self.pitches;
 		answer.addFirst!(0);
-		answer
-	}
-
-	asRatioTuning { :self |
-		self.asRatios.asRatioTuning
-	}
-
-	asRatios { :self |
-		let answer = self.pitches;
-		answer.allSatisfy(isFraction/1).ifFalse {
-			self.error('asRatios: non-ratio pitch')
-		};
-		answer.addFirst!(1/1);
 		answer
 	}
 
@@ -72,9 +59,22 @@ ScalaTuning : [Object, Tuning] {
 		self.tuningRecord['limit']
 	}
 
+	RatioTuning { :self |
+		self.ratios.RatioTuning
+	}
+
+	ratios { :self |
+		let answer = self.pitches;
+		answer.allSatisfy(isFraction/1).ifFalse {
+			self.error('ratios: non-ratio pitch')
+		};
+		answer.addFirst!(1/1);
+		answer
+	}
+
 	tuningLatticeGraph { :self |
 		self.isRational.if {
-			self.asRatioTuning.tuningLatticeGraph
+			self.RatioTuning.tuningLatticeGraph
 		} {
 			self.error('tuningLatticeGraph: irrational')
 		}
@@ -101,7 +101,7 @@ ScalaTuning : [Object, Tuning] {
 			self.scalaTuningArchive.select { :each |
 				each.isRational
 			}.collect { :each |
-				each.asRatioTuning
+				each.RatioTuning
 			}
 		}
 	}
@@ -168,7 +168,7 @@ ScalaTuning : [Object, Tuning] {
 	tuningName { :self |
 		self.isVector.if {
 			system.scalaRationalTuningArchive.detectIfFoundIfNone { :each |
-				each.asRatios ~ self
+				each.ratios ~ self
 			} { :each |
 				each.name
 			} {
