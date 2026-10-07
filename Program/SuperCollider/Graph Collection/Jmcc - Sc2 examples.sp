@@ -483,7 +483,7 @@ LeakDc(signal, 0.995) /* delays build up a lot of DC, so leak it out here. */
 let mix = SinOsc( /* lead tone */
 	(
 		DegreeToKey(
-			[0 2 3 5 7 9 10].asLocalBuf,
+			LocalBuf[0 2 3 5 7 9 10],
 			MouseX(0, 15, 0, 0.2), /* mouse indexes into scale */
 			12 /* 12 notes per octave */
 		) + 72 + LfNoise1([3 3]).Times(0.04)

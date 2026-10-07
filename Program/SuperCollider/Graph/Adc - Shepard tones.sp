@@ -1,8 +1,8 @@
 /* Shepard tones ; Adc */
-let ampTable = 1024.hannWindowTable.square.asLocalBuf;
+let ampTable = 1024.hannWindowTable.square.LocalBuf;
 let freqTable = [0 .. 1023].collect { :i |
 	0.5 ^ (i / 1024 * 10) * 20000
-}.asLocalBuf;
+}.LocalBuf;
 let rateScale = 1024 / 44100 / 10;
 let rate = 0.1;
 let ph = Phasor(0, rate * rateScale, 0, 1024, 0);

@@ -15,8 +15,7 @@ let k = 8;
 let tbl = [
 	0 0 0 0 1 0 1
 	0 1 0 1 0 1 0
-].asRandomTable(1111)
-.asLocalBuf;
+].randomTable(1111).LocalBuf;
 let w = TrigRoundRobin(
 	k * 2,
 	Impulse(k, 0).kr
@@ -38,8 +37,8 @@ let tbl = { :trig :dist :lo :hi |
 	TableRand(
 		trig,
 		dist
-		.asRandomTable(128)
-		.asLocalBuf
+		.randomTable(128)
+		.LocalBuf
 	).LinExp(0, 1, lo, hi)
 };
 let x = MouseX(7, [7 * 11, 11 * 23], 1, 0.2);
@@ -71,7 +70,7 @@ GrainFm(
 
 * * *
 
-See also: asRandomTable
+See also: randomTable
 
 Guides: Unit Generators
 

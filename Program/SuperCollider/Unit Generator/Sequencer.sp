@@ -45,7 +45,7 @@ let x = Rlpf(
 	MouseX(200, 8000, 1, 0.2),
 	0.2
 ).Distort;
-let scale = [0 2 3 5 7 8 10].asLocalBuf;
+let scale = LocalBuf[0 2 3 5 7 8 10];
 let trig3 = ImpulseSequencer([0.4 0 0.1 0.1 0.4 0.1 0.1 0.1] * 1.5, clock);
 let freq = (DegreeToKey(scale, Demand(clock, 0, p), 12) - 12 + root).MidiCps;
 let z = Rlpf(

@@ -8,7 +8,7 @@ let voiceData = [
 	98 56 63 23 99 89 74  2  0  4  1  0  0 0 0 0 99  0  1 0 7
 	99 99 99 99 50 50 50 50  3  2  1 29 99 1 0 0  0  1 24
 ];
-let buf = voiceData.asLocalBuf;
+let buf = voiceData.LocalBuf;
 Voicer(1, 16) { :e |
 	let x0 = Latch(e.x, e.w);
 	let dx7 = Dx7(buf, e.w, 0, 0, 0, e.x * 24 + 48, e.z, (8192 * (e.x - x0)), 0, 0, 0);
@@ -25,7 +25,7 @@ let voiceData = [
 	98 56 63 23 99 89 74  2  0  4  1  0  0 0 0 0 99  0  1 0 7
 	99 99 99 99 50 50 50 50  3  2  1 29 99 1 0 0  0  1 24
 ];
-let buf = voiceData.asLocalBuf;
+let buf = voiceData.LocalBuf;
 {
 	let tr = Dust(1 / 16).kr;
 	let dx7 = Dx7(buf, tr, 0, 0, 0, TRand(48, 72, tr), TRand(0.1, 0.6, tr), 0, 0, 0, 0);

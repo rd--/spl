@@ -67,7 +67,7 @@ z.Clip2(TRand(0, 1, Dust(8))) * 0.25
 
 /* 20060916 ; rd */
 let mkRead = { :l :t |
-	BufRd(1, l.asLocalBuf, TRand(0, 6, t), 0, 1)
+	BufRd(1, LocalBuf(l), TRand(0, 6, t), 0, 1)
 };
 [1 .. 4].collect { :n |
 	let t = Dust(1.6);
@@ -78,24 +78,28 @@ let mkRead = { :l :t |
 }.Mix * 0.25
 
 /* 20060917 ; rd ; requires=DustRange */
-let b0 = [60 71 89 65 36 57 92 97 92 97].asLocalBuf;
-let b1 = [71 89 60 57 65 36 95 92 93 97].asLocalBuf;
+let b = LocalBuf[
+	60 71 89 65 36 57 92 97 92 97;
+	71 89 60 57 65 36 95 92 93 97
+];
 let clk = DustRange(0.2, 0.9);
 let env = Decay2(clk, 0.02, 2.5);
 let idx = Stepper(clk, 0, 0, 15, 1, 0);
-let f1 = (BufRd(1, [b0, b1], idx, 1, 1) - 24).MidiCps;
+let f1 = (BufRd(1, b, idx, 1, 1) - 24).MidiCps;
 let f2 = LfNoise0([1, 3]) * 1.2 + f1;
 let o1 = SinOsc(f1, 0) * env;
 let o2 = SinOsc(f2, 0) * env;
 o1 + o2 * 0.2
 
 /* 2006-09-17 ; rd ; two mono buffers */
-let b0 = [60 71 89 65 36 57 92 97 92 97].asLocalBuf;
-let b1 = [71 89 60 57 65 36 95 92 93 97].asLocalBuf;
+let b = LocalBuf[
+	60 71 89 65 36 57 92 97 92 97;
+	71 89 60 57 65 36 95 92 93 97
+];
 let clk = DustRange(0.2, 0.9);
 let env = Decay2(clk, 0.2, 2.5);
 let idx = Stepper(clk, 0, 0, 15, 1, 0);
-let f1 = (BufRd(1, [b0, b1], idx, 1, 1) - 24).MidiCps;
+let f1 = (BufRd(1, b, idx, 1, 1) - 24).MidiCps;
 let f2 = LfNoise0([1, 3]) * 1.2 + f1;
 SinOsc(f1, 0) + SinOsc(f2, 0) * env * 0.2
 
@@ -104,19 +108,18 @@ let fw = { :r |
 	let t = Dust(3);
 	let r1 = TiRand(0, 6, t);
 	let r2 = TRand(-0.0001, 0.0001, t);
-	let b0 = [
+	let b = LocalBuf[
 		40 47 42 40 50
 		43 35 43 40 47
 		45 35 43 42 59
 		48 40 47 52 45
-	].asLocalBuf;
-	let b1 = [
-		40, 40, 42, 47, 50,
-		35, 43, 43, 40, 45,
-		42, 35, 48, 47, 43,
-		40, 59, 45, 47, 52
-	].asLocalBuf;
-	let f = BufRd(1, [b0, b1], r1, 0, 2);
+		;
+		40 40 42 47 50
+		35 43 43 40 45
+		42 35 48 47 43
+		40 59 45 47 52
+	];
+	let f = BufRd(1, b, r1, 0, 2);
 	let o1 = Blip((r + f).MidiCps, 12);
 	let o2 = Blip((r + f + r2).MidiCps, 12);
 	o1 + o2 * Decay2(t, 0.3, 1.2) * 0.1
@@ -174,7 +177,7 @@ let b = Choose(t, [36, 48, 60, 72]);
 let n = LfNoise1([3, 3.05]) * 0.04;
 let d = TiRand(x, y, t);
 let e = Decay2(t, 0.005, TRand(0.02, 0.15, t));
-let k = DegreeToKey([0, 2, 3.2, 5, 7, 9, 10].asLocalBuf, d, 12);
+let k = DegreeToKey(LocalBuf[0 2 3.2 5 7 9 10], d, 12);
 let f = (b + k + n).MidiCps;
 let m = e * SinOsc(f, 0) * 0.2;
 let u = PulseDivider(t, 9, 0);
@@ -186,7 +189,7 @@ m * 0.5 + AllpassC(m, 0.15, r0, r1)
 let t = Dust(9).kr;
 let u = PulseDivider(t, 9, 0);
 let d = TiRand(MouseX(15, 0, 0, 0.1), MouseY(15, 27, 0, 0.1), t);
-let k = DegreeToKey([0, 2, 3.2, 5, 7, 9, 10].asLocalBuf, d, 12);
+let k = DegreeToKey(LocalBuf[0 2 3.2 5 7 9 10], d, 12);
 let m = LfNoise1([3, 3.05]) * 0.04 + Choose(t, [36, 48, 60, 72]) + k;
 let o = SinOsc(m.MidiCps, 0) * Decay2(t, 0.005, TRand(0.02, 0.15, t)) * 0.2;
 o * 0.5 + AllpassC(o, 0.15, TRand(0.0075, 0.125, u), TRand(0.05, 0.15, u))

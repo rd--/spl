@@ -6,7 +6,7 @@ Random number generator.
 Generates a single random integer value in uniform distribution from _lo_ to _hi_.
 
 ```
-let scale = [0 2 4 5 7 9 10 12].asLocalBuf;
+let scale = LocalBuf[0 2 4 5 7 9 10 12];
 {
 	let degree = IRand(0, 7);
 	let octave = IRand(4, 7);
@@ -20,7 +20,7 @@ let scale = [0 2 4 5 7 9 10 12].asLocalBuf;
 Scheduled texture program:
 
 ~~~spl texture
-let scale = [0 2 4 5 7 9 10 12].asLocalBuf;
+let scale = LocalBuf[0 2 4 5 7 9 10 12];
 {
 	{
 		let scaleDegree = IRand(0, 7);

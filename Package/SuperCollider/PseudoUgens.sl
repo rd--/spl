@@ -74,14 +74,14 @@
 	}
 
 	Choose { :tr :inList |
-		(inList.elementType = 'SmallFloat').if {
-			TBufChoose(tr, inList.asLocalBuf)
-		} {
-			inList.isMatrixOf('SmallFloat').if {
-				TBufChoose(tr, inList.asLocalBufferList)
-			} {
-				TChoose(tr, inList)
+		(
+			inList.elementType = 'SmallFloat' |  {
+				inList.isMatrixOf('SmallFloat')
 			}
+		).if {
+			TBufChoose(tr, LocalBuf(inList))
+		} {
+			TChoose(tr, inList)
 		}
 	}
 

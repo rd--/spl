@@ -20,9 +20,9 @@ let c = 128.sineTable(
 	1 / 1:3,
 	[0]
 ).normalizeSignal;
-let b = c.asWavetable.asLocalBuf;
+let b = c.wavetableFormat.LocalBuf;
 Osc(
-	c,
+	b,
 	MouseX(222, 555, 1, 0.2),
 	0
 ) * 0.1
@@ -35,7 +35,7 @@ let c = 2048.sineTable(
 	1 / 1:128,
 	[0]
 ).normalizeSignal;
-let b = c.asWavetable.asLocalBuf;
+let b = c.wavetableFormat.LocalBuf;
 {
 	Osc(
 		b,
@@ -52,7 +52,7 @@ let b = c.asWavetable.asLocalBuf;
 
 * * *
 
-See also: asLocalBuf, asWavetable, BufPlay, BufRd, Osc1, SinOsc
+See also: LocalBuf, BufPlay, BufRd, Osc1, SinOsc, wavetableFormat
 
 Guides: Unit Generators
 

@@ -4,7 +4,7 @@
 	let rd = { :l |
 		BufRd(
 			1,
-			l.asLocalBuf,
+			l.LocalBuf,
 			TRand(0, 6, tr),
 			0,
 			1

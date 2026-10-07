@@ -14,7 +14,7 @@ which is applied as a window (amplitude envelope) to a sine oscillator.
 ```
 let tbl = 0:511.collect { :each |
 	(each / 512 * 1.pi).sin
-}.asLocalBuf;
+}.LocalBuf;
 let k = 7;
 let dur = 1 / k;
 let tr = TrigRoundRobin(k, Impulse(k, 0));

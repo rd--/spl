@@ -1,6 +1,6 @@
-# asRandomTable
+# randomTable
 
-- _asRandomTable([x₁ x₂ …], n)_
+- _randomTable([x₁ x₂ …], n)_
 
 Given the sequence _x_ holding a discrete probability density function,
 answer a sequence of _n_ places holding the associated cumulative distribution function.
@@ -11,15 +11,15 @@ Draw the discrete probability density function _1,1,0,1,1_:
 [1 1 0 1 1].linePlot
 ~~~
 
-![](Help/Image/asRandomTable-A.svg)
+![](Help/Image/randomTable-A.svg)
 
 Draw the cumulative distribution function associated with the discrete probability density function _1,1,0,1,1_:
 
 ~~~spl svg=B
-[1 1 0 1 1].asRandomTable(128).linePlot
+[1 1 0 1 1].randomTable(128).linePlot
 ~~~
 
-![](Help/Image/asRandomTable-B.svg)
+![](Help/Image/randomTable-B.svg)
 
 Draw the discrete probability density function _1,0,0,0,1,0,0,0,1_:
 
@@ -27,17 +27,29 @@ Draw the discrete probability density function _1,0,0,0,1,0,0,0,1_:
 [1 0 0 0 1 0 0 0 1].linePlot
 ~~~
 
-![](Help/Image/asRandomTable-C.svg)
+![](Help/Image/randomTable-C.svg)
 
 Draw the cumulative distribution function associated with the discrete probability density function _1,0,0,0,1,0,0,0,1_:
 
 ~~~spl svg=D
 [1 0 0 0 1 0 0 0 1]
-.asRandomTable(128)
+.randomTable(128)
 .linePlot
 ~~~
 
-![](Help/Image/asRandomTable-D.svg)
+![](Help/Image/randomTable-D.svg)
+
+Generate a random variate using `tableRand`:
+
+~~~spl svg=E
+let pdf = [1 0 0 0 1 0 0 0 1];
+let cdf = pdf.randomTable(128);
+let r = Sfc32(361824);
+let v = { cdf.tableRand(r) } ! 10_000;
+v.histogramPlot
+~~~
+
+![](Help/Image/randomTable-E.svg)
 
 * * *
 

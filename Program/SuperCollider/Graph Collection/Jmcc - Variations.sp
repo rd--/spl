@@ -390,7 +390,7 @@ let b = { :f :m :a :g |
 { BrownNoise().Times(0.002).OnePole(0.95).RingzBank({ 40 + Rand(0, 2000) } ! 10, [0.1], [1]) } ! 2
 
 /* Modal space (Jmcc) #8 ; left-to-right */
-let b = [0 2 3.2 5 7 9 10].asLocalBuf;
+let b = LocalBuf[0 2 3.2 5 7 9 10];
 let k = DegreeToKey(b, MouseX(0, 15, 0, 0.1), 12);
 let c = { :n :r |
 	let o = SinOsc((k + r + (n * 0.04)).MidiCps, 0).Times(0.1);
@@ -420,7 +420,7 @@ let z = { :tr |
 		hi: 6,
 		trig: tr
 	);
-	let major = [0, 2, 4, 5, 7, 9, 11].asLocalBuf;
+	let major = LocalBuf[0 2 4 5 7 9 11];
 	let offset = TRand(
 		lo: -16,
 		hi: 16,

@@ -6,7 +6,7 @@ Voicer(1, 16) { :e |
 		60 62 64 65 67 69 71 72 74 76 77 79 81 83 84 86 88 89 91 93 95 96 98
 		100 101 103 105 107 108
 	];
-	let tbl = seq.asLocalBuf;
+	let tbl = seq.LocalBuf;
 	let mnn = e.x * 88 + 21;
 	let mnn0 = Latch(mnn, e.w);
 	let rt = ((mnn - mnn0) * e.y).MidiRatio;

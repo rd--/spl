@@ -3,7 +3,7 @@ let sampleRate = 48000;
 let sndBuf = SfAcquireMono('Floating');
 let envBuf = [-1 1].resample(sampleRate).collect { :x |
 	(1 - (x ^ 2)) ^ 1.25
-}.asLocalBuf;
+}.LocalBuf;
 let pan = 0;
 let stretch = 50;
 let window = 0.25;

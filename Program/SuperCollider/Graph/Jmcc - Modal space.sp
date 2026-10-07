@@ -1,5 +1,5 @@
 /* Modal space (Jmcc) #8 */
-let b = [0 2 3.2 5 7 9 10].asLocalBuf;
+let b = LocalBuf[0 2 3.2 5 7 9 10];
 let k = DegreeToKey(b, MouseX(0, 15, 0, 0.2), 12);
 let c = { :n :r |
 	let o = SinOsc((r + k + (n * 0.04)).MidiCps, 0) * 0.1;

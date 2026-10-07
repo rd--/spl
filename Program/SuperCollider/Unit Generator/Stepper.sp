@@ -13,7 +13,7 @@ let freq = Multiplexer(index, scale).MidiCps;
 SinOsc(freq, 0) * 0.1
 
 /* Stepper */
-let b = [43 55 72 70 55 58 41 67 41 60 55 39 58 55 43 51].asLocalBuf;
+let b = LocalBuf[43 55 72 70 55 58 41 67 41 60 55 39 58 55 43 51];
 let rate = MouseX(1, 3, 1, 0.2);
 let clock = Impulse(rate, 0);
 let env = Decay2(clock, 0.002, 2.5);

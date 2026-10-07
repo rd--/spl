@@ -492,7 +492,7 @@ let o = SinOsc(440, 0);
 let z = { :x | LfSaw(x, 0) };
 let i = [1 .. 4].fibonacci; /* 1 1 2 3 */
 let f = 2 ^ [0 .. 3] + i * 2;
-let b = [0 2 5 7 9].asLocalBuf; /* 0 2 5 7 9 */
+let b = LocalBuf[0 2 5 7 9];
 let l = DegreeToKey(
 	b,
 	StandardN(f, 1, 0.5, 0).Sin.Sanitize(0) * z(1 / f / i) * 12,

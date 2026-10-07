@@ -1,7 +1,7 @@
 /* Jmcc ; Ostinoodles ; requires=TScramble */
 let z = { :tr |
 	let root = 81 + TRand(-6, 6, tr);
-	let major = [0 2 4 5 7 9 11].asLocalBuf;
+	let major = LocalBuf[0 2 4 5 7 9 11];
 	let offset = TRand(-16, 16, tr);
 	let seq = DegreeToKey(
 		major,

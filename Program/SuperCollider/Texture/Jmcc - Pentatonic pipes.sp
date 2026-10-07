@@ -1,6 +1,6 @@
 /* Pentatonic pipes (Jmcc) #9 ; mousex on right half of screen causes pulsation ; requires=kr */
 let n = 5;
-let mode = [0 3 5 7 10].asLocalBuf;
+let mode = LocalBuf[0 3 5 7 10];
 let root = 36 + [0 .. 12].atRandom;
 {
 	let f = (DegreeToKey(mode, IRand(0, 20), 12) + root).MidiCps;

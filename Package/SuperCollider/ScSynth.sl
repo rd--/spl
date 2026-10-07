@@ -252,19 +252,11 @@ ScSynth! : [Object] {
 
 +List {
 
-	asLocalBuf { :self |
-		<primitive: return sc.asLocalBuf(_self);>
-	}
-
-	asLocalBufferList { :self |
-		(self.depth != 3).if {
-			'asLocalBufferList: not a matrix'.error
-		} {
-			self.collect(asLocalBuf/1)
-		}
-	}
-
 	LocalBuf { :self |
+		self.atVectorOrElementwise(uncheckedLocalBuf/1)
+	}
+
+	uncheckedLocalBuf { :self |
 		<primitive: return sc.asLocalBuf(_self);>
 	}
 

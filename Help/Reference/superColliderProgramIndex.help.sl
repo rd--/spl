@@ -10,7 +10,7 @@ Count entries:
 >>> system
 >>> .superColliderProgramIndex
 >>> .size
-668
+497
 ```
 
 The programs are organised into `categories`:
@@ -26,7 +26,6 @@ The programs are organised into `categories`:
 	'Scheduler Collection'
 	'Texture'
 	'Texture Collection'
-	'Unit Generator'
 ]
 ```
 

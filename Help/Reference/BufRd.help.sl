@@ -52,7 +52,7 @@ Play window function at local buffer:
 ```
 let tbl = 0:180.collect { :each |
 	each.degreesToRadians.sin
-}.asLocalBuf;
+}.LocalBuf;
 let dur = 3;
 let ph = Line(0, BufFrames(tbl), dur);
 let win = BufRd(1, tbl, ph, 1, 2);
@@ -64,7 +64,7 @@ Trigger window function at local buffer:
 ```
 let tbl = 0:180.collect { :each |
 	each.degreesToRadians.sin
-}.asLocalBuf;
+}.LocalBuf;
 let dur = 1 / 7;
 let tr = Impulse(5, 0);
 let ph = TLine(0, BufFrames(tbl), dur, tr);

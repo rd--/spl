@@ -39,7 +39,7 @@ let p = system.coin(0.5).if {
 	StandardN([8 4 6 2], 1, 0.5, 0).LinLin(-1, 1, 12, 48).Ceiling
 };
 let f = DegreeToKey(
-	[0 2 3 5 7 8 10].asLocalBuf,
+	LocalBuf[0 2 3 5 7 8 10],
 	p,
 	12
 ).MidiCps;
@@ -158,7 +158,7 @@ LeakDc(
 ).SoftClip / 2
 
 /* Spa Saw Shower Wash ; https://github.com/lukiss/Losers-Union-SC-Research ; https://sonomu.club/@lukiss/111427906537919703 */
-let c = 2048.sineTable(1 / [1 .. 128], [0]).normalizeSignal.asWavetable.asLocalBuf;
+let c = 2048.sineTable(1 / [1 .. 128], [0]).normalizeSignal.wavetableFormat.LocalBuf;
 let w = { :freq |
 	LfdNoise3(freq).LinLin(-1, 1, 80, 6880) /* LinCurve */
 };

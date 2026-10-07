@@ -131,7 +131,7 @@ let z = { :x | LfSaw(x, 0) };
 let i = [1 .. 4].fibonacci; /* 1 1 2 3 */
 let f = 1 << [0 .. 3] + i * 2; /* 4 6 12 22 */
 let l = DegreeToKey(
-	[0 2 5 7 9].asLocalBuf,
+	LocalBuf[0 2 5 7 9],
 	StandardN(f, 1, 0.5, 0) * z(1 / f) * 12,
 	12
 );
@@ -486,7 +486,7 @@ o / 5 * Line(0, 1, 14)
 
 /* SCSCC #32 Baum 219 */
 let f = Index(
-	(12 * [0 .. 5] +.x (5 * [0 .. 3] ++ [19])).asLocalBuf,
+	(12 * [0 .. 5] +.x (5 * [0 .. 3] ++ [19])).LocalBuf,
 	Round(
 		QuadC(1, 1, -1, -0.75, 0) + 1 / 2 * 30,
 		Ceiling(QuadC(0.9, 1, -1, -0.75, 0) + 1 * 12)
@@ -562,7 +562,7 @@ Pan2(a + b + c, 0, 1)
 /* ScScc-38 "Index" ; https://github.com/lukiss/SCSCC/ */
 let t = LfSaw(-7, 0);
 let c = Index(
-	((7 * [0 .. 3]) +.x (5 * [0 .. 3])).asLocalBuf,
+	((7 * [0 .. 3]) +.x (5 * [0 .. 3])).LocalBuf,
 	Stepper(
 		t,
 		0,

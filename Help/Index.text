@@ -454,8 +454,6 @@ Reference/AsciiStream.help.sl
 Reference/asciiString.help.sl
 Reference/AsciiString.help.sl
 Reference/asciiValue.help.sl
-Reference/asLocalBuf.help.sl
-Reference/asRandomTable.help.sl
 Reference/Asr.help.sl
 Reference/assert.help.sl
 Reference/assertIsCollection.help.sl
@@ -3422,6 +3420,7 @@ Reference/randomSample.help.sl
 Reference/randomSimplePolygon.help.sl
 Reference/randomStarConvexPolygon.help.sl
 Reference/randomSubsequence.help.sl
+Reference/randomTable.help.sl
 Reference/randomTree.help.sl
 Reference/randomUniformGraph.help.sl
 Reference/randomVariate.help.sl

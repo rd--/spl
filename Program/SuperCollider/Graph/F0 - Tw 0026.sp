@@ -3,7 +3,7 @@ let n = [
 	0 0 0 0 0 0 0 3 4 6 4 0 3 2 0 0 0 0 1 6 0 1 0 0 0 0 0 0 4 0 0 3
 	1 1 2 0 0 3 3 0 0 3 4 0 1 3 0 0 0 0 1 0 1 7 0 0 5 6 3 0 4 0 9 0
 ];
-let b = [0 2 4 5 7 9 11].asLocalBuf;
+let b = LocalBuf[0 2 4 5 7 9 11];
 let tr = Impulse(4, 0);
 let k = DegreeToKey(b, Sequencer(n, tr), 12);
 let e = Decay2(tr, 0.01, TRand(0.15, 0.5, tr));

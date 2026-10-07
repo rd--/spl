@@ -340,40 +340,6 @@
 
 +List {
 
-	asRandomTable { :self :size |
-		let a = (size = self.size).if {
-			self
-		} {
-			self.resample(size)
-		};
-		let b = a.integrate.normalizeRange([1 size]);
-		1.toCollect(size) { :index |
-			b.indexOfInBetween(index) - 1 / size
-		}
-	}
-
-	asRandomTable { :self |
-		self.asRandomTable(self.size)
-	}
-
-	asWavetable { :self |
-		let size = self.size * 2;
-		let answer = self.species.ofSize(size);
-		let index = 1;
-		1.toDo(self.size) { :each |
-			let e1 = self[each];
-			let e2 = (each = self.size).if {
-				0
-			} {
-				self[each + 1]
-			};
-			answer[index] := 2 * e1 - e2;
-			answer[index + 1] := e2 - e1;
-			index := index + 2
-		};
-		answer
-	}
-
 	atAllBlend { :self :indices |
 		indices.collect { :each |
 			self.atBlend(each)
@@ -575,6 +541,23 @@
 		self.species.newFrom(answer)
 	}
 
+
+	randomTable { :self :size |
+		let a = (size = self.size).if {
+			self
+		} {
+			self.resample(size)
+		};
+		let b = a.integrate.normalizeRange([1 size]);
+		1.toCollect(size) { :index |
+			b.indexOfInBetween(index) - 1 / size
+		}
+	}
+
+	randomTable { :self |
+		self.randomTable(self.size)
+	}
+
 	scramble { :self |
 		self.shuffle
 	}
@@ -631,13 +614,17 @@
 		repeatCount.replicate(self)
 	}
 
-	tableRand { :self |
+	tableRand { :self :r |
 		self.atBlend(
-			system.randomReal(
+			r.randomReal(
 				[1, self.size],
 				[]
 			)
 		)
+	}
+
+	tableRand { :self |
+		self.tableRand(system.random)
 	}
 
 	waveFill { :self :aBlock/3 :start :end |
@@ -654,6 +641,24 @@
 				index := index + 1
 			}
 		}
+	}
+
+	wavetableFormat { :self |
+		let size = self.size * 2;
+		let answer = self.species.ofSize(size);
+		let index = 1;
+		1.toDo(self.size) { :each |
+			let e1 = self[each];
+			let e2 = (each = self.size).if {
+				0
+			} {
+				self[each + 1]
+			};
+			answer[index] := 2 * e1 - e2;
+			answer[index + 1] := e2 - e1;
+			index := index + 2
+		};
+		answer
 	}
 
 	wrapExtend { :self :size |

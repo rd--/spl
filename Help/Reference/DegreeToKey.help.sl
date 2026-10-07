@@ -13,7 +13,7 @@ The input signal value is truncated to an integer value and used as an index int
 Modal space, mouse controls discrete pitch in dorian mode:
 
 ```
-let b = [0 2 3.2 5 7 9 10].asLocalBuf;
+let b = LocalBuf[0 2 3.2 5 7 9 10];
 let x = MouseX(0, 15, 0, 0.1);
 let k = DegreeToKey(b, x, 12);
 let c = { :n :r |
@@ -39,7 +39,7 @@ let n = LfNoise1([3, 3]);
 
 * * *
 
-See also: asLocalBuf, degreeToKey
+See also: LocalBuf, degreeToKey
 
 Guides: Unit Generators
 

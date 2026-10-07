@@ -74,7 +74,7 @@ SuperColliderProgramIndex : [Object] {
 				each.replaceString('.sp', '')
 				.splitByRegularExpression(
 					RegularExpression(' - |/')
-				)
+				).assertIsOfSize(3)
 			}
 		)
 	}

@@ -1,7 +1,7 @@
 /* Cfstring1 (Jmcc) ; http://www.iamas.ac.jp/~aka/dspss2004/materials/ */
 {
 	let dgr = DegreeToKey(
-		[0 2 4 5 7 9 11].asLocalBuf,
+		LocalBuf[0 2 4 5 7 9 11],
 		Rand(0, 12),
 		12
 	);
