@@ -72,7 +72,7 @@ Line : [Object, Store, Equal, Geometry] {
 
 	project { :self :projection |
 		Line(
-			self.vertexCoordinates.collect(projection.asUnaryBlock)
+			self.vertexCoordinates.collect(projection.unaryBlock)
 		)
 	}
 

@@ -1365,7 +1365,7 @@ let f = { :t0 | let t1 = system.randomReal([0 2], []); f/1.valueAfterWith(t1, t1
 (29.days + 12.hours + 44.minutes + 2.9.seconds - 1.synodicMonths).Duration.abs ~ 76.milliseconds.Duration
 -3.seconds.Duration.abs = 3.seconds.Duration /* absolute value */
 (3.minutes - 2.hours).Duration.abs = (1.hours + 57.minutes).Duration /* absolute value */
-(7 / 8).milliseconds.Duration.seconds = 7/8000 /* fractional duration */
+(7 / 8).milliseconds.Duration.inSeconds = 7/8000 /* fractional duration */
 2.minutes.Duration.inSeconds = 120 /* seconds of duration, or identity of number */
 ```
 
@@ -3407,7 +3407,7 @@ let s = 'string'; [s[2], s[4], s[5]].stringJoin = 'tin' /* string subscripting *
 ' x '.withoutTrailingBlanks = ' x'
 let a = []; 'string'.do { :each | a.add!(each) }; a.stringJoin = 'string'
 'string'.characters.stringIntercalate('') = 'string'
-let a = 'string'.characterList; a.stringJoin = 'string'
+let a = 'string'.characters; a.stringJoin = 'string'
 '𠮷'.countCharacters = 1
 '𠮷'.countUtf16CodeUnits = 2
 '𠮷'.size = 2

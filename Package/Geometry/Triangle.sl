@@ -582,7 +582,7 @@ Triangle : [Object, Store, Equal, Geometry] {
 	project { :self :projection |
 		self
 		.vertexCoordinates
-		.collect(projection.asUnaryBlock)
+		.collect(projection.unaryBlock)
 		.Triangle
 	}
 

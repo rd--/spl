@@ -11,7 +11,7 @@
 7.equalTemperamentTuning.cents.round = [0 171 343 514 686 857 1029]
 RatioTuning[1/1 6/5 4/3 3/2 8/5].ratios = [1 6/5 4/3 3/2 8/5]
 RatioTuning[1/1 6/5 4/3 3/2 8/5].cents.round = [0 316 498 702 814]
-RatioTuning[1/1 6/5 4/3 3/2 8/5].asIntegers = [30 36 40 45 48]
+RatioTuning[1/1 6/5 4/3 3/2 8/5].integers = [30 36 40 45 48]
 RatioTuning[1/1 6/5 4/3 3/2 8/5].octave = 2
 30/17.tuningLatticePrimes(false) = [3 5 17]
 30/17.tuningLatticeVector([3 5 17]) = [1 1 -1]
@@ -24,7 +24,7 @@ let r = [1/1 10/9 20/17 4/3 3/2 5/3 30/17]; let t = RatioTuning(r); let p = t.tu
 ## Music-RatioTuning
 ```
 let r = RatioTuning('', '', [1/1 8/7 4/3 14/9 16/9], 2); [r.size, r.primeLimit, r.cents.round] = [5, 7, [0, 231, 498, 765, 996]]
-RatioTuning('', '', [1/1 8/7 4/3 14/9 16/9], 2).asIntegers =  [63 72 84 98 112]
+RatioTuning('', '', [1/1 8/7 4/3 14/9 16/9], 2).integers =  [63 72 84 98 112]
 RatioTuning('', '', [63 72 84 98 112], 2).ratios = [1/1 8/7 4/3 14/9 16/9]
 RatioTuning('', '', [1/1 8/7 4/3 14/9 16/9], 2) = RatioTuning('', '', [63 72 84 98 112], 2)
 let t = RatioTuning[63, 72, 84, 98, 112]; [t.primeLimit, t.size, t.octave] = [7, 5, 2]
@@ -32,7 +32,7 @@ let t = RatioTuning[63, 72, 84, 98, 112]; t.ratios = [1, 8/7, 4/3, 14/9, 16/9]
 let t = RatioTuning[63, 72, 84, 98, 112]; t.cents.round = [0, 231, 498, 765, 996]
 let r = [1/1, 8/7, 4/3, 14/9, 16/9]; [r.reduce(gcd/2), r.reduce(lcm/2)] = [1/63, 112]
 [1, 8/7, 4/3, 14/9, 16/9] / 1/63 = [63, 72, 84, 98, 112]
-RatioTuning[1/1, 8/7, 4/3, 14/9, 16/9].asIntegers = [63, 72, 84, 98, 112]
+RatioTuning[1/1, 8/7, 4/3, 14/9, 16/9].integers = [63, 72, 84, 98, 112]
 RatioTuning[63, 72, 84, 98, 112].ratios = [1, 8/7, 4/3, 14/9, 16/9]
 RatioTuning[1, 3].ratios = [1, 3]
 ```
@@ -102,7 +102,7 @@ Frequency(440).octavePitchClass = 4.09 /* octave pitch class number */
 'x' ++ ' ' ++ 'y' = 'x y' /* catenation with space */
 '/usr' +/+ 'local' = '/usr/local' /* file path catenation */
 let l = []; [1 .. 9].adjacentPairsDo { :a :b | l.add!(a -> b) }; l.size = 8
-[1 .. 7].collect { :x | x.asBinaryDigits(3) } = [0 0 1; 0 1 0; 0 1 1; 1 0 0; 1 0 1; 1 1 0; 1 1 1]
+[1 .. 7].collect { :x | x.binaryDigits(3) } = [0 0 1; 0 1 0; 0 1 1; 1 0 0; 1 0 1; 1 1 0; 1 1 1]
 [1 .. 9].atRandom.inclusivelyBetweenAnd(1, 9)
 [1 .. 9].atRandom.exclusivelyBetweenAnd(0, 10)
 [3, 4, 1, 1].integrate = [3, 7, 8, 9]

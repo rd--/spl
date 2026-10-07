@@ -12,7 +12,7 @@
 		let projectionsA = 'p'.createElement;
 		let projectionsB = 'p'.createElement;
 		let scaledDrawing = { :projection |
-			self.asSvgElement(12, projection.asUnaryBlock)
+			self.asSvgElement(12, projection.unaryBlock)
 		};
 		description.textContent := self.description;
 		projectionsA.appendChildren([

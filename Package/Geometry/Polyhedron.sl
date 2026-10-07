@@ -6,7 +6,7 @@ Polyhedron : [Object, Store, Equal, Geometry, PolygonMesh] {
 
 	project { :self :projection |
 		PolygonMesh(
-			self.vertexCoordinates.collect(projection.asUnaryBlock),
+			self.vertexCoordinates.collect(projection.unaryBlock),
 			self.faceIndices
 		)
 	}

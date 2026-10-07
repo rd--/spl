@@ -34,7 +34,7 @@ Point : [Object, Store, Equal, Geometry, CartesianCoordinates] {
 
 	project { :self :projection |
 		Point(
-			projection.asUnaryBlock.value(self.coordinates)
+			projection.unaryBlock.value(self.coordinates)
 		)
 	}
 

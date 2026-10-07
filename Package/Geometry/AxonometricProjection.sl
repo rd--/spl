@@ -2,7 +2,15 @@ AxonometricProjection : [Object, Equal] {
 
 	| xRadius xTheta yRadius yTheta zRadius zTheta |
 
-	asTransformationMatrix { :self |
+	polarCoordinates { :self |
+		[
+			self.xRadius self.xTheta;
+			self.yRadius self.yTheta;
+			self.zRadius self.zTheta
+		]
+	}
+
+	transformationMatrix { :self |
 		[
 			[
 				self.xRadius * self.xTheta.cos,
@@ -22,20 +30,12 @@ AxonometricProjection : [Object, Equal] {
 		]
 	}
 
-	asUnaryBlock { :self |
-		let matrix = self.asTransformationMatrix;
+	unaryBlock { :self |
+		let matrix = self.transformationMatrix;
 		{ :aVector |
 			let [x, y, _] = matrix.dot(aVector);
 			[x, y]
 		}
-	}
-
-	polarCoordinates { :self |
-		[
-			self.xRadius self.xTheta;
-			self.yRadius self.yTheta;
-			self.zRadius self.zTheta
-		]
 	}
 
 }

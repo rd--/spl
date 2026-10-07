@@ -66,19 +66,12 @@ Break a string into a list of characters:
 ('Character', ['A' ' ' 's' 't' 'r' 'i' 'n' 'g'])
 ```
 
-`stringJoin` will reassemble the string:
+`stringJoin` will not reassemble the string:
 
 ```
->>> 'text'.characterList.stringJoin
-'text'
-```
-
-Break a string into overlapping trigrams:
-
-```
->>> let c = 'trigrams'.characterList;
->>> c.partition(3, 1).collect(stringJoin/1)
-['tri' 'rig' 'igr' 'gra' 'ram' 'ams']
+>>> let s = 'text';
+>>> s.characterList.stringJoin = s
+false
 ```
 
 Sort the characters in a string:

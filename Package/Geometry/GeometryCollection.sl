@@ -44,7 +44,7 @@ GeometryCollection : [Object, Equal, Geometry] {
 	}
 
 	project { :self :projection |
-		let projectionBlock = projection.asUnaryBlock;
+		let projectionBlock = projection.unaryBlock;
 		GeometryCollection(
 			self.geometryList.collect { :each |
 				each.project(projectionBlock)

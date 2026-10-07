@@ -4,7 +4,7 @@ Total => 3560
 
 system.splFileName('Help/Terse/Terse Guide to Sound.help.sl').fileUrl.terseGuideSummary
 
-Total => 194
+Total => 187
 
 system.splFileName('Help/Terse/Terse Guide to SuperCollider.help.sl').fileUrl.terseGuideSummary
 

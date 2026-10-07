@@ -145,15 +145,15 @@ At `String`, the string is quoted:
 >>> 'x'.printString.size
 3
 
->>> 'x'.printString != 'x'.printString
+>>> 'x'.printString != 'x'.displayString
 true
 ```
 
 At `Character`:
 
 ```
->>> Character('x').printString
-'Character('x', 120)'
+>> Character('x').printString
+Character('x', 120)
 ```
 
 At `List`:

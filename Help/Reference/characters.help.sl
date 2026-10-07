@@ -26,6 +26,14 @@ Inverse are `stringCatenate` and `stringJoin`:
 'mississippi'
 ```
 
+Break a string into overlapping trigrams:
+
+```
+>>> let c = 'trigrams'.characters;
+>>> c.partition(3, 1).collect(stringJoin/1)
+['tri' 'rig' 'igr' 'gra' 'ram' 'ams']
+```
+
 `characterList` answers a list of `Character` values:
 
 ```

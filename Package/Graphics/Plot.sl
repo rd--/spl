@@ -122,7 +122,7 @@ Plot : [Object] {
 			let p/1 = AxonometricProjection(
 				1/6.pi, 0, 0,
 				0.5, 1, 1
-			).asUnaryBlock;
+			).unaryBlock;
 			let r = [
 				-1 -1 0;
 				+1 -1 0;

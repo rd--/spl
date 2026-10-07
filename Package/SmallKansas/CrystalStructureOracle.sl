@@ -5,7 +5,7 @@ CrystalStructureOracle : [Object, SmallKansan] {
 			'LeitnerCrystalStructureCatalogue'
 		).then { :leitnerCatalogue |
 			let cls = leitnerCatalogue.atRandom;
-			let prj/1 = 'CabinetOblique'.namedAxonometricProjection(1/6.pi).asUnaryBlock;
+			let prj/1 = 'CabinetOblique'.namedAxonometricProjection(1/6.pi).unaryBlock;
 			smallKansas.SvgViewer(
 				'Cls - ' ++ cls.name,
 				cls.asSvgElement(12) { :each |

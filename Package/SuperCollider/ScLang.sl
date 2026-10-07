@@ -292,7 +292,7 @@
 
 +@Integer {
 
-	asBinaryDigits { :self :numDigits |
+	binaryDigits { :self :numDigits |
 		let answer = [];
 		0.toDo(numDigits - 1) { :i |
 			answer.addFirst!(self.bitShiftRight(i).bitAnd(1))

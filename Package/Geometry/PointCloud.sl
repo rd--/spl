@@ -24,7 +24,7 @@ PointCloud : [Object, Equal, Geometry] {
 
 	project { :self :projection |
 		PointCloud(
-			self.vertexCoordinates.collect(projection.asUnaryBlock)
+			self.vertexCoordinates.collect(projection.unaryBlock)
 		)
 	}
 
