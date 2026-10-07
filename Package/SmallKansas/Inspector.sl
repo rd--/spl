@@ -27,7 +27,7 @@ Inspector : [Object, View] {
 				class: 'inspectorPane'
 			)
 		);
-		self.inspectorList([]);
+		self.inspectorList := [];
 		self.addInspector(aValue, 1);
 		self
 	}

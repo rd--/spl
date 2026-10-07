@@ -18,7 +18,7 @@ HelpFileViewer : [Object, UserEventTarget, View] {
 	showHelpFile { :self :helpFile |
 		let lines = helpFile.lines;
 		let codeRanges = helpFile.fencedCodeBlockLineRanges;
-		let nonCodeRanges = 1.to(lines.size).differenceAll(codeRanges).asRangeList;
+		let nonCodeRanges = 1.to(lines.size).differenceAll(codeRanges).deriveRangeList;
 		let allRanges = (codeRanges ++ nonCodeRanges).sortBy! { :p :q |
 			p.start < q.start
 		};
@@ -34,7 +34,7 @@ HelpFileViewer : [Object, UserEventTarget, View] {
 			helpItem.appendChild(item.outerElement);
 			self.outerElement.appendChild(helpItem)
 		};
-		self.outerElement.removeAllChildren;
+		self.outerElement.removeAllChildren!;
 		fragments.do { :each |
 			each.first.isCodeFence.if {
 				each.allButFirstAndLast.splitBy(['']).do { :codeBlock |

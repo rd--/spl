@@ -24,6 +24,14 @@ Remove three items:
 ([1 .. 3], [4 .. 9])
 ```
 
+At `Range`:
+
+```
+>>> let r = 1:9;
+>>> (r.removeFirst!, r)
+(1, 2:9)
+```
+
 * * *
 
 See also: allButFirst, remove, removeLast

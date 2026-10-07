@@ -19,7 +19,7 @@
 
 @CssProperties {
 
-	cssText { :self :aString | <primitive: return _self.cssText = _aString;> }
+	cssTextMutateInPlace { :self :aString | <primitive: return _self.cssText = _aString;> }
 	cssText { :self | <primitive: return _self.cssText;> }
 	getPropertyPriority { :self :name | <primitive: return _self.getPropertyPriority();> }
 	getPropertyValue { :self :name | <primitive: return _self.getPropertyValue(_name);> }
@@ -51,7 +51,7 @@
 
 @Document {
 
-	adoptedStyleSheets { :self :styleSheets |
+	adoptedStyleSheetsMutateInPlace { :self :styleSheets |
 		<primitive: _self.adoptedStyleSheets = _styleSheets;>
 		nil
 	}
@@ -104,7 +104,7 @@
 
 	parseHtml { :self :aString |
 		let template = self.createElement('template');
-		template.innerHtml(aString);
+		template.innerHtml := aString;
 		(template.content.childNodes.length = 1).if {
 			template.content.firstChild
 		} {
@@ -185,13 +185,13 @@
 	childElementCount { :self | <primitive: return _self.childElementCount;> }
 	children { :self | <primitive: return _self.children;> }
 	classList { :self | <primitive: return _self.classArray;> }
-	className { :self :aString | <primitive: return _self.className = _aString;> }
+	classNameMutateInPlace { :self :aString | <primitive: return _self.className = _aString;> }
 	className { :self | <primitive: return _self.className;> }
 	getAttribute { :self :name | <primitive: return _self.getAttribute(_name);> }
 	getBoundingClientRect { :self | <primitive: return _self.getBoundingClientRect();> }
 	hasPointerCapture { :self :pointerId | <primitive: return _self.hasPointerCapture(pointerId);> }
 	id { :self | <primitive: return _self.id;> }
-	innerHtml { :self :aString | <primitive: return _self.innerHTML = _aString;> }
+	innerHtmlMutateInPlace { :self :aString | <primitive: return _self.innerHTML = _aString;> }
 	innerHtml { :self | <primitive: return _self.innerHTML;> }
 	insertAdjacentElement { :self :position :element | <primitive: return _self.insertAdjacentElement(_position, _element);> }
 	insertAdjacentHtml { :self :position :text | <primitive: return _self.insertAdjacentHTML(_position, _text);> }
@@ -199,7 +199,7 @@
 	localName { :self | <primitive: return _self.localName;> }
 	matches { :self :selectors | <primitive: return _self.matches(_selectors);> }
 	nextElementSibling { :self | <primitive: return _self.nextElementSibling;> }
-	outerHtml { :self :aString | <primitive: return _self.outerHTML = _aString;> }
+	outerHtmlMutateInPlace { :self :aString | <primitive: return _self.outerHTML = _aString;> }
 	outerHtml { :self | <primitive: return _self.outerHTML;> }
 	previousElementSibling { :self | <primitive: return _self.previousElementSibling;> }
 	releasePointerCapture { :self :pointerId | <primitive: return _self.releasePointerCapture(_pointerId);> }
@@ -210,7 +210,7 @@
 	setPointerCapture { :self :pointerId | <primitive: return _self.setPointerCapture(_pointerId);> }
 	tagName { :self | <primitive: return _self.tagName;> }
 
-	removeAllChildren { :self |
+	removeAllChildren! { :self |
 		self.children.htmlCollectionToList.do { :each |
 			each.remove
 		}
@@ -248,21 +248,21 @@
 
 @HtmlElement {
 
-	accessKey { :self :aString | <primitive: return _self.accessKey = _aString;> }
+	accessKeyMutateInPlace { :self :aString | <primitive: return _self.accessKey = _aString;> }
 	accessKey { :self | <primitive: return _self.accessKey;> }
 	blur { :self | <primitive: return _self.blur();> }
 	click { :self | <primitive: return _self.click();> }
-	contentEditable { :self :aString | <primitive: return _self.contentEditable = _aString;> }
+	contentEditableMutateInPlace { :self :aString | <primitive: return _self.contentEditable = _aString;> }
 	contentEditable { :self | <primitive: return _self.contentEditable;> }
 	focus { :self :options | <primitive: return _self.focus(options);> }
 	focus { :self | <primitive: return _self.focus();> }
-	innerText { :self :aString | <primitive: return _self.innerText = _aString;> }
+	innerTextMutateInPlace { :self :aString | <primitive: return _self.innerText = _aString;> }
 	innerText { :self | <primitive: return _self.innerText;> }
 	isContentEditable { :self | <primitive: return _self.isContentEditable;> }
 	style { :self | <primitive: return _self.style;> }
-	tabIndex { :self :anInteger | <primitive: return _self.tabIndex = _anInteger;> }
+	tabIndexMutateInPlace { :self :anInteger | <primitive: return _self.tabIndex = _anInteger;> }
 	tabIndex { :self | <primitive: return _self.tabIndex;> }
-	title { :self :aString | <primitive: return _self.title = _aString;> }
+	titleMutateInPlace { :self :aString | <primitive: return _self.title = _aString;> }
 	title { :self | <primitive: return _self.title;> }
 
 	computedStyle { :self | <primitive: return globalThis.getComputedStyle(_self);> }
@@ -272,7 +272,7 @@
 	}
 
 	/* Valid at <audio>, <img>, <link>, <script>, and <video> */
-	crossOrigin { :self :aString | <primitive: return _self.crossorigin = _aString;> }
+	crossOriginMutateInPlace { :self :aString | <primitive: return _self.crossorigin = _aString;> }
 	crossOrigin { :self | <primitive: return _self.crossorigin;> }
 
 }
@@ -318,7 +318,7 @@
 	parentElement { :self | <primitive: return _self.parentElement;> }
 	parentNode { :self | <primitive: return _self.parentNode;> }
 	previousSibling { :self | <primitive: return _self.previousSibling;> }
-	textContent { :self :aString | <primitive: return _self.textContent = _aString;> }
+	textContentMutateInPlace { :self :aString | <primitive: return _self.textContent = _aString;> }
 	textContent { :self | <primitive: return _self.textContent;> }
 
 	appendChildren { :self :aList |
@@ -415,7 +415,7 @@ CanvasRenderingContext2D! : [Object] {
 		<primitive: return _self.fillStyle;>
 	}
 
-	fillStyle { :self :anObject |
+	fillStyleMutateInPlace { :self :anObject |
 		<primitive: return _self.fillStyle = _anObject;>
 	}
 
@@ -706,7 +706,7 @@ HTMLImageElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 	alt { :self | <primitive: return _self.value;> }
 	complete { :self | <primitive: return _self.complete;> }
 	height { :self | <primitive: return _self.height;> }
-	src { :self :url | <primitive: return _self.src = _url;> }
+	srcMutateInPlace { :self :url | <primitive: return _self.src = _url;> }
 	src { :self | <primitive: return _self.src;> }
 	width { :self | <primitive: return _self.width;> }
 	x { :self | <primitive: return _self.x;> }
@@ -740,7 +740,7 @@ HTMLInputElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 		<primitive: return _self.type;>
 	}
 
-	value { :self :aValue |
+	valueMutateInPlace { :self :aValue |
 		<primitive: return _self.value = _aValue;>
 	}
 
@@ -763,9 +763,9 @@ HTMLOptionElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 	index { :self | <primitive: return _self.index;> }
 	label { :self | <primitive: return _self.label;> }
 	selected { :self | <primitive: return _self.selected;> }
-	text { :self :aString | <primitive: return _self.text = _aString;> }
+	textMutateInPlace { :self :aString | <primitive: return _self.text = _aString;> }
 	text { :self | <primitive: return _self.text;> }
-	value { :self :aString | <primitive: return _self.value = _aString;> }
+	valueMutateInPlace { :self :aString | <primitive: return _self.value = _aString;> }
 	value { :self | <primitive: return _self.value;> }
 
 }
@@ -783,13 +783,13 @@ HTMLSelectElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 	add { :self :item :before | <primitive: return _self.add(_item, _before);> }
 	item { :self :anInteger | <primitive: return _self.item(_anInteger);> }
 	labels { :self | <primitive: return _self.labels;> }
-	length { :self :anInteger | <primitive: return _self.length = _anInteger;> }
+	lengthMutateInPlace { :self :anInteger | <primitive: return _self.length = _anInteger;> }
 	length { :self | <primitive: return _self.length;> }
 	options { :self | <primitive: return _self.options;> }
 	remove { :self :anInteger | <primitive: return _self.remove(_anInteger);> }
-	selectedIndex { :self :anInteger | <primitive: return _self.selectedIndex = _anInteger;> }
+	selectedIndexMutateInPlace { :self :anInteger | <primitive: return _self.selectedIndex = _anInteger;> }
 	selectedIndex { :self | <primitive: return _self.selectedIndex;> }
-	size { :self :anInteger | <primitive: return _self.size = _anInteger;> }
+	sizeMutateInPlace { :self :anInteger | <primitive: return _self.size = _anInteger;> }
 	size { :self | <primitive: return _self.size;> }
 	type { :self | <primitive: return _self.type;> }
 
@@ -812,7 +812,7 @@ HTMLSelectElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 		}
 	}
 
-	removeAll { :self |
+	removeAll! { :self |
 		self.length := 0
 	}
 
@@ -891,18 +891,18 @@ HTMLTemplateElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 
 HTMLTextAreaElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 
-	cols { :self :anInteger | <primitive: return _self.cols = _anInteger;> }
+	colsMutateInPlace { :self :anInteger | <primitive: return _self.cols = _anInteger;> }
 	cols { :self | <primitive: return _self.cols;> }
-	readOnly { :self :aBoolean | <primitive: return _self.readOnly = _aBoolean;> }
+	readOnlyMutateInPlace { :self :aBoolean | <primitive: return _self.readOnly = _aBoolean;> }
 	readOnly { :self | <primitive: return _self.readOnly;> }
-	rows { :self :anInteger | <primitive: return _self.rows = _anInteger;> }
+	rowsMutateInPlace { :self :anInteger | <primitive: return _self.rows = _anInteger;> }
 	rows { :self | <primitive: return _self.rows;> }
 	selectionEnd { :self | <primitive: return _self.selectionEnd;> }
 	selectionStart { :self | <primitive: return _self.selectionStart;> }
 	setRangeText { :self :replacement :startSelection :endSelection :selectMode | <primitive: return _self.setRangeText(_replacement, _startSelection, _endSelection, _selectMode);> }
 	setSelectionRange { :self :i :j | <primitive: return _self.setSelectionRange(_i, _j);> }
 	type { :self | <primitive: return _self.type;> }
-	value { :self :aString | <primitive: return _self.value = _aString;> }
+	valueMutateInPlace { :self :aString | <primitive: return _self.value = _aString;> }
 	value { :self | <primitive: return _self.value;> }
 
 }

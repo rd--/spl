@@ -15,7 +15,7 @@ Relative `start` values:
 
 ```
 >>> let s = RelativeRange(-3, 3, -1);
->>> (s, s.asRange(9))
+>>> (s, s.deriveRange(9))
 (
 	RelativeRange(-3, 3, -1),
 	Range(7, 3, -1)
@@ -26,7 +26,7 @@ Relative `stop` values:
 
 ```
 >>> let s = RelativeRange(3, -3, 2);
->>> (s, s.asRange(9))
+>>> (s, s.deriveRange(9))
 (
 	RelativeRange(3, -3, 2),
 	Range(3, 7, 2)
@@ -38,7 +38,7 @@ and not equal to `one`:
 
 ```
 >>> let s = RelativeRange(-3, 3, -2);
->>> (s, s.asRange(9))
+>>> (s, s.deriveRange(9))
 (
 	RelativeRange(-3, 3, -2),
 	Range(7, 3, -2)

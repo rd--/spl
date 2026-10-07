@@ -25,7 +25,7 @@
 					}
 				},
 				self.cents.round,
-				Integer(self)
+				self.integers
 			].transpose
 		);
 		div.appendChildren(

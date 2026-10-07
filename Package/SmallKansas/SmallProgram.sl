@@ -25,7 +25,7 @@ SmallProgram : [Object, UserEventTarget, View, SmallKansan] {
 	}
 
 	clearAnswer { :self |
-		self.answer.removeAllChildren
+		self.answer.removeAllChildren!
 	}
 
 	clearProgram { :self |
@@ -169,7 +169,7 @@ SmallProgram : [Object, UserEventTarget, View, SmallKansan] {
 		self.setProgramText(history.atWrap(self.historyCursor))
 	}
 
-	readOnly { :self :aBoolean |
+	readOnlyMutateInPlace { :self :aBoolean |
 		self.program.readOnly := aBoolean
 	}
 

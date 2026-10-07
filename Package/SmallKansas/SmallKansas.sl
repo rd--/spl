@@ -45,7 +45,7 @@ SmallKansas : [Object, Cache] {
 		}
 	}
 
-	colour { :self :aColour |
+	colourMutateInPlace { :self :aColour |
 		self.container.style.setProperty('background-color', aColour.hexTriplet, '')
 	}
 
@@ -72,7 +72,7 @@ SmallKansas : [Object, Cache] {
 		self.container.style.getPropertyValue('--font-family')
 	}
 
-	font { :self :fontName |
+	fontMutateInPlace { :self :fontName |
 		self.container.style.setProperty('--font-family', fontName, '')
 	}
 
@@ -97,8 +97,8 @@ SmallKansas : [Object, Cache] {
 		self.menu('Font Menu', self.fontMenuEntriesOn(subject), isTransient, event)
 	}
 
-	fontSize { :self :fontSize |
-		self.container.style.setProperty('--font-size', fontSize.printString, '')
+	fontSizeMutateInPlace { :self :fontSize |
+		self.container.style.setProperty('--font-size', fontSize, '')
 	}
 
 	fontSizeMenuEntriesOn { :self :subject |
@@ -110,7 +110,12 @@ SmallKansas : [Object, Cache] {
 	}
 
 	fontSizeMenuOn { :self :subject :isTransient :event |
-		self.menu('Font Size Menu', self.fontSizeMenuEntriesOn(subject), isTransient, event)
+		self.menu(
+			'Font Size Menu',
+			self.fontSizeMenuEntriesOn(subject),
+			isTransient,
+			event
+		)
 	}
 
 	implementorsOf { :self :subject :event |

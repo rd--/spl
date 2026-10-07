@@ -30,7 +30,7 @@ CategoryBrowser : [Object, SmallKansan] {
 					browser.setStatus('');
 					typeCategoryDictionary[path[1]].select { :each |
 						system.isTypeName(each)
-					}.sort!
+					}.List.sort!
 				},
 				2 -> {
 					browser.setStatus(system.typeTraits(path[2]).commaSeparated);

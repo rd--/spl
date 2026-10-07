@@ -98,7 +98,7 @@ ColumnBrowser : [Object, View] {
 		let next = self.onChange(self.pathUpTo(index));
 		(index = self.numberOfColumns).if {
 			next.then { :view |
-				self.textEditor.setEditorText(view.printString)
+				self.textEditor.setEditorText(view.displayString)
 			}
 		} {
 			self.textEditor.setEditorText('');

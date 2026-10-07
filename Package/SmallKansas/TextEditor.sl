@@ -33,7 +33,7 @@ TextEditor : [Object, UserEventTarget, View] {
 		self.editorText.textContent
 	}
 
-	editable { :self :aBoolean |
+	editableMutateInPlace { :self :aBoolean |
 		self.editorText.setAttribute('contentEditable', aBoolean.printString)
 	}
 

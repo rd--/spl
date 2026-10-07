@@ -2,7 +2,7 @@ RelativeRange : [Object, Store, Equal, Compare, Iterable, Collection, Indexable,
 
 	| start stop step |
 
-	asRange { :self :extent |
+	deriveRange { :self :extent |
 		let start = self.start;
 		let stop = self.stop;
 		(start < 1).ifTrue {
@@ -14,7 +14,6 @@ RelativeRange : [Object, Store, Equal, Compare, Iterable, Collection, Indexable,
 		Range(start, stop, self.step)
 	}
 
-
 	equalBy { :self :anObject :aBlock/2 |
 		self.hasEqualSlots(anObject, aBlock/2)
 	}
@@ -24,7 +23,7 @@ RelativeRange : [Object, Store, Equal, Compare, Iterable, Collection, Indexable,
 	}
 
 	partIndex { :self :operand |
-		operand.atAll(self.asRange(operand.size))
+		operand.atAll(self.deriveRange(operand.size))
 	}
 
 	size { :self |

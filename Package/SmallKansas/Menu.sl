@@ -82,7 +82,7 @@ Menu : [Object, View] {
 	}
 
 	setEntries { :self :entries |
-		self.menuList.removeAllChildren;
+		self.menuList.removeAllChildren!;
 		self.menuList.size := entries.size;
 		entries.collect { :menuItem |
 			let listItem = TextOption(menuItem.displayText);

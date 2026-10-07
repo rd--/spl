@@ -60,7 +60,7 @@ ColourChooser : [Object, View] {
 		self.addFrame(
 			ColourChooser(
 				{ :aColour |
-					subject.colour(aColour)
+					subject.colour := aColour
 				}
 			),
 			event

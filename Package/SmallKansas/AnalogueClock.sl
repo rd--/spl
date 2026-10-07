@@ -54,11 +54,11 @@ AnalogueClock : [Object, View, SmallKansan] {
 						cy: '0',
 						r: '90',
 						fill: 'aquamarine'
-					),
-					self.hourHand,
-					self.minuteHand,
-					self.secondHand
-				)
+					)
+				),
+				self.hourHand,
+				self.minuteHand,
+				self.secondHand
 			]
 		);
 		group.appendChildren(
@@ -118,7 +118,7 @@ AnalogueClock : [Object, View, SmallKansan] {
 		let dateAndTime = system.now.DateAndTime;
 		self.moveHourHand(dateAndTime.hour + (dateAndTime.minute / 60));
 		self.moveMinuteHand(dateAndTime.minute);
-		self.moveSecondHand(dateAndTime.second)
+		self.moveSecondHand(dateAndTime.wholeSecond)
 	}
 
 	title { :self |

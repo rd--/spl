@@ -68,7 +68,7 @@ The `differences` of an arithmetic sequence are all equal:
 
 * * *
 
-See also: arithmeticProgression, asRange, isGeometricProgression, Range
+See also: Range, arithmeticProgression, deriveRange, isGeometricProgression
 
 Guides: List Functions
 

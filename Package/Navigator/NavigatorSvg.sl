@@ -32,7 +32,7 @@
 		<primitive: return _self.transform;>
 	}
 
-	transform { :self :transformList |
+	transformMutateInPlace { :self :transformList |
 		<primitive: return _self.transform = _transformList;>
 	}
 
@@ -64,7 +64,7 @@ SVGGElement! : [Object, EventTarget, Node, Element, SVGElement, SVGGraphicsEleme
 
 SVGLineElement! : [Object, EventTarget, Node, Element, SVGElement, SVGGraphicsElement, SVGGeometryElement] {
 
-	p2 { :self :aPoint |
+	p2MutateInPlace { :self :aPoint |
 		self.setAttribute('x2', aPoint.x);
 		self.setAttribute('y2', aPoint.y)
 	}
