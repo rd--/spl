@@ -14,7 +14,7 @@ Answer the year of the date _d_.
 
 * * *
 
-See also: asDate, Date, day, minute, month, parseDate
+See also: Date, day, minute, month, parseDate
 
 Guides: Date and Time Functions
 

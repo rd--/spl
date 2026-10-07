@@ -14,20 +14,16 @@ TimeStamp : [Object, Copy, Store, Equal, Compare] {
 		TimeStamp(self.absoluteTime - operand.inSeconds)
 	}
 
-	asDate { :self |
-		self.absoluteTime.asDate
+	Date { :self |
+		Date(self.absoluteTime)
 	}
 
-	asDateAndTime { :self |
-		self.absoluteTime.asDateAndTime
-	}
-
-	asTimeStamp { :self |
-		self
+	DateAndTime { :self |
+		DateAndTime(self.absoluteTime)
 	}
 
 	dateAndTimeString { :self |
-		self.asDateAndTime.dateAndTimeString
+		DateAndTime(self).dateAndTimeString
 	}
 
 	equalBy { :self :aTimeStamp :aBlock/2 |
@@ -38,6 +34,10 @@ TimeStamp : [Object, Copy, Store, Equal, Compare] {
 
 	round { :self :operand |
 		self.absoluteTime := self.absoluteTime.round(operand.inSeconds);
+		self
+	}
+
+	TimeStamp { :self |
 		self
 	}
 
@@ -53,10 +53,6 @@ TimeStamp : [Object, Copy, Store, Equal, Compare] {
 
 +SmallFloat {
 
-	asTimeStamp { :self |
-		TimeStamp(self)
-	}
-
 	TimeStamp { :self |
 		newTimeStamp().initializeSlots(self)
 	}
@@ -70,7 +66,7 @@ TimeStamp : [Object, Copy, Store, Equal, Compare] {
 +String {
 
 	parseTimeStamp { :self |
-		self.parseDateAndTime.asTimeStamp
+		self.parseDateAndTime.TimeStamp
 	}
 
 }

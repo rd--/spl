@@ -173,7 +173,7 @@
 
 ## Date
 
-- `asDate`, `Date`
+- `Date`
 - `dayOfMonth`, `dayOfWeek`, `month`, `year`
 - `parseDate`
 
@@ -752,7 +752,6 @@
 ## Temporal Types and Functions
 
 - `Clock`, `Duration`, `TimeStamp`
-- `asTimeStamp`
 - `centiseconds`, `milliseconds`, `seconds`
 - `hours`, `minutes`
 - `days`, `weeks`

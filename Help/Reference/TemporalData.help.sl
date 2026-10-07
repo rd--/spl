@@ -14,12 +14,10 @@ and the time sequences using `timeList`.
 `dataPointCount` tells the total number of data points.
 
 ```
->>> let t = TemporalData(
->>> 	[
+>>> let t = TemporalData[
 >>> 		0 0; 0.25 0.75; 0.75 0; 1 0:;
 >>> 		0 0; 0.5 1; 1 0
->>> 	]
->>> );
+>>> ];
 >>> (
 >>> 	t.pathCount,
 >>> 	t.valueList,
@@ -35,6 +33,19 @@ and the time sequences using `timeList`.
 	[0.25 0.5],
 	false,
 	7
+)
+```
+
+Convert temporal data with equal time stamps to ` TimeSeries`:
+
+```
+>>> TemporalData[
+>>> 	1 9; 2 3; 3 7; 4 5; 5 1:;
+>>> 	1 1; 2 2; 3 3; 4 4; 5 5
+>>> ].TimeSeries
+TimeSeries(
+	[9 1; 3 2; 7 3; 5 4; 1 5],
+	[1 2 3 4 5]
 )
 ```
 

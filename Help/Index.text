@@ -456,8 +456,6 @@ Reference/AsciiStream.help.sl
 Reference/asciiString.help.sl
 Reference/AsciiString.help.sl
 Reference/asciiValue.help.sl
-Reference/asDateAndTime.help.sl
-Reference/asDate.help.sl
 Reference/asDot.help.sl
 Reference/asFileUrl.help.sl
 Reference/asFractions.help.sl
@@ -489,7 +487,6 @@ Reference/asStringWithCommas.help.sl
 Reference/asterisk.help.sl
 Reference/asteriskPlusSign.help.sl
 Reference/asteriskSolidus.help.sl
-Reference/asTimeStamp.help.sl
 Reference/asUpperCase.help.sl
 Reference/asUrl.help.sl
 Reference/asUrlQueryParameters.help.sl

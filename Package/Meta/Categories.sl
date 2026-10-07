@@ -711,10 +711,10 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'words'
 	],
 	'converting-time': [
-		'asDate'
+		'Date'
 		'Duration'
 		'Frequency'
-		'asTimeStamp'
+		'TimeStamp'
 		'localeTimeString'
 	],
 	'copying': [

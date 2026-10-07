@@ -13,9 +13,40 @@ Make a time stamp:
 >>> .dateAndTimeString
 '1970-01-01T00:00:00.000Z'
 
+>>> (50 * 365.24 * 24 * 60 * 60)
+>>> .TimeStamp
+>>> .dateAndTimeString
+'2020-01-01T00:00:00.000Z'
+
 >>> TimeStamp(1.75E9)
 >>> .dateAndTimeString
 '2025-06-15T15:06:40.000Z'
+```
+
+The inverse is `absoluteTime`:
+
+```
+>>> TimeStamp(0).absoluteTime
+0
+```
+
+At `DateAndTime`,
+converts to an equivalent `TimeStamp` value:
+
+```
+>>> '2025-04-07T21:32:00.000Z'
+>>> .parseDateAndTime
+>>> .TimeStamp
+TimeStamp(1744061520)
+```
+
+The inverse is `DateAndTime`:
+
+```
+>>> TimeStamp(1744061520)
+>>> .DateAndTime
+>>> .dateAndTimeString
+'2025-04-07T21:32:00.000Z'
 ```
 
 The `System` method `now` gets the current time:
@@ -27,7 +58,7 @@ true
 
 * * *
 
-See also: asTimeStamp, dateAndTimeString, Date, Duration, Time, TimeInterval, now
+See also: Date, Duration, Time, TimeInterval, dateAndTimeString, now
 
 Guides: Date and Time Functions
 

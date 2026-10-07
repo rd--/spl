@@ -37,6 +37,39 @@ The year is given in astronomical year numbering,
 )
 ```
 
+At `Number`,
+answer the `Date` that is the specified number of seconds after 1 January 1970,
+the Unix Epoch:
+
+```
+>>> 0.Date.dateString
+'1970-01-01'
+
+>>> (3 * 365.4 * 24 * 60 * 60)
+>>> .Date
+>>> .dateString
+'1973-01-01'
+```
+
+At `TimeStamp` convert to an equivalent `Date` value:
+
+```
+>>> TimeStamp(0)
+>>> .Date
+>>> .dateString
+'1970-01-01'
+```
+
+At `Date` answer the identity:
+
+```
+>>> '1970-01-01'
+>>> .parseDate
+>>> .Date
+>>> .dateString
+'1970-01-01'
+```
+
 A `Date` can be read from a `String` using `parseDate`,
 the components can be accessed using `year` and `month` and `dayOfMonth`:
 
@@ -51,13 +84,13 @@ the components can be accessed using `year` and `month` and `dayOfMonth`:
 ```
 
 The current date can be read from the `System` as a `TimeStamp` using `now`,
-and translated into a `Date` using `asDate`:
+and translated into a `Date`:
 
 ```
 >>> system.currentDate.year >= 2024
 true
 
->>> system.now.asDate.year >= 2024
+>>> system.now.Date.year >= 2024
 true
 ```
 
@@ -81,7 +114,7 @@ These fields are answered by `components`:
 
 * * *
 
-See also: absoluteTime, asDate, dayOfMonth, DateAndTime, Duration, hour, minute, month, now, parseDate, second, TimeStamp, year
+See also: DateAndTime, Duration, Time, TimeStamp, absoluteTime, dayOfMonth, hour, minute, month, now, parseDate, second, year
 
 Guides: Date and Time Functions
 
@@ -94,4 +127,4 @@ _W_
 [1](https://en.wikipedia.org/wiki/Calendar_date)
 [2](https://en.wikipedia.org/wiki/Astronomical_year_numbering)
 
-Categories: Time, Type
+Categories: Converting, Time, Type

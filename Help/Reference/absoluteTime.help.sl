@@ -3,7 +3,8 @@
 - _absoluteTime(x)_
 
 At `System`,
-answer the current time as the number of seconds since 1 January, 1970:
+answer the current time as the number of seconds since 1 January 1970 00:00:00 UTC,
+the Unix Epoch:
 
 ```
 >>> let t = system.absoluteTime;
@@ -16,9 +17,13 @@ true
 0
 ```
 
-At `Date` answer the signed distance in seconds from 1 January, 1970:
+At `Date` answer the signed distance in seconds from 1 January 1970 00:00:00 UTC,
+the Unix Epoch:
 
 ```
+>>> '2010-01-01'.parseDate.absoluteTime
+1262304000
+
 >>> '2025-04-07'.parseDate.absoluteTime
 1743984000
 
@@ -26,7 +31,8 @@ At `Date` answer the signed distance in seconds from 1 January, 1970:
 -2208988800
 ```
 
-At `TimeStamp`, answer the signed distance in seconds from 1 January, 1970:
+At `TimeStamp`, answer the signed distance in seconds from 1 January 1970 00:00:00 UTC,
+the Unix Epoch:
 
 ```
 >>> let t1 = system.absoluteTime;
@@ -51,5 +57,7 @@ Guides: Date and Time Functions
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/AbsoluteTime.html)
+_W_
+[1](https://en.wikipedia.org/wiki/Unix_time)
 
 Categories: Time

@@ -1266,22 +1266,22 @@ let b = [1, 2].ByteArray; let c = b.copy; c[1] := 3; c[1] = 3 & { b[1] = 1 } /* 
 ## Date -- temporal type
 ```
 system.includesPackage('Date') /* date package */
-system.now.asDate.typeOf = 'Date' /* type of Date, system constructor gets current date */
-0.asDate.isDate /* Date type predicate, number constructor accepts time from epoch in seconds */
-let d = 0.asDate; [d.year, d.month, d.dayOfMonth] = [1970, 1, 1] /* month and day are one-indexed */
-0.asDate = 0.asDate /* dates are comparable */
-0.asDate != system.now.asDate /* dates are comparable */
-0.asDate < system.now.asDate /* dates are magnitudes */
-system.now.asDate > 0.asDate /* dates are magnitudes */
+system.now.Date.typeOf = 'Date' /* type of Date, system constructor gets current date */
+0.Date.isDate /* Date type predicate, number constructor accepts time from epoch in seconds */
+let d = 0.Date; [d.year, d.month, d.dayOfMonth] = [1970, 1, 1] /* month and day are one-indexed */
+0.Date = 0.Date /* dates are comparable */
+0.Date != system.now.Date /* dates are comparable */
+0.Date < system.now.Date /* dates are magnitudes */
+system.now.Date > 0.Date /* dates are magnitudes */
 '2023-05-11'.parseDate.dateString = '2023-05-11' /* read date from partial ISO-8601 string */
 ```
 
 ## DateAndTime -- temporal type
 ```
 system.includesPackage('DateAndTime') /* date and time package */
-system.now.asDateAndTime.typeOf = 'DateAndTime' /* type of DateAndTime, system constructor gets current date and time */
+system.now.DateAndTime.typeOf = 'DateAndTime' /* type of DateAndTime, system constructor gets current date and time */
 '1970-01-01T00:00:01.000Z'.parseDateAndTime.absoluteTime = 1 /* parse ISO-8601 string & convert to unix time */
-let d = 0.asDateAndTime; [d.hour, d.minute, d.wholeSecond] = [0, 0, 0] /* hour is in UTC */
+let d = 0.DateAndTime; [d.hour, d.minute, d.wholeSecond] = [0, 0, 0] /* hour is in UTC */
 ```
 
 ## Dictionary -- collection trait
@@ -3908,16 +3908,16 @@ let x = 1; let y = 2; x < y /* initialisers are written as name = value */
 ## TimeStamp -- temporal type
 ```
 system.includesPackage('TimeStamp') /* timestamp package */
-1676784053576.asTimeStamp.printString = 'TimeStamp(1676784053576)' /* make TimeStamp from Number of seconds since unix epoch */
-1676784053.576.asTimeStamp.dateAndTimeString = '2023-02-19T05:20:53.576Z' /* convert TimeStamp to ISO-8601 string */
+1676784053576.TimeStamp.printString = 'TimeStamp(1676784053576)' /* make TimeStamp from Number of seconds since unix epoch */
+1676784053.576.TimeStamp.dateAndTimeString = '2023-02-19T05:20:53.576Z' /* convert TimeStamp to ISO-8601 string */
 system.now.isTimeStamp = true /* get current time at system */
 system.now.dateAndTimeString.size = 24
-1676784053.576.asTimeStamp.round(24.hours).dateAndTimeString = '2023-02-19T00:00:00.000Z' /* round to duration */
+1676784053.576.TimeStamp.round(24.hours).dateAndTimeString = '2023-02-19T00:00:00.000Z' /* round to duration */
 let t = system.now; t - Duration(0) = t /* offset TimeStamp by Duration */
 { system.now.postLine }.valueAfter(0.5).cancel = nil
 { system.now.postLine }.valueAt(system.absoluteTime + 0.5).cancel = nil
 { system.now.postLine }.valueEvery(3).cancel = nil
-let t = 1676784053576.asTimeStamp; let c = t.copy; c !== t & { c = t }
+let t = 1676784053576.TimeStamp; let c = t.copy; c !== t & { c = t }
 ```
 
 ## Tuple -- collection type

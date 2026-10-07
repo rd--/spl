@@ -15,7 +15,7 @@ At `Date`:
 
 * * *
 
-See also: asDate, Date, minute, month, parseDate, year
+See also: Date, minute, month, parseDate, year
 
 References:
 _Smalltalk_

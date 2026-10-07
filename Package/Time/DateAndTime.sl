@@ -10,28 +10,6 @@ DateAndTime : [Object, Store, Equal, Compare] {
 		<primitive: return _self.primitive.getTime() / 1000;>
 	}
 
-	asDate { :self |
-		Date(
-			[
-				self.year,
-				self.month,
-				self.dayOfMonth
-			]
-		)
-	}
-
-	asDateAndTime { :self |
-		self
-	}
-
-	asTime { :self |
-		Time(self.absoluteTime)
-	}
-
-	asTimeStamp { :self |
-		TimeStamp(self.absoluteTime)
-	}
-
 	components { :self |
 		[
 			self.year,
@@ -41,6 +19,20 @@ DateAndTime : [Object, Store, Equal, Compare] {
 			self.minute,
 			self.fractionalSecond
 		]
+	}
+
+	Date { :self |
+		Date(
+			[
+				self.year,
+				self.month,
+				self.dayOfMonth
+			]
+		)
+	}
+
+	DateAndTime { :self |
+		self
 	}
 
 	dateAndTimeString { :self |
@@ -97,6 +89,14 @@ DateAndTime : [Object, Store, Equal, Compare] {
 		)
 	}
 
+	Time { :self |
+		Time(self.absoluteTime)
+	}
+
+	TimeStamp { :self |
+		TimeStamp(self.absoluteTime)
+	}
+
 	unixTimeInMilliseconds { :self |
 		<primitive: return _self.primitive.getTime();>
 	}
@@ -113,20 +113,20 @@ DateAndTime : [Object, Store, Equal, Compare] {
 
 +SmallFloat {
 
-	asDateAndTime { :self |
+	DateAndTime { :self |
 		newDateAndTime().initializeSlots(
-			self.asPrimitiveDateAndTime
+			self.primitiveDateAndTime
 		)
-	}
-
-	asPrimitiveDateAndTime { :self |
-		<primitive: return new Date(_self * 1000);>
 	}
 
 	DateAndTime { :year :month :dayOfMonth :hour :minute :second |
 		newDateAndTime().initializeSlots(
 			primitiveDateAndTime(year, month, dayOfMonth, hour, minute, second)
 		)
+	}
+
+	primitiveDateAndTime { :self |
+		<primitive: return new Date(_self * 1000);>
 	}
 
 	primitiveDateAndTime { :year :month :dayOfMonth :hour :minute :second |

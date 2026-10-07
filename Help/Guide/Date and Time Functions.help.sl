@@ -15,13 +15,6 @@ Traits:
 - `Frequency`
 - `Time`
 
-Converting:
-
-- `asDate`
-- `Duration`
-- `Frequency`
-- `asTimeStamp`
-
 Accessors:
 
 - `absoluteTime`

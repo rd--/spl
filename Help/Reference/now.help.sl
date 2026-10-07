@@ -6,7 +6,7 @@ Answer a `TimeStamp` indicating the current time.
 
 ```
 >>> let t = system.now;
->>> let a = t.asDate;
+>>> let a = t.Date;
 >>> let b = '2024-10-02'.parseDate;
 >>> a > b
 true

@@ -14,8 +14,38 @@ the month and day of month fields are _one-indexed_:
 '2025-04-08T07:30:00.000Z'
 ```
 
+At `Number`,
+answer the `DateAndTime` that is the specified number of seconds after 1 January 1970 00:00:00 UTC,
+the Unix Epoch:
+
+```
+>>> (9 * 60 * 60)
+>>> .DateAndTime
+>>> .dateAndTimeString
+'1970-01-01T09:00:00.000Z'
+```
+
+At `TimeStamp` convert to an equivalent `DateAndTime` value:
+
+```
+>>> TimeStamp(0)
+>>> .DateAndTime
+>>> .dateAndTimeString
+'1970-01-01T00:00:00.000Z'
+```
+
+At `DateAndTime` answer the identity:
+
+```
+>>> '1970-01-01T00:00:00.000Z'
+>>> .parseDateAndTime
+>>> .DateAndTime
+>>> .dateAndTimeString
+'1970-01-01T00:00:00.000Z'
+```
+
 The current date and time can be read from the `System` as a `TimeStamp` using `now`,
-and translated into a `DateAndTime` using `asDateAndTime`:
+and translated into a `DateAndTime`:
 
 ```
 >>> system
@@ -25,7 +55,7 @@ true
 
 >>> system
 >>> .now
->>> .asDateAndTime
+>>> .DateAndTime
 >>> .year >= 2024
 true
 ```
@@ -68,7 +98,7 @@ To convert a `DateAndTime` value to the number of seconds from 1 January, 1970 u
 
 * * *
 
-See also: absoluteTime, asDateAndTime, dayOfMonth, Date, Duration, hour, minute, month, now, parseDate, second, TimeStamp, year
+See also: Date, Duration, Time, TimeStamp, absoluteTime, dayOfMonth, hour, minute, month, now, parseDate, second, year
 
 Guides: Date and Time Functions
 
@@ -78,4 +108,4 @@ _Mathematica_
 _Smalltalk_
 5.8.1
 
-Categories: Time, Type
+Categories: Converting, Time, Type

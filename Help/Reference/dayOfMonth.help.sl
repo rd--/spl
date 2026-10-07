@@ -14,7 +14,7 @@ Answer the ordinal (one-indexed) day of month of date _d_.
 
 * * *
 
-See also: asDate, Date, minute, month, parseDate, year
+See also: Date, minute, month, parseDate, year
 
 Guides: Date and Time Functions
 

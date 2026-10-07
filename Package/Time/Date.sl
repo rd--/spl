@@ -8,28 +8,20 @@ Date! : [Object, Store, Equal, Compare] {
 		<primitive: return _self.getTime() / 1000;>
 	}
 
-	asDate { :self |
-		self
-	}
-
-	asDateAndTime { :self |
-		DateAndTime(self.absoluteTime)
-	}
-
-	asTime { :self |
-		Time(self.absoluteTime)
-	}
-
-	asTimeStamp { :self |
-		TimeStamp(self.absoluteTime)
-	}
-
 	components { :self |
 		[
 			self.year,
 			self.month,
 			self.dayOfMonth
 		]
+	}
+
+	Date { :self |
+		self
+	}
+
+	DateAndTime { :self |
+		DateAndTime(self.absoluteTime)
 	}
 
 	dateString { :self |
@@ -90,6 +82,14 @@ Date! : [Object, Store, Equal, Compare] {
 		'Date(%)'.format([self.components])
 	}
 
+	Time { :self |
+		Time(self.absoluteTime)
+	}
+
+	TimeStamp { :self |
+		TimeStamp(self.absoluteTime)
+	}
+
 	year { :self |
 		<primitive: return _self.getUTCFullYear();>
 	}
@@ -98,7 +98,7 @@ Date! : [Object, Store, Equal, Compare] {
 
 +SmallFloat {
 
-	asDate { :self |
+	Date { :self |
 		<primitive: return new Date(_self * 1000);>
 	}
 
