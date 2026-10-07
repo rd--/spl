@@ -1,6 +1,6 @@
 # camelCaseToWords
 
-- _camelCaseToWords(aString)_
+- _camelCaseToWords(s)_
 
 Camel case names capitalize each word, excluding the first word.
 
@@ -11,4 +11,6 @@ Camel case names capitalize each word, excluding the first word.
 
 * * *
 
-See also: pascalCaseToWords, RegularExpression
+See also: RegularExpression, String, pascalCaseToWords
+
+Guides: String Functions

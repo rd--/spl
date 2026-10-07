@@ -5,14 +5,14 @@ Table : [Object, Store, Equal] {
 	asHtml { :self |
 		let h = '<tr><th></th>%</tr>'.format([
 			self.columnLabels.collect { :each |
-				'<th scope="col">%</th>'.format([each.asString])
+				'<th scope="col">%</th>'.format([each])
 			}.stringCatenate
 		]);
 		let r = self.cellMatrix.withIndexCollect { :a :i |
 			'<tr><th scope="row">%</th>%<tr>'.format([
-				i.asString,
+				i.printString,
 				a.collect { :b |
-					'<td>%</td>'.format([b.asString])
+					'<td>%</td>'.format([b])
 				}.stringCatenate
 			])
 		};

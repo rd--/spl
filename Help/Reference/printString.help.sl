@@ -11,6 +11,16 @@ At integer `SmallFloat`:
 ```
 >>> 23.printString
 '23'
+
+>>> -23.printString
+'-23'
+```
+
+At fractional `SmallFloat`:
+
+```
+>>> 3.141.printString
+'3.141'
 ```
 
 At `SmallFloat` with radix argument,
@@ -59,6 +69,15 @@ At `Decimal`:
 ```
 >>> 3.142D.printString
 '3.142D'
+
+>>> -2.3D.printString
+'-2.3D'
+
+>>> -2.0D.printString
+'-2.0D'
+
+>>> -2D.printString
+'-2D'
 ```
 
 At `SmallFloat` with precision:
@@ -88,18 +107,19 @@ Infinities and non-numbers:
 'NaN'
 ```
 
-At `SmallFloat`:
-
-```
->>> 3.141.printString
-'3.141'
-```
-
 At `Fraction`:
 
 ```
 >>> 2/3.printString
 '2/3'
+```
+
+
+At `Residue`:
+
+```
+>>> 5Z12.printString
+'5Z12'
 ```
 
 At `Boolean`:
@@ -125,8 +145,15 @@ At `String`, the string is quoted:
 >>> 'x'.printString.size
 3
 
->>> 'x'.printString != 'x'.asString
+>>> 'x'.printString != 'x'.printString
 true
+```
+
+At `Character`:
+
+```
+>>> Character('x').printString
+'Character('x', 120)'
 ```
 
 At `List`:
@@ -150,9 +177,16 @@ At `Association`:
 '23 -> 3.141'
 ```
 
+At `Range`:
+
+```
+>>> 1:99.printString
+'Range(1, 99, 1, 99)'
+```
+
 * * *
 
-See also: asString, concisePrintString, postLine, printStringShowingDecimalPlaces, storeString
+See also: String, concisePrintString, displayString, postLine, storeString
 
 Guides: String Functions
 

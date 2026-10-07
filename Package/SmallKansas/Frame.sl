@@ -110,8 +110,8 @@ Frame : [Object, UserEventTarget] {
 	moveTo { :self :x :y |
 		self.x := x;
 		self.y := y;
-		self.framePane.style.setProperty('left', x.asString ++ 'px', '');
-		self.framePane.style.setProperty('top', y.asString ++ 'px', '')
+		self.framePane.style.setProperty('left', x.printString ++ 'px', '');
+		self.framePane.style.setProperty('top', y.printString ++ 'px', '')
 	}
 
 	setEventHandlers { :self |
@@ -173,7 +173,7 @@ Frame : [Object, UserEventTarget] {
 	}
 
 	zIndex { :self :anInteger |
-		self.framePane.style.setProperty('z-index', anInteger.asString, '')
+		self.framePane.style.setProperty('z-index', anInteger.printString, '')
 	}
 
 }

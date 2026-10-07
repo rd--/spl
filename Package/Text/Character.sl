@@ -10,7 +10,9 @@
 	}
 
 	characterRange { :self :aCharacter |
-		self.codePoint.characterRange(aCharacter.codePoint)
+		self.codePoint.characterRange(
+			aCharacter.codePoint
+		)
 	}
 
 	digitValue { :self |
@@ -105,7 +107,7 @@
 	}
 
 	isVowel { :self |
-		[65 69 73 79 85].includes(self.asUpperCase.codePoint)
+		[65 69 73 79 85].includes(self.toUpperCase.codePoint)
 	}
 
 	morseCode { :self |
@@ -117,26 +119,6 @@
 Character : [Object, Copy, Store, Equal, Compare, Character] {
 
 	| characterString codePoint |
-
-	asLowerCase { :self |
-		self.isUpperCase.if {
-			(self.codePoint + 32).Character
-		} {
-			self
-		}
-	}
-
-	asUpperCase { :self |
-		self.isLowerCase.if {
-			(self.codePoint - 32).Character
-		} {
-			self
-		}
-	}
-
-	asString { :self |
-		self.characterString
-	}
 
 	Character { :self |
 		self
@@ -150,7 +132,7 @@ Character : [Object, Copy, Store, Equal, Compare, Character] {
 		(self == aCharacter).if {
 			true
 		} {
-			self.asLowerCase == aCharacter.asLowerCase
+			self.toLowerCase == aCharacter.toLowerCase
 		}
 	}
 
@@ -165,6 +147,22 @@ Character : [Object, Copy, Store, Equal, Compare, Character] {
 	[similar, ~] { :self :anObject |
 		anObject.isCharacter & {
 			self.characterString = anObject.characterString
+		}
+	}
+
+	toLowerCase { :self |
+		self.isUpperCase.if {
+			(self.codePoint + 32).Character
+		} {
+			self
+		}
+	}
+
+	toUpperCase { :self |
+		self.isLowerCase.if {
+			(self.codePoint - 32).Character
+		} {
+			self
 		}
 	}
 

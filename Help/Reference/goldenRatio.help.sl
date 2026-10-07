@@ -615,10 +615,10 @@ unlike the calculation in terms of `sqrt`,
 and that this distinction is important for some calculations:
 
 ```
->> 1.goldenRatio.asString
+>> 1.goldenRatio.printString
 1.618033988749894
 
->> ((5.sqrt + 1) / 2).asString
+>> ((5.sqrt + 1) / 2).printString
 1.618033988749895
 ```
 

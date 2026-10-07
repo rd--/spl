@@ -21,7 +21,7 @@
 				},
 				{ 2 } -> {
 					let package = system.packageDictionary[path[2]];
-					browser.setStatus('Loaded: ' ++ package.isLoaded.asString);
+					browser.setStatus('Loaded: ' ++ package.isLoaded.displayString);
 					package.text
 				}
 			])

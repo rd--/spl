@@ -1,16 +1,16 @@
 +RatioTuning {
 
 	htmlView { :self |
-		let ratios = self.asRatios;
+		let ratios = self.ratios;
 		let primesVector = self.tuningLatticeDerivedPrimesVector([3 5 7 11 13 17 19 23]);
 		let div = 'div'.createElement;
 		let overviewTable = Table(
 			[
-				['Size', self.size.asString],
-				['Limit', self.primeLimit.asString],
+				['Size', self.size.printString],
+				['Limit', self.primeLimit.printString],
 				['Description', self.description],
-				['Octave', self.octave.asString],
-				['Primes', self.tuningLatticePrimes(false).asString]
+				['Octave', self.octave.printString],
+				['Primes', self.tuningLatticePrimes(false).printString]
 			]
 		);
 		let tuningTable = Table(
@@ -24,8 +24,8 @@
 						each.tuningLatticeVectorString(primesVector)
 					}
 				},
-				self.asCents.round,
-				self.Integer
+				self.cents.round,
+				Integer(self)
 			].transpose
 		);
 		div.appendChildren(
@@ -60,7 +60,7 @@
 +SmallKansas {
 
 	ScalaJiTuningBrowser { :self :jiTunings |
-		let sizes = jiTunings.collect(size/1).values.copyWithoutIdenticalElements.sort.collect(asString/1);
+		let sizes = jiTunings.collect(size/1).values.copyWithoutIdenticalElements.sort.collect(printString/1);
 		let selectedSize = nil;
 		let selectedLimit = nil;
 		self.ColumnBrowser('Scala Ji Tuning Browser', 'text/html', false, true, [1, 1, 4], nil, nil) { :browser :path |
@@ -77,7 +77,10 @@
 							each.size = selectedSize
 						}.collect { :each |
 							each.primeLimit
-						}.values.copyWithoutIdenticalElements.sort.collect(asString/1)
+						}.values
+						.copyWithoutIdenticalElements
+						.sort
+						.collect(printString/1)
 					},
 					2 -> {
 						browser.setStatus(

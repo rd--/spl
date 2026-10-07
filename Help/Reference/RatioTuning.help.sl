@@ -18,8 +18,8 @@ Tuning specified using fractions:
 >>> (
 >>> 	r.size,
 >>> 	r.primeLimit,
->>> 	r.asCents.round,
->>> 	r.asIntegers
+>>> 	r.cents.round,
+>>> 	r.integers
 >>> )
 (
 	5,
@@ -44,8 +44,8 @@ Tuning specified as integers:
 >>> (
 >>> 	r.size,
 >>> 	r.primeLimit,
->>> 	r.asCents.round,
->>> 	r.asRatios
+>>> 	r.cents.round,
+>>> 	r.ratios
 >>> )
 (
 	12,
@@ -67,7 +67,7 @@ and the first ratio should be 1/1:
 
 ```
 >>> RatioTuning[1/1 8/7 4/3 14/9 16/9]
->>> .asIntegers
+>>> .integers
 [63 72 84 98 112]
 ```
 
@@ -75,7 +75,7 @@ If the intervals are `Integer` values they are understood to be integer pitches:
 
 ```
 >>> RatioTuning[63 72 84 98 112]
->>> .asRatios
+>>> .ratios
 [1/1 8/7 4/3 14/9 16/9]
 ```
 
@@ -88,8 +88,8 @@ A five-limit tuning specified as a `List` of `Fraction`s:
 >>> (
 >>> 	t.primeLimit,
 >>> 	t.octave,
->>> 	t.asIntegers,
->>> 	t.asCents.round
+>>> 	t.integers,
+>>> 	t.cents.round
 >>> )
 (
 	5,
@@ -106,8 +106,8 @@ A seven-limit tuning specified as a `List` of integers:
 >>> (
 >>> 	t.primeLimit,
 >>> 	t.octave,
->>> 	t.asRatios,
->>> 	t.asCents.round
+>>> 	t.ratios,
+>>> 	t.cents.round
 >>> )
 (
 	7,
@@ -127,7 +127,7 @@ A seven-limit just intonation approximation of 13-tone equal temperament:
 >>> ];
 >>> let k = (1200 / 13);
 >>> let c = [0, k .. 1108];
->>> let j = t.asCents;
+>>> let j = t.cents;
 >>> (
 >>> 	t.primeLimit,
 >>> 	c.round,
@@ -158,7 +158,7 @@ An Erv Wilson scale (9 July 1967) specified as integers:
 >>> 	600 625 672 700 750 800
 >>> 	840 875 960 1000 1050 1120
 >>> ];
->>> (t.primeLimit, t.asRatios)
+>>> (t.primeLimit, t.ratios)
 (
 	7,
 	[

@@ -160,7 +160,7 @@ TextEditor : [Object, UserEventTarget, View] {
 			},
 			MenuItem('Print It', 'p') { :event |
 				let text = system.window.selectedTextOrParagraphAtCaret;
-				let answer = self.evaluate(text, event).asString;
+				let answer = self.evaluate(text, event).printString;
 				subject.insertText(' ' ++ answer)
 			},
 			MenuItem('References To It', nil) { :event |

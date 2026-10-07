@@ -1,13 +1,13 @@
-# asDot
+# dotGraphLanguage
 
-- _asDot(g)_
+- _dotGraphLanguage(g)_
 
 Answer a Dot language description of the graph _g_.
 
 The three `cycleGraph`:
 
 ~~~
->> 3.cycleGraph.asDot
+>> 3.cycleGraph.dotGraphLanguage
 graph {
 graph [layout="neato"];
 graph [size="1.214,0.75",bgcolor="transparent"];
@@ -22,4 +22,4 @@ edge [penwidth="0.75",arrowsize="0.5"];
 
 * * *
 
-See also: dotLayout, Graph
+See also: Graph, dotLayout

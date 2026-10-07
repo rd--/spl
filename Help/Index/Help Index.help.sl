@@ -64,7 +64,7 @@
 
 ## Character
 
-- `asLowerCase`, `asString`, `asUpperCase`
+- `toLowerCase`, `toUpperCase`
 - `codePoint`
 
 ## Character Predicates
@@ -156,7 +156,8 @@
 
 - `Boolean`, `boole`
 - `Complex`, `Decimal`, `Float`, `Fraction`, `Integer`, `LargeInteger`, `Number`, `SmallFloat`
-- `Character`, `codePoint`, `asHexDigit`, `asLowerCase`, `asRegExp`, `asString`, `asUpperCase`
+- `Character`, `codePoint`, `hexDigitCharacter`
+- `asRegExp`, `displayString`, `toLowerCase`, `toUpperCase`
 - `inEnglishWords`
 - `IdentityMultiset`, `ByteArray`, `List`, `Map`, `Record`, `IdentitySet`, `SortedList`, `Tree`
 - `degreesToRadians`, `radiansToDegrees`
@@ -459,7 +460,6 @@
 ## Network
 
 - `Location`, `Url`, `UrlQueryParameters`
-- `asUrl`, `asUrlQueryParameters`
 - `fragment`, `host`, `hostName`, `href`, `pathName`, `protocol`, `queryParameters`
 - `Request`, `Response`
 - `fetch`, `fetchText`, `fetchJson`, `fetchByteArray`
@@ -559,7 +559,7 @@
 
 ## Printing
 
-- `asString`, `concisePrintString`, `printString`, `storeString`
+- `displayString`, `concisePrintString`, `printString`, `storeString`
 - `contractTo`, `printStringLimitedTo`, `truncateTo`
 
 ## Ranges
@@ -732,7 +732,7 @@
 
 - `join`, `splitBy`, `splitByRegExp`
 - `at`, `characters`, `codePoints`, `drop`, `size`, `reverse`, `take`
-- `asLowerCase`, `asUpperCase`, `capitalize`
+- `toLowerCase`, `toUpperCase`, `capitalize`
 - `asInteger`, `asNumber`
 - `trim`, `withBlanksTrimmed`, `withoutLeadingBlanks`, `withoutTrailingBlanks`
 - `lines`, `sentences`, `words`
@@ -793,8 +793,8 @@
 ## Tuning Type and Functions
 
 - `CentsTuning`, `RatioTuning`, `Scale`, `Tuning`
-- `asRatioTuning`, `equalTemperamentTuning`
-- `asCents`, `asFractions`, `asIntegers`, `asRatios`
+- `equalTemperamentTuning`
+- `cents`, `integers`, `ratios`
 - `limit`, `octave`
 - `centsToRatio`, `degreeToKey`, `ratioToCents`
 - `benedettiHeight`, `keesSemiHeight`, `tenneyHeight`, `weilHeight`, `wilsonHeight`
@@ -806,7 +806,7 @@
 - `Quantity`
 - `Mass`, `Length`, `Time`
 - `Frequency`, `PlaneAngle`
-- `asHertz`, `hertz`, `kiloherz`
+- `hertz`, `kiloherz`
 - `metres`
 
 ## Vector Constructors

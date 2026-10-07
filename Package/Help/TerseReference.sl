@@ -41,7 +41,7 @@
 		let textList = system.readTextFileList(helpFileNameList);
 		textList.withIndexDo { :text :index |
 			let fileName = helpFileNameList[index];
-			let helpFile = HelpFile(fileName.asFileUrl, text);
+			let helpFile = HelpFile(fileName.fileUrl, text);
 			let [testCount, passCount, errorCount] = {
 				options['verbose'].ifTrue {
 					(helpFile.originName, helpFile.name).postLine

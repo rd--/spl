@@ -17,7 +17,7 @@
 					}.collect(name/1)
 				},
 				3 -> {
-					midiAccess.portByName(path[1], path[2], path[3]).asString
+					midiAccess.portByName(path[1], path[2], path[3]).printString
 				}
 			])
 		}

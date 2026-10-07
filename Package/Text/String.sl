@@ -62,14 +62,6 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Iterable, Indexable, Chara
 		self.asBracketedComment('{-', '-}')
 	}
 
-	asHexString { :self |
-		self.asciiByteArray.base16Encode
-	}
-
-	asLowerCase { :self |
-		<primitive: return _self.toLowerCase();>
-	}
-
 	asMlComment { :self |
 		self.asBracketedComment('(*', '*)')
 	}
@@ -88,12 +80,8 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Iterable, Indexable, Chara
 		self
 	}
 
-	asString { :self |
+	displayString { :self |
 		self
-	}
-
-	asUpperCase { :self |
-		<primitive: return _self.toUpperCase(); >
 	}
 
 	atIfAbsent { :self :index :ifAbsent/0 |
@@ -171,12 +159,6 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Iterable, Indexable, Chara
 		.IdentityMultiset
 		.associations
 		.sort!(succeedsOrEqualTo/2, value/1)
-	}
-
-	characterRange { :self :aString |
-		Character(self)
-		.characterRange(Character(aString))
-		.collect(asString/1)
 	}
 
 	characters { :self |
@@ -424,7 +406,9 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Iterable, Indexable, Chara
 	format { :self :arguments |
 		let parts = self.splitBy('%');
 		(arguments.size + 1 = parts.size).if {
-			parts.riffle(arguments.collect(asString/1)).stringCatenate
+			parts.riffle(
+				arguments.collect(displayString/1)
+			).stringCatenate
 		} {
 			self.error('format: incorrect number of arguments')
 		}
@@ -449,6 +433,10 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Iterable, Indexable, Chara
 			};
 			value
 		}
+	}
+
+	hexString { :self |
+		self.asciiByteArray.base16Encode
 	}
 
 	IdentitySet { :self |
@@ -578,7 +566,7 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Iterable, Indexable, Chara
 		(self = aString).if {
 			true
 		} {
-			self.asLowerCase = aString.asLowerCase
+			self.toLowerCase = aString.toLowerCase
 		}
 	}
 
@@ -624,7 +612,7 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Iterable, Indexable, Chara
 
 	letterNumber { :self :aString |
 		aString.namedAlphabet.indexOf(
-			self.asLowerCase
+			self.toLowerCase
 		)
 	}
 
@@ -1020,6 +1008,14 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Iterable, Indexable, Chara
 		)
 	}
 
+	toLowerCase { :self |
+		<primitive: return _self.toLowerCase();>
+	}
+
+	toUpperCase { :self |
+		<primitive: return _self.toUpperCase(); >
+	}
+
 	trim { :self |
 		<primitive: return _self.trim();>
 	}
@@ -1214,7 +1210,9 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Iterable, Indexable, Chara
 	}
 
 	commaSeparatedString { :self |
-		self.collect(asString/1).stringIntercalate(', ')
+		self.collect(
+			displayString/1
+		).uncheckedStringIntercalate(', ')
 	}
 
 	decapitalize { :self |
@@ -1224,7 +1222,7 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Iterable, Indexable, Chara
 	deleteStopWords { :self |
 		let stopWords = system.englishStopWords;
 		self.reject { :each |
-			stopWords.includes(each.asLowerCase)
+			stopWords.includes(each.toLowerCase)
 		}
 	}
 
@@ -1277,9 +1275,10 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Iterable, Indexable, Chara
 	stringJoin { :self :aString |
 		self
 		.flatten
-		.collect(asString/1)
-		.uncheckedStringIntercalate(
-			aString.asString
+		.collect(
+			displayString/1
+		).uncheckedStringIntercalate(
+			aString.displayString
 		)
 	}
 

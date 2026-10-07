@@ -11,10 +11,6 @@ FilePath : [Object, Store, Equal] {
 		}
 	}
 
-	asUrl { :self |
-		self.filePathString.asFileUrl
-	}
-
 	basename { :self |
 		self.filePathString.pathBasename
 	}
@@ -77,6 +73,10 @@ FilePath : [Object, Store, Equal] {
 
 	stem { :self |
 		self.filePathString.pathStem
+	}
+
+	Url { :self |
+		self.filePathString.fileUrl
 	}
 
 	writeBinaryFile { :self :data |

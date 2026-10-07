@@ -13,7 +13,7 @@ Table of first few Eisenstein primes:
 >>> 	} {
 >>> 		nil
 >>> 	}
->>> }.table(-5:5, -5:5)
+>>> }.table(-4:4, -4:4)
 >>> .catenate.deleteMissing
 [
 	-4 -3; -4 -1; -4 3;

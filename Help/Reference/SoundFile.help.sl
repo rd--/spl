@@ -16,7 +16,7 @@ let url = [
 	'https://rohandrape.net/'
 	'pub/jssc3/flac/'
 	'Then.wav'
-].stringCatenate.asUrl;
+].stringCatenate.Url;
 SoundFile(url).then { :soundFile |
 	let channelData = soundFile.channelData(1);
 	(

@@ -31,7 +31,7 @@ The `format` method prints the equivalence predicate:
 >> ).format
 { 3 + 4 }
 .value
-.asString
+.displayString
 .equalIgnoringExtraWhitespace(
 	ByteArray([55]).utf8String
 )
@@ -56,7 +56,7 @@ The `format` method prints the equivalence predicate:
 >> ).format
 { let x = 3 + 4; x * x }
 .value
-.asString
+.displayString
 .equalIgnoringExtraWhitespace(
 	ByteArray([52, 57]).utf8String
 )

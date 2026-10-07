@@ -4,7 +4,7 @@
 
 Answer a `String` that is like the string _s_,
 but where _%_ characters are replaced with items from the sequence _x_.
-Items in _x_ are formatted using `asString`.
+Items in _x_ are formatted using `displayString`.
 
 ```
 >>> 'pi=% & e=%'.format([3.141, 2.718])
@@ -30,7 +30,7 @@ Format `Boolean`:
 '3 > 4 = false'
 ```
 
-Format `String`:
+Format `String`, unquoted:
 
 ```
 >>> '% ≺ % = %'.format(
@@ -45,7 +45,7 @@ Format `String`:
 
 * * *
 
-See also: riffle, stringCatenate, splitBy, String
+See also: String, riffle, stringCatenate, splitBy
 
 Guides: String Functions
 

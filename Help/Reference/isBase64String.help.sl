@@ -17,7 +17,7 @@ true
 true
 
 >>> 'abcdefghijklmnopqrstuvwxyz'
->>> .asUpperCase
+>>> .toUpperCase
 >>> .isBase64String
 true
 

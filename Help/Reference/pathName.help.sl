@@ -14,7 +14,7 @@ not including the query string or fragment.
 The empty file `Url`:
 
 ```
->>> ''.asFileUrl.pathName
+>>> ''.fileUrl.pathName
 '/'
 ```
 

@@ -15,10 +15,6 @@ Predicates:
 - `hasIndices`
 - `isGlobal`
 
-Converting:
-
-- `asRegularExpression`
-
 Executing:
 
 - `exec`

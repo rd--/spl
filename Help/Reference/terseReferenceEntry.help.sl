@@ -10,7 +10,7 @@ Evaluate document tests at the help file _h_, reading options from the dictionar
 >>> let fileName = system.splFileName(helpFile);
 >>> let text = system.readTextFile(fileName);
 >>> HelpFile(
->>> 	fileName.asFileUrl,
+>>> 	fileName.fileUrl,
 >>> 	text
 >>> ).terseReferenceEntry(
 >>> 	(verbose: false)

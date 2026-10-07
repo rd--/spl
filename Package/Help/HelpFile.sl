@@ -452,7 +452,7 @@ HelpFile : [Object, Equal, Cache] {
 		}.do { :each |
 			let text = system.readTextFile(each);
 			let help = HelpFile(
-				each.asFileUrl,
+				each.fileUrl,
 				text
 			);
 			verbose.ifTrue {
@@ -592,7 +592,7 @@ HelpFile : [Object, Equal, Cache] {
 			topic.helpFileName
 		);
 		HelpFile(
-			fileName.asFileUrl,
+			fileName.fileUrl,
 			self.readTextFile(fileName)
 		)
 	}

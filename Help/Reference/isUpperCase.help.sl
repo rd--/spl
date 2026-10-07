@@ -18,7 +18,7 @@ true
 
 * * *
 
-See also: asUpperCase, isLowerCase
+See also: toUpperCase, isLowerCase
 
 Guides: String Functions
 

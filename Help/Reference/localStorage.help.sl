@@ -25,7 +25,7 @@ Store a value:
 
 ```
 >>> let s = system.localStorage;
->>> s['Pi'] := 1.pi.asString;
+>>> s['Pi'] := 1.pi.printString;
 >>> s.includesKey('Pi')
 true
 ```
@@ -34,7 +34,7 @@ Read a value:
 
 ```
 >>> system.localStorage['Pi']
-1.pi.asString
+1.pi.displayString
 ```
 
 Delete an entry:
@@ -43,7 +43,7 @@ Delete an entry:
 >>> let s = system.localStorage;
 >>> let x = s.removeKey!('Pi');
 >>> (x, s.includesKey('Pi'))
-(1.pi.asString, false)
+(1.pi.printString, false)
 ```
 
 Remove all entries,

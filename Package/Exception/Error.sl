@@ -44,7 +44,7 @@
 		self.cause.isError.if {
 			self.cause.description
 		} {
-			self.cause.asString
+			self.cause.printString
 		}
 	}
 

@@ -52,8 +52,8 @@ SmallKansas : [Object, Cache] {
 	dialog { :self :subject :event |
 		let dialog = 'dialog'.createElement;
 		dialog.appendChild(subject.outerElement);
-		dialog.style.setProperty('left', event.x.asString ++ 'px', '');
-		dialog.style.setProperty('top', event.y.asString ++ 'px', '');
+		dialog.style.setProperty('left', event.x.printString ++ 'px', '');
+		dialog.style.setProperty('top', event.y.printString ++ 'px', '');
 		self.container.appendChild(dialog);
 		subject.dialog(dialog);
 		dialog.showModal;
@@ -98,7 +98,7 @@ SmallKansas : [Object, Cache] {
 	}
 
 	fontSize { :self :fontSize |
-		self.container.style.setProperty('--font-size', fontSize.asString, '')
+		self.container.style.setProperty('--font-size', fontSize.printString, '')
 	}
 
 	fontSizeMenuEntriesOn { :self :subject |

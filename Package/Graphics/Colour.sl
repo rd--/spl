@@ -884,7 +884,7 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 					'Svg' -> {
 						system
 						.svgColourCatalogue
-						.at(colourName.asLowerCase)
+						.at(colourName.toLowerCase)
 						.Colour
 					}
 				]

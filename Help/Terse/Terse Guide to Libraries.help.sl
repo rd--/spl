@@ -61,6 +61,6 @@ system.workspace::smallHours.helpFind('Collection')
 
 ## Cli
 ```
-system.splFileName('Help/Terse/Terse Guide.help.sl').asFileUrl.terseGuideSummary
-system.splFileName('Help/Terse/Terse Guide to Sound.help.sl').asFileUrl.terseGuideSummary
+system.splFileName('Help/Terse/Terse Guide.help.sl').fileUrl.terseGuideSummary
+system.splFileName('Help/Terse/Terse Guide to Sound.help.sl').fileUrl.terseGuideSummary
 ```

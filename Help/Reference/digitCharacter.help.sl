@@ -33,6 +33,13 @@ The inverse is `digitValue`:
 [9 0 10 35]
 ```
 
+It is an error if _n_ is out of range:
+
+```
+>>> { -1.digitCharacter }.hasError
+true
+```
+
 * * *
 
 See also: digitValue

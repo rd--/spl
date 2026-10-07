@@ -38,60 +38,6 @@
 		}.table(v, v)
 	}
 
-	asDot { :self :options |
-		let isMixed = self.isMixed;
-		let graphType = self.isUndirected.if { 'graph' } { 'digraph' };
-		let begin = [
-			'% {'.format([graphType]),
-			'graph [layout="%"];'.format([options['method']])
-		];
-		let vertexLabels = self.hasVertexLabels.if {
-			self.vertexLabels
-		} {
-			nil
-		};
-		let attributeText = [
-			'graph [size="1.214,0.75",bgcolor="transparent"];',
-			'node [shape="%"];'.format(
-				[self.hasVertexLabels.if { 'box' } { 'point' }]
-			),
-			'edge [penwidth="0.75",arrowsize="0.5"];'
-		];
-		let nodeText = self.hasVertexLabels.if {
-			self.vertexList.collect { :each |
-				let label = vertexLabels[each];
-				label.ifNil {
-					'% [shape="point"];'.format([each])
-				} {
-					'% [label="%",shape="box",width="0",height="0"];'.format(
-						[each, label.ifNil { '' } { label }]
-					)
-				}
-			}
-		} {
-			['/* implicit nodes */']
-		};
-		let edgeText = self.edgeList.collect { :each |
-			each.forDot(isMixed)
-		};
-		let end = ['}'];
-		[
-			begin,
-			attributeText,
-			nodeText,
-			edgeText,
-			end
-		].catenate.unlines
-	}
-
-	asDot { :self |
-		self.asDot(
-			(
-				method: self.isUndirected.if { 'neato' } { 'dot' }
-			)
-		)
-	}
-
 	circularGraphPlot { :self :options |
 		let k = self.vertexCount;
 		let ordering = options.atIfAbsent('ordering') { [1 .. k] };
@@ -163,6 +109,60 @@
 
 	dijkstrasAlgorithm { :g :s |
 		g.dijkstrasAlgorithm(s, nil)
+	}
+
+	dotGraphLanguage { :self :options |
+		let isMixed = self.isMixed;
+		let graphType = self.isUndirected.if { 'graph' } { 'digraph' };
+		let begin = [
+			'% {'.format([graphType]),
+			'graph [layout="%"];'.format([options['method']])
+		];
+		let vertexLabels = self.hasVertexLabels.if {
+			self.vertexLabels
+		} {
+			nil
+		};
+		let attributeText = [
+			'graph [size="1.214,0.75",bgcolor="transparent"];',
+			'node [shape="%"];'.format(
+				[self.hasVertexLabels.if { 'box' } { 'point' }]
+			),
+			'edge [penwidth="0.75",arrowsize="0.5"];'
+		];
+		let nodeText = self.hasVertexLabels.if {
+			self.vertexList.collect { :each |
+				let label = vertexLabels[each];
+				label.ifNil {
+					'% [shape="point"];'.format([each])
+				} {
+					'% [label="%",shape="box",width="0",height="0"];'.format(
+						[each, label.ifNil { '' } { label }]
+					)
+				}
+			}
+		} {
+			['/* implicit nodes */']
+		};
+		let edgeText = self.edgeList.collect { :each |
+			each.forDot(isMixed)
+		};
+		let end = ['}'];
+		[
+			begin,
+			attributeText,
+			nodeText,
+			edgeText,
+			end
+		].catenate.unlines
+	}
+
+	dotGraphLanguage { :self |
+		self.dotGraphLanguage(
+			(
+				method: self.isUndirected.if { 'neato' } { 'dot' }
+			)
+		)
 	}
 
 	drawing { :self |
@@ -667,7 +667,13 @@ Graph : [Object, Graph] {
 
 	dotDrawing { :self :options |
 		let layoutEngine = options['method'];
-		self.asDot(options).dotLayout('svg', layoutEngine).then { :answer |
+		self
+		.dotGraphLanguage(
+			options
+		).dotLayout(
+			'svg',
+			layoutEngine
+		).then { :answer |
 			answer.Svg
 		}
 	}
@@ -916,7 +922,7 @@ Graph : [Object, Graph] {
 		withLabels.ifTrue {
 			g.vertexLabels!(
 				s.collect { :each |
-					each.collect(asString/1).stringCatenate
+					each.collect(displayString/1).stringCatenate
 				}
 			)
 		};

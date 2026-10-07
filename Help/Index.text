@@ -447,7 +447,6 @@ Reference/arrayRules.help.sl
 Reference/arshonsSequence.help.sl
 Reference/artinsConstant.help.sl
 Reference/asaTriangle.help.sl
-Reference/asBlock.help.sl
 Reference/asciiByteArray.help.sl
 Reference/asciiContents.help.sl
 Reference/ascii.help.sl
@@ -455,14 +454,8 @@ Reference/AsciiStream.help.sl
 Reference/asciiString.help.sl
 Reference/AsciiString.help.sl
 Reference/asciiValue.help.sl
-Reference/asDot.help.sl
-Reference/asFileUrl.help.sl
-Reference/asHexDigit.help.sl
-Reference/asHexString.help.sl
 Reference/asLocalBuf.help.sl
-Reference/asLowerCase.help.sl
 Reference/asRandomTable.help.sl
-Reference/asRegularExpression.help.sl
 Reference/Asr.help.sl
 Reference/assert.help.sl
 Reference/assertIsCollection.help.sl
@@ -476,14 +469,9 @@ Reference/Association.help.sl
 Reference/associationsDo.help.sl
 Reference/associations.help.sl
 Reference/associationsRemove.help.sl
-Reference/asString.help.sl
-Reference/asStringWithCommas.help.sl
 Reference/asterisk.help.sl
 Reference/asteriskPlusSign.help.sl
 Reference/asteriskSolidus.help.sl
-Reference/asUpperCase.help.sl
-Reference/asUrl.help.sl
-Reference/asUrlQueryParameters.help.sl
 Reference/atAllBlend.help.sl
 Reference/atAll.help.sl
 Reference/atAllPath.help.sl
@@ -1212,6 +1200,7 @@ Reference/discriminant.help.sl
 Reference/Disk.help.sl
 Reference/diskMatrix.help.sl
 Reference/dispersionArray.help.sl
+Reference/displayString.help.sl
 Reference/dissimilar.help.sl
 Reference/distance.help.sl
 Reference/distanceMatrix.help.sl
@@ -1239,6 +1228,7 @@ Reference/doesNotInclude.help.sl
 Reference/do.help.sl
 Reference/dollarSignGreaterThanSign.help.sl
 Reference/doSeparatedBy.help.sl
+Reference/dotGraphLanguage.help.sl
 Reference/dot.help.sl
 Reference/dotLayout.help.sl
 Reference/dotPlot.help.sl
@@ -1485,6 +1475,7 @@ Reference/File.help.sl
 Reference/fileInformation.help.sl
 Reference/fileName.help.sl
 Reference/FilePath.help.sl
+Reference/fileUrl.help.sl
 Reference/fillFrom.help.sl
 Reference/fillFromWith.help.sl
 Reference/fill.help.sl
@@ -1782,6 +1773,8 @@ Reference/HexagonalCoordinates.help.sl
 Reference/HexagonalEfficientCoordinates.help.sl
 Reference/hexagonalNumber.help.sl
 Reference/hexagonalSpiralPoints.help.sl
+Reference/hexDigitCharacter.help.sl
+Reference/hexString.help.sl
 Reference/hexTriplet.help.sl
 Reference/HiddenMarkovProcess.help.sl
 Reference/highBit.help.sl
@@ -3322,6 +3315,7 @@ Reference/printString.help.sl
 Reference/printStringHex.help.sl
 Reference/printStringLimitedTo.help.sl
 Reference/printStringShowingDecimalPlaces.help.sl
+Reference/printStringWithCommas.help.sl
 Reference/PriorityQueue.help.sl
 Reference/prismGraph.help.sl
 Reference/ProbabilityDistribution.help.sl
@@ -4142,6 +4136,7 @@ Reference/toeplitzMatrix.help.sl
 Reference/ToggleFf.help.sl
 Reference/to.help.sl
 Reference/toHexagonalCoordinates.help.sl
+Reference/toLowerCase.help.sl
 Reference/tonalityDiamond.help.sl
 Reference/tonelliShanksAlgorithm.help.sl
 Reference/toothpickSequence.help.sl
@@ -4151,6 +4146,7 @@ Reference/torus.help.sl
 Reference/torusKnotCurve.help.sl
 Reference/toSphericalCoordinates.help.sl
 Reference/totientSummatoryFunction.help.sl
+Reference/toUpperCase.help.sl
 Reference/trace.help.sl
 Reference/tractrix.help.sl
 Reference/tractrixSpiral.help.sl
@@ -4244,6 +4240,7 @@ Reference/UgenGraph.help.sl
 Reference/Ugen.help.sl
 Reference/ulamSequence.help.sl
 Reference/umbilicTorus.help.sl
+Reference/unaryBlock.help.sl
 Reference/unaryExpansion.help.sl
 Reference/uncheckedAt.help.sl
 Reference/uncheckedFraction.help.sl

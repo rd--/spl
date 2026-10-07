@@ -1,15 +1,15 @@
-# asHexDigit
+# hexDigitCharacter
 
-- _asHexDigit(n)_
+- _hexDigitCharacter(n)_
 
 Answer the `String` representing given hexadecimal digit.
 
 ```
->>> 15.asHexDigit
+>>> 15.hexDigitCharacter
 'F'
 
 >>> [0 .. 15]
->>> .collect(asHexDigit/1)
+>>> .collect(hexDigitCharacter/1)
 >>> .stringJoin
 '0123456789ABCDEF'
 ```
@@ -17,13 +17,13 @@ Answer the `String` representing given hexadecimal digit.
 Signal an `error` if out of bounds:
 
 ```
->>> { -1.asHexDigit }.hasError
+>>> { 16.hexDigitCharacter }.hasError
 true
 ```
 
 * * *
 
-See also: asHexString, base16Encode, Character, Integer
+See also: Character, Integer, base16Encode, digitCharacter, hexString
 
 Guides: String Functions
 

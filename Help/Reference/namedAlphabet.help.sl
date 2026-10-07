@@ -22,13 +22,13 @@ The answer has only lower case letters:
 >>> 'english'
 >>> .namedAlphabet
 >>> .stringCatenate
->>> .asUpperCase
+>>> .toUpperCase
 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
 >>> 'greek'
 >>> .namedAlphabet
 >>> .stringCatenate
->>> .asUpperCase
+>>> .toUpperCase
 'ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ'
 ```
 

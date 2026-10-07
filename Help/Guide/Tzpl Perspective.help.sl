@@ -348,19 +348,19 @@ split=`splitBy`:
 'trailing'
 ```
 
-toUpper=`asUpperCase`, toLower=`asLowerCase`
+toUpper=`toUpperCase`, toLower=`toLowerCase`
 
 ```
->>> asUpperCase('hello')
+>>> toUpperCase('hello')
 'HELLO'
 
->>> asLowerCase('HELLO')
+>>> toLowerCase('HELLO')
 'hello'
 
->>> asUpperCase('Hello World')
+>>> toUpperCase('Hello World')
 'HELLO WORLD'
 
->>> asLowerCase('Hello World')
+>>> toLowerCase('Hello World')
 'hello world'
 ```
 

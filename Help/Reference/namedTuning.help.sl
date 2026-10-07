@@ -8,7 +8,7 @@ according to the Scala tuning archive.
 Lookup rational tuning:
 
 ```
->>> 'wilson_class'.namedTuning.asRatios
+>>> 'wilson_class'.namedTuning.ratios
 [
 	1/1 25/24 28/25 7/6 5/4
 	4/3  7/5  35/24 8/5 5/3
@@ -19,7 +19,7 @@ Lookup rational tuning:
 Lookup cents tuning:
 
 ```
->>> 'trawas'.namedTuning.asCents
+>>> 'trawas'.namedTuning.cents
 [0 306.15 541.49 711.39 1039.53]
 ```
 

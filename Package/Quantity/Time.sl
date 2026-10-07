@@ -37,10 +37,10 @@
 		(seconds >= 0 & { seconds < (24 * 60 * 60) }).if {
 			let [h, m, s] = seconds.mixedRadixEncode([60 60]);
 			'%:%:%.%'.format([
-				h.asString.padLeft([2], '0'),
-				m.asString.padLeft([2], '0'),
-				s.truncate.asString.padLeft([2], '0'),
-				(s.fractionalPart * 1000).round.asString.padLeft([3], '0')
+				h.printString.padLeft([2], '0'),
+				m.printString.padLeft([2], '0'),
+				s.truncate.printString.padLeft([2], '0'),
+				(s.fractionalPart * 1000).round.printString.padLeft([3], '0')
 			])
 		} {
 			self.error('timeString: invalid time')

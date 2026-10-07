@@ -96,7 +96,7 @@ At `Character`:
 
 * * *
 
-See also: fromCodePoint, String
+See also: String, fromCodePoint
 
 Guides: String Functions
 

@@ -38,7 +38,7 @@ ColumnBrowser : [Object, View] {
 			let list = self.columnLists[index].listChooserPane;
 			list.style.setProperties(
 				(
-					'flex': columnProportions[index].asString ++ ' 1 16em'
+					'flex': columnProportions[index].printString ++ ' 1 16em'
 				)
 			)
 		};
@@ -98,7 +98,7 @@ ColumnBrowser : [Object, View] {
 		let next = self.onChange(self.pathUpTo(index));
 		(index = self.numberOfColumns).if {
 			next.then { :view |
-				self.textEditor.setEditorText(view.asString)
+				self.textEditor.setEditorText(view.printString)
 			}
 		} {
 			self.textEditor.setEditorText('');

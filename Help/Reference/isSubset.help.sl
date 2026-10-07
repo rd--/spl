@@ -47,7 +47,7 @@ A lipogrammatic panagram (Ezra 7:21):
 >>> 	'law of the God of heaven,'
 >>> 	'shall require of you, it'
 >>> 	'be done speedily'
->>> ].unwords.asLowerCase;
+>>> ].unwords.toLowerCase;
 >>> let t = v.characters.withoutAll!(
 >>> 	[' ' ',']
 >>> );

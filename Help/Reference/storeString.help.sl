@@ -24,7 +24,7 @@ Association('+', 'plus')
 
 * * *
 
-See also: asString, printString, Store, String
+See also: Store, String, displayString, printString
 
 Guides: Parsing Functions, String Functions
 

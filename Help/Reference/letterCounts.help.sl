@@ -36,10 +36,10 @@ Count the distinct _n_-gram letter sequences in a string:
 ['AB' -> 5, 'bA' -> 5, 'ab' -> 5, 'Ba' -> 4]
 ```
 
-With `asLowerCase` ignores case:
+With `toLowerCase` ignores case:
 
 ```
->>> 'Alabama'.asLowerCase.letterCounts
+>>> 'Alabama'.toLowerCase.letterCounts
 ['a' -> 4, 'm' -> 1, 'b' -> 1, 'l' -> 1]
 ```
 

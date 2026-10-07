@@ -1,20 +1,20 @@
-# asUpperCase
+# toUpperCase
 
-- _asUpperCase(s)_
+- _toUpperCase(s)_
 
 Answer a `String` made up from the string _s_ whose characters are all uppercase.
 
 ```
->>> 'ascii'.asUpperCase
+>>> 'ascii'.toUpperCase
 'ASCII'
 
->>> Character'a'.asUpperCase
+>>> Character'a'.toUpperCase
 Character'A'
 ```
 
 * * *
 
-See also: asLowerCase, isUpperCase
+See also: toLowerCase, isUpperCase
 
 Guides: String Functions
 

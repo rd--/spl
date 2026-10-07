@@ -38,7 +38,8 @@ false
 
 At `Tuning`,
 answer `true` if the tuning,
-when considered `asRatios`, answers only proper fractions.
+when considered as ratios,
+answers only proper fractions:
 
 ```
 >>> RatioTuning[1/1 6/5 4/3 3/2 8/5]
@@ -46,14 +47,14 @@ when considered `asRatios`, answers only proper fractions.
 true
 
 >>> ([0 2 4 5 7 9 11] * 100)
->>> .asCentsTuning
+>>> .CentsTuning
 >>> .isRational
 false
 ```
 
 * * *
 
-See also: asRatios, CentsTuning, isFraction, isInteger, RatioTuning, Tuning
+See also: CentsTuning, RatioTuning, Tuning, isFraction, isInteger, ratios
 
 Guides: Number Functions, Predicate Functions, Tuning Functions
 

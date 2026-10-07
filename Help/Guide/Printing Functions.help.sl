@@ -7,7 +7,7 @@ Types:
 
 Converting:
 
-- `asString`
+- `displayString`
 - `concisePrintString`
 - `matrixPrintString`
 - `printStringHex`

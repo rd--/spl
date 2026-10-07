@@ -23,10 +23,9 @@ Composition:
 
 Converting:
 
-- `asBinaryBlock`
-- `asBlock`
-- `asTernaryBlock`
-- `asUnaryBlock`
+- `binaryBlock`
+- `ternaryBlock`
+- `unaryBlock`
 
 Evaluation:
 

@@ -22,11 +22,9 @@ Accessing:
 - `queryParameters`
 - `userName`
 
-Converting:
+Constructors:
 
-- `asFileUrl`
-- `asUrl`
-- `asUrlQueryParameters`
+- `fileUrl`
 
 Encoding & Decoding:
 

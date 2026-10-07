@@ -76,7 +76,7 @@ Plot Legendre polynomials two through five:
 ~~~spl svg=A
 (-1 -- 1).functionPlot(
 	2:5.collect { :n |
-		n.legendreP.asBlock
+		n.legendreP.unaryBlock
 	}
 )
 ~~~
@@ -88,8 +88,8 @@ Generalised Lissajous figures:
 ~~~spl svg=B
 (-1 -- 1).parametricPlot(
 	400,
-	7.legendreP.asBlock,
-	13.legendreP.asBlock
+	7.legendreP.unaryBlock,
+	13.legendreP.unaryBlock
 )
 ~~~
 

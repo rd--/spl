@@ -29,7 +29,7 @@
 				system.scSynth.setControl(11000 + byteList[2], byteList[3] / 127)
 			};
 			textEditor.setEditorText(messages.last(25.min(messages.size)).collect { :midi |
-				midi.data.asString
+				midi.data.printString
 			}.unlines)
 		};
 		let frame = self.addFrame(textEditor, event);

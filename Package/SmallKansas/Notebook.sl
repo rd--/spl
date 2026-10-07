@@ -18,7 +18,7 @@ Notebook : [Object, View, SmallKansan] {
 		);
 		let cellNumber = self.count + 1;
 		let program = self.smallKansas.SmallProgram('', '', '');
-		summary.textContent := cellNumber.asString;
+		summary.textContent := cellNumber.printString;
 		program.addEventListener('evaluate') { :event |
 			program.readOnly := true;
 			(cellNumber = self.count).ifTrue {

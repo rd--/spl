@@ -117,7 +117,7 @@ let p = 0:4.collect(chebyshevT/1);
 Plot a slice of a Banchoff–Chmutov surface:
 
 ~~~spl png=D
-let f/1 = 4.chebyshevT.asBlock;
+let f/1 = 4.chebyshevT.unaryBlock;
 let i = (-1.15 -- 1.15).subdivide(100);
 { :x :y |
 	f(x) + f(y)

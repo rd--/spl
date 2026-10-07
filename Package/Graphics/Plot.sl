@@ -273,10 +273,12 @@ Plot : [Object] {
 
 	complexPlotBy { :self :k :aspect/1 :aBlock/1 |
 		let [min, max] = self;
-		let colourFunction/1 = system
-		.colourGradients['Kovesi']['Cyclic-Mygbm-30-95-C78S25']
-		.ColourGradient
-		.asBlock;
+		let colourFunction/1 = (
+			system
+			.colourGradients['Kovesi']['Cyclic-Mygbm-30-95-C78S25']
+			.ColourGradient
+			.unaryBlock
+		);
 		let r = (min.real -- max.real).subdivide(k);
 		let i = (min.imaginary -- max.imaginary).subdivide(k);
 		{ :x :y |
@@ -1813,7 +1815,7 @@ Plot : [Object] {
 
 	colourMatrixPlot { :self |
 		let colourGradient = 'Mathematica'.namedColourGradient('Rainbow');
-		let colourFunction/1 = colourGradient.asBlock;
+		let colourFunction/1 = colourGradient.unaryBlock;
 		self.rescale.deepCollect(colourFunction/1).ColourGrid
 	}
 

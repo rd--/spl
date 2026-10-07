@@ -37,7 +37,7 @@ Threads over lists:
 
 * * *
 
-See also: asLowerCase, asUpperCase, capitalize, isLowerCase, isUpperCase, String
+See also: String, capitalize, isLowerCase, isUpperCase, toLowerCase, toUpperCase
 
 Guides: String Functions
 

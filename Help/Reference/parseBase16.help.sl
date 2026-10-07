@@ -41,7 +41,7 @@ This is aliased with `base16Decode`.
 
 * * *
 
-See also: asHexString, base16Decode, base16Encode, parseBase64
+See also: base16Decode, base16Encode, hexString, parseBase64
 
 Guides: Parsing Functions
 

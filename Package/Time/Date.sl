@@ -26,9 +26,9 @@ Date! : [Object, Store, Equal, Compare] {
 
 	dateString { :self |
 		[
-			self.year.asString,
-			self.month.asString.padLeft([2], '0'),
-			self.dayOfMonth.asString.padLeft([2], '0')
+			self.year.printString,
+			self.month.printString.padLeft([2], '0'),
+			self.dayOfMonth.printString.padLeft([2], '0')
 		].stringJoin('-')
 	}
 
@@ -73,8 +73,8 @@ Date! : [Object, Store, Equal, Compare] {
 
 	ordinalDateString { :self |
 		[
-			self.year.asString,
-			self.dayOfYear.asString.padLeft([3], '0')
+			self.year.printString,
+			self.dayOfYear.printString.padLeft([3], '0')
 		].stringJoin('-')
 	}
 

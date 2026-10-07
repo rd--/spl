@@ -55,37 +55,17 @@ Block! : [Object, Equal] {
 		}
 	}
 
-	asBinaryBlock { :self |
-		(self.numArgs = 2).if {
-			self
-		} {
-			self.error('asBinaryBlock: not binary')
-		}
-	}
-
-	asBlock { :self |
-		self
-	}
-
-	asTernaryBlock { :self |
-		(self.numArgs = 3).if {
-			self
-		} {
-			self.error('asTernaryBlock: not ternary')
-		}
-	}
-
-	asUnaryBlock { :self |
-		(self.numArgs = 1).if {
-			self
-		} {
-			self.error('asUnaryBlock: not unary')
-		}
-	}
-
 	assert { :self |
 		self.assert(self);
 		nil
+	}
+
+	binaryBlock { :self |
+		(self.numArgs = 2).if {
+			self
+		} {
+			self.error('binaryBlock: not binary')
+		}
 	}
 
 	blockMap { :aBlock/1 :aList :n :d |
@@ -618,6 +598,14 @@ Block! : [Object, Equal] {
 		}
 	}
 
+	ternaryBlock { :self |
+		(self.numArgs = 3).if {
+			self
+		} {
+			self.error('ternaryBlock: not ternary')
+		}
+	}
+
 	typeCheckedCompareBlock { :compareBlock/2 |
 		<primitive:
 		return function(p, q) {
@@ -629,6 +617,14 @@ Block! : [Object, Equal] {
 			}
 		};
 		>
+	}
+
+	unaryBlock { :self |
+		(self.numArgs = 1).if {
+			self
+		} {
+			self.error('unaryBlock: not unary')
+		}
 	}
 
 	unqualifiedName { :self |

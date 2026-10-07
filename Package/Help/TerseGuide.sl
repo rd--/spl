@@ -57,7 +57,7 @@
 +@Url {
 
 	terseGuideSummary { :self |
-		self.asUrl.fetchText.then { :text |
+		Url(self).fetchText.then { :text |
 			text.terseGuideSummary
 		}
 	}

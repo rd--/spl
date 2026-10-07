@@ -21,7 +21,7 @@ however it should answer equivalently:
 ~~~spl async
 system
 .splFileName('README.md')
-.asFileUrl
+.fileUrl
 .fetchText
 ~~~
 

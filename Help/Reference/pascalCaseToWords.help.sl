@@ -1,6 +1,6 @@
 # pascalCaseToWords
 
-- _pascalCaseToWords(aString)_
+- _pascalCaseToWords(s)_
 
 Pascal case names capitalize each word, including the first word.
 
@@ -11,4 +11,6 @@ Pascal case names capitalize each word, including the first word.
 
 * * *
 
-See also: camelCaseToWords, RegularExpression
+See also: RegularExpression, String, camelCaseToWords
+
+Guides: String Functions

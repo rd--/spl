@@ -5,7 +5,7 @@
 Answer a `String` having the entire `Url` _u_.
 
 ```
->>> 'https://www.w3.org/'.asUrl.href
+>>> Url'https://www.w3.org/'.href
 'https://www.w3.org/'
 ```
 

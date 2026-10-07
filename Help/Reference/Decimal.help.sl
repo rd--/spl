@@ -269,10 +269,10 @@ Absolute value:
 Print `String`:
 
 ```
->> 1.00000D.asString
+>> 1.00000D.printString
 1.00000D
 
->> 3.14159D.asString
+>> 3.14159D.printString
 3.14159D
 
 >> -1.618D.printString

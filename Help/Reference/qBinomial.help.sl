@@ -139,7 +139,7 @@ Plot for _n={1,2,3}_ over a subset of the reals:
 ~~~spl svg=A
 (-3 -- 2).functionPlot(
 	[2 3 4].collect { :n |
-		qBinomial(n, 1).asBlock
+		qBinomial(n, 1).unaryBlock
 	}
 )
 ~~~

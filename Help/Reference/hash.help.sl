@@ -37,7 +37,7 @@ Hash an integer by converting to a string:
 ```
 >>> let n = 1987;
 >>> let w = n.inEnglishWords;
->>> let s = n.asString;
+>>> let s = n.printString;
 >>> (w.contractTo(30), w.hash, s, s.hash)
 (
 	'one thousand, ... eighty-seven',

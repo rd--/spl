@@ -5,7 +5,7 @@ LibraryItem : [Object] {
 	| name category url mimeType parser unparsedContents parsedContents |
 
 	cachedFetch { :self |
-		self.url.asUrl.cachedFetchMimeType(
+		Url(self.url).cachedFetchMimeType(
 			'SplLibraryItems',
 			self.mimeType
 		).thenElse { :answer |
@@ -19,7 +19,7 @@ LibraryItem : [Object] {
 
 	clearCache { :self |
 		system.caches.atIfPresent('SplLibraryItems') { :cache |
-			cache.removeKeyIfAbsent!(self.url.asUrl) {
+			cache.removeKeyIfAbsent!(Url(self.url)) {
 				self.error('clearCache: no such key')
 			}
 		}

@@ -33,7 +33,7 @@ Convert to a `Url`:
 
 ```
 >>> FilePath'/etc/fstab'
->>> .asUrl
+>>> .Url
 Url'file:///etc/fstab'
 ```
 

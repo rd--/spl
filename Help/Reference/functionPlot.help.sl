@@ -256,7 +256,7 @@ let p = UnivariatePolynomial(
 	[9 b -1 0 0.25]
 );
 (-2.1 -- 2.1).functionPlot(
-	p.asBlock
+	p.unaryBlock
 )
 ~~~
 

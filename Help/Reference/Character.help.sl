@@ -84,8 +84,8 @@ Printing:
 >> Character'c'.storeString
 Character('c', 99)
 
->> Character'c'.asString
-c
+>> Character'c'.printString
+Character('c', 99)
 ```
 
 _Note:_

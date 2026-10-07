@@ -39,7 +39,7 @@ Radix notation of list:
 
 * * *
 
-See also: asciiByteArray, AsciiString, asHexDigit, base16Decode, base64Encode, String
+See also: AsciiString, String, asciiByteArray, base16Decode, base64Encode, hexDigitCharacter
 
 Guides: Parsing Functions
 

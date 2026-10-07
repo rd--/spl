@@ -17,7 +17,7 @@ however it should answer equivalently:
 
 ~~~spl async
 '/etc/passwd'
-.asFileUrl
+.fileUrl
 .fetchByteArray
 .then { :answer |
 	answer

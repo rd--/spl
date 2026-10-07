@@ -615,7 +615,7 @@ let c = [2, 3, 3, 4, 4, 4].IdentityMultiset; c.copy !== c /* copy does not answe
 let c = IdentityMultiset(); c.addWithOccurrences!('x', 4); c.occurrencesOf('x') = 4
 [2, 3, 3, 4, 4, 4].IdentityMultiset.IdentitySet.size = 3 /* number of unique elements */
 [2, 3, 3, 4, 4, 4].IdentityMultiset.IdentitySet.occurrencesOf(3) = 1
-let s = IdentityMultiset(); 250.timesRepeat { s.add!([1 .. 4].shuffle!.asString) }; s.IdentitySet.size = 24
+let s = IdentityMultiset(); 250.timesRepeat { s.add!([1 .. 4].shuffle!.printString) }; s.IdentitySet.size = 24
 [1, 2, 3, 1, 4].IdentityMultiset.isIndexable = false /* bags are not indexable */
 [1, 2, 3, 1, 4].IdentityMultiset.indices = nil /* sets are not indexable */
 let a = [1, 1, 2, 1, 2, 3, 1, 1, 2, 3, 4]; a.sum = a.IdentityMultiset.sum /* sum may be optimised */
@@ -882,15 +882,15 @@ system.includesPackage('Character') /* character package */
 32.Character.characterString = ' ' /* 32 is space */
 ' '.Character.codePoint = 32 /* space is 32 */
 97.Character.characterString = 'a' /* 92 is a */
-'a'.Character.asString = 'a' /* single element string of Character */
+'a'.Character.characterString = 'a' /* single element string of Character */
 { 'xy'.Character }.hasError /* it is an error is the string is not a single Character */
 let c = '𠮷'.Character; c = c.copy & { c == c.copy } /* copy is not only equal to but identical */
 92.Character.characterString = '\\' /* escaped character */
 '0123456789abcdef'.characterList.collect(digitValue/1) = [0 .. 15] /* digit value of character */
 0:15.collect(digitCharacter/1).stringJoin = '0123456789ABCDEF' /* character of given digit value */
 { 36.digitCharacter }.hasError /* error if integer is out of range */
-'x'.Character.asUpperCase = 'X'.Character /* to upper case */
-'X'.Character.asLowerCase = 'x'.Character /* to lower case */
+'x'.Character.toUpperCase = 'X'.Character /* to upper case */
+'X'.Character.toLowerCase = 'x'.Character /* to lower case */
 let s = 'string'; let a = []; a.addAll!(s); a.size = 6 /* add elements from String to end of List */
 'fgaguzst'.codePoints.minMax = [97, 122] /* character minMax */
 'alphabet'.characterList.collect(isVowel/1) = [true, false, false, false, true, false, true, false] /* is character a vowel */
@@ -1229,12 +1229,11 @@ true.boole = 1 /* boole */
 126.Character = '~'.Character /* integer to character */
 '~'.Character.isCharacter /* string to character */
 let c = '~'.Character; c.Character == c /* identity */
-let c = 126.Character; c.asString = '~' /* character to string */
-'~'.asString = '~' /* identity operation */
-'~'.asString == '~' /* identity operation */
-23.asString = '23' /* Object>>printString (integral to string) */
-15.asHexDigit = 'F' /* integral to hex character */
-{ 16.asHexDigit }.hasError /* error if out of range */
+let c = 126.Character; c.characterString = '~' /* character to string */
+'~'.displayString = '~' /* identity operation */
+23.printString = '23' /* Object>>printString (integral to string) */
+15.hexDigitCharacter = 'F' /* integral to hex character */
+{ 16.hexDigitCharacter }.hasError /* error if out of range */
 'x'.Character = 120.Character /* string to character */
 120.Character = 'x'.Character /* small integer to character */
 let c = 'x'.Character; c.Character == c /* character to character */
@@ -1691,7 +1690,7 @@ system.includesPackage('Integer') /* integer package */
 -987654321.printString = '-987654321' /* negative integer print string */
 4 / 2 = 2 /* integer division with integer result */
 let n = 2; 3.timesRepeat { n := n * n }; n = 256 /* iteration */
-0:15.collect(asHexDigit/1).stringJoin = '0123456789ABCDEF' /* integer to hex character */
+0:15.collect(hexDigitCharacter/1).stringJoin = '0123456789ABCDEF' /* integer to hex character */
 let a = []; 1.toDo(5) { :each | a.add!(each) }; a = [1 .. 5] /* iterate over integer sequence */
 let a = []; 5.toDo(1) { :each | a.add!(each) }; a = [] /* non-ascending sequences are empty */
 let a = []; 5.toByDo(1, -1) { :each | a.add!(each) }; a = [5, 4 .. 1] /* iterate over integer sequence */
@@ -1885,9 +1884,9 @@ let i = 1:9; i.first = i[1] /* one-indexed */
 let i = 1:9; i.last = i[9] /* one-indexed */
 1:6.sum = 21
 Range(-1, 1, 1).List = [-1, 0, 1]
-1.to(99).asString = 'Range(1, 99, 1, 99)'
-1:99.asString = 'Range(1, 99, 1, 99)'
-toBy(1, -1, -1).asString = 'Range(1, -1, -1, 3)'
+1.to(99).printString = 'Range(1, 99, 1, 99)'
+1:99.printString = 'Range(1, 99, 1, 99)'
+toBy(1, -1, -1).printString = 'Range(1, -1, -1, 3)'
 1.to(99).sum = 4950
 1.to(99).List.sum = 4950
 1:9.size = 9
@@ -2227,14 +2226,14 @@ system.includesPackage('Number') /* package */
 2.718.truncate = 2 /* truncate to integer */
 2.718.round = 3 /* round to integer */
 2.718.round(0.01) = 2.72 /* round to a given precision */
-123456789.asStringWithCommas = '123,456,789'
-123456.789.asStringWithCommas = '123,456.789'
-13579.asStringWithCommas = '13,579'
-159.asStringWithCommas = '159'
--9876543210.asStringWithCommas = '-9,876,543,210'
--987654.321.asStringWithCommas = '-987,654.321'
--97.531.asStringWithCommas = '-97.531'
--951.asStringWithCommas = '-951'
+123456789.printStringWithCommas = '123,456,789'
+123456.789.printStringWithCommas = '123,456.789'
+13579.printStringWithCommas = '13,579'
+159.printStringWithCommas = '159'
+-9876543210.printStringWithCommas = '-9,876,543,210'
+-987654.321.printStringWithCommas = '-987,654.321'
+-97.531.printStringWithCommas = '-97.531'
+-951.printStringWithCommas = '-951'
 let i = 1; 1.toDo(5) { :each | i := i + each.square }; i = 56 /* iterate over numbers from start to end */
 let i = 1; 1.toByDo(5, 2) { :each | i := i + each.square }; i = 36 /* iterate over numbers from start to end by step */
 let i = 1; 1:3.do { :each | i := i + each.square }; i = 15 /* iterate over numbers from one to end */
@@ -2746,16 +2745,15 @@ RegularExpression('x|z', 'g').replaceAllWith('x y z', '-') = '- y -'
 'a-b:c'.splitByRegularExpression('-|:') = ['a', 'b', 'c'] /* split string at matching tokens */
 'x y z'.replaceRegularExpression('x|z', '-') = '- y z'
 'x y z'.replaceRegularExpression(RegularExpression('x|z', 'g'), '-') = '- y -'
-RegularExpression('x|z').replaceModifying('x y z', asUpperCase/1) = 'X y z' /* instead of a replacement string, allows for a block to process the match */
-RegularExpression('x|z', 'g').replaceAllModifying('x y z', asUpperCase/1) = 'X y Z'
+RegularExpression('x|z').replaceModifying('x y z', toUpperCase/1) = 'X y z' /* instead of a replacement string, allows for a block to process the match */
+RegularExpression('x|z', 'g').replaceAllModifying('x y z', toUpperCase/1) = 'X y Z'
 'A short sentence of six words'.wordAtIndex(23) = 'six' /* get word looking backwards and forwards from index for non-word characters */
 ```
 
 ## Regular Expressions -- matches
 ```
 'car'.matchesRegularExpression('c(a|d)+r'.RegularExpression) /* test if a string matches a regular expression */
-'cdr'.matchesRegularExpression('c(a|d)+r'.asRegularExpression) /* asRegularExpression compiles a string */
-'caar'.matchesRegularExpression('c(a|d)+r') /* a string parameter is compiled using asRegularExpression */
+'caar'.matchesRegularExpression('c(a|d)+r') /* a string parameter is compiled using RegularExpression */
 'cadr'.matchesRegularExpression('c(a|d)+r')
 'caddar'.matchesRegularExpression('c(a|d)+r')
 '-car-'.matchesRegularExpression('c(a|d)+r') = false /* incomplete match for regular expression */
@@ -3171,9 +3169,9 @@ Infinity.isFinite = false /* Infinity is not finite */
 1.5.reduce = 1.5 /* identity if number is not close to an integer */
 let x = (2 ^ 54); x != (x - 1) = false /* large numbers behave strangely */
 let x = (2.0 ^ 54.0); x != (x - 1.0) = false /* large numbers behave strangely */
-[-1, 0, 1].collect(asString/1) = ['-1', '0', '1']
-Infinity.asString = 'Infinity' /* Infinity prints as Infinity */
-(0 - Infinity).asString = '-Infinity'
+[-1, 0, 1].collect(printString/1) = ['-1', '0', '1']
+Infinity.printString = 'Infinity' /* Infinity prints as Infinity */
+(0 - Infinity).printString = '-Infinity'
 1.pi.printString = '3.141592653589793'
 1.pi.storeString = '3.141592653589793'
 23.isInteger /* is a small float an integer */
@@ -3198,7 +3196,7 @@ let n = 23453456; (n * n).sqrt = n /* floating point square and square root */
 2 ^ [1.5, 2.4, 2.9, -2.2] ~ [2.82843 5.27803 7.46426 0.21764] /* non integer exponents */
 2 ^ 100 = 1267650600228229401496703205376.0 /* ieee precision */
 2L ^ 100L = 1267650600228229401496703205376L /* large integers */
-(1 / 2).asString = '0.5' /* division prints as floating point */
+(1 / 2).printString = '0.5' /* division prints as floating point */
 1.0 = 1 /* there is no distinct integer type */
 [1, 1.4, 1.49999, 1.5, 1.50000001].round = [1, 1, 1, 2, 2] /* rounding */
 [14 / 10, 44534 / 100].round = [1, 445] /* rounding */
@@ -3314,11 +3312,11 @@ system.includesPackage('String') /* package */
 'string'.allButFirst(4) = 'ng' /* all but first n characters of a String */
 ''.typeOf = 'String' /* type of String */
 ''.size = 0 /* the empty String has size zero */
-'x'.asString = 'x' /* asString at String is identity */
-'x'.asString.size = 1
+'x'.displayString = 'x' /* displayString at String is identity */
+'x'.displayString.size = 1
 'x'.printString.size = 3 /* printString is a quoted string */
-1.asString = '1' /* integer as string */
-1.pi.asString = '3.141592653589793' /* float as string */
+1.printString = '1' /* integer as string */
+1.pi.printString = '3.141592653589793' /* float as string */
 'ascii'.asciiByteArray = [97, 115, 99, 105, 105].ByteArray
 '€'.utf8ByteArray = [226, 130, 172].ByteArray /* Utf-8 encoding of String as ByteArray */
 [226, 130, 172].ByteArray.utf8String = '€' /* String from Utf-8 encoded ByteArray */
@@ -3349,8 +3347,8 @@ system.includesPackage('String') /* package */
 'turramurra'.occurrencesOf('urra') = 2
 'turramurra'.indicesOf('urra') = [2, 7]
 'sum/1'.splitBy('/') = ['sum', '1']
-'ascii'.asUpperCase = 'ASCII'
-'ASCII'.asLowerCase = 'ascii'
+'ascii'.toUpperCase = 'ASCII'
+'ASCII'.toLowerCase = 'ascii'
 `\'x\'`.name = '\'x\'' /* backtick quotes do not quote single quote */
 `"x"`.name = '"x"' /* backtick quotes quoting double quote */
 `x\'""\'y`.name = 'x\'""\'y'
@@ -3385,10 +3383,10 @@ let x = ['a', 'bc', 'def']; x.unlines.lines = x
 'AnalogueClock'.pascalCaseToWords = 'Analogue Clock' /* pascal case begins with an upper case letter */
 'an analogue Clock'.words.pascalCase.stringIntercalate('') = 'AnAnalogueClock'
 'analogue clock'.words.camelCase.stringIntercalate('') = 'analogueClock'
-'Word'.asLowerCase = 'word'
-'12345'.asLowerCase = '12345' /* only if letters */
-'Word'.asUpperCase = 'WORD'
-'12345'.asUpperCase = '12345' /* only if letters */
+'Word'.toLowerCase = 'word'
+'12345'.toLowerCase = '12345' /* only if letters */
+'Word'.toUpperCase = 'WORD'
+'12345'.toUpperCase = '12345' /* only if letters */
 'x' != 'X' & { 'x'.isSameAs('X') & { 'x'.isSameAs('x') } } /* considered without case */
 'word'.capitalize = 'Word' /* uppercase first letter only */
 'anotherWord'.capitalize = 'AnotherWord' /* uppercase first letter only, do not lower case interior letters */
@@ -3436,8 +3434,8 @@ let a = 'string'.characterList; a.stringJoin = 'string'
 'Gnu/Linux'.findString('Linux') = 5
 'Gnu/Linux'.findStringStartingAt('Linux', 1) = 5
 'Hello'.isEmpty = false
-'XYZ'.asLowerCase = 'xyz'
-'xyz'.asUpperCase = 'XYZ'
+'XYZ'.toLowerCase = 'xyz'
+'xyz'.toUpperCase = 'XYZ'
 'hilaire'.capitalize = 'Hilaire'
 '1.54'.parseNumber = 1.54 /* parse floating point number */
 '154'.parseNumber = 154 /* parse integral number */
@@ -3447,9 +3445,9 @@ let a = 'string'.characterList; a.stringJoin = 'string'
 'x' != 'x'.Character /* a single element string is not equal to a character */
 'Mačiūnas'.removeDiacritics = 'Maciunas' /* transform to ascii by deleting diacritics */
 'string'.copy == 'string' /* copy is identity */
-'string'.asHexString = '737472696E67' /* hex string of ascii codes of string */
-let s = 'string'; (s.size * 2) = s.asHexString.size /* hex string is twice as long */
-{ 'Mačiūnas'.asHexString }.hasError /* non-ascii strings raise an error */
+'string'.hexString = '737472696E67' /* hex string of ascii codes of string */
+let s = 'string'; (s.size * 2) = s.hexString.size /* hex string is twice as long */
+{ 'Mačiūnas'.hexString }.hasError /* non-ascii strings raise an error */
 '"'.Character.codePoint = 34 /* double quote */
 '\''.Character.codePoint = 39 /* single quote (') */
 '\\'.Character.codePoint = 92 /* backslash (escape) */
@@ -3849,53 +3847,53 @@ system.localStorage.typeOf = 'Storage' /* system local storage, persistent key-v
 system.localStorage.isStorage = true /* storage predicate */
 system.localStorage.size >= 0 /* number of elements in local storage */
 system.localStorage.keys.allSatisfy(isString/1) /* keys and values must each be strings */
-(system.localStorage['pi'] := 1.pi.asString) = 1.pi.asString /* store 1.pi as string at index 'pi', answer item stored */
-system.localStorage['pi'] = 1.pi.asString /* read pi */
+(system.localStorage['pi'] := 1.pi.printString) = 1.pi.printString /* store 1.pi as string at index 'pi', answer item stored */
+system.localStorage['pi'] = 1.pi.printString /* read pi */
 system.localStorage.keys.includes('pi') = true /* pi is an index */
-system.localStorage.removeKey!('pi') = 1.pi.asString /* remove entry, answer removed item */
+system.localStorage.removeKey!('pi') = 1.pi.printString /* remove entry, answer removed item */
 system.localStorage.removeAll! = nil /* remove all entries, answer nil */
 ```
 
 ## System -- Uniform Resource Locator (Url)
 ```
 system.includesPackage('Url') /* package */
-'http://cern.ch/'.asUrl.typeOf = 'URL' /* the system type is all upper case */
-'http://cern.ch/'.asUrl.isUrl = true /* type predicate */
-'http://cern.ch/'.asUrl.href = 'http://cern.ch/' /* url href */
-'http://cern.ch/'.asUrl.hostName = 'cern.ch' /* url host name */
-'http://cern.ch/'.asUrl.port = '' /* url port */
-'http://cern.ch/'.asUrl.protocol = 'http:' /* url protocol */
-'browser'.asUrl('https://worldwideweb.cern.ch/').href = 'https://worldwideweb.cern.ch/browser' /* relative url */
+'http://cern.ch/'.Url.typeOf = 'URL' /* the system type is all upper case */
+'http://cern.ch/'.Url.isUrl = true /* type predicate */
+'http://cern.ch/'.Url.href = 'http://cern.ch/' /* url href */
+'http://cern.ch/'.Url.hostName = 'cern.ch' /* url host name */
+'http://cern.ch/'.Url.port = '' /* url port */
+'http://cern.ch/'.Url.protocol = 'http:' /* url protocol */
+'browser'.Url('https://worldwideweb.cern.ch/').href = 'https://worldwideweb.cern.ch/browser' /* relative url */
 ```
 
 ## System -- fetch
 ```
-system.splFileName('README.md').asFileUrl.fetchText.then { :text | { text.size > 0 }.assert }; true /* fetch text from file */
-system.splFileName('DoesNotExist').asFileUrl.fetchText.onRejection { :unused | nil }; true /* file does not exist */
+system.splFileName('README.md').fileUrl.fetchText.then { :text | { text.size > 0 }.assert }; true /* fetch text from file */
+system.splFileName('DoesNotExist').fileUrl.fetchText.onRejection { :unused | nil }; true /* file does not exist */
 system.splUrl('README.md').fetchText.thenElse { :text | { text.size > 0 }.assert } { :err | true }; true /* fetch text from url (remote, allow for no network connection) */
-system.splFileName('Package/SmallKansas/PackageBrowser.sl').asFileUrl.fetchText.then { :text | { text.parsePackageHeader.includesIndex('Requires') }.assert }; true
+system.splFileName('Package/SmallKansas/PackageBrowser.sl').fileUrl.fetchText.then { :text | { text.parsePackageHeader.includesIndex('Requires') }.assert }; true
 ```
 
 ## System -- UrlQueryParameters
 ```
 system.includesPackage('UrlQueryParameters') /* package */
-'x=1'.asUrlQueryParameters.typeOf = 'URLSearchParams' /* string constructor, note type name! */
-'x=1'.asUrlQueryParameters.isUrlQueryParameters /* type predicate */
-'x=3.141&y=23'.asUrlQueryParameters.includes('x') = true
-'x=3.141&y=23'.asUrlQueryParameters['y'] = '23'
-'x=3.141&y=23&z=pi'.asUrlQueryParameters.keys = ['x' 'y' 'z'] /* keys */
-'x=3.141&y=23&z=pi'.asUrlQueryParameters.values = ['3.141' '23' 'pi'] /* values */
-'x=a&x=b&x=c'.asUrlQueryParameters.keys = ['x' 'x' 'x'] /* keys, allows duplicates */
-'x=a&x=b&x=c'.asUrlQueryParameters.values = ['a' 'b' 'c'] /* values */
-let p = 'x=3.141&y=23&z=pi'; p.asUrlQueryParameters.asString = p /* as search string */
-'z=a&y=b&x=c'.asUrlQueryParameters.associations = ['z' -> 'a', 'y' -> 'b', 'x' -> 'c']
-let p = 'z=a&y=b&x=c'.asUrlQueryParameters; p.sort! = nil & { p.associations = ['x' -> 'c', 'y' -> 'b', 'z' -> 'a'] }
-let p = 'x=a&y=b'.asUrlQueryParameters; p.add!('z' -> 'c'); p.associations = ['x' -> 'a', 'y' -> 'b', 'z' -> 'c']
-let p = 'x=a&y=b'.asUrlQueryParameters; p['x'] := 'c'; p.associations = ['x' -> 'c', 'y' -> 'b']
-'x=a&y=b&x=c'.asUrlQueryParameters.atAllEntries('x') = ['a' 'c']
-let p = 'x=a&y=b&x=c'.asUrlQueryParameters; p.removeKey!('x'); p.asString = 'y=b'
-'x=a&x=b&x=c'.asUrlQueryParameters.size = 3 /* size */
-(x: 1, y: 2, z: 3).asUrlQueryParameters.asString = 'x=1&y=2&z=3' /* record constructor */
+'x=1'.UrlQueryParameters.typeOf = 'URLSearchParams' /* string constructor, note type name! */
+'x=1'.UrlQueryParameters.isUrlQueryParameters /* type predicate */
+'x=3.141&y=23'.UrlQueryParameters.includes('x') = true
+'x=3.141&y=23'.UrlQueryParameters['y'] = '23'
+'x=3.141&y=23&z=pi'.UrlQueryParameters.keys = ['x' 'y' 'z'] /* keys */
+'x=3.141&y=23&z=pi'.UrlQueryParameters.values = ['3.141' '23' 'pi'] /* values */
+'x=a&x=b&x=c'.UrlQueryParameters.keys = ['x' 'x' 'x'] /* keys, allows duplicates */
+'x=a&x=b&x=c'.UrlQueryParameters.values = ['a' 'b' 'c'] /* values */
+let p = 'x=3.141&y=23&z=pi'; p.UrlQueryParameters.queryString = p /* as search string */
+'z=a&y=b&x=c'.UrlQueryParameters.associations = ['z' -> 'a', 'y' -> 'b', 'x' -> 'c']
+let p = 'z=a&y=b&x=c'.UrlQueryParameters; p.sort! = nil & { p.associations = ['x' -> 'c', 'y' -> 'b', 'z' -> 'a'] }
+let p = 'x=a&y=b'.UrlQueryParameters; p.add!('z' -> 'c'); p.associations = ['x' -> 'a', 'y' -> 'b', 'z' -> 'c']
+let p = 'x=a&y=b'.UrlQueryParameters; p['x'] := 'c'; p.associations = ['x' -> 'c', 'y' -> 'b']
+'x=a&y=b&x=c'.UrlQueryParameters.atAllEntries('x') = ['a' 'c']
+let p = 'x=a&y=b&x=c'.UrlQueryParameters; p.removeKey!('x'); p.queryString = 'y=b'
+'x=a&x=b&x=c'.UrlQueryParameters.size = 3 /* size */
+(x: 1, y: 2, z: 3).UrlQueryParameters.queryString = 'x=1&y=2&z=3' /* record constructor */
 ```
 
 ## Temporaries
@@ -4047,7 +4045,7 @@ PlanarCoordinates([-1, 1]).y!(3) = 3
 [-1, 1] * 9 = [-9, 9]
 [-1, 1] + 2 = [1, 3]
 2 * ([1, 1].-) * 2 = ([4, 4].-)
-PlanarCoordinates([-1, 1]).asString = 'PlanarCoordinates([-1, 1])'
+PlanarCoordinates([-1, 1]).printString = 'PlanarCoordinates([-1, 1])'
 [1, 1].negate = [-1, -1] /* negation */
 0 - [1, 1] = [-1, -1] /* negation as subtraction from zero */
 let p = PlanarCoordinates([-1, 1]); p.x!(-3); p.y!(3); p = PlanarCoordinates([-3, 3]) = true

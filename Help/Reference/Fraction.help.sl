@@ -413,7 +413,7 @@ A fifth plus a fourth equals an octave:
 Print `String`:
 
 ```
->>> 23/17.asString
+>>> 23/17.printString
 '23/17'
 
 >>> 20880467999847912034355032910567/1

@@ -22,7 +22,9 @@ TranscriptViewer : [Object, View, SmallKansan] {
 	update { :self |
 		(self.entryCount != system.transcript.entries.size).ifTrue {
 			self.entryCount := system.transcript.entries.size;
-			self.textEditor.setEditorText(system.transcript.asString)
+			self.textEditor.setEditorText(
+				system.transcript.collateEntries.unlines
+			)
 		}
 	}
 

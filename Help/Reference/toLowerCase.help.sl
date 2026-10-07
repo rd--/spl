@@ -1,26 +1,26 @@
-# asLowerCase
+# toLowerCase
 
-- _asLowerCase(s)_
+- _toLowerCase(s)_
 
 Answer a `String` made up from the string _s_ whose characters are all lower case.
 
 At `String`:
 
 ```
->>> 'Word'.asLowerCase
+>>> 'Word'.toLowerCase
 'word'
 ```
 
 At `Character`:
 
 ```
->>> Character'X'.asLowerCase
+>>> Character'X'.toLowerCase
 Character'x'
 ```
 
 * * *
 
-See also: asUpperCase, isLowerCase
+See also: isLowerCase, toUpperCase
 
 Guides: String Functions
 

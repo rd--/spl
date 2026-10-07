@@ -58,10 +58,6 @@
 		a
 	}
 
-	asStringWithCommas { :self |
-		<primitive: return _self.toLocaleString('en-US');>
-	}
-
 	barronCurve { :s :t |
 		let epsilon = 1.smallFloatEpsilon;
 		{ :x |
@@ -802,6 +798,10 @@
 				roundFractionPart.printString.padLeft([placesDesired], '0')
 			].stringCatenate
 		}
+	}
+
+	printStringWithCommas { :self |
+		<primitive: return _self.toLocaleString('en-US');>
 	}
 
 	[quotient, //] { :self :aNumber |

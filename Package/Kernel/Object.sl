@@ -20,10 +20,6 @@
 		self.assert('*unknown context*', aBlock/0)
 	}
 
-	asString { :self |
-		self.printString
-	}
-
 	caseError { :self |
 		self.error('@Object>>caseError: case not found and no otherwise clause')
 	}
@@ -75,12 +71,16 @@
 		self.constant(1)
 	}
 
+	displayString { :self |
+		self.printString
+	}
+
 	errorMessage { :self :message :parameters |
 		'%: %: %: (%)'.format(
 			[
 				self.typeOf,
 				message,
-				parameters.asString,
+				parameters.printString,
 				self.printStringLimitedTo(16)
 			]
 		)

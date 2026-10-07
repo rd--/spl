@@ -14,14 +14,14 @@ which may not name a file.
 A local file Url:
 
 ```
->>> '/x/y.z'.asFileUrl.fileName
+>>> '/x/y.z'.fileUrl.fileName
 'y.z'
 ```
 
 The empty file Url:
 
 ```
->>> ''.asFileUrl.fileName
+>>> ''.fileUrl.fileName
 ''
 ```
 
@@ -34,7 +34,7 @@ A Url with trailing directory separator:
 
 * * *
 
-See also: asFileUrl, asUrl, pathName, Url
+See also: Url, fileUrl, pathName
 
 Guides: Network Functions
 

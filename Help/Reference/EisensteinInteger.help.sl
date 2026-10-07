@@ -35,11 +35,11 @@ EisensteinInteger(-4, -7)
 >>> EisensteinInteger(3, 7)
 >>> .Complex
 >>> .conjugate
--0.5000J6.0622
+-0.5000J-6.0622
 
 >>> EisensteinInteger(-4, -7)
 >>> .Complex
--0.5000J6.0622
+-0.5000J-6.0622
 ```
 
 Verify that the norm is the product of the number and its conjugate:

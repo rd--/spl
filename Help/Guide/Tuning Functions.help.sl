@@ -47,9 +47,6 @@ Constants:
 
 Converting:
 
-- `Fraction`: as fraction
-- `asCentsTuning`: as cents tuning
-- `asRatioTuning`: as ratio tuning
 - `centsToRatio`: cents to ratio
 - `degreeToKey`: degree to key
 - `ratioToCents`: ratio to cents

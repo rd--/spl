@@ -49,7 +49,7 @@
 			'refs/heads/master/geojson/'
 			self
 			'.geojson'
-		].stringCatenate.asUrl
+		].stringCatenate.Url
 	}
 
 	withNaturalEarthData { :self :aBlock/1 |

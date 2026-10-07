@@ -40,6 +40,6 @@ Punctuation:
 
 * * *
 
-See also: asRegularExpression, match, matches, RegularExpression, search
+See also: RegularExpression, match, matches, search
 
 Categories: Testing

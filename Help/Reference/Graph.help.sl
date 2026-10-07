@@ -64,7 +64,7 @@ true
 
 * * *
 
-See also: ---, -->, asDot, edgeCount, edgeList, isDirected, isMixed, isUndirected, vertexCount, vertexList
+See also: ---, -->, dotGraphLanguage, edgeCount, edgeList, isDirected, isMixed, isUndirected, vertexCount, vertexList
 
 Guides: Graph Functions
 

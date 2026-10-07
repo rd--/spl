@@ -2,14 +2,6 @@
 
 @Url {
 
-	asString { :self |
-		self.href
-	}
-
-	asUrl { :self |
-		self.typeResponsibility('asUrl')
-	}
-
 	directory { :self |
 		self.pathName.pathDirectory
 	}
@@ -62,13 +54,13 @@
 		<primitive: return _self.search;>
 	}
 
+	Url { :self |
+		self.typeResponsibility('Url')
+	}
+
 }
 
 URL! : [Object, Store, Equal, Url] {
-
-	asUrl { :self |
-		self
-	}
 
 	password { :self |
 		<primitive: return _self.password;>
@@ -86,6 +78,10 @@ URL! : [Object, Store, Equal, Url] {
 		'Url(%)'.format([self.href.storeString])
 	}
 
+	Url { :self |
+		self
+	}
+
 }
 
 +@Object {
@@ -98,16 +94,8 @@ URL! : [Object, Store, Equal, Url] {
 
 +String {
 
-	asFileUrl { :self |
-		('file://' ++ self).asUrl
-	}
-
-	asUrl { :self |
-		Url(self)
-	}
-
-	asUrl { :self :base |
-		Url(self, base)
+	fileUrl { :self |
+		Url('file://' ++ self)
 	}
 
 	decodeUri { :self |

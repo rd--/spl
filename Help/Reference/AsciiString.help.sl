@@ -60,11 +60,11 @@ Select characters by index:
 AsciiString'et'
 ```
 
-Transform to upper case using `collect` and `asUpperCase`:
+Transform to upper case using `collect` and `toUpperCase`:
 
 ```
 >>> AsciiString'text'
->>> .collect(asUpperCase/1)
+>>> .collect(toUpperCase/1)
 AsciiString'TEXT'
 ```
 

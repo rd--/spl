@@ -45,10 +45,6 @@
 		}
 	}
 
-	asHexDigit { :self |
-		'0123456789ABCDEF'[self + 1]
-	}
-
 	assertIsInteger { :self :origin |
 		self.isInteger.if {
 			self
@@ -569,6 +565,10 @@
 
 	hammingWeight { :self |
 		self.digitCount(2, 1)
+	}
+
+	hexDigitCharacter { :self |
+		'0123456789ABCDEF'.at(self + 1)
 	}
 
 	integerCompositionsDo { :n :kList :aBlock/1 |

@@ -58,7 +58,7 @@ that have especially good approximations to the just fifth:
 ]
 
 >>> 53.equalTemperamentTuning
->>> .asCents[31 + 1]
+>>> .cents[31 + 1]
 701.89
 ```
 

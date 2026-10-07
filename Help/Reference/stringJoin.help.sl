@@ -3,7 +3,7 @@
 - _stringJoin([x₁ x₂ …], y='')_
 
 First `flatten` and then join together the items of the sequence _x_,
-objects that implement `asString`,
+objects that implement `displayString`,
 into a `String`,
 intercalating the object _y_ between each.
 

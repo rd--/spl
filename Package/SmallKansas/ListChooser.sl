@@ -6,7 +6,7 @@ ListChooser : [Object] {
 
 	applyFilter { :self |
 		let caseRule/1 = self.ignoreCase.if {
-			asLowerCase/1
+			toLowerCase/1
 		} {
 			identity/1
 		};

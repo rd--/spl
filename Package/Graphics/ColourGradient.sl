@@ -2,12 +2,6 @@ ColourGradient : [Object, Store] {
 
 	| colourList positionListOrNil |
 
-	asBlock { :self |
-		self.positionList.linearInterpolator(
-			self.colourList
-		)
-	}
-
 	drawing { :self |
 		let w = 300;
 		let h = 50;
@@ -65,7 +59,7 @@ ColourGradient : [Object, Store] {
 	resample { :self :anInteger |
 		let p = (0 -- 1).discretize(anInteger);
 		ColourGradient(
-			p.collect(self.asBlock),
+			p.collect(self.unaryBlock),
 			nil
 		)
 	}
@@ -76,6 +70,12 @@ ColourGradient : [Object, Store] {
 		} {
 			self.error('size: invalid')
 		}
+	}
+
+	unaryBlock { :self |
+		self.positionList.linearInterpolator(
+			self.colourList
+		)
 	}
 
 }
@@ -118,11 +118,11 @@ ColourGradient : [Object, Store] {
 +String {
 
 	namedColourFunction { :collectionName :paletteName |
-		namedColourGradient(collectionName, paletteName).asBlock
+		namedColourGradient(collectionName, paletteName).unaryBlock
 	}
 
 	namedColourFunction { :self |
-		self.namedColourGradient.asBlock
+		self.namedColourGradient.unaryBlock
 	}
 
 	namedColourGradient { :collectionName :paletteName |

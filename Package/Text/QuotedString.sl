@@ -4,10 +4,6 @@ BacktickQuotedString : [Object, Store, Equal] {
 
 	| unquotedString |
 
-	asString { :self |
-		self.unquotedString
-	}
-
 	printString { :self |
 		'`%`'.format([self.unquotedString])
 	}
@@ -25,10 +21,6 @@ BacktickQuotedString : [Object, Store, Equal] {
 DoubleQuotedString : [Object, Store, Equal] {
 
 	| unquotedString |
-
-	asString { :self |
-		self.unquotedString
-	}
 
 	printString { :self |
 		'"%"'.format([self.unquotedString])

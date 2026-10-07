@@ -116,7 +116,7 @@ Predicate (Query) Functions:
 
 Converting Functions:
 
-- `asDot`
+- `dotGraphLanguage`
 - `Edge`
 - `EdgeList`
 - `Graph`

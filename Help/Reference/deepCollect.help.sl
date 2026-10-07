@@ -11,7 +11,7 @@ At `List`:
 
 ```
 >>> ['a', ['b', ['c', ['d']]]]
->>> .deepCollect(asUpperCase/1)
+>>> .deepCollect(toUpperCase/1)
 ['A', ['B', ['C', ['D']]]]
 ```
 
@@ -19,7 +19,7 @@ At `Record`:
 
 ```
 >>> (x: 'a', y: (x: 'b', y: (x: 'c')))
->>> .deepCollect(asUpperCase/1)
+>>> .deepCollect(toUpperCase/1)
 (x: 'A', y: (x: 'B', y: (x: 'C')))
 ```
 

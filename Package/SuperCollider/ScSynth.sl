@@ -167,8 +167,8 @@ ScSynth! : [Object] {
 			[
 				'scsyndef',
 				scSynDefFileName,
-				numberOfChannels.asString,
-				duration.asString
+				numberOfChannels.printString,
+				duration.printString
 			]
 		)
 	}
@@ -189,8 +189,8 @@ ScSynth! : [Object] {
 			[
 				'scsyndef',
 				scSynDefFileName,
-				numberOfChannels.asString,
-				duration.asString
+				numberOfChannels.printString,
+				duration.printString
 			]
 		)
 	}

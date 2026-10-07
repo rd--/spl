@@ -57,7 +57,7 @@ Fibonacci polynomials:
 (-1 -- 1).functionPlot(
 	1:6.collect { :n |
 		n.fibonacciPolynomial
-		.asBlock
+		.unaryBlock
 	}
 )
 ~~~

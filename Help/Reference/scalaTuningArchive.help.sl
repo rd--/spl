@@ -50,7 +50,7 @@ Look up an entry in the archive by name, and fetch the pitches as ratios:
 >>> system
 >>> .scalaTuningArchive
 >>> .at('wilson_class')
->>> .asRatios
+>>> .ratios
 [
 	1 25/24 28/25 7/6 5/4 4/3 7/5
 	35/24 8/5 5/3 7/4 28/15

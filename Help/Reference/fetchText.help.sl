@@ -24,7 +24,7 @@ A file protocol `Url`:
 ~~~spl async
 system
 .splFileName('Help/Reference/Url.help.sl')
-.asFileUrl
+.fileUrl
 .fetchText
 ~~~
 

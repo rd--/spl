@@ -16,7 +16,7 @@ To safely print an object use `concisePrintString`.
 
 * * *
 
-See also: asString, concisePrintString, printString, storeString
+See also: concisePrintString, displayString, printString, storeString
 
 Guides: Printing Functions
 

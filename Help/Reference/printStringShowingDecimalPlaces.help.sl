@@ -106,7 +106,7 @@ No fractional part, rounding up:
 
 * * *
 
-See also: asString, printString, printStringToFixed, printStringToPrecision, storeString
+See also: displayString, printString, printStringToFixed, printStringToPrecision, storeString
 
 Guides: Printing Functions
 

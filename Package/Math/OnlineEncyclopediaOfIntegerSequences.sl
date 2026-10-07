@@ -701,7 +701,7 @@ OeisSequenceFile : [Object, Equal, OeisSequence] {
 	}
 
 	oeisIdentifier { :self |
-		'A' ++ self.asString.padLeft([6], '0')
+		'A' ++ self.printString.padLeft([6], '0')
 	}
 
 }

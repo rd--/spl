@@ -1,9 +1,5 @@
 RegExp! : [Object, Store, Equal] {
 
-	asRegularExpression { :self |
-		self
-	}
-
 	equalBy { :self :anObject :aBlock/2 |
 		anObject.isRegularExpression & {
 			aBlock(self.source, anObject.source) & {
@@ -57,6 +53,10 @@ RegExp! : [Object, Store, Equal] {
 
 	pseudoSlotNameList { :self |
 		['flags', 'isGlobal', 'hasIndices', 'source']
+	}
+
+	RegularExpression { :self |
+		self
 	}
 
 	replaceWith { :self :aString :replacementString |
@@ -154,15 +154,14 @@ RegExp! : [Object, Store, Equal] {
 +String {
 
 	allRegularExpressionMatches { :self :aRegularExpression |
-		aRegularExpression.asRegularExpression.matchAll(self)
-	}
-
-	asRegularExpression { :self |
-		RegularExpression(self)
+		aRegularExpression.RegularExpression.matchAll(self)
 	}
 
 	camelCaseToWords { :self |
-		self.replaceRegularExpression(RegularExpression('([A-Z])', 'g'), ' $1')
+		self.replaceRegularExpression(
+			RegularExpression('([A-Z])', 'g'),
+			' $1'
+		)
 	}
 
 	escapeForRegularExpression { :self |
@@ -208,11 +207,11 @@ RegExp! : [Object, Store, Equal] {
 	}
 
 	matchRegularExpression { :self :aRegularExpression |
-		aRegularExpression.asRegularExpression.match(self)
+		aRegularExpression.RegularExpression.match(self)
 	}
 
 	matchesRegularExpression { :self :aRegularExpression |
-		aRegularExpression.asRegularExpression.matches(self)
+		aRegularExpression.RegularExpression.matches(self)
 	}
 
 	pascalCaseToWords { :self |
@@ -228,11 +227,11 @@ RegExp! : [Object, Store, Equal] {
 	}
 
 	replaceRegularExpression { :self :regExpToFind :stringToReplaceWith |
-		regExpToFind.asRegularExpression.replaceWith(self, stringToReplaceWith)
+		regExpToFind.RegularExpression.replaceWith(self, stringToReplaceWith)
 	}
 
 	replaceAllRegularExpression { :self :regExpToFind :stringToReplaceWith |
-		regExpToFind.asRegularExpression.replaceAllWith(self, stringToReplaceWith)
+		regExpToFind.RegularExpression.replaceAllWith(self, stringToReplaceWith)
 	}
 
 	replaceMultipleStrings { :aString :aRecord |
@@ -246,11 +245,11 @@ RegExp! : [Object, Store, Equal] {
 	}
 
 	searchRegularExpression { :self :aRegularExpression |
-		aRegularExpression.asRegularExpression.search(self)
+		aRegularExpression.RegularExpression.search(self)
 	}
 
 	splitByRegularExpression { :self :aRegularExpression |
-		aRegularExpression.asRegularExpression.splitBy(self)
+		aRegularExpression.RegularExpression.splitBy(self)
 	}
 
 	stringDelete { :self :operand |

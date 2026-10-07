@@ -92,7 +92,7 @@ At `List`:
 
 * * *
 
-See also: asString, contractTo, printString, storeString
+See also: contractTo, displayString, printString, storeString
 
 Guides: String Functions
 

@@ -6,10 +6,6 @@ AsciiString : [Object, Store, Equal, Iterable, Indexable, Collection, Sequence] 
 		self
 	}
 
-	asHexString { :self |
-		self.byteArray.base16Encode.AsciiString
-	}
-
 	atIfAbsent { :self :anInteger :ifAbsent/0 |
 		self.byteArray.atIfAbsent(anInteger, ifAbsent/0).Character
 	}
@@ -26,6 +22,10 @@ AsciiString : [Object, Store, Equal, Iterable, Indexable, Collection, Sequence] 
 		self.byteArray.do { :each |
 			aBlock(each.Character)
 		}
+	}
+
+	hexString { :self |
+		self.byteArray.base16Encode.AsciiString
 	}
 
 	indices { :self |

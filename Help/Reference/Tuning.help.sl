@@ -22,7 +22,7 @@ A `CentsTuning` is a type where the intervals are stored as cents.
 
 * * *
 
-See also: asCents, asRatios, CentsTuning, intervalMatrix, isRational, octave, primeLimit, RatioTuning, Scale, size
+See also: CentsTuning, RatioTuning, ScalaTuning, Scale, cents, intervalMatrix, isRational, octave, primeLimit, ratios, size
 
 Guides: Tuning Functions, Xenharmonic Functions
 

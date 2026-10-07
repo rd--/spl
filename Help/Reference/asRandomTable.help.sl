@@ -43,6 +43,8 @@ Draw the cumulative distribution function associated with the discrete probabili
 
 See also: indexOfInBetween, normalizeRange, resample, tableRand
 
+Guides: Random Functions
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/ArrayedCollection.html#-asRandomTable)

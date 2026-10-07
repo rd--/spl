@@ -10,7 +10,7 @@ and print a summary of each section and of the guide altogether.
 ~~~spl console
 system
 .splFileName('Help/Terse/Terse Guide.help.sl')
-.asFileUrl
+.fileUrl
 .terseGuideSummary
 ~~~
 

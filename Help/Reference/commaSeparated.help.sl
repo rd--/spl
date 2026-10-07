@@ -22,7 +22,7 @@ true
 
 The method `commaSeparatedString`,
 unlike `commaSeparated`,
-first processes the list items using `asString`:
+first processes the list items using `displayString`:
 
 ```
 >>> [1 2 3].commaSeparatedString
@@ -35,6 +35,6 @@ first processes the list items using `asString`:
 
 * * *
 
-See also: asString, List, String, stringIntercalate, unlines, unwords
+See also: List, String, displayString, stringIntercalate, unlines, unwords
 
 Guides: String Functions

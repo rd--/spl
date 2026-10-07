@@ -177,14 +177,14 @@ Periodic rational polynomials:
 ```
 >>> Polynomial[
 >>> 	1 -1243/35 123/7 348/35 1
->>> ].asBlock
+>>> ].unaryBlock
 >>> .nestList(0, 4)
 [0 1 -6 -5 0]
 
 >>> Polynomial[
 >>> 	3889/11 -7629/13
 >>> 	37797/143 -4292/143 1
->>> ].asBlock
+>>> ].unaryBlock
 >>> .nestList(1, 4)
 [1 2 13 14 1]
 ```

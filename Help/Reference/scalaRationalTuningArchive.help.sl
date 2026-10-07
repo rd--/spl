@@ -19,7 +19,7 @@ Look up an entry in the archive by name, and fetch the pitches as ratios:
 >>> system
 >>> .scalaRationalTuningArchive
 >>> .at('aeolic')
->>> .asRatios
+>>> .ratios
 [1/1 9/8 32/27 4/3 3/2 128/81 16/9]
 ```
 
@@ -30,7 +30,7 @@ Look up an entry in the archive by ratios, and fetch the names:
 >>> system
 >>> .scalaRationalTuningArchive
 >>> .select { :each |
->>> 	each.asRatios ~ r
+>>> 	each.ratios ~ r
 >>> }.collect { :each |
 >>> 	each.description.contractTo(32)
 >>> }

@@ -58,13 +58,6 @@ UnivariatePolynomial : [Object, Copy, Store, Equal] {
 		}
 	}
 
-	asBlock { :self |
-		let c = self.coefficientList;
-		{ :x |
-			c.evaluateUnivariatePolynomial(x)
-		}
-	}
-
 	assertIsNormal { :self |
 		self.isNormal.ifFalse {
 			self.error('assertIsNormal: not normal')
@@ -222,6 +215,13 @@ UnivariatePolynomial : [Object, Copy, Store, Equal] {
 			}
 		};
 		answer
+	}
+
+	unaryBlock { :self |
+		let c = self.coefficientList;
+		{ :x |
+			c.evaluateUnivariatePolynomial(x)
+		}
 	}
 
 }

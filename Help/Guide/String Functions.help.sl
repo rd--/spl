@@ -30,12 +30,12 @@ Converting:
 - `ByteArray`
 - `Character`
 - `codePoint`
-- `asHexDigit`
-- `asHexString`
+- `hexDigitCharacter`
+- `hexString`
 - `List`
-- `asLowerCase`
-- `asString`
-- `asUpperCase`
+- `toLowerCase`
+- `displayString`
+- `toUpperCase`
 - `capitalize`
 - `characterList`
 - `characters`
@@ -110,7 +110,7 @@ Predicates:
 
 Printing:
 
-- `asString`
+- `displayString`
 - `concisePrintString`
 - `printString`
 - `storeString`

@@ -193,10 +193,10 @@
 		self.error(
 			[
 				'errorInvalidIndex: index not correct type or out of range.',
-				'index:', index.asString,
+				'index:', index.printString,
 				'for:', for,
 				'index.typeOf:', index.typeOf,
-				'self.size:', self.size.asString
+				'self.size:', self.size.printString
 			].unwords
 		)
 	}

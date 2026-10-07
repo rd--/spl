@@ -31,14 +31,14 @@ Transcript : [Object] {
 		system.consoleWarning(message)
 	}
 
-	asString { :self |
+	collateEntries { :self |
 		self.entries.collect { :each |
 			(each.category = 'notification').if {
 				each.message
 			} {
 				each.category ++ ': ' ++ each.message
 			}
-		}.unlines
+		}
 	}
 
 	removeAll! { :self |

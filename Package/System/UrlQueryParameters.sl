@@ -1,7 +1,7 @@
 @UrlQueryParameters {
 
-	asUrlQueryParameters { :self |
-		self.typeResponsibility('asUrlQueryParameters')
+	UrlQueryParameters { :self |
+		self.typeResponsibility('UrlQueryParameters')
 	}
 
 }
@@ -10,7 +10,7 @@ URLSearchParams! : [Object, Iterable, UrlQueryParameters] {
 
 	[equal, =] { :self :anObject |
 		anObject.isUrlQueryParameters & {
-			equal(self.asString, anObject.asString)
+			equal(self.queryString, anObject.queryString)
 		}
 	}
 
@@ -27,14 +27,6 @@ URLSearchParams! : [Object, Iterable, UrlQueryParameters] {
 			answer.add!(key -> value)
 		};
 		answer
-	}
-
-	asString { :self |
-		<primitive: return _self.toString();>
-	}
-
-	asUrlQueryParameters { :self |
-		self
 	}
 
 	at { :self :name |
@@ -82,6 +74,10 @@ URLSearchParams! : [Object, Iterable, UrlQueryParameters] {
 		<primitive: return _self.set(_name, _value);>
 	}
 
+	queryString { :self |
+		<primitive: return _self.toString();>
+	}
+
 	removeKey! { :self :name |
 		<primitive: _self.delete(_name);>
 		nil
@@ -100,6 +96,10 @@ URLSearchParams! : [Object, Iterable, UrlQueryParameters] {
 
 	uncheckedAppend { :self :name :value |
 		<primitive: return _self.append(_name, _value);>
+	}
+
+	UrlQueryParameters { :self |
+		self
 	}
 
 	values { :self |
@@ -124,7 +124,7 @@ URLSearchParams! : [Object, Iterable, UrlQueryParameters] {
 
 +String {
 
-	asUrlQueryParameters { :self |
+	UrlQueryParameters { :self |
 		<primitive: return new URLSearchParams(_self);>
 	}
 
@@ -132,7 +132,7 @@ URLSearchParams! : [Object, Iterable, UrlQueryParameters] {
 
 +Record {
 
-	asUrlQueryParameters { :self |
+	UrlQueryParameters { :self |
 		<primitive: return new URLSearchParams(_self);>
 	}
 

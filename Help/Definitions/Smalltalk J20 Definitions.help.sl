@@ -543,7 +543,7 @@ returned as the result.
 
 *Return Value*: ⧼character⧽
 
-Cf: asLowerCase
+Cf: toLowerCase
 
 ### 5.3.4.3
 
@@ -560,7 +560,7 @@ reference to the receiver.
 
 *Return Value*: ⧼string⧽
 
-Cf: asString
+Cf: displayString
 
 ### 5.3.4.4
 
@@ -584,7 +584,7 @@ returned as the result.
 
 *Return Value*: ⧼character⧽
 
-Cf: asUpperCase
+Cf: toUpperCase
 
 ### 5.3.4.5
 
@@ -4226,7 +4226,7 @@ message `#asLowercase`.
 
 *Return Values*: ⧼readableString⧽ new
 
-Cf: asLowerCase
+Cf: toLowerCase
 
 ### 5.7.10.7
 
@@ -4240,7 +4240,7 @@ receiver, in their original order.
 
 *Return Values*: ⧼string⧽
 
-Cf: asString
+Cf: displayString
 
 ### 5.7.10.9
 
@@ -4256,7 +4256,7 @@ message #asUppercase.
 
 *Return Values*: ⧼readableString⧽ new
 
-Cf: asUpperCase
+Cf: toUpperCase
 
 ### 5.7.10.14
 

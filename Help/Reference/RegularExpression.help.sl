@@ -1,6 +1,6 @@
 # RegularExpression
 
-- _RegularExpression(source, flags)_
+- _RegularExpression(source, flags='d')_
 
 A `Type` holding a _regular expression_.
 
@@ -14,9 +14,30 @@ which is set when the expression is defined.
 `source` answer the _source_ text `String` for the expression,
 which is set when the expression is defined.
 
+At `String`,
+compiles _x_ to a regular expression:
+
+```
+>>> RegularExpression'a|b'
+RegularExpression('a|b', 'd')
+
+>>> 'caddr'.matchesRegularExpression(
+>>> 	RegularExpression'c(a|d)+r'
+>>> )
+true
+```
+
+At `RegularExpression` answers _x_:
+
+```
+>>> let r = RegularExpression'a|b';
+>>> RegularExpression(r) == r
+true
+```
+
 * * *
 
-See also: asRegularExpression, flags, hasIndices, isGlobal, matches, source
+See also: String, flags, hasIndices, isGlobal, matches, matchesRegularExpression, source
 
 Guides: Regular Expression Functions
 

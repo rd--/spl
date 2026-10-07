@@ -3,7 +3,7 @@
 - _matchesRegularExpression(s, r)_
 
 Answers `true` if the string _s_ matches the regular expression _r_, else `false`.
-The expression to match is read using `asRegularExpression`,
+The expression to match is read using `RegularExpression`,
 so an uncompiled regular expression may be used.
 
 Match Lisp:
