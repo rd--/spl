@@ -19,3 +19,4 @@ answer a list of `SmallFloat` values (c.f. `rationalize`):
 
 See also: Tuning, cents, ratios
 
+Guides: Tuning Functions

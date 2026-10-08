@@ -63,26 +63,6 @@ true
 true
 ```
 
-At `ByteArray`:
-
-```
->>> LargeInteger(ByteArray[1 3 5 7])
-1L + (3 << 8) + (5 << 16) + (7 << 24)
-
->>> let n = 117768961L;
->>> 1:4.collect { :each |
->>> 	n.digitAt(each)
->>> }
-[1L 3L 5L 7L]
-
->>> ByteArray[
->>> 	245 124 239 253 184
->>> 	104 49 179 174 168
->>> 	5 89 18
->>> ].LargeInteger
-1453657932340170668622419557621L
-```
-
 Threads over list:
 
 ```

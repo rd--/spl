@@ -1,8 +1,27 @@
 # Residue
 
 - _Residue(n, m)_
+- _Residue([n, m])_
 
 A `Residue` is a `Type` holding an `Integer` and a constant modulus.
+
+```
+>>> Residue(5, 12)
+5Z12
+```
+
+Threads over lists:
+
+```
+>>> Residue([1 3 5], [9 12 15])
+[1Z9 3Z12 5Z15]
+
+>>> Residue([1 3 5], 12)
+[1Z12 3Z12 5Z12]
+
+>>> Residue(3, [9 12 15])
+[3Z9 3Z12 3Z15]
+```
 
 There is a literal syntax for residues, _nZm_:
 
@@ -19,14 +38,17 @@ Residue(3, 5)
 (3, 5)
 ```
 
-`Residue` at a two-element sequence answers a `Residue`:
+The unary form maps over appropriately shaped arrays:
 
 ```
->>> [3 5].Residue
+>>> Residue[3 5]
 3Z5
 
->>> [3 5; 7 12].Residue
+>>> Residue[3 5; 7 12]
 [3Z5 7Z12]
+
+>>> Residue[3 5; 7 12:; 4 5; 3 12]
+[3Z5 7Z12; 4Z5 3Z12]
 ```
 
 The literal syntax allows non-common residue values at the left:

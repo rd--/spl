@@ -446,7 +446,7 @@ a[0 .. 65].discretePlot
 
 ![](Help/Image/gcd-R.svg)
 
-The size of the group _Qp(n)*/(Qp(n)*)^k_,
+The size of the group _Qp(n)⋆/(Qp(n)⋆)^k_,
 OEIS [A370067](https://oeis.org/A370067):
 
 ~~~spl svg=S oeis=A370067

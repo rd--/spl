@@ -111,6 +111,9 @@ even if the answer is a whole number:
 
 >>> 1/2 / 1/8
 4/1
+
+>>> 9/7 / 3
+3/7
 ```
 
 Division by `zero` may be `Infinity`, `NaN` or an `error`:

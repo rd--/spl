@@ -21,7 +21,7 @@
 					}
 				}
 			).if {
-				n.LargeInteger.integerBinomial(k).normal
+				LargeInteger(n).integerBinomial(k).normal
 			} {
 				n.binomialGamma(k)
 			}

@@ -419,7 +419,7 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer, I
 
 +SmallFloat {
 
-	LargeInteger { :self |
+	[LargeInteger, smallFloatToLargeInteger] { :self |
 		self.isSmallInteger.if {
 			self.uncheckedLargeInteger
 		} {
@@ -434,10 +434,6 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer, I
 }
 
 +String {
-
-	uncheckedParseLargeInteger { :self |
-		<primitive: return BigInt(_self);>
-	}
 
 	parseLargeInteger { :self :elseClause/0 |
 		self.endsWith('L').ifTrue {
@@ -455,18 +451,25 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer, I
 			self.error('parseLargeInteger: invalid input')
 		}
 	}
+
+	uncheckedParseLargeInteger { :self |
+		<primitive: return BigInt(_self);>
+	}
+
 }
 
 +ByteArray {
-
-	LargeInteger { :self |
+	decodeLargeInteger { :self :littleEndian |
+		let k = self.size;
+		let f = { :n |
+			littleEndian.if { n - 1L } { k - n } * 8
+		};
 		let answer = 0L;
 		self.withIndexDo { :each :i |
-			answer := answer + (each << (i - 1L * 8))
+			answer := answer + (each << f(i))
 		};
 		answer
 	}
-
 }
 
 +List {

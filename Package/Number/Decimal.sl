@@ -159,7 +159,7 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 	}
 
 	Integer { :self |
-		self.LargeInteger.normal
+		LargeInteger(self).normal
 	}
 
 	[integerDigits, decimalExpansion] { :self |
@@ -187,7 +187,9 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 	}
 
 	isInteger { :self |
-		self.scale.isZero
+		self.scale.isZero | {
+			self.fraction.isInteger
+		}
 	}
 
 	isNegative { :self |
@@ -206,10 +208,9 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 		self.fraction.numerator = 0
 	}
 
-	LargeInteger { :self |
-		/* 1.0D is not an integer... */
+	[LargeInteger, decimalToLargeInteger] { :self |
 		self.isInteger.if {
-			self.fraction.LargeInteger
+			LargeInteger(self.fraction)
 		} {
 			self.error('Decimal>>LargeInteger')
 		}
@@ -231,7 +232,7 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 		let scale = self.scale;
 		let fraction = self.fraction;
 		(scale = 0).if {
-			self.integerPart.LargeInteger.uncheckedPrintString(10) ++ 'D'
+			LargeInteger(self.integerPart).uncheckedPrintString(10) ++ 'D'
 		} {
 			'%%.%D'.format(
 				[
@@ -295,7 +296,7 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 	}
 
 	SmallInteger { :self |
-		self.LargeInteger.SmallInteger
+		LargeInteger(self).SmallInteger
 	}
 
 	[SmallFloat, Float] { :self |

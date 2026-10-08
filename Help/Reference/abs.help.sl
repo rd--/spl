@@ -18,6 +18,9 @@ of the number _z_.
 
 >>> (-2 * 10).abs
 20
+
+>>> -3/7.abs
+3/7
 ```
 
 `abs` is defined at `Complex`,

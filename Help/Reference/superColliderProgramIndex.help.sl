@@ -10,7 +10,7 @@ Count entries:
 >>> system
 >>> .superColliderProgramIndex
 >>> .size
-497
+510
 ```
 
 The programs are organised into `categories`:

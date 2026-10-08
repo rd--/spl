@@ -8,4 +8,3 @@ Alias for `integerSquareRoot`.
 * * *
 
 See also: integerSquareRoot, squareRoot, sqrt
-

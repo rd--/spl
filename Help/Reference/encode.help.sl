@@ -1,8 +1,9 @@
 # encode
 
-- _encode(a, littleEndian)_
+- _encode(a, e)_
 
-Enode the `TypedArray` _a_ into a `ByteArray`.
+Encode the `TypedArray` _a_ into a `ByteArray`,
+in _little endian_ format if the _e_ is `true`.
 
 `Float32Array` encoding of `pi` and `e`:
 

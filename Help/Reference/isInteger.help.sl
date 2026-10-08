@@ -71,18 +71,21 @@ true
 
 >>> (1/3 * 3).isInteger
 true
+
+>>> 0/1.isInteger
+true
 ```
 
-At `Decimal` is not `true` unless `scale` is `zero`:
+At `Decimal` may be an integer even if `scale` is not `zero`:
 
 ```
+>>> 3D.isInteger
+true
+
 >>> 3.141D.isInteger
 false
 
 >>> 3.000D.isInteger
-false
-
->>> 3D.isInteger
 true
 ```
 

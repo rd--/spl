@@ -1243,7 +1243,7 @@
 	}
 
 	multiplicativeOrder { :k :n :r |
-		k := k.LargeInteger;
+		k := LargeInteger(k);
 		r := r % n;
 		(n = 1).if {
 			1

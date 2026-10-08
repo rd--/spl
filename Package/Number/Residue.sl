@@ -102,13 +102,29 @@ Residue : [Object, Store, Equal, Compare, Number] {
 
 +@Integer {
 
-	Residue { :i :m |
+	Residue { :n :m |
+		m.isInteger.if {
+			uncheckedResidue(n, m)
+		} {
+			m.adaptToIntegerAndApply(n, Residue/2)
+		}
+	}
+
+	uncheckedResidue { :i :m |
 		newResidue().initializeSlots(i % m, m)
 	}
 
 }
 
-+List {
++@Sequence {
+
+	Residue { :self :operand |
+		operand.adaptToCollectionAndApply(self, Residue/2)
+	}
+
+}
+
++List{
 
 	Residue { :self |
 		self.atVectorOrElementwise { :each |

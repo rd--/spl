@@ -64,11 +64,18 @@ Get the length of a `ByteArray`:
 32
 ```
 
-Reverse a `ByteArray`:
+Reverse a `ByteArray`, in-place or copying:
 
 ```
->>> ByteArray(1:5).reverse
-ByteArray[5 4 3 2 1]
+>>> let a = ByteArray[1 2 3 4 5];
+>>> let b = a.reverse!;
+>>> (b, a == b)
+(ByteArray[5 4 3 2 1], true)
+
+>>> let a = ByteArray[1 2 3 4 5];
+>>> let b = a.reverse;
+>>> (b, a == b)
+(ByteArray[5 4 3 2 1], false)
 ```
 
 * * *

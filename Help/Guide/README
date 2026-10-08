@@ -8,6 +8,11 @@ Write image files:
 system.helpFilesDo('Guide', '.*', true, writeImageFiles/1); nil
 ~~~
 
+Update indices:
+
+- Integer Sequence Index
+- Integer Sequence Method List
+
 $ (cd ~/sw/spl/Help/Guide; make lint)
 
 Linting: 279 file(s)

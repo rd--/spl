@@ -26,7 +26,13 @@ Date(-4713, 11, 24)
 0
 ```
 
-Ebenezer Burgess in his 1860 translation of the _Surya Siddhanta_ stated that the beginning of the Kali Yuga era occurred at midnight at the meridian of Ujjain at the end of the 588,465th day and the beginning of the 588,466th day (civil reckoning) of the Julian Period, or between February 17 and 18 3102 BC:
+Ebenezer Burgess,
+in his 1860 translation of the _Surya Siddhanta_,
+stated that the beginning of the Kali Yuga era occurred at midnight
+at the meridian of Ujjain
+at the end of the 588,465th day and the beginning of the 588,466th day (civil reckoning)
+of the Julian Period,
+or between February 17 and 18 3102 BC:
 
 ```
 >>> JulianDate(-3101, 02, 17)

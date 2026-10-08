@@ -12,6 +12,13 @@ Answer a `List` of the numerator and denominator of the `Fraction` _n/d_.
 [1 3]
 ```
 
+At integer:
+
+```
+>>> 3L.numeratorDenominator
+[3 1]
+```
+
 * * *
 
 See also: Fraction, List

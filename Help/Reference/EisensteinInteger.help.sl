@@ -15,8 +15,11 @@ Find the norm of an Eisenstein integer:
 >>> .toComplex
 -0.5000J6.0622
 
->>> let w = (-1 + (0J1 * 3.sqrt)) / 2;
->>> 3 + (7 * w)
+>>> EisensteinInteger(3, 7)
+>>> .realImaginary
+[-0.5 6.0622]
+
+>>> 3 + 7.eisensteinOmega
 -0.5000J6.0622
 
 >>> EisensteinInteger(3, 7)
@@ -55,8 +58,6 @@ EisensteinInteger(37, 0)
 37J0
 ```
 
-[
-
 The absolute value of an Eisenstein number is the same as that of the complex number equivalent:
 
 ```
@@ -65,13 +66,29 @@ The absolute value of an Eisenstein number is the same as that of the complex nu
 (37.sqrt, 37.sqrt)
 ```
 
+Some non-real Eisenstein primes:
+
+```
+>>> EisensteinInteger(2, 1).isPrime
+true
+
+>>> EisensteinInteger(2, 1).imaginary
+0.8660
+
+>>> EisensteinInteger(7, 3).isPrime
+true
+
+>>> EisensteinInteger(7, 3).imaginary
+2.5981
+```
+
 Plot Eisenstein integer primes on the complex plane:
 
 ~~~spl svg=A
 { :a :b |
 	let c = EisensteinInteger(a, b);
 	c.isPrime.if {
-		c.toComplex.realImaginary
+		c.realImaginary
 	} {
 		nil
 	}

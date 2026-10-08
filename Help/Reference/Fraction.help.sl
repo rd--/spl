@@ -1,7 +1,7 @@
 # Fraction
 
 - _Fraction(n, d)_
-- _Fraction(x)_
+- _Fraction([n, d])_
 
 `Fraction` is a numerical `Type` that provides methods for working with fractions like 1/3 as a ratio of two integers.
 
@@ -15,6 +15,16 @@ A Fraction can be written using the literal syntax _1/3_:
 ```
 >>> 1/3
 Fraction(1, 3)
+```
+
+Zero and one:
+
+```
+>>> 0/1
+0/1
+
+>>> 1/1
+1/1
 ```
 
 Arithmetic is exact:
@@ -70,24 +80,23 @@ it assumes the fraction being specified is in reduced form:
 [2 4]
 ```
 
-The unary form at `Fraction`,
-answers `identity`:
+At `Fraction` is an alias for `divide`:
 
 ```
->>> let a = 3/4;
->>> let b = Fraction(a);
->>> (a, a == b)
-(3/4, true)
+>>> Fraction(3/4, 5/6)
+9/10
 ```
 
-In the `Integer` case,
-answer a `Fraction` above `one`:
+Convert an integer to a fraction:
 
 ```
->>> Fraction(23)
+>>> 23.integerToFraction
 23/1
 
->>> Fraction(-23L)
+>>> 23 / 1L
+23L
+
+>>> -23L.integerToFraction
 -23/1
 ```
 
@@ -135,21 +144,29 @@ At negative numbers:
 -28/127
 ```
 
-The unary `listToFraction` requires a two-element sequence,
-or a two-column matrix, and so on:
+The unary form maps over appropriately shaped arrays,
+the inverse,
+to within reduction,
+is `numeratorDenominator`:
 
 ```
->>> [9 23].listToFraction
+>>> Fraction[9 23]
 9/23
 
 >>> 9/23.numeratorDenominator
 [9 23]
 
->>> [2 4; 7 21].listToFraction
+>>> Fraction[2 4; 7 21]
 [1/2 1/3]
 
 >>> [2/4 7/21].numeratorDenominator
 [1 2; 1 3]
+
+>>> Fraction[2 4; 7 21:; 3 5; 11 17]
+[1/2 1/3; 3/5 11/17]
+
+>>> [2/4 7/21; 3/5 11/17].numeratorDenominator
+[1 2; 1 3:; 3 5; 11 17]
 ```
 
 Literal fractions are `normal` and have the following invariants:

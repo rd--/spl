@@ -58,9 +58,9 @@ the inverse is `realImaginary`:
 [1 2; 3 4]
 
 >>> Complex[1 2; 3 4:; 5 6; 7 8]
-[1J3 2J4; 5J7 6J8]
+[1J2 3J4; 5J6 7J8]
 
->>> [1J3 2J4; 5J7 6J8].realImaginary
+>>> [1J2 3J4; 5J6 7J8].realImaginary
 [1 2; 3 4:; 5 6; 7 8]
 ```
 

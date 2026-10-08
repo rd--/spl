@@ -4,6 +4,38 @@
 
 A `Type` representing a number in the quaternion number system.
 
+```
+>>> Quaternion[1 2 3 4]
+Quaternion[1 2 3 4]
+
+>>> Quaternion[
+>>> 	1 2 3 4;
+>>> 	2 3 4 5
+>>> ]
+[
+	Quaternion[1 2 3 4],
+	Quaternion[2 3 4 5]
+]
+
+>>> Quaternion[
+>>> 	1 2 3 4;
+>>> 	2 3 4 5
+>>> 	:;
+>>> 	3 4 5 6;
+>>> 	5 6 7 8
+>>> ]
+[
+	[
+		Quaternion[1 2 3 4],
+		Quaternion[2 3 4 5]
+	],
+	[
+		Quaternion[3 4 5 6],
+		Quaternion[5 6 7 8]
+	]
+]
+```
+
 𝕀, 𝑖, 𝑗 and 𝑘 are the basis quaternions,
 and have the following basic multiplication rules:
 

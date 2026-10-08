@@ -113,7 +113,7 @@
 	withoutFactorsOfTwo { :self |
 		self.primeFactors.reject { :each |
 			[1/2 2].includes(each)
-		}.product.Fraction
+		}.product / 1L
 	}
 
 }

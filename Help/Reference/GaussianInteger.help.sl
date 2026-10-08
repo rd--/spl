@@ -29,7 +29,7 @@ The unary form maps over appropriately shaped arrays:
 [1J2 3J4]
 
 >>> GaussianInteger[1 2; 3 4:; 5 6; 7 8]
-[1J3 2J4; 5J7 6J8]
+[1J2 3J4; 5J6 7J8]
 ```
 
 * * *

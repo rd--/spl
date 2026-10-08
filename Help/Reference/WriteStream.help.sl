@@ -49,7 +49,6 @@ List of types implementing `WriteStream`:
 ]
 ```
 
-
 * * *
 
 See also: nextPut, nextPutAll, MutableCollectionStream, ReadStream, Stream

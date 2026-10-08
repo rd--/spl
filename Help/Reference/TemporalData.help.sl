@@ -36,7 +36,7 @@ and the time sequences using `timeList`.
 )
 ```
 
-Convert temporal data with equal time stamps to ` TimeSeries`:
+Convert temporal data with equal time stamps to `TimeSeries`:
 
 ```
 >>> TemporalData[

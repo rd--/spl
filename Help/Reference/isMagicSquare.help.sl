@@ -64,12 +64,13 @@ Magic squares of squares by Euler in 1770,
 the sums are not the magic constant:
 
 ```
-[
-	68 29 41 37;
-	17 31 79 32;
-	59 28 23 61;
-	11 77  8 49
-].square.isMagicSquare(false)
+>>> [
+>>> 	68 29 41 37;
+>>> 	17 31 79 32;
+>>> 	59 28 23 61;
+>>> 	11 77  8 49
+>>> ].square.isMagicSquare(false)
+true
 ```
 
 A multimagic square,

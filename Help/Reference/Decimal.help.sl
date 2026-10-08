@@ -238,22 +238,20 @@ Integer and fraction parts retain scale:
 0.463D
 ```
 
-A `Decimal` is an integer only the `scale` is `zero`:
+A `Decimal` may be an integer even the `scale` is not `zero`:
 
 ```
 >>> (3D.isInteger, 3D.scale)
 (true, 0)
 
->>> 3.000D.isInteger
-false
-
->>> 3D.Integer
-3
-
->>> {
->>> 	3.000D.Integer
->>> }.hasError
+>>> 3.00000000D.isInteger
 true
+
+>>> LargeInteger(3D)
+3L
+
+>>> LargeInteger(3.000000D)
+3L
 ```
 
 Absolute value:

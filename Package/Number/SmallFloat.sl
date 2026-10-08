@@ -219,7 +219,7 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		(base = 2 & { wordSize = 32 }).if {
 			self.uncheckedCountLeadingZeroes
 		} {
-			self.LargeInteger.countLeadingZeroes(base, wordSize)
+			LargeInteger(self).countLeadingZeroes(base, wordSize)
 		}
 	}
 

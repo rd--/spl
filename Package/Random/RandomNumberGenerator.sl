@@ -79,21 +79,24 @@
 		self.randomIntegerExcluding(range, isZero/1, shape)
 	}
 
-	randomLargeInteger { :self :max |
-		let k = max.digitLength;
-		let h = max.highBitOfInteger;
+	randomLargeIntegerUpTo { :self :u |
+		let k = u.digitLength;
+		let h = u.highBitOfInteger;
 		let m = (2L ^ h) - 1;
-		let answer = nil;
+		let x = nil;
 		{
 			let bytes = self.randomByteArray(k);
-			answer := bytes.LargeInteger.bitAnd(m);
-			answer <= 0 || (answer > max)
+			x := bytes.decodeLargeInteger(true).bitAnd(m);
+			x <= 0 || (x > u)
 		}.whileTrue;
-		answer
+		x
 	}
 
-	randomLargeInteger { :self :min :max |
-		min + self.randomLargeInteger(max - min)
+	randomLargeInteger { :self :range :shape |
+		let [a, b] = range;
+		{
+			a + self.randomLargeIntegerUpTo(b - a)
+		} ! shape
 	}
 
 	randomPermutation { :self :anInteger :shape |

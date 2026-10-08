@@ -35,6 +35,8 @@ See also: +, -, /, ^, *+, asterisk, sign, times
 
 Guides: Binary Operators
 
-Unicode: U+00D7 × Multiplication Sign
+Unicode:
+U+00D7 × Multiplication Sign,
+U+22C6 ⋆ Star Operator
 
 Categories: Math, Operator

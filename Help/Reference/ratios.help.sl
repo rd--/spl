@@ -32,7 +32,6 @@ Ratios are constant for a geometric sequence:
 [1 2 4 8 16 32 64 128 256 512 1024]
 ```
 
-
 At `RatioTuning`,
 answer a `List` of the interval ratios of the tuning _t_:
 

@@ -29,6 +29,16 @@ The operator form is `+`.
 -0.5J3.75
 ```
 
+At `Fraction`:
+
+```
+>>> 2/3 + 1/7
+17/21
+
+>>> 4/9 + 0/1
+4/9
+```
+
 Plus threads element-wise over lists:
 
 ```

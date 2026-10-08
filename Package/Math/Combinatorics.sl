@@ -601,7 +601,7 @@
 
 	[doubleFactorial, !!] { :self |
 		self.isInteger.if {
-			self.LargeInteger.integerDoubleFactorial.normal
+			LargeInteger(self).integerDoubleFactorial.normal
 		} {
 			self.generalisedDoubleFactorial
 		}
@@ -649,7 +649,7 @@
 
 	factorial { :self |
 		self.isNonNegativeInteger.if {
-			self.LargeInteger.integerFactorial.normal
+			LargeInteger(self).integerFactorial.normal
 		} {
 			self.error('factorial: see factorialOrGamma')
 		}

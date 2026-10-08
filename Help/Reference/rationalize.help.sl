@@ -79,7 +79,6 @@ Threads over lists:
 ```
 >>> [0.1 0.25 0.6].rationalize
 [1/10 1/4 3/5]
-```
 
 >>> [1.pi 1.e].rationalize(0.01)
 [22/7 19/7]

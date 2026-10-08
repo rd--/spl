@@ -292,10 +292,6 @@
 		}
 	}
 
-	Fraction { :self |
-		self.collect(Fraction/1)
-	}
-
 	[fractionExponent, frexp] { :self |
 		self.collect(fractionExponent/1)
 	}
@@ -1023,10 +1019,6 @@
 		anObject.adaptToCollectionAndApply(self, divisible/2)
 	}
 
-	Fraction { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, Fraction/2)
-	}
-
 	gcd { :self :anObject |
 		anObject.adaptToCollectionAndApply(self, gcd/2)
 	}
@@ -1112,7 +1104,9 @@
 				self.isMatrix.if {
 					aBlock(self)
 				} {
-					self.collect(aBlock/1)
+					self.collect{ :each |
+						each.atMatrixOrElementwise(aBlock/1)
+					}
 				}
 			}
 		}
@@ -1125,7 +1119,9 @@
 			self.isVector.if {
 				aBlock(self)
 			} {
-				self.collect(aBlock/1)
+				self.collect { :each |
+					each.atVectorOrElementwise(aBlock/1)
+				}
 			}
 		}
 	}
@@ -1135,7 +1131,9 @@
 +@Collection {
 
 	atIntegerOrElementwise { :self :aBlock/1 |
-		self.collect(aBlock/1)
+		self.collect { :each |
+			each.atIntegerOrElementwise(aBlock/1)
+		}
 	}
 
 }

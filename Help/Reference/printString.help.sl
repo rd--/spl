@@ -114,7 +114,6 @@ At `Fraction`:
 '2/3'
 ```
 
-
 At `Residue`:
 
 ```

@@ -3,7 +3,10 @@ EisensteinInteger : [Object, Store, Equal] {
 	| a b |
 
 	[conjugate, +] { :self |
-		EisensteinInteger(0 - self.a - 1, 0 - self.b)
+		EisensteinInteger(
+			0 - self.a - 1,
+			0 - self.b
+		)
 	}
 
 	[times, *] { :self :operand |
@@ -34,11 +37,11 @@ EisensteinInteger : [Object, Store, Equal] {
 	norm { :self |
 		let a = self.a;
 		let b = self.b;
-		(a * a) + (b * b) - (a * b)
+		(a * a) - (a * b) + (b * b)
 	}
 
 	real { :self |
-		self.a - self.b / 2
+		self.a - (self.b / 2)
 	}
 
 	realImaginary { :self |
@@ -46,8 +49,7 @@ EisensteinInteger : [Object, Store, Equal] {
 	}
 
 	[toComplex, eisensteinIntegerToComplex] { :self |
-		let omega = (-1 + (0J1 * 3.sqrt)) / 2;
-		self.a + (self.b * omega)
+		self.a + self.b.eisensteinOmega
 	}
 
 }
@@ -56,6 +58,12 @@ EisensteinInteger : [Object, Store, Equal] {
 
 	EisensteinInteger { :a :b |
 		newEisensteinInteger().initializeSlots(a, b)
+	}
+
+	eisensteinOmega { :n |
+		/* let omega = (-1 + (0J1 * 3.sqrt)) / 2; */
+		let omega = -0.5J0.8660254037844386;
+		n * omega
 	}
 
 	isEisensteinPrime { :a :b |
