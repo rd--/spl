@@ -918,6 +918,35 @@ OEIS [A006522](https://oeis.org/A006522):
 [0 0 1 4 11 25 50 91 154 246 375]
 ```
 
+Convolved Fibonacci numbers,
+OEIS [A001628](https://oeis.org/A001628),
+and first differences,
+OEIS [A055243](https://oeis.org/A055243):
+
+```
+>>> let a = 0:15.collect { :n |
+>>> 	0:n.sum { :k |
+>>> 		binomial(k, n - k)
+>>> 		*
+>>> 		binomial(k + 2, 2)
+>>> 	}
+>>> };
+>>> (a, a.differences)
+(
+	[
+		1 3 9 22 51
+		111 233 474 942 1836
+		3522 6666 12473 23109 42447
+		77378
+	],
+	[
+		2 6 13 29 60
+		122 241 468 894 1686
+		3144 5807 10636 19338 34931
+	]
+)
+```
+
 Plot over a subset of the reals as a function of its first parameter:
 
 ~~~spl svg=A

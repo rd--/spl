@@ -51,7 +51,7 @@ It allows writing, for instance, _1.toBy(k, 1)_ where _k_ may be zero.
 
 See also: Range, thenTo, to, upOrDownTo
 
-Guides: Enumeration Functions
+Guides: Enumeration Functions, Range Functions
 
 References:
 _Smalltalk_

@@ -36,6 +36,7 @@ Calculate `arcLength`, `area`, `circumference`, `perimeter`, `centroid`, `diamet
 (2.pi, 1.pi, 2.pi, 2.pi, [0 0], [0 0], 2, 1, 1)
 ```
 
+Threads over lists.
 Circles can be elements of `LineDrawing`s.
 Specify radii:
 

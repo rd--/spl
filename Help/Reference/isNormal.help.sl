@@ -13,6 +13,6 @@ and if the `start` value is less than or equal to the `stop` value:
 
 * * *
 
-See also: isProper, Range, start, stop
+See also: Range, isProper, start, stop
 
-Guides: Sequence Functions
+Guides: Range Functions, Sequence Functions

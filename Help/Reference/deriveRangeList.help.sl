@@ -74,8 +74,8 @@ Find complementary ranges:
 
 * * *
 
-See also: deriveRange, Range
+See also: Range, deriveRange
 
-Guides: List Functions
+Guides: List Functions, Range Functions
 
 Categories: Converting

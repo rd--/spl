@@ -26,6 +26,12 @@ Converting:
 
 - `monicPolynomial`
 
+Predicates:
+
+- `isNormal`
+- `isUnimodal`
+- `isZero`
+
 Functions:
 
 - `discriminant`

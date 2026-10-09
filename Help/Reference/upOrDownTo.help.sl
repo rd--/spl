@@ -36,4 +36,6 @@ Threads over lists:
 
 See also: Range, thenTo, to, toBy
 
+Guides: Range Functions
+
 Categories: Constructor, Range

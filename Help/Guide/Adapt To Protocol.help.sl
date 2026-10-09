@@ -1,4 +1,4 @@
-# AdaptTo Protocol
+# Adapt To Protocol
 
 The _adapt to_ family of protocols implement multiple polymorphism.
 
@@ -36,5 +36,7 @@ Methods for specific numeric types.
 * * *
 
 See also: adaptToCollectionAndApply, adaptToNumberAndApply
+
+Guides: Elementwise Functions
 
 Further Reading: Ingalls 1986

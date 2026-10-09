@@ -7,10 +7,16 @@ The unary form answers `reduce` of `min`,
 the minimum value in the collection.
 The collection must be non-empty and contain compatible magnitudes.
 
+At `Range`:
+
 ```
 >>> 1:10.min
 1
+```
 
+At empty `List`:
+
+```
 >>> { [].min }.hasError
 true
 ```
@@ -117,10 +123,13 @@ Smallest element in each matrix row:
 ```
 
 At `Interval`,
-also called `infimum`:
+also called `lowerBound` and `infimum`:
 
 ```
 >>> (1 -- 9).min
+1
+
+>>> (1 -- 10).lowerBound
 1
 
 >>> (1 -- 9).infimum
@@ -137,7 +146,7 @@ At `Range`:
 At `Multiset`:
 
 ```
->>> [3 5 2 4 5 3 4 2].Multiset.min
+>>> Multiset[3 5 2 4 5 3 4 2].min
 2
 ```
 

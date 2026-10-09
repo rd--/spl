@@ -252,7 +252,7 @@ let freq = 8.arithmeticProgression(a, d);
 
 * * *
 
-See also: arithmeticoGeometricSequence, differences, geometricProgression, Range
+See also: Range, arithmeticoGeometricSequence, differences, geometricProgression
 
 Guides: Integer Sequence Functions
 

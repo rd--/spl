@@ -53,8 +53,8 @@ true
 
 * * *
 
-See also: intervalClasses, isMomentOfSymmetry, isImproper, isNormal, isStrictlyProper, Range, scalaScaleArchive, Scale
+See also: Range, Scale, intervalClasses, isMomentOfSymmetry, isImproper, isNormal, isStrictlyProper, scalaScaleArchive
 
-Guides: Scale Functions
+Guides: Range Functions, Scale Functions
 
 Further Reading: Rothenberg 1977

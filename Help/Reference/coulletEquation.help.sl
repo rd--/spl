@@ -7,6 +7,22 @@ Answers a two argument `Block`,
 accepting _t_ and _(x,y,z)_,
 and answering _(x′,y′,z′)_.
 
+Evaluate symbolically:
+
+```
+>> let f/2 = coulletEquation(
+>> 	`a`, `b`, `c`, `d`
+>> );
+>> f(`t`, [`x` `y` `z`])
+[
+  y,
+  z,
+  (+
+    (+ (+ (* a x) (* b y)) (* c z))
+    (* d (* (* x x) x)))
+]
+```
+
 Plot system:
 
 ~~~spl svg=A

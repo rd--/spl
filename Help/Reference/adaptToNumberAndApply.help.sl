@@ -29,6 +29,6 @@ At `Complex`:
 
 See also: adaptToCollectionAndApply
 
-Guides: AdaptTo Protocol
+Guides: Adapt To Protocol
 
 Categories: Converting

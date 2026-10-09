@@ -138,7 +138,7 @@ Circle : [Object, Store, Equal, Geometry] {
 		(center.rank > 1).if {
 			center.withCollect(radius.nest, Circle/2)
 		} {
-			newCircle().initializeSlots(center, radius)
+			uncheckedCircle(center, radius)
 		}
 	}
 
@@ -169,6 +169,10 @@ Circle : [Object, Store, Equal, Geometry] {
 		self.size = 4 & {
 			(2 * self.square.sum) = self.sum.square
 		}
+	}
+
+	uncheckedCircle { :center :radius |
+		newCircle().initializeSlots(center, radius)
 	}
 
 	unitCircle { :center |

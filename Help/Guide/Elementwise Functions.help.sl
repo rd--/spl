@@ -21,11 +21,23 @@ and are applicable to `Sequence` values:
 ```
 >>> [1 2 3 4 5] ^ [2 3 4 5 6]
 [1 8 81 1024 15625]
+
+>>> 1:5 ^ 2:6
+[1 8 81 1024 15625]
+```
+
+The `Adapt To Protocol` implements elementwise operations between disparate types:
+
+```
+>>> [1 2 3 4 5] ^ 6
+[1 64 729 4096 15625]
+
+>>> 2 ^ 1:7
+[2 4 8 16 32 64 128]
 ```
 
 * * *
 
-See also: adaptToCollectionAndApply, collect, Collection, Sequence
+See also: Collection, Sequence, adaptToCollectionAndApply, collect
 
-Guides: Dictionary Functions, List Functions
-
+Guides: Adapt To Protocol, Dictionary Functions, List Functions

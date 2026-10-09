@@ -70,6 +70,6 @@ The `differences` of an arithmetic sequence are all equal:
 
 See also: Range, arithmeticProgression, deriveRange, isGeometricProgression
 
-Guides: List Functions
+Guides: List Functions, Range Functions
 
 Categories: Testing

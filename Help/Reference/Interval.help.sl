@@ -196,7 +196,7 @@ Sample a function uniformly on an interval:
 
 * * *
 
-See also: --, discretize, includes, intersection, Range, subdivide, union
+See also: Range, --, discretize, includes, intersection, subdivide, union
 
 Guides: Interval Functions
 

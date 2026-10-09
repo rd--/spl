@@ -85,9 +85,9 @@ true
 
 * * *
 
-See also: :, ArithmeticProgression, Interval, List, Range
+See also: ArithmeticProgression, Interval, List, Range, :
 
-Guides: Range Syntax, RelativeRange Syntax
+Guides: Range Functions, Range Syntax, RelativeRange Syntax
 
 References:
 _Mathematica_

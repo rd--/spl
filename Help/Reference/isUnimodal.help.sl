@@ -57,7 +57,7 @@ Unimodal sequences have one peak:
 
 See also: findPeaks, isLogarithmicallyConcave, isMonotonicallyIncreasing, isStrictlyIncreasing
 
-Guides: List Functions
+Guides: List Functions, Polynomial Functions
 
 References:
 _Mathematica_

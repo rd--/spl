@@ -63,7 +63,7 @@ let t = sssTriangle(13, 17, 7);
 
 * * *
 
-See also: Circle, circumcenter, circumradius, circumsphere, Triangle
+See also: Circle, Triangle, circumcenter, circumradius, circumsphere
 
 Guides: Geometry Functions
 

@@ -156,7 +156,7 @@ let q = [3 6 9; 1 4 2 8 5 7];
 
 * * *
 
-See also: %, ^, angleVector, Circle, cos, Range, sin
+See also: Circle, %, ^, angleVector, cos, sin
 
 Guides: Geometry Functions
 

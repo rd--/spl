@@ -1,4 +1,4 @@
-+SmallFloat {
++@Number {
 
 	aizawaEquation { :a :b :c :d :e :f |
 		{ :t :v |

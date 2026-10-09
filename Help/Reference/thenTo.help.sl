@@ -32,7 +32,7 @@ the `Range` is empty:
 
 See also: Range, to, toBy, upOrDownTo
 
-Guides: Range Syntax
+Guides: Range Functions, Range Syntax
 
 References:
 _Haskell_

@@ -99,6 +99,26 @@ At `Symbol`:
 ]
 ```
 
+A sequence that shifts two places left when convolved with itself,
+OEIS [A007477](https://oeis.org/A007477):
+
+```
+>>> let x = [
+>>> 	1 1 1 2 3
+>>> 	6 11 22 44 90
+>>> 	187 392 832 1778 3831
+>>> 	8304 18104 39666
+>>> ];
+>>> let n = x.size;
+>>> x.convolve(x).first(n)
+[
+	1 2 3 6 11
+	22 44 90 187 392
+	832 1778 3831 8304 18104
+	39666 87296 192896
+]
+```
+
 A convolution typically smooths the function.
 Smooth box function (to a triangle function):
 

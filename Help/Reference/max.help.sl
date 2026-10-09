@@ -4,7 +4,7 @@
 - _max(x₁, x₂)_
 
 The unary form answers the maximum value in the collection.
-The collection must be non-empty and contain compatible Magnitudes.
+The collection must be non-empty and contain compatible magnitudes.
 
 At `Range`:
 
@@ -21,10 +21,13 @@ At `List`:
 ```
 
 At `Interval`,
-also called `supremum`:
+also called `upperBound` and `supremum`:
 
 ```
 >>> (1 -- 9).max
+9
+
+>>> (1 -- 9).upperBound
 9
 
 >>> (1 -- 9).supremum

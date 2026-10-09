@@ -45,6 +45,7 @@ Plot two points and the circle passing through them:
 let p = [0 0; 0 1];
 [
 	p.PointCloud,
+	p.Line,
 	p.circleThrough
 ].LineDrawing
 ~~~
@@ -57,6 +58,7 @@ Plot two points and the circle passing through them:
 let p = [0 0; 1 1];
 [
 	p.PointCloud,
+	p.Line,
 	p.circleThrough
 ].LineDrawing
 ~~~
@@ -69,6 +71,7 @@ Plot three points and the circle passing through them:
 let p = [0 0; 0 1; 1 0];
 [
 	p.PointCloud,
+	p.Polygon,
 	p.circleThrough
 ].LineDrawing
 ~~~
@@ -85,6 +88,7 @@ let p = [
 ];
 [
 	p.PointCloud,
+	p.Polygon,
 	p.circleThrough
 ].LineDrawing
 ~~~
@@ -93,7 +97,7 @@ let p = [
 
 * * *
 
-See also: Circle, circlePoints, circularArcThrough, circumcircle, circumsphere, Disk
+See also: Circle, Disk, circlePoints, circularArcThrough, circumcircle, circumsphere
 
 Guides: Geometry Functions
 

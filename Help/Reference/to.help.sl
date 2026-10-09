@@ -67,7 +67,7 @@ where _k_ may be zero.
 
 See also: FiniteRange, Range, thenTo, toBy, upOrDownTo
 
-Guides: Sequence Functions
+Guides: Range Functions, Sequence Functions
 
 References:
 _Haskell_

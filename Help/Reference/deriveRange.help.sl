@@ -22,8 +22,8 @@ true
 
 * * *
 
-See also: deriveRangeList, isArithmeticProgression, Range
+See also: Range, deriveRangeList, isArithmeticProgression
 
-Guides: List Functions
+Guides: List Functions, Range Functions
 
 Categories: Converting

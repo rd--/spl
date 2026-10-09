@@ -11,21 +11,24 @@ Constructors:
 
 Accessing:
 
-- `endPoints
-- `max`
-- `minMax`
-- `min`
-- `upperBound`
-- lowerBound`
+- `max`, `upperBound`
+- `minMax`, `endPoints`
+- `min`, `lowerBound`
 
 Converting:
 
-- `asInterval`
+- `toInterval`
 
 Testing:
 
 - `includes`
 
+Functions:
+
+- `discretize`
+- `subdivide`
+
 * * *
 
-Guides: Function Guides, Mathematical Functions
+Guides: Function Guides, Mathematical Functions, Range Functions
+

@@ -314,7 +314,7 @@ List! : [Object, Copy, Store, Equal, Compare, Json, Iterable, Indexable, Collect
 	}
 
 	arithmeticProgression { :self :start :step |
-		1.to(self).collect { :each |
+		1.toCollect(self) { :each |
 			(step * (each - 1)) + start
 		}
 	}

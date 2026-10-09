@@ -59,9 +59,9 @@ The last item is treated especially so that it will not be outside the specified
 
 * * *
 
-See also: arithmeticProgression, geometricProgression, Range, RelativeRange
+See also: Range, RelativeRange, arithmeticProgression, geometricProgression
 
-Guides: Range Syntax
+Guides: Range Functions, Range Syntax
 
 References:
 _Mathematica_

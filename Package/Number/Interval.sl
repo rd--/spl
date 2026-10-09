@@ -66,7 +66,7 @@ Interval : [Object, Store, Equal, Number] {
 	}
 
 	adaptToNumberAndApply { :self :aNumber :aBlock/2 |
-		aBlock(aNumber.asInterval, self)
+		aBlock(aNumber.numberToInterval, self)
 	}
 
 	atRandom { :self |
@@ -111,10 +111,6 @@ Interval : [Object, Store, Equal, Number] {
 		FiniteRange(start, stop, step, size)
 	}
 
-	endPoints { :self |
-		self.minMax
-	}
-
 	equalBy { :self :operand :aBlock/2 |
 		operand.isInterval & {
 			aBlock(self.min, operand.min) & {
@@ -146,10 +142,6 @@ Interval : [Object, Store, Equal, Number] {
 
 	includes { :self :operand |
 		operand.betweenAnd(self.min, self.max)
-	}
-
-	infimum { :self |
-		self.min
 	}
 
 	intersection { :self :operand |
@@ -189,7 +181,7 @@ Interval : [Object, Store, Equal, Number] {
 		}
 	}
 
-	lowerBound { :self |
+	[lowerBound, infimum] { :self |
 		self.min
 	}
 
@@ -197,12 +189,12 @@ Interval : [Object, Store, Equal, Number] {
 		(self.min + self.max) / 2
 	}
 
-	minMax { :self |
+	[minMax, endPoints] { :self |
 		[self.min, self.max]
 	}
 
 	one { :self |
-		1.asInterval
+		1.numberToInterval
 	}
 
 	printString { :self |
@@ -230,10 +222,6 @@ Interval : [Object, Store, Equal, Number] {
 		self.discretize(n + 1)
 	}
 
-	supremum { :self |
-		self.max
-	}
-
 	union { :self :operand |
 		operand.isInterval.if {
 			self.isDisjoint(operand).if {
@@ -249,7 +237,7 @@ Interval : [Object, Store, Equal, Number] {
 		}
 	}
 
-	upperBound { :self |
+	[upperBound, supremum] { :self |
 		self.max
 	}
 
@@ -258,35 +246,31 @@ Interval : [Object, Store, Equal, Number] {
 	}
 
 	zero { :self |
-		0.asInterval
+		0.numberToInterval
 	}
 
 }
 
 +@Number {
 
-	-- { :min :max |
-		Interval(min, max)
-	}
-
 	adaptToIntervalAndApply { :self :anInterval :aBlock/2 |
-		aBlock(anInterval, self.asInterval)
-	}
-
-	asInterval { :self |
-		Interval(self, self)
+		aBlock(anInterval, self.numberToInterval)
 	}
 
 	centeredInterval { :center :range |
 		Interval(center - range, center + range)
 	}
 
-	Interval { :min :max |
+	[Interval, --] { :min :max |
 		max.isNumber.if {
 			uncheckedInterval(min, max).checkInterval
 		} {
 			max.adaptToNumberAndApply(min, Interval/2)
 		}
+	}
+
+	[toInterval, numberToInterval] { :self |
+		Interval(self, self)
 	}
 
 	uncheckedInterval { :min :max |
@@ -297,7 +281,11 @@ Interval : [Object, Store, Equal, Number] {
 
 +List {
 
-	Interval { :self :operand |
+	centeredInterval { :center :range |
+		range.adaptToCollectionAndApply(center, centeredInterval/2)
+	}
+
+	[Interval, --] { :self :operand |
 		operand.adaptToCollectionAndApply(self, Interval/2)
 	}
 

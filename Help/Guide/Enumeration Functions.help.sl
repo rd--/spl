@@ -19,4 +19,4 @@ Progression Functions:
 
 * * *
 
-See also: Range Syntax
+Guides: Interval Functions, Range Functions

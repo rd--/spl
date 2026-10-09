@@ -31,7 +31,7 @@ At `BlockStream`:
 
 * * *
 
-See also: Iterator, next, Stream, upToEnd
+See also: Iterator, Stream, next, upToEnd
 
 Guides: Stream Functions
 

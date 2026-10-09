@@ -381,6 +381,38 @@ which need not be integers:
 ]
 ```
 
+Skew Fibonacci-Pascal triangle read by rows,
+OEIS [A037027](https://oeis.org/A037027):
+
+```
+>>> let f/2 = { :n :k |
+>>> 	(k < 0 | { k > n }).if {
+>>> 		0
+>>> 	} {
+>>> 		(n = 0 & { k = 0 }).if {
+>>> 			1
+>>> 		} {
+>>> 			f(n - 1, k)
+>>> 			+
+>>> 			f(n - 1, k - 1)
+>>> 			+
+>>> 			f(n - 2, k)
+>>> 		}
+>>> 	}
+>>> }.memoize(true);
+>>> 0:7.triangularArray(f/2)
+[
+	1;
+	1 1;
+	2 2 1;
+	3 5 3 1;
+	5 10 9 4 1;
+	8 20 22 14 5 1;
+	13 38 51 40 20 6 1;
+	21 71 111 105 65 27 7 1
+]
+```
+
 The triangle given by recursion _T(n,k)=T(n-1,k)-T(n,k-1)_,
 OEIS [A096470](https://oeis.org/A096470):
 

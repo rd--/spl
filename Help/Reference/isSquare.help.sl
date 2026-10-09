@@ -25,6 +25,27 @@ true
 [0 1 4 9 16 25 36 49 64 81]
 ```
 
+`one` if _n_ is of the form _m(m+3)/2_,
+OEIS [A023531](https://oeis.org/A023531):
+
+```
+>>> 0:20.collect { :n |
+>>> 	(8 * n + 9).isSquare.boole
+>>> }
+[1 0 1 0 0 1 0 0 0 1 0 0 0 0 1 0 0 0 0 0 1]
+```
+
+OEIS [A023531](https://oeis.org/A023531)
+is the turn sequence of the triangle spiral:
+
+~~~spl svg=A
+0:103.collect { :n |
+	(8 * n + 9).isSquare.boole * 120.degree
+}.anglePath.Line
+~~~
+
+![](Help/Image/isSquare-A.svg)
+
 * * *
 
 See also: isInteger, isIntegerSquare, square, sqrt

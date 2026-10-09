@@ -58,6 +58,6 @@ In the sequence case the adaptation is courtesy `map`:
 
 See also: adaptToNumberAndApply, map, withCollect
 
-Guides: AdaptTo Protocol, Elementwise Functions
+Guides: Adapt To Protocol, Elementwise Functions
 
 Categories: Converting

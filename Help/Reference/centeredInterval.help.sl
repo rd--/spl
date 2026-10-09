@@ -9,9 +9,16 @@ Answer an `Interval` centered at _x_ and extending from _x-dx_ to _x+dx_.
 Interval(50, 70)
 ```
 
+Threads over lists:
+
+```
+>>> [50 60 70].centeredInterval([5 10 15])
+[45 -- 55, 50 -- 70, 55 -- 85]
+```
+
 * * *
 
-See also: --, Interval
+See also: Interval, --
 
 Guides: Interval Functions
 
