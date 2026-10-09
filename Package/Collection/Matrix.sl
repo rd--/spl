@@ -65,6 +65,28 @@
 		self.antidiagonal(0)
 	}
 
+	arnoldsCatMapInto! { :a :b |
+		let [h, w] = a.shape;
+		{ :x :y |
+			let p = (2 * x + y).mod(w, 1);
+			let q = (x + y).mod(h, 1);
+			b[q][p] := a[y][x]
+		}.table(1:w, 1:h)
+	}
+
+	arnoldsCatMap { :a :k |
+		let b = a.shape.zeroes;
+		k.timesRepeat {
+			arnoldsCatMapInto!(a, b);
+			[b, a] := [a, b]
+		};
+		a
+	}
+
+	arnoldsCatMap { :a |
+		a.arnoldsCatMap(1)
+	}
+
 	assertIsMatrix { :self :context |
 		self.assert(context) {
 			self.isMatrix

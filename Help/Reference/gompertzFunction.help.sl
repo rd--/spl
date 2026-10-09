@@ -5,6 +5,16 @@
 Answer the Gompertz function,
 a sigmoid function.
 
+Evaluate symbolically:
+
+```
+>> let f/1 = gompertzFunction(
+>> 	`a`, `b`, `c`
+>> );
+>> f(`x`)
+(* a (exp (* (exp (* (* c -1) x)) (* b -1))))
+```
+
 Evaluate numerically:
 
 ```

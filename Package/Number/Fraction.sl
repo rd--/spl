@@ -508,13 +508,13 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 	}
 
 
-	[SmallFloat, Float] { :self |
+	[SmallFloat, Float, fractionToSmallFloat] { :self |
 		SmallFloat(self.numerator)
 		/
 		SmallFloat(self.denominator)
 	}
 
-	SmallInteger { :self |
+	[SmallInteger, fractionToSmallInteger] { :self |
 		SmallInteger(LargeInteger(self))
 	}
 
@@ -643,8 +643,8 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 
 +@Integer {
 
-	adaptToFractionAndApply { :self :operand :aBlock/2 |
-		aBlock(operand, Fraction(self, 1L))
+	adaptToFractionAndApply { :self :aFraction :aBlock/2 |
+		aBlock(aFraction, Fraction(self, 1L))
 	}
 
 	Fraction { :numerator :denominator |
@@ -655,7 +655,7 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 		}
 	}
 
-	integerToFraction { :self |
+	[toFraction, integerToFraction] { :self |
 		Fraction(LargeInteger(self), 1L)
 	}
 
@@ -694,9 +694,9 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 
 +@Collection {
 
-	adaptToFractionAndApply { :self :operand :aBlock/2 |
+	adaptToFractionAndApply { :self :aFraction :aBlock/2 |
 		self.collect { :each |
-			aBlock(operand, each)
+			aBlock(aFraction, each)
 		}
 	}
 
@@ -711,7 +711,7 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 		.table([1 .. m], [1 .. n])
 	}
 
-	[Fraction, arrayToFraction] { :self |
+	[Fraction, listToFraction] { :self |
 		self.atVectorOrElementwise { :each |
 			let [n, d] = each;
 			Fraction(n, d)

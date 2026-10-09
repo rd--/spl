@@ -4,6 +4,17 @@
 
 Answer the Gaussian window function at the number _x_.
 
+Evaluate symbolically:
+
+```
+>> `x`.gaussianWindow(`σ`)
+(if (> (abs x) 0.5)
+  0
+  (exp (* (/ (* x x) (* 2 (* σ σ))) -1)))
+```
+
+At `SmallFloat`:
+
 ```
 >>> 0.1.gaussianWindow(0.3)
 0.945959

@@ -5,7 +5,7 @@
 Apply the block _f_ to each `key` and `value` of the dictionary _d_.
 Answers `nil`.
 
-Iterate over keys and values at `Map`:
+Iterate over `keys` and `values` at `Map`:
 
 ```
 >>> let n = 0;

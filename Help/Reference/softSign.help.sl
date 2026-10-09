@@ -5,6 +5,13 @@
 Implement the softsign function,
 a sigmoid function similar to `tanh`.
 
+Evaluate symbolically:
+
+```
+>> `x`.softSign
+(/ x (+ 1 (abs x)))
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A
@@ -17,7 +24,7 @@ Plot over a subset of the reals:
 
 See also: softMax, softPlus, tanh
 
-Guides: Sigmoid Functions
+Guides: Activation Functions, Sigmoid Functions
 
 References:
 _W_

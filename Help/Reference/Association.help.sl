@@ -19,21 +19,21 @@ The operator form of `Association` is `->`:
 Association('x', 1)
 ```
 
-At `List`:
+The unary form maps over appropriately shaped arrays:
 
 ```
->>> ['x' 1].Association
+>>> Association['x' 1]
 'x' -> 1
 
->>> ['x' 1; 'y' 2].Association
+>>> Association['x' 1; 'y' 2]
 ['x' -> 1, 'y' -> 2]
-```
 
-At `Association`:
+>>> Association['x' 1; 'y' 2:; 'a' 0; 'b' -1]
 
-```
->>> ('x' -> 1).Association
-'x' -> 1
+[
+	['x' -> 1, 'y' -> 2],
+	['a' -> 0, 'b' -> -1]
+].keyAndValue
 ```
 
 Instances are ordinarily entries in a `Dictionary` type, i.e. `Map` or `Record`:
@@ -43,7 +43,12 @@ Instances are ordinarily entries in a `Dictionary` type, i.e. `Map` or `Record`:
 ['x' -> 1, 'y' -> 2, 'z' -> -0]
 ```
 
-A `List` with only `Association` entries is called an _association list_.
+A `List` with only `Association` entries is called an _association list_:
+
+```
+>>> ['x' -> 1, 'y' -> 2, 'z' -> 0].isAssociationList
+true
+```
 
 Equality considers both _key_ & _value_, unlike in Smalltalk-80:
 
@@ -84,7 +89,8 @@ Fetch both key and value:
 ```
 
 _Note_:
-In a `Dictionary` context there cannot be duplicate keys, hence considering only key for equality in St-80.
+In a `Dictionary` context there cannot be duplicate keys,
+hence considering only key for equality in St-80.
 
 * * *
 

@@ -79,7 +79,13 @@ Date! : [Object, Store, Equal, Compare] {
 	}
 
 	storeString { :self |
-		'Date(%)'.format([self.components])
+		'Date(%, %, %)'.format(
+			[
+				self.year,
+				self.month,
+				self.dayOfMonth
+			]
+		)
 	}
 
 	Time { :self |
@@ -98,7 +104,7 @@ Date! : [Object, Store, Equal, Compare] {
 
 +SmallFloat {
 
-	Date { :self |
+	[Date, absoluteTimeToDate] { :self |
 		<primitive: return new Date(_self * 1000);>
 	}
 
@@ -137,9 +143,11 @@ Date! : [Object, Store, Equal, Compare] {
 
 +List {
 
-	Date { :self |
-		let [year, month, dayOfMonth] = self;
-		Date(year, month, dayOfMonth)
+	[Date, listToDate] { :self |
+		self.atVectorOrElementwise { :each |
+			let [year, month, dayOfMonth] = each;
+			Date(year, month, dayOfMonth)
+		}
 	}
 
 }

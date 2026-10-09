@@ -70,6 +70,19 @@ At `Date` answer the identity:
 '1970-01-01'
 ```
 
+At `List`:
+
+```
+>>> Date[1819 11 22]
+Date(1819, 11, 22)
+
+>>> Date[1937 06 10; 1950 06 21]
+[
+	Date(1937, 6, 10),
+	Date(1950, 6, 21)
+]
+```
+
 A `Date` can be read from a `String` using `parseDate`,
 the components can be accessed using `year` and `month` and `dayOfMonth`:
 

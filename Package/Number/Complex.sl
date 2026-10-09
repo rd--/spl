@@ -498,7 +498,7 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 
 	adaptToComplexAndApply { :self :aComplexNumber :aBlock/2 |
 		aComplexNumber.aBlock(
-			Complex(self, 0)
+			self.toComplex
 		)
 	}
 
@@ -528,7 +528,7 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		true
 	}
 
-	realToComplex { :self |
+	[toComplex, realToComplex] { :self |
 		Complex(SmallFloat(self), 0)
 	}
 
@@ -562,14 +562,14 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 
 +List {
 
-	[Complex, arrayToComplex] { :self |
+	[Complex, listToComplex] { :self |
 		self.atVectorOrElementwise { :each |
 			let [a, b] = each;
 			Complex(a, b)
 		}
 	}
 
-	[GaussianInteger, arrayToGaussianInteger] { :self |
+	[GaussianInteger, listToGaussianInteger] { :self |
 		self.atVectorOrElementwise { :each |
 			let [a, b] = each;
 			GaussianInteger(a, b)

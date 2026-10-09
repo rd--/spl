@@ -1,6 +1,7 @@
 # EisensteinInteger
 
 - _EisensteinInteger(a, b)_
+- _EisensteinInteger([a, b])_
 
 A `Type` representing an Eisenstein integer.
 
@@ -80,6 +81,62 @@ true
 
 >>> EisensteinInteger(7, 3).imaginary
 2.5981
+```
+
+Threads over lists:
+
+```
+>>> EisensteinInteger(1, [3 5 7])
+[
+	EisensteinInteger(1, 3),
+	EisensteinInteger(1, 5),
+	EisensteinInteger(1, 7)
+]
+
+>>> EisensteinInteger([1 3 5], 7)
+[
+	EisensteinInteger(1, 7),
+	EisensteinInteger(3, 7),
+	EisensteinInteger(5, 7)
+]
+```
+
+Adapts to math with `Complex`:
+
+```
+>>> EisensteinInteger(5, 7).toComplex
+1.5J6.0622
+
+>>> 3J2 * EisensteinInteger(5, 7)
+-7.6244J21.1865
+
+>>> EisensteinInteger(5, 7) * 3J2
+-7.6244J21.1865
+```
+
+The unary form maps over appropriately shaped arrays:
+
+```
+>>> EisensteinInteger[1 2]
+EisensteinInteger(1, 2)
+
+>>> EisensteinInteger[1 2; 3 4]
+[
+	EisensteinInteger(1, 2),
+	EisensteinInteger(3, 4)
+]
+
+>>> EisensteinInteger[1 2; 3 4:; 5 6; 7 8]
+[
+	[
+		EisensteinInteger(1, 2),
+		EisensteinInteger(3, 4)
+	],
+	[
+		EisensteinInteger(5, 6),
+		EisensteinInteger(7, 8)
+	]
+]
 ```
 
 Plot Eisenstein integer primes on the complex plane:

@@ -16,6 +16,8 @@ true
 
 * * *
 
-See also: Association
+See also: Association, key, value
+
+Guides: Type Predicates
 
 Categories: Testing, Collection

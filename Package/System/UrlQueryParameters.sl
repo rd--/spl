@@ -51,7 +51,7 @@ URLSearchParams! : [Object, Iterable, UrlQueryParameters] {
 		true
 	}
 
-	keys { :self |
+	[indices, keys] { :self |
 		<primitive:
 		const answer = [];
 		for(const key of _self.keys()) {
@@ -67,7 +67,7 @@ URLSearchParams! : [Object, Iterable, UrlQueryParameters] {
 			_aBlock_2(key, value);
 		});
 		>
-		self
+		nil
 	}
 
 	put! { :self :name :value |

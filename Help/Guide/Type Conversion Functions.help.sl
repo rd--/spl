@@ -21,6 +21,21 @@ a `Decimal` to a large integer:
 3L
 ```
 
+These each have an,
+undocumented,
+type specific alias:
+
+```
+>>> smallFloatToLargeInteger(3.0)
+3L
+
+>>> fractionToLargeInteger(3/1)
+3L
+
+>>> decimalToLargeInteger(3.0D)
+3L
+```
+
 The conversion must,
 however,
 be correct,
@@ -45,3 +60,21 @@ true
 >>> 3.141D.ceiling.LargeInteger
 4L
 ```
+
+`LargeInteger` is also defined as `identity` at `LargeInteger`:
+
+```
+>>> LargeInteger(3L)
+3L
+```
+
+It also threads over lists:
+
+```
+>>> LargeInteger([3, 3L, 3/1, 3D])
+[3L, 3L, 3L, 3L]
+```
+
+* * *
+
+Guides: Parsing Functions

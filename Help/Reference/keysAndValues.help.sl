@@ -35,7 +35,7 @@ At a `List` of `Association`s:
 
 * * *
 
-See also: associations, Dictionary, indices, keys, values
+See also: associations, Dictionary, indices, keys, values, withIndexDo
 
 Guides: Dictionary Functions
 

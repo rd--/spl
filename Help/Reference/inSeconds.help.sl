@@ -2,20 +2,28 @@
 
 - _inSeconds(x)_
 
-Answer a duration in seconds,
-either directly from a number,
-or from a `Duration` or a `Quantity`.
+Answer a magnitude of the time value _x_ in seconds.
+
+At `Quantity`:
 
 ```
->>> Duration(5).inSeconds
-5
-
 >>> 5.minutes
 Quantity(300, 'second')
 
 >>> 5.minutes.inSeconds
 300
+```
 
+At `Duration`:
+
+```
+>>> Duration(5).inSeconds
+5
+```
+
+It is an error if _x_ is not a time value:
+
+```
 >>> { 5.inSeconds }.hasError
 true
 ```
@@ -29,13 +37,12 @@ since what was intended as the accessor (say `seconds`) acts instead as a constr
 There are equivalent methods for:
 
 - `PlaneAngle`, `inRadians`
-- `Time`, `inSeconds`
 - `Frequency`, `inHertz`
 - `Length`, `inMetres`
 
 * * *
 
-See also: Duration, Frequency, inHertz, inRadians, inSeconds
+See also: Duration, Frequency, Quantity, Time, inHertz, inRadians, inSeconds
 
 Guides: Quantity Functions
 

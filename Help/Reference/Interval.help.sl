@@ -176,6 +176,12 @@ Threads over lists:
 ```
 >>> Interval([1 3 5], [4 5 6])
 [1 -- 4, 3 -- 5, 5 -- 6]
+
+>>> Interval([1 3 5], 7)
+[1 -- 7, 3 -- 7, 5 -- 7]
+
+>>> Interval(1, [3 5 7])
+[1 -- 3, 1 -- 5, 1 -- 7]
 ```
 
 Sample a function uniformly on an interval:

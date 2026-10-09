@@ -8,18 +8,25 @@ It is also a specialized constructor method for `Quantity` values.
 Make a plane angle:
 
 ```
->>> let a = PlaneAngle(2.pi);
->>> (a.isPlaneAngle, a.unit, a.magnitude)
-(true, 'radians', 2.pi)
+>>> let x = PlaneAngle(2.pi);
+>>> (
+>>> 	x.isPlaneAngle,
+>>> 	x.unit,
+>>> 	x.magnitude,
+>>> 	x.inRadians
+>>> )
+(true, 'radians', 2.pi, 2.pi)
 ```
 
 There are `inDegrees` and `inRadians` accessors:
 
 ```
->>> PlaneAngle(2.pi).inDegrees
+>>> PlaneAngle(2.pi)
+>>> .inDegrees
 360
 
->>> PlaneAngle(360.degree).inRadians
+>>> PlaneAngle(360.degree)
+>>> .inRadians
 2.pi
 ```
 
@@ -54,7 +61,7 @@ The circular (trigonometric) functions are implemented:
 
 * * *
 
-See also: degree, degrees, degreesToRadians, Quantity, radians, radiansToDegrees
+See also: Quantity, degree, degrees, degreesToRadians, radians, radiansToDegrees
 
 Guides: Quantity Functions
 

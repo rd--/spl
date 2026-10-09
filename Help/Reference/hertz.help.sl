@@ -21,6 +21,16 @@ also answer the inverse of a time value:
 44100
 ```
 
+Quantities accept SI unit modifiers:
+
+```
+>>> 1.hertz.giga
+Quantity(1000000000, 'hertz')
+
+>>> 1.gigahertz
+Quantity(1000000000, 'hertz')
+```
+
 * * *
 
 See also: asHertz, Frequency, Quantity

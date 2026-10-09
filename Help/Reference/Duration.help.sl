@@ -11,8 +11,9 @@ The duration represented is absolute, not relative.
 Ninety seconds:
 
 ```
->>> Duration(90)
-1.5.minutes.Duration
+>>> let d = Duration(90);
+>>> (d.magnitude, d.unit)
+(90, 'second')
 ```
 
 Seventeen days, five hours, eleven minutes and seventeen seconds:

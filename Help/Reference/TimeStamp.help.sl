@@ -23,11 +23,30 @@ Make a time stamp:
 '2025-06-15T15:06:40.000Z'
 ```
 
+Threads over lists:
+
+```
+>>> TimeStamp[1 3; 5 7]
+[
+	[
+		TimeStamp(1),
+		TimeStamp(3)
+	],
+	[
+		TimeStamp(5),
+		TimeStamp(7)
+	]
+]
+```
+
 The inverse is `absoluteTime`:
 
 ```
 >>> TimeStamp(0).absoluteTime
 0
+
+>>> TimeStamp[1 3; 5 7].absoluteTime
+[1 3; 5 7]
 ```
 
 At `DateAndTime`,

@@ -12,7 +12,12 @@ Make a `Quantity` value with unit _hertz_:
 
 ```
 >>> let f = Frequency(1);
->>> (f.isQuantity, f.isFrequency, f.unit, f.magnitude)
+>>> (
+>>> 	f.isQuantity,
+>>> 	f.isFrequency,
+>>> 	f.unit,
+>>> 	f.magnitude
+>>> )
 (true, true, 'hertz', 1)
 ```
 
@@ -67,6 +72,16 @@ At `Frequency` is identity:
 >>> let b = Frequency(a);
 >>> (a, a = b)
 (Quantity(100, 'hertz'), true)
+```
+
+Threads over lists:
+
+```
+>>> Frequency[1 10; 100 1000]
+[
+	1.hertz 1.decahertz;
+	1.hectohertz 1.kilohertz
+]
 ```
 
 * * *

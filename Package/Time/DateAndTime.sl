@@ -1,13 +1,13 @@
 DateAndTime : [Object, Store, Equal, Compare] {
 
-	| primitive |
+	| hiddenRepresentation |
 
 	[less, <] { :self :aDate |
 		self.absoluteTime < aDate.absoluteTime
 	}
 
 	absoluteTime { :self |
-		<primitive: return _self.primitive.getTime() / 1000;>
+		<primitive: return _self.hiddenRepresentation.getTime() / 1000;>
 	}
 
 	components { :self |
@@ -21,7 +21,7 @@ DateAndTime : [Object, Store, Equal, Compare] {
 		]
 	}
 
-	Date { :self |
+	[Date, dateAndTimeToDate] { :self |
 		Date(
 			[
 				self.year,
@@ -36,15 +36,15 @@ DateAndTime : [Object, Store, Equal, Compare] {
 	}
 
 	dateAndTimeString { :self |
-		<primitive: return _self.primitive.toISOString();>
+		<primitive: return _self.hiddenRepresentation.toISOString();>
 	}
 
 	dayOfWeek { :self |
-		<primitive: return _self.primitive.getUTCDay() + 1;>
+		<primitive: return _self.hiddenRepresentation.getUTCDay() + 1;>
 	}
 
 	dayOfMonth { :self |
-		<primitive: return _self.primitive.getUTCDate();>
+		<primitive: return _self.hiddenRepresentation.getUTCDate();>
 	}
 
 	equalBy { :self :anObject :aBlock/2 |
@@ -58,27 +58,27 @@ DateAndTime : [Object, Store, Equal, Compare] {
 	}
 
 	hour { :self |
-		<primitive: return _self.primitive.getUTCHours();>
+		<primitive: return _self.hiddenRepresentation.getUTCHours();>
 	}
 
 	localeTimeString { :self :localeName |
-		<primitive: return _self.primitive.toLocaleTimeString(_localeName);>
+		<primitive: return _self.hiddenRepresentation.toLocaleTimeString(_localeName);>
 	}
 
 	millisecond { :self |
-		<primitive: return _self.primitive.getUTCMilliseconds();>
+		<primitive: return _self.hiddenRepresentation.getUTCMilliseconds();>
 	}
 
 	minute { :self |
-		<primitive: return _self.primitive.getUTCMinutes();>
+		<primitive: return _self.hiddenRepresentation.getUTCMinutes();>
 	}
 
 	month { :self |
-		<primitive: return _self.primitive.getUTCMonth() + 1;>
+		<primitive: return _self.hiddenRepresentation.getUTCMonth() + 1;>
 	}
 
 	offsetWholeSeconds { :self |
-		<primitive: return Math.round(_self.primitive.getTimezoneOffset() * 60);>
+		<primitive: return Math.round(_self.hiddenRepresentation.getTimezoneOffset() * 60);>
 	}
 
 	storeString { :self |
@@ -98,15 +98,15 @@ DateAndTime : [Object, Store, Equal, Compare] {
 	}
 
 	unixTimeInMilliseconds { :self |
-		<primitive: return _self.primitive.getTime();>
+		<primitive: return _self.hiddenRepresentation.getTime();>
 	}
 
 	wholeSecond { :self |
-		<primitive: return _self.primitive.getUTCSeconds();>
+		<primitive: return _self.hiddenRepresentation.getUTCSeconds();>
 	}
 
 	year { :self |
-		<primitive: return _self.primitive.getUTCFullYear();>
+		<primitive: return _self.hiddenRepresentation.getUTCFullYear();>
 	}
 
 }
@@ -151,9 +151,11 @@ DateAndTime : [Object, Store, Equal, Compare] {
 
 +List {
 
-	DateAndTime { :self |
-		let [year, month, dayOfMonth, hour, minute, second] = self;
-		DateAndTime(year, month, dayOfMonth, hour, minute, second)
+	[DateAndTime, listToDateAndTime] { :self |
+		self.atVectorOrElementwise { :each |
+			let [year, month, dayOfMonth, hour, minute, second] = each;
+			DateAndTime(year, month, dayOfMonth, hour, minute, second)
+		}
 	}
 
 }
@@ -162,7 +164,9 @@ DateAndTime : [Object, Store, Equal, Compare] {
 
 	isDateAndTimeString { :self |
 		[24 29].includes(self.size) & {
-			self.matchesRegularExpression('^[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]T[0-9][0-9]:[0-9][0-9]:[0-9][0-9](.[0-9]+)?([-+][0-9][0-9]:[0-9][0-9]|Z)?$')
+			self.matchesRegularExpression(
+				'^[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]T[0-9][0-9]:[0-9][0-9]:[0-9][0-9](.[0-9]+)?([-+][0-9][0-9]:[0-9][0-9]|Z)?$'
+			)
 		}
 	}
 

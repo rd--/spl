@@ -126,7 +126,7 @@ Residue : [Object, Store, Equal, Compare, Number] {
 
 +List{
 
-	Residue { :self |
+	[Residue, listToResidue] { :self |
 		self.atVectorOrElementwise { :each |
 			let [n, m] = each;
 			Residue(n, m)

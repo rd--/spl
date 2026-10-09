@@ -3,6 +3,7 @@
 - _keys(d)_
 
 Answer the keys of the `Dictionary` _d_.
+Ordinarily an alias for `indices`.
 
 At `Record`:
 
@@ -14,8 +15,10 @@ At `Record`:
 At `Map`:
 
 ```
->>> Map['x' -> 1, 'y' -> 2, 'z' -> 3]
->>> .keys
+>>> Map['x' 1; 'y' 2; 'z' 3].keys
+['x' 'y' 'z']
+
+>>> Map['x' -> 1, 'y' -> 2, 'z' -> 3].keys
 ['x' 'y' 'z']
 ```
 

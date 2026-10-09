@@ -1,20 +1,30 @@
 # Quaternion
 
-- _Quaternion([a b c d])_
+- _Quaternion(a, b, c, d)_
+- _Quaternion([a, b, c, d])_
 
 A `Type` representing a number in the quaternion number system.
 
+A quaternion is a number:
+
+```
+>>> Quaternion(1, 2, 3, 4).isNumber
+true
+```
+
+There is a list contructor form:
+
 ```
 >>> Quaternion[1 2 3 4]
-Quaternion[1 2 3 4]
+Quaternion(1, 2, 3, 4)
 
 >>> Quaternion[
 >>> 	1 2 3 4;
 >>> 	2 3 4 5
 >>> ]
 [
-	Quaternion[1 2 3 4],
-	Quaternion[2 3 4 5]
+	Quaternion(1, 2, 3, 4),
+	Quaternion(2, 3, 4, 5)
 ]
 
 >>> Quaternion[
@@ -26,12 +36,12 @@ Quaternion[1 2 3 4]
 >>> ]
 [
 	[
-		Quaternion[1 2 3 4],
-		Quaternion[2 3 4 5]
+		Quaternion(1, 2, 3, 4),
+		Quaternion(2, 3, 4, 5)
 	],
 	[
-		Quaternion[3 4 5 6],
-		Quaternion[5 6 7 8]
+		Quaternion(3, 4, 5, 6),
+		Quaternion(5, 6, 7, 8)
 	]
 ]
 ```
@@ -40,10 +50,12 @@ Quaternion[1 2 3 4]
 and have the following basic multiplication rules:
 
 ```
->>> let u = Quaternion[1 0 0 0];
->>> let i = Quaternion[0 1 0 0];
->>> let j = Quaternion[0 0 1 0];
->>> let k = Quaternion[0 0 0 1];
+>>> let [u, i, j, k] = Quaternion[
+>>> 	1 0 0 0;
+>>> 	0 1 0 0;
+>>> 	0 0 1 0;
+>>> 	0 0 0 1
+>>> ];
 >>> (
 >>> 	u * u, i * i, j * j, k * k,
 >>> 	i * j, j.- * i,
@@ -51,7 +63,7 @@ and have the following basic multiplication rules:
 >>> 	k * i, i.- * k
 >>> )
 (
-	1, -1, -1, -1,
+	u, -u, -u, -u,
 	k, k,
 	i, i,
 	j, j
@@ -91,7 +103,7 @@ Convert a real number to a quaternion:
 
 ```
 >>> let a = 3.141;
->>> let b = Quaternion(a);
+>>> let b = realToQuaternion(a);
 >>> (b, b.real)
 (Quaternion[3.141 0 0 0], 3.141)
 ```
@@ -101,9 +113,13 @@ the `imaginary` part of a quaternion is a three-vector:
 
 ```
 >>> let a = 3J4;
->>> let b = Quaternion(a);
+>>> let b = complexToQuaternion(a);
 >>> (b, b.real, b.imaginary)
-(Quaternion[3 4 0 0], 3, [4 0 0])
+(
+	Quaternion(3, 4, 0, 0),
+	3,
+	[4 0 0]
+)
 ```
 
 At matrix:

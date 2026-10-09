@@ -2,6 +2,10 @@ EisensteinInteger : [Object, Store, Equal] {
 
 	| a b |
 
+	adaptToComplexAndApply { :self :aComplexNumber :aBlock/2 |
+		aBlock(aComplexNumber, self.toComplex)
+	}
+
 	[conjugate, +] { :self |
 		EisensteinInteger(
 			0 - self.a - 1,
@@ -10,12 +14,16 @@ EisensteinInteger : [Object, Store, Equal] {
 	}
 
 	[times, *] { :self :operand |
-		let [a, b] = self.components;
-		let [c, d] = operand.components;
-		EisensteinInteger(
-			(a * c) - (b * d),
-			(b * c) + (a * d) - (b * d)
-		)
+		operand.isEisensteinInteger.if {
+			let [a, b] = self.components;
+			let [c, d] = operand.components;
+			EisensteinInteger(
+				(a * c) - (b * d),
+				(b * c) + (a * d) - (b * d)
+			)
+		} {
+			self.toComplex * operand
+		}
 	}
 
 	[absoluteValue, abs] { :self |
@@ -57,7 +65,11 @@ EisensteinInteger : [Object, Store, Equal] {
 +SmallFloat {
 
 	EisensteinInteger { :a :b |
-		newEisensteinInteger().initializeSlots(a, b)
+		b.isInteger.if {
+			uncheckedEisensteinInteger(a, b)
+		} {
+			b.adaptToIntegerAndApply(a, EisensteinInteger/2)
+		}
 	}
 
 	eisensteinOmega { :n |
@@ -73,6 +85,29 @@ EisensteinInteger : [Object, Store, Equal] {
 		} {
 			let n = (a * a) + (b * b) - (a * b);
 			n.isPrime
+		}
+	}
+
+	uncheckedEisensteinInteger { :a :b |
+		newEisensteinInteger().initializeSlots(a, b)
+	}
+
+}
+
++@Sequence {
+
+	EisensteinInteger { :a :b |
+		b.adaptToCollectionAndApply(a, EisensteinInteger/2)
+	}
+
+}
+
++List {
+
+	[EisensteinInteger, arrayToEisensteinInteger] { :self |
+		self.atVectorOrElementwise { :each |
+			let [a, b] = each;
+			EisensteinInteger(a, b)
 		}
 	}
 

@@ -25,8 +25,8 @@ Record! : [Object, Copy, Store, Equal, Json, Iterable, Indexable, Collection, Ex
 		<primitive: return Object.hasOwn(_self, _key);>
 	}
 
-	indices { :self |
-		self.keys
+	[indices, keys] { :self |
+		<primitive: return Object.keys(_self);>
 	}
 
 	isJson { :self |
@@ -39,10 +39,6 @@ Record! : [Object, Copy, Store, Equal, Json, Iterable, Indexable, Collection, Ex
 
 	keyType { :unused |
 		'String'
-	}
-
-	keys { :self |
-		<primitive: return Object.keys(_self);>
 	}
 
 	keysAndValuesDo { :self :aBlock/2 |

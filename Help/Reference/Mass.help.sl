@@ -14,7 +14,7 @@ The kilogram (_kg_) is the SI unit of mass.
 
 * * *
 
-See also: Angle, Frequency, Length, Quantity, SiUnit, Time
+See also: Frequency, Length, PlaneAngle, Quantity, SiUnit, Time
 
 Guides: Quantity Functions
 

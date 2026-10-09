@@ -14,7 +14,7 @@ Storage! : [Object, Collection, Dictionary] {
 		self.keys.includes(key)
 	}
 
-	keys { :self |
+	[indices, keys] { :self |
 		<primitive:
 		const answer = [];
 		for(let index = 0; index < _self.length; index++) {

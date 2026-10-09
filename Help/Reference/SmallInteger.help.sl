@@ -55,10 +55,8 @@ At `Decimal`, must be an integer:
 >>> SmallInteger(23D)
 23
 
->>> {
->>> 	SmallInteger(23.0D)
->>> }.hasError
-true
+>>> SmallInteger(23.000D)
+23
 
 >>> {
 >>> 	SmallInteger(3.141D)

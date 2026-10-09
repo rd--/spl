@@ -11,7 +11,7 @@ however it may change the type of the value:
 
 ```
 >>> let x = 23L;
->>> let y = x.Integer;
+>>> let y = Integer(x);
 >>> (y, x = y, x == y)
 (23, true, false)
 ```
@@ -20,7 +20,7 @@ At `Fraction`:
 
 ```
 >>> let x = 23/1;
->>> let y = x.Integer;
+>>> let y = Integer(x);
 >>> (y, x = y, x == y)
 (23, true, false)
 ```
@@ -28,7 +28,7 @@ At `Fraction`:
 At `Decimal`:
 
 ```
->>> 3D.Integer
+>>> Integer(3D)
 3
 ```
 
@@ -36,11 +36,11 @@ At `LargeInteger`,
 answers a `SmallFloat` if the value would answer `true` for `isSmallInteger`:
 
 ```
->>> let x = 23L.Integer;
+>>> let x = Integer(23L);
 >>> (x, x.isLargeInteger)
 (23, false)
 
->>> let x = (2L ^ 54).Integer;
+>>> let x = Integer(2L ^ 54);
 >>> (x, x.isLargeInteger)
 (18014398509481984L, true)
 ```
@@ -48,21 +48,21 @@ answers a `SmallFloat` if the value would answer `true` for `isSmallInteger`:
 At `SmallFloat`, `Fraction` and `Decimal` it is an error if the value is not an integer:
 
 ```
->>> { 1.pi.Integer }.hasError
+>>> { Integer(1.pi) }.hasError
 true
 
->>> { 22/7.Integer }.hasError
+>>> { Integer(22/7) }.hasError
 true
 
->>> { 3.142D.Integer }.hasError
+>>> { Integer(3.142D) }.hasError
 true
 ```
 
-At `Decimal` there must be no decimal places:
+At `Decimal` there may be decimal places if they are `zero`:
 
 ```
->>> { 3.0D.Integer }.hasError
-true
+>>> Integer(3.000D)
+3
 ```
 
 To convert a non-integer to an integer use `round` or `ceiling` or `floor` or `truncate`:
@@ -109,7 +109,7 @@ To parse a `String` as an integer use `parseDecimalInteger`:
 Threads over lists:
 
 ```
->>> [23 23.0 23L].Integer
+>>> Integer[23 23.0 23L]
 [23 23 23]
 ```
 

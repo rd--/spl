@@ -2,7 +2,8 @@
 
 - _withCollect(c₁, c₂, f/2)_
 
-Collect and answer the result of evaluating the block _f_ with corresponding elements from each sequence _c_.
+Collect and answer the result of evaluating the binary block _f_,
+with corresponding elements from each sequence _c_.
 There are copying and in-place forms.
 The in-place form answers `nil`.
 

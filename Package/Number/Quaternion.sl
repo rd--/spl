@@ -72,14 +72,14 @@ Quaternion : [Object, Store, Equal, Number] {
 
 	adaptToFractionAndApply { :self :aFraction :aBlock/2 |
 		aBlock(
-			Quaternion(aFraction),
+			Quaternion([aFraction, 0, 0, 0]),
 			self
 		)
 	}
 
 	adaptToNumberAndApply { :self :aNumber :aBlock/2 |
 		aBlock(
-			Quaternion(aNumber),
+			Quaternion([aNumber, 0, 0, 0]),
 			self
 		)
 	}
@@ -101,10 +101,12 @@ Quaternion : [Object, Store, Equal, Number] {
 	}
 
 	isCloseToBy { :self :anObject :epsilon |
-		self.components.equalBy(
-			Quaternion(anObject).components
-		) { :a :b |
-			a.isCloseToBy(b, epsilon)
+		anObject.isQuaternion & {
+			self.components.equalBy(
+				anObject.components
+			) { :a :b |
+				a.isCloseToBy(b, epsilon)
+			}
 		}
 	}
 
@@ -141,11 +143,7 @@ Quaternion : [Object, Store, Equal, Number] {
 	}
 
 	one { :self |
-		Quaternion(1)
-	}
-
-	Quaternion { :self |
-		self
+		Quaternion([1, 0, 0, 0])
 	}
 
 	reciprocal { :self |
@@ -169,21 +167,24 @@ Quaternion : [Object, Store, Equal, Number] {
 	}
 
 	zero { :self |
-		Quaternion(0)
+		Quaternion([0, 0, 0, 0])
 	}
 
 }
 
 +List {
 
-	Quaternion { :self |
-		self.atVectorOrElementwise { :x |
-			(x.size = 4).if {
-				newQuaternion().initializeSlots(x)
-			} {
+	[Quaternion, listToQuaternion] { :self |
+		self.atVectorOrElementwise { :each |
+			(each.size = 4).ifFalse {
 				self.error('Quaternion')
-			}
+			};
+			uncheckedQuaternion(each)
 		}
+	}
+
+	uncheckedQuaternion { :self |
+		newQuaternion().initializeSlots(self)
 	}
 
 }
@@ -193,7 +194,7 @@ Quaternion : [Object, Store, Equal, Number] {
 	adaptToQuaternionAndApply { :self :aQuaternion :aBlock/2 |
 		aBlock(
 			aQuaternion,
-			Quaternion(self)
+			self.toQuaternion
 		)
 	}
 
@@ -202,12 +203,14 @@ Quaternion : [Object, Store, Equal, Number] {
 	}
 
 	Quaternion { :a :b :c :d |
-		Quaternion[a b c d]
+		Quaternion(
+			SmallFloat[a, b, c, d]
+		)
 	}
 
-	Quaternion { :a |
+	[toQuaternion, realToQuaternion] { :a |
 		let zero = a.zero;
-		Quaternion([a zero zero zero])
+		Quaternion([a, zero, zero, zero])
 	}
 
 }
@@ -224,7 +227,7 @@ Quaternion : [Object, Store, Equal, Number] {
 
 +Complex {
 
-	Quaternion { :self |
+	[toQuaternion, complexToQuaternion] { :self |
 		Quaternion([self.real, self.imaginary, 0, 0])
 	}
 

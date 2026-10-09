@@ -1,6 +1,7 @@
 # DateAndTime
 
 - _Date(y, m, d, h, m, s)_
+- _Date([y, m, d, h, m, s])_
 
 `DateAndTime` is `Type` representing a date and time.
 
@@ -94,6 +95,19 @@ To convert a `DateAndTime` value to the number of seconds from 1 January, 1970 u
 >>> .parseDateAndTime
 >>> .absoluteTime
 1746310197.505
+```
+
+The unary form maps over appropriately shaped arrays:
+
+```
+>>> DateAndTime[
+>>> 	2025 04 08 07 30 00.000;
+>>> 	2025 04 08 17 07 20.500
+>>> ]
+[
+	DateAndTime(2025, 4, 8,  7, 30,  0.0),
+	DateAndTime(2025, 4, 8, 17,  7, 20.5)
+]
 ```
 
 * * *

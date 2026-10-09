@@ -5,6 +5,13 @@
 Implement the softplus function,
 a smooth approximation to the ramp function.
 
+Evaluate symbolically:
+
+```
+>> `x`.softPlus
+(log (+ 1 (exp x)))
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A
@@ -26,6 +33,8 @@ The derivative is `logisticSigmoid`:
 * * *
 
 See also: logisticSigmoid, softMax, softSign, ramp
+
+Guides: Activation Functions
 
 References:
 _W_

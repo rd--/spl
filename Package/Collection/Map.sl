@@ -14,11 +14,7 @@ Map! : [Object, Copy, Store, Equal, Iterable, Indexable, Collection, Extensible,
 		==
 	}
 
-	indices { :self |
-		self.keys
-	}
-
-	keys { :self |
+	[indices, keys] { :self |
 		<primitive: return Array.from(_self.keys());>
 	}
 

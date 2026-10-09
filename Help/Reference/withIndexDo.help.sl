@@ -8,12 +8,22 @@ Answers `nil`.
 At `Range`, iterate over indices and values:
 
 ```
->>> let l = [];
->>> [4, 3 .. 1].withIndexDo { :each :index |
->>> 	l.add!(each -> index)
+>>> let a = [];
+>>> (4, 3 .. 1).withIndexDo { :x :i |
+>>> 	a.add!(i -> x)
 >>> };
->>> l
-[4 -> 1, 3 -> 2, 2 -> 3, 1 -> 4]
+>>> a
+[1 -> 4, 2 -> 3, 3 -> 2, 4 -> 1]
+```
+
+At `Record`:
+
+>>> let a = [];
+>>> (x: 1, y: 2, z: 3).withIndexDo { :x :i |
+>>> 	a.add!(i -> x)
+>>> };
+>>> a
+['x' -> 1, 'y' -> 2, 'z' -> 3]
 ```
 
 * * *

@@ -151,3 +151,4 @@ _Mathematica_
 _W_
 [1](https://en.wikipedia.org/wiki/Least_squares)
 [2](https://en.wikipedia.org/wiki/Ordinary_least_squares)
+[3](https://en.wikipedia.org/wiki/Linear_least_squares)

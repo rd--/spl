@@ -68,6 +68,8 @@ the SI prefix methods can answer `LargeInteger` values:
 
 See also: centi, deci, deca, hecto, giga, kilo, mega, micro, milli, nano, pico, SiUnit, terra
 
+Guides: Quantity Functions
+
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Metric_prefix)

@@ -48,6 +48,13 @@ At `Infinity`:
 Infinity
 ```
 
+Threads over lists:
+
+```
+>>> SmallFloat[1L 3/4]
+[1 0.75]
+```
+
 List traits implemented by `SmallFloat`:
 
 ```

@@ -14,7 +14,7 @@ TimeStamp : [Object, Copy, Store, Equal, Compare] {
 		TimeStamp(self.absoluteTime - operand.inSeconds)
 	}
 
-	Date { :self |
+	[Date, timeStampToDate] { :self |
 		Date(self.absoluteTime)
 	}
 
@@ -59,6 +59,18 @@ TimeStamp : [Object, Copy, Store, Equal, Compare] {
 
 	absoluteTime { :self |
 		self
+	}
+
+}
+
++@Collection {
+
+	absoluteTime { :self |
+		self.collect(absoluteTime/1)
+	}
+
+	TimeStamp { :self |
+		self.collect(TimeStamp/1)
 	}
 
 }

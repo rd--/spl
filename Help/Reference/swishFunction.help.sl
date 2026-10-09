@@ -5,6 +5,14 @@
 Implement the swish function,
 a family of sigmoid functions.
 
+Evaluate symbolically:
+
+```
+>> let f/1 = `β`.swishFunction;
+>> f(`x`)
+(/ x (+ 1 (exp (* (* β -1) x))))
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A

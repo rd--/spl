@@ -2,21 +2,26 @@
 
 - _Boolean(x)_
 
-Convert the object _x_ into a boolean value.
+A `Type` representing the two truth values of logic, `true` and `false`.
+Also a method to convert the object _x_ into a boolean value.
 
-0 is `false`, 1 is `true`, `true` and `false` are themselves.
+0 is `false`, 1 is `true`:
 
 ```
->>> 0.Boolean
+>>> Boolean(0)
 false
 
->>> 1.Boolean
+>>> Boolean(1)
 true
+```
 
->>> false.Boolean
+`true` and `false` are themselves.
+
+```
+>>> Boolean(false)
 false
 
->>> true.Boolean
+>>> Boolean(true)
 true
 ```
 
@@ -41,7 +46,7 @@ or `isNonZero`:
 Threads over lists:
 
 ```
->>> [0 false 1 true].Boolean
+>>> Boolean[0 false 1 true]
 [false false true true]
 ```
 
@@ -78,13 +83,23 @@ List of traits implemented by `Boolean`:
 ]
 ```
 
-The basic logical operations are `&`, `&&`, `|` and `||`.
+The basic logical operations are `and` (`&`) and `or` (`|`):
 
 ```
 >>> true.not & { nil }
 false
 
 >>> true | { nil }
+true
+```
+
+The evaluating forms are `&&` and `||`:
+
+```
+>>> (1 < 3) && (3 > 1)
+true
+
+>>> (1 < 3) || (1 > 3)
 true
 ```
 
@@ -95,11 +110,9 @@ Boolean values have a `Json` encoding:
 '[true,false]'
 ```
 
-Methods are: &, &&, |, ||, not, xor
-
 * * *
 
-See also: &, &&, |, ||, Boolean, Integer, boole, false, not, true, xor
+See also: Boolean, Integer, &, &&, |, ||, boole, false, not, true, xor
 
 Guides: Boolean Functions
 
@@ -108,6 +121,8 @@ _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Prelude.html#t:Bool),
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Booleans.html),
+_Rust_
+[1](https://doc.rust-lang.org/std/primitive.bool.html),
 _Smalltalk_
 5.3.3,
 _SuperCollider_

@@ -3,7 +3,20 @@
 - _mapIndexed(f/2, c)_
 
 Answer a collection like _c_ where the values are given by _f_,
-which receives both the _value_ and _index_ for each element.
+which receives both the _value_ and _index_,
+in that order,
+for each element.
+
+At `Record`:
+
+```
+>>> { :x :i |
+>>> 	i ++ x.printString
+>>> }.mapIndexed(
+>>> 	(x: 1, y: 2, z: 3)
+>>> )
+(x: 'x1', y: 'y2', z: 'z3')
+```
 
 Rotate lists based on position:
 
@@ -23,7 +36,7 @@ Rotate lists based on position:
 
 * * *
 
-See also: collect, map, withIndexCollect
+See also: collect, keysAndValuesCollect, map, withIndexCollect
 
 Guides: List Functions
 

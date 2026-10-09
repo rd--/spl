@@ -370,7 +370,7 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer, I
 		}
 	}
 
-	[SmallFloat, Float] { :self |
+	[SmallFloat, Float, largeIntegerToSmallFloat] { :self |
 		<primitive: return Number(_self);>
 	}
 

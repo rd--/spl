@@ -6,50 +6,6 @@ Answer an `RgbColour` value given `hue`, `saturation` and `value`, all in _(0,1)
 `HsvColour` is a cylindrical-coordinate representations of points in an `RgbColour` colour model.
 The `value` field is also called `brightness`.
 
-A pale green colour swatch:
-
-~~~spl svg=A
-HsvColour[1/3 1/4 1]
-~~~
-
-![](Help/Image/HsvColour-A.svg)
-
-The hue value is cyclic with period `one`:
-
-~~~spl svg=B
-ColourGrid(
-	Range(0, 2, 1/8).collect { :h |
-		HsvColour[h 1 1]
-	}.enclose
-)
-~~~
-
-![](Help/Image/HsvColour-B.svg)
-
-Saturation determines how vivid the color is:
-
-~~~spl svg=C
-ColourGrid(
-	Range(0, 1, 1/7).collect { :s |
-		HsvColour[1/4 s 1]
-	}.enclose
-)
-~~~
-
-![](Help/Image/HsvColour-C.svg)
-
-Brightness determines the brightness of the color:
-
-~~~spl svg=D
-ColourGrid(
-	Range(0, 1, 1/7).collect { :v |
-		HsvColour[1/4 1 v]
-	}.enclose
-)
-~~~
-
-![](Help/Image/HsvColour-D.svg)
-
 Value of `zero` is black:
 
 ```
@@ -117,6 +73,65 @@ At specific values:
 >>> HsvColour[251.5 / 360, 0.887, 0.918]
 RgbColour[0.25980, 0.10374, 0.918]
 ```
+
+A pale green colour swatch:
+
+~~~spl svg=A
+HsvColour[1/3 1/4 1]
+~~~
+
+![](Help/Image/HsvColour-A.svg)
+
+The hue value is cyclic with period `one`:
+
+~~~spl svg=B
+ColourGrid(
+	Range(0, 2, 1/8).collect { :h |
+		HsvColour[h 1 1]
+	}.enclose
+)
+~~~
+
+![](Help/Image/HsvColour-B.svg)
+
+Saturation determines how vivid the color is:
+
+~~~spl svg=C
+ColourGrid(
+	Range(0, 1, 1/7).collect { :s |
+		HsvColour[1/4 s 1]
+	}.enclose
+)
+~~~
+
+![](Help/Image/HsvColour-C.svg)
+
+Brightness determines the brightness of the color:
+
+~~~spl svg=D
+ColourGrid(
+	Range(0, 1, 1/7).collect { :v |
+		HsvColour[1/4 1 v]
+	}.enclose
+)
+~~~
+
+![](Help/Image/HsvColour-D.svg)
+
+A smooth diagonal rainbow:
+
+~~~spl svg=E
+let n = 13;
+{ :y :x |
+	HsvColour[
+		((x + y) % n) / n,
+		0.6,
+		0.92
+	]
+}.table(1:n, 1:n).ColourGrid
+~~~
+
+![](Help/Image/HsvColour-E.svg)
 
 * * *
 

@@ -10,10 +10,13 @@ and are applicable to any `Collection`:
 ```
 >>> [1 4 9 16 25].sqrt
 [1 2 3 4 5]
+
+>>> (x: 1, y: 9, z: 25).sqrt
+(x: 1, y: 3, z: 5)
 ```
 
 Binary functions map an operator over two collections that are in some way commesurate,
-and are applicable to any `Sequencable` collection:
+and are applicable to `Sequence` values:
 
 ```
 >>> [1 2 3 4 5] ^ [2 3 4 5 6]
@@ -23,3 +26,6 @@ and are applicable to any `Sequencable` collection:
 * * *
 
 See also: adaptToCollectionAndApply, collect, Collection, Sequence
+
+Guides: Dictionary Functions, List Functions
+

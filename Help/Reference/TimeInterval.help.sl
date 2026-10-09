@@ -3,6 +3,7 @@
 - _TimeInterval(t₁, t₂)_
 
 A `Type` that represents the interval between two time instants,
+represented as `TimeStamp` values,
 also called a time span.
 The interval is half-open,
 it includes _t₁_ and excludes _t₂_.

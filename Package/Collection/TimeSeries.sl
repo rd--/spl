@@ -57,7 +57,7 @@ TimeSeries : [Object, Store, Equal, Iterable, Indexable, Collection] {
 		self.values.first
 	}
 
-	indices { :self |
+	[indices, keys] { :self |
 		self.times
 	}
 
@@ -74,10 +74,6 @@ TimeSeries : [Object, Store, Equal, Iterable, Indexable, Collection] {
 
 	isRegularlySampled { :self |
 		self.times.isRegularlySpaced
-	}
-
-	keys { :self |
-		self.times
 	}
 
 	keysDo { :self :aBlock/1 |

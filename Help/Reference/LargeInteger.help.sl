@@ -52,10 +52,8 @@ At `Decimal`:
 >>> LargeInteger(23D)
 23L
 
->>> {
->>> 	LargeInteger(23.0D)
->>> }.hasError
-true
+>>> LargeInteger(23.000D)
+23L
 
 >>> {
 >>> 	LargeInteger(3.141D)

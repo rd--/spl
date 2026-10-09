@@ -1114,7 +1114,7 @@
 
 	atVectorOrElementwise { :self :aBlock/1 |
 		self.isEmpty.if {
-			[]
+			self
 		} {
 			self.isVector.if {
 				aBlock(self)

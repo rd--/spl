@@ -61,7 +61,7 @@ The softmax function:
 
 See also: softPlus
 
-Guides: Mathematical Functions
+Guides: Activation Functions, Mathematical Functions
 
 References:
 _Mathematica_

@@ -38,18 +38,34 @@
 
 }
 
++@Collection {
+
+	Frequency { :self |
+		self.collect(Frequency/1)
+	}
+
+}
+
 +@Number {
+
+	decahertz { :self |
+		(self * 1E1).hertz
+	}
 
 	gigahertz { :self |
 		(self * 1E9).hertz
 	}
 
+	hectohertz { :self |
+		(self * 1E2).hertz
+	}
+
 	kilohertz { :self |
-		(self * 1000).hertz
+		(self * 1E3).hertz
 	}
 
 	megaherz { :self |
-		(self * 1000000).hertz
+		(self * 1E6).hertz
 	}
 
 }

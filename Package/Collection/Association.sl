@@ -4,10 +4,6 @@ Association : [Object, Store, Copy, Equal, Compare] {
 
 	| key value |
 
-	Association { :self |
-		self
-	}
-
 	compare { :self :anAssociation |
 		self.key.compare(anAssociation.key)
 	}
@@ -24,44 +20,32 @@ Association : [Object, Store, Copy, Equal, Compare] {
 		}
 	}
 
-	first { :self |
-		self.key
-	}
-
 	keyAndValue { :self |
 		[self.key, self.value]
 	}
 
-	keyAndValue { :self :key :value |
-		self.key := key;
-		self.value := value;
-		self
-	}
-
 	printString { :self |
-		'% -> %'.format([
-			self.key.printString,
-			self.value.printString
-		])
-	}
-
-	second { :self |
-		self.value
+		'% -> %'.format(
+			[
+				self.key.printString,
+				self.value.printString
+			]
+		)
 	}
 
 }
 
 +@Object {
 
-	-> { :self :anObject |
-		Association(self, anObject)
+	[Association, ->] { :self :anObject |
+		uncheckedAssociation(self, anObject)
 	}
 
-	<- { :self :anObject |
+	[reverseAssociation, <-] { :self :anObject |
 		Association(anObject, self)
 	}
 
-	Association { :self :anObject |
+	uncheckedAssociation { :self :anObject |
 		newAssociation().initializeSlots(self, anObject)
 	}
 
@@ -69,14 +53,22 @@ Association : [Object, Store, Copy, Equal, Compare] {
 
 +List {
 
-	Association { :self |
+	[Association, ->] { :self |
 		self.atVectorOrElementwise { :x |
 			(x.size = 2).if {
-				x.first -> x.second
+				Association(x.first, x.second)
 			} {
 				x.error('List>>Association: not two-element sequence')
 			}
 		}
+	}
+
+}
+
++@Collection {
+
+	keyAndValue { :self |
+		self.collect(keyAndValue/1)
 	}
 
 }

@@ -2,15 +2,23 @@
 
 - _inHertz(x)_
 
-Answer a frequency in hertz, either directly from a number, or from a `Quantity`.
+Answer a frequency in hertz from a frequency value _x_.
+
+At `Quantity`:
 
 ```
->>> Frequency(5).inHertz
-5
+>>> let x = Frequency(5);
+>>> (x, x.inHertz)
+(Quantity(5, 'hertz'), 5)
 
->>> Quantity(5, 'hertz').inHertz
-5
+>>> let x = Time(1 / 5);
+>>> (x, x.inHertz)
+(Quantity(0.2, 'second'), 5)
+```
 
+It is an error if _x_ is not a time value:
+
+```
 >>> { 5.inHertz }.hasError
 true
 ```
@@ -18,11 +26,13 @@ true
 There are equivalent methods for:
 
 - `PlaneAngle`, `inRadians`
-- `Duration`, `inSeconds`
+- `Time`, `inSeconds`
 - `Length`, `inMetres`
 
 * * *
 
-See also: Duration, inHertz, inMetres, inSeconds, Frequency
+See also: Frequency, Time, Quantity, inMetres, inRadians, inSeconds
+
+Guides: Quantity Functions
 
 Categories: Converting

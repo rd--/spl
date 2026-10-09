@@ -22,7 +22,7 @@ true
 
 * * *
 
-See also: Angle, Frequency, Mass, Quantity, SiUnit, Time
+See also: Frequency, Mass, PlaneAngle, Quantity, SiUnit, Time
 
 Guides: Quantity Functions
 

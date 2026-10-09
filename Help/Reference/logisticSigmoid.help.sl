@@ -6,11 +6,25 @@
 Answer the logistic sigmoid function,
 sometimes called the Verhulst model or logistic growth curve.
 
+Evaluate symbolically:
+
+```
+>> `x`.logisticSigmoid
+(/ 1 (+ 1 (exp (* x -1))))
+```
+
 Evaluate numerically:
 
 ```
 >>> 2.logisticSigmoid
 0.8808
+```
+
+Threads over lists:
+
+```
+>>> [-2 -1 0 1 2].logisticSigmoid
+[0.11920 0.26894 0.5 0.73106 0.88080]
 ```
 
 Plot over a subset of the reals:
@@ -75,11 +89,24 @@ Plot over a subset of the complexes:
 
 ![](Help/Image/logisticSigmoid-D.png)
 
+Plot comparing to scale `tanh` function:
+
+~~~spl svg=E
+(-4 -- 4).functionPlot(
+	[
+		logisticSigmoid/1,
+		{ :x | x.tanh + 1 / 2 }
+	]
+)
+~~~
+
+![](Help/Image/logisticSigmoid-E.svg)
+
 * * *
 
-See also: exp, gompertzFunction, heavisideTheta, LogisticDistribution, logit, richardsCurve, unitStep
+See also: LogisticDistribution, exp, gompertzFunction, heavisideTheta, logit, richardsCurve, unitStep, tanh
 
-Guides: Sigmoid Functions
+Guides: Activation Functions, Sigmoid Functions
 
 References:
 _Mathematica_

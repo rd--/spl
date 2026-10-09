@@ -235,7 +235,7 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 			) {
 				self.error('Colour')
 			}
-}
+		}
 	}
 
 	HsvColour { :self :alpha |
@@ -671,7 +671,6 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 			self.collect(srgbEncode/1)
 		}
 	}
-
 
 	uncheckedHsvToRgb { :self |
 		let [hue, saturation, brightness] = SmallFloat(self);

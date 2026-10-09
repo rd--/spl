@@ -1,6 +1,7 @@
 # GaussianInteger
 
 - _GaussianInteger(a, b)_
+- _GaussianInteger([a, b])_
 
 Answer a `Complex` number where _a_ and _b_ are integers.
 

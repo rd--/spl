@@ -93,6 +93,13 @@ Interval : [Object, Store, Equal, Number] {
 		(self.min + self.max) / 2
 	}
 
+	checkInterval { :self |
+		(self.min > self.max).ifTrue {
+			self.error('checkInterval: min > max')
+		};
+		self
+	}
+
 	discretize { :self :size :aBlock/1 |
 		self.discretize(size).collect(aBlock/1)
 	}
@@ -275,11 +282,15 @@ Interval : [Object, Store, Equal, Number] {
 	}
 
 	Interval { :min :max |
-		(min > max).if {
-			[min, max].error('Interval: min > max')
+		max.isNumber.if {
+			uncheckedInterval(min, max).checkInterval
 		} {
-			newInterval().initializeSlots(min, max)
+			max.adaptToNumberAndApply(min, Interval/2)
 		}
+	}
+
+	uncheckedInterval { :min :max |
+		newInterval().initializeSlots(min, max)
 	}
 
 }
@@ -287,7 +298,7 @@ Interval : [Object, Store, Equal, Number] {
 +List {
 
 	Interval { :self :operand |
-		self.withCollect(operand, Interval/2)
+		operand.adaptToCollectionAndApply(self, Interval/2)
 	}
 
 }

@@ -1,7 +1,6 @@
 # keyAndValue
 
 - _keyAndValue(k → v)_
-- _keyAndValue(k → v, k′, v′)_
 
 Answer both the key and the value of an association.
 
@@ -16,17 +15,20 @@ Answer both the key and the value of an association.
 3
 ```
 
-The ternary form mutates the association:
+Threads over lists:
 
 ```
->>> let x = 1 -> 3;
->>> let y = x.keyAndValue(2, 4);
->>> (x == y, x)
-(true, 2 -> 4)
+>>> Association['x' 1; 'y' 2:; 'a' 0; 'b' -1]
+>>> .keyAndValue
+[
+	'x' 1; 'y'  2
+	:;
+	'a' 0; 'b' -1
+]
 ```
 
 * * *
 
-See also: key, value
+See also: Association, key, value
 
 Guides: Dictionary Functions

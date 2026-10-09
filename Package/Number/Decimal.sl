@@ -102,9 +102,9 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 		uncheckedDecimal(self.fraction.abs, self.scale)
 	}
 
-	adaptToFractionAndApply { :self :receiver :aBlock/2 |
+	adaptToFractionAndApply { :self :aFraction :aBlock/2 |
 		aBlock(
-			Decimal(receiver, self.scale),
+			Decimal(aFraction, self.scale),
 			self
 		)
 	}
@@ -299,7 +299,7 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 		LargeInteger(self).SmallInteger
 	}
 
-	[SmallFloat, Float] { :self |
+	[SmallFloat, Float, decimalToSmallFloat] { :self |
 		self.fraction.SmallFloat
 	}
 

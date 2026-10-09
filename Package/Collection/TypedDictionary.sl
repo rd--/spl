@@ -14,17 +14,12 @@ TypedDictionary : [Object, Store, Equal, Iterable, Indexable, Collection, Extens
 		self.untypedDictionary.do(aBlock/1)
 	}
 
-	indices { :self |
+	[indices, keys] { :self |
 		self.untypedDictionary.indices
 	}
 
-	keys { :self |
-		self.untypedDictionary.keys
-	}
-
 	keysAndValuesDo { :self :aBlock/2 |
-		self.untypedDictionary.keysAndValuesDo(aBlock/2);
-		self
+		self.untypedDictionary.keysAndValuesDo(aBlock/2)
 	}
 
 	put! { :self :key :value |

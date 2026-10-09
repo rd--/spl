@@ -2,10 +2,6 @@ CalendarDuration : [Object, Store, Equal, Compare] {
 
 	| components |
 
-	CalendarDuration { :self |
-		self
-	}
-
 	compare { :self :operand |
 		self.components.compare(operand.components)
 	}
@@ -47,11 +43,15 @@ CalendarDuration : [Object, Store, Equal, Compare] {
 	CalendarDuration { :self |
 		self.atVectorOrElementwise { :each |
 			(each.size = 6).if {
-				newCalendarDuration().initializeSlots(self)
+				uncheckedCalendarDuration(each)
 			} {
 				self.error('CalendarDuration: invalid components')
 			}
 		}
+	}
+
+	uncheckedCalendarDuration { :self |
+		newCalendarDuration().initializeSlots(self)
 	}
 
 }
