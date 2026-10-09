@@ -262,7 +262,7 @@ Convert a list of two places to a complex number:
 >>> Complex[1 2]
 1J2
 
->>> [1 2].arrayToComplex
+>>> [1 2].listToComplex
 1J2
 ```
 

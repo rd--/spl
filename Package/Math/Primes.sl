@@ -472,7 +472,7 @@
 				k := k - 1;
 				k >= 0
 			}.whileTrue {
-				let a = system.randomLargeInteger(self.one * 2, self - 2);
+				let [a] = system.randomLargeInteger([self.one * 2, self - 2], [1]);
 				let x = (a ^ d) \\ self;
 				(x = 1).ifFalse {
 					let r = -1;

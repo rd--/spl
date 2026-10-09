@@ -43,16 +43,14 @@ At `Complex`:
 ```
 
 At `Decimal`,
-the answer has the same `scale` as the initial decimal value,
-meaning that the answer will ordinarily not answer `true` to `isInteger`:
+the answer has the same `scale` as the initial decimal value:
 
 ```
 >>> 3.14159D.integerPart
 3.00000D
 
->>> 3.14159D.integerPart
->>> .isInteger
-false
+>>> 3.14159D.integerPart.isInteger
+true
 ```
 
 Threads elementwise over lists:

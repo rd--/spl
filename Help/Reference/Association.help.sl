@@ -29,11 +29,10 @@ The unary form maps over appropriately shaped arrays:
 ['x' -> 1, 'y' -> 2]
 
 >>> Association['x' 1; 'y' 2:; 'a' 0; 'b' -1]
-
 [
 	['x' -> 1, 'y' -> 2],
 	['a' -> 0, 'b' -> -1]
-].keyAndValue
+]
 ```
 
 Instances are ordinarily entries in a `Dictionary` type, i.e. `Map` or `Record`:
