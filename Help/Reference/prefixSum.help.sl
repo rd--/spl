@@ -2,7 +2,8 @@
 
 - _prefixSum([x₁ x₂ …])_
 
-Answer a `List` of the successive accumulated totals of elements in the sequence _x_.
+Answer a `List` of the successive accumulated totals of elements in the sequence _x_,
+also called the cumulative sum or inclusive scan.
 This operation is also called `accumulate`, and is equivalent to _scan(x,+)_.
 
 Triangular numbers,

@@ -62,6 +62,32 @@ OEIS [A217831](https://oeis.org/A217831):
 
 ![](Help/Image/triangularArrayPlot-E.svg)
 
+Transform, _(1,0,1,…)_ in every column,
+OEIS [A128174](https://oeis.org/A128174):
+
+~~~spl svg=F oeis=A128174
+0:9.triangularArray { :n :k |
+	(n + k).isEven.boole
+}.triangularArrayPlot
+~~~
+
+![](Help/Image/triangularArrayPlot-F.svg)
+
+The indicator function for divisibility,
+OEIS [A113704](https://oeis.org/A113704):
+
+~~~spl svg=G oeis=A113704
+0:15.triangularArray { :n :k |
+	(k = 0).if {
+		(n = 0).boole
+	} {
+		n.divisible(k).boole
+	}
+}.triangularArrayPlot
+~~~
+
+![](Help/Image/triangularArrayPlot-G.svg)
+
 * * *
 
 See also: triangularArray

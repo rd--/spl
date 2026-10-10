@@ -1121,6 +1121,10 @@
 		}
 	}
 
+	isTriangularNumber { :self |
+		(self * 8 + 1).isSquare
+	}
+
 	isUnhappyNumber { :self |
 		self.isHappyNumber.not
 	}

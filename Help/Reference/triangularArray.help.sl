@@ -413,6 +413,27 @@ OEIS [A037027](https://oeis.org/A037027):
 ]
 ```
 
+Transform, _(1,0,1,…)_ in every column,
+OEIS [A128174](https://oeis.org/A128174):
+
+```
+>>> 0:9.triangularArray { :n :k |
+>>> 	(n + k).isEven.boole
+>>> }
+[
+	1;
+	0 1;
+	1 0 1;
+	0 1 0 1;
+	1 0 1 0 1;
+	0 1 0 1 0 1;
+	1 0 1 0 1 0 1;
+	0 1 0 1 0 1 0 1;
+	1 0 1 0 1 0 1 0 1;
+	0 1 0 1 0 1 0 1 0 1
+]
+```
+
 The triangle given by recursion _T(n,k)=T(n-1,k)-T(n,k-1)_,
 OEIS [A096470](https://oeis.org/A096470):
 

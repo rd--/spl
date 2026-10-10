@@ -207,6 +207,19 @@ note multiple independent local repeating patterns:
 
 ![](Help/Image/elementaryCellularAutomaton-K.png)
 
+Middle column of Rule-30 cellular automaton from a lone one cell,
+OEIS [A051023](https://oeis.org/A051023):
+
+~~~spl svg=L oeis=A051023
+let n = 100;
+30.elementaryCellularAutomaton(
+	[1].centerArray([n], 0),
+	n
+).column(n // 2).discretePlot
+~~~
+
+![](Help/Image/elementaryCellularAutomaton-L.svg)
+
 * * *
 
 See also: arrayFilter, blockMap, centerArray, convolve, fromDigits, integerDigits, partition, substitutionSystem

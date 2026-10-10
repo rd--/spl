@@ -10,6 +10,9 @@ Answer the _n_-th triangular number.
 
 >>> 276.inverseTriangularNumber
 23
+
+>>> (276 * 8 + 1).isSquare
+true
 ```
 
 Relation to `binomial`:
@@ -159,6 +162,14 @@ OEIS [A001219](https://oeis.org/A001219):
 >>> [0 3 15 20 44 608 22736]
 >>> .triangularNumber
 [0 6 120 210 990 185136 258474216]
+```
+
+Characteristic function or triangular numbers,
+OEIS [A010054](https://oeis.org/A010054):
+
+```
+>>> 0:21.collect(isTriangularNumber/1).boole
+[1 1 0 1 0 0 1 0 0 0 1 0 0 0 0 1 0 0 0 0 0 1]
 ```
 
 The reciprocals of triangular numbers produce a convergent series where the limit is two:

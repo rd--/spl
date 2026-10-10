@@ -119,6 +119,42 @@ OEIS [A007477](https://oeis.org/A007477):
 ]
 ```
 
+Convolve natural numbers with characteristic function of triangular numbers,
+OEIS [A006463](https://oeis.org/A006463):
+
+```
+>>> let n = 30;
+>>> convolve(
+>>> 	1:n,
+>>> 	1:n.collect(
+>>> 		isTriangularNumber/1
+>>> 	).boole
+>>> ).first(n)
+[
+	1 2 4 6 8 11 14 17 20 24
+	28 32 36 40 45 50 55 60 65 70
+	76 82 88 94 100 106 112 119 126 133
+]
+```
+
+Convolve natural numbers with characteristic function of triangular numbers,
+OEIS [A060432](https://oeis.org/A060432):
+
+```
+>>> let n = 29;
+>>> convolve(
+>>> 	0:n,
+>>> 	0:n.collect(
+>>> 		isTriangularNumber/1
+>>> 	).boole
+>>> ).first(n)
+[
+	0 1 3 5 8 11 14 18 22 26
+	30 35 40 45 50 55 61 67 73 79
+	85 91 98 105 112 119 126 133 140
+]
+```
+
 A convolution typically smooths the function.
 Smooth box function (to a triangle function):
 

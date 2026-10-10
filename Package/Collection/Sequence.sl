@@ -1092,6 +1092,11 @@
 		}
 	}
 
+
+	firstHalf { :self |
+		self.first(self.size // 2)
+	}
+
 	flattenTo { :self :depth |
 		(depth <= 0).if {
 			self
