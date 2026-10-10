@@ -153,6 +153,31 @@ BlockStream : [Object, Iterator, Stream] {
 		}
 	}
 
+	[concatenation, ++] { :self :aStream |
+		BlockStream {
+			self.atEnd.if {
+				aStream.next!
+			} {
+				self.next!
+			}
+		} {
+			self.reset!;
+			aStream.reset!
+		}
+	}
+
+
+	cycle { :self |
+		BlockStream {
+			self.atEnd.ifTrue {
+				self.reset!
+			};
+			self.next!
+		} {
+			self.reset!
+		}
+	}
+
 	drop { :input :count |
 		input.next!(count);
 		BlockStream {

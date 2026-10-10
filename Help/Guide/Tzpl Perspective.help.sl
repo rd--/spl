@@ -604,6 +604,71 @@ filter=`select`:
 [0 10; 1 20; 2 30]
 ```
 
+fold=`foldLeft`:
+
+```
+>>> [1 2 3 4 5].foldLeft(+)
+15
+
+>>> ['a' 'b' 'c'].foldLeft(++)
+'abc'
+```
+
+scan=`scanLeft`:
+
+```
+>>> [1 2 3 4 5].scanLeft(+, 0)
+[0 1 3 6 10 15]
+```
+
+find=`detectIndex`:
+
+```
+>>> [10 20 30 40].detectIndex { :x | x > 25 }
+3
+
+>>> [1 2 3].detectIndex { :x | x > 10 }
+nil
+```
+
+cat=`concatenation`, ordinarily `++`:
+
+```
+>>> [1 2 3] ++ [4 5 6]
+[1 2 3 4 5 6]
+
+>>> (Stream[1 2] ++ Stream[3 4]).upToEnd
+[1 2 3 4]
+```
+
+`sum`, `product`, `mean`:
+
+>>> [1 2 3 4].sum
+10
+
+>>> [1/2 1/3 1/6].sum
+1/1
+
+>>> (1 .. 5).product
+120
+
+>>> [1 2 6].mean
+3
+```
+
+`min`, `max`:
+
+```
+>>> [3 1 4 1 5].min
+1
+
+>>> [3 1 4 1 5].max
+5
+
+>>> ['banana' 'apple'].min
+'apple'
+```
+
 ## Type Conversions
 
 toInt=`truncate`:
