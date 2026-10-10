@@ -47,7 +47,7 @@ The provided methods are:
 
 `RandomNumberGenerator` implements `next` as `nextRandomFloat`:
 
-- _next(r)_ ≡ _nextRandomFloat(r)_
+- _next!(r)_ ≡ _nextRandomFloat(r)_
 
 * * *
 

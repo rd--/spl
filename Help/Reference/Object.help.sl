@@ -39,7 +39,6 @@ Methods for copying objects:
 - `copy`
 - `shallowCopy`
 - `deepCopy`
-- `veryDeepCopy`
 
 Methods for displaying and storing objects:
 

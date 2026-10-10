@@ -265,8 +265,8 @@
 			let p = (m ++ m.transpose).collect { :x |
 				x.partition(2, 1)
 			}.catenate.sort;
-			let q = 2.replicate(
-				m.size.gilbertSquareDigrams
+			let q = m.size.gilbertSquareDigrams.replicate(
+				2
 			);
 			p = q
 		}

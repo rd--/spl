@@ -52,7 +52,7 @@ Nil! : [Object, Copy, Store, Equal, Json] {
 		anObject
 	}
 
-	shallowCopy { :self |
+	shallowCopy { :unused |
 		nil
 	}
 

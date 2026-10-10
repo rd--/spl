@@ -51,7 +51,7 @@ A list of 10 _x_:
 >>> 'x'.constant.table(1:10)
 ['x' 'x' 'x' 'x' 'x' 'x' 'x' 'x' 'x' 'x']
 
->>> 10 # ['x']
+>>> ['x'] # 10
 ['x' 'x' 'x' 'x' 'x' 'x' 'x' 'x' 'x' 'x']
 ```
 

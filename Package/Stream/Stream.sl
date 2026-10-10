@@ -1,14 +1,25 @@
 @Stream {
 
+	cycle { :self |
+		BlockStream {
+			self.atEnd.ifTrue {
+				self.reset!
+			};
+			self.next!
+		} {
+			self.reset!
+		}
+	}
+
 	equalToOnReset { :self :places |
-		let initialAnswer = self.next(places);
-		self.reset;
-		self.next(places) = initialAnswer
+		let initialAnswer = self.next!(places);
+		self.reset!;
+		self.next!(places) = initialAnswer
 	}
 
 	equalUpToEndOnReset { :self |
 		let initialAnswer = self.upToEnd;
-		self.reset;
+		self.reset!;
 		self.upToEnd = initialAnswer
 	}
 
@@ -20,8 +31,8 @@
 		true
 	}
 
-	reset { :self |
-		self.typeResponsibility('Stream>>reset')
+	reset! { :self |
+		self.typeResponsibility('Stream>>reset!')
 	}
 
 	Stream { :self |

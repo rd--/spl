@@ -62,7 +62,7 @@ Oblong numbers repeated,
 OEIS [A110660](https://oeis.org/A110660):
 
 ```
->>> 2 # 0:12:2.prefixSum
+>>> 0:12:2.prefixSum # 2
 [0 0 2 2 6 6 12 12 20 20 30 30 42 42]
 ```
 

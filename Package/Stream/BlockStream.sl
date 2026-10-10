@@ -4,7 +4,7 @@ BlockStream : [Object, Iterator, Stream] {
 
 	| onNext onReset nextItem |
 
-	next { :self |
+	next! { :self |
 		let answer = self.peek;
 		answer.ifNotNil {
 			self.nextItem := nil
@@ -18,7 +18,7 @@ BlockStream : [Object, Iterator, Stream] {
 		}
 	}
 
-	reset { :self |
+	reset! { :self |
 		self.onReset.blockValue;
 		self.nextItem := nil;
 		0
@@ -67,7 +67,7 @@ BlockStream : [Object, Iterator, Stream] {
 	}
 
 	nestList { :self/1 :anObject :count |
-		self/1.iterate(anObject).next(count + 1)
+		self/1.iterate(anObject).next!(count + 1)
 	}
 
 	nestListDistinct { :self/1 :anObject |
@@ -122,8 +122,8 @@ BlockStream : [Object, Iterator, Stream] {
 			atEnd.if {
 				nil
 			} {
-				let p = self.next;
-				let q = aStream.next;
+				let p = self.next!;
+				let q = aStream.next!;
 				(p.isNil | {
 					q.isNil
 				}).if {
@@ -134,32 +134,32 @@ BlockStream : [Object, Iterator, Stream] {
 				}
 			}
 		} {
-			self.reset;
-			aStream.reset;
+			self.reset!;
+			aStream.reset!;
 			atEnd := false
 		}
 	}
 
 	collect { :self :aBlock/1 |
 		BlockStream {
-			let next = self.next;
+			let next = self.next!;
 			next.isNil.if {
 				nil
 			} {
 				aBlock(next)
 			}
 		} {
-			self.reset
+			self.reset!
 		}
 	}
 
 	drop { :input :count |
-		input.next(count);
+		input.next!(count);
 		BlockStream {
-			input.next
+			input.next!
 		} {
-			input.reset;
-			input.next(count)
+			input.reset!;
+			input.next!(count)
 		}
 	}
 
@@ -169,13 +169,13 @@ BlockStream : [Object, Iterator, Stream] {
 		BlockStream {
 			remain := remain - 1;
 			(remain <= 0).ifTrue {
-				remain := repeats.next;
-				next := input.next
+				remain := repeats.next!;
+				next := input.next!
 			};
 			next
 		} {
-			input.reset;
-			repeats.reset;
+			input.reset!;
+			repeats.reset!;
 			remain := 1
 		}
 	}
@@ -183,7 +183,7 @@ BlockStream : [Object, Iterator, Stream] {
 	enumerate { :input |
 		let nextIndex = 1;
 		BlockStream {
-			let item = input.next;
+			let item = input.next!;
 			item.isNil.if {
 				nil
 			} {
@@ -192,7 +192,7 @@ BlockStream : [Object, Iterator, Stream] {
 				[index, item]
 			}
 		} {
-			input.reset;
+			input.reset!;
 			nextIndex := 1
 		}
 	}
@@ -218,17 +218,17 @@ BlockStream : [Object, Iterator, Stream] {
 	repeat { :self :repeats |
 		let repeat = 1;
 		BlockStream {
-			let next = self.next;
+			let next = self.next!;
 			(next.isNil & {
 				repeat < repeats
 			}).ifTrue {
-				self.reset;
+				self.reset!;
 				repeat := repeat + 1;
-				next := self.next
+				next := self.next!
 			};
 			next
 		} {
-			self.reset;
+			self.reset!;
 			repeat := 1
 		}
 	}
@@ -242,9 +242,9 @@ BlockStream : [Object, Iterator, Stream] {
 	}
 
 	scan { :input :aBlock/2 |
-		let z1 = input.next;
+		let z1 = input.next!;
 		BlockStream {
-			let z2 = input.next;
+			let z2 = input.next!;
 			z1.isNil.if {
 				nil
 			} {
@@ -257,24 +257,24 @@ BlockStream : [Object, Iterator, Stream] {
 				answer
 			}
 		} {
-			input.reset;
-			z1 := input.next
+			input.reset!;
+			z1 := input.next!
 		}
 	}
 
 	select { :self :aBlock/1 |
 		BlockStream {
-			let next = self.next;
+			let next = self.next!;
 			{
 				next.isNil | {
 					aBlock(next)
 				}
 			}.whileFalse {
-				next := self.next
+				next := self.next!
 			};
 			next
 		} {
-			self.reset
+			self.reset!
 		}
 	}
 
@@ -285,31 +285,31 @@ BlockStream : [Object, Iterator, Stream] {
 				nil
 			} {
 				count := count + 1;
-				self.next
+				self.next!
 			}
 		} {
 			count := 1;
-			self.reset
+			self.reset!
 		}
 	}
 
 	takeWhile { :self :aBlock/1 |
 		BlockStream {
-			let answer = self.next;
+			let answer = self.next!;
 			aBlock(answer).if {
 				answer
 			} {
 				nil
 			}
 		} {
-			self.reset
+			self.reset!
 		}
 	}
 
 	withCollect { :self :aStream :aBlock/2 |
 		BlockStream {
-			let selfNext = self.next;
-			let aStreamNext = aStream.next;
+			let selfNext = self.next!;
+			let aStreamNext = aStream.next!;
 			(selfNext.isNil | {
 				aStreamNext.isNil
 			}).if {
@@ -318,16 +318,16 @@ BlockStream : [Object, Iterator, Stream] {
 				aBlock(selfNext, aStreamNext)
 			}
 		} {
-			self.reset;
-			aStream.reset
+			self.reset!;
+			aStream.reset!
 		}
 	}
 
 	withWithCollect { :self :aStream :anotherStream :aBlock/3 |
 		BlockStream {
-			let selfNext = self.next;
-			let aStreamNext = aStream.next;
-			let anotherStreamNext = anotherStream.next;
+			let selfNext = self.next!;
+			let aStreamNext = aStream.next!;
+			let anotherStreamNext = anotherStream.next!;
 			(selfNext.isNil | {
 				aStreamNext.isNil | {
 					anotherStreamNext.isNil
@@ -338,9 +338,9 @@ BlockStream : [Object, Iterator, Stream] {
 				aBlock(selfNext, aStreamNext, anotherStreamNext)
 			}
 		} {
-			self.reset;
-			aStream.reset;
-			anotherStream.reset
+			self.reset!;
+			aStream.reset!;
+			anotherStream.reset!
 		}
 	}
 
@@ -352,14 +352,6 @@ BlockStream : [Object, Iterator, Stream] {
 		aStream.collect { :each |
 			aBlock(each, self)
 		}
-	}
-
-}
-
-+List {
-
-	enumerate { :self |
-		self.Stream.enumerate
 	}
 
 }

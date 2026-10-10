@@ -7,7 +7,7 @@ and `false` if not.
 
 ```
 >>> let s = 1:9.Iterator;
->>> (s.nextMatchFor(1), s.next)
+>>> (s.nextMatchFor(1), s.next!)
 (true, 2)
 ```
 

@@ -39,7 +39,7 @@ Stream Functions:
 - `nextSatisfy`
 - `nextUntil`
 - `nextWhile`
-- `reset`
+- `reset!`
 - `size`
 - `upTo`
 - `upToEnd`

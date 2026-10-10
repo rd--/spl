@@ -103,13 +103,13 @@ system.scSynth.isScSynth
 
 ## Ls -- lazy sequence library
 ```
-let l = LsOnce(1); let a = l.upToEnd; l.reset ; l.upToEnd = a
+let l = LsOnce(1); let a = l.upToEnd; l.reset!; l.upToEnd = a
 LsCat([1 2 3]).upToEnd = [1 2 3]
-let l = LsCat([1 2 3]); let a = l.upToEnd; l.reset; l.upToEnd = a
+let l = LsCat([1 2 3]); let a = l.upToEnd; l.reset!; l.upToEnd = a
 LsCat([LsGeom(1, 3, 4), 0, LsSeries(1, 3, 4)]).upToEnd = [1 3 9 27 0 1 4 7 10]
 LsN(LsSeries(1, 1, 3), 2).upToEnd = [1 2 3 1 2 3]
 LsSeq([1 2 3], 2).upToEnd = [1 2 3 1 2 3]
-LsSeq([1 2 3], Infinity).next(9) = [1 2 3 1 2 3 1 2 3]
+LsSeq([1 2 3], Infinity).next!(9) = [1 2 3 1 2 3 1 2 3]
 LsSeq([LsGeom(1, 3, 3), LsSeries(1, 3, 3)], 2).upToEnd = [1 3 9 1 4 7 1 3 9 1 4 7]
 LsSer([LsGeom(1, 3, 3), LsSeries(1, 3, 3)], 12).upToEnd = [1 3 9 1 4 7 1 3 9 1 4 7]
 LsDupEach(LsSeries(1, 3, 5), 2).upToEnd = [1 1 4 4 7 7 10 10 13 13]
@@ -123,17 +123,17 @@ LsClutch(LsSeries(1, 3, 5), LsSeq([1 0 1 1 0], Infinity), -1).upToEnd = [1 1 4 7
 LsClump(LsSeries(1, 1, 5), 2).upToEnd = [1 2; 3 4; 5]
 LsClump(LsSeries(1, 1, 11), LsCyc([2 3])).upToEnd = [1 2; 3 4 5; 6 7; 8 9 10; 11]
 LsSeries(1, 1, 9).collect { :each | each * each }.upToEnd = [1 4 9 16 25 36 49 64 81]
-LsSeries(1, 1, Infinity).select(isEven/1).next(4) = [2 4 6 8]
-LsSeries(1, 1, Infinity).reject(isEven/1).next(5) = [1 3 5 7 9]
-LsSwitch1([1 3 5], 2).next(3) = [3 3 3]
-LsSwitch1([LsSeries(1, 2, 3), LsGeom(2, 3, 3)], LsCyc([1, 2])).next(9) = [1 2 3 6 5 18 1 2 3]
-let a = LsSeq([1 2], 2); let b = LsSeq([6 7], 1); LsSwitch([a b 8], LsSeq([3 3 1 2], Infinity)).next(10) = [8 8 1 2 1 2 6 7 8 8]
-LsLace([1, LsCyc([2 5]), LsCyc([3 4])]).next(8) = [1 2 3 1 5 4 1 2]
+LsSeries(1, 1, Infinity).select(isEven/1).next!(4) = [2 4 6 8]
+LsSeries(1, 1, Infinity).reject(isEven/1).next!(5) = [1 3 5 7 9]
+LsSwitch1([1 3 5], 2).next!(3) = [3 3 3]
+LsSwitch1([LsSeries(1, 2, 3), LsGeom(2, 3, 3)], LsCyc([1, 2])).next!(9) = [1 2 3 6 5 18 1 2 3]
+let a = LsSeq([1 2], 2); let b = LsSeq([6 7], 1); LsSwitch([a b 8], LsSeq([3 3 1 2], Infinity)).next!(10) = [8 8 1 2 1 2 6 7 8 8]
+LsLace([1, LsCyc([2 5]), LsCyc([3 4])]).next!(8) = [1 2 3 1 5 4 1 2]
 LsLace([1, LsCyc([2 5]), LsCyc([3 4])], 8).upToEnd = [1 2 3 1 5 4 1 2]
-LsTuple([1 2 3; 4 5; 6].collect(LsCyc/1), Infinity).next(6) = [1 4 6; 2 5 6; 3 4 6; 1 5 6; 2 4 6; 3 5 6]
+LsTuple([1 2 3; 4 5; 6].collect(LsCyc/1), Infinity).next!(6) = [1 4 6; 2 5 6; 3 4 6; 1 5 6; 2 4 6; 3 5 6]
 LsTuple([LsCyc([1 .. 5]), LsSeq([5 6 7], 2)], 1).upToEnd = [1 5; 2 6; 3 7; 4 5; 5 6; 1 7; 1 5]
 LsSeries(1, 2, 5).drop(2).upToEnd = [5 7 9]
-let l = LsSeries(1, 2, 5).drop(2); let a = l.upToEnd; l.reset; l.upToEnd = a
+let l = LsSeries(1, 2, 5).drop(2); let a = l.upToEnd; l.reset!; l.upToEnd = a
 (LsGeom(1, 3, 4) + LsSeries(1, 3, Infinity)).upToEnd = [1 + 1, 3 + 4, 9 + 7, 27 + 10]
 (LsGeom(1, 3, 4) * LsSeries(1, 3, Infinity)).upToEnd = ([1 3 9 27] * [1 4 7 10])
 (LsGeom(2, 4, 5) / 2).upToEnd = [1 4 16 64 256]
@@ -142,11 +142,11 @@ LsAt([1 3 5 7 9], LsSeries(1, 1, 5)).upToEnd = [1 3 5 7 9]
 LsAtWrap([1 3 5 7 9], LsSeries(-1, 1, 9)).upToEnd = [7 9 1 3 5 7 9 1 3]
 LsAtFold([1 3 5 7 9], LsSeries(-1, 1, 9)).upToEnd = [5 3 1 3 5 7 9 7 5]
 LsAccum(LsSeries(1, 1, 9)).upToEnd = [1 3 6 10 15 21 28 36 45]
-LsWalk([1 3 5 7 9], 1).next(13) = [1 3 5 7 9 7 5 3 1 3 5 7 9]
-LsWalk([1 3 5 7 9 11], LsCyc([1, 2])).next(13) = [1 5 7 11 9 5 3 3 5 9 11 7 5]
-LsBind(freq: LsCyc([3 5 7] * 111), amp: 0.1).next(3) = [(freq: 333, amp: 0.1), (freq: 555, amp: 0.1), (freq: 777, amp: 0.1)]
-LsBind(freq: 333, amp: 0.1).next(2) = [(freq: 333, amp: 0.1), (freq: 333, amp: 0.1)]
-LsSet('freq', 111, LsBind(freq: 333)).next(3) = [(freq: 111), (freq: 111), (freq: 111)]
+LsWalk([1 3 5 7 9], 1).next!(13) = [1 3 5 7 9 7 5 3 1 3 5 7 9]
+LsWalk([1 3 5 7 9 11], LsCyc([1, 2])).next!(13) = [1 5 7 11 9 5 3 3 5 9 11 7 5]
+LsBind(freq: LsCyc([3 5 7] * 111), amp: 0.1).next!(3) = [(freq: 333, amp: 0.1), (freq: 555, amp: 0.1), (freq: 777, amp: 0.1)]
+LsBind(freq: 333, amp: 0.1).next!(2) = [(freq: 333, amp: 0.1), (freq: 333, amp: 0.1)]
+LsSet('freq', 111, LsBind(freq: 333)).next!(3) = [(freq: 111), (freq: 111), (freq: 111)]
 LsSet('freq', LsSeries(1, 1, 3) * 111, LsBind(dur: 1)).upToEnd = [(dur: 1, freq: 111), (dur: 1, freq: 222), (dur: 1, freq: 333)]
 LsTrace(LsSeries(1, 1, 3)).upToEnd = [1 .. 3]
 LsScan(LsSeries(1, 1, 9), +).upToEnd = [1 3 6 10 15 21 28 36 45]

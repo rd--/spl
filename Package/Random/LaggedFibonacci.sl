@@ -5,7 +5,7 @@ LaggedFibonacci : [Object, Equal, Iterator, RandomNumberGenerator, Stream] {
 	initialize { :self :parameters :seed |
 		self.parameters := parameters;
 		self.seed := seed;
-		self.reset;
+		self.reset!;
 		self
 	}
 
@@ -35,7 +35,7 @@ LaggedFibonacci : [Object, Equal, Iterator, RandomNumberGenerator, Stream] {
 		z / m
 	}
 
-	reset { :self |
+	reset! { :self |
 		let [s, r, m] = self.parameters;
 		let k = self.seed;
 		let x = List(r);

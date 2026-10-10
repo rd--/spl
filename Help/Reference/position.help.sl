@@ -10,7 +10,7 @@ The position index corresponding to the beginning of the stream is `zero`.
 
 ```
 >>> let s = Stream[1 3 5 7 9];
->>> (s.position, s.next(2), s.position)
+>>> (s.position, s.next!(2), s.position)
 (0, [1 3], 2)
 ```
 
@@ -25,7 +25,7 @@ which is the index before the next element:
 ```
 >>> let s = Stream[1 3 5 7 9];
 >>> s.position!(3);
->>> s.next
+>>> s.next!
 7
 ```
 

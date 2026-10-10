@@ -1,8 +1,9 @@
 # duplicate
 
-- _f/0 ! ⍴_
+- _duplicate(f/0, ⍴)_
 
 Evaluate the no-argument block _f_ to fill each place in a newly constructed array of the indicated shape _⍴_.
+The operator form is `!`.
 
 A three-vector:
 

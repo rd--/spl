@@ -19,10 +19,10 @@ Rlpf(
 Pan2(BrownNoise(), MouseX(-1, 1, 0, 0.2), 0.1)
 
 /* Uncorrelated channels ; Jmcc */
-BrownNoise(2 # [0.1], 0)
+BrownNoise([0.1] # 2, 0)
 
 /* Uncorrelated channels ; Jmcc */
-PinkNoise(2 # [0.1], 0)
+PinkNoise([0.1] # 2, 0)
 
 /* Waveform ; Jmcc */
 [
@@ -49,7 +49,7 @@ PinkNoise(2 # [0.1], 0)
 /* Filtered decorrelated noise ; Jmcc */
 CombN(
 	Resonz(
-		BrownNoise(2 # [0.4], 0),
+		BrownNoise([0.4] # 2, 0),
 		MouseX(20, 12000, 1, 0.2),
 		0.2
 	),

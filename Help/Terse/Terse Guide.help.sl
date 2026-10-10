@@ -353,7 +353,7 @@ let a = [1 .. 9]; a.shuffle != a & { a = [1 .. 9] } /* copying shuffle */
 [1 .. 9].shuffle!.sort! = [1 .. 9] /* re-sort after shuffle */
 [].shuffle! = []
 14.fibonacciSequence = [0 1 1 2 3 5 8 13 21 34 55 89 144 233]
-3 # [3] = [3 3 3]
+[3] # 3 = [3 3 3]
 [1, 2, 3, 4, 3, 2, 1].detectMax(identity/1) = 4
 [1:3, 1:6, 1:9].detectMax(size/1) = 1:9
 [1:3, 1:6, 1:9].detectMin(size/1) = 1:3
@@ -573,9 +573,7 @@ let a = 'x' -> 1; [a.key, a.value] = ['x', 1] /* key and value accessors */
 (0 -> 1) != (0 -> 2) /* equality considers both key and value, unlike in Smalltalk-80 */
 ('x' -> 1) != ('y' -> 1) /* equality considers both key and value, unlike in Smalltalk-80 */
 ('x' -> 1) != (x: 1) /* an association is not equal to a record */
-let a = 'x' -> 1; a.keyAndValue('y', 2); a = ('y' -> 2) /* set key and value */
-('x' -> 1).first = 'x' /* implements first */
-('x' -> 1).second = 1 /* implements second */
+let a = 'x' -> 1; a.key := 'y'; a.value := 2; a = ('y' -> 2) /* set key and value */
 ```
 
 ## Multiset -- collection type
@@ -1138,11 +1136,11 @@ let z = 1 + 2.i; z.abs ~ 2.2361 & { z.arg ~ 1.1071 } /* absolute value (modulus,
 let n = (1 + 2.i); n.reciprocal * n = 1 /* multiplicative inverse */
 (1 + 0.i).isInteger = false /* a complex number is not an integer */
 (1 + 0.i).isFraction = false /* a complex number is not a fraction */
-3/2.Complex = Complex(3/2, 0) /* fraction as complex */
+3/2.toComplex = Complex(3/2, 0) /* fraction as complex */
 0/1.i = Complex(0, 0/1) /* complex with integral real part and fractional imaginary part */
-3/2 + 0/1.i = 3/2.Complex
-3/2.Complex + 0/1.i = 3/2.Complex /* add 0i to a complex number is identity */
-1.Complex = Complex(1, 0) /* Complex is a monadic complex number constructor */
+3/2 + 0/1.i = 3/2.toComplex
+3/2.toComplex + 0/1.i = 3/2.toComplex /* add 0i to a complex number is identity */
+1.toComplex = Complex(1, 0) /* Complex is a monadic complex number constructor */
 1.i = Complex(0, 1) /* Complex is a monadic complex number constructor */
 (1 + -2.i) + (3 + 4.i) = (4 + 2.i) /* i is a monadic complex number constructor */
 1.j(-2) + 3.j(4) = 4.j(2) /* j is the dyadic complex number constructor */
@@ -1223,9 +1221,9 @@ true.boole = 1 /* boole */
 1.pi.rationalize(0.01) = 22/7 /* with epsilon */
 22/7.rationalize = 22/7 /* identity */
 23.rationalize = 23 /* identity */
-1.Complex = Complex(1, 0) /* number to complex */
+1.toComplex = Complex(1, 0) /* number to complex */
 1.i = Complex(0, 1) /* number to complex */
-(2 + 3.i).Complex = Complex(2, 3) /* identity */
+(2 + 3.i).toComplex = Complex(2, 3) /* identity */
 126.Character = '~'.Character /* integer to character */
 '~'.Character.isCharacter /* string to character */
 let c = '~'.Character; c.Character == c /* identity */
@@ -2417,8 +2415,8 @@ let f = { let x = 0; { x := x + 1; x } }; [f/0.value.value, f/0.value.value] = [
 let f = { :n | (n = 1).if { 1 } { f(n - 1) * n } }; 7:9.collect(f/1) = [5040, 40320, 362880]
 let f = { system.nextRandomFloat }; f/0.once = f/0.once /* evaluate block once and cache result */
 let f = { 1:9.atRandom }; f/0.once = f/0.once & { f/0.once = f/0.once } /* the cache is kept in a weak map */
-2 # [3] = [3 3] /* answer an array of n places each having the same value */
-2 # [3] = List(2, 3) /* constructor with fill value */
+[3] # 2 = [3 3] /* answer an array of n places each having the same value */
+[3] # 2 = List(2, 3) /* constructor with fill value */
 let m = { system.nextRandomFloat }.!(9).mean; m > 0 & { m < 1 }
 { 1 } ! 2 = [1 1] /* evaluate a block twice and collect the answers in an array */
 { '3' } ! 3 = ['3', '3', '3'] /* evaluate block indicated number of times and collect answers in an array */
@@ -2524,7 +2522,7 @@ MersenneTwister(123456).nextRandomFloat = 0.12696983303810094 /* test from stand
 let m = MersenneTwister(); let s = IdentitySet(); 729.timesRepeat { s.include!(m.randomInteger([1 9], [])) }; s.minMax = [1, 9] /* check distribution */
 let m = MersenneTwister(); let s = IdentitySet(); 729.timesRepeat { s.include!(m.randomInteger([1 9], [])) }; s.List.sort! = [1 .. 9] /* check distribution */
 let m = MersenneTwister(98765); m.isStream /* stream predicate */
-let m = MersenneTwister(98765); let a = m.next(9); m.reset; m.next(9) = a /* stream interface, next(k) answers next k items, reset resets */
+let m = MersenneTwister(98765); let a = m.next!(9); m.reset!; m.next!(9) = a /* stream interface, next!(k) answers next k items, reset resets */
 ```
 
 ## Random -- SplitMix
@@ -2539,7 +2537,7 @@ let r = SplitMix(98765); r.randomReal([0 100], []) = 8.824091404676437 /* random
 let r = SplitMix(98765); r.randomInteger([1 1000], []) = 89 /* random integer in [1, 1000] */
 let r = SplitMix(98765); r.randomInteger([1 10000], []) = 883 /* random integer in [1, 10000] */
 let r = SplitMix(98765); r.isStream /* stream predicate */
-let r = SplitMix(98765); let a = r.next(9); r.reset; r.next(9) = a /* stream interface, next(k) answers next k items, reset resets */
+let r = SplitMix(98765); let a = r.next!(9); r.reset!; r.next!(9) = a /* stream interface, next!(k) answers next k items, reset resets */
 ```
 
 ## Random -- LinearCongruential
@@ -2548,7 +2546,7 @@ system.includesPackage('LinearCongruential') /* LinearCongruential package */
 let r = numericalRecipesLinearCongruential(42); r.typeOf = 'LinearCongruential' & { r.isLinearCongruential } & { r.isRandomNumberGenerator }
 let r = numericalRecipesLinearCongruential(42); [r.nextRandomFloat, r.nextRandomFloat] = [0.3746499199817101, 0.729023776863283]
 let r = numericalRecipesLinearCongruential(42); r.isStream /* stream predicate */
-let r = numericalRecipesLinearCongruential(42); let a = r.next(9); r.reset; r.next(9) = a /* stream interface, next(k) answers next k items, reset resets */
+let r = numericalRecipesLinearCongruential(42); let a = r.next!(9); r.reset!; r.next!(9) = a /* stream interface, next!(k) answers next k items, reset resets */
 ```
 
 ## Iterator -- collection trait
@@ -2557,15 +2555,15 @@ system.includesPackage('Iterator') /* Iterator package */
 [].Iterator.typeOf = 'CollectionStream' /* type of iterator */
 1:5.Iterator.upTo(3) = 1:2 /* read up to, but not including, an element, answer is of species of collection */
 1:5.Iterator.upTo(9) = 1:5 /* read up to end if element is not located */
-let r = [1 .. 5].Iterator; [r.next, r.next(3), r.next, r.next] = [1, [2, 3, 4], 5, nil] /* next answers nil at end */
-let r = [1 .. 3].Iterator; [r.next, r.upToEnd] = [1, [2, 3]] /* read up to end */
-let r = 1:5.Iterator; r.upTo(3) = 1:2 & { r.next = 4} /* matching element is consumed */
+let r = [1 .. 5].Iterator; [r.next!, r.next!(3), r.next!, r.next!] = [1, [2, 3, 4], 5, nil] /* next answers nil at end */
+let r = [1 .. 3].Iterator; [r.next!, r.upToEnd] = [1, [2, 3]] /* read up to end */
+let r = 1:5.Iterator; r.upTo(3) = 1:2 & { r.next! = 4} /* matching element is consumed */
 let r = 9:1:-1.Iterator; [r.upTo(3), r.upToEnd] = [9:4:-1, 2:1:-1] /* matching element is consumed */
-[].Iterator.next = nil /* next at an empty read iterator answers nil */
-let r = '.....ascii'.characters.Iterator; let l = List(5); r.next(5); r.nextInto(l); l.stringIntercalate('') = 'ascii'
+[].Iterator.next! = nil /* next at an empty read iterator answers nil */
+let r = '.....ascii'.characters.Iterator; let l = List(5); r.next!(5); r.nextInto(l); l.stringIntercalate('') = 'ascii'
 1:9.Iterator.nextOrUpToEnd(23) = [1 .. 9] /* take at most n items from iterator */
-let r = 1:9.Iterator; [r.nextMatchFor(1), r.next] = [true, 2] /* predicate at consumed item */
-let r = 1:9.Iterator; [r.nextMatchAll([1, 2, 3]), r.next] = [true, 4] /* predicate at consumed items */
+let r = 1:9.Iterator; [r.nextMatchFor(1), r.next!] = [true, 2] /* predicate at consumed item */
+let r = 1:9.Iterator; [r.nextMatchAll([1, 2, 3]), r.next!] = [true, 4] /* predicate at consumed items */
 ```
 
 ## Sphere -- geometric type
@@ -2584,16 +2582,16 @@ Ball([0 0 0], 1).volume = (4.pi / 3) /* volume */
 ```
 system.includesPackage('Stream') /* Stream package */
 [].Stream.typeOf = 'CollectionStream' /* type of stream */
-let s = 1:9.Stream; let a = s.next(9); s.reset; s.next(9) = a /* reset stream */
+let s = 1:9.Stream; let a = s.next!(9); s.reset!; s.next!(9) = a /* reset stream */
 ```
 
 ### PositionableStream -- collection trait
 ```
 system.includesPackage('PositionableStream') /* PositionableStream package */
 [].Stream.atEnd = true /* at end predicate */
-let r = 1:1000.Iterator; [r.next, r.next, r.atEnd] = [1, 2, false] /* at end predicate */
+let r = 1:1000.Iterator; [r.next!, r.next!, r.atEnd] = [1, 2, false] /* at end predicate */
 [].Stream.position = 0 /* initially the position is zero */
-let r = 1:9.Stream; [r.next, r.back, r.next] = [1, 1, 1] /* go back one element and return it (by peeking) */
+let r = 1:9.Stream; [r.next!, r.back, r.next!] = [1, 1, 1] /* go back one element and return it (by peeking) */
 ```
 
 ### CollectionStream -- collection trait
@@ -2604,7 +2602,7 @@ let a = [1 .. 5]; a.Stream.contents !== a /* contents of finite stream (a copy o
 let i = 1:5; i.Stream.originalContents == i /* original contents of stream (the actual collection */
 let r = 1:5.Stream; r.upToEnd; r.contents = 1:5 /* contents of consumed stream */
 1:9.Stream.collection = Range(1, 9, 1) /* read stream over interval collection */
-let i = 1:9; let s = i.Stream; let c = s.copy; c.next; s.next = 1 & { c.next = 2 } /* copy */
+let i = 1:9; let s = i.Stream; let c = s.copy; c.next!; s.next! = 1 & { c.next! = 2 } /* copy */
 ```
 
 ## Record -- collection type
@@ -2978,9 +2976,9 @@ let x = [0 1]; x.cartesianProduct(x) = [0 0; 0 1; 1 0; 1 1] /* self cartesian pr
 1:16.third(4) = 9:12 /* third group of n elements of sequence */
 1:16.fourth(4) = 13:16 /* fourth group of n elements of sequence */
 1:16.last(4) = 13:16  /* last group of n elements of sequence */
-2.replicate([1 2 3 4]) = [1 1 2 2 3 3 4 4]  /* replicate each element n times */
-[2 2 2 2].replicate([1 2 3 4]) = [1 1 2 2 3 3 4 4]  /* replicate each element n times */
-2.replicate([1 2 3 4], square/1) = [1 1 4 4 9 9 16 16] /* replicate each element */
+[1 2 3 4].replicate(2) = [1 1 2 2 3 3 4 4]  /* replicate each element n times */
+[1 2 3 4].replicate([2 2 2 2]) = [1 1 2 2 3 3 4 4]  /* replicate each element n times */
+[1 2 3 4].replicate(2, square/1) = [1 1 4 4 9 9 16 16] /* replicate each element */
 1:10.middle = 6 /* middle element */
 1:10.median = 5.5 /* mean of two middle-most elements */
 1:11.median = 6 /* middle element */

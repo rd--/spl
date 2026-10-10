@@ -7,7 +7,7 @@ LinearCongruential : [Object, Equal, Iterator, RandomNumberGenerator, Stream] {
 	initialize { :self :parameters :seed |
 		self.parameters := parameters;
 		self.seed := seed;
-		self.reset;
+		self.reset!;
 		self
 	}
 
@@ -24,7 +24,7 @@ LinearCongruential : [Object, Equal, Iterator, RandomNumberGenerator, Stream] {
 		self.nextState / self.modulus
 	}
 
-	reset { :self |
+	reset! { :self |
 		self.state := self.seed
 	}
 
@@ -68,7 +68,7 @@ LinearCongruential : [Object, Equal, Iterator, RandomNumberGenerator, Stream] {
 	}
 
 	lehmerGenerator { :p :s :n |
-		lehmerGenerator(p, s).next(n)
+		lehmerGenerator(p, s).next!(n)
 	}
 
 	linearCongruentialFunction { :self |

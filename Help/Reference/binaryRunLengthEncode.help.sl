@@ -79,7 +79,7 @@ OEIS [A227739](https://oeis.org/A227739):
 >>> 1:16.collect { :n |
 >>> 	let e = n.binaryRunLengthEncode.reverse;
 >>> 	let k = e.size - 1;
->>> 	let d = [1 k] # [0 1];
+>>> 	let d = [0 1] # [1 k];
 >>> 	(e - d).prefixSum
 >>> }
 [
@@ -109,7 +109,7 @@ OEIS [A227183](https://oeis.org/A227183):
 1:115.collect { :n |
 	let e = n.binaryRunLengthEncode.reverse;
 	let k = e.size - 1;
-	let d = [1 k] # [0 1];
+	let d = [0 1] # [1 k];
 	(e - d).prefixSum.sum
 }.scatterPlot
 ~~~

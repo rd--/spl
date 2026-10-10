@@ -20,7 +20,7 @@ Implements the _Mt19937_ algorithm, part of the _PractRand_ test suite.
 The first three random numbers given the seed _12345_:
 
 ```
->>> MersenneTwister(12345).next(3)
+>>> MersenneTwister(12345).next!(3)
 [0.92962 0.31638 0.18392]
 ```
 
@@ -29,16 +29,16 @@ Equal values on `reset`:
 ```
 >>> let k = 23;
 >>> let r = MersenneTwister(168762);
->>> let x = r.next(k);
->>> r.reset;
->>> x = r.next(k)
+>>> let x = r.next!(k);
+>>> r.reset!;
+>>> x = r.next!(k)
 true
 ```
 
 Plot 99 random floating point numbers between `zero` and `one`:
 
 ~~~spl svg=A
-MersenneTwister(98765).next(99).linePlot
+MersenneTwister(98765).next!(99).linePlot
 ~~~
 
 ![](Help/Image/MersenneTwister-A.svg)
@@ -47,7 +47,7 @@ Plot histogram:
 
 ~~~spl svg=B
 MersenneTwister(387912)
-.next(10 ^ 4)
+.next!(10 ^ 4)
 .histogramPlot
 ~~~
 
@@ -57,7 +57,7 @@ Difference between empirical and expected mean and standard deviation:
 
 ```
 >>> let r = MersenneTwister(387912);
->>> let n = r.next(10 ^ 4);
+>>> let n = r.next!(10 ^ 4);
 >>> (
 >>> 	0.5 - n.mean,
 >>> 	1/12.sqrt - n.standardDeviation

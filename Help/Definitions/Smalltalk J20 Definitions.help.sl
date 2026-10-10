@@ -5260,7 +5260,7 @@ of the stream of values.
 current past sequence values appended with the current future sequence
 values. Make the receiver’s past sequence values be empty.
 
-Cf: reset
+Cf: reset!
 
 ### 5.9.1.7
 
@@ -5398,7 +5398,7 @@ the receiver’s past sequence values.
 
 *Parameters*: amount ⧼integer⧽
 
-Cf: skip
+Cf: skip!
 
 ### 5.9.2.10
 
@@ -5419,7 +5419,7 @@ anObject is not found false is returned. Otherwise return true.
 
 *Return Value*: ⧼boolean⧽
 
-Cf: skipTo
+Cf: skipTo!
 
 ### 5.9.2.11
 

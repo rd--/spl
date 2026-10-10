@@ -73,7 +73,7 @@ At answer of `^`:
 
 ```
 >>> (2 ^ 31).primeFactors
-31 # [2]
+[2] # 31
 
 >>> (2 ^ 31 + 1).primeFactors
 [3 715827883]
@@ -149,7 +149,7 @@ At a power of two:
 
 ```
 >>> (2 ^ 52).primeFactors
-52 # [2]
+[2] # 52
 ```
 
 Table of first few terms,

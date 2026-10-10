@@ -969,11 +969,13 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Iterable, Indexable, Chara
 		let k = s.size;
 		let q = m // k;
 		let r = m \\ k;
-		((q # [s]) ++ [s.take(r)]).stringJoin
+		(
+			[s].replicate(q) ++ [s.take(r)]
+		).stringJoin
 	}
 
 	stringRepeat { :s :n |
-		(n # [s]).stringJoin
+		[s].replicate(n).stringJoin
 	}
 
 	stringReverse { :self |

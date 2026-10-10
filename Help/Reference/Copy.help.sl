@@ -11,13 +11,13 @@ true
 
 Requires:
 
-- `primitiveDeepCopy`
-- `primitiveShallowCopy`
+- `primitiveObjectDeepCopy`
+- `primitiveObjectShallowCopy`
 
 These methods are both implemented at `Object`,
 so types that implement `Object` and `Copy` do not need to implement any methods.
 
-The instrinsic atomic types implement `shallowCopy` as idenentity.
+The instrinsic atomic types implement `shallowCopy` as `identity`.
 
 Implements:
 

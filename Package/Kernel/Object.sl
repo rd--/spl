@@ -169,15 +169,15 @@
 		system.methodLookupAtType(aString, 2, self.typeOf).block . (self, aValue)
 	}
 
-	primitiveDeepCopy { :self |
-		<primitive: return structuredClone(_self);>
-	}
-
 	primitiveIdentity { :self :anObject |
 		<primitive: return _self === _anObject;>
 	}
 
-	primitiveShallowCopy { :self |
+	primitiveObjectDeepCopy { :self |
+		<primitive: return structuredClone(_self);>
+	}
+
+	primitiveObjectShallowCopy { :self |
 		<primitive: return Object.assign({}, _self);>
 	}
 

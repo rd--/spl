@@ -11,7 +11,7 @@ answer a `CollectionStream` on the collection _c_.
 
 ```
 >>> let i = Iterator(1:9);
->>> (i.next, i.next, i.next)
+>>> (i.next!, i.next!, i.next!)
 (1, 2, 3)
 ```
 
@@ -47,7 +47,7 @@ To implement `Iterator` a type must implement `next`.
 
 ```
 >>> let i = 1:9.Iterator;
->>> (i.next, i.next, i.next)
+>>> (i.next!, i.next!, i.next!)
 (1, 2, 3)
 ```
 

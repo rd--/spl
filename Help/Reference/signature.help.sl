@@ -64,7 +64,7 @@ Plot signatures of indices of a 4×4×4×4 array,
 partitioned into a square matrix:
 
 ~~~spl svg=A
-(4 # [4]).shapeIndices
+([4] # 4).shapeIndices
 .collect(
 	signature/1
 ).partition(4 ^ 2)
@@ -78,7 +78,7 @@ Plot signatures of indices of a 5×5×5×5×5 array,
 partitioned into a rectangular matrix:
 
 ~~~spl svg=B
-(5 # [5]).shapeIndices
+([5] # 5).shapeIndices
 .collect(
 	signature/1
 ).partition(5 ^ 3)
@@ -92,7 +92,7 @@ Plot signatures of indices of a 6×6×6×6×6×6 array,
 partitioned into a rectangular matrix:
 
 ~~~spl png=C
-(6 # [6]).shapeIndices
+([6] # 6).shapeIndices
 .collect(
 	signature/1
 ).partition(6 ^ 3)

@@ -19,14 +19,14 @@ Answer a pseudo random number generator seeded with the integer _n_.
 The first three random numbers given the seed _12345_:
 
 ```
->>> SplitMix(12345).next(3)
+>>> SplitMix(12345).next!(3)
 [0.68734 0.78585 0.06825]
 ```
 
 Plot 99 random floating point numbers between `zero` and `one`:
 
 ~~~spl svg=A
-SplitMix(98765).next(99).linePlot
+SplitMix(98765).next!(99).linePlot
 ~~~
 
 ![](Help/Image/SplitMix-A.svg)
@@ -35,7 +35,7 @@ Plot histogram:
 
 ~~~spl svg=B
 SplitMix(387912)
-.next(10 ^ 4)
+.next!(10 ^ 4)
 .histogramPlot
 ~~~
 
@@ -45,7 +45,7 @@ Difference between empirical and expected mean and standard deviation:
 
 ```
 >>> let r = SplitMix(387912);
->>> let n = r.next(10 ^ 4);
+>>> let n = r.next!(10 ^ 4);
 >>> (
 >>> 	0.5 - n.mean,
 >>> 	1/12.sqrt - n.standardDeviation

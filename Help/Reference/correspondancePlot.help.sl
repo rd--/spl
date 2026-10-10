@@ -41,7 +41,7 @@ Correspondance plot of phase shifted and amplitude scaled Hann tables:
 
 ~~~spl svg=D
 let h = 23.hannWindowTable;
-let z = 11 # [0];
+let z = [0] # 11;
 warpingCorrespondence(
 	z ++ h,
 	(h * 1.1) ++ z

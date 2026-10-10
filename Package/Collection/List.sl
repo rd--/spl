@@ -48,6 +48,22 @@ List! : [Object, Copy, Store, Equal, Compare, Json, Iterable, Indexable, Collect
 		self.copy
 	}
 
+	cycle { :self :count |
+		1.toCollect(count) { :i |
+			self.atWrap(i)
+		}
+	}
+
+	cycle { :self |
+		let i = 0;
+		BlockStream {
+			i := i + 1;
+			self.atWrap(i)
+		} {
+			i := 0
+		}
+	}
+
 	deinterleave { :self :n |
 		/*
 		let k = self.size;

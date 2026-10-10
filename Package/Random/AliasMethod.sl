@@ -2,7 +2,7 @@ AliasMethod : [Object, Equal, Iterator] {
 
 	| alias probability |
 
-	next { :self |
+	next! { :self |
 		self.nextRandom(system)
 	}
 

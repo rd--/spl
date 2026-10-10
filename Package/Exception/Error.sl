@@ -66,23 +66,10 @@
 
 }
 
-Error! : [Object, Store, Equal, Exception, PrimitiveError] {
+Error! : [Object, Equal, Exception, PrimitiveError] {
 
 	printString { :self |
 		'*Error* ' ++ self.description
-	}
-
-	storeString { :self |
-		self.hasCause.if {
-			'Error(%, %)'.format(
-				[
-					self.messageText.storeString,
-					self.cause.storeString
-				]
-			)
-		} {
-			'Error(%)'.format([self.messageText.storeString])
-		}
 	}
 
 }

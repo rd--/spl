@@ -7,7 +7,7 @@
 	}
 
 	deepCopy { :self |
-		self.primitiveDeepCopy
+		self.primitiveObjectDeepCopy
 	}
 
 	postCopy { :self |
@@ -15,7 +15,7 @@
 	}
 
 	shallowCopy { :self |
-		self.primitiveShallowCopy
+		self.primitiveObjectShallowCopy
 	}
 
 }

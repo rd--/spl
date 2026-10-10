@@ -20,10 +20,10 @@ the algorithm is part of the _PractRand_ test suite, which it passes.
 ```
 
 The first three random numbers given the seed _12345_,
-_next(k)_ answers next _k_ items:
+_next!(k)_ answers next _k_ items:
 
 ```
->>> Sfc32(12345).next(3)
+>>> Sfc32(12345).next!(3)
 [0.8011 0.4735 0.9835]
 ```
 
@@ -32,9 +32,9 @@ Use `reset` to return to the initial state:
 ```
 >>> let k = 3;
 >>> let r = Sfc32(98765);
->>> let a = r.next(3);
->>> r.reset;
->>> (a, r.next(k))
+>>> let a = r.next!(3);
+>>> r.reset!;
+>>> (a, r.next!(k))
 (
 	[0.4956 0.40961 0.18187],
 	[0.4956 0.40961 0.18187]
@@ -44,7 +44,7 @@ Use `reset` to return to the initial state:
 Plot 99 random floating point numbers between `zero` and `one`:
 
 ~~~spl svg=A
-Sfc32(98765).next(99).linePlot
+Sfc32(98765).next!(99).linePlot
 ~~~
 
 ![](Help/Image/Sfc32-A.svg)
@@ -53,7 +53,7 @@ Plot histogram:
 
 ~~~spl svg=B
 Sfc32(387912)
-.next(10 ^ 4)
+.next!(10 ^ 4)
 .histogramPlot
 ~~~
 
@@ -63,7 +63,7 @@ Difference between empirical and expected mean and standard deviation:
 
 ```
 >>> let r = Sfc32(387912);
->>> let n = r.next(10 ^ 4);
+>>> let n = r.next!(10 ^ 4);
 >>> (
 >>> 	0.5 - n.mean,
 >>> 	1/12.sqrt - n.standardDeviation

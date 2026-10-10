@@ -383,7 +383,7 @@ Compare to `replicate`:
 >>> [1 2 3].repeat(3)
 [1 2 3 1 2 3 1 2 3]
 
->>> 3.replicate([1 2 3])
+>>> [1 2 3].replicate(3)
 [1 1 1 2 2 2 3 3 3]
 ```
 
@@ -421,7 +421,7 @@ Characteristic function of numbers that are not multiples of ten,
 OEIS [A168184](https://oeis.org/A168184):
 
 ~~~spl svg=D oeis=A168184
-([1 9] # [0 1]).repeat(5).discretePlot
+([0 1] # [1 9]).repeat(5).discretePlot
 ~~~
 
 ![](Help/Image/repeat-D.svg)

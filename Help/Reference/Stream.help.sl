@@ -11,7 +11,7 @@ At a finite `Range`:
 
 ```
 >>> let i = 1:9.Stream;
->>> (i.next, i.next, i.next)
+>>> (i.next!, i.next!, i.next!)
 (1, 2, 3)
 ```
 
@@ -19,7 +19,7 @@ At an infinite `Range`:
 
 ```
 >>> let i = 1:Infinity:2.Stream;
->>> (i.next, i.skip(10_000), i.next)
+>>> (i.next!, i.skip!(10_000), i.next!)
 (1, 10_001, 20_003)
 ```
 

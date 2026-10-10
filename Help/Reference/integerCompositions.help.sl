@@ -28,7 +28,7 @@ There are eight compositions of four:
 >>> 	1 1 2; 1 2 1; 2 1 1;
 >>> 	1 1 1 1
 >>> ].collect(sum/1)
-8 # [4]
+[4] # 8
 ```
 
 Equivalent to the multiset permutations of the integer partitions:

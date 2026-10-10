@@ -29,7 +29,7 @@ At `Record`:
 Count the number of items in a random list of 100 numbers that are greater than 0.5:
 
 ```
->>> let l = Sfc32(98765).next(100);
+>>> let l = Sfc32(98765).next!(100);
 >>> l.count { :each |
 >>> 	each > 0.5
 >>> }

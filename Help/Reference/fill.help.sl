@@ -53,7 +53,7 @@ Constant list:
 >>> [0].reshape([9])
 [0 0 0 0 0 0 0 0 0]
 
->>> 9.replicate([0])
+>>> [0].replicate(9)
 [0 0 0 0 0 0 0 0 0]
 
 >>> { 0 }.duplicate(9)

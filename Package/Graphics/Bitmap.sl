@@ -15,7 +15,7 @@ Bitmap : [Object] {
 				List(scale, item.boole.printString).unwords
 			}.unwords
 		};
-		(header ++ (scale # rows)).unlines
+		(header ++ (rows.replicate(scale))).unlines
 	}
 
 	drawing { :self |

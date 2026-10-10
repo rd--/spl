@@ -453,6 +453,10 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		self * self
 	}
 
+	toComplex { :self |
+		self
+	}
+
 	truncate { :self |
 		self.integerPart
 	}

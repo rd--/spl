@@ -1,13 +1,13 @@
-# reset
+# reset!
 
-- _reset(s)_
+- _reset!(s)_
 
 Set the position of the stream _s_ to the beginning of the sequence of objects.
 Answer `zero`, which is what `position` would answer.
 
 ```
 >>> let s = Stream[1 .. 9];
->>> (s.next, s.reset, s.position, s.next)
+>>> (s.next!, s.reset!, s.position, s.next!)
 (1, 0, 0, 1)
 ```
 

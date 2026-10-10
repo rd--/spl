@@ -611,7 +611,7 @@
 	}
 
 	stutter { :self :repeatCount |
-		repeatCount.replicate(self)
+		self.replicate(repeatCount)
 	}
 
 	tableRand { :self :r |

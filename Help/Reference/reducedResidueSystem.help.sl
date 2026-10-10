@@ -24,7 +24,7 @@ Every number in a reduced residue system modulo _n_ is a generator for the addit
 >>> let f = { :n |
 >>> 	{ :each |
 >>> 		(each + n) % m
->>> 	}.iterate(0).next(m)
+>>> 	}.iterate(0).next!(m)
 >>> };
 >>> r.collect(f/1)
 [

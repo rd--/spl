@@ -14,7 +14,7 @@ GreyNoise([0.125 0.125], 0)
 High pass filtered:
 
 ```
-GreyNoise(2 # [0.125], 0).Hpz1
+GreyNoise([0.125] # 2, 0).Hpz1
 ```
 
 High pass filtered,

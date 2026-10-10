@@ -7,7 +7,7 @@ and `false` if not.
 
 ```
 >>> let s = Iterator[1 3 5 7 9];
->>> (s.nextMatchAll([1 3 5]), s.next)
+>>> (s.nextMatchAll([1 3 5]), s.next!)
 (true, 7)
 ```
 

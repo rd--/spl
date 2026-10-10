@@ -758,7 +758,7 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		} {
 			let x = self.abs;
 			(x = 0).if {
-				[size # [0], 1]
+				[List(size, 0), 1]
 			} {
 				let exponent = (x.log10 + 1).round;
 				[

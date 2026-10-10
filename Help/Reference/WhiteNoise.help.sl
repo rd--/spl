@@ -13,13 +13,13 @@ WhiteNoise([0.1 0.1], 0)
 High pass filtered:
 
 ```
-WhiteNoise(2 # [0.1], 0).Hpz1
+WhiteNoise([0.1] # 2, 0).Hpz1
 ```
 
 Low pass filtered:
 
 ```
-WhiteNoise(2 # [0.1], 0).Lpz1
+WhiteNoise([0.1] # 2, 0).Lpz1
 ```
 
 * * *

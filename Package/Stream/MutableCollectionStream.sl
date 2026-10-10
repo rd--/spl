@@ -65,7 +65,7 @@ MutableCollectionStream : [Object, Iterator, Stream, PositionableStream, WriteSt
 		}
 	}
 
-	reset { :self |
+	reset! { :self |
 		self.position!(0)
 	}
 

@@ -14,7 +14,7 @@ All of _S3_:
 The first five entries of _S4_:
 
 ```
->>> LsPermutations([1 2 3 4]).next(5)
+>>> LsPermutations([1 2 3 4]).next!(5)
 [1 2 3 4; 1 2 4 3; 1 3 2 4; 1 3 4 2; 1 4 2 3]
 ```
 

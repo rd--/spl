@@ -25,7 +25,7 @@ SplitMix : [Object, Equal, Iterator, RandomNumberGenerator, Stream] {
 
 	initialize { :self :aNumber |
 		self.seed := aNumber;
-		self.reset;
+		self.reset!;
 		self
 	}
 
@@ -33,7 +33,7 @@ SplitMix : [Object, Equal, Iterator, RandomNumberGenerator, Stream] {
 		self.block.value
 	}
 
-	reset { :self |
+	reset! { :self |
 		self.block := self.seed.splitMix32RandomNumberGenerator
 	}
 

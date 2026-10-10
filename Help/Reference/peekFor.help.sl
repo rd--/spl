@@ -11,10 +11,10 @@ if the next element is equal to `x`.
 >>> let s = Stream[1 2 3 4 5];
 >>> (
 >>> 	s.peekFor(1),
->>> 	s.next,
+>>> 	s.next!,
 >>> 	s.peekFor(5),
 >>> 	s.peekFor(3),
->>> 	s.next
+>>> 	s.next!
 >>> )
 (true, 2, false, true, 4)
 ```

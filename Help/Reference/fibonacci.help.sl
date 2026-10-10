@@ -172,7 +172,7 @@ The sequence of _F(n)%m_ is periodic with respect to _n_ for a fixed natural num
 >>> 	let m = n + 16;
 >>> 	(m.fibonacci - n.fibonacci) % 7
 >>> }
-16 # [0]
+[0] # 16
 ```
 
 With _x=2_ answers the Pell numbers,

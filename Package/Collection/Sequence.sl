@@ -30,10 +30,6 @@
 		self.withCollect(other, ||)
 	}
 
-	[replicate, #] { :counts :items |
-		counts.replicate(items, identity/1)
-	}
-
 	adaptToCollectionAndApply { :self :anObject :aBlock/2 |
 		anObject.isSequence.if {
 			anObject.withCollect(self, aBlock/2)
@@ -865,8 +861,13 @@
 		}
 	}
 
-	duplicateEach { :self :count |
-		count.replicate(self)
+	duplicateEach { :self :repeats |
+		repeats.isList.ifFalse {
+			self.error('duplicateEach: repeats not list')
+		};
+		self.replicate(
+			cycle(repeats, self.size)
+		)
 	}
 
 	duplicateFreePrefix { :self |
@@ -908,6 +909,12 @@
 	endsWithAny { :self :aCollection |
 		aCollection.anySatisfy { :suffix |
 			self.endsWith(suffix)
+		}
+	}
+
+	enumerate { :self |
+		self.withIndexCollect { :x :i |
+			[i, x]
 		}
 	}
 
@@ -2158,11 +2165,13 @@
 		let k = s.size;
 		let q = m // k;
 		let r = m \\ k;
-		((q # [s]) ++ [s.take(r)]).catenate
+		(
+			[s].replicate(q) ++ [s.take(r)]
+		).catenate
 	}
 
 	repeat { :s :n |
-		(n # [s]).catenate
+		[s].replicate(n).catenate
 	}
 
 	replaceAllWith { :self :oldObject :newObject |
@@ -2196,8 +2205,12 @@
 		self
 	}
 
-	replicate { :counts :items :aBlock/1 |
-		(counts.size != items.size).if {
+	replicate { :items :counts :aBlock/1 |
+		let k = items.size;
+		counts.isInteger.ifTrue {
+			counts := List(k, counts)
+		};
+		(counts.size != k).if {
 			counts.error('@Sequence>>replicate: counts not of correct size')
 		} {
 			let answerSize = counts.sum;
@@ -2212,6 +2225,10 @@
 			};
 			answer
 		}
+	}
+
+	[replicate, #] { :items :counts |
+		items.replicate(counts, identity/1)
 	}
 
 	reverse { :self :level |
@@ -3007,10 +3024,6 @@
 
 +@Integer {
 
-	[replicate, #] { :self :items |
-		self.replicate(items, identity/1)
-	}
-
 	binaryDetectIndex { :self :aBlock/1 |
 		valueWithReturn { :return/1 |
 			let low = 1;
@@ -3050,11 +3063,6 @@
 
 	partIndex { :self :operand |
 		operand.atSymmetrical(self)
-	}
-
-	replicate { :self :items :aBlock/1 |
-		self.assertIsInteger('@Integer>>replicate');
-		List(items.size, self).replicate(items, aBlock/1)
 	}
 
 	toAsCollect { :self :stop :species :aBlock/1 |

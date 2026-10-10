@@ -7,11 +7,11 @@ let scales = [1 .. k].collect { :i |
 	}
 };
 let durations = scales.collect { :each |
-	((each.size - 1) # [0.25]) ++ [1]
+	([0.25] # (each.size - 1)) ++ [1]
 };
 UgenGraph(
 	'saw',
-	2 # [
+	[
 		Saw(
 			NamedControl('freq', 440)
 		) * Cutoff(
@@ -19,7 +19,7 @@ UgenGraph(
 			4.8,
 			-20
 		) * 0.2
-	]
+	] # 2
 ).send;
 LsBind(
 	instrument: 'saw',

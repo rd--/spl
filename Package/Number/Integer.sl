@@ -1826,7 +1826,7 @@
 		} {
 			let k = self.size;
 			let b = [1 0].reshape([k]);
-			self.replicate(b).binaryContraction
+			b.replicate(self).binaryContraction
 		}
 	}
 

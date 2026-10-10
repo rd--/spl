@@ -78,11 +78,11 @@ binary constructor:
 ~~~spl svg=C
 let rng = Sfc32(314920);
 1:9.collect { :x |
-	let y = rng.next * 4;
+	let y = rng.next! * 4;
 	Rectangle(
 		[x, y],
 		[x + 1, y + 1]
-	).Polygon.rotate(rng.next.pi)
+	).Polygon.rotate(rng.next!.pi)
 }.LineDrawing
 ~~~
 

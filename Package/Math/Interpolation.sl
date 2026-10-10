@@ -409,10 +409,14 @@
 		<primitive: return sc.downsampleSteinarsson(_self, _threshold);>
 	}
 
-	downsample { :self :anInteger |
-		1.toBy(self.size, anInteger).collect { :each |
-			self[each]
+	downsample { :self :n :phase |
+		(1 + phase).toBy(self.size, n).collect { :i |
+			self[i]
 		}
+	}
+
+	downsample { :self :n |
+		self.downsample(n, 0)
 	}
 
 	downsampleSteinarsson { :self :threshold |

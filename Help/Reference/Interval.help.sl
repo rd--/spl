@@ -63,7 +63,7 @@ false
 Numbers automatically turn into intervals:
 
 ```
->>> 1.asInterval
+>>> 1.toInterval
 1 -- 1
 
 >>> (-1 -- 1) + 1 * 0.5

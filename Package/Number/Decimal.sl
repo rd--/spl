@@ -264,7 +264,7 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 
 	realDigits { :self :base :size |
 		self.isZero.if {
-			[size # [0], 1]
+			[List(size, 0), 1]
 		} {
 			let x = self.abs;
 			let l = x.fraction.log(base).floor;
@@ -283,7 +283,7 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 
 	realDigits { :self |
 		self.isZero.if {
-			[self.precision # [0], 1]
+			[List(self.precision, 0), 1]
 		} {
 			let l = self.fraction.log(10).floor;
 			let u = self.unscaledInteger.integerDigits;

@@ -6,12 +6,12 @@
 			{
 				let answer = [];
 				{
-					let [t, x] = self.next;
+					let [t, x] = self.next!;
 					t := t.min(tMax);
 					answer.add!([t, x]);
 					t < tMax
 				}.whileTrue;
-				self.reset;
+				self.reset!;
 				answer
 			} ! n
 		)
@@ -19,8 +19,8 @@
 
 	valueSeriesRandomFunction { :self :t :n |
 		{ :timeList |
-			let answer = self.next(timeList.size);
-			self.reset;
+			let answer = self.next!(timeList.size);
+			self.reset!;
 			answer
 		}.regularTemporalData(
 			List(n, (t ++ [1]))

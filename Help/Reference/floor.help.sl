@@ -187,7 +187,7 @@ OEIS [A055086](https://oeis.org/A055086):
 ~~~spl svg=E oeis=A055086
 0:20.collect { :n |
 	let k = (n / 2).floor + 1;
-	k # [n]
+	[n] # k
 }.catenate.stepPlot
 ~~~
 

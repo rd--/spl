@@ -20,7 +20,7 @@ For the vector case see also `List`, `reshape`, `#` and `!`:
 >>> [3].reshape([5])
 [3 3 3 3 3]
 
->>> 5 # [3]
+>>> [3] # 5
 [3 3 3 3 3]
 
 >>> { 3 } ! 5

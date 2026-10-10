@@ -1,6 +1,6 @@
-# skipTo
+# skipTo!
 
-- _skipTo(s, x)_
+- _skipTo!(s, x)_
 
 Sets the stream _s_ to read the object just after the next occurrence of _x_ and answer `true`.
 If _x_ is not found before the end of the stream is encountered, answers `false`.
@@ -9,7 +9,7 @@ Skip to an object:
 
 ```
 >>> let s = Stream[1 3 5 7 9 11];
->>> s.skipTo(7);
+>>> s.skipTo!(7);
 >>> (s.position, s.upToEnd)
 (4, [9 11])
 ```

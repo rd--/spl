@@ -1,6 +1,6 @@
-# skip
+# skip!
 
-- _skip(s, n)_
+- _skip!(s, n)_
 
 Skips the next _k_ objects in the stream _s_,
 where _k_ is a number of objects equal to the lesser of _n_ and the number of remaining items in _s_.
@@ -15,8 +15,8 @@ Relative re-positioning:
 >>> 	s.position,
 >>> 	s.position!(3),
 >>> 	s.peek,
->>> 	s.skip(-1),
->>> 	s.next
+>>> 	s.skip!(-1),
+>>> 	s.next!
 >>> )
 (0, 3, 7, 2, 5)
 ```
@@ -25,7 +25,7 @@ Skip to a position:
 
 ```
 >>> let s = Stream[1 3 5 7 9];
->>> s.skip(2);
+>>> s.skip!(2);
 >>> s.upToEnd
 [5 7 9]
 ```

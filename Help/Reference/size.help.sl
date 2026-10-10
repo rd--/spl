@@ -114,7 +114,7 @@ not the number of elements remaining:
 
 ```
 >>> let s = Stream[1 3 5 7 9];
->>> (s.next(3), s.size)
+>>> (s.next!(3), s.size)
 ([1 3 5], 5)
 ```
 

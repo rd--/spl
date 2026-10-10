@@ -7,7 +7,7 @@ In the binary case,
 answer an infinite `Stream` of repeated applications of the block _f_ to the object _x_.
 
 ```
->>> not/1.iterate(true).next(10)
+>>> not/1.iterate(true).next!(10)
 [
 	true false true false true
 	false true false true false
@@ -15,10 +15,10 @@ answer an infinite `Stream` of repeated applications of the block _f_ to the obj
 
 >>> { :each |
 >>> 	each + 3
->>> }.iterate(42).next(10)
+>>> }.iterate(42).next!(10)
 [42 45 48 51 54 57 60 63 66 69]
 
->>> cos/1.iterate(1).next(10)
+>>> cos/1.iterate(1).next!(10)
 [
 	1.0000 0.5403 0.8576 0.6543 0.7935
 	0.7014 0.7640 0.7221 0.7504 0.7314
@@ -124,7 +124,7 @@ Derive the seven tone Pythagorean scale:
 ```
 >>> { :n |
 >>> 	(n * 3/2).octaveReduce
->>> }.iterate(1/1).next(7).sort!
+>>> }.iterate(1/1).next!(7).sort!
 [1/1 9/8 81/64 729/512 3/2 27/16 243/128]
 ```
 

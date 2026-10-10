@@ -37,7 +37,7 @@ let rw = { :f1 :f2 :q |
 	4.timesRepeat {
 		z := Brf(
 			z,
-			Rand(f1, f2).Round(10) + (freq * LfNoise1(2 # [Rand(0, rt)])),
+			Rand(f1, f2).Round(10) + (freq * LfNoise1([Rand(0, rt)] # 2)),
 			q
 		)
 	}
@@ -52,4 +52,4 @@ z := FreqShift(
 	0
 ) * 0.25 + z;
 z := CombC(z, 1, 1, 8);
-Lpf(z, LfNoise1(2 # [Rand(0, rt)]) * 1250 + 2500)
+Lpf(z, LfNoise1([Rand(0, rt)] # 2) * 1250 + 2500)

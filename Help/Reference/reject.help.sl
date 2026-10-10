@@ -34,7 +34,7 @@ At a finite `Stream`:
 ```
 >>> (1 .. Infinity).Stream
 >>> .reject(isEven/1)
->>> .next(5)
+>>> .next!(5)
 [1 3 5 7 9]
 ```
 

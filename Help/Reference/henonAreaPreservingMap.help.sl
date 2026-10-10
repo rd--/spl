@@ -13,7 +13,7 @@ Sfc32(789341)
 .collect { :v |
 	f/1
 	.iterate(v)
-	.next(43)
+	.next!(43)
 	.takeWhile { :each |
 		each.abs.max <= 1
 	}

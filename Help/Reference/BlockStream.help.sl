@@ -14,7 +14,7 @@
 >>> 	n := 1
 >>> };
 >>> let k = 7;
->>> (s.next(k), s.reset, s.next(k))
+>>> (s.next!(k), s.reset!, s.next!(k))
 (
 	[1 3 5 7 9 11 13],
 	0,

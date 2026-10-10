@@ -20,7 +20,7 @@ Items are sorted by key:
 Count the number of items in a random list of one hundred small integers:
 
 ```
->>> let l = Sfc32(98765).next(100);
+>>> let l = Sfc32(98765).next!(100);
 >>> (l * 3).floor.counts
 [0 -> 29, 1 -> 40, 2 -> 31]
 ```

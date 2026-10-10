@@ -1,7 +1,7 @@
 # \# (numberSign)
 
 - _c.#_
-- _n # x_
+- _x # n_
 
 The unary case is the operator form of `size`:
 
@@ -16,10 +16,10 @@ The unary case is the operator form of `size`:
 The binary case is the operator form of `replicate`:
 
 ```
->>> 2 # 1:5
+>>> 1:5 # 2
 [1 1 2 2 3 3 4 4 5 5]
 
->>> 5 # [1]
+>>> [1] # 5
 [1 1 1 1 1]
 
 >>> 1:5 # 1:5
@@ -34,7 +34,7 @@ Eight copies of each of sixteen random numbers:
 ~~~spl svg=A
 let r = Sfc32(671834);
 let x = r.randomReal([-1 1], [16]);
-(8 # x).stepPlot
+(x # 8).stepPlot
 ~~~
 
 ![](Help/Image/numberSign-A.svg)

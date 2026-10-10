@@ -23,7 +23,7 @@ Threads over lists:
 ```
 >>> [-1, -2 .. -5].sqrt.realImaginary
 [
-	5 # [0],
+	[0 0 0 0 0],
 	1:5.sqrt
 ].transpose
 ```

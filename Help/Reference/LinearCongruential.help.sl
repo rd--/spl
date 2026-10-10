@@ -41,7 +41,7 @@ The first three random numbers given the seed _12345_:
 ```
 >>> let s = 12345;
 >>> numericalRecipesLinearCongruential(s)
->>> .next(3)
+>>> .next!(3)
 [0.15776 0.86476 0.89335]
 ```
 
@@ -51,9 +51,9 @@ Equal values on `reset`:
 >>> let k = 23;
 >>> let s = 12345;
 >>> let r = s.numericalRecipesLinearCongruential;
->>> let x = r.next(k);
->>> r.reset;
->>> x = r.next(k)
+>>> let x = r.next!(k);
+>>> r.reset!;
+>>> x = r.next!(k)
 true
 ```
 
@@ -78,7 +78,7 @@ Plot random floating point numbers between `zero` and `one`:
 
 ~~~spl svg=A
 numericalRecipesLinearCongruential(98765)
-.next(99)
+.next!(99)
 .linePlot
 ~~~
 
@@ -88,7 +88,7 @@ Plot histogram:
 
 ~~~spl svg=B
 numericalRecipesLinearCongruential(387912)
-.next(10 ^ 4)
+.next!(10 ^ 4)
 .histogramPlot
 ~~~
 
@@ -98,7 +98,7 @@ Difference between empirical and expected mean and standard deviation:
 
 ```
 >>> let r = numericalRecipesLinearCongruential(387912);
->>> let n = r.next(10 ^ 4);
+>>> let n = r.next!(10 ^ 4);
 >>> (
 >>> 	0.5 - n.mean,
 >>> 	1/12.sqrt - n.standardDeviation

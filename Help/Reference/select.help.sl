@@ -98,7 +98,7 @@ At an infinte `Stream`:
 >>> (1 .. Infinity)
 >>> .Stream
 >>> .select(isEven/1)
->>> .next(4)
+>>> .next!(4)
 [2 4 6 8]
 ```
 
@@ -107,7 +107,7 @@ At `Sfc32`, which implements `Stream`:
 ```
 >>> Sfc32(188311).collect { :x |
 >>> 	(x * 23).round
->>> }.select(isOdd/1).next(5)
+>>> }.select(isOdd/1).next!(5)
 [15 21 5 13 1]
 ```
 

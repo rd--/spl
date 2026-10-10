@@ -6,7 +6,7 @@
 
 => 390
 
-'Program/SuperCollider/Ugen'.splFilePath.terseProgramSummary(isOutputSignal/1)
+'Program/SuperCollider/Unit Generator'.splFilePath.terseProgramSummary(isOutputSignal/1)
 
 => 503
 

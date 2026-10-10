@@ -16,7 +16,7 @@ CollectionStream : [Object, Copy, Equal, Iterator, Stream, PositionableStream] {
 		self.collection.copyFromTo(1, self.readLimit)
 	}
 
-	next { :self |
+	next! { :self |
 		(self.position >= self.readLimit).if {
 			nil
 		} {
@@ -25,7 +25,7 @@ CollectionStream : [Object, Copy, Equal, Iterator, Stream, PositionableStream] {
 		}
 	}
 
-	next { :self :anInteger |
+	next! { :self :anInteger |
 		let endPosition = self.position + anInteger;
 		(endPosition > self.readLimit).if {
 			self.error('CollectionStream>>next: not enough items in stream')

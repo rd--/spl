@@ -17,13 +17,13 @@ Pan2(
 let t = LfTri([2 1 2], [0 0 2]);
 let e = { :x | Perc(x, 0.01, 1, -4) };
 let c = CuspL(22050, 1, 1.9, 0);
-let l = 9 # [0] + [0 1];
+let l = [0] # 9 + [0 1];
 [
 	LfTri(e(t[1]) ^ 11 * 111 + 60, 0) * e(t[1]) ^ 2,
 	c * Env(
 		l,
 		l[1 .. 7] ++ [66] / 99,
-		7 # [-4] ++ [-17],
+		[-4] # 7 ++ [-17],
 		nil,
 		nil,
 		0
@@ -32,11 +32,11 @@ let l = 9 # [0] + [0 1];
 ].Sum.Pan2(0, 1 / 4)
 
 /* SCSCC-4 "HandClap Special" 121 bytes */
-let l = 9 # [0] + [0, 1];
+let l = [0] # 9 + [0, 1];
 let e = Env(
 	l,
 	l[1 .. 7] ++ [66] / 99,
-	7 # [-4] ++ [-17],
+	[-4] # 7 ++ [-17],
 	nil,
 	nil,
 	0
@@ -292,7 +292,7 @@ Brf(
 ) / 5 * Line(0, 1, 9)
 
 /* SCSCC-23 "Back to 1991" 228bytes (updated 20250327) */
-let t = TDuty(Dseq(Infinity, 4 # [3] ++ (2 # [2]) / 8), 0, 1);
+let t = TDuty(Dseq(Infinity, [3] # 4 ++ ([2] # 2) / 8), 0, 1);
 let e = Perc(t, 0.01, 1, -4) ^ 1.9;
 let r = Demand(t, 0, Dseq(Infinity, 'HHHJKHHHJJKK'.ascii - 66 / 6));
 let f = PmOsc([0 .. 3] + 5, 0, 0, 0) / 87 + 1 * 247 * r * [1 / 8, 1, 6 / 5, 3 / 4];
@@ -369,7 +369,7 @@ GVerb(
 
 /* SCSCC-26 */
 let c = MidiRatio(12 * [0 .. 2] +.x (5 * [0 .. 3] ++ [19]));
-let m = { LfdNoise3(5 # [0.1]) + 1 / 2 };
+let m = { LfdNoise3([0.1] # 5) + 1 / 2 };
 let k = 6;
 Splay(
 	0:k.collect { :n |
@@ -523,7 +523,7 @@ let c = Stream(r).collect { :x |
 Splay(
 	{
 		let p = b(m() / 9 + 4).Fold(m() / 9, 1);
-		let q = b(c.next).Fold(b(c.next), b(c.next));
+		let q = b(c.next!).Fold(b(c.next!), b(c.next!));
 		LeakDc(
 			Bpf(
 				p ^ 5 * q,
@@ -684,7 +684,7 @@ Splay(
 /* SCSCC-47 "Toggle bits and wrap them" 213 bytes ; Interactive!!! */
 let i = ToggleFf(
 	CoinGate(
-		8 # [MouseY(0, 1, 0, 0.2)] / 3,
+		[MouseY(0, 1, 0, 0.2)] # 8 / 3,
 		LfSaw(
 			LocalIn(1, 0) + 1 * MouseX(0, 23.pi, 0, 0.2),
 			0

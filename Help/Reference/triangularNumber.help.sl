@@ -209,7 +209,7 @@ Triangular numbers repeated,
 OEIS [A008805](https://oeis.org/A008805):
 
 ~~~spl svg=D oeis=A008805
-(2 # 1:35.triangularNumber)
+(1:35.triangularNumber # 2)
 .discretePlot
 ~~~
 

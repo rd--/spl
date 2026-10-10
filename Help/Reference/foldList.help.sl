@@ -270,7 +270,7 @@ Multiply successively by repeated integers,
 OEIS [A010551](https://oeis.org/A010551):
 
 ```
->>> *.foldList(2 # 1:5)
+>>> *.foldList(1:5 # 2)
 [1 1 2 4 12 36 144 576 2880 14400]
 ```
 

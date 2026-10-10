@@ -476,7 +476,7 @@ length=`size`, toArray=`List`:
 >>> (1 .. 5).List
 [1 2 3 4 5]
 
->>> (1 .. 5).Stream.next
+>>> (1 .. 5).Stream.next!
 1
 ```
 
@@ -513,7 +513,7 @@ false
 
 >>> Stream[1 2 3 4 5]
 >>> .take(3)
->>> .next
+>>> .next!
 1
 ```
 
@@ -525,7 +525,7 @@ false
 
 >>> Stream[1 2 3 4 5]
 >>> .drop(2)
->>> .next
+>>> .next!
 3
 ```
 
@@ -541,6 +541,67 @@ false
 ```
 >>> [1 2 3 4 5].dropWhile { :x | x < 4 }
 [4 5]
+```
+
+stride=`downsample`:
+
+```
+>>> [1 2 3 4 5 6 7].downsample(2)
+[1 3 5 7]
+
+>>> [1 2 3 4 5 6 7 8 9].downsample(3)
+[1 4 7]
+```
+
+repeat=`List`:
+
+```
+>>> List(5, 0)
+[0 0 0 0 0]
+
+>>> List(3, 3.14)
+[3.14 3.14 3.14]
+
+>>> List(2, 'hello')
+['hello', 'hello']
+
+>>> List(4, true)
+[true true true true]
+
+>>> List(0, 42)
+[]
+```
+
+map=`collect`:
+
+```
+>>> [1 2 3].collect { :x | x * x }
+[1 4 9]
+
+>>> [1 2 3].collect { :x | x * 2 }
+[2 4 6]
+
+>>> [1 2 3].collect { :x | x + 10 }
+[11 12 13]
+```
+
+filter=`select`:
+
+```
+>>> [1 2 3 4 5].select { :x | x > 2 }
+
+>>> [1 2 3 4 5].select { :x | x % 2 = 0 }
+[2 4]
+```
+
+`enumerate`:
+
+```
+>>> ['a' 'b' 'c'].enumerate
+[1 'a'; 2 'b'; 3 'c']
+
+>>> [10 20 30].enumerate
+[0 10; 1 20; 2 30]
 ```
 
 ## Type Conversions
@@ -561,33 +622,36 @@ toInt=`truncate`:
 toFloat=`Float`, `real`:
 
 ```
->>> Float(5)
-5
+>>> Float(5L)
+5.0
 
 >>> Float(7/2)
+3.5
+
+>>> Float(3.5D)
 3.5
 
 >>> real(3 + 4I)
 3
 ```
 
-toFraction=`Fraction`:
+`toFraction`:
 
 ```
->>> Fraction(5)
+>>> toFraction(5)
 5/1
 ```
 
-toComplex=`Complex`:
+`toComplex`:
 
 ```
->>> Complex(5)
+>>> toComplex(5)
 5J0
 
->>> Complex(3.14)
+>>> toComplex(3.14)
 3.14J0
 
->>> Complex(7/2)
+>>> toComplex(7/2)
 3.5J0
 ```
 

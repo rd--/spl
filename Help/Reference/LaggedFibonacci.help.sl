@@ -6,7 +6,7 @@ Implement an additive lagged Fibonacci pseudo-random number generator.
 
 ```
 >>> LaggedFibonacci(273, 607, 42)
->>> .next(7)
+>>> .next!(7)
 [
 	0.67501070516724
 	0.48303471972594
@@ -53,9 +53,9 @@ Equal values on `reset`:
 ```
 >>> let k = 23;
 >>> let r = LaggedFibonacci(273, 607, 42);
->>> let x = r.next(k);
->>> r.reset;
->>> x = r.next(k)
+>>> let x = r.next!(k);
+>>> r.reset!;
+>>> x = r.next!(k)
 true
 ```
 
@@ -63,7 +63,7 @@ Scatter plot of two-hundred and fifty terms:
 
 ~~~spl svg=A
 LaggedFibonacci(273, 607, 42)
-.next(250)
+.next!(250)
 .scatterPlot
 ~~~
 
@@ -73,7 +73,7 @@ Difference between empirical and expected mean and standard deviation:
 
 ```
 >>> let r = LaggedFibonacci(273, 607, 42);
->>> let n = r.next(10 ^ 4);
+>>> let n = r.next!(10 ^ 4);
 >>> (
 >>> 	0.5 - n.mean,
 >>> 	1/12.sqrt - n.standardDeviation

@@ -1,8 +1,9 @@
 # downsample
 
-- _downsample([x₁ x₂ …], n)_
+- _downsample([x₁ x₂ …], n, ϕ=0)_
 
-Answer a downsampled copy of the sequence _x_ by sampling every _n_-th element.
+Answer a downsampled copy of the sequence _x_ by sampling every _n_-th element,
+with a starting offset of ϕ.
 
 Downsample a `List` by a factor of two:
 
@@ -19,6 +20,26 @@ Downsample a `List` by a factor of three:
 ```
 >>> [1 .. 10].downsample(3)
 [1 4 7 10]
+```
+
+Phase offset of two:
+
+```
+>>> [1 .. 9].downsample(3, 2)
+[3 6 9]
+
+>>> [1 .. 11].downsample(3, 2)
+[3 6 9]
+```
+
+Decrease the sample rate of a matrix by a factor of three:
+
+```
+>>> [4 3].iota.downsample(3)
+[
+	 1  2  3;
+	10 11 12
+]
 ```
 
 A random walk of three-hundred places:
@@ -65,6 +86,8 @@ Guides: Interpolation Functions, Signal Processing Functions
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Downsample.html),
+_Mathworks_
+[1](https://mathworks.com/help/signal/ref/downsample.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Downsampling_(signal_processing))
 

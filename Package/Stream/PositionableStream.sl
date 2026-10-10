@@ -8,7 +8,7 @@
 		(self.position = 0).ifTrue {
 			self.error('@PositionableStream>>back: cannot go back')
 		};
-		self.skip(-1);
+		self.skip!(-1);
 		self.peek
 	}
 
@@ -26,7 +26,7 @@
 		valueWithReturn { :return/1 |
 			let savedPosition = self.position;
 			aCollection.do { :each |
-				(self.next = each).ifFalse {
+				(self.next! = each).ifFalse {
 					self.position!(savedPosition);
 					false.return
 				}
@@ -41,7 +41,7 @@
 		self.isReadStream.if {
 			self.readLimit := aCollection.size
 		};
-		self.reset
+		self.reset!
 	}
 
 	originalContents { :self |
@@ -52,7 +52,7 @@
 		self.atEnd.if {
 			nil
 		} {
-			let nextObject = self.next;
+			let nextObject = self.next!;
 			self.position!(self.position - 1);
 			nextObject
 		}
@@ -63,7 +63,7 @@
 			self.atEnd.ifTrue {
 				false.return
 			};
-			(self.next = anObject).ifTrue {
+			(self.next! = anObject).ifTrue {
 				true.return
 			};
 			self.position!(self.position - 1);
@@ -87,20 +87,20 @@
 		self.error('@PositionableStream>>positionError: position out of bounds')
 	}
 
-	reset { :self |
+	reset! { :self |
 		self.position!(0)
 	}
 
-	skip { :self :anInteger |
+	skip! { :self :anInteger |
 		self.position!(self.position + anInteger)
 	}
 
-	skipTo { :self :anObject |
+	skipTo! { :self :anObject |
 		valueWithReturn { :return/1 |
 			{
 				self.atEnd
 			}.whileFalse {
-				(self.next = anObject).ifTrue {
+				(self.next! = anObject).ifTrue {
 					true.return
 				}
 			};
@@ -113,7 +113,7 @@
 			let element = nil;
 			{
 				self.atEnd | {
-					element := self.next;
+					element := self.next!;
 					element = anObject
 				}
 			}.whileFalse {
@@ -127,13 +127,13 @@
 			{
 				self.atEnd
 			}.whileFalse {
-				aStream.nextPut(self.next)
+				aStream.nextPut(self.next!)
 			}
 		}
 	}
 
 	upToPosition { :self :anInteger |
-		self.next(anInteger - self.position)
+		self.next!(anInteger - self.position)
 	}
 
 	withWriteStream { :self :aBlock/1 |

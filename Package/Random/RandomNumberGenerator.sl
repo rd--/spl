@@ -4,7 +4,7 @@
 		true
 	}
 
-	next { :self |
+	next! { :self |
 		self.nextRandomFloat
 	}
 

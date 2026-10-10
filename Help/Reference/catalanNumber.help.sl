@@ -78,7 +78,7 @@ OEIS [A244160](https://oeis.org/A244160):
 >>> .withIndexCollect { :x :i |
 >>> 	List(x, i - 1)
 >>> }.catenate
-[0 1 3 9 28 90] # [0 1 2 3 4 5]
+[0 1 2 3 4 5] # [0 1 3 9 28 90]
 ```
 
 Repeat _n_ _C(n)_ times,
@@ -88,7 +88,7 @@ OEIS [A072643](https://oeis.org/A072643):
 >>> 0:6.collect { :n |
 >>> 	List(n.catalanNumber, n)
 >>> }.catenate
-0:6.catalanNumber # 0:6
+0:6 # 0:6.catalanNumber
 ```
 
 Expansion of _√(1-4*x)_ in powers of _x_,

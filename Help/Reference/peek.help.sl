@@ -10,7 +10,7 @@ If there is no item, answer nil.
 
 ```
 >>> let s = Stream[1 2 3 4 5];
->>> (s.peek, s.next)
+>>> (s.peek, s.next!)
 (1, 1)
 ```
 

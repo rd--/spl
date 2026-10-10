@@ -1,16 +1,16 @@
 @Iterator {
 
 	any { :self :numberOfElements |
-		self.next(numberOfElements)
+		self.next!(numberOfElements)
 	}
 
 	do { :self :aBlock/1 |
-		let each = self.next;
+		let each = self.next!;
 		{
 			each.isNil
 		}.whileFalse {
 			aBlock(each);
-			each := self.next
+			each := self.next!
 		}
 	}
 
@@ -22,16 +22,16 @@
 		self
 	}
 
-	next { :self |
-		self.typeResponsibility('Iterator>>next')
-	}
-
-	next { :self :anInteger |
+	next! { :self :anInteger |
 		let answer = [];
 		anInteger.timesRepeat {
-			answer.addLast!(self.next)
+			answer.addLast!(self.next!)
 		};
 		answer
+	}
+
+	next! { :self |
+		self.typeResponsibility('Iterator>>next')
 	}
 
 	nextInto { :self :aCollection |
@@ -48,14 +48,14 @@
 	}
 
 	nextMatchFor { :self :anObject |
-		anObject = self.next
+		anObject = self.next!
 	}
 
 	nextOrUpToEnd { :self :maxNumberOfElements |
 		let answer = [];
 		valueWithReturn { :return/1 |
 			maxNumberOfElements.timesRepeat {
-				let item = self.next;
+				let item = self.next!;
 				item.ifNil {
 					answer.return
 				};
@@ -86,7 +86,7 @@
 		let answer = [];
 		let next = nil;
 		{
-			next := self.next;
+			next := self.next!;
 			answer.addLast!(next)
 		}.doWhileTrue {
 			next.aBlock
@@ -97,7 +97,7 @@
 	readIntoStartingAtCount { :self :aCollection :startIndex :n |
 		valueWithReturn { :return/1 |
 			0.toDo(n - 1) { :i |
-				let obj = self.next.ifNil {
+				let obj = self.next!.ifNil {
 					i.return
 				};
 				aCollection[startIndex + i] := obj
@@ -108,14 +108,14 @@
 
 	upTo { :self :anObject |
 		let answer = [];
-		let next = self.next;
+		let next = self.next!;
 		{
 			next = nil | {
 				next = anObject
 			}
 		}.whileFalse {
 			answer.addLast!(next);
-			next := self.next
+			next := self.next!
 		};
 		answer
 	}

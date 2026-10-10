@@ -89,19 +89,19 @@
 			(index > list.size).if {
 				nil
 			} {
-				let next = list[index].next;
+				let next = list[index].next!;
 				{
 					next.isNil & {
 						index < list.size
 					}
 				}.whileTrue {
 					index := index + 1;
-					next := list[index].next
+					next := list[index].next!
 				};
 				next
 			}
 		} {
-			list.do(reset/1);
+			list.do(reset!/1);
 			index := 1
 		}
 	}
@@ -114,7 +114,7 @@
 		let index = 1;
 		list.collect!(LsForever/1);
 		BlockStream {
-			let next = list[index].next;
+			let next = list[index].next!;
 			(index >= list.size).if {
 				index := 1
 			} {
@@ -122,7 +122,7 @@
 			};
 			next
 		} {
-			list.do(reset/1);
+			list.do(reset!/1);
 			index := 1
 		}
 	}
@@ -165,18 +165,18 @@
 	LsSwitch { :list :which |
 		list.collect!(LsOnce/1);
 		which := LsForever(which);
-		let index = which.next;
+		let index = which.next!;
 		BlockStream {
-			let next = list[index].next;
+			let next = list[index].next!;
 			next.ifNil {
-				list[index].reset;
-				index := which.next;
-				next := list[index].next
+				list[index].reset!;
+				index := which.next!;
+				next := list[index].next!
 			};
 			next
 		} {
-			list.do(reset/1);
-			which.reset
+			list.do(reset!/1);
+			which.reset!
 		}
 	}
 
@@ -184,10 +184,10 @@
 		list.collect!(LsForever/1);
 		which := LsForever(which);
 		BlockStream {
-			list[which.next].next
+			list[which.next!].next!
 		} {
-			list.do(reset/1);
-			which.reset
+			list.do(reset!/1);
+			which.reset!
 		}
 	}
 
@@ -198,16 +198,16 @@
 			(count <= 0).if {
 				nil
 			} {
-				let next = list.collect(next/1);
+				let next = list.collect(next!/1);
 				next.anySatisfy(isNil/1).ifTrue {
 					count := count - 1;
-					list.do(reset/1);
-					next := list.collect(next/1)
+					list.do(reset!/1);
+					next := list.collect(next!/1)
 				};
 				next
 			}
 		} {
-			list.do(reset/1);
+			list.do(reset!/1);
 			count := repeats
 		}
 	}
@@ -233,9 +233,9 @@
 	}
 
 	LsAdjacent { :input :aBlock/2 |
-		let previous = input.next;
+		let previous = input.next!;
 		BlockStream {
-			let next = input.next;
+			let next = input.next!;
 			next.isNil.if {
 				nil
 			} {
@@ -244,36 +244,36 @@
 				answer
 			}
 		} {
-			input.reset;
-			previous := input.next
+			input.reset!;
+			previous := input.next!
 		}
 	}
 
 	LsClump { :input :size |
 		size := LsForever(size);
 		BlockStream {
-			let answer = input.nextOrUpToEnd(size.next);
+			let answer = input.nextOrUpToEnd(size.next!);
 			answer.isEmpty.if {
 				nil
 			} {
 				answer
 			}
 		} {
-			input.reset;
-			size.reset
+			input.reset!;
+			size.reset!
 		}
 	}
 
 	LsClutch { :input :latch :initialValue |
 		let previous = initialValue;
 		BlockStream {
-			latch.next.Boolean.ifTrue {
-				previous := input.next
+			latch.next!.Boolean.ifTrue {
+				previous := input.next!
 			};
 			previous
 		} {
-			input.reset;
-			latch.reset
+			input.reset!;
+			latch.reset!
 		}
 	}
 
@@ -306,10 +306,10 @@
 	}
 
 	LsLast { :input |
-		let answer = input.next;
+		let answer = input.next!;
 		let next = nil;
 		{
-			next := input.next;
+			next := input.next!;
 			next.isNotNil
 		}.whileTrue {
 			answer := next
@@ -336,24 +336,24 @@
 	LsSlidingWindows { :input :windowSize :stepSize |
 		let overlap = (windowSize - stepSize).max(0);
 		let require = windowSize - overlap;
-		let skip = (stepSize - windowSize).max(0);
-		let window = input.next(overlap);
+		let skipSize = (stepSize - windowSize).max(0);
+		let window = input.next!(overlap);
 		BlockStream {
 			let current = input.nextOrUpToEnd(require);
 			(current.size != require).if {
 				nil
 			} {
 				let answer = window ++ current;
-				(skip > 0).ifTrue {
-					input.next(skip)
+				(skipSize > 0).ifTrue {
+					input.next!(skipSize)
 				};
 				window.addAll!(current);
 				window.removeFirst!(require);
 				answer
 			}
 		} {
-			input.reset;
-			window := input.next(overlap)
+			input.reset!;
+			window := input.next!(overlap)
 		}
 	}
 
@@ -373,7 +373,7 @@
 		let sessionTime = system.sessionTime;
 		let timeDifference = absoluteTime - sessionTime;
 		{ :currentTime |
-			let next = self.next;
+			let next = self.next!;
 			next.ifNil {
 				nil
 			} {
@@ -433,7 +433,7 @@
 			atEnd.if {
 				nil
 			} {
-				let next = self.collect(next/1);
+				let next = self.collect(next!/1);
 				next.anySatisfy(isNil/1).if {
 					atEnd := true;
 					nil
@@ -442,7 +442,7 @@
 				}
 			}
 		} {
-			self.do(reset/1);
+			self.do(reset!/1);
 			atEnd := false
 		}
 	}
@@ -457,14 +457,14 @@
 		p1 := LsConstant(p1);
 		p2 := LsConstant(p2);
 		BlockStream {
-			let lhs = low.next;
-			let rhs = high.next;
-			randomNumberGenerator.betaDistribution(p1.next, p2.next) * (rhs - lhs) + lhs
+			let lhs = low.next!;
+			let rhs = high.next!;
+			randomNumberGenerator.betaDistribution(p1.next!, p2.next!) * (rhs - lhs) + lhs
 		} {
-			low.reset;
-			high.reset;
-			p1.reset;
-			p2.reset
+			low.reset!;
+			high.reset!;
+			p1.reset!;
+			p2.reset!
 		}.take(length)
 	}
 
@@ -472,7 +472,7 @@
 		low := LsConstant(low);
 		high := LsConstant(high);
 		step := LsConstant(step);
-		let next = aBlock(randomNumberGenerator, [low.next, high.next], []);
+		let next = aBlock(randomNumberGenerator, [low.next!, high.next!], []);
 		low.withWithCollect(high, step) { :low :high :step |
 			let answer = next;
 			next := (next + aBlock(randomNumberGenerator, [step.negate, step], [])).fold(low, high);

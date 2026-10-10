@@ -20,9 +20,6 @@ Without cause:
 
 >>> Error('Invalid key').printString
 '*Error* Error: Invalid key'
-
->> Error('Invalid key').storeString
-Error('Invalid key')
 ```
 
 With cause:
@@ -39,14 +36,25 @@ With cause:
 
 >>> Error('Invalid key', -1).printString
 '*Error* Error: Invalid key: -1'
+```
 
->> Error('Invalid key', -1).storeString
-Error('Invalid key', -1)
+Error values cannot be copied:
+
+```
+>>> { Error('x').copy }.hasError
+true
+```
+
+Error values cannot be stored:
+
+```
+>>> { Error('x').storeString }.hasError
+true
 ```
 
 * * *
 
-See also: cause, causeText, description, error, ifError, messageText, name, signal
+See also: Exception, cause, causeText, description, error, ifError, messageText, name, signal
 
 Guides: Control Functions, Error Functions
 

@@ -13,13 +13,13 @@ PinkNoise([0.1 0.1], 0)
 High pass filtered:
 
 ```
-PinkNoise(2 # [0.1], 0).Hpz1
+PinkNoise([0.1] # 2, 0).Hpz1
 ```
 
 Low pass filtered:
 
 ```
-PinkNoise(2 # [0.1], 0).Lpz1
+PinkNoise([0.1] # 2, 0).Lpz1
 ```
 
 Compare to `WhiteNoise`:
@@ -40,7 +40,7 @@ Compare to `WhiteNoise`:
 Shifting band-pass filter:
 
 ```
-PinkNoise(2 # [0.2], 0).Bpf(
+PinkNoise([0.2] # 2, 0).Bpf(
 	LfNoise2(0.2).LinLin(-1, 1, 20, 3000),
 	LfNoise2(0.2).LinLin(-1, 1, 0.1, 2)
 )

@@ -12,7 +12,7 @@ let a = 48271;
 let m = 2 ^ 31 - 1;
 let s = 791823;
 [a m].lehmerGenerator(s)
-.next(100).discretePlot
+.next!(100).discretePlot
 ~~~
 
 ![](Help/Image/lehmerGenerator-A.svg)

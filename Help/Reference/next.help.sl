@@ -1,7 +1,7 @@
-# next
+# next!
 
-- _next(s)_
-- _next(s, n)_
+- _next!(s)_
+- _next!(s, n)_
 
 In the unary case, answer the next object accessible by the stream _s_.
 If the stream is positioned at its end, or if the position is out of bounds in the collection, answer `nil`.
@@ -14,7 +14,7 @@ At an infinite stream:
 ```
 >>> (1 .. Infinity).Stream
 >>> .reject(isEven/1)
->>> .next(5)
+>>> .next!(5)
 [1 3 5 7 9]
 ```
 
@@ -23,7 +23,7 @@ which is likewise an infinite stream:
 
 ```
 >>> Sfc32(367214)
->>> .next(5)
+>>> .next!(5)
 [
 	0.123869952745736
 	0.782355992356315

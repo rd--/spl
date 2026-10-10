@@ -71,7 +71,7 @@ selecting only items less than five:
 
 ```
 >>> let x = [3 1 4 1 5 9 2 6];
->>> (x < 5).boole # x
+>>> x # (x < 5).boole
 [3 1 4 1 2]
 ```
 

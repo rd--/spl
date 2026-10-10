@@ -2,16 +2,15 @@
 
 - _enumerate(s)_
 
-Return a `Stream` that enumerates the items of the input sequence _s_,
-which may be a sequence or a stream.
-The `next` method at the answer will answer a counter and the next item of the input.
+Return a sequence like _s_ that enumerates the items of the input sequence _s_,
+which may be a sequence or a stream,
+along with an index.
 
 At `List`:
 
 ```
 >>> ['Spring' 'Summer' 'Fall' 'Winter']
 >>> .enumerate
->>> .upToEnd
 [
 	1 'Spring';
 	2 'Summer';
@@ -20,10 +19,11 @@ At `List`:
 ]
 ```
 
-At `Sfc32`, which implements `Stream`:
+At `Sfc32`, which implements `Stream`,
+the `next` method at the answer will answer a counter and the next item of the input:
 
 ```
->>> Sfc32(789142).enumerate.next(5)
+>>> Sfc32(789142).enumerate.next!(5)
 [
 	1 0.15164;
 	2 0.73129;

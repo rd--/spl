@@ -14,7 +14,7 @@ With infinite length:
 ```
 >>> let p = LsSeries(1, 3, Infinity);
 >>> let q = LsSeries(3, 5, Infinity);
->>> p.next(4) ++ q.next(4)
+>>> p.next!(4) ++ q.next!(4)
 [1 4 7 10 3 8 13 18]
 ```
 
@@ -30,7 +30,7 @@ Non-cubical squares:
 >>> 	{
 >>> 		each <= cubes.peek
 >>> 	}.whileFalse {
->>> 		cubes.next
+>>> 		cubes.next!
 >>> 	};
 >>> 	each = cubes.peek
 >>> };

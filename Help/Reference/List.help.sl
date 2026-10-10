@@ -119,7 +119,7 @@ or to `nil` if _x_ is elided.
 The `#` and `!` operators can also construct these lists:
 
 ```
->>> 3 # [1]
+>>> [1] # 3
 [1 1 1]
 
 >>> { 0 } ! 5

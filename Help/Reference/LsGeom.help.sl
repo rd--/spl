@@ -14,7 +14,7 @@ With non-finite length:
 ```
 >>> let p = LsGeom(1, 3, Infinity);
 >>> let q = LsGeom(3, 5, Infinity);
->>> p.next(4) ++ q.next(4)
+>>> p.next!(4) ++ q.next!(4)
 [1 3 9 27 3 15 75 375]
 ```
 

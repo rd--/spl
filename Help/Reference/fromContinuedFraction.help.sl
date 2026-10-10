@@ -123,7 +123,7 @@ Rational approximations to golden ratio:
 
 ```
 >>> 1:14.collect { :k |
->>> 	(k # [1]).fromContinuedFraction
+>>> 	([1] # k).fromContinuedFraction
 >>> }
 [
 	1 2 3/2 5/3 8/5
