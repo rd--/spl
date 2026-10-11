@@ -17,15 +17,25 @@ Note that the answer is given in `normal` form:
 true
 ```
 
-The binary case is the operator form of `duplicate`:
+The binary case at `Block` is the operator form of `duplicate`:
 
 ```
 >>> { 1 } ! [2 3]
 duplicate({ 1 }, [2 3])
 ```
 
-`duplicate` is only defined at `Block`,
-to duplicate a value use `reshape` or enclose the value in a `Block`:
+The binary case at `List` is `reshape`:
+
+```
+>>> [1 2 3] ! [3 4]
+[
+	1 2 3 1;
+	2 3 1 2;
+	3 1 2 3
+]
+```
+
+To duplicate a value it can be enclosed in either a block or a list:
 
 ~~~spl svg=A
 let r = Sfc32(738219);

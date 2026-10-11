@@ -119,8 +119,8 @@ If ⍴ is an integer is is taken to mean _[⍴]_.
 
 * * *
 
-See also: #, !, replicate
+See also: #, !, array, fill, replicate
 
-Guides: List Functions
+Guides: Array Functions, List Functions
 
 Categories: Copying

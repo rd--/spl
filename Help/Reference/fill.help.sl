@@ -1,15 +1,16 @@
 # fill
 
-- _fill(⍴, f/1)_
+- _fill(f/1, ⍴)_
 
-Allocate a vector or array of the indicated shape _⍴_, and fill each slot by applying the unary block _f_ to the index.
-At `Integer` answers a vector, at `Sequence` answers an array.
+Allocate an array of the indicated shape _⍴_,
+and fill each cell by applying the unary block _f_ to the deep index of the cell.
 
-List of squares of indices with literal block:
+List of squares of indices with literal block,
+compare to `array` and `table`:
 
 ```
->>> 9.fill { :i | i * i }
-[1 4 9 16 25 36 49 64 81]
+>>> { :i | i * i }.fill([9])
+[1; 4; 9; 16; 25; 36; 49; 64; 81]
 
 >>> { :i | i * i }.array([9])
 [1 4 9 16 25 36 49 64 81]
@@ -21,8 +22,8 @@ List of squares of indices with literal block:
 List of squares of indices with named method:
 
 ```
->>> 9.fill(square/1)
-[1 4 9 16 25 36 49 64 81]
+>>> square/1.fill([9])
+[1; 4; 9; 16; 25; 36; 49; 64; 81]
 
 >>> square/1.array([9])
 [1 4 9 16 25 36 49 64 81]
@@ -31,8 +32,8 @@ List of squares of indices with named method:
 List of negated indices:
 
 ```
->>> 9.fill(negate/1)
-[-1 -2 -3 -4 -5 -6 -7 -8 -9]
+>>> negate/1.fill([9])
+[-1; -2; -3; -4; -5; -6; -7; -8; -9]
 
 >>> negate/1.array([9])
 [-1 -2 -3 -4 -5 -6 -7 -8 -9]
@@ -41,7 +42,7 @@ List of negated indices:
 Constant list:
 
 ```
->>> 9.fill(0.constant)
+>>> 0.constant.fill([9])
 [0 0 0 0 0 0 0 0 0]
 
 >>> 0.constant.array([9])
@@ -63,10 +64,10 @@ Constant list:
 A 3×3 matrix, each place holding its column index minus its row index:
 
 ```
->>> [3 3].fill { :index |
+>>> { :index |
 >>> 	let [i, j] = index;
 >>> 	j - i
->>> }
+>>> }.fill([3 3])
 [
 	 0  1 2;
 	-1  0 1;
@@ -84,9 +85,9 @@ A 3×3 matrix, each place holding its column index minus its row index:
 A 3×2 matrix, each place holding the square of its two place _(i,j)_ index:
 
 ```
->>> [3 2].fill { :i |
+>>> { :i |
 >>> 	i * i
->>> }
+>>> }.fill([3 2])
 [
 	1 1; 1 4:;
 	4 1; 4 4:;
@@ -97,7 +98,7 @@ A 3×2 matrix, each place holding the square of its two place _(i,j)_ index:
 A constant 3×3 matrix:
 
 ```
->>> [3 3].fill(0.constant)
+>>> 0.constant.fill([3 3])
 [
 	0 0 0;
 	0 0 0;
@@ -117,24 +118,33 @@ A constant 3×3 matrix:
 If the shape is empty answer a scalar of _f_ applied to `zero`:
 
 ```
->>> [].fill { :i |
+>>> { :i |
 >>> 	i
->>> }
+>>> }.fill([])
 0
 ```
 
-The vector case can also be written using `collect` or `table`:
+The vector case more readily be written using `array` or `map` or `table` or `collect`:
 
 ```
->>> 1:9.collect(square/1)
+>>> { :i | i[1].square }.fill([9])
+[1 4 9 16 25 36 49 64 81]
+
+>>> square/1.array([9])
+[1 4 9 16 25 36 49 64 81]
+
+>>> square/1.map(1:9)
 [1 4 9 16 25 36 49 64 81]
 
 >>> square/1.table(1:9)
+[1 4 9 16 25 36 49 64 81]
+
+>>> 1:9.collect(square/1)
 [1 4 9 16 25 36 49 64 81]
 ```
 
 * * *
 
-See also: array, atAllPut, constantArray, dusplicate, fillFromWith, replicate, table
+See also: array, atAllPut, constantArray, duplicate, fillFromWith, replicate, table
 
-Guides: List Functions
+Guides: Array Functions, List Functions

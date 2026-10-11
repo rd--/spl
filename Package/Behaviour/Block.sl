@@ -6,14 +6,10 @@ Block! : [Object, Equal] {
 		self(anObject)
 	}
 
-	@* { :self/1 :aBlock/1 |
-		self/1.composeLeft(aBlock/1)
-	}
-
 	[duplicate, !] { :self/0 :shape |
-		shape.fill { :unused |
+		{ :unused |
 			self()
-		}
+		}.fill(shape.nest)
 	}
 
 	[equal, =] { :self :anObject |
@@ -93,7 +89,7 @@ Block! : [Object, Equal] {
 		}
 	}
 
-	[composeLeft, compose] { :self/1 :aBlock/1 |
+	[composeLeft, compose, @*] { :self/1 :aBlock/1 |
 		{ :anObject |
 			self(aBlock(anObject))
 		}
@@ -257,6 +253,18 @@ Block! : [Object, Equal] {
 		};
 		return returnValue;
 		>
+	}
+
+	fill { :aBlock/1 :shape |
+		shape.isEmpty.if {
+			aBlock(0)
+		} {
+			let answer = shape.constantArray(nil);
+			shape.shapeIndicesDo { :index |
+				answer.atPathPut!(index, aBlock(index))
+			};
+			answer
+		}
 	}
 
 	foldList { :f/2 :y :x |

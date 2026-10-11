@@ -83,7 +83,7 @@ A matrix of lists:
 
 * * *
 
-See also: #, !, identityMatrix, iota, Range, reshape, table, unitVector
+See also: Range, #, !, identityMatrix, iota, reshape, table, unitVector
 
 Guides: Array Functions
 

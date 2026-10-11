@@ -373,7 +373,7 @@ let a = [1 .. 9]; a.shuffle != a & { a = [1 .. 9] } /* copying shuffle */
 [9, 8 .. 1].includesAll([3 .. 7]) = true
 [5, 4 .. 3].includesAll([3 .. 7]) = false
 [].includesAll([3 .. 7]) = false
-5.fill(negate/1) = [-1, -2 .. -5] /* fill array with answers of a block applied to each index */
+negate/1.fill([5]) = [-1; -2; -3; -4; -5] /* fill array with answers of a block applied to each index */
 let r = Sfc32(12345); r.randomInteger([1 9], 5) = [8, 5, 9, 9, 4] /* duplicate block */
 let r = Sfc32(12345); { r.randomInteger([1 9], []) } ! 5 = [8, 5, 9, 9, 4] /* duplicate block */
 List(5).fillFromWith(1:5, negate/1) = [-1, -2 .. -5]
@@ -532,7 +532,7 @@ let a = [5, 4 .. 1]; a @* [1 5 3] = [5 1 3] /* atAll operator */
 let a = [5, 4 .. 1]; a @* [2 .. 4] = [4 3 2] /* atAll operator */
 let a = [1, 1, 3, 4]; a @* [2, 4, 3, 1] = [1, 4, 3, 1] /* atAll operator */
 let a = [1 1 3 4]; a @* [2 4 3 1] = [1 4 3 1] /* atAll operator */
-4.fill { :i | i * 2 } = [2, 4, 6, 8] /* fill list using block at indicies */
+{ :i | i * 2 }.fill([4]) = [2; 4; 6; 8] /* fill list using block at indicies */
 ```
 
 ## PrimitiveArray -- collection trait

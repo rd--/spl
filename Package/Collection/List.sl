@@ -82,18 +82,6 @@ List! : [Object, Copy, Store, Equal, Compare, Json, Iterable, Indexable, Collect
 		self.partition(n, n).transpose
 	}
 
-	fill { :shape :aBlock/1 |
-		shape.isEmpty.if {
-			aBlock(0)
-		} {
-			let answer = shape.iota;
-			shape.shapeIndicesDo { :index |
-				answer.atPathPut!(index, aBlock(index))
-			};
-			answer
-		}
-	}
-
 	gatherBy { :self :aBlock/1 |
 		let a = [];
 		self.do { :x |
@@ -333,14 +321,6 @@ List! : [Object, Copy, Store, Equal, Compare, Json, Iterable, Indexable, Collect
 		1.toCollect(self) { :each |
 			(step * (each - 1)) + start
 		}
-	}
-
-	fill { :self :aBlock/1 |
-		let answer = List(self);
-		answer.indicesDo { :index |
-			answer[index] := aBlock(index)
-		};
-		answer
 	}
 
 	geometricProgression { :self :start :grow |

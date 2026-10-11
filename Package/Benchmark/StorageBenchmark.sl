@@ -14,9 +14,9 @@ StorageBenchark : [Object] {
 		(depth = 1).if {
 			List(random.next % 10 + 1)
 		} {
-			4.fill { :unusedIndex |
+			{
 				self.buildTreeDepthWith(depth - 1, random)
-			}
+			}.array([4])
 		}
 	}
 

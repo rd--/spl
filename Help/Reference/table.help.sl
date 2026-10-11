@@ -460,9 +460,9 @@ let x = 1:k.select { :n |
 
 * * *
 
-See also: array, collect, diagonalMatrix, identityMatrix, do, map, sum, product, nestList, tuples, withCollect
+See also: Range, array, collect, diagonalMatrix, identityMatrix, do, map, sum, product, nestList, tuples, withCollect
 
-Guides: List Functions, Matrix Functions
+Guides: Array Functions, List Functions, Matrix Functions
 
 References:
 _J_

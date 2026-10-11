@@ -630,14 +630,14 @@
 	waveFill { :self :aBlock/3 :start :end |
 		(self.size > 0).ifTrue {
 			let index = 1;
-			let next = start;
+			let parameter = start;
 			let size = self.size;
 			let step = (end - start) / size;
 			{
 				i <= size
 			}.whileTrue {
-				self[index] := aBlock(next, self[index], index);
-				next := next + step;
+				self[index] := aBlock(parameter, self[index], index);
+				parameter := parameter + step;
 				index := index + 1
 			}
 		}

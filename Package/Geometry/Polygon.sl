@@ -399,7 +399,7 @@ Polygon : [Object, Store, Equal, Geometry] {
 	randomSimplePolygon { :r :n |
 		let p = r.randomReal([0 1], [n 2]);
 		let [_, i] = p.findShortestTour;
-		(p @* i).Polygon
+		(p.atAll(i)).Polygon
 	}
 
 	randomStarConvexPolygon { :self :k :minRadius :maxRadius |

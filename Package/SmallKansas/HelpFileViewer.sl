@@ -23,7 +23,7 @@ HelpFileViewer : [Object, UserEventTarget, View] {
 			p.start < q.start
 		};
 		let fragments = allRanges.collect { :each |
-			lines @* each
+			lines.atAll(each)
 		};
 		let place = { :item |
 			let helpItem = 'div'.createElement(

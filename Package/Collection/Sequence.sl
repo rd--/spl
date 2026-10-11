@@ -780,11 +780,11 @@
 	}
 
 	differences { :self :anInteger |
-		let next = self.differences;
+		let nextDifferences = self.differences;
 		(anInteger > 1).if {
-			next.differences(anInteger - 1)
+			nextDifferences.differences(anInteger - 1)
 		} {
-			next
+			nextDifferences
 		}
 	}
 
@@ -1195,9 +1195,9 @@
 		} {
 			let answer = 0/1;
 			self.reverseDo { :each |
-				let next = (each + answer);
-				(next != 0).ifTrue {
-					answer := 1 / next
+				let nextDivisor = (each + answer);
+				(nextDivisor != 0).ifTrue {
+					answer := 1 / nextDivisor
 				}
 			};
 			1 / answer
@@ -2333,16 +2333,36 @@
 		}
 	}
 
+	runningMax { :self |
+		let x = -Infinity;
+		self.collect { :each |
+			(each > x).ifTrue {
+				x := each
+			};
+			x
+		}
+	}
+
+	runningMin { :self |
+		let x = Infinity;
+		self.collect { :each |
+			(each < x).ifTrue {
+				x := each
+			};
+			x
+		}
+	}
+
 	scanLeft { :self :aBlock/2 :x0 :i0 |
 		self.ifEmpty {
 			self.copy
 		} {
 			let answer = self.species.new(self.size);
-			let next = x0;
-			answer[1] := next;
+			let nextItem = x0;
+			answer[1] := nextItem;
 			1.toDo(self.size - 1) { :index |
-				next := aBlock(next, self[index + i0]);
-				answer[index + 1] := next
+				nextItem := aBlock(nextItem, self[index + i0]);
+				answer[index + 1] := nextItem
 			};
 			answer
 		}
@@ -2375,11 +2395,11 @@
 			self.copy
 		} {
 			let answer = self.species.new(self.size);
-			let next = self[self.size];
-			answer[self.size] := next;
+			let nextItem = self[self.size];
+			answer[self.size] := nextItem;
 			(self.size - 1).toByDo(1, -1) { :index |
-				next := aBlock(self[index], next);
-				answer[index] := next
+				nextItem := aBlock(self[index], nextItem);
+				answer[index] := nextItem
 			};
 			answer
 		}
@@ -2528,12 +2548,12 @@
 			let startIndex = 1;
 			let previous = self.first;
 			2.toDo(self.size) { :index |
-				let next = self[index];
-				aBlock(previous, next).ifFalse {
+				let nextItem = self[index];
+				aBlock(previous, nextItem).ifFalse {
 					answer.add!(self.copyFromTo(startIndex, index - 1));
 					startIndex := index
 				};
-				previous := next
+				previous := nextItem
 			};
 			answer.add!(self.copyFromTo(startIndex, self.size));
 			answer
@@ -2737,12 +2757,12 @@
 	[transposeBy, transpose] { :self :permutation |
 		permutation.isPermutationList.if {
 			let fromShape = self.shape;
-			let toShape = fromShape @* permutation;
+			let toShape = fromShape.atAll(permutation);
 			let inverse = permutation.inversePermutation.list(permutation.size);
-			toShape.fill { :toIndex |
-				let fromIndex = toIndex @* inverse;
-				self @> fromIndex
-			}
+			{ :toIndex |
+				let fromIndex = toIndex.atAll(inverse);
+				self.atPath(fromIndex)
+			}.fill(toShape)
 		} {
 			self.error('@Sequence>>transposeBy: not permutation')
 		}

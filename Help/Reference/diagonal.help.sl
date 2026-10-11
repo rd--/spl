@@ -61,9 +61,7 @@ The diagonal of a non-square matrix:
 _diagonal(m, k)_ for an _n × n_ matrix gives non-empty results for _1 - n <= k <= n - 1_:
 
 ```
->>> let m = [4 4].fill { :index |
->>> 	index[2] - index[1]
->>> };
+>>> let m = -.swap.array([4 4]);
 >>> (
 >>> 	m,
 >>> 	(-3 .. 3).collect { :k |

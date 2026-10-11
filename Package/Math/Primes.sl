@@ -909,11 +909,11 @@
 	}
 
 	sieveOfPritchard { :limit |
-		let next = { :c :x |
+		let itemAfter = { :c :x |
 			let i = c.indexOf(x);
 			c[i + 1]
 		};
-		let previous = { :c :x |
+		let itemBefore = { :c :x |
 			let i = c.indexOf(x);
 			c[i - 1]
 		};
@@ -922,17 +922,17 @@
 			let x = m + 1;
 			{ x <= n }.whileTrue {
 				c.add!(x);
-				w := c.next(w);
+				w := c.itemAfter(w);
 				x := m + w
 			}
 		};
 		let deleteMultiples = { :a :m :p |
 			let w = p;
 			{ p * w <= m }.whileTrue {
-				w := a.next(w)
+				w := a.itemAfter(w)
 			};
 			{ w > 1 }.whileTrue {
-				w := a.previous(w);
+				w := a.itemBefore(w);
 				a.remove!(p * w)
 			}
 		};
@@ -953,7 +953,7 @@
 				deleteMultiples(wList, length, p);
 				pList.add!(p);
 				k := k + 1;
-				p := wList.next(1)
+				p := wList.itemAfter(1)
 			};
 			(length < limit).ifTrue {
 				extend(wList, length, limit)

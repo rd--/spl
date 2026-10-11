@@ -6,6 +6,7 @@ Answer a `List` with the shape _⍴_ and with elements drawn from the collection
 Elements are drawn in `ravel` order,
 truncating if the result has smaller bound than the right argument,
 and repeating cyclically if it has larger bound.
+The operator form is `!`.
 
 Create a 3×3 matrix from a nine-vector:
 
@@ -369,7 +370,7 @@ The `arrayReshape` variant has different rules for mismatching item counts.
 
 * * *
 
-See also: arrayReshape, iota, rank, recycle, reshapeLike, reshapeList, shape
+See also: !, arrayReshape, iota, rank, recycle, reshapeLike, reshapeList, shape
 
 Guides: Array Functions, List Functions, Matrix Functions
 

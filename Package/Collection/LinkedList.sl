@@ -7,11 +7,11 @@
 	}
 
 	lastLink { :self |
-		let next = self;
-		{ next.nextLink.isNil }.whileFalse {
-			next := next.nextLink
+		let answer = self;
+		{ answer.nextLink.isNil }.whileFalse {
+			answer := answer.nextLink
 		};
-		next
+		answer
 	}
 
 	Link { :self |
@@ -55,10 +55,10 @@
 	}
 
 	linksDo { :self :aBlock/1 |
-		let next = self;
-		{ next.isNil }.whileFalse {
-			aBlock(next);
-			next := next.nextLink
+		let link = self;
+		{ link.isNil }.whileFalse {
+			aBlock(link);
+			link := link.nextLink
 		}
 	}
 

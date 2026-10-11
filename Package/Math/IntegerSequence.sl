@@ -993,16 +993,16 @@
 		let answer = List(self, 0);
 		let seen = IdentitySet([0]);
 		1.toDo(self - 1) { :n |
-			let next = answer[n] - n;
+			let nextItem = answer[n] - n;
 			(
-				(next <= 0) | {
-					seen.includes(next)
+				(nextItem <= 0) | {
+					seen.includes(nextItem)
 				}
 			).ifTrue {
-				next := answer[n] + n
+				nextItem := answer[n] + n
 			};
-			answer[n + 1] := next;
-			seen.include!(next)
+			answer[n + 1] := nextItem;
+			seen.include!(nextItem)
 		};
 		answer
 	}

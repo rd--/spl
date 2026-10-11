@@ -26,13 +26,13 @@
 +Block {
 
 	LsUnfold { :aBlock/1 :start |
-		let next = start;
+		let nextItem = start;
 		BlockStream {
-			let answer = next;
-			next := aBlock(next);
+			let answer = nextItem;
+			nextItem := aBlock(nextItem);
 			answer
 		} {
-			next := start
+			nextItem := start
 		}
 	}
 
@@ -89,16 +89,16 @@
 			(index > list.size).if {
 				nil
 			} {
-				let next = list[index].next!;
+				let nextItem = list[index].next!;
 				{
-					next.isNil & {
+					nextItem.isNil & {
 						index < list.size
 					}
 				}.whileTrue {
 					index := index + 1;
-					next := list[index].next!
+					nextItem := list[index].next!
 				};
-				next
+				nextItem
 			}
 		} {
 			list.do(reset!/1);
@@ -114,13 +114,13 @@
 		let index = 1;
 		list.collect!(LsForever/1);
 		BlockStream {
-			let next = list[index].next!;
+			let nextItem = list[index].next!;
 			(index >= list.size).if {
 				index := 1
 			} {
 				index := index + 1
 			};
-			next
+			nextItem
 		} {
 			list.do(reset!/1);
 			index := 1
@@ -133,10 +133,10 @@
 
 	LsPermutations { :list |
 		let local = list.copy;
-		let next = local;
+		let nextItem = local;
 		BlockStream {
-			let answer = next.copy;
-			next := local.nextPermutationLexicographic!;
+			let answer = nextItem.copy;
+			nextItem := local.nextPermutationLexicographic!;
 			answer
 		} {
 			local := list.copy
@@ -167,13 +167,13 @@
 		which := LsForever(which);
 		let index = which.next!;
 		BlockStream {
-			let next = list[index].next!;
-			next.ifNil {
+			let nextItem = list[index].next!;
+			nextItem.ifNil {
 				list[index].reset!;
 				index := which.next!;
-				next := list[index].next!
+				nextItem := list[index].next!
 			};
-			next
+			nextItem
 		} {
 			list.do(reset!/1);
 			which.reset!
@@ -198,13 +198,13 @@
 			(count <= 0).if {
 				nil
 			} {
-				let next = list.collect(next!/1);
-				next.anySatisfy(isNil/1).ifTrue {
+				let nextList = list.collect(next!/1);
+				nextList.anySatisfy(isNil/1).ifTrue {
 					count := count - 1;
 					list.do(reset!/1);
-					next := list.collect(next!/1)
+					nextList := list.collect(next!/1)
 				};
-				next
+				nextList
 			}
 		} {
 			list.do(reset!/1);
@@ -233,19 +233,19 @@
 	}
 
 	LsAdjacent { :input :aBlock/2 |
-		let previous = input.next!;
+		let previousItem = input.next!;
 		BlockStream {
-			let next = input.next!;
-			next.isNil.if {
+			let nextItem = input.next!;
+			nextItem.isNil.if {
 				nil
 			} {
-				let answer = aBlock(previous, next);
-				previous := next;
+				let answer = aBlock(previousItem, nextItem);
+				previousItem := nextItem;
 				answer
 			}
 		} {
 			input.reset!;
-			previous := input.next!
+			previousItem := input.next!
 		}
 	}
 
@@ -307,12 +307,12 @@
 
 	LsLast { :input |
 		let answer = input.next!;
-		let next = nil;
+		let nextItem = nil;
 		{
-			next := input.next!;
-			next.isNotNil
+			nextItem := input.next!;
+			nextItem.isNotNil
 		}.whileTrue {
-			answer := next
+			answer := nextItem
 		};
 		answer
 	}
@@ -373,12 +373,12 @@
 		let sessionTime = system.sessionTime;
 		let timeDifference = absoluteTime - sessionTime;
 		{ :currentTime |
-			let next = self.next!;
-			next.ifNil {
+			let nextEvent = self.next!;
+			nextEvent.ifNil {
 				nil
 			} {
-				let dur = next['dur'];
-				let events = next.multiChannelExpand;
+				let dur = nextEvent['dur'];
+				let events = nextEvent.multiChannelExpand;
 				let packets = events.collectCatenate { :each |
 					each.asPatternEventMessages(currentTime + timeDifference)
 				};
@@ -433,12 +433,12 @@
 			atEnd.if {
 				nil
 			} {
-				let next = self.collect(next!/1);
-				next.anySatisfy(isNil/1).if {
+				let nextList = self.collect(next!/1);
+				nextList.anySatisfy(isNil/1).if {
 					atEnd := true;
 					nil
 				} {
-					next
+					nextList
 				}
 			}
 		} {
@@ -472,10 +472,10 @@
 		low := LsConstant(low);
 		high := LsConstant(high);
 		step := LsConstant(step);
-		let next = aBlock(randomNumberGenerator, [low.next!, high.next!], []);
+		let nextItem = aBlock(randomNumberGenerator, [low.next!, high.next!], []);
 		low.withWithCollect(high, step) { :low :high :step |
-			let answer = next;
-			next := (next + aBlock(randomNumberGenerator, [step.negate, step], [])).fold(low, high);
+			let answer = nextItem;
+			nextItem := (nextItem + aBlock(randomNumberGenerator, [step.negate, step], [])).fold(low, high);
 			answer
 		}
 	}

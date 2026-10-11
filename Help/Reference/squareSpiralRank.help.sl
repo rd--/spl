@@ -93,7 +93,7 @@ let k = [
 	2 -1; -2 1; -2 -1; 2 1
 ];
 let v = IdentitySet[1];
-let next = { :n |
+{ :n |
 	let c = n.squareSpiralUnrank;
 	let d = [c] + k;
 	let p = d.squareSpiralRank.sort!;
@@ -102,8 +102,7 @@ let next = { :n |
 	};
 	v.add!(m);
 	m
-};
-next/1.nestList(1, 115)
+}.nestList(1, 115)
 .scatterPlot
 ~~~
 

@@ -8,6 +8,7 @@ Types:
 Constructors:
 
 - `array`
+- `duplicate`
 - `table`
 - `triangularArray`
 

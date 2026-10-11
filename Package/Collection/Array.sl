@@ -211,12 +211,12 @@
 			let affixSize = (length - self.size).max(0);
 			let affix = List(affixSize, anObject);
 			let prefix = (length < self.size).if { self.first(length) } { self };
-			let next = shape[1].isNegative.if { affix ++ prefix } { prefix ++ affix };
+			let result = shape[1].isNegative.if { affix ++ prefix } { prefix ++ affix };
 			(shape.size = 1).if {
-				next
+				result
 			} {
 				let nextShape = shape.allButFirst;
-				next.collect { :each |
+				result.collect { :each |
 					padRight(each.nest, nextShape, anObject)
 				}
 			}
@@ -244,14 +244,14 @@
 	}
 
 	recycle { :self :shape |
-		let next = 1.to(shape[1]).collect { :i |
+		let result = 1.to(shape[1]).collect { :i |
 			self.atWrap(i)
 		};
 		(shape.size = 1).if {
-			next
+			result
 		} {
 			let nextShape = shape.allButFirst;
-			next.collect { :each |
+			result.collect { :each |
 				recycle(each.nest, nextShape)
 			}
 		}
@@ -466,7 +466,7 @@
 		}
 	}
 
-	reshape { :self :shape |
+	[reshape, !] { :self :shape |
 		shape.ifEmpty {
 			self.error('reshape: empty shape?')
 		} {

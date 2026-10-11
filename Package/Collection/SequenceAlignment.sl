@@ -12,7 +12,7 @@
 		valueWithReturn { :return/1 |
 			1.to(self.size).powerSetDo { :each |
 				each.isArithmeticProgression(1, equal/2).ifFalse {
-					(self @* each = aList).ifTrue {
+					(self.atAll(each) = aList).ifTrue {
 						true.return
 					}
 				}
@@ -85,7 +85,7 @@
 	indicesOfSubsequence { :self :aList |
 		let answer = [];
 		1.to(self.size).powerSetDo { :each |
-			(self @* each = aList).ifTrue {
+			(self.atAll(each) = aList).ifTrue {
 				answer.add!(each)
 			}
 		};
@@ -322,7 +322,7 @@
 		} {
 			let k = self.size;
 			[1 .. k].powerSetDo { :each |
-				aBlock(self @* each)
+				aBlock(self.atAll(each))
 			}
 		}
 	}

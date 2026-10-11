@@ -91,7 +91,9 @@ Permutation : [Object, Store, Equal] {
 	graph { :self |
 		let l = self.list;
 		let i = self.inversions;
-		let e = i.collect { :each | l @* each };
+		let e = i.collect { :each |
+			l.atAll(each)
+		};
 		let v = self.degree.iota;
 		Graph(v, e)
 	}
@@ -278,7 +280,7 @@ Permutation : [Object, Store, Equal] {
 		let k = list.size;
 		let answer = [];
 		1.to(k).powerSetDo { :each |
-			let subsequence = list @* each;
+			let subsequence = list.atAll(each);
 			(subsequence.reducedPermutation = pattern).ifTrue {
 				answer.add!(each)
 			}

@@ -669,6 +669,78 @@ cat=`concatenation`, ordinarily `++`:
 'apple'
 ```
 
+sums=`prefixSum`, products=`prefixProduct`, mins=`runningMin`, maxs=`runningMax`:
+
+```
+>>> [1 2 3 4].prefixSum
+[1 3 6 10]
+
+>>> [3 1 4 1 5].runningMin
+[3 1 1 1 1]
+
+>>> (1 .. Infinity).Stream.prefixSum.next!(5)
+[1 3 6 10 15]
+```
+
+any=`anyTrue`, all=`allTrue`:
+
+```
+>>> [1 2 3].anyTrue { :x | x > 2 }
+true
+
+>>> [1 2 3].allTrue { :x | x > 2 }
+false
+
+>>> [true false].anyTrue
+true
+```
+
+contains=`includes`:
+
+```
+>>> [1 2 3].includes(2)
+true
+
+>>> [1 2; 3 4].includes([3 4])
+true
+```
+
+`clump`:
+
+```
+>>> [1 .. 10].clump(3)
+[1 2 3; 4 5 6; 7 8 9; 10]
+```
+
+toSet=`Set`:
+
+```
+>>> [1 2 2 3 1].Set.size
+3
+```
+
+`fromCodePoints`:
+
+```
+>>> [72 105 33].fromCodePoints
+'Hi!'
+
+>>> 'héllo'.codePoints.fromCodePoints
+'héllo'
+```
+
+## Array Functions
+
+`reverse`:
+
+```
+>>> [1 2 3 4 5].reverse
+[5 4 3 2 1]
+
+>>> [1 2 3].reverse
+[3 2 1]
+```
+
 ## Type Conversions
 
 toInt=`truncate`:

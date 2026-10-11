@@ -167,7 +167,7 @@ Combinations of operands of different types:
 -4J0
 ```
 
-`real` & `imaginary` answer the components:
+`real` & `imaginary` & `realImaginary` answer the components:
 
 ```
 >>> 1J2.real
@@ -175,6 +175,9 @@ Combinations of operands of different types:
 
 >>> 1J2.imaginary
 2
+
+>>> 1J2.realImaginary
+[1 2]
 ```
 
 `conjugate` negates the imaginary part:
@@ -334,7 +337,7 @@ The matrix form of a complex number:
 
 * * *
 
-See also: Float, Integer, Number, SmallFloat, abs, absArg, arg, isGaussianInteger, conjugate, i, imaginary, j, real
+See also: EisensteinInteger, Float, Integer, Number, SmallFloat, abs, absArg, arg, isGaussianInteger, conjugate, i, imaginary, j, real
 
 Guides: Complex Number Functions
 

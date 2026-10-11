@@ -237,7 +237,7 @@ Transpose a 2×3×4 array into 3×2×4 and 2×4×3 arrays:
 Transpose the first two levels of a rank three array, effectively transposing it as a matrix of vectors:
 
 ```
->>> let a = [2 3 2].fill(stringJoin/1);
+>>> let a = stringJoin/1.fill([2 3 2]);
 >>> (a, a.transpose)
 (
 	[
@@ -265,7 +265,7 @@ Transpose the first two levels of a rank three array, effectively transposing it
 Transpose an array of depth three using different permutations:
 
 ```
->>> let a = [2 3 2].fill(stringJoin/1);
+>>> let a = stringJoin/1.fill([2 3 2]);
 >>> (
 >>> 	a,
 >>> 	a.transpose([1 3 2]),

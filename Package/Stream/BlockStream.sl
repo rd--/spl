@@ -58,9 +58,9 @@ BlockStream : [Object, Iterator, Stream] {
 	iterate { :self/1 :anObject |
 		let state = { anObject };
 		BlockStream {
-			let next = state();
-			state/0 := { self(next) };
-			next
+			let nextItem = state();
+			state/0 := { self(nextItem) };
+			nextItem
 		} {
 			state/0 := { anObject }
 		}
@@ -71,15 +71,15 @@ BlockStream : [Object, Iterator, Stream] {
 	}
 
 	nestListDistinct { :self/1 :anObject |
-		let next = anObject;
+		let nextItem = anObject;
 		let answer = [];
 		{
-			answer.add!(next);
-			next := self(next)
+			answer.add!(nextItem);
+			nextItem := self(nextItem)
 		}.doWhileTrue {
-			answer.includes(next).not
+			answer.includes(nextItem).not
 		};
-		[answer, next]
+		[answer, nextItem]
 	}
 
 	nestWhileList { :self/1 :anObject :aBlock/1 |
@@ -142,11 +142,11 @@ BlockStream : [Object, Iterator, Stream] {
 
 	collect { :self :aBlock/1 |
 		BlockStream {
-			let next = self.next!;
-			next.isNil.if {
+			let nextItem = self.next!;
+			nextItem.isNil.if {
 				nil
 			} {
-				aBlock(next)
+				aBlock(nextItem)
 			}
 		} {
 			self.reset!
@@ -190,14 +190,14 @@ BlockStream : [Object, Iterator, Stream] {
 
 	duplicateEach { :input :repeats |
 		let remain = 1;
-		let next = nil;
+		let nextItem = nil;
 		BlockStream {
 			remain := remain - 1;
 			(remain <= 0).ifTrue {
 				remain := repeats.next!;
-				next := input.next!
+				nextItem := input.next!
 			};
-			next
+			nextItem
 		} {
 			input.reset!;
 			repeats.reset!;
@@ -222,6 +222,10 @@ BlockStream : [Object, Iterator, Stream] {
 		}
 	}
 
+	prefixSum { :self |
+		self.scan(+)
+	}
+
 	reject { :self :aBlock/1 |
 		self.select { :each |
 			aBlock(each).not
@@ -243,15 +247,17 @@ BlockStream : [Object, Iterator, Stream] {
 	repeat { :self :repeats |
 		let repeat = 1;
 		BlockStream {
-			let next = self.next!;
-			(next.isNil & {
-				repeat < repeats
-			}).ifTrue {
+			let nextItem = self.next!;
+			(
+				nextItem.isNil & {
+					repeat < repeats
+				}
+			).ifTrue {
 				self.reset!;
 				repeat := repeat + 1;
-				next := self.next!
+				nextItem := self.next!
 			};
-			next
+			nextItem
 		} {
 			self.reset!;
 			repeat := 1
@@ -289,15 +295,15 @@ BlockStream : [Object, Iterator, Stream] {
 
 	select { :self :aBlock/1 |
 		BlockStream {
-			let next = self.next!;
+			let nextItem = self.next!;
 			{
-				next.isNil | {
-					aBlock(next)
+				nextItem.isNil | {
+					aBlock(nextItem)
 				}
 			}.whileFalse {
-				next := self.next!
+				nextItem := self.next!
 			};
-			next
+			nextItem
 		} {
 			self.reset!
 		}

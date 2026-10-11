@@ -3,7 +3,7 @@
 - _deepIndices(c, f/1=⍨⊤)_
 
 Answer a `List` of indices, each a `List`, of the paths to each leaf element in the collection _c_
-that satisfies the predicate the block _f_.
+that satisfies the predicate block _f_.
 If _f_ is elided all paths are answered.
 
 A leaf element is an item that is not of the same type as the collection _c_.

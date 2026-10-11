@@ -23,7 +23,7 @@
 						index.names(path[1], path[2])
 					},
 					3 -> {
-						let [category, author, name] = path @* [1, 2, 3];
+						let [category, author, name] = path.atAll([1, 2, 3]);
 						let url = './lib/spl/Program/SuperCollider/%/% - %.sp'.format([
 							category,
 							author,
