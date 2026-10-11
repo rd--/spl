@@ -363,7 +363,7 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		[a b.negate; b a]
 	}
 
-	max { :self :anObject |
+	[maximum, max] { :self :anObject |
 		anObject.isComplex.if {
 			self.maxOn(anObject, abs/1)
 		} {
@@ -371,7 +371,7 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		}
 	}
 
-	min { :self :anObject |
+	[minimum, min] { :self :anObject |
 		anObject.isComplex.if {
 			self.minOn(anObject, abs/1)
 		} {
@@ -453,7 +453,7 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		self * self
 	}
 
-	toComplex { :self |
+	[toComplex, complexToComplex] { :self |
 		self
 	}
 

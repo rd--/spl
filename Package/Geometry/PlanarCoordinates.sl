@@ -75,11 +75,11 @@ PlanarCoordinates : [Object, Copy, Store, Equal, Compare, Indexable, CartesianCo
 		)
 	}
 
-	max { :self :anObject |
+	[maximum, max] { :self :anObject |
 		self.applyBinaryOperator(anObject, max/2)
 	}
 
-	min { :self :anObject |
+	[minimum, min] { :self :anObject |
 		self.applyBinaryOperator(anObject, min/2)
 	}
 

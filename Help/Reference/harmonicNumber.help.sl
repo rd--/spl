@@ -124,6 +124,14 @@ OEIS [A056903](https://oeis.org/A056903):
 [2 3 5 8 9 21 26]
 ```
 
+`floor` or `harmonicNumber`,
+OEIS [A055980](https://oeis.org/A055980):
+
+```
+>>> 1:21.harmonicNumber.floor
+[1 1 1 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 3 3 3]
+```
+
 Plot over a subset of the integers:
 
 ~~~spl svg=A

@@ -46,9 +46,9 @@ General Statistics:
 
 Order Statistics:
 
-- `max`
-- `minMax`
-- `min`
+- `max`, `maximum`
+- `minMax`, `minimumMaximum`
+- `min`, `minimum`
 - `ordering`
 - `percentile`
 - `quantile`

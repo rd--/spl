@@ -233,9 +233,9 @@
 ## Piecewise Functions
 
 - `Piecewise`: general piecewise function
-- `abs`: absolute value
-- `max`: maximum value
-- `min`: minimum value
+- `abs`, `absoluteValue`
+- `max`,`maximum`
+- `min`, `minimum`
 
 ## Polynomial Functions
 

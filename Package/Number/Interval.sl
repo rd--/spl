@@ -189,7 +189,7 @@ Interval : [Object, Store, Equal, Number] {
 		(self.min + self.max) / 2
 	}
 
-	[minMax, endPoints] { :self |
+	[minimumMaximum, endPoints, minMax] { :self |
 		[self.min, self.max]
 	}
 

@@ -1325,6 +1325,21 @@
 		self.hasEqualElements(otherCollection, equal/2)
 	}
 
+	highWaterMark { :self |
+		let x = -Infinity;
+		let a = [];
+		let b = [];
+		self.withIndexDo { :each :index |
+			let c = (each > x);
+			c.ifTrue {
+				x := each;
+				a.add!(each);
+				b.add!(index)
+			}
+		};
+		[a, b]
+	}
+
 	includes { :self :anObject |
 		self.indexOf(anObject) != 0
 	}

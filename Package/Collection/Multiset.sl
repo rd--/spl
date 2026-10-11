@@ -85,11 +85,11 @@
 		answer
 	}
 
-	max { :self |
+	[maximum, max] { :self |
 		self.valuesAndCounts.indices.reduce(max/2)
 	}
 
-	min { :self |
+	[minimum, min] { :self |
 		self.valuesAndCounts.indices.reduce(min/2)
 	}
 

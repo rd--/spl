@@ -1,14 +1,11 @@
 # minMax
 
 - _minMax(c)_
-- _minMax(x, y, z)_
 
-The unary form scans the collection _c_ for minimum and maximum in one pass returning the results as a two-element `List`.
-
-The ternary form takes _x_ or _y_,
-whichever is the lesser magnitude,
-and answers that or _z_,
-whichever is the greater magnitude.
+Scan the collection _c_ for minimum and maximum in one pass,
+answering the results as a two-element `List`.
+Alias for `minimumMaximum`.
+Also called bounds.
 
 Find the minimum and maximum of a `Range`:
 
@@ -37,16 +34,23 @@ Minimum and maximum values of matrix columns and rows:
 
 ```
 >>> let m = [
->>> 	16 2 3 13;
->>> 	5 11 10 8;
->>> 	9 7 6 12;
->>> 	4 14 15 1
+>>> 	16  2  3 13;
+>>> 	 5 11 10  8;
+>>> 	 9  7  6 12;
+>>> 	 4 14 15  1
 >>> ];
 >>> (m.minMax, m.transpose.minMax)
 (
 	[4 2 3 1; 16 14 15 13],
 	[2 5 6 1; 16 11 12 15]
 )
+```
+
+At `NaN`:
+
+```
+>>> [2 NaN 6 -5; 0 3 NaN 9].minMax
+[0 NaN NaN -5; 2 NaN NaN 9]
 ```
 
 At `Interval`:

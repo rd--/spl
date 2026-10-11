@@ -23,7 +23,7 @@ TimeInterval : [Object, Store, Equal] {
 		}
 	}
 
-	minMax { :self |
+	[minimumMaximum, minMax] { :self |
 		[self.min, self.max]
 	}
 

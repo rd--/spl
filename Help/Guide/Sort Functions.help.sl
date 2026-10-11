@@ -52,11 +52,12 @@ Order:
 - `deepMax`
 - `deepMin`
 - `maxOn`
-- `max`
+- `max`, `maximum`
 - `maximalBy`
 - `minBy`
 - `minOn`
-- `min`
+- `min`, `minimum`
+- `minMax`, `minimumMaximum`
 - `minimalBy`
 - `ordering`
 - `ranking`

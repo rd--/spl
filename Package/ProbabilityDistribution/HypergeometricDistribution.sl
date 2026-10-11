@@ -2,11 +2,11 @@ HypergeometricDistribution : [Object, Equal, ProbabilityDistribution] {
 
 	| n s t |
 
-	max { :self |
+	[maximum, max] { :self |
 		min(self.s, self.n)
 	}
 
-	min { :self |
+	[minimum, min] { :self |
 		self.n + self.s - self.t
 	}
 

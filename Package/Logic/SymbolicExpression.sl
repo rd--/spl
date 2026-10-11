@@ -64,11 +64,11 @@
 		'greaterEqual'.symbolicPrimitive([self, operand])
 	}
 
-	max { :self :operand |
+	[maximum, max] { :self :operand |
 		'max'.symbolicPrimitive([self, operand])
 	}
 
-	min { :self :operand |
+	[minimum, min] { :self :operand |
 		'min'.symbolicPrimitive([self, operand])
 	}
 

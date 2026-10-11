@@ -6,6 +6,7 @@
 The unary form answers `reduce` of `min`,
 the minimum value in the collection.
 The collection must be non-empty and contain compatible magnitudes.
+`min` is an alias for `minimum`.
 
 At `Range`:
 
@@ -86,6 +87,29 @@ The binary form answer either x₁ or x₂, whichever has the least magnitude:
 
 >>> 2.4.min(1.9)
 1.9
+```
+
+At `NaN` and `Infinity`:
+
+```
+>>> min(1, NaN)
+NaN
+
+>>> min(NaN, 1)
+NaN
+
+>>> min(1, Infinity)
+1
+
+>>> min(Infinity, 1)
+1
+
+
+>>> min(1, -Infinity)
+-Infinity
+
+>>> min(-Infinity, 1)
+-Infinity
 ```
 
 The binary form allows vector operands:

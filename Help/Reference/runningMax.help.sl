@@ -15,3 +15,7 @@ Find the running maximum of a list:
 See also: max, min, runningMin
 
 Guides: List Functions
+
+References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/RunningMaximum.html)

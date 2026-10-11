@@ -436,7 +436,7 @@
 		}
 	}
 
-	max { :self |
+	[max, maximum] { :self |
 		self.reduce(max/2)
 	}
 
@@ -446,7 +446,7 @@
 		self.selectIndices(i)
 	}
 
-	min { :self |
+	[minimum, min] { :self |
 		self.reduce(min/2)
 	}
 
@@ -466,7 +466,7 @@
 		self.selectIndices(i)
 	}
 
-	minMax { :self |
+	[minimumMaximum, minMax] { :self |
 		let min = self.anyOne;
 		let max = min;
 		self.do { :each |

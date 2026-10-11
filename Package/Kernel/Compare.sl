@@ -32,7 +32,7 @@
 		}
 	}
 
-	max { :self :operand |
+	[maximum, max] { :self :operand |
 		(self > operand).if {
 			self
 		} {
@@ -40,7 +40,7 @@
 		}
 	}
 
-	min { :self :operand |
+	[minimum, min] { :self :operand |
 		(self < operand).if {
 			self
 		} {
@@ -48,7 +48,7 @@
 		}
 	}
 
-	minMax { :self :aMin :aMax |
+	minThenMax { :self :aMin :aMax |
 		self.min(aMin).max(aMax)
 	}
 

@@ -46,6 +46,15 @@ The names of the arguments can be retrieved using `argumentNames`:
 ['x' 'y']
 ```
 
+Blocks can be tested for identity but not equality:
+
+```
+>>> let a = { :x | x * x };
+>>> let b = { :x | x * x };
+>>> (a/1 == b/1, { a/1 = b/1 }.hasError)
+(false, true)
+```
+
 _Rationale_:
 The name _block_ is from Smalltalk.
 It is used in Sᴘʟ in preference to _procedure_ or _function_.

@@ -62,11 +62,11 @@ EmpiricalDistribution : [Object, Equal, ProbabilityDistribution] {
 		}
 	}
 
-	max { :self |
+	[maximum, max] { :self |
 		self.empiricalData.max
 	}
 
-	min { :self |
+	[minimum, min] { :self |
 		self.empiricalData.min
 	}
 

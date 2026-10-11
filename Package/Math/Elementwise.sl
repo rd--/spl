@@ -1052,11 +1052,11 @@
 		)
 	}
 
-	max { :self :anObject |
+	[maximum, max] { :self :anObject |
 		anObject.adaptToCollectionAndApply(self, max/2)
 	}
 
-	min { :self :anObject |
+	[minimum, min] { :self :anObject |
 		anObject.adaptToCollectionAndApply(self, min/2)
 	}
 

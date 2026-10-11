@@ -13,7 +13,7 @@ Block! : [Object, Equal] {
 	}
 
 	[equal, =] { :self :anObject |
-		identical(self, anObject)
+		self.shouldNotImplement('equal')
 	}
 
 	[similar, ~] { :self :anObject |

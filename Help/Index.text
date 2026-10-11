@@ -1,4 +1,5 @@
 Definitions/Smalltalk J20 Definitions.help.sl
+Guide/Activation Functions.help.sl
 Guide/Adapt To Protocol.help.sl
 Guide/An Idiosyncratic Introduction to Spl.help.sl
 Guide/Apl Perspective.help.sl
@@ -202,6 +203,7 @@ Guide/Random Functions.help.sl
 Guide/Random Number Generators.help.sl
 Guide/Random Processes.help.sl
 Guide/Random Unit Generators.help.sl
+Guide/Range Functions.help.sl
 Guide/Range Literal Syntax.help.sl
 Guide/Range Syntax.help.sl
 Guide/Real Number Syntax.help.sl
@@ -254,6 +256,7 @@ Guide/System Variable.help.sl
 Guide/Temporary Block Syntax.help.sl
 Guide/Text Functions.help.sl
 Guide/Texture Programs.help.sl
+Guide/Threading Over Lists.help.sl
 Guide/Time Series Functions.help.sl
 Guide/Trailing Block Syntax.help.sl
 Guide/Tree Functions.help.sl
@@ -434,6 +437,7 @@ Reference/arithmeticoGeometricSequence.help.sl
 Reference/arithmeticProgression.help.sl
 Reference/ArithmeticProgression.help.sl
 Reference/arneodoEquation.help.sl
+Reference/arnoldsCatMap.help.sl
 Reference/ArrayBuffer.help.sl
 Reference/arrayDepth.help.sl
 Reference/arrayFilter.help.sl
@@ -502,6 +506,7 @@ Reference/atPathPut.help.sl
 Reference/atPin.help.sl
 Reference/atRandom.help.sl
 Reference/atSymmetrical.help.sl
+Reference/atVectorOrElementwise.help.sl
 Reference/atWrap.help.sl
 Reference/AudioIn.help.sl
 Reference/autocorrelationPlot.help.sl
@@ -1041,6 +1046,7 @@ Reference/cuspMap.help.sl
 Reference/Cutoff.help.sl
 Reference/CvCps.help.sl
 Reference/cycleGraph.help.sl
+Reference/cycle.help.sl
 Reference/cycles.help.sl
 Reference/cycleSort.help.sl
 Reference/cycleSortMatrix.help.sl
@@ -1076,6 +1082,7 @@ Reference/decimalPeriod.help.sl
 Reference/decimalSelvageNumber.help.sl
 Reference/declareFrom.help.sl
 Reference/DecodeB2.help.sl
+Reference/decodeLargeInteger.help.sl
 Reference/decodeUri.help.sl
 Reference/decrement.help.sl
 Reference/dedekindPsi.help.sl
@@ -1780,6 +1787,7 @@ Reference/HiddenMarkovProcess.help.sl
 Reference/highBit.help.sl
 Reference/highBitOfByte.help.sl
 Reference/highBitOfInteger.help.sl
+Reference/highWaterMark.help.sl
 Reference/hilbertCurve.help.sl
 Reference/Hilbert.help.sl
 Reference/hilbertMatrix.help.sl
@@ -3623,6 +3631,8 @@ Reference/rungeKuttaMethod.help.sl
 Reference/runLengths.help.sl
 Reference/runLengthsOf.help.sl
 Reference/runLengthTransform.help.sl
+Reference/runningMax.help.sl
+Reference/runningMin.help.sl
 Reference/RunningSum.help.sl
 Reference/runSequencePlot.help.sl
 Reference/RybColour.help.sl

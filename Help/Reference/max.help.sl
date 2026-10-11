@@ -5,6 +5,7 @@
 
 The unary form answers the maximum value in the collection.
 The collection must be non-empty and contain compatible magnitudes.
+`max` is an alias for `maximum`.
 
 At `Range`:
 

@@ -5,6 +5,7 @@
 Answer a number that is the absolute value,
 or positive magnitude,
 of the number _z_.
+`abs` is an alias for `absoluteValue`.
 
 ```
 >>> 2.abs

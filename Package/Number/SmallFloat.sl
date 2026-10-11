@@ -524,7 +524,7 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		]
 	}
 
-	max { :self :anObject |
+	[maximum, max] { :self :anObject |
 		<primitive:
 		if(sl.isSmallFloat(_anObject)) {
 			return Math.max(_self, _anObject);
@@ -533,7 +533,7 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		anObject.adaptToNumberAndApply(self, max/2)
 	}
 
-	min { :self :anObject |
+	[minimum, min] { :self :anObject |
 		<primitive:
 		if(sl.isSmallFloat(_anObject)) {
 			return Math.min(_self, _anObject);
