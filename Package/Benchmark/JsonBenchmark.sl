@@ -228,7 +228,7 @@ JsonParser : [Object] {
 	}
 
 	readValue { :self |
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			(self.current = 'n').ifTrue {
 				self.readNull.return
 			};
@@ -379,7 +379,7 @@ JsonParser : [Object] {
 	}
 
 	readEscapeChar { :self |
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			(self.current = '"').ifTrue { '"'.return };
 			(self.current = '/').ifTrue { '/'.return };
 			(self.current = '\\').ifTrue { '\\'.return };

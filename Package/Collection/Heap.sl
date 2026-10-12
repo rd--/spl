@@ -109,7 +109,7 @@ Heap : [Object, Copy, Store, Equal, Iterable, Collection, Extensible] {
 	isValid { :self |
 		let array = self.array;
 		let size = array.size;
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			1.toDo(size // 2) { :index |
 				let childIndex = 2 * index;
 				self.compareItems(array[index], array[childIndex]).ifFalse {
@@ -135,7 +135,7 @@ Heap : [Object, Copy, Store, Equal, Iterable, Collection, Extensible] {
 	}
 
 	removeIfAbsent! { :self :oldObject :aBlock/0 |
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			1.toDo(self.size) { :i |
 				(self.array[i] = oldObject).ifTrue {
 					self.uncheckedRemoveAt(i).return
@@ -187,7 +187,7 @@ Heap : [Object, Copy, Store, Equal, Iterable, Collection, Extensible] {
 			array[index] := array[1];
 			array[1] := element;
 			index := index - 1;
-			self.downHeap(1); array.postLine
+			self.downHeap(1); array.printLine
 		};
 		index := end;
 		{ start < end }.whileTrue {
@@ -198,7 +198,7 @@ Heap : [Object, Copy, Store, Equal, Iterable, Collection, Extensible] {
 			self.indexUpdate(endValue, start);
 			self.indexUpdate(element, end);
 			start := start + 1;
-			end := end - 1; [start, end, array].postLine
+			end := end - 1; [start, end, array].printLine
 		};
 		(start = end).ifTrue {
 			self.indexUpdateBlock(array[start], start)

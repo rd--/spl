@@ -32,7 +32,7 @@ Evaluation:
 - `cull`
 - `apply`
 - `applyList`
-- `valueWithReturn`
+- `withReturn`
 
 Reversed Evaluation:
 

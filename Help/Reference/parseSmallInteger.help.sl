@@ -1,11 +1,12 @@
 # parseSmallInteger
 
-- _parseSmallInteger(s, r=10)_
-- _parseSmallInteger(s, r, f/0)_
+- _parseSmallInteger(s, r=10, f/0)_
 
-Answer the `SmallFloat` of the integer indicated by the string _s_ which must be in radix _r_ notation.
-If the string is not an integer, signal an error.
-Evaluate the else clause _f_ or signal an `error` on failure.
+Answer the `SmallFloat` of the integer indicated by the string _s_,
+which must be in radix _r_ notation.
+If the string is not an integer,
+evaluate the else clause _f_,
+or signal an `error` if _f_ is elided.
 
 Parse positive decimal integer:
 
@@ -110,7 +111,7 @@ true
 
 * * *
 
-See also: isRadixIntegerString, parseDecimalInteger, parseFraction, parseLargeInteger, parseNumber, SmallFloat
+See also: SmallFloat, isRadixIntegerString, parseDecimalInteger, parseFraction, parseLargeInteger, parseNumber
 
 Guides: Integer Functions, Parsing Functions
 

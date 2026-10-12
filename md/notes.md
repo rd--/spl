@@ -242,22 +242,22 @@ However, Strings are not collections in the ordinary sense.
 ```
 system.window.fetch('./text/SmallHoursPrograms.text').then { :aResponse |
 	aResponse.text.then { :aString |
-		aString.postLine
+		aString.printLine
 	}
 }
 
 system.window.fetchString('./text/SmallHoursPrograms.text').then { :aString |
-	aString.lines.collect { :each | each.splitRegExp(RegExp(' - |/')) }.postLine
+	aString.lines.collect { :each | each.splitRegExp(RegExp(' - |/')) }.printLine
 }
 
 system.window.fetch('./png/os.512.png').then { :aResponse |
 	aResponse.byteArray.then { :aByteArray |
-		aByteArray.size.postLine
+		aByteArray.size.printLine
 	}
 }
 
 system.window.fetchByteArray('./png/os.512.png').then { :aByteArray |
-	aByteArray.size.postLine
+	aByteArray.size.printLine
 }
 ```
 

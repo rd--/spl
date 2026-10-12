@@ -577,7 +577,7 @@ Block! : [Object, Equal] {
 	}
 
 	repeatForeverWithBreak { :self/1 |
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			let break = { return(nil) };
 			{
 				self(break/0)
@@ -667,7 +667,7 @@ Block! : [Object, Equal] {
 		<primitive: return _self.name.split('/')[0];>
 	}
 
-	valueWithReturn { :self/1 |
+	withReturn { :self/1 |
 		<primitive:
 		const returnBlock = function(returnValue) {
 			throw returnValue;

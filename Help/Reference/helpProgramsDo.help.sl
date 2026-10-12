@@ -18,7 +18,7 @@ system.helpProgramsDo { :p |
 			[
 				p.topic,
 				p.annotations
-			].postLine
+			].printLine
 		}
 	}
 }
@@ -38,7 +38,7 @@ system.helpProgramsDo { :p |
 			[
 				p.topic,
 				p.annotations
-			].postLine
+			].printLine
 		}
 	}
 }
@@ -54,7 +54,7 @@ system.helpProgramsDo { :p |
 		[
 			p.topic,
 			p.annotations
-		].postLine
+		].printLine
 	}
 }
 ~~~
@@ -67,7 +67,7 @@ system.helpProgramsDo { :p |
 	p.annotations.includesKey(
 		'oeis'
 	).ifTrue {
-		p.condensedProgramText.postLine
+		p.condensedProgramText.printLine
 	}
 }
 ~~~

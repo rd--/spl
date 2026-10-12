@@ -271,7 +271,7 @@ DyckWord : [Object, Store] {
 	}
 
 	isDyckWord { :n |
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			let l = 0;
 			{ n > 0 }.whileTrue {
 				l := l + (-1 ^ n);

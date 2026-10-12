@@ -14,7 +14,7 @@ system.helpFilesDo(
 	'Reference', '.*', false
 ) { :each |
 	each.guides.isEmpty.ifTrue {
-		each.name.postLine
+		each.name.printLine
 	}
 }
 ~~~
@@ -26,7 +26,7 @@ system.helpFilesDo(
 	'Reference', '.*', false
 ) { :each |
 	each.hasValidImageSequence.ifFalse {
-		each.name.postLine
+		each.name.printLine
 	}
 }
 ~~~

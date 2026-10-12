@@ -10,7 +10,7 @@ system.helpImageProgramsText(
 		programText: true,
 		imageProgramText: false
 	)
-).unparagraphs.postLine
+).unparagraphs.printLine
 ~~~
 
 Print help image programs document,
@@ -22,7 +22,7 @@ system.helpImageProgramsText(
 		programText: false,
 		imageProgramText: true
 	)
-).unparagraphs.postLine
+).unparagraphs.printLine
 ~~~
 
 Print integer sequence image programs document:
@@ -33,7 +33,7 @@ system.oeisImageProgramsText(
 		programText: true,
 		imageProgramText: false
 	)
-).unparagraphs.postLine
+).unparagraphs.printLine
 ~~~
 
 Print integer sequence image programs document,
@@ -45,7 +45,7 @@ system.oeisImageProgramsText(
 		programText: false,
 		imageProgramText: true
 	)
-).unparagraphs.postLine
+).unparagraphs.printLine
 ~~~
 
 * * *

@@ -63,11 +63,11 @@ in particular to implement control structures.
 Because conditional branches are implemented as blocks,
 there is no _block return_ construct.
 Because methods are simply blocks there is no _method return_ construct.
-Instead there is the delimited control method `valueWithReturn`.
+Instead there is the delimited control method `withReturn`.
 
 * * *
 
-See also: apply, isBlock, numArgs, value, valueWithReturn
+See also: apply, isBlock, numArgs, value, withReturn
 
 Guides: Apply Syntax, Block Functions, Block Semantics, Block Syntax, Value Apply Syntax
 

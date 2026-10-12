@@ -34,6 +34,19 @@ At `SmallFloat`:
 ['3.141' '23']
 ```
 
+Infinities and not-a-number encode as `nil`:
+
+```
+>>> NaN.encodeJson
+'null'
+
+>>> Infinity.encodeJson
+'null'
+
+>>> -Infinity.encodeJson
+'null'
+```
+
 At `String`:
 
 ```
@@ -41,32 +54,70 @@ At `String`:
 '"str"'
 ```
 
-At `List`:
+At `List`,
+all items must have Json encodings:
 
 ```
 >>> [3.141 23].encodeJson
 '[3.141,23]'
+
+>>> {
+>>> 	[1/2, 3J4].encodeJson
+>>> }.hasError
+true
 ```
 
-At `Record`:
+At `Record`,
+all items must have Json encodings:
 
 ```
 >>> (x: 3.141, y: 23).encodeJson
 '{"x":3.141,"y":23}'
+
+>>> {
+>>> 	(x: 22/7, y: 23).encodeJson
+>>> }.hasError
+true
 ```
 
 Other dictionary types can be encoded by first translating them to records:
 
 ```
->>> ['x' -> 3.141, 'y' -> 23]
->>> .Record
->>> .encodeJson
+>>> let a = ['x' -> 3.141, 'y' -> 23];
+>>> let b = Record(a);
+>>> b.encodeJson
 '{"x":3.141,"y":23}'
+
+>>> let a = Map['x' -> 3.141, 'y' -> 23];
+>>> let b = Record(a);
+>>> b.encodeJson
+'{"x":3.141,"y":23}'
+```
+
+Not implemented at `Fraction`,
+or `Complex`,
+or `Association`:
+
+```
+>>> {
+>>> 	1/2.encodeJson
+>>> }.hasError
+true
+
+>>> {
+>>> 	1J2.encodeJson
+>>> }.hasError
+true
+
+>>> {
+>>> 	(1 -> 2).encodeJson
+>>> }.hasError
+true
 ```
 
 * * *
 
-See also: isJson, Json, parseJson
+See also: Json, isJson, parseJson
 
 Guides: Protocol Functions
 

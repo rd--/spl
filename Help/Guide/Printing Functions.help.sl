@@ -1,7 +1,9 @@
 # Printing Functions
 
-Types:
+Types and Traits:
 
+- `Store`
+- `String`
 - `Transcript`
 - `TranscriptEntry`
 
@@ -10,7 +12,7 @@ Converting:
 - `displayString`
 - `concisePrintString`
 - `matrixPrintString`
-- `printStringHex`
+- `printStringHexadecimal`
 - `printStringLimitedTo`
 - `printStringShowingDecimalPlaces`
 - `printStringToAtMostPlaces`
@@ -25,4 +27,4 @@ Printing:
 
 * * *
 
-Guides: String Functions
+Guides: Parsing Functions, String Functions

@@ -14,7 +14,7 @@
 		let totalTestCount = 0;
 		let totalPassCount = 0;
 		let areas = self.paragraphs;
-		'Terse Guide Summary: Areas = %'.format([areas.size]).postLine;
+		'Terse Guide Summary: Areas = %'.format([areas.size]).printLine;
 		areas.do { :area |
 			let entries = area.lines.reject { :line |
 				line.isEmpty | {
@@ -24,17 +24,17 @@
 			let testCount = entries.size - 1;
 			let failCount = 0;
 			let passCount = 0;
-			entries[1].postLine;
+			entries[1].printLine;
 			2.toCollect(testCount + 1) { :index |
 				let test = entries[index];
 				options.atIfAbsent('verbose', false).ifTrue {
-					test.postLine
+					test.printLine
 				};
 				(system.evaluate(test) = true).if {
 					passCount := passCount + 1
 				} {
 					failCount := failCount + 1;
-					('	Error: ' ++ test).postLine
+					('	Error: ' ++ test).printLine
 				}
 			};
 			totalTestCount := totalTestCount + testCount;
@@ -47,9 +47,9 @@
 				} {
 					''
 				}
-			].stringJoin.postLine
+			].stringJoin.printLine
 		};
-		'Total => % / %'.format([totalPassCount, totalTestCount]).postLine
+		'Total => % / %'.format([totalPassCount, totalTestCount]).printLine
 	}
 
 }

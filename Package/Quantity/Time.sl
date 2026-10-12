@@ -24,7 +24,7 @@
 		self.inSeconds / 60
 	}
 
-	inSeconds { :self |
+	[inSeconds, timeInSeconds] { :self |
 		self.typeResponsibility('inSeconds')
 	}
 

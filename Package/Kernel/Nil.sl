@@ -1,5 +1,13 @@
 Nil! : [Object, Copy, Store, Equal, Json] {
 
+	concisePrintString { :self |
+		self.printString
+	}
+
+	[encodeJson, nilToJson] { :self |
+		self.uncheckedEncodeJson
+	}
+
 	[equal, =] { :self :anObject |
 		anObject.isNil
 	}
@@ -8,28 +16,20 @@ Nil! : [Object, Copy, Store, Equal, Json] {
 		anObject
 	}
 
-	[ifNil, ?] { :self :whenNil/0 |
+	ifNil { :self :whenNil/0 :whenNotNil/1 |
 		whenNil()
 	}
 
-	[ifNotNil, !?] { :self :whenNotNil/1 |
-		nil
-	}
-
-	[similar, ~] { :self :anObject |
-		self = anObject
-	}
-
-	concisePrintString { :self |
-		self.printString
-	}
-
-	ifNil { :self :whenNil/0 :whenNotNil/1 |
+	[ifNil, ?] { :self :whenNil/0 |
 		whenNil()
 	}
 
 	ifNotNil { :self :whenNotNil/1 :whenNil/0 |
 		whenNil()
+	}
+
+	[ifNotNil, !?] { :self :whenNotNil/1 |
+		nil
 	}
 
 	isImmediate { :unused |
@@ -54,6 +54,10 @@ Nil! : [Object, Copy, Store, Equal, Json] {
 
 	shallowCopy { :unused |
 		nil
+	}
+
+	[similar, ~] { :self :anObject |
+		self = anObject
 	}
 
 	storeString { :self |

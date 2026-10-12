@@ -21,6 +21,14 @@ Record! : [Object, Copy, Store, Equal, Json, Iterable, Indexable, Collection, Ex
 		<primitive: return sl.encodeIni(_self);>
 	}
 
+	[encodeJson, recordToJson] { :self |
+		self.deepAllSatisfy(isJson/1).if {
+			self.uncheckedEncodeJson
+		} {
+			self.error('encodeJson: invalid items')
+		}
+	}
+
 	includesKey { :self :key |
 		<primitive: return Object.hasOwn(_self, _key);>
 	}

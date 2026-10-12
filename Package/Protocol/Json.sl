@@ -5,10 +5,14 @@
 	}
 
 	encodeJson { :self |
+		self.typeResponsibility('encodeJson')
+	}
+
+	uncheckedEncodeJson { :self |
 		<primitive: return JSON.stringify(_self);>
 	}
 
-	encodeJson { :self :replacer :space |
+	uncheckedEncodeJson { :self :replacer :space |
 		<primitive: return JSON.stringify(_self, _replacer, _space);>
 	}
 

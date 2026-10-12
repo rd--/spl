@@ -48,6 +48,7 @@ System Clock:
 
 - `absoluteTime`
 - `currentDate`
+- `currentDateAndTime`
 - `now`
 - `repeatedTiming`
 - `sessionTime`
@@ -56,14 +57,16 @@ System Clock:
 Scheduling:
 
 - `cancel`
-- `valueAfter`
-- `valueAfterWith`
-- `valueEvery`
+- `scheduleAfter`
+- `scheduleAfterWith`
+- `scheduleAft`
+- `scheduleAtWith`
+- `scheduleEvery`
 
 Generic Accessors:
 
-- `asSeconds`
+- `inSeconds`
 
 * * *
 
-Guides: Benchmarking Functions, System Functions
+Guides: Benchmarking Functions, Scheduling Functions, System Functions

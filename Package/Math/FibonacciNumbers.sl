@@ -347,7 +347,7 @@
 	}
 
 	wythoffIndex { :n :array/2 |
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			let r = 1;
 			let m = 1;
 			{ m < n }.whileTrue {

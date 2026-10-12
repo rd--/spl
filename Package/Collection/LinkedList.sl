@@ -22,7 +22,7 @@
 
 	linkAtIfAbsent { :self :index :errorBlock/0 |
 		let counter = 0;
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			self.linksDo { :link |
 				counter := counter + 1;
 				(counter = index).ifTrue {
@@ -40,7 +40,7 @@
 	}
 
 	linkOfIfAbsent { :self :anObject :errorBlock/0 |
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			self.linksDo { :link |
 				(link.value = anObject).ifTrue {
 					link.return
@@ -290,7 +290,7 @@ LinkedList : [Object, Copy, Store, Equal, Compare, Iterable, Indexable, Collecti
 	}
 
 	removeLinkIfAbsent! { :self :aLink :aBlock/0 |
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			(aLink == self.firstLink).if {
 				self.firstLink := aLink.nextLink;
 				(aLink == self.lastLink).ifTrue {

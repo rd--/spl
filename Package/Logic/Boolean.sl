@@ -8,28 +8,12 @@ Boolean! : [Object, Copy, Store, Equal, Compare, Json] {
 		}
 	}
 
-	[and, &] { :self :aBlock/0 |
-		<primitive: return _self && _aBlock_0();>
-	}
-
-	[evaluatingAnd, &&] { :self :anObject |
-		self & {
-			anObject.assertIsBoolean
-		}
-	}
-
-	[evaluatingOr, ||] { :self :anObject |
-		self | {
-			anObject.assertIsBoolean
-		}
-	}
-
-	[or, |] { :self :aBlock/0 |
-		<primitive: return _self || _aBlock_0();>
-	}
-
 	always { :self :aBlock/0 |
 		aBlock()
+	}
+
+	[and, &] { :self :aBlock/0 |
+		<primitive: return _self && _aBlock_0();>
 	}
 
 	assertIsBoolean { :self |
@@ -54,8 +38,24 @@ Boolean! : [Object, Copy, Store, Equal, Compare, Json] {
 		self.printString
 	}
 
+	[encodeJson, booleanToJson] { :self |
+		self.uncheckedEncodeJson
+	}
+
 	equalBy { :self :anObject :aBlock/2 |
 		self == anObject
+	}
+
+	[evaluatingAnd, &&] { :self :anObject |
+		self & {
+			anObject.assertIsBoolean
+		}
+	}
+
+	[evaluatingOr, ||] { :self :anObject |
+		self | {
+			anObject.assertIsBoolean
+		}
 	}
 
 	if { :self :whenTrue/0 :whenFalse/0 |
@@ -109,6 +109,10 @@ Boolean! : [Object, Copy, Store, Equal, Compare, Json] {
 		self.not & {
 			aBlock().not
 		}
+	}
+
+	[or, |] { :self :aBlock/0 |
+		<primitive: return _self || _aBlock_0();>
 	}
 
 	shallowCopy { :self |

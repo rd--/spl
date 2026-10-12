@@ -199,7 +199,7 @@ HavlakLoopFinder : [Object] {
 		self.cfg.startBasicBlock.isNil.if {
 			self
 		} {
-			valueWithReturn { :return/1 |
+			withReturn { :return/1 |
 				let size = self.cfg.numNodes;
 				self.nonBackPreds.removeAll!;
 				self.backPreds.removeAll!;

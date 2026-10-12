@@ -1527,11 +1527,11 @@ Plot : [Object] {
 		let [yMin, yMax] = y.minMax;
 		let yRange = yMax - yMin;
 		let yScalar = (h - 1) / yRange;
-		/*[xMin,xMax,xRange,xScalar,yMin,yMax,yRange,yScalar].postLine;*/
+		/*[xMin,xMax,xRange,xScalar,yMin,yMax,yRange,yScalar].printLine;*/
 		1.toDo(k) { :i |
 			let r = ((y[i] - yMin) * yScalar).round.normal;
 			let c = ((x[i] - xMin) * xScalar).round.normal;
-			/*[i, y[i], r, x[i], c].postLine;*/
+			/*[i, y[i], r, x[i], c].printLine;*/
 			m[h - r][c + 1] := 1
 		};
 		m.Bitmap

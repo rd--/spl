@@ -185,9 +185,9 @@ At `Range`:
 
 * * *
 
-See also: String, concisePrintString, displayString, postLine, storeString
+See also: String, concisePrintString, displayString, printLine, storeString
 
-Guides: String Functions
+Guides: Printing Functions, String Functions
 
 References:
 _Mathematica_

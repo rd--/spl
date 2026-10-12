@@ -735,7 +735,7 @@ OeisSequenceFile : [Object, Equal, OeisSequence] {
 						'`%`'.format([x])
 					}.stringIntercalate(', ')
 				]
-			).postLine
+			).printLine
 		};
 		nil
 	}
@@ -751,7 +751,7 @@ OeisSequenceFile : [Object, Equal, OeisSequence] {
 						v.unwords
 					}
 				]
-			).postLine
+			).printLine
 		}
 	}
 

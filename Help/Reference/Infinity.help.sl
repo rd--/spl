@@ -61,6 +61,15 @@ Infinity
 
 >>> Infinity + Infinity
 Infinity
+
+>>> -Infinity + 1
+-Infinity
+
+>>> -Infinity - 1
+-Infinity
+
+>>> -Infinity - Infinity
+-Infinity
 ```
 
 Arithmetic:
@@ -72,14 +81,23 @@ Arithmetic:
 >>> Infinity * Infinity
 Infinity
 
->>> ((2 * Infinity) - Infinity).isNaN
-true
+>> (2 * Infinity) - Infinity
+NaN
 ```
 
 Predicates:
 
 ```
 >>> (10 ^ 100) < Infinity
+true
+
+>>> 0 > -Infinity
+true
+
+>>> Infinity = Infinity
+true
+
+>>> -Infinity = -Infinity
 true
 ```
 
@@ -169,7 +187,7 @@ a.discretePlot
 
 * * *
 
-See also: e, inf, NaN, pi
+See also: NaN, SmallFloat, e, pi
 
 Guides: Mathematical Constants
 

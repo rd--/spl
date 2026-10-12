@@ -12,7 +12,7 @@ Benchmark : [Object] {
 			': Parameter = ', parameter,
 			', Verified = ', answer = self.verification[parameter],
 			', Elapsed Time = ', elapsedTime
-		].stringJoin.postLine
+		].stringJoin.printLine
 	}
 
 }

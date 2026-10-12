@@ -207,7 +207,7 @@ If the string begins with a doctest, also delete all non doctest lines."
 (defun spl-print-promise ()
   "Print Promise of current paragraph when it resolves."
   (interactive)
-  (spl-eval-string (format "{ %s }.nullaryApply.then { :answer | answer.postLine }" (spl-get-paragraph))))
+  (spl-eval-string (format "{ %s }.nullaryApply.then { :answer | answer.printLine }" (spl-get-paragraph))))
 
 (defun spl-plot-paragraph ()
   "Plot Ugen graph of current paragraph."
@@ -255,7 +255,7 @@ If the string begins with a doctest, also delete all non doctest lines."
 
 (defun spl-insert-non-local-return ()
   (interactive)
-  (insert "valueWithReturn { :return/1 |"))
+  (insert "withReturn { :return/1 |"))
 
 (defvar spl-mode-hook
   nil
@@ -274,8 +274,8 @@ If the string begins with a doctest, also delete all non doctest lines."
   (list
    `(,(regexp-opt '("let" "var") 'symbols) . font-lock-keyword-face)
    `(,(regexp-opt '("false" "nil" "true" "system") 'symbols) . font-lock-builtin-face)
-   `(,(regexp-opt '("do" "doWhileFalse" "doWhileTrue" "if" "ifTrue" "ifFalse" "ifEmpty" "ifNotEmpty" "ifNil" "ifNotNil" "kr" "timesRepeat" "whileFalse" "whileTrue" "withIndexDo") 'symbols) . font-lock-function-name-face)
-   `(,(regexp-opt '("error" "warning") 'symbols) . font-lock-warning-face)
+   `(,(regexp-opt '("caseOf" "do" "doWhileFalse" "doWhileTrue" "if" "ifTrue" "ifFalse" "ifEmpty" "ifNotEmpty" "ifNil" "ifNotNil" "kr" "repeatForever" "repeatForeverWithBreak" "timesRepeat" "which" "whileFalse" "whileTrue" "withIndexDo" "withReturn") 'symbols) . font-lock-function-name-face)
+   `(,(regexp-opt '("ensure" "error" "hasError" "ifError" "ignoreError" "signal" "warning") 'symbols) . font-lock-warning-face)
    '("\\<[A-Z][a-zA-Z0-9]*\\>" . font-lock-type-face)
    '(" :[a-z][a-zA-Z0-9]*" . 'font-lock-variable-name-face)
    ;'("`[a-zA-Z]*`" . 'font-lock-constant-face)
@@ -503,7 +503,7 @@ If the string begins with a doctest, also delete all non doctest lines."
      ("u" . ?𝑢) ; U+1D462 𝑢 Mathematical Italic Small U
      ("undefined" . ?⊥) ; U+22A5 ⊥ Up tack
      ("union" . ?∪) ; U+222A ∪ Union
-     ("valueWithReturn" . ?↓) ; U+2193 ↓ Downwards Arrow
+     ("withReturn" . ?↓) ; U+2193 ↓ Downwards Arrow
      ("xi" . ?ξ) ; U+03BE ξ Greek Small Letter Xi
      ("Xi" . ?Ξ) ; U+039E Ξ Greek Capital Letter Xi
      ("Zeta" . ?Ζ) ; U+0396 Ζ Greek Capital Letter Zeta

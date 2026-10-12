@@ -61,7 +61,7 @@
 	}
 
 	associationsAllSatisfy { :self :aBlock/1 |
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			self.associationsDo { :each |
 				aBlock(each).ifFalse {
 					false.return
@@ -223,7 +223,7 @@
 	}
 
 	includesIdentity { :self :anObject |
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			self.do { :each |
 				(anObject == each).ifTrue {
 					true.return
@@ -252,7 +252,7 @@
 	}
 
 	keyAtValueIfAbsent { :self :value :exceptionBlock/0 |
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			self.associationsDo { :association |
 				(value = association.value).ifTrue {
 					association.key.return

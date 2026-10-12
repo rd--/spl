@@ -50,7 +50,7 @@ and translated into a `DateAndTime`:
 
 ```
 >>> system
->>> .currentDateAndTime
+>>> .dateAndTime
 >>> .year >= 2024
 true
 

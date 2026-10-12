@@ -3,6 +3,11 @@
 Types and Traits:
 
 - `Error`
+- `Exception`
+
+Type Predicates:
+
+- `isError`
 
 Boolean Logic:
 
@@ -36,16 +41,15 @@ Nil:
 
 Non-local Return:
 
-- `valueWithReturn`
+- `withReturn`
 
 Exceptions:
 
 - `ensure`
 - `error`
 - `hasError`
-- `ignoreError`
 - `ifError`
-- `isError`
+- `ignoreError`
 - `signal`
 
 Repetition:

@@ -12,7 +12,7 @@ LibraryItem : [Object] {
 			self.unparsedContents := answer;
 			self
 		} { :reason |
-			[self, reason].postLine;
+			[self, reason].printLine;
 			self.error('LibraryItem>>cachedFetch', [reason])
 		}
 	}

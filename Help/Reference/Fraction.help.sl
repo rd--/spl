@@ -415,6 +415,7 @@ answers a `SmallFloat`:
 
 Operations with `NaN` answer `NaN`:
 
+```
 >> 1/3 * NaN
 NaN
 

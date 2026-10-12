@@ -44,7 +44,7 @@ Duration : [Object, Store, Equal, Compare] {
 		Frequency(self.magnitude.reciprocal)
 	}
 
-	inSeconds { :self |
+	[inSeconds, durationInSeconds] { :self |
 		self.magnitude
 	}
 

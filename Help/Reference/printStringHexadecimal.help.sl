@@ -1,11 +1,11 @@
-# parseStringHex
+# printStringHexadecimal
 
-- _parseStringHex(n)_
+- _printStringHexadecimal(n)_
 
 Answer the hexadecimal notation of the integer _n_.
 
 ```
->>> 58909.printStringHex
+>>> 58909.printStringHexadecimal
 '16rE61D'
 ```
 
@@ -18,6 +18,6 @@ This is equivalent to `printString` with radix set to sixteen:
 
 * * *
 
-See also: Integer, printString, String
+See also: Integer, String, printString
 
 Guides: Printing Functions

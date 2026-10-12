@@ -4,7 +4,7 @@
 		let answer = List(numOutputs, Dc(0));
 		sparseMatrix.do { :each |
 			let [inputIndex, outputIndex, gain] = each;
-			/* ['SparseMatrixMixer', each].postLine; */
+			/* ['SparseMatrixMixer', each].printLine; */
 			answer[outputIndex] := answer[outputIndex] + inputList[inputIndex] * gain
 		};
 		answer
@@ -161,16 +161,16 @@
 		let derivedPrefix = runList.runLengthsAndValuesCollect { :run :value |
 			[run.printString, value.printString].stringIntercalate('×')
 		}.stringIntercalate('+') ++ '→';
-		/* ['Mix', ruleTable, derivedPrefix].postLine; */
+		/* ['Mix', ruleTable, derivedPrefix].printLine; */
 		self.mixByAvailableNamedRule(derivedPrefix, ruleTable)
 	}
 
 	mixByAvailableNamedRule { :self :prefix :ruleTable |
 		let sparseMatrixTable = system.mixRuleSparseMatrixTable;
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			ruleTable.do { :each |
 				let [name, busesByIndex] = each;
-				/* ['mixByAvailableNamedRule', each, prefix].postLine; */
+				/* ['mixByAvailableNamedRule', each, prefix].printLine; */
 				sparseMatrixTable.atIfPresent(prefix ++ name) { :entries |
 					let inputs = self.catenate;
 					let reindexedEntries = entries.collect { :entry |
@@ -181,7 +181,7 @@
 						]
 					};
 					let channelCount = reindexedEntries.collect(second/1).max;
-					/* ['mixByAvailableNamedRule', channelCount, self.shape, reindexedEntries].postLine; */
+					/* ['mixByAvailableNamedRule', channelCount, self.shape, reindexedEntries].printLine; */
 					SparseMatrixMixer(
 						channelCount,
 						self.catenate,

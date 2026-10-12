@@ -13,6 +13,6 @@ The notification gives the type of _anObject_, its value, and the message _aStri
 
 * * *
 
-See also: error, identity, postLine, warning
+See also: error, identity, printLine, warning
 
 Categories: Error

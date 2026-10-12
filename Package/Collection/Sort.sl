@@ -135,7 +135,7 @@
 			true
 		} {
 			let previousElement = self[startIndex];
-			valueWithReturn { :return/1 |
+			withReturn { :return/1 |
 				(startIndex + 1).toDo(endIndex) { :index |
 					let element = self[index];
 					aBlock(previousElement, element).ifFalse {
@@ -157,7 +157,7 @@
 	lexicographicCompare { :self :operand |
 		let n = self.size;
 		let m = operand.size;
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			1.toDo(n.min(m)) { :i |
 				let c = self[i].compare(operand[i]);
 				(c != 0).ifTrue {
@@ -330,7 +330,7 @@
 	colexicographicCompare { :self :operand |
 		let n = self.size;
 		let m = operand.size;
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			0.toDo(n.min(m) - 1) { :i |
 				let c = self[n - i].compare(operand[m - i]);
 				(c != 0).ifTrue {

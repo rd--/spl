@@ -1,7 +1,7 @@
 +@Sequence {
 
 	quickSortFromToBy { :self :from :to :sortBlock/2 |
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			let i = from;
 			let j = to;
 			{

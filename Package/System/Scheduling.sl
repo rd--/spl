@@ -1,30 +1,40 @@
 +Block {
 
-	valueAfter { :self/0 :delay |
+	scheduleAfter { :self/0 :delay |
 		<primitive:
 		if(sl.isSmallFloat(_delay)) {
 			return setTimeout(_self_0, _delay * 1000);
 		}
 		>
-		self/0.error('Block>>valueAfter: not a number')
+		self/0.error('Block>>scheduleAfter: not a number')
 	}
 
-	valueAfterWith { :self/1 :delay :anObject |
+	scheduleAfterWith { :self/1 :delay :anObject |
 		<primitive:
 		if(sl.isSmallFloat(_delay)) {
 			return setTimeout(_self_1, _delay * 1000, _anObject);
 		}
 		>
-		self/1.error('Block>>valueAfterWith: not a number')
+		self/1.error('Block>>scheduleAfterWith: not a number')
 	}
 
-	valueEvery { :self/0 :delay |
+	scheduleAt { :self :time |
+		let t0 = system.absoluteTime;
+		self.scheduleAfter(time - t0)
+	}
+
+	scheduleAtWith { :self :time :anObject |
+		let t0 = system.absoluteTime;
+		self.scheduleAfterWith(time - t0, anObject)
+	}
+
+	scheduleEvery { :self/0 :delay |
 		<primitive:
 		if(sl.isSmallFloat(_delay)) {
 			return setInterval(_self_0, _delay * 1000);
 		}
 		>
-		self/0.error('Block>>valueEvery: not a number')
+		self/0.error('Block>>scheduleEvery: not a number')
 	}
 
 }

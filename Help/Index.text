@@ -1038,6 +1038,7 @@ Reference/cull.help.sl
 Reference/cumulativeAverages.help.sl
 Reference/cumulativeMax.help.sl
 Reference/cumulativeMin.help.sl
+Reference/currentDateAndTime.help.sl
 Reference/currentDate.help.sl
 Reference/currentWorkingDirectory.help.sl
 Reference/curvilinearProjection.help.sl
@@ -3277,7 +3278,6 @@ Reference/positionIndex.help.sl
 Reference/positionSmallest.help.sl
 Reference/positiveResidue.help.sl
 Reference/postCopy.help.sl
-Reference/postLine.help.sl
 Reference/powerCircles.help.sl
 Reference/power.help.sl
 Reference/Power.help.sl
@@ -3320,8 +3320,9 @@ Reference/primesUpTo.help.sl
 Reference/primitiveLoadPackageSequence.help.sl
 Reference/primitiveRootList.help.sl
 Reference/primorial.help.sl
+Reference/printLine.help.sl
 Reference/printString.help.sl
-Reference/printStringHex.help.sl
+Reference/printStringHexadecimal.help.sl
 Reference/printStringLimitedTo.help.sl
 Reference/printStringShowingDecimalPlaces.help.sl
 Reference/printStringWithCommas.help.sl
@@ -3675,6 +3676,9 @@ Reference/schareinKnotCatalogue.help.sl
 Reference/schareinLinkCatalogue.help.sl
 Reference/schareinMinimalKnotCatalogue.help.sl
 Reference/schareinMinimalLinkCatalogue.help.sl
+Reference/scheduleAfter.help.sl
+Reference/scheduleAfterWith.help.sl
+Reference/scheduleEvery.help.sl
 Reference/schedule.help.sl
 Reference/scheduleInjecting.help.sl
 Reference/schemaTypeParser.help.sl
@@ -4316,16 +4320,12 @@ Reference/Utf8Stream.help.sl
 Reference/utf8String.help.sl
 Reference/uUnifastAlgorithm.help.sl
 Reference/uUnifastDiscardAlgorithm.help.sl
-Reference/valueAfter.help.sl
-Reference/valueAfterWith.help.sl
-Reference/valueEvery.help.sl
 Reference/value.help.sl
 Reference/valuesAndCounts.help.sl
 Reference/valuesDo.help.sl
 Reference/values.help.sl
 Reference/valueSort.help.sl
 Reference/valueType.help.sl
-Reference/valueWithReturn.help.sl
 Reference/vanDerCorputNumber.help.sl
 Reference/vanDerCorputsConstant.help.sl
 Reference/vanDerLaanSequence.help.sl
@@ -4424,6 +4424,7 @@ Reference/withoutTrailingBlanks.help.sl
 Reference/withoutTrailing.help.sl
 Reference/withoutTrailingLineFeed.help.sl
 Reference/withoutTrailingZeroes.help.sl
+Reference/withReturn.help.sl
 Reference/withWithCollect.help.sl
 Reference/wordAtCaret.help.sl
 Reference/wordAtIndex.help.sl

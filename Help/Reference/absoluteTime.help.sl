@@ -41,18 +41,18 @@ the Unix Epoch:
 0
 ```
 
-At `Number`, answer the identity function:
+Not implemented at `Number`:
 
 ```
->>> 1671935015.absoluteTime
-1671935015
+>>> { 1671935015.absoluteTime }.hasError
+true
 ```
 
 * * *
 
-See also: currentDate, Date, now, Number, sessionTime, System, TimeStamp
+See also: Date, Number, System, TimeStamp, date, dateAndTime, now, sessionTime
 
-Guides: Date and Time Functions
+Guides: Date and Time Functions, Scheduling Functions
 
 References:
 _Mathematica_

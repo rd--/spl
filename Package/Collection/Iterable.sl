@@ -24,7 +24,7 @@
 	}
 
 	[allFalse, noneSatisfy] { :self :aBlock/1 |
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			self.do { :each |
 				each.aBlock.ifTrue {
 					false.return
@@ -39,7 +39,7 @@
 	}
 
 	[allTrue, allSatisfy] { :self :aBlock/1 |
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			self.do { :each |
 				each.aBlock.ifFalse {
 					false.return
@@ -54,7 +54,7 @@
 	}
 
 	anyOne { :self |
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			self.do { :each |
 				each.return
 			};
@@ -63,7 +63,7 @@
 	}
 
 	[anyTrue, anySatisfy] { :self :aBlock/1 |
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			self.do { :each |
 				each.aBlock.ifTrue {
 					true.return
@@ -131,7 +131,7 @@
 	}
 
 	deepAllSatisfy { :self :aBlock/1 |
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			self.deepDo { :each |
 				each.aBlock.ifFalse {
 					false.return
@@ -188,7 +188,7 @@
 
 	detect { :self :count :aBlock/1 |
 		let answer = [];
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			self.do { :each |
 				aBlock(each).ifTrue {
 					answer.add!(each);
@@ -213,7 +213,7 @@
 	}
 
 	detectIfFoundIfNoneUsing { :self :aBlock/1 :foundBlock/1 :exceptionBlock/0 :doBlock/2 |
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			doBlock(self) { :each |
 				aBlock(each).ifTrue {
 					foundBlock(each).return
@@ -288,7 +288,7 @@
 	}
 
 	doWithBreak { :self :aBlock/2 |
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			let break = {
 				nil.return
 			};
@@ -330,7 +330,7 @@
 	}
 
 	includesAny { :self :aCollection |
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			aCollection.do { :elem |
 				self.includes(elem).ifTrue {
 					true.return
@@ -341,7 +341,7 @@
 	}
 
 	includesAll { :self :aCollection |
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			aCollection.do { :elem |
 				self.includes(elem).ifFalse {
 					false.return
@@ -378,7 +378,7 @@
 	}
 
 	isDuplicateFree { :self :aBlock/2 |
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			let items = [];
 			self.do { :each |
 				items.includesBy(each, aBlock/2).ifTrue {

@@ -169,7 +169,7 @@ HelpFile : [Object, Equal, Cache] {
 			let helpProgram = HelpProgram(topic, language, commentary, annotations, programText);
 			helpProgram.isImageProgram.ifTrue {
 				(helpProgram.markdownImageReference != paragraphs[i + 1]).ifTrue {
-					['helpPrograms: Image reference mismatch?', topic, annotations].postLine
+					['helpPrograms: Image reference mismatch?', topic, annotations].printLine
 				}
 			};
 			helpProgram
@@ -337,18 +337,18 @@ HelpFile : [Object, Equal, Cache] {
 			self.documentationTests.do { :each |
 				testCount := testCount + 1;
 				verbose.ifTrue {
-					('	' ++ each.format).postLine
+					('	' ++ each.format).printLine
 				};
 				{
 					each.evaluate
 				}.ifError { :unusedError |
-					('	ERROR: ' ++ each.format).postLine;
+					('	ERROR: ' ++ each.format).printLine;
 					errorCount := errorCount + 1;
 					false
 				}.if {
 					passCount := passCount + 1
 				} {
-					('	FAIL: ' ++ each.format).postLine
+					('	FAIL: ' ++ each.format).printLine
 				}
 			}
 		};
@@ -370,7 +370,7 @@ HelpFile : [Object, Equal, Cache] {
 	writeImageFiles { :self |
 		let verbose = false;
 		verbose.ifTrue {
-			['writeImageFiles', self.name].postLine
+			['writeImageFiles', self.name].printLine
 		};
 		self.writePngImageFiles;
 		self.writeSvgImageFiles
@@ -380,7 +380,7 @@ HelpFile : [Object, Equal, Cache] {
 		self.evaluateDefinitionCodeBlocks;
 		self.codeBlocksWithKey('png').do { :each |
 			let fileName = self.codeBlockImageFileName(each);
-			fileName.postLine;
+			fileName.printLine;
 			system.evaluate(each['contents']).writePng(fileName)
 		}
 	}
@@ -389,7 +389,7 @@ HelpFile : [Object, Equal, Cache] {
 		self.evaluateDefinitionCodeBlocks;
 		self.codeBlocksWithKey('svg').do { :each |
 			let fileName = self.codeBlockImageFileName(each);
-			fileName.postLine;
+			fileName.printLine;
 			system.evaluate(each['contents']).drawing.writeSvg(fileName)
 		}
 	}
@@ -456,7 +456,7 @@ HelpFile : [Object, Equal, Cache] {
 				text
 			);
 			verbose.ifTrue {
-				each.postLine
+				each.printLine
 			};
 			aBlock(help)
 		}
@@ -477,7 +477,7 @@ HelpFile : [Object, Equal, Cache] {
 				} {
 					''
 				};
-				[n, e.size, i].postLine;
+				[n, e.size, i].printLine;
 				'  %. ![](Help/Image/%%)'
 				.format(
 					[

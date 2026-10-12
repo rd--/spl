@@ -14,7 +14,6 @@ JavaScript Object Notation (Json):
 
 Open Sound Control (Osc):
 
-- `asOscParameter`
 - `OscBundle`
 - `OscMessage`
 - `OscParameter`

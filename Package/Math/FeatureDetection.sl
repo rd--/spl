@@ -136,7 +136,7 @@
 
 	findRepeat { :self :aBlock/2 |
 		let k = self.size;
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			1.toDo(k - 1) { :i |
 				i.to(k).allSatisfy { :j |
 					aBlock(self[j], self[j.mod(i, 1)])
@@ -154,7 +154,7 @@
 
 	findTransientRepeat { :self :n :aBlock/2 |
 		let k = self.size;
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			let m = k - (n * 2) + 1;
 			1.toDo(m) { :i |
 				let part = ListView(self, i, k, 1);

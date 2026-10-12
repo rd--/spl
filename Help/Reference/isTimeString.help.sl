@@ -27,7 +27,7 @@ false
 
 * * *
 
-See also: parseTime, Time, timeString
+See also: Time, parseTime, timeString
 
 Guides: Parsing Functions
 

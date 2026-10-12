@@ -1,8 +1,8 @@
 # isDecimalNumeralString
 
-- _isDecimalNumeralString(aString)_
+- _isDecimalNumeralString(s)_
 
-Answer `true` if _aString_ would be parsed as a floating point number by `parseDecimalNumeral`.
+Answer `true` if the string _s_ would be parsed as a floating point number by `parseDecimalNumeral`.
 
 With decimal point:
 

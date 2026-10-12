@@ -86,6 +86,14 @@ List! : [Object, Copy, Store, Equal, Compare, Json, Iterable, Indexable, Collect
 		self.partition(n, n).transpose
 	}
 
+	[encodeJson, listToJson] { :self |
+		self.deepAllSatisfy(isJson/1).if {
+			self.uncheckedEncodeJson
+		} {
+			self.error('encodeJson: invalid items')
+		}
+	}
+
 	gatherBy { :self :aBlock/1 |
 		let a = [];
 		self.do { :x |

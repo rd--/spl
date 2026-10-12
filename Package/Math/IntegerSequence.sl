@@ -496,7 +496,7 @@
 	gijswijtsSequence { :n |
 		let k = { :s |
 			let z = 1;
-			valueWithReturn { :return/1 |
+			withReturn { :return/1 |
 				1.toDo(s.size) { :m |
 					let i = 1;
 					let y = s.last(m);

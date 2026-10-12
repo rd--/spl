@@ -14,7 +14,7 @@ ending only if the block explicitly returns (non-locally):
 >>> 			true.return
 >>> 		}
 >>> 	}.repeatForever
->>> }.valueWithReturn
+>>> }.withReturn
 true
 ```
 

@@ -60,7 +60,7 @@ Predicates:
 - `isBooleanString`
 - `isComplexString`
 - `isDateString`
-- `isDateTimeString`
+- `isDateAndTimeString`
 - `isDecimalIntegerString`
 - `isDecimalNumeralString`
 - `isFloatString`
@@ -71,4 +71,4 @@ Predicates:
 
 * * *
 
-Guides: Function Guides, String Functions
+Guides: Function Guides, Printing Functions, String Functions

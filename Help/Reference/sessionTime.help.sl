@@ -13,7 +13,7 @@ This clock may be more accurate that the clock read by `absoluteTime`.
 
 * * *
 
-See also: absoluteTime, System
+See also: System, absoluteTime
 
 Guides: Date and Time Functions
 

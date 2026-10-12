@@ -26,6 +26,6 @@ Association('+', 'plus')
 
 See also: Store, String, displayString, printString
 
-Guides: Parsing Functions, String Functions
+Guides: Parsing Functions, Printing Functions, String Functions
 
 Categories: Printing

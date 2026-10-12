@@ -42,7 +42,7 @@ true
 
 * * *
 
-See also: atOrMissing, atOrMissingAll, deleteMissing, isMissing
+See also: atOrMissing, atOrMissingAll, deleteMissing, isMissing, replaceNaN
 
 Guides: Error Functions
 

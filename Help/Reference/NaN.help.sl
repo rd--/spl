@@ -80,6 +80,7 @@ NaN
 
 Threads over lists:
 
+```
 >> [1 2 3] + NaN
 [NaN, NaN, NaN]
 ```
@@ -93,9 +94,9 @@ NaN
 
 * * *
 
-See also: Infinity, SmallFloat, ifNaN, isFinite, isNaN
+See also: Infinity, SmallFloat, ifNaN, isFinite, isNaN, replaceNaN
 
-Guides: Mathematical Constants
+Guides: Error Functions, Mathematical Constants
 
 References:
 _Mathematica_

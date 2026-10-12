@@ -13,7 +13,7 @@
 			let programTexts = fileText.paragraphs.takeWhile { :each |
 				each.beginsWith('#').not
 			};
-			[fileName, programTexts.size].postLine;
+			[fileName, programTexts.size].printLine;
 			programTexts.do { :each |
 				let result = system.evaluate(each);
 				result.concisePrintString;
@@ -21,11 +21,11 @@
 				result.answerPredicate.if {
 					passCount := passCount + 1
 				} {
-					['FAIL', each].postLine
+					['FAIL', each].printLine
 				}
 			}
 		};
-		[testCount, passCount, errorCount].postLine
+		[testCount, passCount, errorCount].printLine
 	}
 
 	terseReferenceSummaryDo { :directoryName :options :testName :aBlock/2 |
@@ -43,11 +43,11 @@
 			let fileName = helpFileNameList[index];
 			let helpFile = HelpFile(fileName.fileUrl, text);
 			options['verbose'].ifTrue {
-				(helpFile.originName, helpFile.name).postLine
+				(helpFile.originName, helpFile.name).printLine
 			};
 			let [testCount, passCount, errorCount] = aBlock(helpFile, options);
 			options['verbose'].ifTrue {
-				'	Pass % of %'.format([passCount, testCount]).postLine
+				'	Pass % of %'.format([passCount, testCount]).printLine
 			};
 			totalTestCount := totalTestCount + testCount;
 			totalPassCount := totalPassCount + passCount;
@@ -60,7 +60,7 @@
 				totalTestCount,
 				totalErrorCount
 			]
-		).postLine
+		).printLine
 	}
 
 	terseReferenceSummary { :directoryName :options |
@@ -82,7 +82,7 @@
 			scGraphCodeBlocks.isEmpty.ifFalse {
 				let verbose = options['verbose'];
 				verbose.ifTrue {
-					helpFile.name.postLine
+					helpFile.name.printLine
 				};
 				scGraphCodeBlocks.do { :x |
 					let programText = x['contents'];
@@ -96,7 +96,7 @@
 								helpFile.name,
 								programText
 							]
-						).postLine
+						).printLine
 					}
 				}
 			};

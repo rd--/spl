@@ -276,6 +276,10 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		<primitive: return sc.encodeInt32(_self, _littleEndian);>
 	}
 
+	[encodeJson, smallFloatToJson] { :self |
+		self.uncheckedEncodeJson
+	}
+
 	[equal, =] { :self :anObject |
 		anObject.isNumber.if {
 			anObject.isSmallFloat.if {
@@ -619,7 +623,7 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 	}
 
 	newtonRaphsonMethod { :epsilon :tolerance :iterationCount :x0 :f/1 :fPrime/1 |
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			iterationCount.timesRepeat {
 				let y = f(x0);
 				let yPrime = fPrime(x0);

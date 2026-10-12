@@ -18,7 +18,7 @@ If no such block exists, the program will terminate.
 
 * * *
 
-See also: ensure, error, Error, ifError
+See also: Error, ensure, error, ifError
 
 Guides: Control Functions, Error Functions
 

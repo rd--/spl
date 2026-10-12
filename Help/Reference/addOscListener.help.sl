@@ -13,7 +13,7 @@ _aBlock_ is applied to the message.
 >>> 	.addOscListener(
 >>> 		'/done',
 >>> 		{ :oscMessage |
->>> 			['onDone', oscMessage].postLine
+>>> 			['onDone', oscMessage].printLine
 >>> 		}
 >>> 	)
 >>> );

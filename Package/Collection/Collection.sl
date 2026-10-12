@@ -74,7 +74,7 @@
 	anyAs { :self :numberOfElements :aBlock/1 |
 		let index = 0;
 		let result = numberOfElements.aBlock;
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			result.fillFromWith(self) { :each |
 				index := index + 1;
 				(index > numberOfElements).if {
@@ -628,7 +628,7 @@
 		{
 			let randomIndex = r.nextRandomInteger(1, self.size);
 			let index = 1;
-			valueWithReturn { :return/1 |
+			withReturn { :return/1 |
 				self.do { :each |
 					(index = randomIndex).ifTrue {
 						each.return

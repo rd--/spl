@@ -3,7 +3,8 @@
 - _displayString(x)_
 
 Answer the `printString` of the object _x_,
-unless it is a `String`, in which case answer _x_ itself.
+unless it is a `String`,
+in which case answer _x_ itself.
 
 At `String`:
 
@@ -27,7 +28,7 @@ strings in a list are shown quoted:
 ```
 
 At `Record`,
-string in record fields are quoted:
+strings in record fields are quoted:
 
 ```
 >> (x: 1, y: 2).displayString
@@ -41,7 +42,7 @@ string in record fields are quoted:
 
 See also: String, concisePrintString, printString, storeString
 
-Guides: String Functions
+Guides: Printing Functions, String Functions
 
 References:
 _Mathematica_

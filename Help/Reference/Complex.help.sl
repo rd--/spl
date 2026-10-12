@@ -28,6 +28,19 @@ NaN
 NaN
 ```
 
+Divide by zero:
+
+```
+>> 0J0 / 0
+NaN
+
+>> 0J0 / 0J0
+NaN
+
+>> 0 / 0J0
+NaN
+```
+
 Threads overs lists:
 
 ```

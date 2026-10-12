@@ -53,7 +53,7 @@
 
 	nextOrUpToEnd { :self :maxNumberOfElements |
 		let answer = [];
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			maxNumberOfElements.timesRepeat {
 				let item = self.next!;
 				item.ifNil {
@@ -66,7 +66,7 @@
 	}
 
 	nextSatisfy { :self :aBlock/1 |
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			self.do { :each |
 				aBlock(each).ifTrue {
 					each.return
@@ -95,7 +95,7 @@
 	}
 
 	readIntoStartingAtCount { :self :aCollection :startIndex :n |
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			0.toDo(n - 1) { :i |
 				let obj = self.next!.ifNil {
 					i.return

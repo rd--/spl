@@ -1,6 +1,6 @@
-# postLine
+# printLine
 
-- _postLine(system, x)_
+- _printLine(x)_
 
 Print the `printString` of the object _x_ to the console,
 followed by a new line.
@@ -9,7 +9,7 @@ Answer _x_.
 Print the answer of _3+4_ and answer it multiplied by _7_:
 
 ```
->>> (3 + 4).postLine * 7
+>>> (3 + 4).printLine * 7
 49
 ```
 
@@ -31,7 +31,7 @@ let d = [3 6 13 11 223 191 111 207];
 				s.add!(c)
 			}
 		};
-		s.stringCatenate.postLine
+		s.stringCatenate.printLine
 	}
 }
 ~~~
@@ -41,7 +41,7 @@ where it may be viewed using a `TranscriptViewer`.
 
 * * *
 
-See also: system, Transcript
+See also: Transcript, system
 
 Guides: Printing Functions, System Functions
 

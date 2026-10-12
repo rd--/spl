@@ -57,10 +57,6 @@ TimeStamp : [Object, Copy, Store, Equal, Compare] {
 		newTimeStamp().initializeSlots(self)
 	}
 
-	absoluteTime { :self |
-		self
-	}
-
 }
 
 +@Collection {
@@ -79,20 +75,6 @@ TimeStamp : [Object, Copy, Store, Equal, Compare] {
 
 	parseTimeStamp { :self |
 		self.parseDateAndTime.TimeStamp
-	}
-
-}
-
-+Block {
-
-	valueAt { :self :time |
-		let now = system.absoluteTime;
-		self.valueAfter(time.absoluteTime - now)
-	}
-
-	valueAtWith { :self :time :anObject |
-		let now = system.absoluteTime;
-		self.valueAfterWith(time.absoluteTime - now, anObject)
 	}
 
 }

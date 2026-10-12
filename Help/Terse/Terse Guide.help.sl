@@ -912,7 +912,7 @@ Clock().isClock /* clock predicate */
 Clock().priorityQueue.isPriorityQueue /* priority queue of clock */
 Clock().priorityQueue.isEmpty /* priority queue is initially empty */
 let c = Clock(); let i = 3; c.scheduleBlock(i) { :t | nil }; c.nextEntryTime <= (system.sessionTime + i)
-let c = Clock(); let i = 3; c.scheduleBlock(i) { :t | t.postLine }; c.removeAll!; c.nextEntryTime = nil
+let c = Clock(); let i = 3; c.scheduleBlock(i) { :t | t.printLine }; c.removeAll!; c.nextEntryTime = nil
 ```
 
 ## Collection -- collection trait
@@ -1353,7 +1353,7 @@ let d = (x: 1, parent: (y: 2, parent: (z: 3))); d.putDelegateTo('z', -3, 'parent
 system.includesPackage('Duration') /* duration package */
 2.seconds.Duration.typeOf = 'Duration' /* make duration from number of seconds */
 5.hours.Duration.isDuration = true /* make duration from number of hours */
-let f = { :t0 | let t1 = system.randomReal([0 2], []); f/1.valueAfterWith(t1, t1) }; f(2).cancel = nil
+let f = { :t0 | let t1 = system.randomReal([0 2], []); f/1.scheduleAfterWith(t1, t1) }; f(2).cancel = nil
 60.seconds.Duration.inSeconds = 60 /* convert duration to seconds */
 'P1W1DT1H1M1S'.parseDuration.inSeconds = 694861 /* parse ISO-8601 duration string */
 'P2DT2H2M2S'.parseDuration.inSeconds = 180122 /* parse ISO-8601 duration string */
@@ -2400,12 +2400,12 @@ let f = { }; f/0 == f/0 /* identity */
 { let x = 1; nil }.apply = nil /* a block cannot end with a let binding */
 { var c, a; c := [1]; a := { var a; a := 4; a }.apply; { var a; a := 2; c.add!(a); { var a; a := 3; c.add!(a) }.apply }.apply; c.add!(a); c }.apply = [1, 2, 3, 4]
 1.toDo(10) { :x | x } = nil /* answers nil */
-valueWithReturn { :return/1 | 1.toDo(10) { :index | (index = 5).ifTrue { 5.return } } } = 5 /* non-local return */
+withReturn { :return/1 | 1.toDo(10) { :index | (index = 5).ifTrue { 5.return } } } = 5 /* non-local return */
 1.pi.assert { true } = 1.pi /* assert that block evaluates to true, answers self */
 { 1.pi.assert { false } }.hasError /* raise an error if block does not evaluate to true */
 { true }.assert = nil /* assert that block evaluates to true, answers nil */
 { { false }.assert }.hasError /* raise an error if block does not evaluate to true */
-valueWithReturn { :return/1 | { (9.atRandom > 7).ifTrue { true.return } }.repeatForever } /* repeat a block until it returns */
+withReturn { :return/1 | { (9.atRandom > 7).ifTrue { true.return } }.repeatForever } /* repeat a block until it returns */
 { 1.anUnknownMessage }.ifError { :err | err }.isError /* evaluate error block on error */
 let f = { let x = 0; { x := x + 1; x } }; let g = f/0.apply; [g.apply, g.apply] = [1, 2] /* closure */
 let f = { let x = 0; { x := x + 1; x } }; [f/0.apply.apply, f/0.apply.apply] = [1, 1] /* closures */
@@ -2454,8 +2454,8 @@ let p = Promise { :t/1 :f | t('t') }; p.then { :t | { t = 't' }.assert }; p.isPr
 let p = Promise { :t :f/1 | f('f') }; p.thenElse { :t | t } { :f | { f = 'f' }.assert }; p.isPromise
 let p = Promise { :t :f/1 | f('f') }; p.then { :t | t }.onRejection { :f | { f = 'f' }.assert }; p.isPromise
 let p = Promise { :t :f/1 | f('f') }; p.thenElse { :t | t } { :f | { f = 'f' }.assert }.finally { { true }.assert }; p.isPromise
-let f = { :c | Promise { :t/1 :f | { t(c) }.valueAfter((0 -- 0.15).atRandom) } }; [1.f, 2.f, 3.f].anyFulfilled.then { :t | { [1, 2, 3].includes(t) }.assert }; true
-let f = { :c | Promise { :t/1 :f | { t(c) }.valueAfter((0 -- 0.05).atRandom) } }; ['x'.f, 'y'.f, 'z'.f].allFulfilled.then { :t | { t = ['x', 'y', 'z'] }.assert }; true
+let f = { :c | Promise { :t/1 :f | { t(c) }.scheduleAfter((0 -- 0.15).atRandom) } }; [1.f, 2.f, 3.f].anyFulfilled.then { :t | { [1, 2, 3].includes(t) }.assert }; true
+let f = { :c | Promise { :t/1 :f | { t(c) }.scheduleAfter((0 -- 0.05).atRandom) } }; ['x'.f, 'y'.f, 'z'.f].allFulfilled.then { :t | { t = ['x', 'y', 'z'] }.assert }; true
 ```
 
 ## Pseudo variables
@@ -3907,9 +3907,9 @@ system.now.isTimeStamp = true /* get current time at system */
 system.now.dateAndTimeString.size = 24
 1676784053.576.TimeStamp.round(24.hours).dateAndTimeString = '2023-02-19T00:00:00.000Z' /* round to duration */
 let t = system.now; t - Duration(0) = t /* offset TimeStamp by Duration */
-{ system.now.postLine }.valueAfter(0.5).cancel = nil
-{ system.now.postLine }.valueAt(system.absoluteTime + 0.5).cancel = nil
-{ system.now.postLine }.valueEvery(3).cancel = nil
+{ system.now.printLine }.scheduleAfter(0.5).cancel = nil
+{ system.now.printLine }.scheduleAt(system.absoluteTime + 0.5).cancel = nil
+{ system.now.printLine }.scheduleEvery(3).cancel = nil
 let t = 1676784053576.TimeStamp; let c = t.copy; c !== t & { c = t }
 ```
 

@@ -801,7 +801,7 @@ HTMLSelectElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 		aString.isEmpty.if {
 			-1
 		} {
-			valueWithReturn { :return/1 |
+			withReturn { :return/1 |
 				0.toDo(self.length - 1) { :index |
 					(self.options.item(index).value = aString).ifTrue {
 						index.return

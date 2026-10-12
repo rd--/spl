@@ -19,7 +19,8 @@ Does not allow a zero fractional part:
 nil
 ```
 
-Parses negative numbers, a positive sign is also allowed:
+Parses negative numbers,
+a positive sign is also allowed:
 
 ```
 >>> '-23'.parseDecimalInteger

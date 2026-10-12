@@ -1,8 +1,8 @@
 # isBase64String
 
-- _isBase64String(aString)_
+- _isBase64String(s)_
 
-Answer `true` if _aString_ represents a Base-64 encoded value.
+Answer `true` if the string _s_ represents a Base-64 encoded value.
 The alphabet consists of the digits _0-9_,
 the letters _a-z_ and _A-Z_,
 and the symbols _+_ and _/_.

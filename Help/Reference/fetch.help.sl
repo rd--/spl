@@ -15,7 +15,7 @@ system
 .thenElse { :response |
 	response.text
 } { :reason |
-	reason.postLine
+	reason.printLine
 }
 ~~~
 
@@ -28,7 +28,7 @@ system
 .thenElse { :response |
 	response.json
 } { :reason |
-	reason.postLine
+	reason.printLine
 }
 ~~~
 

@@ -1,6 +1,6 @@
-# valueWithReturn
+# withReturn
 
-- _valueWithReturn(f/1)_
+- _withReturn(f/1)_
 
 Non-local control flow.
 Provides a return block to the block _f_,
@@ -12,14 +12,14 @@ but it is not and the answer is negative `one`:
 
 ```
 >>> let k = 23;
->>> { :f/1 |
+>>> withReturn { :return/1 |
 >>> 	1.toDo(9) { :i |
 >>> 		(i = k).ifTrue {
->>> 			f(1)
+>>> 			return(1)
 >>> 		}
 >>> 	};
 >>> 	-1
->>> }.valueWithReturn
+>>> }
 -1
 ```
 
@@ -28,20 +28,20 @@ By convention the return block is called return/1.
 
 ```
 >>> let count = 1;
->>> let answer = { :return/1 |
->>> 	{
+>>> let answer = withReturn { :return/1 |
+>>> 	repeatForever {
 >>> 		(count > 99).if {
 >>> 			count.return
 >>> 		} {
 >>> 			count := count + 1
 >>> 		}
->>> 	}.repeatForever
->>> }.valueWithReturn;
+>>> 	}
+>>> };
 >>> answer
 100
 ```
 
-Where supported `valueWithReturn` is displayed as ↓,
+Where supported `withReturn` is displayed as ↓,
 and both `return` and `return/1` are displayed as ↑.
 
 Where supported an editor command inserts the conventional spelling of this construct,
@@ -49,9 +49,9 @@ i.e. _spl-insert-non-local-return (C-c C-r)_ in Emacs.
 
 * * *
 
-See also: Block, repeatForever, value
+See also: Block, apply, repeatForever
 
-Guides: Block Functions, Non-local Return
+Guides: Block Functions, Control Functions, Non-local Return
 
 References:
 _SuperCollider_

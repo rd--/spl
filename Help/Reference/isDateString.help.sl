@@ -1,9 +1,12 @@
 # isDateString
 
-- _isDateString(aString)_
+- _isDateString()_
 
-Answer `true` is _aString_ is an ISO format date string,
+Answer `true` is the string _s_ is an ISO format date string,
 else `false`.
+
+The format sequence is year, month, day of month,
+and the separator is a hyphen:
 
 ```
 >>> '2025-04-25'.isDateString

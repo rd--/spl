@@ -1439,7 +1439,7 @@
 		self.printString(10)
 	}
 
-	printStringHex { :self |
+	printStringHexadecimal { :self |
 		self.printString(16)
 	}
 
@@ -1599,7 +1599,7 @@
 			'twenty', 'thirty', 'forty', 'fifty',
 			'sixty', 'seventy', 'eighty', 'ninety'
 		];
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			let answer = nil;
 			(self = 0).ifTrue {
 				''.return

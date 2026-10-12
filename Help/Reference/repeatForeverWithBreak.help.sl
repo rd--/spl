@@ -18,7 +18,7 @@ nil
 
 * * *
 
-See also: Block, repeatForever, valueWithReturn, whileFalse, whileTrue
+See also: Block, repeatForever, withReturn, whileFalse, whileTrue
 
 Guides: Block Functions, Non-local Return
 

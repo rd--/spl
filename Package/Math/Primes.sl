@@ -320,7 +320,7 @@
 			{ divisible(n, 3) } -> { 3 },
 			{ divisible(n, 5) } -> { 5 },
 			{ true } -> {
-				valueWithReturn { :return/1 |
+				withReturn { :return/1 |
 					let inc = [4 2 4 2 4 6 2 6];
 					let k = 7;
 					let i = 1;
@@ -450,7 +450,7 @@
 	}
 
 	millerRabinPrimalityTest { :self :k |
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			(self = 1).ifTrue {
 				false.return
 			};
@@ -985,7 +985,7 @@
 	}
 
 	uncheckedPrimeFactors { :self |
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			let index = 1;
 			let k = self;
 			let answer = [];
@@ -1144,7 +1144,7 @@
 +@Collection {
 
 	isCoprime { :self |
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			1.toDo(self.size - 1) { :i |
 				(i + 1).toDo(self.size) { :j |
 					self[i].isCoprime(self[j]).ifFalse {
@@ -1301,7 +1301,7 @@
 			s := s + 1;
 			d := d.bitShiftRightUnsigned(1)
 		};
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			let x = powerMod(b, d, n);
 			(x = 1 | { x = (n - 1) }).ifTrue {
 				true.return
@@ -1617,7 +1617,7 @@
 	}
 
 	selfridgeMethodA { :n |
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			let d = 5;
 			n.isPerfectSquare.ifTrue {
 				0.return

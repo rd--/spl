@@ -16,6 +16,7 @@ OEIS [A000035](https://oeis.org/A000035):
 
 Characteristic function of major scale:
 
+```
 >>> [0 2 4 5 7 9 11]
 >>> .characteristicFunction(0:11)
 [1 0 1 0 1 1 0 1 0 1 0 1]

@@ -363,7 +363,7 @@
 
 	LsTrace { :input |
 		input.collect { :each |
-			each.postLine;
+			each.printLine;
 			each
 		}
 	}

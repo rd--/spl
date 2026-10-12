@@ -14,7 +14,7 @@ system
 		event.type,
 		event.x,
 		event.y
-	).postLine
+	).printLine
 }
 ~~~
 

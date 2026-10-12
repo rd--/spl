@@ -186,7 +186,7 @@
 		let r = self.nextRandomFloat;
 		let sum = 0;
 		let answer = 1;
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			aSequence.do { :each |
 				sum := sum + each;
 				(sum > r).ifTrue {

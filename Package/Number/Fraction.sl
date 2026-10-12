@@ -733,7 +733,7 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 	[rationalize, approximateFraction] { :self :epsilon |
 		let c = self.abs.continuedFraction(16);
 		let l = c.semiconvergents(epsilon);
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			l.do { :r |
 				((self - r).abs < epsilon).ifTrue {
 					self.copySign(r).return

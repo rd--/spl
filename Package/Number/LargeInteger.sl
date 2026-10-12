@@ -192,7 +192,7 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer, I
 	*/
 
 	highBitOfInteger { :self |
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			let realLength = self.digitLength;
 			let lastDigit = self.digitAt(realLength);
 			{

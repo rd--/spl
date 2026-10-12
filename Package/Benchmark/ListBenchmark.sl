@@ -5,7 +5,7 @@ ListElement : [Object] {
 	isShorterThan { :self :other |
 		let x = self;
 		let y = other;
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			{
 				y.isNil
 			}.whileFalse {

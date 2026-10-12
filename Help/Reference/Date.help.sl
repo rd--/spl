@@ -1,6 +1,7 @@
 # Date
 
 - _Date(y, m, d)_
+- _Date([y, m, d])_
 
 `Date` is `Type` representing a date in the Gregorian calendar.
 
@@ -70,7 +71,8 @@ At `Date` answer the identity:
 '1970-01-01'
 ```
 
-At `List`:
+The unary form maps over appropriately shaped arrays,
+at `List`:
 
 ```
 >>> Date[1819 11 22]
@@ -100,7 +102,7 @@ The current date can be read from the `System` as a `TimeStamp` using `now`,
 and translated into a `Date`:
 
 ```
->>> system.currentDate.year >= 2024
+>>> system.date.year >= 2024
 true
 
 >>> system.now.Date.year >= 2024

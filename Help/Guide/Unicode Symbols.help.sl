@@ -3,7 +3,7 @@
 If unicode symbol replacement is enabled, the expression typed as:
 
 ```
-valueWithReturn { :return/1 | 2.pi.return } == 2.pi
+withReturn { :return/1 | 2.pi.return } == 2.pi
 ```
 
 will display as:
@@ -14,6 +14,6 @@ will display as:
 
 * * *
 
-See also: valueWithReturn
+See also: withReturn
 
 Guides: Emacs Editor

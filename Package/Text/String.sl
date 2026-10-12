@@ -302,6 +302,10 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Iterable, Indexable, Chara
 		''
 	}
 
+	[encodeJson, stringToJson] { :self |
+		self.uncheckedEncodeJson
+	}
+
 	[equal, =] { :self :anObject |
 		identical(self, anObject)
 	}
@@ -810,7 +814,7 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Iterable, Indexable, Chara
 	}
 
 	[printLine, postLine] { :self |
-		system.postLine(self)
+		system.printLine(self)
 	}
 
 	primitiveCollectInto { :self :aBlock/1 :aCollection |
@@ -1161,7 +1165,7 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Iterable, Indexable, Chara
 +@Object {
 
 	[printLine, postLine] { :self |
-		self.printString.postLine;
+		self.printString.printLine;
 		self
 	}
 

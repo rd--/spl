@@ -3,6 +3,8 @@
 - _parseDecimalNumeral(s, f/0)_
 
 Parse the decimal numeral at the string _s_.
+If the parse fails evaluate _f_,
+or signal an error if _f_ is elided.
 
 With decimal point:
 

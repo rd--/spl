@@ -18,6 +18,7 @@ At `Range`, iterate over indices and values:
 
 At `Record`:
 
+```
 >>> let a = [];
 >>> (x: 1, y: 2, z: 3).withIndexDo { :x :i |
 >>> 	a.add!(i -> x)

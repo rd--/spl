@@ -5,7 +5,11 @@ System! : [Object, Cache, RandomNumberGenerator] {
 	}
 
 	absoluteTime { :unused |
-		<primitive: return Date.now() / 1000;>
+		<primitive: return Date.now() / 1000.0;>
+	}
+
+	absoluteTimeInMilliseconds { :unused |
+		<primitive: return Date.now();>
 	}
 
 	byteOrdering { :self |
@@ -295,7 +299,7 @@ System! : [Object, Cache, RandomNumberGenerator] {
 	}
 
 	sessionTime { :unused |
-		<primitive: return performance.now() / 1000;>
+		<primitive: return performance.now() / 1000.0;>
 	}
 
 	uniqueIdentifier { :self |
@@ -308,10 +312,6 @@ System! : [Object, Cache, RandomNumberGenerator] {
 
 	uniqueIdentifier { :self :anInteger |
 		self.cache['uniqueIdentifier'] := anInteger
-	}
-
-	unixTimeInMilliseconds { :unused |
-		<primitive: return Date.now();>
 	}
 
 	window { :self |

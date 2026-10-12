@@ -4,6 +4,8 @@
 
 Answer the `LargeInteger` value of the decimal integer held in the string _s_.
 The parser allows, but does not require, a trailing upper case letter "L".
+If the parse fails evaluate _f_,
+or signal an error if _f_ is elided.
 
 ```
 >>> '23L'.parseLargeInteger

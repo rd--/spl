@@ -1128,7 +1128,7 @@
 
 	toDoWithBreak { :self :end :aBlock/2 |
 		let index = self;
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			{
 				index <= end
 			}.whileTrue {

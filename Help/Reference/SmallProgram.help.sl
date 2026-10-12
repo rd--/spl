@@ -45,7 +45,7 @@ after ten seconds:
 { :resolve/1 :unused |
 	{
 		resolve('Answer')
-	}.valueAfter(10)
+	}.scheduleAfter(10)
 }.Promise
 ~~~
 

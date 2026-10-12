@@ -67,7 +67,7 @@ The iteration function can operate on a list:
 [1 0.32768]
 ```
 
-Use `valueWithReturn` to exit an iteration:
+Use `withReturn` to exit an iteration:
 
 ```
 >>> square/1.iterate(2L, 6)
@@ -81,7 +81,7 @@ Use `valueWithReturn` to exit an iteration:
 >>> 			x ^ 2
 >>> 		}
 >>> 	}.iterate(2L, 6)
->>> }.valueWithReturn
+>>> }.withReturn
 4294967296
 ```
 

@@ -320,7 +320,7 @@
 
 	beginsWith { :self :aList |
 		aList.isSequence.if {
-			valueWithReturn { :return/1 |
+			withReturn { :return/1 |
 				(self.size < aList.size).ifTrue {
 					false.return
 				};
@@ -684,7 +684,7 @@
 	}
 
 	detectEquispacedTriple { :self :aBlock/3 |
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			self.size.equispacedTriplesDo { :i :j :k |
 				let [p, q, r] = self.atAll([i, j, k]);
 				aBlock(p, q, r).ifTrue {
@@ -712,7 +712,7 @@
 	}
 
 	detectIndexStartingAtIfFoundIfNone { :self :predicate/1 :startIndex :step :ifFound/1 :ifNone/0 |
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			let endIndex = step.isNegative.if { 1 } { self.size };
 			startIndex.toByDo(endIndex, step) { :index |
 				predicate(self[index]).ifTrue {
@@ -756,7 +756,7 @@
 	}
 
 	detectStartingAtIfFoundIfNone { :self :predicate/1 :startIndex :ifFound/1 :ifNone/0 |
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			startIndex.toDo(self.size) { :index |
 				let item = self[index];
 				predicate(item).ifTrue {
@@ -890,7 +890,7 @@
 		aList.isSequence.if {
 			let sequenceSize = aList.size;
 			let offset = self.size - sequenceSize;
-			valueWithReturn { :return/1 |
+			withReturn { :return/1 |
 				(offset < 0).ifTrue {
 					false.return
 				};
@@ -1026,7 +1026,7 @@
 	findBinaryIndexDoIfNone { :self :aBlock/1 :actionBlock/1 :exceptionBlock |
 		let low = 1;
 		let high = self.size;
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			{
 				high < low
 			}.whileFalse {
@@ -1052,7 +1052,7 @@
 
 	findLast { :self :aBlock/1 |
 		let index = self.size + 1;
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			{
 				(index := index - 1) >= 1
 			}.whileTrue {
@@ -1308,7 +1308,7 @@
 				self.size = otherCollection.size
 			}
 		).if {
-			valueWithReturn { :return/1 |
+			withReturn { :return/1 |
 				self.indicesDo { :index |
 					aBlock(self[index], otherCollection[index]).ifFalse {
 						false.return
@@ -1370,7 +1370,7 @@
 	}
 
 	indexOfStartingAtBy { :self :anElement :start :aBlock/2 |
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			start.toDo(self.size) { :index |
 				aBlock(self[index], anElement).ifTrue {
 					index.return
@@ -1464,7 +1464,7 @@
 		(self.size <= 1).if {
 			true
 		} {
-			valueWithReturn { :return/1 |
+			withReturn { :return/1 |
 				self.adjacentPairsDo { :a :b |
 					aBlock(b - a, aNumber).ifFalse {
 						false.return
@@ -1507,7 +1507,7 @@
 		(self.size <= 1).if {
 			true
 		} {
-			valueWithReturn { :return/1 |
+			withReturn { :return/1 |
 				self.adjacentPairsDo { :a :b |
 					aBlock(b / a, aNumber).ifFalse {
 						false.return
@@ -1692,7 +1692,7 @@
 	}
 
 	lastIndexOfStartingAt { :self :anElement :lastIndex |
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			lastIndex.toByDo(1, -1) { :index |
 				(self[index] = anElement).ifTrue {
 					index.return
@@ -2435,7 +2435,7 @@
 			[0/1]
 		} {
 			let lastError = final;
-			valueWithReturn { :return/1 |
+			withReturn { :return/1 |
 				self.prefixesDo { :each |
 					let z = each.last;
 					let h = (z / 2).roundUp;
@@ -2865,7 +2865,7 @@
 	}
 
 	which { :self |
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			self.do { :each |
 				let f/0 = each.key;
 				f().ifTrue {
@@ -3062,7 +3062,7 @@
 +@Integer {
 
 	binaryDetectIndex { :self :aBlock/1 |
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			let low = 1;
 			let high = self;
 			{

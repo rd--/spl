@@ -144,7 +144,7 @@ Rectangle : [Object, Store, Equal, Geometry] {
 	}
 
 	intersectsAny { :self :rectangleList |
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			rectangleList.do { :r |
 				self.intersects(r).ifTrue {
 					true.return

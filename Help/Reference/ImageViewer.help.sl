@@ -33,7 +33,7 @@ system
 		url.revokeObjectUrl
 	}
 } { :reason |
-	reason.postLine
+	reason.printLine
 }
 ~~~
 
@@ -55,7 +55,7 @@ system
 		.revokeObjectUrl
 	}
 } { :reason |
-	reason.postLine
+	reason.printLine
 }
 ~~~
 

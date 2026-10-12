@@ -7,7 +7,11 @@ DateAndTime : [Object, Store, Equal, Compare] {
 	}
 
 	absoluteTime { :self |
-		<primitive: return _self.hiddenRepresentation.getTime() / 1000;>
+		<primitive: return _self.hiddenRepresentation.getTime() / 1000.0;>
+	}
+
+	absoluteTimeInMilliseconds { :self |
+		<primitive: return _self.hiddenRepresentation.getTime();>
 	}
 
 	components { :self |
@@ -95,10 +99,6 @@ DateAndTime : [Object, Store, Equal, Compare] {
 
 	TimeStamp { :self |
 		TimeStamp(self.absoluteTime)
-	}
-
-	unixTimeInMilliseconds { :self |
-		<primitive: return _self.hiddenRepresentation.getTime();>
 	}
 
 	wholeSecond { :self |
@@ -196,11 +196,11 @@ DateAndTime : [Object, Store, Equal, Compare] {
 
 	currentDateAndTime { :self |
 		newDateAndTime().initializeSlots(
-			self.currentPrimitiveDateAndTime
+			self.uncheckedCurrentDateAndTime
 		)
 	}
 
-	currentPrimitiveDateAndTime { :unused |
+	uncheckedCurrentDateAndTime { :unused |
 		<primitive: return new Date();>
 	}
 

@@ -25,7 +25,7 @@
 	}
 
 	caseOf { :self :aCollection :otherwise/1 |
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			aCollection.associationsDo { :each |
 				(each.key = self).ifTrue {
 					let f/0 = each.value;
@@ -158,7 +158,7 @@
 	}
 
 	notify { :self :message |
-		system.postLine(self.notificationMessage(message));
+		system.printLine(self.notificationMessage(message));
 		self
 	}
 
@@ -259,7 +259,7 @@
 	}
 
 	warning { :self :message :parameters |
-		self.errorValue(message, parameters).description.postLine;
+		self.errorValue(message, parameters).description.printLine;
 		self
 	}
 

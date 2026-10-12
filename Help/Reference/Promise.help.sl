@@ -24,7 +24,7 @@ Construct a `Promise` that will resolve to the string _'x'_ after one second:
 >>> Promise { :f/1 :g/1 |
 >>> 	{
 >>> 		f('x')
->>> 	}.valueAfter(1)
+>>> 	}.scheduleAfter(1)
 >>> }.then { :x |
 >>> 	{ x = 'x' }.assert
 >>> }.isPromise

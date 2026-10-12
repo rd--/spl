@@ -4,7 +4,7 @@ Piecewise : [Object, Equal] {
 
 	unaryBlock { :self |
 		{ :x |
-			valueWithReturn { :return/1 |
+			withReturn { :return/1 |
 				self.pieces.do { :each |
 					let f/1 = each.key;
 					f(x).ifTrue {

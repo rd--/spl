@@ -33,7 +33,7 @@ Clock : [Object] {
 			};
 			self.existingDelay := {
 				self.wakeup(scheduledTime)
-			}.valueAfter(deltaTime)
+			}.scheduleAfter(deltaTime)
 		}
 	}
 
@@ -73,7 +73,7 @@ Clock : [Object] {
 			};
 			self.existingDelay := {
 				self.wakeup(frontOfQueueTime)
-			}.valueAfter(frontOfQueueTime - currentTime)
+			}.scheduleAfter(frontOfQueueTime - currentTime)
 		}
 	}
 

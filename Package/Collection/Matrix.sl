@@ -421,7 +421,7 @@
 				each.padLeft([columnWidth], ' ')
 			}.stringJoin('   ')
 		};
-		([header, '   '] ++ text).unlines
+		([header/*, '   '*/] ++ text).unlines
 	}
 
 	matrixRotate { :self :k |

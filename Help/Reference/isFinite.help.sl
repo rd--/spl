@@ -21,19 +21,13 @@ At `LargeInteger`:
 true
 ```
 
-At _not a number_, real and complex:
+At _not a number_:
 
 ```
 >>> NaN.isFinite
 false
 
 >>> (0 / 0).isFinite
-false
-
->>> NaN.j(NaN).isFinite
-false
-
->>> (0J0 / 0).isFinite
 false
 ```
 
@@ -62,7 +56,7 @@ false
 
 * * *
 
-See also: /, allSatisfy, Infinity, isInteger, NaN, Number, SmallFloat, zero
+See also: Infinity, NaN, Number, SmallFloat, /, allSatisfy, isInteger, replaceNaN, zero
 
 Guides: Mathematical Functions
 

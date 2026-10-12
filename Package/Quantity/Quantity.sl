@@ -53,7 +53,7 @@ Quantity : [Object, Copy, Store, Equal, Compare, Frequency, Length, Mass, PlaneA
 		}
 	}
 
-	inSeconds { :self |
+	[inSeconds, quantityInSeconds] { :self |
 		self.unit.caseOf(
 			[
 				'second' -> { self.magnitude },

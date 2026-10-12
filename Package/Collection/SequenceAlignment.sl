@@ -9,7 +9,7 @@
 	}
 
 	includesScatteredSubsequence { :self :aList |
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			1.to(self.size).powerSetDo { :each |
 				each.isArithmeticProgression(1, equal/2).ifFalse {
 					(self.atAll(each) = aList).ifTrue {
@@ -22,7 +22,7 @@
 	}
 
 	includesSubsequence { :self :aList |
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			let i = 1;
 			aList.do { :each |
 				i := self.indexOfStartingAtBy(each, i, equal/2);
@@ -61,7 +61,7 @@
 			0
 		} {
 			let first = aList[1];
-			valueWithReturn { :return/1 |
+			withReturn { :return/1 |
 				start.max(1).toDo(self.size - k + 1) { :startIndex |
 					(self[startIndex] = first).ifTrue {
 						let index = 2;
@@ -189,7 +189,7 @@
 			self.partition(k, 1).intersection(aList.partition(k, 1))
 		};
 		let n = self.size.min(aList.size);
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			n.toByDo(1, -1) { :k |
 				let common = find(k);
 				common.isEmpty.ifFalse {

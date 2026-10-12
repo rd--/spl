@@ -49,7 +49,7 @@ Descends into subcollections to level _n_:
 
 * * *
 
-See also: Missing
+See also: Missing, replaceNaN
 
 Guides: Error Functions
 

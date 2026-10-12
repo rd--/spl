@@ -5,7 +5,8 @@
 Answer `true` if _x_ is an `Error` value.
 
 ```
->>> Error('Key does not exist').isError
+>>> let e = Error('Key does not exist');
+>>> e.isError
 true
 ```
 
@@ -13,4 +14,4 @@ true
 
 See also: Error, error
 
-Guides: Error Functions
+Guides: Control Functions, Error Functions

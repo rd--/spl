@@ -20,7 +20,7 @@ Delete cache:
 system
 .caches
 .removeKeyIfAbsent!('SplLibrary') {
-	'No such key'.postLine
+	'No such key'.printLine
 }
 ~~~
 

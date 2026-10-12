@@ -1,6 +1,6 @@
 # schedule
 
-- _schedule(c, n, f/1)_
+- _schedule(f/1, n=0, c=system.clock)_
 
 Schedule the block _f_ to run in _n_ seconds on the clock _c_.
 When _f_ is evaluated,

@@ -2,14 +2,6 @@
 
 Map! : [Object, Copy, Store, Equal, Iterable, Indexable, Collection, Extensible, Dictionary, PrimitiveMap] {
 
-	encodeJson { :self |
-		self.encodeJson(nil, '')
-	}
-
-	encodeJson { :self :replacer :space |
-		self.Record.encodeJson(replacer, space)
-	}
-
 	comparator { :self |
 		==
 	}

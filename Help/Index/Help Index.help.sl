@@ -647,7 +647,7 @@
 - `Promise`, `rejectedPromise`, `resolvedPromise`
 - `finally`, `onRejection`, `then`, `thenElse`
 - `allFulfilled`, `allSettled`, `anyFulfilled`, `anySettled`
-- `cancel`, `valueAfter`, `valueAfterWith`, `valueEvery`
+- `cancel`, `scheduleAfter`, `scheduleAfterWith`, `scheduleEvery`
 
 ## Sequence Alignment and Comparison
 
@@ -770,7 +770,9 @@
 
 ## Timing
 
-- `currentDate, `now`, `absoluteTime`
+- `absoluteTime`, `sessionTime`
+- `date, `dateAndTime`
+- `now`
 - `timing`
 
 ## Tree Operations

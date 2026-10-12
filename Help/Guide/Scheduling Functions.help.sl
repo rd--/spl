@@ -10,11 +10,11 @@ Functions:
 - `recurseEvery`
 - `repeatEvery`
 - `schedule`
+- `scheduleAfter`, `scheduleAfterWith`
+- `scheduleAt`, `scheduleAtWith`
+- `scheduleEvery`
 - `scheduleInjecting`
-- `valueAfterWith`
-- `valueAfter`
-- `valueEvery`
 
 * * *
 
-Guides: Asynchronous Functions
+Guides: Asynchronous Functions, Date and Time Functions

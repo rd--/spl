@@ -216,7 +216,7 @@
 	}
 
 	indexOfIfAbsent { :self :anObject :aBlock/0 |
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			self.indicesDo { :index |
 				(self[index] = anObject).ifTrue {
 					index.return

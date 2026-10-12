@@ -92,8 +92,8 @@ At `List`:
 
 * * *
 
-See also: contractTo, displayString, printString, storeString
+See also: String, contractTo, displayString, printString, storeString
 
-Guides: String Functions
+Guides: Printing Functions, String Functions
 
 Categories: Printing

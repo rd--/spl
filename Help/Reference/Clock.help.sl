@@ -12,55 +12,55 @@ Start printing a message once per second using the system clock:
 
 ~~~spl scheduler
 let k = 1;
-{ :t |
-	[t k].postLine;
+system.clock.scheduleBlock(0) { :t |
+	[t k].printLine;
 	k := k + 1;
 	1
-}.schedule
+}
 ~~~
 
 Schedule for the system clock to be cleared in nine seconds time:
 
 ~~~spl scheduler
-{ :t |
+system.clock.scheduleBlock(9) { :t |
 	system.clock.removeAll!
-}.schedule(9)
+}
 ~~~
 
 Print random numbers at random intervals until the interval is less than a tenth of a second:
 
 ~~~spl scheduler
-{ :t |
+system.clock.scheduleBlock(0) { :t |
 	let x = system.nextRandomFloat;
-	[t, x].postLine;
+	[t, x].printLine;
 	(x > 0.1).if {
 		x
 	} {
-		'end'.postLine;
+		'end'.printLine;
 		nil
 	}
-}.schedule
+}
 ~~~
 
 A scheduling process that passes an object between iterations:
 
 ~~~spl scheduler
-{ :t :i |
+system.clock.scheduleBlockInjecting(0, 1) { :t :i |
 	let x = system.nextRandomFloat;
-	[t, i, x].postLine;
+	[t, i, x].printLine;
 	(x > 0.1).if {
 		[x, i + 1]
 	} {
 		nil
 	}
-}.scheduleInjecting(1)
+}
 ~~~
 
 `repeatEvery` separates the _on wakeup_ and _next delay_ aspects into separate blocks:
 
 ~~~spl scheduler
 { :t :d |
-	[t, d].postLine
+	[t, d].printLine
 }.repeatEvery {
 	let x = system.nextRandomFloat;
 	(x > 0.1).if {
@@ -75,7 +75,7 @@ A scheduling process that passes an object between iterations:
 
 ~~~spl scheduler
 { :t :x |
-	[t, x].postLine;
+	[t, x].printLine;
 	(x < 7).if {
 		x + 1
 	} {

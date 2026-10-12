@@ -6,13 +6,13 @@ DocumentationTest : [Object, Store, Equal] {
 		let result = {
 			system.evaluate(self.format)
 		}.ifError { :err |
-			['DocumentationTest>>evaluate', err].postLine;
+			['DocumentationTest>>evaluate', err].printLine;
 			false
 		};
 		result.isPromise.if {
 			result.then { :deferredResult |
 				deferredResult.ifFalse {
-					['Error: Deferred test failed', self.program.unlines].postLine
+					['Error: Deferred test failed', self.program.unlines].printLine
 				}
 			};
 			true

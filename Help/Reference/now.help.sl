@@ -6,7 +6,7 @@ Answer a `TimeStamp` indicating the current time.
 
 ```
 >>> let t = system.now;
->>> let a = t.Date;
+>>> let a = Date(t);
 >>> let b = '2024-10-02'.parseDate;
 >>> a > b
 true
@@ -14,9 +14,9 @@ true
 
 * * *
 
-See also: currentDate, TimeStamp
+See also: Date, DateAndTime, TimeStamp, absoluteTime, date, sessionTime
 
-Guides: Date and Time Functions
+Guides: Date and Time Functions, Scheduling Functions
 
 References:
 _Mathematica_

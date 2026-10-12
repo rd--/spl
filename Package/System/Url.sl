@@ -203,7 +203,7 @@ URL! : [Object, Store, Equal, Url] {
 	cachedFetch { :self :cacheName |
 		system.caches.atIfPresent(cacheName) { :cache |
 			cache.atIfAbsent(self) {
-				/* ['cachedFetch: absent', self, cacheName].postLine; */
+				/* ['cachedFetch: absent', self, cacheName].printLine; */
 				self.fetch.thenElse { :response |
 					cache.put!(self, response).then { :unused |
 						cache.uncheckedMatch(self)

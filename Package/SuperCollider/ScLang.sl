@@ -743,7 +743,7 @@
 	}
 
 	block { :self/1 |
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			self(return/1)
 		}
 	}

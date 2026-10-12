@@ -66,7 +66,7 @@ Ugen! : [Object, Number] {
 +List {
 
 	busOffset { :self |
-		/* ['busOffset', self.size].postLine; */
+		/* ['busOffset', self.size].printLine; */
 		self.size.caseOf(
 			[
 				2 -> {

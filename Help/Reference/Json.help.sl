@@ -38,7 +38,7 @@ The types implementing the trait are:
 
 * * *
 
-See also: Boolean, encodeJson, isJson, json, List, parseJson, Nil, Record, SmallFloat, String
+See also: Boolean, List, Nil, Record, SmallFloat, String, encodeJson, isJson, json, parseJson
 
 Guides: Protocol Functions, String Functions
 

@@ -1,8 +1,8 @@
 # isBase16String
 
-- _isBase16String(aString)_
+- _isBase16String(s)_
 
-Answer `true` if _aString_ represents a Base-16 encoded value.
+Answer `true` if the string _s_ represents a Base-16 encoded value.
 
 ```
 >>> 'FF'.isBase16String

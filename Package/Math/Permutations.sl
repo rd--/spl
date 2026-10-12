@@ -99,7 +99,7 @@ Permutation : [Object, Store, Equal] {
 	}
 
 	hasPattern { :self :pattern |
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			let list = self.list;
 			list.subsequencesDo { :each |
 				(each.reducedPermutation = pattern).ifTrue {
@@ -111,7 +111,7 @@ Permutation : [Object, Store, Equal] {
 	}
 
 	image { :self :anInteger |
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			self.cycles.do { :each |
 				let i = each.indexOf(anInteger);
 				(i > 0).ifTrue {

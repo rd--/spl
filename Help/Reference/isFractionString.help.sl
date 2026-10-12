@@ -1,8 +1,8 @@
 # isFractionString
 
-- _isFractionString(aString)_
+- _isFractionString(s)_
 
-Answer true if _aString_ would be parsed as a `Fraction` by `parseFraction`.
+Answer true if the string _s_ would be parsed as a `Fraction` by `parseFraction`.
 
 ```
 >>> '3/4'.isFractionString

@@ -35,7 +35,7 @@ system.window.getSelectedText
 'helpButton'.getElementById.style.cssText := 'font-size: 24px; font-style: italic; background-color: pink'
 '#oracleButton'.querySelector.click
 'div'.createElement
-'documentContainer'.getElementById.addEventListener('mouseenter', { :event | [event.type, event.x, event.y].postLine })
+'documentContainer'.getElementById.addEventListener('mouseenter', { :event | [event.type, event.x, event.y].printLine })
 'statusText'.getElementById.innerText('---')
 'programMenu'.getElementById.options.length
 'programMenu'.getElementById.selectedIndex
@@ -46,12 +46,12 @@ system.window.getSelectedText
 system.window.navigator.requestMidiAccess.thenElse { :midiAccess |
 	system.workspace['midi'] := midiAccess
 } {
-	:message | ('no midi: ' + message).postLine
+	:message | ('no midi: ' + message).printLine
 }
 
 system.workspace['midi'].inputs.do { :each |
-	each.postLine; each.onmidimessage { :event |
-		event.data.postLine
+	each.printLine; each.onmidimessage { :event |
+		event.data.printLine
 	}
 }
 

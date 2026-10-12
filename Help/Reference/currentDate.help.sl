@@ -7,13 +7,13 @@ Answer the current `Date`.
 ```
 >>> let a = system.currentDate;
 >>> let b = '2024-10-02'.parseDate;
->>> a > b
-true
+>>> (a.isDate, a > b)
+(true, true)
 ```
 
 * * *
 
-See also: Date, now
+See also: Date, DateAndTime, absoluteTime, currentDateAndTime, now, sessionTime
 
 Guides: Date and Time Functions
 

@@ -32,7 +32,7 @@
 	}
 
 	bareissAlgorithm { :m |
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			let n = m.size;
 			let sign = 1;
 			let prev = 1;
@@ -103,7 +103,7 @@
 	}
 
 	conjugateGradientMethod { :a :b :x :epsilon :n |
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			let r = b - a.dot(x);
 			let p = r.copy;
 			1.toDo(n) { :i |
@@ -270,7 +270,7 @@
 
 	gaussSeidelMethod { :a :b :x :epsilon :maximumIterations |
 		let n = a.size;
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			maximumIterations.timesRepeat {
 				let y = x.copy;
 				let p = 0;
@@ -906,7 +906,7 @@
 	}
 
 	reducedRowEchelonForm { :self |
-		valueWithReturn { :return/1 |
+		withReturn { :return/1 |
 			let lead = 1;
 			let [m, n] = self.shape;
 			1.toDo(m) { :r |

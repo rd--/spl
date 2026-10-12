@@ -17,7 +17,7 @@ The function _spl-prettier_ can be used to show Ascii block and operator names u
 Some of the notations are:
 
 1. `:=` as ← and `::` as ·
-1. `return` as ↑ and `valueWithReturn` as ↓
+1. `return` as ↑ and `withReturn` as ↓
 1. `->` as →
 1. `!=` as ≠ and `==` as ≡
 1. `<=` as ≤ and `>=` as ≥

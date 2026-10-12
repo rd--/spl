@@ -1,8 +1,8 @@
 # isComplexString
 
-- _isComplexString(aString)_
+- _isComplexString(s)_
 
-Answer true if _aString_ would be parsed as a `Complex` number by `parseComplex`.
+Answer true if the string _s_ would be parsed as a `Complex` number by `parseComplex`.
 
 ```
 >>> '3J4'.isComplexString

@@ -1,6 +1,6 @@
 # repeatEvery
 
-- _repeatEvery(f/2, n/0, c)_
+- _repeatEvery(f/2, n/0, c=system.clock)_
 
 Schedule the block _f_ at intervals given by delay _n_ on the clock _c_.
 _f_ receives the current time and the delay interval before the block will execute next.
@@ -12,7 +12,7 @@ Print a message every few seconds indefinitely:
 	[
 		'Clock says', t,
 		'About to delay for', d
-	].postLine
+	].printLine
 }.repeatEvery {
 	1:5.atRandom
 }
@@ -26,7 +26,7 @@ system.clock.removeAll!
 
 * * *
 
-See also: recurseEvery, schedule
+See also: Clock, recurseEvery, schedule
 
 Guides: Scheduling Functions
 

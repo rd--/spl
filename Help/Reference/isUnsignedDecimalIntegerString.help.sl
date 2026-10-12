@@ -1,8 +1,8 @@
 # isUnsignedDecimalIntegerString
 
-- _isUnsignedDecimalIntegerString(aString)_
+- _isUnsignedDecimalIntegerString(s)_
 
-Answer `true` if _aString_ represents an unsigned decimal integer.
+Answer `true` if the string _s_ represents an unsigned decimal integer.
 
 ```
 >>> '99'.isUnsignedDecimalIntegerString

@@ -12,4 +12,4 @@ Methods:
 
 See also: Error
 
-Guides: Error Functions
+Guides: Control Functions, Error Functions
