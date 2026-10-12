@@ -413,6 +413,15 @@ answers a `SmallFloat`:
 0.111
 ```
 
+Operations with `NaN` answer `NaN`:
+
+>> 1/3 * NaN
+NaN
+
+>> NaN * 1/3
+NaN
+```
+
 Convert degrees/minutes/seconds to precise rational representation:
 
 ```

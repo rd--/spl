@@ -36,6 +36,13 @@ false
 false
 ```
 
+Check if a value is `NaN`:
+
+```
+>>> (0 / 0).isNaN
+true
+```
+
 Complex `NaN` is reduced to NaN on construction:
 
 ```
@@ -82,13 +89,6 @@ The `real` part of NaN is NaN:
 ```
 >> NaN.real
 NaN
-```
-
-Check if a value is NaN:
-
-```
->>> (0 / 0).ifNaN { '?' }
-'?'
 ```
 
 * * *

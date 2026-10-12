@@ -116,7 +116,7 @@ A spiral on five radial lines:
 
 * * *
 
-See also: fromBipolarCoordinates, PolarCoordinates, toPolarCoordinates, fromSphericalCoordinates
+See also: Complex, PolarCoordinates, fromBipolarCoordinates, toPolarCoordinates, fromSphericalCoordinates
 
 Guides: Coordinate System Functions
 

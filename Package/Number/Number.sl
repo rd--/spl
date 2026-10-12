@@ -40,13 +40,13 @@
 	}
 
 	arg { :self |
-		self.isNaN.if {
-			NaN
+		self.isZero.if {
+			0
 		} {
-			self.isZero.if {
-				0
+			self.isNaN.if {
+				NaN
 			} {
-				self.j(0).arg
+				Complex(self, 0).arg
 			}
 		}
 	}

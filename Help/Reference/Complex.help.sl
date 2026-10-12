@@ -92,6 +92,13 @@ the inverse is `real`:
 1
 ```
 
+Note that `realToComplex` of `NaN` answers `NaN`:
+
+```
+>> NaN.realToComplex
+NaN
+```
+
 Threads over lists:
 
 ```

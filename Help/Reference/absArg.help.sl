@@ -10,7 +10,11 @@ The absolute value and argument of a complex number:
 >>> 5J12.absArg
 [13, (12 / 5).arcTan]
 
->>> let z = 2 * 0.5.i.exp;
+>>> let [r, theta] = 5J12.absArg;
+>>> r * [theta.cos theta.sin]
+[5 12]
+
+>>> let z = 2 * 0.5I.exp;
 >>> z.absArg
 [2 0.5]
 ```
@@ -34,7 +38,7 @@ Collects over lists:
 
 * * *
 
-See also: abs, angleVector, arg, Complex, toPolarCoordinates
+See also: Complex, abs, absArg, angleVector, arg, toPolarCoordinates
 
 Guides: Complex Number Functions
 

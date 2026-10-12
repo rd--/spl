@@ -644,6 +644,7 @@ cat=`concatenation`, ordinarily `++`:
 
 `sum`, `product`, `mean`:
 
+```
 >>> [1 2 3 4].sum
 10
 
@@ -766,12 +767,22 @@ Indexed assignment (one-indexed):
 [100 2 3 4 999]
 ```
 
-`at` and `atAll`:
+`at`, `atWrap` and `atAll`:
 
 ```
 >>> let a = [10 20 30];
 >>> (a.at(2), a.atWrap(0), a.atAll([3 1 1]))
 (20, 30, [30 10 10])
+```
+
+`put!` and `putWrap!`:
+
+```
+>>> let a = [1 2 3];
+>>> a.put!(2, 99);
+>>> a.putWrap!(0, 30);
+>>> a
+[1 99 30]
 ```
 
 ## Type Conversions

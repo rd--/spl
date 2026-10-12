@@ -56,7 +56,7 @@ Unsigned angle:
 
 * * *
 
-See also: absArg, arcTan, fromPolarCoordinates, norm, PolarCoordinates, toSphericalCoordinates
+See also: Complex, PolarCoordinates, absArg, arcTan, fromPolarCoordinates, norm, toSphericalCoordinates
 
 Guides: Coordinate System Functions
 
