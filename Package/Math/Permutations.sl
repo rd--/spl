@@ -22,12 +22,12 @@ Permutation : [Object, Store, Equal] {
 
 	[times, *] { :self :aPermutation |
 		let length = self.degree.max(aPermutation.degree);
-		aPermutation.apply(
-			self.apply(length.iota)
+		aPermutation.applyPermutation(
+			self.applyPermutation(length.iota)
 		).ordering.Permutation
 	}
 
-	apply { :self :aSequence |
+	applyPermutation { :self :aSequence |
 		let length = aSequence.size;
 		self.isIdentity.if {
 			aSequence
@@ -933,7 +933,7 @@ Permutation : [Object, Store, Equal] {
 	}
 
 	permute { :self :anObject |
-		anObject.Permutation.apply(self)
+		anObject.Permutation.applyPermutation(self)
 	}
 
 	reducedPermutation { :self |

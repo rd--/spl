@@ -269,7 +269,7 @@
 	}
 
 	[deleteDuplicates, nubBy] { :self :aBlock/2 |
-		(aBlock/2 = equalsSignEqualsSign/2).if {
+		(aBlock/2 == equalsSignEqualsSign/2).if {
 			self.deleteDuplicatesIdentical
 		} {
 			let seen = [];
@@ -659,6 +659,16 @@
 	reject { :self :aBlock/1 |
 		self.select { :element |
 			aBlock(element).not
+		}
+	}
+
+	replaceNaN { :self :anObject |
+		self.collect { :each |
+			each.isNaN.if {
+				anObject
+			} {
+				each
+			}
 		}
 	}
 

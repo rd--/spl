@@ -15,6 +15,16 @@ At scalars:
 1.2J3.4
 ```
 
+If either _a_ or _b_ is not a number answers not a number:
+
+```
+>> Complex(NaN, 0)
+NaN
+
+>> Complex(0, NaN)
+NaN
+```
+
 Threads overs lists:
 
 ```
@@ -26,6 +36,10 @@ Threads overs lists:
 
 >>> Complex(1, 2:6)
 [1J2 1J3 1J4 1J5 1J6]
+
+>>> Complex(1, [2 NaN 4])
+>>> .deleteMissing
+[1J2 1J4]
 ```
 
 There is a literal syntax:

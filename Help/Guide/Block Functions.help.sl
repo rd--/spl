@@ -42,8 +42,8 @@ Reversed Evaluation:
 
 List Evaluation:
 
-- `apply`
-- `valueWithArguments`
+- `applyList`
+- `uncheckedApplyList`
 
 Partial Evaluation:
 

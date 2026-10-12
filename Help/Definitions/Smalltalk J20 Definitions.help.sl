@@ -938,6 +938,8 @@ count.
 
 *Parameters*: argumentArray ⧼sequencedReadableCollection⧽
 
+Cf: applyList
+
 ## 5.4.2
 
 *Protocol*: ⧼niladicValuable⧽

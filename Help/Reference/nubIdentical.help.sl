@@ -1,9 +1,9 @@
 # nubIdentical
 
-- _nubIdentical(aCollection)_
+- _nubIdentical(c)_
 
-Answer a copy of _aCollection_ that removes any duplicates, according to `==`.
-If _aCollection_ is a `Sequence` the copy will preserve the order of elements.
+Answer a copy of the collection _c_ that removes any duplicates, according to `==`.
+If _c_ is a `Sequence` the copy will preserve the order of elements.
 
 ```
 >>> Sfc32(38014)
@@ -21,6 +21,6 @@ At `Record`:
 
 * * *
 
-See also: =, ==, copyWithoutIdenticalElements, deleteDuplicates, IdentitySet, nub, nubBy, nubCumulatively, nubSieve, Set
+See also: Set, IdentitySet, =, ==, copyWithoutIdenticalElements, deleteDuplicates, nub, nubBy, nubCumulatively, nubSieve
 
 Categories: Copying

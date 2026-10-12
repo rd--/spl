@@ -24,7 +24,7 @@ Threads over lists:
 [1 2 3; 4 0 6]
 ```
 
-Sum a matrix after replacing NaN entries:
+Sum a matrix after replacing NaN entries with zero:
 
 ```
 >>> [NaN 1 NaN; 3 5 NaN; 4 NaN NaN]
@@ -34,6 +34,6 @@ Sum a matrix after replacing NaN entries:
 
 * * *
 
-See also: isNaN, NaN
+See also: NaN, deleteMissing, ifNan, isNaN
 
 Guides: Collection Functions, Error Functions, Mathematical Functions

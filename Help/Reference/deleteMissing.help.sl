@@ -1,6 +1,6 @@
 # deleteMissing
 
-- _deleteMissing(c)_
+- _deleteMissing(c, n=1)_
 
 Answer a copy of the collection _c_ without items that are `Missing`.
 
@@ -25,6 +25,26 @@ Delete missing values from a record:
 ```
 >>> [1 2 3 nil 5].deleteMissing
 [1 2 3 5]
+```
+
+`NaN` values are considered to be missing:
+
+```
+>>> [1 2 3 NaN 5].deleteMissing
+[1 2 3 5]
+```
+
+Descends into subcollections to level _n_:
+
+```
+>>> [1 NaN 3; 4 5 NaN].deleteMissing(Infinity)
+[1 3; 4 5]
+
+>>> [1, nil, [3, nil, 5]].deleteMissing(1)
+[1, [3, nil, 5]]
+
+>>> [1, nil, [3, nil, 5]].deleteMissing(2)
+[1, [3, 5]]
 ```
 
 * * *

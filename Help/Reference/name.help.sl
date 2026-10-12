@@ -14,7 +14,7 @@ At `Block`:
 'sqrt/1'
 ```
 
-Note that aliased blocks are not equal, because they have different names:
+Note that aliased blocks are not identical, because they have different names:
 
 ```
 >>> =.name
@@ -23,7 +23,7 @@ Note that aliased blocks are not equal, because they have different names:
 >>> equal/2.name
 'equal/2'
 
->>> = = equal/2
+>>> = == equal/2
 false
 ```
 

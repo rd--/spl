@@ -2,7 +2,7 @@
 
 - _isNaN(x)_
 
-Answer `true` if _x_ is `NaN`.
+Answer `true` if _x_ is not a number, abbreviated `NaN`.
 
 ```
 >>> NaN.isNaN
@@ -15,17 +15,24 @@ false
 true
 ```
 
-Complex `NaN`:
+Not a number is a `SmallFloat` value:
+
+```
+>>> NaN.isSmallFloat
+true
+```
+
+Complex `NaN` become `NaN` on construction:
 
 ```
 >>> let z = 2J3 / 0;
 >>> (z.isComplex, z.isNaN)
-(true, true)
+(false, true)
 ```
 
 * * *
 
-See also: isFinite, isNaN, Infinity, SmallFloat
+See also: NaN, SmallFloat, isFinite, isNaN
 
 Guides: Mathematical Constants
 

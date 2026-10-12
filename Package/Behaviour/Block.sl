@@ -20,13 +20,13 @@ Block! : [Object, Equal] {
 		self == anObject
 	}
 
-	apply { :self :aList |
+	applyList { :self :aList |
 		<primitive:
 		if(sl.isArray(_aList) && (_self.length === _aList.length)) {
 			return _self(... _aList);
 		}
 		>
-		self.error('apply: argument is not a list or not of required size')
+		self.error('applyList: argument is not a list or not of required size')
 	}
 
 	argumentNames { :self |
@@ -393,7 +393,7 @@ Block! : [Object, Equal] {
 
 	mapApply { :self :aCollection |
 		aCollection.collect { :each |
-			apply(self, each)
+			self.applyList(each)
 		}
 	}
 
@@ -403,7 +403,7 @@ Block! : [Object, Equal] {
 
 	mapThread { :self :aMatrix |
 		aMatrix.transpose.collect { :aList |
-			apply(self, aList)
+			self.applyList(aList)
 		}
 	}
 
@@ -635,6 +635,10 @@ Block! : [Object, Equal] {
 		}
 	}
 
+	uncheckedApplyList { :self :argumentsList |
+		<primitive: return _self.apply(null, _argumentsList);>
+	}
+
 	unqualifiedName { :self |
 		<primitive: return _self.name.split('/')[0];>
 	}
@@ -657,10 +661,6 @@ Block! : [Object, Equal] {
 
 	value { :self/5 :p1 :p2 :p3 :p4 :p5 |
 		self(p1, p2, p3, p4, p5)
-	}
-
-	valueWithArguments { :self :argumentsList |
-		<primitive: return _self.apply(null, _argumentsList);>
 	}
 
 	valueWithReturn { :self/1 |

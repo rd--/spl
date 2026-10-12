@@ -92,10 +92,10 @@ The binary form answer either x₁ or x₂, whichever has the least magnitude:
 At `NaN` and `Infinity`:
 
 ```
->>> min(1, NaN)
+>> min(1, NaN)
 NaN
 
->>> min(NaN, 1)
+>> min(NaN, 1)
 NaN
 
 >>> min(1, Infinity)

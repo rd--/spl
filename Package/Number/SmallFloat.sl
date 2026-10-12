@@ -357,6 +357,14 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		>
 	}
 
+	ifNaN { :self :aBlock/0 |
+		self.isNaN.if {
+			aBlock()
+		} {
+			self
+		}
+	}
+
 	Integer { :self |
 		SmallInteger(self)
 	}

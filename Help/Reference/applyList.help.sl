@@ -1,6 +1,6 @@
-# apply
+# applyList
 
-- _apply(f/n, [x₁ x₂ …])_
+- _applyList(f/n, [x₁ x₂ …])_
 
 Apply the block _f_ to the arguments at the list _x_.
 It is an error if _x_ is not a `List` or has the wrong number of arguments.
@@ -8,10 +8,10 @@ It is an error if _x_ is not a `List` or has the wrong number of arguments.
 ```
 >>> { :x :y |
 >>> 	x * y + y
->>> }.apply([3.141 23])
+>>> }.applyList([3.141 23])
 95.243
 
->>> +.apply([3 4])
+>>> +.applyList([3 4])
 7
 ```
 
@@ -27,21 +27,21 @@ C.f. `value`:
 7
 ```
 
-C.f. `valueWithArguments`:
+There is an unchecked form:
 
 ```
 >>> { :x :y |
 >>> 	x * y + y
->>> }.valueWithArguments([3.141 23])
+>>> }.uncheckedApplyList([3.141 23])
 95.243
 
->>> +.valueWithArguments([3 4])
+>>> +.uncheckedApplyList([3 4])
 7
 ```
 
 * * *
 
-See also: Block, cull, List, value
+See also: Block, List, cull, value
 
 Guides: Block Functions
 

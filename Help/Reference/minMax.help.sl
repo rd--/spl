@@ -50,7 +50,8 @@ At `NaN`:
 
 ```
 >>> [2 NaN 6 -5; 0 3 NaN 9].minMax
-[0 NaN NaN -5; 2 NaN NaN 9]
+>>> .deleteMissing(2)
+[0 -5; 2 9]
 ```
 
 At `Interval`:

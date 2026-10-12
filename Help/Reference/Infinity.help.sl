@@ -43,8 +43,11 @@ true
 Neither is _∞-∞_:
 
 ```
->>> (Infinity - Infinity).isNaN
-true
+>> (Infinity - Infinity)
+NaN
+
+>> Infinity + -Infinity
+NaN
 ```
 
 _∞±n_ is ∞:
@@ -54,6 +57,9 @@ _∞±n_ is ∞:
 Infinity
 
 >>> Infinity - 1
+Infinity
+
+>>> Infinity + Infinity
 Infinity
 ```
 

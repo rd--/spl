@@ -14,8 +14,8 @@ The result is scaled and biased by _a_ and _b_ to meet the desired contrast and 
 Evaluate symbolically:
 
 ```
->> [`a` `b` `c` `d`].quilezGradient
->> .value(`x`)
+>> let f/1 = [`a` `b` `c` `d`].quilezGradient;
+>> f(`x`)
 (+ a (* b (cos (* (* 2 π) (+ (* c x) d)))))
 ```
 

@@ -24,6 +24,10 @@ List! : [Object, Copy, Store, Equal, Compare, Json, Iterable, Indexable, Collect
 		anObject
 	}
 
+	addLast { :self :anObject |
+		self ++ [anObject]
+	}
+
 	atAllPut { :self :anObject |
 		<primitive:
 		_self.fill(_anObject);

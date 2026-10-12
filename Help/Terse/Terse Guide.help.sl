@@ -2371,9 +2371,9 @@ let f = { :x | x * x }; f(3) = 9
 let f = { :x | x * x }; [3, 5, 7].collect(f/1) = [9 25 49]
 { :x | x * x }.table([3, 5, 7]) = [9 25 49] /* binary table is swap of collect */
 collect/2.swap . ({ :x | x * x }, [3 5 7]) = [9 25 49] /* swap of collect is map */
-{ :x :y | x * y + y }.apply([3.141, 23]) = 95.243
-{ { :x | x }.apply(0) }.hasError
-{ { :x | x }.apply([]) }.hasError
+{ :x :y | x * y + y }.applyList([3.141, 23]) = 95.243
+{ { :x | x }.applyList(0) }.hasError
+{ { :x | x }.applyList([]) }.hasError
 9.with { :x | x.sqrt; -x } = -9 /* evaluate block with self and answer answer of block */
 9.also { :x | x.sqrt; -x } = 9 /* evaluate block with self and answer self */
 let d = (c: 1); d.with { :x | x['c'] := 2; 0 } = 0 & { d = (c: 2) }

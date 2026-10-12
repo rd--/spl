@@ -1,8 +1,9 @@
-# addLast!
+# addLast (addLast!)
 
-- _addLast!([x₁ x₂ …], y)_
+- _addLast([x₁ x₂ …], y)_
 
-Add the object _y_ to the end of the sequence _x_ in-place.
+Add the object _y_ to the end of the sequence _x_.
+There are both in-place and copying forms.
 Answer _y_.
 
 ```
@@ -40,6 +41,14 @@ Append a column to a matrix:
 >>> };
 >>> m
 [1 2 -1; 3 4 -2]
+```
+
+Copying form:
+
+```
+>>> let a = [1 2 3 4];
+>>> (a, a.addLast(5))
+([1 2 3 4], [1 2 3 4 5])
 ```
 
 * * *

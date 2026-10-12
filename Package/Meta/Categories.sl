@@ -821,7 +821,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'ifError'
 		'once'
 		'value'
-		'valueWithArguments'
+		'applyList'
 		'valueWithReturn'
 	],
 	'initialization': [

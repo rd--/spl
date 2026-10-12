@@ -312,9 +312,7 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 	}
 
 	isNaN { :self |
-		self.real.isNaN | {
-			self.imaginary.isNaN
-		}
+		self.shouldNotImplement('isNaN')
 	}
 
 	isNegative { :self |
@@ -471,7 +469,15 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 
 	Complex { :real :imaginary |
 		imaginary.isSmallFloat.if {
-			uncheckedComplex(real, imaginary)
+			(
+				real.isNaN | {
+					imaginary.isNaN
+				}
+			).if {
+				NaN
+			} {
+				uncheckedComplex(real, imaginary)
+			}
 		} {
 			imaginary.adaptToNumberAndApply(real, Complex/2)
 		}

@@ -23,7 +23,7 @@
 	messageSend { :self :selector :delegateKey :argumentsList |
 		let answer = self.atDelegateTo(selector, delegateKey);
 		answer.isBlock.if {
-			answer.apply([self] ++ argumentsList)
+			answer.applyList([self] ++ argumentsList)
 		} {
 			answer
 		}

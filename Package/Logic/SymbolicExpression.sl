@@ -412,7 +412,7 @@ SymbolicExpression : [Object, Store, Number, SymbolicObject, SymbolicBoolean, Sy
 
 	SymbolicExpression { :self :parameterNames |
 		(self.numArgs = parameterNames.size).if {
-			self.apply(parameterNames.collect(Symbol/1))
+			self.applyList(parameterNames.collect(Symbol/1))
 		} {
 			self.error('Block>>SymbolicExpression: arity error')
 		}

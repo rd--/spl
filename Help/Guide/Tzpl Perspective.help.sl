@@ -589,6 +589,7 @@ filter=`select`:
 
 ```
 >>> [1 2 3 4 5].select { :x | x > 2 }
+[3 4 5]
 
 >>> [1 2 3 4 5].select { :x | x % 2 = 0 }
 [2 4]
@@ -601,7 +602,7 @@ filter=`select`:
 [1 'a'; 2 'b'; 3 'c']
 
 >>> [10 20 30].enumerate
-[0 10; 1 20; 2 30]
+[1 10; 2 20; 3 30]
 ```
 
 fold=`foldLeft`:
@@ -614,10 +615,10 @@ fold=`foldLeft`:
 'abc'
 ```
 
-scan=`scanLeft`:
+scan=`foldList`:
 
 ```
->>> [1 2 3 4 5].scanLeft(+, 0)
+>>> [1 2 3 4 5].foldList(0, +)
 [0 1 3 6 10 15]
 ```
 
@@ -739,6 +740,38 @@ toSet=`Set`:
 
 >>> [1 2 3].reverse
 [3 2 1]
+```
+
+push=`addLast`:
+
+```
+>>> [1 2 3].addLast(4)
+[1 2 3 4]
+```
+
+pop=`allButLast`:
+
+```
+>>> [1 2 3 4].allButLast
+[1 2 3]
+```
+
+Indexed assignment (one-indexed):
+
+```
+>>> let a = [1 2 3 4 5];
+>>> a[1] := 100;
+>>> a[5] := 999;
+>>> a
+[100 2 3 4 999]
+```
+
+`at` and `atAll`:
+
+```
+>>> let a = [10 20 30];
+>>> (a.at(2), a.atWrap(0), a.atAll([3 1 1]))
+(20, 30, [30 10 10])
 ```
 
 ## Type Conversions

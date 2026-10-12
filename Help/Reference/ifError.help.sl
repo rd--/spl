@@ -28,13 +28,24 @@ Evaluate a block that does not raise an error:
 3
 ```
 
+Divide by zero is not an error:
+
+```
+>> { 0 / 0 }.ifError { '?' }
+NaN
+```
+
 * * *
 
-See also: cull, Error, hasError, isError
+See also: Error, cull, hasError, isError
 
 Guides: Block Functions, Control Functions
 
 References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/CheckAbort.html)
+[2](https://reference.wolfram.com/language/ref/Check.html)
+[3](https://reference.wolfram.com/language/ref/Catch.html),
 _Smalltalk_
 5.4.3.2,
 _SuperCollider_

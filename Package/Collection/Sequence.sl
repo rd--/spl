@@ -1291,7 +1291,7 @@
 				index <= endIndex
 			}.whileTrue {
 				argumentList.replaceFromToWithStartingAt(1, numArgs, self, index);
-				aBlock.valueWithArguments(argumentList);
+				aBlock.applyList(argumentList);
 				index := index + numArgs
 			}
 		}

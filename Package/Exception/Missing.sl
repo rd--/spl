@@ -18,18 +18,26 @@ Missing : [Object, Store, Equal] {
 
 +@Collection {
 
-	deleteMissing { :self |
-		self.reject(isMissing/1)
+	deepDeleteMissing { :self |
+		self.deleteMissing(Infinity)
 	}
 
 	deleteMissing { :self :n |
 		(n = 1).if {
-			self.deleteMissing
+			self.reject(isMissing/1)
 		} {
 			self.collect { :each |
-				each.deleteMissing(n - 1)
-			}
+				each.isCollection.if {
+					each.deleteMissing(n - 1)
+				} {
+					each
+				}
+			}.reject(isMissing/1)
 		}
+	}
+
+	deleteMissing { :self |
+		self.deleteMissing(1)
 	}
 
 }
@@ -42,6 +50,18 @@ Missing : [Object, Store, Equal] {
 
 	reasonMissing { :unused |
 		'Unknown'
+	}
+
+}
+
++SmallFloat {
+
+	isMissing { :self |
+		self.isNaN
+	}
+
+	reasonMissing { :unused |
+		'NaN'
 	}
 
 }
