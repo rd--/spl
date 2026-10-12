@@ -98,7 +98,7 @@ Frequency(440).octavePitchClass = 4.09 /* octave pitch class number */
 [1 .. 9].keepLast(3) = [6 .. 9]
 [3, 5, 4].normalizeRange([0 1]) = [0, 1, 1 / 2] /* linLin with calculated min and max */
 [3, -5, 4].normalizeRange([0 1]) = [8 / 9, 0, 1]
-({ :x | x * 2 } <> { :x | x + 3 }).value(4) = 14 /* function composition, right to left */
+let f/1 = { :x | x * 2 } <> { :x | x + 3 }; f(4) = 14 /* function composition, right to left */
 'x' ++ ' ' ++ 'y' = 'x y' /* catenation with space */
 '/usr' +/+ 'local' = '/usr/local' /* file path catenation */
 let l = []; [1 .. 9].adjacentPairsDo { :a :b | l.add!(a -> b) }; l.size = 8

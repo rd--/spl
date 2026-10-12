@@ -197,27 +197,27 @@ If the string begins with a doctest, also delete all non doctest lines."
 (defun spl-play-paragraph ()
   "Play Ugen graph of current paragraph."
   (interactive)
-  (spl-eval-string (format "{ %s }.value.play" (spl-get-paragraph))))
+  (spl-eval-string (format "{ %s }.nullaryApply.play" (spl-get-paragraph))))
 
 (defun spl-draw-paragraph ()
   "Draw current paragraph."
   (interactive)
-  (spl-eval-string (format "{ %s }.value.drawing.show" (spl-get-paragraph))))
+  (spl-eval-string (format "{ %s }.nullaryApply.drawing.show" (spl-get-paragraph))))
 
 (defun spl-print-promise ()
   "Print Promise of current paragraph when it resolves."
   (interactive)
-  (spl-eval-string (format "{ %s }.value.then { :answer | answer.postLine }" (spl-get-paragraph))))
+  (spl-eval-string (format "{ %s }.nullaryApply.then { :answer | answer.postLine }" (spl-get-paragraph))))
 
 (defun spl-plot-paragraph ()
   "Plot Ugen graph of current paragraph."
   (interactive)
-  (spl-eval-string (format "{ %s }.value.soundPlot(0.1)" (spl-get-paragraph))))
+  (spl-eval-string (format "{ %s }.nullaryApply.soundPlot(0.1)" (spl-get-paragraph))))
 
 (defun spl-print-paragraph ()
   "Print Ugen graph of current paragraph."
   (interactive)
-  (spl-eval-string (format "{ %s }.value.print" (spl-get-paragraph))))
+  (spl-eval-string (format "{ %s }.nullaryApply.print" (spl-get-paragraph))))
 
 (defun spl-play-current-file ()
   "Play current file at Spl server."

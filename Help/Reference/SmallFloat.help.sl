@@ -39,6 +39,9 @@ In the `SmallFloat` case answer _identity_:
 
 >>> SmallFloat(1.pi)
 1.pi
+
+>> SmallFloat(NaN)
+NaN
 ```
 
 At `Infinity`:

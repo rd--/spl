@@ -328,17 +328,17 @@ System! : [Object, Cache, RandomNumberGenerator] {
 
 +Block {
 
-	once { :self |
+	once { :self/0 |
 		let cache = system.cached('onceCache') {
 			WeakMap()
 		};
-		cache.atIfAbsentPut(self) {
-			self.value
+		cache.atIfAbsentPut(self/0) {
+			self()
 		}
 	}
 
-	once { :self :where :key |
-		where.cached(key, self)
+	once { :self/0 :where :key |
+		where.cached(key, self/0)
 	}
 
 }

@@ -165,6 +165,9 @@ At `Complex`:
 	0J-8 8J-8 16J0 16J16 0J32
 	-32J32
 ]
+
+>>> 0J0 ^ 0
+1J0
 ```
 
 Complex number powers of _i_:

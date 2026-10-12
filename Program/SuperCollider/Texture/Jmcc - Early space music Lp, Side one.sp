@@ -2,7 +2,7 @@
 {
 	let scale = [0 2 4 5 7 9 11];
 	let octave = [24 36 48 60 72 84 96] - 3;
-	let z =	[
+	let fList = [
 		{
 			let f = (scale.atRandom + octave.atRandom).MidiCps;
 			let z = {
@@ -24,6 +24,8 @@
 			let freq = (lfo * LinRand(4, 30, 0) + sw).MidiCps;
 			CombN(SinOsc(freq, 0) * 0.02, 0.3, Rand(0.15, 0.3), 4)
 		}
-	].atRandom.value;
+	];
+	let f/0 = fList.atRandom;
+	let z = f();
 	CombN(z, 0.5, [0.5, 0.47], 7) + z.reverse
 }.overlapTextureProgram(4, 4, 6)

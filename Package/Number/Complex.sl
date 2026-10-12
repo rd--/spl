@@ -137,15 +137,21 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 	}
 
 	adaptToFractionAndApply { :self :aFraction :aBlock/2 |
-		Complex(aFraction, 0).aBlock(
+		aBlock(
+			Complex(SmallFloat(aFraction), 0),
 			self
 		)
 	}
 
 	adaptToNumberAndApply { :self :aNumber :aBlock/2 |
-		Complex(aNumber, 0).aBlock(
-			self
-		)
+		aNumber.isNaN.if {
+			NaN
+		} {
+			aBlock(
+				Complex(aNumber, 0),
+				self
+			)
+		}
 	}
 
 	arg { :self |
@@ -468,18 +474,18 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 +SmallFloat {
 
 	Complex { :real :imaginary |
-		imaginary.isSmallFloat.if {
-			(
-				real.isNaN | {
-					imaginary.isNaN
-				}
-			).if {
-				NaN
-			} {
-				uncheckedComplex(real, imaginary)
-			}
+		real.isNaN.if {
+			NaN
 		} {
-			imaginary.adaptToNumberAndApply(real, Complex/2)
+			imaginary.isSmallFloat.if {
+				imaginary.isNaN.if {
+					NaN
+				} {
+					uncheckedComplex(real, imaginary)
+				}
+			} {
+				imaginary.adaptToNumberAndApply(real, Complex/2)
+			}
 		}
 	}
 
@@ -507,9 +513,13 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 	}
 
 	adaptToComplexAndApply { :self :aComplexNumber :aBlock/2 |
-		aComplexNumber.aBlock(
-			self.toComplex
-		)
+		self.isNaN.if {
+			NaN
+		} {
+			aComplexNumber.aBlock(
+				self.toComplex
+			)
+		}
 	}
 
 	cayleyTransform { :z |

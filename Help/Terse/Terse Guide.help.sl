@@ -249,7 +249,7 @@ let x = 8.625; let y = 0.75; let q = x.quotientBy(y, round/1); let r = x.remaind
 ```
 system.includesPackage('List') /* list package */
 [].typeOf = 'List' /* type of List */
-[].species = List/1 /* species of List */
+[].species == List/1 /* species of List */
 [].species.new = [] /* new empty array */
 [].species.new(3) = [nil, nil, nil] /* new array of indicated size */
 [].species.ofSize(3) = [nil, nil, nil] /* new array of indicated size */
@@ -382,7 +382,7 @@ let a = List(4); [1, 3, 5, 7].collectInto({ :each | each * each}, a); a = [1, 9,
 [1 2 3 4 3 2 1].occurrencesOf(3) = 2 /* number of occurrences of element in collection */
 let a = [1, 2]; let [x, y] = a; [y, x] = [2, 1]
 let i = 1:3; let [x, y, z] = i; [z, y, x] = [3, 2, 1] /* sequence binding syntax */
-let [x, y] = { let n = system.nextRandomFloat; [n, n] }.value; x = y
+let [x, y] = { let n = system.nextRandomFloat; [n, n] }.nullaryApply; x = y
 [1, 3 .. 9] = [1, 3, 5, 7, 9]
 [9, 7 .. 1] = [9, 7, 5, 3, 1]
 [1 .. 3].printString = '[1, 2, 3]' /* array print string */
@@ -785,10 +785,8 @@ false.xor(true) = true /* exclusive or */
 true.xor(false) = true /* exclusive or */
 false.xor(false) = false
 true.xor(true) = false
-false.xor { true } = true
-false.xor { false } = false
+{ false.xor { true } }.hasError
 { false.xor(1) }.hasError
-{ false.xor { 1 } }.hasError
 true ==> { true } = true /* material implication */
 true ==> { false } = false /* material implication */
 false ==> { true } = true /* material implication */
@@ -815,7 +813,7 @@ false != nil
 ```
 system.includesPackage('ByteArray') /* byte array package */
 ByteArray(0).typeOf = 'ByteArray' /* byte array type name */
-ByteArray(0).species = ByteArray/1 /* byte array species */
+ByteArray(0).species == ByteArray/1 /* byte array species */
 ByteArray(0).isList = false /* byte arrays are arrays */
 ByteArray(0).isByteArray /* byte array predicate */
 ByteArray(0).isIndexable /* byte arrays are indexable */
@@ -1002,8 +1000,8 @@ let d = (w: (x: (y: (z: 1)))); d.atPathPut!(['w', 'x', 'y', 'z'], -1); d['w']['x
 [['w', 'x'], ['y', 'z']] @> [1 2] = 'x' /* atPath operator on array or arrays */
 (1, 3 .. 21).includes(9) /* does range include value */
 (1, 3 .. 21).doesNotInclude(6) /* does range include value */
-(x: 1, y: 1, z: 1).allEqualBy { :p :q | p.value = q.value } /* are all items equal by comparator */
-(x: 1, y: 2, z: 3).allEqualBy { :p :q | p.value = q.value }.not /* are all items equal by comparator */
+(x: 1, y: 1, z: 1).allEqualBy(=) /* are all items equal by comparator */
+(x: 1, y: 2, z: 3).allEqualBy(=).not /* are all items equal by comparator */
 [1, 1, 1].allEqual /* are all items equal */
 [1, 2, 3].allEqual.not /* are all items equal */
 1:4.reduce(Association/2) = (((1 -> 2) -> 3) -> 4) /* reduce, happens to be left associative */
@@ -1327,7 +1325,7 @@ let n = 0; (x: 1, y: 2, z: 3).withIndexDo { :value :key | n := n + value }; n = 
 let d = (a: 1, b: 2, c: 1); d.indexOf(2) = 'b' /* lookup key (index) given value */
 let d = (a: 1, b: 2, c: 1); let k = d.indexOf(1); k = 'a' | { k = 'c' } /* many keys with value */
 { (a: 1, b: 2, c: 1).indexOf(3) }.hasError /* error if no such value */
-let d = (x: 1, y: 2, z: 3); d.removeAllSuchThat! { :each | each.value = 3 }; d = (x: 1, y: 2)
+let d = (x: 1, y: 2, z: 3); d.removeAllSuchThat! { :each | each = 3 }; d = (x: 1, y: 2)
 let d = (x: 1, y: 2, z: 3); d.associationsRemove! { :each | each.key = 'y' | { each.value = 3 } }; d = (x: 1)
 let d = (x: 1, y: 2, z: 3); d.keysAndValuesRemove! { :key :value | key = 'y' | { value = 3 } }; d = (x: 1)
 let d = (x: 1, y: 2, z: 3); d.removeKey!('y') = 2 & { d = (x: 1, z: 3) }
@@ -1391,7 +1389,7 @@ let x = nil; { { ''.error }.ensure { x := true } }.ignoreError; x /* ensure term
 ```
 system.includesPackage('Float64Array') /* package */
 Float64Array(0).typeOf = 'Float64Array' /* type of */
-Float64Array(0).species = Float64Array/1 /* species */
+Float64Array(0).species == Float64Array/1 /* species */
 Float64Array(0).isFloat64Array /* type predicate */
 Float64Array(0).isEmpty /* is empty predicate */
 Float64Array(8).size = 8 /* size of */
@@ -1855,7 +1853,7 @@ let i = 1:9; i.copy !== i & { i.copy = i } /* copy is equal not identical */
 (1.5 .. 4.5).List = [1.5, 2.5, 3.5, 4.5] /* non-integer start and end */
 1:9.min = 1 & { 9:1:-1.min = 1 } /* minima */
 1:9.max = 9 & { 9:1:-1.max = 9 } /* maxima */
-1:9.species = List/1 /* species of Range is List */
+1:9.species == List/1 /* species of Range is List */
 1.to(9).isRange = true /* to generates a Range */
 to(1, 9).size = 9 /* to generates a Range */
 1:9 = 1.to(9)
@@ -2093,7 +2091,7 @@ system.includesPackage('Compare') /* compare package */
 1 <=> 3 = -1
 2 <=> 2 = 0
 3 <=> 1 = 1
-3.minMax(1, 5) = 3.min(1).max(5)
+3.minThenMax(1, 5) = 3.min(1).max(5)
 3 < 5 /* integer */
 3.3 < 5.5 /* float */
 3/4 < 4/5 /* fraction */
@@ -2116,7 +2114,7 @@ let d = Map(); d.add!('x' -> 1); d.removeKey!('x'); d.isEmpty = true /* remove A
 let d = Map(); (d['x'] := 1) = 1 & { d['x'] = 1 } /* put (subscript mutation) syntax */
 let d = Map(); d[1] := 'x'; d[1] = 'x'
 let d = Map(); d['x'] := 1; d.removeKey!('x'); d.isEmpty = true
-let d = (f: { :i | i * i }); d['f'].value(9) = 81
+let d = (f: { :i | i * i }); d['f'].unaryApply(9) = 81
 { Map().removeKey!('unknownKey') }.hasError
 (x: 1, y: 1).copyWithoutIdenticalElements = (x: 1)
 let d = Map(); 1.toDo(100) { :i | d[i] := i; (i > 10).ifTrue { d.removeKey!(i - 10) } }; d.size = 10
@@ -2245,10 +2243,10 @@ let i = 1; 1:3.do { :each | i := i + each.square }; i = 15 /* iterate over numbe
 ```
 system.includesPackage('Object') /* package */
 [1, 3, 5].typeOf = 'List' /* name of type of object */
-[1, 3, 5].species = List/1
-[1, 3, 5].IdentitySet.species = IdentitySet/0
-[1, 3, 5].IdentityMultiset.species = IdentityMultiset/0
-(x: 1, y: 3, z: 5).species = Record/0
+[1, 3, 5].species == List/1
+[1, 3, 5].IdentitySet.species == IdentitySet/0
+[1, 3, 5].IdentityMultiset.species == IdentityMultiset/0
+(x: 1, y: 3, z: 5).species == Record/0
 'b'.caseOf(['a' -> { 1 }, 'b' -> { 2 }, 'c' -> { 3 }]) = 2
 { 'd'.caseOf(['a' -> { 1 }, 'b' -> { 2 }, 'c' -> { 3 }]) }.hasError
 'b'.caseOf(['a' -> { 1 }, 'b' -> { 2 }, 'c' -> { 3 }]) { :notFound | false } = 2
@@ -2356,11 +2354,11 @@ let i = 1; whileTrue { i < 5 } { i := i + 1 }; i = 5 /* trailing closure syntax 
 { :i :j :k | i }.numArgs = 3
 { :i :j :k :l | i }.numArgs = 4
 collect/2.numArgs = 2 /* method arity */
-{ { :i | i = nil }.value }.hasError /* too few arguments, c.f. non-strict */
-{ { :x | 0 - x }.value(3, 4) = -3 }.hasError /* too many arguments, c.f. non-strict */
+{ { :i | i = nil }.apply }.hasError /* too few arguments, c.f. non-strict */
+{ { :x | 0 - x }.apply(3, 4) = -3 }.hasError /* too many arguments, c.f. non-strict */
 collect/2.name = 'collect/2'
 let f = { :x | x * x }; [f(5), f/1.(5)] = [25, 25]
-let f = { :x | x * x }; let d = (p: f/1); d['p'].value(5) = 25
+let f = { :x | x * x }; let d = (p: f/1); d['p'].unaryApply(5) = 25
 { 0 }.cull(23) = 0 /* ignore one argument */
 { 0 }.cull(23, 3.141) = 0 /* ignore two arguments */
 { :x | x }.cull(23) = 23 /* recognise one argument */
@@ -2381,27 +2379,26 @@ let d = (c: 1); d.also { :x | x['c'] := 2; 0 } == d & { d = (c: 2) }
 let d = (c: 1); let r = d.with { :x | x['c'] := 2; 0 }; d = (c: 2) & { r = 0 }
 let d = (c: 1); let r = d.also { :x | x['c'] := 2; 0 }; d = (c: 2) & { r == d }
 let x = { }; x/0.isBlock /* blocks are objects and may be assigned to a variable */
-{ nil; 1 }.value = 1 /* value is last expression evaluated */
-{ { 1 }.value }.value = 1 /* blocks may be nested */
-{ :x | let y = x; y }.value(1) = 1 /* specification { arguments localvars expressions } */
-{ 'x' }.value = 'x' /* simple block usage */
-{ :p1 :p2| p1 ++ ' & ' ++ p2 }.value('x', 'y') = 'x & y' /* block with argument passing */
+{ nil; 1 }.apply = 1 /* value is last expression evaluated */
+{ { 1 }.apply }.apply = 1 /* blocks may be nested */
+{ :x | let y = x; y }.unaryApply(1) = 1 /* specification { arguments localvars expressions } */
+{ 'x' }.apply = 'x' /* simple block usage */
+{ :p1 :p2 | p1 ++ ' & ' ++ p2 }.binaryApply('x', 'y') = 'x & y' /* block with argument passing */
 { :x | x + 1 }.numArgs = 1 /* the number of arguments can be retrieved */
-{ :x | x := nil }.value(42).isNil /* arguments are mutable */
+{ :x | x := nil }.unaryApply(42).isNil /* arguments are mutable */
 let f = { :x :y | x := y; x }; f(1, 3) = 3 /* arguments are mutable */
-{ } != { } /* inequality */
-({ } = { }).not /* inequality */
-{ 1 } != { 1 } /* inequality */
-{ 1 } != 1 /* inequality */
-{ } !== { } /* non-identity */
+{ } !== { } /* Block does not implement equality, non-identity */
+({ } == { }).not /* non-identity */
+{ 1 } !== { 1 } /* non-identity */
+{ 1 } !== 1 /* non-identity */
 let f = { }; f/0 == f/0 /* identity */
 { }.printString = 'a Block'
 { :x | x }.printString = 'a Block'
 { }.typeOf = 'Block'
-{ }.value = nil /* empty block evaluates to nil */
-{ var x; nil }.value = nil /* a block cannot end with a var declaration */
-{ let x = 1; nil }.value = nil /* a block cannot end with a let binding */
-{ var c, a; c := [1]; a := { var a; a := 4; a }.value; { var a; a := 2; c.add!(a); { var a; a := 3; c.add!(a) }.value }.value; c.add!(a); c }.value = [1, 2, 3, 4]
+{ }.apply = nil /* empty block evaluates to nil */
+{ var x; nil }.apply = nil /* a block cannot end with a var declaration */
+{ let x = 1; nil }.apply = nil /* a block cannot end with a let binding */
+{ var c, a; c := [1]; a := { var a; a := 4; a }.apply; { var a; a := 2; c.add!(a); { var a; a := 3; c.add!(a) }.apply }.apply; c.add!(a); c }.apply = [1, 2, 3, 4]
 1.toDo(10) { :x | x } = nil /* answers nil */
 valueWithReturn { :return/1 | 1.toDo(10) { :index | (index = 5).ifTrue { 5.return } } } = 5 /* non-local return */
 1.pi.assert { true } = 1.pi /* assert that block evaluates to true, answers self */
@@ -2410,8 +2407,8 @@ valueWithReturn { :return/1 | 1.toDo(10) { :index | (index = 5).ifTrue { 5.retur
 { { false }.assert }.hasError /* raise an error if block does not evaluate to true */
 valueWithReturn { :return/1 | { (9.atRandom > 7).ifTrue { true.return } }.repeatForever } /* repeat a block until it returns */
 { 1.anUnknownMessage }.ifError { :err | err }.isError /* evaluate error block on error */
-let f = { let x = 0; { x := x + 1; x } }; let g = f/0.value; [g.value, g.value] = [1, 2] /* closure */
-let f = { let x = 0; { x := x + 1; x } }; [f/0.value.value, f/0.value.value] = [1, 1] /* closures */
+let f = { let x = 0; { x := x + 1; x } }; let g = f/0.apply; [g.apply, g.apply] = [1, 2] /* closure */
+let f = { let x = 0; { x := x + 1; x } }; [f/0.apply.apply, f/0.apply.apply] = [1, 1] /* closures */
 let f = { :n | (n = 1).if { 1 } { f(n - 1) * n } }; 7:9.collect(f/1) = [5040, 40320, 362880]
 let f = { system.nextRandomFloat }; f/0.once = f/0.once /* evaluate block once and cache result */
 let f = { 1:9.atRandom }; f/0.once = f/0.once & { f/0.once = f/0.once } /* the cache is kept in a weak map */
@@ -2428,10 +2425,10 @@ let m = { system.nextRandomFloat }.!(9).mean; m > 0 & { m < 1 }
 encodeJson/3.parameterNames = ['self', 'replacer', 'space'] /* answer names of method parameters */
 randomReal/3.parameterNames = ['self', 'range', 'shape'] /* answer names of method parameters */
 system.methodDictionary['at'][2]['Map'].information.parameterNames = ['self', 'key']
-let c = []; let a = []; 1:3.do { :i | c.add! { a.add!(i) } }; c.do(value/1); a = [1, 2, 3]
+let c = []; let a = []; 1:3.do { :i | c.add! { a.add!(i) } }; c.do(apply/1); a = [1, 2, 3]
 let x = [1]; let f = { :n | x[1] := n }; f(3); x = [3] /* closure */
 { { }.deepCopy }.hasError /* blocks cannot be deep copied */
-let f = -.swap; f.value(3, 1) = -2 /* swap arguments of two argument block */
+let f = -.swap; f.binaryApply(3, 1) = -2 /* swap arguments of two argument block */
 1 -.swap 3 = 2 /* swap arguments at binary operator */
 let f/1 = constant(3); f(4) = 3 /* block that answers a constant */
 3.constant . (4) = 3 /* block that answers a constant */
@@ -2610,7 +2607,7 @@ let i = 1:9; let s = i.Stream; let c = s.copy; c.next!; s.next! = 1 & { c.next! 
 system.includesPackage('Record') /* package */
 (:).typeOf = 'Record' /* literal empty record syntax, typeOf query */
 (:).isRecord /* record predicate */
-(:).species = Record/0 /* record species */
+(:).species == Record/0 /* record species */
 Record().isRecord /* empty record constructor */
 Record().includesIndex('x') = false /* includes key predicate */
 (w: 0, x: 1).includesIndex('x') = true /* includes key predicate */
@@ -2641,7 +2638,7 @@ let x = 1; (x: x).associations = ['x' -> 1] /* record keys are not variable refe
 (x: 1, y: 2).keys = ['x' 'y'] /* keys list */
 (x: 1, y: 2).List = ['x' -> 1, 'y' -> 2] /* association list */
 { let d = (x: 1, y: 2, z: 3); let (x: x, z: z) = d; [x, z] = [1, 3] }.hasError /* partial dictionary match not allowed */
-let (x: x, y: y) = { let n = system.nextRandomFloat; (x: n, y: n) }.value; x = y
+let (x: x, y: y) = { let n = system.nextRandomFloat; (x: n, y: n) }.apply; x = y
 (x: 1, y: 2, z: 3).select(isEven/1) = (y: 2)
 (x: 1, y: 2, z: 3).sum = 6
 let d = (x: 9); d['x'].sqrt = 3
@@ -3230,7 +3227,7 @@ let pi = 23; pi = 23 /* 1.pi is a constant, it can be shadowed */
 ```
 system.includesPackage('SortedList') /* sorted array package */
 SortedList().isSortedList /* sorted array */
-SortedList().species = SortedList/0 /* species is sorted array */
+SortedList().species == SortedList/0 /* species is sorted array */
 SortedList().size = 0 /* query size */
 let a = SortedList(); a.add!(3); a.add!(1); a.add!(2); a.uncopiedList = [1 .. 3] /* add inserts items into sequence */
 let a = [3, 1].SortedList; a.add!(2); a.uncopiedList = [1 .. 3] /* sorted array from array */
@@ -3658,9 +3655,9 @@ let [x, _, _, z] = [1, 2, 3, 4]; [x, z] = [1, 4] /* multiple unused variables ca
 
 ## Syntax -- whitespace
 ```
-{:x|x+1}.value(1)=2 /* no white space */
-{ :x | x + 1 } . value ( 1 ) = 2 /* white space (space) */
-{	:x	|	x	+	1	}	.	value	(	1	)	=	2 /* white space (tab) */
+{:x|x+1}.unaryApply(1)=2 /* no white space */
+{ :x | x + 1 } . apply ( 1 ) = 2 /* white space (space) */
+{	:x	|	x	+	1	}	.	apply	(	1	)	=	2 /* white space (tab) */
 ```
 
 ## System -- system type
@@ -3772,7 +3769,7 @@ system.doesTypeImplementMethod('List', 'species') = true
 system.methodPrintString('addInPlace').size >= 3
 system.methodLookupAtType('collect', 2, 'List').isMethod = true
 system.methodLookupAtType('collect', 2, 'List').origin.name = 'PrimitiveArray'
-system.methodLookupAtType('collect', 2, 'List').block.value([3, 4, 5], { :x | x * x }) = collect([3, 4, 5], { :x | x * x })
+system.methodLookupAtType('collect', 2, 'List').block.binaryApply([3, 4, 5], { :x | x * x }) = collect([3, 4, 5], { :x | x * x })
 system.methodLookupAtType('sum', 1, 'List') == system.methodLookupAtType('sum', 1, 'SortedSet')
 'sum/1'.parseQualifiedMethodName = ['sum', 1]
 ```

@@ -129,7 +129,7 @@ varying μ:
 (0 -- 1).functionPlot(
 	[-1 1 4].collect { :mu |
 		NormalDistribution(mu, 2)
-		.quantile
+		.quantileFunction
 		.clip([-10 15])
 	}
 )

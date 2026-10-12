@@ -27,7 +27,9 @@
 		let flt = Bpf(src, LfNoise2(0.2).ExpRange(500, 5000), 1);
 		EqPan2(flt, pan)
 	}
-].collect(value/1).Sum / 3
+].collect { :f/0 |
+	f()
+}.Sum / 3
 
 /* https://github.com/redFrik/udk08-Soft_and_Hard/tree/master/121220soft */
 Bpf(

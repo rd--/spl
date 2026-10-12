@@ -54,7 +54,7 @@ that is _e^x_.
 [2.71828 7.38906 15.15426]
 ```
 
-The values at `zero`, `one` & `Infinity`:
+The values at `zero`, `one`, `Infinity` and `NaN`:
 
 ```
 >>> 0.exp
@@ -63,8 +63,20 @@ The values at `zero`, `one` & `Infinity`:
 >>> 1.exp
 1.e
 
+>>> -1.exp
+1 / 1.e
+
 >>> Infinity.exp
 Infinity
+
+>>> -Infinity.exp
+0
+
+>> NaN.exp
+NaN
+
+>>> 0J0.exp
+1J0
 ```
 
 The inverse of `exp` is `log`:

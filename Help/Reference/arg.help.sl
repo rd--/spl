@@ -12,6 +12,9 @@ At `SmallFloat`:
 ```
 >>> -1.arg
 1.pi
+
+>> NaN.arg
+NaN
 ```
 
 At `Complex`:

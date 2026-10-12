@@ -477,7 +477,7 @@ Plot : [Object] {
 	quantilePlot { :self :aProbabilityDistribution |
 		let k = self.size;
 		let y = self.sort;
-		let q/1 = aProbabilityDistribution.quantile;
+		let q/1 = aProbabilityDistribution.quantileFunction;
 		let x = (0 -- 1).discretize(k, q/1);
 		let r = y.minMax;
 		let i = (r[1] -- r[2]).discretize(50).List;

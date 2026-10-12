@@ -101,15 +101,11 @@ and an essential singularity:
 
 ~~~spl png=I
 [-2J-2 2J2].complexPlot { :z |
-	(
-		((z + 1 + 0J1) ^ 3)
-		*
-		((z ^ 2) + 1)
-		*
-		(3 / z).exp
-	)
-	/
-	(((z - 1) ^ 2) * (z + 1))
+	let a = (z + 1 + 0J1) ^ 3;
+	let b = (z ^ 2) + 1;
+	let c = (3 / z).exp;
+	let d = ((z - 1) ^ 2) * (z + 1);
+	(a * b * c) / d
 }
 ~~~
 

@@ -9,6 +9,7 @@ In Spl _value_ is called `apply`, and the monomorphic _value/1_ is called `nulla
 1
 
 >>> { 1 }.nullaryApply
+1
 
 >>> ('x' -> 1).value
 1
@@ -18,8 +19,8 @@ Systems that implement the `Value Protocol` also implement _value/1_ at `Object`
 meaning that every value _evaluates_ to itself unless it re-implements _value/1_.
 
 ```
->>> 1.value
-1
+>>> { 1.value }.hasError
+true
 ```
 
 This protocol allows writing methods that will accept either evaluated or delayed arguments.

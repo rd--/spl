@@ -25,7 +25,7 @@ let bus = 20; /* These may audible on large multi-channel systems */
 		let f = Rlpf(s + p, 320, 0.05);
 		let e = 1 - Amplitude(drv, 0.01, 0.01).Min(1);
 		Normalizer(f, 0.7, 0.01) * e
-	}.value;
+	}.apply;
 	let lOut = ReplaceOut(bus, source * 0.2 + stringR);
 	let outL = pk1L + pk1R;
 	let outR = pk2L + pk2R;

@@ -27,11 +27,17 @@ or local variables to be arity-correct names
 Note that the application syntax cannot be used to apply a name that was not initialised using one of the ways noted above.
 
 In particular blocks passed as arguments cannot be applied using this syntax,
-and must be called using _apply_ or _value_.
+and must be called using _apply_ or _applyList_.
 
 ```
->>> [sqrt(9), 9.sqrt, sqrt/1.value(9), sqrt/1 . (9)]
-[3 3 3 3]
+>>> [
+>>> 	sqrt(9),
+>>> 	9.sqrt,
+>>> 	sqrt/1.apply(9),
+>>> 	sqrt/1.applyList([9]),
+>>> 	sqrt/1 . (9)
+>>> ]
+[3 3 3 3 3]
 ```
 
 * * *

@@ -18,7 +18,7 @@ The ⇱ button requests full screen mode.
 - Ctrl-Shift-Enter or Ctrl-Shift-Comma (,) ⇒ Evaluate selection or program
 
 There are two distinct _evaluation_ commands.
-_Ctrl-Enter_ or Ctrl-Comma wraps the selected text in _{ ... }.value.play_ before evaluation.
+_Ctrl-Enter_ or Ctrl-Comma wraps the selected text in _{ ... }.apply.play_ before evaluation.
 The _play_ method is defined for _output signals_, which it compiles and sends to the synthesiser.
 
 Note that it is not possible to _play_ expressions that are not synthesiser programs,

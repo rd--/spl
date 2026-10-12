@@ -9,10 +9,10 @@ Piecewise : [Object, Equal] {
 					let f/1 = each.key;
 					f(x).ifTrue {
 						let g/1 = each.value;
-						f(x).return
+						g(x).return
 					}
 				};
-				let f = self.defaultValue;
+				let f/1 = self.defaultValue;
 				f(x)
 			}
 		}

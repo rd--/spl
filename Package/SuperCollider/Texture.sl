@@ -20,12 +20,12 @@ TextureProgram : [Object] {
 
 +Block {
 
-	TextureProgram { :soundBlock/0 :envelopeBlock/1 :delayTime |
+	TextureProgram { :soundBlock/0 :envelopeBlock/1 :delayTime/0 |
 		newTextureProgram().initializeSlots(
 			0,
 			soundBlock/0,
 			envelopeBlock/1,
-			delayTime
+			delayTime/0
 		)
 	}
 
@@ -58,7 +58,7 @@ TextureProgram : [Object] {
 				transitionTime
 			)
 		};
-		TextureProgram(self, envelopeBlock/1, delayTime)
+		TextureProgram(self, envelopeBlock/1, { delayTime })
 	}
 
 	playEvery { :self/1 :delayTime/0 :aClock |

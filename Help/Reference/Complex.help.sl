@@ -23,6 +23,9 @@ NaN
 
 >> Complex(0, NaN)
 NaN
+
+>> Complex(NaN, NaN)
+NaN
 ```
 
 Threads overs lists:
