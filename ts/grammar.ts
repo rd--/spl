@@ -178,7 +178,6 @@ Sl {
 		| lowercaseIdentifier
 		| systemVariableIdentifier
 	varNameOrUnused = (varName | unusedVariableIdentifier)
-	slotNameWithType = lowercaseIdentifier ":" "<" uppercaseIdentifier ">"
 	slotName = lowercaseIdentifier
 	constantName = lowercaseIdentifier
 	recordKey = lowercaseIdentifier | uppercaseIdentifier // S

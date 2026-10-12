@@ -20,4 +20,6 @@ Plot with various bias parameters:
 
 See also: perlinGainFunction, schlickBiasFunction
 
+Guides: Sigmoid Functions
+
 Further Reading: Perlin 1989

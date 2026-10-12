@@ -99,9 +99,9 @@ Clock : [Object] {
 
 +Block {
 
-	recurseEvery { :self/2 :anObject :delayTime :aClock |
+	recurseEvery { :self/2 :anObject :delayTime/0 :aClock |
 		{ :currentTime :inputValue |
-			let nextDelay = delayTime.value;
+			let nextDelay = delayTime();
 			(
 				inputValue.isNotNil & {
 					nextDelay.isNotNil
@@ -112,13 +112,13 @@ Clock : [Object] {
 		}.scheduleInjecting(anObject, 0, aClock)
 	}
 
-	recurseEvery { :self/2 :anObject :delayTime |
-		recurseEvery(self/2, anObject, delayTime, system.clock)
+	recurseEvery { :self/2 :anObject :delayTime/0 |
+		recurseEvery(self/2, anObject, delayTime/0, system.clock)
 	}
 
-	repeatEvery { :self/2 :delayTime :aClock |
+	repeatEvery { :self/2 :delayTime/0 :aClock |
 		{ :currentTime |
-			let nextDelay = delayTime.value;
+			let nextDelay = delayTime();
 			nextDelay.ifNotNil {
 				self(currentTime, nextDelay);
 				nextDelay
@@ -126,8 +126,8 @@ Clock : [Object] {
 		}.schedule(0, aClock)
 	}
 
-	repeatEvery { :self/2 :delayTime |
-		repeatEvery(self/2, delayTime, system.clock)
+	repeatEvery { :self/2 :delayTime/0 |
+		repeatEvery(self/2, delayTime/0, system.clock)
 	}
 
 	schedule { :self/1 :deltaTime :aClock |

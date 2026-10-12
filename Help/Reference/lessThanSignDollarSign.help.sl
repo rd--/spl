@@ -14,7 +14,7 @@ Apply the unary block _f_ to the object _x_.
 27
 ```
 
-This is the operator form of `value`:
+This is the operator form of unary `value`:
 
 ```
 >>> { :x |

@@ -91,7 +91,7 @@ NormalDistribution : [Object, Equal, ProbabilityDistribution] {
 		}
 	}
 
-	quantile { :self |
+	quantileFunction { :self |
 		let mu = self.mu;
 		let sigma = self.sigma;
 		let a = 2.sqrt;

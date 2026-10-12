@@ -1939,7 +1939,8 @@
 +@Integer {
 
 	akiyamaTanigawaNumber { :n :m |
-		system.akiyamaTanigawaFunction.value(n, m)
+		let f/2 = system.akiyamaTanigawaFunction;
+		f(n, m)
 	}
 
 }

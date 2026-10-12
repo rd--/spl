@@ -318,7 +318,8 @@ Triangle : [Object, Store, Equal, Geometry] {
 	}
 
 	fromBarycentricCoordinates { :self :lambda |
-		self.fromBarycentricCoordinates.value(lambda)
+		let f/1 = self.fromBarycentricCoordinates;
+		f(lambda)
 	}
 
 	fromTrilinearCoordinates { :self |
@@ -330,7 +331,8 @@ Triangle : [Object, Store, Equal, Geometry] {
 	}
 
 	fromTrilinearCoordinates { :self :c |
-		self.fromTrilinearCoordinates.value(c)
+		let f/1 = self.fromTrilinearCoordinates;
+		f(c)
 	}
 
 	fromTrilinearVertexMatrix { :self :matrix |
@@ -442,7 +444,8 @@ Triangle : [Object, Store, Equal, Geometry] {
 	}
 
 	kimberlingCenter { :self :n |
-		n.kimberlingCenter.value(self)
+		let f/1 = n.kimberlingCenter;
+		f(self)
 	}
 
 	lemoineTriangle { :self |
@@ -723,7 +726,8 @@ Triangle : [Object, Store, Equal, Geometry] {
 	}
 
 	toBarycentricCoordinates { :self :c |
-		self.toBarycentricCoordinates.value(c)
+		let f/1 = self.toBarycentricCoordinates;
+		f(c)
 	}
 
 	toBarycentricCoordinates { :self |
@@ -741,7 +745,8 @@ Triangle : [Object, Store, Equal, Geometry] {
 	}
 
 	toTrilinearCoordinates { :self :c |
-		self.toTrilinearCoordinates.value(c)
+		let f/1 = self.toTrilinearCoordinates;
+		f(c)
 	}
 
 	translate { :self :operand |

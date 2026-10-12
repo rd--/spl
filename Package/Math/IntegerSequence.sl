@@ -1425,14 +1425,15 @@
 		}.transpose
 	}
 
-	locallyCatenativeSequence { :w :i :n :f |
+	locallyCatenativeSequence { :w :i :n :fList |
 		let u = w.copy;
 		let k = i.size;
 		n.timesRepeat {
 			let j = u.size;
 			u.add!(
 				1.toCollect(k) { :m |
-					f[m].value(u[j - i[m] + 1])
+					let f/1 = fList[m];
+					f(u[j - i[m] + 1])
 				}.catenate
 			)
 		};

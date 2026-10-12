@@ -42,12 +42,10 @@
 		textList.withIndexDo { :text :index |
 			let fileName = helpFileNameList[index];
 			let helpFile = HelpFile(fileName.fileUrl, text);
-			let [testCount, passCount, errorCount] = {
-				options['verbose'].ifTrue {
-					(helpFile.originName, helpFile.name).postLine
-				};
-				aBlock(helpFile, options)
-			}.value;
+			options['verbose'].ifTrue {
+				(helpFile.originName, helpFile.name).postLine
+			};
+			let [testCount, passCount, errorCount] = aBlock(helpFile, options);
 			options['verbose'].ifTrue {
 				'	Pass % of %'.format([passCount, testCount]).postLine
 			};

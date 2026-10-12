@@ -96,8 +96,9 @@ Heap : [Object, Copy, Store, Equal, Iterable, Collection, Extensible] {
 	}
 
 	indexUpdate { :self :anObject :anIndex |
+		let f/2 = self.indexUpdateBlock;
 		self.indexUpdateBlock.ifNotNil {
-			self.indexUpdateBlock.value(anObject, anIndex)
+			f(anObject, anIndex)
 		}
 	}
 

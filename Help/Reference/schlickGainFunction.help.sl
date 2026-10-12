@@ -16,13 +16,16 @@ Plot with various gain parameters:
 
 ![](Help/Image/schlickGainFunction-A.svg)
 
-Can be evaluated symbolically:
+Evaluate symbolically:
 
 ```
->>> `b`.schlickGainFunction
->>> .value(`x`)
->>> .typeOf
-'SymbolicExpression'
+>> let f = `b`.schlickGainFunction;
+>> f(`x`)
+(if (< x 0.5)
+  (/ x (+ (* (- (/ 1 b) 2) (- 1 (* 2 x))) 1))
+  (/
+    (- (* (- (/ 1 b) 2) (- 1 (* 2 x))) x)
+    (- (* (- (/ 1 b) 2) (- 1 (* 2 x))) 1)))
 ```
 
 * * *

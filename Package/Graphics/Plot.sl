@@ -1051,14 +1051,16 @@ Plot : [Object] {
 			aBlock.numArgs.caseOf(
 				[
 					1 -> {
+						let f/1 = aBlock;
 						{ :t :theta |
-							let [x, z] = aBlock.value(t);
+							let [x, z] = f(t);
 							[x * theta.sin, x * theta.cos, z]
 						}
 					},
 					2 -> {
+						let f/2 = aBlock;
 						{ :rho :theta |
-							let z = aBlock.value(rho, theta);
+							let z = f(rho, theta);
 							[rho, theta, z].fromCylindricalCoordinates
 						}
 					}

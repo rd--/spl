@@ -1,8 +1,8 @@
 # instanceOf
 
-- _instanceOf(aType)_
+- _instanceOf(t)_
 
-Create an uninitialized instance of _aType_.
+Create an uninitialized instance of the type _t_.
 
 ```
 >>> let type = system.typeLookup('RgbColour');

@@ -10,8 +10,8 @@
 
 	dispatchEvent { :self :event |
 		self.eventListeners.atIfPresent(event.type) { :aSet |
-			aSet.do { :each |
-				each.value(event)
+			aSet.do { :f/1 |
+				f(event)
 			}
 		}
 	}

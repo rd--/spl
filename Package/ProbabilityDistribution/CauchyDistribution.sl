@@ -43,7 +43,7 @@ CauchyDistribution : [Object, Equal, ProbabilityDistribution] {
 		}
 	}
 
-	quantile { :self |
+	quantileFunction { :self |
 		let x0 = self.x0;
 		let gamma = self.gamma;
 		{ :p |

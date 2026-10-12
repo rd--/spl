@@ -7,8 +7,8 @@ Answer the Rosenbrock test function.
 At _a=1_ zero is at _(1,1)_:
 
 ```
->>> rosenbrockFunction(1, 100)
->>> .value([1 1])
+>>> let f/1 = rosenbrockFunction(1, 100);
+>>> f([1 1])
 0
 ```
 

@@ -9,7 +9,10 @@ Type! : [Object, Equal] {
 	}
 
 	instanceOf { :self |
-		let instance = system.typeLookup('Void').methodDictionary[self.constructorName].block.value;
+		let void = system.typeLookup('Void');
+		let method = void.methodDictionary[self.constructorName];
+		let constructor/0 = method.block;
+		let instance = constructor();
 		instance.initialize;
 		instance
 	}

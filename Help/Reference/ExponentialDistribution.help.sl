@@ -71,7 +71,7 @@ Quantile function:
 (0 -- 1).functionPlot(
 	[0.5 1 3].collect { :lambda |
 		ExponentialDistribution(lambda)
-		.quantile
+		.quantileFunction
 		.clip([0 5])
 	}
 )

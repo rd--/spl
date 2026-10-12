@@ -132,7 +132,7 @@ Quantile function:
 (0 -- 1).functionPlot(
 	[1 3 5].collect { :max |
 		UniformDistribution[0 max]
-		.quantile
+		.quantileFunction
 	}
 )
 ~~~

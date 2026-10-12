@@ -10,14 +10,16 @@ The second function is `smootherstep`.
 Evaluate at `Fraction`:
 
 ```
->>> 3.smoothStepFunction.value(1/3)
+>>> let f/1 = 3.smoothStepFunction;
+>>> f(1/3)
 379/2187
 ```
 
 Evaluate at `SmallFloat`:
 
 ```
->>> 3.smoothStepFunction.value(0.33)
+>>> let f/1 = 3.smoothStepFunction;
+>>> f(0.33)
 0.1682
 ```
 

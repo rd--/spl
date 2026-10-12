@@ -5,7 +5,8 @@
 	}
 
 	[cdf, cumulativeDistributionFunction] { :self :x |
-		self.cdf.value(x)
+		let f/1 = self.cdf;
+		f(x)
 	}
 
 	cumulativeDistributionFunction { :self |
@@ -13,15 +14,18 @@
 	}
 
 	hazardFunction { :self :x |
-		self.hazardFunction.value(x)
+		let f/1 = self.hazardFunction;
+		f(x)
 	}
 
 	inverseCdf { :self :x |
-		self.inverseCdf.value(x)
+		let f/1 = self.inverseCdf;
+		f(x)
 	}
 
 	inverseSurvivalFunction { :self :x |
-		self.inverseSurvivalFunction.value(x)
+		let f/1 = self.inverseSurvivalFunction;
+		f(x)
 	}
 
 	[pdf, probabilityDensityFunction] { :self |
@@ -29,15 +33,17 @@
 	}
 
 	[pdf, probabilityDensityFunction] { :self :x |
-		self.pdf.value(x)
+		let f/1 = self.pdf;
+		f(x)
 	}
 
 	probabilityDensityFunction { :self |
 		self.pdf
 	}
 
-	quantile { :self :x |
-		self.quantile.value(x)
+	quantileFunction { :self :x |
+		let f/1 = self.quantileFunction;
+		f(x)
 	}
 
 	survivalFunction { :self |
@@ -48,7 +54,8 @@
 	}
 
 	survivalFunction { :self :x |
-		self.survivalFunction.value(x)
+		let f/1 = self.survivalFunction;
+		f(x)
 	}
 
 }

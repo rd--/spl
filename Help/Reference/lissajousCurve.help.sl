@@ -80,8 +80,8 @@ plot a circle and two ellipses:
 Evaluate symbolically:
 
 ```
->> lissajousCurve(`δ`, `a`, `b`)
->> .value(`t`)
+>> let f/1 = lissajousCurve(`δ`, `a`, `b`);
+>> f(`t`)
 [(sin (+ (* a t) δ)), (sin (* b t))]
 ```
 

@@ -884,7 +884,7 @@
 	recurrenceMatrix { :data :dimension :delay :metric |
 		let n = data.size - ((dimension - 1) * delay);
 		let m = [0].reshape([n n]);
-		let [f, g] = metric.caseOf([
+		let [f/1, g/1] = metric.caseOf([
 			'Manhattan' -> { [abs/1, sum/1] },
 			'Euclidean' -> { [square/1, { :x | x.sum.sqrt }] },
 			'Supremum' -> { [abs/1, max/1] }
@@ -892,9 +892,9 @@
 		1.toDo(n) { :i |
 			i.toDo(n) { :j |
 				let x = 0.to(dimension - 1).collect { :k |
-					f.value(data[i + (k * delay)] - data[j + (k * delay)])
+					f(data[i + (k * delay)] - data[j + (k * delay)])
 				};
-				m[i][j] := m[j][i] := g.value(x)
+				m[i][j] := m[j][i] := g(x)
 			}
 		};
 		m

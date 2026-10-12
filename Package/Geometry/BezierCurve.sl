@@ -230,7 +230,8 @@ BezierCurve : [Object, Equal, Cache, Geometry] {
 	}
 
 	bezierFunctionAt { :self :x |
-		self.bezierFunction.value(x)
+		let f/1 = self.bezierFunction;
+		f(x)
 	}
 
 	bezierFunctionAtBernsteinBasis { :self :x |

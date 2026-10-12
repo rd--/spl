@@ -114,7 +114,7 @@ varying σ:
 (0 -- 1).functionPlot(
 	[0.5 1 2].collect { :sigma |
 		NormalDistribution(-2, sigma)
-		.quantile
+		.quantileFunction
 		.clip([-6 2])
 	}
 )

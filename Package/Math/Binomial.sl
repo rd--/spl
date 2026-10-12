@@ -439,14 +439,14 @@
 	}
 
 	superCatalanNumber { :self |
-		let f = { :n |
+		let f/1 = { :n |
 			(n <= 2).if {
 				1
 			} {
 				((3 * (2 * n - 3) * f(n - 1)) - ((n - 3) * f(n - 2))) / n
 			}
-		};
-		f/1.memoize(true).value(self)
+		}.memoize(true);
+		f(self)
 	}
 
 	tetrahedralNumber { :n |

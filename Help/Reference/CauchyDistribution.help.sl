@@ -26,12 +26,12 @@ Plot the `cdf` of the Cauchy distribution over a subset of the reals:
 
 ![](Help/Image/CauchyDistribution-B.svg)
 
-Plot `quantile` over a subset of the reals:
+Plot `quantileFunction` over a subset of the reals:
 
 ~~~spl svg=C
 (0.05 -- 0.95).functionPlot(
 	CauchyDistribution(10, 3.5)
-	.quantile
+	.quantileFunction
 	.clip([-30 50])
 )
 ~~~

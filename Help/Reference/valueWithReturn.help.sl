@@ -12,10 +12,10 @@ but it is not and the answer is negative `one`:
 
 ```
 >>> let k = 23;
->>> { :f |
+>>> { :f/1 |
 >>> 	1.toDo(9) { :i |
 >>> 		(i = k).ifTrue {
->>> 			f.value(1)
+>>> 			f(1)
 >>> 		}
 >>> 	};
 >>> 	-1

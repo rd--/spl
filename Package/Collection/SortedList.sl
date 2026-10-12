@@ -53,7 +53,7 @@ SortedList : [Object, Copy, Store, Equal, Compare, Iterable, Indexable, Collecti
 			index := high + low // 2;
 			sortBlock(low, high)
 		}.whileTrue {
-			self.sortBlock.value(self.uncopiedList[index], newObject).if {
+			sortBlock(self.uncopiedList[index], newObject).if {
 				low := index + 1
 			} {
 				high := index - 1

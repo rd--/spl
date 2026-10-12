@@ -86,7 +86,7 @@ ExponentialDistribution : [Object, Equal, ProbabilityDistribution] {
 		}
 	}
 
-	quantile { :self |
+	quantileFunction { :self |
 		{ :q |
 			((1 - q).log / self.lambda).negate
 		}

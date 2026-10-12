@@ -4,7 +4,8 @@ MemoizationTable : [Object, Iterable, Collection] {
 
 	at { :self :key |
 		self.table.atIfAbsent(key) {
-			let value = self.block.value(key);
+			let f/1 = self.block;
+			let value = f(key);
 			self.table.put!(key, value);
 			value
 		}

@@ -61,14 +61,14 @@ TextureProgram : [Object] {
 		TextureProgram(self, envelopeBlock/1, delayTime)
 	}
 
-	playEvery { :self/1 :delayTime :aClock |
+	playEvery { :self/1 :delayTime/0 :aClock |
 		{ :currentTime :nextDelay |
 			self(nextDelay).playAt(currentTime)
-		}.repeatEvery(delayTime, aClock)
+		}.repeatEvery(delayTime/0, aClock)
 	}
 
-	playEvery { :self/1 :delay |
-		playEvery(self/1, delay, system.clock)
+	playEvery { :self/1 :delayTime/0 |
+		playEvery(self/1, delayTime/0, system.clock)
 	}
 
 	spawnTextureProgram { :self :nextTime |
@@ -83,7 +83,7 @@ TextureProgram : [Object] {
 
 +@Collection {
 
-	collectTextureProgram { :self :soundBlock/1 :delayTime |
+	collectTextureProgram { :self :soundBlock/1 :delayTime/0 |
 		let index = 1;
 		let endIndex = self.size;
 		self.isEmpty.if {
@@ -100,7 +100,7 @@ TextureProgram : [Object] {
 					(index > endIndex).if {
 						nil
 					} {
-						delayTime.value
+						delayTime()
 					}
 				}
 			)

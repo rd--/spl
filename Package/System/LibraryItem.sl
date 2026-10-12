@@ -30,7 +30,8 @@ LibraryItem : [Object] {
 			self.error('contents: not acquired')
 		};
 		self.parsedContents.ifNil {
-			self.parsedContents := self.parser.value(self.unparsedContents)
+			let f/1 = self.parser;
+			self.parsedContents := f(self.unparsedContents)
 		};
 		self.parsedContents
 	}

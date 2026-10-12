@@ -7,7 +7,8 @@ Superellipse : [Object, Equal, Geometry] {
 	}
 
 	at { :self :theta |
-		superellipseCurve(self.a, self.b, self.n).value(theta) + self.center
+		let f/1 = superellipseCurve(self.a, self.b, self.n);
+		f(theta) + self.center
 	}
 
 	atAll { :self :theta |

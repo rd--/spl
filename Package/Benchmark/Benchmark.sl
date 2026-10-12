@@ -4,7 +4,8 @@ Benchmark : [Object] {
 
 	run { :self :parameter |
 		let [elapsedTime, answer] = {
-			self.benchmark.value(parameter)
+			let f/1 = self.benchmark;
+			f(parameter)
 		}.timing;
 		[
 			self.name,

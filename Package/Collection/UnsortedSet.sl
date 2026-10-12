@@ -27,8 +27,9 @@ UnsortedSet : [Object, Store, Equal, Iterable, Collection, Extensible, Unordered
 	}
 
 	removeIfAbsent! { :self :anObject :aBlock/0 |
+		let f/2 = self.comparator;
 		self.unsortedList.detectIndexIfFoundIfNone { :item |
-			self.comparator.value(item, anObject)
+			f(item, anObject)
 		} { :index |
 			self.unsortedList.removeAt!(index)
 		} {

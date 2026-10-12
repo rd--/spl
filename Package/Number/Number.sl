@@ -668,7 +668,8 @@
 	}
 
 	perlinBiasFunction { :b :x |
-		b.perlinBiasFunction.value(x)
+		let f/1 = b.perlinBiasFunction;
+		f(x)
 	}
 
 	perlinBiasFunction { :b |
@@ -679,7 +680,8 @@
 	}
 
 	perlinGainFunction { :g :x |
-		g.perlinGainFunction.value(x)
+		let f/1 = g.perlinGainFunction;
+		f(x)
 	}
 
 	perlinGainFunction { :g |
@@ -996,7 +998,8 @@
 	}
 
 	schlickBiasFunction { :b :x |
-		b.schlickBiasFunction.value(x)
+		let f/1 = b.schlickBiasFunction;
+		f(x)
 	}
 
 	schlickBiasFunction { :b |
@@ -1007,7 +1010,8 @@
 	}
 
 	schlickGainFunction { :g :x |
-		g.schlickGainFunction.value(x)
+		let f/1 = g.schlickGainFunction;
+		f(x)
 	}
 
 	schlickGainFunction { :g |

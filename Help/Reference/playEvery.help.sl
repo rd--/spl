@@ -1,6 +1,6 @@
 # playEvery
 
-- _playEvery(c=system.clock, f/1, i)_
+- _playEvery(f/1, i/0, c=system.clock)_
 
 Schedule sound generating block at intervals.
 Evaluate the block _f_ now, and re-schedule recursively after interval _i_ seconds.
@@ -31,7 +31,7 @@ so that is does not overlap by very much with the next sound:
 		decay
 	)
 }.playEvery {
-	(1 -- 3.5).atRandom.seconds
+	(1 -- 3.5).atRandom
 }
 ~~~
 

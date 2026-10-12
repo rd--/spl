@@ -1,6 +1,6 @@
 # locallyCatenativeSequence
 
-- _locallyCatenativeSequence(w, i, n)_
+- _locallyCatenativeSequence(w, i, n, [f₁ f₂ …])_
 
 The Fibonacci word can be written as a locally catenative sequence,
 the _n_-th word being the catenation the words at _n-1_ and _n-2_:

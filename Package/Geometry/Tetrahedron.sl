@@ -70,7 +70,8 @@ Tetrahedron : [Object, Store, Equal] {
 	}
 
 	toBarycentricCoordinates { :self :c |
-		self.toBarycentricCoordinates.value(c)
+		let f/1 = self.toBarycentricCoordinates;
+		f(c)
 	}
 
 	toBarycentricCoordinates { :self |

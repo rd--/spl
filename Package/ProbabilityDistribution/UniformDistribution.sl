@@ -67,7 +67,7 @@ UniformDistribution : [Object, Equal, ProbabilityDistribution] {
 		}
 	}
 
-	quantile { :self |
+	quantileFunction { :self |
 		let a = self.a;
 		let b = self.b;
 		{ :q |

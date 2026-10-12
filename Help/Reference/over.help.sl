@@ -13,7 +13,8 @@ The pointwise maxima of the negation of two lists:
 >>> )
 [-3 -1 -2]
 
->>> max/2.over(negate/1).value([3 1 2], [4 6 5])
+>>> let f/2 = max/2.over(negate/1);
+>>> f([3 1 2], [4 6 5])
 [-3 -1 -2]
 
 >>> [3 1 2].-.max([4 6 5].-)

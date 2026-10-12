@@ -58,7 +58,8 @@
 +@Object {
 
 	isSchemaType { :self :schemaType |
-		schemaType.schemaTypePredicate.value(self)
+		let f/1 = schemaType.schemaTypePredicate;
+		f(self)
 	}
 
 }

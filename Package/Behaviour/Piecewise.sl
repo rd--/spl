@@ -2,14 +2,19 @@ Piecewise : [Object, Equal] {
 
 	| pieces defaultValue |
 
-	value { :self :x |
-		valueWithReturn { :return/1 |
-			self.pieces.do { :each |
-				each.key.value(x).ifTrue {
-					each.value.value(x).return
-				}
-			};
-			self.defaultValue.value(x)
+	unaryBlock { :self |
+		{ :x |
+			valueWithReturn { :return/1 |
+				self.pieces.do { :each |
+					let f/1 = each.key;
+					f(x).ifTrue {
+						let g/1 = each.value;
+						f(x).return
+					}
+				};
+				let f = self.defaultValue;
+				f(x)
+			}
 		}
 	}
 
