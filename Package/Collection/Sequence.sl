@@ -2867,8 +2867,10 @@
 	which { :self |
 		valueWithReturn { :return/1 |
 			self.do { :each |
-				each.key.blockValue.ifTrue {
-					each.value.blockValue.return
+				let f/0 = each.key;
+				f().ifTrue {
+					let g/0 = each.value;
+					g().return
 				}
 			};
 			nil

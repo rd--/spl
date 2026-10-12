@@ -31,7 +31,7 @@ The expression below schedules random sine tones of random durations at random i
 
 * * *
 
-See also: repeatEvery, scheduleInjecting, Clock
+See also: Clock, repeatEvery, scheduleInjecting
 
 Guides: Scheduling Functions
 

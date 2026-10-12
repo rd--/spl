@@ -1,15 +1,15 @@
 Thunk : [Object] {
 
-	| block result |
+	| nullaryBlock result |
 
-	[blockValue, value] { :self |
+	[apply, nullaryApply] { :self |
 		self.force
 	}
 
 	force { :self |
 		self.result.ifNil {
-			let answer = self.result := self.block.blockValue;
-			self.block := nil;
+			let answer = self.result := self.nullaryBlock.nullaryApply;
+			self.nullaryBlock := nil;
 			answer
 		}
 	}
@@ -22,8 +22,15 @@ Thunk : [Object] {
 
 +Block {
 
-	thunk { :self |
-		newThunk().initializeSlots(self, nil)
+	thunk { :self/0 |
+		(self/0.numArgs = 0).ifFalse {
+			self/0.error('thunk')
+		};
+		uncheckedThunk(self/0)
+	}
+
+	uncheckedThunk { :self/0 |
+		newThunk().initializeSlots(self/0, nil)
 	}
 
 }

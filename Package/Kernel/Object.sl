@@ -28,7 +28,8 @@
 		valueWithReturn { :return/1 |
 			aCollection.associationsDo { :each |
 				(each.key = self).ifTrue {
-					each.value.blockValue.return
+					let f/0 = each.value;
+					f().return
 				}
 			};
 			otherwise/1.cull(self)
@@ -254,8 +255,7 @@
 	}
 
 	value { :self |
-		/* self.shouldNotImplement('value') */
-		self
+		self.shouldNotImplement('value')
 	}
 
 	warning { :self :message :parameters |

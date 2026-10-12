@@ -30,8 +30,8 @@ Converting:
 Evaluation:
 
 - `cull`
-- `blockValue`
-- `value`
+- `apply`
+- `applyList`
 - `valueWithReturn`
 
 Reversed Evaluation:

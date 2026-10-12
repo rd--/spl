@@ -1,7 +1,7 @@
 @Iterable {
 
 	[and, &] { :self |
-		self.allSatisfy(blockValue/1)
+		self.allSatisfy(nullaryApply/1)
 	}
 
 	[evaluatingAnd, &&] { :self |
@@ -14,7 +14,7 @@
 	}
 
 	[or, |] { :self |
-		self.anySatisfy(blockValue/1)
+		self.anySatisfy(nullaryApply/1)
 	}
 
 	absMax { :self |

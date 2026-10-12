@@ -78,22 +78,6 @@ Duration : [Object, Store, Equal, Compare] {
 
 }
 
-+Block {
-
-	valueAfter { :self/0 :delay |
-		self/0.basicValueAfter(delay)
-	}
-
-	valueAfterWith { :self/1 :delay :anObject |
-		self/1.basicValueAfterWith(delay, anObject)
-	}
-
-	valueEvery { :self/0 :delay |
-		self/0.basicValueEvery(delay)
-	}
-
-}
-
 +String {
 
 	parseDuration { :self :elseClause/0 |

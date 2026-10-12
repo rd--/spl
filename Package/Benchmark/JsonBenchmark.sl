@@ -525,7 +525,9 @@ JsonParser : [Object] {
 	}
 
 	error { :self :message |
-		self.exceptionBlock.value(ParseException(message, self.index, self.line, self.column))
+		let f/1 = self.exceptionBlock;
+		let e = ParseException(message, self.index, self.line, self.column);
+		f(e)
 	}
 
 	isWhiteSpace { :self |

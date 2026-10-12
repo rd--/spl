@@ -124,7 +124,7 @@ Boolean! : [Object, Copy, Store, Equal, Compare, Json] {
 	}
 
 	xor { :self :aBoolean |
-		aBoolean.value.if { self = false } { self = true }
+		aBoolean.if { self = false } { self = true }
 	}
 
 }

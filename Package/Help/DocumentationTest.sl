@@ -31,7 +31,7 @@ DocumentationTest : [Object, Store, Equal] {
 			)
 		} {
 			(self.prefix = '>>').if {
-				'{ % }.value.displayString.equalIgnoringExtraWhitespace(%.utf8String)'.format(
+				'{ % }.nullaryApply.displayString.equalIgnoringExtraWhitespace(%.utf8String)'.format(
 					[
 						self.program.unwords,
 						self.expectedAnswer.unlines.trim.utf8ByteArray.storeString

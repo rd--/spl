@@ -40,7 +40,7 @@ false
 true
 ```
 
-The unary form of `or` is `anySatisfy` of `blockValue`:
+The unary form of `or` is `anySatisfy` of `nullaryApply`:
 
 ```
 >>> [

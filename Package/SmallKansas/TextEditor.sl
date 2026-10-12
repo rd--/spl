@@ -155,7 +155,7 @@ TextEditor : [Object, UserEventTarget, View] {
 			},
 			MenuItem('Play It', 'Enter') { :event |
 				let text = system.window.selectedTextOrParagraphAtCaret;
-				let decoratedText = ['{', text, '}.value.play'].unwords;
+				let decoratedText = ['{', text, '}.nullaryApply.play'].unwords;
 				self.evaluate(decoratedText, event)
 			},
 			MenuItem('Print It', 'p') { :event |

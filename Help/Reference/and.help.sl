@@ -30,7 +30,7 @@ Truth table for `and`,
 
 The unary form of `and`,
 defined for collections,
-is `allSatisfy` of `blockValue`:
+is `allSatisfy` of `nullaryApply`:
 
 ```
 >>> [

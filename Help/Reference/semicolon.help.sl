@@ -5,7 +5,8 @@
 A semicolon separates statements in `Block Syntax`:
 
 ```
->>> { let x = 2; x }.value
+>>> let f = { let x = 2; x };
+>>> f()
 2
 ```
 

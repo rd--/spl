@@ -19,7 +19,7 @@ Plot with various gain parameters:
 Evaluate symbolically:
 
 ```
->> let f = `b`.schlickGainFunction;
+>> let f/1 = `b`.schlickGainFunction;
 >> f(`x`)
 (if (< x 0.5)
   (/ x (+ (* (- (/ 1 b) 2) (- 1 (* 2 x))) 1))

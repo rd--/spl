@@ -60,7 +60,7 @@ Use `error` as default value:
 >>> let bmi = { :d |
 >>> 	let [w, h] = d.lookup(
 >>> 		['weight', 'height'],
->>> 		{ d.error('bmi') }
+>>> 		Error('bmi')
 >>> 	);
 >>> 	w / (h ^ 2)
 >>> };

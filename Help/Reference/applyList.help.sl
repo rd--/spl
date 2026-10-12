@@ -15,15 +15,15 @@ It is an error if _x_ is not a `List` or has the wrong number of arguments.
 7
 ```
 
-C.f. `value`:
+C.f. `apply`:
 
 ```
 >>> { :x :y |
 >>> 	x * y + y
->>> }.value(3.141, 23)
+>>> }.apply(3.141, 23)
 95.243
 
->>> +.value(3, 4)
+>>> +.apply(3, 4)
 7
 ```
 
@@ -41,7 +41,7 @@ There is an unchecked form:
 
 * * *
 
-See also: Block, List, cull, value
+See also: Block, List, apply, cull
 
 Guides: Block Functions
 

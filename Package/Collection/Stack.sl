@@ -29,7 +29,7 @@ Stack : [Object, Copy, Store, Equal] {
 		list.isEmpty.if {
 			nil
 		} {
-			list.first.value
+			list.first
 		}
 	}
 
@@ -38,7 +38,7 @@ Stack : [Object, Copy, Store, Equal] {
 		list.isEmpty.if {
 			nil
 		} {
-			list.removeFirst!.value
+			list.removeFirst!
 		}
 	}
 

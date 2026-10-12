@@ -11,7 +11,8 @@ MersenneTwister : [Object, Equal, Iterator, RandomNumberGenerator, Stream] {
 	}
 
 	nextRandomFloat { :self |
-		self.block.value
+		let f/0 = self.block;
+		f()
 	}
 
 	reset! { :self |

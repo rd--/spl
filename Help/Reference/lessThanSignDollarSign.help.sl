@@ -14,15 +14,15 @@ Apply the unary block _f_ to the object _x_.
 27
 ```
 
-This is the operator form of unary `value`:
+This is the operator form of `unaryApply`:
 
 ```
 >>> { :x |
 >>> 	x * x * x
->>> }.value(3)
+>>> }.unaryApply(3)
 27
 
->>> cube/1.value(3)
+>>> cube/1.unaryApply(3)
 27
 ```
 

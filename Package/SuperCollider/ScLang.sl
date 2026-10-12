@@ -756,7 +756,7 @@
 		anObject.ifNil {
 			self
 		} {
-			self ++ anObject.value
+			self ++ anObject
 		}
 	}
 

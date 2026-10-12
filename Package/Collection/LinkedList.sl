@@ -14,10 +14,6 @@
 		answer
 	}
 
-	Link { :self |
-		self
-	}
-
 	linkAt { :self :index |
 		self.linkAtIfAbsent(index) {
 			self.errorInvalidIndex('linkAt', index)
@@ -46,7 +42,7 @@
 	linkOfIfAbsent { :self :anObject :errorBlock/0 |
 		valueWithReturn { :return/1 |
 			self.linksDo { :link |
-				(link.value = anObject.value).ifTrue {
+				(link.value = anObject).ifTrue {
 					link.return
 				}
 			};
@@ -80,20 +76,12 @@
 
 }
 
-+@Object {
-
-	Link { :self |
-		ValueLink(self)
-	}
-
-}
-
 LinkedList : [Object, Copy, Store, Equal, Compare, Iterable, Indexable, Collection, Extensible, Sequence] {
 
 	| firstLink lastLink |
 
-	addFirst! { :self :aLinkOrObject |
-		let aLink = aLinkOrObject.Link;
+	addFirst! { :self :anObject |
+		let aLink = ValueLink(anObject);
 		self.isEmpty.ifTrue {
 			self.lastLink := aLink
 		};
@@ -102,8 +90,8 @@ LinkedList : [Object, Copy, Store, Equal, Compare, Iterable, Indexable, Collecti
 		aLink
 	}
 
-	[addLast!, add!] { :self :aLinkOrObject |
-		let aLink = aLinkOrObject.Link;
+	[addLast!, add!] { :self :anObject |
+		let aLink = ValueLink(anObject);
 		self.isEmpty.if {
 			self.firstLink := aLink
 		} {
@@ -215,7 +203,7 @@ LinkedList : [Object, Copy, Store, Equal, Compare, Iterable, Indexable, Collecti
 		self.putLink!(
 			index,
 			self.linkOfIfAbsent(anObject) {
-				anObject.Link
+				ValueLink(anObject)
 			}
 		)
 	}
@@ -273,12 +261,12 @@ LinkedList : [Object, Copy, Store, Equal, Compare, Iterable, Indexable, Collecti
 		oldLink.value
 	}
 
-	removeIfAbsent! { :self :aLinkOrObject :aBlock/0 |
-		let link = self.linkOfIfAbsent(aLinkOrObject, aBlock/0);
+	removeIfAbsent! { :self :anObject :aBlock/0 |
+		let link = self.linkOfIfAbsent(anObject, aBlock/0);
 		self.removeLinkIfAbsent!(link) {
 			aBlock()
 		};
-		aLinkOrObject
+		anObject
 	}
 
 	removeLast! { :self |

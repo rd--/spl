@@ -11,7 +11,8 @@ Sfc32 : [Object, Equal, Iterator, RandomNumberGenerator, Stream] {
 	}
 
 	nextRandomFloat { :self |
-		self.block.blockValue
+		let f/0 = self.block;
+		f()
 	}
 
 	reset! { :self |

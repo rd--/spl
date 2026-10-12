@@ -94,19 +94,6 @@ ScSynth! : [Object] {
 		}
 	}
 
-	basicPlayAt { :self :systemTimeInSeconds |
-		<primitive:
-		globalScSynth.playUgenAt(
-			_self,
-			_busOffset_1(_self),
-			-1,
-			1,
-			[],
-			_systemTimeInSeconds
-		);
-		>
-	}
-
 	drawUgenGraph { :self |
 		let scSynDefFileName = '/tmp/splDraw.scsyndef';
 		self.writeScSynDefFile(
@@ -141,7 +128,7 @@ ScSynth! : [Object] {
 	playAt { :self :systemTimeInSeconds |
 		self.isOutputSignal.if {
 			let latency = 0.2; /* Preferences */
-			self.basicPlayAt(systemTimeInSeconds + latency)
+			self.uncheckedPlayAt(systemTimeInSeconds + latency)
 		} {
 			'playAt: not ouput signal?'.error
 		}
@@ -193,6 +180,19 @@ ScSynth! : [Object] {
 				duration.printString
 			]
 		)
+	}
+
+	uncheckedPlayAt { :self :systemTimeInSeconds |
+		<primitive:
+		globalScSynth.playUgenAt(
+			_self,
+			_busOffset_1(_self),
+			-1,
+			1,
+			[],
+			_systemTimeInSeconds
+		);
+		>
 	}
 
 	writeScSynDefFile { :self :scSynDefName :scSynDefFileName |

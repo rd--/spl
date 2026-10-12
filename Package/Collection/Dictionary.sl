@@ -345,7 +345,7 @@
 			}
 		} {
 			self.atIfAbsent(key) {
-				defaultAnswer.value
+				defaultAnswer
 			}
 		}
 	}

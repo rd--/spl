@@ -402,6 +402,7 @@ Reference/anySatisfy.help.sl
 Reference/anyTrue.help.sl
 Reference/aperysConstant.help.sl
 Reference/apostrophe.help.sl
+Reference/apply.help.sl
 Reference/applyList.help.sl
 Reference/approximateCircularArc.help.sl
 Reference/approximateFraction.help.sl
@@ -653,7 +654,6 @@ Reference/Block.help.sl
 Reference/blockMap.help.sl
 Reference/BlockSize.help.sl
 Reference/BlockStream.help.sl
-Reference/blockValue.help.sl
 Reference/blomqvistBeta.help.sl
 Reference/BLowPass.help.sl
 Reference/blue.help.sl
@@ -2962,6 +2962,7 @@ Reference/nubCumulatively.help.sl
 Reference/nub.help.sl
 Reference/nubIdentical.help.sl
 Reference/nubSieve.help.sl
+Reference/nullaryApply.help.sl
 Reference/numArgs.help.sl
 Reference/numberCompose.help.sl
 Reference/numberDecompose.help.sl

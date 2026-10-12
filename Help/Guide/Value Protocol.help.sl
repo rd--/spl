@@ -1,10 +1,14 @@
 # Value Protocol
 
+In Smalltalk,
 `Block` and `Association` implement `value`, in particular _value/1_, directly.
+In Spl _value_ is called `apply`, and the monomorphic _value/1_ is called `nullaryApply`:
 
 ```
->>> { 1 }.value
+>>> { 1 }.apply
 1
+
+>>> { 1 }.nullaryApply
 
 >>> ('x' -> 1).value
 1
@@ -22,13 +26,15 @@ This protocol allows writing methods that will accept either evaluated or delaye
 
 In cases where this is not the behaviour wanted,
 a `Block` can be required by using a direct form of _apply_ notation,
-or the `blockValue` method.
+or the `blockNullaryApply` method.
 
 The Sᴘʟ standard library mostly requires block arguments be blocks,
 see for instance `&` and `|`.
 
+Spl does not implement the value protocol.
+
 * * *
 
-See also: Association, Block, blockValue, value
+See also: Association, Block, apply, blockNullaryApply, value
 
 Guides: Apply Syntax, Value Apply Syntax

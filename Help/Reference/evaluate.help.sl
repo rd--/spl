@@ -14,7 +14,7 @@ Compile and execute the string _s_ in the context of `system`.
 
 * * *
 
-See also: evaluateNotifying, System
+See also: System, evaluateNotifying
 
 Guides: Reflection Functions
 

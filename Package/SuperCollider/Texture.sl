@@ -6,13 +6,13 @@ TextureProgram : [Object] {
 
 	play { :self |
 		{ :currentTime |
-			self.envelopeBlock.value(
+			self.envelopeBlock.unaryApply(
 				self.soundBlock.cull(
 					self.iterationCounter
 				)
 			).playAt(currentTime);
 			self.iterationCounter := self.iterationCounter + 1;
-			self.delayTime.value
+			self.delayTime.nullaryApply
 		}.schedule
 	}
 

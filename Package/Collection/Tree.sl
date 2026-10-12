@@ -156,7 +156,7 @@ Tree : [Object, Store, Equal, Iterable, Indexable] {
 	leaves { :self |
 		let answer = [];
 		self.leavesDo { :each |
-			answer.add!(each.value)
+			answer.add!(each)
 		};
 		answer
 	}

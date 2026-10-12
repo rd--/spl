@@ -9,7 +9,8 @@
 	}
 
 	hash { :self :seed |
-		self.murmurHashGenerator(seed).value
+		let f/0 = self.murmurHashGenerator(seed);
+		f()
 	}
 
 	hash { :self |
@@ -67,7 +68,8 @@
 	}
 
 	hash { :self :seed |
-		self.murmurHashGenerator(seed).value
+		let f/0 = self.murmurHashGenerator(seed);
+		f()
 	}
 
 	hash { :self |

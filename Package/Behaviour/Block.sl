@@ -20,6 +20,34 @@ Block! : [Object, Equal] {
 		self == anObject
 	}
 
+	[apply, nullaryApply] { :self/0 |
+		self()
+	}
+
+	[apply, unaryApply] { :self/1 :p1 |
+		self(p1)
+	}
+
+	[apply, binaryApply] { :self/2 :p1 :p2 |
+		self(p1, p2)
+	}
+
+	[apply, ternaryApply] { :self/3 :p1 :p2 :p3 |
+		self(p1, p2, p3)
+	}
+
+	[apply, quaternaryApply] { :self/4 :p1 :p2 :p3 :p4 |
+		self(p1, p2, p3, p4)
+	}
+
+	[apply, quinaryApply] { :self/5 :p1 :p2 :p3 :p4 :p5 |
+		self(p1, p2, p3, p4, p5)
+	}
+
+	[apply, senaryApply] { :self/5 :p1 :p2 :p3 :p4 :p5 :p6 |
+		self(p1, p2, p3, p4, p5, p6)
+	}
+
 	applyList { :self :aList |
 		<primitive:
 		if(sl.isArray(_aList) && (_self.length === _aList.length)) {
@@ -71,10 +99,6 @@ Block! : [Object, Equal] {
 			answer.add!(aBlock(aList.copyFromTo(i, i + n - 1)))
 		};
 		answer
-	}
-
-	[blockValue, value] { :self/0 |
-		self()
 	}
 
 	clip { :aBlock/1 :minMax :replaceWith |
@@ -129,8 +153,8 @@ Block! : [Object, Equal] {
 	cull { :self :firstArg |
 		self.numArgs.caseOf(
 			[
-				0 -> { self.value },
-				1 -> { self.value(firstArg) }
+				0 -> { self.nullaryApply },
+				1 -> { self.unaryApply(firstArg) }
 			]
 		) {
 			self.error('cull: k > 1')
@@ -140,9 +164,9 @@ Block! : [Object, Equal] {
 	cull { :self :firstArg :secondArg |
 		self.numArgs.caseOf(
 			[
-				0 -> { self.value },
-				1 -> { self.value(firstArg) },
-				2 -> { self.value(firstArg, secondArg) }
+				0 -> { self.nullaryApply },
+				1 -> { self.unaryApply(firstArg) },
+				2 -> { self.binaryApply(firstArg, secondArg) }
 			]
 		) {
 			self.error('cull: k > 2')
@@ -152,10 +176,10 @@ Block! : [Object, Equal] {
 	cull { :self :firstArg :secondArg :thirdArg |
 		self.numArgs.caseOf(
 			[
-				0 -> { self.value },
-				1 -> { self.value(firstArg) },
-				2 -> { self.value(firstArg, secondArg) },
-				3 -> { self.value(firstArg, secondArg, thirdArg) }
+				0 -> { self.nullaryApply },
+				1 -> { self.unaryApply(firstArg) },
+				2 -> { self.binaryApply(firstArg, secondArg) },
+				3 -> { self.ternaryApply(firstArg, secondArg, thirdArg) }
 			]
 		) {
 			self.error('cull: k > 3')
@@ -165,11 +189,11 @@ Block! : [Object, Equal] {
 	cull { :self :firstArg :secondArg :thirdArg :fourthArg |
 		self.numArgs.caseOf(
 			[
-				0 -> { self.value },
-				1 -> { self.value(firstArg) },
-				2 -> { self.value(firstArg, secondArg) },
-				3 -> { self.value(firstArg, secondArg, thirdArg) },
-				4 -> { self.value(firstArg, secondArg, thirdArg, fourthArg) }
+				0 -> { self.nullaryApply },
+				1 -> { self.unaryApply(firstArg) },
+				2 -> { self.binaryApply(firstArg, secondArg) },
+				3 -> { self.ternaryApply(firstArg, secondArg, thirdArg) },
+				4 -> { self.quaternaryApply(firstArg, secondArg, thirdArg, fourthArg) }
 			]
 		) {
 			self.error('cull: k > 4')
@@ -414,7 +438,7 @@ Block! : [Object, Equal] {
 			}.memoizeUnary(requireImmediate)
 		}.memoizeUnary(requireImmediate);
 		{ :a :b |
-			f(a).value(b)
+			f(a).unaryApply(b)
 		}
 	}
 
@@ -532,7 +556,7 @@ Block! : [Object, Equal] {
 	}
 
 	outer { :self :aList :anotherList |
-		(self.outer).value(aList, anotherList)
+		(self.outer).binaryApply(aList, anotherList)
 	}
 
 	parameterNames { :self |
@@ -641,26 +665,6 @@ Block! : [Object, Equal] {
 
 	unqualifiedName { :self |
 		<primitive: return _self.name.split('/')[0];>
-	}
-
-	value { :self/1 :p1 |
-		self(p1)
-	}
-
-	value { :self/2 :p1 :p2 |
-		self(p1, p2)
-	}
-
-	value { :self/3 :p1 :p2 :p3 |
-		self(p1, p2, p3)
-	}
-
-	value { :self/4 :p1 :p2 :p3 :p4 |
-		self(p1, p2, p3, p4)
-	}
-
-	value { :self/5 :p1 :p2 :p3 :p4 :p5 |
-		self(p1, p2, p3, p4, p5)
 	}
 
 	valueWithReturn { :self/1 |
