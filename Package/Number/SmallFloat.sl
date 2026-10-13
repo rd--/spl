@@ -7,10 +7,14 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 	}
 
 	adaptToIntegerAndApply { :self :anInteger :aBlock/2 |
-		anInteger.isLargeInteger.if {
-			aBlock(anInteger.SmallFloat, self)
+		self.isNaN.if {
+			NaN
 		} {
-			self.error('SmallFloat>>adaptToIntegerAndApply', anInteger)
+			anInteger.isLargeInteger.if {
+				aBlock(SmallFloat(anInteger), self)
+			} {
+				self.error('SmallFloat>>adaptToIntegerAndApply', anInteger)
+			}
 		}
 	}
 

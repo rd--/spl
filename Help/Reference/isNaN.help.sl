@@ -22,11 +22,26 @@ Not a number is a `SmallFloat` value:
 true
 ```
 
-Complex `NaN` become `NaN` on construction:
+A `LargeInteger` is never not a number:
+
+```
+>>> 23L.isNaN
+false
+```
+
+Complex not-a-number becomes `NaN` on construction:
 
 ```
 >>> let z = 2J3 / 0;
 >>> (z.isComplex, z.isNaN)
+(false, true)
+```
+
+Fraction not-a-number becomes `NaN` on construction:
+
+```
+>>> let a = 1/2 * NaN;
+>>> (a.isFraction, a.isNaN)
 (false, true)
 ```
 

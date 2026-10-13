@@ -1,45 +1,19 @@
 # decimalFraction
 
-- _decimalFraction(x, n)_
+- _decimalFraction(x)_
 
-Derive a `Fraction` for the number _x_ where the integer _n_ is the number of decimal places.
-
-At `SmallFloat`:
+Answer the decimal fraction representation of the `Decimal` number _d_.
 
 ```
->>> 1.pi.decimalFraction(2)
-157/50
+>>> 3.141D.decimalFraction
+3141/1000
 
->>> Fraction(
->>> 	(1.pi * (10 ^ 2)).round,
->>> 	10 ^ 2
->>> )
-157/50
-
->>> 6.75.decimalFraction(2)
-27/4
-
->>> 23.fractionOver(2)
-23/1
-
->>> [1 2 3].collect { :n |
->>> 	(2.01 / 2).decimalFraction(n)
->>> }
-[1/1 1/1 201/200]
-```
-
-At `Fraction`:
-
-```
->>> 1/7.decimalFraction(10)
-1428571429/10000000000
-
->>> 23/1.decimalFraction(0)
-23/1
+>>> 3.000D.decimalFraction
+3000/1000
 ```
 
 * * *
 
-See also: Decimal, Fraction, limitDenominator, rationalize
+See also: Decimal, Fraction, deriveDecimalFraction, rationalize
 
 Categories: Converting, Math

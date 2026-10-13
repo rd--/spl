@@ -9,8 +9,14 @@ It is able to accurately represent arbitrary precision decimal fractions.
 >>> Decimal(1/3, 3)
 0.333D
 
+>>> Decimal(1/3, 3).decimalFraction
+333/100
+
 >>> Decimal(7/13, 5)
 0.53846D
+
+>>> Decimal(7/13, 5).decimalFraction
+53_846/100_000
 ```
 
 The `scale` of a decimal is the number of places after the decimal point,
@@ -140,8 +146,8 @@ Decimal values may be unequal even if their fraction and floating point values a
 >>> (
 >>> 	(x, y),
 >>> 	x = y,
->>> 	x.Fraction = y.Fraction,
->>> 	x.SmallFloat = y.SmallFloat
+>>> 	x.decimalFraction = y.decimalFraction,
+>>> 	SmallFloat(x) = SmallFloat(y)
 >>> )
 ((0.429D, 0.4290D), false, true, true)
 ```
@@ -172,7 +178,7 @@ The stored fraction is not necessarily the initial fraction:
 >>> Decimal(1/3, 2) * 3
 0.99D
 
->>> Decimal(1/3, 2).fraction
+>>> Decimal(1/3, 2).decimalFraction
 33/100
 ```
 
@@ -186,11 +192,11 @@ Addition with integer preserves precision:
 Exact fraction:
 
 ```
->>> -3.14D.fraction
--157/50
+>>> -3.14D.decimalFraction
+-314/100
 
->>> -3.14D.Fraction
--157/50
+>>> -3.14D.toFraction
+-314/100
 ```
 
 Multiplication with `Decimal` follows the schoolbook approach and gives all of the figures in the multiplicands:

@@ -64,10 +64,10 @@ Arithmetic with `NaN`:
 >> 2 * NaN + 7
 NaN
 
->>> 1J2 * NaN
+>> 1J2 * NaN
 NaN
 
->>> NaN / 1J0
+>> NaN / 1J0
 NaN
 ```
 

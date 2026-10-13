@@ -119,9 +119,16 @@ true
 true
 ```
 
+Not-a-number is not a small integer:
+
+```
+>>> NaN.isSmallInteger
+false
+```
+
 * * *
 
-See also: isGaussianInteger, isInteger, isLargeInteger, isNumber, isSmallFloat, SmallFloat
+See also: SmallFloat, isGaussianInteger, isInteger, isLargeInteger, isNumber, isSmallFloat
 
 Guides: Integer Functions
 

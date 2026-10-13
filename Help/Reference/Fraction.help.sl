@@ -413,6 +413,19 @@ answers a `SmallFloat`:
 0.111
 ```
 
+`Fraction` at not-a-number values is not a number:
+
+```
+>> Fraction(NaN, 1)
+NaN
+
+>> Fraction(1, NaN)
+NaN
+
+>> Fraction(NaN, NaN)
+NaN
+```
+
 Operations with `NaN` answer `NaN`:
 
 ```

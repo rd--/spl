@@ -648,10 +648,14 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 	}
 
 	Fraction { :numerator :denominator |
-		denominator.isInteger.if {
-			uncheckedFraction(numerator, LargeInteger(denominator)).simplify
+		numerator.isNaN.if {
+			NaN
 		} {
-			denominator.adaptToIntegerAndApply(numerator, Fraction/2)
+			denominator.isInteger.if {
+				uncheckedFraction(numerator, LargeInteger(denominator)).simplify
+			} {
+				denominator.adaptToIntegerAndApply(numerator, Fraction/2)
+			}
 		}
 	}
 
@@ -792,7 +796,11 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 
 +[Fraction, SmallFloat] {
 
-	fractionOver { :self :denominator |
+	deriveDecimalFraction { :self :scale |
+		self.deriveFractionOver(10L ^ scale)
+	}
+
+	deriveFractionOver { :self :denominator |
 		self.isInteger.if {
 			uncheckedFraction(LargeInteger(self), 1L)
 		} {
@@ -801,10 +809,6 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 				denominator
 			)
 		}
-	}
-
-	decimalFraction { :self :scale |
-		self.fractionOver(10L ^ scale)
 	}
 
 }

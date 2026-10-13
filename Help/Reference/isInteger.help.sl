@@ -17,6 +17,13 @@ false
 false
 ```
 
+Not-a-number is not an integer:
+
+```
+>>> NaN.isInteger
+false
+```
+
 At `SmallFloat`,
 values that are integers but not small integers answer `false`,
 see also `isIeeeInteger`:

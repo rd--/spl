@@ -27,6 +27,19 @@ true
 true
 ```
 
+At `NaN`:
+
+```
+>> LargeInteger(NaN)
+NaN
+
+>> 3L + NaN
+NaN
+
+>> NaN + 3L
+NaN
+```
+
 At `LargeInteger`:
 
 ```

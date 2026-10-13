@@ -102,7 +102,7 @@ The current date can be read from the `System` as a `TimeStamp` using `now`,
 and translated into a `Date`:
 
 ```
->>> system.date.year >= 2024
+>>> system.currentDate.year >= 2024
 true
 
 >>> system.now.Date.year >= 2024

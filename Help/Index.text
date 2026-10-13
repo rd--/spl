@@ -1130,6 +1130,8 @@ Reference/depth.help.sl
 Reference/dequanLiEquation.help.sl
 Reference/derangements.help.sl
 Reference/derivative.help.sl
+Reference/deriveDecimalFraction.help.sl
+Reference/deriveFractionOver.help.sl
 Reference/deriveRange.help.sl
 Reference/deriveRangeList.help.sl
 Reference/description.help.sl
@@ -1556,7 +1558,6 @@ Reference/FractionalPart.help.sl
 Reference/fractionalSecond.help.sl
 Reference/fractionExponent.help.sl
 Reference/Fraction.help.sl
-Reference/fractionOver.help.sl
 Reference/fradinPolyhedraCatalogue.help.sl
 Reference/fragment.help.sl
 Reference/Frame.help.sl

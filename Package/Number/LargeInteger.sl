@@ -283,6 +283,10 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer, I
 		true
 	}
 
+	isNaN { :unused |
+		false
+	}
+
 	isOdd { :self |
 		(self % 2L) = 1L
 	}
@@ -420,10 +424,14 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer, I
 +SmallFloat {
 
 	[LargeInteger, smallFloatToLargeInteger] { :self |
-		self.isSmallInteger.if {
-			self.uncheckedLargeInteger
+		self.isNaN.if {
+			NaN
 		} {
-			self.error('LargeInteger: not SmallInteger')
+			self.isSmallInteger.if {
+				self.uncheckedLargeInteger
+			} {
+				self.error('LargeInteger: not SmallInteger')
+			}
 		}
 	}
 

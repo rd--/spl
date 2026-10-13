@@ -11,8 +11,8 @@ Answer a `List` of `String` items giving the names of the parameters of the _n_-
 >>> randomChoice/3.parameterNames
 ['self' 'r' 'shape']
 
->>> encodeJson/3.parameterNames
-['self' 'replacer' 'space']
+>>> SinOsc/2.parameterNames
+['freq' 'phase']
 ```
 
 At a `MethodInformation` value:

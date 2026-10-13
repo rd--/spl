@@ -36,6 +36,15 @@ At `Infinity`:
 true
 ```
 
+At `NaN`:
+
+```
+>>> NaN.isNumber & {
+>>> 	NaN.isSmallFloat
+>>> }
+true
+```
+
 At `LargeInteger`:
 
 ```
