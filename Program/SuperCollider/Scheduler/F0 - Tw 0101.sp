@@ -9,9 +9,7 @@
 	);
 	Release(
 		oscillator / 9,
-		0,
-		nextDelay,
-		16
+		0.02, nextDelay, 16
 	).playAt(currentTime);
 	[nextDelay, nextHarmonicNumber]
 }.scheduleInjecting(2)

@@ -17,7 +17,7 @@ Latch(d, d).soundPlot(0.1)
 
 See also: discretePlot, functionPlot, linePlot, scatterPlot
 
-Guides: Plotting Functions
+Guides: Plotting Functions, SuperCollider Functions
 
 References:
 _SuperCollider_

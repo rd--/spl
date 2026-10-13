@@ -37,6 +37,8 @@ so that is does not overlap by very much with the next sound:
 
 * * *
 
-See also: Clock, playAt, schedule
+See also: Clock, play, playAt, schedule
+
+Guides: Scheduling Functions, SuperCollider Functions
 
 Categories: Scheduling

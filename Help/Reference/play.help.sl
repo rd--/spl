@@ -1,18 +1,18 @@
 # play
 
-- _play(aUgen | anEventStream)_
+- _play(x)_
 
-Compile Ugen graph and send it to the synthesiser to be played.
+Compile a unit-generator graph and send it to the synthesiser to be played.
 The programs in the Help files do not include the `play` instruction,
 it is used internally by the system when a expression is _played_.
 
-A `Ugen`:
+At `Ugen`:
 
 ```
 SinOsc(440, 0) * 0.1
 ```
 
-A `List` of `Ugen`:
+At a `List` of `Ugen`:
 
 ```
 [
@@ -23,6 +23,8 @@ A `List` of `Ugen`:
 
 * * *
 
-See also: List, Ugen
+See also: List, Ugen, playAt, playEvery
+
+Guides: SuperCollider Functions
 
 Categories: Synthesiser

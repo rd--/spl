@@ -31,6 +31,6 @@ true
 
 * * *
 
-See also: BivariatePolynomial, Block, ColourGradient, Piecewise, UnivariatePolynomial
+See also: AxonometricProjection, BivariatePolynomial, Block, ColourGradient, Piecewise, UnivariatePolynomial
 
 Guides: Block Functions

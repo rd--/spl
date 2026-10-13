@@ -4,8 +4,8 @@ A `Type` representing a local control input in a unit generator graph.
 
 * * *
 
-See also: localControls, NamedControl, ScUgen, Ugen, UgenGraph
+See also: NamedControl, ScUgen, Ugen, UgenGraph, localControls
 
-Guides: Unit Generators
+Guides: SuperCollider Functions, Unit Generators
 
 Categories: Ugen

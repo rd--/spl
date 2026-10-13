@@ -38,7 +38,8 @@ let z = {
 } !> 3;
 z.Clip2(TRand(0, 1, Dust(8))) * 0.25
 
-/* 20060914 ; rd ; graph rewrite ; requires=Sine ; requires=arrayedEnv */
+/* 20060914 ; rd ; graph rewrite ; requires=Sine ; requires=arrayedEnv ; packet size */
+let k = 3;
 { :tr |
 	let chrd = { :m |
 		let ds = 3;

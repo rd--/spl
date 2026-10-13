@@ -1,8 +1,8 @@
 # NamedControl
 
-- _NamedControl(name, defautValue)_
+- _NamedControl(s, x)_
 
-Answers a `Ugen` holding a `LocalControl` with the given _name_ and _defautValue_.
+Answers a `Ugen` holding a `LocalControl` with the given name _s_ and the defaut value _x_.
 
 ```
 >>> let freq = NamedControl('freq', 440);

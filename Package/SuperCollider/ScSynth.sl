@@ -125,10 +125,10 @@ ScSynth! : [Object] {
 		self.playAt(system.sessionTime)
 	}
 
-	playAt { :self :systemTimeInSeconds |
+	playAt { :self :sessionTimeInSeconds |
 		self.isOutputSignal.if {
 			let latency = 0.2; /* Preferences */
-			self.uncheckedPlayAt(systemTimeInSeconds + latency)
+			self.uncheckedPlayAt(sessionTimeInSeconds + latency)
 		} {
 			'playAt: not ouput signal?'.error
 		}
@@ -149,15 +149,7 @@ ScSynth! : [Object] {
 			'Anonymous',
 			scSynDefFileName
 		);
-		system.systemCommand(
-			'hsc3-plot',
-			[
-				'scsyndef',
-				scSynDefFileName,
-				numberOfChannels.printString,
-				duration.printString
-			]
-		)
+		self.error('not implemented')
 	}
 
 	soundPlot { :self :duration |
@@ -182,7 +174,7 @@ ScSynth! : [Object] {
 		)
 	}
 
-	uncheckedPlayAt { :self :systemTimeInSeconds |
+	uncheckedPlayAt { :self :sessionTimeInSeconds |
 		<primitive:
 		globalScSynth.playUgenAt(
 			_self,
@@ -190,7 +182,7 @@ ScSynth! : [Object] {
 			-1,
 			1,
 			[],
-			_systemTimeInSeconds
+			_sessionTimeInSeconds
 		);
 		>
 	}
@@ -199,10 +191,6 @@ ScSynth! : [Object] {
 		let graphDef = scSynDefName.encodeUgenAt(self.busOffset, self);
 		system.writeBinaryFile(scSynDefFileName, graphDef)
 	}
-
-}
-
-+Block {
 
 }
 

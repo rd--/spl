@@ -49,6 +49,6 @@ At `Fraction`:
 
 * * *
 
-See also: Fraction, Decimal, decimalFraction, convergents, limitDenominator, rationalize, semiconvergents
+See also: Fraction, Decimal, deriveDecimalFraction, convergents, limitDenominator, rationalize, semiconvergents
 
 Categories: Converting, Math

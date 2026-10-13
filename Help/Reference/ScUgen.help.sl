@@ -28,3 +28,5 @@ Accessors are:
 * * *
 
 See also: LocalControl, Ugen, UgenGraph
+
+Guides: SuperCollider Functions, Unit Generators

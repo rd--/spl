@@ -1,6 +1,6 @@
 # TextureProgram
 
-- _TextureProgram(sound/{0,1}, envelope/1, delayTime)_
+- _TextureProgram(sound/{0,1}, envelope/1, delayTime/0)_
 
 Answer a value that, when played,
 schedules a periodic process on the system clock to evalute the no-argument block _sound_,
@@ -31,8 +31,8 @@ and the _delayTime_ block selects a random integer to divide down:
 
 * * *
 
-See also: collectTextureProgram, OverlapTexture, overlapTextureProgram, spawnTextureProgram, xFadeTextureProgram
+See also: collectTextureProgram, overlapTextureProgram, spawnTextureProgram, xFadeTextureProgram
 
-Guides: Unit Generators
+Guides: SuperCollider Functions, Texture Programs, Unit Generators
 
 Categories: Scheduling

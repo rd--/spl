@@ -16,9 +16,7 @@
 			let y = CombC(x, 0.05, 1 / note, Rand(2, 3));
 			Release(
 				EqPan(y, Rand(-1, 1)),
-				0,
-				3,
-				3
+				0.02, 3, 3
 			).playAt(currentTime + startTime)
 		}
 	};

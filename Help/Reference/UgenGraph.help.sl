@@ -1,6 +1,6 @@
 # UgenGraph
 
-- _UgenGraph(aString, aUgen)_
+- _UgenGraph(s, u)_
 
 A `Type` representing a named graph of unit generators.
 
@@ -50,6 +50,6 @@ Collect names of `LocalControl` and `ScUgen` values:
 
 * * *
 
-See also: Graph, name, ScUgen, Ugen
+See also: Graph, ScUgen, Ugen, name
 
-Guides: Unit Generators
+Guides: SuperCollider Functions, Unit Generators

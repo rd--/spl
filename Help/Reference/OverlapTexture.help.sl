@@ -65,8 +65,8 @@ let right = DelayC(
 
 * * *
 
-See also: overlapTextureProgram, XFadeTexture
+See also: XFadeTexture, overlapTextureProgram
 
-Guides: Unit Generators
+Guides: SuperCollider Functions, Unit Generators
 
 Categories: Texture, Ugen

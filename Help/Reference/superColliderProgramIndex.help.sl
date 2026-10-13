@@ -56,4 +56,4 @@ and this function requires the item be in the interpreter cache.
 
 See also: SuperColliderProgramIndex
 
-Guides: Library Catalogue
+Guides: Library Catalogue, SuperCollider Functions

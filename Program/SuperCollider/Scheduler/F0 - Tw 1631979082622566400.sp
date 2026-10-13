@@ -15,9 +15,7 @@
 			SinOsc(f, 0) * a + f,
 			0
 		) * XLine(0.1, 0.0001, 4 + d) * c,
-		0,
-		4 + d,
-		0
+		0.02, 4 + d, 0
 	).playAt(currentTime);
 	[
 		(d + [1, 1 / 30]).atWrap(i + 1),

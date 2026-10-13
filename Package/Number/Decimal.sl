@@ -363,7 +363,7 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 
 	Decimal { :self :scale |
 		uncheckedDecimal(
-			self.decimalFraction(scale),
+			self.deriveDecimalFraction(scale),
 			scale
 		)
 	}
@@ -399,7 +399,7 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 			uncheckedDecimal(Fraction(self, 1), scale)
 		} {
 			Decimal(
-				self.decimalFraction(scale),
+				self.deriveDecimalFraction(scale),
 				scale
 			)
 		}

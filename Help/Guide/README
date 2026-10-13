@@ -1,6 +1,6 @@
 'Help/Guide'.splFilePath.terseReferenceSummary((verbose: false, pattern: '.*'))
 
-Total => 945
+Total => 946
 
 Write image files:
 
@@ -15,4 +15,4 @@ Update indices:
 
 $ (cd ~/sw/spl/Help/Guide; make lint)
 
-Linting: 279 file(s)
+Linting: 291 file(s)

@@ -1,6 +1,6 @@
 # XFadeTexture
 
-- _XFadeTexture(newEventFunc, sustainTime, transitionTime)_
+- _XFadeTexture(newEventFunc/1, sustainTime, transitionTime)_
 
 Crossfade events.
 Creates a series of overlapped sounds from a user function.
@@ -32,6 +32,6 @@ A pair of sine oscillators crossfading between randomly shifting pitches and ste
 
 See also: OverlapTexture, xFadeTextureProgram
 
-Guides: Unit Generators
+Guides: SuperCollider Functions, Unit Generators
 
 Categories: Ugen, Texture

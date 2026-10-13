@@ -3,7 +3,14 @@
 	let z = (1 -- 61).atRandom;
 	let d = z / 3;
 	let y = LfTri(z, 0).Abs / z;
-	let s = Rlpf(TDuty(y, 0, y), z * 99 + y, 0.01) * (6 + y);
-	Release(EqPan(s, 0) / 3, d, 0, z).playAt(currentTime);
+	let s = Rlpf(
+		TDuty(y, 0, y),
+		z * 99 + y,
+		0.01
+	) * (6 + y);
+	Release(
+		EqPan(s, 0) / 3,
+		d, 0, z
+	).playAt(currentTime);
 	d
 }.schedule

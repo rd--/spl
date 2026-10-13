@@ -6,7 +6,7 @@ communicating using the `Open Sound Control` protocol.
 
 * * *
 
-See also: Open Sound Control
+Guides: Open Sound Control, SuperCollider Functions, Unit Generators
 
 References:
 _AudioSynth_

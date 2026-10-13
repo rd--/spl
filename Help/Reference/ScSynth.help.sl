@@ -27,6 +27,8 @@ c.f. the _ws-tcp-bridge_ program at [jssc3](https://rohandrape.net/?t=jssc3).
 
 * * *
 
-See also: addOscListener, Preferences, removeOscListener, SuperCollider Synthesiser
+See also: Preferences, addOscListener, removeOscListener
+
+Guides: SuperCollider Functions, SuperCollider Synthesiser
 
 Categories: Synthesiser, Type

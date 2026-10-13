@@ -9,8 +9,9 @@ It is able to accurately represent arbitrary precision decimal fractions.
 >>> Decimal(1/3, 3)
 0.333D
 
->>> Decimal(1/3, 3).decimalFraction
-333/100
+>>> Decimal(1/3, 3)
+>>> .decimalFraction
+333/1_000
 
 >>> Decimal(7/13, 5)
 0.53846D

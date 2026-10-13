@@ -1707,7 +1707,7 @@ let a = []; 5.toDo(1) { :each | a.add!(each) }; a = [] /* non-ascending sequence
 6.choose(3) = 20 /* n choose k */
 6.choose(3) = ((6 * 5 * 4) / (1 * 2 * 3))
 3.choose(6) = 0 /* if k is greater than n answer is zero */
-58909.printStringHex = '16rE61D' /* hexadecimal representation */
+58909.printStringHexadecimal = '16rE61D' /* hexadecimal representation */
 58909.printString(16) = '16rE61D' /* hexadecimal representation */
 let a = []; List(2, 1:3).tuplesDo { :each | a.add!(each.copy) }; a = [1 1; 1 2; 1 3; 2 1; 2 2; 2 3; 3 1; 3 2; 3 3]
 let a = []; List(2, 1:3).tuplesDo { :each | a.add!(each.sum) }; a = [2 3 4 3 4 5 4 5 6]
@@ -2010,7 +2010,7 @@ let x = (2L ^ 54L); x != (x - 1) /* large integers behave ordinarily */
 let n = 2L; n.copy == n /* copy is identity */
 23L.SmallFloat = 23 /* large integer to small float */
 let a = [9, 8 .. 1]; { a[5L] }.hasError /* large integers are not valid indices */
-58909L.printStringHex = '16rE61D' /* hexadecimal representation */
+58909L.printStringHexadecimal = '16rE61D' /* hexadecimal representation */
 20L.factorial = 2432902008176640000L /* large integer factorial */
 7L << 23 = 58720256L /* left shift large integer */
 7L << 71 = 16528282690043758247936L /* left shift large integer */
@@ -2123,7 +2123,6 @@ let c = Map(); c[2] := 'two'; c[1] := 'one'; c.removeKey!(2); c[1] := 'one'; c.r
 (x: 1, y: 2).Map ++ (x: 2, y: 1) = (x: 2, y: 1).Map /* appending a record to a Map answers a Map, biases right */
 (x: 1, y: 2, z: 3).Map ++ (x: 2, y: 1) = (x: 2, y: 1, z: 3).Map /* append record to Map */
 (x: 1, y: 2).Map ++ (x: 2, y: 1, z: 3) = (x: 2, y: 1, z: 3).Map /* append record to Map */
-(x: 1, y: 2).Map.encodeJson = '{"x":1,"y":2}' /* maps with string keys are encoded as records */
 (x: 1, y: 2, z: 3).Map.indices = ['x', 'y', 'z'] /* indices of map (an array) */
 let m = (x: 1, y: 2).Map; m.removeAssociation!('x' -> 1); m = (y: 2).Map /* remove association */
 let m = (x: 1, y: 2).Map; m.removeAll!; m.isEmpty /* remove all entries */
@@ -2422,7 +2421,7 @@ let m = { system.nextRandomFloat }.!(9).mean; m > 0 & { m < 1 }
 ({ system.nextRandomFloat } ! 9).size = 9 /* the size of the answer is as requested */
 ({ system.nextRandomFloat } ! 3).allSatisfy(isNumber/1) = true
 &.parameterNames = ['self', 'aBlock/0'] /* answer names of method parameters */
-encodeJson/3.parameterNames = ['self', 'replacer', 'space'] /* answer names of method parameters */
+SinOsc/2.parameterNames = ['freq' 'phase'] /* answer names of method parameters */
 randomReal/3.parameterNames = ['self', 'range', 'shape'] /* answer names of method parameters */
 system.methodDictionary['at'][2]['Map'].information.parameterNames = ['self', 'key']
 let c = []; let a = []; 1:3.do { :i | c.add! { a.add!(i) } }; c.do(apply/1); a = [1, 2, 3]

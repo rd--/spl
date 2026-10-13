@@ -308,4 +308,4 @@
 
 * * *
 
-Guides: Upper Case Methods
+Guides: SuperCollider Functions, SuperCollider Synthesiser, Upper Case Methods

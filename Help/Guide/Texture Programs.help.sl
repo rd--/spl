@@ -31,8 +31,23 @@ let dur = 12;
 To stop a texture program the clock on which it is scheduled must be cleared.
 The keybinding _Ctrl-Shift->_ clears the `system` `Clock`.
 
+Type:
+
+- `TextureProgram`
+
+Functions:
+
+- `collectTextureProgram`
+- `overlapTextureProgram`
+- `spawnTextureProgram`
+- `xFadeTextureProgram`
+
+Textrue programs are distinct from texture unit generators,
+see `OverlapTexture` and `XFadeTexture`.
+
+
 * * *
 
-See also: collectTextureProgram, overlapTextureProgram, playEvery, spawnTextureProgram, TextureProgram, xFadeTextureProgram
+Guides: Scheduling Functions, SuperCollider Functions
 
 Categories: Scheduling
