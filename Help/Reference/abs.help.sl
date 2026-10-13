@@ -41,7 +41,7 @@ where it is also called the complex modulus or `norm`:
 (5, 5)
 ```
 
-`abs` collects over lists:
+`abs` threads over lists:
 
 ```
 >>> [-2.5 3.141 1.4J2.3 -2J1].abs

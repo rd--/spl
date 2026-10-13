@@ -1,6 +1,6 @@
 /* Requires: PositionableStream Stream */
 
-CollectionStream : [Object, Copy, Equal, Iterator, Stream, PositionableStream] {
+CollectionStream : [Object, Copy, Equal, Do, Collect, Iterator, Stream, PositionableStream] {
 
 	| collection positionIndex readLimit |
 

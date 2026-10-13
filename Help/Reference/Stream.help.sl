@@ -23,6 +23,18 @@ At an infinite `Range`:
 (1, 10_001, 20_003)
 ```
 
+Stream implements `Collect`:
+
+```
+>>> Stream[1 2 3 4 5]
+>>> .collect(square/1)
+>>> .items
+[1 4 9 16 26]
+
+>>> Stream[-1 0 1].abs.items
+[1 0 1]
+```
+
 Stream is a trait:
 
 ```
