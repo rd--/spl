@@ -3487,7 +3487,7 @@ Cf: Map
 *Description*: Provides protocol for adding elements to and removing
 elements from a variable sized collection.
 
-Cf: Extensible
+Cf: Add
 
 ### 5.7.5.1
 
@@ -4486,7 +4486,7 @@ Cf: ByteArray
 collection of objects, whose elements can be accessed using external
 integer keys.
 
-Cf: Extensible
+Cf: Remove
 
 ### 5.7.16.1
 

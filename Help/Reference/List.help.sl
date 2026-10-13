@@ -85,17 +85,18 @@ Traits implemented by `List`:
 >>> .traitNameList
 >>> .sort!
 [
+	'Add'
 	'Collection'
 	'Compare'
 	'Copy'
 	'Do'
 	'Equal'
-	'Extensible'
 	'Indexable'
 	'Json'
 	'Object'
 	'Ordered'
 	'PrimitiveArray'
+	'Remove'
 	'Sequence'
 	'Store'
 ]

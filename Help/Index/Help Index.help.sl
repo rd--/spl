@@ -87,18 +87,32 @@
 - `isAssociation`, `isAssociationList`
 - `capacity`, `depth`, `size`
 
-## Collection Types & Traits
+## Collection Traits
 
-- `Collection`, `Dictionary`, `Sequence`
+- `Add`
+- `ArithmeticProgression`
+- `Collection`
+- `Dictionary`
 - `Indexable`
-- `Extensible`
+- `Remove`
+- `Sequence`
 - `Unordered`
-- `List`, `IdentityMap`, `Record`, `IdentitySet`
-- `IdentityMultiset`, `Tree`, `Tuple`
-- `BitSet`, `PriorityQueue`, `SortedList`
-- `ArithmeticProgression`, `Range`
+
+## Collection Types
+
 - `Association`
+- `BitSet`
+- `IdentityMap`
+- `IdentityMultiset`
+- `IdentitySet`
 - `ListView`
+- `List`
+- `PriorityQueue`
+- `Range`
+- `Record`
+- `SortedList`
+- `Tree`
+- `Tuple`
 
 ## Combinatorial Functions
 

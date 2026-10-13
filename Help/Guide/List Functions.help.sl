@@ -2,10 +2,11 @@
 
 Traits
 
+- `Add`
+- `At`
 - `Collection`
 - `Do`
-- `Extensible`
-- `Indexable`
+- `Remove`
 
 Types:
 

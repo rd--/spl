@@ -1,4 +1,4 @@
-SortedList : [Object, Copy, Store, Equal, Compare, Do, Indexable, Collection, Extensible, Sequence] {
+SortedList : [Object, Copy, Store, Equal, Compare, Do, Indexable, Collection, Add, Remove, Sequence] {
 
 	| uncopiedList sortBlock |
 

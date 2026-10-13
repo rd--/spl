@@ -51,6 +51,7 @@ The list of system traits:
 >>> system.traitDictionary
 >>> .keys.sort!
 [
+	'Add'
 	'ArithmeticProgression'
 	'Binary'
 	'BinaryLargeObject'
@@ -67,7 +68,6 @@ The list of system traits:
 	'Event'
 	'EventTarget'
 	'Exception'
-	'Extensible'
 	'Frequency'
 	'Geometry'
 	'Graph'
@@ -92,6 +92,7 @@ The list of system traits:
 	'PrimitiveMap'
 	'ProbabilityDistribution'
 	'RandomNumberGenerator'
+	'Remove'
 	'Sequence'
 	'Set'
 	'Store'

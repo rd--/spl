@@ -12,15 +12,16 @@ List of traits implemented by `Record`:
 >>> .traitNameList
 >>> .sort!
 [
+	'Add'
 	'Collection'
 	'Copy'
 	'Dictionary'
 	'Do'
 	'Equal'
-	'Extensible'
 	'Indexable'
 	'Json'
 	'Object'
+	'Remove'
 	'Store'
 ]
 ```

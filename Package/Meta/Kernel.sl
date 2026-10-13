@@ -17,12 +17,13 @@
 	'PrimitiveMap'
 
 	/* Collection Traits */
+	'Add'
 	'ArithmeticProgression'
 	'Collection'
 	'Do'
-	'Extensible'
 	'Indexable'
 	'Ordered'
+	'Remove'
 	'Sequence'
 	'Unordered'
 	'Dictionary' /* Collection */

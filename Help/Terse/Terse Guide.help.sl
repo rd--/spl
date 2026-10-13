@@ -836,7 +836,7 @@ let b = ByteArray(4); b[2] := 15; b[4] := 240; b.base16Encode = '000F00F0'
 1:4.ByteArray.base16Encode = '01020304'
 let b = ByteArray(4); b.atAllPut(15); b.base16Encode = '0F0F0F0F'
 'string'.asciiByteArray.List = [115, 116, 114, 105, 110, 103] /* array from ByteArray */
-{ [1, 2, 3].ByteArray.add!(4) }.hasError /* ByteArrays are not Extensible */
+{ [1, 2, 3].ByteArray.add!(4) }.hasError /* ByteArrays are not extensible */
 1:9.ByteArray.select { :each | false } = [].ByteArray /* select nothing */
 1:9.ByteArray != [1 .. 9] /* ByteArray and List of equal elements are not equal */
 1:9.ByteArray.hasEqualElements(1:9) /* ByteArray and List of equal elements */
@@ -1017,9 +1017,9 @@ let a = []; [1, 2].cartesianProductDo([3, 4]) { :x :y | a.add!(x -> y) }; a = [1
 [1 2; 3 4; 5 6].elementType = 'List'
 ```
 
-## Extensible (add) -- collection trait
+## Add -- collection trait
 ```
-system.includesPackage('Extensible') /* package */
+system.includesPackage('Add') /* package */
 let r = List(); r.add!('x'); r.add!('x'); r.size = 2
 let r = IdentityMultiset(); r.add!('x'); r.add!('x'); r.size = 2
 let r = Map(); r.add!('x' -> 1); r.add!('y' -> 2); r.size = 2
@@ -1028,7 +1028,7 @@ let r = IdentitySet(); r.add!('x'); r.add!('y'); r.size = 2
 let r = ''; { r.add!('x') }.hasError
 ```
 
-## Extensible (remove) -- collection trait
+## Remove -- collection trait
 ```
 let r = List(); r.add!('x'); r.remove!('x'); r.size = 0
 let r = IdentityMultiset(); r.add!('x'); r.remove!('x'); r.size = 0

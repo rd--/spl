@@ -322,6 +322,7 @@ Reference/addFirst.help.sl
 Reference/addFrame.help.sl
 Reference/addFrameWithAnimator.help.sl
 Reference/add.help.sl
+Reference/Add.help.sl
 Reference/addIfNotPresent.help.sl
 Reference/additivePersistence.help.sl
 Reference/addLast.help.sl
@@ -1422,7 +1423,6 @@ Reference/exradii.help.sl
 Reference/extangentsTriangle.help.sl
 Reference/extendedEuclideanAlgorithm.help.sl
 Reference/extendedGcd.help.sl
-Reference/Extensible.help.sl
 Reference/exteriorAngles.help.sl
 Reference/extouchTriangle.help.sl
 Reference/extractDocumentationTests.help.sl
@@ -3518,6 +3518,7 @@ Reference/removeDirectory.help.sl
 Reference/removeFile.help.sl
 Reference/removeFirst.help.sl
 Reference/remove.help.sl
+Reference/Remove.help.sl
 Reference/removeIfAbsent.help.sl
 Reference/removeKey.help.sl
 Reference/removeKeyIfAbsent.help.sl

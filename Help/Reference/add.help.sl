@@ -94,7 +94,7 @@ At `SortedList`:
 SortedList[1 2 3 4 5 6 7]
 ```
 
-At `String`, which is not `Extensible`:
+At `String`, which is not extensible:
 
 ```
 >>> { 'string'.add!('?') }.hasError
@@ -103,7 +103,7 @@ true
 
 * * *
 
-See also: addAll, addFirst, addLast, Extensible, include, remove
+See also: Add, addAll, addFirst, addLast, include, remove
 
 Guides: Dictionary Functions, List Functions
 
