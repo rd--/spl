@@ -76,7 +76,7 @@
 
 }
 
-LinkedList : [Object, Copy, Store, Equal, Compare, Do, Indexable, Collect, FiniteCollection, Add, Remove, Sequence] {
+LinkedList : [Object, Copy, Store, Equal, Compare, Do, At, Put, Collect, FiniteCollection, Add, Remove, Sequence] {
 
 	| firstLink lastLink |
 

@@ -1,4 +1,4 @@
-DirectedEdge : [Object, Store, Equal, Compare, Indexable] {
+DirectedEdge : [Object, Store, Equal, Compare, At] {
 
 	| vertexList |
 
@@ -8,7 +8,7 @@ DirectedEdge : [Object, Store, Equal, Compare, Indexable] {
 	}
 
 	at { :self :index |
-		self.vertexList.at(index)
+		self.vertexList[index]
 	}
 
 	compare { :self :anEdge |
@@ -31,15 +31,11 @@ DirectedEdge : [Object, Store, Equal, Compare, Indexable] {
 	}
 
 	head { :self |
-		self[2]
+		self.vertexList[2]
 	}
 
 	includes { :self :vertex |
 		self.vertexList.includes(vertex)
-	}
-
-	indices { :self |
-		[1 2]
 	}
 
 	isDirected { :self |
@@ -75,15 +71,12 @@ DirectedEdge : [Object, Store, Equal, Compare, Indexable] {
 	}
 
 	rename { :self :aDictionary |
-		aDictionary[self[1]] --> aDictionary[self[2]]
-	}
-
-	size { :self |
-		2
+		let [i, j] = self.vertexList;
+		aDictionary[i] --> aDictionary[j]
 	}
 
 	tail { :self |
-		self[1]
+		self.vertexList[1]
 	}
 
 	UndirectedEdge { :self |

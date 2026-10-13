@@ -1,4 +1,4 @@
-HashIndexTable : [Object, Indexable] {
+HashIndexTable : [Object, At, Put] {
 
 	| hashTable |
 
@@ -49,7 +49,7 @@ HashIndexTable : [Object, Indexable] {
 
 }
 
-JsonList : [Object, Indexable, JsonValue] {
+JsonList : [Object, At, Put, JsonValue] {
 
 	| values |
 
@@ -123,7 +123,7 @@ JsonNumber : [Object, JsonValue] {
 
 }
 
-JsonObject : [Object, Indexable, JsonValue] {
+JsonObject : [Object, At, Put, JsonValue] {
 
 	| names values table |
 

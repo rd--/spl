@@ -1,6 +1,6 @@
 /* Require: Object */
 
-@Indexable {
+@At {
 
 	@* { :self :indexList |
 		self.atAll(indexList)
@@ -26,45 +26,18 @@
 		self.includesIndex(index).if {
 			index
 		} {
-			self.error('@Indexable>>assertIsValidIndex: no such index', [index])
+			self.error('assertIsValidIndex: no such index', [index])
 		}
 	}
 
 	[at, @] { :self :index |
 		self.atIfAbsent(index) {
-			self.error('@Indexable>>at: invalid index', [index])
+			self.error('at: invalid index', [index])
 		}
-	}
-
-	atAllPut { :self :anObject |
-		self.indicesDo { :index |
-			self[index] := anObject
-		};
-		anObject
-	}
-
-	atAllPut { :self :indices :anObject |
-		indices.do { :index |
-			self[index] := anObject
-		};
-		anObject
-	}
-
-	atAllPutAll { :self :indices :values |
-		indices.withDo(values) { :index :value |
-			self[index] := value
-		};
-		values
 	}
 
 	atIfAbsent { :self :index :ifAbsent/0 |
-		self.typeResponsibility('@Indexable>>atIfPresentIfAbsent')
-	}
-
-	atIfAbsentPut { :self :index :ifAbsent/0 |
-		self.atIfAbsent(index) {
-			self[index] := ifAbsent()
-		}
+		self.typeResponsibility('atIfPresentIfAbsent')
 	}
 
 	atIfPresent { :self :index :ifPresent/1 |
@@ -96,10 +69,6 @@
 		self.atPath(self.shape.cartesianIndex(index))
 	}
 
-	atModify { :self :index :defaultValue :aBlock/1 |
-		self.put!(index, aBlock(self.atIfAbsent(index, { defaultValue })))
-	}
-
 	atOrMissing { :self :index |
 		self.atIfAbsent(index) {
 			Missing('NotAvailable', index)
@@ -122,35 +91,6 @@
 			};
 			item
 		}
-	}
-
-	atPathPut! { :self :indices :value |
-		let item = self;
-		indices.ifEmpty {
-			self.error('atPathPut!: empty indices')
-		} {
-			1.toDo(indices.size - 1) { :indicesIndex |
-				let index = indices[indicesIndex];
-				item := item[index]
-			};
-			item[indices.last] := value
-		}
-	}
-
-	put! { :self :index :anObject |
-		self.typeResponsibility('@Indexable>>put!')
-	}
-
-	put! { :self :primaryIndex :secondaryIndex :anObject |
-		self.at(primaryIndex).put!(secondaryIndex, anObject)
-	}
-
-	put! { :self :primaryIndex :secondaryIndex :tertiaryIndex :anObject |
-		self.at(primaryIndex).at(secondaryIndex).put!(tertiaryIndex, anObject)
-	}
-
-	put! { :self :primaryIndex :secondaryIndex :tertiaryIndex :quaternaryIndex :anObject |
-		self.at(primaryIndex).at(secondaryIndex).at(tertiaryIndex).put!(quaternaryIndex, anObject)
 	}
 
 	deepIndices { :self |
@@ -211,7 +151,7 @@
 
 	indexOf { :self :anObject |
 		self.indexOfIfAbsent(anObject) {
-			self.error('@Indexable>>indexOf: no such element')
+			self.error('indexOf: no such element')
 		}
 	}
 
@@ -227,7 +167,7 @@
 	}
 
 	indices { :self |
-		self.typeResponsibility('@Indexable>>indices')
+		self.typeResponsibility('indices')
 	}
 
 	indices { :self :aBlock/1 |

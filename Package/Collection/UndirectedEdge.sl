@@ -1,9 +1,9 @@
-UndirectedEdge : [Object, Store, Equal, Compare, Indexable] {
+UndirectedEdge : [Object, Store, Equal, Compare, At] {
 
 	| vertexList |
 
 	at { :self :index |
-		self.vertexList.at(index)
+		self.vertexList[index]
 	}
 
 	compare { :self :anEdge |
@@ -29,17 +29,14 @@ UndirectedEdge : [Object, Store, Equal, Compare, Indexable] {
 	}
 
 	hasCommonVertex { :self :anEdge |
-		self.vertexList.includes(anEdge[1]) | {
-			self.vertexList.includes(anEdge[2])
+		let [i, j] = anEdge.vertexList;
+		self.vertexList.includes(i) | {
+			self.vertexList.includes(j)
 		}
 	}
 
 	includes { :self :vertex |
 		self.vertexList.includes(vertex)
-	}
-
-	indices { :self |
-		[1 2]
 	}
 
 	isDirected { :self |
@@ -69,11 +66,8 @@ UndirectedEdge : [Object, Store, Equal, Compare, Indexable] {
 	}
 
 	rename { :self :aDictionary |
-		aDictionary[self[1]] --- aDictionary[self[2]]
-	}
-
-	size { :self |
-		2
+		let [i, j] = self.vertexList;
+		aDictionary[i] --- aDictionary[j]
 	}
 
 	UndirectedEdge { :self |

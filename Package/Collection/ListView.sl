@@ -1,4 +1,4 @@
-ListView : [Object, Equal, Compare, Do, Indexable, Collect, FiniteCollection, Sequence] {
+ListView : [Object, Equal, Compare, Do, At, Put, Collect, FiniteCollection, Sequence] {
 
 	| viewedList startIndex endIndex referenceIndex |
 

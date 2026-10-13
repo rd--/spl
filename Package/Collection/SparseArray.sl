@@ -1,4 +1,4 @@
-SparseArray : [Object, Store, Equal, Compare, Do, Indexable, Collect, FiniteCollection, Sequence] {
+SparseArray : [Object, Store, Equal, Compare, Do, At, Collect, FiniteCollection, Sequence] {
 
 	| linearIndexValueMap shape unspecifiedValue |
 

@@ -1,4 +1,4 @@
-RunArray : [Object, Equal, Store, Indexable] {
+RunArray : [Object, Equal, Store, At] {
 
 	| runLengths values cachedIndex cachedRun cachedOffset |
 

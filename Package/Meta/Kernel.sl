@@ -19,11 +19,12 @@
 	/* Collection Traits */
 	'Add'
 	'ArithmeticProgression'
+	'At'
 	'Collect'
 	'Do'
 	'FiniteCollection'
-	'Indexable'
 	'Ordered'
+	'Put'
 	'Remove'
 	'Sequence'
 	'Unordered'

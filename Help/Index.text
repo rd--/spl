@@ -492,6 +492,7 @@ Reference/atBlend.help.sl
 Reference/atEnd.help.sl
 Reference/atFold.help.sl
 Reference/at.help.sl
+Reference/At.help.sl
 Reference/atIfAbsent.help.sl
 Reference/atIfAbsentPut.help.sl
 Reference/atIfPresent.help.sl
@@ -1901,7 +1902,6 @@ Reference/incompleteGamma.help.sl
 Reference/increasingSubsequenceList.help.sl
 Reference/increment.help.sl
 Reference/indefiniteArticle.help.sl
-Reference/Indexable.help.sl
 Reference/indexForInserting.help.sl
 Reference/Index.help.sl
 Reference/indexOf.help.sl
@@ -3349,6 +3349,7 @@ Reference/Pulse.help.sl
 Reference/pushAllWithPriority.help.sl
 Reference/pushWithPriority.help.sl
 Reference/put.help.sl
+Reference/Put.help.sl
 Reference/putOn.help.sl
 Reference/putWrap.help.sl
 Reference/pyramidalNumber.help.sl

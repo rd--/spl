@@ -568,7 +568,7 @@
 
 }
 
-Dictionary : [Object, Copy, Store, Equal, Do, Indexable, Collect, FiniteCollection, Add, Remove, Dictionary] {
+Dictionary : [Object, Copy, Store, Equal, Do, At, Put, Collect, FiniteCollection, Add, Remove, Dictionary] {
 
 	| keys values comparator |
 

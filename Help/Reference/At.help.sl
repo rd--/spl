@@ -1,10 +1,10 @@
-# Indexable
+# At
 
-`Indexable` is a collection `Trait`.
+`At` is a collection `Trait`.
 
 ```
 >>> system
->>> .traitDictionary['Indexable']
+>>> .traitDictionary['At']
 >>> .isTrait
 true
 ```
@@ -12,22 +12,19 @@ true
 The required methods are:
 
 - `at`
-- `put`
 - `indices`
 - `size`
 
-The `At Syntax` and `Put Syntax` are implemented in terms of `Indexable` methods.
+`At Syntax` is implemented in terms of `At` methods.
 
-The `Dictionary` types are `Indexable` so that one may use the indexing syntax for dictionaries.
-
-Note, however, that `atAll` is not implemented at `Indexable`.
+Note, however, that `atAll` is not implemented at `At`.
 Instead is is implemented at `Sequence` since it requires `species` to decide the answer type.
 
-Types implementing `Indexable`:
+Types implementing `At`:
 
 ```
 >>> system
->>> .traitTypes('@Indexable')
+>>> .traitTypes('@At')
 >>> .sort!
 [
 	'AsciiString'
@@ -60,7 +57,7 @@ Types implementing `Indexable`:
 
 * * *
 
-See also: at, Collection, includesIndex, indices, indicesDo, put, size, withIndexDo
+See also: FiniteCollection, Put, at, includesIndex, indices, indicesDo, put, size, withIndexDo
 
 Guides: Dictionary Functions, Indexing Functions, List Functions
 

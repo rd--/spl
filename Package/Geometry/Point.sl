@@ -427,7 +427,7 @@ Point : [Object, Store, Equal, Geometry, CartesianCoordinates] {
 
 }
 
-+@Indexable {
++@At {
 
 	staircasePath { :self :aList :origin |
 		let c = [origin];

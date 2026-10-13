@@ -1,4 +1,4 @@
-Tree : [Object, Store, Equal, Do, Indexable] {
+Tree : [Object, Store, Equal, Do, At] {
 
 	| value subTrees |
 

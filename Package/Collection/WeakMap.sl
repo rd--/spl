@@ -1,6 +1,6 @@
 /* Requires: PrimitiveMap */
 
-WeakMap! : [Object, Indexable, PrimitiveMap] {
+WeakMap! : [Object, At, Put, PrimitiveMap] {
 
 	includesIndex { :self :key |
 		<primitive: return _self.has(_key);>

@@ -81,7 +81,7 @@ TextureProgram : [Object] {
 
 }
 
-+@Indexable {
++@At {
 
 	collectTextureProgram { :self :soundBlock/1 :delayTime/0 |
 		let index = 1;
