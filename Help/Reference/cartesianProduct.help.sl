@@ -2,7 +2,7 @@
 
 - _cartesianProduct(c₁, c₂)_
 
-Answer an array of the two-tuples of the Cartesian product of the two collections _c₁_ and _c₂_.
+Answer a two-column matrix enumerating the Cartesian product of the collections _c₁_ and _c₂_.
 
 The Cartesian product of two sets A and B is the set of all (a, b) where a ∈ A and b ∈ B.
 

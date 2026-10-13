@@ -973,14 +973,18 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 
 }
 
-+@Collection {
-
-	isFinite { :self |
-		self.allSatisfy(isFinite/1)
-	}
++@Collect {
 
 	isNaN { :self |
 		self.collect(isNaN/1)
+	}
+
+}
+
++@FiniteCollection {
+
+	isFinite { :self |
+		self.allSatisfy(isFinite/1)
 	}
 
 }

@@ -489,7 +489,7 @@ Tree : [Object, Store, Equal, Do, Indexable] {
 
 }
 
-+@Collection {
++@Collect {
 
 	matulaGoebelTree { :self |
 		self.collect(matulaGoebelTree/1)

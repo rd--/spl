@@ -1,49 +1,7 @@
-@Collection {
+@FiniteCollection {
 
 	# { :self |
 		self.size
-	}
-
-	[concatenation, ++] { :self :aCollection |
-		let answer = self.copy;
-		answer.addAll!(aCollection.assertIsCollection);
-		answer
-	}
-
-	[divide, /] { :self :anObject |
-		self.collect(/.bindRight(anObject))
-	}
-
-	[mod, %] { :self :anObject |
-		self.collect(%.bindRight(anObject))
-	}
-
-	[plus, +] { :self :anObject |
-		self.collect(+.bindRight(anObject))
-	}
-
-	[power, ^] { :self :anObject |
-		self.collect(^.bindRight(anObject))
-	}
-
-	[subtract, -] { :self :anObject |
-		self.collect(-.bindRight(anObject))
-	}
-
-	[times, *] { :self :anObject |
-		self.collect(*.bindRight(anObject))
-	}
-
-	adaptToIntegerAndApply { :self :anInteger :aBlock/2 |
-		self.collect { :each |
-			aBlock(anInteger, each)
-		}
-	}
-
-	adaptToNumberAndApply { :self :aNumber :aBlock/2 |
-		self.collect { :each |
-			aBlock(aNumber, each)
-		}
 	}
 
 	allEqualBy { :self :aBlock/2 |
@@ -84,7 +42,7 @@
 				}
 			};
 			(index = numberOfElements).ifFalse {
-				self.error('@Collection>>any: Not enough elements in collection')
+				self.error('any: Not enough elements in collection')
 			};
 			result
 		}
@@ -115,22 +73,6 @@
 
 	capacity { :self |
 		self.size
-	}
-
-	cartesianProductDo { :self :aCollection :aBlock/2 |
-		self.do { :x |
-			aCollection.do { :y |
-				aBlock(x, y)
-			}
-		}
-	}
-
-	cartesianProduct { :self :aCollection |
-		let answer = [];
-		self.cartesianProductDo(aCollection) { :i :j |
-			answer.add!([i, j])
-		};
-		answer
 	}
 
 	collect { :self :aBlock/1 |
@@ -191,46 +133,6 @@
 
 	copyList { :self |
 		self.List
-	}
-
-	copyWith { :self :newElement |
-		let answer = self.copy;
-		answer.add!(newElement);
-		answer
-	}
-
-	copyWithout { :self :oldElement |
-		self.reject { :each |
-			each = oldElement
-		}
-	}
-
-	copyWithoutAll { :self :aCollection |
-		self.reject { :each |
-			aCollection.includes(each)
-		}
-	}
-
-	copyWithoutIdenticalElements { :self |
-		let seen = IdentitySet();
-		self.select { :each |
-			seen.includes(each).if {
-				false
-			} {
-				seen.uncheckedInclude(each);
-				true
-			}
-		}
-	}
-
-	clip { :self :minMax |
-		self.collect { :each |
-			each.clip(minMax)
-		}
-	}
-
-	clip { :self |
-		self.clip([-1 1])
 	}
 
 	countsBy { :self :aBlock/1 |
@@ -371,7 +273,7 @@
 
 	extendedGcd { :self |
 		(self.size < 2).if {
-			self.error('@Collection>>extendedGcd')
+			self.error('@extendedGcd: size<2')
 		} {
 			let [g, c] = self[1].extendedGcd(self[2]);
 			3.toDo(self.size) { :each |
@@ -407,7 +309,7 @@
 	}
 
 	indices { :self |
-		nil
+		self.typeResponsibility('indices')
 	}
 
 	intersection { :self :aCollection |
@@ -504,7 +406,7 @@
 
 	isOfSameSizeCheck { :self :otherCollection |
 		(otherCollection.size = self.size).ifFalse {
-			self.error('@Collection>>isOfSameSizeCheck')
+			self.error('isOfSameSizeCheck: not same size', [otherCollection])
 		}
 	}
 
@@ -586,7 +488,7 @@
 
 	ofSize { :self :aNumber |
 		(self.size = aNumber).ifFalse {
-			self.error('@Collection>>ofSize')
+			self.error('ofSize: not equal', [aNumber])
 		};
 		self
 	}
@@ -662,36 +564,8 @@
 		}
 	}
 
-	replaceNaN { :self :anObject |
-		self.collect { :each |
-			each.isNaN.if {
-				anObject
-			} {
-				each
-			}
-		}
-	}
-
-	rescale { :self :a :b |
-		self.collect(rescaleBlock(a, b))
-	}
-
-	rescale { :self :a |
-		self.rescale(a, [0, 1])
-	}
-
 	rescale { :self |
 		self.rescale([self.deepMin, self.deepMax], [0, 1])
-	}
-
-	select { :self :aBlock/1 |
-		let answer = self.species.new;
-		self.do { :each |
-			aBlock(each).ifTrue {
-				answer.include!(each)
-			}
-		};
-		answer
 	}
 
 	selectDuplicates { :c |
@@ -699,14 +573,6 @@
 		c.select { :x |
 			d.includes(x)
 		}
-	}
-
-	selectThenCollect { :self :selectBlock/1 :collectBlock/1 |
-		let answer = self.species.new;
-		self.selectThenDo(selectBlock/1) { :each |
-			answer.add!(collectBlock(each))
-		};
-		answer
 	}
 
 	subsets { :self :aBlock/1 |
@@ -734,7 +600,9 @@
 	}
 
 	take { :self :maxNumberOfElements |
-		self.any(maxNumberOfElements.min(self.size))
+		self.any(
+			maxNumberOfElements.min(self.size)
+		)
 	}
 
 	tally { :self :aBlock/2 |

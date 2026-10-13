@@ -59,7 +59,7 @@ TimeStamp : [Object, Copy, Store, Equal, Compare] {
 
 }
 
-+@Collection {
++@FiniteCollection {
 
 	absoluteTime { :self |
 		self.collect(absoluteTime/1)

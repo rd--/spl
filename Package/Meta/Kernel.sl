@@ -19,8 +19,9 @@
 	/* Collection Traits */
 	'Add'
 	'ArithmeticProgression'
-	'Collection'
+	'Collect'
 	'Do'
+	'FiniteCollection'
 	'Indexable'
 	'Ordered'
 	'Remove'

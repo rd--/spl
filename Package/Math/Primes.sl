@@ -1141,7 +1141,7 @@
 
 }
 
-+@Collection {
++@FiniteCollection {
 
 	isCoprime { :self |
 		withReturn { :return/1 |
@@ -1155,6 +1155,10 @@
 			true
 		}
 	}
+
+}
+
++@Collect {
 
 	nonPrime { :self |
 		self.collect(nonPrime/1)

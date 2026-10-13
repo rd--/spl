@@ -14,7 +14,7 @@
 
 }
 
-+@Collection {
++@FiniteCollection {
 
 	alphabet { :self |
 		self.nub.sort

@@ -1,6 +1,6 @@
 /* Require: List, PrimitiveMap, Record, Void */
 
-Map! : [Object, Copy, Store, Equal, Do, Indexable, Collection, Add, Remove, Dictionary, PrimitiveMap] {
+Map! : [Object, Copy, Store, Equal, Do, Indexable, Collect, FiniteCollection, Add, Remove, Dictionary, PrimitiveMap] {
 
 	comparator { :self |
 		==

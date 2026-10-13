@@ -1,6 +1,6 @@
-/* Requires: Collection, Sequence */
+/* Requires: Collect, Sequence */
 
-+@Collection {
++@Collect {
 
 	[conjugate, +] { :self |
 		self.collect(conjugate/1)
@@ -1128,7 +1128,7 @@
 
 }
 
-+@Collection {
++@Collect {
 
 	atIntegerOrElementwise { :self :aBlock/1 |
 		self.collect { :each |

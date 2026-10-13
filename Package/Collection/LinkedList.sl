@@ -76,7 +76,7 @@
 
 }
 
-LinkedList : [Object, Copy, Store, Equal, Compare, Do, Indexable, Collection, Add, Remove, Sequence] {
+LinkedList : [Object, Copy, Store, Equal, Compare, Do, Indexable, Collect, FiniteCollection, Add, Remove, Sequence] {
 
 	| firstLink lastLink |
 
@@ -335,7 +335,7 @@ LinkedList : [Object, Copy, Store, Equal, Compare, Do, Indexable, Collection, Ad
 
 }
 
-+@Collection {
++@FiniteCollection {
 
 	LinkedList { :self |
 		let answer = LinkedList();

@@ -77,6 +77,22 @@
 		self.anyTrue(identity/1)
 	}
 
+	cartesianProductDo { :self :operand :aBlock/2 |
+		self.do { :x |
+			operand.do { :y |
+				aBlock(x, y)
+			}
+		}
+	}
+
+	cartesianProduct { :self :operand |
+		let answer = [];
+		self.cartesianProductDo(operand) { :i :j |
+			answer.add!([i, j])
+		};
+		answer
+	}
+
 	containsOnly { :x :y |
 		x.allSatisfy { :i |
 			y.includes(i)

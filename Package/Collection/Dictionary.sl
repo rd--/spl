@@ -552,11 +552,11 @@
 
 }
 
-+@Collection {
++@FiniteCollection {
 
 	dictionaryJoin { :self |
 		self.ifEmpty {
-			self.error('@Collection>>dictionaryJoin')
+			self.error('dictionaryJoin: empty collection')
 		} {
 			let answer = self.first.copy;
 			self.allButFirstDo { :each |
@@ -568,7 +568,7 @@
 
 }
 
-Dictionary : [Object, Copy, Store, Equal, Do, Indexable, Collection, Add, Remove, Dictionary] {
+Dictionary : [Object, Copy, Store, Equal, Do, Indexable, Collect, FiniteCollection, Add, Remove, Dictionary] {
 
 	| keys values comparator |
 

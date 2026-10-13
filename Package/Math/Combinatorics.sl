@@ -959,7 +959,7 @@
 
 }
 
-+@Collection {
++@Collect {
 
 	stirlingS2 { :n :m |
 		n.collect { :each |

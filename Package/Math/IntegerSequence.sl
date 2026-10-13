@@ -1927,7 +1927,7 @@
 
 }
 
-+@Collection {
++@FiniteCollection {
 
 	characteristicFunction { :a :i |
 		i.collect { :n |
@@ -2066,7 +2066,7 @@
 
 }
 
-+@Collection {
++@Collect {
 
 	inverseCantorPairingFunction { :self |
 		self.collect(inverseCantorPairingFunction/1)

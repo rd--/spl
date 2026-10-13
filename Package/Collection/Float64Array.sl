@@ -1,4 +1,4 @@
-Float64Array! : [Object, Copy, Store, Equal, Compare, Do, Indexable, Collection, Sequence, PrimitiveArray] {
+Float64Array! : [Object, Copy, Store, Equal, Compare, Do, Indexable, Collect, FiniteCollection, Sequence, PrimitiveArray] {
 
 	encode { :self :littleEndian |
 		<primitive: return sc.encodeFloat64Array(_self, _littleEndian);>

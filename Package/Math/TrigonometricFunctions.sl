@@ -222,7 +222,7 @@
 
 }
 
-+@Collection {
++@Collect {
 
 	arcCos { :self |
 		self.collect(arcCos/1)

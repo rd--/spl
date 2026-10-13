@@ -857,7 +857,6 @@ Reference/collatzTerrasTree.help.sl
 Reference/collectCatenate.help.sl
 Reference/collect.help.sl
 Reference/collectInto.help.sl
-Reference/Collection.help.sl
 Reference/CollectionStream.help.sl
 Reference/collectTextureProgram.help.sl
 Reference/collectThenSelect.help.sl
@@ -1508,6 +1507,7 @@ Reference/findTransientRepeat.help.sl
 Reference/finesSequence.help.sl
 Reference/fineStructureConstant.help.sl
 Reference/finiteAbelianGroupCount.help.sl
+Reference/FiniteCollection.help.sl
 Reference/finiteGroupCount.help.sl
 Reference/FiniteRange.help.sl
 Reference/FirstArg.help.sl

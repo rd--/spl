@@ -1,4 +1,4 @@
-SortedList : [Object, Copy, Store, Equal, Compare, Do, Indexable, Collection, Add, Remove, Sequence] {
+SortedList : [Object, Copy, Store, Equal, Compare, Do, Indexable, Collect, FiniteCollection, Add, Remove, Sequence] {
 
 	| uncopiedList sortBlock |
 
@@ -185,7 +185,7 @@ SortedList : [Object, Copy, Store, Equal, Compare, Do, Indexable, Collection, Ad
 
 }
 
-+@Collection {
++@FiniteCollection {
 
 	SortedList { :self :sortBlock/2 |
 		SortedList(self.items, sortBlock/2)

@@ -241,7 +241,7 @@
 
 }
 
-+@Collection {
++@Collect {
 
 	squareSpiralUnrank { :self |
 		self.collect(squareSpiralUnrank/1)

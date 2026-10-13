@@ -65,7 +65,7 @@ Association : [Object, Store, Copy, Equal, Compare] {
 
 }
 
-+@Collection {
++@Collect {
 
 	keyAndValue { :self |
 		self.collect(keyAndValue/1)

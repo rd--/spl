@@ -215,7 +215,7 @@ Quaternion : [Object, Store, Equal, Number] {
 
 }
 
-+@Collection {
++@Collect {
 
 	adaptToQuaternionAndApply { :self :aQuaternion :aBlock/2 |
 		self.collect { :each |

@@ -175,7 +175,7 @@
 
 }
 
-+@Collection {
++@Collect {
 
 	arcCosh { :self |
 		self.collect(arcCosh/1)

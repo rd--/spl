@@ -170,7 +170,7 @@ Quantity : [Object, Copy, Store, Equal, Compare, Frequency, Length, Mass, PlaneA
 
 }
 
-+@Collection {
++@Collect {
 
 	magnitude { :self |
 		self.collect(magnitude/1)

@@ -269,7 +269,7 @@
 
 }
 
-+@Collection {
++@Collect {
 
 	bartlettWindow { :self |
 		self.collect(bartlettWindow/1)

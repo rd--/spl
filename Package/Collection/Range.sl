@@ -1,4 +1,4 @@
-Range : [Object, Copy, Store, Equal, Compare, Do, Collection, Indexable, Sequence, ArithmeticProgression] {
+Range : [Object, Copy, Store, Equal, Compare, Do, Collect, FiniteCollection, Indexable, Sequence, ArithmeticProgression] {
 
 	| start stop step size |
 

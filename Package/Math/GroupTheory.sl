@@ -20,7 +20,7 @@
 
 }
 
-+@Collection {
++@Collect {
 
 	finiteAbelianGroupCount { :self |
 		self.collect(finiteAbelianGroupCount/1)

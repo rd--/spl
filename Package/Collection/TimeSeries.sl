@@ -1,4 +1,4 @@
-TimeSeries : [Object, Store, Equal, Do, Indexable, Collection] {
+TimeSeries : [Object, Store, Equal, Do, Indexable, Collect, FiniteCollection] {
 
 	| values times |
 

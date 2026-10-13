@@ -461,7 +461,7 @@
 
 }
 
-+@Collection {
++@FiniteCollection {
 
 	multinomial { :self |
 		self.sum.factorialOrGamma / self.factorialOrGamma.product

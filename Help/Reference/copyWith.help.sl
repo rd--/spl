@@ -2,7 +2,8 @@
 
 - _copyWith(c, x)_
 
-Answer a copy of the collection _c_ with new element _x_ added (as the last element if _c_ is sequenceable).
+Answer a copy of the collection _c_ with new element _x_ added
+(as the last element if _c_ is sequenceable).
 
 At `List`:
 

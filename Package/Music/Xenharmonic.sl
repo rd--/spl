@@ -152,7 +152,7 @@
 
 }
 
-+@Collection {
++@Collect {
 
 	benedettiHeight { :self |
 		self.collect(benedettiHeight/1)
@@ -164,14 +164,6 @@
 
 	keesSemiHeight { :self |
 		self.collect(keesSemiHeight/1)
-	}
-
-	kurenniemiMajorMinorIndex { :self |
-		let l = self.lcm.log;
-		let g = self.gcd.log;
-		self.collect { :each |
-			each.log.rescale([g, l], [-1, 1])
-		}.sum / self.size
 	}
 
 	octaveReduce { :self |
@@ -194,6 +186,18 @@
 
 	wilsonHeight { :self |
 		self.collect(wilsonHeight/1)
+	}
+
+}
+
++@FiniteCollection {
+
+	kurenniemiMajorMinorIndex { :self |
+		let l = self.lcm.log;
+		let g = self.gcd.log;
+		self.collect { :each |
+			each.log.rescale([g, l], [-1, 1])
+		}.sum / self.size
 	}
 
 }
@@ -260,15 +264,6 @@
 	}
 
 }
-
-+@Collection {
-
-	octaveReduce { :self |
-		self.collect(octaveReduce/1)
-	}
-
-}
-
 
 +SmallFloat {
 

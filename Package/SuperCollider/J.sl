@@ -14,7 +14,7 @@
 
 }
 
-+@Collection {
++@FiniteCollection {
 
 	maxSizeAtDepth { :self :depth |
 		let maxSize = 0;

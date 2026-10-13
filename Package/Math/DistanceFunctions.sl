@@ -296,7 +296,7 @@
 
 }
 
-+@Collection {
++@FiniteCollection {
 
 	nearestBy { :self :anObject :aBlock/2 |
 		let distanceList = self.collect { :each |

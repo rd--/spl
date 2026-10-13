@@ -1,4 +1,4 @@
-+@Collection {
++@FiniteCollection {
 
 	arithmeticMean { :self |
 		self.sum / self.size
@@ -59,7 +59,7 @@
 			self.isMatrix.if {
 				self.transpose.collect(kurtosis/1)
 			} {
-				'@Collection>>kurtosis: not vector or matrix'.error
+				'kurtosis: not vector or matrix'.error
 			}
 		}
 	}
@@ -166,7 +166,7 @@
 			self.isMatrix.if {
 				self.transpose.collect(skewness/1)
 			} {
-				'@Collection>>skewness: not vector or matrix'.error
+				'skewness: not vector or matrix'.error
 			}
 		}
 	}

@@ -16,7 +16,7 @@ Missing : [Object, Store, Equal] {
 
 }
 
-+@Collection {
++@FiniteCollection {
 
 	deepDeleteMissing { :self |
 		self.deleteMissing(Infinity)

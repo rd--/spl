@@ -1,4 +1,4 @@
-Storage! : [Object, Collection, Dictionary] {
+Storage! : [Object, Collect, FiniteCollection, Dictionary] {
 
 	[equal, =] { :self :anObject |
 		identical(self, anObject)

@@ -135,7 +135,7 @@ Residue : [Object, Store, Equal, Compare, Number] {
 
 }
 
-+@Collection {
++@Collect {
 
 	adaptToResidueAndApply { :self :aResidue :aBlock/2 |
 		self.collect { :each |

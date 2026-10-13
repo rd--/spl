@@ -1,23 +1,15 @@
-+@Collection {
++@Collect {
 
 	ampDb { :self |
 		self.collect(ampDb/1)
-	}
-
-	atExtending { :self :index |
-		self.error('atExtending: not a sequence')
-	}
-
-	cpsMidi { :self |
-		self.collect(cpsMidi/1)
 	}
 
 	dbAmp { :self |
 		self.collect(dbAmp/1)
 	}
 
-	extendTo { :self :size |
-		self.error('extendTo: not a sequence')
+	cpsMidi { :self |
+		self.collect(cpsMidi/1)
 	}
 
 	linLin { :self :inMin :inMax :outMin :outMax |
@@ -28,6 +20,18 @@
 
 	midiCps { :self |
 		self.collect(midiCps/1)
+	}
+
+}
+
++@FiniteCollection {
+
+	atExtending { :self :index |
+		self.error('atExtending: not a sequence')
+	}
+
+	extendTo { :self :size |
+		self.error('extendTo: not a sequence')
 	}
 
 	powersetBitwise { :self |

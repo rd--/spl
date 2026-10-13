@@ -1,6 +1,6 @@
 /* Requires: BitSet Set */
 
-ResidueSet : [Object, Store, Equal, Do, Collection, Add, Remove] {
+ResidueSet : [Object, Store, Equal, Do, Collect, FiniteCollection, Add, Remove] {
 
 	| leastResidueSet modulus |
 
@@ -103,7 +103,7 @@ ResidueSet : [Object, Store, Equal, Do, Collection, Add, Remove] {
 
 }
 
-+@Collection {
++@FiniteCollection {
 
 	ResidueSet { :self :modulus |
 		let r = newResidueSet().initializeSlots(IdentitySet(), modulus);

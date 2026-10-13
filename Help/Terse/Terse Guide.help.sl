@@ -3749,7 +3749,7 @@ system.methodDictionary['collect'][2]['List'].information.isMethodInformation = 
 system.methodDictionary.includesIndex('collect') = true
 system.allMethods.collect { :each | each.signature }.includes('@Do>>do/2') = true
 '@Do>>do/2'.parseMethodSignature = ['@Do', 'do/2']
-'@Collection'.parseQualifiedTraitName = 'Collection'
+'@Add'.parseQualifiedTraitName = 'Add'
 system.methodLookupAtType('collect', 2, 'List').isMethod = true
 let m = system.methodLookupAtType('plusSign', 2, 'SmallFloat'); m.operatorTokenOrQualifiedName = '+'
 system.methodImplementations('sum').collect { :each | each.origin.name }.includes('Multiset') = true
@@ -3795,7 +3795,7 @@ let [t, r] = { system.absoluteTime }.repeatedTiming(0.01); t < 0.00001 & { r > 1
 ```
 system.traitDictionary.isDictionary = true
 system.traitDictionary.includesIndex('Collection') = true
-system.traitTypes('@Collection').includes('List') = true
+system.traitTypes('@FiniteCollection').includes('List') = true
 system.typeTraits('List').includes('PrimitiveArray') = true
 system.methodTraits('atRandom/1').includesAll(['Collection', 'Sequence']) = true
 system.methodTraits('sum/1') = ['ArithmeticProgression', 'Collection', 'Do', 'Multiset']
