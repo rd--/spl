@@ -13,14 +13,16 @@ List of traits implemented by `Record`:
 >>> .sort!
 [
 	'Add'
-	'Collection'
+	'At'
+	'Collect'
 	'Copy'
 	'Dictionary'
 	'Do'
 	'Equal'
-	'Indexable'
+	'FiniteCollection'
 	'Json'
 	'Object'
+	'Put'
 	'Remove'
 	'Store'
 ]
@@ -145,7 +147,7 @@ and assocations are added at the end:
 
 * * *
 
-See also: encodeJson, Association, Dictionary, List, Map
+See also: Association, Dictionary, List, Map, encodeJson
 
 Guides: Dictionary Functions, Record Syntax
 

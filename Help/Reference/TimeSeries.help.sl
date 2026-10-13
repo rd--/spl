@@ -63,7 +63,7 @@ and `associations`:
 )
 ```
 
-Time series implements `at` and the `Collection` trait:
+Time series implements the `At` and `Collect` traits:
 
 ```
 >>> let ts = TimeSeries[1 3; 2 2; 3 1];

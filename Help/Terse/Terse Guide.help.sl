@@ -615,7 +615,6 @@ let c = IdentityMultiset(); c.addWithOccurrences!('x', 4); c.occurrencesOf('x') 
 [2, 3, 3, 4, 4, 4].IdentityMultiset.IdentitySet.occurrencesOf(3) = 1
 let s = IdentityMultiset(); 250.timesRepeat { s.add!([1 .. 4].shuffle!.printString) }; s.IdentitySet.size = 24
 [1, 2, 3, 1, 4].IdentityMultiset.isIndexable = false /* bags are not indexable */
-[1, 2, 3, 1, 4].IdentityMultiset.indices = nil /* sets are not indexable */
 let a = [1, 1, 2, 1, 2, 3, 1, 1, 2, 3, 4]; a.sum = a.IdentityMultiset.sum /* sum may be optimised */
 [1, 2, 3, 1, 3, 4].IdentityMultiset.valuesAndCounts = [1 -> 2, 2 -> 1, 3 -> 2, 4 -> 1].Map /* contents */
 [1, 1, 1, 1, 1, 2, 2, 2, 2, 3].IdentityMultiset.cumulativeCounts = [50 -> 1, 90 -> 2, 100 -> 3]
@@ -915,9 +914,9 @@ let c = Clock(); let i = 3; c.scheduleBlock(i) { :t | nil }; c.nextEntryTime <= 
 let c = Clock(); let i = 3; c.scheduleBlock(i) { :t | t.printLine }; c.removeAll!; c.nextEntryTime = nil
 ```
 
-## Collection -- collection trait
+## FiniteCollection -- collection trait
 ```
-system.includesPackage('Collection') /* collection package */
+system.includesPackage('FiniteCollection') /* collection package */
 [].isEmpty = true /* is collection empty */
 [].isCollection = true /* collection predicate */
 [].size = 0 /* the empty array has no elements */
@@ -2049,7 +2048,7 @@ let l = 1:99.LinkedList; l.removeAll!; l.isEmpty /* remove all */
 1:99.LinkedList.select(isEven/1).List = [2, 4 .. 98] /* select */
 1:9.LinkedList.selectThenCollect(isEven/1, square/1).List = [4, 16, 36, 64] /* avoid intermediate collection */
 1:9.LinkedList.collectThenSelect(square/1) { :each | each > 36 }.List = [49, 64, 81] /* avoid intermediate collection */
-1:9.LinkedList.reverse = [9, 8 .. 1] /* reverse, species is List */
+1:9.LinkedList.reverse = LinkedList[9, 8 .. 1] /* reverse */
 { LinkedList().removeFirst! }.hasError /* remove first, error if empty */
 { LinkedList().removeLast! }.hasError /* remove last, error if empty */
 let l = 1:5.LinkedList; l[3] = 3 /* index into */
@@ -3054,7 +3053,6 @@ let s = IdentitySet(); s.includeAll!([4 / 2, 4, 2]); s.size = 2 /* 4 / 2 = 2 */
 'hello'.characters.intersection('there'.characters) = 'he'.characters /* set intersection */
 'Smalltalk'.characters.includes('k') = true
 [1, 2, 3, 1, 4].IdentitySet.isIndexable = false /* sets are not indexable */
-[1, 2, 3, 1, 4].IdentitySet.indices = nil /* sets are not indexable */
 [1, 2, 2, 3, 3, 3].IdentitySet.occurrencesOf(3) = 1 /* number of occurrences of element in set (zero or one) */
 [1, 3, 3, 3].IdentitySet.occurrencesOf(2) = 0 /* number of occurrences of element in set (zero or one) */
 [5 4 6 7 8 9 10 11 3].IdentitySet = 3:11.IdentitySet /* from array out of order array */
@@ -3762,7 +3760,7 @@ system.methodTypes('last/1').includes('String') = true
 system.multipleArityMethodList.includes('caseOf') = true
 system.onlyZeroArityMethodList.includes('PriorityQueue') = true
 system.splOperatorNameTable['^'] = 'circumflexAccent' = true
-system.doesTraitImplementMethod('Collection', 'select') = true
+system.doesTraitImplementMethod('At', 'at') = true
 system.doesTypeImplementMethod('List', 'species') = true
 [1, 2, 3].respondsTo(select/2) = true /* does a value (courtesy the type) implement a method */
 system.methodPrintString('addInPlace').size >= 3
@@ -3794,18 +3792,18 @@ let [t, r] = { system.absoluteTime }.repeatedTiming(0.01); t < 0.00001 & { r > 1
 ## System -- traitDictionary
 ```
 system.traitDictionary.isDictionary = true
-system.traitDictionary.includesIndex('Collection') = true
+system.traitDictionary.includesIndex('FiniteCollection') = true
 system.traitTypes('@FiniteCollection').includes('List') = true
 system.typeTraits('List').includes('PrimitiveArray') = true
-system.methodTraits('atRandom/1').includesAll(['Collection', 'Sequence']) = true
-system.methodTraits('sum/1') = ['ArithmeticProgression', 'Collection', 'Do', 'Multiset']
+system.methodTraits('atRandom/1').includesAll(['FiniteCollection', 'Sequence']) = true
+system.methodTraits('sum/1') = ['ArithmeticProgression', 'Do', 'FiniteCollection', 'Multiset']
 system.traitTypes('@Object').includes('SmallFloat') = true
 system.traitLookup('Object').methodDictionary.includesIndex('respondsTo/2') = true
-system.traitLookup('Collection').isTrait = true
-system.traitLookup('Collection').name = 'Collection'
+system.traitLookup('FiniteCollection').isTrait = true
+system.traitLookup('Collect').name = 'Collect'
 system.traitLookup('Do').methodDictionary.includesIndex('do/2') = true
 system.traitLookup('Do').methodDictionary['do/2'].isMethod = true
-system.traitTypes('Collection').includes('List') = true
+system.traitTypes('Collect').includes('List') = true
 system.traitTypes('Dictionary').includes('Map') = true
 system.traitDictionary['Dictionary'].isTrait = true
 ```
@@ -3817,7 +3815,7 @@ system.typeDictionary.indices.includes('List') = true
 system.typeDictionary.includesIndex('List') = true
 system.typeDictionary['List'].typeOf = 'Type' /* type of type is Type */
 system.typeDictionary['List'].isType = true /* Type type predicate */
-system.typeDictionary['List'].traitNameList.includes('Collection') = true
+system.typeDictionary['List'].traitNameList.includes('Collect') = true
 system.typeDictionary['Association'].slotNameList = ['key', 'value']
 system.typeDictionary['Association'].methodDictionary.indices.includes('equalBy/3')
 system.typeDictionary['Association'].methodDictionary.includesIndex('key/1') = true

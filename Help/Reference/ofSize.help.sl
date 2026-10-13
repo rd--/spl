@@ -16,7 +16,7 @@ with `nil` as every element:
 [nil nil nil]
 ```
 
-At `Collection`,
+At `FiniteCollection`,
 ensure the collection _c_ has _n_ places:
 
 ```

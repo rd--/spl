@@ -70,6 +70,10 @@ UndirectedEdge : [Object, Store, Equal, Compare, At] {
 		aDictionary[i] --- aDictionary[j]
 	}
 
+	size { :unused |
+		2
+	}
+
 	UndirectedEdge { :self |
 		self
 	}

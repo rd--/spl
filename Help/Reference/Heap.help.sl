@@ -13,15 +13,17 @@ Insertion and removal times are more efficient than above upper bound, provided 
 a) Elements are only removed at the beginning
 b) Elements are added with arbitrary sort order
 
-Heap implements the `Do`, `Collection`, `Add` and `Remove` traits.
+Heap implements the `Do`, `At`, `Add` and `Remove` traits.
 
-Add all items in collection, which is out of order, and retrieve first (least) element:
+Add all items from a collection,
+which is out of order,
+and retrieve first (least) element:
 
 ```
 >>> let h = Heap();
 >>> h.addAll!([5 7 1 3]);
->>> h.first
-1
+>>> (h.first, h.size, h[2])
+(1, 4, 3)
 ```
 
 * * *

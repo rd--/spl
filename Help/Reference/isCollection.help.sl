@@ -1,13 +1,13 @@
 # isCollection
 
-- _isCollection(anObject)_
+- _isCollection(x)_
 
-Answer `true` if _anObject_ is a sort of `Collection`,
+Answer `true` if the object _x_ is a sort of `FiniteCollection`,
 understanding the collection messages such as `size` and `do`.
 The opposite predicate is `isAtom`.
 
 * * *
 
-See also: isAtom, Collection, collect, do, size, species
+See also: FiniteCollection, isAtom, collect, do, size, species
 
 Categories: Testing, Collection

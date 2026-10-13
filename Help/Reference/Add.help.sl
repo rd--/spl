@@ -1,6 +1,6 @@
 # Add
 
-`Add` is a `Collection` `Trait` holding behaviours common to extensible collections.
+`Add` is a collection `Trait` holding behaviours common to extensible collections.
 
 ```
 >>> system

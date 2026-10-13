@@ -1,6 +1,6 @@
 # Remove
 
-`Remove` is a `Collection` `Trait` holding behaviours common to contractible collections.
+`Remove` is a collection `Trait` holding behaviours common to contractible collections.
 
 ```
 >>> system

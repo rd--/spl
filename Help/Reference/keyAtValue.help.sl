@@ -30,7 +30,7 @@ If there is no such value, signal an `error`:
 true
 ```
 
-This is the `Dictionary` form of the `indexOf` method at `Indexable`.
+This is the `Dictionary` form of the `indexOf` method.
 
 * * *
 

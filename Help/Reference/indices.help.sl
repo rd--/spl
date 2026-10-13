@@ -65,7 +65,7 @@ The `size` of a collection is equal to the size of its `indices`:
 
 * * *
 
-See also: deepIndices, Dictionary, includesIndex, Indexable, indicesDo, indicesOf, keys, withIndexDo
+See also: At, Dictionary, deepIndices, includesIndex, indicesDo, indicesOf, keys, withIndexDo
 
 Guides: Dictionary Functions, List Functions
 

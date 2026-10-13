@@ -1,4 +1,4 @@
-Heap : [Object, Copy, Store, Equal, Do, Collect, FiniteCollection, Add, Remove] {
+Heap : [Object, Copy, Store, Equal, Do, At, Add, Remove] {
 
 	| array sortBlock indexUpdateBlock |
 
@@ -25,11 +25,6 @@ Heap : [Object, Copy, Store, Equal, Do, Collect, FiniteCollection, Add, Remove] 
 
 	capacity { :self |
 		self.size
-	}
-
-	collect { :self :aBlock/1 |
-		self.array.collect!(aBlock/1);
-		self
 	}
 
 	compareItems { :self :anItem :anotherItem |
@@ -130,14 +125,11 @@ Heap : [Object, Copy, Store, Equal, Do, Collect, FiniteCollection, Add, Remove] 
 		self.array := self.array.copy
 	}
 
-	put! { :self :index :newObject |
-		self.shouldNotImplement('put!')
-	}
-
 	removeIfAbsent! { :self :oldObject :aBlock/0 |
+		let array = self.array;
 		withReturn { :return/1 |
 			1.toDo(self.size) { :i |
-				(self.array[i] = oldObject).ifTrue {
+				(array[i] = oldObject).ifTrue {
 					self.uncheckedRemoveAt(i).return
 				}
 			};
@@ -161,51 +153,9 @@ Heap : [Object, Copy, Store, Equal, Do, Collect, FiniteCollection, Add, Remove] 
 		self.removeAt!(1)
 	}
 
-	select { :self :aBlock/1 |
-		let newCollection = Heap();
-		1.toDo(self.size) { :index |
-			let element = self.array[index];
-			aBlock(element).ifTrue {
-				newCollection.add!(element)
-			}
-		};
-		newCollection
-	}
-
 	size { :self |
 		self.array.size
 	}
-
-	/*
-	sort! { :self |
-		let start = 1;
-		let array = self.array;
-		let end = array.size;
-		let index = end;
-		{ index > 1 }.whileTrue {
-			let element = array[index];
-			array[index] := array[1];
-			array[1] := element;
-			index := index - 1;
-			self.downHeap(1); array.printLine
-		};
-		index := end;
-		{ start < end }.whileTrue {
-			let element = array[start];
-			let endValue = array[end];
-			array[start] := endValue;
-			array[end] := element;
-			self.indexUpdate(endValue, start);
-			self.indexUpdate(element, end);
-			start := start + 1;
-			end := end - 1; [start, end, array].printLine
-		};
-		(start = end).ifTrue {
-			self.indexUpdateBlock(array[start], start)
-		};
-		self
-	}
-	*/
 
 	uncheckedRemoveAt { :self :index |
 		let removed = self.array.at(index);

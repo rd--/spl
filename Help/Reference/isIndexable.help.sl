@@ -2,7 +2,7 @@
 
 - _isIndexable(x)_
 
-Answers `true` if the object _x_ is a `Collection` where the elements can be accessed using an index.
+Answers `true` if the object _x_ is a `FiniteCollection` where the elements can be accessed using an index.
 The index may be of any type, so that `List` and `Map` and `Record` all answer `true`.
 
 At `List`:

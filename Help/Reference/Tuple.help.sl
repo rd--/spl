@@ -30,7 +30,7 @@ There is a syntax for writing tuples, `Tuple Syntax`:
 true
 ```
 
-Tuple does not implement `Indexable`:
+Tuple does not implement `At` or `Put`:
 
 ```
 >>> (1, 2, 3).isIndexable
@@ -44,7 +44,7 @@ Tuple does not implement `Do`:
 false
 ```
 
-Tuple does not implement `Collection`:
+Tuple does not implement `FiniteCollection`:
 
 ```
 >>> (1, 2, 3).isCollection

@@ -2,14 +2,14 @@
 
 - _assertIsCollection(x)_
 
-Answer _x_ if _x_ is a `Collection`, else signal an `error`.
+Answer _x_ if _x_ is a `FiniteCollection`, else signal an `error`.
 
 ```
 >>> 1:4.assertIsCollection
 1:4
 ```
 
-A `String` is not a `Collection`:
+A `String` is not a `FiniteCollection`:
 
 ```
 >>> {

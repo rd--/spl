@@ -294,7 +294,7 @@ and the `flatten` of a `Tree` is the same as the `flatten` of an equivalent nest
 [1 2 4 7 5 3 6 8 9]
 ```
 
-`Trees` are `Indexable`.
+`Trees` implement `At`.
 `indices` answers a `Range` of the indices to the immediate sub-trees:
 
 ```

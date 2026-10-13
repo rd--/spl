@@ -10,7 +10,7 @@ The basic protocols on a `Stream` are `next` and `reset`.
 
 * * *
 
-See also: next, peek, PositionableStream, reset, Stream, WriteStream
+See also: PositionableStream, Stream, WriteStream, next, peek, reset
 
 Guides: Stream Functions
 

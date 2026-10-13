@@ -532,21 +532,6 @@ Block! : [Object, Equal] {
 		answer
 	}
 
-	numArgsIfAbsent { :self :ifAbsent/0 |
-		/*
-		Js does not have a proper numArgs mechanism.
-		In the simple arity model Spl adds hasRestParameters to the arity dispatch method functions, else it is undefined.
-		From within Spl there is no concept of a variadic block.
-		*/
-		<primitive: return _self.hasRestParameters ? _ifAbsent() : _self.length;>
-	}
-
-	numArgsOrNil { :self |
-		self.numArgsIfAbsent {
-			nil
-		}
-	}
-
 	[numArgs, argumentCount] { :self |
 		<primitive: return _self.length;>
 	}

@@ -8,7 +8,8 @@ The layout is made using the graph visualization library _Graphviz_.
 Plot a complete graph on eight vertices:
 
 ~~~spl svg=A
-8.completeGraph.graphPlot
+8.completeGraph
+.graphPlot
 ~~~
 
 ![](Help/Image/graphPlot-A.svg)

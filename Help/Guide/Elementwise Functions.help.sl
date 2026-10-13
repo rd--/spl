@@ -5,7 +5,7 @@ or pointwise or componentwise,
 functions.
 
 Unary functions map an operator over a collection,
-and are applicable to any `Collection`:
+and are applicable to any value implementing `Collect`:
 
 ```
 >>> [1 4 9 16 25].sqrt

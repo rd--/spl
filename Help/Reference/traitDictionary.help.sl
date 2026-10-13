@@ -6,7 +6,7 @@ A `Dictionary` at `system` to hold the set of `Trait`s.
 
 ```
 >>> system
->>> .traitDictionary['Collection']
+>>> .traitDictionary['FiniteCollection']
 >>> .isTrait
 true
 
@@ -19,7 +19,7 @@ true
 
 * * *
 
-See also: methodDictionary, packageDictionary, System, Trait, typeDictionary
+See also: System, Trait, methodDictionary, packageDictionary, typeDictionary
 
 Guides: Reflection Functions
 

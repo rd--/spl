@@ -12,13 +12,14 @@ Traits implemented by `SortedSet`:
 >>> .traitNameList
 >>> .sort!
 [
-	'Collection'
+	'Add'
+	'Collect'
 	'Copy'
 	'Do'
 	'Equal'
-	'Add'
-	'Remove'
+	'FiniteCollection'
 	'Object'
+	'Remove'
 	'Set'
 	'Store'
 ]

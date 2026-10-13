@@ -23,7 +23,9 @@ Types implementing `Do`:
 [
 	'AsciiString'
 	'BitSet'
+	'BlockStream'
 	'ByteArray'
+	'CollectionStream'
 	'Dictionary'
 	'Float32Array'
 	'Float64Array'
@@ -37,6 +39,7 @@ Types implementing `Do`:
 	'Markdown'
 	'MemoizationTable'
 	'Multiset'
+	'MutableCollectionStream'
 	'NumericArray'
 	'Range'
 	'Record'
@@ -57,7 +60,7 @@ Types implementing `Do`:
 
 * * *
 
-See also: Collection, do, Iterator, size, Trait
+See also: Collect, Iterator, Trait, do, size
 
 Guides: Stream Functions
 

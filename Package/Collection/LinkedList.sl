@@ -326,7 +326,7 @@ LinkedList : [Object, Copy, Store, Equal, Compare, Do, At, Put, Collect, FiniteC
 	}
 
 	species { :self |
-		List/1
+		LinkedList/0
 	}
 
 	storeString { :self |
@@ -339,9 +339,7 @@ LinkedList : [Object, Copy, Store, Equal, Compare, Do, At, Put, Collect, FiniteC
 
 	LinkedList { :self |
 		let answer = LinkedList();
-		self.do { :each |
-			answer.add!(each)
-		};
+		answer.addAll!(self);
 		answer
 	}
 

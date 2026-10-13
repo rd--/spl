@@ -18,7 +18,7 @@ with the specified default value:
 [nil nil nil nil nil]
 ```
 
-At `Collection`,
+At a `FiniteCollection`,
 answer a `List` whose elements are the elements of _x_.
 
 If the collection is a `List`, answer it directly.
@@ -86,16 +86,18 @@ Traits implemented by `List`:
 >>> .sort!
 [
 	'Add'
-	'Collection'
+	'At'
+	'Collect'
 	'Compare'
 	'Copy'
 	'Do'
 	'Equal'
-	'Indexable'
+	'FiniteCollection'
 	'Json'
 	'Object'
 	'Ordered'
 	'PrimitiveArray'
+	'Put'
 	'Remove'
 	'Sequence'
 	'Store'
@@ -242,7 +244,7 @@ OEIS [A091978](https://oeis.org/A091978):
 
 * * *
 
-See also: #, !, ByteArray, Float64Array, Type, enclose, nest
+See also: ByteArray, Float64Array, Type, #, !, enclose, nest
 
 Guides: List Syntax, Vector Syntax
 

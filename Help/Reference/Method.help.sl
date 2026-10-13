@@ -4,16 +4,17 @@
 
 Methods have the fields:
 
-- _arity_: an integer indicating the required number of arguments
-- _name_: a string
-- _origin_: the name of the `Type` or `Trait` where the method is defined
-- _block_: the compiled implementation of the method
-- _sourceCode_: the definition of the method, a `String`
+- `arity`: the required number of arguments
+- `name`: the unqualified method name
+- `origin`: the type or trait where the method is defined
+- `block`: the compiled implementation of the method
+- `sourceCode`: the definition of the method
 
 The `methodDictionary` is reflected in the `System` type:
 
 ```
->>> system.methodDictionary.isDictionary
+>>> system.methodDictionary
+>>> .isDictionary
 true
 ```
 
@@ -33,10 +34,11 @@ true
 >>> 	2,
 >>> 	'List'
 >>> );
+>>> let f/2 = m.block;
 >>> (
 >>> 	m.isMethod,
 >>> 	m.origin.name,
->>> 	m.block . ([3 4 5], { :x | x * x })
+>>> 	f([3 4 5], { :x | x * x })
 >>> )
 (true, 'PrimitiveArray', [9 16 25])
 
@@ -60,7 +62,7 @@ true
 
 * * *
 
-See also: methodDictionary, methodLookupAtType, parameterNames, System, Trait, Type
+See also: System, Trait, Type, methodDictionary, methodLookupAtType, parameterNames
 
 Guides: Defining Methods, Reflection Functions
 

@@ -34,7 +34,7 @@ At `Range`:
 ByteArray[1 2 3 4 5]
 ```
 
-`ByteArray` implements `Collection`:
+`ByteArray` implements `Sequence`:
 
 ```
 >>> ByteArray[1 3 5 7] ^ 2

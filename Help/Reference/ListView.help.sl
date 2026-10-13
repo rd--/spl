@@ -14,13 +14,16 @@ Traits implemented by `ListView`:
 ```
 >>> system.typeLookup('ListView')
 >>> .traitNameList
+>>> .sort!
 [
-	'Object'
-	'Equal'
+	'At'
+	'Collect'
 	'Compare'
 	'Do'
-	'Indexable'
-	'Collection'
+	'Equal'
+	'FiniteCollection'
+	'Object'
+	'Put'
 	'Sequence'
 ]
 ```
@@ -133,7 +136,7 @@ The index of an item is one less at a zero-indexed list view:
 
 * * *
 
-See also: copyFromTo, List
+See also: List, copyFromTo
 
 Guides: List Functions
 

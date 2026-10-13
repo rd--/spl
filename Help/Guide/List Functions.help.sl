@@ -4,8 +4,10 @@ Traits
 
 - `Add`
 - `At`
-- `Collection`
+- `Collect`
 - `Do`
+- `FiniteCollection`
+- `Put`
 - `Remove`
 
 Types:

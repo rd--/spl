@@ -27,6 +27,16 @@ Vertex list:
 1 --> 2
 ```
 
+`Directededge` implements the `At` trait,
+allowing edges to be destructured using `List Assignment Syntax`:
+
+```
+>>> let e = 13 --> 9;
+>>> let [i, j] = e;
+>>> (i, j)
+(13, 9)
+```
+
 A graph with directed edges:
 
 ~~~spl svg=A

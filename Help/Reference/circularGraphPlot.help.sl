@@ -8,7 +8,8 @@ where the vertices are placed in sequence on a circle.
 Plot a complete graph on eight vertices:
 
 ~~~spl svg=A
-13.completeGraph.circularGraphPlot
+13.completeGraph
+.circularGraphPlot
 ~~~
 
 ![](Help/Image/circularGraphPlot-A.svg)

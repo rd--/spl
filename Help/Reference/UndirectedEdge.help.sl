@@ -36,11 +36,13 @@ The vertices are sorted by construction:
 1 --- 2
 ```
 
-`UndirectedEdge` implements the `Indexable` trait:
+`UndirectedEdge` implements the `At` trait,
+allowing edges to be destructured using `List Assignment Syntax`:
 
 ```
 >>> let e = 13 --- 9;
->>> (e[1], e[2])
+>>> let [i, j] = e;
+>>> (i, j)
 (9, 13)
 ```
 

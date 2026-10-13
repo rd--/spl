@@ -91,9 +91,11 @@
 
 - `Add`
 - `ArithmeticProgression`
-- `Collection`
+- `At`
+- `Collect`
 - `Dictionary`
-- `Indexable`
+- `FiniteCollection`
+- `Put`
 - `Remove`
 - `Sequence`
 - `Unordered`

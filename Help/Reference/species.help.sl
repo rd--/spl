@@ -19,7 +19,7 @@ IdentitySet/0
 Record/0
 ```
 
-This is the mechanism by which `Trait` methods can generate new values of the required `Type`.
+This is the mechanism by which `Trait` methods can generate new values of the required `Type`:
 
 ```
 >>> [1 3 5].select { :x |
@@ -48,13 +48,14 @@ IdentityMultiset[3 5]
 The `species` of a `ResidueSet` constructs a set with the same modulus:
 
 ```
->>> 6.leastResidueSystem.select(isOdd/1)
+>>> 6.leastResidueSystem
+>>> .select(isOdd/1)
 ResidueSet([1 3 5], 6)
 ```
 
 * * *
 
-See also: new, newFrom, ofSize, Trait, Type, typeOf
+See also: Trait, Type, new, newFrom, ofSize, typeOf
 
 Guides: Collection Functions, Reflection Functions
 

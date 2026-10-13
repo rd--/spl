@@ -15,7 +15,7 @@ If the stream ends, the answer will contain fewer items than requested.
 
 _Note:_
 Squeak calls this `take`,
-however `take` is defined at `Collection`,
+however `take` is defined at `FiniteCollection`,
 and should answer a value of the same type, here a stream.
 
 * * *

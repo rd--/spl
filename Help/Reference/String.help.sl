@@ -9,12 +9,12 @@ List of traits implemented by `String`:
 >>> .traitNameList
 >>> .sort!
 [
+	'At'
 	'Character'
 	'Compare'
 	'Copy'
 	'Do'
 	'Equal'
-	'Indexable'
 	'Json'
 	'Object'
 	'Store'
@@ -31,8 +31,8 @@ String literal syntax:
 6
 ```
 
-Strings do not implement the `Collection` trait,
-however they do implement `Do`.
+Strings do not implement the `FiniteCollection` trait,
+however they do implement `At` and `Do`.
 
 There is a `Character` type,
 however ordinarily characters are represented as single element string values.
@@ -54,7 +54,7 @@ String indexing only makes sense for strings that are in the _Basic Multilingual
 
 * * *
 
-See also: AsciiString, asciiByteArray, BacktickQuotedString, characterList, Character, DoubleQuotedString, utf8ByteArray, utf16List
+See also: AsciiString, BacktickQuotedString, Character, DoubleQuotedString, asciiByteArray, characterList, utf8ByteArray, utf16List
 
 Guides: String Functions, String Syntax
 

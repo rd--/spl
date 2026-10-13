@@ -3,7 +3,7 @@
 - _isAtom(x)_
 
 Answer `true` if the object _x_ is indivisible,
-specifically if it does not implement the `Collection` trait.
+specifically if it does not implement the `FiniteCollection` trait.
 The opposite predicate is `isCollection`.
 
 At `String`:

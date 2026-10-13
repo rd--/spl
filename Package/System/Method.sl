@@ -1,4 +1,4 @@
-MethodInformation! : [Object, Equal] {
+MethodInformation! : [Object] {
 
 	arity { :self |
 		<primitive: return _self.arity;>
@@ -30,14 +30,14 @@ MethodInformation! : [Object, Equal] {
 
 }
 
-Method! : [Object] {
-
-	[equal, =] { :self :anObject |
-		identical(self, anObject)
-	}
+Method! : [Object, Equal] {
 
 	arity { :self |
 		self.information.arity
+	}
+
+	block { :self |
+		<primitive: return _self.block;>
 	}
 
 	definition { :self |
@@ -54,6 +54,10 @@ Method! : [Object] {
 				' }'
 			].stringCatenate
 		)
+	}
+
+	[equal, =] { :self :anObject |
+		identical(self, anObject)
 	}
 
 	information { :self |
@@ -80,15 +84,13 @@ Method! : [Object] {
 		self.information.packageName
 	}
 
-	block { :self |
-		<primitive: return _self.block;>
-	}
-
 	provenance { :self |
-		'%:%'.format([
-			self.packageName,
-			self.origin.name
-		])
+		'%:%'.format(
+			[
+				self.packageName,
+				self.origin.name
+			]
+		)
 	}
 
 	pseudoSlotNameList { :self |

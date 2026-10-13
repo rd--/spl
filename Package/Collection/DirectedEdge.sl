@@ -75,6 +75,10 @@ DirectedEdge : [Object, Store, Equal, Compare, At] {
 		aDictionary[i] --> aDictionary[j]
 	}
 
+	size { :unused |
+		2
+	}
+
 	tail { :self |
 		self.vertexList[1]
 	}

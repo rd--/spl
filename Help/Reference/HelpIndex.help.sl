@@ -18,7 +18,7 @@ Count _Reference_ files:
 >>> system.helpIndex
 >>> .names('Reference')
 >>> .size
-4194
+4197
 ```
 
 Count _Guide_ files:
@@ -27,11 +27,11 @@ Count _Guide_ files:
 >>> system.helpIndex
 >>> .names('Guide')
 >>> .size
-291
+292
 ```
 
 * * *
 
-See also: helpIndex, HelpFile
+See also: HelpFile, helpIndex
 
 Guides: Help Functions

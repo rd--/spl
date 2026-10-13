@@ -7,11 +7,12 @@ The dictionary keys are _qualified_ method names, i.e. _sum/1_.
 The `System` holds a dictionary of traits indexed by name:
 
 ```
->>> system.traitDictionary.isDictionary
+>>> system.traitDictionary
+>>> .isDictionary
 true
 
 >>> let d = system.traitDictionary;
->>> d.includesKey('Collection')
+>>> d.includesKey('FiniteCollection')
 true
 ```
 
@@ -19,14 +20,14 @@ true
 
 ```
 >>> system
->>> .traitLookup('Collection')
+>>> .traitLookup('FiniteCollection')
 >>> .isTrait
 true
 
 >>> system
->>> .traitLookup('Collection')
+>>> .traitLookup('FiniteCollection')
 >>> .name
-'Collection'
+'FiniteCollection'
 ```
 
 The `methodDictionary` of a `Trait` holds `Method` values:
@@ -49,16 +50,18 @@ The list of system traits:
 
 ```
 >>> system.traitDictionary
->>> .keys.sort!
+>>> .keys
+>>> .sort!
 [
 	'Add'
 	'ArithmeticProgression'
+	'At'
 	'Binary'
 	'BinaryLargeObject'
 	'Cache'
 	'CartesianCoordinates'
 	'Character'
-	'Collection'
+	'Collect'
 	'Colour'
 	'Compare'
 	'Copy'
@@ -68,11 +71,11 @@ The list of system traits:
 	'Event'
 	'EventTarget'
 	'Exception'
+	'FiniteCollection'
 	'Frequency'
 	'Geometry'
 	'Graph'
 	'ImplicitFloat'
-	'Indexable'
 	'Integer'
 	'Iterator'
 	'Json'
@@ -91,6 +94,7 @@ The list of system traits:
 	'PrimitiveError'
 	'PrimitiveMap'
 	'ProbabilityDistribution'
+	'Put'
 	'RandomNumberGenerator'
 	'Remove'
 	'Sequence'

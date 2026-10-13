@@ -33,7 +33,7 @@ or of the two number _m_ and _n_.
 [3, [-1, -1]]
 ```
 
-At `Collection`:
+At `List`:
 
 ```
 >>> [6 15 30].extendedGcd
