@@ -84,38 +84,38 @@ function help(): void {
 	console.log(`    ScPort=57110`);
 }
 
-function pathBasename(path: string): string {
+function pathBaseName(path: string): string {
 	return path.split(/[\\/]/).pop() || '';
 }
 
 /*
 function pathFinalExtension(path: string): string {
-	const basename = pathBasename(path);
-	const index = basename.lastIndexOf('.');
-	if (basename === '' || index < 1) {
+	const baseName = pathBaseName(path);
+	const index = baseName.lastIndexOf('.');
+	if (baseName === '' || index < 1) {
 		return '';
 	} else {
-		return basename.slice(index + 1);
+		return baseName.slice(index + 1);
 	}
 }
 */
 
 function pathWithoutAnyExtension(path: string): string {
-	const basename = pathBasename(path);
-	if (basename === '') {
+	const baseName = pathBaseName(path);
+	if (baseName === '') {
 		return '';
 	} else {
-		const index = basename.indexOf('.');
+		const index = baseName.indexOf('.');
 		if (index < 1) {
-			return basename;
+			return baseName;
 		} else {
-			return basename.slice(0, index);
+			return baseName.slice(0, index);
 		}
 	}
 }
 
 function cacheRewriteFile(slFileName: string): void {
-	const packageName = pathWithoutAnyExtension(pathBasename(slFileName));
+	const packageName = pathWithoutAnyExtension(pathBaseName(slFileName));
 	const jsFileName = '../.cache/' + packageName + '.js';
 	const slMtime = host.modificationTimeSync(slFileName);
 	const jsMtime = host.modificationTimeSync(jsFileName);

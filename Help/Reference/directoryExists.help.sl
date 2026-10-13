@@ -30,6 +30,13 @@ A directory that usually does not exist:
 false
 ```
 
+At `System`:
+
+```
+>>> system.directoryExists('/etc')
+true
+```
+
 * * *
 
 See also: fileExists, fileInformation

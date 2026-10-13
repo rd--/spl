@@ -447,7 +447,7 @@ HelpFile : [Object, Equal, Cache] {
 		.sort
 		.select { :each |
 			each.endsWith('.help.sl') & {
-				each.pathBasename.matchesRegularExpression(pattern)
+				each.pathBaseName.matchesRegularExpression(pattern)
 			}
 		}.do { :each |
 			let text = system.readTextFile(each);

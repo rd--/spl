@@ -14,7 +14,7 @@ and in addition implements the methods `lastModified` and `name`.
 
 ```
 >>> let x = File(
->>> 	[ByteArray(1:9)],
+>>> 	[ByteArray[1 .. 9]],
 >>> 	'x.bin',
 >>> 	(
 >>> 		type:

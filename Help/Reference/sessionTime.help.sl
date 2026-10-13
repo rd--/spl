@@ -11,6 +11,15 @@ This clock may be more accurate that the clock read by `absoluteTime`.
 (true, true)
 ```
 
+There is a variant form that answers in milliseconds:
+
+```
+>>> let a = system.sessionTime;
+>>> let b = system.sessionTimeInMilliseconds;
+>>> a * 1000
+b
+```
+
 * * *
 
 See also: System, absoluteTime

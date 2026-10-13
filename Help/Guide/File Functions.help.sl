@@ -34,7 +34,7 @@ File Information:
 
 File Paths:
 
-- `pathBasename`
+- `pathBaseName`
 - `pathDirectory`
 - `pathExtension`
 - `pathIsAbsolute`
@@ -46,6 +46,11 @@ File Paths:
 Temporary Files:
 
 - `temporaryFileName`
+
+Spl Files:
+
+- `splDirectory`
+- `splFileName`
 
 * * *
 

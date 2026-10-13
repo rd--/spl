@@ -18,6 +18,13 @@ If _p_ does not exist, the modification time will be reported as `zero`.
 0
 ```
 
+At `System`:
+
+```
+>>> system.modificationTime('/etc') > 0
+true
+```
+
 * * *
 
 See also: fileInformation

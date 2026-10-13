@@ -28,6 +28,14 @@ It is an `error` if the file does not exist:
 true
 ```
 
+At `System`:
+
+```
+>>> let i = system.fileInformation('/etc/passwd');
+>>> i['isFile']
+true
+```
+
 * * *
 
 See also: directoryExists, fileExists, modificationTime

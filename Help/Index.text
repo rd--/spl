@@ -3119,7 +3119,7 @@ Reference/parzenWindow.help.sl
 Reference/pascalCaseToWords.help.sl
 Reference/pascalMatrix.help.sl
 Reference/pascalTriangle.help.sl
-Reference/pathBasename.help.sl
+Reference/pathBaseName.help.sl
 Reference/pathDirectory.help.sl
 Reference/pathExtension.help.sl
 Reference/pathGraph.help.sl

@@ -7,7 +7,7 @@ A `Type` holding a file system path.
 Access components using
 `absolutePathString`,
 `directory`,
-`basename`,
+`baseName`,
 `stem`,
 `extension`:
 
@@ -16,7 +16,7 @@ Access components using
 >>> [
 >>> 	p.absolutePathString,
 >>> 	p.directory,
->>> 	p.basename,
+>>> 	p.baseName,
 >>> 	p.stem,
 >>> 	p.extension
 >>> ]
@@ -32,8 +32,7 @@ Access components using
 Convert to a `Url`:
 
 ```
->>> FilePath'/etc/fstab'
->>> .Url
+>>> Url(FilePath'/etc/fstab')
 Url'file:///etc/fstab'
 ```
 

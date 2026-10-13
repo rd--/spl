@@ -11,6 +11,8 @@ The provided methods are:
 - `new`
 - `newFrom`
 
+`species` answers a block that can be used to contruct a value of the requires type.
+
 `New` is a `Trait`:
 
 ```

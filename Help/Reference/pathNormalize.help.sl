@@ -11,7 +11,7 @@ Answer the normalized form of the path _p_.
 
 * * *
 
-See also: pathBasename, pathDirectory, pathExtension, pathIsAbsolute, pathJoin
+See also: pathBaseName, pathDirectory, pathExtension, pathIsAbsolute, pathJoin
 
 Guides: File Functions
 

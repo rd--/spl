@@ -21,13 +21,20 @@ A directory is not an ordinary file:
 false
 ```
 
-At a system file that usually does not exist:
+At a file that usually does not exist:
 
 ```
 >>> FilePath(
 >>> 	'/FileDoesNotExist'
 >>> ).fileExists
 false
+```
+
+At `System`:
+
+```
+>>> system.fileExists('/etc/passwd')
+true
 ```
 
 * * *

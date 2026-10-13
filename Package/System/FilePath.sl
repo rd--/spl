@@ -11,8 +11,8 @@ FilePath : [Object, Store, Equal] {
 		}
 	}
 
-	basename { :self |
-		self.filePathString.pathBasename
+	baseName { :self |
+		self.filePathString.pathBaseName
 	}
 
 	directory { :self |
@@ -105,8 +105,8 @@ FilePath : [Object, Store, Equal] {
 		newFilePath().initializeSlots(self)
 	}
 
-	pathBasename { :self |
-		<primitive: return sc.pathBasename(_self);>
+	pathBaseName { :self |
+		<primitive: return sc.pathBaseName(_self);>
 	}
 
 	pathDirectory { :self |

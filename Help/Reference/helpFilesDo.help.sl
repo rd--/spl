@@ -4,7 +4,7 @@
 
 Evaluate the block _f_ at each `HelpFile`,
 of kind _k_,
-where the `pathBasename` matches the regular expression _r_.
+where the `pathBaseName` matches the regular expression _r_.
 Answers `nil`.
 
 Print reference help files with an empty guides field:

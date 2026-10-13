@@ -12,13 +12,13 @@ Make a new collection like _c_ that has _n_ places with `nil` as every element.
 
 >>> let a = LinkedList[];
 >>> let b = a.new(3);
->>> (a, a = b, a !== b)
+>>> (b, a = b, a == b)
 (LinkedList[], true, false)
 
 >>> let a = LinkedList[];
 >>> let b = a.newOfSize(3);
->>> (a, a = b, a !== b)
-(LinkedList[], true, false)
+>>> (b, a = b, a == b)
+(LinkedList[nil nil nil], false, false)
 ```
 
 _Rationale_:

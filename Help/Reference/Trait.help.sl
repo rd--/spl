@@ -83,6 +83,7 @@ The list of system traits:
 	'Link'
 	'Mass'
 	'Multiset'
+	'New'
 	'Number'
 	'Object'
 	'OeisSequence'

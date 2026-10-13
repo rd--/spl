@@ -31,7 +31,7 @@ The extension is only the part following the final dot:
 
 * * *
 
-See also: pathBasename, pathDirectory, pathExtension, pathIsAbsolute, pathJoin, pathNormalize
+See also: pathBaseName, pathDirectory, pathExtension, pathIsAbsolute, pathJoin, pathNormalize
 
 Guides: File Functions
 

@@ -94,6 +94,7 @@ Traits implemented by `List`:
 	'Equal'
 	'FiniteCollection'
 	'Json'
+	'New'
 	'Object'
 	'Ordered'
 	'PrimitiveArray'

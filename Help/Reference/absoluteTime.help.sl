@@ -48,6 +48,15 @@ Not implemented at `Number`:
 true
 ```
 
+There is a variant form that answers in milliseconds:
+
+```
+>>> let a = system.absoluteTime;
+>>> let b = system.absoluteTimeInMilliseconds;
+>>> a * 1000
+b
+```
+
 * * *
 
 See also: Date, Number, System, TimeStamp, date, dateAndTime, now, sessionTime

@@ -34,6 +34,7 @@ Types implementing `At`:
 	'DirectedEdge'
 	'Float32Array'
 	'Float64Array'
+	'Heap'
 	'LinkedList'
 	'List'
 	'ListView'

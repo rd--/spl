@@ -4,6 +4,7 @@
 
 Answers the primary factory method for the type of the object _x_,
 or a more specific constructor if required.
+The answer block may be nullary or unary.
 
 ```
 >>> [1 3 5].species

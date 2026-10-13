@@ -23,4 +23,4 @@ The directory holding the Sᴘʟ help files:
 
 See also: environmentVariable, splDirectory
 
-Guides: Reflection Functions, System Functions
+Guides: File Functions, Reflection Functions, System Functions

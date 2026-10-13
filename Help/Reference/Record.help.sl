@@ -21,6 +21,7 @@ List of traits implemented by `Record`:
 	'Equal'
 	'FiniteCollection'
 	'Json'
+	'New'
 	'Object'
 	'Put'
 	'Remove'

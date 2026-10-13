@@ -49,7 +49,7 @@ The extension is only the part following the final dot:
 
 * * *
 
-See also: pathBasename, pathDirectory, pathIsAbsolute, pathJoin, pathNormalize, pathStem
+See also: pathBaseName, pathDirectory, pathIsAbsolute, pathJoin, pathNormalize, pathStem
 
 Guides: File Functions
 
