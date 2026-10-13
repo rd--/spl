@@ -3,7 +3,8 @@
 - _items(x, f/2)_
 
 Answer the items of _x_.
-The `items` of an `Iterable` object is a `List` of all of the items accessed by _f_, or by `do`.
+The `items` of a object that implements _f_ is a `List` of all of the items accessed by _f_,
+which if elided is `do`.
 
 At `Tree`:
 

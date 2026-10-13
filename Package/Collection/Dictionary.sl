@@ -568,7 +568,7 @@
 
 }
 
-Dictionary : [Object, Copy, Store, Equal, Iterable, Indexable, Collection, Extensible, Dictionary] {
+Dictionary : [Object, Copy, Store, Equal, Do, Indexable, Collection, Extensible, Dictionary] {
 
 	| keys values comparator |
 

@@ -1949,9 +1949,9 @@ let n = 0; 1:5.permutationsDo { :each | n := n + 1 }; n = 120 /* interval permut
 [9999 .. 99999].concisePrintString = 'a List (size: 90001)' /* consise printer */
 ```
 
-## Iterable -- collection trait
+## Do -- collection trait
 ```
-system.includesPackage('Iterable') /* Iterable package */
+system.includesPackage('Do') /* Do package */
 1:9.count(isOdd/1) = 5
 1:9.count(isEven/1) = 4
 1:9.countAll = 9
@@ -3747,16 +3747,16 @@ system.methodDictionary['collect'][2].isDictionary = true
 system.methodDictionary['collect'][2]['List'].isMethod = true
 system.methodDictionary['collect'][2]['List'].information.isMethodInformation = true
 system.methodDictionary.includesIndex('collect') = true
-system.allMethods.collect { :each | each.signature }.includes('@Iterable>>do/2') = true
-'@Iterable>>do/2'.parseMethodSignature = ['@Iterable', 'do/2']
+system.allMethods.collect { :each | each.signature }.includes('@Do>>do/2') = true
+'@Do>>do/2'.parseMethodSignature = ['@Do', 'do/2']
 '@Collection'.parseQualifiedTraitName = 'Collection'
 system.methodLookupAtType('collect', 2, 'List').isMethod = true
 let m = system.methodLookupAtType('plusSign', 2, 'SmallFloat'); m.operatorTokenOrQualifiedName = '+'
 system.methodImplementations('sum').collect { :each | each.origin.name }.includes('Multiset') = true
 system.methodSignatures('addInPlace').includes('@Dictionary>>addInPlace/2') = true
-'@Iterable>>sum/1'.parseMethodSignature = ['@Iterable', 'sum/1']
-'@Iterable'.isQualifiedTraitName = true
-system.methodLookupAtSignature('@Iterable>>sum/1').isMethod = true
+'@Do>>sum/1'.parseMethodSignature = ['@Do', 'sum/1']
+'@Do'.isQualifiedTraitName = true
+system.methodLookupAtSignature('@Do>>sum/1').isMethod = true
 system.methodLookupAtType('min', 1, 'List').sourceCode = '{ :self |\n\t\tself.reduce(min/2)\n\t}'
 system.methodTypes('last/1').includes('String') = true
 system.multipleArityMethodList.includes('caseOf') = true
@@ -3778,7 +3778,7 @@ system.methodLookupAtType('sum', 1, 'List') == system.methodLookupAtType('sum', 
 system.packageDictionary.isDictionary = true
 system.packageDictionary.isEmpty = false
 let t = system.packageTypes('Complex'); t.size = 1 & { t[1].name = 'Complex' }
-let t = system.packageTraits('Iterable'); t.size = 1 & { t[1].name = 'Iterable' }
+let t = system.packageTraits('Do'); t.size = 1 & { t[1].name = 'Do' }
 system.packageMethods('Frequency').detect { :each | each.name = 'inHertz' }.arity = 1
 ```
 
@@ -3798,13 +3798,13 @@ system.traitDictionary.includesIndex('Collection') = true
 system.traitTypes('@Collection').includes('List') = true
 system.typeTraits('List').includes('PrimitiveArray') = true
 system.methodTraits('atRandom/1').includesAll(['Collection', 'Sequence']) = true
-system.methodTraits('sum/1') = ['ArithmeticProgression', 'Collection', 'Iterable', 'Multiset']
+system.methodTraits('sum/1') = ['ArithmeticProgression', 'Collection', 'Do', 'Multiset']
 system.traitTypes('@Object').includes('SmallFloat') = true
 system.traitLookup('Object').methodDictionary.includesIndex('respondsTo/2') = true
 system.traitLookup('Collection').isTrait = true
 system.traitLookup('Collection').name = 'Collection'
-system.traitLookup('Iterable').methodDictionary.includesIndex('do/2') = true
-system.traitLookup('Iterable').methodDictionary['do/2'].isMethod = true
+system.traitLookup('Do').methodDictionary.includesIndex('do/2') = true
+system.traitLookup('Do').methodDictionary['do/2'].isMethod = true
 system.traitTypes('Collection').includes('List') = true
 system.traitTypes('Dictionary').includes('Map') = true
 system.traitDictionary['Dictionary'].isTrait = true

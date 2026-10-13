@@ -19,9 +19,9 @@
 	/* Collection Traits */
 	'ArithmeticProgression'
 	'Collection'
+	'Do'
 	'Extensible'
 	'Indexable'
-	'Iterable'
 	'Ordered'
 	'Sequence'
 	'Unordered'

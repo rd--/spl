@@ -1,4 +1,4 @@
-@Iterable {
+@Do {
 
 	[and, &] { :self |
 		self.allSatisfy(nullaryApply/1)
@@ -58,7 +58,7 @@
 			self.do { :each |
 				each.return
 			};
-			self.error('@Iterable>>anyOne: empty iterable')
+			self.error('@Do>>anyOne: empty iterable')
 		}
 	}
 
@@ -182,7 +182,7 @@
 
 	detect { :self :aBlock/1 |
 		self.detectIfNone(aBlock/1) {
-			self.error('@Iterable>>detect: not found')
+			self.error('@Do>>detect: not found')
 		}
 	}
 
@@ -272,7 +272,7 @@
 	}
 
 	do { :self :aBlock/1 |
-		self.typeResponsibility('@Iterable>>do')
+		self.typeResponsibility('@Do>>do')
 	}
 
 	doSeparatedBy { :self :elementBlock/1 :separatorBlock/0 |
@@ -392,10 +392,6 @@
 
 	isDuplicateFree { :self |
 		self.isDuplicateFree(equal/2)
-	}
-
-	isIterable { :unused |
-		true
 	}
 
 	isProperSubset { :self :aCollection |
@@ -559,7 +555,7 @@
 			}
 		};
 		isFirst.ifTrue {
-			self.error('@Iterable>>reduceBy: empty collection')
+			self.error('@Do>>reduceBy: empty collection')
 		};
 		nextValue
 	}
@@ -628,14 +624,6 @@
 		self.withLevelDo(aBlock/2, 1);
 		aBlock(self, 0);
 		nil
-	}
-
-}
-
-+@Object {
-
-	isIterable { :unused |
-		false
 	}
 
 }

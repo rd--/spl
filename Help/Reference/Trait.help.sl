@@ -33,13 +33,13 @@ The `methodDictionary` of a `Trait` holds `Method` values:
 
 ```
 >>> system
->>> .traitLookup('Iterable')
+>>> .traitLookup('Do')
 >>> .methodDictionary
 >>> .includesKey('sum/1')
 true
 
 >>> system
->>> .traitLookup('Iterable')
+>>> .traitLookup('Do')
 >>> .methodDictionary['sum/1']
 >>> .isMethod
 true
@@ -62,6 +62,7 @@ The list of system traits:
 	'Compare'
 	'Copy'
 	'Dictionary'
+	'Do'
 	'Equal'
 	'Event'
 	'EventTarget'
@@ -73,7 +74,6 @@ The list of system traits:
 	'ImplicitFloat'
 	'Indexable'
 	'Integer'
-	'Iterable'
 	'Iterator'
 	'Json'
 	'Length'

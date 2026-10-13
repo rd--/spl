@@ -1,6 +1,6 @@
 /* Requires: Set */
 
-IdentitySet! : [Object, Copy, Store, Equal, Iterable, Collection, Extensible, Unordered, Set] {
+IdentitySet! : [Object, Copy, Store, Equal, Do, Collection, Extensible, Unordered, Set] {
 
 	do { :self :aBlock |
 		<primitive:

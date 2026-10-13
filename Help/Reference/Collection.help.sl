@@ -47,7 +47,7 @@ Types implementing `Collection`:
 ```
 
 The required methods are `do` and `size`,
-meaning that all collections can also implement `Iterable`:
+meaning that all collections can also implement `Do`:
 
 - `do`
 - `size`

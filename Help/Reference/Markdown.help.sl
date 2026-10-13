@@ -36,7 +36,7 @@
 )
 ```
 
-`Markdown` is `Iterable`,
+`Markdown` is iterable,
 `do` iterates _depth-first_ over the tree structure of the document,
 answering a `Record` value for each node in the parse tree,
 and `contents` collects these nodes into a list:

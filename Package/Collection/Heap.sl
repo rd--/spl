@@ -1,4 +1,4 @@
-Heap : [Object, Copy, Store, Equal, Iterable, Collection, Extensible] {
+Heap : [Object, Copy, Store, Equal, Do, Collection, Extensible] {
 
 	| array sortBlock indexUpdateBlock |
 

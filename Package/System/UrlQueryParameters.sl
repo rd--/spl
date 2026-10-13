@@ -6,7 +6,7 @@
 
 }
 
-URLSearchParams! : [Object, Iterable, UrlQueryParameters] {
+URLSearchParams! : [Object, Do, UrlQueryParameters] {
 
 	[equal, =] { :self :anObject |
 		anObject.isUrlQueryParameters & {

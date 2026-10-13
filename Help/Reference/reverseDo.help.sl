@@ -31,7 +31,7 @@ At `Range`:
 
 * * *
 
-See also: do, Iterable
+See also: Do, do
 
 Guides: List Functions
 

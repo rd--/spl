@@ -12,9 +12,9 @@ List of traits implemented by `String`:
 	'Character'
 	'Compare'
 	'Copy'
+	'Do'
 	'Equal'
 	'Indexable'
-	'Iterable'
 	'Json'
 	'Object'
 	'Store'
@@ -31,7 +31,8 @@ String literal syntax:
 6
 ```
 
-Strings do not implement the `Collection` trait, however they are `Iterable`.
+Strings do not implement the `Collection` trait,
+however they do implement `Do`.
 
 There is a `Character` type,
 however ordinarily characters are represented as single element string values.

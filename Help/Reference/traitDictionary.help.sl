@@ -11,7 +11,7 @@ A `Dictionary` at `system` to hold the set of `Trait`s.
 true
 
 >>> system
->>> .traitDictionary['Iterable']
+>>> .traitDictionary['Do']
 >>> .methodDictionary
 >>> .includesKey('sum/1')
 true

@@ -12,10 +12,10 @@ Answer a `List` of two places giving the holder and selector of the method signa
 	'sum/1'
 ]
 
->>> '@Iterable>>count/1'
+>>> '@Do>>count/1'
 >>> .parseMethodSignature
 [
-	'@Iterable'
+	'@Do'
 	'count/1'
 ]
 ```

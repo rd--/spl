@@ -14,9 +14,9 @@ Traits implemented by `SortedSet`:
 [
 	'Collection'
 	'Copy'
+	'Do'
 	'Equal'
 	'Extensible'
-	'Iterable'
 	'Object'
 	'Set'
 	'Store'

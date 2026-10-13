@@ -29,12 +29,12 @@ instead a copy should be used:
 ```
 
 _Rationale:_
-`do` is the only required method of the `Iterable` trait.
-All collection types are iterable.
+`do` is the only required method of the `Do` trait.
+All collection types can implement `Do`.
 
 * * *
 
-See also: associationsDo, collect, Iterable, keysAndValuesDo, keysDo, timesRepeat, valuesDo
+See also: Do, associationsDo, collect, keysAndValuesDo, keysDo, timesRepeat, valuesDo
 
 Guides: Dictionary Functions, Iteration Functions, List Functions, Stream Functions
 

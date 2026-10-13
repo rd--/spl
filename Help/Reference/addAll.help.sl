@@ -63,7 +63,7 @@ SortedList[1 .. 8]
 
 * * *
 
-See also: add, Extensible, include, includeAll, Iterable, remove, removeAll
+See also: Do, Extensible, add, include, includeAll, remove, removeAll
 
 References:
 _Smalltalk_

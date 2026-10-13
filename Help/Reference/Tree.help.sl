@@ -114,7 +114,7 @@ The `depth` of a tree is the same as the `depth` of an equivalent nested `List`:
 5
 ```
 
-Trees are `Iterable`.
+Trees are iterable.
 `do` visits the tree and then each subTree in turn (i.e. pre-order traversal),
 and hence `items` answers all of the subTrees.
 `values` answers the value at each tree visited by `do`:

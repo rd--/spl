@@ -1,6 +1,6 @@
 /* Requires: Character List */
 
-String! : [Object, Copy, Store, Equal, Compare, Json, Iterable, Indexable, Character] {
+String! : [Object, Copy, Store, Equal, Compare, Json, Do, Indexable, Character] {
 
 	abbreviateTo { :self :anInteger |
 		self.truncateTo(anInteger - 8) ++ '... &etc'

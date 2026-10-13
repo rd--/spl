@@ -18,7 +18,7 @@ Traits implemented by `ListView`:
 	'Object'
 	'Equal'
 	'Compare'
-	'Iterable'
+	'Do'
 	'Indexable'
 	'Collection'
 	'Sequence'

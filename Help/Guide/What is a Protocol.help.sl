@@ -16,7 +16,7 @@ Protocols help make the system coherent.
 Protocols are related to traits.
 Traits collect larger groups of behaviour around a small set of underlying protocols.
 For instance,
-the `Iterable` trait collects behaviours that can be derived given an implementation of the `do` protocol.
+the `Do` trait collects behaviours that can be derived given an implementation of the `do` protocol.
 
 * * *
 

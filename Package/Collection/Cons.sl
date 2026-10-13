@@ -1,14 +1,6 @@
-Cons : [Object, Iterable, Collection] {
+Cons : [Object, Do, Collection] {
 
 	| car cdr |
-
-	[equal, =] { :self :anObject |
-		anObject.isCons & {
-			self.car = anObject.car & {
-				self.cdr = anObject.cdr
-			}
-		}
-	}
 
 	collect { :self :aBlock/1 |
 		let answer = nil;
@@ -41,6 +33,14 @@ Cons : [Object, Iterable, Collection] {
 		}
 	}
 
+	[equal, =] { :self :anObject |
+		anObject.isCons & {
+			self.car = anObject.car & {
+				self.cdr = anObject.cdr
+			}
+		}
+	}
+
 	isList { :self |
 		let next = self.cdr;
 		{
@@ -49,22 +49,6 @@ Cons : [Object, Iterable, Collection] {
 			next := next.cdr
 		};
 		next = nil
-	}
-
-	length { :self |
-		let answer = 1;
-		let next = self.cdr;
-		{
-			next.isCons
-		}.whileTrue {
-			answer := answer + 1;
-			next := next.cdr
-		};
-		(next = nil).if {
-			answer
-		} {
-			'Cons>>length: not proper list'.error
-		}
 	}
 
 	reverse { :self |
@@ -80,6 +64,22 @@ Cons : [Object, Iterable, Collection] {
 			answer
 		} {
 			'Cons>>reverse: not proper list'.error
+		}
+	}
+
+	size { :self |
+		let answer = 1;
+		let next = self.cdr;
+		{
+			next.isCons
+		}.whileTrue {
+			answer := answer + 1;
+			next := next.cdr
+		};
+		(next = nil).if {
+			answer
+		} {
+			'Cons>>size: not proper list'.error
 		}
 	}
 

@@ -15,7 +15,7 @@ true
 The `methodDictionary` at a `Trait` is keyed by qualified method names:
 
 ```
->>> system.traitLookup('Iterable')
+>>> system.traitLookup('Do')
 >>> .methodDictionary
 >>> .includesKey('sum/1')
 true

@@ -1,24 +1,24 @@
-# Iterable
+# Do
 
-`Iterable` is a collection `Trait`.
+`Do` is a collection `Trait`.
 
 ```
 >>> system
->>> .traitDictionary['Iterable']
+>>> .traitDictionary['Do']
 >>> .isTrait
 true
 ```
 
-To implement `Iterable` a type must provide `do`.
+To implement `Do` a type must provide `do`.
 
-Iterable defines `size` in terms of `do`,
+Do defines `size` in terms of `do`,
 but for many types a more efficient form is possible.
 
-Types implementing `Iterable`:
+Types implementing `Do`:
 
 ```
 >>> system
->>> .traitTypes('@Iterable')
+>>> .traitTypes('@Do')
 >>> .sort!
 [
 	'AsciiString'

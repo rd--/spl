@@ -1,4 +1,4 @@
-SortedSet : [Object, Copy, Store, Equal, Iterable, Collection, Extensible, Set] {
+SortedSet : [Object, Copy, Store, Equal, Do, Collection, Extensible, Set] {
 
 	| sortedList |
 

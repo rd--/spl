@@ -3,9 +3,9 @@
 Traits
 
 - `Collection`
+- `Do`
 - `Extensible`
 - `Indexable`
-- `Iterable`
 
 Types:
 

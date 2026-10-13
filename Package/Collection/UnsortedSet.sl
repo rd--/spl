@@ -1,4 +1,4 @@
-UnsortedSet : [Object, Store, Equal, Iterable, Collection, Extensible, Unordered, Set] {
+UnsortedSet : [Object, Store, Equal, Do, Collection, Extensible, Unordered, Set] {
 
 	| unsortedList comparator |
 

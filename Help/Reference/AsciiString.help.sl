@@ -34,7 +34,7 @@ At `AsciiString` answers `identity`:
 true
 ```
 
-`AsciiString` implements `Iterable`, `Collection`, `Indexable` and `Sequence`.
+`AsciiString` implements `Do`, `Collection`, `Indexable` and `Sequence`.
 
 ```
 >>> let s = AsciiString'text';

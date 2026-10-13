@@ -245,6 +245,7 @@ Guide/String Constructor Syntax.help.sl
 Guide/String Functions.help.sl
 Guide/String Syntax.help.sl
 Guide/Subsequences and substrings.help.sl
+Guide/SuperCollider Functions.help.sl
 Guide/SuperCollider Perspective.help.sl
 Guide/SuperCollider Synthesiser.help.sl
 Guide/Surface Functions.help.sl
@@ -1235,6 +1236,7 @@ Reference/Document.help.sl
 Reference/DocumentRange.help.sl
 Reference/doesNotInclude.help.sl
 Reference/do.help.sl
+Reference/Do.help.sl
 Reference/dollarSignGreaterThanSign.help.sl
 Reference/doSeparatedBy.help.sl
 Reference/dotGraphLanguage.help.sl
@@ -2325,7 +2327,6 @@ Reference/isYamanouchiWord.help.sl
 Reference/isYellow.help.sl
 Reference/isZero.help.sl
 Reference/items.help.sl
-Reference/Iterable.help.sl
 Reference/iteratedFiniteAutomaton.help.sl
 Reference/iterate.help.sl
 Reference/Iterator.help.sl
@@ -3223,6 +3224,7 @@ Reference/planckTaperWindow.help.sl
 Reference/PlaneAngle.help.sl
 Reference/plasticRatio.help.sl
 Reference/plateauCurve.help.sl
+Reference/playAt.help.sl
 Reference/PlayBuf.help.sl
 Reference/playEvery.help.sl
 Reference/play.help.sl

@@ -1,6 +1,6 @@
-/* Requires: Cache Iterable Tree */
+/* Requires: Cache Do Tree */
 
-Markdown : [Object, Equal, Cache, Iterable] {
+Markdown : [Object, Equal, Cache, Do] {
 
 	| source cache |
 

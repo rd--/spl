@@ -69,6 +69,6 @@ _Rationale_:
 
 * * *
 
-See also: BlockStream, CollectionStream, Iterator, PositionableStream, reset, WriteStream
+See also: BlockStream, CollectionStream, Iterator, PositionableStream, WriteStream, reset
 
 Guides: Stream Functions

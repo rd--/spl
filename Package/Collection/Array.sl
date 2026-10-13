@@ -505,7 +505,7 @@
 	}
 
 	iota { :count |
-		Range(1, count, 1).List
+		iota(count, 1, 1)
 	}
 
 	mooreNeighborhood { :dimensions :range |

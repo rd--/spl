@@ -47,7 +47,7 @@
 	'Collection-IdentityMultiset'
 	'Collection-IdentitySet'
 	'Collection-Indexable'
-	'Collection-Iterable'
+	'Collection-Do'
 	'Collection-LinkedList'
 	'Collection-List'
 	'Collection-ListView'

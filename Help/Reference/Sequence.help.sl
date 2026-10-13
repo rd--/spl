@@ -78,7 +78,7 @@ Methods for enumerating:
 
 * * *
 
-See also: Collection, Iterable, Ordered, Trait
+See also: Collection, Do, Ordered, Trait
 
 Guides: Sequence Functions
 

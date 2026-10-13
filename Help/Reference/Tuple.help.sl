@@ -37,10 +37,10 @@ Tuple does not implement `Indexable`:
 false
 ```
 
-Tuple does not implement `Iterable`:
+Tuple does not implement `Do`:
 
 ```
->>> (1, 2, 3).isIterable
+>>> (1, 2, 3).respondsTo(do/2)
 false
 ```
 

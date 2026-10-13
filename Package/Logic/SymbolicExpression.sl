@@ -250,7 +250,7 @@ Symbol : [Object, Store, Number, Integer, SymbolicObject, SymbolicBoolean, Symbo
 
 }
 
-SymbolicExpression : [Object, Store, Number, SymbolicObject, SymbolicBoolean, SymbolicCompare, SymbolicNumber, Iterable] {
+SymbolicExpression : [Object, Store, Number, SymbolicObject, SymbolicBoolean, SymbolicCompare, SymbolicNumber, Do] {
 
 	| operator operands |
 

@@ -150,8 +150,8 @@ Evaluate `inner` using symbolic primitives:
 ]
 ```
 
-`SymbolicExpression` implements `Iterable`,
-`contents` answers the expression and each of its parts in a left-biased pre-order traversal:
+`SymbolicExpression` implements `Do`,
+`items` answers the expression and each of its parts in a left-biased pre-order traversal:
 
 ```
 >> (`x` * `y` + `z`).items

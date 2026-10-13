@@ -35,7 +35,7 @@ the `next` method at the answer will answer a counter and the next item of the i
 
 * * *
 
-See also: BlockStream, Iterable, Iterator, Sequence
+See also: BlockStream, Do, Iterator, Sequence
 
 Guides: List Functions
 

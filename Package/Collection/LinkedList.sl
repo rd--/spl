@@ -76,7 +76,7 @@
 
 }
 
-LinkedList : [Object, Copy, Store, Equal, Compare, Iterable, Indexable, Collection, Extensible, Sequence] {
+LinkedList : [Object, Copy, Store, Equal, Compare, Do, Indexable, Collection, Extensible, Sequence] {
 
 	| firstLink lastLink |
 
