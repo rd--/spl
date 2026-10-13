@@ -57,6 +57,7 @@
 	'Collection-MemoizationTable'
 	'Collection-MergeSort'
 	'Collection-Multiset'
+	'Collection-New'
 	'Collection-NumericArray'
 	'Collection-Ordered'
 	'Collection-PatienceSort'

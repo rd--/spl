@@ -878,7 +878,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'instanceOf'
 		'new'
 		'newFrom'
-		'ofSize'
+		'newOfSize'
 		'species'
 	],
 	'instance creation-number': [

@@ -1,6 +1,6 @@
 /* Requires: Set */
 
-IdentitySet! : [Object, Copy, Store, Equal, Do, Collect, FiniteCollection, Add, Remove, Unordered, Set] {
+IdentitySet! : [Object, Copy, Store, Equal, Do, New, Collect, FiniteCollection, Add, Remove, Unordered, Set] {
 
 	do { :self :aBlock |
 		<primitive:
@@ -15,7 +15,7 @@ IdentitySet! : [Object, Copy, Store, Equal, Do, Collect, FiniteCollection, Add, 
 		anObject.isImmediate.ifFalse {
 			self.error('IdentitySet>>include: non-immediate entry', [anObject])
 		};
-		self.uncheckedInclude(anObject)
+		self.uncheckedInclude!(anObject)
 	}
 
 	includes { :self :anObject |
@@ -62,12 +62,12 @@ IdentitySet! : [Object, Copy, Store, Equal, Do, Collect, FiniteCollection, Add, 
 		'IdentitySet(%)'.format([self.List.storeString])
 	}
 
-	uncheckedInclude { :self :anObject |
+	uncheckedInclude! { :self :anObject |
 		<primitive: _self.add(_anObject);>
 		anObject
 	}
 
-	uncheckedIncludeAll { :self :aCollection |
+	uncheckedIncludeAll! { :self :aCollection |
 		<primitive:
 		for (const item of _aCollection) {
 			_self.add(item);

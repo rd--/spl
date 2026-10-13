@@ -35,11 +35,11 @@ Env! : [Object] {
 	releaseNode { :self | <primitive: return _self.releaseNode;> }
 	loopNode { :self | <primitive: return _self.loopNode;> }
 
-	levelsMutateInPlace { :self :anObject | <primitive: _self.levels = _anObject; return _anObject;> }
-	timesMutateInPlace { :self :anObject | <primitive: _self.times = _anObject; return _anObject;> }
-	curvesMutateInPlace { :self :anObject | <primitive: _self.curves = _anObject; return _anObject;> }
-	releaseNodeMutateInPlace { :self :anObject | <primitive: _self.releaseNode = _anObject; return _anObject;> }
-	loopNodeMutateInPlace { :self :anObject | <primitive: _self.loopNode = _anObject; return _anObject;> }
+	levelsMutate! { :self :anObject | <primitive: _self.levels = _anObject; return _anObject;> }
+	timesMutate! { :self :anObject | <primitive: _self.times = _anObject; return _anObject;> }
+	curvesMutate! { :self :anObject | <primitive: _self.curves = _anObject; return _anObject;> }
+	releaseNodeMutate! { :self :anObject | <primitive: _self.releaseNode = _anObject; return _anObject;> }
+	loopNodeMutate! { :self :anObject | <primitive: _self.loopNode = _anObject; return _anObject;> }
 
 	pseudoSlotNameList { :self |
 		['levels', 'times', 'curves', 'releaseNode', 'loopNode', 'offset']

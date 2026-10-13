@@ -19,4 +19,6 @@ true
 
 See also: assert, assertIsString
 
+Guides: Assertion Functions
+
 Categories: Asserting

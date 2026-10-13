@@ -741,7 +741,7 @@
 
 	transposeTableau { :self |
 		let n = self.collect(size/1).max;
-		1.toAsCollect(n, self.first.species) { :index |
+		1.toAsCollect(n, self.first) { :index |
 			self.collect { :row |
 				row.atOrNil(index)
 			}.deleteMissing

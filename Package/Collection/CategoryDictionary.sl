@@ -16,12 +16,14 @@ CategoryDictionary : [Object] {
 	}
 
 	categorize { :self :domain :category :entry |
-		self.category(domain, category).uncheckedInclude(entry)
+		self.category(domain, category).uncheckedInclude!(entry)
 	}
 
 	categorizeAll { :self :domain :category :entries |
 		let simpleCategory = category.splitBy('-').first;
-		self.category(domain, simpleCategory).uncheckedIncludeAll(entries)
+		self.category(
+			domain, simpleCategory
+		).uncheckedIncludeAll!(entries)
 	}
 
 	categorizeDictionary { :self :domain :aBlock/1 :aDictionary |
@@ -79,7 +81,7 @@ CategoryDictionary : [Object] {
 		let answer = IdentitySet();
 		self.domainDictionary.do { :each |
 			each.valuesDo { :item |
-				answer.uncheckedInclude(item)
+				answer.uncheckedInclude!(item)
 			}
 		};
 		answer

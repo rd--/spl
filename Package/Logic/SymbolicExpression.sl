@@ -275,9 +275,9 @@ SymbolicExpression : [Object, Store, Number, SymbolicObject, SymbolicBoolean, Sy
 		self.do { :each |
 			each.isSymbolicExpression.ifTrue {
 				all.includes(each).if {
-					common.uncheckedInclude(each)
+					common.uncheckedInclude!(each)
 				} {
-					all.uncheckedInclude(each)
+					all.uncheckedInclude!(each)
 				}
 			}
 		};

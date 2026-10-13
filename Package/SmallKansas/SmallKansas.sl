@@ -28,7 +28,7 @@ SmallKansas : [Object, Cache] {
 		event.ifNotNil {
 			frame.moveTo(event.x, event.y)
 		};
-		self.frameSet.uncheckedInclude(frame);
+		self.frameSet.uncheckedInclude!(frame);
 		self.container.appendChild(frame.outerElement);
 		frame
 	}
@@ -45,7 +45,7 @@ SmallKansas : [Object, Cache] {
 		}
 	}
 
-	colourMutateInPlace { :self :aColour |
+	colourMutate! { :self :aColour |
 		self.container.style.setProperty('background-color', aColour.hexTriplet, '')
 	}
 
@@ -72,7 +72,7 @@ SmallKansas : [Object, Cache] {
 		self.container.style.getPropertyValue('--font-family')
 	}
 
-	fontMutateInPlace { :self :fontName |
+	fontMutate! { :self :fontName |
 		self.container.style.setProperty('--font-family', fontName, '')
 	}
 
@@ -97,7 +97,7 @@ SmallKansas : [Object, Cache] {
 		self.menu('Font Menu', self.fontMenuEntriesOn(subject), isTransient, event)
 	}
 
-	fontSizeMutateInPlace { :self :fontSize |
+	fontSizeMutate! { :self :fontSize |
 		self.container.style.setProperty('--font-size', fontSize, '')
 	}
 

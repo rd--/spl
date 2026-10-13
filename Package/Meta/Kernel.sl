@@ -23,6 +23,7 @@
 	'Collect'
 	'Do'
 	'FiniteCollection'
+	'New'
 	'Ordered'
 	'Put'
 	'Remove'

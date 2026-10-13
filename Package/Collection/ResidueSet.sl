@@ -1,6 +1,6 @@
 /* Requires: BitSet Set */
 
-ResidueSet : [Object, Store, Equal, Do, Collect, FiniteCollection, Add, Remove] {
+ResidueSet : [Object, Store, Equal, Do, New, Collect, FiniteCollection, Add, Remove] {
 
 	| leastResidueSet modulus |
 

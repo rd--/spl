@@ -33,7 +33,7 @@
 		let index = 0;
 		let result = numberOfElements.aBlock;
 		withReturn { :return/1 |
-			result.fillFromWith(self) { :each |
+			result.fillFromWith!(self) { :each |
 				index := index + 1;
 				(index > numberOfElements).if {
 					result.return
@@ -76,7 +76,7 @@
 	}
 
 	collect { :self :aBlock/1 |
-		let answer = self.species.new;
+		let answer = self.new;
 		self.do { :each |
 			answer.add!(aBlock(each))
 		};
@@ -84,7 +84,7 @@
 	}
 
 	collectCatenate { :self :aBlock/1 |
-		let answer = self.species.new;
+		let answer = self.new;
 		self.do { :each |
 			answer.addAll!(aBlock(each))
 		};
@@ -92,7 +92,7 @@
 	}
 
 	collectInto { :self :aBlock :aCollection |
-		aCollection.fillFromWith(self, aBlock)
+		aCollection.fillFromWith!(self, aBlock)
 	}
 
 	collectThenDo { :self :collectBlock/1 :doBlock/1 |
@@ -102,7 +102,7 @@
 	}
 
 	collectThenSelect { :self :collectBlock/1 :selectBlock/1 |
-		let answer = self.species.new;
+		let answer = self.new;
 		self.do { :each |
 			let item = collectBlock(each);
 			selectBlock(item).ifTrue {
@@ -113,7 +113,7 @@
 	}
 
 	complement { :self :aCollection |
-		let answer = self.species.new;
+		let answer = self.new;
 		self.do { :each |
 			aCollection.includes(each).ifFalse {
 				answer.add!(each)
@@ -285,8 +285,8 @@
 		}
 	}
 
-	fillFrom { :self :aCollection |
-		self.fillFromWith(aCollection, identity/1)
+	fillFrom! { :self :aCollection |
+		self.fillFromWith!(aCollection, identity/1)
 	}
 
 	gcd { :self |
@@ -319,7 +319,7 @@
 	}
 
 	intersection { :self |
-		let answer = self.species.new;
+		let answer = self.new;
 		self.isEmpty.ifFalse {
 			self.anyOne.do { :x |
 				self.allSatisfy { :c |
@@ -486,13 +486,6 @@
 		self.collect(not/1)
 	}
 
-	ofSize { :self :aNumber |
-		(self.size = aNumber).ifFalse {
-			self.error('ofSize: not equal', [aNumber])
-		};
-		self
-	}
-
 	one { :self |
 		self.collect { :each |
 			each.one
@@ -504,7 +497,7 @@
 		let powersOfTwo = 2 ^ 0.to(self.size - 1);
 		let list = self.List;
 		0.toDo(size - 1) { :i |
-			let subset = self.species.new;
+			let subset = self.new;
 			powersOfTwo.withIndexDo { :each :j |
 				(i // each % 2 != 0).ifTrue {
 					subset.include!(list[j])
@@ -639,7 +632,7 @@
 	}
 
 	union { :self |
-		let answer = self.anyOne.species.new;
+		let answer = self.anyOne.new;
 		self.do { :each |
 			answer.includeAll!(each)
 		};

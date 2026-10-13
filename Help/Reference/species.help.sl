@@ -55,7 +55,7 @@ ResidueSet([1 3 5], 6)
 
 * * *
 
-See also: Trait, Type, new, newFrom, ofSize, typeOf
+See also: New, Trait, Type, new, newFrom, ofSize, typeOf
 
 Guides: Collection Functions, Reflection Functions
 

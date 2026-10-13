@@ -44,7 +44,7 @@ Method! : [Object, Equal] {
 		'	' ++ self.name ++ ' ' ++ self.sourceCode
 	}
 
-	definitionMutateInPlace { :self :aString |
+	definitionMutate! { :self :aString |
 		system.evaluate(
 			[
 				'+',

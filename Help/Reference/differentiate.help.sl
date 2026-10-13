@@ -20,6 +20,22 @@ See also `differences`:
 [2 3 4 5]
 ```
 
+At empty and unit lists:
+
+```
+>>> [].differentiate
+[]
+
+>>> [1].differentiate
+[1]
+
+>>> [].differences
+[]
+
+>>> [1].differences
+[]
+```
+
 * * *
 
 See also: differences, integrate

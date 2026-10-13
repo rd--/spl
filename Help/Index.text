@@ -9,6 +9,7 @@ Guide/Arity Notation.help.sl
 Guide/Arity Syntax.help.sl
 Guide/Array Functions.help.sl
 Guide/Array Syntax.help.sl
+Guide/Assertion Functions.help.sl
 Guide/Assignment and Equality.help.sl
 Guide/Assignment Syntax.help.sl
 Guide/Asynchronous Functions.help.sl
@@ -1423,6 +1424,7 @@ Reference/exradii.help.sl
 Reference/extangentsTriangle.help.sl
 Reference/extendedEuclideanAlgorithm.help.sl
 Reference/extendedGcd.help.sl
+Reference/extendToSize.help.sl
 Reference/exteriorAngles.help.sl
 Reference/extouchTriangle.help.sl
 Reference/extractDocumentationTests.help.sl
@@ -2899,6 +2901,8 @@ Reference/neumaierSum.help.sl
 Reference/nevillesAlgorithm.help.sl
 Reference/newFrom.help.sl
 Reference/new.help.sl
+Reference/New.help.sl
+Reference/newOfSize.help.sl
 Reference/newtonRaphsonMethod.help.sl
 Reference/next.help.sl
 Reference/nextMatchAll.help.sl
@@ -2998,7 +3002,6 @@ Reference/oeisImageIndex.help.sl
 Reference/OeisSequenceFile.help.sl
 Reference/oeisTerms.help.sl
 Reference/OffsetOut.help.sl
-Reference/ofSize.help.sl
 Reference/oklabToXyz.help.sl
 Reference/oloid.help.sl
 Reference/omegaConstant.help.sl

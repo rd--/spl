@@ -1,4 +1,4 @@
-AsciiString : [Object, Store, Equal, Do, At, Put, Collect, FiniteCollection, Sequence] {
+AsciiString : [Object, Store, Equal, Do, At, Put, New, Collect, FiniteCollection, Sequence] {
 
 	| byteArray |
 

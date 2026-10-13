@@ -250,12 +250,12 @@ let x = 8.625; let y = 0.75; let q = x.quotientBy(y, round/1); let r = x.remaind
 system.includesPackage('List') /* list package */
 [].typeOf = 'List' /* type of List */
 [].species == List/1 /* species of List */
-[].species.new = [] /* new empty array */
-[].species.new(3) = [nil, nil, nil] /* new array of indicated size */
-[].species.ofSize(3) = [nil, nil, nil] /* new array of indicated size */
-[].species.newFrom(1:9.IdentitySet) = [1 .. 9] /* new array from collection */
-[].species.newFrom([].IdentitySet) = [] /* new array from empty collection */
-[].species.newFrom([]) = [] /* new array from empty array */
+[].new = [] /* new empty array */
+[].new(3) = [nil, nil, nil] /* new array of indicated size */
+[].newOfSize(3) = [nil, nil, nil] /* new array of indicated size */
+[].newFrom(1:9.IdentitySet) = [1 .. 9] /* new array from collection */
+[].newFrom([].IdentitySet) = [] /* new array from empty collection */
+[].newFrom([]) = [] /* new array from empty array */
 [].isList = true /* the empty List is a List */
 [].isCollection = true /* arrays are collections */
 [].isIndexable = true /* arrays are indexable */
@@ -346,7 +346,7 @@ let l = [1, 2, 3]; l.atModify(2, nil, square/1) = 4 & { l = [1, 4, 3] } /* modif
 [5, 4, 3, 2, 1].findFirst { :each | each % 7 = 0 } = 0 /* zero if no element is found */
 [[1, 2, 3, 4], [5, 6, 7, 8]].transpose = [[1, 5], [2, 6], [3, 7], [4, 8]]
 [1 2 3; 4 5 6].transpose = [1 4; 2 5; 3 6] /* transposed, matrix syntax */
-1.toAsCollect(9, List/1) { :each | each * each } = [1, 4, 9, 16, 25, 36, 49, 64, 81]
+1.toAsCollect(9, []) { :each | each * each } = [1, 4, 9, 16, 25, 36, 49, 64, 81]
 let a = [1 .. 9]; a.shuffle!; a != [1 .. 9] /* shuffle in-place, using system Random */
 let a = [1 .. 9]; let r = Sfc32(13579); a.shuffle!(r); a = [9, 8, 2, 3, 5, 7, 1, 4, 6] /* shuffle in-place, using given Random */
 let a = [1 .. 9]; a.shuffle != a & { a = [1 .. 9] } /* copying shuffle */
@@ -376,8 +376,8 @@ let a = [1 .. 9]; a.shuffle != a & { a = [1 .. 9] } /* copying shuffle */
 negate/1.fill([5]) = [-1; -2; -3; -4; -5] /* fill array with answers of a block applied to each index */
 let r = Sfc32(12345); r.randomInteger([1 9], 5) = [8, 5, 9, 9, 4] /* duplicate block */
 let r = Sfc32(12345); { r.randomInteger([1 9], []) } ! 5 = [8, 5, 9, 9, 4] /* duplicate block */
-List(5).fillFromWith(1:5, negate/1) = [-1, -2 .. -5]
-let a = List(5); a.fillFromWith([1, 3, 5, 7, 9], square/1); a = [1, 9, 25, 49, 81]
+List(5).fillFromWith!(1:5, negate/1) = [-1, -2 .. -5]
+let a = List(5); a.fillFromWith!([1, 3, 5, 7, 9], square/1); a = [1, 9, 25, 49, 81]
 let a = List(4); [1, 3, 5, 7].collectInto({ :each | each * each}, a); a = [1, 9, 25, 49]
 [1 2 3 4 3 2 1].occurrencesOf(3) = 2 /* number of occurrences of element in collection */
 let a = [1, 2]; let [x, y] = a; [y, x] = [2, 1]
@@ -402,7 +402,7 @@ let [x, y] = { let n = system.nextRandomFloat; [n, n] }.nullaryApply; x = y
 let a = List(1); a[1].isNil = true /* array slots are initialised to nil */
 { let a = List(1); a.put!(3, 'x') }.hasError /* out of bound mutation is an error */
 { let a = [1]; a[3] := 'x' }.hasError /* out of bound mutation is an error */
-List/1.newFrom(Range(1, 5, 2)) = [1, 3, 5]
+[].newFrom(Range(1, 5, 2)) = [1, 3, 5]
 [1 .. 9].count(isEven/1) = 4
 [nil, true, false, 3.141, 23, 'str'].encodeJson = '[null,true,false,3.141,23,"str"]' /* json encodings */
 '[null,true,false,3.141,23,"str"]'.parseJson = [nil, true, false, 3.141, 23, 'str'] /* json parsing */
@@ -491,7 +491,7 @@ let a = [1 2 2 3 3 3]; a.withoutAll!([1, 3]) = [2 2] /* remove all elements equa
 5.arithmeticProgression(1, 2) = [1, 3 .. 9] /* arithmetic series (size from by) */
 5.geometricProgression(1, 2) = [1, 2, 4, 8, 16] /* geometric series (size from by) */
 List(3).size = 3
-List/1.ofSize(3) = [nil, nil, nil]
+List().extendToSize!(3) = [nil, nil, nil]
 let l = [3]; l.addFirst!(2); l.addFirst!(1); l = [1 2 3] /* add item to start of array */
 let l = [2]; l.addFirst!(1) = 1 & { l = [1 2] } /* answer is argument */
 let l = []; l.addLast!(1); l.addLast!(2); l = [1, 2] /* add item to end of array */
@@ -514,9 +514,9 @@ let c = [1 .. 5]; c.removeAll!; c = [] /* remove all objects from array */
 let c = [1 .. 5]; [c.remove!(3), c] = [3, [1, 2, 4, 5]] /* remove object from array */
 let c = [1, 2, 3, 2, 1]; [c.remove!(2), c] = [2, [1, 3, 2, 1]] /* remove only one matching element */
 let c = [1 .. 5]; c.removeIfAbsent!(9) { true } & { c = [1 .. 5] } /* remove object from array, handle absence */
-[1, 2, 3].ofSize(4) = [1, 2, 3, nil] /* extend to be of size, new slots are nil */
-let a = [1, 2, 3]; a.ofSize(2) = a /* if requested size is smaller, do nothing */
-let a = [1, 2, 3]; a.ofSize(2) == a /* if requested size is smaller, answer the array itself */
+[1, 2, 3].extendToSize!(4) = [1, 2, 3, nil] /* extend to be of size, new slots are nil */
+let a = [1, 2, 3]; a.extendToSize!(2) = a /* if requested size is smaller, do nothing */
+let a = [1, 2, 3]; a.extendToSize!(2) == a /* if requested size is smaller, answer the array itself */
 [1, 3 .. 9].indices = 1:5 /* indices of array (an interval) */
 let a = [1, [2, 3]]; let c = a.copy; c[2][1] := -2; c = a & { a = [1, [-2, 3]] } /* copy is a shallow copy */
 let a = [1, [2, 3]]; let c = a.deepCopy; c[2][1] := -2; c != a & { a = [1, [2, 3]] } /* deepCopy is a deep copy */
@@ -948,7 +948,7 @@ let c = 1:9; c.sum / c.size = 5 /* sum of collection divided by size */
 [1, 3, 5].IdentitySet.select { :x | x > 1 } = [3, 5].IdentitySet
 (x: 1, y: 3, z: 5).select { :x | x > 1 } = (y: 3, z: 5)
 [].select { :each | 'select'.error } = []
-[].species.newFrom(IdentitySet()) = []
+[].newFrom(IdentitySet()) = []
 IdentitySet().List = []
 1:9.includesAny([0, 6]) /* includes any element of a collection */
 [4 .. 6].copyWithout(5) = [4, 6] /* copy without element */
@@ -2033,7 +2033,7 @@ LinkedList().typeOf = 'LinkedList' /* type of linked list */
 LinkedList().isLinkedList = true /* type predicate for linked list */
 LinkedList().size = 0 /* empty linked list */
 LinkedList().isEmpty /* empty linked list */
-LinkedList/0.ofSize(3).size = 3 /* linked list of three nil values */
+LinkedList().extendToSize!(3).size = 3 /* linked list of three nil values */
 [1, 2, 3].LinkedList.size = 3 /* linked list from array */
 let l = LinkedList(); l.addFirst!(1); l.addFirst!(2); l.List = [2, 1] /* add to start */
 let l = LinkedList(); l.addLast!(1); l.addLast!(2); l.List = [1, 2] /* add to end */

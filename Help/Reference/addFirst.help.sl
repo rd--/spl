@@ -14,7 +14,7 @@ true
 
 * * *
 
-See also: add, addLast
+See also: Add, add!, addLast!
 
 Guides: List Functions
 

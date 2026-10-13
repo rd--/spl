@@ -137,7 +137,7 @@
 	}
 
 	withWriteStream { :self :aBlock/1 |
-		let aStream = self.collection.species.new(100).WriteStream;
+		let aStream = self.collection.new(100).WriteStream;
 		aBlock(aStream);
 		aStream.contents
 	}

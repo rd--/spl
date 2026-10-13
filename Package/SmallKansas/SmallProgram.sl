@@ -169,7 +169,7 @@ SmallProgram : [Object, UserEventTarget, View, SmallKansan] {
 		self.setProgramText(history.atWrap(self.historyCursor))
 	}
 
-	readOnlyMutateInPlace { :self :aBoolean |
+	readOnlyMutate! { :self :aBoolean |
 		self.program.readOnly := aBoolean
 	}
 

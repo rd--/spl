@@ -60,7 +60,7 @@
 	}
 
 	intersection { :self :operand |
-		let answer = self.species.new;
+		let answer = self.new;
 		self.associations.do { :each |
 			let x = each.key;
 			let i = each.value;
@@ -189,7 +189,7 @@
 
 }
 
-Multiset : [Object, Copy, Store, Equal, Do, Collect, FiniteCollection, Add, Remove, Unordered, Multiset] {
+Multiset : [Object, Copy, Store, Equal, Do, New, Collect, FiniteCollection, Add, Remove, Unordered, Multiset] {
 
 	| valuesAndCounts |
 

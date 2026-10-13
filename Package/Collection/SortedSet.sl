@@ -1,4 +1,4 @@
-SortedSet : [Object, Copy, Store, Equal, Do, Collect, FiniteCollection, Add, Remove, Set] {
+SortedSet : [Object, Copy, Store, Equal, Do, New, Collect, FiniteCollection, Add, Remove, Set] {
 
 	| sortedList |
 

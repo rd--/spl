@@ -33,6 +33,10 @@ Handling:
 - `ifError`
 - `ignoreError`
 
+Asserting:
+
+- `Assertion Functions`
+
 * * *
 
-Guides: Block Functions, Control Functions, Error Handling
+Guides: Assertion Functions, Block Functions, Control Functions, Error Handling

@@ -40,7 +40,7 @@
 
 	adjacentPairs { :self |
 		self.adjacentPairsCollect { :i :j |
-			self.species.newFrom([i, j])
+			self.newFrom([i, j])
 		}
 	}
 
@@ -57,7 +57,7 @@
 	}
 
 	adjacentPairsCollect { :self :aBlock/2 |
-		let answer = self.species.new(self.size - 1);
+		let answer = self.new(self.size - 1);
 		let index = 1;
 		self.adjacentPairsDo { :p :q |
 			answer[index] := aBlock(p, q);
@@ -183,7 +183,7 @@
 	}
 
 	atAllUsing { :self :indexList :aBlock/2 |
-		let answer = self.species.ofSize(indexList.size);
+		let answer = self.newOfSize(indexList.size);
 		indexList.indicesDo { :index |
 			answer[index] := aBlock(self, indexList[index])
 		};
@@ -284,7 +284,7 @@
 
 	atUsing { :self :operand :aBlock/1 |
 		operand.isCollection.if {
-			let answer = self.species.ofSize(operand.size);
+			let answer = self.newOfSize(operand.size);
 			operand.indicesDo { :each |
 				answer[each] := aBlock(operand.at(each))
 			};
@@ -466,7 +466,7 @@
 	}
 
 	collect { :self :aBlock/1 |
-		let answer = self.species.ofSize(self.size);
+		let answer = self.newOfSize(self.size);
 		self.indicesDo { :index |
 			answer[index] := aBlock(self[index])
 		};
@@ -489,7 +489,7 @@
 	}
 
 	copyFromTo { :self :start :stop |
-		1.toAsCollect(stop - start + 1, self.species) { :index |
+		1.toAsCollect(stop - start + 1, self) { :index |
 			self[index + start - 1]
 		}
 	}
@@ -501,13 +501,13 @@
 	}
 
 	copyFromToPin { :self :start :stop |
-		1.toAsCollect(stop - start + 1, self.species) { :index |
+		1.toAsCollect(stop - start + 1, self) { :index |
 			self.atPin(index + start - 1)
 		}
 	}
 
 	copyFromToWrap { :self :start :stop |
-		1.toAsCollect(stop - start + 1, self.species) { :index |
+		1.toAsCollect(stop - start + 1, self) { :index |
 			self.atWrap(index + start - 1)
 		}
 	}
@@ -542,7 +542,7 @@
 	copyReplaceFromToWith { :self :start :stop :aCollection |
 		let end = start - 1 + aCollection.size;
 		let newSize = self.size + end - stop;
-		let answer = self.species.ofSize(newSize);
+		let answer = self.newOfSize(newSize);
 		(start > 1).ifTrue {
 			answer.replaceFromToWithStartingAt(1, start - 1, self, 1)
 		};
@@ -857,7 +857,7 @@
 		} { :i |
 			self.copyFromTo(i, self.size)
 		} {
-			self.species.new
+			self.new
 		}
 	}
 
@@ -883,7 +883,7 @@
 	}
 
 	empty { :self |
-		self.species.new
+		self.new
 	}
 
 	endsWith { :self :aList |
@@ -983,7 +983,7 @@
 		self
 	}
 
-	fillFromWith { :self :aCollection :aBlock/1 |
+	fillFromWith! { :self :aCollection :aBlock/1 |
 		let index = 1;
 		aCollection.do { :each |
 			self[index] := aBlock(each);
@@ -1175,7 +1175,7 @@
 	}
 
 	forceToPaddingWith { :self :length :anObject |
-		let answer = self.species.new(length);
+		let answer = self.new(length);
 		answer.atAllPut(anObject);
 		answer.replaceFromToWithStartingAt(1, self.size.min(length), self, 1);
 		answer
@@ -1298,7 +1298,7 @@
 	}
 
 	grownBy { :self :length |
-		let answer = self.species.ofSize(self.size + length);
+		let answer = self.newOfSize(self.size + length);
 		answer.replaceFromToWithStartingAt(1, self.size, self, 1)
 	}
 
@@ -2229,7 +2229,7 @@
 			counts.error('@Sequence>>replicate: counts not of correct size')
 		} {
 			let answerSize = counts.sum;
-			let answer = items.species.ofSize(answerSize);
+			let answer = items.newOfSize(answerSize);
 			let answerIndex = 1;
 			1.toDo(items.size) { :index |
 				let entry = aBlock(items[index]);
@@ -2248,7 +2248,7 @@
 
 	reverse { :self :level |
 		(level <= 1).if {
-			let answer = self.species.ofSize(self.size);
+			let answer = self.newOfSize(self.size);
 			let fromIndex = self.size + 1;
 			self.indicesDo { :toIndex |
 				answer[toIndex] := self[fromIndex - 1];
@@ -2318,7 +2318,7 @@
 		(n = 0).if {
 			self
 		} {
-			(1 + n).toAsCollect(self.size + n, self.species) { :index |
+			(1 + n).toAsCollect(self.size + n, self) { :index |
 				self.atWrap(index)
 			}
 		}
@@ -2343,7 +2343,7 @@
 	}
 
 	rotateRight { :self :anInteger |
-		(1 - anInteger).toAsCollect(self.size - anInteger, self.species) { :index |
+		(1 - anInteger).toAsCollect(self.size - anInteger, self) { :index |
 			self.atWrap(index)
 		}
 	}
@@ -2372,7 +2372,7 @@
 		self.ifEmpty {
 			self.copy
 		} {
-			let answer = self.species.new(self.size);
+			let answer = self.new(self.size);
 			let nextItem = x0;
 			answer[1] := nextItem;
 			1.toDo(self.size - 1) { :index |
@@ -2409,7 +2409,7 @@
 		self.ifEmpty {
 			self.copy
 		} {
-			let answer = self.species.new(self.size);
+			let answer = self.new(self.size);
 			let nextItem = self[self.size];
 			answer[self.size] := nextItem;
 			(self.size - 1).toByDo(1, -1) { :index |
@@ -2519,7 +2519,7 @@
 				answer.add!(self[index])
 			}
 		};
-		self.species.newFrom(answer)
+		self.newFrom(answer)
 	}
 
 	shiftRegisterSequence { :initialState :taps :count |
@@ -2762,7 +2762,7 @@
 
 	transpose { :self |
 		let [m, n] = self.dimensions(2);
-		1.toAsCollect(n, self[1].species) { :index |
+		1.toAsCollect(n, self[1]) { :index |
 			self.collect { :row |
 				row[index]
 			}
@@ -2785,7 +2785,7 @@
 
 	transposeIrregular { :self |
 		let n = self.collect(size/1).max;
-		1.toAsCollect(n, self.first.species) { :index |
+		1.toAsCollect(n, self.first) { :index |
 			self.collect { :row |
 				row.atWrap(index)
 			}
@@ -2815,7 +2815,7 @@
 
 	tuplesDo { :self :aBlock/1 |
 		let tupleCount = self.collect(size/1).product;
-		let tuple = self.species.new(self.size);
+		let tuple = self.new(self.size);
 		1.toDo(tupleCount) { :i |
 			let k = i - 1;
 			self.size.toByDo(1, -1) { :j |
@@ -2883,7 +2883,7 @@
 	}
 
 	withCollectCrossed { :self :aList :aBlock/2 |
-		let answer = self.species.new(self.size * aList.size);
+		let answer = self.new(self.size * aList.size);
 		let nextIndex = 1;
 		self.do { :leftItem |
 			aList.do { :rightItem |
@@ -2896,14 +2896,14 @@
 
 	withCollectEqual { :self :aList :aBlock/2 |
 		self.isOfSameSizeCheck(aList);
-		1.toAsCollect(self.size, self.species) { :index |
+		1.toAsCollect(self.size, self) { :index |
 			aBlock(self[index], aList[index])
 		}
 	}
 
 	withCollectFolding { :self :aCollection :aBlock/2 |
 		let maximumSize = self.size.max(aCollection.size);
-		1.toAsCollect(maximumSize, self.species) { :index |
+		1.toAsCollect(maximumSize, self) { :index |
 			aBlock(self.atFold(index), aCollection.atFold(index))
 		}
 	}
@@ -2945,7 +2945,7 @@
 
 	withCollectWrapping { :self :aList :aBlock/2 |
 		let maximumSize = self.size.max(aList.size);
-		1.toAsCollect(maximumSize, self.species) { :index |
+		1.toAsCollect(maximumSize, self) { :index |
 			aBlock(self.atWrap(index), aList.atWrap(index))
 		}
 	}
@@ -2958,7 +2958,7 @@
 	}
 
 	withIndexCollect { :self :elementAndIndexBlock/2 |
-		let answer = self.species.ofSize(self.size);
+		let answer = self.newOfSize(self.size);
 		self.indicesDo { :index |
 			answer[index] := elementAndIndexBlock(self[index], index)
 		};
@@ -2970,12 +2970,6 @@
 			self[index] := aBlock(self[index], index)
 		};
 		self
-	}
-
-	withIndexDo { :self :elementAndIndexBlock/2 |
-		self.indicesDo { :index |
-			elementAndIndexBlock(self[index], index)
-		}
 	}
 
 	withoutLeadingZeroes { :self |
@@ -3014,7 +3008,7 @@
 
 	withWithCollect { :self :aSequence :anotherSequence :aBlock/3 |
 		let maximumSize = [self, aSequence, anotherSequence].collect(size/1).max;
-		1.toAsCollect(maximumSize, self.species) { :index |
+		1.toAsCollect(maximumSize, self) { :index |
 			aBlock(self.atWrap(index), aSequence.atWrap(index), anotherSequence.atWrap(index))
 		}
 	}
@@ -3102,9 +3096,9 @@
 		operand.atSymmetrical(self)
 	}
 
-	toAsCollect { :self :stop :species :aBlock/1 |
+	toAsCollect { :self :stop :model :aBlock/1 |
 		let answerSize = stop - self + 1;
-		let answer = species.ofSize(answerSize);
+		let answer = model.newOfSize(answerSize);
 		1.toDo(answerSize) { :index |
 			answer[index] := aBlock(index + self - 1)
 		};

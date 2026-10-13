@@ -1,4 +1,4 @@
-UnsortedSet : [Object, Store, Equal, Do, Collect, FiniteCollection, Add, Remove, Unordered, Set] {
+UnsortedSet : [Object, Store, Equal, Do, New, Collect, FiniteCollection, Add, Remove, Unordered, Set] {
 
 	| unsortedList comparator |
 

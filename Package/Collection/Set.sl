@@ -8,7 +8,7 @@
 	}
 
 	collect { :self :aBlock/1 |
-		let answer = self.species.new;
+		let answer = self.new;
 		self.do { :each |
 			answer.include!(aBlock(each))
 		};
@@ -52,7 +52,7 @@
 		self
 	}
 
-	uncheckedInclude { :self :anObject |
+	uncheckedInclude! { :self :anObject |
 		self.include!(anObject)
 	}
 

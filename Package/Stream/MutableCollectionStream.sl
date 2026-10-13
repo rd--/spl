@@ -19,7 +19,7 @@ MutableCollectionStream : [Object, Do, Collect, Iterator, Stream, PositionableSt
 	growTo { :self :anInteger |
 		let oldSize = self.collection.size;
 		let newSize = anInteger + oldSize.quotient(4).max(20);
-		let newCollection = self.collection.species.new(newSize);
+		let newCollection = self.collection.new(newSize);
 		self.collection := newCollection.replaceFromToWithStartingAt(1, oldSize, collection, 1);
 		self.writeLimit := self.collection.size
 	}

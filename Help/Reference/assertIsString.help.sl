@@ -13,4 +13,6 @@ Answer _x_ if _x_ a `String`, else signal an `error`.
 
 See also: assert, isString
 
+Guides: Assertion Functions
+
 Categories: Asserting

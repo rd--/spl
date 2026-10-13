@@ -91,7 +91,7 @@
 	}
 
 	associationsSelect { :self :aBlock/1 |
-		let answer = self.species.new;
+		let answer = self.new;
 		self.associationsDo { :each |
 			each.aBlock.ifTrue {
 				answer.add!(each)
@@ -128,7 +128,7 @@
 	}
 
 	collect { :self :aBlock/1 |
-		let answer = self.species.new;
+		let answer = self.new;
 		self.keysAndValuesDo { :key :value |
 			answer.add!(key -> aBlock(value))
 		};
@@ -172,7 +172,7 @@
 		self.error('Value not found')
 	}
 
-	fillFromWith { :self :aCollection :aBlock/1 |
+	fillFromWith! { :self :aCollection :aBlock/1 |
 		aCollection.isDictionary.if {
 			aCollection.associationsDo { :association |
 				self[association.key] := aBlock(association.value)
@@ -297,7 +297,7 @@
 	}
 
 	keysAndValuesCollect { :self :aBlock/2 |
-		let answer = self.species.new;
+		let answer = self.new;
 		self.keysAndValuesDo { :key :value |
 			answer.add!(key -> aBlock(key, value))
 		};
@@ -321,7 +321,7 @@
 	}
 
 	keySelect { :self :aBlock/1 |
-		let answer = self.species.new;
+		let answer = self.new;
 		self.associationsDo { :each |
 			each.key.aBlock.ifTrue {
 				answer.add!(each.copy)
@@ -408,7 +408,7 @@
 	}
 
 	select { :self :aBlock/1 |
-		let answer = self.species.new;
+		let answer = self.new;
 		self.associationsDo { :each |
 			each.value.aBlock.ifTrue {
 				answer.add!(each.copy)
@@ -485,7 +485,7 @@
 	keyIntersection { :self |
 		let keys = self.collect(keys/1).intersection;
 		self.collect { :each |
-			let item = each.species.new;
+			let item = each.new;
 			keys.do { :key |
 				item.add!(key -> each.at(key))
 			};
@@ -539,7 +539,7 @@
 			};
 			list
 		};
-		let answer = self.anyOne.species.new;
+		let answer = self.anyOne.new;
 		keys.withDo(values) { :key :value |
 			answer.add!(key -> aBlock(value))
 		};

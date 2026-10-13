@@ -145,6 +145,6 @@ The vector case more readily be written using `array` or `map` or `table` or `co
 
 * * *
 
-See also: array, atAllPut, constantArray, duplicate, fillFromWith, replicate, table
+See also: array, atAllPut, constantArray, duplicate, fillFromWith!, replicate, table
 
 Guides: Array Functions, List Functions

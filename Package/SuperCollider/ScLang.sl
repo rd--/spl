@@ -385,19 +385,11 @@
 	}
 
 	differentiate { :self |
-		let prev = 0;
-		let index = 1;
-		let answer = self.species.new(self.size);
-		self.do { :each |
-			answer[index] := each - prev;
-			prev := each;
-			index := index + 1
-		};
-		answer
+		([0] ++ self).differences
 	}
 
 	extendTo { :self :size |
-		1.toAsCollect(size, self.species) { :index |
+		1.toAsCollect(size, self) { :index |
 			self.atWrap(index)
 		}
 	}
@@ -542,7 +534,7 @@
 				answer.addAll!(self.copyFromTo(1, i))
 			}
 		};
-		self.species.newFrom(answer)
+		answer
 	}
 
 
@@ -649,7 +641,7 @@
 
 	wavetableFormat { :self |
 		let size = self.size * 2;
-		let answer = self.species.ofSize(size);
+		let answer = self.newOfSize(size);
 		let index = 1;
 		1.toDo(self.size) { :each |
 			let e1 = self[each];

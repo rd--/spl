@@ -84,7 +84,7 @@
 			let table = self.methodDictionary[methodName];
 			table.do { :dictionary |
 				dictionary.do { :method |
-					answer.uncheckedInclude(method)
+					answer.uncheckedInclude!(method)
 				}
 			};
 			answer.List

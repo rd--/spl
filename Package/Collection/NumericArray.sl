@@ -168,7 +168,7 @@ NumericArray : [Object, Store, Equal, Compare, Do, At, Put, Collect, FiniteColle
 		self.isMatrix.if {
 			let [m, n] = self.shape;
 			let c = self.array;
-			let a = c.species.new(m * n);
+			let a = c.new(m * n);
 			let k = 1;
 			1.toDo(n) { :i |
 				1.toDo(m) { :j |

@@ -22,6 +22,6 @@ true
 
 See also: assert, error, isSmallInteger
 
-Guides: Type Assertion Functions
+Guides: Assertion Functions
 
 Categories: Asserting

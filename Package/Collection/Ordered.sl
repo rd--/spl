@@ -40,13 +40,6 @@
 		}
 	}
 
-	ofSize { :self :aNumber |
-		(aNumber - self.size).timesRepeat {
-			self.add!(nil)
-		};
-		self
-	}
-
 	removeIfAbsent! { :self :oldObject :anExceptionBlock/0 |
 		let index = self.indexOf(oldObject);
 		(index = 0).if {

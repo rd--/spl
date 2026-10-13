@@ -548,7 +548,7 @@
 		let step = { :n |
 			(n <= end).ifTrue {
 				answer.includes(n).ifFalse {
-					answer.uncheckedInclude(n);
+					answer.uncheckedInclude!(n);
 					step(n * 2);
 					step(n * 3);
 					step(n * 5)

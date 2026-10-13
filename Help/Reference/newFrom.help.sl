@@ -1,42 +1,37 @@
 # newFrom
 
-- _newFrom(f/n, c)_
+- _newFrom(c₁, c₂)_
 
-Implements the Smalltalk idiom to make a new collection from the species of an existing collection.
+Make a new collection that is like the collection _c₁_,
+and has the contents of the collection _c₂_.
+The type of the new collection is given by the `species` of _c₁_.
+The name is from Smalltalk.
 
-At `species` of `List`,
-which is a unary block,
+At `List`,
 construct a new list given a `Range`:
 
 ```
->>> [].species.newFrom(1:9)
+>>> [].newFrom(1:9)
 [1 2 3 4 5 6 7 8 9]
 
 >>> [].species
 List/1
-
->>> List/1.newFrom(1:9)
-[1 2 3 4 5 6 7 8 9]
 ```
 
-At `species` of `SortedSet`,
-which is a no-argument block,
+At `SortedSet`,
 construct a new set given a `Range`:
 
 ```
->>> Set[].species.newFrom(1:9)
+>>> Set[].newFrom(1:9)
 Set[1 2 3 4 5 6 7 8 9]
 
 >>> Set[].species
 SortedSet/0
-
->>> SortedSet/0.newFrom(1:9)
-Set[1 2 3 4 5 6 7 8 9]
 ```
 
 * * *
 
-See also: fillFrom, new, species
+See also: New, fillFrom, new, species
 
 Guides: Collection Functions
 

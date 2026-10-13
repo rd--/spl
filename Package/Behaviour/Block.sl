@@ -396,7 +396,7 @@ Block! : [Object, Equal] {
 	}
 
 	keyMap { :self/1 :operand |
-		let answer = operand.species.new;
+		let answer = operand.new;
 		operand.keysAndValuesDo { :key :value |
 			answer.include!(self(key) -> value)
 		};
@@ -518,26 +518,8 @@ Block! : [Object, Equal] {
 		anObject
 	}
 
-	new { :self |
-		self.cull(0)
-	}
-
-	new { :self :aNumber |
-		self.cull(aNumber)
-	}
-
-	newFrom { :self/1 :aCollection |
-		let answer = self(aCollection.size);
-		answer.fillFrom(aCollection);
-		answer
-	}
-
 	[numArgs, argumentCount] { :self |
 		<primitive: return _self.length;>
-	}
-
-	ofSize { :self :aNumber |
-		self.cull(aNumber).ofSize(aNumber)
 	}
 
 	outer { :self :aList :anotherList |

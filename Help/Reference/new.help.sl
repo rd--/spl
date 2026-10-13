@@ -1,9 +1,11 @@
 # new
 
-- _new(f/0)_
-- _new(f/1, n)_
+- _new(c, n=0)_
 
-Implement the Smalltalk idioms _c.species.new_ and _c.species.new(n)_.
+Create a new collection that is like the collection _c_ that has _n_ places.
+`new` is defined in terms of `species`.
+`new` is the mechanism by which functions such as `collect` answer the appropriate type.
+The names `new` and `species` are from Smalltalk.
 
 The unary form, for collections where `species` answers a no-argument block:
 
@@ -11,7 +13,7 @@ The unary form, for collections where `species` answers a no-argument block:
 >>> IdentitySet().species
 IdentitySet/0
 
->>> IdentitySet().species.new
+>>> IdentitySet().new
 IdentitySet()
 ```
 
@@ -21,13 +23,23 @@ The binary form, for collections where `species` answers a one-argument block:
 >>> [].species
 List/1
 
->>> [].species.new(3)
+>>> [].new(3)
 [nil nil nil]
+```
+
+Note that the binary form of `new` does not necessarily answer a collection of size _n_,
+see also `newOfSize`:
+
+```
+>>> let a = LinkedList[1 2 3];
+>>> let b = a.new(3);
+>>> (a.size, b.size)
+(3, 0)
 ```
 
 * * *
 
-See also: ofSize, newFrom, species
+See also: New, newFrom, newOfSize, species
 
 Guides: Collection Functions
 

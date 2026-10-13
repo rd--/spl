@@ -1,6 +1,6 @@
-# include (include!)
+# include!
 
-- _include(c, x)_
+- _include!(c, x)_
 
 Include the object _x_ as one of the elements of the collection _c_.
 After including an entry, the `size` of the collection may increases by one, or may stay the same.
@@ -49,18 +49,20 @@ Attempting to `include` a non-immediate object in an `IdentitySet` is an `error`
 true
 ```
 
-See instead `uncheckedInclude`:
+See instead `uncheckedInclude!`:
 
 ```
 >>> let s = IdentitySet();
->>> s.uncheckedInclude([1]);
->>> s.uncheckedInclude([1]);
+>>> s.uncheckedInclude!([1]);
+>>> s.uncheckedInclude!([1]);
 >>> s.size = 2
 true
 ```
 
 * * *
 
-See also: add, includeAll, isImmediate, remove, uncheckedInclude
+See also: Add, add!, includeAll!, isImmediate, remove!, uncheckedInclude!
+
+Guides: Set Functions
 
 Categories: Adding

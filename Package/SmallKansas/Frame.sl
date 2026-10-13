@@ -11,7 +11,7 @@ Frame : [Object, UserEventTarget] {
 		self.smallKansas.removeFrame(self)
 	}
 
-	colourMutateInPlace { :self :aColour |
+	colourMutate! { :self :aColour |
 		self.framePane.style.setProperty('background-color', aColour.hexTriplet, '')
 	}
 
@@ -63,11 +63,11 @@ Frame : [Object, UserEventTarget] {
 		self.inMove := false
 	}
 
-	fontMutateInPlace { :self :fontName |
+	fontMutate! { :self :fontName |
 		self.framePane.style.setProperty('--font-family', fontName, '')
 	}
 
-	fontSizeMutateInPlace { :self :fontSize |
+	fontSizeMutate! { :self :fontSize |
 		self.framePane.style.setProperty('--font-size', fontSize, '')
 	}
 
@@ -164,7 +164,7 @@ Frame : [Object, UserEventTarget] {
 		self.titleText.textContent
 	}
 
-	titleMutateInPlace { :self :aString |
+	titleMutate! { :self :aString |
 		self.titleText.textContent := aString
 	}
 
@@ -172,7 +172,7 @@ Frame : [Object, UserEventTarget] {
 		self.framePane.style.getPropertyValue('z-index').parseSmallInteger(10)
 	}
 
-	zIndexMutateInPlace { :self :anInteger |
+	zIndexMutate! { :self :anInteger |
 		self.framePane.style.setProperty('z-index', anInteger.printString, '')
 	}
 

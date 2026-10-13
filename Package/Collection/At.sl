@@ -2,6 +2,14 @@
 
 @At {
 
+	atIfAbsent { :self :index :ifAbsent/0 |
+		self.typeResponsibility('atIfPresentIfAbsent')
+	}
+
+}
+
++@At {
+
 	@* { :self :indexList |
 		self.atAll(indexList)
 	}
@@ -17,7 +25,7 @@
 	}
 
 	assertIsOfSize { :self :anInteger |
-		self.assert {
+		self.assert('isOfSize') {
 			self.size = anInteger
 		}
 	}
@@ -26,18 +34,14 @@
 		self.includesIndex(index).if {
 			index
 		} {
-			self.error('assertIsValidIndex: no such index', [index])
+			self.errorInvalidIndex('assertIsValidIndex', index)
 		}
 	}
 
 	[at, @] { :self :index |
 		self.atIfAbsent(index) {
-			self.error('at: invalid index', [index])
+			self.errorInvalidIndex('at', index)
 		}
-	}
-
-	atIfAbsent { :self :index :ifAbsent/0 |
-		self.typeResponsibility('atIfPresentIfAbsent')
 	}
 
 	atIfPresent { :self :index :ifPresent/1 |
@@ -81,21 +85,29 @@
 		}
 	}
 
-	atPath { :self :indices |
+	atPath { :self :path |
 		let item = self;
-		indices.ifEmpty {
-			self.error('atPath: empty indices')
+		path.ifEmpty {
+			self.errorInvalidIndex('atPath', path)
 		} {
-			indices.do { :index |
+			path.do { :index |
 				item := item[index]
 			};
 			item
 		}
 	}
 
-	deepIndices { :self |
-		self.deepIndices(true.constant)
+}
+
++@At {
+
+	indices { :self |
+		self.typeResponsibility('indices')
 	}
+
+}
+
++@At {
 
 	deepIndices { :self :aBlock/1 |
 		let answer = [];
@@ -105,6 +117,10 @@
 			}
 		};
 		answer
+	}
+
+	deepIndices { :self |
+		self.deepIndices(true.constant)
 	}
 
 	deepIndicesOf { :self :anObject |
@@ -129,15 +145,11 @@
 		}
 	}
 
-	errorInvalidIndex { :self :for :index |
+	errorInvalidIndex { :self :message :index |
 		self.error(
-			[
-				'errorInvalidIndex: index not correct type or out of range.',
-				'index:', index.printString,
-				'for:', for,
-				'index.typeOf:', index.typeOf,
-				'self.size:', self.size.printString
-			].unwords
+			'InvalidIndex: %, i=%:%, n=%'.format(
+				[message, index, index.typeOf, self.size]
+			)
 		)
 	}
 
@@ -151,7 +163,7 @@
 
 	indexOf { :self :anObject |
 		self.indexOfIfAbsent(anObject) {
-			self.error('indexOf: no such element')
+			self.error('indexOf: no such element', [anObject])
 		}
 	}
 
@@ -164,10 +176,6 @@
 			};
 			aBlock()
 		}
-	}
-
-	indices { :self |
-		self.typeResponsibility('indices')
 	}
 
 	indices { :self :aBlock/1 |

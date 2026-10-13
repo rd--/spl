@@ -1,4 +1,4 @@
-List! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Put, Collect, FiniteCollection, Add, Remove, Sequence, PrimitiveArray, Ordered] {
+List! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Put, New, Collect, FiniteCollection, Add, Remove, Sequence, PrimitiveArray, Ordered] {
 
 	addListFirst { :self :aList |
 		<primitive:
@@ -145,7 +145,7 @@ List! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Put, Collect, Finite
 		(level <= 1).if {
 			self.catenate
 		} {
-			1.toAsCollect(self.first.size, self.first.species) { :index |
+			1.toAsCollect(self.first.size, self.first) { :index |
 				self.collect { :row |
 					row[index]
 				}.join(level - 1)

@@ -103,7 +103,7 @@ true
 
 * * *
 
-See also: Add, addAll, addFirst, addLast, include, remove
+See also: Add, addAll!, addFirst!, addLast!, include!, remove!
 
 Guides: Dictionary Functions, List Functions
 

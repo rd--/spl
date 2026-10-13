@@ -1,6 +1,23 @@
 # Add
 
-`Add` is a collection `Trait` holding behaviours common to extensible collections.
+`Add` is a collection trait holding behaviours common to extensible collections.
+
+The required method is:
+
+- `add!`
+
+Provided methods include:
+
+- `addAll!`
+- `addAllIfNotPresent!`
+- `addIfNotPresent!`
+- `addWithOccurrences!`
+- `fillFromWith!`
+- `ifAbsentAdd!`
+- `include!`
+- `includeAll!`
+
+`Add` is a `Trait`:
 
 ```
 >>> system
@@ -8,21 +25,6 @@
 >>> .isTrait
 true
 ```
-
-The required method is:
-
-- `add`
-
-Provided methods are:
-
-- `addAll`
-- `addAllIfNotPresent`
-- `addIfNotPresent`
-- `addWithOccurrences`
-- `fillFromWith`
-- `ifAbsentAdd`
-- `include`
-- `includeAll`
 
 Types implementing `Add`:
 

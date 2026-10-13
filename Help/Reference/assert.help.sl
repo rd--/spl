@@ -31,7 +31,7 @@ true
 
 See also: error
 
-Guides: Control Functions
+Guides: Assertion Functions, Control Functions
 
 References:
 _Mathematica_

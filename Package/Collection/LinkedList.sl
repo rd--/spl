@@ -76,7 +76,7 @@
 
 }
 
-LinkedList : [Object, Copy, Store, Equal, Compare, Do, At, Put, Collect, FiniteCollection, Add, Remove, Sequence] {
+LinkedList : [Object, Copy, Store, Equal, Compare, Do, At, Put, New, Collect, FiniteCollection, Add, Remove, Sequence] {
 
 	| firstLink lastLink |
 
@@ -178,13 +178,6 @@ LinkedList : [Object, Copy, Store, Equal, Compare, Do, At, Put, Collect, FiniteC
 			index := index + 1
 		};
 		answer
-	}
-
-	ofSize { :self :aNumber |
-		(aNumber - self.size).timesRepeat {
-			self.add!(nil)
-		};
-		self
 	}
 
 	postCopy { :self |

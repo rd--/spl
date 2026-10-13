@@ -72,7 +72,7 @@ ControlFlowGraph : [Object] {
 			node := self.basicBlockMap[name]
 		} {
 			node := BasicBlock(name);
-			self.basicBlockMap.ofSize(name); /* grow array */
+			self.basicBlockMap.extendToSize!(name); /* grow array */
 			self.basicBlockMap[name] := node
 		};
 		(self.numNodes == 1).ifTrue {
@@ -481,17 +481,17 @@ SimpleLoop : [Object] {
 		self.basicBlocks := IdentitySet();
 		self.children := IdentitySet();
 		aBB.ifNotNil {
-			self.basicBlocks.uncheckedInclude(aBB)
+			self.basicBlocks.uncheckedInclude!(aBB)
 		};
 		self
 	}
 
 	addNode { :self :bb |
-		self.basicBlocks.uncheckedInclude(bb)
+		self.basicBlocks.uncheckedInclude!(bb)
 	}
 
 	addChildLoop { :self :loop |
-		self.children.uncheckedInclude(loop)
+		self.children.uncheckedInclude!(loop)
 	}
 
 	setParent { :self :value |

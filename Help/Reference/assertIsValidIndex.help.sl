@@ -35,4 +35,6 @@ true
 
 See also: assert, includesIndex
 
+Guides: Assertion Functions
+
 Categories: Asserting

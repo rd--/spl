@@ -50,7 +50,14 @@
 		answer
 	}
 
-	fillFromWith { :self :aCollection :aBlock/1 |
+	extendToSize! { :self :aNumber |
+		(aNumber - self.size).timesRepeat {
+			self.add!(nil)
+		};
+		self
+	}
+
+	fillFromWith! { :self :aCollection :aBlock/1 |
 		aCollection.do { :each |
 			self.add!(aBlock(each))
 		}
@@ -78,7 +85,7 @@
 	}
 
 	intersperse { :self :anObject |
-		let answer = self.species.new;
+		let answer = self.new;
 		self.doSeparatedBy { :each |
 			answer.add!(each)
 		} {
@@ -88,7 +95,7 @@
 	}
 
 	select { :self :aBlock/1 |
-		let answer = self.species.new;
+		let answer = self.new;
 		self.do { :each |
 			aBlock(each).ifTrue {
 				answer.include!(each)
@@ -98,7 +105,7 @@
 	}
 
 	selectThenCollect { :self :selectBlock/1 :collectBlock/1 |
-		let answer = self.species.new;
+		let answer = self.new;
 		self.selectThenDo(selectBlock/1) { :each |
 			answer.add!(collectBlock(each))
 		};

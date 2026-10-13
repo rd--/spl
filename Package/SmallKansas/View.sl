@@ -1,6 +1,6 @@
 @View {
 
-	frameMutateInPlace { :self :aFrame |
+	frameMutate! { :self :aFrame |
 	}
 
 	frameMenuItems { :self |
