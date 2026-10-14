@@ -31,6 +31,10 @@
 		anObject
 	}
 
+	addUtf8Encoded! { :self :aString |
+		self.addAll!(aString.utf8ByteArray)
+	}
+
 	addWithOccurrences! { :self :newObject :anInteger |
 		anInteger.timesRepeat {
 			self.add!(newObject)

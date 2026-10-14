@@ -220,12 +220,8 @@
 	/* Stream */
 	'Iterator'
 	'Stream'
-	'PositionableStream'
 	'BlockStream'
 	'CollectionStream'
-	'MutableCollectionStream'
-	'AsciiStream'
-	'Utf8Stream'
 
 	/* Random */
 	'AliasMethod'

@@ -48,7 +48,7 @@ Plot Utf-8 code points of a String:
 
 * * *
 
-See also: asciiByteArray, ByteArray, String, Utf8Stream, utf8String, utf16List
+See also: ByteArray, String, asciiByteArray, utf8String, utf16List
 
 Guides: String Functions
 

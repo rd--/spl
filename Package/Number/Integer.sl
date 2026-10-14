@@ -1470,46 +1470,46 @@
 		}
 	}
 
-	romanDigitsForOn { :self :digits :base :aStream |
+	romanDigitsForOn { :self :digits :base :aCollection |
 		let n = self % (base * 10) // base;
 		(n = 9).if {
-			aStream.addAll!([digits.last, digits.first])
+			aCollection.addAll!([digits.last, digits.first])
 		} {
 			(n = 4).if {
-				aStream.addAll!([digits.last, digits.second])
+				aCollection.addAll!([digits.last, digits.second])
 			} {
 				(n > 4).ifTrue {
-					aStream.add!(digits.second)
+					aCollection.add!(digits.second)
 				};
 				(n % 5).timesRepeat {
-					aStream.add!(digits.last)
+					aCollection.add!(digits.last)
 				}
 			}
 		}
 	}
 
-	romanDigitsOn { :self :aStream |
+	romanDigitsOn { :self :aCollection |
 		let integer = self.isNegative.if {
-			aStream.add!('-'.asciiValue);
+			aCollection.add!('-'.asciiValue);
 			self.negate
 		} {
 			self
 		};
 		(integer // 1000).timesRepeat {
-			aStream.add!('M'.asciiValue)
+			aCollection.add!('M'.asciiValue)
 		};
-		integer.romanDigitsForOn('MDC'.asciiByteArray, 100, aStream);
-		integer.romanDigitsForOn('CLX'.asciiByteArray, 10, aStream);
-		integer.romanDigitsForOn('XVI'.asciiByteArray, 1, aStream)
+		integer.romanDigitsForOn('MDC'.asciiByteArray, 100, aCollection);
+		integer.romanDigitsForOn('CLX'.asciiByteArray, 10, aCollection);
+		integer.romanDigitsForOn('XVI'.asciiByteArray, 1, aCollection)
 	}
 
 	romanNumeral { :self |
 		self.isZero.if {
 			'N'
 		} {
-			{ :stream |
-				romanDigitsOn(self, stream)
-			}.asciiStringStreamContents
+			{ :aCollection |
+				romanDigitsOn(self, aCollection)
+			}.asciiStringBuilder
 		}
 	}
 

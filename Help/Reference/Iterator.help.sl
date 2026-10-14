@@ -37,7 +37,6 @@ List of types implementing `Iterator`:
 	'LaggedFibonacci'
 	'LinearCongruential'
 	'MersenneTwister'
-	'MutableCollectionStream'
 	'Sfc32'
 	'SplitMix'
 ]

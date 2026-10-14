@@ -2,7 +2,6 @@
 
 Traits and Types:
 
-- `AsciiStream`
 - `AsciiString`
 - `BacktickQuotedString`
 - `ByteArray`
@@ -10,7 +9,6 @@ Traits and Types:
 - `Character`
 - `String`
 - `Symbol`
-- `Utf8Stream`
 
 Ascii:
 

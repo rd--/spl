@@ -330,6 +330,7 @@ Reference/addLast.help.sl
 Reference/addLibraryItem.help.sl
 Reference/addOscListener.help.sl
 Reference/addSine.help.sl
+Reference/addUtf8Encoded.help.sl
 Reference/addWithOccurrences.help.sl
 Reference/adjacencyGraph.help.sl
 Reference/adjacencyList.help.sl
@@ -457,9 +458,8 @@ Reference/arshonsSequence.help.sl
 Reference/artinsConstant.help.sl
 Reference/asaTriangle.help.sl
 Reference/asciiByteArray.help.sl
-Reference/asciiContents.help.sl
 Reference/ascii.help.sl
-Reference/AsciiStream.help.sl
+Reference/asciiStringBuilder.help.sl
 Reference/asciiString.help.sl
 Reference/AsciiString.help.sl
 Reference/asciiValue.help.sl
@@ -2849,7 +2849,6 @@ Reference/multisetPermutations.help.sl
 Reference/MultiTapDelay.help.sl
 Reference/MultivariateTDistribution.help.sl
 Reference/murasakiDiagram.help.sl
-Reference/MutableCollectionStream.help.sl
 Reference/nadarayaWatsonEstimator.help.sl
 Reference/nagelPoint.help.sl
 Reference/namedAlphabet.help.sl
@@ -3275,7 +3274,6 @@ Reference/polynomialRemainder.help.sl
 Reference/pop.help.sl
 Reference/porterStemmer.help.sl
 Reference/port.help.sl
-Reference/PositionableStream.help.sl
 Reference/position.help.sl
 Reference/positionIndex.help.sl
 Reference/positionSmallest.help.sl
@@ -4319,8 +4317,7 @@ Reference/UserEventTarget.help.sl
 Reference/userName.help.sl
 Reference/utf16List.help.sl
 Reference/utf8ByteArray.help.sl
-Reference/utf8Contents.help.sl
-Reference/Utf8Stream.help.sl
+Reference/utf8StringBuilder.help.sl
 Reference/utf8String.help.sl
 Reference/uUnifastAlgorithm.help.sl
 Reference/uUnifastDiscardAlgorithm.help.sl
@@ -4445,7 +4442,6 @@ Reference/Wrap.help.sl
 Reference/wrapIndex.help.sl
 Reference/WrapIndex.help.sl
 Reference/writeBinaryFile.help.sl
-Reference/WriteStream.help.sl
 Reference/writeTextFile.help.sl
 Reference/Writing.help.sl
 Reference/wunderlichCurve.help.sl

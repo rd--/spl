@@ -45,7 +45,7 @@ true
 
 * * *
 
-See also: skip, PositionableStream, Stream
+See also: Stream, skip!
 
 Guides: Stream Functions
 

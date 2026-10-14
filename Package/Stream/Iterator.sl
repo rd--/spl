@@ -1,5 +1,13 @@
 @Iterator {
 
+	next { :self |
+		self.typeResponsibility('Iterator>>next')
+	}
+
+}
+
++@Iterator {
+
 	any { :self :numberOfElements |
 		self.next(numberOfElements)
 	}
@@ -28,10 +36,6 @@
 			answer.addLast!(self.next)
 		};
 		answer
-	}
-
-	next { :self |
-		self.typeResponsibility('Iterator>>next')
 	}
 
 	nextInto { :self :aCollection |

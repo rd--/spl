@@ -2580,17 +2580,9 @@ system.includesPackage('Stream') /* Stream package */
 let s = 1:9.Stream; let a = s.next(9); s.reset!; s.next(9) = a /* reset stream */
 ```
 
-### PositionableStream -- collection trait
+### CollectionStream -- collection type
 ```
-system.includesPackage('PositionableStream') /* PositionableStream package */
-[].Stream.isAtEnd = true /* at end predicate */
-let r = 1:1000.Iterator; [r.next, r.next, r.isAtEnd] = [1, 2, false] /* at end predicate */
-[].Stream.position = 0 /* initially the position is zero */
-let r = 1:9.Stream; [r.next, r.back, r.next] = [1, 1, 1] /* go back one element and return it (by peeking) */
-```
-
-### CollectionStream -- collection trait
-```
+system.includesPackage('CollectionStream') /* package */
 1:5.Stream.size = 5 /* stream from interval, stream size */
 1:5.Stream.contents = 1:5 /* contents of finite stream (a copy of the collection) */
 let a = [1 .. 5]; a.Stream.contents !== a /* contents of finite stream (a copy of the collection) */
@@ -2598,6 +2590,10 @@ let i = 1:5; i.Stream.collection == i /* underlying collection of stream */
 let r = 1:5.Stream; r.upToEnd; r.contents = 1:5 /* contents of consumed stream */
 1:9.Stream.collection = Range(1, 9, 1) /* read stream over interval collection */
 let i = 1:9; let s = i.Stream; let c = s.copy; c.next; s.next = 1 & { c.next = 2 } /* copy */
+[].Stream.isAtEnd = true /* at end predicate */
+let r = 1:1000.Iterator; [r.next, r.next, r.isAtEnd] = [1, 2, false] /* at end predicate */
+[].Stream.position = 0 /* initially the position is zero */
+let r = 1:9.Stream; [r.next, r.back, r.next] = [1, 1, 1] /* go back one element and return it (by peeking) */
 ```
 
 ## Record -- collection type
@@ -4118,10 +4114,4 @@ WeakMap().printString = 'a WeakMap' /* weak map print string */
 { WeakMap().size }.hasError /* the size of a weak map cannot be observed */
 let f = { system.nextRandomFloat }; f/0.once = f/0.once /* Block>>once caches output using a weak map */
 system.cache['onceCache'].isWeakMap
-```
-
-## MutableCollectionStream -- collection type
-```
-system.includesPackage('MutableCollectionStream') /* MutableCollectionStream package */
-let w = [].ByteArray.WriteStream; w.addAll!(1:9); w.contents = [1 .. 9].ByteArray
 ```

@@ -51,24 +51,10 @@ At `Tree` answers if the tree is a binary tree:
 true
 ```
 
-At `Stream` tells if the underlying collection is a `ByteArray`:
-
-```
->>> WriteStream(
->>> 	List(100)
->>> ).isBinary
-false
-
->>> WriteStream(
->>> 	ByteArray(100)
->>> ).isBinary
-true
-```
-
 * * *
 
 See also: Binary, Tree
 
-Guides: Stream Functions, Tree Functions
+Guides: Tree Functions
 
 Categories: Testing

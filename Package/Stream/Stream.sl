@@ -1,5 +1,13 @@
 @Stream {
 
+	reset! { :self |
+		self.typeResponsibility('Stream>>reset!')
+	}
+
+}
+
++@Stream {
+
 	equalToOnReset { :self :places |
 		let initialAnswer = self.next(places);
 		self.reset!;
@@ -12,16 +20,8 @@
 		self.upToEnd = initialAnswer
 	}
 
-	isBinary { :self |
-		self.typeResponsibility('Stream>>isBinary')
-	}
-
 	isStream { :self |
 		true
-	}
-
-	reset! { :self |
-		self.typeResponsibility('Stream>>reset!')
 	}
 
 	Stream { :self |

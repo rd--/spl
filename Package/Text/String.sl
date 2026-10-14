@@ -1334,6 +1334,22 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Character] {
 
 }
 
++Block {
+
+	asciiStringBuilder { :self/1 |
+		let c = [];
+		self(c);
+		c.asciiString
+	}
+
+	utf8StringBuilder { :self/1 |
+		let c = [];
+		self(c);
+		c.utf8String
+	}
+
+}
+
 +List {
 
 	burrowsWheelerMatrix { :self |

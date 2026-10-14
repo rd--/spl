@@ -39,7 +39,6 @@ Types implementing `Do`:
 	'Markdown'
 	'MemoizationTable'
 	'Multiset'
-	'MutableCollectionStream'
 	'NumericArray'
 	'Range'
 	'Record'

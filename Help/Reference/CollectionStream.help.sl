@@ -4,13 +4,13 @@
 
 A `CollectionStream` is a `Type` that implements a `Stream` which is backed by a `Sequence` type.
 
-`CollectionStream` implements the `Iterator`, `Stream` and `PositionableStream` traits.
+`CollectionStream` implements the `Iterator` and `Stream` traits.
 
-The basic protocols on a `Stream` are `next` and `reset`.
+The basic protocols on a `Stream` are `next` and `reset!`.
 
 * * *
 
-See also: PositionableStream, Stream, WriteStream, next, peek, reset
+See also: Stream, next, peek, reset!
 
 Guides: Stream Functions
 

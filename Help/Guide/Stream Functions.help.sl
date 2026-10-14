@@ -4,15 +4,11 @@ Traits:
 
 - `Iterator`
 - `Stream`
-- `PositionableStream`
 
 Types:
 
-- `AsciiStream`
 - `BlockStream`
 - `CollectionStream`
-- `MutableCollectionStream`
-- `Utf8Stream`
 
 Predicates:
 
@@ -51,11 +47,6 @@ Positionable Stream Functions:
 Block Stream Functions:
 
 - `iterate`
-
-Mutable Stream Functions:
-
-- `add!`
-- `addAll!`
 
 * * *
 

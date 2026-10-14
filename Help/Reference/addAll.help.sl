@@ -61,15 +61,15 @@ At `SortedList`:
 SortedList[1 .. 8]
 ```
 
-At `WriteStream`,
-enumerates the collection _c_,
-adding each element to the stream _s_:
+`addAll!` add each of the items to the collection in turn:
 
 ```
->>> let s = WriteStream(ByteArray(0));
->>> s.addAll!(0:255);
->>> s.contents
-ByteArray[0 .. 255]
+>>> let c = [];
+>>> c.add!(1);
+>>> c.addAll!([2 .. 8]);
+>>> c.add!(9);
+>>> c
+[1 .. 9]
 ```
 
 * * *

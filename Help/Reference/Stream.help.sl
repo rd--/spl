@@ -56,7 +56,6 @@ List of types implementing `Stream`:
 	'LaggedFibonacci'
 	'LinearCongruential'
 	'MersenneTwister'
-	'MutableCollectionStream'
 	'Sfc32'
 	'SplitMix'
 ]
@@ -81,6 +80,6 @@ _Rationale_:
 
 * * *
 
-See also: BlockStream, CollectionStream, Iterator, PositionableStream, WriteStream, reset
+See also: BlockStream, CollectionStream, Iterator, reset
 
 Guides: Stream Functions

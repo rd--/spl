@@ -714,16 +714,16 @@
 
 ## Streams
 
-- `Iterator`, `Stream`, `WriteStream`
-- `BlockStream`, `CollectionStream`, `MutableCollectionStream`
-- `atEnd`, `next`, `reset`
+- `Iterator`, `Stream`
+- `BlockStream`, `CollectionStream`
+- `isAtEnd`
+- `next`, `reset!`
 - `nextUntil`, `nextWhile`
 - `contents`
 - `position`, `setToEnd!`
-- `Iterator`, `Stream`
 - `collect`, `reject`, `select`
 - `peek`, `peekFor`
-- `skip`, `skipTo`
+- `skip!`, `skipTo!`
 
 ## Stream Library
 

@@ -90,7 +90,6 @@ The list of system traits:
 	'Ordered'
 	'PlaneAngle'
 	'PolygonMesh'
-	'PositionableStream'
 	'PrimitiveArray'
 	'PrimitiveError'
 	'PrimitiveMap'

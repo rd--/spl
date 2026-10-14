@@ -13,4 +13,4 @@ Move the position index to the end of the stream _s_.
 
 * * *
 
-See also: PositionableStream, position, reset!
+See also: Stream, position, reset!
