@@ -148,7 +148,7 @@ SortedList : [Object, Copy, Store, Equal, Compare, Do, At, New, Collect, FiniteC
 	}
 
 	storeString { :self |
-		(self.sortBlock = precedesOrEqualTo/2).if {
+		(self.sortBlock == precedesOrEqualTo/2).if {
 			'SortedList(%)'.format([self.uncopiedList])
 		} {
 			'SortedList(%, %)'.format(

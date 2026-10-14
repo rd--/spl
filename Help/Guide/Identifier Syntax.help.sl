@@ -42,7 +42,7 @@ There is a special syntax for naming the arity of a function:
 There is a special syntax for in-place, or mutating, methods:
 
 ```
->> 'sort!'.splSimplify
+>>> 'sort!'.splSimplify
 'sortInPlace'
 
 >>> 'sort!/1'.splSimplify

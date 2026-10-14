@@ -2593,7 +2593,7 @@ let i = 1:9; let s = i.Stream; let c = s.copy; c.next; s.next = 1 & { c.next = 2
 [].Stream.isAtEnd = true /* at end predicate */
 let r = 1:1000.Iterator; [r.next, r.next, r.isAtEnd] = [1, 2, false] /* at end predicate */
 [].Stream.position = 0 /* initially the position is zero */
-let r = 1:9.Stream; [r.next, r.back, r.next] = [1, 1, 1] /* go back one element and return it (by peeking) */
+let r = 1:9.Stream; [r.next, r.back!, r.next] = [1, 1, 1] /* go back one element and return it (by peeking) */
 ```
 
 ## Record -- collection type

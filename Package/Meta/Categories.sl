@@ -1178,7 +1178,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'splOperatorTokenName'
 	],
 	'testing-stream': [
-		'atEnd'
+		'isAtEnd'
 	],
 	'testing-collection': [
 		'allEqual'

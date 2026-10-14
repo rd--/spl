@@ -119,9 +119,9 @@ BlockStream : [Object, Do, Collect, Iterator, Stream] {
 	}
 
 	adaptToStreamAndApply { :self :aStream :aBlock/2 |
-		let atEnd = false;
+		let isAtEnd = false;
 		BlockStream {
-			atEnd.if {
+			isAtEnd.if {
 				nil
 			} {
 				let p = self.next;
@@ -129,7 +129,7 @@ BlockStream : [Object, Do, Collect, Iterator, Stream] {
 				(p.isNil | {
 					q.isNil
 				}).if {
-					atEnd := true;
+					isAtEnd := true;
 					nil
 				} {
 					aBlock(p, q)
@@ -138,7 +138,7 @@ BlockStream : [Object, Do, Collect, Iterator, Stream] {
 		} {
 			self.reset!;
 			aStream.reset!;
-			atEnd := false
+			isAtEnd := false
 		}
 	}
 
@@ -157,7 +157,7 @@ BlockStream : [Object, Do, Collect, Iterator, Stream] {
 
 	[concatenation, ++] { :self :aStream |
 		BlockStream {
-			self.atEnd.if {
+			self.isAtEnd.if {
 				aStream.next
 			} {
 				self.next
@@ -171,7 +171,7 @@ BlockStream : [Object, Do, Collect, Iterator, Stream] {
 
 	cycle { :self |
 		BlockStream {
-			self.atEnd.ifTrue {
+			self.isAtEnd.ifTrue {
 				self.reset!
 			};
 			self.next
