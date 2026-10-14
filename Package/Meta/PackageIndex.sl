@@ -387,7 +387,6 @@
 	'Stream-PositionableStream'
 	'Stream-Stream'
 	'Stream-Utf8Stream'
-	'Stream-WriteStream'
 	'SuperCollider-ContinuousEvent'
 	'SuperCollider-Env'
 	'SuperCollider-J'

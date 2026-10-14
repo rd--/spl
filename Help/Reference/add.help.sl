@@ -94,6 +94,17 @@ At `SortedList`:
 SortedList[1 2 3 4 5 6 7]
 ```
 
+At `WriteStream`,
+write the object _x_ into the stream _c_:
+
+```
+>>> let s = WriteStream[];
+>>> s.add!('a');
+>>> s.add!('b');
+>>> (s.upToEnd, s.contents)
+([], ['a' 'b'])
+```
+
 At `String`, which is not extensible:
 
 ```

@@ -16,6 +16,18 @@ ArrayBuffer! : [Object] {
 		<primitive: return _self.byteLength;>
 	}
 
+	isDetached { :self |
+		<primitive: return _self.detached;>
+	}
+
+	isResizable { :self |
+		<primitive: return _self.resizable;>
+	}
+
+	maxByteSize { :self |
+		<primitive: return _self.maxByteLength;>
+	}
+
 	size { :self |
 		self.shouldNotImplement('size: see byteSize')
 	}

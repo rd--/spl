@@ -5,6 +5,13 @@
 Answer the contents of _x_,
 ordinarily a `Stream`.
 
+At `CollectionStream`:
+
+```
+>>> Stream[1 2 3].contents
+[1 2 3]
+```
+
 At `Box`:
 
 ```
@@ -14,7 +21,7 @@ At `Box`:
 
 * * *
 
-See also: List, join, next, reset, splitBy, stringList
+See also: List, Stream, join, next, reset, splitBy, stringList
 
 Guides: Stream Functions
 

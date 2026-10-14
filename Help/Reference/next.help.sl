@@ -35,7 +35,7 @@ which is likewise an infinite stream:
 
 * * *
 
-See also: atEnd, contents, nextOrUpToEnd, nextPut, nextSatisfy, nextUntil, nextWhile, reset, Stream
+See also: atEnd, contents, nextOrUpToEnd, nextSatisfy, nextUntil, nextWhile, reset, Stream
 
 Guides: Stream Functions
 

@@ -2,14 +2,15 @@
 
 - _AsciiStream(n=100)_
 
-Answer a `MutableCollectionStream` on a `ByteArray` on which `String` values can be written using `encodeOn`.
+Answer a `MutableCollectionStream` on a `ByteArray`,
+to which `String` values can be written using `addEncoded!`.
 
 Encode a `String` onto the stream,
 and decode the `contents` using `utf8String`:
 
 ```
 >>> let w = AsciiStream();
->>> 'ascii'.encodeOn(w);
+>>> w.addEncoded!('ascii');
 >>> w.contents.asciiString
 'ascii'
 ```
@@ -18,17 +19,17 @@ The `asciiContents` method combines `contents` and `asciiString`:
 
 ```
 >>> let w = AsciiStream();
->>> 'ascii'.encodeOn(w);
+>>> w.addEncoded!('ascii');
 >>> w.asciiContents
 'ascii'
 ```
 
-`printOn` combines `encodeOn` and `printString`:
+Combines with `printString`:
 
 ```
 >>> let w = AsciiStream();
 >>> [3.141, nil].do { :each |
->>> 	each.printOn(w)
+>>> 	w.addEncoded!(each.printString)
 >>> };
 >>> w.asciiContents
 '3.141nil'
@@ -40,13 +41,13 @@ and answers the final stream contents as a `String`:
 
 ```
 >>> { :stream |
->>> 	'ascii'.encodeOn(stream)
+>>> 	stream.addEncoded!('ascii')
 >>> }.asciiStringStreamContents
 'ascii'
 ```
 
 * * *
 
-See also: asciiContents, asciiString, ByteArray, contents, encodeOn, MutableCollectionStream, printString, String, Utf8Stream
+See also: ByteArray, MutableCollectionStream, String, Utf8Stream, asciiContents, asciiString, contents, printString
 
 Guides: Stream Functions, String Functions

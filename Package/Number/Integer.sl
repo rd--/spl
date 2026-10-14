@@ -1473,16 +1473,16 @@
 	romanDigitsForOn { :self :digits :base :aStream |
 		let n = self % (base * 10) // base;
 		(n = 9).if {
-			aStream.nextPutAll([digits.last, digits.first])
+			aStream.addAll!([digits.last, digits.first])
 		} {
 			(n = 4).if {
-				aStream.nextPutAll([digits.last, digits.second])
+				aStream.addAll!([digits.last, digits.second])
 			} {
 				(n > 4).ifTrue {
-					aStream.nextPut(digits.second)
+					aStream.add!(digits.second)
 				};
 				(n % 5).timesRepeat {
-					aStream.nextPut(digits.last)
+					aStream.add!(digits.last)
 				}
 			}
 		}
@@ -1490,13 +1490,13 @@
 
 	romanDigitsOn { :self :aStream |
 		let integer = self.isNegative.if {
-			aStream.nextPut('-'.asciiValue);
+			aStream.add!('-'.asciiValue);
 			self.negate
 		} {
 			self
 		};
 		(integer // 1000).timesRepeat {
-			aStream.nextPut('M'.asciiValue)
+			aStream.add!('M'.asciiValue)
 		};
 		integer.romanDigitsForOn('MDC'.asciiByteArray, 100, aStream);
 		integer.romanDigitsForOn('CLX'.asciiByteArray, 10, aStream);

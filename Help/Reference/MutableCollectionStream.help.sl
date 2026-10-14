@@ -1,6 +1,6 @@
 # MutableCollectionStream
 
-`MutableCollectionStream` is a `Type` that implements the `Stream`, `PositionableStream` and `WriteStream` traits.
+`MutableCollectionStream` is a `Type` that implements the `Stream`, `PositionableStream` and `Add` traits.
 
 * * *
 

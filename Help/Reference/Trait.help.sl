@@ -111,7 +111,6 @@ The list of system traits:
 	'Unordered'
 	'Url'
 	'UrlQueryParameters'
-	'WriteStream'
 ]
 ```
 

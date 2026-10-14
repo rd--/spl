@@ -33,7 +33,6 @@ system.categoryDictionary.categorizeDictionary('type', (
 	],
 	'Collection-Stream': [
 		'ReadStream'
-		'WriteStream'
 	],
 	'Collection-Unordered': [
 		'Association'
@@ -351,8 +350,6 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'next'
 		'nextInto'
 		'nextIntoStartingAt'
-		'nextPut'
-		'nextPutAll'
 		'nextSatisfy'
 		'numArgs'
 		'ok'
@@ -873,7 +870,6 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'UgenGraph'
 		'WeakMap'
 		'WebSocket'
-		'WriteStream'
 		'LargeInteger'
 		'instanceOf'
 		'new'
@@ -1350,7 +1346,6 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'isTrait'
 		'isTranscript'
 		'isWeakMap'
-		'isWriteStream'
 	],
 	'type predicate-geometry': [
 		'isMatrix22'

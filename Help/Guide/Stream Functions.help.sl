@@ -4,7 +4,6 @@ Traits:
 
 - `Iterator`
 - `Stream`
-- `WriteStream`
 - `PositionableStream`
 
 Types:
@@ -24,11 +23,7 @@ Predicates:
 
 Converting:
 
-- `Iterator`
-- `Stream`
-- `WriteStream`
 - `contents`
-- `originalContents`
 
 Stream Functions:
 
@@ -59,9 +54,8 @@ Block Stream Functions:
 
 Mutable Stream Functions:
 
-- `nextPut`
-- `nextPutAll`
-- `putOn`
+- `add!`
+- `addAll!`
 
 * * *
 

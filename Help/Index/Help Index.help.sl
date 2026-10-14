@@ -717,7 +717,6 @@
 - `Iterator`, `Stream`, `WriteStream`
 - `BlockStream`, `CollectionStream`, `MutableCollectionStream`
 - `atEnd`, `next`, `reset`
-- `nextPut`, `nextPutAll`
 - `nextUntil`, `nextWhile`
 - `contents`
 - `position`, `setToEnd`

@@ -61,6 +61,17 @@ At `SortedList`:
 SortedList[1 .. 8]
 ```
 
+At `WriteStream`,
+enumerates the collection _c_,
+adding each element to the stream _s_:
+
+```
+>>> let s = WriteStream(ByteArray(0));
+>>> s.addAll!(0:255);
+>>> s.contents
+ByteArray[0 .. 255]
+```
+
 * * *
 
 See also: Add, Do, add!, include!, includeAll!, remove!, removeAll!

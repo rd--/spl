@@ -1,6 +1,6 @@
 Box : [Object, Store, Equal] {
 
-	| contents |
+	| unbox |
 
 }
 

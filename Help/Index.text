@@ -1331,7 +1331,6 @@ Reference/encodeIni.help.sl
 Reference/encodeInt16.help.sl
 Reference/encodeInt32.help.sl
 Reference/encodeJson.help.sl
-Reference/encodeOn.help.sl
 Reference/encodeUri.help.sl
 Reference/endsWithAny.help.sl
 Reference/endsWith.help.sl
@@ -2912,8 +2911,6 @@ Reference/nextPermutationLexicographic.help.sl
 Reference/nextPowerOf.help.sl
 Reference/nextPowerOfTwo.help.sl
 Reference/nextPrime.help.sl
-Reference/nextPutAll.help.sl
-Reference/nextPut.help.sl
 Reference/nextRandomFloat.help.sl
 Reference/nextRandomInteger.help.sl
 Reference/nextSatisfy.help.sl
@@ -3023,7 +3020,6 @@ Reference/ordering.help.sl
 Reference/ordinalDateString.help.sl
 Reference/ordinalTransform.help.sl
 Reference/or.help.sl
-Reference/originalContents.help.sl
 Reference/origin.help.sl
 Reference/OrnsteinUhlenbeckProcess.help.sl
 Reference/orthicTriangle.help.sl
@@ -3353,7 +3349,6 @@ Reference/pushAllWithPriority.help.sl
 Reference/pushWithPriority.help.sl
 Reference/put.help.sl
 Reference/Put.help.sl
-Reference/putOn.help.sl
 Reference/putWrap.help.sl
 Reference/pyramidalNumber.help.sl
 Reference/pyramid.help.sl

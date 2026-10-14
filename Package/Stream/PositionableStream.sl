@@ -44,10 +44,6 @@
 		self.reset!
 	}
 
-	originalContents { :self |
-		self.collection
-	}
-
 	peek { :self |
 		self.atEnd.if {
 			nil
@@ -117,7 +113,7 @@
 					element = anObject
 				}
 			}.whileFalse {
-				aStream.nextPut(element)
+				aStream.add!(element)
 			}
 		}
 	}
@@ -127,7 +123,7 @@
 			{
 				self.atEnd
 			}.whileFalse {
-				aStream.nextPut(self.next!)
+				aStream.add!(self.next!)
 			}
 		}
 	}

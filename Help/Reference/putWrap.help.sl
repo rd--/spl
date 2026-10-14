@@ -1,10 +1,10 @@
 # putWrap!
 
-- _putWrap!(aSequence, index, value)_
+- _putWrap!(c, i, x)_
 
-Store _value_ into _aSequence_ at _index_.
-If _index_ is out of bounds, let it wrap around from the end to the beginning until it is in bounds.
-Answer _value_.
+Store the value _x_ into the sequence _c_ at index _i_.
+If _i_ is out of bounds, let it wrap around from the end to the beginning until it is in bounds.
+Answer _x_.
 
 ```
 >>> let l = [1 nil 3];
@@ -15,6 +15,8 @@ Answer _value_.
 
 * * *
 
-See also: atWrap, put, putPin
+See also: Put, atWrap, put!, putPin!
+
+Guides: List Functions
 
 Categories: Acccessing

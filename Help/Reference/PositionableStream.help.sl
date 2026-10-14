@@ -22,6 +22,6 @@ List of types implementing `PositionableStream`:
 
 * * *
 
-See also: aEnd, peek, Stream, WriteStream
+See also: Stream, atEnd, peek
 
 Guides: Stream Functions

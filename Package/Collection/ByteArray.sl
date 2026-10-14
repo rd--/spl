@@ -122,11 +122,11 @@ ByteArray! : [Object, Copy, Store, Equal, Compare, Do, At, Put, New, Collect, Fi
 +List {
 
 	asciiString { :self |
-		self.ByteArray.asciiString
+		ByteArray(self).asciiString
 	}
 
 	utf8String { :self |
-		self.ByteArray.utf8String
+		ByteArray(self).utf8String
 	}
 
 	utf16String { :self |

@@ -13,7 +13,7 @@ Answer `zero`, which is what `position` would answer.
 
 * * *
 
-See also: ReadStream, WriteStream
+See also: Stream
 
 Guides: Stream Functions
 

@@ -5505,7 +5505,7 @@ its first object.
 *Errors*: It is erroneous if anObject is an object that does not conform
 to the receiver’s sequence value type.
 
-Cf: nextPut
+Cf: add!
 
 ### 5.9.4.4
 
@@ -5522,7 +5522,7 @@ is, aCollection do: [:each | receiver nextPut: each]
 *Errors*: It is erroneous if any element of aCollection is an object
 that does not conform to the receiver’s sequence value type.
 
-Cf: nextPutAll
+Cf: addAll!
 
 ### 5.9.4.5
 
