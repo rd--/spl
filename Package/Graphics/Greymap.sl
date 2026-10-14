@@ -2,7 +2,11 @@ Greymap : [Object] {
 
 	| greyMatrix |
 
-	asPgm { :self :maxDepth |
+	drawing { :self |
+		self
+	}
+
+	encodePgm { :self :maxDepth |
 		let [rowCount, columnCount] = self.greyMatrix.shape;
 		let header = [
 			'P2',
@@ -14,15 +18,11 @@ Greymap : [Object] {
 				level.betweenAnd(0, 1).if {
 					(level * maxDepth).round.printString
 				} {
-					self.error('asPgm: not (0,1) matrix')
+					self.error('encodePgm: not (0,1) matrix')
 				}
 			}.unwords
 		};
 		(header ++ rows).unlines
-	}
-
-	drawing { :self |
-		self
 	}
 
 	height { :self |
@@ -42,7 +42,7 @@ Greymap : [Object] {
 	writePgm { :self :fileName |
 		system.writeTextFile(
 			fileName,
-			self.asPgm(255)
+			self.encodePgm(255)
 		)
 	}
 

@@ -20,9 +20,8 @@ answer an `AsciiString` value holding a byte-string encoding of the string _s_:
 >>> .codePoints
 [83 116 114 105 110 103]
 
->>> 'text'
->>> .AsciiString
->>> .ByteArray
+>>> AsciiString'text'
+>>> .byteArray
 ByteArray[116 101 120 116]
 ```
 
@@ -30,11 +29,11 @@ At `AsciiString` answers `identity`:
 
 ```
 >>> let s = AsciiString'text';
->>> s.AsciiString == s
+>>> AsciiString(s) == s
 true
 ```
 
-`AsciiString` implements `Do`, `Collect`, `At`, `Put` and `Sequence`:
+`AsciiString` implements `Do`, `At`, `Put`, `Collect` and `Sequence`:
 
 ```
 >>> let s = AsciiString'text';
@@ -103,5 +102,7 @@ AsciiString('String')
 * * *
 
 See also: ByteArray, Character, String
+
+Guides: String Functions
 
 Categories: Type, Text

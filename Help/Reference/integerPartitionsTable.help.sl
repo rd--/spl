@@ -49,6 +49,6 @@ Integer partitions table:
 
 * * *
 
-See also: circularPartitionsDrawing, Html, integerPartitions, rectangularPartitionsDrawing
+See also: Html, circularPartitionsDrawing, integerPartitions, rectangularPartitionsDrawing
 
 Guides: Combinatorial Functions

@@ -50,11 +50,15 @@ and demonstrate both multiplying & recovering and adding & recovering:
 
 * * *
 
-See also: gcd
+See also: gcd, mod, modularInverse, sum
+
+Guides: Mathematical Functions
 
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/ChineseRemainderTheorem.html)
-[2](https://reference.wolfram.com/language/ref/ChineseRemainder.html)
+[2](https://reference.wolfram.com/language/ref/ChineseRemainder.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Chinese_remainder_theorem)
 
 Categories: Math

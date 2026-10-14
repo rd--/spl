@@ -187,6 +187,6 @@ true
 
 * * *
 
-See also: %, commonResidue, modularInverse, ResidueSet
+See also: ResidueSet, %, commonResidue, mod, modularInverse
 
 Guides: Modular Arithmetic Functions

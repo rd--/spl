@@ -2903,7 +2903,7 @@ let l = [1 .. 9]; l.atAllPutAll(3:7, 7:3:-1); l = [1 2 7 6 5 4 3 8 9] /* set all
 let a = [1 .. 9]; a.collect! { :each | each * each }; a = [1, 4, 9, 16, 25, 36, 49, 64, 81] /* in-place collect */
 let c = [7, 2, 6, 1]; c.sort = [1, 2, 6, 7] & { c.sort != c } /* sorted copy */
 let c = [7, 2, 6, 1]; c.sort! = [1, 2, 6, 7] & { c = [1, 2, 6, 7] } /* sort in-place */
-[7, 2, 6, 1].SortedList.uncopiedList = [1, 2, 6, 7]
+[7, 2, 6, 1].SortedList.collection = [1, 2, 6, 7]
 [7 2 6 1].sort!(>) = [7 6 2 1]
 let n = 0; [3 .. 7].allButFirstDo { :each | n := n + each }; n = [4 .. 7].sum /* iterate skipping first element */
 let n = 0; [3 .. 7].allButLastDo { :each | n := n + each }; n = [3 .. 6].sum /* iterate skipping last element */
@@ -3222,11 +3222,11 @@ system.includesPackage('SortedList') /* sorted array package */
 SortedList().isSortedList /* sorted array */
 SortedList().species == SortedList/0 /* species is sorted array */
 SortedList().size = 0 /* query size */
-let a = SortedList(); a.add!(3); a.add!(1); a.add!(2); a.uncopiedList = [1 .. 3] /* add inserts items into sequence */
-let a = [3, 1].SortedList; a.add!(2); a.uncopiedList = [1 .. 3] /* sorted array from array */
-let a = [9, 8 .. 1].SortedList; a.collect { :x | 9 - x }; a.uncopiedList = [1 .. 9] /* collect into ordered collection */
-let a = [1 .. 9].SortedList(>); a.uncopiedList = [9, 8 .. 1] /* sorted array with specified sort block */
-let a = [5 .. 9].SortedList(>); a.addAll!([1 .. 4]); a.uncopiedList = [9, 8 .. 1]
+let a = SortedList(); a.add!(3); a.add!(1); a.add!(2); a.collection = [1 .. 3] /* add inserts items into sequence */
+let a = [3, 1].SortedList; a.add!(2); a.collection = [1 .. 3] /* sorted array from array */
+let a = [9, 8 .. 1].SortedList; a.collect { :x | 9 - x }; a.collection = [1 .. 9] /* collect into ordered collection */
+let a = [1 .. 9].SortedList(>); a.collection = [9, 8 .. 1] /* sorted array with specified sort block */
+let a = [5 .. 9].SortedList(>); a.addAll!([1 .. 4]); a.collection = [9, 8 .. 1]
 [5, 2, 50, -10].SortedList.List = [-10, 2, 5, 50]
 'hello'.characters.SortedList.List = 'ehllo'.characters
 ```

@@ -125,6 +125,22 @@ OEIS [A033948](https://oeis.org/A033948):
 ]
 ```
 
+Positive integers that do not have a primitive root,
+OEIS [A033949](https://oeis.org/A033949):
+
+```
+>>> 2:99.select { :x |
+>>> 	x.primitiveRootList.isEmpty
+>>> }
+[
+	 8 12 15 16 20 21 24 28 30 32
+	33 35 36 39 40 42 44 45 48 51
+	52 55 56 57 60 63 64 65 66 68
+	69 70 72 75 76 77 78 80 84 85
+	87 88 90 91 92 93 95 96 99
+]
+```
+
 Largest positive primitive root of _n_-th prime,
 OEIS [A071894](https://oeis.org/A071894):
 

@@ -14,7 +14,7 @@ system.smallKansas.ImageViewer(
 	[
 		Circle([0 0], 1),
 		Line([0 0; 2 0])
-	].LineDrawing.asObjectUrl
+	].LineDrawing.objectUrl
 )
 ~~~
 

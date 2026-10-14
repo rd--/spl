@@ -1,8 +1,8 @@
 # reducedResidueSystem
 
-- _reducedResidueSystem(anInteger)_
+- _reducedResidueSystem(n)_
 
-Answer the residue classes relatively prime to _anInteger_.
+Answer the residue classes relatively prime to _n_.
 
 ```
 >>> 12.reducedResidueSystem
@@ -47,6 +47,8 @@ A reduced residue system modulo _n_ is a group under multiplication modulo _n_.
 * * *
 
 See also: eulerPhi, isCoprime
+
+Guides: Mathematical Functions
 
 References:
 _Mathematica_

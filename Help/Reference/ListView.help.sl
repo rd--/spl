@@ -1,6 +1,6 @@
 # ListView
 
-- _ListView([x₁ x₂ …], i, j, k=1)_
+- _ListView([x₁ x₂ … xₙ], i=1, j=n, k=1)_
 
 A `ListView` is a `Type` holding a view into a segment of the sequence _x_,
 starting at start index _i_,
@@ -9,39 +9,20 @@ The reference index for the view is _k_, ordinarily `one`.
 
 `ListView` does not copy the elements from _x_ into separate storage.
 
-Traits implemented by `ListView`:
-
-```
->>> system.typeLookup('ListView')
->>> .traitNameList
->>> .sort!
-[
-	'At'
-	'Collect'
-	'Compare'
-	'Do'
-	'Equal'
-	'FiniteCollection'
-	'Object'
-	'Put'
-	'Sequence'
-]
-```
-
 Constructs a `ListView` from a `List`:
 
 ```
 >>> let a = [1 .. 9] ++ [9, 8 .. 1];
->>> let b = ListView(a, 7, 13, 1);
+>>> let b = ListView(a, 7, 13);
 >>> (
 >>> 	a.size, a.indices, a.sum,
->>> 	b.size, b.indices, b.List,
->>> 	b.first, b.last, b.sum
+>>> 	b.size, b.indices, b.sum,
+>>> 	b.first, b.last, b.List
 >>> )
 (
 	18, 1:18, 90,
-	7, 1:7, [7 8 9 9 8 7 6],
-	7, 6, 54
+	7, 1:7, 54,
+	7, 6, [7 8 9 9 8 7 6]
 )
 ```
 
@@ -51,14 +32,14 @@ this process does not create a double indirection:
 
 ```
 >>> let p = [111 .. 999];
->>> let q = ListView(p, 333, 777, 1);
->>> let r = ListView(q, 222, 444, 1);
+>>> let q = ListView(p, 333, 777);
+>>> let r = ListView(q, 222, 444);
 >>> (
 >>> 	[p.first, p.last, p.size],
 >>> 	[q.first, q.last, q.size],
 >>> 	[r.first, r.last, r.size],
->>> 	q.viewedList == p,
->>> 	r.viewedList == q.viewedList
+>>> 	q.collection == p,
+>>> 	r.collection == q.collection
 >>> )
 (
 	[111 999 889],
@@ -80,13 +61,13 @@ use `hasEqualElements` to compare sequences regardless of type:
 
 ```
 >>> let x = [1 2 3 4 5];
->>> let y = ListView(x, 2, 3, 1);
+>>> let y = ListView(x, 2, 3);
 >>> let z = [2 3];
 >>> (y = z, y.hasEqualElements(z))
 (false, true)
 ```
 
-The reference index allows fo creating a zero indexed view onto a list:
+The reference index allows for creating a zero indexed view onto a list:
 
 ```
 >>> let a = [1 2 3 4 5];
@@ -100,7 +81,7 @@ inclusive of each index:
 
 ```
 >>> let l = [1 3 2 4 6 5];
->>> let v = ListView(l, 3, 5, 1);
+>>> let v = ListView(l, 3, 5);
 >>> (v.size, v.List)
 (3, [2 4 6])
 ```
@@ -109,7 +90,7 @@ The `average` and `median`, `min`, `max` and `sum` of a list view:
 
 ```
 >>> let a = [1 3 2 4 6 5];
->>> let b = ListView(a, 3, 5, 1);
+>>> let b = ListView(a, 3, 5);
 >>> (
 >>> 	b.average,
 >>> 	b.median,
@@ -132,6 +113,42 @@ The index of an item is one less at a zero-indexed list view:
 >>> let b = a.zeroIndexedListView;
 >>> (a.indexOf(0), b.indexOf(0))
 (0, -1)
+```
+
+The `species` of `ListView` is `List`:
+
+```
+>>> let a = [1 .. 9].square;
+>>> let b = ListView(a, 2, 7);
+>>> let c = b.sqrt;
+>>> (a, List(b), c)
+(
+	[1 4 9 16 25 36 49 64 81],
+	[4 9 16 25 36 49],
+	[2 3 4 5 6 7]
+)
+```
+
+Traits implemented by `ListView`:
+
+```
+>>> system.typeLookup('ListView')
+>>> .traitNameList
+>>> .sort!
+[
+	'At'
+	'Collect'
+	'Compare'
+	'Copy'
+	'Do'
+	'Equal'
+	'FiniteCollection'
+	'New'
+	'Object'
+	'Put'
+	'Sequence'
+	'Store'
+]
 ```
 
 * * *

@@ -58,7 +58,7 @@ SortedSet : [Object, Copy, Store, Equal, Do, New, Collect, FiniteCollection, Add
 			[
 				self
 				.sortedList
-				.uncopiedList
+				.collection
 				.collect(storeString/1)
 				.commaSeparated
 			]

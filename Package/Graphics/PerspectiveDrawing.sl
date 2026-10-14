@@ -1,6 +1,6 @@
 PerspectiveDrawing : [Object] {
 
-	| components metadata |
+	| geometryList metadata |
 
 	drawing { :self |
 		self.LineDrawing.drawing
@@ -9,7 +9,7 @@ PerspectiveDrawing : [Object] {
 	LineDrawing { :self |
 		let projection = self.metadata['projection'];
 		LineDrawing(
-			self.components.collect { :each |
+			self.geometryList.collect { :each |
 				each.project(projection)
 			},
 			self.metadata

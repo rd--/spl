@@ -12,7 +12,7 @@ format:
 ```
 >> [1 0 0; 0 1 0; 0 0 1]
 >> .Bitmap
->> .asPbm
+>> .encodePbm
 P1
 3 3
 1 0 0
@@ -25,7 +25,7 @@ The same bitmap scaled by two:
 ```
 >> [1 0 0; 0 1 0; 0 0 1]
 >> .Bitmap(2)
->> .asPbm
+>> .encodePbm
 P1
 6 6
 1 1 0 0 0 0
@@ -62,7 +62,7 @@ let i = (-1 -- 1).subdivide(99);
 
 * * *
 
-See also: asPbm, Greymap, matrixPlot, Svg
+See also: Greymap, Svg, matrixPlot
 
 Guides: Image Functions
 

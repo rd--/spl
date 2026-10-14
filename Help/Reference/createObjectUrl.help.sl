@@ -19,6 +19,8 @@ system
 
 See also: revokeObjectUrl
 
+Guides: Network Functions
+
 References:
 _Mozilla_
 [1](https://developer.mozilla.org/en-US/docs/Web/API/URL/createObjectURL_static)

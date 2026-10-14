@@ -148,6 +148,12 @@ ResidueSet([0 2 4 5 7 9 11], 12)
 
 * * *
 
-See also: commonResidue, IdentitySet, leastResidueSystem, Residue, Set
+See also: IdentitySet, Residue, Set, commonResidue, leastResidueSystem
 
 Guides: Modular Arithmetic Functions, Set Functions
+
+References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/x.html)
+_W_
+[1](https://en.wikipedia.org/wiki/Modular_arithmetic)

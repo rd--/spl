@@ -1,41 +1,13 @@
 LineDrawing : [Object] {
 
-	| components metadata |
-
-	asImg { :self |
-		let svgText = self.asSvg;
-		let svgEncoded = svgText.asciiByteArray.base64Encode;
-		let svgEncodedPretty = svgEncoded.chunksOf(76).unlines;
-		'<img src="data:image/svg+xml;base64,\n%">'.format([svgEncodedPretty])
-	}
-
-	asObjectUrl { :self |
-		self
-		.asSvg
-		.utf8ByteArray
-		.BinaryLargeObject(
-			(type: 'image/svg+xml')
-		).createObjectUrl
-	}
-
-	asSvg { :self |
-		let boundingCoordinates = self.boundingBox;
-		{ :options |
-			self.components.collect { :each |
-				each.svgFragment(options)
-			}
-		}.scaledSvgFragments(
-			self.height,
-			boundingCoordinates
-		)
-	}
+	| geometryList metadata |
 
 	boundingBox { :self |
-		self.components.collect(boundingBox/1).boundingBoxMerging
+		self.geometryList.collect(boundingBox/1).boundingBoxMerging
 	}
 
 	drawing { :self |
-		self.asSvg
+		self.svgString
 	}
 
 	height { :self |
@@ -48,8 +20,36 @@ LineDrawing : [Object] {
 		self.metadata.put!('height', aNumber)
 	}
 
+	imgElementString { :self |
+		let svgText = self.svgString;
+		let svgEncoded = svgText.asciiByteArray.base64Encode;
+		let svgEncodedPretty = svgEncoded.chunksOf(76).unlines;
+		'<img src="data:image/svg+xml;base64,\n%">'.format([svgEncodedPretty])
+	}
+
 	LineDrawing { :self |
 		self
+	}
+
+	objectUrl { :self |
+		self
+		.svgString
+		.utf8ByteArray
+		.BinaryLargeObject(
+			(type: 'image/svg+xml')
+		).createObjectUrl
+	}
+
+	svgString { :self |
+		let boundingCoordinates = self.boundingBox;
+		{ :options |
+			self.geometryList.collect { :each |
+				each.svgFragment(options)
+			}
+		}.scaledSvgFragments(
+			self.height,
+			boundingCoordinates
+		)
 	}
 
 }

@@ -1,4 +1,4 @@
-# reverseSort
+# reverseSort (reverseSort!)
 
 - _reverseSort([x₁ x₂ …])_
 

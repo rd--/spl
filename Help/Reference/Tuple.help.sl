@@ -85,11 +85,11 @@ false
 true
 ```
 
-The underlying list can be accessed:
+The underlying list can be accessed using `collection`:
 
 ```
 >>> let a = (1, 2, 3);
->>> let b = a.uncopiedList;
+>>> let b = a.collection;
 >>> let c = a.List;
 >>> b[2] := -2;
 >>> (a, b, c)

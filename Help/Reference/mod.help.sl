@@ -1499,5 +1499,6 @@ _OEIS_
 [4](https://oeis.org/A088705),
 _W_
 [1](https://en.wikipedia.org/wiki/Modulo)
+[2](https://en.wikipedia.org/wiki/Modular_arithmetic)
 
 Categories: Math, Operator

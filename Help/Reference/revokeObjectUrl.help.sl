@@ -1,12 +1,14 @@
 # revokeObjectUrl
 
-- _revokeObjectUrl(aUrl)_
+- _revokeObjectUrl(u)_
 
 Release an existing object Url, previously created by `createObjectUrl`.
 
 * * *
 
 See also: createObjectUrl
+
+Guides: Network Functions
 
 References:
 _W3c_

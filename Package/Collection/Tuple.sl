@@ -2,14 +2,14 @@
 
 Tuple : [Object, Copy, Store, Equal] {
 
-	| uncopiedList |
+	| collection |
 
 	[at, @] { :self :index |
-		self.uncopiedList.at(index)
+		self.collection.at(index)
 	}
 
 	assertIsOfSize { :self :anInteger |
-		self.uncopiedList.assertIsOfSize(anInteger)
+		self.collection.assertIsOfSize(anInteger)
 	}
 
 	concisePrintString { :self |
@@ -18,20 +18,20 @@ Tuple : [Object, Copy, Store, Equal] {
 
 	equalBy { :self :anObject :aBlock/2 |
 		anObject.isTuple & {
-			aBlock(self.uncopiedList, anObject.uncopiedList)
+			aBlock(self.collection, anObject.collection)
 		}
 	}
 
 	indices { :self |
-		self.uncopiedList.indices
+		self.collection.indices
 	}
 
 	List { :self |
-		self.uncopiedList.copy
+		self.collection.copy
 	}
 
 	postCopy { :self |
-		self.uncopiedList := self.uncopiedList.copy
+		self.collection := self.collection.copy
 	}
 
 	printString { :self |
@@ -39,11 +39,11 @@ Tuple : [Object, Copy, Store, Equal] {
 	}
 
 	size { :self |
-		self.uncopiedList.size
+		self.collection.size
 	}
 
 	storeStringLiteral { :self :aBlock/1 |
-		'(' ++ self.uncopiedList.collect(aBlock/1).commaSeparated ++ ')'
+		'(' ++ self.collection.collect(aBlock/1).commaSeparated ++ ')'
 	}
 
 	storeString { :self |
@@ -63,15 +63,15 @@ Tuple : [Object, Copy, Store, Equal] {
 +Tuple {
 
 	unitBox { :self |
-		self.uncopiedList.collect(unitBox/1).product
+		self.collection.collect(unitBox/1).product
 	}
 
 	unitStep { :self |
-		self.uncopiedList.noneSatisfy(isNegative/1).boole
+		self.collection.noneSatisfy(isNegative/1).boole
 	}
 
 	unitTriangle { :self |
-		self.uncopiedList.collect(unitTriangle/1).product
+		self.collection.collect(unitTriangle/1).product
 	}
 
 }

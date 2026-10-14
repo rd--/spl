@@ -12,6 +12,7 @@ Operators:
 
 Functions:
 
+- `chineseRemainder`
 - `commonResidue`
 - `eulerPhi`
 - `minimalResidue`
@@ -22,6 +23,7 @@ Functions:
 - `multiplicativeOrder`
 - `positiveResidue`
 - `powerMod`
+- `quadraticResidues`
 - `quotient`
 - `quotientRemainder`
 - `remainder`

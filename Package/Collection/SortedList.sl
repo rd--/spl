@@ -1,6 +1,6 @@
 SortedList : [Object, Copy, Store, Equal, Compare, Do, At, New, Collect, FiniteCollection, Add, Remove, Sequence] {
 
-	| uncopiedList sortBlock |
+	| collection sortBlock |
 
 	[concatenation, ++] { :self :aCollection |
 		let answer = self.copy;
@@ -9,18 +9,18 @@ SortedList : [Object, Copy, Store, Equal, Compare, Do, At, New, Collect, FiniteC
 	}
 
 	add! { :self :item |
-		self.uncopiedList.isEmpty.if {
-			self.uncopiedList.add!(item)
+		self.collection.isEmpty.if {
+			self.collection.add!(item)
 		} {
 			let nextIndex = self.indexForInserting(item);
-			self.uncopiedList.insertAt!(item, nextIndex)
+			self.collection.insertAt!(item, nextIndex)
 		}
 	}
 
 	addAll! { :self :aCollection |
-		(aCollection.size > (self.uncopiedList.size // 3)).if {
-			self.uncopiedList.addAll!(aCollection);
-			self.uncopiedList.sortBy!(self.sortBlock)
+		(aCollection.size > (self.collection.size // 3)).if {
+			self.collection.addAll!(aCollection);
+			self.collection.sortBy!(self.sortBlock)
 		} {
 			aCollection.do { :each |
 				self.add!(each)
@@ -30,30 +30,30 @@ SortedList : [Object, Copy, Store, Equal, Compare, Do, At, New, Collect, FiniteC
 	}
 
 	atIfAbsent { :self :index :ifAbsent/0 |
-		self.uncopiedList.atIfAbsent(index, ifAbsent/0)
+		self.collection.atIfAbsent(index, ifAbsent/0)
 	}
 
 	collect { :self :aBlock/1 |
 		self
-		.uncopiedList
+		.collection
 		.collect(aBlock/1)
 		.SortedList(self.sortBlock)
 	}
 
 	do { :self :aBlock/1 |
-		self.uncopiedList.do(aBlock/1)
+		self.collection.do(aBlock/1)
 	}
 
 	indexForInserting { :self :newObject |
 		let low = 1;
-		let high = self.uncopiedList.size;
+		let high = self.collection.size;
 		let sortBlock/2 = self.sortBlock;
 		let index = nil;
 		{
 			index := high + low // 2;
 			sortBlock(low, high)
 		}.whileTrue {
-			sortBlock(self.uncopiedList[index], newObject).if {
+			sortBlock(self.collection[index], newObject).if {
 				low := index + 1
 			} {
 				high := index - 1
@@ -76,7 +76,7 @@ SortedList : [Object, Copy, Store, Equal, Compare, Do, At, New, Collect, FiniteC
 	}
 
 	List { :self |
-		self.uncopiedList.copy
+		self.collection.copy
 	}
 
 	median { :self |
@@ -95,7 +95,7 @@ SortedList : [Object, Copy, Store, Equal, Compare, Do, At, New, Collect, FiniteC
 			0
 		} {
 			let j = i;
-			let c = self.uncopiedList;
+			let c = self.collection;
 			{
 				j := j - 1;
 				j > 0 & { c[j] = anObject }
@@ -135,12 +135,12 @@ SortedList : [Object, Copy, Store, Equal, Compare, Do, At, New, Collect, FiniteC
 		(i = 0).if {
 			anExceptionBlock()
 		} {
-			self.uncopiedList.removeAt!(i)
+			self.collection.removeAt!(i)
 		}
 	}
 
 	size { :self |
-		self.uncopiedList.size
+		self.collection.size
 	}
 
 	species { :self |
@@ -149,11 +149,11 @@ SortedList : [Object, Copy, Store, Equal, Compare, Do, At, New, Collect, FiniteC
 
 	storeString { :self |
 		(self.sortBlock == precedesOrEqualTo/2).if {
-			'SortedList(%)'.format([self.uncopiedList])
+			'SortedList(%)'.format([self.collection])
 		} {
 			'SortedList(%, %)'.format(
 				[
-					self.uncopiedList,
+					self.collection,
 					self.sortBlock.name
 				]
 			)

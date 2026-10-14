@@ -3,7 +3,7 @@
 - _DoubleQuotedString(s)_
 
 The `Type` of literal strings written using double quotes.
-The `contents` method answers the quoted string.
+The `unquotedString` method answers the unquoted string.
 
 ```
 >>> "Double Quoted String"

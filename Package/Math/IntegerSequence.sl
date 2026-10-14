@@ -1631,7 +1631,7 @@
 				}
 			}
 		};
-		m.uncopiedList
+		m.collection
 	}
 
 	markovNumberSequence { :self |

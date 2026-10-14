@@ -27,7 +27,7 @@ Count the number of items in a random list of one hundred small integers:
 
 * * *
 
-See also: commonest, count, Multiset, sort, sortedCounts, sortedElements, tally
+See also: Multiset, commonest, count, sort, sortedCounts, sortedElements, tally
 
 Guides: List Functions, Set Functions
 

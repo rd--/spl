@@ -14,13 +14,13 @@ which is specified by a sort block that is ordinarily `precedesOrEqualTo`.
 SortedList([1 2 3])
 ```
 
-`addAll` adds each item in turn, `uncopiedList` answers the sorted `List` value:
+`addAll` adds each item in turn, `collection` answers the sorted `List` value:
 
 ```
 >>> let l = SortedList([5 1 6 4]);
 >>> l.add!(2);
 >>> l.addAll!([3 7]);
->>> l.uncopiedList
+>>> l.collection
 [1 2 3 4 5 6 7]
 ```
 
@@ -79,12 +79,12 @@ Compare for equality:
 ```
 
 At `List`,
-`uncopiedList` fetches the uncopied sorted list:
+`collection` fetches the uncopied sorted list:
 
 ```
 >>> let x = [1 9 3 7 5];
 >>> let y = SortedList(x);
->>> let z = y.uncopiedList;
+>>> let z = y.collection;
 >>> (z, x !== z)
 ([1 3 5 7 9], true)
 ```
@@ -111,11 +111,11 @@ At `Range`:
 SortedList[1 2 3 4 5 6 7 8 9 10]
 ```
 
-Mutating the `uncopiedList` breaks the sorted list:
+Mutating the `collection` breaks the sorted list:
 
 ```
 >>> let a = SortedList[1 3 5 4 0];
->>> let b = a.uncopiedList;
+>>> let b = a.collection;
 >>> b[2] := -5;
 >>> a.add!(2);
 >>> a.List.isSorted

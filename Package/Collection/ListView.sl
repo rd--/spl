@@ -1,10 +1,10 @@
-ListView : [Object, Equal, Compare, Do, At, Put, Collect, FiniteCollection, Sequence] {
+ListView : [Object, Copy, Store, Equal, New, Compare, Do, At, Put, Collect, FiniteCollection, Sequence] {
 
-	| viewedList startIndex endIndex referenceIndex |
+	| collection startIndex endIndex referenceIndex |
 
 	atIfAbsent { :self :index :ifAbsent/0 |
 		self.includesIndex(index).if {
-			self.viewedList[index + self.startIndex - self.referenceIndex]
+			self.collection[index + self.startIndex - self.referenceIndex]
 		} {
 			ifAbsent()
 		}
@@ -15,7 +15,7 @@ ListView : [Object, Equal, Compare, Do, At, Put, Collect, FiniteCollection, Sequ
 	}
 
 	do { :self :aBlock/1 |
-		let items = self.viewedList;
+		let items = self.collection;
 		self.startIndex.toDo(self.endIndex) { :index |
 			aBlock(items[index])
 		}
@@ -49,27 +49,27 @@ ListView : [Object, Equal, Compare, Do, At, Put, Collect, FiniteCollection, Sequ
 
 	List { :self |
 		self
-		.viewedList
+		.collection
 		.copyFromTo(self.startIndex, self.endIndex)
 		.List
 	}
 
 	ListView { :self :startIndex :endIndex :referenceIndex |
 		ListView(
-			self.viewedList,
+			self.collection,
 			self.startIndex + startIndex - 1,
 			self.startIndex + endIndex - 1,
 			referenceIndex
 		)
 	}
 
-	printString { :self |
-		self.List.printString
+	postCopy { :self |
+		self.collection := self.collection.copy
 	}
 
 	put! { :self :index :value |
 		self.includesIndex(index).if {
-			self.viewedList[index + self.startIndex - self.referenceIndex] := value
+			self.collection[index + self.startIndex - self.referenceIndex] := value
 		} {
 			self.error('put!: invalid index', [index])
 		}
@@ -77,6 +77,10 @@ ListView : [Object, Equal, Compare, Do, At, Put, Collect, FiniteCollection, Sequ
 
 	size { :self |
 		self.endIndex - self.startIndex + 1
+	}
+
+	species { :self |
+		List/1
 	}
 
 }
@@ -89,6 +93,18 @@ ListView : [Object, Equal, Compare, Do, At, Put, Collect, FiniteCollection, Sequ
 		} {
 			self.error('ListView: invalid indices')
 		}
+	}
+
+}
+
++[List, ListView] {
+
+	ListView { :self :startIndex :endIndex |
+		ListView(self, startIndex, endIndex, 1)
+	}
+
+	ListView { :self |
+		ListView(self, 1, self.size)
 	}
 
 	zeroIndexedListView { :self |

@@ -2,7 +2,11 @@ Bitmap : [Object] {
 
 	| bitMatrix scale |
 
-	asPbm { :self |
+	drawing { :self |
+		self
+	}
+
+	encodePbm { :self |
 		let bitMatrix = self.bitMatrix;
 		let scale = self.scale;
 		let [rowCount, columnCount] = bitMatrix.shape;
@@ -16,10 +20,6 @@ Bitmap : [Object] {
 			}.unwords
 		};
 		(header ++ (rows.replicate(scale))).unlines
-	}
-
-	drawing { :self |
-		self
 	}
 
 	height { :self |
@@ -39,7 +39,7 @@ Bitmap : [Object] {
 	writePbm { :self :fileName |
 		system.writeTextFile(
 			fileName,
-			self.asPbm
+			self.encodePbm
 		)
 	}
 
@@ -47,7 +47,7 @@ Bitmap : [Object] {
 		let pbmFileName = '/tmp/bitmap.pbm';
 		system.writeTextFile(
 			pbmFileName,
-			self.asPbm
+			self.encodePbm
 		);
 		system.systemCommand(
 			'convert',

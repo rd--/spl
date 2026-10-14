@@ -32,7 +32,7 @@ At `List`:
 
 * * *
 
-See also: Association, counts, List, Multiset, sortedCounts, valuesAndCounts
+See also: Association, List, Multiset, counts, sortedCounts, valuesAndCounts
 
 Guides: List Functions, Set Functions
 

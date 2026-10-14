@@ -556,7 +556,7 @@
 			}
 		};
 		step(start);
-		answer.SortedList.uncopiedList
+		answer.SortedList.collection
 	}
 
 	hammingNumbers { :end |

@@ -2,32 +2,32 @@
 
 ResidueSet : [Object, Store, Equal, Do, New, Collect, FiniteCollection, Add, Remove] {
 
-	| leastResidueSet modulus |
+	| commonResidueSet modulus |
 
 	[plus, +] { :self :anInteger |
 		ResidueSet(
-			self.leastResidueSet + anInteger,
+			self.commonResidueSet + anInteger,
 			self.modulus
 		)
 	}
 
 	[subtract, -] { :self :anInteger |
 		ResidueSet(
-			self.leastResidueSet - anInteger,
+			self.commonResidueSet - anInteger,
 			self.modulus
 		)
 	}
 
 	[times, *] { :self :anInteger |
 		ResidueSet(
-			self.leastResidueSet * anInteger,
+			self.commonResidueSet * anInteger,
 			self.modulus
 		)
 	}
 
 	BitSet { :self |
 		BitSet(
-			self.leastResidueSet,
+			self.commonResidueSet,
 			self.modulus
 		)
 	}
@@ -37,7 +37,7 @@ ResidueSet : [Object, Store, Equal, Do, New, Collect, FiniteCollection, Add, Rem
 	}
 
 	bitVector { :self |
-		let positions = self.leastResidueSet;
+		let positions = self.commonResidueSet;
 		0.to(self.modulus).collect { :each |
 			positions.includes(each).boole
 		}
@@ -52,15 +52,15 @@ ResidueSet : [Object, Store, Equal, Do, New, Collect, FiniteCollection, Add, Rem
 	}
 
 	do { :self :aBlock/1 |
-		self.leastResidueSet.do(aBlock/1)
+		self.commonResidueSet.do(aBlock/1)
 	}
 
 	IdentitySet { :self |
-		self.leastResidueSet.copy
+		self.commonResidueSet.copy
 	}
 
 	include! { :self :anInteger |
-		self.leastResidueSet.include!(anInteger % self.modulus)
+		self.commonResidueSet.include!(anInteger % self.modulus)
 	}
 
 	List { :self |
@@ -68,11 +68,11 @@ ResidueSet : [Object, Store, Equal, Do, New, Collect, FiniteCollection, Add, Rem
 	}
 
 	positionVector { :self |
-		self.leastResidueSet.List.sort
+		self.commonResidueSet.List.sort
 	}
 
 	size { :self |
-		self.leastResidueSet.size
+		self.commonResidueSet.size
 	}
 
 	storeString { :self |

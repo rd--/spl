@@ -1,9 +1,9 @@
 FilePath : [Object, Store, Equal] {
 
-	| filePathString |
+	| pathString |
 
 	absolutePathString { :self |
-		let path = self.filePathString;
+		let path = self.pathString;
 		path.pathIsAbsolute.if {
 			path
 		} {
@@ -12,79 +12,79 @@ FilePath : [Object, Store, Equal] {
 	}
 
 	baseName { :self |
-		self.filePathString.pathBaseName
+		self.pathString.pathBaseName
 	}
 
 	directory { :self |
-		self.filePathString.pathDirectory
+		self.pathString.pathDirectory
 	}
 
 	directoryExists { :self |
-		system.directoryExists(self.filePathString)
+		system.directoryExists(self.pathString)
 	}
 
 	extension { :self |
-		self.filePathString.pathExtension
+		self.pathString.pathExtension
 	}
 
 	fileExists { :self |
-		system.fileExists(self.filePathString)
+		system.fileExists(self.pathString)
 	}
 
 	fileInformation { :self |
-		system.fileInformation(self.filePathString)
+		system.fileInformation(self.pathString)
 	}
 
 	makeDirectory { :self :recursive :mode |
-		system.makeDirectory(self.filePathString, recursive, mode)
+		system.makeDirectory(self.pathString, recursive, mode)
 	}
 
 	modificationTime { :self |
-		system.modificationTime(self.filePathString)
+		system.modificationTime(self.pathString)
 	}
 
 	readBinaryFile { :self |
-		system.readBinaryFile(self.filePathString)
+		system.readBinaryFile(self.pathString)
 	}
 
 	readDirectoryFileNames { :self |
-		system.readDirectoryFileNames(self.filePathString).collect(FilePath/1)
+		system.readDirectoryFileNames(self.pathString).collect(FilePath/1)
 	}
 
 	readTextFile { :self |
-		system.readTextFile(self.filePathString)
+		system.readTextFile(self.pathString)
 	}
 
 	removeDirectory { :self :recursive |
-		system.removeDirectory(self.filePathString, recursive)
+		system.removeDirectory(self.pathString, recursive)
 	}
 
 	removeFile { :self |
-		system.removeFile(self.filePathString)
+		system.removeFile(self.pathString)
 	}
 
 	replaceExtension { :self :existing :replacement |
 		FilePath(
-			self.filePathString.stringReplace(
+			self.pathString.stringReplace(
 				existing -> replacement
 			)
 		)
 	}
 
 	stem { :self |
-		self.filePathString.pathStem
+		self.pathString.pathStem
 	}
 
 	Url { :self |
-		self.filePathString.fileUrl
+		self.pathString.fileUrl
 	}
 
 	writeBinaryFile { :self :data |
-		system.writeBinaryFile(self.filePathString, data)
+		system.writeBinaryFile(self.pathString, data)
 	}
 
 	writeTextFile { :self :data |
-		system.writeTextFile(self.filePathString, data)
+		system.writeTextFile(self.pathString, data)
 	}
 
 }

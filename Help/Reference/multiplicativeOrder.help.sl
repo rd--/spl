@@ -345,6 +345,32 @@ OEIS [A180340](https://oeis.org/A180340):
 ]
 ```
 
+Number of residues modulo _n_ of the maximum order,
+OEIS [A111725](https://oeis.org/A111725):
+
+```
+>>> 1:86.collect { :n |
+>>> 	1:n.select { :k |
+>>> 		k.gcd(n) = 1
+>>> 	}.collect { :k |
+>>> 		k.multiplicativeOrder(n)
+>>> 	}
+>>> }.collect { :x |
+>>> 	x.occurrencesOf(x.max)
+>>> }
+[
+	 1  1  1  1  2  1  2  3  2  2
+	 4  3  4  2  4  4  8  2  6  4
+	 6  4 10  7  8  4  6  6 12  4
+	 8  8 12  8  8  6 12  6  8  8
+	16  6 12 12  8 10 22  8 12  8
+	16  8 24  6 16 14 18 12 28  8
+	16  8 24 16 24 12 20 16 30  8
+	24 14 24 12 16 18 24  8 24 24
+	18 16 40 14 32 12
+]
+```
+
 Plot the sequence with a fixed modulus:
 
 ~~~spl svg=A
@@ -579,6 +605,23 @@ OEIS [A065457](https://oeis.org/A065457):
 ~~~
 
 ![](Help/Image/multiplicativeOrder-O.svg)
+
+Number of residues modulo _n_ of the maximum order,
+OEIS [A111725](https://oeis.org/A111725):
+
+~~~spl svg=P oeis=A111725
+1:86.collect { :n |
+	1:n.select { :k |
+		k.gcd(n) = 1
+	}.collect { :k |
+		k.multiplicativeOrder(n)
+	}
+}.collect { :x |
+	x.occurrencesOf(x.max)
+}.discretePlot
+~~~
+
+![](Help/Image/multiplicativeOrder-P.svg)
 
 * * *
 

@@ -41,6 +41,11 @@ Fetching:
 - `fetchText`
 - `fetch`
 
+Object Urls:
+
+- `createObjectUrl`
+- `revokeObjectUrl`
+
 * * *
 
 Guides: File Functions, System Functions

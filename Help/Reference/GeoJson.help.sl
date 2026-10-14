@@ -183,7 +183,7 @@ Predicates:
 
 * * *
 
-See also: continentOutlines, Json
+See also: Json, continentOutlines
 
 Guides: Geodetic Functions
 
