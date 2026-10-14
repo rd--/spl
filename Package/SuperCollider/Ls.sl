@@ -89,14 +89,14 @@
 			(index > list.size).if {
 				nil
 			} {
-				let nextItem = list[index].next!;
+				let nextItem = list[index].next;
 				{
 					nextItem.isNil & {
 						index < list.size
 					}
 				}.whileTrue {
 					index := index + 1;
-					nextItem := list[index].next!
+					nextItem := list[index].next
 				};
 				nextItem
 			}
@@ -114,7 +114,7 @@
 		let index = 1;
 		list.collect!(LsForever/1);
 		BlockStream {
-			let nextItem = list[index].next!;
+			let nextItem = list[index].next;
 			(index >= list.size).if {
 				index := 1
 			} {
@@ -165,13 +165,13 @@
 	LsSwitch { :list :which |
 		list.collect!(LsOnce/1);
 		which := LsForever(which);
-		let index = which.next!;
+		let index = which.next;
 		BlockStream {
-			let nextItem = list[index].next!;
+			let nextItem = list[index].next;
 			nextItem.ifNil {
 				list[index].reset!;
-				index := which.next!;
-				nextItem := list[index].next!
+				index := which.next;
+				nextItem := list[index].next
 			};
 			nextItem
 		} {
@@ -184,7 +184,7 @@
 		list.collect!(LsForever/1);
 		which := LsForever(which);
 		BlockStream {
-			list[which.next!].next!
+			list[which.next].next
 		} {
 			list.do(reset!/1);
 			which.reset!
@@ -198,11 +198,11 @@
 			(count <= 0).if {
 				nil
 			} {
-				let nextList = list.collect(next!/1);
+				let nextList = list.collect(next/1);
 				nextList.anySatisfy(isNil/1).ifTrue {
 					count := count - 1;
 					list.do(reset!/1);
-					nextList := list.collect(next!/1)
+					nextList := list.collect(next/1)
 				};
 				nextList
 			}
@@ -233,9 +233,9 @@
 	}
 
 	LsAdjacent { :input :aBlock/2 |
-		let previousItem = input.next!;
+		let previousItem = input.next;
 		BlockStream {
-			let nextItem = input.next!;
+			let nextItem = input.next;
 			nextItem.isNil.if {
 				nil
 			} {
@@ -245,14 +245,14 @@
 			}
 		} {
 			input.reset!;
-			previousItem := input.next!
+			previousItem := input.next
 		}
 	}
 
 	LsClump { :input :size |
 		size := LsForever(size);
 		BlockStream {
-			let answer = input.nextOrUpToEnd(size.next!);
+			let answer = input.nextOrUpToEnd(size.next);
 			answer.isEmpty.if {
 				nil
 			} {
@@ -267,8 +267,8 @@
 	LsClutch { :input :latch :initialValue |
 		let previous = initialValue;
 		BlockStream {
-			latch.next!.Boolean.ifTrue {
-				previous := input.next!
+			latch.next.Boolean.ifTrue {
+				previous := input.next
 			};
 			previous
 		} {
@@ -306,10 +306,10 @@
 	}
 
 	LsLast { :input |
-		let answer = input.next!;
+		let answer = input.next;
 		let nextItem = nil;
 		{
-			nextItem := input.next!;
+			nextItem := input.next;
 			nextItem.isNotNil
 		}.whileTrue {
 			answer := nextItem
@@ -337,7 +337,7 @@
 		let overlap = (windowSize - stepSize).max(0);
 		let require = windowSize - overlap;
 		let skipSize = (stepSize - windowSize).max(0);
-		let window = input.next!(overlap);
+		let window = input.next(overlap);
 		BlockStream {
 			let current = input.nextOrUpToEnd(require);
 			(current.size != require).if {
@@ -345,7 +345,7 @@
 			} {
 				let answer = window ++ current;
 				(skipSize > 0).ifTrue {
-					input.next!(skipSize)
+					input.next(skipSize)
 				};
 				window.addAll!(current);
 				window.removeFirst!(require);
@@ -353,7 +353,7 @@
 			}
 		} {
 			input.reset!;
-			window := input.next!(overlap)
+			window := input.next(overlap)
 		}
 	}
 
@@ -373,7 +373,7 @@
 		let sessionTime = system.sessionTime;
 		let timeDifference = absoluteTime - sessionTime;
 		{ :currentTime |
-			let nextEvent = self.next!;
+			let nextEvent = self.next;
 			nextEvent.ifNil {
 				nil
 			} {
@@ -427,15 +427,15 @@
 	}
 
 	LsBind { :self |
-		let atEnd = false;
+		let isAtEnd = false;
 		self.collect!(LsConstant/1);
 		BlockStream {
-			atEnd.if {
+			isAtEnd.if {
 				nil
 			} {
-				let nextList = self.collect(next!/1);
+				let nextList = self.collect(next/1);
 				nextList.anySatisfy(isNil/1).if {
-					atEnd := true;
+					isAtEnd := true;
 					nil
 				} {
 					nextList
@@ -443,7 +443,7 @@
 			}
 		} {
 			self.do(reset!/1);
-			atEnd := false
+			isAtEnd := false
 		}
 	}
 
@@ -457,9 +457,9 @@
 		p1 := LsConstant(p1);
 		p2 := LsConstant(p2);
 		BlockStream {
-			let lhs = low.next!;
-			let rhs = high.next!;
-			randomNumberGenerator.betaDistribution(p1.next!, p2.next!) * (rhs - lhs) + lhs
+			let lhs = low.next;
+			let rhs = high.next;
+			randomNumberGenerator.betaDistribution(p1.next, p2.next) * (rhs - lhs) + lhs
 		} {
 			low.reset!;
 			high.reset!;
@@ -472,7 +472,7 @@
 		low := LsConstant(low);
 		high := LsConstant(high);
 		step := LsConstant(step);
-		let nextItem = aBlock(randomNumberGenerator, [low.next!, high.next!], []);
+		let nextItem = aBlock(randomNumberGenerator, [low.next, high.next], []);
 		low.withWithCollect(high, step) { :low :high :step |
 			let answer = nextItem;
 			nextItem := (nextItem + aBlock(randomNumberGenerator, [step.negate, step], [])).fold(low, high);

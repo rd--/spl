@@ -1,13 +1,13 @@
-# setToEnd
+# setToEnd!
 
-- _setToEnd(s)_
+- _setToEnd!(s)_
 
 Move the position index to the end of the stream _s_.
 
 ```
->>> let stream = 1:9.Stream;
->>> stream.setToEnd;
->>> (stream.position, stream.next!)
+>>> let stream = Stream(1:9);
+>>> stream.setToEnd!;
+>>> (stream.position, stream.next)
 (9, nil)
 ```
 

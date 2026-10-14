@@ -490,7 +490,6 @@ Reference/atAllValid.help.sl
 Reference/atAllWrap.help.sl
 Reference/atan2.help.sl
 Reference/atBlend.help.sl
-Reference/atEnd.help.sl
 Reference/atFold.help.sl
 Reference/at.help.sl
 Reference/At.help.sl
@@ -1712,6 +1711,7 @@ Reference/greyscaleMatrix.help.sl
 Reference/gridGraph.help.sl
 Reference/griewankFunction.help.sl
 Reference/groupBy.help.sl
+Reference/growBy.help.sl
 Reference/gudermannian.help.sl
 Reference/guyShuffle.help.sl
 Reference/GVerb.help.sl
@@ -2031,6 +2031,7 @@ Reference/isAsciiCodePoint.help.sl
 Reference/isAscii.help.sl
 Reference/isAssociation.help.sl
 Reference/isAssociationList.help.sl
+Reference/isAtEnd.help.sl
 Reference/isAtom.help.sl
 Reference/isBalancedPrime.help.sl
 Reference/isBandMatrix.help.sl

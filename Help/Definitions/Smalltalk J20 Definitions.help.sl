@@ -5274,7 +5274,7 @@ Cf: reset!
 appended, in sequence, to the receiver’s past sequence values. The
 receiver then has no future sequence values.
 
-Cf: setToEnd
+Cf: setToEnd!
 
 ## 5.9.2
 
@@ -5297,7 +5297,7 @@ available for reading. Return false otherwise.
 
 *Return Value*: ⧼boolean⧽
 
-Cf: atEnd
+Cf: isAtEnd
 
 ### 5.9.2.3
 

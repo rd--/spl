@@ -16,7 +16,7 @@ Types:
 
 Predicates:
 
-- `atEnd`
+- `isAtEnd`
 - `isBinary`
 - `isIterator`
 - `isStream`

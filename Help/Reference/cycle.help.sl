@@ -6,7 +6,7 @@ In the unary case,
 answer an infinite `Stream` that cycles though the values of _x_.
 
 ```
->>> [1 2 3].cycle.next!(12)
+>>> [1 2 3].cycle.next(12)
 [1 2 3 1 2 3 1 2 3 1 2 3]
 ```
 
@@ -21,7 +21,7 @@ At `Stream`,
 extend the stream cyclically indefinitely:
 
 ```
->>> Stream[1 2 3].cycle.next!(12)
+>>> Stream[1 2 3].cycle.next(12)
 [1 2 3 1 2 3 1 2 3 1 2 3]
 ```
 

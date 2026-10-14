@@ -1,12 +1,12 @@
-# atEnd
+# isAtEnd
 
-- _atEnd(s)_
+- _isAtEnd(s)_
 
 Answers `true` if there are no more elements in the stream _s_, else `false`.
 
 ```
 >>> let i = Iterator[1 3 5 7 9];
->>> [i.next!, i.next!, i.atEnd]
+>>> [i.next, i.next, i.isAtEnd]
 [1 3 false]
 ```
 

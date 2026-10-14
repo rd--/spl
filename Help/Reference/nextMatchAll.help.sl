@@ -2,18 +2,19 @@
 
 - _nextMatchAll(s, x)_
 
-Reads the next _x.size_ objects from the stream _s_ and answer `true` if the objects are equivalent to the sequence _x_,
+Reads the next _x.size_ objects from the stream _s_,
+and answer `true` if the objects are equivalent to the sequence _x_,
 and `false` if not.
 
 ```
 >>> let s = Iterator[1 3 5 7 9];
->>> (s.nextMatchAll([1 3 5]), s.next!)
+>>> (s.nextMatchAll([1 3 5]), s.next)
 (true, 7)
 ```
 
 * * *
 
-See also: next, nextMatchFor, peekFor, Stream
+See also: Stream, next, nextMatchFor, peekFor
 
 Guides: Stream Functions
 

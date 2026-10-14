@@ -719,7 +719,7 @@
 - `atEnd`, `next`, `reset`
 - `nextUntil`, `nextWhile`
 - `contents`
-- `position`, `setToEnd`
+- `position`, `setToEnd!`
 - `Iterator`, `Stream`
 - `collect`, `reject`, `select`
 - `peek`, `peekFor`

@@ -132,11 +132,14 @@ Build up a left-branching binary tree:
 ]
 ```
 
-`foldList` makes a list of length _n + 1_:
+`foldList` makes a list of length _n+1_:
 
 ```
 >>> 1:9.foldList(0, rightIdentity/2)
 [0 1 2 3 4 5 6 7 8 9]
+
+>>> 1:4.foldList(100, -)
+[100 99 97 94 90]
 ```
 
 Folding with an empty list does not apply the function at all:
@@ -340,7 +343,8 @@ Guides: List Functions
 
 References:
 _Haskell_
-[1](https://hackage.haskell.org/package/base/docs/Data-List.html#v:mapAccumL),
+[1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:scanl)
+[2](https://hackage.haskell.org/package/base/docs/Data-List.html#v:mapAccumL),
 _OEIS_
 [1](https://oeis.org/A000124),
 _Mathematica_

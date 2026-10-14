@@ -476,7 +476,7 @@ length=`size`, toArray=`List`:
 >>> (1 .. 5).List
 [1 2 3 4 5]
 
->>> (1 .. 5).Stream.next!
+>>> (1 .. 5).Stream.next
 1
 ```
 
@@ -513,7 +513,7 @@ false
 
 >>> Stream[1 2 3 4 5]
 >>> .take(3)
->>> .next!
+>>> .next
 1
 ```
 
@@ -525,7 +525,7 @@ false
 
 >>> Stream[1 2 3 4 5]
 >>> .drop(2)
->>> .next!
+>>> .next
 3
 ```
 
@@ -680,7 +680,7 @@ sums=`prefixSum`, products=`prefixProduct`, mins=`runningMin`, maxs=`runningMax`
 >>> [3 1 4 1 5].runningMin
 [3 1 1 1 1]
 
->>> (1 .. Infinity).Stream.prefixSum.next!(5)
+>>> (1 .. Infinity).Stream.prefixSum.next(5)
 [1 3 6 10 15]
 ```
 

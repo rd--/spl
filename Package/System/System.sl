@@ -171,7 +171,7 @@ System! : [Object, Cache, RandomNumberGenerator] {
 	}
 
 	nextRandomFloat { :self |
-		self.randomNumberGenerator.next!
+		self.randomNumberGenerator.next
 	}
 
 	randomByteArray { :unused :anInteger |

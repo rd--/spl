@@ -37,12 +37,12 @@ MutableCollectionStream : [Object, Do, Collect, Iterator, Stream, PositionableSt
 		}
 	}
 
-	atEnd { :self |
-		true
-	}
-
 	contents { :self |
 		self.collection.copyFromTo(1, self.position)
+	}
+
+	isAtEnd { :self |
+		self.position >= self.writeLimit
 	}
 
 	isBinary { :self |
@@ -58,7 +58,7 @@ MutableCollectionStream : [Object, Do, Collect, Iterator, Stream, PositionableSt
 	}
 
 	pastEndAdd! { :self :anObject |
-		self.collection := self.collection.grownBy(self.collection.size.max(20).min(1000000));
+		self.collection := self.collection.growBy(self.collection.size.max(20).min(1000000));
 		self.writeLimit := self.collection.size;
 		self.position!(self.position + 1);
 		self.collection[self.position] := anObject;

@@ -1297,9 +1297,13 @@
 		}
 	}
 
-	grownBy { :self :length |
-		let answer = self.newOfSize(self.size + length);
-		answer.replaceFromToWithStartingAt(1, self.size, self, 1)
+	growBy { :self :length |
+		(length < 1).if {
+			self.copyFromTo(1, self.size + length)
+		} {
+			let answer = self.newOfSize(self.size + length);
+			answer.replaceFromToWithStartingAt(1, self.size, self, 1)
+		}
 	}
 
 	hasEqualElements { :self :otherCollection :aBlock/2 |

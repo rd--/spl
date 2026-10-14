@@ -522,10 +522,16 @@ let c = Stream(r).collect { :x |
 };
 Splay(
 	{
-		let p = b(m() / 9 + 4).Fold(m() / 9, 1);
-		let q = b(c.next!).Fold(b(c.next!), b(c.next!));
+		let p = b(m() / 9 + 4).Fold(
+			m() / 9,
+			1
+		);
+		let q = b(c.next).Fold(
+			b(c.next),
+			b(c.next)
+		);
 		LeakDc(
-			Bpf(
+			Bpf( 
 				p ^ 5 * q,
 				b(m() * 8) + 1.1 * 2000 + 100,
 				1 / 3 + m()

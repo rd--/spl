@@ -4,19 +4,23 @@ CollectionStream : [Object, Copy, Equal, Do, Collect, Iterator, Stream, Position
 
 	| collection positionIndex readLimit |
 
-	atEnd { :self |
-		self.position >= self.readLimit
+	contents { :self |
+		self.collection.copyFromTo(1, self.readLimit)
+	}
+
+	isAtEnd { :self |
+		self.positionIndex >= self.readLimit
 	}
 
 	isBinary { :self |
 		self.collection.isByteArray
 	}
 
-	contents { :self |
-		self.collection.copyFromTo(1, self.readLimit)
+	isValidReadPosition { :self :anInteger |
+		anInteger.betweenAnd(0, self.readLimit)
 	}
 
-	next! { :self |
+	next { :self |
 		(self.position >= self.readLimit).if {
 			nil
 		} {
@@ -25,7 +29,7 @@ CollectionStream : [Object, Copy, Equal, Do, Collect, Iterator, Stream, Position
 		}
 	}
 
-	next! { :self :anInteger |
+	next { :self :anInteger |
 		let endPosition = self.position + anInteger;
 		(endPosition > self.readLimit).if {
 			self.error('CollectionStream>>next: not enough items in stream')
@@ -37,19 +41,19 @@ CollectionStream : [Object, Copy, Equal, Do, Collect, Iterator, Stream, Position
 	}
 
 	position! { :self :anInteger |
-		self.validReadPosition(anInteger).if {
+		self.isValidReadPosition(anInteger).if {
 			self.positionIndex := anInteger
 		} {
 			self.positionError
 		}
 	}
 
-	setFromTo { :self :newStart :newStop |
+	setFromTo! { :self :newStart :newStop |
 		self.position!(newStart - 1);
 		self.readLimit := newStop
 	}
 
-	setToEnd { :self |
+	setToEnd! { :self |
 		self.position!(self.readLimit)
 	}
 
@@ -74,10 +78,6 @@ CollectionStream : [Object, Copy, Equal, Do, Collect, Iterator, Stream, Position
 		let start = 1 + self.position;
 		self.position!(self.readLimit);
 		self.collection.copyFromTo(start, self.position)
-	}
-
-	validReadPosition { :self :anInteger |
-		anInteger.betweenAnd(0, self.readLimit)
 	}
 
 }

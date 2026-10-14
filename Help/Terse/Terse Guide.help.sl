@@ -2517,7 +2517,7 @@ MersenneTwister(123456).nextRandomFloat = 0.12696983303810094 /* test from stand
 let m = MersenneTwister(); let s = IdentitySet(); 729.timesRepeat { s.include!(m.randomInteger([1 9], [])) }; s.minMax = [1, 9] /* check distribution */
 let m = MersenneTwister(); let s = IdentitySet(); 729.timesRepeat { s.include!(m.randomInteger([1 9], [])) }; s.List.sort! = [1 .. 9] /* check distribution */
 let m = MersenneTwister(98765); m.isStream /* stream predicate */
-let m = MersenneTwister(98765); let a = m.next!(9); m.reset!; m.next!(9) = a /* stream interface, next!(k) answers next k items, reset resets */
+let m = MersenneTwister(98765); let a = m.next(9); m.reset!; m.next(9) = a /* stream interface, next(k) answers next k items, reset resets */
 ```
 
 ## Random -- SplitMix
@@ -2532,7 +2532,7 @@ let r = SplitMix(98765); r.randomReal([0 100], []) = 8.824091404676437 /* random
 let r = SplitMix(98765); r.randomInteger([1 1000], []) = 89 /* random integer in [1, 1000] */
 let r = SplitMix(98765); r.randomInteger([1 10000], []) = 883 /* random integer in [1, 10000] */
 let r = SplitMix(98765); r.isStream /* stream predicate */
-let r = SplitMix(98765); let a = r.next!(9); r.reset!; r.next!(9) = a /* stream interface, next!(k) answers next k items, reset resets */
+let r = SplitMix(98765); let a = r.next(9); r.reset!; r.next(9) = a /* stream interface, next(k) answers next k items, reset resets */
 ```
 
 ## Random -- LinearCongruential
@@ -2541,7 +2541,7 @@ system.includesPackage('LinearCongruential') /* LinearCongruential package */
 let r = numericalRecipesLinearCongruential(42); r.typeOf = 'LinearCongruential' & { r.isLinearCongruential } & { r.isRandomNumberGenerator }
 let r = numericalRecipesLinearCongruential(42); [r.nextRandomFloat, r.nextRandomFloat] = [0.3746499199817101, 0.729023776863283]
 let r = numericalRecipesLinearCongruential(42); r.isStream /* stream predicate */
-let r = numericalRecipesLinearCongruential(42); let a = r.next!(9); r.reset!; r.next!(9) = a /* stream interface, next!(k) answers next k items, reset resets */
+let r = numericalRecipesLinearCongruential(42); let a = r.next(9); r.reset!; r.next(9) = a /* stream interface, next(k) answers next k items, reset resets */
 ```
 
 ## Iterator -- collection trait
@@ -2550,15 +2550,15 @@ system.includesPackage('Iterator') /* Iterator package */
 [].Iterator.typeOf = 'CollectionStream' /* type of iterator */
 1:5.Iterator.upTo(3) = 1:2 /* read up to, but not including, an element, answer is of species of collection */
 1:5.Iterator.upTo(9) = 1:5 /* read up to end if element is not located */
-let r = [1 .. 5].Iterator; [r.next!, r.next!(3), r.next!, r.next!] = [1, [2, 3, 4], 5, nil] /* next answers nil at end */
-let r = [1 .. 3].Iterator; [r.next!, r.upToEnd] = [1, [2, 3]] /* read up to end */
-let r = 1:5.Iterator; r.upTo(3) = 1:2 & { r.next! = 4} /* matching element is consumed */
+let r = [1 .. 5].Iterator; [r.next, r.next(3), r.next, r.next] = [1, [2, 3, 4], 5, nil] /* next answers nil at end */
+let r = [1 .. 3].Iterator; [r.next, r.upToEnd] = [1, [2, 3]] /* read up to end */
+let r = 1:5.Iterator; r.upTo(3) = 1:2 & { r.next = 4} /* matching element is consumed */
 let r = 9:1:-1.Iterator; [r.upTo(3), r.upToEnd] = [9:4:-1, 2:1:-1] /* matching element is consumed */
-[].Iterator.next! = nil /* next at an empty read iterator answers nil */
-let r = '.....ascii'.characters.Iterator; let l = List(5); r.next!(5); r.nextInto(l); l.stringIntercalate('') = 'ascii'
+[].Iterator.next = nil /* next at an empty read iterator answers nil */
+let r = '.....ascii'.characters.Iterator; let l = List(5); r.next(5); r.nextInto(l); l.stringIntercalate('') = 'ascii'
 1:9.Iterator.nextOrUpToEnd(23) = [1 .. 9] /* take at most n items from iterator */
-let r = 1:9.Iterator; [r.nextMatchFor(1), r.next!] = [true, 2] /* predicate at consumed item */
-let r = 1:9.Iterator; [r.nextMatchAll([1, 2, 3]), r.next!] = [true, 4] /* predicate at consumed items */
+let r = 1:9.Iterator; [r.nextMatchFor(1), r.next] = [true, 2] /* predicate at consumed item */
+let r = 1:9.Iterator; [r.nextMatchAll([1, 2, 3]), r.next] = [true, 4] /* predicate at consumed items */
 ```
 
 ## Sphere -- geometric type
@@ -2577,16 +2577,16 @@ Ball([0 0 0], 1).volume = (4.pi / 3) /* volume */
 ```
 system.includesPackage('Stream') /* Stream package */
 [].Stream.typeOf = 'CollectionStream' /* type of stream */
-let s = 1:9.Stream; let a = s.next!(9); s.reset!; s.next!(9) = a /* reset stream */
+let s = 1:9.Stream; let a = s.next(9); s.reset!; s.next(9) = a /* reset stream */
 ```
 
 ### PositionableStream -- collection trait
 ```
 system.includesPackage('PositionableStream') /* PositionableStream package */
-[].Stream.atEnd = true /* at end predicate */
-let r = 1:1000.Iterator; [r.next!, r.next!, r.atEnd] = [1, 2, false] /* at end predicate */
+[].Stream.isAtEnd = true /* at end predicate */
+let r = 1:1000.Iterator; [r.next, r.next, r.isAtEnd] = [1, 2, false] /* at end predicate */
 [].Stream.position = 0 /* initially the position is zero */
-let r = 1:9.Stream; [r.next!, r.back, r.next!] = [1, 1, 1] /* go back one element and return it (by peeking) */
+let r = 1:9.Stream; [r.next, r.back, r.next] = [1, 1, 1] /* go back one element and return it (by peeking) */
 ```
 
 ### CollectionStream -- collection trait
@@ -2597,7 +2597,7 @@ let a = [1 .. 5]; a.Stream.contents !== a /* contents of finite stream (a copy o
 let i = 1:5; i.Stream.collection == i /* underlying collection of stream */
 let r = 1:5.Stream; r.upToEnd; r.contents = 1:5 /* contents of consumed stream */
 1:9.Stream.collection = Range(1, 9, 1) /* read stream over interval collection */
-let i = 1:9; let s = i.Stream; let c = s.copy; c.next!; s.next! = 1 & { c.next! = 2 } /* copy */
+let i = 1:9; let s = i.Stream; let c = s.copy; c.next; s.next = 1 & { c.next = 2 } /* copy */
 ```
 
 ## Record -- collection type

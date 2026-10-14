@@ -23,7 +23,7 @@ At `Sfc32`, which implements `Stream`,
 the `next` method at the answer will answer a counter and the next item of the input:
 
 ```
->>> Sfc32(789142).enumerate.next!(5)
+>>> Sfc32(789142).enumerate.next(5)
 [
 	1 0.15164;
 	2 0.73129;

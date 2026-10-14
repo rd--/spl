@@ -692,7 +692,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'duplicate'
 		'duplicateEach'
 		'forceToPaddingWith'
-		'grownBy'
+		'growBy'
 		'paddedToWith'
 		'padLeft'
 		'padRight'

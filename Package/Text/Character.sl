@@ -265,8 +265,8 @@ Character : [Object, Copy, Store, Equal, Compare, Character] {
 		let i = 1;
 		let j = 1;
 		let mismatch = false;
-		let atEnd = false;
-		{ atEnd }.whileFalse {
+		let isAtEnd = false;
+		{ isAtEnd }.whileFalse {
 			(a[i] = b[j]).if {
 				i := i + 1;
 				j := j + 1
@@ -274,12 +274,12 @@ Character : [Object, Copy, Store, Equal, Compare, Character] {
 				f(b[j]).if {
 					j := j + 1
 				} {
-					atEnd := true;
+					isAtEnd := true;
 					mismatch := true
 				}
 			};
 			(i > p | { j > q }).ifTrue {
-				atEnd := true
+				isAtEnd := true
 			}
 		};
 		mismatch.not & { i >= p & { j >= q } }

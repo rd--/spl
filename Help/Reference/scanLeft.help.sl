@@ -6,18 +6,33 @@
 but answers a list of each successive reduced value from the left.
 `scan` is an alias for `scanLeft`.
 
-The binary form is an inclusive scan:
+The binary form is an _inclusive_ scan:
 
 ```
 >>> [1 .. 6].scanLeft(+)
 [1 3 6 10 15 21]
+
+>>> [1 2 1 3 1 2].scanLeft(+)
+[1 3 4 7 8 10]
+
+>>> [3 1 4 1 5 9 2 6].scanLeft(+)
+[3 4 8 9 14 23 25 31]
+
+>>> [3 1 4 1 5 9 2 6].scanLeft(*)
+[3 3 12 12 60 540 1080 6480]
 ```
 
-The ternary form is an exclusive scan:
+The ternary form is an _exclusive_ scan:
 
 ```
 >>> [1 .. 6].scanLeft(+, 0)
 [0 1 3 6 10 15]
+
+>>> [3 1 4 1 5 9 2 6].scanLeft(+, 0)
+[0 3 4 8 9 14 23 25]
+
+>>> [3 1 4 1 5 9 2 6].scanLeft(*, 1)
+[1 3 3 12 12 60 540 1080]
 ```
 
 Compare the ternary form to `foldList`:
@@ -25,6 +40,9 @@ Compare the ternary form to `foldList`:
 ```
 >>> [1 .. 6].foldList(0, +)
 [0 1 3 6 10 15 21]
+
+>>> [3 1 4 1 5 9 2 6].foldList(0, +)
+[0 3 4 8 9 14 23 25 31]
 ```
 
 At the empty list:
@@ -75,7 +93,12 @@ See also: foldList, reduce, scan, scanLeftAssociatingRight, scanRight
 Guides: List Functions
 
 References:
+_Cpp_
+[1](https://en.cppreference.com/cpp/algorithm/inclusive_scan)
+[2](https://en.cppreference.com/cpp/algorithm/exclusive_scan),
 _Haskell_
-[1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:scanl1)
+[1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:scanl1),
+_W_
+[1](https://en.wikipedia.org/wiki/Prefix_sum)
 
 Categories: Enumerating

@@ -68,7 +68,7 @@ LinearCongruential : [Object, Equal, Iterator, RandomNumberGenerator, Stream] {
 	}
 
 	lehmerGenerator { :p :s :n |
-		lehmerGenerator(p, s).next!(n)
+		lehmerGenerator(p, s).next(n)
 	}
 
 	linearCongruentialFunction { :self |

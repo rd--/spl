@@ -1,9 +1,9 @@
 @Stream {
 
 	equalToOnReset { :self :places |
-		let initialAnswer = self.next!(places);
+		let initialAnswer = self.next(places);
 		self.reset!;
-		self.next!(places) = initialAnswer
+		self.next(places) = initialAnswer
 	}
 
 	equalUpToEndOnReset { :self |

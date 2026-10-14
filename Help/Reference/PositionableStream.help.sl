@@ -5,7 +5,7 @@ A `Stream` over a sequence that is accessed by indices where the point of access
 
 Required methods are:
 
-- `atEnd`
+- `isAtEnd`
 - `position`
 
 List of types implementing `PositionableStream`:
@@ -22,6 +22,6 @@ List of types implementing `PositionableStream`:
 
 * * *
 
-See also: Stream, atEnd, peek
+See also: Stream, isAtEnd, peek
 
 Guides: Stream Functions

@@ -6,7 +6,7 @@
 			{
 				let answer = [];
 				{
-					let [t, x] = self.next!;
+					let [t, x] = self.next;
 					t := t.min(tMax);
 					answer.add!([t, x]);
 					t < tMax
@@ -19,7 +19,7 @@
 
 	valueSeriesRandomFunction { :self :t :n |
 		{ :timeList |
-			let answer = self.next!(timeList.size);
+			let answer = self.next(timeList.size);
 			self.reset!;
 			answer
 		}.regularTemporalData(

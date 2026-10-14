@@ -1,19 +1,19 @@
 @PositionableStream {
 
-	atEnd { :self |
-		self.typeResponsibility('@PositionableStream>>atEnd')
-	}
-
-	back { :self |
+	back! { :self |
 		(self.position = 0).ifTrue {
-			self.error('@PositionableStream>>back: cannot go back')
+			self.error('@PositionableStream>>back!: cannot go back')
 		};
 		self.skip!(-1);
 		self.peek
 	}
 
+	isAtEnd { :self |
+		self.typeResponsibility('@PositionableStream>>isAtEnd')
+	}
+
 	isEmpty { :self |
-		self.atEnd & {
+		self.isAtEnd & {
 			self.position = 0
 		}
 	}
@@ -26,7 +26,7 @@
 		withReturn { :return/1 |
 			let savedPosition = self.position;
 			aCollection.do { :each |
-				(self.next! = each).ifFalse {
+				(self.next = each).ifFalse {
 					self.position!(savedPosition);
 					false.return
 				}
@@ -35,20 +35,11 @@
 		}
 	}
 
-	on { :self :aCollection |
-		self.collection := aCollection;
-		self.position!(0);
-		self.isReadStream.if {
-			self.readLimit := aCollection.size
-		};
-		self.reset!
-	}
-
 	peek { :self |
-		self.atEnd.if {
+		self.isAtEnd.if {
 			nil
 		} {
-			let nextObject = self.next!;
+			let nextObject = self.next;
 			self.position!(self.position - 1);
 			nextObject
 		}
@@ -56,10 +47,10 @@
 
 	peekFor { :self :anObject |
 		withReturn { :return/1 |
-			self.atEnd.ifTrue {
+			self.isAtEnd.ifTrue {
 				false.return
 			};
-			(self.next! = anObject).ifTrue {
+			(self.next = anObject).ifTrue {
 				true.return
 			};
 			self.position!(self.position - 1);
@@ -94,9 +85,9 @@
 	skipTo! { :self :anObject |
 		withReturn { :return/1 |
 			{
-				self.atEnd
+				self.isAtEnd
 			}.whileFalse {
-				(self.next! = anObject).ifTrue {
+				(self.next = anObject).ifTrue {
 					true.return
 				}
 			};
@@ -108,8 +99,8 @@
 		self.withWriteStream { :aStream |
 			let element = nil;
 			{
-				self.atEnd | {
-					element := self.next!;
+				self.isAtEnd | {
+					element := self.next;
 					element = anObject
 				}
 			}.whileFalse {
@@ -121,19 +112,19 @@
 	upToEnd { :self |
 		self.withWriteStream { :aStream |
 			{
-				self.atEnd
+				self.isAtEnd
 			}.whileFalse {
-				aStream.add!(self.next!)
+				aStream.add!(self.next)
 			}
 		}
 	}
 
 	upToPosition { :self :anInteger |
-		self.next!(anInteger - self.position)
+		self.next(anInteger - self.position)
 	}
 
 	withWriteStream { :self :aBlock/1 |
-		let aStream = self.collection.new(100).WriteStream;
+		let aStream = WriteStream(self.collection.new(100));
 		aBlock(aStream);
 		aStream.contents
 	}

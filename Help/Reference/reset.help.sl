@@ -7,7 +7,7 @@ Answer `zero`, which is what `position` would answer.
 
 ```
 >>> let s = Stream[1 .. 9];
->>> (s.next!, s.reset!, s.position, s.next!)
+>>> (s.next, s.reset!, s.position, s.next)
 (1, 0, 0, 1)
 ```
 

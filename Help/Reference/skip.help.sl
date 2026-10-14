@@ -16,7 +16,7 @@ Relative re-positioning:
 >>> 	s.position!(3),
 >>> 	s.peek,
 >>> 	s.skip!(-1),
->>> 	s.next!
+>>> 	s.next
 >>> )
 (0, 3, 7, 2, 5)
 ```
