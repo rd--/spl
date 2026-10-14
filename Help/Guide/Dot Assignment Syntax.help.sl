@@ -17,13 +17,13 @@ and slot access is ordinarily written using `Method Syntax`:
 ```
 
 At present,
-the binary writer method is named as the slot name with suffix _MutateInPlace_ appended.
+the binary writer method is named as the slot name with suffix _Mutate!_ appended.
 This awkward name is not ordinarily encountered because slot mutation is written using this syntax.
 
 ```
 >>> let x = Complex(1, 2);
 >>> x.real := 3;
->>> x.imaginaryMutateInPlace(4);
+>>> x.imaginaryMutate!(4);
 >>> (x.real, x.imaginary)
 (3, 4)
 ```

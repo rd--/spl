@@ -1,8 +1,8 @@
-# InPlace Syntax
+# In-Place Syntax
 
 - _f!_
 
-InPlace syntax allows the last letter of an identifier to be an exclamation mark,
+In-Place syntax allows the last letter of an identifier to be an exclamation mark,
 which is re-written as the text _InPlace_.
 
 Rewrite rules:
@@ -97,6 +97,26 @@ In place `removeAll`:
 ([1 2 3], nil)
 ```
 
+The naming is merely conventional.
+Not all methods that mutate a value are named with a `!` suffix.
+In particular,
+the `next` and related methods of `Iterator` and `Stream` are not so named.
+The rationale here is that `next` is the basic operation on,
+and the purpose of,
+these values.
+The methods `reset!` and so `position!` are so named.
+
+```
+>>> Sfc32(6827142).next(5)
+[0.9960 0.3142 0.9305 0.6673 0.2326]
+
+>>> let r = Sfc32(6827142);
+>>> r.next(25);
+>>> r.reset!;
+>>> r.next(5)
+[0.9960 0.3142 0.9305 0.6673 0.2326]
+```
+
 * * *
 
-See also: reverse, reverseSort, sort, sortOn
+See also: add!, reverse!, reverseSort!, sort!, sortOn!

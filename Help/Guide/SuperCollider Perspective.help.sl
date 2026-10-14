@@ -7,21 +7,21 @@ Block arguments are written as in Smalltalk.
 Arguments are written with a colon (`:`) prefix,
 immediately following the opening brace,
 and are terminated by a vertical bar (`|`),
-e.g. `{ :x | x }` in place of `{ | x | x }`.
+e.g. `{ :x | x }` for `{ | x | x }`.
 
 Initialized temporary variables are written using `let`,
-e.g. `let x = 23` in place of `var x = 23`.
+e.g. `let x = 23` for `var x = 23`.
 Only one name may be defined per `let` statement.
 
 The variable assignment syntax is `:=`,
-e.g. `x := 23` in place of `x = 23`.
+e.g. `x := 23` for `x = 23`.
 
 The following operators are spelled differently:
 
-- equality is `=` in place of `==`
-- identity is `==` in place of `===`
-- logical and is `&` in place of `&&`
-- logical or is `|` in place of `||`
+- equality is `=` for `==`
+- identity is `==` for `===`
+- logical and is `&` for `&&`
+- logical or is `|` for `||`
 
 Arity is strict.
 Whereas in SuperCollider language _max(-3)_ and _max(-3, 0)_ and _max(-3, 0, 3)_ all answer _0_,

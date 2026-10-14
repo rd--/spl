@@ -12,7 +12,7 @@ if the system generates the two methods:
 - _v(t)_: read the slot
 - _v!(t, x)_: set the slot
 
-Then `Dot Assignment Syntax` could be used for any arity two method with an _InPlace_ suffix,
+Then `Dot Assignment Syntax` could be used for any arity two method with an _!_ suffix,
 however it is a rather confusing notation if the method is not some form of set mechanism:
 
 ~~~spl experimental
@@ -21,7 +21,7 @@ add!([1 2 3], 3)
 ~~~
 
 _Rationale_:
-The current notation makes _p.q(r)_ and _p.q := r_ synonyms.
+The current notation does not make _p.q(r)_ and _p.q := r_ synonyms.
 If there were not slot assignment syntax,
 _p.q(r)_ is a concise notation for the operation.
 The system may be edited to name the slot mutation methods differently,

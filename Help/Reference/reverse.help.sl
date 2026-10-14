@@ -131,7 +131,7 @@ Where supported `reverse` is displayed as ᴙ.
 
 See also: reverseDo, reverseWithDo
 
-Guides: InPlace Syntax, List Functions
+Guides: In-Place Syntax, List Functions
 
 References:
 _Apl_

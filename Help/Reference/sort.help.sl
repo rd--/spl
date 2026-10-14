@@ -220,7 +220,7 @@ r.downsample(4).scatterPlot
 
 See also: isSorted, lexicographicSort, mergeSort, ordering, quickSort, sortBy, sortByOn, sortOn
 
-Guides: InPlace Syntax, Sort Functions
+Guides: In-Place Syntax, Sort Functions
 
 References:
 _Mathematica_

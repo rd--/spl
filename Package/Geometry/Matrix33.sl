@@ -30,10 +30,10 @@ Matrix33 : [Object, Equal] {
 	}
 
 	[inverseMatrix, inverse] { :self |
-		self.copy.invert
+		self.copy.invert!
 	}
 
-	invert { :self |
+	invert! { :self |
 		let [a, b, c, d, e, f, g, h, i] = self.elements;
 		self.elements := self.determinant * [
 			(e * i) - (f * h), ((b * i) - (c * h)).negate, (b * f) - (c * e),

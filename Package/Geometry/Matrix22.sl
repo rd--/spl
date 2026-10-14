@@ -39,10 +39,10 @@ Matrix22 : [Object, Equal] {
 	}
 
 	[inverseMatrix, inverse] { :self |
-		self.copy.invert
+		self.copy.invert!
 	}
 
-	invert { :self |
+	invert! { :self |
 		let m = 1 / self.determinant;
 		self.initializeSlots(
 			self.d * m, self.b.negate * m,
@@ -50,14 +50,14 @@ Matrix22 : [Object, Equal] {
 		)
 	}
 
-	rotation { :self :n |
+	rotation! { :self :n |
 		self.initializeSlots(
 			n.cos, n.sin,
 			n.sin.negate, n.cos
 		)
 	}
 
-	transpose { :self |
+	transpose! { :self |
 		let b = self.b;
 		let c = self.c;
 		self.b := c;

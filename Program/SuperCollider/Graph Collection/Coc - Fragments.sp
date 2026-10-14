@@ -209,7 +209,7 @@ PmOsc(f, f * [1.25, MouseX(1, 3, 0, 0.2)], e * [5, MouseY(3, 9, 0, 0.2)], 0) * e
 /* Generating melodic runs */
 SinOsc(Latch(LfSaw(MouseX(0.1, 20, 0, 0.2), 0) * 500 + 600, Impulse(10, 0)), 0) * 0.1
 
-/* Generating melodic runs, line in place of mouse */
+/* Generating melodic runs, use line instead of mouse */
 SinOsc(Latch(LfSaw(Line(0.1, 20, 60), 0) * 500 + 600, Impulse(10, 0)), 0) * 0.1
 
 /* Rise fall pad ; Event control */
