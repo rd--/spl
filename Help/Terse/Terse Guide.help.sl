@@ -2594,7 +2594,7 @@ let r = 1:9.Stream; [r.next!, r.back, r.next!] = [1, 1, 1] /* go back one elemen
 1:5.Stream.size = 5 /* stream from interval, stream size */
 1:5.Stream.contents = 1:5 /* contents of finite stream (a copy of the collection) */
 let a = [1 .. 5]; a.Stream.contents !== a /* contents of finite stream (a copy of the collection) */
-let i = 1:5; i.Stream.originalContents == i /* original contents of stream (the actual collection */
+let i = 1:5; i.Stream.collection == i /* underlying collection of stream */
 let r = 1:5.Stream; r.upToEnd; r.contents = 1:5 /* contents of consumed stream */
 1:9.Stream.collection = Range(1, 9, 1) /* read stream over interval collection */
 let i = 1:9; let s = i.Stream; let c = s.copy; c.next!; s.next! = 1 & { c.next! = 2 } /* copy */
@@ -3734,7 +3734,7 @@ system.workspace.isRecord /* specifically, it is a record */
 { system.workspace['undefined'] }.hasError /* workspace implements the indexable trait, unknown indices (keys) raise errors */
 system.workspace['TwoPi'] := 2.pi; system.workspace['TwoPi'] / 2 = 1.pi /* declare and then access a workspace variable */
 system.workspace.indices.includes('TwoPi') /* workspace is indexable */
-system.workspace.indexOf(2.pi) = 'TwoPi' /* worskapce is indexable */
+system.workspace.indexOf(2.pi) = 'TwoPi' /* workspace is indexable */
 ```
 
 ## System -- methodDictionary
@@ -4123,5 +4123,5 @@ system.cache['onceCache'].isWeakMap
 ## MutableCollectionStream -- collection type
 ```
 system.includesPackage('MutableCollectionStream') /* MutableCollectionStream package */
-let w = [].ByteArray.WriteStream; w.nextPutAll(1:9); w.contents = [1 .. 9].ByteArray
+let w = [].ByteArray.WriteStream; w.addAll!(1:9); w.contents = [1 .. 9].ByteArray
 ```

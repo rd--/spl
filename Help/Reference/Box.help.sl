@@ -8,7 +8,7 @@ A `Type` that holds an object, also called a reference type.
 
 ```
 >>> let b = Box(23);
->>> (b.isBox, b.unbox)
+>>> (b.isBox, b.contents)
 (true, 23)
 ```
 
@@ -18,7 +18,7 @@ and then place a string in the box:
 
 ```
 >>> let b = Box([3.141 23]);
->>> let l = b.unbox;
+>>> let l = b.contents;
 >>> b.contents := 'x';
 >>> (l, b)
 ([3.141 23], Box('x'))

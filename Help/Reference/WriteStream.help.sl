@@ -5,7 +5,6 @@
 `WriteStream` is a constructor for write stream types.
 
 At `List`,
-answer a `MutableCollectionStream` on the collection _c_.
 `add!` writes a value to the stream,
 `contents` answers the contents of the stream:
 
@@ -27,29 +26,9 @@ answer a `MutableCollectionStream` on the collection _c_.
 [1 .. 9]
 ```
 
-`WriteStream` is a trait:
-
-```
->>> system
->>> .traitDictionary['WriteStream']
->>> .isTrait
-true
-```
-
-List of types implementing `WriteStream`:
-
-```
->>> system
->>> .traitTypes('@WriteStream')
->>> .sort!
-[
-	'MutableCollectionStream'
-]
-```
-
 * * *
 
-See also: Add, MutableCollectionStream, ReadStream, Stream
+See also: Add, Stream
 
 Guides: Stream Functions
 

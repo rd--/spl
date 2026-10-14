@@ -54,7 +54,8 @@ Add to end:
 [1 2]
 ```
 
-Add to end
+`add!` is an alias for `addLast!`,
+add to end:
 
 ```
 >>> let l = LinkedList();
