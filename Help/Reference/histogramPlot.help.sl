@@ -1,6 +1,6 @@
 # histogramPlot
 
-- _histogramPlot(x)_
+- _histogramPlot(x, [i j k])_
 
 Plot a histogram of the values at _x_.
 
@@ -70,6 +70,15 @@ system.nistData('TUKLAMB', [1])
 ~~~
 
 ![](Help/Image/histogramPlot-G.svg)
+
+Histogram of `sin` function:
+
+~~~spl svg=H
+[0, 0.01 .. 2.pi].sin
+.histogramPlot([-1 1 0.05])
+~~~
+
+![](Help/Image/histogramPlot-H.svg)
 
 * * *
 

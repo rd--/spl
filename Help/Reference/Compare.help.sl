@@ -62,6 +62,7 @@ Types implementing `Compare`:
 	'LinkedList'
 	'List'
 	'ListView'
+	'Nil'
 	'NumericArray'
 	'Package'
 	'PlanarCoordinates'

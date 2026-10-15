@@ -17,12 +17,13 @@ answer an `AsciiString` value holding a byte-string encoding of the string _s_:
 ByteArray[116 101 120 116]
 ```
 
-At `AsciiString` answers `identity`:
+At `AsciiString` answers `copy`:
 
 ```
->>> let s = AsciiString'text';
->>> AsciiString(s) == s
-true
+>>> let a = AsciiString'text';
+>>> let b = AsciiString(a);
+>>> (a = b, a !== b)
+(true, true)
 ```
 
 `AsciiString` implements `Do`, `At`, `Put`, `Collect` and `Sequence`:

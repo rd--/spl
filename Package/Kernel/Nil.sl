@@ -1,7 +1,11 @@
 Nil! : [Object, Copy, Store, Equal, Compare, Json] {
 
-	compare { :unused :unusedOperand |
-		-1
+	compare { :unused :operand |
+		operand.ifNil {
+			0
+		} {
+			-1
+		}
 	}
 
 	concisePrintString { :self |

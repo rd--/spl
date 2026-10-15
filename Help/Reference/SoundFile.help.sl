@@ -1,12 +1,16 @@
 # SoundFile
 
-- _SoundFile(aUrl)_
-- _SoundFile(anArrayBuffer, numberOfChannels, numberOfFrames, sampleRate, aUrl)_
+- _SoundFile(u)_
+- _SoundFile(b, c, n, r, u)_
 
 A type representing a sound file.
+_b_ is an `ArrayBuffer` holding the sample data,
+_c_ tells the number of channels,
+_n_ tells the number of frames,
+_r_ tells the sample rate.
 The methods `numberOfChannels`, `numberOfFrames` and `sampleRate` read the file meta data.
 The method `url` reads the `Url` the file was fetched from.
-The method `interleavedData` reads the indicated interleave channel data as a `Float32Array`.
+The method `interleavedData` reads the interleaved channel data as a `Float32Array`.
 The method `channelData` reads the indicated one-indexed channel data as a `Float32Array`.
 
 Fetch sound file, print header information, and plot short segment:
@@ -39,7 +43,7 @@ SoundFile(url).then { :soundFile |
 
 Define a 128 place sine table,
 construct a SoundFile to hold it,
-and send to the table to the synthesiser:
+and send the table to the synthesiser:
 
 ~~~spl scsynth
 let table = (0 -- 2.pi).discretize(128).sin;
