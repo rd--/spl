@@ -1,6 +1,6 @@
-# booleSparseArray
+# booleanSparseArray
 
-- _booleSparseArray([i₁ i₂ …], ⍴, x=[0 1])_
+- _booleanSparseArray([i₁ i₂ …], ⍴, x=[0 1])_
 
 Answer a `SparseArray` of shape _⍴_ where the indicies _i_ indicate non-zero (one) positions.
 
@@ -14,12 +14,12 @@ The five free tetrominoes:
 	1 1; 1 2; 2 1; 2 2:;
 	1 1; 1 2; 1 3; 1 4
 ].collect { :i |
-	i.booleSparseArray([4 4])
+	i.booleanSparseArray([4 4])
 	.normal
 }.catenate.transpose.arrayMesh
 ~~~
 
-![](Help/Image/booleSparseArray-A.svg)
+![](Help/Image/booleanSparseArray-A.svg)
 
 The twelve free pentominos:
 
@@ -38,15 +38,15 @@ The twelve free pentominos:
 	1 2; 2 1; 2 2; 3 2; 4 2:;
 	1 1; 1 2; 2 2; 3 2; 3 3
 ].collect { :i |
-	i.booleSparseArray([4 4])
+	i.booleanSparseArray([4 4])
 	.normal.transpose
 }.catenate.transpose.arrayMesh
 ~~~
 
-![](Help/Image/booleSparseArray-B.svg)
+![](Help/Image/booleanSparseArray-B.svg)
 
 * * *
 
-See also: SparseArray, boole
+See also: Boolean, SparseArray, boole
 
 Guides: Array Functions

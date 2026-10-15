@@ -181,7 +181,7 @@ SparseArray : [Object, Store, Equal, Compare, Do, At, Collect, Collection, Seque
 		)
 	}
 
-	booleSparseArray { :indices :shape :zeroOne |
+	booleanSparseArray { :indices :shape :zeroOne |
 		let [a, b] = zeroOne;
 		SparseArray(
 			indices.collect { :i |
@@ -192,8 +192,8 @@ SparseArray : [Object, Store, Equal, Compare, Do, At, Collect, Collection, Seque
 		)
 	}
 
-	booleSparseArray { :indices :shape |
-		booleSparseArray(indices, shape, [0 1])
+	booleanSparseArray { :indices :shape |
+		booleanSparseArray(indices, shape, [0 1])
 	}
 
 	SparseArray { :self :shape :unspecifiedValue |
