@@ -14,4 +14,4 @@ let noteList = [
 		1,
 		ringTimes
 	)
-}.spawnTextureProgram(2)
+}.spawnTextureProgram { 2 }

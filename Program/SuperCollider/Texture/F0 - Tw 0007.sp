@@ -9,4 +9,4 @@
 		0.5
 	);
 	Release(Bpf(o, IRand(0, 1200), 1), 9, 0, 69)
-}.spawnTextureProgram(9)
+}.spawnTextureProgram { 9 }

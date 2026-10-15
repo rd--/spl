@@ -5,4 +5,4 @@
 	let d = Dust(50 + Rand(0, 800)) * 0.3;
 	let s = Resonz(d, XLine(rf1, rf2, 9), 0.1);
 	EqPan(Release(s, 2, 5, 2), Rand(-1, 1))
-}.spawnTextureProgram(2)
+}.spawnTextureProgram { 2 }

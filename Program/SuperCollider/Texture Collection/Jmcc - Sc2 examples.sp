@@ -35,7 +35,7 @@ let env = EnvLinen(2, 5, 2, 1, -4);
 		SinOsc(Rand(0, 2000), 0) * EnvGen(1, 0.02, 0, 1, 2, env),
 		Rand(-1, 1)
 	)
-}.spawnTextureProgram(9 / n)
+}.spawnTextureProgram { 9 / n }
 
 /********** Random pulsations ; Jmcc **********/
 let n = 8; /* number of simultaneous events */
@@ -45,7 +45,7 @@ let env = EnvLinen(2, 5, 2, 0.02, -4);
 		(SinOsc(Rand(0, 2000), 0) * EnvGen(1, 1, 0, 1, 2, env)).AmClip(SinOsc(8 + LinRand(0, 80, 0), 0)),
 		SinOsc(0.3 + Rand(0, 0.5), Rand(0, 2.pi)) * 0.7
 	)
-}.spawnTextureProgram(9 / n)
+}.spawnTextureProgram { 9 / n }
 
 /********** Tremulate ; Jmcc **********/
 {
@@ -77,7 +77,7 @@ let env = EnvLinen(2, 5, 2, 0.02, -4);
 		Rand(-1, 1) /* place each bouncer at a random position in the stereo field */
 	) * /* multiply by an envelope is necessary to make the sound end */
 	Cutoff(3, 0.001, -4) /* 3 second cut off envelope to end sound */
-}.spawnTextureProgram({ 0.6 + 0.6.atRandom })
+}.spawnTextureProgram { 0.6 + 0.6.atRandom }
 
 /********** Bank of resonators excited by impulses ; Jmcc **********/
 let n = 5; /* number of simultaneous instruments */

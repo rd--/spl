@@ -2,7 +2,7 @@
 
 TextureProgram : [Object] {
 
-	| iterationCounter soundBlock envelopeBlock delayTime |
+	| iterationCounter soundBlock envelopeBlock delayTimeBlock |
 
 	play { :self |
 		{ :currentTime |
@@ -12,7 +12,7 @@ TextureProgram : [Object] {
 				)
 			).playAt(currentTime);
 			self.iterationCounter := self.iterationCounter + 1;
-			self.delayTime.nullaryApply
+			self.delayTimeBlock.nullaryApply
 		}.schedule
 	}
 

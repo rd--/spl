@@ -13,4 +13,4 @@
 		z := AllpassN(z, 0.05, { Rand(0, 0.05) } ! 2, 2)
 	};
 	z
-}.spawnTextureProgram(2)
+}.spawnTextureProgram { 2 }
