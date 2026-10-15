@@ -666,6 +666,7 @@ Reference/boltzmannConstant.help.sl
 Reference/bookGraph.help.sl
 Reference/Boolean.help.sl
 Reference/boole.help.sl
+Reference/booleSparseArray.help.sl
 Reference/botanicCurve.help.sl
 Reference/boundingBox.help.sl
 Reference/bourkeContourAlgorithm.help.sl

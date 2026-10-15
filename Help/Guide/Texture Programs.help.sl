@@ -45,7 +45,6 @@ Functions:
 Textrue programs are distinct from texture unit generators,
 see `OverlapTexture` and `XFadeTexture`.
 
-
 * * *
 
 Guides: Scheduling Functions, SuperCollider Functions
