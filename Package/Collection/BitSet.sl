@@ -12,10 +12,6 @@ BitSet : [Object, Copy, Store, Equal, Do, Collect, FiniteCollection, Add, Remove
 		}
 	}
 
-	[at, @] { :self :anInteger |
-		self.bitAt(anInteger)
-	}
-
 	add! { :self :anInteger |
 		self.assert {
 			anInteger.isInteger & {
@@ -26,7 +22,7 @@ BitSet : [Object, Copy, Store, Equal, Do, Collect, FiniteCollection, Add, Remove
 		anInteger
 	}
 
-	bitAt { :self :anInteger |
+	[bitAt, at, @] { :self :anInteger |
 		let byteIndex = anInteger.bitShift(-3) + 1;
 		let bitIndex = 0 - anInteger.bitAnd(7);
 		self.bytes[byteIndex].bitShift(bitIndex).bitAnd(1)
@@ -187,7 +183,7 @@ BitSet : [Object, Copy, Store, Equal, Do, Collect, FiniteCollection, Add, Remove
 
 	removeAll! { :self |
 		(tally > 0).if {
-			self.bytes.atAllPut(0);
+			self.bytes.atAllPut!(0);
 			self.tally := 0
 		};
 		nil
@@ -220,7 +216,7 @@ BitSet : [Object, Copy, Store, Equal, Do, Collect, FiniteCollection, Add, Remove
 	}
 
 	String { :self |
-		let ascii = ByteArray(self.capacity);
+		let ascii = ByteArray(self.capacity, 0);
 		self.bitsWithIndexDo { :each :index |
 			ascii[index + 1] := 48 + each
 		};
@@ -235,7 +231,7 @@ BitSet : [Object, Copy, Store, Equal, Do, Collect, FiniteCollection, Add, Remove
 		let byteCount = capacity.min(capacity // 8 + 1);
 		newBitSet().initializeSlots(
 			capacity,
-			ByteArray(byteCount),
+			ByteArray(byteCount, 0),
 			0
 		)
 	}

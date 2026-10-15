@@ -48,10 +48,10 @@ With separator:
 'p/q/r'
 ```
 
-The unary form will undo `characters`:
+The unary form will undo `List` & `characters`:
 
 ```
->>> 'xyz'.characters.stringJoin
+>>> List'xyz'.stringJoin
 'xyz'
 ```
 

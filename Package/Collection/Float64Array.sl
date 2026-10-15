@@ -19,7 +19,7 @@ Float64Array! : [Object, Copy, Store, Equal, Compare, Do, At, Put, New, Collect,
 	}
 
 	species { :self |
-		Float64Array/1
+		zeroFloat64Array/1
 	}
 
 	storageType { :self |
@@ -30,28 +30,35 @@ Float64Array! : [Object, Copy, Store, Equal, Compare, Do, At, Put, New, Collect,
 
 +SmallFloat {
 
-	Float64Array { :self |
-		<primitive: return new Float64Array(_self);>
+	[Float64Array, constantFloat64Array] { :n :x |
+		<primitive: return new Float64Array(_n).fill(_x);>
 	}
 
-}
-
-+[List, Range] {
-
-	Float64Array { :self |
-		self.isSmallFloatVector.if {
-			self.List.uncheckedFloat64Array
-		} {
-			self.error('Float64Array: invalid input')
-		}
+	zeroFloat64Array { :n |
+		Float64Array(n, 0.0)
 	}
 
 }
 
 +List {
 
+	[Float64Array, listToFloat64Array] { :self |
+		self.isSmallFloatVector.ifFalse {
+			self.error('Float64Array: invalid input')
+		};
+		self.uncheckedFloat64Array
+	}
+
 	uncheckedFloat64Array { :self |
 		<primitive: return new Float64Array(_self);>
+	}
+
+}
+
++Range {
+
+	[Float64Array, rangeToFloat64Array] { :self |
+		uncheckedFloat64Array(List(self))
 	}
 
 }

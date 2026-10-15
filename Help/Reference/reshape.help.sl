@@ -131,7 +131,7 @@ Create a 2×3 matrix from a `Range` value:
 Create a 2×3 matrix from the `characters` of a `String` value:
 
 ```
->>> 'abcdef'.characters.reshape([2 3])
+>>> List'abcdef'.reshape([2 3])
 [
 	'a' 'b' 'c';
 	'd' 'e' 'f'

@@ -56,10 +56,12 @@ true
 true
 ```
 
-At `String` the `characters` method answers single character strings that make up the quoted string:
+At `String` the `List`,
+aliased as `characters`
+method answers single character strings that make up the quoted string:
 
 ```
->>> 'Single Quoted String'.characters
+>>> List'Single Quoted String'
 [
 	'S' 'i' 'n' 'g' 'l' 'e'
 	' '

@@ -103,8 +103,7 @@ Derived rule:
 ```
 >>> 1:3.collect { :n |
 >>> 	n -> [1 .. n]
->>> }
->>> .substitutionSystem([3], 3)
+>>> }.substitutionSystem([3], 3)
 [
 	3;
 	1 2 3;

@@ -172,7 +172,7 @@ DelaunayTriangulation : [Object] {
 	DelaunayTriangulation { :self |
 		let [m, n] = self.shape;
 		(n = 2).if {
-			let coordinateVector = Float64Array(self.size * 2);
+			let coordinateVector = Float64Array(self.size * 2, 0);
 			let index = 1;
 			self.do { :each |
 				let [x, y] = each;

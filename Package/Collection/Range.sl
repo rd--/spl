@@ -152,7 +152,7 @@ Range : [Object, Copy, Store, Equal, Compare, Do, New, Collect, FiniteCollection
 	}
 
 	species { :self |
-		List/1
+		nilList/1
 	}
 
 }

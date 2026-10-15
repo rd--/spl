@@ -63,7 +63,7 @@ ResidueSet : [Object, Store, Equal, Do, New, Collect, FiniteCollection, Add, Rem
 		self.commonResidueSet.include!(anInteger % self.modulus)
 	}
 
-	List { :self |
+	[List, residueSetToList] { :self |
 		self.positionVector
 	}
 

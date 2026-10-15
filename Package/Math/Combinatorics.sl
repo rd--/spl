@@ -7,7 +7,7 @@
 			(self < 2).if {
 				1
 			} {
-				let list = List(self);
+				let list = List(self, nil);
 				list[1] := 1;
 				2.toDo(self) { :i |
 					1.toDo(i - 2) { :j |
@@ -753,7 +753,7 @@
 +@Sequence {
 
 	combinationsAtATimeDo { :self :kk :aBlock/1 |
-		let aCollection = List(kk);
+		let aCollection = List(kk, nil);
 		self.combinationsAtInAfterDo(1, aCollection, 0, aBlock/1)
 	}
 

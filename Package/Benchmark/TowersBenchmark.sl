@@ -62,7 +62,7 @@ TowersBenchmark : [Object] {
 	}
 
 	benchmark { :self |
-		self.piles := List(3);
+		self.piles := List(3, nil);
 		self.buildTowerAtDisks(1, 13);
 		self.movesDone := 0;
 		self.moveDisksFromTo(13, 1, 2);

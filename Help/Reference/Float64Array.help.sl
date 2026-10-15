@@ -1,15 +1,10 @@
 # Float64Array
 
-- _Float64Array(n)_
-- _Float64Array([x, …])_
+- _Float64Array(n, x=0)_
+- _Float64Array([x₁ x₂ …])_
 
-In the `Integer` case,
-answer a `Float64Array` of _n_ places, each initialized to `zero`.
-
-```
->>> Float64Array(5)
-Float64Array[0 0 0 0 0]
-```
+A `Float64Array` is an array whose elements are IEEE 64-bit floating point values.
+Unlike a `List`, a `Float64Array` is of fixed size.
 
 In the `List` case,
 answer a `Float64Array` initialized to _[x, …]_:
@@ -34,12 +29,16 @@ ByteArray[
 ]
 ```
 
-A `Float64Array` is an array whose elements are IEEE 64-bit floating point values.
-Unlike a `List`, a `Float64Array` is of fixed size.
+Zero `Float64Array` of _n_ places:
+
+```
+>>> 5.zeroFloat64Array
+Float64Array[0 0 0 0 0]
+```
 
 * * *
 
-See also: ByteArray, encode, List, Float32Array
+See also: ByteArray, Float32Array, List, encode
 
 Guides: Vector Functions
 

@@ -26,7 +26,7 @@
 
 	modularDistanceMultiset { :a :m |
 		let k = a.size;
-		let d = List();
+		let d = [];
 		a.do { :p |
 			a.do { :q |
 				(p < q).ifTrue {

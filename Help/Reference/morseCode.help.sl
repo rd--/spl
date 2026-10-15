@@ -1,19 +1,28 @@
 # morseCode
 
-- _morseCode(aCharacter)_
+- _morseCode(c)_
 
-Answer the Morse code for _aCharacter_ as a `String` of dots ('.') and dashes ('-').
-
-Vowels:
+Answer the Morse code for _c_ as a `String` of dots ('.') and dashes ('-').
 
 ```
->>> 'eaiou'
->>> .characters
->>> .collect(morseCode/1)
+>>> 's'.morseCode
+'...'
+
+>>> 'o'.morseCode
+'---'
+```
+
+Threads over lists,
+vowels in code-length order:
+
+```
+>>> List'eaiou'.morseCode
 [
-	'.',
-	'.-', '..',
-	'---', '..-'
+	'.'
+	'.-'
+	'..'
+	'---'
+	'..-'
 ]
 ```
 
@@ -23,44 +32,38 @@ Consonants, grouped by code length:
 >>> 't'.morseCode
 '-'
 
->>> 'mn'
->>> .characters
->>> .collect(morseCode/1)
+>>> List'mn'.morseCode
 ['--' '-.']
 
->>> 'dgkrsw'
->>> .characters
->>> .collect(morseCode/1)
+>>> List'dgkrsw'.morseCode
 [
-	'-..', '--.', '-.-',
-	'.-.', '...', '.--'
+	'-..' '--.' '-.-'
+	'.-.' '...' '.--'
 ]
 
->>> 'bcfhjlpqvxyz'
->>> .characters
->>> .collect(morseCode/1)
+>>> List'bcfhjlpqvxyz'.morseCode
 [
-	'-...', '-.-.', '..-.', '....',
-	'.---', '.-..', '.--.', '--.-',
-	'...-', '-..-', '-.--', '--..'
+	'-...' '-.-.' '..-.' '....'
+	'.---' '.-..' '.--.' '--.-'
+	'...-' '-..-' '-.--' '--..'
 ]
 ```
 
 Numbers:
 
 ```
->>> '1234567890'
->>> .characters
->>> .collect(morseCode/1)
+>>> List'1234567890'.morseCode
 [
-	'.----', '..---', '...--', '....-', '.....',
-	'-....', '--...', '---..', '----.', '-----'
+	'.----' '..---' '...--' '....-' '.....'
+	'-....' '--...' '---..' '----.' '-----'
 ]
 ```
 
 * * *
 
 See also: characters
+
+Guides: String Functions
 
 References:
 _ITU_

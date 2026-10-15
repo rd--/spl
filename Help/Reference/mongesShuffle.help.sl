@@ -20,7 +20,8 @@ Shuffle a `Range` once, answering a `List`:
 Shuffle a list three times:
 
 ```
->>> 'abcdefghij'.characters.mongesShuffle(3)
+>>> List'abcdefghij'
+>>> .mongesShuffle(3)
 ['g' 'b' 'j' 'd' 'e' 'i' 'a' 'h' 'f' 'c']
 ```
 

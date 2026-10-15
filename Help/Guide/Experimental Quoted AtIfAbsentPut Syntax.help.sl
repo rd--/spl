@@ -2,7 +2,7 @@
 
 Rewrite rule:
 
-- _c::k_ :=? a ⟹ _atIfAbsentPut(c, 'k', a)_
+- _c::k_ :=? a ⟹ _atIfAbsentPut!(c, 'k', a)_
 
 Syntax for the _atIfAbsentPut_ protocol.
 Read the value at the key _'k'_ from the collection _c_, if it is absent evaluate _a_,

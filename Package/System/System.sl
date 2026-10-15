@@ -332,7 +332,7 @@ System! : [Object, Cache, RandomNumberGenerator] {
 		let cache = system.cached('onceCache') {
 			WeakMap()
 		};
-		cache.atIfAbsentPut(self/0) {
+		cache.atIfAbsentPut!(self/0) {
 			self()
 		}
 	}

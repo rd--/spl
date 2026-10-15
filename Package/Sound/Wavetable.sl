@@ -15,24 +15,24 @@
 	}
 
 	hammingWindowFill { :self |
-		self.atAllPut(0.53836);
+		self.atAllPut!(0.53836);
 		self.addSine!(1, 0.46164, -0.5.pi, 0)
 	}
 
 	hannWindowFill { :self |
-		self.atAllPut(0.5);
+		self.atAllPut!(0.5);
 		self.addSine!(1, 0.5, -0.5.pi, 0)
 	}
 
 	sineFill { :self :amplitudes :phases |
-		self.atAllPut(0);
+		self.atAllPut!(0);
 		amplitudes.withIndexDo { :each :index |
 			self.addSine!(index, each, phases.atWrap(index), 0)
 		}
 	}
 
 	welchWindowFill { :self |
-		self.atAllPut(0);
+		self.atAllPut!(0);
 		self.addSine!(0.5, 1, 0, 0)
 	}
 

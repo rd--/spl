@@ -1,19 +1,11 @@
 # Float32Array
 
-- _Float32Array(x)_
+- _Float32Array(n, x=0)_
+- _Float32Array([x₁ x₂ …])_
 
 A `Float32Array` is a `Type`,
 representing an array whose elements are IEEE 32-bit floating point values.
 Unlike `List`, a `Float32Array` is of fixed size.
-
-At `Integer`,
-answer an array of _n_ places,
-each initialized to `zero`:
-
-```
->>> Float32Array(5)
-Float32Array[0 0 0 0 0]
-```
 
 At `List`,
 answer a `Float32Array` with the values of the list,
@@ -49,6 +41,13 @@ ByteArray[
 	0 0 128 64
 	0 0 160 64
 ]
+```
+
+Zero array of _n_ places:
+
+```
+>>> 5.zeroFloat32Array
+Float32Array[0 0 0 0 0]
 ```
 
 * * *

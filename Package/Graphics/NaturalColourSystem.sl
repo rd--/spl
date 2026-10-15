@@ -126,7 +126,7 @@ LibraryItem(
 	parser: { :libraryItem |
 		libraryItem.collect { :each |
 			let b = each.parseBase16;
-			List(b) / 255
+			b.arrayToList / 255
 		}
 	}
 )

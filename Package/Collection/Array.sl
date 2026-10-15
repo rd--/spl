@@ -10,10 +10,10 @@
 			let n = r * i;
 			let m = c * j;
 			let p = 1;
-			let answer = List(n);
+			let answer = List(n, nil);
 			1.toDo(r) { :w |
 				1.toDo(i) { :x |
-					let row = List(m);
+					let row = List(m, nil);
 					let q = 1;
 					answer[p] := row;
 					p := p + 1;
@@ -513,7 +513,7 @@
 		let length = (size ^ dimensions) - 1;
 		let neighbors = [];
 		0.toDo(length - 1) { :i |
-			let neighbor = List(dimensions);
+			let neighbor = List(dimensions, nil);
 			let index = (i < (length / 2)).if { i } { i + 1 };
 			neighbors.add!(neighbor);
 			1.toDo(dimensions) { :d |
@@ -532,7 +532,7 @@
 		let neighbors = [];
 		0.toDo(iterations - 1) { :i |
 			(i = center).ifFalse {
-				let neighbor = List(dimensions);
+				let neighbor = List(dimensions, nil);
 				let distance = 0;
 				let remaining = i;
 				0.toDo(dimensions - 1) { :d |

@@ -19,7 +19,7 @@
 	}
 
 	collect { :self :aBlock/1 |
-		let result = List(self.size);
+		let result = List(self.size, nil);
 		let index = 1;
 		self.do { :nextValue |
 			result[index] := aBlock(nextValue);

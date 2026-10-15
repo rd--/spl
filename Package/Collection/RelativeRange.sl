@@ -31,7 +31,7 @@ RelativeRange : [Object, Store, Equal, Compare, Do, New, Collect, FiniteCollecti
 	}
 
 	species { :self |
-		List/1
+		nilList/1
 	}
 
 }

@@ -38,7 +38,7 @@ LaggedFibonacci : [Object, Equal, Iterator, RandomNumberGenerator, Stream] {
 	reset! { :self |
 		let [s, r, m] = self.parameters;
 		let k = self.seed;
-		let x = List(r);
+		let x = List(r, nil);
 		1.toDo(r) { :i |
 			k := k * 6364136223846793005L + 1442695040888963407L % m;
 			x[i] := k

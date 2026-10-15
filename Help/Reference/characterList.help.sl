@@ -33,8 +33,7 @@ Since `codePoint` is also defined for single character strings,
 the above is equivalent to:
 
 ```
->>> 'characters'
->>> .characters
+>>> List'characters'
 >>> .collect(codePoint/1)
 [99 104 97 114 97 99 116 101 114 115]
 ```

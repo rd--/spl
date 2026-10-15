@@ -25,7 +25,9 @@ AsciiString : [Object, Store, Equal, Do, At, Put, New, Collect, FiniteCollection
 	}
 
 	hexString { :self |
-		self.byteArray.base16Encode.AsciiString
+		AsciiString(
+			self.byteArray.base16Encode
+		)
 	}
 
 	indices { :self |
@@ -33,7 +35,7 @@ AsciiString : [Object, Store, Equal, Do, At, Put, New, Collect, FiniteCollection
 	}
 
 	[List, asciiStringToList] { :self |
-		let answer = List(self.size);
+		let answer = List(self.size, nil);
 		self.withIndexDo { :each :index |
 			answer[index] := each.Character
 		};
@@ -49,11 +51,15 @@ AsciiString : [Object, Store, Equal, Do, At, Put, New, Collect, FiniteCollection
 	}
 
 	species { :self |
-		AsciiString/1
+		zeroAsciiString/1
 	}
 
 	storeString { :self |
-		'AsciiString(%)'.format([self.byteArray.asciiString.storeString])
+		'AsciiString(%)'.format(
+			[
+				self.byteArray.asciiString.storeString
+			]
+		)
 	}
 
 }
@@ -68,8 +74,8 @@ AsciiString : [Object, Store, Equal, Do, At, Put, New, Collect, FiniteCollection
 
 +@Integer {
 
-	AsciiString { :self |
-		ByteArray(self).uncheckedAsciiString
+	zeroAsciiString { :self |
+		ByteArray(self, 0).uncheckedAsciiString
 	}
 
 }

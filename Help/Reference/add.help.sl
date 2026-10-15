@@ -20,7 +20,7 @@ At `IdentityMultiset`:
 At `List`, add to end of list, see also `addFirst` and `addLast`:
 
 ```
->>> let l = List();
+>>> let l = [];
 >>> l.add!('x');
 >>> (l.add!('y'), l.size, l)
 ('y', 2, ['x' 'y'])

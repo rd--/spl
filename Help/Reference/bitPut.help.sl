@@ -36,7 +36,9 @@ Generate a number in which specified bits are set:
 
 ```
 >>> let n = 0;
->>> [2 4 8].do { :each | n := n.bitPut(each, 1) };
+>>> [2 4 8].do { :each |
+>>> 	n := n.bitPut(each, 1)
+>>> };
 >>> n
 138
 ```

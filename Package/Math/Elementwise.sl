@@ -587,6 +587,10 @@
 		self.collect(moebiusMu/1)
 	}
 
+	morseCode { :self |
+		self.collect(morseCode/1)
+	}
+
 	motzkinNumber { :self |
 		self.collect(motzkinNumber/1)
 	}

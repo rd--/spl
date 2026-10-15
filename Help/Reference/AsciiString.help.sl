@@ -4,14 +4,6 @@
 
 A `Type` holding an Ascii encoded text string.
 
-At `Integer` answers a null string of the inidicated size:
-
-```
->>> AsciiString(5)
->>> .codePoints
-[0 0 0 0 0]
-```
-
 At `List`,
 answer an `AsciiString` value holding a byte-string encoding of the string _s_:
 
@@ -97,6 +89,14 @@ Store string:
 ```
 >> AsciiString'String'.storeString
 AsciiString('String')
+```
+
+Zero string:
+
+```
+>>> 5.zeroAsciiString
+>>> .codePoints
+[0 0 0 0 0]
 ```
 
 * * *

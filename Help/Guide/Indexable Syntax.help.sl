@@ -24,7 +24,7 @@ put!(c, i, x)
 There are two further experimental syntaxes:
 
 - _c[k] :? a_ ⟹ _atIfAbsent(c, k, a)_
-- _c[k] :=? a_ ⟹ _atIfAbsentPut(c, k, a)_
+- _c[k] :=? a_ ⟹ _atIfAbsentPut!(c, k, a)_
 
 The third rule, `Experimental AtIfAbsent Syntax`, allows for specifying the answer if the index is absent.
 

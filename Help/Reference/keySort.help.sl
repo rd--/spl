@@ -22,7 +22,7 @@ At `Map`:
 At `Multiset`:
 
 ```
->>> 'abcaba'.characters.Multiset.keySort
+>>> List'abcaba'.Multiset.keySort
 ['a' -> 3, 'b' -> 2, 'c' -> 1]
 ```
 

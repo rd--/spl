@@ -32,15 +32,16 @@ In the unary case answer the permutation required to order _x_.
 Relation with `ordering`:
 
 ```
->>> 'adcghf'.characters.findPermutation
+>>> List'adcghf'.findPermutation
 [2 3; 4 6 5].cycles
 
->>> 'adcghf'.characters
->>> .ordering.Permutation
+>>> List'adcghf'
+>>> .ordering
+>>> .Permutation
 [2 3; 4 6 5].cycles
 
->>> let l = 'adcghf'.characters;
->>> l.sort.findPermutation(l)
+>>> let a = List'adcghf';
+>>> a.sort.findPermutation(a)
 [2 3; 4 6 5].cycles
 ```
 

@@ -6,7 +6,7 @@
 
 	sobolSequence { :n :d |
 		let l = n.bitLength;
-		let v = List(l);
+		let v = List(l, nil);
 		let x = List(n, 0);
 		(d = 1).if {
 			1.toDo(l) { :i |

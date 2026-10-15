@@ -29,7 +29,7 @@ HiddenMarkovProcess : [Object] {
 		let s = p0.size;
 		let p = [t, s].zeroMatrix;
 		let z = [t, s].zeroMatrix;
-		let answer = List(t);
+		let answer = List(t, nil);
 		1.toDo(s) { :i |
 			p[1][i] := p0[i] * e[i][o[1]]
 		};

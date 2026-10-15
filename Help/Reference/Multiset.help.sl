@@ -149,8 +149,7 @@ At a `List` of integers:
 Count occurrences of characters in a string:
 
 ```
->>> 'occurrences'
->>> .characters
+>>> List'occurrences'
 >>> .Multiset
 >>> .sortedCounts
 [

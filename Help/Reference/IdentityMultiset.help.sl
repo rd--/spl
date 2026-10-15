@@ -126,8 +126,7 @@ true
 Count occurrences of characters in a string:
 
 ```
->>> 'occurrences'
->>> .characters
+>>> List'occurrences'
 >>> .IdentityMultiset
 >>> .sortedCounts
 [

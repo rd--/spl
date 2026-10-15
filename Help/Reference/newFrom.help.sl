@@ -15,7 +15,7 @@ construct a new list given a `Range`:
 [1 2 3 4 5 6 7 8 9]
 
 >>> [].species
-List/1
+nilList/1
 ```
 
 At `SortedSet`,

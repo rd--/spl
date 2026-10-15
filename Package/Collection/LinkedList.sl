@@ -171,7 +171,7 @@ LinkedList : [Object, Copy, Store, Equal, Compare, Do, At, Put, New, Collect, Fi
 	}
 
 	[List, linkedListToList] { :self |
-		let answer = List(self.size);
+		let answer = List(self.size, nil);
 		let index = 1;
 		self.do { :each |
 			answer[index] := each;
@@ -341,7 +341,7 @@ LinkedList : [Object, Copy, Store, Equal, Compare, Do, At, Put, New, Collect, Fi
 +Void {
 
 	LinkedList {
-		newLinkedList()
+		newLinkedList().initializeSlots(nil, nil)
 	}
 
 }

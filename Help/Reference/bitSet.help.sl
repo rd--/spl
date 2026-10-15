@@ -62,7 +62,7 @@ Compare to `bitPut`:
 
 * * *
 
-See also: bitAt, bitPut, BitSet, highBit, integerDigits, setBitAt
+See also: BitSet, bitAt, bitPut, highBit, integerDigits, setBitAt
 
 Guides: Bitwise Functions
 

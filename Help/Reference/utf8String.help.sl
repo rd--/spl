@@ -21,7 +21,8 @@ At `ByteArray`:
 'aAα'
 ```
 
-Create a string from a `List`, assuming it contains UTF-8 data:
+Create a string from a `List`,
+assuming it contains UTF-8 data:
 
 ```
 >>> [

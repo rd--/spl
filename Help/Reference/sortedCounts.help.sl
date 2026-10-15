@@ -16,8 +16,7 @@ At `Multiset`:
 >>> .sortedCounts
 [3 -> 1, 2 -> 3, 1 -> 2]
 
->>> 'abcaca'
->>> .characters
+>>> List'abcaca'
 >>> .Multiset
 >>> .sortedCounts
 [3 -> 'a', 2 -> 'c', 1 -> 'b']

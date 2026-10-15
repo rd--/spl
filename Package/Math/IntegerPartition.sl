@@ -210,7 +210,7 @@
 	}
 
 	[partitionFunctionP, partitionsP] { :n |
-		let a = List(n + 1);
+		let a = List(n + 1, nil);
 		a[1] := 1L;
 		1.toDo(n) { :i |
 			let k = 1;

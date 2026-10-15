@@ -249,7 +249,7 @@ let x = 8.625; let y = 0.75; let q = x.quotientBy(y, round/1); let r = x.remaind
 ```
 system.includesPackage('List') /* list package */
 [].typeOf = 'List' /* type of List */
-[].species == List/1 /* species of List */
+[].species == nilList/1 /* species of List */
 [].new = [] /* new empty array */
 [].new(3) = [nil, nil, nil] /* new array of indicated size */
 [].newOfSize(3) = [nil, nil, nil] /* new array of indicated size */
@@ -263,9 +263,9 @@ system.includesPackage('List') /* list package */
 [].isEmpty = true /* the empty array is empty */
 [].copy = [] /* copy empty array */
 List() = [] /* Void constructor makes the empty List */
-List(0) = [] /* SmallFloat constructor makes an initialised sized List */
-List(3).size = 3 /* new array of indicated size */
-List(5) = [nil, nil, nil, nil, nil] /* array slots are initialised to nil */
+List(0, nil) = [] /* SmallFloat constructor makes an initialised sized List */
+List(3, nil).size = 3 /* new array of indicated size */
+List(5, nil) = [nil, nil, nil, nil, nil] /* array slots are initialised to nil */
 List(5, 0) = [0, 0, 0, 0, 0] /* array can have slots initialised to a value */
 [].List = [] /* List constructor, empty array */
 let a = [1 .. 9]; a.copy !== a /* copy does not answer argument */
@@ -337,7 +337,7 @@ let m = [1 2; 3 4; 5 6]; m[2][2] := 16; m[3][1] := 25; m = [1 2; 3 16; 25 6] /* 
 1:5.atIfPresentIfAbsent(3) { :x | x * x } { false } = 9 /* ifPresent and ifAbsent clauses */
 let l = [1 2 3]; l.put!(2, 'two') = 'two' & { l = [1 'two' 3] } /* put answers value put */
 let a = [1, 2, 3]; (a[2] := 'two') = 'two' & { a = [1, 'two', 3] }
-let l = [1, 2, 3]; l.atModify(2, nil, square/1) = 4 & { l = [1, 4, 3] } /* modify value at index */
+let l = [1, 2, 3]; l.atModify!(2, nil, square/1) = 4 & { l = [1, 4, 3] } /* modify value at index */
 [5, 4, 3, 2, 1].detect { :each | each % 2 = 0 } = 4
 { [5, 4, 3, 2, 1].detect { :each | each % 7 = 0 } }.hasError
 [5, 4, 3, 2, 1].detect { :each | each * 2 <= 4 } = 2 /* find first element matching predicate */
@@ -376,9 +376,9 @@ let a = [1 .. 9]; a.shuffle != a & { a = [1 .. 9] } /* copying shuffle */
 negate/1.fill([5]) = [-1; -2; -3; -4; -5] /* fill array with answers of a block applied to each index */
 let r = Sfc32(12345); r.randomInteger([1 9], 5) = [8, 5, 9, 9, 4] /* duplicate block */
 let r = Sfc32(12345); { r.randomInteger([1 9], []) } ! 5 = [8, 5, 9, 9, 4] /* duplicate block */
-List(5).fillFromWith!(1:5, negate/1) = [-1, -2 .. -5]
-let a = List(5); a.fillFromWith!([1, 3, 5, 7, 9], square/1); a = [1, 9, 25, 49, 81]
-let a = List(4); [1, 3, 5, 7].collectInto({ :each | each * each}, a); a = [1, 9, 25, 49]
+List(5, nil).fillFromWith!(1:5, negate/1) = [-1, -2 .. -5]
+let a = List(5, nil); a.fillFromWith!([1, 3, 5, 7, 9], square/1); a = [1, 9, 25, 49, 81]
+let a = List(4, nil); [1, 3, 5, 7].collectInto({ :each | each * each}, a); a = [1, 9, 25, 49]
 [1 2 3 4 3 2 1].occurrencesOf(3) = 2 /* number of occurrences of element in collection */
 let a = [1, 2]; let [x, y] = a; [y, x] = [2, 1]
 let i = 1:3; let [x, y, z] = i; [z, y, x] = [3, 2, 1] /* sequence binding syntax */
@@ -397,10 +397,10 @@ let [x, y] = { let n = system.nextRandomFloat; [n, n] }.nullaryApply; x = y
 1:9.allButFirstAndLast = 2:8 /* all but first and last element */
 1:9.allButFirstAndLast(3) = 4:6 /* all but first and last element */
 { [].allButLast }.hasError /* error if too few elements */
-{ let a = List(1); a.at(3) }.hasError /* out of bound indexing is an error */
+{ let a = List(1, nil); a.at(3) }.hasError /* out of bound indexing is an error */
 { let a = [1]; a[3] }.hasError /* out of bound indexing is an error */
-let a = List(1); a[1].isNil = true /* array slots are initialised to nil */
-{ let a = List(1); a.put!(3, 'x') }.hasError /* out of bound mutation is an error */
+let a = List(1, nil); a[1].isNil = true /* array slots are initialised to nil */
+{ let a = List(1, nil); a.put!(3, 'x') }.hasError /* out of bound mutation is an error */
 { let a = [1]; a[3] := 'x' }.hasError /* out of bound mutation is an error */
 [].newFrom(Range(1, 5, 2)) = [1, 3, 5]
 [1 .. 9].count(isEven/1) = 4
@@ -447,8 +447,8 @@ let c = []; [1 .. 9].splitByDo([3 .. 5]) { :each | c.add!(each) }; c = [[1, 2], 
 ['x'].detectIfFoundIfNone { :each | each.isNumber } { :x | 'x' } { 'x' } = 'x' /* ifFound and ifNone clauses */
 ['x'].detectIfNone { :each | each.isString } { 42 } = 'x'
 ['x'].detectIfNone { :each | each.isNumber } { 42 } = 42
-let a = List(9); a.atAllPut('x'); a.allSatisfy { :each | each = 'x' } /* set all entries to the same value */
-let a = List(9); a.atAllPut('x') = 'x' & { a.atRandom = 'x' } /* answers object put */
+let a = List(9, nil); a.atAllPut!('x'); a.allSatisfy { :each | each = 'x' } /* set all entries to the same value */
+let a = List(9, nil); a.atAllPut!('x') = 'x' & { a.atRandom = 'x' } /* answers object put */
 [1 .. 9].collect { :each | 10 - each } = [9, 8 .. 1]
 [1, 2, 3] ++ [4, 5, 6] = [1, 2, 3, 4, 5, 6]
 [1 .. 5].reverse = [5, 4 .. 1]
@@ -490,7 +490,7 @@ let a = [1 2 2 3 3 3]; a.without!(3) = [1 2 2] /* remove all elements equal to a
 let a = [1 2 2 3 3 3]; a.withoutAll!([1, 3]) = [2 2] /* remove all elements equal to argument and answer self */
 5.arithmeticProgression(1, 2) = [1, 3 .. 9] /* arithmetic series (size from by) */
 5.geometricProgression(1, 2) = [1, 2, 4, 8, 16] /* geometric series (size from by) */
-List(3).size = 3
+List(3, nil).size = 3
 List().extendToSize!(3) = [nil, nil, nil]
 let l = [3]; l.addFirst!(2); l.addFirst!(1); l = [1 2 3] /* add item to start of array */
 let l = [2]; l.addFirst!(1) = 1 & { l = [1 2] } /* answer is argument */
@@ -811,29 +811,29 @@ false != nil
 ## ByteArray -- collection type
 ```
 system.includesPackage('ByteArray') /* byte array package */
-ByteArray(0).typeOf = 'ByteArray' /* byte array type name */
-ByteArray(0).species == ByteArray/1 /* byte array species */
-ByteArray(0).isList = false /* byte arrays are arrays */
-ByteArray(0).isByteArray /* byte array predicate */
-ByteArray(0).isIndexable /* byte arrays are indexable */
-ByteArray(0).isSequence /* byte arrays are sequence */
-ByteArray(0).size = 0 /* size of byte array (number of elements) */
-ByteArray(8).size = 8
-ByteArray(8).at(1) = 0 /* lookup element at index */
-ByteArray(8).put!(1, 179) = 179 /* set element at index, answer element */
-let a = ByteArray(8); a.put!(1, 179) = 179 & { a.at(1) = 179 }
+ByteArray(0, 0).typeOf = 'ByteArray' /* byte array type name */
+ByteArray(0, 0).species == ByteArray/1 /* byte array species */
+ByteArray(0, 0).isList = false /* byte arrays are arrays */
+ByteArray(0, 0).isByteArray /* byte array predicate */
+ByteArray(0, 0).isIndexable /* byte arrays are indexable */
+ByteArray(0, 0).isSequence /* byte arrays are sequence */
+ByteArray(0, 0).size = 0 /* size of byte array (number of elements) */
+ByteArray(8, 0).size = 8
+ByteArray(8, 0).at(1) = 0 /* lookup element at index */
+ByteArray(8, 0).put!(1, 179) = 179 /* set element at index, answer element */
+let a = ByteArray(8, 0); a.put!(1, 179) = 179 & { a.at(1) = 179 }
 1:9.ByteArray.isByteArray = true /* array of numbers in 0-255 to byte array */
 { [-1].ByteArray }.hasError /* out of range element error */
 { ['1'].ByteArray }.hasError /* not a number element error */
 1:9.ByteArray.reverse = 9:1:-1.ByteArray
 1:3.ByteArray.printString = 'ByteArray([1, 2, 3])'
 1:3.ByteArray.storeString = 'ByteArray([1, 2, 3])'
-ByteArray(4).base16Encode = '00000000'
+ByteArray(4, 0).base16Encode = '00000000'
 'text'.asciiByteArray[1] = 116 /* ByteArray subscript */
-let b = ByteArray(4); b[1] := 15; b[3] := 240; b.base16Encode = '0F00F000'
-let b = ByteArray(4); b[2] := 15; b[4] := 240; b.base16Encode = '000F00F0'
+let b = ByteArray(4, 0); b[1] := 15; b[3] := 240; b.base16Encode = '0F00F000'
+let b = ByteArray(4, 0); b[2] := 15; b[4] := 240; b.base16Encode = '000F00F0'
 1:4.ByteArray.base16Encode = '01020304'
-let b = ByteArray(4); b.atAllPut(15); b.base16Encode = '0F0F0F0F'
+let b = ByteArray(4, 0); b.atAllPut!(15); b.base16Encode = '0F0F0F0F'
 'string'.asciiByteArray.List = [115, 116, 114, 105, 110, 103] /* array from ByteArray */
 { [1, 2, 3].ByteArray.add!(4) }.hasError /* ByteArrays are not extensible */
 1:9.ByteArray.select { :each | false } = [].ByteArray /* select nothing */
@@ -1289,8 +1289,8 @@ system.includesPackage('Dictionary') /* package */
 (x: nil).at('x') = nil /* as does indexing a field that is set to nil */
 (x: nil).size = 1 /* nil fields exist */
 (x: nil).indices = ['x'] /* nil fields exist */
-(:).atIfAbsentPut('x') { 1 } = 1 /* at or put followed by at */
-let d = (:); d.atIfAbsentPut('x') { 1 } = 1 & { d['x'] = 1 }
+(:).atIfAbsentPut!('x') { 1 } = 1 /* at or put followed by at */
+let d = (:); d.atIfAbsentPut!('x') { 1 } = 1 & { d['x'] = 1 }
 (x: 1, y: 2).includes(2) /* includes, testing values for equality */
 (x: 1, y: [2, 3]).includes([2, 3])
 (x: 1, y: 2).includesIdentity(2) /* includes, testing for identity not equality */
@@ -1331,9 +1331,9 @@ let d = (x: 1, y: 2, z: 3); d.removeKey!('y') = 2 & { d = (x: 1, z: 3) }
 { (x: 1, y: 2, z: 3).removeKey!('?') }.hasError
 let d = (x: 1, y: 2, z: 3); d.removeAt!('y') = 2 & { d = (x: 1, z: 3) }
 { (x: 1, y: 2, z: 3).removeAt!('?') }.hasError
-let d = (x: 1, y: 2); d.atAllPut(3) = 3 & { d = (x: 3, y: 3) } /* set all values to indicated object */
+let d = (x: 1, y: 2); d.atAllPut!(3) = 3 & { d = (x: 3, y: 3) } /* set all values to indicated object */
 (x: 1, y: 2, z: 3).associations = ['x' -> 1, 'y' -> 2, 'z' -> 3] /* array of associations */
-let a = List(9); a.indicesDo { :each | a[each] := 10 - each }; a = [9, 8 .. 1] /* iterate indices */
+let a = List(9, nil); a.indicesDo { :each | a[each] := 10 - each }; a = [9, 8 .. 1] /* iterate indices */
 let d = (x: 1, y: 2); d.removeAssociation!('x' -> 1); d = (y: 2) /* remove association */
 let d = (x: 1, y: 2); d.removeAssociationIfAbsent!('z' -> 3) { }; d = (x: 1, y: 2) /* remove association, if absent clause */
 { (x: 1, y: 2).removeAssociation!('z' -> 3) }.hasError /* remove association, error if absent */
@@ -1852,7 +1852,7 @@ let i = 1:9; i.copy !== i & { i.copy = i } /* copy is equal not identical */
 (1.5 .. 4.5).List = [1.5, 2.5, 3.5, 4.5] /* non-integer start and end */
 1:9.min = 1 & { 9:1:-1.min = 1 } /* minima */
 1:9.max = 9 & { 9:1:-1.max = 9 } /* maxima */
-1:9.species == List/1 /* species of Range is List */
+1:9.species == nilList/1 /* species of Range is List */
 1.to(9).isRange = true /* to generates a Range */
 to(1, 9).size = 9 /* to generates a Range */
 1:9 = 1.to(9)
@@ -2241,7 +2241,7 @@ let i = 1; 1:3.do { :each | i := i + each.square }; i = 15 /* iterate over numbe
 ```
 system.includesPackage('Object') /* package */
 [1, 3, 5].typeOf = 'List' /* name of type of object */
-[1, 3, 5].species == List/1
+[1, 3, 5].species == nilList/1
 [1, 3, 5].IdentitySet.species == IdentitySet/0
 [1, 3, 5].IdentityMultiset.species == IdentityMultiset/0
 (x: 1, y: 3, z: 5).species == Record/0
@@ -2555,7 +2555,7 @@ let r = [1 .. 3].Iterator; [r.next, r.upToEnd] = [1, [2, 3]] /* read up to end *
 let r = 1:5.Iterator; r.upTo(3) = 1:2 & { r.next = 4} /* matching element is consumed */
 let r = 9:1:-1.Iterator; [r.upTo(3), r.upToEnd] = [9:4:-1, 2:1:-1] /* matching element is consumed */
 [].Iterator.next = nil /* next at an empty read iterator answers nil */
-let r = '.....ascii'.characters.Iterator; let l = List(5); r.next(5); r.nextInto(l); l.stringIntercalate('') = 'ascii'
+let r = '.....ascii'.characters.Iterator; let l = List(5, nil); r.next(5); r.nextInto(l); l.stringIntercalate('') = 'ascii'
 1:9.Iterator.nextOrUpToEnd(23) = [1 .. 9] /* take at most n items from iterator */
 let r = 1:9.Iterator; [r.nextMatchFor(1), r.next] = [true, 2] /* predicate at consumed item */
 let r = 1:9.Iterator; [r.nextMatchAll([1, 2, 3]), r.next] = [true, 4] /* predicate at consumed items */
@@ -2895,11 +2895,11 @@ let a = []; 0:1.asDigitsToPowerDo(2) { :each | a.add!(each.copy) }; a = [[0, 0],
 1:9.atAllFold(3:-1:-1) = [3 2 1 2 3] /* atFold all indices */
 1:9.atAllPin(3:-1:-1) = [3 2 1 1 1] /* atPin all indices */
 1:9 @* 3:5 = [3 .. 5] /* @* atAll operator */
-let a = List(9); a.atAllPut(0); a = [0, 0, 0, 0, 0, 0, 0, 0, 0] /* set all elements to a single value */
-let a = [1 .. 9]; a.atAllPut([3 .. 7], 0); a = [1, 2, 0, 0, 0, 0, 0, 8, 9] /* set all selected indices to a value */
-let a = [1 .. 9]; a.atAllPut(3:7, 0); a = [1, 2, 0, 0, 0, 0, 0, 8, 9] /* set all selected indices to a value */
-let l = [1 .. 9]; l.atAllPutAll([3 .. 7], [7, 6 .. 3]); l = [1 2 7 6 5 4 3 8 9] /* set all selected indices to corresponding values */
-let l = [1 .. 9]; l.atAllPutAll(3:7, 7:3:-1); l = [1 2 7 6 5 4 3 8 9] /* set all selected indices to corresponding values */
+let a = List(9, nil); a.atAllPut!(0); a = [0, 0, 0, 0, 0, 0, 0, 0, 0] /* set all elements to a single value */
+let a = [1 .. 9]; a.atAllPut!([3 .. 7], 0); a = [1, 2, 0, 0, 0, 0, 0, 8, 9] /* set all selected indices to a value */
+let a = [1 .. 9]; a.atAllPut!(3:7, 0); a = [1, 2, 0, 0, 0, 0, 0, 8, 9] /* set all selected indices to a value */
+let l = [1 .. 9]; l.atAllPutAll!([3 .. 7], [7, 6 .. 3]); l = [1 2 7 6 5 4 3 8 9] /* set all selected indices to corresponding values */
+let l = [1 .. 9]; l.atAllPutAll!(3:7, 7:3:-1); l = [1 2 7 6 5 4 3 8 9] /* set all selected indices to corresponding values */
 let a = [1 .. 9]; a.collect! { :each | each * each }; a = [1, 4, 9, 16, 25, 36, 49, 64, 81] /* in-place collect */
 let c = [7, 2, 6, 1]; c.sort = [1, 2, 6, 7] & { c.sort != c } /* sorted copy */
 let c = [7, 2, 6, 1]; c.sort! = [1, 2, 6, 7] & { c = [1, 2, 6, 7] } /* sort in-place */
@@ -2916,7 +2916,7 @@ let a = []; 9:1:-1.withIndexDo { :value :index | a.add!(index * 2 + value) }; a 
 let a = []; 9:7:-1.withIndexDo { :value :index | a.add!(index -> value) }; a = [1 -> 9, 2 -> 8, 3 -> 7] /* keys are indices */
 let a = []; 9:7:-1.withIndexDo { :each :index | a.add!(index -> each) }; a = [1 -> 9, 2 -> 8, 3 -> 7]/* index is second argument */
 let a = [1 .. 5]; a.atIncrementBy(3, 6); a = [1, 2, 9, 4, 5] /* increment value at index by */
-let a = [1 .. 9]; a.atLastPut(3, -7); a = [1, 2, 3, 4, 5, 6, -7, 8, 9] /* set at index from end */
+let a = [1 .. 9]; a.atLastPut!(3, -7); a = [1, 2, 3, 4, 5, 6, -7, 8, 9] /* set at index from end */
 'string'.characters.sort! = ['g', 'i', 'n', 'r', 's', 't']
 'string'.characters.sortWithIndices = ['g' -> 6, 'i' -> 4, 'n' -> 5, 'r' -> 3, 's' -> 1, 't' -> 2]
 let a = 'string'.characters; a.atAll([6, 4, 5, 3, 1, 2]) = a.sort

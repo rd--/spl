@@ -55,8 +55,8 @@
 			let t3 = t1 + t2 + tiny;
 			let t4 = (s2.atAll(range(n - i, n, 1) + 1) > s1.atAll(range(0, i, 1) + 1)).boole;
 			let t5 = ((t2 / t3) * t4) + ((1 - (t1 / t3)) * (1 - t4));
-			w.at(i - 1 + 1).atAllPutAll(range(1, i + 1, 1) + 1, t1 + t2);
-			t.at(i - 2 + 1).atAllPutAll(range(0, i, 1) + 1, t5)
+			w.at(i - 1 + 1).atAllPutAll!(range(1, i + 1, 1) + 1, t1 + t2);
+			t.at(i - 2 + 1).atAllPutAll!(range(0, i, 1) + 1, t5)
 		};
 		range(n - 1, 0, -1).do { :i |
 			let e = (rt.at((n - i) - 1 + 1) <= t.at(i - 1 + 1).atAll(j - 1 + 1)).boole;
@@ -74,7 +74,7 @@
 	}
 
 	uUnifastAlgorithm { :self :n :u |
-		let utilizations = List(n);
+		let utilizations = List(n, nil);
 		let sumU = u;
 		1.toDo(n - 1) { :i |
 			let z = self.nextRandomFloat;

@@ -131,8 +131,8 @@
 		let m = self.size;
 		let n = m + 1;
 		let a = List(n, -Infinity);
-		let p = List(n);
-		let r = List(n);
+		let p = List(n, nil);
+		let r = List(n, nil);
 		2.toDo(n) { :i |
 			let j = i - 1;
 			a[i] := self[j];
@@ -172,7 +172,7 @@
 	}
 
 	asDigitsToPowerDo { :self :anInteger :aBlock/1 |
-		let aCollection = List(anInteger);
+		let aCollection = List(anInteger, nil);
 		self.asDigitsAtInDo(1, aCollection, aBlock/1)
 	}
 
@@ -218,10 +218,10 @@
 		self.atAllUsing(indexList, atPin/2)
 	}
 
-	atAllPut { :self :anObject |
+	atAllPut! { :self :anObject |
 		let size = self.size;
 		(size > 50).if {
-			self.fromToPut(1, self.size, anObject)
+			self.fromToPut!(1, self.size, anObject)
 		} {
 			self.indicesDo { :index |
 				self[index] := anObject
@@ -246,7 +246,7 @@
 		self[self.foldedIndex(index)]
 	}
 
-	atLastPut { :self :indexFromEnd :anObject |
+	atLastPut! { :self :indexFromEnd :anObject |
 		self[self.size + 1 - indexFromEnd] := anObject
 	}
 
@@ -434,17 +434,17 @@
 			} + (self.size - 1 * aList.size);
 			let answer = new(answerSize);
 			let index = 1;
-			let put = { :items |
+			let putItems! = { :items |
 				items.do { :item |
 					answer[index] := item;
 					index := index + 1
 				}
 			};
 			self.allButLastDo { :each |
-				put(each);
-				put(aList)
+				putItems!(each);
+				putItems!(aList)
 			};
-			put(self.last);
+			putItems!(self.last);
 			answer
 		}
 	}
@@ -945,7 +945,7 @@
 	}
 
 	exponentialMovingAverage { :self :alpha |
-		let answer = List(self.size);
+		let answer = List(self.size, nil);
 		answer[1] := self[1];
 		2.toDo(self.size) { :i |
 			let y = answer[i - 1];
@@ -1176,7 +1176,7 @@
 
 	forceToPaddingWith { :self :length :anObject |
 		let answer = self.new(length);
-		answer.atAllPut(anObject);
+		answer.atAllPut!(anObject);
 		answer.replaceFromToWithStartingAt(1, self.size.min(length), self, 1);
 		answer
 	}
@@ -1236,7 +1236,7 @@
 		}
 	}
 
-	fromToPut { :self :startIndex :endIndex :anObject |
+	fromToPut! { :self :startIndex :endIndex :anObject |
 		(startIndex > endIndex).if {
 			self
 		} {
@@ -1284,7 +1284,7 @@
 				2 -> { self.pairsDo(aBlock) }
 			]
 		) {
-			let argumentList = List(numArgs);
+			let argumentList = List(numArgs, nil);
 			let index = 1;
 			let endIndex = self.size - numArgs + 1;
 			{
@@ -1385,7 +1385,7 @@
 	}
 
 	indexValueAssociations { :self |
-		let answer = List(self.size);
+		let answer = List(self.size, nil);
 		self.withIndexDo { :each :index |
 			answer[index] := (index -> each)
 		};
@@ -2069,7 +2069,7 @@
 			(windowSize = 0).if {
 				aBlock([])
 			} {
-				let answer = List(windowSize);
+				let answer = List(windowSize, nil);
 				1.toByDo(self.size - windowSize + 1, stepSize) { :index |
 					self.copyFromToInto(index, index + windowSize - 1, answer);
 					aBlock(answer)

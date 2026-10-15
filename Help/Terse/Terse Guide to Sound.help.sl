@@ -120,7 +120,7 @@ let l = []; [1 .. 9].adjacentPairsDo { :a :b | l.add!(a -> b) }; l.size = 8
 [1 .. 5].wrapExtend(3) = [1 .. 3] /* truncate is required */
 [1 .. 9].clump(3) = [[1 .. 3], [4 .. 6], [7 .. 9]] /* chunks of n places */
 [1 .. 7].clump(3) = [[1 .. 3], [4 .. 6], [7]] /* chunks of n places, last segment may have less places */
-'string'.characters.clump(2).collect { :each | each.stringCatenate } = ['st', 'ri', 'ng']
+List'string'.clump(2).String = ['st' 'ri' 'ng']
 5.geom(3, 2) = [3, 6, 12, 24, 48] /* geometric series (size from by) */
 [2, 3, 5, 6].indexOfInBetween(5.2) = 3.2 /* interpolated index for value (collection must be sorted) */
 [2, 3, 5, 6].atBlend(3.2) = 5.2 /* interpolated value between indices */

@@ -21,7 +21,7 @@
 	}
 
 	mixedRadixEncode { :self :factors |
-		let answer = List(factors.size);
+		let answer = List(factors.size, nil);
 		factors.size.toByDo(1, -1) { :index |
 			answer[index] := self % factors[index];
 			self := self // factors[index]

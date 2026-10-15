@@ -7,7 +7,7 @@ Answers `true` if the object _x_ implements the `Sequence` trait.
 At `List` answers `true`:
 
 ```
->>> List().isSequence
+>>> [].isSequence
 true
 ```
 

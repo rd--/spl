@@ -94,9 +94,9 @@
 	akimaInterpolatorCoefficientList { :x :y |
 		/* https://github.com/chdh/commons-math-interpolation */
 		let n = x.size - 1;
-		let differences = List(n);
-		let weights = List(n);
-		let firstDerivative = List(n + 1);
+		let differences = List(n, nil);
+		let weights = List(n, nil);
+		let firstDerivative = List(n + 1, nil);
 		let epsilon = 1.smallFloatEpsilon;
 		let differentiateThreePoint = { :i :j1 :j2 :j3 |
 			let x0 = y[j1];
@@ -158,12 +158,12 @@
 	cubicSplineInterpolatorCoefficientList { :x :y |
 		/* https://github.com/chdh/commons-math-interpolation */
 		let n = x.size - 1;
-		let h = List(n);
-		let mu = List(n);
-		let z = List(n + 1);
-		let b = List(n);
-		let c = List(n + 1);
-		let d = List(n);
+		let h = List(n, nil);
+		let mu = List(n, nil);
+		let z = List(n + 1, nil);
+		let b = List(n, nil);
+		let c = List(n + 1, nil);
+		let d = List(n, nil);
 		assertIsValidInterpolatorData(x, y, 3);
 		1.toDo(n) { :i |
 			h[i] := x[i + 1] - x[i]

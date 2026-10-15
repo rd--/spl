@@ -75,7 +75,7 @@ SortedList : [Object, Copy, Store, Equal, Compare, Do, At, New, Collect, FiniteC
 		}
 	}
 
-	List { :self |
+	[List, sortedListToList] { :self |
 		self.collection.copy
 	}
 

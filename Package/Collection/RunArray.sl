@@ -112,8 +112,8 @@ RunArray : [Object, Equal, Store, At] {
 		self.values[self.values.size]
 	}
 
-	List { :self |
-		let answer = List(self.size);
+	[List, runArrayToList] { :self |
+		let answer = List(self.size, nil);
 		self.withIndexDo { :each :index |
 			answer[index] := each
 		};

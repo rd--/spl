@@ -198,7 +198,7 @@ Character : [Object, Copy, Store, Equal, Compare, Character] {
 
 	Character { :self :codePoint |
 		self.isCharacter.if {
-			system.characterDictionary.atIfAbsentPut(self) {
+			system.characterDictionary.atIfAbsentPut!(self) {
 				newCharacter().initializeSlots(self, codePoint)
 			}
 		} {
@@ -221,7 +221,7 @@ Character : [Object, Copy, Store, Equal, Compare, Character] {
 	}
 
 	digitValueTable { :self |
-		self.cache.atIfAbsentPut('digitValueTable') {
+		self.cache.atIfAbsentPut!('digitValueTable') {
 			let answer = List(256, -1);
 			0.toDo(9) { :i |
 				answer[48 + i + 1] := i

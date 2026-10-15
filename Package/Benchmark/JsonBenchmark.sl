@@ -81,7 +81,7 @@ JsonList : [Object, At, Put, JsonValue] {
 +Void {
 
 	JsonList {
-		newJsonList().initializeSlots(List())
+		newJsonList().initializeSlots([])
 	}
 
 }
@@ -188,7 +188,7 @@ JsonObject : [Object, At, Put, JsonValue] {
 +Void {
 
 	JsonObject {
-		newJsonObject().initializeSlots(List(), List(), HashIndexTable())
+		newJsonObject().initializeSlots([], [], HashIndexTable())
 	}
 
 }

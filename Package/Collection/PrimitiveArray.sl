@@ -69,8 +69,8 @@
 		>
 	}
 
-	[List, primitiveArrayToList] { :self |
-		List(self.size).fillFrom!(self)
+	[List, arrayToList] { :self |
+		List(self.size, nil).fillFrom!(self)
 	}
 
 	put! { :self :index :anObject |

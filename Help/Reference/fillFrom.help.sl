@@ -8,7 +8,7 @@ It is an `error` if the collections are not of equal size.
 
 ```
 >>> let p = [1 .. 9];
->>> let q = List(9);
+>>> let q = List(9, nil);
 >>> let r = q.fillFrom!(p);
 >>> (q, p !== q, q == r)
 (p, true, true)

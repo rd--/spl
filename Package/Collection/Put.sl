@@ -2,34 +2,34 @@
 
 @Put {
 
-	atAllPut { :self :anObject |
+	atAllPut! { :self :anObject |
 		self.indicesDo { :index |
 			self[index] := anObject
 		};
 		anObject
 	}
 
-	atAllPut { :self :indices :anObject |
+	atAllPut! { :self :indices :anObject |
 		indices.do { :index |
 			self[index] := anObject
 		};
 		anObject
 	}
 
-	atAllPutAll { :self :indices :values |
+	atAllPutAll! { :self :indices :values |
 		indices.withDo(values) { :index :value |
 			self[index] := value
 		};
 		values
 	}
 
-	atIfAbsentPut { :self :index :ifAbsent/0 |
+	atIfAbsentPut! { :self :index :ifAbsent/0 |
 		self.atIfAbsent(index) {
 			self[index] := ifAbsent()
 		}
 	}
 
-	atModify { :self :index :defaultValue :aBlock/1 |
+	atModify! { :self :index :defaultValue :aBlock/1 |
 		self.put!(index, aBlock(self.atIfAbsent(index, { defaultValue })))
 	}
 

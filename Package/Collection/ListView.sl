@@ -47,14 +47,14 @@ ListView : [Object, Copy, Store, Equal, New, Compare, Do, At, Put, Collect, Fini
 		i.to(i + self.size - 1)
 	}
 
-	List { :self |
+	[List, listViewToList] { :self |
 		self
 		.collection
 		.copyFromTo(self.startIndex, self.endIndex)
 		.List
 	}
 
-	ListView { :self :startIndex :endIndex :referenceIndex |
+	[ListView, listViewToListView] { :self :startIndex :endIndex :referenceIndex |
 		ListView(
 			self.collection,
 			self.startIndex + startIndex - 1,
@@ -80,7 +80,7 @@ ListView : [Object, Copy, Store, Equal, New, Compare, Do, At, Put, Collect, Fini
 	}
 
 	species { :self |
-		List/1
+		nilList/1
 	}
 
 }

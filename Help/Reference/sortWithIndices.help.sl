@@ -7,7 +7,7 @@ Sort items in the sequence _l_ according to _f_ and answer each associated with 
 Sort `characters` of a `String`:
 
 ```
->>> 'string'.characters.sortWithIndices
+>>> List'string'.sortWithIndices
 [
 	'g' -> 6,
 	'i' -> 4,

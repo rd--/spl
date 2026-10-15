@@ -161,10 +161,6 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Character] {
 		.sort!(succeedsOrEqualTo/2, value/1)
 	}
 
-	characters { :self |
-		self.primitiveCollectInto(identity/1, [])
-	}
-
 	characterString { :self |
 		self.isCharacter.if {
 			self
@@ -320,7 +316,10 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Character] {
 	}
 
 	equalIgnoringExtraWhitespace { :self :operand |
-		self.characters.equalIgnoringExtraWhitespace(operand.characters, isSeparator/1)
+		self.characters.equalIgnoringExtraWhitespace(
+			operand.characters,
+			isSeparator/1
+		)
 	}
 
 	findLastOccurrenceOfStringStartingAt { :self :subString :start |
@@ -650,6 +649,10 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Character] {
 		} {
 			self.withoutTrailingLineFeed.splitBy('\n')
 		}
+	}
+
+	[List, characters] { :self |
+		self.primitiveCollectInto(identity/1, [])
 	}
 
 	localeCompare { :locale |
@@ -1262,6 +1265,13 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Character] {
 		}
 	}
 
+	[String, fromCharacters] { :self |
+		self.atVectorOrElementwise { :each |
+			each.do(assertIsCharacter/1);
+			each.uncheckedStringIntercalate('')
+		}
+	}
+
 	stringCatenate { :self |
 		self.stringIntercalate('')
 	}
@@ -1364,7 +1374,7 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Character] {
 
 	inverseBurrowWheelerTransform { :self :eot |
 		let k = self.size;
-		let table = List(k, List());
+		let table = List(k, []);
 		k.timesRepeat {
 			1.toDo(k) { :i |
 				table[i] := [self[i]] ++ table[i]

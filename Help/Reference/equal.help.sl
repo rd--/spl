@@ -46,7 +46,7 @@ At `String`:
 >>> 'x' = 'x'
 true
 
->>> '321'.characters =.each '123'.characters
+>>> List'321' =.each List'123'
 [false true false]
 ```
 

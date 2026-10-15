@@ -26,7 +26,7 @@ Tuple : [Object, Copy, Store, Equal] {
 		self.collection.indices
 	}
 
-	List { :self |
+	[List, tupleToList] { :self |
 		self.collection.copy
 	}
 

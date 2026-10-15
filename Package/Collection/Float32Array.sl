@@ -23,7 +23,7 @@ Float32Array! : [Object, Copy, Store, Equal, Compare, Do, At, Put, New, Collect,
 	}
 
 	species { :self |
-		Float32Array/1
+		zeroFloat32Array/1
 	}
 
 	storageType { :self |
@@ -34,15 +34,19 @@ Float32Array! : [Object, Copy, Store, Equal, Compare, Do, At, Put, New, Collect,
 
 +SmallFloat {
 
-	Float32Array { :self |
-		<primitive: return new Float32Array(_self);>
+	[Float32Array, constantFloat64Array] { :n :x |
+		<primitive: return new Float32Array(_n).fill(_x);>
+	}
+
+	zeroFloat32Array { :n |
+		Float32Array(n, 0.0)
 	}
 
 }
 
 +ArrayBuffer {
 
-	Float32Array { :self :byteOffset :size |
+	arrayBufferToFloat32Array { :self :byteOffset :size |
 		<primitive: return new Float32Array(_self, _byteOffset, _size);>
 	}
 
@@ -50,7 +54,7 @@ Float32Array! : [Object, Copy, Store, Equal, Compare, Do, At, Put, New, Collect,
 
 +List {
 
-	Float32Array { :self |
+	[Float32Array, listToFloat32Array] { :self |
 		self.isSmallFloatVector.if {
 			self.uncheckedFloat32Array
 		} {
@@ -66,7 +70,7 @@ Float32Array! : [Object, Copy, Store, Equal, Compare, Do, At, Put, New, Collect,
 
 +Range {
 
-	Float32Array { :self |
+	[Float32Array, rangeToFloat32Array] { :self |
 		Float32Array(self.List)
 	}
 

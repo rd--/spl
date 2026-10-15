@@ -1013,7 +1013,7 @@
 		let tol = 1E-4;
 		let [n, m] = a.shape;
 		let u = a.conjugateTranspose;
-		let s = List(n);
+		let s = List(n, nil);
 		let v = n.identityMatrix;
 		let converge = tol + 1;
 		{
@@ -1401,7 +1401,7 @@
 
 	thomasAlgorithm { :a :b :c :d |
 		let n = a.size;
-		let x = List(n);
+		let x = List(n, nil);
 		thomasAlgorithm(a, b, c, d, x, n);
 		x
 	}

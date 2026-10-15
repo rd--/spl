@@ -243,7 +243,7 @@ Symbol : [Object, Store, Number, Integer, SymbolicObject, SymbolicBoolean, Symbo
 +String {
 
 	Symbol { :self |
-		system.symbolDictionary.atIfAbsentPut(self) {
+		system.symbolDictionary.atIfAbsentPut!(self) {
 			newSymbol().initializeSlots(self)
 		}
 	}

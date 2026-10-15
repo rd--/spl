@@ -14,7 +14,7 @@ ContinuousEvent : [Object] {
 		self.signalList[7]
 	}
 
-	List { :self |
+	[List, continuousEventToList] { :self |
 		self.signalList.copy
 	}
 

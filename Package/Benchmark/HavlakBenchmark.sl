@@ -24,8 +24,8 @@ BasicBlock : [Object] {
 	}
 
 	initialize { :self :name |
-		self.inEdges := List();
-		self.outEdges := List();
+		self.inEdges := [];
+		self.outEdges := [];
 		self.name := name;
 		self
 	}
@@ -61,8 +61,8 @@ ControlFlowGraph : [Object] {
 	| basicBlockMap startNode edgeList |
 
 	initialize { :self |
-		self.basicBlockMap := List();
-		self.edgeList := List();
+		self.basicBlockMap := [];
+		self.edgeList := [];
 		self
 	}
 
@@ -122,8 +122,8 @@ HavlakLoopFinder : [Object] {
 	initialize { :self :cfg :lsg |
 		self.cfg := cfg;
 		self.lsg := lsg;
-		self.nonBackPreds := List();
-		self.backPreds := List();
+		self.nonBackPreds := [];
+		self.backPreds := [];
 		self.number := Map();
 		self.maxSize := 0;
 		self
@@ -205,25 +205,25 @@ HavlakLoopFinder : [Object] {
 				self.backPreds.removeAll!;
 				self.number.removeAll!;
 				(size > self.maxSize).ifTrue {
-					self.header := List(size);
-					self.type := List(size);
-					self.last := List(size);
-					self.nodes := List(size);
+					self.header := List(size, nil);
+					self.type := List(size, nil);
+					self.last := List(size, nil);
+					self.nodes := List(size, nil);
 					self.maxSize := size
 				};
 				1.toDo(size) { :i |
 					self.nonBackPreds.addLast!(IdentitySet());
-					self.backPreds.addLast!(List());
+					self.backPreds.addLast!([]);
 					self.nodes[i] := UnionFindNode()
 				};
 				self.initAllNodes;
 				self.identifyEdges(size);
 				self.header[1] := 1;
 				size.toByDo(1, -1) { :w |
-					let nodePool = List();
+					let nodePool = [];
 					let nodeW = self.nodes[w].bb;
 					nodeW.isNotNil.ifTrue {
-						let workList = List();
+						let workList = [];
 						self.stepDNodePool(w, nodePool);
 						nodePool.do { :niter |
 							workList.addLast!(niter)
@@ -312,7 +312,7 @@ LoopStructureGraph : [Object] {
 
 	initialize { :self |
 		self.root := SimpleLoop(nil, false);
-		self.loops := List();
+		self.loops := [];
 		self.loopCounter := 0;
 		self.root.setNestingLevel(0);
 		self.root.counter := self.loopCounter;
@@ -532,7 +532,7 @@ UnionFindNode : [Object] {
 	}
 
 	findSet { :self |
-		let nodeList = List();
+		let nodeList = [];
 		let node = self;
 		{
 			node !== node.parent

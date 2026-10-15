@@ -15,7 +15,7 @@
 +@Cache {
 
 	mixRuleSparseMatrixTable { :self |
-		self.cache.atIfAbsentPut('mixRuleSparseMatrixTable') {
+		self.cache.atIfAbsentPut!('mixRuleSparseMatrixTable') {
 			let ones = { :k | List(k, 1) };
 			(
 				'2×2→1×4': [

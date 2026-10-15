@@ -76,17 +76,17 @@ Matrices and Arrays:
 
 Write a value to a slot at a specified index:
 
-- `atIfAbsentPut`
-- `put`
+- `atIfAbsentPut!`
+- `put!`
 
 Write a value, or a collection of values, to a specified sequence of indices:
 
-- `atAllPut`
-- `atAllPutAll`
+- `atAllPut!`
+- `atAllPutAll!`
 
 Mutate at deep index:
 
-- `atPathPut`
+- `atPathPut!`
 
 Wrap Indices:
 

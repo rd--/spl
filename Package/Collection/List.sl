@@ -28,7 +28,7 @@ List! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Put, New, Collect, F
 		self ++ [anObject]
 	}
 
-	atAllPut { :self :anObject |
+	atAllPut! { :self :anObject |
 		<primitive:
 		_self.fill(_anObject);
 		return _anObject;
@@ -74,7 +74,7 @@ List! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Put, New, Collect, F
 		let numberOfChannels = n;
 		let numberOfFrames = k // numberOfChannels;
 		let channelsArray = {
-			List(numberOfFrames)
+			List(numberOfFrames, nil)
 		} ! numberOfChannels;
 		0.toDo(numberOfFrames - 1) { :i |
 			1.toDo(numberOfChannels) { :j |
@@ -157,7 +157,7 @@ List! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Put, New, Collect, F
 		self.sortOn!(key/1)
 	}
 
-	List { :self |
+	[List, listToList] { :self |
 		self
 	}
 
@@ -285,7 +285,7 @@ List! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Put, New, Collect, F
 	}
 
 	species { :self |
-		List/1
+		nilList/1
 	}
 
 	storeString { :self |
@@ -353,14 +353,12 @@ List! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Put, New, Collect, F
 		Fraction(1, 1.to(self))
 	}
 
-	List { :size |
-		<primitive: return Array(Number(_size)).fill(null);>
+	[List, constantList] { :size :anObject |
+		<primitive: return Array(Number(_size)).fill(_anObject);>
 	}
 
-	List { :size :anObject |
-		let answer = List(size);
-		answer.atAllPut(anObject);
-		answer
+	nilList { :size |
+		List(size, nil)
 	}
 
 }
@@ -380,7 +378,7 @@ List! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Put, New, Collect, F
 
 +Void {
 
-	List {
+	[List, emptyList] {
 		<primitive: return [];>
 	}
 
@@ -389,7 +387,7 @@ List! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Put, New, Collect, F
 +@FiniteCollection {
 
 	[List, collectionToList] { :self |
-		let answer = List(self.size);
+		let answer = List(self.size, nil);
 		let index = 1;
 		self.do { :each |
 			answer[index] := each;
@@ -403,7 +401,7 @@ List! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Put, New, Collect, F
 +@Sequence {
 
 	[List, sequenceToList] { :self |
-		let answer = List(self.size);
+		let answer = List(self.size, nil);
 		self.indicesDo { :index |
 			answer[index] := self[index]
 		};

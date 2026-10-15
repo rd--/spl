@@ -39,8 +39,7 @@ false
 No other punctation characters are in the alphabet:
 
 ```
->>> '~!#$%^&*()-=:;,<.>'
->>> .characters
+>>> List'~!#$%^&*()-=:;,<.>'
 >>> .anySatisfy(isBase64String/1)
 false
 ```

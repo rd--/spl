@@ -7,7 +7,7 @@ Answer a concise string representation of the object _x_.
 Generic implementation at `FiniteCollection`:
 
 ```
->>> ByteArray(100).concisePrintString
+>>> ByteArray(100, 0).concisePrintString
 'a ByteArray (size: 100)'
 ```
 

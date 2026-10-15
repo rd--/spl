@@ -578,7 +578,7 @@ OeisEntry : [Object, Store, Equal, OeisSequence] {
 +String {
 
 	OeisEntry { :self |
-		system.oeisEntries.atIfAbsentPut(self) {
+		system.oeisEntries.atIfAbsentPut!(self) {
 			newOeisEntry().initializeSlots(self, nil, nil)
 		}
 	}

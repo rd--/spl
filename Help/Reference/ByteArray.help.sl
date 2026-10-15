@@ -1,6 +1,6 @@
 # ByteArray
 
-- _ByteArray(n)_
+- _ByteArray(n, x=0)_
 - _ByteArray([b₁ b₂ …])_
 
 `ByteArray` is a `Type` holding an array whose elements are integers between 0 and 255.
@@ -11,7 +11,7 @@ answer a `ByteArray` of _n_ places,
 each initialized to `zero`.
 
 ```
->>> ByteArray(5)
+>>> ByteArray(5, 0)
 ByteArray[0 0 0 0 0]
 ```
 

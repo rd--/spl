@@ -1637,7 +1637,7 @@
 		(size < 1).if {
 			[]
 		} {
-			let answer = List(size);
+			let answer = List(size, nil);
 			let i = 1;
 			let j = start;
 			{

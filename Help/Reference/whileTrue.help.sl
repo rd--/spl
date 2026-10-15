@@ -67,7 +67,7 @@ OEIS [A113138](https://oeis.org/A113138):
 
 ~~~spl svg=B oeis=A113138
 let k = 100;
-let a = List(k);
+let a = List(k, nil);
 let n = 0;
 let m = -1;
 let notice = { :v |

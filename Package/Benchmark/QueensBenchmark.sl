@@ -23,14 +23,14 @@ QueensBenchmark : [Object] {
 			1.toDo(8) { :r |
 				self.rowColumn(r, c).ifTrue {
 					self.queenRows[r] := c;
-					self.rowColumnPut(r, c, false);
+					self.rowColumnPut!(r, c, false);
 					(c = 8).ifTrue {
 						true.return
 					};
 					self.placeQueen(c + 1).ifTrue {
 						true.return
 					};
-					self.rowColumnPut(r, c, true)
+					self.rowColumnPut!(r, c, true)
 				}
 			};
 			false
@@ -45,7 +45,7 @@ QueensBenchmark : [Object] {
 		}
 	}
 
-	rowColumnPut { :self :r :c :v |
+	rowColumnPut! { :self :r :c :v |
 		self.freeRows[r] := v;
 		self.freeMaxs[c + r] := v;
 		self.freeMins[c - r + 8] := v

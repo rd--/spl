@@ -101,10 +101,10 @@ Find the inverse of a permutation:
 (['d' 'e' 'b' 'c' 'a'], ['b' 'c' 'a' 'd' 'e'])
 ```
 
-At `List` of `Character`:
+At a `List` of characters:
 
 ```
->>> ', ZAMBIA.'.characters.ordering
+>>> List', ZAMBIA.'.ordering
 [2 1 9 4 8 6 7 5 3]
 ```
 

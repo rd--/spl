@@ -7,14 +7,14 @@
 Lists may have any length or depth.
 
 At `Integer`,
-answer a new list of the specified size,
-with the specified default value:
+answer a new list of size _n_,
+with the default value _x_:
 
 ```
 >>> List(5, 0)
 [0 0 0 0 0]
 
->>> List(5)
+>>> List(5, nil)
 [nil nil nil nil nil]
 ```
 
@@ -33,8 +33,11 @@ If the collection is a `List`, answer it directly.
 At `Tuple`:
 
 ```
->>> (1, 2, 3).List
-[1 2 3]
+>>> let a = (1, 2, 3);
+>>> let b = List(a);
+>>> let c = a.collection;
+>>> (b, b = c, b !== c)
+([1 2 3], true, true)
 ```
 
 At `Record`,
@@ -116,7 +119,7 @@ or to `nil` if _x_ is elided.
 >>> List(5, 0)
 [0 0 0 0 0]
 
->>> List(7)
+>>> List(7, nil)
 [nil nil nil nil nil nil nil]
 ```
 

@@ -23,8 +23,8 @@ AliasMethod : [Object, Equal, Iterator] {
 	AliasMethod { :self |
 		let probabilities = self.copy;
 		let count = probabilities.size;
-		let probability = List(count);
-		let alias = List(count);
+		let probability = List(count, nil);
+		let alias = List(count, nil);
 		let average = 1 / count;
 		let small = [];
 		let large = [];

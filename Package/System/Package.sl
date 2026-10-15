@@ -90,14 +90,14 @@ Package! : [Object, Equal, Compare] {
 
 	Package { :self |
 		Package(
-			self.atIfAbsentPut('Category') {
+			self.atIfAbsentPut!('Category') {
 				system.categoryDictionary.categoryOf('type', self['Name'])
 			},
 			self['Name'],
 			self.atIfAbsent('Requires') {
 				[]
 			},
-			self.atIfAbsentPut('Url') {
+			self.atIfAbsentPut!('Url') {
 				self.derivePackageUrl
 			},
 			''

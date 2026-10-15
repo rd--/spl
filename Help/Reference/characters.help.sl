@@ -2,35 +2,64 @@
 
 - _characters(s)_
 
-Answer a `List` of `String`s each holding one character of the string _s_.
+Answer a `List` of `String`s,
+each holding one character of the string _s_.
+Alias for `List` at `String`.
+
+At Ascii string:
 
 ```
->>> 'text'.characters
+>>> List'text'
 ['t' 'e' 'x' 't']
+```
+
+At Unicode string:
+
+```
+>>> List'ËAÒKÇxÁsÉ'
+['Ë' 'A' 'Ò' 'K' 'Ç' 'x' 'Á' 's' 'É']
 ```
 
 The `elementType` of the answer is `String`:
 
 ```
->>> 'text'.characters.elementType
+>>> List'text'.elementType
 'String'
 ```
 
-Inverse are `stringCatenate` and `stringJoin`:
+The inverse is `fromCharacters`,
+aliased to `String` at `List`,
+which threads over lists:
 
 ```
->>> 'mississippi'.characters.stringCatenate
+>>> String[
+>>> 	'm' 'i' 's' 's' 'i' 's' 's' 'i' 'p' 'p' 'i'
+>>> ]
 'mississippi'
 
->>> 'mississippi'.characters.stringJoin
+>>> String['a' 'b' 'c'; 'd' 'e' 'f']
+['abc' 'def']
+```
+
+`stringCatenate` and `stringJoin` can also undo `characters`,
+but do not require each item in the string is a character:
+
+```
+>>> List'mississippi'
+>>> .stringCatenate
+'mississippi'
+
+>>> List'mississippi'
+>>> .stringJoin
 'mississippi'
 ```
 
 Break a string into overlapping trigrams:
 
 ```
->>> let c = 'trigrams'.characters;
->>> c.partition(3, 1).collect(stringJoin/1)
+>>> List'trigrams'
+>>> .partition(3, 1)
+>>> .String
 ['tri' 'rig' 'igr' 'gra' 'ram' 'ams']
 ```
 
@@ -43,7 +72,7 @@ Break a string into overlapping trigrams:
 
 * * *
 
-See also: characterList, String
+See also: String, characterList
 
 Guides: String Functions
 

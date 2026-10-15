@@ -42,7 +42,7 @@ GrayCode : [Object, Equal] {
 		let d = n.integerDigits(b);
 		let k = d.size;
 		let shift = 0;
-		let gray = List(k);
+		let gray = List(k, nil);
 		1.toDo(k) { :i |
 			gray[i] := (d[i] + shift) % b;
 			shift := shift + b - gray[i]

@@ -9,7 +9,7 @@ Answer _x_.
 Insert _x_ to be at position three:
 
 ```
->>> let l = 'abcde'.characters;
+>>> let l = List'abcde';
 >>> let r = l.insertAt!('x', 3);
 >>> (r, l, l[3])
 ('x', ['a' 'b' 'x' 'c' 'd' 'e'], 'x')

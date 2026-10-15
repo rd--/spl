@@ -25,4 +25,6 @@ A `Character` is not a `String`:
 
 See also: Character, isString
 
+Guides: String Functions
+
 Categories: Testing

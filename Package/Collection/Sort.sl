@@ -23,7 +23,7 @@
 	countingSort { :input :key/1 :k |
 		let n = input.size;
 		let count = List(k, 0);
-		let output = List(n);
+		let output = List(n, nil);
 		1.toDo(n) { :i |
 			let j = key(input[i]);
 			count[j] := count[j] + 1

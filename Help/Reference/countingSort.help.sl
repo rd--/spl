@@ -35,7 +35,7 @@ Sort by `identity`:
 Sort by `codePoint`:
 
 ```
->>> 'ascii'.characters
+>>> List'ascii'
 >>> .countingSort(codePoint/1)
 ['a' 'c' 'i' 'i' 's']
 ```

@@ -301,7 +301,7 @@
 		let result = Map();
 		self.do { :each |
 			let key = keyBlock(each);
-			result.atIfAbsentPut(key) {
+			result.atIfAbsentPut!(key) {
 				[]
 			}.add!(each)
 		};

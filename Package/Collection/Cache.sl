@@ -5,7 +5,7 @@
 	}
 
 	cached { :self :key :constructor/0 |
-		self.cache.atIfAbsentPut(key, constructor/0)
+		self.cache.atIfAbsentPut!(key, constructor/0)
 	}
 
 	whenCached { :self :key :asyncConstructor/0 |

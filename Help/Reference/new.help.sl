@@ -21,7 +21,7 @@ The binary form, for collections where `species` answers a one-argument block:
 
 ```
 >>> [].species
-List/1
+nilList/1
 
 >>> [].new(3)
 [nil nil nil]

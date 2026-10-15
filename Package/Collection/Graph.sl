@@ -81,7 +81,7 @@
 		let e = g.edgeList;
 		let q = PriorityQueue();
 		let d = List(k, Infinity);
-		let p = List(k);
+		let p = List(k, nil);
 		d[s] := 0;
 		p[s] := nil;
 		q.pushWithPriority(s, 0);

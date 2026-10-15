@@ -8,7 +8,7 @@ Answers _c₁_.
 
 ```
 >>> let p = [1 .. 9];
->>> let q = List(9);
+>>> let q = List(9, nil);
 >>> let r = q.fillFromWith!(p, square/1);
 >>> (q, q == r)
 (p ^ 2, true)

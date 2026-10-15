@@ -262,7 +262,7 @@
 	stolarskyArray { :m :n |
 		let c = system.cachedStolarskyArray;
 		let d = cartesianIndexToDiagonalIndex(m, n);
-		c.atIfAbsentPut(d) {
+		c.atIfAbsentPut!(d) {
 			let phi = 1.goldenRatio;
 			let g = { :x |
 				(x * phi + 0.5).floor

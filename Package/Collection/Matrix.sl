@@ -596,7 +596,7 @@
 
 	helicalScanMatrixData { :self :step |
 		let shape = self.shape;
-		let a = List(shape.product);
+		let a = List(shape.product, nil);
 		shape.helicalScanIndicesDo(step) { :i :j :k |
 			a[k] := self[i][j]
 		};
@@ -966,7 +966,7 @@
 	spiralMatrix { :n |
 		let [dx, dy] = [1, 0];
 		let [x, y] = [1, 1];
-		let answer = { List(n) } ! n;
+		let answer = { List(n, nil) } ! n;
 		1.toDo(n ^ 2) { :i |
 			let [nx, ny] = [x + dx, y + dy];
 			answer[x][y] := i;

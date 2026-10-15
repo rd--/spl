@@ -123,10 +123,9 @@ Use the ternary form to sort a list of strings by length:
 Sort the characters of a string:
 
 ```
->>> 'eCaBdAbc'
->>> .characters
+>>> List'eCaBdAbc'
 >>> .sort!(<)
->>> .stringJoin
+>>> .String
 'aAbBcCde'
 
 >>> 'eCaBdAbc'

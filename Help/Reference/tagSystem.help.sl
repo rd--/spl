@@ -34,7 +34,7 @@ Run a tag system to completion:
 >>> 		'b' -> 'a',
 >>> 		'c' -> 'aaa'
 >>> 	],
->>> 	'aaa'.characters,
+>>> 	List'aaa',
 >>> 	Infinity
 >>> ).collect(stringJoin/1)
 [

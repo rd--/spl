@@ -10,7 +10,7 @@ Valid operator character:
 >>> '*'.isSplOperatorCharacter
 true
 
->>> '<=>'.characters
+>>> List'<=>'
 >>> .allSatisfy(
 >>> 	isSplOperatorCharacter/1
 >>> )

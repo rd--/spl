@@ -38,7 +38,7 @@ according to the specified probabilities.
 ```
 >>> let r = Sfc32(36814);
 >>> r.randomWeightedChoice(
->>> 	'ACGT'.characters,
+>>> 	List'ACGT',
 >>> 	[0.15 0.35 0.35 0.15],
 >>> 	[24]
 >>> ).stringCatenate

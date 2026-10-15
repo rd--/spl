@@ -8,7 +8,7 @@ The answer block may be nullary or unary.
 
 ```
 >>> [1 3 5].species
-List/1
+nilList/1
 
 >>> IdentityMultiset[1 3 5].species
 IdentityMultiset/0

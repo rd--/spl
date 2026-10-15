@@ -12,8 +12,7 @@
 		let size = 8190;
 		let count = nil;
 		self.timesRepeat {
-			let flags = List(size);
-			flags.atAllPut(true);
+			let flags = List(size, true);
 			count := 0;
 			1.toDo(size) { :index |
 				flags[index].ifTrue {

@@ -37,7 +37,7 @@ CategoryDictionary : [Object] {
 	}
 
 	category { :self :domain :category |
-		self.domain(domain).atIfAbsentPut(category) {
+		self.domain(domain).atIfAbsentPut!(category) {
 			IdentitySet()
 		}
 	}
@@ -68,7 +68,7 @@ CategoryDictionary : [Object] {
 	}
 
 	domain { :self :domain |
-		self.domainDictionary.atIfAbsentPut(domain) {
+		self.domainDictionary.atIfAbsentPut!(domain) {
 			Record()
 		}
 	}

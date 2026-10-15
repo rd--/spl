@@ -29,7 +29,7 @@ SortedSet : [Object, Copy, Store, Equal, Do, New, Collect, FiniteCollection, Add
 		self.sortedList.includes(anObject)
 	}
 
-	List { :self |
+	[List, sortedSetToList] { :self |
 		self.sortedList.List
 	}
 

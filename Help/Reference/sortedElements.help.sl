@@ -16,8 +16,7 @@ At `Multiset`:
 >>> .sortedElements
 [1 -> 3, 3 -> 1, 5 -> 2]
 
->>> 'abcaca'
->>> .characters
+>>> List'abcaca'
 >>> .Multiset
 >>> .sortedElements
 ['a' -> 3, 'b' -> 1, 'c' -> 2]

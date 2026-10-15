@@ -97,8 +97,13 @@ Split before every occurrence of 1:
 Group together identical elements:
 
 ```
->>> 'aaabbaaccc'.characters.split(=)
-['a' 'a' 'a'; 'b' 'b'; 'a' 'a'; 'c' 'c' 'c']
+>>> List'aaabbaaccc'.split(=)
+[
+	'a' 'a' 'a';
+	'b' 'b';
+	'a' 'a';
+	'c' 'c' 'c'
+]
 ```
 
 Split by sign:

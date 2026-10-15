@@ -28,8 +28,7 @@ At `Map`:
 At `Multiset`:
 
 ```
->>> 'abracadabra'
->>> .characters
+>>> List'abracadabra'
 >>> .Multiset
 >>> .associations
 [

@@ -40,7 +40,7 @@ At `String`:
 >>> 'rotator'.isPalindrome
 true
 
->>> 'rotator'.characters.isPalindrome
+>>> List'rotator'.isPalindrome
 true
 ```
 

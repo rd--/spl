@@ -148,8 +148,8 @@
 	}
 
 	bernoulliSequence { :k |
-		let a = List(k);
-		let b = List(k);
+		let a = List(k, nil);
+		let b = List(k, nil);
 		0.toDo(k - 1) { :n |
 			a[n + 1] := Fraction(1, n + 1);
 			n.toByDo(1, -1) { :j |
@@ -179,7 +179,7 @@
 	}
 
 	calkinWilfSequence { :self |
-		let answer = List(self);
+		let answer = List(self, nil);
 		answer[1] := 1/1;
 		2.toDo(self) { :i |
 			let p = answer[i - 1];
@@ -525,7 +525,7 @@
 	}
 
 	goebelsSequence { :m |
-		let a = List(m);
+		let a = List(m, nil);
 		0.toDo(m - 1) { :n |
 			a[n + 1] := (n < 2).if {
 				1L
@@ -1093,7 +1093,7 @@
 	}
 
 	somosSequence { :k :m |
-		let a = List(m);
+		let a = List(m, nil);
 		0.toDo(m - 1) { :n |
 			a[n + 1] := (n < k).if {
 				1L
@@ -1221,7 +1221,7 @@
 		(k <= 0).if {
 			[]
 		} {
-			let answer = List(k);
+			let answer = List(k, nil);
 			let i =2;
 			let iMax = 1;
 			answer[1] := 0;
@@ -1520,7 +1520,7 @@
 	}
 
 	kroneckerSequence { :alpha :n :k0 |
-		let s = List(n);
+		let s = List(n, nil);
 		s[1] := k0;
 		2.toDo(n) { :i |
 			s[i] := (s[i - 1] + alpha) % 1
@@ -1793,7 +1793,7 @@
 
 	restrictedGrowthSequenceTransform { :a |
 		let m = Dictionary();
-		let b = List(a.size);
+		let b = List(a.size, nil);
 		let u = 1;
 		1.toDo(a.size) { :i |
 			let e = a[i];

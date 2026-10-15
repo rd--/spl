@@ -21,8 +21,7 @@ true
 >>> .isDeBruijnSequence(2, 4)
 true
 
->>> 'AAAABAABBABABBBB'
->>> .characters
+>>> List'AAAABAABBABABBBB'
 >>> .isDeBruijnSequence(2, 4)
 true
 

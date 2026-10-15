@@ -32,7 +32,7 @@
 
 	blancmangeCurve { :d |
 		let k = 2 ^ d;
-		let b = List(k + 1);
+		let b = List(k + 1, nil);
 		b[0 + 1] := 0;
 		b[k + 1] := 0;
 		d.toByDo(1, -1) { :n |

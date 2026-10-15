@@ -6,7 +6,7 @@ ByteArray! : [Object, Copy, Store, Equal, Compare, Do, At, Put, New, Collect, Fi
 
 	base16Encode { :self |
 		let map = '0123456789ABCDEF'.asciiByteArray;
-		let array = ByteArray(self.size * 2);
+		let array = ByteArray(self.size * 2, 0);
 		let index = 1;
 		self.do { :each |
 			array[index] := map[each.bitShiftRight(4) + 1];
@@ -102,7 +102,7 @@ ByteArray! : [Object, Copy, Store, Equal, Compare, Do, At, Put, New, Collect, Fi
 	}
 
 	species { :self |
-		ByteArray/1
+		zeroByteArray/1
 	}
 
 	storageType { :self |
@@ -137,9 +137,21 @@ ByteArray! : [Object, Copy, Store, Equal, Compare, Do, At, Put, New, Collect, Fi
 
 +SmallFloat {
 
-	ByteArray { :self |
-		<primitive: return new Uint8Array(_self);>
+	ByteArray { :n :x |
+		x.isByte.ifFalse {
+			n.error('ByteArray', [x])
+		};
+		uncheckedByteArray(n, x)
 	}
+
+	uncheckedByteArray { :self :aByte |
+		<primitive: return new Uint8Array(_self).fill(_aByte);>
+	}
+
+	zeroByteArray { :n |
+		ByteArray(n, 0)
+	}
+
 
 }
 
@@ -147,7 +159,7 @@ ByteArray! : [Object, Copy, Store, Equal, Compare, Do, At, Put, New, Collect, Fi
 
 	[ByteArray, listToByteArray] { :self |
 		self.isEmpty.if {
-			ByteArray(0)
+			ByteArray[]
 		} {
 			(
 				self.isSmallFloatVector & {
@@ -188,7 +200,7 @@ ByteArray! : [Object, Copy, Store, Equal, Compare, Do, At, Put, New, Collect, Fi
 
 	[base16Decode, parseBase16] { :self |
 		self.base16DecodeInto(
-			ByteArray(self.size / 2)
+			ByteArray(self.size / 2, 0)
 		)
 	}
 

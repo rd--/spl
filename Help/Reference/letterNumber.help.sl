@@ -28,8 +28,7 @@ The third letter in the Greek alphabet is γ:
 Get positions of each of the letters in a string:
 
 ```
->>> 'turtle'
->>> .characters
+>>> List'turtle'
 >>> .letterNumber('english')
 [20 21 18 20 12 5]
 ```

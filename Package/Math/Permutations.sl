@@ -32,7 +32,7 @@ Permutation : [Object, Store, Equal] {
 		self.isIdentity.if {
 			aSequence
 		} {
-			let answer = List(length);
+			let answer = List(length, nil);
 			let indices = self.list(length);
 			1.toDo(length) { :i |
 				answer[indices[i]] := aSequence[i]
@@ -131,7 +131,7 @@ Permutation : [Object, Store, Equal] {
 	inversionVector { :self |
 		let list = self.list;
 		let n = list.size;
-		let answer = List(n);
+		let answer = List(n, nil);
 		1.toDo(n) { :i |
 			let j = list.indexOf(i);
 			let c = 0;
@@ -195,7 +195,7 @@ Permutation : [Object, Store, Equal] {
 	leftInversionCount { :self |
 		let list = self.list;
 		let n = list.size;
-		let answer = List(n);
+		let answer = List(n, nil);
 		1.toDo(n) { :i |
 			let c = 0;
 			1.toDo(i) { :k |
@@ -358,7 +358,7 @@ Permutation : [Object, Store, Equal] {
 	rightInversionCount { :self |
 		let list = self.list;
 		let n = list.size;
-		let answer = List(n);
+		let answer = List(n, nil);
 		1.toDo(n) { :i |
 			let c = 0;
 			(i + 1).toDo(n) { :k |
