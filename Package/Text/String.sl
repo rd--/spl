@@ -123,6 +123,12 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Character] {
 		}
 	}
 
+	[ByteArray, stringToByteArray, utf8ByteArray] { :self |
+		<primitive:
+		return new TextEncoder().encode(_self.normalize('NFC'));
+		>
+	}
+
 	caesarCipher { :self :n |
 		let c = [];
 		self.asciiByteArray.do { :i |
@@ -854,15 +860,6 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Character] {
 		<primitive: return _self.replace(/[\u0022\u0027]/gu, '');>
 	}
 
-	repeat { :self :n :m |
-		self.stringRepeat(n, m)
-	}
-
-	repeat { :self :n |
-		<primitive: return _self.repeat(_n);>
-		/* List(n, self).stringCatenate */
-	}
-
 	replaceApostropheWithRightSingleQuotationMark { :self |
 		<primitive: return _self.replace("\u{27}", "\u{2019}");>
 	}
@@ -877,10 +874,6 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Character] {
 		stringToFind.assertIsString;
 		stringToReplaceWith.assertIsString;
 		self.uncheckedReplaceStringAll(stringToFind, stringToReplaceWith)
-	}
-
-	reverse { :self |
-		self.onCharacters(reverse/1)
 	}
 
 	rotateLeft { :self :anInteger |
@@ -933,10 +926,6 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Character] {
 		}
 	}
 
-	size { :self |
-		self.countUtf16CodeUnits
-	}
-
 	sortCharacterCode { :self :encoding |
 		self.toCharacterCode(encoding).sort!.fromCharacterCode(encoding)
 	}
@@ -947,10 +936,6 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Character] {
 
 	sortCodePoints { :self |
 		self.codePoints.sort!.fromCodePoints
-	}
-
-	[splitBy, stringSplit] { :self :aString |
-		<primitive: return _self.split(_aString);>
 	}
 
 	splitByLimitedTo { :self :aString :count |
@@ -965,14 +950,18 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Character] {
 		n.isNegative.ifTrue {
 			n := s1.size + n + 2
 		};
-		[s1.take(n - 1), s2, s1.drop(n - 1)].stringJoin
+		[
+			s1.take(n - 1),
+			s2,
+			s1.drop(n - 1)
+		].stringCatenate
 	}
 
-	stringLength { :self |
-		self.size
+	[stringLength, size] { :self |
+		self.countUtf16CodeUnits
 	}
 
-	stringRepeat { :s :n :m |
+	[stringRepeat, repeat] { :s :n :m |
 		let k = s.size;
 		let q = m // k;
 		let r = m \\ k;
@@ -981,12 +970,17 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Character] {
 		).stringJoin
 	}
 
-	stringRepeat { :s :n |
-		[s].replicate(n).stringJoin
+	[stringRepeat, repeat] { :s :n |
+		<primitive: return _s.repeat(_n);>
+		/* List(n, self).stringCatenate */
 	}
 
-	stringReverse { :self |
-		self.reverse
+	[stringReverse, reverse] { :self |
+		self.onCharacters(reverse/1)
+	}
+
+	[stringSplit, splitBy] { :self :aString |
+		<primitive: return _self.split(_aString);>
 	}
 
 	[take, truncateTo] { :self :anInteger |
@@ -1078,12 +1072,6 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Character] {
 
 	unique { :self |
 		self ++ system.uniqueIdentifier.printString
-	}
-
-	utf8ByteArray { :self |
-		<primitive:
-		return new TextEncoder().encode(_self.normalize('NFC'));
-		>
 	}
 
 	utf8List { :self |

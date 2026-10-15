@@ -1,4 +1,4 @@
-+@FiniteCollection {
++@Collection {
 
 	arithmeticMean { :self |
 		self.sum / self.size

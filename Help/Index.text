@@ -858,6 +858,7 @@ Reference/collatzTerrasTree.help.sl
 Reference/collectCatenate.help.sl
 Reference/collect.help.sl
 Reference/collectInto.help.sl
+Reference/Collection.help.sl
 Reference/CollectionStream.help.sl
 Reference/collectTextureProgram.help.sl
 Reference/collectThenSelect.help.sl
@@ -1508,7 +1509,6 @@ Reference/findTransientRepeat.help.sl
 Reference/finesSequence.help.sl
 Reference/fineStructureConstant.help.sl
 Reference/finiteAbelianGroupCount.help.sl
-Reference/FiniteCollection.help.sl
 Reference/finiteGroupCount.help.sl
 Reference/FiniteRange.help.sl
 Reference/FirstArg.help.sl
@@ -4317,7 +4317,9 @@ Reference/UrlQueryParameters.help.sl
 Reference/UserEventTarget.help.sl
 Reference/userName.help.sl
 Reference/utf16List.help.sl
+Reference/utf16String.help.sl
 Reference/utf8ByteArray.help.sl
+Reference/utf8List.help.sl
 Reference/utf8StringBuilder.help.sl
 Reference/utf8String.help.sl
 Reference/uUnifastAlgorithm.help.sl

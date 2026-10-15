@@ -76,7 +76,7 @@
 
 }
 
-LinkedList : [Object, Copy, Store, Equal, Compare, Do, At, Put, New, Collect, FiniteCollection, Add, Remove, Sequence] {
+LinkedList : [Object, Copy, Store, Equal, Compare, Do, At, Put, New, Collect, Collection, Add, Remove, Sequence] {
 
 	| firstLink lastLink |
 
@@ -328,9 +328,9 @@ LinkedList : [Object, Copy, Store, Equal, Compare, Do, At, Put, New, Collect, Fi
 
 }
 
-+@FiniteCollection {
++@Collection {
 
-	LinkedList { :self |
+	[LinkedList, collectionToLinkedList] { :self |
 		let answer = LinkedList();
 		answer.addAll!(self);
 		answer
@@ -340,7 +340,7 @@ LinkedList : [Object, Copy, Store, Equal, Compare, Do, At, Put, New, Collect, Fi
 
 +Void {
 
-	LinkedList {
+	[LinkedList, emptyLinkedList] {
 		newLinkedList().initializeSlots(nil, nil)
 	}
 

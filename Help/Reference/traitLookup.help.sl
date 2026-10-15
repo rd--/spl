@@ -7,7 +7,7 @@ answer the `Trait` named by _t_.
 
 ```
 >>> system
->>> .traitLookup('FiniteCollection')
+>>> .traitLookup('Collection')
 >>> .isTrait
 true
 ```

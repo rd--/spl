@@ -38,7 +38,7 @@
 
 }
 
-+@FiniteCollection {
++@Collection {
 
 	Frequency { :self |
 		self.collect(Frequency/1)

@@ -94,7 +94,7 @@
 - `At`
 - `Collect`
 - `Dictionary`
-- `FiniteCollection`
+- `Collection`
 - `Put`
 - `Remove`
 - `Sequence`

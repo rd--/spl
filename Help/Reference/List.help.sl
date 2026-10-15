@@ -18,7 +18,7 @@ with the default value _x_:
 [nil nil nil nil nil]
 ```
 
-At a `FiniteCollection`,
+At a `Collection`,
 answer a `List` whose elements are the elements of _x_.
 
 If the collection is a `List`, answer it directly.
@@ -95,7 +95,7 @@ Traits implemented by `List`:
 	'Copy'
 	'Do'
 	'Equal'
-	'FiniteCollection'
+	'Collection'
 	'Json'
 	'New'
 	'Object'

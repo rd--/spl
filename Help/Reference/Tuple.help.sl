@@ -44,7 +44,7 @@ Tuple does not implement `Do`:
 false
 ```
 
-Tuple does not implement `FiniteCollection`:
+Tuple does not implement `Collection`:
 
 ```
 >>> (1, 2, 3).isCollection

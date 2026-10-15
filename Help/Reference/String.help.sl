@@ -31,7 +31,7 @@ String literal syntax:
 6
 ```
 
-Strings do not implement the `FiniteCollection` trait,
+Strings do not implement the `Collection` trait,
 however they do implement `At` and `Do`.
 
 There is a `Character` type,

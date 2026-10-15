@@ -58,7 +58,7 @@ Types implementing `At`:
 
 * * *
 
-See also: FiniteCollection, Put, at, includesIndex, indices, indicesDo, put, size, withIndexDo
+See also: Collection, Put, at, includesIndex, indices, indicesDo, put, size, withIndexDo
 
 Guides: Dictionary Functions, Indexing Functions, List Functions
 

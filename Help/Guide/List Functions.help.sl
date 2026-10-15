@@ -6,7 +6,7 @@ Traits
 - `At`
 - `Collect`
 - `Do`
-- `FiniteCollection`
+- `Collection`
 - `Put`
 - `Remove`
 

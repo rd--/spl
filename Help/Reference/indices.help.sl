@@ -4,7 +4,7 @@
 - _indices(c, f/1)_
 
 Answer the valid indices for the collection _c_.
-The binary form only answers indices where the associated item satisfies the predicate block _f_.
+The binary form only answers indices where the _associated item_ satisfies the predicate block _f_.
 
 At a `Sequence`,
 `indices` answers a `Range` from the first to the last index by `one`.
@@ -65,7 +65,7 @@ The `size` of a collection is equal to the size of its `indices`:
 
 * * *
 
-See also: At, Dictionary, deepIndices, includesIndex, indicesDo, indicesOf, keys, withIndexDo
+See also: At, Dictionary, Sequence, deepIndices, includesIndex, indicesDo, indicesOf, keys, withIndexDo
 
 Guides: Dictionary Functions, List Functions
 

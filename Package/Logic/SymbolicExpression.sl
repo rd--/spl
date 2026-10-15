@@ -6,7 +6,7 @@
 
 }
 
-+@FiniteCollection {
++@Collection {
 
 	isNumericConstant { :unused :unusedOperand |
 		false

@@ -24,7 +24,7 @@
 
 }
 
-+@FiniteCollection {
++@Collection {
 
 	atExtending { :self :index |
 		self.error('atExtending: not a sequence')

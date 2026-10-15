@@ -1,19 +1,19 @@
-# FiniteCollection
+# Collection
 
-`FiniteCollection` is a `Trait` holding behaviours common to finite collections.
+`Collection` is a `Trait` holding behaviours common to finite collections.
 
 ```
 >>> system
->>> .traitDictionary['FiniteCollection']
+>>> .traitDictionary['Collection']
 >>> .isTrait
 true
 ```
 
-Types implementing `FiniteCollection`:
+Types implementing `Collection`:
 
 ```
 >>> system
->>> .traitTypes('@FiniteCollection')
+>>> .traitTypes('@Collection')
 >>> .sort
 [
 	'AsciiString'

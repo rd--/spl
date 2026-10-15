@@ -11,6 +11,14 @@ which must be an Ascii encoding.
 'ascii'
 ```
 
+Utf-8 is a superset of Ascii:
+
+```
+>>> [97 115 99 105 105]
+>>> .utf8String
+'ascii'
+```
+
 The inverses are `ascii` and `asciiByteArray`:
 
 ```
@@ -23,7 +31,7 @@ ByteArray[97 115 99 105 105]
 
 * * *
 
-See also: ByteArray, List, String, ascii, asciiByteArray
+See also: ByteArray, List, String, ascii, asciiByteArray, utf8String
 
 Guides: String Functions
 

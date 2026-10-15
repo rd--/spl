@@ -28,7 +28,7 @@ true
 >>> system
 >>> .traitDictionary
 >>> .keys
->>> .includes('FiniteCollection')
+>>> .includes('Collection')
 true
 ```
 

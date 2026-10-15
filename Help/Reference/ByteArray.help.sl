@@ -6,9 +6,8 @@
 `ByteArray` is a `Type` holding an array whose elements are integers between 0 and 255.
 Unlike a `List`, a `ByteArray` is of fixed size.
 
-At `Integer`,
-answer a `ByteArray` of _n_ places,
-each initialized to `zero`.
+The binary form answers a `ByteArray` of _n_ places,
+each initialized to _x_.
 
 ```
 >>> ByteArray(5, 0)
@@ -32,6 +31,18 @@ At `Range`:
 ```
 >>> ByteArray(1:5)
 ByteArray[1 2 3 4 5]
+```
+
+At `String`, alias for `utf8ByteArray`:
+
+```
+>>> ByteArray'Mačiūnas'
+ByteArray[
+	77 97 196 141 105 197 171 110 97 115
+]
+
+>>> List'Mačiūnas'
+['M' 'a' 'č' 'i' 'ū' 'n' 'a' 's']
 ```
 
 `ByteArray` implements `Sequence`:

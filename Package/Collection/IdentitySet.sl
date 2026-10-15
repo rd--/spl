@@ -1,6 +1,6 @@
 /* Requires: Set */
 
-IdentitySet! : [Object, Copy, Store, Equal, Do, New, Collect, FiniteCollection, Add, Remove, Unordered, Set] {
+IdentitySet! : [Object, Copy, Store, Equal, Do, New, Collect, Collection, Add, Remove, Unordered, Set] {
 
 	do { :self :aBlock |
 		<primitive:
@@ -93,7 +93,7 @@ IdentitySet! : [Object, Copy, Store, Equal, Do, New, Collect, FiniteCollection, 
 
 }
 
-+@FiniteCollection {
++@Collection {
 
 	IdentitySet { :self |
 		let answer = IdentitySet();

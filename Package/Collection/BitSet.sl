@@ -1,6 +1,6 @@
 /* Requires: ByteArray */
 
-BitSet : [Object, Copy, Store, Equal, Do, Collect, FiniteCollection, Add, Remove] {
+BitSet : [Object, Copy, Store, Equal, Do, Collect, Collection, Add, Remove] {
 
 	| capacity bytes tally |
 
@@ -238,7 +238,7 @@ BitSet : [Object, Copy, Store, Equal, Do, Collect, FiniteCollection, Add, Remove
 
 }
 
-+@FiniteCollection {
++@Collection {
 
 	BitSet { :self |
 		self.isBitVector.if {

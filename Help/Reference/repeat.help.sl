@@ -25,7 +25,6 @@ Repeat a single value:
 
 At `String`,
 answer a string consisting of the string _s_ repeated _n_ times.
-
 A `String` of twenty-three copies of the letter _a_:
 
 ```

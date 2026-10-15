@@ -6,7 +6,7 @@ A `Dictionary` at `system` to hold the set of `Trait`s.
 
 ```
 >>> system
->>> .traitDictionary['FiniteCollection']
+>>> .traitDictionary['Collection']
 >>> .isTrait
 true
 

@@ -1,4 +1,4 @@
-ListView : [Object, Copy, Store, Equal, New, Compare, Do, At, Put, Collect, FiniteCollection, Sequence] {
+ListView : [Object, Copy, Store, Equal, New, Compare, Do, At, Put, Collect, Collection, Sequence] {
 
 	| collection startIndex endIndex referenceIndex |
 

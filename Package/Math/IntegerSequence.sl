@@ -1927,7 +1927,7 @@
 
 }
 
-+@FiniteCollection {
++@Collection {
 
 	characteristicFunction { :a :i |
 		i.collect { :n |

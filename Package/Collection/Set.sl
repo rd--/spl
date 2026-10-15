@@ -66,7 +66,7 @@
 
 }
 
-+@FiniteCollection {
++@Collection {
 
 	[Set, collectionToSet] { :self |
 		SortedSet(self)

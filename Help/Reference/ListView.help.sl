@@ -142,7 +142,7 @@ Traits implemented by `ListView`:
 	'Copy'
 	'Do'
 	'Equal'
-	'FiniteCollection'
+	'Collection'
 	'New'
 	'Object'
 	'Put'

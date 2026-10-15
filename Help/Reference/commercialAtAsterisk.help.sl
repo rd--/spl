@@ -10,7 +10,7 @@ At `Block` the operator (infix) form of `compose`:
 23
 ```
 
-At a `FiniteCollection` the operator (infix) form of `atAll`.
+At a `Collection` the operator (infix) form of `atAll`.
 
 ```
 >>> let c = [1 .. 9];

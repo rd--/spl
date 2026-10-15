@@ -1,4 +1,4 @@
-@FiniteCollection {
+@Collection {
 
 	# { :self |
 		self.size

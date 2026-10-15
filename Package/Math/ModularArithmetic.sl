@@ -39,7 +39,7 @@
 
 }
 
-+@FiniteCollection {
++@Collection {
 
 	isPerfectDifferenceSet { :self :modulus |
 		let k = self.size - 1;

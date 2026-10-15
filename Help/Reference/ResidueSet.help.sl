@@ -12,7 +12,7 @@ A `ResidueSet` is a `Type` holding a `IdentitySet` of common residues of a `modu
 ResidueSet([0 1 2 3], 4)
 ```
 
-Construct a `ResidueSet` from a `FiniteCollection` and a modulus:
+Construct a `ResidueSet` from a `Collection` and a modulus:
 
 ```
 >>> ResidueSet(

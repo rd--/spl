@@ -22,7 +22,7 @@ The least common multiple of two numbers is their `product` divided by the `gcd`
 21112
 ```
 
-At `FiniteCollection`:
+At `Collection`:
 
 ```
 >>> [2 3 5].reduce(lcm/2)

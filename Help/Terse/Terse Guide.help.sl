@@ -914,9 +914,9 @@ let c = Clock(); let i = 3; c.scheduleBlock(i) { :t | nil }; c.nextEntryTime <= 
 let c = Clock(); let i = 3; c.scheduleBlock(i) { :t | t.printLine }; c.removeAll!; c.nextEntryTime = nil
 ```
 
-## FiniteCollection -- collection trait
+## Collection -- collection trait
 ```
-system.includesPackage('FiniteCollection') /* collection package */
+system.includesPackage('Collection') /* collection package */
 [].isEmpty = true /* is collection empty */
 [].isCollection = true /* collection predicate */
 [].size = 0 /* the empty array has no elements */
@@ -3788,14 +3788,14 @@ let [t, r] = { system.absoluteTime }.repeatedTiming(0.01); t < 0.00001 & { r > 1
 ## System -- traitDictionary
 ```
 system.traitDictionary.isDictionary = true
-system.traitDictionary.includesIndex('FiniteCollection') = true
-system.traitTypes('@FiniteCollection').includes('List') = true
+system.traitDictionary.includesIndex('Collection') = true
+system.traitTypes('@Collection').includes('List') = true
 system.typeTraits('List').includes('PrimitiveArray') = true
-system.methodTraits('atRandom/1').includesAll(['FiniteCollection', 'Sequence']) = true
-system.methodTraits('sum/1') = ['ArithmeticProgression', 'Do', 'FiniteCollection', 'Multiset']
+system.methodTraits('atRandom/1').includesAll(['Collection', 'Sequence']) = true
+system.methodTraits('sum/1') = ['ArithmeticProgression', 'Do', 'Collection', 'Multiset']
 system.traitTypes('@Object').includes('SmallFloat') = true
 system.traitLookup('Object').methodDictionary.includesIndex('respondsTo/2') = true
-system.traitLookup('FiniteCollection').isTrait = true
+system.traitLookup('Collection').isTrait = true
 system.traitLookup('Collect').name = 'Collect'
 system.traitLookup('Do').methodDictionary.includesIndex('do/2') = true
 system.traitLookup('Do').methodDictionary['do/2'].isMethod = true

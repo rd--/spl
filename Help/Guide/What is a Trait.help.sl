@@ -4,7 +4,7 @@ A `Trait` is a collection of behaviours,
 in much the same way that _abstract classes_ are in Smalltalk.
 
 In Smalltalk _Collection_ is an abstract class,
-in Sᴘʟ `FiniteCollection` is a trait.
+in Sᴘʟ `Collection` is a trait.
 
 The name trait is from Self (Ungar and Smith 1987).
 

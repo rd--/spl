@@ -5,7 +5,7 @@
 Include all the elements of _c₂_ into _c₁_ in-place.
 Answer _c₂_.
 
-In general, any object responding to _do_ can be used as the second argument.
+In general, any object responding to `do` can be used as the second argument.
 
 At `IdentityMultiset`:
 

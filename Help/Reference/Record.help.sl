@@ -19,7 +19,7 @@ List of traits implemented by `Record`:
 	'Dictionary'
 	'Do'
 	'Equal'
-	'FiniteCollection'
+	'Collection'
 	'Json'
 	'New'
 	'Object'

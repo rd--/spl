@@ -552,7 +552,7 @@
 
 }
 
-+@FiniteCollection {
++@Collection {
 
 	dictionaryJoin { :self |
 		self.ifEmpty {
@@ -568,7 +568,7 @@
 
 }
 
-Dictionary : [Object, Copy, Store, Equal, Do, At, Put, Collect, FiniteCollection, Add, Remove, Dictionary] {
+Dictionary : [Object, Copy, Store, Equal, Do, At, Put, Collect, Collection, Add, Remove, Dictionary] {
 
 	| keys values comparator |
 

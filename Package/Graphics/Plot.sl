@@ -723,7 +723,7 @@ Plot : [Object] {
 
 }
 
-+@FiniteCollection {
++@Collection {
 
 	discreteFunctionPlot { :domain :blockList |
 		domain.functionPlot(blockList, discretePlot/1)

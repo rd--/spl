@@ -1,8 +1,10 @@
 # stringRepeat
 
+- _stringRepeat(s, n)_
 - _stringRepeat(s, n, m)_
 
 Answer a string consisting of the string _s_ repeated _n_ times.
+Alias for `repeat`.
 
 A repeated string of one letter:
 

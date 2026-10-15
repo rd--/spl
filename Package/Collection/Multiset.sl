@@ -189,7 +189,7 @@
 
 }
 
-Multiset : [Object, Copy, Store, Equal, Do, New, Collect, FiniteCollection, Add, Remove, Unordered, Multiset] {
+Multiset : [Object, Copy, Store, Equal, Do, New, Collect, Collection, Add, Remove, Unordered, Multiset] {
 
 	| valuesAndCounts |
 
@@ -241,7 +241,7 @@ Multiset : [Object, Copy, Store, Equal, Do, New, Collect, FiniteCollection, Add,
 
 }
 
-+@FiniteCollection {
++@Collection {
 
 	[Multiset, collectionToMultiset] { :self |
 		let answer = Multiset();

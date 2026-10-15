@@ -26,7 +26,7 @@ At `Record`:
 
 * * *
 
-See also: Association, equalByAtNamedSlots, List, slotNameList
+See also: Association, List, equalByAtNamedSlots, slotNameList
 
 Guides: Reflection Functions
 

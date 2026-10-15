@@ -17,7 +17,7 @@ Traits implemented by `SortedSet`:
 	'Copy'
 	'Do'
 	'Equal'
-	'FiniteCollection'
+	'Collection'
 	'New'
 	'Object'
 	'Remove'

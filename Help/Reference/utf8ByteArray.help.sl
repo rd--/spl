@@ -3,15 +3,16 @@
 - _utf8ByteArray(s)_
 
 Answer a `ByteArray` of the Utf-8 encoding of the string _s_.
+Alias for `ByteArray` at `String`.
 
 ```
->>> '€'.utf8ByteArray
+>>> ByteArray'€'
 ByteArray[226 130 172]
 
->>> 'aAα'.utf8ByteArray
+>>> ByteArray'aAα'
 ByteArray[97 65 206 177]
 
->>> 'abcABCΑΒΓαβγ'.utf8ByteArray
+>>> ByteArray'abcABCΑΒΓαβγ'
 ByteArray[
 	97 98 99
 	65 66 67
@@ -20,26 +21,26 @@ ByteArray[
 ]
 ```
 
-`utf8String` is the inverse of `utf8ByteArray`:
+`utf8String`,
+aliased to `String` at `ByteArray`,
+is the inverse of `utf8ByteArray`:
 
 ```
+>>> ByteArray[226 130 172]
+>>> .String
+'€'
+
 >>> let n = 8750;
->>> let c = Character(n);
->>> let s = c.characterString;
+>>> let s = n.fromCodePoint;
 >>> let b = s.utf8ByteArray;
->>> (
->>> 	n,
->>> 	b.List,
->>> 	b.utf8String
->>> )
-(8750, [226 136 174], '∮')
+>>> (b, b.utf8String)
+(ByteArray[226 136 174], '∮')
 ```
 
 Plot Utf-8 code points of a String:
 
 ~~~spl svg=A
-'utf8ByteArray'
-.utf8ByteArray
+ByteArray'utf8ByteArray'
 .List
 .discretePlot
 ~~~

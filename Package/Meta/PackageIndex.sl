@@ -39,7 +39,7 @@
 	'Collection-Dictionary'
 	'Collection-DirectedEdge'
 	'Collection-Do'
-	'Collection-FiniteCollection'
+	'Collection-Collection'
 	'Collection-FiniteWord'
 	'Collection-Float32Array'
 	'Collection-Float64Array'

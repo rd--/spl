@@ -4,9 +4,9 @@
 
 A `Type` representing a collection of links, which are containers for other objects.
 
-Using the methods `addFirst` and `removeLast` causes the list to behave as a stack.
+Using the methods `addFirst!` and `removeLast!` causes the list to behave as a stack.
 
-Using `addLast` and `removeFirst` causes the list to behave as a queue.
+Using `addLast!` and `removeFirst!` causes the list to behave as a queue.
 
 Unlike `List` certain methods, such as `atIndex`, are linear and not constant time.
 
@@ -207,7 +207,7 @@ Copies are equal but not identical:
 
 * * *
 
-See also: Link, List, Value Link
+See also: Link, List, ValueLink
 
 Guides: List Functions
 

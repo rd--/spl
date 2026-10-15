@@ -1,4 +1,4 @@
-List! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Put, New, Collect, FiniteCollection, Add, Remove, Sequence, PrimitiveArray, Ordered] {
+List! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Put, New, Collect, Collection, Add, Remove, Sequence, PrimitiveArray, Ordered] {
 
 	addListFirst { :self :aList |
 		<primitive:
@@ -384,7 +384,7 @@ List! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Put, New, Collect, F
 
 }
 
-+@FiniteCollection {
++@Collection {
 
 	[List, collectionToList] { :self |
 		let answer = List(self.size, nil);

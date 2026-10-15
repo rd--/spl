@@ -1,4 +1,4 @@
-+@FiniteCollection {
++@Collection {
 
 	binCounts { :self :b |
 		self.binLists(b).collect(size/1)

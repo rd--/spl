@@ -4,7 +4,7 @@
 
 Answer a concise string representation of the object _x_.
 
-Generic implementation at `FiniteCollection`:
+Generic implementation at `Collection`:
 
 ```
 >>> ByteArray(100, 0).concisePrintString

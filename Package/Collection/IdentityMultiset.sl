@@ -1,6 +1,6 @@
 /* Requires: Multiset */
 
-IdentityMultiset : [Object, Copy, Store, Equal, Do, New, Collect, FiniteCollection, Add, Remove, Unordered, Multiset] {
+IdentityMultiset : [Object, Copy, Store, Equal, Do, New, Collect, Collection, Add, Remove, Unordered, Multiset] {
 
 	| valuesAndCounts |
 
@@ -63,7 +63,7 @@ IdentityMultiset : [Object, Copy, Store, Equal, Do, New, Collect, FiniteCollecti
 
 }
 
-+@FiniteCollection {
++@Collection {
 
 	[IdentityMultiset, collectionToIdentityMultiset] { :self |
 		let answer = IdentityMultiset();

@@ -12,7 +12,7 @@ The `System` holds a dictionary of traits indexed by name:
 true
 
 >>> let d = system.traitDictionary;
->>> d.includesKey('FiniteCollection')
+>>> d.includesKey('Collection')
 true
 ```
 
@@ -20,14 +20,14 @@ true
 
 ```
 >>> system
->>> .traitLookup('FiniteCollection')
+>>> .traitLookup('Collection')
 >>> .isTrait
 true
 
 >>> system
->>> .traitLookup('FiniteCollection')
+>>> .traitLookup('Collection')
 >>> .name
-'FiniteCollection'
+'Collection'
 ```
 
 The `methodDictionary` of a `Trait` holds `Method` values:
@@ -71,7 +71,7 @@ The list of system traits:
 	'Event'
 	'EventTarget'
 	'Exception'
-	'FiniteCollection'
+	'Collection'
 	'Frequency'
 	'Geometry'
 	'Graph'

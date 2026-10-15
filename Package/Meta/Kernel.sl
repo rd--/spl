@@ -22,7 +22,7 @@
 	'At'
 	'Collect'
 	'Do'
-	'FiniteCollection'
+	'Collection'
 	'New'
 	'Ordered'
 	'Put'

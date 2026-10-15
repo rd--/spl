@@ -1,4 +1,4 @@
-Record! : [Object, Copy, Store, Equal, Json, Do, At, Put, New, Collect, FiniteCollection, Add, Remove, Dictionary] {
+Record! : [Object, Copy, Store, Equal, Json, Do, At, Put, New, Collect, Collection, Add, Remove, Dictionary] {
 
 	atIfAbsent { :self :aString :ifAbsent/0 |
 		<primitive:

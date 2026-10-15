@@ -981,7 +981,7 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 
 }
 
-+@FiniteCollection {
++@Collection {
 
 	isFinite { :self |
 		self.allSatisfy(isFinite/1)

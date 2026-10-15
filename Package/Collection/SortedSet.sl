@@ -1,4 +1,4 @@
-SortedSet : [Object, Copy, Store, Equal, Do, New, Collect, FiniteCollection, Add, Remove, Set] {
+SortedSet : [Object, Copy, Store, Equal, Do, New, Collect, Collection, Add, Remove, Set] {
 
 	| sortedList |
 
@@ -77,7 +77,7 @@ SortedSet : [Object, Copy, Store, Equal, Do, New, Collect, FiniteCollection, Add
 
 }
 
-+@FiniteCollection {
++@Collection {
 
 	SortedSet { :self |
 		let answer = SortedSet();

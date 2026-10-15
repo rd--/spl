@@ -1,4 +1,4 @@
-UnsortedSet : [Object, Store, Equal, Do, New, Collect, FiniteCollection, Add, Remove, Unordered, Set] {
+UnsortedSet : [Object, Store, Equal, Do, New, Collect, Collection, Add, Remove, Unordered, Set] {
 
 	| unsortedList comparator |
 
@@ -51,7 +51,7 @@ UnsortedSet : [Object, Store, Equal, Do, New, Collect, FiniteCollection, Add, Re
 
 }
 
-+@FiniteCollection {
++@Collection {
 
 	UnsortedSet { :self |
 		let answer = UnsortedSet();

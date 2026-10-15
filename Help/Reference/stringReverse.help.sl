@@ -3,6 +3,7 @@
 - _stringReverse(s)_
 
 Answer a `String` that reverses the order of the characters in the string _s_.
+Alias for `reverse`.
 
 Reverse the characters in a string:
 
@@ -25,7 +26,7 @@ Threads over lists:
 
 * * *
 
-See also: reverse, String
+See also: String, reverse
 
 Guides: String Functions
 

@@ -1141,7 +1141,7 @@
 
 }
 
-+@FiniteCollection {
++@Collection {
 
 	isCoprime { :self |
 		withReturn { :return/1 |

@@ -31,7 +31,7 @@ The trait dictionary:
 
 ```
 >>> let d = system.traitDictionary;
->>> d.includesKey('FiniteCollection')
+>>> d.includesKey('Collection')
 true
 ```
 

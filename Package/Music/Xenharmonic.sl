@@ -190,7 +190,7 @@
 
 }
 
-+@FiniteCollection {
++@Collection {
 
 	kurenniemiMajorMinorIndex { :self |
 		let l = self.lcm.log;

@@ -1,4 +1,4 @@
-Cons : [Object, Do, Collect, FiniteCollection] {
+Cons : [Object, Do, Collect, Collection] {
 
 	| car cdr |
 

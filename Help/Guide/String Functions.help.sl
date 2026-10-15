@@ -12,9 +12,8 @@ Traits and Types:
 
 Ascii:
 
-- `AsciiString`
 - `asciiByteArray`
-- `asciiContents`
+- `asciiStringBuilder`
 - `asciiString`
 - `asciiValue`
 - `ascii`
@@ -22,15 +21,20 @@ Ascii:
 - `isAscii`
 - `isPrintableAscii`
 
+Utf-8 and Utf-16:
+
+- `utf16List`
+- `utf16String`
+- `utf8ByteArray`
+- `utf8List`
+- `utf8String`
+- `utf8StringBuilder`
+
 Converting:
 
-- `AsciiString`
-- `ByteArray`
-- `Character`
 - `codePoint`
 - `hexDigitCharacter`
 - `hexString`
-- `List`
 - `toLowerCase`
 - `displayString`
 - `toUpperCase`
@@ -149,10 +153,6 @@ Unicode:
 - `unicodeItalic`
 - `unicodeSubscript`
 - `unicodeSuperscript`
-- `utf16List`
-- `utf8ByteArray`
-- `utf8Contents`
-- `utf8String`
 
 * * *
 
