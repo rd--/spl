@@ -1,9 +1,9 @@
-AsciiString : [Object, Store, Equal, Do, At, Put, New, Collect, Collection, Sequence] {
+AsciiString : [Object, New, Store, Copy, Equal, Do, At, Put, Collect, Collection, Sequence] {
 
 	| byteArray |
 
-	AsciiString { :self |
-		self
+	[AsciiString, copyAsciiString] { :self |
+		self.copy
 	}
 
 	atIfAbsent { :self :anInteger :ifAbsent/0 |
@@ -40,6 +40,10 @@ AsciiString : [Object, Store, Equal, Do, At, Put, New, Collect, Collection, Sequ
 			answer[index] := each.Character
 		};
 		answer
+	}
+
+	postCopy { :self |
+		self.byteArray := self.byteArray.copy
 	}
 
 	put! { :self :anInteger :aCharacter |
@@ -82,7 +86,7 @@ AsciiString : [Object, Store, Equal, Do, At, Put, New, Collect, Collection, Sequ
 
 +String {
 
-	AsciiString { :self |
+	[AsciiString, stringToAsciiString] { :self |
 		self.asciiByteArray.uncheckedAsciiString
 	}
 

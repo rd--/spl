@@ -67,6 +67,16 @@ use `hasEqualElements` to compare sequences regardless of type:
 (false, true)
 ```
 
+An empty list view,
+the end index must be one less than the start index:
+
+```
+>>> let a = [1 2 3 4 5];
+>>> let b = ListView(a, 3, 2);
+>>> (b.size, b.List)
+(0, [])
+```
+
 The reference index allows for creating a zero indexed view onto a list:
 
 ```

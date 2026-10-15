@@ -1,6 +1,6 @@
 /* Requires: Multiset */
 
-IdentityMultiset : [Object, Copy, Store, Equal, Do, New, Collect, Collection, Add, Remove, Unordered, Multiset] {
+IdentityMultiset : [Object, New, Copy, Store, Equal, Do, Collect, Collection, Add, Remove, Unordered, Multiset] {
 
 	| valuesAndCounts |
 

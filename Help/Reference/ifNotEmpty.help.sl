@@ -1,23 +1,25 @@
 # ifNotEmpty
 
-- _ifNotEmpty(c, f/1, g/0)_
+- _ifNotEmpty(c, f/0, g/0={})_
 
 Conditional evaluation.
 If the collection _c_ is not empty,
-answer the result of _f.cull(c)_,
+answer the result of _f()_,
 else answer _g()_.
 If _g_ is elided answer `nil`.
 
 ```
->>> [].ifNotEmpty(sqrt/1)
+>>> let a = [];
+>>> a.ifNotEmpty { a.sqrt }
 nil
 
->>> [1 4 9 16 25].ifNotEmpty(sqrt/1)
+>>> let a = [1 4 9 16 25];
+>>> a.ifNotEmpty { a.sqrt }
 [1 2 3 4 5]
 
 >>> let a = [1 2 3];
->>> let b = a.ifNotEmpty { :x |
->>> 	x[2] := -2
+>>> let b = a.ifNotEmpty {
+>>> 	a[2] := -2
 >>> };
 >>> (a, b)
 ([1 -2 3], -2)

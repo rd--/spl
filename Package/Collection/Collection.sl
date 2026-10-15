@@ -340,39 +340,39 @@
 		}
 	}
 
-	ifEmpty { :self :emptyBlock/0 :notEmptyBlock |
+	ifEmpty { :self :emptyBlock/0 :notEmptyBlock/0 |
 		self.isEmpty.if {
 			emptyBlock()
 		} {
-			notEmptyBlock.cull(self)
+			notEmptyBlock()
 		}
 	}
 
-	ifEmptyIfNotEmptyDo { :self :emptyBlock/0 :notEmptyBlock/1 |
+	ifEmptyIfNotEmptyDo { :self :emptyBlock/0 :f/1 |
 		self.isEmpty.if {
 			emptyBlock()
 		} {
-			notEmptyBlock(self)
+			self.do(f/1)
 		}
 	}
 
-	ifNotEmpty { :self :notEmptyBlock |
+	ifNotEmpty { :self :notEmptyBlock/0 |
 		self.isEmpty.ifFalse {
-			notEmptyBlock.cull(self)
+			notEmptyBlock()
 		}
 	}
 
-	ifNotEmpty { :self :notEmptyBlock :emptyBlock/0 |
+	ifNotEmpty { :self :notEmptyBlock/0 :emptyBlock/0 |
 		self.isEmpty.if {
 			emptyBlock()
 		} {
-			notEmptyBlock.cull(self)
+			notEmptyBlock()
 		}
 	}
 
-	ifNotEmptyDo { :self :aBlock/1 |
+	ifNotEmptyDo { :self :f/1 |
 		self.isEmpty.ifFalse {
-			aBlock(self)
+			self.do(f/1)
 		}
 	}
 

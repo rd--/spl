@@ -3,7 +3,8 @@
 Package! : [Object, Equal, Compare] {
 
 	addDependenciesTo! { :self :aSequence |
-		self.requires.ifNotEmpty { :packageNames |
+		let packageNames = self.requires;
+		packageNames.ifNotEmpty {
 			let packages = packageNames.collect { :each |
 				system.package(each)
 			};

@@ -962,7 +962,7 @@ let s = [1 .. 4].IdentitySet; let c = s.copyWith(5); s != c & { c = [1 .. 5].Ide
 [].ifEmpty { true } /* evaluate block if collection is empty */
 [].ifEmpty { true } { false } /* evaluate first lock if collection is empty */
 [1].ifEmpty { false } { true } /* evaluate second block if collection is not empty */
-[1].ifEmpty { false } { :c | c = [1] } /* evaluate second block with collection if not empty */
+let c = [1]; c.ifEmpty { false } { c = [1] } /* evaluate second block if not empty */
 1:9.detectSum(square/1) = 285 /* apply block to each element and sum */
 1:9.collect(square/1).sum = 285
 let a = [1 .. 9]; a.removeAll!(3:7); a = [1, 2, 8, 9] /* remove all indicated elements */
@@ -980,9 +980,9 @@ let a = [1 .. 5]; a.items = a & { a.items !== a } /* contents at list is equal b
 (1:9 / 3).round = [0, 1, 1, 1, 2, 2, 2, 3, 3] /* unary math operator at collection */
 [].collectThenDo { :each | 'error'.error } { :each | 'error'.error } = [] /* neither block is run for empty collections */
 let n = 0; 3:7.collectThenDo(square/1) { :each | n := n + each } = [9, 16, 25, 36, 49] & { n = 135 } /* collect then do */
-[].ifEmptyIfNotEmptyDo { true } { :aCollection | false } = true /* branch on isEmpty */
-1:9.ifEmptyIfNotEmptyDo { false } { :aCollection | aCollection.size = 9 } = true /* branch on isEmpty */
-1:9.ifNotEmptyDo { :aCollection | aCollection.size = 9 } = true /* branch on isEmpty */
+[].ifEmptyIfNotEmptyDo { true } { :x | x } = true /* branch on isEmpty */
+let c = 1:9; let a = 0; c.ifEmptyIfNotEmptyDo { false } { :x | a := a + (x ^ 3) }; a = 2025 /* branch on isEmpty */
+let c = 1:9; let a = 0; c.ifNotEmptyDo { :x | a := a + (x ^ 3) }; a = 2025 /* branch on isEmpty */
 1:9.average = 5 /* mean, sum divided by size */
 1:9.average = (45 / 9) /* mean, sum divided by size */
 (x: (y: 1)).atPath(['x', 'y']) = 1 /* atPath of dictionary, depth = 2 */

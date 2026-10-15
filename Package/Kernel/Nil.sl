@@ -1,4 +1,8 @@
-Nil! : [Object, Copy, Store, Equal, Json] {
+Nil! : [Object, Copy, Store, Equal, Compare, Json] {
+
+	compare { :unused :unusedOperand |
+		-1
+	}
 
 	concisePrintString { :self |
 		self.printString

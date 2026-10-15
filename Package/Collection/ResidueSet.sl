@@ -1,6 +1,6 @@
 /* Requires: BitSet Set */
 
-ResidueSet : [Object, Store, Equal, Do, New, Collect, Collection, Add, Remove] {
+ResidueSet : [Object, New, Store, Equal, Do, Collect, Collection, Add, Remove] {
 
 	| commonResidueSet modulus |
 

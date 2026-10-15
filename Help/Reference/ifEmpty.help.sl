@@ -1,17 +1,18 @@
 # ifEmpty
 
-- _ifEmpty(c, f/0, g/1)_
+- _ifEmpty(c, f/0, g/0={c})_
 
 Conditional evaluation.
-If the collection _c_ has no elements answer the result of  _f_,
-else answer _c_ or _g.cull(c)_.
+If the collection _c_ has no elements answer the result of _f()_,
+else answer _c_ or _g()_.
 
 ```
 >>> [].ifEmpty { 1:9 }
 1:9
 
->>> 0:8.ifEmpty { } { :x |
->>> 	x + 1
+>>> let c = 0:8;
+>>> c.ifEmpty { } {
+>>> 	c + 1
 >>> }
 1:9
 ```

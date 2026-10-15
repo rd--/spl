@@ -1,4 +1,4 @@
-ListView : [Object, Copy, Store, Equal, New, Compare, Do, At, Put, Collect, Collection, Sequence] {
+ListView : [Object, New, Copy, Store, Equal, Compare, Do, At, Put, Collect, Collection, Sequence] {
 
 	| collection startIndex endIndex referenceIndex |
 
@@ -88,7 +88,13 @@ ListView : [Object, Copy, Store, Equal, New, Compare, Do, At, Put, Collect, Coll
 +List {
 
 	ListView { :self :startIndex :endIndex :referenceIndex |
-		(endIndex >= startIndex & { self.size >= endIndex }).if {
+		(
+			startIndex >= 1 & {
+				endIndex + 1 >= startIndex & {
+					self.size >= endIndex
+				}
+			}
+		).if {
 			newListView().initializeSlots(self, startIndex, endIndex, referenceIndex)
 		} {
 			self.error('ListView: invalid indices')

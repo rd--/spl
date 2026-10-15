@@ -189,7 +189,7 @@
 
 }
 
-Multiset : [Object, Copy, Store, Equal, Do, New, Collect, Collection, Add, Remove, Unordered, Multiset] {
+Multiset : [Object, New, Copy, Store, Equal, Do, Collect, Collection, Add, Remove, Unordered, Multiset] {
 
 	| valuesAndCounts |
 

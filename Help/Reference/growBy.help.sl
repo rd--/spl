@@ -26,6 +26,6 @@ Shrink a list:
 
 * * *
 
-See also: copyFromTo, newOfSize, replaceFromToWithStartingAt
+See also: copyFromTo, new, replaceFromToWithStartingAt
 
 Guides: List Functions

@@ -4,8 +4,8 @@ Instance Creation:
 
 - `new`
 - `newFrom`
+- `newOfSize`
 - `species`
-- `ofSize`
 
 Enumerating Functions:
 

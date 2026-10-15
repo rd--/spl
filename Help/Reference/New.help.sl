@@ -22,6 +22,36 @@ The provided methods are:
 true
 ```
 
+Types implementing `New`:
+
+```
+>>> system
+>>> .traitTypes('@New')
+>>> .sort!
+[
+	'AsciiString'
+	'ByteArray'
+	'Float32Array'
+	'Float64Array'
+	'IdentityMultiset'
+	'IdentitySet'
+	'LinkedList'
+	'List'
+	'ListView'
+	'Map'
+	'Multiset'
+	'Range'
+	'Record'
+	'RelativeRange'
+	'ResidueSet'
+	'SortedList'
+	'SortedSet'
+	'UnsortedSet'
+]
+```
+
 * * *
 
 See also: new, newFrom, species
+
+Guides: Collection Functions

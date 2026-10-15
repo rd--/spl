@@ -1,6 +1,6 @@
 # LinkedList
 
-- _LinkedList([x₁ x₂ …])_
+- _LinkedList([x₁ x₂ …]=[])_
 
 A `Type` representing a collection of links, which are containers for other objects.
 
@@ -8,7 +8,7 @@ Using the methods `addFirst!` and `removeLast!` causes the list to behave as a s
 
 Using `addLast!` and `removeFirst!` causes the list to behave as a queue.
 
-Unlike `List` certain methods, such as `atIndex`, are linear and not constant time.
+Unlike `List` certain methods, such as `at`, are linear and not constant time.
 
 Type predicate for linked list:
 
@@ -183,7 +183,7 @@ true
 true
 ```
 
-Indices, answers a `Range`:
+`indices` answers a `Range`:
 
 ```
 >>> LinkedList[1, 3 .. 9].indices
