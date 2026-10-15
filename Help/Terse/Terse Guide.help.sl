@@ -812,7 +812,7 @@ false != nil
 ```
 system.includesPackage('ByteArray') /* byte array package */
 ByteArray(0, 0).typeOf = 'ByteArray' /* byte array type name */
-ByteArray(0, 0).species == ByteArray/1 /* byte array species */
+ByteArray(0, 0).species == zeroByteArray/1 /* byte array species */
 ByteArray(0, 0).isList = false /* byte arrays are arrays */
 ByteArray(0, 0).isByteArray /* byte array predicate */
 ByteArray(0, 0).isIndexable /* byte arrays are indexable */
@@ -1387,22 +1387,22 @@ let x = nil; { { ''.error }.ensure { x := true } }.ignoreError; x /* ensure term
 ## Float64Array -- collection type
 ```
 system.includesPackage('Float64Array') /* package */
-Float64Array(0).typeOf = 'Float64Array' /* type of */
-Float64Array(0).species == Float64Array/1 /* species */
-Float64Array(0).isFloat64Array /* type predicate */
-Float64Array(0).isEmpty /* is empty predicate */
-Float64Array(8).size = 8 /* size of */
-Float64Array(8).at(1) = 0 /* at protocol, initialized to zero */
-Float64Array(8).put!(1, 1.pi) = 1.pi /* put protocol, answer value put */
-let a = Float64Array(8); a.put!(1, 1.pi) = 1.pi & { a.at(1) = 1.pi }
-let a = Float64Array(8); (a[1] := 1.pi) = 1.pi & { a[1] = 1.pi }
+Float64Array(0, 0).typeOf = 'Float64Array' /* type of */
+Float64Array(0, 0).species == zeroFloat64Array/1 /* species */
+Float64Array(0, 0).isFloat64Array /* type predicate */
+Float64Array(0, 0).isEmpty /* is empty predicate */
+Float64Array(8, 0).size = 8 /* size of */
+Float64Array(8, 0).at(1) = 0 /* at protocol, initialized to zero */
+Float64Array(8, 0).put!(1, 1.pi) = 1.pi /* put protocol, answer value put */
+let a = Float64Array(8, 0); a.put!(1, 1.pi) = 1.pi & { a.at(1) = 1.pi }
+let a = Float64Array(8, 0); (a[1] := 1.pi) = 1.pi & { a[1] = 1.pi }
 1:9.Float64Array.isFloat64Array = true /* interval as array */
 1:9.Float64Array.reverse = 9:1:-1.Float64Array /* reverse copy */
 let a = [1 .. 9].Float64Array; a.reverse!; a = 9:1:-1.Float64Array /* reverse in-place */
 let a = 9:1:-1.Float64Array; a.sort!; a = 1:9.Float64Array /* sort in-place */
-{ Float64Array(1).put!(3, 'x') }.hasError /* out of bounds error */
-let a = Float64Array(1); a.uncheckedPut!(1, 'x'); a.at(1).isNaN = true /* unsafe mutation inserts NaN */
-let a = Float64Array(1); a.uncheckedPut!(3, 'x'); a.uncheckedAt(3) = nil /* unsafe mutation does not extend array */
+{ Float64Array(1, 0).put!(3, 'x') }.hasError /* out of bounds error */
+let a = Float64Array(1, 0); a.uncheckedPut!(1, 'x'); a.at(1).isNaN = true /* unsafe mutation inserts NaN */
+let a = Float64Array(1, 0); a.uncheckedPut!(3, 'x'); a.uncheckedAt(3) = nil /* unsafe mutation does not extend array */
 1:3.Float64Array.printString = 'Float64Array([1, 2, 3])'
 1:3.Float64Array.storeString = 'Float64Array([1, 2, 3])'
 let a = 1:3.Float64Array; let c = a.copy; c[1] := 3; c != a & { c.List = [3, 2, 3] } /* copy */

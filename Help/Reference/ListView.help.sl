@@ -138,11 +138,11 @@ Traits implemented by `ListView`:
 [
 	'At'
 	'Collect'
+	'Collection'
 	'Compare'
 	'Copy'
 	'Do'
 	'Equal'
-	'Collection'
 	'New'
 	'Object'
 	'Put'

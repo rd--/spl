@@ -14,10 +14,10 @@ Traits implemented by `SortedSet`:
 [
 	'Add'
 	'Collect'
+	'Collection'
 	'Copy'
 	'Do'
 	'Equal'
-	'Collection'
 	'New'
 	'Object'
 	'Remove'

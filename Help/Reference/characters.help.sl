@@ -42,7 +42,8 @@ which threads over lists:
 ```
 
 `stringCatenate` and `stringJoin` can also undo `characters`,
-but do not require each item in the string is a character:
+but do not require each item in the string is a character,
+or even a string:
 
 ```
 >>> List'mississippi'

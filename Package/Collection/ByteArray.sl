@@ -137,7 +137,7 @@ ByteArray! : [Object, Copy, Store, Equal, Compare, Do, At, Put, New, Collect, Co
 
 +SmallFloat {
 
-	ByteArray { :n :x |
+	[ByteArray, constantByteArray] { :n :x |
 		x.isByte.ifFalse {
 			n.error('ByteArray', [x])
 		};
@@ -159,7 +159,7 @@ ByteArray! : [Object, Copy, Store, Equal, Compare, Do, At, Put, New, Collect, Co
 
 	[ByteArray, listToByteArray] { :self |
 		self.isEmpty.if {
-			ByteArray[]
+			ByteArray(0, 0)
 		} {
 			(
 				self.isSmallFloatVector & {
