@@ -640,3 +640,69 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 	}
 
 }
+
++@Integer {
+
+	polyominoes { :n |
+		let unique = { :x |
+			x.nub.sortOn(realImaginary/1)
+		};
+		let rot = { :p |
+			1I * p
+		};
+		let ref = { :p |
+			p.collect { :x |
+				x - (2 * x.real)
+			}
+		};
+		let cyclic = { :p |
+			let i = p;
+			let a = [p];
+			{
+				i := rot(i);
+				i != p
+			}.whileTrue {
+				a.add!(i)
+			};
+			a
+		};
+		let dihedral = { :p |
+			p.cyclic.collect { :x |
+				[x, ref(x)]
+			}.catenate
+		};
+		let canonical = { :p |
+			let a = p.real.min;
+			let b = p.imaginary.min;
+			p.collect { :x |
+				x - (a + (b * 1I))
+			}.unique
+		};
+		let allPieces = { :p |
+			p.dihedral.collect(canonical/1).unique
+		};
+		(n = 1).if {
+			[[0]]
+		} {
+			let a = [];
+			let fig = (n - 1).polyominoes.collect { :f |
+				f.collect { :x |
+					[f, x + 1, f, x + 1I, f, x - 1, f, x - 1I]
+				}
+			}.flatten.partition(n);
+			let f = fig.collect(canonical/1).unique.select { :x |
+				x.size = n
+			};
+			{
+				f != []
+			}.whileTrue {
+				let g = f[1];
+				a := [a, g];
+				f := complement(f, allPieces(g))
+			};
+			a.flatten.partition(n)
+		}
+	}
+
+}
+
