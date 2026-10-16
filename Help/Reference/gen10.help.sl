@@ -1,6 +1,6 @@
 # gen10
 
-- _gen10(anInteger, amplitudes)_
+- _gen10(n, [a₁ a₂ …])_
 
 Generate composite waveforms made up of weighted sums of simple sinusoids.
 The specification of each contributing partial requires one field:
@@ -22,7 +22,7 @@ An approximation of a sawtooth wave, fundamental and eight harmonics:
 ~~~spl svg=B
 (2 ^ 10).gen10(
 	[
-		1 0.5 0.3 0.25 0.2
+		1     0.5  0.3   0.25  0.2
 		0.167 0.14 0.125 0.111
 	]
 ).linePlot

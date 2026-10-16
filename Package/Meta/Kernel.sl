@@ -23,6 +23,7 @@
 	'Collect'
 	'Do'
 	'Collection'
+	'Indices'
 	'New'
 	'Ordered'
 	'Put'

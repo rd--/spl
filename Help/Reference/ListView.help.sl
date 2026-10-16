@@ -153,6 +153,7 @@ Traits implemented by `ListView`:
 	'Copy'
 	'Do'
 	'Equal'
+	'Indices'
 	'New'
 	'Object'
 	'Put'

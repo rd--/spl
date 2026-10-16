@@ -1,4 +1,4 @@
-Range : [Object, New, Copy, Store, Equal, Compare, Do, Collect, Collection, At, Sequence, ArithmeticProgression] {
+Range : [Object, New, Copy, Store, Equal, Compare, Do, Collect, Collection, At, Indices, Sequence, ArithmeticProgression] {
 
 	| start stop step size |
 

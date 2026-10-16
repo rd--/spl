@@ -308,10 +308,6 @@
 		result
 	}
 
-	indices { :self |
-		self.typeResponsibility('indices')
-	}
-
 	intersection { :self :aCollection |
 		self.select { :each |
 			aCollection.includes(each)

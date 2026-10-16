@@ -25,7 +25,6 @@ Types implementing `Sequence`:
 	'ListView'
 	'NumericArray'
 	'Range'
-	'RelativeRange'
 	'SortedList'
 	'SparseArray'
 ]

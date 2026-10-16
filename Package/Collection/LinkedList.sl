@@ -51,10 +51,10 @@
 	}
 
 	linksDo { :self :aBlock/1 |
-		let link = self;
-		{ link.isNil }.whileFalse {
-			aBlock(link);
-			link := link.nextLink
+		let aLink = self;
+		{ aLink.isNil }.whileFalse {
+			aBlock(aLink);
+			aLink := aLink.nextLink
 		}
 	}
 
@@ -76,7 +76,7 @@
 
 }
 
-LinkedList : [Object, New, Copy, Store, Equal, Compare, Do, At, Put, Collect, Collection, Add, Remove, Sequence] {
+LinkedList : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Collect, Collection, Add, Remove, Sequence] {
 
 	| firstLink lastLink |
 

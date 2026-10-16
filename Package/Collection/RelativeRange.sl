@@ -1,4 +1,4 @@
-RelativeRange : [Object, New, Store, Equal, Compare, Do, Collect, Collection, At, Sequence, ArithmeticProgression] {
+RelativeRange : [Object, New, Store, Equal, Compare] {
 
 	| start stop step |
 

@@ -2,25 +2,6 @@
 
 `String` is the `Type` of text literals and constants.
 
-List of traits implemented by `String`:
-
-```
->>> system.typeLookup('String')
->>> .traitNameList
->>> .sort!
-[
-	'At'
-	'Character'
-	'Compare'
-	'Copy'
-	'Do'
-	'Equal'
-	'Json'
-	'Object'
-	'Store'
-]
-```
-
 String literal syntax:
 
 ```
@@ -47,6 +28,26 @@ and fetching an indexed location in a string answers a character:
 Strings are not lists of characters.
 
 Strings are immutable, i.e. there is no `put` implementation.
+
+List of traits implemented by `String`:
+
+```
+>>> system.typeLookup('String')
+>>> .traitNameList
+>>> .sort!
+[
+	'At'
+	'Character'
+	'Compare'
+	'Copy'
+	'Do'
+	'Equal'
+	'Indices'
+	'Json'
+	'Object'
+	'Store'
+]
+```
 
 _Implementation Note_:
 Javascript has a curious implementation of Unicode.

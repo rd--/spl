@@ -1,9 +1,9 @@
 # gen19
 
-- _gen19(anInteger, aMatrix)_
+- _gen19(n, m)_
 
 Generate composite waveforms made up of weighted sums of simple sinusoids.
-The specification of each contributing partial requires four fields:
+The four-column matrix _m_ specifies each contributing partial:
 
 - partial number, must be positive, but need not be a whole number
 - amplitude of partial, negative values imply a 180 degree phase shift
@@ -15,7 +15,11 @@ The answer is scaled to unity.
 A rising sigmoid:
 
 ~~~spl svg=A
-(2 ^ 10).gen19([[0.5 0.5 270 0.5]]).linePlot
+(2 ^ 10).gen19(
+	[
+		[0.5 0.5 270 0.5]
+	]
+).linePlot
 ~~~
 
 ![](Help/Image/gen19-A.svg)

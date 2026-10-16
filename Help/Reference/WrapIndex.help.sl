@@ -6,8 +6,8 @@ Index into a table with a signal.
 The input signal value is truncated to an integer value and used as an index into the table.
 Out of range index values are wrapped cyclically to the valid range.
 
-- table: an instance of FloatList or Signal.
-- in: the input signal.
+- table: a buffer
+- in: the input signal
 
 Indexing into a table:
 

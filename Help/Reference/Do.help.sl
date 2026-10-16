@@ -42,7 +42,6 @@ Types implementing `Do`:
 	'NumericArray'
 	'Range'
 	'Record'
-	'RelativeRange'
 	'ResidueSet'
 	'SortedList'
 	'SortedSet'

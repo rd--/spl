@@ -1,4 +1,4 @@
-SparseArray : [Object, Store, Equal, Compare, Do, At, Collect, Collection, Sequence] {
+SparseArray : [Object, Store, Equal, Compare, Do, At, Indices, Collect, Collection, Sequence] {
 
 	| linearIndexMap shape unspecifiedValue |
 
@@ -68,6 +68,10 @@ SparseArray : [Object, Store, Equal, Compare, Do, At, Collect, Collection, Seque
 
 	do { :self :aBlock/1 |
 		self.linearIndexMap.do(aBlock/1)
+	}
+
+	indices { :self |
+		self.shouldNotImplement('indices')
 	}
 
 	isMatrix { :self |

@@ -76,6 +76,7 @@ The list of system traits:
 	'Geometry'
 	'Graph'
 	'ImplicitFloat'
+	'Indices'
 	'Integer'
 	'Iterator'
 	'Json'

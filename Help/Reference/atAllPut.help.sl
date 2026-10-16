@@ -1,11 +1,11 @@
-# atAllPut
+# atAllPut!
 
-- _atAllPut!(c, x)_
+- _atAllPut!([x₁ x₂ …], y)_
 - _atAllPut!([x₁ x₂ …], [i₁ i₂ …], y)_
 
 In the binary case,
-put the object _x_ at every entry of the collection _c_.
-Answer _x_.
+put the object _y_ at every entry of the collection _x_.
+Answer _y_.
 
 At `List`:
 

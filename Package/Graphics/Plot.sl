@@ -1309,8 +1309,8 @@ Plot : [Object] {
 		let validateDiagram = { :d |
 			let n = d.size;
 			n < 2 | {
-				(1 .. n - 1).allSatisfy { :i |
-					(i + 1 .. n).noneSatisfy { :j |
+				Range(1, n - 1).allSatisfy { :i |
+					Range(i + 1, n).noneSatisfy { :j |
 						let a = d[i];
 						let b = d[j];
 						a[1] = b[1] & {

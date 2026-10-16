@@ -24,7 +24,12 @@ Make a new collection like _c_ that has _n_ places with `nil` as every element.
 _Rationale_:
 This method exists because for some collection types,
 for instance `LinkedList`,
-the binary `new` may create an empty collection
+the binary `new` may create an empty collection.
+`new` cannot,
+in general,
+be required to create collections of a particular size since some collections,
+such as sets,
+cannot have duplicate elements.
 
 * * *
 

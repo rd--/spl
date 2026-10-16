@@ -14,35 +14,26 @@ An _extent_ must be specified in order to _resolve_ the span.
 Relative `start` values:
 
 ```
->>> let s = RelativeRange(-3, 3, -1);
->>> (s, s.deriveRange(9))
-(
-	RelativeRange(-3, 3, -1),
-	Range(7, 3, -1)
-)
+>>> RelativeRange(-3, 3, -1)
+>>> .deriveRange(9)
+Range(7, 3, -1)
 ```
 
 Relative `stop` values:
 
 ```
->>> let s = RelativeRange(3, -3, 2);
->>> (s, s.deriveRange(9))
-(
-	RelativeRange(3, -3, 2),
-	Range(3, 7, 2)
-)
+>>> RelativeRange(3, -3, 2)
+>>> .deriveRange(9)
+Range(3, 7, 2)
 ```
 
 `step` may be negative,
 and not equal to `one`:
 
 ```
->>> let s = RelativeRange(-3, 3, -2);
->>> (s, s.deriveRange(9))
-(
-	RelativeRange(-3, 3, -2),
-	Range(7, 3, -2)
-)
+>>> RelativeRange(-3, 3, -2)
+>>> .deriveRange(9)
+Range(7, 3, -2)
 ```
 
 A span with a negative `start`, a positive `stop`, and a negative `step` is a relative span,

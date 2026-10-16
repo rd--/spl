@@ -5,30 +5,6 @@
 A `Record` is a `Dictionary` type where all the keys are strings.
 Answer a `Record` where the keys and values are specified in a two-column matrix.
 
-List of traits implemented by `Record`:
-
-```
->>> system.typeLookup('Record')
->>> .traitNameList
->>> .sort!
-[
-	'Add'
-	'At'
-	'Collect'
-	'Collection'
-	'Copy'
-	'Dictionary'
-	'Do'
-	'Equal'
-	'Json'
-	'New'
-	'Object'
-	'Put'
-	'Remove'
-	'Store'
-]
-```
-
 Construct a `Record` from a two-column matrix:
 
 ```
@@ -144,6 +120,31 @@ and assocations are added at the end:
 >>> r.add!('x' -> 1);
 >>> r.associations
 ['y' -> 2, 'x' -> 1]
+```
+
+List of traits implemented by `Record`:
+
+```
+>>> system.typeLookup('Record')
+>>> .traitNameList
+>>> .sort!
+[
+	'Add'
+	'At'
+	'Collect'
+	'Collection'
+	'Copy'
+	'Dictionary'
+	'Do'
+	'Equal'
+	'Indices'
+	'Json'
+	'New'
+	'Object'
+	'Put'
+	'Remove'
+	'Store'
+]
 ```
 
 * * *

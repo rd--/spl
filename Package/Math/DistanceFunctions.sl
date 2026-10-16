@@ -700,7 +700,7 @@
 		let p = split(e, equal/2);
 		let q = p.collect(size/1);
 		let r = [1] ++ (q.prefixSum + 1);
-		(1 .. p.size).collect { :i |
+		1.toCollect(p.size) { :i |
 			let x = p[i];
 			let n = x.size;
 			let w = x[1];

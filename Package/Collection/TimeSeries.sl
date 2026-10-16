@@ -1,4 +1,4 @@
-TimeSeries : [Object, Store, Equal, Do, At, Put, Collect, Collection] {
+TimeSeries : [Object, Store, Equal, Do, At, Indices, Put, Collect, Collection] {
 
 	| values times |
 

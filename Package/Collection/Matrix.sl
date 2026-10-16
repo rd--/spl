@@ -643,7 +643,7 @@
 	}
 
 	krenekRotationalArray { :a :m |
-		(0 .. a.size - 1).collect { :i |
+		0.toCollect(a.size - 1) { :i |
 			let b = a.rotateLeft(i);
 			b - b[1] + a[1] % m
 		}

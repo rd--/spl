@@ -268,9 +268,9 @@
 +SmallFloat {
 
 	yunikSwiftConsonanceTable { :self :operand |
-		(2 .. self).collect { :n |
+		2.toCollect(self) { :n |
 			let m = (n / 2).ceiling;
-			(m .. n - 1).select { :d |
+			Range(m, n - 1).select { :d |
 				d.isCoprime(n)
 			}.collect { :d |
 				(n / d)

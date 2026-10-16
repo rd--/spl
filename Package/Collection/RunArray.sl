@@ -1,4 +1,4 @@
-RunArray : [Object, Equal, Store, At] {
+RunArray : [Object, Equal, Store, At, Indices] {
 
 	| runLengths values cachedIndex cachedRun cachedOffset |
 
@@ -98,6 +98,10 @@ RunArray : [Object, Equal, Store, At] {
 
 	includes { :self :anObject |
 		self.values.includes(anObject)
+	}
+
+	indices { :self |
+		1.to(self.size)
 	}
 
 	isSorted { :self |

@@ -15,4 +15,4 @@
 		let env = (LfNoise2(4) * 0.4 + 0.6) ^ 2;
 		MoogLadder(Saw(freq) * env, LfNoise2(1) * 1700 + 2200, 0.3)
 	} !^ 8 * 0.5
-}.OverlapTexture(4, 4, 4).Mix
+}.OverlapTexture(4, 4, 3).Mix

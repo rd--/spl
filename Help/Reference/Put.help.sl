@@ -1,6 +1,21 @@
 # Put
 
-`Put` is a collection `Trait`.
+`Put` is a collection trait.
+
+The required method is:
+
+- `put!`
+
+Implemented methods include:
+
+- `atAllPut!`
+- `atAllPutAll!`
+- `atModify!`
+- `atPathPut!`
+
+`Put Syntax` is implemented in terms of `Put` methods.
+
+`Put` is a `Trait`:
 
 ```
 >>> system
@@ -9,15 +24,9 @@
 true
 ```
 
-The required method is:
-
-- `put`
-
-`Put Syntax` is implemented in terms of `Put` methods.
-
 * * *
 
-See also: at, Collection, includesIndex, indices, indicesDo, put, size, withIndexDo
+See also: At, Indices, put
 
 Guides: Dictionary Functions, Indexing Functions, List Functions
 

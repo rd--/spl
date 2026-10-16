@@ -6,8 +6,8 @@ Index into a table with a signal.
 The input signal value is truncated to an integer value and used as an index into the table.
 Out of range index values are clipped to the valid range.
 
-- table: an instance of FloatList or Signal.
-- in: the input signal.
+- table: a buffer
+- in: the input signal
 
 Index buffer for frequency values:
 
@@ -20,6 +20,8 @@ SinOsc([f, f * 9], 0) * 0.1
 * * *
 
 See also: Shaper, WrapIndex
+
+Guides: Unit Generators
 
 References:
 _SuperCollider_

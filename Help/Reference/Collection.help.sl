@@ -1,6 +1,41 @@
 # Collection
 
-`Collection` is a `Trait` holding behaviours common to finite collections.
+`Collection` is a trait holding behaviours common to finite collections.
+Collections should ordinarily implement `Do`.
+
+The required methods are:
+
+- `size`
+
+Methods for testing
+
+- `allSatisfy`
+- `anySatisfy`
+- `includesAll`
+- `includesAny`
+- `includes`
+- `isEmpty`
+- `occurrencesOf`
+
+Methods for enumerating:
+
+- `do`
+- `doSeparatedBy`
+- `select`
+- `reject`
+- `collect`
+- `detect`
+- `detectIfNone`
+- `injectInto`
+- `collectThenSelect`
+- `selectThenCollect`
+- `count`
+
+Methods for set logic:
+
+- `difference`
+
+`Collection` is a `Trait`:
 
 ```
 >>> system
@@ -33,7 +68,6 @@ Types implementing `Collection`:
 	'NumericArray'
 	'Range'
 	'Record'
-	'RelativeRange'
 	'ResidueSet'
 	'SortedList'
 	'SortedSet'
@@ -45,45 +79,11 @@ Types implementing `Collection`:
 ]
 ```
 
-The required methods are `do` and `size`,
-meaning that all collections can also implement `Do`:
-
-- `do`
-- `size`
-
-Methods for testing
-
-- `allSatisfy`
-- `anySatisfy`
-- `includesAll`
-- `includesAny`
-- `includes`
-- `isEmpty`
-- `occurrencesOf`
-
-Methods for enumerating:
-
-- `do`
-- `doSeparatedBy`
-- `select`
-- `reject`
-- `collect`
-- `detect`
-- `detectIfNone`
-- `injectInto`
-- `collectThenSelect`
-- `selectThenCollect`
-- `count`
-
-Methods for set logic:
-
-- `difference`
-
 * * *
 
-See also: Dictionary, Sequence, do, size
+See also: Dictionary, New, Sequence, do, size
 
-Guides: Dictionary Functions, List Functions
+Guides: Collection Functions, Dictionary Functions, List Functions
 
 References:
 _Smalltalk_

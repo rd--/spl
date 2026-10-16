@@ -27,7 +27,7 @@ nil
 
 * * *
 
-See also: if, ifFalse, ifNil, ifNotEmpty, ifNotNil, ifTrue, size
+See also: if, ifEmpty, ifFalse, ifNil, ifNotNil, ifTrue, size
 
 Guides: Collection Functions, Control Functions
 

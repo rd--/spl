@@ -38,8 +38,8 @@ true
 
 * * *
 
-See also: at, includesKey, Indexable, indices
+See also: Index, at, includesKey, indices
 
-Guides: Dictionary Functions, List Functions
+Guides: Dictionary Functions, List Functions, Sequence Functions
 
 Categories: Testing

@@ -1,10 +1,10 @@
 # gen20
 
-- _gen20(size, window, ⌈, [α])_
+- _gen20(n, w, ⌈, [α])_
 
-Generates a stored function table for the specified window function.
+Generates a stored function table for the specified window function _w_.
 
-Hamming window:
+Hamming window, _w=1_:
 
 ~~~spl svg=A
 129.gen20(1, 1, []).linePlot
@@ -12,7 +12,7 @@ Hamming window:
 
 ![](Help/Image/gen20-A.svg)
 
-Hann window:
+Hann window, _w=2_:
 
 ~~~spl svg=B
 129.gen20(2, 1, []).linePlot
@@ -20,7 +20,7 @@ Hann window:
 
 ![](Help/Image/gen20-B.svg)
 
-Bartlett window:
+Bartlett (or triangular) window, _w=3_:
 
 ~~~spl svg=C
 129.gen20(3, 1, []).linePlot
@@ -28,7 +28,7 @@ Bartlett window:
 
 ![](Help/Image/gen20-C.svg)
 
-Blackman window:
+Blackman window, _w=4_:
 
 ~~~spl svg=D
 129.gen20(4, 1, []).linePlot
@@ -36,7 +36,7 @@ Blackman window:
 
 ![](Help/Image/gen20-D.svg)
 
-Blackman-Harris window:
+Blackman-Harris window, _w=5_:
 
 ~~~spl svg=E
 129.gen20(5, 1, []).linePlot
@@ -44,7 +44,7 @@ Blackman-Harris window:
 
 ![](Help/Image/gen20-E.svg)
 
-Gaussian window, α=1::
+Gaussian window, _w=6_, with _α=1_:
 
 ~~~spl svg=F
 129.gen20(6, 1, [1]).linePlot
@@ -52,7 +52,7 @@ Gaussian window, α=1::
 
 ![](Help/Image/gen20-F.svg)
 
-Gaussian window, α=2:
+Gaussian window, _w=6_, with _α=2_:
 
 ~~~spl svg=G
 129.gen20(6, 1, [2]).linePlot
@@ -60,7 +60,7 @@ Gaussian window, α=2:
 
 ![](Help/Image/gen20-G.svg)
 
-Kaiser window, α=5:
+Kaiser window, _w=7_, with _α=5_:
 
 ~~~spl svg=H
 129.gen20(7, 1, [5]).linePlot
@@ -68,7 +68,7 @@ Kaiser window, α=5:
 
 ![](Help/Image/gen20-H.svg)
 
-Kaiser window, α=10:
+Kaiser window, _w=7_, with _α=10_:
 
 ~~~spl svg=I
 129.gen20(7, 1, [10]).linePlot
@@ -76,7 +76,7 @@ Kaiser window, α=10:
 
 ![](Help/Image/gen20-I.svg)
 
-Sinc window, α=1:
+Sinc window, _w=9_, with _α=1_:
 
 ~~~spl svg=J
 129.gen20(9, 1, [1]).linePlot
@@ -84,7 +84,7 @@ Sinc window, α=1:
 
 ![](Help/Image/gen20-J.svg)
 
-Sinc window, α=3:
+Sinc window, _w=9_, with _α=3_:
 
 ~~~spl svg=K
 129.gen20(9, 1, [3]).linePlot

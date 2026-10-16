@@ -1,6 +1,8 @@
 # At
 
-`At` is a collection `Trait`.
+`At` is a collection trait.
+
+`At` is a `Trait`:
 
 ```
 >>> system
@@ -12,8 +14,6 @@ true
 The required methods are:
 
 - `at`
-- `indices`
-- `size`
 
 `At Syntax` is implemented in terms of `At` methods.
 
@@ -43,7 +43,6 @@ Types implementing `At`:
 	'PlanarCoordinates'
 	'Range'
 	'Record'
-	'RelativeRange'
 	'RunArray'
 	'SortedList'
 	'SparseArray'
@@ -58,7 +57,7 @@ Types implementing `At`:
 
 * * *
 
-See also: Collection, Put, at, includesIndex, indices, indicesDo, put, size, withIndexDo
+See also: Collection, Indices, Put, at, includesIndex, indices, indicesDo, put, size, withIndexDo
 
 Guides: Dictionary Functions, Indexing Functions, List Functions
 

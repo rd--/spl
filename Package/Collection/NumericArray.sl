@@ -1,4 +1,4 @@
-NumericArray : [Object, Store, Equal, Compare, Do, At, Put, Collect, Collection, Sequence] {
+NumericArray : [Object, Store, Equal, Compare, Do, At, Indices, Put, Collect, Collection, Sequence] {
 
 	| array shape storageType |
 

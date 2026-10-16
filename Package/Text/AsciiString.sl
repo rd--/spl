@@ -1,4 +1,4 @@
-AsciiString : [Object, New, Store, Copy, Equal, Do, At, Put, Collect, Collection, Sequence] {
+AsciiString : [Object, New, Store, Copy, Equal, Do, At, Indices, Put, Collect, Collection, Sequence] {
 
 	| byteArray |
 
@@ -28,10 +28,6 @@ AsciiString : [Object, New, Store, Copy, Equal, Do, At, Put, Collect, Collection
 		AsciiString(
 			self.byteArray.base16Encode
 		)
-	}
-
-	indices { :self |
-		1.to(self.byteArray.size)
 	}
 
 	[List, asciiStringToList] { :self |

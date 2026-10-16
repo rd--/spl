@@ -1,9 +1,9 @@
 # gen09
 
-- _gen09(anInteger, aMatrix)_
+- _gen09(n, [p₁ a₁ ϕ₁; p₂ a₂ ϕ₂; …])_
 
 Generate composite waveforms made up of weighted sums of simple sinusoids.
-The specification of each contributing partial requires 3 fields:
+The three-column matrix _m_ is specifies each contributing partial:
 
 - partial number, must be positive, but need not be a whole number
 - amplitude of partial, negative values imply a 180 degree phase shift
@@ -16,9 +16,9 @@ An approximation of a square wave:
 ~~~spl svg=A
 (2 ^ 7).gen09(
 	[
-		1 3 0;
-		3 1 0;
-		9 0.3 180
+		1  3   0;
+		3  1   0;
+		9  0.3 180
 	]
 ).linePlot
 ~~~
@@ -30,9 +30,9 @@ The same partials and amplitude as above, with phase shifts:
 ~~~spl svg=B
 (2 ^ 7).gen09(
 	[
-		1 3 180;
-		3 1 0;
-		9 0.3 0
+		1  3   180;
+		3  1   0;
+		9  0.3 0
 	]
 ).linePlot
 ~~~

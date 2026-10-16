@@ -49,6 +49,7 @@
 	'Collection-HuffmanCoding'
 	'Collection-IdentityMultiset'
 	'Collection-IdentitySet'
+	'Collection-Indices'
 	'Collection-LinkedList'
 	'Collection-List'
 	'Collection-ListView'

@@ -1,9 +1,11 @@
 # gen03
 
-- _gen03(size, xMin, xMax, coefficients)_
+- _gen03(n, x⌊, x⌈, c)_
 
-Generates a stored function table by evaluating a polynomial.
-Answer a `List` of _size_ places tabulating a polynomial over a fixed interval _(xMin, xMax)_ and with specified _coefficients_.
+Generates a stored function table by evaluating a univariate polynomial with coefficients _c_.
+Answer a `List` of _n_ places,
+tabulating a polynomial over a fixed interval _(x⌊,x⌈)_,
+with specified coefficients _c_.
 
 First-order Chebyshev, _x_:
 
@@ -24,7 +26,8 @@ C.f. _x_:
 Second-order Chebyshev, _2x^2-1_:
 
 ~~~spl svg=C
-129.gen03(-1, 1, [-1 0 2]).linePlot
+let c = 2.chebyshevT.coefficientList;
+129.gen03(-1, 1, c).linePlot
 ~~~
 
 ![](Help/Image/gen03-C.svg)
@@ -32,9 +35,9 @@ Second-order Chebyshev, _2x^2-1_:
 C.f. _2x^2-1_::
 
 ~~~spl svg=D
-(-1 -- 1).functionPlot { :x |
-	2 * (x ^ 2) - 1
-}
+(-1 -- 1).functionPlot(
+	2.chebyshevT.unaryBlock
+)
 ~~~
 
 ![](Help/Image/gen03-D.svg)
@@ -42,7 +45,8 @@ C.f. _2x^2-1_::
 Third-order Chebyshev, _4x^3 - 3x_:
 
 ~~~spl svg=E
-129.gen03(-1, 1, [0 -3 0 4]).linePlot
+let c = 3.chebyshevT.coefficientList;
+129.gen03(-1, 1, c).linePlot
 ~~~
 
 ![](Help/Image/gen03-E.svg)
@@ -50,22 +54,19 @@ Third-order Chebyshev, _4x^3 - 3x_:
 C.f. _4x^3-3x_:
 
 ~~~spl svg=F
-(-1 -- 1).functionPlot { :x |
-	(4 * (x ^ 3)) - (3 * x)
-}
+(-1 -- 1).functionPlot(
+	3.chebyshevT.unaryBlock
+)
 ~~~
 
 ![](Help/Image/gen03-F.svg)
 
-Seventh-order Chebyshev, _64x^7 - 112x^5 + 56x^3 - 7x_:
+Seventh-order Chebyshev,
+_64x^7 - 112x^5 + 56x^3 - 7x_:
 
 ~~~spl svg=G
-129.gen03(
-	-1,
-	1,
-	[0 -7 0 56 0 -112 0 64]
-)
-.linePlot
+let c = 7.chebyshevT.coefficientList;
+129.gen03(-1, 1, c).linePlot
 ~~~
 
 ![](Help/Image/gen03-G.svg)
@@ -73,15 +74,9 @@ Seventh-order Chebyshev, _64x^7 - 112x^5 + 56x^3 - 7x_:
 C.f.:
 
 ~~~spl svg=H
-(-1 -- 1).functionPlot { :x |
-	(64 * (x ^ 7))
-	-
-	(112 * (x ^ 5))
-	+
-	(56 * (x ^ 3))
-	-
-	(7 * x)
-}
+(-1 -- 1).functionPlot(
+	7.chebyshevT.unaryBlock
+)
 ~~~
 
 ![](Help/Image/gen03-H.svg)
@@ -96,7 +91,7 @@ A 4th order polynomial function:
 
 * * *
 
-See also: gen05, gen07, gen09, gen10, gen11, gen13, gen16, gen19
+See also: chebyshevT, chebyshevU, gen05, gen07, gen09, gen10, gen11, gen13, gen16, gen19
 
 Guides: Csound Gen Routines
 

@@ -2,35 +2,36 @@
 
 @Put {
 
-	atAllPut! { :self :anObject |
-		self.indicesDo { :index |
-			self[index] := anObject
-		};
-		anObject
-	}
-
 	atAllPut! { :self :indices :anObject |
 		indices.do { :index |
-			self[index] := anObject
-		};
-		anObject
-	}
+			put!(self, index, anObject)
+                };
+                anObject
+        }
 
 	atAllPutAll! { :self :indices :values |
-		indices.withDo(values) { :index :value |
-			self[index] := value
+		indices.withDo(values) { :index :anObject |
+			put!(self, index, anObject)
 		};
 		values
 	}
 
 	atIfAbsentPut! { :self :index :ifAbsent/0 |
 		self.atIfAbsent(index) {
-			self[index] := ifAbsent()
+			let anObject = ifAbsent();
+			put!(self, index, anObject)
 		}
 	}
 
 	atModify! { :self :index :defaultValue :aBlock/1 |
-		self.put!(index, aBlock(self.atIfAbsent(index, { defaultValue })))
+		self.put!(
+			index,
+			aBlock(
+				self.atIfAbsent(index) {
+					defaultValue
+				}
+			)
+		)
 	}
 
 	atPathPut! { :self :indices :value |
@@ -42,7 +43,7 @@
 				let index = indices[indicesIndex];
 				item := item[index]
 			};
-			item[indices.last] := value
+			put!(item, indices.last, value)
 		}
 	}
 
@@ -50,6 +51,7 @@
 		self.typeResponsibility('@Put>>put!')
 	}
 
+	/*
 	put! { :self :primaryIndex :secondaryIndex :anObject |
 		self.at(primaryIndex).put!(secondaryIndex, anObject)
 	}
@@ -61,5 +63,6 @@
 	put! { :self :primaryIndex :secondaryIndex :tertiaryIndex :quaternaryIndex :anObject |
 		self.at(primaryIndex).at(secondaryIndex).at(tertiaryIndex).put!(quaternaryIndex, anObject)
 	}
+	*/
 
 }

@@ -1,10 +1,10 @@
 # indexOfInBetween
 
-- _indexOfInBetween(aSequence, aNumber)_
+- _indexOfInBetween([x₁ x₂ …], n)_
 
-Answer the, possibly fractional, index such that `atBlend` of _aSequence_,
+Answer the, possibly fractional, index such that `atBlend` of the sequence _x_,
 which must be ascending,
-would answer _aNumber_,
+would answer _n_,
 assuming it is in range.
 
 ```

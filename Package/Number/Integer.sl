@@ -174,7 +174,7 @@
 
 	bitIff { :p :q |
 		let k = p.bitLength.max(q.bitLength);
-		(k .. 1; -1).collect { :i |
+		Range(k, 1, -1).collect { :i |
 			p.bitAt(i) = q.bitAt(i)
 		}.boole.binaryContraction
 	}

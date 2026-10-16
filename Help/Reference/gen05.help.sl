@@ -1,6 +1,6 @@
 # gen05
 
-- _gen05(anInteger, aSequence)_
+- _gen05(n, [l₁ d₁ l₂ d₂ …])_
 
 Constructs functions from segments of exponential curves.
 The specification consists of alternating level and duration items.

@@ -33,6 +33,16 @@ If the collection has as more places than requested, it is answered unchanged:
 ([1 2 3 4 5], true)
 ```
 
+Sets cannot be extended,
+since they cannot have duplicate elements:
+
+```
+>>> {
+>>> 	Set().extendToSize!(3)
+>>> }.hasError
+true
+```
+
 * * *
 
 See also: add!, size

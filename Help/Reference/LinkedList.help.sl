@@ -25,6 +25,9 @@ Empty linked list:
 
 >>> LinkedList().isEmpty
 true
+
+>>> LinkedList().List
+[]
 ```
 
 Linked list from list:

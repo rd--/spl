@@ -15,7 +15,7 @@
 
 	kimberlingFractalSequence { :r :k |
 		1.toCollect(k) { :n |
-			let x = ((1 .. n) * r).fractionalPart;
+			let x = (Range(1, n) * r).fractionalPart;
 			let y = x.sort;
 			y.collect { :z |
 				x.indexOf(z)
@@ -168,8 +168,8 @@
 			(n < 2).if {
 				n
 			} {
-				(1 .. n - 1).sum { :m |
-					(1 .. (n - 1) / m).sum { :k |
+				Range(1, n - 1).sum { :m |
+					Range(1, (n - 1) / m).sum { :k |
 						m * a[m] * a[n - (k * m)]
 					}
 				} / (n - 1)
@@ -1064,11 +1064,11 @@
 					}
 				).if {
 					n.isEven.if {
-						(k .. m).sum { :i |
+						Range(k, m).sum { :i |
 							t(n - 1, i)
 						}
 					} {
-						(1 .. k).sum { :i |
+						Range(1, k).sum { :i |
 							t(n - 1, i)
 						}
 					}
@@ -1077,8 +1077,8 @@
 				}
 			}
 		}.memoize(true);
-		(1 .. m).collect { :n |
-			(1 .. (n + 1) / 2).collect { :k |
+		1.toCollect(m) { :n |
+			1.toCollect((n + 1) // 2) { :k |
 				t(n, k)
 			}
 		}
@@ -1331,7 +1331,7 @@
 	vanEckSequence { :n :l |
 		let a = l.copy;
 		2.toDo(n - 1) { :i |
-			let k = (1 .. i - 1).findLast { :m |
+			let k = Range(1, i - 1).findLast { :m |
 				a[i] = a[m]
 			};
 			a.add!(
@@ -1810,7 +1810,7 @@
 	}
 
 	shadowTransform { :x |
-		(1 .. x.size - 1).collect { :n |
+		1.toCollect(x.size - 1) { :n |
 			1.to(n).sum { :j |
 				(x[j] % n = 0).boole
 			}

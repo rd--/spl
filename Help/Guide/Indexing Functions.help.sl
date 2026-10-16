@@ -1,5 +1,11 @@
 # Indexing Functions
 
+Traits:
+
+- `At`
+- `Indices`
+- `Put`
+
 Access an element at a specified index:
 
 - `at`

@@ -67,6 +67,9 @@
 			y1 := y2
 
 		};
+		(answer.size != self).ifTrue {
+			self.error('gen05: invalid size', [aList])
+		};
 		answer
 	}
 
@@ -82,6 +85,9 @@
 				y1 := y1 + z
 			};
 			y1 := y2
+		};
+		(answer.size != self).ifTrue {
+			self.error('gen07: invalid size', [aList])
 		};
 		answer
 	}
@@ -167,6 +173,9 @@
 				}
 			};
 			y1 := y2
+		};
+		(answer.size != self).ifTrue {
+			self.error('gen07: invalid size', [aList])
 		};
 		answer
 	}

@@ -1,9 +1,12 @@
 # gen11
 
-- _gen11(size, numberOfHarmonics, lowestHarmonic, multiplier)_
+- _gen11(n, h, h0, m)_
 
-Generates an additive set of cosine partials,
+Generates an additive set of _h_ cosine partials,
 in the manner of Csound generator _buzz_.
+_h_ is the number of harmonics,
+_h0_ is the lowest harmonic,
+_m_ is a multiplier.
 The answer is scaled to unity.
 
 A cosine table:

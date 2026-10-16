@@ -23,7 +23,7 @@ and schedules for them to be added to the interpreter cache.
 
 * * *
 
-See also: Cache, CacheStorage, cachedFetchMimeType, fetch, fetchMimeType, Promise, Response
+See also: Cache, CacheStorage, Promise, Response, cachedFetchMimeType, fetch, fetchMimeType
 
 Guides: Network Functions
 

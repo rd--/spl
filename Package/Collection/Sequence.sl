@@ -1071,7 +1071,7 @@
 			(p = q).if {
 				0
 			} {
-				(1 .. n - 1).detectIfNone { :i |
+				Range(1, n - 1).detectIfNone { :i |
 					p.rotateLeft(i) = q
 				} {
 					nil

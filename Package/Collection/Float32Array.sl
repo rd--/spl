@@ -1,4 +1,4 @@
-Float32Array! : [Object, New, Copy, Store, Equal, Compare, Do, At, Put, Collect, Collection, Sequence, PrimitiveArray] {
+Float32Array! : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Collect, Collection, Sequence, PrimitiveArray] {
 
 	buffer { :self |
 		<primitive: return _self.buffer;>

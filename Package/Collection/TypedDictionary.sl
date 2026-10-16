@@ -1,4 +1,4 @@
-TypedDictionary : [Object, Store, Equal, Do, At, Put, Collect, Collection, Add, Remove, Dictionary] {
+TypedDictionary : [Object, Store, Equal, Do, At, Indices, Put, Collect, Collection, Add, Remove, Dictionary] {
 
 	| untypedDictionary keyType |
 

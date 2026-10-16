@@ -1,11 +1,13 @@
 # gen07
 
-- _gen07(anInteger, aSequence)_
+- _gen07(n, [l₁ d₁ l₂ d₂ …])_
 
 Constructs functions from segments of straight lines.
 The specification consists of alternating level and duration items.
 
-Sawtooth up and down, starting and ending at zero:
+Sawtooth up and down,
+starting and ending at zero,
+note that the duration at level one is zero:
 
 ~~~spl svg=A
 1024.gen07([0 512 1 0 -1 512 0]).linePlot

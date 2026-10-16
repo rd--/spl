@@ -81,33 +81,6 @@ At `List` is `identity`:
 (true, true)
 ```
 
-Traits implemented by `List`:
-
-```
->>> system.typeLookup('List')
->>> .traitNameList
->>> .sort!
-[
-	'Add'
-	'At'
-	'Collect'
-	'Collection'
-	'Compare'
-	'Copy'
-	'Do'
-	'Equal'
-	'Json'
-	'New'
-	'Object'
-	'Ordered'
-	'PrimitiveArray'
-	'Put'
-	'Remove'
-	'Sequence'
-	'Store'
-]
-```
-
 Create a new `List` of _n_ places,
 each initialised to the object _x_,
 or to `nil` if _x_ is elided.
@@ -245,6 +218,34 @@ OEIS [A091978](https://oeis.org/A091978):
 ~~~
 
 ![](Help/Image/List-A.svg)
+
+Traits implemented by `List`:
+
+```
+>>> system.typeLookup('List')
+>>> .traitNameList
+>>> .sort!
+[
+	'Add'
+	'At'
+	'Collect'
+	'Collection'
+	'Compare'
+	'Copy'
+	'Do'
+	'Equal'
+	'Indices'
+	'Json'
+	'New'
+	'Object'
+	'Ordered'
+	'PrimitiveArray'
+	'Put'
+	'Remove'
+	'Sequence'
+	'Store'
+]
+```
 
 * * *
 
