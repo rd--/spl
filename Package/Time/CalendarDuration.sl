@@ -3,7 +3,7 @@ CalendarDuration : [Object, Store, Equal, Compare] {
 	| components |
 
 	compare { :self :operand |
-		self.components.compare(operand.components)
+		compareOn(self, operand, components/1)
 	}
 
 	durationString { :self |

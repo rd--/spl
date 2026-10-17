@@ -1,10 +1,10 @@
 # unique
 
 - _unique([x₁ x₂ …])_
-- _unique(s)_
 
-At `List`,
-answer the same values as in _x_, but with no repetitions, and in sorted order.
+Answer the same values as in the collection _x_,
+but with no repetitions,
+and in sorted order.
 
 ```
 >>> [1 1 2 1 2 3 1 2 3 4].unique
@@ -15,15 +15,9 @@ answer the same values as in _x_, but with no repetitions, and in sorted order.
 
 >>> ['3' '2' '1' '2' '3'].unique
 ['1' '2' '3']
-```
 
-At `String`,
-answers a copy of the string _s_ with a unique identifier appended.
-The appended identifier is given by `uniqueIdentifier`.
-
-```
->>> 'x'.unique
-'x' ++ (system.uniqueIdentifier - 1).printString
+>>> [0J1 0J0 2J0 1J0 0J2].unique
+[0J0 0J1 0J2 1J0 2J0]
 ```
 
 Unique digits used in _n_ in numerical order,
@@ -106,13 +100,13 @@ s.unique
 
 * * *
 
-See also: ++, nub, sort, String, uniqueElements, uniqueIdentifier
+See also: ++, deleteDuplicates, nub, sort, uniqueElements
 
-Guides: Set Functions
+Guides: List Functions, Set Functions
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/Unique.html),
+[1](https://reference.wolfram.com/language/ref/Union.html),
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/double.unique.html),
 _Python_

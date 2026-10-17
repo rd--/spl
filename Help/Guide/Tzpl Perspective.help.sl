@@ -263,16 +263,16 @@ length=`size`, `min`, `max`, cmp=`compare`, `<`, `=`, `>`:
 >>> ''.size
 0
 
->>> min('apple', 'banana')
+>>> minBy('apple', 'banana', <|)
 'apple'
 
->>> max('apple', 'banana')
+>>> minBy('apple', 'banana', |>)
 'banana'
 
 >>> compare('apple', 'banana')
 -1
 
->>> 'abc' < 'abd'
+>>> 'abc' <| 'abd'
 true
 ```
 
@@ -667,7 +667,7 @@ cat=`concatenation`, ordinarily `++`:
 >>> [3 1 4 1 5].max
 5
 
->>> ['banana' 'apple'].min
+>>> ['banana' 'apple'].minBy(<|)
 'apple'
 ```
 

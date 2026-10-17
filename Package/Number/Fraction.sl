@@ -4,9 +4,10 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 
 	[less, <] { :self :operand |
 		operand.isFraction.if {
-			(self.numerator * operand.denominator)
-			<
-			(operand.numerator * self.denominator)
+			let a = self.numerator * operand.denominator;
+			let b = operand.numerator * self.denominator;
+			a < b
+
 		} {
 			operand.adaptToFractionAndApply(self, less/2)
 		}
@@ -690,7 +691,7 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 
 +@Sequence {
 
-	Fraction { :self :anObject |
+	[Fraction, \] { :self :anObject |
 		anObject.adaptToCollectionAndApply(self, Fraction/2)
 	}
 

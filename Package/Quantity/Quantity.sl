@@ -96,9 +96,9 @@ Quantity : [Object, Copy, Store, Equal, Compare, Frequency, Length, Mass, PlaneA
 
 	[less, <] { :self :anObject |
 		self.isCommensurate(anObject).if {
-			self.magnitude < anObject.magnitude
+			lessOn(self, anObject, magnitude/1)
 		} {
-			self.error('<: invalid operand')
+			self.error('less: invalid operand')
 		}
 	}
 

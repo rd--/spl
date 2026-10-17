@@ -4,126 +4,6 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 
 	| real imaginary |
 
-	[conjugate, +] { :self |
-		Complex(
-			self.real,
-			self.imaginary.negate
-		)
-	}
-
-	[divide, /] { :self :anObject |
-		anObject.isComplex.if {
-			let a = self.real;
-			let b = self.imaginary;
-			let c = anObject.real;
-			let d = anObject.imaginary;
-			Complex(
-				((a * c) + (b * d)) / ((c * c) + (d * d)),
-				((b * c) - (a * d)) / ((c * c) + (d * d))
-			)
-		} {
-			anObject.adaptToComplexAndApply(self, divide/2)
-		}
-	}
-
-	[exp, ^] { :self |
-		self.real.exp * (self.imaginary.cos + self.imaginary.sin.i)
-	}
-
-	[negate, -] { :self |
-		Complex(
-			self.real.negate,
-			self.imaginary.negate
-		)
-	}
-
-	[plus, +] { :self :anObject |
-		anObject.isComplex.if {
-			let a = self.real;
-			let b = self.imaginary;
-			let c = anObject.real;
-			let d = anObject.imaginary;
-			Complex(
-				a + c,
-				b + d
-			)
-		} {
-			anObject.adaptToComplexAndApply(self, plus/2)
-		}
-	}
-
-	[power, ^] { :self :aNumber |
-		aNumber.isCollection.if {
-			aNumber.collect { :each |
-				self ^ each
-			}
-		} {
-			aNumber.isInteger.if {
-				self.raisedToInteger(aNumber)
-			} {
-				(aNumber = 0).if {
-					self.one
-				} {
-					(aNumber = 1).if {
-						self
-					} {
-						(self = 0).if {
-							(aNumber < 0).if {
-								self.error('^: zero divide')
-							} {
-								self
-							}
-						} {
-							(aNumber * self.log).exp
-						}
-					}
-				}
-			}
-		}
-	}
-
-	[quotient, //] { :self :aNumber |
-		self.shouldNotImplement('quotient')
-	}
-
-	[remainder, \\] { :self :aNumber |
-		self.shouldNotImplement('remainder')
-	}
-
-	[sign, *] { :self |
-		self / self.abs
-	}
-
-	[subtract, -] { :self :anObject |
-		anObject.isComplex.if {
-			let a = self.real;
-			let b = self.imaginary;
-			let c = anObject.real;
-			let d = anObject.imaginary;
-			Complex(
-				a - c,
-				b - d
-			)
-		} {
-			anObject.adaptToComplexAndApply(self, subtract/2)
-		}
-	}
-
-	[times, *] { :self :anObject |
-		anObject.isComplex.if {
-			let a = self.real;
-			let b = self.imaginary;
-			let c = anObject.real;
-			let d = anObject.imaginary;
-			Complex(
-				(a * c) - (b * d),
-				(a * d) + (b * c)
-			)
-		} {
-			anObject.adaptToComplexAndApply(self, times/2)
-		}
-	}
-
 	[absoluteValue, abs] { :self |
 		self.absSquare.sqrt
 	}
@@ -190,11 +70,19 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		self.chop(1E-10)
 	}
 
-	compare { :self :operand |
+	[compare, lexicographicCompare] { :self :operand |
+		compareOn(self, operand, realImaginary/1)
+	}
+
+	compareMagnitudes { :self :operand |
+		compareOn(self, operand, abs/1)
+	}
+
+	compareOn { :self :operand :f/1 |
 		operand.isComplex.if {
-			self.abs.compare(operand.abs)
+			compare(f(self), f(operand))
 		} {
-			self.error('compare: not Complex')
+			self.error('compareOn: not Complex', [operand])
 		}
 	}
 
@@ -206,11 +94,27 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		].which
 	}
 
-	conjugate { :self |
+	[conjugate, +] { :self |
 		Complex(
 			self.real,
 			self.imaginary.negate
 		)
+	}
+
+
+	[divide, /] { :self :anObject |
+		anObject.isComplex.if {
+			let a = self.real;
+			let b = self.imaginary;
+			let c = anObject.real;
+			let d = anObject.imaginary;
+			Complex(
+				((a * c) + (b * d)) / ((c * c) + (d * d)),
+				((b * c) - (a * d)) / ((c * c) + (d * d))
+			)
+		} {
+			anObject.adaptToComplexAndApply(self, divide/2)
+		}
 	}
 
 	equalBy { :self :anObject :aBlock/2 |
@@ -225,6 +129,10 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		} {
 			false
 		}
+	}
+
+	[exp, ^] { :self |
+		self.real.exp * (self.imaginary.cos + self.imaginary.sin.i)
 	}
 
 	[floor, <] { :self |
@@ -367,6 +275,7 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		[a b.negate; b a]
 	}
 
+	/*
 	[maximum, max] { :self :anObject |
 		anObject.isComplex.if {
 			self.maxOn(anObject, abs/1)
@@ -381,6 +290,14 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		} {
 			anObject.adaptToComplexAndApply(self, min/2)
 		}
+	}
+	*/
+
+	[negate, -] { :self |
+		Complex(
+			self.real.negate,
+			self.imaginary.negate
+		)
 	}
 
 	norm { :self |
@@ -399,6 +316,52 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		Complex(1, 0)
 	}
 
+
+	[plus, +] { :self :anObject |
+		anObject.isComplex.if {
+			let a = self.real;
+			let b = self.imaginary;
+			let c = anObject.real;
+			let d = anObject.imaginary;
+			Complex(
+				a + c,
+				b + d
+			)
+		} {
+			anObject.adaptToComplexAndApply(self, plus/2)
+		}
+	}
+
+	[power, ^] { :self :aNumber |
+		aNumber.isCollection.if {
+			aNumber.collect { :each |
+				self ^ each
+			}
+		} {
+			aNumber.isInteger.if {
+				self.raisedToInteger(aNumber)
+			} {
+				(aNumber = 0).if {
+					self.one
+				} {
+					(aNumber = 1).if {
+						self
+					} {
+						(self = 0).if {
+							(aNumber < 0).if {
+								self.error('^: zero divide')
+							} {
+								self
+							}
+						} {
+							(aNumber * self.log).exp
+						}
+					}
+				}
+			}
+		}
+	}
+
 	printString { :self |
 		[
 			self.real.printString,
@@ -411,6 +374,10 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 			self.real.printStringShowingDecimalPlaces(places),
 			self.imaginary.printStringShowingDecimalPlaces(places)
 		].stringIntercalate('J')
+	}
+
+	[quotient, //] { :self :aNumber |
+		self.shouldNotImplement('quotient')
 	}
 
 	[realImaginary, components] { :self |
@@ -429,11 +396,23 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		(real: self.real, imaginary: self.imaginary)
 	}
 
+	[remainder, \\] { :self :aNumber |
+		self.shouldNotImplement('remainder')
+	}
+
 	[round, gaussianInteger] { :self |
 		Complex(
 			self.real.round,
 			self.imaginary.round
 		)
+	}
+
+	[sign, *] { :self |
+		self / self.abs
+	}
+
+	square { :self |
+		self * self
 	}
 
 	[squareRoot, sqrt] { :self |
@@ -453,8 +432,34 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		}
 	}
 
-	square { :self |
-		self * self
+	[subtract, -] { :self :anObject |
+		anObject.isComplex.if {
+			let a = self.real;
+			let b = self.imaginary;
+			let c = anObject.real;
+			let d = anObject.imaginary;
+			Complex(
+				a - c,
+				b - d
+			)
+		} {
+			anObject.adaptToComplexAndApply(self, subtract/2)
+		}
+	}
+
+	[times, *] { :self :anObject |
+		anObject.isComplex.if {
+			let a = self.real;
+			let b = self.imaginary;
+			let c = anObject.real;
+			let d = anObject.imaginary;
+			Complex(
+				(a * c) - (b * d),
+				(a * d) + (b * c)
+			)
+		} {
+			anObject.adaptToComplexAndApply(self, times/2)
+		}
 	}
 
 	[toComplex, complexToComplex] { :self |
@@ -644,9 +649,6 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 +@Integer {
 
 	polyominoes { :n |
-		let unique = { :x |
-			x.nub.sortOn(realImaginary/1)
-		};
 		let rot = { :p |
 			1I * p
 		};

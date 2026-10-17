@@ -137,7 +137,7 @@ Character : [Object, Copy, Store, Equal, Compare, Character] {
 	}
 
 	[less, <] { :self :anObject |
-		self.codePoint < anObject.codePoint
+		lessOn(self, anObject, codePoint/1)
 	}
 
 	shallowCopy { :self |

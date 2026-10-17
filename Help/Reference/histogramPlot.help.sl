@@ -75,7 +75,7 @@ Histogram of `sin` function:
 
 ~~~spl svg=H
 [0, 0.01 .. 2.pi].sin
-.histogramPlot([-1 1 0.05])
+.histogramPlot([-1 1 0.025])
 ~~~
 
 ![](Help/Image/histogramPlot-H.svg)

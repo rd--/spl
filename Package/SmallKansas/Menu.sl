@@ -11,7 +11,7 @@ MenuItem : [Object, Compare] {
 	}
 
 	compare { :self :aMenuItem |
-		self.name.compare(aMenuItem.name)
+		compareOn(self, aMenuItem, name/1)
 	}
 
 	displayText { :self |

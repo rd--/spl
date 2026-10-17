@@ -448,6 +448,12 @@
 		}
 	}
 
+	maxOn { :self :f/1 |
+		self.minBy { :a :b |
+			greaterOn(a, b, f/1)
+		}
+	}
+
 	[max, maximum] { :self |
 		self.reduce(max/2)
 	}
@@ -469,6 +475,12 @@
 			} {
 				q
 			}
+		}
+	}
+
+	minOn { :self :f/1 |
+		self.minBy { :a :b |
+			lessOn(a, b, f/1)
 		}
 	}
 

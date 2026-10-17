@@ -7,7 +7,7 @@ UndirectedEdge : [Object, Store, Equal, Compare, At] {
 	}
 
 	compare { :self :anEdge |
-		self.vertexList.compare(anEdge.vertexList)
+		compareOn(self, anEdge, vertexList/1)
 	}
 
 	DirectedEdge { :self |

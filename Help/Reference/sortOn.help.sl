@@ -30,6 +30,20 @@ Sort according to `negate` value of each item:
 ([5 4 3 2 1], true)
 ```
 
+Sort complex numbers by magnitude:
+
+```
+>>> [3J1 1J5 2J2].sortOn(abs/1)
+[2J2 3J1 1J5]
+```
+
+Sort complex numbers by lexicographically:
+
+```
+>>> [3J1 1J5 2J2].sortOn(components/1)
+[1J5 2J2 3J1]
+```
+
 * * *
 
 See also: sort, sortBy, sortByOn

@@ -64,6 +64,16 @@ At `String`:
 -1
 ```
 
+At `Complex`:
+
+```
+>>> 2J3.lexicographicCompare(1J5)
+1
+
+>>> 2J3.compareMagnitudes(1J5)
+-1
+```
+
 * * *
 
 See also: canonicalCompare, compare, lexicographicSort

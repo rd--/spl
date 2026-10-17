@@ -3,7 +3,7 @@ TimeStamp : [Object, Copy, Store, Equal, Compare] {
 	| absoluteTime |
 
 	[less, <] { :self :aTimeStamp |
-		self.absoluteTime < aTimeStamp.absoluteTime
+		lessOn(self, aTimeStamp, absoluteTime/1)
 	}
 
 	[plus, +] { :self :operand |

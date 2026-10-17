@@ -2,10 +2,10 @@
 
 - _polyominoes(n)_
 
-Answer the polyominoes of degree _n_.
+Answer the free polyominoes of degree _n_.
 Each polyomino is represented as a list of Gaussian integers.
 
-The one one-polyomino:
+The one free one-polyomino:
 
 ```
 >>> polyominoes(1)
@@ -14,7 +14,7 @@ The one one-polyomino:
 ]
 ```
 
-The one two-polyomino:
+The one free two-polyomino:
 
 ```
 >>> polyominoes(2)
@@ -23,7 +23,7 @@ The one two-polyomino:
 ]
 ```
 
-The two three-polyominoes:
+The two free three-polyominoes:
 
 ```
 >>> polyominoes(3)
@@ -33,7 +33,7 @@ The two three-polyominoes:
 ]
 ```
 
-The five four-polyominoes:
+The five free four-polyominoes:
 
 ```
 >>> polyominoes(4)
@@ -46,7 +46,7 @@ The five four-polyominoes:
 ]
 ```
 
-The twelve five-polyominoes:
+The twelve free five-polyominoes:
 
 ```
 >>> polyominoes(5)
@@ -66,7 +66,14 @@ The twelve five-polyominoes:
 ]
 ```
 
-The twelve five-polyominoes:
+Count the free six-polyominoes:
+
+```
+>>> polyominoes(6).size
+35
+```
+
+The twelve free five-polyominoes:
 
 ~~~spl svg=A
 polyominoes(5)

@@ -29,9 +29,7 @@ Boolean! : [Object, Copy, Store, Equal, Compare, Json] {
 	}
 
 	compare { :self :operand |
-		self.boole.compare(
-			operand.boole
-		)
+		compareOn(self, operand, boole/1)
 	}
 
 	concisePrintString { :self |

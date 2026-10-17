@@ -52,12 +52,16 @@ true
 
 >>> 3 < (4 -- 5)
 true
+```
 
->>> (2 -- 3) < (4 -- 5)
-true
+An interval _i_ is less than an interval _j_ if _⌈i_ is less than _⌊j_:
 
->>> (1 -- 3) < (2 -- 3)
-false
+```
+>>> ((2 -- 3) < (4 -- 5), 3 < 4)
+(true, true)
+
+>>> ((1 -- 3) < (2 -- 3), 3 < 2)
+(false, false)
 ```
 
 Numbers automatically turn into intervals:

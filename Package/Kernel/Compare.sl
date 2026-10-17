@@ -1,24 +1,31 @@
 @Compare {
 
-	[compare, <=>] { :self :operand |
-		/* self.typeResponsibility('@Compare>>compare') */
-		(self = operand).if {
-			0
-		} {
-			(self < operand).if {
-				-1
-			} {
-				1
-			}
-		}
+	[less, <] { :self :operand |
+		self.typeResponsibility('@Compare>><')
+	}
+
+}
+
++@Compare {
+
+	compare { :self :operand |
+		self.strictCompare(operand)
+	}
+
+	compareOn { :self :operand :f/1 |
+		compare(f(self), f(operand))
 	}
 
 	[greater, >] { :self :operand |
-		operand < self
+		less(operand, self)
 	}
 
 	[greaterEqual, >=] { :self :operand |
-		operand <= self
+		lessEqual(operand, self)
+	}
+
+	greaterOn { :self :operand :f/1 |
+		greater(f(self), f(operand))
 	}
 
 	[less, <] { :self :operand |
@@ -32,20 +39,36 @@
 		}
 	}
 
+	lessOn { :self :operand :f/1 |
+		less(f(self), f(operand))
+	}
+
+	maxOn { :self :operand :f/1 |
+		minBy(self, operand) { :a :b |
+			greaterOn(self, operand, f/1)
+		}
+	}
+
 	[maximum, max] { :self :operand |
-		(self > operand).if {
+		minBy(self, operand, greater/2)
+	}
+
+	minBy { :self :operand :aBlock/2 |
+		aBlock(self, operand).if {
 			self
 		} {
 			operand
 		}
 	}
 
-	[minimum, min] { :self :operand |
-		(self < operand).if {
-			self
-		} {
-			operand
+	minOn { :self :operand :f/1 |
+		minBy(self, operand) { :a :b |
+			lessOn(self, operand, f/1)
 		}
+	}
+
+	[minimum, min] { :self :operand |
+		minBy(self, operand, less/2)
 	}
 
 	minThenMax { :self :aMin :aMax |
@@ -58,6 +81,19 @@
 
 	[precedesOrEqualTo, <=|] { :self :anObject |
 		self.compare(anObject) != 1
+	}
+
+	[strictCompare, <=>] { :self :operand |
+		/* self.typeResponsibility('@Compare>>strictCompare') */
+		(self = operand).if {
+			0
+		} {
+			(self < operand).if {
+				-1
+			} {
+				1
+			}
+		}
 	}
 
 	[succeeds, |>] { :self :anObject |

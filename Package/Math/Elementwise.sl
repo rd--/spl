@@ -915,8 +915,12 @@
 
 +@Sequence {
 
-	\ { :self :aNumber |
-		self.Fraction(aNumber)
+	[greater, >] { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, greater/2)
+	}
+
+	[greaterEqual, >=] { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, greaterEqual/2)
 	}
 
 	[less, <] { :self :anObject |
@@ -924,15 +928,31 @@
 	}
 
 	[lessEqual, <=] { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, <=)
+		anObject.adaptToCollectionAndApply(self, lessEqual/2)
 	}
 
-	[greater, >] { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, greater/2)
+	[maximum, max] { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, max/2)
 	}
 
-	[greaterEqual, >=] { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, >=)
+	[minimum, min] { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, min/2)
+	}
+
+}
+
++@Sequence {
+
+	bitAnd { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, bitAnd/2)
+	}
+
+	bitNot { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, bitNot/2)
+	}
+
+	bitOr { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, bitOr/2)
 	}
 
 	[bitShiftLeft, <<] { :self :anObject |
@@ -942,6 +962,18 @@
 	[bitShiftRight, >>] { :self :anObject |
 		anObject.adaptToCollectionAndApply(self, bitShiftRight/2)
 	}
+
+	bitShiftRightUnsigned { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, bitShiftRightUnsigned/2)
+	}
+
+	bitXor { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, bitXor/2)
+	}
+
+}
+
++@Sequence {
 
 	[divide, /] { :self :anObject |
 		anObject.adaptToCollectionAndApply(self, divide/2)
@@ -975,6 +1007,10 @@
 		anObject.adaptToCollectionAndApply(self, times/2)
 	}
 
+}
+
++@Sequence {
+
 	absArg { :self |
 		self.collect(absArg/1)
 	}
@@ -993,26 +1029,6 @@
 
 	binomial { :self :anObject |
 		anObject.adaptToCollectionAndApply(self, binomial/2)
-	}
-
-	bitAnd { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, bitAnd/2)
-	}
-
-	bitNot { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, bitNot/2)
-	}
-
-	bitOr { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, bitOr/2)
-	}
-
-	bitShiftRightUnsigned { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, bitShiftRightUnsigned/2)
-	}
-
-	bitXor { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, bitXor/2)
 	}
 
 	digitalRoot { :self :anObject |
@@ -1054,14 +1070,6 @@
 			self.collect(numerator/1).sum,
 			self.collect(denominator/1).sum
 		)
-	}
-
-	[maximum, max] { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, max/2)
-	}
-
-	[minimum, min] { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, min/2)
 	}
 
 	mod { :m :n :d |

@@ -24,11 +24,23 @@ At `Fraction`:
 (-1, true)
 ```
 
-At `Complex`:
+At `Complex`,
+`compare` is an alias for `lexicographicCompare`,
+which is `compareOn` of `realImaginary`,
+and not of `compareMagnitudes`,
+which is `compareOn` of `abs`:
 
 ```
->>> (compare(1J2, 2J3), 1J2.abs < 2J3.abs)
-(-1, true)
+>>> let a = 1J5;
+>>> let b = 2J3;
+>>> (
+>>> 	compare(a, b),
+>>> 	compareOn(a, b, abs/1),
+>>> 	compareMagnitudes(a, b),
+>>> 	compareOn(a, b, realImaginary/1),
+>>> 	lexicographicCompare(a, b)
+>>> )
+(-1, 1, 1, -1, -1)
 ```
 
 At `Boolean`:

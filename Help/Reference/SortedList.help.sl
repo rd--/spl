@@ -60,13 +60,13 @@ Implements `++`:
 SortedList([1, 2, 3, 4, 5, 6])
 ```
 
-`Complex` does not implement `<=` but does implement `precedesOrEqualTo`:
+`Complex` does not implement `less` but does implement `compare`:
 
 ```
 >>> SortedList(
 >>> 	[2J2 1J1 0J0 -1J-1]
 >>> ).List
-[0J0 -1J-1 1J1 2J2]
+[-1J-1 0J0 1J1 2J2]
 ```
 
 Compare for equality:

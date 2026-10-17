@@ -32,21 +32,25 @@ Evaluate symbolically:
 At a matrix answer the column minima:
 
 ```
->>> [-1 0 1 2; 0 2 4 6; -3 -2 -1 0].min
+>>> [
+>>> 	-1  0 -1  2;
+>>> 	 0 -2  4  6;
+>>> 	-3  2  1  0
+>>> ].min
 [-3 -2 -1 0]
 ```
 
 To find row minima see `transpose` or `collect`:
 
 ```
->>> [-1 0 1 2; 0 2 4 6; -3 -2 -1 0]
+>>> [-1 0 -1 2; 0 -2 4 6; -3 2 -1 0]
 >>> .transpose
 >>> .min
-[-1 0 -3]
+[-1 -2 -3]
 
->>> [-1 0 1 2; 0 2 4 6; -3 -2 -1 0]
+>>> [-1 0 -1 2; 0 -2 4 6; -3 2 -1 0]
 >>> .collect(min/1)
-[-1 0 -3]
+[-1 -2 -3]
 ```
 
 Column minima at a 3×3 matrix and relation to `reduce`:
@@ -122,10 +126,14 @@ The binary form allows vector operands:
 [0 0 0.3 0.8 1 1]
 ```
 
-Smallest `Complex` element:
+Not defined for `Complex` elements,
+see `minOn` and `minBy`:
 
 ```
->>> [-2J2 4J1 -1J-3].min
+>>> [-2J2 4J1 -1J-3].minOn(abs/1)
+-2J2
+
+>>> [-2J2 4J1 -1J-3].minBy(<|)
 -2J2
 ```
 

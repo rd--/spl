@@ -4,7 +4,7 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 
 	[less, <] { :self :operand |
 		operand.isDecimal.if {
-			self.decimalFraction < operand.decimalFraction
+			lessOn(self, operand, decimalFraction/1)
 		} {
 			operand.adaptToDecimalAndApply(self, less/2)
 		}

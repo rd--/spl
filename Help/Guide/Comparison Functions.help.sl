@@ -21,9 +21,11 @@ Inequalities:
 - `lessEqual`, `<=`
 - `greater`, `>`
 - `greaterEqual`, `>=`
+- `strictCompare`, `<=>`
 
 Ordering:
 
+- `compare`
 - `precedes`, `<|`
 - `precedesOrEqualTo`, `<=|`
 - `succeeds`, `|>`
@@ -43,8 +45,8 @@ Ternary:
 
 Collation:
 
-- `<=>`
 - `compare`
+- `strictCompare`, `<=>`
 
 A comparison function is one whose result is a `Boolean` determined by the numerical ordering of the arguments.
 
@@ -135,21 +137,23 @@ true
 >>> 1J1 <| 2J2
 true
 
->>> 'bcd' < 'abc'
+>>> 'bcd' <| 'abc'
 false
 
 >>> {
->>> 	'b' <= ['a' 'b' 'c']
+>>> 	'b' <| ['a' 'b' 'c']
 >>> }.hasError
 true
 
->>> ['b'] <= ['a' 'b' 'c']
-[false, true, true]
+>>> ['b'] <|.map ['a' 'b' 'c']
+[false false true]
 ```
 
 * * *
 
-See also: <, <=, =, >=, >, !=, <~, ~, >~, !~, boole, Boolean, Compare, Equal, Number, String
+See also: Boolean, Compare, Equal, Number, String, boole
+
+Guides: Function Guides
 
 References:
 _Apl_

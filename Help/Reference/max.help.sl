@@ -70,17 +70,25 @@ Largest element of an integer vector:
 52
 ```
 
-At `Complex`, compares on `abs`:
+Not defined at `Complex`,
+see `maxOn` and `minBy`
 
 ```
->>> max(-2J2, 4J1)
+>>> maxOn(-2J2, 4J1, abs/1)
+4J1
+
+>>> minBy(-2J2, 4J1, |>)
 4J1
 ```
 
-Largest `Complex` element of vector:
+Largest `Complex` element of vector,
+see `maxOn` or `minBy`:
 
 ```
->>> [-2J2 4J1 -1J-3].max
+>>> [-2J2 4J1 -1J-3].maxOn(abs/1)
+4J1
+
+>>> [-2J2 4J1 -1J-3].minBy(|>)
 4J1
 ```
 

@@ -2865,7 +2865,7 @@
 	}
 
 	unique { :self |
-		self.nub.sort
+		self.nub.sort!
 	}
 
 	which { :self |

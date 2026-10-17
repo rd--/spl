@@ -23,7 +23,7 @@ Package! : [Object, Equal, Compare] {
 		aPackage.requires.includes(self.name).if {
 			-1
 		} {
-			self.name.compare(aPackage.name)
+			compareOn(self, aPackage, name/1)
 		}
 	}
 

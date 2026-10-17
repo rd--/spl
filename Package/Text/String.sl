@@ -209,6 +209,14 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		}, [])
 	}
 
+	[compare, localeCompare] { :self :operand |
+		operand.isString.if {
+			self.uncheckedLocaleCompare(operand)
+		} {
+			self.error('compare: non string operand')
+		}
+	}
+
 	[concatenation, ++] { :self :anObject |
 		anObject.isString.if {
 			self.uncheckedConcatenation(anObject)
@@ -595,9 +603,11 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		self.copyFromTo(self.size - count + 1, self.size)
 	}
 
+	/*
 	[less, <] { :self :operand |
 		localeCompare(self, operand) = -1
 	}
+	*/
 
 	letterCounts { :self |
 		self
@@ -661,20 +671,6 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		self.primitiveCollectInto(identity/1, [])
 	}
 
-	localeCompare { :locale |
-		{ :self :operand |
-			localeCompare(self, operand, locale)
-		}
-	}
-
-	localeCompare { :self :operand |
-		operand.isString.if {
-			self.uncheckedLocaleCompare(operand)
-		} {
-			self.error('localeCompare: non string operand')
-		}
-	}
-
 	localeCompare { :self :operand :locale |
 		(
 			operand.isString & {
@@ -684,6 +680,12 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 			self.uncheckedLocaleCompare(operand, locale)
 		} {
 			self.error('localeCompare: non string operand or invalid locale')
+		}
+	}
+
+	localeCompare { :locale |
+		{ :self :operand |
+			localeCompare(self, operand, locale)
 		}
 	}
 
@@ -1070,7 +1072,7 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		<primitive: return _self.replaceAll(_stringToFind, _stringToReplaceWith);>
 	}
 
-	unique { :self |
+	uniqueString { :self |
 		self ++ system.uniqueIdentifier.printString
 	}
 

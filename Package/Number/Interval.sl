@@ -1,57 +1,6 @@
-Interval : [Object, Store, Equal, Number] {
+Interval : [Object, Store, Equal, Compare, Number] {
 
 	| min max |
-
-	[less, <] { :self :operand |
-		operand.isInterval.if {
-			self.max < operand.min
-		} {
-			operand.adaptToIntervalAndApply(self, less/2)
-		}
-	}
-
-	[greater, >] { :self :operand |
-		operand < self
-	}
-
-	[negate, -] { :self |
-		self.zero - self
-	}
-
-	[plus, +] { :self :operand |
-		operand.isInterval.if {
-			Interval(
-				self.min + operand.min,
-				self.max + operand.max
-			)
-		} {
-			operand.adaptToIntervalAndApply(self, +)
-		}
-	}
-
-	[subtract, -] { :self :operand |
-		operand.isInterval.if {
-			Interval(
-				self.min - operand.min,
-				self.max - operand.max
-			)
-		} {
-			operand.adaptToIntervalAndApply(self, -)
-		}
-	}
-
-	[times, *] { :self :operand |
-		operand.isInterval.if {
-			let products = ([self.min, self.max] *.outer [operand.min, operand.max]).flatten;
-			Interval(products.min, products.max)
-		} {
-			operand.adaptToIntervalAndApply(self, *)
-		}
-	}
-
-	[divide, /] { :self :operand |
-		self * operand.reciprocal
-	}
 
 	[absoluteValue, abs] { :self |
 		(self.min >= 0).if {
@@ -109,6 +58,10 @@ Interval : [Object, Store, Equal, Number] {
 		let stop = self.max;
 		let step = (stop - start) / (size - 1);
 		FiniteRange(start, stop, step, size)
+	}
+
+	[divide, /] { :self :operand |
+		self * operand.reciprocal
 	}
 
 	equalBy { :self :operand :aBlock/2 |
@@ -181,6 +134,14 @@ Interval : [Object, Store, Equal, Number] {
 		}
 	}
 
+	[less, <] { :self :operand |
+		operand.isInterval.if {
+			less(self.max, operand.min)
+		} {
+			operand.adaptToIntervalAndApply(self, less/2)
+		}
+	}
+
 	[lowerBound, infimum] { :self |
 		self.min
 	}
@@ -193,8 +154,23 @@ Interval : [Object, Store, Equal, Number] {
 		[self.min, self.max]
 	}
 
+	[negate, -] { :self |
+		self.zero - self
+	}
+
 	one { :self |
 		1.numberToInterval
+	}
+
+	[plus, +] { :self :operand |
+		operand.isInterval.if {
+			Interval(
+				self.min + operand.min,
+				self.max + operand.max
+			)
+		} {
+			operand.adaptToIntervalAndApply(self, +)
+		}
 	}
 
 	printString { :self |
@@ -220,6 +196,27 @@ Interval : [Object, Store, Equal, Number] {
 
 	subdivide { :self :n |
 		self.discretize(n + 1)
+	}
+
+
+	[subtract, -] { :self :operand |
+		operand.isInterval.if {
+			Interval(
+				self.min - operand.min,
+				self.max - operand.max
+			)
+		} {
+			operand.adaptToIntervalAndApply(self, -)
+		}
+	}
+
+	[times, *] { :self :operand |
+		operand.isInterval.if {
+			let products = ([self.min, self.max] *.outer [operand.min, operand.max]).flatten;
+			Interval(products.min, products.max)
+		} {
+			operand.adaptToIntervalAndApply(self, *)
+		}
 	}
 
 	union { :self :operand |

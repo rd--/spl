@@ -115,6 +115,14 @@ Lexicographic sort of the integer partitions of six:
 ]
 ```
 
+Sort `Complex` numbers lexicographically:
+
+```
+>>> [0J1 0J0 2J0 1J0 0J2]
+>>> .lexicographicSort
+[0J0 0J1 0J2 1J0 2J0]
+```
+
 Walsh functions in lexicographic order:
 
 ~~~spl svg=A

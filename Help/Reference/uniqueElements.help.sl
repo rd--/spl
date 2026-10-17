@@ -3,7 +3,8 @@
 - _uniqueElements([x₁ x₂ …], f/2)_
 
 Answer the elements for each list _x_ that are not in any other list,
-according to the comparison block _f_.
+according to the comparison block _f_,
+which is `=` if elided.
 
 Remove from each list those elements that occur in the other lists:
 
@@ -21,7 +22,11 @@ Remove from each list those elements that occur in the other lists:
 `uniqueElements` returns a list of the same length as the input:
 
 ```
->>> [1 2 3 4; 2 3 4 5; 3 4 5 6].uniqueElements
+>>> [
+>>> 	1 2 3 4;
+>>> 	2 3 4 5;
+>>> 	3 4 5 6
+>>> ].uniqueElements
 [1; ; 6]
 ```
 

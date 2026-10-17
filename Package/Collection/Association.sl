@@ -5,7 +5,7 @@ Association : [Object, Store, Copy, Equal, Compare] {
 	| key value |
 
 	compare { :self :anAssociation |
-		self.key.compare(anAssociation.key)
+		compareOn(self, anAssociation, key/1)
 	}
 
 	depth { :self |

@@ -1,7 +1,49 @@
 # Compare
 
-`Compare` is a `Trait` collecting behaviours for objects that can be ordered.
+`Compare` is a trait collecting behaviours for objects that can be ordered.
 Types that implement `Compare` must also implement `Equal`.
+
+The trait is divided into two closely related parts.
+
+The first part concerns values that can be strictly ordered on a real number line.
+The required method is:
+
+- `less`, `<`
+
+The implemented methods include:
+
+- `greaterEqual`, `>=`
+- `greater`, `>`
+- `lessEqual`, `<=`
+- `max`
+- `min`
+- `strictCompare`, `<=>`
+
+These methods apply strictly to scalar values,
+and thread elementwise over collections:
+
+```
+>>> [1 3 5] < [2 3 4]
+[true false false]
+```
+
+The first part concerns types such as `Complex` and `String` that cannot be strictly ordered,
+but for which a coherent comparison function can be defined.
+The required method is:
+
+- `compare`
+
+The implemented methods are:
+
+- `compareOn`
+- `precedes`, `<|`
+- `precedesOrEqualTo`, `<=|`
+- `succeeds`, `|>`
+- `succeedsOrEqualTo`, `|>=`
+
+The `compare` method is derived from `less`, if `less` is defined.
+
+`Compare` is a `Trait`:
 
 ```
 >>> system
@@ -9,32 +51,6 @@ Types that implement `Compare` must also implement `Equal`.
 >>> .isTrait
 true
 ```
-
-The trait is divided into two closely related parts.
-
-The required method is:
-
-- `less`, `<`
-
-The implemented methods include:
-
-- `compare`, `<=>`
-- `greaterEqual`, `>=`
-- `greater`, `>`
-- `lessEqual`, `<=`
-- `max`
-- `min`
-
-The required method is:
-
-- `compare`, `<=>`
-
-The implemented methods are:
-
-- `precedes`, `<|`
-- `precedesOrEqualTo`, `<=|`
-- `succeeds`, `|>`
-- `succeedsOrEqualTo`, `|>=`
 
 Types implementing `Compare`:
 
@@ -58,6 +74,7 @@ Types implementing `Compare`:
 	'Float32Array'
 	'Float64Array'
 	'Fraction'
+	'Interval'
 	'LargeInteger'
 	'LinkedList'
 	'List'

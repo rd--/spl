@@ -133,17 +133,15 @@
 	[max, maximum] { :self |
 		self.ifEmpty {
 			self.emptyError('@ArithmeticProgression>>max')
-		} {
-			self.start.max(self.end)
-		}
+		};
+		self.start.max(self.end)
 	}
 
 	[minimum, min] { :self |
 		self.ifEmpty {
 			self.emptyError('@ArithmeticProgression>>min')
-		} {
-			self.start.min(self.end)
-		}
+		};
+		min(self.start, self.end)
 	}
 
 	product { :self |

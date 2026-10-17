@@ -4,40 +4,12 @@ PlanarCoordinates : [Object, Copy, Store, Equal, Compare, At, Put, CartesianCoor
 
 	| coordinates |
 
-	[divide, /] { :self :anObject |
-		self.applyBinaryOperator(anObject, /)
-	}
-
-	[mod, %] { :self :anObject |
-		self.applyBinaryOperator(anObject, %)
-	}
-
-	[negate, -] { :self |
-		self.applyUnaryOperator(negate/1)
-	}
-
-	[plus, +] { :self :anObject |
-		self.applyBinaryOperator(anObject, +)
-	}
-
-	[quotient, //] { :self :anObject |
-		self.applyBinaryOperator(anObject, //)
-	}
-
-	[subtract, -] { :self :anObject |
-		self.applyBinaryOperator(anObject, -)
-	}
-
-	[times, *] { :self :anObject |
-		self.applyBinaryOperator(anObject, *)
+	abscissa { :self |
+		self.coordinates.at(1)
 	}
 
 	[absoluteValue, abs] { :self |
 		PlanarCoordinates(self.coordinates.abs)
-	}
-
-	abscissa { :self |
-		self.coordinates.at(1)
 	}
 
 	adaptToNumberAndApply { :self :aNumber :aBlock/2 |
@@ -59,6 +31,11 @@ PlanarCoordinates : [Object, Copy, Store, Equal, Compare, At, Put, CartesianCoor
 		} {
 			anObject.adaptToPlanarCoordinatesAndApply(self, aBlock/2)
 		}
+	}
+
+
+	[divide, /] { :self :anObject |
+		self.applyBinaryOperator(anObject, divide/2)
 	}
 
 	inverse { :self :inversionCenter :inversionRadius |
@@ -83,6 +60,14 @@ PlanarCoordinates : [Object, Copy, Store, Equal, Compare, At, Put, CartesianCoor
 		self.applyBinaryOperator(anObject, min/2)
 	}
 
+	[mod, %] { :self :anObject |
+		self.applyBinaryOperator(anObject, mod/2)
+	}
+
+	[negate, -] { :self |
+		self.applyUnaryOperator(negate/1)
+	}
+
 	normalize { :self |
 		self / self.norm
 	}
@@ -99,6 +84,10 @@ PlanarCoordinates : [Object, Copy, Store, Equal, Compare, At, Put, CartesianCoor
 		self
 	}
 
+	[plus, +] { :self :anObject |
+		self.applyBinaryOperator(anObject, plus/2)
+	}
+
 	PolarCoordinates { :self |
 		PolarCoordinates[
 			self.radius,
@@ -110,7 +99,7 @@ PlanarCoordinates : [Object, Copy, Store, Equal, Compare, At, Put, CartesianCoor
 		self.coordinates := self.coordinates.copy
 	}
 
-	quotient { :self :anObject |
+	[quotient, //] { :self :anObject |
 		self.applyBinaryOperator(anObject, quotient/2)
 	}
 
@@ -126,6 +115,10 @@ PlanarCoordinates : [Object, Copy, Store, Equal, Compare, At, Put, CartesianCoor
 		self.radius
 	}
 
+	[subtract, -] { :self :anObject |
+		self.applyBinaryOperator(anObject, subtract/2)
+	}
+
 	swap { :self |
 		PlanarCoordinates(self.coordinates.reverse)
 	}
@@ -136,6 +129,10 @@ PlanarCoordinates : [Object, Copy, Store, Equal, Compare, At, Put, CartesianCoor
 
 	theta { :self |
 		atan2(self.y, self.x)
+	}
+
+	[times, *] { :self :anObject |
+		self.applyBinaryOperator(anObject, times/2)
 	}
 
 	translate { :self :delta |

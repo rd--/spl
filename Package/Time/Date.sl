@@ -1,7 +1,7 @@
 Date! : [Object, Store, Equal, Compare] {
 
 	[less, <] { :self :aDate |
-		self.absoluteTime < aDate.absoluteTime
+		lessOn(self, aDate, absoluteTime/1)
 	}
 
 	absoluteTime { :self |

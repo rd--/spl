@@ -20,10 +20,9 @@
 		self.coordinates.at(index)
 	}
 
-	compare { :self :anObject |
-		self.coordinates.compare(
-			self.assertIsCompatibleOperand(anObject).coordinates
-		)
+	compare { :self :operand |
+		self.assertIsCompatibleOperand(operand);
+		compareOn(self, operand, coordinates/1)
 	}
 
 	dimension { :self |

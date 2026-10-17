@@ -50,10 +50,10 @@ the answer is a new `List`:
 At `List` of `String`:
 
 ```
->>> ['d' 'b' 'c' 'a'].sort!(<)
+>>> ['d' 'b' 'c' 'a'].sort!
 ['a' 'b' 'c' 'd']
 
->>> ['cat' 'fish' 'catfish' 'Cat'].sort!(<)
+>>> ['cat' 'fish' 'catfish' 'Cat'].sort!
 ['cat' 'Cat' 'catfish' 'fish']
 ```
 
@@ -108,7 +108,7 @@ Sort by absolute value:
 Sort strings by dictionary order:
 
 ```
->>> ['aa' 'abb' 'ba' 'b' 'aaa'].sort!(<)
+>>> ['aa' 'abb' 'ba' 'b' 'aaa'].sort!
 ['aa', 'aaa', 'abb', 'b', 'ba']
 ```
 
@@ -124,7 +124,7 @@ Sort the characters of a string:
 
 ```
 >>> List'eCaBdAbc'
->>> .sort!(<)
+>>> .sort!
 >>> .String
 'aAbBcCde'
 

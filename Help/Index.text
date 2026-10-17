@@ -145,6 +145,7 @@ Guide/Magic Square Functions.help.sl
 Guide/Mathematical Constants.help.sl
 Guide/Mathematical Functions.help.sl
 Guide/Mathematical Sequences.help.sl
+Guide/Mathematica Perspective.help.sl
 Guide/Matrices and Arrays.help.sl
 Guide/Matrix Functions.help.sl
 Guide/Matrix Operations.help.sl
@@ -3274,6 +3275,7 @@ Reference/polynomialMod.help.sl
 Reference/polynomialQuotient.help.sl
 Reference/polynomialQuotientRemainder.help.sl
 Reference/polynomialRemainder.help.sl
+Reference/polyominoes.help.sl
 Reference/pop.help.sl
 Reference/porterStemmer.help.sl
 Reference/port.help.sl
@@ -4283,6 +4285,7 @@ Reference/union.help.sl
 Reference/uniqueElements.help.sl
 Reference/unique.help.sl
 Reference/uniqueIdentifier.help.sl
+Reference/uniqueString.help.sl
 Reference/unitaryDivisors.help.sl
 Reference/unitaryDivisorSigma.help.sl
 Reference/unitaryPhi.help.sl
