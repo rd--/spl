@@ -141,7 +141,7 @@ A function can be monadic or dyadic, depending on whether there is an argument o
 >>> 2 ^ 3
 8
 
->>> 3.^
+>>> 3.exp
 20.0855
 ```
 

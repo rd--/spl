@@ -4,7 +4,7 @@ Quaternion : [Object, Store, Equal, Number] {
 
 	| components |
 
-	[conjugate, +] { :self |
+	conjugate { :self |
 		let [a, b, c, d] = self.components;
 		Quaternion([a, b.-, c.-, d.-])
 	}
@@ -29,7 +29,7 @@ Quaternion : [Object, Store, Equal, Number] {
 		Quaternion(self.components.negate)
 	}
 
-	[sign, *] { :self |
+	sign { :self |
 		self.components.isOrigin.if {
 			0
 		} {

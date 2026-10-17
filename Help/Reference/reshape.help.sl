@@ -11,7 +11,7 @@ The operator form is `!`.
 Create a 3×3 matrix from a nine-vector:
 
 ```
->>> 9.iota.reshape([3 3])
+>>> 9.iota ! [3 3]
 [
 	1 2 3;
 	4 5 6;
@@ -23,7 +23,7 @@ Create a 3×3 matrix from a three-vector,
 recycling elements as required:
 
 ```
->>> 3.iota.reshape([3 3])
+>>> 3.iota ! [3 3]
 [
 	1 2 3;
 	1 2 3;
@@ -34,15 +34,18 @@ recycling elements as required:
 A constant 2×2 matrix:
 
 ```
->>> [1].reshape([2 2])
-[1 1; 1 1]
+>>> [1] ! [2 2]
+[
+	1 1;
+	1 1
+]
 ```
 
 Create a 2×2 matrix from a nine-vector,
 discarding excess elements:
 
 ```
->>> 9.iota.reshape([2 2])
+>>> 9.iota ! [2 2]
 [
 	1 2;
 	3 4
@@ -52,7 +55,7 @@ discarding excess elements:
 Create a 3×4 matrix from a twelve-vector:
 
 ```
->>> 12.iota.reshape([3 4])
+>>> 12.iota ! [3 4]
 [
 	1  2  3  4;
 	5  6  7  8;
@@ -64,7 +67,7 @@ Create a twelve-vector from a four-vector,
 recycle elements are required:
 
 ```
->>> 4.iota.reshape([12])
+>>> 4.iota ! [12]
 [1 2 3 4 1 2 3 4 1 2 3 4]
 ```
 
@@ -76,7 +79,7 @@ Create a nine-vector from a 3×3 matrix:
 >>> 	1 2 3;
 >>> 	4 5 6;
 >>> 	7 8 9
->>> ].reshape([9])
+>>> ] ! [9]
 [1 2 3 4 5 6 7 8 9]
 ```
 
@@ -88,7 +91,7 @@ discarding excess elements:
 >>> 	1 2 3;
 >>> 	4 5 6;
 >>> 	7 8 9
->>> ].reshape([3])
+>>> ] ! [3]
 [1 2 3]
 ```
 
@@ -99,7 +102,7 @@ recycling elements as required:
 >>> [
 >>> 	1 2;
 >>> 	3 4
->>> ].reshape([2 4])
+>>> ] ! [2 4]
 [
 	1 2 3 4;
 	1 2 3 4
@@ -109,7 +112,7 @@ recycling elements as required:
 `reshape` can be used to produce an identity matrix by reshaping a vector which is one longer than the desired side length:
 
 ```
->>> [1 0 0 0 0].reshape([4 4])
+>>> [1 0 0 0 0] ! [4 4]
 [
 	1 0 0 0;
 	0 1 0 0;
@@ -121,7 +124,7 @@ recycling elements as required:
 Create a 2×3 matrix from a `Range` value:
 
 ```
->>> 1:6.reshape([2 3])
+>>> 1:6 ! [2 3]
 [
 	1 2 3;
 	4 5 6
@@ -131,23 +134,25 @@ Create a 2×3 matrix from a `Range` value:
 Create a 2×3 matrix from the `characters` of a `String` value:
 
 ```
->>> List'abcdef'.reshape([2 3])
+>>> List'abcdef' ! [2 3]
 [
 	'a' 'b' 'c';
 	'd' 'e' 'f'
 ]
 
->>> 'greek'.namedAlphabet.reshape([2 7])
+>>> 'greek'.namedAlphabet ! [4 6]
 [
-	'α' 'β' 'γ' 'δ' 'ε' 'ζ' 'η';
-	'θ' 'ι' 'κ' 'λ' 'μ' 'ν' 'ξ'
+	'α' 'β' 'γ' 'δ' 'ε' 'ζ';
+	'η' 'θ' 'ι' 'κ' 'λ' 'μ';
+	'ν' 'ξ' 'ο' 'π' 'ρ' 'σ';
+	'τ' 'υ' 'φ' 'χ' 'ψ' 'ω'
 ]
 ```
 
 Reshape a four-vector into a 2×2 matrix:
 
 ```
->>> [1 2 3 4].reshape([2 2])
+>>> [1 2 3 4] ! [2 2]
 [
 	1 2;
 	3 4
@@ -157,7 +162,7 @@ Reshape a four-vector into a 2×2 matrix:
 Reshape a 24-vector into a 2×3×4 array:
 
 ```
->>> 1:24.reshape([2 3 4])
+>>> 1:24 ! [2 3 4]
 [
 	 1  2  3  4;
 	 5  6  7  8;
@@ -172,7 +177,7 @@ Reshape a 24-vector into a 2×3×4 array:
 Recyling a four-vector into a 2×3×4 array:
 
 ```
->>> [5 6 7 8].reshape([2 2 3])
+>>> [5 6 7 8] ! [2 2 3]
 [
 	5 6 7;
 	8 5 6
@@ -187,7 +192,7 @@ Reshape a 4×3 matrix into a 3×4 matrix.
 
 ```
 >>> let m = [4 3].iota;
->>> (m, m.reshape([3 4]))
+>>> (m, m ! [3 4])
 (
 	[
 		1 2 3;
@@ -212,7 +217,7 @@ Reshape a 4×3 matrix into a 2×2×3 array.
 >>> 	4 5 6;
 >>> 	7 8 9;
 >>> 	10 11 12
->>> ].reshape([2 2 3])
+>>> ] ! [2 2 3]
 [
 	 1  2  3;
 	 4  5  6
@@ -227,7 +232,7 @@ Reversing matrix dimensions does not give the same element order as `transpose`:
 ```
 >>> let s = [3 4];
 >>> let m = s.iota;
->>> (m.reshape(s.reverse), m.transpose)
+>>> (m ! s.reverse, m.transpose)
 (
 	[
 		 1  2  3;
@@ -247,7 +252,7 @@ Reversing matrix dimensions does not give the same element order as `transpose`:
 Elements from the original list that do not fit in the given dimensions are dropped:
 
 ```
->>> 1:99.reshape([2 3 4])
+>>> 1:99 ! [2 3 4]
 [
 	 1  2  3  4;
 	 5  6  7  8;
@@ -262,14 +267,14 @@ Elements from the original list that do not fit in the given dimensions are drop
 Make a vector of 10 places:
 
 ```
->>> ['x'].reshape([10])
+>>> ['x'] ! [10]
 List(10, 'x')
 ```
 
 Make a 3×2 matrix:
 
 ```
->>> [1].reshape([3 2])
+>>> [1] ! [3 2]
 [
 	1 1;
 	1 1;
@@ -280,7 +285,7 @@ Make a 3×2 matrix:
 Make a 3×4 matrix:
 
 ```
->>> [0 1].reshape([3 4])
+>>> [0 1] ! [3 4]
 [
 	0 1 0 1;
 	0 1 0 1;
@@ -291,14 +296,14 @@ Make a 3×4 matrix:
 `shape` after `reshape` is requested `shape`:
 
 ```
->>> [3 2 1].iota.reshape([2 3 1]).shape
+>>> ([3 2 1].iota ! [2 3 1]).shape
 [2 3 1]
 ```
 
 The ordering is _row_ not _column_:
 
 ```
->>> 1:10.reshape([5 2])
+>>> 1:10 ! [5 2]
 [
 	1  2;
 	3  4;
@@ -307,7 +312,7 @@ The ordering is _row_ not _column_:
 	9 10
 ]
 
->>> 1:10.reshape([2 5]).transpose
+>>> (1:10 ! [2 5]).transpose
 [
 	1  6;
 	2  7;
@@ -320,14 +325,14 @@ The ordering is _row_ not _column_:
 Truncate a list:
 
 ```
->>> [1 3 5 7 9].reshape([3])
+>>> [1 3 5 7 9] ! [3]
 [1 3 5]
 ```
 
 Construct a 2×2×2×2 array,
 
 ```
->>> 1:16.reshape([2 2 2 2])
+>>> 1:16 ! [2 2 2 2]
 [
 	[
 		 1  2;  3  4:;
@@ -339,7 +344,7 @@ Construct a 2×2×2×2 array,
 	]
 ]
 
->>> 1:16.reshape([2 2 2 2])
+>>> (1:16 ! [2 2 2 2])
 >>> .collect(transpose/1)
 [
 	[
@@ -356,8 +361,11 @@ Construct a 2×2×2×2 array,
 reshape a 3×4 matrix to a 2×6 matrix.
 
 ```
->>> [1 4 7 10; 2 5 8 11; 3 6 9 12]
->>> .reshape([2 6])
+>>> [
+>>> 	1 4 7 10;
+>>> 	2 5 8 11;
+>>> 	3 6 9 12
+>>> ] ! [2 6]
 [
 	1  4  7 10  2  5;
 	8 11  3  6  9 12

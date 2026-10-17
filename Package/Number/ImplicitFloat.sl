@@ -1,6 +1,6 @@
 @ImplicitFloat {
 
-	[exp, ^] { :self |
+	exp { :self |
 		SmallFloat(self).exp
 	}
 

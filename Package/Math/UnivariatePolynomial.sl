@@ -85,7 +85,7 @@ UnivariatePolynomial : [Object, Copy, Store, Equal] {
 		self.coefficientList.last
 	}
 
-	mod { :self :modulus |
+	[mod, %] { :self :modulus |
 		UnivariatePolynomial(
 			self.coefficientList % modulus
 		)

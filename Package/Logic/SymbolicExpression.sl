@@ -76,7 +76,7 @@
 
 @SymbolicNumber {
 
-	[conjugate, +] { :self |
+	conjugate { :self |
 		'conjugate'.symbolicPrimitive([self])
 	}
 
@@ -88,7 +88,7 @@
 		}
 	}
 
-	[exp, ^] { :self |
+	exp { :self |
 		'exp'.symbolicPrimitive([self])
 	}
 

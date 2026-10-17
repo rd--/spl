@@ -6,7 +6,7 @@ EisensteinInteger : [Object, Store, Equal] {
 		aBlock(aComplexNumber, self.toComplex)
 	}
 
-	[conjugate, +] { :self |
+	conjugate { :self |
 		EisensteinInteger(
 			0 - self.a - 1,
 			0 - self.b

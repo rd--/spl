@@ -69,9 +69,10 @@ OEIS [A005041](https://oeis.org/A005041):
 ]
 ```
 
-The unary operator form is `>`:
+The unary operator form is sometimed defined to be `>`:
 
 ```
+>>> let > = { :x | x.ceiling };
 >>> 3.141.>
 4
 ```

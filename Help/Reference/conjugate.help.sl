@@ -3,7 +3,8 @@
 - _conjugate(z)_
 
 The complex conjugate of a complex number _a+bi_ is defined to be _a-bi_.
-The conjugate of _z_ is ordinarily with a ¯ as _z̄_.
+The conjugate of _z_ is ordinarily with a ¯ as _z̄_,
+or with a superscript _*_.
 
 At `SmallFloat`:
 
@@ -79,6 +80,14 @@ A complex number multiplied by its conjugate is the square of its modulus:
 >>> let z = 2J3;
 >>> z * z.conjugate
 z.abs.square
+```
+
+Unary `+` is sometimes defined to be `conjugate`:
+
+```
+>>> let + = { :x | x.conjugate };
+>>> [2J3 -4J-3 -12 1.5J1.5].+
+[2J-3 -4J3 -12 1.5J-1.5]
 ```
 
 Plot over a subset of the complex numbers:

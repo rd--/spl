@@ -2,28 +2,28 @@
 
 Operators:
 
-- [∧](https://aplwiki.com/wiki/And) `&` `and`
-- [∨](https://aplwiki.com/wiki/Or) `|` `or`
-- [+](https://aplwiki.com/wiki/Add) `+` `plus`
-- [-](https://aplwiki.com/wiki/Subtract) `-` `subtract`
-- [¯](https://aplwiki.com/wiki/Negate) `-` `negate`
-- [×](https://aplwiki.com/wiki/Times) `*` `times`
-- [÷](https://aplwiki.com/wiki/Divide) `/` `divide`
-- [÷](https://aplwiki.com/wiki/Reciprocal) `/` `reciprocal`
-- [|](https://aplwiki.com/wiki/Residue) `%` `mod`
-- [*](https://aplwiki.com/wiki/Power_(function)) `^`, `power`
-- [!](https://aplwiki.com/wiki/Factorial) `!` `factorial`
-- [⊇](https://aplwiki.com/wiki/From) `atAll`
+- [∧](https://aplwiki.com/wiki/And) `and` `&`
+- [∨](https://aplwiki.com/wiki/Or) `or` `|`
+- [+](https://aplwiki.com/wiki/Add) `plus` `+`
+- [-](https://aplwiki.com/wiki/Subtract) `subtract` `-`
+- [¯](https://aplwiki.com/wiki/Negate) `negate` `-`
+- [×](https://aplwiki.com/wiki/Times) `times` `*`
+- [÷](https://aplwiki.com/wiki/Divide) `divide` `divide`
+- [÷](https://aplwiki.com/wiki/Reciprocal) `reciprocal` `/`
+- [|](https://aplwiki.com/wiki/Residue) `mod` `%`
+- [*](https://aplwiki.com/wiki/Power_(function)) `power` `^`
+- [!](https://aplwiki.com/wiki/Factorial) `factorial` `!`
+- [⊇](https://aplwiki.com/wiki/From) `from`
 - [⊃](https://aplwiki.com/wiki/Pick) `atPath`
-- [=](https://aplwiki.com/wiki/Equal_to) `=` `equal`
-- [≠](https://aplwiki.com/wiki/Not_Equal_to) `!=` `unequal`
-- [≡](https://aplwiki.com/wiki/Match) `~` `similar`
-- [≢](https://aplwiki.com/wiki/Not_Match) `!~` `dissimilar`
-- [≤](https://aplwiki.com/wiki/Less_than_or_Equal_to) `<=` `lessEqual`
-- [<](https://aplwiki.com/wiki/Less_than) `<` `less`
-- [≥](https://aplwiki.com/wiki/Greater_than_or_Equal_to) `>=` `greaterEqual`
-- [>](https://aplwiki.com/wiki/Greater_than) `>` `greater`
-- [#](https://aplwiki.com/wiki/Replicate) `#` `replicate`
+- [=](https://aplwiki.com/wiki/Equal_to) `equal` `=`
+- [≠](https://aplwiki.com/wiki/Not_Equal_to) `unequal` `!=`
+- [≡](https://aplwiki.com/wiki/Match) `similar` `~`
+- [≢](https://aplwiki.com/wiki/Not_Match) `dissimilar` `!~`
+- [≤](https://aplwiki.com/wiki/Less_than_or_Equal_to) `lessEqual` `<=`
+- [<](https://aplwiki.com/wiki/Less_than) `less` `<`
+- [≥](https://aplwiki.com/wiki/Greater_than_or_Equal_to) `greaterEqual` `>=`
+- [>](https://aplwiki.com/wiki/Greater_than) `greater` `>`
+- [⌿](https://aplwiki.com/wiki/Replicate) `replicate` `#`
 - [←](https://aplwiki.com/wiki/Assignment) `:=`
 
 Types:
@@ -70,8 +70,7 @@ Methods:
 - [⍥](https://aplwiki.com/wiki/Over) `over`
 - [rank](https://aplwiki.com/wiki/Rank)
 - [/](https://aplwiki.com/wiki/Reduce) `reduce`
-- [⌿](https://aplwiki.com/wiki/Replicate) `replicate`
-- [⍴](https://aplwiki.com/wiki/Reshape) `reshape`
+- [⍴](https://aplwiki.com/wiki/Reshape) `reshape` `!`
 - [⌽](https://aplwiki.com/wiki/Reverse) `reverse`
 - [⊖](https://aplwiki.com/wiki/Rotate) `rotateLeft`
 - [\\](https://aplwiki.com/wiki/Scan) `scan`

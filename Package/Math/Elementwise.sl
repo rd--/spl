@@ -2,7 +2,7 @@
 
 +@Collect {
 
-	[conjugate, +] { :self |
+	conjugate { :self |
 		self.collect(conjugate/1)
 	}
 
@@ -10,7 +10,7 @@
 		self.collect(doubleFactorial/1)
 	}
 
-	[exp, ^] { :self |
+	exp { :self |
 		self.collect(exp/1)
 	}
 
@@ -26,7 +26,7 @@
 		self.collect(reciprocal/1)
 	}
 
-	[sign, *] { :self |
+	sign { :self |
 		self.collect(sign/1)
 	}
 
@@ -134,7 +134,7 @@
 		self.collect(carmichaelLambda/1)
 	}
 
-	[ceiling, >] { :self |
+	ceiling { :self |
 		self.collect(ceiling/1)
 	}
 
@@ -282,7 +282,7 @@
 		}
 	}
 
-	[floor, <] { :self |
+	floor { :self |
 		self.collect(floor/1)
 	}
 

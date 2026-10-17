@@ -296,11 +296,11 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		}
 	}
 
-	[exp, ^] { :self |
+	exp { :self |
 		<primitive: return Math.exp(_self)>
 	}
 
-	[floor, <] { :self |
+	floor { :self |
 		<primitive: return Math.floor(_self)>
 	}
 
@@ -826,7 +826,7 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		self
 	}
 
-	[sign, *] { :self |
+	sign { :self |
 		<primitive: return Math.sign(_self);>
 	}
 

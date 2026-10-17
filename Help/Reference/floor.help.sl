@@ -78,9 +78,10 @@ OEIS [A007891](https://oeis.org/A007891):
 ]
 ```
 
-The unary operator form is `<`:
+The unary operator form is sometimes defined to be `<`:
 
 ```
+>>> let < = { :x | x.floor };
 >>> 3.141.<
 3
 ```

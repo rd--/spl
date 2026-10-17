@@ -10,11 +10,12 @@ The binary case is the operator form of `times`:
 times(3, 4)
 ```
 
-The unary case is the operator form of `sign`:
+The unary case is sometimes defined to be the operator form of `sign`:
 
 ```
+>>> let * = { :x | x.sign };
 >>> -3.*
-sign(-3)
+-1
 ```
 
 Where supported `*` is displayed as ×.

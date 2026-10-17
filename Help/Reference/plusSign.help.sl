@@ -1,7 +1,6 @@
 # + (plusSign)
 
 - _m + n_
-- _n.+_
 
 The binary form is `plus`:
 
@@ -10,11 +9,12 @@ The binary form is `plus`:
 plus(3, 4)
 ```
 
-The unary form is `conjugate`:
+Sometimes the unary form is defined to be `conjugate`:
 
 ```
+>>> let + = { :x | x.conjugate };
 >>> 1J1.+
-conjugate(1J1)
+1J-1
 ```
 
 The name of this operator is `plusSign`:

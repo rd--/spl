@@ -1,6 +1,14 @@
+/*
+@Collection {
+
+	# { :self |
+		self.size
+	}
+
+}
+
 +@Object {
 
-	/*
 	catenate { :alpha :beta |
 		alpha.nest ++ beta.nest
 	}
@@ -12,13 +20,14 @@
 	pair { :p :q |
 		p.enclose ++ q.enclose
 	}
-	*/
 
 }
 
 +@Do {
 
 }
+
+*/
 
 +List {
 

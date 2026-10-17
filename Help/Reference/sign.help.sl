@@ -123,7 +123,7 @@ The binary form answers a `Number` with the same sign as the operand _b_ and the
 At `Symbol`:
 
 ```
->> `m`.*
+>> `m`.sign
 (if (> m 0) 1 (if (< m 0) -1 0))
 ```
 
@@ -134,6 +134,14 @@ OEIS [A095687](https://oeis.org/A095687):
 >>> let n = 0:8;
 >>> n.sign * 2 * (5 ^ n)
 [0 10 50 250 1250 6250 31250 156250 781250]
+```
+
+Unary `*` is sometimes defined to be `sign`:
+
+```
+>>> let * = { :x | x.sign };
+>>> [-3 0 3].*
+[-1 0 1]
 ```
 
 Plot the `real` part of the `sign` function:

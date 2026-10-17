@@ -43,7 +43,7 @@ Matrix33 : [Object, Equal] {
 		self
 	}
 
-	identity { :self |
+	identity! { :self |
 		self.elements := [
 			1, 0, 0,
 			0, 1, 0,

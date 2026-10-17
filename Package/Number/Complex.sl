@@ -46,7 +46,7 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		system.randomComplex([0J0, self], [])
 	}
 
-	[ceiling, >] { :self |
+	ceiling { :self |
 		Complex(
 			self.real.ceiling,
 			self.imaginary.ceiling
@@ -94,7 +94,7 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		].which
 	}
 
-	[conjugate, +] { :self |
+	conjugate { :self |
 		Complex(
 			self.real,
 			self.imaginary.negate
@@ -131,7 +131,7 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		}
 	}
 
-	[exp, ^] { :self |
+	exp { :self |
 		self.real.exp * (self.imaginary.cos + self.imaginary.sin.i)
 	}
 
@@ -407,7 +407,7 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		)
 	}
 
-	[sign, *] { :self |
+	sign { :self |
 		self / self.abs
 	}
 
@@ -513,7 +513,7 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 
 +@Number {
 
-	[conjugate, +] { :self |
+	conjugate { :self |
 		self
 	}
 

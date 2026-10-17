@@ -13,9 +13,10 @@ true
 true
 ```
 
-The unary form is `floor`:
+The unary form is sometimes defined to be `floor`:
 
 ```
+>>> let < = { :x | x.floor };
 >>> 3.141.<
 3
 
@@ -31,7 +32,7 @@ in Apl it is _⌊_.
 
 * * *
 
-See also: =, !=, <=, >, >=, <=>, Compare, less, lessEqual
+See also: Compare, =, !=, <=, >, >=, <=>, less, lessEqual
 
 Guides: Binary Operators, Comparison Functions, Sort Functions
 

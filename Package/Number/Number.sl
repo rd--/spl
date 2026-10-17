@@ -117,7 +117,7 @@
 		}
 	}
 
-	[ceiling, >] { :self |
+	ceiling { :self |
 		let truncation = self.truncate;
 		(self <= 0).if {
 			truncation
@@ -313,7 +313,7 @@
 		}
 	}
 
-	[floor, <] { :self |
+	floor { :self |
 		let truncation = self.truncate;
 		(self >= 0).if {
 			truncation
@@ -1034,7 +1034,7 @@
 		aNumber.copySign(self)
 	}
 
-	[sign, *] { :self |
+	sign { :self |
 		(self > 0).if {
 			self.one
 		} {

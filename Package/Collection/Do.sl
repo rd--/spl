@@ -454,7 +454,7 @@
 		}
 	}
 
-	[max, maximum] { :self |
+	[maximum, max] { :self |
 		self.reduce(max/2)
 	}
 

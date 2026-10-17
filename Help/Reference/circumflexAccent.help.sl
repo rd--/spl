@@ -10,11 +10,12 @@ The binary form is `power`.
 power(2L, 100L)
 ```
 
-The unary form is `exp`.
+The unary form is sometimes defined to be `exp`:
 
 ```
+>>> let ^ = { :x | x.exp };
 >>> 1.^
-exp(1)
+2.71828
 ```
 
 Where supported `^` is displayed as ˆ.

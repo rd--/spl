@@ -3,13 +3,11 @@
 - _c.#_
 - _x # n_
 
-The unary case is the operator form of `size`:
+The unary case is sometimes defined to be the operator form of `size`:
 
 ```
+>>> let # = { :x | x.size };
 >>> [1 2 3 4 5].#
-5
-
->>> [1 2 3 4 5].size
 5
 ```
 
@@ -23,9 +21,6 @@ The binary case is the operator form of `replicate`:
 [1 1 1 1 1]
 
 >>> 1:5 # 1:5
-[1 2 2 3 3 3 4 4 4 4 5 5 5 5 5]
-
->>> 1:5.replicate(1:5)
 [1 2 2 3 3 3 4 4 4 4 5 5 5 5 5]
 ```
 

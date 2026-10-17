@@ -10,9 +10,10 @@ The binary form is `greater`:
 true
 ```
 
-The unary form is `ceiling`:
+The unary form is sometimes defined to be `ceiling`:
 
 ```
+>>> let greaterThanSign/1 = ceiling/1;
 >>> 3.141.>
 4
 ```
@@ -25,7 +26,7 @@ in Apl it is _⌈_.
 
 * * *
 
-See also: >=, |>, <, <=, ceiling, Compare, greater
+See also: Compare, >=, |>, <, <=, ceiling, greater
 
 Guides: Comparison Functions, Sort Functions
 

@@ -24,22 +24,6 @@ or in a prefix name in `Apply Syntax`:
 -3
 ```
 
-The translation is _3.- ⇒ -(3) ⇒ hyphenMinus(3)  ⇒ hyphenMinus/1 . (3)_.
-
-Unary `+` is `conjugate`:
-
-```
->>> [2J3 -4J-3 -12 1.5J1.5].+
-[2J-3 -4J3 -12 1.5J-1.5]
-```
-
-Unary `*` is `sign`:
-
-```
->>> [-3 0 3].*
-[-1 0 1]
-```
-
 Unary `-` is `negate`:
 
 ```

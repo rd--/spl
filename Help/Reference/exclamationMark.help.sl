@@ -21,7 +21,10 @@ The binary case at `Block` is the operator form of `duplicate`:
 
 ```
 >>> { 1 } ! [2 3]
-duplicate({ 1 }, [2 3])
+[
+	1 1 1;
+	1 1 1
+]
 ```
 
 The binary case at `List` is `reshape`:
@@ -35,7 +38,7 @@ The binary case at `List` is `reshape`:
 ]
 ```
 
-To duplicate a value it can be enclosed in either a block or a list:
+To duplicate a scalar value it can be enclosed in either a block or a list:
 
 ~~~spl svg=A
 let r = Sfc32(738219);

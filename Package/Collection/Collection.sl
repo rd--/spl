@@ -1,9 +1,5 @@
 @Collection {
 
-	# { :self |
-		self.size
-	}
-
 	allEqualBy { :self :aBlock/2 |
 		self.isEmpty.if {
 			true

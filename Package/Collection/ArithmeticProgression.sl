@@ -130,7 +130,7 @@
 		self.collect(identity/1)
 	}
 
-	[max, maximum] { :self |
+	[maximum, max] { :self |
 		self.ifEmpty {
 			self.emptyError('@ArithmeticProgression>>max')
 		};

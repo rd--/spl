@@ -31,7 +31,7 @@ Matrix22 : [Object, Equal] {
 		}
 	}
 
-	identity { :self |
+	identity! { :self |
 		self.initializeSlots(
 			1, 0,
 			0, 1

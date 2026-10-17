@@ -70,9 +70,6 @@ At `Symbol`:
 ```
 >> `m` + `n`
 (+ m n)
-
->> `m`.+
-(conjugate m)
 ```
 
 _a(n)=o(n-1)+o(n-2)_ where _o(n)_ is the number of occurrences of _a(n)_ in _a_ up to _n_,
