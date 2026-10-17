@@ -54,7 +54,7 @@ The power set of the integers _1 .. n_ give the indices for all subsequences, di
 ```
 >>> let l = ['x' 'y' 'z'];
 >>> (1 .. l.size).powerSet.collect {:each |
->>> 	(l @* each).stringJoin
+>>> 	l.atAll(each).stringJoin
 >>> }
 ['' 'x' 'y' 'xy' 'z' 'xz' 'yz' 'xyz']
 ```

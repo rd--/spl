@@ -6,11 +6,13 @@ Apply the unary block _f_ to the object _x_.
 This is the operator form of `in` and `with`.
 
 ```
+>>> let $> = in/2;
 >>> 3 $> { :x |
 >>> 	x * x * x
 >>> }
 27
 
+>>> let $> = in/2;
 >>> 3 * 3 * 3 $> cubeRoot/1
 3
 ```
@@ -19,6 +21,6 @@ The name of this operator is `dollarSignGreaterThanSign`.
 
 * * *
 
-See also: <$, in, with
+See also: <$
 
 Guides: Apply Syntax, Binary Operators, Block Functions, Value Apply Syntax

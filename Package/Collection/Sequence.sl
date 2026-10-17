@@ -1189,6 +1189,17 @@
 		self.copyFromTo(n * 3 + 1, n * 4)
 	}
 
+
+	from { :self |
+		{ :aCollection |
+			aCollection.atAll(self)
+		}
+	}
+
+	from { :self :aCollection |
+		aCollection.atAll(self)
+	}
+
 	fromContinuedFraction { :self |
 		(self ~ [0]).if {
 			0

@@ -28,7 +28,7 @@ let p = r.randomReal([-1 1], [17 2]);
 let i = p.convexHullIndices;
 [
 	p.PointCloud,
-	(p @* i).Polygon
+	p.atAll(i).Polygon
 ].LineDrawing
 ~~~
 

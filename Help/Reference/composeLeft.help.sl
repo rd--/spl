@@ -29,9 +29,10 @@ Composition of inverses:
 n
 ```
 
-Operator form:
+Sometimes `@*` is defined as an operator form:
 
 ```
+>>> let @* = composeLeft/2;
 >>> (square/1 @* sqrt/1) . (23)
 23
 ```
@@ -58,7 +59,7 @@ At `List`:
 
 * * *
 
-See also: @*, bindLeft, bindRight, composeRight
+See also: bindLeft, bindRight, composeRight
 
 Guides: Block Functions
 

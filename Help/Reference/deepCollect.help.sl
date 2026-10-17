@@ -31,6 +31,8 @@ Guides: Dictionary Functions, List Functions
 
 References:
 _J_
-[1](https://code.jsoftware.com/wiki/Vocabulary/lcapco)
+[1](https://code.jsoftware.com/wiki/Vocabulary/lcapco),
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/MapAll.html)
 
 Categories: Enumerating

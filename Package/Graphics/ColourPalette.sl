@@ -2,7 +2,7 @@ ColourPalette : [Object, Store] {
 
 	| colourList |
 
-	[at, @] { :self :index |
+	at { :self :index |
 		self.colourList.at(index)
 	}
 

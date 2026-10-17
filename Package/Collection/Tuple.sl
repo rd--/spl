@@ -4,7 +4,7 @@ Tuple : [Object, Copy, Store, Equal] {
 
 	| collection |
 
-	[at, @] { :self :index |
+	at { :self :index |
 		self.collection.at(index)
 	}
 

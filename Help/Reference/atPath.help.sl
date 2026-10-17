@@ -59,9 +59,10 @@ omitted trailing dimensions are taken in full:
 [211 .. 220]
 ```
 
-The infix form is `@>`:
+Sometimes `@>` is defined as the infix form:
 
 ```
+>>> let @> = atPath/2;
 >>> (w: (x: (y: (z: 1)))) @> ['w' 'x' 'y' 'z']
 1
 ```

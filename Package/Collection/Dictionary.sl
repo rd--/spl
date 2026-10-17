@@ -2,7 +2,7 @@
 
 @Dictionary {
 
-	[at, @] { :self :key |
+	at { :self :key |
 		self.atIfAbsent(key) {
 			self.error('@Dictionary>>at: unknown key', [key])
 		}

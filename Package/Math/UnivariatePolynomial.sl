@@ -2,60 +2,8 @@ UnivariatePolynomial : [Object, Copy, Store, Equal] {
 
 	| coefficientList |
 
-	[at, @] { :self :x |
+	at { :self :x |
 		self.coefficientList.evaluateUnivariatePolynomial(x)
-	}
-
-	[negate, -] { :self |
-		self * -1
-	}
-
-	[plus, +] { :self :operand |
-		let c1 = self.coefficientList;
-		let c2 = operand.coefficientList;
-		let n = c1.size.max(c2.size);
-		UnivariatePolynomial(
-			c1.padRight([n], 0) + c2.padRight([n], 0)
-		)
-	}
-
-	[power, ^] { :self :operand |
-		(operand = 0).if {
-			Polynomial([1])
-		} {
-			let answer = self;
-			(operand - 1).timesRepeat {
-				answer := answer * self
-			};
-			answer
-		}
-	}
-
-	[quotient, //] { :numerator :denominator |
-		let [q, _] = numerator.quotientRemainder(denominator);
-		q
-	}
-
-	[subtract, -] { :self :operand |
-		self + operand.negate
-	}
-
-	[times, *] { :self :operand |
-		let a = self.coefficientList;
-		operand.isUnivariatePolynomial.if {
-			let b = operand.coefficientList;
-			let m = a.size;
-			let n = b.size;
-			let c = List(m + n - 1, 0);
-			1.toDo(m) { :i |
-				1.toDo(n) { :j |
-					c[i + j - 1] := c[i + j - 1] + (a[i] * b[j])
-				}
-			};
-			UnivariatePolynomial(c)
-		} {
-			UnivariatePolynomial(a * operand)
-		}
 	}
 
 	assertIsNormal { :self |
@@ -147,6 +95,10 @@ UnivariatePolynomial : [Object, Copy, Store, Equal] {
 		self * self.leadingCoefficient.reciprocal
 	}
 
+	[negate, -] { :self |
+		self * -1
+	}
+
 	normalize { :self |
 		self.isSymbolic.not.ifTrue {
 			let c = self.coefficientList;
@@ -159,6 +111,15 @@ UnivariatePolynomial : [Object, Copy, Store, Equal] {
 			}
 		};
 		self
+	}
+
+	[plus, +] { :self :operand |
+		let c1 = self.coefficientList;
+		let c2 = operand.coefficientList;
+		let n = c1.size.max(c2.size);
+		UnivariatePolynomial(
+			c1.padRight([n], 0) + c2.padRight([n], 0)
+		)
 	}
 
 	polynomialGcd { :self :operand |
@@ -179,6 +140,23 @@ UnivariatePolynomial : [Object, Copy, Store, Equal] {
 
 	postCopy { :self |
 		self.coefficientList := self.coefficientList.copy
+	}
+
+	[power, ^] { :self :operand |
+		(operand = 0).if {
+			Polynomial([1])
+		} {
+			let answer = self;
+			(operand - 1).timesRepeat {
+				answer := answer * self
+			};
+			answer
+		}
+	}
+
+	[quotient, //] { :numerator :denominator |
+		let [q, _] = numerator.quotientRemainder(denominator);
+		q
 	}
 
 	quotientRemainder { :numerator :denominator |
@@ -207,6 +185,10 @@ UnivariatePolynomial : [Object, Copy, Store, Equal] {
 		)
 	}
 
+	[subtract, -] { :self :operand |
+		self + operand.negate
+	}
+
 	terms { :self |
 		let answer = Map();
 		self.coefficientList.withIndexDo { :c :i |
@@ -215,6 +197,24 @@ UnivariatePolynomial : [Object, Copy, Store, Equal] {
 			}
 		};
 		answer
+	}
+
+	[times, *] { :self :operand |
+		let a = self.coefficientList;
+		operand.isUnivariatePolynomial.if {
+			let b = operand.coefficientList;
+			let m = a.size;
+			let n = b.size;
+			let c = List(m + n - 1, 0);
+			1.toDo(m) { :i |
+				1.toDo(n) { :j |
+					c[i + j - 1] := c[i + j - 1] + (a[i] * b[j])
+				}
+			};
+			UnivariatePolynomial(c)
+		} {
+			UnivariatePolynomial(a * operand)
+		}
 	}
 
 	unaryBlock { :self |

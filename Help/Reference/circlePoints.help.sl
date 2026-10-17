@@ -76,11 +76,12 @@ place circles within outer polgons:
 ~~~spl svg=D
 let p = 12.circlePoints([0 0], 1, 0);
 let i = [1 .. 12] * 5 % 12 + 1;
-let q = 12.circlePoints([0 0], 9 / 17, 0);
+let q = p.atAll(i);
+let r = 12.circlePoints([0 0], 9 / 17, 0);
 [
 	Circle([0 0], 1),
-	Polygon(p @* i),
-	q.collect { :each |
+	Polygon(q),
+	r.collect { :each |
 		Circle(each, 1 / 9)
 	}
 ].LineDrawing

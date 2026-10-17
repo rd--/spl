@@ -22,7 +22,7 @@ BitSet : [Object, Copy, Store, Equal, Do, Collect, Collection, Add, Remove] {
 		anInteger
 	}
 
-	[bitAt, at, @] { :self :anInteger |
+	[bitAt, at] { :self :anInteger |
 		let byteIndex = anInteger.bitShift(-3) + 1;
 		let bitIndex = 0 - anInteger.bitAnd(7);
 		self.bytes[byteIndex].bitShift(bitIndex).bitAnd(1)

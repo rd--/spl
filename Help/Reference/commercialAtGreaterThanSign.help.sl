@@ -2,9 +2,10 @@
 
 - _c₁ @> c₂_
 
-The operator (infix) form of `atPath`.
+Sometimes defined as an operator form of `atPath`:
 
 ```
+>>> let @> = atPath/2;
 >>> (w: (x: (y: (z: 1)))) @> ['w' 'x' 'y' 'z']
 1
 ```
@@ -13,7 +14,7 @@ The name of this operator is `commercialAtGreaterThanSign`.
 
 * * *
 
-See also: @, @*, atAll, atPath
+See also: @, @*
 
 Guides: Indexing Functions
 

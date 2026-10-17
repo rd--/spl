@@ -16,7 +16,7 @@ For the permutation 3 1 2 the dérangements are given as 3 before 1 and 3 before
 ```
 >>> let p = [3 1 2];
 >>> let i = p.permutationInversions;
->>> i.collect { :each | p @* each }
+>>> i.collect { :each | p.atAll(each) }
 [3 1; 3 2]
 ```
 
@@ -28,7 +28,7 @@ Knuth (1973) writes:
 ```
 >>> let p = [3 1 4 2];
 >>> let i = p.permutationInversions;
->>> i.collect { :each | p @* each }
+>>> i.collect { :each | p.atAll(each) }
 [3 1; 3 2; 4 2]
 ```
 

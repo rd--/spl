@@ -57,14 +57,14 @@ Conditional Operators:
 Collection Operators:
 
 - `->`, `Association`
-- `@`, `at`
-- `@*`, `atAll`
-- `@>`, `atPath`
 - `++`, `concatenation`, `catenate`
+- `at`
+- `atAll`
+- `atPath`
 
 Evaluating Operators:
 
-- `$`, `value`
+- `<$`, `binaryApply`
 
 Iteration Operators:
 

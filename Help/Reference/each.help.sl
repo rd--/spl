@@ -5,19 +5,23 @@
 Answer a `Block` that will either apply the unary block _f_ to one argument using `collect`,
 or will apply the binary block _f_ to two arguments using `withCollect`.
 
+At unary _f_:
+
 ```
->>> size/1 <$ [1 2 3; 4 5]
-2
+>>> let a = [1 2 3; 4 5];
+>>> let f/1 = size/1.each;
+>>> (a.size, f(a))
+(2, [3, 2])
 
->>> size/1.each <$ [1 2 3; 4 5]
-[3 2]
+>>> let a = [1 2 3; 4 5];
+>>> let f/1 = reverse/1.each;
+>>> (a.reverse, f(a))
+([4 5; 1 2 3], [3 2 1; 5 4])
+```
 
->>> reverse/1 <$ [1 2 3; 4 5]
-[4 5; 1 2 3]
+At binary _f_:
 
->>> reverse/1.each <$ [1 2 3; 4 5]
-[3 2 1; 5 4]
-
+```
 >>> [1 2] + [3 4]
 [4 6]
 

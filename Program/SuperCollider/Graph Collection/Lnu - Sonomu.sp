@@ -78,15 +78,16 @@ let e = {
 };
 let v = SinOsc(1 - e() / f, 4) + 1 / 2 ^ 2;
 let p = LfPulse(
-	f @* [8, 7 .. 2] / 111,
+	f[8, 7 .. 2] / 111,
 	0,
 	1 - v
 ) * [1 2 4];
+let q = p.rotateRight(2) - e();
 let o = VarSaw(
 	f + (p * f),
 	0,
 	1 - e() ^ 2 / 2
-) * (p.rotateRight(2) - e() @* [8, 7 .. 1] ^ 0.125);
+) * (q[8, 7 .. 1] ^ 0.125);
 let r = FreeVerb(
 	Bpf(
 		o * e() ^ 2,
@@ -94,7 +95,7 @@ let r = FreeVerb(
 		1.1 - v
 	),
 	1 - v,
-	v @* [8, 7 .. 1],
+	v[8, 7 .. 1],
 	0.999
 ) * (1 - (e() ^ 4)) + (e() * v * o);
 Splay(r, (v[8] * 111).Sin)
@@ -240,7 +241,7 @@ let o = c.MidiCps.collect { :f | SinOsc(f, 0) };
 let e = SinOsc(2 / c.Log10, 0) * LfSaw(11 / c.-, 0).Max(0).Lag3(0.1);
 Splay(
 	LeakDc(o * e, 0.995),
-	SinOsc(1 / c @ 1, 0)
+	SinOsc(1 / c[1], 0)
 )
 
 /* https://sonomu.club/@lukiss/110281639162399169 ; Apr 29, 2023 */
@@ -265,11 +266,11 @@ let e = { :g |
 let h = HenonC(1 / [1 .. 5], 1.4, 0.3, 0, 0) < 0.9;
 Splay(
 	h * [
-		LfTri(e(p @ 1) ^ 18 * 133 + 80, 0) * (e(p @ 1) ^ 24),
-		HenonC(e(p @ 2) ^ 8 * 800 + 4E3, 1.4, 0.3, 0, 0) * (e(p @ 2) ^ 38),
-		LfTri(2E3, 0) * HenonC(1E4, 1.4, 0.3, 0, 0) * (e(p @ 3) ^ 5 ^ 16),
-		LfTri(110, 0) * LfTri((ToggleFf(p @ 4) * 7).MidiRatio * 220, 0) * (e(p @ 4) ^ 5 ^ 8),
-		0.3 * HenonC(22050, 1.4, 0.3, 0, 0) * (e(p @ 5) ^ 68 + (0.5 * e(p @ 5) ^ 3))
+		LfTri(e(p[1]) ^ 18 * 133 + 80, 0) * (e(p[1]) ^ 24),
+		HenonC(e(p[2]) ^ 8 * 800 + 4E3, 1.4, 0.3, 0, 0) * (e(p[2]) ^ 38),
+		LfTri(2E3, 0) * HenonC(1E4, 1.4, 0.3, 0, 0) * (e(p[3]) ^ 5 ^ 16),
+		LfTri(110, 0) * LfTri((ToggleFf(p[4]) * 7).MidiRatio * 220, 0) * (e(p[4]) ^ 5 ^ 8),
+		0.3 * HenonC(22050, 1.4, 0.3, 0, 0) * (e(p[5]) ^ 68 + (0.5 * e(p[5]) ^ 3))
 	],
 	0.25
 )
@@ -333,7 +334,7 @@ let t = [6, 3 / 2, 3, 3 / 4, 1 / 4];
 let d = Demand(
 	TDuty(1 / t, 0, 1),
 	0,
-	Dseq(Infinity, [1 .. 24].collect { :n | Dseq(1, c @* [1, n + 1 .. c.size]) })
+	Dseq(Infinity, [1 .. 24].collect { :n | Dseq(1, c[1, n + 1 .. c.size]) })
 ).Lag3(0.001);
 let e = LfSaw(-1 * t, 1) * 1 + 1 / 2;
 let o = (LfSaw(w * d.MidiCps, 0) * e).Fold2(1) * (LfSaw(d % t.Log, 0) > 0);

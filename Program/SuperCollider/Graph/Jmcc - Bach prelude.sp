@@ -14,10 +14,12 @@ let p2 = [
 	36 47 67 71 74 77 74 71 74 71 67 71 62 65 64 62;
 	60 60 60 60 60 60 60 60 60 60 60 60 60 60 60 60
 ];
-let p = (p1.collect { :x |
-	let y = x ++ (x @* [3 4 5]);
-	y ++ y
-} ++ p2).++;
+let p = (
+	p1.collect { :x |
+		let y = x ++ [3 4 5].from(x);
+		y ++ y
+	} ++ p2
+).++;
 let tr = Impulse(5, 0);
 let freq = Demand(tr, 0, Dseq(1, p.MidiCps));
 EqPan2(FreeVerb(Lpf(Saw(Lag(freq, 0.03)), 1000), 0.3, 0.5, 0.35), 0) / 5

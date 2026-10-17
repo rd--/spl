@@ -39,9 +39,9 @@ Bitwise Operators:
 
 Indexing Operators:
 
-- `@`, `at`, `commercialAt`
-- `@>`
-- `@*`
+- `at`
+- `atAll`
+- `atPath`
 
 Evaluation Operators:
 

@@ -68,7 +68,7 @@ Generate a dragon curve:
 let c = { :l |
 	l ++ [0] ++ (1 - l).reverse
 }.iterate([0], 9);
-let theta = [90 -90].degree @* (c + 1);
+let theta = [90 -90].degree.atAll(c + 1);
 theta.anglePath.Line
 ~~~
 

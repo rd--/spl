@@ -11,6 +11,6 @@ An alias for `composeLeft`.
 
 * * *
 
-See also: @*, bindLeft, bindRight, composeLeft, composeRight
+See also: bindLeft, bindRight, composeLeft, composeRight
 
 Guides: Block Functions

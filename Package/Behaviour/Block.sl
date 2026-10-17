@@ -2,10 +2,6 @@
 
 Block! : [Object, Equal] {
 
-	<$ { :self/1 :anObject |
-		self(anObject)
-	}
-
 	[duplicate, !] { :self/0 :shape |
 		{ :unused |
 			self()
@@ -113,7 +109,7 @@ Block! : [Object, Equal] {
 		}
 	}
 
-	[composeLeft, compose, @*] { :self/1 :aBlock/1 |
+	[composeLeft, compose] { :self/1 :aBlock/1 |
 		{ :anObject |
 			self(aBlock(anObject))
 		}
@@ -718,7 +714,7 @@ Block! : [Object, Equal] {
 		self
 	}
 
-	[in, with, $>] { :self :aBlock/1 |
+	[in, with] { :self :aBlock/1 |
 		aBlock(self)
 	}
 

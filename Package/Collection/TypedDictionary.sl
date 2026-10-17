@@ -2,7 +2,7 @@ TypedDictionary : [Object, Store, Equal, Do, At, Indices, Put, Collect, Collecti
 
 	| untypedDictionary keyType |
 
-	[at, @] { :self :key |
+	at { :self :key |
 		self.untypedDictionary.at(self.typeCheckKey(key))
 	}
 

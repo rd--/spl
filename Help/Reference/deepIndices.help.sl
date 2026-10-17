@@ -62,11 +62,13 @@ At `Record`:
 `atPath` and @>:
 
 ```
+>>> let @> = atPath/2;
 >>> let l = [1; 2 3; 4 5 6];
 >>> let i = l.deepIndices;
 >>> [l] @>.map i
 [1 2 3 4 5 6]
 
+>>> let @> = atPath/2;
 >>> let r = (
 >>> 	x: 1,
 >>> 	y: (x: 2, y: 3),

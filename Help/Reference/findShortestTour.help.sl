@@ -29,7 +29,7 @@ let p = [
 	5 1; 5 2; 5 3; 5 4
 ];
 let [_, t] = p.findShortestTour;
-let c = p @* t;
+let c = p.atAll(t);
 [
 	p.PointCloud,
 	c.Line
@@ -64,9 +64,10 @@ Shortest tour of randomly generated coordinates:
 let r = Sfc32(323193);
 let p = r.randomReal([-1 1], [17 2]);
 let [_, i] = p.findShortestTour;
+let q = p.atAll(i);
 [
 	p.PointCloud,
-	(p @* i).Line
+	q.Line
 ].LineDrawing
 ~~~
 

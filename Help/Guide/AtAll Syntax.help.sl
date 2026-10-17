@@ -31,11 +31,12 @@ At `List`:
 ([7 6 5 4 3], [3 7])
 ```
 
-The @* operator expresses this operation succinctly at vectors:
+We can define an operator to expresses this operation succinctly at vectors:
 
 ```
+>>> let @ = atAll/2;
 >>> let c = [9, 8 .. 1];
->>> (c @* 3:7, c @* [7 3])
+>>> (c @ 3:7, c @ [7 3])
 ([7 6 5 4 3], [3 7])
 ```
 
@@ -49,7 +50,7 @@ At `Map`:
 
 * * *
 
-See also: @*, at, atAll, atPath
+See also: At, at, atAll, atPath
 
 Guides: At Syntax, Property Read Syntax, Put Syntax
 

@@ -4,6 +4,7 @@
 
 Answer the `factorial` of the number _x_ if it is a non-negative integer,
 else answer `gamma`.
+The operator form is `!`.
 
 At integral `SmallFloat` and `LargeInteger`:
 

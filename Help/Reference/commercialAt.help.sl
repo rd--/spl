@@ -2,9 +2,10 @@
 
 - _c @ i_
 
-Answer the item in the collection _c_ at index _i_.
+Somtimess define as the operator form of `at`:
 
 ```
+>>> let @ = at/2;
 >>> let c = 1:9;
 >>> c @ 3
 3
@@ -18,25 +19,6 @@ This form is rarely used since `at` is ordinarily written using `At Syntax` as:
 3
 ```
 
-However there is a family of operator forms for variants of `at`,
-such as `atAll` and `atPath`.
-
-`@*` is a mnemonic for `atAll`:
-
-```
->>> let c = [1 .. 9];
->>> c @* [3 5 7]
-[3 5 7]
-```
-
-`@>` is a mnemonic for `atPath`:
-
-```
->>> let c = [1 2 3; 4 5 6];
->>> c @> [2 3]
-6
-```
-
 The name of this operator is `commercialAt`.
 
 `@` is also a syntax token.
@@ -44,7 +26,7 @@ The name of this operator is `commercialAt`.
 
 * * *
 
-See also: at, Point
+See also: @*, @>
 
 Guides: At Syntax, Binary Operators, Defining Methods
 

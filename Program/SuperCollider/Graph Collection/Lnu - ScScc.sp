@@ -779,3 +779,23 @@ let o = Lpz2(
 	)
 );
 (o / 5) <! LocalOut(o)
+
+/* https://social.toplap.org/@scscc/117388299280203771 */
+let p = [1 .. 32];
+let m = 2 ^ (p / 12);
+let w = Dwhite(Infinity, [0 0 0], 1);
+let r = Duty(w[1], w[2], w[3]).kr;
+Pan2(
+	Sum(
+		Fold(
+			LfSaw(
+				1 / r,
+				0
+			).Max(0) * m,
+			-1,
+			1
+		) + 1 / 2 ^ (r * 9 + 4) * SinOsc(r * 98 * p * m, 0)
+	),
+	0,
+	0.1
+)

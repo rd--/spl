@@ -101,7 +101,7 @@ ordered by counting the number of sign changes in each row:
 >>> let h = 8.hadamardMatrix;
 >>> let z = h.collect(zeroCrossingCount/1);
 >>> let p = z.ordering;
->>> let w = h @* p;
+>>> let w = h.atAll(p);
 >>> (z, p, w)
 (
 	[0 7 3 4 1 6 2 5],

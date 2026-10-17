@@ -526,12 +526,12 @@ let a = [nil, true, false, 3.141, 23, 'str']; a.deepCopy = a /* deepCopy of shal
 [1, 3 .. 9].copyUpTo(-1) = [1, 3 .. 9] /* copy up to end if no such element */
 [1, 2, 3, 4, 2, 3, 4, 3, 4, 4].copyUpToLast(3) = [1, 2, 3, 4, 2, 3, 4] /* copy up to last instance of element */
 [1, 3 .. 9].copyUpToLast(-1) = [1, 3 .. 9] /* copy up to end if no such element */
-let i = 9:1:-1; i @* [5, 3, 7] = [5, 7, 3] /* atAll operator */
-let a = [9, 8 .. 1]; a @* [5, 3, 7] = [5, 7, 3] /* atAll operator */
-let a = [5, 4 .. 1]; a @* [1 5 3] = [5 1 3] /* atAll operator */
-let a = [5, 4 .. 1]; a @* [2 .. 4] = [4 3 2] /* atAll operator */
-let a = [1, 1, 3, 4]; a @* [2, 4, 3, 1] = [1, 4, 3, 1] /* atAll operator */
-let a = [1 1 3 4]; a @* [2 4 3 1] = [1 4 3 1] /* atAll operator */
+let i = 9:1:-1; i[5, 3, 7] = [5, 7, 3] /* atAll operator */
+let a = [9, 8 .. 1]; a[5, 3, 7] = [5, 7, 3] /* atAll operator */
+let a = [5, 4 .. 1]; a[1, 5, 3] = [5 1 3] /* atAll operator */
+let a = [5, 4 .. 1]; a[2 .. 4] = [4 3 2] /* atAll operator */
+let a = [1, 1, 3, 4]; a[2, 4, 3, 1] = [1, 4, 3, 1] /* atAll operator */
+let a = [1 1 3 4]; a[2, 4, 3, 1] = [1 4 3 1] /* atAll operator */
 { :i | i * 2 }.fill([4]) = [2; 4; 6; 8] /* fill list using block at indicies */
 ```
 
@@ -988,15 +988,12 @@ let c = 1:9; let a = 0; c.ifNotEmptyDo { :x | a := a + (x ^ 3) }; a = 2025 /* br
 (x: (y: 1)).atPath(['x', 'y']) = 1 /* atPath of dictionary, depth = 2 */
 (x: (y: (z: 1))).atPath(['x', 'y', 'z']) = 1 /* atPath of dictionary, depth = 3 */
 (w: (x: (y: (z: 1)))).atPath(['w', 'x', 'y', 'z']) = 1 /* atPath of dictionary, depth = 4 */
-(p: (q: (r: 1))) @> ['p' 'q' 'r'] = 1 /* @> = atPath operator */
-(p: (q: (r: (s: 1)))) @> ['p' 'q' 'r' 's'] = 1
-(p: (q: (r: 1))) @/ 'p/q/r' = 1 /* @/ = atPath of splitBy('/') */
-(p: (q: (r: (s: 1)))) @/ 'p/q/r/s' = 1
+(p: (q: (r: 1)))['p']['q']['r'] = 1 /* atPath operator */
+(p: (q: (r: (s: 1))))['p']['q']['r']['s'] = 1
 let d = (w: (x: (y: (z: 1)))); d.atPathPut!(['w', 'x', 'y', 'z'], -1); d['w']['x']['y']['z'] = -1 /* atPathPut of dictionary, depth = 4 */
 (x: (y: 1))['x']['y'] = 1 /* index sequence */
 [['w', 'x'], ['y', 'z']].atPath([1, 2]) = 'x' /* atPath of arrays */
 [['w', 'x'], ['y', 'z']][1][2] = 'x' /* index sequence */
-[['w', 'x'], ['y', 'z']] @> [1 2] = 'x' /* atPath operator on array or arrays */
 (1, 3 .. 21).includes(9) /* does range include value */
 (1, 3 .. 21).doesNotInclude(6) /* does range include value */
 (x: 1, y: 1, z: 1).allEqualBy(=) /* are all items equal by comparator */
@@ -2842,8 +2839,7 @@ let n = 0; let a = [1 .. 4]; a.permutationsDo { :each | n := n + 1 }; n = 24 & {
 let a = [1 .. 3].permutations; a = [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 2, 1], [3, 1, 2]] /* permutations */
 let i = [4, 7 .. 13]; let p = i.permutations; p.size = i.size.factorial & { p.nub.size = p.size }
 let i = [4, 7 .. 13]; i.permutations.allSatisfy { :e | e.sort.hasEqualElements(i) }
-let a = [1, 1, 3, 4]; a @* [2, 4, 3, 1] = [1, 4, 3, 1] /* atAll as permutation */
-let a = [1 1 3 4]; a @* [2 4 3 1] = [1 4 3 1] /* atAll as permutation */
+let a = [1, 1, 3, 4]; a[2, 4, 3, 1] = [1, 4, 3, 1] /* atAll as permutation */
 [1, 9, 2, 8, 3, 7, 4, 6].pairsCollect { :i :j | i + j } = [10, 10, 10, 10]
 let s = ''; [1, 9, 2, 8, 3, 7, 4, 6].pairsDo { :i :j | s := s ++ (i + j).printString }; s = '10101010'
 let s = ''; [1 9 2 8 3 7 4 6].reverseDo { :i | s := s ++ i.printString }; s = '64738291' /* do from end */
@@ -2894,7 +2890,7 @@ let a = []; 0:1.asDigitsToPowerDo(2) { :each | a.add!(each.copy) }; a = [[0, 0],
 1:9.atAllWrap(3:-1:-1) = [3 2 1 9 8] /* atWrap all indices */
 1:9.atAllFold(3:-1:-1) = [3 2 1 2 3] /* atFold all indices */
 1:9.atAllPin(3:-1:-1) = [3 2 1 1 1] /* atPin all indices */
-1:9 @* 3:5 = [3 .. 5] /* @* atAll operator */
+1:9[3 .. 5] = [3 .. 5] /* atAll operator */
 let a = List(9, nil); a.atAllPut!(0); a = [0, 0, 0, 0, 0, 0, 0, 0, 0] /* set all elements to a single value */
 let a = [1 .. 9]; a.atAllPut!([3 .. 7], 0); a = [1, 2, 0, 0, 0, 0, 0, 8, 9] /* set all selected indices to a value */
 let a = [1 .. 9]; a.atAllPut!(3:7, 0); a = [1, 2, 0, 0, 0, 0, 0, 8, 9] /* set all selected indices to a value */
@@ -3516,8 +3512,8 @@ let a = 1; let b = 3; [a b; b a:; b a; a b] = [[[1, 3], [3, 1]], [[3, 1], [1, 3]
 [1 2 3; 4 5 6].atPath([2]) = [4 5 6] /* matrix indexing; atPath, single index */
 [1 2 3; 4 5 6].atPath([2, 3]) = 6 /* matrix indexing; atPath, two indices */
 { [1 2 3; 4 5 6].atPath([]) }.hasError /* matrix indexing; atPath, empty indices is an error */
-[1 2 3; 4 5 6] @> [2 3] = 6 /* matrix indexing; atPath operator */
-let m = [1 2 3; 4 5 6; 7 8 9]; m @> [2 3] = 6 & { m @> [3 2] = 8 } /* matrix syntax and atPath operator */
+[1 2 3; 4 5 6][2][3] = 6 /* matrix indexing; atPath operator */
+let m = [1 2 3; 4 5 6; 7 8 9]; m[2][3] = 6 & { m[3][2] = 8 } /* matrix syntax and atPath operator */
 [1 -1 -4 -8 -13 -19 -26 -34 -43].size = 9 /* negative integer literals */
 [1 - 1 - 4 - 8 - 13 - 19 - 26 - 34 - 43] = [-147] /* subtraction */
 ```

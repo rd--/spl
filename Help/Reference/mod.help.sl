@@ -403,7 +403,7 @@ Threads over lists:
 Extract parts of a list cyclically:
 
 ```
->>> ['a' 'b' 'c'] @* 1:10.mod(3, 1)
+>>> ['a' 'b' 'c'].atAll(1:10.mod(3, 1))
 ['a' 'b' 'c' 'a' 'b' 'c' 'a' 'b' 'c' 'a']
 ```
 

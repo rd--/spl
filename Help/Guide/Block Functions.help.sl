@@ -74,11 +74,6 @@ Exceptions:
 - `ensure`
 - `ifError`
 
-Operators:
-
-- `$`
-- `@*`
-
 * * *
 
 Guides: Block Semantics, Block Syntax, Control Functions, Non-local Return, Reflection Functions, Value Apply Syntax, Value Protocol

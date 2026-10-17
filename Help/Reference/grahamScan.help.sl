@@ -27,9 +27,10 @@ The convex hull of a random set of seventeen points:
 let r = Sfc32(323193);
 let p = r.randomReal([-1 1], [17 2]);
 let i = p.grahamScan;
+let q = p.atAll(i);
 [
 	p.PointCloud,
-	(p @* i).Polygon
+	q.Polygon
 ].LineDrawing
 ~~~
 

@@ -4,9 +4,8 @@
 
 Evaluate the block _f_ with the object _x_ as argument and answer the answer of _f_.
 `in` is an alias for `with`, following the Squeak naming of this method.
-The operator form is `$>`.
 
-`in` is `value` with argument order reversed, ie. _in(α,β)_ is equal to _value(β,α)_.
+`in` is `swap` of `unaryApply`, ie. _in(α,β)_ is equal to _unaryApply(β,α)_.
 
 `in` can be used where a "cascade" would be in Smalltalk,
 to apply a sequence of message sends to an object and answer the value of the last.
@@ -22,7 +21,7 @@ See `also` for a slight variation that answers _x_ instead.
 >>> d = (c: 2) & { r = 0 }
 true
 
->>> 3 * 3 * 3 $> cubeRoot/1
+>>> (3 * 3 * 3).in(cubeRoot/1)
 3
 ```
 

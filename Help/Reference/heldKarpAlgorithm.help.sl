@@ -69,9 +69,10 @@ let d = UniformDistribution[0 1];
 let p = d.randomVariate(r, [k 2]);
 let m = p.distanceMatrix;
 let [_, t] = m.heldKarpAlgorithm;
+let q = p.atAll(t);
 [
 	p.PointCloud,
-	Line(p @* t)
+	Line(q)
 ].LineDrawing
 ~~~
 

@@ -10,20 +10,6 @@
 
 +@At {
 
-	@* { :self :indexList |
-		self.atAll(indexList)
-	}
-
-	@> { :self :path |
-		self.atPath(path)
-	}
-
-	@/ { :self :pathString |
-		self.atPath(
-			pathString.splitBy('/')
-		)
-	}
-
 	assertIsOfSize { :self :anInteger |
 		self.assert('isOfSize') {
 			self.size = anInteger
@@ -38,7 +24,7 @@
 		}
 	}
 
-	[at, @] { :self :index |
+	at { :self :index |
 		self.atIfAbsent(index) {
 			self.errorInvalidIndex('at', index)
 		}

@@ -431,8 +431,8 @@ applying a unary block to the prefixes of the argument.
 
 ## Permutations
 
-The dyadic function `@*` indexes a collection by a collection.
-If _p_ is a permutation, _y @* p_ permutes _y_ by _p_.
+The dyadic function `atAll` indexes a collection by a collection.
+If _p_ is a permutation, _y.atAll(p)_ permutes _y_ by _p_.
 (J is zero-indexed, hence adjustments.)
 
 ```
@@ -440,8 +440,8 @@ If _p_ is a permutation, _y @* p_ permutes _y_ by _p_.
 >>> 	04 22 16 15 18 14 07 08 00 21 03 13
 >>> 	20 09 11 19 06 17 02 05 01 10 12
 >>> ] + 1;
->>> let u = p @* p;
->>> [u - 1, u @* p - 1, p @* u - 1]
+>>> let u = p.atAll(p);
+>>> [u - 1, u.atAll(p) - 1, p.atAll(u) - 1]
 [
 	18 12 06 19 02 11 08 00 04 10 15 09
 	01 21 13 05 07 17 16 14 22 03 20
@@ -454,11 +454,11 @@ If _p_ is a permutation, _y @* p_ permutes _y_ by _p_.
 ]
 ```
 
-Reducing _m_ copies of _p_ using `@*` computes the _m_-th power of _p_.
+Reducing _m_ copies of _p_ using `atAll` computes the _m_-th power of _p_.
 
 ```
 >>> let p = system.workspace['p'];
->>> p.reshape([3 23]).reduce(@*) - 1
+>>> p.reshape([3 23]).reduce(atAll/2) - 1
 [
 	02 20 07 05 16 13 00 04 18 03 19 21
 	22 10 09 14 08 17 06 11 12 15 01
@@ -471,7 +471,7 @@ The corresponding prefixes are the successive powers of _p_.
 >>> let p = system.workspace['p'];
 >>> let m = p.reshape([3 23]);
 >>> m.prefixes.collect { :each |
->>> 	each.reduce(@*) - 1
+>>> 	each.reduce(atAll/2) - 1
 >>> }.middle
 [
 	18 12 06 19 02 11 08 00 04 10 15 09

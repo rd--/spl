@@ -38,7 +38,7 @@ Calculate cents values of the minima of the dissonance function:
 >>> 	let h2 = h(f0 * r);
 >>> 	-1 * setharesDissonance(h1, h2)
 >>> }.findPeaks.collect(first/1);
->>> x @* i
+>>> x.atAll(i)
 [
 	  0  204  232  266  316
 	386  434  498  582  702

@@ -3,6 +3,7 @@
 - _doubleFactorial(n)_
 
 The product of the positive integers of equal parity up to _n_.
+The operator form is `!!`.
 
 ```
 >>> 7.doubleFactorial

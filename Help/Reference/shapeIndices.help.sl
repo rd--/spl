@@ -41,7 +41,7 @@ Volume indices:
 >>> (
 >>> 	s,
 >>> 	s.shapeIndices.collect { :each |
->>> 		a @> each
+>>> 		a.atPath(each)
 >>> 	}
 >>> )
 ([2 2 2], [1 2 3 4 5 6 7 8])

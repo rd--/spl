@@ -23,7 +23,7 @@
 
 Cache! : [Object] {
 
-	[at, @] { :self :key |
+	at { :self :key |
 		self.shouldNotImplement('at: see atIfPresentIfAbsent')
 	}
 

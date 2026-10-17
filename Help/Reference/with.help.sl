@@ -2,17 +2,18 @@
 
 - _with(x, f/1)_
 
-Evaluate the unary block _f_ with the object _x_ as argument and answer the answer of _f_.
-`with` is an alias for `in`, the operator form is `$>`.
+Evaluate the unary block _f_ with the object _x_ as argument and answer the answer of _f_
+This is `swap` of `unaryApply`.
+`with` is an alias for `in`
 
 ```
 >>> 9.with(sqrt/1)
 3
 
->>> 3 $> square/1
+>>> 3.with(square/1)
 9
 
->>> 3 * 3 * 3 $> cubeRoot/1
+>>> (3 * 3 * 3).with(cubeRoot/1)
 3
 ```
 
@@ -21,7 +22,7 @@ The _with_ methods in Smalltalk are all class methods and do not translate to Sp
 
 * * *
 
-See also: $>, also, in, value
+See also: also, in, unaryApply
 
 Guides: Block Functions
 

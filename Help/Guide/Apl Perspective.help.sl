@@ -2,93 +2,87 @@
 
 Operators:
 
-- [&](https://aplwiki.com/wiki/And) And ∧,
-  [|](https://aplwiki.com/wiki/Or) Or ∨
-- [+](https://aplwiki.com/wiki/Add) Add,
-  [-](https://aplwiki.com/wiki/Subtract) Subtract,
-  [-](https://aplwiki.com/wiki/Negate) Negate,
-  [*](https://aplwiki.com/wiki/Times) Times ×,
-  [/](https://aplwiki.com/wiki/Divide) Divide ÷,
-  [/](https://aplwiki.com/wiki/Reciprocal) Reciprocal ÷,
-  [%](https://aplwiki.com/wiki/Residue) Residue |,
-  [^](https://aplwiki.com/wiki/Power_(function)) Power,
-  [!](https://aplwiki.com/wiki/Factorial) Factorial !
-- [@*](https://aplwiki.com/wiki/From) From,
-  [@>](https://aplwiki.com/wiki/Pick) Pick ⊃
-- [=](https://aplwiki.com/wiki/Equal_to) Equal to,
-  [!=](https://aplwiki.com/wiki/Not_Equal_to) Not Equal to,
-  [~](https://aplwiki.com/wiki/Match) Match ≡,
-  [!~](https://aplwiki.com/wiki/Not_Match) Not Match ≢
-- [<=](https://aplwiki.com/wiki/Less_than_or_Equal_to) Less than or Equal to,
-  [<](https://aplwiki.com/wiki/Less_than) Less than,
-  [>=](https://aplwiki.com/wiki/Greater_than_or_Equal_to) Greater than or Equal to,
-  [>](https://aplwiki.com/wiki/Greater_than) Greater than
-- [#](https://aplwiki.com/wiki/Replicate) Replicate /
-- [:=](https://aplwiki.com/wiki/Assignment) Assignment ←
+- [∧](https://aplwiki.com/wiki/And) `&` `and`
+- [∨](https://aplwiki.com/wiki/Or) `|` `or`
+- [+](https://aplwiki.com/wiki/Add) `+` `plus`
+- [-](https://aplwiki.com/wiki/Subtract) `-` `subtract`
+- [¯](https://aplwiki.com/wiki/Negate) `-` `negate`
+- [×](https://aplwiki.com/wiki/Times) `*` `times`
+- [÷](https://aplwiki.com/wiki/Divide) `/` `divide`
+- [÷](https://aplwiki.com/wiki/Reciprocal) `/` `reciprocal`
+- [|](https://aplwiki.com/wiki/Residue) `%` `mod`
+- [*](https://aplwiki.com/wiki/Power_(function)) `^`, `power`
+- [!](https://aplwiki.com/wiki/Factorial) `!` `factorial`
+- [⊇](https://aplwiki.com/wiki/From) `atAll`
+- [⊃](https://aplwiki.com/wiki/Pick) `atPath`
+- [=](https://aplwiki.com/wiki/Equal_to) `=` `equal`
+- [≠](https://aplwiki.com/wiki/Not_Equal_to) `!=` `unequal`
+- [≡](https://aplwiki.com/wiki/Match) `~` `similar`
+- [≢](https://aplwiki.com/wiki/Not_Match) `!~` `dissimilar`
+- [≤](https://aplwiki.com/wiki/Less_than_or_Equal_to) `<=` `lessEqual`
+- [<](https://aplwiki.com/wiki/Less_than) `<` `less`
+- [≥](https://aplwiki.com/wiki/Greater_than_or_Equal_to) `>=` `greaterEqual`
+- [>](https://aplwiki.com/wiki/Greater_than) `>` `greater`
+- [#](https://aplwiki.com/wiki/Replicate) `#` `replicate`
+- [←](https://aplwiki.com/wiki/Assignment) `:=`
 
 Types:
 
-- [Complex](https://aplwiki.com/wiki/Complex_number) Complex number
-- [Matrix](https://aplwiki.com/wiki/Matrix) Matrix
+- [Complex](https://aplwiki.com/wiki/Complex_number) `Complex`
+- [Matrix](https://aplwiki.com/wiki/Matrix) `List`
 
 Methods:
 
-- [abs](https://aplwiki.com/wiki/Magnitude) Magnitude |
-- [atop](https://aplwiki.com/wiki/Atop_(operator)) Atop
-- [bindLeft](https://aplwiki.com/wiki/Bind) Bind ∘
-- [bindRight](https://aplwiki.com/wiki/Bind) Bind ∘
-- [binomial](https://aplwiki.com/wiki/Binomial) Binomial !
-- [ceiling](https://aplwiki.com/wiki/Ceiling) Ceiling ⌈
-- [isCloseTo](https://aplwiki.com/wiki/Match) Match ≡
-- [composeLeft](https://aplwiki.com/wiki/Compose) Compose
-- [conjugate](https://aplwiki.com/wiki/Conjugate) Conjugate
-- [constant](https://aplwiki.com/wiki/Constant) Constant ⍨
-- [drop](http://aplwiki.com/wiki/Drop) Drop ↓
-- [each](https://aplwiki.com/wiki/Each) Each ¨
-- [enclose](https://aplwiki.com/wiki/Enclose) Enclose ⊂
-- [exp](https://aplwiki.com/wiki/Exponential) Exponential *
-- [flattenTo](https://aplwiki.com/wiki/Ravel) Ravel
-- [flatten](https://aplwiki.com/wiki/Ravel) Ravel
-- [floor](https://aplwiki.com/wiki/Floor) Floor ⌊
-- [gcd](https://aplwiki.com/wiki/GCD) GCD ∨
-- [i](https://aplwiki.com/wiki/Imaginary) Imaginary ⌾
-- [identity](https://aplwiki.com/wiki/Identity) Identity ⊣
-- [log](https://aplwiki.com/wiki/Logarithm) Logarithm ⍟
-- [includes](https://aplwiki.com/wiki/Membership) Membership ∊
-- [inner](https://aplwiki.com/wiki/Inner_Product) Inner Product .
-- [iota](https://aplwiki.com/wiki/Index_Generator) Index Generator ⍳
-- [intersection](https://aplwiki.com/wiki/Intersection) Intersection ∩
-- [iterate](https://aplwiki.com/wiki/Power_(operator)) Power *
-- [j](https://aplwiki.com/wiki/Complex_(function)) Complex
-- [lcm](https://aplwiki.com/wiki/LCM) LCM ∧
-- [leftIdentity](https://aplwiki.com/wiki/Identity) Identity ⊣
-- [max](https://aplwiki.com/wiki/Maximum) Maximum ⌈
-- [min](https://aplwiki.com/wiki/Minimum) Minimum ⌊
-- [mixedRadixEncode](https://aplwiki.com/wiki/Encode) Encode
-- [nest](https://aplwiki.com/wiki/Nest) Nest ⊆
-- [ordering](https://aplwiki.com/wiki/Grade) Grade ⍋
-- [nthRoot](https://aplwiki.com/wiki/Root) Root √
-- [nub](https://aplwiki.com/wiki/Unique) Unique ∪
-- [nubSieve](https://aplwiki.com/wiki/Nub_Sieve) Nub Sieve ≠
-- [outer](https://aplwiki.com/wiki/Outer_Product) Outer Product ∘.
-- [over](https://aplwiki.com/wiki/Over) Over ⍥
-- [rank](https://aplwiki.com/wiki/Rank) Rank
-- [reduce](https://aplwiki.com/wiki/Reduce) Reduce /
-- [replicate](https://aplwiki.com/wiki/Replicate) Replicate /
-- [reshape](https://aplwiki.com/wiki/Reshape) Reshape ⍴
-- [reverse](https://aplwiki.com/wiki/Reverse) Reverse ⌽
-- [rotateLeft](https://aplwiki.com/wiki/Rotate) Rotate ⌽
-- [rightIdentity](https://aplwiki.com/wiki/Identity) Identity ⊢
-- [scanLeftAssociatingRight](https://aplwiki.com/wiki/Scan) Scan
-- [scan](https://aplwiki.com/wiki/Scan) Scan \
-- [shape](https://aplwiki.com/wiki/Shape) Shape ⍴
-- [sign](https://aplwiki.com/wiki/Signum) Signum ×
-- [size](https://aplwiki.com/wiki/Tally) Tally ≢
-- [swap](https://aplwiki.com/wiki/Commute) Commute ⍨
-- [take](http://aplwiki.com/wiki/Take) Take ↑
-- [transpose](https://aplwiki.com/wiki/Transpose) Transpose ⍉
-- [windowedReduce](https://aplwiki.com/wiki/Windowed_Reduce) Windowed Reduce /
-- [withLevelCollect](https://aplwiki.com/wiki/Depth_(operator)) Depth ¨
+- [|](https://aplwiki.com/wiki/Magnitude) `abs`
+- [⍤](https://aplwiki.com/wiki/Atop_(operator)) `atop`
+- [∘](https://aplwiki.com/wiki/Bind) `bind`
+- [!](https://aplwiki.com/wiki/Binomial) `binomial`
+- [⌈](https://aplwiki.com/wiki/Ceiling) `ceiling`
+- [∘](https://aplwiki.com/wiki/Compose) `compose`
+- [+](https://aplwiki.com/wiki/Conjugate) `conjugate`
+- [⍨](https://aplwiki.com/wiki/Constant) `constant`
+- [↓](http://aplwiki.com/wiki/Drop) `drop`
+- [¨](https://aplwiki.com/wiki/Each) `each`
+- [⊂](https://aplwiki.com/wiki/Enclose) `enclose`
+- [*](https://aplwiki.com/wiki/Exponential) `exp`
+- [,](https://aplwiki.com/wiki/Ravel) `flatten`
+- [⌊](https://aplwiki.com/wiki/Floor) `floor`
+- [∨](https://aplwiki.com/wiki/GCD) `gcd`
+- [⌾](https://aplwiki.com/wiki/Imaginary) `i`
+- [⊣](https://aplwiki.com/wiki/Identity) `identity`
+- [⍟](https://aplwiki.com/wiki/Logarithm) `log`
+- [∊](https://aplwiki.com/wiki/Membership) `includes`
+- [.](https://aplwiki.com/wiki/Inner_Product) `inner`
+- [⍳](https://aplwiki.com/wiki/Index_Generator) `iota`
+- [∩](https://aplwiki.com/wiki/Intersection) `intersection`
+- [*](https://aplwiki.com/wiki/Power_(operator)) `iterate`
+- [⌾](https://aplwiki.com/wiki/Complex_(function)) `j`
+- [∧](https://aplwiki.com/wiki/LCM) `lcm`
+- [⌈](https://aplwiki.com/wiki/Maximum) `max`
+- [⌊](https://aplwiki.com/wiki/Minimum) `min`
+- [⊤](https://aplwiki.com/wiki/Encode) `mixedRadixEncode`
+- [⊆](https://aplwiki.com/wiki/Nest) `nest`
+- [⍋](https://aplwiki.com/wiki/Grade) `ordering`
+- [√](https://aplwiki.com/wiki/Root) `nthRoot`
+- [∪](https://aplwiki.com/wiki/Unique) `unique`
+- [≠](https://aplwiki.com/wiki/Nub_Sieve) `nubSieve`
+- [∘](https://aplwiki.com/wiki/Outer_Product) `outer`
+- [⍥](https://aplwiki.com/wiki/Over) `over`
+- [rank](https://aplwiki.com/wiki/Rank)
+- [/](https://aplwiki.com/wiki/Reduce) `reduce`
+- [⌿](https://aplwiki.com/wiki/Replicate) `replicate`
+- [⍴](https://aplwiki.com/wiki/Reshape) `reshape`
+- [⌽](https://aplwiki.com/wiki/Reverse) `reverse`
+- [⊖](https://aplwiki.com/wiki/Rotate) `rotateLeft`
+- [\\](https://aplwiki.com/wiki/Scan) `scan`
+- [⍴](https://aplwiki.com/wiki/Shape) `shape`
+- [×](https://aplwiki.com/wiki/Signum) `sign`
+- [≢](https://aplwiki.com/wiki/Tally) `size`
+- [⍨](https://aplwiki.com/wiki/Commute) `swap`
+- [↑](http://aplwiki.com/wiki/Take) `take`
+- [⍉](https://aplwiki.com/wiki/Transpose) `transpose`
+- [/](https://aplwiki.com/wiki/Windowed_Reduce) `windowedReduce`
+- [¨](https://aplwiki.com/wiki/Depth_(operator)) `withLevelCollect`
 
 Note:
 In Apl, unary _×_ is `sign` and unary _*_ is `exp`.

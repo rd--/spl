@@ -48,12 +48,14 @@ At `Map`:
 [1 2 3]
 ```
 
-The infix form of `atAll` is `@*`:
+Sometimes `@*` is defined as the infix form of `atAll`:
 
 ```
+>>> let @* = atAll/2;
 >>> ['1' '2' '3' '4'] @* [3 2 4]
 ['3' '2' '4']
 
+>>> let @* = atAll/2;
 >>> (x: 1, y: 2, z: 3) @* ['x' 'z']
 [1 3]
 ```

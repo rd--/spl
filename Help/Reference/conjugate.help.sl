@@ -101,7 +101,7 @@ Plot the absolute value of  function:
 
 * * *
 
-See also: +, Complex
+See also: Complex, +, conjugateTranspose
 
 Guides: Complex Number Functions
 

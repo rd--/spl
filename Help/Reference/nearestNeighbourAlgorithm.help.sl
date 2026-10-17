@@ -22,7 +22,7 @@ let p = [
 	5 1; 5 2; 5 3; 5 4
 ];
 let t = p.nearestNeighbourAlgorithm(1);
-let c = p @* t;
+let c = p.atAll(t);
 [
 	p.PointCloud,
 	c.Polygon
@@ -37,9 +37,10 @@ Nearest neighbour tour of randomly generated coordinates:
 let r = Sfc32(323193);
 let p = r.randomReal([-1 1], [17 2]);
 let i = p.nearestNeighbourAlgorithm(1);
+let q = p.atAll(i);
 [
 	p.PointCloud,
-	(p @* i).Polygon
+	q.Polygon
 ].LineDrawing
 ~~~
 

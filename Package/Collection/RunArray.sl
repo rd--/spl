@@ -2,7 +2,7 @@ RunArray : [Object, Equal, Store, At, Indices] {
 
 	| runLengths values cachedIndex cachedRun cachedOffset |
 
-	[at, @] { :self :index |
+	at { :self :index |
 		self.atSetRunOffsetAndValue(index) { :run :offset :value |
 			(offset < 0).ifTrue {
 				self.errorInvalidIndex('at', index)
