@@ -10,7 +10,7 @@ else only the named directory is removed and it must be empty.
 >>> FilePath'/tmp/spl'
 >>> .makeDirectory(
 >>> 	false,
->>> 	8r755
+>>> 	8b755
 >>> )
 nil
 

@@ -31,7 +31,7 @@ There is an `Integer` trait:
 There is a `Radix Syntax` for specifying non-decimal integers:
 
 ```
->>> [2r1010 8r12 10r10 16rA]
+>>> [2b1010 8b12 10b10 16bA]
 [10 10 10 10]
 ```
 
@@ -59,7 +59,7 @@ including when a radix is indicated:
 >>> 123_456
 123456
 
->>> 16r12_34_56
+>>> 16b12_34_56
 1193046
 ```
 

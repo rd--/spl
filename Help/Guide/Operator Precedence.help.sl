@@ -53,4 +53,4 @@ Use parentheses to evaluate from right to left:
 
 * * *
 
-See also: Operator Syntax
+Guides: Operator Syntax

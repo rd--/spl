@@ -9,11 +9,11 @@ Answers the bitwise or of the integers _i_ and _j_.
 >>> 61.bitOr(15)
 63
 
->>> 2r0011.bitOr(2r0101)
-2r0111
+>>> 2b0011.bitOr(2b0101)
+2b0111
 
->>> 16r5A463CA6.bitOr(16r67376856)
-16r7F777CF6
+>>> 16b5A463CA6.bitOr(16b67376856)
+16b7F777CF6
 
 >>> [61 15 63].integerDigits(2, 6)
 [1 1 1 1 0 1; 0 0 1 1 1 1; 1 1 1 1 1 1]

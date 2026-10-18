@@ -15,11 +15,11 @@ With _b=10_:
 With _b=2_:
 
 ```
->>> 2r1001.integerConcatenation(
->>> 	2r1010,
+>>> 2b1001.integerConcatenation(
+>>> 	2b1010,
 >>> 	2
 >>> )
-2r10011010
+2b10011010
 ```
 
 Concatenate the decimal numbers _1,2,…,n_,

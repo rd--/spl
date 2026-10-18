@@ -31,19 +31,19 @@ Parse binary integers:
 >>> '1001'.parseSmallInteger(2)
 9
 
->>> 2r1001
+>>> 2b1001
 9
 
 >>> '+10101'.parseSmallInteger(2)
 21
 
->>> 2r10101
+>>> 2b10101
 21
 
 >>> '-1010'.parseSmallInteger(2)
 -10
 
->>> -2r1010
+>>> -2b1010
 -10
 ```
 
@@ -53,19 +53,19 @@ Parse octal integers:
 >>> '1357'.parseSmallInteger(8)
 751
 
->>> 8r1357
+>>> 8b1357
 751
 
 >>> '+6420'.parseSmallInteger(8)
 3344
 
->>> 8r6420
+>>> 8b6420
 3344
 
 >>> '-01234567'.parseSmallInteger(8)
 -342391
 
->>> -8r01234567
+>>> -8b01234567
 -342391
 ```
 
@@ -75,25 +75,25 @@ Parse hexadecimal integers:
 >>> '11'.parseSmallInteger(16)
 17
 
->>> 16r11
+>>> 16b11
 17
 
 >>> 'FF'.parseSmallInteger(16)
 255
 
->>> 16rFF
+>>> 16bFF
 255
 
 >>> '+AE'.parseSmallInteger(16)
 174
 
->>> 16rAE
+>>> 16bAE
 174
 
 >>> '-BC'.parseSmallInteger(16)
 -188
 
->>> -16rBC
+>>> -16bBC
 -188
 ```
 

@@ -4,13 +4,13 @@
 
 Create a directory at the path _path_.
 If _recursive_ is `true` intermediate directories are created.
-The integer _mode_ specifies the file mode, ordinarily it is set to 8r755.
+The integer _mode_ specifies the file mode, ordinarily it is set to 8b755.
 
 ```
 >>> FilePath'/tmp/spl'
 >>> .makeDirectory(
 >>> 	false,
->>> 	8r755
+>>> 	8b755
 >>> )
 nil
 

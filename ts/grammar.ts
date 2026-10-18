@@ -236,7 +236,7 @@ Sl {
     radixDigit = digit | "A" | "B" | "C" | "D" | "E" | "F"
 	radixDigitOrUnderscore = radixDigit | "_"
 	radixDigits = radixDigit radixDigitOrUnderscore*
-	radixIntegerLiteral = plusOrMinus? digit+ "r" radixDigits
+	radixIntegerLiteral = plusOrMinus? digit+ "b" radixDigits
     infinityLiteral = plusOrMinus? "Infinity"
 	nanLiteral = "NaN"
 	smallIntegerLiteral = plusOrMinus? decimalDigits

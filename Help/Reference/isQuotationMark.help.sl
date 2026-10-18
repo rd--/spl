@@ -8,7 +8,7 @@ Answer `true` if _s_ is a quotation mark, else `false`.
 >>> '"'.isQuotationMark
 true
 
->>> Character(16r22).isQuotationMark
+>>> Character(16b22).isQuotationMark
 true
 ```
 

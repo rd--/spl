@@ -153,7 +153,7 @@ Count leading zeroes:
 >>> 0.countLeadingZeroes(2, 32)
 32
 
->>> 2r00000000000000001000000000001000
+>>> 2b00000000000000001000000000001000
 32776
 
 >>> 32776.countLeadingZeroes(2, 32)
@@ -162,7 +162,7 @@ Count leading zeroes:
 >>> 32776.countTrailingZeroes(2, 32)
 3
 
->>> 2r101111111
+>>> 2b101111111
 383
 
 >>> 383.countTrailingOnes(2, 32)

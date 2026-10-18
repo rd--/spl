@@ -10,7 +10,7 @@ The words are in machine order.
 [0 0]
 
 >>> 1.unsigned32BitWordList
-[0 16r3FF00000]
+[0 16b3FF00000]
 
 >>> 2.pi.unsigned32BitWordList
 [1413754136 1075388923]

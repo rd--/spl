@@ -1423,7 +1423,7 @@
 		(radix = 10).if {
 			self.uncheckedPrintString(10)
 		} {
-			let unsignedAnswer = '%r%'.format([
+			let unsignedAnswer = '%b%'.format([
 				radix.uncheckedPrintString(10),
 				self.abs.uncheckedPrintString(radix)
 			]);

@@ -42,12 +42,12 @@ with no else clause signals `error` on failure:
 
 ```
 >>> {
->>> 	'10r9'.parseDecimalInteger
+>>> 	'10b9'.parseDecimalInteger
 >>> }.hasError
 true
 
->>> 10r9
-2r1001
+>>> 10b9
+2b1001
 ```
 
 * * *

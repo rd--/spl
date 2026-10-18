@@ -5,7 +5,7 @@
 Answer `true` if _s_ is an apostrophe, else `false`.
 
 ```
->>> Character(16r27).isApostrophe
+>>> Character(16b27).isApostrophe
 true
 ```
 

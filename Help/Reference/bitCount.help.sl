@@ -13,7 +13,7 @@ sometimes called the population count.
 >>> 31.bitCount
 5
 
->>> 16rFF.bitCount
+>>> 16bFF.bitCount
 8
 ```
 

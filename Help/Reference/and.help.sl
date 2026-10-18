@@ -54,6 +54,19 @@ Applicative syntax:
 true
 ```
 
+The truth table for _implies_,
+equal to `<=` at `boole`:
+
+```
+>>> { :p :q |
+>>> 	(p & { q.not }).not
+>>> }.table([false true], [false true])
+[true true; false true]
+
+>>> <=.table([0 1], [0 1])
+[true true; false true]
+```
+
 * * *
 
 See also: &, |, &&, allSatisfy, or, value

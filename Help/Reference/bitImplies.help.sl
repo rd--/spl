@@ -7,8 +7,8 @@ Answer the bitwise logical implication _p→q_.
 Specific values:
 
 ```
->>> 2r0011.bitImplies(2r0101)
-2r0101
+>>> 2b0011.bitImplies(2b0101)
+2b0101
 
 >>> 4.bitImplies(10)
 11

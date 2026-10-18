@@ -102,10 +102,10 @@ Residue(5, 12)
 `Radix Syntax` integer literals are rewritten as `SmallFloat` literals:
 
 ```
->> '16rFF'.splSimplify
+>> '16bFF'.splSimplify
 255
 
->> '-8r77'.splSimplify
+>> '-8b77'.splSimplify
 -63
 ```
 

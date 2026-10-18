@@ -17,7 +17,7 @@ In base eleven:
 >>> 1:3000.select { :x |
 >>> 	x.isSumProductNumber(11)
 >>> }
-[11r1 11r253 11r419 11r2189]
+[11b1 11b253 11b419 11b2189]
 ```
 
 * * *

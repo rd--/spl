@@ -1,47 +1,51 @@
 # Radix Syntax
 
 By default integers are written in decimal.
-Other radices are allowed using an infix _r_ syntax.
-The form is _radix_ followed by _r_ followed by the literal in the indicated radix.
+Other radices are allowed using an infix _b_ syntax.
+The _b_ must be written in lower case.
+The form is _radix_,
+also called _base_,
+followed by _b_,
+followed by the literal in the indicated radix.
 Below are equivalent ways of writing the integer twenty three
 (in binary, octal, decimal and hexadecimal):
 
 ```
->>> [2r10111 8r27 10r23 16r17]
+>>> [2b10111 8b27 10b23 16b17]
 [23 23 23 23]
 ```
 
 Negative integers are written with a leading minus sign:
 
 ```
->>> [-2r10111 -8r27 -10r23 -16r17]
+>>> [-2b10111 -8b27 -10b23 -16b17]
 [-23 -23 -23 -23]
 ```
 
-Larger integers:
+Larger small integers:
 
 ```
->>> 2r11010101
+>>> 2b11010101
 213
 
->>> 8r325
+>>> 8b325
 213
 
->>> 16rD5
+>>> 16bD5
 213
 
->>> 16rACCEDED
+>>> 16bACCEDED
 181202413
 ```
 
 Underscores are allowed as separators:
 
 ```
->>> 2r110010_101001_011001_010011
-8r62_51_31_23
+>>> 2b110010_101001_011001_010011
+8b62_51_31_23
 
->>> 10r13_276_755
-16rCA_96_53
+>>> 10b13_276_755
+16bCA_96_53
 ```
 
 All radices are written from most to least significant,
@@ -54,14 +58,14 @@ Shifting left moves bits to more significant positions and introduces zeroes at 
 doubling the value for each bit shifted:
 
 ```
->>> 2r0001_0100 << 1
-2r0010_1000
+>>> 2b0001_0100 << 1
+2b0010_1000
 
->>> 2r0001_0100 << 2
-2r0101_0000
+>>> 2b0001_0100 << 2
+2b0101_0000
 
->>> 2r0001_0100 << 3
-2r1010_0000
+>>> 2b0001_0100 << 3
+2b1010_0000
 ```
 
 Shifting right moves bits to less significant positions,
@@ -71,14 +75,14 @@ and rounding down when odd,
 for each bit shifted:
 
 ```
->>> 2r0001_0100 >> 1
-2r0000_1010
+>>> 2b0001_0100 >> 1
+2b0000_1010
 
->>> 2r0001_0100 >> 2
-2r0000_0101
+>>> 2b0001_0100 >> 2
+2b0000_0101
 
->>> 2r0001_0100 >> 3
-2r0000_0010
+>>> 2b0001_0100 >> 3
+2b0000_0010
 ```
 
 _Note_:
@@ -89,48 +93,55 @@ other radices may raise errors.
 >>> 23.integerDigits(3)
 [2 1 2]
 
->>> 3r212
+>>> 3b212
 23
 
 >>> 23.integerDigits(4)
 [1 1 3]
 
->>> 4r113
+>>> 4b113
 23
 
 >>> 23.integerDigits(5)
 [4 3]
 
->>> 5r43
+>>> 5b43
 23
 
 >>> 23.integerDigits(6)
 [3 5]
 
->>> 6r35
+>>> 6b35
 23
 
 >>> 23.integerDigits(7)
 [3 2]
 
->>> 7r32
+>>> 7b32
 23
 
 >>> 23.integerDigits(8)
 [2 7]
 
->>> 8r27
+>>> 8b27
 23
 
 >>> 23.integerDigits(9)
 [2 5]
 
->>> 9r25
+>>> 9b25
 23
 ```
 
+_Rational_:
+This is the _J_ language notation for radix integers.
+It is similar to the _Smalltalk_ notation,
+which however uses the letter _r_.
+The _J_ notation is preferred for Sᴘʟ since _R_ is used in `Fraction Syntax`.
+Sᴘʟ also requires that letters used as digits be written in upper case.
+
 * * *
 
-See also: Integer Syntax, Number Syntax
+Guides: Integer Syntax, Number Syntax
 
 Categories: Syntax

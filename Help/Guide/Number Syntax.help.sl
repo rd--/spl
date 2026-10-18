@@ -96,18 +96,18 @@ Underscores are allowed as separators:
 Radix literals:
 
 ```
->>> 16rFE
+>>> 16bFE
 254
 
->>> 2r101101110
+>>> 2b101101110
 366
 ```
 
 Underscores are allowed as separators:
 
 ```
->>> 2r1011_0111_0101
-2r101101110101
+>>> 2b1011_0111_0101
+2b101101110101
 ```
 
 * * *

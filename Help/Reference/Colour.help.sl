@@ -99,9 +99,9 @@ Parse colour from hash-prefixed hexadecimal string:
 >>> (c.rgb, c.alpha)
 (
 	[
-		16rF9 / 255,
-		16r73 / 255,
-		16r06 / 255
+		16bF9 / 255,
+		16b73 / 255,
+		16b06 / 255
 	],
 	1
 )
@@ -119,7 +119,7 @@ Colour as hash-prefixed hexadecimal string:
 
 ```
 >>> RgbColour(
->>> 	[16rF9 16r73 16r06] / 255,
+>>> 	[16bF9 16b73 16b06] / 255,
 >>> 	1
 >>> )
 >>> .hexTriplet

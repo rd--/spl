@@ -790,7 +790,7 @@ const asSl: ohm.ActionDict<string> = {
 		// console.debug(`operatorWithBinaryAdverb: ${qualifiedOpName}`);
 		return `${adverb.sourceString}(${qualifiedOpName}, ${parameter.asSl})`;
 	},
-	radixIntegerLiteral(s, b, _r, i) {
+	radixIntegerLiteral(s, b, _b, i) {
 		const r = Number.parseInt(
 			s.sourceString + deleteUnderscores(i.sourceString),
 			Number.parseInt(b.sourceString, 10),

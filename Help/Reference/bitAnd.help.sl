@@ -9,11 +9,11 @@ Answers the bitwise and of the integers _i_ and _j_.
 >>> 61.bitAnd(15)
 13
 
->>> 2r0011.bitAnd(2r0101)
-2r0001
+>>> 2b0011.bitAnd(2b0101)
+2b0001
 
->>> 16r5A463CA6.bitAnd(16r67376856)
-16r42062806
+>>> 16b5A463CA6.bitAnd(16b67376856)
+16b42062806
 ```
 
 It is an `error` if _i_ answers `false` to `isBinary`:

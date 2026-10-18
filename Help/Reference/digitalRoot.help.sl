@@ -6,7 +6,7 @@ The digital root of a natural number in a given radix is the (single digit) valu
 Also called the additive digital root.
 
 ```
->>> 6r11.digitalRoot(6)
+>>> 6b11.digitalRoot(6)
 1 + 1
 
 >>> 1191.digitalRoot(10)
@@ -26,7 +26,7 @@ Also called the additive digital root.
 >>> )
 (3, 30, 3)
 
->>> 12r1972.digitalRoot(12)
+>>> 12b1972.digitalRoot(12)
 8
 
 >>> 182.digitalRoot(14)

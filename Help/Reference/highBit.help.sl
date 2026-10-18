@@ -12,20 +12,20 @@ Answer the number of bits required to represent the integer _n_.
 Radix two notation indicates this directly:
 
 ```
->>> 2r00100000
+>>> 2b00100000
 32
 
->>> 2r00100000.highBit
+>>> 2b00100000.highBit
 6
 ```
 
 The state of lower bits does not affect the answer:
 
 ```
->>> 2r00101000
+>>> 2b00101000
 (8 + 32)
 
->>> 2r00101000.highBit
+>>> 2b00101000.highBit
 6
 ```
 
@@ -33,7 +33,7 @@ High bit is not defined for negative integers:
 
 ```
 >>> {
->>> 	-2r00101000.highBit
+>>> 	-2b00101000.highBit
 >>> }.hasError
 true
 ```

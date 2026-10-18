@@ -8,7 +8,7 @@ Answer `true` if _s_ is a grave accent, else `false`.
 >>> '`'.isGraveAccent
 true
 
->>> Character(16r60).isGraveAccent
+>>> Character(16b60).isGraveAccent
 true
 ```
 

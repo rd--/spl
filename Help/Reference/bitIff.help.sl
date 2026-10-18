@@ -10,12 +10,12 @@ else false.
 Illustrate in radix two notation:
 
 ```
->>> 2r0011.bitIff(2r0101)
-2r0001
+>>> 2b0011.bitIff(2b0101)
+2b0001
 
->>> let p = 2r110001010110111;
->>> let q = 2r011001001000101;
->>> let r = 2r010111100001101;
+>>> let p = 2b110001010110111;
+>>> let q = 2b011001001000101;
+>>> let r = 2b010111100001101;
 >>> p.bitIff(q) = r
 true
 ```

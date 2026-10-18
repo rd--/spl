@@ -28,12 +28,12 @@ the answer is a valid Sᴘʟ expression:
 
 ```
 >>> 254.printString(16)
-'16rFE'
+'16bFE'
 
 >>> -42.printString(16)
-'-16r2A'
+'-16b2A'
 
->>> system.evaluate('-16r2A')
+>>> system.evaluate('-16b2A')
 -42
 ```
 
@@ -45,7 +45,7 @@ with and without radix argument:
 '254L'
 
 >>> 254L.printString(16)
-'16rFE'
+'16bFE'
 ```
 
 At `Complex`:

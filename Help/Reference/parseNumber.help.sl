@@ -78,16 +78,16 @@ Does not parse radix notation,
 signals `error` on failure:
 
 ```
->>> '2r1001'.parseNumber { nil }
+>>> '2b1001'.parseNumber { nil }
 nil
 
 >>> {
->>> 	'2r1001'.parseNumber
+>>> 	'2b1001'.parseNumber
 >>> }.hasError
 true
 
->>> 2r1001
-10r9
+>>> 2b1001
+10b9
 ```
 
 * * *

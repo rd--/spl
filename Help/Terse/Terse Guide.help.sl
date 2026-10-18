@@ -639,26 +639,26 @@ system.includesPackage('Binary') /* binary package */
 23 << 7 = 2944 /* left shift small float */
 7 << 23 = 58720256 /* left shift small float */
 16 >> 3 = 2 /* right shift small float */
-2r1111.bitAnd(2r1001) = 2r1001 /* bitwise and */
+2b1111.bitAnd(2b1001) = 2b1001 /* bitwise and */
 (2 ^ 30).bitAnd(2 ^ 30 - 1) = 0 /* bitwise and of a power of two and one less is zero */
-2r1111.bitOr(2r1001) = 2r1111 /* bitwise or */
-2r1111.bitXor(2r1001) = 2r0110 /* bitwise exclusive or */
-1:8.collect { :each | 2r10010110.bitAt(each) } = [0 1 1 0 1 0 0 1] /* bit at index */
+2b1111.bitOr(2b1001) = 2b1111 /* bitwise or */
+2b1111.bitXor(2b1001) = 2b0110 /* bitwise exclusive or */
+1:8.collect { :each | 2b10010110.bitAt(each) } = [0 1 1 0 1 0 0 1] /* bit at index */
 ```
 
 ## Binary -- counting & testing
 ```
-2r0.bitCount = 0 /* count number of bits set */
-2r1.bitCount = 1
-2r101.bitCount = 2
-2r101001000100101.bitCount = 6
+2b0.bitCount = 0 /* count number of bits set */
+2b1.bitCount = 1
+2b101.bitCount = 2
+2b101001000100101.bitCount = 6
 { -2.bitCount }.hasError /* negative integers have an infinite number of leading ones */
 32.highBit = 6 /* high bit, the number of bits required to represent an integer */
-32 = 2r00100000 & { 2r00100000.highBit = 6 } /* high bit */
-2r00101000.highBit = 6 /* high bit */
-{ -2r00101000.highBit }.hasError /* high bit is not defined for negative integers */
-2r00101000.lowBit = 4 /* low bit */
--2r00101000.lowBit = 4 /* low bit */
+32 = 2b00100000 & { 2b00100000.highBit = 6 } /* high bit */
+2b00101000.highBit = 6 /* high bit */
+{ -2b00101000.highBit }.hasError /* high bit is not defined for negative integers */
+2b00101000.lowBit = 4 /* low bit */
+-2b00101000.lowBit = 4 /* low bit */
 0.lowBit = 0 & { 0.highBit = 0 } /* the low and high bits of zero are zero */
 ```
 
@@ -1703,8 +1703,8 @@ let a = []; 5.toDo(1) { :each | a.add!(each) }; a = [] /* non-ascending sequence
 6.choose(3) = 20 /* n choose k */
 6.choose(3) = ((6 * 5 * 4) / (1 * 2 * 3))
 3.choose(6) = 0 /* if k is greater than n answer is zero */
-58909.printStringHexadecimal = '16rE61D' /* hexadecimal representation */
-58909.printString(16) = '16rE61D' /* hexadecimal representation */
+58909.printStringHexadecimal = '16bE61D' /* hexadecimal representation */
+58909.printString(16) = '16bE61D' /* hexadecimal representation */
 let a = []; List(2, 1:3).tuplesDo { :each | a.add!(each.copy) }; a = [1 1; 1 2; 1 3; 2 1; 2 2; 2 3; 3 1; 3 2; 3 3]
 let a = []; List(2, 1:3).tuplesDo { :each | a.add!(each.sum) }; a = [2 3 4 3 4 5 4 5 6]
 let a = []; List(3, 1:2).tuplesDo { :each | a.add!(each.sum) }; a = [3 4 4 5 4 5 5 6]
@@ -2006,7 +2006,7 @@ let x = (2L ^ 54L); x != (x - 1) /* large integers behave ordinarily */
 let n = 2L; n.copy == n /* copy is identity */
 23L.SmallFloat = 23 /* large integer to small float */
 let a = [9, 8 .. 1]; { a[5L] }.hasError /* large integers are not valid indices */
-58909L.printStringHexadecimal = '16rE61D' /* hexadecimal representation */
+58909L.printStringHexadecimal = '16bE61D' /* hexadecimal representation */
 20L.factorial = 2432902008176640000L /* large integer factorial */
 7L << 23 = 58720256L /* left shift large integer */
 7L << 71 = 16528282690043758247936L /* left shift large integer */
@@ -3442,7 +3442,7 @@ let s = 'string'; (s.size * 2) = s.hexString.size /* hex string is twice as long
 '\v'.Character.codePoint = 11 /* vertical tab */
 '\f'.Character.codePoint = 12 /* form feed, new page */
 '\r'.Character.codePoint = 13 /* carriage return */
-'The quick brown fox jumps over the lazy dog'.crc16 = 16rFCDF /* 16 bit cyclic redundancy check, crc-16/arc */
+'The quick brown fox jumps over the lazy dog'.crc16 = 16bFCDF /* 16 bit cyclic redundancy check, crc-16/arc */
 '* + - / ^ ? ~ = < >'.words.allSatisfy(isSplOperatorToken/1)
 'a comment'.asBracketedComment('<!--', '-->') = '<!-- a comment -->' /* add Html comment brackets */
 'a comment'.asPliComment = '/* a comment */' /* add PL/I (or C) comment brackets */
@@ -3568,25 +3568,25 @@ var x, y, z; (x: x, y: y, z: z) := (x: 1 * 2, y: 3 * 4, z: 5 * 6); [z, y, x] = [
 ## Syntax -- integer literals syntax
 ```
 23.isInteger /* decimal integer literal */
-2r10111 = 23 /* binary (base 2) integer literal */
-8r27 = 23 /* octal (base 8) integer literal */
-10r23 = 23 /* decimal (base 10) integer literal */
-16r17 = 23 /* hexadecimal (base 16) integer literal */
+2b10111 = 23 /* binary (base 2) integer literal */
+8b27 = 23 /* octal (base 8) integer literal */
+10b23 = 23 /* decimal (base 10) integer literal */
+16b17 = 23 /* hexadecimal (base 16) integer literal */
 -23.isInteger /* negative decimal integer literal */
--2r10111 = -23 /* negative binary (base 2) integer literal */
--8r27 = -23 /* negative octal (base 8) integer literal */
--10r23 = -23 /* negative decimal (base 10) integer literal */
--16r17 = -23 /* negative hexadecimal (base 16) integer literal */
-[2r10111, 8r27, 10r23, 16r17] = [23, 23, 23, 23] /* twenty three */
-[-2r10111, -8r27, -10r23, -16r17] = [-23, -23, -23, -23] /* negative twenty three */
-9r55 = 50 /* radices other than 2, 8 10 and 16 may raise errors */
-[2r11111111, 8r377, 10r255, 16rFF] = [255, 255, 255, 255] /* letters must be upper case */
-16rABCDEF = 10r11259375 /* letters may be uppercase */
-16rFF = 255 /* the maximum radix is 16, since only A-F is recognized */
-[2r101011001, 8r531, 10r345, 16r159] = [345, 345, 345, 345]
-2r1111111111111111 = (2 ^ 16 - 1) /* 16 bits */
-2r111111111111111111111111 = (2 ^ 24 - 1) /* 24 bits */
-2r11111111111111111111111111111111 = (2 ^ 32 - 1) /* 32 bits */
+-2b10111 = -23 /* negative binary (base 2) integer literal */
+-8b27 = -23 /* negative octal (base 8) integer literal */
+-10b23 = -23 /* negative decimal (base 10) integer literal */
+-16b17 = -23 /* negative hexadecimal (base 16) integer literal */
+[2b10111, 8b27, 10b23, 16b17] = [23, 23, 23, 23] /* twenty three */
+[-2b10111, -8b27, -10b23, -16b17] = [-23, -23, -23, -23] /* negative twenty three */
+9b55 = 50 /* radices other than 2, 8 10 and 16 may raise errors */
+[2b11111111, 8b377, 10b255, 16bFF] = [255, 255, 255, 255] /* letters must be upper case */
+16bABCDEF = 10b11259375 /* letters may be uppercase */
+16bFF = 255 /* the maximum radix is 16, since only A-F is recognized */
+[2b101011001, 8b531, 10b345, 16b159] = [345, 345, 345, 345]
+2b1111111111111111 = (2 ^ 16 - 1) /* 16 bits */
+2b111111111111111111111111 = (2 ^ 24 - 1) /* 24 bits */
+2b11111111111111111111111111111111 = (2 ^ 32 - 1) /* 32 bits */
 ```
 
 ## Syntax -- interval & array syntax

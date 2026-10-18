@@ -34,7 +34,7 @@ Radix notation of list:
 
 ```
 >>> 'Ascii'.asciiByteArray.List
-[16r41 16r73 16r63 16r69 16r69]
+[16b41 16b73 16b63 16b69 16b69]
 ```
 
 * * *

@@ -174,7 +174,7 @@ clz=`countLeadingZeroes`, clo, ctz, cto, popCount=`bitCount`
 >>> 1.countLeadingZeroes(2, 64)
 63
 
->>> 16rFF.bitCount
+>>> 16bFF.bitCount
 8
 ```
 

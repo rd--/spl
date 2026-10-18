@@ -85,7 +85,7 @@ System! : [Object, Cache, RandomNumberGenerator] {
 	}
 
 	isBigEndian { :unused |
-		1.unsigned32BitWordList[1] = 16r3FF00000
+		1.unsigned32BitWordList[1] = 16b3FF00000
 	}
 
 	isLittleEndian { :self |

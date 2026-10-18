@@ -9,7 +9,7 @@ Answer `true` if `system` is Little-endian.
 true
 
 >>> 1.unsigned32BitWordList
-[0 16r3FF00000]
+[0 16b3FF00000]
 ```
 
 * * *

@@ -6,18 +6,18 @@ Answers the bitwise not of the bitwise or of the integers _a_ and _b_.
 All bits that are unset in both inputs will be set in the output.
 
 ```
->>> 2r0011.bitNor(2r0101, 4)
-2r1000
+>>> 2b0011.bitNor(2b0101, 4)
+2b1000
 
->>> let a = 2r0110_0001;
->>> let b = 2r0110_0010;
+>>> let a = 2b0110_0001;
+>>> let b = 2b0110_0010;
 >>> bitNor(a, b, 8)
-2r1001_1100
+2b1001_1100
 
->>> let a = 2r111_0110_1010_0011;
->>> let b = 2r101_0001_0010_0110;
+>>> let a = 2b111_0110_1010_0011;
+>>> let b = 2b101_0001_0010_0110;
 >>> bitNor(a, b, 15)
-2r000100001011000
+2b000100001011000
 ```
 
 At `LargeInteger`:

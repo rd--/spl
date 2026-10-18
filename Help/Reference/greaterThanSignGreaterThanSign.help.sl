@@ -11,17 +11,17 @@ The operator form or `bitShiftRight`.
 >>> 48 >> 4
 3
 
->>> 2r110000 >> 4
-2r000011
+>>> 2b110000 >> 4
+2b000011
 
 >>> 48.bitShiftRight(4)
 3
 
->>> 2r11100 >> 1
-2r01110
+>>> 2b11100 >> 1
+2b01110
 
->>> 2r11010 >> 1
-2r01101
+>>> 2b11010 >> 1
+2b01101
 ```
 
 Shift right by `one` is equivalent to `//` by two:
@@ -33,8 +33,8 @@ Shift right by `one` is equivalent to `//` by two:
 >>> (7 >> 1, 6 >> 1)
 (3, 3)
 
->>> (2r111 >> 1, 2r110 >> 1)
-(2r11, 2r11)
+>>> (2b111 >> 1, 2b110 >> 1)
+(2b11, 2b11)
 
 >>> (7 // 2, 6 // 2)
 (3, 3)

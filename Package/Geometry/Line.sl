@@ -264,11 +264,11 @@ Line : [Object, Store, Equal, Geometry] {
 +SmallFloat {
 
 	cohenSutherlandAlgorithm { :x0 :y0 :x1 :y1 :xMin :yMin :xMax :yMax |
-		let inside = 2r0000;
-		let left = 2r0001;
-		let right = 2r0010;
-		let bottom = 2r0100;
-		let top = 2r1000;
+		let inside = 2b0000;
+		let left = 2b0001;
+		let right = 2b0010;
+		let bottom = 2b0100;
+		let top = 2b1000;
 		let computeOutCode = { :x :y |
 			let code = inside;
 			(x < xMin).if {

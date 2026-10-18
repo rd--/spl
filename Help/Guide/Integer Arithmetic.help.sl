@@ -3,10 +3,10 @@
 Signed 32-bit integer multiplication:
 
 ```
->>> 16rFFFFFFF * 15
+>>> 16bFFFFFFF * 15
 4026531825
 
->>> multiplyI32(16rFFFFFFF, 15)
+>>> multiplyI32(16bFFFFFFF, 15)
 -268435471
 ```
 

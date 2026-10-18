@@ -7,15 +7,15 @@ Implement carry-less multiplication of the integers _m_ and _n_ in base _b_.
 Carry-less multiplication in base two:
 
 ```
->>> 2r1001.carryLessMultiplication(
->>> 	2r111, 2
+>>> 2b1001.carryLessMultiplication(
+>>> 	2b111, 2
 >>> )
-2r111111
+2b111111
 
->>> 2r10100010.carryLessMultiplication(
->>> 	2r10010110, 2
+>>> 2b10100010.carryLessMultiplication(
+>>> 	2b10010110, 2
 >>> )
-2r101100011101100
+2b101100011101100
 ```
 
 At `LargeInteger`:

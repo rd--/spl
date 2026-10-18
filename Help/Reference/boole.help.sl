@@ -54,6 +54,15 @@ OEIS [A008574](https://oeis.org/A008574):
 [1 4 8 12 16 20 24 28 32 36 40 44 48 52]
 ```
 
+The sum of the positive numbers in a list:
+
+```
+>>> let a = [3 -1 4];
+>>> let b = (a > 0).boole;
+>>> (a * b).sum
+7
+```
+
 Convert a table of boolean values for plotting:
 
 ~~~spl svg=A

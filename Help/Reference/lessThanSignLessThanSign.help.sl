@@ -8,8 +8,8 @@ The operator form or `bitShiftLeft`.
 >>> 3 << 4
 48
 
->>> 2r000011 << 4
-2r110000
+>>> 2b000011 << 4
+2b110000
 
 >>> 3.bitShiftLeft(4)
 48

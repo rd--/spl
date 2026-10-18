@@ -30,10 +30,10 @@ OEIS [A006886](https://oeis.org/A006886):
 Specifying base and power:
 
 ```
->>> 2r11.isKaprekarNumber(2, 2)
+>>> 2b11.isKaprekarNumber(2, 2)
 true
 
->>> 8r34.isKaprekarNumber(8, 2)
+>>> 8b34.isKaprekarNumber(8, 2)
 true
 
 >>> 8128.isKaprekarNumber(2, 1)

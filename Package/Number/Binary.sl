@@ -31,7 +31,7 @@
 			{
 				n = 0
 			}.whileFalse {
-				let byte = n.bitAnd(16rFF) + 1;
+				let byte = n.bitAnd(16bFF) + 1;
 				bitCount := bitCount + system.bitCountPerByteTable[byte];
 				n := n.bitShift(-8)
 			};
@@ -156,7 +156,7 @@
 			let result = 0;
 			let lastByte = nil;
 			{
-				lastByte := n.bitAnd(16rFF);
+				lastByte := n.bitAnd(16bFF);
 				n = 0
 			}.whileTrue {
 				result := result + 8;

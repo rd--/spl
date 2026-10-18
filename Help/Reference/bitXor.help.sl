@@ -6,11 +6,11 @@ Answer bitwise exclusive or of _i_ and _j_.
 Also Nim-sum, written _i⊕j_.
 
 ```
->>> 2r0011.bitXor(2r0101)
-2r0110
+>>> 2b0011.bitXor(2b0101)
+2b0110
 
->>> 16r5A463CA6.bitXor(16r67376856)
-16r3D7154F0
+>>> 16b5A463CA6.bitXor(16b67376856)
+16b3D7154F0
 ```
 
 Truth table:
@@ -26,8 +26,8 @@ Truth table:
 The `bitXor` of nine and fifteen is six:
 
 ```
->>> 2r1001.bitXor(2r1111)
-2r0110
+>>> 2b1001.bitXor(2b1111)
+2b0110
 
 >>> 9.bitXor(15)
 6
@@ -103,14 +103,14 @@ in siteswaps the number of 1-bits is a constant:
 
 ```
 >>> [5 2 5 1 2 6 3 3 0 4]
->>> .foldList(2r111) { :n :k |
+>>> .foldList(2b111) { :n :k |
 >>> 	n.bitXor(1 << k) - 1 / 2
 >>> }
 [
-	2r000111 2r010011 2r001011
-	2r010101 2r001011 2r000111
-	2r100011 2r010101 2r001110
-	2r000111 2r001011
+	2b000111 2b010011 2b001011
+	2b010101 2b001011 2b000111
+	2b100011 2b010101 2b001110
+	2b000111 2b001011
 ]
 ```
 
@@ -302,7 +302,7 @@ and the result of the _Xor_ is put into the now-empty high bit:
 	let c = a.bitXor(b);
 	let d = c.bitShiftLeft(14);
 	x.bitShiftRight(1).bitOr(d)
-}.nestList(16r7FFF, 127).scatterPlot
+}.nestList(16b7FFF, 127).scatterPlot
 ~~~
 
 ![](Help/Image/bitXor-I.svg)

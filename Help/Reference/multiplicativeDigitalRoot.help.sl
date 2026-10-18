@@ -5,7 +5,7 @@
 The digital root of a natural number in a given radix is the (single digit) value obtained by an iterative process of summing digits.
 
 ```
->>> 6r11.multiplicativeDigitalRoot(6)
+>>> 6b11.multiplicativeDigitalRoot(6)
 1 * 1
 
 >>> (
@@ -18,7 +18,7 @@ The digital root of a natural number in a given radix is the (single digit) valu
 >>> 1191.multiplicativeDigitalRoot
 9
 
->>> 12r1973.multiplicativeDigitalRoot(12)
+>>> 12b1973.multiplicativeDigitalRoot(12)
 6
 
 >>> 1191.multiplicativeDigitalRoot(14)

@@ -9,7 +9,7 @@ represented using two’s-complement notation.
 >>> 25L.signedInteger(4)
 -7
 
->>> (2r11001, 2r0110 + 1 * -1)
+>>> (2b11001, 2b0110 + 1 * -1)
 (25, -7)
 
 >>> 2L ^ 63 - 1
@@ -31,7 +31,7 @@ represented using two’s-complement notation.
 >>> 25L.unsignedInteger(4)
 9
 
->>> (2r11001, 2r01001)
+>>> (2b11001, 2b01001)
 (25, 9)
 
 >>> 2L ^ 64 - 1

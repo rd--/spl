@@ -31,6 +31,11 @@ z.cos
 ```
 >>> 2.5J1.cos
 -1.23623J-0.70333
+
+>>> let rho = 5;
+>>> let phi = 0.927295;
+>>> phi.sin * 1I + phi.cos * rho
+3J4
 ```
 
 Threads elementwise over lists and matrices:
