@@ -126,7 +126,7 @@ let j = { :n :m |
 let f = { :a :r :c |
 	let tc = t(r - c);
 	let m = a.matrixPower(c + 1);
-	let n = m[tc + 1].J(r - c, tc)];
+	let n = m[tc + 1][j(r - c, tc)];
 	a[r + 1][c + 1] := n
 };
 let t = { :n :k |
@@ -139,7 +139,7 @@ let t = { :n :k |
 		}
 	};
 	a := a.matrixPower(k + 1);
-	a[tk + 1].J(n - k, tk)]
+	a[tk + 1][j(n - k, tk)]
 };
 0:9.triangularArray(t/2)
 .catenate.scatterPlot.log

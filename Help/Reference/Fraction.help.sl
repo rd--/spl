@@ -295,6 +295,20 @@ in the same manner that `J` abbreviates `Complex`.
 3J7
 ```
 
+With `List` operand:
+
+```
+>>> 1.R([2 3 4])
+[1/2 1/3 1/4]
+```
+
+At `List`:
+
+```
+>>> [1 2 3].R([4 5 6])
+[1/4 2/5 1/2]
+```
+
 Enter a rational number with large integers in the numerator and denominator:
 
 ```
@@ -392,14 +406,12 @@ The numerator and denominator of a rational are relatively prime:
 [1/3 3/5 5/7]
 ```
 
-The operator form of `Fraction` is `\`:
+Sometimes `\` is defined as the operator form of `Fraction`:
 
 ```
->>> 1 \ 3
-1/3
-
->>> [1 3 5] \ [3 5 7]
-[1/3 3/5 5/7]
+>>> let \ = Fraction/2;
+>>> (1 \ 3, [1 3 5] \ [3 5 7])
+(1/3, [1/3 3/5 5/7])
 ```
 
 A `Fraction` multiplied by a `SmallFloat`,

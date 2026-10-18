@@ -121,11 +121,14 @@ Generate all subsets of a set:
 An explicit form of the primitive recursive function _r(z,r(s,r(s,r(s,p(2)))))_:
 
 ~~~spl svg=A
+let f = { :x |
+	x.ceiling.log(2).ceiling
+};
 1:125.collect { :i |
 	1:i.injectInto(0) { :a :b |
 		1:a.injectInto(b) { :p :q |
 			let x = ((p + 2) / (q + 2));
-			let y = x.>.log(2).>;
+			let y = f(x);
 			2 ^ y * (q + 2) - 2 - p
 		}
 	}

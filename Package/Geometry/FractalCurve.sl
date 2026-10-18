@@ -121,7 +121,7 @@
 				},
 				'B' -> {
 					let a = { :x |
-						x ++ x.I.reverse
+						x ++ x.i.reverse
 					}.iterate([1], self);
 					([0] ++ a.prefixSum).realImaginary
 				}

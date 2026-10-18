@@ -68,19 +68,20 @@ let n = 4;
 let c = { :x |
 	fromBipolarCoordinates(1, x)
 };
-let r = { :i :j |
-	i.subdivide(j)
-};
 let sigmaCircles = { :i |
-	i.R(n).collect { :sigma |
-		(-10 -- 10).R(k * 3).collect { :tau |
+	i.subdivide(n).collect { :sigma |
+		(-10 -- 10).subdivide(
+			k * 3
+		).collect { :tau |
 			c([sigma, tau])
 		}
 	}
 };
 let tauCircles = { :i |
-	i.R(n).collect { :tau |
-		(-1.pi -- 1.pi).R(k).collect { :sigma |
+	i.subdivide(n).collect { :tau |
+		(-1.pi -- 1.pi).subdivide(
+			k
+		).collect { :sigma |
 			c([sigma, tau])
 		}
 	}

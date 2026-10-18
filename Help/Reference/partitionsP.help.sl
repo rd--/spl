@@ -105,7 +105,7 @@ A walk based on `partitionsP`:
 
 ~~~spl svg=C
 let n = 37;
-(1:n.partitionsP.i * 3.4.pi)
+(1:n.partitionsP.I * 3.4.pi)
 .exp
 .accumulate
 .realImaginary

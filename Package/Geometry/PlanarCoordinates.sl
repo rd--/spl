@@ -115,7 +115,7 @@ PlanarCoordinates : [Object, Copy, Store, Equal, Compare, At, Put, CartesianCoor
 	}
 
 	swap! { :self |
-		[x, y] = self.coordinates;
+		let [x, y] = self.coordinates;
 		self.x := y;
 		self.y := x;
 		nil

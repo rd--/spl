@@ -124,8 +124,21 @@ or the `denominator` to `one`:
 >>> Complex(2, 0)
 2J0
 
+>>> [2 3 4].J(0)
+2J0
+
 >>> Fraction(2, 1)
 2/1
+
+>>> 2.R(1)
+2R1
+```
+
+`Complex` also has an `I` constructor:
+
+```
+>>> 1.I
+1I
 ```
 
 * * *

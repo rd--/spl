@@ -2,46 +2,36 @@
 
 - _n `\` d_
 
-The operator form of `Fraction`.
+Sometimes defined as the operator form of `Fraction`,
+usually written infix as `R`.
 
 At `SmallFloat`:
 
 ```
+>>> let \ = R/2;
 >>> let a = 3;
 >>> let b = 4;
 >>> (a \ b, a / b)
 (3/4, 0.75)
 ```
 
-At `LargeInteger` answers a `Fraction`,
+At `LargeInteger`,
+`/` answers a `Fraction`,
 even if the `denominator` is `one`:
 
 ```
 >>> let a = 3L;
 >>> let b = 4L;
->>> (a \ b, a / b)
-(3/4, 3/4)
+>>> a / b
+3/4
 
+>>> let \ = R/2;
 >>> let a = 12L;
 >>> let b = 4L;
 >>> let c = a \ b;
 >>> let d = a / b;
 >>> (c, c.isFraction, d, d.isFraction)
 (3/1, true, 3L, false)
-```
-
-With `List` operand:
-
-```
->>> 1 \ [2 3 4]
-[1/2 1/3 1/4]
-```
-
-At `List`:
-
-```
->>> [1 2 3] \ [4 5 6]
-[1/4 2/5 1/2]
 ```
 
 The name of this operator is `reverseSolidus`.

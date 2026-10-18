@@ -648,7 +648,7 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 		aBlock(aFraction, Fraction(self, 1L))
 	}
 
-	[Fraction, R, \] { :numerator :denominator |
+	[Fraction, R] { :numerator :denominator |
 		numerator.isNaN.if {
 			NaN
 		} {
@@ -687,7 +687,7 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 
 +@Sequence {
 
-	[Fraction, \] { :self :anObject |
+	[Fraction, R] { :self :anObject |
 		anObject.adaptToCollectionAndApply(self, Fraction/2)
 	}
 

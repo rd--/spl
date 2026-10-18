@@ -1084,7 +1084,7 @@ Complex(-1, 0) + 1 = Complex(0, 0) /* complex addition with scalar */
 ((1 + 2I) + (2 / 3)).isCloseTo((5 / 3) + 2I)
 ((2 / 3) + (1 + 2I)).isCloseTo((5 / 3) + 2I)
 (0 + 5I).arg = (1.pi / 2)
-let c = (5 - 6I); (c * 1I) = c.I
+let c = (5 - 6I); (c * 1I) = c.i
 (2 + 5I).negate = (-2 - 5I)
 (2 + 5I).reciprocal = ((2 / 29) - (5 / 29).I)
 (6 - 6I).square = -72I
@@ -4029,15 +4029,15 @@ PlanarCoordinates([-1, 1]).y!(3) = 3
 [-1, 1] * 9 = [-9, 9]
 [-1, 1] + 2 = [1, 3]
 2 * ([1, 1].-) * 2 = ([4, 4].-)
-PlanarCoordinates([-1, 1]).printString = 'PlanarCoordinates([-1, 1])'
+PlanarCoordinates([-1, 1]).printString = 'PlanarCoordinates(-1, 1)'
 [1, 1].negate = [-1, -1] /* negation */
 0 - [1, 1] = [-1, -1] /* negation as subtraction from zero */
-let p = PlanarCoordinates([-1, 1]); p.x!(-3); p.y!(3); p = PlanarCoordinates([-3, 3]) = true
-let p = PlanarCoordinates([-1, 3]); let a = [p]; a.first.x!(-3); p = PlanarCoordinates([-3, 3]) = true
+let p = PlanarCoordinates(-1, 1); p.x := -3; p.y := 3; p = PlanarCoordinates(-3, 3) = true
+let p = PlanarCoordinates(-1, 3); let a = [p]; a[1].x := -3; p = PlanarCoordinates(-3, 3) = true
 let x = 3.141; let y = 23; let p = PlanarCoordinates([x, y]); p.x = x & { p.y = y }
-[1 0; 1 1; 0 1; -1 1; -1 0; 0 -1].PlanarCoordinates.collect(theta/1) = (1.pi * [0, 1 / 4, 1 / 2, 3 / 4, 1, -1 / 2]) /* theta = angle from (1,0) */
-PlanarCoordinates([200, 100]).x = 200 /* x coordinate */
-PlanarCoordinates([200 100]).y = 100 /* y coordinate */
+[1 0; 1 1; 0 1; -1 1; -1 0; 0 -1].PlanarCoordinates.collect(phi/1) = (1.pi * [0, 1 / 4, 1 / 2, 3 / 4, 1, -1 / 2]) /* phi = angle from (1,0) */
+PlanarCoordinates(200, 100).x = 200 /* x coordinate */
+PlanarCoordinates(200, 100).y = 100 /* y coordinate */
 0 - PlanarCoordinates([200 100]) = PlanarCoordinates([-200, -100]) /* negates x and y */
 (0 - PlanarCoordinates([200 100])).abs = PlanarCoordinates([200 100]) /* absolute value of x and y */
 PlanarCoordinates([200, 100]) + 1 = PlanarCoordinates([201, 101]) /* add scale to both x and y */
@@ -4051,13 +4051,12 @@ PlanarCoordinates([200, 100]) - PlanarCoordinates([50, 25]) = PlanarCoordinates(
 PlanarCoordinates([200, 100]) * PlanarCoordinates([3, 4]) = PlanarCoordinates([600, 400]) /* multiply points */
 PlanarCoordinates([1800, 100]) / PlanarCoordinates([3, 4]) = PlanarCoordinates([600, 25]) /* divide points */
 PlanarCoordinates([200 100]).coordinates = [200, 100] /* array of x and y */
-let v = PlanarCoordinates([3, 4]); v.first = 3 & { v.second = 4 } /* implements first and second */
-let v = PlanarCoordinates([3, 4]); v[1] = 3 & { v[2] = 4 } /* implements at */
-let v = PlanarCoordinates([3, 4]); v[1] := 7; v.first = 7 /* implements put */
+let v = PlanarCoordinates(3, 4); v.first = 3 & { v.second = 4 } /* implements first and second */
+let v = PlanarCoordinates(3, 4); v[1] = 3 & { v[2] = 4 } /* implements at */
 PlanarCoordinates([3, 4]).size = 2 /* implements size */
-let v = PlanarCoordinates([3 4]); v.swap!; v[1] = 4 /* swap fields in-place */
-PlanarCoordinates([3 4]).swap = PlanarCoordinates([4, 3]) /* swap x&y */
-let v = PlanarCoordinates([0, 0]); let c = v.copy; c.x!(1); c != v & { c = PlanarCoordinates([1, 0]) } /* copy two vector */
+let v = PlanarCoordinates(3, 4); v.swap!; v[1] = 4 /* swap fields in-place */
+PlanarCoordinates(3, 4).swap = PlanarCoordinates(4, 3) /* swap x&y */
+let v = PlanarCoordinates([0, 0]); let c = v.copy; c.x := 1; c != v & { c = PlanarCoordinates([1, 0]) } /* copy two vector */
 PlanarCoordinates([1, 1]).PolarCoordinates = PolarCoordinates([2.sqrt, 0.25.pi]) /* radius and angle, r and theta */
 [0 0].PlanarCoordinates.isPlanarCoordinates /* array as point, point predicate */
 [0 0].PlanarCoordinates.isOrigin /* are x and y both zero */
@@ -4094,8 +4093,8 @@ let v = CartesianCoordinates([0, 0, 0]); v.CartesianCoordinates == v /* identity
 CartesianCoordinates([1, 3, 5]).coordinates = [1 3 5] /* point as array */
 [1 3 5].CartesianCoordinates = CartesianCoordinates([1, 3, 5]) /* array as point */
 (x: 1, y: 3, z: 5).CartesianCoordinates = CartesianCoordinates([1, 3, 5]) /* record as point */
-SphericalCoordinates([1, 2, 3]).Record = (radius: 1, theta: 2, phi: 3)
-(r: 1, theta: 2, phi: 3).SphericalCoordinates = SphericalCoordinates([1, 2, 3])
+SphericalCoordinates([1, 2, 3]).Record = (rho: 1, theta: 2, phi: 3)
+(rho: 1, theta: 2, phi: 3).SphericalCoordinates = SphericalCoordinates([1, 2, 3])
 CartesianCoordinates([1, 3, 5]).Record = (x: 1, y: 3, z: 5)
 CylindricalCoordinates([1, 1, 1]).CartesianCoordinates.Record = (x: 1.cos, y: 1.sin, z: 1)
 CartesianCoordinates([1.cos, 1.sin, 1]).CylindricalCoordinates.Record = (rho: 1, phi: 1, z: 1)
