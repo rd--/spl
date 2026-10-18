@@ -13,9 +13,10 @@ Arithmetic Operators:
 
 Equality Operators:
 
-- `=`, `equal`, `equalsSign`
-- `!=`, `unequal`
-- `==`, `identical`
+- `=`, `isEqual`
+- `!=`, `isUnequal`
+- `==`, `isIdentical`
+- `!==`, `isNonidentical`
 
 Comparison Operators:
 

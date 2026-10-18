@@ -13,10 +13,10 @@ Truth table:
 ```
 >>> { :a :b |
 >>> 	a.notAnd { b }
->>> }.table([true false], [true false])
+>>> }.table([false true], [false true])
 [
-	false true;
-	true true
+	true true;
+	true false
 ]
 ```
 
@@ -48,5 +48,11 @@ a.discretePlot.log
 * * *
 
 See also: and, nor, not, or
+
+References:
+_Mathematica_
+[1](https://www.jsoftware.com/help/dictionary/d112.htm),
+_W_
+[1](https://en.wikipedia.org/wiki/NAND_gate)
 
 Unicode: U+22BC ⊼ Nand Unicode Character

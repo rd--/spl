@@ -3,6 +3,7 @@
 - _p >~ q_
 
 Answer `true` if _p_ is greater than or similar to _q_, else `false`.
+The operator form of `isGreaterOrSimilar`.
 
 ```
 >>> 3.1415 >~ 1.pi

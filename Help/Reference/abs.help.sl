@@ -46,6 +46,9 @@ where it is also called the complex modulus or `norm`:
 ```
 >>> [-2.5 3.141 1.4J2.3 -2J1].abs
 [2.5 3.141 2.69258 2.23607]
+
+>>> [6 -6 3J4].abs
+[6 6 5]
 ```
 
 `abs` collects over matrices:

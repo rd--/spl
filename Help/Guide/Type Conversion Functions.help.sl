@@ -125,7 +125,7 @@ or the `denominator` to `one`:
 2J0
 
 >>> [2 3 4].J(0)
-2J0
+[2J0 3J0 4J0]
 
 >>> Fraction(2, 1)
 2/1

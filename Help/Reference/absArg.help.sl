@@ -17,6 +17,9 @@ The absolute value and argument of a complex number:
 >>> let z = 2 * 0.5I.exp;
 >>> z.absArg
 [2 0.5]
+
+>>> 3J4.absArg
+[5 0.927295]
 ```
 
 Real numbers are a special kind of complex number:

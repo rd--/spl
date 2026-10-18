@@ -27,19 +27,19 @@ Ternary Math Operators:
 
 Comparison Operators:
 
-- `=`, `equal`
-- `!=`, `unequal`
-- `==`, `identical`
-- `!==`, `nonidentical`
-- `~`, `similar`
-- `!~`, `dissimilar`
-- `>`: greater than
-- `>=`: greater than or equal to
-- `>~`: greater than or similar to
-- `<`: less than
-- `<=`: less than or equal to
-- `<~`: less than or similar to
-- `<=>`: collation order
+- `=`, `isEqual`
+- `!=`, `isUnequal`
+- `==`, `isIdentical`
+- `!==`, `isNonidentical`
+- `~`, `isSimilar`
+- `!~`, `isDissimilar`
+- `>`, `isGreater`
+- `>=`, `isGreaterOrEqual`
+- `>~`, `isGreaterOrSimilar`
+- `<`, `isLess`
+- `<=`, `isLessOrEqual`
+- `<~`, `isLessOrSimilar`
+- `<=>`, `strictCompare`
 
 Logical Operators:
 

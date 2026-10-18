@@ -470,7 +470,7 @@
 		self.isClose(aNumber).not
 	}
 
-	[isGreaterOrClose, >~] { :self :aNumber |
+	[isGreaterOrSimilar, >~] { :self :aNumber |
 		self > aNumber | {
 			self.isClose(aNumber)
 		}
@@ -480,7 +480,7 @@
 		(self.fractionalPart.abs * 2).isOne
 	}
 
-	[isLessOrClose, <~] { :self :aNumber |
+	[isLessOrSimilar, <~] { :self :aNumber |
 		self < aNumber | {
 			self.isClose(aNumber)
 		}

@@ -46,7 +46,9 @@ Threads over lists:
 
 * * *
 
-See also: *, halve, Number
+See also: Number, *, halve
+
+Guides: Arithmetic Functions
 
 References:
 _J_

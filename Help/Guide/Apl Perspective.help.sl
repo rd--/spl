@@ -15,10 +15,10 @@ Operators:
 - [!](https://aplwiki.com/wiki/Factorial) `factorial` `!`
 - [⊇](https://aplwiki.com/wiki/From) `from`
 - [⊃](https://aplwiki.com/wiki/Pick) `atPath`
-- [=](https://aplwiki.com/wiki/Equal_to) `equal` `=`
-- [≠](https://aplwiki.com/wiki/Not_Equal_to) `unequal` `!=`
+- [=](https://aplwiki.com/wiki/Equal_to) `isEqual` `=`
+- [≠](https://aplwiki.com/wiki/Not_Equal_to) `isUnequal` `!=`
 - [≡](https://aplwiki.com/wiki/Match) `similar` `~`
-- [≢](https://aplwiki.com/wiki/Not_Match) `dissimilar` `!~`
+- [≢](https://aplwiki.com/wiki/Not_Match) `isDissimilar` `!~`
 - [≤](https://aplwiki.com/wiki/Less_than_or_Equal_to) `isLessOrEqual` `<=`
 - [<](https://aplwiki.com/wiki/Less_than) `isLess` `<`
 - [≥](https://aplwiki.com/wiki/Greater_than_or_Equal_to) `isGreaterOrEqual` `>=`

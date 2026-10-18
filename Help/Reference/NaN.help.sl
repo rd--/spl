@@ -23,7 +23,7 @@ true
 false
 ```
 
-`NaN` is not `identical`, `equal` or even close to itself:
+`NaN` is not identical, equal or even close to itself:
 
 ```
 >>> NaN == NaN

@@ -10,6 +10,9 @@ At `Range`:
 ```
 >>> 1:4.difference(2:5)
 [1]
+
+>>> 0:8.difference([2 3 5 7])
+[0 1 4 6 8]
 ```
 
 This function is also called `complement`:

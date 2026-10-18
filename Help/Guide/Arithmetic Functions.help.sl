@@ -2,11 +2,11 @@
 
 Binary Functions:
 
-- `plus`, `+`
-- `times`, `*`
-- `subtract`, `-`
 - `divide`, `/`
+- `plus`, `+`
 - `power`, `^`
+- `subtract`, `-`
+- `times`, `*`
 
 Division Functions:
 
@@ -17,19 +17,20 @@ Division Functions:
 
 Unary Functions:
 
+- `exp`, `^`
 - `negate`, `-`
 - `reciprocal`, `/`
-- `exp`, `^`
 - `sqrt`
 
 List Functions:
 
-- `sum`
-- `product`
-- `mean`
-- `accumulate`, `prefixSum`
+- `accumulate`
 - `differences`
+- `mean`
+- `prefixSum`
+- `product`
 - `ratios`
+- `sum`
 
 * * *
 
