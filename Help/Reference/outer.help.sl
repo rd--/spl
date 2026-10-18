@@ -153,7 +153,7 @@ Make a grid of complex numbers:
 ```
 >>> let o = [5].ones;
 >>> let r = *.outer(o, linspace(-2, 2, 5));
->>> let i = *.outer(linspace(2, -2, 5).i, o);
+>>> let i = *.outer(linspace(2, -2, 5).I, o);
 >>> r + i
 [
 	-2J2  -1J2  0J2  1J2  2J2;

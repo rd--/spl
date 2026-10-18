@@ -94,8 +94,8 @@ Solve cubic equations having one real and two complex answers:
 >>> cardanosAlgorithm(1, 4, 7, 6)
 [
 	-2,
-	-1.j(2.sqrt),
-	-1.j(2.sqrt.-)
+	-1.J(2.sqrt),
+	-1.J(2.sqrt.-)
 ]
 
 >>> cardanosAlgorithm(1, 2, 3, 4)

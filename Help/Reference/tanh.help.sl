@@ -53,8 +53,8 @@ Values at `Infinity`:
 At purely imaginary number:
 
 ```
->>> 0.2.pi.i.tanh
-(5 - (2 * 5.sqrt)).sqrt.i
+>>> 0.2I.pi.tanh
+(5 - (2 * 5.sqrt)).sqrt.I
 ```
 
 Continued fraction expansion:

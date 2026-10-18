@@ -244,7 +244,7 @@ Semiconvergents for π:
 Euler’s identity:
 
 ```
->>> (1.e ^ 1.pi.i) + 1
+>>> (1.e ^ 1I.pi) + 1
 0
 ```
 

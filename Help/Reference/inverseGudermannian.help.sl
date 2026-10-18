@@ -26,7 +26,7 @@ Evaluate numerically:
 At `Complex`:
 
 ```
->>> (5 + 1.pi.i).inverseGudermannian
+>>> (5 + 1I.pi).inverseGudermannian
 -0.0829127J1.54624
 
 >>> 0.726205.inverseGudermannian

@@ -36,7 +36,7 @@ Relation to `cos`:
 Threads elementwise over lists and matrices:
 
 ```
->>> [0, 1.5, 0.5.i.pi].haversine
+>>> [0, 1.5, 0.5I.pi].haversine
 [0 0.46463 -0.75459J0]
 ```
 
@@ -63,7 +63,7 @@ Plot over a subset of the reals:
 Plot over a subset of the complexes:
 
 ~~~spl png=B
-[-1.pi.j(-1), 1.pi.j(1)].complexPlot { :z |
+[-1.pi.J(-1), 1.pi.J(1)].complexPlot { :z |
 	z.haversine
 }
 ~~~

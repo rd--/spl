@@ -7,7 +7,7 @@ Answer a zero value of the same type as the object _x_.
 At `Complex`:
 
 ```
->>> (2 + 3.i).zero
+>>> (2 + 3I).zero
 Complex(0, 0)
 
 >>> 2J3.zero

@@ -648,7 +648,7 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 		aBlock(aFraction, Fraction(self, 1L))
 	}
 
-	Fraction { :numerator :denominator |
+	[Fraction, R, \] { :numerator :denominator |
 		numerator.isNaN.if {
 			NaN
 		} {
@@ -666,10 +666,6 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 
 	numeratorDenominator { :self |
 		[self, 1L]
-	}
-
-	[r, \] { :numerator :denominator |
-		Fraction(numerator, denominator)
 	}
 
 	uncheckedFraction { :numerator :denominator |

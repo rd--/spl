@@ -22,7 +22,7 @@ At `Complex`:
 >>> 2.5J1.sech
 0.089799J-0.137981
 
->>> 1/3.pi.i.sech
+>>> 1/3.pi.I.sech
 2
 ```
 

@@ -36,7 +36,7 @@ _cos(z)_ is a conformal map:
 { :z |
 	z.cos
 }.conformalPlot(
-	[0J0, 2.pi.j(1.pi)],
+	[0J0, 2.pi.J(1.pi)],
 	[6 6],
 	[50 50]
 )

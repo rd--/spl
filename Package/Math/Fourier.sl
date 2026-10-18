@@ -44,7 +44,7 @@
 	dft { :self |
 		let x = self;
 		let m = x.size;
-		let p = -2.pi * 1.i / m;
+		let p = -2.pi * 1I / m;
 		0.to(m - 1).collect { :k |
 			let q = p * k;
 			let z = 0;
@@ -217,7 +217,7 @@
 	fourierMatrix { :n :p |
 		let [a, b] = p;
 		let m = 1 / (n ^ ((1 - a) / 2));
-		let v = [0 .. n - 1] * (2.pi.i * b) / n;
+		let v = [0 .. n - 1] * (2I.pi * b) / n;
 		v.exp.vandermondeMatrix * m
 	}
 

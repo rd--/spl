@@ -8,7 +8,7 @@ Answer the hyperbolic cosecant of the number _x_.
 >>> 1.8.csch
 0.339885
 
->>> 1/3.pi.i.csch
+>>> 1/3.pi.I.csch
 -2.i / 3.sqrt
 ```
 

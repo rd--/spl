@@ -231,7 +231,7 @@ Sl {
 	complexLiteral = integerOrFloatLiteral "J" integerOrFloatLiteral // ("j" | "J")
 	imaginaryLiteral = integerOrFloatLiteral "I" // ("i" | "I")
 	residueLiteral = integerLiteral "Z" digit+ // ("z" | "Z")
-	fractionLiteral = plusOrMinus? digits "/" digits
+	fractionLiteral = plusOrMinus? digits ("/" | "R") digits
 	largeIntegerLiteral = plusOrMinus? decimalDigits "L"
     radixDigit = digit | "A" | "B" | "C" | "D" | "E" | "F"
 	radixDigitOrUnderscore = radixDigit | "_"

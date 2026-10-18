@@ -38,7 +38,7 @@ At `Fraction`:
 At `Complex`:
 
 ```
->>> (78 / 47).j(-4.2).integerPart
+>>> (78 / 47).J(-4.2).integerPart
 1J-4
 ```
 

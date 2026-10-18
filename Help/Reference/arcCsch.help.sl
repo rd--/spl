@@ -29,12 +29,12 @@ Relation to `arcSinh`:
 
 ```
 >>> 0J2.arcCsch
--1/6.pi.i
+-1/6.pi.I
 
 >>> 0J-2.arcCsch
-1/6.pi.i
+1/6.pi.I
 
->>> -1.pi.i.arcCsch
+>>> -1I.pi.arcCsch
 0J0.323946
 ```
 
@@ -42,7 +42,7 @@ Branch cut:
 
 ```
 >>> 1.5J1.arcCsch
--0.463599.j(0.281035  - 1.pi)
+-0.463599.J(0.281035  - 1.pi)
 ```
 
 Threads elementwise over lists:

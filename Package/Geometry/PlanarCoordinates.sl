@@ -2,37 +2,38 @@
 
 PlanarCoordinates : [Object, Copy, Store, Equal, Compare, At, Put, CartesianCoordinates] {
 
-	| coordinates |
+	| x y |
 
 	abscissa { :self |
-		self.coordinates.at(1)
+		self.x
 	}
 
 	[absoluteValue, abs] { :self |
-		PlanarCoordinates(self.coordinates.abs)
+		PlanarCoordinates(self.x.abs, self.y.abs)
 	}
 
 	adaptToNumberAndApply { :self :aNumber :aBlock/2 |
-		aBlock(PlanarCoordinates([aNumber, aNumber]), self)
+		aBlock(PlanarCoordinates(aNumber, aNumber), self)
 	}
 
 	applyUnaryOperator { :self :aBlock/1 |
-		PlanarCoordinates(self.coordinates.collect(aBlock/1))
+		PlanarCoordinates(aBlock(self.x), aBlock(self.y))
 	}
 
 	applyBinaryOperator { :self :anObject :aBlock/2 |
 		anObject.isPlanarCoordinates.if {
 			PlanarCoordinates(
-				self.coordinates.withCollect(
-					anObject.coordinates,
-					aBlock/2
-				)
+				aBlock(self.x, anObject.x),
+				aBlock(self.y, anObject.y)
 			)
 		} {
 			anObject.adaptToPlanarCoordinatesAndApply(self, aBlock/2)
 		}
 	}
 
+	coordinates { :self |
+		[self.x, self.y]
+	}
 
 	[divide, /] { :self :anObject |
 		self.applyBinaryOperator(anObject, divide/2)
@@ -45,10 +46,8 @@ PlanarCoordinates : [Object, Copy, Store, Equal, Compare, At, Put, CartesianCoor
 		let y0 = inversionCenter.y;
 		let k = inversionRadius;
 		PlanarCoordinates(
-			[
-				x0 + ((k.square * (x - x0)) / ((x - x0).square + (y - y0).square)),
-				y0 + ((k.square * (y - y0)) / ((x - x0).square + (y - y0).square))
-			]
+			x0 + ((k.square * (x - x0)) / ((x - x0).square + (y - y0).square)),
+			y0 + ((k.square * (y - y0)) / ((x - x0).square + (y - y0).square))
 		)
 	}
 
@@ -81,7 +80,7 @@ PlanarCoordinates : [Object, Copy, Store, Equal, Compare, At, Put, CartesianCoor
 	}
 
 	PlanarCoordinates { :self |
-		self
+		self.copy
 	}
 
 	[plus, +] { :self :anObject |
@@ -89,22 +88,14 @@ PlanarCoordinates : [Object, Copy, Store, Equal, Compare, At, Put, CartesianCoor
 	}
 
 	PolarCoordinates { :self |
-		PolarCoordinates[
-			self.radius,
-			self.theta
-		]
-	}
-
-	postCopy { :self |
-		self.coordinates := self.coordinates.copy
+		PolarCoordinates(
+			self.rho,
+			self.phi
+		)
 	}
 
 	[quotient, //] { :self :anObject |
 		self.applyBinaryOperator(anObject, quotient/2)
-	}
-
-	radius { :self |
-		(self.x.square + self.y.square).sqrt
 	}
 
 	Record { :self |
@@ -112,7 +103,7 @@ PlanarCoordinates : [Object, Copy, Store, Equal, Compare, At, Put, CartesianCoor
 	}
 
 	rho { :self |
-		self.radius
+		(self.x.square + self.y.square).sqrt
 	}
 
 	[subtract, -] { :self :anObject |
@@ -120,15 +111,14 @@ PlanarCoordinates : [Object, Copy, Store, Equal, Compare, At, Put, CartesianCoor
 	}
 
 	swap { :self |
-		PlanarCoordinates(self.coordinates.reverse)
+		PlanarCoordinates(self.y, self.x)
 	}
 
 	swap! { :self |
-		self.coordinates.reverse!
-	}
-
-	theta { :self |
-		atan2(self.y, self.x)
+		[x, y] = self.coordinates;
+		self.x := y;
+		self.y := x;
+		nil
 	}
 
 	[times, *] { :self :anObject |
@@ -144,17 +134,33 @@ PlanarCoordinates : [Object, Copy, Store, Equal, Compare, At, Put, CartesianCoor
 +@Number {
 
 	adaptToPlanarCoordinatesAndApply { :self :operand :aBlock/2 |
-		aBlock(operand, PlanarCoordinates([self, self]))
+		aBlock(operand, PlanarCoordinates(self, self))
+	}
+
+}
+
++@Number {
+
+	PlanarCoordinates { :x :y |
+		y.isNumber.if {
+			newPlanarCoordinates().initializeSlots(x, y)
+		} {
+			y.adaptToNumberAndApply(x, PlanarCoordinates/2)
+		}
 	}
 
 }
 
 +List {
 
+	PlanarCoordinates { :x :y |
+		y.adaptToCollectionAndApply(x, PlanarCoordinates/2)
+	}
+
 	PlanarCoordinates { :self |
 		self.atVectorOrElementwise { :each |
 			let [x, y] = each;
-			newPlanarCoordinates().initializeSlots([x, y])
+			newPlanarCoordinates().initializeSlots(x, y)
 		}
 	}
 
@@ -163,10 +169,8 @@ PlanarCoordinates : [Object, Copy, Store, Equal, Compare, At, Put, CartesianCoor
 +Record {
 
 	PlanarCoordinates { :self |
-		PlanarCoordinates[
-			self['x'],
-			self['y']
-		]
+		let (x: x, y: y) = self;
+		PlanarCoordinates(x, y)
 	}
 
 }

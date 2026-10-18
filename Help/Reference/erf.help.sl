@@ -85,7 +85,7 @@ Plot a clothoid:
 
 ~~~spl svg=B
 [-2.5 .. 2.5; 0.025].collect { :t |
-	(t + t.i).erf
+	(t + t.I).erf
 }.complexListPlot
 ~~~
 

@@ -1069,76 +1069,76 @@ Complex(-1, 0).real = -1 /* real part of complex number */
 Complex(-1, 0).imaginary = 0 /* imaginary part of complex number */
 Complex(-1, 0) + 1 = Complex(0, 0) /* complex addition with scalar */
 1.i = Complex(0, 1) /* i makes an imaginary number */
-(5 - 6.i) + (-5 + 8.i) = (0 + 2.i)
-5 * (5 - 6.i) = (25 - 30.i)
-2 * [1 + 2.i, 3 + 4.i, 5 + 6.i] = [2 + 4.i, 6 + 8.i, 10 + 12.i]
-5 + 5.i * [1 + 2.i, 3, 5 + 6.i] = [-5 + 15.i, 15 + 15.i, -5 + 55.i]
-(5 = 5.i) = false
-1 != 1.i
-(6 - 6.i).abs = 72.sqrt /* absolute value */
+(5 - 6I) + (-5 + 8I) = (0 + 2I)
+5 * (5 - 6I) = (25 - 30I)
+2 * [1 + 2I, 3 + 4I, 5 + 6.i] = [2 + 4I, 6 + 8I, 10 + 12.i]
+5 + 5.i * [1 + 2I, 3, 5 + 6.i] = [-5 + 15I, 15 + 15I, -5 + 55.i]
+(5 = 5I) = false
+1 != 1I
+(6 - 6I).abs = 72.sqrt /* absolute value */
 -2J1.abs = 5.sqrt /* absolute value */
-(1 + 2.i) + 1 = (2 + 2.i)
-1 + (1 + 2.i) = (2 + 2.i)
-((1 + 2.i) + 1) = (2 + 2.i)
-(1 + (1 + 2.i)) = (2 + 2.i)
-((1 + 2.i) + (2 / 3)).isCloseTo((5 / 3) + 2.i)
-((2 / 3) + (1 + 2.i)).isCloseTo((5 / 3) + 2.i)
-(0 + 5.i).arg = (1.pi / 2)
-let c = (5 - 6.i); (c * 1.i) = c.i
-(2 + 5.i).negate = (-2 - 5.i)
-(2 + 5.i).reciprocal = ((2 / 29) - (5 / 29).i)
-(6 - 6.i).square = -72.i
-(1 + 2.i) = (1 + 2.i) = true /* equality = same value */
-(1 + 2.i) == (1 + 2.i) = false /* identity = different objects */
-(1 + 2.i) != (1 + 4.i) = true /* inequality */
-let c = 2.i; let z = c.copy; z.real := 3; z != c & { z = (3 + 2.i) } /* copy complex */
-(0.5 * (2 + 0.i).log).exp = (0.5 * 2.log).exp /* natural logarithm */
-(3 + 5.i) ^ 0 = (1 + 0.i) /* exponent of zero answers one */
-(3 + 5.i) ^ 1 = (3 + 5.i) /* exponent of one is identity */
-(3 + 5.i) ^ 2 ~ (-16 + 30.i)
-(1 + 2.i) * (2 - 3.i) = (8 + 1.i) /* complex number with complex exponent */
-(1 + 2.i) / (1 - 2.i) = (-0.6 + 0.8.i)
-(1 + 2.i) + (1 - 2.i) = (2 + 0.i)
-(-3 + 2.i) - (5 - 1.i) = (-8 + 3.i)
-(-1 + 2.i) ^ 2 ~ (-3 - 4.i)
-(-1 + 2.i) ^ 2.5 ~ (2.7296 - 6.9606.i)
-(-1 + 2.i) ^ (1 + 1.i) = (-0.27910381075826657 + 0.08708053414102428.i)
-3 * (2 - 5.i) = (6 - 15.i)
-3 * ((2 - 5.i) ^ 2) ~ (-63 - 60.i)
-3 * ((2 - 5.i) ^ -1) ~ (0.2069 + 0.5172.i)
-2 * (1 - 1.i) = (2 - 2.i)
-(2 + 3.i) - 1 = (1 + 3.i)
-(1 + 2.i) + 0.5 = (1.5 + 2.i)
-(2 + 3.i) - 0.5.i = (2 + 2.5.i)
-0.75 * (1 + 2.i) = (0.75 + 1.5.i)
-(2 + 3.i) / 2 = (1 + 1.5.i)
-(1 - 3.i) / (2 + 2.i) = (-0.5 - 1.i)
-2 * (1.i ^ 2) ~ (-2 + 0.i)
-1 + (3 / 4.i) = (1 - 0.75.i)
-let z = 1 + 2.i; z.real = 1 & { z.imaginary = 2 }
-let z = 1 + 2.i; z.conjugate = (1 - 2.i) & { z.absSquare = 5 }
-let z = 1 + 2.i; z.abs ~ 2.2361 & { z.arg ~ 1.1071 } /* absolute value (modulus, magnitude) and argument (phase) */
-1.i.sqrt ~ (0.7071 + 0.7071.i)
-(1 + 2.i).sqrt ~ (1.2720 + 0.7861.i)
-(1 + 2.i).cos ~ (2.0327 - 3.0519.i)
-(1 + 2.i).exp ~ (-1.1312 + 2.4717.i)
-(1 + 2.i).sinh ~ (-0.4891 + 1.4031.i)
-(-1 + 0.i).sqrt = (0 + 1.i) /* the square root of negative one is i */
-(2 + 3.i).zero = (0 + 0.i) /* zero of same type, i.e. complex */
-(2 + 3.i).one = (1 + 0.i) /* one of same type, i.e. complex */
-1 / (1 + 2.i) = (0.2 - 0.4.i) /* reciprocal, multiplicative inverse */
-let n = (1 + 2.i); n.reciprocal * n = 1 /* multiplicative inverse */
-(1 + 0.i).isInteger = false /* a complex number is not an integer */
-(1 + 0.i).isFraction = false /* a complex number is not a fraction */
+(1 + 2I) + 1 = (2 + 2I)
+1 + (1 + 2I) = (2 + 2I)
+((1 + 2I) + 1) = (2 + 2I)
+(1 + (1 + 2I)) = (2 + 2I)
+((1 + 2I) + (2 / 3)).isCloseTo((5 / 3) + 2I)
+((2 / 3) + (1 + 2I)).isCloseTo((5 / 3) + 2I)
+(0 + 5I).arg = (1.pi / 2)
+let c = (5 - 6I); (c * 1I) = c.I
+(2 + 5I).negate = (-2 - 5I)
+(2 + 5I).reciprocal = ((2 / 29) - (5 / 29).I)
+(6 - 6I).square = -72I
+(1 + 2I) = (1 + 2I) = true /* equality = same value */
+(1 + 2I) == (1 + 2I) = false /* identity = different objects */
+(1 + 2I) != (1 + 4I) = true /* inequality */
+let c = 2I; let z = c.copy; z.real := 3; z != c & { z = (3 + 2I) } /* copy complex */
+(0.5 * (2 + 0I).log).exp = (0.5 * 2.log).exp /* natural logarithm */
+(3 + 5I) ^ 0 = (1 + 0I) /* exponent of zero answers one */
+(3 + 5I) ^ 1 = (3 + 5I) /* exponent of one is identity */
+(3 + 5I) ^ 2 ~ (-16 + 30I)
+(1 + 2I) * (2 - 3I) = (8 + 1I) /* complex number with complex exponent */
+(1 + 2I) / (1 - 2I) = (-0.6 + 0.8I)
+(1 + 2I) + (1 - 2I) = (2 + 0I)
+(-3 + 2I) - (5 - 1I) = (-8 + 3I)
+(-1 + 2I) ^ 2 ~ (-3 - 4I)
+(-1 + 2I) ^ 2.5 ~ (2.7296 - 6.9606I)
+(-1 + 2I) ^ (1 + 1I) = (-0.27910381075826657 + 0.08708053414102428I)
+3 * (2 - 5I) = (6 - 15I)
+3 * ((2 - 5I) ^ 2) ~ (-63 - 60I)
+3 * ((2 - 5I) ^ -1) ~ (0.2069 + 0.5172I)
+2 * (1 - 1I) = (2 - 2I)
+(2 + 3I) - 1 = (1 + 3I)
+(1 + 2I) + 0.5 = (1.5 + 2I)
+(2 + 3I) - 0.5.i = (2 + 2.5I)
+0.75 * (1 + 2I) = (0.75 + 1.5I)
+(2 + 3I) / 2 = (1 + 1.5I)
+(1 - 3I) / (2 + 2I) = (-0.5 - 1I)
+2 * (1.i ^ 2) ~ (-2 + 0I)
+1 + (3 / 4I) = (1 - 0.75I)
+let z = 1 + 2I; z.real = 1 & { z.imaginary = 2 }
+let z = 1 + 2I; z.conjugate = (1 - 2I) & { z.absSquare = 5 }
+let z = 1 + 2I; z.abs ~ 2.2361 & { z.arg ~ 1.1071 } /* absolute value (modulus, magnitude) and argument (phase) */
+1I.sqrt ~ (0.7071 + 0.7071I)
+(1 + 2I).sqrt ~ (1.2720 + 0.7861I)
+(1 + 2I).cos ~ (2.0327 - 3.0519I)
+(1 + 2I).exp ~ (-1.1312 + 2.4717I)
+(1 + 2I).sinh ~ (-0.4891 + 1.4031I)
+(-1 + 0I).sqrt = (0 + 1I) /* the square root of negative one is i */
+(2 + 3I).zero = (0 + 0I) /* zero of same type, i.e. complex */
+(2 + 3I).one = (1 + 0I) /* one of same type, i.e. complex */
+1 / (1 + 2I) = (0.2 - 0.4I) /* reciprocal, multiplicative inverse */
+let n = (1 + 2I); n.reciprocal * n = 1 /* multiplicative inverse */
+(1 + 0I).isInteger = false /* a complex number is not an integer */
+(1 + 0I).isFraction = false /* a complex number is not a fraction */
 3/2.toComplex = Complex(3/2, 0) /* fraction as complex */
 0/1.i = Complex(0, 0/1) /* complex with integral real part and fractional imaginary part */
 3/2 + 0/1.i = 3/2.toComplex
 3/2.toComplex + 0/1.i = 3/2.toComplex /* add 0i to a complex number is identity */
 1.toComplex = Complex(1, 0) /* Complex is a monadic complex number constructor */
 1.i = Complex(0, 1) /* Complex is a monadic complex number constructor */
-(1 + -2.i) + (3 + 4.i) = (4 + 2.i) /* i is a monadic complex number constructor */
-1.j(-2) + 3.j(4) = 4.j(2) /* j is the dyadic complex number constructor */
-1.j(-2) = 1.Complex(-2) /* j is an alias for Complex */
+(1 + -2I) + (3 + 4I) = (4 + 2I) /* i is a monadic complex number constructor */
+1.J(-2) + 3.J(4) = 4.J(2) /* j is the dyadic complex number constructor */
+1.J(-2) = Complex(1, -2) /* j is an alias for Complex */
 1J-2 = Complex(1, -2) /* complex literal, integral components */
 3.1J2.3 = Complex(3.1, 2.3) /* complex literal, fractional components */
 1J-2 + 3J4 = 4J2 /* complex literals, lower case */
@@ -1217,7 +1217,7 @@ true.boole = 1 /* boole */
 23.rationalize = 23 /* identity */
 1.toComplex = Complex(1, 0) /* number to complex */
 1.i = Complex(0, 1) /* number to complex */
-(2 + 3.i).toComplex = Complex(2, 3) /* identity */
+(2 + 3I).toComplex = Complex(2, 3) /* identity */
 126.Character = '~'.Character /* integer to character */
 '~'.Character.isCharacter /* string to character */
 let c = '~'.Character; c.Character == c /* identity */
@@ -1246,7 +1246,7 @@ let s = 'string'; s.copy == s /* copy string, identity */
 let a = ('x' -> 1); let c = a.copy; c.value := 2; c != a & { c = ('x' -> 2) } /* copy association */
 let t = (0, 0); let c = t.copy; c !== t & { c = t } /* copy two tuple */
 let f = 3/4; let c = f.copy; c.numerator := 1L; c != f & { c = 1/4 } /* copy fraction */
-let c = 2.i; let z = c.copy; z.real := 3; z != c & { z = (3 + 2.i) } /* copy complex */
+let c = 2I; let z = c.copy; z.real := 3; z != c & { z = (3 + 2I) } /* copy complex */
 let a = [1, [2]]; let c = a.copy; c[2][1] := -2; c = a & { a = [1, [-2]] } /* shallow copy of list */
 let a = [1, [2]]; let c = a.deepCopy; c[2][1] := -2; c != a & { a = [1, [2]] } /* deep copy of list */
 let b = [1, 2, 2].IdentityMultiset; let c = b.copy; c.add!(3); c != b & { c = [1, 2, 2, 3].IdentityMultiset } /* copy bag */
@@ -1597,10 +1597,10 @@ Fraction(-4, -12) = 1/3
 4/2 / 2 = 1 /* divide to integer */
 1/2 + 1/2 = 1 /* sum to integer */
 3/2 - 1/2 = 1 /* subtract to integer */
-2/7 * (1 + 2.i) = (2/7 + 4/7.i)
-2/7 * (1.5 + 2.i) ~ (0.4286 + 0.5714.i)
-3/2 / (1 + 2.i) ~ (3/10 - 3/5.i)
-1/2 + 2.i ~ (1/2 + 2/1.i)
+2/7 * (1 + 2I) = (2/7 + 4/7.I)
+2/7 * (1.5 + 2I) ~ (0.4286 + 0.5714I)
+3/2 / (1 + 2I) ~ (3/10 - 3/5.I)
+1/2 + 2.i ~ (1/2 + 2/1.I)
 (1/2 + 1/2).isInteger /* fractions with unit denominators are integers */
 1/2.fractionalPart = 1/2 /* the fractional part of a number between zero and one is identity */
 4/3.fractionalPart = 1/3 /* fraction math is exact */

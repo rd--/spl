@@ -109,7 +109,7 @@ Plot `cosh` alongside a Padé approximation:
 Plot over a subset of the complexes:
 
 ~~~spl png=D
-[-0.25.pi.j(-2.5), 0.25.pi.j(2.5)]
+[-0.25.pi.J(-2.5), 0.25.pi.J(2.5)]
 .complexPlot(cosh/1)
 ~~~
 

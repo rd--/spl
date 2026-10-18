@@ -15,9 +15,9 @@ Answer the _n×n_ square Fourier matrix.
 >>> 4.fourierMatrix / (1 / 4.sqrt)
 [
 	1  1    1  1;
-	1  1.i -1 -1.i;
+	1  1I -1 -1I;
 	1 -1    1 -1;
-	1 -1.i -1  1.i
+	1 -1I -1  1I
 ]
 ```
 

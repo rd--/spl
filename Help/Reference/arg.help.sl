@@ -76,7 +76,7 @@ Plot _arg(x+i)_ on the reals:
 
 ~~~spl svg=B
 (-3 -- 3).functionPlot { :x |
-	(x + 1.i).arg
+	(x + 1I).arg
 }
 ~~~
 

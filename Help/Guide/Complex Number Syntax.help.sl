@@ -44,36 +44,36 @@ a purely imaginary number may be written using the syntax _aI_.
 2J3
 ```
 
-`j` is the name of a method:
+`J` is also the name of a method:
 
 ```
->>> 3.j(4)
+>>> 3.J(4)
 3J4
 
->>> 2.j(3)
+>>> 2.J(3)
 2J3
 ```
 
-`j` is equivalent to `Complex`:
+`J` is an alias for `Complex`:
 
 ```
->>> 3.Complex(4)
+>>> Complex(3, 4)
 3J4
 ```
 
-`i` is also the name of a method:
+`I` is also the name of a method:
 
 ```
->>> 3.i
+>>> 3.I
 0J3
 
->>> 2 + 3.i
+>>> 2 + 3.I
 2J3
 ```
 
 * * *
 
-See also: Complex, i, j
+See also: Complex, I, J
 
 Guides: Complex Number Functions, Number Syntax
 

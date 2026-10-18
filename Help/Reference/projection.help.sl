@@ -47,7 +47,7 @@ Projection of one complex vector onto another:
 [
 	(2 / 5)  - (16.i / 45),
 	(4 / 5)  - (32.i / 45),
-	(8 / 9) + 1.i
+	(8 / 9) + 1I
 ]
 ```
 

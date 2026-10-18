@@ -14,8 +14,8 @@ Accessing:
 Constructing:
 
 - `GaussianInteger`
-- `i`: _0+ai_
-- `j`: _a+bi_
+- `I`: _0+ai_
+- `J`: _a+bi_
 
 Converting:
 

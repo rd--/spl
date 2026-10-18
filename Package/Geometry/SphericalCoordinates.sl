@@ -4,10 +4,6 @@ SphericalCoordinates : [Object, Store, Equal] {
 
 	| coordinates |
 
-	azimuth { :self |
-		self.theta
-	}
-
 	CartesianCoordinates { :self |
 		CartesianCoordinates(
 			self.coordinates.fromSphericalCoordinates
@@ -18,36 +14,24 @@ SphericalCoordinates : [Object, Store, Equal] {
 		(self.phi - 0.5.pi).negate
 	}
 
-	inclination { :self |
-		self.phi
-	}
-
-	phi { :self |
+	[phi, inclination] { :self |
 		self.coordinates[3]
 	}
 
 	Record { :self |
-		let [r, theta, phi] = self.coordinates;
-		(radius: r, theta: theta, phi: phi)
+		let [rho, theta, phi] = self.coordinates;
+		(rho: rho, theta: theta, phi: phi)
 	}
 
-	r { :self |
+	[rho, radius] { :self |
 		self.coordinates[1]
-	}
-
-	radius { :self |
-		self.r
-	}
-
-	rho { :self |
-		self.radius
 	}
 
 	SphericalCoordinates { :self |
 		self
 	}
 
-	theta { :self |
+	[theta, azimuth] { :self |
 		self.coordinates[2]
 	}
 
@@ -116,7 +100,7 @@ SphericalCoordinates : [Object, Store, Equal] {
 
 	SphericalCoordinates { :self |
 		SphericalCoordinates[
-			self['r'],
+			self['rho'],
 			self['theta'],
 			self['phi']
 		]

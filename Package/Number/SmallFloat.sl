@@ -748,7 +748,7 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 	ramanujansSum { :q :n |
 		1.to(q).sum { :a |
 			(a.gcd(q) = 1).if {
-				(2.pi.i * (a / q) * n).exp
+				(2I.pi * (a / q) * n).exp
 			} {
 				0
 			}

@@ -94,15 +94,15 @@ The binary form answers the base _b_ logarithm of the number _z_.
 >>> 0J1.log
 0J1.5708
 
->>> 1.e.square.j(0).log / 1I * -2.pi.j(1)
-2.j(4.pi)
+>>> 1.e.square.J(0).log / 1I * -2.pi.J(1)
+2.J(4.pi)
 ```
 
 At branch cut:
 
 ```
 >>> -2J0.log
-2.log.j(1.pi)
+2.log.J(1.pi)
 ```
 
 Show that the natural logarithm of -1 is iπ:

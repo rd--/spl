@@ -1871,6 +1871,7 @@ Reference/ifNotNil.help.sl
 Reference/ifTrue.help.sl
 Reference/ignoreError.help.sl
 Reference/i.help.sl
+Reference/I.help.sl
 Reference/ikedaMap.help.sl
 Reference/image.help.sl
 Reference/Image.help.sl
@@ -2344,7 +2345,7 @@ Reference/jacobiSymbol.help.sl
 Reference/jacobsthalNumber.help.sl
 Reference/jaroDistance.help.sl
 Reference/jaroWinklerSimilarity.help.sl
-Reference/j.help.sl
+Reference/J.help.sl
 Reference/join.help.sl
 Reference/jordanTotient.help.sl
 Reference/josephusProblem.help.sl

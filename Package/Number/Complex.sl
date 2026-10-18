@@ -132,7 +132,7 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 	}
 
 	exp { :self |
-		self.real.exp * (self.imaginary.cos + self.imaginary.sin.i)
+		self.real.exp * (self.imaginary.cos + self.imaginary.sin.I)
 	}
 
 	[floor, <] { :self |
@@ -256,7 +256,7 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 	}
 
 	log { :self |
-		/* self.abs.log + self.arg.i */
+		/* self.abs.log + self.arg.I */
 		let x = self.real;
 		let y = self.imaginary;
 		Complex(
@@ -531,14 +531,14 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		(z - 0J1) / (z + 0J1)
 	}
 
-	[Complex, j] { :real :imaginary |
+	[Complex, J] { :real :imaginary |
 		Complex(
 			SmallFloat(real),
 			SmallFloat(imaginary)
 		)
 	}
 
-	i { :self |
+	I { :self |
 		Complex(
 			0,
 			SmallFloat(self)
@@ -575,7 +575,7 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 
 +@Sequence {
 
-	[Complex, j] { :self :anObject |
+	[Complex, J] { :self :anObject |
 		anObject.adaptToCollectionAndApply(self, Complex/2)
 	}
 

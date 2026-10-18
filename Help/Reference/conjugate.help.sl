@@ -61,7 +61,7 @@ n
 Conjugate is an odd function:
 
 ```
->>> let n = 1.j(system.nextRandomFloat);
+>>> let n = 1.J(system.nextRandomFloat);
 >>> -n.conjugate
 n.conjugate.negate
 ```
@@ -69,7 +69,7 @@ n.conjugate.negate
 Conjugate is involutive:
 
 ```
->>> let n = 1.j(system.nextRandomFloat);
+>>> let n = 1.J(system.nextRandomFloat);
 >>> n.conjugate.conjugate = n
 true
 ```
@@ -102,7 +102,7 @@ Plot the absolute value of  function:
 
 ~~~spl svg=B
 (-3 -- 3).functionPlot { :x |
-	x.j(1).abs.conjugate
+	x.J(1).abs.conjugate
 }
 ~~~
 

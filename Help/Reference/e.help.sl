@@ -36,14 +36,14 @@ _e_ raised to _iπ_ plus `one` is `zero`,
 Euler’s formula and Euler’s identity:
 
 ```
->>> (1.e ^ 1.pi.i) + 1
+>>> (1.e ^ 1I.pi) + 1
 0
 
 >>> 1.pi.cos + (1.i * 1.pi.sin) + 1
 0
 
 >>> -1J0.log
-1.pi.i
+1I.pi
 ```
 
 Expressions that approach _e_:

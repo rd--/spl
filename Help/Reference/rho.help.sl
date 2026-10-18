@@ -3,10 +3,11 @@
 - _rho(p)_
 
 Answer ρ of point _p_.
-Another name for `r`.
+
+At `PolarCoordinates`:
 
 ```
->>> PolarCoordinates[1 0].rho
+>>> PolarCoordinates(1, 0).rho
 1
 ```
 
@@ -14,7 +15,7 @@ Where supported `rho` is displayed as ρ.
 
 * * *
 
-See also: r, radius
+See also: PlanarCoordinates, PolarCoordinates
 
 Guides: Geometry Functions
 

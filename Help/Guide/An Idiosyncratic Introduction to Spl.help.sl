@@ -361,7 +361,7 @@ Function tables are a good way to organize systematic experimentation on unfamil
 The Hilbert matrix is a simple function on the addition table.
 
 ```
->>> 1.r(1:7 +.outer 0:6)
+>>> 1.R(1:7 +.outer 0:6)
 [
 	1/1  1/2  1/3  1/4  1/5  1/6  1/7;
 	1/2  1/3  1/4  1/5  1/6  1/7  1/8;
@@ -378,7 +378,7 @@ The reciprocal determinant of the Hilbert matrix of order _n_, has prime factors
 ```
 >>> let n = 5L;
 >>> let x = [1L .. n];
->>> let h = 1.r(x +.outer (x - 1));
+>>> let h = 1.R(x +.outer (x - 1));
 >>> (1 / h.determinant).primeFactors.nub
 [2 3 5 7]
 ```

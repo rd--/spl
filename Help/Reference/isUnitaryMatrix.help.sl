@@ -7,7 +7,7 @@ Answer `true` if the matrix _m_ is a unitary matrix, else `false`.
 Test if a 2×2 numerical matrix is unitary:
 
 ```
->>> let m = (1 / 2.sqrt) * [1 1.i; 1.i 1];
+>>> let m = (1 / 2.sqrt) * [1 1I; 1I 1];
 >>> m.isUnitaryMatrix
 true
 ```
@@ -23,7 +23,7 @@ true
 Test if a diagonal matrix is unitary:
 
 ```
->>> let m = List(5, -1.i).diagonalMatrix;
+>>> let m = List(5, -1I).diagonalMatrix;
 >>> m.isUnitaryMatrix
 true
 ```

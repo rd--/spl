@@ -22,7 +22,7 @@ Definition:
 
 ```
 >>> let z = 0.65;
->>> (z.i.exp + -z.i.exp) / 2
+>>> (z.I.exp + -z.I.exp) / 2
 z.cos
 ```
 

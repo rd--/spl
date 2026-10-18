@@ -1,6 +1,6 @@
 # Unary Operator Syntax
 
-The grammar allows for operators to be written in ordinary method contexts.
+The Sᴘʟ grammar allows for operators to be written in ordinary method contexts.
 
 In such contexts operators may have any arity that is defined for them.
 
@@ -44,11 +44,18 @@ Unary `/` is `reciprocal`:
 [1 0.5 0.333333 0.25 0.2 0.16667]
 ```
 
-Unary `!` is `factorial`:
+Unary `!` is `factorialOrGamma`:
 
 ```
 >>> 11.!
 39916800
+```
+
+Unary `!!` is `doubleFactorial`:
+
+```
+>>> 11.!!
+10395
 ```
 
 Unary operators are defined in the same manner as binary operators,

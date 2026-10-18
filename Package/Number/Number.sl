@@ -1,7 +1,7 @@
 @Number {
 
 	absArg { :self |
-		self.j(0).absArg
+		Complex(self, 0).absArg
 	}
 
 	[absoluteDifference, absDif] { :self :operand |

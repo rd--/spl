@@ -1,67 +1,63 @@
-PolarCoordinates : [Object, Store, Equal] {
+PolarCoordinates : [Object, Copy, Store, Equal] {
 
-	| coordinates |
+	| rho phi |
+
+	coordinates { :self |
+		[self.rho, self.phi]
+	}
 
 	isOrigin { :self |
-		self.r.isZero
+		self.rho.isZero
 	}
 
 	[List, polarCoordinatesToList] { :self |
-		self.coordinates.copy
-	}
-
-	phi { :self |
-		self.theta
+		self.coordinates
 	}
 
 	PlanarCoordinates { :self |
-		PlanarCoordinates([self.x, self.y])
+		PlanarCoordinates(self.x, self.y)
 	}
 
 	PolarCoordinates { :self |
-		self
-	}
-
-	r { :self |
-		self.coordinates[1]
-	}
-
-	radius { :self |
-		self.coordinates[1]
+		self.copy
 	}
 
 	Record { :self |
-		(r: self.r, theta: self.theta)
-	}
-
-	rho { :self |
-		self.coordinates[1]
-	}
-
-	theta { :self |
-		self.coordinates[2]
+		(rho: self.rho, phi: self.phi)
 	}
 
 	x { :self |
-		let [r, theta] = self.coordinates;
-		r * theta.cos
+		self.rho * self.phi.cos
 	}
 
 	y { :self |
-		let [r, theta] = self.coordinates;
-		r * theta.sin
+		self.rho * self.phi.sin
+	}
+
+}
+
++@Number {
+
+	PolarCoordinates { :rho :phi |
+		phi.isNumber.if {
+			newPolarCoordinates().initializeSlots(rho, phi)
+		} {
+			phi.adaptToNumberAndApply(rho, PolarCoordinates/2)
+		}
 	}
 
 }
 
 +List {
 
+	PolarCoordinates { :rho :phi |
+		phi.adaptToCollectionAndApply(rho, PolarCoordinates/2)
+	}
+
 	PolarCoordinates { :self |
-		self.isVector.if {
-			let [r, theta] = self;
-			newPolarCoordinates().initializeSlots([r, theta])
-		} {
-			self.collect(PolarCoordinates/1)
+		self.atVectorOrElementwise { :each |
+			let [rho, phi] = each;
+			PolarCoordinates(rho, phi)
 		}
 	}
 
@@ -71,8 +67,8 @@ PolarCoordinates : [Object, Store, Equal] {
 
 	fromPolarCoordinates { :self |
 		self.atVectorOrElementwise { :v |
-			let [r, theta] = v;
-			[r * theta.cos, r * theta.sin]
+			let [rho, phi] = v;
+			[rho * phi.cos, rho * phi.sin]
 		}
 	}
 
@@ -102,10 +98,8 @@ PolarCoordinates : [Object, Store, Equal] {
 +Record {
 
 	PolarCoordinates { :self |
-		PolarCoordinates[
-				self['r'],
-				self['theta']
-		]
+		let (rho: rho, phi: phi) = self;
+		PolarCoordinates(rho, phi)
 	}
 
 }

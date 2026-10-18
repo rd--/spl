@@ -23,7 +23,7 @@ here delete all imaginary components:
 Drop small imaginary parts:
 
 ```
->>> [1 .. 4].pi.i.exp.chop
+>>> I[1 .. 4].pi.exp.chop
 [-1 1 -1 1]
 ```
 

@@ -2,7 +2,7 @@
 
 ## Arithmetic Operators
 
-Matrix multiplication is spelled `dot` in Spl and _mtimes_ or _*_ in Octave,
+Matrix multiplication is spelled `dot` in Sᴘʟ and _mtimes_ or _*_ in Octave,
 likewise for `power` and `matrixPower`:
 
 ```
@@ -16,7 +16,7 @@ likewise for `power` and `matrixPower`:
 3
 ```
 
-Elementwise multiplication is spelled `times` or `*` in Spl and _times_ or _.*_ in Octave:
+Elementwise multiplication is spelled `times` or `*` in Sᴘʟ and _times_ or _.*_ in Octave:
 
 ```
 >>> [1 2 3] * [4 5 6]

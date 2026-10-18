@@ -29,7 +29,7 @@ Absolute correlation between vectors of complexes:
 >>> [2J1 3J-2 5J4].absoluteCorrelation(
 >>> 	[0J1 1J2 10J-5]
 >>> )
-10.j(55 / 3)
+10.J(55 / 3)
 ```
 
 * * *

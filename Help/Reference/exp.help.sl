@@ -44,7 +44,7 @@ that is _e^x_.
 >>> [1 2].exp
 [2.71828 7.38906]
 
->>> [0, 1.5, 1.pi.i, Infinity].exp
+>>> [0, 1.5, 1I.pi, Infinity].exp
 [1 4.48169 -1J0 Infinity]
 
 >>> [-1 0 1].exp
@@ -132,20 +132,20 @@ Euler’s forumula:
 
 ```
 >>> let x = 1.5;
->>> x.cos + x.sin.i
-x.i.exp
+>>> x.cos + x.sin.I
+x.I.exp
 
 >>> let x = 1.5;
->>> (x.i.exp + x.-.i.exp) / 2
+>>> (x.I.exp + x.-.I.exp) / 2
 x.cos
 
 >>> let x = 1.5;
->>> (x.i.exp - x.-.i.exp) / 2.i
+>>> (x.I.exp - x.-.I.exp) / 2I
 x.sin
 
 >>> let x = 1.5;
->>> let a = 1 - (2 * x).i.exp;
->>> let b = 1 + (2 * x).i.exp;
+>>> let a = 1 - (2 * x).I.exp;
+>>> let b = 1 + (2 * x).I.exp;
 >>> (a / b).i
 x.tan
 ```

@@ -1,6 +1,6 @@
 # PlanarCoordinates
 
-- _PlanarCoordinates([x y])_
+- _PlanarCoordinates(x, y)_
 
 A `Type` holding the coordinates of a point in two-dimensional Cartesian space,
 given by an ordered pair _(x, y)_.
@@ -10,10 +10,9 @@ as well as for _r_ and _theta_ (equivalently _rho_ and _phi_),
 and for converting to a `PolarCoordinates`:
 
 ```
->>> let p = PlanarCoordinates[1 1];
+>>> let p = PlanarCoordinates(1, 1);
 >>> (
 >>> 	p.x, p.y,
->>> 	p.radius, p.theta,
 >>> 	p.rho, p.phi,
 >>> 	PolarCoordinates(p)
 >>> )
@@ -21,33 +20,38 @@ and for converting to a `PolarCoordinates`:
 	1, 1,
 	2.sqrt, 0.25.pi,
 	2.sqrt, 0.25.pi,
-	PolarCoordinates[2.sqrt 0.25.pi]
+	PolarCoordinates(2.sqrt, 0.25.pi)
 )
 ```
 
 Threads over lists:
 
 ```
->>> PlanarCoordinates[1 4; 2 5; 3 6]
-[
-	PlanarCoordinates[1 4],
-	PlanarCoordinates[2 5],
-	PlanarCoordinates[3 6]
-]
+>>> let a = PlanarCoordinates([1 2 3], [4 5 6]);
+>>> let b = PlanarCoordinates[1 4; 2 5; 3 6];
+>>> (a, a = b)
+(
+	[
+		PlanarCoordinates[1 4],
+		PlanarCoordinates[2 5],
+		PlanarCoordinates[3 6]
+	],
+	true
+)
 ```
 
 `Record` case:
 
 ```
 >>> PlanarCoordinates(x: 1, y: 2)
-PlanarCoordinates[1 2]
+PlanarCoordinates(1, 2)
 ```
 
 `PlanarCoordinates` case:
 
 ```
->>> let c = PlanarCoordinates[1 2];
->>> c.PlanarCoordinates == c
+>>> let c = PlanarCoordinates(1, 2);
+>>> c.PlanarCoordinates = c
 true
 ```
 

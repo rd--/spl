@@ -113,7 +113,7 @@ OEIS [A059387](https://oeis.org/A059387):
 ]
 ```
 
-_J(2,n)/J(1,n)_ is the Dedekind ψ function,
+.J(2,n).J(1,n)_ is the Dedekind ψ function,
 OEIS [A001615](https://oeis.org/A001615):
 
 ```
@@ -157,7 +157,7 @@ OEIS [A059379](https://oeis.org/A059379):
 
 ![](Help/Image/jordanTotient-C.svg)
 
-_J(3,n)/J(1,n)_,
+.J(3,n).J(1,n)_,
 OEIS [A160889](https://oeis.org/A160889):
 
 ~~~spl svg=D oeis=A160889

@@ -73,7 +73,7 @@ Mean of complex numbers:
 
 ```
 >>> [2J1 3J-2 5J4].mean
-(10 / 3 + 1.i)
+(10 / 3 + 1I)
 ```
 
 Mean of a probability distribution:

@@ -356,6 +356,10 @@
 		self.collect(i/1)
 	}
 
+	I { :self |
+		self.collect(I/1)
+	}
+
 	imaginary { :self |
 		self.collect(imaginary/1)
 	}

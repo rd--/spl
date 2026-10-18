@@ -47,7 +47,7 @@ Temporary Files:
 
 - `temporaryFileName`
 
-Spl Files:
+Sᴘʟ Files:
 
 - `splDirectory`
 - `splFileName`

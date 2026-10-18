@@ -212,7 +212,7 @@
 				s := s + 1;
 				r := r - (2 * s - 1)
 			};
-			(r - s.i) * (1.i ^ s)
+			(r - s.I) * (1I ^ s)
 		}.realImaginary
 	}
 

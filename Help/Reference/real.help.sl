@@ -10,7 +10,7 @@ At `Complex`:
 >>> 1J2.real
 1
 
->>> (1 + 3.i).real
+>>> (1 + 3I).real
 1
 ```
 

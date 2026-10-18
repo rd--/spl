@@ -7,7 +7,7 @@ Answer a unit value of the same type as the object _x_.
 At `Complex`:
 
 ```
->>> (2 + 3.i).one
+>>> (2 + 3I).one
 Complex(1, 0)
 ```
 

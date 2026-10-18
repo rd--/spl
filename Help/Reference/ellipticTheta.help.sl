@@ -73,7 +73,7 @@ Plot θ function near the unit circle in the complex q plane:
 
 ~~~spl svg=D
 (-1.pi -- 1.pi).functionPlot { :theta |
-	1.ellipticTheta(0.5, 0.9 * theta.i.exp).real
+	1.ellipticTheta(0.5, 0.9 * theta.I.exp).real
 }
 ~~~
 
@@ -83,7 +83,7 @@ Plot θ function near the unit circle in the complex q plane:
 
 ~~~spl svg=E
 (-1.pi -- 1.pi).functionPlot { :theta |
-	1.ellipticTheta(0.5, 0.97 * theta.i.exp).real
+	1.ellipticTheta(0.5, 0.97 * theta.I.exp).real
 }
 ~~~
 

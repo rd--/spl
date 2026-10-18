@@ -1,10 +1,10 @@
 # SphericalCoordinates
 
-- _SphericalCoordinates([r θ φ])_
+- _SphericalCoordinates([ρ θ φ])_
 
 Answer a `SphericalCoordinates` instance following the convention:
 
-- r(𝑟), or rho(ρ): radial distance (radial line, radial coordinate)
+- rho(ρ): radial distance (radial line, radial coordinate)
 - theta(θ): azimuth
 - phi(φ): inclination angle (polar angle, zenith angle, normal angle, colatitude)
 
@@ -12,7 +12,7 @@ There are differing conventions for notating spherical coordinates.
 The function `IsoSphericalCoordinates`, with parameters _(r, theta, phi)_, follows the ISO convention,
 in which the meaning (and ordering) of `theta` and `phi` are reversed.
 
-`radius`, `rho`, `azimuth` and `inclination` are provided as aliases.
+`radius`, `azimuth` and `inclination` are provided as aliases.
 
 `theta` is the angle of counter-clockwise rotation from the initial meridian plane,
 ie. in the _xy_-plane from the _x_-axis with _0 <= phi < 2.pi_.
@@ -44,7 +44,7 @@ CartesianCoordinates[1 1 1]
 `Record` case:
 
 ```
->>> SphericalCoordinates(r: 1, theta: 2, phi: 3)
+>>> SphericalCoordinates(rho: 1, theta: 2, phi: 3)
 SphericalCoordinates[1 2 3]
 ```
 
@@ -56,11 +56,11 @@ SphericalCoordinates[1 2 3]
 true
 ```
 
-Where supported `r` is displayed as 𝑟, `rho` as ρ, `theta` as θ, and `phi` as φ.
+Where supported `rho` as ρ, `theta` as θ, and `phi` as φ.
 
 * * *
 
-See also: CartesianCoordinates, fromSphericalCoordinates, PolarCoordinates, IsoSphericalCoordinates, PlanarCoordinates
+See also: CartesianCoordinates, PolarCoordinates, IsoSphericalCoordinates, PlanarCoordinates, fromSphericalCoordinates
 
 Guides: Coordinate System Functions, Geometry Functions
 

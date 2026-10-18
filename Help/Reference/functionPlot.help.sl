@@ -149,7 +149,7 @@ At `Range`, a straight line:
 
 ~~~spl svg=N
 (-3 .. 3).functionPlot { :x |
-	x + x.i
+	x + x.I
 }
 ~~~
 

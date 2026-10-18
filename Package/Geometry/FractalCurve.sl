@@ -121,7 +121,7 @@
 				},
 				'B' -> {
 					let a = { :x |
-						x ++ x.i.reverse
+						x ++ x.I.reverse
 					}.iterate([1], self);
 					([0] ++ a.prefixSum).realImaginary
 				}
@@ -224,7 +224,7 @@
 		let a = [z];
 		let m = [0 1 0 -1 -1 0 1 0];
 		0.toDo(self - 2) { :n |
-			z := z + (1.i ^ n.integerDigits(8).sum { :d | m[d + 1] });
+			z := z + (1I ^ n.integerDigits(8).sum { :d | m[d + 1] });
 			a.add!(z)
 		};
 		a.realImaginary
@@ -374,7 +374,7 @@
 	wunderlichCurve { :self |
 		let s = [0 1 2 2J1 1J1 0J1 0J2 1J2 2J2];
 		let w = s.collect { :z |
-			z.imaginary + z.real.i
+			z.imaginary + z.real.I
 		};
 		let r = [0 1 0 3 2 3 0 1 0];
 		1.toCollect(self) { :n |

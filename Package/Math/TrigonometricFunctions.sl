@@ -84,15 +84,19 @@
 	arcCos { :self |
 		(self.imaginary = 0).if {
 			(self.real.abs > 1).if {
-				(self.real < 0).if {
-					pi
-				} {
-					0
-				}.j(
+				Complex(
+					(self.real < 0).if {
+						pi
+					} {
+						0
+					},
 					self.real.copySign(self.real.abs.arcCosh)
 				)
 			} {
-				self.real.arcCos.j(0)
+				Complex(
+					self.real.arcCos,
+					0
+				)
 			}
 		} {
 			let tmp = self.squaredNorm - 1 / 2;
@@ -101,7 +105,8 @@
 			let shy = sh2y.sqrt;
 			let ch2y = 1 + sh2y;
 			let chy = ch2y.sqrt;
-			(self.real / chy).arcCos.j(
+			Complex(
+				(self.real / chy).arcCos,
 				self.imaginary.copySign(shy.arcSinh.negate)
 			)
 		}
@@ -118,11 +123,15 @@
 	arcSin { :self |
 		(self.imaginary = 0).if {
 			(self.real.abs > 1).if {
-				(0.5.pi * self.real.sign).j(
+				Complex(
+					0.5.pi * self.real.sign,
 					self.real.copySign(self.real.abs.arcCosh).negate
 				)
 			} {
-				self.real.arcSin.j(0)
+				Complex(
+					self.real.arcSin,
+					0
+				)
 			}
 		} {
 			let tmp = self.squaredNorm - 1 / 2;
@@ -131,7 +140,8 @@
 			let shy = sh2y.sqrt;
 			let ch2y = 1 + sh2y;
 			let chy = ch2y.sqrt;
-			(self.real / chy).arcSin.j(
+			Complex(
+				(self.real / chy).arcSin,
 				self.imaginary.copySign(shy.arcSinh)
 			)
 		}

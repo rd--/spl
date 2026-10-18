@@ -84,7 +84,7 @@ The distribution of Gaussian composite numbers:
 
 ~~~spl png=A
 { :a :b |
-	a.j(b).isComposite.boole
+	a.J(b).isComposite.boole
 }.table(1:100, 1:100).Bitmap
 ~~~
 

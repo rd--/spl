@@ -125,8 +125,8 @@ Quaternion : [Object, Store, Equal, Number] {
 	matrixForm { :self |
 		let [a, b, c, d] = self.components;
 		[
-			[a.j(b), c.j(d)],
-			[c.-.j(d), a.j(b.-)]
+			[a.J(b), c.J(d)],
+			[c.-.J(d), a.J(b.-)]
 		]
 	}
 

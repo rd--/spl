@@ -1,6 +1,7 @@
 # Fraction Syntax
 
 - _n/d_
+- _nRd_
 
 A `Fraction` is a number consisting of two integers,
 a numerator and a denominator.
@@ -9,6 +10,9 @@ Rewrite rule:
 
 ```
 >> '3/4'.splSimplify
+Fraction(3L, 4L)
+
+>> '3R4'.splSimplify
 Fraction(3L, 4L)
 ```
 
@@ -29,6 +33,9 @@ Fraction literals allow underscores to be used as separators:
 >> '123_456/456_789'.splSimplify
 Fraction(123_456L, 456_789L)
 
+>> '123_456R456_789'.splSimplify
+Fraction(123_456L, 456_789L)
+
 >>> 123_456/456_789
 123456/456789
 ```
@@ -38,6 +45,9 @@ Fractions are automatically reduced:
 ```
 >>> 6/4
 3/2
+
+>>> 6R4
+3R2
 ```
 
 Sᴘʟ does not require binary operators to be white space separated,

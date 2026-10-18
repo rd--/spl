@@ -4,28 +4,6 @@
 
 Answer the _radius_ of the object _x_.
 
-At `PlanarCoordinates`:
-
-```
->>> PlanarCoordinates[1 1].radius
-2.sqrt
-```
-
-At `CartesianCoordinates`:
-
-```
->>> CartesianCoordinates[1 0 1].radius
-2.sqrt
-```
-
-At `PolarCoordinates`, also named `rho` and `r`:
-
-```
->>> let p = PolarCoordinates[1 0];
->>> (p.r, p.rho, p.radius)
-(1, 1, 1)
-```
-
 At `Circle`:
 
 ```
@@ -40,9 +18,30 @@ At `Sphere`:
 1
 ```
 
+At `PlanarCoordinates` see `rho`:
+
+```
+>>> PlanarCoordinates(1, 1).rho
+2.sqrt
+```
+
+At `CartesianCoordinates`:
+
+```
+>>> CartesianCoordinates[1 0 1].radius
+2.sqrt
+```
+
+At `PolarCoordinates` see `rho`:
+
+```
+>>> PolarCoordinates(1, 0).rho
+1
+```
+
 * * *
 
-See also: r, rho
+See also: rho
 
 Guides: Geometry Functions
 

@@ -33,7 +33,7 @@ Threads over lists:
 [0 1.31696 1.76275 1.81153]
 
 >>> [-2 .. 2].halve.arcCosh
-[1.pi.i, 2.pi.i / 3, 1.pi.i / 2, 1.pi.i / 3, 0]
+[1I.pi, 2I.pi / 3, 1I.pi / 2, 1I.pi / 3, 0]
 ```
 
 At `Infinity`:

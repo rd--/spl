@@ -10,7 +10,7 @@ MeixnerDistribution : [Object, Equal, ProbabilityDistribution] {
 		let p = 2 ^ (-1 + (2 * d));
 		let q = (b / 2).cos ^ (2 * d);
 		{ :x |
-			let r = (x - m).i / a;
+			let r = (x - m).I / a;
 			let s = (p * (b * (x - m) / a).exp * q * (d - r).gamma * (d + r).gamma);
 			let t = (a.pi * (2 * d).gamma);
 			(s / t).real

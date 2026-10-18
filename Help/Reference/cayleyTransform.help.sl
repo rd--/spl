@@ -16,7 +16,7 @@ Plot transform of Gaussian integers:
 
 ~~~spl svg=A
 { :a :b |
-	(a + b.i).cayleyTransform
+	(a + b.I).cayleyTransform
 }.table(-7:7, 0:7).complexListPlot
 ~~~
 
@@ -35,7 +35,7 @@ Plot transform of Gaussian integers of the form _(m-ni)/(p+qi)_:
 ~~~spl svg=C
 [1 .. 5].tuples(4).collect { :each |
 	let [m, n, p, q] = each;
-	let z = (m + n.i) / (p + q.i);
+	let z = (m + n.I) / (p + q.I);
 	(z.imaginary > 0).if {
 		z.cayleyTransform
 	} {

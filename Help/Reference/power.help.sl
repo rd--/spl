@@ -122,7 +122,7 @@ true
 0J3
 
 >>> -5 ^ 0.5
-0.j(5.sqrt)
+0.J(5.sqrt)
 
 >>> -1 ^ 1/2
 0J1
@@ -141,7 +141,7 @@ At `Complex`:
 0.273957J0.583701
 
 >>> let a = 0.25.pi + (0.5 * 2.log);
->>> 2.sqrt * -0.25.pi.exp * (a.cos + a.sin.i)
+>>> 2.sqrt * -0.25.pi.exp * (a.cos + a.sin.I)
 0.273957J0.583701
 
 >>> 0J1 ^ 0J1
@@ -157,7 +157,7 @@ At `Complex`:
 0.5J0
 
 >>> -5J0 ^ 0.5
-0.j(5.sqrt)
+0.J(5.sqrt)
 
 >>> 1J1 ^ 1:11
 [
@@ -182,8 +182,8 @@ De Moivre’s formula:
 ```
 >>> let x = 1/6.pi;
 >>> let n = 2;
->>> (x.cos + x.sin.i) ^ n
-(n * x).cos + (n * x).sin.i
+>>> (x.cos + x.sin.I) ^ n
+(n * x).cos + (n * x).sin.I
 ```
 
 Threads elementwise over lists and matrices:
@@ -1251,7 +1251,7 @@ Plot the imaginary part of _ik^ik_:
 
 ~~~spl svg=N
 (0 -- 6).functionPlot { :k |
-	(k.i ^ k.i).imaginary
+	(k.I ^ k.I).imaginary
 }
 ~~~
 

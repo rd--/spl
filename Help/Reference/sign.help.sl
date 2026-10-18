@@ -148,7 +148,7 @@ Plot the `real` part of the `sign` function:
 
 ~~~spl svg=A
 (-3 -- 3).functionPlot { :x |
-	x.j(1).sign.real
+	x.J(1).sign.real
 }
 ~~~
 
@@ -158,7 +158,7 @@ Plot the `imaginary` part of the `sign` function:
 
 ~~~spl svg=B
 (-3 -- 3).functionPlot { :x |
-	x.j(1).sign.imaginary
+	x.J(1).sign.imaginary
 }
 ~~~
 

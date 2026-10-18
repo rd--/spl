@@ -65,10 +65,6 @@
 		self.sortWithIndices.collect(value/1)
 	}
 
-	j { :real :imaginary |
-		real.withCollect(imaginary, j/2)
-	}
-
 	laminate { :alpha :beta |
 		[alpha, beta].extendToBeOfEqualSize
 	}

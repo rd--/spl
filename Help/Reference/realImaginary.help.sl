@@ -43,7 +43,7 @@ The dragon curve:
 
 ~~~spl svg=A
 { :x |
-	x ++ x.i.reverse
+	x ++ x.I.reverse
 }.iterate([1], 8)
 .prefixSum
 .realImaginary

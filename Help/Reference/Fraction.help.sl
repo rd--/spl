@@ -283,14 +283,15 @@ The `components` method answers a `List` of these:
 [22L 7L]
 ```
 
-The letter `r` abbreviates `Fraction` (`r` for _rational_),
-in the same manner that `j` abbreviates `Complex`.
+The letter `R` abbreviates `Fraction` (`R` for _rational_),
+mirroring the literal syntax,
+in the same manner that `J` abbreviates `Complex`.
 
 ```
->>> 3.r(7)
-3/7
+>>> 3.R(7)
+3R7
 
->>> 3.j(7)
+>>> 3.J(7)
 3J7
 ```
 
@@ -333,7 +334,7 @@ This is a close approximation to 2.sqrt:
 ```
 >>> let f = { :r |
 >>> 	let [x, y] = r.numeratorDenominator;
->>> 	(x ^ 2 + (2 * (y ^ 2))).r(2 * x * y)
+>>> 	(x ^ 2 + (2 * (y ^ 2))).R(2 * x * y)
 >>> };
 >>> (
 >>> 	f/1.iterate(3/2, 4),

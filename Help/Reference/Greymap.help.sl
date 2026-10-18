@@ -54,7 +54,7 @@ Draw Julia set:
 ~~~spl png=C
 let julia = { :c |
 	{ :y :x |
-		let z = x.j(y);
+		let z = x.J(y);
 		let n = 0;
 		{ z.absSquare < 4 }.whileTrue {
 			z := z ^ 2 + c;

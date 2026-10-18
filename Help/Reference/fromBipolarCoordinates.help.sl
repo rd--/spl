@@ -72,15 +72,15 @@ let r = { :i :j |
 	i.subdivide(j)
 };
 let sigmaCircles = { :i |
-	i.r(n).collect { :sigma |
-		(-10 -- 10).r(k * 3).collect { :tau |
+	i.R(n).collect { :sigma |
+		(-10 -- 10).R(k * 3).collect { :tau |
 			c([sigma, tau])
 		}
 	}
 };
 let tauCircles = { :i |
-	i.r(n).collect { :tau |
-		(-1.pi -- 1.pi).r(k).collect { :sigma |
+	i.R(n).collect { :tau |
+		(-1.pi -- 1.pi).R(k).collect { :sigma |
 			c([sigma, tau])
 		}
 	}

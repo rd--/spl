@@ -32,7 +32,7 @@ Threads elementwise over lists and matrices:
 ```
 >>> [0 0.46463 -0.754589J0]
 >>> .inverseHaversine
-[0, 1.5, 0.5.i.pi]
+[0, 1.5, 0.5I.pi]
 ```
 
 * * *

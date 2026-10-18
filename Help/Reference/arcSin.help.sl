@@ -33,7 +33,7 @@ Compare accuracy of method to the direct evaluation of the logarithmic formula:
 0J-14.71937803983977
 
 >>> let z = 0J-1234567;
->>> ((1 - z.square).sqrt - (z * 1.i)).log.i
+>>> ((1 - z.square).sqrt - (z * 1I)).log * 1I
 0J-14.71964426356397
 ```
 
@@ -79,7 +79,7 @@ Plot `arcSin` at integer points:
 
 ~~~spl svg=C
 { :x :y |
-	(x * y).j(0).arcSin.abs.fractionalPart
+	(x * y).J(0).arcSin.abs.fractionalPart
 }.table(-20:20, -20:20).matrixPlot
 ~~~
 

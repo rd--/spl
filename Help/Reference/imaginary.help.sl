@@ -32,10 +32,10 @@ At `SmallFloat` and `LargeInteger` and `Fraction`:
 [0 0 0]
 ```
 
-C.f. `i`:
+C.f. `I`:
 
 ```
->>> 3.i
+>>> 3.I
 0J3
 ```
 

@@ -33,7 +33,7 @@ Plot over the complex numbers in _(-1/2π,1/2π)_:
 
 ~~~spl svg=C
 (-0.5.pi -- 0.5.pi).functionPlot { :x |
-	x.j(0).riemannFunction
+	x.J(0).riemannFunction
 }
 ~~~
 

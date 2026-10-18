@@ -85,7 +85,7 @@ and a saddle point:
 Plot complex functions of a complex variable:
 
 ~~~spl png=H
-[-3.j(-2.pi), 3.j(2.pi)].complexPlot { :z |
+[-3.J(-2.pi), 3.J(2.pi)].complexPlot { :z |
 	z.cos
 }
 ~~~

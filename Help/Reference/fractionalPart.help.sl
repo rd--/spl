@@ -56,7 +56,7 @@ At `Fraction`:
 At `Complex`:
 
 ```
->>> (235 / 47).j(5.3).fractionalPart
+>>> (235 / 47).J(5.3).fractionalPart
 0J0.3
 ```
 

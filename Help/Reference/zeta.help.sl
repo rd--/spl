@@ -186,7 +186,7 @@ Plot the real part of the zeta function on the critical line:
 
 ~~~spl svg=B
 (1 -- 50).functionPlot { :t |
-	zeta(0.5 + t.i).real
+	zeta(0.5 + t.I).real
 }
 ~~~
 
@@ -196,7 +196,7 @@ Plot the zeta function on the critical line:
 
 ~~~spl svg=C
 (0.75 -- 23).functionPlot { :t |
-	zeta(0.5 + t.i)
+	zeta(0.5 + t.I)
 }
 ~~~
 

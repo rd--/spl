@@ -22,7 +22,7 @@ Definition:
 
 ```
 >>> let z = 0.65;
->>> (z.i.exp - -z.i.exp) / 2.i
+>>> (z.I.exp - -z.I.exp) / 2I
 z.sin
 ```
 
@@ -41,7 +41,7 @@ Prefix notation:
 
 >>> let a = 2.5;
 >>> let b = 1;
->>> (a.sin * b.cosh) + (a.cos * b.sinh).i
+>>> (a.sin * b.cosh) + (a.cos * b.sinh).I
 2.5J1.sin
 ```
 
@@ -72,7 +72,7 @@ n.sin.negate
 `sin` has the mirror property:
 
 ```
->>> let n = (0 -- 2.pi).atRandom.j(1);
+>>> let n = (0 -- 2.pi).atRandom.J(1);
 >>> n.conjugate.sin
 n.sin.conjugate
 ```
