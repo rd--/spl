@@ -19,7 +19,6 @@ and for converting to a `PolarCoordinates`:
 (
 	1, 1,
 	2.sqrt, 0.25.pi,
-	2.sqrt, 0.25.pi,
 	PolarCoordinates(2.sqrt, 0.25.pi)
 )
 ```

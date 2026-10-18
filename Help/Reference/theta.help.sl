@@ -4,17 +4,17 @@
 
 Answer the `theta` field of the point _p_.
 
-The two-dimensional case:
+The two-dimensional case called `phi`:
 
 ```
->>> PolarCoordinates([0 1.pi]).theta
+>>> PolarCoordinates(0, 1.pi).phi
 1.pi
 ```
 
-`PlanarCoordinates` implements `theta`:
+`PlanarCoordinates` implements `phi`:
 
 ```
->>> PlanarCoordinates([1 1]).theta
+>>> PlanarCoordinates([1 1]).phi
 1/4.pi
 ```
 
