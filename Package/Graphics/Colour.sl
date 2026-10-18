@@ -322,7 +322,7 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 
 	cubeHelix { :start :rotations :hue :gamma |
 		{ :lambda |
-			lambda.betweenAnd(0, 1).if {
+			lambda.isBetween(0, 1).if {
 				let phi = 2.pi * ((start / 3) + (rotations * lambda));
 				let e = lambda ^ gamma;
 				let alpha = hue * e * (1 - e) / 2;
@@ -347,7 +347,7 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 	}
 
 	greyLevelOrTransparent { :level |
-		level.isVeryCloseTo(1).if {
+		level.isVeryClose(1).if {
 			greyLevel(1, 0)
 		} {
 			level.greyLevel
@@ -496,19 +496,19 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 	}
 
 	isValidHsl { :self |
-		self.betweenAnd(0, 1).allTrue
+		self.isBetween(0, 1).allTrue
 	}
 
 	isValidHsv { :self |
-		self.betweenAnd(0, 1).allTrue
+		self.isBetween(0, 1).allTrue
 	}
 
 	isValidRgb { :self |
-		self.betweenAnd(0, 1).allTrue
+		self.isBetween(0, 1).allTrue
 	}
 
 	isValidRgba { :self |
-		self.betweenAnd(0, 1).allTrue
+		self.isBetween(0, 1).allTrue
 	}
 
 	jabToJch { :self |
@@ -936,7 +936,7 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 	parseRgbTriplet { :self |
 		self.isRgbTriplet.if {
 			let c = self.copyFromTo(5, self.size - 1).splitBy(',');
-			c.size.betweenAnd(3, 4).if {
+			c.size.isBetween(3, 4).if {
 				c.collect { :each |
 					each.parseSmallInteger(10) / 255
 				}

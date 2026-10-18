@@ -85,7 +85,7 @@
 	}
 
 	quickSort! { :self |
-		self.quickSort!(lessEqual/2)
+		self.quickSort!(isLessOrEqual/2)
 	}
 
 	quickSort { :self |

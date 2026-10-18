@@ -497,7 +497,7 @@ OeisEntry : [Object, Store, Equal, OeisSequence] {
 		self.lookupField('data')
 	}
 
-	equalBy { :self :operand :aBlock/2 |
+	isEqualBy { :self :operand :aBlock/2 |
 		aBlock(self.identifier, operand.identifier)
 	}
 

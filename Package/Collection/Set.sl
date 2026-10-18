@@ -15,7 +15,7 @@
 		answer
 	}
 
-	equalBy { :self :anObject :aBlock/2 |
+	isEqualBy { :self :anObject :aBlock/2 |
 		anObject.isSet & {
 			self.size = anObject.size & {
 				self.allSatisfy { :each |

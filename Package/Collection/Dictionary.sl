@@ -162,7 +162,7 @@
 		self.valuesDo(aBlock/1)
 	}
 
-	equalBy { :self :aDictionary :aBlock/2 |
+	isEqualBy { :self :aDictionary :aBlock/2 |
 		self.typeOf = aDictionary.typeOf & {
 			self.hasEqualElements(aDictionary, aBlock/2)
 		}
@@ -199,7 +199,7 @@
 	}
 
 	hasEqualElements { :self :aDictionary |
-		self.hasEqualElements(aDictionary, equal/2)
+		self.hasEqualElements(aDictionary, isEqual/2)
 	}
 
 	include! { :self :anAssociation |
@@ -627,7 +627,7 @@ Dictionary : [Object, Copy, Store, Equal, Do, At, Indices, Put, Collect, Collect
 +Void {
 
 	Dictionary {
-		newDictionary().initializeSlots([], [], equal/2)
+		newDictionary().initializeSlots([], [], isEqual/2)
 	}
 
 }

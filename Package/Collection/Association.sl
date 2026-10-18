@@ -12,7 +12,7 @@ Association : [Object, Store, Copy, Equal, Compare] {
 		1 + self.value.depth
 	}
 
-	equalBy { :self :anObject :aBlock/2 |
+	isEqualBy { :self :anObject :aBlock/2 |
 		anObject.isAssociation & {
 			self.key = anObject.key & {
 				aBlock(self.value, anObject.value)

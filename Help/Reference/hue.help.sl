@@ -32,7 +32,7 @@ Select entries from the Svg colour catalogue that are within 15Â° of yellow (60Â
 >>> let i = (45 -- 75).unitDegree;
 >>> system.svgColourDictionary
 >>> .select { :c |
->>> 	c.hue.between(i)
+>>> 	c.hue.isBetween(i)
 >>> }.keys
 [
 	'beige'
@@ -56,7 +56,7 @@ Plot Svg colours near yellow:
 let i = (45 -- 75).unitDegree;
 system.svgColourDictionary
 .select { :c |
-	c.hue.between(i)
+	c.hue.isBetween(i)
 }.values.reshape([2 6]).arrayPlot
 ~~~
 

@@ -71,7 +71,7 @@ Use as a simple way to visualize volumes:
 let p = [];
 (-2, -1.8 .. 2).tuples(3).do { :each |
 	(
-		each.square.sum.betweenAnd(1, 2) & {
+		each.square.sum.isBetween(1, 2) & {
 			each.product >= 0
 		}
 	).ifTrue {

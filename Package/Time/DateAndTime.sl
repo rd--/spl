@@ -2,7 +2,7 @@ DateAndTime : [Object, Store, Equal, Compare] {
 
 	| hiddenRepresentation |
 
-	[less, <] { :self :aDate |
+	[isLess, <] { :self :aDate |
 		self.absoluteTime < aDate.absoluteTime
 	}
 
@@ -51,7 +51,7 @@ DateAndTime : [Object, Store, Equal, Compare] {
 		<primitive: return _self.hiddenRepresentation.getUTCDate();>
 	}
 
-	equalBy { :self :anObject :aBlock/2 |
+	isEqualBy { :self :anObject :aBlock/2 |
 		anObject.isDateAndTime & {
 			aBlock(self.absoluteTime, anObject.absoluteTime)
 		}

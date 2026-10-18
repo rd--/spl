@@ -1,4 +1,4 @@
-# unequal
+# isUnequal
 
 - _x != y_
 
@@ -37,7 +37,7 @@ When the arguments to `!=` are `boole`, it is the exclusive or function:
 
 * * *
 
-See also: =, !, ==, ~~, <, <=, >=, equal
+See also: Equal, =, !, ==, ~~, <, <=, >=, isEqual
 
 Guides: Binary Operators, Comparison Functions
 

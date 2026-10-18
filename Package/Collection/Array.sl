@@ -381,7 +381,7 @@
 			let k = self.size;
 			1.to(k + z.sum).collect { :i |
 				let d = i - m;
-				d.betweenAnd(1, k).if {
+				d.isBetween(1, k).if {
 					self[d]
 				} {
 					o
@@ -397,8 +397,8 @@
 					let d = i - m[1];
 					let e = j - n[1];
 					(
-						d.betweenAnd(1, a) & {
-							e.betweenAnd(1, b)
+						d.isBetween(1, a) & {
+							e.isBetween(1, b)
 						}
 					).if {
 						self[d][e]

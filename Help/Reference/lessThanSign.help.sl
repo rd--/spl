@@ -3,13 +3,13 @@
 - _x < y_
 - _x.>_
 
-The binary form is `less`:
+The binary form is `isLess`:
 
 ```
 >>> 3 < 5
 true
 
->>> less(3, 5)
+>>> isLess(3, 5)
 true
 ```
 
@@ -32,7 +32,7 @@ in Apl it is _⌊_.
 
 * * *
 
-See also: Compare, =, !=, <=, >, >=, <=>, less, lessEqual
+See also: Compare, Equal, =, !=, <=, >, >=, <=>, isLess, isLessOrEqual
 
 Guides: Binary Operators, Comparison Functions, Sort Functions
 

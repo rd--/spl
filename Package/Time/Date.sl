@@ -1,7 +1,7 @@
 Date! : [Object, Store, Equal, Compare] {
 
-	[less, <] { :self :aDate |
-		lessOn(self, aDate, absoluteTime/1)
+	[isLess, <] { :self :aDate |
+		isLessOn(self, aDate, absoluteTime/1)
 	}
 
 	absoluteTime { :self |
@@ -49,7 +49,7 @@ Date! : [Object, Store, Equal, Compare] {
 		(t1 - t2) / (24 * 60 * 60) + 1
 	}
 
-	equalBy { :self :anObject :aBlock/2 |
+	isEqualBy { :self :anObject :aBlock/2 |
 		anObject.isDate & {
 			aBlock(self.absoluteTime, anObject.absoluteTime)
 		}

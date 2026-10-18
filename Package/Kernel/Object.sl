@@ -1,13 +1,5 @@
 @Object {
 
-	[identical, ==] { :self :anObject |
-		<primitive: return _self === _anObject;>
-	}
-
-	[nonidentical, !==] { :self :anObject |
-		<primitive: return _self !== _anObject;>
-	}
-
 	assert { :self :aString :aBlock/0 |
 		aBlock().if {
 			self
@@ -127,6 +119,10 @@
 		false
 	}
 
+	[isIdentical, ==] { :self :anObject |
+		<primitive: return _self === _anObject;>
+	}
+
 	isImmediate { :unused |
 		false
 	}
@@ -137,6 +133,10 @@
 
 	isLiteral { :self |
 		false
+	}
+
+	[isNonidentical, !==] { :self :anObject |
+		<primitive: return _self !== _anObject;>
 	}
 
 	leftIdentity { :self :anObject |

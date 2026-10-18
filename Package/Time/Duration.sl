@@ -2,7 +2,7 @@ Duration : [Object, Store, Equal, Compare] {
 
 	| magnitude |
 
-	[less, <] { :self :aDuration |
+	[isLess, <] { :self :aDuration |
 		self.magnitude < aDuration.inSeconds
 	}
 

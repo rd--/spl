@@ -33,7 +33,7 @@ Method:
 
 Object:
 
-- `equalByAtNamedSlots`
+- `isEqualByAtNamedSlots`
 - `hasEqualSlots`
 - `initializeSlots`
 - `slotList`

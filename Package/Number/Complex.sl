@@ -117,7 +117,7 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		}
 	}
 
-	equalBy { :self :anObject :aBlock/2 |
+	isEqualBy { :self :anObject :aBlock/2 |
 		anObject.isNumber.if {
 			anObject.isComplex.if {
 				aBlock(self.real, anObject.real) & {
@@ -177,15 +177,15 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		)
 	}
 
-	isCloseToBy { :self :anObject :epsilon |
+	isCloseBy { :self :anObject :epsilon |
 		anObject.isNumber.if {
 			anObject.isComplex.if {
-				self.real.isCloseToBy(anObject.real, epsilon) & {
-					self.imaginary.isCloseToBy(anObject.imaginary, epsilon)
+				self.real.isCloseBy(anObject.real, epsilon) & {
+					self.imaginary.isCloseBy(anObject.imaginary, epsilon)
 				}
 			} {
 				anObject.adaptToComplexAndApply(self) { :p :q |
-					p.isCloseToBy(q, epsilon)
+					p.isCloseBy(q, epsilon)
 				}
 			}
 		} {
@@ -245,8 +245,8 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		self.imaginary.isZero
 	}
 
-	isVeryCloseTo { :self :anObject |
-		self.isCloseToBy(anObject, 0.000000000001)
+	isVeryClose { :self :anObject |
+		self.isCloseBy(anObject, 0.000000000001)
 	}
 
 	isZero { :self |

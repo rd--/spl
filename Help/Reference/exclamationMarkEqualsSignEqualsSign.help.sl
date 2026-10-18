@@ -2,11 +2,11 @@
 
 - _p !== q_
 
-The operator form of `nonidentical`.
+The operator form of `isNonidentical`.
 
 ```
 >>> 1/1 !== 1
-nonidentical(1/1, 1)
+isNonidentical(1/1, 1)
 ```
 
 Where supported `!==` is displayed as ≢.
@@ -15,9 +15,9 @@ The name of this operator is `exclamationMarkEqualsSignEqualsSign`.
 
 * * *
 
-See also: =, ==, !=, identical, nonidentical
+See also: =, ==, !=, isIdentical, isNonidentical
 
-Guides: Comparison Functions
+Guides: Comparison Functions, Equality Functions
 
 References:
 _Mathematica_

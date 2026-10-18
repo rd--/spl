@@ -1,13 +1,5 @@
 RegExp! : [Object, Store, Equal] {
 
-	equalBy { :self :anObject :aBlock/2 |
-		anObject.isRegularExpression & {
-			aBlock(self.source, anObject.source) & {
-				aBlock(self.flags, anObject.flags)
-			}
-		}
-	}
-
 	exec { :self :aString |
 		aString.assertIsString;
 		self.uncheckedExec(aString)
@@ -24,6 +16,14 @@ RegExp! : [Object, Store, Equal] {
 
 	hasIndices { :self |
 		<primitive: return _self.hasIndices;>
+	}
+
+	isEqualBy { :self :anObject :aBlock/2 |
+		anObject.isRegularExpression & {
+			aBlock(self.source, anObject.source) & {
+				aBlock(self.flags, anObject.flags)
+			}
+		}
 	}
 
 	isGlobal { :self |

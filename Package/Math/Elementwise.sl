@@ -70,14 +70,14 @@
 		self.collect(bernoulliNumber/1)
 	}
 
-	between { :self :interval |
-		self.collect(interval.between)
+	isBetween { :self :interval |
+		self.collect(
+			interval.between
+		)
 	}
 
-	betweenAnd { :self :min :max |
-		self.collect { :each |
-			each.betweenAnd(min, max)
-		}
+	isBetween { :self :min :max |
+		self.isBetween(min -- max)
 	}
 
 	binaryExpansion { :self |
@@ -919,20 +919,20 @@
 
 +@Sequence {
 
-	[greater, >] { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, greater/2)
+	[isGreater, >] { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, isGreater/2)
 	}
 
-	[greaterEqual, >=] { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, greaterEqual/2)
+	[isGreaterOrEqual, >=] { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, isGreaterOrEqual/2)
 	}
 
-	[less, <] { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, less/2)
+	[isLess, <] { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, isLess/2)
 	}
 
-	[lessEqual, <=] { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, lessEqual/2)
+	[isLessOrEqual, <=] { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, isLessOrEqual/2)
 	}
 
 	[maximum, max] { :self :anObject |
@@ -1055,9 +1055,9 @@
 		anObject.adaptToCollectionAndApply(self, integerDigits/2)
 	}
 
-	isCloseToBy { :self :anObject :epsilon |
+	isCloseBy { :self :anObject :epsilon |
 		anObject.adaptToCollectionAndApply(self) { :a :b |
-			a.isCloseToBy(b, epsilon)
+			a.isCloseBy(b, epsilon)
 		}
 	}
 

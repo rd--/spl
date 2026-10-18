@@ -2,9 +2,9 @@ Permutation : [Object, Store, Equal] {
 
 	| cycles degree |
 
-	[equal, =] { :self :anObject |
+	[isEqual, =] { :self :anObject |
 		anObject.isPermutation & {
-			equal(self.cycles, anObject.cycles)
+			isEqualOn(self, anObject, cycles/1)
 		}
 	}
 
@@ -16,7 +16,7 @@ Permutation : [Object, Store, Equal] {
 		}
 	}
 
-	[similar, ~] { :self :anObject |
+	[isSimilar, ~] { :self :anObject |
 		self = anObject
 	}
 
@@ -54,7 +54,7 @@ Permutation : [Object, Store, Equal] {
 	}
 
 	ascents { :self |
-		self.ascents(less/2)
+		self.ascents(isLess/2)
 	}
 
 	completeCycles { :self |
@@ -64,11 +64,11 @@ Permutation : [Object, Store, Equal] {
 	}
 
 	decreasingRuns { :self |
-		self.runs(greater/2)
+		self.runs(isGreater/2)
 	}
 
 	descents { :self |
-		self.ascents(greater/2)
+		self.ascents(isGreater/2)
 	}
 
 	dictionary { :self |
@@ -376,7 +376,7 @@ Permutation : [Object, Store, Equal] {
 	}
 
 	runs { :self |
-		self.runs(less/2)
+		self.runs(isLess/2)
 	}
 
 	signature { :self |

@@ -55,7 +55,7 @@
 		let a = self;
 		let b = aNumber;
 		{
-			a.isVeryCloseTo(b)
+			a.isVeryClose(b)
 		}.whileFalse {
 			[a, b] := [0.5 * (a + b), (a * b).sqrt]
 		};
@@ -105,13 +105,13 @@
 		[r, k]
 	}
 
-	between { :self :interval |
+	isBetween { :self :interval |
 		interval.min <= self & {
 			self <= interval.max
 		}
 	}
 
-	betweenAnd { :self :min :max |
+	isBetween { :self :min :max |
 		min <= self & {
 			self <= max
 		}
@@ -174,7 +174,7 @@
 		let f = self - i;
 		{
 			(limit > 1) & {
-				f.isVeryCloseTo(0).not
+				f.isVeryClose(0).not
 			}
 		}.whileTrue {
 			answer.add!(i);
@@ -239,14 +239,10 @@
 		self.diracDelta(Infinity)
 	}
 
-	[dissimilar, !~] { :self :aNumber |
-		self.isCloseTo(aNumber).not
-	}
-
 	divisible { :self :aNumber |
 		aNumber.isNumber.if {
 			self.abs >= aNumber.abs & {
-				(self % aNumber).isVeryCloseTo(0)
+				(self % aNumber).isVeryClose(0)
 			}
 		} {
 			aNumber.adaptToNumberAndApply(self, divisible/2)
@@ -358,12 +354,6 @@
 		}
 	}
 
-	[greaterOrCloseTo, >~] { :self :aNumber |
-		self > aNumber | {
-			self.isCloseTo(aNumber)
-		}
-	}
-
 	halve { :self |
 		self / 2
 	}
@@ -410,9 +400,9 @@
 
 	inRangeOfAnd { :self :first :second |
 		(first < second).if {
-			self.betweenAnd(first, second)
+			self.isBetween(first, second)
 		} {
-			self.betweenAnd(second, first)
+			self.isBetween(second, first)
 		}
 	}
 
@@ -468,16 +458,32 @@
 		}
 	}
 
-	isCloseToBy { :self :aNumber :epsilon |
-		self.typeResponsibility('isCloseToBy')
+	isCloseBy { :self :aNumber :epsilon |
+		self.typeResponsibility('isCloseBy')
 	}
 
-	isCloseTo { :self :aNumber |
-		self.isCloseToBy(aNumber, 0.0001)
+	isClose { :self :aNumber |
+		self.isCloseBy(aNumber, 0.0001)
+	}
+
+	[isDissimilar, !~] { :self :aNumber |
+		self.isClose(aNumber).not
+	}
+
+	[isGreaterOrClose, >~] { :self :aNumber |
+		self > aNumber | {
+			self.isClose(aNumber)
+		}
 	}
 
 	isHalfInteger { :self |
 		(self.fractionalPart.abs * 2).isOne
+	}
+
+	[isLessOrClose, <~] { :self :aNumber |
+		self < aNumber | {
+			self.isClose(aNumber)
+		}
 	}
 
 	isNegative { :self |
@@ -522,8 +528,8 @@
 		true
 	}
 
-	isVeryCloseTo { :self :aNumber |
-		self.isCloseToBy(aNumber, 0.000000000001)
+	isVeryClose { :self :aNumber |
+		self.isCloseBy(aNumber, 0.000000000001)
 	}
 
 	isZero { :self |
@@ -543,19 +549,13 @@
 	}
 
 
-	[lessOrCloseTo, <~] { :self :aNumber |
-		self < aNumber | {
-			self.isCloseTo(aNumber)
-		}
-	}
-
 	log2 { :self |
 		SmallFloat(self).log2
 	}
 
 	logarithmicChange { :x :y |
 		relativeChange(x, y) { :x :y |
-			x.isVeryCloseTo(y).if {
+			x.isVeryClose(y).if {
 				x
 			} {
 				(y - x) / (y / x).log
@@ -1060,8 +1060,8 @@
 		}
 	}
 
-	[similar, ~] { :self :aNumber |
-		self.isCloseTo(aNumber)
+	[isSimilar, ~] { :self :aNumber |
+		self.isClose(aNumber)
 	}
 
 	smallFloatEpsilon { :self |
@@ -1196,10 +1196,10 @@
 	}
 
 	unitTriangle { :self |
-		self.betweenAnd(-1, 0).if {
+		self.isBetween(-1, 0).if {
 			self + 1
 		} {
-			self.betweenAnd(0, 1).if {
+			self.isBetween(0, 1).if {
 				1 - self
 			} {
 				0

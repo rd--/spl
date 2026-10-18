@@ -1,8 +1,9 @@
-# identical
+# isIdentical
 
 - _x == y_
 
-Answers `true` if the object _x_ is identical to another object _y_, else `false`.
+Answers `true` if the object _x_ is identical to another object _y_,
+else `false`.
 `identical` decides if two values are references to the same object.
 The operator form is `==`.
 
@@ -62,7 +63,7 @@ true
 
 * * *
 
-See also: =, ~~, ~, !=, !==, isImmediate, nonidentical
+See also: =, ~~, ~, !=, !==, isImmediate, isNonidentical
 
 Guides: Comparison Functions
 

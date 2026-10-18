@@ -29,7 +29,7 @@ Plot first few places:
 
 * * *
 
-See also: cachedPrimesList, isPrime, nextPrime, prime, primesBetweenAnd, sieveOfEratosthenes
+See also: cachedPrimesList, isPrime, nextPrime, prime, primesBetween, sieveOfEratosthenes
 
 Guides: Integer Sequence Functions, Prime Number Functions
 

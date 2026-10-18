@@ -1,11 +1,11 @@
-# primesBetweenAnd
+# primesBetween
 
-- _primesBetweenAnd(min, max)_
+- _primesBetween(min, max)_
 
 Answer the `List` of prime numbers that lie between _min_ and _max_.
 
 ```
->>> 1.primesBetweenAnd(100)
+>>> 1.primesBetween(100)
 [
 	2 3 5 7 11 13 17 19 23 29
 	31 37 41 43 47 53 59 61 67 71
@@ -16,7 +16,7 @@ Answer the `List` of prime numbers that lie between _min_ and _max_.
 If there are no primes answer the empty list:
 
 ```
->>> 14.primesBetweenAnd(16)
+>>> 14.primesBetween(16)
 []
 ```
 

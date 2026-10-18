@@ -134,7 +134,7 @@
 	}
 
 	inverseGudermannian { :z |
-		z.isVeryCloseTo(0).if {
+		z.isVeryClose(0).if {
 			0
 		} {
 			((z * 0.5) + 0.25.pi).tan.log

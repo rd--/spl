@@ -73,12 +73,12 @@ GeneralisedCircle : [Object, Store, Equal, Geometry] {
 	}
 
 	isLine { :self |
-		self.c.isVeryCloseTo(0)
+		self.c.isVeryClose(0)
 	}
 
 	isPoint { :self |
 		self.isLine.not & {
-			self.discriminant.isVeryCloseTo(0)
+			self.discriminant.isVeryClose(0)
 		}
 	}
 

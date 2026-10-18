@@ -342,7 +342,7 @@
 	}
 
 	includes { :self :anObject |
-		self.includesBy(anObject, equal/2)
+		self.includesBy(anObject, isEqual/2)
 	}
 
 	includesAny { :self :aCollection |
@@ -407,7 +407,7 @@
 	}
 
 	isDuplicateFree { :self |
-		self.isDuplicateFree(equal/2)
+		self.isDuplicateFree(isEqual/2)
 	}
 
 	isProperSubset { :self :aCollection |
@@ -450,7 +450,7 @@
 
 	maxOn { :self :f/1 |
 		self.minBy { :a :b |
-			greaterOn(a, b, f/1)
+			isGreaterOn(a, b, f/1)
 		}
 	}
 
@@ -480,7 +480,7 @@
 
 	minOn { :self :f/1 |
 		self.minBy { :a :b |
-			lessOn(a, b, f/1)
+			isLessOn(a, b, f/1)
 		}
 	}
 

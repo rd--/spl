@@ -1,8 +1,9 @@
-# similar
+# isSimilar
 
 - _p ~ q_
 
-Answer `true` if the object _p_ is similar to (or almost equal to or close to) another object _q_, else `false`.
+Answer `true` if the object _p_ is similar to (or almost equal to or close to) another object _q_,
+else `false`.
 The meaning of _similar_ is determined by the type of _p_.
 
 At `SmallFloat`:
@@ -132,9 +133,9 @@ true
 
 * * *
 
-See also: ~, =, <~, >~, !=, !~, dissimilar, isCloseTo, isVeryCloseTo
+See also: Compare, Equal, ~, =, <~, >~, !=, !~, isClose, isDissimilar, isEqual, isVeryClose
 
-Guides: Comparison Functions
+Guides: Comparison Functions, Equality Functions
 
 References:
 _Apl_

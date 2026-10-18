@@ -56,12 +56,12 @@ Method! : [Object, Equal] {
 		)
 	}
 
-	[equal, =] { :self :anObject |
-		identical(self, anObject)
-	}
-
 	information { :self |
 		<primitive: return _self.information;>
+	}
+
+	[isEqual, =] { :self :anObject |
+		isIdentical(self, anObject)
 	}
 
 	name { :self |

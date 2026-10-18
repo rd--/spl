@@ -16,11 +16,11 @@
 
 @SymbolicObject {
 
-	[equal, =] { :self :anObject |
+	[isEqual, =] { :self :anObject |
 		'equal'.symbolicPrimitive([self, anObject])
 	}
 
-	[similar, ~] { :self :anObject |
+	[isSimilar, ~] { :self :anObject |
 		'similar'.symbolicPrimitive([self, anObject])
 	}
 
@@ -48,19 +48,19 @@
 
 @SymbolicCompare {
 
-	[less, <] { :self :operand |
+	[isLess, <] { :self :operand |
 		'less'.symbolicPrimitive([self, operand])
 	}
 
-	[lessEqual, <=] { :self :operand |
+	[isLessOrEqual, <=] { :self :operand |
 		'lessEqual'.symbolicPrimitive([self, operand])
 	}
 
-	[greater, >] { :self :operand |
+	[isGreater, >] { :self :operand |
 		'greater'.symbolicPrimitive([self, operand])
 	}
 
-	[greaterEqual, >=] { :self :operand |
+	[isGreaterOrEqual, >=] { :self :operand |
 		'greaterEqual'.symbolicPrimitive([self, operand])
 	}
 

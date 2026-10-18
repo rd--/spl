@@ -123,11 +123,11 @@
 
 	quantile { :self :p :o |
 		self.isVector.if {
-			self.SortedList(lessEqual/2).quantile(p, o)
+			self.SortedList(isLessOrEqual/2).quantile(p, o)
 		} {
 			self.isMatrix.if {
 				self.transpose.collect { :each |
-					each.SortedList(lessEqual/2).quantile(p, o)
+					each.SortedList(isLessOrEqual/2).quantile(p, o)
 				}
 			} {
 				'Collection>>quantile: not vector or matrix'
@@ -191,7 +191,7 @@
 		let [f1, f2] = f;
 		let n = self.size;
 		ListView(
-			self.sort(lessEqual/2),
+			self.sort(isLessOrEqual/2),
 			1 + (f1 * n).floor,
 			n - (f2 * n).floor,
 			1

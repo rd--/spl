@@ -1,8 +1,9 @@
-# dissimilar
+# isDissimilar
 
 - _p !~ q_
 
-Answer `true` if _p_ is not similar to (or not almost equal to) _q_, else `false`.
+Answer `true` if _p_ is not similar to (or not almost equal to) _q_,
+else `false`.
 
 ```
 >>> 0.1 !~ 0.2
@@ -19,9 +20,9 @@ Where supported `!~` is displayed as ≉.
 
 * * *
 
-See also: ~, =, <~, >~, isCloseTo, isVeryCloseTo, similar
+See also: Equal, Compare, ~, =, <~, >~, isClose, isSimilar, isVeryClose
 
-Guides: Comparison Functions
+Guides: Comparison Functions, Equality Functions
 
 References:
 _Apl_

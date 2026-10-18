@@ -125,6 +125,7 @@ Guide/Integer Types.help.sl
 Guide/Interpolation Functions.help.sl
 Guide/Interval Functions.help.sl
 Guide/Iteration Functions.help.sl
+Guide/J Perspective.help.sl
 Guide/Julia Perspective.help.sl
 Guide/Leading Dot Notation.help.sl
 Guide/Let Syntax.help.sl
@@ -570,7 +571,6 @@ Reference/BetaDistribution.help.sl
 Reference/betaExpansion.help.sl
 Reference/beta.help.sl
 Reference/betaRegularized.help.sl
-Reference/betweenAnd.help.sl
 Reference/between.help.sl
 Reference/bevanCircle.help.sl
 Reference/bevanPoint.help.sl
@@ -1215,7 +1215,6 @@ Reference/Disk.help.sl
 Reference/diskMatrix.help.sl
 Reference/dispersionArray.help.sl
 Reference/displayString.help.sl
-Reference/dissimilar.help.sl
 Reference/distance.help.sl
 Reference/distanceMatrix.help.sl
 Reference/Distances.help.sl
@@ -1353,15 +1352,12 @@ Reference/epitrochoid.help.sl
 Reference/epsilon.help.sl
 Reference/EqPan2.help.sl
 Reference/EqPan.help.sl
-Reference/equalByAtNamedSlots.help.sl
 Reference/equalDetourPoint.help.sl
-Reference/equal.help.sl
 Reference/Equal.help.sl
 Reference/equalIgnoringExtraWhitespace.help.sl
 Reference/equalsSignEqualsSign.help.sl
 Reference/equalsSign.help.sl
 Reference/equalTemperamentTuning.help.sl
-Reference/equalTo.help.sl
 Reference/equilateralTriangle.help.sl
 Reference/equispacedTriples.help.sl
 Reference/erdosSelfridgeFunction.help.sl
@@ -1698,8 +1694,6 @@ Reference/grayCodeFromTransitionSequence.help.sl
 Reference/GrayCode.help.sl
 Reference/grayDecode.help.sl
 Reference/grayEncode.help.sl
-Reference/greaterEqual.help.sl
-Reference/greater.help.sl
 Reference/greaterThanSignEqualsSign.help.sl
 Reference/greaterThanSignGreaterThanSignGreaterThanSign.help.sl
 Reference/greaterThanSignGreaterThanSign.help.sl
@@ -1852,7 +1846,6 @@ Reference/hypocycloid.help.sl
 Reference/hypotenuse.help.sl
 Reference/Hypotenuse.help.sl
 Reference/hypotrochoid.help.sl
-Reference/identical.help.sl
 Reference/identity.help.sl
 Reference/identityMatrix.help.sl
 Reference/IdentityMultiset.help.sl
@@ -2043,6 +2036,7 @@ Reference/isBandMatrix.help.sl
 Reference/isBase16String.help.sl
 Reference/isBase64String.help.sl
 Reference/isBeckettGrayCode.help.sl
+Reference/isBetween.help.sl
 Reference/isBigEndian.help.sl
 Reference/isBinary.help.sl
 Reference/isBinaryMatrix.help.sl
@@ -2062,8 +2056,8 @@ Reference/isCarriageReturn.help.sl
 Reference/isCentrosymmetricMatrix.help.sl
 Reference/isCharacter.help.sl
 Reference/isChenPrime.help.sl
-Reference/isCloseToBy.help.sl
-Reference/isCloseTo.help.sl
+Reference/isCloseBy.help.sl
+Reference/isClose.help.sl
 Reference/isCodeFence.help.sl
 Reference/isCollection.help.sl
 Reference/isColossallyAbundantNumber.help.sl
@@ -2096,6 +2090,7 @@ Reference/isDigit.help.sl
 Reference/isDirectedEdge.help.sl
 Reference/isDirected.help.sl
 Reference/isDisjoint.help.sl
+Reference/isDissimilar.help.sl
 Reference/isDuplicateFree.help.sl
 Reference/isDyadicRational.help.sl
 Reference/isDyckWord.help.sl
@@ -2103,6 +2098,8 @@ Reference/isEdge.help.sl
 Reference/isEdgeWeightedGraph.help.sl
 Reference/isEisensteinPrime.help.sl
 Reference/isEmpty.help.sl
+Reference/isEqualByAtNamedSlots.help.sl
+Reference/isEqual.help.sl
 Reference/isEqualSymbolicExpression.help.sl
 Reference/isErdosDeep.help.sl
 Reference/isError.help.sl
@@ -2123,6 +2120,8 @@ Reference/isGilbertSquare.help.sl
 Reference/isGracefulPermutation.help.sl
 Reference/isGraveAccent.help.sl
 Reference/isGrayCode.help.sl
+Reference/isGreater.help.sl
+Reference/isGreaterOrEqual.help.sl
 Reference/isGreen.help.sl
 Reference/isGrey.help.sl
 Reference/isHalfInteger.help.sl
@@ -2134,6 +2133,7 @@ Reference/isHermitianMatrix.help.sl
 Reference/isHeronian.help.sl
 Reference/isHighlyAbundantNumber.help.sl
 Reference/isHighlyCompositeNumber.help.sl
+Reference/isIdentical.help.sl
 Reference/isIdentity.help.sl
 Reference/isImmediate.help.sl
 Reference/isImproper.help.sl
@@ -2159,6 +2159,8 @@ Reference/isLatticeWord.help.sl
 Reference/isLeaf.help.sl
 Reference/isLesserCousinPrime.help.sl
 Reference/isLesserTwinPrime.help.sl
+Reference/isLess.help.sl
+Reference/isLessOrEqual.help.sl
 Reference/isLetter.help.sl
 Reference/isLineFeed.help.sl
 Reference/isList.help.sl
@@ -2186,6 +2188,7 @@ Reference/isNecklace.help.sl
 Reference/isNegative.help.sl
 Reference/isNegativeZero.help.sl
 Reference/isNil.help.sl
+Reference/isNonidentical.help.sl
 Reference/isNonNegative.help.sl
 Reference/isNonNegativeInteger.help.sl
 Reference/isNonPositive.help.sl
@@ -2267,6 +2270,7 @@ Reference/isSemiprime.help.sl
 Reference/isSeparator.help.sl
 Reference/isSequence.help.sl
 Reference/isSignatureMatrix.help.sl
+Reference/isSimilar.help.sl
 Reference/isSingleton.help.sl
 Reference/isSinglyEven.help.sl
 Reference/isSiPrefix.help.sl
@@ -2275,7 +2279,7 @@ Reference/isSiUnit.help.sl
 Reference/isSmallFloat.help.sl
 Reference/isSmallInteger.help.sl
 Reference/isSmoothNumber.help.sl
-Reference/isSortedBetweenAnd.help.sl
+Reference/isSortedBetween.help.sl
 Reference/isSortedBy.help.sl
 Reference/isSorted.help.sl
 Reference/isSpace.help.sl
@@ -2316,6 +2320,7 @@ Reference/isTriangularArray.help.sl
 Reference/isTuning.help.sl
 Reference/isUndirectedEdge.help.sl
 Reference/isUndirected.help.sl
+Reference/isUnequal.help.sl
 Reference/isUnimodal.help.sl
 Reference/isUnitaryMatrix.help.sl
 Reference/isUnitFraction.help.sl
@@ -2325,7 +2330,7 @@ Reference/isUpperTriangularMatrix.help.sl
 Reference/isValid.help.sl
 Reference/isVector.help.sl
 Reference/isVectorOf.help.sl
-Reference/isVeryCloseTo.help.sl
+Reference/isVeryClose.help.sl
 Reference/isVowel.help.sl
 Reference/isWeakPrime.help.sl
 Reference/isWeirdNumber.help.sl
@@ -2466,8 +2471,6 @@ Reference/lemniscate.help.sl
 Reference/lemoineTriangle.help.sl
 Reference/Length.help.sl
 Reference/lengthWhile.help.sl
-Reference/lessEqual.help.sl
-Reference/less.help.sl
 Reference/Less.help.sl
 Reference/lessThanSignDollarSign.help.sl
 Reference/lessThanSignEqualsSignGreaterThanSign.help.sl
@@ -2943,7 +2946,6 @@ Reference/nonEmptyRange.help.sl
 Reference/nonEmptyThenTo.help.sl
 Reference/noneSatisfy.help.sl
 Reference/noneTrue.help.sl
-Reference/nonidentical.help.sl
 Reference/nonPrime.help.sl
 Reference/nor.help.sl
 Reference/NormalDistribution.help.sl
@@ -3320,7 +3322,7 @@ Reference/primeNu.help.sl
 Reference/primeOmega.help.sl
 Reference/primePiBounds.help.sl
 Reference/primePi.help.sl
-Reference/primesBetweenAnd.help.sl
+Reference/primesBetween.help.sl
 Reference/primeSignature.help.sl
 Reference/primesList.help.sl
 Reference/primesUpToDo.help.sl
@@ -3803,7 +3805,6 @@ Reference/sign.help.sl
 Reference/Silent.help.sl
 Reference/silverConstant.help.sl
 Reference/silverRatio.help.sl
-Reference/similar.help.sl
 Reference/simpleGraph.help.sl
 Reference/simpleLindenmayerSystem.help.sl
 Reference/simpleLinearRegression.help.sl
@@ -4275,7 +4276,6 @@ Reference/uncheckedSlotWrite.help.sl
 Reference/uncheckedStringIntercalate.help.sl
 Reference/UndirectedEdge.help.sl
 Reference/undirectedGraph.help.sl
-Reference/unequal.help.sl
 Reference/unicodeCharacterDatabase.help.sl
 Reference/unicodeFraction.help.sl
 Reference/unicodeItalic.help.sl

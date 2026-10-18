@@ -1,9 +1,5 @@
 Storage! : [Object, Collect, Collection, Dictionary] {
 
-	[equal, =] { :self :anObject |
-		identical(self, anObject)
-	}
-
 	at { :self :key |
 		key.assertIsString;
 		self.assertIsValidKey(key);
@@ -22,6 +18,10 @@ Storage! : [Object, Collect, Collection, Dictionary] {
 		};
 		return answer;
 		>
+	}
+
+	[isEqual, =] { :self :anObject |
+		isIdentical(self, anObject)
 	}
 
 	put! { :self :key :value |

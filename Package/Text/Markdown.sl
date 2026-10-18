@@ -91,12 +91,6 @@ Markdown : [Object, Equal, Cache, Do] {
 		}
 	}
 
-	equalBy { :self :anObject :aBlock/2 |
-		anObject.isMarkdown & {
-			aBlock(self.source, anObject.source)
-		}
-	}
-
 	indentedCodeBlocks { :self |
 		let answer = [];
 		let previous = '';
@@ -129,6 +123,12 @@ Markdown : [Object, Equal, Cache, Do] {
 			previous := current
 		};
 		answer
+	}
+
+	isEqualBy { :self :anObject :aBlock/2 |
+		anObject.isMarkdown & {
+			aBlock(self.source, anObject.source)
+		}
 	}
 
 	parseTree { :self |

@@ -284,18 +284,6 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		self.uncheckedEncodeJson
 	}
 
-	[equal, =] { :self :anObject |
-		anObject.isNumber.if {
-			anObject.isSmallFloat.if {
-				identical(self, anObject)
-			} {
-				anObject.adaptToNumberAndApply(self, equal/2)
-			}
-		} {
-			false
-		}
-	}
-
 	exp { :self |
 		<primitive: return Math.exp(_self)>
 	}
@@ -394,7 +382,7 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		<primitive: return sl.isBitwise(_self);>
 	}
 
-	isCloseToBy { :self :aNumber :epsilon |
+	isCloseBy { :self :aNumber :epsilon |
 		aNumber.isNumber.not.if {
 			false
 		} {
@@ -415,6 +403,18 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 					}
 				}
 			}
+		}
+	}
+
+	[isEqual, =] { :self :anObject |
+		anObject.isNumber.if {
+			anObject.isSmallFloat.if {
+				isIdentical(self, anObject)
+			} {
+				anObject.adaptToNumberAndApply(self, isEqual/2)
+			}
+		} {
+			false
 		}
 	}
 
@@ -444,6 +444,24 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 
 	isInteger { :self :epsilon |
 		(self - self.round).abs < epsilon
+	}
+
+	[isLess, <] { :self :anObject |
+		<primitive:
+		if(sl.isSmallFloat(_anObject)) {
+			return _self < _anObject;
+		}
+		>
+		anObject.adaptToNumberAndApply(self, isLess/2)
+	}
+
+	[isLessOrEqual, <=] { :self :anObject |
+		<primitive:
+		if(sl.isSmallFloat(_anObject)) {
+			return _self <= _anObject;
+		}
+		>
+		anObject.adaptToNumberAndApply(self, isLessOrEqual/2)
 	}
 
 	isLiteral { :self |
@@ -476,24 +494,6 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		} {
 			false
 		}
-	}
-
-	[less, <] { :self :anObject |
-		<primitive:
-		if(sl.isSmallFloat(_anObject)) {
-			return _self < _anObject;
-		}
-		>
-		anObject.adaptToNumberAndApply(self, less/2)
-	}
-
-	[lessEqual, <=] { :self :anObject |
-		<primitive:
-		if(sl.isSmallFloat(_anObject)) {
-			return _self <= _anObject;
-		}
-		>
-		anObject.adaptToNumberAndApply(self, lessEqual/2)
 	}
 
 	[loadExponent, ldexp] { :self :operand |
@@ -786,7 +786,7 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 	}
 
 	reduce { :self |
-		self.isCloseTo(self.round).if {
+		self.isClose(self.round).if {
 			self.round
 		} {
 			self

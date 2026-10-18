@@ -178,7 +178,7 @@
 
 	fejerKernel { :n |
 		{ :x |
-			x.isVeryCloseTo(0).if {
+			x.isVeryClose(0).if {
 				n
 			} {
 				((1 - (n * x).cos) / (1 - x.cos)) / n
@@ -223,7 +223,7 @@
 
 	lanczosKernel { :a |
 		{ :x |
-			x.betweenAnd(a.-, a).if {
+			x.isBetween(a.-, a).if {
 				x.sincNormalized * (x / a).sincNormalized
 			} {
 				0
@@ -236,7 +236,7 @@
 			(x = 0).if {
 				1
 			} {
-				x.betweenAnd(a.-, a).if {
+				x.isBetween(a.-, a).if {
 					(a * x.pi.sin * (x.pi / a).sin) / (1.pi.square * x.square)
 				} {
 					0

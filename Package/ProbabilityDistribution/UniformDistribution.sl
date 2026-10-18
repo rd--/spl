@@ -59,7 +59,7 @@ UniformDistribution : [Object, Equal, ProbabilityDistribution] {
 		let a = self.a;
 		let b = self.b;
 		{ :x |
-			x.betweenAnd(a, b).if {
+			x.isBetween(a, b).if {
 				1 / (b - a)
 			} {
 				0

@@ -62,7 +62,7 @@ Construct graph by rule:
 
 ~~~spl svg=D
 let m = { :i :j |
-	(i - j).abs.betweenAnd(1, 3).boole
+	(i - j).abs.isBetween(1, 3).boole
 }.table(1:6, 1:6);
 m.adjacencyGraph.graphPlot
 ~~~

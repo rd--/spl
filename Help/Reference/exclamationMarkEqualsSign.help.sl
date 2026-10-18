@@ -2,13 +2,13 @@
 
 - _x != y_
 
-The operator form of `unequal`.
+The operator form of `isUnequal`.
 
 ```
 >>> 2 != 2.5
 true
 
->>> unequal(2, 2.5)
+>>> isUnequal(2, 2.5)
 true
 ```
 
@@ -18,9 +18,9 @@ The name of this operator is `exclamationMarkEqualsSign`.
 
 * * *
 
-See also: =, ==, ~~, <, <=, >=, unequal
+See also: Compare, Equal, =, ==, ~~, <, <=, >=, isUnequal
 
-Guides: Binary Operators, Comparison Functions
+Guides: Binary Operators, Comparison Functions, Equality Functions
 
 Unicode: U+2260 ≠ Not equal to
 

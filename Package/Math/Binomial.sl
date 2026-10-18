@@ -299,7 +299,7 @@
 	}
 
 	lobbNumber { :m :n |
-		m.betweenAnd(0, n).if {
+		m.isBetween(0, n).if {
 			((2 * n).binomial(m + n) * (2 * m + 1)) // (m + n + 1)
 		} {
 			'@Integer>>lobbNumber: domain error'.error
@@ -315,7 +315,7 @@
 	}
 
 	narayanaNumber { :n :k |
-		k.betweenAnd(1, n).if {
+		k.isBetween(1, n).if {
 			n.binomial(k) * binomial(n, k - 1) // n
 		} {
 			'narayanaNumber: domain error'.error

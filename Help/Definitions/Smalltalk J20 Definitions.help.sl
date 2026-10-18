@@ -1480,7 +1480,7 @@ and min or max are not comparable.
 
 *Errors*: Receiver and operands are not comparable.
 
-Cf: betweenAnd
+Cf: isBetween
 
 ### 5.6.1.6
 

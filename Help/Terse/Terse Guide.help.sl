@@ -83,17 +83,17 @@ let x = -1.pi; x.fractionalPart + x.integerPart = x /* fractional part and trunc
 NaN.isNaN /* literal for NaN */
 4.sqrt = 2 & { 1000000.sqrt = 1000 & { 1.sqrt = 1 } & { 0.sqrt = 0 } }
 2.sqrt = 1.4142135623730951
-2.sqrt.square.isCloseTo(2) /* floating point errors */
+2.sqrt.square.isClose(2) /* floating point errors */
 2.sqrt.square ~ 2 /* almost equal to, or similar to, unicode = ≈ */
 2.sqrt.square <~ 2 /* less than or similar to */
 2.sqrt.square >~ 2 /* greater than or similar to */
 2 !~ 3 /* not almost equal to */
-2.sqrt.square.isVeryCloseTo(2) /* floating point errors */
+2.sqrt.square.isVeryClose(2) /* floating point errors */
 5.0 ^ 2.0 = 25.0 /* raisedTo (power) function */
 5 ^ 2 = 25 /* raisedTo integer */
 3 ^ 4 = 81 /* 3 * 3 * 3 * 3 = 81 */
 { :each | each ^ 0.5 } . (16) = 4 /* square root */
-1.exp.isVeryCloseTo(2.718281828459) /* exponential */
+1.exp.isVeryClose(2.718281828459) /* exponential */
 -5.abs = 5 /* absolute value */
 (0 - 1.pi).abs = 1.pi /* absolute value of floating point numbers */
 0.abs = 0 & { 5.abs = 5 } /* absolute value of zero and positive numbers */
@@ -155,7 +155,7 @@ NaN.isNaN /* literal for NaN */
 1.pi.cos = -1 /* cosine */
 (2 * 1.pi).cos = 1 /* cosine */
 2.pi.cos = 1 /* pi as unary operator */
-(1.pi / 2).cos.isVeryCloseTo(0) /* cosine */
+(1.pi / 2).cos.isVeryClose(0) /* cosine */
 0.0.tan = 0.0 /* tangent */
 [0, 45, 90, 180].collect(sinDegrees/1) = [0, 0.7071067811865475, 1, 0] /* sine given angle in degree */
 [0, 45, 90, 180].collect(cosDegrees/1) = [1, 0.7071067811865475, 0, -1] /* cosine given angle in degree */
@@ -165,8 +165,8 @@ NaN.isNaN /* literal for NaN */
 10.maxOn(20, negate/1) = 10 /* comparison of translated values */
 10.min(20) = 10 /* get minimum of two numbers */
 10.minOn(20, negate/1) = 20 /* comparison of translated values */
-1.pi.isVeryCloseTo(3.141592653589793) /* pi = 3.141592653589793 */
-1.exp.isVeryCloseTo(2.718281828459) /* e = 2.718281828459 */
+1.pi.isVeryClose(3.141592653589793) /* pi = 3.141592653589793 */
+1.exp.isVeryClose(2.718281828459) /* e = 2.718281828459 */
 let n = (0 -- 100).atRandom; (n >= 0) & { n < 100 } /* random number in (0, self-1) */
 4 + 5 * 6 = 54 /* operators are evaluated left to right */
 0.arcCos = (1.pi / 2) /* arc cosine */
@@ -1081,8 +1081,8 @@ Complex(-1, 0) + 1 = Complex(0, 0) /* complex addition with scalar */
 1 + (1 + 2I) = (2 + 2I)
 ((1 + 2I) + 1) = (2 + 2I)
 (1 + (1 + 2I)) = (2 + 2I)
-((1 + 2I) + (2 / 3)).isCloseTo((5 / 3) + 2I)
-((2 / 3) + (1 + 2I)).isCloseTo((5 / 3) + 2I)
+((1 + 2I) + (2 / 3)).isClose((5 / 3) + 2I)
+((2 / 3) + (1 + 2I)).isClose((5 / 3) + 2I)
 (0 + 5I).arg = (1.pi / 2)
 let c = (5 - 6I); (c * 1I) = c.i
 (2 + 5I).negate = (-2 - 5I)
@@ -2135,7 +2135,7 @@ let v = [2 2.8 -2 -2.8]; v.ceiling = -v.floor.negate /* ceiling is equal to nega
 0.cos = 1 /* cosine */
 180.degreesToRadians = 1.pi /* degreesToRadians */
 2.isEven = true /* eveness predicate */
-1.exp.isVeryCloseTo(2.718281828459045) /* base e exponent function */
+1.exp.isVeryClose(2.718281828459045) /* base e exponent function */
 1.5.floor = 1 /* floor (round down) */
 1.exp.log = 1 /* base e (natural) logarithm */
 1.2.isNumber = true /* is x a number */
@@ -2145,7 +2145,7 @@ let v = [2 2.8 -2 -2.8]; v.ceiling = -v.floor.negate /* ceiling is equal to nega
 1.min(2) = 1 /* minimum */
 3.negate = -3 /* negation */
 3.isOdd = true /* oddness predicate */
-1.pi.isVeryCloseTo(3.1415926535898) /* constant pi (Float pi) */
+1.pi.isVeryClose(3.1415926535898) /* constant pi (Float pi) */
 Infinity.isNumber /* constant positive infinity (is a number) */
 2 ^ 3 = 8 /* i to the power of j */
 5.reciprocal = 0.2 /* 1 / x */
@@ -3009,7 +3009,7 @@ IdentitySet().isEmpty /* is set empty? */
 let s = [1 .. 5].IdentitySet; s !== s.IdentitySet /* a Set formed from a Set is not identical to the initial set */
 let s = [1 .. 5].IdentitySet; s = s.IdentitySet /* a Set formed from a Set is equal to the initial set */
 let s = [1, 3, 5, 3, 1].IdentitySet; s.remove!(3) = 3; s.List = [1, 5] /* remove answers removed element */
-[1 .. 9].IdentitySet.atRandom.betweenAnd(1, 9) /* inclusive */
+[1 .. 9].IdentitySet.atRandom.isBetween(1, 9) /* inclusive */
 let s = IdentitySet(); s.add!(5); s.includes(5) = true /* add element to Set */
 { [5].IdentitySet.add!(5) }.hasError /* add can only include elements if they do not already exist */
 let s = ['x', 5].IdentitySet; let t = s.copy; t.include!(5); s = t
@@ -3092,8 +3092,8 @@ let total = 0; 9.timesRepeat { total := total + system.nextRandomFloat }; total 
 7.min(3) = 3
 3.min(7) = 7.min(3)
 12345.truncate(600) = 12000
-13.betweenAnd(11, 14) = true /* is number between two numbers, inclusive */
-[1 .. 5].collect { :each | each.betweenAnd(2, 4) } = [false, true, true, true, false]
+13.isBetween(11, 14) = true /* is number between two numbers, inclusive */
+[1 .. 5].collect { :each | each.isBetween(2, 4) } = [false, true, true, true, false]
 1:9.atRandom.isInteger = true /* random number between 1 and 9 */
 system.randomInteger([1 9], []).isInteger = true
 system.randomReal([0 9], []).isInteger = false /* possible it could be an integer, but very unlikely */
@@ -3134,18 +3134,18 @@ system.smallFloatEpsilon > (10 ^ -16)
 1.pi = 3.141592653589793 /* 1.pi is a number */
 1.epsilon = 0.000000000000001 /* epsilon is a number */
 1.e = 2.718281828459045 /* e is a number */
-(1 - 1.epsilon).isVeryCloseTo(1)
+(1 - 1.epsilon).isVeryClose(1)
 Infinity.isFinite = false /* Infinity is not finite */
 NaN.isFinite = false /* NaN is not finite */
 Infinity.isFinite = false /* Infinity is not finite */
 1.pi.isFinite = true /* 1.pi is finite */
 { nil.isFinite }.hasError /* nil is not a number, so we cannot ask if it is finite */
-5.isCloseTo(5) = true
-5.isCloseTo('5') = false
-5.isCloseTo(3) = false
-(5/3).isCloseTo(5/3) = true
-(1/3).isCloseTo(0.3333) = true
-(1/3).isCloseTo(0.333) = false
+5.isClose(5) = true
+5.isClose('5') = false
+5.isClose(3) = false
+(5/3).isClose(5/3) = true
+(1/3).isClose(0.3333) = true
+(1/3).isClose(0.333) = false
 [-1000000000000000, -100, -5, -3, -2, -1, 0, 1].select(isPrime/1).isEmpty
 [17, 78901, 104729, 15485863, 2038074743].allSatisfy(isPrime/1)
 [561, 2821, 6601, 10585, 15841, 256, 29996224275831].noneSatisfy(isPrime/1) /* no primes here */
@@ -3809,7 +3809,7 @@ system.typeDictionary['List'].typeOf = 'Type' /* type of type is Type */
 system.typeDictionary['List'].isType = true /* Type type predicate */
 system.typeDictionary['List'].traitNameList.includes('Collect') = true
 system.typeDictionary['Association'].slotNameList = ['key', 'value']
-system.typeDictionary['Association'].methodDictionary.indices.includes('equalBy/3')
+system.typeDictionary['Association'].methodDictionary.indices.includes('isEqualBy/3')
 system.typeDictionary['Association'].methodDictionary.includesIndex('key/1') = true
 system.typeDictionary['Nil'].methodDictionary.includesIndex('ifNil/2') = true
 system.typeLookup('Association').methodDictionary.select { :each | each.name = 'key' }.size = 1

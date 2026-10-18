@@ -1,4 +1,4 @@
-# greaterEqual
+# isGreaterOrEqual
 
 - _x >= y_
 
@@ -31,7 +31,7 @@ When the arguments to `>=` are `boole`, it is the converse implication `Boolean`
 
 * * *
 
-See also: <, <=, >, >=, =, !=, <=>, greater, lessEqual, Magnitude
+See also: Compare, Equal, <, <=, >, >=, =, !=, <=>, isGreater, isLessEqual
 
 Guides: Comparison Functions
 

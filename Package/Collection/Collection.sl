@@ -12,7 +12,7 @@
 	}
 
 	[allEqual, =] { :self |
-		self.allEqualBy(equal/2)
+		self.allEqualBy(isEqual/2)
 	}
 
 	allEqualTo { :self :anObject |
@@ -163,7 +163,7 @@
 	}
 
 	[deleteDuplicates, nub] { :self |
-		self.deleteDuplicates(equal/2)
+		self.deleteDuplicates(isEqual/2)
 	}
 
 	[deleteDuplicates, nubBy] { :self :aBlock/2 |
@@ -205,7 +205,7 @@
 	}
 
 	differenceAll { :self :aCollection |
-		self.differenceAll(aCollection, equal/2)
+		self.differenceAll(aCollection, isEqual/2)
 	}
 
 	discreteDelta { :self |
@@ -606,7 +606,7 @@
 	}
 
 	tally { :self |
-		self.tally(equal/2)
+		self.tally(isEqual/2)
 	}
 
 	threshold { :self :epsilon |

@@ -1,6 +1,6 @@
-# isCloseTo
+# isClose
 
-- _isCloseTo(n, m)_
+- _isClose(n, m)_
 
 Answer `true` if the number _n_ is close to another number _m_, else `false`.
 This takes magnitude into account, so that a million is close to a million and one, but one is not close to two.
@@ -18,34 +18,34 @@ Operates over vectors, matrices and arrays:
 
 ```
 >>> let l = [1 2 3];
->>> l.isCloseTo(l + 1E-4)
+>>> l.isClose(l + 1E-4)
 true
 
 >>> let l = [1E5 2E5; 3E5 4E5];
->>> l.isCloseTo(l + 1)
+>>> l.isClose(l + 1)
 true
 ```
 
 A `SmallFloat` can be close to a `LargeInteger`:
 
 ```
->>> 23L.isCloseTo(23.001)
+>>> 23L.isClose(23.001)
 true
 
->>> 23.001.isCloseTo(23L)
+>>> 23.001.isClose(23L)
 true
 ```
 
 At `Decimal`:
 
 ```
->>> 3D./.isCloseTo(0.3D)
+>>> 3D./.isClose(0.3D)
 true
 ```
 
 * * *
 
-See also: ~, !~, =, <~, >~, isCloseToBy, isVeryCloseTo, threshold
+See also: ~, !~, =, <~, >~, isCloseBy, isSimilar, isVeryClose, threshold
 
 References:
 _Apl_

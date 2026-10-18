@@ -219,7 +219,7 @@
 			let gN = g0;
 			let t = 0.25;
 			let partialSum = 1 - (0.5 * m);
-			{ aN.isVeryCloseTo(gN).not & { i < limit } }.whileTrue {
+			{ aN.isVeryClose(gN).not & { i < limit } }.whileTrue {
 				let d = aN - gN;
 				partialSum := partialSum - (t * d * d);
 				t := t * 2;
@@ -315,7 +315,7 @@
 		let deltaN = (1 - n) / kPrime;
 		let epsilon = n / (1 - n);
 		let zetaN = zeta0;
-		{ aN.isVeryCloseTo(gN).not | { deltaN.isVeryCloseTo(1).not } & { i < limit } }.whileTrue {
+		{ aN.isVeryClose(gN).not | { deltaN.isVeryClose(1).not } & { i < limit } }.whileTrue {
 			zeta0 := 0.5 * (epsilon + zetaN);
 			epsilon := (deltaN * epsilon + zetaN) / (1 + deltaN);
 			zetaN := zeta0;

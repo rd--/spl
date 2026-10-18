@@ -11,17 +11,17 @@ true
 
 The required method is either:
 
-- `equalBy`
+- `isEqualBy`
 
 or both of:
 
-- `equal`, `=`
-- `unequal`, `!=`
+- `isEqual`, `=`
+- `isUnequal`, `!=`
 
 The implemented methods are:
 
-- `similar`, `~`
-- `dissimilar`, `!~`
+- `isSimilar`, `~`
+- `isDissimilar`, `!~`
 
 * * *
 

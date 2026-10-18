@@ -46,7 +46,7 @@ BetaDistribution : [Object, Store, Equal, ProbabilityDistribution] {
 		let alpha = self.alpha;
 		let beta = self.beta;
 		{ :x |
-			x.betweenAnd(0, 1).if {
+			x.isBetween(0, 1).if {
 				let b = (alpha.gamma * beta.gamma) / (alpha + beta).gamma;
 				((x ^ (alpha - 1)) * ((1 - x) ^ (beta - 1))) / b
 			} {

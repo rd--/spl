@@ -86,9 +86,9 @@ HelpFile : [Object, Equal, Cache] {
 		}
 	}
 
-	equalBy { :self :anObject :aBlock/2 |
+	isEqualBy { :self :anObject :aBlock/2 |
 		anObject.isHelp & {
-			self.equalByAtNamedSlots(
+			self.isEqualByAtNamedSlots(
 				anObject,
 				['origin' 'source'],
 				aBlock/2

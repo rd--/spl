@@ -3,7 +3,7 @@
 - _x > y_
 - _x.>_
 
-The binary form is `greater`:
+The binary form is `isGreater`:
 
 ```
 >>> 1.pi > 1.e
@@ -26,7 +26,7 @@ in Apl it is _⌈_.
 
 * * *
 
-See also: Compare, >=, |>, <, <=, ceiling, greater
+See also: Compare, >=, |>, <, <=, ceiling, isGreater
 
 Guides: Comparison Functions, Sort Functions
 

@@ -1,9 +1,5 @@
 System! : [Object, Cache, RandomNumberGenerator] {
 
-	[equal, =] { :self :anObject |
-		identical(self, anObject)
-	}
-
 	absoluteTime { :unused |
 		<primitive: return Date.now() / 1000.0;>
 	}
@@ -86,6 +82,10 @@ System! : [Object, Cache, RandomNumberGenerator] {
 
 	isBigEndian { :unused |
 		1.unsigned32BitWordList[1] = 16b3FF00000
+	}
+
+	[isEqual, =] { :self :anObject |
+		isIdentical(self, anObject)
 	}
 
 	isLittleEndian { :self |

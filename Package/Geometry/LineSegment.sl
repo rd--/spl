@@ -38,7 +38,7 @@ LineSegment : [Object, Equal] {
 	}
 
 	includes { :self :aPoint |
-		self.distance(aPoint).isVeryCloseTo(0)
+		self.distance(aPoint).isVeryClose(0)
 	}
 
 	midpoint { :self |

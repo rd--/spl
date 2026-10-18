@@ -13,7 +13,7 @@ WeightedData : [Object, Equal] {
 		let w = self.weights;
 		let k = x.size;
 		let wH = w.sum / 2;
-		let o = x.ordering(lessEqual/2);
+		let o = x.ordering(isLessOrEqual/2);
 		let xO = x.atAll(o);
 		let wO = w.atAll(o);
 		let z = wO.prefixSum;

@@ -138,7 +138,7 @@
 - `==`, `!==`
 - `>`, `<`, `<=`, `>=`, `<=>`
 - `~`, `!~`
-- `isCloseTo`, `isVeryCloseTo`, `isSameAs`
+- `isClose`, `isVeryClose`, `isSameAs`
 
 ## Complex Numbers
 
@@ -243,19 +243,26 @@
 
 ## Equality Testing
 
-- `=`, `!=`
-- `==`, `!==`
-- `~`, `!~`
-- `isCloseTo`, `isCloseToBy`, `isVeryCloseTo`
-- `isSameAs`
+- `=`
+- `!=`
+- `==`
+- `!==`
+- `~`
+- `!~`
+- `allEqualBy`
+- `allEqual`
 - `hasEqualElements`
-- `equalByAtNamedSlots`
 - `hasEqualSlots`
-- `allEqual`, `allEqualBy`
+- `isCloseBy`
+- `isClose`
+- `isEqualByAtNamedSlots`
+- `isSameAs`
+- `isVeryClose`
 
 ## Error Functions
 
-- `erf`, `erfc`
+- `erf`
+- `erfc`
 
 ## Error Handling
 
@@ -565,7 +572,7 @@
 
 - `factorInteger`, `integerExponent`
 - `isCoprime`, `isGaussianPrime`, `isPrime`, `isPrimePower`
-- `primesBetweenAnd`, `primesList`, `primesUpTo`, `primesUpToDo`
+- `primesBetween`, `primesList`, `primesUpTo`, `primesUpToDo`
 - `indexOfPrime`, `nextPrime`, `prime`
 - `primeFactors`, `primeLimit`
 - `logIntegral`, `primePi`
@@ -632,7 +639,7 @@
 - `methodDictionary`, `traitDictionary`, `typeDictionary`
 - `Method`, `Trait`, `Type`
 - `slotList`, `slotNameList`, `slotValueList`
-- `equalByAtNamedSlots`
+- `isEqualByAtNamedSlots`
 - `hasEqualSlots`
 - `storeStringAsInitializeSlots`
 - `uncheckedSlotRead`, `uncheckedSlotWrite`

@@ -20,10 +20,10 @@ Note that aliased blocks are not identical, because they have different names:
 >>> =.name
 'equalsSign/2'
 
->>> equal/2.name
-'equal/2'
+>>> isEqual/2.name
+'isEqual/2'
 
->>> = == equal/2
+>>> = == isEqual/2
 false
 ```
 

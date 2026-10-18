@@ -2,11 +2,11 @@
 
 - _x == y_
 
-The operator form of `identical`.
+The operator form of `isIdentical`.
 
 ```
 >>> 123 == 123
-identical(123, 123)
+isIdentical(123, 123)
 ```
 
 The name of this operator is `equalsSignEqualsSign`.
@@ -15,9 +15,9 @@ Where supported `==` is displayed as ≡.
 
 * * *
 
-See also: =, ~~, ~, !=, !==, identical
+See also: Compare, Equal, =, ~~, ~, !=, !==, identical
 
-Guides: Comparison Functions
+Guides: Comparison Functions, Equality Functions
 
 Unicode: U+2261 ≡ Identical To
 

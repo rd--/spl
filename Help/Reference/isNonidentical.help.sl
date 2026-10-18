@@ -1,8 +1,9 @@
-# nonidentical
+# isNonidentical
 
 - _p !== q_
 
-Answers `true` if an object _p_ is not identical to another object _q_, else `false`.
+Answers `true` if an object _p_ is not identical to another object _q_,
+else `false`.
 This is the non-identity operator.
 It decides if two values are not identical.
 The operator form is `!==`.
@@ -45,7 +46,7 @@ false
 
 * * *
 
-See also: =, !=, ==, identical, nonidentical
+See also: Equal, =, !=, ==, isIdentical
 
 Guides: Comparison Functions
 

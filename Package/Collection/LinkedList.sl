@@ -124,7 +124,7 @@ LinkedList : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Co
 	}
 
 	includesIndex { :self :index |
-		index.betweenAnd(1, self.size)
+		index.isBetween(1, self.size)
 	}
 
 	isEmpty { :self |
@@ -350,7 +350,7 @@ ValueLink : [Object, Copy, Store, Equal, Link] {
 
 	| nextLink value |
 
-	equalBy { :self :anObject :aBlock/2 |
+	isEqualBy { :self :anObject :aBlock/2 |
 		anObject.isValueLink & {
 			aBlock(self.value, anObject.value) & {
 				self.nextLink == anObject.nextLink

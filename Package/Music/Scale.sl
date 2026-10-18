@@ -36,7 +36,7 @@ Scale : [Object, Store] {
 	}
 
 	intervalsBy { :self :anInteger |
-		anInteger.betweenAnd(1, self.size).if {
+		anInteger.isBetween(1, self.size).if {
 			let intervals = self.intervals;
 			let k = anInteger - 1;
 			1.toCollect(self.size) { :i |

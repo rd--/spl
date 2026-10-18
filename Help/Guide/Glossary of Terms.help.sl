@@ -383,7 +383,7 @@ A superparticular or epimoric ratio is the ratio of two consecutive integers.
 Cf: isSuperparticular
 
 - _Ternary Function_:
-A _function_ of three _arguments_, such as _betweenAnd_.
+A _function_ of three _arguments_, such as _isBetween_.
 
 - _Trait_:
 A named collection of behaviours that can be implemented (or inherited) by a _type_.

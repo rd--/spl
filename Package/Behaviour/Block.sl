@@ -8,11 +8,11 @@ Block! : [Object, Equal] {
 		}.fill(shape.nest)
 	}
 
-	[equal, =] { :self :anObject |
+	[isEqual, =] { :self :anObject |
 		self.shouldNotImplement('equal')
 	}
 
-	[similar, ~] { :self :anObject |
+	[isSimilar, ~] { :self :anObject |
 		self == anObject
 	}
 

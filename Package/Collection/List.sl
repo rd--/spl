@@ -176,7 +176,7 @@ List! : [Object, New, Copy, Store, Equal, Compare, Json, Do, At, Indices, Put, C
 	}
 
 	recordPositions { :self |
-		self.recordPositions(greater/2)
+		self.recordPositions(isGreater/2)
 	}
 
 	recordValuesAndPositions { :self :aBlock/2 |
@@ -200,7 +200,7 @@ List! : [Object, New, Copy, Store, Equal, Compare, Json, Do, At, Indices, Put, C
 	}
 
 	recordValues { :self |
-		self.recordValues(greater/2)
+		self.recordValues(isGreater/2)
 	}
 
 	reflectionMatrix { :self |

@@ -178,7 +178,7 @@ Arc : [Object, Store, Equal, Geometry] {
 	poincareDiskArc { :self |
 		let [theta1, theta2] = self;
 		let dTheta = (theta1 - theta2).abs / 2;
-		dTheta.isVeryCloseTo(1/2.pi).if {
+		dTheta.isVeryClose(1/2.pi).if {
 			Line([[1, theta1], [1, theta2]].collect(fromPolarCoordinates/1))
 		} {
 			let theta = (theta1 + theta2) / 2;

@@ -2,14 +2,14 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 
 	| numerator denominator |
 
-	[less, <] { :self :operand |
+	[isLess, <] { :self :operand |
 		operand.isFraction.if {
 			let a = self.numerator * operand.denominator;
 			let b = operand.numerator * self.denominator;
 			a < b
 
 		} {
-			operand.adaptToFractionAndApply(self, less/2)
+			operand.adaptToFractionAndApply(self, <)
 		}
 	}
 
@@ -196,7 +196,7 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 		a
 	}
 
-	equalBy { :self :anObject :aBlock/2 |
+	isEqualBy { :self :anObject :aBlock/2 |
 		anObject.isNumber.if {
 			anObject.isFraction.if {
 				self.numerator = anObject.numerator & {
@@ -324,7 +324,7 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 		self.numerator = 1
 	}
 
-	isVeryCloseTo { :self :operand |
+	isVeryClose { :self :operand |
 		self = operand
 	}
 

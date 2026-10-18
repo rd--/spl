@@ -179,16 +179,16 @@
 			{ x.abs > 0.5 } -> {
 				0
 			},
-			{ x.between(0.25 -- 0.5) } -> {
+			{ x.isBetween(0.25, 0.5) } -> {
 				-2 * ((2 * x) - 1).cube
 			},
-			{ x.between(-0.5 -- -0.25) } -> {
+			{ x.isBetween(-0.5, -0.25) } -> {
 				2 * ((2 * x) + 1).cube
 			},
-			{ x.between(-0.25 -- 0) } -> {
+			{ x.isBetween(-0.25, 0) } -> {
 				0 - (48 * x.cube) - (24 * x.square) + 1
 			},
-			{ x.between(0 -- 0.25) } -> {
+			{ x.isBetween(0, 0.25) } -> {
 				(48 * x.cube) - (24 * x.square) + 1
 			}
 		].which

@@ -65,8 +65,8 @@ Order:
 Predicates:
 
 - `isMonotonicallyIncreasing`
-- `isSortedBetweenAnd`
-- `isSortedByBetweenAnd`
+- `isSortedBetween`
+- `isSortedByBetween`
 - `isSortedBy`
 - `isSorted`
 - `isStrictlyIncreasing`

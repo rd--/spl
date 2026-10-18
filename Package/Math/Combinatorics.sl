@@ -678,7 +678,7 @@
 	isIntegerPartition { :self :n |
 		self.sum = n & {
 			self.allSatisfy(isPositiveInteger/1) & {
-				self.isSortedBy(greaterEqual/2)
+				self.isSortedBy(isGreaterOrEqual/2)
 			}
 		}
 	}
@@ -722,7 +722,7 @@
 	}
 
 	isTableau { :self |
-		self.collect(size/1).isSortedBy(greaterEqual/2) & {
+		self.collect(size/1).isSortedBy(isGreaterOrEqual/2) & {
 			self.catenate.isPermutationList & {
 				self.allSatisfy(isSorted/1) & {
 					self.transposeTableau.allSatisfy(isSorted/1)

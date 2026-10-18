@@ -95,7 +95,7 @@ Polygon : [Object, Store, Equal, Geometry] {
 	}
 
 	isSimple { :self |
-		self.exteriorAngles.isVeryCloseTo(2.pi)
+		self.exteriorAngles.isVeryClose(2.pi)
 	}
 
 	midpointPolygon { :self |
@@ -523,7 +523,7 @@ Polygon : [Object, Store, Equal, Geometry] {
 			i := i + 1
 		}.doWhileTrue {
 			(i < k) & {
-				p.isCloseTo([0, 0]).not
+				p.isClose([0, 0]).not
 			}
 		};
 		(i < k).ifTrue {

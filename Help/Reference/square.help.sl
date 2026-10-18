@@ -155,7 +155,7 @@ and compare to correct value obtained by the alternative factoring:
 >>> let b = (x + y) * (x - y);
 >>> let c = (2 ^ -59) + (2 ^ -60);
 >>> let d = a + c;
->>> (a, b, c, d, a.isVeryCloseTo(b))
+>>> (a, b, c, d, a.isVeryClose(b))
 (
 	1.862645149230957E-9,
 	1.862645151833042E-9,

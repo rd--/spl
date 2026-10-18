@@ -11,7 +11,7 @@ using the _Murmur_ hash algorithm.
 1027415244
 ```
 
-Similar strings answer disimilar hashes:
+Similar strings answer dissimilar hashes:
 
 ```
 >>> 'abcdee'.hash

@@ -14,7 +14,7 @@ RelativeRange : [Object, New, Store, Equal, Compare] {
 		Range(start, stop, self.step)
 	}
 
-	equalBy { :self :anObject :aBlock/2 |
+	isEqualBy { :self :anObject :aBlock/2 |
 		self.hasEqualSlots(anObject, aBlock/2)
 	}
 

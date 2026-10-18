@@ -19,10 +19,10 @@ Operators:
 - [≠](https://aplwiki.com/wiki/Not_Equal_to) `unequal` `!=`
 - [≡](https://aplwiki.com/wiki/Match) `similar` `~`
 - [≢](https://aplwiki.com/wiki/Not_Match) `dissimilar` `!~`
-- [≤](https://aplwiki.com/wiki/Less_than_or_Equal_to) `lessEqual` `<=`
-- [<](https://aplwiki.com/wiki/Less_than) `less` `<`
-- [≥](https://aplwiki.com/wiki/Greater_than_or_Equal_to) `greaterEqual` `>=`
-- [>](https://aplwiki.com/wiki/Greater_than) `greater` `>`
+- [≤](https://aplwiki.com/wiki/Less_than_or_Equal_to) `isLessOrEqual` `<=`
+- [<](https://aplwiki.com/wiki/Less_than) `isLess` `<`
+- [≥](https://aplwiki.com/wiki/Greater_than_or_Equal_to) `isGreaterOrEqual` `>=`
+- [>](https://aplwiki.com/wiki/Greater_than) `isGreater` `>`
 - [⌿](https://aplwiki.com/wiki/Replicate) `replicate` `#`
 - [←](https://aplwiki.com/wiki/Assignment) `:=`
 

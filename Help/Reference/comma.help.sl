@@ -33,7 +33,7 @@ Comma separates parameter items in `Value Apply Syntax`:
 Comma separates parameter items in `Method Syntax`:
 
 ```
->>> 3.betweenAnd(1, 5)
+>>> 3.isBetween(1, 5)
 true
 ```
 

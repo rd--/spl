@@ -85,7 +85,7 @@ false
 
 * * *
 
-See also: conjugateTranspose, isHermitianMatrix, isSymmetricMatrix, isVeryCloseTo
+See also: conjugateTranspose, isHermitianMatrix, isSymmetricMatrix, isVeryClose
 
 Guides: Matrix Functions
 

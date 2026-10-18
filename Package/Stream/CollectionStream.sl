@@ -27,7 +27,7 @@ CollectionStream : [Object, Copy, Equal, Do, Collect, Iterator, Stream] {
 	}
 
 	isValidReadPosition { :self :anInteger |
-		anInteger.betweenAnd(0, self.readLimit)
+		anInteger.isBetween(0, self.readLimit)
 	}
 
 	last { :self |
@@ -142,7 +142,7 @@ CollectionStream : [Object, Copy, Equal, Do, Collect, Iterator, Stream] {
 
 	upTo { :self :anObject |
 		let start = self.position + 1;
-		let end = self.collection.indexOfStartingAtBy(anObject, start, equal/2);
+		let end = self.collection.indexOfStartingAtBy(anObject, start, isEqual/2);
 		(
 			end = 0 | {
 				end > self.readLimit

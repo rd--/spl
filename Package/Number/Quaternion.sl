@@ -84,7 +84,7 @@ Quaternion : [Object, Store, Equal, Number] {
 		)
 	}
 
-	equalBy { :self :anObject :aBlock/2 |
+	isEqualBy { :self :anObject :aBlock/2 |
 		anObject.isNumber.if {
 			anObject.isQuaternion.if {
 				aBlock(self.components, anObject.components)
@@ -100,12 +100,12 @@ Quaternion : [Object, Store, Equal, Number] {
 		self.components.copyFromTo(2, 4)
 	}
 
-	isCloseToBy { :self :anObject :epsilon |
+	isCloseBy { :self :anObject :epsilon |
 		anObject.isQuaternion & {
-			self.components.equalBy(
+			self.components.isEqualBy(
 				anObject.components
 			) { :a :b |
-				a.isCloseToBy(b, epsilon)
+				a.isCloseBy(b, epsilon)
 			}
 		}
 	}

@@ -48,7 +48,7 @@ l.threshold(0.3).linePlot
 
 * * *
 
-See also: abs, isCloseTo, isVeryCloseTo, zero
+See also: abs, isClose, isVeryClose, zero
 
 References:
 _Mathematica_

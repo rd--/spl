@@ -1,8 +1,8 @@
 # decrement
 
-- _decrement(aNumber)_
+- _decrement(x)_
 
-Answer _aNumber_ minus `one`.
+Answer _x_ minus `one`.
 
 At `SmallFloat`:
 
@@ -30,7 +30,7 @@ Threads over lists:
 
 * * *
 
-See also: +, Number
+See also: Number, +, increment
 
 References:
 _J_

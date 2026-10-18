@@ -110,12 +110,6 @@
 		self / (1 + self.abs)
 	}
 
-	exclusivelyBetweenAnd { :self :lo :hi |
-		lo < self & {
-			self < hi
-		}
-	}
-
 	expExp { :self :inMin :inMax :outMin :outMax |
 		(self <= inMin).if {
 			outMin
@@ -181,7 +175,13 @@
 		self.abs + aNumber.abs - ((2.sqrt - 1) * self.abs.min(aNumber.abs))
 	}
 
-	inclusivelyBetweenAnd { :self :lo :hi |
+	isExclusivelyBetween { :self :lo :hi |
+		lo < self & {
+			self < hi
+		}
+	}
+
+	isInclusivelyBetween { :self :lo :hi |
 		lo <= self & {
 			self <= hi
 		}
@@ -586,7 +586,7 @@
 	}
 
 	similarity { :self :other |
-		self.similarity(other, equal/2)
+		self.similarity(other, isEqual/2)
 	}
 
 	similarity { :self :other :equalityBlock/2 |

@@ -2,7 +2,7 @@
 
 Prime Numbers:
 
-- `primesBetweenAnd`
+- `primesBetween`
 - `primesList`
 - `primesUpTo`
 

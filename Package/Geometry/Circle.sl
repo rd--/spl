@@ -81,7 +81,7 @@ Circle : [Object, Store, Equal, Geometry] {
 		let r2 = operand.radius;
 		let c1 = self.center;
 		let c2 = operand.center;
-		(r1.square + r2.square).isVeryCloseTo(
+		(r1.square + r2.square).isVeryClose(
 			(c2 - c1).norm.square
 		)
 	}
@@ -264,7 +264,7 @@ UnitCircle : [Object] {
 		let c = self.center;
 		let r = self.radius;
 		{ :u |
-			u.isVeryCloseTo(c).if {
+			u.isVeryClose(c).if {
 				Infinity
 			} {
 				let v = u - c;

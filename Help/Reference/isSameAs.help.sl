@@ -15,7 +15,7 @@ The comparison ignores case and possibly some other attributes.
 
 * * *
 
-See also: =, ~, isCloseTo, isVeryCloseTo
+See also: =, ~, isClose, isVeryClose
 
 References:
 _Smalltalk_

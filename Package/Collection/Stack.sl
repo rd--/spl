@@ -4,7 +4,7 @@ Stack : [Object, Copy, Store, Equal] {
 
 	| linkedList |
 
-	equalBy { :self :aStack :aBlock/2 |
+	isEqualBy { :self :aStack :aBlock/2 |
 		aStack.isStack & {
 			aBlock(self.linkedList, aStack.linkedList)
 		}

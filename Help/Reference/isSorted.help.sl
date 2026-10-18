@@ -112,7 +112,7 @@ OEIS [A037016](https://oeis.org/A037016):
 
 * * *
 
-See also: isSortedBetweenAnd, isSortedBy, sort, sorted
+See also: isSortedBetween, isSortedBy, sort, sorted
 
 Guides: Sort Functions
 

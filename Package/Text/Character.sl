@@ -45,7 +45,7 @@
 	}
 
 	isDigit { :self |
-		self.codePoint.betweenAnd(48, 57)
+		self.codePoint.isBetween(48, 57)
 	}
 
 	isFormFeed { :self |
@@ -67,11 +67,11 @@
 	}
 
 	isLowerCase { :self |
-		self.codePoint.betweenAnd(97, 122)
+		self.codePoint.isBetween(97, 122)
 	}
 
 	isPrintableAscii { :self |
-		self.codePoint.betweenAnd(32, 126)
+		self.codePoint.isBetween(32, 126)
 	}
 
 	isPunctuation { :self |
@@ -99,7 +99,7 @@
 	}
 
 	isUpperCase { :self |
-		self.codePoint.betweenAnd(65, 90)
+		self.codePoint.isBetween(65, 90)
 	}
 
 	isTab { :self |
@@ -124,8 +124,12 @@ Character : [Object, Copy, Store, Equal, Compare, Character] {
 		self
 	}
 
-	[equal, =] { :self :anObject |
-		identical(self, anObject)
+	[isEqual, =] { :self :anObject |
+		isIdentical(self, anObject)
+	}
+
+	[isLess, <] { :self :anObject |
+		isLessOn(self, anObject, codePoint/1)
 	}
 
 	isSameAs { :self :aCharacter |
@@ -136,15 +140,11 @@ Character : [Object, Copy, Store, Equal, Compare, Character] {
 		}
 	}
 
-	[less, <] { :self :anObject |
-		lessOn(self, anObject, codePoint/1)
-	}
-
 	shallowCopy { :self |
 		self
 	}
 
-	[similar, ~] { :self :anObject |
+	[isSimilar, ~] { :self :anObject |
 		anObject.isCharacter & {
 			self.characterString = anObject.characterString
 		}
@@ -179,7 +179,7 @@ Character : [Object, Copy, Store, Equal, Compare, Character] {
 	}
 
 	digitCharacter { :self |
-		self.betweenAnd(0, 35).if {
+		self.isBetween(0, 35).if {
 			(
 				self + (self < 10).if {
 					48

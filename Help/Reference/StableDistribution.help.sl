@@ -25,7 +25,7 @@ let r = Sfc32(376812);
 StableDistribution(1, 0, 0, 1)
 .randomVariate(r, [10 ^ 4])
 .select { :x |
-	x.between([-5 5])
+	x.isBetween(-5, 5)
 }.histogramPlot
 ~~~
 
@@ -38,7 +38,7 @@ let r = Sfc32(376812);
 StableDistribution(0.5, 1, 0, 1)
 .randomVariate(r, [10 ^ 4])
 .select { :x |
-	x.between([0 10])
+	x.isBetween(0, 10)
 }.histogramPlot
 ~~~
 
@@ -55,7 +55,7 @@ StableDistribution(
 	1 / ((2 ^ 1/3) * (3 ^ 2/3))
 ).randomVariate(r, [10 ^ 4])
 .select { :x |
-	x.between([-2 2])
+	x.isBetween(-2, 2)
 }.histogramPlot
 ~~~
 

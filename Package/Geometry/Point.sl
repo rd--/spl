@@ -9,7 +9,7 @@ Point : [Object, Store, Equal, Geometry, CartesianCoordinates] {
 	}
 
 	circleInversion { :self :circle |
-		self.coordinates.isVeryCloseTo(circle.center).if {
+		self.coordinates.isVeryClose(circle.center).if {
 			Infinity
 		} {
 			self.coordinates.circleInversion(circle).Point
@@ -164,7 +164,7 @@ Point : [Object, Store, Equal, Geometry, CartesianCoordinates] {
 
 	linePlaneIntersection { :p0 :n :l0 :l |
 		let ln = l.dot(n);
-		ln.isVeryCloseTo(0).if {
+		ln.isVeryClose(0).if {
 			nil
 		} {
 			let d = (p0 - l0).dot(n) / ln;

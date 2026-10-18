@@ -38,12 +38,12 @@
 
 ## Comparison
 
-- `Equal`
-- `GreaterThanOrEqual`
-- `Greater`
-- `LessThanOrEqual`
-- `Less`
-- `Unequal`
+- `IsEqual`
+- `IsGreaterOrEqual`
+- `IsGreater`
+- `IsLessOrEqual`
+- `IsLess`
+- `IsUnequal`
 
 ## Constants
 

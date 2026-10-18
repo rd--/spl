@@ -149,7 +149,7 @@
 		{ :theta |
 			let a = r * 2.sqrt;
 			let b = s * (2 * theta).sin.abs;
-			let rho = b.isVeryCloseTo(0).if {
+			let rho = b.isVeryClose(0).if {
 				r
 			} {
 				let c = (1 - (s.square * (2 * theta).sin.square)).sqrt;

@@ -1,6 +1,6 @@
-# equalByAtNamedSlots
+# isEqualByAtNamedSlots
 
-- _equalByAtNamedSlots(o₁, o₂, [n₁ n₂ …], f/2)_
+- _isEqualByAtNamedSlots(o₁, o₂, [n₁ n₂ …], f/2)_
 
 Answer `true` if the objects _o₁_ and _o₂_ are equal,
 according to the block _f_,

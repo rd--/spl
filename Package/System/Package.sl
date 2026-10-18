@@ -33,7 +33,7 @@ Package! : [Object, Equal, Compare] {
 		answer.copyWithoutIdenticalElements
 	}
 
-	equalBy { :self :anObject :aBlock/2 |
+	isEqualBy { :self :anObject :aBlock/2 |
 		self == anObject
 	}
 

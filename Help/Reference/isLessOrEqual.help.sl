@@ -1,4 +1,4 @@
-# lessEqual
+# isLessOrEqual
 
 - _x <= y_
 
@@ -29,7 +29,7 @@ When the arguments to `<=` are `boole`, it is the material implication `Boolean`
 
 * * *
 
-See also: <, >=, >, >=, =, equal, greaterEqual, less
+See also: Equal, Compare, <, >=, >, >=, =, isEqual, isGreaterOrEqual, isLess
 
 Guides: Comparison Functions
 

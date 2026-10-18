@@ -32,7 +32,7 @@ Interval : [Object, Store, Equal, Compare, Number] {
 		}
 	}
 
-	betweenAnd { :self :min :max |
+	isBetween { :self :min :max |
 		min <= self.min & {
 			self.max <= max
 		}
@@ -64,7 +64,7 @@ Interval : [Object, Store, Equal, Compare, Number] {
 		self * operand.reciprocal
 	}
 
-	equalBy { :self :operand :aBlock/2 |
+	isEqualBy { :self :operand :aBlock/2 |
 		operand.isInterval & {
 			aBlock(self.min, operand.min) & {
 				aBlock(self.max, operand.max)
@@ -94,7 +94,7 @@ Interval : [Object, Store, Equal, Compare, Number] {
 	}
 
 	includes { :self :operand |
-		operand.betweenAnd(self.min, self.max)
+		operand.isBetween(self.min, self.max)
 	}
 
 	intersection { :self :operand |
@@ -112,9 +112,9 @@ Interval : [Object, Store, Equal, Compare, Number] {
 		}
 	}
 
-	isCloseToBy { :self :anInterval :epsilon |
-		self.min.isCloseToBy(anInterval.min, epsilon) & {
-			self.max.isCloseToBy(anInterval.max, epsilon)
+	isCloseBy { :self :anInterval :epsilon |
+		self.min.isCloseBy(anInterval.min, epsilon) & {
+			self.max.isCloseBy(anInterval.max, epsilon)
 		}
 	}
 
@@ -134,11 +134,11 @@ Interval : [Object, Store, Equal, Compare, Number] {
 		}
 	}
 
-	[less, <] { :self :operand |
+	[isLess, <] { :self :operand |
 		operand.isInterval.if {
-			less(self.max, operand.min)
+			isLess(self.max, operand.min)
 		} {
-			operand.adaptToIntervalAndApply(self, less/2)
+			operand.adaptToIntervalAndApply(self, isLess/2)
 		}
 	}
 

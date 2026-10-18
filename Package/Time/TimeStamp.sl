@@ -2,8 +2,8 @@ TimeStamp : [Object, Copy, Store, Equal, Compare] {
 
 	| absoluteTime |
 
-	[less, <] { :self :aTimeStamp |
-		lessOn(self, aTimeStamp, absoluteTime/1)
+	[isLess, <] { :self :aTimeStamp |
+		isLessOn(self, aTimeStamp, absoluteTime/1)
 	}
 
 	[plus, +] { :self :operand |
@@ -26,7 +26,7 @@ TimeStamp : [Object, Copy, Store, Equal, Compare] {
 		DateAndTime(self).dateAndTimeString
 	}
 
-	equalBy { :self :aTimeStamp :aBlock/2 |
+	isEqualBy { :self :aTimeStamp :aBlock/2 |
 		aTimeStamp.isTimeStamp & {
 			aBlock(self.absoluteTime, aTimeStamp.absoluteTime)
 		}

@@ -1,6 +1,6 @@
 @Compare {
 
-	[less, <] { :self :operand |
+	[isLess, <] { :self :operand |
 		self.typeResponsibility('@Compare>><')
 	}
 
@@ -16,41 +16,41 @@
 		compare(f(self), f(operand))
 	}
 
-	[greater, >] { :self :operand |
-		less(operand, self)
+	[isGreater, >] { :self :operand |
+		isLess(operand, self)
 	}
 
-	[greaterEqual, >=] { :self :operand |
-		lessEqual(operand, self)
+	[isGreaterOrEqual, >=] { :self :operand |
+		isLessOrEqual(operand, self)
 	}
 
-	greaterOn { :self :operand :f/1 |
-		greater(f(self), f(operand))
+	isGreaterOn { :self :operand :f/1 |
+		isGreater(f(self), f(operand))
 	}
 
-	[less, <] { :self :operand |
+	[isLess, <] { :self :operand |
 		/* self.compare(operand) = -1 */
 		self.typeResponsibility('@Compare>><')
 	}
 
-	[lessEqual, <=] { :self :operand |
+	[isLessOrEqual, <=] { :self :operand |
 		self < operand | {
 			self = operand
 		}
 	}
 
-	lessOn { :self :operand :f/1 |
-		less(f(self), f(operand))
+	isLessOn { :self :operand :f/1 |
+		isLess(f(self), f(operand))
 	}
 
 	maxOn { :self :operand :f/1 |
 		minBy(self, operand) { :a :b |
-			greaterOn(self, operand, f/1)
+			isGreaterOn(self, operand, f/1)
 		}
 	}
 
 	[maximum, max] { :self :operand |
-		minBy(self, operand, greater/2)
+		minBy(self, operand, isGreater/2)
 	}
 
 	minBy { :self :operand :aBlock/2 |
@@ -63,12 +63,12 @@
 
 	minOn { :self :operand :f/1 |
 		minBy(self, operand) { :a :b |
-			lessOn(self, operand, f/1)
+			isLessOn(self, operand, f/1)
 		}
 	}
 
 	[minimum, min] { :self :operand |
-		minBy(self, operand, less/2)
+		minBy(self, operand, isLess/2)
 	}
 
 	minThenMax { :self :aMin :aMax |

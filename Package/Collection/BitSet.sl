@@ -4,7 +4,7 @@ BitSet : [Object, Copy, Store, Equal, Do, Collect, Collection, Add, Remove] {
 
 	| capacity bytes tally |
 
-	[equal, =] { :self :anObject |
+	[isEqual, =] { :self :anObject |
 		anObject.isBitSet & {
 			anObject.size = self.tally & {
 				anObject.bytes = self.bytes

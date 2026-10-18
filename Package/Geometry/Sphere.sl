@@ -18,7 +18,7 @@ Sphere : [Object, Store, Equal, Geometry] {
 		self.center.size
 	}
 
-	equalBy { :self :anObject :aBlock/2 |
+	isEqualBy { :self :anObject :aBlock/2 |
 		anObject.isSphere & {
 			aBlock(self.center, anObject.center) & {
 				aBlock(self.radius, anObject.radius)

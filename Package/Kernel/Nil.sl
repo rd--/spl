@@ -16,7 +16,7 @@ Nil! : [Object, Copy, Store, Equal, Compare, Json] {
 		self.uncheckedEncodeJson
 	}
 
-	[equal, =] { :self :anObject |
+	[isEqual, =] { :self :anObject |
 		anObject.isNil
 	}
 
@@ -64,7 +64,7 @@ Nil! : [Object, Copy, Store, Equal, Compare, Json] {
 		nil
 	}
 
-	[similar, ~] { :self :anObject |
+	[isSimilar, ~] { :self :anObject |
 		self = anObject
 	}
 

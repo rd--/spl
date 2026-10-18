@@ -71,12 +71,12 @@ Heap : [Object, Copy, Store, Equal, Do, At, Add, Remove] {
 		self.indexUpdate(value, index)
 	}
 
-	equalBy { :self :anObject :aBlock/2 |
+	isEqualBy { :self :anObject :aBlock/2 |
 		self == anObject | {
 			anObject.isHeap & {
 				anObject.size = self.size & {
 					anObject.sortBlock = self.sortBlock & {
-						self.array.sort(self.sortBlock).equalBy(
+						self.array.sort(self.sortBlock).isEqualBy(
 							anObject.array.sort(self.sortBlock),
 							aBlock/2
 						)

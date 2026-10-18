@@ -2,13 +2,13 @@
 
 LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer, ImplicitFloat] {
 
-	[less, <] { :self :anObject |
+	[isLess, <] { :self :anObject |
 		<primitive:
 		if (sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
 			return _self < BigInt(_anObject);
 		}
 		>
-		anObject.adaptToIntegerAndApply(self, less/2)
+		anObject.adaptToIntegerAndApply(self, isLess/2)
 	}
 
 	[bitShiftLeft, <<] { :self :anObject |
@@ -45,7 +45,7 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer, I
 		}
 	}
 
-	[equal, =] { :self :anObject |
+	[isEqual, =] { :self :anObject |
 		<primitive:
 		if (sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
 			return _self === BigInt(_anObject);
@@ -90,7 +90,7 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer, I
 		anObject.adaptToIntegerAndApply(self, quotient/2)
 	}
 
-	[similar, ~] { :self :anObject |
+	[isSimilar, ~] { :self :anObject |
 		SmallFloat(self) ~ anObject
 	}
 
@@ -216,7 +216,7 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer, I
 	}
 
 	integerDigits { :self :radix |
-		radix.betweenAnd(2, 36).if {
+		radix.isBetween(2, 36).if {
 			self.abs.uncheckedPrintString(radix).characters.digitValue
 		} {
 			SmallInteger(self).integerDigits(radix)
@@ -312,7 +312,7 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer, I
 		true
 	}
 
-	isVeryCloseTo { :self :aNumber |
+	isVeryClose { :self :aNumber |
 		self = aNumber
 	}
 

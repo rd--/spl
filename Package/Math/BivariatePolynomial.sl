@@ -13,7 +13,7 @@ BivariatePolynomial : [Object, Copy, Store, Equal] {
 		self.coefficientMatrix.shape - 1
 	}
 
-	equalBy { :self :operand :aBlock/2 |
+	isEqualBy { :self :operand :aBlock/2 |
 		operand.isBivariatePolynomial & {
 			aBlock(self.coefficientMatrix, operand.coefficientMatrix)
 		}

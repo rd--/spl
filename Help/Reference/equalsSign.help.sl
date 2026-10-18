@@ -3,11 +3,11 @@
 - _x = y_
 - _c.=_
 
-The binary operator form of `equal`:
+The binary operator form of `isEqual`:
 
 ```
 >>> 3 = 1
-equal(3, 1)
+isEqual(3, 1)
 ```
 
 The unary operator form of `allEqual`:
@@ -32,8 +32,8 @@ As a syntax token the `=` symbol is a part of `Let Syntax`.
 
 * * *
 
-See also: <, <=, >, >=, !=, ==, ~, :=, allEqual, equal
+See also: Equal, <, <=, >, >=, !=, ==, ~, :=, allEqual, isEqual
 
-Guides: Comparison Functions, Let Syntax, Syntax Tokens
+Guides: Comparison Functions, Equality Functions, Let Syntax, Syntax Tokens
 
 Categories: Comparing

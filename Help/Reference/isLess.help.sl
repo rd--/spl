@@ -1,4 +1,4 @@
-# less
+# isLess
 
 - _x < y_
 
@@ -77,7 +77,7 @@ selecting only items less than five:
 
 * * *
 
-See also: =, !=, <, <=, >, >=, <=>, greater, lessEqual, Magnitude
+See also: Compare, Equal, =, !=, <, <=, >, >=, <=>, isGreater, isLessOrEqual
 
 Guides: Binary Operators, Comparison Functions, Sort Functions
 

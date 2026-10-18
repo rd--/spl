@@ -1,6 +1,6 @@
 @Multiset {
 
-	[equal, =] { :self :aMultiset |
+	[isEqual, =] { :self :aMultiset |
 		(self.typeOf = aMultiset.typeOf) & {
 			self.size = aMultiset.size & {
 				self.valuesAndCounts.associationsAllSatisfy { :each |

@@ -465,7 +465,7 @@
 	}
 
 	isDiagonallyDominantMatrix { :self |
-		self.isDiagonallyDominantMatrix(greaterEqual/2)
+		self.isDiagonallyDominantMatrix(isGreaterOrEqual/2)
 	}
 
 	isLowerTriangularMatrix { :self :k |
@@ -473,7 +473,7 @@
 			let [r, c] = self.shape;
 			1.to(r - k).allSatisfy { :i |
 				(i + 1 + k).to(c).allSatisfy { :j |
-					self[i][j].isVeryCloseTo(0)
+					self[i][j].isVeryClose(0)
 				}
 			}
 		}
@@ -492,18 +492,18 @@
 	isOrthogonalMatrix { :self |
 		let [p, q] = self.shape;
 		(p >= q).if {
-			self.transpose.dot(self).isVeryCloseTo(q.identityMatrix)
+			self.transpose.dot(self).isVeryClose(q.identityMatrix)
 		} {
-			self.dot(self.transpose).isVeryCloseTo(p.identityMatrix)
+			self.dot(self.transpose).isVeryClose(p.identityMatrix)
 		}
 	}
 
 	isUnitaryMatrix { :self |
 		let [p, q] = self.shape;
 		(p >= q).if {
-			self.conjugateTranspose.dot(self).isVeryCloseTo(q.identityMatrix)
+			self.conjugateTranspose.dot(self).isVeryClose(q.identityMatrix)
 		} {
-			self.dot(self.conjugateTranspose).isVeryCloseTo(p.identityMatrix)
+			self.dot(self.conjugateTranspose).isVeryClose(p.identityMatrix)
 		}
 	}
 
@@ -512,7 +512,7 @@
 			let [r, c] = self.shape;
 			(2 - k).to(r).allSatisfy { :i |
 				1.to(i - 1 + k).allSatisfy { :j |
-					self[i][j].isVeryCloseTo(0)
+					self[i][j].isVeryClose(0)
 				}
 			}
 		}
@@ -732,7 +732,7 @@
 	matrixRank { :self |
 		self.rowReduce.count { :each |
 			each.allSatisfy { :item |
-				item.isVeryCloseTo(0)
+				item.isVeryClose(0)
 			}.not
 		}
 	}

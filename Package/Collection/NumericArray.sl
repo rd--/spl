@@ -62,7 +62,7 @@ NumericArray : [Object, Store, Equal, Compare, Do, At, Indices, Put, Collect, Co
 		'SmallFloat'
 	}
 
-	equalBy { :self :anObject :aBlock/2 |
+	isEqualBy { :self :anObject :aBlock/2 |
 		anObject.isNumericArray & {
 			(self.shape = anObject.shape) & {
 				(self.storageType = anObject.storageType) & {

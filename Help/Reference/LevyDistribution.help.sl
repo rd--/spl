@@ -23,7 +23,7 @@ let r = Sfc32(376812);
 LevyDistribution(0, 2)
 .randomVariate(r, [10 ^ 4])
 .select { :x |
-	x.between([0 10])
+	x.isBetween(0, 10)
 }.histogramPlot
 ~~~
 

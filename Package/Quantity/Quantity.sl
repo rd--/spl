@@ -6,7 +6,7 @@ Quantity : [Object, Copy, Store, Equal, Compare, Frequency, Length, Mass, PlaneA
 		self * anObject.reciprocal
 	}
 
-	equalBy { :self :anObject :aBlock/2 |
+	isEqualBy { :self :anObject :aBlock/2 |
 		anObject.isQuantity & {
 			self.unit = anObject.unit & {
 				aBlock(self.magnitude, anObject.magnitude)
@@ -94,9 +94,9 @@ Quantity : [Object, Copy, Store, Equal, Compare, Frequency, Length, Mass, PlaneA
 		self.unit = 'second'
 	}
 
-	[less, <] { :self :anObject |
+	[isLess, <] { :self :anObject |
 		self.isCommensurate(anObject).if {
-			lessOn(self, anObject, magnitude/1)
+			isLessOn(self, anObject, magnitude/1)
 		} {
 			self.error('less: invalid operand')
 		}

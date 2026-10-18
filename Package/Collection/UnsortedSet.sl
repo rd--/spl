@@ -64,7 +64,7 @@ UnsortedSet : [Object, New, Store, Equal, Do, Collect, Collection, Add, Remove, 
 +Void {
 
 	UnsortedSet {
-		newUnsortedSet().initializeSlots([], equal/2)
+		newUnsortedSet().initializeSlots([], isEqual/2)
 	}
 
 }
@@ -86,11 +86,11 @@ UnsortedSet : [Object, New, Store, Equal, Do, Collect, Collection, Add, Remove, 
 	}
 
 	union { :self |
-		self.unionBy(equal/2)
+		self.unionBy(isEqual/2)
 	}
 
 	union { :self :aCollection |
-		[self, aCollection].unionBy(equal/2)
+		[self, aCollection].unionBy(isEqual/2)
 	}
 
 }

@@ -1,4 +1,4 @@
-# equal
+# isEqual
 
 - _x = y_
 
@@ -93,9 +93,29 @@ When the arguments to `=` are `boole`, it is the logical biconditional function:
 
 The `=` method is not implemented at `Object`.
 
+The unary form
+answers a `Block` that yields _x=y_ when applied to an expression _x_.
+
+Check numeric equality:
+
+```
+>>> let f/1 = isEqual(2);
+>>> f(2)
+true
+```
+
+Select the numbers that are equal to zero:
+
+```
+>>> [-1 0 1E-10 1 0.0].select(
+>>> 	isEqual(0)
+>>> )
+[0 0.0]
+```
+
 * * *
 
-See also: =, <, <=, >, >=, !=, ==, ~, :=, Equal, hasEqualElements, hasEqualSlots, unequal
+See also: Equal, =, <, <=, >, >=, !=, ==, ~, :=, hasEqualElements, hasEqualSlots, isUnequal
 
 Guides: Comparison Functions
 
@@ -110,6 +130,7 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/Equal.html)
 [2](https://mathworld.wolfram.com/Equivalent.html)
 [3](https://reference.wolfram.com/language/ref/Equal.html),
+[4](https://reference.wolfram.com/language/ref/EqualTo.html)
 _Smalltalk_
 5.3.1.1,
 _W_

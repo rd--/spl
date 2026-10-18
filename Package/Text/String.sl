@@ -132,10 +132,10 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 	caesarCipher { :self :n |
 		let c = [];
 		self.asciiByteArray.do { :i |
-			i.between([97 122]).if {
+			i.isBetween(97, 122).if {
 				c.add!((i + n + 7) % 26 + 97)
 			} {
-				i.between([65 90]).if {
+				i.isBetween(65, 90).if {
 					c.add!((i + n + 13) % 26 + 65)
 				} {
 					c.add!(i)
@@ -316,10 +316,6 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		self.uncheckedEncodeJson
 	}
 
-	[equal, =] { :self :anObject |
-		identical(self, anObject)
-	}
-
 	endsWith { :self :aString |
 		<primitive:
 		if(typeof _aString === 'string') {
@@ -482,7 +478,7 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 			let index = 1;
 			let end = self.size;
 			{
-				index.betweenAnd(1, end)
+				index.isBetween(1, end)
 			}.whileTrue {
 				index := self.findStringStartingAt(aString, index);
 				(index != 0).ifTrue {
@@ -540,6 +536,10 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		self.size = 0
 	}
 
+	[isEqual, =] { :self :anObject |
+		isIdentical(self, anObject)
+	}
+
 	isImmediate { :unused |
 		true
 	}
@@ -571,7 +571,7 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 
 	isPrintableAscii { :self |
 		self.utf8ByteArray.allSatisfy { :each |
-			each.betweenAnd(32, 126)
+			each.isBetween(32, 126)
 		}
 	}
 
@@ -604,7 +604,7 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 	}
 
 	/*
-	[less, <] { :self :operand |
+	[isLess, <] { :self :operand |
 		localeCompare(self, operand) = -1
 	}
 	*/
@@ -741,7 +741,7 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 			let end = self.size;
 			let tally = 0;
 			{
-				index.betweenAnd(1, end)
+				index.isBetween(1, end)
 			}.whileTrue {
 				index := self.findStringStartingAt(aString, index);
 				(index != 0).ifTrue {
@@ -918,7 +918,7 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		Set(self.characters)
 	}
 
-	[similar, ~] { :self :anObject |
+	[isSimilar, ~] { :self :anObject |
 		self.isCharacter.if {
 			anObject.isCharacter & {
 				self.codePoint == anObject.codePoint
@@ -1175,12 +1175,12 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 	}
 
 	isAsciiCodePoint { :self |
-		self.betweenAnd(0, 127)
+		self.isBetween(0, 127)
 	}
 
 	isUtf16SurrogateCodePoint { :self |
 		/* 0xD800 = 55296, 0xDfFF = 57343 */
-		self.betweenAnd(55296, 57343)
+		self.isBetween(55296, 57343)
 	}
 
 	String { :self :letter |

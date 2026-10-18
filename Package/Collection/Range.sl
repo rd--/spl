@@ -49,7 +49,7 @@ Range : [Object, New, Copy, Store, Equal, Compare, Do, Collect, Collection, At, 
 		Range(1, 0, 1, 0)
 	}
 
-	equalBy { :self :operand :aBlock/2 |
+	isEqualBy { :self :operand :aBlock/2 |
 		operand.isRange & {
 			aBlock(self.start, operand.start) & {
 				aBlock(self.stop, operand.stop) & {
@@ -304,7 +304,7 @@ Range : [Object, New, Copy, Store, Equal, Compare, Do, Collect, Collection, At, 
 						size.isFinite
 					} & {
 						let calculatedStop = start + (step * (size - 1));
-						calculatedStop.isVeryCloseTo(stop)
+						calculatedStop.isVeryClose(stop)
 					}
 				}
 			}

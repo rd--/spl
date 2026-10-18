@@ -68,7 +68,7 @@ RunArray : [Object, Equal, Store, At, Indices] {
 		}
 	}
 
-	equalBy { :self :anObject :aBlock/2 |
+	isEqualBy { :self :anObject :aBlock/2 |
 		(self == anObject).if {
 			true
 		} {

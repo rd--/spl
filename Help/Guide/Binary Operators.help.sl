@@ -19,10 +19,10 @@ Equality Operators:
 
 Comparison Operators:
 
-- `<`, `less`, `lessThanSign`
-- `<=`, `lessEqual`
-- `>`, `greater`, `greaterThanSign`
-- `>=`, `greaterEqual`
+- `<`, `isLess`
+- `<=`, `isLessOrEqual`
+- `>`, `isGreater`
+- `>=`, `isGreaterOrEqual`
 
 Logical Operators:
 

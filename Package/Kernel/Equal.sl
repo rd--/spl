@@ -1,30 +1,8 @@
 @Equal {
 
-	[equal, =] { :self :anObject |
-		self.equalBy(anObject, equal/2)
-	}
-
-	equalBy { :self :anObject :aBlock/2 |
-		/* self.typeResponsibility('@Equal>>equalBy') */
-		self.hasEqualSlots(anObject, aBlock/2)
-	}
-
-	equalByAtNamedSlots { :self :anObject :slotNameList :aBlock/2 |
-		<primitive: return _slotNameList.every(function (key) {
-			return _aBlock_2(_self[key], _anObject[key]);
-		});
-		>
-	}
-
-	equalTo { :y |
-		{ :x |
-			equal(x, y)
-		}
-	}
-
 	hasEqualSlots { :self :anObject :aBlock/2 |
 		self.typeOf = anObject.typeOf & {
-			self.equalByAtNamedSlots(
+			self.isEqualByAtNamedSlots(
 				anObject,
 				self.slotNameList,
 				aBlock/2
@@ -33,19 +11,41 @@
 	}
 
 	hasEqualSlots { :self :anObject |
-		self.hasEqualSlots(anObject, equal/2)
+		self.hasEqualSlots(anObject, isEqual/2)
 	}
 
-	primitiveEquals { :self :anObject |
-		<primitive: return _self === _anObject;>
+	isEqual { :y |
+		{ :x |
+			isEqual(x, y)
+		}
 	}
 
-	[similar, ~] { :self :anObject |
-		self.equalBy(anObject, ~)
+	[isEqual, =] { :self :anObject |
+		self.isEqualBy(anObject, isEqual/2)
 	}
 
-	[unequal, !=] { :self :anObject |
-		equal(self, anObject).not
+	isEqualBy { :self :anObject :aBlock/2 |
+		/* self.typeResponsibility('@Equal>>isEqualBy') */
+		self.hasEqualSlots(anObject, aBlock/2)
+	}
+
+	isEqualByAtNamedSlots { :self :anObject :slotNameList :aBlock/2 |
+		<primitive: return _slotNameList.every(function (key) {
+			return _aBlock_2(_self[key], _anObject[key]);
+		});
+		>
+	}
+
+	isEqualOn { :self :operand :f/1 |
+		isEqual(f(self), f(operand))
+	}
+
+	[isSimilar, ~] { :self :anObject |
+		self.isEqualBy(anObject, ~)
+	}
+
+	[isUnequal, !=] { :self :anObject |
+		isEqual(self, anObject).not
 	}
 
 }

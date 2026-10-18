@@ -83,7 +83,7 @@
 	}
 
 	mergeSort! { :self |
-		self.mergeSort!(less/2)
+		self.mergeSort!(isLess/2)
 	}
 
 	mergeSort { :self |
@@ -103,7 +103,7 @@
 	}
 
 	mergeSortWithIndices { :self |
-		self.mergeSortWithIndices(less/2)
+		self.mergeSortWithIndices(isLess/2)
 	}
 
 }

@@ -124,7 +124,7 @@
 
 	column { :self :anInteger |
 		let [m, n] = self.shape;
-		anInteger.betweenAnd(1, n).if {
+		anInteger.isBetween(1, n).if {
 			1.to(m).collect { :i |
 				self[i][anInteger]
 			}
@@ -136,7 +136,7 @@
 	columns { :self :aList |
 		let [m, n] = self.shape;
 		aList.allSatisfy { :each |
-			each.betweenAnd(1, n)
+			each.isBetween(1, n)
 		}.if {
 			1.to(m).collect { :i |
 				aList.collect { :j |
@@ -206,7 +206,7 @@
 	}
 
 	isAntihermitianMatrix { :self |
-		self.isVeryCloseTo(self.conjugateTranspose.negate)
+		self.isVeryClose(self.conjugateTranspose.negate)
 	}
 
 	isAntisymmetricMatrix { :self |
@@ -250,7 +250,7 @@
 			self.deepIndices.allSatisfy { :index |
 				let [i, j] = index;
 				(i + k = j) | {
-					self[i][j].isVeryCloseTo(0)
+					self[i][j].isVeryClose(0)
 				}
 			}
 		}
@@ -273,7 +273,7 @@
 	}
 
 	isHermitianMatrix { :self |
-		self.isVeryCloseTo(self.conjugateTranspose)
+		self.isVeryClose(self.conjugateTranspose)
 	}
 
 	isIntegerMatrix { :self |
@@ -388,8 +388,8 @@
 		n.collectThenSelect { :x |
 			c + x
 		} { :x |
-			x[1].between(1 -- shape[1]) & {
-				x[2].between(1 -- shape[2])
+			x[1].isBetween(1, shape[1]) & {
+				x[2].isBetween(1, shape[2])
 			}
 		}
 	}
@@ -452,7 +452,7 @@
 
 	row { :self :anInteger |
 		let [m, n] = self.shape;
-		anInteger.betweenAnd(1, m).if {
+		anInteger.isBetween(1, m).if {
 			self[anInteger]
 		} {
 			self.error('List>>row: illegal index')
@@ -462,7 +462,7 @@
 	rows { :self :aList |
 		let [m, n] = self.shape;
 		aList.allSatisfy { :each |
-			each.betweenAnd(1, m)
+			each.isBetween(1, m)
 		}.if {
 			self.atAll(aList)
 		} {

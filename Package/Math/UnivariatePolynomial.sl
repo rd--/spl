@@ -33,7 +33,7 @@ UnivariatePolynomial : [Object, Copy, Store, Equal] {
 		self.coefficientList.discriminant
 	}
 
-	equalBy { :self :operand :aBlock/2 |
+	isEqualBy { :self :operand :aBlock/2 |
 		operand.isUnivariatePolynomial & {
 			aBlock(self.coefficientList, operand.coefficientList)
 		}

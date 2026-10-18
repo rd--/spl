@@ -25,7 +25,7 @@
 	}
 
 	isFull { :self |
-		self.inRadians.isVeryCloseTo(2.pi)
+		self.inRadians.isVeryClose(2.pi)
 	}
 
 	isObtuse { :self |
@@ -41,11 +41,11 @@
 	}
 
 	isRight { :self |
-		self.inRadians.isVeryCloseTo(1/2.pi)
+		self.inRadians.isVeryClose(1/2.pi)
 	}
 
 	isStraight { :self |
-		self.inRadians.isVeryCloseTo(1.pi)
+		self.inRadians.isVeryClose(1.pi)
 	}
 
 	sin { :self |

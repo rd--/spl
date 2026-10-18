@@ -33,7 +33,7 @@ Cons : [Object, Do, Collect, Collection] {
 		}
 	}
 
-	[equal, =] { :self :anObject |
+	[isEqual, =] { :self :anObject |
 		anObject.isCons & {
 			self.car = anObject.car & {
 				self.cdr = anObject.cdr

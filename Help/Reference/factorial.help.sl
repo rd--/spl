@@ -213,9 +213,9 @@ OEIS [A005130](https://oeis.org/A005130):
 >>> 1:17.collect { :n |
 >>> 	let m = n - 1;
 >>> 	0:m.product { :k |
->>> 		(3 * k + 1).factorial
->>> 		\
->>> 		(n + k).factorial
+>>> 		(3 * k + 1).factorial.R(
+>>> 			(n + k).factorial
+>>> 		)
 >>> 	}
 >>> }
 [

@@ -807,7 +807,7 @@
 
 	isByte { :self |
 		self.isInteger & {
-			self.betweenAnd(0, 255)
+			self.isBetween(0, 255)
 		}
 	}
 

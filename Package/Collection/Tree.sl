@@ -64,10 +64,10 @@ Tree : [Object, Store, Equal, Do, At, Indices] {
 		}
 	}
 
-	equalBy { :self :anObject :aBlock/2 |
+	isEqualBy { :self :anObject :aBlock/2 |
 		anObject.isTree & {
 			aBlock(self.value, anObject.value) & {
-				equalBy(self.subTrees, anObject.subTrees, aBlock/2)
+				isEqualBy(self.subTrees, anObject.subTrees, aBlock/2)
 			}
 		}
 	}

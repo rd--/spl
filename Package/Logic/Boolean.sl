@@ -40,7 +40,7 @@ Boolean! : [Object, Copy, Store, Equal, Compare, Json] {
 		self.uncheckedEncodeJson
 	}
 
-	equalBy { :self :anObject :aBlock/2 |
+	isEqualBy { :self :anObject :aBlock/2 |
 		self == anObject
 	}
 

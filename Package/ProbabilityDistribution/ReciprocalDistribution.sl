@@ -34,7 +34,7 @@ ReciprocalDistribution : [Object] {
 		let b = self.b;
 		let z = (b / a).log;
 		{ :x |
-			x.betweenAnd(a, b).if {
+			x.isBetween(a, b).if {
 				1 / (x * z)
 			} {
 				0

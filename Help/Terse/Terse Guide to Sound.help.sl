@@ -103,8 +103,8 @@ let f/1 = { :x | x * 2 } <> { :x | x + 3 }; f(4) = 14 /* function composition, r
 '/usr' +/+ 'local' = '/usr/local' /* file path catenation */
 let l = []; [1 .. 9].adjacentPairsDo { :a :b | l.add!(a -> b) }; l.size = 8
 [1 .. 7].collect { :x | x.binaryDigits(3) } = [0 0 1; 0 1 0; 0 1 1; 1 0 0; 1 0 1; 1 1 0; 1 1 1]
-[1 .. 9].atRandom.inclusivelyBetweenAnd(1, 9)
-[1 .. 9].atRandom.exclusivelyBetweenAnd(0, 10)
+[1 .. 9].atRandom.isInclusivelyBetween(1, 9)
+[1 .. 9].atRandom.isExclusivelyBetween(0, 10)
 [3, 4, 1, 1].integrate = [3, 7, 8, 9]
 [3, 4, 1, 1].differentiate = [3, 1, -3, 0]
 [0, 3, 1].differentiate = [0, 3, -2]

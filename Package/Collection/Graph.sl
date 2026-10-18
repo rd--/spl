@@ -4,7 +4,7 @@
 		self.graphSum(aGraph)
 	}
 
-	[similar, ~] { :self :aGraph |
+	[isSimilar, ~] { :self :aGraph |
 		self.vertexList.sort = aGraph.vertexList.sort & {
 			self.edgeList.sort = aGraph.edgeList.sort
 		}
@@ -72,7 +72,7 @@
 	}
 
 	degreeSequence { :self |
-		self.vertexDegree.sortBy!(greater/2)
+		self.vertexDegree.sortBy!(isGreater/2)
 	}
 
 	dijkstrasAlgorithm { :g :s :t |
@@ -1002,7 +1002,7 @@ Graph : [Object, Graph] {
 		1.toDo(m * n) { :i |
 			(i + 1).toDo(m * n) { :j |
 				euclideanDistance(c[i], c[j])
-				.isVeryCloseTo(d).ifTrue {
+				.isVeryClose(d).ifTrue {
 					e.add!(i --- j)
 				}
 			}

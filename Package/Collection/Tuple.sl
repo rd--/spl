@@ -16,7 +16,7 @@ Tuple : [Object, Copy, Store, Equal] {
 		self.storeStringLiteral(concisePrintString/1)
 	}
 
-	equalBy { :self :anObject :aBlock/2 |
+	isEqualBy { :self :anObject :aBlock/2 |
 		anObject.isTuple & {
 			aBlock(self.collection, anObject.collection)
 		}

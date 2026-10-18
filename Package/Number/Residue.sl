@@ -69,7 +69,7 @@ Residue : [Object, Store, Equal, Compare, Number] {
 		)
 	}
 
-	isCloseTo { :self :anObject |
+	isClose { :self :anObject |
 		self = anObject
 	}
 

@@ -43,7 +43,7 @@ Matrix22(1, 0, 0, 1).isMatrix22 /* matrix predicate */
 Matrix22(1, 4, -1, 9).determinant = 13 /* determinant */
 Matrix22(-1, 3/2, 1,-1).inverse = Matrix22(2, 3, 2, 2) /* inverse, answers new matrix */
 let m = Matrix22(-1, 3/2, 1,-1); m.invert!; m = Matrix22(2, 3, 2, 2) /* inverse, in-place */
-Matrix22().rotation!(1.pi / 2).applyTo(PlanarCoordinates(0, 1)).isCloseTo(PlanarCoordinates(1, 0))
+Matrix22().rotation!(1.pi / 2).applyTo(PlanarCoordinates(0, 1)).isClose(PlanarCoordinates(1, 0))
 Matrix22(1, 2, 3, 4).transpose = Matrix22(1, 3, 2, 4) /* transpose, answers new matrix */
 let m = Matrix22(1, 2, 3, 4); m.transpose!; m = Matrix22(1, 3, 2, 4) /* transpose, in-place */
 ```

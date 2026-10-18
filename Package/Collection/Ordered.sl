@@ -10,7 +10,7 @@
 	}
 
 	addAfterIndex! { :self :newObject :index |
-		index.betweenAnd(0, self.size).if {
+		index.isBetween(0, self.size).if {
 			self.insertAt!(newObject, index + 1);
 			newObject
 		} {
@@ -32,7 +32,7 @@
 	}
 
 	addBeforeIndex! { :self :newObject :index |
-		index.betweenAnd(1, self.size + 1).if {
+		index.isBetween(1, self.size + 1).if {
 			self.insertAt!(newObject, index);
 			newObject
 		} {

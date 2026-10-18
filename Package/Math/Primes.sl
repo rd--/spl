@@ -719,11 +719,11 @@
 		self.isOne.if {
 			[]
 		} {
-			self.factorInteger.column(2).sort(greater/2)
+			self.factorInteger.column(2).sort(isGreater/2)
 		}
 	}
 
-	primesBetweenAnd { :iMin :iMax |
+	primesBetween { :iMin :iMax |
 		let startIndex = iMin.isPrime.if {
 			iMin.indexOfPrime
 		} {
@@ -1271,7 +1271,7 @@
 +@RandomNumberGenerator {
 
 	randomPrime { :self :iMin :iMax :shape |
-		let list = iMin.primesBetweenAnd(iMax);
+		let list = iMin.primesBetween(iMax);
 		{
 			let index = self.randomInteger([1, list.size], []);
 			list[index]

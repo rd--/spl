@@ -2,11 +2,11 @@
 
 - _p ~ q_
 
-The operator form of `similar`.
+The operator form of `isSimilar`.
 
 ```
 >>> 1.e ~ 2.7183
-similar(1.e, 2.7183)
+isSimilar(1.e, 2.7183)
 ```
 
 The name of this operator is `tilde`.
@@ -23,7 +23,7 @@ in order to allow writing `!~` as _not similar to_.
 
 * * *
 
-See also: =, <~, >~, !=, !~, dissimilar, similar
+See also: =, <~, >~, !=, !~, isDissimilar, isSimilar
 
 Guides: Comparison Functions
 

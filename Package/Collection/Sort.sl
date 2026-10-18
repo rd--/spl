@@ -114,23 +114,23 @@
 
 	isMonotonicallyIncreasing { :self |
 		self.isFinite & {
-			self.isSortedBy(lessEqual/2)
+			self.isSortedBy(isLessOrEqual/2)
 		}
 	}
 
 	isSorted { :self |
-		self.isSortedBetweenAnd(1, self.size)
+		self.isSortedBetween(1, self.size)
 	}
 
-	isSortedBetweenAnd { :self :startIndex :endIndex |
-		self.isSortedByBetweenAnd(<=|, startIndex, endIndex)
+	isSortedBetween { :self :startIndex :endIndex |
+		self.isSortedByBetween(<=|, startIndex, endIndex)
 	}
 
 	[isSorted, isSortedBy] { :self :aBlock/2 |
-		self.isSortedByBetweenAnd(aBlock/2, 1, self.size)
+		self.isSortedByBetween(aBlock/2, 1, self.size)
 	}
 
-	isSortedByBetweenAnd { :self :aBlock/2 :startIndex :endIndex |
+	isSortedByBetween { :self :aBlock/2 :startIndex :endIndex |
 		(endIndex <= startIndex).if {
 			true
 		} {
@@ -150,7 +150,7 @@
 
 	isStrictlyIncreasing { :self |
 		self.isFinite & {
-			self.isSortedBy(less/2)
+			self.isSortedBy(isLess/2)
 		}
 	}
 
@@ -517,7 +517,7 @@
 	}
 
 	bubbleSort! { :self |
-		self.bubbleSort!(less/2)
+		self.bubbleSort!(isLess/2)
 	}
 
 	bubbleSort { :self |
@@ -557,7 +557,7 @@
 	}
 
 	insertionSort! { :self |
-		self.insertionSort!(less/2)
+		self.insertionSort!(isLess/2)
 	}
 
 	insertionSort { :self |
@@ -662,7 +662,7 @@
 	}
 
 	combSort! { :self |
-		self.combSort!(less/2)
+		self.combSort!(isLess/2)
 	}
 
 	combSort { :self |
@@ -807,7 +807,7 @@
 	}
 
 	bitonicSort! { :self |
-		self.bitonicSort!(less/2)
+		self.bitonicSort!(isLess/2)
 	}
 
 	bitonicSortMatrix { :self |
@@ -893,7 +893,7 @@
 	}
 
 	oddEvenSort! { :self |
-		self.oddEvenSort!(less/2)
+		self.oddEvenSort!(isLess/2)
 	}
 
 	oddEvenSort { :self |
@@ -938,7 +938,7 @@
 	}
 
 	gnomeSort! { :self |
-		self.gnomeSort!(less/2)
+		self.gnomeSort!(isLess/2)
 	}
 
 	gnomeSort { :self |
@@ -993,7 +993,7 @@
 	}
 
 	shuffleSort! { :self |
-		self.shuffleSort!(less/2)
+		self.shuffleSort!(isLess/2)
 	}
 
 	shuffleSort { :self |

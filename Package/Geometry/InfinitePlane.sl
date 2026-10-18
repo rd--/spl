@@ -35,7 +35,7 @@ InfinitePlane : [Object, Store, Equal] {
 	}
 
 	includes { :self :aPoint |
-		self.terms.pointPlaneDistance(aPoint).isVeryCloseTo(0)
+		self.terms.pointPlaneDistance(aPoint).isVeryClose(0)
 	}
 
 	intercepts { :self |

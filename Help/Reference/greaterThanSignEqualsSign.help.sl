@@ -2,7 +2,7 @@
 
 - _x >= y_
 
-The operator form of `greaterEqual`:
+The operator form of `isGreaterOrEqual`:
 
 ```
 >>> 1.pi >= 1.e
@@ -15,7 +15,7 @@ The name of this operator is `greaterThanSignEqualsSign`.
 
 * * *
 
-See also: <, >, <=, =, !=, <=>, greaterEqual, Magnitude
+See also: <, >, <=, =, !=, <=>, isGreaterOrEqual, Magnitude
 
 Guides: Comparison Functions
 

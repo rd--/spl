@@ -110,7 +110,7 @@ DocumentationTest : [Object, Store, Equal] {
 
 +Promise {
 
-	[similar, ~] { :self :operand |
+	[isSimilar, ~] { :self :operand |
 		self.then { :answer |
 			answer ~ operand
 		}

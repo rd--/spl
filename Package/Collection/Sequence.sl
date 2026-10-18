@@ -634,7 +634,7 @@
 	}
 
 	deleteAdjacentDuplicates { :self |
-		self.deleteAdjacentDuplicates(equal/2)
+		self.deleteAdjacentDuplicates(isEqual/2)
 	}
 
 	deriveRange { :self |
@@ -918,7 +918,7 @@
 		}
 	}
 
-	equalBy { :self :anObject :aBlock/2 |
+	isEqualBy { :self :anObject :aBlock/2 |
 		(self == anObject) | {
 			(self.typeOf = anObject.typeOf) & {
 				self.hasEqualElements(anObject, aBlock/2)
@@ -1337,7 +1337,7 @@
 	}
 
 	hasEqualElements { :self :otherCollection |
-		self.hasEqualElements(otherCollection, equal/2)
+		self.hasEqualElements(otherCollection, isEqual/2)
 	}
 
 	highWaterMark { :self |
@@ -1368,7 +1368,7 @@
 	}
 
 	indexOf { :self :anElement |
-		self.indexOfStartingAtBy(anElement, 1, equal/2)
+		self.indexOfStartingAtBy(anElement, 1, isEqual/2)
 	}
 
 	indexOfBy { :self :anElement :aBlock/2 |
@@ -1376,7 +1376,7 @@
 	}
 
 	indexOfIfAbsent { :self :anElement :exceptionBlock/0 |
-		let index = self.indexOfStartingAtBy(anElement, 1, equal/2);
+		let index = self.indexOfStartingAtBy(anElement, 1, isEqual/2);
 		(index = 0).if {
 			exceptionBlock()
 		} {
@@ -1494,7 +1494,7 @@
 		(self.size <= 1).if {
 			true
 		} {
-			self.isArithmeticProgression(self.second - self.first, equal/2)
+			self.isArithmeticProgression(self.second - self.first, isEqual/2)
 		}
 	}
 
@@ -1506,15 +1506,15 @@
 		}
 	}
 
-	isCloseTo { :self :anObject |
-		self.equalBy(anObject, isCloseTo/2)
+	isClose { :self :anObject |
+		self.isEqualBy(anObject, isClose/2)
 	}
 
 	isGeometricProgression { :self |
 		(self.size <= 1).if {
 			true
 		} {
-			self.isGeometricProgressionBy(self.second / self.first, equal/2)
+			self.isGeometricProgressionBy(self.second / self.first, isEqual/2)
 		}
 	}
 
@@ -1556,7 +1556,7 @@
 	isOctetSequence { :self |
 		self.allSatisfy { :each |
 			each.isInteger & {
-				each.betweenAnd(0, 255)
+				each.isBetween(0, 255)
 			}
 		}
 	}
@@ -1658,11 +1658,11 @@
 	}
 
 	isUnimodal { :x |
-		x.isUnimodal(lessEqual/2)
+		x.isUnimodal(isLessOrEqual/2)
 	}
 
-	isVeryCloseTo { :self :anObject |
-		self.equalBy(anObject, isVeryCloseTo/2)
+	isVeryClose { :self :anObject |
+		self.isEqualBy(anObject, isVeryClose/2)
 	}
 
 	kadanesAlgorithm { :self |
@@ -1946,7 +1946,7 @@
 
 	normalize { :self |
 		let n = self.norm;
-		n.isVeryCloseTo(0).if {
+		n.isVeryClose(0).if {
 			self
 		} {
 			self / n
@@ -1968,7 +1968,7 @@
 	}
 
 	nubCumulatively { :self |
-		self.nubCumulatively(equal/2)
+		self.nubCumulatively(isEqual/2)
 	}
 
 	nubSieve { :self |
@@ -2207,7 +2207,7 @@
 	replaceAllWith { :self :oldObject :newObject |
 		let index = 0;
 		{
-			index := self.indexOfStartingAtBy(oldObject, index + 1, equal/2);
+			index := self.indexOfStartingAtBy(oldObject, index + 1, isEqual/2);
 			index = 0
 		}.whileFalse {
 			self[index] := newObject
@@ -2856,7 +2856,7 @@
 	}
 
 	uniqueElements { :self |
-		self.uniqueElements(equal/2)
+		self.uniqueElements(isEqual/2)
 	}
 
 	uniqueElements { :self :aBlock/2 |

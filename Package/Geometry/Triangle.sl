@@ -396,7 +396,7 @@ Triangle : [Object, Store, Equal, Geometry] {
 
 	isEquilateral { :self |
 		self.interiorAngles.allSatisfy { :each |
-			each.isVeryCloseTo(1/3.pi)
+			each.isVeryClose(1/3.pi)
 		}
 	}
 
@@ -410,7 +410,7 @@ Triangle : [Object, Store, Equal, Geometry] {
 	}
 
 	isIsosceles { :self |
-		self.sideLengths.nubBy(isVeryCloseTo/2).size <= 2
+		self.sideLengths.nubBy(isVeryClose/2).size <= 2
 	}
 
 	isOblique { :self |
@@ -425,7 +425,7 @@ Triangle : [Object, Store, Equal, Geometry] {
 
 	isRight { :self |
 		self.interiorAngles.anySatisfy { :each |
-			each.isVeryCloseTo(1/2.pi)
+			each.isVeryClose(1/2.pi)
 		}
 	}
 

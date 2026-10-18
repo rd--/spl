@@ -13,7 +13,11 @@
 				let [p, q] = each;
 				let pp = i + (p * v);
 				let qq = j + (q * v);
-				(pp.betweenAnd(0, n - 1) & { qq.betweenAnd(0, n - 1) }).ifTrue {
+				(
+					pp.isBetween(0, n - 1) & {
+						qq.isBetween(0, n - 1)
+					}
+				).ifTrue {
 					res := res + d[pp + 1][qq + 1];
 					k := k + 1
 				}

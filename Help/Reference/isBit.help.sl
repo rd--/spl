@@ -24,7 +24,7 @@ Very close to zero but not zero or one:
 
 ```
 >>> let n = 1E-53;
->>> (n.isBit, n.isVeryCloseTo(0))
+>>> (n.isBit, n.isVeryClose(0))
 (false, true)
 ```
 

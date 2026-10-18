@@ -15,7 +15,7 @@ Greymap : [Object] {
 		];
 		let rows = self.greyMatrix.collect { :each |
 			each.collect { :level |
-				level.betweenAnd(0, 1).if {
+				level.isBetween(0, 1).if {
 					(level * maxDepth).round.printString
 				} {
 					self.error('encodePgm: not (0,1) matrix')

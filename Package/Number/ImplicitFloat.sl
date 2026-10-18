@@ -4,8 +4,8 @@
 		SmallFloat(self).exp
 	}
 
-	isCloseToBy { :self :aNumber :epsilon |
-		SmallFloat(self).isCloseToBy(
+	isCloseBy { :self :aNumber :epsilon |
+		SmallFloat(self).isCloseBy(
 			SmallFloat(aNumber),
 			epsilon
 		)

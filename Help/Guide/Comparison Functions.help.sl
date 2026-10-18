@@ -7,13 +7,13 @@ Traits:
 
 Equation:
 
-- `equal`, `=`
-- `identical`, `==`
+- `isEqual`, `=`
+- `isIdentical`, `==`
 
 Inequation:
 
-- `unequal`, `!=`
-- `nonidentical`, `!==`
+- `isUnequal`, `!=`
+- `isNonidentical`, `!==`
 
 Inequalities:
 
@@ -40,8 +40,7 @@ Similarities:
 
 Ternary:
 
-- `between`
-- `betweenAnd`
+- `isBetween`
 
 Collation:
 

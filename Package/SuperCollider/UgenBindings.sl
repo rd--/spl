@@ -466,12 +466,12 @@
 	[divide, /] { :self :anObject | Divide(self, anObject) }
 	[quotient, //] { :self :anObject | Quotient(self, anObject) }
 	[mod, %] { :self :anObject | Mod(self, anObject) }
-	[equal, =] { :self :anObject | Equal(self, anObject) }
-	[unequal, !=] { :self :anObject | Unequal(self, anObject) }
-	[less, <] { :self :anObject | Less(self, anObject) }
-	[greater, >] { :self :anObject | Greater(self, anObject) }
-	[lessEqual, <=] { :self :anObject | LessEqual(self, anObject) }
-	[greaterEqual, >=] { :self :anObject | GreaterEqual(self, anObject) }
+	[isEqual, =] { :self :anObject | Equal(self, anObject) }
+	[isUnequal, !=] { :self :anObject | Unequal(self, anObject) }
+	[isLess, <] { :self :anObject | Less(self, anObject) }
+	[isGreater, >] { :self :anObject | Greater(self, anObject) }
+	[isLessOrEqual, <=] { :self :anObject | LessEqual(self, anObject) }
+	[isGreaterOrEqual, >=] { :self :anObject | GreaterEqual(self, anObject) }
 	[bitShiftLeft, <<] { :self :anObject | ShiftLeft(self, anObject) }
 	[bitShiftRight, >>] { :self :anObject | ShiftRight(self, anObject) }
 

@@ -2,11 +2,11 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 
 	| decimalFraction scale |
 
-	[less, <] { :self :operand |
+	[isLess, <] { :self :operand |
 		operand.isDecimal.if {
-			lessOn(self, operand, decimalFraction/1)
+			isLessOn(self, operand, decimalFraction/1)
 		} {
-			operand.adaptToDecimalAndApply(self, less/2)
+			operand.adaptToDecimalAndApply(self, isLess/2)
 		}
 	}
 
@@ -25,13 +25,18 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 		}
 	}
 
-	[equal, =] { :self :operand |
+	[isEqual, =] { :self :operand |
 		operand.isDecimal.if {
-			equal(self.scale, operand.scale) & {
+			isEqualOn(
+				self,
+				operand,
+				scale/1
+			) & {
 				let m = 10L ^ self.scale;
-				equal(
-					(SmallFloat(self) * m).round,
-					(SmallFloat(operand) * m).round
+				isEqualOn(
+					self,
+					operand,
+					{ :x | (SmallFloat(x) * m).round }
 				)
 			}
 		} {
@@ -174,8 +179,8 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 		)
 	}
 
-	isCloseToBy { :self :aNumber :epsilon |
-		SmallFloat(self).isCloseToBy(aNumber.SmallFloat, epsilon)
+	isCloseBy { :self :aNumber :epsilon |
+		SmallFloat(self).isCloseBy(aNumber.SmallFloat, epsilon)
 	}
 
 	isExact { :unused |

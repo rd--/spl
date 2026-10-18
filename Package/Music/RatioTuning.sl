@@ -10,16 +10,6 @@ RatioTuning : [Object, Store, Equal, Cache, Tuning] {
 		}
 	}
 
-	equalBy { :self :anObject :aBlock/2 |
-		anObject.isRatioTuning & {
-			self.equalByAtNamedSlots(
-				anObject,
-				['name' 'description' 'ratios' 'octave'],
-				aBlock/2
-			)
-		}
-	}
-
 	integers { :self |
 		(self.ratios / self.ratios.reduce(gcd/2)).collect(Integer/1)
 	}
@@ -43,6 +33,16 @@ RatioTuning : [Object, Store, Equal, Cache, Tuning] {
 			}.boole.sum
 		}.allSatisfy { :k |
 			k = 1
+		}
+	}
+
+	isEqualBy { :self :anObject :aBlock/2 |
+		anObject.isRatioTuning & {
+			self.isEqualByAtNamedSlots(
+				anObject,
+				['name' 'description' 'ratios' 'octave'],
+				aBlock/2
+			)
 		}
 	}
 
