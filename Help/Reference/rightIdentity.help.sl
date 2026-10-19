@@ -12,7 +12,7 @@ Answer the object _y_.
 As argument to `scan`:
 
 ```
->> 1:9.scan(rightIdentity/2)
+>>> 1:9.scan(rightIdentity/2)
 [1 2 3 4 5 6 7 8 9]
 
 >>> 1:9.scanRight(rightIdentity/2)
