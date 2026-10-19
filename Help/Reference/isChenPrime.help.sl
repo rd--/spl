@@ -42,7 +42,7 @@ OEIS [A109611](https://oeis.org/A109611):
 
 See also: isPrime, isLesserTwinPrime, isSemiprime
 
-Guides: Prime Number Functions
+Guides: Permutation Functions, Prime Number Functions
 
 References:
 _Mathematica_

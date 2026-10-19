@@ -34,7 +34,9 @@ Count derangements:
 
 * * *
 
-See also: derangements, Permutation, subfactorial
+See also: Permutation, derangements, subfactorial
+
+Guides: Permutation Functions, Predicate Functions
 
 References:
 [1](https://doc.sagemath.org/html/en/reference/combinat/sage/combinat/permutation.html#sage.combinat.permutation.Permutation.is_derangement)

@@ -25,7 +25,7 @@ true
 
 See also: grayDecode, grayEncode, isBeckettGrayCode, isBitVector, isCyclicGrayCode
 
-Guides: Integer Sequence Functions
+Guides: Integer Sequence Functions, Predicate Functions
 
 References:
 _Mathematica_

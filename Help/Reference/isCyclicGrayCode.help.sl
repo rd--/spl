@@ -2,7 +2,8 @@
 
 - _isCyclicGrayCode([x₁ x₂ …], kind)_
 
-Answer `true` if the sequence of vectors _x_ is a cyclic Gray code of the specified kind, else `false`.
+Answer `true` if the sequence of vectors _x_ is a cyclic Gray code of the specified kind,
+else `false`.
 
 The 1-bit cyclic Gray code:
 
@@ -107,7 +108,7 @@ true
 
 See also: grayDecode, grayEncode, isBeckettGrayCode, isBitVector, isGrayCode
 
-Guides: Integer Sequence Functions
+Guides: Integer Sequence Functions, Predicate Functions
 
 References:
 _Mathematica_

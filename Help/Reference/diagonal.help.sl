@@ -43,11 +43,14 @@ Obtain the subdiagonal:
 [4 8]
 ```
 
-The diagonal of a non-square matrix:
+The diagonal of non-square matrices:
 
 ```
 >>> [3 4].iota.diagonal
 [1 6 11]
+
+>>> [4 3].iota.diagonal
+[1 5 9]
 
 >>> [
 >>> 	3  2  2;

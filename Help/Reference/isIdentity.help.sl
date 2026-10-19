@@ -1,8 +1,9 @@
 # isIdentity
 
-- _isIdentity(aPermutation)_
+- _isIdentity(p)_
 
-Answer `true` if _aPermutation_ is the identity permutation.
+Answer `true` if the permutation _p_ is the identity permutation,
+else `false`.
 
 A permutation with only fixed points (unary cycles):
 
@@ -21,5 +22,7 @@ true
 * * *
 
 See also: Permutation
+
+Guides: Permutation Functions, Predicate Functions
 
 Categories: Permutations

@@ -87,7 +87,7 @@ The twenty-six 5×5 involutory permutation matrices:
 
 See also: inverse, involutionNumber, isSquareMatrix, isSymmetricMatrix
 
-Guides: Matrix Functions
+Guides: Matrix Functions, Predicate Functions
 
 References:
 _Mathematica_

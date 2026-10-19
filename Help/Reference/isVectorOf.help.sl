@@ -33,6 +33,6 @@ true
 
 See also: elementType, isMatrix, isVector, typeOf
 
-Guides: Vector Functions
+Guides: Predicate Functions, Vector Functions
 
 Categories: Testing

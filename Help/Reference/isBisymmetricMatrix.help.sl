@@ -2,7 +2,8 @@
 
 - _isBisymmetricMatrix(m)_
 
-Answer `true` if the matrix _m_ is bisymmetric, else `false`.
+Answer `true` if the matrix _m_ is bisymmetric,
+else `false`.
 
 Test if a 5×5 numeric matrix is bisymmetric:
 
@@ -21,7 +22,7 @@ true
 
 See also: dot, exchangeMatrix, isMatrix, isSquareMatrix, isSymmetricMatrix
 
-Guides: Matrix Functions
+Guides: Matrix Functions, Predicate Functions
 
 References:
 _Mathematica_

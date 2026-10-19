@@ -26,7 +26,7 @@ true
 
 See also: cycles, isSymmetricMatrix, Permutation
 
-Guides: Permutation Functions
+Guides: Permutation Functions, Predicate Functions
 
 References:
 _Mathematica_

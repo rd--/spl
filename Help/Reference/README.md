@@ -1,17 +1,23 @@
+# Help/Reference
+
+Run documentation tests:
+
+~~~spl
 'Help/Reference'.splFilePath.terseReferenceSummary((verbose: false, pattern: '.*'))
+~~~
 
 Total => 19,400
 
 Note: Requires LibraryItems be at the interpreter cache, i.e.
 
-~~~
+~~~spl
 system.library.collect(request/1)
 ~~~
 
 Write image files:
 
-~~~
-system.helpFilesDo('Reference', '.*', true, writeImageFiles/1); nil
+~~~spl
+system.helpFilesDo('Reference', '.*', true, writeImageFiles/1)
 ~~~
 
 Update indices:
@@ -19,18 +25,34 @@ Update indices:
 - helpImageIndex
 - oeisImageIndex
 
+Count image files:
+
+~~~sh
 ls ~/sw/spl/Help/Image/* | wc -l
+~~~
+
 => 4,966
 
-grep '!\[\](' ~/sw/spl/Help/Reference/* | wc -l
-=> 5,053
+Count reference files:
 
+~~~sh
+$ (grep '!\[\](' ~/sw/spl/Help/Reference/* | wc -l)
 ~~~
+
+=> 5,065
+
+Run SuperCollider programs:
+
+~~~spl
 'Help/Reference'.splFilePath.terseSuperColliderGraphSummary((verbose: true, pattern: '.*'))
 ~~~
 
 Total => 572
 
-$ (cd ~/sw/spl/Help/Reference; make lint)
+Lint reference files:
 
-Linting: 4194 file(s)
+~~~sh
+$ (cd ~/sw/spl/Help/Reference; make lint)
+~~~
+
+Linting: 4200 file(s)

@@ -95,6 +95,17 @@ Make a 4×3 matrix:
 ]
 ```
 
+A multiplication table:
+
+```
+>>> *.table([1 2 3], [4 5 6 7])
+[
+	 4  5  6  7;
+	 8 10 12 14;
+	12 15 18 21
+]
+```
+
 The index in the table can run backward:
 
 ```

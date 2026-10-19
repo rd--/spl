@@ -57,4 +57,4 @@ Bitwise Functions:
 
 * * *
 
-Guides: Bitwise Functions, Logical Operators
+Guides: Bitwise Functions, Logical Operators, Predicate Functions

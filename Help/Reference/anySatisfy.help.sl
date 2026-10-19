@@ -61,7 +61,7 @@ OEIS [A162918](https://oeis.org/A162918):
 
 See also: allSatisfy, noneSatisfy
 
-Guides: Boolean Functions
+Guides: Boolean Functions, Predicate Functions
 
 References:
 _Haskell_

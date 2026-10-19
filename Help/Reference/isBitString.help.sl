@@ -2,7 +2,8 @@
 
 - _isBitString(s)_
 
-Answer `true` if all the characters in the string _s_ are either _0_ or _1_.
+Answer `true` if all the characters in the string _s_ are either _0_ or _1_,
+else `false`.
 
 At `String`:
 
@@ -29,6 +30,6 @@ true
 
 See also: boole, isBitVector
 
-Guides: String Functions
+Guides: Predicate Functions, String Functions
 
 Categories: Testing

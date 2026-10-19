@@ -2,7 +2,8 @@
 
 - _isHermitianMatrix(m)_
 
-Answer `true` if _m_ is a Hermitian matrix, else `false`.
+Answer `true` if _m_ is a Hermitian matrix,
+else `false`.
 A matrix m is Hermitian if _m_ is equal to the `conjugateTranspose` of _m_.
 
 Test if a 2×2 matrix is Hermitian:
@@ -80,7 +81,7 @@ false
 
 See also: conjugateTranspose, isSymmetricMatrix, isVeryClose
 
-Guides: Matrix Functions
+Guides: Matrix Functions, Predicate Functions
 
 References:
 _Mathematica_

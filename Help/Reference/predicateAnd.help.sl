@@ -33,4 +33,4 @@ else `false`.
 
 See also: allSatisfy, allTrue, predicateNot, predicateOr
 
-Guides: Boolean Functions
+Guides: Boolean Functions, Predicate Functions

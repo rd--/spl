@@ -147,6 +147,7 @@ Predicates:
 - `isIntegerArray`
 - `isLargeInteger`
 - `isNonNegativeInteger`
+- `isNonZero`
 - `isOne`
 - `isSmallInteger`
 - `isZero`
@@ -196,4 +197,4 @@ Nim Functions:
 
 * * *
 
-Guides: Bitwise Functions, Combinatorial Functions, Integer Sequence Functions, Mathematical Functions, Prime Number Functions
+Guides: Bitwise Functions, Combinatorial Functions, Integer Sequence Functions, Mathematical Functions, Predicate Functions, Prime Number Functions

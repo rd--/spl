@@ -2,7 +2,8 @@
 
 - _isSymmetricMatrix(m)_
 
-Answer `true` if the matrix _m_ is symmetric, else `false`.
+Answer `true` if the matrix _m_ is symmetric,
+else `false`.
 
 Test if a 2×2 numeric matrix is symmetric:
 
@@ -54,7 +55,7 @@ true
 
 See also: isMatrix, isSquareMatrix
 
-Guides: Matrix Functions
+Guides: Matrix Functions, Predicate Functions
 
 References:
 _Mathematica_

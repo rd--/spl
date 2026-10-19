@@ -48,7 +48,7 @@ If there are more columns than rows, this indicates that the rows are orthonorma
 
 See also: conjugateTranspose, isSymmetricMatrix, normalize
 
-Guides: Matrix Functions
+Guides: Matrix Functions, Predicate Functions
 
 References:
 _Mathematica_

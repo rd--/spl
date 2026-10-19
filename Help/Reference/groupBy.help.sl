@@ -35,7 +35,7 @@ The Haskell `group` and `groupBy` functions are called `split` in Spl.
 
 * * *
 
-See also: countsBy, reject, select
+See also: countsBy, gatherBy, reject, select
 
 Guides: List Functions
 

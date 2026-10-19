@@ -96,8 +96,13 @@ Querying:
 
 Accessing:
 
+- `antidiagonal`
+- `antidiagonals`
 - `column`
 - `columns`
+- `cyclicDiagonals`
+- `diagonal`
+- `diagonals`
 - `row`
 - `rows`
 - `submatrix`
@@ -146,7 +151,7 @@ Predicates:
 General:
 
 - `adjugate`: adjugate or adjoint
-- `antitranspose`: antitransposition
+- `antiTranspose`: antitransposition
 - `arrayFlatten`: flatten a matrix of matrices
 - `arrayRules`: positions and values of non-zero elements
 - `choleskyDecomposition`: the Cholesky decomposition

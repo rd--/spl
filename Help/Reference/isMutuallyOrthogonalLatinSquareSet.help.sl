@@ -61,7 +61,7 @@ true
 
 See also: isLatinSquare, shape
 
-Guides: Matrix Functions
+Guides: Matrix Functions, Predicate Functions
 
 References:
 _W_

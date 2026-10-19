@@ -41,4 +41,4 @@ The numbers that are not prime are the composite numbers:
 
 See also: anySatisfy, anyTrue, predicateAnd, predicateOr
 
-Guides: Boolean Functions
+Guides: Boolean Functions, Predicate Functions

@@ -1,53 +1,47 @@
 # Predicate Functions
 
+Numeric Trait & Type Predicates:
+
+- `isComplex`
+- `isDecimal`
+- `isFraction`
+- `isInteger`
+- `isLargeInteger
+- `isNumber`
+- `isRational`
+- `isReal`
+- `isScalar`
+- `isSmallFloat`
+- `isSmallInteger`
+
 Number Predicates:
 
 - `isAbundantNumber`
 - `isAdjacentFraction`
-- `isAlmostPrime`
 - `isAmicablePair`
-- `isBalancedPrime`
 - `isBit`
 - `isByte`
-- `isCachedPrime`
 - `isCarmichaelNumber`
-- `isChenPrime`
-- `isComplex`
 - `isComposite`
-- `isDecimal`
-- `isEisensteinPrime`
 - `isEven`
 - `isExact`
-- `isFraction`
 - `isGaussianInteger`
-- `isGaussianPrime`
-- `isInteger`
-- `isLargeInteger`
-- `isLesserCousinPrime`
-- `isLesserTwinPrime`
 - `isNegative`
+- `isNonNegativeInteger`
 - `isNonPositive`
-- `isNumber`
+- `isNonZero`
 - `isOdd`
 - `isOne`
 - `isPerfectNumber`
 - `isPerfectPower`
 - `isPerfectSquare`
 - `isPositive`
-- `isPrime`
 - `isPseudoperfectNumber`
-- `isRational`
-- `isReal`
-- `isScalar`
-- `isSmallFloat`
-- `isSmallInteger`
 - `isSphenicNumber`
-- `isStrongPrime`
-- `isWeakPrime`
 - `isWeirdNumber`
 - `isZero`
 
-Prime Predicates:
+Prime Number Predicates:
 
 - `isAlmostPrime`
 - `isBalancedPrime`
@@ -69,27 +63,92 @@ Prime Predicates:
 - `isStrongPrime`
 - `isWeakPrime`
 
-Type Predicates:
-
-- `isComplex`
-- `isDecimal`
-- `isFraction`
-- `isLargeInteger
-- `isSmallFloat`
-
 Matrix Predicates:
 
-- `isMatrix`
+- `isAntihermitianMatrix`
+- `isAntisymmetricMatrix`
+- `isBandMatrix`
+- `isBinaryMatrix`
+- `isBisymmetricMatrix`
+- `isCentrosymmetricMatrix`
+- `isDiagonalMatrix`
+- `isDiagonallyDominantMatrix`
+- `isGilbertSquare`
+- `isHermitianMatrix`
+- `isIntegerMatrix`
+- `isInvolutoryMatrix`
+- `isLatinSquare`
+- `isLowerTriangularMatrix`
 - `isMatrixOf`
+- `isMatrix`
+- `isMutuallyOrthogonalLatinSquareSet`
+- `isNormalMatrix`
+- `isOrthogonalMatrix`
+- `isSignatureMatrix`
+- `isSquareMatrix`
+- `isSymmetricMatrix`
+- `isTridiagonalMatrix`
+- `isUnitaryMatrix`
+- `isUpperTriangularMatrix`
 
 Vector Predicates:
 
+- `isBitVector`
 - `isColumnVector`
 - `isOrigin`
 - `isRowVector`
 - `isVectorOf`
 - `isVector`
 
+Array Predicates:
+
+- `isArray`
+- `isIntegerArray`
+
+String Predicates:
+
+- `isBitString`
+- `isString`
+
+Gray Code Predicates:
+
+- `isBeckettGrayCode`
+- `isCyclicGrayCode`
+- `isGrayCode`
+
+List Predicates:
+
+- `isList`
+
+Collection Predicates:
+
+- `allFalse`
+- `allSatisfy`
+- `allTrue`
+- `anySatisfy`
+- `anyTrue`
+- `deepAllSatisfy`
+- `noneSatisfy`
+- `noneTrue`
+
+Predicate Composition:
+
+- `predicateAnd`
+- `predicateNot`
+- `predicateOr`
+
+Permutation Predicates:
+
+- `hasPattern`
+- `isDerangement`
+- `isGracefulPermutation`
+- `isIdentity`
+- `isInvolution`
+- `isPermutationCycles`
+- `isPermutationList`
+- `isPermutationOf`
+- `isSuperpermutation`
+
 * * *
 
-Guides: Integer Functions, Mathematical Functions
+Guides: Array Functions, Boolean Functions, Integer Functions, Mathematical Functions, Matrix Functions, Permutation Functions, Prime Number Functions

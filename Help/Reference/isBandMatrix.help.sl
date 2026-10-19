@@ -56,7 +56,7 @@ true
 
 See also: isDiagonalMatrix, isTridiagonalMatrix, isUpperTriangularMatrix
 
-Guides: Matrix Functions
+Guides: Matrix Functions, Predicate Functions
 
 References:
 _W_

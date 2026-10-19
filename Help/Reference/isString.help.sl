@@ -1,8 +1,9 @@
 # isString
 
-- _isString(anObject)_
+- _isString(x)_
 
-Answer `true` if _anObject_ is a `String`, else `false`.
+Answer `true` if the object _x_ is a `String`,
+else `false`.
 
 ```
 >>> 'string'.isString
@@ -19,6 +20,8 @@ Pick out all `String`s in a `List`:
 * * *
 
 See also: String
+
+Guides: Predicate Functions, String Functions
 
 References:
 _Mathematica_

@@ -43,6 +43,23 @@ _n_ less than _k_:
 0
 ```
 
+Initial table, from `one`:
+
+```
+>>> 1:9.triangularArray(binomial/2)
+[
+	1;
+	2 1;
+	3 3 1;
+	4 6 4 1;
+	5 10 10 5 1;
+	6 15 20 15 6 1;
+	7 21 35 35 21 7 1;
+	8 28 56 70 56 28 8 1;
+	9 36 84 126 126 84 36 9 1
+]
+```
+
 Real valued arguments:
 
 ```
@@ -51,6 +68,13 @@ Real valued arguments:
 
 >>> 2.binomial(0.5)
 (16 / 3.pi)
+```
+
+`Complex` _k_:
+
+```
+>>> 3.5.binomial(1J2)
+8.64269J16.9189
 ```
 
 _k_ may be a collection:
@@ -158,6 +182,10 @@ Threads over lists:
 >>> 	13.binomial(3)
 >>> ]
 [11 66 286]
+
+>>> [10 3.40689 8.26209 16.1924]
+>>> .binomial(2)
+[45 4.1 30 123]
 ```
 
 One of a family of integer sequences (OEIS A006542):

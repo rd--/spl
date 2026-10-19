@@ -24,7 +24,7 @@ true
 
 See also: allFalse, allTrue, anyTrue, noneSatisfy
 
-Guides: Boolean Functions
+Guides: Boolean Functions, Predicate Functions
 
 References:
 _Mathematica_

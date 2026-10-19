@@ -45,7 +45,7 @@ true
 
 See also: allSatisfy, includesSubstring, permutations
 
-Guides: Permutation Functions
+Guides: Permutation Functions, Predicate Functions
 
 References:
 _OEIS_

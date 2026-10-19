@@ -26,6 +26,6 @@ Does not mutate _p_ or _q_:
 
 See also: Permutation
 
-Guides: Permutation Functions
+Guides: Permutation Functions, Predicate Functions
 
 Categories: Permutations, Testing

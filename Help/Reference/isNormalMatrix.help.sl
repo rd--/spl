@@ -85,7 +85,7 @@ true
 
 See also: conjugateTranspose, dot
 
-Guides: Matrix Functions
+Guides: Matrix Functions, Predicate Functions
 
 References:
 _Mathematica_

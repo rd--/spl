@@ -20,6 +20,23 @@ and in sorted order.
 [0J0 0J1 0J2 1J0 2J0]
 ```
 
+_a_ places each item of _b_ into on of three categories,
+group _b_ according to these categories,
+the meaning of the verb _/._ in _J_:
+
+```
+>>> let a = [1 2 3 1 3 2 1];
+>>> let b = [0 1 2 3 4 5 6];
+>>> let c = a.unique;
+>>> let d = c.collect { :x |
+>>> 	a.indicesOf(x)
+>>> };
+>>> d.collect { :x |
+>>> 	b.atAll(x)
+>>> }
+[0 3 6; 1 5; 2 4]
+```
+
 Unique digits used in _n_ in numerical order,
 OEIS [A180410](https://oeis.org/A180410):
 

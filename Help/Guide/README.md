@@ -1,11 +1,17 @@
+# Help/Guide
+
+Run documentation tests:
+
+~~~spl
 'Help/Guide'.splFilePath.terseReferenceSummary((verbose: false, pattern: '.*'))
+~~~
 
 Total => 964
 
 Write image files:
 
-~~~
-system.helpFilesDo('Guide', '.*', true, writeImageFiles/1); nil
+~~~spl
+system.helpFilesDo('Guide', '.*', true, writeImageFiles/1)
 ~~~
 
 Update indices:
@@ -13,6 +19,10 @@ Update indices:
 - Integer Sequence Index
 - Integer Sequence Method List
 
-$ (cd ~/sw/spl/Help/Guide; make lint)
+Lint files:
 
-Linting: 291 file(s)
+~~~sh
+$ (cd ~/sw/spl/Help/Guide; make lint)
+~~~
+
+Linting: 295 file(s)

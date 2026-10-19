@@ -397,10 +397,11 @@ Reference/antidiagonalIndicesDo.help.sl
 Reference/antidiagonalIndices.help.sl
 Reference/antidiagonalMatrix.help.sl
 Reference/antidiagonalRank.help.sl
+Reference/antidiagonals.help.sl
 Reference/antidiagonalUnrank.help.sl
 Reference/antiDivisors.help.sl
 Reference/antipedalTriangle.help.sl
-Reference/antitranspose.help.sl
+Reference/antiTranspose.help.sl
 Reference/anyAs.help.sl
 Reference/any.help.sl
 Reference/anyOne.help.sl
@@ -1160,6 +1161,7 @@ Reference/diagonal.help.sl
 Reference/diagonalIndexToCartesianIndex.help.sl
 Reference/diagonalIrregular.help.sl
 Reference/diagonalMatrix.help.sl
+Reference/diagonals.help.sl
 Reference/diameter.help.sl
 Reference/diamondMatrix.help.sl
 Reference/diamondSpiral.help.sl
@@ -4114,6 +4116,7 @@ Reference/ternaryExpansion.help.sl
 Reference/terseGuideSummary.help.sl
 Reference/terseReferenceEntry.help.sl
 Reference/terseReferenceSummary.help.sl
+Reference/terseSuperColliderGraphSummary.help.sl
 Reference/tetrahedralNumber.help.sl
 Reference/Tetrahedron.help.sl
 Reference/tetranacciConstant.help.sl

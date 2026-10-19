@@ -35,7 +35,7 @@ true
 
 See also: allSatisfy, anySatisfy, anyTrue, noneSatisfy
 
-Guides: Boolean Functions
+Guides: Boolean Functions, Predicate Functions
 
 References:
 _Mathematica_

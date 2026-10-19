@@ -2,7 +2,8 @@
 
 - _isDiagonalMatrix(m)_
 
-Answer `true` if the matrix _m_ is a diagonal matrix.
+Answer `true` if the matrix _m_ is a diagonal matrix,
+else `false`.
 
 At three 3×3 matrices:
 
@@ -69,7 +70,7 @@ false
 
 See also: diagonalMatrix, identityMatrix, isMatrix
 
-Guides: Matrix Functions
+Guides: Matrix Functions, Predicate Functions
 
 References:
 _Mathematica_

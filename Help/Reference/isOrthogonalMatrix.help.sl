@@ -88,7 +88,7 @@ true
 
 See also: isSymmetricMatrix, isUnitaryMatrix, normalize, transpose
 
-Guides: Matrix Functions
+Guides: Matrix Functions, Predicate Functions
 
 References:
 _Mathematica_

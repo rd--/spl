@@ -37,6 +37,6 @@ true
 
 See also: elementType, isMatrix, isVector, isVectorOf, typeOf
 
-Guides: Matrix Functions
+Guides: Matrix Functions, Predicate Functions
 
 Categories: Testing, Collection

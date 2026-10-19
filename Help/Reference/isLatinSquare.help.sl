@@ -91,7 +91,7 @@ Does not mutate receiver:
 
 See also: isPermutationOf, isSquareMatrix
 
-Guides: Combinatorial Functions, Matrix Functions
+Guides: Combinatorial Functions, Matrix Functions, Predicate Functions
 
 References:
 _Mathematica_

@@ -4,7 +4,7 @@
 		self.inverse * self.determinant
 	}
 
-	antitranspose { :self |
+	antiTranspose { :self |
 		let [m, n] = self.shape;
 		let answer = [];
 		n.downToDo(1) { :i |

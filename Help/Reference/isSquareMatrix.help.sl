@@ -2,6 +2,8 @@
 
 - _isSquareMatrix(m)_
 
+Answer `true` if _m_ is a square matrix,
+else `false`.
 A square matrix is a matrix with an equal number of rows and column,
 ie. an _n×n_ matrix.
 
@@ -18,8 +20,8 @@ true
 
 * * *
 
-See also: isMatrix, List, Matrix, shape
+See also: List, Matrix, isMatrix, shape
 
-Guides: Matrix Functions
+Guides: Matrix Functions, Predicate Functions
 
 Categories: Testing, Matrix

@@ -40,4 +40,4 @@ true
 
 See also: abs, differences, isPermutationList, sort
 
-Guides: Permutation Functions
+Guides: Permutation Functions, Predicate Functions

@@ -7,7 +7,7 @@ a Latin square in which each digram _(i,j)_,
 where _i≠j_,
 occurs once horizontally and once vertically.
 
-A Gilbert square can be constructed from two permutation with dusplicate free difference sets:
+A Gilbert square can be constructed from two permutations with duplicate free difference sets:
 
 ```
 >>> let x = [8 1 6 5 3 7 2 4];
@@ -64,6 +64,6 @@ let y = [8 1 7 3 6 5 2 4];
 
 See also: isLatinSquare, tuples, welchCostasArrayList
 
-Guides: Matrix Functions
+Guides: Matrix Functions, Predicate Functions
 
 Further Reading: Gilbert 1965

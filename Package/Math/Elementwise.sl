@@ -80,6 +80,12 @@
 		self.isBetween(min -- max)
 	}
 
+	binaryExpansion { :self :k |
+		self.collect { :each |
+			each.binaryExpansion(k)
+		}
+	}
+
 	binaryExpansion { :self |
 		self.collect(binaryExpansion/1)
 	}
@@ -464,6 +470,10 @@
 
 	isNonNegative { :self |
 		self.collect(isNonNegative/1)
+	}
+
+	isNonZero { :self |
+		self.collect(isNonZero/1)
 	}
 
 	isOdd { :self |

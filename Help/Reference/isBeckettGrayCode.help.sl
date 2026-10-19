@@ -329,7 +329,7 @@ GrayCode[
 
 See also: GrayCode, grayDecode, grayEncode, isBitVector, isCyclicGrayCode, isGrayCode
 
-Guides: Integer Sequence Functions
+Guides: Integer Sequence Functions, Predicate Functions
 
 References:
 _Mathematica_

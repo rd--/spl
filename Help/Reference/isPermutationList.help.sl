@@ -112,7 +112,7 @@ Product of two permutation lists of the same length:
 
 See also: ordering, permutationList, permutationCycles, isPermutationCycles
 
-Guides: Permutation Functions
+Guides: Permutation Functions, Predicate Functions
 
 References:
 _Mathematica_

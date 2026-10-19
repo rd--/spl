@@ -57,7 +57,7 @@ false
 
 See also: permutationCycles, permutationList, isPermutationList
 
-Guides: Permutation Functions
+Guides: Permutation Functions, Predicate Functions
 
 References:
 _Mathematica_

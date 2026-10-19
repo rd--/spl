@@ -55,7 +55,7 @@ false
 
 See also: arrayDepth, dimensions, elementType, isArray, isColumnVector, isRowVector, isList, isMatrix, isVectorOf
 
-Guides: Vector Functions
+Guides: Predicate Functions, Vector Functions
 
 References:
 _Mathematica_

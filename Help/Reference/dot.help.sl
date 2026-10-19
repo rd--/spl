@@ -382,6 +382,15 @@ Multiply two 4×4 integer matrices:
 ]
 ```
 
+`dot` of a 3-vector and a 3×3 matrix:
+
+```
+>>> let x = [1 2 3];
+>>> let m = [1 6 4; 4 1 0; 6 6 8];
+>>> (x.dot(m), m.dot(x))
+([27 26 28], [26 6 42])
+```
+
 Examine properties of a magic square,
 the matrix-vector product sums the rows,
 the vector-matrix product sums the columns,

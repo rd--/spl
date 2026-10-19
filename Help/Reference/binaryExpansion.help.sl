@@ -55,6 +55,22 @@ OEIS [A007088](https://oeis.org/A007088):
 [1 0 1 1 0 1]
 ```
 
+Threads over lists with constant _k_:
+
+```
+>>> 0:7.binaryExpansion(3)
+[
+	0 0 0;
+	0 0 1;
+	0 1 0;
+	0 1 1;
+	1 0 0;
+	1 0 1;
+	1 1 0;
+	1 1 1
+]
+```
+
 Numbers whose binary representation contains no _01_,
 OEIS [A023758](https://oeis.org/A023758):
 

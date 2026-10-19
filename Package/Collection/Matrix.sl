@@ -52,17 +52,18 @@
 +List {
 
 	antidiagonal { :self :k |
-		let m = self.assertIsMatrix('List>>antidiagonal');
-		let l = m.shape.min - k.abs;
-		l.toBy(1, -1).collect { :i |
-			let r = l - i + 1 - k.min(0);
-			let c = i - k.min(0);
-			m[r][c]
-		}
+		diagonalOrAntidiagonal(self, k, true)
 	}
 
 	antidiagonal { :self |
 		self.antidiagonal(0)
+	}
+
+	antidiagonals { :self |
+		let [r, c] = self.shape;
+		Range(c - 1, 1 - r, -1).collect { :n |
+			self.antidiagonal(n)
+		}
 	}
 
 	arnoldsCatMapInto! { :a :b |
@@ -182,17 +183,21 @@
 		}
 	}
 
-	diagonal { :self :k |
-		let m = self.assertIsMatrix('List>>diagonal');
-		let l = m.shape.min - k.abs;
+	diagonalOrAntidiagonal { :self :k :antidiagonal |
+		let [r, c] = self.shape;
+		let u = min(r, c);
+		let v = min(k, 0);
+		let w = max(k, 0);
+		let l = (k < 0).if { r + k } { c - k }.min(u);
 		1.to(l).collect { :i |
-			m.atPath(
-				[
-					i - k.min(0),
-					i + k.max(0)
-				]
-			)
+			let j = i + w;
+			let k = antidiagonal.if { c - j + 1 } { j };
+			self.atPath([i - v, k])
 		}
+	}
+
+	diagonal { :self :k |
+		diagonalOrAntidiagonal(self, k, false)
 	}
 
 	diagonal { :self |
@@ -202,6 +207,13 @@
 	diagonalIrregular { :self |
 		1.toCollect(self.size) { :i |
 			self[i][i]
+		}
+	}
+
+	diagonals { :self |
+		let [r, c] = self.shape;
+		(1 - r).toCollect(c - 1) { :n |
+			self.diagonal(n)
 		}
 	}
 

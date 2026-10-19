@@ -4,7 +4,8 @@
 - _isArray(x, r)_
 - _isArray(x, r, f/1)_
 
-Answer `true` if the object _x_ is an array.
+Answer `true` if the object _x_ is an array,
+else `false`.
 A `List` is an array if it is has a `shape`.
 In the binary case require in addition that the array have rank _r_.
 In the ternary case require in addition that the each element of the array answer `true` to the predicate _f_.
@@ -80,7 +81,7 @@ true
 
 See also: deepAllSatisfy, elementType, isMatrix, isVector, rank, shape
 
-Guides: Array Functions
+Guides: Array Functions, Predicate Functions
 
 References:
 _Mathematica_

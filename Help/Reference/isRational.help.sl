@@ -3,7 +3,8 @@
 - _isRational(x)_
 
 At `Number`,
-answer `true` if the number is either an `Integer` or a `Fraction`.
+answer `true` if the number is either an `Integer` or a `Fraction`,
+else `false`.
 
 At `SmallFloat`:
 

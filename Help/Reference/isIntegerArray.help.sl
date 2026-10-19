@@ -66,4 +66,4 @@ false
 
 See also: isArray, isInteger, isNumber, isScalar, isSmallInteger
 
-Guides: Integer Functions
+Guides: Integer Functions, Predicate Functions

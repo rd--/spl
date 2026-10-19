@@ -2,7 +2,8 @@
 
 - _allFalse(c, f/1=⊣)_
 
-Answer `true` if all items in the collection _c_ are `false`, else `false`.
+Answer `true` if all items in the collection _c_ are `false`,
+else `false`.
 
 ```
 >>> ([1 3 5 7 9] > [3 5 7 9 11]).allFalse
@@ -26,9 +27,9 @@ true
 
 * * *
 
-See also: allSatisfy, anySatisfy, allTrue, anyFalse, noneSatisfy
+See also: allSatisfy, anySatisfy, allTrue, noneSatisfy
 
-Guides: Boolean Functions
+Guides: Boolean Functions, Predicate Functions
 
 References:
 _Mathematica_

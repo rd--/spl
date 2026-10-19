@@ -3,7 +3,8 @@
 - _isDiagonallyDominantMatrix(m)_
 - _isDiagonallyDominantMatrix(m, f₂=≥)_
 
-Answer `true` if the matrix _m_ is _weakly_ diagonally dominant.
+Answer `true` if the matrix _m_ is _weakly_ diagonally dominant,
+else `false`.
 In the binary form,
 the comparator is supplied,
 providing `>` decides if the matrix is _strictly_ diagonally dominant.
@@ -45,7 +46,7 @@ Compare weak and strict forms at three 3×3 matrices:
 
 See also: diagonalMatrix, isDiagonalMatrix
 
-Guides: Matrix Functions
+Guides: Matrix Functions, Predicate Functions
 
 References:
 _Mathematica_

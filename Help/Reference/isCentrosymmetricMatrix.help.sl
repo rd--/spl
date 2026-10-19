@@ -2,7 +2,8 @@
 
 - _isCentrosymmetricMatrix(m)_
 
-Answer `true` if the matrix _m_ is centrosymmetric, else `false`.
+Answer `true` if the matrix _m_ is centrosymmetric,
+else `false`.
 
 Test if a 3×3 numeric matrix is centrosymmetric:
 
@@ -19,7 +20,7 @@ true
 
 See also: dot, exchangeMatrix, isMatrix, isSquareMatrix, isSymmetricMatrix
 
-Guides: Matrix Functions
+Guides: Matrix Functions, Predicate Functions
 
 References:
 _Mathematica_

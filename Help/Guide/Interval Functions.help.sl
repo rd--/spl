@@ -31,4 +31,3 @@ Functions:
 * * *
 
 Guides: Function Guides, Mathematical Functions, Range Functions
-

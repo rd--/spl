@@ -2,7 +2,8 @@
 
 - _isList(x)_
 
-Answer `true` if the object _x_ is a `List`.
+Answer `true` if the object _x_ is a `List`,
+else `false`.
 
 ```
 >>> [1 2 3].isList
@@ -19,5 +20,7 @@ false
 * * *
 
 See also: List
+
+Guides: Predicate Functions
 
 Categories: Testing, Collection

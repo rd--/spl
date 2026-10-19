@@ -2,7 +2,8 @@
 
 - _isNonPositive(x)_
 
-Answers `true` if the number _x_ is negative or `zero`, else `false`.
+Answers `true` if the number _x_ is negative or `zero`,
+else `false`.
 
 ```
 >>> [-1 0 1].collect(

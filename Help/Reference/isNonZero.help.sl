@@ -2,7 +2,10 @@
 
 - _isNonZero(x)_
 
-Answer `true` if _x_ is not equal to `zero`.
+Answer `true` if _x_ is not equal to `zero`,
+else `false`.
+This function will convert and number into a `Boolean` value,
+following the convention that `zero` if `false` and all other values are `true`.
 
 At `SmallFloat`:
 
@@ -47,6 +50,13 @@ Number that are very close to zero are not zero:
 true
 ```
 
+Threads over lists:
+
+```
+>>> [-3 .. 3].isNonZero.boole
+[1 1 1 0 1 1 1]
+```
+
 Are all elements of a `List` non-zero:
 
 ```
@@ -60,6 +70,8 @@ false
 * * *
 
 See also: isEven, isNegative, isOdd, isOne, isPositive, isZero
+
+Guides: Predicate Functions
 
 References:
 _Mathematica_

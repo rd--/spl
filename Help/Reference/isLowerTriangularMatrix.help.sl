@@ -80,7 +80,7 @@ The Hermite normal form is lower triangular:
 
 See also: isMatrix, isSquareMatrix, isUpperTriangularMatrix
 
-Guides: Matrix Functions
+Guides: Matrix Functions, Predicate Functions
 
 References:
 _Mathematica_

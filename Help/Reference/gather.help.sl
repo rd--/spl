@@ -9,7 +9,11 @@ Gather elements into sublists of equal elements:
 
 ```
 >>> ['a' 'b' 'a' 'd' 'b'].gather(=)
-['a' 'a'; 'b' 'b'; 'd']
+[
+	'a' 'a';
+	'b' 'b';
+	'd'
+]
 ```
 
 Gather elements that have equal first parts:
@@ -19,7 +23,11 @@ Gather elements that have equal first parts:
 >>> .gather { :i :j |
 >>> 	i[1] = j[1]
 >>> }
-['a' 1; 'a' 2:;'b' 1; 'b' 3:; 'd' 1]
+[
+	'a' 1; 'a' 2:;
+	'b' 1; 'b' 3:;
+	'd' 1
+]
 ```
 
 Gather elements that have equal integer parts:
@@ -28,7 +36,12 @@ Gather elements that have equal integer parts:
 >>> [0, 1/3 .. 3].gather { :i :j |
 >>> 	i.floor = j.floor
 >>> }
-[0 1/3 2/3; 1/1 4/3 5/3; 2/1 7/3 8/3; 3/1]
+[
+	0 1/3 2/3;
+	1/1 4/3 5/3;
+	2/1 7/3 8/3;
+	3/1
+]
 ```
 
 Gather integers that have identical remainders:
@@ -37,7 +50,11 @@ Gather integers that have identical remainders:
 >>> [1 .. 10].gather { :i :j |
 >>> 	(i % 3) = (j % 3)
 >>> }
-[1 4 7 10; 2 5 8; 3 6 9]
+[
+	1 4 7 10;
+	2 5 8;
+	3 6 9
+]
 ```
 
 * * *

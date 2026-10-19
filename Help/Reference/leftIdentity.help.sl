@@ -1,12 +1,22 @@
 # leftIdentity
 
-- _leftIdentity(anObject, anotherObject)_
+- _leftIdentity(x, y)_
 
-Answer _anObject_.
+Answer the object _x_.
 
 ```
->>> 'left'.leftIdentity('right')
-'left'
+>>> 'x'.leftIdentity('y')
+'x'
+```
+
+As argument to `scan`:
+
+```
+>>> 1:9.scan(leftIdentity/2)
+[1 1 1 1 1 1 1 1 1]
+
+>>> 1:9.scanRight(leftIdentity/2)
+[1 2 3 4 5 6 7 8 9]
 ```
 
 Where supported `leftIdentity` is displayed as ⊣.

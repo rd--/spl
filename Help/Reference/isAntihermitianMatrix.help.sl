@@ -87,7 +87,7 @@ false
 
 See also: conjugateTranspose, isHermitianMatrix, isSymmetricMatrix, isVeryClose
 
-Guides: Matrix Functions
+Guides: Matrix Functions, Predicate Functions
 
 References:
 _Mathematica_

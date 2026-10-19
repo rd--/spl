@@ -25,7 +25,7 @@ false
 
 See also: isDiagonalMatrix, isMatrix
 
-Guides: Matrix Functions
+Guides: Matrix Functions, Predicate Functions
 
 References:
 _Mathematica_

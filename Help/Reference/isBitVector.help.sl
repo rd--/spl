@@ -42,6 +42,6 @@ true
 
 See also: boole, isBitString, isOne, isVector, isZero
 
-Guides: List Functions
+Guides: List Functions, Predicate Functions
 
 Categories: Testing

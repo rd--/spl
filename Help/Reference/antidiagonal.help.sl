@@ -5,19 +5,24 @@
 Answer the list of elements on the antidiagonal,
 or on the _n-th_ antidiagonal,
 of the matrix _m_.
-`antidiagonal` works even if _aMatrix_ is not a square matrix.
+`antidiagonal` works even if the matrix _m_ is not a square matrix.
 
 The antidiagonal runs from the top right corner to the bottom left corner:
 
 ```
 >>> let m = [3 3].iota;
->>> (m, m.antidiagonal)
+>>> (
+>>> 	m,
+>>> 	m.diagonal,
+>>> 	m.antidiagonal
+>>> )
 (
 	[
 		1 2 3;
 		4 5 6;
 		7 8 9
 	],
+	[1 5 9],
 	[3 5 7]
 )
 ```
@@ -73,8 +78,15 @@ Obtain the sub-antidiagonal:
 The antidiagonal of a non-square matrix:
 
 ```
+>>> [3 4].iota
+[
+	1  2  3  4;
+	5  6  7  8;
+	9 10 11 12
+]
+
 >>> [3 4].iota.antidiagonal
-[3 6 9]
+[4 7 10]
 
 >>> [
 >>> 	3  2  2;
@@ -85,15 +97,14 @@ The antidiagonal of a non-square matrix:
 [2 3 4]
 ```
 
-_antidiagonal(m, k)_ for an _n × n_ matrix gives non-empty results for _1 - n <= k <= n - 1_:
+_antidiagonal(m, k)_ for an _n × n_ matrix gives non-empty results for _1 - n <= k <= n - 1_,
+see `antidiagonals`:
 
 ```
 >>> let m = -.swap.array([4 4]);
 >>> (
 >>> 	m,
->>> 	[-3 .. 3].collect { :k |
->>> 		m.antidiagonal(k)
->>> 	}
+>>> 	m.antidiagonals
 >>> )
 (
 	[
@@ -122,7 +133,7 @@ _antidiagonal(m, k)_ for an _n × n_ matrix gives non-empty results for _1 - n <
 
 * * *
 
-See also: diagonal, trace
+See also: antidiagonals, diagonal, trace
 
 Guides: Matrix Functions
 

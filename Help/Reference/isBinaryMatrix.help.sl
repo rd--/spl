@@ -2,7 +2,8 @@
 
 - _isBinaryMatrix(m)_
 
-Answer `true` if _m_ is a binary matrix.
+Answer `true` if _m_ is a binary matrix,
+else `false`.
 
 ```
 >>> 23.identityMatrix
@@ -22,7 +23,7 @@ false
 
 See also: binaryMatrix, isBit, permutationMatrix
 
-Guides: Matrix Functions
+Guides: Matrix Functions, Predicate Functions
 
 References:
 _Mathematica_

@@ -6,6 +6,12 @@ Answer the binary contraction of _b_,
 called binary words or binary vectors.
 
 ```
+>>> [1 0 1 0].binaryContraction
+10
+
+>>> 10.binaryExpansion
+[1 0 1 0]
+
 >>> [1 0 1 1 0 0 1 1 1 0 0 0 1 1 1 1]
 >>> .binaryContraction
 45967

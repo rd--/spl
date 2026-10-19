@@ -32,3 +32,5 @@ OEIS [A190339](https://oeis.org/A190339):
 * * *
 
 See also: diagonal
+
+Guides: Matrix Functions

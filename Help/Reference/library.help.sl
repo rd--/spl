@@ -20,6 +20,12 @@ Check if the library includes a particular entry:
 true
 ```
 
+Request all library items be in the interpreter cache:
+
+~~~spl async
+system.library.collect(request/1)
+~~~
+
 * * *
 
 See also: LibraryItem, Record, system

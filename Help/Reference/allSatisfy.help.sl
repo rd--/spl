@@ -50,7 +50,7 @@ Does not mutate receiver:
 
 See also: allTrue, anySatisfy, deepAllSatisfy, noneSatisfy
 
-Guides: Boolean Functions
+Guides: Boolean Functions, Predicate Functions
 
 References:
 _Haskell_

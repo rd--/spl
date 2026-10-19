@@ -61,21 +61,23 @@
 +@Sequence {
 
 	mixedRadixDecode { :self :factors |
-		let answer = 0;
-		let base = 1;
-		let k = factors.size.min(self.size);
-		let prefix = self.size - factors.size;
-		(prefix > 1).ifTrue {
-			self.error('mixedRadixDecode: sequence too long')
-		};
-		k.toByDo(1, -1) { :index |
-			answer := answer + (self[index + prefix] * base);
-			base := base * factors[index]
-		};
-		(prefix = 1).ifTrue {
-			answer := answer + (self[1] * base)
-		};
-		answer
+		self.atVectorOrElementwise { :each |
+			let answer = 0;
+			let base = 1;
+			let k = factors.size.min(each.size);
+			let prefix = each.size - factors.size;
+			(prefix > 1).ifTrue {
+				each.error('mixedRadixDecode: sequence too long')
+			};
+			k.toByDo(1, -1) { :index |
+				answer := answer + (each[index + prefix] * base);
+				base := base * factors[index]
+			};
+			(prefix = 1).ifTrue {
+				answer := answer + (each[1] * base)
+			};
+			answer
+		}
 	}
 
 	numberCompose { :c :u |

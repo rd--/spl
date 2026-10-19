@@ -9,19 +9,19 @@ At a square matrix answers a square matrix:
 ```
 >>> [4 4].iota
 [
-	1 2 3 4;
-	5 6 7 8;
-	9 10 11 12;
+	 1  2  3  4;
+	 5  6  7  8;
+	 9 10 11 12;
 	13 14 15 16
 ]
 
 >>> [4 4].iota
 >>> .cyclicDiagonals
 [
-	1 6 11 16;
-	2 7 12 13;
-	3 8 9 14;
-	4 5 10 15
+	1  6 11 16;
+	2  7 12 13;
+	3  8  9 14;
+	4  5 10 15
 ]
 ```
 
@@ -192,6 +192,8 @@ cyclicDiagonals/1
 ![](Help/Image/cyclicDiagonals-C.svg)
 
 * * *
+
+See also: diagonals
 
 Guides: Matrix Functions
 

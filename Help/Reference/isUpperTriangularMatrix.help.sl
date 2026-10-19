@@ -62,7 +62,7 @@ true
 
 See also: isLowerTriangularMatrix, isMatrix, isSquareMatrix
 
-Guides: Matrix Functions
+Guides: Matrix Functions, Predicate Functions
 
 References:
 _Mathematica_

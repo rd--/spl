@@ -25,6 +25,15 @@
 - [|](https://www.jsoftware.com/help/dictionary/d230.htm) `abs`, `%` (`mod`)
 - [|.](https://www.jsoftware.com/help/dictionary/d231.htm) `reverse`, `rotate`
 - [|:](https://www.jsoftware.com/help/dictionary/d232.htm) `transpose`
+- [.](https://www.jsoftware.com/help/dictionary/d300.htm) `determinant`, `dot`
+- [#](https://www.jsoftware.com/help/dictionary/d400.htm) `size`, `#` (`replicate`)
+- [#.](https://www.jsoftware.com/help/dictionary/d401.htm) `binaryContraction`, `mixedRadixDecode`
+- [#:](https://www.jsoftware.com/help/dictionary/d402.htm) `binaryExpansion`, `mixedRadixEncode`
+- [!](https://www.jsoftware.com/help/dictionary/d410.htm) `!` (`factorial`), `binomial`
+- [/](https://www.jsoftware.com/help/dictionary/d420.htm) `reduce`, `table`
+- [/.](https://www.jsoftware.com/help/dictionary/d420.htm) `antidiagonals` & `map`
+- [\[](https://www.jsoftware.com/help/dictionary/d500.htm) `leftIdentity`
+- [\]](https://www.jsoftware.com/help/dictionary/d500.htm) `rightIdentity`
 
 * * *
 

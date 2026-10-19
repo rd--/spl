@@ -46,7 +46,7 @@ true
 
 See also: isMatrix, isSquareMatrix, isSymmetricMatrix
 
-Guides: Matrix Functions
+Guides: Matrix Functions, Predicate Functions
 
 References:
 _Mathematica_

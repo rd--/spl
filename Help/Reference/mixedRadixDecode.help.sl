@@ -25,6 +25,20 @@ Add different denominations of money:
 60.32
 ```
 
+Threads over lists:
+
+```
+>>> let e = [3 4].iota(0, 1);
+>>> (
+>>> 	e.mixedRadixDecode([10 10 10]),
+>>> 	e.mixedRadixDecode([8 8 8])
+>>> )
+(
+	[123 4567 9011],
+	[83 2423 4763]
+)
+```
+
 Add amounts of days, hours, minutes, and seconds to return seconds:
 
 ```

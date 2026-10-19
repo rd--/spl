@@ -7,6 +7,28 @@ of kind _k_,
 where the `pathBaseName` matches the regular expression _r_.
 Answers `nil`.
 
+Write image files for reference help files:
+
+~~~spl console
+system.helpFilesDo(
+	'Reference',
+	'.*',
+	true,
+	writeImageFiles/1
+)
+~~~
+
+Write image files for guide help files:
+
+~~~spl console
+system.helpFilesDo(
+	'Guide',
+	'.*',
+	true,
+	writeImageFiles/1
+)
+~~~
+
 Print reference help files with an empty guides field:
 
 ~~~spl console
