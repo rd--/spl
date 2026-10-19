@@ -1,12 +1,15 @@
 # drop
 
-- _drop([x₁ x₂ …], n)_
+- _drop([x₁ x₂ …], n=1)_
 
 Answer a copy of the sequence _x_ without the first _n_ places.
 
 At `List`:
 
 ```
+>>> [5 4 3 2 1].drop
+[4 3 2 1]
+
 >>> [5 4 3 2 1].drop(3)
 [2 1]
 
@@ -87,6 +90,7 @@ _Apl_
 _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:drop),
 _J_
-[1](https://code.jsoftware.com/wiki/Vocabulary/curlyrtco),
+[1](https://code.jsoftware.com/wiki/Vocabulary/curlyrtco)
+[2](https://www.jsoftware.com/help/dictionary/d531.htm),
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Drop.html)

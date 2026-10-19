@@ -27,6 +27,8 @@ See also: copyWithoutIdenticalElements, nub, nubBy
 
 References:
 _Apl_
-[1](https://aplwiki.com/wiki/Nub_Sieve)
+[1](https://aplwiki.com/wiki/Nub_Sieve),
+_J_
+[1](https://www.jsoftware.com/help/dictionary/d222.htm)
 
 Categories: Copying, Selecting

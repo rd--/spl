@@ -1265,6 +1265,7 @@ Reference/Drand.help.sl
 Reference/drawdownMatrix.help.sl
 Reference/drawing.help.sl
 Reference/drop.help.sl
+Reference/dropLast.help.sl
 Reference/dropWhile.help.sl
 Reference/Dseq.help.sl
 Reference/Dseries.help.sl
@@ -3264,6 +3265,7 @@ Reference/PoissonDistribution.help.sl
 Reference/PoissonProcess.help.sl
 Reference/polarCircle.help.sl
 Reference/PolarCoordinates.help.sl
+Reference/Polar.help.sl
 Reference/polarPlot.help.sl
 Reference/politeness.help.sl
 Reference/polygonalHexagonalGrid.help.sl

@@ -824,6 +824,10 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		p
 	}
 
+	prefixes { :self |
+		self.List.prefixes.collect(String/1)
+	}
+
 	[printLine, postLine] { :self |
 		system.printLine(self)
 	}
@@ -983,6 +987,10 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 
 	[stringSplit, splitBy] { :self :aString |
 		<primitive: return _self.split(_aString);>
+	}
+
+	suffixes { :self |
+		self.List.suffixes.collect(String/1)
 	}
 
 	[take, truncateTo] { :self :anInteger |

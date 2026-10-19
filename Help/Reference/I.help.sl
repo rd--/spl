@@ -95,6 +95,8 @@ Guides: Complex Number Functions, Mathematical Constants
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/Imaginary),
+_J_
+[1](https://www.jsoftware.com/help/dictionary/djdot.htm),
 _Mathematica_
 [1](https://mathworld.wolfram.com/i.html)
 [2](https://mathworld.wolfram.com/ImaginaryUnit.html),

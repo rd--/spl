@@ -65,7 +65,6 @@ Guarantee that a set of random integers over a large range has no repetitions:
 ```
 >>> Sfc32(80158)
 >>> .randomSample(1:99999999, 4)
->>> .nub
 [69186077 38465673 9419531 33425181]
 ```
 

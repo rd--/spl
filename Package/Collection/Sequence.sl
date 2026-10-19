@@ -91,14 +91,6 @@
 		}
 	}
 
-	allButFirst { :self |
-		self.allButFirst(1)
-	}
-
-	allButFirst { :self :n |
-		self.copyFromTo(1 + n, self.size)
-	}
-
 	allButFirstAndLast { :self |
 		self.allButFirstAndLast(1)
 	}
@@ -843,12 +835,24 @@
 		}
 	}
 
-	dropFirst { :self :count |
+	drop { :self |
+		self.drop(1)
+	}
+
+	[dropFirst, allButFirst] { :self :count |
 		self.copyFromTo(count + 1, self.size)
+	}
+
+	[dropFirst, allButFirst] { :self |
+		self.dropFirst(1)
 	}
 
 	dropLast { :self :count |
 		self.copyFromTo(1, self.size - count)
+	}
+
+	dropLast { :self |
+		self.dropLast(1)
 	}
 
 	dropWhile { :self :aBlock/1 |
@@ -3105,6 +3109,10 @@
 			answer.add!([i, j, k])
 		};
 		answer
+	}
+
+	from { :self :operand |
+		operand.at(self)
 	}
 
 	partIndex { :self :operand |

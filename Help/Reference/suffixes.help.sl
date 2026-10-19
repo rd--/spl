@@ -8,6 +8,9 @@ Answer a `List` of all of the non-empty suffixes of the sequence _x_.
 >>> [1 2 3].suffixes
 [1 2 3; 2 3; 3]
 
+>>> 1:5.suffixes
+[1:5 2:5 3:5 4:5 5:5]
+
 >>> [3 1 4 1 5 9].suffixes
 >>> .collect(sum/1)
 [23 20 19 15 14 9]
@@ -28,6 +31,13 @@ Iterator:
 	4 5;
 	5
 ]
+```
+
+At `String`:
+
+```
+>>> 'abcde'.suffixes
+['abcde' 'bcde' 'cde' 'de' 'e']
 ```
 
 * * *

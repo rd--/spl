@@ -88,7 +88,9 @@ References:
 _Apl_
 [1](http://aplwiki.com/wiki/Take),
 _Haskell_
-[1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:take)
+[1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:take),
+_J_
+[1](https://www.jsoftware.com/help/dictionary/d521.htm),
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Take.html)
 

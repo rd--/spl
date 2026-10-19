@@ -3,6 +3,7 @@
 - _allButFirst([x₁ x₂ …], n=1)_
 
 Answer a copy of the sequence _x_ containing all but the first _n_ elements.
+Alias for `dropFirst`.
 Signal an error if there are not enough elements.
 
 ```
@@ -50,7 +51,7 @@ true
 
 * * *
 
-See also: allButLast
+See also: allButLast, drop
 
 Guides: List Functions
 

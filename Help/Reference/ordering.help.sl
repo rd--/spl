@@ -3,11 +3,12 @@
 - _ordering([x₁ x₂ …], f/2=≺)_
 
 Answer the positions in the sequence _x_ at which each successive element of _sort(x)_ appears.
+The answer is a permutation vector.
 
 Find the ordering that sorts a list:
 
 ```
->>> ['c' 'a' 'b'].ordering
+>>> List'cab'.ordering
 [2 3 1]
 
 >>> [5 2 1 3 6 4].ordering
@@ -20,22 +21,30 @@ Find the ordering that sorts a list:
 >>> [-20 -24 0 4 24 36 -12 -12 56 -14]
 >>> .ordering
 [2 1 10 7 8 3 4 5 6 9]
+
+>>> [3 1 4 2 1 3 3].ordering
+[2 5 4 1 6 7 3]
 ```
 
 Apply the ordering:
 
 ```
->>> ['c' 'a' 'b'].atAll([2 3 1])
+>>> List'cab'.atAll([2 3 1])
 ['a' 'b' 'c']
 
->>> [5 2 1 3 6 4].atAll([3 2 4 6 1 5])
+>>> let a = [5 2 1 3 6 4];
+>>> a.atAll(a.ordering)
 [1 2 3 4 5 6]
 
->>> let u = [3 -4 1 4 22 17 -2 2 13 -11];
+>>> let u = [
+>>> 	3 -4 1 4 22 17 -2 2 13 -11
+>>> ];
 >>> u.atAll(u.ordering)
 [-11 -4 -2 1 2 3 4 13 17 22]
 
->>> let u = [-20 -24 0 4 24 36 -12 -12 56 -14];
+>>> let u = [
+>>> 	-20 -24 0 4 24 36 -12 -12 56 -14
+>>> ];
 >>> u.atAll(u.ordering)
 [-24 -20 -14 -12 -12 0 4 24 36 56]
 ```
@@ -50,21 +59,21 @@ There is more than one ordering of a list with equal items:
 Find the positions of the 4 smallest elements in a list:
 
 ```
->>> [2 6 1 9 1 2 3].ordering(<).take(4)
+>>> [2 6 1 9 1 2 3].ordering.take(4)
 [3 5 1 6]
 ```
 
 Find the position of the largest element:
 
 ```
->>> [2 6 1 9 1 2 3].ordering(<).last
+>>> [2 6 1 9 1 2 3].ordering.last
 4
 ```
 
 Find positions of elements from the fourth smallest to the largest:
 
 ```
->>> [2 6 1 9 1 2 3].ordering(<).drop(3)
+>>> [2 6 1 9 1 2 3].ordering.drop(3)
 [6 7 2 4]
 ```
 
@@ -78,7 +87,7 @@ Find positions of elements in list sorted by `>`:
 Find a permutation that sorts a list:
 
 ```
->>> [2 6 1 9 1 2 3].ordering(<)
+>>> [2 6 1 9 1 2 3].ordering
 [3 5 1 6 7 2 4]
 ```
 
@@ -96,9 +105,12 @@ Find the inverse of a permutation:
 ```
 >>> let p = [4 5 1 2 3];
 >>> let i = p.ordering(<);
->>> let l = ['b' 'c' 'a' 'd' 'e'];
+>>> let l = List'bcade';
 >>> (l.atAll(p), l.atAll(p).atAll(i))
-(['d' 'e' 'b' 'c' 'a'], ['b' 'c' 'a' 'd' 'e'])
+(
+	['d' 'e' 'b' 'c' 'a'],
+	['b' 'c' 'a' 'd' 'e']
+)
 ```
 
 At a `List` of characters:
@@ -117,6 +129,8 @@ Guides: Permutation Functions, Sort Functions, Statistics Functions
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/Grade),
+_J_
+[1](https://www.jsoftware.com/help/dictionary/d422.htm),
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Ordering.html),
 _Python_

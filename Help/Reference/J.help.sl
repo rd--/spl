@@ -51,5 +51,6 @@ _Apl_
 [1](https://aplwiki.com/wiki/Complex_(function)),
 _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/jdot#dyadic)
+[2](https://www.jsoftware.com/help/dictionary/djdot.htm)
 
 Categories: Math, Number

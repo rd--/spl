@@ -60,7 +60,8 @@ _Apl_
 _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:nub),
 _J_
-[1](https://code.jsoftware.com/wiki/Vocabulary/tildedot),
+[1](https://code.jsoftware.com/wiki/Vocabulary/tildedot)
+[2](https://www.jsoftware.com/help/dictionary/d221.htm),
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/DeleteDuplicates.html)
 

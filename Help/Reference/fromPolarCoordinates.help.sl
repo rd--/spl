@@ -28,6 +28,13 @@ Negative _r_:
 [0 -1]
 ```
 
+Negative _theta_:
+
+```
+>>> [3 -2].fromPolarCoordinates
+[-1.24844 -2.72789]
+```
+
 Collects over lists:
 
 ```

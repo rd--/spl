@@ -4,7 +4,7 @@
 
 Run SuperCollider programs in reference files:
 
-~~~spl
+~~~spl console
 'Help/Reference'
 .splFilePath
 .terseSuperColliderGraphSummary(

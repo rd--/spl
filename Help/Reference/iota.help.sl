@@ -3,6 +3,7 @@
 - _iota(shape, start=1, step=1)_
 
 Index generator.
+
 In the scalar case answer a `List` of indices:
 
 ```
@@ -17,16 +18,30 @@ In the vector case answer an array of indices with the indicated shape:
 
 ```
 >>> [2 3].iota
-[1 2 3; 4 5 6]
+[
+	1 2 3;
+	4 5 6
+]
 
 >>> 6.iota.reshape([2 3])
-[1 2 3; 4 5 6]
+[
+	1 2 3;
+	4 5 6
+]
 
 >>> [3 2].iota
-[1 2; 3 4; 5 6]
+[
+	1 2;
+	3 4;
+	5 6
+]
 
 >>> 6.iota.reshape([3 2])
-[1 2; 3 4; 5 6]
+[
+	1 2;
+	3 4;
+	5 6
+]
 ```
 
 The ternary case specifies the _start_ and _step_ values:
@@ -43,6 +58,17 @@ The ternary case specifies the _start_ and _step_ values:
 	 3  7 11;
 	15 19 23;
 	27 31 35
+]
+
+>>> [2 3 4].iota(0, 1)
+[
+	 0  1  2  3;
+	 4  5  6  7;
+	 8  9 10 11
+	:;
+	12 13 14 15;
+	16 17 18 19;
+	20 21 22 23
 ]
 ```
 
@@ -109,7 +135,8 @@ References:
 _Apl_
 [1](https://aplwiki.com/wiki/Index_Generator),
 _J_
-[1](https://code.jsoftware.com/wiki/Vocabulary/idot),
+[1](https://code.jsoftware.com/wiki/Vocabulary/idot)
+[2](https://www.jsoftware.com/help/dictionary/didot.htm),
 _OEIS_
 [1](https://oeis.org/A002260)
 [2](https://oeis.org/A004736)

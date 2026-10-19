@@ -107,7 +107,8 @@ References:
 _Haskell_
 [1](https://hackage.haskell.org/package/base-4.21.0.0/docs/Data-List.html#v:head),
 _J_
-[1](https://code.jsoftware.com/wiki/Vocabulary/curlylfdot),
+[1](https://code.jsoftware.com/wiki/Vocabulary/curlylfdot)
+[2](https://www.jsoftware.com/help/dictionary/d521.htm),
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/First.html),
 _Smalltalk_

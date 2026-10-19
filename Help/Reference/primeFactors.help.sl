@@ -27,6 +27,9 @@ In the `Integer` case all factors will be integers:
 
 >>> 138.primeFactors
 [2 3 23]
+
+>>> 105600.primeFactors
+[2 2 2 2 2 2 2 3 5 5 11]
 ```
 
 At `one`:
@@ -340,7 +343,8 @@ Guides: Prime Number Functions
 
 References:
 _J_
-[1](https://code.jsoftware.com/wiki/Vocabulary/qco),
+[1](https://code.jsoftware.com/wiki/Vocabulary/qco)
+[2](https://www.jsoftware.com/help/dictionary/dqco.htm),
 _Mathematica_
 [1](https://mathworld.wolfram.com/PrimeFactorization.html)
 [2](https://reference.wolfram.com/language/ref/FactorInteger.html),

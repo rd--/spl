@@ -20,7 +20,7 @@ Unit vector at angle 30°:
 [3.sqrt 1] / 2
 ```
 
-Unit vector at angle _pi / 3_:
+Unit vector at angle _π/3_:
 
 ```
 >>> 1/3.pi.angleVector
@@ -32,6 +32,13 @@ Equal answer given degrees:
 ```
 >>> 60.degree.angleVector
 [1 3.sqrt] / 2
+```
+
+At two:
+
+```
+>>> 2.angleVector
+[-0.41615 0.90930]
 ```
 
 C.f. `vector` at `PlaneAngle`:

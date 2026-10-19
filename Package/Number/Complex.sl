@@ -494,10 +494,6 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		}
 	}
 
-	uncheckedComplex { :real :imaginary |
-		newComplex().initializeSlots(real, imaginary)
-	}
-
 	GaussianInteger { :real :imaginary |
 		imaginary.isInteger.if {
 			uncheckedComplex(
@@ -507,6 +503,18 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		} {
 			imaginary.adaptToNumberAndApply(real, GaussianInteger/2)
 		}
+	}
+
+	Polar { :rho :phi |
+		phi.isSmallFloat.if {
+			Complex(rho * phi.cos, rho * phi.sin)
+		} {
+			phi.adaptToNumberAndApply(rho, Polar/2)
+		}
+	}
+
+	uncheckedComplex { :real :imaginary |
+		newComplex().initializeSlots(real, imaginary)
 	}
 
 }
@@ -581,6 +589,10 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 
 	GaussianInteger { :self :anObject |
 		anObject.adaptToCollectionAndApply(self, GaussianInteger/2)
+	}
+
+	Polar { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, Polar/2)
 	}
 
 }

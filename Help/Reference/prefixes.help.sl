@@ -7,6 +7,21 @@ Answer a List of all of the prefixes of the sequence _x_.
 Generate a sequence of factorials:
 
 ```
+>>> [1 2 4 8 16].prefixes
+[1; 1 2; 1 2 4; 1 2 4 8; 1 2 4 8 16]
+
+>>> [3 4].iota.prefixes
+[
+	1  2  3  4
+	:;
+	1  2  3  4;
+	5  6  7  8
+	:;
+	1  2  3  4;
+	5  6  7  8;
+	9 10 11 12
+]
+
 >>> 1:9.prefixes.collect(product/1)
 [1 2 6 24 120 720 5040 40320 362880]
 
@@ -88,6 +103,13 @@ OEIS [A000217](https://oeis.org/A000217)
 ```
 >>> 0:9.prefixes.collect(sum/1)
 [0 1 3 6 10 15 21 28 36 45]
+```
+
+At `String`:
+
+```
+>>> 'abcde'.prefixes
+['a' 'ab' 'abc' 'abcd' 'abcde']
 ```
 
 Sequence matrix for odd numbers,

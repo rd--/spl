@@ -5,17 +5,18 @@ Types:
 - `Complex`
 - `EisensteinInteger`
 
-Accessing:
-
-- `real`
-- `imaginary`
-- `realImaginary`
-
 Constructing:
 
 - `GaussianInteger`
 - `I`: _0+ai_
 - `J`: _a+bi_
+- `Polar`
+
+Accessing:
+
+- `real`
+- `imaginary`
+- `realImaginary`
 
 Converting:
 

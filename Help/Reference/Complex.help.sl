@@ -374,7 +374,7 @@ The matrix form of a complex number:
 
 * * *
 
-See also: EisensteinInteger, Float, Integer, Number, SmallFloat, abs, absArg, arg, isGaussianInteger, conjugate, i, imaginary, j, real
+See also: EisensteinInteger, Float, Integer, Polar, Number, SmallFloat, abs, absArg, arg, isGaussianInteger, conjugate, i, imaginary, j, real
 
 Guides: Complex Number Functions
 

@@ -388,7 +388,7 @@ Multiply two 4×4 integer matrices:
 >>> let x = [1 2 3];
 >>> let m = [1 6 4; 4 1 0; 6 6 8];
 >>> (x.dot(m), m.dot(x))
-([27 26 28], [26 6 42])
+([27 26 28], [25 6 42])
 ```
 
 Examine properties of a magic square,
@@ -468,6 +468,8 @@ See also: +, *, dotProduct, inner, outer, scalarTripleProduct
 Guides: List Functions, Matrix Functions, Vector Functions
 
 References:
+_J_
+[1](https://www.jsoftware.com/help/dictionary/d300.htm),
 _Julia_
 [1](https://docs.julialang.org/en/v1/stdlib/LinearAlgebra/#LinearAlgebra.dot),
 _Maple_
