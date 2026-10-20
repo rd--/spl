@@ -85,7 +85,7 @@ OEIS [A034262](https://oeis.org/A034262):
 
 * * *
 
-See also: partition, split, splitBy
+See also: partition, split, splitOn
 
 Guides: List Functions
 

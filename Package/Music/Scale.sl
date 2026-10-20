@@ -120,7 +120,7 @@ Scale : [Object, Store] {
 	}
 
 	nameList { :self |
-		self.description.splitBy(', ')
+		self.description.splitOn(', ')
 	}
 
 	size { :self |

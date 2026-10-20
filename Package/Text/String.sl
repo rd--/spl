@@ -417,7 +417,7 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 	}
 
 	format { :self :arguments |
-		let parts = self.splitBy('%');
+		let parts = self.splitOn('%');
 		(arguments.size + 1 = parts.size).if {
 			parts.riffle(
 				arguments.collect(displayString/1)
@@ -663,7 +663,7 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		self.isEmpty.if {
 			[]
 		} {
-			self.withoutTrailingLineFeed.splitBy('\n')
+			self.withoutTrailingLineFeed.splitOn('\n')
 		}
 	}
 
@@ -944,7 +944,7 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		self.codePoints.sort!.fromCodePoints
 	}
 
-	splitByLimitedTo { :self :aString :count |
+	splitOnLimitedTo { :self :aString :count |
 		<primitive: return _self.split(_aString, _count);>
 	}
 
@@ -985,7 +985,7 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		self.onCharacters(reverse/1)
 	}
 
-	[stringSplit, splitBy] { :self :aString |
+	[stringSplit, splitOn] { :self :aString |
 		<primitive: return _self.split(_aString);>
 	}
 

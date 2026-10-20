@@ -893,7 +893,7 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 
 	namedColour { :self |
 		self.includes('/').if {
-			let [catalogueName, colourName] = self.splitBy('/');
+			let [catalogueName, colourName] = self.splitOn('/');
 			namedColour(catalogueName, colourName)
 		} {
 			self.error('namedColour')
@@ -935,7 +935,7 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 
 	parseRgbTriplet { :self |
 		self.isRgbTriplet.if {
-			let c = self.copyFromTo(5, self.size - 1).splitBy(',');
+			let c = self.copyFromTo(5, self.size - 1).splitOn(',');
 			c.size.isBetween(3, 4).if {
 				c.collect { :each |
 					each.parseSmallInteger(10) / 255

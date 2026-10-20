@@ -1,6 +1,7 @@
 # Decimal
 
 - _Decimal(n/d, k)_
+- _Decimal([n/d, k])_
 
 `Decimal` is a numeric `Type` for fixed point decimal numbers.
 It is able to accurately represent arbitrary precision decimal fractions.
@@ -18,6 +19,32 @@ It is able to accurately represent arbitrary precision decimal fractions.
 
 >>> Decimal(7/13, 5).decimalFraction
 53_846/100_000
+```
+
+Threads over lists:
+
+```
+>>> Decimal([1/2 1/3 1/4 1/5], 2)
+[0.50D 0.33D 0.25D 0.20D]
+
+>>> Decimal([1/2 1/3], [1 2])
+[0.5D 0.33D]
+
+>>> Decimal(1/3, [1 2 3])
+[0.3D 0.33D 0.333D]
+```
+
+The unary form maps over appropriately shaped arrays:
+
+```
+>>> Decimal[1/3 2]
+0.33D
+
+>>> Decimal[1/3 2; 1/4 2]
+[0.33D 0.25D]
+
+>>> Decimal[1/3 2; 1/4 2:; 1/5 1; 1/8 3]
+[0.33D 0.25D; 0.2D 0.125D]
 ```
 
 The `scale` of a decimal is the number of places after the decimal point,
@@ -369,10 +396,10 @@ At `Integer`:
 23.00D
 ```
 
-At `Integer`, with precision elided:
+At `Integer`, with precision elided set to `zero`:
 
 ```
->>> Decimal(23)
+>>> Decimal(23, 0)
 23D
 ```
 
@@ -409,10 +436,10 @@ At `SmallFloat`:
 At `LargeInteger`:
 
 ```
->>> Decimal(2L ^ 54 - 1)
+>>> Decimal(2L ^ 54 - 1, 0)
 18014398509481983D
 
->>> Decimal(23L ^ 23)
+>>> Decimal(23L ^ 23, 0)
 20880467999847912034355032910567D
 
 >>> Decimal(23L, 23)

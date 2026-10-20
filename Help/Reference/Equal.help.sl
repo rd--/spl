@@ -31,6 +31,6 @@ Guides: Comparing Collections
 
 References:
 _Haskell_
-[1](https://hackage-content.haskell.org/package/base/docs/Data-Eq.html#t:Eq)
+[1](https://hackage.haskell.org/package/base/docs/Data-Eq.html#t:Eq)
 _Rust_
 [1](https://doc.rust-lang.org/std/cmp/trait.Eq.html)

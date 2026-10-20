@@ -180,7 +180,7 @@ true
 
 * * *
 
-See also: ++, +++, arrayFlatten, catenate, concatenation, flatten, intercalate, repeatMatrix, splitBy, stringCatenate, stringJoin
+See also: ++, +++, arrayFlatten, catenate, concatenation, flatten, intercalate, repeatMatrix, splitOn, stringCatenate, stringJoin
 
 Guides: Array Functions, List Functions, Matrix Functions
 

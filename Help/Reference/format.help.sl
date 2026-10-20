@@ -45,7 +45,7 @@ Format `String`, unquoted:
 
 * * *
 
-See also: String, riffle, stringCatenate, splitBy
+See also: String, riffle, stringCatenate, splitOn
 
 Guides: String Functions
 

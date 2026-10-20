@@ -226,7 +226,7 @@ References:
 _Apl_
 [1](https://aplwiki.com/wiki/Divide),
 _Haskell_
-[1](https://hackage.haskell.org/package/base-4.19.1.0/docs/Prelude.html#v:-47-),
+[1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:-47-),
 _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/percent),
 _Mathematica_

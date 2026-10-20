@@ -322,16 +322,16 @@ true
 false
 ```
 
-split=`splitBy`:
+split=`splitOn`:
 
 ```
->>> splitBy('a,b,c', ',')
+>>> splitOn('a,b,c', ',')
 ['a', 'b', 'c']
 
->>> splitBy('one--two--three', '--')
+>>> splitOn('one--two--three', '--')
 ['one', 'two', 'three']
 
->>> splitBy('hello', '')
+>>> splitOn('hello', '')
 ['h', 'e', 'l', 'l', 'o']
 ```
 

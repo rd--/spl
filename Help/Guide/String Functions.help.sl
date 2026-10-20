@@ -132,8 +132,8 @@ Sets:
 
 Splitting:
 
-- `splitBy`
-- `splitByLimitedTo`
+- `splitOn`
+- `splitOnLimitedTo`
 
 Syntax:
 

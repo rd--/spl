@@ -118,9 +118,9 @@ Package! : [Object, Equal, Compare] {
 	}
 
 	parsePackageHeader { :self |
-		let fields = self.firstPliComment.splitBy(',');
+		let fields = self.firstPliComment.splitOn(',');
 		fields.collectCatenate { :each |
-			let [key, value] = each.withBlanksTrimmed.splitBy(': ');
+			let [key, value] = each.withBlanksTrimmed.splitOn(': ');
 			key.caseOf([
 				'Package' -> {
 					let [category, name] = value.withBlanksTrimmed.parseQualifiedPackageName;
@@ -136,7 +136,7 @@ Package! : [Object, Equal, Compare] {
 	}
 
 	parseQualifiedPackageName { :self |
-		let [category, name] = self.splitBy('-');
+		let [category, name] = self.splitOn('-');
 		[category, name]
 	}
 

@@ -285,7 +285,7 @@ HelpFile : [Object, Equal, Cache] {
 			self.lines.detectIfFoundIfNone { :each |
 				each.beginsWith(prefix)
 			} { :item |
-				item.drop(prefix.size).splitBy(', ')
+				item.drop(prefix.size).splitOn(', ')
 			} {
 				[]
 			}
@@ -628,7 +628,7 @@ HelpFile : [Object, Equal, Cache] {
 	helpFragmentPreprocessor { :inputText |
 		inputText.lines.collect { :line |
 			line.beginsWith('<<<').if {
-				let [a, b, c] = line.drop(3).splitBy(',');
+				let [a, b, c] = line.drop(3).splitOn(',');
 				let [d, e] = helpFragment(a, b, c, [-1, 1]);
 				[
 					d[1],

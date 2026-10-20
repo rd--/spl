@@ -209,7 +209,7 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 		self.decimalFraction.numerator = 0
 	}
 
-	[LargeInteger, decimalToLargeInteger] { :self |
+	[LargeInteger, L, decimalToLargeInteger] { :self |
 		self.isInteger.if {
 			LargeInteger(self.decimalFraction)
 		} {
@@ -367,10 +367,16 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 	}
 
 	Decimal { :self :scale |
-		uncheckedDecimal(
-			self.deriveDecimalFraction(scale),
-			scale
-		)
+		scale.isCollection.if {
+			scale.collect { :each |
+				Decimal(self, each)
+			}
+		} {
+			uncheckedDecimal(
+				self.deriveDecimalFraction(scale),
+				scale.assertIsSmallInteger
+			)
+		}
 	}
 
 	uncheckedDecimal { :fraction :scale |
@@ -400,18 +406,16 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 	}
 
 	Decimal { :self :scale |
-		self.isInteger.if {
-			uncheckedDecimal(Fraction(self, 1), scale)
+		scale.isCollection.if {
+			scale.collect { :each |
+				Decimal(self, each)
+			}
 		} {
 			Decimal(
 				self.deriveDecimalFraction(scale),
 				scale
 			)
 		}
-	}
-
-	Decimal { :self |
-		Decimal(self, 0)
 	}
 
 }
@@ -423,11 +427,7 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 	}
 
 	[Decimal, largeIntegerToDecimal] { :self :scale |
-		uncheckedDecimal(Fraction(self, 1L), scale)
-	}
-
-	[Decimal, largeIntegerToDecimal] { :self |
-		Decimal(self, 0)
+		Decimal(Fraction(self, 1L), scale)
 	}
 
 }
@@ -448,10 +448,29 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 
 }
 
++@Sequence {
+
+	Decimal { :self :scale |
+		scale.adaptToCollectionAndApply(self, Decimal/2)
+	}
+
+}
+
++List {
+
+	Decimal { :self |
+		self.atVectorOrElementwise { :each |
+			let [x, s] = each;
+			Decimal(x, s)
+		}
+	}
+
+}
+
 +String {
 
 	parseDecimal { :self :elseClause/0 |
-		let parts = self.splitBy('D');
+		let parts = self.splitOn('D');
 		(parts.size = 2).if {
 			parseDecimalWithScale(
 				parts[1],
@@ -476,7 +495,7 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 	}
 
 	parseDecimalWithScale { :self :scaleOrNil :elseClause/0 |
-		let parts = self.splitBy('.');
+		let parts = self.splitOn('.');
 		parts.size.caseOf(
 			[
 				1 -> {

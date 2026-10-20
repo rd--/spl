@@ -618,7 +618,7 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 +String {
 
 	isComplexString { :self |
-		let parts = self.splitBy('J');
+		let parts = self.splitOn('J');
 		parts.size = 2 & {
 			parts.allSatisfy(isFloatString/1) & {
 				parts[2].beginsWith('-').not
@@ -628,7 +628,7 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 
 	parseComplex { :self :elseClause/0 |
 		self.isComplexString.if {
-			let [real, imaginary] = self.splitBy('J');
+			let [real, imaginary] = self.splitOn('J');
 			Complex(
 				real.parseNumber(elseClause/0),
 				imaginary.parseNumber(elseClause/0)

@@ -45,7 +45,7 @@ the individual entries at each key are also duplicate free:
 >>> system
 >>> .scalaIntervalArchive
 >>> .keys
->>> .collect { :key | key.splitBy(', ') }
+>>> .collect { :key | key.splitOn(', ') }
 >>> .catenate
 >>> .isDuplicateFree
 true

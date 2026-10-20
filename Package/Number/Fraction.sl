@@ -332,7 +332,7 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 		self.numerator.isZero
 	}
 
-	[LargeInteger, fractionToLargeInteger] { :self |
+	[LargeInteger, L, fractionToLargeInteger] { :self |
 		self.isInteger.if {
 			self.numerator
 		} {
@@ -758,7 +758,7 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 
 	parseFractionSeparatedBy { :self :separator :elseClause/0 |
 		self.includesSubstring(separator).if {
-			let parts = self.splitBy(separator);
+			let parts = self.splitOn(separator);
 			(parts.size = 2).if {
 				Fraction(
 					parts[1].parseLargeInteger(elseClause/0),

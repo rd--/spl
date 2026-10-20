@@ -221,5 +221,7 @@ See also: clump, adjacentPairsCollect, movingMap, pairsCollect, pairsDo, partiti
 Guided: List Functions, String Functions
 
 References:
+_Haskell_
+[1](https://hackage.haskell.org/package/split/docs/Data-List-Split.html#v:divvy)
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Partition.html)

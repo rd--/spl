@@ -30,7 +30,7 @@ At the empty list:
 
 * * *
 
-See also: ++, +++, catenate, flatten, intercalate, join, splitBy, stringCatenate, stringJoin
+See also: ++, +++, catenate, flatten, intercalate, join, splitOn, stringCatenate, stringJoin
 
 Guides: String Functions
 

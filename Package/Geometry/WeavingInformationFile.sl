@@ -144,7 +144,7 @@ WeavingInformationFile : [Object] {
 
 	parseWeavingInformationFileIntegerList { :self |
 		self
-		.splitBy(',')
+		.splitOn(',')
 		.reject(isEmpty/1)
 		.collect(parseDecimalInteger/1)
 	}

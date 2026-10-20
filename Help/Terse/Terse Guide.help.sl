@@ -435,10 +435,10 @@ let r = (:); [1, 'fred', 2, 'charlie', 3, 'elmer'].pairsDo { :p :q | r.add!(q ->
 [1 .. 9].indexOfSubstring([3 .. 5]) = 3
 [1 .. 9].indexOfSubstringStartingAt([3 .. 5], 9) = 0
 [1 .. 9].indexOfSubstringStartingAt([9], 9) = 9
-let c = []; [1 .. 9].splitByDo([3 .. 5]) { :each | c.add!(each) }; c = [[1, 2], [6, 7, 8, 9]]
+let c = []; [1 .. 9].splitOnDo([3 .. 5]) { :each | c.add!(each) }; c = [[1, 2], [6, 7, 8, 9]]
 ['a', 'b', '', 'c', '', 'd', '', 'e', 'f'].indicesOfSubstring(['']) = [3, 5, 7]
-['a', 'b', '', 'c', '', 'd', '', 'e', 'f'].splitBy(['']) = [['a', 'b'], ['c'], ['d'], ['e', 'f']]
-['a', 'b', '', 'c', '', 'd', '', 'e', 'f', ''].splitBy(['']) = [['a', 'b'], ['c'], ['d'], ['e', 'f'], []]
+['a', 'b', '', 'c', '', 'd', '', 'e', 'f'].splitOn(['']) = [['a', 'b'], ['c'], ['d'], ['e', 'f']]
+['a', 'b', '', 'c', '', 'd', '', 'e', 'f', ''].splitOn(['']) = [['a', 'b'], ['c'], ['d'], ['e', 'f'], []]
 [5, 6, 3, -3, 2, 1, 0, 4].minMax = [-3, 6] /* integer minMax */
 [2834.83, -293482.28, 99283, 23, 959323].minMax = [-293482.28, 959323] /* float minMax */
 { ['x'].detect { :each | each.isNumber } }.hasError /* if no element is detected, an error is raised */
@@ -2723,12 +2723,12 @@ let r = RegularExpression('ab*c'); ['ac', 'abc', 'abbc'].collect { :each | r.mat
 RegularExpression('c(a|d)+r', 'g').matchAll('car cdr cadr') = ['car', 'cdr', 'cadr']
 RegularExpression('c(a|d)+r', 'g').matchAll('does not') = []
 RegularExpression('ab*c', 'g').matchAll('ab abc ac') = ['abc', 'ac']
-RegularExpression('-|:').splitBy('a-b:c') = ['a', 'b', 'c'] /* split string at matching tokens */
+RegularExpression('-|:').splitOn('a-b:c') = ['a', 'b', 'c'] /* split string at matching tokens */
 RegularExpression('x|z').replaceWith('x y z', '-') = '- y z'
 RegularExpression('x|z', 'g').replaceAllWith('x y z', '-') = '- y -'
 { RegularExpression('x|z').replaceAllWith('x y z', '-') }.hasError /* requires 'g' flag */
 'ab abc ac'.allRegularExpressionMatches(RegularExpression('ab*c', 'g')) = ['abc', 'ac']
-'a-b:c'.splitByRegularExpression('-|:') = ['a', 'b', 'c'] /* split string at matching tokens */
+'a-b:c'.stringSplitRegularExpression('-|:') = ['a', 'b', 'c'] /* split string at matching tokens */
 'x y z'.replaceRegularExpression('x|z', '-') = '- y z'
 'x y z'.replaceRegularExpression(RegularExpression('x|z', 'g'), '-') = '- y -'
 RegularExpression('x|z').replaceModifying('x y z', toUpperCase/1) = 'X y z' /* instead of a replacement string, allows for a block to process the match */
@@ -3267,19 +3267,19 @@ system.includesPackage('String') /* package */
 [1, 2, 3].stringJoin = '123' /* no items need be strings */
 [].stringJoin = '' /* stringJoin of empty sequence is the empty string */
 ['m', 'ss', 'ss', 'pp', ''].stringIntercalate('i') = 'mississippi' /* join with separator */
-'mississippi'.splitBy('i') = ['m', 'ss', 'ss', 'pp', ''] /* split at string */
-'Ma.rch'.splitBy('.') = ['Ma', 'rch'] /* split by dot */
-'str ing'.splitBy(' ') = ['str', 'ing'] /* split at char */
-'a b=2'.splitBy(' ').collect { :e | e.splitBy('=') }[2][2] = '2' /* split as parser */
-'string'.splitBy('ing') = ['str', '']
-'string'.splitBy('trin') = ['s', 'g']
-'string'.splitBy('absent') = ['string']
-'string'.splitBy('') = ['s', 't', 'r', 'i', 'n', 'g']
-'Set-Of-Three-Words'.splitByLimitedTo('-', 3) = ['Set', 'Of', 'Three'] /* limited to count number of elements */
+'mississippi'.splitOn('i') = ['m', 'ss', 'ss', 'pp', ''] /* split at string */
+'Ma.rch'.splitOn('.') = ['Ma', 'rch'] /* split by dot */
+'str ing'.splitOn(' ') = ['str', 'ing'] /* split at char */
+'a b=2'.splitOn(' ').collect { :e | e.splitOn('=') }[2][2] = '2' /* split as parser */
+'string'.splitOn('ing') = ['str', '']
+'string'.splitOn('trin') = ['s', 'g']
+'string'.splitOn('absent') = ['string']
+'string'.splitOn('') = ['s', 't', 'r', 'i', 'n', 'g']
+'Set-Of-Three-Words'.splitOnLimitedTo('-', 3) = ['Set', 'Of', 'Three'] /* limited to count number of elements */
 'mississippi'.characters.stringIntercalate('') = 'mississippi' /* List>>join is the inverse of String>>characters */
-'mississippi'.splitBy('i').stringIntercalate('i') = 'mississippi' /* join is an inverse of splitBy */
-'/usr/local/bin'.splitBy('/') = ['', 'usr', 'local', 'bin']
-'Terse Guide.help.sl'.splitBy('.') = ['Terse Guide', 'help', 'sl']
+'mississippi'.splitOn('i').stringIntercalate('i') = 'mississippi' /* join is an inverse of splitOn */
+'/usr/local/bin'.splitOn('/') = ['', 'usr', 'local', 'bin']
+'Terse Guide.help.sl'.splitOn('.') = ['Terse Guide', 'help', 'sl']
 'a' <| 'b' = true /* string comparison */
 'text'.copyFromTo(2, 3) = 'ex' /* substring, one indexed, inclusive */
 'text'.copyFromTo(3, 3) = 'x' /* substring (single character) */
@@ -3322,15 +3322,15 @@ system.includesPackage('String') /* package */
 'the quick brown fox jumps'.copyFromTo(17, 19) = 'fox'
 ['the', 'quick', 'brown', 'fox'].stringIntercalate(' ') = 'the quick brown fox'
 ['the', 'quick', 'brown', 'fox'].stringIntercalate('') = 'thequickbrownfox'
-'the quick brown fox jumps'.splitBy(' ') = ['the', 'quick', 'brown', 'fox', 'jumps']
-'string'.splitBy('') = ['s', 't', 'r', 'i', 'n', 'g']
+'the quick brown fox jumps'.splitOn(' ') = ['the', 'quick', 'brown', 'fox', 'jumps']
+'string'.splitOn('') = ['s', 't', 'r', 'i', 'n', 'g']
 'once at end'.occurrencesOf('d') = 1
 'abracadabra'.occurrencesOf('a') = 5
 'once at end'.indicesOf('d') = [11]
 'abracadabra'.indicesOf('a') = [1, 4, 6, 8, 11]
 'turramurra'.occurrencesOf('urra') = 2
 'turramurra'.indicesOf('urra') = [2, 7]
-'sum/1'.splitBy('/') = ['sum', '1']
+'sum/1'.splitOn('/') = ['sum', '1']
 'ascii'.toUpperCase = 'ASCII'
 'ASCII'.toLowerCase = 'ascii'
 `\'x\'`.name = '\'x\'' /* backtick quotes do not quote single quote */

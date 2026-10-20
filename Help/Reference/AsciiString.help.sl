@@ -74,11 +74,11 @@ Catenate using `++`:
 AsciiString'text'
 ```
 
-Split on sub-string using `splitBy`:
+Split on sub-string using `splitOn`:
 
 ```
 >>> AsciiString'two words'
->>> .splitBy(AsciiString' ')
+>>> .splitOn(AsciiString' ')
 [
 	AsciiString'two',
 	AsciiString'words'

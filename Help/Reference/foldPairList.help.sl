@@ -57,6 +57,6 @@ Gudies: List Functions
 
 References:
 _Haskell_
-[1](https://hackage-content.haskell.org/package/base-4.22.0.0/docs/Data-Traversable.html#v:mapAccumL),
+[1](https://hackage.haskell.org/package/base/docs/Data-Traversable.html#v:mapAccumL),
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/FoldPairList.html)

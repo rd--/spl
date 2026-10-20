@@ -37,7 +37,7 @@ ColourPalette : [Object, Store] {
 
 	namedColourPalette { :self |
 		self.includes('/').if {
-			let [collectionName, paletteName] = self.splitBy('/');
+			let [collectionName, paletteName] = self.splitOn('/');
 			collectionName.namedColourPalette(paletteName)
 		} {
 			let answer = [];

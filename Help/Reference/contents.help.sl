@@ -21,7 +21,7 @@ At `Box`:
 
 * * *
 
-See also: List, Stream, join, next, reset, splitBy, stringList
+See also: List, Stream, join, next, reset, splitOn, stringList
 
 Guides: Stream Functions
 

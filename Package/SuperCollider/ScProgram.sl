@@ -69,11 +69,11 @@ SuperColliderProgramIndex : [Object] {
 +String {
 
 	parseSuperColliderProgramIndex { :self |
+		let re = RegularExpression(' - |/');
 		SuperColliderProgramIndex(
 			self.lines.select(isNotEmpty/1).collect { :each |
-				each.replaceString('.sp', '')
-				.splitByRegularExpression(
-					RegularExpression(' - |/')
+				re.split(
+					each.replaceString('.sp', '')
 				).assertIsOfSize(3)
 			}
 		)

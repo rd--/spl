@@ -1089,9 +1089,9 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 	}
 
 	parseSexagesimal { :self |
-		let [a, b] = self.splitBy(';');
+		let [a, b] = self.splitOn(';');
 		let [p, q] = [a, b].collect { :each |
-			each.splitBy(',').collect(parseDecimalInteger/1)
+			each.splitOn(',').collect(parseDecimalInteger/1)
 		};
 		let [m, n] = [p, q].collect(size/1);
 		(p * (60 ^ (m - 1).toBy(0, -1))).sum + (q / (60 ^ 1.to(n))).sum

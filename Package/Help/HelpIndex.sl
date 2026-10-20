@@ -75,7 +75,7 @@ LibraryItem(
 		.lines
 		.select(isNotEmpty/1)
 		.collect { :each |
-			let [kind, name] = each.replaceString('.help.sl', '').splitBy('/');
+			let [kind, name] = each.replaceString('.help.sl', '').splitOn('/');
 			[kind, name]
 		}.HelpIndex
 	}

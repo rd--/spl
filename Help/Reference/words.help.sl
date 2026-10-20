@@ -50,7 +50,7 @@ Multiple spaces are treated as one space:
 
 * * *
 
-See also: lines, paragraphs, RegularExpression, sentences, splitByRegularExpression, unwords
+See also: RegularExpression, lines, paragraphs, sentences, stringSplit, unwords
 
 Guides: String Functions
 

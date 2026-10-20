@@ -90,7 +90,7 @@ RegExp! : [Object, Store, Equal] {
 		self.uncheckedSearch(aString)
 	}
 
-	splitBy { :self :aString |
+	split { :self :aString |
 		aString.assertIsString;
 		self.uncheckedSplit(aString)
 	}
@@ -153,8 +153,8 @@ RegExp! : [Object, Store, Equal] {
 
 +String {
 
-	allRegularExpressionMatches { :self :aRegularExpression |
-		aRegularExpression.RegularExpression.matchAll(self)
+	allRegularExpressionMatches { :self :regexp |
+		RegularExpression(regexp).matchAll(self)
 	}
 
 	camelCaseToWords { :self |
@@ -206,12 +206,12 @@ RegExp! : [Object, Store, Equal] {
 		self.matchesRegularExpression('^[0-9]+$')
 	}
 
-	matchRegularExpression { :self :aRegularExpression |
-		aRegularExpression.RegularExpression.match(self)
+	matchRegularExpression { :self :regexp |
+		RegularExpression(regexp).match(self)
 	}
 
-	matchesRegularExpression { :self :aRegularExpression |
-		aRegularExpression.RegularExpression.matches(self)
+	matchesRegularExpression { :self :regexp |
+		RegularExpression(regexp).matches(self)
 	}
 
 	pascalCaseToWords { :self |
@@ -227,11 +227,11 @@ RegExp! : [Object, Store, Equal] {
 	}
 
 	replaceRegularExpression { :self :regExpToFind :stringToReplaceWith |
-		regExpToFind.RegularExpression.replaceWith(self, stringToReplaceWith)
+		RegularExpression(regExpToFind).replaceWith(self, stringToReplaceWith)
 	}
 
 	replaceAllRegularExpression { :self :regExpToFind :stringToReplaceWith |
-		regExpToFind.RegularExpression.replaceAllWith(self, stringToReplaceWith)
+		RegularExpression(regExpToFind).replaceAllWith(self, stringToReplaceWith)
 	}
 
 	replaceMultipleStrings { :aString :aRecord |
@@ -244,12 +244,12 @@ RegExp! : [Object, Store, Equal] {
 		>
 	}
 
-	searchRegularExpression { :self :aRegularExpression |
-		aRegularExpression.RegularExpression.search(self)
+	searchRegularExpression { :self :regexp |
+		RegularExpression(regexp).search(self)
 	}
 
-	splitByRegularExpression { :self :aRegularExpression |
-		aRegularExpression.RegularExpression.splitBy(self)
+	stringSplitRegularExpression { :self :regexp |
+		RegularExpression(regexp).split(self)
 	}
 
 	stringDelete { :self :operand |
@@ -307,7 +307,7 @@ RegExp! : [Object, Store, Equal] {
 	}
 
 	wordsBy { :self :separators |
-		self.splitByRegularExpression(
+		self.stringSplitRegularExpression(
 			separators.characters.stringIntercalate('|')
 		).reject(isEmpty/1)
 	}
@@ -317,7 +317,7 @@ RegExp! : [Object, Store, Equal] {
 		trimmed.isEmpty.if {
 			[]
 		} {
-			trimmed.splitByRegularExpression('\\s+')
+			trimmed.stringSplitRegularExpression('\\s+')
 		}
 	}
 

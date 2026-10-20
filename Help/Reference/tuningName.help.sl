@@ -48,7 +48,7 @@ To lookup a tuning by name see `namedTuning`:
 >>> 'redfield'
 >>> .namedTuning
 >>> .description
->>> .splitBy(', ')
+>>> .splitOn(', ')
 [
 	'John Redfield'
 	'New Diatonic Scale (1930)'

@@ -131,7 +131,7 @@ ScalaTuning : [Object, Tuning] {
 	}
 
 	intervalNameList { :self |
-		self.intervalName.splitBy(', ')
+		self.intervalName.splitOn(', ')
 	}
 
 }
@@ -142,7 +142,7 @@ ScalaTuning : [Object, Tuning] {
 		let archive = system.scalaIntervalArchive;
 		archive.atIfAbsent(self) {
 			archive.keys.detectIfFoundIfNone { :key |
-				key.splitBy(', ').includes(self)
+				key.splitOn(', ').includes(self)
 			} { :key |
 				archive.at(key)
 			} {

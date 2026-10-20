@@ -39,25 +39,26 @@ type specific alias:
 The conversion must,
 however,
 be correct,
-non-integer values signal errors:
+non-integer values signal errors.
+`L` is an alias for `LargeInteger` that mirrors the literal syntax:
 
 ```
 >>> { LargeInteger(3.141) }.hasError
 true
 
->>> 3.141.truncate.LargeInteger
+>>> 3.141.truncate.L
 3L
 
 >>> { LargeInteger(13/5) }.hasError
 true
 
->>> 13/5.round.LargeInteger
+>>> 13/5.round.L
 3L
 
 >>> { LargeInteger(3.141D) }.hasError
 true
 
->>> 3.141D.ceiling.LargeInteger
+>>> 3.141D.ceiling.L
 4L
 ```
 
@@ -71,8 +72,18 @@ true
 It also threads over lists:
 
 ```
+>>> LargeInteger([3, 3L, 3/1, 3D])
+[3L, 3L, 3L, 3L]
+```
+
+Using `List Constructor Syntax`:
+
+```
 >>> LargeInteger[3 3L 3/1 3D]
 [3L 3L 3L 3L]
+
+>>> LargeInteger[3 3L; 3/1 3D]
+[3L 3L; 3L 3L]
 ```
 
 `SmallFloat` behaves similarly:
@@ -92,9 +103,12 @@ It also threads over lists:
 
 >>> SmallFloat[3L 3D 3/1 3]
 [3 3 3 3]
+
+>>> SmallFloat[3L 3D; 3/1 3]
+[3 3; 3 3]
 ```
 
-`Complex` and `Fraction` have binary constructors:
+`Complex`, `Fraction` and `Decimal` have binary constructors:
 
 ```
 >>> Complex(3, 4)
@@ -102,6 +116,9 @@ It also threads over lists:
 
 >>> Fraction(3, 4)
 3/4
+
+>>> Decimal(1/3, 2)
+0.33D
 ```
 
 These binary constructors likewise thread over lists:
@@ -112,13 +129,18 @@ These binary constructors likewise thread over lists:
 
 >>> Fraction([1 2 3], [4 5 6])
 [1/4 2/5 3/6]
+
+>>> Decimal(1/3, [1 2 3])
+[0.3D 0.33D 0.333D]
 ```
 
 The ordinary way to convert a real number to a complex number,
 or a fraction,
 is to use the binary constructor,
 setting the `imaginary` part to `zero`,
-or the `denominator` to `one`:
+or the `denominator` to `one`.
+`J` is an alias for `Complex` that mirrors the literal syntax,
+likewise `R` for `Fraction`.
 
 ```
 >>> Complex(2, 0)
@@ -139,6 +161,33 @@ or the `denominator` to `one`:
 ```
 >>> 1.I
 1I
+```
+
+The unary forms of binary constructors operate on appropriately shaped arrays.
+
+`Complex` at `List`:
+
+```
+>>> Complex[1 2]
+1J2
+
+>>> Complex[1 2; 3 4]
+[1J2 3J4]
+
+>>> Complex[1 2; 3 4:; 5 6; 7 8]
+[1J2 3J4; 5J6 7J8]
+```
+
+`Fraction` at `List`:
+
+>>> Fraction[1 2]
+1/2
+
+>>> Fraction[1 2; 3 4]
+[1/2 3/4]
+
+>>> Fraction[1 2; 3 4:; 5 6; 7 8]
+[1/2 3/4; 5/6 7/8]
 ```
 
 * * *

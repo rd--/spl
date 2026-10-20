@@ -37,7 +37,7 @@ true
 
 * * *
 
-See also: catenate, join, interleave, intersperse, splitBy, stringIntercalate, stringJoin
+See also: catenate, join, interleave, intersperse, splitOn, stringIntercalate, stringJoin
 
 Guides: String Functions
 

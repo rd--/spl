@@ -25,7 +25,7 @@ At `SortedList`:
 
 * * *
 
-See also: DoubleQuotedString, List, join, next, reset, splitBy, stringList
+See also: DoubleQuotedString, List, join, next, reset, splitOn, stringList
 
 Guides: Stream Functions
 

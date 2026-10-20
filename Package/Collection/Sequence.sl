@@ -2594,15 +2594,15 @@
 		}
 	}
 
-	splitBy { :self :aCollection |
+	[splitOn, sequenceSplit] { :self :aCollection |
 		let answer = [];
-		self.splitByDo(aCollection) { :each |
+		self.splitOnDo(aCollection) { :each |
 			answer.add!(each)
 		};
 		answer
 	}
 
-	splitByDo { :self :aCollection :aBlock/1 |
+	splitOnDo { :self :aCollection :aBlock/1 |
 		let lastIndex = 1;
 		let nextIndex = nil;
 		{

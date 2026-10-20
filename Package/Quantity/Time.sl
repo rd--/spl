@@ -65,7 +65,7 @@
 
 	parseTime { :self :elseClause/0 |
 		self.isTimeString.if {
-			let [h, m, s] = self.splitBy(':');
+			let [h, m, s] = self.splitOn(':');
 			h := h.parseDecimalInteger;
 			m := m.parseDecimalInteger;
 			s := s.parseNumber;

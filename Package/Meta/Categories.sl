@@ -766,7 +766,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'selectThenCollect'
 		'selectThenDo'
 		'split'
-		'splitBy'
+		'splitOn'
 		'timesRepeat'
 		'tuples'
 		'tuplesDo'

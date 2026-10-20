@@ -46,8 +46,8 @@ Searching:
 
 Splitting:
 
-- `splitBy`
-- `splitByRegularExpression`
+- `splitOn`
+- `stringSplitRegularExpression`
 
 * * *
 

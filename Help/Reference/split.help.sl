@@ -293,13 +293,13 @@ The Haskell `groupBy` function compares to the first item of the preceding group
 
 * * *
 
-See also: splitBy, splitPlaces
+See also: splitOn, splitPlaces
 
 Guides: List Functions
 
 References:
 _Haskell_
-[1](https://hackage-content.haskell.org/package/base/docs/Data-List.html#v:group),
-[2](https://hackage-content.haskell.org/package/base/docs/Data-List.html#v:groupBy)
+[1](https://hackage.haskell.org/package/base/docs/Data-List.html#v:group),
+[2](https://hackage.haskell.org/package/base/docs/Data-List.html#v:groupBy)
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Split.html)

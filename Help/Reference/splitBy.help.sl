@@ -1,119 +1,55 @@
++List{
+	splitBy { :self :f/1 |
+		self.split { :x :y |
+			f(x) = f(y)
+		}
+	}
+}
+
 # splitBy
 
-- _splitBy([x₁ x₂ …], [y₁ …])_
+- _splitBy([x₁ x₂ …], f/1)_
 
-Split the sequence _x_,
-or a string,
-by the sub-sequence _y_,
-or a sub-string.
-The separator is discarded.
+Split the sequence _x_ into runs of successive items that give the same value when _f_ is applied.
 
-At `List`:
+Split into runs of numbers with identical integer part:
 
 ```
->>> [1 2 3 0 4 5 6 0 7 8 9].splitBy([0])
-[1 2 3; 4 5 6; 7 8 9]
+>>> [1, 3/2 .. 5].splitBy(integerPart/1)
+[1 3/2; 2/1 5/2; 3/1 7/2; 4/1 9/2; 5/1]
 ```
 
-Split a `String` into a `List` of `String`s,
-according to the separator,
-which is also a `String`:
+Split by sign:
 
 ```
->>> 'a,b,c'.splitBy(',')
-['a' 'b' 'c']
-
->>> 'hello<p>world<p>'.splitBy('<p>')
-['hello' 'world' '']
-
->>> 'a///b'.splitBy('/')
-['a' '' '' 'b']
-
->>> ''.splitBy(',')
-['']
-
->>> '0.3D9'.splitBy('D')
-['0.3' '9']
-
->>> 'text'.splitBy('')
-['t' 'e' 'x' 't']
+>>> [3 0 -4 3 3 -2 0 -3 -4 5].splitBy(sign/1)
+[3; 0; -4; 3 3; -2; 0; -3 -4; 5]
 ```
 
-The inverse is `stringJoin`:
+Split by quotient:
 
 ```
->>> 'mississippi'.splitBy('i').stringJoin('i')
-'mississippi'
+>>> [1 .. 10].splitBy { :x | x // 3 }
+[1 2; 3 4 5; 6 7 8; 9 10]
 ```
 
-Pick out substrings delimited by whitespace:
+Split into runs of triples with identical first component:
 
 ```
->>> 'a bbb  cccc aa   d'.splitBy(' ')
-['a' 'bbb' '' 'cccc' 'aa' '' '' 'd']
-
->>> 'a bbb  cccc aa   d'
->>> .splitByRegularExpression(' +')
-['a' 'bbb' 'cccc' 'aa' 'd']
-```
-
-Split a string at every '--':
-
-```
->>> 'a--bbb---ccc--dddd'.splitBy('--')
-['a' 'bbb' '-ccc' 'dddd']
-```
-
-Split at every run of spaces:
-
-```
->>> 'the cat in the hat'.splitBy(' ')
-['the' 'cat' 'in' 'the' 'hat']
-```
-
-Split at periods:
-
-```
->>> '192.168.0.1'.splitBy('.')
-['192' '168' '0' '1']
-```
-
-Make a nested array by applying `splitBy` twice:
-
-```
->>> let s = '11:12:13//21:22:23//31:32:33';
->>> s.splitBy('//').collect { :each |
->>> 	each.splitBy(':')
->>> }
+>>> [1 2].tuples(3).splitBy(first/1)
 [
-	'11' '12' '13';
-	'21' '22' '23';
-	'31' '32' '33'
+	1 1 1; 1 1 2; 1 2 1; 1 2 2
+	:;
+	2 1 1; 2 1 2; 2 2 1; 2 2 2
 ]
-```
-
-Simple attribute parser:
-
-```
->>> 'x=A y z=C'.words.collect { :each |
->>> 	let parts = each.splitBy('=');
->>> 	parts[1] -> (parts.size = 1).if {
->>> 		''
->>> 	} {
->>> 		parts[2]
->>> 	}
->>> }.Record
-(x: 'A', y: '', z: 'C')
 ```
 
 * * *
 
-See also: join, split, splitByRegularExpression, stringJoin, stringSplit
+See also: split, splitOn
 
-Guides: List Functions, String Functions
+Guides: List Functions
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/StringSplit.html)
-
-Categories: String
+[1](https://reference.wolfram.com/language/ref/SplitBy.html)

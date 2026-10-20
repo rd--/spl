@@ -316,7 +316,7 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer, I
 		self = aNumber
 	}
 
-	LargeInteger { :self |
+	[LargeInteger, L] { :self |
 		self
 	}
 
@@ -423,7 +423,7 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer, I
 
 +SmallFloat {
 
-	[LargeInteger, smallFloatToLargeInteger] { :self |
+	[LargeInteger, L, smallFloatToLargeInteger] { :self |
 		self.isNaN.if {
 			NaN
 		} {
@@ -482,7 +482,7 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer, I
 
 +List {
 
-	LargeInteger { :self |
+	[LargeInteger, L] { :self |
 		self.collect(LargeInteger/1)
 	}
 

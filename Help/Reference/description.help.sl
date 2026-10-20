@@ -10,7 +10,7 @@ At `Scale`:
 >>> 'Major'
 >>> .namedScale
 >>> .description
->>> .splitBy(', ')
+>>> .splitOn(', ')
 [
 	'G.Lydian'
 	'M.Ionian'

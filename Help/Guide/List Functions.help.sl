@@ -81,7 +81,7 @@ Partitioning:
 - `partition`
 - `prefixes`
 - `split`
-- `splitBy`
+- `splitOn`
 - `suffixes`
 
 Converting:

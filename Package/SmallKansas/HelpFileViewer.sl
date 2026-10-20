@@ -37,7 +37,7 @@ HelpFileViewer : [Object, UserEventTarget, View] {
 		self.outerElement.removeAllChildren!;
 		fragments.do { :each |
 			each.first.isCodeFence.if {
-				each.allButFirstAndLast.splitBy(['']).do { :codeBlock |
+				each.allButFirstAndLast.splitOn(['']).do { :codeBlock |
 					codeBlock.first.beginsWith('>>> ').if {
 						codeBlock.parseDocumentationTest.asSmallProgram(self.smallKansas).place
 					} {

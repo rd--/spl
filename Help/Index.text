@@ -2514,6 +2514,7 @@ Reference/LfPar.help.sl
 Reference/LfPulse.help.sl
 Reference/LfSaw.help.sl
 Reference/LfTri.help.sl
+Reference/L.help.sl
 Reference/lHospitalQuintic.help.sl
 Reference/library.help.sl
 Reference/LibraryItem.help.sl
@@ -3754,6 +3755,7 @@ Reference/Sequence.help.sl
 Reference/sequencePosition.help.sl
 Reference/sequenceReplace.help.sl
 Reference/Sequencer.help.sl
+Reference/sequenceSplit.help.sl
 Reference/serpentineCurve.help.sl
 Reference/sessionTime.help.sl
 Reference/setBitAt.help.sl
@@ -3915,10 +3917,10 @@ Reference/splDirectory.help.sl
 Reference/splFileName.help.sl
 Reference/splFilePath.help.sl
 Reference/splitBy.help.sl
-Reference/splitByLimitedTo.help.sl
-Reference/splitByRegularExpression.help.sl
 Reference/split.help.sl
 Reference/SplitMix.help.sl
+Reference/splitOn.help.sl
+Reference/splitOnLimitedTo.help.sl
 Reference/splitPlaces.help.sl
 Reference/splOeisReferences.help.sl
 Reference/splOperatorCharacters.help.sl
@@ -4011,6 +4013,8 @@ Reference/stringLength.help.sl
 Reference/stringRepeat.help.sl
 Reference/stringReplace.help.sl
 Reference/stringReverse.help.sl
+Reference/stringSplit.help.sl
+Reference/stringSplitRegularExpression.help.sl
 Reference/strophoid.help.sl
 Reference/StudentTDistribution.help.sl
 Reference/sturgesRule.help.sl

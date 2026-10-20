@@ -646,8 +646,8 @@
 
 ## Regular Expressions
 
-- `RegExp`
-- `asRegExp`, `matchesRegExp`, `splitByRegExp`
+- `RegularExpression`
+- `stringSplitRegularExpression`
 
 ## Removing
 
@@ -752,7 +752,7 @@
 
 ## String Operations
 
-- `join`, `splitBy`, `splitByRegExp`
+- `join`, `splitOn`, `stringSplitRegularExpression`
 - `at`, `characters`, `codePoints`, `drop`, `size`, `reverse`, `take`
 - `toLowerCase`, `toUpperCase`, `capitalize`
 - `asInteger`, `asNumber`

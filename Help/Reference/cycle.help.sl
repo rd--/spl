@@ -33,4 +33,4 @@ Guides: List Functions, Stream Functions
 
 References:
 _Haskell_
-[1](https://hackage-content.haskell.org/package/base/docs/Data-List.html#v:cycle)
+[1](https://hackage.haskell.org/package/base/docs/Data-List.html#v:cycle)

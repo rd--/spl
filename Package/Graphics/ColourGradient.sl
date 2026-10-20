@@ -135,7 +135,7 @@ ColourGradient : [Object, Store] {
 
 	namedColourGradient { :self |
 		self.includes('/').if {
-			let [collectionName, gradientName] = self.splitBy('/');
+			let [collectionName, gradientName] = self.splitOn('/');
 			collectionName.namedColourGradient(gradientName)
 		} {
 			let answer = [];

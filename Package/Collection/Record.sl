@@ -194,7 +194,7 @@ Record! : [Object, New, Copy, Store, Equal, Json, Do, At, Indices, Put, Collect,
 
 	parseUnquotedAttributeList { :self |
 		self.words.collect { :each |
-			let parts = each.splitBy('=');
+			let parts = each.splitOn('=');
 			parts[1] -> (parts.size = 1).if {
 				'true'
 			} {

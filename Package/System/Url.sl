@@ -7,11 +7,11 @@
 	}
 
 	fileName { :self |
-		self.pathName.splitBy('/').last
+		self.pathName.splitOn('/').last
 	}
 
 	fileNameWithoutExtensions { :self |
-		self.fileName.splitBy('.').first
+		self.fileName.splitOn('.').first
 	}
 
 	fragment { :self |

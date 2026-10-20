@@ -20,7 +20,7 @@ CategoryDictionary : [Object] {
 	}
 
 	categorizeAll { :self :domain :category :entries |
-		let simpleCategory = category.splitBy('-').first;
+		let simpleCategory = category.splitOn('-').first;
 		self.category(
 			domain, simpleCategory
 		).uncheckedIncludeAll!(entries)
@@ -144,7 +144,7 @@ CategoryDictionary : [Object] {
 +String {
 
 	categoryNameParts { :self |
-		self.splitBy('-')
+		self.splitOn('-')
 	}
 
 }

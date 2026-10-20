@@ -55,11 +55,11 @@ The unary form will undo `List` & `characters`:
 'xyz'
 ```
 
-The binary form will undo `splitBy`:
+The binary form will undo `splitOn`:
 
 ```
 >>> 'x, y, z'
->>> .splitBy(', ')
+>>> .splitOn(', ')
 >>> .stringJoin(', ')
 'x, y, z'
 ```
@@ -82,7 +82,7 @@ Join a list of words, after inserting spaces in between:
 
 * * *
 
-See also: ++, join, splitBy, stringCatenate
+See also: ++, join, splitOn, stringCatenate
 
 Guides: String Functions
 

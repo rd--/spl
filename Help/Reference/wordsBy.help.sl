@@ -18,7 +18,7 @@ however that name is awkward in relation to `substrings` and `substrings`.
 
 * * *
 
-See also: RegularExpression, splitBy, splitByRegularExpression, words
+See also: RegularExpression, stringSplit, stringSplitRegularExpression, words
 
 References:
 _Smalltalk_

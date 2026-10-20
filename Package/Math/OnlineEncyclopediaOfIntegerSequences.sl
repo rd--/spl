@@ -365,7 +365,7 @@
 
 	data { :self |
 		self.dataText
-		.splitBy(',')
+		.splitOn(',')
 		.collect { :x |
 			x.parseLargeInteger.normal
 		}
@@ -443,7 +443,7 @@
 
 	offset { :self |
 		self.offsetText
-		.splitBy(',')
+		.splitOn(',')
 		.collect(parseDecimalInteger/1)
 	}
 
@@ -535,7 +535,7 @@ OeisEntry : [Object, Store, Equal, OeisSequence] {
 	}
 
 	keywords { :self |
-		self.lookupField('keyword').splitBy(',')
+		self.lookupField('keyword').splitOn(',')
 	}
 
 	lookupField { :self :key |
@@ -614,7 +614,7 @@ OeisSequenceFile : [Object, Equal, OeisSequence] {
 	}
 
 	keywords { :self |
-		self.uniqueField('%K').splitBy(',')
+		self.uniqueField('%K').splitOn(',')
 	}
 
 	number { :self |
@@ -682,7 +682,7 @@ OeisSequenceFile : [Object, Equal, OeisSequence] {
 				s.beginsWith('#')
 			}
 		}.collect { :s |
-			s.splitBy(' ').collect { :n |
+			s.splitOn(' ').collect { :n |
 				n.parseLargeInteger.normal
 			}
 		}

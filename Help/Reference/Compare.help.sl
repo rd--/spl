@@ -109,7 +109,7 @@ Guides: Comparison Functions, Sort Functions
 
 References:
 _Haskell_
-[1](https://hackage-content.haskell.org/package/base/docs/Data-Ord.html),
+[1](https://hackage.haskell.org/package/base/docs/Data-Ord.html),
 _Rust_
 [1](https://doc.rust-lang.org/std/cmp/trait.Ord.html),
 _Smalltalk_

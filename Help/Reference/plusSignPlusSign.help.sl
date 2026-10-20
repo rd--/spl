@@ -58,8 +58,8 @@ Guides: Dictionary Functions, List Functions, Operator Lists
 
 References:
 _Haskell_
-[1](https://hackage-content.haskell.org/package/base/docs/Data-List.html#v:-43--43-)
-[2](https://hackage-content.haskell.org/package/base/docs/Data-List.html#v:concat),
+[1](https://hackage.haskell.org/package/base/docs/Data-List.html#v:-43--43-)
+[2](https://hackage.haskell.org/package/base/docs/Data-List.html#v:concat),
 _J_
 [1](https://www.jsoftware.com/help/dictionary/d320.htm),
 _Smalltalk_

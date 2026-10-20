@@ -62,6 +62,6 @@ Guides: List Functions, String Functions
 
 References:
 _Haskell_
-[1](https://hackage.haskell.org/package/base-4.21.0.0/docs/Data-List.html#v:isSubsequenceOf),
+[1](https://hackage.haskell.org/package/base/docs/Data-List.html#v:isSubsequenceOf),
 _W_
 [1](https://en.wikipedia.org/wiki/Subsequence)

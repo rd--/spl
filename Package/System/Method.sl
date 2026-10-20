@@ -130,7 +130,7 @@ Method! : [Object, Equal] {
 	}
 
 	parseQualifiedMethodName { :self |
-		let parts = self.splitBy('/');
+		let parts = self.splitOn('/');
 		(parts.size = 2).if {
 			[parts[1], parts[2].parseSmallInteger(10)]
 		} {
@@ -139,7 +139,7 @@ Method! : [Object, Equal] {
 	}
 
 	parseMethodSignature { :self |
-		let parts = self.splitBy('>>');
+		let parts = self.splitOn('>>');
 		(parts.size = 2).if {
 			parts
 		} {

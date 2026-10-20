@@ -124,7 +124,7 @@ System! : [Object, Cache, RandomNumberGenerator] {
 	}
 
 	preference { :self :path :defaultValue |
-		self.preferencesReadPath(path.splitBy('/'), defaultValue)
+		self.preferencesReadPath(path.splitOn('/'), defaultValue)
 	}
 
 	preferences { :self |

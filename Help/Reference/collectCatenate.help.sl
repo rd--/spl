@@ -33,6 +33,6 @@ Guides: List Functions
 
 References:
 _Haskell_
-[1](https://hackage.haskell.org/package/base-4.21.0.0/docs/Data-List.html#v:concatMap)
+[1](https://hackage.haskell.org/package/base/docs/Data-List.html#v:concatMap)
 
 Categories: Enumerating
