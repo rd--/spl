@@ -115,6 +115,13 @@ Remove all:
 (99, true)
 ```
 
+Reverse:
+
+```
+>>> LinkedList[1 2 3 4 5].reverse
+LinkedList[5 4 3 2 1]
+```
+
 Select:
 
 ```

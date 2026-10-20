@@ -172,7 +172,13 @@ sl.copyTraitMethodsToType(
 		methodNames,
 		methodBlocks,
 	);
-	return `${addType}\n\n${copyTraits}\n\n${addMethods}\n`;
+	const slotAccess = `
+sl.defineTypeSlotMethods(
+	'${typeName}',
+	'${context.packageName}',
+	[${instanceVariablesList}]
+);`;
+	return `${addType}\n\n${copyTraits}\n\n${slotAccess}\n\n${addMethods}\n`;
 }
 
 const asJs: ohm.ActionDict<string> = {

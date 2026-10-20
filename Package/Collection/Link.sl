@@ -4,6 +4,10 @@
 		self.typeResponsibility('@Link>>nextLink')
 	}
 
+	previousLink { :self |
+		self.typeResponsibility('@Link>>previousLink')
+	}
+
 	value { :self |
 		self.typeResponsibility('@Link>>value')
 	}
@@ -20,7 +24,9 @@
 
 	lastLink { :self |
 		let answer = self;
-		{ answer.nextLink.isNil }.whileFalse {
+		{
+			answer.nextLink.isNil
+		}.whileFalse {
 			answer := answer.nextLink
 		};
 		answer
@@ -84,24 +90,56 @@
 
 }
 
-ValueLink : [Object, Copy, Store, Equal, Do, Link] {
+Link : [Object, Copy, Store, Equal, Do, Collect, Link] {
 
 	| value nextLink |
 
+	collect { :self :aBlock/1 |
+		let answer = nil;
+		self.do { :each |
+			answer := Link(aBlock(each), answer)
+		};
+		answer.reverse
+	}
+
 	isEqualBy { :self :anObject :aBlock/2 |
-		anObject.isValueLink & {
+		anObject.isLink & {
 			aBlock(self.value, anObject.value) & {
-				self.nextLink == anObject.nextLink
+				self.nextLink = anObject.nextLink
 			}
 		}
+	}
+
+	reverse { :self |
+		let answer = Link(self.value, nil);
+		let link = self.nextLink;
+		{
+			link != nil
+		}.whileTrue {
+			answer := Link(link.value, answer);
+			link := link.nextLink
+		};
+		answer
 	}
 
 }
 
 +@Object {
 
-	ValueLink { :self :aLinkOrNil |
-		newValueLink().initializeSlots(self, aLinkOrNil)
+	Link { :self :aLinkOrNil |
+		(
+			aLinkOrNil.isLink | {
+				aLinkOrNil.isNil
+			}
+		).if {
+			uncheckedLink(self, aLinkOrNil)
+		} {
+			self.error('Link', [aLinkOrNil])
+		}
+	}
+
+	uncheckedLink { :self :aLinkOrNil |
+		newLink().initializeSlots(self, aLinkOrNil)
 	}
 
 }

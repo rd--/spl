@@ -234,7 +234,7 @@
 	}
 
 	typeName { :self |
-		<primitive: return sl.splTypeOf(_self);>
+		<primitive: return sl.splTypeName(_self);>
 	}
 
 

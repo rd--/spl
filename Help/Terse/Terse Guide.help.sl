@@ -1,15 +1,14 @@
 # Terse Guide
 
-## PlaneAngle -- geometry type
+## Add -- collection trait
 ```
-system.includesPackage('PlaneAngle') /* plane angle package */
-PlaneAngle(1.pi).typeName = 'Quantity' /* type of angle */
-PlaneAngle(1.pi).isPlaneAngle /* angle predicate */
-PlaneAngle(1).inDegrees ~ 57.296 /* radians to degrees */
-PlaneAngle(1.pi).inDegrees = 180 /* pi radians is 180 degrees */
-PlaneAngle(180.degree).inRadians = 1.pi /* 180 degrees is pi radians */
-PlaneAngle(1.pi) < PlaneAngle(360.degree) /* angles are magnitudes */
-PlaneAngle(1.pi).inRadians = 1.pi /* radians of angle, or identity of number */
+system.includesPackage('Add') /* package */
+let r = List(); r.add!('x'); r.add!('x'); r.size = 2
+let r = IdentityMultiset(); r.add!('x'); r.add!('x'); r.size = 2
+let r = Map(); r.add!('x' -> 1); r.add!('y' -> 2); r.size = 2
+let r = Record(); r.add!('x' -> 1); r.add!('y' -> 2); r.size = 2
+let r = IdentitySet(); r.add!('x'); r.add!('y'); r.size = 2
+let r = ''; { r.add!('x') }.hasError
 ```
 
 ## Arithmetic -- addition
@@ -22,13 +21,7 @@ PlaneAngle(1.pi).inRadians = 1.pi /* radians of angle, or identity of number */
 1E20 + (-1E20 + 1) = 0 & { (1E20 + -1E20) + 1 = 1 } /* non-associative addition */
 ```
 
-## Arithmetic -- subtraction
-```
-6 - 3 = 3 /* subtraction */
-[1 - 0, 0 - 1, 2 - 1] = [1, -1, 1] /* subtraction */
-```
-
-## Arithmetic expressions
+## Arithmetic -- expressions
 ```
 6 * 3 = 18 /* multiplication, unicode = × */
 [1 * 0, -1 * 1, 5 * -5, -3 * -4] = [0, -1, -25, 12] /* multiplication */
@@ -232,17 +225,1518 @@ let x = 8.625; let y = 0.75; let q = x.quotientBy(y, round/1); let r = x.remaind
 0:5.collect { :n | 0:n.collect { :k | n.binomial(k) } } = [1; 1 1; 1 2 1; 1 3 3 1; 1 4 6 4 1; 1 5 10 10 5 1] /* pascal triangle */
 ```
 
-## Math -- power of two
+## Arithmetic -- subtraction
 ```
-8.isPowerOfTwo /* is the receiver a power of two */
-1:999.select(isPowerOfTwo/1) = [1, 2, 4, 8, 16, 32, 64, 128, 256, 512]
-(2 ^ 30).isPowerOfTwo = true /* this is only reliable for numbers that can be represented in 32-bits */
-(2 ^ 30 - 1).isPowerOfTwo = false
-127.nextPowerOfTwo = 128 /* next power of two that is not less than the receiver */
-[1, 2, 4, 8, 16, 32, 64, 128, 256].collect { :each | (each + 1).nextPowerOfTwo } = [2, 4, 8, 16, 32, 64, 128, 256, 512]
-129.previousPowerOfTwo = 128 /* next power of two that is not greater than the receiver */
-[2, 4, 8, 16, 32, 64, 128, 256, 512].collect { :each | (each - 1).previousPowerOfTwo } = [1, 2, 4, 8, 16, 32, 64, 128, 256]
-300.previousPowerOfTwo = 256 /* next smaller power of two */
+6 - 3 = 3 /* subtraction */
+[1 - 0, 0 - 1, 2 - 1] = [1, -1, 1] /* subtraction */
+```
+
+## Assignment
+```
+var a, b, c; a := b := c := 'c'; [a, b, c] = ['c', 'c', 'c'] /* assignment is right-associative */
+let a = 'a'; let b = 'b'; let c = 'c'; a := b := c; [a, b, c] = ['c', 'c', 'c'] /* assignment is right-associative */
+var a; (a := 1) = 1 /* assignment answers assigned value */
+var a, b; a := (b := 2 + 2) + 3 = 7 & { b = 4 } /* assignment answers assigned value */
+let a = 1; let b = 2; let c = 3; [a, b, c] := [b, c, a]; [a, b, c] = [2, 3, 1] /* permutation using array assignment syntax */
+```
+
+## Association -- collection type
+```
+system.includesPackage('Association') /* association package */
+('x' -> 1).typeName = 'Association' /* arrow (->) constructor, unicode = → */
+('x' -> 1).isAssociation /* type predicate */
+Association('x', 1) = ('x' -> 1)
+let a = 'x' -> 1; [a.key, a.value] = ['x', 1] /* key and value accessors */
+('x' -> 1).keyAndValue = ['x', 1] /* two element [key, value] array */
+['x' -> 1, 'y' -> 2].collect(keyAndValue/1) = ['x' 1; 'y' 2]
+(23 -> 3.141).printString = '23 -> 3.141'
+(23 -> 3.141).storeString = 'Association(23, 3.141)'
+(1 -> '1').key = (1 -> 'one').key
+(1 -> '1').value != (1 -> 'one').value
+(1 -> '1') != (1 -> 'one')
+(1 -> 2) = system.evaluate((1 -> 2).storeString) /* store string can be evaluated to answer value */
+(false -> true) = system.evaluate((false -> true).storeString)
+('+' -> 'plusSign') = system.evaluate(('+' -> 'plusSign').storeString)
+(0 -> 1) != (0 -> 2) /* equality considers both key and value, unlike in Smalltalk-80 */
+('x' -> 1) != ('y' -> 1) /* equality considers both key and value, unlike in Smalltalk-80 */
+('x' -> 1) != (x: 1) /* an association is not equal to a record */
+let a = 'x' -> 1; a.key := 'y'; a.value := 2; a = ('y' -> 2) /* set key and value */
+```
+
+## Binary -- numeric trait
+```
+system.includesPackage('Binary') /* binary package */
+16 << 3 = 128 /* left shift small float */
+23 << 7 = 2944 /* left shift small float */
+7 << 23 = 58720256 /* left shift small float */
+16 >> 3 = 2 /* right shift small float */
+2b1111.bitAnd(2b1001) = 2b1001 /* bitwise and */
+(2 ^ 30).bitAnd(2 ^ 30 - 1) = 0 /* bitwise and of a power of two and one less is zero */
+2b1111.bitOr(2b1001) = 2b1111 /* bitwise or */
+2b1111.bitXor(2b1001) = 2b0110 /* bitwise exclusive or */
+1:8.collect { :each | 2b10010110.bitAt(each) } = [0 1 1 0 1 0 0 1] /* bit at index */
+```
+
+## Binary -- counting & testing
+```
+2b0.bitCount = 0 /* count number of bits set */
+2b1.bitCount = 1
+2b101.bitCount = 2
+2b101001000100101.bitCount = 6
+{ -2.bitCount }.hasError /* negative integers have an infinite number of leading ones */
+32.highBit = 6 /* high bit, the number of bits required to represent an integer */
+32 = 2b00100000 & { 2b00100000.highBit = 6 } /* high bit */
+2b00101000.highBit = 6 /* high bit */
+{ -2b00101000.highBit }.hasError /* high bit is not defined for negative integers */
+2b00101000.lowBit = 4 /* low bit */
+-2b00101000.lowBit = 4 /* low bit */
+0.lowBit = 0 & { 0.highBit = 0 } /* the low and high bits of zero are zero */
+```
+
+## BinaryLargeObject -- system type
+```
+system.includesPackage('BinaryLargeObject') /* blob package */
+BinaryLargeObject([], (:)).typeName = 'BinaryLargeObject' /* type of BinaryLargeObject */
+BinaryLargeObject([], (:)).size = 0 /* empty BinaryLargeObject has size zero */
+BinaryLargeObject([], (:)).isEmpty /* empty BinaryLargeObject is empty */
+```
+
+## BitSet -- collection type
+```
+system.includesPackage('BitSet') /* bitset package */
+BitSet(64).isBitSet /* bitset predicate */
+BitSet(64).size = 0 /* a new bitset is empty */
+BitSet(64).capacity = 64 /* the capacity of a bitset is set when initialized */
+BitSet(64).isEmpty /* a new bitset is empty */
+BitSet(64).bytes.allSatisfy { :each | each = 0 } /* all bytes at the empty bitset are zero */
+BitSet([1, 3, 9], 10).capacity = 10 /* bitset from array, capacity is one more than largest index */
+let b = BitSet(64); b.add!(1); b.add!(3); b.add!(9); b.size = 3 /* add three integers to bitset */
+let b = BitSet(64); b.add!(5); b.include!(5); b.include!(5); b.size = 1 /* adding the same integer over again */
+let b = BitSet([1, 3, 9], 10); b.includes(3) /* does bitset include element */
+let b = BitSet([1, 3, 9], 10); [1, 3 .. 9].collect { :each | b.includes(each) } = [true, true, false, false, true]
+let b = BitSet(64); b[1] := 1; b[3] := 1; b[9] := 1; b.size = 3 /* a three element bitset, put */
+let b = BitSet([1, 3, 9], 10); [1, 3 .. 9].collect { :each | b[each] } = [1, 1, 0, 0, 1] /* at */
+let a = []; let b = BitSet(64); let c = [1, 3, 9, 27]; b.addAll!(c); b.positionsDo { :each | a.add!(each) }; a = c
+let b = BitSet([1, 7], 8); let c = b.copy; c.add!(3); b != c & { c = BitSet([1, 3, 7], 8) } /* copy bitset */
+BitSet([1, 3, 9], 10).bitAt(3) = 1 /* bitAt is equal to at */
+BitSet(64).with { :b | b.setBitAt(3); b.bitAt(3) = 1 } /* setBitAt is equal to add */
+BitSet([1, 3, 9], 10).with { :b | b.clearBitAt(3); b.List = [1, 9] } /* clearBitAt is equal to remove */
+```
+
+## Bitwise Manipulation
+```
+2.bitAnd(3) = 2 /* and bits */
+2.bitOr(3) = 3 /* or bits */
+2.bitXor(3) = 1 /* xor bits */
+3.bitNot = -4 /* invert bits */
+2.bitShiftLeft(3) = 16 /* left shift (higher) */
+16.bitShiftRight(3) = 2 /* right shift (lower) */
+2.bitShift(3) = 16 /* left shift (higher) */
+16.bitShift(-3) = 2 /* right shift (lower) */
+1:4.select { :bit | 6.bitTest(bit) } = [2, 3] /* bit at position (0|1) [!Squeak] */
+2 << 3 = 16 /* left shift operator */
+16 >> 3 = 2 /* right shift operator */
+{ 1.bitAnd(nil) }.hasError /* operand not adaptable to number */
+{ 1 << nil }.hasError /* operand not adaptable to number */
+0.bitAnd(0) = 0 /* and bits */
+```
+
+## Block -- behaviour type
+```
+system.includesPackage('Block') /* package */
+{ }.typeName = 'Block'
+typeName/1.typeName = 'Block'
+let i = 1; { i < 5 }.whileTrue { i := i + 1 }; i = 5 /* mutate outer temporary */
+let i = 1; whileTrue { i < 5 } { i := i + 1 }; i = 5 /* trailing closure syntax */
+{ }.argumentCount = 0 /* block arity */
+{ :x | x }.argumentCount = 1
+{ :i :j | i }.argumentCount = 2
+{ :i :j :k | i }.argumentCount = 3
+{ :i :j :k :l | i }.argumentCount = 4
+collect/2.argumentCount = 2 /* method arity */
+{ { :i | i = nil }.apply }.hasError /* too few arguments, c.f. non-strict */
+{ { :x | 0 - x }.apply(3, 4) = -3 }.hasError /* too many arguments, c.f. non-strict */
+collect/2.name = 'collect/2'
+let f = { :x | x * x }; [f(5), f/1.(5)] = [25, 25]
+let f = { :x | x * x }; let d = (p: f/1); d['p'].unaryApply(5) = 25
+{ 0 }.cull(23) = 0 /* ignore one argument */
+{ 0 }.cull(23, 3.141) = 0 /* ignore two arguments */
+{ :x | x }.cull(23) = 23 /* recognise one argument */
+{ :x | x }.cull(23, 3.141) = 23 /* recognise one argument, ignore one argument */
+{ :x :y | x * y }.cull(23, 3.141) = 72.243 /* recognise two arguments */
+let f = { :x | x * x }; f(3) = 9
+{ let f = { :x | x * x }; [3, 5, 7].collect(f) = [9 25 49] }.hasError /* f not bound */
+let f = { :x | x * x }; [3, 5, 7].collect(f/1) = [9 25 49]
+{ :x | x * x }.table([3, 5, 7]) = [9 25 49] /* binary table is swap of collect */
+collect/2.swap . ({ :x | x * x }, [3 5 7]) = [9 25 49] /* swap of collect is map */
+{ :x :y | x * y + y }.applyList([3.141, 23]) = 95.243
+{ { :x | x }.applyList(0) }.hasError
+{ { :x | x }.applyList([]) }.hasError
+9.with { :x | x.sqrt; -x } = -9 /* evaluate block with self and answer answer of block */
+9.also { :x | x.sqrt; -x } = 9 /* evaluate block with self and answer self */
+let d = (c: 1); d.with { :x | x['c'] := 2; 0 } = 0 & { d = (c: 2) }
+let d = (c: 1); d.also { :x | x['c'] := 2; 0 } == d & { d = (c: 2) }
+let d = (c: 1); let r = d.with { :x | x['c'] := 2; 0 }; d = (c: 2) & { r = 0 }
+let d = (c: 1); let r = d.also { :x | x['c'] := 2; 0 }; d = (c: 2) & { r == d }
+let x = { }; x/0.isBlock /* blocks are objects and may be assigned to a variable */
+{ nil; 1 }.apply = 1 /* value is last expression evaluated */
+{ { 1 }.apply }.apply = 1 /* blocks may be nested */
+{ :x | let y = x; y }.unaryApply(1) = 1 /* specification { arguments localvars expressions } */
+{ 'x' }.apply = 'x' /* simple block usage */
+{ :p1 :p2 | p1 ++ ' & ' ++ p2 }.binaryApply('x', 'y') = 'x & y' /* block with argument passing */
+{ :x | x + 1 }.argumentCount = 1 /* the number of arguments can be retrieved */
+{ :x | x := nil }.unaryApply(42).isNil /* arguments are mutable */
+let f = { :x :y | x := y; x }; f(1, 3) = 3 /* arguments are mutable */
+{ } !== { } /* Block does not implement equality, non-identity */
+({ } == { }).not /* non-identity */
+{ 1 } !== { 1 } /* non-identity */
+{ 1 } !== 1 /* non-identity */
+let f = { }; f/0 == f/0 /* identity */
+{ }.printString = 'a Block'
+{ :x | x }.printString = 'a Block'
+{ }.typeName = 'Block'
+{ }.apply = nil /* empty block evaluates to nil */
+{ var x; nil }.apply = nil /* a block cannot end with a var declaration */
+{ let x = 1; nil }.apply = nil /* a block cannot end with a let binding */
+{ var c, a; c := [1]; a := { var a; a := 4; a }.apply; { var a; a := 2; c.add!(a); { var a; a := 3; c.add!(a) }.apply }.apply; c.add!(a); c }.apply = [1, 2, 3, 4]
+1.toDo(10) { :x | x } = nil /* answers nil */
+withReturn { :return/1 | 1.toDo(10) { :index | (index = 5).ifTrue { 5.return } } } = 5 /* non-local return */
+1.pi.assert { true } = 1.pi /* assert that block evaluates to true, answers self */
+{ 1.pi.assert { false } }.hasError /* raise an error if block does not evaluate to true */
+{ true }.assert = nil /* assert that block evaluates to true, answers nil */
+{ { false }.assert }.hasError /* raise an error if block does not evaluate to true */
+withReturn { :return/1 | { (9.atRandom > 7).ifTrue { true.return } }.repeatForever } /* repeat a block until it returns */
+{ 1.anUnknownMessage }.ifError { :err | err }.isError /* evaluate error block on error */
+let f = { let x = 0; { x := x + 1; x } }; let g = f/0.apply; [g.apply, g.apply] = [1, 2] /* closure */
+let f = { let x = 0; { x := x + 1; x } }; [f/0.apply.apply, f/0.apply.apply] = [1, 1] /* closures */
+let f = { :n | (n = 1).if { 1 } { f(n - 1) * n } }; 7:9.collect(f/1) = [5040, 40320, 362880]
+let f = { system.nextRandomFloat }; f/0.once = f/0.once /* evaluate block once and cache result */
+let f = { 1:9.atRandom }; f/0.once = f/0.once & { f/0.once = f/0.once } /* the cache is kept in a weak map */
+[3] # 2 = [3 3] /* answer an array of n places each having the same value */
+[3] # 2 = List(2, 3) /* constructor with fill value */
+let m = { system.nextRandomFloat }.!(9).mean; m > 0 & { m < 1 }
+{ 1 } ! 2 = [1 1] /* evaluate a block twice and collect the answers in an array */
+{ '3' } ! 3 = ['3', '3', '3'] /* evaluate block indicated number of times and collect answers in an array */
+{ 1:9.atRandom }.!(9).allSatisfy(isInteger/1) /* evaluate a block n times and collect answers in an array */
+{ '3' } ! 3 = ['3', '3', '3'] /* operator notation */
+({ system.nextRandomFloat } ! 9).size = 9 /* the size of the answer is as requested */
+({ system.nextRandomFloat } ! 3).allSatisfy(isNumber/1) = true
+&.parameterNames = ['self', 'aBlock/0'] /* answer names of method parameters */
+SinOsc/2.parameterNames = ['freq' 'phase'] /* answer names of method parameters */
+randomReal/3.parameterNames = ['self', 'range', 'shape'] /* answer names of method parameters */
+system.methodDictionary['at'][2]['Map'].information.parameterNames = ['self', 'key']
+let c = []; let a = []; 1:3.do { :i | c.add! { a.add!(i) } }; c.do(apply/1); a = [1, 2, 3]
+let x = [1]; let f = { :n | x[1] := n }; f(3); x = [3] /* closure */
+{ { }.deepCopy }.hasError /* blocks cannot be deep copied */
+let f = -.swap; f.binaryApply(3, 1) = -2 /* swap arguments of two argument block */
+1 -.swap 3 = 2 /* swap arguments at binary operator */
+let f/1 = constant(3); f(4) = 3 /* block that answers a constant */
+3.constant . (4) = 3 /* block that answers a constant */
+42.constant . ('hello') = 42
+1:4.collect(42.constant) = [42 42 42 42]
+{ :x | x ^ 2 }.iterate(2, 3) = 256 /* iterate */
+let x = 2; 3.timesRepeat { x := x ^ 2}; x = 256 /* timesRepeat loop */
+2 ^ 2 ^ 2 ^ 2 = 256 /* written out */
+```
+
+## BlockStream -- stream type
+```
+system.includesPackage('BlockStream') /* package */
+```
+
+## Boolean -- logic type
+```
+system.includesPackage('Boolean') /* boolean package */
+true = true /* true constant, unicode = ⊤ */
+false = false /* false constant, unicode = ⊥ */
+true != false /* true is not false, unicode = ≠ */
+false != true /* false is not true */
+true == true /* true is identical to true, unicode = ≡ */
+false == false /* false is identical to false */
+1 = 1 = true /* equality predicate (operator) */
+1 != 2 = true /* inequality predicate (operator) */
+(1 == 1) = true /* identical */
+(1 !== 2) = true /* not identical, unicode = ≢ */
+true & { true } /* logical and (operator) */
+false & { '&'.error } = false /* & is equal to and is not strict (unlike in Smalltalk) */
+true & { false } = false /* logical and (operator) */
+true | { false } = true /* logical or (operator) */
+false | { true } = true /* logical or (operator) */
+true | { '|'.error } = true /* | is equal to or and is not strict (unlike in Smalltalk) */
+true.ifTrue { 'T' } = 'T' /* if then, c.f. conditional statements */
+true.ifTrue { 1.toDo(2) { :unused | nil } } = nil /* conditional iteration */
+false.if { 'T' } { 'F' } = 'F' /* if then else (do) */
+true.if { 'T' } { 'F' } = 'T' /* if then else (value) */
+true.not = false /* not true is false, unicode = ¬ */
+false.not = true /* not false is true */
+true.not.not = true /* not of not is the identity */
+1.isNumber = true /* test if object is a number */
+1.isInteger = true /* test if object is an integer */
+1.respondsTo(sqrt/1) = true /* test if object responds to message */
+23.respondsTo(+) /* test if object responds to message */
+nil.isNil = true /* test if object is nil */
+0.isNonNegative = (0 >= 0) /* test if number is non-negative */
+0.isPositive = (0 > 0) /* test if number is greater than zero */
+-1.isNegative = true /* test if number is negative */
+2.isEven = true /* test if number is even */
+1.isEven = false /* one is not even */
+1073741825.isEven = false /* a large odd number is not even */
+1073741824.isEven = true /* a large even number is even */
+1.isOdd = true /* test if number is odd */
+2.isOdd = false /* two is not odd */
+'A'.isUpperCase = true /* test if upper case character */
+'a'.isLowerCase = true /* test if lower case character */
+false.boole = 0 /* boolean as bit, false is zero */
+true.boole = 1 /* boolean as bit, true is one */
+true.boole > false.boole /* boolean as integer, c.f. boole */
+true.printString = 'true' /* true print string */
+true.storeString = 'true' /* true store string */
+false.printString = 'false' /* false print string */
+false.storeString = 'false' /* false store string */
+true.typeName = 'Boolean' /* type of true is Boolean */
+false.typeName = 'Boolean' /* type of false is Boolean */
+true.isNumber.not /* true is not a number */
+true.isBoolean /* true is a Boolean */
+false.isBoolean /* false is a Boolean */
+true & { false } = false /* logical and (operator) */
+false & { false } = false
+true | { true } = true
+false | { true } = true /* logical or (operator) */
+{ true & false }.hasError /* & applies the rhs, which must be a block */
+true && true = true /* non-evaluating form of & (requires boolean operand) */
+{ true && 'true' }.hasError /* it is an error if operand is not a boolean */
+{ false | false }.hasError /* | applies the rhs, which must be a block */
+false || true = true /* non-evaluating form of | (requires boolean operand) */
+{ false || 'true' }.hasError /* it is an error if operand is not a boolean */
+[true.encodeJson, false.encodeJson] = ['true', 'false'] /* booleans have json encodings */
+['true', 'false'].collect(parseJson/1) = [true, false] /* parse json booleans */
+true.ifTrue { true }
+false.ifFalse { true }
+(4.factorial > 20).if { 'bigger' } { 'smaller' } = 'bigger'
+true.copy == true /* copy is identity */
+false.xor(true) = true /* exclusive or */
+true.xor(false) = true /* exclusive or */
+false.xor(false) = false
+true.xor(true) = false
+{ false.xor { true } }.hasError
+{ false.xor(1) }.hasError
+true ==> { true } = true /* material implication */
+true ==> { false } = false /* material implication */
+false ==> { true } = true /* material implication */
+false ==> { false } = true /* material implication */
+```
+
+## Boolean -- equality
+```
+true = true & { false = false }
+true != false & { false != true }
+true == true & { false == false }
+true !== false & { false !== true }
+true != 1
+false != 0
+true != 'true'
+false != 'false'
+false != ''
+false != nil
+(true != true) = false
+(false != false) = false
+```
+
+## ByteArray -- collection type
+```
+system.includesPackage('ByteArray') /* byte array package */
+ByteArray(0, 0).typeName = 'ByteArray' /* byte array type name */
+ByteArray(0, 0).species == zeroByteArray/1 /* byte array species */
+ByteArray(0, 0).isList = false /* byte arrays are arrays */
+ByteArray(0, 0).isByteArray /* byte array predicate */
+ByteArray(0, 0).isIndexable /* byte arrays are indexable */
+ByteArray(0, 0).isSequence /* byte arrays are sequence */
+ByteArray(0, 0).size = 0 /* size of byte array (number of elements) */
+ByteArray(8, 0).size = 8
+ByteArray(8, 0).at(1) = 0 /* lookup element at index */
+ByteArray(8, 0).put!(1, 179) = 179 /* set element at index, answer element */
+let a = ByteArray(8, 0); a.put!(1, 179) = 179 & { a.at(1) = 179 }
+1:9.ByteArray.isByteArray = true /* array of numbers in 0-255 to byte array */
+{ [-1].ByteArray }.hasError /* out of range element error */
+{ ['1'].ByteArray }.hasError /* not a number element error */
+1:9.ByteArray.reverse = 9:1:-1.ByteArray
+1:3.ByteArray.printString = 'ByteArray([1, 2, 3])'
+1:3.ByteArray.storeString = 'ByteArray([1, 2, 3])'
+ByteArray(4, 0).base16Encode = '00000000'
+'text'.asciiByteArray[1] = 116 /* ByteArray subscript */
+let b = ByteArray(4, 0); b[1] := 15; b[3] := 240; b.base16Encode = '0F00F000'
+let b = ByteArray(4, 0); b[2] := 15; b[4] := 240; b.base16Encode = '000F00F0'
+1:4.ByteArray.base16Encode = '01020304'
+let b = ByteArray(4, 0); b.atAllPut!(15); b.base16Encode = '0F0F0F0F'
+'string'.asciiByteArray.List = [115, 116, 114, 105, 110, 103] /* array from ByteArray */
+{ [1, 2, 3].ByteArray.add!(4) }.hasError /* ByteArrays are not extensible */
+1:9.ByteArray.select { :each | false } = [].ByteArray /* select nothing */
+1:9.ByteArray != [1 .. 9] /* ByteArray and List of equal elements are not equal */
+1:9.ByteArray.hasEqualElements(1:9) /* ByteArray and List of equal elements */
+[1, 13 .. 253].ByteArray.base64Encode = 'AQ0ZJTE9SVVhbXmFkZ2ptcHN2eXx/Q==' /* base 64 encoding */
+'AQ0ZJTE9SVVhbXmFkZ2ptcHN2eXx/Q=='.base64Decode = (1, 13 .. 253).ByteArray /* base 64 decoding */
+'SGVsbG8gV29ybGQ='.base64Decode.asciiString = 'Hello World' /* answer is a ByteArray */
+[1, 3 .. 9].ByteArray.indices = 1:5 /* indices of byte array (an interval) */
+let b = [1, 3 .. 9].ByteArray; b.copy = b & { b.copy !== b } /* copies are equal & not identical */
+let b = [1 .. 9].ByteArray; let c = b.copy; c[1] := 9; c[1] = 9 & { b[1] = 1 } /* copies are distinct */
+[115, 116, 114, 105, 110, 103].ByteArray.crc16 = 58909 /* 16 bit cyclic redundancy check, crc-16/arc */
+let s = 'string'; let a = []; a.addAll!(s.asciiByteArray); a.size = 6 /* add elements from ByteArray to end of List */
+```
+
+## CartesianCoordinates -- geometry type
+```
+system.includesPackage('CartesianCoordinates') /* package */
+[1, 2, 3].CartesianCoordinates = CartesianCoordinates([1, 2, 3]) /* from list */
+(x: 1, y: 2, z: 3).CartesianCoordinates = CartesianCoordinates([1, 2, 3]) /* from record */
+let a = [1, 2, 3]; let v = a.CartesianCoordinates; v.coordinates = [1, 2, 3] /* point as array */
+CartesianCoordinates([0, 0, 0]).isOrigin /* are x, y and z all zero */
+let v = CartesianCoordinates([1, 2, 3]); [v.x, v.y, v.z] = [1, 2, 3] /* fields are x, y, z */
+let v = CartesianCoordinates([3, 4, 5]); v[1] = 3 & { v[2] = 4 & { v[3] = 5 } } /* implements at */
+let v = CartesianCoordinates([3, 4, 5]); v[1] := 5; v[3] := 3; v.coordinates = [5, 4, 3] /* implements put! */
+let v = CartesianCoordinates([3, 4, 5]); [v.first, v.second, v.third] = [3, 4, 5] /* implements first &etc. */
+CartesianCoordinates([0, 0, 1]).SphericalCoordinates = SphericalCoordinates([1, 0, 0])
+SphericalCoordinates([1, 0, 0]).CartesianCoordinates = CartesianCoordinates([0, 0, 1])
+CartesianCoordinates([1, 1, 0]).SphericalCoordinates = SphericalCoordinates([2.sqrt, 1.pi / 4, 1.pi / 2])
+SphericalCoordinates([2.sqrt, 1.pi / 4, 1.pi / 2]).CartesianCoordinates ~ CartesianCoordinates([1, 1, 0])
+IsoSphericalCoordinates([3.sqrt, 2.sqrt.arcTan, 0.25.pi]).CartesianCoordinates ~ CartesianCoordinates([1, 1, 1])
+CartesianCoordinates([1, 1, 1]).SphericalCoordinates ~ IsoSphericalCoordinates([3.sqrt, 2.sqrt.arcTan, 0.25.pi])
+CartesianCoordinates([0, 0, 0]).distance(CartesianCoordinates([1, 1, 1])) = 3.sqrt
+CartesianCoordinates([0, 0, 0]).distance(CartesianCoordinates([1, 1, 0])) = 2.sqrt
+CartesianCoordinates([1, 2, 3]).distance(CartesianCoordinates([6, 5, 4])) = 35.sqrt
+CartesianCoordinates([0, 0, 0]).isCartesianCoordinates = true /* is Cartesian coordinate */
+CartesianCoordinates([0, 0, 0]).isOrigin = true /* is zero */
+let v = CartesianCoordinates([0, 0, 0]); v.CartesianCoordinates == v /* identity */
+CartesianCoordinates([1, 3, 5]).coordinates = [1 3 5] /* point as array */
+[1 3 5].CartesianCoordinates = CartesianCoordinates([1, 3, 5]) /* array as point */
+(x: 1, y: 3, z: 5).CartesianCoordinates = CartesianCoordinates([1, 3, 5]) /* record as point */
+SphericalCoordinates([1, 2, 3]).Record = (rho: 1, theta: 2, phi: 3)
+(rho: 1, theta: 2, phi: 3).SphericalCoordinates = SphericalCoordinates([1, 2, 3])
+CartesianCoordinates([1, 3, 5]).Record = (x: 1, y: 3, z: 5)
+CylindricalCoordinates([1, 1, 1]).CartesianCoordinates.Record = (x: 1.cos, y: 1.sin, z: 1)
+CartesianCoordinates([1.cos, 1.sin, 1]).CylindricalCoordinates.Record = (rho: 1, phi: 1, z: 1)
+```
+
+## CategoryDictionary -- categorization type
+```
+system.categoryDictionary.typeName = 'CategoryDictionary'
+system.categoryDictionary.isCategoryDictionary
+system.categoryDictionary.categoryOf('put') = 'accessing' /* category of in any domain */
+system.categoryDictionary.categoryOf('type', 'RgbColour') = 'Graphics' /* category of in given domain */
+system.categoryDictionary.categoryOf('type', 'Set') = 'Collection' /* category of in given domain */
+```
+
+## Character -- text type
+```
+system.includesPackage('Character') /* character package */
+'𠮷'.Character.isCharacter /* trait predicate */
+'𠮷'.Character.characterString = '𠮷' /* character string */
+'𠮷'.Character.codePoint = 134071 /* code point */
+134071.Character.characterString = '𠮷' /* integer as character, from code point */
+'䶰䶱䶲䶳䶴䶵'.characterList.collect(codePoint/1) = [19888 .. 19893]
+'x'.Character = 120.Character /* characters are comparable */
+'x'.Character.codePoint = 120
+'x'.Character == 120.Character /* characters are identical */
+'𠮷'.Character == '𠮷'.Character /* characters are identical */
+'x'.Character.asciiValue = 120 /* ascii code point of character */
+{ '𠮷'.Character.asciiValue }.hasError /* it is an error is the character is not ascii */
+'xyz'.characterList = ['x'.Character, 'y'.Character, 'z'.Character]
+'xyz'.characterList.collect(codePoint/1) = [120, 121, 122]
+32.Character.characterString = ' ' /* 32 is space */
+' '.Character.codePoint = 32 /* space is 32 */
+97.Character.characterString = 'a' /* 92 is a */
+'a'.Character.characterString = 'a' /* single element string of Character */
+{ 'xy'.Character }.hasError /* it is an error is the string is not a single Character */
+let c = '𠮷'.Character; c = c.copy & { c == c.copy } /* copy is not only equal to but identical */
+92.Character.characterString = '\\' /* escaped character */
+'0123456789abcdef'.characterList.collect(digitValue/1) = [0 .. 15] /* digit value of character */
+0:15.collect(digitCharacter/1).stringJoin = '0123456789ABCDEF' /* character of given digit value */
+{ 36.digitCharacter }.hasError /* error if integer is out of range */
+'x'.Character.toUpperCase = 'X'.Character /* to upper case */
+'X'.Character.toLowerCase = 'x'.Character /* to lower case */
+let s = 'string'; let a = []; a.addAll!(s); a.size = 6 /* add elements from String to end of List */
+'fgaguzst'.codePoints.minMax = [97, 122] /* character minMax */
+'alphabet'.characterList.collect(isVowel/1) = [true, false, false, false, true, false, true, false] /* is character a vowel */
+'x'.Character.zero = ' '.Character
+```
+
+## Circle -- geometric type
+```
+system.includesPackage('Circle') /* package */
+Circle([0 0], 1).typeName = 'Circle' /* type of */
+Circle([0 0], 1).isCircle /* predicate */
+Circle([0 0], 1).center = [0 0] /* center */
+Circle([0 0], 1).radius = 1 /* radius */
+Circle([0 0], 1).diameter = 2 /* diameter */
+Circle([0 0], 1).circumference = 2.pi /* circumference */
+Circle([0 0], 1).area = 1.pi /* area */
+```
+
+## Clock -- temporal type
+```
+Clock().typeName = 'Clock' /* type of clock */
+Clock().isClock /* clock predicate */
+Clock().priorityQueue.isPriorityQueue /* priority queue of clock */
+Clock().priorityQueue.isEmpty /* priority queue is initially empty */
+let c = Clock(); let i = 3; c.scheduleBlock(i) { :t | nil }; c.nextEntryTime <= (system.sessionTime + i)
+let c = Clock(); let i = 3; c.scheduleBlock(i) { :t | t.printLine }; c.removeAll!; c.nextEntryTime = nil
+```
+
+## Collection -- collection trait
+```
+system.includesPackage('Collection') /* collection package */
+[].isEmpty = true /* is collection empty */
+[].isCollection = true /* collection predicate */
+[].size = 0 /* the empty array has no elements */
+[1, 2, 3] = [1, 2, 3] /* are collections equal */
+[9, 4, 5, 7, 8, 6].size = 6 /* size of collection */
+[9, 4, 5, 7, 8, 6].max = 9 /* maximum item in collection */
+[9, 4, 5, 7, 8, 6].min = 4 /* minimum item in collection */
+[9, 4, 5, 7, 8, 6].maximalBy(negate/1) = [4] /* comparison of translated values */
+[9, 4, 5, 7, 8, 6].minimalBy(negate/1) = [9] /* comparison of translated values */
+[9, 4, 5, 7, 8, 6].sum = 39 /* sum of collection */
+[9, 4, 5, 7, 8, 6].mean = 6.5 /* sum of collection divided by size */
+1:9.mean = 5 /* sum of collection divided by size */
+let c = 1:9; c.sum / c.size = 5 /* sum of collection divided by size */
+[9, 4, 5, 7, 8, 6].product = 60480 /* product of collection, unicode = Π */
+[9, 4, 5, 7, 8, 6].injectInto(0) { :z :e | e + z } = 39 /* sum of collection */
+[9, 4, 5, 7, 8, 6].injectInto(1) { :z :e | e * z } = 60480 /* product of collection */
+[9, 4, 5, 7, 8, 6].includes(7) = true /* is element in collection, i.e. contains */
+[9, 4, 5, 7, 8, 6].includes(3) = false /* is element in collection */
+[9, 4, 5, 7, 8, 6].count { :item | item.isEven } = 3 /* count elements that satisfy predicate */
+[9, 4, 5, 7, 8, 6].anySatisfy { :item | item.isEven } = true /* do any elements satisfy predicate */
+[].anySatisfy { :item | true } = false /* anySatisfy is false for empty collections */
+[9, 4, 5, 7, 8, 6].allSatisfy { :item | item.isEven } = false /* do all elements satisfy predicate */
+[].allSatisfy { :item | false } = true /* allSatisfy is true for empty collections */
+[9, 4, 5, 7, 8, 6].occurrencesOf(7) = 1 /* count elements that are equal to object */
+[1, 2, 3, 4, 5].atRandom <= 5 /* random element of collection */
+1:9.range = (9 - 1) /* maxima - minima */
+[-9, 0, 9].sign = [-1, 0, 1] /* signs of elements */
+[1, 3, 5].select { :x | x > 1 } = [3, 5]
+[1, 3, 5].IdentitySet.select { :x | x > 1 } = [3, 5].IdentitySet
+(x: 1, y: 3, z: 5).select { :x | x > 1 } = (y: 3, z: 5)
+[].select { :each | 'select'.error } = []
+[].newFrom(IdentitySet()) = []
+IdentitySet().List = []
+1:9.includesAny([0, 6]) /* includes any element of a collection */
+[4 .. 6].copyWithout(5) = [4, 6] /* copy without element */
+4:6.copyWithout(5) = [4, 6] /* copy without element, interval becomes array */
+[2, 3, 4, 5, 5, 6].copyWithout(5) = [2, 3, 4, 6] /* copy without element, removes multiples */
+[2, 3, 4, 5, 5, 6].copyWithoutAll([3, 5]) = [2, 4, 6] /* copy without element, removes multiples */
+let a = [1 .. 4]; let c = a.copyWith(5); a != c & { c = [1 .. 5] } /* copy with new (last) element */
+let s = [1 .. 4].IdentitySet; let c = s.copyWith(5); s != c & { c = [1 .. 5].IdentitySet } /* copy with new element */
+{ [1, 2].take(-1) }.hasError
+[].select { :each | each > 0 } = []
+[].ifEmpty { true } /* evaluate block if collection is empty */
+[].ifEmpty { true } { false } /* evaluate first lock if collection is empty */
+[1].ifEmpty { false } { true } /* evaluate second block if collection is not empty */
+let c = [1]; c.ifEmpty { false } { c = [1] } /* evaluate second block if not empty */
+1:9.detectSum(square/1) = 285 /* apply block to each element and sum */
+1:9.collect(square/1).sum = 285
+let a = [1 .. 9]; a.removeAll!(3:7); a = [1, 2, 8, 9] /* remove all indicated elements */
+let a = [1, 2, 3, 2, 1]; let r = a.removeAll!([1, 2, 3]); [a, r] = [[2, 1], nil] /* answer nil, only remove first instance */
+{ [1 .. 3].removeAll!(7:9) }.hasError /* it is an error if an element to be removed is not located */
+let a = [1 .. 3]; a.removeAllFoundIn!(7:9); a = [1 .. 3] /* unlike removeAll it is not an error if items are not found */
+let a = [1, 2, 3, 2, 1]; a.removeAllFoundIn!([2, 3]); a = [1, 2, 1] /* removes only first matching element */
+[1 .. 6].collect { :each | each * 2 } = [2, 4 .. 12] /* apply block at each element and answer like collection */
+1:6.collect { :each | each * 2 } = [2, 4 .. 12] /* interval species is array */
+1:6.collect { :each | each * 2 } = [2, 4 .. 12] /* literal integer interval syntax */
+[2, -3, 4, -35, 4, -11].collect { :each | each.abs } = [2, 3, 4, 35, 4, 11]
+[2, -3, 4, -35, 4, -11].collect(abs/1) = [2, 3, 4, 35, 4, 11]
+1:100.injectInto(0) { :sum :each | sum + each } = 5050
+let a = [1 .. 5]; a.items = a & { a.items !== a } /* contents at list is equal but not identical */
+(1:9 / 3).round = [0, 1, 1, 1, 2, 2, 2, 3, 3] /* unary math operator at collection */
+[].collectThenDo { :each | 'error'.error } { :each | 'error'.error } = [] /* neither block is run for empty collections */
+let n = 0; 3:7.collectThenDo(square/1) { :each | n := n + each } = [9, 16, 25, 36, 49] & { n = 135 } /* collect then do */
+[].ifEmptyIfNotEmptyDo { true } { :x | x } = true /* branch on isEmpty */
+let c = 1:9; let a = 0; c.ifEmptyIfNotEmptyDo { false } { :x | a := a + (x ^ 3) }; a = 2025 /* branch on isEmpty */
+let c = 1:9; let a = 0; c.ifNotEmptyDo { :x | a := a + (x ^ 3) }; a = 2025 /* branch on isEmpty */
+1:9.average = 5 /* mean, sum divided by size */
+1:9.average = (45 / 9) /* mean, sum divided by size */
+(x: (y: 1)).atPath(['x', 'y']) = 1 /* atPath of dictionary, depth = 2 */
+(x: (y: (z: 1))).atPath(['x', 'y', 'z']) = 1 /* atPath of dictionary, depth = 3 */
+(w: (x: (y: (z: 1)))).atPath(['w', 'x', 'y', 'z']) = 1 /* atPath of dictionary, depth = 4 */
+(p: (q: (r: 1)))['p']['q']['r'] = 1 /* atPath operator */
+(p: (q: (r: (s: 1))))['p']['q']['r']['s'] = 1
+let d = (w: (x: (y: (z: 1)))); d.atPathPut!(['w', 'x', 'y', 'z'], -1); d['w']['x']['y']['z'] = -1 /* atPathPut of dictionary, depth = 4 */
+(x: (y: 1))['x']['y'] = 1 /* index sequence */
+[['w', 'x'], ['y', 'z']].atPath([1, 2]) = 'x' /* atPath of arrays */
+[['w', 'x'], ['y', 'z']][1][2] = 'x' /* index sequence */
+(1, 3 .. 21).includes(9) /* does range include value */
+(1, 3 .. 21).doesNotInclude(6) /* does range include value */
+(x: 1, y: 1, z: 1).allEqualBy(=) /* are all items equal by comparator */
+(x: 1, y: 2, z: 3).allEqualBy(=).not /* are all items equal by comparator */
+[1, 1, 1].allEqual /* are all items equal */
+[1, 2, 3].allEqual.not /* are all items equal */
+1:4.reduce(Association/2) = (((1 -> 2) -> 3) -> 4) /* reduce, happens to be left associative */
+1:4.reduce(-) = (((1 - 2) - 3) - 4) /* reduce, happens to be left associative */
+1:4.assertIsOfSize(4) = 1:4 /* assert collection is of indicated size */
+{ 1:4.assertIsOfSize(3) }.hasError /* assert collection is of indicated size */
+1:4.assertIsCollection = 1:4 /* require that an object is a collection */
+{ '1 to 4'.assertIsCollection }.hasError /* a string is not a collection, hence error */
+let a = []; [1, 2].cartesianProductDo([3, 4]) { :x :y | a.add!(x -> y) }; a = [1 -> 3, 1 -> 4, 2 -> 3, 2 -> 4]
+[1 2].cartesianProduct([3 4]) = [1 3; 1 4; 2 3; 2 4]
+[1 2].cartesianProduct([3 4 5]) = [1 3; 1 4; 1 5; 2 3; 2 4; 2 5]
+[1 2].elementType = 'SmallFloat'
+[1 2; 3 4; 5 6].elementType = 'List'
+```
+
+## CollectionStream -- collection type
+```
+system.includesPackage('CollectionStream') /* package */
+1:5.Stream.size = 5 /* stream from interval, stream size */
+1:5.Stream.contents = 1:5 /* contents of finite stream (a copy of the collection) */
+let a = [1 .. 5]; a.Stream.contents !== a /* contents of finite stream (a copy of the collection) */
+let i = 1:5; i.Stream.collection == i /* underlying collection of stream */
+let r = 1:5.Stream; r.upToEnd; r.contents = 1:5 /* contents of consumed stream */
+1:9.Stream.collection = Range(1, 9, 1) /* read stream over interval collection */
+let i = 1:9; let s = i.Stream; let c = s.copy; c.next; s.next = 1 & { c.next = 2 } /* copy */
+[].Stream.isAtEnd = true /* at end predicate */
+let r = 1:1000.Iterator; [r.next, r.next, r.isAtEnd] = [1, 2, false] /* at end predicate */
+[].Stream.position = 0 /* initially the position is zero */
+let r = 1:9.Stream; [r.next, r.back!, r.next] = [1, 1, 1] /* go back one element and return it (by peeking) */
+```
+
+## Colour -- graphics type
+```
+system.includesPackage('Colour') /* colour package */
+```
+
+## Compare -- ordering trait
+```
+system.includesPackage('Compare') /* compare package */
+1 < 3 = true /* less than */
+2 < 2 = false
+3 < 1 = false
+1 <= 3 = true /* less than or equal to, unicode = ≤ */
+2 <= 2 = true
+3 <= 1 = false
+3 > 1 = true /* greater than */
+2 > 2 = false
+1 > 3 = false
+3 >= 1 = true /* greater than or equal to */
+2 >= 2 = true
+1 >= 3 = false
+2 = 2 = true /* equal to */
+[0, 4].collect { :i | [2, 3, 5].at(i.clamp(1, 3)) } = [2, 5] /* clamp index to valid range */
+4.clamp(0, 10) = 4
+4.clamp(0, 1) = 1
+2.clamp(0, 1) = 1
+-1.clamp(0, 1) = 0
+-1.clamp(-20, 0) = -1
+1 <=> 3 = -1
+2 <=> 2 = 0
+3 <=> 1 = 1
+3.minThenMax(1, 5) = 3.min(1).max(5)
+3 < 5 /* integer */
+3.3 < 5.5 /* float */
+3/4 < 4/5 /* fraction */
+'3' <| '5' /* string, precedes */
+{ 3J3 < 5J5 }.hasError /* complex */
+{ '3' < 5 }.hasError /* string & number are not comparable */
+{ 3 < '5' }.hasError /* number & string are not comparable */
+```
+
+## Comparing -- kernel trait
+```
+1 = 1 /* 1 is equal to 1 */
+2 != 1 /* 2 is not equal to 1 */
+2 > 1 /* 2 is greater than 1 */
+1 < 2 /* 1 is less than 2 */
+1 >= 1 /* 1 is greater than or equal to 1 */
+2 <= 1 = false /* 2 is not less than or equal to 1 */
+{ false < true }.hasError /* booleans are not magnitudes */
+```
+
+## Comparing -- arrays
+```
+[1, 9] < [2, 3] = [true, false ] /* pointwise - 1 is less than 2 and 9 is greater than 3 */
+[3, 4] < [3, 5] = [false, true] /* pointwise? - 3 is equal to 3 and 4 is less than 5 */
+[4, 1.pi] = [4, 1.pi] /* 4 is equal to 4 and pi is equal to pi */
+```
+
+## Complex -- numeric type
+```
+system.includesPackage('Complex') /* complex package */
+Complex(0, 0).isComplex /* complex numbers */
+Complex(-1, 0).real = -1 /* real part of complex number */
+Complex(-1, 0).imaginary = 0 /* imaginary part of complex number */
+Complex(-1, 0) + 1 = Complex(0, 0) /* complex addition with scalar */
+1.i = Complex(0, 1) /* i makes an imaginary number */
+(5 - 6I) + (-5 + 8I) = (0 + 2I)
+5 * (5 - 6I) = (25 - 30I)
+2 * [1 + 2I, 3 + 4I, 5 + 6.i] = [2 + 4I, 6 + 8I, 10 + 12.i]
+5 + 5.i * [1 + 2I, 3, 5 + 6.i] = [-5 + 15I, 15 + 15I, -5 + 55.i]
+(5 = 5I) = false
+1 != 1I
+(6 - 6I).abs = 72.sqrt /* absolute value */
+-2J1.abs = 5.sqrt /* absolute value */
+(1 + 2I) + 1 = (2 + 2I)
+1 + (1 + 2I) = (2 + 2I)
+((1 + 2I) + 1) = (2 + 2I)
+(1 + (1 + 2I)) = (2 + 2I)
+((1 + 2I) + (2 / 3)).isClose((5 / 3) + 2I)
+((2 / 3) + (1 + 2I)).isClose((5 / 3) + 2I)
+(0 + 5I).arg = (1.pi / 2)
+let c = (5 - 6I); (c * 1I) = c.i
+(2 + 5I).negate = (-2 - 5I)
+(2 + 5I).reciprocal = ((2 / 29) - (5 / 29).I)
+(6 - 6I).square = -72I
+(1 + 2I) = (1 + 2I) = true /* equality = same value */
+(1 + 2I) == (1 + 2I) = false /* identity = different objects */
+(1 + 2I) != (1 + 4I) = true /* inequality */
+let c = 2I; let z = c.copy; z.real := 3; z != c & { z = (3 + 2I) } /* copy complex */
+(0.5 * (2 + 0I).log).exp = (0.5 * 2.log).exp /* natural logarithm */
+(3 + 5I) ^ 0 = (1 + 0I) /* exponent of zero answers one */
+(3 + 5I) ^ 1 = (3 + 5I) /* exponent of one is identity */
+(3 + 5I) ^ 2 ~ (-16 + 30I)
+(1 + 2I) * (2 - 3I) = (8 + 1I) /* complex number with complex exponent */
+(1 + 2I) / (1 - 2I) = (-0.6 + 0.8I)
+(1 + 2I) + (1 - 2I) = (2 + 0I)
+(-3 + 2I) - (5 - 1I) = (-8 + 3I)
+(-1 + 2I) ^ 2 ~ (-3 - 4I)
+(-1 + 2I) ^ 2.5 ~ (2.7296 - 6.9606I)
+(-1 + 2I) ^ (1 + 1I) = (-0.27910381075826657 + 0.08708053414102428I)
+3 * (2 - 5I) = (6 - 15I)
+3 * ((2 - 5I) ^ 2) ~ (-63 - 60I)
+3 * ((2 - 5I) ^ -1) ~ (0.2069 + 0.5172I)
+2 * (1 - 1I) = (2 - 2I)
+(2 + 3I) - 1 = (1 + 3I)
+(1 + 2I) + 0.5 = (1.5 + 2I)
+(2 + 3I) - 0.5.i = (2 + 2.5I)
+0.75 * (1 + 2I) = (0.75 + 1.5I)
+(2 + 3I) / 2 = (1 + 1.5I)
+(1 - 3I) / (2 + 2I) = (-0.5 - 1I)
+2 * (1.i ^ 2) ~ (-2 + 0I)
+1 + (3 / 4I) = (1 - 0.75I)
+let z = 1 + 2I; z.real = 1 & { z.imaginary = 2 }
+let z = 1 + 2I; z.conjugate = (1 - 2I) & { z.absSquare = 5 }
+let z = 1 + 2I; z.abs ~ 2.2361 & { z.arg ~ 1.1071 } /* absolute value (modulus, magnitude) and argument (phase) */
+1I.sqrt ~ (0.7071 + 0.7071I)
+(1 + 2I).sqrt ~ (1.2720 + 0.7861I)
+(1 + 2I).cos ~ (2.0327 - 3.0519I)
+(1 + 2I).exp ~ (-1.1312 + 2.4717I)
+(1 + 2I).sinh ~ (-0.4891 + 1.4031I)
+(-1 + 0I).sqrt = (0 + 1I) /* the square root of negative one is i */
+(2 + 3I).zero = (0 + 0I) /* zero of same type, i.e. complex */
+(2 + 3I).one = (1 + 0I) /* one of same type, i.e. complex */
+1 / (1 + 2I) = (0.2 - 0.4I) /* reciprocal, multiplicative inverse */
+let n = (1 + 2I); n.reciprocal * n = 1 /* multiplicative inverse */
+(1 + 0I).isInteger = false /* a complex number is not an integer */
+(1 + 0I).isFraction = false /* a complex number is not a fraction */
+3/2.toComplex = Complex(3/2, 0) /* fraction as complex */
+0/1.i = Complex(0, 0/1) /* complex with integral real part and fractional imaginary part */
+3/2 + 0/1.i = 3/2.toComplex
+3/2.toComplex + 0/1.i = 3/2.toComplex /* add 0i to a complex number is identity */
+1.toComplex = Complex(1, 0) /* Complex is a monadic complex number constructor */
+1.i = Complex(0, 1) /* Complex is a monadic complex number constructor */
+(1 + -2I) + (3 + 4I) = (4 + 2I) /* i is a monadic complex number constructor */
+1.J(-2) + 3.J(4) = 4.J(2) /* j is the dyadic complex number constructor */
+1.J(-2) = Complex(1, -2) /* j is an alias for Complex */
+1J-2 = Complex(1, -2) /* complex literal, integral components */
+3.1J2.3 = Complex(3.1, 2.3) /* complex literal, fractional components */
+1J-2 + 3J4 = 4J2 /* complex literals, lower case */
+1J-2 + 3J4 = 4J2 /* complex literals, upper case */
+4J3 / 2J-1 = 1J2 /* ratio of two complex number */
+2J9.exp ~ -6.73239J3.04517 /* complex exponential */
+2J3.real = 2 /* real part */
+2J3.imaginary = 3 /* imaginary part */
+1.4J2.3.abs ~ 2.69258 /* absolute value */
+[3 -5 2J5].abs = [3 5 29.sqrt] /* absolute value */
+-1J0.arg = 1.pi /* argument (in radians) */
+1J1.arg = 1/4.pi
+[5J12.abs, 5J12.arg] = [13, (12 / 5).arcTan] /* absolute value & argument */
+1.4J2.3.sign ~ 0.519947J0.854199 /* sign */
+1J1.conjugate = 1J-1
+```
+
+## Conditional Statements
+```
+true.ifTrue { 'T' } = 'T' /* if true then, answers answer of branch block or nil */
+true.ifFalse { 'F' } = nil /* if false then, answers answer of branch block or nil */
+true.if { 'T' } { 'F' } = 'T' /* if true then else if false then, answers answer of chose block */
+let x = nil; true & { x := 1 }; x = 1 /* side effect on conditional and */
+let x = nil; false & { x := 1 }; x = nil /* no side effect on conditional and */
+let x = nil; true | { x := 1 }; x = nil /* no side effect on conditional or */
+let x = nil; false | { x := 1 }; x = 1 /* side effect on conditional or */
+```
+
+## Constants -- literals
+```
+true /* true constant */
+false.not /* false constant */
+nil.isNil /* nil object constant */
+Infinity.isNumber /* Infinity constant */
+1.pi.isNumber /* pi constant */
+1.isNumber /* integer constants */
+3.14.isNumber /* float constants */
+-1.isNumber /* negative integer constants */
+-3.14.isNumber /* negative float constants */
+'Hello'.isString /* string constant */
+[3, 2, 1].isList /* array constants */
+['one', 2, 3.141].isList /* mixing of types allowed */
+```
+
+## Converting -- type conversion
+```
+[true, false].collect(boole/1) = [1, 0] /* boolean to bit (integer) */
+1.pi.Float = 1.pi /* small float as float is identity */
+3/4.Float = 0.75 /* fraction as float */
+23.Float = 23.0 /* integer as float */
+23L.Float = 23.0 /* large integer as float */
+{ '23'.Float }.hasError /* Float is not a parser */
+1.pi.SmallFloat = 1.pi /* identity */
+3/4.SmallFloat = 0.75 /* fraction to small float */
+23.SmallFloat = 23.0 /* integral to small float */
+true.boole = 1 /* boolean as integer, c.f. boole */
+false.boole = 0 /* boolean as integer, boole */
+'~'.Character.codePoint = 126 /* character as integer, c.f. codePoint */
+23.Integer = 23 /* small integer as integer, c.f. identity */
+-23.Integer = -23 /* identity */
+'23'.parseSmallInteger(10) = 23 /* string is parsed, c.f. parseDecimalInteger */
+{ '3.141'.parseSmallInteger(10) }.hasError /* floating point strings are not decimal integers */
+{ '3x'.parseDecimalInteger }.hasError /* large radix strings are not decimal integers */
+false.boole = 0 /* boole */
+true.boole = 1 /* boole */
+1.pi.Number = 1.pi /* identity */
+23.Number = 23 /* identity */
+'3.141'.parseNumber = 3.141 /* parse floating point */
+'-672.433244'.parseNumber = -672.433244 /* parse negative floating point */
+'0.03141E2'.parseNumber = 3.141 /* parse scientific */
+'23'.parseNumber = 23 /* parse integer */
+'-23'.parseNumber = -23 /* parse integer */
+1.pi.rationalize = 355/113 /* as fraction */
+1.pi.rationalize(0.01) = 22/7 /* with epsilon */
+22/7.rationalize = 22/7 /* identity */
+23.rationalize = 23 /* identity */
+1.toComplex = Complex(1, 0) /* number to complex */
+1.i = Complex(0, 1) /* number to complex */
+(2 + 3I).toComplex = Complex(2, 3) /* identity */
+126.Character = '~'.Character /* integer to character */
+'~'.Character.isCharacter /* string to character */
+let c = '~'.Character; c.Character == c /* identity */
+let c = 126.Character; c.characterString = '~' /* character to string */
+'~'.displayString = '~' /* identity operation */
+23.printString = '23' /* Object>>printString (integral to string) */
+15.hexDigitCharacter = 'F' /* integral to hex character */
+{ 16.hexDigitCharacter }.hasError /* error if out of range */
+'x'.Character = 120.Character /* string to character */
+120.Character = 'x'.Character /* small integer to character */
+let c = 'x'.Character; c.Character == c /* character to character */
+```
+
+## Converting -- unit conversion
+```
+180.degreesToRadians = 1.pi /* convert degrees to radians */
+1.pi.radiansToDegrees = 180 /* convert radians to degrees */
+```
+
+## Copying -- kernel trait
+```
+let b = true; b.copy == b /* copy boolean, identity */
+let n = 3.141; n.copy == n /* copy small float, identity */
+let n = 23L; n.copy == n /* copy large integer, identity */
+let s = 'string'; s.copy == s /* copy string, identity */
+let a = ('x' -> 1); let c = a.copy; c.value := 2; c != a & { c = ('x' -> 2) } /* copy association */
+let t = (0, 0); let c = t.copy; c !== t & { c = t } /* copy two tuple */
+let f = 3/4; let c = f.copy; c.numerator := 1L; c != f & { c = 1/4 } /* copy fraction */
+let c = 2I; let z = c.copy; z.real := 3; z != c & { z = (3 + 2I) } /* copy complex */
+let a = [1, [2]]; let c = a.copy; c[2][1] := -2; c = a & { a = [1, [-2]] } /* shallow copy of list */
+let a = [1, [2]]; let c = a.deepCopy; c[2][1] := -2; c != a & { a = [1, [2]] } /* deep copy of list */
+let b = [1, 2, 2].IdentityMultiset; let c = b.copy; c.add!(3); c != b & { c = [1, 2, 2, 3].IdentityMultiset } /* copy bag */
+let b = BitSet([1, 2], 3); let c = b.copy; c.add!(3); c != b & { c = BitSet([1, 2, 3], 4) } /* copy bitset */
+let b = [1, 2].ByteArray; let c = b.copy; c[1] := 3; c[1] = 3 & { b[1] = 1 } /* copy byte array */
+```
+
+## Date -- temporal type
+```
+system.includesPackage('Date') /* date package */
+system.now.Date.typeName = 'Date' /* type of Date, system constructor gets current date */
+0.Date.isDate /* Date type predicate, number constructor accepts time from epoch in seconds */
+let d = 0.Date; [d.year, d.month, d.dayOfMonth] = [1970, 1, 1] /* month and day are one-indexed */
+0.Date = 0.Date /* dates are comparable */
+0.Date != system.now.Date /* dates are comparable */
+0.Date < system.now.Date /* dates are magnitudes */
+system.now.Date > 0.Date /* dates are magnitudes */
+'2023-05-11'.parseDate.dateString = '2023-05-11' /* read date from partial ISO-8601 string */
+```
+
+## DateAndTime -- temporal type
+```
+system.includesPackage('DateAndTime') /* date and time package */
+system.now.DateAndTime.typeName = 'DateAndTime' /* type of DateAndTime, system constructor gets current date and time */
+'1970-01-01T00:00:01.000Z'.parseDateAndTime.absoluteTime = 1 /* parse ISO-8601 string & convert to unix time */
+let d = 0.DateAndTime; [d.hour, d.minute, d.wholeSecond] = [0, 0, 0] /* hour is in UTC */
+```
+
+## Dictionary -- collection trait
+```
+system.includesPackage('Dictionary') /* package */
+(x: 1, y: 2, z: 3).count(isEven/1) = 1 /* count elements that match predicate */
+(x: 1, y: 2).select { :each | false } = (:) /* select nothing */
+(x: 1, y: 2, z: 3).select(isOdd/1) = (x: 1, z: 3) /* select odd values */
+(x: 1, y: 2, z: 3).select(isEven/1) = (y: 2) /* select even values */
+{ (:).at('x') }.hasError /* indexing with an unknown key is an error */
+(x: nil).at('x') = nil /* as does indexing a field that is set to nil */
+(x: nil).size = 1 /* nil fields exist */
+(x: nil).indices = ['x'] /* nil fields exist */
+(:).atIfAbsentPut!('x') { 1 } = 1 /* at or put followed by at */
+let d = (:); d.atIfAbsentPut!('x') { 1 } = 1 & { d['x'] = 1 }
+(x: 1, y: 2).includes(2) /* includes, testing values for equality */
+(x: 1, y: [2, 3]).includes([2, 3])
+(x: 1, y: 2).includesIdentity(2) /* includes, testing for identity not equality */
+(x: 1, y: [2, 3]).includesIdentity([2, 3]) = false
+(x: 1, y: 2).includesAssociation('y' -> 2) /* includes association, testing for equality */
+(x: 1, y: [2, 3]).includesAssociation('y' -> [2, 3])
+(x: 1, y: 2).includesAssociation('x' -> 2) = false
+let d = (x: 1); let a = 'y' -> 2; d.add!(a) = a & { d = (x: 1, y: 2) } /* add association */
+{ (x: 1).add!('y') }.hasError /* only associations may be added */
+{ (x: 1).add!('x' -> 2) }.hasError /* add can only add associations for keys that are not already included */
+let d = (x: 1, y: 2); d.includeAll!((y: 3, z: 4)); d = (x: 1, y: 3, z: 4) /* includeAll replaces existing entries */
+let p = (x: 1); let q = (y: 2); p.declareFrom('y', q); [p, q] = [(x: 1, y: 2), (:)]
+let p = (x: 1); let q = (x: 2); p.declareFrom('x', q); [p, q] = [(x: 1), (x: 2)]
+let p = (:); let q = (x: 1); p.declareFrom('x', q); [p, q] = [(x: 1), (:)]
+let p = (:); let q = (x: 1); p.declareFrom('y', q); [p, q] = [(y: nil), (x: 1)]
+(x: 1, y: 2, z: 3).collect(square/1) = (x: 1, y: 4, z: 9)
+let d = (x: 1, y: 2, z: 3); d.collect!(square/1); d = (x: 1, y: 4, z: 9) /* replace value at each key, in-place collect */
+{ (x: 1).remove!('x') }.hasError /* should not implement, see removeKey */
+(x: 1, y: 2) ++ (x: 2, y: 1) = (x: 2, y: 1) /* appending two dictionaries is right-biased, unicode = ⧺ */
+(x: 1, y: 2) ++ ['z' -> 3] = (x: 1, y: 2, z: 3) /* append an array of associations to a dictionary */
+{ (x: 1, y: 2) ++ [3] }.hasError /* right hand side must be associations */
+(x: 1, y: 2).anySatisfy(isEven/1) /* collection predicates at dictionary consider values not associations */
+(x: 1, y: 2, z: 3).detect(isEven/1) = 2 /* detect value */
+let n = 0; (x: 1, y: 2, z: 3).do { :each | n := n + each }; n = 6 /* do iterates over values, not associations */
+let n = 0; (x: 1, y: 2, z: 3).valuesDo { :each | n := n + each }; n = 6 /* iterate over values */
+let a = []; (x: 1, y: 2, z: 3).indicesDo { :each | a.add!(each) }; a = ['x', 'y', 'z'] /* iterate over indices (keys) */
+let n = 0; (x: 1, y: 2, z: 3).associationsDo { :each | n := n + each.value }; n = 6 /* iterate over associations */
+let n = 0; (x: 1, y: 2, z: 3).withIndexDo { :value :key | n := n + value }; n = 6 /* iterate over keys and values */
+(x: 'x', y: '.', z: 'z').associationsSelect { :each | each.key = each.value } = (x: 'x', z: 'z') /* select querying associations */
+(x: 1, y: 2, z: 3).indices = ['x', 'y', 'z'] /* indices of dictionary (an array) */
+let d = (a: 1, b: 2, c: 1); d.indexOf(2) = 'b' /* lookup key (index) given value */
+let d = (a: 1, b: 2, c: 1); let k = d.indexOf(1); k = 'a' | { k = 'c' } /* many keys with value */
+{ (a: 1, b: 2, c: 1).indexOf(3) }.hasError /* error if no such value */
+let d = (x: 1, y: 2, z: 3); d.removeAllSuchThat! { :each | each = 3 }; d = (x: 1, y: 2)
+let d = (x: 1, y: 2, z: 3); d.associationsRemove! { :each | each.key = 'y' | { each.value = 3 } }; d = (x: 1)
+let d = (x: 1, y: 2, z: 3); d.keysAndValuesRemove! { :key :value | key = 'y' | { value = 3 } }; d = (x: 1)
+let d = (x: 1, y: 2, z: 3); d.removeKey!('y') = 2 & { d = (x: 1, z: 3) }
+{ (x: 1, y: 2, z: 3).removeKey!('?') }.hasError
+let d = (x: 1, y: 2, z: 3); d.removeAt!('y') = 2 & { d = (x: 1, z: 3) }
+{ (x: 1, y: 2, z: 3).removeAt!('?') }.hasError
+let d = (x: 1, y: 2); d.atAllPut!(3) = 3 & { d = (x: 3, y: 3) } /* set all values to indicated object */
+(x: 1, y: 2, z: 3).associations = ['x' -> 1, 'y' -> 2, 'z' -> 3] /* array of associations */
+let a = List(9, nil); a.indicesDo { :each | a[each] := 10 - each }; a = [9, 8 .. 1] /* iterate indices */
+let d = (x: 1, y: 2); d.removeAssociation!('x' -> 1); d = (y: 2) /* remove association */
+let d = (x: 1, y: 2); d.removeAssociationIfAbsent!('z' -> 3) { }; d = (x: 1, y: 2) /* remove association, if absent clause */
+{ (x: 1, y: 2).removeAssociation!('z' -> 3) }.hasError /* remove association, error if absent */
+let d = (x: 1, y: 2); d.removeAll!; d.isEmpty /* remove all entries */
+(x: 1, y: 2).keyAtValue(2) = 'y' /* dictionary name for indexOf */
+let d = (x: 1, y: 2); d.keyAtValue(2) = d.indexOf(2) /* dictionary name for indexOf */
+(x: 1, y: 2, z: 3).keys = ['x' 'y' 'z'] /* array of keys at dictionary */
+(x: 1, y: 2, z: 3).values = [1 2 3] /* array of values at dictionary */
+let d = (c: 3, parent: (b: 2, parent: (a: 1))); ['a', 'b', 'c'].collect { :each | d.atDelegateTo(each, 'parent') } = [1, 2, 3]
+let d = (c: 3, parent: (b: 2, parent: (a: 1))); ['a', 'b', 'c'].collect { :each | d.messageSend(each, 'parent', []) } = [1, 2, 3]
+let d = (x: 1, parent: (y: 2, parent: (z: 3))); d.putDelegateTo('z', -3, 'parent'); d.atDelegateTo('z', 'parent') = -3
+```
+
+## Do -- collection trait
+```
+system.includesPackage('Do') /* Do package */
+1:9.count(isOdd/1) = 5
+1:9.count(isEven/1) = 4
+1:9.countAll = 9
+```
+
+## Duration -- temporal type
+```
+system.includesPackage('Duration') /* duration package */
+2.seconds.Duration.typeName = 'Duration' /* make duration from number of seconds */
+5.hours.Duration.isDuration = true /* make duration from number of hours */
+let f = { :t0 | let t1 = system.randomReal([0 2], []); f/1.scheduleAfterWith(t1, t1) }; f(2).cancel = nil
+60.seconds.Duration.inSeconds = 60 /* convert duration to seconds */
+'P1W1DT1H1M1S'.parseDuration.inSeconds = 694861 /* parse ISO-8601 duration string */
+'P2DT2H2M2S'.parseDuration.inSeconds = 180122 /* parse ISO-8601 duration string */
+'P3DT4H'.parseDuration = (3.days + 4.hours).Duration
+(29.days + 12.hours + 44.minutes + 2.9.seconds - 1.synodicMonths).Duration.abs ~ 76.milliseconds.Duration
+-3.seconds.Duration.abs = 3.seconds.Duration /* absolute value */
+(3.minutes - 2.hours).Duration.abs = (1.hours + 57.minutes).Duration /* absolute value */
+(7 / 8).milliseconds.Duration.inSeconds = 7/8000 /* fractional duration */
+2.minutes.Duration.inSeconds = 120 /* seconds of duration, or identity of number */
+```
+
+## Error -- exception type
+```
+system.includesPackage('Error') /* package */
+Error().isError = true /* an error with no message is an error */
+Error().isException = true /* an error is an exception */
+Error('Error message').isError = true /* error with message is an error */
+Error('Error message').name = 'Error' /* an error has a name */
+Error('Error message').messageText = 'Error message' /* an error has a message */
+{ Error('Error message').signal }.hasError /* signal error */
+{ 'Error message'.error }.hasError /* generate and signal an error */
+{ Error('message').copy }.hasError /* cannot copy errors */
+let x = nil; { x := false }.ensure { x := true }; x /* ensure termination block is evaluated */
+let x = nil; { { ''.error }.ensure { x := true } }.ignoreError; x /* ensure termination block is evaluated */
+```
+
+## Float64Array -- collection type
+```
+system.includesPackage('Float64Array') /* package */
+Float64Array(0, 0).typeName = 'Float64Array' /* type of */
+Float64Array(0, 0).species == zeroFloat64Array/1 /* species */
+Float64Array(0, 0).isFloat64Array /* type predicate */
+Float64Array(0, 0).isEmpty /* is empty predicate */
+Float64Array(8, 0).size = 8 /* size of */
+Float64Array(8, 0).at(1) = 0 /* at protocol, initialized to zero */
+Float64Array(8, 0).put!(1, 1.pi) = 1.pi /* put protocol, answer value put */
+let a = Float64Array(8, 0); a.put!(1, 1.pi) = 1.pi & { a.at(1) = 1.pi }
+let a = Float64Array(8, 0); (a[1] := 1.pi) = 1.pi & { a[1] = 1.pi }
+1:9.Float64Array.isFloat64Array = true /* interval as array */
+1:9.Float64Array.reverse = 9:1:-1.Float64Array /* reverse copy */
+let a = [1 .. 9].Float64Array; a.reverse!; a = 9:1:-1.Float64Array /* reverse in-place */
+let a = 9:1:-1.Float64Array; a.sort!; a = 1:9.Float64Array /* sort in-place */
+{ Float64Array(1, 0).put!(3, 'x') }.hasError /* out of bounds error */
+let a = Float64Array(1, 0); a.uncheckedPut!(1, 'x'); a.at(1).isNaN = true /* unsafe mutation inserts NaN */
+let a = Float64Array(1, 0); a.uncheckedPut!(3, 'x'); a.uncheckedAt(3) = nil /* unsafe mutation does not extend array */
+1:3.Float64Array.printString = 'Float64Array([1, 2, 3])'
+1:3.Float64Array.storeString = 'Float64Array([1, 2, 3])'
+let a = 1:3.Float64Array; let c = a.copy; c[1] := 3; c != a & { c.List = [3, 2, 3] } /* copy */
+```
+
+## Floating point
+```
+1.0 * 3.0 > 3.0 = false /* integral floating point math */
+0.1 * 3.0 > 0.3 = true /* general floating point math */
+1.0 * 3.0 = 3.0 = true /* integral floating point math */
+0.1 * 3.0 = 0.3 = false /* general floating point math */
+1.0 + 1.0 + 1.0 = 3.0 = true /* integral floating point math */
+0.1 + 0.1 + 0.1 = 0.3 = false /* general floating point math */
+'-1.4'.parseNumber = -1.4 /* parse float */
+```
+
+## Fraction -- numeric type
+```
+system.includesPackage('Fraction') /* fraction package */
+2/3.isFraction /* literal syntax for fractions is numerator/denominator */
+Fraction(2, 3).isFraction /* fractional type */
+2/3 = Fraction(2, 3) /* literal syntax */
+Fraction(4, 6) = 2/3 /* Fraction normalises */
+uncheckedFraction(4, 6) != 2/3 /* uncheckedFraction assumes fraction is normal, and will construct a non-reduced fraction */
+2/3 = 4/6 /* literals are reduced by construction */
+2 / 3/4 = 8/3 /* division */
+2/3 + 2/3 = 4/3 /* addition */
+2/3 + 2 / 3 = (8/9) /* (2 / 3 + 2) / 3 */
+2/3 + 1/2 = 7/6 /* reduction to common denominator */
+2/3 + 4/3 = 2 /* addition to integer */
+1/2 - 1/2 = 0 /* subtraction */
+3/4 - 1/2 = 1/4 /* subtraction */
+3/2.ceiling = 2 /* ceiling */
+-3/2.ceiling = -1 /* ceiling */
+4/3.denominator = 3 /* denominator */
+4/3.gcd(7/5) = 1/15 /* greatest common denominator */
+4/3.lcm(7/5) = 28 /* least common multiple */
+4/3.negate = -4/3 /* negation */
+4/3.isNegative.not /* is negative predicate */
+4/3.numerator = 4 /* numerator */
+2/3.raisedToInteger(5) = 32/243 /* fractions also can be exponentiated */
+2/3 ^ 5 = 32/243 /* fractions also can be exponentiated using infix operator */
+2/3 ^ 3/4 ~ 0.737788 /* non integer exponents answer floatinput point values */
+9/5.reciprocal = 5/9 /* reciprocal, mutiplicative inverse */
+let n = 9/5; n.reciprocal * n = 1 /* mutiplicative inverse */
+7/5.square = 49/25 /* square of */
+3/2.truncate = 1 /* truncation */
+1/2 < 0.5 = false
+1/3 > 0.25
+0.5 < 1/2 = false
+0.25 < 1/3
+0.5 < 1/4 = false
+0.5 < 1/2 = false
+0.5 < 3/4
+0.5 <= 1/4 = false /* less than or equal to, unicode = ≤ */
+0.5 <= 1/2
+0.5 <= 3/4
+0.5 > 1/4
+0.5 > 1/2 = false
+0.5 > 3/4 = false
+0.5 >= 1/4
+0.5 >= 1/2
+0.5 >= 3/4 = false
+0.5 = 1/4 = false
+0.5 - 1/2 = 0
+0.5 = 3/4 = false
+0.5 != 1/4
+1/2 - 0.5 = 0
+0.5 != 3/4
+Fraction(6, 4) = Fraction(3, 2) /* Fraction normalizes */
+Fraction(-6, 4) = Fraction(-3, 2) /* Fraction normalizes */
+Fraction(6, -4) = Fraction(-3, 2) /* Fraction normalizes */
+{ Fraction(6, 0) }.hasError
+1/2 = 2/4 = true
+1/2 * 2 = 1
+2 * 1/2 = 1
+23.isFraction = false /* type predicate, c.f. isRational */
+23.isRational = true
+23.numerator = 23
+23.denominator = 1 /* denominator of integer is one */
+1/3 + 1/7 = 10/21
+Fraction(3, 1) = 3/1
+-3/2.negate = 3/2
+-3/2.abs = 3/2
+3/2.ceiling = 2
+-3/2.ceiling = -1
+3/2.floor = 1
+-3/2.floor = -2
+353/359.printString = '353/359' /* Fraction print string */
+59/61.storeString = '59/61' /* Fraction store string */
+4 / (2/3) = 6
+4 / (-2/3) = -6
+-4 / (-2/3) = 6
+-4 / (2/3) = -6
+4 * (3/2) = 6
+4 * (-3/2) = -6
+-4 * (-3/2) = 6
+-4 * (3/2) = -6
+1/2.reciprocal = 2
+3/4.reciprocal = 4/3
+-1/3.reciprocal = -3
+-3/5.reciprocal = -5/3
+4/5.round = 1
+6/5.round = 1
+-4/5.round = -1
+-6/5.round = -1
+3/2.round = 2 /* in case of tie, round to upper magnitude */
+-3/2.round = -2
+1.pi.roundUp(0.01) = 3.15 /* round up to nearest 1/100th */
+1.pi.roundUp(0.1) = 3.2 /* round up to nearest 1/10th */
+226.roundUp(10) = 230 /* round up to nearest multiple of 10 */
+1923.roundUp(10) = 1930 /* round up to nearest multiple of 10 */
+1.pi.roundUp(0.005) = 3.145 /* round up to nearest 5/1000th */
+-1.pi.roundUp(0.01) = -3.14 /* rounding up a negative number rounds towards zero */
+1.pi.roundUp = 4 /* round up to nearest integer */
+-3/2.numerator.isNegative /* numerator of negative fraction is negative */
+-3/2.denominator.isPositive /* denominator of negative fraction is positive */
+4/6.numerator = 2 /* literal fractions are reduced */
+4/6.denominator = 3 /* literal fractions are reduced */
+4/2 = 2
+uncheckedFraction(4, 6).numerator = 4 /* uncheckedFraction is not initially reduced */
+uncheckedFraction(4, 6).denominator = 6 /* uncheckedFraction is not initially reduced */
+Fraction(4, 6).numerator = 2
+Fraction(4, 6).denominator = 3
+3/2.truncate = 1
+-3/2.truncate = -1
+2/3 - 5/3 = -1
+3/2 / 3/4 = 2
+3/2 / -3/4 = -2
+-3/2 / -3/4 = 2
+-3/2 / 3/4 = -2
+3/2 * 4/3 = 2
+3/2 * -4/3 = -2
+-3/2 * -4/3 = 2
+-3/2 * 4/3 = -2
+5/3 + 1/3 = 2
+3/2.SmallFloat = 1.5 /* fraction as float */
+0.5 < 2/3 = true
+2/3 > 0.5 = true
+1 < 3/2 = true
+3/2 > 1 = true
+3/4.unicodeFraction = '¾' /* unicode character for fraction, else error */
+2/3.unicodeFraction = '⅔' /* unicode character for fraction, else error */
+{ 9/11.unicodeFraction }.hasError /* unicode character for fraction, else error */
+system.unicodeFractionsTable.isDictionary = true
+system.unicodeFractionsTable.associations.isList = true
+let n = system.unicodeFractionsTable.associations.collect(value/1); n = n.sort
+'4/3'.parseFraction = 4/3 /* parse fraction */
+'4/3'.parseFraction('/') = 4/3 /* parse fraction given delimiter */
+{ '4/3'.parseNumber = 4/3 }.hasError /* the fraction module does not modify parseNumber to parse fractions */
+let x = Fraction(2L ^ 55, 2); x != (x - 1) /* fractions of large small floats would behave strangely, enforce large integers  */
+let x = Fraction(2L ^ 55L, 2); x != (x - 1) /* fractions of large large integers behave ordinarily */
+2/3 != 3/4 /* unequal fractions */
+(2/3 == 2/3).not /* non-identical fractions (equal fractions need not be the same object) */
+2/3 !== 2/3 /* non-identical fractions */
+2/3 !== 3/4 /* non-identical fractions */
+355/113.limitDenominator(77) = 223/71
+223/71.limitDenominator(7) = 22/7
+22/7.limitDenominator(5) = 16/5
+355/113.limitDenominator(7) = 22/7
+[1/2, 5/10, 10/20, 50/100, 500/1000].collect { :n | n.limitDenominator(5) } = [1/2, 1/2, 1/2, 1/2, 1/2]
+[0.01, 0.0001].collect { :n | 0.367879.rationalize(n) } = [3/8, 32/87]
+1:5.collect { :n | 1.pi.rationalize(10 ^ n.-) } = [16/5, 22/7, 201/64, 333/106, 355/113]
+1.pi.rationalize = 355/113 /* with default epsilon */
+(1 / [2, 3, 5, 7, 11, 13, 17]).collect(rationalize/1) = [1/2, 1/3, 1/5, 1/7, 1/11, 1/13, 1/17]
+6/8 * 4 = 3 /* answer integer */
+7/8 / 3 = 7/24 /* division by integer is fraction */
+6/9 = 2/3
+-4/8 = -1/2
+Fraction(5, -15) = -1/3
+Fraction(-4, -12) = 1/3
+2/3.numerator = 2
+2/3.denominator = 3
+2/3 = 6/9
+2/3 != 9/27
+3/7 < 1/2
+3/4 > 2/3
+2/4 + 1/6 = 2/3
+5/12 - 1/4 = 1/6
+5/8 * 3/12 = 5/32
+6/5 / 10/7 = 21/25
+(3/4).SmallFloat = 0.75
+(1/2).SmallFloat = (1 / 2)
+-1/3.typeName = 'Fraction'
+3/5 + 1 = 8/5
+3/5 - 0.5 ~ 0.1
+0.5 ~ 1/2
+0.3333 ~ 1/3
+0.33 < (1/3)
+1/3 - 0.33 ~ 0.003333
+1/3.zero = Fraction(0, 1) /* zero of same type, i.e. fraction */
+1/3.one = Fraction(1, 1) /* one of same type, i.e. fraction */
+1/3 ~ (1 / 3) /* a fraction is close the floating point division it represents */
+1/2 * 2 = 1 /* multiply to integer */
+4/2 / 2 = 1 /* divide to integer */
+1/2 + 1/2 = 1 /* sum to integer */
+3/2 - 1/2 = 1 /* subtract to integer */
+2/7 * (1 + 2I) = (2/7 + 4/7.I)
+2/7 * (1.5 + 2I) ~ (0.4286 + 0.5714I)
+3/2 / (1 + 2I) ~ (3/10 - 3/5.I)
+1/2 + 2.i ~ (1/2 + 2/1.I)
+(1/2 + 1/2).isInteger /* fractions with unit denominators are integers */
+1/2.fractionalPart = 1/2 /* the fractional part of a number between zero and one is identity */
+4/3.fractionalPart = 1/3 /* fraction math is exact */
+64/33.primeLimit = 11 /* the prime limit of a fraction is maximum of the limit of each part */
+1/1.primeLimit = 0 /* by convention the prime limit of one is zero */
+64/33.primeFactors = [2, 2, 2, 2, 2, 2, 1/3, 1/11] /* the factors of the denominator are fractions */
+64/33.primeFactors.product = 64/33 /* the product of the factors is the fraction */
+3/8.primeFactors = [3 1/2 1/2 1/2] /* factors of fraction */
+3/8.factorInteger = [2 -3; 3 1] /* factors of fraction */
+```
+
+## Frequency -- temporal type
+```
+system.includesPackage('Frequency') /* frequency package */
+1.hertz.typeName = 'Quantity' /* frequency from hertz (cyles per second) */
+1.hertz.isFrequency /* frequency predicate */
+10.hertz.Duration = (1 / 10).seconds.Duration /* duration is the reciprocal of frequency */
+1.kilohertz.Duration = 1.milliseconds.Duration /* the period of 1kHz is 1ms */
+1.kilohertz.inHertz = 1000 /* hertz of frequency, or identity of number */
+```
+
+## Graph -- collection type
+```
+system.includesPackage('Graph') /* graph package */
+Graph([], []).typeName = 'Graph' /* graph type */
+Graph([], []).isGraph /* graph predicate */
+let g = Graph[1 2; 2 3; 3 1]; g.vertexCount = 3 & { g.edgeCount = 3 }
+```
+
+## Hash -- murmur hash
+```
+'String Input'.hash = 2006581733
+```
+
+## Heap -- collection type
+```
+system.includesPackage('Heap') /* heap package */
+Heap().isHeap /* an empty heap is a heap */
+Heap().size = 0 /* an empty heap has size 0 */
+Heap().isEmpty /* an empty heap is empty */
+let h = Heap(); h.add!(3); h.size = 1 /* add element to heap, size is one */
+let h = Heap(); h.add!(3); h.first = 3 /* add element to heap, it is the first element */
+let h = Heap(); h.add!(3); h[1] = 3 /* at protocol */
+let h = Heap(); h.add!(3); h.add!(2); [h.size, h.first, h[2]] = [2, 2, 3] /* add elements to heap */
+let h = Heap(); { h[1] }.hasError /* out of bounds */
+let h = Heap(); h.add!(3); { h[2] }.hasError /* out of bounds */
+let h = Heap(); h.add!(5); h.add!(12); h.add!(1); h.first = 1 /* add out of order */
+let h = Heap(); h.addAll!([5, 12, 1]); h.first = 1 /* add all out of order */
+let h = Heap(); h.add!(5); h.removeFirst!; h.isEmpty /* add & remove */
+let h = Heap(); h.addAll!([5, 12, 1]); [h.removeFirst!, h.first] = [1, 5] /* remove first */
+let h = Heap(); h.addAll!([5, 12, 1]); [h.removeFirst!, h.removeFirst!, h.first] = [1, 5, 12] /* remove first */
+let h = Heap(); { h.removeFirst! }.hasError /* remove an element that does not exist */
+let h = Heap(); h.add!(5); [h.removeFirst!, h.size] = [5, 0] /* add & remove */
+let h = Heap(); h.addAll!([1 .. 9].shuffle!); h.first = 1 /* add random permutation, first is always 1 */
+let h = Heap(); h.addAll!([1 .. 9].shuffle!); 8.timesRepeat { h.removeFirst! }; h.first = 9
+let h = Heap(); h.addAll!([1 .. 9].shuffle!); 8.timesRepeat { h.removeAt!(2) }; h.first = 1
+let h = [1, 3, 5].Heap; let a = []; h.do { :each | a.add!(each) }; a = [1, 3, 5]
+let h = Heap(>); h.addAll!([1 3 5]); h.first = 5
+let h = Heap { :p :q | p > q }; h.addAll!([1, 3, 5]); [h.removeFirst!, h.first] = [5, 3]
+let h = 1:4.Heap; let c = h.copy; c.add!(5); h != c & { c = [1 .. 5].Heap }
+```
+
+## Identity -- literals
+```
+nil == nil /* nil identity */
+true == true & { false == false } /* boolean identity */
+3.141 == 3.141 & { 23 == 23 } & { 5L == 5L } /* number identity */
+'str' == 'str' /* string identity */
+(x: 1) !== (x: 1) /* record non-identity */
+[1] !== [1] /* array non-identity */
+```
+
+## Integer -- numeric trait
+```
+system.includesPackage('Integer') /* integer package */
+1.isInteger = true /* integer predicate */
+123.printString = '123' /* integer print string */
+123.storeString = '123' /* integer store string */
+-987654321.printString = '-987654321' /* negative integer print string */
+4 / 2 = 2 /* integer division with integer result */
+let n = 2; 3.timesRepeat { n := n * n }; n = 256 /* iteration */
+0:15.collect(hexDigitCharacter/1).stringJoin = '0123456789ABCDEF' /* integer to hex character */
+let a = []; 1.toDo(5) { :each | a.add!(each) }; a = [1 .. 5] /* iterate over integer sequence */
+let a = []; 5.toDo(1) { :each | a.add!(each) }; a = [] /* non-ascending sequences are empty */
+let a = []; 5.toByDo(1, -1) { :each | a.add!(each) }; a = [5, 4 .. 1] /* iterate over integer sequence */
+let a = []; 1.toByDo(5, -1) { :each | a.add!(each) }; a = [] /* non-descending sequences are an error */
+let a = []; 1.toByDo(5, 1) { :each | a.add!(each) }; a = [1 .. 5] /* with step */
+let a = []; 5.upOrDownToDo(1) { :each | a.add!(each) }; a = [5, 4 .. 1] /* iterate over integer sequence */
+let a = []; 1.toDo(5) { :each | a.add!(each) }; a = [1 .. 5] /* toDo is ascending only */
+let a = []; 5.toDo(1) { :each | a.add!(each) }; a = [] /* non-ascending sequences are empty */
+0:255.collect { :each | each.digitAt(1) } = [0 .. 255]
+0:255.collect { :each | each.digitAt(2) }.allSatisfy { :each | each = 0 }
+256:511.collect { :each | each.digitAt(1) } = [0 .. 255]
+256:511.collect { :each | each.digitAt(2) }.allSatisfy { :each | each = 1 }
+512:1023.collect { :each | each.digitAt(2) }.IdentityMultiset.sortedElements = [2 -> 256, 3 -> 256]
+[1, 8, 16, 24, 32L, 40L, 48L, 56L, 64L].collect { :each | (2 ^ each).digitLength } = [1 .. 9]
+(2 ^ 128L - 1).digitLength = 16
+[64 226 1].ByteArray.fnv1aHash = 2230130162L
+(1 << 30) == 1073741824 /* equal integers are identical */
+6.choose(3) = 20 /* n choose k */
+6.choose(3) = ((6 * 5 * 4) / (1 * 2 * 3))
+3.choose(6) = 0 /* if k is greater than n answer is zero */
+58909.printStringHexadecimal = '16bE61D' /* hexadecimal representation */
+58909.printString(16) = '16bE61D' /* hexadecimal representation */
+let a = []; List(2, 1:3).tuplesDo { :each | a.add!(each.copy) }; a = [1 1; 1 2; 1 3; 2 1; 2 2; 2 3; 3 1; 3 2; 3 3]
+let a = []; List(2, 1:3).tuplesDo { :each | a.add!(each.sum) }; a = [2 3 4 3 4 5 4 5 6]
+let a = []; List(3, 1:2).tuplesDo { :each | a.add!(each.sum) }; a = [3 4 4 5 4 5 5 6]
+let a = []; List (4, 1:2).tuplesDo { :each | a.add!(each.sum) }; a = [4 5 5 6 5 6 6 7 5 6 6 7 6 7 7 8]
+let c = 0; let k = 3; let n = 4; List(n, 1:k).tuplesDo { :each | c := c + 1 }; c = (k ^ n)
+let c = 0; List(6, 1:4).tuplesDo { :each | c := c + 1 }; c = 4096
+-2:7.collect { :each | each.foldIndex(5) } = [4 3 2 1 2 3 4 5 4 3]
+-2:7.collect { :each | each.wrapIndex(5) } = [3 4 5 1 2 3 4 5 1 2]
+23.integerDigits(2, 5) = [1, 0, 1, 1, 1] /* binary */
+23.integerDigits(8, 2) = [2, 7] /* octal digits */
+23.integerDigits(10, 2) = [2, 3] /* decimal digits */
+23.integerDigits(16, 2) = [1, 7] /* hexadecimal digits */
+127.integerDigits(10, 3) = [1, 2, 7]
+127.integerDigits(10) = [1, 2, 7]
+127.integerDigits(2, 7) = [1, 1, 1, 1, 1, 1, 1]
+1:5000.select { :n | n = n.integerDigits(10).collect { :x | x ^ x }.sum } = [1, 3435]
+```
+
+## Integer -- prime numbers
+```
+9.primesList = [2, 3, 5, 7, 11, 13, 17, 19, 23] /* first elements of prime number sequence */
+9.prime = 23 /* lookup prime by index in sequence */
+system.cache['primesList'][9] = 23 /* the primes list is cached (memoized) by the system */
+5.prime = 11 /* the nth entry in the sequence of prime numbers */
+23.prime = 83 /* the nth entry in the sequence of prime numbers */
+system.cache['primesList'][23] = 83 /* prime extends the primesList cache as required */
+23.primesList = system.cachedPrimesList.first(23) /* the k primesList is the first k elements of the cached array */
+2:20.select { :each | each.isPrime } = [2, 3, 5, 7, 11, 13, 17, 19]
+2:20.reject { :each | each.isPrime } = [4, 6, 8, 9, 10, 12, 14, 15, 16, 18, 20]
+60.primeFactors = [2, 2, 3, 5] /* prime factors */
+[2, 2, 3, 5].product = 60 /* product is the inverse of primeFactors */
+1.primeFactors = [] /* the prime factors of one is empty */
+60.primeFactors.product = 60 /* product of prime factors is identity */
+315.primeFactors.IdentitySet = [3, 5, 7].IdentitySet /* prime factors, set */
+2588.primeFactors = [2, 2, 647] /* prime factors */
+2:15.select { :each | each.primeFactors.max <= 5 } = [2, 3, 4, 5, 6, 8, 9, 10, 12, 15]
+2:999.allSatisfy { :each | each = each.primeFactors.product } = true /* equality with product of factors */
+10071203840.primeFactors.IdentityMultiset.sortedElements = [2 -> 13, 5 -> 1, 19 -> 1, 12941 -> 1] /* prime factor histogram */
+6606028800.primeFactors.IdentityMultiset.sortedCounts = [22 -> 2, 2 -> 5, 2 -> 3, 1 -> 7]
+8589298611.primeFactors = [3, 2863099537] /* large prime factors */
+120.factorInteger = [2 3; 3 1; 5 1]
+60.factorInteger = [2 2; 3 1; 5 1]
+36.factorInteger = [2 2; 3 2]
+20.factorial.factorInteger = [2 18; 3 8; 5 4; 7 2; 11 1; 13 1; 17 1; 19 1]
+2401.factorInteger = [[7 4]]
+2434500.factorInteger.column(1) = [2 3 5 541] /* prime divisors */
+2434500.primeDivisors = [2 3 5 541] /* prime divisors */
+6.factorial.factorInteger = [2 4; 3 2; 5 1]
+324.factorInteger = [2 2; 3 4] /* powerful numbers are numbers whose prime factors are all repeated */
+2401.isPrimePower /* the factorization has one place and the base is a prime number */
+2:49.select(isPrimePower/1) = [2 3 4 5 7 8 9 11 13 16 17 19 23 25 27 29 31 32 37 41 43 47 49] /* OEIS A246655 */
+1.isPrimePower = false /* one is not a prime power */
+[7, 9, 64].allSatisfy(isPrimePower/1)
+[6, 12, 36].noneSatisfy(isPrimePower/1)
+1:19.select { :each | each.isAlmostPrime(1) } = [2, 3, 5, 7, 11, 13, 17, 19] /* A000040 */
+1:22.select { :each | each.isAlmostPrime(2) } = [4, 6, 9, 10, 14, 15, 21, 22] /* A001358 */
+1:449.select { :each | each.isAlmostPrime(7) } = [128, 192, 288, 320, 432, 448] /* A046308 */
+1:5121.select { :each | each.isAlmostPrime(11) } = [2048, 3072, 4608, 5120] /* A069272 */
+(10 ^ 12 + 3).factorInteger = [61 1; 14221 1; 1152763 1] /* moderately large number */
+2:30.select { :each | each.primeFactors.max <= 5 } = [2, 3, 4, 5, 6, 8, 9, 10, 12, 15, 16, 18, 20, 24, 25, 27, 30]
+2:15.select { :each | each.primeLimit <= 5 } = [2, 3, 4, 5, 6, 8, 9, 10, 12, 15]
+1.primeLimit = 0/* by convention the prime limit of one is zero */
+23.isPrime = true /* prime number predicate */
+2971215073.isPrime = true /* prime number predicate */
+2971215073.nextPrime = 2971215083 & { 2971215083.isPrime } /* find next prime */
+13.primesUpTo = [2 3 5 7 11 13] /* primes up to limit, if limit is prime it is the last element */
+42.primesUpTo = [2 3 5 7 11 13 17 19 23 29 31 37 41] /* if limit is not prime, the last element is the previous prime */
+35.isCoprime(64)
+1173.isCoprime(1547).not
+17.isPrime = true /* is number prime */
+17.indexOfPrime = 7 & { 18.indexOfPrime = 0 } /* index of prime number in prime number sequence, or zero if not prime */
+1.prime = 2 & { 7.prime = 17 } /* index into the prime number sequence */
+18.nextPrime = 19 & { 19.nextPrime = 23 } /* next integer that is greater than self and is prime number */
+19.leastPrimeGreaterThanOrEqualTo = 19 /* next prime or self if prime */
+1000.previousPrime = 997 & { 997.previousPrime = 991 } /* previous prime */
+```
+
+## Integer -- integer names
+```
+[1 .. 10].collect(threeDigitName/1) = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']
+[11 .. 20].collect(threeDigitName/1) = ['eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen', 'twenty']
+[21, 25, 29].collect(threeDigitName/1) = ['twenty-one', 'twenty-five', 'twenty-nine']
+[111, 333, 999].collect(threeDigitName/1) = ['one hundred eleven', 'three hundred thirty-three', 'nine hundred ninety-nine']
+(921 * (10 ^ 12)).inEnglishWords = 'nine hundred twenty-one trillion'
+504606846975.inEnglishWords = 'five hundred four billion, six hundred six million, eight hundred forty-six thousand, nine hundred seventy-five'
+123456789.inEnglishWords = 'one hundred twenty-three million, four hundred fifty-six thousand, seven hundred eighty-nine'
+13579.inEnglishWords = 'thirteen thousand, five hundred seventy-nine'
+```
+
+## Integer -- roman numerals
+```
+1:10.collect(romanNumeral/1) = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X']
+11:20.collect(romanNumeral/1) = ['XI', 'XII', 'XIII', 'XIV', 'XV', 'XVI', 'XVII', 'XVIII', 'XIX', 'XX']
+(50, 61 .. 160).collect(romanNumeral/1) = ['L', 'LXI', 'LXXII', 'LXXXIII', 'XCIV', 'CV', 'CXVI', 'CXXVII', 'CXXXVIII', 'CXLIX', 'CLX']
+['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'].collect(fromRomanNumeral/1) = [1 .. 10]
+['XI', 'XII', 'XIII', 'XIV', 'XV', 'XVI', 'XVII', 'XVIII', 'XIX', 'XX'].collect(fromRomanNumeral/1) = [11 .. 20]
+['L', 'LXI', 'LXXII', 'LXXXIII', 'XCIV', 'CV', 'CXVI', 'CXXVII', 'CXXXVIII', 'CXLIX', 'CLX'].collect(fromRomanNumeral/1) = [50, 61 .. 160]
+2023.romanNumeral = 'MMXXIII'
+'MMXXIII'.fromRomanNumeral = 2023
+```
+
+## Iterator -- collection trait
+```
+system.includesPackage('Iterator') /* Iterator package */
+[].Iterator.typeName = 'CollectionStream' /* type of iterator */
+1:5.Iterator.upTo(3) = 1:2 /* read up to, but not including, an element, answer is of species of collection */
+1:5.Iterator.upTo(9) = 1:5 /* read up to end if element is not located */
+let r = [1 .. 5].Iterator; [r.next, r.next(3), r.next, r.next] = [1, [2, 3, 4], 5, nil] /* next answers nil at end */
+let r = [1 .. 3].Iterator; [r.next, r.upToEnd] = [1, [2, 3]] /* read up to end */
+let r = 1:5.Iterator; r.upTo(3) = 1:2 & { r.next = 4} /* matching element is consumed */
+let r = 9:1:-1.Iterator; [r.upTo(3), r.upToEnd] = [9:4:-1, 2:1:-1] /* matching element is consumed */
+[].Iterator.next = nil /* next at an empty read iterator answers nil */
+let r = '.....ascii'.characters.Iterator; let l = List(5, nil); r.next(5); r.nextInto(l); l.stringIntercalate('') = 'ascii'
+1:9.Iterator.nextOrUpToEnd(23) = [1 .. 9] /* take at most n items from iterator */
+let r = 1:9.Iterator; [r.nextMatchFor(1), r.next] = [true, 2] /* predicate at consumed item */
+let r = 1:9.Iterator; [r.nextMatchAll([1, 2, 3]), r.next] = [true, 4] /* predicate at consumed items */
+```
+
+## Iteration -- control functions
+```
+let n = 0; 4.timesRepeat { n := n + 1 }; n = 4 /* times repeat loop (int) */
+let n = 0; -4.timesRepeat { n := nil }; n = 0 /* times repeat loop (zero or negative values are allowed) */
+let n = 0; 1.toDo(4) { :x | n := n + x }; n = 10 /* for loop (int) */
+let n = 0; 1.toDo(4) { :x | n := n + x }; n = 10 /* for loop (int) */
+let s = ''; 1.toDo(4) { :x | s := s ++ x.printString }; s = '1234' /* for loop (int) */
+let s = ''; 1:5.do { :x | s := s ++ x.printString }; s = '12345' /* for loop (interval) */
+let s = ''; 1.toDo(5) { :x | s := s ++ x.printString }; s = '12345' /* for loop (start & end indices) */
+let s = ''; 1.toDo(0) { :x | 'error'.error }; s = '' /* for loop (end less than start) */
+let s = ''; 1:3.reverseDo { :x | s := s ++ x.printString }; s = '321' /* for loop (interval, reverse) */
+let s = ''; [1, 3, 5].do { :x | s := s ++ x.printString }; s = '135' /* for loop (collection) */
+let n = 9; { n > 3 }.whileTrue { n := n - 1 }; n = 3 /* while true loop */
+let n = 9; { n < 7 }.whileFalse { n := n - 1 }; n = 6 /* while false loop */
+10.timesRepeat { 1 } = nil /* timesRepeat answers nil */
+1.toDo(10) { :x | x } = nil /* toDo answers nil */
+let a = []; 1:9.rejectThenDo(isEven/1) { :each | a.add!(each * 3) }; a = [3, 9, 15, 21, 27] /* avoid intermediate collection */
+let a = []; 1:9.selectThenDo(isEven/1) { :each | a.add!(each * 3) }; a = [6, 12, 18, 24] /* avoid intermediate collection */
+```
+
+## LargeInteger -- numeric type
+```
+system.includesPackage('LargeInteger') /* LargeInteger package */
+23L.typeName = 'LargeInteger' /* syntax for large integer literals */
+(2L ^ 53 - 1).square.printString = '81129638414606663681390495662081L'
+(2L ^ 37).square.storeString = '18889465931478580854784L'
+'324518553658426726783156020576256'.parseLargeInteger.isLargeInteger = true
+2971215073L.isPrime = true
+23L.factorial = 25852016738884976640000L /* factorial of LargeInteger */
+100L.factorial = 93326215443944152681699238856266700490715968264381621468592963895217599993229915608941463976156518286253697920827223758251185210916864000000000000000000000000L /* factorial of LargeInteger */
+170L.factorial = 7257415615307998967396728211129263114716991681296451376543577798900561843401706157852350749242617459511490991237838520776666022565442753025328900773207510902400430280058295603966612599658257104398558294257568966313439612262571094946806711205568880457193340212661452800000000000000000000000000000000000000000L /* factorial of LargeInteger */
+[-1L, 0L, 1L].collect(sign/1) = [-1L, 0L, 1L]
+6L / 8L = Fraction(3L, 4L)
+2 / 3L = Fraction(2L, 3L)
+4L / 2L = 2L /* reduced */
+let x = (2L ^ 54L); x != (x - 1) /* large integers behave ordinarily */
+5L % 3L = 2L /* modulo */
+[10L % 5L, -4L % 3L, 4L % -3L, -4L % -3L] = [0L, 2L, -2L, -1L] /* modulo, negative operands */
+13L % 7L % 4L = 2L /* left assocative */
+13L + 1L % 7L = 0L /* equal precedence */
+(2L ^ 170 - 1).isPowerOfTwo = false /* LargeInteger power of two test */
+324518553658426726783156020576256L.isEven = true /* is large integer even */
+324518553658426726783156020576257L.isOdd = true /* is large integer odd */
+100L.factorial / 99L.factorial = 100L /* large integer factorial, c.f. small float */
+1000L.factorial / 999L.factorial = 1000L /* large integer factorial */
+8589298611L.primeFactors.last = 2863099537L
+5L == 5L /* large integer identity */
+(1L << 100L) == 1267650600228229401496703205376L /* equal large integers are identical */
+92233720368L * 100000000L + 54775807L = 9223372036854775807L /* reader for large integer literals */
+2L ^ 100L = 1267650600228229401496703205376L /* raised to */
+let n = 2L; n.copy == n /* copy is identity */
+23L.SmallFloat = 23 /* large integer to small float */
+let a = [9, 8 .. 1]; { a[5L] }.hasError /* large integers are not valid indices */
+58909L.printStringHexadecimal = '16bE61D' /* hexadecimal representation */
+20L.factorial = 2432902008176640000L /* large integer factorial */
+7L << 23 = 58720256L /* left shift large integer */
+7L << 71 = 16528282690043758247936L /* left shift large integer */
+16L >> 3 = 2L /* right shift large integer */
+4L // 2L = 2L /* quotient */
+4L.quotient(2L) = 2L /* quotient */
+```
+
+## Length -- geometry type
+```
+system.includesPackage('Length') /* Length package */
+1.metres.typeName = 'Quantity' /* metre constructor, type of */
+1.metres.isLength /* length predicate */
+10.centimetres.inMetres = 0.1 /* metres of length, or identity of number */
+```
+
+## Link -- collection type
+```
+system.includesPackage('Link') /* package */
+Link(1, nil).size = 1 /* courtesy Do */
+Link(1, nil).isLink = true /* type predicate */
+Link(1, Link(2, nil)).size = 2
+Link(1, Link(2, nil)).reverse = Link(2, Link(1, nil)) /* reverse */
+{ Link(1, 2) }.hasError /* next link must be a link or nil */
+Link(9, Link(16, nil)).sqrt = Link(3, Link(4, nil)) /* implements collect */
+```
+
+## LinkedList -- collection type
+```
+system.includesPackage('LinkedList') /* LinkedList package */
+LinkedList().typeName = 'LinkedList' /* type of linked list */
+LinkedList().isLinkedList = true /* type predicate for linked list */
+LinkedList().size = 0 /* empty linked list */
+LinkedList().isEmpty /* empty linked list */
+LinkedList().extendToSize!(3).size = 3 /* linked list of three nil values */
+[1, 2, 3].LinkedList.size = 3 /* linked list from array */
+let l = LinkedList(); l.addFirst!(1); l.addFirst!(2); l.List = [2, 1] /* add to start */
+let l = LinkedList(); l.addLast!(1); l.addLast!(2); l.List = [1, 2] /* add to end */
+let l = LinkedList(); 1.toDo(5) { :each | l.add!(each) }; l.List = [1 .. 5] /* add to end */
+1:9.LinkedList.collect { :each | 10 - each } = [9, 8 .. 1].LinkedList /* collect */
+let l = [1 .. 9].LinkedList; l.removeFirst!; l.first = 2 /* remove first */
+let l = [1 .. 9].LinkedList; l.removeLast!; l.last = 8 /* remove last */
+let l = [1].LinkedList; l.removeFirst! = 1 & { l.isEmpty } /* remove first */
+let l = [1].LinkedList; l.removeLast! = 1 & { l.isEmpty } /* remove last */
+let l = [1 .. 5].LinkedList; l.removeAllSuchThat!(isOdd/1); l.List = [2, 4] /* in-place reject */
+let l = 1:99.LinkedList; l.removeAll!; l.isEmpty /* remove all */
+1:99.LinkedList.select(isEven/1).List = [2, 4 .. 98] /* select */
+1:9.LinkedList.selectThenCollect(isEven/1, square/1).List = [4, 16, 36, 64] /* avoid intermediate collection */
+1:9.LinkedList.collectThenSelect(square/1) { :each | each > 36 }.List = [49, 64, 81] /* avoid intermediate collection */
+1:9.LinkedList.reverse = LinkedList[9, 8 .. 1] /* reverse */
+{ LinkedList().removeFirst! }.hasError /* remove first, error if empty */
+{ LinkedList().removeLast! }.hasError /* remove last, error if empty */
+let l = 1:5.LinkedList; l[3] = 3 /* index into */
+let l = 1:5.LinkedList; l[1] := -1; l.List = [-1, 2, 3, 4, 5] /* mutate at index */
+let l = 1:5.LinkedList; l[3] := -3; l.List = [1, 2, -3, 4, 5] /* mutate at index */
+1:9.LinkedList.firstLink.value = 1 /* first link */
+1:9.LinkedList.firstLink.nextLink.value = 2 /* second link */
+1:9.LinkedList.lastLink.value = 9 /* last link */
+let l = 1:3.LinkedList; l.firstLink.value := -1; l.List = [-1, 2, 3] /* mutate link value */
+1:9.LinkedList.isSorted = true /* are elements in sequence */
+9:1:-1.LinkedList.isSortedBy(>) = true /* are elements in sequence by predicate */
+[1, 3 .. 9].LinkedList.indices = 1:5 /* indices of linked list (an interval) */
+let l = 1:9.LinkedList; l.copy = l & { l.copy !== l } /* copy is equal but not identical */
+let l = 1:9.LinkedList; let c = l.copy; c[1] := 9; c[1] = 9 & { l[1] = 1 } /* copies are distinct */
 ```
 
 ## List -- collection type
@@ -535,45 +2029,92 @@ let a = [1 1 3 4]; a[2, 4, 3, 1] = [1 4 3 1] /* atAll operator */
 { :i | i * 2 }.fill([4]) = [2; 4; 6; 8] /* fill list using block at indicies */
 ```
 
-## PrimitiveArray -- collection trait
+## Map -- collection type
 ```
-system.includesPackage('PrimitiveArray') /* package */
-let a = [1, 7, 3, 9, 5]; let b = a.sortBy! { :p :q | p >= q }; a = [9, 7 .. 1] & { a == b } /* sort using provided comparison, in-place */
-[1, 7, 3, 9, 5].sortBy! { :p :q | p >= q } = [9, 7 .. 1] /* sort using provided comparison, in-place answering array */
-[1, 7, 3, 9, 5].sort! = [1, 3 .. 9] /* sort using default comparison of <= */
-let a = [(x: 1, y: 9), (x: 9, y: 1)]; let b = a.sortOn! { :each | each['y'] }; a = [(x: 9, y: 1), (x: 1, y: 9)] & { b == a } /* sort using provided key block */
+system.includesPackage('Map') /* Map package */
+let r = Map(); r.add!('x' -> 1); r.size = 1 /* add Association to Dictionary */
+let d = Map(); d.add!('x' -> 1); d.add!('y' -> 2); d.size = 2 /* add two Associations to Dictionary */
+let d = ['x' -> 1, 'y' -> 2].Map; d.indices = ['x', 'y'] /* answer List of indices (keys) at Dictionary */
+let d = ['x' -> 1, 'y' -> 2].Map; d.values = [1, 2] /* answer List of values at Dictionary */
+let d = ['x' -> 1, 'y' -> 2].Map; d.at('x') = 1 /* answer value at key in Dictionary */
+let d = ['x' -> 1, 'y' -> 2].Map; d['x'] = 1 /* at (subscript) syntax */
+let d = Map(); d.add!('x' -> 1); d.removeKey!('x'); d.isEmpty = true /* remove Association from Dictionary given key */
+let d = Map(); (d['x'] := 1) = 1 & { d['x'] = 1 } /* put (subscript mutation) syntax */
+let d = Map(); d[1] := 'x'; d[1] = 'x'
+let d = Map(); d['x'] := 1; d.removeKey!('x'); d.isEmpty = true
+let d = (f: { :i | i * i }); d['f'].unaryApply(9) = 81
+{ Map().removeKey!('unknownKey') }.hasError
+(x: 1, y: 1).copyWithoutIdenticalElements = (x: 1)
+let d = Map(); 1.toDo(100) { :i | d[i] := i; (i > 10).ifTrue { d.removeKey!(i - 10) } }; d.size = 10
+let c = Map(); c[2] := 'two'; c[1] := 'one'; c.removeKey!(2); c[1] := 'one'; c.removeKey!(1); c.includesIndex(1) = false
+(x: 1, y: 2).Map.includesIndex('x') /* Record to Map, map includes key predicate */
+(x: 1, y: 2).Map ++ (x: 2, y: 1) = (x: 2, y: 1).Map /* appending a record to a Map answers a Map, biases right */
+(x: 1, y: 2, z: 3).Map ++ (x: 2, y: 1) = (x: 2, y: 1, z: 3).Map /* append record to Map */
+(x: 1, y: 2).Map ++ (x: 2, y: 1, z: 3) = (x: 2, y: 1, z: 3).Map /* append record to Map */
+(x: 1, y: 2, z: 3).Map.indices = ['x', 'y', 'z'] /* indices of map (an array) */
+let m = (x: 1, y: 2).Map; m.removeAssociation!('x' -> 1); m = (y: 2).Map /* remove association */
+let m = (x: 1, y: 2).Map; m.removeAll!; m.isEmpty /* remove all entries */
+(x: 1, y: 2).Map = (x: 1, y: 2).Map /* key sequence and equality */
+(x: 1, y: 2).Map = (y: 2, x: 1).Map /* key sequence and equality */
 ```
 
-## Assignment
+## Math -- functions
 ```
-var a, b, c; a := b := c := 'c'; [a, b, c] = ['c', 'c', 'c'] /* assignment is right-associative */
-let a = 'a'; let b = 'b'; let c = 'c'; a := b := c; [a, b, c] = ['c', 'c', 'c'] /* assignment is right-associative */
-var a; (a := 1) = 1 /* assignment answers assigned value */
-var a, b; a := (b := 2 + 2) + 3 = 7 & { b = 4 } /* assignment answers assigned value */
-let a = 1; let b = 2; let c = 3; [a, b, c] := [b, c, a]; [a, b, c] = [2, 3, 1] /* permutation using array assignment syntax */
+-3.abs = 3 /* absolute value */
+1.5.ceiling = 2 /* ceiling (round up) */
+[2 2.8 -2 -2.8].ceiling = [2 3 -2 -2] /* ceiling, pointwise at array */
+let v = [2 2.8 -2 -2.8]; v.ceiling = -v.floor.negate /* ceiling is equal to negate/floor/negate */
+0.cos = 1 /* cosine */
+180.degreesToRadians = 1.pi /* degreesToRadians */
+2.isEven = true /* eveness predicate */
+1.exp.isVeryClose(2.718281828459045) /* base e exponent function */
+1.5.floor = 1 /* floor (round down) */
+1.exp.log = 1 /* base e (natural) logarithm */
+1.2.isNumber = true /* is x a number */
+0.isInteger = true /* is x an integer */
+3.isPositive = true /* is x > 0 */
+1.max(2) = 2 /* maximum */
+1.min(2) = 1 /* minimum */
+3.negate = -3 /* negation */
+3.isOdd = true /* oddness predicate */
+1.pi.isVeryClose(3.1415926535898) /* constant pi (Float pi) */
+Infinity.isNumber /* constant positive infinity (is a number) */
+2 ^ 3 = 8 /* i to the power of j */
+5.reciprocal = 0.2 /* 1 / x */
+(1.pi / 2).sin = 1 /* sine */
+9.sqrt = 3 /* square root */
+3.square = 9 /* x * x */
+1.pi.radiansToDegrees = 180 /* radiansToDegrees */
+{ 1 / nil }.hasError /* operand not apatable to number */
+0.9.round = 1
+1.round = 1
+1.1.round = 1
+-1.9.round = -2
+-2.round = -2
+-2.1.round = -2
+1.5.round = 2 /* in case of tie, round to +infinity */
+-1.5.round = -1
+let n = 10 ^ 6; n ~ (n + 1) & { 1 !~ 2 } /* a million is close to a million and one, but one is not close to two */
 ```
 
-## Association -- collection type
+## Math -- power of two
 ```
-system.includesPackage('Association') /* association package */
-('x' -> 1).typeName = 'Association' /* arrow (->) constructor, unicode = → */
-('x' -> 1).isAssociation /* type predicate */
-Association('x', 1) = ('x' -> 1)
-let a = 'x' -> 1; [a.key, a.value] = ['x', 1] /* key and value accessors */
-('x' -> 1).keyAndValue = ['x', 1] /* two element [key, value] array */
-['x' -> 1, 'y' -> 2].collect(keyAndValue/1) = ['x' 1; 'y' 2]
-(23 -> 3.141).printString = '23 -> 3.141'
-(23 -> 3.141).storeString = 'Association(23, 3.141)'
-(1 -> '1').key = (1 -> 'one').key
-(1 -> '1').value != (1 -> 'one').value
-(1 -> '1') != (1 -> 'one')
-(1 -> 2) = system.evaluate((1 -> 2).storeString) /* store string can be evaluated to answer value */
-(false -> true) = system.evaluate((false -> true).storeString)
-('+' -> 'plusSign') = system.evaluate(('+' -> 'plusSign').storeString)
-(0 -> 1) != (0 -> 2) /* equality considers both key and value, unlike in Smalltalk-80 */
-('x' -> 1) != ('y' -> 1) /* equality considers both key and value, unlike in Smalltalk-80 */
-('x' -> 1) != (x: 1) /* an association is not equal to a record */
-let a = 'x' -> 1; a.key := 'y'; a.value := 2; a = ('y' -> 2) /* set key and value */
+8.isPowerOfTwo /* is the receiver a power of two */
+1:999.select(isPowerOfTwo/1) = [1, 2, 4, 8, 16, 32, 64, 128, 256, 512]
+(2 ^ 30).isPowerOfTwo = true /* this is only reliable for numbers that can be represented in 32-bits */
+(2 ^ 30 - 1).isPowerOfTwo = false
+127.nextPowerOfTwo = 128 /* next power of two that is not less than the receiver */
+[1, 2, 4, 8, 16, 32, 64, 128, 256].collect { :each | (each + 1).nextPowerOfTwo } = [2, 4, 8, 16, 32, 64, 128, 256, 512]
+129.previousPowerOfTwo = 128 /* next power of two that is not greater than the receiver */
+[2, 4, 8, 16, 32, 64, 128, 256, 512].collect { :each | (each - 1).previousPowerOfTwo } = [1, 2, 4, 8, 16, 32, 64, 128, 256]
+300.previousPowerOfTwo = 256 /* next smaller power of two */
+```
+
+## Method -- behaviour type
+```
+system.includesPackage('Method') /* method package */
+{ true + false }.hasError /* boolean does not implement + */
+let f = { :x :y | x + y }; { f(true, false) }.hasError /* boolean does not implement + */
 ```
 
 ## Multiset -- collection type
@@ -632,1178 +2173,354 @@ let c = [1, 2, 3, 1]; c.Multiset = c.histogramOf { :each | each }
 let b = [1, 2, 3, 2, 1].IdentityMultiset; b.removeAll!([1, 2, 3]); b = [2, 1].IdentityMultiset /* only remove first instance */
 ```
 
-## Binary -- numeric trait
+## Nil -- kernel type
 ```
-system.includesPackage('Binary') /* binary package */
-16 << 3 = 128 /* left shift small float */
-23 << 7 = 2944 /* left shift small float */
-7 << 23 = 58720256 /* left shift small float */
-16 >> 3 = 2 /* right shift small float */
-2b1111.bitAnd(2b1001) = 2b1001 /* bitwise and */
-(2 ^ 30).bitAnd(2 ^ 30 - 1) = 0 /* bitwise and of a power of two and one less is zero */
-2b1111.bitOr(2b1001) = 2b1111 /* bitwise or */
-2b1111.bitXor(2b1001) = 2b0110 /* bitwise exclusive or */
-1:8.collect { :each | 2b10010110.bitAt(each) } = [0 1 1 0 1 0 0 1] /* bit at index */
-```
-
-## Binary -- counting & testing
-```
-2b0.bitCount = 0 /* count number of bits set */
-2b1.bitCount = 1
-2b101.bitCount = 2
-2b101001000100101.bitCount = 6
-{ -2.bitCount }.hasError /* negative integers have an infinite number of leading ones */
-32.highBit = 6 /* high bit, the number of bits required to represent an integer */
-32 = 2b00100000 & { 2b00100000.highBit = 6 } /* high bit */
-2b00101000.highBit = 6 /* high bit */
-{ -2b00101000.highBit }.hasError /* high bit is not defined for negative integers */
-2b00101000.lowBit = 4 /* low bit */
--2b00101000.lowBit = 4 /* low bit */
-0.lowBit = 0 & { 0.highBit = 0 } /* the low and high bits of zero are zero */
-```
-
-## BitSet -- collection type
-```
-system.includesPackage('BitSet') /* bitset package */
-BitSet(64).isBitSet /* bitset predicate */
-BitSet(64).size = 0 /* a new bitset is empty */
-BitSet(64).capacity = 64 /* the capacity of a bitset is set when initialized */
-BitSet(64).isEmpty /* a new bitset is empty */
-BitSet(64).bytes.allSatisfy { :each | each = 0 } /* all bytes at the empty bitset are zero */
-BitSet([1, 3, 9], 10).capacity = 10 /* bitset from array, capacity is one more than largest index */
-let b = BitSet(64); b.add!(1); b.add!(3); b.add!(9); b.size = 3 /* add three integers to bitset */
-let b = BitSet(64); b.add!(5); b.include!(5); b.include!(5); b.size = 1 /* adding the same integer over again */
-let b = BitSet([1, 3, 9], 10); b.includes(3) /* does bitset include element */
-let b = BitSet([1, 3, 9], 10); [1, 3 .. 9].collect { :each | b.includes(each) } = [true, true, false, false, true]
-let b = BitSet(64); b[1] := 1; b[3] := 1; b[9] := 1; b.size = 3 /* a three element bitset, put */
-let b = BitSet([1, 3, 9], 10); [1, 3 .. 9].collect { :each | b[each] } = [1, 1, 0, 0, 1] /* at */
-let a = []; let b = BitSet(64); let c = [1, 3, 9, 27]; b.addAll!(c); b.positionsDo { :each | a.add!(each) }; a = c
-let b = BitSet([1, 7], 8); let c = b.copy; c.add!(3); b != c & { c = BitSet([1, 3, 7], 8) } /* copy bitset */
-BitSet([1, 3, 9], 10).bitAt(3) = 1 /* bitAt is equal to at */
-BitSet(64).with { :b | b.setBitAt(3); b.bitAt(3) = 1 } /* setBitAt is equal to add */
-BitSet([1, 3, 9], 10).with { :b | b.clearBitAt(3); b.List = [1, 9] } /* clearBitAt is equal to remove */
+system.includesPackage('Nil') /* package */
+nil.typeName = 'Nil' /* type of nil is Nil */
+nil.isNil = true /* is nil predicate */
+nil = nil /* nil equality */
+nil == nil /* nil identity */
+nil.ifNil { true } = true /* nil conditional */
+nil.ifNil { true } { false } = true /* nil conditional */
+nil.ifNotNil { true } = nil /* nil conditional */
+false.ifNotNil { true } /* nil conditional */
+0.ifNil { false } = 0 /* nil conditional, answer receiver if not nil */
+0.ifNil { false } { true } /* nil conditional */
+ifNil(nil) { true } = true /* nil conditional */
+ifNil(0) { false } = 0 /* nil conditional */
+nil.printString = 'nil' /* nil print string */
+nil.storeString = 'nil' /* nil store string */
+nil.encodeJson = 'null' /* nil has a Json representation */
+'null'.parseJson = nil /* nil has a Json representation */
+let c = nil; c ? { 'red' } = 'red' /* nil-coalescing operator, if lhs is nil evaluate rhs */
+let c = 'blue'; c ? { 'red' } = 'blue' /* nil-coalescing operator */
+let c = nil; c ?? 'red' = 'red' /* evaluating nil-coalescing operator, if lhs is nil answer rhs */
+let c = 'blue'; c ?? 'red' = 'blue' /* nil-coalescing operator */
+nil ? { 'rhs' } = 'rhs' /* right hand side if left hand side is nil */
+'lhs' ? { nil } = 'lhs' /* left hand side unless nil */
+nil !? { 1 } = nil /* left hand side if nil, else right hand side */
+1 !? { 2 } = 2 /* right hand side if left hand side is not nil */
 ```
 
-## Bitwise Manipulation
+## Number -- numeric trait
 ```
-2.bitAnd(3) = 2 /* and bits */
-2.bitOr(3) = 3 /* or bits */
-2.bitXor(3) = 1 /* xor bits */
-3.bitNot = -4 /* invert bits */
-2.bitShiftLeft(3) = 16 /* left shift (higher) */
-16.bitShiftRight(3) = 2 /* right shift (lower) */
-2.bitShift(3) = 16 /* left shift (higher) */
-16.bitShift(-3) = 2 /* right shift (lower) */
-1:4.select { :bit | 6.bitTest(bit) } = [2, 3] /* bit at position (0|1) [!Squeak] */
-2 << 3 = 16 /* left shift operator */
-16 >> 3 = 2 /* right shift operator */
-{ 1.bitAnd(nil) }.hasError /* operand not adaptable to number */
-{ 1 << nil }.hasError /* operand not adaptable to number */
-0.bitAnd(0) = 0 /* and bits */
-```
-
-## BinaryLargeObject -- system type
-```
-system.includesPackage('BinaryLargeObject') /* blob package */
-BinaryLargeObject([], (:)).typeName = 'BinaryLargeObject' /* type of BinaryLargeObject */
-BinaryLargeObject([], (:)).size = 0 /* empty BinaryLargeObject has size zero */
-BinaryLargeObject([], (:)).isEmpty /* empty BinaryLargeObject is empty */
-```
-
-## Boolean -- logic type
-```
-system.includesPackage('Boolean') /* boolean package */
-true = true /* true constant, unicode = ⊤ */
-false = false /* false constant, unicode = ⊥ */
-true != false /* true is not false, unicode = ≠ */
-false != true /* false is not true */
-true == true /* true is identical to true, unicode = ≡ */
-false == false /* false is identical to false */
-1 = 1 = true /* equality predicate (operator) */
-1 != 2 = true /* inequality predicate (operator) */
-(1 == 1) = true /* identical */
-(1 !== 2) = true /* not identical, unicode = ≢ */
-true & { true } /* logical and (operator) */
-false & { '&'.error } = false /* & is equal to and is not strict (unlike in Smalltalk) */
-true & { false } = false /* logical and (operator) */
-true | { false } = true /* logical or (operator) */
-false | { true } = true /* logical or (operator) */
-true | { '|'.error } = true /* | is equal to or and is not strict (unlike in Smalltalk) */
-true.ifTrue { 'T' } = 'T' /* if then, c.f. conditional statements */
-true.ifTrue { 1.toDo(2) { :unused | nil } } = nil /* conditional iteration */
-false.if { 'T' } { 'F' } = 'F' /* if then else (do) */
-true.if { 'T' } { 'F' } = 'T' /* if then else (value) */
-true.not = false /* not true is false, unicode = ¬ */
-false.not = true /* not false is true */
-true.not.not = true /* not of not is the identity */
-1.isNumber = true /* test if object is a number */
-1.isInteger = true /* test if object is an integer */
-1.respondsTo(sqrt/1) = true /* test if object responds to message */
-23.respondsTo(+) /* test if object responds to message */
-nil.isNil = true /* test if object is nil */
-0.isNonNegative = (0 >= 0) /* test if number is non-negative */
-0.isPositive = (0 > 0) /* test if number is greater than zero */
--1.isNegative = true /* test if number is negative */
-2.isEven = true /* test if number is even */
-1.isEven = false /* one is not even */
-1073741825.isEven = false /* a large odd number is not even */
-1073741824.isEven = true /* a large even number is even */
-1.isOdd = true /* test if number is odd */
-2.isOdd = false /* two is not odd */
-'A'.isUpperCase = true /* test if upper case character */
-'a'.isLowerCase = true /* test if lower case character */
-false.boole = 0 /* boolean as bit, false is zero */
-true.boole = 1 /* boolean as bit, true is one */
-true.boole > false.boole /* boolean as integer, c.f. boole */
-true.printString = 'true' /* true print string */
-true.storeString = 'true' /* true store string */
-false.printString = 'false' /* false print string */
-false.storeString = 'false' /* false store string */
-true.typeName = 'Boolean' /* type of true is Boolean */
-false.typeName = 'Boolean' /* type of false is Boolean */
-true.isNumber.not /* true is not a number */
-true.isBoolean /* true is a Boolean */
-false.isBoolean /* false is a Boolean */
-true & { false } = false /* logical and (operator) */
-false & { false } = false
-true | { true } = true
-false | { true } = true /* logical or (operator) */
-{ true & false }.hasError /* & applies the rhs, which must be a block */
-true && true = true /* non-evaluating form of & (requires boolean operand) */
-{ true && 'true' }.hasError /* it is an error if operand is not a boolean */
-{ false | false }.hasError /* | applies the rhs, which must be a block */
-false || true = true /* non-evaluating form of | (requires boolean operand) */
-{ false || 'true' }.hasError /* it is an error if operand is not a boolean */
-[true.encodeJson, false.encodeJson] = ['true', 'false'] /* booleans have json encodings */
-['true', 'false'].collect(parseJson/1) = [true, false] /* parse json booleans */
-true.ifTrue { true }
-false.ifFalse { true }
-(4.factorial > 20).if { 'bigger' } { 'smaller' } = 'bigger'
-true.copy == true /* copy is identity */
-false.xor(true) = true /* exclusive or */
-true.xor(false) = true /* exclusive or */
-false.xor(false) = false
-true.xor(true) = false
-{ false.xor { true } }.hasError
-{ false.xor(1) }.hasError
-true ==> { true } = true /* material implication */
-true ==> { false } = false /* material implication */
-false ==> { true } = true /* material implication */
-false ==> { false } = true /* material implication */
+system.includesPackage('Number') /* package */
+1 + 2.5 = 3.5 /* addition of two numbers */
+10 - 8.5 = 1.5 /* subtraction of two numbers */
+3.4 * 5 = 17 /* multiplication of two numbers */
+8 / 2 = 4 /* division of two numbers */
+2 ^ 3 = 8 /* exponentiation of a number */
+12 = 11 = false /* equality between two numbers */
+12 != 11 = true /* test if two numbers are different */
+12 > 9 = true /* greater than */
+12 >= 10 = true /* greater or equal than */
+12 < 10 = false /* smaller than */
+2.718.truncate = 2 /* truncate to integer */
+2.718.round = 3 /* round to integer */
+2.718.round(0.01) = 2.72 /* round to a given precision */
+123456789.printStringWithCommas = '123,456,789'
+123456.789.printStringWithCommas = '123,456.789'
+13579.printStringWithCommas = '13,579'
+159.printStringWithCommas = '159'
+-9876543210.printStringWithCommas = '-9,876,543,210'
+-987654.321.printStringWithCommas = '-987,654.321'
+-97.531.printStringWithCommas = '-97.531'
+-951.printStringWithCommas = '-951'
+let i = 1; 1.toDo(5) { :each | i := i + each.square }; i = 56 /* iterate over numbers from start to end */
+let i = 1; 1.toByDo(5, 2) { :each | i := i + each.square }; i = 36 /* iterate over numbers from start to end by step */
+let i = 1; 1:3.do { :each | i := i + each.square }; i = 15 /* iterate over numbers from one to end */
+{ 23.size }.hasError /* numbers do not have a size */
+{ 23.at(1) }.hasError /* numbers are not indexable */
+{ 23.do { :each | nil } }.hasError /* numbers are not iterable */
+-23.absSquare = 23.absSquare /* see Complex */
 ```
 
-## Boolean -- equality
+## Object -- kernel trait
 ```
-true = true & { false = false }
-true != false & { false != true }
-true == true & { false == false }
-true !== false & { false !== true }
-true != 1
-false != 0
-true != 'true'
-false != 'false'
-false != ''
-false != nil
-(true != true) = false
-(false != false) = false
-```
-
-## ByteArray -- collection type
-```
-system.includesPackage('ByteArray') /* byte array package */
-ByteArray(0, 0).typeName = 'ByteArray' /* byte array type name */
-ByteArray(0, 0).species == zeroByteArray/1 /* byte array species */
-ByteArray(0, 0).isList = false /* byte arrays are arrays */
-ByteArray(0, 0).isByteArray /* byte array predicate */
-ByteArray(0, 0).isIndexable /* byte arrays are indexable */
-ByteArray(0, 0).isSequence /* byte arrays are sequence */
-ByteArray(0, 0).size = 0 /* size of byte array (number of elements) */
-ByteArray(8, 0).size = 8
-ByteArray(8, 0).at(1) = 0 /* lookup element at index */
-ByteArray(8, 0).put!(1, 179) = 179 /* set element at index, answer element */
-let a = ByteArray(8, 0); a.put!(1, 179) = 179 & { a.at(1) = 179 }
-1:9.ByteArray.isByteArray = true /* array of numbers in 0-255 to byte array */
-{ [-1].ByteArray }.hasError /* out of range element error */
-{ ['1'].ByteArray }.hasError /* not a number element error */
-1:9.ByteArray.reverse = 9:1:-1.ByteArray
-1:3.ByteArray.printString = 'ByteArray([1, 2, 3])'
-1:3.ByteArray.storeString = 'ByteArray([1, 2, 3])'
-ByteArray(4, 0).base16Encode = '00000000'
-'text'.asciiByteArray[1] = 116 /* ByteArray subscript */
-let b = ByteArray(4, 0); b[1] := 15; b[3] := 240; b.base16Encode = '0F00F000'
-let b = ByteArray(4, 0); b[2] := 15; b[4] := 240; b.base16Encode = '000F00F0'
-1:4.ByteArray.base16Encode = '01020304'
-let b = ByteArray(4, 0); b.atAllPut!(15); b.base16Encode = '0F0F0F0F'
-'string'.asciiByteArray.List = [115, 116, 114, 105, 110, 103] /* array from ByteArray */
-{ [1, 2, 3].ByteArray.add!(4) }.hasError /* ByteArrays are not extensible */
-1:9.ByteArray.select { :each | false } = [].ByteArray /* select nothing */
-1:9.ByteArray != [1 .. 9] /* ByteArray and List of equal elements are not equal */
-1:9.ByteArray.hasEqualElements(1:9) /* ByteArray and List of equal elements */
-[1, 13 .. 253].ByteArray.base64Encode = 'AQ0ZJTE9SVVhbXmFkZ2ptcHN2eXx/Q==' /* base 64 encoding */
-'AQ0ZJTE9SVVhbXmFkZ2ptcHN2eXx/Q=='.base64Decode = (1, 13 .. 253).ByteArray /* base 64 decoding */
-'SGVsbG8gV29ybGQ='.base64Decode.asciiString = 'Hello World' /* answer is a ByteArray */
-[1, 3 .. 9].ByteArray.indices = 1:5 /* indices of byte array (an interval) */
-let b = [1, 3 .. 9].ByteArray; b.copy = b & { b.copy !== b } /* copies are equal & not identical */
-let b = [1 .. 9].ByteArray; let c = b.copy; c[1] := 9; c[1] = 9 & { b[1] = 1 } /* copies are distinct */
-[115, 116, 114, 105, 110, 103].ByteArray.crc16 = 58909 /* 16 bit cyclic redundancy check, crc-16/arc */
-let s = 'string'; let a = []; a.addAll!(s.asciiByteArray); a.size = 6 /* add elements from ByteArray to end of List */
+system.includesPackage('Object') /* package */
+[1, 3, 5].typeName = 'List' /* name of type of object */
+[1, 3, 5].species == nilList/1
+[1, 3, 5].IdentitySet.species == IdentitySet/0
+[1, 3, 5].IdentityMultiset.species == IdentityMultiset/0
+(x: 1, y: 3, z: 5).species == Record/0
+'b'.caseOf(['a' -> { 1 }, 'b' -> { 2 }, 'c' -> { 3 }]) = 2
+{ 'd'.caseOf(['a' -> { 1 }, 'b' -> { 2 }, 'c' -> { 3 }]) }.hasError
+'b'.caseOf(['a' -> { 1 }, 'b' -> { 2 }, 'c' -> { 3 }]) { :notFound | false } = 2
+'d'.caseOf(['a' -> { 1 }, 'b' -> { 2 }, 'c' -> { 3 }]) { :notFound | notFound = 'd' }
+let z = ['a' -> { 1 + 1 }, 'b' -> { 2 + 2 }, 'c' -> { 3 + 3 } ]; 'b'.caseOf(z) = 4
+{ let z = ['a' -> { 1 + 1 }, 'b' -> { 2 + 2 } ]; 'c'.caseOf(z) }.hasError
+3/2.perform('numerator') = 3 /* perform named unary method, name is not qualified */
+(3 -> 2).perform('key') = 3
+3.perform('plusSign', 4) = 7 /* perform named binary method, name is not qualified */
+4/3.slotNameList = ['numerator', 'denominator']
+4/3.slotList = ['numerator' -> 4, 'denominator' -> 3]
+4/3.numerator = 4/3.uncheckedSlotRead('numerator') /* slot read */
+let n = 4/3; n.uncheckedSlotWrite('denominator', 5L); n = 4/5 /* slot write */
+1.pi.in { :x | x.round + 20 } = 23 /* evaluate block with object */
+{ 1.pi.error('pi') }.hasError /* user error */
 ```
 
-## CategoryDictionary -- categorization type
+## Operator -- adverbs
 ```
-system.categoryDictionary.typeName = 'CategoryDictionary'
-system.categoryDictionary.isCategoryDictionary
-system.categoryDictionary.categoryOf('put') = 'accessing' /* category of in any domain */
-system.categoryDictionary.categoryOf('type', 'RgbColour') = 'Graphics' /* category of in given domain */
-system.categoryDictionary.categoryOf('type', 'Set') = 'Collection' /* category of in given domain */
-```
-
-## Character -- text type
-```
-system.includesPackage('Character') /* character package */
-'𠮷'.Character.isCharacter /* trait predicate */
-'𠮷'.Character.characterString = '𠮷' /* character string */
-'𠮷'.Character.codePoint = 134071 /* code point */
-134071.Character.characterString = '𠮷' /* integer as character, from code point */
-'䶰䶱䶲䶳䶴䶵'.characterList.collect(codePoint/1) = [19888 .. 19893]
-'x'.Character = 120.Character /* characters are comparable */
-'x'.Character.codePoint = 120
-'x'.Character == 120.Character /* characters are identical */
-'𠮷'.Character == '𠮷'.Character /* characters are identical */
-'x'.Character.asciiValue = 120 /* ascii code point of character */
-{ '𠮷'.Character.asciiValue }.hasError /* it is an error is the character is not ascii */
-'xyz'.characterList = ['x'.Character, 'y'.Character, 'z'.Character]
-'xyz'.characterList.collect(codePoint/1) = [120, 121, 122]
-32.Character.characterString = ' ' /* 32 is space */
-' '.Character.codePoint = 32 /* space is 32 */
-97.Character.characterString = 'a' /* 92 is a */
-'a'.Character.characterString = 'a' /* single element string of Character */
-{ 'xy'.Character }.hasError /* it is an error is the string is not a single Character */
-let c = '𠮷'.Character; c = c.copy & { c == c.copy } /* copy is not only equal to but identical */
-92.Character.characterString = '\\' /* escaped character */
-'0123456789abcdef'.characterList.collect(digitValue/1) = [0 .. 15] /* digit value of character */
-0:15.collect(digitCharacter/1).stringJoin = '0123456789ABCDEF' /* character of given digit value */
-{ 36.digitCharacter }.hasError /* error if integer is out of range */
-'x'.Character.toUpperCase = 'X'.Character /* to upper case */
-'X'.Character.toLowerCase = 'x'.Character /* to lower case */
-let s = 'string'; let a = []; a.addAll!(s); a.size = 6 /* add elements from String to end of List */
-'fgaguzst'.codePoints.minMax = [97, 122] /* character minMax */
-'alphabet'.characterList.collect(isVowel/1) = [true, false, false, false, true, false, true, false] /* is character a vowel */
-'x'.Character.zero = ' '.Character
+[1 2 3] +.e [4 5 6] = [5 7 9] /* e = equal, operands must be of equal size */
+[1 2 3] +.s [4 5 6 7] = [5 7 9] /* s = small, right operand is truncate */
+[1 2 3] *.s [4 5 6 7] = [4 10 18] /* s = small */
+[1 2 3] +.w [4 5 6 7] = [5 7 9 8] /* w = wrap, left operand indexed using atWrap */
+[1 2 3] +.f [4 5 6 7] = [5 7 9 9] /* f = fold, left operand indexed using atFold */
+[1 2 3 4] +.s [5 6 7] = [6 8 10] /* s = small, left operand is truncated */
+[1 2 3 4] +.w [5 6 7] = [6 8 10 9] /* w = wrap, right operand indexed using atWrap */
+[1 2 3 4] +.f [5 6 7] = [6 8 10 10] /* f = fold, right operands indexed using atFold */
+[1 2 3] +.t [4 5 6] = [5 6 7; 6 7 8; 7 8 9] /* t = table */
+[1 2 3] +.x [4 5 6] = [5 6 7 6 7 8 7 8 9] /* x = cross */
+[1 .. 5] +.s [6 .. 9] = [7 9 11 13] /* s = small */
+[1 .. 5] +.f [6 .. 8] = [7 9 11 11 11] /* f = fold */
+[1 2 3 4] *.x [5 6 7] = [5 6 7 10 12 14 15 18 21 20 24 28] /* x = cross */
+{ [1 2 3] +.e [4 5] }.hasError /* e = equal, error if non-equal operand sizes */
 ```
 
-## Circle -- geometric type
+## Ordered -- collection trait
 ```
-system.includesPackage('Circle') /* package */
-Circle([0 0], 1).typeName = 'Circle' /* type of */
-Circle([0 0], 1).isCircle /* predicate */
-Circle([0 0], 1).center = [0 0] /* center */
-Circle([0 0], 1).radius = 1 /* radius */
-Circle([0 0], 1).diameter = 2 /* diameter */
-Circle([0 0], 1).circumference = 2.pi /* circumference */
-Circle([0 0], 1).area = 1.pi /* area */
-```
-
-## Clock -- temporal type
-```
-Clock().typeName = 'Clock' /* type of clock */
-Clock().isClock /* clock predicate */
-Clock().priorityQueue.isPriorityQueue /* priority queue of clock */
-Clock().priorityQueue.isEmpty /* priority queue is initially empty */
-let c = Clock(); let i = 3; c.scheduleBlock(i) { :t | nil }; c.nextEntryTime <= (system.sessionTime + i)
-let c = Clock(); let i = 3; c.scheduleBlock(i) { :t | t.printLine }; c.removeAll!; c.nextEntryTime = nil
+system.includesPackage('Ordered') /* package */
+let a = [1, 2, 4]; a.addBefore!(3, 4); a = [1 .. 4] /* insert value before existing value */
+let a = [1, 2, 4]; a.addAfter!(3, 2); a = [1 .. 4] /* insert value after existing value */
+let l = ['w' 'x' 'z']; l.addAfterIndex!('y', 2) = 'y' & { l = ['w' 'x' 'y' 'z'] } /* insert value after index */
+let a = [2, 3]; a.addFirst!(1) = 1 & { a = [1, 2, 3] } /* insert value at start */
+let a = [4, 5]; a.addAllFirst!([1 .. 3]); a = [1 .. 5] /* add sequence at start */
+let a = [1, 2]; a.addLast!(3) = 3 & { a = [1, 2, 3] } /* insert value at end */
+let a = [1, 2]; a.addAllLast!([3 .. 5]); a = [1 .. 5] /* add sequence at end */
+let a = [1 .. 5]; a.removeAt!(3); a = [1, 2, 4, 5] /* remove element at index */
+let a = [1 .. 5]; a.removeFirst!; a = [2 .. 5] /* remove first element */
+let a = [1 .. 5]; a.removeLast!; a = [1 .. 4] /* remove last element */
 ```
 
-## Collection -- collection trait
+## Package -- system organisation
 ```
-system.includesPackage('Collection') /* collection package */
-[].isEmpty = true /* is collection empty */
-[].isCollection = true /* collection predicate */
-[].size = 0 /* the empty array has no elements */
-[1, 2, 3] = [1, 2, 3] /* are collections equal */
-[9, 4, 5, 7, 8, 6].size = 6 /* size of collection */
-[9, 4, 5, 7, 8, 6].max = 9 /* maximum item in collection */
-[9, 4, 5, 7, 8, 6].min = 4 /* minimum item in collection */
-[9, 4, 5, 7, 8, 6].maximalBy(negate/1) = [4] /* comparison of translated values */
-[9, 4, 5, 7, 8, 6].minimalBy(negate/1) = [9] /* comparison of translated values */
-[9, 4, 5, 7, 8, 6].sum = 39 /* sum of collection */
-[9, 4, 5, 7, 8, 6].mean = 6.5 /* sum of collection divided by size */
-1:9.mean = 5 /* sum of collection divided by size */
-let c = 1:9; c.sum / c.size = 5 /* sum of collection divided by size */
-[9, 4, 5, 7, 8, 6].product = 60480 /* product of collection, unicode = Π */
-[9, 4, 5, 7, 8, 6].injectInto(0) { :z :e | e + z } = 39 /* sum of collection */
-[9, 4, 5, 7, 8, 6].injectInto(1) { :z :e | e * z } = 60480 /* product of collection */
-[9, 4, 5, 7, 8, 6].includes(7) = true /* is element in collection, i.e. contains */
-[9, 4, 5, 7, 8, 6].includes(3) = false /* is element in collection */
-[9, 4, 5, 7, 8, 6].count { :item | item.isEven } = 3 /* count elements that satisfy predicate */
-[9, 4, 5, 7, 8, 6].anySatisfy { :item | item.isEven } = true /* do any elements satisfy predicate */
-[].anySatisfy { :item | true } = false /* anySatisfy is false for empty collections */
-[9, 4, 5, 7, 8, 6].allSatisfy { :item | item.isEven } = false /* do all elements satisfy predicate */
-[].allSatisfy { :item | false } = true /* allSatisfy is true for empty collections */
-[9, 4, 5, 7, 8, 6].occurrencesOf(7) = 1 /* count elements that are equal to object */
-[1, 2, 3, 4, 5].atRandom <= 5 /* random element of collection */
-1:9.range = (9 - 1) /* maxima - minima */
-[-9, 0, 9].sign = [-1, 0, 1] /* signs of elements */
-[1, 3, 5].select { :x | x > 1 } = [3, 5]
-[1, 3, 5].IdentitySet.select { :x | x > 1 } = [3, 5].IdentitySet
-(x: 1, y: 3, z: 5).select { :x | x > 1 } = (y: 3, z: 5)
-[].select { :each | 'select'.error } = []
-[].newFrom(IdentitySet()) = []
-IdentitySet().List = []
-1:9.includesAny([0, 6]) /* includes any element of a collection */
-[4 .. 6].copyWithout(5) = [4, 6] /* copy without element */
-4:6.copyWithout(5) = [4, 6] /* copy without element, interval becomes array */
-[2, 3, 4, 5, 5, 6].copyWithout(5) = [2, 3, 4, 6] /* copy without element, removes multiples */
-[2, 3, 4, 5, 5, 6].copyWithoutAll([3, 5]) = [2, 4, 6] /* copy without element, removes multiples */
-let a = [1 .. 4]; let c = a.copyWith(5); a != c & { c = [1 .. 5] } /* copy with new (last) element */
-let s = [1 .. 4].IdentitySet; let c = s.copyWith(5); s != c & { c = [1 .. 5].IdentitySet } /* copy with new element */
-{ [1, 2].take(-1) }.hasError
-[].select { :each | each > 0 } = []
-[].ifEmpty { true } /* evaluate block if collection is empty */
-[].ifEmpty { true } { false } /* evaluate first lock if collection is empty */
-[1].ifEmpty { false } { true } /* evaluate second block if collection is not empty */
-let c = [1]; c.ifEmpty { false } { c = [1] } /* evaluate second block if not empty */
-1:9.detectSum(square/1) = 285 /* apply block to each element and sum */
-1:9.collect(square/1).sum = 285
-let a = [1 .. 9]; a.removeAll!(3:7); a = [1, 2, 8, 9] /* remove all indicated elements */
-let a = [1, 2, 3, 2, 1]; let r = a.removeAll!([1, 2, 3]); [a, r] = [[2, 1], nil] /* answer nil, only remove first instance */
-{ [1 .. 3].removeAll!(7:9) }.hasError /* it is an error if an element to be removed is not located */
-let a = [1 .. 3]; a.removeAllFoundIn!(7:9); a = [1 .. 3] /* unlike removeAll it is not an error if items are not found */
-let a = [1, 2, 3, 2, 1]; a.removeAllFoundIn!([2, 3]); a = [1, 2, 1] /* removes only first matching element */
-[1 .. 6].collect { :each | each * 2 } = [2, 4 .. 12] /* apply block at each element and answer like collection */
-1:6.collect { :each | each * 2 } = [2, 4 .. 12] /* interval species is array */
-1:6.collect { :each | each * 2 } = [2, 4 .. 12] /* literal integer interval syntax */
-[2, -3, 4, -35, 4, -11].collect { :each | each.abs } = [2, 3, 4, 35, 4, 11]
-[2, -3, 4, -35, 4, -11].collect(abs/1) = [2, 3, 4, 35, 4, 11]
-1:100.injectInto(0) { :sum :each | sum + each } = 5050
-let a = [1 .. 5]; a.items = a & { a.items !== a } /* contents at list is equal but not identical */
-(1:9 / 3).round = [0, 1, 1, 1, 2, 2, 2, 3, 3] /* unary math operator at collection */
-[].collectThenDo { :each | 'error'.error } { :each | 'error'.error } = [] /* neither block is run for empty collections */
-let n = 0; 3:7.collectThenDo(square/1) { :each | n := n + each } = [9, 16, 25, 36, 49] & { n = 135 } /* collect then do */
-[].ifEmptyIfNotEmptyDo { true } { :x | x } = true /* branch on isEmpty */
-let c = 1:9; let a = 0; c.ifEmptyIfNotEmptyDo { false } { :x | a := a + (x ^ 3) }; a = 2025 /* branch on isEmpty */
-let c = 1:9; let a = 0; c.ifNotEmptyDo { :x | a := a + (x ^ 3) }; a = 2025 /* branch on isEmpty */
-1:9.average = 5 /* mean, sum divided by size */
-1:9.average = (45 / 9) /* mean, sum divided by size */
-(x: (y: 1)).atPath(['x', 'y']) = 1 /* atPath of dictionary, depth = 2 */
-(x: (y: (z: 1))).atPath(['x', 'y', 'z']) = 1 /* atPath of dictionary, depth = 3 */
-(w: (x: (y: (z: 1)))).atPath(['w', 'x', 'y', 'z']) = 1 /* atPath of dictionary, depth = 4 */
-(p: (q: (r: 1)))['p']['q']['r'] = 1 /* atPath operator */
-(p: (q: (r: (s: 1))))['p']['q']['r']['s'] = 1
-let d = (w: (x: (y: (z: 1)))); d.atPathPut!(['w', 'x', 'y', 'z'], -1); d['w']['x']['y']['z'] = -1 /* atPathPut of dictionary, depth = 4 */
-(x: (y: 1))['x']['y'] = 1 /* index sequence */
-[['w', 'x'], ['y', 'z']].atPath([1, 2]) = 'x' /* atPath of arrays */
-[['w', 'x'], ['y', 'z']][1][2] = 'x' /* index sequence */
-(1, 3 .. 21).includes(9) /* does range include value */
-(1, 3 .. 21).doesNotInclude(6) /* does range include value */
-(x: 1, y: 1, z: 1).allEqualBy(=) /* are all items equal by comparator */
-(x: 1, y: 2, z: 3).allEqualBy(=).not /* are all items equal by comparator */
-[1, 1, 1].allEqual /* are all items equal */
-[1, 2, 3].allEqual.not /* are all items equal */
-1:4.reduce(Association/2) = (((1 -> 2) -> 3) -> 4) /* reduce, happens to be left associative */
-1:4.reduce(-) = (((1 - 2) - 3) - 4) /* reduce, happens to be left associative */
-1:4.assertIsOfSize(4) = 1:4 /* assert collection is of indicated size */
-{ 1:4.assertIsOfSize(3) }.hasError /* assert collection is of indicated size */
-1:4.assertIsCollection = 1:4 /* require that an object is a collection */
-{ '1 to 4'.assertIsCollection }.hasError /* a string is not a collection, hence error */
-let a = []; [1, 2].cartesianProductDo([3, 4]) { :x :y | a.add!(x -> y) }; a = [1 -> 3, 1 -> 4, 2 -> 3, 2 -> 4]
-[1 2].cartesianProduct([3 4]) = [1 3; 1 4; 2 3; 2 4]
-[1 2].cartesianProduct([3 4 5]) = [1 3; 1 4; 1 5; 2 3; 2 4; 2 5]
-[1 2].elementType = 'SmallFloat'
-[1 2; 3 4; 5 6].elementType = 'List'
+system.includesPackage('Package') /* package */
+system.packageDictionary['Date'].typeName = 'Package' /* type of package */
+system.packageDictionary['Date'].isPackage /* package type predicate */
+Package('Category', 'Name', ['Requires'], 'Category/Name.sl', 'Code').isPackage
+(Name: 'Set').Package.isPackage /* package from dictionary, name is the only required field, package predicate */
+(Category: 'Time', Name: 'Date').Package.url = 'Time/Date.sl' /* derive url */
+system.packageDictionary['Date'].name = 'Date' /* name of package */
+system.packageDictionary['Date'].category = 'Time' /* category of package */
+system.includesPackage('Date')
+'/* Package: Collection-ByteArray */'.parsePackageHeader = (Category: 'Collection', Name: 'ByteArray')
+'/* Requires: ColumnBrowser SmallKansas */'.parsePackageHeader = (Requires: ['ColumnBrowser', 'SmallKansas'])
+system.indexedPackages.size - system.loadedPackages.size = system.availablePackages.size
+system.packageDictionary.select { :each | each.requires.isNotEmpty }.size > 10
+system.packageDictionary['PackageBrowser'].dependencies.collect(name/1).includesAll(['Event' 'SmallKansas' 'Window' 'ColumnBrowser'])
+'Time-Date'.isQualifiedPackageName
+'Time-Date'.parseQualifiedPackageName = ['Time', 'Date']
+system.packageDictionary.size > 100 /* number of packages */
+system.package('List').isPackage /* lookup package by unqualified name */
+let p = system.package('List'); (p.category, p.name, p.url, p.isLoaded) = ('Collection', 'List', 'Collection/List.sl', true)
+system.package('Collection-List') == system.package('List') /* lookup package by qualified name */
+{ system.package('Kernel-List') }.hasError /* for qualified names the system checks the category */
+system.package('BounceBenchmark').dependencies.collect(name/1) = ['Benchmark', 'SomRandom']
+system.package('Tuple').requires = ['List']
 ```
 
-## Add -- collection trait
+## PlanarCoordinates -- geometry type
 ```
-system.includesPackage('Add') /* package */
-let r = List(); r.add!('x'); r.add!('x'); r.size = 2
-let r = IdentityMultiset(); r.add!('x'); r.add!('x'); r.size = 2
-let r = Map(); r.add!('x' -> 1); r.add!('y' -> 2); r.size = 2
-let r = Record(); r.add!('x' -> 1); r.add!('y' -> 2); r.size = 2
-let r = IdentitySet(); r.add!('x'); r.add!('y'); r.size = 2
-let r = ''; { r.add!('x') }.hasError
-```
-
-## Remove -- collection trait
-```
-let r = List(); r.add!('x'); r.remove!('x'); r.size = 0
-let r = IdentityMultiset(); r.add!('x'); r.remove!('x'); r.size = 0
-let r = Map(); r.add!('x' -> 1); r.remove!('x' -> 1); r.size = 0
-let r = Record(); r.add!('x' -> 1); r.remove!('x' -> 1); r.size = 0
-let r = IdentitySet(); r.add!('x'); r.remove!('x'); r.size = 0
-{ List().remove!('x') }.hasError
-{ IdentityMultiset().remove!('x') }.hasError
-{ Map().remove!('x' -> 1) }.hasError
-{ Record().remove!('x' -> 1) }.hasError
-{ IdentitySet().remove!('x') }.hasError
-```
-
-## Colour -- graphics type
-```
-system.includesPackage('Colour') /* colour package */
-```
-
-## Comparing
-```
-1 = 1 /* 1 is equal to 1 */
-2 != 1 /* 2 is not equal to 1 */
-2 > 1 /* 2 is greater than 1 */
-1 < 2 /* 1 is less than 2 */
-1 >= 1 /* 1 is greater than or equal to 1 */
-2 <= 1 = false /* 2 is not less than or equal to 1 */
-{ false < true }.hasError /* booleans are not magnitudes */
-```
-
-## Comparing -- arrays
-```
-[1, 9] < [2, 3] = [true, false ] /* pointwise - 1 is less than 2 and 9 is greater than 3 */
-[3, 4] < [3, 5] = [false, true] /* pointwise? - 3 is equal to 3 and 4 is less than 5 */
-[4, 1.pi] = [4, 1.pi] /* 4 is equal to 4 and pi is equal to pi */
-```
-
-## Complex -- numeric type
-```
-system.includesPackage('Complex') /* complex package */
-Complex(0, 0).isComplex /* complex numbers */
-Complex(-1, 0).real = -1 /* real part of complex number */
-Complex(-1, 0).imaginary = 0 /* imaginary part of complex number */
-Complex(-1, 0) + 1 = Complex(0, 0) /* complex addition with scalar */
-1.i = Complex(0, 1) /* i makes an imaginary number */
-(5 - 6I) + (-5 + 8I) = (0 + 2I)
-5 * (5 - 6I) = (25 - 30I)
-2 * [1 + 2I, 3 + 4I, 5 + 6.i] = [2 + 4I, 6 + 8I, 10 + 12.i]
-5 + 5.i * [1 + 2I, 3, 5 + 6.i] = [-5 + 15I, 15 + 15I, -5 + 55.i]
-(5 = 5I) = false
-1 != 1I
-(6 - 6I).abs = 72.sqrt /* absolute value */
--2J1.abs = 5.sqrt /* absolute value */
-(1 + 2I) + 1 = (2 + 2I)
-1 + (1 + 2I) = (2 + 2I)
-((1 + 2I) + 1) = (2 + 2I)
-(1 + (1 + 2I)) = (2 + 2I)
-((1 + 2I) + (2 / 3)).isClose((5 / 3) + 2I)
-((2 / 3) + (1 + 2I)).isClose((5 / 3) + 2I)
-(0 + 5I).arg = (1.pi / 2)
-let c = (5 - 6I); (c * 1I) = c.i
-(2 + 5I).negate = (-2 - 5I)
-(2 + 5I).reciprocal = ((2 / 29) - (5 / 29).I)
-(6 - 6I).square = -72I
-(1 + 2I) = (1 + 2I) = true /* equality = same value */
-(1 + 2I) == (1 + 2I) = false /* identity = different objects */
-(1 + 2I) != (1 + 4I) = true /* inequality */
-let c = 2I; let z = c.copy; z.real := 3; z != c & { z = (3 + 2I) } /* copy complex */
-(0.5 * (2 + 0I).log).exp = (0.5 * 2.log).exp /* natural logarithm */
-(3 + 5I) ^ 0 = (1 + 0I) /* exponent of zero answers one */
-(3 + 5I) ^ 1 = (3 + 5I) /* exponent of one is identity */
-(3 + 5I) ^ 2 ~ (-16 + 30I)
-(1 + 2I) * (2 - 3I) = (8 + 1I) /* complex number with complex exponent */
-(1 + 2I) / (1 - 2I) = (-0.6 + 0.8I)
-(1 + 2I) + (1 - 2I) = (2 + 0I)
-(-3 + 2I) - (5 - 1I) = (-8 + 3I)
-(-1 + 2I) ^ 2 ~ (-3 - 4I)
-(-1 + 2I) ^ 2.5 ~ (2.7296 - 6.9606I)
-(-1 + 2I) ^ (1 + 1I) = (-0.27910381075826657 + 0.08708053414102428I)
-3 * (2 - 5I) = (6 - 15I)
-3 * ((2 - 5I) ^ 2) ~ (-63 - 60I)
-3 * ((2 - 5I) ^ -1) ~ (0.2069 + 0.5172I)
-2 * (1 - 1I) = (2 - 2I)
-(2 + 3I) - 1 = (1 + 3I)
-(1 + 2I) + 0.5 = (1.5 + 2I)
-(2 + 3I) - 0.5.i = (2 + 2.5I)
-0.75 * (1 + 2I) = (0.75 + 1.5I)
-(2 + 3I) / 2 = (1 + 1.5I)
-(1 - 3I) / (2 + 2I) = (-0.5 - 1I)
-2 * (1.i ^ 2) ~ (-2 + 0I)
-1 + (3 / 4I) = (1 - 0.75I)
-let z = 1 + 2I; z.real = 1 & { z.imaginary = 2 }
-let z = 1 + 2I; z.conjugate = (1 - 2I) & { z.absSquare = 5 }
-let z = 1 + 2I; z.abs ~ 2.2361 & { z.arg ~ 1.1071 } /* absolute value (modulus, magnitude) and argument (phase) */
-1I.sqrt ~ (0.7071 + 0.7071I)
-(1 + 2I).sqrt ~ (1.2720 + 0.7861I)
-(1 + 2I).cos ~ (2.0327 - 3.0519I)
-(1 + 2I).exp ~ (-1.1312 + 2.4717I)
-(1 + 2I).sinh ~ (-0.4891 + 1.4031I)
-(-1 + 0I).sqrt = (0 + 1I) /* the square root of negative one is i */
-(2 + 3I).zero = (0 + 0I) /* zero of same type, i.e. complex */
-(2 + 3I).one = (1 + 0I) /* one of same type, i.e. complex */
-1 / (1 + 2I) = (0.2 - 0.4I) /* reciprocal, multiplicative inverse */
-let n = (1 + 2I); n.reciprocal * n = 1 /* multiplicative inverse */
-(1 + 0I).isInteger = false /* a complex number is not an integer */
-(1 + 0I).isFraction = false /* a complex number is not a fraction */
-3/2.toComplex = Complex(3/2, 0) /* fraction as complex */
-0/1.i = Complex(0, 0/1) /* complex with integral real part and fractional imaginary part */
-3/2 + 0/1.i = 3/2.toComplex
-3/2.toComplex + 0/1.i = 3/2.toComplex /* add 0i to a complex number is identity */
-1.toComplex = Complex(1, 0) /* Complex is a monadic complex number constructor */
-1.i = Complex(0, 1) /* Complex is a monadic complex number constructor */
-(1 + -2I) + (3 + 4I) = (4 + 2I) /* i is a monadic complex number constructor */
-1.J(-2) + 3.J(4) = 4.J(2) /* j is the dyadic complex number constructor */
-1.J(-2) = Complex(1, -2) /* j is an alias for Complex */
-1J-2 = Complex(1, -2) /* complex literal, integral components */
-3.1J2.3 = Complex(3.1, 2.3) /* complex literal, fractional components */
-1J-2 + 3J4 = 4J2 /* complex literals, lower case */
-1J-2 + 3J4 = 4J2 /* complex literals, upper case */
-4J3 / 2J-1 = 1J2 /* ratio of two complex number */
-2J9.exp ~ -6.73239J3.04517 /* complex exponential */
-2J3.real = 2 /* real part */
-2J3.imaginary = 3 /* imaginary part */
-1.4J2.3.abs ~ 2.69258 /* absolute value */
-[3 -5 2J5].abs = [3 5 29.sqrt] /* absolute value */
--1J0.arg = 1.pi /* argument (in radians) */
-1J1.arg = 1/4.pi
-[5J12.abs, 5J12.arg] = [13, (12 / 5).arcTan] /* absolute value & argument */
-1.4J2.3.sign ~ 0.519947J0.854199 /* sign */
-1J1.conjugate = 1J-1
+system.includesPackage('PlanarCoordinates') /* package */
+PlanarCoordinates([0, 0]).typeName = 'PlanarCoordinates' /* type of */
+PlanarCoordinates([-1, 1]).isPlanarCoordinates = true
+[1, 2].PlanarCoordinates = PlanarCoordinates([1, 2]) /* from list */
+(x: 1, y: 2).PlanarCoordinates = PlanarCoordinates([1, 2]) /* from record */
+PlanarCoordinates([-1, 1]).isPlanarCoordinates = true /* point constructor */
+[1, 2].PlanarCoordinates = PlanarCoordinates([1, 2]) /* list as point */
+(x: 1, y: 2).PlanarCoordinates = PlanarCoordinates([1, 2]) /* record as point */
+[3 4].PlanarCoordinates.isPlanarCoordinates & { true } = true
+[-1 1].PlanarCoordinates.x = -1
+[-1 1].PlanarCoordinates.y = 1
+PlanarCoordinates([-1, 1]).x = -1
+PlanarCoordinates([-1, 1]).y = 1
+PlanarCoordinates([-1, 1]).x!(-3) = -3
+PlanarCoordinates([-1, 1]).y!(3) = 3
+[-1, 1] * 9 = [-9, 9]
+[-1, 1] + 2 = [1, 3]
+2 * ([1, 1].-) * 2 = ([4, 4].-)
+PlanarCoordinates([-1, 1]).printString = 'PlanarCoordinates(-1, 1)'
+[1, 1].negate = [-1, -1] /* negation */
+0 - [1, 1] = [-1, -1] /* negation as subtraction from zero */
+let p = PlanarCoordinates(-1, 1); p.x := -3; p.y := 3; p = PlanarCoordinates(-3, 3) = true
+let p = PlanarCoordinates(-1, 3); let a = [p]; a[1].x := -3; p = PlanarCoordinates(-3, 3) = true
+let x = 3.141; let y = 23; let p = PlanarCoordinates([x, y]); p.x = x & { p.y = y }
+[1 0; 1 1; 0 1; -1 1; -1 0; 0 -1].PlanarCoordinates.collect(phi/1) = (1.pi * [0, 1 / 4, 1 / 2, 3 / 4, 1, -1 / 2]) /* phi = angle from (1,0) */
+PlanarCoordinates(200, 100).x = 200 /* x coordinate */
+PlanarCoordinates(200, 100).y = 100 /* y coordinate */
+0 - PlanarCoordinates([200 100]) = PlanarCoordinates([-200, -100]) /* negates x and y */
+(0 - PlanarCoordinates([200 100])).abs = PlanarCoordinates([200 100]) /* absolute value of x and y */
+PlanarCoordinates([200, 100]) + 1 = PlanarCoordinates([201, 101]) /* add scale to both x and y */
+PlanarCoordinates([200, 100]) - 1 = PlanarCoordinates([199, 99]) /* subtract scale from both x and y */
+PlanarCoordinates([200, 100]) * 2 = PlanarCoordinates([400, 200]) /* multiply x and y by scale */
+PlanarCoordinates([200, 100]) / 2 = PlanarCoordinates([100, 50]) /* divide x and y by scale */
+PlanarCoordinates([200 100]) // 2 = PlanarCoordinates([100, 50]) /* divide x and y by scale */
+PlanarCoordinates([200, 100]) % 3 = PlanarCoordinates([2, 1]) /* modulo of x and y by scale */
+PlanarCoordinates([200, 100]) + PlanarCoordinates([50, 25]) = PlanarCoordinates([250, 125]) /* add points */
+PlanarCoordinates([200, 100]) - PlanarCoordinates([50, 25]) = PlanarCoordinates([150, 75]) /* subtract points */
+PlanarCoordinates([200, 100]) * PlanarCoordinates([3, 4]) = PlanarCoordinates([600, 400]) /* multiply points */
+PlanarCoordinates([1800, 100]) / PlanarCoordinates([3, 4]) = PlanarCoordinates([600, 25]) /* divide points */
+PlanarCoordinates([200 100]).coordinates = [200, 100] /* array of x and y */
+let v = PlanarCoordinates(3, 4); v.first = 3 & { v.second = 4 } /* implements first and second */
+let v = PlanarCoordinates(3, 4); v[1] = 3 & { v[2] = 4 } /* implements at */
+PlanarCoordinates([3, 4]).size = 2 /* implements size */
+let v = PlanarCoordinates(3, 4); v.swap!; v[1] = 4 /* swap fields in-place */
+PlanarCoordinates(3, 4).swap = PlanarCoordinates(4, 3) /* swap x&y */
+let v = PlanarCoordinates([0, 0]); let c = v.copy; c.x := 1; c != v & { c = PlanarCoordinates([1, 0]) } /* copy two vector */
+PlanarCoordinates([1, 1]).PolarCoordinates = PolarCoordinates([2.sqrt, 0.25.pi]) /* radius and angle, r and theta */
+[0 0].PlanarCoordinates.isPlanarCoordinates /* array as point, point predicate */
+[0 0].PlanarCoordinates.isOrigin /* are x and y both zero */
+[1, 1].norm = 2.sqrt /* magnitude, distance to origin */
+[1, 1].normalize = ([1, 1] / 2.sqrt) /* normalized to have unit magnitude */
+[1, 1].normalize.norm ~ 1
+PlanarCoordinates([1, 1]).norm = 2.sqrt /* magnitude, distance to origin */
+PlanarCoordinates([1, 1]).normalize = (PlanarCoordinates([1, 1]) / 2.sqrt) /* normalized to have unit magnitude */
+PlanarCoordinates([1, 1]).normalize.norm ~ 1
 ```
 
-## Conditional Statements
+## PlaneAngle -- geometry type
 ```
-true.ifTrue { 'T' } = 'T' /* if true then, answers answer of branch block or nil */
-true.ifFalse { 'F' } = nil /* if false then, answers answer of branch block or nil */
-true.if { 'T' } { 'F' } = 'T' /* if true then else if false then, answers answer of chose block */
-let x = nil; true & { x := 1 }; x = 1 /* side effect on conditional and */
-let x = nil; false & { x := 1 }; x = nil /* no side effect on conditional and */
-let x = nil; true | { x := 1 }; x = nil /* no side effect on conditional or */
-let x = nil; false | { x := 1 }; x = 1 /* side effect on conditional or */
-```
-
-## Constants
-```
-true /* true constant */
-false.not /* false constant */
-nil.isNil /* nil object constant */
-Infinity.isNumber /* Infinity constant */
-1.pi.isNumber /* pi constant */
-1.isNumber /* integer constants */
-3.14.isNumber /* float constants */
--1.isNumber /* negative integer constants */
--3.14.isNumber /* negative float constants */
-'Hello'.isString /* string constant */
-[3, 2, 1].isList /* array constants */
-['one', 2, 3.141].isList /* mixing of types allowed */
+system.includesPackage('PlaneAngle') /* plane angle package */
+PlaneAngle(1.pi).typeName = 'Quantity' /* type of angle */
+PlaneAngle(1.pi).isPlaneAngle /* angle predicate */
+PlaneAngle(1).inDegrees ~ 57.296 /* radians to degrees */
+PlaneAngle(1.pi).inDegrees = 180 /* pi radians is 180 degrees */
+PlaneAngle(180.degree).inRadians = 1.pi /* 180 degrees is pi radians */
+PlaneAngle(1.pi) < PlaneAngle(360.degree) /* angles are magnitudes */
+PlaneAngle(1.pi).inRadians = 1.pi /* radians of angle, or identity of number */
 ```
 
-## Converting -- type conversion
+## Point -- geometry type
 ```
-[true, false].collect(boole/1) = [1, 0] /* boolean to bit (integer) */
-1.pi.Float = 1.pi /* small float as float is identity */
-3/4.Float = 0.75 /* fraction as float */
-23.Float = 23.0 /* integer as float */
-23L.Float = 23.0 /* large integer as float */
-{ '23'.Float }.hasError /* Float is not a parser */
-1.pi.SmallFloat = 1.pi /* identity */
-3/4.SmallFloat = 0.75 /* fraction to small float */
-23.SmallFloat = 23.0 /* integral to small float */
-true.boole = 1 /* boolean as integer, c.f. boole */
-false.boole = 0 /* boolean as integer, boole */
-'~'.Character.codePoint = 126 /* character as integer, c.f. codePoint */
-23.Integer = 23 /* small integer as integer, c.f. identity */
--23.Integer = -23 /* identity */
-'23'.parseSmallInteger(10) = 23 /* string is parsed, c.f. parseDecimalInteger */
-{ '3.141'.parseSmallInteger(10) }.hasError /* floating point strings are not decimal integers */
-{ '3x'.parseDecimalInteger }.hasError /* large radix strings are not decimal integers */
-false.boole = 0 /* boole */
-true.boole = 1 /* boole */
-1.pi.Number = 1.pi /* identity */
-23.Number = 23 /* identity */
-'3.141'.parseNumber = 3.141 /* parse floating point */
-'-672.433244'.parseNumber = -672.433244 /* parse negative floating point */
-'0.03141E2'.parseNumber = 3.141 /* parse scientific */
-'23'.parseNumber = 23 /* parse integer */
-'-23'.parseNumber = -23 /* parse integer */
-1.pi.rationalize = 355/113 /* as fraction */
-1.pi.rationalize(0.01) = 22/7 /* with epsilon */
-22/7.rationalize = 22/7 /* identity */
-23.rationalize = 23 /* identity */
-1.toComplex = Complex(1, 0) /* number to complex */
-1.i = Complex(0, 1) /* number to complex */
-(2 + 3I).toComplex = Complex(2, 3) /* identity */
-126.Character = '~'.Character /* integer to character */
-'~'.Character.isCharacter /* string to character */
-let c = '~'.Character; c.Character == c /* identity */
-let c = 126.Character; c.characterString = '~' /* character to string */
-'~'.displayString = '~' /* identity operation */
-23.printString = '23' /* Object>>printString (integral to string) */
-15.hexDigitCharacter = 'F' /* integral to hex character */
-{ 16.hexDigitCharacter }.hasError /* error if out of range */
-'x'.Character = 120.Character /* string to character */
-120.Character = 'x'.Character /* small integer to character */
-let c = 'x'.Character; c.Character == c /* character to character */
+let o = [0, 0]; let p = [10, 10]; let q = 0 - p; [q o; o p].boundingBoxMerging = [q, p]
 ```
 
-## Converting -- unit conversion
+## PriorityQueue -- collection type
 ```
-180.degreesToRadians = 1.pi /* convert degrees to radians */
-1.pi.radiansToDegrees = 180 /* convert radians to degrees */
-```
-
-## Copying
-```
-let b = true; b.copy == b /* copy boolean, identity */
-let n = 3.141; n.copy == n /* copy small float, identity */
-let n = 23L; n.copy == n /* copy large integer, identity */
-let s = 'string'; s.copy == s /* copy string, identity */
-let a = ('x' -> 1); let c = a.copy; c.value := 2; c != a & { c = ('x' -> 2) } /* copy association */
-let t = (0, 0); let c = t.copy; c !== t & { c = t } /* copy two tuple */
-let f = 3/4; let c = f.copy; c.numerator := 1L; c != f & { c = 1/4 } /* copy fraction */
-let c = 2I; let z = c.copy; z.real := 3; z != c & { z = (3 + 2I) } /* copy complex */
-let a = [1, [2]]; let c = a.copy; c[2][1] := -2; c = a & { a = [1, [-2]] } /* shallow copy of list */
-let a = [1, [2]]; let c = a.deepCopy; c[2][1] := -2; c != a & { a = [1, [2]] } /* deep copy of list */
-let b = [1, 2, 2].IdentityMultiset; let c = b.copy; c.add!(3); c != b & { c = [1, 2, 2, 3].IdentityMultiset } /* copy bag */
-let b = BitSet([1, 2], 3); let c = b.copy; c.add!(3); c != b & { c = BitSet([1, 2, 3], 4) } /* copy bitset */
-let b = [1, 2].ByteArray; let c = b.copy; c[1] := 3; c[1] = 3 & { b[1] = 1 } /* copy byte array */
+system.includesPackage('PriorityQueue') /* PriorityQueue package */
+PriorityQueue().isPriorityQueue = true
+PriorityQueue().isEmpty = true
+let p = PriorityQueue(); p.pushWithPriority!('a', 1); p.pop! = 'a'
+let p = PriorityQueue(); p.pushWithPriority!('a', 1); p.pushWithPriority!('b', 0); p.pop! = 'b'
+let p = PriorityQueue(); p.pushAllWithPriority!(['a' -> 3, 'b' -> 2, 'c' -> 1]); p.size = 3 & { p.pop! = 'c' }
+let p = PriorityQueue(); p.peekPriority = nil
 ```
 
-## Date -- temporal type
+## PrimitiveArray -- collection trait
 ```
-system.includesPackage('Date') /* date package */
-system.now.Date.typeName = 'Date' /* type of Date, system constructor gets current date */
-0.Date.isDate /* Date type predicate, number constructor accepts time from epoch in seconds */
-let d = 0.Date; [d.year, d.month, d.dayOfMonth] = [1970, 1, 1] /* month and day are one-indexed */
-0.Date = 0.Date /* dates are comparable */
-0.Date != system.now.Date /* dates are comparable */
-0.Date < system.now.Date /* dates are magnitudes */
-system.now.Date > 0.Date /* dates are magnitudes */
-'2023-05-11'.parseDate.dateString = '2023-05-11' /* read date from partial ISO-8601 string */
+system.includesPackage('PrimitiveArray') /* package */
+let a = [1, 7, 3, 9, 5]; let b = a.sortBy! { :p :q | p >= q }; a = [9, 7 .. 1] & { a == b } /* sort using provided comparison, in-place */
+[1, 7, 3, 9, 5].sortBy! { :p :q | p >= q } = [9, 7 .. 1] /* sort using provided comparison, in-place answering array */
+[1, 7, 3, 9, 5].sort! = [1, 3 .. 9] /* sort using default comparison of <= */
+let a = [(x: 1, y: 9), (x: 9, y: 1)]; let b = a.sortOn! { :each | each['y'] }; a = [(x: 9, y: 1), (x: 1, y: 9)] & { b == a } /* sort using provided key block */
 ```
 
-## DateAndTime -- temporal type
+## Promise -- scheduling type
 ```
-system.includesPackage('DateAndTime') /* date and time package */
-system.now.DateAndTime.typeName = 'DateAndTime' /* type of DateAndTime, system constructor gets current date and time */
-'1970-01-01T00:00:01.000Z'.parseDateAndTime.absoluteTime = 1 /* parse ISO-8601 string & convert to unix time */
-let d = 0.DateAndTime; [d.hour, d.minute, d.wholeSecond] = [0, 0, 0] /* hour is in UTC */
-```
-
-## Dictionary -- collection trait
-```
-system.includesPackage('Dictionary') /* package */
-(x: 1, y: 2, z: 3).count(isEven/1) = 1 /* count elements that match predicate */
-(x: 1, y: 2).select { :each | false } = (:) /* select nothing */
-(x: 1, y: 2, z: 3).select(isOdd/1) = (x: 1, z: 3) /* select odd values */
-(x: 1, y: 2, z: 3).select(isEven/1) = (y: 2) /* select even values */
-{ (:).at('x') }.hasError /* indexing with an unknown key is an error */
-(x: nil).at('x') = nil /* as does indexing a field that is set to nil */
-(x: nil).size = 1 /* nil fields exist */
-(x: nil).indices = ['x'] /* nil fields exist */
-(:).atIfAbsentPut!('x') { 1 } = 1 /* at or put followed by at */
-let d = (:); d.atIfAbsentPut!('x') { 1 } = 1 & { d['x'] = 1 }
-(x: 1, y: 2).includes(2) /* includes, testing values for equality */
-(x: 1, y: [2, 3]).includes([2, 3])
-(x: 1, y: 2).includesIdentity(2) /* includes, testing for identity not equality */
-(x: 1, y: [2, 3]).includesIdentity([2, 3]) = false
-(x: 1, y: 2).includesAssociation('y' -> 2) /* includes association, testing for equality */
-(x: 1, y: [2, 3]).includesAssociation('y' -> [2, 3])
-(x: 1, y: 2).includesAssociation('x' -> 2) = false
-let d = (x: 1); let a = 'y' -> 2; d.add!(a) = a & { d = (x: 1, y: 2) } /* add association */
-{ (x: 1).add!('y') }.hasError /* only associations may be added */
-{ (x: 1).add!('x' -> 2) }.hasError /* add can only add associations for keys that are not already included */
-let d = (x: 1, y: 2); d.includeAll!((y: 3, z: 4)); d = (x: 1, y: 3, z: 4) /* includeAll replaces existing entries */
-let p = (x: 1); let q = (y: 2); p.declareFrom('y', q); [p, q] = [(x: 1, y: 2), (:)]
-let p = (x: 1); let q = (x: 2); p.declareFrom('x', q); [p, q] = [(x: 1), (x: 2)]
-let p = (:); let q = (x: 1); p.declareFrom('x', q); [p, q] = [(x: 1), (:)]
-let p = (:); let q = (x: 1); p.declareFrom('y', q); [p, q] = [(y: nil), (x: 1)]
-(x: 1, y: 2, z: 3).collect(square/1) = (x: 1, y: 4, z: 9)
-let d = (x: 1, y: 2, z: 3); d.collect!(square/1); d = (x: 1, y: 4, z: 9) /* replace value at each key, in-place collect */
-{ (x: 1).remove!('x') }.hasError /* should not implement, see removeKey */
-(x: 1, y: 2) ++ (x: 2, y: 1) = (x: 2, y: 1) /* appending two dictionaries is right-biased, unicode = ⧺ */
-(x: 1, y: 2) ++ ['z' -> 3] = (x: 1, y: 2, z: 3) /* append an array of associations to a dictionary */
-{ (x: 1, y: 2) ++ [3] }.hasError /* right hand side must be associations */
-(x: 1, y: 2).anySatisfy(isEven/1) /* collection predicates at dictionary consider values not associations */
-(x: 1, y: 2, z: 3).detect(isEven/1) = 2 /* detect value */
-let n = 0; (x: 1, y: 2, z: 3).do { :each | n := n + each }; n = 6 /* do iterates over values, not associations */
-let n = 0; (x: 1, y: 2, z: 3).valuesDo { :each | n := n + each }; n = 6 /* iterate over values */
-let a = []; (x: 1, y: 2, z: 3).indicesDo { :each | a.add!(each) }; a = ['x', 'y', 'z'] /* iterate over indices (keys) */
-let n = 0; (x: 1, y: 2, z: 3).associationsDo { :each | n := n + each.value }; n = 6 /* iterate over associations */
-let n = 0; (x: 1, y: 2, z: 3).withIndexDo { :value :key | n := n + value }; n = 6 /* iterate over keys and values */
-(x: 'x', y: '.', z: 'z').associationsSelect { :each | each.key = each.value } = (x: 'x', z: 'z') /* select querying associations */
-(x: 1, y: 2, z: 3).indices = ['x', 'y', 'z'] /* indices of dictionary (an array) */
-let d = (a: 1, b: 2, c: 1); d.indexOf(2) = 'b' /* lookup key (index) given value */
-let d = (a: 1, b: 2, c: 1); let k = d.indexOf(1); k = 'a' | { k = 'c' } /* many keys with value */
-{ (a: 1, b: 2, c: 1).indexOf(3) }.hasError /* error if no such value */
-let d = (x: 1, y: 2, z: 3); d.removeAllSuchThat! { :each | each = 3 }; d = (x: 1, y: 2)
-let d = (x: 1, y: 2, z: 3); d.associationsRemove! { :each | each.key = 'y' | { each.value = 3 } }; d = (x: 1)
-let d = (x: 1, y: 2, z: 3); d.keysAndValuesRemove! { :key :value | key = 'y' | { value = 3 } }; d = (x: 1)
-let d = (x: 1, y: 2, z: 3); d.removeKey!('y') = 2 & { d = (x: 1, z: 3) }
-{ (x: 1, y: 2, z: 3).removeKey!('?') }.hasError
-let d = (x: 1, y: 2, z: 3); d.removeAt!('y') = 2 & { d = (x: 1, z: 3) }
-{ (x: 1, y: 2, z: 3).removeAt!('?') }.hasError
-let d = (x: 1, y: 2); d.atAllPut!(3) = 3 & { d = (x: 3, y: 3) } /* set all values to indicated object */
-(x: 1, y: 2, z: 3).associations = ['x' -> 1, 'y' -> 2, 'z' -> 3] /* array of associations */
-let a = List(9, nil); a.indicesDo { :each | a[each] := 10 - each }; a = [9, 8 .. 1] /* iterate indices */
-let d = (x: 1, y: 2); d.removeAssociation!('x' -> 1); d = (y: 2) /* remove association */
-let d = (x: 1, y: 2); d.removeAssociationIfAbsent!('z' -> 3) { }; d = (x: 1, y: 2) /* remove association, if absent clause */
-{ (x: 1, y: 2).removeAssociation!('z' -> 3) }.hasError /* remove association, error if absent */
-let d = (x: 1, y: 2); d.removeAll!; d.isEmpty /* remove all entries */
-(x: 1, y: 2).keyAtValue(2) = 'y' /* dictionary name for indexOf */
-let d = (x: 1, y: 2); d.keyAtValue(2) = d.indexOf(2) /* dictionary name for indexOf */
-(x: 1, y: 2, z: 3).keys = ['x' 'y' 'z'] /* array of keys at dictionary */
-(x: 1, y: 2, z: 3).values = [1 2 3] /* array of values at dictionary */
-let d = (c: 3, parent: (b: 2, parent: (a: 1))); ['a', 'b', 'c'].collect { :each | d.atDelegateTo(each, 'parent') } = [1, 2, 3]
-let d = (c: 3, parent: (b: 2, parent: (a: 1))); ['a', 'b', 'c'].collect { :each | d.messageSend(each, 'parent', []) } = [1, 2, 3]
-let d = (x: 1, parent: (y: 2, parent: (z: 3))); d.putDelegateTo('z', -3, 'parent'); d.atDelegateTo('z', 'parent') = -3
+system.includesPackage('Promise') /* package */
+{ Promise() }.hasError /* there is no void contructor */
+Error('The reason').rejectedPromise.onRejection { :unused | nil }; true /* construct a rejected promise */
+1.resolvedPromise.then { :n | { n = 1 }.assert }; true /* construct a resolved promise */
+let p = Promise { :t/1 :f | t('t') }; p.then { :t | { t = 't' }.assert }; p.isPromise
+let p = Promise { :t :f/1 | f('f') }; p.thenElse { :t | t } { :f | { f = 'f' }.assert }; p.isPromise
+let p = Promise { :t :f/1 | f('f') }; p.then { :t | t }.onRejection { :f | { f = 'f' }.assert }; p.isPromise
+let p = Promise { :t :f/1 | f('f') }; p.thenElse { :t | t } { :f | { f = 'f' }.assert }.finally { { true }.assert }; p.isPromise
+let f = { :c | Promise { :t/1 :f | { t(c) }.scheduleAfter((0 -- 0.15).atRandom) } }; [1.f, 2.f, 3.f].anyFulfilled.then { :t | { [1, 2, 3].includes(t) }.assert }; true
+let f = { :c | Promise { :t/1 :f | { t(c) }.scheduleAfter((0 -- 0.05).atRandom) } }; ['x'.f, 'y'.f, 'z'.f].allFulfilled.then { :t | { t = ['x', 'y', 'z'] }.assert }; true
 ```
 
-## Duration -- temporal type
+## Pseudo Variables -- reserved words
 ```
-system.includesPackage('Duration') /* duration package */
-2.seconds.Duration.typeName = 'Duration' /* make duration from number of seconds */
-5.hours.Duration.isDuration = true /* make duration from number of hours */
-let f = { :t0 | let t1 = system.randomReal([0 2], []); f/1.scheduleAfterWith(t1, t1) }; f(2).cancel = nil
-60.seconds.Duration.inSeconds = 60 /* convert duration to seconds */
-'P1W1DT1H1M1S'.parseDuration.inSeconds = 694861 /* parse ISO-8601 duration string */
-'P2DT2H2M2S'.parseDuration.inSeconds = 180122 /* parse ISO-8601 duration string */
-'P3DT4H'.parseDuration = (3.days + 4.hours).Duration
-(29.days + 12.hours + 44.minutes + 2.9.seconds - 1.synodicMonths).Duration.abs ~ 76.milliseconds.Duration
--3.seconds.Duration.abs = 3.seconds.Duration /* absolute value */
-(3.minutes - 2.hours).Duration.abs = (1.hours + 57.minutes).Duration /* absolute value */
-(7 / 8).milliseconds.Duration.inSeconds = 7/8000 /* fractional duration */
-2.minutes.Duration.inSeconds = 120 /* seconds of duration, or identity of number */
+false.isBoolean /* constant */
+false.isBoolean /* constant */
+nil.isNil /* constant */
+Infinity.isNumber /* constant (infinity) */
+-Infinity.isNumber /* constant (negative infinity) */
+NaN.isNumber /* constant (not a number) */
 ```
 
-## Quantity
+## Quantity -- numeric type
 ```
 let d = 2.seconds; let c = d.copy; d !== c & { d = c } /* copy quantity */
 ```
 
-## Error -- exception type
+## RandomNumberGenerator -- trait and system random number generator
 ```
-system.includesPackage('Error') /* package */
-Error().isError = true /* an error with no message is an error */
-Error().isException = true /* an error is an exception */
-Error('Error message').isError = true /* error with message is an error */
-Error('Error message').name = 'Error' /* an error has a name */
-Error('Error message').messageText = 'Error message' /* an error has a message */
-{ Error('Error message').signal }.hasError /* signal error */
-{ 'Error message'.error }.hasError /* generate and signal an error */
-{ Error('message').copy }.hasError /* cannot copy errors */
-let x = nil; { x := false }.ensure { x := true }; x /* ensure termination block is evaluated */
-let x = nil; { { ''.error }.ensure { x := true } }.ignoreError; x /* ensure termination block is evaluated */
-```
-
-## Float64Array -- collection type
-```
-system.includesPackage('Float64Array') /* package */
-Float64Array(0, 0).typeName = 'Float64Array' /* type of */
-Float64Array(0, 0).species == zeroFloat64Array/1 /* species */
-Float64Array(0, 0).isFloat64Array /* type predicate */
-Float64Array(0, 0).isEmpty /* is empty predicate */
-Float64Array(8, 0).size = 8 /* size of */
-Float64Array(8, 0).at(1) = 0 /* at protocol, initialized to zero */
-Float64Array(8, 0).put!(1, 1.pi) = 1.pi /* put protocol, answer value put */
-let a = Float64Array(8, 0); a.put!(1, 1.pi) = 1.pi & { a.at(1) = 1.pi }
-let a = Float64Array(8, 0); (a[1] := 1.pi) = 1.pi & { a[1] = 1.pi }
-1:9.Float64Array.isFloat64Array = true /* interval as array */
-1:9.Float64Array.reverse = 9:1:-1.Float64Array /* reverse copy */
-let a = [1 .. 9].Float64Array; a.reverse!; a = 9:1:-1.Float64Array /* reverse in-place */
-let a = 9:1:-1.Float64Array; a.sort!; a = 1:9.Float64Array /* sort in-place */
-{ Float64Array(1, 0).put!(3, 'x') }.hasError /* out of bounds error */
-let a = Float64Array(1, 0); a.uncheckedPut!(1, 'x'); a.at(1).isNaN = true /* unsafe mutation inserts NaN */
-let a = Float64Array(1, 0); a.uncheckedPut!(3, 'x'); a.uncheckedAt(3) = nil /* unsafe mutation does not extend array */
-1:3.Float64Array.printString = 'Float64Array([1, 2, 3])'
-1:3.Float64Array.storeString = 'Float64Array([1, 2, 3])'
-let a = 1:3.Float64Array; let c = a.copy; c[1] := 3; c != a & { c.List = [3, 2, 3] } /* copy */
+system.includesPackage('RandomNumberGenerator') /* package */
+let r = Sfc32(); r.randomInteger([1 9], []).isInteger /* random integer between 1 and 9 inclusive */
+system.randomInteger([1 9], []).isInteger /* random integers (1 to self) */
+let s = IdentitySet(); 729.timesRepeat { s.include!(1:9.atRandom) }; s.minMax = [1, 9] /* check distribution */
+let s = IdentitySet(); 729.timesRepeat { s.include!(1:9.atRandom) }; s = 1:9.IdentitySet /* check distribution */
+let s = IdentitySet(); 729.timesRepeat { s.include!(system.randomInteger([-3 3], [])) }; s = -3:3.IdentitySet /* check distribution */
+system.randomReal([0 9], []).isNumber /* random floating point number (0 to self) */
+let s = IdentitySet(); 729.timesRepeat { s.include!(system.randomReal([0 9], []).round) }; s.minMax = [0, 9] /* check distribution */
+system.randomInteger([3 9], []).isInteger /* random integer in range */
+system.randomReal([3 9], []).isNumber /* random float in range */
+let b = IdentityMultiset(); 5000.timesRepeat { b.add!(1:5.atRandom) }; b.valuesAndCounts.values.allSatisfy { :each | (each / 5000 * 5 - 1).abs < 0.1}
+{ [].atRandom = nil }.hasError /* random element of empty collection (nil if unsafe indexing is allowed) */
+[1].atRandom = 1 /* random element of one-element collection */
+let c = [1 .. 5]; c.includes(c.atRandom) /* answer random element from a collection */
+let a = [1 .. 5].IdentitySet; let b = IdentityMultiset(); 250.timesRepeat { b.add!(a.atRandom) }; a = b.IdentitySet /* random element of collection */
 ```
 
-## Floating point
+## Random -- Sfc32
 ```
-1.0 * 3.0 > 3.0 = false /* integral floating point math */
-0.1 * 3.0 > 0.3 = true /* general floating point math */
-1.0 * 3.0 = 3.0 = true /* integral floating point math */
-0.1 * 3.0 = 0.3 = false /* general floating point math */
-1.0 + 1.0 + 1.0 = 3.0 = true /* integral floating point math */
-0.1 + 0.1 + 0.1 = 0.3 = false /* general floating point math */
-'-1.4'.parseNumber = -1.4 /* parse float */
-```
-
-## Fraction -- numeric type
-```
-system.includesPackage('Fraction') /* fraction package */
-2/3.isFraction /* literal syntax for fractions is numerator/denominator */
-Fraction(2, 3).isFraction /* fractional type */
-2/3 = Fraction(2, 3) /* literal syntax */
-Fraction(4, 6) = 2/3 /* Fraction normalises */
-uncheckedFraction(4, 6) != 2/3 /* uncheckedFraction assumes fraction is normal, and will construct a non-reduced fraction */
-2/3 = 4/6 /* literals are reduced by construction */
-2 / 3/4 = 8/3 /* division */
-2/3 + 2/3 = 4/3 /* addition */
-2/3 + 2 / 3 = (8/9) /* (2 / 3 + 2) / 3 */
-2/3 + 1/2 = 7/6 /* reduction to common denominator */
-2/3 + 4/3 = 2 /* addition to integer */
-1/2 - 1/2 = 0 /* subtraction */
-3/4 - 1/2 = 1/4 /* subtraction */
-3/2.ceiling = 2 /* ceiling */
--3/2.ceiling = -1 /* ceiling */
-4/3.denominator = 3 /* denominator */
-4/3.gcd(7/5) = 1/15 /* greatest common denominator */
-4/3.lcm(7/5) = 28 /* least common multiple */
-4/3.negate = -4/3 /* negation */
-4/3.isNegative.not /* is negative predicate */
-4/3.numerator = 4 /* numerator */
-2/3.raisedToInteger(5) = 32/243 /* fractions also can be exponentiated */
-2/3 ^ 5 = 32/243 /* fractions also can be exponentiated using infix operator */
-2/3 ^ 3/4 ~ 0.737788 /* non integer exponents answer floatinput point values */
-9/5.reciprocal = 5/9 /* reciprocal, mutiplicative inverse */
-let n = 9/5; n.reciprocal * n = 1 /* mutiplicative inverse */
-7/5.square = 49/25 /* square of */
-3/2.truncate = 1 /* truncation */
-1/2 < 0.5 = false
-1/3 > 0.25
-0.5 < 1/2 = false
-0.25 < 1/3
-0.5 < 1/4 = false
-0.5 < 1/2 = false
-0.5 < 3/4
-0.5 <= 1/4 = false /* less than or equal to, unicode = ≤ */
-0.5 <= 1/2
-0.5 <= 3/4
-0.5 > 1/4
-0.5 > 1/2 = false
-0.5 > 3/4 = false
-0.5 >= 1/4
-0.5 >= 1/2
-0.5 >= 3/4 = false
-0.5 = 1/4 = false
-0.5 - 1/2 = 0
-0.5 = 3/4 = false
-0.5 != 1/4
-1/2 - 0.5 = 0
-0.5 != 3/4
-Fraction(6, 4) = Fraction(3, 2) /* Fraction normalizes */
-Fraction(-6, 4) = Fraction(-3, 2) /* Fraction normalizes */
-Fraction(6, -4) = Fraction(-3, 2) /* Fraction normalizes */
-{ Fraction(6, 0) }.hasError
-1/2 = 2/4 = true
-1/2 * 2 = 1
-2 * 1/2 = 1
-23.isFraction = false /* type predicate, c.f. isRational */
-23.isRational = true
-23.numerator = 23
-23.denominator = 1 /* denominator of integer is one */
-1/3 + 1/7 = 10/21
-Fraction(3, 1) = 3/1
--3/2.negate = 3/2
--3/2.abs = 3/2
-3/2.ceiling = 2
--3/2.ceiling = -1
-3/2.floor = 1
--3/2.floor = -2
-353/359.printString = '353/359' /* Fraction print string */
-59/61.storeString = '59/61' /* Fraction store string */
-4 / (2/3) = 6
-4 / (-2/3) = -6
--4 / (-2/3) = 6
--4 / (2/3) = -6
-4 * (3/2) = 6
-4 * (-3/2) = -6
--4 * (-3/2) = 6
--4 * (3/2) = -6
-1/2.reciprocal = 2
-3/4.reciprocal = 4/3
--1/3.reciprocal = -3
--3/5.reciprocal = -5/3
-4/5.round = 1
-6/5.round = 1
--4/5.round = -1
--6/5.round = -1
-3/2.round = 2 /* in case of tie, round to upper magnitude */
--3/2.round = -2
-1.pi.roundUp(0.01) = 3.15 /* round up to nearest 1/100th */
-1.pi.roundUp(0.1) = 3.2 /* round up to nearest 1/10th */
-226.roundUp(10) = 230 /* round up to nearest multiple of 10 */
-1923.roundUp(10) = 1930 /* round up to nearest multiple of 10 */
-1.pi.roundUp(0.005) = 3.145 /* round up to nearest 5/1000th */
--1.pi.roundUp(0.01) = -3.14 /* rounding up a negative number rounds towards zero */
-1.pi.roundUp = 4 /* round up to nearest integer */
--3/2.numerator.isNegative /* numerator of negative fraction is negative */
--3/2.denominator.isPositive /* denominator of negative fraction is positive */
-4/6.numerator = 2 /* literal fractions are reduced */
-4/6.denominator = 3 /* literal fractions are reduced */
-4/2 = 2
-uncheckedFraction(4, 6).numerator = 4 /* uncheckedFraction is not initially reduced */
-uncheckedFraction(4, 6).denominator = 6 /* uncheckedFraction is not initially reduced */
-Fraction(4, 6).numerator = 2
-Fraction(4, 6).denominator = 3
-3/2.truncate = 1
--3/2.truncate = -1
-2/3 - 5/3 = -1
-3/2 / 3/4 = 2
-3/2 / -3/4 = -2
--3/2 / -3/4 = 2
--3/2 / 3/4 = -2
-3/2 * 4/3 = 2
-3/2 * -4/3 = -2
--3/2 * -4/3 = 2
--3/2 * 4/3 = -2
-5/3 + 1/3 = 2
-3/2.SmallFloat = 1.5 /* fraction as float */
-0.5 < 2/3 = true
-2/3 > 0.5 = true
-1 < 3/2 = true
-3/2 > 1 = true
-3/4.unicodeFraction = '¾' /* unicode character for fraction, else error */
-2/3.unicodeFraction = '⅔' /* unicode character for fraction, else error */
-{ 9/11.unicodeFraction }.hasError /* unicode character for fraction, else error */
-system.unicodeFractionsTable.isDictionary = true
-system.unicodeFractionsTable.associations.isList = true
-let n = system.unicodeFractionsTable.associations.collect(value/1); n = n.sort
-'4/3'.parseFraction = 4/3 /* parse fraction */
-'4/3'.parseFraction('/') = 4/3 /* parse fraction given delimiter */
-{ '4/3'.parseNumber = 4/3 }.hasError /* the fraction module does not modify parseNumber to parse fractions */
-let x = Fraction(2L ^ 55, 2); x != (x - 1) /* fractions of large small floats would behave strangely, enforce large integers  */
-let x = Fraction(2L ^ 55L, 2); x != (x - 1) /* fractions of large large integers behave ordinarily */
-2/3 != 3/4 /* unequal fractions */
-(2/3 == 2/3).not /* non-identical fractions (equal fractions need not be the same object) */
-2/3 !== 2/3 /* non-identical fractions */
-2/3 !== 3/4 /* non-identical fractions */
-355/113.limitDenominator(77) = 223/71
-223/71.limitDenominator(7) = 22/7
-22/7.limitDenominator(5) = 16/5
-355/113.limitDenominator(7) = 22/7
-[1/2, 5/10, 10/20, 50/100, 500/1000].collect { :n | n.limitDenominator(5) } = [1/2, 1/2, 1/2, 1/2, 1/2]
-[0.01, 0.0001].collect { :n | 0.367879.rationalize(n) } = [3/8, 32/87]
-1:5.collect { :n | 1.pi.rationalize(10 ^ n.-) } = [16/5, 22/7, 201/64, 333/106, 355/113]
-1.pi.rationalize = 355/113 /* with default epsilon */
-(1 / [2, 3, 5, 7, 11, 13, 17]).collect(rationalize/1) = [1/2, 1/3, 1/5, 1/7, 1/11, 1/13, 1/17]
-6/8 * 4 = 3 /* answer integer */
-7/8 / 3 = 7/24 /* division by integer is fraction */
-6/9 = 2/3
--4/8 = -1/2
-Fraction(5, -15) = -1/3
-Fraction(-4, -12) = 1/3
-2/3.numerator = 2
-2/3.denominator = 3
-2/3 = 6/9
-2/3 != 9/27
-3/7 < 1/2
-3/4 > 2/3
-2/4 + 1/6 = 2/3
-5/12 - 1/4 = 1/6
-5/8 * 3/12 = 5/32
-6/5 / 10/7 = 21/25
-(3/4).SmallFloat = 0.75
-(1/2).SmallFloat = (1 / 2)
--1/3.typeName = 'Fraction'
-3/5 + 1 = 8/5
-3/5 - 0.5 ~ 0.1
-0.5 ~ 1/2
-0.3333 ~ 1/3
-0.33 < (1/3)
-1/3 - 0.33 ~ 0.003333
-1/3.zero = Fraction(0, 1) /* zero of same type, i.e. fraction */
-1/3.one = Fraction(1, 1) /* one of same type, i.e. fraction */
-1/3 ~ (1 / 3) /* a fraction is close the floating point division it represents */
-1/2 * 2 = 1 /* multiply to integer */
-4/2 / 2 = 1 /* divide to integer */
-1/2 + 1/2 = 1 /* sum to integer */
-3/2 - 1/2 = 1 /* subtract to integer */
-2/7 * (1 + 2I) = (2/7 + 4/7.I)
-2/7 * (1.5 + 2I) ~ (0.4286 + 0.5714I)
-3/2 / (1 + 2I) ~ (3/10 - 3/5.I)
-1/2 + 2.i ~ (1/2 + 2/1.I)
-(1/2 + 1/2).isInteger /* fractions with unit denominators are integers */
-1/2.fractionalPart = 1/2 /* the fractional part of a number between zero and one is identity */
-4/3.fractionalPart = 1/3 /* fraction math is exact */
-64/33.primeLimit = 11 /* the prime limit of a fraction is maximum of the limit of each part */
-1/1.primeLimit = 0 /* by convention the prime limit of one is zero */
-64/33.primeFactors = [2, 2, 2, 2, 2, 2, 1/3, 1/11] /* the factors of the denominator are fractions */
-64/33.primeFactors.product = 64/33 /* the product of the factors is the fraction */
-3/8.primeFactors = [3 1/2 1/2 1/2] /* factors of fraction */
-3/8.factorInteger = [2 -3; 3 1] /* factors of fraction */
+system.includesPackage('Sfc32') /* Sfc32 package */
+let r = Sfc32(98765); r.typeName = 'Sfc32' /* type */
+let r = Sfc32(98765); r.isSfc32 /* predicate */
+let r = Sfc32(98765); r.isRandomNumberGenerator /* predicate */
+let r = Sfc32(98765); r.nextRandomFloat = 0.49556130869314075 /* random number in [0, 1) */
+let r = Sfc32(98765); r.nextRandomFloat * 10 = 4.9556130869314075 /* random number in [0, 10) */
+let r = Sfc32(98765); r.nextRandomFloat * 100 = 49.556130869314075 /* random number in [0, 100) */
+let r = Sfc32(98765); r.randomInteger([1 1000], []) = 496 /* random integer in [1, 1000] */
+let r = Sfc32(98765); r.randomInteger([1 10000], []) = 4956 /* random integer in [1, 10000] */
+let r = Sfc32(); let n = r.nextRandomFloat; n >= 0 & { n < 1 } /* seed from system clock */
+let r = Sfc32(); let s = IdentitySet(); 729.timesRepeat { s.include!(r.randomInteger([1 9], [])) }; s.minMax = [1, 9] /* check distribution */
+let r = Sfc32(); let s = IdentitySet(); 729.timesRepeat { s.include!(r.randomInteger([1 9], [])) }; s.List.sort! = [1 .. 9] /* check distribution */
 ```
 
-## Frequency -- temporal type
+## Random -- MersenneTwister
 ```
-system.includesPackage('Frequency') /* frequency package */
-1.hertz.typeName = 'Quantity' /* frequency from hertz (cyles per second) */
-1.hertz.isFrequency /* frequency predicate */
-10.hertz.Duration = (1 / 10).seconds.Duration /* duration is the reciprocal of frequency */
-1.kilohertz.Duration = 1.milliseconds.Duration /* the period of 1kHz is 1ms */
-1.kilohertz.inHertz = 1000 /* hertz of frequency, or identity of number */
-```
-
-## Graph -- collection type
-```
-system.includesPackage('Graph') /* graph package */
-Graph([], []).typeName = 'Graph' /* graph type */
-Graph([], []).isGraph /* graph predicate */
-let g = [1 2; 2 3; 3 1].Graph; g.vertexCount = 3 & { g.edgeCount = 3 }
-```
-
-## Hash -- murmur hash
-```
-'String Input'.hash = 2006581733
+system.includesPackage('MersenneTwister') /* Mersenne package */
+let m = MersenneTwister(98765); m.typeName = 'MersenneTwister' /* type of */
+let m = MersenneTwister(98765); m.isMersenneTwister /* predicate */
+let m = MersenneTwister(98765); m.isRandomNumberGenerator /* predicate */
+let m = MersenneTwister(98765); m.nextRandomFloat = 0.088898599949636 /* random number in [0, 1) */
+let m = MersenneTwister(98765); m.nextRandomFloat * 10 = 0.88898599949636 /* random number in [0, 10) */
+let m = MersenneTwister(98765); m.nextRandomFloat * 100 = 8.8898599949636 /* random number in [0, 100) */
+let m = MersenneTwister(98765); m.randomInteger([1 1000], []) = 89 /* random integer in [1, 1000] */
+let m = MersenneTwister(98765); m.randomInteger([1 10000], []) = 889 /* random integer in [1, 10000] */
+let m = MersenneTwister(); let r = m.nextRandomFloat; r >= 0 & { r < 1 } /* seed from system clock */
+MersenneTwister(123456).nextRandomFloat = 0.12696983303810094 /* test from standard tests */
+let m = MersenneTwister(); let s = IdentitySet(); 729.timesRepeat { s.include!(m.randomInteger([1 9], [])) }; s.minMax = [1, 9] /* check distribution */
+let m = MersenneTwister(); let s = IdentitySet(); 729.timesRepeat { s.include!(m.randomInteger([1 9], [])) }; s.List.sort! = [1 .. 9] /* check distribution */
+let m = MersenneTwister(98765); m.isStream /* stream predicate */
+let m = MersenneTwister(98765); let a = m.next(9); m.reset!; m.next(9) = a /* stream interface, next(k) answers next k items, reset resets */
 ```
 
-## Heap -- collection type
+## Random -- SplitMix
 ```
-system.includesPackage('Heap') /* heap package */
-Heap().isHeap /* an empty heap is a heap */
-Heap().size = 0 /* an empty heap has size 0 */
-Heap().isEmpty /* an empty heap is empty */
-let h = Heap(); h.add!(3); h.size = 1 /* add element to heap, size is one */
-let h = Heap(); h.add!(3); h.first = 3 /* add element to heap, it is the first element */
-let h = Heap(); h.add!(3); h[1] = 3 /* at protocol */
-let h = Heap(); h.add!(3); h.add!(2); [h.size, h.first, h[2]] = [2, 2, 3] /* add elements to heap */
-let h = Heap(); { h[1] }.hasError /* out of bounds */
-let h = Heap(); h.add!(3); { h[2] }.hasError /* out of bounds */
-let h = Heap(); h.add!(5); h.add!(12); h.add!(1); h.first = 1 /* add out of order */
-let h = Heap(); h.addAll!([5, 12, 1]); h.first = 1 /* add all out of order */
-let h = Heap(); h.add!(5); h.removeFirst!; h.isEmpty /* add & remove */
-let h = Heap(); h.addAll!([5, 12, 1]); [h.removeFirst!, h.first] = [1, 5] /* remove first */
-let h = Heap(); h.addAll!([5, 12, 1]); [h.removeFirst!, h.removeFirst!, h.first] = [1, 5, 12] /* remove first */
-let h = Heap(); { h.removeFirst! }.hasError /* remove an element that does not exist */
-let h = Heap(); h.add!(5); [h.removeFirst!, h.size] = [5, 0] /* add & remove */
-let h = Heap(); h.addAll!([1 .. 9].shuffle!); h.first = 1 /* add random permutation, first is always 1 */
-let h = Heap(); h.addAll!([1 .. 9].shuffle!); 8.timesRepeat { h.removeFirst! }; h.first = 9
-let h = Heap(); h.addAll!([1 .. 9].shuffle!); 8.timesRepeat { h.removeAt!(2) }; h.first = 1
-let h = [1, 3, 5].Heap; let a = []; h.do { :each | a.add!(each) }; a = [1, 3, 5]
-let h = Heap(>); h.addAll!([1 3 5]); h.first = 5
-let h = Heap { :p :q | p > q }; h.addAll!([1, 3, 5]); [h.removeFirst!, h.first] = [5, 3]
-let h = 1:4.Heap; let c = h.copy; c.add!(5); h != c & { c = [1 .. 5].Heap }
+system.includesPackage('SplitMix') /* SplitMix package */
+let r = SplitMix(98765); r.typeName = 'SplitMix' /* type of */
+let r = SplitMix(98765); r.isSplitMix /* predicate */
+let r = SplitMix(98765); r.isRandomNumberGenerator /* predicate */
+let r = SplitMix(98765); r.nextRandomFloat = 0.08824091404676437 /* random number in [0, 1) */
+let r = SplitMix(98765); r.randomReal([0 10], []) = 0.8824091404676437 /* random number in [0, 10) */
+let r = SplitMix(98765); r.randomReal([0 100], []) = 8.824091404676437 /* random number in [0, 100) */
+let r = SplitMix(98765); r.randomInteger([1 1000], []) = 89 /* random integer in [1, 1000] */
+let r = SplitMix(98765); r.randomInteger([1 10000], []) = 883 /* random integer in [1, 10000] */
+let r = SplitMix(98765); r.isStream /* stream predicate */
+let r = SplitMix(98765); let a = r.next(9); r.reset!; r.next(9) = a /* stream interface, next(k) answers next k items, reset resets */
 ```
 
-## Identity -- literals
+## Random -- LinearCongruential
 ```
-nil == nil /* nil identity */
-true == true & { false == false } /* boolean identity */
-3.141 == 3.141 & { 23 == 23 } & { 5L == 5L } /* number identity */
-'str' == 'str' /* string identity */
-(x: 1) !== (x: 1) /* record non-identity */
-[1] !== [1] /* array non-identity */
-```
-
-## Integer -- numeric trait
-```
-system.includesPackage('Integer') /* integer package */
-1.isInteger = true /* integer predicate */
-123.printString = '123' /* integer print string */
-123.storeString = '123' /* integer store string */
--987654321.printString = '-987654321' /* negative integer print string */
-4 / 2 = 2 /* integer division with integer result */
-let n = 2; 3.timesRepeat { n := n * n }; n = 256 /* iteration */
-0:15.collect(hexDigitCharacter/1).stringJoin = '0123456789ABCDEF' /* integer to hex character */
-let a = []; 1.toDo(5) { :each | a.add!(each) }; a = [1 .. 5] /* iterate over integer sequence */
-let a = []; 5.toDo(1) { :each | a.add!(each) }; a = [] /* non-ascending sequences are empty */
-let a = []; 5.toByDo(1, -1) { :each | a.add!(each) }; a = [5, 4 .. 1] /* iterate over integer sequence */
-let a = []; 1.toByDo(5, -1) { :each | a.add!(each) }; a = [] /* non-descending sequences are an error */
-let a = []; 1.toByDo(5, 1) { :each | a.add!(each) }; a = [1 .. 5] /* with step */
-let a = []; 5.upOrDownToDo(1) { :each | a.add!(each) }; a = [5, 4 .. 1] /* iterate over integer sequence */
-let a = []; 1.toDo(5) { :each | a.add!(each) }; a = [1 .. 5] /* toDo is ascending only */
-let a = []; 5.toDo(1) { :each | a.add!(each) }; a = [] /* non-ascending sequences are empty */
-0:255.collect { :each | each.digitAt(1) } = [0 .. 255]
-0:255.collect { :each | each.digitAt(2) }.allSatisfy { :each | each = 0 }
-256:511.collect { :each | each.digitAt(1) } = [0 .. 255]
-256:511.collect { :each | each.digitAt(2) }.allSatisfy { :each | each = 1 }
-512:1023.collect { :each | each.digitAt(2) }.IdentityMultiset.sortedElements = [2 -> 256, 3 -> 256]
-[1, 8, 16, 24, 32L, 40L, 48L, 56L, 64L].collect { :each | (2 ^ each).digitLength } = [1 .. 9]
-(2 ^ 128L - 1).digitLength = 16
-[64 226 1].ByteArray.fnv1aHash = 2230130162L
-(1 << 30) == 1073741824 /* equal integers are identical */
-6.choose(3) = 20 /* n choose k */
-6.choose(3) = ((6 * 5 * 4) / (1 * 2 * 3))
-3.choose(6) = 0 /* if k is greater than n answer is zero */
-58909.printStringHexadecimal = '16bE61D' /* hexadecimal representation */
-58909.printString(16) = '16bE61D' /* hexadecimal representation */
-let a = []; List(2, 1:3).tuplesDo { :each | a.add!(each.copy) }; a = [1 1; 1 2; 1 3; 2 1; 2 2; 2 3; 3 1; 3 2; 3 3]
-let a = []; List(2, 1:3).tuplesDo { :each | a.add!(each.sum) }; a = [2 3 4 3 4 5 4 5 6]
-let a = []; List(3, 1:2).tuplesDo { :each | a.add!(each.sum) }; a = [3 4 4 5 4 5 5 6]
-let a = []; List (4, 1:2).tuplesDo { :each | a.add!(each.sum) }; a = [4 5 5 6 5 6 6 7 5 6 6 7 6 7 7 8]
-let c = 0; let k = 3; let n = 4; List(n, 1:k).tuplesDo { :each | c := c + 1 }; c = (k ^ n)
-let c = 0; List(6, 1:4).tuplesDo { :each | c := c + 1 }; c = 4096
--2:7.collect { :each | each.foldIndex(5) } = [4 3 2 1 2 3 4 5 4 3]
--2:7.collect { :each | each.wrapIndex(5) } = [3 4 5 1 2 3 4 5 1 2]
-23.integerDigits(2, 5) = [1, 0, 1, 1, 1] /* binary */
-23.integerDigits(8, 2) = [2, 7] /* octal digits */
-23.integerDigits(10, 2) = [2, 3] /* decimal digits */
-23.integerDigits(16, 2) = [1, 7] /* hexadecimal digits */
-127.integerDigits(10, 3) = [1, 2, 7]
-127.integerDigits(10) = [1, 2, 7]
-127.integerDigits(2, 7) = [1, 1, 1, 1, 1, 1, 1]
-1:5000.select { :n | n = n.integerDigits(10).collect { :x | x ^ x }.sum } = [1, 3435]
-```
-
-## Integer -- prime numbers
-```
-9.primesList = [2, 3, 5, 7, 11, 13, 17, 19, 23] /* first elements of prime number sequence */
-9.prime = 23 /* lookup prime by index in sequence */
-system.cache['primesList'][9] = 23 /* the primes list is cached (memoized) by the system */
-5.prime = 11 /* the nth entry in the sequence of prime numbers */
-23.prime = 83 /* the nth entry in the sequence of prime numbers */
-system.cache['primesList'][23] = 83 /* prime extends the primesList cache as required */
-23.primesList = system.cachedPrimesList.first(23) /* the k primesList is the first k elements of the cached array */
-2:20.select { :each | each.isPrime } = [2, 3, 5, 7, 11, 13, 17, 19]
-2:20.reject { :each | each.isPrime } = [4, 6, 8, 9, 10, 12, 14, 15, 16, 18, 20]
-60.primeFactors = [2, 2, 3, 5] /* prime factors */
-[2, 2, 3, 5].product = 60 /* product is the inverse of primeFactors */
-1.primeFactors = [] /* the prime factors of one is empty */
-60.primeFactors.product = 60 /* product of prime factors is identity */
-315.primeFactors.IdentitySet = [3, 5, 7].IdentitySet /* prime factors, set */
-2588.primeFactors = [2, 2, 647] /* prime factors */
-2:15.select { :each | each.primeFactors.max <= 5 } = [2, 3, 4, 5, 6, 8, 9, 10, 12, 15]
-2:999.allSatisfy { :each | each = each.primeFactors.product } = true /* equality with product of factors */
-10071203840.primeFactors.IdentityMultiset.sortedElements = [2 -> 13, 5 -> 1, 19 -> 1, 12941 -> 1] /* prime factor histogram */
-6606028800.primeFactors.IdentityMultiset.sortedCounts = [22 -> 2, 2 -> 5, 2 -> 3, 1 -> 7]
-8589298611.primeFactors = [3, 2863099537] /* large prime factors */
-120.factorInteger = [2 3; 3 1; 5 1]
-60.factorInteger = [2 2; 3 1; 5 1]
-36.factorInteger = [2 2; 3 2]
-20.factorial.factorInteger = [2 18; 3 8; 5 4; 7 2; 11 1; 13 1; 17 1; 19 1]
-2401.factorInteger = [[7 4]]
-2434500.factorInteger.column(1) = [2 3 5 541] /* prime divisors */
-2434500.primeDivisors = [2 3 5 541] /* prime divisors */
-6.factorial.factorInteger = [2 4; 3 2; 5 1]
-324.factorInteger = [2 2; 3 4] /* powerful numbers are numbers whose prime factors are all repeated */
-2401.isPrimePower /* the factorization has one place and the base is a prime number */
-2:49.select(isPrimePower/1) = [2 3 4 5 7 8 9 11 13 16 17 19 23 25 27 29 31 32 37 41 43 47 49] /* OEIS A246655 */
-1.isPrimePower = false /* one is not a prime power */
-[7, 9, 64].allSatisfy(isPrimePower/1)
-[6, 12, 36].noneSatisfy(isPrimePower/1)
-1:19.select { :each | each.isAlmostPrime(1) } = [2, 3, 5, 7, 11, 13, 17, 19] /* A000040 */
-1:22.select { :each | each.isAlmostPrime(2) } = [4, 6, 9, 10, 14, 15, 21, 22] /* A001358 */
-1:449.select { :each | each.isAlmostPrime(7) } = [128, 192, 288, 320, 432, 448] /* A046308 */
-1:5121.select { :each | each.isAlmostPrime(11) } = [2048, 3072, 4608, 5120] /* A069272 */
-(10 ^ 12 + 3).factorInteger = [61 1; 14221 1; 1152763 1] /* moderately large number */
-2:30.select { :each | each.primeFactors.max <= 5 } = [2, 3, 4, 5, 6, 8, 9, 10, 12, 15, 16, 18, 20, 24, 25, 27, 30]
-2:15.select { :each | each.primeLimit <= 5 } = [2, 3, 4, 5, 6, 8, 9, 10, 12, 15]
-1.primeLimit = 0/* by convention the prime limit of one is zero */
-23.isPrime = true /* prime number predicate */
-2971215073.isPrime = true /* prime number predicate */
-2971215073.nextPrime = 2971215083 & { 2971215083.isPrime } /* find next prime */
-13.primesUpTo = [2 3 5 7 11 13] /* primes up to limit, if limit is prime it is the last element */
-42.primesUpTo = [2 3 5 7 11 13 17 19 23 29 31 37 41] /* if limit is not prime, the last element is the previous prime */
-35.isCoprime(64)
-1173.isCoprime(1547).not
-17.isPrime = true /* is number prime */
-17.indexOfPrime = 7 & { 18.indexOfPrime = 0 } /* index of prime number in prime number sequence, or zero if not prime */
-1.prime = 2 & { 7.prime = 17 } /* index into the prime number sequence */
-18.nextPrime = 19 & { 19.nextPrime = 23 } /* next integer that is greater than self and is prime number */
-19.leastPrimeGreaterThanOrEqualTo = 19 /* next prime or self if prime */
-1000.previousPrime = 997 & { 997.previousPrime = 991 } /* previous prime */
-```
-
-## Integer -- integer names
-```
-[1 .. 10].collect(threeDigitName/1) = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']
-[11 .. 20].collect(threeDigitName/1) = ['eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen', 'twenty']
-[21, 25, 29].collect(threeDigitName/1) = ['twenty-one', 'twenty-five', 'twenty-nine']
-[111, 333, 999].collect(threeDigitName/1) = ['one hundred eleven', 'three hundred thirty-three', 'nine hundred ninety-nine']
-(921 * (10 ^ 12)).inEnglishWords = 'nine hundred twenty-one trillion'
-504606846975.inEnglishWords = 'five hundred four billion, six hundred six million, eight hundred forty-six thousand, nine hundred seventy-five'
-123456789.inEnglishWords = 'one hundred twenty-three million, four hundred fifty-six thousand, seven hundred eighty-nine'
-13579.inEnglishWords = 'thirteen thousand, five hundred seventy-nine'
-```
-
-## Integer -- roman numerals
-```
-1:10.collect(romanNumeral/1) = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X']
-11:20.collect(romanNumeral/1) = ['XI', 'XII', 'XIII', 'XIV', 'XV', 'XVI', 'XVII', 'XVIII', 'XIX', 'XX']
-(50, 61 .. 160).collect(romanNumeral/1) = ['L', 'LXI', 'LXXII', 'LXXXIII', 'XCIV', 'CV', 'CXVI', 'CXXVII', 'CXXXVIII', 'CXLIX', 'CLX']
-['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'].collect(fromRomanNumeral/1) = [1 .. 10]
-['XI', 'XII', 'XIII', 'XIV', 'XV', 'XVI', 'XVII', 'XVIII', 'XIX', 'XX'].collect(fromRomanNumeral/1) = [11 .. 20]
-['L', 'LXI', 'LXXII', 'LXXXIII', 'XCIV', 'CV', 'CXVI', 'CXXVII', 'CXXXVIII', 'CXLIX', 'CLX'].collect(fromRomanNumeral/1) = [50, 61 .. 160]
-2023.romanNumeral = 'MMXXIII'
-'MMXXIII'.fromRomanNumeral = 2023
+system.includesPackage('LinearCongruential') /* LinearCongruential package */
+let r = numericalRecipesLinearCongruential(42); r.typeName = 'LinearCongruential' & { r.isLinearCongruential } & { r.isRandomNumberGenerator }
+let r = numericalRecipesLinearCongruential(42); [r.nextRandomFloat, r.nextRandomFloat] = [0.3746499199817101, 0.729023776863283]
+let r = numericalRecipesLinearCongruential(42); r.isStream /* stream predicate */
+let r = numericalRecipesLinearCongruential(42); let a = r.next(9); r.reset!; r.next(9) = a /* stream interface, next(k) answers next k items, reset resets */
 ```
 
 ## Range -- collection type
@@ -1945,652 +2662,18 @@ let n = 0; 1:5.permutationsDo { :each | n := n + 1 }; n = 120 /* interval permut
 [9999 .. 99999].concisePrintString = 'a List (size: 90001)' /* consise printer */
 ```
 
-## Do -- collection trait
+## Remove -- collection trait
 ```
-system.includesPackage('Do') /* Do package */
-1:9.count(isOdd/1) = 5
-1:9.count(isEven/1) = 4
-1:9.countAll = 9
-```
-
-## Iteration
-```
-let n = 0; 4.timesRepeat { n := n + 1 }; n = 4 /* times repeat loop (int) */
-let n = 0; -4.timesRepeat { n := nil }; n = 0 /* times repeat loop (zero or negative values are allowed) */
-let n = 0; 1.toDo(4) { :x | n := n + x }; n = 10 /* for loop (int) */
-let n = 0; 1.toDo(4) { :x | n := n + x }; n = 10 /* for loop (int) */
-let s = ''; 1.toDo(4) { :x | s := s ++ x.printString }; s = '1234' /* for loop (int) */
-let s = ''; 1:5.do { :x | s := s ++ x.printString }; s = '12345' /* for loop (interval) */
-let s = ''; 1.toDo(5) { :x | s := s ++ x.printString }; s = '12345' /* for loop (start & end indices) */
-let s = ''; 1.toDo(0) { :x | 'error'.error }; s = '' /* for loop (end less than start) */
-let s = ''; 1:3.reverseDo { :x | s := s ++ x.printString }; s = '321' /* for loop (interval, reverse) */
-let s = ''; [1, 3, 5].do { :x | s := s ++ x.printString }; s = '135' /* for loop (collection) */
-let n = 9; { n > 3 }.whileTrue { n := n - 1 }; n = 3 /* while true loop */
-let n = 9; { n < 7 }.whileFalse { n := n - 1 }; n = 6 /* while false loop */
-10.timesRepeat { 1 } = nil /* timesRepeat answers nil */
-1.toDo(10) { :x | x } = nil /* toDo answers nil */
-let a = []; 1:9.rejectThenDo(isEven/1) { :each | a.add!(each * 3) }; a = [3, 9, 15, 21, 27] /* avoid intermediate collection */
-let a = []; 1:9.selectThenDo(isEven/1) { :each | a.add!(each * 3) }; a = [6, 12, 18, 24] /* avoid intermediate collection */
-```
-
-## LargeInteger -- numeric type
-```
-system.includesPackage('LargeInteger') /* LargeInteger package */
-23L.typeName = 'LargeInteger' /* syntax for large integer literals */
-(2L ^ 53 - 1).square.printString = '81129638414606663681390495662081L'
-(2L ^ 37).square.storeString = '18889465931478580854784L'
-'324518553658426726783156020576256'.parseLargeInteger.isLargeInteger = true
-2971215073L.isPrime = true
-23L.factorial = 25852016738884976640000L /* factorial of LargeInteger */
-100L.factorial = 93326215443944152681699238856266700490715968264381621468592963895217599993229915608941463976156518286253697920827223758251185210916864000000000000000000000000L /* factorial of LargeInteger */
-170L.factorial = 7257415615307998967396728211129263114716991681296451376543577798900561843401706157852350749242617459511490991237838520776666022565442753025328900773207510902400430280058295603966612599658257104398558294257568966313439612262571094946806711205568880457193340212661452800000000000000000000000000000000000000000L /* factorial of LargeInteger */
-[-1L, 0L, 1L].collect(sign/1) = [-1L, 0L, 1L]
-6L / 8L = Fraction(3L, 4L)
-2 / 3L = Fraction(2L, 3L)
-4L / 2L = 2L /* reduced */
-let x = (2L ^ 54L); x != (x - 1) /* large integers behave ordinarily */
-5L % 3L = 2L /* modulo */
-[10L % 5L, -4L % 3L, 4L % -3L, -4L % -3L] = [0L, 2L, -2L, -1L] /* modulo, negative operands */
-13L % 7L % 4L = 2L /* left assocative */
-13L + 1L % 7L = 0L /* equal precedence */
-(2L ^ 170 - 1).isPowerOfTwo = false /* LargeInteger power of two test */
-324518553658426726783156020576256L.isEven = true /* is large integer even */
-324518553658426726783156020576257L.isOdd = true /* is large integer odd */
-100L.factorial / 99L.factorial = 100L /* large integer factorial, c.f. small float */
-1000L.factorial / 999L.factorial = 1000L /* large integer factorial */
-8589298611L.primeFactors.last = 2863099537L
-5L == 5L /* large integer identity */
-(1L << 100L) == 1267650600228229401496703205376L /* equal large integers are identical */
-92233720368L * 100000000L + 54775807L = 9223372036854775807L /* reader for large integer literals */
-2L ^ 100L = 1267650600228229401496703205376L /* raised to */
-let n = 2L; n.copy == n /* copy is identity */
-23L.SmallFloat = 23 /* large integer to small float */
-let a = [9, 8 .. 1]; { a[5L] }.hasError /* large integers are not valid indices */
-58909L.printStringHexadecimal = '16bE61D' /* hexadecimal representation */
-20L.factorial = 2432902008176640000L /* large integer factorial */
-7L << 23 = 58720256L /* left shift large integer */
-7L << 71 = 16528282690043758247936L /* left shift large integer */
-16L >> 3 = 2L /* right shift large integer */
-4L // 2L = 2L /* quotient */
-4L.quotient(2L) = 2L /* quotient */
-```
-
-## Length -- geometry type
-```
-system.includesPackage('Length') /* Length package */
-1.metres.typeName = 'Quantity' /* metre constructor, type of */
-1.metres.isLength /* length predicate */
-10.centimetres.inMetres = 0.1 /* metres of length, or identity of number */
-```
-
-## LinkedList -- collection type
-```
-system.includesPackage('LinkedList') /* LinkedList package */
-LinkedList().typeName = 'LinkedList' /* type of linked list */
-LinkedList().isLinkedList = true /* type predicate for linked list */
-LinkedList().size = 0 /* empty linked list */
-LinkedList().isEmpty /* empty linked list */
-LinkedList().extendToSize!(3).size = 3 /* linked list of three nil values */
-[1, 2, 3].LinkedList.size = 3 /* linked list from array */
-let l = LinkedList(); l.addFirst!(1); l.addFirst!(2); l.List = [2, 1] /* add to start */
-let l = LinkedList(); l.addLast!(1); l.addLast!(2); l.List = [1, 2] /* add to end */
-let l = LinkedList(); 1.toDo(5) { :each | l.add!(each) }; l.List = [1 .. 5] /* add to end */
-1:9.LinkedList.collect { :each | 10 - each } = [9, 8 .. 1].LinkedList /* collect */
-let l = [1 .. 9].LinkedList; l.removeFirst!; l.first = 2 /* remove first */
-let l = [1 .. 9].LinkedList; l.removeLast!; l.last = 8 /* remove last */
-let l = [1].LinkedList; l.removeFirst! = 1 & { l.isEmpty } /* remove first */
-let l = [1].LinkedList; l.removeLast! = 1 & { l.isEmpty } /* remove last */
-let l = [1 .. 5].LinkedList; l.removeAllSuchThat!(isOdd/1); l.List = [2, 4] /* in-place reject */
-let l = 1:99.LinkedList; l.removeAll!; l.isEmpty /* remove all */
-1:99.LinkedList.select(isEven/1).List = [2, 4 .. 98] /* select */
-1:9.LinkedList.selectThenCollect(isEven/1, square/1).List = [4, 16, 36, 64] /* avoid intermediate collection */
-1:9.LinkedList.collectThenSelect(square/1) { :each | each > 36 }.List = [49, 64, 81] /* avoid intermediate collection */
-1:9.LinkedList.reverse = LinkedList[9, 8 .. 1] /* reverse */
-{ LinkedList().removeFirst! }.hasError /* remove first, error if empty */
-{ LinkedList().removeLast! }.hasError /* remove last, error if empty */
-let l = 1:5.LinkedList; l[3] = 3 /* index into */
-let l = 1:5.LinkedList; l[1] := -1; l.List = [-1, 2, 3, 4, 5] /* mutate at index */
-let l = 1:5.LinkedList; l[3] := -3; l.List = [1, 2, -3, 4, 5] /* mutate at index */
-1:9.LinkedList.firstLink.value = 1 /* first link */
-1:9.LinkedList.firstLink.nextLink.value = 2 /* second link */
-1:9.LinkedList.lastLink.value = 9 /* last link */
-let l = 1:3.LinkedList; l.firstLink.value := -1; l.List = [-1, 2, 3] /* mutate link value */
-1:9.LinkedList.isSorted = true /* are elements in sequence */
-9:1:-1.LinkedList.isSortedBy(>) = true /* are elements in sequence by predicate */
-[1, 3 .. 9].LinkedList.indices = 1:5 /* indices of linked list (an interval) */
-let l = 1:9.LinkedList; l.copy = l & { l.copy !== l } /* copy is equal but not identical */
-let l = 1:9.LinkedList; let c = l.copy; c[1] := 9; c[1] = 9 & { l[1] = 1 } /* copies are distinct */
-```
-
-## Compare -- ordering trait
-```
-system.includesPackage('Compare') /* compare package */
-1 < 3 = true /* less than */
-2 < 2 = false
-3 < 1 = false
-1 <= 3 = true /* less than or equal to, unicode = ≤ */
-2 <= 2 = true
-3 <= 1 = false
-3 > 1 = true /* greater than */
-2 > 2 = false
-1 > 3 = false
-3 >= 1 = true /* greater than or equal to */
-2 >= 2 = true
-1 >= 3 = false
-2 = 2 = true /* equal to */
-[0, 4].collect { :i | [2, 3, 5].at(i.clamp(1, 3)) } = [2, 5] /* clamp index to valid range */
-4.clamp(0, 10) = 4
-4.clamp(0, 1) = 1
-2.clamp(0, 1) = 1
--1.clamp(0, 1) = 0
--1.clamp(-20, 0) = -1
-1 <=> 3 = -1
-2 <=> 2 = 0
-3 <=> 1 = 1
-3.minThenMax(1, 5) = 3.min(1).max(5)
-3 < 5 /* integer */
-3.3 < 5.5 /* float */
-3/4 < 4/5 /* fraction */
-'3' <| '5' /* string, precedes */
-{ 3J3 < 5J5 }.hasError /* complex */
-{ '3' < 5 }.hasError /* string & number are not comparable */
-{ 3 < '5' }.hasError /* number & string are not comparable */
-```
-
-## Map -- collection type
-```
-system.includesPackage('Map') /* Map package */
-let r = Map(); r.add!('x' -> 1); r.size = 1 /* add Association to Dictionary */
-let d = Map(); d.add!('x' -> 1); d.add!('y' -> 2); d.size = 2 /* add two Associations to Dictionary */
-let d = ['x' -> 1, 'y' -> 2].Map; d.indices = ['x', 'y'] /* answer List of indices (keys) at Dictionary */
-let d = ['x' -> 1, 'y' -> 2].Map; d.values = [1, 2] /* answer List of values at Dictionary */
-let d = ['x' -> 1, 'y' -> 2].Map; d.at('x') = 1 /* answer value at key in Dictionary */
-let d = ['x' -> 1, 'y' -> 2].Map; d['x'] = 1 /* at (subscript) syntax */
-let d = Map(); d.add!('x' -> 1); d.removeKey!('x'); d.isEmpty = true /* remove Association from Dictionary given key */
-let d = Map(); (d['x'] := 1) = 1 & { d['x'] = 1 } /* put (subscript mutation) syntax */
-let d = Map(); d[1] := 'x'; d[1] = 'x'
-let d = Map(); d['x'] := 1; d.removeKey!('x'); d.isEmpty = true
-let d = (f: { :i | i * i }); d['f'].unaryApply(9) = 81
-{ Map().removeKey!('unknownKey') }.hasError
-(x: 1, y: 1).copyWithoutIdenticalElements = (x: 1)
-let d = Map(); 1.toDo(100) { :i | d[i] := i; (i > 10).ifTrue { d.removeKey!(i - 10) } }; d.size = 10
-let c = Map(); c[2] := 'two'; c[1] := 'one'; c.removeKey!(2); c[1] := 'one'; c.removeKey!(1); c.includesIndex(1) = false
-(x: 1, y: 2).Map.includesIndex('x') /* Record to Map, map includes key predicate */
-(x: 1, y: 2).Map ++ (x: 2, y: 1) = (x: 2, y: 1).Map /* appending a record to a Map answers a Map, biases right */
-(x: 1, y: 2, z: 3).Map ++ (x: 2, y: 1) = (x: 2, y: 1, z: 3).Map /* append record to Map */
-(x: 1, y: 2).Map ++ (x: 2, y: 1, z: 3) = (x: 2, y: 1, z: 3).Map /* append record to Map */
-(x: 1, y: 2, z: 3).Map.indices = ['x', 'y', 'z'] /* indices of map (an array) */
-let m = (x: 1, y: 2).Map; m.removeAssociation!('x' -> 1); m = (y: 2).Map /* remove association */
-let m = (x: 1, y: 2).Map; m.removeAll!; m.isEmpty /* remove all entries */
-(x: 1, y: 2).Map = (x: 1, y: 2).Map /* key sequence and equality */
-(x: 1, y: 2).Map = (y: 2, x: 1).Map /* key sequence and equality */
-```
-
-## Math
-```
--3.abs = 3 /* absolute value */
-1.5.ceiling = 2 /* ceiling (round up) */
-[2 2.8 -2 -2.8].ceiling = [2 3 -2 -2] /* ceiling, pointwise at array */
-let v = [2 2.8 -2 -2.8]; v.ceiling = -v.floor.negate /* ceiling is equal to negate/floor/negate */
-0.cos = 1 /* cosine */
-180.degreesToRadians = 1.pi /* degreesToRadians */
-2.isEven = true /* eveness predicate */
-1.exp.isVeryClose(2.718281828459045) /* base e exponent function */
-1.5.floor = 1 /* floor (round down) */
-1.exp.log = 1 /* base e (natural) logarithm */
-1.2.isNumber = true /* is x a number */
-0.isInteger = true /* is x an integer */
-3.isPositive = true /* is x > 0 */
-1.max(2) = 2 /* maximum */
-1.min(2) = 1 /* minimum */
-3.negate = -3 /* negation */
-3.isOdd = true /* oddness predicate */
-1.pi.isVeryClose(3.1415926535898) /* constant pi (Float pi) */
-Infinity.isNumber /* constant positive infinity (is a number) */
-2 ^ 3 = 8 /* i to the power of j */
-5.reciprocal = 0.2 /* 1 / x */
-(1.pi / 2).sin = 1 /* sine */
-9.sqrt = 3 /* square root */
-3.square = 9 /* x * x */
-1.pi.radiansToDegrees = 180 /* radiansToDegrees */
-{ 1 / nil }.hasError /* operand not apatable to number */
-0.9.round = 1
-1.round = 1
-1.1.round = 1
--1.9.round = -2
--2.round = -2
--2.1.round = -2
-1.5.round = 2 /* in case of tie, round to +infinity */
--1.5.round = -1
-let n = 10 ^ 6; n ~ (n + 1) & { 1 !~ 2 } /* a million is close to a million and one, but one is not close to two */
-```
-
-## Method
-```
-system.includesPackage('Method') /* method package */
-{ true + false }.hasError /* boolean does not implement + */
-let f = { :x :y | x + y }; { f(true, false) }.hasError /* boolean does not implement + */
-```
-
-## Nil -- kernel type
-```
-system.includesPackage('Nil') /* package */
-nil.typeName = 'Nil' /* type of nil is Nil */
-nil.isNil = true /* is nil predicate */
-nil = nil /* nil equality */
-nil == nil /* nil identity */
-nil.ifNil { true } = true /* nil conditional */
-nil.ifNil { true } { false } = true /* nil conditional */
-nil.ifNotNil { true } = nil /* nil conditional */
-false.ifNotNil { true } /* nil conditional */
-0.ifNil { false } = 0 /* nil conditional, answer receiver if not nil */
-0.ifNil { false } { true } /* nil conditional */
-ifNil(nil) { true } = true /* nil conditional */
-ifNil(0) { false } = 0 /* nil conditional */
-nil.printString = 'nil' /* nil print string */
-nil.storeString = 'nil' /* nil store string */
-nil.encodeJson = 'null' /* nil has a Json representation */
-'null'.parseJson = nil /* nil has a Json representation */
-let c = nil; c ? { 'red' } = 'red' /* nil-coalescing operator, if lhs is nil evaluate rhs */
-let c = 'blue'; c ? { 'red' } = 'blue' /* nil-coalescing operator */
-let c = nil; c ?? 'red' = 'red' /* evaluating nil-coalescing operator, if lhs is nil answer rhs */
-let c = 'blue'; c ?? 'red' = 'blue' /* nil-coalescing operator */
-nil ? { 'rhs' } = 'rhs' /* right hand side if left hand side is nil */
-'lhs' ? { nil } = 'lhs' /* left hand side unless nil */
-nil !? { 1 } = nil /* left hand side if nil, else right hand side */
-1 !? { 2 } = 2 /* right hand side if left hand side is not nil */
-```
-
-## Number -- numeric trait
-```
-system.includesPackage('Number') /* package */
-1 + 2.5 = 3.5 /* addition of two numbers */
-10 - 8.5 = 1.5 /* subtraction of two numbers */
-3.4 * 5 = 17 /* multiplication of two numbers */
-8 / 2 = 4 /* division of two numbers */
-2 ^ 3 = 8 /* exponentiation of a number */
-12 = 11 = false /* equality between two numbers */
-12 != 11 = true /* test if two numbers are different */
-12 > 9 = true /* greater than */
-12 >= 10 = true /* greater or equal than */
-12 < 10 = false /* smaller than */
-2.718.truncate = 2 /* truncate to integer */
-2.718.round = 3 /* round to integer */
-2.718.round(0.01) = 2.72 /* round to a given precision */
-123456789.printStringWithCommas = '123,456,789'
-123456.789.printStringWithCommas = '123,456.789'
-13579.printStringWithCommas = '13,579'
-159.printStringWithCommas = '159'
--9876543210.printStringWithCommas = '-9,876,543,210'
--987654.321.printStringWithCommas = '-987,654.321'
--97.531.printStringWithCommas = '-97.531'
--951.printStringWithCommas = '-951'
-let i = 1; 1.toDo(5) { :each | i := i + each.square }; i = 56 /* iterate over numbers from start to end */
-let i = 1; 1.toByDo(5, 2) { :each | i := i + each.square }; i = 36 /* iterate over numbers from start to end by step */
-let i = 1; 1:3.do { :each | i := i + each.square }; i = 15 /* iterate over numbers from one to end */
-{ 23.size }.hasError /* numbers do not have a size */
-{ 23.at(1) }.hasError /* numbers are not indexable */
-{ 23.do { :each | nil } }.hasError /* numbers are not iterable */
--23.absSquare = 23.absSquare /* see Complex */
-```
-
-## Object -- kernel trait
-```
-system.includesPackage('Object') /* package */
-[1, 3, 5].typeName = 'List' /* name of type of object */
-[1, 3, 5].species == nilList/1
-[1, 3, 5].IdentitySet.species == IdentitySet/0
-[1, 3, 5].IdentityMultiset.species == IdentityMultiset/0
-(x: 1, y: 3, z: 5).species == Record/0
-'b'.caseOf(['a' -> { 1 }, 'b' -> { 2 }, 'c' -> { 3 }]) = 2
-{ 'd'.caseOf(['a' -> { 1 }, 'b' -> { 2 }, 'c' -> { 3 }]) }.hasError
-'b'.caseOf(['a' -> { 1 }, 'b' -> { 2 }, 'c' -> { 3 }]) { :notFound | false } = 2
-'d'.caseOf(['a' -> { 1 }, 'b' -> { 2 }, 'c' -> { 3 }]) { :notFound | notFound = 'd' }
-let z = ['a' -> { 1 + 1 }, 'b' -> { 2 + 2 }, 'c' -> { 3 + 3 } ]; 'b'.caseOf(z) = 4
-{ let z = ['a' -> { 1 + 1 }, 'b' -> { 2 + 2 } ]; 'c'.caseOf(z) }.hasError
-3/2.perform('numerator') = 3 /* perform named unary method, name is not qualified */
-(3 -> 2).perform('key') = 3
-3.perform('plusSign', 4) = 7 /* perform named binary method, name is not qualified */
-4/3.slotNameList = ['numerator', 'denominator']
-4/3.slotList = ['numerator' -> 4, 'denominator' -> 3]
-4/3.numerator = 4/3.uncheckedSlotRead('numerator') /* slot read */
-let n = 4/3; n.uncheckedSlotWrite('denominator', 5L); n = 4/5 /* slot write */
-1.pi.in { :x | x.round + 20 } = 23 /* evaluate block with object */
-{ 1.pi.error('pi') }.hasError /* user error */
-```
-
-## Operator -- adverbs
-```
-[1 2 3] +.e [4 5 6] = [5 7 9] /* e = equal, operands must be of equal size */
-[1 2 3] +.s [4 5 6 7] = [5 7 9] /* s = small, right operand is truncate */
-[1 2 3] *.s [4 5 6 7] = [4 10 18] /* s = small */
-[1 2 3] +.w [4 5 6 7] = [5 7 9 8] /* w = wrap, left operand indexed using atWrap */
-[1 2 3] +.f [4 5 6 7] = [5 7 9 9] /* f = fold, left operand indexed using atFold */
-[1 2 3 4] +.s [5 6 7] = [6 8 10] /* s = small, left operand is truncated */
-[1 2 3 4] +.w [5 6 7] = [6 8 10 9] /* w = wrap, right operand indexed using atWrap */
-[1 2 3 4] +.f [5 6 7] = [6 8 10 10] /* f = fold, right operands indexed using atFold */
-[1 2 3] +.t [4 5 6] = [5 6 7; 6 7 8; 7 8 9] /* t = table */
-[1 2 3] +.x [4 5 6] = [5 6 7 6 7 8 7 8 9] /* x = cross */
-[1 .. 5] +.s [6 .. 9] = [7 9 11 13] /* s = small */
-[1 .. 5] +.f [6 .. 8] = [7 9 11 11 11] /* f = fold */
-[1 2 3 4] *.x [5 6 7] = [5 6 7 10 12 14 15 18 21 20 24 28] /* x = cross */
-{ [1 2 3] +.e [4 5] }.hasError /* e = equal, error if non-equal operand sizes */
-```
-
-## Ordered -- collection trait
-```
-system.includesPackage('Ordered') /* package */
-let a = [1, 2, 4]; a.addBefore!(3, 4); a = [1 .. 4] /* insert value before existing value */
-let a = [1, 2, 4]; a.addAfter!(3, 2); a = [1 .. 4] /* insert value after existing value */
-let l = ['w' 'x' 'z']; l.addAfterIndex!('y', 2) = 'y' & { l = ['w' 'x' 'y' 'z'] } /* insert value after index */
-let a = [2, 3]; a.addFirst!(1) = 1 & { a = [1, 2, 3] } /* insert value at start */
-let a = [4, 5]; a.addAllFirst!([1 .. 3]); a = [1 .. 5] /* add sequence at start */
-let a = [1, 2]; a.addLast!(3) = 3 & { a = [1, 2, 3] } /* insert value at end */
-let a = [1, 2]; a.addAllLast!([3 .. 5]); a = [1 .. 5] /* add sequence at end */
-let a = [1 .. 5]; a.removeAt!(3); a = [1, 2, 4, 5] /* remove element at index */
-let a = [1 .. 5]; a.removeFirst!; a = [2 .. 5] /* remove first element */
-let a = [1 .. 5]; a.removeLast!; a = [1 .. 4] /* remove last element */
-```
-
-## Package
-```
-system.includesPackage('Package') /* package */
-system.packageDictionary['Date'].typeName = 'Package' /* type of package */
-system.packageDictionary['Date'].isPackage /* package type predicate */
-Package('Category', 'Name', ['Requires'], 'Category/Name.sl', 'Code').isPackage
-(Name: 'Set').Package.isPackage /* package from dictionary, name is the only required field, package predicate */
-(Category: 'Time', Name: 'Date').Package.url = 'Time/Date.sl' /* derive url */
-system.packageDictionary['Date'].name = 'Date' /* name of package */
-system.packageDictionary['Date'].category = 'Time' /* category of package */
-system.includesPackage('Date')
-'/* Package: Collection-ByteArray */'.parsePackageHeader = (Category: 'Collection', Name: 'ByteArray')
-'/* Requires: ColumnBrowser SmallKansas */'.parsePackageHeader = (Requires: ['ColumnBrowser', 'SmallKansas'])
-system.indexedPackages.size - system.loadedPackages.size = system.availablePackages.size
-system.packageDictionary.select { :each | each.requires.isNotEmpty }.size > 10
-system.packageDictionary['PackageBrowser'].dependencies.collect(name/1).includesAll(['Event' 'SmallKansas' 'Window' 'ColumnBrowser'])
-'Time-Date'.isQualifiedPackageName
-'Time-Date'.parseQualifiedPackageName = ['Time', 'Date']
-system.packageDictionary.size > 100 /* number of packages */
-system.package('List').isPackage /* lookup package by unqualified name */
-let p = system.package('List'); (p.category, p.name, p.url, p.isLoaded) = ('Collection', 'List', 'Collection/List.sl', true)
-system.package('Collection-List') == system.package('List') /* lookup package by qualified name */
-{ system.package('Kernel-List') }.hasError /* for qualified names the system checks the category */
-system.package('BounceBenchmark').dependencies.collect(name/1) = ['Benchmark', 'SomRandom']
-system.package('Tuple').requires = ['List']
-```
-
-## Point -- geometry type
-```
-let o = [0, 0]; let p = [10, 10]; let q = 0 - p; [q o; o p].boundingBoxMerging = [q, p]
-```
-
-
-## PriorityQueue -- collection type
-```
-system.includesPackage('PriorityQueue') /* PriorityQueue package */
-PriorityQueue().isPriorityQueue = true
-PriorityQueue().isEmpty = true
-let p = PriorityQueue(); p.pushWithPriority!('a', 1); p.pop! = 'a'
-let p = PriorityQueue(); p.pushWithPriority!('a', 1); p.pushWithPriority!('b', 0); p.pop! = 'b'
-let p = PriorityQueue(); p.pushAllWithPriority!(['a' -> 3, 'b' -> 2, 'c' -> 1]); p.size = 3 & { p.pop! = 'c' }
-let p = PriorityQueue(); p.peekPriority = nil
-```
-
-## Block -- behaviour type
-```
-system.includesPackage('Block') /* package */
-{ }.typeName = 'Block'
-typeName/1.typeName = 'Block'
-let i = 1; { i < 5 }.whileTrue { i := i + 1 }; i = 5 /* mutate outer temporary */
-let i = 1; whileTrue { i < 5 } { i := i + 1 }; i = 5 /* trailing closure syntax */
-{ }.argumentCount = 0 /* block arity */
-{ :x | x }.argumentCount = 1
-{ :i :j | i }.argumentCount = 2
-{ :i :j :k | i }.argumentCount = 3
-{ :i :j :k :l | i }.argumentCount = 4
-collect/2.argumentCount = 2 /* method arity */
-{ { :i | i = nil }.apply }.hasError /* too few arguments, c.f. non-strict */
-{ { :x | 0 - x }.apply(3, 4) = -3 }.hasError /* too many arguments, c.f. non-strict */
-collect/2.name = 'collect/2'
-let f = { :x | x * x }; [f(5), f/1.(5)] = [25, 25]
-let f = { :x | x * x }; let d = (p: f/1); d['p'].unaryApply(5) = 25
-{ 0 }.cull(23) = 0 /* ignore one argument */
-{ 0 }.cull(23, 3.141) = 0 /* ignore two arguments */
-{ :x | x }.cull(23) = 23 /* recognise one argument */
-{ :x | x }.cull(23, 3.141) = 23 /* recognise one argument, ignore one argument */
-{ :x :y | x * y }.cull(23, 3.141) = 72.243 /* recognise two arguments */
-let f = { :x | x * x }; f(3) = 9
-{ let f = { :x | x * x }; [3, 5, 7].collect(f) = [9 25 49] }.hasError /* f not bound */
-let f = { :x | x * x }; [3, 5, 7].collect(f/1) = [9 25 49]
-{ :x | x * x }.table([3, 5, 7]) = [9 25 49] /* binary table is swap of collect */
-collect/2.swap . ({ :x | x * x }, [3 5 7]) = [9 25 49] /* swap of collect is map */
-{ :x :y | x * y + y }.applyList([3.141, 23]) = 95.243
-{ { :x | x }.applyList(0) }.hasError
-{ { :x | x }.applyList([]) }.hasError
-9.with { :x | x.sqrt; -x } = -9 /* evaluate block with self and answer answer of block */
-9.also { :x | x.sqrt; -x } = 9 /* evaluate block with self and answer self */
-let d = (c: 1); d.with { :x | x['c'] := 2; 0 } = 0 & { d = (c: 2) }
-let d = (c: 1); d.also { :x | x['c'] := 2; 0 } == d & { d = (c: 2) }
-let d = (c: 1); let r = d.with { :x | x['c'] := 2; 0 }; d = (c: 2) & { r = 0 }
-let d = (c: 1); let r = d.also { :x | x['c'] := 2; 0 }; d = (c: 2) & { r == d }
-let x = { }; x/0.isBlock /* blocks are objects and may be assigned to a variable */
-{ nil; 1 }.apply = 1 /* value is last expression evaluated */
-{ { 1 }.apply }.apply = 1 /* blocks may be nested */
-{ :x | let y = x; y }.unaryApply(1) = 1 /* specification { arguments localvars expressions } */
-{ 'x' }.apply = 'x' /* simple block usage */
-{ :p1 :p2 | p1 ++ ' & ' ++ p2 }.binaryApply('x', 'y') = 'x & y' /* block with argument passing */
-{ :x | x + 1 }.argumentCount = 1 /* the number of arguments can be retrieved */
-{ :x | x := nil }.unaryApply(42).isNil /* arguments are mutable */
-let f = { :x :y | x := y; x }; f(1, 3) = 3 /* arguments are mutable */
-{ } !== { } /* Block does not implement equality, non-identity */
-({ } == { }).not /* non-identity */
-{ 1 } !== { 1 } /* non-identity */
-{ 1 } !== 1 /* non-identity */
-let f = { }; f/0 == f/0 /* identity */
-{ }.printString = 'a Block'
-{ :x | x }.printString = 'a Block'
-{ }.typeName = 'Block'
-{ }.apply = nil /* empty block evaluates to nil */
-{ var x; nil }.apply = nil /* a block cannot end with a var declaration */
-{ let x = 1; nil }.apply = nil /* a block cannot end with a let binding */
-{ var c, a; c := [1]; a := { var a; a := 4; a }.apply; { var a; a := 2; c.add!(a); { var a; a := 3; c.add!(a) }.apply }.apply; c.add!(a); c }.apply = [1, 2, 3, 4]
-1.toDo(10) { :x | x } = nil /* answers nil */
-withReturn { :return/1 | 1.toDo(10) { :index | (index = 5).ifTrue { 5.return } } } = 5 /* non-local return */
-1.pi.assert { true } = 1.pi /* assert that block evaluates to true, answers self */
-{ 1.pi.assert { false } }.hasError /* raise an error if block does not evaluate to true */
-{ true }.assert = nil /* assert that block evaluates to true, answers nil */
-{ { false }.assert }.hasError /* raise an error if block does not evaluate to true */
-withReturn { :return/1 | { (9.atRandom > 7).ifTrue { true.return } }.repeatForever } /* repeat a block until it returns */
-{ 1.anUnknownMessage }.ifError { :err | err }.isError /* evaluate error block on error */
-let f = { let x = 0; { x := x + 1; x } }; let g = f/0.apply; [g.apply, g.apply] = [1, 2] /* closure */
-let f = { let x = 0; { x := x + 1; x } }; [f/0.apply.apply, f/0.apply.apply] = [1, 1] /* closures */
-let f = { :n | (n = 1).if { 1 } { f(n - 1) * n } }; 7:9.collect(f/1) = [5040, 40320, 362880]
-let f = { system.nextRandomFloat }; f/0.once = f/0.once /* evaluate block once and cache result */
-let f = { 1:9.atRandom }; f/0.once = f/0.once & { f/0.once = f/0.once } /* the cache is kept in a weak map */
-[3] # 2 = [3 3] /* answer an array of n places each having the same value */
-[3] # 2 = List(2, 3) /* constructor with fill value */
-let m = { system.nextRandomFloat }.!(9).mean; m > 0 & { m < 1 }
-{ 1 } ! 2 = [1 1] /* evaluate a block twice and collect the answers in an array */
-{ '3' } ! 3 = ['3', '3', '3'] /* evaluate block indicated number of times and collect answers in an array */
-{ 1:9.atRandom }.!(9).allSatisfy(isInteger/1) /* evaluate a block n times and collect answers in an array */
-{ '3' } ! 3 = ['3', '3', '3'] /* operator notation */
-({ system.nextRandomFloat } ! 9).size = 9 /* the size of the answer is as requested */
-({ system.nextRandomFloat } ! 3).allSatisfy(isNumber/1) = true
-&.parameterNames = ['self', 'aBlock/0'] /* answer names of method parameters */
-SinOsc/2.parameterNames = ['freq' 'phase'] /* answer names of method parameters */
-randomReal/3.parameterNames = ['self', 'range', 'shape'] /* answer names of method parameters */
-system.methodDictionary['at'][2]['Map'].information.parameterNames = ['self', 'key']
-let c = []; let a = []; 1:3.do { :i | c.add! { a.add!(i) } }; c.do(apply/1); a = [1, 2, 3]
-let x = [1]; let f = { :n | x[1] := n }; f(3); x = [3] /* closure */
-{ { }.deepCopy }.hasError /* blocks cannot be deep copied */
-let f = -.swap; f.binaryApply(3, 1) = -2 /* swap arguments of two argument block */
-1 -.swap 3 = 2 /* swap arguments at binary operator */
-let f/1 = constant(3); f(4) = 3 /* block that answers a constant */
-3.constant . (4) = 3 /* block that answers a constant */
-42.constant . ('hello') = 42
-1:4.collect(42.constant) = [42 42 42 42]
-{ :x | x ^ 2 }.iterate(2, 3) = 256 /* iterate */
-let x = 2; 3.timesRepeat { x := x ^ 2}; x = 256 /* timesRepeat loop */
-2 ^ 2 ^ 2 ^ 2 = 256 /* written out */
-```
-
-## BlockStream
-```
-system.includesPackage('BlockStream') /* package */
-```
-
-## Promise -- scheduling type
-```
-system.includesPackage('Promise') /* package */
-{ Promise() }.hasError /* there is no void contructor */
-Error('The reason').rejectedPromise.onRejection { :unused | nil }; true /* construct a rejected promise */
-1.resolvedPromise.then { :n | { n = 1 }.assert }; true /* construct a resolved promise */
-let p = Promise { :t/1 :f | t('t') }; p.then { :t | { t = 't' }.assert }; p.isPromise
-let p = Promise { :t :f/1 | f('f') }; p.thenElse { :t | t } { :f | { f = 'f' }.assert }; p.isPromise
-let p = Promise { :t :f/1 | f('f') }; p.then { :t | t }.onRejection { :f | { f = 'f' }.assert }; p.isPromise
-let p = Promise { :t :f/1 | f('f') }; p.thenElse { :t | t } { :f | { f = 'f' }.assert }.finally { { true }.assert }; p.isPromise
-let f = { :c | Promise { :t/1 :f | { t(c) }.scheduleAfter((0 -- 0.15).atRandom) } }; [1.f, 2.f, 3.f].anyFulfilled.then { :t | { [1, 2, 3].includes(t) }.assert }; true
-let f = { :c | Promise { :t/1 :f | { t(c) }.scheduleAfter((0 -- 0.05).atRandom) } }; ['x'.f, 'y'.f, 'z'.f].allFulfilled.then { :t | { t = ['x', 'y', 'z'] }.assert }; true
-```
-
-## Pseudo variables
-```
-false.isBoolean /* constant */
-false.isBoolean /* constant */
-nil.isNil /* constant */
-Infinity.isNumber /* constant (infinity) */
--Infinity.isNumber /* constant (negative infinity) */
-NaN.isNumber /* constant (not a number) */
-```
-
-## RandomNumberGenerator -- trait and system random number generator
-```
-system.includesPackage('RandomNumberGenerator') /* package */
-let r = Sfc32(); r.randomInteger([1 9], []).isInteger /* random integer between 1 and 9 inclusive */
-system.randomInteger([1 9], []).isInteger /* random integers (1 to self) */
-let s = IdentitySet(); 729.timesRepeat { s.include!(1:9.atRandom) }; s.minMax = [1, 9] /* check distribution */
-let s = IdentitySet(); 729.timesRepeat { s.include!(1:9.atRandom) }; s = 1:9.IdentitySet /* check distribution */
-let s = IdentitySet(); 729.timesRepeat { s.include!(system.randomInteger([-3 3], [])) }; s = -3:3.IdentitySet /* check distribution */
-system.randomReal([0 9], []).isNumber /* random floating point number (0 to self) */
-let s = IdentitySet(); 729.timesRepeat { s.include!(system.randomReal([0 9], []).round) }; s.minMax = [0, 9] /* check distribution */
-system.randomInteger([3 9], []).isInteger /* random integer in range */
-system.randomReal([3 9], []).isNumber /* random float in range */
-let b = IdentityMultiset(); 5000.timesRepeat { b.add!(1:5.atRandom) }; b.valuesAndCounts.values.allSatisfy { :each | (each / 5000 * 5 - 1).abs < 0.1}
-{ [].atRandom = nil }.hasError /* random element of empty collection (nil if unsafe indexing is allowed) */
-[1].atRandom = 1 /* random element of one-element collection */
-let c = [1 .. 5]; c.includes(c.atRandom) /* answer random element from a collection */
-let a = [1 .. 5].IdentitySet; let b = IdentityMultiset(); 250.timesRepeat { b.add!(a.atRandom) }; a = b.IdentitySet /* random element of collection */
-```
-
-## Random -- Sfc32
-```
-system.includesPackage('Sfc32') /* Sfc32 package */
-let r = Sfc32(98765); r.typeName = 'Sfc32' /* type */
-let r = Sfc32(98765); r.isSfc32 /* predicate */
-let r = Sfc32(98765); r.isRandomNumberGenerator /* predicate */
-let r = Sfc32(98765); r.nextRandomFloat = 0.49556130869314075 /* random number in [0, 1) */
-let r = Sfc32(98765); r.nextRandomFloat * 10 = 4.9556130869314075 /* random number in [0, 10) */
-let r = Sfc32(98765); r.nextRandomFloat * 100 = 49.556130869314075 /* random number in [0, 100) */
-let r = Sfc32(98765); r.randomInteger([1 1000], []) = 496 /* random integer in [1, 1000] */
-let r = Sfc32(98765); r.randomInteger([1 10000], []) = 4956 /* random integer in [1, 10000] */
-let r = Sfc32(); let n = r.nextRandomFloat; n >= 0 & { n < 1 } /* seed from system clock */
-let r = Sfc32(); let s = IdentitySet(); 729.timesRepeat { s.include!(r.randomInteger([1 9], [])) }; s.minMax = [1, 9] /* check distribution */
-let r = Sfc32(); let s = IdentitySet(); 729.timesRepeat { s.include!(r.randomInteger([1 9], [])) }; s.List.sort! = [1 .. 9] /* check distribution */
-```
-
-## Random -- MersenneTwister
-```
-system.includesPackage('MersenneTwister') /* Mersenne package */
-let m = MersenneTwister(98765); m.typeName = 'MersenneTwister' /* type of */
-let m = MersenneTwister(98765); m.isMersenneTwister /* predicate */
-let m = MersenneTwister(98765); m.isRandomNumberGenerator /* predicate */
-let m = MersenneTwister(98765); m.nextRandomFloat = 0.088898599949636 /* random number in [0, 1) */
-let m = MersenneTwister(98765); m.nextRandomFloat * 10 = 0.88898599949636 /* random number in [0, 10) */
-let m = MersenneTwister(98765); m.nextRandomFloat * 100 = 8.8898599949636 /* random number in [0, 100) */
-let m = MersenneTwister(98765); m.randomInteger([1 1000], []) = 89 /* random integer in [1, 1000] */
-let m = MersenneTwister(98765); m.randomInteger([1 10000], []) = 889 /* random integer in [1, 10000] */
-let m = MersenneTwister(); let r = m.nextRandomFloat; r >= 0 & { r < 1 } /* seed from system clock */
-MersenneTwister(123456).nextRandomFloat = 0.12696983303810094 /* test from standard tests */
-let m = MersenneTwister(); let s = IdentitySet(); 729.timesRepeat { s.include!(m.randomInteger([1 9], [])) }; s.minMax = [1, 9] /* check distribution */
-let m = MersenneTwister(); let s = IdentitySet(); 729.timesRepeat { s.include!(m.randomInteger([1 9], [])) }; s.List.sort! = [1 .. 9] /* check distribution */
-let m = MersenneTwister(98765); m.isStream /* stream predicate */
-let m = MersenneTwister(98765); let a = m.next(9); m.reset!; m.next(9) = a /* stream interface, next(k) answers next k items, reset resets */
-```
-
-## Random -- SplitMix
-```
-system.includesPackage('SplitMix') /* SplitMix package */
-let r = SplitMix(98765); r.typeName = 'SplitMix' /* type of */
-let r = SplitMix(98765); r.isSplitMix /* predicate */
-let r = SplitMix(98765); r.isRandomNumberGenerator /* predicate */
-let r = SplitMix(98765); r.nextRandomFloat = 0.08824091404676437 /* random number in [0, 1) */
-let r = SplitMix(98765); r.randomReal([0 10], []) = 0.8824091404676437 /* random number in [0, 10) */
-let r = SplitMix(98765); r.randomReal([0 100], []) = 8.824091404676437 /* random number in [0, 100) */
-let r = SplitMix(98765); r.randomInteger([1 1000], []) = 89 /* random integer in [1, 1000] */
-let r = SplitMix(98765); r.randomInteger([1 10000], []) = 883 /* random integer in [1, 10000] */
-let r = SplitMix(98765); r.isStream /* stream predicate */
-let r = SplitMix(98765); let a = r.next(9); r.reset!; r.next(9) = a /* stream interface, next(k) answers next k items, reset resets */
-```
-
-## Random -- LinearCongruential
-```
-system.includesPackage('LinearCongruential') /* LinearCongruential package */
-let r = numericalRecipesLinearCongruential(42); r.typeName = 'LinearCongruential' & { r.isLinearCongruential } & { r.isRandomNumberGenerator }
-let r = numericalRecipesLinearCongruential(42); [r.nextRandomFloat, r.nextRandomFloat] = [0.3746499199817101, 0.729023776863283]
-let r = numericalRecipesLinearCongruential(42); r.isStream /* stream predicate */
-let r = numericalRecipesLinearCongruential(42); let a = r.next(9); r.reset!; r.next(9) = a /* stream interface, next(k) answers next k items, reset resets */
-```
-
-## Iterator -- collection trait
-```
-system.includesPackage('Iterator') /* Iterator package */
-[].Iterator.typeName = 'CollectionStream' /* type of iterator */
-1:5.Iterator.upTo(3) = 1:2 /* read up to, but not including, an element, answer is of species of collection */
-1:5.Iterator.upTo(9) = 1:5 /* read up to end if element is not located */
-let r = [1 .. 5].Iterator; [r.next, r.next(3), r.next, r.next] = [1, [2, 3, 4], 5, nil] /* next answers nil at end */
-let r = [1 .. 3].Iterator; [r.next, r.upToEnd] = [1, [2, 3]] /* read up to end */
-let r = 1:5.Iterator; r.upTo(3) = 1:2 & { r.next = 4} /* matching element is consumed */
-let r = 9:1:-1.Iterator; [r.upTo(3), r.upToEnd] = [9:4:-1, 2:1:-1] /* matching element is consumed */
-[].Iterator.next = nil /* next at an empty read iterator answers nil */
-let r = '.....ascii'.characters.Iterator; let l = List(5, nil); r.next(5); r.nextInto(l); l.stringIntercalate('') = 'ascii'
-1:9.Iterator.nextOrUpToEnd(23) = [1 .. 9] /* take at most n items from iterator */
-let r = 1:9.Iterator; [r.nextMatchFor(1), r.next] = [true, 2] /* predicate at consumed item */
-let r = 1:9.Iterator; [r.nextMatchAll([1, 2, 3]), r.next] = [true, 4] /* predicate at consumed items */
-```
-
-## Sphere -- geometric type
-```
-system.includesPackage('Sphere') /* package */
-Sphere([0 0 0], 1).typeName = 'Sphere' /* type of */
-Sphere([0 0 0], 1).isSphere /* predicate */
-Sphere([0 0 0], 1).center = [0 0 0] /* center */
-Sphere([0 0 0], 1).radius = 1 /* radius */
-Sphere([0 0 0], 1).diameter = 2 /* diameter */
-Sphere([0 0 0], 1).area = 4.pi /* surface area */
-Ball([0 0 0], 1).volume = (4.pi / 3) /* volume */
-```
-
-## Stream -- collection trait
-```
-system.includesPackage('Stream') /* Stream package */
-[].Stream.typeName = 'CollectionStream' /* type of stream */
-let s = 1:9.Stream; let a = s.next(9); s.reset!; s.next(9) = a /* reset stream */
-```
-
-### CollectionStream -- collection type
-```
-system.includesPackage('CollectionStream') /* package */
-1:5.Stream.size = 5 /* stream from interval, stream size */
-1:5.Stream.contents = 1:5 /* contents of finite stream (a copy of the collection) */
-let a = [1 .. 5]; a.Stream.contents !== a /* contents of finite stream (a copy of the collection) */
-let i = 1:5; i.Stream.collection == i /* underlying collection of stream */
-let r = 1:5.Stream; r.upToEnd; r.contents = 1:5 /* contents of consumed stream */
-1:9.Stream.collection = Range(1, 9, 1) /* read stream over interval collection */
-let i = 1:9; let s = i.Stream; let c = s.copy; c.next; s.next = 1 & { c.next = 2 } /* copy */
-[].Stream.isAtEnd = true /* at end predicate */
-let r = 1:1000.Iterator; [r.next, r.next, r.isAtEnd] = [1, 2, false] /* at end predicate */
-[].Stream.position = 0 /* initially the position is zero */
-let r = 1:9.Stream; [r.next, r.back!, r.next] = [1, 1, 1] /* go back one element and return it (by peeking) */
+let r = List(); r.add!('x'); r.remove!('x'); r.size = 0
+let r = IdentityMultiset(); r.add!('x'); r.remove!('x'); r.size = 0
+let r = Map(); r.add!('x' -> 1); r.remove!('x' -> 1); r.size = 0
+let r = Record(); r.add!('x' -> 1); r.remove!('x' -> 1); r.size = 0
+let r = IdentitySet(); r.add!('x'); r.remove!('x'); r.size = 0
+{ List().remove!('x') }.hasError
+{ IdentityMultiset().remove!('x') }.hasError
+{ Map().remove!('x' -> 1) }.hasError
+{ Record().remove!('x' -> 1) }.hasError
+{ IdentitySet().remove!('x') }.hasError
 ```
 
 ## Record -- collection type
@@ -3227,6 +3310,18 @@ let a = [5 .. 9].SortedList(>); a.addAll!([1 .. 4]); a.collection = [9, 8 .. 1]
 'hello'.characters.SortedList.List = 'ehllo'.characters
 ```
 
+## Sphere -- geometric type
+```
+system.includesPackage('Sphere') /* package */
+Sphere([0 0 0], 1).typeName = 'Sphere' /* type of */
+Sphere([0 0 0], 1).isSphere /* predicate */
+Sphere([0 0 0], 1).center = [0 0 0] /* center */
+Sphere([0 0 0], 1).radius = 1 /* radius */
+Sphere([0 0 0], 1).diameter = 2 /* diameter */
+Sphere([0 0 0], 1).area = 4.pi /* surface area */
+Ball([0 0 0], 1).volume = (4.pi / 3) /* volume */
+```
+
 ## Stack -- collection type
 ```
 system.includesPackage('Stack') /* stack package */
@@ -3240,6 +3335,13 @@ let s = Stack(); s.push!('x'); s.push!('y'); [s.size, s.pop!, s.size, s.pop!, s.
 let s = Stack(); s.pop! = nil /* pop! of empty stack answers nil */
 let s = Stack(); s.push!('x') = 'x' /* push answers object pushed */
 let s = Stack(); s.push!('x'); s.copy = s & { s.copy !== s } /* copy is equal but not identical */
+```
+
+## Stream -- collection trait
+```
+system.includesPackage('Stream') /* Stream package */
+[].Stream.typeName = 'CollectionStream' /* type of stream */
+let s = 1:9.Stream; let a = s.next(9); s.reset!; s.next(9) = a /* reset stream */
 ```
 
 ## String -- text type
@@ -3496,7 +3598,7 @@ let x = 1; let y = 2; let z = 3; x := x * y + z; y := x + y * z; z := x + y + z;
 let z = 9; 1:z = 1:9 /* upper bound may be identifier */
 ```
 
-## Syntax - vector and matrix syntax
+## Syntax -- vector and matrix syntax
 ```
 [1 3 5 2 4] = [1, 3, 5, 2, 4] /* vector syntax, literal items */
 [9.sqrt 16.sqrt 25.sqrt] = [3, 4, 5] /* vector syntax, simple unary sends */
@@ -3518,7 +3620,7 @@ let m = [1 2 3; 4 5 6; 7 8 9]; m[2][3] = 6 & { m[3][2] = 8 } /* matrix syntax an
 [1 - 1 - 4 - 8 - 13 - 19 - 26 - 34 - 43] = [-147] /* subtraction */
 ```
 
-## Syntax - At Syntax
+## Syntax -- At Syntax
 ```
 let m = [1 2 3; 4 5 6; 7 8 9]; m[2][3] = 6 & { m[3][2] = 8 } /* [At Syntax] */
 let d = (w: (x: (y: (z: 1)))); d['w']['x']['y']['z'] = 1 /* [At Syntax] */
@@ -3528,7 +3630,7 @@ let a = [['w', 'x'], ['y', 'z']]; a[1][2] = 'x' /* [At Syntax] */
 (w: (x: (y: (z: 1))))['w']['x']['y']['z'] = 1 /* [At Syntax] */
 ```
 
-## Put Syntax
+## Syntax -- Put Syntax
 ```
 let m = [1 2 3; 4 5 6]; m[1][2] := -2; m[2][3] := -6; m = [1 -2 3; 4 5 -6] /* [Put Syntax] */
 let d = (w: (x: (y: (z: 1)))); d['w']['x']['y']['z'] := -1; d = (w: (x: (y: (z: -1)))) /* [Put Syntax] */
@@ -3647,6 +3749,42 @@ let [x, _, _, z] = [1, 2, 3, 4]; [x, z] = [1, 4] /* multiple unused variables ca
 {:x|x+1}.unaryApply(1)=2 /* no white space */
 { :x | x + 1 } . apply ( 1 ) = 2 /* white space (space) */
 {	:x	|	x	+	1	}	.	apply	(	1	)	=	2 /* white space (tab) */
+```
+
+## Syntax -- unary messages
+```
+89.sin = 0.8600694058124533
+3.sqrt = 1.7320508075688772
+1.pi.printString = '3.141592653589793'
+'text'.size = 4
+true.not = false
+```
+
+## Syntax -- binary messages
+```
+'100' -> 100 = Association('100', 100) /* creates an association */
+3 + 4 = 7
+10 - 1 = 9
+4 <= 3 = false
+4/3 * 3 = 4 = true /* equality is a binary message; fractions are exact */
+3/4 == 3/4 = false /* two equal Fractions are not the same object */
+```
+
+## Syntax -- precedence
+```
+100.factorial / 99.factorial ~ 100 /* (unary) methods bind more closely than operators */
+2 ^ (1 + 3.factorial) = 128
+2.raisedToInteger(1 + 3.factorial) = 128
+1 + 2 * 3 = 9
+1 + (2 * 3) = 7
+3 + 4.factorial = 27 /* not 5040 */
+(3 + 4).factorial = 5040
+3 + 4 * 5 = 35 /* (not 23) binary messages sent from left to right */
+3 + (4 * 5) = 23
+1 + 1 / 3 = (2 / 3) /* not 4/3 */
+1 + (1 / 3) = (4 / 3)
+1 / 3 + 2 / 3 = (7 / 9) /* not 1 */
+(1 / 3) + (2 / 3) = 1
 ```
 
 ## System -- system type
@@ -3880,8 +4018,9 @@ let p = 'x=a&y=b&x=c'.UrlQueryParameters; p.removeKey!('x'); p.queryString = 'y=
 (x: 1, y: 2, z: 3).UrlQueryParameters.queryString = 'x=1&y=2&z=3' /* record constructor */
 ```
 
-## Temporaries
+## Temporaries -- local variables
 ```
+var x; x = nil /* uninitialised variables are nil */
 let x = nil; x = nil /* uninitialised variables are nil */
 let x = nil; let y = nil; x = y /* uninitialised variables are nil */
 let x = 1; let y = 2; x < y /* initialisers are written as name = value */
@@ -3949,42 +4088,6 @@ let a = ('x' -> 1); a.uncheckedSlotWrite('key', 'y'); a = ('y' -> 1) /* write sl
 let a = ('x' -> 1); a.uncheckedSlotWrite('hidden', 1.pi); a = ('x' -> 1) & { a.uncheckedSlotRead('hidden') = 1.pi } /* writes to unknown slot add a slot */
 ```
 
-## Syntax -- unary messages
-```
-89.sin = 0.8600694058124533
-3.sqrt = 1.7320508075688772
-1.pi.printString = '3.141592653589793'
-'text'.size = 4
-true.not = false
-```
-
-## Syntax -- binary messages
-```
-'100' -> 100 = Association('100', 100) /* creates an association */
-3 + 4 = 7
-10 - 1 = 9
-4 <= 3 = false
-4/3 * 3 = 4 = true /* equality is a binary message; fractions are exact */
-3/4 == 3/4 = false /* two equal Fractions are not the same object */
-```
-
-## Syntax -- precedence
-```
-100.factorial / 99.factorial ~ 100 /* (unary) methods bind more closely than operators */
-2 ^ (1 + 3.factorial) = 128
-2.raisedToInteger(1 + 3.factorial) = 128
-1 + 2 * 3 = 9
-1 + (2 * 3) = 7
-3 + 4.factorial = 27 /* not 5040 */
-(3 + 4).factorial = 5040
-3 + 4 * 5 = 35 /* (not 23) binary messages sent from left to right */
-3 + (4 * 5) = 23
-1 + 1 / 3 = (2 / 3) /* not 4/3 */
-1 + (1 / 3) = (4 / 3)
-1 / 3 + 2 / 3 = (7 / 9) /* not 1 */
-(1 / 3) + (2 / 3) = 1
-```
-
 ## Unit/Mass -- physics unit type
 ```
 23.grams.typeName = 'Quantity' /* gram constructor, type of */
@@ -4007,97 +4110,6 @@ true.not = false
 system.includesPackage('Unordered') /* package */
 { [1, 2, 3].IdentitySet.at(1) }.hasError /* unordered collections do not implement at */
 { [1, 2, 3].IdentityMultiset.at(1) }.hasError
-```
-
-## PlanarCoordinates -- geometry type
-```
-system.includesPackage('PlanarCoordinates') /* package */
-PlanarCoordinates([0, 0]).typeName = 'PlanarCoordinates' /* type of */
-PlanarCoordinates([-1, 1]).isPlanarCoordinates = true
-[1, 2].PlanarCoordinates = PlanarCoordinates([1, 2]) /* from list */
-(x: 1, y: 2).PlanarCoordinates = PlanarCoordinates([1, 2]) /* from record */
-PlanarCoordinates([-1, 1]).isPlanarCoordinates = true /* point constructor */
-[1, 2].PlanarCoordinates = PlanarCoordinates([1, 2]) /* list as point */
-(x: 1, y: 2).PlanarCoordinates = PlanarCoordinates([1, 2]) /* record as point */
-[3 4].PlanarCoordinates.isPlanarCoordinates & { true } = true
-[-1 1].PlanarCoordinates.x = -1
-[-1 1].PlanarCoordinates.y = 1
-PlanarCoordinates([-1, 1]).x = -1
-PlanarCoordinates([-1, 1]).y = 1
-PlanarCoordinates([-1, 1]).x!(-3) = -3
-PlanarCoordinates([-1, 1]).y!(3) = 3
-[-1, 1] * 9 = [-9, 9]
-[-1, 1] + 2 = [1, 3]
-2 * ([1, 1].-) * 2 = ([4, 4].-)
-PlanarCoordinates([-1, 1]).printString = 'PlanarCoordinates(-1, 1)'
-[1, 1].negate = [-1, -1] /* negation */
-0 - [1, 1] = [-1, -1] /* negation as subtraction from zero */
-let p = PlanarCoordinates(-1, 1); p.x := -3; p.y := 3; p = PlanarCoordinates(-3, 3) = true
-let p = PlanarCoordinates(-1, 3); let a = [p]; a[1].x := -3; p = PlanarCoordinates(-3, 3) = true
-let x = 3.141; let y = 23; let p = PlanarCoordinates([x, y]); p.x = x & { p.y = y }
-[1 0; 1 1; 0 1; -1 1; -1 0; 0 -1].PlanarCoordinates.collect(phi/1) = (1.pi * [0, 1 / 4, 1 / 2, 3 / 4, 1, -1 / 2]) /* phi = angle from (1,0) */
-PlanarCoordinates(200, 100).x = 200 /* x coordinate */
-PlanarCoordinates(200, 100).y = 100 /* y coordinate */
-0 - PlanarCoordinates([200 100]) = PlanarCoordinates([-200, -100]) /* negates x and y */
-(0 - PlanarCoordinates([200 100])).abs = PlanarCoordinates([200 100]) /* absolute value of x and y */
-PlanarCoordinates([200, 100]) + 1 = PlanarCoordinates([201, 101]) /* add scale to both x and y */
-PlanarCoordinates([200, 100]) - 1 = PlanarCoordinates([199, 99]) /* subtract scale from both x and y */
-PlanarCoordinates([200, 100]) * 2 = PlanarCoordinates([400, 200]) /* multiply x and y by scale */
-PlanarCoordinates([200, 100]) / 2 = PlanarCoordinates([100, 50]) /* divide x and y by scale */
-PlanarCoordinates([200 100]) // 2 = PlanarCoordinates([100, 50]) /* divide x and y by scale */
-PlanarCoordinates([200, 100]) % 3 = PlanarCoordinates([2, 1]) /* modulo of x and y by scale */
-PlanarCoordinates([200, 100]) + PlanarCoordinates([50, 25]) = PlanarCoordinates([250, 125]) /* add points */
-PlanarCoordinates([200, 100]) - PlanarCoordinates([50, 25]) = PlanarCoordinates([150, 75]) /* subtract points */
-PlanarCoordinates([200, 100]) * PlanarCoordinates([3, 4]) = PlanarCoordinates([600, 400]) /* multiply points */
-PlanarCoordinates([1800, 100]) / PlanarCoordinates([3, 4]) = PlanarCoordinates([600, 25]) /* divide points */
-PlanarCoordinates([200 100]).coordinates = [200, 100] /* array of x and y */
-let v = PlanarCoordinates(3, 4); v.first = 3 & { v.second = 4 } /* implements first and second */
-let v = PlanarCoordinates(3, 4); v[1] = 3 & { v[2] = 4 } /* implements at */
-PlanarCoordinates([3, 4]).size = 2 /* implements size */
-let v = PlanarCoordinates(3, 4); v.swap!; v[1] = 4 /* swap fields in-place */
-PlanarCoordinates(3, 4).swap = PlanarCoordinates(4, 3) /* swap x&y */
-let v = PlanarCoordinates([0, 0]); let c = v.copy; c.x := 1; c != v & { c = PlanarCoordinates([1, 0]) } /* copy two vector */
-PlanarCoordinates([1, 1]).PolarCoordinates = PolarCoordinates([2.sqrt, 0.25.pi]) /* radius and angle, r and theta */
-[0 0].PlanarCoordinates.isPlanarCoordinates /* array as point, point predicate */
-[0 0].PlanarCoordinates.isOrigin /* are x and y both zero */
-[1, 1].norm = 2.sqrt /* magnitude, distance to origin */
-[1, 1].normalize = ([1, 1] / 2.sqrt) /* normalized to have unit magnitude */
-[1, 1].normalize.norm ~ 1
-PlanarCoordinates([1, 1]).norm = 2.sqrt /* magnitude, distance to origin */
-PlanarCoordinates([1, 1]).normalize = (PlanarCoordinates([1, 1]) / 2.sqrt) /* normalized to have unit magnitude */
-PlanarCoordinates([1, 1]).normalize.norm ~ 1
-```
-
-## CartesianCoordinates -- geometry type
-```
-[1, 2, 3].CartesianCoordinates = CartesianCoordinates([1, 2, 3]) /* from list */
-(x: 1, y: 2, z: 3).CartesianCoordinates = CartesianCoordinates([1, 2, 3]) /* from record */
-let a = [1, 2, 3]; let v = a.CartesianCoordinates; v.coordinates = [1, 2, 3] /* point as array */
-CartesianCoordinates([0, 0, 0]).isOrigin /* are x, y and z all zero */
-let v = CartesianCoordinates([1, 2, 3]); [v.x, v.y, v.z] = [1, 2, 3] /* fields are x, y, z */
-let v = CartesianCoordinates([3, 4, 5]); v[1] = 3 & { v[2] = 4 & { v[3] = 5 } } /* implements at */
-let v = CartesianCoordinates([3, 4, 5]); v[1] := 5; v[3] := 3; v.coordinates = [5, 4, 3] /* implements put! */
-let v = CartesianCoordinates([3, 4, 5]); [v.first, v.second, v.third] = [3, 4, 5] /* implements first &etc. */
-CartesianCoordinates([0, 0, 1]).SphericalCoordinates = SphericalCoordinates([1, 0, 0])
-SphericalCoordinates([1, 0, 0]).CartesianCoordinates = CartesianCoordinates([0, 0, 1])
-CartesianCoordinates([1, 1, 0]).SphericalCoordinates = SphericalCoordinates([2.sqrt, 1.pi / 4, 1.pi / 2])
-SphericalCoordinates([2.sqrt, 1.pi / 4, 1.pi / 2]).CartesianCoordinates ~ CartesianCoordinates([1, 1, 0])
-IsoSphericalCoordinates([3.sqrt, 2.sqrt.arcTan, 0.25.pi]).CartesianCoordinates ~ CartesianCoordinates([1, 1, 1])
-CartesianCoordinates([1, 1, 1]).SphericalCoordinates ~ IsoSphericalCoordinates([3.sqrt, 2.sqrt.arcTan, 0.25.pi])
-CartesianCoordinates([0, 0, 0]).distance(CartesianCoordinates([1, 1, 1])) = 3.sqrt
-CartesianCoordinates([0, 0, 0]).distance(CartesianCoordinates([1, 1, 0])) = 2.sqrt
-CartesianCoordinates([1, 2, 3]).distance(CartesianCoordinates([6, 5, 4])) = 35.sqrt
-CartesianCoordinates([0, 0, 0]).isCartesianCoordinates = true /* is Cartesian coordinate */
-CartesianCoordinates([0, 0, 0]).isOrigin = true /* is zero */
-let v = CartesianCoordinates([0, 0, 0]); v.CartesianCoordinates == v /* identity */
-CartesianCoordinates([1, 3, 5]).coordinates = [1 3 5] /* point as array */
-[1 3 5].CartesianCoordinates = CartesianCoordinates([1, 3, 5]) /* array as point */
-(x: 1, y: 3, z: 5).CartesianCoordinates = CartesianCoordinates([1, 3, 5]) /* record as point */
-SphericalCoordinates([1, 2, 3]).Record = (rho: 1, theta: 2, phi: 3)
-(rho: 1, theta: 2, phi: 3).SphericalCoordinates = SphericalCoordinates([1, 2, 3])
-CartesianCoordinates([1, 3, 5]).Record = (x: 1, y: 3, z: 5)
-CylindricalCoordinates([1, 1, 1]).CartesianCoordinates.Record = (x: 1.cos, y: 1.sin, z: 1)
-CartesianCoordinates([1.cos, 1.sin, 1]).CylindricalCoordinates.Record = (rho: 1, phi: 1, z: 1)
 ```
 
 ## WeakMap -- collection type

@@ -34,7 +34,6 @@
 	'Collection-Cache'
 	'Collection-CategoryDictionary'
 	'Collection-Collect'
-	'Collection-Cons'
 	'Collection-CopySequence'
 	'Collection-Dictionary'
 	'Collection-DirectedEdge'

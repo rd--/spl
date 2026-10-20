@@ -1,3 +1,6 @@
+// Never use direct eval!
+// <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval>
+
 export { MersenneTwister } from '../lib/scsynth-wasm-builds/lib/ext/mersenne-twister.ts';
 export { PriorityQueue } from '../lib/scsynth-wasm-builds/lib/ext/PriorityQueue.js';
 export { default as Delaunator } from '../lib/scsynth-wasm-builds/lib/ext/delaunator.js';
@@ -56,7 +59,7 @@ function objectNameByConstructor(anObject: SplObject): TypeName {
 	return name;
 }
 
-function splObjectTypeOf(anObject: SplObject): TypeName {
+function splObjectTypeName(anObject: SplObject): TypeName {
 	if (anObject instanceof Array) {
 		return 'List';
 	}
@@ -95,14 +98,14 @@ function splObjectTypeOf(anObject: SplObject): TypeName {
 }
 
 /* This runs slower than the form above, is .constructor.name slow?
-function splObjectTypeOf(anObject: SplObject): TypeName {
+function splObjectTypeName(anObject: SplObject): TypeName {
 	return anObject instanceof Uint8Array ? 'ByteArray' :
 		(anObject._type ||
 			(isRecord(anObject) ? 'Record' : anObject.constructor.name));
 }
 */
 
-export function splTypeOf(anObject: unknown): TypeName {
+export function splTypeName(anObject: unknown): TypeName {
 	if (anObject === null || anObject === undefined) {
 		return 'Nil';
 	}
@@ -118,9 +121,9 @@ export function splTypeOf(anObject: unknown): TypeName {
 		case 'bigint':
 			return 'LargeInteger';
 		case 'object':
-			return splObjectTypeOf(<SplObject> anObject);
+			return splObjectTypeName(<SplObject> anObject);
 		default:
-			throw new Error(`splTypeOf: unknown type: "${anObject}"`);
+			throw new Error(`splTypeName: unknown type: "${anObject}"`);
 	}
 }
 
@@ -237,7 +240,7 @@ export function evaluatePackage(pkg: Package): unknown {
 	// console.debug(`evaluatePackage: ${pkg.name}, ${pkg.url}, ${pkg.preCompiled}`);
 	if (pkg.preCompiled) {
 		try {
-			// <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval#never_use_direct_eval!>
+			// Never use direct eval!
 			return eval?.(`"use strict"; ${pkg.text}`);
 		} catch (err) {
 			throw new Error(`Error loading package: ${pkg} ${err}`);
@@ -493,7 +496,7 @@ export function dispatchByType(
 	parameterArray: unknown[],
 ) {
 	const receiver = parameterArray[0];
-	const receiverType = splTypeOf(receiver);
+	const receiverType = splTypeName(receiver);
 	const typeMethod = typeTable.get(receiverType);
 	if (!typeMethod) {
 		const arity = parameterArray.length;
@@ -640,9 +643,12 @@ export function addMethodToExistingType(
 	return addMethodFor(typeName, method, true);
 }
 
-// Allows methods to be added to 'pre-installed' types before the type is added, CF. load &etc. (& parseSmallInteger ...).
+// Allows methods to be added to 'pre-installed' types before the type is added.
+// CF. load &etc. (& parseSmallInteger ...).
 // It'd be possible to only allow this for the 'pre-installed' methods, which might be saner.
-// Run for built-in types, which may have traits.  Assumes non-kernel types have at least one slot.
+// Run for built-in types, which may have traits.
+// Assumes non-kernel types have at least one slot.
+// Does not define slot methods, see defineTypeSlotMethods.
 export function addType(
 	isHostType: boolean,
 	typeName: TypeName,
@@ -673,14 +679,6 @@ export function addType(
 		`sl.extendTraitWithMethod('Object', '${packageName}', 'is${typeName}', ['self'], function(anObject) { return false; }, '<primitive: predicate>')`;
 	const defPredicateTrue =
 		`sl.addMethodToExistingType('${typeName}', '${packageName}', 'is${typeName}', ['self'], function(anInstance) { return true; }, '<primitive: predicate>')`;
-	const defSlotAccess = slotNames.map(
-		(each) =>
-			`sl.addMethodToExistingType('${typeName}', '${packageName}', '${each}', ['self'], function(anInstance) { return anInstance.${each} }, '<primitive: accessor>');`,
-	).join('; ');
-	const defSlotMutate = slotNames.map(
-		(each) =>
-			`sl.addMethodToExistingType('${typeName}', '${packageName}', '${each}MutateInPlace', ['self', 'anObject'], function(anInstance, anObject) { anInstance.${each} = anObject; return anObject; }, '<primitive: mutator>');`,
-	).join('; ');
 	// console.debug(`addType: ${typeName}, ${packageName}, ${slotNames}`);
 	const methodDictionary = typeExists(typeName)
 		? system.typeDictionary.get(typeName)!.methodDictionary
@@ -694,14 +692,35 @@ export function addType(
 		defInitializeSlots,
 		defPredicateFalse,
 		defPredicateTrue,
-		defSlotAccess,
-		defSlotMutate,
 	].join(';');
-	// <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval#never_use_direct_eval!>
+	// Never use direct eval!
 	eval?.(`"use strict"; ${allDef}`);
 }
 
-/* Spl is one-indexed.  NB. The index is not decremented because in Js '1' - 1 is 0 &etc. */
+// This is distinct from addType because slot methods should over-ride trait methods.
+export function defineTypeSlotMethods(
+	typeName: TypeName,
+	packageName: PackageName,
+	slotNames: string[],
+): void {
+	const defSlotAccess = slotNames.map(
+		(each) =>
+			`sl.addMethodToExistingType('${typeName}', '${packageName}', '${each}', ['self'], function(anInstance) { return anInstance.${each} }, '<primitive: accessor>');`,
+	).join('; ');
+	const defSlotMutate = slotNames.map(
+		(each) =>
+			`sl.addMethodToExistingType('${typeName}', '${packageName}', '${each}MutateInPlace', ['self', 'anObject'], function(anInstance, anObject) { anInstance.${each} = anObject; return anObject; }, '<primitive: mutator>');`,
+	).join('; ');
+	const allDef = [
+		defSlotAccess,
+		defSlotMutate
+	].join(';');
+	// Never use direct eval!
+	eval?.(`"use strict"; ${allDef}`);
+}
+
+// Spl is one-indexed.
+// NB. The index is not decremented because in Js '1' - 1 is 0 &etc.
 export function arrayCheckIndex(
 	anArray: unknown[],
 	anInteger: number | bigint,
