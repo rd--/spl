@@ -40,7 +40,7 @@ TypedDictionary : [Object, Store, Equal, Do, At, Indices, Put, Collect, Collecti
 	}
 
 	typeCheckKey { :self :key |
-		(key.typeOf = self.keyType).if {
+		(key.typeName = self.keyType).if {
 			key
 		} {
 			self.error('invalid key', key)

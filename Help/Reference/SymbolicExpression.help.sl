@@ -14,7 +14,7 @@ true
 >>> (`x` = `y`).isSymbolicExpression
 true
 
->>> (`x` + `y`).typeOf
+>>> (`x` + `y`).typeName
 'SymbolicExpression'
 ```
 

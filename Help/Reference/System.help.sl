@@ -7,7 +7,7 @@ The global value `system` is the singular instance.
 Type, trait and method dictionaries, timers, random number and unique identifier generators are implemented at `System`.
 
 ```
->>> system.typeOf
+>>> system.typeName
 'System'
 ```
 

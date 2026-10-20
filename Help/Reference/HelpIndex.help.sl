@@ -8,7 +8,7 @@ Each entry in the index is a list _(kind,topic)_.
 The `helpIndex` method at `System` answers a `HelpIndex`:
 
 ```
->>> system.helpIndex.typeOf
+>>> system.helpIndex.typeName
 'HelpIndex'
 ```
 

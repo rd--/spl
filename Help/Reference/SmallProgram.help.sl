@@ -6,7 +6,7 @@ A _program_ is entered into a _text area_.
 Programs may span multiple lines and the text are will expand as required.
 To evaluate the program type _Shift-Enter_.
 When a program is evaluated the _answer_ is displayed in an answer cell.
-`SmallProgram` uses the `typeOf` the answer to decide how to display it.
+`SmallProgram` uses the `typeName` the answer to decide how to display it.
 The answer cell stores the program use to construct it,
 which may be viewed by hovering over the answer.
 

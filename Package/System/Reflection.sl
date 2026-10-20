@@ -297,7 +297,7 @@
 +@Object {
 
 	respondsTo { :self :aBlock |
-		system.typeMethodDictionary(self.typeOf).anySatisfy { :each |
+		system.typeMethodDictionary(self.typeName).anySatisfy { :each |
 			each.qualifiedName = aBlock.name
 		}
 	}

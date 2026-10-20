@@ -31,7 +31,7 @@ true
 
 * * *
 
-See also: elementType, isMatrix, isVector, typeOf
+See also: elementType, isMatrix, isVector, typeName
 
 Guides: Predicate Functions, Vector Functions
 

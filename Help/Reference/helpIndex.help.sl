@@ -5,7 +5,7 @@
 Answer a `HelpIndex` holding an index of the Sᴘʟ help files.
 
 ```
->>> system.helpIndex.typeOf
+>>> system.helpIndex.typeName
 'HelpIndex'
 ```
 

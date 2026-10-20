@@ -80,13 +80,13 @@ List traits implemented by `SmallFloat`:
 Literal syntaxes:
 
 ```
->>> 3.141.typeOf
+>>> 3.141.typeName
 'SmallFloat'
 
->>> 23.typeOf
+>>> 23.typeName
 'SmallFloat'
 
->>> 2.3E3.typeOf
+>>> 2.3E3.typeName
 'SmallFloat'
 ```
 

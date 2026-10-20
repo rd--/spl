@@ -411,7 +411,7 @@
 	}
 
 	catenateStrict { :self |
-		(self.elementType = self.typeOf).ifFalse {
+		(self.elementType = self.typeName).ifFalse {
 			self.error('@Sequence>>catenateStrict: invalid element type')
 		};
 		self.catenate
@@ -924,7 +924,7 @@
 
 	isEqualBy { :self :anObject :aBlock/2 |
 		(self == anObject) | {
-			(self.typeOf = anObject.typeOf) & {
+			(self.typeName = anObject.typeName) & {
 				self.hasEqualElements(anObject, aBlock/2)
 			}
 		}

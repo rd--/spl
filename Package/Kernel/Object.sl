@@ -35,7 +35,7 @@
 	}
 
 	concisePrintString { :self |
-		self.typeOf.withIndefiniteArticle
+		self.typeName.withIndefiniteArticle
 	}
 
 	constant { :self :numArgs |
@@ -71,7 +71,7 @@
 	errorMessage { :self :message :parameters |
 		'%: %: %: (%)'.format(
 			[
-				self.typeOf,
+				self.typeName,
 				message,
 				parameters.printString,
 				self.printStringLimitedTo(16)
@@ -150,7 +150,7 @@
 	notificationMessage { :self :message |
 		'%: %: (%)'.format(
 			[
-				self.typeOf,
+				self.typeName,
 				message,
 				self.printStringLimitedTo(16)
 			]
@@ -163,11 +163,11 @@
 	}
 
 	perform { :self :aString |
-		system.methodLookupAtType(aString, 1, self.typeOf).block . (self)
+		system.methodLookupAtType(aString, 1, self.typeName).block . (self)
 	}
 
 	perform { :self :aString :aValue |
-		system.methodLookupAtType(aString, 2, self.typeOf).block . (self, aValue)
+		system.methodLookupAtType(aString, 2, self.typeName).block . (self, aValue)
 	}
 
 	primitiveIdentity { :self :anObject |
@@ -183,7 +183,7 @@
 	}
 
 	printString { :self |
-		self.typeOf.withIndefiniteArticle
+		self.typeName.withIndefiniteArticle
 	}
 
 	printStringLimitedTo { :self :count |
@@ -230,10 +230,10 @@
 	}
 
 	typeDefinition { :self |
-		system.typeLookup(self.typeOf)
+		system.typeLookup(self.typeName)
 	}
 
-	typeOf { :self |
+	typeName { :self |
 		<primitive: return sl.splTypeOf(_self);>
 	}
 

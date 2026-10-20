@@ -96,7 +96,7 @@ SfAcquire('PianoC5', 2, [1, 2]) = [100, 101]
 
 ## System -- extensions
 ```
-system.scSynth.typeOf = 'ScSynth'
+system.scSynth.typeName = 'ScSynth'
 system.scSynth.isScSynth
 ```
 

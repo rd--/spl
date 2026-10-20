@@ -2,7 +2,7 @@
 
 - _keyType(d)_
 
-Answer the uniform `typeOf` each key of the dictionary _d_,
+Answer the uniform `typeName` each key of the dictionary _d_,
 else `nil`.
 
 At `Record`:
@@ -44,7 +44,7 @@ nil
 
 * * *
 
-See also: elementType, typeOf, valueType
+See also: elementType, typeName, valueType
 
 Guides: Dictionary Functions, Reflection Functions
 

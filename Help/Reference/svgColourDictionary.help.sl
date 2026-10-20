@@ -11,7 +11,7 @@ A variant of `svgColourCatalogue` where the values are given as `RgbColour` valu
 
 >>> system.svgColourDictionary
 >>> .anyOne
->>> .typeOf
+>>> .typeName
 'RgbColour'
 ```
 

@@ -63,6 +63,13 @@ Zero array of _n_ places:
 Float32Array[0 0 0 0 0]
 ```
 
+Species:
+
+```
+>>> Float32Array[1 2 3].species
+zeroFloat32Array/1
+```
+
 * * *
 
 See also: ByteArray, List, Float64Array, encode

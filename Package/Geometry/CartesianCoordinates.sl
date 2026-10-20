@@ -6,7 +6,7 @@
 
 	assertIsCompatibleOperand { :self :operand |
 		(
-			(self.typeOf = operand.typeOf) & {
+			(self.typeName = operand.typeName) & {
 				self.size = operand.size
 			}
 		).if {

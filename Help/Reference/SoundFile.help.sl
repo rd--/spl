@@ -29,7 +29,7 @@ SoundFile(url).then { :soundFile |
 		soundFile.sampleRate,
 		soundFile.url,
 		channelData.size,
-		channelData.typeOf
+		channelData.typeName
 	).printLine;
 	channelData
 	.List

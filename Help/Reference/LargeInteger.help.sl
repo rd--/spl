@@ -87,7 +87,7 @@ Large integers have a distinct literal syntax indicated by an _L_ suffix.
 >>> LargeInteger(23)
 23L
 
->>> 23L.typeOf
+>>> 23L.typeName
 'LargeInteger'
 ```
 

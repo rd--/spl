@@ -66,7 +66,7 @@ List of types implementing `Stream`:
 The `Stream` constructor method answers a `CollectionStream`:
 
 ```
->>> Stream[1 2 3].typeOf
+>>> Stream[1 2 3].typeName
 'CollectionStream'
 ```
 

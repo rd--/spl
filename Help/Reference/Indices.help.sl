@@ -41,7 +41,9 @@ Types implementing `Indices`:
 [
 	'AsciiString'
 	'ByteArray'
+	'CartesianCoordinates'
 	'Dictionary'
+	'DirectedEdge'
 	'Float32Array'
 	'Float64Array'
 	'LinkedList'
@@ -58,6 +60,7 @@ Types implementing `Indices`:
 	'TimeSeries'
 	'Tree'
 	'TypedDictionary'
+	'UndirectedEdge'
 ]
 ```
 

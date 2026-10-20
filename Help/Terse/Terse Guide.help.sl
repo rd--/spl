@@ -3,7 +3,7 @@
 ## PlaneAngle -- geometry type
 ```
 system.includesPackage('PlaneAngle') /* plane angle package */
-PlaneAngle(1.pi).typeOf = 'Quantity' /* type of angle */
+PlaneAngle(1.pi).typeName = 'Quantity' /* type of angle */
 PlaneAngle(1.pi).isPlaneAngle /* angle predicate */
 PlaneAngle(1).inDegrees ~ 57.296 /* radians to degrees */
 PlaneAngle(1.pi).inDegrees = 180 /* pi radians is 180 degrees */
@@ -248,7 +248,7 @@ let x = 8.625; let y = 0.75; let q = x.quotientBy(y, round/1); let r = x.remaind
 ## List -- collection type
 ```
 system.includesPackage('List') /* list package */
-[].typeOf = 'List' /* type of List */
+[].typeName = 'List' /* type of List */
 [].species == nilList/1 /* species of List */
 [].new = [] /* new empty array */
 [].new(3) = [nil, nil, nil] /* new array of indicated size */
@@ -556,7 +556,7 @@ let a = 1; let b = 2; let c = 3; [a, b, c] := [b, c, a]; [a, b, c] = [2, 3, 1] /
 ## Association -- collection type
 ```
 system.includesPackage('Association') /* association package */
-('x' -> 1).typeOf = 'Association' /* arrow (->) constructor, unicode = → */
+('x' -> 1).typeName = 'Association' /* arrow (->) constructor, unicode = → */
 ('x' -> 1).isAssociation /* type predicate */
 Association('x', 1) = ('x' -> 1)
 let a = 'x' -> 1; [a.key, a.value] = ['x', 1] /* key and value accessors */
@@ -580,7 +580,7 @@ let a = 'x' -> 1; a.key := 'y'; a.value := 2; a = ('y' -> 2) /* set key and valu
 ```
 system.includesPackage('Multiset') /* bag package */
 IdentityMultiset().isIdentityMultiset = true
-IdentityMultiset().typeOf = 'IdentityMultiset'
+IdentityMultiset().typeName = 'IdentityMultiset'
 IdentityMultiset().isCollection
 IdentityMultiset().isIndexable = false
 IdentityMultiset().isSequence = false
@@ -705,7 +705,7 @@ BitSet([1, 3, 9], 10).with { :b | b.clearBitAt(3); b.List = [1, 9] } /* clearBit
 ## BinaryLargeObject -- system type
 ```
 system.includesPackage('BinaryLargeObject') /* blob package */
-BinaryLargeObject([], (:)).typeOf = 'BinaryLargeObject' /* type of BinaryLargeObject */
+BinaryLargeObject([], (:)).typeName = 'BinaryLargeObject' /* type of BinaryLargeObject */
 BinaryLargeObject([], (:)).size = 0 /* empty BinaryLargeObject has size zero */
 BinaryLargeObject([], (:)).isEmpty /* empty BinaryLargeObject is empty */
 ```
@@ -759,8 +759,8 @@ true.printString = 'true' /* true print string */
 true.storeString = 'true' /* true store string */
 false.printString = 'false' /* false print string */
 false.storeString = 'false' /* false store string */
-true.typeOf = 'Boolean' /* type of true is Boolean */
-false.typeOf = 'Boolean' /* type of false is Boolean */
+true.typeName = 'Boolean' /* type of true is Boolean */
+false.typeName = 'Boolean' /* type of false is Boolean */
 true.isNumber.not /* true is not a number */
 true.isBoolean /* true is a Boolean */
 false.isBoolean /* false is a Boolean */
@@ -811,7 +811,7 @@ false != nil
 ## ByteArray -- collection type
 ```
 system.includesPackage('ByteArray') /* byte array package */
-ByteArray(0, 0).typeOf = 'ByteArray' /* byte array type name */
+ByteArray(0, 0).typeName = 'ByteArray' /* byte array type name */
 ByteArray(0, 0).species == zeroByteArray/1 /* byte array species */
 ByteArray(0, 0).isList = false /* byte arrays are arrays */
 ByteArray(0, 0).isByteArray /* byte array predicate */
@@ -851,7 +851,7 @@ let s = 'string'; let a = []; a.addAll!(s.asciiByteArray); a.size = 6 /* add ele
 
 ## CategoryDictionary -- categorization type
 ```
-system.categoryDictionary.typeOf = 'CategoryDictionary'
+system.categoryDictionary.typeName = 'CategoryDictionary'
 system.categoryDictionary.isCategoryDictionary
 system.categoryDictionary.categoryOf('put') = 'accessing' /* category of in any domain */
 system.categoryDictionary.categoryOf('type', 'RgbColour') = 'Graphics' /* category of in given domain */
@@ -895,7 +895,7 @@ let s = 'string'; let a = []; a.addAll!(s); a.size = 6 /* add elements from Stri
 ## Circle -- geometric type
 ```
 system.includesPackage('Circle') /* package */
-Circle([0 0], 1).typeOf = 'Circle' /* type of */
+Circle([0 0], 1).typeName = 'Circle' /* type of */
 Circle([0 0], 1).isCircle /* predicate */
 Circle([0 0], 1).center = [0 0] /* center */
 Circle([0 0], 1).radius = 1 /* radius */
@@ -906,7 +906,7 @@ Circle([0 0], 1).area = 1.pi /* area */
 
 ## Clock -- temporal type
 ```
-Clock().typeOf = 'Clock' /* type of clock */
+Clock().typeName = 'Clock' /* type of clock */
 Clock().isClock /* clock predicate */
 Clock().priorityQueue.isPriorityQueue /* priority queue of clock */
 Clock().priorityQueue.isEmpty /* priority queue is initially empty */
@@ -1257,7 +1257,7 @@ let b = [1, 2].ByteArray; let c = b.copy; c[1] := 3; c[1] = 3 & { b[1] = 1 } /* 
 ## Date -- temporal type
 ```
 system.includesPackage('Date') /* date package */
-system.now.Date.typeOf = 'Date' /* type of Date, system constructor gets current date */
+system.now.Date.typeName = 'Date' /* type of Date, system constructor gets current date */
 0.Date.isDate /* Date type predicate, number constructor accepts time from epoch in seconds */
 let d = 0.Date; [d.year, d.month, d.dayOfMonth] = [1970, 1, 1] /* month and day are one-indexed */
 0.Date = 0.Date /* dates are comparable */
@@ -1270,7 +1270,7 @@ system.now.Date > 0.Date /* dates are magnitudes */
 ## DateAndTime -- temporal type
 ```
 system.includesPackage('DateAndTime') /* date and time package */
-system.now.DateAndTime.typeOf = 'DateAndTime' /* type of DateAndTime, system constructor gets current date and time */
+system.now.DateAndTime.typeName = 'DateAndTime' /* type of DateAndTime, system constructor gets current date and time */
 '1970-01-01T00:00:01.000Z'.parseDateAndTime.absoluteTime = 1 /* parse ISO-8601 string & convert to unix time */
 let d = 0.DateAndTime; [d.hour, d.minute, d.wholeSecond] = [0, 0, 0] /* hour is in UTC */
 ```
@@ -1347,7 +1347,7 @@ let d = (x: 1, parent: (y: 2, parent: (z: 3))); d.putDelegateTo('z', -3, 'parent
 ## Duration -- temporal type
 ```
 system.includesPackage('Duration') /* duration package */
-2.seconds.Duration.typeOf = 'Duration' /* make duration from number of seconds */
+2.seconds.Duration.typeName = 'Duration' /* make duration from number of seconds */
 5.hours.Duration.isDuration = true /* make duration from number of hours */
 let f = { :t0 | let t1 = system.randomReal([0 2], []); f/1.scheduleAfterWith(t1, t1) }; f(2).cancel = nil
 60.seconds.Duration.inSeconds = 60 /* convert duration to seconds */
@@ -1384,7 +1384,7 @@ let x = nil; { { ''.error }.ensure { x := true } }.ignoreError; x /* ensure term
 ## Float64Array -- collection type
 ```
 system.includesPackage('Float64Array') /* package */
-Float64Array(0, 0).typeOf = 'Float64Array' /* type of */
+Float64Array(0, 0).typeName = 'Float64Array' /* type of */
 Float64Array(0, 0).species == zeroFloat64Array/1 /* species */
 Float64Array(0, 0).isFloat64Array /* type predicate */
 Float64Array(0, 0).isEmpty /* is empty predicate */
@@ -1583,7 +1583,7 @@ Fraction(-4, -12) = 1/3
 6/5 / 10/7 = 21/25
 (3/4).SmallFloat = 0.75
 (1/2).SmallFloat = (1 / 2)
--1/3.typeOf = 'Fraction'
+-1/3.typeName = 'Fraction'
 3/5 + 1 = 8/5
 3/5 - 0.5 ~ 0.1
 0.5 ~ 1/2
@@ -1615,7 +1615,7 @@ Fraction(-4, -12) = 1/3
 ## Frequency -- temporal type
 ```
 system.includesPackage('Frequency') /* frequency package */
-1.hertz.typeOf = 'Quantity' /* frequency from hertz (cyles per second) */
+1.hertz.typeName = 'Quantity' /* frequency from hertz (cyles per second) */
 1.hertz.isFrequency /* frequency predicate */
 10.hertz.Duration = (1 / 10).seconds.Duration /* duration is the reciprocal of frequency */
 1.kilohertz.Duration = 1.milliseconds.Duration /* the period of 1kHz is 1ms */
@@ -1625,7 +1625,7 @@ system.includesPackage('Frequency') /* frequency package */
 ## Graph -- collection type
 ```
 system.includesPackage('Graph') /* graph package */
-Graph([], []).typeOf = 'Graph' /* graph type */
+Graph([], []).typeName = 'Graph' /* graph type */
 Graph([], []).isGraph /* graph predicate */
 let g = [1 2; 2 3; 3 1].Graph; g.vertexCount = 3 & { g.edgeCount = 3 }
 ```
@@ -1976,7 +1976,7 @@ let a = []; 1:9.selectThenDo(isEven/1) { :each | a.add!(each * 3) }; a = [6, 12,
 ## LargeInteger -- numeric type
 ```
 system.includesPackage('LargeInteger') /* LargeInteger package */
-23L.typeOf = 'LargeInteger' /* syntax for large integer literals */
+23L.typeName = 'LargeInteger' /* syntax for large integer literals */
 (2L ^ 53 - 1).square.printString = '81129638414606663681390495662081L'
 (2L ^ 37).square.storeString = '18889465931478580854784L'
 '324518553658426726783156020576256'.parseLargeInteger.isLargeInteger = true
@@ -2018,7 +2018,7 @@ let a = [9, 8 .. 1]; { a[5L] }.hasError /* large integers are not valid indices 
 ## Length -- geometry type
 ```
 system.includesPackage('Length') /* Length package */
-1.metres.typeOf = 'Quantity' /* metre constructor, type of */
+1.metres.typeName = 'Quantity' /* metre constructor, type of */
 1.metres.isLength /* length predicate */
 10.centimetres.inMetres = 0.1 /* metres of length, or identity of number */
 ```
@@ -2026,7 +2026,7 @@ system.includesPackage('Length') /* Length package */
 ## LinkedList -- collection type
 ```
 system.includesPackage('LinkedList') /* LinkedList package */
-LinkedList().typeOf = 'LinkedList' /* type of linked list */
+LinkedList().typeName = 'LinkedList' /* type of linked list */
 LinkedList().isLinkedList = true /* type predicate for linked list */
 LinkedList().size = 0 /* empty linked list */
 LinkedList().isEmpty /* empty linked list */
@@ -2175,7 +2175,7 @@ let f = { :x :y | x + y }; { f(true, false) }.hasError /* boolean does not imple
 ## Nil -- kernel type
 ```
 system.includesPackage('Nil') /* package */
-nil.typeOf = 'Nil' /* type of nil is Nil */
+nil.typeName = 'Nil' /* type of nil is Nil */
 nil.isNil = true /* is nil predicate */
 nil = nil /* nil equality */
 nil == nil /* nil identity */
@@ -2237,7 +2237,7 @@ let i = 1; 1:3.do { :each | i := i + each.square }; i = 15 /* iterate over numbe
 ## Object -- kernel trait
 ```
 system.includesPackage('Object') /* package */
-[1, 3, 5].typeOf = 'List' /* name of type of object */
+[1, 3, 5].typeName = 'List' /* name of type of object */
 [1, 3, 5].species == nilList/1
 [1, 3, 5].IdentitySet.species == IdentitySet/0
 [1, 3, 5].IdentityMultiset.species == IdentityMultiset/0
@@ -2295,7 +2295,7 @@ let a = [1 .. 5]; a.removeLast!; a = [1 .. 4] /* remove last element */
 ## Package
 ```
 system.includesPackage('Package') /* package */
-system.packageDictionary['Date'].typeOf = 'Package' /* type of package */
+system.packageDictionary['Date'].typeName = 'Package' /* type of package */
 system.packageDictionary['Date'].isPackage /* package type predicate */
 Package('Category', 'Name', ['Requires'], 'Category/Name.sl', 'Code').isPackage
 (Name: 'Set').Package.isPackage /* package from dictionary, name is the only required field, package predicate */
@@ -2339,8 +2339,8 @@ let p = PriorityQueue(); p.peekPriority = nil
 ## Block -- behaviour type
 ```
 system.includesPackage('Block') /* package */
-{ }.typeOf = 'Block'
-typeOf/1.typeOf = 'Block'
+{ }.typeName = 'Block'
+typeName/1.typeName = 'Block'
 let i = 1; { i < 5 }.whileTrue { i := i + 1 }; i = 5 /* mutate outer temporary */
 let i = 1; whileTrue { i < 5 } { i := i + 1 }; i = 5 /* trailing closure syntax */
 { }.numArgs = 0 /* block arity */
@@ -2389,7 +2389,7 @@ let f = { :x :y | x := y; x }; f(1, 3) = 3 /* arguments are mutable */
 let f = { }; f/0 == f/0 /* identity */
 { }.printString = 'a Block'
 { :x | x }.printString = 'a Block'
-{ }.typeOf = 'Block'
+{ }.typeName = 'Block'
 { }.apply = nil /* empty block evaluates to nil */
 { var x; nil }.apply = nil /* a block cannot end with a var declaration */
 { let x = 1; nil }.apply = nil /* a block cannot end with a let binding */
@@ -2485,7 +2485,7 @@ let a = [1 .. 5].IdentitySet; let b = IdentityMultiset(); 250.timesRepeat { b.ad
 ## Random -- Sfc32
 ```
 system.includesPackage('Sfc32') /* Sfc32 package */
-let r = Sfc32(98765); r.typeOf = 'Sfc32' /* type */
+let r = Sfc32(98765); r.typeName = 'Sfc32' /* type */
 let r = Sfc32(98765); r.isSfc32 /* predicate */
 let r = Sfc32(98765); r.isRandomNumberGenerator /* predicate */
 let r = Sfc32(98765); r.nextRandomFloat = 0.49556130869314075 /* random number in [0, 1) */
@@ -2501,7 +2501,7 @@ let r = Sfc32(); let s = IdentitySet(); 729.timesRepeat { s.include!(r.randomInt
 ## Random -- MersenneTwister
 ```
 system.includesPackage('MersenneTwister') /* Mersenne package */
-let m = MersenneTwister(98765); m.typeOf = 'MersenneTwister' /* type of */
+let m = MersenneTwister(98765); m.typeName = 'MersenneTwister' /* type of */
 let m = MersenneTwister(98765); m.isMersenneTwister /* predicate */
 let m = MersenneTwister(98765); m.isRandomNumberGenerator /* predicate */
 let m = MersenneTwister(98765); m.nextRandomFloat = 0.088898599949636 /* random number in [0, 1) */
@@ -2520,7 +2520,7 @@ let m = MersenneTwister(98765); let a = m.next(9); m.reset!; m.next(9) = a /* st
 ## Random -- SplitMix
 ```
 system.includesPackage('SplitMix') /* SplitMix package */
-let r = SplitMix(98765); r.typeOf = 'SplitMix' /* type of */
+let r = SplitMix(98765); r.typeName = 'SplitMix' /* type of */
 let r = SplitMix(98765); r.isSplitMix /* predicate */
 let r = SplitMix(98765); r.isRandomNumberGenerator /* predicate */
 let r = SplitMix(98765); r.nextRandomFloat = 0.08824091404676437 /* random number in [0, 1) */
@@ -2535,7 +2535,7 @@ let r = SplitMix(98765); let a = r.next(9); r.reset!; r.next(9) = a /* stream in
 ## Random -- LinearCongruential
 ```
 system.includesPackage('LinearCongruential') /* LinearCongruential package */
-let r = numericalRecipesLinearCongruential(42); r.typeOf = 'LinearCongruential' & { r.isLinearCongruential } & { r.isRandomNumberGenerator }
+let r = numericalRecipesLinearCongruential(42); r.typeName = 'LinearCongruential' & { r.isLinearCongruential } & { r.isRandomNumberGenerator }
 let r = numericalRecipesLinearCongruential(42); [r.nextRandomFloat, r.nextRandomFloat] = [0.3746499199817101, 0.729023776863283]
 let r = numericalRecipesLinearCongruential(42); r.isStream /* stream predicate */
 let r = numericalRecipesLinearCongruential(42); let a = r.next(9); r.reset!; r.next(9) = a /* stream interface, next(k) answers next k items, reset resets */
@@ -2544,7 +2544,7 @@ let r = numericalRecipesLinearCongruential(42); let a = r.next(9); r.reset!; r.n
 ## Iterator -- collection trait
 ```
 system.includesPackage('Iterator') /* Iterator package */
-[].Iterator.typeOf = 'CollectionStream' /* type of iterator */
+[].Iterator.typeName = 'CollectionStream' /* type of iterator */
 1:5.Iterator.upTo(3) = 1:2 /* read up to, but not including, an element, answer is of species of collection */
 1:5.Iterator.upTo(9) = 1:5 /* read up to end if element is not located */
 let r = [1 .. 5].Iterator; [r.next, r.next(3), r.next, r.next] = [1, [2, 3, 4], 5, nil] /* next answers nil at end */
@@ -2561,7 +2561,7 @@ let r = 1:9.Iterator; [r.nextMatchAll([1, 2, 3]), r.next] = [true, 4] /* predica
 ## Sphere -- geometric type
 ```
 system.includesPackage('Sphere') /* package */
-Sphere([0 0 0], 1).typeOf = 'Sphere' /* type of */
+Sphere([0 0 0], 1).typeName = 'Sphere' /* type of */
 Sphere([0 0 0], 1).isSphere /* predicate */
 Sphere([0 0 0], 1).center = [0 0 0] /* center */
 Sphere([0 0 0], 1).radius = 1 /* radius */
@@ -2573,7 +2573,7 @@ Ball([0 0 0], 1).volume = (4.pi / 3) /* volume */
 ## Stream -- collection trait
 ```
 system.includesPackage('Stream') /* Stream package */
-[].Stream.typeOf = 'CollectionStream' /* type of stream */
+[].Stream.typeName = 'CollectionStream' /* type of stream */
 let s = 1:9.Stream; let a = s.next(9); s.reset!; s.next(9) = a /* reset stream */
 ```
 
@@ -2596,7 +2596,7 @@ let r = 1:9.Stream; [r.next, r.back!, r.next] = [1, 1, 1] /* go back one element
 ## Record -- collection type
 ```
 system.includesPackage('Record') /* package */
-(:).typeOf = 'Record' /* literal empty record syntax, typeOf query */
+(:).typeName = 'Record' /* literal empty record syntax, typeName query */
 (:).isRecord /* record predicate */
 (:).species == Record/0 /* record species */
 Record().isRecord /* empty record constructor */
@@ -2696,7 +2696,7 @@ let r = Rectangle([10, 20], [30, 50]); r.upperRightQuadrant.upperRightQuadrant =
 ## RegularExpression -- text type
 ```
 system.includesPackage('RegularExpression') /* regular expression package */
-RegularExpression('ab+c').typeOf = 'RegExp' /* type of, single argument constructor */
+RegularExpression('ab+c').typeName = 'RegExp' /* type of, single argument constructor */
 RegularExpression('ab+c').isRegularExpression = true /* type predicate */
 RegularExpression('x.x').source = 'x.x' /* retrieve source */
 RegularExpression('x.x', 'g').flags = 'g' /* retreive flags */
@@ -3054,7 +3054,7 @@ let s = IdentitySet(); [5 4 6 7 8 9 10 11 3].do { :each | s.include!(each) }; s 
 ## SmallFloat -- numeric type
 ```
 system.includesPackage('SmallFloat') /* package */
-3.141.typeOf = 'SmallFloat'
+3.141.typeName = 'SmallFloat'
 3.141.SmallFloat == 3.141 /* SmallFloat is identity, c.f. Fraction>>SmallFloat */
 0 = -0 = true
 1 = 1 = true
@@ -3230,7 +3230,7 @@ let a = [5 .. 9].SortedList(>); a.addAll!([1 .. 4]); a.collection = [9, 8 .. 1]
 ## Stack -- collection type
 ```
 system.includesPackage('Stack') /* stack package */
-Stack().typeOf = 'Stack' /* Stack is a type */
+Stack().typeName = 'Stack' /* Stack is a type */
 Stack().isStack /* empty stack, stack predicate */
 Stack().isEmpty /* empty stack, empty predicate */
 Stack().size = 0 /* empty stack, size */
@@ -3294,7 +3294,7 @@ system.includesPackage('String') /* package */
 'Mačiūnas'.utf16List.size = 8
 'string'.allButFirst = 'tring' /* all but first character of a String */
 'string'.allButFirst(4) = 'ng' /* all but first n characters of a String */
-''.typeOf = 'String' /* type of String */
+''.typeName = 'String' /* type of String */
 ''.size = 0 /* the empty String has size zero */
 'x'.displayString = 'x' /* displayString at String is identity */
 'x'.displayString.size = 1
@@ -3652,7 +3652,7 @@ let [x, _, _, z] = [1, 2, 3, 4]; [x, z] = [1, 4] /* multiple unused variables ca
 ## System -- system type
 ```
 system.includesPackage('System') /* package */
-system.typeOf = 'System' /* system type */
+system.typeName = 'System' /* system type */
 system.isSystem /* system predicate */
 system.typeDictionary.indices.includes('System') = true
 system.nextRandomFloat < 1 /* system random number generator */
@@ -3687,7 +3687,7 @@ let f = { { (0 -- 1).atRandom }.once(system, 'anotherUniqueKey') }; f() = f() & 
 ## System -- categoryDictionary
 ```
 system.includesPackage('CategoryDictionary') /* category dictionary package */
-system.categoryDictionary.typeOf = 'CategoryDictionary' /* type of category dictionary */
+system.categoryDictionary.typeName = 'CategoryDictionary' /* type of category dictionary */
 system.categoryDictionary.isCategoryDictionary = true /* category dictionary predicate */
 system.categoryDictionary.isCategoryName('method', 'accessing') = true
 system.categoryDictionary.isCategoryName('accessing') = true
@@ -3805,7 +3805,7 @@ system.traitDictionary['Dictionary'].isTrait = true
 system.typeDictionary.isDictionary = true
 system.typeDictionary.indices.includes('List') = true
 system.typeDictionary.includesIndex('List') = true
-system.typeDictionary['List'].typeOf = 'Type' /* type of type is Type */
+system.typeDictionary['List'].typeName = 'Type' /* type of type is Type */
 system.typeDictionary['List'].isType = true /* Type type predicate */
 system.typeDictionary['List'].traitNameList.includes('Collect') = true
 system.typeDictionary['Association'].slotNameList = ['key', 'value']
@@ -3822,12 +3822,12 @@ system.typeMethodDictionary('List').anySatisfy { :each | each.name ='select' } =
 system.typeLookup('String').isType = true
 system.typeLookup('String').methodDictionary.includesIndex('includesSubstring/2') = true
 system.typeLookup('Void').methodDictionary.includesIndex('IdentitySet/0') = true
-system.typeLookup(4/3.typeOf).slotNameList = ['numerator', 'denominator']
+system.typeLookup(4/3.typeName).slotNameList = ['numerator', 'denominator']
 ```
 
 ## System -- localStorage
 ```
-system.localStorage.typeOf = 'Storage' /* system local storage, persistent key-value store */
+system.localStorage.typeName = 'Storage' /* system local storage, persistent key-value store */
 system.localStorage.isStorage = true /* storage predicate */
 system.localStorage.size >= 0 /* number of elements in local storage */
 system.localStorage.keys.allSatisfy(isString/1) /* keys and values must each be strings */
@@ -3841,7 +3841,7 @@ system.localStorage.removeAll! = nil /* remove all entries, answer nil */
 ## System -- Uniform Resource Locator (Url)
 ```
 system.includesPackage('Url') /* package */
-'http://cern.ch/'.Url.typeOf = 'URL' /* the system type is all upper case */
+'http://cern.ch/'.Url.typeName = 'URL' /* the system type is all upper case */
 'http://cern.ch/'.Url.isUrl = true /* type predicate */
 'http://cern.ch/'.Url.href = 'http://cern.ch/' /* url href */
 'http://cern.ch/'.Url.hostName = 'cern.ch' /* url host name */
@@ -3861,7 +3861,7 @@ system.splFileName('Package/SmallKansas/PackageBrowser.sl').fileUrl.fetchText.th
 ## System -- UrlQueryParameters
 ```
 system.includesPackage('UrlQueryParameters') /* package */
-'x=1'.UrlQueryParameters.typeOf = 'URLSearchParams' /* string constructor, note type name! */
+'x=1'.UrlQueryParameters.typeName = 'URLSearchParams' /* string constructor, note type name! */
 'x=1'.UrlQueryParameters.isUrlQueryParameters /* type predicate */
 'x=3.141&y=23'.UrlQueryParameters.includes('x') = true
 'x=3.141&y=23'.UrlQueryParameters['y'] = '23'
@@ -3905,19 +3905,19 @@ let t = 1676784053576.TimeStamp; let c = t.copy; c !== t & { c = t }
 ## Tuple -- collection type
 ```
 system.includesPackage('Tuple') /* package */
-(1, 2).typeOf = 'Tuple' /* type of */
+(1, 2).typeName = 'Tuple' /* type of */
 (1, 2).isTuple /* type predicate */
 (1, 2).at(1) = 1 /* first element */
 (1, 2).at(2) = 2 /* second element */
 (1, 2).size = 2 /* size of */
-(1, 2, 3).typeOf = 'Tuple' /* type of */
+(1, 2, 3).typeName = 'Tuple' /* type of */
 (1, 2, 3).isTuple /* type predicate */
 (1, 2, 3).at(1) = 1 /* first element */
 (1, 2, 3).at(2) = 2 /* second element */
 (1, 2, 3).at(3) = 3 /* third element */
 (1, 2, 3).size = 3 /* size of */
 [1 2 3].Tuple = (1, 2, 3) /* from list */
-(1, 2, 3).typeOf = 'Tuple' /* type of */
+(1, 2, 3).typeName = 'Tuple' /* type of */
 (1, 2, 3).isTuple = true /* type predicate */
 (1, 2, 3).size = 3 /* size of */
 (1, 2, 3).isCollection = false /* collection trait */
@@ -3930,7 +3930,7 @@ let t = (1, 2, 3); t[3] = 3 /* at protocol */
 
 ## Type -- reflection type
 ```
-system.typeLookup('RgbColour').typeOf = 'Type' /* type of type */
+system.typeLookup('RgbColour').typeName = 'Type' /* type of type */
 system.typeLookup('RgbColour').isType /* is type predicate */
 system.typeLookup('RgbColour').category = 'Graphics' /* category of type */
 system.typeLookup('RgbColour').constructorName = 'newRgbColour/0' /* constructor name for type */
@@ -3987,14 +3987,14 @@ true.not = false
 
 ## Unit/Mass -- physics unit type
 ```
-23.grams.typeOf = 'Quantity' /* gram constructor, type of */
+23.grams.typeName = 'Quantity' /* gram constructor, type of */
 23.grams.isMass /* mass predicate */
 23.grams.inKilograms = 0.023 /* grams of mass, or identity of number */
 ```
 
 ## Unit/SiUnit -- units type
 ```
-'kg'.siUnit.typeOf = 'SiUnit' /* type of SiUnit */
+'kg'.siUnit.typeName = 'SiUnit' /* type of SiUnit */
 'm'.siUnit.isSiUnit /* lookup unit by symbol */
 'metre'.siUnit.isSiUnit /* lookup unit by name */
 'm'.siUnit == 'metre'.siUnit /* units are cached (identical) */
@@ -4012,7 +4012,7 @@ system.includesPackage('Unordered') /* package */
 ## PlanarCoordinates -- geometry type
 ```
 system.includesPackage('PlanarCoordinates') /* package */
-PlanarCoordinates([0, 0]).typeOf = 'PlanarCoordinates' /* type of */
+PlanarCoordinates([0, 0]).typeName = 'PlanarCoordinates' /* type of */
 PlanarCoordinates([-1, 1]).isPlanarCoordinates = true
 [1, 2].PlanarCoordinates = PlanarCoordinates([1, 2]) /* from list */
 (x: 1, y: 2).PlanarCoordinates = PlanarCoordinates([1, 2]) /* from record */
@@ -4103,7 +4103,7 @@ CartesianCoordinates([1.cos, 1.sin, 1]).CylindricalCoordinates.Record = (rho: 1,
 ## WeakMap -- collection type
 ```
 system.includesPackage('WeakMap') /* weak map package */
-WeakMap().typeOf = 'WeakMap' /* type of weak map */
+WeakMap().typeName = 'WeakMap' /* type of weak map */
 WeakMap().isWeakMap /* weak map predicate */
 WeakMap().printString = 'a WeakMap' /* weak map print string */
 { WeakMap().size }.hasError /* the size of a weak map cannot be observed */

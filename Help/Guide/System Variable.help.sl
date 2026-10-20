@@ -3,7 +3,7 @@
 The value `system` is a global variable holding a `System` object.
 
 ```
->>> system.typeOf
+>>> system.typeName
 'System'
 ```
 

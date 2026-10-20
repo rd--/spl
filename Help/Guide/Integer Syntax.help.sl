@@ -3,7 +3,7 @@
 Integer literals evaluate to the type `SmallFloat`.
 
 ```
->>> 3.typeOf
+>>> 3.typeName
 'SmallFloat'
 ```
 

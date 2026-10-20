@@ -10,7 +10,7 @@
 		};
 		'%(%)'.format(
 			[
-				self.typeOf,
+				self.typeName,
 				slotValueList.collect(aBlock/1).commaSeparated
 			]
 		)

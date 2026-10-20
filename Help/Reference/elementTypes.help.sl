@@ -2,7 +2,7 @@
 
 - _elementTypes(c)_
 
-Answer a `List` of answers of `typeOf` for each element of the collection _c_.
+Answer a `List` of answers of `typeName` for each element of the collection _c_.
 
 At a heterogeneous `List`:
 
@@ -41,7 +41,7 @@ At `NumericArray`:
 
 * * *
 
-See also: elementType, elementTypeIfAbsent, typeOf
+See also: elementType, elementTypeIfAbsent, typeName
 
 Guides: Reflection Functions
 

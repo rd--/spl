@@ -2,7 +2,7 @@
 
 - _valueType(d)_
 
-Answer the uniform `typeOf` each `value` of the dictionary _d_,
+Answer the uniform `typeName` each `value` of the dictionary _d_,
 else `nil`.
 
 At `Record`:
@@ -40,7 +40,7 @@ nil
 
 * * *
 
-See also: elementType, keyType, typeOf
+See also: elementType, keyType, typeName
 
 Guides: Dictionary Functions, Reflection Functions
 

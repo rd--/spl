@@ -2,15 +2,15 @@
 
 A `Type` is the abstract description a set of values.
 Each value in Sᴘʟ is an _instance_ of a type.
-`typeOf` answers the name of the type of a value.
+`typeName` answers the name of the type of a value.
 
 ```
->>> 3.141.typeOf
+>>> 3.141.typeName
 'SmallFloat'
 ```
 
 * * *
 
-See also: Type, typeOf
+See also: Type, typeName
 
 Guides: Primitive Types, Reflection Functions, What is a Trait

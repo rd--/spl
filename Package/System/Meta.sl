@@ -15,7 +15,7 @@
 +@Object {
 
 	meta { :self |
-		self.typeOf.Meta
+		self.typeName.Meta
 	}
 
 }

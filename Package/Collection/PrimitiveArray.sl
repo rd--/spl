@@ -126,7 +126,7 @@
 	storeString { :self |
 		'%(%)'.format(
 			[
-				self.typeOf,
+				self.typeName,
 				self.List.storeString
 			]
 		)

@@ -95,7 +95,7 @@ Table : [Object, Store, Equal] {
 	}
 
 	Table { :self :columnLabels |
-		Table(self, columnLabels, self[1].collect(typeOf/1))
+		Table(self, columnLabels, self[1].collect(typeName/1))
 	}
 
 	Table { :self |

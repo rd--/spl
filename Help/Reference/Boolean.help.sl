@@ -60,10 +60,10 @@ The inverse of `Boolean` is `boole`:
 `Boolean` is the `Type` of the two values `true` and `false`:
 
 ```
->>> true.typeOf
+>>> true.typeName
 'Boolean'
 
->>> false.typeOf
+>>> false.typeName
 'Boolean'
 ```
 

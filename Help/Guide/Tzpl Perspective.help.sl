@@ -785,6 +785,53 @@ Indexed assignment (one-indexed):
 [1 99 30]
 ```
 
+push! = `addLast!`:
+
+```
+>>> let a = [1 2 3];
+>>> a.addLast!(4);
+>>> a
+[1 2 3 4]
+```
+
+pop! = `removeLast!`:
+
+```
+>>> let a = [1 2 3 4];
+>>> let b = a.removeLast!;
+>>> (a, b)
+([1 2 3], 4)
+```
+
+clear! = `removeAll!`:
+
+```
+>>> let a = [1 2 3];
+>>> a.removeAll!;
+>>> a
+[]
+```
+
+append! = `addAllLast!`:
+
+```
+>>> let a = [1 2];
+>>> a.addAllLast!([3 4]);
+>>> a.addAllLast!(5:6);
+>>> a
+[1 2 3 4 5 6]
+```
+
+`sort`:
+
+```
+>>> [3 1 4 1 5 9 2 6].sort
+[1 1 2 3 4 5 6 9]
+
+>>> [5 3 1 4 2].sort
+[1 2 3 4 5]
+```
+
 ## Type Conversions
 
 toInt=`truncate`:

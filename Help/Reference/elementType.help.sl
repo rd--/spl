@@ -2,7 +2,7 @@
 
 - _elementType(c, f/0)_
 
-Answer the uniform `typeOf` each element of the collection _c_,
+Answer the uniform `typeName` each element of the collection _c_,
 else the answer of _f_, or `nil` in the unary case.
 
 At `Range`:
@@ -89,7 +89,7 @@ At `List` of `String`:
 
 * * *
 
-See also: elementTypeIfAbsent, elementTypes, keyType, typeOf
+See also: elementTypeIfAbsent, elementTypes, keyType, typeName
 
 Guides: Reflection Functions
 

@@ -79,7 +79,7 @@ Record! : [Object, New, Copy, Store, Equal, Json, Do, At, Indices, Put, Collect,
 			return _anObject;
 		}
 		>
-		self.error('put!: key not a string', [aString.typeOf])
+		self.error('put!: key not a string', [aString.typeName])
 	}
 
 	Record { :self |

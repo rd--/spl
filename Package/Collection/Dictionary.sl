@@ -163,7 +163,7 @@
 	}
 
 	isEqualBy { :self :aDictionary :aBlock/2 |
-		self.typeOf = aDictionary.typeOf & {
+		self.typeName = aDictionary.typeName & {
 			self.hasEqualElements(aDictionary, aBlock/2)
 		}
 	}
@@ -453,7 +453,7 @@
 		'%.as%'.format(
 			[
 				self.associations.storeString,
-				self.typeOf
+				self.typeName
 			]
 		)
 	}

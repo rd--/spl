@@ -53,6 +53,7 @@ Types implementing `Do`:
 	'TypedDictionary'
 	'UnsortedSet'
 	'URLSearchParams'
+	'ValueLink'
 ]
 ```
 

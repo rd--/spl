@@ -14,7 +14,7 @@ true
 
 * * *
 
-See also: Type, perform, typeOf
+See also: Type, perform, typeName
 
 Guides: Reflection Functions
 

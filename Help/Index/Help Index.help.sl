@@ -633,7 +633,7 @@
 ## Reflection
 
 - `perform`, `respondsTo`
-- `type`, `typeOf`
+- `type`, `typeName`
 - `elementType`, `elementTypes`
 - `elementTypeIfAbsent`
 - `methodDictionary`, `traitDictionary`, `typeDictionary`

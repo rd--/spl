@@ -288,7 +288,7 @@
 		(self.size = 0).if {
 			[0]
 		} {
-			let type = self.typeOf;
+			let type = self.typeName;
 			let elementTypes = self.elementTypes;
 			elementTypes.allSatisfy { :each |
 				each = type

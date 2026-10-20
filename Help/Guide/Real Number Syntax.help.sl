@@ -5,13 +5,13 @@ If a decimal point is given digits are required on both sides,
 implicit zeroes are not allowed.
 
 ```
->>> 3.141.typeOf
+>>> 3.141.typeName
 'SmallFloat'
 
->>> 3.0.typeOf
+>>> 3.0.typeName
 'SmallFloat'
 
->>> 3.typeOf
+>>> 3.typeName
 'SmallFloat'
 ```
 

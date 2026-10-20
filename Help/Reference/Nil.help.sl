@@ -3,7 +3,7 @@
 `Nil` is the `Type` of the value `nil`.
 
 ```
->>> nil.typeOf
+>>> nil.typeName
 'Nil'
 ```
 

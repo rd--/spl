@@ -38,7 +38,7 @@ Cons([1 .. 9]).length = 9
 ## Matrix22 -- geometry type
 ```
 system.includesPackage('Matrix22') /* two by two matrix package */
-Matrix22(1, 0, 0, 1).typeOf = 'Matrix22' /* two square matrix type */
+Matrix22(1, 0, 0, 1).typeName = 'Matrix22' /* two square matrix type */
 Matrix22(1, 0, 0, 1).isMatrix22 /* matrix predicate */
 Matrix22(1, 4, -1, 9).determinant = 13 /* determinant */
 Matrix22(-1, 3/2, 1,-1).inverse = Matrix22(2, 3, 2, 2) /* inverse, answers new matrix */

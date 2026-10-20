@@ -9,7 +9,7 @@ which is presumably a noun or noun phrase.
 >>> 'List'.withIndefiniteArticle
 'a List'
 
->>> [1 3 6 9].typeOf.withIndefiniteArticle
+>>> [1 3 6 9].typeName.withIndefiniteArticle
 'a List'
 ```
 
@@ -19,7 +19,7 @@ The article depends on the first letter of the noun:
 >>> 'Object'.withIndefiniteArticle
 'an Object'
 
->>> (1 -- 9).typeOf.withIndefiniteArticle
+>>> (1 -- 9).typeName.withIndefiniteArticle
 'an Interval'
 ```
 

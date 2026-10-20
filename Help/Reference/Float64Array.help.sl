@@ -49,6 +49,13 @@ Zero `Float64Array` of _n_ places:
 Float64Array[0 0 0 0 0]
 ```
 
+Species:
+
+```
+>>> Float64Array[1 2 3].species
+zeroFloat64Array/1
+```
+
 * * *
 
 See also: ByteArray, Float32Array, List, encode

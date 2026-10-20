@@ -1,7 +1,7 @@
 @Equal {
 
 	hasEqualSlots { :self :anObject :aBlock/2 |
-		self.typeOf = anObject.typeOf & {
+		self.typeName = anObject.typeName & {
 			self.isEqualByAtNamedSlots(
 				anObject,
 				self.slotNameList,

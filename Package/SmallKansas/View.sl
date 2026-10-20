@@ -16,7 +16,7 @@
 	}
 
 	title { :self |
-		self.typeOf
+		self.typeName
 	}
 
 }

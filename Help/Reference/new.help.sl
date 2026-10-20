@@ -90,20 +90,14 @@ ByteArray[0 0 0]
 At `Float32Array`:
 
 ```
->>> Float32Array[].new
-Float32Array[]
-
->>> Float32Array[].new(3)
+>>> Float32Array[1 2 3].new(3)
 Float32Array[0 0 0]
 ```
 
 At `Float64Array`:
 
 ```
->>> Float64Array[].new
-Float64Array[]
-
->>> Float64Array[].new(3)
+>>> Float64Array[1 2 3].new(3)
 Float64Array[0 0 0]
 ```
 

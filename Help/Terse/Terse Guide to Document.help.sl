@@ -2,14 +2,14 @@
 
 ## System -- window (cli)
 ```
-system.typeOf = 'System'
-system.window.typeOf = 'Window'
+system.typeName = 'System'
+system.window.typeName = 'Window'
 ```
 
 ## System -- window (browser)
 ```
-system.window.navigator.typeOf = 'Navigator'
-system.window.navigator.userAgent.typeOf = 'String'
+system.window.navigator.typeName = 'Navigator'
+system.window.navigator.userAgent.typeName = 'String'
 system.window.document = nil /* cli */
 system.window.navigator.maxTouchPoints = nil /* cli */
 system.window.alert('An alert') /* cli */

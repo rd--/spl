@@ -1,6 +1,6 @@
-# typeOf
+# typeName
 
-- _typeOf(x)_
+- _typeName(x)_
 
 Answers the type name of the object _x_,
 the answer is a `String` value.
@@ -8,43 +8,43 @@ the answer is a `String` value.
 The names of the primitive atomic types:
 
 ```
->>> 3.141.typeOf
+>>> 3.141.typeName
 'SmallFloat'
 
->>> true.typeOf
+>>> true.typeName
 'Boolean'
 
->>> nil.typeOf
+>>> nil.typeName
 'Nil'
 
->>> 'x'.typeOf
+>>> 'x'.typeName
 'String'
 ```
 
 The names of the primitive collection types:
 
 ```
->>> [].typeOf
+>>> [].typeName
 'List'
 
->>> (:).typeOf
+>>> (:).typeName
 'Record'
 
->>> Map().typeOf
+>>> Map().typeName
 'Map'
 ```
 
 The primitive behaviour type:
 
 ```
->>> typeOf/1.typeOf
+>>> typeName/1.typeName
 'Block'
 ```
 
 The type specifier is a string value:
 
 ```
->>> 23.typeOf.typeOf
+>>> 23.typeName.typeName
 'String'
 ```
 

@@ -6,6 +6,6 @@ An alias for the binary form of `elementType`.
 
 * * *
 
-See also: elementType, elementTypes, typeOf
+See also: elementType, elementTypes, typeName
 
 Guides: Reflection Functions

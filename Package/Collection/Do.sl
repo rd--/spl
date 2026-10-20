@@ -158,9 +158,9 @@
 	}
 
 	deepDo { :self :aBlock/1 |
-		let type = self.typeOf;
+		let type = self.typeName;
 		self.do { :each |
-			(each.typeOf = type).if {
+			(each.typeName = type).if {
 				each.deepDo(aBlock/1)
 			} {
 				aBlock(each)
@@ -637,9 +637,9 @@
 	}
 
 	withLevelDo { :self :aBlock/2 :level |
-		let type = self.typeOf;
+		let type = self.typeName;
 		self.do { :each |
-			(each.typeOf = type).if {
+			(each.typeName = type).if {
 				each.withLevelDo(aBlock/2, level + 1);
 				aBlock(each, level)
 			} {

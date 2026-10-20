@@ -13,6 +13,6 @@ and parameter list _p_.
 
 * * *
 
-See also: format, typeOf
+See also: format, typeName
 
 Guides: Error Functions

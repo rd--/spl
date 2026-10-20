@@ -1,7 +1,7 @@
 @Multiset {
 
 	[isEqual, =] { :self :aMultiset |
-		(self.typeOf = aMultiset.typeOf) & {
+		(self.typeName = aMultiset.typeName) & {
 			self.size = aMultiset.size & {
 				self.valuesAndCounts.associationsAllSatisfy { :each |
 					aMultiset.occurrencesOf(each.key) = each.value

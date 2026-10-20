@@ -20,7 +20,7 @@ Frame : [Object, UserEventTarget] {
 			(
 				class: [
 					'framePane',
-					self.subject.typeOf,
+					self.subject.typeName,
 					self.subject.name
 				].unwords
 			)

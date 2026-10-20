@@ -42,7 +42,7 @@ Range : [Object, New, Copy, Store, Equal, Compare, Do, Collect, Collection, At, 
 	}
 
 	elementType { :self |
-		self.start.typeOf
+		self.start.typeName
 	}
 
 	empty { :unused |

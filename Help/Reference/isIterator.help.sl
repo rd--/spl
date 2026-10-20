@@ -16,7 +16,7 @@ At `CollectionStream`:
 
 ```
 >>> let i = Iterator[];
->>> (i.typeOf, i.isIterator)
+>>> (i.typeName, i.isIterator)
 ('CollectionStream', true)
 ```
 

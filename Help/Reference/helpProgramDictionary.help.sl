@@ -9,8 +9,8 @@ and the values are lists of `HelpProgram` values.
 >>> let d = system.helpProgramDictionary;
 >>> (
 >>> 	d.size,
->>> 	d.typeOf,
->>> 	d['abs'].typeOf,
+>>> 	d.typeName,
+>>> 	d['abs'].typeName,
 >>> 	d['abs'].elementType,
 >>> 	d['abs'].size
 >>> )

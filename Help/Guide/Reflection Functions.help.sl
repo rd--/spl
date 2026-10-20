@@ -87,7 +87,7 @@ Types:
 - `typeDictionary`
 - `typeLookup`
 - `typeTraits`
-- `typeOf`
+- `typeName`
 
 System:
 

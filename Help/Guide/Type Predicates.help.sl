@@ -9,18 +9,18 @@ The type predicate is the ordinary way to test if a value is of a particular typ
 >>> 23L.isLargeInteger
 true
 
->>> 23L.typeOf = 'LargeInteger'
+>>> 23L.typeName = 'LargeInteger'
 true
 
 >>> 1I.isComplex
 true
 
->>> 1I.typeOf = 'Complex'
+>>> 1I.typeName = 'Complex'
 true
 ```
 
 * * *
 
-See also: typeOf
+See also: typeName
 
 Guides: Reflection Functions

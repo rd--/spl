@@ -58,10 +58,10 @@
 	}
 
 	deepIndicesStartingAtDo { :self :startIndex :aBlock/2 |
-		let type = self.typeOf;
+		let type = self.typeName;
 		self.withIndexDo { :each :index |
 			let here = startIndex ++ [index];
-			(each.typeOf = type).if {
+			(each.typeName = type).if {
 				each.deepIndicesStartingAtDo(here, aBlock/2)
 			} {
 				aBlock(each, here)
@@ -72,7 +72,7 @@
 	errorInvalidIndex { :self :message :index |
 		self.error(
 			'InvalidIndex: %, i=%:%, n=%'.format(
-				[message, index, index.typeOf, self.size]
+				[message, index, index.typeName, self.size]
 			)
 		)
 	}

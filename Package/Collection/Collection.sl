@@ -121,7 +121,7 @@
 	concisePrintString { :self |
 		'% (size: %)'.format(
 			[
-				self.typeOf.withIndefiniteArticle,
+				self.typeName.withIndefiniteArticle,
 				self.size
 			]
 		)
@@ -140,9 +140,9 @@
 	}
 
 	deepCollect { :self :aBlock/1 |
-		let type = self.typeOf;
+		let type = self.typeName;
 		self.collect { :each |
-			(each.typeOf = type).if {
+			(each.typeName = type).if {
 				each.deepCollect(aBlock/1)
 			} {
 				aBlock(each)
@@ -224,9 +224,9 @@
 		self.isEmpty.if {
 			aBlock()
 		} {
-			let answer = self.anyOne.typeOf;
+			let answer = self.anyOne.typeName;
 			self.allSatisfy { :each |
-				each.typeOf = answer
+				each.typeName = answer
 			}.if {
 				answer
 			} {
@@ -244,7 +244,7 @@
 	elementTypes { :self |
 		let answer = IdentitySet();
 		self.do { :each |
-			answer.include!(each.typeOf)
+			answer.include!(each.typeName)
 		};
 		answer.List
 	}
@@ -636,9 +636,9 @@
 	}
 
 	withLevelCollect { :self :aBlock/2 :level |
-		let type = self.typeOf;
+		let type = self.typeName;
 		self.collect { :each |
-			(each.typeOf = type).if {
+			(each.typeName = type).if {
 				aBlock(each.withLevelCollect(aBlock/2, level + 1), level)
 			} {
 				aBlock(each, level)

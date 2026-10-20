@@ -5,7 +5,7 @@
 String literal syntax:
 
 ```
->>> 'string'.typeOf
+>>> 'string'.typeName
 'String'
 
 >>> 'string'.size
@@ -21,7 +21,7 @@ Iterating over a string supplies each succesive character of the `String`,
 and fetching an indexed location in a string answers a character:
 
 ```
->>> 'string'.at(1).typeOf
+>>> 'string'.at(1).typeName
 'String'
 ```
 
