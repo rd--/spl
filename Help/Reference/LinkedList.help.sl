@@ -27,7 +27,7 @@ Empty linked list:
 true
 
 >>> LinkedList().List
-1[]
+[]
 ```
 
 Linked list from list:

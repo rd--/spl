@@ -1,6 +1,6 @@
 /* CartesianCoordinates */
 
-PlanarCoordinates : [Object, Copy, Store, Equal, Compare, At, Put, CartesianCoordinates] {
+PlanarCoordinates : [Object, Copy, Store, Equal, Compare, At, Indices, Put, CartesianCoordinates] {
 
 	| x y |
 

@@ -1,4 +1,4 @@
-DirectedEdge : [Object, Store, Equal, Compare, At] {
+DirectedEdge : [Object, Store, Equal, Compare, At, Indices] {
 
 	| vertexList |
 
@@ -8,18 +8,14 @@ DirectedEdge : [Object, Store, Equal, Compare, At] {
 	}
 
 	at { :self :index |
-		self.vertexList[index]
+		self.vertexList.at(index)
 	}
 
 	compare { :self :anEdge |
 		compareOn(self, anEdge, vertexList/1)
 	}
 
-	DirectedEdge { :self |
-		self
-	}
-
-	Edge { :self |
+	[DirectedEdge, Edge] { :self |
 		self
 	}
 
@@ -29,18 +25,22 @@ DirectedEdge : [Object, Store, Equal, Compare, At] {
 	}
 
 	head { :self |
-		self.vertexList[2]
+		self.vertexList.at(2)
 	}
 
 	includes { :self :vertex |
 		self.vertexList.includes(vertex)
 	}
 
-	isDirected { :self |
+	indices { :unused |
+		[1, 2]
+	}
+
+	isDirected { :unused |
 		true
 	}
 
-	isEdge { :self |
+	isEdge { :unused |
 		true
 	}
 
@@ -49,7 +49,7 @@ DirectedEdge : [Object, Store, Equal, Compare, At] {
 		i = j
 	}
 
-	isUndirected { :self |
+	isUndirected { :unused |
 		false
 	}
 
@@ -78,7 +78,7 @@ DirectedEdge : [Object, Store, Equal, Compare, At] {
 	}
 
 	tail { :self |
-		self.vertexList[1]
+		self.vertexList.at(1)
 	}
 
 	UndirectedEdge { :self |
@@ -98,11 +98,7 @@ DirectedEdge : [Object, Store, Equal, Compare, At] {
 
 +SmallFloat {
 
-	--> { :self :anInteger |
-		DirectedEdge(self, anInteger)
-	}
-
-	DirectedEdge { :self :anInteger |
+	[DirectedEdge, -->] { :self :anInteger |
 		newDirectedEdge().initializeSlots([self, anInteger])
 	}
 

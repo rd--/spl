@@ -3,17 +3,16 @@ LinkedList : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Co
 	| firstLink lastLink |
 
 	addFirst! { :self :anObject |
-		let aLink = ValueLink(anObject);
+		let aLink = ValueLink(anObject, self.firstLink);
 		self.isEmpty.ifTrue {
 			self.lastLink := aLink
 		};
-		aLink.nextLink := self.firstLink;
 		self.firstLink := aLink;
 		aLink
 	}
 
 	[addLast!, add!] { :self :anObject |
-		let aLink = ValueLink(anObject);
+		let aLink = ValueLink(anObject, nil);
 		self.isEmpty.if {
 			self.firstLink := aLink
 		} {
@@ -45,8 +44,8 @@ LinkedList : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Co
 		}
 	}
 
-	includesIndex { :self :index |
-		index.isBetween(1, self.size)
+	indices { :self :index |
+		Range(1, self.size)
 	}
 
 	isEmpty { :self |
@@ -88,8 +87,7 @@ LinkedList : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Co
 	linksDo { :self :aBlock/1 |
 		self.ifNotEmpty {
 			self.firstLink.linksDo(aBlock/1)
-		};
-		nil
+		}
 	}
 
 	[List, linkedListToList] { :self |
@@ -118,7 +116,7 @@ LinkedList : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Co
 		self.putLink!(
 			index,
 			self.linkOfIfAbsent(anObject) {
-				ValueLink(anObject)
+				ValueLink(anObject, nil)
 			}
 		)
 	}
@@ -240,6 +238,14 @@ LinkedList : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Co
 		answer
 	}
 
+	size { :self |
+		self.isEmpty.if {
+			0
+		} {
+			self.firstLink.size
+		}
+	}
+
 	species { :self |
 		LinkedList/0
 	}
@@ -264,14 +270,6 @@ LinkedList : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Co
 
 	[LinkedList, emptyLinkedList] {
 		newLinkedList().initializeSlots(nil, nil)
-	}
-
-}
-
-+@Object {
-
-	ValueLink { :self |
-		newValueLink().initializeSlots(nil, self)
 	}
 
 }

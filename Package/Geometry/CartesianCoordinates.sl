@@ -74,11 +74,11 @@
 	}
 
 	x { :self |
-		self.coordinates[1]
+		self.coordinates.at(1)
 	}
 
 	x! { :self :anObject |
-		self.coordinates[1] := anObject
+		self.coordinates.put!(1, anObject)
 	}
 
 	y { :self |
@@ -86,12 +86,12 @@
 		(v.size < 2).if {
 			self.error('@CartesianCoordinates>>y: no y')
 		} {
-			v[2]
+			v.at(2)
 		}
 	}
 
 	y! { :self :anObject |
-		self.coordinates[2] := anObject
+		self.coordinates.put!(2, anObject)
 	}
 
 	z { :self |
@@ -99,17 +99,17 @@
 		(v.size < 3).if {
 			self.error('@CartesianCoordinates>>z: no z')
 		} {
-			v[3]
+			v.at(3)
 		}
 	}
 
 	z! { :self :anObject |
-		self.coordinates[3] := anObject
+		self.coordinates.put!(3, anObject)
 	}
 
 }
 
-CartesianCoordinates : [Object, Copy, Store, Equal, Compare, At, Put, CartesianCoordinates] {
+CartesianCoordinates : [Object, Copy, Store, Equal, Compare, At, Indices, Put, CartesianCoordinates] {
 
 	| coordinates |
 

@@ -1,5 +1,17 @@
 @Link {
 
+	nextLink { :self |
+		self.typeResponsibility('@Link>>nextLink')
+	}
+
+	value { :self |
+		self.typeResponsibility('@Link>>value')
+	}
+
+}
+
++@Link {
+
 	do { :self :aBlock/1 |
 		self.linksDo { :each |
 			aBlock(each.value)
@@ -70,19 +82,11 @@
 		answer
 	}
 
-	nextLink { :self |
-		self.typeResponsibility('@Link>>nextLink')
-	}
-
-	value { :self |
-		self.typeResponsibility('@Link>>value')
-	}
-
 }
 
-ValueLink : [Object, Copy, Store, Equal, Link] {
+ValueLink : [Object, Copy, Store, Equal, Do, Link] {
 
-	| nextLink value |
+	| value nextLink |
 
 	isEqualBy { :self :anObject :aBlock/2 |
 		anObject.isValueLink & {
@@ -90,6 +94,14 @@ ValueLink : [Object, Copy, Store, Equal, Link] {
 				self.nextLink == anObject.nextLink
 			}
 		}
+	}
+
+}
+
++@Object {
+
+	ValueLink { :self :aLinkOrNil |
+		newValueLink().initializeSlots(self, aLinkOrNil)
 	}
 
 }

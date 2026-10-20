@@ -1,9 +1,9 @@
-UndirectedEdge : [Object, Store, Equal, Compare, At] {
+UndirectedEdge : [Object, Store, Equal, Compare, At, Indices] {
 
 	| vertexList |
 
 	at { :self :index |
-		self.vertexList[index]
+		self.vertexList.at(index)
 	}
 
 	compare { :self :anEdge |
@@ -13,10 +13,6 @@ UndirectedEdge : [Object, Store, Equal, Compare, At] {
 	DirectedEdge { :self |
 		let [i, j] = self.vertexList;
 		DirectedEdge(i, j)
-	}
-
-	Edge { :self |
-		self
 	}
 
 	forDot { :self :isMixed |
@@ -39,11 +35,15 @@ UndirectedEdge : [Object, Store, Equal, Compare, At] {
 		self.vertexList.includes(vertex)
 	}
 
-	isDirected { :self |
+	indices { :unused |
+		[1, 2]
+	}
+
+	isDirected { :unused |
 		false
 	}
 
-	isEdge { :self |
+	isEdge { :unused |
 		true
 	}
 
@@ -52,7 +52,7 @@ UndirectedEdge : [Object, Store, Equal, Compare, At] {
 		i = j
 	}
 
-	isUndirected { :self |
+	isUndirected { :unused |
 		true
 	}
 
@@ -74,7 +74,7 @@ UndirectedEdge : [Object, Store, Equal, Compare, At] {
 		2
 	}
 
-	UndirectedEdge { :self |
+	[UndirectedEdge, Edge] { :self |
 		self
 	}
 
@@ -91,11 +91,7 @@ UndirectedEdge : [Object, Store, Equal, Compare, At] {
 
 +SmallFloat {
 
-	--- { :self :anInteger |
-		UndirectedEdge(self, anInteger)
-	}
-
-	UndirectedEdge { :self :anInteger |
+	[UndirectedEdge, ---] { :self :anInteger |
 		newUndirectedEdge().initializeSlots(
 			[self, anInteger].sort!
 		)

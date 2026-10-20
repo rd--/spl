@@ -1,12 +1,22 @@
 @Indices {
 
 	indices { :self |
-		self.typeResponsibility('indices')
+		self.typeResponsibility('@Indices>>indices')
+	}
+
+	size { :self |
+		self.typeResponsibility('@Indices>>size')
 	}
 
 }
 
 +@Indices {
+
+	assertIsOfSize { :self :anInteger |
+		self.assert('isOfSize') {
+			self.size = anInteger
+		}
+	}
 
 	assertIsValidIndex { :self :index |
 		self.includesIndex(index).if {

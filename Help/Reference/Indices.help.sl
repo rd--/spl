@@ -2,13 +2,14 @@
 
 `Indices` is a collection trait for collections where the indices can be enumerated.
 The trait `At` says that a collection can be accessed by index,
-but does not say that it must be possibly to enumerate the indices.
+but does not say that it must be possible to enumerate the indices.
 At `Sequence` the indices are ordinal numbers and `indices` will answer a `Range` value,
-at `Dictionary` it will answer a `List`.
+at `Dictionary` the answer will be a `List` of the keys.
 
 The required methods are:
 
 - `indices`
+- `size`
 
 Implemented methods include:
 
