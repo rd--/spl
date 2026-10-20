@@ -26,3 +26,5 @@ Control Structures:
 * * *
 
 See also: Missing
+
+Guides: Error Functions

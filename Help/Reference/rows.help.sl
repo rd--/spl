@@ -26,7 +26,7 @@ The middle row:
 At `Table`:
 
 ~~~spl html=A
-Table([3 3].iota).rows([1 3]).asHtml
+Table([3 3].iota).rows([1 3]).htmlString
 ~~~
 
 <table class="TableData">

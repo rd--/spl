@@ -411,7 +411,7 @@ SymbolicExpression : [Object, Store, Number, SymbolicObject, SymbolicBoolean, Sy
 +Block {
 
 	SymbolicExpression { :self :parameterNames |
-		(self.numArgs = parameterNames.size).if {
+		(self.argumentCount = parameterNames.size).if {
 			self.applyList(parameterNames.collect(Symbol/1))
 		} {
 			self.error('Block>>SymbolicExpression: arity error')
@@ -420,7 +420,7 @@ SymbolicExpression : [Object, Store, Number, SymbolicObject, SymbolicBoolean, Sy
 
 	SymbolicExpression { :self |
 		self.SymbolicExpression(
-			'greek'.namedAlphabet.take(self.numArgs)
+			'greek'.namedAlphabet.take(self.argumentCount)
 		)
 	}
 

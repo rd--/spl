@@ -18,7 +18,7 @@ true
 
 * * *
 
-See also: in, value, with
+See also: in, with
 
 Guides: Block Functions
 

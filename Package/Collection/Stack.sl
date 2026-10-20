@@ -4,18 +4,18 @@ Stack : [Object, Copy, Store, Equal] {
 
 	| linkedList |
 
-	isEqualBy { :self :aStack :aBlock/2 |
-		aStack.isStack & {
-			aBlock(self.linkedList, aStack.linkedList)
-		}
-	}
-
 	errorEmptyStack { :self |
 		self.error('Stack is empty')
 	}
 
 	isEmpty { :self |
 		self.linkedList.isEmpty
+	}
+
+	isEqualBy { :self :aStack :aBlock/2 |
+		aStack.isStack & {
+			aBlock(self.linkedList, aStack.linkedList)
+		}
 	}
 
 	isNotEmptyCheck { :self |
@@ -33,7 +33,7 @@ Stack : [Object, Copy, Store, Equal] {
 		}
 	}
 
-	pop { :self |
+	pop! { :self |
 		let list = self.linkedList;
 		list.isEmpty.if {
 			nil
@@ -46,7 +46,7 @@ Stack : [Object, Copy, Store, Equal] {
 		self.linkedList := self.linkedList.copy
 	}
 
-	push { :self :anObject |
+	push! { :self :anObject |
 		self.linkedList.addFirst!(anObject);
 		anObject
 	}

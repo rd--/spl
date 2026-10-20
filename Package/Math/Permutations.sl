@@ -978,14 +978,14 @@ Permutation : [Object, Store, Equal] {
 					x > n
 				}
 			}.whileTrue {
-				answer.add!(stack.pop)
+				answer.add!(stack.pop!)
 			};
-			stack.push(x)
+			stack.push!(x)
 		};
 		{
 			stack.isEmpty
 		}.whileFalse {
-			answer.add!(stack.pop)
+			answer.add!(stack.pop!)
 		};
 		answer
 	}

@@ -14,34 +14,56 @@ Traits:
 - `Iterator`
 - `Link`
 - `New`
+- `Ordered`
 - `Put`
 - `Remove`
 - `Sequence`
 - `Stream`
+- `Unordered`
 
 Types:
 
 - `Association`
+- `BitSet`
 - `BlockStream`
+- `Box`
 - `ByteArray`
 - `Cache`
 - `CollectionStream`
 - `Dictionary`
+- `DirectedEdge`
 - `Float32Array`
 - `Float64Array`
+- `Graph`
+- `Heap`
 - `IdentityMultiset`
 - `IdentitySet`
 - `Interval`
 - `LinkedList`
+- `ListView`
 - `List`
 - `Map`
 - `Multiset`
 - `NumericArray`
+- `PriorityQueue`
 - `Range`
 - `Record`
 - `RunArray`
 - `Set`
+- `SortedList`
+- `SortedSet`
+- `SoundFile`
 - `SparseArray
+- `Stack`
+- `Table`
+- `TemporalData`
+- `TimeSeries`
+- `Tree`
+- `Tuple`
+- `UndirectedEdge`
+- `UnsortedSet
+- `WeakMap`
+- `WeightedData`
 
 Instance Creation:
 

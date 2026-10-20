@@ -56,7 +56,7 @@ Table(
 		]
 	},
 	['Ratio', 'Name']
-).asHtml
+).htmlString
 ~~~
 
 <table class="TableData">

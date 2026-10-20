@@ -32,6 +32,6 @@ as well as the _adapt-to_ protocol and the usual math operators.
 
 See also: CollectionStream, Iterator, Stream
 
-Guides: Adapt To Protocol, Stream Functions
+Guides: Adapt To Protocol, Collection Functions, Stream Functions
 
 Categories: Stream, Type

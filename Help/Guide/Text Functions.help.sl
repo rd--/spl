@@ -8,7 +8,7 @@ Types:
 
 Converting:
 
-- `asHtml`
+- `htmlString`
 - `asTree`
 - `markdownToHtml`
 

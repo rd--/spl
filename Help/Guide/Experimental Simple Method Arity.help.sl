@@ -8,7 +8,7 @@ true
 ```
 
 It is one of the properties of the simple model that the blocks that implement the model are of a type that the model does not allow.
-In this model _sqrt.numArgs_ is an error, and therefore _cull_ also.
+In this model _sqrt.arity_ is an error, and therefore _cull_ also.
 
 ```
 >>> { sqrt.cull(9, 25) }.hasError

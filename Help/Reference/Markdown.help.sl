@@ -4,7 +4,7 @@
 
 `Markdown` is a `Type` representing a text written in _Markdown_.
 
-`asHtml` answers a rendering to an _Html_ `String`:
+`htmlString` answers a rendering to an _Html_ `String`:
 
 ```
 >>> let s = [
@@ -19,8 +19,8 @@
 >>> ].unlines;
 >>> let m = Markdown(s);
 >>> (
->>> 	m.asMarkdown = s,
->>> 	m.asHtml
+>>> 	m.markdownString = s,
+>>> 	m.htmlString
 >>> )
 (
 	true,

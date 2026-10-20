@@ -20,7 +20,7 @@ true
 
 * * *
 
-See also: nil, Nil
+See also: Nil, nil
 
 Guides: Reflection Functions
 

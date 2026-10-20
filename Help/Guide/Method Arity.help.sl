@@ -45,9 +45,9 @@ This syntax is allowed in the simple model, where the arity qualifier is treated
 
 In both models asking for the arity of a method is an error, though of different kinds.
 
-In the simple model _sqrt.numArgs_ is an error because `sqrt` is a variable arity block.
-In the complicated model _sqrt.numArgs_ is an error because `sqrt` is not the name of a block.
-In the complicated model _sqrt/1.numArgs = 1_, however it is also a tautology.
+In the simple model _sqrt.arity_ is an error because `sqrt` is a variable arity block.
+In the complicated model _sqrt.arity_ is an error because `sqrt` is not the name of a block.
+In the complicated model _sqrt/1.arity = 1_, however it is also a tautology.
 
 In both models there is no general mechanism to invoke a block at an array of arguments.
 (At present `apply` is implemented, but it should not be.)

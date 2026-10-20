@@ -2,23 +2,6 @@ Table : [Object, Store, Equal] {
 
 	| cellMatrix columnLabels columnTypes |
 
-	asHtml { :self |
-		let h = '<tr><th></th>%</tr>'.format([
-			self.columnLabels.collect { :each |
-				'<th scope="col">%</th>'.format([each])
-			}.stringCatenate
-		]);
-		let r = self.cellMatrix.withIndexCollect { :a :i |
-			'<tr><th scope="row">%</th>%<tr>'.format([
-				i.printString,
-				a.collect { :b |
-					'<td>%</td>'.format([b])
-				}.stringCatenate
-			])
-		};
-		'<table class="TableData">\n%\n%\n</table>'.format([h, r.unlines])
-	}
-
 	atPath { :self :operand |
 		let [i, j] = operand;
 		let row = self.cellMatrix[i];
@@ -55,6 +38,27 @@ Table : [Object, Store, Equal] {
 			self.columnLabels.atAll(i),
 			self.columnTypes.atAll(i)
 		)
+	}
+
+	htmlString { :self |
+		let h = '<tr><th></th>%</tr>'.format(
+			[
+				self.columnLabels.collect { :each |
+					'<th scope="col">%</th>'.format([each])
+				}.stringCatenate
+			]
+		);
+		let r = self.cellMatrix.withIndexCollect { :a :i |
+			'<tr><th scope="row">%</th>%<tr>'.format(
+				[
+					i.printString,
+					a.collect { :b |
+						'<td>%</td>'.format([b])
+					}.stringCatenate
+				]
+			)
+		};
+		'<table class="TableData">\n%\n%\n</table>'.format([h, r.unlines])
 	}
 
 	rank { :unused |

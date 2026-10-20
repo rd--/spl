@@ -251,7 +251,7 @@ Traits implemented by `List`:
 
 See also: ByteArray, Float32Array, Float64Array, Type, #, !, enclose, nest
 
-Guides: List Syntax, Vector Syntax
+Guides: List Syntax, Matrix Syntax, Vector Syntax
 
 References:
 _Haskell_

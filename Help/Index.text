@@ -105,6 +105,7 @@ Guide/Guide Index.help.sl
 Guide/Help Files.help.sl
 Guide/Help Functions.help.sl
 Guide/Help Image Index.help.sl
+Guide/Help Index.help.sl
 Guide/Hyperbolic Functions.help.sl
 Guide/Identifier Syntax.help.sl
 Guide/Image Functions.help.sl
@@ -437,6 +438,7 @@ Reference/ArcTan.help.sl
 Reference/arcTanh.help.sl
 Reference/area.help.sl
 Reference/arg.help.sl
+Reference/argumentCount.help.sl
 Reference/argumentNames.help.sl
 Reference/arithmeticDerivative.help.sl
 Reference/arithmeticGeometricMean.help.sl
@@ -2980,7 +2982,6 @@ Reference/nub.help.sl
 Reference/nubIdentical.help.sl
 Reference/nubSieve.help.sl
 Reference/nullaryApply.help.sl
-Reference/numArgs.help.sl
 Reference/numberCompose.help.sl
 Reference/numberDecompose.help.sl
 Reference/numberDigit.help.sl

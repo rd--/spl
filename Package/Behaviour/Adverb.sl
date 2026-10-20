@@ -25,7 +25,7 @@
 	}
 
 	each { :self |
-		(self.numArgs = 1).if {
+		(self.argumentCount = 1).if {
 			{ :aCollection |
 				aCollection.collect(self)
 			}
@@ -99,7 +99,7 @@
 	}
 
 	swap { :self/2 |
-		(self/2.numArgs != 2).ifTrue {
+		(self/2.argumentCount != 2).ifTrue {
 			'Block>>swap: not two argument block'.error
 		};
 		{ :alpha :beta |

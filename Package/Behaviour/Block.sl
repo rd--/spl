@@ -2,20 +2,6 @@
 
 Block! : [Object, Equal] {
 
-	[duplicate, !] { :self/0 :shape |
-		{ :unused |
-			self()
-		}.fill(shape.nest)
-	}
-
-	[isEqual, =] { :self :anObject |
-		self.shouldNotImplement('equal')
-	}
-
-	[isSimilar, ~] { :self :anObject |
-		self == anObject
-	}
-
 	[apply, nullaryApply] { :self/0 |
 		self()
 	}
@@ -53,6 +39,10 @@ Block! : [Object, Equal] {
 		self.error('applyList: argument is not a list or not of required size')
 	}
 
+	[argumentCount, arity] { :self |
+		<primitive: return _self.length;>
+	}
+
 	argumentNames { :self |
 		<primitive: return _self.argumentNames;>
 	}
@@ -81,7 +71,7 @@ Block! : [Object, Equal] {
 	}
 
 	binaryBlock { :self |
-		(self.numArgs = 2).if {
+		(self.argumentCount = 2).if {
 			self
 		} {
 			self.error('binaryBlock: not binary')
@@ -147,7 +137,7 @@ Block! : [Object, Equal] {
 	}
 
 	cull { :self :firstArg |
-		self.numArgs.caseOf(
+		self.argumentCount.caseOf(
 			[
 				0 -> { self.nullaryApply },
 				1 -> { self.unaryApply(firstArg) }
@@ -158,7 +148,7 @@ Block! : [Object, Equal] {
 	}
 
 	cull { :self :firstArg :secondArg |
-		self.numArgs.caseOf(
+		self.argumentCount.caseOf(
 			[
 				0 -> { self.nullaryApply },
 				1 -> { self.unaryApply(firstArg) },
@@ -170,7 +160,7 @@ Block! : [Object, Equal] {
 	}
 
 	cull { :self :firstArg :secondArg :thirdArg |
-		self.numArgs.caseOf(
+		self.argumentCount.caseOf(
 			[
 				0 -> { self.nullaryApply },
 				1 -> { self.unaryApply(firstArg) },
@@ -183,7 +173,7 @@ Block! : [Object, Equal] {
 	}
 
 	cull { :self :firstArg :secondArg :thirdArg :fourthArg |
-		self.numArgs.caseOf(
+		self.argumentCount.caseOf(
 			[
 				0 -> { self.nullaryApply },
 				1 -> { self.unaryApply(firstArg) },
@@ -233,6 +223,13 @@ Block! : [Object, Equal] {
 			conditionBlock()
 		}.whileTrue;
 		answer
+	}
+
+
+	[duplicate, !] { :self/0 :shape |
+		{ :unused |
+			self()
+		}.fill(shape.nest)
 	}
 
 	elementwise { :self/1 :x |
@@ -380,8 +377,16 @@ Block! : [Object, Equal] {
 		}
 	}
 
+	[isEqual, =] { :self :anObject |
+		self.shouldNotImplement('equal')
+	}
+
 	isImmediate { :unused |
 		true
+	}
+
+	[isSimilar, ~] { :self :anObject |
+		self == anObject
 	}
 
 	iterate { :self/1 :anObject :anInteger |
@@ -463,7 +468,7 @@ Block! : [Object, Equal] {
 	}
 
 	memoize { :self :requireImmediate |
-		self.numArgs.caseOf(
+		self.argumentCount.caseOf(
 			[
 				0 -> {
 					self.memoizeNilary
@@ -512,10 +517,6 @@ Block! : [Object, Equal] {
 			anObject := self(anObject)
 		};
 		anObject
-	}
-
-	[numArgs, argumentCount] { :self |
-		<primitive: return _self.length;>
 	}
 
 	outer { :self :aList :anotherList |
@@ -594,7 +595,7 @@ Block! : [Object, Equal] {
 	}
 
 	ternaryBlock { :self |
-		(self.numArgs = 3).if {
+		(self.argumentCount = 3).if {
 			self
 		} {
 			self.error('ternaryBlock: not ternary')
@@ -615,7 +616,7 @@ Block! : [Object, Equal] {
 	}
 
 	unaryBlock { :self |
-		(self.numArgs = 1).if {
+		(self.argumentCount = 1).if {
 			self
 		} {
 			self.error('unaryBlock: not unary')

@@ -30,7 +30,7 @@ Cf: ArithmeticProgression
 The number of arguments a _behaviour_ can accept,
 also called _valence_.
 [[1](https://en.wikipedia.org/wiki/Arity)]
-Cf: numArgs
+Cf: argumentCount
 
 - _Array_:
 A _collection_ of values arranged along zero or more orthogonal _axes_.
@@ -408,7 +408,7 @@ A method of representing _unicode_ character values as a sequence of bytes.
 - _Valence_:
 The number of arguments a _block_ can accept,
 also called _arity_.
-Cf: numArgs
+Cf: argumentCount
 
 - _Value_:
 An entity in a program.

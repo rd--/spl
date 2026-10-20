@@ -82,7 +82,7 @@ A table of useful unison vectors for septimal harmony:
 		r,
 		c.printString(10, 2)
 	]
-}.Table.asHtml
+}.Table.htmlString
 ~~~
 
 <table class="TableData">

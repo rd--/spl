@@ -1,6 +1,6 @@
 # Block Semantics
 
-_Block_ has the semantics of Smalltalk’s _BlockClosure_, which is a form of Scheme’s _lambda_.
+`Block` has the semantics of Smalltalk’s _BlockClosure_, which is a form of Scheme’s _lambda_.
 
 > _Semantics:_
 > A lambda expression evaluates to a procedure.
@@ -17,13 +17,13 @@ Blocks have fixed arity, they must be applied to the number of arguments they re
 
 Temporary variables are initialised to _nil_.
 
-The `numArgs` method reports the arity of a block.
+The `argumentCount` method reports the arity of a block.
 
 The `cull` method (as in Smalltalk) selectively applies a block to fewer arguments,
-using  `numArgs` to ignore excess parameters.
+using  `argumentCount` to ignore excess parameters.
 
 * * *
 
-See also: cull, numArgs, value
+See also: Block, apply, argumentCount, cull
 
 Guides: Block Syntax

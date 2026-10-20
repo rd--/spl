@@ -1,12 +1,12 @@
-# pushWithPriority
+# pushWithPriority!
 
-- _pushWithPriority(aPriorityQueue, anObject, aPriority)_
+- _pushWithPriority!(q, x, n)_
 
-Add _anObject_ to _aPriorityQueue_ with _aPriority_.
+Add the object _x_ to the priority queue _q_ with priority _n_.
 Answers `nil`.
 
 * * *
 
-See also: add, addFirst, addLast, PriorityQueue
+See also: PriorityQueue, add, addFirst, addLast
 
 Categories: Adding

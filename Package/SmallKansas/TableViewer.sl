@@ -9,7 +9,7 @@ TableViewer : [Object, View] {
 			)
 		);
 		self.tablePane.appendChild(
-			system.window.document.parseHtml(tableData.asHtml)
+			system.window.document.parseHtml(tableData.htmlString)
 		)
 	}
 

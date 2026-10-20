@@ -4,18 +4,21 @@
 
 `UnsortedSet` is a `Type` representing a set where the comparison operator is `=`.
 
-The empty set constructor,
-also an `UnsortedSet` from an empty list:
+The empty set constructor:
 
 ```
 >>> UnsortedSet().size
 0
+```
 
+Construct an `UnsortedSet` from an empty list:
+
+```
 >>> UnsortedSet[].size
 0
 ```
 
-Set predicate:
+Predicates:
 
 ```
 >>> UnsortedSet().isUnsortedSet

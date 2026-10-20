@@ -117,10 +117,9 @@ Predicate (Query) Functions:
 Converting Functions:
 
 - `dotGraphLanguage`
-- `Edge`
-- `EdgeList`
-- `Graph`
-- `UndirectedGraph`
+- `edgeList`
+- `treeToGraph`
+- `undirectedGraph`
 
 Drawing Functions:
 

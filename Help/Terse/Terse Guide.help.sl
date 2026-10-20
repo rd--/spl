@@ -2330,9 +2330,9 @@ let o = [0, 0]; let p = [10, 10]; let q = 0 - p; [q o; o p].boundingBoxMerging =
 system.includesPackage('PriorityQueue') /* PriorityQueue package */
 PriorityQueue().isPriorityQueue = true
 PriorityQueue().isEmpty = true
-let p = PriorityQueue(); p.pushWithPriority('a', 1); p.pop = 'a'
-let p = PriorityQueue(); p.pushWithPriority('a', 1); p.pushWithPriority('b', 0); p.pop = 'b'
-let p = PriorityQueue(); p.pushAllWithPriority(['a' -> 3, 'b' -> 2, 'c' -> 1]); p.size = 3 & { p.pop = 'c' }
+let p = PriorityQueue(); p.pushWithPriority!('a', 1); p.pop! = 'a'
+let p = PriorityQueue(); p.pushWithPriority!('a', 1); p.pushWithPriority!('b', 0); p.pop! = 'b'
+let p = PriorityQueue(); p.pushAllWithPriority!(['a' -> 3, 'b' -> 2, 'c' -> 1]); p.size = 3 & { p.pop! = 'c' }
 let p = PriorityQueue(); p.peekPriority = nil
 ```
 
@@ -2343,12 +2343,12 @@ system.includesPackage('Block') /* package */
 typeName/1.typeName = 'Block'
 let i = 1; { i < 5 }.whileTrue { i := i + 1 }; i = 5 /* mutate outer temporary */
 let i = 1; whileTrue { i < 5 } { i := i + 1 }; i = 5 /* trailing closure syntax */
-{ }.numArgs = 0 /* block arity */
-{ :x | x }.numArgs = 1
-{ :i :j | i }.numArgs = 2
-{ :i :j :k | i }.numArgs = 3
-{ :i :j :k :l | i }.numArgs = 4
-collect/2.numArgs = 2 /* method arity */
+{ }.argumentCount = 0 /* block arity */
+{ :x | x }.argumentCount = 1
+{ :i :j | i }.argumentCount = 2
+{ :i :j :k | i }.argumentCount = 3
+{ :i :j :k :l | i }.argumentCount = 4
+collect/2.argumentCount = 2 /* method arity */
 { { :i | i = nil }.apply }.hasError /* too few arguments, c.f. non-strict */
 { { :x | 0 - x }.apply(3, 4) = -3 }.hasError /* too many arguments, c.f. non-strict */
 collect/2.name = 'collect/2'
@@ -2379,7 +2379,7 @@ let x = { }; x/0.isBlock /* blocks are objects and may be assigned to a variable
 { :x | let y = x; y }.unaryApply(1) = 1 /* specification { arguments localvars expressions } */
 { 'x' }.apply = 'x' /* simple block usage */
 { :p1 :p2 | p1 ++ ' & ' ++ p2 }.binaryApply('x', 'y') = 'x & y' /* block with argument passing */
-{ :x | x + 1 }.numArgs = 1 /* the number of arguments can be retrieved */
+{ :x | x + 1 }.argumentCount = 1 /* the number of arguments can be retrieved */
 { :x | x := nil }.unaryApply(42).isNil /* arguments are mutable */
 let f = { :x :y | x := y; x }; f(1, 3) = 3 /* arguments are mutable */
 { } !== { } /* Block does not implement equality, non-identity */
@@ -3234,12 +3234,12 @@ Stack().typeName = 'Stack' /* Stack is a type */
 Stack().isStack /* empty stack, stack predicate */
 Stack().isEmpty /* empty stack, empty predicate */
 Stack().size = 0 /* empty stack, size */
-let s = Stack(); s.push(1.pi); [s.size, s.peek, s.size] = [1, 1.pi, 1] /* push element onto stack, inspect top of stack */
-let s = Stack(); s.push(1.pi); [s.size, s.pop, s.size] = [1, 1.pi, 0] /* push element onto stack, fetch item from top of stack */
-let s = Stack(); s.push('x'); s.push('y'); [s.size, s.pop, s.size, s.pop, s.size] = [2, 'y', 1, 'x', 0] /* push two elements, pop two elements */
-let s = Stack(); s.pop = nil /* pop of empty stack answers nil */
-let s = Stack(); s.push('x') = 'x' /* push answers object pushed */
-let s = Stack(); s.push('x'); s.copy = s & { s.copy !== s } /* copy is equal but not identical */
+let s = Stack(); s.push!(1.pi); [s.size, s.peek, s.size] = [1, 1.pi, 1] /* push element onto stack, inspect top of stack */
+let s = Stack(); s.push!(1.pi); [s.size, s.pop!, s.size] = [1, 1.pi, 0] /* push element onto stack, fetch item from top of stack */
+let s = Stack(); s.push!('x'); s.push!('y'); [s.size, s.pop!, s.size, s.pop!, s.size] = [2, 'y', 1, 'x', 0] /* push two elements, pop! two elements */
+let s = Stack(); s.pop! = nil /* pop! of empty stack answers nil */
+let s = Stack(); s.push!('x') = 'x' /* push answers object pushed */
+let s = Stack(); s.push!('x'); s.copy = s & { s.copy !== s } /* copy is equal but not identical */
 ```
 
 ## String -- text type

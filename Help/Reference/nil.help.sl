@@ -19,7 +19,7 @@ nil
 
 * * *
 
-See also: false, Nil, true, Void
+See also: Nil, Void, false, true
 
 Guides: Nil Functions
 

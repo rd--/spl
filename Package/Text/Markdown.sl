@@ -4,16 +4,6 @@ Markdown : [Object, Equal, Cache, Do] {
 
 	| source cache |
 
-	asHtml { :self |
-		self.cached('html') {
-			self.uncheckedAsHtml
-		}
-	}
-
-	asMarkdown { :self |
-		self.source
-	}
-
 	codeBlocks { :self |
 		let answer = [];
 		self.do { :each |
@@ -91,6 +81,12 @@ Markdown : [Object, Equal, Cache, Do] {
 		}
 	}
 
+	htmlString { :self |
+		self.cached('htmlString') {
+			self.uncheckedAsHtml
+		}
+	}
+
 	indentedCodeBlocks { :self |
 		let answer = [];
 		let previous = '';
@@ -129,6 +125,10 @@ Markdown : [Object, Equal, Cache, Do] {
 		anObject.isMarkdown & {
 			aBlock(self.source, anObject.source)
 		}
+	}
+
+	markdownString { :self |
+		self.source
 	}
 
 	parseTree { :self |
@@ -200,7 +200,7 @@ Markdown : [Object, Equal, Cache, Do] {
 	}
 
 	markdownToHtml { :self |
-		Markdown(self).asHtml
+		Markdown(self).htmlString
 	}
 
 }

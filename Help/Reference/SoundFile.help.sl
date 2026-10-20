@@ -72,4 +72,6 @@ SinOsc(freq, 0) * 0.1
 
 See also: Float32Array, Url
 
+Guide: Collection Functions
+
 Categories: Collection, Type

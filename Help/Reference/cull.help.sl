@@ -5,7 +5,7 @@
 
 Apply the block _f_ with up to _n_ arguments.
 
-`cull` calls `numArgs` to ask how many arguments are required by _f_,
+`cull` calls `argumentCount` to ask how many arguments are required by _f_,
 and passes only the required number of arguments.
 
 A no-argument block with one and two arguments:
@@ -59,7 +59,7 @@ true
 
 * * *
 
-See also: numArgs, value
+See also: apply, argumentCount
 
 Guides: Block Functions, Block Semantics
 

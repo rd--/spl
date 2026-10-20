@@ -5,6 +5,13 @@
 Recycle the items in the list _x_ into an array with the specified `shape`.
 The answer includes each item of _x_ at the same position (`deepIndex`) it has initially.
 
+Recycle a list into a list:
+
+```
+>>> [1 2 3].recycle([10])
+[1 2 3 1 2 3 1 2 3 1]
+```
+
 Recycle to make a regular 3×3 matrix,
 here the first row is recycled as the third row,
 and that row is made by recycling a single value:
@@ -95,6 +102,6 @@ true
 
 * * *
 
-See also: impliedShape, padLeft, padRight, reshape, reshapeLike, shape
+See also: cycle, impliedShape, padLeft, padRight, reshape, reshapeLike, shape
 
 Guides: Array Functions

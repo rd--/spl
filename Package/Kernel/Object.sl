@@ -38,8 +38,8 @@
 		self.typeName.withIndefiniteArticle
 	}
 
-	constant { :self :numArgs |
-		numArgs.caseOf(
+	constant { :self :argumentCount |
+		argumentCount.caseOf(
 			[
 				0 -> {
 					{

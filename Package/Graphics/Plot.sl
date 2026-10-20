@@ -1048,7 +1048,7 @@ Plot : [Object] {
 	revolutionPlot { :self :divisions :aBlock |
 		self.surfacePlot(
 			divisions,
-			aBlock.numArgs.caseOf(
+			aBlock.argumentCount.caseOf(
 				[
 					1 -> {
 						let f/1 = aBlock;

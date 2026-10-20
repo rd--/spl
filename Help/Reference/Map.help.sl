@@ -247,6 +247,6 @@ Note: `Map` is _IdentityDictionary_ in Smalltalk.
 
 See also: Dictionary, Record, isImmediate
 
-Guides: Dictionary Functions, Map Syntax
+Guides: Dictionary Functions
 
 Categories: Collection, Type

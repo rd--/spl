@@ -1,5 +1,7 @@
 # Heap
 
+- _Heap()_
+
 A binary heap, a kind of binary tree stored in a linear list.
 
 Heaps are useful for priority queues because:
@@ -14,7 +16,6 @@ a) Elements are only removed at the beginning
 b) Elements are added with arbitrary sort order
 
 Heap implements the `Do`, `At`, `Add` and `Remove` traits.
-
 Add all items from a collection,
 which is out of order,
 and retrieve first (least) element:
@@ -26,8 +27,27 @@ and retrieve first (least) element:
 (1, 4, 3)
 ```
 
+Traits implemented by `Heap`:
+
+```
+>>> system.typeLookup('Heap')
+>>> .traitNameList
+>>> .sort!
+[
+	'Add'
+	'At'
+	'Copy'
+	'Do'
+	'Equal'
+	'Object'
+	'Remove'
+	'Store'
+]
+
 * * *
 
-See also: add, addAll, heapSort, removeFirst
+See also: PriorityQueue, add, addAll, heapSort, removeFirst
+
+Guides: Collection Functions
 
 Categories: Collection, Type

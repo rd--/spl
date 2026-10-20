@@ -57,7 +57,7 @@ Weight uniformly distributed values using the normal probability density functio
 
 See also: List, mean, standardDeviation, variance
 
-Guides: Statistics Functions
+Guides: Collection Functions, Statistics Functions
 
 References:
 _Mathematica_

@@ -1,6 +1,6 @@
 # Block
 
-`Block` is the behaviour `Type`.
+`Block` is the behaviour type.
 Blocks have fixed arity and must be applied to the correct number of arguments.
 
 ```
@@ -21,13 +21,13 @@ The predicate is `isBlock`:
 true
 ```
 
-The arity is given by `numArgs`:
+The arity is given by `argumentCount`:
 
 ```
->>> { }.numArgs
+>>> { }.argumentCount
 0
 
->>> { :x | x * x }.numArgs
+>>> { :x | x * x }.argumentCount
 1
 ```
 
@@ -67,7 +67,7 @@ Instead there is the delimited control method `withReturn`.
 
 * * *
 
-See also: apply, isBlock, numArgs, value, withReturn
+See also: apply, argumentCount, isBlock, withReturn
 
 Guides: Apply Syntax, Block Functions, Block Semantics, Block Syntax, Value Apply Syntax
 

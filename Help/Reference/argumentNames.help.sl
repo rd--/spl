@@ -30,6 +30,6 @@ At the block implementing a method:
 
 * * *
 
-See also: argumentCount, Block
+See also: Block, argumentCount
 
 Guides: Block Functions, Block Semantics, Reflection Functions

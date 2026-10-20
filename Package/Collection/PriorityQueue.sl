@@ -12,7 +12,7 @@ PriorityQueue! : [Object] {
 		<primitive: return _self.peekValue() || null;>
 	}
 
-	pop { :self |
+	pop! { :self |
 		<primitive: return _self.pop();>
 	}
 
@@ -20,13 +20,13 @@ PriorityQueue! : [Object] {
 		['size']
 	}
 
-	pushWithPriority { :self :item :priority |
+	pushWithPriority! { :self :item :priority |
 		<primitive: return _self.push(_item, _priority);>
 	}
 
-	pushAllWithPriority { :self :associationsList |
+	pushAllWithPriority! { :self :associationsList |
 		associationsList.do { :each |
-			self.pushWithPriority(each.key, each.value)
+			self.pushWithPriority!(each.key, each.value)
 		}
 	}
 
@@ -37,10 +37,10 @@ PriorityQueue! : [Object] {
 
 	removeAllAndShrink! { :self |
 		self.removeAll!;
-		self.shrink
+		self.shrink!
 	}
 
-	shrink { :self |
+	shrink! { :self |
 		<primitive: return _self.shrink();>
 	}
 

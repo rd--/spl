@@ -919,7 +919,7 @@ can be evaluated using variants of the `value` message.
 
 *Return Value*: ⧼integer⧽
 
-Cf: numArgs
+Cf: argumentCount
 
 ### 5.4.1.2
 

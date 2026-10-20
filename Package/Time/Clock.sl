@@ -21,7 +21,7 @@ Clock : [Object] {
 		let currentTime = system.sessionTime;
 		let scheduledTime = currentTime + deltaTime;
 		let wakeupTime = self.nextEntryTime;
-		self.priorityQueue.pushWithPriority(aBlock/1, scheduledTime);
+		self.priorityQueue.pushWithPriority!(aBlock/1, scheduledTime);
 		(
 			wakeupTime = nil | {
 				scheduledTime < wakeupTime
@@ -56,10 +56,10 @@ Clock : [Object] {
 				frontOfQueueTime <= currentTime
 			}
 		}.whileTrue {
-			let activityBlock/1 = queue.pop;
+			let activityBlock/1 = queue.pop!;
 			let rescheduleAfter = activityBlock(scheduledTime);
 			rescheduleAfter.ifNotNil {
-				self.priorityQueue.pushWithPriority(
+				self.priorityQueue.pushWithPriority!(
 					activityBlock/1,
 					scheduledTime + rescheduleAfter
 				)

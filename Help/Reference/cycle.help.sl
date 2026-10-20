@@ -28,7 +28,7 @@ extend the stream cyclically indefinitely:
 
 * * *
 
-See also: List, Stream, duplicate, duplicateEach, repeat, replicate
+See also: List, Stream, duplicate, duplicateEach, recycle, repeat, replicate
 
 Guides: List Functions, Stream Functions
 

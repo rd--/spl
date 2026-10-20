@@ -29,7 +29,7 @@ The middle column, i.e. a column vector:
 At `Table`:
 
 ~~~spl html=A
-Table([3 3].iota).columns([1 3]).asHtml
+Table([3 3].iota).columns([1 3]).htmlString
 ~~~
 
 <table class="TableData">

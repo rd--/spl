@@ -79,15 +79,15 @@ Traits:
 
 Types:
 
-- `elementType`
 - `elementTypeIfAbsent`
+- `elementType`
 - `elementTypes`
 - `species`
 - `typeDefinition`
 - `typeDictionary`
 - `typeLookup`
-- `typeTraits`
 - `typeName`
+- `typeTraits`
 
 System:
 

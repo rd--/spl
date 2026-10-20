@@ -5,7 +5,8 @@
 Conditional evaluation.
 If _aBoolean_ is `true` answer the result of  _whenTrue()_, else answer _whenFalse()_.
 
-Note that the branches are not evaluated using `value`, and therefore _must_ be no-argument blocks.
+Note that the branches are evaluated using `nullaryApply`,
+and therefore _must_ be no-argument blocks.
 
 Ordinarily _whenTrue_ and _whenFalse_ are literal no-argument blocks.
 `Trailing Block Syntax` provides an idiomatic notation for writing such conditionals.

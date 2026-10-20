@@ -116,7 +116,7 @@ let f = { :p :e |
 
 * * *
 
-See also: =, if, value, which
+See also: =, if, which
 
 Guides: Control Functions
 

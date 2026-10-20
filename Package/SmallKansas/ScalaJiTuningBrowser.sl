@@ -30,7 +30,7 @@
 		);
 		div.appendChildren(
 			[
-				system.window.document.parseHtml(overviewTable.asHtml),
+				system.window.document.parseHtml(overviewTable.htmlString),
 				primesVector.ifNil {
 					'No drawing'.TextParagraph
 				} {
@@ -39,7 +39,7 @@
 						1.gradyTuningLatticeCoordinates
 					)
 				},
-				system.window.document.parseHtml(tuningTable.asHtml)
+				system.window.document.parseHtml(tuningTable.htmlString)
 			]
 		);
 		div

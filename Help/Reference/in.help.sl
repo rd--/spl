@@ -27,7 +27,7 @@ true
 
 * * *
 
-See also: also, value, with
+See also: also, with
 
 Guides: Block Functions
 

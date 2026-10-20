@@ -26,7 +26,8 @@ At a `MethodInformation` value:
 ['self', 'aBlock/1']
 ```
 
-Note that literal `Block` values do not store their parameter names:
+Note that literal `Block` values do not store their parameter names,
+see instead `argumentNames`:
 
 ```
 >>> { :x | x }.parameterNames
@@ -35,6 +36,9 @@ nil
 >>> let f = { :x | x };
 >>> f/1.parameterNames
 nil
+
+>>> { :x | x }.argumentNames
+['x']
 ```
 
 _Note:_
@@ -43,7 +47,7 @@ The parameter names reported can be for any one of the defined methods.
 
 * * *
 
-See also: Block, Method
+See also: Block, Method, argumentNames
 
 Guides: Block Functions, Reflection Functions
 

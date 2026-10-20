@@ -839,7 +839,7 @@ HTMLTableElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 	caption { :self | <primitive: return _self.caption;> }
 	rows { :self | <primitive: return _self.rows;> }
 
-	asHtmlTable { :self |
+	toHtmlTable { :self |
 		self
 	}
 
@@ -851,16 +851,16 @@ HTMLTableElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 
 +Association {
 
-	asHtmlRow { :self :toString/1 |
-		self.keyAndValue.asHtmlRow(toString/1)
+	toHtmlRow { :self :toString/1 |
+		self.keyAndValue.toHtmlRow(toString/1)
 	}
 
 }
 
 +Record {
 
-	asHtmlTable { :self :toString/1 |
-		self.associations.asHtmlTable(toString/1)
+	toHtmlTable { :self :toString/1 |
+		self.associations.toHtmlTable(toString/1)
 	}
 
 }

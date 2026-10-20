@@ -1,15 +1,5 @@
 @Graph {
 
-	[plus, +] { :self :aGraph |
-		self.graphSum(aGraph)
-	}
-
-	[isSimilar, ~] { :self :aGraph |
-		self.vertexList.sort = aGraph.vertexList.sort & {
-			self.edgeList.sort = aGraph.edgeList.sort
-		}
-	}
-
 	adjacencyList { :self |
 		self.vertexList.collect { :each |
 			self.adjacencyList(each)
@@ -84,9 +74,9 @@
 		let p = List(k, nil);
 		d[s] := 0;
 		p[s] := nil;
-		q.pushWithPriority(s, 0);
+		q.pushWithPriority!(s, 0);
 		{ q.isEmpty }.whileFalse {
-			let u = q.pop;
+			let u = q.pop!;
 			(u = t).if {
 				q.removeAll!
 			} {
@@ -99,7 +89,7 @@
 					(a < d[v]).ifTrue {
 						p[v] := u;
 						d[v] := a;
-						q.pushWithPriority(v, a)
+						q.pushWithPriority!(v, a)
 					}
 				}
 			}
@@ -398,6 +388,12 @@
 		self.vertexDegree.nub.size = 1
 	}
 
+	[isSimilar, ~] { :self :aGraph |
+		self.vertexList.sort = aGraph.vertexList.sort & {
+			self.edgeList.sort = aGraph.edgeList.sort
+		}
+	}
+
 	isSingleton { :self |
 		self.isEmpty & {
 			self.vertexCount = 1
@@ -462,6 +458,10 @@
 		self.GeometryCollection.PerspectiveDrawing
 	}
 
+	[plus, +] { :self :aGraph |
+		self.graphSum(aGraph)
+	}
+
 	lineGraph { :self |
 		let k = self.edgeCount;
 		let v = [1 .. k];
@@ -514,7 +514,7 @@
 		self.incidenceList(vertex).do { :each |
 			vertexList.addAll!(each.vertexList)
 		};
-		vertexList.nub.sort.without!(vertex)
+		vertexList.unique.without!(vertex)
 	}
 
 	outEdgeListOf { :self :vertex |
@@ -1116,7 +1116,7 @@ Graph : [Object, Graph] {
 +List {
 
 	canonicalEdgeList { :self |
-		let vertexList = self.collectCatenate(vertexList/1).nub.sort;
+		let vertexList = self.collectCatenate(vertexList/1).unique;
 		let renameTable = vertexList.collect { :vertex |
 			vertex -> vertexList.indexOf(vertex)
 		}.Map;
@@ -1224,7 +1224,7 @@ Graph : [Object, Graph] {
 			vertexList.add!(each[1]);
 			vertexList.add!(each[2])
 		};
-		Graph(vertexList.nub.sort, edgeList)
+		Graph(vertexList.unique, edgeList)
 	}
 
 	incidenceGraph { :self |

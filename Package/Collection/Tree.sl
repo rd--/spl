@@ -64,18 +64,6 @@ Tree : [Object, Store, Equal, Do, At, Indices] {
 		}
 	}
 
-	isEqualBy { :self :anObject :aBlock/2 |
-		anObject.isTree & {
-			aBlock(self.value, anObject.value) & {
-				isEqualBy(self.subTrees, anObject.subTrees, aBlock/2)
-			}
-		}
-	}
-
-	flatten { :self |
-		self.leaves
-	}
-
 	[Graph, treeToGraph] { :self |
 		let nodeId = 1;
 		let vertexLabels = [];
@@ -96,13 +84,25 @@ Tree : [Object, Store, Equal, Do, At, Indices] {
 				)
 			}
 		};
-		let graph = edgeList.Graph;
+		let graph = Graph(edgeList);
 		graph.vertexLabels!(vertexLabels);
 		graph
 	}
 
+	isEqualBy { :self :anObject :aBlock/2 |
+		anObject.isTree & {
+			aBlock(self.value, anObject.value) & {
+				isEqualBy(self.subTrees, anObject.subTrees, aBlock/2)
+			}
+		}
+	}
+
+	flatten { :self |
+		self.leaves
+	}
+
 	graphPlot { :self |
-		self.Graph.graphPlot
+		self.treeToGraph.graphPlot
 	}
 
 	includesValue { :self :anObject |
@@ -240,7 +240,7 @@ Tree : [Object, Store, Equal, Do, At, Indices] {
 	}
 
 	treePlot { :self |
-		self.Graph.treePlot
+		self.treeToGraph.treePlot
 	}
 
 	values { :self |

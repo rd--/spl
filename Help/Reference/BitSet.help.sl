@@ -303,9 +303,9 @@ Print the 32-bit twos-complement encodings of five and negative five:
 
 * * *
 
-See also: add, at, bitAt, clearBitAt, includes, put, remove, ResidueSet, setBitAt
+See also: ResidueSet, add, at, bitAt, clearBitAt, includes, put, remove, setBitAt
 
-Guides: Bitwise Functions
+Guides: Bitwise Functions, Collection Functions
 
 Unicode: U+25FB ◻ White Medium Square, U+25FC ◼ Black Medium Square
 

@@ -51,7 +51,9 @@
 ## Blocks
 
 - `Block`
-- `cull`, `numArgs`, `value`
+- `apply`
+- `argumentCount`
+- `cull`
 
 ## Boolean, Logic
 
@@ -173,7 +175,7 @@
 - `Boolean`, `boole`
 - `Complex`, `Decimal`, `Float`, `Fraction`, `Integer`, `LargeInteger`, `Number`, `SmallFloat`
 - `Character`, `codePoint`, `hexDigitCharacter`
-- `asRegExp`, `displayString`, `toLowerCase`, `toUpperCase`
+- `RegularExpression`, `displayString`, `toLowerCase`, `toUpperCase`
 - `inEnglishWords`
 - `IdentityMultiset`, `ByteArray`, `List`, `Map`, `Record`, `IdentitySet`, `SortedList`, `Tree`
 - `degreesToRadians`, `radiansToDegrees`

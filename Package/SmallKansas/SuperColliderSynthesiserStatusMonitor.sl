@@ -13,7 +13,7 @@ SuperColliderSynthesiserStatusMonitor : [Object, SmallKansan] {
 						system.scSynth.status.associations.collect(
 							keyAndValue/1
 						)
-					).asHtml
+					).htmlString
 				} {
 					'---'
 				}

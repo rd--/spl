@@ -12,7 +12,7 @@ Predicates:
 Accessors:
 
 - `name`
-- `numArgs`
+- `argumentCount`
 - `parameterNames`
 
 Composition:

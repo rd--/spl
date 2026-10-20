@@ -67,22 +67,6 @@ The inverse of `Boolean` is `boole`:
 'Boolean'
 ```
 
-List of traits implemented by `Boolean`:
-
-```
->>> system.typeLookup('Boolean')
->>> .traitNameList
->>> .sort!
-[
-	'Compare'
-	'Copy'
-	'Equal'
-	'Json'
-	'Object'
-	'Store'
-]
-```
-
 The basic logical operations are `and` (`&`) and `or` (`|`):
 
 ```
@@ -108,6 +92,22 @@ Boolean values have a `Json` encoding:
 ```
 >>> [true, false].encodeJson
 '[true,false]'
+```
+
+List of traits implemented by `Boolean`:
+
+```
+>>> system.typeLookup('Boolean')
+>>> .traitNameList
+>>> .sort!
+[
+	'Compare'
+	'Copy'
+	'Equal'
+	'Json'
+	'Object'
+	'Store'
+]
 ```
 
 * * *

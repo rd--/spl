@@ -22,7 +22,7 @@ Executing:
 
 Matching:
 
-- `allRegExpMatches`
+- `allRegularExpressionMatches`
 - `matchAll`
 - `match`: partial match
 - `matchesRegularExpression`

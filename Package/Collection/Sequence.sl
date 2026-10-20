@@ -870,7 +870,7 @@
 			self.error('duplicateEach: repeats not list')
 		};
 		self.replicate(
-			cycle(repeats, self.size)
+			recycle(repeats, [self.size])
 		)
 	}
 
@@ -1291,23 +1291,23 @@
 	}
 
 	groupsDo { :self :aBlock |
-		let numArgs = aBlock.numArgs;
-		numArgs.caseOf(
+		let argumentCount = aBlock.argumentCount;
+		argumentCount.caseOf(
 			[
 				0 -> { self.error('groupsDo: At least one block argument expected') },
 				1 -> { self.do(aBlock) },
 				2 -> { self.pairsDo(aBlock) }
 			]
 		) {
-			let argumentList = List(numArgs, nil);
+			let argumentList = List(argumentCount, nil);
 			let index = 1;
-			let endIndex = self.size - numArgs + 1;
+			let endIndex = self.size - argumentCount + 1;
 			{
 				index <= endIndex
 			}.whileTrue {
-				argumentList.replaceFromToWithStartingAt(1, numArgs, self, index);
+				argumentList.replaceFromToWithStartingAt(1, argumentCount, self, index);
 				aBlock.applyList(argumentList);
-				index := index + numArgs
+				index := index + argumentCount
 			}
 		}
 	}

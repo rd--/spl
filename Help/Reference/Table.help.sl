@@ -43,7 +43,7 @@ If the column types are unspecified they are inferred:
 ['String', 'Fraction']
 ```
 
-The `asHtml` method answers an `Html` table:
+The `htmlString` method answers an `Html` table:
 
 ~~~spl html=A
 Table(
@@ -53,7 +53,7 @@ Table(
 		8 1 6
 	],
 	['A' 'B' 'C']
-).asHtml
+).htmlString
 ~~~
 
 <table class="TableData">
@@ -67,7 +67,7 @@ Create a `Table` with `String` and `Fraction` columns:
 
 ~~~spl html=B
 Table(['Third' 1/3; 'Half' 1/2])
-.asHtml
+.htmlString
 ~~~
 
 <table class="TableData"><tr><th></th><th scope="col">1</th><th scope="col">2</th></tr>
@@ -82,7 +82,7 @@ with common keys:
 Table[
 	(A: 1, B: 2, C: 3),
 	(A: 4, B: 5, C: 6)
-].asHtml
+].htmlString
 ~~~
 
 <table class="TableData">
@@ -98,7 +98,7 @@ Table(
 	A: [1 2],
 	B: [3 4],
 	C: [5 6]
-).asHtml
+).htmlString
 ~~~
 
 <table class="TableData">
@@ -128,7 +128,7 @@ Select columns, in the specified order:
 ~~~spl html=E
 Table([3 3].iota, ['A' 'B' 'C'])
 .columns(['C' 'A'])
-.asHtml
+.htmlString
 ~~~
 
 <table class="TableData">
@@ -143,7 +143,7 @@ Select rows, in the specified order:
 ~~~spl html=F
 Table([3 3].iota, ['A' 'B' 'C'])
 .rows([3 1])
-.asHtml
+.htmlString
 ~~~
 
 <table class="TableData">
@@ -154,7 +154,7 @@ Table([3 3].iota, ['A' 'B' 'C'])
 
 * * *
 
-See also: columns, Html, List, rows
+See also: Html, List, columns, rows
 
 Guides: Collection Functions, Matrix Functions
 

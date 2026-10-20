@@ -65,7 +65,7 @@ which may contain any combination of `DirectedEdge` and `UndirectedEdge` values:
 
 * * *
 
-See also: edgeCount, Graph, Polygon, Polyhedron, vertexList
+See also: Graph, Polygon, Polyhedron, edgeCount, vertexList
 
 Guides: Geometry Functions, Graph Function
 

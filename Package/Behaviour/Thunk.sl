@@ -23,7 +23,7 @@ Thunk : [Object] {
 +Block {
 
 	thunk { :self/0 |
-		(self/0.numArgs = 0).ifFalse {
+		(self/0.argumentCount = 0).ifFalse {
 			self/0.error('thunk')
 		};
 		uncheckedThunk(self/0)

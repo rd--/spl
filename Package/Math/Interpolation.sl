@@ -285,7 +285,7 @@
 
 	listInterpolation { :self :aBlock |
 		let k = self.size;
-		aBlock.numArgs.caseOf([
+		aBlock.argumentCount.caseOf([
 			3 -> {
 				{ :x |
 					let i = x.integerPart;
