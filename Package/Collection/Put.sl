@@ -51,6 +51,12 @@
 		self.typeResponsibility('@Put>>put!')
 	}
 
+	put { :self :index :anObject |
+		let answer = self.copy;
+		answer.put!(index, anObject);
+		answer
+	}
+
 	/*
 	put! { :self :primaryIndex :secondaryIndex :anObject |
 		self.at(primaryIndex).put!(secondaryIndex, anObject)

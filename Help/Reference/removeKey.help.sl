@@ -30,6 +30,15 @@ If the key does not exist it is an `error`:
 true
 ```
 
+Copying form:
+
+```
+>>> let a = (a: 1, b: 2, c: 3);
+>>> let b = a.removeKey('c');
+>>> (a, b)
+((a: 1, b: 2, c: 3), (a: 1, b: 2))
+```
+
 * * *
 
 See also: remove, removeAllKeys, removeAt, removeKeyIfAbsent

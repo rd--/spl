@@ -2865,6 +2865,12 @@
 		self.tuples.reshape(shape)
 	}
 
+	unaryBlock { :self |
+		{ :index |
+			self.at(index)
+		}
+	}
+
 	uniqueElements { :self |
 		self.uniqueElements(isEqual/2)
 	}

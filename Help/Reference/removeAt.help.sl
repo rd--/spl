@@ -37,6 +37,20 @@ At `Record`, alias for `removeKey`:
 (2, (x: 1, z: 3))
 ```
 
+Copying form:
+
+```
+>>> let a = [1 2 -3 4];
+>>> let b = a.removeAt(3);
+>>> (a, b)
+([1 2 -3 4], [1 2 4])
+
+>>> let a = (a: 1, b: 2, c: 3);
+>>> let b = a.removeAt('c');
+>>> (a, b)
+((a: 1, b: 2, c: 3), (a: 1, b: 2))
+```
+
 * * *
 
 See also: at, insertAt, removeAtAll, removeFirst, removeKey, removeLast

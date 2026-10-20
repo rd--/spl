@@ -50,6 +50,13 @@ There is `Put Syntax` for mutating indexed values:
 (-2, (x: 1, y: -2, z: 3))
 ```
 
+Copying form:
+
+```
+>>> (a: 1, b: 2).put('c', 3)
+(a: 1, b: 2, c: 3)
+```
+
 * * *
 
 See also: at, atPathPut, size

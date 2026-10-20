@@ -832,6 +832,163 @@ append! = `addAllLast!`:
 [1 2 3 4 5]
 ```
 
+`copy`:
+
+```
+>>> let a = [1 2 3];
+>>> let b = a.copy;
+>>> a.add!(4);
+>>> (a, b)
+([1 2 3 4], [1 2 3])
+```
+
+## List Functions
+
+head = `first`:
+
+```
+>>> [1 2 3].first
+1
+
+>>> [42].first
+42
+```
+
+tail = `allButFirst`:
+
+```
+>>> [1 2 3].allButFirst
+[2 3]
+
+>>> [42].allButFirst
+[]
+```
+
+cons = `addFirst`:
+
+```
+>>> [1 2 3].addFirst(0)
+[0 1 2 3]
+```
+
+isNil = `isEmpty`, notNil = `isNotEmpty`:
+
+```
+>>> let a = [1 2 3];
+>>> let b = [];
+>>> (a.isEmpty, a.isNotEmpty, b.isEmpty, b.isNotEmpty)
+(false, true, true, false)
+```
+
+cyc = `cycle`:
+
+```
+>>> [1 2 3].cycle.next(10)
+[1 2 3 1 2 3 1 2 3 1]
+```
+
+iter = `iterate`:
+
+```
+>>> { :x | x * 2 }.iterate(1).next(10)
+[1 2 4 8 16 32 64 128 256 512]
+
+>>> { :x | x + 1 }.iterate(0).next(5)
+[0 1 2 3 4]
+```
+
+## Map Functions
+
+get = `lookup` & subscript syntax:
+
+```
+>>> let a = (a: 1, b: 2, c: 3);
+>>> (
+>>> 	a.lookup('b', nil),
+>>> 	a.lookup('z', 99),
+>>> 	a['c']
+>>> )
+(2, 99, 3)
+```
+
+getOrElse = `atIfAbsent`:
+
+```
+>>> let a = (a: 1, b: 2);
+>>> a.atIfAbsent('c') { 3 }
+3
+```
+
+Indexed assignment:
+
+```
+>>> let a = (a: 1);
+>>> a['b'] := 2;
+>>> a['a'] := 99;
+>>> a
+(a: 99, b: 2)
+```
+
+`put`:
+
+```
+>>> (a: 1).put('b', 2)
+(a: 1, b: 2)
+```
+
+remove = `removeKey`:
+
+```
+>>> (a: 1, b: 2).removeKey('b')
+(a: 1)
+```
+
+remove! = `removeKey!`:
+
+```
+>>> let a = (a: 1, b: 2);
+>>> a.removeKey!('b');
+>>> a
+(a: 1)
+```
+
+contains = `includesKey`:
+
+```
+>>> (a: 1, b: 2).includesKey('b')
+true
+```
+
+`keys`:
+
+```
+>>> (a: 1, b: 2).keys
+['a' 'b']
+```
+
+`values`:
+
+```
+>>> (a: 1, b: 2).values
+[1 2]
+```
+
+pairs = `associations`:
+
+```
+>>> (a: 1, b: 2).associations
+['a' -> 1, 'b' -> 2]
+```
+
+`merge`:
+
+```
+>>> let a = (x: 1, y: 2);
+>>> let b = (y: 99, z: 3);
+>>> [a, b].merge(last/1)
+(x: 1, y: 99, z: 3)
+```
+
 ## Type Conversions
 
 toInt=`truncate`:

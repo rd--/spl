@@ -6,6 +6,12 @@
 		}
 	}
 
+	remove { :self :oldObject |
+		let answer = self.copy;
+		answer.remove!(oldObject);
+		answer
+	}
+
 	removeAll! { :self |
 		self.do { :each |
 			self.remove!(each)

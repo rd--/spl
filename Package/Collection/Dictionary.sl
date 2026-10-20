@@ -387,6 +387,12 @@
 		}
 	}
 
+	[removeAt, removeKey] { :self :key |
+		let answer = self.copy;
+		answer.removeAt!(key);
+		answer
+	}
+
 	[removeAtAll!, removeAllKeys!] { :self :keys |
 		self.associationsRemove! { :each |
 			keys.includes(each.key)
@@ -458,15 +464,15 @@
 		)
 	}
 
-	valuesDo { :self :aBlock/1 |
-		self.keysAndValuesDo { :key :value |
-			aBlock(value)
+	unaryBlock { :self |
+		{ :key |
+			self.at(key)
 		}
 	}
 
-	withIndexCollect { :self :aBlock/2 |
-		self.keysAndValuesCollect { :key :value |
-			aBlock(value, key)
+	valuesDo { :self :aBlock/1 |
+		self.keysAndValuesDo { :key :value |
+			aBlock(value)
 		}
 	}
 
@@ -476,6 +482,12 @@
 
 	valueType { :self |
 		self.values.elementType
+	}
+
+	withIndexCollect { :self :aBlock/2 |
+		self.keysAndValuesCollect { :key :value |
+			aBlock(value, key)
+		}
 	}
 
 }
@@ -495,13 +507,7 @@
 
 	keyUnion { :self :blockOrDictionary |
 		let keys = Set();
-		let aBlock/1 = blockOrDictionary.isBlock.if {
-			blockOrDictionary
-		} {
-			{ :key |
-				blockOrDictionary.at(key)
-			}
-		};
+		let aBlock/1 = blockOrDictionary.unaryBlock;
 		self.do { :each |
 			keys.includeAll!(each.keys)
 		};

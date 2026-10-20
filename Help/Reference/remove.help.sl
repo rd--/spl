@@ -47,6 +47,20 @@ true
 true
 ```
 
+Copying form:
+
+```
+>>> let a = [1 2 3 4];
+>>> let b = a.remove(3);
+>>> (a, b)
+([1 2 3 4], [1 2 4])
+
+>>> let a = (a: 1, b: 2, c: 3);
+>>> let b = a.remove('c' -> 3);
+>>> (a, b)
+((a: 1, b: 2, c: 3), (a: 1, b: 2))
+```
+
 * * *
 
 See also: add, removeAll, removeAllSuchThat, removeAt, removeKey, removeKeyIfAbsent, without

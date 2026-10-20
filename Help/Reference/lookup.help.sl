@@ -3,7 +3,7 @@
 - _lookup(d, key, m=nil)_
 
 Look up the value associated with _key_ in the dictionary _d_,
-if the key is not present the `value` of the default answer _m_ is given.
+if the key is not present the default answer _m_ is given.
 
 Look up the value associated with the key:
 
@@ -54,7 +54,7 @@ Query multiple keys from multiple dictionaries:
 [1 2; 3 1; 4 3]
 ```
 
-Use `error` as default value:
+Use `Error` as default value:
 
 ```
 >>> let bmi = { :d |
@@ -76,11 +76,10 @@ Where `at` and `atIfAbsent` are defined at `List` as indexing methods,
 `lookup` is defined only at `Dictionary`,
 and can therefore thread over `List` values,
 both of dictionaries and keys.
-Unlike `atAll`, the answer gives only the values, in sequence.
 
 * * *
 
-See also: at, atAll, atIfAbsent, Dictionary, includesKey, keyAtValue, Map, Record
+See also: Dictionary, Map, Record, at, atAll, atIfAbsent, includesKey, keyAtValue
 
 Guides: Dictionary Functions
 

@@ -19,6 +19,10 @@ List! : [Object, New, Copy, Store, Equal, Compare, Json, Do, At, Indices, Put, C
 		anObject
 	}
 
+	addFirst { :self :anObject |
+		[anObject] ++ self
+	}
+
 	addLast! { :self :anObject |
 		<primitive: _self.push(_anObject);>
 		anObject
@@ -52,7 +56,8 @@ List! : [Object, New, Copy, Store, Equal, Compare, Json, Do, At, Indices, Put, C
 		self.copy
 	}
 
-	cycle { :self :count |
+	cycle { :self :n |
+		let count = self.size * n;
 		1.toCollect(count) { :i |
 			self.atWrap(i)
 		}
@@ -247,6 +252,12 @@ List! : [Object, New, Copy, Store, Equal, Compare, Json, Do, At, Indices, Put, C
 		let removed = self[index];
 		self.uncheckedRemoveAt(index);
 		removed
+	}
+
+	removeAt { :self :index |
+		let answer = self.copy;
+		answer.removeAt!(index);
+		answer
 	}
 
 	removeAtAll! { :self :indices |

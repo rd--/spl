@@ -17,6 +17,32 @@ answer a block that evaluates the polynomial:
 
 ![](Help/Image/unaryBlock-A.svg)
 
+At `Record`:
+
+```
+>>> let f/1 = (x: 1, y: 2).unaryBlock;
+>>> (f('x'), f('y'))
+(1, 2)
+```
+
+At `Map`:
+
+```
+>>> let f/1 = Map[
+>>> 	1 -> 'x', 2 -> 'y'
+>>> ].unaryBlock;
+>>> (f(1), f(2))
+('x', 'y')
+```
+
+At `List`:
+
+```
+>>> let f/1 = 1:9.square.unaryBlock;
+>>> (f(3), f(7))
+(9, 49)
+```
+
 At `Block`, identity:
 
 ```
