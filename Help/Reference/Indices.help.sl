@@ -51,6 +51,7 @@ Types implementing `Indices`:
 	'ListView'
 	'Map'
 	'NumericArray'
+	'PlanarCoordinates'
 	'Range'
 	'Record'
 	'RunArray'

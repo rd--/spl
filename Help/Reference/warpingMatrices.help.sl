@@ -30,7 +30,7 @@ In the traceback matrix a one indicates a match, two an insertion and three a de
 )
 ```
 
-Plot cost matrix for 6- and 7- vectors::
+Plot cost matrix for 6- and 7- vectors:
 
 ~~~spl svg=A
 let x = [0 2 0 1 0 0];

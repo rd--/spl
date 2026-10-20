@@ -4,7 +4,7 @@
 
 Answer the implicit equation for the bicuspid curve.
 
-Plot the bicuspid curve with _a=1_ at _z=0_::
+Plot the bicuspid curve with _a=1_ at _z=0_:
 
 ~~~spl svg=A
 let i = (-2 -- 2).subdivide(35);

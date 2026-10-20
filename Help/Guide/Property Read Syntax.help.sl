@@ -27,7 +27,7 @@ Where supported `::` is displayed as _·_.
 
 See also: ::
 
-Guides: At Syntax, Put Syntax, Record Syntax, Property Syntax
+Guides: At Syntax, Put Syntax, Record Syntax, Property Write Syntax
 
 Unicode: U+00B7 · Middle Dot
 

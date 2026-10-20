@@ -124,7 +124,7 @@ false
 
 * * *
 
-See also: add, addAll, List, sort, sorted
+See also: List, add, addAll, sort, sorted
 
 Guides: List Functions
 

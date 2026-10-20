@@ -32,7 +32,7 @@ let c = 2.chebyshevT.coefficientList;
 
 ![](Help/Image/gen03-C.svg)
 
-C.f. _2x^2-1_::
+C.f. _2x^2-1_:
 
 ~~~spl svg=D
 (-1 -- 1).functionPlot(

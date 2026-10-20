@@ -2723,7 +2723,7 @@ let r = RegularExpression('ab*c'); ['ac', 'abc', 'abbc'].collect { :each | r.mat
 RegularExpression('c(a|d)+r', 'g').matchAll('car cdr cadr') = ['car', 'cdr', 'cadr']
 RegularExpression('c(a|d)+r', 'g').matchAll('does not') = []
 RegularExpression('ab*c', 'g').matchAll('ab abc ac') = ['abc', 'ac']
-RegularExpression('-|:').splitOn('a-b:c') = ['a', 'b', 'c'] /* split string at matching tokens */
+RegularExpression('-|:').split('a-b:c') = ['a', 'b', 'c'] /* split string at matching tokens */
 RegularExpression('x|z').replaceWith('x y z', '-') = '- y z'
 RegularExpression('x|z', 'g').replaceAllWith('x y z', '-') = '- y -'
 { RegularExpression('x|z').replaceAllWith('x y z', '-') }.hasError /* requires 'g' flag */

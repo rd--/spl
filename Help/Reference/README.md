@@ -6,7 +6,7 @@ Run documentation tests:
 'Help/Reference'.splFilePath.terseReferenceSummary((verbose: false, pattern: '.*'))
 ~~~
 
-Total => 19,482
+Total => 19,497
 
 Note: Requires LibraryItems be at the interpreter cache, i.e.
 

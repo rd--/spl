@@ -6,7 +6,7 @@ Run documentation tests:
 'Help/Guide'.splFilePath.terseReferenceSummary((verbose: false, pattern: '.*'))
 ~~~
 
-Total => 1,002
+Total => 1,006
 
 Write image files:
 

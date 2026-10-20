@@ -14,7 +14,7 @@ Evaluate symbolically:
 )
 ```
 
-Plot the stirrup curve at _z=0_::
+Plot the stirrup curve at _z=0_:
 
 ~~~spl svg=A
 let i = (-5 -- 5).subdivide(50);
