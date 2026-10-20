@@ -37,7 +37,7 @@ At `Vector Syntax`:
 Set([1 2 3])
 ```
 
-At `Matrix` syntax:
+At `Matrix Syntax`:
 
 ```
 >>> Line[0 0; 1 1]

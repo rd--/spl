@@ -10,20 +10,6 @@
 
 +@At {
 
-	assertIsOfSize { :self :anInteger |
-		self.assert('isOfSize') {
-			self.size = anInteger
-		}
-	}
-
-	assertIsValidIndex { :self :index |
-		self.includesIndex(index).if {
-			index
-		} {
-			self.errorInvalidIndex('assertIsValidIndex', index)
-		}
-	}
-
 	at { :self :index |
 		self.atIfAbsent(index) {
 			self.errorInvalidIndex('at', index)

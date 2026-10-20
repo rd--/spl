@@ -8,6 +8,14 @@
 
 +@Indices {
 
+	assertIsValidIndex { :self :index |
+		self.includesIndex(index).if {
+			index
+		} {
+			self.errorInvalidIndex('assertIsValidIndex', index)
+		}
+	}
+
 	atAllPut! { :self :anObject |
 		self.indicesDo { :index |
 			put!(self, index, anObject)

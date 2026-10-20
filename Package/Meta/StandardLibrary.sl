@@ -23,6 +23,7 @@
 	'Heap'
 	'Histogram'
 	'HuffmanCoding'
+	'Link'
 	'LinkedList'
 	'ListView'
 	'MemoizationTable'

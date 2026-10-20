@@ -2,18 +2,11 @@
 
 - _Set([x₁ x₂ …])_
 
-`Set` is both a `Trait`,
+`Set` is both a collection trait,
 holding behaviours for collection types that do not contain duplicate items,
 and an alias for the `SortedSet` type.
 At a collection,
 answers a `Set` of the elements of the collection _c_.
-
-```
->>> system
->>> .traitDictionary['Set']
->>> .isTrait
-true
-```
 
 At `List`:
 
@@ -43,19 +36,6 @@ At a list of lists:
 ```
 >>> Set[1 1; 1 1; 1 2]
 SortedSet[1 1; 1 2]
-```
-
-Types implementing the `Set` trait:
-
-```
->>> system
->>> .traitTypes('@Set')
->>> .sort!
-[
-	'IdentitySet'
-	'SortedSet'
-	'UnsortedSet'
-]
 ```
 
 The empty set constructor,
@@ -123,6 +103,28 @@ true
 >>> 	IdentitySet[1J1 1J1]
 >>> }.hasError
 true
+```
+
+`Set` is a `Trait`:
+
+```
+>>> system
+>>> .traitDictionary['Set']
+>>> .isTrait
+true
+```
+
+Types implementing the `Set` trait:
+
+```
+>>> system
+>>> .traitTypes('@Set')
+>>> .sort!
+[
+	'IdentitySet'
+	'SortedSet'
+	'UnsortedSet'
+]
 ```
 
 * * *

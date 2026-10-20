@@ -55,10 +55,12 @@ Float32Array! : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put,
 +List {
 
 	[Float32Array, listToFloat32Array] { :self |
-		self.isSmallFloatVector.if {
-			self.uncheckedFloat32Array
-		} {
-			self.error('List>>Float32Array')
+		self.atVectorOrElementwise { :each |
+			each.isSmallFloatVector.if {
+				each.uncheckedFloat32Array
+			} {
+				self.error('List>>Float32Array')
+			}
 		}
 	}
 

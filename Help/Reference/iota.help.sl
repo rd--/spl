@@ -123,6 +123,16 @@ OEIS [A004736](https://oeis.org/A004736):
 
 ![](Help/Image/iota-B.svg)
 
+A banded matrix:
+
+~~~spl svg=C
+let a = [7 23].iota;
+((a * 5).sin - (a * 13).cos)
+.colourMatrixPlot
+~~~
+
+![](Help/Image/iota-C.svg)
+
 Where supported `iota` is displayed as ⍳.
 
 * * *

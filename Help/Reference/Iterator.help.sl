@@ -1,8 +1,8 @@
 # Iterator
 
-- _Stream([x₁ x₂ …])_
+- _Iterator([x₁ x₂ …])_
 
-`Iterator` is both a `Trait`,
+`Iterator` is both a collection trait,
 representing the ability to maintain a position reference into a collection of objects,
 and a constructor method for iterator types.
 
@@ -65,6 +65,6 @@ To implement `Iterator` a type must implement `next`.
 
 See also: CollectionStream, Do, Stream, do, next
 
-Guides: Stream Functions
+Guides: Collection Functions, Stream Functions
 
 Categories: Collection, Trait

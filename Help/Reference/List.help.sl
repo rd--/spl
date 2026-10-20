@@ -249,7 +249,7 @@ Traits implemented by `List`:
 
 * * *
 
-See also: ByteArray, Float64Array, Type, #, !, enclose, nest
+See also: ByteArray, Float32Array, Float64Array, Type, #, !, enclose, nest
 
 Guides: List Syntax, Vector Syntax
 

@@ -2547,6 +2547,7 @@ Reference/LineSegment.help.sl
 Reference/lines.help.sl
 Reference/LinExp.help.sl
 Reference/LinkedList.help.sl
+Reference/Link.help.sl
 Reference/LinLin.help.sl
 Reference/LinPan2.help.sl
 Reference/LinRand.help.sl
@@ -2709,7 +2710,6 @@ Reference/matchingDissimilarity.help.sl
 Reference/matchPairs.help.sl
 Reference/matchRegularExpression.help.sl
 Reference/matlabPeaksFunction.help.sl
-Reference/Matrix.help.sl
 Reference/matrixInterpolation.help.sl
 Reference/matrixNeighboursDo.help.sl
 Reference/matrixNeighbours.help.sl

@@ -2,6 +2,10 @@
 
 - _Dictionary([k₁ -> v₁, k₂ -> v₂, …])_
 
+`Dictionary` is a collection trait holding behaviours common to collections of associations,
+and also a type representing a dictionary where keys are compared according to `=`,
+the equality operator.
+
 At `List` of `Association` values:
 
 ```
@@ -11,16 +15,18 @@ At `List` of `Association` values:
 (3, 3, [1 2 3], [-1 -2 -3])
 ```
 
-`Dictionary` is a `Trait` holding behaviours common to collections of associations,
-and also a `Type` representing a dictionary where keys are compared according to `=`,
-the equality operator.
+`Dictionary` is a `Trait`:
 
 ```
 >>> system
 >>> .traitDictionary['Dictionary']
 >>> .isTrait
 true
+```
 
+`Dictionary` is a `Type`:
+
+```
 >>> system
 >>> .typeDictionary['Dictionary']
 >>> .isType

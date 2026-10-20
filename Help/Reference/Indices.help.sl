@@ -64,6 +64,6 @@ Types implementing `Indices`:
 
 See also: At, Collection, Put, indices
 
-Guides: Dictionary Functions, Indexing Functions, List Functions
+Guides: Collection Functions, Dictionary Functions, Indexing Functions, List Functions
 
 Categories: Trait

@@ -1,9 +1,11 @@
 # Matrix Functions
 
+A matrix is a two dimensional array,
+ordinarily represented as a row-order list of lists.
+
 Traits and Types:
 
 - `List`
-- `Matrix`
 - `NumericArray`
 
 General Constructors
@@ -244,4 +246,12 @@ Sorting Matrix
 
 * * *
 
-Guides: Mathematical Functions
+Guides: Mathematical Functions, Matrix Syntax
+
+References:
+_Apl_
+[1](https://aplwiki.com/wiki/Matrix),
+_Mathematica_
+[1](https://mathworld.wolfram.com/Matrix.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Matrix_(mathematics))

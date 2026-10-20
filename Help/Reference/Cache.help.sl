@@ -96,7 +96,9 @@ system
 
 * * *
 
-See also: cached, caches, CacheStorage, LibraryItem, System, whenCached
+See also: CacheStorage, LibraryItem, System, cached, caches, whenCached
+
+Guides: Collection Functions
 
 References:
 _W3c_

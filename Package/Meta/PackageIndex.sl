@@ -50,6 +50,7 @@
 	'Collection-IdentityMultiset'
 	'Collection-IdentitySet'
 	'Collection-Indices'
+	'Collection-Link'
 	'Collection-LinkedList'
 	'Collection-List'
 	'Collection-ListView'

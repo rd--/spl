@@ -26,7 +26,7 @@ system
 
 * * *
 
-See also: Cache, caches, system, System
+See also: Cache, System, caches, system
 
 References:
 _W3c_

@@ -28,6 +28,19 @@ which must have element type `SmallFloat`:
 )
 ```
 
+At matrices and arrays:
+
+```
+>>> Float32Array[1 2 3; 4 5 6]
+[Float32Array[1 2 3], Float32Array[4 5 6]]
+
+>>> Float32Array[1 2; 3 4:; 5 6; 7 8]
+[
+	[Float32Array[1 2], Float32Array[3 4]],
+	[Float32Array[5 6], Float32Array[7 8]]
+]
+```
+
 The `encode` method answers a `ByteArray`,
 the boolean parameter indicates if the encoding is in little (`true`) or big (`false`) endian form.
 
@@ -52,7 +65,7 @@ Float32Array[0 0 0 0 0]
 
 * * *
 
-See also: ByteArray, encode, List, Float64Array
+See also: ByteArray, List, Float64Array, encode
 
 Guides: Vector Functions
 

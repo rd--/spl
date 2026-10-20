@@ -1,11 +1,3 @@
-+List{
-	splitBy { :self :f/1 |
-		self.split { :x :y |
-			f(x) = f(y)
-		}
-	}
-}
-
 # splitBy
 
 - _splitBy([x₁ x₂ …], f/1)_

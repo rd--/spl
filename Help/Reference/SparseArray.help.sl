@@ -257,7 +257,9 @@ SparseArray([[1] -> 2, [10] -> 7, [3] -> 2])
 
 * * *
 
-See also: arrayRules, List, Map, shape
+See also: List, Map, arrayRules, shape
+
+Guides: Array Functions, Collection Functions
 
 References:
 _Mathematica_

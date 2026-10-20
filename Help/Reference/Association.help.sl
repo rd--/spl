@@ -93,7 +93,7 @@ hence considering only key for equality in St-80.
 
 * * *
 
-See also: ->, <-, associations, key, value
+See also: Dictionary, List, Map, Record, ->, <-, associations, key, value
 
 Guides: Dictionary Functions
 

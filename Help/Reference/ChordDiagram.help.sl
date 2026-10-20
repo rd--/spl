@@ -8,15 +8,15 @@ A `Type` representing a chord diagram.
 In the `List` case the diagram is given as a length vector:
 
 ```
->>> ChordDiagram([6 2 3 6 3 5 2 5])
+>>> ChordDiagram[6 2 3 6 3 5 2 5]
 >>> .edgeList
 [1 7; 2 4; 3 6; 5 8]
 ```
 
-In the `Matrix` case the diagram is given as an edge list:
+In the matrix case the diagram is given as an edge list:
 
 ```
->>> ChordDiagram([1 7; 2 4; 3 6; 5 8])
+>>> ChordDiagram[1 7; 2 4; 3 6; 5 8]
 >>> .lengthVector
 [6 2 3 6 3 5 2 5]
 ```
@@ -24,7 +24,7 @@ In the `Matrix` case the diagram is given as an edge list:
 Plot chord diagram, _n=4_:
 
 ~~~spl svg=A
-ChordDiagram([1 7; 2 4; 3 6; 5 8])
+ChordDiagram[1 7; 2 4; 3 6; 5 8]
 .chordDiagramPlot
 ~~~
 
@@ -33,7 +33,7 @@ ChordDiagram([1 7; 2 4; 3 6; 5 8])
 Plot chord diagram, _n=3_:
 
 ~~~spl svg=B
-ChordDiagram([1 2; 3 5; 4 6])
+ChordDiagram[1 2; 3 5; 4 6]
 .chordDiagramPlot
 ~~~
 

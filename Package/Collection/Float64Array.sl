@@ -43,10 +43,12 @@ Float64Array! : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put,
 +List {
 
 	[Float64Array, listToFloat64Array] { :self |
-		self.isSmallFloatVector.ifFalse {
-			self.error('Float64Array: invalid input')
-		};
-		self.uncheckedFloat64Array
+		self.atVectorOrElementwise { :each |
+			each.isSmallFloatVector.ifFalse {
+				self.error('Float64Array: invalid input')
+			};
+			each.uncheckedFloat64Array
+		}
 	}
 
 	uncheckedFloat64Array { :self |

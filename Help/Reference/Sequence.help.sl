@@ -79,7 +79,7 @@ Methods for enumerating:
 
 See also: Collection, Do, Ordered, Trait
 
-Guides: Sequence Functions
+Guides: Collection Functions, Sequence Functions
 
 References:
 _Mathematica_

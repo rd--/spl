@@ -15,6 +15,19 @@ answer a `Float64Array` initialized to _[x, …]_:
 [1 2 3 4 5]
 ```
 
+At matrices and arrays:
+
+```
+>>> Float64Array[1 2 3; 4 5 6]
+[Float64Array[1 2 3], Float64Array[4 5 6]]
+
+>>> Float64Array[1 2; 3 4:; 5 6; 7 8]
+[
+	[Float64Array[1 2], Float64Array[3 4]],
+	[Float64Array[5 6], Float64Array[7 8]]
+]
+```
+
 Little-endian encodings of small integers:
 
 ```

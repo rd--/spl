@@ -2594,6 +2594,12 @@
 		}
 	}
 
+	splitBy { :self :f/1 |
+		self.split { :x :y |
+			f(x) = f(y)
+		}
+	}
+
 	[splitOn, sequenceSplit] { :self :aCollection |
 		let answer = [];
 		self.splitOnDo(aCollection) { :each |

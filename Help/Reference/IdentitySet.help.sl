@@ -120,7 +120,7 @@ b.scatterPlot
 
 * * *
 
-See also: add, Collection, IdentityMultiset, include, isImmediate, isIdentitySet, List, nub, unique
+See also: Collection, IdentityMultiset, List, add, include, isImmediate, isIdentitySet, nub, unique
 
 Guides: Set Functions
 

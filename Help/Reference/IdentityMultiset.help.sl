@@ -138,7 +138,7 @@ Count occurrences of characters in a string:
 
 * * *
 
-See also: add, addWithOccurrences, Multiset, IdentitySet, isImmediate, remove, sortedCounts, sortedElements, Set, valuesAndCounts
+See also: Multiset, IdentitySet, Set, add, addWithOccurrences, isImmediate, remove, sortedCounts, sortedElements, valuesAndCounts
 
 Guides: Set Functions
 

@@ -2,6 +2,24 @@
 
 `At` is a collection trait.
 
+The required methods are:
+
+- `atIfAbsent`
+
+The implemented methods include:
+
+- `at`
+- `atIfPresent`
+- `atIfPresentIfAbsent`
+- `atOrMissing`
+- `atOrNil`
+- `atPath`
+
+`At Syntax` is implemented in terms of `At` methods.
+
+Note, however, that `atAll` is not implemented at `At`.
+Instead is is implemented at `Sequence` since it requires `species` to decide the answer type.
+
 `At` is a `Trait`:
 
 ```
@@ -10,15 +28,6 @@
 >>> .isTrait
 true
 ```
-
-The required methods are:
-
-- `at`
-
-`At Syntax` is implemented in terms of `At` methods.
-
-Note, however, that `atAll` is not implemented at `At`.
-Instead is is implemented at `Sequence` since it requires `species` to decide the answer type.
 
 Types implementing `At`:
 

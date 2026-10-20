@@ -165,7 +165,7 @@ to convert a `Multiset` to a `List` use `multitsetToList` (or `List`).
 
 * * *
 
-See also: add, addWithOccurrences, Dictionary, IdentityMultiset, IdentitySet, isImmediate, remove, sortedCounts, sortedElements, Set, valuesAndCounts
+See also: Dictionary, IdentityMultiset, IdentitySet, Set, add, addWithOccurrences, isImmediate, remove, sortedCounts, sortedElements, valuesAndCounts
 
 Guides: Set Functions
 
