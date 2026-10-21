@@ -36,7 +36,9 @@ Elementwise threading over lists and matrices:
 Plot _J0_ over a subset of the reals:
 
 ~~~spl svg=A
-(0 -- 50).functionPlot { :x | 0.besselJ(x) }
+(0 -- 50).functionPlot { :x |
+	0.besselJ(x)
+}
 ~~~
 
 ![](Help/Image/besselJ-A.svg)
@@ -44,7 +46,9 @@ Plot _J0_ over a subset of the reals:
 Plot _J0_ for _(-1, 9)_, showing the first three zero crossings:
 
 ~~~spl svg=B
-(-1 -- 9).functionPlot { :x | 0.besselJ(x) }
+(-1 -- 9).functionPlot { :x |
+	0.besselJ(x)
+}
 ~~~
 
 ![](Help/Image/besselJ-B.svg)
@@ -52,7 +56,9 @@ Plot _J0_ for _(-1, 9)_, showing the first three zero crossings:
 Plot _J1_ for _(0, 15)_, showing the first four zero crossings:
 
 ~~~spl svg=C
-(0 -- 15).functionPlot { :x | 1.besselJ(x) }
+(0 -- 15).functionPlot { :x |
+	1.besselJ(x)
+}
 ~~~
 
 ![](Help/Image/besselJ-C.svg)

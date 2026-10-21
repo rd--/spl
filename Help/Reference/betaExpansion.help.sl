@@ -102,7 +102,7 @@ The integer _10_ with base _π_ and precision _22_:
 ```
 
 The β-expansion of the integer _2_ with rational base _3/2_ and precision _103_,
-equal but for the second place to
+equal but for the second places to
 OEIS [A058840](https://oeis.org/A058840):
 
 ```
@@ -124,7 +124,7 @@ OEIS [A058840](https://oeis.org/A058840):
 	2
 ]
 
->>> betaExpansion(2, 3/2, 103)
+>>> betaExpansion(2, 3/2, 89)
 >>> .betaContraction(1.5)
 2
 ```

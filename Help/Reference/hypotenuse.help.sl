@@ -17,8 +17,8 @@ Integer answers:
 At large numbers:
 
 ```
->>> hypotenuse(1E308, 1E308)
-1.41421E308
+>>> hypotenuse(1E13, 1E13)
+1.41421E13
 ```
 
 The hypotenuse gives the distance of a point _(x,y)_ from the origin:

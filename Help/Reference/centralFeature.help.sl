@@ -58,7 +58,7 @@ Specify distance as literal block:
 Obtain a robust estimate of multivariate location when outliers are present:
 
 ```
->>> [3 -5; 2 -5; 0 2; -4 -3; 1E8 -1; 8 -20000]
+>>> [3 -5; 2 -5; 0 2; -4 -3; 1E7 -1; 8 -20000]
 >>> .centralFeature(euclideanDistance/2)
 [2 -5]
 ```
@@ -66,9 +66,9 @@ Obtain a robust estimate of multivariate location when outliers are present:
 Extreme values have a large influence on the Mean:
 
 ```
->>> [3 -5; 2 -5; 0 2; -4 -3; 1E8 -1; 8 -20000]
+>>> [3 -5; 2 -5; 0 2; -4 -3; 1E7 -1; 8 -20000]
 >>> .mean
-[(5 / 3) * 1E7, -10006/3]
+[(5 / 3) * 1E6, -10006/3]
 ```
 
 * * *

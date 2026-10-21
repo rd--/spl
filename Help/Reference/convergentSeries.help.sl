@@ -42,7 +42,8 @@ Approximate the sum of the reciprocals of the Fibonacci numbers:
 3.35989
 ```
 
-Maclaurin series for calculating the error function:
+Maclaurin series for calculating the error function,
+this requires working with very large floating point numbers:
 
 ```
 >>> let z = 3.5J-2.5;
@@ -53,6 +54,9 @@ Maclaurin series for calculating the error function:
 >>> 	/
 >>> 	(n.factorial * m)
 >>> }.convergentSeries(0)
+0.9997653J0.0002203
+
+>>> 3.5J-2.5.erf
 0.9997653J0.0002203
 ```
 

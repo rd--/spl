@@ -170,7 +170,7 @@ Sum Stirling numbers modulo two scaled by _-1^(n-k)_,
 OEIS [A309014](https://oeis.org/A309014):
 
 ```
->>> 0:23.collect { :n |
+>>> 0L:23.collect { :n |
 >>> 	0:n.sum { :k |
 >>> 		(-1 ^ (n - k))
 >>> 		*

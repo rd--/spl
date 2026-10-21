@@ -70,7 +70,7 @@ At `LargeInteger`:
 
 ```
 >>> 2.5 ^ 3L
-15.265
+15.625
 ```
 
 At `Fraction`:

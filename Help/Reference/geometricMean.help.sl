@@ -30,7 +30,7 @@ The `product` of the collection _c_ raised to the `reciprocal` of its `size`.
 Find the geometric mean for the heights of children in a class.
 
 ```
->>> [
+>>> LargeInteger[
 >>> 	134 143 131 140 145
 >>> 	136 131 136 143 136
 >>> 	133 145 147 150 150

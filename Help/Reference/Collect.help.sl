@@ -32,6 +32,7 @@ Types implementing the `Collect` trait:
 	'Float64Array'
 	'IdentityMultiset'
 	'IdentitySet'
+	'Link'
 	'LinkedList'
 	'List'
 	'ListView'

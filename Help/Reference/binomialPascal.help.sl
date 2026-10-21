@@ -16,7 +16,8 @@ allowing for negative _n_ to preserve Pascal’s identity.
 [-120 -120; -171.43 -768.96]
 ```
 
-The answers for `binomialPascal` and `binomialGamma` agree for positive _n_ and disagree for negative _n_:
+The answers for `binomialPascal` and `binomialGamma` agree for positive _n_,
+and disagree for negative _n_:
 
 ```
 >>> [10 3; 8 5; 8 4; 6 3; 4 2; 2 3; 1 3]

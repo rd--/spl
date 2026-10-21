@@ -231,8 +231,9 @@ LinkedList : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Co
 	reverse { :self |
 		let answer = LinkedList();
 		self.do { :each |
-			answer.addLast!(each)
-		}
+			answer.addFirst!(each)
+		};
+		answer
 	}
 
 	select { :self :aBlock/1 |

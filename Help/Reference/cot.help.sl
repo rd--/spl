@@ -19,6 +19,9 @@ The argument of `cot` is assumed to be in radians:
 >>> 1/3.pi.cot
 1 / 3.sqrt
 
+>>> 1/6.pi.cot
+1.732
+
 >>> 0.cot
 Infinity
 

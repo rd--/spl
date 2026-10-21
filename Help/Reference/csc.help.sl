@@ -10,6 +10,9 @@ Equal to the reciprocal of `sin`:
 ```
 >>> 1/2.pi.csc
 1 / 1/2.pi.sin
+
+>>> 1/6.pi.csc
+2
 ```
 
 At `SmallFloat`:
@@ -17,6 +20,9 @@ At `SmallFloat`:
 ```
 >>> 1.2.csc
 1.07292
+
+>>> 1.0.csc
+1.18840
 ```
 
 At `Complex`:

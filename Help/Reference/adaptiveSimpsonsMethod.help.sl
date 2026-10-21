@@ -83,14 +83,14 @@ Compute the area between two curves as a one-dimensional integral of their diffe
 
 Fails for oscillatory and other complicated functions:
 
-```
->>> {
->>> 	{ :x |
->>> 		(1 / x) * (x.log / x).cos
->>> 	}.adaptiveSimpsonsMethod([0 1])
->>> }.hasError
+~~~spl diverging
+{
+	{ :x |
+		(1 / x) * (x.log / x).cos
+	}.adaptiveSimpsonsMethod([0 1])
+}.hasError
 true
-```
+~~~
 
 * * *
 

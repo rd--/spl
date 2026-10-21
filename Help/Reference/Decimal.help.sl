@@ -268,8 +268,8 @@ Integer and fraction parts retain scale:
 >>> 3.141D.integerPart
 3.000D
 
->>> (3.141D ^ 54 - 1).fractionalPart
-0.463D
+>>> (3.141D ^ 7).fractionalPart
+0.307088972273725113581D
 ```
 
 Integer exponent:

@@ -100,13 +100,14 @@ At `zero`:
 0
 ```
 
-Not defined for negative _n_:
+Negative _n_:
 
 ```
->>> {
->>> 	-4.integerSquareRoot
->>> }.hasError
-true
+>>> -4.integerSquareRoot
+0J2
+
+>>> 0J2 ^ 2
+-4
 ```
 
 Show that the expression _f_ below answers non-square numbers:

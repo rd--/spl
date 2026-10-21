@@ -16,6 +16,9 @@ Answers the sin of _z_.
 
 >>> 18.degree.sin
 1 / (5.sqrt + 1)
+
+>>> 1/2.pi.sin
+1
 ```
 
 Definition:
@@ -50,6 +53,9 @@ Threads elementwise over lists and matrices:
 ```
 >>> [1.2 1.5 1.8].sin
 [0.932039 0.997495 0.973848]
+
+>>> [1/6 1/3 1/2].pi.sin
+[0.5 0.866 1]
 ```
 
 Values of `sin` at fixed points:
