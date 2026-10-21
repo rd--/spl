@@ -82,16 +82,14 @@ Find Euler–Jacobi pseudoprimes,
 OEIS [A047713](https://oeis.org/A047713):
 
 ```
->>> 1:5000.select { :m |
->>> 	m.gcd(2) = 1 & {
->>> 		m.isPrime.not & {
->>> 			2.jacobiSymbol(m)
->>> 			=
->>> 			((2 ^ ((m - 1) / 2)) % m)
->>> 		}
+>>> 3L:5000:2.select { :n |
+>>> 	let a = 2 ^ ((n - 1) / 2);
+>>> 	let b = 2.jacobiSymbol(n);
+>>> 	(a - b % n) = 0 & {
+>>> 		n.isPrime.not
 >>> 	}
 >>> }
-[561 1105 1729 1905 2047]
+[561 1105 1729 1905 2047 2465 3277 4033 4681]
 ```
 
 Threads element-wise over lists:

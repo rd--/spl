@@ -184,7 +184,7 @@ An infinite series by Ramanujan, 1910:
 ```
 >>> let k = 2;
 >>> let a = (2 * 2.sqrt) / 9801;
->>> let b = 0:k.sum { :n |
+>>> let b = 0L:k.sum { :n |
 >>> 	((4 * n).! * (1103 + (26390 * n)))
 >>> 	/
 >>> 	((n.! ^ 4) * (396 ^ (4 * n)))

@@ -84,16 +84,16 @@ There is a limit to the number of decimal places that may be generated accuratel
 
 ```
 >>> 0.3
->>> .printStringShowingDecimalPlaces(21)
-'0.300000000000000000000'
+>>> .printStringShowingDecimalPlaces(15)
+'0.300000000000000'
 ```
 
 Large numbers:
 
 ```
->>> 1.23E20
+>>> 1.23E15
 >>> .printStringShowingDecimalPlaces(2)
-'123000000000000000000.00'
+'1230000000000000.00'
 ```
 
 No fractional part, rounding up:

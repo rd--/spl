@@ -21,6 +21,13 @@ Thread over lists:
 [false true false true false]
 ```
 
+Negative numbers may be even:
+
+```
+>>> [-5 .. 5].isEven.boole
+[0 1 0 1 0 1 0 1 0 1 0]
+```
+
 Are all items even:
 
 ```
@@ -39,8 +46,8 @@ An even number is divisible by two,
 the modulo of an even number and two is zero:
 
 ```
->>> [2 4 6 8] % 2
-[0 0 0 0]
+>>> [-8, -6 .. 8] % 2
+[0 0 0 0 0 0 0 0 0]
 ```
 
 The sum or difference of two integers with equal parity is even:

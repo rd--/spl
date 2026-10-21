@@ -13,14 +13,21 @@ The arc sine is the inverse sine function.
 
 >>> 0.4.arcSin
 0.41152
+
+>>> 1.5.arcSin
+1.5708J-0.96242
+```
+
+At `Fraction`:
+
+```
+>>> 1/3.arcSin
+0.3398369
 ```
 
 `Complex` arguments:
 
 ```
->>> 1.5J0.arcSin
-1.5708J-0.96242
-
 >>> 2.5J1.arcSin
 1.16462J1.65869
 ```
@@ -28,13 +35,13 @@ The arc sine is the inverse sine function.
 Compare accuracy of method to the direct evaluation of the logarithmic formula:
 
 ```
->>> let z = 0J-1234567;
+>>> let z = 0J-12345;
 >>> z.arcSin
-0J-14.71937803983977
+0J-10.114153584
 
->>> let z = 0J-1234567;
+>>> let z = 0J-12345;
 >>> ((1 - z.square).sqrt - (z * 1I)).log * 1I
-0J-14.71964426356397
+0J-10.114153587
 ```
 
 Threads elementwise over lists:
@@ -42,6 +49,9 @@ Threads elementwise over lists:
 ```
 >>> [0.2 0.5 0.8].arcSin
 [0.20136 0.52360 0.92730]
+
+>>> [-1 -0.5 0.5 1].arcSin
+1.pi / [-2 -6 6 2]
 ```
 
 Zero of `arcSin`:

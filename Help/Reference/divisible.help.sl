@@ -134,7 +134,7 @@ Smaller numbers are not divisible by large numbers,
 although floating point modulo may suggest they are:
 
 ```
->>> 233.divisible(133 ^ 133)
+>>> 233.divisible(133L ^ 133)
 false
 
 >>> 233 % (133 ^ 133)

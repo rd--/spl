@@ -11,8 +11,8 @@ At `SmallFloat`:
 >>> 5.integerFactorial
 120
 
->>> 23.integerFactorial
-2.585E+22
+>>> 13.integerFactorial
+6227020800
 ```
 
 At `LargeInteger`:

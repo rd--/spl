@@ -790,3 +790,12 @@ export function stringToSentences(str: string): Array<string> {
 		/(?=[^])(?:\P{Sentence_Terminal}|\p{Sentence_Terminal}(?!['"`\p{Close_Punctuation}\p{Final_Punctuation}\s]))*(?:\p{Sentence_Terminal}+['"`\p{Close_Punctuation}\p{Final_Punctuation}]*|$)/guy,
 	) || [];
 }
+
+export function checkSmallFloatOverflow(a: number, b: number, x: number): void {
+	if (Math.abs(x) > 9_007_199_254_740_991) {
+		console.warn(`checkSmallFloatOverflow: ${x}`);
+		if (Number.isFinite(x) || (Number.isInteger(a) && Number.isInteger(b))) {
+			throw new Error('checkSmallFloatOverflow: finite & integers');
+		}
+	}
+}

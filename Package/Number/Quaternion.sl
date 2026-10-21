@@ -63,10 +63,10 @@ Quaternion : [Object, Store, Equal, Number] {
 	}
 
 	[absoluteValue, abs] { :self |
-		self.absSquare.sqrt
+		self.absoluteValueSquare.sqrt
 	}
 
-	absSquare { :self |
+	[absoluteValueSquare, absSquare] { :self |
 		self.components.square.sum
 	}
 

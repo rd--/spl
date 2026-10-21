@@ -998,7 +998,6 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'sinh'
 		'sqrt'
 		'square'
-		'squaredNorm'
 		'sum'
 		'tan'
 		'tanh'

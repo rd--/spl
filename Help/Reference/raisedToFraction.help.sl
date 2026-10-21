@@ -1,9 +1,9 @@
 # raisedToFraction
 
-- _raisedToFraction(aNumber, aFraction)_
+- _raisedToFraction(x, n/d)_
 
 Special case of _^_ where the exponent is a fraction.
-Answers _aNumber_ raised to _aFraction_.
+Answers the number _x_ raised to the fraction _n/d_.
 
 At `Fraction`:
 
@@ -40,8 +40,14 @@ At `Fraction`:
 >>> (4 ^ 3/2, 4 ^ 1.5)
 (8/1, 8)
 
->>> (-8/1 ^ -2/3, -8 ^ (-2 / 3))
-(-0.125J-0.216506, -0.125J-0.216506)
+>>> (
+>>> 	-8/1 ^ -2/3,
+>>> 	-8 ^ (-2 / 3)
+>>> )
+(
+	-0.125J-0.216506,
+	-0.125J-0.216506
+)
 ```
 
 The answer may not be a `Fraction`:
@@ -54,3 +60,5 @@ The answer may not be a `Fraction`:
 * * *
 
 See also: ^, raisedToInteger
+
+Guides: Mathematical Functions

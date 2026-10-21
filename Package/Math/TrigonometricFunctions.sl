@@ -1,7 +1,11 @@
 +SmallFloat {
 
 	arcCos { :self |
-		<primitive: return Math.acos(_self)>
+		self.isBetween(-1, 1).if {
+			self.uncheckedArcCos
+		} {
+			Complex(self, 0).arcCos
+		}
 	}
 
 	arcCsc { :self |
@@ -21,7 +25,11 @@
 	}
 
 	arcSin { :self |
-		<primitive: return Math.asin(_self)>
+		self.isBetween(-1, 1).if {
+			self.uncheckedArcSin
+		} {
+			Complex(self, 0).arcSin
+		}
 	}
 
 	arcTan { :self |
@@ -77,6 +85,14 @@
 		<primitive: return Math.tan(_self)>
 	}
 
+	uncheckedArcCos { :self |
+		<primitive: return Math.acos(_self)>
+	}
+
+	uncheckedArcSin { :self |
+		<primitive: return Math.asin(_self)>
+	}
+
 }
 
 +Complex {
@@ -86,7 +102,7 @@
 			(self.real.abs > 1).if {
 				Complex(
 					(self.real < 0).if {
-						pi
+						1.pi
 					} {
 						0
 					},
@@ -99,7 +115,7 @@
 				)
 			}
 		} {
-			let tmp = self.squaredNorm - 1 / 2;
+			let tmp = self.absSquare - 1 / 2;
 			let delta = tmp.square + self.imaginary.square;
 			let sh2y = tmp + delta.sqrt;
 			let shy = sh2y.sqrt;
@@ -134,7 +150,7 @@
 				)
 			}
 		} {
-			let tmp = self.squaredNorm - 1 / 2;
+			let tmp = self.absSquare - 1 / 2;
 			let delta = tmp.square + self.imaginary.square;
 			let sh2y = tmp + delta.sqrt;
 			let shy = sh2y.sqrt;
@@ -148,7 +164,7 @@
 	}
 
 	arcTan { :self |
-		let r2 = self.squaredNorm;
+		let r2 = self.absSquare;
 		Complex(
 			(1 - r2).arcTan(self.real * 2) / 2,
 			((r2 + (self.imaginary * 2) + 1) / (r2 - (self.imaginary * 2) + 1)).log / 4

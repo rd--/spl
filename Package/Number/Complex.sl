@@ -4,15 +4,15 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 
 	| real imaginary |
 
+	[absoluteValueArgument, absArg] { :self |
+		[self.absoluteValue, self.argument]
+	}
+
 	[absoluteValue, abs] { :self |
-		self.absSquare.sqrt
+		self.absoluteValueSquare.sqrt
 	}
 
-	absArg { :self |
-		[self.abs, self.arg]
-	}
-
-	[absSquare, squaredNorm, absoluteSquare] { :self |
+	[absoluteValueSquare, absSquare] { :self |
 		(self.real * self.real) + (self.imaginary * self.imaginary)
 	}
 
@@ -34,7 +34,7 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		}
 	}
 
-	arg { :self |
+	[argument, arg] { :self |
 		self.isZero.if {
 			self.error('Zero has no argument')
 		} {
@@ -84,6 +84,10 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		} {
 			self.error('compareOn: not Complex', [operand])
 		}
+	}
+
+	[complexModulus, norm] { :self |
+		self.abs
 	}
 
 	concisePrintString { :self |
@@ -298,10 +302,6 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 			self.real.negate,
 			self.imaginary.negate
 		)
-	}
-
-	norm { :self |
-		self.abs
 	}
 
 	normalize { :self |

@@ -131,9 +131,6 @@ Adapts left and right operands to `LargeIntegers`:
 >>> 23 ^ 23L
 20880467999847912034355032910567L
 
->>> 23 ^ 23
-2.088E31
-
 >>> 23L ^ 0.5
 23.sqrt
 

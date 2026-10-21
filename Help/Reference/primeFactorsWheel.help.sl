@@ -63,7 +63,7 @@ Prime factors of specific values:
 >>> (2 ^ 31 + 2).primeFactorsWheel
 [2 5 5 13 41 61 1321]
 
->>> (2 ^ [43 47 53] - 1).collect(
+>>> (2L ^ [43 47 53] - 1).collect(
 >>> 	primeFactorsWheel/1
 >>> )
 [

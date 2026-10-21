@@ -395,7 +395,7 @@
 	}
 
 	divisorSummatoryFunction { :x |
-		let u = x.sqrt.floor;
+		let u = x.isqrt;
 		2 * 1.to(u).sum { :k |
 			(x / k).floor
 		} - u.square
@@ -1011,7 +1011,7 @@
 	}
 
 	isPronicNumber { :self |
-		let x = self.sqrt.floor;
+		let x = self.isqrt;
 		self = (x * (x + 1))
 	}
 
@@ -1195,6 +1195,10 @@
 		} {
 			anInteger.adaptToNumberAndApply(self, lcm/2)
 		}
+	}
+
+	leadingDigit { :self :base |
+		self.integerDigits(base).first
 	}
 
 	legendreSymbol { :a :p |

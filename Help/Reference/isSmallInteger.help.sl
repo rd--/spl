@@ -17,24 +17,24 @@ The largest small integer:
 
 ```
 >>> (2L ^ 53) - 1
-9007199254740991L
+9_007_199_254_740_991L
 
->>> let x = 9007199254740991;
+>>> let x = 9_007_199_254_740_991;
 >>> let y = x + 1;
 >>> (y, y.isSmallInteger, y + 1 = y)
-(9007199254740992.0, false, true)
+(9_007_199_254_740_992.0, false, true)
 ```
 
 The least negative small integer:
 
 ```
 >>> (-2L ^ 53) + 1
--9007199254740991L
+-9_007_199_254_740_991L
 
->>> let x = -9007199254740991;
+>>> let x = -9_007_199_254_740_991;
 >>> let y = x - 1;
 >>> (y, y.isSmallInteger, y - 1 = y)
-(-9007199254740992.0, false, true)
+(-9_007_199_254_740_992.0, false, true)
 ```
 
 A `SmallFloat` that is an integer,

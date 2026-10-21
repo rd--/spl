@@ -320,6 +320,10 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer, I
 		self
 	}
 
+	numberOfDigitsInBase { :self :radix |
+		self.integerDigits(radix).size
+	}
+
 	numerator { :self |
 		self
 	}

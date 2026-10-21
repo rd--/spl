@@ -10,6 +10,9 @@ An exponent of `zero` answers `one` of the correct type:
 >>> system.nextRandomFloat ^ 0
 1.0
 
+>>> 23L ^ 0
+1L
+
 >>> 7/9 ^ 0
 1/1
 
@@ -71,7 +74,9 @@ At `LargeInteger`:
 
 * * *
 
-See also: ^
+See also: ^, power, raisedToFraction
+
+Guides: Mathematical Functions
 
 References:
 _Smalltalk_

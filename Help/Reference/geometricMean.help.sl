@@ -23,7 +23,7 @@ The `product` of the collection _c_ raised to the `reciprocal` of its `size`.
 >>> [1 9].geometricMean
 3
 
->>> (7 ^ 1:7).geometricMean
+>>> (7L ^ 1:7).geometricMean
 2401
 ```
 

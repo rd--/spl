@@ -12,7 +12,7 @@ The `logarithmicIntegral` calls this with the limit set to nine.
 >>> 20.logarithmicIntegralRamanujan(9)
 9.9032
 
->>> 20.logarithmicIntegralRamanujan(99)
+>>> 20.logarithmicIntegralRamanujan(15)
 9.9053
 ```
 

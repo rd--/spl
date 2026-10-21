@@ -210,7 +210,7 @@ false
 1 + 0I
 ```
 
-`real`, imag=`imaginary`, `abs`, norm=`squaredNorm`, conj=`conjugate`, `arg`, polar
+`real`, imag=`imaginary`, `abs`, norm=`absSquare`, conj=`conjugate`, `arg`, polar
 
 ```
 >>> let z = 3+4I;
@@ -218,7 +218,7 @@ false
 >>> 	z.real,
 >>> 	z.imaginary,
 >>> 	z.abs,
->>> 	z.squaredNorm,
+>>> 	z.absSquare,
 >>> 	z.conjugate,
 >>> 	z.arg
 >>> )

@@ -16,9 +16,7 @@
 		} {
 			(
 				n.isNonNegativeInteger & {
-					k.isNonNegativeInteger & {
-						k <= n
-					}
+					k.isNonNegativeInteger
 				}
 			).if {
 				LargeInteger(n).integerBinomial(k).normal
@@ -105,9 +103,9 @@
 		let t = 1;
 		1.toDo(2 * m - 1) { :x |
 			let u = 2 * m - x;
-			let v = m - ((x + y + 1 ) / 2);
+			let v = m - ((x + y + 1 ) // 2);
 			let mn = binomial(u, v) - binomial(u, v - 1);
-			t := t + (mn * (1 - (a % 2 )));
+			t := t + (mn * (1 - (a % 2)));
 			y := y - (-1 ^ a);
 			a := a // 2
 		};
@@ -249,15 +247,19 @@
 	}
 
 	integerBinomial { :n :k |
-		let numerator = 1L;
-		let denominator = 1L;
-		n.toByDo(k.max(n - k) + 1, -1) { :factor |
-			numerator := numerator * factor
-		};
-		1.toDo(k.min(n - k)) { :factor |
-			denominator := denominator * factor
-		};
-		numerator // denominator
+		(n < k).if {
+			0
+		} {
+			let numerator = 1L;
+			let denominator = 1L;
+			n.toByDo(k.max(n - k) + 1, -1) { :factor |
+				numerator := numerator * factor
+			};
+			1.toDo(k.min(n - k)) { :factor |
+				denominator := denominator * factor
+			};
+			numerator // denominator
+		}
 	}
 
 	inverseTriangularNumber { :n |
@@ -285,7 +287,7 @@
 		let a = List(m, m.one);
 		2.toDo(m) { :n |
 			let z = 1.to(n - 1).collect { :j |
-				-1 ^ j * (2 * n - 1).binomial(2 * j - 1) * a[j] * (n - j).catalanNumber
+				-1L ^ j * (2 * n - 1).binomial(2 * j - 1) * a[j] * (n - j).catalanNumber
 			}.sum;
 			a[n] := -1 ^ (n - 1) * (n.catalanNumber + z)
 		};
@@ -433,7 +435,7 @@
 	}
 
 	subfactorial { :self |
-		0.to(self).collect { :each |
+		0L.to(self).collect { :each |
 			each.factorial * (-1 ^ (self - each)) * self.binomial(each)
 		}.sum
 	}

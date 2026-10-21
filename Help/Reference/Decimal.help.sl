@@ -272,6 +272,19 @@ Integer and fraction parts retain scale:
 0.463D
 ```
 
+Integer exponent:
+
+```
+>>> 23D ^ 23
+20880467999847912034355032910567D
+
+>>> 2.5D ^ 3
+15.625D
+
+>>> 2.5D * 2.5D * 2.5D
+15.625D
+```
+
 A `Decimal` may be an integer even the `scale` is not `zero`:
 
 ```

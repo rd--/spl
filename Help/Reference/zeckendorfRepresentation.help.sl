@@ -61,8 +61,8 @@ Reconstruct integer from Zeckendorf representation:
 ```
 >>> let n = 10 ^ 10;
 >>> let z = n.zeckendorfRepresentation;
->>> let i = z.reverse.indicesOf(1);
->>> (z.size, (i + 1).fibonacci.sum)
+>>> let m = z.fromZeckendorfRepresentation;
+>>> (z.size, m)
 (48, 10 ^ 10)
 ```
 
@@ -136,10 +136,8 @@ Verify the answers given by `zeckendorfRepresentation`:
 
 ```
 >>> 0:20.collect { :n |
->>> 	let i = n.zeckendorfRepresentation;
->>> 	let k = i.size;
->>> 	let q = (2 .. k + 1).fibonacci;
->>> 	(q * i.reverse).sum
+>>> 	n.zeckendorfRepresentation
+>>> 	.fromZeckendorfRepresentation
 >>> }
 [0 .. 20]
 ```
@@ -172,10 +170,9 @@ The Zeckendorf representation of a not very small integer:
 
 ```
 >>> let n = 987654321;
->>> let i = n.zeckendorfRepresentation;
->>> let k = i.size;
->>> let q = (2 .. k + 1).fibonacci;
->>> (i, i.size, (q * i.reverse).sum)
+>>> let z = n.zeckendorfRepresentation;
+>>> let m = z.fromZeckendorfRepresentation;
+>>> (z, z.size, m)
 (
 	[
 		1 0 1 0 0 0 0 0 1 0

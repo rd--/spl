@@ -8,30 +8,30 @@ a self-affine function that is continuous and nowhere differentiable.
 Specific values:
 
 ```
->>> 2.takagiFunction
+>>> 2.takagiFunction(5)
 0
 
->>> (12 / 19).takagiFunction
+>>> (12 / 19).takagiFunction(15)
 6296 / 9709
 
->>> 1.273.takagiFunction
-0.58655787484502
+>>> 1.273.takagiFunction(19)
+0.58656
 ```
 
 Threads elementwise over lists:
 
 ```
->>> (1 / [9 7 5]).takagiFunction
+>>> (1 / [9 7 5]).takagiFunction(15)
 [8/21 22/49 8/15]
 ```
 
 Plot the Takagi function:
 
 ~~~spl svg=A
-(-0.5 -- 1.5).functionPlot(
-	200,
-	takagiFunction/1
-)
+(-0.5 -- 1.5)
+.functionPlot(200) { :x |
+	x.takagiFunction(15)
+}
 ~~~
 
 ![](Help/Image/takagiFunction-A.svg)

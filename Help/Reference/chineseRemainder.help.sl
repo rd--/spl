@@ -34,7 +34,7 @@ and demonstrate both multiplying & recovering and adding & recovering:
 
 ```
 >>> let m = 100:103.prime;
->>> let n1 = 123456787;
+>>> let n1 = 123456787L;
 >>> let n2 = 123;
 >>> let n1r = n1 % m;
 >>> let n2r = n2 % m;

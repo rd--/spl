@@ -8,7 +8,7 @@ First few terms
 OEIS [A000594](https://oeis.org/A000594):
 
 ```
->>> 1:33.collect(ramanujanTau/1)
+>>> 1L:33.collect(ramanujanTau/1)
 [
 	1
 	-24
@@ -56,7 +56,7 @@ At zero:
 Multiplicative for coprime integers:
 
 ```
->>> (7 * 5).ramanujanTau
+>>> (7L * 5).ramanujanTau
 7.ramanujanTau * 5.ramanujanTau
 ```
 

@@ -8,7 +8,7 @@ For a binary alphabet,
 OEIS [A016031](https://oeis.org/A016031):
 
 ```
->>> let k = 2;
+>>> let k = 2L;
 >>> 1:7.collect { :n |
 >>> 	deBruijnSequenceCount(k, n)
 >>> }

@@ -28,6 +28,13 @@ At `zero`:
 false
 ```
 
+Negative numbers may be odd:
+
+```
+>>> [-5 .. 5].isOdd.boole
+[1 0 1 0 1 0 1 0 1 0 1]
+```
+
 Non-integers are never odd:
 
 ```
@@ -38,8 +45,8 @@ false
 An odd number modulo two is one:
 
 ```
->>> [1 3 5 7 9] % 2
-[1 1 1 1 1]
+>>> [-9, -7 .. 9] % 2
+[1 1 1 1 1 1 1 1 1 1]
 ```
 
 The sum or difference of two integers with unequal parity is odd:

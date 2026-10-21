@@ -67,8 +67,8 @@ Approximations:
 >>> 5000 / 5000.log
 587.0478
 
->>> 5000.logarithmicIntegralRamanujan(99)
-684.281
+>>> 5000.logarithmicIntegralRamanujan(17)
+683.46
 ```
 
 Seieve of Eratosthenes arranged as an array,

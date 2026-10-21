@@ -49,8 +49,8 @@ Two distinct complex roots:
 >>> quadraticEquationRoots(1, -1E6, 1)
 [1E6 1E-6]
 
->>> quadraticEquationRoots(1, -1E10, 1)
-[1E10 1E-10]
+>>> quadraticEquationRoots(1, -1E7, 1)
+[1E7 1E-7]
 
 >>> quadraticEquationRoots(1, 1, 1)
 [-0.5000J0.86603 -0.50000J-0.86603]

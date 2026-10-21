@@ -1,5 +1,29 @@
 +@Integer {
 
+	dualZeckendorfRepresentation { :n |
+		(n = 0).if {
+			[0]
+		} {
+			let z = zeckendorfRepresentation(n);
+			let i = 1;
+			{ i <= (z.size - 2) }.whileTrue {
+				(z[i] = 1 & { z[i + 1] = 0 & { z[i + 2] = 0 } }).ifTrue {
+					z[i] := 0;
+					z[i + 1] := 1;
+					z[i + 2] := 1;
+					(i > 2).ifTrue {
+						i := i - 3
+					}
+				};
+				i := i + 1
+			};
+			(z[1] = 0).ifTrue {
+				z.removeFirst!
+			};
+			z
+		}
+	}
+
 	fibonacciSequenceUpTo { :self |
 		let answer = [self.zero];
 		let n = self.one;
@@ -35,35 +59,11 @@
 
 }
 
-+SmallFloat {
++@Integer {
 
 	binetsFormula { :n |
 		let z = 5.sqrt;
 		((1 + z) ^ n) - ((1 - z) ^ n) / ((2 ^ n) * z)
-	}
-
-	dualZeckendorfRepresentation { :n |
-		(n = 0).if {
-			[0]
-		} {
-			let z = zeckendorfRepresentation(n);
-			let i = 1;
-			{ i <= (z.size - 2) }.whileTrue {
-				(z[i] = 1 & { z[i + 1] = 0 & { z[i + 2] = 0 } }).ifTrue {
-					z[i] := 0;
-					z[i + 1] := 1;
-					z[i + 2] := 1;
-					(i > 2).ifTrue {
-						i := i - 3
-					}
-				};
-				i := i + 1
-			};
-			(z[1] = 0).ifTrue {
-				z.removeFirst!
-			};
-			z
-		}
 	}
 
 	fibonacci { :n :x |
@@ -76,7 +76,7 @@
 
 	fibonacci { :n |
 		n.isPositiveInteger.if {
-			n.fibonacciNumber.Integer
+			n.fibonacciNumber.normal
 		} {
 			n.fibonacciClosedForm
 		}
@@ -241,7 +241,7 @@
 	}
 
 	pellSequence { :self |
-		[2 1].linearRecurrence([0 1], self)
+		[2L 1].linearRecurrence([0L 1], self)
 	}
 
 	semiFibonacciSequence { :m |
@@ -408,7 +408,7 @@
 	}
 
 	pisanoPeriodPrimePower { :n :k |
-		(n ^ (k - 1)) * pisanoPeriodDirectForm(n)
+		(n ^ (k - 1L)) * pisanoPeriodDirectForm(n)
 	}
 
 	pisanoPeriod { :n |
@@ -418,7 +418,16 @@
 			n.factorInteger.collect { :f |
 				pisanoPeriodPrimePower(f[1], f[2])
 			}.lcm
-		}
+		}.normal
+	}
+
+}
+
++List {
+
+	fromZeckendorfRepresentation { :self |
+		let i = self.reverse.indicesOf(1);
+		(i + 1).fibonacciNumber.sum
 	}
 
 }
@@ -447,4 +456,3 @@
 	}
 
 }
-

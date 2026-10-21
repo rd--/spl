@@ -32,6 +32,7 @@ Types implementing `Do`:
 	'Heap'
 	'IdentityMultiset'
 	'IdentitySet'
+	'Link'
 	'LinkedList'
 	'List'
 	'ListView'
@@ -53,7 +54,6 @@ Types implementing `Do`:
 	'TypedDictionary'
 	'UnsortedSet'
 	'URLSearchParams'
-	'ValueLink'
 ]
 ```
 

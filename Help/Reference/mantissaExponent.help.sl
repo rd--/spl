@@ -7,8 +7,8 @@ Answer the base-_b_ mantissa and exponent of _x_.
 At `SmallFloat`:
 
 ```
->>> (3.4 * 1E30).mantissaExponent(10)
-[0.34 31]
+>>> (3.4 * 1E13).mantissaExponent(10)
+[0.34 14]
 
 >>> 456.1414.mantissaExponent(10)
 [0.4561414 3]

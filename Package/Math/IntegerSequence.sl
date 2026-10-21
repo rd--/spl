@@ -1037,10 +1037,10 @@
 	schroderSequence { :k |
 		let s = [1, 2];
 		2.toDo(k - 1) { :n |
-			let a = ((6 * n) - 3) / (n + 1);
-			let b = (n - 2) / (n + 1);
+			let a = ((6L * n) - 3) / (n + 1);
+			let b = (n - 2L) / (n + 1);
 			let c = (a * s[n]) - (b * s[n - 1]);
-			s.add!(c)
+			s.add!(Integer(c))
 		};
 		s
 	}
@@ -1539,7 +1539,7 @@
 	}
 
 	signatureSequence { :theta :n |
-		let m = n.sqrt.ceiling;
+		let m = n.isqrt + 1;
 		let s = [];
 		let z = s;
 		{

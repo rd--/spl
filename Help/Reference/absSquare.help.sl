@@ -14,19 +14,30 @@ At `SmallFloat`:
 9
 ```
 
-At `Complex`,
-also known as the squared `norm`:
+At `Complex` answers the square of the complex modulus,
+also known as the squared norm:
+
+```
+>>> 0J-1234567.absSquare
+1524155677489
+
+>>> 0J-1234567.abs.square
+1524155677489
+```
+
+Threads over lists:
 
 ```
 >>> [3J4 -1.5J0.5].absSquare
 [25 2.5]
 
->>> [3J4 -1.5J0.5].squaredNorm
-[25 2.5]
-
 >>> [3J4 -1.5J0.5].abs.square
 [25 2.5]
+```
 
+Relation to `conjugate`:
+
+```
 >>> [3J4 -1.5J0.5].collect { :z |
 >>> 	z * z.conjugate
 >>> }
@@ -56,11 +67,11 @@ Threads over lists:
 30
 ```
 
-`absSquare` is an alias for `absoluteSquare`.
+`absSquare` is an alias for `absoluteValueSquare`.
 
 * * *
 
-See also: abs, Complex, conjugate, square
+See also: Complex, abs, conjugate, square
 
 Guides: Complex Number Functions, Quaternion Functions
 

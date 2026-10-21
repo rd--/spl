@@ -39,19 +39,16 @@ There is a closed form for arithmetic series:
 >>> 1:19.product
 121645100408832000L
 
->>> 1:19.reduce(*)
-1.2165E+17
+>>> 1L:19.reduce(*)
+121645100408832000L
 
 >>> 3:23.product
 12926008369442488320000L
 
->>> 3:23.reduce(*)
-1.2926E+22
+>>> 3L:23.reduce(*)
+12926008369442488320000L
 
->>> [5, 7 .. 31].product
-6.3966E16
-
->>> [5L, 7 .. 31].reduce(*)
+>>> [5L, 7 .. 31].product
 63966261320836875L
 
 >>> [1, 1.05 .. 2].product
@@ -61,7 +58,7 @@ There is a closed form for arithmetic series:
 1599.155
 
 >>> [-3, -1 .. 23].product
-9.4870E11
+948702429675
 
 >>> [-3, -1 .. 23].reduce(*)
 948702429675

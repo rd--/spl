@@ -41,9 +41,6 @@ At `LargeInteger`:
 >>> (23L ^ 23L).integerLength(10)
 32
 
->>> (23 ^ 23).integerLength(10)
-32
-
 >>> (4L ^ 1397482L).integerLength(10)
 841_369
 ```

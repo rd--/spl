@@ -13,7 +13,7 @@ The first few Stern primes:
 
 * * *
 
-See also: isPrime, sqrt
+See also: isPrime, isqrt
 
 Guides: Prime Number Functions
 

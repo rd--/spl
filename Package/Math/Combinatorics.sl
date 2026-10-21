@@ -601,7 +601,7 @@
 
 	[doubleFactorial, !!] { :self |
 		self.isInteger.if {
-			LargeInteger(self).integerDoubleFactorial.normal
+			LargeInteger(self).integerDoubleFactorial
 		} {
 			self.generalisedDoubleFactorial
 		}

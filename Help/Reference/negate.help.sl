@@ -113,8 +113,8 @@ Threads over lists and matrices:
 At `Complex`:
 
 ```
->>> [-2.5 1E20 3J-4].-
-[2.5 -1E20 -3J4]
+>>> [-2.5 1E12 3J-4].-
+[2.5 -1E12 -3J4]
 ```
 
 At a `Colour`, inverts the value of the colour channels:

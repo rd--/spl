@@ -9,6 +9,10 @@ A fourth-order Costas array:
 ```
 >>> [2 1 3 4].isCostasArray
 true
+
+>>> [2 1 3 4]
+>>> .triangularDifferenceTable
+[-1 2 1; 1 3; 2]
 ```
 
 A fifth-order Costas array:
@@ -16,6 +20,15 @@ A fifth-order Costas array:
 ```
 >>> [1 3 4 2 5].isCostasArray
 true
+
+>>> [1 3 4 2 5]
+>>> .triangularDifferenceTable
+[
+	2 1 -2 3;
+	3 -1 1;
+	1 2
+	4
+]
 ```
 
 A ninth-order Costas array:
@@ -23,6 +36,19 @@ A ninth-order Costas array:
 ```
 >>> [2 6 3 8 1 7 9 4 5].isCostasArray
 true
+
+>>> [2 6 3 8 1 7 9 4 5]
+>>> .triangularDifferenceTable
+[
+	4 -3 5 -7 6 2 -5 1;
+	1 2 -2 -1 8 -3 -4;
+	6 -5 4 1 3 -2;
+	-1 1 6 -4 4;
+	5 3 1 -3;
+	7 -2 2;
+	2 -1;
+	3
+]
 ```
 
 A tenth-order Costas array:
@@ -31,6 +57,20 @@ A tenth-order Costas array:
 >>> [2 4 8 5 10 9 7 3 6 1]
 >>> .isCostasArray
 true
+
+>>> [2 4 8 5 10 9 7 3 6 1]
+>>> .triangularDifferenceTable
+[
+	2 4 -3 5 -1 -2 -4 3 -5;
+	6 1 2 4 -3 -6 -1 -2;
+	3 6 1 2 -7 -3 -6;
+	8 5 -1 -2 -4 -8;
+	7 3 -5 1 -9;
+	5 -1 -2 -4;
+	1 2 -7;
+	4 -3;
+	-1
+]
 ```
 
 Twelfth-order logarithmic Welch-Costas permutations:
@@ -48,15 +88,15 @@ true
 Logarithmically generated Costas arrays:
 
 ```
->>> 1:12.select { :p |
+>>> 1L:12.select { :p |
 >>> 	(p ^ 1:12 % 13).isCostasArray
 >>> }
 [2 6 7 11]
 
->>> 1:22.select { :p |
+>>> 1L:22.select { :p |
 >>> 	(p ^ 1:22 % 23).isCostasArray
 >>> }
-[5 10 20]
+[5 7 10 11 14 15 17 19 20 21]
 ```
 
 An order twenty-six Costas array:

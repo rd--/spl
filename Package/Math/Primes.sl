@@ -205,7 +205,7 @@
 				(self % 2 = 0).if {
 					self = 2
 				} {
-					let limit = self.sqrt.floor;
+					let limit = self.isqrt;
 					3.toBy(limit, 2).noneSatisfy { :each |
 						self % each = 0
 					}
@@ -270,7 +270,7 @@
 
 	isSternPrime { :n |
 		n.isPrime & {
-			let k = (n / 2).sqrt.floor;
+			let k = (n / 2).isqrt;
 			{
 				k > 0 & {
 					(n - (2 * k.square)).isPrime.not

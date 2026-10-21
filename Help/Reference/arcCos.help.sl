@@ -13,14 +13,14 @@ The arc cosine is the inverse cosine function.
 
 >>> 0.4.arcCos
 1.15928
+
+>>> 1.5.arcCos
+0J0.96242
 ```
 
 `Complex` arguments:
 
 ```
->>> 1.5J0.arcCos
-0J0.96242
-
 >>> 2.5J1.arcCos
 0.40617J1.65869
 ```

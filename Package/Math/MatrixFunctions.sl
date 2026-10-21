@@ -1505,11 +1505,11 @@
 		let m = 0.to(n - 1);
 		l.caseOf(
 			[
-				'LowerTriangular' -> { binomial/2 },
-				'UpperTriangular' -> { binomial/2.swap },
+				'LowerTriangular' -> { integerBinomial/2 },
+				'UpperTriangular' -> { integerBinomial/2.swap },
 				'Symmetric' -> {
 					{ :i :j |
-						binomial(i + j, j)
+						integerBinomial(i + j, j)
 					}
 				}
 			]

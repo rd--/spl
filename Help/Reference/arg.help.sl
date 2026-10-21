@@ -4,6 +4,7 @@
 
 Answers the argument of _z_,
 the phase angle in radians between -pi and +pi.
+`arg` is an alias for `argument`.
 
 The answer is given in radians:
 

@@ -16,6 +16,9 @@ as `sqrt` is an alias for `squareRoot`.
 >>> 293.integerSquareRoot
 17
 
+>>> (293.isqrt, 293.sqrt)
+(17, 17.1172)
+
 >>> (9 / 4).integerSquareRoot
 1
 
@@ -24,6 +27,9 @@ as `sqrt` is an alias for `squareRoot`.
 
 >>> 2000000.integerSquareRoot
 1414
+
+>>> 4.9.square.integerSquareRoot
+4
 ```
 
 Threads over lists:
@@ -84,7 +90,7 @@ Integer square root of a large integer:
 7015820362023593956150476655802L
 
 >>> (7L ^ 73).sqrt
-7015820362023593956150476655802L
+7.01582E30
 ```
 
 At `zero`:

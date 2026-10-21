@@ -30,8 +30,8 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		}
 	}
 
-	assertIsFinite { :self |
-		self.assert {
+	assertIsFinite { :self :message |
+		self.assert(message) {
 			self.isFinite
 		}
 	}
@@ -378,6 +378,10 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		self.integerChop(1E-10)
 	}
 
+	[integerSquareRoot, isqrt] { :self |
+		self.sqrt.floor
+	}
+
 	isBinary { :self |
 		<primitive: return sl.isBitwise(_self);>
 	}
@@ -420,6 +424,7 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 
 	isEven { :self |
 		<primitive: return _self % 2 === 0;>
+		/* self % 2 = 0 */
 	}
 
 	isExact { :self |
@@ -478,6 +483,7 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 
 	isOdd { :self |
 		<primitive: return Math.abs(_self % 2) === 1;>
+		/* (self % 2).abs = 1 */
 	}
 
 	isRational { :self |
@@ -486,6 +492,7 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 
 	isSmallInteger { :self |
 		<primitive: return Number.isSafeInteger(_self);>
+		/* self.abs <= 9_007_199_254_740_991 */
 	}
 
 	isSquare { :n |
@@ -686,13 +693,15 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 	}
 
 
-	[plus, +] { :self :anObject |
+	[plus, +] { :self :operand |
 		<primitive:
-		if(sl.isSmallFloat(_anObject)) {
-			return _self + _anObject;
+		if(sl.isSmallFloat(_operand)) {
+			const answer = _self + _operand;
+			/*sl.checkSmallFloatOverflow(_self, _operand, answer);*/
+			return answer;
 		}
 		>
-		anObject.adaptToNumberAndApply(self, plus/2)
+		operand.adaptToNumberAndApply(self, plus/2)
 	}
 
 	[power, ^] { :self :anObject |
@@ -755,10 +764,16 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		}.real.round
 	}
 
-	raisedToSmallFloat { :self :aSmallFloat |
+	raisedToPositiveSmallInteger { :self :operand |
+		self.uncheckedPower(operand)
+	}
+
+	raisedToSmallFloat { :self :operand |
 		<primitive:
-		if(sl.isSmallFloat(_aSmallFloat)) {
-			return Math.pow(_self, _aSmallFloat);
+		if(sl.isSmallFloat(_operand)) {
+			let answer = Math.pow(_self, _operand);
+			/*sl.checkSmallFloatOverflow(_self, _operand, answer);*/
+			return answer;
 		}
 		>
 		'SmallFloat>>raisedToSmallFloat: not SmallFloat'.error
@@ -828,6 +843,17 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 
 	sign { :self |
 		<primitive: return Math.sign(_self);>
+		/*
+		(self < 0).if {
+			-1
+		} {
+			(self > 0).if {
+				1
+			} {
+				0
+			}
+		}
+		*/
 	}
 
 	signExponentMantissa { :self |
@@ -863,13 +889,15 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		}
 	}
 
-	[subtract, -] { :self :anObject |
+	[subtract, -] { :self :operand |
 		<primitive:
-		if(sl.isSmallFloat(_anObject)) {
-			return _self - _anObject;
+		if(sl.isSmallFloat(_operand)) {
+			const answer = _self - _operand;
+			/*sl.checkSmallFloatOverflow(_self, _operand, answer);*/
+			return answer;
 		}
 		>
-		anObject.adaptToNumberAndApply(self, subtract/2)
+		operand.adaptToNumberAndApply(self, subtract/2)
 	}
 
 	surd { :x :n |
@@ -884,13 +912,15 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		self.printString(10)
 	}
 
-	[times, *] { :self :anObject |
+	[times, *] { :self :operand |
 		<primitive:
-		if(sl.isSmallFloat(_anObject)) {
-			return _self * _anObject;
+		if(sl.isSmallFloat(_operand)) {
+			const answer = _self * _operand;
+			/*sl.checkSmallFloatOverflow(_self, _operand, answer);*/
+			return answer;
 		}
 		>
-		anObject.adaptToNumberAndApply(self, times/2)
+		operand.adaptToNumberAndApply(self, times/2)
 	}
 
 	truncate { :self |
@@ -939,6 +969,14 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		}
 		n &= -n;
 		return 31 - Math.clz32(n);
+		>
+	}
+
+	uncheckedPower { :self :operand |
+		<primitive:
+		const answer = Math.pow(_self, _operand);
+		/*sl.checkSmallFloatOverflow(_self, _operand, answer);*/
+		return answer;
 		>
 	}
 
@@ -1094,7 +1132,7 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 			each.splitOn(',').collect(parseDecimalInteger/1)
 		};
 		let [m, n] = [p, q].collect(size/1);
-		(p * (60 ^ (m - 1).toBy(0, -1))).sum + (q / (60 ^ 1.to(n))).sum
+		(p * (60L ^ (m - 1).toBy(0, -1))).sum + (q / (60L ^ 1.to(n))).sum
 	}
 
 	parseSmallInteger { :self :radix :elseClause/0 |

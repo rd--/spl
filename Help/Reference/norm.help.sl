@@ -4,7 +4,7 @@
 - _norm(z, p)_
 
 Answer the _norm_ of a number or vector.
-For complex numbers `norm` is `abs`.
+For complex numbers `norm` is an alias for `abs`.
 For vectors answer the Euclidean norm, _norm(v) = (v * v.conjugate).sqrt_.
 The vector norm is also called the vector magnitude or Euclidean length.
 
@@ -14,7 +14,10 @@ At `Complex`:
 >>> -2J1.norm
 5.sqrt
 
->>> -2J1.squaredNorm
+>>> -2J1.norm.square
+5
+
+>>> -2J1.absSquare
 5
 ```
 
@@ -141,5 +144,6 @@ _Mathworks_
 [2](https://mathworks.com/help/matlab/ref/vecnorm.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Norm_(mathematics))
+[2](https://en.wikipedia.org/wiki/Modulus_of_complex_number)
 
 Categories: Math, Vector

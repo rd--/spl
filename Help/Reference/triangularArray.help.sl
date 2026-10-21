@@ -42,7 +42,7 @@ A triangle in which the _n_-th row gives the _n_ smallest powers of _n_,
 OEIS [A075363](https://oeis.org/A075363):
 
 ```
->>> 1:7.triangularArray(^)
+>>> 1L:7.triangularArray(^)
 [
 	1;
 	2 4;
@@ -71,7 +71,7 @@ The geometric mean of each row,
 OEIS [A075364](https://oeis.org/A075364):
 
 ```
->>> 1:9.triangularArray(^)
+>>> 1L:9.triangularArray(^)
 >>> .collect(geometricMean/1)
 >>> .floor(1E-9)
 [1 2 9 32 125 529 2401 11585 59049]

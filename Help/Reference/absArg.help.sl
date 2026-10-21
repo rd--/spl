@@ -39,6 +39,8 @@ Collects over lists:
 [1 0.5.pi; 1 1.pi; 1 -0.5.pi; 1 0]
 ```
 
+`absArg` is an alias for `absoluteValueArgument`.
+
 * * *
 
 See also: Complex, abs, absArg, angleVector, arg, toPolarCoordinates

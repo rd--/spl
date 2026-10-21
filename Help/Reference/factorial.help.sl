@@ -75,7 +75,7 @@ The number of digits in _n!_,
 OEIS [A034886](https://oeis.org/A034886):
 
 ```
->>> 0:20.!.collect(integerLength/1)
+>>> 0L:20.!.collect(integerLength/1)
 [
 	1 1 1 1 2 3 3 4 5 6
 	7 8 9 10 11 13 14 15 16 18
@@ -87,8 +87,7 @@ Leading digit of _n!_,
 OEIS [A008905](https://oeis.org/A008905):
 
 ```
->>> let n = 0:20.!;
->>> n // (10 ^ n.log10.floor)
+>>> 0:20.!.leadingDigit(10)
 [
 	1 1 2 6 2 1 7 5 4 3
 	3 3 4 6 8 1 2 3 6 1
@@ -112,21 +111,17 @@ Exact `LargeInteger` and inexact `SmallFloat` results for 30! and 47!:
 >>> 30L.factorial
 265252859812191058636308480000000L
 
->>> 30.factorial.SmallFloat
+>>> SmallFloat(30.factorial)
 2.6525285981219107E32
 
->>> 47L.factorial
-(
-	[
-		258623241511168L
-		180642964355153L
-		611979969197632L
-		389120000000000L
-	] * (10L ^ [45 30 15 0])
-).sum
+>> 47L.factorial
+258623241511168
+180642964355153
+611979969197632
+389120000000000L
 
->>> 47.factorial
-2.586232415111682E59
+>> SmallFloat(47.factorial)
+2.5862324151116818E+59
 ```
 
 Notable limits, the largest factorials that can fit into a specified type

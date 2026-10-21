@@ -1,16 +1,11 @@
 @Number {
 
-	absArg { :self |
-		Complex(self, 0).absArg
+	[absoluteValueArgument, absArg] { :self |
+		Complex(self, 0).absoluteValueArgument
 	}
 
 	[absoluteDifference, absDif] { :self :operand |
 		(self - operand).absoluteValue
-	}
-
-	[absoluteSquare, absSquare] { :self |
-		let abs = self.abs;
-		abs * abs
 	}
 
 	[absoluteValue, abs] { :self |
@@ -19,6 +14,10 @@
 		} {
 			self
 		}
+	}
+
+	[absoluteValueSquare, absSquare] { :self |
+		self.absoluteValue.square
 	}
 
 	adaptToCollectionAndApply { :self :aCollection :aBlock/2 |
@@ -39,7 +38,7 @@
 		[self.cos, self.sin]
 	}
 
-	arg { :self |
+	[argument, arg] { :self |
 		self.isZero.if {
 			0
 		} {
@@ -839,7 +838,7 @@
 		self * 57.29577951308232286465 /* 1/180.pi */
 	}
 
-	raisedToSmallInteger { :self :operand |
+	raisedToPositiveSmallInteger { :self :operand |
 		let count = 1.bitShift((operand - 1).highBit);
 		let result = self.one;
 		{
@@ -856,7 +855,7 @@
 
 	raisedToInteger { :self :operand |
 		operand.isInteger.ifFalse {
-			'Numnber>>raisedToInteger: operand is not an Integer'.error
+			'Number>>raisedToInteger: operand is not an Integer'.error
 		};
 		(operand = 0).if {
 			self.one
@@ -865,15 +864,19 @@
 				self
 			} {
 				(operand < 0).if {
-					self.raisedToInteger(operand.negate).reciprocal
+					self.raisedToPositiveInteger(operand.negate).reciprocal
 				} {
-					operand.isLargeInteger.if {
-						LargeInteger(self) ^ operand
-					} {
-						self.raisedToSmallInteger(operand)
-					}
+					self.raisedToPositiveInteger(operand)
 				}
 			}
+		}
+	}
+
+	raisedToPositiveInteger { :self :operand |
+		operand.isLargeInteger.if {
+			LargeInteger(self) ^ operand
+		} {
+			self.raisedToPositiveSmallInteger(operand)
 		}
 	}
 

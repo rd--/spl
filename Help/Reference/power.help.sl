@@ -15,6 +15,19 @@ At `SmallFloat`:
 4096
 ```
 
+Fractional base and exponent:
+
+```
+>>> 3 ^ 4.5
+140.30
+
+>>> 3.4 ^ 5
+454.35
+
+>>> 3.4 ^ 5.6
+946.85
+```
+
 Relation to `iterate` and `times`:
 
 ```
@@ -48,6 +61,32 @@ At `LargeInteger`:
 
 >>> -2 ^ 111L
 -2596148429267413814265248164610048L
+
+>>> 23L ^ 23
+20880467999847912034355032910567L
+```
+
+`LargeInteger` exponent:
+
+```
+>>> 2.5 ^ 3L
+15.265
+```
+
+At `Fraction`:
+
+```
+>>> [5/1 10/1 2/1] ^ [-2 -3 -4]
+[1/25 1/1000 1/16]
+
+>>> [5 10 2] ^ [-2/1 -3/1 -4/1]
+[1/25 1/1000 1/16]
+
+>>> 9/1 ^ [-3 -2 -1]
+[1/729 1/81 1/9]
+
+>>> 9 ^ [-3/1 -2/1 -1/1]
+[1/729 1/81 1/9]
 ```
 
 Note floating point errors are introduced for small _m_ and _n_:
@@ -255,13 +294,6 @@ Five-percent compound interest:
 >>> 	(1 + 0.05) ^ each
 >>> }
 [1.05 1.1025 1.15763 1.21551 1.27628]
-```
-
-At `LargeInteger`:
-
-```
->>> 23L ^ 23
-20880467999847912034355032910567L
 ```
 
 At `Fraction` answers a fraction if the exponent is an integer:

@@ -633,6 +633,7 @@ Reference (A-Z):
 - `Line`
 - `LinearCongruential`
 - `Link`
+- `Link`
 - `LinkedList`
 - `ListView`
 - `List`
@@ -985,7 +986,6 @@ Reference (A-Z):
 - `UrlQueryParameters`
 - `Url`
 - `UserEventTarget`
-- `ValueLink`
 - `VarLag`
 - `VarSaw`
 - `View`
@@ -4072,7 +4072,6 @@ Reference (a-z):
 - `squareWave`
 - `square`
 - `squaredEuclideanDistance`
-- `squaredNorm`
 - `squaresR`
 - `srgbDecode`
 - `srgbEncode`

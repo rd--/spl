@@ -201,6 +201,30 @@ Modular triangular difference table of a modular analogue of a Costas array:
 ]
 ```
 
+Triangular difference table of a sequence with glide-reflection symmetry:
+
+~~~spl svg=A
+[7 12 2 9 8 10 6 1 11 4 5 3]
+.triangularDifferenceTable
+.padRight.matrixPlot
+~~~
+
+![](Help/Image/triangularDifferenceTable-A.svg)
+
+Modular triangular difference table of a modular analogue of a Costas array:
+
+~~~spl svg=B
+[
+	22 2 16 4 1 18 19 6 10 3
+	9 20 14 21 17 8 7 12 15 5
+	13 11
+].triangularDifferenceTable { :p :q |
+	(p - q).mod(22, 1)
+}.padRight.matrixPlot
+~~~
+
+![](Help/Image/triangularDifferenceTable-B.svg)
+
 * * *
 
 See also: allSatisfy, differences, isDuplicateFree, subtract, triangularDifferenceTable, welchCostasArrayList

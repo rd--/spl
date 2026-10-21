@@ -456,6 +456,12 @@
 
 +List {
 
+	takagiFunction { :self :k |
+		self.collect { :each |
+			each.takagiFunction(k)
+		}
+	}
+
 	takagiFunction { :self |
 		self.collect(takagiFunction/1)
 	}

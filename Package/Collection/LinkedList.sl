@@ -3,7 +3,7 @@ LinkedList : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Co
 	| firstLink lastLink |
 
 	addFirst! { :self :anObject |
-		let aLink = ValueLink(anObject, self.firstLink);
+		let aLink = Link(anObject, self.firstLink);
 		self.isEmpty.ifTrue {
 			self.lastLink := aLink
 		};
@@ -12,7 +12,7 @@ LinkedList : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Co
 	}
 
 	[addLast!, add!] { :self :anObject |
-		let aLink = ValueLink(anObject, nil);
+		let aLink = Link(anObject, nil);
 		self.isEmpty.if {
 			self.firstLink := aLink
 		} {
@@ -116,7 +116,7 @@ LinkedList : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Co
 		self.putLink!(
 			index,
 			self.linkOfIfAbsent(anObject) {
-				ValueLink(anObject, nil)
+				Link(anObject, nil)
 			}
 		)
 	}

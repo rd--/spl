@@ -3943,7 +3943,6 @@ Reference/Sqrt.help.sl
 Reference/squareChart.help.sl
 Reference/squareChladniPlateEquation.help.sl
 Reference/squaredEuclideanDistance.help.sl
-Reference/squaredNorm.help.sl
 Reference/squareForm.help.sl
 Reference/squareFreePart.help.sl
 Reference/square.help.sl
@@ -4343,7 +4342,6 @@ Reference/utf8String.help.sl
 Reference/uUnifastAlgorithm.help.sl
 Reference/uUnifastDiscardAlgorithm.help.sl
 Reference/value.help.sl
-Reference/ValueLink.help.sl
 Reference/valuesAndCounts.help.sl
 Reference/valuesDo.help.sl
 Reference/values.help.sl

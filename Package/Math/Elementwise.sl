@@ -34,8 +34,8 @@
 		self.collect(abs/1)
 	}
 
-	absSquare { :self |
-		self.collect(absSquare/1)
+	[absoluteValueSquare, absSquare] { :self |
+		self.collect(absoluteValueSquare/1)
 	}
 
 	aliquotSequence { :self |
@@ -520,6 +520,12 @@
 		self.collect(leastPrimeFactor/1)
 	}
 
+	leadingDigit { :self :base |
+		self.collect { :each |
+			each.leadingDigit(base)
+		}
+	}
+
 	liouvilleLambda { :self |
 		self.collect(liouvilleLambda/1)
 	}
@@ -809,10 +815,6 @@
 		self.collect(square/1)
 	}
 
-	squaredNorm { :self |
-		self.collect(squaredNorm/1)
-	}
-
 	squarePyramidalNumber { :self |
 		self.collect(squarePyramidalNumber/1)
 	}
@@ -1025,12 +1027,12 @@
 
 +@Sequence {
 
-	absArg { :self |
-		self.collect(absArg/1)
+	[absoluteValueArgument, absArg] { :self |
+		self.collect(absoluteValueArgument/1)
 	}
 
-	arg { :self |
-		self.collect(arg/1)
+	[argument, arg] { :self |
+		self.collect(argument/1)
 	}
 
 	arithmeticGeometricMean { :self :anObject |

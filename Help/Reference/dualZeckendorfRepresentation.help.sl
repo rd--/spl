@@ -8,7 +8,7 @@ also called the maximal or lazy Fibonacci representation.
 The Zeckendorf representation of 1⏨:
 
 ```
->>> (10 ^ 10).dualZeckendorfRepresentation
+>>> (10L ^ 10).dualZeckendorfRepresentation
 [
 	1 1 0 1 0 1 1 1 1 1 0 1 1 0 1 1 1 1 1 1
 	1 0 1 1 1 0 1 1 0 1 1 1 1 0 1 0 1 1 0 1
@@ -21,8 +21,8 @@ Reconstruct integer from dual Zeckendorf representation:
 ```
 >>> let n = 10 ^ 10;
 >>> let z = n.dualZeckendorfRepresentation;
->>> let i = z.reverse.indicesOf(1);
->>> (z.size, (i + 1).fibonacci.sum)
+>>> let m = z.fromZeckendorfRepresentation;
+>>> (z.size, m)
 (47, 10 ^ 10)
 ```
 
@@ -75,10 +75,8 @@ Verify the answers shown above:
 
 ```
 >>> 0:33.collect { :n |
->>> 	let i = n.dualZeckendorfRepresentation;
->>> 	let k = i.size;
->>> 	let q = (2 .. k + 1).fibonacci;
->>> 	(q * i.reverse).sum
+>>> 	n.dualZeckendorfRepresentation
+>>> 	.fromZeckendorfRepresentation
 >>> }
 [0 .. 33]
 ```
@@ -111,10 +109,9 @@ Of a not very small integer:
 
 ```
 >>> let n = 987654321;
->>> let i = n.dualZeckendorfRepresentation;
->>> let k = i.size;
->>> let q = (2 .. k + 1).fibonacci;
->>> (i, i.size, (q * i.reverse).sum)
+>>> let z = n.dualZeckendorfRepresentation;
+>>> let m = z.fromZeckendorfRepresentation;
+>>> (z, z.size, m)
 (
 	[
 		1 1 1 0 1 0 1 1 1 0
@@ -126,6 +123,16 @@ Of a not very small integer:
 	42,
 	987654321
 )
+```
+
+Of a large integer:
+
+```
+>>> let n = (9 * (10L ^ 23));
+>>> let z = n.dualZeckendorfRepresentation;
+>>> let m = z.fromZeckendorfRepresentation;
+>>> (z.size, m)
+(114, n)
 ```
 
 Number of digits in the dual Zeckendorf representation of _n_,
@@ -198,7 +205,7 @@ OEIS [A328212](https://oeis.org/A328212):
 Discrete plot of a dual Zeckendorf representation with 114 places:
 
 ~~~spl svg=A
-9E23.dualZeckendorfRepresentation
+(9 * (10L ^ 23)).dualZeckendorfRepresentation
 .discretePlot
 ~~~
 
@@ -208,9 +215,9 @@ Counts of above plot,
 indicating the proportions of zeroes and ones:
 
 ```
->>> 9E23.dualZeckendorfRepresentation
+>>> (9 * (10L ^ 23)).dualZeckendorfRepresentation
 >>> .counts
-[0 -> 33, 1 -> 81]
+[0 -> 35, 1 -> 79]
 ```
 
 Number of terms in the dual Zeckendorf representation of _n_,

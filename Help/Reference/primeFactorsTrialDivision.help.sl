@@ -7,7 +7,7 @@ Answer the prime factors of the integer _n_ as given by the _trial division_ alg
 Prime factors of the integers to seventeen:
 
 ```
->>> 2:17.collect(
+>>> 2L:17.collect(
 >>> 	primeFactorsTrialDivision/1
 >>> )
 [
@@ -33,7 +33,7 @@ Prime factors of the integers to seventeen:
 Prime factors of specific values:
 
 ```
->>> (2 ^ [43 47 53] - 1).collect(
+>>> (2L ^ [43 47 53] - 1).collect(
 >>> 	primeFactorsTrialDivision/1
 >>> )
 [

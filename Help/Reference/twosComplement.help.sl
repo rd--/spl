@@ -65,7 +65,7 @@ With 64-bit word size:
 ```
 >>> let a = 4660046610375530309L;
 >>> let b = 7540113804746346429L;
->>> (a + b).twosComplement(64)
+>>> (a + b).twosComplement(64L)
 -6246583658587674878L
 ```
 

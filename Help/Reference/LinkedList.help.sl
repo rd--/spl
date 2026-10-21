@@ -217,7 +217,7 @@ Copies are equal but not identical:
 
 * * *
 
-See also: Link, List, ValueLink
+See also: Link, List
 
 Guides: List Functions
 

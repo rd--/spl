@@ -66,7 +66,7 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 		aNumber.isInteger.if {
 			self.raisedToInteger(aNumber)
 		} {
-			self.unimplementedCase('^')
+			self.unimplementedCase('power')
 		}
 	}
 
@@ -259,7 +259,11 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 	raisedToInteger { :self :aNumber |
 		uncheckedDecimal(
 			self.decimalFraction.raisedToInteger(aNumber),
-			self.scale
+			self.isInteger.if {
+				self.scale
+			} {
+				self.scale * aNumber
+			}
 		)
 	}
 
