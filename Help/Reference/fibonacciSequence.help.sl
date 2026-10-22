@@ -204,7 +204,7 @@ OEIS [A002708](https://oeis.org/A002708):
 
 ~~~spl svg=A oeis=A002708
 let n = 201;
-(n.fibonacciSequence % (0 .. 200))
+(n.fibonacciSequence % (1 .. 200))
 .scatterPlot
 ~~~
 

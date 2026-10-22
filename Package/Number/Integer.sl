@@ -323,7 +323,7 @@
 	}
 
 	digitalRootSet { :x :b :f/1 |
-		let seen = IdentitySet();
+		let seen = Set();
 		{
 			seen.includes(x)
 		}.whileFalse {

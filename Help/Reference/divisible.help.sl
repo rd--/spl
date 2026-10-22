@@ -155,6 +155,25 @@ OEIS [A001651](https://oeis.org/A001651):
 [1 2 4 5 7 8 10 11 13 14 16 17 19 20 22 23]
 ```
 
+Least _k>0_ such that _n_ divides _1^1+2^2+...+k^k_,
+OEIS [A387662](https://oeis.org/A387662):
+
+```
+>>> 1:35.collect { :n |
+>>> 	1:Infinity.detect { :k |
+>>> 		1L:k.sum { :i |
+>>> 			i ^ i
+>>> 		}.divisible(n)
+>>> 	}
+>>> }
+[
+	 1  3  4  3  2  4  9  3  4 43
+	16  4  8 12 18  3  8  4  9 43
+	15 16 33  4 49  8  7 12 11 43
+	22  3 51  8 21
+]
+~~~
+
 Matrix plot of divisor table:
 
 ~~~spl svg=A
@@ -335,7 +354,7 @@ OEIS [A387662](https://oeis.org/A387662):
 ~~~spl svg=M oeis=A387662
 1:35.collect { :n |
 	1:Infinity.detect { :k |
-		1:k.sum { :i |
+		1L:k.sum { :i |
 			i ^ i
 		}.divisible(n)
 	}

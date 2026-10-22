@@ -14,7 +14,7 @@ Plot over the reals in _(-1,1)_ with _a=0.634_ and _b=9_:
 
 ![](Help/Image/weierstrassFunction-A.svg)
 
-Plot over with varying _a_ and _b_:
+Plot with varying _a_ and _b_:
 
 ~~~spl svg=B
 let a = [0.816 0.380 0.248];
@@ -32,7 +32,7 @@ let b = [7 15 23];
 
 ![](Help/Image/weierstrassFunction-B.svg)
 
-Plot over with varying _a_ and _b_:
+Plot with varying _a_ and _b_:
 
 ~~~spl svg=C
 let a = [0.634 0.519 0.439 0.336 0.300];

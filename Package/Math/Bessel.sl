@@ -118,6 +118,17 @@
 			}
 			return a;
 		}
+		const bessel_iter = function(x, n, f0, f1, sign) {
+			if(n === 0) return f0;
+			if(n === 1) return f1;
+			const tdx = 2 / x;
+			let f2 = f1;
+			for(let o = 1; o < n; ++o) {
+				f2 = f1 * o * tdx + sign * f0;
+				f0 = f1; f1 = f2;
+			}
+			return f2;
+		}
 		function besselj(x, n) {
 			n = Math.round(n);
 			if(!isFinite(x)) return isNaN(x) ? x : 0;
@@ -128,7 +139,7 @@
 			if(x === 0) return 0;
 			let ret=0.0;
 			if(x > n) {
-				ret = _bessel_iter(x, n, bessel0(x), bessel1(x),-1);
+				ret = bessel_iter(x, n, bessel0(x), bessel1(x),-1);
 			} else {
 				const m=2*Math.floor((n+Math.floor(Math.sqrt(40*n)))/2);
 				let jsum=false;

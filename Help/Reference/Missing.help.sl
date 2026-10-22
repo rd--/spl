@@ -40,6 +40,23 @@ true
 'Unknown'
 ```
 
+The `SmallFloat` constructor represents missing values as `NaN`:
+
+```
+>> SmallFloat(Missing('Invalid'))
+NaN
+```
+
+Missing values are removed from plots:
+
+~~~spl svg=A
+let x = Missing('Deleted');
+[1 2 3 4 x 6 7 8 9]
+.stepPlot
+~~~
+
+![](Help/Image/Missing-A.svg)
+
 * * *
 
 See also: atOrMissing, atOrMissingAll, deleteMissing, isMissing, replaceNaN

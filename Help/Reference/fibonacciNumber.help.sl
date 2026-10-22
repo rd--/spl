@@ -21,7 +21,7 @@ Fibonacci modulo _n_,
 OEIS [A002708](https://oeis.org/A002708):
 
 ~~~spl svg=A oeis=A002708
-0:250.collect { :n |
+1:250.collect { :n |
 	n.fibonacciNumber % n
 }.scatterPlot
 ~~~

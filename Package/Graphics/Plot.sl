@@ -60,7 +60,9 @@ Plot : [Object] {
 
 	lineDrawingXy { :self |
 		let segments = self.pageList.collect { :each |
-			each.segmentPlotData(self.scale.scaleFunction)
+			each.segmentPlotData(
+				self.scale.scaleFunction
+			)
 		}.catenate;
 		let r = segments.catenate.coordinateBoundingBox.Rectangle;
 		let w = r.width;
@@ -528,15 +530,15 @@ Plot : [Object] {
 		let answer = [];
 		let segment = [];
 		self.do { :pre |
-			let [i, x] = pre;
-			let post = [i, aBlock(x)];
-			post.isFinite.if {
-				segment.add!(post)
-			} {
+			let [i, x] = pre; /* Missing values are already coerced to NaN */
+			let y = aBlock(x);
+			y.isFinite.not.if {
 				segment.isEmpty.ifFalse {
 					answer.add!(segment);
 					segment := []
 				}
+			} {
+				segment.add!([i, y])
 			}
 		};
 		segment.isEmpty.ifFalse {
@@ -733,15 +735,20 @@ Plot : [Object] {
 		blockList.nest.collect { :aBlock/1 |
 			domain.collect { :x |
 				let y = aBlock(x);
-				y.isList.if {
-					y
-				} {
-					y.isComplex.if {
+				[
+					{ y.isList } -> {
+						y
+					},
+					{ y.isComplex } -> {
 						y.realImaginary
-					} {
+					},
+					{ y.isMissing } -> {
+						y
+					},
+					{ true } -> {
 						[x, y]
 					}
-				}
+				].which
 			}
 		}.plotter
 	}
@@ -1393,8 +1400,8 @@ Plot : [Object] {
 		let l = [];
 		let pt = { :x |
 			[
-				x.SmallFloat * 100,
-				100 / x.denominator.SmallFloat
+				SmallFloat(x) * 100,
+				100 / SmallFloat(x.denominator)
 			]
 		};
 		2.toDo(n) { :i |

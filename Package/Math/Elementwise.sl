@@ -811,6 +811,10 @@
 		self.collect(SmallFloat/1)
 	}
 
+	SmallInteger { :self |
+		self.collect(SmallInteger/1)
+	}
+
 	[squareRoot, sqrt] { :self |
 		self.collect(squareRoot/1)
 	}

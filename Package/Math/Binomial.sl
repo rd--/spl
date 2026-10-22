@@ -30,11 +30,7 @@
 		let a = (n + 1).gamma;
 		let b = (k + 1).gamma;
 		let c = (n - k + 1).gamma;
-		(b.abs > 1E6).if {
-			0
-		} {
-			a / (b * c)
-		}
+		a / (b * c)
 	}
 
 	binomialPascal { :a :b |

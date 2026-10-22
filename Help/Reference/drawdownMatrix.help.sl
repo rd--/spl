@@ -138,7 +138,7 @@ A pattern derived from interleaving the natural and the Fibonacci numbers:
 let n = 24;
 let i = [
 	1:n,
-	1:n.fibonacci
+	1:n.fibonacci.SmallInteger
 ].interleave.mod(8, 1);
 let m = 8.identityMatrix.reverse;
 drawdownMatrix(i, m, i)

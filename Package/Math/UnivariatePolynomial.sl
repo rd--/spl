@@ -349,10 +349,11 @@ UnivariatePolynomial : [Object, Copy, Store, Equal] {
 +Map {
 
 	Polynomial { :self |
-		self.keyType.caseOf(
+		let p = normal/1.keyMap(self);
+		p.keyType.caseOf(
 			[
-				'SmallFloat' -> { UnivariatePolynomial(self) },
-				'List' -> { BivariatePolynomial(self) }
+				'SmallFloat' -> { UnivariatePolynomial(p) },
+				'List' -> { BivariatePolynomial(p) }
 			]
 		) {
 			self.error('Polynomial: invalid coefficient dictionary')

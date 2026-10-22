@@ -62,8 +62,8 @@ which answers a `SmallFloat` if the integer can be properly represented as such:
 >>> 23L.normal
 23
 
->>> (2L ^ 54).normal
-18014398509481984L
+>>> (23L ^ 13).normal
+504036361936467383L
 ```
 
 At `List` is the identity function:
@@ -71,16 +71,6 @@ At `List` is the identity function:
 ```
 >>> [1 2 3; 4 5 6].normal
 [1 2 3; 4 5 6]
-```
-
-At `LargeInteger` answers a `SmallFloat` if the integer can be properly represented:
-
-```
->>> 23L.normal
-23
-
->>> (23L ^ 13).normal
-504036361936467383L
 ```
 
 * * *

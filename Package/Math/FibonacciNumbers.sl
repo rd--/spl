@@ -75,7 +75,7 @@
 	}
 
 	fibonacci { :n |
-		n.isPositiveInteger.if {
+		n.isNonNegativeInteger.if {
 			n.fibonacciNumber
 		} {
 			n.fibonacciClosedForm

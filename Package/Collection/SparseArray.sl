@@ -206,7 +206,7 @@ SparseArray : [Object, Store, Equal, Compare, Do, At, Indices, Collect, Collecti
 			let index = each.key;
 			let linearIndex = index.isNumber.if { index } { shape.linearIndex(index) };
 			map.put!(
-				linearIndex,
+				SmallInteger(linearIndex),
 				each.value
 			)
 		};

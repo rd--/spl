@@ -92,9 +92,18 @@ The `real` part of NaN is NaN:
 NaN
 ```
 
+NaN values are removed from plots:
+
+~~~spl svg=A
+[1 2 3 4 NaN 6 7 8 9]
+.stepPlot
+~~~
+
+![](Help/Image/NaN-A.svg)
+
 * * *
 
-See also: Infinity, SmallFloat, ifNaN, isFinite, isNaN, replaceNaN
+See also: Infinity, SmallFloat, ifNaN, isFinite, isMissing, isNaN, replaceNaN
 
 Guides: Error Functions, Mathematical Constants
 

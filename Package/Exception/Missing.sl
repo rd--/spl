@@ -2,6 +2,10 @@ Missing : [Object, Store, Equal] {
 
 	| reasonMissing value |
 
+	SmallFloat { :unused |
+		NaN
+	}
+
 }
 
 +String {

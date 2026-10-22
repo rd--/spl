@@ -74,6 +74,16 @@ Zero modulo any number is `zero`:
 0
 ```
 
+With _n_ of `zero`:
+
+```
+>>> (5 % 0).isNaN
+true
+
+>>> { 5L % 0 }.hasError
+true
+```
+
 _m%n_ is _m-qn_, where _q_ is the quotient of _m/n_, rounded toward zero to an integer:
 
 ```

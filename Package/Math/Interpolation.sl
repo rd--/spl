@@ -500,7 +500,7 @@
 		{ :x |
 			let answer = 0;
 			0.toDo(n) { :i |
-				let p = binomialPascal(n.negate - 1, i);
+				let p = binomialPascal(-n - 1, i);
 				let q = binomialPascal(2 * n + 1, n - i);
 				let r = x ^ (n + i + 1);
 				answer := answer + (p * q * r)

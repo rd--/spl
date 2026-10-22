@@ -174,7 +174,7 @@ OEIS [A027907](https://oeis.org/A027907):
 ~~~spl svg=C oeis=A027907
 0:7.collect { :n |
 	let k = [0 .. n * 2];
-	n.trinomial(k)
+	n.trinomial(k).round
 }.catenate
 .binaryExpansion
 .padLeft
