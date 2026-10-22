@@ -92,6 +92,7 @@ Guide/File Extensions.help.sl
 Guide/File Functions.help.sl
 Guide/Filter Functions.help.sl
 Guide/Filters and Method Syntax.help.sl
+Guide/Floating Point Functions.help.sl
 Guide/Fourier Analysis Functions.help.sl
 Guide/Fraction Syntax.help.sl
 Guide/Function Guides.help.sl
@@ -1474,6 +1475,7 @@ Reference/fftFrequencies.help.sl
 Reference/fft.help.sl
 Reference/fftPlot.help.sl
 Reference/fftShift.help.sl
+Reference/fibonacciClosedForm.help.sl
 Reference/fibonacciCurve.help.sl
 Reference/fibonacciEntryPoint.help.sl
 Reference/fibonacciFactorialConstant.help.sl
@@ -2141,6 +2143,7 @@ Reference/isHighlyAbundantNumber.help.sl
 Reference/isHighlyCompositeNumber.help.sl
 Reference/isIdentical.help.sl
 Reference/isIdentity.help.sl
+Reference/isIeeeInteger.help.sl
 Reference/isImmediate.help.sl
 Reference/isImproper.help.sl
 Reference/isIndexable.help.sl

@@ -20,4 +20,4 @@ The words are in machine order.
 
 See also: byteOrdering, isLittleEndian
 
-Guides: System Functions
+Guides: Floating Point Functions, System Functions

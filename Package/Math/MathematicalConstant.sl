@@ -9,7 +9,7 @@
 	}
 
 	avogadroConstant { :self |
-		self * 6.02214076E+23
+		self * 602214076L * (10 ^ 15)
 	}
 
 	berahaConstant { :n |
@@ -223,7 +223,7 @@
 	}
 
 	speedOfLight { :self |
-		self * 299792458
+		self * 299792458L
 	}
 
 	stieltjesGamma { :self |

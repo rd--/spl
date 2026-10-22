@@ -207,6 +207,9 @@ At `Complex`:
 
 >>> 0J0 ^ 0
 1J0
+
+>>> 1.5J2.3 ^ 3L
+-20.430J3.358
 ```
 
 Complex number powers of _i_:

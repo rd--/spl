@@ -370,7 +370,7 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer, I
 		self
 	}
 
-	SmallInteger { :self |
+	[SmallInteger, largeIntegerToSmallInteger]  { :self |
 		self.isSmallInteger.if {
 			SmallFloat(self)
 		} {

@@ -138,7 +138,7 @@ Rao Uppuluri-Carpenter numbers,
 OEIS [A000587](https://oeis.org/A000587):
 
 ```
->>> 0:22.triangularArray(stirlingS2/2)
+>>> 0L:22.triangularArray(stirlingS2/2)
 >>> .collect(alternatingSum/1)
 [
 	1 -1 0 1 1 -2 -9 -9 50 267 413 -2180
@@ -171,7 +171,7 @@ OEIS [A309014](https://oeis.org/A309014):
 
 ```
 >>> 0L:23.collect { :n |
->>> 	0:n.sum { :k |
+>>> 	0L:n.sum { :k |
 >>> 		(-1 ^ (n - k))
 >>> 		*
 >>> 		(n.stirlingS2(k) % 2)
@@ -187,7 +187,7 @@ Tangent numbers,
 OEIS [A000182](https://oeis.org/A000182):
 
 ```
->>> 0:9.collect { :n |
+>>> 0L:9.collect { :n |
 >>> 	(1 .. 2 * n + 1).sum { :k |
 >>> 		(2 ^ (2 * n + 1 - k))
 >>> 		*

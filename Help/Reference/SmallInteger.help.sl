@@ -32,7 +32,7 @@ It is an error if the value is cannot be represented as a small integer:
 
 ```
 >>> {
->>> 	SmallInteger(2L ^ 53L)
+>>> 	SmallInteger(2L ^ 53)
 >>> }.hasError
 true
 ```

@@ -3,6 +3,15 @@
 - _raisedToInteger(n, m)_
 
 Special case of `^` where the exponent is an integer.
+Work by successive squaring.
+
+```
+>>> 2.5 ^ 9
+3814.7
+
+>>> 2.5.square.square.square * 2.5
+3814.7
+```
 
 An exponent of `zero` answers `one` of the correct type:
 

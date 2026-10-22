@@ -1,6 +1,6 @@
 # signExponentMantissa
 
-- _signExponentMantissa(aSmallFloat)_
+- _signExponentMantissa(x)_
 
 Answer the components of an Ieee 754 as a three element `List`.
 The components are _sign_, _exponent_ and _mantissa_.
@@ -28,10 +28,12 @@ The reconstruction is _(-1 ^ sign) * (2 ^ exponent) * mantissa_.
 	([1 332 1.142987391282275], -1E100),
 	([0 -333 1.7498005798264096], 1E-100),
 	([1 -333 1.7498005798264096], -1E-100),
-	([0, 1024, 1], Infinity)
+	([0 1024 1], Infinity)
 ]
 ```
 
 * * *
 
-See also: fromSignExponentMantissa, SmallFloat
+See also: SmallFloat, fractionExponent, fromSignExponentMantissa, mantissaExponent
+
+Guides: Floating Point Functions

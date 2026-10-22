@@ -104,15 +104,17 @@ Power series at real _x_, Taylor or Maclaurin series:
 4.48169
 ```
 
-Power series at complex _x_, Taylor or Maclaurin series:
+Power series at complex _x_,
+Taylor or Maclaurin series,
+requires large intermediate floating point values:
 
 ```
->>> let n = 15;
+>>> let n = 11;
 >>> let x = 1.5J2.3;
 >>> 0:n.sum { :i |
 >>> 	(x ^ i) / i.!
 >>> }
--2.98604J3.34202
+-2.98642J3.34221
 
 >>> let x = 1.5J2.3;
 >>> x.exp

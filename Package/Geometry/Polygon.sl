@@ -290,8 +290,8 @@ Polygon : [Object, Store, Equal, Geometry] {
 	polygonVertexAngle { :self :j |
 		let n = self.size;
 		let p = self.at(j);
-		let q1 = self.at((j + 1).wrapIndex(n));
-		let q2 = self.at((j - 1).wrapIndex(n));
+		let q1 = self.atWrap(j + 1);
+		let q2 = self.atWrap(j - 1);
 		(p -> [q1, q2]).planarAngle
 	}
 

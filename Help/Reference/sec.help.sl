@@ -12,6 +12,16 @@ Equal to the reciprocal of `cos`:
 1 / 1/6.pi.cos
 ```
 
+Very large for _x_ where `cos` of _x_ approaches zero:
+
+```
+>>> 1/2.pi.cos
+0
+
+>>> 1/2.pi.sec > 1E16
+true
+```
+
 At `SmallFloat`:
 
 ```
@@ -24,6 +34,9 @@ Threads elementwise over lists and matrices:
 ```
 >>> [1.2 1.5 1.8].sec
 [2.7597 14.1368 -4.4014]
+
+>>> [5/6 0; 1/6 -1/4].pi.sec
+[[-2 / 3.sqrt, 1], [2 / 3.sqrt, 2.sqrt]]
 ```
 
 Evaluate for complex arguments:
@@ -84,6 +97,17 @@ Draw a hyperbola:
 ~~~
 
 ![](Help/Image/sec-E.svg)
+
+Plot `sec` at integer points:
+
+~~~spl svg=F
+{ :x :y |
+	(x * y).sec.abs.arcTan
+}.table(-20:20, -20:20).matrixPlot
+~~~
+
+![](Help/Image/sec-F.svg)
+
 
 * * *
 

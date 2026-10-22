@@ -3,6 +3,7 @@
 - _fractionExponent(x)_
 
 Convert the floating-point number _x_ to fractional and integral components.
+The inverse is `loadExponent`.
 
 ```
 >>> 4.fractionExponent
@@ -33,29 +34,41 @@ zero, negative zero, infinity:
 [0 -0 Infinity]
 ```
 
+Compare to `mantissaExponent`:
+
+```
+>>> 1027.fractionExponent
+[1027/2048 11]
+
+>>> 1027.mantissaExponent(2)
+[1027/2048 11]
+```
+
 Large exponent:
 
 ```
->>> (2 ^ 1023).fractionExponent
-[0.5 1024]
-
->>> 0.5 * (2 ^ 1024)
-Infinity
+>>> let n = 1023;
+>>> let x = (2 ^ n).fractionExponent;
+>>> let y = 0.5 * (2 ^ 1) * (2 ^ n);
+>>> (x, y)
+([0.5 1024], 8.988E+307)
 
 >>> let x = 2L ^ 1023;
 >>> let y = 0.5 * (2 ^ 1) * (2L ^ 1023);
->>> x == y
-true
+>>> (x.integerLength(10), x = y)
+(308, true)
 
 >>> let x = 2 ^ 1023;
 >>> let y = ldexp(0.5, 1024);
->>> x == y
-true
+>>> (x, x = y)
+(8.988E+307, true)
 ```
 
 * * *
 
-See also: loadExponent, SmallFloat
+See also: SmallFloat, loadExponent, mantissaExponent
+
+Guides: Floating Point Functions
 
 References:
 _OpenGroup_

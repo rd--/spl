@@ -18,10 +18,6 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		}
 	}
 
-	addI32 { :a :b |
-		(a + b).wrapExclusive(-2147483648, 2147483647 + 1)
-	}
-
 	amusicalPermutation { :n |
 		n.isEven.if {
 			3 * n / 2
@@ -69,7 +65,7 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 			return ~_self;
 		}
 		>
-		self.error('SmallFloat>>bitNot: not I32')
+		self.error('SmallFloat>>bitNot: not binary')
 	}
 
 	bitOr { :self :anObject |
@@ -83,24 +79,6 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		} {
 			self.error('SmallFloat>>bitOr', [anObject])
 		}
-	}
-
-	bitRotateLeftI32 { :self :anInteger |
-		<primitive:
-		if(sl.isBitwise(_self) && sl.isBitwise(_anInteger)) {
-			return (_self << _anInteger) | (_self >>> (32 - _anInteger));
-		}
-		>
-		self.error('SmallFloat>>bitRotateLeftI32', [anInteger])
-	}
-
-	bitRotateRightI32 { :self :anInteger |
-		<primitive:
-		if(sl.isBitwise(_self) && sl.isBitwise(_anInteger)) {
-			return (_self >> _anInteger) | (_self << (32 - _anInteger));
-		}
-		>
-		self.error('SmallFloat>>bitRotateRightI32', [anInteger])
 	}
 
 	[bitShiftLeft, <<] { :self :anObject |
@@ -323,6 +301,33 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		}
 		>
 		anObject.adaptToNumberAndApply(self, hypotenuse/2)
+	}
+
+	i32BitRotateLeft { :self :anInteger |
+		<primitive:
+		if(sl.isBitwise(_self) && sl.isBitwise(_anInteger)) {
+			return (_self << _anInteger) | (_self >>> (32 - _anInteger));
+		}
+		>
+		self.error('SmallFloat>>i32BitRotateLeft', [anInteger])
+	}
+
+	i32BitRotateRight { :self :anInteger |
+		<primitive:
+		if(sl.isBitwise(_self) && sl.isBitwise(_anInteger)) {
+			return (_self >> _anInteger) | (_self << (32 - _anInteger));
+		}
+		>
+		self.error('SmallFloat>>i32BitRotateRight', [anInteger])
+	}
+
+	i32Plus { :a :b |
+		(a + b).wrapExclusive(-2147483648, 2147483647 + 1)
+	}
+
+	i32Times { :m :n |
+		/* <primitive: return ((_m & 0xffff) * _n) + ((((_m >>> 16) * _n) & 0xffff) << 16);> */
+		<primitive: return Math.imul(_m, _n);>
 	}
 
 	ieeeRemainder { :self :operand |
@@ -628,11 +633,6 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		x.sign * (a / (1 + mu).log)
 	}
 
-	multiplyI32 { :m :n |
-		/* <primitive: return ((_m & 0xffff) * _n) + ((((_m >>> 16) * _n) & 0xffff) << 16);> */
-		<primitive: return Math.imul(_m, _n);>
-	}
-
 	newtonRaphsonMethod { :epsilon :tolerance :iterationCount :x0 :f/1 :fPrime/1 |
 		withReturn { :return/1 |
 			iterationCount.timesRepeat {
@@ -873,7 +873,7 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		self
 	}
 
-	SmallInteger { :self |
+	[SmallInteger, smallFloatToSmallInteger] { :self |
 		self.isSmallInteger.if {
 			self
 		} {

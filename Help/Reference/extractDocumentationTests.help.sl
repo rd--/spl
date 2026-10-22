@@ -45,7 +45,7 @@ and can extract documentation tests from any text.
 
 * * *
 
-See also: parseDocumentationTest, DocumentationTest
+See also: DocumentationTest, parseDocumentationTest
 
 Guides: Documentation Tests
 

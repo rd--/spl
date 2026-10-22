@@ -19,6 +19,21 @@ The Spieker center:
 [2.6 0.7]
 ```
 
+The `orthocenter`:
+
+```
+>>> [3 4 5].sssTriangle
+>>> .triangleCentre(
+>>> 	interiorAngles/1
+>>> ) { :a :b :c |
+>>> 	a.sec.clip([-1E6 1E6])
+>>> }
+[3.2 2.4]
+
+>>> [3 4 5].sssTriangle.orthocenter
+[3.2 2.4]
+```
+
 * * *
 
 See also: interiorAngles, sideLengths, Triangle

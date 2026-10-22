@@ -18,6 +18,16 @@ Answers the cosine of the number _x_.
 0.362358
 ```
 
+Zeroes and ones:
+
+```
+>>> [0 1 2].pi.cos
+[1 -1 1]
+
+>>> [-1/2 1/2].pi.cos
+[0 0]
+```
+
 Definition:
 
 ```

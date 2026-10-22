@@ -3,7 +3,7 @@
 Run documentation tests:
 
 ~~~spl
-'Help/Guide'.splFilePath.terseReferenceSummary((verbose: false, pattern: '.*'))
+'Help/Guide'.splFilePath.terseReferenceSummary((verboseLevel: 0, pattern: '.*'))
 ~~~
 
 Total => 1,006
@@ -11,7 +11,7 @@ Total => 1,006
 Write image files:
 
 ~~~spl
-system.helpFilesDo('Guide', '.*', true, writeImageFiles/1)
+system.helpFilesDo('Guide', '.*', 1, writeImageFiles/1)
 ~~~
 
 Update indices:

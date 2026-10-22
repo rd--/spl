@@ -191,9 +191,12 @@ Point : [Object, Store, Equal, Geometry, CartesianCoordinates] {
 		let [x1, y1] = q1;
 		let [x0, y0] = p;
 		let [x2, y2] = q2;
-		let n = ((x1 - x0) * (x2 - x0)) + ((y1 - y0) * (y2 - y0));
-		let d = ((x1 - x0).square + (y1 - y0).square).sqrt * ((x2 - x0).square + (y2 - y0).square).sqrt;
-		(n / d).arcCos
+		let a = (x1 - x0) * (x2 - x0);
+		let b = (y1 - y0) * (y2 - y0);
+		let c = (x1 - x0).square + (y1 - y0).square;
+		let d = (x2 - x0).square + (y2 - y0).square;
+		let e = (a + b) / (c.sqrt * d.sqrt);
+		e.arcCos
 	}
 
 	Point { :self |
@@ -261,10 +264,9 @@ Point : [Object, Store, Equal, Geometry, CartesianCoordinates] {
 	signedVectorAngle { :u :v |
 		let [u1, u2] = u;
 		let [v1, v2] = v;
-		atan2(
-			(u1 * v2) - (u2 * v1),
-			(u1 * v1) + (u2 * v2)
-		)
+		let a = (u1 * v2) - (u2 * v1);
+		let b = (u1 * v1) + (u2 * v2);
+		atan2(a, b)
 	}
 
 	slopeInterceptForm { :p :q |

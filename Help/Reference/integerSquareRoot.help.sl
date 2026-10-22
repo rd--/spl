@@ -83,14 +83,17 @@ The integer square root of odd powers of seven:
 ]
 ```
 
-Integer square root of a large integer:
+Integer square root of large integers:
 
 ```
+>>> (7L ^ 14).integerSquareRoot
+823543L
+
+>>> (7L ^ 14).sqrt
+823543
+
 >>> (7L ^ 73).integerSquareRoot
 7015820362023593956150476655802L
-
->>> (7L ^ 73).sqrt
-7.01582E30
 ```
 
 At `zero`:

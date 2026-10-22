@@ -89,7 +89,6 @@ Fails for oscillatory and other complicated functions:
 		(1 / x) * (x.log / x).cos
 	}.adaptiveSimpsonsMethod([0 1])
 }.hasError
-true
 ~~~
 
 * * *

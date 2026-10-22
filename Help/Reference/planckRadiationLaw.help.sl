@@ -5,14 +5,14 @@
 Answer the spectral radiance for the specified temperature (in Kelvins) and either frequency (ν, in hertz) or wavelength (λ, in metres).
 The function decides whether _nu_ or _lambda_ has been specified by considering the magnitude,
 _nu_ will be very large (greater than `one`),
-and _lamdba_ will be vert small (less than `one`).
+and _lamdba_ will be very small (less than `one`).
 The answer is in the appropriate SI units.
 
 Specified as frequency (ν, in hertz):
 
 ```
->>> 12.1E9.planckRadiationLaw(1E4)
-4.49811E-16
+>>> 12.1E4.planckRadiationLaw(1E4)
+4.49811E-26
 ```
 
 Specified as wavelength (λ, in metres):

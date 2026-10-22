@@ -126,7 +126,7 @@
 				a / b
 			};
 			let k = 2;
-			let i = 0;
+			let i = 0L;
 			{ z >= t(i, i + 1) }.whileTrue {
 				i := i + 1
 			};
@@ -451,7 +451,7 @@
 			} {
 				((3 * (2 * n - 3) * f(n - 1)) - ((n - 3) * f(n - 2))) / n
 			}
-		}.memoize(true);
+		}.memoize(false);
 		f(self)
 	}
 

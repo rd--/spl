@@ -358,6 +358,10 @@
 		self.collect(hexagonalNumber/1)
 	}
 
+	highBit { :self |
+		self.collect(highBit/1)
+	}
+
 	i { :self |
 		self.collect(i/1)
 	}

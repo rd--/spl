@@ -32,6 +32,7 @@
 		let totalTestCount = 0;
 		let totalPassCount = 0;
 		let totalErrorCount = 0;
+		let verboseLevel = options['verboseLevel'];
 		let fileNameList = system.readDirectoryFileNames(directoryName.absolutePathString);
 		let helpFileNameList = fileNameList.sortBy!(precedes/2).select { :each |
 			each.endsWith('.help.sl') & {
@@ -42,11 +43,11 @@
 		textList.withIndexDo { :text :index |
 			let fileName = helpFileNameList[index];
 			let helpFile = HelpFile(fileName.fileUrl, text);
-			options['verbose'].ifTrue {
+			(verboseLevel > 0).ifTrue {
 				(helpFile.originName, helpFile.name).printLine
 			};
 			let [testCount, passCount, errorCount] = aBlock(helpFile, options);
-			options['verbose'].ifTrue {
+			(verboseLevel > 0).ifTrue {
 				'	Pass % of %'.format([passCount, testCount]).printLine
 			};
 			totalTestCount := totalTestCount + testCount;
@@ -80,8 +81,8 @@
 			let passCount = 0;
 			let scGraphCodeBlocks = helpFile.unspecifiedCodeBlocks;
 			scGraphCodeBlocks.isEmpty.ifFalse {
-				let verbose = options['verbose'];
-				verbose.ifTrue {
+				let verboseLevel = options['verboseLevel'];
+				(verboseLevel > 0).ifTrue {
 					helpFile.name.printLine
 				};
 				scGraphCodeBlocks.do { :x |

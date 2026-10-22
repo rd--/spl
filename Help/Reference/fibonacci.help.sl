@@ -82,24 +82,6 @@ and the first that requires being represented as a `LargeInteger`:
 14472334024676221L
 ```
 
-Note that this is distinct from the value at which the closed form calculation diverges,
-although the error,
-at that scale,
-is within the tolerance of the `~` operator:
-
-```
->>> 78.fibonacci
-8944394323791464
-
->>> 78.fibonacciClosedForm
-8944394323791101
-
->>> 8944394323791464
->>> ~
->>> 8944394323791101
-true
-```
-
 The one-hundredth Fibonacci number:
 
 ```
@@ -714,7 +696,7 @@ OEIS [A109754](https://oeis.org/A109754):
 
 * * *
 
-See also: binetsFormula, fibonacciEntryPoint, fibonacciNumber, fibonacciPolynomial, fibonacciSequence, goldenRatio, lucasNumber
+See also: binetsFormula, fibonacciClosedForm, fibonacciEntryPoint, fibonacciNumber, fibonacciPolynomial, fibonacciSequence, goldenRatio, lucasNumber
 
 Guides: Integer Functions, Integer Sequence Functions
 

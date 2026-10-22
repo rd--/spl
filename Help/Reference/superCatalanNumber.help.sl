@@ -29,7 +29,7 @@ OEIS [A006318](https://oeis.org/A006318)
 The twenty-fourth super Catalan number:
 
 ```
->>> 24.superCatalanNumber
+>>> 24L.superCatalanNumber
 1416461675464871
 ```
 

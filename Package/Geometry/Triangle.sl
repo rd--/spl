@@ -134,7 +134,7 @@ Triangle : [Object, Store, Equal, Geometry] {
 
 	clawsonPoint { :self |
 		self.triangleCentreA { :a :b :c |
-			a.tan
+			a.tan.clip([-1E6 1E6])
 		}
 	}
 
@@ -187,7 +187,7 @@ Triangle : [Object, Store, Equal, Geometry] {
 				[(2 * x) + y + z, a.sin * b.sec, a.sin * c.sec],
 				[b.sin * a.sec, x + (2 * y) + z, b.sin * c.sec],
 				[c.sin * a.sec, c.sin * b.sec, x + y + (2 * z)]
-			]
+			].clip([-1E6 1E6])
 		)
 	}
 
@@ -436,7 +436,11 @@ Triangle : [Object, Store, Equal, Geometry] {
 	isoperimetricPoint { :self |
 		self.hasIsoperimetricPoint.if {
 			self.triangleCentreA { :a :b :c |
-				((0.5 * a).sec * (0.5 * b).cos * (0.5 * c).cos) - 1
+				(
+					(0.5 * a).sec.clip([-1E6 1E6])
+					* (0.5 * b).cos
+					* (0.5 * c).cos
+				) - 1
 			}
 		} {
 			self.error('isoperimetricPoint: no such point')
@@ -506,13 +510,13 @@ Triangle : [Object, Store, Equal, Geometry] {
 				[0, b.sec, c.sec],
 				[a.sec, 0, c.sec],
 				[a.sec, b.sec, 0]
-			]
+			].clip([-1E6 1E6])
 		)
 	}
 
 	orthocenter { :self |
 		self.triangleCentreA { :a :b :c |
-			a.sec
+			a.sec.clip([-1E6 1E6])
 		}
 	}
 

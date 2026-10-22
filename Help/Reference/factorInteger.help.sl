@@ -56,7 +56,7 @@ The answer is sorted by factor.
 ]
 ```
 
-At `SmallFloat` requires _n_ be an integer:
+At `SmallFloat` requires _n_ be a small integer:
 
 ```
 >>> {

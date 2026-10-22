@@ -14,7 +14,7 @@ It is the amount by which 53 perfect fifths exceed 31 octaves.
 19342813113834066795298816L
 
 >>> 1.mercatorsComma
-(3 ^ 53) / (2 ^ 84)
+(3L ^ 53) / (2L ^ 84)
 
 >>> 1.mercatorsComma
 1.0021

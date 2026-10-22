@@ -13,7 +13,7 @@ Run reference file documentation tests:
 .splFilePath
 .terseReferenceSummary(
 	(
-		verbose: false,
+		verboseLevel: 0,
 		pattern: '.*'
 	)
 )
@@ -26,7 +26,7 @@ Run guide file documentation tests:
 .splFilePath
 .terseReferenceSummary(
 	(
-		verbose: false,
+		verboseLevel: 0,
 		pattern: '.*'
 	)
 )

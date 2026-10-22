@@ -59,7 +59,8 @@ Evaluate for half-integer arguments:
 26.869537
 ```
 
-Make the trinomial triangle:
+Make the trinomial triangle,
+OEIS [A027907](https://oeis.org/A027907):
 
 ```
 >>> 0:6.collect { :n |
@@ -75,6 +76,46 @@ Make the trinomial triangle:
 	1 5 15 30 45 51 45 30 15 5 1;
 	1 6 21 50 90 126 141 126 90 50 21 6 1
 ]
+```
+
+Central trinomial coefficients,
+OEIS [A002426](https://oeis.org/A002426):
+
+```
+>>> 0:11.collect { :n |
+>>> 	n.trinomial(n)
+>>> }
+[1 1 3 7 19 51 141 393 1107 3139 8953 25653]
+```
+
+Partial sums of the central trinomial coefficients,
+OEIS [A097893](https://oeis.org/A097893):
+
+```
+>>> 0:11.collect { :n |
+>>> 	n.trinomial(n)
+>>> }.prefixSum
+[1 2 5 12 31 82 223 616 1723 4862 13815 39468]
+```
+
+Next to central trinomial coefficients,
+OEIS [A005717](https://oeis.org/A005717):
+
+```
+>>> 0:11.collect { :n |
+>>> 	(n + 1).trinomial(n)
+>>> }
+[1 2 6 16 45 126 357 1016 2907 8350 24068 69576]
+```
+
+Third next to central trinomial coefficients,
+OEIS [A014531](https://oeis.org/A014531):
+
+```
+>>> 0:11.collect { :n |
+>>> 	(n + 2).trinomial(n)
+>>> }
+[1 3 10 30 90 266 784 2304 6765 19855 58278 171106]
 ```
 
 At `zero`:
@@ -126,6 +167,22 @@ Plot over a subset of the reals as a function of its second parameter:
 ~~~
 
 ![](Help/Image/trinomial-B.svg)
+
+The binary representations for first few terms of a flattened trinomial triangle,
+OEIS [A027907](https://oeis.org/A027907):
+
+~~~spl svg=C oeis=A027907
+0:7.collect { :n |
+	let k = [0 .. n * 2];
+	n.trinomial(k)
+}.catenate
+.binaryExpansion
+.padLeft
+.transpose
+.matrixPlot
+~~~
+
+![](Help/Image/trinomial-C.svg)
 
 * * *
 

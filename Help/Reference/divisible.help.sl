@@ -137,8 +137,8 @@ although floating point modulo may suggest they are:
 >>> 233.divisible(133L ^ 133)
 false
 
->>> 233 % (133 ^ 133)
-0
+>>> 233.0 % (133.0 ^ 133.0)
+0.0
 
 >>> 233L % (133L ^ 133L)
 233L

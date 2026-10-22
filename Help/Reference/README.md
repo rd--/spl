@@ -3,10 +3,10 @@
 Run documentation tests:
 
 ~~~spl
-'Help/Reference'.splFilePath.terseReferenceSummary((verbose: false, pattern: '.*'))
+'Help/Reference'.splFilePath.terseReferenceSummary((verboseLevel: 0, pattern: '.*'))
 ~~~
 
-Total => 19,528
+Total => 19,554
 
 Note: Requires LibraryItems be at the interpreter cache, i.e.
 
@@ -17,7 +17,7 @@ system.library.collect(request/1)
 Write image files:
 
 ~~~spl
-system.helpFilesDo('Reference', '.*', true, writeImageFiles/1)
+system.helpFilesDo('Reference', '.*', 1, writeImageFiles/1)
 ~~~
 
 Update indices:

@@ -196,7 +196,7 @@
 	}
 
 	[sqrt, squareRoot] { :self |
-		'sqrt'.symbolicPrimitive([self])
+		'sqrt'.symbolicPrimitive([self]) /* √ */
 	}
 
 	tan { :self |

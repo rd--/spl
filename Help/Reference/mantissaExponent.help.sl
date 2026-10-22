@@ -30,9 +30,9 @@ Base two:
 
 * * *
 
-See also: realDigits
+See also: fractionExponent, realDigits
 
-Guides: Number Digit Functions
+Guides: Floating Point Functions, Number Digit Functions
 
 References:
 _Mathematica_

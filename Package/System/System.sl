@@ -208,6 +208,14 @@ System! : [Object, Cache, RandomNumberGenerator] {
 		<primitive: return Number.MIN_VALUE;>
 	}
 
+	smallIntegerMax { :unused |
+		<primitive: return Number.MAX_SAFE_INTEGER;>
+	}
+
+	smallIntegerMin { :unused |
+		<primitive: return Number.MIN_SAFE_INTEGER;>
+	}
+
 	splDirectory { :self |
 		self.environmentVariable('SPL_DIR').ifNil {
 			self.error('splDirectory: not set')

@@ -300,12 +300,12 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 		Decimal(self.decimalFraction.round, self.scale)
 	}
 
-	SmallInteger { :self |
-		LargeInteger(self).SmallInteger
+	[SmallInteger, decimalToSmallInteger] { :self |
+		SmallInteger(LargeInteger(self))
 	}
 
 	[SmallFloat, Float, decimalToSmallFloat] { :self |
-		self.decimalFraction.SmallFloat
+		SmallFloat(self.decimalFraction)
 	}
 
 	square { :self |

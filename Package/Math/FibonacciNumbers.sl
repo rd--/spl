@@ -76,7 +76,7 @@
 
 	fibonacci { :n |
 		n.isPositiveInteger.if {
-			n.fibonacciNumber.normal
+			n.fibonacciNumber
 		} {
 			n.fibonacciClosedForm
 		}
@@ -116,7 +116,7 @@
 		let m = n + 1;
 		system
 		.cachedFibonacciSequenceExtendedTo(m)
-		.at(m)
+		.at(SmallInteger(m))
 	}
 
 	fibonacciPolynomial { :n |
@@ -179,7 +179,7 @@
 	}
 
 	lucasSequence { :self |
-		[1 1].linearRecurrence([2 1 3], self)
+		[1 1].linearRecurrence([2L 1L 3L], self)
 	}
 
 	lucasSequence { :n :p :q :a :b |
@@ -198,8 +198,8 @@
 	lucasSequence { :n :k :p :q |
 		k.caseOf(
 			[
-				'U' -> { lucasSequence(n, p, q, 0, 1) },
-				'V' -> { lucasSequence(n, p, q, 2, p) }
+				'U' -> { lucasSequence(n, p, q, 0L, 1L) },
+				'V' -> { lucasSequence(n, p, q, 2L, p) }
 			]
 		)
 	}

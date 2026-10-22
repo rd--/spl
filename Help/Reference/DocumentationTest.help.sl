@@ -1,18 +1,18 @@
 # DocumentationTest
 
-- _DocumentationTest(prefix, program, expectedAnswer)_
+- _DocumentationTest(k, p, a)_
 
 `DocumentationTest` is a `Type` holding a test case given as two lists of strings,
-one a _program_ to be evaluated,
-the other the _expectedAnswer_.
+one a program _p_ to be evaluated,
+the other the expected answer _a_.
 
-There are two kinds of test, distinguished by their _prefix_.
+There are two kinds of test, distinguished by their prefix _k_.
 
 A prefix of `>>>` indicates that the expected answer is also a program,
-and that its answer should compare `~` to that answer of the test _program_.
+and that its answer should compare `~` to that answer of the test program.
 
 A prefix of `>>` indicates that the expected answer is a string,
-and that it should compare `=` to the `printString` of the answer of the test _program_.
+and that it should compare `equalIgnoringExtraWhitespace` to the `printString` of the answer of the test program.
 
 The `format` method prints the equivalence predicate:
 

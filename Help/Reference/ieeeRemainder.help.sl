@@ -47,6 +47,8 @@ Compare with `remainder`:
 
 See also: -, *, remainder, round
 
+Guides: Floating Point Functions
+
 References:
 _C#_
 [1](https://learn.microsoft.com/en-us/dotnet/api/system.math.ieeeremainder)

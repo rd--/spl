@@ -8,7 +8,7 @@ approximately equal to _6.02E23_.
 
 ```
 >>> 1.avogadroConstant
-6.02214076E+23
+602214076000000000000000L
 ```
 
 * * *

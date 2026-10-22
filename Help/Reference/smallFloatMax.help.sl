@@ -1,21 +1,27 @@
 # smallFloatMax
 
-- _smallFloatMax(aNumber)_
+- _smallFloatMax(x)_
 
 Answers the largest number that may be represented as a `SmallFloat`.
 
 ```
->>> let x = 1.smallFloatMax;
->>> (1 + x) = x
-true
+>> system.smallFloatMax
+1.7976931348623157E+308
+```
 
->>> 1.smallFloatMax
-1.79769E308
+This is much, much larger than the largest small integer:
+
+```
+>>> system.smallIntegerMax
+9_007_199_254_740_991
+
+>>> 2L ^ 53 - 1
+9_007_199_254_740_991
 ```
 
 * * *
 
-See also: epsilon, one, smallFloatEpsilon, SmallFloat
+See also: SmallFloat, epsilon, one, smallFloatEpsilon
 
 Guides: Numerical Precision
 

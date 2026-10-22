@@ -332,11 +332,11 @@ HelpFile : [Object, Equal, Cache] {
 		let passCount = 0;
 		let errorCount = 0;
 		(self.documentationTests.size > 0).ifTrue {
-			let verbose = options['verbose'];
+			let verboseLevel = options['verboseLevel'];
 			self.evaluateDefinitionCodeBlocks;
 			self.documentationTests.do { :each |
 				testCount := testCount + 1;
-				verbose.ifTrue {
+				(verboseLevel > 1).ifTrue {
 					('	' ++ each.format).printLine
 				};
 				{
@@ -368,8 +368,8 @@ HelpFile : [Object, Equal, Cache] {
 	}
 
 	writeImageFiles { :self |
-		let verbose = false;
-		verbose.ifTrue {
+		let verboseLevel = 0;
+		(verboseLevel > 0).ifTrue {
 			['writeImageFiles', self.name].printLine
 		};
 		self.writePngImageFiles;
@@ -432,7 +432,7 @@ HelpFile : [Object, Equal, Cache] {
 		self.cached('helpFiles' ++ kind) {
 			let answer = [];
 			self.helpFilesDo(
-				kind, '.*', false
+				kind, '.*', 0
 			) { :each |
 				answer.add!(each)
 			};
@@ -440,7 +440,7 @@ HelpFile : [Object, Equal, Cache] {
 		}
 	}
 
-	helpFilesDo { :self :kind :pattern :verbose :aBlock/1 |
+	helpFilesDo { :self :kind :pattern :verboseLevel :aBlock/1 |
 		let directoryName = self.splFileName('Help/' ++ kind);
 		self
 		.readDirectoryFileNames(directoryName)
@@ -455,7 +455,7 @@ HelpFile : [Object, Equal, Cache] {
 				each.fileUrl,
 				text
 			);
-			verbose.ifTrue {
+			(verboseLevel > 0).ifTrue {
 				each.printLine
 			};
 			aBlock(help)
@@ -595,10 +595,6 @@ HelpFile : [Object, Equal, Cache] {
 			fileName.fileUrl,
 			self.readTextFile(fileName)
 		)
-	}
-
-	referenceHelpFilesDo { :self :pattern :aBlock/1 |
-		self.helpFilesDo('Reference', pattern, aBlock/1)
 	}
 
 }

@@ -13,7 +13,7 @@ Evaluate document tests at the help file _h_, reading options from the dictionar
 >>> 	fileName.fileUrl,
 >>> 	text
 >>> ).terseReferenceEntry(
->>> 	(verbose: false)
+>>> 	(verboseLevel: 0)
 >>> )
 [4, 4, 0]
 ~~~

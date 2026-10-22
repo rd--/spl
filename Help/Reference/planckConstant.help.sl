@@ -6,18 +6,12 @@ Answer _n_ times the Planck constant,
 a fundamental physical constant ordinarily written as _h_,
 given in joules per hertz (_J/Hz_).
 
-```
->>> 1.planckConstant
-6.62607015 * (10 ^ -34)
-```
-
 Decimal expansion,
 OEIS [A003676](https://oeis.org/A003676):
 
 ```
 >>> 1.planckConstant
->>> .realDigits(10, 10)
-[[0 6 6 2 6 0 7 0 1 5], -32]
+6.62607015E-34
 ```
 
 The reduced Planck constant,

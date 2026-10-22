@@ -838,21 +838,6 @@
 		self * 57.29577951308232286465 /* 1/180.pi */
 	}
 
-	raisedToPositiveSmallInteger { :self :operand |
-		let count = 1.bitShift((operand - 1).highBit);
-		let result = self.one;
-		{
-			count > 0
-		}.whileTrue {
-			result := result.square;
-			(operand.bitAnd(count) = 0).ifFalse {
-				result := result * self
-			};
-			count := count.bitShift(-1)
-		};
-		result
-	}
-
 	raisedToInteger { :self :operand |
 		operand.isInteger.ifFalse {
 			'Number>>raisedToInteger: operand is not an Integer'.error
@@ -873,11 +858,25 @@
 	}
 
 	raisedToPositiveInteger { :self :operand |
-		operand.isLargeInteger.if {
-			LargeInteger(self) ^ operand
-		} {
-			self.raisedToPositiveSmallInteger(operand)
-		}
+		operand.isLargeInteger.ifTrue {
+			operand := SmallInteger(operand)
+		};
+		self.raisedToPositiveSmallInteger(operand)
+	}
+
+	raisedToPositiveSmallInteger { :self :operand |
+		let count = 1.bitShiftLeft((operand - 1).highBit);
+		let result = self.one;
+		{
+			count > 0
+		}.whileTrue {
+			result := result.square;
+			(operand.bitAnd(count) = 0).ifFalse {
+				result := result * self
+			};
+			count := count.bitShiftRight(1)
+		};
+		result
 	}
 
 	ramp { :self |

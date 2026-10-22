@@ -8,10 +8,12 @@ This is the same as Osc except that the table is a sine table of 8192 entries.
 - freq: frequency in Hertz
 - phase: phase offset or modulator in radians
 
-Constant frequency:
+Constant frequency,
+a list specifies two oscillators,
+one of the frequencies is specified as a `LargeInteger`:
 
 ```
-SinOsc(200, 0) * 0.25
+SinOsc([200 201L], 0) * 0.25
 ```
 
 Modulate freq:

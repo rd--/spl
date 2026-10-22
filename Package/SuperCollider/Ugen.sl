@@ -1,5 +1,9 @@
 Ugen! : [Object, Number] {
 
+	adaptToIntegerAndApply { :self :aNumber :aBlock/2 |
+		adaptToNumberAndApply(self, SmallFloat(aNumber), aBlock/2)
+	}
+
 	adaptToNumberAndApply { :self :aNumber :aBlock/2 |
 		<primitive:
 		return sl.applyGenericAt(
