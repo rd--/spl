@@ -26,7 +26,7 @@
 				2 -> {
 					let traits = system.packageTraits(path[2]);
 					let types = system.packageTypes(path[2]);
-					let implements = (traits ++ types).collect(qualifiedName/1);
+					let implements = (traits ++ types).collect(name/1);
 					browser.setStatus(implements.commaSeparated);
 					methods := system.packageMethods(path[2]);
 					methods.collect { :each |
@@ -40,14 +40,14 @@
 						browser.setStatus('')
 					};
 					methods.selectThenCollect { :each |
-						each.origin.qualifiedName = path[3]
+						each.origin.name = path[3]
 					} { :each |
 						each.qualifiedName
 					}.sort
 				},
 				4 -> {
 					selectedMethod := methods.detect { :each |
-						each.origin.qualifiedName = path[3] & {
+						each.origin.name = path[3] & {
 							each.qualifiedName = path[4]
 						}
 					};

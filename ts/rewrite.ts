@@ -172,13 +172,7 @@ sl.copyTraitMethodsToType(
 		methodNames,
 		methodBlocks,
 	);
-	const slotAccess = `
-sl.defineTypeSlotMethods(
-	'${typeName}',
-	'${context.packageName}',
-	[${instanceVariablesList}]
-);`;
-	return `${addType}\n\n${copyTraits}\n\n${slotAccess}\n\n${addMethods}\n`;
+	return `${addType}\n\n${copyTraits}\n\n${addMethods}\n`;
 }
 
 const asJs: ohm.ActionDict<string> = {
@@ -275,12 +269,12 @@ const asJs: ohm.ActionDict<string> = {
 		return nonFinal.asJs + final.asJs;
 	},
 	TraitDefinition(nm, _l, mn, mb, _r) {
-		const unqualifiedTraitName = nm.sourceString.substring(1);
+		const traitName = nm.sourceString;
 		const trait =
-			`sl.addTrait('${unqualifiedTraitName}', '${context.packageName}');\n`;
+			`sl.addTrait('${traitName}', '${context.packageName}');\n`;
 		const mth = makeMethodList(
 			'addMethodToExistingTrait',
-			[unqualifiedTraitName],
+			[traitName],
 			mn.children,
 			mb.children,
 		);
@@ -288,7 +282,7 @@ const asJs: ohm.ActionDict<string> = {
 	},
 	TraitList(_c, _l, names, _r) {
 		return names.asIteration().children.map(
-			(c) => `'${c.sourceString}'`,
+			(c) => `'@${c.sourceString}'`, // Add @ Qualifier
 		).join(', ');
 	},
 	TypeDefinition(n, h, t, _l, v, mn, mb, _r) {
@@ -1003,10 +997,18 @@ const arityOf: ohm.ActionDict<number> = {
 
 slSemantics.addAttribute('arityOf', arityOf);
 
+function dropFirstLetter(x: string): string {
+	return x.substring(1)
+}
+
+function dropLastLetter(x: string): string {
+	return x.substring(0, x.length - 1);
+}
+
 const parametersOf: ohm.ActionDict<string[]> = {
 	Arguments(names, _) {
 		return names.children.map(
-			(each) => each.sourceString.substring(1),
+			(each) => dropFirstLetter(each.sourceString)
 		);
 	},
 	Block(_l, arg, _tmp, _prm, _stm, _r) {
@@ -1014,7 +1016,7 @@ const parametersOf: ohm.ActionDict<string[]> = {
 	},
 	RecordInitializerItem(lhs, rhs) {
 		return [
-			lhs.sourceString.substring(0, lhs.sourceString.length - 1),
+			dropLastLetter(lhs.sourceString),
 			rhs.sourceString,
 		];
 	},

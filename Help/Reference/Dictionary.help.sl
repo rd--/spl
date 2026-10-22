@@ -19,7 +19,7 @@ At `List` of `Association` values:
 
 ```
 >>> system
->>> .traitDictionary['Dictionary']
+>>> .traitDictionary['@Dictionary']
 >>> .isTrait
 true
 ```

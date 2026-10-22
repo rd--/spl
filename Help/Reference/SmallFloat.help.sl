@@ -58,25 +58,6 @@ Threads over lists:
 [1 0.75]
 ```
 
-List traits implemented by `SmallFloat`:
-
-```
->>> system.typeLookup('SmallFloat')
->>> .traitNameList
->>> .sort!
-[
-	'Binary'
-	'Compare'
-	'Copy'
-	'Equal'
-	'Integer'
-	'Json'
-	'Number'
-	'Object'
-	'Store'
-]
-```
-
 Literal syntaxes:
 
 ```
@@ -167,6 +148,25 @@ Count leading zeroes:
 
 >>> 383.countTrailingOnes(2, 32)
 7
+```
+
+List traits implemented by `SmallFloat`:
+
+```
+>>> system.typeLookup('SmallFloat')
+>>> .traitNameList
+>>> .sort!
+[
+	'@Binary'
+	'@Compare'
+	'@Copy'
+	'@Equal'
+	'@Integer'
+	'@Json'
+	'@Number'
+	'@Object'
+	'@Store'
+]
 ```
 
 * * *

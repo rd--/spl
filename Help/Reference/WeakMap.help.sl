@@ -24,10 +24,10 @@ Traits implemented by `WeakMap`:
 >>> .traitNameList
 >>> .sort!
 [
-	'At'
-	'Object'
-	'PrimitiveMap'
-	'Put'
+	'@At'
+	'@Object'
+	'@PrimitiveMap'
+	'@Put'
 ]
 ```
 

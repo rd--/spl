@@ -98,20 +98,17 @@
 	}
 
 	methodLookupAtSignature { :self :signature |
-		let [qualifiedOriginName, qualifiedMethodName] = signature.parseMethodSignature;
-		qualifiedOriginName.isQualifiedTraitName.if {
-			self.traitDictionary[
-				qualifiedOriginName.parseQualifiedTraitName
-			].methodDictionary[
-				qualifiedMethodName
-			]
+		let [typeOrTraitName, qualifiedMethodName] = signature.parseMethodSignature;
+		let dictionary = typeOrTraitName.isTraitName.if {
+			self.traitDictionary
 		} {
-			self.typeDictionary[
-				qualifiedOriginName
-			].methodDictionary[
-				qualifiedMethodName
-			]
-		}
+			self.typeDictionary
+		};
+		dictionary[
+			typeOrTraitName
+		].methodDictionary[
+			qualifiedMethodName
+		]
 	}
 
 	methodLookupAtType { :self :methodName :arity :typeName |
@@ -123,11 +120,13 @@
 		let answer = [];
 		self.methodImplementations(methodName).do { :method |
 			answer.add!(
-				'+ %{\n\t% %\n}'.format([
-					method.origin.qualifiedName,
-					method.name,
-					method.sourceCode
-				])
+				'+ %{\n\t% %\n}'.format(
+					[
+						method.origin.name,
+						method.name,
+						method.sourceCode
+					]
+				)
 			)
 		};
 		answer
@@ -236,9 +235,8 @@
 	}
 
 	traitTypes { :self :traitName |
-		let unqualifiedTraitName = traitName.parseQualifiedTraitName;
-		self.isTraitName(unqualifiedTraitName).if {
-			self.typesImplementingTrait(unqualifiedTraitName)
+		self.isTraitName(traitName).if {
+			self.typesImplementingTrait(traitName)
 		} {
 			self.error('System>>traitTypes: no such trait', [traitName])
 		}

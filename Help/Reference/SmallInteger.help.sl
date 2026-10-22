@@ -4,6 +4,8 @@
 
 Answer the `SmallFloat` that is equal to the number _x_,
 which must be an integer value.
+`SmallInteger` is a pseudo-type,
+it has a pseudo-type predicate `isSmallInteger`.
 
 At `SmallFloat`:
 

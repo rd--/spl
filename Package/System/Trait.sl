@@ -27,27 +27,19 @@ Trait! : [Object, Equal] {
 	}
 
 	printString { :self |
-		self.qualifiedName
+		self.name
 	}
 
-	qualifiedName { :self |
-		'@' ++ self.name
+	unqualifiedName { :self |
+		self.name.allButFirst
 	}
 
 }
 
 +String {
 
-	isQualifiedTraitName { :self |
+	isTraitName { :self |
 		self[1] = '@'
-	}
-
-	parseQualifiedTraitName { :self |
-		self.isQualifiedTraitName.if {
-			self.copyFromTo(2, self.size)
-		} {
-			self
-		}
 	}
 
 }

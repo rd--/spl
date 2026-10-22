@@ -39,7 +39,7 @@ Stream is a trait:
 
 ```
 >>> system
->>> .traitDictionary['Stream']
+>>> .traitDictionary['@Stream']
 >>> .isTrait
 true
 ```

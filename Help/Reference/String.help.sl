@@ -36,16 +36,16 @@ List of traits implemented by `String`:
 >>> .traitNameList
 >>> .sort!
 [
-	'At'
-	'Character'
-	'Compare'
-	'Copy'
-	'Do'
-	'Equal'
-	'Indices'
-	'Json'
-	'Object'
-	'Store'
+	'@At'
+	'@Character'
+	'@Compare'
+	'@Copy'
+	'@Do'
+	'@Equal'
+	'@Indices'
+	'@Json'
+	'@Object'
+	'@Store'
 ]
 ```
 

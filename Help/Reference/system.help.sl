@@ -8,7 +8,7 @@
 >>> system
 >>> .methodDictionary
 >>> .size
-7240
+7239
 
 >>> system
 >>> .methodDictionary
@@ -28,7 +28,7 @@ true
 >>> system
 >>> .traitDictionary
 >>> .keys
->>> .includes('Collection')
+>>> .includes('@Collection')
 true
 ```
 

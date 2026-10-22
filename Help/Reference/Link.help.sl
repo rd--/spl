@@ -32,7 +32,7 @@ Implemented methods are:
 
 ```
 >>> system
->>> .traitDictionary['Link']
+>>> .traitDictionary['@Link']
 >>> .isTrait
 true
 ```
@@ -55,13 +55,13 @@ Traits implemented by `Link`:
 >>> .traitNameList
 >>> .sort!
 [
-	'Collect'
-	'Copy'
-	'Do'
-	'Equal'
-	'Link'
-	'Object'
-	'Store'
+	'@Collect'
+	'@Copy'
+	'@Do'
+	'@Equal'
+	'@Link'
+	'@Object'
+	'@Store'
 ]
 ```
 

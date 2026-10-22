@@ -12,15 +12,15 @@ Answer a `List` of the `Trait` names implemented by the `Type` _t_.
 >>> .traitNameList
 >>> .sort!
 [
-	'Binary'
-	'Compare'
-	'Copy'
-	'Equal'
-	'Integer'
-	'Json'
-	'Number'
-	'Object'
-	'Store'
+	'@Binary'
+	'@Compare'
+	'@Copy'
+	'@Equal'
+	'@Integer'
+	'@Json'
+	'@Number'
+	'@Object'
+	'@Store'
 ]
 ```
 

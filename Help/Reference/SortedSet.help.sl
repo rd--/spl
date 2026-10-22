@@ -5,27 +5,6 @@
 `SortedSet` is a `Type` representing a set ordered according to `precedesOrEqualTo`,
 where the comparison operator is `=`.
 
-Traits implemented by `SortedSet`:
-
-```
->>> system.typeLookup('SortedSet')
->>> .traitNameList
->>> .sort!
-[
-	'Add'
-	'Collect'
-	'Collection'
-	'Copy'
-	'Do'
-	'Equal'
-	'New'
-	'Object'
-	'Remove'
-	'Set'
-	'Store'
-]
-```
-
 The empty set constructor,
 also a `SortedSet` from an empty list:
 
@@ -109,6 +88,27 @@ A sorted set of strings:
 >>> .SortedSet
 >>> .List
 ['a' 'kind' 'list' 'of' 'words']
+```
+
+Traits implemented by `SortedSet`:
+
+```
+>>> system.typeLookup('SortedSet')
+>>> .traitNameList
+>>> .sort!
+[
+	'@Add'
+	'@Collect'
+	'@Collection'
+	'@Copy'
+	'@Do'
+	'@Equal'
+	'@New'
+	'@Object'
+	'@Remove'
+	'@Set'
+	'@Store'
+]
 ```
 
 * * *

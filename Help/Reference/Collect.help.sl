@@ -10,7 +10,7 @@ The required method is:
 
 ```
 >>> system
->>> .traitDictionary['Collect']
+>>> .traitDictionary['@Collect']
 >>> .isTrait
 true
 ```

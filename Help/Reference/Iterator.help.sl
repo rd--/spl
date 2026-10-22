@@ -19,7 +19,7 @@ answer a `CollectionStream` on the collection _c_.
 
 ```
 >>> system
->>> .traitDictionary['Iterator']
+>>> .traitDictionary['@Iterator']
 >>> .isTrait
 true
 ```

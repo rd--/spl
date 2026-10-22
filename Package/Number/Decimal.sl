@@ -188,9 +188,7 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 	}
 
 	isInteger { :self |
-		self.scale.isZero | {
-			self.decimalFraction.isInteger
-		}
+		self.decimalFraction.isInteger
 	}
 
 	isNegative { :self |
@@ -203,6 +201,10 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 
 	isPowerOfTwo { :self |
 		self.decimalFraction.isPowerOfTwo
+	}
+
+	isSmallInteger { :self |
+		self.decimalFraction.isSmallInteger
 	}
 
 	isZero { :self |

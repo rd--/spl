@@ -357,7 +357,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'peek'
 		'peekPriority'
 		'provenance'
-		'qualifiedName'
+		'unqualifiedName'
 		'radians'
 		'real'
 		'replaceFromToWith'
@@ -1017,7 +1017,6 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'parseLargeInteger'
 		'parseMethodSignature'
 		'parseQualifiedMethodName'
-		'parseQualifiedTraitName'
 		'parseNumber'
 	],
 	'positioning': [
@@ -1168,7 +1167,6 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 	'testing-system': [
 		'isMethodName'
 		'isSplOperatorToken'
-		'isQualifiedTraitName'
 		'isTraitName'
 		'isTraitOrTypeName'
 		'isTypeName'

@@ -4,7 +4,7 @@
 
 ```
 >>> system
->>> .traitDictionary['Store']
+>>> .traitDictionary['@Store']
 >>> .isTrait
 true
 ```

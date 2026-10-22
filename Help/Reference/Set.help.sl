@@ -109,7 +109,7 @@ true
 
 ```
 >>> system
->>> .traitDictionary['Set']
+>>> .traitDictionary['@Set']
 >>> .isTrait
 true
 ```

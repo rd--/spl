@@ -146,19 +146,19 @@ Traits implemented by `ListView`:
 >>> .traitNameList
 >>> .sort!
 [
-	'At'
-	'Collect'
-	'Collection'
-	'Compare'
-	'Copy'
-	'Do'
-	'Equal'
-	'Indices'
-	'New'
-	'Object'
-	'Put'
-	'Sequence'
-	'Store'
+	'@At'
+	'@Collect'
+	'@Collection'
+	'@Compare'
+	'@Copy'
+	'@Do'
+	'@Equal'
+	'@Indices'
+	'@New'
+	'@Object'
+	'@Put'
+	'@Sequence'
+	'@Store'
 ]
 ```
 

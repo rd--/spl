@@ -16,7 +16,7 @@ Find the definitions of `inHertz` in the _Frequency_ package:
 >>> 	(each.origin.name, each.arity)
 >>> }
 [
-	('Frequency', 1)
+	('@Frequency', 1)
 ]
 ```
 

@@ -4,7 +4,7 @@
 
 ```
 >>> system
->>> .traitDictionary['Object']
+>>> .traitDictionary['@Object']
 >>> .isTrait
 true
 ```
@@ -20,7 +20,7 @@ system.typeDictionary.size - 1
 
 ```
 >>> system
->>> .traitDictionary['Object']
+>>> .traitDictionary['@Object']
 >>> .methodDictionary
 >>> .keys
 >>> .includes('respondsTo/2')

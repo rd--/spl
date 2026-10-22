@@ -39,7 +39,7 @@ Methods for set logic:
 
 ```
 >>> system
->>> .traitDictionary['Collection']
+>>> .traitDictionary['@Collection']
 >>> .isTrait
 true
 ```

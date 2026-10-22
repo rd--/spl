@@ -122,22 +122,6 @@ Threads over lists:
 [1 2 3]
 ```
 
-Traits implemented by `Complex`:
-
-```
->>> system.typeLookup('Complex')
->>> .traitNameList
->>> .sort!
-[
-	'Compare'
-	'Copy'
-	'Equal'
-	'Number'
-	'Object'
-	'Store'
-]
-```
-
 `Complex` implements `*`, `/`, `+`, `-` and `^`:
 
 ```
@@ -370,6 +354,22 @@ The matrix form of a complex number:
 	[1 2; -2 1],
 	[1 2; -2 1]
 )
+```
+
+Traits implemented by `Complex`:
+
+```
+>>> system.typeLookup('Complex')
+>>> .traitNameList
+>>> .sort!
+[
+	'@Compare'
+	'@Copy'
+	'@Equal'
+	'@Number'
+	'@Object'
+	'@Store'
+]
 ```
 
 * * *

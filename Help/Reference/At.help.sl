@@ -24,7 +24,7 @@ Instead is is implemented at `Sequence` since it requires `species` to decide th
 
 ```
 >>> system
->>> .traitDictionary['At']
+>>> .traitDictionary['@At']
 >>> .isTrait
 true
 ```

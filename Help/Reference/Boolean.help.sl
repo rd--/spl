@@ -101,12 +101,12 @@ List of traits implemented by `Boolean`:
 >>> .traitNameList
 >>> .sort!
 [
-	'Compare'
-	'Copy'
-	'Equal'
-	'Json'
-	'Object'
-	'Store'
+	'@Compare'
+	'@Copy'
+	'@Equal'
+	'@Json'
+	'@Object'
+	'@Store'
 ]
 ```
 

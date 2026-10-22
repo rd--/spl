@@ -4,7 +4,7 @@
 
 ```
 >>> system
->>> .traitDictionary['Binary']
+>>> .traitDictionary['@Binary']
 >>> .isTrait
 true
 ```

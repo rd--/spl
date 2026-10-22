@@ -129,21 +129,21 @@ List of traits implemented by `Record`:
 >>> .traitNameList
 >>> .sort!
 [
-	'Add'
-	'At'
-	'Collect'
-	'Collection'
-	'Copy'
-	'Dictionary'
-	'Do'
-	'Equal'
-	'Indices'
-	'Json'
-	'New'
-	'Object'
-	'Put'
-	'Remove'
-	'Store'
+	'@Add'
+	'@At'
+	'@Collect'
+	'@Collection'
+	'@Copy'
+	'@Dictionary'
+	'@Do'
+	'@Equal'
+	'@Indices'
+	'@Json'
+	'@New'
+	'@Object'
+	'@Put'
+	'@Remove'
+	'@Store'
 ]
 ```
 

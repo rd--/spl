@@ -70,7 +70,9 @@ Method! : [Object, Equal] {
 
 	operatorTokenOrQualifiedName { :self |
 		(self.arity = 2).if {
-			self.name.splOperatorNameToken ? { self.qualifiedName }
+			self.name.splOperatorNameToken.ifNil {
+				self.qualifiedName
+			}
 		} {
 			self.qualifiedName
 		}

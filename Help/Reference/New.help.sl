@@ -17,7 +17,7 @@ The provided methods are:
 
 ```
 >>> system
->>> .traitDictionary['New']
+>>> .traitDictionary['@New']
 >>> .isTrait
 true
 ```

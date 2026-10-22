@@ -47,7 +47,7 @@ The `compare` method is derived from `less`, if `less` is defined.
 
 ```
 >>> system
->>> .traitDictionary['Compare']
+>>> .traitDictionary['@Compare']
 >>> .isTrait
 true
 ```

@@ -4,7 +4,7 @@
 
 ```
 >>> system
->>> .traitDictionary['Cache']
+>>> .traitDictionary['@Cache']
 >>> .isTrait
 true
 

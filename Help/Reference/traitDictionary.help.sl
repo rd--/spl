@@ -6,12 +6,12 @@ A `Dictionary` at `system` to hold the set of `Trait`s.
 
 ```
 >>> system
->>> .traitDictionary['Collection']
+>>> .traitDictionary['@Collection']
 >>> .isTrait
 true
 
 >>> system
->>> .traitDictionary['Do']
+>>> .traitDictionary['@Do']
 >>> .methodDictionary
 >>> .includesKey('sum/1')
 true

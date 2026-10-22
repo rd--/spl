@@ -21,7 +21,7 @@ export { slGrammar, slParse, slSemantics } from './grammar.ts';
 type Arity = number;
 type PackageName = string;
 type TypeName = string;
-type TraitName = string;
+type TraitName = string; // Qualified (@T)
 type TypeOrTraitName = string;
 type MethodName = string;
 type ParameterNames = string[];
@@ -411,6 +411,11 @@ export function extendTraitWithMethod(
 	return method;
 }
 
+// Trait names being with an ampersand (@T)
+function isTraitName(x: string): bool {
+	return x.startsWith('@');
+}
+
 // CF. rewrite/makeMethodList
 export function extendTypeOrTraitWithMethod(
 	typeOrTraitName: TypeOrTraitName,
@@ -420,10 +425,9 @@ export function extendTypeOrTraitWithMethod(
 	block: Function,
 	sourceCode: MethodSourceCode,
 ): Method {
-	const isTraitName = typeOrTraitName.startsWith('@');
-	if (isTraitName) {
+	if (isTraitName(typeOrTraitName)) {
 		return extendTraitWithMethod(
-			typeOrTraitName.substring(1),
+			typeOrTraitName,
 			packageName,
 			name,
 			parameterNames,
@@ -648,7 +652,7 @@ export function addMethodToExistingType(
 // It'd be possible to only allow this for the 'pre-installed' methods, which might be saner.
 // Run for built-in types, which may have traits.
 // Assumes non-kernel types have at least one slot.
-// Does not define slot methods, see defineTypeSlotMethods.
+// Define slot methods, type-specific, not over-ridden by subsequent traits.
 export function addType(
 	isHostType: boolean,
 	typeName: TypeName,
@@ -676,7 +680,7 @@ export function addType(
 			slotNames.join(', ')
 		}) { ${initializeSlots}; return anInstance; }, '<primitive: initializer>')`;
 	const defPredicateFalse =
-		`sl.extendTraitWithMethod('Object', '${packageName}', 'is${typeName}', ['self'], function(anObject) { return false; }, '<primitive: predicate>')`;
+		`sl.extendTraitWithMethod('@Object', '${packageName}', 'is${typeName}', ['self'], function(anObject) { return false; }, '<primitive: predicate>')`;
 	const defPredicateTrue =
 		`sl.addMethodToExistingType('${typeName}', '${packageName}', 'is${typeName}', ['self'], function(anInstance) { return true; }, '<primitive: predicate>')`;
 	// console.debug(`addType: ${typeName}, ${packageName}, ${slotNames}`);
@@ -687,22 +691,6 @@ export function addType(
 		typeName,
 		new Type(typeName, packageName, traitList, slotNames, methodDictionary),
 	);
-	const allDef = [
-		defNewType,
-		defInitializeSlots,
-		defPredicateFalse,
-		defPredicateTrue,
-	].join(';');
-	// Never use direct eval!
-	eval?.(`"use strict"; ${allDef}`);
-}
-
-// This is distinct from addType because slot methods should over-ride trait methods.
-export function defineTypeSlotMethods(
-	typeName: TypeName,
-	packageName: PackageName,
-	slotNames: string[],
-): void {
 	const defSlotAccess = slotNames.map(
 		(each) =>
 			`sl.addMethodToExistingType('${typeName}', '${packageName}', '${each}', ['self'], function(anInstance) { return anInstance.${each} }, '<primitive: accessor>');`,
@@ -712,6 +700,10 @@ export function defineTypeSlotMethods(
 			`sl.addMethodToExistingType('${typeName}', '${packageName}', '${each}MutateInPlace', ['self', 'anObject'], function(anInstance, anObject) { anInstance.${each} = anObject; return anObject; }, '<primitive: mutator>');`,
 	).join('; ');
 	const allDef = [
+		defNewType,
+		defInitializeSlots,
+		defPredicateFalse,
+		defPredicateTrue,
 		defSlotAccess,
 		defSlotMutate
 	].join(';');

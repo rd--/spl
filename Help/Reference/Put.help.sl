@@ -19,7 +19,7 @@ Implemented methods include:
 
 ```
 >>> system
->>> .traitDictionary['Put']
+>>> .traitDictionary['@Put']
 >>> .isTrait
 true
 ```

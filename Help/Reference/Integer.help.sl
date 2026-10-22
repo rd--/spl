@@ -117,7 +117,7 @@ Threads over lists:
 
 ```
 >>> system
->>> .traitDictionary['Integer']
+>>> .traitDictionary['@Integer']
 >>> .isTrait
 true
 ```

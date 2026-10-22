@@ -5,6 +5,8 @@
 Answers `true` if the object _x_ is an integer that can be accurately represented as an IEEE-754 double precision number,
 and whose IEEE-754 representation cannot be the result of rounding any other integer to fit the IEEE-754 representation.
 
+At `SmallFloat`:
+
 ```
 >>> 23.isSmallInteger
 true
@@ -87,7 +89,8 @@ true
 false
 ```
 
-At `LargeInteger` and `Fraction` answers `true` is the value is an integer and if that integer is a safe integer:
+At `LargeInteger` and `Fraction`,
+answers `true` is the value is an integer and if that integer is a safe integer:
 
 ```
 >>> 23L.isSmallInteger
@@ -107,6 +110,12 @@ true
 >>> let x = Fraction(2L ^ 54, 1);
 >>> (x.isInteger, x.isSmallInteger)
 (true, false)
+
+>>> 3.000D.isSmallInteger
+true
+
+>>> 3.141D.isSmallInteger
+false
 ```
 
 A `List` is not a small integer:

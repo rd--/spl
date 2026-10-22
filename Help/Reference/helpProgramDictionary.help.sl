@@ -14,11 +14,11 @@ and the values are lists of `HelpProgram` values.
 >>> 	d['abs'].elementType,
 >>> 	d['abs'].size
 >>> )
-(1651, 'Record', 'List', 'HelpProgram', 6)
+(1653, 'Record', 'List', 'HelpProgram', 6)
 ```
 
 * * *
 
-See also: helpProgramTable, HelpProgram
+See also: HelpProgram, helpProgramTable
 
 Guides: Help Files

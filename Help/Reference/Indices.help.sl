@@ -27,7 +27,7 @@ Implemented methods include:
 
 ```
 >>> system
->>> .traitDictionary['Indices']
+>>> .traitDictionary['@Indices']
 >>> .isTrait
 true
 ```

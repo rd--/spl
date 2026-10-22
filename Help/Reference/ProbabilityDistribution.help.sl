@@ -3,9 +3,9 @@
 A `Trait` for behaviours related to probablity distributions.
 
 ```
->>> system.traitDictionary.at(
->>> 	'ProbabilityDistribution'
->>> ).isTrait
+>>> system.traitDictionary[
+>>> 	'@ProbabilityDistribution'
+>>> ].isTrait
 true
 ```
 

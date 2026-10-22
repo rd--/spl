@@ -34,14 +34,14 @@ Traits implemented by `Heap`:
 >>> .traitNameList
 >>> .sort!
 [
-	'Add'
-	'At'
-	'Copy'
-	'Do'
-	'Equal'
-	'Object'
-	'Remove'
-	'Store'
+	'@Add'
+	'@At'
+	'@Copy'
+	'@Do'
+	'@Equal'
+	'@Object'
+	'@Remove'
+	'@Store'
 ]
 
 * * *

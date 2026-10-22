@@ -10,7 +10,7 @@ answer the `List` of `Trait`s defined in the named `Package` _p_.
 >>> 	'Do'
 >>> );
 >>> (t.size, t[1].name)
-(1, 'Do')
+(1, '@Do')
 ```
 
 * * *

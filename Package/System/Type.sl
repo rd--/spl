@@ -38,15 +38,11 @@ Type! : [Object, Equal] {
 	}
 
 	printString { :self |
-		self.qualifiedName
+		self.name
 	}
 
 	pseudoSlotNameList { :self |
 		['name', 'packageName', 'traitNameList', 'slotNameList', 'methodDictionary']
-	}
-
-	qualifiedName { :self |
-		self.name
 	}
 
 	slotNameList { :self |

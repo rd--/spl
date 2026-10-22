@@ -15,6 +15,10 @@ Package! : [Object, Equal, Compare] {
 		}
 	}
 
+	categorisedName { :self |
+		self.category ++ '-' ++ self.name
+	}
+
 	category { :self |
 		<primitive: return _self.category;>
 	}
@@ -58,10 +62,6 @@ Package! : [Object, Equal, Compare] {
 
 	pseudoSlotNameList { :self |
 		['category', 'isLoaded', 'name', 'requires', 'text', 'url']
-	}
-
-	qualifiedName { :self |
-		self.category ++ '-' ++ self.name
 	}
 
 	requires { :self |
@@ -175,7 +175,7 @@ Package! : [Object, Equal, Compare] {
 
 	loadPackage { :self :package |
 		[
-			package.qualifiedName
+			package.categorisedName
 		].loadLocalPackageSequence
 	}
 

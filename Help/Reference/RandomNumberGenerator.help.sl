@@ -4,7 +4,7 @@
 
 ```
 >>> system
->>> .traitDictionary['RandomNumberGenerator']
+>>> .traitDictionary['@RandomNumberGenerator']
 >>> .isTrait
 true
 ```
@@ -13,7 +13,7 @@ Types implementing `RandomNumberGenerator`:
 
 ```
 >>> system
->>> .traitTypes('RandomNumberGenerator')
+>>> .traitTypes('@RandomNumberGenerator')
 >>> .sort!
 [
 	'LaggedFibonacci'

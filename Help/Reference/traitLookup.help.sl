@@ -7,7 +7,7 @@ answer the `Trait` named by _t_.
 
 ```
 >>> system
->>> .traitLookup('Collection')
+>>> .traitLookup('@Collection')
 >>> .isTrait
 true
 ```
@@ -15,7 +15,7 @@ true
 The `methodDictionary` at a `Trait` is keyed by qualified method names:
 
 ```
->>> system.traitLookup('Do')
+>>> system.traitLookup('@Do')
 >>> .methodDictionary
 >>> .includesKey('sum/1')
 true

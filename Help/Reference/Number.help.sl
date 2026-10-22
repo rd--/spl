@@ -46,7 +46,7 @@ Threads over lists:
 
 ```
 >>> system
->>> .traitDictionary['Number']
+>>> .traitDictionary['@Number']
 >>> .isTrait
 true
 ```
