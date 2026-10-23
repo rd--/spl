@@ -7,12 +7,28 @@ The zeroeth function is a straight line.
 The first function is `smoothStep`.
 The second function is `smootherstep`.
 
+Evaluate at `SmallFloat`:
+
+```
+>>> let f/1 = 3.smoothStepFunction;
+>>> f(1 / 3)
+379 / 2187
+
+>>> let f/1 = 15.smoothStepFunction;
+>>> f(0.9125) > 1
+true
+```
+
 Evaluate at `Fraction`:
 
 ```
 >>> let f/1 = 3.smoothStepFunction;
 >>> f(1/3)
 379/2187
+
+>>> let f/1 = 15.smoothStepFunction;
+>>> f(73/80) > 1
+false
 ```
 
 Evaluate at `SmallFloat`:
@@ -27,7 +43,7 @@ Six smoothStep functions:
 
 ~~~spl svg=A
 (0 -- 1).functionPlot(
-	[0 1 3 7 11 17].collect(
+	[0 1 3 7 11 15].collect(
 		smoothStepFunction/1
 	)
 )

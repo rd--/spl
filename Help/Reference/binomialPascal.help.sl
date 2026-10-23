@@ -79,6 +79,30 @@ the answer is zero:
 28
 ```
 
+Construct Pascal’s triangle:
+
+```
+>>> 0:5.triangularArray(binomialPascal/2)
+[
+	1;
+	1 1;
+	1 2 1;
+	1 3 3 1;
+	1 4 6 4 1;
+	1 5 10 10 5 1
+]
+```
+
+Plot over a subset of the reals as a function of its first parameter:
+
+~~~spl svg=A
+(-2 -- 4).functionPlot { :x |
+	binomialPascal(x, 3)
+}
+~~~
+
+![](Help/Image/binomialPascal-A.svg)
+
 * * *
 
 See also: binomial, binomialGamma
