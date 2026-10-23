@@ -2,17 +2,13 @@
 
 - _packageDictionary(s)_
 
-Ay `System`,
+At `System`,
 answer a `Dictionary` holding the `Package`s known to the system.
 
 ```
->>> system.packageDictionary
->>> .isDictionary
-true
-
->>> system.packageDictionary
->>> .elementType
-'Package'
+>>> let d = system.packageDictionary;
+>>> (d.isDictionary, d.elementType, d.size)
+(true, 'Package', 447)
 ```
 
 `Object` is a package:
@@ -42,7 +38,7 @@ Package fields include `category`, `name`, `isLoaded` and `url`:
 )
 ```
 
-`requires` answers set of packages required by a package.
+`requires` answers the set of packages required by a package.
 `dependencies` answers the recursive set of packages required by a package:
 
 ```

@@ -1,3 +1,0 @@
-The time to compile all .sl files to .js is approximately eight seconds.
-
-Loading compiled (.js) files at Deno takes a fraction of a second.

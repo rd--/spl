@@ -1,6 +1,6 @@
 # Package
 
-A `Package` is a named collections of types, traits and methods.
+A `Package` is a system type representing a named collections of type, trait and method definitions.
 
 A package has a _name_ and a _category_.
 The qualified name of a package is _category-name_.
@@ -35,6 +35,6 @@ The following `Type` packages are considered to be part of the _Kernel_ and do n
 
 * * *
 
-See also: packageDictionary, packageMethods, packageTraits, packageTypes, System, Trait, Type
+See also: System, Trait, Type, packageDictionary, packageMethods, packageTraits, packageTypes
 
 Categories: System, Library, Organisation
