@@ -12,14 +12,16 @@ Answers the next power of base _b_ greater than or equal to the integer _n_.
 2401
 ```
 
-This works by taking the `ceiling` of the `log` of _n_, and is subject to floating point errors:
+This works by taking the `ceiling` of the `log` of _n_,
+and is subject to floating point errors,
+in some contexts the following may answer the next next power of two:
 
 ```
 >>> 729.nextPowerOf(3)
-2187
+729
 
->>> 3 ^ 7
-2187
+>>> 3 ^ [6 7]
+[729 2187]
 ```
 
 * * *

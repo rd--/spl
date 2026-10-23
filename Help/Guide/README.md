@@ -3,15 +3,15 @@
 Run documentation tests:
 
 ~~~spl
-'Help/Guide'.splFilePath.terseReferenceSummary((verboseLevel: 0, pattern: '.*'))
+{ 'Help/Guide'.splFilePath.terseReferenceSummary((verboseLevel: 0, pattern: '.*')) }.timing
 ~~~
 
-Total => 1,006
+Total => 1,006 (6 seconds)
 
 Write image files:
 
 ~~~spl
-system.helpFilesDo('Guide', '.*', 1, writeImageFiles/1)
+{ system.helpFilesDo('Guide', '.*', 1, writeImageFiles/1) }.timing
 ~~~
 
 Update indices:

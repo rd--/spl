@@ -178,9 +178,9 @@ OEIS [A046902](https://oeis.org/A046902):
 >>> 	let a = binomial(n, k - 1);
 >>> 	let b = binomial(n - 1, k);
 >>> 	(6 * a) + b
->>> }.replaceNaN(0)
+>>> }
 [
-	0;
+	1;
 	1  6;
 	1  7 12;
 	1  8 19  18;
@@ -202,9 +202,9 @@ OEIS [A090850](https://oeis.org/A090850):
 >>> 	let a = binomial(n, k + 1);
 >>> 	let b = binomial(n - 1, k - 1);
 >>> 	(f * a) + b
->>> }.replaceNaN(0)
+>>> }
 [
-	0;
+	1;
 	6 1;
 	12 7 1;
 	18 19 8 1;

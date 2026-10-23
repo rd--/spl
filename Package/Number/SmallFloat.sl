@@ -697,7 +697,7 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		<primitive:
 		if(sl.isSmallFloat(_operand)) {
 			const answer = _self + _operand;
-			sl.checkSmallFloatOverflow(_self, _operand, answer);
+			/*sl.checkSmallFloatOverflow(_self, _operand, answer);*/
 			return answer;
 		}
 		>
@@ -772,7 +772,7 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		<primitive:
 		if(sl.isSmallFloat(_operand)) {
 			let answer = Math.pow(_self, _operand);
-			sl.checkSmallFloatOverflow(_self, _operand, answer);
+			/*sl.checkSmallFloatOverflow(_self, _operand, answer);*/
 			return answer;
 		}
 		>
@@ -893,7 +893,7 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		<primitive:
 		if(sl.isSmallFloat(_operand)) {
 			const answer = _self - _operand;
-			sl.checkSmallFloatOverflow(_self, _operand, answer);
+			/*sl.checkSmallFloatOverflow(_self, _operand, answer);*/
 			return answer;
 		}
 		>
@@ -916,7 +916,7 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		<primitive:
 		if(sl.isSmallFloat(_operand)) {
 			const answer = _self * _operand;
-			sl.checkSmallFloatOverflow(_self, _operand, answer);
+			/*sl.checkSmallFloatOverflow(_self, _operand, answer);*/
 			return answer;
 		}
 		>
@@ -975,7 +975,7 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 	uncheckedPower { :self :operand |
 		<primitive:
 		const answer = Math.pow(_self, _operand);
-		sl.checkSmallFloatOverflow(_self, _operand, answer);
+		/*sl.checkSmallFloatOverflow(_self, _operand, answer);*/
 		return answer;
 		>
 	}
