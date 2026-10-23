@@ -66,6 +66,25 @@ and the entries are methods:
 true
 ```
 
+The sorted indices of a method dictionary:
+
+```
+>>> system.traitDictionary['@Set']
+>>> .methodDictionary
+>>> .indicesSorted
+[
+	'addInPlace/2'
+	'collect/2'
+	'isEqualBy/3'
+	'isDuplicateFree/1'
+	'isSet/1'
+	'occurrencesOf/2'
+	'removeInPlace/2'
+	'withoutInPlace/2'
+	'uncheckedIncludeInPlace/2'
+]
+```
+
 * * *
 
 See also: methodLookupAtType, packageDictionary, System, traitDictionary, typeDictionary
