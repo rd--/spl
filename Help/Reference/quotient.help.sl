@@ -44,6 +44,16 @@ The operator form is `//`:
 2
 ```
 
+At `Infinity`:
+
+```
+>>> Infinity // 23
+Infinity
+
+>>> 23 // Infinity
+0
+```
+
 Quotient table:
 
 ```

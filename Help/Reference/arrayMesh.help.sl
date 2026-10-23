@@ -46,7 +46,7 @@ A disconnected sparse five-cell mesh:
 [1 5; 1 13; 5 7; 9 1; 9 9]
 .collect { :c |
 	c -> 1
-}.SparseArray.normal.arrayMesh
+}.SparseArray.normalArray.arrayMesh
 ~~~
 
 ![](Help/Image/arrayMesh-D.svg)

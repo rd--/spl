@@ -349,7 +349,7 @@ UnivariatePolynomial : [Object, Copy, Store, Equal] {
 +Map {
 
 	Polynomial { :self |
-		let p = normal/1.keyMap(self);
+		let p = normalInteger/1.keyMap(self);
 		p.keyType.caseOf(
 			[
 				'SmallFloat' -> { UnivariatePolynomial(p) },

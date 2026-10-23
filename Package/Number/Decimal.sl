@@ -160,7 +160,7 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 	}
 
 	Integer { :self |
-		LargeInteger(self).normal
+		LargeInteger(self).normalInteger
 	}
 
 	[integerDigits, decimalExpansion] { :self |

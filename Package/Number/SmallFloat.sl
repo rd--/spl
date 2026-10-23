@@ -366,7 +366,7 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		}
 	}
 
-	Integer { :self |
+	[Integer, normalInteger] { :self |
 		SmallInteger(self)
 	}
 

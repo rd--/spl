@@ -2,18 +2,38 @@
 
 - _Integer(x)_
 
-`Integer` both a `Trait` for numbers,
+`Integer` is both a `Trait` for numbers,
 and a generalised constructor for both small and large integers.
 
 Answers the value _x_ as the either a small or large integer as required.
 In the `Integer` case this will answer a value that is equal to _x_,
-however it may change the type of the value:
+however it may change the type of the value.
+
+At `SmallFloat`:
+
+```
+>>> let x = 23.0;
+>>> let y = Integer(x);
+>>> (y, x = y, x == y)
+(23, true, true)
+```
+
+At a small `LargeInteger`:
 
 ```
 >>> let x = 23L;
 >>> let y = Integer(x);
 >>> (y, x = y, x == y)
 (23, true, false)
+```
+
+At a large `LargeInteger`:
+
+```
+>>> let x = 23L ^ 13;
+>>> let y = Integer(x);
+>>> (y, x = y, x == y)
+(504036361936467383L, true, true)
 ```
 
 At `Fraction`:

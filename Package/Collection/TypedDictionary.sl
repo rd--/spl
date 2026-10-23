@@ -1,9 +1,16 @@
-TypedDictionary : [Object, Store, Equal, Do, At, Indices, Put, Collect, Collection, Add, Remove, Dictionary] {
+TypedDictionary : [Object, Store, Equal, Do, At, Indices, Put, Collect, Collection, Dictionary] {
 
-	| untypedDictionary keyType |
+	| keyType untypedDictionary |
 
-	at { :self :key |
-		self.untypedDictionary.at(self.typeCheckKey(key))
+	atIfAbsent { :self :key :aBlock/0 |
+		self.untypedDictionary.atIfAbsent(
+			self.typeCheckKey(key),
+			aBlock/0
+		)
+	}
+
+	collect { :self :aBlock/1 |
+		self.untypedDictionary.collect(aBlock/1)
 	}
 
 	comparator { :self |
@@ -23,7 +30,10 @@ TypedDictionary : [Object, Store, Equal, Do, At, Indices, Put, Collect, Collecti
 	}
 
 	put! { :self :key :value |
-		self.untypedDictionary.put!(self.typeCheckKey(key), value)
+		self.untypedDictionary.put!(
+			self.typeCheckKey(key),
+			value
+		)
 	}
 
 	size { :self |
@@ -55,13 +65,8 @@ TypedDictionary : [Object, Store, Equal, Do, At, Indices, Put, Collect, Collecti
 
 +String {
 
-	TypedDictionary { :self |
-		let dictionary = [
-			{ self = 'String' } -> { Record() },
-			{ self.isImmediateType } -> { Map() },
-			{ true } -> { Dictionary() }
-		].which;
-		newTypedDictionary().initializeSlots(dictionary, self)
+	uncheckedTypedDictionary { :self :aDictionary |
+		newTypedDictionary().initializeSlots(self, aDictionary)
 	}
 
 }
@@ -69,7 +74,12 @@ TypedDictionary : [Object, Store, Equal, Do, At, Indices, Put, Collect, Collecti
 +List {
 
 	TypedDictionary { :self :typeName |
-		let answer = TypedDictionary(typeName);
+		let dictionary = [
+			{ typeName = 'String' } -> { Record() },
+			{ typeName.isImmediateTypeName } -> { Map() },
+			{ true } -> { Dictionary() }
+		].which;
+		let answer = uncheckedTypedDictionary(typeName, dictionary);
 		answer.addAll!(self);
 		answer
 	}

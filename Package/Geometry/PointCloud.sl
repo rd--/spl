@@ -11,7 +11,7 @@ PointCloud : [Object, Equal, Geometry] {
 			let [x, y] = each;
 			[h - y, x] -> 1
 		};
-		SparseArray(a, [h, w], 0).normal.Bitmap
+		SparseArray(a, [h, w], 0).normalArray.Bitmap
 	}
 
 	boundingBox { :self |

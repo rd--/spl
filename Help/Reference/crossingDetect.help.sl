@@ -9,7 +9,8 @@ Zero crossings of a list:
 
 ```
 >>> [4 0 1 -2 1 -2 -3 -1 3]
->>> .crossingDetect.normal
+>>> .crossingDetect
+>>> .normalArray
 [0 0 0 1 1 1 0 0 1]
 ```
 
@@ -17,7 +18,8 @@ A zero-crossing occurs when the last non-zero `sign` is opposite to the current 
 
 ```
 >>> [0 -1 0 0 1 0]
->>> .crossingDetect.normal
+>>> .crossingDetect
+>>> .normalArray
 [0 0 0 0 1 0]
 ```
 
@@ -25,7 +27,8 @@ Visiting zero is not a zero crossing:
 
 ```
 >>> [0 1 0 1 0 1 0 -1]
->>> .crossingDetect.normal
+>>> .crossingDetect
+>>> .normalArray
 [0 0 0 0 0 0 0 1]
 ```
 

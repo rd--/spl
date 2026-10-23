@@ -544,7 +544,7 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		true
 	}
 
-	isImmediateType { :self |
+	isImmediateTypeName { :self |
 		['Nil', 'Boolean', 'Block', 'SmallFloat', 'LargeInteger', 'String']
 		.includes(self)
 	}

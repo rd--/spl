@@ -134,8 +134,8 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 
 	components { :self |
 		[
-			self.numerator.normal,
-			self.denominator.normal
+			self.numerator.normalInteger,
+			self.denominator.normalInteger
 		]
 	}
 
@@ -225,7 +225,7 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 	}
 
 	Integer { :self |
-		LargeInteger(self).normal
+		LargeInteger(self).normalInteger
 	}
 
 	isAdjacentFraction { :self :operand |
@@ -405,7 +405,7 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 		uncheckedFraction(self.numerator.negate, self.denominator)
 	}
 
-	normal { :self |
+	normalFraction { :self |
 		self.copy.normalize
 	}
 
@@ -532,7 +532,7 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 	}
 
 	sternBrocotLevel { :self |
-		self.continuedFraction.sum.normal
+		self.continuedFraction.sum.normalInteger
 	}
 
 	sternBrocotParent { :self |

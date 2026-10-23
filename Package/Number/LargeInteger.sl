@@ -207,7 +207,7 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer, I
 		}
 	}
 
-	[Integer, normal] { :self |
+	[Integer, normalInteger] { :self |
 		self.isSmallInteger.if {
 			SmallFloat(self)
 		} {

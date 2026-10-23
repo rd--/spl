@@ -83,7 +83,7 @@ SparseArray : [Object, Store, Equal, Compare, Do, At, Indices, Collect, Collecti
 	}
 
 	matrixPlot { :self |
-		self.normal.matrixPlot
+		self.normalArray.matrixPlot
 	}
 
 	nonZeroPositions { :self |
@@ -97,7 +97,7 @@ SparseArray : [Object, Store, Equal, Compare, Do, At, Indices, Collect, Collecti
 		self.linearIndexMap.values
 	}
 
-	normal { :self |
+	normalArray { :self |
 		let map = self.linearIndexMap;
 		let zero = self.unspecifiedValue;
 		self.shape.iota.deepCollect { :each |

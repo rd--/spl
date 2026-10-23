@@ -166,6 +166,14 @@ List! : [Object, New, Copy, Store, Equal, Compare, Json, Do, At, Indices, Put, C
 		self
 	}
 
+	normalArray { :self |
+		self.isArray.if {
+			self
+		} {
+			self.error('normalArray: not array')
+		}
+	}
+
 	printString { :self :toString/1 |
 		'[%]'.format([
 			self.collect(toString/1).commaSeparated

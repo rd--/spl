@@ -15,7 +15,7 @@ The five free tetrominoes:
 	1 1; 1 2; 1 3; 1 4
 ].collect { :i |
 	i.booleanSparseArray([4 4])
-	.normal
+	.normalArray
 }.catenate.transpose.arrayMesh
 ~~~
 
@@ -39,7 +39,7 @@ The twelve free pentominos:
 	1 1; 1 2; 2 2; 3 2; 3 3
 ].collect { :i |
 	i.booleanSparseArray([4 4])
-	.normal.transpose
+	.normalArray.transpose
 }.catenate.transpose.arrayMesh
 ~~~
 

@@ -37,7 +37,7 @@ Approximate the sum of the reciprocals of the Fibonacci numbers:
 
 ```
 >>> { :i |
->>> 	1 / i.fibonacci.normal
+>>> 	1 / i.fibonacci.normalInteger
 >>> }.convergentSeries(1)
 3.35989
 ```

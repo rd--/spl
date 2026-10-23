@@ -5,7 +5,7 @@
 			nimMultiplication(
 				LargeInteger(x),
 				LargeInteger(y)
-			).normal
+			).normalInteger
 		} {
 			y.adaptToIntegerAndApply(
 				x,

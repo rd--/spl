@@ -37,7 +37,6 @@ A matrix plot:
 	[y x] -> g
 }
 .SparseArray
-.normal
 .matrixPlot
 ~~~
 

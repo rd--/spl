@@ -16,7 +16,7 @@ construct a `NumericArray` from a _n_-dimensional array:
 >>> 	a.rank,
 >>> 	a.elementType,
 >>> 	a.storageType,
->>> 	a.normal,
+>>> 	a.normalArray,
 >>> 	a.ravel,
 >>> 	a.atPath([2 3])
 >>> )
@@ -63,7 +63,7 @@ Scalar math at `NumericArray`:
 
 ```
 >>> let a = NumericArray([3 3].iota);
->>> (a ^ 2).normal
+>>> (a ^ 2).normalArray
 [
 	 1   4 9;
 	16 25 36;

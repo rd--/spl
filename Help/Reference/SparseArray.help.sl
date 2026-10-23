@@ -15,7 +15,7 @@ Construct a sparse matrix with values at only a few specified positions:
 >>> 	[1 3] -> 4
 >>> ];
 >>> (
->>> 	s.normal,
+>>> 	s.normalArray,
 >>> 	s.shape,
 >>> 	s.rank,
 >>> 	s.depth,
@@ -70,7 +70,7 @@ Construct a tridiagonal matrix using patterns for indices:
 >>> 	}
 >>> }.table(1:k, 1:k);
 >>> let s = SparseArray(t.flatten);
->>> (s.shape, s.normal, s.sum)
+>>> (s.shape, s.normalArray, s.sum)
 (
 	[5 5],
 	[
@@ -115,7 +115,7 @@ Convert an ordinary matrix into a sparse matrix:
 >>> 	s.shape,
 >>> 	s.specifiedElementCount,
 >>> 	s.arrayRules,
->>> 	s.normal,
+>>> 	s.normalArray,
 >>> 	s.sum
 >>> )
 (
@@ -149,7 +149,7 @@ Make a rank-4 sparse tensor with values at random positions:
 >>> (
 >>> 	s.shape,
 >>> 	s.specifiedElementCount,
->>> 	s.normal,
+>>> 	s.normalArray,
 >>> 	s.arrayRules
 >>> )
 (
@@ -177,7 +177,7 @@ Create a list with a single nonzero element:
 
 ```
 >>> SparseArray([[10] -> 1], [19], 0)
->>> .normal
+>>> .normalArray
 [
 	0 0 0 0 0 0 0 0 0
 	1
@@ -189,7 +189,7 @@ Create a matrix with a single nonzero element:
 
 ```
 >>> SparseArray([[3 3] -> 1], [5 5], 0)
->>> .normal
+>>> .normalArray
 [
 	0 0 0 0 0;
 	0 0 0 0 0;
@@ -206,7 +206,7 @@ Create a matrix with a single nonzero element:
 >>> let l = [3 3].iota;
 >>> let s = l.asSparseArray(0);
 >>> (
->>> 	l.at(2), s.at(2).normal,
+>>> 	l.at(2), s.at(2).normalArray,
 >>> 	l.atPath([2 2]), s.atPath([2 2])
 >>> )
 ([4 5 6], [4 5 6], 5, 5)
@@ -249,7 +249,7 @@ Plot a list of rules:
 
 ~~~spl svg=A
 SparseArray([[1] -> 2, [10] -> 7, [3] -> 2])
-.normal
+.normalArray
 .linePlot
 ~~~
 

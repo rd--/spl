@@ -97,12 +97,12 @@ NumericArray : [Object, Store, Equal, Compare, Do, At, Indices, Put, Collect, Co
 		self.array.keys
 	}
 
-	[List, normal] { :self |
-		self.array.List.reshape(self.shape)
+	matrixPlot { :self |
+		self.normalArray.matrixPlot
 	}
 
-	matrixPlot { :self |
-		self.normal.matrixPlot
+	normalArray { :self |
+		List(self.array).reshape(self.shape)
 	}
 
 	rank { :self |
@@ -110,7 +110,7 @@ NumericArray : [Object, Store, Equal, Compare, Do, At, Indices, Put, Collect, Co
 	}
 
 	ravel { :self |
-		self.array.List
+		List(self.array)
 	}
 
 	size { :self |

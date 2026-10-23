@@ -62,16 +62,6 @@ At `Multiset`:
 [1 2 2 3 3 3 4 4 4 4]
 ```
 
-At `NumericArray` answers the `normal` `List` array:
-
-```
->>> NumericArray[1 2; 3 4; 5 6].List
-[1 2; 3 4; 5 6]
-
->>> NumericArray[1 2; 3 4; 5 6].normal
-[1 2; 3 4; 5 6]
-```
-
 At `List` is `identity`:
 
 ```

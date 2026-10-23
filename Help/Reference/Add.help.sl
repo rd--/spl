@@ -46,7 +46,6 @@ Types implementing `Add`:
 	'ResidueSet'
 	'SortedList'
 	'SortedSet'
-	'TypedDictionary'
 	'UnsortedSet'
 ]
 ```

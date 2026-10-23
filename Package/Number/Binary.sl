@@ -117,7 +117,7 @@
 	}
 
 	highBitOfByte { :self |
-		system.highBitPerByteTable[self.normal + 1]
+		system.highBitPerByteTable[SmallInteger(self) + 1]
 	}
 
 	highBitOfInteger { :self |

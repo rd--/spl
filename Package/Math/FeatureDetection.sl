@@ -83,7 +83,7 @@
 			},
 			[self.size],
 			false
-		).normal
+		).normalArray
 	}
 
 	maxDetect { :self |

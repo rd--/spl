@@ -418,7 +418,7 @@
 			n.factorInteger.collect { :f |
 				pisanoPeriodPrimePower(f[1], f[2])
 			}.lcm
-		}.normal
+		}.normalInteger
 	}
 
 }

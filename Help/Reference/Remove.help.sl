@@ -42,7 +42,6 @@ Types implementing `Remove`:
 	'ResidueSet'
 	'SortedList'
 	'SortedSet'
-	'TypedDictionary'
 	'UnsortedSet'
 ]
 ```

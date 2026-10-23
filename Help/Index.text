@@ -2959,8 +2959,10 @@ Reference/noneSatisfy.help.sl
 Reference/noneTrue.help.sl
 Reference/nonPrime.help.sl
 Reference/nor.help.sl
+Reference/normalArray.help.sl
 Reference/NormalDistribution.help.sl
-Reference/normal.help.sl
+Reference/normalFraction.help.sl
+Reference/normalInteger.help.sl
 Reference/normalizedSquaredEuclideanDistance.help.sl
 Reference/normalize.help.sl
 Reference/normalizeRange.help.sl

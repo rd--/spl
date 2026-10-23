@@ -1881,7 +1881,7 @@
 	}
 
 	integerSequenceMatrix { :v :kind |
-		v.integerSequenceSparseArray(kind).normal
+		v.integerSequenceSparseArray(kind).normalArray
 	}
 
 }

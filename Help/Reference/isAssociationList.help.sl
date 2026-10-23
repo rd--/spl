@@ -20,7 +20,7 @@ true
 
 * * *
 
-See also: allSatisfy, Association, isAssociation, isList
+See also: Association, allSatisfy, isAssociation, isList
 
 Guides: Dictionary Functions
 

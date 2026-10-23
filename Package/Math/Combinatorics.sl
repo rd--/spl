@@ -649,7 +649,7 @@
 
 	factorial { :self |
 		self.isNonNegativeInteger.if {
-			LargeInteger(self).integerFactorial.normal
+			LargeInteger(self).integerFactorial.normalInteger
 		} {
 			self.error('factorial: see factorialOrGamma')
 		}

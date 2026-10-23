@@ -19,7 +19,7 @@
 					k.isNonNegativeInteger
 				}
 			).if {
-				LargeInteger(n).integerBinomial(k).normal
+				LargeInteger(n).integerBinomial(k).normalInteger
 			} {
 				n.binomialGamma(k)
 			}

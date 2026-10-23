@@ -81,7 +81,7 @@ In-place form at square `NumericArray`:
 ```
 >>> let a = [3 3].iota.NumericArray;
 >>> let b = a.transpose!;
->>> (a.normal, b)
+>>> (a.normalArray, b)
 (
 	[
 		1 4 7;
@@ -97,7 +97,7 @@ In-place form at 3×4 rectangular `NumericArray`:
 ```
 >>> let m = [3 4].iota.NumericArray;
 >>> m.transpose!;
->>> m.normal
+>>> m.normalArray
 [
 	1  5  9;
 	2  6 10;
@@ -111,7 +111,7 @@ In-place form at 5×2 rectangular `NumericArray`:
 ```
 >>> let m = [5 2].iota.NumericArray;
 >>> m.transpose!;
->>> m.normal
+>>> m.normalArray
 [
 	1  3  5  7  9;
 	2  4  6  8 10

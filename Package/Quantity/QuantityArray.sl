@@ -14,7 +14,7 @@ QuantityArray : [Object, Store, Equal] {
 		self.magnitudeArray.dimensions.last
 	}
 
-	normal { :self |
+	normalArray { :self |
 		let m = self.magnitudeArray;
 		let u = self.unitList;
 		let d = m.arrayDepth;

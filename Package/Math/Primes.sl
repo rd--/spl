@@ -1001,7 +1001,7 @@
 					}
 				};
 				(p.square > k).ifTrue {
-					answer.add!(k.normal);
+					answer.add!(k.normalInteger);
 					answer.return
 				};
 				index := index + 1
@@ -1388,7 +1388,7 @@
 
 	welchCostasMatrixList { :n |
 		n.welchCostasArrayList.collect { :each |
-			each.columnBinaryMatrix.normal
+			each.columnBinaryMatrix.normalArray
 		}
 	}
 

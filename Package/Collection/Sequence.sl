@@ -1227,7 +1227,7 @@
 				answer := answer + (each * m);
 				m := m * radix
 			};
-			answer.normal
+			answer.normalInteger
 		} {
 			self.collect { :each |
 				each.fromDigits(radix)

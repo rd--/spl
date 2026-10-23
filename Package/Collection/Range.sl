@@ -2,41 +2,6 @@ Range : [Object, New, Copy, Store, Equal, Compare, Do, Collect, Collection, At, 
 
 	| start stop step size |
 
-	[negate, -] { :self |
-		Range(
-			self.start.negate,
-			self.stop.negate,
-			self.step.negate,
-			self.size
-		)
-	}
-
-	[plus, +] { :self :operand |
-		operand.isSmallFloat.if {
-			Range(
-				self.start + operand,
-				self.stop + operand,
-				self.step,
-				self.size
-			)
-		} {
-			operand.adaptToCollectionAndApply(self, +)
-		}
-	}
-
-	[subtract, -] { :self :operand |
-		operand.isSmallFloat.if {
-			Range(
-				self.start - operand,
-				self.stop - operand,
-				self.step,
-				self.size
-			)
-		} {
-			operand.adaptToCollectionAndApply(self, -)
-		}
-	}
-
 	concisePrintString { :self |
 		self.rangeLiteralSyntaxString
 	}
@@ -76,6 +41,29 @@ Range : [Object, New, Copy, Store, Equal, Compare, Do, Collect, Collection, At, 
 	isProper { :self |
 		self.isEmpty.not & {
 			self.stop ~ self.last
+		}
+	}
+
+
+	[negate, -] { :self |
+		Range(
+			self.start.negate,
+			self.stop.negate,
+			self.step.negate,
+			self.size
+		)
+	}
+
+	[plus, +] { :self :operand |
+		operand.isSmallFloat.if {
+			Range(
+				self.start + operand,
+				self.stop + operand,
+				self.step,
+				self.size
+			)
+		} {
+			operand.adaptToCollectionAndApply(self, +)
 		}
 	}
 
@@ -155,13 +143,28 @@ Range : [Object, New, Copy, Store, Equal, Compare, Do, Collect, Collection, At, 
 		nilList/1
 	}
 
+	[subtract, -] { :self :operand |
+		operand.isSmallFloat.if {
+			Range(
+				self.start - operand,
+				self.stop - operand,
+				self.step,
+				self.size
+			)
+		} {
+			operand.adaptToCollectionAndApply(self, -)
+		}
+	}
+
 }
 
 +@Number {
 
 	inferredRangeSize { :start :stop :step |
 		let k = (stop - start).quotient(step) + 1;
-		k := k.normal;
+		k.isFinite.ifTrue {
+			k := k.normalInteger
+		};
 		(step < 0).if {
 			(start < stop).if {
 				0

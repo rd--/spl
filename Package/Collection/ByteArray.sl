@@ -85,7 +85,7 @@ ByteArray! : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Co
 			hash := hash.bitXor(each) * fnvPrime;
 			hash := 4294967295L.bitAnd(hash) /* 16bFFFFFFFF */
 		};
-		hash.normal
+		hash.normalInteger
 	}
 
 	put! { :self :anInteger :aByte |

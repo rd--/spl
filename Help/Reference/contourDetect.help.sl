@@ -10,15 +10,18 @@ Zeroes and zero crossings of a list:
 
 ```
 >>> [4 0 1 -2 1 -2 -3 -1 3]
->>> .contourDetect.normal
+>>> .contourDetect
+>>> .normalArray
 [0 1 1 0 1 0 0 0 1]
 
 >>> [0 -1 0 0 1 0]
->>> .contourDetect.normal
+>>> .contourDetect
+>>> .normalArray
 [1 0 1 1 0 1]
 
 >>> [0 1 0 1 0 1 0 -1]
->>> .contourDetect.normal
+>>> .contourDetect
+>>> .normalArray
 [1 0 1 0 1 0 1 0]
 ```
 

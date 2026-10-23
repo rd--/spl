@@ -1536,10 +1536,10 @@ Plot : [Object] {
 		let yScalar = (h - 1) / yRange;
 		/*[xMin,xMax,xRange,xScalar,yMin,yMax,yRange,yScalar].printLine;*/
 		1.toDo(k) { :i |
-			let r = ((y[i] - yMin) * yScalar).round.normal;
-			let c = ((x[i] - xMin) * xScalar).round.normal;
+			let r = ((y[i] - yMin) * yScalar).round;
+			let c = ((x[i] - xMin) * xScalar).round;
 			/*[i, y[i], r, x[i], c].printLine;*/
-			m[h - r][c + 1] := 1
+			m[h - SmallInteger(r)][SmallInteger(c) + 1] := 1
 		};
 		m.Bitmap
 	}

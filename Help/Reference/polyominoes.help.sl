@@ -80,7 +80,8 @@ polyominoes(5)
 .deepCollect(realImaginary/1)
 .plus(1)
 .collect { :p |
-	p.booleanSparseArray([5 5]).normal
+	p.booleanSparseArray([5 5])
+	.normalArray
 }.catenate.transpose.arrayMesh
 ~~~
 

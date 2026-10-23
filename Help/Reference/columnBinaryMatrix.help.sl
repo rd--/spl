@@ -16,7 +16,8 @@ SparseArray[
 	[4 4] -> 1
 ]
 
->>> [2 1 3 4].columnBinaryMatrix.normal
+>>> [2 1 3 4].columnBinaryMatrix
+>>> .normalArray
 [
 	0 1 0 0;
 	1 0 0 0;

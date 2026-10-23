@@ -14,7 +14,7 @@ A `List` of lengths, all given in meters:
 >>> (
 >>> 	q.magnitudeArray,
 >>> 	q.unitList,
->>> 	q.normal
+>>> 	q.normalArray
 >>> )
 (
 	[2.3 1.5 9.0],
@@ -37,7 +37,7 @@ A list of pairs _(time, length)_:
 >>> (
 >>> 	q.magnitudeArray,
 >>> 	q.unitList,
->>> 	q.normal
+>>> 	q.normalArray
 >>> )
 (
 	[1.4 2.3; 2.8 2.7; 4.2 3.5],
@@ -63,7 +63,7 @@ A list of pairs _(time, length)_:
 
 See also: Quantity
 
-Guides: Quantity Functions
+Guides: Array Functions, Quantity Functions
 
 References:
 _Mathematica_

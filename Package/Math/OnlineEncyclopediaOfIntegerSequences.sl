@@ -367,7 +367,7 @@
 		self.dataText
 		.splitOn(',')
 		.collect { :x |
-			x.parseLargeInteger.normal
+			x.parseLargeInteger.normalInteger
 		}
 	}
 
@@ -683,7 +683,7 @@ OeisSequenceFile : [Object, Equal, OeisSequence] {
 			}
 		}.collect { :s |
 			s.splitOn(' ').collect { :n |
-				n.parseLargeInteger.normal
+				n.parseLargeInteger.normalInteger
 			}
 		}
 	}
