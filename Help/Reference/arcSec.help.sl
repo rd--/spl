@@ -30,8 +30,9 @@ At `one`:
 `arcSec` is not defined for the interval _(-1,1)_:
 
 ```
->>> [-0.5 0 0.5].arcSec.isFinite
-false
+>>> [-0.5 0 0.5].arcSec
+>>> .isFinite
+[true false true]
 ```
 
 `Complex` arguments:

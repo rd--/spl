@@ -48,7 +48,7 @@ Method! : [Object, Equal] {
 		system.evaluate(
 			[
 				'+',
-				self.origin.qualifiedName,
+				self.origin.name,
 				'{ ',
 				aString,
 				' }'
@@ -109,7 +109,7 @@ Method! : [Object, Equal] {
 
 	signature { :self |
 		[
-			self.origin.qualifiedName,
+			self.origin.name,
 			'>>',
 			self.qualifiedName
 		].stringCatenate

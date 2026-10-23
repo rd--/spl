@@ -30,8 +30,9 @@ At `one`:
 `arcCsc` is not defined for the interval _(-1,1)_:
 
 ```
->>> [-0.5 0 0.5].arcCsc.isFinite
-false
+>>> [-0.5 0 0.5].arcCsc
+>>> .isFinite
+[true false true]
 ```
 
 `Complex` arguments:

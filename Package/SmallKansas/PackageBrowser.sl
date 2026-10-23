@@ -30,7 +30,7 @@
 					browser.setStatus(implements.commaSeparated);
 					methods := system.packageMethods(path[2]);
 					methods.collect { :each |
-						each.origin.qualifiedName
+						each.origin.name
 					}.copyWithoutIdenticalElements.sort
 				},
 				3 -> {

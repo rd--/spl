@@ -20,7 +20,7 @@ If _c_ is a sequence, the copy will preserve the order of elements.
 
 * * *
 
-See also: ==, copy, copyWith, copyWithout, IdentitySet, nub, Set
+See also: IdentitySet, Set, ==, copy, copyWith, copyWithout, nub, unique
 
 Guides: Copying Functions
 

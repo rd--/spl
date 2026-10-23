@@ -190,7 +190,7 @@ SmallKansas : [Object, Cache] {
 +System {
 
 	smallKansans { :self |
-		self.traitTypes('SmallKansan').collect { :each |
+		self.traitTypes('@SmallKansan').collect { :each |
 			system.typeLookup(each)
 		}
 	}
