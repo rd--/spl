@@ -1,14 +1,18 @@
 # Integer Functions
 
+Traits:
+
+- `Integer`
+
 Types:
 
 - `EisensteinInteger`
 - `SmallFloat`
 - `LargeInteger`
 
-Traits:
+Psuedo-Types:
 
-- `Integer`
+- `SmallInteger`
 
 Combinatorial Functions:
 
@@ -16,9 +20,7 @@ Combinatorial Functions:
 
 Converting:
 
-- `Integer`
-- `SmallInteger`
-- `LargeInteger`
+- `normalInteger`
 
 Division-Related Functions:
 

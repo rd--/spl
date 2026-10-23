@@ -3,10 +3,10 @@
 Run documentation tests:
 
 ~~~spl
-'Help/Reference'.splFilePath.terseReferenceSummary((verboseLevel: 0, pattern: '.*'))
+{ 'Help/Reference'.splFilePath.terseReferenceSummary((verboseLevel: 0, pattern: '.*')) }.timing
 ~~~
 
-Total => 19,562
+Total => 19,572
 
 Note: Requires LibraryItems be at the interpreter cache, i.e.
 

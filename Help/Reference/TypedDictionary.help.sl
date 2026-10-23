@@ -11,7 +11,7 @@ Create an empty dictionary where the keys must be of type `String`:
 >>> let d = TypedDictionary([], 'String');
 >>> d['x'] := 3.141;
 >>> (d.keyType, d.size, d['x'])
-('String', 3.141)
+('String', 1, 3.141)
 ```
 
 If the keys are of type `String`, the underlying dictionary is a `Record`:

@@ -53,9 +53,6 @@ function objectNameByConstructor(anObject: SplObject): TypeName {
 	if (name == 'Blob') {
 		return 'BinaryLargeObject';
 	}
-	if (name == 'bound Storage') {
-		return 'Storage'; /* deno 2.3.1, <https://github.com/denoland/deno/issues/27303>, delete when fixed */
-	}
 	return name;
 }
 
@@ -786,9 +783,9 @@ export function stringToSentences(str: string): Array<string> {
 export function checkSmallFloatOverflow(a: number, b: number, x: number): void {
 	if (Number.isFinite(a) && Number.isFinite(b)) {
 		if (Math.abs(x) > 9_007_199_254_740_991) {
-			console.warn(`**** Check Small Float Overflow: ${x}`);
+			/*console.warn(`**** Check Small Float Overflow: ${x}`);*/
 			if (Number.isFinite(x) && Number.isSafeInteger(a) && Number.isSafeInteger(b)) {
-				console.log('	:Finite & both safe integers');
+				console.log(`!!!! Check Small Float Overflow: ${x}: Finite & both safe integers`);
 				/*throw new Error('checkSmallFloatOverflow: finite & integers');*/
 			}
 		}

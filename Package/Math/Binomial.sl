@@ -14,23 +14,42 @@
 		k.isCollection.if {
 			k.adaptToNumberAndApply(n, binomial/2)
 		} {
-			(
-				n.isNonNegativeInteger & {
-					k.isNonNegativeInteger
-				}
-			).if {
-				LargeInteger(n).integerBinomial(k).normalInteger
+			(k = 0).if {
+				1
 			} {
-				n.binomialGamma(k)
+				(n < 0 & { k.isInteger }).if {
+					(k >= 0).if {
+						(-1 ^ k) * binomial(k - n - 1, k)
+					} {
+						(-1 ^ (n - k)) * binomial(-k - 1, n - k)
+					}
+				} {
+					(n.isInteger & { k.isInteger }).if {
+						LargeInteger(n).integerBinomial(k).normalInteger
+					} {
+						n.binomialGamma(k)
+					}
+				}
 			}
 		}
 	}
 
 	binomialGamma { :n :k |
-		let a = (n + 1).gamma;
-		let b = (k + 1).gamma;
-		let c = (n - k + 1).gamma;
-		a / (b * c)
+		k.isCollection.if {
+			k.collect { :m |
+				binomialGamma(n, m)
+			}
+		} {
+			(k = 0).if {
+				1
+			} {
+				(n = 0).if {
+					k.pi.sin / k.pi
+				} {
+					uncheckedBinomialGamma(n, k)
+				}
+			}
+		}
 	}
 
 	binomialPascal { :a :b |
@@ -49,7 +68,23 @@
 		}
 	}
 
+	uncheckedBinomialGamma { :n :k |
+		let a = (n + 1).gamma;
+		let b = (k + 1).gamma;
+		let c = (n - k + 1).gamma;
+		a / (b * c)
+	}
+
 }
+
++Complex {
+
+	binomial { :n :k |
+		binomialGamma(n, k)
+	}
+
+}
+
 
 +@Integer {
 
@@ -247,19 +282,14 @@
 	}
 
 	integerBinomial { :n :k |
-		(n < k).if {
-			0
-		} {
-			let numerator = 1L;
-			let denominator = 1L;
-			n.toByDo(k.max(n - k) + 1, -1) { :factor |
-				numerator := numerator * factor
-			};
-			1.toDo(k.min(n - k)) { :factor |
-				denominator := denominator * factor
-			};
-			numerator // denominator
-		}
+		[
+			{ n = k } -> { 1 },
+			{ k = 1 } -> { n },
+			{ n = (k + 1) } -> { n },
+			{ n < k } -> { 0 },
+			{ k < 0 } -> { 0 },
+			{ true } -> { uncheckedIntegerBinomial(n, k) }
+		].which
 	}
 
 	inverseTriangularNumber { :n |
@@ -459,6 +489,18 @@
 
 	triangularNumber { :n |
 		(n + 1).binomial(2)
+	}
+
+	uncheckedIntegerBinomial { :n :k |
+		let numerator = 1L;
+		let denominator = 1L;
+		n.toByDo(k.max(n - k) + 1, -1) { :factor |
+			numerator := numerator * factor
+		};
+		1.toDo(k.min(n - k)) { :factor |
+			denominator := denominator * factor
+		};
+		numerator // denominator
 	}
 
 }

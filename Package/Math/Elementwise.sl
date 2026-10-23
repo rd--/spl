@@ -1055,6 +1055,10 @@
 		anObject.adaptToCollectionAndApply(self, binomial/2)
 	}
 
+	binomialGamma { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, binomialGamma/2)
+	}
+
 	digitalRoot { :self :anObject |
 		anObject.adaptToCollectionAndApply(self, digitalRoot/2)
 	}

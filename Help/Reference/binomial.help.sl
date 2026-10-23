@@ -11,16 +11,16 @@ and often written _C(n,k)_.
 With positive integer _n_ and _k_:
 
 ```
->>> 4.binomial(2)
+>>> binomial(4, 2)
 6
 
->>> 6.binomial(3)
+>>> binomial(6, 3)
 20
 
->>> 8.binomial(4)
+>>> binomial(8, 4)
 70
 
->>> 8.binomial(5)
+>>> binomial(8, 5)
 56
 ```
 
@@ -36,11 +36,53 @@ Relation to `factorial`:
 _n_ less than _k_:
 
 ```
->>> 3.binomial(5)
+>>> binomial(3, 5)
 0
 
->>> 5.binomial(23)
+>>> binomial(5, 23)
 0
+```
+
+With _k=0_:
+
+```
+>>> binomial([-5 .. 5], 0)
+[1 1 1 1 1 1 1 1 1 1 1]
+```
+
+With _k=1_:
+
+```
+>>> binomial([-5 .. 5], 1)
+[-5 -4 -3 -2 -1 0 1 2 3 4 5]
+```
+
+With _k=2_:
+
+```
+>>> binomial([-5 .. 5], 2)
+[15 10 6 3 1 0 0 1 3 6 10]
+```
+
+With _k=-1_:
+
+```
+>>> binomial([-5 .. 5], -1)
+[0 0 0 0 1 0 0 0 0 0 0]
+```
+
+With _k=-2_:
+
+```
+>>> binomial([-5 .. 5], -2)
+[0 0 0 1 -1 0 0 0 0 0 0]
+```
+
+With _k=-3_:
+
+```
+>>> binomial([-5 .. 5], -3)
+[0 0 1 -2 1 0 0 0 0 0 0]
 ```
 
 Initial table, from `one`:
@@ -63,36 +105,48 @@ Initial table, from `one`:
 Real valued arguments:
 
 ```
->>> 8.5.binomial(-4.2)
+>>> binomial(8.5, -4.2)
 0.0000604992
 
->>> 2.binomial(0.5)
+>>> binomial(7 / 3, 1 / 5)
+1.3331
+
+>>> binomial(2, 0.5)
 (16 / 3.pi)
+
+>>> binomial(17 / 2, -4.2)
+0.0000605
 ```
 
-`Complex` _k_:
+`Complex` _n_ and or _k_:
 
 ```
->>> 3.5.binomial(1J2)
+>>> binomial(1J1, 5)
+-1/12.J(-1/12)
+
+>>> binomial(3.5, 1J2)
 8.64269J16.9189
+
+>>> binomial(2J1, 7J-3)
+-75.4683J106.8153
 ```
 
 _k_ may be a collection:
 
 ```
->>> [10 1 2 5].collect { :each |
->>> 	10.binomial(each)
+>>> [10 1 2 5].collect { :k |
+>>> 	binomial(10, k)
 >>> }
 [1 10 45 252]
 
->>> 10.binomial([10 1 2 5])
+>>> binomial(10, [10 1 2 5])
 [1 10 45 252]
 ```
 
 Evaluate for half-integer arguments:
 
 ```
->>> (9 / 2).binomial(7 / 2)
+>>> binomial(9 / 2, 7 / 2)
 9/2
 ```
 
@@ -170,17 +224,10 @@ If _k_ is greater than _n_ the answer is zero:
 Threads over lists:
 
 ```
->>> 5.binomial([3 4 5])
+>>> binomial(5, [3 4 5])
 [10 5 1]
 
->>> 11:13.binomial(1:3)
-[11 66 286]
-
->>> [
->>> 	11.binomial(1),
->>> 	12.binomial(2),
->>> 	13.binomial(3)
->>> ]
+>>> binomial(11:13, 1:3)
 [11 66 286]
 
 >>> [10 3.40689 8.26209 16.1924]
@@ -248,12 +295,12 @@ OEIS [A027907](https://oeis.org/A027907):
 >>> [0 .. 6].collect { :n |
 >>> 	[0 .. 2 * n].collect { :k |
 >>> 		[0 .. n].sum { :i |
->>> 			binomial(n, i)
->>> 			*
->>> 			binomial(
+>>> 			let a = binomial(n, i);
+>>> 			let b = binomial(
 >>> 				n - i,
 >>> 				k - (2 * i)
->>> 			)
+>>> 			).round;
+>>> 			a * b
 >>> 		}
 >>> 	}
 >>> }

@@ -30,7 +30,7 @@ let t = sssTriangle(1, 1.15, 1.3);
 
 * * *
 
-See also: bevanPoint, Circle, Triangle
+See also: Circle, Triangle, bevanPoint
 
 Guides: Geometry Functions
 
