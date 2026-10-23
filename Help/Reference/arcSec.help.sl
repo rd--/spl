@@ -83,7 +83,7 @@ Plot over a subset of the reals:
 
 * * *
 
-See also: arcSech, cos, sec, tan
+See also: arcSech, arcTanh, cos, sec, tan
 
 Guides: Trigonometric Functions
 

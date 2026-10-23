@@ -1019,14 +1019,6 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 
 }
 
-+@Collection {
-
-	isFinite { :self |
-		self.allSatisfy(isFinite/1)
-	}
-
-}
-
 +String {
 
 	isRadixIntegerString { :self :radix |

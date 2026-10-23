@@ -4,18 +4,20 @@
 
 Plot a sequence of numbers, each drawn as a point.
 
-Plot seven integers:
+Plot seven integers,
+`Infinity` is elided:
 
 ~~~spl svg=A
-[1 1 2 2 3 4 4].scatterPlot
+[1 1 2 2 3 Infinity 4 4].scatterPlot
 ~~~
 
 ![](Help/Image/scatterPlot-A.svg)
 
-Plot the catenation of three `Range` values:
+Plot the catenation of three `Range` values,
+`NaN` is elided:
 
 ~~~spl svg=B
-(1:20 ++ 20:1:-1 ++ 1:30).scatterPlot
+(1:20 ++ 20:1:-1 ++ [NaN] ++ 1:30).scatterPlot
 ~~~
 
 ![](Help/Image/scatterPlot-B.svg)

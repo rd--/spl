@@ -1,10 +1,8 @@
 # isFinite
 
 - _isFinite(x)_
-- _isFinite([x₁ x₂ …])_
 
-Answer true if the number _x_ is not infinite,
-or if all items in the collection _x_ are finite.
+Answer true if the number _x_ is not an `Infinity` or `NaN`.
 
 ```
 >>> 1.pi.isFinite
@@ -41,22 +39,22 @@ signal an error:
 true
 ```
 
-At `List`:
+Threads over lists:
 
 ```
 >>> [1.pi 23].isFinite
-true
+[true, true]
 
 >>> [23 Infinity NaN].isFinite
-false
-
->>> [23 Infinity NaN].collect(isFinite/1)
 [true, false, false]
+
+>>> [23 Infinity NaN].allTrue(isFinite/1)
+false
 ```
 
 * * *
 
-See also: Infinity, NaN, Number, SmallFloat, /, allSatisfy, isInteger, replaceNaN, zero
+See also: Infinity, NaN, Number, SmallFloat, /, isInteger, replaceNaN, zero
 
 Guides: Mathematical Functions
 

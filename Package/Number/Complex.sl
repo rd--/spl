@@ -260,13 +260,17 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 	}
 
 	log { :self |
-		/* self.abs.log + self.arg.I */
-		let x = self.real;
-		let y = self.imaginary;
-		Complex(
-			0.5 * ((x ^ 2) + (y ^ 2)).log,
-			self.arg
-		)
+		self.isZero.if {
+			-Infinity
+		} {
+			/* self.abs.log + self.arg.I */
+			let x = self.real;
+			let y = self.imaginary;
+			Complex(
+				0.5 * ((x ^ 2) + (y ^ 2)).log,
+				self.arg
+			)
+		}
 	}
 
 	log { :self :aNumber |

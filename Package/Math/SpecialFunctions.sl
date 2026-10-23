@@ -306,7 +306,7 @@
 		/* https://github.com/duetosymmetry/elliptic-integrals-js */
 		let i = 0;
 		let limit = 50;
-		let kPrime = sqrt(1 - m);
+		let kPrime = (1 - m).sqrt;
 		let a0 = 1;
 		let g0 = kPrime;
 		let zeta0 = 0;
@@ -320,7 +320,7 @@
 			epsilon := (deltaN * epsilon + zetaN) / (1 + deltaN);
 			zetaN := zeta0;
 			a0 := 0.5 * (aN + gN);
-			g0 := sqrt(aN *gN);
+			g0 := (aN *gN).sqrt;
 			aN := a0;
 			gN := g0;
 			deltaN := 0.25 * gN / aN * (2 + deltaN + (1 / deltaN));

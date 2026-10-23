@@ -460,6 +460,10 @@
 		self.collect(isEven/1)
 	}
 
+	isFinite { :self |
+		self.collect(isFinite/1)
+	}
+
 	isGaussianPrime { :self |
 		self.collect(isGaussianPrime/1)
 	}

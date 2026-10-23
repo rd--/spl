@@ -131,7 +131,7 @@
 		}
 		function besselj(x, n) {
 			n = Math.round(n);
-			if(!isFinite(x)) return isNaN(x) ? x : 0;
+			if(!Number.isFinite(x)) return Number.isNaN(x) ? x : 0;
 			if(n < 0) return ((n%2)?-1:1)*besselj(x, -n);
 			if(x < 0) return ((n%2)?-1:1)*besselj(-x, n);
 			if(n === 0) return bessel0(x);

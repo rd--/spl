@@ -17,7 +17,7 @@ system.library.collect(request/1)
 Write image files:
 
 ~~~spl
-system.helpFilesDo('Reference', '.*', 1, writeImageFiles/1)
+{ system.helpFilesDo('Reference', '.*', 1, writeImageFiles/1) }.timing
 ~~~
 
 Update indices:

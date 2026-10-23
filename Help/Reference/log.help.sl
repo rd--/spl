@@ -94,6 +94,9 @@ The binary form answers the base _b_ logarithm of the number _z_.
 >>> 0J1.log
 0J1.5708
 
+>>> 1J0.log
+0
+
 >>> 1.e.square.J(0).log / 1I * -2.pi.J(1)
 2.J(4.pi)
 ```
@@ -332,7 +335,7 @@ let n = 1;
 Plot pointwise sum and product of `sin` and `log`:
 
 ~~~spl svg=F
-(0 -- 13.75).functionPlot(
+(0.05 -- 13.75).functionPlot(
 	[
 		{ :x | x.sin + x.log },
 		{ :x | x.sin * x.log }

@@ -113,7 +113,7 @@
 	}
 
 	isMonotonicallyIncreasing { :self |
-		self.isFinite & {
+		self.allTrue(isFinite/1) & {
 			self.isSortedBy(isLessOrEqual/2)
 		}
 	}
@@ -149,7 +149,7 @@
 	}
 
 	isStrictlyIncreasing { :self |
-		self.isFinite & {
+		self.allTrue(isFinite/1) & {
 			self.isSortedBy(isLess/2)
 		}
 	}

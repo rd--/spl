@@ -1022,6 +1022,31 @@ OEIS [A055243](https://oeis.org/A055243):
 )
 ```
 
+Riordan array _(1,x(1-x))_,
+OEIS [A109466](https://oeis.org/A109466):
+
+```
+>>> 0:12.triangularArray { :n :k |
+>>> 	(-1 ^ (n - k))
+>>> 	* binomial(k, n - k)
+>>> }
+[
+	1;
+	0 1;
+	0 -1 1;
+	0 0 -2 1;
+	0 0 1 -3 1;
+	0 0 0 3 -4 1;
+	0 0 0 -1 6 -5 1;
+	0 0 0 0 -4 10 -6 1;
+	0 0 0 0 1 -10 15 -7 1;
+	0 0 0 0 0 5 -20 21 -8 1;
+	0 0 0 0 0 -1 15 -35 28 -9 1;
+	0 0 0 0 0 0 -6 35 -56 36 -10 1;
+	0 0 0 0 0 0 1 -21 70 -84 45 -11 1
+]
+```
+
 Plot over a subset of the reals as a function of its first parameter:
 
 ~~~spl svg=A
@@ -1219,9 +1244,9 @@ OEIS [A109466](https://oeis.org/A109466):
 ![](Help/Image/binomial-M.svg)
 
 Number of compositions of _n_ with _k_ parts,
-OEIS [A109466](https://oeis.org/A109466):
+OEIS [A097805](https://oeis.org/A097805):
 
-~~~spl svg=N oeis=A109466
+~~~spl svg=N oeis=A097805
 0:15.triangularArray { :n :k |
 	binomial(n - 1, k - 1)
 }.catenate.scatterPlot.logScale

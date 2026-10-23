@@ -15,6 +15,9 @@ At specific values:
 
 >>> 0.5.ellipticPi(0.6)
 2.867519
+
+>>> 0.95.ellipticPi(0.6)
+10.1253
 ```
 
 At `zero`:
@@ -39,8 +42,8 @@ OEIS [A138498](http://oeis.org/A138498):
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(0 -- 1).functionPlot { :n |
-	n.ellipticPi(0.6).clip([0 10])
+(0 -- 0.95).functionPlot { :n |
+	n.ellipticPi(0.6)
 }
 ~~~
 

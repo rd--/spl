@@ -476,7 +476,7 @@ Plot : [Object] {
 		self.typedSwitchingPlot('pointLine')
 	}
 
-	quantilePlot { :self :aProbabilityDistribution |
+	quantilePlotData { :self :aProbabilityDistribution |
 		let k = self.size;
 		let y = self.sort;
 		let q/1 = aProbabilityDistribution.quantileFunction;
@@ -486,7 +486,11 @@ Plot : [Object] {
 		[
 			[x, y].transpose,
 			[i, i].transpose
-		].scatterPlot
+		]
+	}
+
+	quantilePlot { :self :aProbabilityDistribution |
+		self.quantilePlotData(aProbabilityDistribution).scatterPlot
 	}
 
 	reliefPlot { :self :options |
@@ -531,14 +535,14 @@ Plot : [Object] {
 		let segment = [];
 		self.do { :pre |
 			let [i, x] = pre; /* Missing values are already coerced to NaN */
-			let y = aBlock(x);
-			y.isFinite.not.if {
+			let post = [i, aBlock(x)];
+			post.allTrue(isFinite/1).not.if {
 				segment.isEmpty.ifFalse {
 					answer.add!(segment);
 					segment := []
 				}
 			} {
-				segment.add!([i, y])
+				segment.add!(post)
 			}
 		};
 		segment.isEmpty.ifFalse {
