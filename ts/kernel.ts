@@ -702,7 +702,7 @@ export function addType(
 		defPredicateFalse,
 		defPredicateTrue,
 		defSlotAccess,
-		defSlotMutate
+		defSlotMutate,
 	].join(';');
 	// Never use direct eval!
 	eval?.(`"use strict"; ${allDef}`);
@@ -784,8 +784,12 @@ export function checkSmallFloatOverflow(a: number, b: number, x: number): void {
 	if (Number.isFinite(a) && Number.isFinite(b)) {
 		if (Math.abs(x) > 9_007_199_254_740_991) {
 			/*console.warn(`**** Check Small Float Overflow: ${x}`);*/
-			if (Number.isFinite(x) && Number.isSafeInteger(a) && Number.isSafeInteger(b)) {
-				console.log(`!!!! Check Small Float Overflow: ${x}: Finite & both safe integers`);
+			if (
+				Number.isFinite(x) && Number.isSafeInteger(a) && Number.isSafeInteger(b)
+			) {
+				console.log(
+					`!!!! Check Small Float Overflow: ${x}: Finite & both safe integers`,
+				);
 				/*throw new Error('checkSmallFloatOverflow: finite & integers');*/
 			}
 		}

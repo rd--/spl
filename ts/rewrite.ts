@@ -207,13 +207,13 @@ const asJs: ohm.ActionDict<string> = {
 	ConciseSlotDefinitions(_l, slots, _r) {
 		// Space separated list of quoted names for internal use only, see makeTypeDefinition
 		return slots.children.map(
-			(e) => `"${e.sourceString}"`
+			(e) => `"${e.sourceString}"`,
 		).join(' ');
 	},
 	VerboseSlotDefinitions(_slot, slots, _semicolon) {
 		// Space separated list of quoted names for internal use only, see makeTypeDefinition
 		return slots.children.map(
-			(e) => `"${e.sourceString}"`
+			(e) => `"${e.sourceString}"`,
 		).join(' ');
 	},
 	EmptyListSyntax(_l, _r) {
@@ -270,8 +270,7 @@ const asJs: ohm.ActionDict<string> = {
 	},
 	TraitDefinition(nm, _l, mn, mb, _r) {
 		const traitName = nm.sourceString;
-		const trait =
-			`sl.addTrait('${traitName}', '${context.packageName}');\n`;
+		const trait = `sl.addTrait('${traitName}', '${context.packageName}');\n`;
 		const mth = makeMethodList(
 			'addMethodToExistingTrait',
 			[traitName],
@@ -309,8 +308,8 @@ const asJs: ohm.ActionDict<string> = {
 	argumentName(_c, name) {
 		return name.asJs;
 	},
-    arityQualifiedIdentifier(c1, cN, ip, _solidus, a) {
-        return `_${rewriteInPlaceName(c1, cN, ip)}_${a.sourceString}`;
+	arityQualifiedIdentifier(c1, cN, ip, _solidus, a) {
+		return `_${rewriteInPlaceName(c1, cN, ip)}_${a.sourceString}`;
 	},
 	floatLiteral(s, i, _, f) {
 		return `${s.sourceString}${i.sourceString}.${f.sourceString}`;
@@ -693,8 +692,8 @@ const asSl: ohm.ActionDict<string> = {
 	argumentName(_c, name) {
 		return ':' + name.sourceString;
 	},
-    arityQualifiedIdentifier(c1, cN, ip, _solidus, a) {
-        return `${rewriteInPlaceName(c1, cN, ip)}/${a.sourceString}`;
+	arityQualifiedIdentifier(c1, cN, ip, _solidus, a) {
+		return `${rewriteInPlaceName(c1, cN, ip)}/${a.sourceString}`;
 	},
 	backtickQuotedStringLiteral(_l, s, _r) {
 		return `Symbol('${s.sourceString}')`;
@@ -817,7 +816,7 @@ const asSl: ohm.ActionDict<string> = {
 	},
 	unqualifiedIdentifier(c1, cN, ip) {
 		// console.debug('asSl: unqualifiedIdentifier: ', ip.sourceString);
-        return rewriteInPlaceName(c1, cN, ip);
+		return rewriteInPlaceName(c1, cN, ip);
 	},
 	uppercaseIdentifier(c1, cN) {
 		return c1.sourceString + cN.sourceString;
@@ -916,10 +915,10 @@ const asAst: ohm.ActionDict<SlAst> = {
 	argumentName(_, x) {
 		return ['Identifier', x.sourceString];
 	},
-    arityQualifiedIdentifier(c1, cN, ip, _solidus, a) {
+	arityQualifiedIdentifier(c1, cN, ip, _solidus, a) {
 		return [
 			'Identifier',
-			`${rewriteInPlaceName(c1, cN, ip)}/${a.sourceString}`
+			`${rewriteInPlaceName(c1, cN, ip)}/${a.sourceString}`,
 		];
 	},
 	floatLiteral(s, i, _, f) {
@@ -998,7 +997,7 @@ const arityOf: ohm.ActionDict<number> = {
 slSemantics.addAttribute('arityOf', arityOf);
 
 function dropFirstLetter(x: string): string {
-	return x.substring(1)
+	return x.substring(1);
 }
 
 function dropLastLetter(x: string): string {
@@ -1008,7 +1007,7 @@ function dropLastLetter(x: string): string {
 const parametersOf: ohm.ActionDict<string[]> = {
 	Arguments(names, _) {
 		return names.children.map(
-			(each) => dropFirstLetter(each.sourceString)
+			(each) => dropFirstLetter(each.sourceString),
 		);
 	},
 	Block(_l, arg, _tmp, _prm, _stm, _r) {
