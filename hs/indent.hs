@@ -31,7 +31,7 @@ removeQuotedByText k s =
       (_, s') = last (scanl f (False, []) s)
   in reverse s'
 
-{- |
+{- | Remove quoted text.
 
 >>> removeQuotedText "without 'q' and `r` and \"s\""
 "without '' and `` and \"\""

@@ -7,6 +7,10 @@ Answer `true` if the string _s_ has only upper case characters.
 ```
 >>> 'ASCII'.isUpperCase
 true
+
+>>> let a = 'Ascii';
+>>> a[1].isUpperCase
+true
 ```
 
 At `Character`:

@@ -24,6 +24,7 @@ Update indices:
 
 - helpImageIndex
 - oeisImageIndex
+- HelpIndex
 
 Count image files:
 

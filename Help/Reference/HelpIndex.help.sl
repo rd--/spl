@@ -30,6 +30,48 @@ Count _Guide_ files:
 297
 ```
 
+Write _Help Index_ file:
+
+~~~spl console
+let i = system.helpIndex;
+let n = 'Help/Guide/Help Index.help.sl';
+let p = system.splFileName(n);
+let g = i.names('Guide');
+let r = i.names('Reference');
+let fmt = { :x |
+	'- `%`'.format([x])
+};
+let a = [
+	'# Help Index'
+	''
+	'Guides (A-Z):'
+	''
+];
+let b = g.collect(fmt/1);
+let c = [
+	''
+	'Reference (A-Z):'
+	''
+];
+let d = r.select { :x |
+	x[1].isUpperCase
+}.collect(fmt/1);
+let e = [
+	''
+	'Reference (a-z):'
+	''
+];
+let f = r.select { :x |
+	x[1].isLowerCase
+}.collect(fmt/1);
+system.writeTextFile(
+	p,
+	[a b c d e f]
+	.catenate
+	.unlines
+)
+~~~
+
 * * *
 
 See also: HelpFile, helpIndex

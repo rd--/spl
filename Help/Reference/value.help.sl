@@ -10,7 +10,7 @@ answer the value at the _k→v_:
 23
 ```
 
-Spl does not implement the `value` protocol:
+Sᴘʟ does not implement the `value` protocol:
 
 ```
 >>> { 23.value }.hasError
