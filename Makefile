@@ -37,7 +37,7 @@ indent-help:
 	spl-indent Help/Reference/*.sl
 
 indent-programs:
-	spl-indent Program/SuperCollider/Graph/*.sp Program/SuperCollider/Ugen/*.help.sl
+	spl-indent Program/SuperCollider/Graph/*.sp Program/SuperCollider/Unit*/*.sp
 
 indent-ts:
 	(cd ts ; make format-ts)

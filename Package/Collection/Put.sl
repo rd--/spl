@@ -5,9 +5,9 @@
 	atAllPut! { :self :indices :anObject |
 		indices.do { :index |
 			put!(self, index, anObject)
-                };
-                anObject
-        }
+		};
+		anObject
+	}
 
 	atAllPutAll! { :self :indices :values |
 		indices.withDo(values) { :index :anObject |

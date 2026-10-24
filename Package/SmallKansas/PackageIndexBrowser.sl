@@ -18,7 +18,7 @@
 					1 -> {
 						browser.setStatus('');
 						packages.selectThenCollect { :each |
-						each.category = path[1]
+							each.category = path[1]
 						} { :each |
 							each.name
 						}.sort
