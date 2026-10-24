@@ -1,8 +1,0 @@
-External libraries:
-
-MersenneTwister - <https://github.com/misteltein/mersenne-twister>
-OpenSoundControl - <https://github.com/colinbdclark/osc.js>
-PriorityQueue - <https://github.com/mourner/flatqueue>
-
-These are stored at _scsynth-wasm-builds_.
-
