@@ -131,8 +131,8 @@ A multiplication magic square, by Sayles in 1913:
 ```
 >>> let m = [
 >>> 	18  1 12;
->>> 	 4  6  9;
->>> 	 3 36  2
+>>> 	4  6  9;
+>>> 	3 36  2
 >>> ];
 >>> (
 >>> 	m.collect(product/1),

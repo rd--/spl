@@ -34,7 +34,7 @@ At a matrix answer the column minima:
 ```
 >>> [
 >>> 	-1  0 -1  2;
->>> 	 0 -2  4  6;
+>>> 	0 -2  4  6;
 >>> 	-3  2  1  0
 >>> ].min
 [-3 -2 -1 0]

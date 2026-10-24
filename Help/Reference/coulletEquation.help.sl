@@ -19,7 +19,8 @@ Evaluate symbolically:
   z,
   (+
     (+ (+ (* a x) (* b y)) (* c z))
-    (* d (* (* x x) x)))
+    (* d (* (* x x) x))
+  )
 ]
 ```
 

@@ -15,8 +15,8 @@ and the time sequences using `timeList`.
 
 ```
 >>> let t = TemporalData[
->>> 		0 0; 0.25 0.75; 0.75 0; 1 0:;
->>> 		0 0; 0.5 1; 1 0
+>>> 	0 0; 0.25 0.75; 0.75 0; 1 0:;
+>>> 	0 0; 0.5 1; 1 0
 >>> ];
 >>> (
 >>> 	t.pathCount,

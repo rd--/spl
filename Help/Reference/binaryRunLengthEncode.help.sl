@@ -44,7 +44,7 @@ after which zeroes and ones alternate:
 >>> 0:21.collect { :n |
 >>> 	let e = n.binaryRunLengthEncode;
 >>> 	let m = e.binaryRunLengthDecode;
->>>	(n, e, n == m)
+>>> 	(n, e, n == m)
 >>> }
 [
 	(0, [], true),

@@ -120,7 +120,8 @@ Evaluate symbolically:
 >> uncheckedBinomialGamma(`x` + 1, 2)
 (/
  (gamma (+ (+ x 1) 1))
- (* 2 (gamma (+ (- (+ x 1) 2) 1))))
+ (* 2 (gamma (+ (- (+ x 1) 2) 1)))
+)
 ```
 
 * * *

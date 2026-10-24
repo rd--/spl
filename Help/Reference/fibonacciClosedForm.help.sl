@@ -38,13 +38,18 @@ Evaluate symbolically:
   (-
     (*
       (^ 2 (- 0 n))
-      (^ (+ x (sqrt (+ 4 (* x x)))) n))
+      (^ (+ x (sqrt (+ 4 (* x x)))) n)
+    )
     (*
       (*
         (^ 2 n)
-        (^ (+ x (sqrt (+ 4 (* x x)))) (- 0 n)))
-      (cos (* n π))))
-  (sqrt (+ 4 (* x x))))
+        (^ (+ x (sqrt (+ 4 (* x x)))) (- 0 n))
+      )
+      (cos (* n π))
+    )
+  )
+  (sqrt (+ 4 (* x x)))
+)
 ```
 
 Plot over a subset of the reals:

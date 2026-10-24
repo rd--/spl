@@ -10,7 +10,7 @@ A cube helix gradient:
 
 ~~~spl svg=A
 (0 -- 1).discretize(48).collect(
-cubeHelix(0.5, -1.5, 1.2, 1.0)
+	cubeHelix(0.5, -1.5, 1.2, 1.0)
 ).continuousColourGradient
 ~~~
 

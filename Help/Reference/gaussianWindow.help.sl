@@ -10,7 +10,8 @@ Evaluate symbolically:
 >> `x`.gaussianWindow(`σ`)
 (if (> (abs x) 0.5)
   0
-  (exp (* (/ (* x x) (* 2 (* σ σ))) -1)))
+  (exp (* (/ (* x x) (* 2 (* σ σ))) -1))
+)
 ```
 
 At `SmallFloat`:

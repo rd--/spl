@@ -35,9 +35,9 @@ Minimum and maximum values of matrix columns and rows:
 ```
 >>> let m = [
 >>> 	16  2  3 13;
->>> 	 5 11 10  8;
->>> 	 9  7  6 12;
->>> 	 4 14 15  1
+>>> 	5 11 10  8;
+>>> 	9  7  6 12;
+>>> 	4 14 15  1
 >>> ];
 >>> (m.minMax, m.transpose.minMax)
 (
